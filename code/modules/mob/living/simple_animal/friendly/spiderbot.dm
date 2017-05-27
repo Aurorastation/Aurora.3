@@ -221,7 +221,7 @@
 		return
 
 	if(!held_item)
-		usr << "\red You have nothing to drop!"
+		usr << "<span class='warning'>You have nothing to drop!</span>"
 		return 0
 
 	if(istype(held_item, /obj/item/weapon/grenade))

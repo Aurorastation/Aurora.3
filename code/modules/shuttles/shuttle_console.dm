@@ -15,7 +15,7 @@
 		return
 	//src.add_fingerprint(user)	//shouldn't need fingerprints just for looking at it.
 	if(!allowed(user))
-		user << "\red Access Denied."
+		user << "<span class='warning'>Access Denied.</span>"
 		return 1
 
 	ui_interact(user)
@@ -59,7 +59,7 @@
 		"can_force" = shuttle.can_force()
 	)
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 
 	if (!ui)
 		ui = new(user, src, ui_key, "shuttle_control_console.tmpl", "[shuttle_tag] Shuttle Control", 470, 310)

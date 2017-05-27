@@ -69,9 +69,18 @@
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
 
+
 /datum/mind/New(var/key)
 	src.key = key
 	..()
+
+/datum/mind/proc/handle_mob_deletion(mob/living/deleted_mob)
+	if (current == deleted_mob)
+		current.spellremove()
+		current = null
+
+	if (original == deleted_mob)
+		original = null
 
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
@@ -84,7 +93,7 @@
 			current.remove_vampire_powers()
 		current.mind = null
 
-		nanomanager.user_transferred(current, new_character) // transfer active NanoUI instances to new user
+		SSnanoui.user_transferred(current, new_character) // transfer active NanoUI instances to new user
 	if(new_character.mind)		//remove any mind currently in our new body's mind variable
 		new_character.mind.current = null
 

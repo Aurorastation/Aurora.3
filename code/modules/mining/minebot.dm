@@ -53,6 +53,12 @@
 	flavor_text = "It's a tiny little mining drone. The casing is stamped with an corporate logo and the subscript: '[company_name] Automated Pickaxe!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
 
+/mob/living/silicon/robot/drone/mining/request_player()
+	if(too_many_active_drones())
+		return
+	var/datum/ghosttrap/G = get_ghost_trap("mining drone")
+	G.request_player(src, "Someone is attempting to reboot a mining drone.", 30 SECONDS)
+
 /mob/living/silicon/robot/drone/mining/welcome_drone()
 	src << "<b>You are a mining drone, a tiny-brained robotic industrial machine</b>."
 	src << "You have little individual will, some personality, and no drives or urges other than your laws and the art of mining."

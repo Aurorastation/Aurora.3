@@ -25,6 +25,11 @@
 /obj/machinery/power/sensor/Initialize()
 	. = ..()
 	auto_set_name()
+	SSpower.all_sensors += src
+
+/obj/machinery/power/sensor/Destroy()
+	. = ..()
+	SSpower.all_sensors -= src
 
 // Proc: auto_set_name()
 // Parameters: None
@@ -41,12 +46,6 @@
 		if(powernet.problem)
 			return 1
 	return 0
-
-// Proc: process()
-// Parameters: None
-// Description: This has to be here because we need sensors to remain in Machines list.
-/obj/machinery/power/sensor/process()
-	return 1
 
 // Proc: reading_to_text()
 // Parameters: 1 (amount - Power in Watts to be converted to W, kW or MW)

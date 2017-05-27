@@ -94,7 +94,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	data += nanoui_data
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)	// No auto-refresh
 		ui = new(user, src, ui_key, "uplink.tmpl", title, 450, 600, state = inventory_state)
 		ui.set_initial_data(data)
@@ -121,7 +121,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		UI.buy(src, usr)
 	else if(href_list["lock"])
 		toggle()
-		var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, "main")
+		var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
 		ui.close()
 	else if(href_list["return"])
 		nanoui_menu = round(nanoui_menu/10)
@@ -272,19 +272,11 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				nanoui_data["contracts_view"] = 1
 
 			var/query_details[0]
-
-			switch (nanoui_data["contracts_view"])
-				if (1)
-					query_details[":status"] = "open"
-				if (2)
-					query_details[":status"] = "closed"
-				else
-					nanoui_data["contracts_view"] = 1
-					query_details[":status"] = "open"
+			query_details[":contract_id"] = exploit_id
 
 			var/DBQuery/select_query = dbcon.NewQuery("SELECT contract_id, contractee_name, status, title, description, reward_other FROM ss13_syndie_contracts WHERE contract_id = :contract_id")
 			select_query.Execute(query_details)
-
+			
 			if (select_query.NextRow())
 				nanoui_data["contracts_found"] = 1
 

@@ -185,7 +185,7 @@
 	if (ismob(loc))
 		var/mob/living/our_mob = loc
 		our_mob.remove_from_mob(src)
-		
+
 	qdel(src)
 
 /obj/item/weapon/pickaxe/hammer
@@ -650,13 +650,20 @@
 	if(!active)
 		active = 1
 		usr << "<span class='notice'>You activate the pinpointer</span>"
-		workdisk(user)
+		START_PROCESSING(SSfast_process, src)
 	else
 		active = 0
 		icon_state = "pinoff"
 		usr << "<span>You deactivate the pinpointer</span>"
+		STOP_PROCESSING(SSfast_process, src)
 
-/obj/item/weapon/ore_radar/proc/workdisk(var/user)
+/obj/item/weapon/ore_radar/process()
+	if (active)
+		workdisk()
+	else
+		STOP_PROCESSING(SSfast_process, src)
+
+/obj/item/weapon/ore_radar/proc/workdisk()
 	if(!src.loc)
 		active = 0
 
@@ -665,8 +672,10 @@
 
 	var/closest = 15
 
-	for(var/turf/simulated/mineral/random/R in orange(14,user))
-		var/dist = get_dist(user, R)
+	for(var/turf/simulated/mineral/random/R in orange(14,loc))
+		if(!R.mineral)
+			continue
+		var/dist = get_dist(loc, R)
 		if(dist < closest)
 			closest = dist
 			sonar = R
@@ -674,8 +683,8 @@
 	if(!sonar)
 		icon_state = "pinonnull"
 		return
-	set_dir(get_dir(user,sonar))
-	switch(get_dist(user,sonar))
+	set_dir(get_dir(loc,sonar))
+	switch(get_dist(loc,sonar))
 		if(0)
 			icon_state = "pinondirect"
 		if(1 to 8)
@@ -684,7 +693,6 @@
 			icon_state = "pinonmedium"
 		if(16 to INFINITY)
 			icon_state = "pinonfar"
-	spawn(5) .()
 
 /**********************Jaunter**********************/
 

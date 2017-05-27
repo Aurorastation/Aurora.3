@@ -106,7 +106,7 @@ var/savefile/Banlist
 
 	Banlist.cd = "/base"
 	if ( Banlist.dir.Find("[ckey][computerid]") )
-		usr << text("\red Ban already exists.")
+		usr << text("<span class='warning'>Ban already exists.</span>")
 		return 0
 	else
 		Banlist.dir.Add("[ckey][computerid]")
@@ -140,7 +140,7 @@ var/savefile/Banlist
 		log_admin("[key_name_admin(usr)] unbanned [key]",admin_key=key_name(usr),ckey=key)
 		message_admins("[key_name_admin(usr)] unbanned: [key]")
 		feedback_inc("ban_unban",1)
-		usr.client.holder.DB_ban_unban( ckey(key), BANTYPE_ANY_FULLBAN)
+		DB_ban_unban( ckey(key), BANTYPE_ANY_FULLBAN)
 	for (var/A in Banlist.dir)
 		Banlist.cd = "/base/[A]"
 		if (key == Banlist["key"] /*|| id == Banlist["id"]*/)

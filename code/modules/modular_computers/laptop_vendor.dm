@@ -253,7 +253,7 @@
 	if(state == 1 || state == 2)
 		data["totalprice"] = total_price
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "computer_fabricator.tmpl", "Personal Computer Vendor", 500, 400)
 		ui.set_initial_data(data)
@@ -289,34 +289,54 @@ obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 // Simplified payment processing, returns 1 on success.
 /obj/machinery/lapvend/proc/process_payment(var/obj/item/weapon/card/id/I, var/obj/item/ID_container)
+	var/obj/item/weapon/spacecash/S = null
+	if (istype(ID_container, /obj/item/weapon/spacecash))
+		S = ID_container
 	if(I==ID_container || ID_container == null)
 		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
 	else
 		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
-	var/datum/money_account/customer_account = get_account(I.associated_account_number)
-	if (!customer_account || customer_account.suspended)
-		ping("Connection error. Unable to connect to account.")
-		return 0
-
-	if(customer_account.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
-		var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
-		customer_account = attempt_account_access(I.associated_account_number, attempt_pin, 2)
-
-		if(!customer_account)
-			ping("Unable to access account: incorrect credentials.")
+	if(I)
+		var/datum/money_account/customer_account = get_account(I.associated_account_number)
+		if (!customer_account || customer_account.suspended)
+			ping("Connection error. Unable to connect to account.")
 			return 0
 
-	if(total_price > customer_account.money)
-		ping("Insufficient funds in account.")
+		if(customer_account.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
+			var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
+			customer_account = attempt_account_access(I.associated_account_number, attempt_pin, 2)
+
+			if(!customer_account)
+				ping("Unable to access account: incorrect credentials.")
+				return 0
+
+		if(total_price > customer_account.money)
+			ping("Insufficient funds in account.")
+			return 0
+		else
+			customer_account.money -= total_price
+			var/datum/transaction/T = new()
+			T.target_name = "Computer Manufacturer (via [src.name])"
+			T.purpose = "Purchase of [(devtype == 1) ? "laptop computer" : "tablet microcomputer"]."
+			T.amount = total_price
+			T.source_terminal = src.name
+			T.date = current_date_string
+			T.time = worldtime2text()
+			customer_account.transaction_log.Add(T)
+			return 1
+	else if(S)
+		if(total_price > S.worth)
+			ping("Insufficient funds!")
+			return 0
+		else
+			S.worth -= total_price
+			if(S.worth <= 0)
+				qdel(S)
+			return 1
+
+	else // just incase
+		ping("You cannot pay with this!")
 		return 0
-	else
-		customer_account.money -= total_price
-		var/datum/transaction/T = new()
-		T.target_name = "Computer Manufacturer (via [src.name])"
-		T.purpose = "Purchase of [(devtype == 1) ? "laptop computer" : "tablet microcomputer"]."
-		T.amount = total_price
-		T.source_terminal = src.name
-		T.date = current_date_string
-		T.time = worldtime2text()
-		customer_account.transaction_log.Add(T)
-		return 1
+
+
+

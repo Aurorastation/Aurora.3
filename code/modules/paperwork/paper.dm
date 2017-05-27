@@ -224,8 +224,7 @@
 
 /obj/item/weapon/paper/proc/updateinfolinks()
 	info_links = info
-	var/i = 0
-	for(i=1,i<=fields,i++)
+	for (var/i = 1, i <= min(fields, 35), i++)
 		addtofield(i, "<font face=\"[deffont]\"><A href='?src=\ref[src];write=[i]'>write</A></font>", 1)
 	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=\ref[src];write=end'>write</A></font>"
 
@@ -331,7 +330,7 @@
 				qdel(src)
 
 			else
-				user << "\red You must hold \the [P] steady to burn \the [src]."
+				user << "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>"
 
 
 /obj/item/weapon/paper/Topic(href, href_list)

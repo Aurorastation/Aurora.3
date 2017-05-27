@@ -10,8 +10,8 @@
 	throw_range = 20
 	origin_tech = list(TECH_BLUESPACE = 4)
 
-/obj/item/weapon/teleportation_scroll/attack_self(mob/user as mob)
-	if(!(user.faction == "Space Wizard"))
+/obj/item/weapon/teleportation_scroll/attack_self(mob/living/user as mob)
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/O = H.internal_organs_by_name[pick("eyes","appendix","kidneys","liver", "heart", "lungs", "brain")]

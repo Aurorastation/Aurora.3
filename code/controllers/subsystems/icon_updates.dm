@@ -2,25 +2,25 @@
 
 /datum/controller/subsystem/icon
 	name = "Icon Updates"
-	flags = SS_BACKGROUND | SS_NO_INIT
-	wait = 1	// ds
+	wait = 1	// ticks
+	flags = SS_TICKER
 	priority = SS_PRIORITY_ICON_UPDATE
+	init_order = SS_INIT_ICON_UPDATE
 	
 	var/list/queue = list()
-	var/list/currentrun
 
 /datum/controller/subsystem/icon/New()
 	NEW_SS_GLOBAL(SSicon_update)
 
 /datum/controller/subsystem/icon/stat_entry()
-	..("Q:[queue.len] P:[LAZYLEN(currentrun)]")
+	..("QU:[queue.len]")
 
-/datum/controller/subsystem/icon/fire(resumed = FALSE)
-	if (!resumed)
-		currentrun = queue
-		queue = list()
+/datum/controller/subsystem/icon/Initialize()
+	fire(FALSE, TRUE)
+	..()
 
-	var/list/curr = currentrun
+/datum/controller/subsystem/icon/fire(resumed = FALSE, no_mc_tick = FALSE)
+	var/list/curr = queue
 
 	if (!curr.len)
 		suspend()
@@ -34,7 +34,9 @@
 		A.update_icon()
 		A.last_icon_update = world.time
 
-		if (MC_TICK_CHECK)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
 			return
 
 /atom

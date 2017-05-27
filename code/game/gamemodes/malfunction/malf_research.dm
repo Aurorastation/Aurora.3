@@ -22,7 +22,8 @@
 
 	available_abilities += new/datum/malf_research_ability/networking/basic_hack()
 	available_abilities += new/datum/malf_research_ability/interdiction/recall_shuttle()
-	available_abilities += new/datum/malf_research_ability/manipulation/electrical_pulse()
+	available_abilities += new/datum/malf_research_ability/manipulation/hack_holopad()
+	available_abilities += new/datum/malf_research_ability/synthetic/reset_module()
 
 
 // Proc:		finish_research()

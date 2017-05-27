@@ -88,6 +88,7 @@ var/last_chew = 0
 	if (!H.handcuffed) return
 	if (H.a_intent != I_HURT) return
 	if (H.zone_sel.selecting != "mouth") return
+	if (!H.check_has_mouth()) return
 	if (H.wear_mask) return
 	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket)) return
 

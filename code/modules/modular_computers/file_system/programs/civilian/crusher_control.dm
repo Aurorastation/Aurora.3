@@ -47,7 +47,7 @@
 	data["status_airlocks"] = status_airlocks
 	data["status_pistons"] = status_pistons
 	data["extending"] = extending
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "crushercontrol.tmpl", name, 500, 350, state = state)
 		ui.auto_update_layout = 1
@@ -94,16 +94,19 @@
 
 
 /datum/nano_module/program/crushercontrol/proc/airlock_open()
-	for(var/obj/machinery/door/airlock/arlk in airlocks)
-		arlk.unlock()
-		arlk.open()
-		arlk.lock()
+    for(var/thing in airlocks)
+        var/obj/machinery/door/airlock/arlk = thing
+        if (!arlk.cur_command)
+            // Not using do_command so that the command queuer works.
+            arlk.cur_command = "secure_open"
+            arlk.execute_current_command()
 
 /datum/nano_module/program/crushercontrol/proc/airlock_close()
-	for(var/obj/machinery/door/airlock/arlk in airlocks)
-		arlk.unlock()
-		arlk.close()
-		arlk.lock()
+    for(var/thing in airlocks)
+        var/obj/machinery/door/airlock/arlk = thing
+        if (!arlk.cur_command)
+            arlk.cur_command = "secure_close"
+            arlk.execute_current_command()
 
 /datum/nano_module/program/crushercontrol/proc/crush_start()
 	for(var/obj/machinery/crusher_base/pstn in pistons)

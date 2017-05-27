@@ -32,7 +32,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	if (!(work_queue.len))
 		ticks_without_work++
 		if (powernet_update_pending && ticks_without_work > 5)
-			makepowernets()
+			SSmachinery.powernet_update_queued = TRUE
 			powernet_update_pending = 0
 
 			// All explosions handled, powernet rebuilt.

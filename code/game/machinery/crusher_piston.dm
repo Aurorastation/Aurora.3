@@ -8,6 +8,7 @@
 	icon_state = "standalone"
 	anchored = 1
 	density = 1
+	opacity = 1
 	//Just 300 Watts here. Power is drawn by the piston when it moves
 	use_power = 1
 	idle_power_usage = 300
@@ -80,6 +81,17 @@
 	change_neighbor_base_icons()
 
 /obj/machinery/crusher_base/Destroy()
+	var/oldloc = loc
+	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
+	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
+	
+	loc=null
+	if(left)
+		left.update_icon()
+	if(right)
+		right.update_icon()
+	loc=oldloc
+	
 	QDEL_NULL(pstn)
 	return ..()
 
@@ -116,10 +128,10 @@
 /obj/machinery/crusher_base/proc/change_neighbor_base_icons()
 	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
 	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
-	if (left)
+	if(left)
 		left.queue_icon_update()
 
-	if (right)
+	if(right)
 		right.queue_icon_update()
 
 /obj/machinery/crusher_base/update_icon()
@@ -127,13 +139,19 @@
 	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
 	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
 
-	if (left && right)
+	if(QDELETED(left))
+		left = null
+		
+	if(QDELETED(right))
+		right = null
+
+	if(left && right)
 		asmtype = "middle"
 		icon_state = asmtype
-	else if (left)
+	else if(left)
 		asmtype = "rightcap"
 		icon_state = asmtype
-	else if (right)
+	else if(right)
 		asmtype = "leftcap"
 		icon_state = asmtype
 	else
@@ -141,7 +159,7 @@
 		icon_state = asmtype
 
 	if(powered(EQUIP))
-		if (blocked == 1)
+		if(blocked == 1)
 			holographic_overlay(src, icon, "[asmtype]-overlay-red")
 		else if(action != "idle")
 			holographic_overlay(src, icon, "[asmtype]-overlay-orange")
@@ -149,6 +167,7 @@
 			holographic_overlay(src, icon, "[asmtype]-overlay-green")
 	if(panel_open)
 		add_overlay("[asmtype]-hatch")
+	update_oo()	
 
 /obj/machinery/crusher_base/power_change()
 	..()
@@ -156,7 +175,9 @@
 
 /obj/machinery/crusher_base/process()
 	set waitfor = FALSE
-	if (process_lock)
+	if(!pstn) //We dont process if theres no piston
+		return
+	if(process_lock)
 		log_debug("crusher_piston process() has been called while it was still locked. Aborting")
 		return
 	process_lock = 1
@@ -166,7 +187,7 @@
 	if(action == "idle")
 		action_start_time = world.time
 		initial = 1
-	else if(action == "extend" && powered(EQUIP))
+	else if(action == "extend" && blocked == 0 && powered(EQUIP))
 		//If we are idle, flash the warning lights and then put us into pre_start once we are done
 		if(status == "idle")
 			if(initial)
@@ -287,6 +308,7 @@
 				update_icon()
 		else //This shouldnt really happen, but its there just in case
 			pstn.icon_state = initial(pstn.icon_state)
+			pstn.reset_blockers()
 			status = "idle"
 			action = "idle"
 			action_start_time = world.time
@@ -324,7 +346,7 @@
 	//Abort the crush
 	//Retract all the pistons, ...
 	action = "retract"
-	//TODO-Crusher: Add more stages to the piston so retracting will not cause a visual bug
+	initial = 1
 
 /obj/machinery/crusher_base/proc/get_num_progress()
 	return num_progress
@@ -367,7 +389,7 @@
 
 	// Setup the immovable items typecache.
 	// 	(We only want to do this once as this is a huge list.)
-	if (!LAZYLEN(immovable_items))
+	if(!LAZYLEN(immovable_items))
 		immovable_items = typecacheof(list(
 			/obj/machinery,
 			/obj/structure,
@@ -376,10 +398,15 @@
 		)) - /obj/machinery/crusher_piston
 
 /obj/machinery/crusher_piston/Destroy()
+	reset_blockers()
+	if(!QDELETED(crs_base))
+		QDEL_NULL(crs_base)
+	return ..()
+
+/obj/machinery/crusher_piston/proc/reset_blockers()
 	QDEL_NULL(pb1)
 	QDEL_NULL(pb2)
 	QDEL_NULL(pb3)
-	return ..()
 
 /obj/machinery/crusher_piston/proc/extend_0_1()
 	use_power(5 KILOWATTS)
@@ -425,28 +452,22 @@
 /obj/machinery/crusher_piston/proc/retract_3_0()
 	icon_state="piston_3_0"
 	stage = 0
-	QDEL_NULL(pb1)
-	QDEL_NULL(pb2)
-	QDEL_NULL(pb3)
+	reset_blockers()
 /obj/machinery/crusher_piston/proc/retract_2_0()
 	icon_state="piston_2_0"
 	stage = 0
-	QDEL_NULL(pb1)
-	QDEL_NULL(pb2)
-	QDEL_NULL(pb3)
+	reset_blockers()
 /obj/machinery/crusher_piston/proc/retract_1_0()
 	icon_state="piston_1_0"
 	stage = 0
-	QDEL_NULL(pb1)
-	QDEL_NULL(pb2)
-	QDEL_NULL(pb3)
+	reset_blockers()
 
 /obj/machinery/crusher_piston/proc/can_extend_into(var/turf/extension_turf)
 	//Check if atom is of a specific Type
-	if (istype(extension_turf,/turf/simulated/wall))
+	if(istype(extension_turf,/turf/simulated/wall))
 		return 0
 	for(var/atom/A in extension_turf)
-		if (is_type_in_typecache(A, immovable_items))
+		if(is_type_in_typecache(A, immovable_items))
 			return 0
 	return 1
 
@@ -455,6 +476,8 @@
 	desc = "A colossal piston used for crushing garbage."
 	density = 1
 	anchored = 1
+	opacity = 1
+	mouse_opacity = 0
 
 //
 // The piston_move proc for various objects
@@ -500,7 +523,7 @@
 //
 /atom/movable/proc/crush_act()
 	ex_act(1)
-	if (!QDELETED(src))
+	if(!QDELETED(src))
 		qdel(src)//Just as a failsafe
 
 

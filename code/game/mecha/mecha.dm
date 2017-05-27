@@ -19,6 +19,7 @@
 	name = "Mecha"
 	desc = "Exosuit"
 	icon = 'icons/mecha/mecha.dmi'
+	w_class = 20
 	density = 1 //Dense. To raise the heat.
 	opacity = 1 ///opaque. Menacing.
 	anchored = 1 //no pulling around.
@@ -117,7 +118,7 @@
 	loc.Entered(src)
 	mechas_list += src //global mech list
 	narrator_message(FIRSTRUN)
-	
+
 	spark_system = bind_spark(src, 2)
 
 /obj/mecha/Destroy()
@@ -666,7 +667,7 @@
 		if(istype(Proj, /obj/item/projectile/beam/pulse))
 			ignore_threshold = 1
 		src.hit_damage(Proj.damage, Proj.check_armour, is_melee=0)
-		if(prob(25)) 
+		if(prob(25))
 			spark_system.queue()
 		src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST,MECHA_INT_SHORT_CIRCUIT),ignore_threshold)
 
@@ -757,7 +758,7 @@
 //////////////////////
 
 /obj/mecha/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	
+
 	if(istype(W, /obj/item/mecha_parts/mecha_equipment))
 		var/obj/item/mecha_parts/mecha_equipment/E = W
 		spawn()
@@ -995,19 +996,19 @@
 		return
 
 	if (!use_power(step_energy_drain*20))//Forcefully crashing into something costs 20x the power of taking a normal step
-		occupant  << "\red [src] lacks the remaining power to do that!"
+		occupant  << "<span class='warning'>[src] lacks the remaining power to do that!</span>"
 		return 0
 
 
 	//TODO: Add in a check for exosuit thrusters here after reworking them.
 	//Exosuits with thrusters should be able to use crash in space, and without the 0.5sec windup time
 	if (!check_for_support())
-		occupant  << "\red The [src] has no traction! There is nothing solid in reach to launch off."
+		occupant  << "<span class='warning'>The [src] has no traction! There is nothing solid in reach to launch off.</span>"
 		return 0
 
 	lastcrash = world.time
 
-	occupant << "\red You take a step back, and then..."
+	occupant << "<span class='warning'>You take a step back, and then...</span>"
 	sleep(5)
 
 
@@ -1788,9 +1789,9 @@
 		var/obj/item/mecha_parts/mecha_equipment/tool/passenger/P = passengers[pname]
 		var/mob/occupant = P.occupant
 
-		user.visible_message("\red [user] begins opening the hatch on \the [P]...", "\red You begin opening the hatch on \the [P]...")
+		user.visible_message("<span class='warning'>[user] begins opening the hatch on \the [P]...</span>", "<span class='notice'>You begin opening the hatch on \the [P]...</span>")
 		if (do_after(user, 40, needhand=0))
-			user.visible_message("\red [user] opens the hatch on \the [P] and removes [occupant]!", "\red You open the hatch on \the [P] and remove [occupant]!")
+			user.visible_message("<span class='danger'>[user] opens the hatch on \the [P] and removes [occupant]!</span>", "<span class='danger'>You open the hatch on \the [P] and remove [occupant]!</span>")
 			P.go_out()
 			P.log_message("[occupant] was removed.")
 		return
@@ -1928,9 +1929,9 @@
 	return icon_state
 
 /obj/mecha/attack_generic(var/mob/user, var/damage, var/attack_message)
-	
+
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	
+
 	if(!damage)
 		return 0
 

@@ -134,9 +134,10 @@
 							blood_splatter(target, null, 1)
 			blood_splatter(src.loc, null, 1)
 			playsound(src.loc, 'sound/effects/splat.ogg', 50, 1, -6)
-			H.bloody_hands()
-			if (src.loc == usr)
-				H.bloody_body()
+			if(istype(H))
+				H.bloody_hands()
+				if (loc == usr)
+					H.bloody_body()
 		// Line below will do a check where the target bloodbag is located and create a new one accordingly
 		var/obj/item/weapon/reagent_containers/I = src.loc != usr ? new/obj/item/weapon/reagent_containers/blood/ripped(src.loc) : new/obj/item/weapon/reagent_containers/blood/ripped(usr.loc)
 		if (reagents.get_reagent_amount("blood"))
