@@ -436,17 +436,17 @@ datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 			if(C.body_parts_covered & ARMS)
 				arms_exposure = 0
 	//minimize this for low-pressure enviroments
-	var/mx = 5 * firelevel/vsc.fire_firelevel_multiplier * min(pressure / ONE_ATMOSPHERE, 1) * (fire_stacks*2)
+	var/mx = 5 * firelevel/vsc.fire_firelevel_multiplier * min(pressure / ONE_ATMOSPHERE, 1)
 
 	//Always check these damage procs first if fire damage isn't working. They're probably what's wrong.
 
 	apply_damage(2.5*mx*head_exposure, BURN, "head", 0, 0, "Fire")
 	apply_damage(2.5*mx*chest_exposure, BURN, "chest", 0, 0, "Fire")
 	apply_damage(2.0*mx*groin_exposure, BURN, "groin", 0, 0, "Fire")
-	apply_damage(0.6*mx*legs_exposure, BURN, "l_leg", 0, 0, "Fire")
-	apply_damage(0.6*mx*legs_exposure, BURN, "r_leg", 0, 0, "Fire")
-	apply_damage(0.4*mx*arms_exposure, BURN, "l_arm", 0, 0, "Fire")
-	apply_damage(0.4*mx*arms_exposure, BURN, "r_arm", 0, 0, "Fire")
+	apply_damage(1.2*mx*legs_exposure, BURN, "l_leg", 0, 0, "Fire")
+	apply_damage(1.2*mx*legs_exposure, BURN, "r_leg", 0, 0, "Fire")
+	apply_damage(1.0*mx*arms_exposure, BURN, "l_arm", 0, 0, "Fire")
+	apply_damage(1.0*mx*arms_exposure, BURN, "r_arm", 0, 0, "Fire")
 
 
 #undef FIRE_LIGHT_1
