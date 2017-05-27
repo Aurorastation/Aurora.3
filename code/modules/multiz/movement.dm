@@ -298,7 +298,7 @@
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((30 * z_velocity) + rand(-15,15))
+	var/damage = ((30 + z_velocity) + rand(-15,15))
 	apply_damage(damage, BRUTE)
 	apply_damage(damage, BRUTE)
 	apply_damage(damage, BRUTE)
@@ -329,7 +329,7 @@
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((25 * species.fall_mod * z_velocity) + rand(-13,13))
+	var/damage = (((25 * species.fall_mod) + z_velocity) + rand(-13,13))
 	if(prob(20)) //landed on their head
 		apply_damage(damage, BRUTE, "head")
 
@@ -384,7 +384,7 @@
 		return
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((40 * z_velocity) + rand(-20,20))
+	var/damage = ((40 + z_velocity) + rand(-20,20))
 	take_damage(damage)
 	take_damage(damage)
 	take_damage(damage)
@@ -399,7 +399,7 @@
 		return
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((35 * z_velocity) + rand(-18,18))
+	var/damage = ((35 + z_velocity) + rand(-18,18))
 	health -= (damage * brute_dam_coeff)
 	health -= (damage * brute_dam_coeff)
 	health -= (damage * brute_dam_coeff)
@@ -432,7 +432,7 @@
 	var/fall_force = fall_specs[2]
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/speed = z_velocity * throw_speed
+	var/speed = z_velocity + throw_speed
 	var/mass = (weight / THROWNOBJ_KNOCKBACK_DIVISOR) + density + opacity
 	var/momentum = speed * mass
 	var/damage = round(fall_force * (speed / THROWNOBJ_KNOCKBACK_DIVISOR) * momentum)
