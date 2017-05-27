@@ -6,10 +6,10 @@
 	If you don't want your atom's icon to smooth with anything but atoms of the same type, set the list 'canSmoothWith' to null;
 	Otherwise, put all types you want the atom icon to smooth with in 'canSmoothWith' INCLUDING THE TYPE OF THE ATOM ITSELF.
 
-	Each atom has its own icon file with all the possible corner states. See 'smooth_wall.dmi' for a template.
+	Each atom has its own icon file with all the possible corner states. See ExampleInput.dmi in tools/SS13SmoothingCutter for a template.
 
 	DIAGONAL SMOOTHING INSTRUCTIONS
-	To make your atom smooth diagonally you need all the proper icon states (see 'smooth_wall.dmi' for a template) and
+	To make your atom smooth diagonally you need all the proper icon states (see 'tools/SS13SmoothingCutter/ExampleDiagInput.dmi' for a template) and
 	to add the 'SMOOTH_DIAGONAL' flag to the atom's smooth var (in addition to either SMOOTH_TRUE or SMOOTH_MORE).
 
 	For turfs, what appears under the diagonal corners depends on the turf that was in the same position previously: if you make a wall on
@@ -46,14 +46,27 @@
 
 /atom
 	var/smooth = SMOOTH_FALSE
-	var/top_left_corner
-	var/top_right_corner
-	var/bottom_left_corner
-	var/bottom_right_corner
+	var/tmp/top_left_corner
+	var/tmp/top_right_corner
+	var/tmp/bottom_left_corner
+	var/tmp/bottom_right_corner
 	var/list/canSmoothWith = null // TYPE PATHS I CAN SMOOTH WITH~~~~~ If this is null and atom is smooth, it smooths only with itself
 
-/atom/movable/var/can_be_unanchored = 0
-/turf/var/list/fixed_underlay = null
+/atom/movable
+	var/can_be_unanchored = 0
+
+/turf
+	var/list/fixed_underlay
+	var/smooth_underlays	// Determines if we should attempt to generate turf underlays for this type.
+
+/turf/simulated/shuttle/wall
+	smooth_underlays = TRUE
+
+/turf/simulated/wall
+	smooth_underlays = TRUE
+
+/turf/unsimulated/wall
+	smooth_underlays = TRUE
 
 /proc/calculate_adjacencies(atom/A)
 	if(!A.loc)
@@ -153,46 +166,9 @@
 	icon_state = ""
 	return adjacencies
 
-/turf/simulated/diagonal_smooth(adjacencies)
+/turf/diagonal_smooth(adjacencies)
 	adjacencies = reverse_ndir(..())
-	if(adjacencies)
-		// This should be a mutable_appearance, but we're still on 510.
-		// Alas.
-		var/image/underlay_appearance = image(layer = TURF_LAYER)
-		var/list/U = list(underlay_appearance)
-		if(fixed_underlay)
-			if(fixed_underlay["space"])
-				var/istate = "[((x + y) ^ ~(x * y) + z) % 25]"
-				underlay_appearance.icon = 'icons/turf/space.dmi'
-				underlay_appearance.icon_state = istate
-
-				var/image/dust = image('icons/turf/space_parallax1.dmi', istate)
-				dust.plane = PLANE_SPACE_DUST
-				dust.alpha = 80
-				dust.blend_mode = BLEND_ADD
-				U += dust
-			else
-				underlay_appearance.icon = fixed_underlay["icon"]
-				underlay_appearance.icon_state = fixed_underlay["icon_state"]
-		else
-			var/turned_adjacency = turn(adjacencies, 180)
-			var/turf/T = get_step(src, turned_adjacency)
-			if(!T.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
-				T = get_step(src, turn(adjacencies, 135))
-				if(!T.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
-					T = get_step(src, turn(adjacencies, 225))
-
-			//if all else fails, ask our own turf
-			if(!T.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency) && !get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
-				underlay_appearance.icon = DEFAULT_UNDERLAY_ICON
-				underlay_appearance.icon_state = DEFAULT_UNDERLAY_ICON_STATE
-
-		underlays = U
-
-// And a copypaste for unsimulated walls.
-/turf/unsimulated/wall/diagonal_smooth(adjacencies)
-	adjacencies = reverse_ndir(..())
-	if(adjacencies)
+	if (smooth_underlays && adjacencies)
 		// This should be a mutable_appearance, but we're still on 510.
 		// Alas.
 		var/image/underlay_appearance = image(layer = TURF_LAYER)
