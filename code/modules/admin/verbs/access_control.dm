@@ -18,7 +18,7 @@
 	data += "</ul><hr>"
 
 	data += "<h2>Player Age Settings:</h2><br><ul>"
-	data += "<li>New players: [config.access_deny_new_players ? "<font color='green'>ALLOWED</font>" : "<font color='red'>DENIED</font>"]. <a href='?_src_=holder;access_control=new_players;'>Toggle</a></li>"
+	data += "<li>New players: [config.access_deny_new_players ? "<font color='red'>DENIED</font>" : "<font color='green'>ALLOWED</font>"]. <a href='?_src_=holder;access_control=new_players;'>Toggle</a></li>"
 	data += "<li>Account age restriction: [config.access_deny_new_accounts == -1 ? "<font color='red'>DISABLED</font>" : "[config.access_deny_new_accounts] DAYS"]. <a href='?_src_=holder;access_control=new_accounts;'>Edit</a></li>"
 	data += "</ul><hr>"
 
