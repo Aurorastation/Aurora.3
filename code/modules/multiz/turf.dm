@@ -68,6 +68,10 @@
 	below = null
 	return ..()
 
+/turf/simulated/open/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.appearance = src
+	return TRUE
+
 /**
  * Used to check wether or not the specific open turf eventually leads into spess.
  *

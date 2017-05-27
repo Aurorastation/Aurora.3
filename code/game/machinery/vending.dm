@@ -574,7 +574,7 @@
 		SSnanoui.update_uis(src)
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
-	user << "<span class='notice'>You insert \the [src] in the product receptor.</span>"
+	user << "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>"
 	R.amount++
 
 	SSnanoui.update_uis(src)

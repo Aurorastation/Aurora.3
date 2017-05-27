@@ -62,6 +62,10 @@
 	// the world.time since the mob has been brigged, or -1 if not at all
 	var/brigged_since = -1
 
+	// Custom signature data.
+	var/signature
+	var/signfont
+
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
 
@@ -482,6 +486,11 @@
 		mind.original = src
 		SSticker.minds += mind
 	if(!mind.name)	mind.name = real_name
+	if (client)
+		if (client.prefs.signature)
+			mind.signature = client.prefs.signature
+		if (client.prefs.signfont)
+			mind.signfont = client.prefs.signfont
 	mind.current = src
 
 //HUMAN
