@@ -187,7 +187,7 @@
 	return english_list(comps, nothing_text="0", and_text="|", comma_text="|")
 
 //more or less a logging utility
-/proc/key_name(var/whom, var/include_link = null, var/include_name = 1, var/highlight_special_characters = 1)
+/proc/key_name(var/whom, var/include_link = null, var/include_name = 1, var/highlight_special = 0)
 	var/mob/M
 	var/client/C
 	var/key
@@ -239,7 +239,7 @@
 			name = M.name
 
 
-		if(is_special_character(M) && highlight_special_characters)
+		if(is_special_character(M) && highlight_special)
 			. += "/(<font color='#FFA500'>[name]</font>)" //Orange
 		else
 			. += "/([name])"
@@ -247,4 +247,4 @@
 	return .
 
 /proc/key_name_admin(var/whom, var/include_name = 1)
-	return key_name(whom, 1, include_name)
+	return key_name(whom, 1, include_name, 1)

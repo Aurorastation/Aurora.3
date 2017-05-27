@@ -1070,7 +1070,7 @@
 	if (brokesomething)
 		playsound(get_turf(target), 'sound/weapons/heavysmash.ogg', 100, 1)
 		occupant.attack_log += "\[[time_stamp()]\]<font color='red'> driving [name] crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </font>"
-		msg_admin_attack("[key_name(occupant)] driving [name] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)",ckey=key_name(occupant))
+		msg_admin_attack("[key_name_admin(occupant)] driving [name] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)",ckey=key_name(occupant))
 
 
 	//5. If we get here, then we've broken through everything that could stop us
@@ -1109,7 +1109,7 @@
 		var/mob/living/M = A
 		occupant.attack_log += "\[[time_stamp()]\]<font color='red'> Crashed into [key_name(M)]with exosuit [name] </font>"
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed with the exosuit [name] driven by [key_name(occupant)]</font>"
-		msg_admin_attack("[key_name(occupant)] driving [name] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(occupant),ckey_target=key_name(M) )
+		msg_admin_attack("[key_name_admin(occupant)] driving [name] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(occupant),ckey_target=key_name(M) )
 
 	A.ex_act(3)
 

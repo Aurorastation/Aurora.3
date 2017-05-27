@@ -131,6 +131,10 @@ datum/preferences
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
+	// Signature information
+	var/signature = ""
+	var/signfont = ""
+
 	var/client/client = null
 
 	var/savefile/loaded_preferences
@@ -480,6 +484,8 @@ datum/preferences
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
 	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
+	signature = "<i>[real_name]</i>"
+	signfont = "Verdana"
 
 	current_character = 0
 	can_edit_name = 1
