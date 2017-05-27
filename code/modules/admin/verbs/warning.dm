@@ -276,7 +276,7 @@
 			query_details["ckey"] = playerckey
 
 		var/DBQuery/search_query = dbcon.NewQuery("SELECT id, time, severity, reason, notes, ckey, a_ckey, acknowledged, expired, edited, lasteditor, lasteditdate FROM ss13_warnings WHERE visible = 1 [paramone] [paramtwo] ORDER BY time DESC;")
-		search_query.Execute(query_details, 1)
+		search_query.Execute(query_details)
 
 		while (search_query.NextRow())
 			var/id = text2num(search_query.item[1])
@@ -354,7 +354,7 @@
 	var/list/query_details = list("warning_id" = warning_id, "a_ckey" = usr.ckey)
 
 	var/DBQuery/initial_query = dbcon.NewQuery("SELECT ckey, reason, notes FROM ss13_warnings WHERE id = :warning_id:")
-	initial_query.Execute(query_details, 1)
+	initial_query.Execute(query_details)
 	while (initial_query.NextRow())
 		ckey = initial_query.item[1]
 		reason = initial_query.item[2]
@@ -375,7 +375,7 @@
 		if ("delete")
 			if(alert("Delete this warning?", "Delete?", "Yes", "No") == "Yes")
 				var/DBQuery/deleteQuery = dbcon.NewQuery("UPDATE ss13_warnings SET visible = 0 WHERE id = :warning_id:")
-				deleteQuery.Execute(query_details, 1)
+				deleteQuery.Execute(query_details)
 
 				message_admins("<span class='notice'>[key_name_admin(usr)] deleted one of [ckey]'s warnings.</span>")
 				log_admin("[key_name(usr)] deleted one of [ckey]'s warnings.", admin_key=key_name(usr), ckey=ckey)
@@ -391,7 +391,7 @@
 				return
 
 			var/DBQuery/reason_query = dbcon.NewQuery("UPDATE ss13_warnings SET reason = :new_reason:, edited = 1, lasteditor = :a_ckey:, lasteditdate = NOW() WHERE id = :warning_id:")
-			reason_query.Execute(query_details, 1)
+			reason_query.Execute(query_details)
 
 			message_admins("<span class='notice'>[key_name_admin(usr)] edited one of [ckey]'s warning reasons.</span>")
 			log_admin("[key_name(usr)] edited one of [ckey]'s warning reasons.", admin_key=key_name(usr), ckey=ckey)
@@ -404,7 +404,7 @@
 				return
 
 			var/DBQuery/notes_query = dbcon.NewQuery("UPDATE ss13_warnings SET notes = :new_notes:, edited = 1, lasteditor = :a_ckey:, lasteditdate = NOW() WHERE id = :warning_id:")
-			notes_query.Execute(query_details, 1)
+			notes_query.Execute(query_details)
 
 			message_admins("<span class='notice'>[key_name_admin(usr)] edited one of [ckey]'s warning notes.</span>")
 			log_admin("[key_name(usr)] edited one of [ckey]'s warning notes.", admin_key=key_name(usr), ckey=ckey)

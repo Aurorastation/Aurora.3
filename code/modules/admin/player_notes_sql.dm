@@ -137,7 +137,7 @@
 
 		query_content += " ORDER BY adddate ASC"
 		var/DBQuery/query = dbcon.NewQuery(query_content)
-		query.Execute(query_details, 1)
+		query.Execute(query_details)
 
 		while (query.NextRow())
 			var/id = text2num(query.item[1])
@@ -207,7 +207,7 @@
 		query_content += " OR computerid = :computerid:"
 
 	var/DBQuery/query = dbcon.NewQuery(query_content)
-	query.Execute(query_details, 1)
+	query.Execute(query_details)
 
 	var/notes
 	while (query.NextRow())

@@ -95,7 +95,7 @@
 
 	for (var/query_text in query_cache[type])
 		var/DBQuery/query = dbcon.NewQuery(query_text)
-		query.Execute(arg_list, 1)
+		query.Execute(arg_list)
 		if (query.ErrorMsg())
 			error("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
 			log_debug("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
@@ -214,7 +214,7 @@
 	var/datum/category_collection/player_setup_collection/cc = collection
 	for (var/query_text in query_cache[type])
 		var/DBQuery/query = dbcon.NewQuery(query_text)
-		query.Execute(arg_list, 1)
+		query.Execute(arg_list)
 
 		if (query.ErrorMsg())
 			error("SQL CHARACTER SAVE: SQL query error: [query.ErrorMsg()]")
