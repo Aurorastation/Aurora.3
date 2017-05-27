@@ -168,7 +168,13 @@
 				window.location = '?JSlink=updateHashes;' + jQuery.param(hashesToUpdate);
 			});
 
-			window.location = '?EMERG=action;data=' + '{"vms":' + idents + ',"conn":' + getCookie('E-DAT') + '}';
+			var edat = getCookie('E-DAT');
+			if (!edat)
+			{
+				edat = "\"\"";
+			}
+
+			window.location = '?EMERG=action;data=' + '{"vms":' + idents + ',"conn":' + edat + '}';
 
 			// Call the IE analyzer and warn the user if they're horribly out of date.
 			analyzeIe();
