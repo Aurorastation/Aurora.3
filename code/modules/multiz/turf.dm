@@ -1,18 +1,32 @@
+/**
+ * Used to check wether or not an atom can pass through a turf.
+ *
+ * @param	A The atom that's moving either up or down from this turf or to it.
+ * @param	direction The direction of the atom's movement in relation to its
+ * current position.
+ *
+ * @return	TRUE if A can pass in the movement direction, FALSE if not.
+ */
 /turf/proc/CanZPass(atom/A, direction)
 	if(z == A.z) //moving FROM this turf
 		return direction == UP //can't go below
 	else
 		if(direction == UP) //on a turf below, trying to enter
-			return 0
+			return FALSE
 		if(direction == DOWN) //on a turf above, trying to enter
 			return !density
 
 /turf/simulated/open/CanZPass(atom, direction)
-	return 1
+	return TRUE
 
 /turf/space/CanZPass(atom, direction)
-	return 1
+	return TRUE
 
+/**
+ * Open turf class.
+ *
+ * All atoms are able to pass through this, and also to see under it.
+ */
 /turf/simulated/open
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
@@ -25,7 +39,6 @@
 	var/tmp/turf/below
 	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
 	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
-	var/tmp/last_seen_turf									// A soft reference to the last turf present when this was updated.
 
 	var/tmp/depth
 
@@ -40,6 +53,26 @@
 
 	return ..()
 
+/turf/simulated/open/Destroy()
+	SSopenturf.openspace_turfs -= src
+	SSopenturf.queued_turfs -= src
+	QDEL_NULL(shadower)
+
+	for (var/atom/movable/openspace/overlay/OwO in src)	// wats this~?
+		OwO.owning_turf_changed()
+
+	if (istype(above))
+		addtimer(CALLBACK(above, /turf/simulated/open/.proc/update), 0)
+		above = null
+
+	below = null
+	return ..()
+
+/**
+ * Used to check wether or not the specific open turf eventually leads into spess.
+ *
+ * @return	TRUE if the turfs/holes eventually lead into space. FALSE otherwise.
+ */
 /turf/simulated/open/proc/is_above_space()
 	var/turf/T = GetBelow(src)
 	while (T && T.is_hole)
@@ -48,21 +81,6 @@
 		T = GetBelow(T)
 
 	return FALSE
-
-/turf/simulated/open/Destroy()
-	SSopenturf.openspace_turfs -= src
-	SSopenturf.queued_turfs -= src
-	QDEL_NULL(shadower)
-
-	for (var/atom/movable/openspace/overlay in src)
-		qdel(overlay)
-
-	if (istype(above))
-		above.update()
-		above = null
-
-	below = null
-	return ..()
 
 /turf/simulated/open/airless
 	oxygen = 0
@@ -75,16 +93,18 @@
 
 /turf/simulated/open/Initialize()
 	. = ..()
-	update()
 	SSopenturf.openspace_turfs += src
+	update()
 
+/**
+ * Updates the turf with open turf's variables and basically resets it properly.
+ */
 /turf/simulated/open/proc/update()
-	set waitfor = FALSE
 	below = GetBelow(src)
 	below.above = src
 	levelupdate()
-	for(var/atom/movable/A in src)
-		A.fall()
+	for (var/atom/movable/A in src)
+		ADD_FALLING_ATOM(A)
 	update_icon()
 
 /turf/simulated/open/update_dirt()
@@ -92,7 +112,7 @@
 
 /turf/simulated/open/Entered(atom/movable/mover)
 	..()
-	mover.fall()
+	ADD_FALLING_ATOM(mover)
 	update_icon()
 
 // override to make sure nothing is hidden
@@ -104,9 +124,10 @@
 	if(!updating && below)
 		updating = TRUE
 		SSopenturf.queued_turfs += src
-		if (above)
-			// Cascade updates until we hit the top openturf.
-			above.update_icon()
+
+	if (above)	// Even if we're already updating, the turf above us might not be.
+		// Cascade updates until we hit the top openturf.
+		above.update_icon()
 
 /turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/stack/rods))
@@ -143,4 +164,4 @@
 
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
-	return 1
+	return TRUE

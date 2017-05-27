@@ -376,21 +376,11 @@
 
 	return
 
-/obj/machinery/portable_atmospherics/hydroponics/verb/remove_label()
+/obj/machinery/portable_atmospherics/hydroponics/remove_label()
+	if(..())
+		labelled = null
+		update_icon()
 
-	set name = "Remove Label"
-	set category = "Object"
-	set src in view(1)
-
-	if(usr.incapacitated())
-		return
-	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
-		if(labelled)
-			usr << "You remove the label."
-			labelled = null
-			update_icon()
-		else
-			usr << "There is no label to remove."
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/verb/setlight()
