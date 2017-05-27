@@ -387,30 +387,27 @@
 			var/alcolor = "#eeeeff" // auto-unbanned light
 			var/adcolor = "#ddddff" // auto-unbanned dark
 
-			output += "<table width='90%' bgcolor='#e3e3e3' cellpadding='5' cellspacing='0' align='center'>"
-			output += "<tr>"
-			output += "<th width='25%'><b>TYPE</b></th>"
-			output += "<th width='20%'><b>CKEY</b></th>"
-			output += "<th width='20%'><b>TIME APPLIED</b></th>"
-			output += "<th width='20%'><b>ADMIN</b></th>"
-			output += "<th width='15%'><b>OPTIONS</b></th>"
-			output += "</tr>"
-
 			var/adminsearch = ""
 			var/playersearch = ""
 			var/ipsearch = ""
 			var/cidsearch = ""
 			var/bantypesearch = ""
+			var/mirror_player = ""
+			var/mirror_ip = ""
+			var/mirror_cid = ""
 
 			if(!match)
 				if(adminckey)
 					adminsearch = "AND a_ckey = '[adminckey]' "
 				if(playerckey)
 					playersearch = "AND ckey = '[playerckey]' "
+					mirror_player = "AND mirrors.player_ckey = '[playerckey]' "
 				if(playerip)
 					ipsearch  = "AND ip = '[playerip]' "
+					mirror_ip = "AND mirrors.ban_mirror_ip = '[playerip]' "
 				if(playercid)
 					cidsearch  = "AND computerid = '[playercid]' "
+					mirror_cid = "AND mirrors.ban_mirror_computerid = '[playercid]'"
 			else
 				if(adminckey && lentext(adminckey) >= 3)
 					adminsearch = "AND a_ckey LIKE '[adminckey]%' "
@@ -433,6 +430,42 @@
 						bantypesearch += "'JOB_TEMPBAN' "
 					else
 						bantypesearch += "'PERMABAN' "
+
+			/**
+			 * Do mirror checks first! Basically find active mirrors and add those to the output before we proceed onto finding bans.
+			 */
+			if (!match)
+				var/DBQuery/mirror_query = dbcon.NewQuery({"SELECT DISTINCT(mirrors.ban_id), bans.ckey FROM ss13_ban_mirrors mirrors
+					JOIN ss13_ban bans ON mirrors.ban_id = bans.id
+					WHERE (1 [mirror_player] [mirror_ip] [mirror_cid])
+					AND (
+						ISNULL(bans.unbanned) AND (
+							(bans.bantype = 'PERMABAN')
+							OR
+							(bans.bantype = 'TEMPBAN' AND bans.expiration_time > NOW())
+						)
+					)"})
+				mirror_query.Execute()
+
+				var/mirror_count = 0
+				var/mirror_data = "<br>"
+				while (mirror_query.NextRow())
+					mirror_data += "Active mirror for #[mirror_query.item[1]] (<a href='?src=\ref[src];dbsearchckey=[mirror_query.item[2]];'>View Ban</a>)<br>"
+					mirror_count++
+
+				if (mirror_count)
+					output += "<div style=\"text-align:center\"><b>[mirror_count] Active Mirrors Found!</b><br>"
+					output += mirror_data
+					output += "<br>"
+
+			output += "<table width='90%' bgcolor='#e3e3e3' cellpadding='5' cellspacing='0' align='center'>"
+			output += "<tr>"
+			output += "<th width='25%'><b>TYPE</b></th>"
+			output += "<th width='20%'><b>CKEY</b></th>"
+			output += "<th width='20%'><b>TIME APPLIED</b></th>"
+			output += "<th width='20%'><b>ADMIN</b></th>"
+			output += "<th width='15%'><b>OPTIONS</b></th>"
+			output += "</tr>"
 
 			var/DBQuery/select_query = dbcon.NewQuery("SELECT id, bantime, bantype, reason, job, duration, expiration_time, ckey, a_ckey, unbanned, unbanned_ckey, unbanned_datetime, unbanned_reason, edits, ip, computerid FROM ss13_ban WHERE 1 [playersearch] [adminsearch] [ipsearch] [cidsearch] [bantypesearch] ORDER BY bantime DESC LIMIT 100")
 			select_query.Execute()
