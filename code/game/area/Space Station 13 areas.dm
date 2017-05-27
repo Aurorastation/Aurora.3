@@ -982,7 +982,7 @@ area/space/atmosalert()
 	allow_nightmode = 1
 
 /area/crew_quarters/locker/locker_toilet
-	name = "\improper Locker Toilets"
+	name = "\improper Main Level Toilets"
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
 
