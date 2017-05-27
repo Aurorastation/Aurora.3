@@ -194,35 +194,57 @@ DBQuery/proc/SetConversion(column,conversion)
 */
 /DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, var/pass_not_found = 0)
 	if (!query_to_parse || !argument_list || !argument_list.len)
-		log_debug("parseArguments() failed! Improper arguments sent!")
-		return 0
+		log_debug("SQL ARGPARSE: Invalid arguments sent.")
+		return null
 
-	for (var/placeholder in argument_list)
-		if (!findtextEx(query_to_parse, placeholder))
-			if (pass_not_found)
+	var/parsed = ""
+	var/list/length_cache = list()
+	var/pos = 1
+	var/search = 0
+	var/arg = ""
+
+	while (1)
+		search = findtext(query_to_parse, ":", pos)
+		parsed += copytext(query_to_parse, pos, search)
+		if (search)
+			pos = search
+			search = findtext(query_to_parse, ":", pos + 1)
+			if (search)
+				arg = copytext(query_to_parse, pos + 1, search)
+				if (length_cache[arg])
+					parsed += argument_list[arg]
+				else if (argument_list[arg])
+					var/argument = argument_list[arg]
+					if (istext(argument))
+						argument_list[arg] = "'[dbcon.Quote(argument)]'"
+					else if (isnum(argument))
+						argument_list[arg] = "[argument]"
+					else if (istype(argument, /list))
+						argument_list[arg] = parse_db_lists(argument)
+					else if (isnull(argument))
+						argument_list[arg] = "NULL"
+					else
+						log_debug("SQL ARGPARSE: Failed! Cannot identify argument!")
+						log_debug("SQL ARGPARSE: [arg]. Argument: [argument]")
+						return null
+
+					length_cache[arg] = length(argument_list[arg])
+					parsed += argument_list[arg]
+				else
+					log_debug("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
+					log_debug("SQL ARGPARSE: [arg]. Query: [query_to_parse]")
+					return null
+
+				pos += length_cache[arg]
+				arg = ""
 				continue
 			else
-				log_debug("parseArguments() failed! Key not found: [placeholder].")
-				return 0
+				parsed += copytext(query_to_parse, pos, search)
 
-		var/argument = argument_list[placeholder]
+		break
 
-		if (istext(argument))
-			argument = dbcon.Quote(argument)
-		else if (isnum(argument))
-			argument = "[argument]"
-		else if (istype(argument, /list))
-			argument = parse_db_lists(argument)
-		else if (isnull(argument))
-			argument = "NULL"
-		else
-			log_debug("parseArguments() failed! Cannot identify argument!")
-			log_debug("Placeholder: '[placeholder]'. Argument: '[argument]'")
-			return 0
-
-		query_to_parse = replacetextEx(query_to_parse, placeholder, argument)
-
-	return query_to_parse
+	log_debug("SQL ARGPARSE: Query set to: [parsed]")
+	return parsed
 
 /DBQuery/proc/parse_db_lists(var/list/argument)
 	if (!argument || !istype(argument) || !argument.len)

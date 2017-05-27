@@ -26,7 +26,7 @@
 										"args" = list("id")))
 
 /datum/category_item/player_setup_item/general/basic/gather_load_parameters()
-	return list(":id" = pref.current_character)
+	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/basic/gather_save_query()
 	return list("ss13_characters" = list("name",
@@ -38,13 +38,13 @@
 										 "ckey" = 1))
 
 /datum/category_item/player_setup_item/general/basic/gather_save_parameters()
-	return list(":name" = pref.real_name,
-				":gender" = pref.gender,
-				":age" = pref.age,
-				":metadata" = pref.metadata,
-				":spawnpoint" = pref.spawnpoint,
-				":id" = pref.current_character,
-				":ckey" = pref.client.ckey)
+	return list("name" = pref.real_name,
+				"gender" = pref.gender,
+				"age" = pref.age,
+				"metadata" = pref.metadata,
+				"spawnpoint" = pref.spawnpoint,
+				"id" = pref.current_character,
+				"ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/general/basic/load_special()
 	pref.can_edit_name = 1
@@ -55,8 +55,8 @@
 
 		// Called /after/ loading and /before/ sanitization.
 		// So we have pref.current_character. It's just in text format.
-		var/DBQuery/query = dbcon.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id")
-		query.Execute(list(":id" = text2num(pref.current_character)))
+		var/DBQuery/query = dbcon.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id:")
+		query.Execute(list("id" = text2num(pref.current_character)))
 
 		if (query.NextRow())
 			if (text2num(query.item[1]) > 5)

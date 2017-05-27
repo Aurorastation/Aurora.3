@@ -70,8 +70,7 @@
 			var/list/arg_names = tables[table]["args"]
 			count = arg_names.len
 			for (i = 1, i <= count, i++)
-				query += "[arg_names[i]] = :[arg_names[i]]"
-				arg_names[i] = ":[arg_names[i]]"
+				query += "[arg_names[i]] = :[arg_names[i]]:"
 
 				if (i != count)
 					query += " AND "
@@ -180,7 +179,7 @@
 			// Process the args.
 			var/list/arg_names = list()
 			for (var/variable in var_names)
-				arg_names += ":[variable]"
+				arg_names += ":[variable]:"
 
 			query += "[jointext(arg_names, ", ")]) ON DUPLICATE KEY UPDATE"
 

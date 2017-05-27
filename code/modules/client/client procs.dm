@@ -106,8 +106,8 @@
 			return
 
 
-		var/DBQuery/check_query = dbcon.NewQuery("SELECT player_ckey, status FROM ss13_player_linking WHERE id = :id")
-		check_query.Execute(list(":id" = request_id))
+		var/DBQuery/check_query = dbcon.NewQuery("SELECT player_ckey, status FROM ss13_player_linking WHERE id = :id:")
+		check_query.Execute(list("id" = request_id))
 
 		if (!check_query.NextRow())
 			src << "<span class='warning'>No request found!</span>"
@@ -118,19 +118,19 @@
 			return
 
 		var/query_contents = ""
-		var/list/query_details = list(":new_status", ":id")
+		var/list/query_details = list("new_status", "id")
 		var/feedback_message = ""
 		switch (href_list["linkingaction"])
 			if ("accept")
-				query_contents = "UPDATE ss13_player_linking SET status = :new_status, updated_at = NOW() WHERE id = :id"
-				query_details[":new_status"] = "confirmed"
-				query_details[":id"] = request_id
+				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, updated_at = NOW() WHERE id = :id:"
+				query_details["new_status"] = "confirmed"
+				query_details["id"] = request_id
 
 				feedback_message = "<font color='green'><b>Account successfully linked!</b></font>"
 			if ("deny")
-				query_contents = "UPDATE ss13_player_linking SET status = :new_status, deleted_at = NOW() WHERE id = :id"
-				query_details[":new_status"] = "rejected"
-				query_details[":id"] = request_id
+				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, deleted_at = NOW() WHERE id = :id:"
+				query_details["new_status"] = "rejected"
+				query_details["id"] = request_id
 
 				feedback_message = "<font color='red'><b>Link request rejected!</b></font>"
 			else
@@ -513,9 +513,9 @@
 		return
 
 	var/list/requests = list()
-	var/list/query_details = list(":ckey" = ckey)
+	var/list/query_details = list("ckey" = ckey)
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, forum_id, forum_username, datediff(Now(), created_at) as request_age FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, forum_id, forum_username, datediff(Now(), created_at) as request_age FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")
 	select_query.Execute(query_details)
 
 	while (select_query.NextRow())
@@ -550,8 +550,8 @@
 	if (!dbcon.IsConnected())
 		return
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
-	select_query.Execute(list(":ckey" = ckey))
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")
+	select_query.Execute(list("ckey" = ckey))
 
 	if (select_query.NextRow())
 		if (text2num(select_query.item[1]) > 0)
