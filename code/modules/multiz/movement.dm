@@ -297,10 +297,10 @@
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	var/damage = 30 * levels_fallen
-	apply_damage(rand(0, damage), BRUTE)
-	apply_damage(rand(0, damage), BRUTE)
-	apply_damage(rand(0, damage), BRUTE)
+	var/damage = ((30 * levels_fallen) + rand(-15,15))
+	apply_damage(damage, BRUTE)
+	apply_damage(damage, BRUTE)
+	apply_damage(damage, BRUTE)
 
 	// The only piece of duplicate code. I was so close. Soooo close. :ree:
 	if(!isSynthetic())
@@ -327,13 +327,13 @@
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	var/damage = 25 * species.fall_mod * levels_fallen
+	var/damage = ((25 * species.fall_mod * levels_fallen) + rand(-13,13))
 	if(prob(20)) //landed on their head
-		apply_damage(rand(0, damage), BRUTE, "head")
+		apply_damage(damage, BRUTE, "head")
 
 	else if(prob(20)) //landed on their arms
-		apply_damage(rand(0, damage), BRUTE, "l_arm")
-		apply_damage(rand(0, damage), BRUTE, "r_arm")
+		apply_damage(damage, BRUTE, "l_arm")
+		apply_damage(damage, BRUTE, "r_arm")
 
 		if(prob(50))
 			apply_damage(rand(0, (damage/2)), BRUTE, "r_hand")
@@ -351,7 +351,7 @@
 		if(prob(50))
 			apply_damage(rand(0, (damage/2)), BRUTE, "groin")
 
-	apply_damage(rand(0, damage), BRUTE, "chest")
+	apply_damage(damage, BRUTE, "chest")
 
 	Weaken(rand(0, damage/2))
 
@@ -381,11 +381,11 @@
 	if (!.)
 		return
 
-	var/damage = 40 * levels_fallen
-	take_damage(rand(0, damage))
-	take_damage(rand(0, damage))
-	take_damage(rand(0, damage))
-	take_damage(rand(0, damage))
+	var/damage = ((40 * levels_fallen) + rand(-20,20))
+	take_damage(damage)
+	take_damage(damage)
+	take_damage(damage)
+	take_damage(damage)
 
 	playsound(loc, "sound/effects/bang.ogg", 100, 1)
 	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
@@ -395,11 +395,11 @@
 	if (!.)
 		return
 
-	var/damage = 35 * levels_fallen
-	health -= (rand(0, damage) * brute_dam_coeff)
-	health -= (rand(0, damage) * brute_dam_coeff)
-	health -= (rand(0, damage) * brute_dam_coeff)
-	health -= (rand(0, damage) * brute_dam_coeff)
+	var/damage = ((35 * levels_fallen) + rand(-18,18))
+	health -= (damage * brute_dam_coeff)
+	health -= (damage * brute_dam_coeff)
+	health -= (damage * brute_dam_coeff)
+	health -= (damage * brute_dam_coeff)
 
 	playsound(loc, "sound/effects/clang.ogg", 75, 1)
 
