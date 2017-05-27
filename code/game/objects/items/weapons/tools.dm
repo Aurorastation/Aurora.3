@@ -315,7 +315,7 @@
 			return
 		if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP)
 			user << "<span class='warning'>The damage is far too severe to patch over externally.</span>"
-			return			
+			return
 		if (src.remove_fuel(0))
 			// Use a bit of fuel and repair
 			S.heal_damage(15,0,0,1)

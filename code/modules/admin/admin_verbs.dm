@@ -656,7 +656,7 @@ var/list/admin_verbs_cciaa = list(
 
 	feedback_add_details("admin_verb","GD2") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] gave [key_name(T)] a [greater] disease2 with infection chance [D.infectionchance].",admin_key=key_name(usr),ckey=key_name(T))
-	message_admins("\blue [key_name_admin(usr)] gave [key_name(T)] a [greater] disease2 with infection chance [D.infectionchance].", 1)
+	message_admins("\blue [key_name_admin(usr)] gave [key_name_admin(T)] a [greater] disease2 with infection chance [D.infectionchance].", 1)
 
 /client/proc/make_sound(var/obj/O in range(world.view)) // -- TLE
 	set category = "Special Verbs"
