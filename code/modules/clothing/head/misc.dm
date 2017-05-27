@@ -218,7 +218,7 @@
 	name = "bear pelt hat"
 	desc = "Fuzzy."
 	icon_state = "bearpelt"
-	flags_inv = BLOCKHAIR
+	flags_inv = BLOCKHEADHAIR
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/head/xenos
@@ -263,34 +263,34 @@
 
 /obj/item/clothing/head/hijab/grey
 	name = "grey hijab"
-	icon = 'icons/obj/clothing/hijabs.dmi'
 	icon_state = "hijab_grey"
 	item_state = "hijab_grey"
 
 /obj/item/clothing/head/hijab/red
 	name = "red hijab"
-	icon = 'icons/obj/clothing/hijabs.dmi'
 	icon_state = "hijab_red"
 	item_state = "hijab_red"
 
 /obj/item/clothing/head/hijab/brown
 	name = "brown hijab"
-	icon = 'icons/obj/clothing/hijabs.dmi'
 	icon_state = "hijab_brown"
 	item_state = "hijab_brown"
 
 /obj/item/clothing/head/hijab/green
 	name = "green hijab"
-	icon = 'icons/obj/clothing/hijabs.dmi'
 	icon_state = "hijab_green"
 	item_state = "hijab_green"
 
 /obj/item/clothing/head/hijab/blue
 	name = "blue hijab"
-	icon = 'icons/obj/clothing/hijabs.dmi'
 	icon_state = "hijab_blue"
 	item_state = "hijab_blue"
-	
+
+/obj/item/clothing/head/hijab/white
+	name = "white hijab"
+	icon_state = "hijab_white"
+	item_state = "hijab_white"
+
 /obj/item/clothing/head/cowboy
 	name = "cowboy hat"
 	desc = "A wide-brimmed hat, in the prevalent style of the frontier."
@@ -306,3 +306,49 @@
 	desc = "You can practically taste the fiesta."
 	icon_state = "sombrero"
 	body_parts_covered = 0
+
+/obj/item/clothing/head/turban
+	name = "turban"
+	desc = "A sturdy cloth, worn around the head."
+	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon_state = "turban_black"
+	item_state = "turban_black"
+	flags_inv = BLOCKHEADHAIR
+	body_parts_covered = 0
+	contained_sprite = 1
+	
+/obj/item/clothing/head/turban/blue
+	icon_state = "turban_blue"
+	item_state = "turban_blue"
+	
+/obj/item/clothing/head/turban/brown
+	icon_state = "turban_brown"
+	item_state = "turban_brown"
+	
+/obj/item/clothing/head/turban/green
+	icon_state = "turban_green"
+	item_state = "turban_green"
+	
+/obj/item/clothing/head/turban/grey
+	icon_state = "turban_grey"
+	item_state = "turban_grey"
+	
+/obj/item/clothing/head/turban/orange
+	icon_state = "turban_orange"
+	item_state = "turban_orange"
+	
+/obj/item/clothing/head/turban/purple
+	icon_state = "turban_purple"
+	item_state = "turban_purple"
+	
+/obj/item/clothing/head/turban/red
+	icon_state = "turban_red"
+	item_state = "turban_red"
+	
+/obj/item/clothing/head/turban/white
+	icon_state = "turban_white"
+	item_state = "turban_white"
+	
+/obj/item/clothing/head/turban/yellow
+	icon_state = "turban_yellow"
+	item_state = "turban_yellow"

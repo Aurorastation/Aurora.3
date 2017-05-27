@@ -39,7 +39,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cream = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/tonic = 8,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/cola = 5, 
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/cola = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/space_up = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/space_mountain_wind = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/sodawater = 15,
@@ -126,7 +126,8 @@
 		/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks = 3,
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2
+		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 4
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6
@@ -143,7 +144,8 @@
 		/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks = 40,
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
-		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24
+		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 115
 	)
 
 
@@ -404,6 +406,42 @@
 	)
 	premium = list(
 		/obj/item/toy/waterflower = 1
+	)
+	prices = list(
+		/obj/item/seeds/bananaseed = 30,
+		/obj/item/seeds/berryseed = 15,
+		/obj/item/seeds/carrotseed = 15,
+		/obj/item/seeds/chantermycelium = 5,
+		/obj/item/seeds/chiliseed = 10,
+		/obj/item/seeds/cornseed = 15,
+		/obj/item/seeds/eggplantseed = 10,
+		/obj/item/seeds/potatoseed = 10,
+		/obj/item/seeds/replicapod = 175,
+		/obj/item/seeds/soyaseed = 10,
+		/obj/item/seeds/sunflowerseed = 5,
+		/obj/item/seeds/tomatoseed = 15,
+		/obj/item/seeds/towermycelium = 5,
+		/obj/item/seeds/wheatseed = 5,
+		/obj/item/seeds/appleseed = 15,
+		/obj/item/seeds/poppyseed = 20,
+		/obj/item/seeds/sugarcaneseed = 12,
+		/obj/item/seeds/ambrosiavulgarisseed = 90,
+		/obj/item/seeds/peanutseed = 25,
+		/obj/item/seeds/whitebeetseed = 20,
+		/obj/item/seeds/watermelonseed = 15,
+		/obj/item/seeds/limeseed = 15,
+		/obj/item/seeds/lemonseed = 15,
+		/obj/item/seeds/orangeseed = 15,
+		/obj/item/seeds/grassseed = 2,
+		/obj/item/seeds/cocoapodseed = 25,
+		/obj/item/seeds/plumpmycelium = 30,
+		/obj/item/seeds/cabbageseed = 15,
+		/obj/item/seeds/grapeseed = 15,
+		/obj/item/seeds/pumpkinseed = 25,
+		/obj/item/seeds/cherryseed = 25,
+		/obj/item/seeds/plastiseed = 25,
+		/obj/item/seeds/riceseed = 25,
+		/obj/item/seeds/koisspore = 30
 	)
 
 /**

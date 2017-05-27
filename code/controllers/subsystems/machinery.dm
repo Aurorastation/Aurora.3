@@ -13,47 +13,24 @@
 	var/tmp/processes_this_tick = 0
 	var/tmp/powerusers_this_tick = 0
 
-	var/list/rcon_smes_units = list()
-	var/list/rcon_smes_units_by_tag = list()
-	var/list/rcon_breaker_units = list()
-	var/list/rcon_breaker_units_by_tag = list()
-
 	var/list/all_cameras = list()
 
-	var/list/breaker_boxes = list()
-
 	var/rcon_update_queued = FALSE
+	var/powernet_update_queued = FALSE
 
 	var/list/slept_in_process = list()
 
+/datum/controller/subsystem/machinery/Recover()
+	all_cameras = SSmachinery.all_cameras
+
 /datum/controller/subsystem/machinery/proc/queue_rcon_update()
 	rcon_update_queued = TRUE
-
-/datum/controller/subsystem/machinery/proc/build_rcon_lists()
-	rcon_update_queued = FALSE
-	rcon_smes_units.Cut()
-	rcon_breaker_units.Cut()
-	rcon_breaker_units_by_tag.Cut()
-
-	for(var/obj/machinery/power/smes/buildable/SMES in machines)
-		if(SMES.RCon_tag && (SMES.RCon_tag != "NO_TAG") && SMES.RCon)
-			rcon_smes_units += SMES
-			rcon_smes_units_by_tag[SMES.RCon_tag] = SMES
-
-	for(var/obj/machinery/power/breakerbox/breaker in breaker_boxes)
-		if(breaker.RCon_tag != "NO_TAG")
-			rcon_breaker_units += breaker
-			rcon_breaker_units_by_tag[breaker.RCon_tag] = breaker
-
-	sortTim(rcon_smes_units, /proc/cmp_rcon_smes)
-	sortTim(rcon_breaker_units, /proc/cmp_rcon_bbox)
 
 /datum/controller/subsystem/machinery/New()
 	NEW_SS_GLOBAL(SSmachinery)
 
 /datum/controller/subsystem/machinery/Initialize(timeofday)
 	fire(FALSE, TRUE)	// Tick machinery once to pare down the list so we don't hammer the server on round-start.
-	build_rcon_lists()
 	..(timeofday)
 
 /datum/controller/subsystem/machinery/fire(resumed = 0, no_mc_tick = FALSE)
@@ -67,7 +44,16 @@
 		powerusers_this_tick = 0
 
 		if (rcon_update_queued)
-			build_rcon_lists()
+			rcon_update_queued = FALSE
+			SSpower.build_rcon_lists()
+
+		if (powernet_update_queued)
+			makepowernets()
+			powernet_update_queued = FALSE
+
+		if (cameranet.cameras_unsorted)
+			sortTim(cameranet.cameras, /proc/cmp_camera)
+			cameranet.cameras_unsorted = FALSE
 
 	var/list/curr_machinery = src.processing_machinery
 	var/list/curr_powersinks = src.processing_powersinks
@@ -107,11 +93,7 @@
 			return
 
 	if (!powernets_reset_yet)
-		for (var/thing in powernets)
-			var/datum/powernet/PN = thing
-
-			PN.reset()
-
+		SSpower.reset_powernets()
 		powernets_reset_yet = TRUE
 
 	while (curr_powersinks.len)
@@ -128,7 +110,7 @@
 			return
 
 /datum/controller/subsystem/machinery/stat_entry()
-	..("M:[machines.len] PI:[processing_power_items.len] PN:[powernets.len]\n\tLT:{T:[processes_this_tick]|P:[powerusers_this_tick]}")
+	..("M:[machines.len] PI:[processing_power_items.len]\n\tLT:{T:[processes_this_tick]|P:[powerusers_this_tick]}")
 
 /proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))

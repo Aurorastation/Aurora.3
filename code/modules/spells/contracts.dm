@@ -43,15 +43,16 @@
 	color = "#993300"
 
 /obj/item/weapon/contract/apprentice/contract_effect(mob/user as mob)
-	if(user.mind.special_role == "apprentice")
+	if(user.mind.assigned_role == "Apprentice")
 		user << "<span class='warning'>You are already a wizarding apprentice!</span>"
 		return 0
-	if(wizards.add_antagonist_mind(user.mind,1,"apprentice","<b>You are an apprentice! Your job is to learn the wizarding arts!</b>"))
+	if(wizards.add_antagonist_mind(user.mind,1,"Apprentice","<b>You are an apprentice! Your job is to learn the wizarding arts!</b>"))
+		user.mind.assigned_role = "Apprentice"
 		user << "<span class='notice'>With the signing of this paper you agree to become \the [contract_master]'s apprentice in the art of wizardry.</span>"
 		user.faction = "Space Wizard"
+		new /obj/item/weapon/spellbook/student(get_turf(user))
 		return 1
 	return 0
-
 
 /obj/item/weapon/contract/wizard //contracts that involve making a deal with the Wizard Acadamy (or NON PLAYERS)
 	contract_master = "\improper Wizard Academy"
@@ -148,3 +149,7 @@
 /obj/item/weapon/contract/boon/wizard/charge
 	path = /spell/aoe_turf/charge
 	desc = "This contract is made of 100% post-consumer wizard."
+
+/obj/item/weapon/contract/boon/wizard/gestalt
+	path = /spell/aoe_turf/conjure/grove/gestalt
+	desc = "This contract is a druid's favorite."

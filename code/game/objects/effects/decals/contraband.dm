@@ -15,13 +15,13 @@
 	var/serial_number = 0
 
 
-/obj/item/weapon/contraband/poster/New(turf/loc, var/given_serial = 0)
+/obj/item/weapon/contraband/poster/Initialize(mapload, given_serial = 0)
+	. = ..()
 	if(given_serial == 0)
 		serial_number = rand(1, poster_designs.len)
 	else
 		serial_number = given_serial
 	name += " - No. [serial_number]"
-	..(loc)
 
 //Places the poster on a wall
 /obj/item/weapon/contraband/poster/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
@@ -57,22 +57,23 @@
 
 	user << "<span class='notice'>You start placing the poster on the wall...</span>" //Looks like it's uncluttered enough. Place the poster.
 
-	var/obj/structure/sign/poster/P = new(user.loc, placement_dir=get_dir(user, W), serial=serial_number)
+	var/obj/structure/sign/poster/P = new(user.loc, get_dir(user, W), serial_number)
 
 	flick("poster_being_set", P)
 	//playsound(W, 'sound/items/poster_being_created.ogg', 100, 1) //why the hell does placing a poster make printer sounds?
 
-	var/oldsrc = src //get a reference to src so we can delete it after detaching ourselves
-	src = null
-	spawn(17)
-		if(!P) return
+	addtimer(CALLBACK(src, .proc/place_on_wall, P, user, W), 28, TIMER_CLIENT_TIME)
 
-		if(iswall(W) && user && P.loc == user.loc) //Let's check if everything is still there
-			user << "<span class='notice'>You place the poster!</span>"
-		else
-			P.roll_and_drop(P.loc)
+/obj/item/weapon/contraband/poster/proc/place_on_wall(obj/structure/sign/poster/P, mob/user, turf/W)
+	if (QDELETED(P))
+		return
 
-	qdel(oldsrc)	//delete it now to cut down on sanity checks afterwards. Agouri's code supports rerolling it anyway
+	if (iswall(W) && !QDELETED(user) && P.loc == user.loc)
+		user << "<span class='notice'>You place the poster!</span>"
+	else
+		P.roll_and_drop(P.loc)
+
+	qdel(src)
 
 //############################## THE ACTUAL DECALS ###########################
 
@@ -160,7 +161,7 @@
 
 /datum/poster
 	// Name suffix. Poster - [name]
-	var/name=""
+	var/name = ""
 	// Description suffix
-	var/desc=""
-	var/icon_state=""
+	var/desc = ""
+	var/icon_state = ""

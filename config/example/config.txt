@@ -251,6 +251,9 @@ SOCKET_TALK 0
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
 
+## Adjust this time to modify how sensitive to fast messages spam protection should be.
+MACRO_TRIGGER 5
+
 ## How long the delay is before the Away Mission gate opens. Default is half an hour.
 GATEWAY_DELAY 18000
 
@@ -445,3 +448,32 @@ API_RATE_LIMIT_WHITELIST 127.0.0.1
 LOG_GELF_ENABLED 0
 LOG_GELF_IP 192.168.100.80
 LOG_GELF_PORT 12201
+
+### IPINTEL:
+### This allows you to detect likely proxies by checking ips against getipintel.net
+## Rating to warn at: (0.90 is good, 1 is 100% likely to be a spammer/proxy, 0.8 is 80%, etc) anything equal to or higher then this number triggers an admin warning
+#IPINTEL_RATING_BAD 0.90
+## Rating to kick at. Keeps kicking a person if they join with a certain level of intel. Recommended value is 1. Leave out if you don't want to enable automatic kicking.
+#IPINTEL_RATING_KICK 1
+## Contact email, (required to use the service, leaving blank or default disables IPINTEL)
+#IPINTEL_EMAIL ch@nge.me
+## How long to save good matches (ipintel rate limits to 15 per minute and 500 per day. so this shouldn't be too low, getipintel.net suggests 6 hours, time is in hours) (Your ip will get banned if you go over 500 a day too many times)
+#IPINTEL_SAVE_GOOD 12
+## How long to save bad matches (these numbers can change as ips change hands, best not to save these for too long in case somebody gets a new ip used by a spammer/proxy before.)
+#IPINTEL_SAVE_BAD 3
+## Domain name to query (leave commented out for the default, only needed if you pay getipintel.net for more querys)
+#IPINTEL_DOMAIN check.getipintel.net
+
+### ACCESS CONTROL:
+### This allows you to adjust various parametres by which potentially malicious users can by identified.
+### Note that none of these are 100% accurate, and should only be used in cases where a "panic bunker" is warranted.
+### They don't apply bans, at will, at worst, kick folks.
+## This determined whether or not a player's account can be denied entry based on their BYOND account age.
+## If their account is younger than the amount of days specified here, they cannot enter. This is inclusive.
+# ACCESS_DENY_NEW_ACCOUNTS 1
+## This determines how many VM identifiers must be spotted on a user before they're kicked. Currently 2 are implemented.
+## Leave at 0 to disable, or commented out.
+# ACCESS_DENY_VMS 0
+## This determines how many VM identifiers must be spotted on a user before admins are warned about them joining.
+## Leave at 0 or commented out to disable.
+# ACCESS_WARN_VMS 2

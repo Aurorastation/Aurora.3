@@ -78,7 +78,7 @@
 	color = "#ffffff"
 	alpha = 255
 	update_connections(1)
-	update_icon()
+	queue_icon_update()
 	update_desc()
 	update_material()
 
@@ -87,7 +87,7 @@
 	reinforced = null
 	update_connections(1) // Update tables around us to ignore us (material=null forces no connections)
 	for(var/obj/structure/table/T in oview(src, 1))
-		T.update_icon()
+		T.queue_icon_update()
 	return ..()
 
 /obj/structure/table/examine(mob/user)
@@ -107,7 +107,7 @@
 		remove_reinforced(W, user)
 		if(!reinforced)
 			update_desc()
-			update_icon()
+			queue_icon_update()
 			update_material()
 		return 1
 
@@ -116,7 +116,7 @@
 		                              "<span class='notice'>You remove the carpet from \the [src].</span>")
 		new /obj/item/stack/tile/carpet(loc)
 		carpeted = 0
-		update_icon()
+		queue_icon_update()
 		return 1
 
 	if(!carpeted && material && istype(W, /obj/item/stack/tile/carpet))
@@ -125,7 +125,7 @@
 			user.visible_message("<span class='notice'>\The [user] adds \the [C] to \the [src].</span>",
 			                              "<span class='notice'>You add \the [C] to \the [src].</span>")
 			carpeted = 1
-			update_icon()
+			queue_icon_update()
 			return 1
 		else
 			user << "<span class='warning'>You don't have enough carpet!</span>"
@@ -134,9 +134,9 @@
 		remove_material(W, user)
 		if(!material)
 			update_connections(1)
-			update_icon()
+			queue_icon_update()
 			for(var/obj/structure/table/T in oview(src, 1))
-				T.update_icon()
+				T.queue_icon_update()
 			update_desc()
 			update_material()
 		return 1
@@ -161,7 +161,7 @@
 		material = common_material_add(W, user, "plat")
 		if(material)
 			update_connections(1)
-			update_icon()
+			queue_icon_update()
 			update_desc()
 			update_material()
 		return 1
@@ -194,7 +194,7 @@
 	reinforced = common_material_add(S, user, "reinforc")
 	if(reinforced)
 		update_desc()
-		update_icon()
+		queue_icon_update()
 		update_material()
 
 /obj/structure/table/proc/update_desc()
@@ -419,9 +419,8 @@
 		if(material && T.material && material.name == T.material.name && flipped == T.flipped)
 			connection_dirs |= T_dir
 		if(propagate)
-			spawn(0)
-				T.update_connections()
-				T.update_icon()
+			INVOKE_ASYNC(T, .update_connections)
+			INVOKE_ASYNC(T, /atom/.proc/queue_icon_update)
 
 	connections = dirs_to_corner_states(connection_dirs)
 

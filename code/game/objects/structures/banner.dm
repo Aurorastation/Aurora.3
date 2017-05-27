@@ -40,3 +40,8 @@
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				user.visible_message("[user.name] unsecures [src.name] reinforcing bolts from the floor.", "You unsecure [src.name] from the floor.", "You hear a ratchet")
 		return
+		
+/obj/structure/banner/unmovable
+
+/obj/structure/banner/unmovable/attackby(obj/item/W, mob/user)
+	return

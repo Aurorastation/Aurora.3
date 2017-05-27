@@ -38,7 +38,7 @@
 				if(M.a_intent == I_HURT)//Stungloves. Any contact will stun the alien.
 					if(G.cell.charge >= 2500)
 						G.cell.use(G.cell.charge)	//So it drains the cell.
-						visible_message("\red <B>[src] has been touched with the stun gloves by [M]!</B>")
+						visible_message("<span class='danger'>[src] has been touched with the stun gloves by [M]!</span>")
 						M.attack_log += text("\[[time_stamp()]\] <font color='red'>Stungloved [src.name] ([src.ckey])</font>")
 						src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stungloved by [M.name] ([M.ckey])</font>")
 
@@ -50,7 +50,7 @@
 
 						if(prob(15))
 							playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
-							M.visible_message("\red The power source on [M]'s stun gloves overloads in a terrific fashion!", "\red Your jury rigged stun gloves malfunction!", "\red You hear a loud sparking.")
+							M.visible_message("<span class='warning'>The power source on [M]'s stun gloves overloads in a terrific fashion!</span>", "<span class='warning'>Your jury rigged stun gloves malfunction!</span>", "<span class='warning'>You hear a loud sparking.</span>")
 
 							if(prob(50))
 								M.apply_damage(rand(1,5), BURN)
@@ -63,8 +63,8 @@
 
 						return 1
 					else
-						M << "\red Not enough charge! "
-						visible_message("\red <B>[src] has been touched with the stun gloves by [M]!</B>")
+						M << "<span class='warning'>Not enough charge!</span>"
+						visible_message("<span class='danger'>[src] has been touched with the stun gloves by [M]!</span>")
 					return
 
 
@@ -73,7 +73,7 @@
 			var/damage = rand(0, 9)
 			if(!damage)
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
-				visible_message("\red <B>[H] has attempted to punch [src]!</B>")
+				visible_message("<span class='danger'>[H] has attempted to punch [src]!</span>")
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
 			var/armor_block = run_armor_check(affecting, "melee")
@@ -83,11 +83,11 @@
 
 			playsound(loc, "punch", 25, 1, -1)
 
-			visible_message("\red <B>[H] has punched [src]!</B>")
+			visible_message("<span class='danger'>[H] has punched [src]!</span>")
 
 			apply_damage(damage, HALLOSS, affecting, armor_block)
 			if(damage >= 9)
-				visible_message("\red <B>[H] has weakened [src]!</B>")
+				visible_message("<span class='danger'>[H] has weakened [src]!</span>")
 				apply_effect(4, WEAKEN, armor_block)
 
 			return
@@ -328,7 +328,7 @@
 			if(randn <= 60)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-					visible_message("\red <B>[M] shoves, sending [src] flying!</B>")
+					visible_message("<span class='danger'>[M] shoves, sending [src] flying!</span>")
 					step_away(src,M,15)
 					sleep(1)
 					step_away(src,M,15)
@@ -354,7 +354,7 @@
 						return
 
 			playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
-			visible_message("\red <B>[M] attempted to disarm [src]!</B>")
+			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")
 	return
 
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
@@ -402,6 +402,7 @@
 		admin_attack_log(user, src, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
 		src.visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
 		return 1
+	user.visible_message("<span class='warning'>[user] fails to dislocate [src]'s [organ.joint]!</span>")
 	return 0
 
 //Breaks all grips and pulls that the mob currently has.

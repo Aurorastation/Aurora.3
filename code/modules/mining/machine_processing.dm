@@ -36,7 +36,7 @@
 		return
 
 	if(!allowed(user))
-		user << "\red Access denied."
+		user << "<span class='warning'>Access denied.</span>"
 		return
 
 	user.set_machine(src)
@@ -291,7 +291,7 @@
 					new M.stack_type(output.loc)
 			else
 				if(console)
-					console.points -= O.worth*10 //reee wasting our materials!
+					console.points -= O.worth*3 //reee wasting our materials!
 				use_power(500)
 				ores_stored[metal]--
 				sheets++

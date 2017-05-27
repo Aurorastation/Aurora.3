@@ -22,7 +22,7 @@
 		global_hud.meson,
 		global_hud.science
 	)
-	
+
 	// This is kinda important. Set up details of what the hell things are made of.
 	populate_material_list()
 
@@ -35,11 +35,12 @@
 	if(config.ToRban)
 		ToRban_autoupdate()
 
-	// Setup the job controller.
-	job_master = new /datum/controller/occupations()
-	job_master.SetupOccupations()
-	job_master.LoadJobs("config/jobs.txt")
+	// Set up antags.
+	populate_antag_type_list()
+
+	// Populate spawnpoints for char creation.
+	populate_spawn_points()
 
 	lobby_image = new/obj/effect/lobby_image()
-	
+
 	..()

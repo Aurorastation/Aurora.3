@@ -49,6 +49,8 @@
 	// turf animation
 	var/atom/movable/overlay/c_animation = null
 
+	atmos_canpass = CANPASS_PROC
+
 /obj/machinery/door/attack_generic(var/mob/user, var/damage)
 	if(damage >= 10)
 		visible_message("<span class='danger'>\The [user] smashes into the [src]!</span>")
@@ -101,7 +103,7 @@
 		update_icon()
 		playsound(src.loc, hatch_open_sound, 40, 1, -1)
 
-	
+
 	close_hatch_in(29)
 
 	if (istype(mover, /mob/living))
@@ -117,7 +119,7 @@
 /obj/machinery/door/Destroy()
 	density = 0
 	update_nearby_tiles()
-	
+
 	return ..()
 
 /obj/machinery/door/proc/close_door_in(var/time = 5 SECONDS)
@@ -520,7 +522,7 @@
 
 /obj/machinery/door/allowed(mob/M)
 	if(!requiresID())
-		return ..(null) //don't care who they are or what they have, act as if they're NOTHING
+		return 1 // Door doesn't require an ID. So obviously they're allowed.
 	return ..(M)
 
 /obj/machinery/door/update_nearby_tiles(need_rebuild)

@@ -44,6 +44,12 @@
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
 	permeability_coefficient = 0.01
 	germ_level = 0
+	
+/obj/item/clothing/gloves/latex/nitrile
+	name = "nitrile gloves"
+	desc = "Sterile nitrile gloves."
+	icon_state = "nitrile"
+	item_state = "ngloves"
 
 /obj/item/clothing/gloves/latex/unathi
 	name = "unathi latex gloves"
@@ -90,7 +96,7 @@
 		if(wired && !clipped)
 			usr << "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
 			if (emergency_shuttle.get_status_panel_eta())
-				usr << "\red The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."
+				usr << "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>"
 		else if(wired && clipped)
 			usr << "You check your watch realising it's still open"
 		else
@@ -116,11 +122,11 @@
 	attackby(obj/item/weapon/W, mob/user)
 		if(istype(W, /obj/item/weapon/screwdriver))
 			if (clipped) //Using clipped because adding a new var for something is dumb
-				user.visible_message("\blue [user] screws the cover of the [src] closed.","\blue You screw the cover of the [src] closed..")
+				user.visible_message("<span class='notice'>[user] screws the cover of the [src] closed.</span>","<span class='notice'>You screw the cover of the [src] closed..</span>")
 				clipped = 0
 				return
 //			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			user.visible_message("\blue [user] unscrew the cover of the [src].","\blue You unscrew the cover of the [src].")
+			user.visible_message("<span class='notice'>[user] unscrew the cover of the [src].</span>","<span class='notice'>You unscrew the cover of the [src].</span>")
 			clipped = 1
 			return
 		if(wired)

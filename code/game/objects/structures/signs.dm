@@ -100,6 +100,11 @@
 	desc = "A warning sign which reads 'HARD VACUUM AHEAD'."
 	icon_state = "space"
 
+/obj/structure/sign/drop
+	name = "\improper DANGER! DROP HAZARD"
+	desc = "A warning sign which reads 'DANGER! DROP HAZARD'."
+	icon_state = "drop"
+
 /obj/structure/sign/deathsposal
 	name = "\improper DISPOSAL LEADS TO SPACE"
 	desc = "A warning sign which reads 'DISPOSAL LEADS TO SPACE'."
@@ -201,9 +206,30 @@
 	icon_state = "direction_med"
 
 /obj/structure/sign/directions/evac
-	name = "\improper Escape Arm"
+	name = "\improper Escape Dock"
 	desc = "A direction sign, pointing out which way the escape shuttle dock is."
 	icon_state = "direction_evac"
+
+/obj/structure/sign/directions/cryo
+	name = "\improper Cryogenics Storage"
+	desc = "A direction sign, pointing out which way the station's Cryogenics Storage station is."
+	icon_state = "direction_cryo"
+
+/obj/structure/sign/directions/dock
+	name = "\improper Departures/Arrivals Dock"
+	desc = "A direction sign. It reads: 'Reminder: All personnel are required to make use of the Auto-locker device before heading to the Docking area. Thank you.'"
+	icon_state = "direction_dock"
+
+/obj/structure/sign/directions/civ
+	name = "\improper Civilian department"
+	desc = "A direction sign, pointing out which way the Civilian sector is."
+	icon_state = "direction_civ"
+
+/obj/structure/sign/directions/all
+	name = "\improper All directions"
+	desc = "A multi-coloured direction sign, pointing out in which all main departments are located."
+	icon_state = "direction_all"
+
 
 /obj/structure/sign/christmas/lights
 	name = "Christmas lights"

@@ -49,6 +49,7 @@
 	skirts["plaid skirt, purple"] = /obj/item/clothing/under/dress/plaid_purple
 	skirts["plaid skirt, red"] = /obj/item/clothing/under/dress/plaid_red
 	skirts["jumpskirt, black"] = /obj/item/clothing/under/blackjumpskirt
+	skirts["skirt, black"] = /obj/item/clothing/under/blackskirt
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
@@ -81,7 +82,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Chemist","Geneticist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Nursing Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -117,7 +118,7 @@
 /datum/gear/uniform/corpsecsuit
 	display_name = "uniform, corporate (Security)"
 	path = /obj/item/clothing/under/rank/security/corp
-	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet")
 
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP dress"
@@ -132,7 +133,7 @@
 /datum/gear/uniform/navysecsuit
 	display_name = "uniform, navyblue (Security)"
 	path = /obj/item/clothing/under/rank/security/navyblue
-	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet")
 
 /datum/gear/uniform/gearharness
 	display_name = "gear harness"

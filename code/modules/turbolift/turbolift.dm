@@ -96,13 +96,10 @@ var/global/list/turbolifts = list()
 			if(istype(AM, /mob/living))
 				var/mob/living/M = AM
 				M.gib()
-			else if(AM.simulated)
+			else if(AM.simulated && !istype(AM, /mob/eye))
 				qdel(AM)
 
 	origin.move_contents_to(destination)
-
-	if((locate(/obj/machinery/power) in destination) || (locate(/obj/structure/cable) in destination))
-		makepowernets()
 
 	current_floor = next_floor
 	control_panel_interior.visible_message("The elevator [moving_upwards ? "rises" : "descends"] smoothly.")

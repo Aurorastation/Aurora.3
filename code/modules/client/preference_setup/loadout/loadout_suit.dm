@@ -18,6 +18,9 @@
 	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/leather_jacket
 	jackets["brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket
+	jackets["green flannel jacket"] = /obj/item/clothing/suit/storage/toggle/flannel
+	jackets["red flannel jacket"] = /obj/item/clothing/suit/storage/toggle/flannel/red
+	jackets["blue flannel jacket"] = /obj/item/clothing/suit/storage/toggle/flannel/blue
 	gear_tweaks += new/datum/gear_tweak/path(jackets)
 
 /datum/gear/suit/hazard_vest
@@ -95,39 +98,39 @@
 /datum/gear/suit/winter/security
 	display_name = "winter coat, security"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/security
-	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
 /datum/gear/suit/winter/science
 	display_name = "winter coat, science"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/science
-	allowed_roles = list("Research Director","Scientist","Xenobiologist","Roboticist","Lab Assistant","Geneticist")
+	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant", "Geneticist")
 
 /datum/gear/suit/winter/medical
 	display_name = "winter coat, medical"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
-	allowed_roles = list("Chief Medical Officer","Medical Doctor","Paramedic","Nursing Intern","Psychiatrist","Chemist")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Nursing Intern", "Psychiatrist", "Chemist")
 
 /datum/gear/suit/winter/engineering
 	display_name = "winter coat, engineering"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
-	allowed_roles = list("Station Engineer","Chief Engineer","Engineering Apprentice")
+	allowed_roles = list("Station Engineer", "Chief Engineer", "Engineering Apprentice")
 
 /datum/gear/suit/winter/atmos
 	display_name = "winter coat, atmospherics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
-	allowed_roles = list("Atmospheric Technician","Chief Engineer")
+	allowed_roles = list("Atmospheric Technician", "Chief Engineer")
 
 /datum/gear/suit/winter/hydro
 	display_name = "winter coat, hydroponics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
-	allowed_roles = list("Head of Personnel","Gardener")
+	allowed_roles = list("Head of Personnel", "Gardener")
 
 /datum/gear/suit/winter/cargo
 	display_name = "winter coat, cargo"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
-	allowed_roles = list("Cargo Technician","Quartermaster","Head of Personnel")
+	allowed_roles = list("Cargo Technician", "Quartermaster", "Head of Personnel")
 
 /datum/gear/suit/winter/mining
 	display_name = "winter coat, mining"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
-	allowed_roles = list("Quartermaster","Head of Personnel","Shaft Miner")
+	allowed_roles = list("Quartermaster", "Head of Personnel", "Shaft Miner")

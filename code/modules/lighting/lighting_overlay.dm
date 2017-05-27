@@ -16,7 +16,7 @@
 	transform = matrix(WORLD_ICON_SIZE / 32, 0, (WORLD_ICON_SIZE - 32) / 2, 0, WORLD_ICON_SIZE / 32, (WORLD_ICON_SIZE - 32) / 2)
 	#endif
 
-/atom/movable/lighting_overlay/New(atom/loc, no_update = FALSE)
+/atom/movable/lighting_overlay/New(atom/loc)
 	. = ..()
 	verbs.Cut()
 	SSlighting.lighting_overlays += src
@@ -24,13 +24,14 @@
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
 	T.lighting_overlay = src
 	T.luminosity       = 0
+	
+	needs_update = TRUE
+	SSlighting.overlay_queue += src
 
-	if (no_update)
-		return
+/atom/movable/lighting_overlay/Destroy(force = FALSE)
+	if (!force)
+		return QDEL_HINT_LETMELIVE	// STOP DELETING ME
 
-	update_overlay()
-
-/atom/movable/lighting_overlay/Destroy()
 	L_PROF(loc, "overlay_destroy")
 	SSlighting.lighting_overlays -= src
 	SSlighting.overlay_queue     -= src
@@ -54,29 +55,20 @@
 		else
 			warning("A lighting overlay realised it was in nullspace in update_overlay() and got deleted!")
 
-		qdel(src)
+		qdel(src, TRUE)
 		return
-
-	if (istype(T, /turf/space))
-		// I mean, this happens often and doesn't do any harm. Might as well silence the warning.
-		//warning("A lighting overlay realised it was attached to a space tile and got pooled!")
-		qdel(src)
-		return
-
-	// To the future coder who sees this and thinks
-	// "Why didn't he just use a loop?"
-	// Well my man, it's because the loop performed like shit.
-	// And there's no way to improve it because
-	// without a loop you can make the list all at once which is the fastest you're gonna get.
-	// Oh it's also shorter line wise.
-	// Including with these comments.
 
 	// See LIGHTING_CORNER_DIAGONAL in lighting_corner.dm for why these values are what they are.
-	// No I seriously cannot think of a more efficient method, fuck off Comic.
-	var/datum/lighting_corner/cr  = T.corners[3] || dummy_lighting_corner
-	var/datum/lighting_corner/cg  = T.corners[2] || dummy_lighting_corner
-	var/datum/lighting_corner/cb  = T.corners[4] || dummy_lighting_corner
-	var/datum/lighting_corner/ca  = T.corners[1] || dummy_lighting_corner
+	var/list/corners = T.corners
+	var/datum/lighting_corner/cr = dummy_lighting_corner
+	var/datum/lighting_corner/cg = dummy_lighting_corner
+	var/datum/lighting_corner/cb = dummy_lighting_corner
+	var/datum/lighting_corner/ca = dummy_lighting_corner
+	if (corners)
+		cr = corners[3] || dummy_lighting_corner
+		cg = corners[2] || dummy_lighting_corner
+		cb = corners[4] || dummy_lighting_corner
+		ca = corners[1] || dummy_lighting_corner
 
 	var/max = max(cr.cache_mx, cg.cache_mx, cb.cache_mx, ca.cache_mx)
 	luminosity = max > LIGHTING_SOFT_THRESHOLD
@@ -127,6 +119,9 @@
 	)
 #endif 
 
+	if (bound_overlay)
+		update_oo()
+
 // Variety of overrides so the overlays don't get affected by weird things.
 
 /atom/movable/lighting_overlay/ex_act(severity)
@@ -154,3 +149,6 @@
 	color = LIGHTING_BASE_MATRIX
 
 	return ..("color")
+
+/atom/movable/lighting_overlay/shuttle_move(turf/loc)
+	return

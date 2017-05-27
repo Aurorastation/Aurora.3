@@ -64,7 +64,7 @@ var/list/ghost_traps
 		if(pref_check && !(pref_check in O.client.prefs.be_special_role))
 			continue
 		if(O.client)
-			O << "[request_string] <a href='?src=\ref[src];candidate=\ref[O];target=\ref[target]'>(Occupy)</a> ([ghost_follow_link(target, O)])"
+			O << "<span class='deadsay'><font size=3><b>[request_string] <a href='?src=\ref[src];candidate=\ref[O];target=\ref[target]'>(Occupy)</a> ([ghost_follow_link(target, O)])</b></font></span>"
 
 /datum/ghosttrap/proc/target_destroyed(var/destroyed_target)
 	request_timeouts -= destroyed_target
@@ -187,6 +187,35 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 		return 0
 	drone.transfer_personality(candidate.client)
 
+/********************
+* Mining Drone *
+*********************/
+/datum/ghosttrap/mdrone
+	object = "mining drone"
+	pref_check = BE_PAI
+	ghost_trap_message = "They are occupying a mining drone now."
+	ghost_trap_role = "Mining Drone"
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/mdrone/New()
+	respawn_check = MINISYNTH
+	..()
+
+/datum/ghosttrap/mdrone/assess_candidate(var/mob/dead/observer/candidate, var/mob/target)
+	. = ..()
+	if(. && !target.can_be_possessed_by(candidate))
+		return 0
+
+datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/silicon/robot/drone/drone)
+	if(!assess_candidate(candidate))
+		return 0
+	drone.transfer_personality(candidate.client)
+	var/tmp_health = drone.health
+	drone.revive()
+	drone.health = tmp_health
+	drone.updatehealth()
+
 /***********************************
 * Syndicate Cyborg *
 ***********************************/
@@ -197,7 +226,7 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 	pref_check = "BE_SYNTH"
 	ghost_trap_message = "They are occupying a syndicate cyborg now."
 	ghost_trap_role = "Syndicate Cyborg"
-	can_set_own_name = TRUE 
+	can_set_own_name = TRUE
 
 /datum/ghosttrap/syndicateborg/welcome_candidate(var/mob/target)
 	target << "<span class='notice'><B>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you. Remember to speak to the other mercenaries to know more about their plans</B></span>"
@@ -230,11 +259,11 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 
 /datum/ghosttrap/familiar/welcome_candidate(var/mob/target)
 	return 0
-	
+
 /**************
 * Skeleton minion *
 **************/
-	
+
 /datum/ghosttrap/skeleton
 	object = "skeleton minion"
 	pref_check = MODE_WIZARD

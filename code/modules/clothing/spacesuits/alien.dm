@@ -241,7 +241,7 @@
 
 /obj/item/clothing/shoes/magboots/typec/attack_self(mob/user)
 	if(src.magpulse)
-		flags &= ~NOSLIP
+		item_flags &= ~NOSLIP
 		magpulse = 0
 		canremove = 1
 		user << "You relax your deathgrip on the flooring."
@@ -255,7 +255,7 @@
 			return
 
 
-		flags |= NOSLIP
+		item_flags |= NOSLIP
 		magpulse = 1
 		canremove = 0	//kinda hard to take off magclaws when you are gripping them tightly.
 		user << "You dig your claws deeply into the flooring, bracing yourself."
@@ -266,7 +266,7 @@
 	..()
 	if(src.magpulse)
 		user.visible_message("The [src] go limp as they are removed from [usr]'s feet.", "The [src] go limp as they are removed from your feet.")
-		flags &= ~NOSLIP
+		item_flags &= ~NOSLIP
 		magpulse = 0
 		canremove = 1
 

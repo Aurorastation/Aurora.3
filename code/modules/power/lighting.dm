@@ -159,7 +159,6 @@
 								// this is used to calc the probability the light burns out
 
 	var/rigged = 0				// true if rigged to explode
-	var/datum/effect_system/sparks/spark_system
 
 // the smaller bulb light fixture
 
@@ -205,7 +204,6 @@
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
-	spark_system = bind_spark(src, 3)
 	on = has_power()
 
 	switch(fitting)
@@ -222,7 +220,6 @@
 	var/area/A = get_area(src)
 	if(A)
 		on = 0
-	QDEL_NULL(spark_system)
 	return ..()
 
 /obj/machinery/light/update_icon()
@@ -411,7 +408,7 @@
 
 		user << "You stick \the [W] into the light socket!"
 		if(has_power() && (W.flags & CONDUCT))
-			spark_system.queue()
+			spark(src, 3)
 			//if(!user.mutations & COLD_RESISTANCE)
 			if (prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
@@ -467,7 +464,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.species.can_shred(H))
 			for(var/mob/M in viewers(src))
-				M.show_message("\red [user.name] smashed the light!", 3, "You hear a tinkle of breaking glass", 2)
+				M.show_message("<span class='warning'>[user.name] smashed the light!</span>", 3, "You hear a tinkle of breaking glass", 2)
 			broken()
 			return
 
@@ -553,7 +550,7 @@
 		if(status == LIGHT_OK || status == LIGHT_BURNED)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		if(on)
-			spark_system.queue()
+			spark(src, 3)
 	status = LIGHT_BROKEN
 	update()
 	CHECK_TICK	// For lights-out events.
@@ -743,7 +740,7 @@
 
 /obj/item/weapon/light/proc/shatter()
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
-		src.visible_message("\red [name] shatters.","\red You hear a small glass object shatter.")
+		src.visible_message("<span class='warning'>[name] shatters.</span>","<span class='warning'>You hear a small glass object shatter.</span>")
 		status = LIGHT_BROKEN
 		force = 5
 		sharp = 1

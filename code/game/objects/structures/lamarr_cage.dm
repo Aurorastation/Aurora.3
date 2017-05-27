@@ -125,7 +125,7 @@ var/const/MAX_ACTIVE_TIME = 400
 		if(CONSCIOUS)
 			user << "<span class='warning'>[src] seems to be active.</span>"
 	if (sterile)
-		user << "<span class='warning'> It looks like the proboscis has been removed.</span>"
+		user << "<span class='warning'>It looks like the proboscis has been removed.</span>"
 	return
 
 /obj/item/clothing/mask/lamarr/attackby(obj/item/I, mob/user)

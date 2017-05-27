@@ -18,6 +18,9 @@
 	for(var/module in robot_module_types)
 		S["flavour_texts_robot_[module]"] >> pref.flavour_texts_robot[module]
 
+	S["signature"]				>> pref.signature
+	S["signfont"]				>> pref.signfont
+
 /datum/category_item/player_setup_item/general/flavor/save_character(var/savefile/S)
 	S["flavor_texts_general"]	<< pref.flavor_texts["general"]
 	S["flavor_texts_head"]		<< pref.flavor_texts["head"]
@@ -33,6 +36,9 @@
 	for(var/module in robot_module_types)
 		S["flavour_texts_robot_[module]"] << pref.flavour_texts_robot[module]
 
+	S["signature"]				<< pref.signature
+	S["signfont"]				<< pref.signfont
+
 /datum/category_item/player_setup_item/general/flavor/gather_load_query()
 	var/list/var_list = list("flavour_general" = "flavor_texts/general",
 												"flavour_head" = "flavor_texts/head",
@@ -43,7 +49,9 @@
 												"flavour_hands" = "flavor_texts/hands",
 												"flavour_legs" = "flavor_texts/legs",
 												"flavour_feet" = "flavor_texts/feet",
-												"robot_default" = "flavour_texts_robot/default")
+												"robot_default" = "flavour_texts_robot/default",
+												"signature" = "signature",
+												"signature_font" = "signfont")
 
 	for (var/module in robot_module_types)
 		var_list["robot_[module]"] = "flavour_texts_robot/[module]"
@@ -64,6 +72,8 @@
 							 "flavour_legs",
 							 "flavour_feet",
 							 "robot_default",
+							 "signature",
+							 "signature_font",
 							 "char_id" = 1)
 
 	for (var/module in robot_module_types)
@@ -82,20 +92,31 @@
 							":flavour_hands" = pref.flavor_texts["hands"],
 							":flavour_legs" = pref.flavor_texts["legs"],
 							":flavour_feet" = pref.flavor_texts["feet"],
-							":robot_default" = pref.flavour_texts_robot["default"])
+							":robot_default" = pref.flavour_texts_robot["default"],
+							":signature_font" = pref.signfont,
+							":signature" = pref.signature)
 
 	for (var/module in robot_module_types)
 		var_list[":robot_[module]"] += pref.flavour_texts_robot[module]
 
 	return var_list
 
-/datum/category_item/player_setup_item/general/flavor/sanitize_character()
-	return
+/datum/category_item/player_setup_item/general/flavor/sanitize_character(var/sql_load = 0)
+	if (!pref.signature)
+		pref.signature = "<i>[pref.real_name]</i>"
+	if (!pref.signfont)
+		pref.signfont = "Verdana"
 
 /datum/category_item/player_setup_item/general/flavor/content(var/mob/user)
 	. += "<b>Flavor:</b><br>"
 	. += "<a href='?src=\ref[src];flavor_text=open'>Set Flavor Text</a><br/>"
 	. += "<a href='?src=\ref[src];flavour_text_robot=open'>Set Robot Flavor Text</a><br/>"
+	. += "<br>"
+	. += "Signature: <font face='[pref.signfont ? pref.signfont : "Verdana"]'>[pref.signature]</font><br/>"
+	. += "<a href='?src=\ref[src];edit_signature=text'>Edit Text</a> | "
+	. += "<a href='?src=\ref[src];edit_signature=font'>Edit Font</a> | "
+	. += "<a href='?src=\ref[src];edit_signature=help'>Help</a> | "
+	. += "<a href='?src=\ref[src];edit_signature=reset'>Reset</a><br/>"
 
 /datum/category_item/player_setup_item/general/flavor/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["flavor_text"])
@@ -125,6 +146,53 @@
 					pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
 		SetFlavourTextRobot(user)
 		return TOPIC_HANDLED
+
+	else if (href_list["edit_signature"])
+		switch (href_list["edit_signature"])
+			if ("text")
+				var/new_sign = input(usr, "Please input the new character signature.", "New signature", html2pencode(pref.signature)) as null|text
+				if (!new_sign)
+					to_chat(usr, span("notice", "Cancelled."))
+					if (pref.signature)
+						return TOPIC_NOACTION
+					else
+						pref.signature = "<i>[pref.real_name]</i>"
+						return TOPIC_REFRESH
+				new_sign = sanitize(new_sign, 100)
+				new_sign = pencode2html(new_sign, 1)
+				pref.signature = new_sign
+
+				return TOPIC_REFRESH
+			if ("font")
+				var/new_font = input(usr, "Please select the font to use.", "New font") as null|anything in list("Verdana", "Times New Roman", "Courier New")
+				if (!new_font)
+					to_chat(usr, span("notice", "Cancelled."))
+					if (pref.signfont)
+						return TOPIC_NOACTION
+					else
+						pref.signfont = "Verdana"
+						return TOPIC_REFRESH
+				pref.signfont = new_font
+
+				return TOPIC_REFRESH
+			if ("help")
+				var/html = ""
+				html += "A character's signature can be augmented with the following tags:<br>"
+				html += "<ul><li><i>Italics</i> - \[i\]text\[\\i\]</li>"
+				html += "<li><b>Bold</b> - \[b\]text\[\\b\]</li>"
+				html += "<li><u>Underline</u> - \[u\]text\[\\u\]</li>"
+				html += "<li><font size='4'>Large text</font> - \[large\]text\[\\large\]</li>"
+				html += "<li><font size='1'>Small text</font> - \[small\]text\[\\small\]</li></ul>"
+				html += "<br><br>Beyond that, a maximum of 100 symbols are allowed for the signature text."
+				html += " Note that this includes mark-up symbols."
+
+				show_browser(usr, html, "window=signaturehelp;size=350x300")
+				return TOPIC_HANDLED
+			if ("reset")
+				to_chat(usr, span("notice", "Signature reset."))
+				pref.signfont = "Verdana"
+				pref.signature = "<i>[pref.real_name]</i>"
+				return TOPIC_REFRESH
 
 	return ..()
 
