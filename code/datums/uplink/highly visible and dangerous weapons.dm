@@ -23,7 +23,7 @@
 	name = "Energy Sword"
 	item_cost = 8
 	path = /obj/item/weapon/melee/energy/sword
-	
+
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"
 	item_cost = 10

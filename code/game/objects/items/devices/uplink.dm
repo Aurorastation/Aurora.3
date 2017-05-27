@@ -104,7 +104,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 // Interaction code. Gathers a list of items purchasable from the paren't uplink and displays it. It also adds a lock button.
 /obj/item/device/uplink/hidden/interact(mob/user)
 	ui_interact(user)
-	
+
 /obj/item/device/uplink/hidden/CanUseTopic()
 	if(!active)
 		return STATUS_CLOSE
@@ -360,5 +360,27 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	hidden_uplink.nanoui_menu = 3
 
 /obj/item/device/contract_uplink/attack_self(mob/user as mob)
+	if (hidden_uplink)
+		hidden_uplink.trigger(user)
+
+/*
+ * A ninja uplink
+ */
+
+/obj/item/device/ninja_uplink
+	name = "modified contract uplink"
+	desc = "A small device used for access of a special cache of items."
+	icon = 'icons/obj/radio.dmi'
+	icon_state = "radio"
+	flags = CONDUCT
+	w_class = 2
+
+/obj/item/device/ninja_uplink/New()
+	..()
+	hidden_uplink = new(src)
+	hidden_uplink.uses = 25
+	hidden_uplink.nanoui_menu = 0
+
+/obj/item/device/ninja_uplink/attack_self(mob/user as mob)
 	if (hidden_uplink)
 		hidden_uplink.trigger(user)

@@ -1,0 +1,8 @@
+author: Printer16
+
+delete-after: True
+
+changes: 
+  - rscadd: "New ninja modules and a special ninja hardsuit module uplink list. Their uplink can only see this list. The list is also exclusive to ninjas."
+  - tweak: "Ninja's no longer spawn with all of their modules. They can buy them from the mentioned hardsuit module list."
+  - tweak: "Ninja's hardsuit has been buffed very slightly. "
