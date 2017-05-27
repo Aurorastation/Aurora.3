@@ -115,8 +115,8 @@
 	species_restricted = list("Unathi")
 
 /obj/item/clothing/gloves/black/tajara
-	name = "Black gloves"
-	desc = "black gloves made for Tajara use."
+	name = "black gloves"
+	desc = "Black gloves made for Tajara use."
 	species_restricted = list("Tajara")
 
 //more snowflake gloves for the custom loadout
