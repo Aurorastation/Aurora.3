@@ -231,6 +231,9 @@
 /mob/living/carbon/human/bst/can_fall()
 	return FALSE
 
+/mob/eye/can_fall()
+	return FALSE
+
 /mob/living/silicon/robot/can_fall()
 	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
 
