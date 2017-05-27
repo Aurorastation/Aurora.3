@@ -619,13 +619,13 @@ About the new airlock wires panel:
 		if("opening")
 			cut_overlays()
 			if(p_open)
-				flick("o_door_opening", src)  
+				flick("o_door_opening", src)
 				update_icon()
 			else
 				flick("door_opening", src)//[stat ? "_stat":]
 				update_icon()
 		if("closing")
-			if(overlays) 
+			if(overlays)
 				cut_overlays()
 			if(p_open)
 				flick("o_door_closing", src)
@@ -964,7 +964,7 @@ About the new airlock wires panel:
 			O.show_message("[src.name]'s control panel bursts open, sparks spewing out!")
 
 	spark(src, 5, alldirs)
-	
+
 	update_icon()
 	return
 
@@ -1103,7 +1103,6 @@ About the new airlock wires panel:
 	if (operating && !forced) return 0
 	src.locked = 1
 	playsound(src, bolts_dropping, 30, 0, -6)
-	audible_message("You hear a click from the bottom of the door.")
 	update_icon()
 	return 1
 
@@ -1114,7 +1113,6 @@ About the new airlock wires panel:
 		if(operating || !src.arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) return
 	src.locked = 0
 	playsound(src, bolts_rising, 30, 0, -6)
-	audible_message("You hear a click from the bottom of the door.")
 	update_icon()
 	return 1
 
