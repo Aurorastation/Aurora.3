@@ -93,8 +93,8 @@
 							":flavour_legs" = pref.flavor_texts["legs"],
 							":flavour_feet" = pref.flavor_texts["feet"],
 							":robot_default" = pref.flavour_texts_robot["default"],
-							":signature" = pref.signature,
-							":signature_font" = pref.signfont)
+							":signature_font" = pref.signfont
+							":signature" = pref.signature)
 
 	for (var/module in robot_module_types)
 		var_list[":robot_[module]"] += pref.flavour_texts_robot[module]
