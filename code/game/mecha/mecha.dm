@@ -115,7 +115,7 @@
 	loc.Entered(src)
 	mechas_list += src //global mech list
 	narrator_message(FIRSTRUN)
-	
+
 	spark_system = bind_spark(src, 2)
 
 /obj/mecha/Destroy()
@@ -668,7 +668,7 @@
 		if(istype(Proj, /obj/item/projectile/beam/pulse))
 			ignore_threshold = 1
 		src.hit_damage(Proj.damage, Proj.check_armour, is_melee=0)
-		if(prob(25)) 
+		if(prob(25))
 			spark_system.queue()
 		src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST,MECHA_INT_SHORT_CIRCUIT),ignore_threshold)
 
@@ -759,7 +759,7 @@
 //////////////////////
 
 /obj/mecha/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	
+
 	if(istype(W, /obj/item/mecha_parts/mecha_equipment))
 		var/obj/item/mecha_parts/mecha_equipment/E = W
 		spawn()
@@ -1071,7 +1071,7 @@
 	if (brokesomething)
 		playsound(get_turf(target), 'sound/weapons/heavysmash.ogg', 100, 1)
 		occupant.attack_log += "\[[time_stamp()]\]<font color='red'> driving [name] crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </font>"
-		msg_admin_attack("[key_name(occupant)] driving [name] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)",ckey=key_name(occupant))
+		msg_admin_attack("[key_name_admin(occupant)] driving [name] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)",ckey=key_name(occupant))
 
 
 	//5. If we get here, then we've broken through everything that could stop us
@@ -1110,7 +1110,7 @@
 		var/mob/living/M = A
 		occupant.attack_log += "\[[time_stamp()]\]<font color='red'> Crashed into [key_name(M)]with exosuit [name] </font>"
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed with the exosuit [name] driven by [key_name(occupant)]</font>"
-		msg_admin_attack("[key_name(occupant)] driving [name] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(occupant),ckey_target=key_name(M) )
+		msg_admin_attack("[key_name_admin(occupant)] driving [name] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(occupant),ckey_target=key_name(M) )
 
 	A.ex_act(3)
 
@@ -1930,9 +1930,9 @@
 	return icon_state
 
 /obj/mecha/attack_generic(var/mob/user, var/damage, var/attack_message)
-	
+
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	
+
 	if(!damage)
 		return 0
 
