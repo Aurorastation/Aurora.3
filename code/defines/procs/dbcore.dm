@@ -211,7 +211,24 @@ DBQuery/proc/SetConversion(column,conversion)
 	var/list/cache = list()
 	var/pos = 1
 	var/search = 0
-	var/arg = ""
+	var/curr_arg = ""
+
+	// We crawl the key list first. This is required to properly notice missing
+	// arguments/keys. Otherwise, list[non-key] will always result in null and
+	// will thus be populated as NULL. Which is bad.
+	for (var/key in argument_list)
+		var/argument = argument_list[key]
+		if (istext(argument))
+			cache[key] = "[dbcon.Quote(argument)]"
+		else if (isnum(argument))
+			cache[key] = "[argument]"
+		else if (istype(argument, /list))
+			cache[key] = parse_db_lists(argument)
+		else if (isnull(argument))
+			cache[key] = "NULL"
+		else
+			log_debug("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
+			return null
 
 	while (1)
 		search = findtext(query_to_parse, ":", pos)
@@ -220,32 +237,16 @@ DBQuery/proc/SetConversion(column,conversion)
 			pos = search
 			search = findtext(query_to_parse, ":", pos + 1)
 			if (search)
-				arg = copytext(query_to_parse, pos + 1, search)
-				if (cache[arg])
-					parsed += cache[arg]
-				else if (argument_list[arg] || (arg in argument_list))
-					var/argument = argument_list[arg]
-					if (istext(argument))
-						cache[arg] = "[dbcon.Quote(argument)]"
-					else if (isnum(argument))
-						cache[arg] = "[argument]"
-					else if (istype(argument, /list))
-						cache[arg] = parse_db_lists(argument)
-					else if (isnull(argument))
-						cache[arg] = "NULL"
-					else
-						log_debug("SQL ARGPARSE: Failed! Cannot identify argument!")
-						log_debug("SQL ARGPARSE: [arg]. Argument: [argument]")
-						return null
-
-					parsed += cache[arg]
+				curr_arg = copytext(query_to_parse, pos + 1, search)
+				if (cache[curr_arg])
+					parsed += cache[curr_arg]
 				else
 					log_debug("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
-					log_debug("SQL ARGPARSE: [arg]. Query: [query_to_parse]")
+					log_debug("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
 					return null
 
 				pos = search + 1
-				arg = ""
+				curr_arg = ""
 				continue
 			else
 				parsed += copytext(query_to_parse, pos, search)
