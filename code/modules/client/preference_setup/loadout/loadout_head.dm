@@ -145,7 +145,7 @@
 	turbans["grey turban"] = /obj/item/clothing/head/turban/grey
 	turbans["orange turban"] = /obj/item/clothing/head/turban/orange
 	turbans["purple turban"] = /obj/item/clothing/head/turban/purple
-	turbans["red turban] = /obj/item/clothing/head/turban/red
+	turbans["red turban"] = /obj/item/clothing/head/turban/red
 	turbans["white turban"] = /obj/item/clothing/head/turban/white
 	turbans["yellow turban"] = /obj/item/clothing/head/turban/yellow
 	
