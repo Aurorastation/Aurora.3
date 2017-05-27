@@ -183,22 +183,32 @@ DBQuery/proc/SetConversion(column,conversion)
 		conversions.len = column
 	conversions[column] = conversion
 
-/* Works similarly to the PDO object's Execute() method in PHP.
-* Insert a list of keys/values, it searches the SQL syntax for the keys,
-* and replaces them with sanitized versions of the values.
-* Can be called independently, or through dbcon.Execute(), where the list would be the first argument.
-* passNotFound controls whether or not is passes keys not found in the SQL query.
-* Keys are /case-sensitive/, be careful!
-* Returns the parsed SQL query upon completion.
-* - Skull132
+/**
+* Automatic query parsing. Works similarly to any SQL prepared statement system.
+*
+* You pass in here a query which has special argument markers (we use :marker: style),
+* and a map of argument -> content. Note that in this map, the argument key should not
+* contain the colon delimiters. So while it's :marker: in the query, in the args list,
+* it would be list("marker" = somevar).
+*
+* The parser will then crawl the input query and replace any placeholders it finds
+* with automatically sanitized values. Values can even be lists, at which point a
+* MySQL list is generated: (VALUE1, VALUE2).
+*
+* @param	query_to_parse The query we will be parsing.
+* @param	argument_list A map of markers associated with their values. Values can
+* be numeric, strings, null, or lists of primitives. In case of null, MySQL NULL is
+* used. In case of a list of primitives, a MySQL comma delimited list is used instead.
+*
+* @return	The parsed query upon success. null upon failure.
 */
-/DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list, var/pass_not_found = 0)
+/DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list)
 	if (!query_to_parse || !argument_list || !argument_list.len)
 		log_debug("SQL ARGPARSE: Invalid arguments sent.")
 		return null
 
 	var/parsed = ""
-	var/list/length_cache = list()
+	var/list/cache = list()
 	var/pos = 1
 	var/search = 0
 	var/arg = ""
@@ -211,31 +221,30 @@ DBQuery/proc/SetConversion(column,conversion)
 			search = findtext(query_to_parse, ":", pos + 1)
 			if (search)
 				arg = copytext(query_to_parse, pos + 1, search)
-				if (length_cache[arg])
-					parsed += argument_list[arg]
-				else if (argument_list[arg])
+				if (cache[arg])
+					parsed += cache[arg]
+				else if (argument_list[arg] || (arg in argument_list))
 					var/argument = argument_list[arg]
 					if (istext(argument))
-						argument_list[arg] = "'[dbcon.Quote(argument)]'"
+						cache[arg] = "[dbcon.Quote(argument)]"
 					else if (isnum(argument))
-						argument_list[arg] = "[argument]"
+						cache[arg] = "[argument]"
 					else if (istype(argument, /list))
-						argument_list[arg] = parse_db_lists(argument)
+						cache[arg] = parse_db_lists(argument)
 					else if (isnull(argument))
-						argument_list[arg] = "NULL"
+						cache[arg] = "NULL"
 					else
 						log_debug("SQL ARGPARSE: Failed! Cannot identify argument!")
 						log_debug("SQL ARGPARSE: [arg]. Argument: [argument]")
 						return null
 
-					length_cache[arg] = length(argument_list[arg])
-					parsed += argument_list[arg]
+					parsed += cache[arg]
 				else
 					log_debug("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
 					log_debug("SQL ARGPARSE: [arg]. Query: [query_to_parse]")
 					return null
 
-				pos += length_cache[arg]
+				pos = search + 1
 				arg = ""
 				continue
 			else
@@ -243,9 +252,16 @@ DBQuery/proc/SetConversion(column,conversion)
 
 		break
 
-	log_debug("SQL ARGPARSE: Query set to: [parsed]")
 	return parsed
 
+/**
+ * Generates a MySQL list from a list of primitives. Also escapes values.
+ *
+ * @param	argument The list of primitives we want to generate a MySQL list from.
+ *
+ * @return	A string representing the MySQL list if the parsing is successful.
+ * "NULL", the MySQL null value, if parsing fails for some reason.
+ */
 /DBQuery/proc/parse_db_lists(var/list/argument)
 	if (!argument || !istype(argument) || !argument.len)
 		return "NULL"
