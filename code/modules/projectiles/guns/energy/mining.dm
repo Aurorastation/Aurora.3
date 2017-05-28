@@ -11,6 +11,7 @@
 	contained_sprite = 1
 	charge_meter = 0
 	fire_delay = 16
+	slot_flags = SLOT_BELT|SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4, TECH_POWER = 4)
 	projectile_type = /obj/item/projectile/kinetic
 	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
