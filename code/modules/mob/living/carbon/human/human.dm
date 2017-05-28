@@ -10,20 +10,31 @@
 	var/obj/item/weapon/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	mob_size = 9//Based on average weight of a human
 
-/mob/living/carbon/human/New(var/new_loc, var/new_species = null)
+/mob/living/carbon/human/New(var/new_loc, var/new_species = null, var/adminbus = 0)
 	eat_types |= TYPE_ORGANIC//Any mobs that are given the devour verb, can eat nonhumanoid organics. Only applies to unathi for now
 
 	if(!dna)
 		dna = new /datum/dna(null)
 		// Species name is handled by set_species()
 
-	if(!species)
-		if(new_species)
-			set_species(new_species,1)
-		else
-			set_species()
+	if(adminbus)
+		if(!species)
+			if(new_species)
+				set_species(new_species,1)
+			else
+				set_species()
 
-	if(species)
+		if(species)
+			real_name = species.get_random_name(gender)
+			name = real_name
+			if(mind)
+				mind.name = real_name
+
+	else
+		if(prob(50))
+			set_species("Vox Pariah",1)
+		else
+			set_species("Resomi",1)
 		real_name = species.get_random_name(gender)
 		name = real_name
 		if(mind)
