@@ -183,7 +183,7 @@
 	return ..()
 
 /obj/structure/reagent_dispensers/fueltank/tesla_act()
-	..() 
+	..()
 	explode()
 
 /obj/structure/reagent_dispensers/fueltank/Move()
@@ -266,6 +266,7 @@
 	icon_state = "virusfoodtank"
 	amount_per_transfer_from_this = 10
 	anchored = 1
+	density = 0
 
 	New()
 		..()
@@ -278,6 +279,7 @@
 	icon_state = "acidtank"
 	amount_per_transfer_from_this = 10
 	anchored = 1
+	density = 0
 
 	New()
 		..()
@@ -292,7 +294,7 @@
 	icon_state = "oiltank"
 	amount_per_transfer_from_this = 120
 	capacity = 5000
-	
+
 /obj/structure/reagent_dispensers/cookingoil/Initialize()
 	. = ..()
 	reagents.add_reagent("cornoil",capacity)

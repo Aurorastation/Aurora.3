@@ -759,15 +759,7 @@
 				LAZYADD(hacked_ipcs, "\ref[H]")
 				infected = 0
 				H << "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>"
-				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control. This will not last long.</span>"
-				sleep(50)
-				H << "<span class = 'danger'>Corrupt files detected! Starting removal. This will take some time.</span>"
-				sleep(2150)
-				H << "<span class = 'danger'>Corrupt files removed! Recent memory files purged to ensure system integrity!</span>"
-				H << "<span class = 'notice'>You remember nothing about being hacked.</span>"
-				hacker << "<span class = 'notice'>Corrupt files transfered to [H] have been removed by their systems.</span>"
-				LAZYREMOVE(hacked_ipcs, "\ref[H]")
-
+				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are reparied.</span>"
 			else if(src.cell && src.cell.charge > 0)
 				if(H.nutrition < H.max_nutrition)
 					if(src.cell.charge >= H.max_nutrition)
@@ -896,7 +888,7 @@
 	)
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
@@ -1321,17 +1313,19 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 
 // overload the lights in this APC area
 
-/obj/machinery/power/apc/proc/overload_lighting(var/chance = 100)
-	if(/* !get_connection() || */ !operating || shorted)
+/obj/machinery/power/apc/proc/overload_lighting(var/chance = 100, var/force = FALSE)
+	if((!operating || shorted) && !force)
 		return
-	if( cell && cell.charge>=20)
-		cell.use(20);
+
+	if(force || (cell && cell.charge >= 20))
+		cell.use(20)	// Draining an empty cell is fine.
+
 		spawn(0)
-			for(var/obj/machinery/light/L in area)
-				if(prob(chance))
+			for (var/obj/machinery/light/L in area)
+				if (prob(chance))
 					L.on = 1
 					L.broken()
-				sleep(1)
+					sleep(1)
 
 /obj/machinery/power/apc/proc/flicker_all()
 	var/offset = 0

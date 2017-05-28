@@ -58,7 +58,7 @@ var/list/reg_dna       = list()
 
 var/list/monkeystart     = list()
 var/list/wizardstart     = list()
-var/list/newplayer_start = list()
+var/turf/newplayer_start = null
 
 //Spawnpoints.
 var/list/latejoin         = list()
@@ -101,10 +101,6 @@ var/datum/moduletypes/mods = new()
 var/gravity_is_on = 1
 
 var/datum/server_greeting/server_greeting = null
-var/forceblob = 0
-
-var/datum/nanomanager/nanomanager		= new() // NanoManager, the manager for Nano UIs.
-var/datum/event_manager/event_manager	= new() // Event Manager, the manager for events.
 
 var/list/awaydestinations = list() // Away missions. A list of landmarks that the warpgate can take you to.
 

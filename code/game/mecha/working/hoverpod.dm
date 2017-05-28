@@ -3,6 +3,7 @@
 	name = "Hover Pod"
 	icon_state = "engineering_pod"
 	initial_icon = "engineering_pod"
+	w_class = 10
 	internal_damage_threshold = 80
 	step_in = 4
 	step_energy_drain = 10
@@ -51,7 +52,7 @@
 			ion_trail.start()
 		if (stabilization_enabled)
 			return 1
-	
+
 	return ..()
 
 //these three procs overriden to play different sounds

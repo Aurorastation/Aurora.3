@@ -396,404 +396,26 @@
 
 	/////////////////////////////////////new ban stuff
 
-	else if(href_list["jobban2"])
-//		if(!check_rights(R_BAN))	return
-
-		var/mob/M = locate(href_list["jobban2"])
-		if(!ismob(M))
-			usr << "This can only be used on instances of type /mob"
-			return
-
-		if(!M.ckey)	//sanity
-			usr << "This mob has no ckey"
-			return
-		if(!job_master)
-			usr << "Job Master has not been setup!"
-			return
-
-		var/dat = ""
-		var/header = "<head><title>Job-Ban Panel: [M.name]</title></head>"
-		var/body
-		var/jobs = ""
-
-	/***********************************WARNING!************************************
-				      The jobban stuff looks mangled and disgusting
-						      But it looks beautiful in-game
-						                -Nodrak
-	************************************WARNING!***********************************/
-		var/counter = 0
-//Regular jobs
-	//Command (Blue)
-		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr align='center' bgcolor='ccccff'><th colspan='[length(command_positions)]'><a href='?src=\ref[src];jobban3=commanddept;jobban4=\ref[M]'>Command Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in command_positions)
-			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
-			if(!job) continue
-
-			if(jobban_isbanned(M, job.title))
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
-				counter++
-			else
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
-				counter++
-
-			if(counter >= 6) //So things dont get squiiiiished!
-				jobs += "</tr><tr>"
-				counter = 0
-		jobs += "</tr></table>"
-
-	//Security (Red)
-		counter = 0
-		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ffddf0'><th colspan='[length(security_positions)]'><a href='?src=\ref[src];jobban3=securitydept;jobban4=\ref[M]'>Security Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in security_positions)
-			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
-			if(!job) continue
-
-			if(jobban_isbanned(M, job.title))
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
-				counter++
-			else
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
-				counter++
-
-			if(counter >= 5) //So things dont get squiiiiished!
-				jobs += "</tr><tr align='center'>"
-				counter = 0
-		jobs += "</tr></table>"
-
-	//Engineering (Yellow)
-		counter = 0
-		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='fff5cc'><th colspan='[length(engineering_positions)]'><a href='?src=\ref[src];jobban3=engineeringdept;jobban4=\ref[M]'>Engineering Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in engineering_positions)
-			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
-			if(!job) continue
-
-			if(jobban_isbanned(M, job.title))
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
-				counter++
-			else
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
-				counter++
-
-			if(counter >= 5) //So things dont get squiiiiished!
-				jobs += "</tr><tr align='center'>"
-				counter = 0
-		jobs += "</tr></table>"
-
-	//Medical (White)
-		counter = 0
-		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ffeef0'><th colspan='[length(medical_positions)]'><a href='?src=\ref[src];jobban3=medicaldept;jobban4=\ref[M]'>Medical Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in medical_positions)
-			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
-			if(!job) continue
-
-			if(jobban_isbanned(M, job.title))
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
-				counter++
-			else
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
-				counter++
-
-			if(counter >= 5) //So things dont get squiiiiished!
-				jobs += "</tr><tr align='center'>"
-				counter = 0
-		jobs += "</tr></table>"
-
-	//Science (Purple)
-		counter = 0
-		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='e79fff'><th colspan='[length(science_positions)]'><a href='?src=\ref[src];jobban3=sciencedept;jobban4=\ref[M]'>Science Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in science_positions)
-			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
-			if(!job) continue
-
-			if(jobban_isbanned(M, job.title))
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
-				counter++
-			else
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
-				counter++
-
-			if(counter >= 5) //So things dont get squiiiiished!
-				jobs += "</tr><tr align='center'>"
-				counter = 0
-		jobs += "</tr></table>"
-
-	//Civilian (Grey)
-		counter = 0
-		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='dddddd'><th colspan='[length(civilian_positions)]'><a href='?src=\ref[src];jobban3=civiliandept;jobban4=\ref[M]'>Civilian Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in civilian_positions)
-			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
-			if(!job) continue
-
-			if(jobban_isbanned(M, job.title))
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
-				counter++
-			else
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
-				counter++
-
-			if(counter >= 5) //So things dont get squiiiiished!
-				jobs += "</tr><tr align='center'>"
-				counter = 0
-
-		if(jobban_isbanned(M, "Internal Affairs Agent"))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=Internal Affairs Agent;jobban4=\ref[M]'><font color=red>Internal Affairs Agent</font></a></td>"
-		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=Internal Affairs Agent;jobban4=\ref[M]'>Internal Affairs Agent</a></td>"
-
-		jobs += "</tr></table>"
-
-	//Non-Human (Green)
-		counter = 0
-		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ccffcc'><th colspan='[length(nonhuman_positions)+1]'><a href='?src=\ref[src];jobban3=nonhumandept;jobban4=\ref[M]'>Non-human Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in nonhuman_positions)
-			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
-			if(!job) continue
-
-			if(jobban_isbanned(M, job.title))
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
-				counter++
-			else
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
-				counter++
-
-			if(counter >= 5) //So things dont get squiiiiished!
-				jobs += "</tr><tr align='center'>"
-				counter = 0
-
-		//pAI isn't technically a job, but it goes in here.
-
-		if(jobban_isbanned(M, "pAI"))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=pAI;jobban4=\ref[M]'><font color=red>pAI</font></a></td>"
-		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=pAI;jobban4=\ref[M]'>pAI</a></td>"
-		if(jobban_isbanned(M, "AntagHUD"))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=AntagHUD;jobban4=\ref[M]'><font color=red>AntagHUD</font></a></td>"
-		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=AntagHUD;jobban4=\ref[M]'>AntagHUD</a></td>"
-		jobs += "</tr></table>"
-
-	//Antagonist (Orange)
-		var/isbanned_dept = jobban_isbanned(M, "Antagonist")
-		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ffeeaa'><th colspan='10'><a href='?src=\ref[src];jobban3=Antagonist;jobban4=\ref[M]'>Antagonist Positions</a></th></tr><tr align='center'>"
-
-		// Antagonists.
-		for(var/antag_type in all_antag_types)
-			var/datum/antagonist/antag = all_antag_types[antag_type]
-			if(!antag || !antag.bantype)
-				continue
-			if(jobban_isbanned(M, "[antag.bantype]") || isbanned_dept)
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[antag.bantype];jobban4=\ref[M]'><font color=red>[replacetext("[antag.role_text]", " ", "&nbsp")]</font></a></td>"
-			else
-				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[antag.bantype];jobban4=\ref[M]'>[replacetext("[antag.role_text]", " ", "&nbsp")]</a></td>"
-
-		jobs += "</tr></table>"
-
-		//Other races  (BLUE, because I have no idea what other color to make this)
-		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ccccff'><th colspan='1'>Other Races</th></tr><tr align='center'>"
-
-		if(jobban_isbanned(M, "Dionaea"))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=Dionaea;jobban4=\ref[M]'><font color=red>Dionaea</font></a></td>"
-		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=Dionaea;jobban4=\ref[M]'>Dionaea</a></td>"
-		jobs += "</tr></table>"
-		body = "<body>[jobs]</body>"
-		dat = "<tt>[header][body]</tt>"
-		usr << browse(dat, "window=jobban2;size=800x490")
+	else if(href_list["jobban_panel"])
+		jobban_panel(href_list["jobban_panel"])
 		return
 
-	//JOBBAN'S INNARDS
-	else if(href_list["jobban3"])
-		if(!check_rights(R_MOD,0) && !check_rights(R_ADMIN,0))
-			usr << "<span class='warning'>You do not have the appropriate permissions to add job bans!</span>"
+	// JOBBAN'S INNARDS
+	// Are now moved to banjob.dm. For use with the newer system.
+	else if(href_list["jobban_job"])
+		return jobban_handle(href_list["jobban_tgt"], href_list["jobban_job"])
+
+	else if(href_list["jobban_search"])
+		if (!check_rights(R_MOD|R_ADMIN))
 			return
 
-		if(check_rights(R_MOD,0) && !check_rights(R_ADMIN,0) && !config.mods_can_job_tempban) // If mod and tempban disabled
-			usr << "<span class='warning'>Mod jobbanning is disabled!</span>"
+		var/ckey = ckey(input("Please specify the ckey you want to search for:", "ckey")) as text
+		if (!ckey)
+			usr << "<span class='notice'>Cancelled.</span>"
 			return
 
-		var/mob/M = locate(href_list["jobban4"])
-		if(!ismob(M))
-			usr << "This can only be used on instances of type /mob"
-			return
-
-		if(M != usr)																//we can jobban ourselves
-			if(M.client && M.client.holder && (M.client.holder.rights & R_BAN))		//they can ban too. So we can't ban them
-				alert("You cannot perform this action. You must be of a higher administrative rank!")
-				return
-
-		if(!job_master)
-			usr << "Job Master has not been setup!"
-			return
-
-		//get jobs for department if specified, otherwise just returnt he one job in a list.
-		var/list/joblist = list()
-		switch(href_list["jobban3"])
-			if("commanddept")
-				for(var/jobPos in command_positions)
-					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
-					if(!temp) continue
-					joblist += temp.title
-			if("securitydept")
-				for(var/jobPos in security_positions)
-					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
-					if(!temp) continue
-					joblist += temp.title
-			if("engineeringdept")
-				for(var/jobPos in engineering_positions)
-					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
-					if(!temp) continue
-					joblist += temp.title
-			if("medicaldept")
-				for(var/jobPos in medical_positions)
-					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
-					if(!temp) continue
-					joblist += temp.title
-			if("sciencedept")
-				for(var/jobPos in science_positions)
-					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
-					if(!temp) continue
-					joblist += temp.title
-			if("civiliandept")
-				for(var/jobPos in civilian_positions)
-					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
-					if(!temp) continue
-					joblist += temp.title
-			if("nonhumandept")
-				joblist += "pAI"
-				for(var/jobPos in nonhuman_positions)
-					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
-					if(!temp) continue
-					joblist += temp.title
-			else
-				joblist += href_list["jobban3"]
-
-		//Create a list of unbanned jobs within joblist
-		var/list/notbannedlist = list()
-		for(var/job in joblist)
-			if(!jobban_isbanned(M, job))
-				notbannedlist += job
-
-		//Banning comes first
-		if(notbannedlist.len) //at least 1 unbanned job exists in joblist so we have stuff to ban.
-			switch(alert("Temporary Ban?",,"Yes","No", "Cancel"))
-				if("Yes")
-					if(!check_rights(R_MOD,0) && !check_rights(R_BAN, 0))
-						usr << "<span class='warning'>You Cannot issue temporary job-bans!</span>"
-						return
-					if(config.ban_legacy_system)
-						usr << "<span class='warning'>Your server is using the legacy banning system, which does not support temporary job bans. Consider upgrading. Aborting ban.</span>"
-						return
-					var/mins = input(usr,"How long (in minutes)?","Ban time",1440) as num|null
-					if(!mins)
-						return
-					if(check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > config.mod_job_tempban_max)
-						usr << "<span class='warning'>Moderators can only job tempban up to [config.mod_job_tempban_max] minutes!</span>"
-						return
-					var/reason = sanitize(input(usr,"Reason?","Please State Reason","") as text|null)
-					if(!reason)
-						return
-
-					var/msg
-					for(var/job in notbannedlist)
-						ban_unban_log_save("[key_name(usr)] temp-jobbanned [key_name(M)] from [job] for [mins] minutes. reason: [reason]")
-						log_admin("[key_name(usr)] temp-jobbanned [key_name(M)] from [job] for [mins] minutes",admin_key=key_name(usr))
-						feedback_inc("ban_job_tmp",1)
-						DB_ban_record(BANTYPE_JOB_TEMP, M, mins, reason, job)
-						feedback_add_details("ban_job_tmp","- [job]")
-						jobban_fullban(M, job, "[reason]; By [usr.ckey] on [time2text(world.realtime)]") //Legacy banning does not support temporary jobbans.
-						if(!msg)
-							msg = job
-						else
-							msg += ", [job]"
-					if (config.ban_legacy_system)
-						notes_add(M.ckey, "Banned  from [msg] - [reason]", usr)
-					else
-						notes_add_sql(M.ckey, "Banned from [msg] - [reason]", usr, M.lastKnownIP, M.computer_id)
-					message_admins("<span class='notice'>[key_name_admin(usr)] banned [key_name_admin(M)] from [msg] for [mins] minutes.</span>", 1)
-					M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>"
-					M << "<span class='danger'>The reason is: [reason]</span>"
-					M << "<span class='warning'>This jobban will be lifted in [mins] minutes.</span>"
-					href_list["jobban2"] = 1 // lets it fall through and refresh
-					return 1
-				if("No")
-					if(!check_rights(R_BAN))  return
-					var/reason = sanitize(input(usr,"Reason?","Please State Reason","") as text|null)
-					if(reason)
-						var/msg
-						for(var/job in notbannedlist)
-							ban_unban_log_save("[key_name(usr)] perma-jobbanned [key_name(M)] from [job]. reason: [reason]")
-							log_admin("[key_name(usr)] perma-banned [key_name(M)] from [job]",admin_key=key_name(usr))
-							feedback_inc("ban_job",1)
-							DB_ban_record(BANTYPE_JOB_PERMA, M, -1, reason, job)
-							feedback_add_details("ban_job","- [job]")
-							jobban_fullban(M, job, "[reason]; By [usr.ckey] on [time2text(world.realtime)]")
-							if(!msg)	msg = job
-							else		msg += ", [job]"
-						if (config.ban_legacy_system)
-							notes_add(M.ckey, "Banned  from [msg] - [reason]", usr)
-						else
-							notes_add_sql(M.ckey, "Banned from [msg] - [reason]", usr, M.lastKnownIP, M.computer_id)
-						message_admins("<span class='notice'>[key_name_admin(usr)] banned [key_name_admin(M)] from [msg]</span>", 1)
-						M << "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>"
-						M << "<span class='danger'>The reason is: [reason]</span>"
-						M << "<span class='warning'>Jobban can be lifted only upon request.</span>"
-						href_list["jobban2"] = 1 // lets it fall through and refresh
-						return 1
-				if("Cancel")
-					return
-
-		//Unbanning joblist
-		//all jobs in joblist are banned already OR we didn't give a reason (implying they shouldn't be banned)
-		if(joblist.len) //at least 1 banned job exists in joblist so we have stuff to unban.
-			if(!config.ban_legacy_system)
-				usr << "Unfortunately, database based unbanning cannot be done through this panel"
-				DB_ban_panel(M.ckey)
-				return
-			var/msg
-			for(var/job in joblist)
-				var/reason = jobban_isbanned(M, job)
-				if(!reason) continue //skip if it isn't jobbanned anyway
-				switch(alert("Job: '[job]' Reason: '[reason]' Un-jobban?","Please Confirm","Yes","No"))
-					if("Yes")
-						ban_unban_log_save("[key_name(usr)] unjobbanned [key_name(M)] from [job]")
-						log_admin("[key_name(usr)] unbanned [key_name(M)] from [job]",admin_key=key_name(usr),ckey=key_name(M))
-						DB_ban_unban(M.ckey, BANTYPE_JOB_PERMA, job)
-						feedback_inc("ban_job_unban",1)
-						feedback_add_details("ban_job_unban","- [job]")
-						jobban_unban(M, job)
-						if(!msg)	msg = job
-						else		msg += ", [job]"
-					else
-						continue
-			if(msg)
-				message_admins("<span class='notice'>[key_name_admin(usr)] unbanned [key_name_admin(M)] from [msg]</span>", 1)
-				M << "<span class='danger'><BIG>You have been un-jobbanned by [usr.client.ckey] from [msg].</BIG></span>"
-				href_list["jobban2"] = 1 // lets it fall through and refresh
-			return 1
-		return 0 //we didn't do anything!
+		jobban_panel(ckey)
+		return
 
 	else if(href_list["boot2"])
 		var/mob/M = locate(href_list["boot2"])
@@ -809,21 +431,6 @@
 			message_admins("<span class='notice'>[key_name_admin(usr)] booted [key_name_admin(M)].</span>", 1)
 			//M.client = null
 			qdel(M.client)
-
-	else if(href_list["removejobban"])
-		if(!check_rights(R_BAN))	return
-
-		var/t = href_list["removejobban"]
-		if(t)
-			if((alert("Do you want to unjobban [t]?","Unjobban confirmation", "Yes", "No") == "Yes") && t) //No more misclicks! Unless you do it twice.
-				log_admin("[key_name(usr)] removed [t]",admin_key=key_name(usr))
-				message_admins("<span class='notice'>[key_name_admin(usr)] removed [t]</span>", 1)
-				jobban_remove(t)
-				href_list["ban"] = 1 // lets it fall through and refresh
-				var/t_split = text2list(t, " - ")
-				var/key = t_split[1]
-				var/job = t_split[2]
-				DB_ban_unban(ckey(key), BANTYPE_JOB_PERMA, job)
 
 	else if(href_list["newban"])
 		if(!check_rights(R_MOD,0) && !check_rights(R_BAN, 0))
@@ -1346,7 +953,7 @@
 
 		M << "You've been hit by bluespace artillery!"
 		log_admin("[key_name(M)] has been hit by Bluespace Artillery fired by [src.owner]",admin_key=key_name(src.owner),ckey=key_name(M))
-		message_admins("[key_name(M)] has been hit by Bluespace Artillery fired by [src.owner]")
+		message_admins("[key_name_admin(M)] has been hit by Bluespace Artillery fired by [src.owner]")
 
 		M.canmove = FALSE
 		spawn(20)
@@ -1997,6 +1604,10 @@
 		else
 			usr << "<font color='red'><b>The adminhelp has already been claimed!</b></font>"
 
+		return
+
+	else if(href_list["access_control"])
+		access_control_topic(href_list["access_control"])
 		return
 
 mob/living/proc/can_centcom_reply()

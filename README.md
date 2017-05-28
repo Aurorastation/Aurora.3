@@ -1,6 +1,10 @@
 # Aurorastation
 
-[Website](https://aurorastation.org/) - [Code](https://github.com/Aurorastation/Aurora.3)
+**[Website](https://aurorastation.org/)**
+
+**[Code](https://github.com/Aurorastation/Aurora.3)**
+
+[![Krihelimeter](http://www.krihelinator.xyz/badge/Aurorastation/Aurora.3)](http://www.krihelinator.xyz/repositories/Aurorastation/Aurora.3)
 
 ---
 
@@ -42,7 +46,7 @@ First-time installation should be fairly straightforward.  First, you'll need BY
 This is a sourcecode-only release, so the next step is to compile the server files.  Open baystation12.dme by double-clicking it, open the Build menu, and click compile.  This'll take a little while, and if everything's done right you'll get a message like this:
 
     saving baystation12.dmb (DEBUG mode)
-    
+
     baystation12.dmb - 0 errors, 0 warnings
 
 If you see any errors or warnings, something has gone wrong - possibly a corrupt download or the files extracted wrong, or a code issue on the main repo. Ask on the server Discord if you're completely lost.
@@ -78,7 +82,7 @@ When you have done this, you'll need to recompile the code, but then it should w
 
 ### Configuration
 
-For a basic setup, simply copy every file from config/example to config. 
+For a basic setup, simply copy every file from config/example to config.
 
 For more advanced setups, setting the server `tick_lag` in the config as well as configuring SQL are good first steps.
 

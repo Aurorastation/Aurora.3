@@ -24,6 +24,9 @@
 		if (R.module)
 			for (var/obj/item/weapon/tank/jetpack/J in R.module.modules)
 				return J
+		// Synthetic jetpacks don't install into modules. They go into contents.
+		for (var/obj/item/weapon/tank/jetpack/J in R.contents)
+			return J
 
 	return null
 

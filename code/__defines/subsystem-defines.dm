@@ -23,7 +23,7 @@
 #define TIMER_NO_HASH_WAIT  0x10
 
 //number of byond ticks that are allowed to pass before the timer subsystem thinks it hung on something
-#define TIMER_NO_INVOKE_WARNING 600 
+#define TIMER_NO_INVOKE_WARNING 600
 
 // -- SSatoms stuff --
 // 	SSatoms Initialization state.
@@ -60,3 +60,6 @@
 // -- SSopenturf --
 #define CHECK_OO_EXISTENCE(OO) if (OO && !istype(OO.loc, /turf/simulated/open)) { qdel(OO); }
 #define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_oo(); }
+
+// -- SSfalling --
+#define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }

@@ -135,7 +135,7 @@
 				qdel(G)
 				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has placed [GM.name] ([GM.ckey]) in disposals.</font>")
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
-				msg_admin_attack("[usr] ([usr.ckey]) placed [GM] ([GM.ckey]) in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
+				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
 		return
 	if(!dropsafety(I))
 		return
@@ -575,7 +575,7 @@
 	if (!curr)
 		//spawn (0)	// expel() can sleep, so we gotta fork to not upset SSdisposals.
 		STOP_PROCESSING(SSdisposals, src)
-		tick_last.expel(src, loc.loc, dir)
+		tick_last.expel(src, get_turf(loc), dir)
 
 	if (!(count--))
 		STOP_PROCESSING(SSdisposals, src)
@@ -750,14 +750,14 @@
 	// expel the held objects into a turf
 	// called when there is a break in the pipe
 /obj/structure/disposalpipe/proc/expel(var/obj/disposalholder/H, var/turf/T, var/direction)
-	if(!istype(H))
+	if(!istype(H) || !istype(T))
 		return
 
 	// Empty the holder if it is expelled into a dense turf.
 	// Leaving it intact and sitting in a wall is stupid.
 	if(T.density)
 		for(var/atom/movable/AM in H)
-			AM.loc = T
+			AM.forceMove(T)
 			AM.pipe_eject(0)
 		qdel(H)
 		return
@@ -934,7 +934,7 @@
 				AM.forceMove(T)
 				AM.pipe_eject(0)
 			qdel(H)
-			
+
 			return ..()
 
 		// otherwise, do normal expel from turf
@@ -1127,7 +1127,7 @@
 /obj/structure/disposalpipe/tagger/Initialize()
 	. = ..()
 	dpdir = dir | turn(dir, 180)
-	if(sort_tag) 
+	if(sort_tag)
 		SSdisposals.tagger_locations |= sort_tag
 
 	updatename()
@@ -1195,7 +1195,7 @@
 
 /obj/structure/disposalpipe/sortjunction/Initialize()
 	. = ..()
-	if(sortType) 
+	if(sortType)
 		SSdisposals.tagger_locations |= sortType
 
 	updatedir()
@@ -1364,7 +1364,7 @@
 				D.expel(H)	// expel at disposal
 	else
 		if(H)
-			src.expel(H, src.loc, 0)	// expel at turf
+			src.expel(H, get_turf(src), 0)	// expel at turf
 	return null
 
 	// nextdir
