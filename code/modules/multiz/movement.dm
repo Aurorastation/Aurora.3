@@ -434,11 +434,10 @@
 	var/weight = fall_specs[1]
 	var/fall_force = fall_specs[2]
 
-	var/z_velocity = 5*(levels_fallen**2)
-	var/speed = z_velocity + throw_speed
-	var/mass = (weight / THROWNOBJ_KNOCKBACK_DIVISOR) + density + opacity
-	var/momentum = speed * mass
-	var/damage = round(fall_force * (speed / THROWNOBJ_KNOCKBACK_DIVISOR) * momentum)
+	var/speed = (levels_fallen-1) + throw_speed
+	var/mass = (weight / THROWNOBJ_KNOCKBACK_DIVISOR) + density + opacity //1
+	var/momentum = speed * mass //8
+	var/damage = round(fall_force * (speed / THROWNOBJ_KNOCKBACK_DIVISOR) * momentum) //64
 
 	var/miss_chance = max(15 * (levels_fallen - 1), 0)
 
