@@ -450,12 +450,12 @@
 	sel_mode = 1
 	burst = 30
 	burst_delay = 1
-	fire_delay = 60
+	fire_delay = 20
 	self_recharge = 1
 	recharge_time = 1
 	charge_meter = 1
 	use_external_power = 1
-	charge_cost = 50
+	charge_cost = 200
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	..()
@@ -468,10 +468,8 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(30)
+	sleep(20)
 	is_charging = 0
-	if(!istype(user.get_active_hand(), src))
-		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
 	return 1
 

@@ -19,7 +19,7 @@
 /obj/machinery/mineral/rigpress/attackby(obj/item/W, mob/user)
 	if(!pressing)
 		var/outcome_path
-		var/list/kinetic_mods
+		var/list/kinetic_mods = list()
 		var/kineticaccelerator
 		if(istype(W, /obj/item/clothing/glasses/material))
 			outcome_path = /obj/item/rig_module/vision/meson
