@@ -589,7 +589,7 @@
 		// the turf, falling back down, and then getting forcemoved to the final destination.
 		LAZYADD(TA.climbers, H)
 
-		H.Move(TA)
+		H.forceMove(TA)
 
 		// Combat type actuators are better, they allow you to jump instantly onto
 		// a ledge. Regular actuators make you have to climb the rest of the way.
