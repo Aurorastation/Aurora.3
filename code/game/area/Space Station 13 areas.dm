@@ -769,7 +769,7 @@ area/space/atmosalert()
 
 //Hallway
 
-/area/hallway/primary/
+/area/hallway
 	sound_env = LARGE_ENCLOSED
 	allow_nightmode = 1
 	station_area = 1
