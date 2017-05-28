@@ -47,7 +47,6 @@ var/list/jobban_keylist = list() // Global jobban list.
 	else
 		jobban_loaddatabase()
 
-	testing("Database: [json_encode(jobban_keylist)]")
 	return 1
 
 /**

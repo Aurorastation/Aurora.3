@@ -172,23 +172,26 @@
  * invoked with the second argument being TRUE. As opposed to the default value, FALSE.
  *
  * @param	below The turf that the mob is expected to end up at.
+ * @param	dest The tile we're presuming the mob to be at for this check. Default
+ * value is src.loc, (src. is important there!) but this is used for magboot lookahead
+ * checks it turf/simulated/open/Enter().
  *
  * @return	TRUE if the atom can continue falling in its present situation.
  *			FALSE if it should stop falling and not invoke fall_through or fall_impact
  * this cycle.
  */
-/atom/movable/proc/can_fall(turf/below)
+/atom/movable/proc/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Anchored things don't fall.
 	if(anchored)
 		return FALSE
 
 	// Lattices and stairs stop things from falling.
-	if(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc))
+	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest))
 		return FALSE
 
 	// See if something prevents us from falling.
 	for(var/atom/A in below)
-		if(!A.CanPass(src, src.loc))
+		if(!A.CanPass(src, dest))
 			return FALSE
 
 	// True otherwise.
@@ -200,7 +203,7 @@
 /obj/effect/decal/cleanable/can_fall()
 	return TRUE
 
-/obj/item/pipe/can_fall(turf/below)
+/obj/item/pipe/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	. = ..()
 
 	if((locate(/obj/structure/disposalpipe/up) in below) || locate(/obj/machinery/atmospherics/pipe/zpipe/up in below))
@@ -208,16 +211,16 @@
 
 // Only things that stop mechas are atoms that, well, stop them.
 // Lattices and stairs get crushed in fall_through.
-/obj/mecha/can_fall(turf/below)
+/obj/mecha/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// See if something prevents us from falling.
 	for(var/atom/A in below)
-		if(!A.CanPass(src, src.loc))
+		if(!A.CanPass(src, dest))
 			return FALSE
 
 	// True otherwise.
 	return TRUE
 
-/mob/living/carbon/human/can_fall()
+/mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Special condition for jetpack mounted folk!
 	if (!restrained())
 		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
@@ -234,7 +237,7 @@
 /mob/eye/can_fall()
 	return FALSE
 
-/mob/living/silicon/robot/can_fall()
+/mob/living/silicon/robot/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
 
 	if (thrust && thrust.stabilization_on && thrust.allow_thrust(0.02, src))

@@ -18,7 +18,7 @@
 			delete_me = 1
 			return
 		if("start")
-			newplayer_start += loc
+			newplayer_start = get_turf(loc)
 			delete_me = 1
 			return
 		if("JoinLate")

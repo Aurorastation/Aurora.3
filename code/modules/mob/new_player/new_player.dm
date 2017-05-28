@@ -432,10 +432,10 @@
 		if(chosen_species && use_species_name)
 			// Have to recheck admin due to no usr at roundstart. Latejoins are fine though.
 			if(is_species_whitelisted(chosen_species) || has_admin_rights())
-				new_character = new(null, use_species_name)
+				new_character = new(newplayer_start, use_species_name)
 
 		if(!new_character)
-			new_character = new(null)
+			new_character = new(newplayer_start)
 
 		new_character.lastarea = get_area(loc)
 
