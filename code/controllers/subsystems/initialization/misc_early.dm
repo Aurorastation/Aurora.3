@@ -32,9 +32,6 @@
 	// Create robolimbs for chargen.
 	populate_robolimb_list()
 
-	if(config.ToRban)
-		ToRban_autoupdate()
-
 	// Set up antags.
 	populate_antag_type_list()
 
