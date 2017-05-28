@@ -354,7 +354,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "centcom"
 	assignment = "Emergency Response Team"
 
-obj/item/weapon/card/id/centcom/ERT/New()
+/obj/item/weapon/card/id/ERT/New()
 	access = get_all_accesses() + get_centcom_access("Emergency Response Team")
 	..()
 
