@@ -100,7 +100,7 @@
 	can_hold = list(/obj/item/weapon/ore)
 
 /obj/item/weapon/storage/bag/ore/drone
-	max_storage_space = 250
+	max_storage_space = 400
 
 
 // -----------------------------
