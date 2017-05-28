@@ -38,7 +38,6 @@
 			qdel(S)
 			continue
 
-		log_debug("SSfeedback: Initialized new statistic type '[type]', name=[S.name],key=[S.key]")
 		simple_statistics[S.key] = S
 
 	sortTim(simple_statistics, /proc/cmp_name_asc, TRUE)
