@@ -27,6 +27,22 @@ var/datum/discord_bot/discord_bot = null
 
 	return 1
 
+/hook/roundstart/proc/alert_no_admins()
+	if (!discord_bot)
+		return 1
+
+	var/admins_number = 0
+
+	for (var/C in clients)
+		var/client/cc = C
+		if (cc.holder && (cc.holder.rights & (R_MOD|R_ADMIN)))
+			admins_number++
+
+	if (!admins_number)
+		discord_bot.send_to_admins("@here Round has started with no admins or mods online.")
+
+	return 1
+
 /datum/discord_bot
 	var/list/channels_to_group = list()		// Group flag -> list of channel datums map.
 	var/list/channels = list()				// Channel ID -> channel datum map. Will ensure that only one datum per channel ID exists.
