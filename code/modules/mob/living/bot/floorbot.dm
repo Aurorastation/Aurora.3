@@ -375,3 +375,20 @@
 		if(!in_range(src, user) && loc != user)
 			return
 		created_name = t
+
+/mob/living/bot/floorbot/floorbob
+	name = "B.O.B."
+	desc = "A little floor repairing robot, he can build it!"
+	icon_state = "floorbob0"
+	req_one_access = list(access_construction, access_robotics)
+
+	amount = 120 // 1 for tile, 2 for lattice
+	maxAmount = 120
+
+/mob/living/bot/floorbot/floorbob/update_icons()
+	if(repairing)
+		icon_state = "floorbob-c"
+	else if(amount > 0)
+		icon_state = "floorbob[on]"
+	else
+		icon_state = "floorbob[on]e"
