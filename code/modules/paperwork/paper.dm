@@ -241,12 +241,25 @@
 /obj/item/weapon/paper/proc/get_signature(var/obj/item/weapon/pen/P, mob/user as mob)
 	if(P && istype(P, /obj/item/weapon/pen))
 		return P.get_signature(user)
-	return (user && user.real_name) ? user.real_name : "Anonymous"
+
+	if (user)
+		if (user.mind && user.mind.signature)
+			return user.mind.signature
+		else if (user.real_name)
+			return "<i>[user.real_name]</i>"
+
+	return "<i>Anonymous</i>"
+
+/obj/item/weapon/paper/proc/get_signfont(var/obj/item/weapon/pen/P, var/mob/user)
+	if (!istype(P, /obj/item/weapon/pen/chameleon))
+		if (user && user.mind && user.mind.signfont)
+			return user.mind.signfont
+
+	return signfont
 
 /obj/item/weapon/paper/proc/parsepencode(t, obj/item/weapon/pen/P, mob/user, iscrayon)
 
-	if(findtext(t, "\[sign\]"))
-		t = replacetext(t, "\[sign\]", "<font face=\"[signfont]\"><i>[get_signature(P, user)]</i></font>")
+	t = replacetext(t, "\[sign\]", "<font face=\"[get_signfont(P, user)]\">[get_signature(P, user)]</font>")
 
 	if(iscrayon) // If it is a crayon, and he still tries to use these, make them empty!
 		t = replacetext(t, "\[*\]", "")

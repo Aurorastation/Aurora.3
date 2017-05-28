@@ -61,6 +61,8 @@
 		var/mob/living/carbon/human/H = usr
 		if(istype(H))
 			master = usr
+			audible_emote("[pick(emote_hear)].",0)
+			playsound(src,'sound/misc/dog_bark.ogg',100, 1)
 			. = 1
 	else if(usr == master)
 		. = 1 //already friends, but show success anyways
@@ -99,6 +101,18 @@
 	icon_living = "amaskan"
 	icon_dead = "amaskan_dead"
 
+/mob/living/simple_animal/hostile/commanded/dog/columbo
+	name = "Lt. Columbo"
+	desc = "A dog trained to listen and obey its owner commands. This one looks about three days from retirement."
+
+	melee_damage_lower = 5
+	melee_damage_upper = 10
+
+	name_changed = 1
+
+	icon_state = "columbo"
+	icon_living = "columbo"
+	icon_dead = "columbo_dead"
 
 /mob/living/simple_animal/hostile/commanded/dog/pug
 	name = "pug"

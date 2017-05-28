@@ -114,8 +114,8 @@
 		thing.autodrobe_no_remove = 1
 
 /obj/item/weapon/storage/box/gloves
-	name = "box of latex gloves"
-	desc = "Contains white gloves."
+	name = "box of sterile gloves"
+	desc = "Contains sterile gloves."
 	icon_state = "latex"
 
 	New()
@@ -124,9 +124,9 @@
 		new /obj/item/clothing/gloves/latex(src)
 		new /obj/item/clothing/gloves/latex(src)
 		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/clothing/gloves/latex(src)
+		new /obj/item/clothing/gloves/latex/nitrile(src)
+		new /obj/item/clothing/gloves/latex/nitrile(src)
+		new /obj/item/clothing/gloves/latex/nitrile(src)
 
 /obj/item/weapon/storage/box/masks
 	name = "box of sterile masks"

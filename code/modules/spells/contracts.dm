@@ -149,3 +149,7 @@
 /obj/item/weapon/contract/boon/wizard/charge
 	path = /spell/aoe_turf/charge
 	desc = "This contract is made of 100% post-consumer wizard."
+
+/obj/item/weapon/contract/boon/wizard/gestalt
+	path = /spell/aoe_turf/conjure/grove/gestalt
+	desc = "This contract is a druid's favorite."
