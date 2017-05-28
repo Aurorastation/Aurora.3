@@ -115,7 +115,8 @@
 	. += "Signature: <font face='[pref.signfont ? pref.signfont : "Verdana"]'>[pref.signature]</font><br/>"
 	. += "<a href='?src=\ref[src];edit_signature=text'>Edit Text</a> | "
 	. += "<a href='?src=\ref[src];edit_signature=font'>Edit Font</a> | "
-	. += "<a href='?src=\ref[src];edit_signature=help'>Help</a><br/>"
+	. += "<a href='?src=\ref[src];edit_signature=help'>Help</a> | "
+	. += "<a href='?src=\ref[src];edit_signature=reset'>Reset</a><br/>"
 
 /datum/category_item/player_setup_item/general/flavor/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["flavor_text"])
@@ -149,7 +150,7 @@
 	else if (href_list["edit_signature"])
 		switch (href_list["edit_signature"])
 			if ("text")
-				var/new_sign = input(usr, "Please input the new character signature.", "New signature", pref.signature) as null|text
+				var/new_sign = input(usr, "Please input the new character signature.", "New signature", html2pencode(pref.signature)) as null|text
 				if (!new_sign)
 					to_chat(usr, span("notice", "Cancelled."))
 					if (pref.signature)
@@ -187,6 +188,11 @@
 
 				show_browser(usr, html, "window=signaturehelp;size=350x300")
 				return TOPIC_HANDLED
+			if ("reset")
+				to_chat(usr, span("notice", "Signature reset."))
+				pref.signfont = "Verdana"
+				pref.signature = "<i>[pref.real_name]</i>"
+				return TOPIC_REFRESH
 
 	return ..()
 

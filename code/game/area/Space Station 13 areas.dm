@@ -769,7 +769,7 @@ area/space/atmosalert()
 
 //Hallway
 
-/area/hallway/primary/
+/area/hallway
 	sound_env = LARGE_ENCLOSED
 	allow_nightmode = 1
 	station_area = 1
@@ -982,7 +982,7 @@ area/space/atmosalert()
 	allow_nightmode = 1
 
 /area/crew_quarters/locker/locker_toilet
-	name = "\improper Locker Toilets"
+	name = "\improper Main Level Toilets"
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
 
