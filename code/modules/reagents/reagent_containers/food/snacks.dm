@@ -2579,6 +2579,49 @@
 	reagents.add_reagent("gold", 5)
 	bitesize = 3
 
+/obj/item/weapon/reagent_containers/food/snacks/redcurry
+	name = "red curry"
+	desc = "A bowl of creamy red curry with meat and rice. This one looks savory."
+	icon_state = "redcurry"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#f73333"
+	center_of_mass = list("x"=16, "y"=8)
+
+/obj/item/weapon/reagent_containers/food/snacks/redcurry/New()
+	..()
+	reagents.add_reagent("protein", 10)
+	reagents.add_reagent("nutriment", 8)
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/greencurry
+	name = "green curry"
+	desc = "A bowl of creamy green curry with tofu, hot peppers and rice. This one looks spicy!"
+	icon_state = "greencurry"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#58b76c"
+	center_of_mass = list("x"=16, "y"=8)
+
+/obj/item/weapon/reagent_containers/food/snacks/greencurry/New()
+	..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("nutriment", 12)
+	reagents.add_reagent("capsaicin", 2)
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/yellowcurry
+	name = "yellow curry"
+	desc = "A bowl of creamy yellow curry with potatoes, peanuts and rice. This one looks mild."
+	icon_state = "yellowcurry"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#f73333"
+	center_of_mass = list("x"=16, "y"=8)
+
+/obj/item/weapon/reagent_containers/food/snacks/yellowcurry/New()
+	..()
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 16)
+	bitesize = 3
+
 /////////////////////////////////////////////////Sliceable////////////////////////////////////////
 // All the food items that can be sliced into smaller bits like Meatbread and Cheesewheels
 

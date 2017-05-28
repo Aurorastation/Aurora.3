@@ -724,3 +724,31 @@ I said no!
 /datum/recipe/neuralbroke
 	items = list(/obj/item/organ/vaurca/neuralsocket)
 	result = /obj/item/weapon/neuralbroke
+
+
+////////////////////
+//Synnono Meme Foods
+////////////////////
+
+
+/datum/recipe/redcurry
+	reagents = list("cream" = 5, "spacespice" = 2, "rice" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet,
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet,
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/redcurry
+
+/datum/recipe/greencurry
+	reagents = list("cream" = 5, "spacespice" = 2, "rice" = 5)
+	fruit = list("chili" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tofu,
+		/obj/item/weapon/reagent_containers/food/snacks/tofu,
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/greencurry
+
+/datum/recipe/yellowcurry
+	reagents = list("cream" = 5, "spacespice" = 2, "rice" = 5)
+	fruit = list("peanut" = 2, "potato" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/yellowcurry
