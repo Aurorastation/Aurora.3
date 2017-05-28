@@ -10,3 +10,6 @@
 
 ## The subscriber role ID goes here.
 # SUBSCRIBER
+
+## Toggles if the bot should alert staff in case the server is started as invisible.
+# ALERT_VISIBILITY

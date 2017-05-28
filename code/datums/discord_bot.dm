@@ -58,6 +58,10 @@ var/datum/discord_bot/discord_bot = null
 	// Lazy man's rate limiting vars
 	var/list/queue = list()
 
+	// Used to determine if BOREALIS should alert staff if the server is created
+	// with world.visibility == 0.
+	var/alert_visibility = 0
+
 /*
  * Proc update_channels
  * Used to load channels from the database and construct them with the discord API.
@@ -258,6 +262,15 @@ var/datum/discord_bot/discord_bot = null
 				destinations.Remove(channel)
 
 		queue.Remove(A)
+
+/**
+ * Will alert the staff on Discord if the server is initialized in invisible mode.
+ * Can be toggled via config.
+ */
+/datum/discord_bot/proc/alert_server_visibility()
+	if (alert_visibility && !world.visibility)
+		send_to_admins("Server started as invisible!")
+
 
 // A holder class for channels.
 /datum/discord_channel

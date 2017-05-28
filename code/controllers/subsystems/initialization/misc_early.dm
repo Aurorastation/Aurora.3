@@ -38,6 +38,11 @@
 	// Populate spawnpoints for char creation.
 	populate_spawn_points()
 
+	// Get BOREALIS to warn staff about a lazy admin forgetting visibility to 0
+	// before anyone has a chance to change it!
+	if (discord_bot)
+		discord_bot.alert_server_visibility()
+
 	lobby_image = new/obj/effect/lobby_image()
 
 	..()
