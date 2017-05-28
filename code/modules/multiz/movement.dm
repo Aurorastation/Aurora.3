@@ -189,8 +189,12 @@
 	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest))
 		return FALSE
 
+	// The var/climbers API is implemented here.
+	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
+		return FALSE
+
 	// See if something prevents us from falling.
-	for(var/atom/A in below)
+	for (var/atom/A in below)
 		if(!A.CanPass(src, dest))
 			return FALSE
 
@@ -212,6 +216,10 @@
 // Only things that stop mechas are atoms that, well, stop them.
 // Lattices and stairs get crushed in fall_through.
 /obj/mecha/can_fall(turf/below, turf/simulated/open/dest = src.loc)
+	// The var/climbers API is implemented here.
+	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
+		return FALSE
+
 	// See if something prevents us from falling.
 	for(var/atom/A in below)
 		if(!A.CanPass(src, dest))
@@ -228,12 +236,6 @@
 		if (thrust && thrust.stabilization_on &&\
 			!lying && thrust.allow_thrust(0.01, src))
 			return FALSE
-
-	// More magical exceptions for humans. This time: if they're climbing up,
-	// we can't fall!
-	var/turf/simulated/open/T = get_turf(src)
-	if (istype(T) && LAZYLEN(T.climbers) && (src in T.climbers))
-		return FALSE
 
 	return ..()
 

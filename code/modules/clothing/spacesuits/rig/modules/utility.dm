@@ -601,7 +601,7 @@
 					"<span class='danger'>You are interrupted and fall back down!</span>")
 				LAZYREMOVE(TA.climbers, H)
 
-				H.fall()
+				ADD_FALLING_ATOM(H)
 				return 1
 
 			H.visible_message("<span class='notice'>\The [H] finishes climbing onto \the [leapEnd].</span>",
