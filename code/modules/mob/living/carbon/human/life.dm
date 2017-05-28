@@ -982,11 +982,8 @@
 				if(!handling_hal)
 					spawn handle_hallucinations() //The not boring kind!
 				if(client && prob(5))
+					addtimer(CALLBACK(src, .proc/reset_view_dir, client.dir), rand(20, 50))
 					client.dir = pick(2,4,8)
-					var/client/C = client
-					spawn(rand(20,50))
-						if(C)
-							C.dir = 1
 
 			if(hallucination<=2)
 				hallucination = 0
@@ -1077,6 +1074,10 @@
 			gloves.germ_level += 1
 
 	return 1
+
+/mob/living/carbon/human/proc/reset_view_dir(original)
+	if (client)
+		client.dir = original
 
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(!overlays_cache)
