@@ -14,6 +14,8 @@
  * /obj/item/rig_module/device/paperdispenser
  * /obj/item/rig_module/device/pen
  * /obj/item/rig_module/device/stamp
+ * /obj/item/rig_module/actuators
+ * /obj/item/rig_module/actuators/combat
  */
 
 /obj/item/rig_module/device
@@ -472,3 +474,143 @@
 	interface_desc = "Eats trash like no one's business."
 
 	device_type = /obj/item/weapon/matter_decompiler
+
+/obj/item/rig_module/actuators
+	name = "leg actuators"
+	desc = "A set of electromechanical actuators, for safe travesal of multilevelled areas."
+	icon_state = "generic"
+	interface_name = "leg actuators"
+	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
+
+	disruptive = 1
+
+	use_power_cost = 5
+	module_cooldown = 25
+
+	/*
+	 * TOGGLE - dampens fall, on or off.
+	 * SELECTABLE - Jump forward or up!
+	 */
+	toggleable = 1
+	selectable = 1
+	usable = 0
+
+	engage_string = "Toggle Leg Actuators"
+	activate_string = "Enable Leg Actuators"
+	deactivate_string = "Disable Leg Actuators"
+
+	var/combatType = 0		// Determines whether or not the actuators can do special combat oriented tasks.
+							// Such as leaping faster, or grappling targets.
+	var/leapDistance = 4	// Determines how far the actuators allow you to leap (radius, inclusive).
+
+/obj/item/rig_module/actuators/combat
+	name = "military grade leg actuators"
+	desc = "A set of high-powered hydraulic actuators, for improved traversal of multilevelled areas."
+	interface_name = "combat leg actuators"
+
+	combatType = 1
+	leapDistance = 7
+
+	use_power_cost = 10
+
+/obj/item/rig_module/actuators/engage(var/atom/target)
+	if (!..())
+		return 0
+
+	// This is for when you toggle it on or off. Why do they both run the same
+	// proc chain ...? :l
+	if (!target)
+		return 1
+
+	var/mob/living/carbon/human/H = holder.wearer
+
+	if (!isturf(H.loc))
+		to_chat(H, "<span class='warning'>You cannot leap out of your current location!</span>")
+		return 0
+
+	var/turf/T = get_turf(target)
+
+	if (!T || T.density)
+		to_chat(H, "<span class='warning'>You cannot leap at solid walls!</span>")
+		return 0
+
+	// Saved, we need it more than 1 place.
+	var/dist = max(get_dist(T, get_turf(H)), 0)
+
+	if (dist)
+		for (var/A in T)
+			var/atom/aa = A
+			if (combatType && ismob(aa))
+				continue
+
+			if (aa.density)
+				to_chat(H, "<span class='warning'>You cannot leap at a location with solid objects on it!</span>")
+				return 0
+
+	if (T.z != H.z || dist > leapDistance)
+		to_chat(H, "<span class='warning'>You cannot leap at such a distant object!</span>")
+		return 0
+
+	// Handle leaping at targets with a combat capable version here.
+	if (combatType && dist && (ismob(target) || (locate(/mob/living) in T)))
+		H.leap(target, leapDistance)
+		return 1
+
+	// If dist -> horizontal leap. Otherwise, the user clicked the turf that they're
+	// currently on. Which means they want to do a vertical leap upwards!
+	if (dist)
+		H.visible_message("<span class='warning'>\The [H] leaps horizontally at \the [T]!</span>",
+			"<span class='warning'>You leap horizontally at \the [T]!</span>",
+			"<span class='warning'>You hear an electric <i>whirr</i> followed by a weighty thump!</span>")
+		H.face_atom(T)
+		H.throw_at(T, leapDistance, 1, src)
+		return 1
+	else
+		var/turf/simulated/open/TA = GetAbove(src)
+		if (!istype(TA))
+			to_chat(H, "<span class='warning'>There is a ceiling above you that stop you from leaping upwards!</span>")
+			return 0
+
+		for (var/atom/A in TA)
+			if (!A.CanPass(src, TA, 1.5, 0))
+				to_chat(H, "<span class='warning'>\The [A] blocks you!</span>")
+				return 0
+
+		var/turf/leapEnd = get_step(TA, H.dir)
+		if (!leapEnd || istype(leapEnd, /turf/simulated/open) || istype(leapEnd, /turf/space)\
+			|| leapEnd.density || leapEnd.contains_dense_objects())
+			to_chat(H, "<span class='warning'>There is no valid ledge to scale ahead of you!</span>")
+			return 0
+
+		H.visible_message("<span class='notice'>\The [H] leaps up, out of view!</span>",
+			"<span class='notice'>You leap up!</span>")
+
+		// This setting is necessary even for combat type, to stop you from moving onto
+		// the turf, falling back down, and then getting forcemoved to the final destination.
+		LAZYADD(TA.climbers, H)
+
+		H.forceMove(TA)
+
+		// Combat type actuators are better, they allow you to jump instantly onto
+		// a ledge. Regular actuators make you have to climb the rest of the way.
+		if (!combatType)
+			H.visible_message("<span class='notice'>\The [H] starts pulling \himself up onto \the [leapEnd].</span>",
+				"<span class='notice'>You start pulling yourself up onto \the [leapEnd].</span>")
+			if (!do_after(H, 4 SECONDS, use_user_turf = TRUE))
+				H.visible_message("<span class='warning'>\The [H] is interrupted and falls!</span>",
+					"<span class='danger'>You are interrupted and fall back down!</span>")
+				LAZYREMOVE(TA.climbers, H)
+
+				ADD_FALLING_ATOM(H)
+				return 1
+
+			H.visible_message("<span class='notice'>\The [H] finishes climbing onto \the [leapEnd].</span>",
+				"<span class='notice'>You finish climbing onto \the [leapEnd].</span>")
+		else
+			H.visible_message("<span class='warning'>\The [H] lands on \the [leapEnd] with a heavy slam!</span>",
+				"<span class='warning'>You land on \the [leapEnd] with a heavy thud!</span>")
+
+		LAZYREMOVE(TA.climbers, H)
+		H.forceMove(leapEnd)
+
+		return 1

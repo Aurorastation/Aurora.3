@@ -58,7 +58,7 @@ var/list/reg_dna       = list()
 
 var/list/monkeystart     = list()
 var/list/wizardstart     = list()
-var/list/newplayer_start = list()
+var/turf/newplayer_start = null
 
 //Spawnpoints.
 var/list/latejoin         = list()
