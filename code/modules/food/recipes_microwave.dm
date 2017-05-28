@@ -752,3 +752,43 @@ I said no!
 	reagents = list("cream" = 5, "spacespice" = 2, "rice" = 5)
 	fruit = list("peanut" = 2, "potato" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/yellowcurry
+
+/datum/recipe/bearburger
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bun,
+		/obj/item/weapon/reagent_containers/food/snacks/bearmeat 
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bearburger
+
+/datum/recipe/bearchili
+	fruit = list("chili" = 1, "tomato" = 1)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/bearmeat)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bearchili
+
+/datum/recipe/bearstew
+	fruit = list("potato" = 1, "tomato" = 1, "carrot" = 1, "eggplant" = 1, "mushroom" = 1)
+	reagents = list("water" = 10)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/bearmeat)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bearstew
+
+/datum/recipe/bibimbap
+	fruit = list("carrot" = 1, "cabbage" = 1, "mushroom" = 1)
+	reagents = list("rice" = 5, "spacespice" = 2)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/egg,
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bibimbap
+
+/datum/recipe/friedrice
+	reagents = list("water" = 5, "rice" = 10, "soysauce" = 5)
+	fruit = list("carrot" = 1, "cabbage" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/friedrice
+
+/datum/recipe/lomein
+	reagents = list("water" = 5, "soysauce" = 5)
+	fruit = list("carrot" = 1, "cabbage" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/spagetti
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/lomein

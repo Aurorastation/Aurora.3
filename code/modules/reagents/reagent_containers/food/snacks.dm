@@ -2613,7 +2613,7 @@
 	desc = "A bowl of creamy yellow curry with potatoes, peanuts and rice. This one looks mild."
 	icon_state = "yellowcurry"
 	trash = /obj/item/trash/snack_bowl
-	filling_color = "#f73333"
+	filling_color = "#bc9509"
 	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/snacks/yellowcurry/New()
@@ -2621,6 +2621,94 @@
 	reagents.add_reagent("protein", 2)
 	reagents.add_reagent("nutriment", 16)
 	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/bearburger
+	name = "bearburger"
+	desc = "The solution to your unbearable hunger."
+	icon_state = "bearburger"
+	filling_color = "#5d5260"
+	center_of_mass = list("x"=15, "y"=11)
+
+/obj/item/weapon/reagent_containers/food/snacks/bearburger/New()
+	..()
+	reagents.add_reagent("protein", 12)
+	reagents.add_reagent("hyperzine", 5)
+	bitesize = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/bearchili
+	name = "bear chili"
+	desc = "A dark, hearty chili. Can you bear the heat?"
+	icon_state = "bearchili"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#702708"
+	center_of_mass = list("x"=15, "y"=9)
+
+/obj/item/weapon/reagent_containers/food/snacks/bearchili/New()
+	..()
+	reagents.add_reagent("protein", 3)
+	reagents.add_reagent("nutriment", 3)
+	reagents.add_reagent("capsaicin", 3)
+	reagents.add_reagent("tomatojuice", 2)
+	reagents.add_reagent("hyperzine", 5)
+	bitesize = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/bearstew
+	name = "bear stew"
+	desc = "A thick, dark stew of bear meat and vegetables."
+	icon_state = "stew"
+	filling_color = "#9E673A"
+	center_of_mass = list("x"=16, "y"=5)
+
+/obj/item/weapon/reagent_containers/food/snacks/bearstew/New()
+	..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("hyperzine", 5)
+	reagents.add_reagent("nutriment", 6)
+	reagents.add_reagent("tomatojuice", 5)
+	reagents.add_reagent("imidazoline", 5)
+	reagents.add_reagent("water", 5)
+	bitesize = 10
+
+/obj/item/weapon/reagent_containers/food/snacks/bibimbap
+	name = "bibimbap"
+	desc = "A traditional Korean bowl-meal of meat and mixed vegetables. It's served on a bed of rice, and topped with a fried egg."
+	icon_state = "bibimbap"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#4f2100"
+	center_of_mass = list("x"=15, "y"=9)
+
+/obj/item/weapon/reagent_containers/food/snacks/bibimbap/New()
+	..()
+	reagents.add_reagent("protein", 10)
+	reagents.add_reagent("nutriment", 10)
+	bitesize = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/lomein
+	name = "lo mein"
+	desc = "A popular Chinese noodle dish. Chopsticks optional!"
+	icon_state = "lomein"
+	trash = /obj/item/trash/plate
+	filling_color = "#FCEE81"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/snacks/lomein/New()
+	..()
+	reagents.add_reagent("nutriment", 8)
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/friedrice
+	name = "fried rice"
+	desc = "A less-boring dish of less-boring rice!"
+	icon_state = "friedrice"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#FFFBDB"
+	center_of_mass = list("x"=17, "y"=11)
+
+/obj/item/weapon/reagent_containers/food/snacks/friedrice/New()
+	..()
+	reagents.add_reagent("nutriment", 8)
+	bitesize = 3
+
 
 /////////////////////////////////////////////////Sliceable////////////////////////////////////////
 // All the food items that can be sliced into smaller bits like Meatbread and Cheesewheels
@@ -3962,3 +4050,5 @@
 	reagents.add_reagent("protein", 10)
 	reagents.add_reagent("iron", 3)
 	bitesize = 4
+
+
