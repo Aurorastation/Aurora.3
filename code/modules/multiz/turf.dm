@@ -42,12 +42,15 @@
 
 	var/tmp/depth
 
+	var/tmp/list/climbers									// A lazy list to contain a list of mobs who are currently scaling
+															// up this turf. Used in human/can_fall.
+
 // An override of turf/Enter() to make it so that magboots allow you to stop
 // falling off the damned rock.
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
-	if (istype(mover) && isturf(oldloc) && !istype(oldloc, /turf/simulated/open))
-		if (mover.Check_Shoegrip(FALSE))
-			to_chat(mover,span("notice",
+	if (istype(mover) && isturf(oldloc))
+		if (mover.Check_Shoegrip(FALSE) && mover.can_fall(below, src))
+			to_chat(mover, span("notice",
 				"You are stopped from falling off the edge by \the [mover.shoes] you're wearing!"))
 			return 0
 
@@ -66,6 +69,10 @@
 		above = null
 
 	below = null
+
+	LAZYCLEARLIST(climbers)
+	UNSETEMPTY(climbers)
+
 	return ..()
 
 /turf/simulated/open/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)

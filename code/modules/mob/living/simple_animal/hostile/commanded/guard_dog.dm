@@ -102,7 +102,7 @@
 	icon_dead = "amaskan_dead"
 
 /mob/living/simple_animal/hostile/commanded/dog/columbo
-	name = "Sgt. Columbo"
+	name = "Lt. Columbo"
 	desc = "A dog trained to listen and obey its owner commands. This one looks about three days from retirement."
 
 	melee_damage_lower = 5
