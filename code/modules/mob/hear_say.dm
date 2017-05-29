@@ -55,7 +55,7 @@
 			return
 		if(speaker_name != speaker.real_name && speaker.real_name)
 			speaker_name = "[speaker.real_name] ([speaker_name])"
-		track = "([ghost_follow_link(speaker, src)]) "
+		track = "[ghost_follow_link(speaker, src)] "
 		if(client.prefs.toggles & CHAT_GHOSTEARS && speaker in view(src))
 			message = "<b>[message]</b>"
 
@@ -185,7 +185,7 @@
 		if(speaker != null)
 			if(speaker_name != speaker.real_name && !isAI(speaker)) //Announce computer and various stuff that broadcasts doesn't use it's real name but AI's can't pretend to be other mobs.
 				speaker_name = "[speaker.real_name] ([speaker_name])"
-		track = "([ghost_follow_link(speaker, src)]) "
+		track = "[ghost_follow_link(speaker, src)] "
 
 	var/formatted
 	if(language)

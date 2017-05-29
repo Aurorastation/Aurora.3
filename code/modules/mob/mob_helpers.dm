@@ -543,7 +543,7 @@ proc/is_blind(A)
 			var/lname
 			if(subject)
 				if(subject != M)
-					follow = "([ghost_follow_link(subject, M)]) "
+					follow = "[ghost_follow_link(subject, M)] "
 				if(M.stat != DEAD && M.client.holder)
 					follow = "([admin_jump_link(subject, M.client.holder)]) "
 				var/mob/dead/observer/DM
