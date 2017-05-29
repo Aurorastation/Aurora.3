@@ -218,6 +218,7 @@
 		var/data = "<center>Jobbanned from: <b>[href_list["view_jobban"]]</b><br>"
 		data += "Reason:<br>"
 		data += reason
+		data += "</center>"
 
 		show_browser(src, data, "jobban_reason")
 		return
