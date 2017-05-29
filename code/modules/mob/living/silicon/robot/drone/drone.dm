@@ -103,9 +103,8 @@ var/list/mob_hat_cache = list()
 	holder_type = /obj/item/weapon/holder/drone/heavy
 	range_limit = 0
 
-/mob/living/silicon/robot/drone/New()
-
-	..()
+/mob/living/silicon/robot/drone/Initialize()
+	. = ..()
 
 	verbs += /mob/living/proc/hide
 	remove_language("Robot Talk")

@@ -76,8 +76,8 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
 
-/mob/living/simple_animal/hostile/bear/New()
-	..()
+/mob/living/simple_animal/hostile/bear/Initialize()
+	. = ..()
 	update_bearmode()
 
 /mob/living/simple_animal/hostile/bear/harvest()
@@ -434,7 +434,7 @@
 	var/datum/effect_system/sparks/spark_system
 	always_space_mode = TRUE
 
-/mob/living/simple_animal/hostile/bear/spatial/New()
+/mob/living/simple_animal/hostile/bear/spatial/Initialize()
 	. = ..()
 	spark_system = bind_spark(src, 5)
 
