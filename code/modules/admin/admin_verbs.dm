@@ -169,7 +169,7 @@ var/list/admin_verbs_server = list(
 	/client/proc/restart_controller,
 	/client/proc/cmd_ss_panic,
 	/client/proc/configure_access_control,
-	/datum/admins/proc/togglehubvisibility //toggles visibility on the BYOND Hub,
+	/datum/admins/proc/togglehubvisibility //toggles visibility on the BYOND Hub
 	)
 var/list/admin_verbs_debug = list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
