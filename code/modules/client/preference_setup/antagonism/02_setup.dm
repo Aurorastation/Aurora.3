@@ -17,14 +17,14 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 				"ss13_characters" = list("vars" = list("uplink_location" = "uplinklocation"), "args" = list("id")))
 
 /datum/category_item/player_setup_item/antagonism/basic/gather_load_parameters()
-	return list(":char_id" = pref.current_character, ":id" = pref.current_character)
+	return list("char_id" = pref.current_character, "id" = pref.current_character)
 
 /datum/category_item/player_setup_item/antagonism/basic/gather_save_query()
 	return list("ss13_characters_flavour" = list("records_exploit", "char_id" = 1),
 				"ss13_characters" = list("uplink_location", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/antagonism/basic/gather_save_parameters()
-	return list(":records_exploit" = pref.exploit_record, ":char_id" = pref.current_character, ":uplink_location" = pref.uplinklocation, ":id" = pref.current_character, ":ckey" = pref.client.ckey)
+	return list("records_exploit" = pref.exploit_record, "char_id" = pref.current_character, "uplink_location" = pref.uplinklocation, "id" = pref.current_character, "ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/antagonism/basic/sanitize_character()
 	pref.uplinklocation	= sanitize_inlist(pref.uplinklocation, uplink_locations, initial(pref.uplinklocation))

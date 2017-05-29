@@ -27,7 +27,9 @@
 /obj/item/weapon/gun/projectile/heavysniper/can_wield()
 	return 1
 
-
+/obj/item/weapon/gun/projectile/heavysniper/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
 
 /obj/item/weapon/gun/projectile/heavysniper/verb/wield_rifle()
 	set name = "Wield rifle"
