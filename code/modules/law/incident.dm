@@ -235,34 +235,34 @@
 			return
 
 	var/list/sql_args[] = list(
-		":char_id" = char_id,
-		":uid" = UID,
-		":datetime" = datetime,
-		":notes" = notes,
-		":charges" = json_encode(charges),
-		":evidence" = json_encode(evidence),
-		":arbiters" = json_encode(arbiters),
-		":brig_sentence" = brig_sentence,
-		":fine" = fine,
-		":felony" = felony,
-		":created_by" = created_by,
-		":game_id" = game_id
+		"char_id" = char_id,
+		"uid" = UID,
+		"datetime" = datetime,
+		"notes" = notes,
+		"charges" = json_encode(charges),
+		"evidence" = json_encode(evidence),
+		"arbiters" = json_encode(arbiters),
+		"brig_sentence" = brig_sentence,
+		"fine" = fine,
+		"felony" = felony,
+		"created_by" = created_by,
+		"game_id" = game_id
 	)
 	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
 	var/DBQuery/infraction_insert_query = dbcon.NewQuery({"INSERT INTO ss13_character_incidents
 		(char_id,  UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony, created_by, game_id)
 	VALUES
-		(:char_id, :uid, :datetime, :notes, :charges, :evidence, :arbiters, :brig_sentence, :fine, :felony, :created_by, :game_id)
+		(:char_id:, :uid:, :datetime:, :notes:, :charges:, :evidence:, :arbiters:, :brig_sentence:, :fine:, :felony:, :created_by:, :game_id:)
 	ON DUPLICATE KEY UPDATE
-		notes = :notes,
-		charges = :charges,
-		evidence = :evidence,
-		arbiters = :arbiters,
-		brig_sentence = :brig_sentence,
-		fine = :fine,
-		felony = :felony,
-		created_by = :created_by,
-		game_id = :game_id
+		notes = :notes:,
+		charges = :charges:,
+		evidence = :evidence:,
+		arbiters = :arbiters:,
+		brig_sentence = :brig_sentence:,
+		fine = :fine:,
+		felony = :felony:,
+		created_by = :created_by:,
+		game_id = :game_id:
 	"})
 	infraction_insert_query.Execute(sql_args)
 
@@ -282,14 +282,14 @@
 		log_debug("Infraction: Not deleted from the db - db_id 0")
 
 	var/list/sql_args[] = list(
-		":id" = db_id,
-		":deleted_by" = deleted_by
+		"id" = db_id,
+		"deleted_by" = deleted_by
 	)
 	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
 	var/DBQuery/infraction_delete_query = dbcon.NewQuery({"UPDATE ss13_character_incidents
 	SET
-		deleted_by=:deleted_by,
+		deleted_by=:deleted_by:,
 		deleted_at=NOW()
 	WHERE
-		id = :id"})
+		id = :id:"})
 	infraction_delete_query.Execute(sql_args)
