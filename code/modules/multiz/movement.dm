@@ -189,8 +189,12 @@
 	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest))
 		return FALSE
 
+	// The var/climbers API is implemented here.
+	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
+		return FALSE
+
 	// See if something prevents us from falling.
-	for(var/atom/A in below)
+	for (var/atom/A in below)
 		if(!A.CanPass(src, dest))
 			return FALSE
 
@@ -212,6 +216,10 @@
 // Only things that stop mechas are atoms that, well, stop them.
 // Lattices and stairs get crushed in fall_through.
 /obj/mecha/can_fall(turf/below, turf/simulated/open/dest = src.loc)
+	// The var/climbers API is implemented here.
+	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
+		return FALSE
+
 	// See if something prevents us from falling.
 	for(var/atom/A in below)
 		if(!A.CanPass(src, dest))
@@ -379,7 +387,15 @@
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
+	// Stats.
+	SSfeedback.IncrementSimpleStat("openturf_human_falls")
+	addtimer(CALLBACK(src, .proc/post_fall_death_check), 2 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
+
 	return TRUE
+
+/mob/living/carbon/human/proc/post_fall_death_check()
+	if (stat == DEAD)
+		SSfeedback.IncrementSimpleStat("openturf_human_deaths")
 
 /mob/living/carbon/human/bst/fall_impact()
 	return FALSE

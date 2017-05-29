@@ -1,5 +1,5 @@
 /datum/game_mode/conflux
-	name = "Conflux"
+	name = "Conflux (Wiz+Cult)"
 	round_description = "A space wizard and a cult have invaded the station!"
 	extended_round_description = "Cultists and wizards spawn during this round."
 	config_tag = "conflux"
