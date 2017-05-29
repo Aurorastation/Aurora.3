@@ -176,13 +176,8 @@ var/list/gamemode_cache = list()
 	var/nl_start = 19
 	var/nl_finish = 8
 
-	var/comms_password = ""
-
 	var/enter_allowed = 1
 
-	var/use_discord_bot = 0
-	var/discord_bot_host = "localhost"
-	var/discord_bot_port = 0
 	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/use_overmap = 0
@@ -651,18 +646,6 @@ var/list/gamemode_cache = list()
 
 				if("uneducated_mice")
 					config.uneducated_mice = 1
-
-				if("comms_password")
-					config.comms_password = value
-
-				if("use_discord_bot")
-					config.use_discord_bot = 1
-
-				if("discord_bot_host")
-					config.discord_bot_host = value
-
-				if("discord_bot_port")
-					config.discord_bot_port = value
 
 				if("use_discord_pins")
 					config.use_discord_pins = 1

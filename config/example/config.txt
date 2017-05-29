@@ -275,9 +275,6 @@ NL_START_HOUR 19
 ##Remove the # to let ghosts spin chairs
 #GHOST_INTERACTION
 
-## Password used for authorizing ircbot and other external tools.
-#COMMS_PASSWORD
-
 ## Path to the python2 executable on the system.  Leave blank for default.
 ## Default is "python" on Windows, "/usr/bin/env python2" on UNIX.
 #PYTHON_PATH
