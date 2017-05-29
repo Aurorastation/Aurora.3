@@ -24,7 +24,7 @@
 
 	var/thing
 	var/turf/T
-	for (thing in block(locate(1, 1, target_z), locate(255, 255, target_z)))
+	for (thing in block(locate(1, 1, target_z), locate(world.maxx, world.maxy, target_z)))
 		T = thing
 		if (!(T.x % accuracy) && !(T.y % accuracy))
 			light_points += new /atom/movable/sunobj(thing)
