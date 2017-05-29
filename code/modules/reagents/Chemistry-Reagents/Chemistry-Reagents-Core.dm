@@ -170,7 +170,7 @@
 
 /datum/reagent/water/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		var/needed = L.fire_stacks * 10
+		var/needed = L.fire_stacks * 8
 		if(amount > needed)
 			L.fire_stacks = 0
 			L.ExtinguishMob()
