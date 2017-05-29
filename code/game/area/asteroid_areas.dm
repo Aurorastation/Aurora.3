@@ -8,7 +8,6 @@
 /area/mine/explored
 	name = "Mine"
 	icon_state = "explored"
-	dynamic_lighting = 0
 
 /area/mine/unexplored
 	name = "Mine"
