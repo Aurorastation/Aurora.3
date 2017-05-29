@@ -6,8 +6,7 @@
 	init_order = SS_INIT_SUNLIGHT
 
 	var/list/light_points = list()
-	var/target_z = 7
-	var/accuracy = 8
+	var/config.sun_target_z = 7
 
 	var/list/presets
 
@@ -15,7 +14,7 @@
 	NEW_SS_GLOBAL(SSsunlight)
 
 /datum/controller/subsystem/sunlight/stat_entry()
-	..("A:[accuracy] LP:[light_points.len] Z:[target_z]")
+	..("A:[config.sun_accuracy] LP:[light_points.len] Z:[config.sun_target_z]")
 
 /datum/controller/subsystem/sunlight/Initialize()
 	presets = list()
@@ -24,9 +23,9 @@
 
 	var/thing
 	var/turf/T
-	for (thing in block(locate(1, 1, target_z), locate(world.maxx, world.maxy, target_z)))
+	for (thing in block(locate(1, 1, config.sun_target_z), locate(world.maxx, world.maxy, config.sun_target_z)))
 		T = thing
-		if (!(T.x % accuracy) && !(T.y % accuracy))
+		if (!(T.x % config.sun_accuracy) && !(T.y % config.sun_accuracy))
 			light_points += new /atom/movable/sunobj(thing)
 
 		CHECK_TICK
@@ -48,7 +47,7 @@
 
 /datum/controller/subsystem/sunlight/proc/apply_sun_state(datum/sun_state/S)
 	log_debug("sunlight: Applying preset [S].")
-	set_overall_light(accuracy * 1.2, 1, S.color)
+	set_overall_light(config.sun_accuracy * 1.2, 1, S.color)
 
 /atom/movable/sunobj
 	name = "sunlight emitter"
@@ -67,7 +66,7 @@
 	return ..()
 
 /atom/movable/sunobj/Initialize()
-	light_range = Ceiling(SSsunlight.accuracy * 1.2)
+	light_range = Ceiling(config.sun_accuracy * 1.2)
 	return ..()
 
 /datum/sun_state

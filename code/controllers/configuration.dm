@@ -279,6 +279,9 @@ var/list/gamemode_cache = list()
 	var/access_deny_vms = 0
 	var/access_warn_vms = 0
 
+	var/sun_accuracy = 8
+	var/sun_target_z = 7
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -919,6 +922,12 @@ var/list/gamemode_cache = list()
 
 				if("use_loyalty_implants")
 					config.use_loyalty_implants = 1
+
+				if ("sunlight_accuracy")
+					config.sun_accuracy = value
+
+				if ("sunlight_z")
+					config.sun_target_z = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
