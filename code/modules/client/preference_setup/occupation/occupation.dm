@@ -126,9 +126,12 @@
 		. += "<tr bgcolor='[job.selection_color]'><td width='60%' align='right'>"
 		var/rank = job.title
 		lastJob = job
-		if(jobban_isbanned(user, rank))
-			. += "<del>[rank]</del></td><td><b> \[BANNED]</b></td></tr>"
+		var/ban_reason = jobban_isbanned(user, rank)
+		if(ban_reason == "No Whitelist")
+			. += "<del>[rank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
 			continue
+		else if (ban_reason)
+			. += "<del>[rank]</del></td><td><b> \[BANNED]</b></td></tr>"
 		if(!job.player_old_enough(user.client))
 			var/available_in_days = job.available_in_days(user.client)
 			. += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
