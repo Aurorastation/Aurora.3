@@ -266,6 +266,15 @@
 
 	return ..()
 
+/mob/living/simple_animal/hostile/retaliate/malf_drone/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/retaliate/malf_drone/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/retaliate/malf_drone/CanAvoidGravity()
+	return TRUE
+
 /obj/item/projectile/beam/drone
 	damage = 15
 

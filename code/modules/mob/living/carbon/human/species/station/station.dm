@@ -479,14 +479,14 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		var/obj/item/organ/ipc_tag/tag = new_machine.internal_organs_by_name["ipc tag"]
 
 		var/status = 0
-		var/list/query_details = list(":ckey" = player.ckey, ":character_name" = player.prefs.real_name)
-		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey AND character_name = :character_name")
+		var/list/query_details = list("ckey" = player.ckey, "character_name" = player.prefs.real_name)
+		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
 		query.Execute(query_details)
 
 		if (query.NextRow())
 			status = text2num(query.item[1])
 		else
-			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name) VALUES (:ckey, :character_name)")
+			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name) VALUES (:ckey:, :character_name:)")
 			log_query.Execute(query_details)
 
 		if (!status)
@@ -504,8 +504,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if (target.internal_organs_by_name["ipc tag"])
 			status = 1
 
-		var/list/query_details = list(":ckey" = player.ckey, ":character_name" = target.real_name)
-		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey AND character_name = :character_name")
+		var/list/query_details = list("ckey" = player.ckey, "character_name" = target.real_name)
+		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
 		query.Execute(query_details)
 
 		if (query.NextRow())
@@ -513,9 +513,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			if (sql_status == status)
 				return
 
-			query_details.Add(":status")
-			query_details[":status"] = status
-			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status WHERE player_ckey = :ckey AND character_name = :character_name")
+			query_details["status"] = status
+			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status: WHERE player_ckey = :ckey: AND character_name = :character_name:")
 			update_query.Execute(query_details)
 
 /datum/species/machine/get_light_color(hair_style)
