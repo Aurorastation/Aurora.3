@@ -285,6 +285,21 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/cracker
 
+/datum/recipe/brownies 
+	appliance = OVEN
+	reagents = list("flour" = 5, "sugar" = 5, "coco" = 5)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/egg)
+	result = /obj/item/weapon/reagent_containers/food/snacks/brownies
+	
+
+/datum/recipe/cosmicbrownies 
+	appliance = OVEN
+	reagents = list("flour" = 5, "sugar" = 5, "coco" = 5)
+	fruit = list("ambrosia" = 1)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/egg)
+	result = /obj/item/weapon/reagent_containers/food/snacks/cosmicbrownies
+
+
 
 
 //Pizzas

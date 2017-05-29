@@ -792,3 +792,34 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/spagetti
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/lomein
+
+/datum/recipe/chickenfillet
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/chickenkatsu,
+		/obj/item/weapon/reagent_containers/food/snacks/bun
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/chickenfillet
+
+/datum/recipe/chilicheesefries	
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/fries,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/weapon/reagent_containers/food/snacks/hotchili
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/chilicheesefries
+
+/datum/recipe/meatbun
+	reagents = list("spacespice" = 2)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/rawcutlet
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/meatbun
+
+/datum/recipe/veggiebun
+	reagents = list("spacespice" = 2)
+	fruit = list("carrot" = 1, "cabbage" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/veggiebun

@@ -58,6 +58,12 @@
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/crunch
 	coating = /datum/reagent/nutriment/coating/batter
 
+/datum/recipe/friedmushroom
+	appliance = FRYER
+	fruit = list("plumphelmet" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/friedmushroom
+	coating = /datum/reagent/nutriment/coating/beerbatter
+
 
 
 //Sweet Recipes.
@@ -114,3 +120,9 @@
 	appliance = FRYER
 	reagents = list("sugar" = 5, "batter" = 10)
 	result = /obj/item/weapon/reagent_containers/food/snacks/funnelcake
+
+/datum/recipe/pisanggoreng
+	appliance = FRYER
+	fruit = list("banana" = 2)
+	result = /obj/item/weapon/reagent_containers/food/snacks/pisanggoreng
+	coating = /datum/reagent/nutriment/coating/batter

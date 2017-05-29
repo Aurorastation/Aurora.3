@@ -2581,6 +2581,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/redcurry
 	name = "red curry"
+	gender = PLURAL
 	desc = "A bowl of creamy red curry with meat and rice. This one looks savory."
 	icon_state = "redcurry"
 	trash = /obj/item/trash/snack_bowl
@@ -2595,6 +2596,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/greencurry
 	name = "green curry"
+	gender = PLURAL
 	desc = "A bowl of creamy green curry with tofu, hot peppers and rice. This one looks spicy!"
 	icon_state = "greencurry"
 	trash = /obj/item/trash/snack_bowl
@@ -2610,6 +2612,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/yellowcurry
 	name = "yellow curry"
+	gender = PLURAL
 	desc = "A bowl of creamy yellow curry with potatoes, peanuts and rice. This one looks mild."
 	icon_state = "yellowcurry"
 	trash = /obj/item/trash/snack_bowl
@@ -2685,6 +2688,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/lomein
 	name = "lo mein"
+	gender = PLURAL
 	desc = "A popular Chinese noodle dish. Chopsticks optional!"
 	icon_state = "lomein"
 	trash = /obj/item/trash/plate
@@ -2694,10 +2698,12 @@
 /obj/item/weapon/reagent_containers/food/snacks/lomein/New()
 	..()
 	reagents.add_reagent("nutriment", 8)
+	reagents.add_reagent("protein", 2)
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/friedrice
 	name = "fried rice"
+	gender = PLURAL
 	desc = "A less-boring dish of less-boring rice!"
 	icon_state = "friedrice"
 	trash = /obj/item/trash/snack_bowl
@@ -2708,6 +2714,124 @@
 	..()
 	reagents.add_reagent("nutriment", 8)
 	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/chickenfillet
+	name = "chicken fillet sandwich"
+	desc = "Fried chicken, in sandwich format. Beauty is simplicity."
+	icon_state = "chickenfillet"
+	filling_color = "#E9ADFF"
+	center_of_mass = list("x"=16, "y"=16)
+
+/obj/item/weapon/reagent_containers/food/snacks/chickenfillet/New()
+	..()
+	reagents.add_reagent("protein", 8)
+	reagents.add_reagent("nutriment", 4)
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/chilicheesefries
+	name = "chili cheese fries"
+	gender = PLURAL
+	desc = "A mighty plate of fries, drowned in hot chili and cheese sauce. Because your arteries are overrated."
+	icon_state = "chilicheesefries"
+	trash = /obj/item/trash/plate
+	filling_color = "#EDDD00"
+	center_of_mass = list("x"=16, "y"=11)
+
+/obj/item/weapon/reagent_containers/food/snacks/chilicheesefries/New()
+	..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("nutriment", 16)
+	reagents.add_reagent("capsaicin", 4)
+	bitesize = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/friedmushroom
+	name = "fried mushroom"
+	desc = "A tender beer-battered mushroom, fried to crispy perfection."
+	icon_state = "friedmushroom"
+	filling_color = "#EDDD00"
+	center_of_mass = list("x"=16, "y"=11)
+
+/obj/item/weapon/reagent_containers/food/snacks/friedmushroom/New()
+	..()
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 4)
+	bitesize = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/brownies
+	name = "brownies"
+	gender = PLURAL
+	desc = "Halfway to fudge, or halfway to cake? Who cares!"
+	icon_state = "brownies"
+	trash = /obj/item/trash/brownies
+	filling_color = "#301301"
+	center_of_mass = list("x"=15, "y"=9)
+
+/obj/item/weapon/reagent_containers/food/snacks/brownies/New()
+	..()
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 8)
+	bitesize = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/cosmicbrownies
+	name = "cosmic brownies"
+	gender = PLURAL
+	desc = "Like, ultra-trippy. Brownies HAVE no gender, man."
+	icon_state = "cosmicbrownies"
+	trash = /obj/item/trash/brownies
+	filling_color = "#301301"
+	center_of_mass = list("x"=15, "y"=9)
+
+/obj/item/weapon/reagent_containers/food/snacks/cosmicbrownies/New()
+	..()
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 8)
+	reagents.add_reagent("space_drugs", 2)
+	reagents.add_reagent("bicaridine", 1)
+	reagents.add_reagent("kelotane", 1)
+	reagents.add_reagent("toxin", 1)
+	bitesize = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/pisanggoreng
+	name = "pisang goreng"
+	gender = PLURAL
+	desc = "Crispy, starchy, sweet banana fritters. Popular street food in parts of Sol."
+	icon_state = "pisanggoreng"
+	trash = /obj/item/trash/plate
+	filling_color = "#301301"
+	center_of_mass = list("x"=16, "y"=11)
+
+/obj/item/weapon/reagent_containers/food/snacks/pisanggoreng/New()
+	..()
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 8)
+	bitesize = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/meatbun
+	name = "meat bun"
+	desc = "A soft, fluffy flour bun also known as baozi. This one is stuffed with a meat filling."
+	icon_state = "meatbun"
+	filling_color = "#edd7d7"
+	center_of_mass = list("x"=16, "y"=11)
+
+/obj/item/weapon/reagent_containers/food/snacks/meatbun/New()
+	..()
+	reagents.add_reagent("protein", 5)
+	reagents.add_reagent("nutriment", 5)
+	bitesize = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/veggiebun
+	name = "veggie bun"
+	desc = "A soft, fluffy flour bun also known as baozi. This one is stuffed with a vegetable filling."
+	icon_state = "meatbun"
+	filling_color = "#cce5cc"
+	center_of_mass = list("x"=16, "y"=11)
+
+/obj/item/weapon/reagent_containers/food/snacks/veggiebun/New()
+	..()
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 8)
+	bitesize = 6
+
 
 
 /////////////////////////////////////////////////Sliceable////////////////////////////////////////
@@ -3711,6 +3835,11 @@
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/cutlet))
 		result = new /obj/item/weapon/reagent_containers/food/snacks/monkeyburger(src)
 		user << "You make a burger."
+
+	//Bun + katsu = chickenfillet
+	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/chickenkatsu))
+		result = new /obj/item/weapon/reagent_containers/food/snacks/chickenfillet(src)
+		user << "You make a chicken fillet sandwich."
 
 	// Bun + sausage = hotdog
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/sausage))
