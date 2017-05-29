@@ -4,8 +4,6 @@ var/list/gamemode_cache = list()
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
-	var/nudge_script_path = "nudge.py"  // where the nudge.py script is located
-
 	var/list/lobby_screens = list("title") // Which lobby screens are available
 
 	var/log_ooc = 0						// log OOC channel
@@ -50,7 +48,6 @@ var/list/gamemode_cache = list()
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/Ticklag = 0.9
 	var/Tickcomp = 0
-	var/socket_talk	= 0					// use socket_talk to communicate with other processes
 	var/list/resource_urls = null
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
 	var/antag_hud_restricted = 0                    // Ghosts that turn on Antagovision cannot rejoin the round.
@@ -188,7 +185,6 @@ var/list/gamemode_cache = list()
 	var/discord_bot_port = 0
 	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
-	var/use_lib_nudge = 0 //Use the C library nudge instead of the python nudge.
 	var/use_overmap = 0
 
 	var/list/station_levels = list(1)				// Defines which Z-levels the station exists on.
@@ -460,9 +456,6 @@ var/list/gamemode_cache = list()
 				if ("serversuffix")
 					config.server_suffix = 1
 
-				if ("nudge_script_path")
-					config.nudge_script_path = value
-
 				if ("hostedby")
 					config.hostedby = value
 
@@ -613,9 +606,6 @@ var/list/gamemode_cache = list()
 				if("antag_hud_restricted")
 					config.antag_hud_restricted = 1
 
-				if("socket_talk")
-					socket_talk = text2num(value)
-
 				if("tickcomp")
 					Tickcomp = 1
 
@@ -680,9 +670,6 @@ var/list/gamemode_cache = list()
 				if("python_path")
 					if(value)
 						config.python_path = value
-
-				if("use_lib_nudge")
-					config.use_lib_nudge = 1
 
 				if("allow_cult_ghostwriter")
 					config.cult_ghostwriter = 1
