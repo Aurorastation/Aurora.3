@@ -292,16 +292,13 @@
 		else // if we aren't, halve those firestacks.
 			adjust_divide_fire_stacks(2)
 			return 1
-
-	//if(fire_stacks < 16) // uh oh. Internal organ damage time.
 		
-
 
 	var/turf/location = get_turf(src)
 	location.hotspot_expose(fire_burn_temperature(), 50, 1)
 
 /mob/living/fire_act()
-	if(fire_stacks <= (0 || 1)) // multiplying by something less than or equal to zero and 1 doesn't work out so well in this case.
+	if(fire_stacks <= 1) // multiplying by something less than or equal to 1 doesn't work out so well in this case.
 		adjust_fire_stacks(2)
 		IgniteMob()
 	else // but it's okay if its more than 1 for actual growth.
