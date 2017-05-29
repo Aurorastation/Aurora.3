@@ -3,6 +3,7 @@
 	name = "Gygax"
 	icon_state = "gygax"
 	initial_icon = "gygax"
+	w_class = 15
 	step_in = 3
 	dir_in = 1 //Facing North.
 	health = 300

@@ -69,6 +69,15 @@
 			L.Stun(1)
 			L.visible_message("<span class='danger'>\the [src] scares \the [L]!</span>")
 
+/mob/living/simple_animal/hostile/scarybat/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/scarybat/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/scarybat/CanAvoidGravity()
+	return TRUE
+
 /mob/living/simple_animal/hostile/scarybat/cult
 	faction = "cult"
 	supernatural = 1

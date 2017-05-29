@@ -757,3 +757,12 @@
 	parrot_state = PARROT_SWOOP | PARROT_ATTACK //Attack other animals regardless
 	icon_state = "parrot_fly"
 	return success
+
+/mob/living/simple_animal/parrot/can_fall()
+	return FALSE
+	
+/mob/living/simple_animal/parrot/can_ztravel()
+	return TRUE
+	
+/mob/living/simple_animal/parrot/CanAvoidGravity()
+	return TRUE

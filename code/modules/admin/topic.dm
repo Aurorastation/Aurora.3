@@ -953,7 +953,7 @@
 
 		M << "You've been hit by bluespace artillery!"
 		log_admin("[key_name(M)] has been hit by Bluespace Artillery fired by [src.owner]",admin_key=key_name(src.owner),ckey=key_name(M))
-		message_admins("[key_name(M)] has been hit by Bluespace Artillery fired by [src.owner]")
+		message_admins("[key_name_admin(M)] has been hit by Bluespace Artillery fired by [src.owner]")
 
 		M.canmove = FALSE
 		spawn(20)
@@ -1604,6 +1604,10 @@
 		else
 			usr << "<font color='red'><b>The adminhelp has already been claimed!</b></font>"
 
+		return
+
+	else if(href_list["access_control"])
+		access_control_topic(href_list["access_control"])
 		return
 
 mob/living/proc/can_centcom_reply()

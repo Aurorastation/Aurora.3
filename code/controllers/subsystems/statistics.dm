@@ -17,8 +17,11 @@
 	var/list/msg_security = list()
 	var/list/msg_deathsquad = list()
 	var/list/msg_syndicate = list()
+	var/list/msg_raider = list()
 	var/list/msg_cargo = list()
 	var/list/msg_service = list()
+
+	var/list/datum/statistic/simple_statistics = list()
 
 	var/list/datum/feedback_variable/feedback = list()
 
@@ -28,6 +31,16 @@
 /datum/controller/subsystem/statistics/Initialize(timeofday)
 	if (!config.kick_inactive && !(config.sql_enabled && config.sql_stats))
 		can_fire = FALSE
+
+	for (var/type in subtypesof(/datum/statistic) - list(/datum/statistic/numeric, /datum/statistic/grouped))
+		var/datum/statistic/S = new type
+		if (!S.name)
+			qdel(S)
+			continue
+
+		simple_statistics[S.key] = S
+
+	sortTim(simple_statistics, /proc/cmp_name_asc, TRUE)
 
 /datum/controller/subsystem/statistics/fire()
 	// Handle AFK.
@@ -112,8 +125,21 @@
 	feedback_add_details("radio_usage","PDA-[pda_msg_amt]")
 	feedback_add_details("radio_usage","RC-[rc_msg_amt]")
 
+	for (var/datum/statistic/S in simple_statistics)
+		if (S.write_to_database && S.key)
+			S.write_to_database()
 
 	feedback_set_details("round_end","[time2text(world.realtime)]") //This one MUST be the last one that gets set.
+
+/datum/controller/subsystem/statistics/proc/print_round_end_message()
+	var/list/dat = list()
+	dat += "<h3>Round Statistics</h3>"
+	for (var/statistic in simple_statistics)
+		var/datum/statistic/S = simple_statistics[statistic]
+		if (S.broadcast_at_roundend && S.has_value())
+			dat += span("notice", "<b>[S]:</b> [S.get_roundend_lines()]")
+
+	to_chat(world, dat.Join("\n"))
 
 // Called on world reboot.
 /datum/controller/subsystem/statistics/Shutdown()
@@ -265,3 +291,17 @@
 		if(!query.Execute())
 			var/err = query.ErrorMsg()
 			log_game("SQL ERROR during death reporting. Error : \[[err]\]\n")
+
+/datum/controller/subsystem/statistics/proc/IncrementSimpleStat(stat)
+	. = TRUE
+	var/datum/statistic/numeric/S = simple_statistics[stat]
+	if (!S)
+		return FALSE
+	S.increment_value()
+
+/datum/controller/subsystem/statistics/proc/IncrementGroupedStat(stat, key)
+	. = TRUE
+	var/datum/statistic/grouped/S = simple_statistics[stat]
+	if (!S)
+		return FALSE
+	S.increment_value(key)

@@ -21,11 +21,17 @@ mob/var/obj/effect/decal/typing_indicator
 		else
 			if(state)
 				if(!typing)
-					overlays += typing_indicator
+					if (ATOM_USING_SSOVERLAY(src))
+						add_overlay(typing_indicator)
+					else
+						overlays += typing_indicator
 					typing = 1
 			else
 				if(typing)
-					overlays -= typing_indicator
+					if (ATOM_USING_SSOVERLAY(src))
+						cut_overlay(typing_indicator)
+					else
+						overlays -= typing_indicator
 					typing = 0
 			return state
 

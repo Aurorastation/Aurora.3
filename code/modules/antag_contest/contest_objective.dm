@@ -54,16 +54,16 @@
 		error("Unable to establish database connection while logging objective results!")
 		return
 
-	var/DBQuery/get_query = dbcon.NewQuery("SELECT contest_faction FROM ss13_contest_participants WHERE player_ckey = :ckey AND character_id = :char_id")
-	get_query.Execute(list(":ckey" = owner.current.client.ckey, ":char_id" = owner.current.client.prefs.current_character))
+	var/DBQuery/get_query = dbcon.NewQuery("SELECT contest_faction FROM ss13_contest_participants WHERE player_ckey = :ckey: AND character_id = :char_id:")
+	get_query.Execute(list("ckey" = owner.current.client.ckey, "char_id" = owner.current.client.prefs.current_character))
 
-	var/params[] = list(":ckey" = owner.current.client.ckey, ":char_id" = owner.current.client.prefs.current_character, ":char_faction" = INDEP, ":obj_type" = type_name, ":obj_side" = side, ":obj_outcome" = completed)
+	var/params[] = list("ckey" = owner.current.client.ckey, "char_id" = owner.current.client.prefs.current_character, "char_faction" = INDEP, "obj_type" = type_name, "obj_side" = side, "obj_outcome" = completed)
 
 	if (get_query.NextRow())
 		var/list/faction_data = contest_faction_data(get_query.item[1])
-		params[":char_faction"] = faction_data[1]
+		params["char_faction"] = faction_data[1]
 
-	var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_contest_reports (id, player_ckey, character_id, character_faction, objective_type, objective_side, objective_outcome, objective_datetime) VALUES (NULL, :ckey, :char_id, :char_faction, :obj_type, :obj_side, :obj_outcome, NOW())")
+	var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_contest_reports (id, player_ckey, character_id, character_faction, objective_type, objective_side, objective_outcome, objective_datetime) VALUES (NULL, :ckey:, :char_id:, :char_faction:, :obj_type:, :obj_side:, :obj_outcome:, NOW())")
 	log_query.Execute(params)
 
 	if (log_query.ErrorMsg())

@@ -25,12 +25,14 @@
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/electrowarfare_suite,
 		/obj/item/rig_module/chem_dispenser/combat,
-		/obj/item/rig_module/fabricator/energy_net
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/actuators/combat
 		)
 
 //Has most of the modules removed
 /obj/item/weapon/rig/merc/empty
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
-		/obj/item/rig_module/electrowarfare_suite //might as well
+		/obj/item/rig_module/electrowarfare_suite, //might as well
+		/obj/item/rig_module/actuators/combat // What the dude above me said.
 		)
