@@ -1,7 +1,6 @@
 // These are objects that destroy themselves and add themselves to the
 // decal list of the floor under them. Use them rather than distinct icon_states
 // when mapping in interesting floor designs.
-var/list/floor_decals = list()
 
 /obj/effect/floor_decal
 	name = "floor decal"
@@ -11,6 +10,7 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/LateInitialize()
 	var/turf/T = get_turf(src)
+	var/list/floor_decals = SSicon_cache.floor_decals
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
 		var/cache_key = "[alpha]-[color]-[dir]-[icon_state]-[layer]"
 		if(!floor_decals[cache_key])

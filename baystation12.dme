@@ -153,6 +153,7 @@
 #include "code\controllers\subsystems\falling.dm"
 #include "code\controllers\subsystems\garbage-debug.dm"
 #include "code\controllers\subsystems\garbage.dm"
+#include "code\controllers\subsystems\icon_cache.dm"
 #include "code\controllers\subsystems\icon_smooth.dm"
 #include "code\controllers\subsystems\icon_updates.dm"
 #include "code\controllers\subsystems\ipintel.dm"

@@ -1,5 +1,3 @@
-var/list/flooring_cache = list()
-
 /turf/simulated/floor/update_icon(var/update_neighbors)
 	cut_overlays()
 
@@ -79,6 +77,7 @@ var/list/flooring_cache = list()
 			F.update_icon()
 
 /turf/simulated/floor/proc/get_flooring_overlay(var/cache_key, var/icon_base, var/icon_dir = 0)
+	var/list/flooring_cache = SSicon_cache.flooring_cache
 	if(!flooring_cache[cache_key])
 		var/image/I = image(icon = flooring.icon, icon_state = icon_base, dir = icon_dir)
 		I.layer = layer
