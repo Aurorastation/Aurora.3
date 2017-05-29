@@ -1,0 +1,6 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - rscadd: "You can now view the reason for your active job ban by clicking on the [BANNED] text on job/role selection."
+  - tweak: "Whitelisted jobs now display as [WHITELISTED] instead of [BANNED] if you area short a whitelist."
