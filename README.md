@@ -91,3 +91,11 @@ For more advanced setups, setting the server `tick_lag` in the config as well as
 ### SQL Setup
 
 The SQL backend for the library and stats tracking requires a MySQL server, as does the optional SQL saves system. Your server details go in config/dbconfig.txt, and initial database setup is done with [flyway](https://flywaydb.org/). Detailed instructions can be found [here](https://github.com/Aurorastation/Aurora.3/tree/master/SQL).
+
+---
+
+### Discord Bot
+
+The Aurorastation codebase uses a built-in Discord bot to interface with Discord. Some of its features rely on the MySQL database, specifically, channel storage and configuration. So a database is required for its operation. If that is present, then setup is relatively easy: simply set up the `config/discord.txt` file according to the example located in the `config/example/` folder, and populate the database with appropriate channel and server information.
+
+At present, there is no built in GUI for doing the latter. So direct database modification is required unless you set up the python companion bot. The python companion bot is BOREALIS II, and can be located [here](https://github.com/Aurorastation/BOREALISbot2). Though not required, it makes database modification easier. See commands that start with `channel_`.
