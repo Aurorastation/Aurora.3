@@ -436,7 +436,7 @@ datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 			if(C.body_parts_covered & ARMS)
 				arms_exposure = 0
 	//minimize this for low-pressure enviroments
-	var/mx = 5 * firelevel/vsc.fire_firelevel_multiplier * min(pressure / ONE_ATMOSPHERE, 1)
+	var/mx = 5 * firelevel/vsc.fire_firelevel_multiplier * min(pressure / ONE_ATMOSPHERE, 1) * src.fire_stacks
 
 	//Always check these damage procs first if fire damage isn't working. They're probably what's wrong.
 
