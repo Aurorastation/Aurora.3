@@ -40,7 +40,7 @@
 		var/datum/antagonist/antag = all_antag_types[antag_type]
 		. += "<tr><td>[antag.role_text]: </td><td>"
 		if(is_global_banned || jobban_isbanned(preference_mob(), antag.bantype))
-			. += "<span class='danger'>\[BANNED\]</span><br>"
+			. += "<span class='danger'>\[<a href='?src=\ref[user.client];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"];'>BANNED</a>\]</span><br>"
 		else if(antag.role_type in pref.be_special_role)
 			. += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[antag.role_type]'>No</a></br>"
 		else
@@ -55,7 +55,7 @@
 
 		. += "<tr><td>[(ghost_trap.ghost_trap_role)]: </td><td>"
 		if(banned_from_ghost_role(preference_mob(), ghost_trap))
-			. += "<span class='danger'>\[BANNED\]</span><br>"
+			. += "<span class='danger'>\[<a href='?src=\ref[user.client];view_jobban=[ghost_trap];'>BANNED</a>\]</span><br>"
 		else if(ghost_trap.pref_check in pref.be_special_role)
 			. += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[ghost_trap.pref_check]'>No</a></br>"
 		else

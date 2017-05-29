@@ -131,7 +131,7 @@
 			. += "<del>[rank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
 			continue
 		else if (ban_reason)
-			. += "<del>[rank]</del></td><td><b> \[BANNED]</b></td></tr>"
+			. += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
 		if(!job.player_old_enough(user.client))
 			var/available_in_days = job.available_in_days(user.client)
 			. += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
