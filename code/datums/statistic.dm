@@ -8,7 +8,7 @@
 	WARNING("Statistic [type] does not have set_value implemented.")
 
 /datum/statistic/proc/get_value()
-	WARNING("Statistic [type] does not have get_valie implemented.")
+	WARNING("Statistic [type] does not have get_value implemented.")
 
 /datum/statistic/proc/increment_value()
 	WARNING("Statistic [type] does not have increment_value implemented.")
