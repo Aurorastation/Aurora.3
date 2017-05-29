@@ -94,7 +94,6 @@ var/list/gamemode_cache = list()
 	var/guests_allowed = 1
 	var/debugparanoid = 0
 
-	var/serverurl
 	var/server
 	var/banappeals
 	var/wikiurl
@@ -453,9 +452,6 @@ var/list/gamemode_cache = list()
 
 				if ("hostedby")
 					config.hostedby = value
-
-				if ("serverurl")
-					config.serverurl = value
 
 				if ("server")
 					config.server = value
