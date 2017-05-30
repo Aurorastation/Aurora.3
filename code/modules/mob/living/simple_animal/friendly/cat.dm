@@ -263,6 +263,7 @@
 	can_nap = 0 //No resting sprite
 	gender = NEUTER
 	holder_type = /obj/item/weapon/holder/cat/kitten
+	small = 1
 
 /mob/living/simple_animal/cat/kitten/death()
 	.=..()
