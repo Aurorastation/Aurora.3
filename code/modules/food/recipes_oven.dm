@@ -16,6 +16,15 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //No eating polyacid
 
 
+/datum/recipe/ribroast //Putting this here for not seeing a roast section.
+	appliance = OVEN
+	reagents = list("honey" = 5, "spacespice" = 2, "blackpepper" = 1)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/meat)
+	result = /obj/item/weapon/reagent_containers/food/snacks/ribroast
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+
+
 //Predesigned breads
 //================================
 /datum/recipe/bread
@@ -207,6 +216,20 @@
 	result = /obj/item/weapon/reagent_containers/food/snacks/appletart
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
+/datum/recipe/keylimepie
+	appliance = OVEN
+	fruit = list("lime" = 2)
+	reagents = list("milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/keylimepie
+	reagent_mix = RECIPE_REAGENT_REPLACE //Protein after cooking causes magic meatballs otherwise
+
+/datum/recipe/quiche //I-I know it's not a pie...
+	appliance = OVEN
+	reagents = list("milk" = 5, "egg" = 9, "flour" = 10)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/cheesewedge)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/quiche
+	reagent_mix = RECIPE_REAGENT_REPLACE //Protein after cooking causes magic meatballs otherwise
+
 //Baked sweets:
 //---------------
 
@@ -285,18 +308,16 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/cracker
 
-/datum/recipe/brownies 
+/datum/recipe/brownies
 	appliance = OVEN
-	reagents = list("flour" = 5, "sugar" = 5, "coco" = 5)
-	items = list(/obj/item/weapon/reagent_containers/food/snacks/egg)
+	reagents = list("browniemix" = 10, "egg" = 3)
 	result = /obj/item/weapon/reagent_containers/food/snacks/brownies
 	
 
-/datum/recipe/cosmicbrownies 
+/datum/recipe/cosmicbrownies
 	appliance = OVEN
-	reagents = list("flour" = 5, "sugar" = 5, "coco" = 5)
+	reagents = list("browniemix" = 10, "egg" = 3)
 	fruit = list("ambrosia" = 1)
-	items = list(/obj/item/weapon/reagent_containers/food/snacks/egg)
 	result = /obj/item/weapon/reagent_containers/food/snacks/cosmicbrownies
 
 

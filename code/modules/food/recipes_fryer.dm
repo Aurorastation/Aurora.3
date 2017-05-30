@@ -12,6 +12,14 @@
 	coating = /datum/reagent/nutriment/coating/batter
 	result = /obj/item/weapon/reagent_containers/food/snacks/jalapeno_poppers
 
+/datum/recipe/risottoballs
+	appliance = FRYER
+	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/risotto)
+	coating = /datum/reagent/nutriment/coating/batter
+	result = /obj/item/weapon/reagent_containers/food/snacks/risottoballs
+	
+
 //Meaty Recipes
 //====================
 /datum/recipe/cubancarp

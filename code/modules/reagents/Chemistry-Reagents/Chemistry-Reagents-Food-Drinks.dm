@@ -554,6 +554,13 @@
 	reagent_state = SOLID
 	color = "#e08702"
 
+/datum/reagent/browniemix
+	name = "Brownie Mix"
+	id = "browniemix"
+	description = "A dry mix for making delicious brownies."
+	reagent_state = SOLID
+	color = "#441a03"
+
 /* Drinks */
 
 /datum/reagent/drink

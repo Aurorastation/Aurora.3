@@ -809,17 +809,55 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/chilicheesefries
 
 /datum/recipe/meatbun
-	reagents = list("spacespice" = 2)
+	reagents = list("spacespice" = 2, "water" = 1)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
 		/obj/item/weapon/reagent_containers/food/snacks/rawcutlet
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/meatbun
 
-/datum/recipe/veggiebun
-	reagents = list("spacespice" = 2)
-	fruit = list("carrot" = 1, "cabbage" = 1)
+/datum/recipe/custardbun
+	reagents = list("spacespice" = 2, "water" = 1, "egg" = 3)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
 	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/veggiebun
+	result = /obj/item/weapon/reagent_containers/food/snacks/custardbun
+
+/datum/recipe/chickenmomo
+	reagents = list("spacespice" = 2, "water" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/meat/chicken
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/chickenmomo
+
+/datum/recipe/veggiemomo
+	reagents = list("spacespice" = 2, "water" = 5)
+	fruit = list("carrot" = 1, "cabbage" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/veggiemomo
+
+/datum/recipe/risotto
+	reagents = list("wine" = 5, "rice" = 10, "spacespice" = 1)
+	fruit = list("mushroom" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/risotto
+
+/datum/recipe/poachedegg
+	reagents = list("spacespice" = 1, "blackpepper" = 1, "water" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/egg
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/poachedegg
+
+/datum/recipe/honeytoast
+	reagents = list("honey" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/breadslice,
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/honeytoast
