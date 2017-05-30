@@ -71,7 +71,7 @@
 
 	if (M.can_inject(user, 1))
 		visible_message("<span class='notice'>[user] starts to inject [M] with their hypospray!</span>")
-		if(do_after(user, 3 SECONDS, act_mob = M))
+		if(do_mob(user, 3 SECONDS, act_target = M))
 			M << "<span class='notice'>You feel a tiny prick!</span>"
 			user <<"<span class='notice'>You inject [M] with your hypospray!</span>"
 
