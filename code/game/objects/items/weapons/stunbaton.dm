@@ -37,6 +37,7 @@
 			return 1
 		else
 			status = 0
+			deactivate()
 			update_icon()
 			return 0
 	return null
