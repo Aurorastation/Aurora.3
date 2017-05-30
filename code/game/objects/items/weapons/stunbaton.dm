@@ -16,7 +16,7 @@
 	var/agonyforce = 120
 	var/status = 0		//whether the thing is on or not
 	var/obj/item/weapon/cell/bcell = null
-	var/power_usage = 500
+	var/power_usage = 100
 	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
 	var/baton_color = "#FF6A00"
 
@@ -114,7 +114,7 @@
 	update_icon()
 
 /obj/item/weapon/melee/baton/process()
-	if (!bcell || !bcell.checked_use(power_usage*CELLRATE))
+	if (!bcell || !bcell.checked_use(power_usage))
 		deactivate()
 		return
 
