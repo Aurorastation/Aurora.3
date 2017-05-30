@@ -16,6 +16,7 @@
 	icon_state = "shuttle3"
 	requires_power = 0
 	station_area = 1
+	dynamic_lighting = 0
 
 /area/supply/dock
 	name = "Supply Shuttle"

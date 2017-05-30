@@ -74,6 +74,15 @@
 /mob/living/simple_animal/familiar/pike/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
+/mob/living/simple_animal/familiar/pike/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/familiar/pike/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/familiar/pike/CanAvoidGravity()
+	return TRUE
+
 /mob/living/simple_animal/familiar/horror
 	name = "horror"
 	desc = "A sanity-destroying otherthing."

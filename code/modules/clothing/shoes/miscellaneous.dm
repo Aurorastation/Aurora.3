@@ -18,7 +18,7 @@
 	name = "\improper SWAT shoes"
 	desc = "When you want to turn up the heat."
 	icon_state = "swat"
-	force = 3
+	force = 5
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	item_flags = NOSLIP
 	siemens_coefficient = 0.5
@@ -26,8 +26,8 @@
 
 /obj/item/clothing/shoes/combat //Basically SWAT shoes combined with galoshes.
 	name = "combat boots"
-	desc = "When you REALLY want to turn up the heat"
-	icon_state = "swat"
+	desc = "When you REALLY want to turn up the heat."
+	icon_state = "jungle"
 	force = 5
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	item_flags = NOSLIP
@@ -60,7 +60,6 @@
 	icon_state = "clown"
 	item_state = "clown_shoes"
 	slowdown = SHOES_SLOWDOWN+1
-	force = 0
 	var/footstep = 1	//used for squeeks whilst walking
 	species_restricted = null
 
@@ -79,8 +78,8 @@
 	desc = "A pair of boots worn by the followers of Nar-Sie."
 	icon_state = "cult"
 	item_state = "cult"
-	force = 2
-	siemens_coefficient = 0.7
+	force = 5
+	siemens_coefficient = 0
 
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
@@ -124,4 +123,3 @@
 	icon_state = "flippers"
 	item_flags = NOSLIP
 	slowdown = SHOES_SLOWDOWN+1
-	species_restricted = null

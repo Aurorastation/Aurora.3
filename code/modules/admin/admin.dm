@@ -63,7 +63,7 @@ proc/admin_notice(var/message, var/rights)
 		<A href='?_src_=holder;warn=[M.ckey]'>Warn</A> |
 		<a href='?src=\ref[src];warnsearchckey=[M.ckey]'>Warnings</a> |
 		<A href='?src=\ref[src];newban=\ref[M]'>Ban</A> |
-		<A href='?src=\ref[src];jobban2=\ref[M]'>Jobban</A> |
+		<A href='?src=\ref[src];jobban_panel=\ref[M]'>Jobban</A> |
 		<A href='?src=\ref[src];notes=show;mob=\ref[M]'>Notes</A>
 	"}
 
@@ -575,14 +575,19 @@ proc/admin_notice(var/message, var/rights)
 
 
 /datum/admins/proc/Jobbans()
-	if(!check_rights(R_BAN))	return
+	if(!check_rights(R_BAN))
+		return
 
-	var/dat = "<B>Job Bans!</B><HR><table>"
-	for(var/t in jobban_keylist)
-		var/r = t
-		if( findtext(r,"##") )
-			r = copytext( r, 1, findtext(r,"##") )//removes the description
-		dat += text("<tr><td>[t] (<A href='?src=\ref[src];removejobban=[r]'>unban</A>)</td></tr>")
+	// RIP whoever uses this panel. It's going to be amazingly painful!
+	var/dat = "<B>Job Bans!</B><HR>"
+	dat += "<a href='?src=\ref[src];jobban_search=1'>Search via ckey</a><br>"
+	dat += "<table>"
+	for (var/ckey in jobban_keylist)
+		for (var/job in jobban_keylist[ckey])
+			var/list/ban = jobban_keylist[ckey][job]
+			if (!jobban_isexpired(ban, null, job, ckey))
+				dat += "<tr><td>[ckey] - [ban[2]] - (<a href='?src=\ref[src];jobban_tgt=[ckey];jobban_job=[job];'>unban</a>)</td></tr>"
+
 	dat += "</table>"
 	usr << browse(dat, "window=ban;size=400x400")
 
@@ -1313,14 +1318,14 @@ proc/admin_notice(var/message, var/rights)
 	if(check_rights(R_ADMIN|R_MOD))
 		if (H.paralysis == 0)
 			H.paralysis = 8000
-			msg = "has paralyzed [key_name(H)]."
+			msg = "has paralyzed [key_name_admin(H)]."
 			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>[H] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</font>", "<font color='red'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></font>")
 		else
 			if (alert("The player is currently winded. Do you want to unwind him?", "Unwind player?", "Yes", "No") == "No")
 				return
 
 			H.paralysis = 0
-			msg = "has unparalyzed [key_name(H)]."
+			msg = "has unparalyzed [key_name_admin(H)]."
 			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[H] has been unwinded by a member of staff!</font>", "<font color='red'><b>You have been unwinded by a member of staff!</b></font>")
 		log_and_message_admins(msg)
 		feedback_add_details("admin_verb", "WIND")

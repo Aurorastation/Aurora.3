@@ -560,7 +560,8 @@
 		/obj/item/weapon/gun/energy/vaurca/gatlinglaser,
 		/obj/item/weapon/gun/energy/vaurca/blaster,
 		/obj/item/weapon/gun/energy/crossbow/largecrossbow,
-		/obj/item/weapon/gun/energy/rifle/laser/xray
+		/obj/item/weapon/gun/energy/rifle/laser/xray,
+		/obj/item/weapon/gun/energy/net
 	)
 
 /obj/random/colored_jumpsuit
