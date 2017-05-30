@@ -104,12 +104,12 @@
 	add_fingerprint(user)
 
 /obj/item/weapon/melee/baton/proc/activate()
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	playsound(loc, "sparks", 75, 1, -1)
 	update_icon()
 
 /obj/item/weapon/melee/baton/proc/deactivate()
-	processing_objects.Remove(src)
+	START_PROCESSING(SSprocessing, src)
 	playsound(loc, "sparks", 75, 1, -1)
 	update_icon()
 
