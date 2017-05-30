@@ -339,6 +339,14 @@
 	if (istype(loc, /turf/space) || (area && !area.has_gravity))
 		return FALSE
 
+	var/obj/item/weapon/rig/rig = get_rig()
+	if (istype(rig))
+		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
+			if (A.active && rig.check_power_cost(src, 10, A, 0))
+				visible_message("<span class='notice'>\The [src] lands flawlessly with \his [rig].</span>",
+					"<span class='notice'>You hear an electric <i>*whirr*</i> right after the slam!</span>")
+				return FALSE
+
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
