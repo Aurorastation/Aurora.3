@@ -56,7 +56,7 @@
 		message = ""//Displays for one refresh only
 	lastuser = user
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "sudoku.tmpl", "Sudoku", width, 557, state = state)
 		//if(host.update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.
@@ -115,7 +115,7 @@
 	else
 		width = 900
 
-	var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, "main")
+	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
 	if (ui)
 		ui.close()
 		ui_interact(user, force_open = 1)

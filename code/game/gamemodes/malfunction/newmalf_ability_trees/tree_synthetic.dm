@@ -18,7 +18,7 @@
 
 /datum/malf_research_ability/synthetic/infect_apc
 	ability = new/datum/game_mode/malfunction/verb/infect_apc()
-	price = 700
+	price = 500
 	next = new/datum/malf_research_ability/synthetic/overclock_borg()
 	name = "Infect APC"
 
@@ -32,7 +32,7 @@
 
 /datum/malf_research_ability/synthetic/synthetic_takeover
 	ability = new/datum/game_mode/malfunction/verb/synthetic_takeover()
-	price = 5000
+	price = 4000
 	name = "Synthetic Takeover"
 
 // END RESEARCH DATUMS
@@ -103,9 +103,6 @@
 
 		user.hacking = 0
 
-
-
-
 /datum/game_mode/malfunction/verb/infect_apc(obj/machinery/power/apc/A as obj in get_apcs())
 	set name = "Infect APC"
 	set desc = "125 CPU - Infect an APC which can cause an IPC to become slaved to you if they download the files by trying to charge off of it. "
@@ -149,13 +146,11 @@
 		user << "<span class='notice'>Hack failed. Unable to locate APC. Please verify the APC still exists.</span>"
 	user.hacking = 0
 
-
-
 /datum/game_mode/malfunction/verb/overclock_borg(var/mob/living/silicon/robot/target as mob in get_linked_cyborgs(usr))
 	set name = "Overclock Cyborg"
-	set desc = "350 CPU - Allows you to overclock a slaved cyborg granting them various improvements to their systems."
+	set desc = "300 CPU - Allows you to overclock a slaved cyborg granting them various improvements to their systems."
 	set category = "Software"
-	var/price = 350
+	var/price = 300
 	var/mob/living/silicon/ai/user = usr
 
 	if(!ability_prechecks(user, price))
@@ -201,6 +196,7 @@
 		user << "Hacking saftey protocols. This will take about twenty seconds."
 		sleep(200)
 		if(prob(15))
+			user.hacking = 0
 			user <<"Hack failed!"
 			return
 		if(target)
@@ -213,14 +209,11 @@
 
 		user.hacking = 0
 
-
-
-
 /datum/game_mode/malfunction/verb/synthetic_takeover()
 	set name = "Synthetic Takeover"
-	set desc = "500 CPU - Starts a takeover of the station enabling several abilities that relate to synthetic dominance."
+	set desc = "450 CPU - Starts a takeover of the station enabling several abilities that relate to synthetic dominance."
 	set category = "Software"
-	var/price = 500
+	var/price = 450
 	var/mob/living/silicon/ai/user = usr
 
 	if(!ability_prechecks(user,price))
@@ -364,7 +357,7 @@
 	if(user.is_dead()) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
-	sleep(1800) //long sleep that simulates hacking times
+	sleep(1400) //long sleep that simulates hacking times
 	if(user.is_dead()) // check if the AI is still alive after the long hack
 		user.synthetic_takeover = 0
 		return

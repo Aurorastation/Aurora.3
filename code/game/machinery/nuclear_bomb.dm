@@ -40,7 +40,7 @@ var/bomb_set
 		if (timeleft <= 0)
 			spawn
 				explode()
-		nanomanager.update_uis(src)
+		SSnanoui.update_uis(src)
 	return
 
 /obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
@@ -195,7 +195,7 @@ var/bomb_set
 		if (yes_code)
 			data["message"] = "*****"
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "nuclear_bomb.tmpl", "Nuke Control Panel", 300, 510)
 		ui.set_initial_data(data)
@@ -269,19 +269,19 @@ var/bomb_set
 				timeleft = Clamp(timeleft, 120, 600)
 			if (href_list["timer"])
 				if (timing == -1)
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 				if (!anchored)
 					usr << "<span class='warning'>\The [src] needs to be anchored.</span>"
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 				if (safety)
 					usr << "<span class='warning'>The safety is still on.</span>"
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_TIMING))
 					usr << "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>"
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 
 				if (!timing && !safety)
@@ -298,7 +298,7 @@ var/bomb_set
 			if (href_list["safety"])
 				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_SAFETY))
 					usr << "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>"
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 				safety = !safety
 				if(safety)
@@ -308,7 +308,7 @@ var/bomb_set
 				if(removal_stage == 5)
 					anchored = 0
 					visible_message("<span class='warning'>\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut.</span>")
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 
 				if(!isinspace())
@@ -321,7 +321,7 @@ var/bomb_set
 				else
 					usr << "<span class='warning'>There is nothing to anchor to!</span>"
 
-	nanomanager.update_uis(src)
+	SSnanoui.update_uis(src)
 
 /obj/machinery/nuclearbomb/proc/secure_device()
 	if(timing <= 0)
