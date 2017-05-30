@@ -109,7 +109,7 @@
 	update_icon()
 
 /obj/item/weapon/melee/baton/proc/deactivate()
-	START_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSprocessing, src)
 	playsound(loc, "sparks", 75, 1, -1)
 	update_icon()
 
