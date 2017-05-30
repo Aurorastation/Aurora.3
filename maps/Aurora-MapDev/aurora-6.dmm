@@ -232,7 +232,7 @@
 "ex" = (/obj/random/loot,/turf/simulated/floor/plating,/area/maintenance/solarmaint)
 "ey" = (/obj/machinery/power/apc{dir = 8;name = "west bump";pixel_x = -24},/obj/structure/cable{icon_state = "0-4";d2 = 4},/turf/simulated/floor/plating,/area/maintenance/solarmaint)
 "ez" = (/obj/effect/decal/cleanable/dirt,/obj/structure/cable{d1 = 1;d2 = 4;icon_state = "1-4"},/obj/structure/cable{d1 = 1;d2 = 8;icon_state = "1-8"},/turf/simulated/floor/plating,/area/maintenance/solarmaint)
-"eA" = (/obj/structure/cable{d2 = 8;icon_state = "0-8"},/obj/machinery/power/smes/buildable{charge = 0;RCon_tag = "Solar - Aft Starboard"},/turf/simulated/floor/plating,/area/maintenance/solarmaint)
+"eA" = (/obj/structure/cable{d2 = 8;icon_state = "0-8"},/obj/machinery/power/smes/buildable{charge = 0;RCon_tag = "\[SOL.4] Solar - Roof"},/turf/simulated/floor/plating,/area/maintenance/solarmaint)
 "eB" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/maintenance/solarmaint)
 "eC" = (/obj/item/weapon/stool,/obj/machinery/alarm{dir = 4;icon_state = "alarm0";pixel_x = -22},/obj/machinery/camera/network/telecom{c_tag = "Telecoms - Aft Solar Maintenance";dir = 4},/turf/simulated/floor/plating,/area/maintenance/solarmaint)
 "eD" = (/obj/effect/decal/cleanable/dirt,/obj/structure/cable/yellow{d1 = 2;d2 = 4;icon_state = "2-4"},/turf/simulated/floor/plating,/area/maintenance/solarmaint)
