@@ -228,6 +228,5 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 				/datum/spellbook/battlemage = 1,
 				/datum/spellbook/spatial = 1,
 				/datum/spellbook/druid = 1,
-				/datum/spellbook/necromancer = 1,
-				/datum/spellbook/student = 1
+				/datum/spellbook/necromancer = 1
 				) //spell's path = cost of spell
