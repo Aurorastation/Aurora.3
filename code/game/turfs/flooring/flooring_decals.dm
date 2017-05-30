@@ -35,7 +35,7 @@ var/list/floor_decals = list()
 	if(newcolour)
 		color = newcolour
 
-	if (supplied_dir) 
+	if (supplied_dir)
 		set_dir(supplied_dir)
 
 	..()
@@ -369,6 +369,8 @@ var/list/floor_decals = list()
 	name = "L16"
 	icon_state = "L16"
 
+// Medbay floor signs
+
 /obj/effect/floor_decal/sign
 	name = "floor sign"
 	icon_state = "white_1"
@@ -402,3 +404,20 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/sign/p
 	icon_state = "white_p"
+
+// New signs (New-map)
+
+/obj/effect/floor_decal/sign/gtr
+	icon_state = "white_gtr"
+
+/obj/effect/floor_decal/sign/emt
+	icon_state = "white_emt"
+
+/obj/effect/floor_decal/sign/w
+	icon_state = "white_w"
+
+/obj/effect/floor_decal/sign/icu
+	icon_state = "white_icu"
+
+/obj/effect/floor_decal/sign/c2
+	icon_state = "white_c2"
