@@ -69,3 +69,13 @@ ANIMAL_DELAY 1
 
 ## Remove the # in front of this config option to have loyalty implants spawn by default on your server.
 #USE_LOYALTY_IMPLANTS
+
+
+## Sunlight Settings ##
+
+# How many tiles should be between each light source. Higher is more accurate, but may take longer to process. Too low will freeze the server during updates.
+# You probably should leave this unset.
+#SUNLIGHT_ACCURACY 8
+
+# The Z-level the sun is generated at. Keep in mind that light can only go downwards when setting this.
+#SUNLIGHT_Z 7

@@ -18,7 +18,8 @@
 #define SS_INIT_MISC                3	// Subsystems without an explicitly set initialization order start here.
 #define SS_INIT_LIGHTING            2	// Generation of lighting overlays and pre-bake.
 #define SS_INIT_OPENTURF            1	// Openturf flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites. Causes lighting updates if starlight is enabled.
-#define SS_INIT_LOBBY               0	// Lobby timer starts here.
+#define SS_INIT_SUNLIGHT            0	// Sunlight setup. Creates lots of lighting & SSopenturf updates, but done after SSlighting inits so it doesn't delay boot.
+#define SS_INIT_LOBBY              -1	// Lobby timer starts here.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.

@@ -6,6 +6,7 @@
 	var/light_color     // Hexadecimal RGB string representing the colour of the light.
 	var/uv_intensity = 255	// How much UV light is being emitted by this object. Valid range: 0-255.
 	var/light_wedge		// The angle that the light's emission should be restricted to. null for omnidirectional.
+	var/light_novis     // If TRUE, visibility checks will be skipped when calculating this light.
 
 	var/tmp/datum/light_source/light // Our light source. Don't fuck with this directly unless you have a good reason!
 	var/tmp/list/light_sources       // Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
@@ -71,6 +72,8 @@
 
 		if (light) // Update the light or create it if it does not exist.
 			light.update(.)
+		else if (light_novis)
+			light = new/datum/light_source/novis(src, .)
 		else
 			light = new/datum/light_source(src, .)
 
