@@ -312,7 +312,7 @@
 /datum/recipe/brownies
 	appliance = OVEN
 	reagents = list("browniemix" = 10, "egg" = 3)
-	reagent_mix = RECIPE_REAGENT_REPLACE //No egg in final recipe
+	reagent_mix = RECIPE_REAGENT_REPLACE //No egg or mix in final recipe
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/brownies
 	
 
@@ -320,7 +320,7 @@
 	appliance = OVEN
 	reagents = list("browniemix" = 10, "egg" = 3)
 	fruit = list("ambrosia" = 1)
-	reagent_mix = RECIPE_REAGENT_REPLACE //No egg in final recipe
+	reagent_mix = RECIPE_REAGENT_REPLACE //No egg or mix in final recipe
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cosmicbrownies
 
 

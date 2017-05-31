@@ -726,9 +726,14 @@ I said no!
 	result = /obj/item/weapon/neuralbroke
 
 
-////////////////////
+/////////////////////////////////////////////////////////////
 //Synnono Meme Foods
-////////////////////
+//
+//Most recipes replace reagents with RECIPE_REAGENT_REPLACE
+//to simplify the end product and balance the amount of reagents
+//in some foods. Many require the space spice reagent/condiment
+//to reduce the risk of future recipe conflicts.
+/////////////////////////////////////////////////////////////
 
 
 /datum/recipe/redcurry
@@ -818,7 +823,7 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/chilicheesefries
 
 /datum/recipe/meatbun
-	reagents = list("spacespice" = 2, "water" = 5)
+	reagents = list("spacespice" = 1, "water" = 5)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
 		/obj/item/weapon/reagent_containers/food/snacks/rawcutlet
@@ -827,7 +832,7 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/meatbun
 
 /datum/recipe/custardbun
-	reagents = list("spacespice" = 2, "water" = 5, "egg" = 3)
+	reagents = list("spacespice" = 1, "water" = 5, "egg" = 3)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
 	)
