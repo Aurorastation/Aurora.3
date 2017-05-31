@@ -104,7 +104,22 @@
 		var/mob/living/silicon/ai/AI
 		can_read = get_dist(src, AI.camera) < 2
 
-	show_browser(user, "<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[can_read ? parse_languages(user, info) : stars(info)][stamps]</BODY></HTML>", "window=[name]")
+	var/header = {"<head>
+	<title>[name]</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<style>
+		@font-face {
+			font-family: memeFont;
+			src: url('Zeshit-Sans.woff') format('woff');
+		}
+
+		span.test {
+			font-family: memeFont, Verdana;
+		}
+	</style>
+	</head>"}
+
+	show_browser(user, "<HTML>[header]<BODY bgcolor='[color]'>[can_read ? parse_languages(user, info) : stars(info)][stamps]</BODY></HTML>", "window=[name]")
 	onclose(user, "[name]")
 
 /obj/item/weapon/paper/verb/rename()
