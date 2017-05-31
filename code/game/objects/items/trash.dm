@@ -89,7 +89,7 @@
 	icon_state = "cbeef-used"
 
 /obj/item/trash/brownies
-	name = "brownies"
+	name = "brownie tray"
 	icon_state = "brownies"
 
 /obj/item/trash/snacktray

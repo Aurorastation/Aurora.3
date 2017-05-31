@@ -868,7 +868,7 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/risotto
 
 /datum/recipe/poachedegg
-	reagents = list("spacespice" = 1, "blackpepper" = 1, "water" = 5)
+	reagents = list("spacespice" = 1, "sodiumchloride" = 1, "blackpepper" = 1, "water" = 5)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/egg
 	)

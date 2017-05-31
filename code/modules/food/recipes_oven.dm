@@ -224,7 +224,7 @@
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/keylimepie
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
 
-/datum/recipe/quiche //I-I know it's not a pie...
+/datum/recipe/quiche
 	appliance = OVEN
 	reagents = list("milk" = 5, "egg" = 9, "flour" = 10)
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/cheesewedge)

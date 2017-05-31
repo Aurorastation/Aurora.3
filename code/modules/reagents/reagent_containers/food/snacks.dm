@@ -2675,7 +2675,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/bibimbap
 	name = "bibimbap bowl"
-	desc = "A traditional Korean bowl-meal of meat and mixed vegetables. It's served on a bed of rice, and topped with a fried egg."
+	desc = "A traditional Korean meal of meat and mixed vegetables. It's served on a bed of rice, and topped with a fried egg."
 	icon_state = "bibimbap"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#4f2100"
@@ -2690,7 +2690,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/lomein
 	name = "lo mein"
 	gender = PLURAL
-	desc = "A popular Chinese noodle dish. Chopsticks optional!"
+	desc = "A popular Chinese noodle dish. Chopsticks optional."
 	icon_state = "lomein"
 	trash = /obj/item/trash/plate
 	filling_color = "#FCEE81"
@@ -2713,8 +2713,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/friedrice/New()
 	..()
-	reagents.add_reagent("nutriment", 2)
-	bitesize = 3
+	reagents.add_reagent("nutriment", 7)
+	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/chickenfillet
 	name = "chicken fillet sandwich"
@@ -2747,7 +2747,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/friedmushroom
 	name = "fried mushroom"
-	desc = "A tender beer-battered mushroom, fried to crispy perfection."
+	desc = "A tender, beer-battered plump helmet, fried to crispy perfection."
 	icon_state = "friedmushroom"
 	filling_color = "#EDDD00"
 	center_of_mass = list("x"=16, "y"=11)
@@ -2756,40 +2756,6 @@
 	..()
 	reagents.add_reagent("protein", 2)
 	reagents.add_reagent("nutriment", 4)
-	bitesize = 5
-
-/obj/item/weapon/reagent_containers/food/snacks/brownies
-	name = "brownies"
-	gender = PLURAL
-	desc = "Halfway to fudge, or halfway to cake? Who cares!"
-	icon_state = "brownies"
-	trash = /obj/item/trash/brownies
-	filling_color = "#301301"
-	center_of_mass = list("x"=15, "y"=9)
-
-/obj/item/weapon/reagent_containers/food/snacks/brownies/New()
-	..()
-	reagents.add_reagent("protein", 2)
-	reagents.add_reagent("nutriment", 8)
-	bitesize = 6
-
-/obj/item/weapon/reagent_containers/food/snacks/cosmicbrownies
-	name = "cosmic brownies"
-	gender = PLURAL
-	desc = "Like, ultra-trippy. Brownies HAVE no gender, man."
-	icon_state = "cosmicbrownies"
-	trash = /obj/item/trash/brownies
-	filling_color = "#301301"
-	center_of_mass = list("x"=15, "y"=9)
-
-/obj/item/weapon/reagent_containers/food/snacks/cosmicbrownies/New()
-	..()
-	reagents.add_reagent("protein", 2)
-	reagents.add_reagent("nutriment", 8)
-	reagents.add_reagent("space_drugs", 2)
-	reagents.add_reagent("bicaridine", 1)
-	reagents.add_reagent("kelotane", 1)
-	reagents.add_reagent("toxin", 1)
 	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/pisanggoreng
@@ -2822,7 +2788,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/custardbun
 	name = "custard bun"
-	desc = "A soft, fluffy flour bun also known as baozi. This one is filled with a sweet egg custard."
+	desc = "A soft, fluffy flour bun also known as baozi. This one is filled with an egg custard."
 	icon_state = "meatbun"
 	filling_color = "#ebedc2"
 	center_of_mass = list("x"=16, "y"=11)
@@ -2909,6 +2875,7 @@
 	name = "poached egg"
 	desc = "A delicately poached egg with a runny yolk. Healthier than its fried counterpart."
 	icon_state = "poachedegg"
+	trash = /obj/item/trash/plate
 	filling_color = "#FFDF78"
 	center_of_mass = list("x"=16, "y"=14)
 
@@ -2923,6 +2890,7 @@
 	name = "plate of ribs"
 	desc = "A half-rack of ribs, brushed with some sort of honey-glaze. Why are there no napkins on board?"
 	icon_state = "ribplate"
+	trash = /obj/item/trash/plate
 	filling_color = "#7A3D11"
 	center_of_mass = list("x"=16, "y"=13)
 
@@ -3530,8 +3498,8 @@
 	reagents.add_reagent("nutriment", 16)
 
 /obj/item/weapon/reagent_containers/food/snacks/keylimepieslice
-	name = "key lime pie slice"
-	desc = "A slice of key lime pie, with whipped cream on top. Perfection."
+	name = "slice of key lime pie"
+	desc = "A slice of tart pie, with whipped cream on top."
 	icon_state = "keylimepieslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#F5B951"
@@ -3570,6 +3538,76 @@
 /obj/item/weapon/reagent_containers/food/snacks/quicheslice/filled
 
 /obj/item/weapon/reagent_containers/food/snacks/quicheslice/filled/New()
+	..()
+	reagents.add_reagent("nutriment", 1)
+	reagents.add_reagent("protein", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/brownies
+	name = "brownies"
+	gender = PLURAL
+	desc = "Halfway to fudge, or halfway to cake? Who cares!"
+	icon_state = "brownies"
+	slice_path = /obj/item/weapon/reagent_containers/food/snacks/browniesslice
+	slices_num = 4
+	trash = /obj/item/trash/brownies
+	filling_color = "#301301"
+	center_of_mass = list("x"=15, "y"=9)
+
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/brownies/New()
+	..()
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 8)
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/browniesslice
+	name = "brownie"
+	desc = "a dense, decadent chocolate brownie."
+	icon_state = "browniesslice"
+	trash = /obj/item/trash/plate
+	filling_color = "#F5B951"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=12)
+
+/obj/item/weapon/reagent_containers/food/snacks/browniesslice/filled
+
+/obj/item/weapon/reagent_containers/food/snacks/browniesslice/filled/New()
+	..()
+	reagents.add_reagent("nutriment", 1)
+	reagents.add_reagent("protein", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/cosmicbrownies
+	name = "cosmic brownies"
+	gender = PLURAL
+	desc = "Like, ultra-trippy. Brownies HAVE no gender, man." //Except I had to add one!
+	icon_state = "cosmicbrownies"
+	slice_path = /obj/item/weapon/reagent_containers/food/snacks/cosmicbrowniesslice
+	slices_num = 4
+	trash = /obj/item/trash/brownies
+	filling_color = "#301301"
+	center_of_mass = list("x"=15, "y"=9)
+
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/cosmicbrownies/New()
+	..()
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 8)
+	reagents.add_reagent("space_drugs", 2)
+	reagents.add_reagent("bicaridine", 1)
+	reagents.add_reagent("kelotane", 1)
+	reagents.add_reagent("toxin", 1)
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/cosmicbrowniesslice
+	name = "cosmic brownie"
+	desc = "a dense, decadent and fun-looking chocolate brownie."
+	icon_state = "cosmicbrowniesslice"
+	trash = /obj/item/trash/plate
+	filling_color = "#F5B951"
+	bitesize = 3
+	center_of_mass = list("x"=16, "y"=12)
+
+/obj/item/weapon/reagent_containers/food/snacks/cosmicbrowniesslice/filled
+
+/obj/item/weapon/reagent_containers/food/snacks/cosmicbrowniesslice/filled/New()
 	..()
 	reagents.add_reagent("nutriment", 1)
 	reagents.add_reagent("protein", 1)

@@ -102,7 +102,7 @@
 					desc = "Tastey space sugar!"
 					center_of_mass = list("x"=16, "y"=6)
 				if("spacespice")
-					name = "space spice"
+					name = "bottle of space spice"
 					desc = "An exotic blend of spices for cooking. Definitely not worms."
 					icon_state = "spacespicebottle"
 					center_of_mass = list("x"=16, "y"=6)
