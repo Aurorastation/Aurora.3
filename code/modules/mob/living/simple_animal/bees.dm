@@ -21,8 +21,8 @@
 	turns_per_move = 6
 	var/obj/machinery/portable_atmospherics/hydroponics/my_hydrotray
 
-/mob/living/simple_animal/bee/New(loc, var/obj/machinery/beehive/new_parent)
-	..()
+/mob/living/simple_animal/bee/Initialize(mapload, var/obj/machinery/beehive/new_parent)
+	. = ..()
 	parent = new_parent
 
 /mob/living/simple_animal/bee/Destroy()
@@ -257,8 +257,8 @@
 /mob/living/simple_animal/bee/standalone
 	loner = 1
 
-/mob/living/simple_animal/bee/standalone/New(loc, var/obj/machinery/beehive/new_parent)
-	..()
+/mob/living/simple_animal/bee/standalone/Initialize(mapload, var/obj/machinery/beehive/new_parent)
+	. = ..()
 	strength = rand(4,8)
 	update_icons()
 

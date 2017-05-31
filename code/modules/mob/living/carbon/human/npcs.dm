@@ -5,12 +5,14 @@
 	worn_state = "punpun"
 	species_restricted = list("Monkey")
 
-/mob/living/carbon/human/monkey/punpun/New()
+/mob/living/carbon/human/monkey/punpun/Initialize()
 	..()
-	spawn(1)
-		name = "Pun Pun"
-		real_name = name
-		w_uniform = new /obj/item/clothing/under/punpun(src)
+	return INITIALIZE_HINT_LATELOAD
+
+/mob/living/carbon/human/monkey/punpun/LateInitialize()
+	name = "Pun Pun"
+	real_name = name
+	w_uniform = new /obj/item/clothing/under/punpun(src)
 
 /obj/item/clothing/under/nupnup
 	name = "christmas uniform"
@@ -19,9 +21,11 @@
 	worn_state = "nupnup"
 	species_restricted = list("Monkey")
 
-/mob/living/carbon/human/monkey/nupnup/New()
+/mob/living/carbon/human/monkey/nupnup/Initialize()
 	..()
-	spawn(1)
-		name = "Winston, the Christmas Monkey"
-		real_name = name
-		w_uniform = new /obj/item/clothing/under/nupnup(src)
+	return INITIALIZE_HINT_LATELOAD
+
+/mob/living/carbon/human/monkey/nupnup/LateInitialize()
+	name = "Winston, the Christmas Monkey"
+	real_name = name
+	w_uniform = new /obj/item/clothing/under/nupnup(src)

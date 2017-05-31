@@ -40,8 +40,8 @@
 /mob/living/simple_animal/construct/cultify()
 	return
 
-/mob/living/simple_animal/construct/New()
-	..()
+/mob/living/simple_animal/construct/Initialize()
+	. = ..()
 	name = text("[initial(name)] ([rand(1, 1000)])")
 	real_name = name
 	add_language("Cult")

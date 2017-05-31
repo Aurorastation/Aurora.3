@@ -64,7 +64,7 @@
 	poison_per_bite = 5
 	move_to_delay = 4
 
-/mob/living/simple_animal/hostile/giant_spider/New(var/location, var/atom/parent)
+/mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
 	get_light_and_color(parent)
 	..()
 

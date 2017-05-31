@@ -19,8 +19,8 @@
 	var/list/req_one_access = list()
 	var/master_access = access_robotics
 
-/mob/living/bot/New()
-	..()
+/mob/living/bot/Initialize()
+	. = ..()
 	update_icons()
 
 	botcard = new /obj/item/weapon/card/id(src)

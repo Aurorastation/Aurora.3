@@ -60,21 +60,22 @@
 
 	var/core_removal_stage = 0 //For removing cores.
 
-/mob/living/carbon/slime/New(var/location, var/colour="grey")
+/mob/living/carbon/slime/Initialize(mapload, colour = "grey")
+	. = ..()
 
 	verbs += /mob/living/proc/ventcrawl
 
 	src.colour = colour
 	number = rand(1, 1000)
 	name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
-	if (is_adult)mob_size = 6
+	if (is_adult)
+		mob_size = 6
 	real_name = name
 	slime_mutation = mutation_table(colour)
 	mutation_chance = rand(25, 35)
 	var/sanitizedcolour = replacetext(colour, " ", "")
 	coretype = text2path("/obj/item/slime_extract/[sanitizedcolour]")
 	regenerate_icons()
-	..(location)
 
 /mob/living/carbon/slime/movement_delay()
 	if (bodytemperature >= 330.23) // 135 F
