@@ -2590,8 +2590,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/redcurry/New()
 	..()
-	reagents.add_reagent("protein", 9)
-	reagents.add_reagent("nutriment", 6)
+	reagents.add_reagent("protein", 7)
+	reagents.add_reagent("nutriment", 8)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/greencurry
@@ -2621,8 +2621,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/yellowcurry/New()
 	..()
-	reagents.add_reagent("protein", 1)
-	reagents.add_reagent("nutriment", 14)
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 13)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/bearburger
@@ -2634,7 +2634,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/bearburger/New()
 	..()
-	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("nutriment", 1) //So spawned burgers will not be empty I guess?
 	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/bearchili
@@ -2648,11 +2648,12 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/bearchili/New()
 	..()
+	reagents.add_reagent("protein", 3)
 	reagents.add_reagent("nutriment", 3)
-	reagents.add_reagent("protein", 12)
 	reagents.add_reagent("capsaicin", 3)
+	reagents.add_reagent("tomatojuice", 2)
 	reagents.add_reagent("hyperzine", 5)
-	bitesize = 5
+	bitesize = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/bearstew
 	name = "bear stew"
@@ -2664,7 +2665,12 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/bearstew/New()
 	..()
-	reagents.add_reagent("nutriment", 3)
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("hyperzine", 5)
+	reagents.add_reagent("nutriment", 6)
+	reagents.add_reagent("tomatojuice", 5)
+	reagents.add_reagent("imidazoline", 5)
+	reagents.add_reagent("water", 5)
 	bitesize = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/bibimbap
@@ -2707,8 +2713,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/friedrice/New()
 	..()
-	reagents.add_reagent("nutriment", 5)
-	bitesize = 1
+	reagents.add_reagent("nutriment", 2)
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/chickenfillet
 	name = "chicken fillet sandwich"
@@ -2719,8 +2725,9 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/chickenfillet/New()
 	..()
-	reagents.add_reagent("nutriment", 3)
-	bitesize = 4
+	reagents.add_reagent("protein", 8)
+	reagents.add_reagent("nutriment", 4)
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/chilicheesefries
 	name = "chili cheese fries"
@@ -2733,9 +2740,9 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/chilicheesefries/New()
 	..()
-	reagents.add_reagent("protein", 4)
-	reagents.add_reagent("nutriment", 16)
-	reagents.add_reagent("capsaicin", 4)
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 8)
+	reagents.add_reagent("capsaicin", 2)
 	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/friedmushroom
@@ -2747,8 +2754,43 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/friedmushroom/New()
 	..()
-	reagents.add_reagent("nutriment", 3)
-	bitesize = 4
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 4)
+	bitesize = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/brownies
+	name = "brownies"
+	gender = PLURAL
+	desc = "Halfway to fudge, or halfway to cake? Who cares!"
+	icon_state = "brownies"
+	trash = /obj/item/trash/brownies
+	filling_color = "#301301"
+	center_of_mass = list("x"=15, "y"=9)
+
+/obj/item/weapon/reagent_containers/food/snacks/brownies/New()
+	..()
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 8)
+	bitesize = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/cosmicbrownies
+	name = "cosmic brownies"
+	gender = PLURAL
+	desc = "Like, ultra-trippy. Brownies HAVE no gender, man."
+	icon_state = "cosmicbrownies"
+	trash = /obj/item/trash/brownies
+	filling_color = "#301301"
+	center_of_mass = list("x"=15, "y"=9)
+
+/obj/item/weapon/reagent_containers/food/snacks/cosmicbrownies/New()
+	..()
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 8)
+	reagents.add_reagent("space_drugs", 2)
+	reagents.add_reagent("bicaridine", 1)
+	reagents.add_reagent("kelotane", 1)
+	reagents.add_reagent("toxin", 1)
+	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/pisanggoreng
 	name = "pisang goreng"
@@ -2761,8 +2803,9 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/pisanggoreng/New()
 	..()
-	reagents.add_reagent("nutriment", 6)
-	bitesize = 2
+	reagents.add_reagent("protein", 1)
+	reagents.add_reagent("nutriment", 8)
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/meatbun
 	name = "meat bun"
@@ -2773,9 +2816,9 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/meatbun/New()
 	..()
-	reagents.add_reagent("protein", 2)
-	reagents.add_reagent("nutriment", 2)
-	bitesize = 2
+	reagents.add_reagent("protein", 3)
+	reagents.add_reagent("nutriment", 5)
+	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/custardbun
 	name = "custard bun"
@@ -2787,8 +2830,8 @@
 /obj/item/weapon/reagent_containers/food/snacks/custardbun/New()
 	..()
 	reagents.add_reagent("protein", 2)
-	reagents.add_reagent("nutriment", 2)
-	bitesize = 2
+	reagents.add_reagent("nutriment", 6)
+	bitesize = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/chickenmomo
 	name = "chicken momo"
@@ -2801,9 +2844,9 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/chickenmomo/New()
 	..()
-	reagents.add_reagent("protein", 8)
-	reagents.add_reagent("nutriment", 7)
-	bitesize = 5
+	reagents.add_reagent("protein", 6)
+	reagents.add_reagent("nutriment", 9)
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/veggiemomo
 	name = "veggie momo"
@@ -2816,7 +2859,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/veggiemomo/New()
 	..()
-	reagents.add_reagent("nutriment", 15)
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 13)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/risotto
@@ -2830,7 +2874,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/risotto/New()
 	..()
-	reagents.add_reagent("nutriment", 10)
+	reagents.add_reagent("nutriment", 9)
+	reagents.add_reagent("protein", 1)
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/risottoballs
@@ -2858,7 +2903,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/honeytoast/New()
 	..()
 	reagents.add_reagent("nutriment", 1)
-	bitesize = 3
+	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/poachedegg
 	name = "poached egg"
@@ -2870,11 +2915,12 @@
 /obj/item/weapon/reagent_containers/food/snacks/poachedegg/New()
 	..()
 	reagents.add_reagent("protein", 3)
+	reagents.add_reagent("nutriment", 1)
 	reagents.add_reagent("blackpepper", 1)
-	bitesize = 1.5
+	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/ribplate
-	name = "rib roast"
+	name = "plate of ribs"
 	desc = "A half-rack of ribs, brushed with some sort of honey-glaze. Why are there no napkins on board?"
 	icon_state = "ribplate"
 	filling_color = "#7A3D11"
@@ -2882,10 +2928,12 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/ribplate/New()
 	..()
-	reagents.add_reagent("protein", 10)
-	reagents.add_reagent("nutriment", 3)
+	reagents.add_reagent("protein", 6)
+	reagents.add_reagent("nutriment", 6)
+	reagents.add_reagent("triglyceride", 2)
+	reagents.add_reagent("blackpepper", 1)
 	reagents.add_reagent("honey", 5)
-	bitesize = 3
+	bitesize = 4
 
 
 /////////////////////////////////////////////////Sliceable////////////////////////////////////////
@@ -3478,8 +3526,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/keylimepie/New()
 	..()
-	reagents.add_reagent("nutriment", 18)
-	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("nutriment", 16)
 
 /obj/item/weapon/reagent_containers/food/snacks/keylimepieslice
 	name = "key lime pie slice"
@@ -3487,14 +3535,14 @@
 	icon_state = "keylimepieslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#F5B951"
-	bitesize = 1.5
+	bitesize = 3
 	center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/weapon/reagent_containers/food/snacks/keylimepieslice/filled
 
 /obj/item/weapon/reagent_containers/food/snacks/keylimepieslice/filled/New()
 	..()
-	reagents.add_reagent("nutriment", 3)
+	reagents.add_reagent("nutriment", 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/quiche
 	name = "quiche"
@@ -3516,85 +3564,15 @@
 	icon_state = "quicheslice"
 	trash = /obj/item/trash/plate
 	filling_color = "#F5B951"
-	bitesize = 2
+	bitesize = 3
 	center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/weapon/reagent_containers/food/snacks/quicheslice/filled
 
 /obj/item/weapon/reagent_containers/food/snacks/quicheslice/filled/New()
 	..()
-	reagents.add_reagent("nutriment", 2)
-	reagents.add_reagent("protein", 2)
-
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/brownies
-	name = "brownies"
-	gender = PLURAL
-	desc = "Halfway to fudge, or halfway to cake? Who cares!"
-	icon_state = "brownies"
-	slice_path = /obj/item/weapon/reagent_containers/food/snacks/browniesslice
-	slices_num = 4
-	trash = /obj/item/trash/brownies
-	filling_color = "#301301"
-	center_of_mass = list("x"=15, "y"=9)
-
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/brownies/New()
-	..()
-	reagents.add_reagent("protein", 4)
-	reagents.add_reagent("nutriment", 12)
-	bitesize = 2
-
-/obj/item/weapon/reagent_containers/food/snacks/browniesslice
-	name = "brownie"
-	desc = "A dense, decadent brownie."
-	icon_state = "browniesslice"
-	trash = /obj/item/trash/plate
-	filling_color = "#F5B951"
-	bitesize = 2
-	center_of_mass = list("x"=16, "y"=12)
-
-/obj/item/weapon/reagent_containers/food/snacks/browniesslice/filled
-
-/obj/item/weapon/reagent_containers/food/snacks/browniesslice/filled/New()
-	..()
-	reagents.add_reagent("nutriment", 2)
-	reagents.add_reagent("protein", 2)
-
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/cosmicbrownies
-	name = "cosmic brownies"
-	gender = PLURAL
-	desc = "Like, ultra-trippy. Brownies HAVE no gender, man."
-	icon_state = "cosmicbrownies"
-	slice_path = /obj/item/weapon/reagent_containers/food/snacks/cosmicbrowniesslice
-	slices_num = 4
-	trash = /obj/item/trash/brownies
-	filling_color = "#301301"
-	center_of_mass = list("x"=15, "y"=9)
-
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/cosmicbrownies/New()
-	..()
-	reagents.add_reagent("protein", 2)
-	reagents.add_reagent("nutriment", 9)
-	reagents.add_reagent("space_drugs", 2)
-	reagents.add_reagent("bicaridine", 1)
-	reagents.add_reagent("kelotane", 1)
-	reagents.add_reagent("toxin", 1)
-	
-
-/obj/item/weapon/reagent_containers/food/snacks/cosmicbrowniesslice
-	name = "cosmic brownie"
-	desc = "A lone, trippy brownie."
-	icon_state = "cosmicbrowniesslice"
-	trash = /obj/item/trash/plate
-	filling_color = "#F5B951"
-	bitesize = 2
-	center_of_mass = list("x"=16, "y"=12)
-
-/obj/item/weapon/reagent_containers/food/snacks/cosmicbrowniesslice/filled
-
-/obj/item/weapon/reagent_containers/food/snacks/cosmicbrowniesslice/filled/New()
-	..()
-	reagents.add_reagent("nutriment", 2)
-	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("nutriment", 1)
+	reagents.add_reagent("protein", 1)
 
 /////////////////////////////////////////////////PIZZA////////////////////////////////////////
 
