@@ -407,6 +407,11 @@ area/space/atmosalert()
 /area/syndicate_mothership/elite_squad
 	name = "\improper Elite Mercenary Squad"
 	icon_state = "syndie-elite"
+	
+/area/syndicate_mothership/raider_base
+	name = "\improper Pirate Hideout"
+	icon_state = "syndie-control"
+	dynamic_lighting = 1
 
 //EXTRA
 
@@ -769,7 +774,7 @@ area/space/atmosalert()
 
 //Hallway
 
-/area/hallway/primary/
+/area/hallway
 	sound_env = LARGE_ENCLOSED
 	allow_nightmode = 1
 	station_area = 1
@@ -827,6 +832,10 @@ area/space/atmosalert()
 /area/hallway/secondary/entry/aft
 	name = "\improper Arrival Shuttle Hallway - Aft"
 	icon_state = "entry_4"
+
+/area/hallway/secondary/entry/dock
+	name = "\improper Arrival Shuttle Dock"
+	icon_state = "arrivals_dock"
 
 //Command
 
@@ -982,7 +991,7 @@ area/space/atmosalert()
 	allow_nightmode = 1
 
 /area/crew_quarters/locker/locker_toilet
-	name = "\improper Locker Toilets"
+	name = "\improper Main Level Toilets"
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
 

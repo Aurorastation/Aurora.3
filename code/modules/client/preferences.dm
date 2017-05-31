@@ -415,8 +415,8 @@ datum/preferences
 			if(!dbcon.IsConnected())
 				return open_load_dialog_file(user)
 
-			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey AND deleted_at IS NULL ORDER BY id ASC")
-			query.Execute(list(":ckey" = user.client.ckey))
+			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
+			query.Execute(list("ckey" = user.client.ckey))
 
 			dat += "<b>Select a character slot to load</b><hr>"
 			var/name
@@ -471,8 +471,8 @@ datum/preferences
 	if (!config.sql_saves || !config.sql_stats || !establish_db_connection(dbcon) || !H)
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, special_role) VALUES (:char_id, :game_id, NOW(), :job, :special_role)")
-	query.Execute(list(":char_id" = current_character, ":game_id" = game_id, ":job" = H.mind.assigned_role, ":special_role" = H.mind.special_role))
+	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, special_role) VALUES (:char_id:, :game_id:, NOW(), :job:, :special_role:)")
+	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "special_role" = H.mind.special_role))
 
 // Turned into a proc so we could reuse it for SQL shenanigans.
 /datum/preferences/proc/new_setup(var/re_initialize = 0)
@@ -570,8 +570,8 @@ datum/preferences
 		C << "<span class='notice'>Unable to establish database connection.</span>"
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id")
-	query.Execute(list(":char_id" = current_character))
+	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id:")
+	query.Execute(list("char_id" = current_character))
 
 	// Create a new character.
 	new_setup(1)

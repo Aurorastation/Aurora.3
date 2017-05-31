@@ -243,7 +243,7 @@
 		throw_speed = 3
 		w_class = 3
 		slot_flags = 0
-		user << "<span class='notice'>The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame.</span>"
+		user << "<span class='notice'>\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame.</span>"
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user

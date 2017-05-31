@@ -64,7 +64,7 @@ var/list/ghost_traps
 		if(pref_check && !(pref_check in O.client.prefs.be_special_role))
 			continue
 		if(O.client)
-			O << "<span class='deadsay'><font size=3><b>[request_string] <a href='?src=\ref[src];candidate=\ref[O];target=\ref[target]'>(Occupy)</a> ([ghost_follow_link(target, O)])</b></font></span>"
+			O << "[ghost_follow_link(target, O)] <span class='deadsay'><font size=3><b>[request_string] <a href='?src=\ref[src];candidate=\ref[O];target=\ref[target]'>(Occupy)</a></b></font></span>"
 
 /datum/ghosttrap/proc/target_destroyed(var/destroyed_target)
 	request_timeouts -= destroyed_target

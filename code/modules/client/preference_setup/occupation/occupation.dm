@@ -37,7 +37,7 @@
 	return list("ss13_characters" = list("vars" = list("jobs" = "unsanitized_jobs", "alternate_option", "alternate_titles" = "player_alt_titles"), "args" = list("id")))
 
 /datum/category_item/player_setup_item/occupation/gather_load_parameters()
-	return list(":id" = pref.current_character)
+	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/occupation/gather_save_query()
 	return list("ss13_characters" = list("jobs", "alternate_option", "alternate_titles", "id" = 1, "ckey" = 1))
@@ -53,7 +53,7 @@
 								"job_engsec_med" = pref.job_engsec_med,
 								"job_engsec_low" = pref.job_engsec_low)
 
-	return list(":jobs" = list2params(compiled_jobs), ":alternate_option" = pref.alternate_option, ":alternate_titles" = list2params(pref.player_alt_titles), ":id" = pref.current_character, ":ckey" = pref.client.ckey)
+	return list("jobs" = list2params(compiled_jobs), "alternate_option" = pref.alternate_option, "alternate_titles" = list2params(pref.player_alt_titles), "id" = pref.current_character, "ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/occupation/sanitize_character(var/sql_load = 0)
 	if (sql_load)

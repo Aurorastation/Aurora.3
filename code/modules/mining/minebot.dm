@@ -49,6 +49,8 @@
 	additional_law_channels["Drone"] = ":d"
 	if(!laws) laws = new law_type
 	if(!module) module = new module_type(src)
+	if(!jetpack)
+		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 
 	flavor_text = "It's a tiny little mining drone. The casing is stamped with an corporate logo and the subscript: '[company_name] Automated Pickaxe!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
@@ -180,6 +182,8 @@
 		new /obj/item/weapon/robot_module/mining_drone/drill(M)
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
+	if(!M.jetpack)
+		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 	qdel(src)
 
 /obj/item/device/mine_bot_ugprade/health
@@ -215,6 +219,8 @@
 	M.ranged_upgrade = 1
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
+	if(!M.jetpack)
+		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 	qdel(src)
 
 /obj/item/device/mine_bot_ugprade/thermal
@@ -230,4 +236,6 @@
 	M.emagged = 1
 	M.fakeemagged = 1
 	M.drill_upgrade = 1
+	if(!M.jetpack)
+		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 	qdel(src)
