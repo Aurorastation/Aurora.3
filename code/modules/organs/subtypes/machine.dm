@@ -4,6 +4,9 @@
 /obj/item/organ/external/head/ipc
 	dislocated = -1
 	can_intake_reagents = 0
+	vital = 1 //because it is now hosting the posibrain
+	max_damage = 50 //made same as arm, since it is not vital
+	min_broken_damage = 30
 	encased = "support frame"
 
 /obj/item/organ/external/head/ipc/New()
@@ -13,7 +16,6 @@
 /obj/item/organ/external/chest/ipc
 	dislocated = -1
 	encased = "support frame"
-	
 /obj/item/organ/external/chest/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -21,7 +23,6 @@
 /obj/item/organ/external/groin/ipc
 	dislocated = -1
 	encased = "support frame"
-	
 /obj/item/organ/external/groin/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -29,7 +30,6 @@
 /obj/item/organ/external/arm/ipc
 	dislocated = -1
 	encased = "support frame"
-	
 /obj/item/organ/external/arm/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -37,7 +37,6 @@
 /obj/item/organ/external/arm/right/ipc
 	dislocated = -1
 	encased = "support frame"
-	
 /obj/item/organ/external/arm/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -45,14 +44,12 @@
 /obj/item/organ/external/leg/ipc
 	dislocated = -1
 	encased = "support frame"
-	
 /obj/item/organ/external/leg/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
 
 /obj/item/organ/external/leg/right/ipc
 	dislocated = -1
-	
 /obj/item/organ/external/leg/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -60,7 +57,6 @@
 /obj/item/organ/external/foot/ipc
 	dislocated = -1
 	encased = "support frame"
-	
 /obj/item/organ/external/foot/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -68,7 +64,6 @@
 /obj/item/organ/external/foot/right/ipc
 	dislocated = -1
 	encased = "support frame"
-	
 /obj/item/organ/external/foot/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -76,7 +71,6 @@
 /obj/item/organ/external/hand/ipc
 	dislocated = -1
 	encased = "support frame"
-	
 /obj/item/organ/external/hand/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -84,7 +78,6 @@
 /obj/item/organ/external/hand/right/ipc
 	dislocated = -1
 	encased = "support frame"
-	
 /obj/item/organ/external/hand/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -227,6 +220,8 @@
 	dislocated = -1
 	can_intake_reagents = 0
 	vital = 0
+	max_damage = 50 //made same as arm, since it is not vital
+	min_broken_damage = 30
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
@@ -334,7 +329,9 @@
 /obj/item/organ/external/head/industrial
 	dislocated = -1
 	can_intake_reagents = 0
-	vital = 1
+	vital = 0
+	max_damage = 50 //made same as arm, since it is not vital
+	min_broken_damage = 30
 	encased = "support frame"
 
 /obj/item/organ/external/head/industrial/New()
@@ -428,7 +425,9 @@
 /obj/item/organ/external/head/shell
 	dislocated = -1
 	can_intake_reagents = 0
-	vital = 1
+	vital = 0
+	max_damage = 50 //made same as arm, since it is not vital
+	min_broken_damage = 30
 	encased = "support frame"
 	force_skintone = TRUE
 
