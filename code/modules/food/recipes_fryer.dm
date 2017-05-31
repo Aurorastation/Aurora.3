@@ -132,5 +132,6 @@
 /datum/recipe/pisanggoreng
 	appliance = FRYER
 	fruit = list("banana" = 2)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/pisanggoreng
 	coating = /datum/reagent/nutriment/coating/batter

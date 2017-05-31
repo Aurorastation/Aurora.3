@@ -16,12 +16,13 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //No eating polyacid
 
 
-/datum/recipe/ribroast //Putting this here for not seeing a roast section.
+/datum/recipe/ribplate //Putting this here for not seeing a roast section.
 	appliance = OVEN
 	reagents = list("honey" = 5, "spacespice" = 2, "blackpepper" = 1)
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/meat)
-	result = /obj/item/weapon/reagent_containers/food/snacks/ribroast
 	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/weapon/reagent_containers/food/snacks/ribplate
+	
 
 
 
@@ -311,14 +312,16 @@
 /datum/recipe/brownies
 	appliance = OVEN
 	reagents = list("browniemix" = 10, "egg" = 3)
-	result = /obj/item/weapon/reagent_containers/food/snacks/brownies
+	reagent_mix = RECIPE_REAGENT_REPLACE //No egg in final recipe
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/brownies
 	
 
 /datum/recipe/cosmicbrownies
 	appliance = OVEN
 	reagents = list("browniemix" = 10, "egg" = 3)
 	fruit = list("ambrosia" = 1)
-	result = /obj/item/weapon/reagent_containers/food/snacks/cosmicbrownies
+	reagent_mix = RECIPE_REAGENT_REPLACE //No egg in final recipe
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cosmicbrownies
 
 
 

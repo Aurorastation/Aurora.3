@@ -737,6 +737,7 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/cutlet,
 		/obj/item/weapon/reagent_containers/food/snacks/cutlet,
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/redcurry
 
 /datum/recipe/greencurry
@@ -746,11 +747,13 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/tofu,
 		/obj/item/weapon/reagent_containers/food/snacks/tofu,
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/greencurry
 
 /datum/recipe/yellowcurry
 	reagents = list("cream" = 5, "spacespice" = 2, "rice" = 5)
 	fruit = list("peanut" = 2, "potato" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/yellowcurry
 
 /datum/recipe/bearburger
@@ -763,6 +766,7 @@ I said no!
 /datum/recipe/bearchili
 	fruit = list("chili" = 1, "tomato" = 1)
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/bearmeat)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/bearchili
 
 /datum/recipe/bearstew
@@ -778,11 +782,13 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/egg,
 		/obj/item/weapon/reagent_containers/food/snacks/cutlet
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/bibimbap
 
 /datum/recipe/friedrice
 	reagents = list("water" = 5, "rice" = 10, "soysauce" = 5)
 	fruit = list("carrot" = 1, "cabbage" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/friedrice
 
 /datum/recipe/lomein
@@ -791,6 +797,7 @@ I said no!
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/spagetti
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/lomein
 
 /datum/recipe/chickenfillet
@@ -806,21 +813,24 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/weapon/reagent_containers/food/snacks/hotchili
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/chilicheesefries
 
 /datum/recipe/meatbun
-	reagents = list("spacespice" = 2, "water" = 1)
+	reagents = list("spacespice" = 2, "water" = 5)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
 		/obj/item/weapon/reagent_containers/food/snacks/rawcutlet
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Water used up in cooking
 	result = /obj/item/weapon/reagent_containers/food/snacks/meatbun
 
 /datum/recipe/custardbun
-	reagents = list("spacespice" = 2, "water" = 1, "egg" = 3)
+	reagents = list("spacespice" = 2, "water" = 5, "egg" = 3)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Water, egg used up in cooking
 	result = /obj/item/weapon/reagent_containers/food/snacks/custardbun
 
 /datum/recipe/chickenmomo
@@ -831,6 +841,7 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
 		/obj/item/weapon/reagent_containers/food/snacks/meat/chicken
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/chickenmomo
 
 /datum/recipe/veggiemomo
@@ -841,11 +852,13 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Get that water outta here
 	result = /obj/item/weapon/reagent_containers/food/snacks/veggiemomo
 
 /datum/recipe/risotto
 	reagents = list("wine" = 5, "rice" = 10, "spacespice" = 1)
 	fruit = list("mushroom" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Get that rice and wine outta here
 	result = /obj/item/weapon/reagent_containers/food/snacks/risotto
 
 /datum/recipe/poachedegg
@@ -853,6 +866,7 @@ I said no!
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/egg
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Get that water outta here
 	result = /obj/item/weapon/reagent_containers/food/snacks/poachedegg
 
 /datum/recipe/honeytoast
