@@ -103,7 +103,8 @@
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI
 		can_read = get_dist(src, AI.camera) < 2
-	show_browser(user, "<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[can_read ? prettify_info(user) : stars(info)][stamps]</BODY></HTML>", "window=[name]")
+
+	show_browser(user, "<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[can_read ? parse_languages(user, info) : stars(info)][stamps]</BODY></HTML>", "window=[name]")
 	onclose(user, "[name]")
 
 /obj/item/weapon/paper/verb/rename()
@@ -332,6 +333,33 @@
 			else
 				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
 
+/**
+ * Takes the paper's info variable, a user, and parses language markers that exist
+ * in it. It returns an HTML string which represents the languages properly.
+ *
+ * @param	user The mob we're parsing the text for.
+ *
+ * @return	An HTML string where all of the [lang][/lang] marker contents are replaced
+ * with scrambled and properly fonted content depending on what languages the user knows.
+ */
+/obj/item/weapon/paper/proc/parse_languages(mob/user, input)
+	// Just a safety fallback.
+	if (!user)
+		return input
+
+	. = input
+
+	while (written_lang_regex.Find(.))
+		var/datum/language/L = language_keys[written_lang_regex.group[2]]
+		// Unknown language.
+		if (!L)
+			continue
+
+		// Replace the content with <p>content here</p>
+		if (user.say_understands(null, L))
+			. = written_lang_regex.Replace(., "<span class='[L.colour]'>$3</span>", 1, 0)
+		else
+			. = written_lang_regex.Replace(., /datum/language/proc/format_message_written, 1, 0)
 
 /obj/item/weapon/paper/Topic(href, href_list)
 	..()
@@ -390,7 +418,7 @@
 
 		update_space(t)
 
-		show_browser(usr, "<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[info_links][stamps]</BODY></HTML>", "window=[name]") // Update the window
+		show_browser(usr, "<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY bgcolor='[color]'>[parse_languages(usr, info_links)][stamps]</BODY></HTML>", "window=[name]") // Update the window
 
 		update_icon()
 

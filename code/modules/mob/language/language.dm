@@ -95,6 +95,17 @@
 	// if you yell, you'll be heard from two tiles over instead of one
 	return (copytext(message, length(message)) == "!") ? 2 : 1
 
+// Required for scrambling languages the user does not know.
+/datum/language/proc/format_message_written(match, g1, g2, g3, g4)
+	// Believe it or not, `src` in this instance is actually the REGEX datum.
+	// wut, okay.
+	var/datum/language/L = language_keys[g2]
+
+	if (!L)
+		return g3
+
+	return "<span class='[L.colour]'>[L.scramble(g3)]</span>"
+
 /datum/language/proc/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
