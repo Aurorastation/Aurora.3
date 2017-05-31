@@ -49,8 +49,8 @@
 	else
 		..()
 
-/mob/living/carbon/alien/diona/New()
-	..()
+/mob/living/carbon/alien/diona/Initialize()
+	. = ..()
 	//species = all_species[]
 	set_species("Diona")
 	setup_dionastats()

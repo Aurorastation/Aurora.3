@@ -175,9 +175,17 @@ ALLOW_ANTAG_HUD
 ## If ghosts use antagHUD they are no longer allowed to join the round.
 ANTAG_HUD_RESTRICTED
 
-## allow AI job
-ALLOW_AI
+## Prevents observers from joining as mice.
+#DISABLE_PLAYER_MICE
 
+## If enabled, observer-mice will only be able to understand other mice.
+#UNEDUCATED_MICE
+
+## How much time a drone fabricator will take to produce a single drone. In deciseconds.
+#DRONE_BUILD_TIME 1200
+
+## If set to 0, observers will be unable to spawn as drones. Default 1.
+#ALLOW_DRONE_SPAWN 1
 
 ## disable abandon mob
 # NORESPAWN
@@ -304,17 +312,20 @@ CHARACTER_SLOTS 10
 ## Uncomment to use overmap system for zlevel travel
 #USE_OVERMAP
 
-## Defines which Z-levels the station exists on.
-STATION_LEVELS 1
+## Defines which Z-levels the station exists on. Only set if you need to change the defaults.
+#STATION_LEVELS 3;4;5;6;7
 
-## Defines which Z-levels are used for admin functionality, such as Central Command and the Syndicate Shuttle
-ADMIN_LEVELS 2
+## Defines which Z-levels are used for admin functionality, such as Central Command and the Syndicate Shuttle. Only set if you need to change the defaults.
+#ADMIN_LEVELS 1
 
-## Defines which Z-levels which, for example, a Code Red announcement may affect
-CONTACT_LEVELS 1;5
+## Defines which Z-levels which, for example, a Code Red announcement may affect. Only set if you need to change the defaults.
+#CONTACT_LEVELS 3;4;5;6
 
-## Defines all Z-levels a character can typically reach
-PLAYER_LEVELS 1;3;4;5;6
+## Defines all Z-levels a character can typically reach. Only set if you need to change the defaults.
+#PLAYER_LEVELS 2;3;4;5;6;7;8
+
+## Defines which levels cannot be left via touching map borders. Only set if you need to change the defaults.
+#SEALED_LEVELS
 
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 180
@@ -441,6 +452,8 @@ API_RATE_LIMIT_WHITELIST 127.0.0.1
 
 # The maximum amount of a tick that the MC is permitted to use during server startup.
 # If not set will default to 98%.
+# You can set this high (~5000) for local testing to *maybe* speed up startup a bit at the cost of lagging the lobby.
+# Should be below 99 on a server actually used for play.
 #MC_TICKLIMIT_INIT 98
 
 

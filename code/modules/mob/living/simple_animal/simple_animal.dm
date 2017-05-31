@@ -103,8 +103,8 @@
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
-/mob/living/simple_animal/New()
-	..()
+/mob/living/simple_animal/Initialize()
+	. = ..()
 	seek_move_delay = (1 / seek_speed) / (world.tick_lag / 10)//number of ticks between moves
 	turns_since_scan = rand(min_scan_interval, max_scan_interval)//Randomise this at the start so animals don't sync up
 	health = maxHealth

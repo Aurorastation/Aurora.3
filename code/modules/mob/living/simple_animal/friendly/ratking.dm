@@ -28,8 +28,8 @@
 	var/announce_name = "Request"
 	var/list/rats = list()
 
-/mob/living/simple_animal/mouse/king/New()
-	..()
+/mob/living/simple_animal/mouse/king/Initialize()
+	. = ..()
 
 	update()
 
