@@ -319,19 +319,25 @@
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 
 		//I was going to add do_after in here, but keeping the current method allows people to burn papers they're holding, while they move. That seems fine to keep -Nanako
-		spawn(20)
-			if(get_dist(src, user) < 2 && user.get_active_hand() == P)
-				user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
-				"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
+		addtimer(CALLBACK(src, .proc/burnpaper_callback, P, user, class), 20, TIMER_UNIQUE)
 
-				if(user.get_inactive_hand() == src)
-					user.drop_from_inventory(src)
 
-				new /obj/effect/decal/cleanable/ash(src.loc)
-				qdel(src)
+/obj/item/weapon/paper/proc/burnpaper_callback(obj/item/weapon/flame/P, mob/user, class = "warning")
+	if (QDELETED(user) || QDELETED(src))
+		return
 
-			else
-				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
+	if(get_dist(src, user) < 2 && user.get_active_hand() == P)
+		user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
+		"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
+
+		if(user.get_inactive_hand() == src)
+			user.drop_from_inventory(src)
+
+		new /obj/effect/decal/cleanable/ash(src.loc)
+		qdel(src)
+
+	else
+		to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
 
 /**
  * Takes the paper's info variable, a user, and parses language markers that exist
