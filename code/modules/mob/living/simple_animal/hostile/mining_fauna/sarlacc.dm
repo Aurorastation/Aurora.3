@@ -340,7 +340,7 @@ var/global/list/greatasses = list()
 			var/madhouse = pick("psilocybin","mindbreaker","impedrezene","cryptobiolin","stoxin","mutagen")
 			var/madhouse_verbal_component = pick(thoughts)
 			L.reagents.add_reagent("[madhouse]", 3)
-			L << "<span class='alium'><b><i>[madhouse_verbal_component]</i</b></span"
+			L << "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>"
 
 /mob/living/simple_animal/hostile/sarlaccking
 	name = "great worm king"

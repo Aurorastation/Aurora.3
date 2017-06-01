@@ -172,7 +172,7 @@
 
 /mob/living/simple_animal/hostile/seraph/OpenFire(target_mob)
 	var/target = target_mob
-	visible_message("<span class='danger'>[src]</b> fires at [target]!</span>", 1)
+	visible_message("<span class='danger'><b>[src]</b> fires at [target]!</span>", 1)
 	if(prob(70))
 		if(prob(25))
 			say("Opening fire.")
