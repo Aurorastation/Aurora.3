@@ -324,7 +324,7 @@
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
-
+	
 	if(job)
 		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
 		var/list/custom_equip_leftovers = list()
@@ -490,6 +490,7 @@
 
 /mob/living/carbon/human
 	var/tmp/odin_despawn_timer
+	var/tmp/new_player_status
 
 /mob/living/carbon/human/proc/odin_timeout()
 	if (!istype(get_area(src), /area/centcom/spawning))
@@ -506,6 +507,9 @@
 			global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
 		else
 			SSjobs.odin_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
+
+/mob/living/carbon/human/proc/remove_newplayer_status(mob/living/carbon/human/H)
+	H.newarrival = 0
 
 // Convenience wrapper.
 /datum/controller/subsystem/jobs/proc/odin_despawn_mob(mob/living/carbon/human/H)
@@ -528,6 +532,7 @@
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
 	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
+	H.new_player_status = addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/remove_newplayer_status), 15 MINUTES, TIMER_STOPPABLE)
 	H <<"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>"
 
 	if(job)
@@ -748,7 +753,7 @@
 	//spawn at one of the latespawn locations
 
 	var/datum/spawnpoint/spawnpos
-
+	H.newarrival = 1
 	if(H.client.prefs.spawnpoint)
 		spawnpos = spawntypes[H.client.prefs.spawnpoint]
 
