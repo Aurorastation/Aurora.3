@@ -9,6 +9,8 @@
 
 	var/list/currentrun = list()
 	var/list/all_mice = list()	// Contains all *living* mice.
+	var/list/greatworms = list()
+	var/list/greatasses = list()
 
 /datum/controller/subsystem/mobs/New()
 	NEW_SS_GLOBAL(SSmob)

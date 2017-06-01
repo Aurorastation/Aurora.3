@@ -153,7 +153,7 @@
 	update_canmove()
 	dead_mob_list -= src
 
-	var/atom/movable/overlay/animation = null
+	var/atom/movable/overlay/animation = new(loc)
 	animation = new(loc)
 	animation.icon_state = "blank"
 	animation.icon = 'icons/mob/mob.dmi'
@@ -163,9 +163,10 @@
 	if(do_gibs) gibs(loc, viruses, dna, gibber_type = /obj/effect/gibspawner/acid)
 	src.visible_message("<span class='danger'>\The [src] bursts into acid!</span>")
 
-	spawn(15)
-		if(animation)	qdel(animation)
-		if(src)			qdel(src)
+	if(animation)
+		QDEL_IN(animation, 15)
+	if(src)
+		QDEL_IN(src, 15)
 
 
 /obj/item/weapon/grenade/chem_grenade/banegrenade
@@ -175,7 +176,7 @@
 	path = 1
 
 /obj/item/weapon/grenade/chem_grenade/banegrenade/Initialize()
-	..()
+	. = ..()
 	var/obj/item/weapon/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/weapon/reagent_containers/glass/beaker/large/B2 = new(src)
 
@@ -306,7 +307,7 @@
 	health = 60
 
 /obj/effect/spider/mouse_egg/Initialize()
-	..()
+	. = ..()
 	addtimer(CALLBACK(src, .proc/hatch), 30 SECONDS)
 
 /obj/effect/spider/mouse_egg/proc/hatch()
@@ -359,7 +360,7 @@
 	var/laser_ammo
 
 /mob/living/simple_animal/hostile/vox/Initialize()
-	..()
+	. = ..()
 	laser_ammo = rand(0,10)
 
 /mob/living/simple_animal/hostile/vox/OpenFire(target_mob)

@@ -847,7 +847,6 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/dwellermeat/New()
 	..()
-	..()
 	reagents.add_reagent("protein", 6)
 	reagents.add_reagent("hyperzine", 18)
 	reagents.add_reagent("pacid",12)

@@ -15,10 +15,9 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	embed = 0
 	incinerate = 5
-
-/obj/item/projectile/energy/shadow/Initialize()
-	..()
-	set_light(1,2,LIGHT_COLOR_FIRE)
+	light_range = 1.4
+	light_power = 2
+	light_color = LIGHT_COLOR_FIRE
 
 /mob/living/simple_animal/hostile/shadow
 	name = "shadow wisp"
@@ -58,11 +57,11 @@
 	max_n2 = 0
 	minbodytemp = 0
 
-	faction = "outsider"
+	light_range = 10
+	light_power = -10
+	light_color = "#FFFFFF"
 
-/mob/living/simple_animal/hostile/shadow/Initialize()
-	..()
-	set_light(10, -10, "#FFFFFF")
+	faction = "outsider"
 
 /mob/living/simple_animal/hostile/shadow/Allow_Spacemove(var/check_drift = 0)
 	return 1

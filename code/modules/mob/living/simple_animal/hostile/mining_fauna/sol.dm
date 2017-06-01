@@ -99,7 +99,7 @@
 	var/external_shielding = 1
 
 /mob/living/simple_animal/hostile/seraph/Initialize()
-	..()
+	. = ..()
 	name = "[pick("Metatron","Uriel","Lucifer","Tyrael","Kemeul","Seraphiel","Nathanael")] - u[rand(100,999)]"
 
 
@@ -114,9 +114,7 @@
 				if(prob(5))
 					online = 0
 					shutdown = 1
-					spawn(rand(20,100))
-						online = 1
-						shutdown = 0
+					addtimer(CALLBACK(src, .proc/ThanksLohikar), rand(20,100))
 
 			if(!target_mob)
 				searchingterm = world.time + 3000
@@ -183,19 +181,16 @@
 		say("Engaging taser hardpoint. Resistance is futile.")
 		projectiletype = /obj/item/projectile/beam/stun
 		projectilesound = 'sound/weapons/Taser.ogg'
-		spawn(1)
-			Shoot(target, src.loc, src)
-		spawn(4)
-			Shoot(target, src.loc, src)
-		spawn(6)
-			Shoot(target, src.loc, src)
+		var/datum/callback/shootcb = CALLBACK(src, /mob/living/simple_animal/hostile/.proc/Shoot, target, loc, src)
+		addtimer(shootcb, 1)
+		addtimer(shootcb, 4)
+		addtimer(shootcb, 6)
 	else
 		if(prob(60))
 			say("Deploying stun grenade.")
 			var/obj/item/weapon/grenade/flashbang/F = new /obj/item/weapon/grenade/flashbang(src.loc)
 			F.throw_at(target_mob, 30, 2, src)
-			spawn(20)
-				F.prime()
+			addtimer(CALLBACK(F, /obj/item/weapon/grenade/.proc/prime), 20)
 		else
 			say("Deploying explosive payload.")
 			projectiletype = /obj/item/projectile/missile
@@ -218,12 +213,7 @@
 		if(attack_numeral >= 35)
 			spark(L.loc, 3, alldirs)
 			step_away(L,user,15)
-			spawn(1)
-				step_away(L,user,15)
-				spawn(1)
-					step_away(L,user,15)
-					spawn(1)
-						L.apply_effect(attack_numeral * 0.3, WEAKEN)
+			addtimer(CALLBACK(src, .proc/ThanksLohikar2, L, user, attack_numeral), 1)
 		return L
 	if(istype(target_mob,/obj/mecha))
 		var/obj/mecha/M = target_mob
@@ -240,29 +230,7 @@
 	say(death_wail)
 	online = 0
 	shutdown = 1
-	spawn(30)
-		fragem(src,10,50,2,2,4,1,2)
-		var/obj/effect/decal/mecha_wreckage/WR = new /obj/effect/decal/mecha_wreckage/seraph(loc)
-		WR.crowbar_salvage += new /obj/item/weapon/cell/mecha(WR)
-		var/obj/item/device/mmi/MMI = new /obj/item/device/mmi(WR)
-		if(prob(40))
-			MMI.brainobj = new /obj/item/organ/brain(MMI)
-			MMI.icon_state = "mmi_full"
-		WR.crowbar_salvage += MMI
-		if(prob(90))
-			WR.crowbar_salvage += new /obj/machinery/portable_atmospherics/canister/air(WR)
-		if(prob(50))
-			WR.crowbar_salvage += new /obj/item/mecha_parts/mecha_equipment/armor_booster(WR)
-		if(prob(35))
-			WR.crowbar_salvage += new /obj/item/mecha_parts/mecha_equipment/repair_droid(WR)
-		if(prob(60))
-			WR.crowbar_salvage += new /obj/item/mecha_parts/mecha_equipment/weapon/energy/plasmacannon(WR)
-		if(prob(30))
-			WR.crowbar_salvage += new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/explosive(WR)
-		else
-			WR.crowbar_salvage += new /obj/item/mecha_parts/mecha_equipment/weapon/energy/taser(WR)
-		playsound(src.loc, 'sound/mecha/internaldmgalarm.ogg', 100, 0, -6.6, environment=1)
-		qdel(src)
+	addtimer(CALLBACK(src, .proc/ThanksLohikar4), 30)
 
 /mob/living/simple_animal/hostile/seraph/ex_act(severity)
 	if(!blinded)
@@ -356,6 +324,42 @@
 /mob/living/simple_animal/hostile/seraph/adjustHalLoss(var/damage)
 	return
 
+/mob/living/simple_animal/hostile/seraph/proc/ThanksLohikar()
+	online = 1
+	shutdown = 0
+
+/mob/living/simple_animal/hostile/seraph/proc/ThanksLohikar2(var/mob/living/L, var/mob/user, attack_numeral)
+	step_away(L,user,15)
+	addtimer(CALLBACK(src, .proc/ThanksLohikar3, L, user, attack_numeral), 1)
+
+/mob/living/simple_animal/hostile/seraph/proc/ThanksLohikar3(var/mob/living/L, var/mob/user, attack_numeral)
+	step_away(L,user,15)
+	addtimer(CALLBACK(L, /mob/living/.proc/apply_effect,(attack_numeral * 0.3), WEAKEN), 1)
+
+/mob/living/simple_animal/hostile/seraph/proc/ThanksLohikar4()
+	fragem(src,10,50,2,2,4,1,2)
+	var/obj/effect/decal/mecha_wreckage/WR = new /obj/effect/decal/mecha_wreckage/seraph(loc)
+	WR.crowbar_salvage += new /obj/item/weapon/cell/mecha(WR)
+	var/obj/item/device/mmi/MMI = new /obj/item/device/mmi(WR)
+	if(prob(40))
+		MMI.brainobj = new /obj/item/organ/brain(MMI)
+		MMI.icon_state = "mmi_full"
+	WR.crowbar_salvage += MMI
+	if(prob(90))
+		WR.crowbar_salvage += new /obj/machinery/portable_atmospherics/canister/air(WR)
+	if(prob(50))
+		WR.crowbar_salvage += new /obj/item/mecha_parts/mecha_equipment/armor_booster(WR)
+	if(prob(35))
+		WR.crowbar_salvage += new /obj/item/mecha_parts/mecha_equipment/repair_droid(WR)
+	if(prob(60))
+		WR.crowbar_salvage += new /obj/item/mecha_parts/mecha_equipment/weapon/energy/plasmacannon(WR)
+	if(prob(30))
+		WR.crowbar_salvage += new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/explosive(WR)
+	else
+		WR.crowbar_salvage += new /obj/item/mecha_parts/mecha_equipment/weapon/energy/taser(WR)
+	playsound(src.loc, 'sound/mecha/internaldmgalarm.ogg', 100, 0, -6.6, environment=1)
+	qdel(src)
+
 //////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////Sol Combat Drone///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -426,7 +430,7 @@
 	var/target_ore
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/Initialize()
-	..()
+	. = ..()
 	var/i = rand(1,6)
 	while(i)
 		loot += pick(/obj/item/weapon/ore/silver, /obj/item/weapon/ore/gold, /obj/item/weapon/ore/uranium, /obj/item/weapon/ore/diamond)

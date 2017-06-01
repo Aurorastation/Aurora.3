@@ -7,8 +7,6 @@
 ////////////////////////////////////////
 ///////////////Great Worm///////////////
 ////////////////////////////////////////
-var/global/list/greatworms = list()
-var/global/list/greatasses = list()
 
 /obj/item/weapon/beartrap/sarlacc
 	name = "great worm maw"
@@ -62,8 +60,8 @@ var/global/list/greatasses = list()
 			)
 		var/obj/item/organ/external/G = H.get_organ("groin")
 		G.droplimb(0,DROPLIMB_EDGE)
-		if(greatasses.len)
-			var/obj/structure/sarlacc/S = pick(greatasses)
+		if(SSmob.greatasses.len)
+			var/obj/structure/sarlacc/S = pick(SSmob.greatasses)
 			H.forceMove(S.loc)
 		else
 			H.gib()
@@ -126,15 +124,15 @@ var/global/list/greatasses = list()
 	faction = "worms"
 
 /mob/living/simple_animal/hostile/greatworm/Initialize()
-	..()
-	greatworms += src
+	. = ..()
+	SSmob.greatworms += src
 	loot_count = 4+(rand(0,4))
 	var/obj/item/weapon/beartrap/sarlacc/L = new /obj/item/weapon/beartrap/sarlacc(src.loc)
 	L.originator = src
 	sarlacc = L
 
 /mob/living/simple_animal/hostile/greatworm/Destroy()
-	greatworms -= src
+	SSmob.greatworms -= src
 	if(sarlacc)
 		qdel(sarlacc)
 		sarlacc = null
@@ -273,7 +271,7 @@ var/global/list/greatasses = list()
 	faction = "worms"
 
 /mob/living/simple_animal/hostile/lesserworm/Initialize()
-	..()
+	. = ..()
 	addtimer(CALLBACK(src, .proc/Penetrate), 6)
 	QDEL_IN(src, 15)
 
@@ -320,7 +318,7 @@ var/global/list/greatasses = list()
 		"You feel a burning sensation; you feel so alone.",
 		"You feel a burning sensation; you're nothing to your peers.",
 		"You feel a burning sensation; why do bad things happen to good people?",
-		"You feel a burnin sensation; time is moving so fast, and you feel so old.",
+		"You feel a burning sensation; time is moving so fast, and you feel so old.",
 		"You feel like a stranger in a strange land.",
 		"Colors swim before you, and you feel like you can touch each one.",
 		"You feel like you're going to die here. It makes you happy.",
@@ -374,9 +372,9 @@ var/global/list/greatasses = list()
 
 /mob/living/simple_animal/hostile/sarlaccking/Destroy()
 	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, usepressure = 0)
-	for(var/mob/living/L in greatworms)
+	for(var/mob/living/L in SSmob.greatworms)
 		L.death()
-	for(var/obj/structure/S in greatasses)
+	for(var/obj/structure/S in SSmob.greatasses)
 		qdel(S)
 	..()
 
@@ -390,11 +388,11 @@ var/global/list/greatasses = list()
 	layer = TURF_LAYER
 
 /obj/structure/sarlacc/Initialize()
-	..()
-	greatasses += src
+	. = ..()
+	SSmob.greatasses += src
 
 /obj/structure/sarlacc/Destroy()
-	greatasses -= src
+	SSmob.greatasses -= src
 	..()
 
 ////////////////////////////////////////

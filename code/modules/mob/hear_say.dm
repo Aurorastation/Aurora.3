@@ -34,7 +34,7 @@
 		if(!say_understands(speaker,language))
 			if(istype(speaker,/mob/living/simple_animal))
 				var/mob/living/simple_animal/S = speaker
-				if(S.speak && S.speak.len)
+				if(LAZYLEN(S.speak))
 					message = pick(S.speak)
 			else
 				if(language)
