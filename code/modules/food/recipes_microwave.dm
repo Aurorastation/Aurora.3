@@ -806,7 +806,7 @@ I said no!
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/lomein
 
-/datum/recipe/chickenfillet
+/datum/recipe/chickenfillet //Also just combinable, like burgers and hot dogs.
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/chickenkatsu,
 		/obj/item/weapon/reagent_containers/food/snacks/bun
