@@ -120,7 +120,19 @@
 	corpseidjob = "Operative"
 	corpseidaccess = "Syndicate"
 
-
+/obj/effect/landmark/corpse/vox
+	name = "Vox bandit"
+	corpseuniform = /obj/item/clothing/under/syndicate
+	corpsesuit = /obj/item/clothing/suit/space/vox/stealth
+	corpseshoes = /obj/item/clothing/shoes/magboots/vox
+	corpsegloves = /obj/item/clothing/gloves/yellow/vox
+	corpsemask = /obj/item/clothing/mask/gas/swat/vox
+	corpsehelmet = /obj/item/clothing/head/helmet/space/vox/stealth
+	corpseback = /obj/item/weapon/tank/nitrogen
+	corpseglasses = /obj/item/clothing/glasses/night
+	corpsepocket1 = /obj/item/weapon/spacecash/c500
+	corpsepocket2 = /obj/item/weapon/reagent_containers/pill/cyanide
+	species = "Vox"
 
 ///////////Civilians//////////////////////
 

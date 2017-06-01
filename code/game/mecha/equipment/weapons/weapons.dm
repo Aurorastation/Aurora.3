@@ -84,6 +84,16 @@
 	projectile = /obj/item/projectile/beam/heavylaser
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/plasmacannon
+	equip_cooldown = 15
+	name = "prototype plasma cannon"
+	desc = "This peculiar prototype weapon appears to have been designed to fit any standard hardpoint mount."
+	icon_state = "mecha_laser"
+	energy_drain = 60
+	projectile = /obj/item/projectile/energy/plasmacannon
+	fire_sound = 'sound/weapons/resonator_fire.ogg'
+	required_type = /obj/mecha
+
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/ion
 	equip_cooldown = 40
 	name = "mkIV ion heavy cannon"
