@@ -125,8 +125,9 @@
 	var/growth_rate = 1
 	var/obj/machinery/atmospherics/unary/vent_pump/entry_vent
 	var/travelling_in_vent = 0
+	var/list/possible_offspring
 
-/obj/effect/spider/spiderling/New(var/location, var/atom/parent, var/new_rate = 1)
+/obj/effect/spider/spiderling/New(var/location, var/atom/parent, var/new_rate = 1, var/list/spawns = typesof(/mob/living/simple_animal/hostile/giant_spider))
 	pixel_x = rand(6,-6)
 	pixel_y = rand(6,-6)
 	START_PROCESSING(SSprocessing, src)
@@ -135,6 +136,8 @@
 		amount_grown = 1
 
 	growth_rate = new_rate
+
+	possible_offspring = spawns
 
 	get_light_and_color(parent)
 	..()
@@ -217,7 +220,7 @@
 				break
 
 	if(isturf(loc) && amount_grown >= 100)
-		var/spawn_type = pick(typesof(/mob/living/simple_animal/hostile/giant_spider))
+		var/spawn_type = pick(possible_offspring)
 		new spawn_type(src.loc, src)
 		qdel(src)
 	else if(isorgan(loc))
