@@ -85,7 +85,7 @@
 	var/list/darkform_spells = list(/spell/targeted/ethereal_jaunt/shift,
 									/spell/aoe_turf/conjure/forcewall/lesser)
 
-/mob/living/simple_animal/hostile/faithless/wizard/New()
-	..()
+/mob/living/simple_animal/hostile/faithless/wizard/Initialize()
+	. = ..()
 	for(var/spell in darkform_spells)
 		src.add_spell(new spell, "const_spell_ready")

@@ -1,5 +1,3 @@
-var/global/list/limb_icon_cache = list()
-
 /obj/item/organ/external/set_dir()
 	return
 
@@ -140,6 +138,7 @@ var/global/list/limb_icon_cache = list()
 					mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_ADD)
 
 			if(body_hair && islist(h_col) && h_col.len >= 3)
+				var/list/limb_icon_cache = SSicon_cache.limb_icon_cache
 				var/cache_key = "[body_hair]-[icon_name]-[h_col[1]][h_col[2]][h_col[3]]"
 				if(!limb_icon_cache[cache_key])
 					var/icon/I = icon(species.icobase, "[icon_name]_[body_hair]")
