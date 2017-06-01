@@ -432,7 +432,9 @@
 /datum/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
-
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_BLOOD))
+		return
 	M.dizziness = max(150, M.dizziness)//Setting dizziness directly works as long as the make_dizzy proc is called after to spawn the process
 	M.make_dizzy(4)
 
