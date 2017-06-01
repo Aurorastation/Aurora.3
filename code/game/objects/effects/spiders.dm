@@ -54,9 +54,12 @@
 
 /obj/effect/spider/stickyweb
 	icon_state = "stickyweb1"
-	New()
-		if(prob(50))
-			icon_state = "stickyweb2"
+
+/obj/effect/spider/stickyweb/Initialize()
+	. = ..()
+
+	if(prob(50))
+		icon_state = "stickyweb2"
 
 /obj/effect/spider/stickyweb/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
@@ -77,13 +80,14 @@
 	var/amount_grown = 0
 	var/last_itch = 0
 
-/obj/effect/spider/eggcluster/New(var/location, var/atom/parent)
+/obj/effect/spider/eggcluster/Initialize(var/mapload, var/location, var/atom/parent)
+	. = ..(mapload)
+
 	pixel_x = rand(3,-3)
 	pixel_y = rand(3,-3)
 	START_PROCESSING(SSprocessing, src)
 
 	get_light_and_color(parent)
-	..()
 
 /obj/effect/spider/eggcluster/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -127,7 +131,9 @@
 	var/travelling_in_vent = 0
 	var/list/possible_offspring
 
-/obj/effect/spider/spiderling/New(var/location, var/atom/parent, var/new_rate = 1, var/list/spawns = typesof(/mob/living/simple_animal/hostile/giant_spider))
+/obj/effect/spider/spiderling/Initialize(var/mapload, var/location, var/atom/parent, var/new_rate = 1, var/list/spawns = typesof(/mob/living/simple_animal/hostile/giant_spider))
+	. = ..(mapload)
+
 	pixel_x = rand(6,-6)
 	pixel_y = rand(6,-6)
 	START_PROCESSING(SSprocessing, src)
@@ -140,7 +146,6 @@
 	possible_offspring = spawns
 
 	get_light_and_color(parent)
-	..()
 
 /obj/effect/spider/spiderling/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -295,7 +300,9 @@
 	icon_state = "cocoon1"
 	health = 60
 
-/obj/effect/spider/cocoon/New()
+/obj/effect/spider/cocoon/Initialize()
+	. = ..()
+
 	icon_state = pick("cocoon1","cocoon2","cocoon3")
 
 /obj/effect/spider/cocoon/Destroy()
