@@ -161,7 +161,6 @@ area/space/atmosalert()
 	icon_state = "shuttle"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/escape
 	name = "\improper Emergency Shuttle"
@@ -172,7 +171,6 @@ area/space/atmosalert()
 	icon_state = "shuttle2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/escape/centcom
 	name = "\improper Emergency Shuttle Centcom"
@@ -279,7 +277,6 @@ area/space/atmosalert()
 	name = "\improper Transport Shuttle"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
@@ -292,7 +289,6 @@ area/space/atmosalert()
 	icon_state = "shuttlered2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/syndicate_elite
 	name = "\improper Merc Elite Shuttle"
@@ -306,7 +302,6 @@ area/space/atmosalert()
 	icon_state = "shuttlered2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/administration
 	flags = RAD_SHIELDED
@@ -322,7 +317,6 @@ area/space/atmosalert()
 	icon_state = "shuttlered2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/research
 	name = "\improper Research Shuttle"
@@ -497,13 +491,11 @@ area/space/atmosalert()
 	icon_state = "southwest"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
-	dynamic_lighting = 0
 
 /area/syndicate_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/syndicate_station/under
 	name = "\improper Under the Station"
@@ -557,13 +549,11 @@ area/space/atmosalert()
 	icon_state = "southwest"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
-	dynamic_lighting = 0
 
 /area/skipjack_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/skipjack_station/under
 	name = "\improper Under the Station"
@@ -1208,7 +1198,6 @@ area/space/atmosalert()
 /area/solar
 	requires_power = 1
 	always_unpowered = 1
-	dynamic_lighting = 0
 	base_turf = /turf/space
 	station_area = 1
 
@@ -1992,25 +1981,21 @@ area/space/atmosalert()
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/AIsatextFS
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/AIsatextAS
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/AIsatextAP
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/NewAIMain
 	name = "\improper AI Main New"

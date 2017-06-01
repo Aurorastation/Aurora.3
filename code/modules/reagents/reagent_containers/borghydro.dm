@@ -1,5 +1,5 @@
 /obj/item/weapon/reagent_containers/borghypo
-	name = "cyborg hypospray"
+	name = "cyborg chemical injector"
 	desc = "An advanced chemical synthesizer and injection system, designed for heavy-duty medical equipment."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "hypo"
@@ -70,8 +70,10 @@
 			return
 
 	if (M.can_inject(user, 1))
-		user << "<span class='notice'>You inject [M] with the injector.</span>"
-		M << "<span class='notice'>You feel a tiny prick!</span>"
+		visible_message("<span class='notice'>[user] starts to inject [M] with their hypospray!</span>", "<span class='notice'>You start to inject [M] with your hypospray!</span>")
+		if(do_mob(user, M, 3 SECONDS))
+			M << "<span class='notice'>You feel a tiny prick!</span>"
+			user <<"<span class='notice'>You inject [M] with your hypospray!</span>"
 
 		if(M.reagents)
 			var/t = min(amount_per_transfer_from_this, reagent_volumes[reagent_ids[mode]])

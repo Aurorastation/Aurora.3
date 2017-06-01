@@ -566,6 +566,10 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if ("yellow IPC screen")
 			return LIGHT_COLOR_YELLOW
 
+/datum/species/machine/equip_survival_gear(var/mob/living/carbon/human/H)
+	check_tag(H, H.client)
+	H.gender = NEUTER
+
 /datum/species/bug
 	name = "Vaurca Worker"
 	short_name = "vau"
