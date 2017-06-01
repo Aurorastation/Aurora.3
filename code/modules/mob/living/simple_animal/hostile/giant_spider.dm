@@ -176,41 +176,49 @@
 					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance around \the [cocoon_target].</span>")
 					stop_automated_movement = 1
 					walk(src,0)
-					spawn(50)
-						if(busy == SPINNING_COCOON)
-							if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1)
-								var/obj/effect/spider/cocoon/C = new(cocoon_target.loc)
-								var/large_cocoon = 0
-								C.pixel_x = cocoon_target.pixel_x
-								C.pixel_y = cocoon_target.pixel_y
-								for(var/mob/living/M in C.loc)
-									if(istype(M, /mob/living/simple_animal/hostile/giant_spider))
-										continue
-									large_cocoon = 1
-									fed++
-									src.visible_message("<span class='warning'>\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
-									M.loc = C
-									C.pixel_x = M.pixel_x
-									C.pixel_y = M.pixel_y
-									break
-								for(var/obj/item/I in C.loc)
-									I.loc = C
-								for(var/obj/structure/S in C.loc)
-									if(!S.anchored)
-										S.loc = C
-										large_cocoon = 1
-								for(var/obj/machinery/M in C.loc)
-									if(!M.anchored)
-										M.loc = C
-										large_cocoon = 1
-								if(large_cocoon)
-									C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
-							busy = 0
-							stop_automated_movement = 0
+					addtimer(CALLBACK(src, .proc/finalize_cocoon), 50, TIMER_UNIQUE)
 
 		else
 			busy = 0
 			stop_automated_movement = 0
+
+/mob/living/simple_animal/hostile/giant_spider/nurse/proc/finalize_cocoon()
+	if(busy == SPINNING_COCOON)
+		if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1)
+			var/obj/effect/spider/cocoon/C = new(cocoon_target.loc)
+			var/large_cocoon = 0
+			C.pixel_x = cocoon_target.pixel_x
+			C.pixel_y = cocoon_target.pixel_y
+			for (var/A in C.loc)
+				var/atom/movable/aa = A
+				if (ismob(aa))
+					var/mob/M = aa
+					if(istype(M, /mob/living/simple_animal/hostile/giant_spider) && M.stat != DEAD)
+						continue
+					large_cocoon = 1
+					fed++
+					src.visible_message("<span class='warning'>\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
+					M.forceMove(C)
+					C.pixel_x = M.pixel_x
+					C.pixel_y = M.pixel_y
+					break
+				if (istype(aa, /obj/item))
+					var/obj/item/I = aa
+					I.forceMove(C)
+				if (istype(aa, /obj/structure))
+					var/obj/structure/S = aa
+					if(!S.anchored)
+						S.forceMove(C)
+						large_cocoon = 1
+				if (istype(aa, /obj/machinery))
+					var/obj/machinery/M = aa
+					if(!M.anchored)
+						M.forceMove(C)
+						large_cocoon = 1
+			if(large_cocoon)
+				C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
+		busy = 0
+		stop_automated_movement = 0
 
 #undef SPINNING_WEB
 #undef LAYING_EGGS
