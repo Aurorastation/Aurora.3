@@ -1,8 +1,9 @@
 //contains:
-//cavern dweller @ line #4
-//baneslug @ line #67
-//vox bandit @ line #
-//blind hydra @ line #
+//~cavern dweller
+//~baneslug
+//~mouse parasite
+//~vox bandit
+//blind hydra
 
 ////////////////////////////////////////
 ///Alberyk's discount Europa creature///
@@ -20,6 +21,7 @@
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "hits"
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = 0
 	health = 60
@@ -48,6 +50,15 @@
 
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
 	return 1
+
+/mob/living/simple_animal/hostile/retaliate/cavern_dweller/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/retaliate/cavern_dweller/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/retaliate/cavern_dweller/CanAvoidGravity()
+	return TRUE
 
 /obj/item/projectile/beam/cavern
 	name = "electrical discharge"
@@ -94,7 +105,6 @@
 	pass_flags = PASSTABLE
 	mob_size = MOB_MINISCULE
 	density = 0
-
 
 	min_oxy = 0
 	max_oxy = 0
@@ -182,3 +192,204 @@
 	beakers += B1
 	beakers += B2
 	icon_state = initial(icon_state) +"_locked"
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////Mouse Parasite////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+/mob/living/simple_animal/mouse/host
+	icon = 'icons/mob/mouse.dmi'
+	icon_state = "mouse_white"
+	item_state = "mouse_white"
+	icon_living = "mouse_white"
+	icon_dead = "mouse_white_dead"
+	icon_rest = "mouse_white_sleep"
+	body_color = "white"
+	can_nap = 0
+
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = 0
+
+	faction = "evil"
+
+/mob/living/simple_animal/mouse/host/death()
+	..()
+	visible_message("<span class='danger'>[src]'s sides burst, revealing spindly arachnid legs.</span>")
+	var/mob/living/simple_animal/hostile/mouse/L = new /mob/living/simple_animal/hostile/mouse(src.loc)
+	L.name = name
+	for(var/mob/living/simple_animal/mouse/host/H in oview(7,src))
+		H.death()
+	src.gib()
+
+/mob/living/simple_animal/hostile/mouse
+	name = "puppeteer"
+	desc = "A disgusting arachnid creature slick with blood from the gaping wounds of its legholes."
+	icon = 'icons/mob/cavern.dmi'
+	icon_state = "mousething"
+	icon_living = "mousething"
+	icon_dead = "mousething_dead"
+	turns_per_move = 5
+	response_help = "rubs"
+	response_disarm = "pokes"
+	response_harm = "crushes"
+	a_intent = I_HURT
+	stop_automated_movement_when_pulled = 0
+	health = 25
+	maxHealth = 25
+	melee_damage_lower = 5
+	melee_damage_upper = 10
+	attacktext = "leaps"
+	attack_sound = 'sound/weapons/bite.ogg'
+	speed = 4
+	emote_see = list("quivers","chitters","bleeds")
+	pass_flags = PASSTABLE
+	mob_size = MOB_MINISCULE
+	density = 0
+
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = 0
+
+	var/fed_increment = 0
+
+	faction = "evil"
+
+/mob/living/simple_animal/hostile/mouse/AttackingTarget()
+	. = ..()
+	if(isliving(.))
+		var/mob/living/L = .
+		if(L.reagents)
+			L.reagents.add_reagent("toxin", 5)
+			fed_increment += 5
+			if(prob(10) && (!issilicon(L) && !isipc(L)))
+				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
+				L.reagents.add_reagent("toxin", 5)
+				L.reagents.add_reagent("mindbreaker", 1)
+				fed_increment += 5
+
+/mob/living/simple_animal/hostile/mouse/Life()
+	..()
+	if(fed_increment >= 20)
+		if(!locate(/obj/effect/spider/mouse_egg	) in src.loc)
+			fed_increment = 0
+			visible_message("<span class='danger'>[src] rapidly secretes a small chrysalis layered with purple film from its eggsac.</span>")
+		new /obj/effect/spider/mouse_egg(src.loc)
+	if((fed_increment >= 15 && health <= maxHealth) && prob(10))
+		health += fed_increment
+		fed_increment = 0
+		visible_message("<span class='danger'>\The [src] cannibalizes its eggsac, replenishing some of its own vigour.</span>")
+		if(health >= maxHealth)
+			health = maxHealth
+
+/mob/living/simple_animal/hostile/mouse/death()
+	..()
+	src.gib()
+
+/obj/effect/spider/mouse_egg
+	desc = "It looks like a weird egg."
+	name = "egg"
+	icon = 'icons/mob/cavern.dmi'
+	icon_state = "mouseegg"
+	health = 60
+
+/obj/effect/spider/mouse_egg/New()
+	..()
+	addtimer(CALLBACK(src, .proc/hatch), 30 SECONDS)
+
+/obj/effect/spider/mouse_egg/proc/hatch()
+	new /mob/living/simple_animal/mouse/host(loc)
+	qdel(src)
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////Vox bandit////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+/mob/living/simple_animal/hostile/vox
+	name = "\improper Vox bandit"
+	desc = "Your money and your life."
+	icon = 'icons/mob/cavern.dmi'
+	icon_state = "metalgearvox"
+	icon_living = "metalgearvox"
+	icon_dead = "metalgearvox_dead"
+	speak_chance = 0
+	turns_per_move = 5
+	response_help = "pokes"
+	response_disarm = "shoves"
+	response_harm = "hits"
+	speed = 4
+	stop_automated_movement_when_pulled = 0
+	maxHealth = 100
+	health = 100
+	harm_intent_damage = 5
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	attacktext = "punched"
+	a_intent = I_HURT
+	var/corpse = /obj/effect/landmark/corpse/vox
+	var/weapon1  = /obj/item/weapon/melee/energy/vaurca
+	var/obj/item/weapon/gun/energy/laser/weapon2 = /obj/item/weapon/gun/energy/laser
+	ranged = 1
+	projectilesound = 'sound/weapons/laser3.ogg'
+	projectiletype = /obj/item/projectile/beam
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = 0
+	environment_smash = 1
+	faction = "syndicate"
+	status_flags = CANPUSH
+	var/laser_ammo
+
+/mob/living/simple_animal/hostile/vox/New()
+	..()
+	laser_ammo = rand(0,10)
+
+/mob/living/simple_animal/hostile/vox/OpenFire(target_mob)
+	if(laser_ammo <= 0)
+		src.visible_message("*click click*")
+		playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
+		ranged = 0
+		return
+	..()
+	laser_ammo -= 1
+
+/mob/living/simple_animal/hostile/vox/death()
+	..()
+	if(prob(75))
+		playsound(src.loc, 'sound/machines/signal.ogg', 100, 1)
+		sleep(40)
+		playsound(loc, 'sound/effects/alert.ogg', 125, 1)
+		explosion(src.loc, -1, 1, 4, 6)
+		gib()
+	else
+		if(corpse)
+			new corpse (src.loc)
+		if(weapon1 && prob(33))
+			new weapon1 (src.loc)
+		if(weapon2 && prob(33))
+			new weapon2 (src.loc)
+			weapon2.power_supply.charge = laser_ammo*weapon2.charge_cost
+		qdel(src)
+		return
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////Blind hydra///////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////

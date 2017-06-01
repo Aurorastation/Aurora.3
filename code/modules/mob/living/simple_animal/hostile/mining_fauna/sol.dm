@@ -1,8 +1,8 @@
 //contains:
-// seraph @ line #7
-// mining drone @ line #
-// sol combat drone @ line #
-// sol viscerator @ line #
+//~seraph
+//~sol combat drone
+//~sol viscerator
+//~mining drone
 
 //////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////Seraph/////////////////////////////////////////////
@@ -354,4 +354,133 @@
 	return
 
 /mob/living/simple_animal/hostile/seraph/adjustHalLoss(var/damage)
+	return
+
+//////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////Sol Combat Drone///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/mob/living/simple_animal/hostile/retaliate/malf_drone/sol
+	name = "combat drone"
+	desc = "An ancient looking combat drone. Even a amateur mechanist can easily see it is several models out of date."
+	icon = 'icons/mob/cavern.dmi'
+	speak = list("Sol Alliance is here to - Sssol All-All-Alliance is here - serve.","Protect and and protect and s-s-s-seeer-rve.","Tres-trespassing is-is-is a violati-tion of Sol l-l-law!","Intruuuuuuuuuuuuuuuuder det-detected. Terminating","Sounding the - sounding the alarm.", "CODE RED!")
+	health = 65
+	maxHealth = 65
+
+	faction = "sol"
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////Sol Viscerator/////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/mob/living/simple_animal/hostile/viscerator
+	name = "eviscerator"
+	desc = "A small, twin-bladed machine capable of inflicting very deadly lacerations. This one seems quite rusty and worse for wear"
+	melee_damage_lower = 5
+	melee_damage_upper = 5
+
+	faction = "sol"
+
+//////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////Mining drone///////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/mob/living/simple_animal/hostile/retaliate/minedrone
+	name = "mining rover"
+	desc = "A dilapidated mining rover, with the faded colors of the Sol Alliance. It looks more than a little lost."
+	icon = 'icons/mob/cavern.dmi'
+	icon_state = "sadrone"
+	icon_living = "sadrone"
+	icon_dead = "sadrone_dead"
+	move_to_delay = 5
+	health = 60
+	maxHealth = 60
+	harm_intent_damage = 5
+	ranged = 1
+	melee_damage_lower = 0
+	melee_damage_upper = 0
+	attacktext = "barrels into"
+	attack_sound = 'sound/weapons/punch1.ogg'
+	a_intent = I_HURT
+	speak_emote = list("chirps","buzzes","whirrs")
+	emote_hear = list("chirps cheerfully","buzzes","whirrs","hums placidly","chirps","hums")
+	projectiletype = /obj/item/projectile/beam/plasmacutter
+	projectilesound = 'sound/weapons/plasma_cutter.ogg'
+	destroy_surroundings = 1
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = 0
+
+	faction = "sol"
+
+	var/list/loot = list()
+	var/ore_message = 0
+	var/target_ore
+
+/mob/living/simple_animal/hostile/retaliate/minedrone/New()
+	..()
+	var/i = rand(1,6)
+	while(i)
+		loot += pick(/obj/item/weapon/ore/silver, /obj/item/weapon/ore/gold, /obj/item/weapon/ore/uranium, /obj/item/weapon/ore/diamond)
+		i--
+
+/mob/living/simple_animal/hostile/retaliate/minedrone/Life()
+	..()
+	FindOre()
+
+/mob/living/simple_animal/hostile/retaliate/minedrone/proc/FindOre()
+	if(!enemies.len)
+		setClickCooldown(attack_delay)
+		if(!target_ore in ListTargets(10))
+			target_ore = null
+		for(var/obj/item/weapon/ore/O in oview(1,src))
+			O.forceMove(src)
+			loot += O
+			if(target_ore == O)
+				target_ore = null
+			if(!ore_message)
+				ore_message = 1
+		if(ore_message)
+			visible_message("<span class='notice'>\The [src] collects the ore into a metallic hopper.</span>")
+			ore_message = 0
+		for(var/obj/item/weapon/ore/O in oview(7,src))
+			target_ore = O
+			break
+		if(target_ore)
+			walk_to(src, target_ore, 1, move_to_delay)
+		else
+			for(var/turf/simulated/mineral/M in oview(7,src))
+				if(M.mineral)
+					rapid = 1
+					OpenFire(M)
+					rapid = 0
+					break
+
+/mob/living/simple_animal/hostile/retaliate/minedrone/death()
+	..(null,"is smashed into pieces!")
+	var/T = get_turf(src)
+	new /obj/effect/gibspawner/robot(T)
+	spark(T, 3, alldirs)
+	for(var/obj/item/weapon/ore/O in loot)
+		O.forceMove(src.loc)
+	qdel(src)
+
+/mob/living/simple_animal/hostile/retaliate/adjustToxLoss(var/damage)
+	return
+
+/mob/living/simple_animal/hostile/retaliate/adjustOxyLoss(var/damage)
+	return
+
+/mob/living/simple_animal/hostile/retaliate/adjustCloneLoss(var/damage)
+	return
+
+/mob/living/simple_animal/hostile/retaliate/adjustHalLoss(var/damage)
 	return
