@@ -39,8 +39,8 @@
 	faction = "scarybat"
 	var/mob/living/owner
 
-/mob/living/simple_animal/hostile/scarybat/New(loc, mob/living/L as mob)
-	..()
+/mob/living/simple_animal/hostile/scarybat/Initialize(mapload, mob/living/L as mob)
+	. = ..()
 	if(istype(L))
 		owner = L
 
@@ -68,6 +68,15 @@
 		if(prob(15))
 			L.Stun(1)
 			L.visible_message("<span class='danger'>\the [src] scares \the [L]!</span>")
+
+/mob/living/simple_animal/hostile/scarybat/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/scarybat/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/scarybat/CanAvoidGravity()
+	return TRUE
 
 /mob/living/simple_animal/hostile/scarybat/cult
 	faction = "cult"

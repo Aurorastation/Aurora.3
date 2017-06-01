@@ -1,7 +1,6 @@
 // These are objects that destroy themselves and add themselves to the
 // decal list of the floor under them. Use them rather than distinct icon_states
 // when mapping in interesting floor designs.
-var/list/floor_decals = list()
 
 /obj/effect/floor_decal
 	name = "floor decal"
@@ -11,6 +10,7 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/LateInitialize()
 	var/turf/T = get_turf(src)
+	var/list/floor_decals = SSicon_cache.floor_decals
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
 		var/cache_key = "[alpha]-[color]-[dir]-[icon_state]-[layer]"
 		if(!floor_decals[cache_key])
@@ -35,7 +35,7 @@ var/list/floor_decals = list()
 	if(newcolour)
 		color = newcolour
 
-	if (supplied_dir) 
+	if (supplied_dir)
 		set_dir(supplied_dir)
 
 	..()
@@ -369,6 +369,8 @@ var/list/floor_decals = list()
 	name = "L16"
 	icon_state = "L16"
 
+// Medbay floor signs
+
 /obj/effect/floor_decal/sign
 	name = "floor sign"
 	icon_state = "white_1"
@@ -402,3 +404,20 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/sign/p
 	icon_state = "white_p"
+
+// New signs (New-map)
+
+/obj/effect/floor_decal/sign/gtr
+	icon_state = "white_gtr"
+
+/obj/effect/floor_decal/sign/emt
+	icon_state = "white_emt"
+
+/obj/effect/floor_decal/sign/w
+	icon_state = "white_w"
+
+/obj/effect/floor_decal/sign/icu
+	icon_state = "white_icu"
+
+/obj/effect/floor_decal/sign/c2
+	icon_state = "white_c2"

@@ -4,7 +4,7 @@
 	if (!icon || !icon_state)
 		CRASH("Invalid parameters.")
 
-	var/list/m_cache = SSoverlays.holo_multiplier_cache
+	var/list/m_cache = SSicon_cache.holo_multiplier_cache
 	var/list/m_cache_icon
 	var/image/multiply
 	if (m_cache[icon])
@@ -25,7 +25,7 @@
 		)
 		m_cache_icon[icon_state] = multiply
 
-	var/list/a_cache = SSoverlays.holo_adder_cache
+	var/list/a_cache = SSicon_cache.holo_adder_cache
 	var/list/a_cache_icon = a_cache[icon]
 	var/image/overlay
 	if (!a_cache_icon)

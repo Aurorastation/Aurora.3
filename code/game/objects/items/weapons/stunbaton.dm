@@ -158,8 +158,8 @@
 	L.stun_effect_act(stun, agony, target_zone, src)
 
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
-	msg_admin_attack("[key_name(user)] stunned [key_name(L)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(L))
-	
+	msg_admin_attack("[key_name_admin(user)] stunned [key_name_admin(L)] with the [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(L))
+
 	if(status)
 		deductcharge(hitcost)
 
@@ -184,6 +184,10 @@
 
 /obj/item/weapon/melee/baton/robot/attackby(obj/item/weapon/W, mob/user)
 	return
+	
+/obj/item/weapon/melee/baton/robot/arm
+	name = "electrified arm"
+	icon_state = "stunrod"
 
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/weapon/melee/baton/cattleprod

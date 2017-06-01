@@ -178,7 +178,8 @@ var/list/asset_datums = list()
 		"bootstrap.min.css" = 'html/bootstrap/css/bootstrap.min.css',
 		"bootstrap.min.js" = 'html/bootstrap/js/bootstrap.min.js',
 		"jquery-2.0.0.min.js" = 'html/jquery/jquery-2.0.0.min.js',
-		"ie-truth.min.js" = 'html/iestats/ie-truth.min.js'
+		"ie-truth.min.js" = 'html/iestats/ie-truth.min.js',
+		"conninfo.min.js" = 'html/iestats/conninfo.min.js'
 	)
 
 /datum/asset/simple/paper
@@ -221,7 +222,7 @@ var/list/asset_datums = list()
 		var/name = "pill[i].png"
 		register_asset(name, icon('icons/obj/chemical.dmi', "pill[i]"))
 		assets += name
-	
+
 	for (var/sprite in bottle_sprites)
 		var/name = "[sprite].png"
 		register_asset(name, icon('icons/obj/chemical.dmi', sprite))

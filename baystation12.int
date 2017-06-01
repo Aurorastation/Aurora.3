@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1496280040
+LAST_COMPILE_TIME: 1496352102
 DIR: code\modules code\modules\reagents\reagent_containers code\modules\reagents\reagent_containers\food icons icons\obj maps maps\Aurora-MapDev 
 AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 511.1381
 WINDOW: icons\obj\food.dmi;maps\Aurora-MapDev\aurora-3.dmm
-FILE: icons\obj\food.dmi
+FILE: maps\Aurora-MapDev\aurora-3.dmm
 */
 // END_INTERNALS

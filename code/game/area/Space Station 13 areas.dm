@@ -161,7 +161,6 @@ area/space/atmosalert()
 	icon_state = "shuttle"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/escape
 	name = "\improper Emergency Shuttle"
@@ -172,7 +171,6 @@ area/space/atmosalert()
 	icon_state = "shuttle2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/escape/centcom
 	name = "\improper Emergency Shuttle Centcom"
@@ -279,7 +277,6 @@ area/space/atmosalert()
 	name = "\improper Transport Shuttle"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
@@ -292,7 +289,6 @@ area/space/atmosalert()
 	icon_state = "shuttlered2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/syndicate_elite
 	name = "\improper Merc Elite Shuttle"
@@ -306,7 +302,6 @@ area/space/atmosalert()
 	icon_state = "shuttlered2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/administration
 	flags = RAD_SHIELDED
@@ -322,7 +317,6 @@ area/space/atmosalert()
 	icon_state = "shuttlered2"
 	base_turf = /turf/simulated/floor/asteroid
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/shuttle/research
 	name = "\improper Research Shuttle"
@@ -407,6 +401,11 @@ area/space/atmosalert()
 /area/syndicate_mothership/elite_squad
 	name = "\improper Elite Mercenary Squad"
 	icon_state = "syndie-elite"
+	
+/area/syndicate_mothership/raider_base
+	name = "\improper Pirate Hideout"
+	icon_state = "syndie-control"
+	dynamic_lighting = 1
 
 //EXTRA
 
@@ -492,13 +491,11 @@ area/space/atmosalert()
 	icon_state = "southwest"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
-	dynamic_lighting = 0
 
 /area/syndicate_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/syndicate_station/under
 	name = "\improper Under the Station"
@@ -552,13 +549,11 @@ area/space/atmosalert()
 	icon_state = "southwest"
 	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
-	dynamic_lighting = 0
 
 /area/skipjack_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
 	station_area = 1
-	dynamic_lighting = 0
 
 /area/skipjack_station/under
 	name = "\improper Under the Station"
@@ -769,7 +764,7 @@ area/space/atmosalert()
 
 //Hallway
 
-/area/hallway/primary/
+/area/hallway
 	sound_env = LARGE_ENCLOSED
 	allow_nightmode = 1
 	station_area = 1
@@ -827,6 +822,10 @@ area/space/atmosalert()
 /area/hallway/secondary/entry/aft
 	name = "\improper Arrival Shuttle Hallway - Aft"
 	icon_state = "entry_4"
+
+/area/hallway/secondary/entry/dock
+	name = "\improper Arrival Shuttle Dock"
+	icon_state = "arrivals_dock"
 
 //Command
 
@@ -982,7 +981,7 @@ area/space/atmosalert()
 	allow_nightmode = 1
 
 /area/crew_quarters/locker/locker_toilet
-	name = "\improper Locker Toilets"
+	name = "\improper Main Level Toilets"
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
 
@@ -1199,7 +1198,6 @@ area/space/atmosalert()
 /area/solar
 	requires_power = 1
 	always_unpowered = 1
-	dynamic_lighting = 0
 	base_turf = /turf/space
 	station_area = 1
 
@@ -1983,25 +1981,21 @@ area/space/atmosalert()
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/AIsatextFS
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/AIsatextAS
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/AIsatextAP
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/NewAIMain
 	name = "\improper AI Main New"

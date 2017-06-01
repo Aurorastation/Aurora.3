@@ -1,5 +1,5 @@
-/mob/living/carbon/human/skeleton/New(var/new_loc)
-	..(new_loc, "Skeleton")
+/mob/living/carbon/human/skeleton/Initialize(mapload)
+	. = ..(mapload, "Skeleton")
 
 /datum/species/skeleton //SPOOKY
 	name = "Skeleton"

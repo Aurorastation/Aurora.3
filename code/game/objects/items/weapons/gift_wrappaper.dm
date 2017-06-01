@@ -182,7 +182,7 @@
 
 			H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been wrapped with [src.name]  by [user.name] ([user.ckey])</font>")
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to wrap [H.name] ([H.ckey])</font>")
-			msg_admin_attack("[key_name(user)] used [src] to wrap [key_name(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
+			msg_admin_attack("[key_name_admin(user)] used [src] to wrap [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
 
 		else
 			user << "<span class='warning'>You need more paper.</span>"
@@ -207,7 +207,7 @@
 		"The Grinch","Cicilia Simon","John F. Kennedy","Joseph Dorn","Mendell City","Ta�Akaix�Scay�extiih�aur Zo�ra","Ta'Akaix'Vaur'skiyet'sca Zo'ra","Miranda Trasen","Jiub","The Biesellian National Guard","The ERT","Baal D. Griffon","Hephaestus Industries","The Sol Alliance (Sorry about the blockade!")
 	var/pick_emotion = pick("love","platonic admiration","approval","love (not in a sexual way or anything, though)","apathy", "schadenfreude","love","God's blessing","Santa's blessing","Non-demoninational deity's blessing","love","compassion","appreciation",
 		"respect","begrudging respect","love")
-	desc = "To: The NSS Exodus<BR>From: <i>[gift_benefactor], with [pick_emotion]</i>"
+	desc = "To: The [station_name()]<BR>From: <i>[gift_benefactor], with [pick_emotion]</i>"
 
 	return
 

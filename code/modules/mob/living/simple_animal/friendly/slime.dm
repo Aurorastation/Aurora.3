@@ -38,8 +38,8 @@
 	mob_size = 6
 	composition_reagent = "slimejelly"
 
-/mob/living/simple_animal/adultslime/New()
-	..()
+/mob/living/simple_animal/adultslime/Initialize()
+	. = ..()
 	add_overlay("aslime-:33")
 
 
