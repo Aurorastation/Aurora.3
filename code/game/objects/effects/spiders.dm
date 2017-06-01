@@ -80,7 +80,7 @@
 	var/amount_grown = 0
 	var/last_itch = 0
 
-/obj/effect/spider/eggcluster/Initialize(var/mapload, var/location, var/atom/parent)
+/obj/effect/spider/eggcluster/Initialize(var/mapload, var/atom/parent)
 	. = ..(mapload)
 
 	pixel_x = rand(3,-3)
@@ -131,7 +131,7 @@
 	var/travelling_in_vent = 0
 	var/list/possible_offspring
 
-/obj/effect/spider/spiderling/Initialize(var/mapload, var/location, var/atom/parent, var/new_rate = 1, var/list/spawns = typesof(/mob/living/simple_animal/hostile/giant_spider))
+/obj/effect/spider/spiderling/Initialize(var/mapload, var/atom/parent, var/new_rate = 1, var/list/spawns = typesof(/mob/living/simple_animal/hostile/giant_spider))
 	. = ..(mapload)
 
 	pixel_x = rand(6,-6)
