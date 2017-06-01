@@ -84,7 +84,7 @@
 		var/mob/living/carbon/human/H = .
 		if(prob(poison_per_bite))
 			var/obj/item/organ/external/O = pick(H.organs)
-			if(!(O.status & ORGAN_ROBOT))
+			if(!(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)) && !O.cannot_amputate)
 				var/eggs = new /obj/effect/spider/eggcluster(O, src)
 				O.implants += eggs
 				H << "<span class='warning'>The [src] injects something into your [O.name]!</span>"
