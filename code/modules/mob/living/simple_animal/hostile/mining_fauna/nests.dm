@@ -132,6 +132,6 @@
 	mob_type = /mob/living/simple_animal/hostile/shadow
 	faction = "outsider"
 
-/mob/living/simple_animal/hostile/spawner/darkportal/New()
+/mob/living/simple_animal/hostile/spawner/darkportal/Initialize()
 	..()
 	set_light(5, -5, "#FFFFFF")

@@ -98,7 +98,7 @@
 	var/searchingterm = 0
 	var/external_shielding = 1
 
-/mob/living/simple_animal/hostile/seraph/New()
+/mob/living/simple_animal/hostile/seraph/Initialize()
 	..()
 	name = "[pick("Metatron","Uriel","Lucifer","Tyrael","Kemeul","Seraphiel","Nathanael")] - u[rand(100,999)]"
 
@@ -425,7 +425,7 @@
 	var/ore_message = 0
 	var/target_ore
 
-/mob/living/simple_animal/hostile/retaliate/minedrone/New()
+/mob/living/simple_animal/hostile/retaliate/minedrone/Initialize()
 	..()
 	var/i = rand(1,6)
 	while(i)

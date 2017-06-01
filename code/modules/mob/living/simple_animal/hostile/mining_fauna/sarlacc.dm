@@ -125,7 +125,7 @@ var/global/list/greatasses = list()
 
 	faction = "worms"
 
-/mob/living/simple_animal/hostile/greatworm/New()
+/mob/living/simple_animal/hostile/greatworm/Initialize()
 	..()
 	greatworms += src
 	loot_count = 4+(rand(0,4))
@@ -272,7 +272,7 @@ var/global/list/greatasses = list()
 
 	faction = "worms"
 
-/mob/living/simple_animal/hostile/lesserworm/New()
+/mob/living/simple_animal/hostile/lesserworm/Initialize()
 	..()
 	addtimer(CALLBACK(src, .proc/Penetrate), 6)
 	QDEL_IN(src, 15)

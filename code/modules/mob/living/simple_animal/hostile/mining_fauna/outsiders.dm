@@ -60,7 +60,7 @@
 
 	faction = "outsider"
 
-/mob/living/simple_animal/hostile/shadow/New()
+/mob/living/simple_animal/hostile/shadow/Initialize()
 	..()
 	set_light(10, -10, "#FFFFFF")
 

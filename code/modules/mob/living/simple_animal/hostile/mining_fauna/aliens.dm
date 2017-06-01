@@ -174,7 +174,7 @@
 	stage = 2
 	path = 1
 
-/obj/item/weapon/grenade/chem_grenade/banegrenade/New()
+/obj/item/weapon/grenade/chem_grenade/banegrenade/Initialize()
 	..()
 	var/obj/item/weapon/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/weapon/reagent_containers/glass/beaker/large/B2 = new(src)
@@ -305,7 +305,7 @@
 	icon_state = "mouseegg"
 	health = 60
 
-/obj/effect/spider/mouse_egg/New()
+/obj/effect/spider/mouse_egg/Initialize()
 	..()
 	addtimer(CALLBACK(src, .proc/hatch), 30 SECONDS)
 
@@ -358,7 +358,7 @@
 	status_flags = CANPUSH
 	var/laser_ammo
 
-/mob/living/simple_animal/hostile/vox/New()
+/mob/living/simple_animal/hostile/vox/Initialize()
 	..()
 	laser_ammo = rand(0,10)
 
