@@ -45,7 +45,7 @@
 								SSjobs.DespawnMob(A)
 								global_announcer.autosay("[A.real_name], [A.mind.role_alt_title], has entered long-term storage.", "Cryogenic Oversight")
 								mobstoyellat -= A // so they don't get told on
-						else if(!istype(A, /mob/living/carbon/human) && SSarrivals.failreturnnumber >=4) // remove non-player mobs to keep things rolling
+						else if(!istype(A, /mob/living/carbon/human) && SSarrivals.failreturnnumber >=4 && !A.client) // remove non-player mobs to keep things rolling
 							qdel(A)
 					global_announcer.autosay("Current life-forms on shuttle: [english_list(mobstoyellat)].", "Arrivals Shuttle Oversight") // tell on them
 			return
