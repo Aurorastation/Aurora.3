@@ -100,17 +100,11 @@
 					move_targets.Add(T)*/
 				stop_automated_movement = 1
 				walk_to(src, pick(orange(20, src)), 1, move_to_delay)
-				spawn(50)
-					stop_automated_movement = 0
-					walk(src,0)
+				addtimer(CALLBACK(src, .proc/stop_walking), 50, TIMER_UNIQUE)
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/proc/GiveUp(var/C)
-	spawn(100)
-		if(busy == MOVING_TO_TARGET)
-			if(cocoon_target == C && get_dist(src,cocoon_target) > 1)
-				cocoon_target = null
-			busy = 0
-			stop_automated_movement = 0
+/mob/living/simple_animal/hostile/giant_spider/proc/stop_walking()
+	stop_automated_movement = 0
+	walk(src, 0)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/Life()
 	..()
@@ -126,7 +120,7 @@
 						busy = MOVING_TO_TARGET
 						walk_to(src, C, 1, move_to_delay)
 						//give up if we can't reach them after 10 seconds
-						GiveUp(C)
+						addtimer(CALLBACK(src, .proc/GiveUp, C), 100, TIMER_UNIQUE)
 						return
 
 				//second, spin a sticky spiderweb on this tile
@@ -135,11 +129,7 @@
 					busy = SPINNING_WEB
 					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance.</span>")
 					stop_automated_movement = 1
-					spawn(40)
-						if(busy == SPINNING_WEB)
-							new /obj/effect/spider/stickyweb(src.loc)
-							busy = 0
-							stop_automated_movement = 0
+					addtimer(CALLBACK(src, .proc/finalize_web), 40, TIMER_UNIQUE)
 				else
 					//third, lay an egg cluster there
 					var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
@@ -147,14 +137,7 @@
 						busy = LAYING_EGGS
 						src.visible_message("<span class='notice'>\The [src] begins to lay a cluster of eggs.</span>")
 						stop_automated_movement = 1
-						spawn(50)
-							if(busy == LAYING_EGGS)
-								E = locate() in get_turf(src)
-								if(!E)
-									new /obj/effect/spider/eggcluster(loc, src)
-									fed--
-								busy = 0
-								stop_automated_movement = 0
+						addtimer(CALLBACK(src, .proc/finalize_eggs), 50, TIMER_UNIQUE)
 					else
 						//fourthly, cocoon any nearby items so those pesky pinkskins can't use them
 						for(var/obj/O in can_see)
@@ -181,6 +164,27 @@
 		else
 			busy = 0
 			stop_automated_movement = 0
+
+/mob/living/simple_animal/hostile/giant_spider/nurse/proc/GiveUp(var/C)
+	if(busy == MOVING_TO_TARGET)
+		if(cocoon_target == C && get_dist(src,cocoon_target) > 1)
+			cocoon_target = null
+		busy = 0
+		stop_automated_movement = 0
+
+/mob/living/simple_animal/hostile/giant_spider/nurse/proc/finalize_eggs()
+	if(busy == LAYING_EGGS)
+		if(!(locate(/obj/effect/spider/eggcluster) in get_turf(src)))
+			new /obj/effect/spider/eggcluster(loc, src)
+			fed--
+		busy = 0
+		stop_automated_movement = 0
+
+/mob/living/simple_animal/hostile/giant_spider/nurse/proc/finalize_web()
+	if(busy == SPINNING_WEB)
+		new /obj/effect/spider/stickyweb(src.loc)
+		busy = 0
+		stop_automated_movement = 0
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/proc/finalize_cocoon()
 	if(busy == SPINNING_COCOON)
