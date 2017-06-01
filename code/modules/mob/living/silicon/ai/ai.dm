@@ -49,7 +49,7 @@ var/list/ai_verbs_default = list(
 	density = 1
 	status_flags = CANSTUN|CANPARALYSE|CANPUSH
 	//shouldnt_see - set in New()
-	var/list/network = list("Exodus")
+	var/list/network = list("Aurora")
 	var/obj/machinery/camera/camera = null
 	var/list/connected_robots = list()
 	var/aiRestorePowerRoutine = 0
