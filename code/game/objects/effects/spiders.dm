@@ -97,7 +97,7 @@
 	amount_grown += rand(0,2)
 
 	var/obj/item/organ/external/O = null
-	if(istype(loc, /obj/item/organ/external))
+	if(isorgan(loc))
 		O = loc
 
 	if(amount_grown >= 100)
