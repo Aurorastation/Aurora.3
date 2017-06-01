@@ -493,6 +493,8 @@
 
 	var/list/protection
 	if(istype(M, /mob/living/carbon/human))
+		if(M.isSynthetic())
+			return
 		var/mob/living/carbon/human/H = M
 		protection = list(H.head, H.glasses, H.wear_mask)
 		if(H.species && (H.species.flags & NO_PAIN))
