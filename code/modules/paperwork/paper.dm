@@ -368,19 +368,25 @@
 	if (!user)
 		return input
 
+	var/static/regex/written_lang_regex
+	if (!written_lang_regex)
+		written_lang_regex = new("(\\\[lang=(\[#_a-zA-Z0-9\\^\]{1})\\\])(.*)(\\\[\\/lang\\\])", "g")
+
 	. = input
 
 	while (written_lang_regex.Find(.))
 		var/datum/language/L = language_keys[written_lang_regex.group[2]]
 		// Unknown language.
-		if (!L)
+		if (!L || !L.written_regex)
 			continue
 
+		var/content = written_lang_regex.group[3]
+
 		// Replace the content with <p>content here</p>
-		if (user.say_understands(null, L))
-			. = written_lang_regex.Replace(., "<span class='[L.colour]'>$3</span>", 1, 0)
-		else
-			. = written_lang_regex.Replace(., /datum/language/proc/format_message_written, 1, 0)
+		if (!user.say_understands(null, L))
+			content = L.scramble(content)
+
+		. = L.written_regex.Replace(., "<span class='[L.colour]'>[content]</span>", 1, 0)
 
 /obj/item/weapon/paper/Topic(href, href_list)
 	..()

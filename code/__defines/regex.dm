@@ -20,9 +20,6 @@ var/global/list/markup_tags = list("/" = list("<i>", "</i>"),
 						"~" = list("<strike>", "</strike>"),
 						"_" = list("<u>", "</u>"))
 
-// Written language REGEX.
-var/global/regex/written_lang_regex
-
 /hook/startup/proc/initialize_global_regex()
 	url_find_lazy = new("((https?|byond):\\/\\/\[^\\s\]*)", "g")
 
@@ -36,7 +33,5 @@ var/global/regex/written_lang_regex
 						"*" = markup_bold,
 						"~" = markup_strike,
 						"_" = markup_underline)
-
-	written_lang_regex = new("(\\\[lang=(\[#_a-zA-Z0-9\\^\]{1})\\\])(.*)(\\\[\\/lang\\\])", "g")
 
 	return 1
