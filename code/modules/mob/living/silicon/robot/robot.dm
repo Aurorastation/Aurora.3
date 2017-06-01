@@ -142,7 +142,7 @@
 	if(!scrambledcodes && !camera)
 		camera = new /obj/machinery/camera(src)
 		camera.c_tag = real_name
-		camera.replace_networks(list(NETWORK_EXODUS,NETWORK_ROBOTS))
+		camera.replace_networks(list(NETWORK_STATION,NETWORK_ROBOTS))
 		if(wires.IsIndexCut(BORG_WIRE_CAMERA))
 			camera.status = 0
 
