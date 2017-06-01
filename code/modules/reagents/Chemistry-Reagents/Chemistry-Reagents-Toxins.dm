@@ -219,7 +219,7 @@
 /datum/reagent/toxin/plantbgone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien == IS_DIONA)
-		M.adjustToxLoss(8 * removed)
+		M.adjustToxLoss(30 * removed)
 
 //Affect touch automatically transfers to affect_blood, so we'll apply the damage there, after accounting for permeability
 /datum/reagent/toxin/plantbgone/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
