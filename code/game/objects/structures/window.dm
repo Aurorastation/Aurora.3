@@ -499,7 +499,7 @@
 	basestate = "w"
 	dir = 5
 	smooth = SMOOTH_TRUE
-	can_be_unanchored = FALSE
+	can_be_unanchored = TRUE
 
 /obj/structure/window/shuttle/crescent/take_damage()
 	return
