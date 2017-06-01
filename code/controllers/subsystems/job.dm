@@ -527,7 +527,8 @@
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
-	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/odin_timeout), 15 MINUTES, TIMER_STOPPABLE)
+	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
+	H <<"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>"
 
 	if(job)
 		//Equip custom gear loadout.
