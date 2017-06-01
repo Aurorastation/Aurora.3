@@ -34,7 +34,8 @@
 		if(!say_understands(speaker,language))
 			if(istype(speaker,/mob/living/simple_animal))
 				var/mob/living/simple_animal/S = speaker
-				message = pick(S.speak)
+				if(S.speak && S.speak.len)
+					message = pick(S.speak)
 			else
 				if(language)
 					message = language.scramble(message)

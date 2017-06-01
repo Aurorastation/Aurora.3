@@ -51,3 +51,23 @@
 /mob/living/simple_animal/hostile/retaliate/adjustBruteLoss(var/damage)
 	..(damage)
 	Retaliate()
+
+/mob/living/simple_animal/hostile/retaliate/adjustFireLoss(var/damage)
+	..(damage)
+	Retaliate()
+
+/mob/living/simple_animal/hostile/retaliate/adjustToxLoss(var/damage)
+	..(damage)
+	Retaliate()
+
+/mob/living/simple_animal/hostile/retaliate/adjustOxyLoss(var/damage)
+	..(damage)
+	Retaliate()
+
+/mob/living/simple_animal/hostile/retaliate/adjustCloneLoss(var/damage)
+	..(damage)
+	Retaliate()
+
+/mob/living/simple_animal/hostile/retaliate/adjustHalLoss(var/damage)
+	..(damage)
+	Retaliate()

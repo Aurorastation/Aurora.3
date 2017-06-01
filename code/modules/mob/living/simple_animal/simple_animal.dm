@@ -100,6 +100,8 @@
 	var/can_nap = 0
 	var/icon_rest = null
 
+	var/mob/living/simple_animal/hostile/spawner/nest
+
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
@@ -472,6 +474,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	movement_target = null
 	icon_state = icon_dead
 	density = 0
+	if(nest)
+		nest.spawned_mobs -= src
+		nest = null
 	return ..(gibbed,deathmessage)
 
 /mob/living/simple_animal/ex_act(severity)
