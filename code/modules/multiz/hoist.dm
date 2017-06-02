@@ -23,7 +23,7 @@
 	anchored = 1
 
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/M,mob/user)
-	if(!istype(M, /atom/movable/) // why this is even necessary, i don't know.
+	if(!istype(M, /atom/movable/)) // why this is even necessary, i don't know.
 		return
 	if (initial(anchored))
 		return
