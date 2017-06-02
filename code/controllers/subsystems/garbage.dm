@@ -124,7 +124,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		HardDelete(A)
 		return
 	var/gctime = world.time
-	var/refid = SOFTREF(A)
+	var/refid = "\ref[A]"
 
 	A.gcDestroyed = gctime
 
@@ -140,7 +140,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	var/ticktime = world.time
 
 	var/type = A.type
-	var/refID = SOFTREF(A)
+	var/refID = "\ref[A]"
 
 	del(A)
 
