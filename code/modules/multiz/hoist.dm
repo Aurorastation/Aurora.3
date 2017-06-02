@@ -23,17 +23,7 @@
 	anchored = 1
 
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/M,mob/user)
-	if(!istype(M)) // why this is even necessary, i don't know.
-		return
-	if(!M.simulated)
-		return
-	if (M.anchored)
-		return
-	if (istype(M, /obj/structure/))
-		return
-	if (source_hoist.hoistee)
-		return
-	if (!Adjacent(M))
+	if(!istype(M) || M.simulated || M.anchored || source_hoist.hoistee || !Adjacent(M))
 		return
 	source_hoist.hoistee = M
 	if (get_turf(M) != get_turf(src))
