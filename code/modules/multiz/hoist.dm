@@ -23,20 +23,20 @@
 	anchored = 1
 
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/M,mob/user)
-	if(!istype(M, /atom/movable/)) // why this is even necessary, i don't know.
+	if(!istype(M)) // why this is even necessary, i don't know.
 		return
-	if (initial(anchored))
+	if (M.anchored)
 		return
 	if (istype(M, /obj/structure/))
 		return
 	if (source_hoist.hoistee)
 		return
-	source_hoist.hoistee = M
 	if (!Adjacent(M))
 		return
+	source_hoist.hoistee = M
 	if (get_turf(M) != get_turf(src))
 		M.Move(get_turf(src))
-	if (istype(M, /mob/living/))
+	if (ismob(M))
 		user_buckle_mob(M, user)
 	else
 		M.anchored = 1
@@ -51,7 +51,7 @@
 
 	if (!source_hoist.hoistee)
 		return
-	if (!istype(dest, /turf))
+	if (!isturf(dest))
 		return
 	if (!dest.Adjacent(source_hoist.hoistee))
 		return
@@ -65,20 +65,6 @@
 	source_hoist.hoistee.anchored = 0
 	usr.visible_message(span("danger", "[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You detach \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You hear something unclamp."))
 	source_hoist.hoistee = null
-
-/* Switching with a different tactic, MouseDrop.
-/obj/effect/hoist_hook/attack_hand(mob/living/user)
-	if (!source_hoist.hoistee)
-		return
-	var/turf/simulated/open/opent = get_turf(source_hoist.hoistee)
-	if (istype(opent))
-		LAZYADD(opent.climbers, source_hoist.hoistee)
-	if (buckled_mob)
-		user_unbuckle_mob(user)
-	source_hoist.hoistee.anchored = 0
-	source_hoist.hoistee = null
-	user.visible_message(span("warning", "[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), span("notice", "You detach \the [source_hoist.hoistee] from the hoist clamp."), span("notice", "You hear something unclamp."))
-*/
 
 /obj/structure/hoist
 	icon = 'icons/obj/stationobjs.dmi'
@@ -99,7 +85,7 @@
 	source_hook.source_hoist = src
 
 /obj/structure/hoist/attack_hand(mob/living/user)
-	var/can = movedir == UP ? can_raise() : can_lower()
+	var/can = can_move_dir(movedir)
 	var/movtext = movedir == UP ? "raise" : "lower"
 	if (!can) // If you can't...
 		movedir = movedir == UP ? DOWN : UP // switch directions!
@@ -108,7 +94,7 @@
 
 	if (!hoistee)
 		user.visible_message(span("notice", "[user] begins to [movtext] the clamp."), span("notice", "You begin to [movtext] the clamp."), span("notice", "You hear the sound of a crank."))
-		movedir == UP ? raise(0) : lower(0)
+		move_dir(movedir, 0)
 		return
 
 	var/size
@@ -121,14 +107,14 @@
 
 	user.visible_message(span("notice", "[user] begins to [movtext] \the [hoistee]!"), span("notice", "You begin to [movtext] \the [hoistee]!"), span("notice", "You hear the sound of a crank."))
 	if (do_after(user, (1 SECONDS) * size / 4, act_target = src))
-		movedir == UP ? raise(1) : lower(1)
+		move_dir(movedir, 1)
 
 /obj/structure/hoist/verb/collapse_hoist()
 	set name = "Collapse Hoist"
 	set category = "Object"
 	set src = view(1)
 
-	if (isobserver(usr))
+	if (isobserver(usr) || usr.incapacitated())
 		return
 	if (!usr.IsAdvancedToolUser()) // thanks nanacode
 		to_chat(usr, span("notice", "You stare cluelessly at \the [src]."))
@@ -141,42 +127,29 @@
 	new /obj/item/hoist_kit(get_turf(src))
 	qdel(src)
 
-/obj/structure/hoist/proc/can_raise()
-	var/turf/above = GetAbove(source_hook)
-	if (!above) // can't move if there's nothing to move to
+/obj/structure/hoist/can_move_dir(direction)
+	var/turf/dest = movedir == UP ? GetAbove(source_hook) : GetBelow(source:hook)
+	switch(direction)
+		if (UP)
+			var/turf/dest = GetAbove(source_hook)
+			if (!istype(dest, /turf/simulated/open)) // can't move into a solid tile
+				return 0
+			if (source_hook in get_step(src, dir)) // you don't get to move above the hoist
+				return 0
+		if (DOWN)
+			var/turf/dest = GetBelow(source_hook)
+			if (!istype(get_turf(source_hook), /turf/simulated/open)) // can't move down through a solid tile
+				return 0
+	if (!dest) // can't move if there's nothing to move to
 		return 0
-	if (!istype(above, /turf/simulated/open)) // can't move into a solid tile
-		return 0
-	if (source_hook in get_step(src, dir)) // you don't get to move above the hoist
-		return 0
-	return 1
 
-/obj/structure/hoist/proc/can_lower()
-	var/turf/below = GetBelow(source_hook)
-	if (!below) // can't move if there's nothing to move to
-		return 0
-	if (!istype(get_turf(source_hook), /turf/simulated/open)) // can't move down through a solid tile
-		return 0
-	return 1
-
-/obj/structure/hoist/proc/raise(ishoisting)
-	var/can = can_raise()
-	var/turf/simulated/open/above = GetAbove(source_hook)
+/obj/structure/hoist/proc/move_dir(direction, ishoisting)
+	var/can = can_move_dir(direction)
 	if (!can)
 		return 0
-	source_hook.forceMove(above)
-	if(!ishoisting)
-		return 1
-	hoistee.forceMove(above)
-	return 1
-
-/obj/structure/hoist/proc/lower(ishoisting)
-	var/can = can_lower()
-	var/turf/below = GetBelow(source_hook)
-	if (!can) // no more magic disappearing acts
-		return 0
-	source_hook.forceMove(below)
+	var/turf/move_dest = movedir == UP ? GetAbove(source_hook) : GetBelow(source:hook)
+	source_hook.forceMove(move_dest)
 	if (!ishoisting)
 		return 1
-	hoistee.forceMove(below)
+	hoistee.forceMove(move_dest)
 	return 1
