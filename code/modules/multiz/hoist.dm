@@ -126,7 +126,7 @@
 /obj/structure/hoist/verb/collapse_hoist()
 	set name = "Collapse Hoist"
 	set category = "Object"
-	set src = orange(1) // note: object-range, not the colour
+	set src = view(1)
 
 	if (isobserver(usr))
 		return
