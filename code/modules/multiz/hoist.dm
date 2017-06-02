@@ -127,17 +127,15 @@
 	new /obj/item/hoist_kit(get_turf(src))
 	qdel(src)
 
-/obj/structure/hoist/can_move_dir(direction)
-	var/turf/dest = movedir == UP ? GetAbove(source_hook) : GetBelow(source:hook)
+/obj/structure/hoist/proc/can_move_dir(direction)
+	var/turf/dest = movedir == UP ? GetAbove(source_hook) : GetBelow(source_hook)
 	switch(direction)
 		if (UP)
-			var/turf/dest = GetAbove(source_hook)
 			if (!istype(dest, /turf/simulated/open)) // can't move into a solid tile
 				return 0
 			if (source_hook in get_step(src, dir)) // you don't get to move above the hoist
 				return 0
 		if (DOWN)
-			var/turf/dest = GetBelow(source_hook)
 			if (!istype(get_turf(source_hook), /turf/simulated/open)) // can't move down through a solid tile
 				return 0
 	if (!dest) // can't move if there's nothing to move to
@@ -147,7 +145,7 @@
 	var/can = can_move_dir(direction)
 	if (!can)
 		return 0
-	var/turf/move_dest = movedir == UP ? GetAbove(source_hook) : GetBelow(source:hook)
+	var/turf/move_dest = movedir == UP ? GetAbove(source_hook) : GetBelow(source_hook)
 	source_hook.forceMove(move_dest)
 	if (!ishoisting)
 		return 1
