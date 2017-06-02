@@ -46,8 +46,7 @@
 	if(!usr || !dest) return
 	if(!Adjacent(usr) || !dest.Adjacent(usr)) return // carried over from the default proc
 
-	spawn(0)
-		dest.MouseDrop_T(src,usr)
+	INVOKE_ASYNC(dest, /atom/.proc/MouseDrop_T, src, usr) // thanks lohikode
 
 	if (!source_hoist.hoistee)
 		return
