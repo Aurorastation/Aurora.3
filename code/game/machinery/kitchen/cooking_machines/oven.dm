@@ -46,27 +46,26 @@
 		icon_state = "ovenopen"
 	..()
 
-
 /obj/machinery/appliance/cooker/oven/AltClick(var/mob/user)
-	.=1
-	if(user.stat || user.restrained())	return
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)//No spamming the door, it makes a sound
-	toggle_door()
-
+	try_toggle_door(user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 /obj/machinery/appliance/cooker/oven/verb/toggle_door()
-	set src in view()
+	set src in orange(1)
 	set category = "Object"
 	set name = "Open/close oven door"
 
-	if (!isliving(usr))
+	try_toggle_door(usr)
+
+/obj/machinery/appliance/cooker/oven/proc/try_toggle_door(mob/user)
+	if (!isliving(usr) || isAI(user))
 		return
 
 	if (!usr.IsAdvancedToolUser())
 		usr << "You lack the dexterity to do that."
 		return
 
-	if (!Adjacent(usr) && !issilicon(usr))
+	if (!Adjacent(usr))
 		usr << "You can't reach the [src] from there, get closer!"
 		return
 
@@ -80,7 +79,6 @@
 
 	playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
 	update_icon()
-
 
 /obj/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
 	if (!open)

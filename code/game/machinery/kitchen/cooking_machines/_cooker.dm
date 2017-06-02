@@ -1,7 +1,7 @@
 /obj/machinery/appliance/cooker
 	var/temperature = T20C
-	var/min_temp = 353 + T0C	//Minimum temperature to do any cooking
-	var/optimal_temp = 472 + T0C	//Temperature at which we have 100% efficiency. efficiency is lowered on either side of this
+	var/min_temp = 100 + T0C	//Minimum temperature to do any cooking
+	var/optimal_temp = 200 + T0C	//Temperature at which we have 100% efficiency. efficiency is lowered on either side of this
 	var/optimal_power = 0.1//cooking power at 100%
 
 	var/loss = 1	//Temp lost per proc when equalising
