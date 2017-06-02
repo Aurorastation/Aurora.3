@@ -70,7 +70,9 @@ var/list/panic_targets = list(
 	"Garbage" = /datum/controller/subsystem/garbage_collector,
 	"Air" = /datum/controller/subsystem/air,
 	"Explosives" = /datum/controller/subsystem/explosives,
-	"Game Ticker" = /datum/controller/subsystem/ticker
+	"Game Ticker" = /datum/controller/subsystem/ticker,
+	"Timer" = /datum/controller/subsystem/timer,
+	"Effects Master" = /datum/controller/subsystem/effects
 )
 
 // Subsystems that might do funny things or lose data if hard-restarted.
