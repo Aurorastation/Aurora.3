@@ -40,7 +40,7 @@
 	log_debug("SSarrivals: [M] has entered arrival shuttle hotzone.")
 
 	if (istype(M))
-		current_mobs += "\ref[M]"
+		current_mobs += SOFTREF(M)
 
 	wake()	// Wake the process.
 
@@ -48,7 +48,7 @@
 		set_launch_countdown(30)
 
 /datum/controller/subsystem/arrivals/proc/on_hotzone_exit(mob/living/M)
-	current_mobs -= "\ref[M]"
+	current_mobs -= SOFTREF(M)
 	log_debug("SSarrivals: [M] has exited arrival shuttle hotzone.")
 
 //called when the shuttle has arrived.
