@@ -138,12 +138,12 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	var/time = world.timeofday
 	var/tick = world.tick_usage
 	var/ticktime = world.time
-	
+
 	var/type = A.type
 	var/refID = "\ref[A]"
-	
+
 	del(A)
-	
+
 	tick = (world.tick_usage-tick+((world.time-ticktime)/world.tick_lag*100))
 	if (tick > highest_del_tickusage)
 		highest_del_tickusage = tick

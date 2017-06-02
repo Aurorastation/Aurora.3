@@ -754,9 +754,9 @@
 				H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 				H.adjustFireLoss(10, 0)
 			if(infected)
-				if("\ref[H]" in hacked_ipcs)
+				if(SOFTREF(H) in hacked_ipcs)
 					return
-				LAZYADD(hacked_ipcs, "\ref[H]")
+				LAZYADD(hacked_ipcs, SOFTREF(H))
 				infected = 0
 				H << "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>"
 				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are reparied.</span>"
