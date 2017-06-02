@@ -25,6 +25,8 @@
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/M,mob/user)
 	if(!istype(M)) // why this is even necessary, i don't know.
 		return
+	if(!M.simulated)
+		return
 	if (M.anchored)
 		return
 	if (istype(M, /obj/structure/))
