@@ -21,4 +21,4 @@
 	if(!help)
 		help = "Error loading help (file /ingame_manuals/vampire.html is probably missing). Please report this to server administration staff."
 
-	user << browse(help, "window=vampire_help;size=600x500")
+	show_browser(user, help, "window=vampire_help;size=600x500")
