@@ -286,7 +286,7 @@
 	vampire.use_blood(60)
 	verbs -= /mob/living/carbon/human/proc/vampire_bats
 	addtimer(CALLBACK(src, .proc/vampire_post_bats), 1200)
-	
+
 /mob/living/carbon/human/proc/vampire_post_bats()
 	verbs += /mob/living/carbon/human/proc/vampire_bats
 
@@ -614,15 +614,17 @@
 	else
 		src << "<span class='notice'>You instantly dominate [T.name]'s mind, forcing them to obey your command.</span>"
 
-	var/command = input(src, "Command your victim.", "Your command.")
+	var/command = input(src, "Command your victim.", "Your command.") as text|null
 
 	if (!command)
 		src << "<span class='alert'>Cancelled.</span>"
 		return
 
+	command = sanitizeSafe(command, extra = 0)
+
 	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
 
-	T << "<span class='warning'>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction:</span><br><span class='notice'><b>[command]</b></span>"
+	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
 	src << "<span class='notice'>You command [T.name], and they will obey.</span>"
 	emote("me", 1, "whispers.")
 
