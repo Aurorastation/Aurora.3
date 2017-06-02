@@ -23,7 +23,7 @@
 	anchored = 1
 
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/M,mob/user)
-	if(!istype(M) || M.simulated || M.anchored || source_hoist.hoistee || !Adjacent(M))
+	if(!istype(M) || !M.simulated || M.anchored || source_hoist.hoistee || !Adjacent(M))
 		return
 	source_hoist.hoistee = M
 	if (get_turf(M) != get_turf(src))
