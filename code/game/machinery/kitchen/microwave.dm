@@ -13,7 +13,6 @@
 	var/operating = 0 // Is it on?
 	var/dirty = 0 // = {0..100} Does it need cleaning?
 	var/broken = 0 // ={0,1,2} How broken is it???
-	var/global/list/datum/recipe/available_recipes // List of the recipes you can use
 	var/global/list/acceptable_items // List of the items you can put in
 	var/global/list/acceptable_reagents // List of the reagents you can put in
 	var/global/max_n_of_items = 20
@@ -25,30 +24,31 @@
 *   Initialising
 ********************/
 
-/obj/machinery/microwave/Initialize()
+/obj/machinery/microwave/Initialize(mapload)
 	. = ..()
 	reagents = new/datum/reagents(100)
 	reagents.my_atom = src
-	if (!available_recipes)
-		available_recipes = new
-		for (var/type in (typesof(/datum/recipe)-/datum/recipe))
-			var/datum/recipe/test = new type
-			if ((test.appliance & appliancetype))
-				available_recipes += test
-			else
-				qdel(test)
-		acceptable_items = new
-		acceptable_reagents = new
-		for (var/datum/recipe/recipe in available_recipes)
+	if (mapload)
+		addtimer(CALLBACK(src, .proc/setup_recipes), 0)
+	else
+		setup_recipes()
+
+/obj/machinery/microwave/proc/setup_recipes()
+	if (!LAZYLEN(acceptable_items))
+		acceptable_items = list()
+		acceptable_reagents = list()
+		for (var/datum/recipe/recipe in RECIPE_LIST(appliancetype))
 			for (var/item in recipe.items)
-				acceptable_items |= item
+				acceptable_items[item] = TRUE
+
 			for (var/reagent in recipe.reagents)
-				acceptable_reagents |= reagent
+				acceptable_reagents[reagent] = TRUE
+
 		// This will do until I can think of a fun recipe to use dionaea in -
 		// will also allow anything using the holder item to be microwaved into
 		// impure carbon. ~Z
-		acceptable_items |= /obj/item/weapon/holder
-		acceptable_items |= /obj/item/weapon/reagent_containers/food/snacks/grown
+		acceptable_items[/obj/item/weapon/holder] = TRUE
+		acceptable_items[/obj/item/weapon/reagent_containers/food/snacks/grown] = TRUE
 
 /*******************
 *   Item Adding
@@ -247,7 +247,7 @@
 		stop()
 		return
 
-	var/datum/recipe/recipe = select_recipe(available_recipes,src)
+	var/datum/recipe/recipe = select_recipe(RECIPE_LIST(appliancetype),src)
 	var/obj/cooked
 	if (!recipe)
 		dirty += 1
@@ -303,7 +303,7 @@
 				AM.loc = temp
 
 			valid = 0
-			recipe = select_recipe(available_recipes,src)
+			recipe = select_recipe(RECIPE_LIST(appliancetype),src)
 			if (recipe && recipe.result == result)
 				sleep(2)
 				valid = 1
