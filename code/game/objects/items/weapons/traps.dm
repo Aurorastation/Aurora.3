@@ -11,6 +11,7 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 18750)
 	var/deployed = 0
+	var/time_to_escape = 60
 
 /obj/item/weapon/beartrap/proc/can_use(mob/user)
 	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
@@ -42,7 +43,7 @@
 			"<span class='notice'>[user] begins freeing [buckled_mob] from \the [src].</span>",
 			"<span class='notice'>You carefully begin to free [buckled_mob] from \the [src].</span>"
 			)
-		if(do_after(user, 60))
+		if(do_after(user, time_to_escape))
 			user.visible_message("<span class='notice'>[buckled_mob] has been freed from \the [src] by [user].</span>")
 			unbuckle_mob()
 			anchored = 0

@@ -838,6 +838,20 @@
 	reagents.add_reagent("carpotoxin", 3)
 	src.bitesize = 6
 
+/obj/item/weapon/reagent_containers/food/snacks/dwellermeat
+	name = "worm fillet"
+	desc = "A fillet of electrifying cavern meat"
+	icon_state = "fishfillet"
+	filling_color = "#FFDEFE"
+	center_of_mass = list("x"=17, "y"=13)
+
+/obj/item/weapon/reagent_containers/food/snacks/dwellermeat/New()
+	..()
+	reagents.add_reagent("protein", 6)
+	reagents.add_reagent("hyperzine", 18)
+	reagents.add_reagent("pacid",12)
+	src.bitesize = 6
+
 /obj/item/weapon/reagent_containers/food/snacks/fishfingers
 	name = "fish Fingers"
 	desc = "A finger of fish."
@@ -876,18 +890,17 @@
 	reagents.add_reagent("nutriment", 3)
 	src.bitesize = 6
 
-/obj/item/weapon/reagent_containers/food/snacks/bearmeat
-	name = "bear meat"
-	desc = "A very manly slab of meat."
-	icon_state = "bearmeat"
-	filling_color = "#DB0000"
+/obj/item/weapon/reagent_containers/food/snacks/shadowmeat
+	name = "wisp flesh"
+	desc = "An ethereal slab of meat. You can see right through it!"
+	icon_state = "shadowmeatt"
+	filling_color = "#00a0db"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/weapon/reagent_containers/food/snacks/bearmeat/New()
+/obj/item/weapon/reagent_containers/food/snacks/shadowmeat/New()
 	..()
-	reagents.add_reagent("protein", 12)
-	reagents.add_reagent("hyperzine", 5)
-	src.bitesize = 3
+	reagents.add_reagent("estus", 20)
+	src.bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/xenomeat
 	name = "meat"
@@ -901,6 +914,19 @@
 	reagents.add_reagent("protein", 6)
 	reagents.add_reagent("pacid",6)
 	src.bitesize = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/bearmeat
+	name = "bear meat"
+	desc = "A very manly slab of meat."
+	icon_state = "bearmeat"
+	filling_color = "#DB0000"
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/weapon/reagent_containers/food/snacks/bearmeat/New()
+	..()
+	reagents.add_reagent("protein", 12)
+	reagents.add_reagent("hyperzine", 5)
+	src.bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/meatball
 	name = "meatball"

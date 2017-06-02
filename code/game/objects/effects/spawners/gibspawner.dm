@@ -59,3 +59,15 @@
 	gibdirections = list(list(NORTH, NORTHEAST, NORTHWEST),list(SOUTH, SOUTHEAST, SOUTHWEST),list(WEST, NORTHWEST, SOUTHWEST),list(EAST, NORTHEAST, SOUTHEAST), alldirs, alldirs, list())
 	gibamounts[6] = pick(0,1,2)
 	. = ..()
+
+/obj/effect/gibspawner/acid
+	gibtypes = list(
+	/obj/effect/decal/cleanable/greenglow,
+	/obj/effect/decal/cleanable/greenglow,
+	/obj/effect/decal/cleanable/blood/gibs/xeno
+	)
+	gibamounts = list(2,2,1)
+
+/obj/effect/gibspawner/generic/acid/New()
+	gibdirections = list(list(WEST, NORTHWEST, SOUTHWEST, NORTH),list(EAST, NORTHEAST, SOUTHEAST, SOUTH), list())
+	. = ..()
