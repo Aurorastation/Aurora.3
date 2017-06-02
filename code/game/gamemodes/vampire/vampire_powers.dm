@@ -143,8 +143,7 @@
 	admin_attacker_log_many_victims(src, victims, "used glare to stun", "was stunned by [key_name(src)] using glare", "used glare to stun")
 
 	verbs -= /mob/living/carbon/human/proc/vampire_glare
-	spawn(800)
-		verbs += /mob/living/carbon/human/proc/vampire_glare
+	addtimer(CALLBACK(src, /mob/.proc/finish_ability_timeout, /mob/living/carbon/human/proc/vampire_glare), 800, TIMER_UNIQUE)
 
 // Targeted stun ability, moderate duration.
 /mob/living/carbon/human/proc/vampire_hypnotise()
@@ -188,8 +187,7 @@
 		admin_attack_log(src, T, "used hypnotise to stun [key_name(T)]", "was stunned by [key_name(src)] using hypnotise", "used hypnotise on")
 
 		verbs -= /mob/living/carbon/human/proc/vampire_hypnotise
-		spawn(1200)
-			verbs += /mob/living/carbon/human/proc/vampire_hypnotise
+		addtimer(CALLBACK(src, /mob/.proc/finish_ability_timeout, /mob/living/carbon/human/proc/vampire_hypnotise), 1200, TIMER_UNIQUE)
 	else
 		to_chat(src, "<span class='warning'>You broke your gaze.</span>")
 
@@ -238,8 +236,7 @@
 
 	vampire.use_blood(20)
 	verbs -= /mob/living/carbon/human/proc/vampire_veilstep
-	spawn(300)
-		verbs += /mob/living/carbon/human/proc/vampire_veilstep
+	addtimer(CALLBACK(src, /mob/.proc/finish_ability_timeout, /mob/living/carbon/human/proc/vampire_veilstep), 300, TIMER_UNIQUE)
 
 // Summons bats.
 /mob/living/carbon/human/proc/vampire_bats()
@@ -285,7 +282,7 @@
 
 	vampire.use_blood(60)
 	verbs -= /mob/living/carbon/human/proc/vampire_bats
-	addtimer(CALLBACK(src, .proc/vampire_post_bats), 1200)
+	addtimer(CALLBACK(src, .proc/vampire_post_bats), 1200, TIMER_UNIQUE)
 
 /mob/living/carbon/human/proc/vampire_post_bats()
 	verbs += /mob/living/carbon/human/proc/vampire_bats
@@ -337,8 +334,7 @@
 		log_and_message_admins("used chiropteran screech.")
 
 	verbs -= /mob/living/carbon/human/proc/vampire_screech
-	spawn(3600)
-		verbs += /mob/living/carbon/human/proc/vampire_screech
+	addtimer(CALLBACK(src, /mob/.proc/finish_ability_timeout, /mob/living/carbon/human/proc/vampire_screech), 3600, TIMER_UNIQUE)
 
 // Enables the vampire to be untouchable and walk through walls and other solid things.
 /mob/living/carbon/human/proc/vampire_veilwalk()
@@ -407,18 +403,13 @@
 		last_valid_turf = T
 
 	can_move = 0
-	spawn(2)
-		can_move = 1
+	addtimer(CALLBACK(src, .proc/unlock_move), 2, TIMER_UNIQUE)
 
 /obj/effect/dummy/veil_walk/process()
 	if (owner_mob.stat)
 		if (owner_mob.stat == 1)
 			to_chat(owner_mob, "<span class='warning'>You cannot maintain this form while unconcious.</span>")
-			spawn(10)
-				if (owner_mob.stat == 1)
-					to_chat(owner_mob, "<span class='danger'>You are ejected from the Veil.</span>")
-					deactivate()
-					return
+			addtimer(CALLBACK(src, .proc/kick_unconcious), 10, TIMER_UNIQUE)
 		else
 			deactivate()
 			return
@@ -483,6 +474,15 @@
 	owner_vampire = null
 
 	qdel(src)
+
+/obj/effect/dummy/veil_walk/proc/unlock_move()
+	can_move = 1
+
+/obj/effect/dummy/veil_walk/proc/kick_unconcious()
+	if (owner_mob && owner_mob.stat == 1)
+		to_chat(owner_mob, "<span class='danger'>You are ejected from the Veil.</span>")
+		deactivate()
+		return
 
 /obj/effect/dummy/veil_walk/ex_act(vars)
 	return
@@ -630,8 +630,7 @@
 
 	vampire.use_blood(25)
 	verbs -= /mob/living/carbon/human/proc/vampire_dominate
-	spawn(1800)
-		verbs += /mob/living/carbon/human/proc/vampire_dominate
+	addtimer(CALLBACK(src, /mob/.proc/finish_ability_timeout, /mob/living/carbon/human/proc/vampire_dominate), 1800, TIMER_UNIQUE)
 
 // Enthralls a person, giving the vampire a mortal slave.
 /mob/living/carbon/human/proc/vampire_enthrall()
@@ -683,8 +682,7 @@
 
 	vampire.use_blood(150)
 	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
-	spawn(2800)
-		verbs += /mob/living/carbon/human/proc/vampire_enthrall
+	addtimer(CALLBACK(src, /mob/.proc/finish_ability_timeout, /mob/living/carbon/human/proc/vampire_enthrall), 2800, TIMER_UNIQUE)
 
 // Gives a lethal disease to the target.
 /mob/living/carbon/human/proc/vampire_diseasedtouch()
@@ -727,8 +725,7 @@
 
 	vampire.use_blood(200)
 	verbs -= /mob/living/carbon/human/proc/vampire_diseasedtouch
-	spawn(1800)
-		verbs += /mob/living/carbon/human/proc/vampire_diseasedtouch
+	addtimer(CALLBACK(src, /mob/.proc/finish_ability_timeout, /mob/living/carbon/human/proc/vampire_diseasedtouch), 1800, TIMER_UNIQUE)
 
 // Makes the vampire appear 'friendlier' to others.
 /mob/living/carbon/human/proc/vampire_presence()
@@ -962,6 +959,4 @@
 	G.synch()
 
 	verbs -= /mob/living/carbon/human/proc/grapple
-	spawn(800)
-		if (mind.vampire && (mind.vampire.status & VAMP_FRENZIED))
-			verbs += /mob/living/carbon/human/proc/grapple
+	addtimer(CALLBACK(src, /mob/.proc/finish_ability_timeout, /mob/living/carbon/human/proc/grapple, VAMP_FRENZIED), 800, TIMER_UNIQUE)

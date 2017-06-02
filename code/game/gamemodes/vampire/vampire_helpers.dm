@@ -242,3 +242,15 @@
 	vampire_check_frenzy()
 
 	return
+
+/mob/proc/finish_ability_timeout(a_proc, vamp_flags = 0)
+	if (!a_proc)
+		return
+
+	if (!mind || !mind.vampire)
+		return
+
+	if (vamp_flags && !(mind.vampire.status & vamp_flags))
+		return
+
+	verbs += a_proc
