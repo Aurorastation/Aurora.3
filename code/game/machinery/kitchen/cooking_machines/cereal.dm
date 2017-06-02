@@ -10,7 +10,7 @@
 
 	output_options = list(
 		"Cereal" = /obj/item/weapon/reagent_containers/food/snacks/variable/cereal
-		)
+	)
 
 /*
 /obj/machinery/appliance/cereal/change_product_strings(var/obj/item/weapon/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)

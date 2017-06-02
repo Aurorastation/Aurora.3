@@ -7,11 +7,11 @@
 	appliancetype = OVEN
 	food_color = "#A34719"
 	can_burn_food = 1
-	active_power_usage	= 19000
+	active_power_usage = 4 KILOWATTS
 	//Based on a double deck electric convection oven
 
-	resistance = 72000
-	idle_power_usage	= 6000
+	resistance = 10000
+	idle_power_usage = 6000
 	//uses 30% power to stay warm
 	optimal_power = 0.2
 
@@ -19,7 +19,7 @@
 	max_contents = 5
 	container_type = /obj/item/weapon/reagent_containers/cooking_container/oven
 
-	stat = POWEROFF//Starts turned off
+	stat = POWEROFF	//Starts turned off
 
 	var/open = 1
 
@@ -33,7 +33,7 @@
 		"Waffles" = /obj/item/weapon/reagent_containers/food/snacks/variable/waffles,
 		"Cookie" = /obj/item/weapon/reagent_containers/food/snacks/variable/cookie,
 		"Donut" = /obj/item/weapon/reagent_containers/food/snacks/variable/donut
-		)
+	)
 
 
 /obj/machinery/appliance/cooker/oven/update_icon()
@@ -56,23 +56,19 @@
 
 /obj/machinery/appliance/cooker/oven/verb/toggle_door()
 	set src in view()
+	set category = "Object"
 	set name = "Open/close oven door"
-	set category = null
-
 
 	if (!isliving(usr))
-		usr << "Ghosts can't mess with ovens."
 		return
 
-	if (isanimal(usr))
+	if (!usr.IsAdvancedToolUser())
 		usr << "You lack the dexterity to do that."
 		return
 
-
-	if (!Adjacent(usr))
-		if (!issilicon(usr))
-			usr << "You can't reach the [src] from there, get closer!"
-			return
+	if (!Adjacent(usr) && !issilicon(usr))
+		usr << "You can't reach the [src] from there, get closer!"
+		return
 
 	if (open)
 		open = 0

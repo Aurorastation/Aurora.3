@@ -133,7 +133,7 @@
 		Topic(src, list("command"="open", "activate" = "0"))
 	return 1
 
-/atom/proc/AICtrlClick()
+/atom/proc/AICtrlClick(mob/user)
 	return
 
 /obj/machinery/door/airlock/AICtrlClick() // Bolts doors

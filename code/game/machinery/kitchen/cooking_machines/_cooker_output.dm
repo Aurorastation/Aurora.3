@@ -53,8 +53,6 @@
 
 		name = "[prefix] [name]"
 
-
-
 /obj/item/weapon/reagent_containers/food/snacks/variable/pizza
 	name = "personal pizza"
 	desc = "A personalized pan pizza meant for only one person."
@@ -155,7 +153,7 @@
 	name = pick(list("flakes", "krispies", "crunch", "pops", "O's", "crisp", "loops", "jacks", "clusters"))
 
 /obj/item/weapon/reagent_containers/food/snacks/variable/mob
-	desc = "Poor little thing"
+	desc = "Poor little thing."
 	size = 5
 	w_class = 1
 	var/kitchen_tag = "animal"
