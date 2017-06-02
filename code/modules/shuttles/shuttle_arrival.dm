@@ -35,7 +35,7 @@
 						SSjobs.DespawnMob(A)
 						global_announcer.autosay("[A.real_name], [A.mind.role_alt_title], has entered long-term storage.", "Cryogenic Oversight")
 						mobstoyellat -= A // so they don't get told on
-					else if(A.client && ishuman(A) && SSarrivals.failreturnnumber >= 5 && A.newarrival == 0) // they aren't SSD and are holding up the shuttle so we are booting them. Only if they just came on the shuttle though.
+					else if(A.client && ishuman(A) && SSarrivals.failreturnnumber >= 5 && A.newarrival == 1) // they aren't SSD and are holding up the shuttle so we are booting them. Only if they just came on the shuttle though.
 						var/datum/spawnpoint/spawnpos = spawntypes["Cryogenic Storage"]
 						if(spawnpos && istype(spawnpos))
 							A << "<span class='warning'>You come to the sudden realization that you never left the [station_name()] at all! You were in cryo the whole time!</span>"
