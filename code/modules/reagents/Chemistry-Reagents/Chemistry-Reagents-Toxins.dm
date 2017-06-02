@@ -120,7 +120,7 @@
 /datum/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_BLOOD))
+	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
 	if(H.stat != 1)
 		if(H.losebreath >= 10)
@@ -140,7 +140,7 @@
 /datum/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_BLOOD))
+	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
 	if(H.stat != 1)
 		if(H.losebreath >= 10)
