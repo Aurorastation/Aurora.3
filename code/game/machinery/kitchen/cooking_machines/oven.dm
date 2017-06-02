@@ -7,12 +7,12 @@
 	appliancetype = OVEN
 	food_color = "#A34719"
 	can_burn_food = 1
-	active_power_usage = 4 KILOWATTS
+	active_power_usage = 6 KILOWATTS
 	//Based on a double deck electric convection oven
 
-	resistance = 10000
-	idle_power_usage = 6000
-	//uses 30% power to stay warm
+	resistance = 16000
+	idle_power_usage = 2 KILOWATTS
+	//uses ~30% power to stay warm
 	optimal_power = 0.2
 
 	light_x = 2

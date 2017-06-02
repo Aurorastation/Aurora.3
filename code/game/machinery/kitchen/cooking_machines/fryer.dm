@@ -9,11 +9,11 @@
 	food_color = "#FFAD33"
 	cooked_sound = 'sound/machines/ding.ogg'
 	appliancetype = FRYER
-	active_power_usage = 8 KILOWATTS
+	active_power_usage = 12 KILOWATTS
 
 	optimal_power = 0.35
 
-	idle_power_usage = 6000
+	idle_power_usage = 3.6 KILOWATTS
 	//Power used to maintain temperature once it's heated.
 	//Going with 25% of the active power. This is a somewhat arbitrary value
 
