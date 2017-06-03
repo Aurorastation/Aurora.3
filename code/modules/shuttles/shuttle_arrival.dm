@@ -36,7 +36,7 @@
 						global_announcer.autosay("[A.real_name], [A.mind.role_alt_title], has entered long-term storage.", "Cryogenic Oversight")
 						mobstoyellat -= A // so they don't get told on
 					else if(A.client && ishuman(A) && SSarrivals.failreturnnumber >= 3) // they aren't SSD and are holding up the shuttle so we are booting them.
-						A.forceMove(pick(get_turf(locate(104, 162, 6)), get_turf(locate(103, 162, 6)), get_turf(locate(105, 162, 6))))
+						A.forceMove(pick(kickoffsloc))
 						mobstoyellat -= A
 					else if(!ishuman(A) && SSarrivals.failreturnnumber >=4 && !A.client) // remove non-player mobs to keep things rolling
 						qdel(A)
