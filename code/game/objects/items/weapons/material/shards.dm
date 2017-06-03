@@ -99,3 +99,6 @@
 
 /obj/item/weapon/material/shard/phoron/New(loc)
 	..(loc, "phglass")
+
+/obj/item/weapon/material/shard/wood/New(loc)
+	..(loc, "wood")
