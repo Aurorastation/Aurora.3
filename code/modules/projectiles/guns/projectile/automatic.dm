@@ -222,7 +222,7 @@
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
 	allowed_magazines = list(/obj/item/ammo_magazine/a762)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_saw.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762
 
@@ -284,6 +284,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/tommymag
 	allowed_magazines = list(/obj/item/ammo_magazine/tommymag, /obj/item/ammo_magazine/tommydrum)
+	fire_sound = 'sound/weapons/tommygun_shoot.ogg'
 
 /obj/item/weapon/gun/projectile/automatic/tommygun/update_icon()
 	..()
@@ -387,6 +388,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	recoil = 3
+	fire_sound = 'sound/weapons/shotgun.ogg'
 
 	accuracy = -2
 	fire_delay = 10
