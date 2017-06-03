@@ -51,7 +51,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 /obj/machinery/appliance/cooker/oven/verb/toggle_door()
-	set src in orange(1)
+	set src in oview(1)
 	set category = "Object"
 	set name = "Open/close oven door"
 
