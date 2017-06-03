@@ -115,7 +115,7 @@
 	else if (O && O.owner && prob(1))
 		if(world.time > last_itch + 30 SECONDS)
 			last_itch = world.time
-			to_chat(O.owner, "<span class='notice'>Your [O] itches.</span>")
+			to_chat(O.owner, "<span class='notice'>Your [O.name] itches.</span>")
 
 /obj/effect/spider/spiderling
 	name = "spiderling"
@@ -238,12 +238,12 @@
 				if(world.time > last_itch + 30 SECONDS)
 					last_itch = world.time
 					O.owner.visible_message(
-						"<span class='warning'>You think you see something moving around in \the [O.owner]'s \[O].</span>",
-						"<span class='warning'>You [prob(25) ? "see" : "feel"] something large move around in your [O]!</span>")
+						"<span class='warning'>You think you see something moving around in \the [O.owner]'s [O.name].</span>",
+						"<span class='warning'>You [prob(25) ? "see" : "feel"] something large move around in your [O.name]!</span>")
 			else if (prob(1))
 				if(world.time > last_itch + 30 SECONDS)
 					last_itch = world.time
-					to_chat(O.owner, "<span class='notice'>You feel something large move around in your [O]!</span>")
+					to_chat(O.owner, "<span class='notice'>You feel something large move around in your [O.name]!</span>")
 
 	else if(prob(1))
 		src.visible_message("<span class='notice'>\The [src] skitters.</span>")
