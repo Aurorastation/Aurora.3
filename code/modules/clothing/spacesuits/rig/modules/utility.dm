@@ -477,10 +477,13 @@
 
 /obj/item/rig_module/actuators
 	name = "leg actuators"
-	desc = "A set of electromechanical actuators, for safe travesal of multilevelled areas."
-	icon_state = "generic"
+	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
+	icon_state = "actuators"
 	interface_name = "leg actuators"
 	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
+
+	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, "glass"= 1250, "silver"=5250)
+	construction_time = 300
 
 	disruptive = 1
 

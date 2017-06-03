@@ -721,6 +721,14 @@
 	materials = list(DEFAULT_WALL_MATERIAL= 30000, "phoron" = 12500, "silver" = 10000, "gold" = 10000)
 	build_path = /obj/item/rig_module/device/rcd
 
+/datum/design/hardsuitmodules/actuators_module
+	name = "leg actuators"
+	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
+	id = "actuators_module"
+	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 85000, "glass" = 1250, "silver" = 5250, "gold" = 2750)
+	build_path = /obj/item/rig_module/actuators
+
 /datum/design/hardsuitmodules/taser_module
 	name = "mounted taser"
 	desc = "A palm-mounted nonlethal energy projector."

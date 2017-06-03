@@ -67,5 +67,6 @@
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/chem_dispenser/injector,
-		/obj/item/rig_module/mounted/plasmacutter
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/actuators/combat
 		)
