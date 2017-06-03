@@ -95,6 +95,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
+	fire_sound = 'sound/weapons/rifleshot.ogg'
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
