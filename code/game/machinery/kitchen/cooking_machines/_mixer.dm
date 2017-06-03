@@ -28,7 +28,7 @@ fundamental differences
 
 //Mixers cannot-not do combining mode. So the default option is removed from this. A combine target must be chosen
 /obj/machinery/appliance/mixer/choose_output()
-	set src in orange(1)
+	set src in oview(1)
 	set name = "Choose output"
 	set category = "Object"
 

@@ -45,7 +45,7 @@
 			return
 
 /obj/item/weapon/reagent_containers/cooking_container/verb/empty()
-	set src in orange(1)
+	set src in oview(1)
 	set name = "Empty Container"
 	set category = "Object"
 	set desc = "Removes items from the container, excluding reagents."
