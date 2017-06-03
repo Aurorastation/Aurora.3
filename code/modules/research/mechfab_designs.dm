@@ -723,7 +723,7 @@
 
 /datum/design/hardsuitmodules/actuators_module
 	name = "leg actuators"
-	desc = "A set of electromechanical actuators, for safe travesal of multilevelled areas."
+	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
 	id = "actuators_module"
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_POWER = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 85000, "glass" = 1250, "silver" = 5250, "gold" = 2750)
