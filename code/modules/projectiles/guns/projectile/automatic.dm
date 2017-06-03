@@ -389,7 +389,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	recoil = 3
-	fire_sound = 'sound/weapons/shotgun.ogg'
+	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
 
 	accuracy = -2
 	fire_delay = 10
