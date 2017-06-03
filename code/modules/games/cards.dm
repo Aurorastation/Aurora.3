@@ -154,6 +154,7 @@
 		newcards += P
 		cards -= P
 	cards = newcards
+	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
 	user.visible_message("\The [user] shuffles [src].")
 
 /obj/item/weapon/deck/MouseDrop(atom/over)
