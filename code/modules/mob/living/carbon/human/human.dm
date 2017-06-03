@@ -1476,3 +1476,527 @@
 	pulling_punches = !pulling_punches
 	src << "<span class='notice'>You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"].</span>"
 	return
+
+/mob/living/carbon/human/proc/advanced_mutate()
+	var/datum/species/S = advanced_mutate_prep()
+	delayed_vomit()
+	S.rarity_value = 25
+	if(prob(95))
+
+		S.flesh_color = "#[get_random_colour(FALSE,0,255)]"
+		S.blood_color = "#[get_random_colour(FALSE,0,255)]"
+		S.base_color = "#[get_random_colour(FALSE,0,255)]"
+
+		S.meat_type = pick(typesof(/obj/item/weapon/reagent_containers/food/snacks/meat))
+
+		S.brute_mod += rand(-0.9,5)
+		if(S.brute_mod <= 0)
+			S.brute_mod = 0.1
+
+		S.burn_mod += rand(-0.9,5)
+		if(S.burn_mod <= 0)
+			S.burn_mod = 0.1
+
+		S.toxins_mod += rand(-0.9,5)
+		if(S.toxins_mod <= 0)
+			S.toxins_mod = 0.1
+
+		S.oxy_mod += rand(-0.9,5)
+		if(S.oxy_mod <= 0)
+			S.oxy_mod = 0.1
+
+		S.radiation_mod += rand(-0.9,5)
+		if(S.radiation_mod <= 0)
+			S.radiation_mod = 0.1
+
+
+		S.body_temperature = rand(100,600)
+
+		S.heat_level_3 = rand(800, 1200)
+		S.heat_level_2 = round(species.heat_level_3 / 2.5)
+		S.heat_level_1 = round(species.heat_level_2 / 1.11)
+		S.heat_discomfort_level = S.heat_level_1 - rand(25,75)
+		S.cold_level_1 = rand(160, 360)
+		S.cold_level_2 = round(species.cold_level_1 / 1.3)
+		S.cold_level_3 = round(species.cold_level_2 / 1.66)
+		S.cold_discomfort_level = S.cold_level_1 - rand(25,75)
+
+		S.hazard_high_pressure *= rand(5,20)/10
+		S.warning_high_pressure = round(species.hazard_high_pressure / 1.69)
+		S.hazard_low_pressure *= rand(5,20)/10
+		S.warning_low_pressure = round(species.hazard_low_pressure * 2.5)
+		if(S.hazard_high_pressure >= species.hazard_high_pressure)
+			src << "<span class='notice'>Your bones shift and you become more resistant to high pressures!</span>"
+		else
+			src << "<span class='notice'>Your bones shift and you become more susceptible to high pressures!</span>"
+		if(S.hazard_low_pressure >= species.hazard_low_pressure)
+			src << "<span class='notice'>Your skin shifts and you become more resistant to low pressures!</span>"
+		else
+			src << "<span class='notice'>Your skin shifts and you become more susceptible to low pressures!</span>"
+
+		S.siemens_coefficient = rand(0,3)
+		var/siemens_message
+		switch(S.siemens_coefficient)
+			if(0 to 0.2)
+				siemens_message = "thicker than rubber"
+			if(0.2 to 0.9)
+				siemens_message = "as insulated as rubber"
+			if(1 to 1.9)
+				siemens_message = "conductive like a wire"
+			if(2 to 3)
+				siemens_message = "as insulated as a lighnting bolt"
+		src << "<span class='notice'>Your skin tingles and feels [siemens_message]!</span>"
+
+		S.slowdown = rand(-8,8)
+
+		if(prob(15))
+			S.bald = !species.bald
+
+		if(prob(10))
+			S.breakcuffs |= MALE
+			S.breakcuffs |= FEMALE
+			S.breakcuffs |= NEUTER
+			src << "<span class='notice'>You feel like you can break those cuffs!</span>"
+
+		if(prob(10))
+			S.passive_temp_gain = (S.body_temperature/pick(10,100,1000,1000))*pick(-1,1)
+			if(S.passive_temp_gain > 0)
+				src << "<span class='notice'>Your feel a fire burning in your heart!</span>"
+			else
+				src << "<span class='notice'>Your heart feels cold as ice!</span>"
+
+		if(prob(5))
+			if(gender == MALE)
+				gender = FEMALE
+				src << "<span class='notice'>You feel plumper around the bosom!</span>"
+			else
+				gender = MALE
+				src << "<span class='notice'>You feel tighter across the bosom!</span>"
+
+		if(prob(10))
+			S.warning_low_pressure = -1
+			S.hazard_low_pressure = -1
+			src << "<span class='notice'>Your skin feels like a voidsuit!</span>"
+
+		if(prob(15))
+			S.warning_high_pressure = -1
+			S.hazard_high_pressure = -1
+			src << "<span class='notice'>Your skin feels like a diving suit!</span>"
+
+		if(prob(30))
+			S.darksight = rand(0,8) //lol like this will ever mean anything
+
+		if(prob(25))
+			if(prob(50))
+				S.flags |= NO_BLOOD
+			else if(prob(75))
+				S.flags |= NO_POISON
+			else
+				S.flags |= NO_MINOR_CUT
+			src << "<span class='notice'>Your blood feels viscuous in your veins!</span>"
+
+		if(prob(15))
+			S.virus_immune = !species.virus_immune
+			src << "<span class='notice'>Your skin tingles!</span>"
+
+		if(prob(15))
+			S.short_sighted = !species.short_sighted
+			src << "<span class='notice'>Your eyes burn!</span>"
+
+		if(prob(15))
+			S.light_range = rand(1.4,10)
+			S.light_power = pick(-5,-4,-1,1,1,1,1,2,2,3,4,5)
+			if(prob(50))
+				light_wedge = LIGHT_OMNI
+				src << "<span class='notice'>Your skin starts to feel glassy!</span>"
+			else
+				src << "<span class='notice'>Your eyes start to feel glassy!</span>"
+
+		if(prob(25))
+			var/vigor = rand(-50,50)
+			var/vigor_message
+			switch(vigor)
+				if(-50 to -26)
+					vigor_message = "frail as reed"
+				if(-25 to -1)
+					vigor_message = "weak and sickly"
+				if(0)
+					vigor_message = "unchanged"
+				if(1 to 25)
+					vigor_message = "healthy and strong"
+				if(26 to 50)
+					vigor_message = "positively robust"
+			S.total_health = species.total_health += vigor
+			if(S.total_health <= 0)
+				S.total_health = 5
+			src << "<span class='notice'>You feel [vigor_message]!</span>"
+
+		if(prob(15))
+			S.flash_mod = pick(0,0.5,2,3)
+			src << "<span class='notice'>Your eyes burn and film over!</span>"
+
+		if(prob(15))
+			S.fall_mod = 0
+			src << "<span class='notice'>You feel agile as the cat!</span>"
+
+		if(prob(5))
+			S.vision_flags |= SEE_OBJS
+			if(prob(50))
+				S.vision_flags |= SEE_TURFS
+			if(prob(25))
+				S.vision_flags |= SEE_MOBS
+			src << "<span class='notice'>Your eyes expand!</span>"
+
+		if(prob(15))
+			S.breath_pressure = 16 + rand(-12,34)
+			src << "<span class='notice'>Your lungs shift!</span>"
+
+		if(prob(10))
+			var/list/breathables = list("oxygen","phoron","nitrogen","carbon_dioxide","sleeping_agent")
+			for(var/breathtype in breathables)
+				if(breathtype == S.poison_type)
+					breathables -= breathtype
+				if(breathtype == S.breath_type)
+					breathables -= breathtype
+
+			S.breath_type = pick(breathables)
+			src << "<span class='notice'>Your lungs shift, filling with [S.breath_type]!</span>"
+
+		if(prob(10))
+			var/list/poisonables = list("oxygen","phoron","nitrogen","carbon_dioxide","sleeping_agent")
+			for(var/poison in poisonables)
+				if(poison == S.breath_type)
+					poisonables -= poison
+				if(poison == S.poison_type)
+					poisonables -= poison
+
+			S.poison_type = pick(poisonables)
+			src << "<span class='notice'>Your lungs shift, and [S.poison_type] becomes anathema to your breath!</span>"
+
+		if(prob(10))
+			var/list/exhalables = list("oxygen","phoron","nitrogen","carbon_dioxide","sleeping_agent")
+			for(var/exhale in exhalables)
+				if(exhale == S.exhale_type)
+					exhalables -= exhale
+
+			S.exhale_type = pick(exhalables)
+			src << "<span class='notice'>Your lungs shift, and begin expelling [S.exhale_type]!</span>"
+
+		if(prob(15))
+			S.light_dam = rand(1,7)
+			src << "<span class='notice'>The light! It burnssss!</span>"
+
+		if(prob(15))
+			S.has_fine_manipulation = !species.has_fine_manipulation
+			if(S.has_fine_manipulation)
+				src << "<span class='notice'>Your fingers thin, and your joints become more flexible!</span>"
+			else
+				src << "<span class='notice'>Your fingers thicken, becoming clumsy and useless!</span>"
+
+		if(prob(20))
+			S.stamina += rand(-75,200)
+			S.stamina_recovery += rand(-2,7)
+			S.sprint_speed_factor = rand(0,3)
+			S.sprint_cost_factor = rand(0,3)
+			src << "<span class='notice'>Your legs shift like jelly!</span>"
+
+		if(prob(20))
+			S.ethanol_resistance = -1
+			src << "<span class='notice'>You've learned how to keep down your liquor!</span>"
+
+		if(prob(15))
+			var/list/limb_circuit = list()
+			for(var/obj/item/organ/external/E in S.has_limbs)
+				limb_circuit += E
+			for(var/obj/item/organ/O in S.has_organ)
+				limb_circuit += O
+			S.vision_organ = pick(limb_circuit)
+			src << "<span class='notice'>Your [S.vision_organ] begins sprouting eyes!</span>"
+
+		if(prob(15))
+			if(prob(25))
+				S.gluttonous |= GLUT_ANYTHING
+				S.max_nutrition_factor = 3
+				S.nutrition_loss_factor = 5
+				src << "<span class='danger'>HUNGRY! YOU CONSUME EVERYTHING! AGGGHHH!</span>"
+			else if(prob(50))
+				S.gluttonous |= GLUT_SMALLER
+				S.max_nutrition_factor = 2
+				S.nutrition_loss_factor = 2
+				src << "<span class='notice'>You feel so hungry, you could eat a dog!</span>"
+			else
+				S.gluttonous |= GLUT_TINY
+				S.max_nutrition_factor = 1.25
+				src << "<span class='notice'>You feel a little peckish!</span>"
+
+			S.inherent_verbs |= /mob/living/proc/devour
+			S.inherent_verbs |= /mob/living/carbon/human/proc/regurgitate
+
+		if(prob(20))
+			damage_multiplier = rand(0,3)
+			var/damage_message
+			switch(damage_multiplier)
+				if(0.25 to 0.9)
+					damage_message = "so soft, so smooth, like a pillow."
+				if(1 to 1.9)
+					damage_message = "thick as steel"
+				if(2 to 3)
+					damage_message = "like wrecking balls"
+			src << "<span class='notice'>Your fists feel [damage_message]!</span>"
+
+		if(prob(15))
+			size_multiplier *= rand(0.25,2)
+			S.mob_size *= size_multiplier
+			src << "<span class='notice'>Your body shifts and stretches like putty!</span>"
+
+		if(prob(10))
+			mutations.Add(CLUMSY)
+			src << "<span class='notice'>You feel clumsier!</span>"
+
+		if(prob(10))
+			mutations.Add(TK)
+			src << "<span class='notice'>Your hands feel like they stretch on forever!</span>"
+
+		if(prob(10))
+			mutations.Add(SMALLSIZEBLOCK)
+			src << "<span class='notice'>You feel slippery like a weasel!</span>"
+
+		if(prob(15))
+			S.inherent_verbs |= /mob/living/carbon/human/proc/commune
+			src << "<span class='notice'>Your mind expands!</span>"
+
+		if(prob(20))
+			S.inherent_verbs |= /mob/living/carbon/human/proc/quillboar
+			src << "<span class='notice'>Your back bristles with spines!</span>"
+
+		if(prob(25))
+			S.inherent_verbs |= /mob/living/proc/hide
+			src << "<span class='notice'>You feel so nervous!</span>"
+
+		if(prob(1))
+			incorporeal_move = !incorporeal_move
+			if(incorporeal_move)
+				src << "<span class='notice'>Your constituent molecules expand infinitely outward by the resolve of your will!</span>"
+			else
+				src << "<span class='notice'>You suddenly feel so dense!</span>"
+
+		if(prob(10))
+			universal_speak = !universal_speak
+			universal_understand = !universal_understand
+			if(universal_understand)
+				src << "<span class='notice'>You become one with all life, and their tongues become your tongue!</span>"
+			else
+				src << "<span class='notice'>Your tongue feels thicker, and your mind muddier!</span>"
+		set_species_by_datum(S)
+	else
+		if(!islesserform(src))
+			set_species(species.primitive_form)
+		else
+			if(species.greater_form)
+				set_species(species.greater_form)
+			else
+				set_species("Human")
+	update_icons()
+
+/mob/living/carbon/human/proc/advanced_mutate_prep()
+	var/datum/species/S = new /datum/species
+	S.name = species.name
+	S.name_plural = species.name_plural
+	S.hide_name = species.hide_name
+	S.short_name = species.short_name
+	S.blurb = species.blurb
+	S.bodytype = species.bodytype
+	S.age_min = species.age_min
+	S.age_max = species.age_max
+	S.icobase = species.icobase
+	S.deform = species.deform
+	S.damage_overlays = species.damage_overlays
+	S.damage_mask = species.damage_mask
+	S.blood_mask = species.blood_mask
+	S.prone_icon = species.prone_icon
+	S.icon_x_offset = species.icon_x_offset
+	S.icon_y_offset = species.icon_y_offset
+	S.eyes = species.eyes
+	S.has_floating_eyes = species.has_floating_eyes
+	S.blood_color = species.blood_color
+	S.flesh_color = species.flesh_color
+	S.base_color = species.base_color
+	S.tail = species.tail
+	S.tail_animation = species.tail_animation
+	S.tail_hair = species.tail_hair
+	S.race_key = species.race_key
+	S.icon_template = species.icon_template
+	S.mob_size = species.mob_size
+	S.show_ssd = species.show_ssd
+	S.virus_immune = species.virus_immune
+	S.short_sighted = species.short_sighted
+	S.bald = species.bald
+	S.light_range = species.light_range
+	S.light_power = species.light_power
+	S.default_language = species.default_language
+	S.language = species.language
+	if(species.secondary_langs)
+		S.secondary_langs = species.secondary_langs.Copy()
+	if(species.speech_sounds)
+		S.speech_sounds = species.speech_sounds.Copy()
+	if(species.speech_chance)
+		S.speech_chance = species.speech_chance.Copy()
+	S.num_alternate_languages = species.num_alternate_languages
+	S.name_language = species.name_language
+	S.total_health = species.total_health
+	if(species.unarmed_types)
+		S.unarmed_types = species.unarmed_types.Copy()
+	if(species.unarmed_attacks)
+		S.unarmed_attacks = species.unarmed_attacks.Copy()
+	S.brute_mod = species.brute_mod
+	S.burn_mod = species.burn_mod
+	S.oxy_mod = species.oxy_mod
+	S.toxins_mod = species.toxins_mod
+	S.radiation_mod = species.radiation_mod
+	S.flash_mod = species.flash_mod
+	S.fall_mod = species.fall_mod
+	S.vision_flags = species.vision_flags
+	if(species.breakcuffs)
+		S.breakcuffs = species.breakcuffs.Copy()
+	S.meat_type = species.meat_type
+	S.gibber_type = species.gibber_type
+	S.single_gib_type = species.single_gib_type
+	S.remains_type = species.remains_type
+	S.gibbed_anim = species.gibbed_anim
+	S.dusted_anim = species.dusted_anim
+	S.death_sound = species.death_sound
+	S.death_message = species.death_message
+	S.knockout_message = species.knockout_message
+	S.halloss_message = species.halloss_message
+	S.halloss_message_self = species.halloss_message_self
+	S.reagent_tag = species.reagent_tag
+	S.breath_pressure = species.breath_pressure
+	S.breath_type = species.breath_type
+	S.poison_type = species.poison_type
+	S.exhale_type = species.exhale_type
+	S.cold_level_1 = species.cold_level_1
+	S.cold_level_2 = species.cold_level_2
+	S.cold_level_3 = species.cold_level_3
+	S.heat_level_1 = species.heat_level_1
+	S.heat_level_2 = species.heat_level_2
+	S.heat_level_3 = species.heat_level_3
+	S.passive_temp_gain = species.passive_temp_gain
+	S.hazard_high_pressure = species.hazard_high_pressure
+	S.warning_high_pressure = species.warning_high_pressure
+	S.warning_low_pressure = species.warning_low_pressure
+	S.hazard_low_pressure = species.hazard_low_pressure
+	S.light_dam = species.light_dam
+	S.body_temperature = species.body_temperature
+	S.heat_discomfort_level = species.heat_discomfort_level
+	S.cold_discomfort_level = species.cold_discomfort_level
+	if(species.heat_discomfort_strings)
+		S.heat_discomfort_strings = species.heat_discomfort_strings.Copy()
+	if(species.cold_discomfort_strings)
+		S.cold_discomfort_strings = species.cold_discomfort_strings.Copy()
+	S.hud = species.hud
+	S.hud_type = species.hud_type
+	S.inherent_verbs = species.inherent_verbs
+	S.has_fine_manipulation = species.has_fine_manipulation
+	S.siemens_coefficient = species.siemens_coefficient
+	S.darksight = species.darksight
+	S.flags = species.flags
+	S.appearance_flags = species.appearance_flags
+	S.spawn_flags = species.spawn_flags
+	S.spawn_flags |= IS_RESTRICTED
+	S.slowdown = species.slowdown
+	S.primitive_form = species.primitive_form
+	S.greater_form = species.greater_form
+	S.holder_type = species.holder_type
+	S.rarity_value = species.rarity_value
+	S.ethanol_resistance = species.ethanol_resistance
+	S.stamina = species.stamina
+	S.stamina_recovery = species.stamina_recovery
+	S.sprint_speed_factor = species.sprint_speed_factor
+	S.sprint_cost_factor = species.sprint_cost_factor
+	S.exhaust_threshold = species.exhaust_threshold
+	S.gluttonous = species.gluttonous
+	S.max_nutrition_factor = species.max_nutrition_factor
+	S.nutrition_loss_factor = species.nutrition_loss_factor
+	if(species.has_organ)
+		S.has_organ = species.has_organ.Copy()
+	S.vision_organ = species.vision_organ
+	if(species.has_limbs)
+		S.has_limbs = species.has_limbs.Copy()
+	S.bump_flag = species.bump_flag
+	S.push_flags = species.push_flags
+	S.swap_flags = species.swap_flags
+	S.pass_flags = species.pass_flags
+	return S
+
+/mob/living/carbon/human/proc/set_species_by_datum(var/datum/species/new_species, var/default_colour = 1, var/kpg=0) //technically less safe if you're a fucking idiot. Is datum based and does not rely on the all_species list
+
+	if(!new_species)
+		return
+
+	if(species)
+		if(species.language)
+			remove_language(species.language)
+		if(species.default_language)
+			remove_language(species.default_language)
+		// Clear out their species abilities.
+		species.remove_inherent_verbs(src)
+		holder_type = null
+
+	species = new_species
+
+	if(species.language)
+		add_language(species.language)
+
+	if(species.default_language)
+		add_language(species.default_language)
+
+	if(species.base_color && default_colour)
+		//Apply colour.
+		r_skin = hex2num(copytext(species.base_color,2,4))
+		g_skin = hex2num(copytext(species.base_color,4,6))
+		b_skin = hex2num(copytext(species.base_color,6,8))
+	else
+		r_skin = 0
+		g_skin = 0
+		b_skin = 0
+
+	if(species.holder_type)
+		holder_type = species.holder_type
+
+	icon_state = lowertext(species.name)
+
+	species.create_organs(src)
+
+	species.handle_post_spawn(src,kpg) // should be zero by default
+
+	maxHealth = species.total_health
+
+	spawn(0)
+		regenerate_icons()
+		vessel.add_reagent("blood",560-vessel.total_volume)
+		fixblood()
+
+	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
+	if(client && client.screen)
+		client.screen.len = null
+		if(hud_used)
+			qdel(hud_used)
+		hud_used = new /datum/hud(src)
+
+	if (src.is_diona())
+		setup_gestalt(1)
+
+	max_stamina = species.stamina
+	stamina = max_stamina
+	sprint_speed_factor = species.sprint_speed_factor
+	sprint_cost_factor = species.sprint_cost_factor
+	stamina_recovery = species.stamina_recovery
+
+	exhaust_threshold = species.exhaust_threshold
+	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
+
+	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
+	if(species)
+		return 1
+	else
+		return 0

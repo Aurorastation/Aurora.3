@@ -503,6 +503,24 @@
 	reagents.add_reagent("nutriment", 5)
 	bitesize = 1
 
+/obj/item/weapon/reagent_containers/food/snacks/phazonlab/New()
+	..()
+	icon_state = "COOKIE!!!"
+	reagents.add_reagent("lphazon", 1)
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/phazon/New()
+	..()
+	icon_state = "COOKIE!!!"
+	reagents.add_reagent("phazon", 1)
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/phazonlarge/New()
+	..()
+	icon_state = "COOKIE!!!"
+	reagents.add_reagent("phazon", 5)
+	bitesize = 1
+
 /obj/item/weapon/reagent_containers/food/snacks/chocolatebar
 	name = "chocolate bar"
 	desc = "Such sweet, fattening food."

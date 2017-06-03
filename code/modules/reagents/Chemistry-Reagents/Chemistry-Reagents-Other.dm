@@ -402,6 +402,44 @@
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
 	if(isskeleton(M))
-		M.adjustOxyLoss(-5 * removed)
-		M.heal_organ_damage(5 * removed, 5 * removed)
-		M.adjustToxLoss(-5 * removed)
+		M.heal_organ_damage(10 * removed, 15 * removed)
+
+/datum/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed)
+	if (!modifier)
+		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	if(isskeleton(M))
+		M.heal_organ_damage(10 * removed, 15 * removed)
+
+/datum/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed)
+	if (!modifier)
+		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	if(isskeleton(M))
+		M.heal_organ_damage(10 * removed, 15 * removed)
+
+/datum/reagent/phazon
+	name = "Compound X"
+	id = "phazon"
+	description = "This otherworldly substance has fascinating metagenetic effects on complex carbon organisms."
+	reagent_state = LIQUID
+	color = "#c9a14c"
+	scannable = 1
+	metabolism = 1
+
+/datum/reagent/phazon/lab
+	name = "Compound X"
+	id = "lphazon"
+	description = "This otherworldly substance has fascinating metagenetic effects on complex carbon organisms. This sample appears to have been purified heavily."
+	color = "#fccb62"
+	metabolism = 0.5
+
+/datum/reagent/phazon/affect_blood(var/mob/living/carbon/M)
+	M.apply_effect(5, IRRADIATE, 0)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		H.advanced_mutate()
+
+/datum/reagent/phazon/affect_ingest(var/mob/living/carbon/M, var/removed)
+	M.apply_effect(5, IRRADIATE, 0)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		H.advanced_mutate()

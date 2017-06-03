@@ -355,7 +355,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/proc/update_hair(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	//Reset our hair
 	overlays_standing[HAIR_LAYER]	= null
 
@@ -394,12 +394,12 @@ var/global/list/damage_icon_parts = list()
 				var/col = species.get_light_color(h_style)
 				if (!col)
 					col = "#FFFFFF"
-					
-				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
-				
-	else if (species.light_range)
-		set_light(FALSE)	
-		
+
+				set_light(species.light_range, species.light_power, col, uv = 0)
+
+	else if(species.light_range)
+		set_light(FALSE)
+
 	overlays_standing[HAIR_LAYER]	= image(face_standing)
 
 	if(update_icons)   update_icons()
@@ -407,7 +407,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_mutations(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	var/fat
 	if(FAT in mutations)
 		fat = "fat"
@@ -455,7 +455,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/regenerate_icons()
 	if (QDELING(src))
 		return
-		
+
 	..()
 	if(transforming)		return
 
@@ -492,7 +492,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_w_uniform(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[UNIFORM_LAYER]	= null
 	if(check_draw_underclothing())
 		w_uniform.screen_loc = ui_iclothing
@@ -555,7 +555,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_wear_id(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[ID_LAYER]	= null
 	if(wear_id)
 
@@ -581,7 +581,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_gloves(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[GLOVES_LAYER]	= null
 	if(check_draw_gloves())
 
@@ -625,7 +625,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_glasses(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[GLASSES_LAYER] = null
 	if(check_draw_glasses())
 		if(glasses.contained_sprite)
@@ -653,7 +653,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_ears(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[L_EAR_LAYER] = null
 	overlays_standing[R_EAR_LAYER] = null
 
@@ -712,7 +712,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_shoes(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[SHOES_LAYER] = null
 	if(check_draw_shoes())
 		var/image/standing
@@ -752,7 +752,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_s_store(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	if(s_store)
 		//s_store.auto_adapt_species(src)
 		var/t_state = s_store.item_state
@@ -767,7 +767,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_head(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[HEAD_LAYER]	= null
 	if(head)
 		head.screen_loc = ui_head		//TODO
@@ -822,7 +822,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_belt(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[BELT_LAYER] = null
 	if(belt)
 
@@ -888,7 +888,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 
 	if( wear_suit && istype(wear_suit, /obj/item/) )
 
@@ -943,7 +943,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_pockets(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	if(l_store)			l_store.screen_loc = ui_storage1	//TODO
 	if(r_store)			r_store.screen_loc = ui_storage2	//TODO
 	if(update_icons)	update_icons()
@@ -952,7 +952,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_wear_mask(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[FACEMASK_LAYER] = null
 	if(check_draw_mask())
 		wear_mask.screen_loc = ui_mask	//TODO
@@ -988,7 +988,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_back(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 
 	overlays_standing[BACK_LAYER] = null
 	if(back)
@@ -1055,7 +1055,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	if(handcuffed)
 		drop_r_hand()
 		drop_l_hand()
@@ -1077,7 +1077,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_legcuffed(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	if(legcuffed)
 
 		var/image/standing
@@ -1102,7 +1102,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[R_HAND_LAYER] = null
 	if(r_hand)
 		r_hand.screen_loc = ui_rhand	//TODO
@@ -1147,7 +1147,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[L_HAND_LAYER] = null
 	if(l_hand)
 		l_hand.screen_loc = ui_lhand	//TODO
@@ -1191,7 +1191,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_standing[TAIL_LAYER] = null
 
 	if(species.tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
@@ -1205,7 +1205,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/proc/get_tail_icon()
 	if (QDELING(src))
 		return
-		
+
 	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin][r_hair][g_hair][b_hair]"
 	var/icon/tail_icon = SSicon_cache.tail_icon_cache[icon_key]
 	if(!tail_icon)

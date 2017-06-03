@@ -154,7 +154,6 @@
 	dead_mob_list -= src
 
 	var/atom/movable/overlay/animation = new(loc)
-	animation = new(loc)
 	animation.icon_state = "blank"
 	animation.icon = 'icons/mob/mob.dmi'
 	animation.master = src

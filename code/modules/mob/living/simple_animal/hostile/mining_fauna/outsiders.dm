@@ -18,6 +18,7 @@
 	light_range = 1.4
 	light_power = 2
 	light_color = LIGHT_COLOR_FIRE
+	light_wedge = LIGHT_OMNI
 
 /mob/living/simple_animal/hostile/shadow
 	name = "shadow wisp"
@@ -60,6 +61,7 @@
 	light_range = 10
 	light_power = -10
 	light_color = "#FFFFFF"
+	light_wedge = LIGHT_OMNI
 
 	faction = "outsider"
 
