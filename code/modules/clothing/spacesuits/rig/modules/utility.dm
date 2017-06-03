@@ -478,7 +478,7 @@
 /obj/item/rig_module/actuators
 	name = "leg actuators"
 	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
-	icon_state = "motor"
+	icon_state = "actuators"
 	interface_name = "leg actuators"
 	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
 
