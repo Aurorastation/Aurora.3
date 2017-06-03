@@ -35,20 +35,13 @@
 						SSjobs.DespawnMob(A)
 						global_announcer.autosay("[A.real_name], [A.mind.role_alt_title], has entered long-term storage.", "Cryogenic Oversight")
 						mobstoyellat -= A // so they don't get told on
-					else if(A.client && ishuman(A) && SSarrivals.failreturnnumber >= 5 && A.newarrival == 1) // they aren't SSD and are holding up the shuttle so we are booting them. Only if they just came on the shuttle though.
-						var/datum/spawnpoint/spawnpos = spawntypes["Cryogenic Storage"]
-						if(spawnpos && istype(spawnpos))
-							A << "<span class='warning'>You come to the sudden realization that you never left the [station_name()] at all! You were in cryo the whole time!</span>"
-							A.forceMove(pick(spawnpos.turfs))
-							global_announcer.autosay("[A.real_name], [A.mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
-							mobstoyellat -= A // so they don't get told on
-						else // just get them off the shuttle, they had their chance to leave.
-							SSjobs.DespawnMob(A)
-							global_announcer.autosay("[A.real_name], [A.mind.role_alt_title], has entered long-term storage.", "Cryogenic Oversight")
-							mobstoyellat -= A // so they don't get told on
+					else if(A.client && ishuman(A) && SSarrivals.failreturnnumber >= 3) // they aren't SSD and are holding up the shuttle so we are booting them.
+						A.forceMove(pick(get_turf(locate(104, 162, 6)), get_turf(locate(103, 162, 6)), get_turf(locate(105, 162, 6))))
+						mobstoyellat -= A
 					else if(!ishuman(A) && SSarrivals.failreturnnumber >=4 && !A.client) // remove non-player mobs to keep things rolling
 						qdel(A)
-				global_announcer.autosay("Current life-forms on shuttle: [english_list(mobstoyellat)].", "Arrivals Shuttle Oversight") // tell on them
+				if (mobstoyellat)
+					global_announcer.autosay("Current life-forms on shuttle: [english_list(mobstoyellat)].", "Arrivals Shuttle Oversight") // tell on them
 			return
 
 		if (!forbidden_atoms_check() && !at_station())
