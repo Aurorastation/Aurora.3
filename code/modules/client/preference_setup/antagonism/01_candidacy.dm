@@ -39,7 +39,10 @@
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
 		. += "<tr><td>[antag.role_text]: </td><td>"
-		if(is_global_banned || jobban_isbanned(preference_mob(), antag.bantype))
+		var/ban_reason = jobban_isbanned(preference_mob(), antag.bantype)
+		if(ban_reason == "AGE WHITELISTED")
+			. += "<span class='danger'>\[IN [player_old_enough_for_role(preference_mob(), antag.bantype)] DAYS\]</span><br>"
+		if(is_global_banned || ban_reason)
 			. += "<span class='danger'>\[<a href='?src=\ref[user.client];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"];'>BANNED</a>\]</span><br>"
 		else if(antag.role_type in pref.be_special_role)
 			. += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[antag.role_type]'>No</a></br>"

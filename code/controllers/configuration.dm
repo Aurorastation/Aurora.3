@@ -887,7 +887,6 @@ var/list/gamemode_cache = list()
 
 		else if (type == "age_restrictions")
 			name = replacetext(name, "_", " ")
-			age_restrictions += name
 			age_restrictions[name] = text2num(value)
 
 		else if (type == "discord")

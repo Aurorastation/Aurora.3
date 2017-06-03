@@ -247,7 +247,7 @@ var/inerror = 0
 	config.load("config/config.txt")
 	config.load("config/game_options.txt","game_options")
 
-	if (config.use_age_restriction_for_jobs)
+	if (config.use_age_restriction_for_jobs || config.use_age_restriction_for_antags)
 		config.load("config/age_restrictions.txt", "age_restrictions")
 
 /hook/startup/proc/loadMods()

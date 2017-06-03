@@ -127,14 +127,15 @@
 		var/rank = job.title
 		lastJob = job
 		var/ban_reason = jobban_isbanned(user, rank)
-		if(ban_reason == "No Whitelist")
+		if(ban_reason == "WHITELISTED")
 			. += "<del>[rank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
+			continue
+		else if (ban_reason == "AGE WHITELISTED")
+			var/available_in_days = player_old_enough_for_role(user.client, rank)
+			. += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
 			continue
 		else if (ban_reason)
 			. += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
-		if(!job.player_old_enough(user.client))
-			var/available_in_days = job.available_in_days(user.client)
-			. += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
 			continue
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
 			. += "<font color=orange>[rank]</font></td><td></td></tr>"
