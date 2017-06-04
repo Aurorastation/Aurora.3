@@ -134,7 +134,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if (pref.rlimb_data)
 			pref.rlimb_data = params2list(pref.rlimb_data)
 		if (pref.body_markings)
-			pref.body_markings = params2list(pref.body_markings)
+			pref.body_markings = json_decode(pref.body_markings)
 
 	pref.r_hair			= sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
 	pref.g_hair			= sanitize_integer(pref.g_hair, 0, 255, initial(pref.g_hair))
