@@ -18,6 +18,8 @@
 	scoped_accuracy = 2
 	var/bolt_open = 0
 
+	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+
 	recoil_wielded = 2
 	accuracy_wielded = -1
 
