@@ -34,13 +34,20 @@
 	var/pdir = pick(avail_dirs)
 	avail_dirs -= pdir
 	var/turf/T = get_step(src, pdir)
+	var/turf/A = GetAbove(T)
+	var/turf/B = GetBelow(T)
 
 	// EXPAND
 	if(!istype(T,type))
 		// Do pretty fadeout animation for 1s.
 		new /obj/effect/overlay/bluespacify(T)
 		addtimer(CALLBACK(src, .proc/after_tick, T), 10)
-
+		if(A && !istype(A,type))
+			new /obj/effect/overlay/bluespacify(A)
+			addtimer(CALLBACK(src, .proc/after_tick, A), 10)
+		if(B && !istype(B,type))
+			new /obj/effect/overlay/bluespacify(B)
+			addtimer(CALLBACK(src, .proc/after_tick, B), 10)
 	if((spawned & (NORTH|SOUTH|EAST|WEST)) == (NORTH|SOUTH|EAST|WEST))
 		STOP_PROCESSING(SScalamity, src)
 
