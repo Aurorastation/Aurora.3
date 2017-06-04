@@ -530,12 +530,74 @@
 	worn_state = "mai_yang"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
+/obj/item/clothing/under/cheongsamwhite
+	name = "white cheongsam"
+	desc = "A chinese dress that hugs the body. This one is white."
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "cheongsamwhite"
+	item_state = "cheongsamwhite"
+	worn_state = "cheongsamwhite"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	contained_sprite = 1
+
+/obj/item/clothing/under/cheongsamred
+	name = "red cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is red."
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "cheongsamred"
+	item_state = "cheongsamred"
+	worn_state = "cheongsamred"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	contained_sprite = 1
+
+/obj/item/clothing/under/cheongsamblue
+	name = "blue cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is blue."
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "cheongsamblue"
+	item_state = "cheongsamblue"
+	worn_state = "cheongsamblue"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	contained_sprite = 1
+
+/obj/item/clothing/under/cheongsamgreen
+	name = "green cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is green."
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "cheongsamgreen"
+	item_state = "cheongsamgreen"
+	worn_state = "cheongsamgreen"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	contained_sprite = 1
+
+/obj/item/clothing/under/cheongsampurple
+	name = "purple cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is purple."
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "cheongsampurple"
+	item_state = "cheongsampurple"
+	worn_state = "cheongsampurple"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	contained_sprite = 1
+
+/obj/item/clothing/under/cheongsamblack
+	name = "black cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is black."
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "cheongsamblack"
+	item_state = "cheongsamblack"
+	worn_state = "cheongsamblack"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	contained_sprite = 1
+	
 /obj/item/clothing/under/blazer
 	name = "blue blazer"
 	desc = "A bold but yet conservative outfit, red corduroys, navy blazer and a tie."
 	icon_state = "blue_blazer"
 	item_state = "blue_blazer"
 	worn_state = "blue_blazer"
+
+
 
 //stripper
 /obj/item/clothing/under/stripper

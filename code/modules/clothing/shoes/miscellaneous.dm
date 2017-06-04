@@ -48,6 +48,38 @@
 
 	wizard_garb = 1
 
+/obj/item/clothing/shoes/sandal/dressflats
+	desc = "A pair of low-heeled ladies' flats. They look formal."
+	name = "dress flats"
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "dressflats"
+	item_state = "dressflats"
+	contained_sprite = 1
+
+/obj/item/clothing/shoes/sandal/dressflatsred
+	desc = "A pair of red, low-heeled ladies' flats. They look formal."
+	name = "red dress flats"
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "dressflatsred"
+	item_state = "dressflatsred"
+	contained_sprite = 1
+
+/obj/item/clothing/shoes/sandal/dressflatsblue
+	desc = "A pair of blue, low-heeled ladies' flats. They look formal."
+	name = "blue dress flats"
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "dressflatsblue"
+	item_state = "dressflatsblue"
+	contained_sprite = 1
+
+/obj/item/clothing/shoes/sandal/dressflatsgreen
+	desc = "A pair of green, low-heeled ladies' flats. They look formal."
+	name = "green dress flats"
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "dressflatsgreen"
+	item_state = "dressflatsgreen"
+	contained_sprite = 1
+
 /obj/item/clothing/shoes/sandal/marisa
 	desc = "A pair of magic, black shoes."
 	name = "magic shoes"
