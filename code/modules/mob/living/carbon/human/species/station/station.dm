@@ -19,6 +19,7 @@
 	mob_size = 9
 	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
+	remains_type = /obj/effect/decal/remains/human
 
 	stamina	=	130			  // Humans can sprint for longer than any other species
 	stamina_recovery = 5
@@ -227,6 +228,7 @@
 	name_language = "Rootsong"
 	ethanol_resistance = -1//Can't get drunk
 	mob_size = 12//Worker gestalts are 150kg
+	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
 	species hailing from Epsilon Ursae Minoris. Each 'diona' is a cluster of numerous cat-sized organisms called nymphs; \
 	there is no effective upper limit to the number that can fuse in gestalt, and reports exist	of the Epsilon Ursae \
@@ -378,6 +380,7 @@
 	secondary_langs = list("Encoded Audio Language")
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
+	remains_type = /obj/effect/decal/remains/robot
 
 	// #TODO-MERGE: Check for balance and self-repair. If self-repair is a thing, RIP balance.
 	brute_mod = 0.8
