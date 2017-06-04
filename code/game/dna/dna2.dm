@@ -157,7 +157,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	body_markings.Cut()
 	for(var/obj/item/organ/external/E in character.organs)
 		if(E.markings.len)
-			body_markings[E.organ_tag] = E.markings.Copy()
+			body_markings[E.limb_name] = E.markings.Copy()
 
 	UpdateUI()
 
