@@ -117,14 +117,8 @@
 	for(var/obj/item/W in T)
 		T.drop_from_inventory(W)
 
-	if(isipc(T))
-		new /obj/effect/decal/remains/robot(T.loc)
-
-	else if(ishuman_species(T))
-		new /obj/effect/decal/remains/human(T.loc)
-		
-	else		
-		new /obj/effect/decal/remains/xeno(T.loc) //if neither is an ipc or human, xeno remains
+	var/obj/effect/decal/remains/remains = T.species.remains_type //spawns a skeleton based on the species remain type
+	new remains(T.loc)
 		
 	T.invisibility = 101
 
