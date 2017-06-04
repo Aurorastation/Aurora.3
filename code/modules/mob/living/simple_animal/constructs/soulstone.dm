@@ -117,7 +117,15 @@
 	for(var/obj/item/W in T)
 		T.drop_from_inventory(W)
 
-	new /obj/effect/decal/remains/human(T.loc) //Spawns a skeleton
+	if(isipc(T))
+		new /obj/effect/decal/remains/robot(T.loc)
+
+	else if(ishuman_species(T))
+		new /obj/effect/decal/remains/human(T.loc)
+		
+	else		
+		new /obj/effect/decal/remains/xeno(T.loc) //if neither is an ipc or human, xeno remains
+		
 	T.invisibility = 101
 
 	var/atom/movable/overlay/animation = new /atom/movable/overlay( T.loc )
