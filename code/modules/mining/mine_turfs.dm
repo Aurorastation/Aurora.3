@@ -7,9 +7,7 @@
 	density = 1
 
 /turf/simulated/mineral //wall piece
-	name = "Rock"
-	//icon = 'icons/turf/walls.dmi'
-	//icon_state = "rock"
+	name = "rock"
 	icon = 'icons/turf/smooth/rock_wall.dmi'	// Until we get sprites.
 	icon_state = "rock"
 	layer = 2.01
@@ -277,14 +275,14 @@
 			excavation_level += P.excavation_amount
 
 			//archaeo overlays
-			if(!archaeo_overlay && finds && finds.len)
+			/*if(!archaeo_overlay && finds && finds.len)
 				var/datum/find/F = finds[1]
 				if(F.excavation_required <= excavation_level + F.view_range)
 					archaeo_overlay = "overlay_archaeo[rand(1,3)]"
-					add_overlay(archaeo_overlay)
+					add_overlay(archaeo_overlay)*/
 
 		else
-			user << "<span class='notice'> You stop [P.drill_verb] the rock.</span>"
+			user << "<span class='notice'> You stop [P.drill_verb] [src].</span>"
 			P.drilling = 0
 
 	if (istype(W, /obj/item/weapon/autochisel))
@@ -708,7 +706,7 @@
 
 /turf/simulated/floor/asteroid/proc/gets_dug()
 
-	icon_state = "asteroid_dug"
+	add_overlay("asteroid_dug", TRUE)
 
 	if(prob(75))
 		new/obj/item/weapon/ore/glass(src)
@@ -735,9 +733,9 @@
 
 	if(dug <= 10)
 		dug += 1
-		add_overlay("asteroid_dug")
+		add_overlay("asteroid_dug", TRUE)
 	else
-		var/turf/below = (!(z > world.maxz || z > 17 || z < 2) && z_levels & (1 << (z - 2))) ? get_step(src, DOWN) : null
+		var/turf/below = GetBelow(src)
 		if(below)
 			var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)
