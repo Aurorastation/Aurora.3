@@ -107,7 +107,13 @@
 				continue
 			if(O.invisibility == 101)
 				O.singularity_act(src, current_size)
-	ChangeTurf(get_base_turf_by_area(src))
+	if(HasAbove(src.z))
+		var/turf/A = GetAbove(src)
+		A.singularity_act(S, current_size)
+	if(HasBelow(src.z))
+		var/turf/B = GetBelow(src)
+		B.singularity_act(S, current_size)
+	ChangeTurf(/turf/space)
 	return 2
 
 /turf/simulated/wall/singularity_pull(S, current_size)
@@ -126,6 +132,9 @@
 				dismantle_wall()
 
 /turf/space/singularity_act()
+	return
+
+/turf/simulated/open/singularity_act()
 	return
 
 /*******************

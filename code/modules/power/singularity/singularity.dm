@@ -8,7 +8,7 @@
 	anchored = 1
 	density = 1
 	layer = 6
-	light_range = 6
+	light_power = -100 //eats all light
 	unacidable = 1 //Don't comment this out.
 
 	var/current_size = 1
@@ -23,7 +23,7 @@
 	var/grav_pull = 4 //How many tiles out do we pull?
 	var/consume_range = 0 //How many tiles out do we eat.
 	var/event_chance = 15 //Prob for event each tick.
-	var/target = null //Its target. Moves towards the target if it has one.
+	var/atom/target = null //Its target. Moves towards the target if it has one.
 	var/last_failed_movement = 0 //Will not move in the same dir if it couldnt before, will help with the getting stuck on fields thing.
 	var/last_warning
 
@@ -80,6 +80,9 @@
 	eat()
 	dissipate()
 	check_energy()
+	light_range = current_size-2
+	if(light_range < 0)
+		light_range = 0
 
 	if (current_size >= STAGE_THREE)
 		move()
@@ -299,6 +302,14 @@
 
 	if(target && prob(60))
 		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
+		if(target.z < z)
+			visible_message("<span class='danger'>\The [src] gravitates downwards.</span>")
+			zMove(DOWN)
+			visible_message("<span class='danger'>\The [src] appears from above.</span>")
+		else if(target.z > z)
+			visible_message("<span class='danger'>\The [src] gravitates upwards.</span>")
+			zMove(UP)
+			visible_message("<span class='danger'>\The [src] appears from below.</span>")
 
 	if(current_size >= 9)//The superlarge one does not care about things in its way
 		spawn(0)
@@ -312,7 +323,9 @@
 			step(src, movement_dir)
 		return 1
 	else
-		last_failed_movement = movement_dir
+		var/z_dir = pick(UP,DOWN)
+		if(!zMove(z_dir))
+			last_failed_movement = movement_dir
 	return 0
 
 /obj/singularity/proc/check_turfs_in(var/direction = 0, var/step = 0)
@@ -493,3 +506,11 @@
         spawn(0)
             qdel(src)
         return gain
+
+/obj/singularity/can_fall()
+	return FALSE
+
+/obj/singularity/proc/zMove(direction)
+	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	if(destination)
+		forceMove(destination)
