@@ -107,11 +107,11 @@
 				continue
 			if(O.invisibility == 101)
 				O.singularity_act(src, current_size)
-	if(go_up)
+	if(go_up && current_size >= STAGE_FIVE)
 		if(HasAbove(src.z))
 			var/turf/A = GetAbove(src)
 			A.singularity_act(S, current_size, 0, 1)
-	if(go_down)
+	if(go_down && current_size >= STAGE_FIVE)
 		if(HasBelow(src.z))
 			var/turf/B = GetBelow(src)
 			B.singularity_act(S, current_size, 1, 0)

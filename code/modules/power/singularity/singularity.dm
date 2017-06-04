@@ -323,8 +323,11 @@
 			step(src, movement_dir)
 		return 1
 	else
-		var/z_dir = pick(UP,DOWN)
-		if(!zMove(z_dir))
+		if(current_size >= STAGE_FIVE)
+			var/z_dir = pick(UP,DOWN)
+			if(!zMove(z_dir))
+				last_failed_movement = movement_dir
+		else
 			last_failed_movement = movement_dir
 	return 0
 
