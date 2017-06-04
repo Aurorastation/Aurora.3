@@ -524,14 +524,6 @@
 
 /obj/item/clothing/under/cheongsam
 	name = "white cheongsam"
-	desc = "It is a white cheongsam dress."
-	icon_state = "mai_yang"
-	item_state = "mai_yang"
-	worn_state = "mai_yang"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-
-/obj/item/clothing/under/cheongsamwhite
-	name = "white cheongsam"
 	desc = "A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon."
 	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "cheongsamwhite"
@@ -540,45 +532,32 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 	contained_sprite = 1
 
-/obj/item/clothing/under/cheongsamred
+/obj/item/clothing/under/cheongsam/red
 	name = "red cheongsam"
 	desc = "A Chinese dress that hugs the body. This one is red, with a golden dragon design that climbs the entire garment."
-	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "cheongsamred"
 	item_state = "cheongsamred"
 	worn_state = "cheongsamred"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	contained_sprite = 1
 
-/obj/item/clothing/under/cheongsamblue
+/obj/item/clothing/under/cheongsam/blue
 	name = "blue cheongsam"
-	desc = "A Chinese dress that hugs the body. This one is blue, decorated with flowering tree branches."
-	icon = 'icons/obj/clothing/cheongsams.dmi'
+	desc = "A Chinese dress that hugs the body. This one is blue, the fabric styled with flowering tree branches."
 	icon_state = "cheongsamblue"
 	item_state = "cheongsamblue"
 	worn_state = "cheongsamblue"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	contained_sprite = 1
 
-/obj/item/clothing/under/cheongsamgreen
+/obj/item/clothing/under/cheongsam/green
 	name = "green cheongsam"
 	desc = "A Chinese dress that hugs the body. This one is green, patterned with overlapping jade fans."
-	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "cheongsamgreen"
 	item_state = "cheongsamgreen"
 	worn_state = "cheongsamgreen"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	contained_sprite = 1
 
-/obj/item/clothing/under/cheongsampurple
+/obj/item/clothing/under/cheongsam/purple
 	name = "purple cheongsam"
 	desc = "A Chinese dress that hugs the body. This one is purple, embroidered with plum blossoms."
-	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "cheongsampurple"
 	item_state = "cheongsampurple"
-	worn_state = "cheongsampurple"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	contained_sprite = 1
 	
 /obj/item/clothing/under/blazer
 	name = "blue blazer"
