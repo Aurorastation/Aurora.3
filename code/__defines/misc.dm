@@ -323,3 +323,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define NL_NOT_DISABLED      0
 #define NL_TEMPORARY_DISABLE 1
 #define NL_PERMANENT_DISABLE 2
+
+// Used for creating soft references to objects. A manner of storing an item reference
+// as text so you don't necessarily fuck with an object's ability to be garbage collected.
+#define SOFTREF(A) "\ref[A]"
