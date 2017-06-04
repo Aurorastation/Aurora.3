@@ -532,7 +532,7 @@
 
 /obj/item/clothing/under/cheongsamwhite
 	name = "white cheongsam"
-	desc = "A Chinese dress that hugs the body. This one is white."
+	desc = "A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon."
 	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "cheongsamwhite"
 	item_state = "cheongsamwhite"
@@ -542,7 +542,7 @@
 
 /obj/item/clothing/under/cheongsamred
 	name = "red cheongsam"
-	desc = "A Chinese dress that hugs the body. This one is red, with a stylized golden dragon curling around the garment."
+	desc = "A Chinese dress that hugs the body. This one is red, with a golden dragon design that climbs the entire garment."
 	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "cheongsamred"
 	item_state = "cheongsamred"

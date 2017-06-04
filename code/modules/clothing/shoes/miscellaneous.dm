@@ -49,7 +49,7 @@
 	wizard_garb = 1
 
 /obj/item/clothing/shoes/sandal/dressflatsred
-	desc = "A pair of red, low-heeled ladies' flats."
+	desc = "A pair of red, low-heeled women's flats."
 	name = "red dress flats"
 	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "dressflatsred"
@@ -57,7 +57,7 @@
 	contained_sprite = 1
 
 /obj/item/clothing/shoes/sandal/dressflatsblue
-	desc = "A pair of blue, low-heeled ladies' flats."
+	desc = "A pair of blue, low-heeled women's flats."
 	name = "blue dress flats"
 	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "dressflatsblue"
@@ -65,7 +65,7 @@
 	contained_sprite = 1
 
 /obj/item/clothing/shoes/sandal/dressflatsgreen
-	desc = "A pair of green, low-heeled ladies' flats."
+	desc = "A pair of green, low-heeled women's flats."
 	name = "green dress flats"
 	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "dressflatsgreen"
@@ -73,7 +73,7 @@
 	contained_sprite = 1
 
 /obj/item/clothing/shoes/sandal/dressflatspurple
-	desc = "A pair of purple, low-heeled ladies' flats."
+	desc = "A pair of purple, low-heeled women's flats."
 	name = "purple dress flats"
 	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "dressflatspurple"
@@ -81,7 +81,7 @@
 	contained_sprite = 1
 
 /obj/item/clothing/shoes/sandal/dressflatswhite
-	desc = "A pair of white, low-heeled ladies' flats."
+	desc = "A pair of white, low-heeled women's flats."
 	name = "white dress flats"
 	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "dressflatswhite"
@@ -89,7 +89,7 @@
 	contained_sprite = 1
 
 /obj/item/clothing/shoes/sandal/dressflatsblack
-	desc = "A pair of black, low-heeled ladies' flats."
+	desc = "A pair of black, low-heeled women's flats."
 	name = "black dress flats"
 	icon = 'icons/obj/clothing/cheongsams.dmi'
 	icon_state = "dressflatsblack"
