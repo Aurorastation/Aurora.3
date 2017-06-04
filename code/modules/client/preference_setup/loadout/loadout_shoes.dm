@@ -53,9 +53,9 @@
 	..()
 	var/shoes = list()
 	shoes["dress flats, black"] = /obj/item/clothing/shoes/flats
-	shoes["dress flats, white"] = /obj/item/clothing/shoes/flats/dressflatswhite
-	shoes["dress flats, red"] = /obj/item/clothing/shoes/flats/dressflatsred
-	shoes["dress flats, blue"] = /obj/item/clothing/shoes/flats/dressflatsblue
-	shoes["dress flats, green"] = /obj/item/clothing/shoes/flats/dressflatsgreen
-	shoes["dress flats, purple"] = /obj/item/clothing/shoes/flats/dressflatspurple
+	shoes["dress flats, white"] = /obj/item/clothing/shoes/flats/white
+	shoes["dress flats, red"] = /obj/item/clothing/shoes/flats/red
+	shoes["dress flats, blue"] = /obj/item/clothing/shoes/flats/blue
+	shoes["dress flats, green"] = /obj/item/clothing/shoes/flats/green
+	shoes["dress flats, purple"] = /obj/item/clothing/shoes/flats/purple
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
