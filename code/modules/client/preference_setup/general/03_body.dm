@@ -62,7 +62,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 														"b_type",
 														"disabilities",
 														"organs_data" = "organ_data",
-														"organs_robotic" = "rlimb_data"),
+														"organs_robotic" = "rlimb_data",
+														"body_markings"),
 										"args" = list("id")))
 
 /datum/category_item/player_setup_item/general/body/gather_load_parameters()
@@ -81,6 +82,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 										 "disabilities",
 										 "organs_data",
 										 "organs_robotic",
+										 "body_markings",
 										 "id" = 1,
 										 "ckey" = 1))
 
@@ -97,6 +99,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				"disabilities" = pref.disabilities,
 				"organs_data" = list2params(pref.organ_data),
 				"organs_robotic"= list2params(pref.rlimb_data),
+				"body_markings" = json_decode(pref.body_markings),
 				"id" = pref.current_character,
 				"ckey" = pref.client.ckey)
 
