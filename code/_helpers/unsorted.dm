@@ -1191,3 +1191,7 @@ var/list/WALLITEMS = list(
 	while (world.tick_usage > min(TICK_LIMIT_TO_RUN, CURRENT_TICKLIMIT))
 
 #undef DELTA_CALC
+
+// Helper for adding verbs with timers.
+/mob/proc/add_verb(the_verb)
+	verbs += the_verb

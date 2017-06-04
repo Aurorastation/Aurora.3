@@ -327,3 +327,5 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 // Used for creating soft references to objects. A manner of storing an item reference
 // as text so you don't necessarily fuck with an object's ability to be garbage collected.
 #define SOFTREF(A) "\ref[A]"
+
+#define ADD_VERB_IN(the_mob,time,verb) addtimer(CALLBACK(the_mob, /mob/.proc/add_verb, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
