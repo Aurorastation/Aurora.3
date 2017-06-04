@@ -100,19 +100,24 @@
 	explosion(src.loc,(dist),(dist*2),(dist*4))
 	return 1000
 
-/turf/singularity_act(S, current_size)
+/turf/singularity_act(S, current_size, var/go_down = 1, var/go_up = 1)
 	if(!is_plating())
 		for(var/obj/O in contents)
 			if(O.level != 1)
 				continue
 			if(O.invisibility == 101)
 				O.singularity_act(src, current_size)
-	if(HasAbove(src.z))
-		var/turf/A = GetAbove(src)
-		A.singularity_act(S, current_size)
-	if(HasBelow(src.z))
-		var/turf/B = GetBelow(src)
-		B.singularity_act(S, current_size)
+	if(go_up)
+		if(HasAbove(src.z))
+			var/turf/A = GetAbove(src)
+			A.singularity_act(S, current_size, 0, 1)
+	if(go_down)
+		if(HasBelow(src.z))
+			var/turf/B = GetBelow(src)
+			B.singularity_act(S, current_size, 1, 0)
+	if(istype(src,/turf/simulated/mineral))
+		var/turf/simulated/mineral/M = src
+		M.GetDrilled()
 	ChangeTurf(/turf/space)
 	return 2
 
