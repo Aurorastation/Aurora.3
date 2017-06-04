@@ -988,10 +988,10 @@
 
 	var/body_parts = list() //A list of bodyparts this covers, TODO: port defines for organs someday
 
-	tat_tiger
-		name = "Tattoo (Tiger Stripes, Body)"
-		icon_state = "tat_tiger"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","chest","groin")
+	tiger_stripes
+		name = "Tiger Stripes (Tajara)"
+		icon_state = "tiger"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","chest","groin")
 		species_allowed = list("Tajara")
 
 	taj_paw_socks
@@ -1030,12 +1030,6 @@
 		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
 		species_allowed = list("Tajara", "Unathi")
 
-	hands_feet_belly_full_female
-		name = "Hands,Feet,Belly Color (Major, Female)"
-		icon_state = "bellyhandsfeet_female"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
-		species_allowed = list("Tajara")
-
 	patches
 		name = "Color Patches"
 		icon_state = "patches"
@@ -1046,13 +1040,6 @@
 		name = "Color Patches (Face)"
 		icon_state = "patchesface"
 		body_parts = list("head")
-		species_allowed = list("Tajara")
-
-
-	tiger_stripes
-		name = "Tiger Stripes"
-		icon_state = "tiger"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","chest","groin")
 		species_allowed = list("Tajara")
 
 	tigerhead
@@ -1073,19 +1060,6 @@
 		body_parts = list("chest")
 		species_allowed = list("Tajara", "Unathi")
 
-	//Tajaran specific stuff
-	taj_belly
-		name = "Belly Fur (Tajara)"
-		icon_state = "taj_belly"
-		body_parts = list("chest")
-		species_allowed = list("Tajara")
-
-	taj_bellyfull
-		name = "Belly Fur Wide (Tajara)"
-		icon_state = "taj_bellyfull"
-		body_parts = list("chest")
-		species_allowed = list("Tajara")
-
 	taj_earsout
 		name = "Outer Ear (Tajara)"
 		icon_state = "taj_earsout"
@@ -1099,50 +1073,43 @@
 		species_allowed = list("Tajara")
 
 	taj_nose
-		name = "Nose Color (Tajara)"
+		name = "Nose Color"
 		icon_state = "taj_nose"
 		body_parts = list("head")
 		species_allowed = list("Tajara")
 
-	taj_crest
-		name = "Chest Fur Crest (Tajara)"
-		icon_state = "taj_crest"
-		body_parts = list("chest")
-		species_allowed = list("Tajara")
-
 	taj_muzzle
-		name = "Muzzle Color (Tajara)"
+		name = "Muzzle Color"
 		icon_state = "taj_muzzle"
 		body_parts = list("head")
 		species_allowed = list("Tajara")
 
 	taj_face
-		name = "Cheeks Color (Tajara)"
+		name = "Cheeks Color"
 		icon_state = "taj_face"
 		body_parts = list("head")
 		species_allowed = list("Tajara")
 
 	taj_all
-		name = "All Taj Head (Tajara)"
+		name = "All Tajara Head"
 		icon_state = "taj_all"
 		body_parts = list("head")
 		species_allowed = list("Tajara")
 
-	//Unathi specific stuff
 	una_face
-		name = "Face Color (Unathi)"
+		name = "Face Color"
 		icon_state = "una_face"
 		body_parts = list("head")
 		species_allowed = list("Unathi")
 
 	una_facelow
-		name = "Face Color Low (Unathi)"
+		name = "Face Color Low"
 		icon_state = "una_facelow"
 		body_parts = list("head")
 		species_allowed = list("Unathi")
 
 	una_scutes
-		name = "Scutes (Unathi)"
+		name = "Scutes"
 		icon_state = "una_scutes"
 		body_parts = list("chest")
 		species_allowed = list("Unathi")
