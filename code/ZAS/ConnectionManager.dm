@@ -30,16 +30,20 @@ Class Procs:
 
 */
 
-/turf/var/tmp/connection_manager/connections
+#define check(c) (c && c.valid())
 
-/connection_manager/var/connection/N
-/connection_manager/var/connection/S
-/connection_manager/var/connection/E
-/connection_manager/var/connection/W
+/turf
+	var/tmp/connection_manager/connections
+
+/connection_manager
+	var/connection/N
+	var/connection/S
+	var/connection/E
+	var/connection/W
 
 #ifdef MULTIZAS
-/connection_manager/var/connection/U
-/connection_manager/var/connection/D
+	var/connection/U
+	var/connection/D
 #endif
 
 /connection_manager/proc/get(d)
@@ -98,5 +102,4 @@ Class Procs:
 	if(check(D)) D.erase()
 	#endif
 
-/connection_manager/proc/check(connection/c)
-	return c && c.valid()
+#undef check
