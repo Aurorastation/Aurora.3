@@ -75,7 +75,7 @@
 
 	for(var/M in markings)
 		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-		var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+		var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
 		mark_s.Blend(markings[M]["color"], ICON_ADD)
 		overlays |= mark_s //So when it's not on your body, it has icons
 		mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
@@ -147,7 +147,7 @@
 			//Body markings, does not include head, duplicated (sadly) above.
 			for(var/M in markings)
 				var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-				var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+				var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
 				mark_s.Blend(markings[M]["color"], ICON_ADD)
 				overlays |= mark_s //So when it's not on your body, it has icons
 				mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
