@@ -489,6 +489,21 @@
 	smooth = SMOOTH_TRUE
 	can_be_unanchored = TRUE
 
+/obj/structure/window/shuttle/crescent
+	name = "shuttle window"
+	desc = "It looks rather strong."
+	icon = 'icons/obj/smooth/shuttle_window.dmi'
+	icon_state = "shuttle_window"
+	basestate = "window"
+	reinf = 1
+	basestate = "w"
+	dir = 5
+	smooth = SMOOTH_TRUE
+	can_be_unanchored = TRUE
+
+/obj/structure/window/shuttle/crescent/take_damage()
+	return
+
 /obj/structure/window/shuttle/update_nearby_icons()
 	queue_smooth_neighbors(src)
 
