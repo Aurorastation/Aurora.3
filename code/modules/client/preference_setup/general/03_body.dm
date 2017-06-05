@@ -99,7 +99,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				"disabilities" = pref.disabilities,
 				"organs_data" = list2params(pref.organ_data),
 				"organs_robotic"= list2params(pref.rlimb_data),
-				"body_markings" = json_encode(pref.body_markings)
+				"body_markings" = json_encode(pref.body_markings),
 				"id" = pref.current_character,
 				"ckey" = pref.client.ckey)
 
