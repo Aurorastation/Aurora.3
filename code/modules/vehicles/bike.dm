@@ -18,13 +18,12 @@
 	var/space_speed = 1
 	var/bike_icon = "bike"
 
-	var/datum/effect/effect/system/ion_trail_follow/ion
+	var/datum/effect_system/ion_trail/ion
 	var/kickstand = 1
 
 /obj/vehicle/bike/New()
 	..()
-	ion = new /datum/effect/effect/system/ion_trail_follow()
-	ion.set_up(src)
+	ion = new(src)
 	turn_off()
 	overlays += image('icons/obj/bike.dmi', "[icon_state]_off_overlay", MOB_LAYER + 1)
 	icon_state = "[bike_icon]_off"
@@ -146,6 +145,6 @@
 
 
 /obj/vehicle/bike/Destroy()
-	qdel(ion)
+	QDEL_NULL(ion)
 
 	return ..()
