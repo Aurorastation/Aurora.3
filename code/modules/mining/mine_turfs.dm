@@ -15,7 +15,8 @@
 	canSmoothWith = list(
 		/turf/simulated/mineral,
 		/turf/simulated/wall,
-		/turf/unsimulated/wall
+		/turf/unsimulated/wall,
+		/turf/simulated/shuttle
 	)
 	oxygen = 0
 	nitrogen = 0
@@ -491,20 +492,19 @@
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
 	name = "sand"
-	//icon = 'icons/turf/flooring/asteroid.dmi'
-	//icon_state = "asteroid"
 	icon = 'icons/turf/smooth/ash.dmi'
 	icon_state = "ash"
 	smooth = SMOOTH_MORE | SMOOTH_BORDER
 	canSmoothWith = list(
 		/turf/simulated/floor/asteroid,
 		/turf/simulated/mineral,
-		/turf/simulated/wall
+		/turf/simulated/wall,
+		/turf/simulated/shuttle
 	)
 	base_name = "sand"
 	base_desc = "Gritty and unpleasant."
-	base_icon = 'icons/turf/flooring/asteroid.dmi'
-	base_icon_state = "asteroid"
+	base_icon = 'icons/turf/smooth/ash.dmi'
+	base_icon_state = "ash"
 
 	initial_flooring = null
 	oxygen = 0
