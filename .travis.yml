@@ -1,5 +1,4 @@
 language: generic
-sudo: true
 
 env:
   BYOND_MAJOR="510"
@@ -32,11 +31,8 @@ before_script:
 
 script:
   - mysql -e 'CREATE DATABASE ss13_test;'
-  - mysql -e "CREATE USER 'flyway'@'localhost' identified by 'flypass'; grant all privileges on *.* to 'flyway'@'localhost'; FLUSH PRIVILEGES;" -u root
-  - mysql -e "SELECT User FROM mysql.user;" -u root
   - $HOME/flyway-${FLYWAY_BUILD}/flyway -v
-  - cp SQL/migrate/* $HOME/flyway-${FLYWAY_BUILD}/sql/
-  - $HOME/flyway-${FLYWAY_BUILD}/flyway -X -uroot migrate -user=flyway -password=flypass -url=jdbc:mysql://localhost:3306/ss13_test
+  - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -url=jdbc:mysql://localhost:3306/ss13_test
   - shopt -s globstar
   - (! grep 'step_[xy]' maps/**/*.dmm)
   - (! find nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano)
