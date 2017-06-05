@@ -19,7 +19,7 @@
 	if(istype(T))
 		T.update_icon()
 
-	queue_smooth_neighbors()
+	queue_smooth_neighbors(src)
 
 //Creates a new turf.
 // N is the type of the turf.
