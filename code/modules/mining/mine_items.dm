@@ -364,6 +364,11 @@
 	singular_name = "green flag"
 	icon_state = "greenflag"
 
+/obj/item/stack/flag/purple
+	name = "purple flags"
+	singular_name = "purple flag"
+	icon_state = "purpflag"
+
 /obj/item/stack/flag/attackby(obj/item/W as obj, mob/user as mob)
 	if(upright && istype(W,src.type))
 		src.attack_hand(user)
