@@ -1193,5 +1193,5 @@ var/list/WALLITEMS = list(
 #undef DELTA_CALC
 
 // Helper for adding verbs with timers.
-/mob/proc/add_verb(the_verb)
+/atom/proc/add_verb(the_verb)
 	verbs += the_verb

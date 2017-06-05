@@ -328,4 +328,4 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 // as text so you don't necessarily fuck with an object's ability to be garbage collected.
 #define SOFTREF(A) "\ref[A]"
 
-#define ADD_VERB_IN(the_mob,time,verb) addtimer(CALLBACK(the_mob, /mob/.proc/add_verb, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+#define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
