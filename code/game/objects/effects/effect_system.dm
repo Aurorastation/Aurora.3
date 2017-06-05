@@ -114,15 +114,10 @@ steam.start() -- spawns the effect
 	addtimer(CALLBACK(src, .proc/kill), time_to_live)
 
 /obj/effect/effect/smoke/proc/kill()
-	set waitfor = FALSE
 	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)
 	set_opacity(FALSE)
-
-	var/turf/T = get_turf(src)
-	if (T)
-		T.force_update_lights()	// I hate it, but nothing else seems to work.
 	
-	QDEL_IN(src, 2 SECONDS)
+	QDEL_IN(src, 2.5 SECONDS)
 
 /obj/effect/effect/smoke/Crossed(mob/living/carbon/M as mob )
 	..()
