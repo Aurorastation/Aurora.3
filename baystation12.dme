@@ -1705,6 +1705,7 @@
 #include "code\modules\multiz\_stubs.dm"
 #include "code\modules\multiz\basic.dm"
 #include "code\modules\multiz\movement.dm"
+#include "code\modules\multiz\mz_items.dm"
 #include "code\modules\multiz\openspace.dm"
 #include "code\modules\multiz\pipes.dm"
 #include "code\modules\multiz\structures.dm"
