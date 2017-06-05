@@ -119,8 +119,8 @@ var/global/list/cloaking_devices = list()
 				facial_hair_styles_male_list += H.name
 				facial_hair_styles_female_list += H.name
 				
-	//Body markings - Initialise all /datum/sprite_accessory/marking into an list indexed by marking name
-	paths = typesof(/datum/sprite_accessory/marking) - /datum/sprite_accessory/marking
+	//Body markings 
+	paths = subtypesof(/datum/sprite_accessory/marking)
 	for(var/path in paths)
 		var/datum/sprite_accessory/marking/M = new path()
 		body_marking_styles_list[M.name] = M
