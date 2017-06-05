@@ -15,7 +15,8 @@
 	canSmoothWith = list(
 		/turf/simulated/mineral,
 		/turf/simulated/wall,
-		/turf/unsimulated/wall
+		/turf/unsimulated/wall,
+		/turf/simulated/shuttle
 	)
 	oxygen = 0
 	nitrogen = 0
@@ -491,20 +492,19 @@
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
 	name = "sand"
-	//icon = 'icons/turf/flooring/asteroid.dmi'
-	//icon_state = "asteroid"
 	icon = 'icons/turf/smooth/ash.dmi'
 	icon_state = "ash"
 	smooth = SMOOTH_MORE | SMOOTH_BORDER
 	canSmoothWith = list(
 		/turf/simulated/floor/asteroid,
 		/turf/simulated/mineral,
-		/turf/simulated/wall
+		/turf/simulated/wall,
+		/turf/simulated/shuttle
 	)
 	base_name = "sand"
 	base_desc = "Gritty and unpleasant."
-	base_icon = 'icons/turf/flooring/asteroid.dmi'
-	base_icon_state = "asteroid"
+	base_icon = 'icons/turf/smooth/ash.dmi'
+	base_icon_state = "ash"
 
 	initial_flooring = null
 	oxygen = 0
@@ -709,27 +709,51 @@
 	add_overlay("asteroid_dug", TRUE)
 
 	if(prob(75))
-		new/obj/item/weapon/ore/glass(src)
+		new /obj/item/weapon/ore/glass(src)
 
-	if(prob(25))
-		var/list/ore = list(/obj/item/weapon/ore/coal = 12,
-		/obj/item/weapon/ore/iron = 8,
-		/obj/item/weapon/ore/phoron = 3,
-		/obj/item/weapon/ore/silver = 3,
-		/obj/item/weapon/ore/gold = 2,
-		/obj/item/weapon/ore/osmium = 3,
-		/obj/item/weapon/ore/hydrogen = 2,
-		/obj/item/weapon/ore/uranium = 1,
-		/obj/random/junk = 1,
-		/obj/item/weapon/ore/diamond = 0.5,
-		/obj/random/powercell = 0.2,
-		/obj/random/coin = 0.2,
-		/obj/random/loot = 0.1,
-		/obj/random/action_figure = 0.1)
-		var/ore_path = pickweight(ore)
+	if(prob(25) && has_resources)
+		var/list/ore = list()
+		for(var/metal in resources)
+
+			switch(metal)
+				if("silicates")
+					ore += /obj/item/weapon/ore/glass
+				if("carbonaceous rock")
+					ore += /obj/item/weapon/ore/coal
+				if("iron")
+					ore += /obj/item/weapon/ore/iron
+				if("gold")
+					ore += /obj/item/weapon/ore/gold
+				if("silver")
+					ore += /obj/item/weapon/ore/silver
+				if("diamond")
+					ore += /obj/item/weapon/ore/diamond
+				if("uranium")
+					ore += /obj/item/weapon/ore/uranium
+				if("phoron")
+					ore += /obj/item/weapon/ore/phoron
+				if("osmium")
+					ore += /obj/item/weapon/ore/osmium
+				if("hydrogen")
+					ore += /obj/item/weapon/ore/hydrogen
+				else
+					if(prob(25))
+						switch(rand(1,5))
+							if(1)
+								ore += /obj/random/junk
+							if(2)
+								ore += /obj/random/powercell
+							if(3)
+								ore += /obj/random/coin
+							if(4)
+								ore += /obj/random/loot
+							if(5)
+								ore += /obj/item/weapon/ore/glass
+					else
+						ore += /obj/item/weapon/ore/glass
+		var/ore_path = pick(ore)
 		if(ore)
 			new ore_path(src)
-			user << "<span class='notice'>You unearth something amidst the sand!</span>"
 
 	if(dug <= 10)
 		dug += 1

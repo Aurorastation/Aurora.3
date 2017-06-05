@@ -13,14 +13,12 @@
 	wreckage = /obj/effect/decal/mecha_wreckage/hoverpod
 	cargo_capacity = 5
 	max_equip = 3
-	var/datum/effect/effect/system/ion_trail_follow/ion_trail
+	var/datum/effect_system/ion_trail/ion_trail
 	var/stabilization_enabled = 1
 
-/obj/mecha/working/hoverpod/New()
-	..()
-	ion_trail = new /datum/effect/effect/system/ion_trail_follow()
-	ion_trail.set_up(src)
-	ion_trail.start()
+/obj/mecha/working/hoverpod/Initialize()
+	. = ..()
+	ion_trail = new(src)
 
 //Modified phazon code
 /obj/mecha/working/hoverpod/Topic(href, href_list)
@@ -48,7 +46,7 @@
 	if (!has_charge(step_energy_drain))
 		ion_trail.stop()
 	else
-		if (!ion_trail.on)
+		if (!ion_trail.isprocessing)
 			ion_trail.start()
 		if (stabilization_enabled)
 			return 1
