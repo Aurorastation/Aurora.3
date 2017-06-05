@@ -27,7 +27,7 @@
 	if(N == /turf/space)
 		var/turf/below = GetBelow(src)
 		if(istype(below) && !istype(below,/turf/space))
-			N = below.density ? /turf/simulated/floor/airless : /turf/simulated/open
+			N = /turf/simulated/open
 
 	var/obj/fire/old_fire = fire
 	var/old_baseturf = baseturf
@@ -36,12 +36,12 @@
 
 	changing_turf = TRUE
 
-	if(connections) 
+	if(connections)
 		connections.erase_all()
 
 	cut_overlays()
 	underlays.Cut()
-	
+
 	// So we call destroy.
 	qdel(src)
 
@@ -63,7 +63,7 @@
 	W.baseturf = old_baseturf
 
 	W.post_change()
-	
+
 	. = W
 
 	queue_smooth(src)
@@ -102,7 +102,7 @@
 
 	if (dir != other.dir)
 		other.set_dir(dir)
-		
+
 	other.icon = icon
 	other.icon_state = icon_state
 	other.underlays = underlays.Copy()
@@ -114,7 +114,7 @@
 		other.priority_overlays = priority_overlays
 
 	other.overlays = overlays.Copy()
-	
+
 /turf/simulated/copy_turf(turf/simulated/other, ignore_air = FALSE)
 	. = ..()
 

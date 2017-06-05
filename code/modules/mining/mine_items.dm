@@ -212,7 +212,7 @@
 	desc = "Yours is the drill that will pierce through the rock walls."
 	drill_verb = "drilling"
 	autodrill = 1
-	drill_sound = 'sound/weapons/circsawhit.ogg'
+	drill_sound = 'sound/weapons/drill.ogg'
 	digspeed = 20
 	digspeed_unwielded = 30
 	force_unwielded = 15.0
@@ -231,7 +231,7 @@
 	desc = "Cracks rocks with sonic blasts, perfect for killing cave lizards."
 	drill_verb = "hammering"
 	autodrill = 1
-	drill_sound = 'sound/weapons/resonator_blast.ogg'
+	drill_sound = 'sound/weapons/sonic_jackhammer.ogg'
 	digspeed = 15
 	digspeed_unwielded = 15
 	force_unwielded = 25.0
@@ -276,7 +276,7 @@
 	desc = "Yours is the drill that will pierce the heavens!"
 	drill_verb = "drilling"
 	autodrill = 1
-	drill_sound = 'sound/weapons/circsawhit.ogg'
+	drill_sound = 'sound/weapons/drill.ogg'
 	excavation_amount = 100
 
 	can_wield = 0
@@ -297,7 +297,7 @@
 	desc = ""
 	drill_verb = "drilling"
 	autodrill = 1
-	drill_sound = 'sound/weapons/circsawhit.ogg'
+	drill_sound = 'sound/weapons/drill.ogg'
 	can_wield = 0
 	force = 15.0
 	excavation_amount = 100

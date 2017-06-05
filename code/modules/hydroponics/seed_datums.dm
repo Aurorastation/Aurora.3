@@ -653,6 +653,7 @@
 	seed_name = "peanut"
 	display_name = "peanut vines"
 	chems = list("nutriment" = list(1,10))
+	kitchen_tag = "peanut"
 
 /datum/seed/peanuts/New()
 	..()
