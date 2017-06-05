@@ -12,7 +12,7 @@ cache:
     - $HOME/flyway-${FLYWAY_BUILD}
 
 addons:
-  mariadb: '10.0'
+  mariadb: '10.1'
   apt:
     packages:
       - libc6-i386
