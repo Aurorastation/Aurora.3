@@ -1193,5 +1193,8 @@ var/list/WALLITEMS = list(
 #undef DELTA_CALC
 
 // Helper for adding verbs with timers.
-/atom/proc/add_verb(the_verb)
+/atom/proc/add_verb(the_verb, datum/callback/callback)
+	if (callback && !callback.Invoke())
+		return
+
 	verbs += the_verb
