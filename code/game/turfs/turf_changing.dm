@@ -11,6 +11,7 @@
 	var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 	if(L)
 		qdel(L)
+
 // Called after turf replaces old one
 /turf/proc/post_change()
 	levelupdate()
@@ -18,8 +19,11 @@
 	if(istype(T))
 		T.update_icon()
 
-//Creates a new turf
-/turf/proc/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0)
+	queue_smooth_neighbors(src)
+
+//Creates a new turf.
+// N is the type of the turf.
+/turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE)
 	if (!N)
 		return
 
@@ -38,9 +42,6 @@
 
 	if(connections)
 		connections.erase_all()
-
-	cut_overlays()
-	underlays.Cut()
 
 	// So we call destroy.
 	qdel(src)
@@ -65,9 +66,6 @@
 	W.post_change()
 
 	. = W
-
-	queue_smooth(src)
-	queue_smooth_neighbors(src)
 
 /turf/proc/transport_properties_from(turf/other)
 	if(!istype(other, src.type))

@@ -486,20 +486,11 @@
 	reinf = 1
 	basestate = "w"
 	dir = 5
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_TRUE | SMOOTH_CLEAR_ICON
 	can_be_unanchored = TRUE
 
 /obj/structure/window/shuttle/crescent
-	name = "shuttle window"
 	desc = "It looks rather strong."
-	icon = 'icons/obj/smooth/shuttle_window.dmi'
-	icon_state = "shuttle_window"
-	basestate = "window"
-	reinf = 1
-	basestate = "w"
-	dir = 5
-	smooth = SMOOTH_TRUE
-	can_be_unanchored = TRUE
 
 /obj/structure/window/shuttle/crescent/take_damage()
 	return
