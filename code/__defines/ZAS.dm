@@ -18,45 +18,43 @@
 	if (A.blocks_air & AIR_BLOCKED || B.blocks_air & AIR_BLOCKED) { \
 		ret = BLOCKED; \
 	} \
-	else { \
-		if (B.z != A.z) { \
-			if (B.z < A.z) { \
-				if (!istype(A, /turf/simulated/open)) { \
+	else if (B.z != A.z) { \
+		if (B.z < A.z) { \
+			if (!istype(A, /turf/simulated/open)) { \
+				ret = BLOCKED; \
+			} \
+		} \
+		else { \
+			if (!istype(B, /turf/simulated/open)) { \
+				ret = BLOCKED; \
+			} \
+		} \
+	} \
+	else if (A.blocks_air & ZONE_BLOCKED || B.blocks_air & ZONE_BLOCKED) { \
+		ret = (A.z == B.z) ? ZONE_BLOCKED : AIR_BLOCKED; \
+	} \
+	else if (A.contents.len) { \
+		ret = 0;\
+		for (var/thing in A) { \
+			var/atom/movable/AM = thing; \
+			switch (AM.atmos_canpass) { \
+				if (CANPASS_ALWAYS) { \
+					continue; \
+				} \
+				if (CANPASS_DENSITY) { \
+					if (AM.density) { \
+						ret |= AIR_BLOCKED; \
+					} \
+				} \
+				if (CANPASS_PROC) { \
+					ret |= AM.c_airblock(B); \
+				} \
+				if (CANPASS_NEVER) { \
 					ret = BLOCKED; \
 				} \
 			} \
-			else { \
-				if (!istype(B, /turf/simulated/open)) { \
-					ret = BLOCKED; \
-				} \
-			} \
-		} \
-		else if (A.blocks_air & ZONE_BLOCKED || B.blocks_air & ZONE_BLOCKED) { \
-			ret = (A.z == B.z) ? ZONE_BLOCKED : AIR_BLOCKED; \
-		} \
-		else if (A.contents.len) { \
-			ret = 0;\
-			for (var/thing in A) { \
-				var/atom/movable/AM = thing; \
-				switch (AM.atmos_canpass) { \
-					if (CANPASS_ALWAYS) { \
-						continue; \
-					} \
-					if (CANPASS_DENSITY) { \
-						if (AM.density) { \
-							ret |= AIR_BLOCKED; \
-						} \
-					} \
-					if (CANPASS_PROC) { \
-						ret |= AM.c_airblock(B); \
-					} \
-					if (CANPASS_NEVER) { \
-						ret = BLOCKED; \
-					} \
-				} \
-				if (ret == BLOCKED) { \
-					break;\
-				}\
+			if (ret == BLOCKED) { \
+				break;\
 			}\
 		}\
 	}
@@ -66,34 +64,33 @@
 	if (A.blocks_air & AIR_BLOCKED || B.blocks_air & AIR_BLOCKED) { \
 		ret = BLOCKED; \
 	} \
-	else { \
-		if (A.blocks_air & ZONE_BLOCKED || B.blocks_air & ZONE_BLOCKED) { \
-			ret = ZONE_BLOCKED; \
-		} \
-		else if (A.contents.len) { \
-			ret = 0;\
-			for (var/thing in A) { \
-				var/atom/movable/AM = thing; \
-				switch (AM.atmos_canpass) { \
-					if (CANPASS_ALWAYS) { \
-						continue; \
-					} \
-					if (CANPASS_DENSITY) { \
-						if (AM.density) { \
-							ret |= AIR_BLOCKED; \
-						} \
-					} \
-					if (CANPASS_PROC) { \
-						ret |= AM.c_airblock(B); \
-					} \
-					if (CANPASS_NEVER) { \
-						ret = BLOCKED; \
+	else if (A.blocks_air & ZONE_BLOCKED || B.blocks_air & ZONE_BLOCKED) { \
+		ret = ZONE_BLOCKED; \
+	} \
+	else if (A.contents.len) { \
+		ret = 0;\
+		for (var/thing in A) { \
+			var/atom/movable/AM = thing; \
+			switch (AM.atmos_canpass) { \
+				if (CANPASS_ALWAYS) { \
+					continue; \
+				} \
+				if (CANPASS_DENSITY) { \
+					if (AM.density) { \
+						ret |= AIR_BLOCKED; \
 					} \
 				} \
-				if (ret == BLOCKED) { \
-					break;\
-				}\
+				if (CANPASS_PROC) { \
+					ret |= AM.c_airblock(B); \
+				} \
+				if (CANPASS_NEVER) { \
+					ret = BLOCKED; \
+				} \
+			} \
+			if (ret == BLOCKED) { \
+				break;\
 			}\
 		}\
 	}
+
 #endif 
