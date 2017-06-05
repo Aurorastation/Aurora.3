@@ -14,7 +14,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("5 Purple Flags",				/obj/item/stack/flag/purple,											50),
 	new /datum/data/mining_equipment("Ore-bag",						/obj/item/weapon/storage/bag/ore,										50),
 	new /datum/data/mining_equipment("Meat Pizza",					/obj/item/pizzabox/meat,												50),
-	new /datum/data/mining_equipment("Lantern",						/obj/item/device/flashlight/lantern,									75),,
+	new /datum/data/mining_equipment("Lantern",						/obj/item/device/flashlight/lantern,									75),
 	new /datum/data/mining_equipment("Shovel",						/obj/item/weapon/shovel,												100),
 	//new /datum/data/mining_equipment("Stimpack",					/obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack,	100),
 	new /datum/data/mining_equipment("Pickaxe",						/obj/item/weapon/pickaxe,												100),
