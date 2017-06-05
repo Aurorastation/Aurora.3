@@ -110,7 +110,7 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	layer = TURF_LAYER
+	layer = 2.1
 	var/eating = 0
 	var/sated = 0
 	var/asleep = 0
@@ -180,7 +180,8 @@
 			else
 				if(prob(50))
 					var/mob/living/L = sarlacc.captive
-					L.apply_damage(rand(3,10),BRUTE)
+					if(L)
+						L.apply_damage(rand(3,10),BRUTE)
 
 /mob/living/simple_animal/hostile/greatworm/death()
 	..()
@@ -287,7 +288,7 @@
 		if(L != src)
 			L.apply_damage(15,BRUTE)
 			possible_targets += L
-	if(Adjacent(originator))
+	if(Adjacent(originator) && possible_targets.len)
 		var/mob/living/L = pick(possible_targets)
 		L << "<span class='danger'>\The [src] wraps around you tightly and flings you into \the [originator]'s maw!</span>"
 		L.Move(originator.loc)
@@ -340,7 +341,7 @@
 			L.reagents.add_reagent("[madhouse]", 3)
 			L << "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>"
 
-/mob/living/simple_animal/hostile/sarlaccking
+/mob/living/simple_animal/hostile/greatwormking
 	name = "great worm king"
 	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
 	icon = 'icons/mob/cavern.dmi'
@@ -370,7 +371,7 @@
 
 	faction = "worms"
 
-/mob/living/simple_animal/hostile/sarlaccking/Destroy()
+/mob/living/simple_animal/hostile/greatwormking/Destroy()
 	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, usepressure = 0)
 	for(var/mob/living/L in SSmob.greatworms)
 		L.death()
@@ -385,7 +386,7 @@
 	icon_state = "sarlaccend"
 	anchored = 1
 	density = 0
-	layer = TURF_LAYER
+	layer = 2.1
 
 /obj/structure/sarlacc/Initialize()
 	. = ..()

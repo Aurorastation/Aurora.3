@@ -360,7 +360,7 @@
 
 /mob/living/simple_animal/hostile/vox/Initialize()
 	. = ..()
-	laser_ammo = rand(0,10)
+	laser_ammo = rand(0,5)
 
 /mob/living/simple_animal/hostile/vox/OpenFire(target_mob)
 	if(laser_ammo <= 0)
