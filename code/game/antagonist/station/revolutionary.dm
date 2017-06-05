@@ -28,8 +28,8 @@ var/datum/antagonist/revolutionary/revs
 	faction_indicator = "rev"
 	faction_invisible = 1
 
-	restricted_jobs = list("Internal Affairs Agent", "AI", "Cyborg","Captain", "Head of Personnel", "Head of Security", "Chief Engineer", "Research Director", "Chief Medical Officer")
-	protected_jobs = list("Security Officer", "Warden", "Detective")
+	restricted_jobs = list("AI", "Cyborg")
+	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
 
 /datum/antagonist/revolutionary/New()
 	..()
@@ -46,3 +46,11 @@ var/datum/antagonist/revolutionary/revs
 		rev_obj.target = player.mind
 		rev_obj.explanation_text = "Assassinate, capture or convert [player.real_name], the [player.mind.assigned_role]."
 		global_objectives += rev_obj
+
+/datum/antagonist/revolutionary/can_become_antag(var/datum/mind/player)
+	if(!..())
+		return 0
+	for(var/obj/item/weapon/implant/loyalty/L in player.current)
+		if(L && (L.imp_in == player.current))
+			return 0
+	return 1

@@ -4,11 +4,13 @@
 	storage_slots = 10
 	icon_state = "wallet"
 	w_class = 2
+	max_w_class = 2
 	can_hold = list(
 		/obj/item/weapon/spacecash,
 		/obj/item/weapon/card,
-		/obj/item/clothing/mask/smokable/cigarette/,
+		/obj/item/clothing/mask/smokable,
 		/obj/item/clothing/accessory/badge,
+		/obj/item/clothing/accessory/locket,
 		/obj/item/device/flashlight/pen,
 		/obj/item/seeds,
 		/obj/item/stack/medical,
@@ -19,11 +21,16 @@
 		/obj/item/weapon/flame/lighter,
 		/obj/item/weapon/flame/match,
 		/obj/item/weapon/paper,
+		/obj/item/weapon/paper_bundle,
 		/obj/item/weapon/pen,
 		/obj/item/weapon/photo,
 		/obj/item/weapon/reagent_containers/dropper,
+		/obj/item/weapon/reagent_containers/syringe,
+		/obj/item/weapon/reagent_containers/pill,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector,
 		/obj/item/weapon/screwdriver,
-		/obj/item/weapon/stamp)
+		/obj/item/weapon/stamp,
+		/obj/item/device/paicard)
 	slot_flags = SLOT_ID
 
 	var/obj/item/weapon/card/id/front_id = null
@@ -50,6 +57,9 @@
 	if(front_id)
 		switch(front_id.icon_state)
 			if("id")
+				icon_state = "walletid"
+				return
+			if("guest")
 				icon_state = "walletid"
 				return
 			if("silver")

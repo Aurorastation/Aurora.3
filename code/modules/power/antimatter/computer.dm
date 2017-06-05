@@ -18,10 +18,10 @@
 /obj/machinery/computer/am_engine/New()
 	..()
 	spawn( 24 )
-		for(var/obj/machinery/power/am_engine/engine/E in world)
+		for(var/obj/machinery/power/am_engine/engine/E in machines)
 			if(E.engine_id == src.engine_id)
 				src.connected_E = E
-		for(var/obj/machinery/power/am_engine/injector/I in world)
+		for(var/obj/machinery/power/am_engine/injector/I in machines)
 			if(I.engine_id == src.engine_id)
 				src.connected_I = I
 	return
@@ -45,7 +45,7 @@
 			src.state = STATE_DEFAULT
 		if("login")
 			var/mob/M = usr
-			var/obj/item/weapon/card/id/I = M.get_active_hand()
+			var/obj/item/weapon/card/id/I = M.equipped()
 			if (I && istype(I))
 				if(src.check_access(I))
 					authenticated = 1
@@ -57,6 +57,7 @@
 	src.updateUsrDialog()
 
 /obj/machinery/computer/am_engine/attack_ai(var/mob/user as mob)
+	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
 /obj/machinery/computer/am_engine/attack_paw(var/mob/user as mob)

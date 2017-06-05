@@ -22,15 +22,16 @@
 	desc = "It has WIZZARD written across it in sequins. Comes with a cool beard."
 	icon_state = "wizard-fake"
 	body_parts_covered = HEAD|FACE
+	siemens_coefficient = 1.0
 
 /obj/item/clothing/head/wizard/marisa
-	name = "Witch Hat"
+	name = "witch Hat"
 	desc = "Strange-looking hat-wear, makes you want to cast fireballs."
 	icon_state = "marisa"
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/head/wizard/magus
-	name = "Magus Helm"
+	name = "magus Helm"
 	desc = "A mysterious helmet that hums with an unearthly power"
 	icon_state = "magus"
 	item_state = "magus"
@@ -38,7 +39,7 @@
 		slot_l_hand_str = "helmet",
 		slot_r_hand_str = "helmet"
 		)
-	siemens_coefficient = 0.8
+	siemens_coefficient = 0.7
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/wizard/amp
@@ -49,17 +50,15 @@
 		slot_l_hand_str = "helmet",
 		slot_r_hand_str = "helmet"
 		)
-	siemens_coefficient = 0.8
 
 /obj/item/clothing/head/wizard/cap
-	name = "Gentlemans Cap"
+	name = "gentlemans cap"
 	desc = "A checkered gray flat cap woven together with the rarest of threads."
 	icon_state = "gentcap"
 	item_state_slots = list(
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat"
 		)
-	siemens_coefficient = 0.8
 
 /obj/item/clothing/suit/wizrobe
 	name = "wizard robe"
@@ -80,22 +79,21 @@
 	icon_state = "redwizard"
 	item_state = "redwizrobe"
 
-
 /obj/item/clothing/suit/wizrobe/marisa
-	name = "Witch Robe"
+	name = "witch robe"
 	desc = "Magic is all about the spell power, ZE!"
 	icon_state = "marisa"
 	item_state = "marisarobe"
 
 /obj/item/clothing/suit/wizrobe/magusblue
-	name = "Magus Robe"
+	name = "magus robe"
 	desc = "A set of armoured robes that seem to radiate a dark power"
 	icon_state = "magusblue"
 	item_state = "magusblue"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
 /obj/item/clothing/suit/wizrobe/magusred
-	name = "Magus Robe"
+	name = "magus robe"
 	desc = "A set of armoured robes that seem to radiate a dark power"
 	icon_state = "magusred"
 	item_state = "magusred"
@@ -108,11 +106,12 @@
 	item_state = "psyamp"
 
 /obj/item/clothing/suit/wizrobe/gentlecoat
-	name = "Gentlemans Coat"
+	name = "gentlemans coat"
 	desc = "A heavy threaded twead gray jacket. For a different sort of Gentleman."
 	icon_state = "gentlecoat"
 	item_state = "gentlecoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	flags_inv = 0
 
 /obj/item/clothing/suit/wizrobe/fake
 	name = "wizard robe"
@@ -123,14 +122,14 @@
 	siemens_coefficient = 1.0
 
 /obj/item/clothing/head/wizard/marisa/fake
-	name = "Witch Hat"
+	name = "witch hat"
 	desc = "Strange-looking hat-wear, makes you want to cast fireballs."
 	icon_state = "marisa"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 1.0
 
 /obj/item/clothing/suit/wizrobe/marisa/fake
-	name = "Witch Robe"
+	name = "witch robe"
 	desc = "Magic is all about the spell power, ZE!"
 	icon_state = "marisa"
 	item_state = "marisarobe"
@@ -138,3 +137,20 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 1.0
 
+//black robes
+
+/obj/item/clothing/head/wizard/black
+	name = "black wizard hat"
+	desc = "Strange-looking, black, hat-wear that most certainly belongs to a real dark magic user."
+	icon = 'icons/obj/necromancer.dmi'
+	icon_state = "blackwizardhat"
+	item_state = "blackwizardhat"
+	contained_sprite = 1
+
+/obj/item/clothing/suit/wizrobe/black
+	name = "black wizard robe"
+	desc = "An unnerving black gem-lined robe that reeks of death and decay."
+	icon = 'icons/obj/necromancer.dmi'
+	icon_state = "blackwizard"
+	item_state = "blackwizard"
+	contained_sprite = 1

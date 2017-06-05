@@ -6,10 +6,11 @@
 	var/atom/source_atom     // The atom that we belong to.
 
 	var/turf/source_turf     // The turf under the above.
-	var/light_power    // Intensity of the emitter light.
-	var/light_range      // The range of the emitted light.
-	var/light_color    // The colour of the light, string, decomposed by parse_light_color()
+	var/light_power    	// Intensity of the emitter light.
+	var/light_range     // The range of the emitted light.
+	var/light_color    	// The colour of the light, string, decomposed by parse_light_color()
 	var/light_uv		// The intensity of UV light, between 0 and 255.
+	var/light_angle		// The light's emission angle, in degrees.
 
 	// Variables for keeping track of the colour.
 	var/lum_r
@@ -23,86 +24,88 @@
 	var/tmp/applied_lum_b
 	var/tmp/applied_lum_u
 
+	// Variables used to keep track of the atom's angle.
+	var/tmp/limit_a_x       // The first test point's X coord for the cone.
+	var/tmp/limit_a_y       // The first test point's Y coord for the cone.
+	var/tmp/limit_a_t       // The first test point's angle.
+	var/tmp/limit_b_x       // The second test point's X coord for the cone.
+	var/tmp/limit_b_y       // The second test point's Y coord for the cone.
+	var/tmp/limit_b_t       // The second test point's angle.
+	var/tmp/cached_origin_x // The last known X coord of the origin.
+	var/tmp/cached_origin_y // The last known Y coord of the origin.
+	var/tmp/old_direction   // The last known direction of the origin.
+	var/tmp/targ_sign       // The sign to test the point against.
+	var/tmp/test_x_offset   // How much the X coord should be offset due to direction.
+	var/tmp/test_y_offset   // How much the Y coord should be offset due to direction.
+
 	var/list/datum/lighting_corner/effect_str     // List used to store how much we're affecting corners.
 	var/list/turf/affecting_turfs
 
 	var/applied = FALSE // Whether we have applied our light yet or not.
 
-	var/vis_update      // Whether we should smartly recalculate visibility. and then only update tiles that became (in)visible to us.
-	var/needs_update    // Whether we are queued for an update.
-	var/destroyed       // Whether we are destroyed and need to stop emitting light.
-	var/force_update
+	var/needs_update = LIGHTING_NO_UPDATE
 
-/datum/light_source/New(var/atom/owner, var/atom/top, var/update_t = UPDATE_SCHEDULE)
+/datum/light_source/New(var/atom/owner, var/atom/top)
 	source_atom = owner // Set our new owner.
-	if (!source_atom.light_sources)
-		source_atom.light_sources = list()
 
-	source_atom.light_sources += src // Add us to the lights of our owner.
+	LAZYADD(source_atom.light_sources, src)
+
 	top_atom = top
 	if (top_atom != source_atom)
-		if (!top.light_sources)
-			top.light_sources     = list()
-
-		top_atom.light_sources += src
+		LAZYADD(top_atom.light_sources, src)
 
 	source_turf = top_atom
 	light_power = source_atom.light_power
 	light_range = source_atom.light_range
 	light_color = source_atom.light_color
 	light_uv    = source_atom.uv_intensity
+	light_angle = source_atom.light_wedge
 
 	parse_light_color()
 
-	effect_str      = list()
-	affecting_turfs = list()
+	update()
 
-	update(update_type = update_t)
-
-	lprof_write(src, "source_new")
+	L_PROF(source_atom, "source_new([type])")
 
 	return ..()
 
 // Kill ourselves.
-/datum/light_source/proc/destroy()
-	destroyed = TRUE
-	force_update()
-	if (source_atom && source_atom.light_sources)
-		source_atom.light_sources -= src
+/datum/light_source/Destroy(force)
+	L_PROF(source_atom, "source_destroy")
 
-	if (top_atom && top_atom.light_sources)
-		top_atom.light_sources    -= src
+	remove_lum()
+	if (source_atom)
+		LAZYREMOVE(source_atom.light_sources, src)
 
-/datum/light_source/proc/effect_update_now()
-	lprof_write(src, "source_updatenow")
-	if (check() || destroyed || force_update)
-		remove_lum(TRUE)
-		if (!destroyed)
-			apply_lum(update_type = UPDATE_NOW)
+	if (top_atom)
+		LAZYREMOVE(top_atom.light_sources, src)
 
-	else if (vis_update)	// We smartly update only tiles that became (in) visible to use.
-		smart_vis_update(update_type = UPDATE_NOW)
+	. = ..()
+	if (!force)
+		return QDEL_HINT_IWILLGC
 
-	vis_update   = FALSE
-	force_update = FALSE
-	needs_update = FALSE
-
-// Call it dirty, I don't care.
-// This is here so there's no performance loss on non-instant updates from the fact that the engine can also do instant updates.
-// If you're wondering what's with the "BYOND" argument: BYOND won't let me have a () macro that has no arguments :|.
-#define effect_update(BYOND)            \
-	if (!needs_update)                  \
-	{                                   \
-		lighting_update_lights += src;  \
-		needs_update            = TRUE; \
+// Picks either scheduled or instant updates based on current server load.
+#define INTELLIGENT_UPDATE(level)                      \
+	var/_should_update = needs_update == LIGHTING_NO_UPDATE; \
+	if (needs_update < level) {                        \
+		needs_update = level;                          \
+	}                                                  \
+	if (_should_update) {                              \
+		if (world.tick_usage > SSlighting.instant_tick_limit || SSlighting.force_queued) {	\
+			SSlighting.light_queue += src;              \
+		}                                               \
+		else {                                          \
+			update_corners(TRUE);                       \
+			needs_update = LIGHTING_NO_UPDATE;          \
+		}                                               \
 	}
 
 // This proc will cause the light source to update the top atom, and add itself to the update queue.
-/datum/light_source/proc/update(var/atom/new_top_atom, var/update_type = UPDATE_SCHEDULE)
+/datum/light_source/proc/update(var/atom/new_top_atom)
 	// This top atom is different.
 	if (new_top_atom && new_top_atom != top_atom)
 		if(top_atom != source_atom) // Remove ourselves from the light sources of that top atom.
-			top_atom.light_sources -= src
+			LAZYREMOVE(top_atom.light_sources, src)
 
 		top_atom = new_top_atom
 
@@ -112,59 +115,21 @@
 
 			top_atom.light_sources += src // Add ourselves to the light sources of our new top atom.
 
-	lprof_write(src, "source_update")
+	L_PROF(source_atom, "source_update")
 
-	if (update_type == UPDATE_NOW)
-		effect_update_now()
-	else if (update_type == UPDATE_SCHEDULE)	// I don't know why you would call this with UPDATE_NONE, but hey.
-		effect_update(null)
+	INTELLIGENT_UPDATE(LIGHTING_CHECK_UPDATE)
 
 // Will force an update without checking if it's actually needed.
 /datum/light_source/proc/force_update()
-	lprof_write(src, "source_forceupdate")
-	force_update = 1
+	L_PROF(source_atom, "source_forceupdate")
 
-	effect_update(null)
+	INTELLIGENT_UPDATE(LIGHTING_FORCE_UPDATE)
 
 // Will cause the light source to recalculate turfs that were removed or added to visibility only.
 /datum/light_source/proc/vis_update()
-	vis_update = 1
+	L_PROF(source_atom, "source_visupdate")
 
-	effect_update(null)
-
-// Will check if we actually need to update, and update any variables that may need to be updated.
-/datum/light_source/proc/check()
-	if (!source_atom || !light_range || !light_power)
-		destroy()
-		return 1
-
-	if (!top_atom)
-		top_atom = source_atom
-		. = 1
-
-	if (istype(top_atom, /turf))
-		if (source_turf != top_atom)
-			source_turf = top_atom
-			. = 1
-	else if (top_atom.loc != source_turf)
-		source_turf = top_atom.loc
-		. = 1
-
-	if (source_atom.light_power != light_power)
-		light_power = source_atom.light_power
-		. = 1
-
-	if (source_atom.light_range != light_range)
-		light_range = source_atom.light_range
-		. = 1
-
-	if (light_range && light_power && !applied)
-		. = 1
-
-	if (source_atom.light_color != light_color)
-		light_color = source_atom.light_color
-		parse_light_color()
-		. = 1
+	INTELLIGENT_UPDATE(LIGHTING_VIS_UPDATE)
 
 // Decompile the hexadecimal colour into lumcounts of each perspective.
 /datum/light_source/proc/parse_light_color()
@@ -182,139 +147,266 @@
 	else
 		lum_u = 0
 
-// Macro that applies light to a new corner.
-// It is a macro in the interest of speed, yet not having to copy paste it.
-// If you're wondering what's with the backslashes, the backslashes cause BYOND to not automatically end the line.
-// As such this all gets counted as a single line.
-// The braces and semicolons are there to be able to do this on a single line.
+#define POLAR_TO_CART_X(R,T) ((R) * cos(T))
+#define POLAR_TO_CART_Y(R,T) ((R) * sin(T))
+#define PSEUDO_WEDGE(A_X,A_Y,B_X,B_Y) ((A_X)*(B_Y) - (A_Y)*(B_X))
+#define MINMAX(NUM) ((NUM) < 0 ? -round(-(NUM)) : round(NUM))
+#define ARBITRARY_NUMBER 10
 
-#define APPLY_CORNER(C)              \
-	. = LUM_FALLOFF(C, source_turf); \
-                                     \
-	. *= light_power;                \
-                                     \
-	effect_str[C] = .;               \
-                                     \
-	C.update_lumcount                \
-	(                                \
-		. * applied_lum_r,           \
-		. * applied_lum_g,           \
-		. * applied_lum_b,           \
-		. * applied_lum_u,           \
-		update_type                       \
-	);
+/datum/light_source/proc/update_angle()
+	var/turf/T = get_turf(top_atom)
+	// Don't do anything if nothing is different, trig ain't free.
+	if (T.x == cached_origin_x && T.y == cached_origin_y && old_direction == top_atom.dir)
+		return
 
-// I don't need to explain what this does, do I?
-#define REMOVE_CORNER(C)             \
-	. = -effect_str[C];              \
-	C.update_lumcount                \
-	(                                \
-		. * applied_lum_r,           \
-		. * applied_lum_g,           \
-		. * applied_lum_b,           \
-		. * applied_lum_u,           \
-		update_type                       \
-	);
+	var/do_offset = TRUE
+	var/turf/front = get_step(T, top_atom.dir)
+	if (front && front.has_opaque_atom)
+		do_offset = FALSE
 
-// This is the define used to calculate falloff.
-#define LUM_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 + LIGHTING_HEIGHT) / max(1, light_range)))
+	cached_origin_x = T.x
+	test_x_offset = cached_origin_x
+	cached_origin_y = T.y
+	test_y_offset = cached_origin_y
 
-/datum/light_source/proc/apply_lum(var/update_type = UPDATE_SCHEDULE)
-	var/static/update_gen = 1
-	applied = 1
+	if (istype(top_atom, /mob) && top_atom:facing_dir)
+		old_direction = top_atom:facing_dir
+	else
+		old_direction = top_atom.dir
 
-	// Keep track of the last applied lum values so that the lighting can be reversed
+	var/angle = light_angle / 2
+	switch (old_direction)
+		if (NORTH)
+			limit_a_t = angle + 90
+			limit_b_t = -(angle) + 90
+			if (do_offset)
+				test_y_offset += 1
+
+		if (SOUTH)
+			limit_a_t = (angle) - 90
+			limit_b_t = -(angle) - 90
+			if (do_offset)
+				test_y_offset -= 1
+
+		if (EAST)
+			limit_a_t = angle
+			limit_b_t = -(angle)
+			if (do_offset)
+				test_x_offset += 1
+
+		if (WEST)
+			limit_a_t = angle + 180
+			limit_b_t = -(angle) - 180
+			if (do_offset)
+				test_x_offset -= 1
+
+	// Convert our angle + range into a vector.
+	limit_a_x = POLAR_TO_CART_X(light_range + ARBITRARY_NUMBER, limit_a_t)
+	limit_a_x = MINMAX(limit_a_x)
+	limit_a_y = POLAR_TO_CART_Y(light_range + ARBITRARY_NUMBER, limit_a_t)
+	limit_a_y = MINMAX(limit_a_y)
+	limit_b_x = POLAR_TO_CART_X(light_range + ARBITRARY_NUMBER, limit_b_t)
+	limit_b_x = MINMAX(limit_b_x)
+	limit_b_y = POLAR_TO_CART_Y(light_range + ARBITRARY_NUMBER, limit_b_t)
+	limit_b_y = MINMAX(limit_b_y)
+	// This won't change unless the origin or dir changes, might as well do it here.
+	targ_sign = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y) > 0
+
+#undef ARBITRARY_NUMBER
+
+// I know this is 2D, calling it a cone anyways. Fuck the system.
+// Returns true if the test point is NOT inside the cone.
+// Make sure update_angle() is called first if the light's loc or dir have changed.
+/datum/light_source/proc/check_light_cone(var/test_x, var/test_y)
+	test_x -= test_x_offset
+	test_y -= test_y_offset
+	var/at = PSEUDO_WEDGE(limit_a_x, limit_a_y, test_x, test_y)
+	var/tb = PSEUDO_WEDGE(test_x, test_y, limit_b_x, limit_b_y)
+
+	// if the signs of both at and tb are NOT the same, the point is NOT within the cone.
+	return (((at > 0) != targ_sign) || ((tb > 0) != targ_sign))
+
+#undef POLAR_TO_CART_X
+#undef POLAR_TO_CART_Y
+#undef PSEUDO_WEDGE
+#undef MINMAX
+
+/datum/light_source/proc/remove_lum(var/now = FALSE)
+	applied = FALSE
+
+	var/thing
+	for (thing in affecting_turfs)
+		var/turf/T = thing
+		LAZYREMOVE(T.affecting_lights, src)
+
+	affecting_turfs = null
+
+	for (thing in effect_str)
+		var/datum/lighting_corner/C = thing
+		REMOVE_CORNER(C,now)
+
+		LAZYREMOVE(C.affecting, src)
+
+	effect_str = null
+
+/datum/light_source/proc/recalc_corner(var/datum/lighting_corner/C, var/now = FALSE)
+	LAZYINITLIST(effect_str)
+	if (effect_str[C]) // Already have one.
+		REMOVE_CORNER(C,now)
+		effect_str[C] = 0
+
+	APPLY_CORNER(C,now)
+	UNSETEMPTY(effect_str)
+
+// If you update this, update the equivalent proc in lighting_source_novis.dm.
+/datum/light_source/proc/update_corners(now = FALSE)
+	var/update = FALSE
+
+	if (QDELETED(source_atom))
+		qdel(src)
+		return
+
+	if (source_atom.light_power != light_power)
+		light_power = source_atom.light_power
+		update = TRUE
+
+	if (source_atom.light_range != light_range)
+		light_range = source_atom.light_range
+		update = TRUE
+
+	if (!top_atom)
+		top_atom = source_atom
+		update = TRUE
+
+	if (top_atom.loc != source_turf)
+		source_turf = top_atom.loc
+		update = TRUE
+
+	if (!light_range || !light_power)
+		qdel(src)
+		return
+
+	if (isturf(top_atom))
+		if (source_turf != top_atom)
+			source_turf = top_atom
+			update = TRUE
+	else if (top_atom.loc != source_turf)
+		source_turf = top_atom.loc
+		update = TRUE
+
+	if (!source_turf)
+		return	// Somehow we've got a light in nullspace, no-op.
+
+	if (light_range && light_power && !applied)
+		update = TRUE
+
+	if (source_atom.light_color != light_color)
+		light_color = source_atom.light_color
+		parse_light_color()
+		update = TRUE
+
+	else if (applied_lum_r != lum_r || applied_lum_g != lum_g || applied_lum_b != lum_b)
+		update = TRUE
+
+	if (source_atom.light_wedge != light_angle)
+		light_angle = source_atom.light_wedge
+		update = TRUE
+
+	if (light_angle && top_atom.dir != old_direction)
+		update = TRUE
+
+	if (update && light_angle)
+		update_angle()
+
+	if (update)
+		needs_update = LIGHTING_CHECK_UPDATE
+	else if (needs_update == LIGHTING_CHECK_UPDATE)
+		return	// No change.
+
+	var/list/datum/lighting_corner/corners = list()
+	var/list/turf/turfs                    = list()
+	var/thing
+	var/datum/lighting_corner/C
+	var/turf/T
+	var/Sx = source_turf.x
+	var/Sy = source_turf.y
+
+	FOR_DVIEW(T, Ceiling(light_range), source_turf, 0)
+		check_t:
+		if (light_angle && check_light_cone(T.x, T.y))
+			continue
+
+		for (thing in T.get_corners())
+			C = thing
+			corners[C] = 0
+
+		turfs += T
+
+		if (istype(T, /turf/simulated/open) && T:below)
+			T = T:below	// Consider the turf below us as well. (Z-lights)
+			goto check_t
+
+	END_FOR_DVIEW
+
+	LAZYINITLIST(affecting_turfs)
+
+	var/list/L = turfs - affecting_turfs // New turfs, add us to the affecting lights of them.
+	affecting_turfs += L
+	for (thing in L)
+		T = thing
+		LAZYADD(T.affecting_lights, src)
+
+	L = affecting_turfs - turfs // Now-gone turfs, remove us from the affecting lights.
+	affecting_turfs -= L
+	for (thing in L)
+		T = thing
+		LAZYREMOVE(T.affecting_lights, src)
+
+	LAZYINITLIST(effect_str)
+	if (needs_update == LIGHTING_VIS_UPDATE)
+		for (thing in corners - effect_str)
+			C = thing
+			LAZYADD(C.affecting, src)
+			if (!C.active)
+				effect_str[C] = 0
+				continue
+
+			APPLY_CORNER_XY(C, now, Sx, Sy)
+	else
+		L = corners - effect_str
+		for (thing in L)
+			C = thing
+			LAZYADD(C.affecting, src)
+			if (!C.active)
+				effect_str[C] = 0
+				continue
+
+			APPLY_CORNER_XY(C, now, Sx, Sy)
+
+		for (thing in corners - L)
+			C = thing
+			if (!C.active)
+				effect_str[C] = 0
+				continue
+
+			APPLY_CORNER_XY(C, now, Sx, Sy)
+
+	L = effect_str - corners
+	for (thing in L)
+		C = thing
+		REMOVE_CORNER(C, now)
+		LAZYREMOVE(C.affecting, src)
+
+	effect_str -= L
+
 	applied_lum_r = lum_r
 	applied_lum_g = lum_g
 	applied_lum_b = lum_b
 	applied_lum_u = lum_u
 
-	FOR_DVIEW(var/turf/T, light_range, source_turf, INVISIBILITY_LIGHTING)
-		if (!T.lighting_corners_initialised)
-			T.generate_missing_corners()
+	UNSETEMPTY(effect_str)
+	UNSETEMPTY(affecting_turfs)
 
-		for (var/datum/lighting_corner/C in T.get_corners())
-			if (C.update_gen == update_gen)
-				continue
-
-			C.update_gen = update_gen
-			C.affecting += src
-
-			if (!C.active)
-				effect_str[C] = 0
-				continue
-
-			APPLY_CORNER(C)
-
-		if (!T.affecting_lights)
-			T.affecting_lights = list()
-
-		T.affecting_lights += src
-		affecting_turfs    += T
-
-	update_gen++
-
-/datum/light_source/proc/remove_lum(var/update_type = UPDATE_SCHEDULE)
-	applied = FALSE
-
-	for (var/turf/T in affecting_turfs)
-		if (!T.affecting_lights)
-			T.affecting_lights = list()
-		else
-			T.affecting_lights -= src
-
-	affecting_turfs.Cut()
-
-	for (var/datum/lighting_corner/C in effect_str)
-		REMOVE_CORNER(C)
-
-		C.affecting -= src
-
-	effect_str.Cut()
-
-/datum/light_source/proc/recalc_corner(var/datum/lighting_corner/C)
-	var/update_type = UPDATE_SCHEDULE	// for (APPLY|REMOVE)_CORNER.
-	if (effect_str.Find(C)) // Already have one.
-		REMOVE_CORNER(C)
-
-	APPLY_CORNER(C)
-
-/datum/light_source/proc/smart_vis_update(var/update_type = UPDATE_SCHEDULE)
-	var/list/datum/lighting_corner/corners = list()
-	var/list/turf/turfs                    = list()
-	FOR_DVIEW(var/turf/T, light_range, source_turf, 0)
-		if (!T.lighting_corners_initialised)
-			T.generate_missing_corners()
-		corners |= T.get_corners()
-		turfs   += T
-
-	var/list/L = turfs - affecting_turfs // New turfs, add us to the affecting lights of them.
-	affecting_turfs += L
-	for (var/turf/T in L)
-		if (!T.affecting_lights)
-			T.affecting_lights = list(src)
-		else
-			T.affecting_lights += src
-
-	L = affecting_turfs - turfs // Now-gone turfs, remove us from the affecting lights.
-	affecting_turfs -= L
-	for (var/turf/T in L)
-		T.affecting_lights -= src
-
-	for (var/datum/lighting_corner/C in corners - effect_str) // New corners
-		C.affecting += src
-		if (!C.active)
-			effect_str[C] = 0
-			continue
-
-		APPLY_CORNER(C)
-
-	for (var/datum/lighting_corner/C in effect_str - corners) // Old, now gone, corners.
-		REMOVE_CORNER(C)
-		C.affecting -= src
-		effect_str -= C
-
-#undef effect_update
-#undef LUM_FALLOFF
-#undef REMOVE_CORNER
-#undef APPLY_CORNER
+#undef QUEUE_UPDATE
+#undef DO_UPDATE
+#undef INTELLIGENT_UPDATE

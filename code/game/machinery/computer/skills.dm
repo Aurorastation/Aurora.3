@@ -3,7 +3,7 @@
 /obj/machinery/computer/skills//TODO:SANITY
 	name = "employment records console"
 	desc = "Used to view, edit and maintain employment records."
-	icon_state = "laptop"
+	icon_state = "medlaptop0"
 
 	icon_screen = "medlaptop"
 	light_color = "#00b000"
@@ -16,7 +16,7 @@
 	var/datum/data/record/active1 = null
 	var/a_id = null
 	var/temp = null
-	//var/printing = null
+	is_holographic = FALSE
 	var/can_change_id = 0
 	var/list/Perp
 	var/tempname = null
@@ -42,7 +42,7 @@
 	set name = "Eject ID Card"
 	set src in oview(1)
 
-	if(!usr || usr.stat || usr.lying)	return
+	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 
 	if(scan)
 		usr << "You remove \the [scan] from \the [src]."

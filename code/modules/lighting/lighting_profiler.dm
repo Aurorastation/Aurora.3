@@ -11,7 +11,7 @@
 
 	var/name = null
 	var/locname = null
-	if (istype(obj, /obj))
+	if (istype(obj))
 		name = obj.name
 		locname = obj.loc.name
 		x = obj.loc.x
@@ -20,19 +20,20 @@
 
 	var/static/DBQuery/lprof_q
 	if (!lprof_q)
-		lprof_q = dbcon.NewQuery({"INSERT INTO ss13dbg_lighting (time,type,name,loc_name,x,y,z) 
-		VALUES (:time,:type,:name,:loc_name,:x,:y,:z);"})
+		lprof_q = dbcon.NewQuery({"INSERT INTO ss13dbg_lighting (time,tick_usage,type,name,loc_name,x,y,z)
+		VALUES (:time:,:tick_usage:,:type:,:name:,:loc_name:,:x:,:y:,:z:);"})
 
 	lprof_q.Execute(
 		list(
-			":time" = world.time,
-			":type" = type,
-			":name" = name,
-			":loc_name" = locname, 
-			":x" = x,
-			":y" = y,
-			":z" = z))
-	
+			"time" = world.time,
+			"tick_usage" = world.tick_usage,
+			"type" = type,
+			"name" = name,
+			"loc_name" = locname,
+			"x" = x,
+			"y" = y,
+			"z" = z))
+
 	var/err = lprof_q.ErrorMsg()
 	if (err)
 		log_debug("lprof_write: SQL Error: [err]")

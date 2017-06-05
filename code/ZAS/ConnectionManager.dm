@@ -16,7 +16,7 @@ Class Procs:
 		Preferable to accessing the connection directly because it checks validity.
 
 	place(connection/c, d)
-		Called by air_master.connect(). Sets the connection in the specified direction to c.
+		Called by SSair.connect(). Sets the connection in the specified direction to c.
 
 	update_all()
 		Called after turf/update_air_properties(). Updates the validity of all connections on this turf.
@@ -37,7 +37,7 @@ Class Procs:
 /connection_manager/var/connection/E
 /connection_manager/var/connection/W
 
-#ifdef ZLEVELS
+#ifdef MULTIZAS
 /connection_manager/var/connection/U
 /connection_manager/var/connection/D
 #endif
@@ -57,7 +57,7 @@ Class Procs:
 			if(check(W)) return W
 			else return null
 
-		#ifdef ZLEVELS
+		#ifdef MULTIZAS
 		if(UP)
 			if(check(U)) return U
 			else return null
@@ -73,7 +73,7 @@ Class Procs:
 		if(EAST) E = c
 		if(WEST) W = c
 
-		#ifdef ZLEVELS
+		#ifdef MULTIZAS
 		if(UP) U = c
 		if(DOWN) D = c
 		#endif
@@ -83,7 +83,7 @@ Class Procs:
 	if(check(S)) S.update()
 	if(check(E)) E.update()
 	if(check(W)) W.update()
-	#ifdef ZLEVELS
+	#ifdef MULTIZAS
 	if(check(U)) U.update()
 	if(check(D)) D.update()
 	#endif
@@ -93,7 +93,7 @@ Class Procs:
 	if(check(S)) S.erase()
 	if(check(E)) E.erase()
 	if(check(W)) W.erase()
-	#ifdef ZLEVELS
+	#ifdef MULTIZAS
 	if(check(U)) U.erase()
 	if(check(D)) D.erase()
 	#endif

@@ -7,7 +7,7 @@
 
 /obj/machinery/mining/drill
 	name = "mining drill head"
-	desc = "An enormous drill."
+	desc = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
 	icon_state = "mining_drill"
 	var/braces_needed = 2
 	var/list/supports = list()
@@ -38,6 +38,8 @@
 	var/need_update_field = 0
 	var/need_player_check = 0
 
+	var/datum/effect_system/sparks/spark_system
+
 /obj/machinery/mining/drill/New()
 
 	..()
@@ -49,7 +51,13 @@
 	component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
 	component_parts += new /obj/item/weapon/cell/high(src)
 
+	spark_system = bind_spark(src, 3)
+
 	RefreshParts()
+
+/obj/machinery/mining/drill/Destroy()
+	QDEL_NULL(spark_system)
+	return ..()
 
 /obj/machinery/mining/drill/process()
 
@@ -208,15 +216,11 @@
 			if(supported && panel_open)
 				if(cell)
 					system_error("unsealed cell fitting error")
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(3, 1, src.loc)
-					s.start()
+					spark_system.queue()
 					sleep(20)
-					s.set_up(3, 1, src.loc)
-					s.start()
+					spark_system.queue()
 					sleep(10)
-					s.set_up(3, 1, src.loc)
-					s.start()
+					spark_system.queue()
 					sleep(10)
 					if(panel_open)
 						if(prob(70))

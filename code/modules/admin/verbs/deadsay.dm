@@ -8,11 +8,11 @@
 	if(!src.mob)
 		return
 	if(prefs.muted & MUTE_DEADCHAT)
-		src << "\red You cannot send DSAY messages (muted)."
+		src << "<span class='danger'>You cannot send DSAY messages (muted).</span>"
 		return
 
 	if(!(prefs.toggles & CHAT_DEAD))
-		src << "\red You have deadchat muted."
+		src << "<span class='warning'>You have deadchat muted.</span>"
 		return
 
 	if (src.handle_spam_prevention(msg,MUTE_DEADCHAT))
@@ -21,7 +21,7 @@
 	var/stafftype = uppertext(holder.rank)
 
 	msg = sanitize(msg)
-	log_admin("DSAY: [key_name(src)] : [msg]")
+	log_admin("DSAY: [key_name(src)] : [msg]",admin_key=key_name(src))
 
 	msg = process_chat_markup(msg)
 

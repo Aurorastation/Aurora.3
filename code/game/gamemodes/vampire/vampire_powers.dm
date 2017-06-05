@@ -178,8 +178,8 @@
 	src << "<span class='notice'>You begin peering into [T.name]'s mind, looking for a way to render them useless.</span>"
 
 	if (do_mob(src, T, 50))
-		src << "<span class='danger'> You dominate [T.name]'s mind and render them temporarily powerless to resist.</span>"
-		T << "<span class='danger'> You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak.</span>"
+		src << "<span class='danger'>You dominate [T.name]'s mind and render them temporarily powerless to resist.</span>"
+		T << "<span class='danger'>You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak.</span>"
 		T.Weaken(25)
 		T.Stun(25)
 		T.silent += 30
@@ -276,17 +276,19 @@
 		return
 
 	for (var/mob/living/simple_animal/hostile/scarybat/bat in spawned)
-		bat.friends += src
+		LAZYADD(bat.friends, src)
 
 		if (vampire.thralls.len)
-			bat.friends += vampire.thralls
+			LAZYADD(bat.friends, vampire.thralls)
 
 	log_and_message_admins("summoned bats.")
 
 	vampire.use_blood(60)
 	verbs -= /mob/living/carbon/human/proc/vampire_bats
-	spawn (1200)
-		verbs += /mob/living/carbon/human/proc/vampire_bats
+	addtimer(CALLBACK(src, .proc/vampire_post_bats), 1200)
+	
+/mob/living/carbon/human/proc/vampire_post_bats()
+	verbs += /mob/living/carbon/human/proc/vampire_bats
 
 // Chiropteran Screech
 /mob/living/carbon/human/proc/vampire_screech()
@@ -372,7 +374,6 @@
 
 	var/last_valid_turf = null
 	var/can_move = 1
-	var/processing = 0
 	var/mob/owner_mob = null
 	var/datum/vampire/owner_vampire = null
 	var/warning_level = 0
@@ -380,9 +381,7 @@
 /obj/effect/dummy/veil_walk/Destroy()
 	eject_all()
 
-	if (processing)
-		processing_objects -= src
-		processing = 0
+	STOP_PROCESSING(SSprocessing, src)
 
 	return ..()
 
@@ -465,13 +464,10 @@
 
 	desc += " Its features look faintly alike [owner.name]'s."
 
-	processing = 1
-	processing_objects += src
+	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/dummy/veil_walk/proc/deactivate()
-	if (processing)
-		processing_objects -= src
-		processing = 0
+	STOP_PROCESSING(SSprocessing, src)
 
 	can_move = 0
 
@@ -680,7 +676,7 @@
 	T.mind.vampire.master = src
 	vampire.thralls += T
 	T << "<span class='notice'>You have been forced into a blood bond by [T.mind.vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them.</span>"
-
+	src << "<span class='notice'>You have completed the thralling process. They are now your slave and will obey your commands.</span>"
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
 	vampire.use_blood(150)
@@ -850,6 +846,10 @@
 			if (alert(src, choice_text, "Choices", "Yes", "No") == "No")
 				src << "<span class='notice'>[denial_response]</span>"
 				return
+
+			vampire_thrall.remove_antagonist(T.mind, 0, 0)
+			qdel(draining_vamp)
+			draining_vamp = null
 		else
 			src << "<span class='warning'>You feel corruption running in [T.name]'s blood. Much like yourself, \he[T] is already a spawn of the Veil, and cannot be Embraced.</span>"
 			return

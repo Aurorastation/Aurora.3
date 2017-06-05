@@ -57,7 +57,7 @@ var/datum/antagonist/highlander/highlanders
 
 /proc/only_one()
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("The game hasn't started yet!")
 		return
 
@@ -67,4 +67,4 @@ var/datum/antagonist/highlander/highlanders
 		highlanders.add_antagonist(H.mind)
 
 	message_admins("<span class='notice'>[key_name_admin(usr)] used THERE CAN BE ONLY ONE!</span>", 1)
-	log_admin("[key_name(usr)] used there can be only one.")
+	log_admin("[key_name(usr)] used there can be only one.", admin_key=key_name(usr))

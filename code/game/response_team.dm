@@ -14,10 +14,7 @@ var/can_call_ert
 	if(!holder)
 		usr << "<span class='danger'>Only administrators may use this command.</span>"
 		return
-	if(!ticker)
-		usr << "<span class='danger'>The game hasn't started yet!</span>"
-		return
-	if(ticker.current_state == 1)
+	if(!ROUND_IS_STARTED)
 		usr << "<span class='danger'>The round hasn't started yet!</span>"
 		return
 	if(send_emergency_team)
@@ -34,7 +31,7 @@ var/can_call_ert
 		return
 
 	message_admins("[key_name_admin(usr)] is dispatching an Emergency Response Team.", 1)
-	log_admin("[key_name(usr)] used Dispatch Response Team.")
+	log_admin("[key_name(usr)] used Dispatch Response Team.",admin_key=key_name(usr))
 	trigger_armed_response_team(1)
 
 client/verb/JoinResponseTeam()

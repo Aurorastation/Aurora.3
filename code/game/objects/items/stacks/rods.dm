@@ -1,3 +1,14 @@
+var/global/list/datum/stack_recipe/rod_recipes = list ( \
+	new/datum/stack_recipe("grille", /obj/structure/grille, 2, time = 10, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("mine track", /obj/structure/track, 3, time = 10, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("cane", /obj/item/weapon/cane, 1, time = 6), \
+	new/datum/stack_recipe("crowbar", /obj/item/weapon/crowbar, 1, time = 6), \
+	new/datum/stack_recipe("screwdriver", /obj/item/weapon/screwdriver, 1, time = 12), \
+	new/datum/stack_recipe("wrench", /obj/item/weapon/wrench, 1, time = 6), \
+	new/datum/stack_recipe("spade", /obj/item/weapon/shovel/spade, 2, time = 12), \
+	new/datum/stack_recipe("bolt", /obj/item/weapon/arrow, 1, time = 6)
+	)
+
 /obj/item/stack/rods
 	name = "metal rod"
 	desc = "Some rods. Can be used for building, or something."
@@ -22,6 +33,19 @@
 	charge_costs = list(500)
 	stacktype = /obj/item/stack/rods
 
+/obj/item/stack/rods/New(var/loc, var/amount=null)
+	..()
+
+	recipes = rod_recipes
+	update_icon()
+
+/obj/item/stack/rods/update_icon()
+	var/amount = get_amount()
+	if((amount <= 5) && (amount > 0))
+		icon_state = "rods-[amount]"
+	else
+		icon_state = "rods"
+
 /obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if (istype(W, /obj/item/weapon/weldingtool))
@@ -44,36 +68,3 @@
 				user.put_in_hands(new_item)
 		return
 	..()
-
-
-/obj/item/stack/rods/attack_self(mob/user as mob)
-	src.add_fingerprint(user)
-
-	if(!istype(user.loc,/turf)) return 0
-
-	if (locate(/obj/structure/grille, usr.loc))
-		for(var/obj/structure/grille/G in usr.loc)
-			if (G.destroyed)
-				G.health = 10
-				G.density = 1
-				G.destroyed = 0
-				G.icon_state = "grille"
-				use(1)
-			else
-				return 1
-
-	else if(!in_use)
-		if(get_amount() < 2)
-			user << "<span class='warning'>You need at least two rods to do this.</span>"
-			return
-		usr << "<span class='notice'>Assembling grille...</span>"
-		in_use = 1
-		if (!do_after(usr, 10))
-			in_use = 0
-			return
-		var/obj/structure/grille/F = new /obj/structure/grille/ ( usr.loc )
-		usr << "<span class='notice'>You assemble a grille</span>"
-		in_use = 0
-		F.add_fingerprint(usr)
-		use(2)
-	return

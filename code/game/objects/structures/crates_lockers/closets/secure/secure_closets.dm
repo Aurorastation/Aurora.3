@@ -80,9 +80,7 @@
 			W.forceMove(src.loc)
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
 		if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
-			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-			spark_system.set_up(5, 0, src.loc)
-			spark_system.start()
+			W:spark_system.queue()
 			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 			playsound(src.loc, "sparks", 50, 1)
 	else if(!src.opened)
@@ -128,14 +126,14 @@
 		usr << "<span class='warning'>This mob type can't use this verb.</span>"
 
 /obj/structure/closet/secure_closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
-	overlays.Cut()
+	cut_overlays()
 	if(!opened)
 		if(locked)
 			icon_state = icon_locked
 		else
 			icon_state = icon_closed
 		if(welded)
-			overlays += "welded"
+			add_overlay("welded")
 	else
 		icon_state = icon_opened
 

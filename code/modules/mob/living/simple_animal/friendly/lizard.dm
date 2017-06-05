@@ -22,9 +22,8 @@
 
 	var/decompose_time = 18000
 
-/mob/living/simple_animal/lizard/New()
-	..()
-
+/mob/living/simple_animal/lizard/Initialize()
+	. = ..()
 	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
 
 /mob/living/simple_animal/lizard/Life()
@@ -35,7 +34,7 @@
 
 /mob/living/simple_animal/lizard/attack_hand(mob/living/carbon/human/M as mob)
 	if (src.stat == DEAD)//If the creature is dead, we don't pet it, we just pickup the corpse on click
-		get_scooped(M)
+		get_scooped(M, usr)
 		return
 	else
 		..()

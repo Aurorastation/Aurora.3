@@ -34,14 +34,20 @@
 			return eyestab(M,user)
 		else
 			return ..()
-
+	var/fullness = M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25)
 	if (reagents.total_volume > 0)
 		reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 		if(M == user)
 			if(!M.can_eat(loaded))
 				return
+			if (fullness > (550 * (1 + M.overeatduration / 2000)))
+				M <<"You cannot force anymore food down!"
+				return
 			M.visible_message("<span class='notice'>\The [user] eats some [loaded] from \the [src].</span>")
 		else
+			if (fullness > (550 * (1 + M.overeatduration / 2000)))
+				M <<"You cannot force anymore food down their throat!"
+				return
 			user.visible_message("<span class='warning'>\The [user] begins to feed \the [M]!</span>")
 			if(!(M.can_force_feed(user, loaded) && do_mob(user, M, 5 SECONDS)))
 				return

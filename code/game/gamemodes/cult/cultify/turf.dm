@@ -27,6 +27,9 @@
 /turf/unsimulated/beach/cultify()
 	return
 
+/turf/simulated/open/cultify()
+	return
+
 /turf/unsimulated/floor/cultify()
 	cultify_floor()
 
@@ -37,6 +40,8 @@
 	if((icon_state != "cult")&&(icon_state != "cult-narsie"))
 		icon = 'icons/turf/flooring/cult.dmi'
 		icon_state = "cult"
+		pixel_x = 0
+		pixel_y = 0
 		if(istype(src,/turf/simulated/floor))
 			var/turf/simulated/floor/F = src
 			F.set_flooring(get_flooring_data(/decl/flooring/reinforced/cult))

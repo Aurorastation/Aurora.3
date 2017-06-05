@@ -24,7 +24,7 @@
 
 // Aurora forensics port.
 /obj/item/clothing/clean_blood()
-	..()
+	. = ..()
 	gunshot_residue = null
 
 //BS12: Species-restricted clothing check.
@@ -61,8 +61,8 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Human", "Skrell")	//humanoid bodytypes
-			species_restricted = list("Human", "Skrell") //skrell/humans can wear each other's suits
+		if("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame")	//humanoid bodytypes
+			species_restricted = list("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame") //skrell/humans like to share with IPCs
 		else
 			species_restricted = list(target_species)
 
@@ -84,7 +84,7 @@
 	//Set species_restricted list
 	switch(target_species)
 		if("Skrell")
-			species_restricted = list("Human", "Skrell") //skrell helmets fit humans too
+			species_restricted = list("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame") // skrell helmets like to share
 
 		else
 			species_restricted = list(target_species)
@@ -245,7 +245,7 @@ BLIND     // can't see anything
 			return
 
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-		user.visible_message("\red [user] cuts the fingertips off of the [src].","\red You cut the fingertips off of the [src].")
+		user.visible_message("<span class='warning'>[user] cuts the fingertips off of the [src].</span>","<span class='warning'>You cut the fingertips off of the [src].</span>")
 
 		clipped = 1
 		name = "modified [name]"
@@ -268,14 +268,13 @@ BLIND     // can't see anything
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
 	w_class = 2.0
-	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
 	species_restricted = list("exclude","Vaurca Breeder")
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
 	var/brightness_on
 	var/on = 0
-	//offset_light = 1
 
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/head.dmi',
@@ -340,25 +339,22 @@ BLIND     // can't see anything
 
 /obj/item/clothing/head/update_icon(var/mob/user)
 
-	overlays.Cut()
+	cut_overlays()
 	var/mob/living/carbon/human/H
 	if(istype(user,/mob/living/carbon/human))
 		H = user
 
 	if(on)
-
 		// Generate object icon.
-		if(!light_overlay_cache["[light_overlay]_icon"])
-			light_overlay_cache["[light_overlay]_icon"] = image("icon" = 'icons/obj/light_overlays.dmi', "icon_state" = "[light_overlay]")
-		overlays |= light_overlay_cache["[light_overlay]_icon"]
+		if(!SSicon_cache.light_overlay_cache["[light_overlay]_icon"])
+			SSicon_cache.light_overlay_cache["[light_overlay]_icon"] = image("icon" = 'icons/obj/light_overlays.dmi', "icon_state" = "[light_overlay]")
+		add_overlay(SSicon_cache.light_overlay_cache["[light_overlay]_icon"])
 
 		// Generate and cache the on-mob icon, which is used in update_inv_head().
 		var/cache_key = "[light_overlay][H ? "_[H.species.get_bodytype()]" : ""]"
-		if(!light_overlay_cache[cache_key])
+		if(!SSicon_cache.light_overlay_cache[cache_key])
 			var/use_icon = 'icons/mob/light_overlays.dmi'
-			if(H && sprite_sheets && sprite_sheets[H.species.get_bodytype()])
-				use_icon = sprite_sheets[H.species.get_bodytype()]
-			light_overlay_cache[cache_key] = image("icon" = use_icon, "icon_state" = "[light_overlay]")
+			SSicon_cache.light_overlay_cache[cache_key] = image("icon" = use_icon, "icon_state" = "[light_overlay]")
 
 	if(H)
 		H.update_inv_head()
@@ -411,12 +407,11 @@ BLIND     // can't see anything
 
 	permeability_coefficient = 0.50
 	slowdown = SHOES_SLOWDOWN
-	force = 2
+	force = 0
 	var/overshoes = 0
-	species_restricted = list("exclude","Unathi","Tajara","Vaurca","Vaurca Breeder")
+	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder")
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
 	var/silent = 0
-	species_restricted = list("exclude","Unathi","Tajara","Vox", "Vaurca")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/shoes.dmi',
 		"Resomi" = 'icons/mob/species/resomi/shoes.dmi'
@@ -462,9 +457,9 @@ BLIND     // can't see anything
 		return ..()
 
 /obj/item/clothing/shoes/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(holding)
-		overlays += image(icon, "[icon_state]_knife")
+		add_overlay("[icon_state]_knife")
 	return ..()
 
 /obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
@@ -655,7 +650,7 @@ BLIND     // can't see anything
 		switch(sensor_mode)
 			if(0)
 				for(var/mob/V in viewers(usr, 1))
-					V.show_message("\red [usr] disables [src.loc]'s remote sensing equipment.", 1)
+					V.show_message("<span class='warning'>[usr] disables [src.loc]'s remote sensing equipment.</span>", 1)
 			if(1)
 				for(var/mob/V in viewers(usr, 1))
 					V.show_message("[usr] turns [src.loc]'s remote sensors to binary.", 1)

@@ -3,6 +3,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 /spell
 	var/name = "Spell"
 	var/desc = "A spell"
+	var/feedback = "" //what gets sent if this spell gets chosen by the spellbook.
 	parent_type = /datum
 	var/panel = "Spells"//What panel the proc holder needs to go on.
 
@@ -15,6 +16,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	var/still_recharging_msg = "<span class='notice'>The spell is still recharging.</span>"
 
 	var/silenced = 0 //not a binary - the length of time we can't cast this for
+	var/processing = 0 //are we processing already? Mainly used so that silencing a spell doesn't call process() again. (and inadvertedly making it run twice as fast)
 
 	var/holder_var_type = "bruteloss" //only used if charge_type equals to "holder_var"
 	var/holder_var_amount = 20 //same. The amount adjusted with the mob's var when the spell is used
@@ -64,10 +66,21 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	//still_recharging_msg = "<span class='notice'>[name] is still recharging.</span>"
 	charge_counter = charge_max
 
-/spell/proc/process()
-	spawn while(charge_counter < charge_max)
-		charge_counter++
-		sleep(1)
+/spell/process()
+	if(processing)
+		return
+	processing = 1
+	spawn(0)
+		while(charge_counter < charge_max || silenced > 0)
+			charge_counter = min(charge_max,charge_counter+1)
+			silenced = max(0,silenced-1)
+			sleep(1)
+		if(connected_button)
+			var/obj/screen/spell/S = connected_button
+			if(!istype(S))
+				return
+			S.update_charge(1)
+		processing = 0
 	return
 
 /////////////////
@@ -85,7 +98,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	if(cast_delay && !spell_do_after(user, cast_delay))
 		return
 	var/list/targets = choose_targets(user)
-	if(targets && targets.len)
+	if(targets && targets.len && cast_check(1,user))
 		invocation(user, targets)
 		take_charge(user, skipcharge)
 
@@ -94,6 +107,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 		if(prob(critfailchance))
 			critfail(targets, user)
 		else
+			playsound(get_turf(user), cast_sound, 50, 1)
 			cast(targets, user)
 		after_cast(targets) //generates the sparks, smoke, target messages etc.
 
@@ -114,6 +128,8 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 			target.adjustToxLoss(amount)
 		if("oxyloss")
 			target.adjustOxyLoss(amount)
+		if("brainloss")
+			target.adjustBrainLoss(amount)
 		if("stunned")
 			target.AdjustStunned(amount)
 		if("weakened")
@@ -158,9 +174,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 		if(istype(target,/mob/living) && message)
 			target << text("[message]")
 		if(sparks_spread)
-			var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
-			sparks.set_up(sparks_amt, 0, location) //no idea what the 0 is
-			sparks.start()
+			spark(location, sparks_amt)
 		if(smoke_spread)
 			if(smoke_spread == 1)
 				var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
@@ -277,14 +291,19 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	if(level_max[Sp_TOTAL] <= ( spell_levels[Sp_SPEED] + spell_levels[Sp_POWER] )) //too many levels, can't do it
 		return 0
 
-	if(upgrade_type && upgrade_type in spell_levels && upgrade_type in level_max)
-		if(spell_levels[upgrade_type] >= level_max[upgrade_type])
-			return 0
+	//if(upgrade_type && spell_levels[upgrade_type] && level_max[upgrade_type])
+	if(upgrade_type && spell_levels[upgrade_type] >= level_max[upgrade_type])
+		return 0
 
 	return 1
 
 /spell/proc/empower_spell()
-	return
+	if(!can_improve(Sp_POWER))
+		return 0
+
+	spell_levels[Sp_POWER]++
+
+	return 1
 
 /spell/proc/quicken_spell()
 	if(!can_improve(Sp_SPEED))

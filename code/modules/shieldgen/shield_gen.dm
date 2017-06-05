@@ -30,20 +30,19 @@
 	var/energy_conversion_rate = 0.0002	//how many renwicks per watt?
 	use_power = 0	//doesn't use APC power
 
-/obj/machinery/shield_gen/New()
-	spawn(10)
-		for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
-			if(get_dir(possible_cap, src) == possible_cap.dir)
-				owned_capacitor = possible_cap
-				break
-	field = new/list()
-	..()
+/obj/machinery/shield_gen/Initialize()
+	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
+		if(get_dir(possible_cap, src) == possible_cap.dir)
+			owned_capacitor = possible_cap
+			break
+	field = list()
+	. = ..()
 
 /obj/machinery/shield_gen/Destroy()
 	for(var/obj/effect/energy_field/D in field)
 		field.Remove(D)
 		D.loc = null
-	..()
+	return ..()
 	
 /obj/machinery/shield_gen/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
@@ -51,9 +50,8 @@
 		user << "Controls are now [src.locked ? "locked." : "unlocked."]"
 		. = 1
 		updateDialog()
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(5, 1, src)
-	s.start()
+
+	spark(src, 5, alldirs)
 
 /obj/machinery/shield_gen/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/weapon/card/id))
@@ -63,10 +61,10 @@
 			user << "Controls are now [src.locked ? "locked." : "unlocked."]"
 			updateDialog()
 		else
-			user << "\red Access denied."
+			user << span("alert", "Access denied.")
 	else if(istype(W, /obj/item/weapon/wrench))
 		src.anchored = !src.anchored
-		src.visible_message("\blue \icon[src] [src] has been [anchored?"bolted to the floor":"unbolted from the floor"] by [user].")
+		src.visible_message(span("notice", "\The [src] has been [anchored ? "bolted to the floor":"unbolted from the floor"] by \the [user]."))
 
 		if(active)
 			toggle()
@@ -185,7 +183,7 @@
 		return
 	else if( href_list["toggle"] )
 		if (!active && !anchored)
-			usr << "\red The [src] needs to be firmly secured to the floor first."
+			usr << "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>"
 			return
 		toggle()
 	else if( href_list["change_radius"] )

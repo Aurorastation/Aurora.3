@@ -1,11 +1,11 @@
-/mob/living/carbon/New()
+/mob/living/carbon/Initialize()
 	//setup reagent holders
 	bloodstr = new/datum/reagents/metabolism(1000, src, CHEM_BLOOD)
 	ingested = new/datum/reagents/metabolism(1000, src, CHEM_INGEST)
 	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
 	reagents = bloodstr
 
-	..()
+	. = ..()
 
 /mob/living/carbon/Life()
 	..()
@@ -17,13 +17,11 @@
 		germ_level++
 
 /mob/living/carbon/Destroy()
-	qdel(ingested)
-	qdel(touching)
-	// We don't qdel(bloodstr) because it's the same as qdel(reagents)
+	QDEL_NULL(touching)
+	bloodstr = null
+	QDEL_NULL(dna)
 	for(var/guts in internal_organs)
 		qdel(guts)
-	for(var/food in stomach_contents)
-		qdel(food)
 	return ..()
 
 /mob/living/carbon/rejuvenate()
@@ -69,17 +67,17 @@
 				if(prob(src.getBruteLoss() - 50))
 					for(var/atom/movable/A in stomach_contents)
 						A.loc = loc
-						stomach_contents.Remove(A)
+						LAZYREMOVE(stomach_contents, A)
 					src.gib()
 
 /mob/living/carbon/gib()
 	for(var/mob/M in src)
 		if(M in src.stomach_contents)
-			src.stomach_contents.Remove(M)
+			LAZYREMOVE(src.stomach_contents, M)
 		M.loc = src.loc
 		for(var/mob/N in viewers(src, null))
 			if(N.client)
-				N.show_message(text("\red <B>[M] bursts out of [src]!</B>"), 2)
+				N.show_message(text("<span class='danger'>[M] bursts out of [src]!</span>"), 2)
 	..()
 
 /mob/living/carbon/attack_hand(mob/M as mob)
@@ -112,22 +110,20 @@
 	playsound(loc, "sparks", 50, 1, -1)
 	if (shock_damage > 15 || tesla_shock)
 		src.visible_message(
-			"\red [src] was shocked by the [source]!", \
-			"\red <B>You feel a powerful shock course through your body!</B>", \
-			"\red You hear a heavy electrical crack." \
+			"<span class='warning'>[src] was shocked by the [source]!</span>", \
+			"<span class='danger'>You feel a powerful shock course through your body!</span>", \
+			"<span class='warning'>You hear a heavy electrical crack.</span>" \
 		)
 		Stun(10)//This should work for now, more is really silly and makes you lay there forever
 		Weaken(10)
 	else
 		src.visible_message(
-			"\red [src] was mildly shocked by the [source].", \
-			"\red You feel a mild shock course through your body.", \
-			"\red You hear a light zapping." \
+			"<span class='warning'>[src] was mildly shocked by the [source].</span>", \
+			"<span class='warning'>You feel a mild shock course through your body.</span>", \
+			"<span class='warning'>You hear a light zapping.</span>" \
 		)
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(5, 1, loc)
-	s.start()
+	spark(loc, 5, alldirs)
 
 	return shock_damage
 
@@ -173,8 +169,8 @@
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
 			src.visible_message( \
-				text("\blue [src] examines [].",src.gender==MALE?"himself":"herself"), \
-				"\blue You check yourself for injuries." \
+				text("<span class='notice'>[src] examines [].</span>",src.gender==MALE?"himself":"herself"), \
+				"<span class='notice'>You check yourself for injuries.</span>" \
 				)
 
 			for(var/obj/item/organ/external/org in H.organs)
@@ -219,7 +215,7 @@
 				else
 					src.show_message("My [org.name] is <span class='notice'> OK.</span>",1)
 
-			if((SKELETON in H.mutations) && (!H.w_uniform) && (!H.wear_suit))
+			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
 		else if (on_fire)
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -376,7 +372,7 @@
 	set category = "IC"
 
 	if(usr.sleeping)
-		usr << "\red You are already sleeping"
+		usr << "<span class='warning'>You are already sleeping</span>"
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
 		usr.sleeping = 20 //Short nap

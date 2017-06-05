@@ -276,11 +276,11 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 				if(!bibledelay)
 
 					var/obj/item/weapon/storage/bible/B = new /obj/item/weapon/storage/bible(src.loc)
-					if(ticker && ( ticker.Bible_icon_state && ticker.Bible_item_state) )
-						B.icon_state = ticker.Bible_icon_state
-						B.item_state = ticker.Bible_item_state
-						B.name = ticker.Bible_name
-						B.deity_name = ticker.Bible_deity_name
+					if((SSticker.Bible_icon_state && SSticker.Bible_item_state) )
+						B.icon_state = SSticker.Bible_icon_state
+						B.item_state = SSticker.Bible_item_state
+						B.name = SSticker.Bible_name
+						B.deity_name = SSticker.Bible_deity_name
 
 					bibledelay = 1
 					spawn(60)
@@ -355,7 +355,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 								usr << query.ErrorMsg()
 							else
 								log_and_message_admins("has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs")
-								log_game("[usr.name]/[usr.key] has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs")
+								log_game("[usr.name]/[usr.key] has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs",ckey=key_name(usr))
 								alert("Upload Complete.")
 
 	if(href_list["targetid"])

@@ -18,61 +18,61 @@
 	caliber = "38"
 	projectile_type = /obj/item/projectile/bullet/pistol
 
+/obj/item/ammo_casing/c38/rubber
+	desc = "A .38 rubber bullet casing."
+	projectile_type = /obj/item/projectile/bullet/pistol/rubber
+	icon_state = "r-casing"
+	spent_icon = "r-casing-spent"
+	
+/obj/item/ammo_casing/c38/emp
+	name = ".38 haywire round"
+	desc = "A .38 bullet casing fitted with a single-use ion pulse generator."
+	projectile_type = /obj/item/projectile/ion/small
+	icon_state = "empcasing"
+	matter = list(DEFAULT_WALL_MATERIAL = 130, "uranium" = 100)
+
 /obj/item/ammo_casing/trod
 	desc = "hyperdense tungsten rod residue."
 	icon_state = "trod"
 	caliber = "trod"
 	projectile_type = /obj/item/projectile/bullet/trod
 
-/obj/item/ammo_casing/c38r
-	desc = "A .38 rubber bullet casing."
-	caliber = "38"
-	projectile_type = /obj/item/projectile/bullet/pistol/rubber
-
 /obj/item/ammo_casing/c9mm
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/pistol
 
-/obj/item/ammo_casing/a556/ap
-	desc = "A 5.56mm armor piercing round."
-	caliber = "a556"
-	projectile_type = /obj/item/projectile/bullet/rifle/a556/ap
-
-/obj/item/ammo_casing/c9mmf
+/obj/item/ammo_casing/c9mm/flash
 	desc = "A 9mm flash shell casing."
-	caliber = "9mm"
 	projectile_type = /obj/item/projectile/energy/flash
 
-/obj/item/ammo_casing/c9mmr
+/obj/item/ammo_casing/c9mm/rubber
 	desc = "A 9mm rubber bullet casing."
-	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
-
-/obj/item/ammo_casing/c9mmp
+	icon_state = "r-casing"
+	spent_icon = "r-casing-spent"
+	
+/obj/item/ammo_casing/c9mm/practice
 	desc = "A 9mm practice bullet casing."
-	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/practice
-
 
 /obj/item/ammo_casing/c45
 	desc = "A .45 bullet casing."
 	caliber = ".45"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
 
-/obj/item/ammo_casing/c45p
+/obj/item/ammo_casing/c45/practice
 	desc = "A .45 practice bullet casing."
-	caliber = ".45"
 	projectile_type = /obj/item/projectile/bullet/pistol/practice
 
-/obj/item/ammo_casing/c45r
+/obj/item/ammo_casing/c45/rubber
 	desc = "A .45 rubber bullet casing."
-	caliber = ".45"
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
+	icon_state = "r-casing"
+	spent_icon = "r-casing-spent"
 
-/obj/item/ammo_casing/c45f
+/obj/item/ammo_casing/c45/flash
 	desc = "A .45 flash shell casing."
-	caliber = ".45"
 	projectile_type = /obj/item/projectile/energy/flash
 
 /obj/item/ammo_casing/t40
@@ -80,9 +80,8 @@
 	caliber = "10mm"
 	projectile_type = /obj/item/projectile/bullet/pistol
 
-/obj/item/ammo_casing/t40r
+/obj/item/ammo_casing/t40/rubber
 	desc = "A 10mm rubber bullet casing."
-	caliber = "10mm"
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 
 /obj/item/ammo_casing/a12mm
@@ -119,7 +118,7 @@
 	name = "shotgun shell"
 	desc = "A practice shell."
 	icon_state = "pshell"
-	spent_icon = "pshell"
+	spent_icon = "pshell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/practice
 	matter = list("metal" = 90)
 
@@ -150,7 +149,7 @@
 	name = "flash shell"
 	desc = "A chemical shell used to signal distress or provide illumination."
 	icon_state = "fshell"
-	spent_icon = "fshell"
+	spent_icon = "fshell-spent"
 	projectile_type = /obj/item/projectile/energy/flash/flare
 	matter = list(DEFAULT_WALL_MATERIAL = 90, "glass" = 90)
 
@@ -161,6 +160,14 @@
 	spent_icon = "ishell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
 	matter = list(DEFAULT_WALL_MATERIAL = 450)
+
+/obj/item/ammo_casing/shotgun/emp
+	name = "haywire slug"
+	desc = "A 12-gauge shotgun slug fitted with a single-use ion pulse generator."
+	icon_state = "empshell"
+	spent_icon = "empshell-spent"
+	projectile_type  = /obj/item/projectile/ion
+	matter = list(DEFAULT_WALL_MATERIAL = 260, "uranium" = 200)
 
 /obj/item/ammo_casing/tranq
 	name = "PPS shell"
@@ -174,24 +181,31 @@
 	desc = "A 7.62mm bullet casing."
 	caliber = "a762"
 	projectile_type = /obj/item/projectile/bullet/rifle/a762
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
 
 /obj/item/ammo_casing/a145
 	name = "shell casing"
 	desc = "A 14.5mm shell."
-	icon_state = "lcasing"
-	spent_icon = "lcasing-spent"
 	caliber = "14.5mm"
 	projectile_type = /obj/item/projectile/bullet/rifle/a145
 	matter = list(DEFAULT_WALL_MATERIAL = 1250)
+	icon_state = "lcasing"
+	spent_icon = "lcasing-spent"
 
 /obj/item/ammo_casing/a556
 	desc = "A 5.56mm bullet casing."
 	caliber = "a556"
 	projectile_type = /obj/item/projectile/bullet/rifle/a556
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
 
-/obj/item/ammo_casing/a556p
+/obj/item/ammo_casing/a556/ap
+	desc = "A 5.56mm armor piercing round."
+	projectile_type = /obj/item/projectile/bullet/rifle/a556/ap
+
+/obj/item/ammo_casing/a556/practice
 	desc = "A 5.56mm practice bullet casing."
-	caliber = "a556"
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/practice
 
 /obj/item/ammo_casing/rocket
@@ -235,4 +249,3 @@
 
 /obj/item/ammo_casing/flechette/explosive
 	projectile_type = /obj/item/projectile/bullet/flechette/explosive
-

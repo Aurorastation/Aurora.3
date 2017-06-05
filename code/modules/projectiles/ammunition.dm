@@ -12,10 +12,10 @@
 	var/caliber = ""					//Which kind of guns it can be loaded into
 	var/projectile_type					//The bullet type to create when New() is called
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
-	var/spent_icon = null
+	var/spent_icon = "s-casing-spent"
 
-/obj/item/ammo_casing/New()
-	..()
+/obj/item/ammo_casing/Initialize()
+	. = ..()
 	if(ispath(projectile_type))
 		BB = new projectile_type(src)
 	pixel_x = rand(-10, 10)
@@ -25,24 +25,24 @@
 /obj/item/ammo_casing/proc/expend()
 	. = BB
 	BB = null
-	set_dir(pick(cardinal)) //spin spent casings
+	set_dir(pick(alldirs)) //spin spent casings
 	update_icon()
 
 /obj/item/ammo_casing/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/screwdriver))
 		if(!BB)
-			user << "\blue There is no bullet in the casing to inscribe anything into."
+			user << "<span class='notice'>There is no bullet in the casing to inscribe anything into.</span>"
 			return
 
 		var/tmp_label = ""
 		var/label_text = sanitizeSafe(input(user, "Inscribe some text into \the [initial(BB.name)]","Inscription",tmp_label), MAX_NAME_LEN)
 		if(length(label_text) > 20)
-			user << "\red The inscription can be at most 20 characters long."
+			user << "<span class='warning'>The inscription can be at most 20 characters long.</span>"
 		else if(!label_text)
-			user << "\blue You scratch the inscription off of [initial(BB)]."
+			user << "<span class='notice'>You scratch the inscription off of [initial(BB)].</span>"
 			BB.name = initial(BB.name)
 		else
-			user << "\blue You inscribe \"[label_text]\" into \the [initial(BB.name)]."
+			user << "<span class='notice'>You inscribe \"[label_text]\" into \the [initial(BB.name)].</span>"
 			BB.name = "[initial(BB.name)] (\"[label_text]\")"
 
 	..()
@@ -89,8 +89,8 @@
 	var/list/icon_keys = list()		//keys
 	var/list/ammo_states = list()	//values
 
-/obj/item/ammo_magazine/New()
-	..()
+/obj/item/ammo_magazine/Initialize()
+	. = ..()
 	if(multiple_sprites)
 		initialize_magazine_icondata(src)
 
@@ -112,7 +112,7 @@
 			user << "<span class='warning'>[src] is full!</span>"
 			return
 		user.remove_from_mob(C)
-		C.loc = src
+		C.forceMove(src)
 		stored_ammo.Insert(1, C) //add to the head of the list
 		update_icon()
 
@@ -122,8 +122,8 @@
 		return
 	user << "<span class='notice'>You empty [src].</span>"
 	for(var/obj/item/ammo_casing/C in stored_ammo)
-		C.loc = user.loc
-		C.set_dir(pick(cardinal))
+		C.forceMove(user.loc)
+		C.set_dir(pick(alldirs))
 	stored_ammo.Cut()
 	update_icon()
 
@@ -142,11 +142,12 @@
 	..()
 	user << "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!"
 
-//magazine icon state caching
-/var/global/list/magazine_icondata_keys = list()
-/var/global/list/magazine_icondata_states = list()
+//magazine icon state caching (caching lists are in SSicon_cache)
 
 /proc/initialize_magazine_icondata(var/obj/item/ammo_magazine/M)
+	var/list/magazine_icondata_keys = SSicon_cache.magazine_icondata_keys
+	var/list/magazine_icondata_states = SSicon_cache.magazine_icondata_states
+
 	var/typestr = "[M.type]"
 	if(!(typestr in magazine_icondata_keys) || !(typestr in magazine_icondata_states))
 		magazine_icondata_cache_add(M)
@@ -155,6 +156,9 @@
 	M.ammo_states = magazine_icondata_states[typestr]
 
 /proc/magazine_icondata_cache_add(var/obj/item/ammo_magazine/M)
+	var/list/magazine_icondata_keys = SSicon_cache.magazine_icondata_keys
+	var/list/magazine_icondata_states = SSicon_cache.magazine_icondata_states
+
 	var/list/icon_keys = list()
 	var/list/ammo_states = list()
 	var/list/states = icon_states(M.icon)

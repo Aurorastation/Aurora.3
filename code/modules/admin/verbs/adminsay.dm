@@ -7,7 +7,7 @@
 	msg = sanitize(msg)
 	if(!msg)	return
 
-	log_admin("ADMIN: [key_name(src)] : [msg]")
+	log_admin("ADMIN: [key_name(src)] : [msg]",admin_key=key_name(src))
 
 	if(check_rights(R_ADMIN,0))
 		for(var/client/C in admins)
@@ -24,7 +24,7 @@
 	if(!check_rights(R_ADMIN|R_MOD))	return
 
 	msg = sanitize(msg)
-	log_admin("MOD: [key_name(src)] : [msg]")
+	log_admin("MOD: [key_name(src)] : [msg]",admin_key=key_name(src))
 
 	if (!msg)
 		return
@@ -48,7 +48,7 @@
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
 	if(!msg)	return
 
-	log_admin("DEV: [key_name(src)] : [msg]")
+	log_admin("DEV: [key_name(src)] : [msg]",admin_key=key_name(src))
 
 	if(check_rights(R_DEV,0))
 		msg = "<span class='devsay'><span class='prefix'>DEV:</span> <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message'>[msg]</span></span>"
@@ -66,7 +66,7 @@
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
 	if(!msg)	return
 
-	log_admin("CCIASAY: [key_name(src)] : [msg]")
+	log_admin("CCIASAY: [key_name(src)] : [msg]",admin_key=key_name(src))
 
 	if(check_rights((R_CCIAA|R_ADMIN),0))
 		msg = "<span class='cciaasay'><span class='prefix'>CCIAAgent:</span> <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message'>[msg]</span></span>"

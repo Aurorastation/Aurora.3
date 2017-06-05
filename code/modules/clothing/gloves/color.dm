@@ -84,10 +84,16 @@
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "brown"
 	item_state = "browngloves"
+	
+/obj/item/clothing/gloves/white
+	name = "white gloves"
+	desc = "These look pretty fancy."
+	icon_state = "latex"
+	item_state = "lgloves"
 
 /obj/item/clothing/gloves/yellow/specialt
 	desc = "These gloves will protect the wearer from electric shock. Made special for Tajaran use."
-	name = "Tajaran electrical gloves"
+	name = "tajaran electrical gloves"
 	icon_state = "yellow"
 	item_state = "ygloves"
 	siemens_coefficient = 0
@@ -96,7 +102,7 @@
 
 /obj/item/clothing/gloves/yellow/specialu
 	desc = "These gloves will protect the wearer from electric shock. Made special for Unathi use."
-	name = "Unathi electrical gloves"
+	name = "unathi electrical gloves"
 	icon_state = "yellow"
 	item_state = "ygloves"
 	siemens_coefficient = 0
@@ -105,12 +111,12 @@
 
 /obj/item/clothing/gloves/black/unathi
 	name = "black gloves"
-	desc = "black gloves made for Unathi use."
+	desc = "Black gloves made for Unathi use."
 	species_restricted = list("Unathi")
 
 /obj/item/clothing/gloves/black/tajara
 	name = "black gloves"
-	desc = "black gloves made for Tajara use."
+	desc = "Black gloves made for Tajara use."
 	species_restricted = list("Tajara")
 
 //more snowflake gloves for the custom loadout

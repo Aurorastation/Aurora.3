@@ -1,4 +1,4 @@
-/obj/machinery/cooker/cereal
+/obj/machinery/appliance/mixer/cereal
 	name = "cereal maker"
 	desc = "Now with Dann O's available!"
 	icon = 'icons/obj/cooking_machines.dmi'
@@ -6,20 +6,57 @@
 	cook_type = "cerealized"
 	on_icon = "cereal_on"
 	off_icon = "cereal_off"
+	appliancetype = CEREALMAKER
 
-/obj/machinery/cooker/cereal/change_product_strings(var/obj/item/weapon/reagent_containers/food/snacks/product)
+	output_options = list(
+		"Cereal" = /obj/item/weapon/reagent_containers/food/snacks/variable/cereal
+	)
+
+/*
+/obj/machinery/appliance/cereal/change_product_strings(var/obj/item/weapon/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
 	. = ..()
-	product.name = "box of [cooking_obj.name] cereal"
+	product.name = "box of [CI.object.name] cereal"
 
-/obj/machinery/cooker/cereal/change_product_appearance(var/obj/item/weapon/reagent_containers/food/snacks/product)
+/obj/machinery/appliance/cereal/change_product_appearance(var/obj/item/weapon/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
 	product.icon = 'icons/obj/food.dmi'
 	product.icon_state = "cereal_box"
-	product.filling_color = cooking_obj.color
+	product.filling_color = CI.object.color
 
-	var/image/food_image = image(cooking_obj.icon, cooking_obj.icon_state)
-	food_image.color = cooking_obj.color
-	food_image.overlays += cooking_obj.overlays
+	var/image/food_image = image(CI.object.icon, CI.object.icon_state)
+	food_image.color = CI.object.color
+	food_image.overlays += CI.object.overlays
 	food_image.transform *= 0.7
 
 	product.overlays += food_image
+*/
 
+/obj/machinery/appliance/mixer/cereal/combination_cook(var/datum/cooking_item/CI)
+
+	var/list/images = list()
+	var/num = 0
+	for (var/obj/item/I in CI.container).
+		if (istype(I, /obj/item/weapon/reagent_containers/food/snacks/variable/cereal))
+			//Images of cereal boxes on cereal boxes is dumb
+			continue
+
+		var/image/food_image = image(I.icon, I.icon_state)
+		food_image.color = I.color
+		food_image.overlays += I.overlays
+		food_image.transform *= 0.7 - (num * 0.05)
+		food_image.pixel_x = rand(-2,2)
+		food_image.pixel_y = rand(-3,5)
+
+
+		if (!images[I.icon_state])
+			images[I.icon_state] = food_image
+			num++
+
+		if (num > 3)
+			continue
+
+
+	var/obj/item/weapon/reagent_containers/food/snacks/result = ..()
+
+	result.color = result.filling_color
+	for (var/i in images)
+		result.overlays += images[i]

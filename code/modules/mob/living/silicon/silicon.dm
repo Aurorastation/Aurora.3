@@ -24,7 +24,7 @@
 	var/next_alarm_notice
 	var/list/datum/alarm/queued_alarms = new()
 
-
+	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
 	var/list/access_rights
 	var/obj/item/weapon/card/id/idcard
 	var/idcard_type = /obj/item/weapon/card/id/synthetic
@@ -32,9 +32,9 @@
 	#define SEC_HUD 1 //Security HUD mode
 	#define MED_HUD 2 //Medical HUD mode
 
-/mob/living/silicon/New()
+/mob/living/silicon/Initialize()
 	silicon_mob_list |= src
-	..()
+	. = ..()
 	add_language("Ceti Basic")
 	init_id()
 
@@ -45,9 +45,9 @@
 
 /mob/living/silicon/Destroy()
 	silicon_mob_list -= src
-	for(var/datum/alarm_handler/AH in alarm_manager.all_handlers)
+	for(var/datum/alarm_handler/AH in SSalarm.all_handlers)
 		AH.unregister_alarm(src)
-	..()
+	return ..()
 
 /mob/living/silicon/proc/init_id()
 	if(idcard)
@@ -84,9 +84,7 @@
 /mob/living/silicon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0)
 
 	if (istype(source, /obj/machinery/containment_field))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(5, 1, loc)
-		s.start()
+		spark(loc, 5, alldirs)
 
 		shock_damage *= 0.75	//take reduced damage
 		take_overall_damage(0, shock_damage)

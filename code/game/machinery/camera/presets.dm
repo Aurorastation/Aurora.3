@@ -6,7 +6,7 @@ var/global/list/station_networks = list(
 										NETWORK_ENGINE,
 										NETWORK_ENGINEERING,
 										NETWORK_ENGINEERING_OUTPOST,
-										NETWORK_EXODUS,
+										NETWORK_STATION,
 										NETWORK_MEDICAL,
 										NETWORK_MINE,
 										NETWORK_RESEARCH,
@@ -47,7 +47,7 @@ var/global/list/engineering_networks = list(
 	network = list(NETWORK_ERT)
 
 /obj/machinery/camera/network/exodus
-	network = list(NETWORK_EXODUS)
+	network = list(NETWORK_STATION)
 
 /obj/machinery/camera/network/mining
 	network = list(NETWORK_MINE)
@@ -75,8 +75,8 @@ var/global/list/engineering_networks = list(
 
 // EMP
 
-/obj/machinery/camera/emp_proof/New()
-	..()
+/obj/machinery/camera/emp_proof/Initialize()
+	. = ..()
 	upgradeEmpProof()
 
 // X-RAY
@@ -93,14 +93,14 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/xray/research
 	network = list(NETWORK_RESEARCH)
 
-/obj/machinery/camera/xray/New()
-	..()
+/obj/machinery/camera/xray/Initialize()
+	. = ..()
 	upgradeXRay()
 
 // MOTION
 
-/obj/machinery/camera/motion/New()
-	..()
+/obj/machinery/camera/motion/Initialize()
+	. = ..()
 	upgradeMotion()
 
 /obj/machinery/camera/motion/engineering_outpost
@@ -115,8 +115,8 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/all/command
 	network = list(NETWORK_COMMAND)
 
-/obj/machinery/camera/all/New()
-	..()
+/obj/machinery/camera/all/Initialize()
+	. = ..()
 	upgradeEmpProof()
 	upgradeXRay()
 	upgradeMotion()
@@ -126,20 +126,19 @@ var/global/list/engineering_networks = list(
 	var/number = 0 //camera number in area
 
 //This camera type automatically sets it's name to whatever the area that it's in is called.
-/obj/machinery/camera/autoname/New()
-	..()
-	spawn(10)
-		number = 1
-		var/area/A = get_area(src)
-		if(A)
-			for(var/obj/machinery/camera/autoname/C in world)
-				if(C == src) continue
-				var/area/CA = get_area(C)
-				if(CA.type == A.type)
-					if(C.number)
-						number = max(number, C.number+1)
-			c_tag = "[A.name] #[number]"
-		invalidateCameraCache()
+/obj/machinery/camera/autoname/Initialize()
+	. = ..()
+	number = 1
+	var/area/A = get_area(src)
+	if(A)
+		for(var/obj/machinery/camera/autoname/C in world)
+			if(C == src) continue
+			var/area/CA = get_area(C)
+			if(CA.type == A.type)
+				if(C.number)
+					number = max(number, C.number+1)
+		c_tag = "[A.name] #[number]"
+	invalidateCameraCache()
 
 
 // CHECKS
@@ -174,11 +173,7 @@ var/global/list/engineering_networks = list(
 	assembly.upgrades.Add(new /obj/item/device/assembly/prox_sensor(assembly))
 	setPowerUsage()
 	if(!(src in machines))
-		if(!machinery_sort_required && ticker)
-			dd_insertObjectList(machines, src)
-		else
-			machines += src
-			machinery_sort_required = 1
+		add_machine(src)
 	update_coverage()
 
 /obj/machinery/camera/proc/setPowerUsage()

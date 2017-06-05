@@ -118,15 +118,13 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			C.files.AddDesign2Known(D)
 		C.files.RefreshResearch()
 
-/obj/machinery/computer/rdconsole/New()
-	..()
+/obj/machinery/computer/rdconsole/Initialize()
+	. = ..()
 	files = new /datum/research(src) //Setup the research data holder.
 	if(!id)
 		for(var/obj/machinery/r_n_d/server/centcom/S in machines)
-			S.initialize()
+			S.setup()
 			break
-
-/obj/machinery/computer/rdconsole/initialize()
 	SyncRDevices()
 
 /obj/machinery/computer/rdconsole/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
@@ -261,6 +259,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 						for(var/obj/I in linked_destroy.contents)
 							for(var/mob/M in I.contents)
 								M.death()
+								qdel(M)
 							if(istype(I,/obj/item/stack/material))//Only deconsturcts one sheet at a time instead of the entire stack
 								var/obj/item/stack/material/S = I
 								if(S.get_amount() > 1)

@@ -8,6 +8,7 @@
 	required_access_run = access_network
 	required_access_download = access_heads
 	usage_flags = PROGRAM_CONSOLE
+	color = LIGHT_COLOR_GREEN
 	
 	available_on_ntnet = 1
 	nanomodule_path = /datum/nano_module/computer_ntnetmonitor/
@@ -35,7 +36,7 @@
 	data["ntnetmaxlogs"] = ntnet_global.setting_maxlogcount
 
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_monitor.tmpl", "NTNet Diagnostics and Monitoring Tool", 575, 700, state = state)
 		if(host.update_layout())

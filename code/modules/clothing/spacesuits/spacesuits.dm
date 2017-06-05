@@ -3,7 +3,7 @@
 //      Meaning the the suit is defined directly after the corrisponding helmet. Just like below!
 
 /obj/item/clothing/head/helmet/space
-	name = "Space helmet"
+	name = "space helmet"
 	icon_state = "space"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
@@ -28,10 +28,11 @@
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
 	brightness_on = 4
+	light_wedge = LIGHT_WIDE
 	on = 0
 
-/obj/item/clothing/head/helmet/space/initialize()
-	..()
+/obj/item/clothing/head/helmet/space/Initialize()
+	. = ..()
 	if(camera_networks && camera_networks.len)
 		verbs += /obj/item/clothing/head/helmet/space/proc/toggle_camera
 
@@ -58,8 +59,8 @@
 		user << "This helmet has a built-in camera. It's [camera && camera.status ? "" : "in"]active."
 
 /obj/item/clothing/suit/space
-	name = "Space suit"
-	desc = "A suit that protects against low pressure environments. \"NSS EXODUS\" is written in large block letters on the back."
+	name = "space suit"
+	desc = "A suit that protects against low pressure environments. \"NSS AURORA II\" is written in large block letters on the back."
 	icon_state = "space"
 	item_state = "s_suit"
 	w_class = 4//bulky item

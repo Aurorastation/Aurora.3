@@ -45,7 +45,6 @@
 /obj/item/weapon/soap/deluxe/New()
 	..()
 	desc = "A deluxe Waffle Co. brand bar of soap. Smells of [pick("lavender", "vanilla", "strawberry", "chocolate" ,"space")]."
-	..()
 
 /obj/item/weapon/soap/syndie
 	desc = "An untrustworthy bar of soap. Smells of fear."
@@ -102,7 +101,7 @@
 	if(concealed_blade)
 		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
-		playsound(user.loc, 'sound/weapons/flipblade.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/blade_unsheath.ogg', 50, 1)
 		user.drop_from_inventory(src)
 		user.put_in_hands(concealed_blade)
 		user.put_in_hands(src)
@@ -115,6 +114,7 @@
 /obj/item/weapon/cane/concealed/attackby(var/obj/item/weapon/canesword/W, var/mob/user)
 	if(!src.concealed_blade && istype(W))
 		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
+		playsound(user.loc, 'sound/weapons/blade_sheath.ogg', 50, 1)
 		user.drop_from_inventory(W)
 		W.loc = src
 		src.concealed_blade = W
@@ -173,7 +173,7 @@
 	throw_range = 5
 	w_class = 2.0
 	attack_verb = list("warned", "cautioned", "smashed")
-	
+
 /obj/item/weapon/caution/attack_self(mob/user as mob)
     if(src.icon_state == "caution")
         src.icon_state = "caution_blinking"
@@ -181,14 +181,15 @@
     else
         src.icon_state = "caution"
         user << "You turn the sign off."
-        
+
 /obj/item/weapon/caution/AltClick()
-    if(src.icon_state == "caution")
-        src.icon_state = "caution_blinking"
-        usr << "You turn the sign on."
-    else
-        src.icon_state = "caution"
-        usr << "You turn the sign off."
+	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
+	if(src.icon_state == "caution")
+		src.icon_state = "caution_blinking"
+		usr << "You turn the sign on."
+	else
+		src.icon_state = "caution"
+		usr << "You turn the sign off."
 
 /obj/item/weapon/caution/cone
 	desc = "This cone is trying to warn you of something!"
@@ -197,10 +198,10 @@
 	item_state = "cone"
 	contained_sprite = 1
 	slot_flags = SLOT_HEAD
-	
+
 /obj/item/weapon/caution/cone/attack_self(mob/user as mob)
 	return
-	
+
 /obj/item/weapon/caution/cone/AltClick()
 	return
 
@@ -427,7 +428,7 @@
 	icon = 'icons/obj/stock_parts.dmi'
 	w_class = 2.0
 	var/rating = 1
-	
+
 /obj/item/weapon/stock_parts/New()
 	src.pixel_x = rand(-5.0, 5)
 	src.pixel_y = rand(-5.0, 5)

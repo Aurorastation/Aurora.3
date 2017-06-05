@@ -35,9 +35,7 @@
 				user << "<span class='warning'>Access Denied</span>"
 		else if(istype(W, /obj/item/weapon/melee/energy/blade))
 			if(emag_act(INFINITY, user, W, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
-				var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-				spark_system.set_up(5, 0, src.loc)
-				spark_system.start()
+				W:spark_system.queue()
 				playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 				playsound(src.loc, "sparks", 50, 1)
 		if(!locked)
@@ -101,3 +99,30 @@
 	New()
 		..()
 		new /obj/item/weapon/gun/energy/lawgiver(src)
+
+/obj/item/weapon/storage/lockbox/medal
+	name = "medal box"
+	desc = "A locked box used to store medals."
+	icon_state = "medalbox+l"
+	item_state = "syringe_kit"
+	w_class = 3
+	max_w_class = 2
+	req_access = list(access_captain)
+	icon_locked = "medalbox+l"
+	icon_closed = "medalbox"
+	icon_broken = "medalbox+b"
+
+/obj/item/weapon/storage/lockbox/medal/New()
+	..()
+	new /obj/item/clothing/accessory/medal/conduct(src)
+	new /obj/item/clothing/accessory/medal/conduct(src)
+	new /obj/item/clothing/accessory/medal/conduct(src)
+	new /obj/item/clothing/accessory/medal/bronze_heart(src)
+	new /obj/item/clothing/accessory/medal/bronze_heart(src)
+	new /obj/item/clothing/accessory/medal/nobel_science(src)
+	new /obj/item/clothing/accessory/medal/nobel_science(src)
+	new /obj/item/clothing/accessory/medal/iron/merit(src)
+	new /obj/item/clothing/accessory/medal/iron/merit(src)
+	new /obj/item/clothing/accessory/medal/silver/valor(src)
+	new /obj/item/clothing/accessory/medal/silver/security(src)
+	new /obj/item/clothing/accessory/medal/silver/security(src)

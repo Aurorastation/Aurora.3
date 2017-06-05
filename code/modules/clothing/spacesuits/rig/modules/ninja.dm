@@ -83,7 +83,7 @@
 	if(!M || !T)
 		return
 
-	holder.spark_system.start()
+	holder.spark_system.queue()
 	playsound(T, 'sound/effects/phasein.ogg', 25, 1)
 	playsound(T, 'sound/effects/sparks2.ogg', 50, 1)
 	anim(T,M,'icons/mob/mob.dmi',,"phasein",,M.dir)

@@ -28,13 +28,13 @@
 
 /obj/machinery/shieldwallgen/attack_hand(mob/user as mob)
 	if(state != 1)
-		user << "\red The shield generator needs to be firmly secured to the floor first."
+		user << "<span class='warning'>The shield generator needs to be firmly secured to the floor first.</span>"
 		return 1
 	if(src.locked && !istype(user, /mob/living/silicon))
-		user << "\red The controls are locked!"
+		user << "<span class='warning'>The controls are locked!</span>"
 		return 1
 	if(power != 1)
-		user << "\red The shield generator needs to be powered by wire underneath."
+		user << "<span class='warning'>The shield generator needs to be powered by wire underneath.</span>"
 		return 1
 
 	if(src.active >= 1)
@@ -95,22 +95,19 @@
 		if(!src.state == 1)
 			src.active = 0
 			return
-		spawn(1)
-			setup_field(1)
-		spawn(2)
-			setup_field(2)
-		spawn(3)
-			setup_field(4)
-		spawn(4)
-			setup_field(8)
+		addtimer(CALLBACK(src, .proc/setup_field, 1), 1)
+		addtimer(CALLBACK(src, .proc/setup_field, 2), 2)
+		addtimer(CALLBACK(src, .proc/setup_field, 3), 4)
+		addtimer(CALLBACK(src, .proc/setup_field, 4), 8)
 		src.active = 2
 	if(src.active >= 1)
 		if(src.power == 0)
-			src.visible_message("\red The [src.name] shuts down due to lack of power!", \
+			src.visible_message("<span class='warning'>The [src.name] shuts down due to lack of power!</span>", \
 				"You hear heavy droning fade out")
 			icon_state = "Shield_Gen"
 			src.active = 0
-			for(var/dir in list(1,2,4,8)) src.cleanup(dir)
+			for(var/dir in list(1,2,4,8)) 
+				cleanup(dir)
 
 /obj/machinery/shieldwallgen/proc/setup_field(var/NSEW = 0)
 	var/turf/T = src.loc
@@ -152,8 +149,7 @@
 		var/field_dir = get_dir(T2,get_step(T2, NSEW))
 		T = get_step(T2, NSEW)
 		T2 = T
-		var/obj/machinery/shieldwall/CF = new/obj/machinery/shieldwall/(src, G) //(ref to this gen, ref to connected gen)
-		CF.loc = T
+		var/obj/shieldwall/CF = new/obj/shieldwall/(T, src, G) //(ref to this gen, ref to connected gen)
 		CF.set_dir(field_dir)
 
 
@@ -182,14 +178,14 @@
 			src.locked = !src.locked
 			user << "Controls are now [src.locked ? "locked." : "unlocked."]"
 		else
-			user << "\red Access denied."
+			user << "<span class='warning'>Access denied.</span>"
 
 	else
 		src.add_fingerprint(user)
-		visible_message("\red The [src.name] has been hit with \the [W.name] by [user.name]!")
+		visible_message("<span class='warning'>The [src.name] has been hit with \the [W.name] by [user.name]!</span>")
 
 /obj/machinery/shieldwallgen/proc/cleanup(var/NSEW)
-	var/obj/machinery/shieldwall/F
+	var/obj/shieldwall/F
 	var/obj/machinery/shieldwallgen/G
 	var/turf/T = src.loc
 	var/turf/T2 = src.loc
@@ -197,8 +193,8 @@
 	for(var/dist = 0, dist <= 9, dist += 1) // checks out to 8 tiles away for fields
 		T = get_step(T2, NSEW)
 		T2 = T
-		if(locate(/obj/machinery/shieldwall) in T)
-			F = (locate(/obj/machinery/shieldwall) in T)
+		if(locate(/obj/shieldwall) in T)
+			F = (locate(/obj/shieldwall) in T)
 			qdel(F)
 
 		if(locate(/obj/machinery/shieldwallgen) in T)
@@ -211,7 +207,7 @@
 	src.cleanup(2)
 	src.cleanup(4)
 	src.cleanup(8)
-	..()
+	return ..()
 
 /obj/machinery/shieldwallgen/bullet_act(var/obj/item/projectile/Proj)
 	storedpower -= 400 * Proj.get_structure_damage()
@@ -220,8 +216,8 @@
 
 
 //////////////Containment Field START
-/obj/machinery/shieldwall
-		name = "Shield"
+/obj/shieldwall
+		name = "shield"
 		desc = "An energy shield."
 		icon = 'icons/effects/effects.dmi'
 		icon_state = "shieldwall"
@@ -229,6 +225,7 @@
 		density = 1
 		unacidable = 1
 		light_range = 3
+		light_color = LIGHT_COLOR_BLUE
 		var/needs_power = 0
 		var/active = 1
 //		var/power = 10
@@ -240,45 +237,41 @@
 		var/power_usage = 2500	//how much power it takes to sustain the shield
 		var/generate_power_usage = 7500	//how much power it takes to start up the shield
 
-/obj/machinery/shieldwall/New(var/obj/machinery/shieldwallgen/A, var/obj/machinery/shieldwallgen/B)
-	..()
+/obj/shieldwall/Initialize(mapload, var/obj/machinery/shieldwallgen/A, var/obj/machinery/shieldwallgen/B)
+	. = ..()
 	update_nearby_tiles()
-	src.gen_primary = A
-	src.gen_secondary = B
+	gen_primary = A
+	gen_secondary = B
 	if(A && B && A.active && B.active)
 		needs_power = 1
-		if(prob(50))
-			A.storedpower -= generate_power_usage
-		else
-			B.storedpower -= generate_power_usage
+		A.storedpower -= generate_power_usage/2
+		B.storedpower -= generate_power_usage/2
+		START_PROCESSING(SSprocessing, src)
 	else
 		qdel(src) //need at least two generator posts
 
-/obj/machinery/shieldwall/Destroy()
+/obj/shieldwall/Destroy()
 	update_nearby_tiles()
-	..()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
-/obj/machinery/shieldwall/attack_hand(mob/user as mob)
+/obj/shieldwall/attack_hand(mob/user as mob)
 	return
 
-
-/obj/machinery/shieldwall/process()
+/obj/shieldwall/process()
 	if(needs_power)
-		if(isnull(gen_primary)||isnull(gen_secondary))
+		if(!gen_primary || !gen_secondary)
 			qdel(src)
 			return
 
-		if(!(gen_primary.active)||!(gen_secondary.active))
+		if(!(gen_primary.active) || !(gen_secondary.active))
 			qdel(src)
 			return
 
-		if(prob(50))
-			gen_primary.storedpower -= power_usage
-		else
-			gen_secondary.storedpower -= power_usage
+		gen_primary.storedpower -= power_usage/2
+		gen_secondary.storedpower -= power_usage/2
 
-
-/obj/machinery/shieldwall/bullet_act(var/obj/item/projectile/Proj)
+/obj/shieldwall/bullet_act(var/obj/item/projectile/Proj)
 	if(needs_power)
 		var/obj/machinery/shieldwallgen/G
 		if(prob(50))
@@ -290,7 +283,7 @@
 	return
 
 
-/obj/machinery/shieldwall/ex_act(severity)
+/obj/shieldwall/ex_act(severity)
 	if(needs_power)
 		var/obj/machinery/shieldwallgen/G
 		switch(severity)
@@ -317,7 +310,7 @@
 	return
 
 
-/obj/machinery/shieldwall/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/shieldwall/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
 
 	if(istype(mover) && mover.checkpass(PASSGLASS))

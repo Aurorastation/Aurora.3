@@ -7,7 +7,8 @@
 	// Descriptors and strings.
 	var/name                                             // Species name.
 	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
-	var/short_name											 // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
+	var/hide_name = FALSE                                // If TRUE, the species' name won't be visible on examine.
+	var/short_name                                       // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 	var/bodytype
 	var/age_min = 17
@@ -40,6 +41,8 @@
 	var/virus_immune
 	var/short_sighted
 	var/bald = 0
+	var/light_range
+	var/light_power
 
 	// Language/culture vars.
 	var/default_language = "Ceti Basic"		 // Default language is used when 'say' is used without modifiers.
@@ -63,6 +66,7 @@
 	var/toxins_mod =    1                    // Toxloss modifier
 	var/radiation_mod = 1                    // Radiation modifier
 	var/flash_mod =     1                    // Stun from blindness modifier.
+	var/fall_mod =      1                    // Fall damage modifier, further modified by brute damage modifier
 	var/vision_flags = SEE_SELF              // Same flags as glasses.
 	var/list/breakcuffs = list()                      //used in resist.dm to check if they can break hand/leg cuffs
 
@@ -315,13 +319,18 @@
 			H.verbs |= verb_path
 	return
 
-/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H) //Handles anything not already covered by basic species assignment.
+/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H,var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
 	add_inherent_verbs(H)
 	H.mob_bump_flag = bump_flag
 	H.mob_swap_flags = swap_flags
 	H.mob_push_flags = push_flags
 	H.pass_flags = pass_flags
 	H.mob_size = mob_size
+	if(!kpg)
+		if(islesserform(H))
+			H.dna.SetSEState(MONKEYBLOCK,1)
+		else
+			H.dna.SetSEState(MONKEYBLOCK,0)
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
@@ -438,3 +447,6 @@
 		return 0
 	H.hud_used.move_intent.update_move_icon(H)
 	return 1
+
+/datum/species/proc/get_light_color(hair_style)
+	return

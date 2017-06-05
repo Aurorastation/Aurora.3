@@ -30,7 +30,7 @@
 
 	for(var/p in forbidden_varedit_object_types)
 		if( istype(O,p) )
-			usr << "\red It is forbidden to edit this object's variables."
+			usr << "<span class='danger'>It is forbidden to edit this object's variables.</span>"
 			return
 
 	var/list/names = list()
@@ -371,5 +371,5 @@
 						if (A.type == O.type)
 							A.vars[variable] = O.vars[variable]
 
-	log_admin("[key_name(src)] mass modified [original_name]'s [variable] to [O.vars[variable]]")
+	log_admin("[key_name(src)] mass modified [original_name]'s [variable] to [O.vars[variable]]",admin_key=key_name(src))
 	message_admins("[key_name_admin(src)] mass modified [original_name]'s [variable] to [O.vars[variable]]", 1)

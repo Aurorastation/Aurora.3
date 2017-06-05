@@ -123,7 +123,6 @@
 		usr << span("danger", "Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!")
 		return
 	var/light = get_lightlevel_diona(DS)
-
 	if (light <= -0.75)
 		usr << span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!")
 	else if (light <= 0)
@@ -257,7 +256,7 @@
 			mind.transfer_to(bestNymph)
 			bestNymph.stunned = 0//Switching mind seems to temporarily stun mobs
 			message_admins("\The [src] has split into nymphs; player now controls [key_name_admin(bestNymph)]")
-			log_admin("\The [src] has split into nymphs; player now controls [key_name(bestNymph)]")
+			log_admin("\The [src] has split into nymphs; player now controls [key_name(bestNymph)]", ckey=key_name(bestNymph))
 
 	//If bestNymph is still null at this point, it could only mean every nymph in the gestalt was a player
 	//In this unfathomably rare case, the gestalt player simply dies as its mob is qdel'd.

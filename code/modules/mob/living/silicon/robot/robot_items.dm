@@ -90,7 +90,10 @@
 			user << "Your [src] already has something inside.  Analyze or eject it first."
 			return
 		var/obj/item/I = target
-		I.loc = src
+		if (I.anchored)
+			user << span("notice", "\The [I] is anchored in place.")
+			return
+		I.forceMove(src)
 		loaded_item = I
 		for(var/mob/M in viewers())
 			M.show_message(text("<span class='notice'>[user] adds the [I] to the [src].</span>"), 1)
@@ -230,7 +233,7 @@
 	deploy_paper(get_turf(src))
 
 /obj/item/weapon/form_printer/proc/deploy_paper(var/turf/T)
-	T.visible_message("\blue \The [src.loc] dispenses a sheet of crisp white paper.")
+	T.visible_message("<span class='notice'>\The [src.loc] dispenses a sheet of crisp white paper.</span>")
 	new /obj/item/weapon/paper(T)
 
 
@@ -296,7 +299,7 @@
 /obj/item/weapon/inflatable_dispenser/proc/try_deploy_inflatable(var/turf/T, var/mob/living/user)
 	if (deploying)
 		return
-	deploying = 1
+
 	var/newtype
 	if(mode) // Door deployment
 		if(!stored_doors)
@@ -314,9 +317,10 @@
 		if(T && istype(T))
 			newtype = /obj/structure/inflatable/wall
 
+	deploying = 1
 	user.visible_message(span("notice", "[user] starts deploying an inflatable"), span("notice", "You start deploying an inflatable [mode ? "door" : "wall"]!"))
 	playsound(T, 'sound/items/zip.ogg', 75, 1)
-	if (do_after(user, 20, needhand = 0))
+	if (do_after(user, 15, needhand = 0))
 		new newtype(T)
 		if (mode)
 			stored_doors--

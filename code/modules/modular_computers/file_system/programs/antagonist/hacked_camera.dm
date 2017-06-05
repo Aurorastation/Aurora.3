@@ -7,6 +7,7 @@
 	size = 73 // Very large, a price for bypassing ID checks completely.
 	available_on_ntnet = 0
 	available_on_syndinet = 1
+	color = LIGHT_COLOR_RED
 
 /datum/computer_file/program/camera_monitor/hacked/process_tick()
 	..()

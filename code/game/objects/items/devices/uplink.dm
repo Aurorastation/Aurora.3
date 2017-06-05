@@ -94,7 +94,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	data += nanoui_data
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)	// No auto-refresh
 		ui = new(user, src, ui_key, "uplink.tmpl", title, 450, 600, state = inventory_state)
 		ui.set_initial_data(data)
@@ -104,6 +104,11 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 // Interaction code. Gathers a list of items purchasable from the paren't uplink and displays it. It also adds a lock button.
 /obj/item/device/uplink/hidden/interact(mob/user)
 	ui_interact(user)
+
+/obj/item/device/uplink/hidden/CanUseTopic()
+	if(!active)
+		return STATUS_CLOSE
+	return ..()
 
 // The purchasing code.
 /obj/item/device/uplink/hidden/Topic(href, href_list)
@@ -116,7 +121,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		UI.buy(src, usr)
 	else if(href_list["lock"])
 		toggle()
-		var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, "main")
+		var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
 		ui.close()
 	else if(href_list["return"])
 		nanoui_menu = round(nanoui_menu/10)
@@ -203,14 +208,14 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
 			switch (nanoui_data["contracts_view"])
 				if (1)
-					query_details[":status"] = "open"
+					query_details["status"] = "open"
 				if (2)
-					query_details[":status"] = "closed"
+					query_details["status"] = "closed"
 				else
 					nanoui_data["contracts_view"] = 1
-					query_details[":status"] = "open"
+					query_details["status"] = "open"
 
-			var/DBQuery/index_query = dbcon.NewQuery("SELECT count(*) as Total_Contracts FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status")
+			var/DBQuery/index_query = dbcon.NewQuery("SELECT count(*) as Total_Contracts FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status:")
 			index_query.Execute(query_details)
 
 			var/pages = 0
@@ -237,9 +242,9 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				if (nanoui_data["contracts_current_page"] > pages)
 					return
 
-				query_details[":offset"] = (nanoui_data["contracts_current_page"] - 1) * 10
+				query_details["offset"] = (nanoui_data["contracts_current_page"] - 1) * 10
 
-				var/DBQuery/list_query = dbcon.NewQuery("SELECT contract_id, contractee_name, title FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status LIMIT 10 OFFSET :offset")
+				var/DBQuery/list_query = dbcon.NewQuery("SELECT contract_id, contractee_name, title FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status: LIMIT 10 OFFSET :offset:")
 				list_query.Execute(query_details)
 
 				var/list/contracts = list()
@@ -267,17 +272,9 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				nanoui_data["contracts_view"] = 1
 
 			var/query_details[0]
+			query_details["contract_id"] = exploit_id
 
-			switch (nanoui_data["contracts_view"])
-				if (1)
-					query_details[":status"] = "open"
-				if (2)
-					query_details[":status"] = "closed"
-				else
-					nanoui_data["contracts_view"] = 1
-					query_details[":status"] = "open"
-
-			var/DBQuery/select_query = dbcon.NewQuery("SELECT contract_id, contractee_name, status, title, description, reward_other FROM ss13_syndie_contracts WHERE contract_id = :contract_id")
+			var/DBQuery/select_query = dbcon.NewQuery("SELECT contract_id, contractee_name, status, title, description, reward_other FROM ss13_syndie_contracts WHERE contract_id = :contract_id:")
 			select_query.Execute(query_details)
 
 			if (select_query.NextRow())

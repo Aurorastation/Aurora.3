@@ -8,6 +8,7 @@
 	pass_flags = PASSTABLE | PASSDOORHATCH
 	density = 0
 	mob_size = 1//As a holographic projection, a pAI is massless except for its card device
+	can_pull_size = 2 //max size for an object the pAI can pull
 
 	var/network = "SS13"
 	var/obj/machinery/camera/current = null
@@ -110,18 +111,16 @@
 			M.do_attack_animation(src)
 			updatehealth()
 
-/mob/living/silicon/pai/New(var/obj/item/device/paicard/newlocation)
-	var/obj/item/device/paicard/paicard
-	if (istype(newlocation))
-		paicard = newlocation
-	else
+/mob/living/silicon/pai/Initialize(mapload)
+	var/obj/item/device/paicard/paicard = loc
+	if (!istype(paicard))
 		//If we get here, then we must have been created by adminspawning.
 		//so lets assist with debugging by creating our own card and adding ourself to it
-		paicard = new/obj/item/device/paicard(newlocation)
+		paicard = new/obj/item/device/paicard(loc)
 		paicard.pai = src
 
 	canmove = 0
-	src.loc = paicard
+	loc = paicard
 	card = paicard
 	sradio = new(src)
 	if(card)
@@ -141,12 +140,14 @@
 	pda = new(src)
 	ID = new(src)
 	ID.registered_name = ""
-	spawn(5)
-		pda.ownjob = "Personal Assistant"
-		pda.owner = text("[]", src)
-		pda.name = pda.owner + " (" + pda.ownjob + ")"
-		pda.toff = 1
-	..()
+	addtimer(CALLBACK(src, .proc/set_pda), 5)
+	. = ..()
+
+/mob/living/silicon/pai/proc/set_pda()
+	pda.ownjob = "Personal Assistant"
+	pda.owner = "[src]"
+	pda.name = "[pda.owner] ([pda.ownjob])"
+	pda.toff = TRUE
 
 /mob/living/silicon/pai/Login()
 	greet()
@@ -199,7 +200,7 @@
 	if(prob(20))
 		var/turf/T = get_turf_or_move(src.loc)
 		for (var/mob/M in viewers(T))
-			M.show_message("\red A shower of sparks spray from [src]'s inner workings.", 3, "\red You hear and smell the ozone hiss of electrical sparks being expelled violently.", 2)
+			M.show_message("<span class='warning'>A shower of sparks spray from [src]'s inner workings.</span>", 3, "<span class='warning'>You hear and smell the ozone hiss of electrical sparks being expelled violently.</span>", 2)
 		return src.death(0)
 
 	switch(pick(1,2,3))
@@ -242,7 +243,7 @@
 	medicalActive1 = null
 	medicalActive2 = null
 	medical_cannotfind = 0
-	nanomanager.update_uis(src)
+	SSnanoui.update_uis(src)
 	usr << "<span class='notice'>You reset your record-viewing software.</span>"
 
 /mob/living/silicon/pai/cancel_camera()
@@ -336,6 +337,8 @@
 
 	var/turf/T = get_turf(src)
 	if(istype(T)) T.visible_message("<b>[src]</b> folds outwards, expanding into a mobile form.")
+	canmove = 1
+	resting = 0
 
 /mob/living/silicon/pai/verb/fold_up()
 	set category = "pAI Commands"
@@ -425,6 +428,7 @@
 	return
 
 /mob/living/silicon/pai/AltClick(mob/user as mob)
+	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
 	visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
 	close_up()
 
@@ -484,3 +488,15 @@
 	var/mob/living/carbon/H = over_object
 	if(!istype(H) || !Adjacent(H)) return ..()
 	get_scooped(H, usr)
+
+/mob/living/silicon/pai/start_pulling(var/atom/movable/AM)
+	if(istype(AM,/obj/item))
+		var/obj/item/O = AM
+		if(O.w_class > can_pull_size)
+			src << "<span class='warning'>You are too small to pull that.</span>"
+			return
+		else
+			..()
+	else
+		src << "<span class='warning'>You are too small to pull that.</span>"
+		return

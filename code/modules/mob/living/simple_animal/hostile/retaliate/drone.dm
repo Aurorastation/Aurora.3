@@ -23,7 +23,7 @@
 	projectiletype = /obj/item/projectile/beam/drone
 	projectilesound = 'sound/weapons/laser3.ogg'
 	destroy_surroundings = 0
-	var/datum/effect/effect/system/ion_trail_follow/ion_trail
+	var/datum/effect_system/ion_trail/ion_trail
 
 	//the drone randomly switches between these states because it's malfunctioning
 	var/hostile_drone = 0
@@ -49,16 +49,15 @@
 	var/has_loot = 1
 	faction = "malf_drone"
 
-/mob/living/simple_animal/hostile/retaliate/malf_drone/New()
-	..()
+/mob/living/simple_animal/hostile/retaliate/malf_drone/Initialize()
+	. = ..()
 	if(prob(5))
 		projectiletype = /obj/item/projectile/beam/pulse/drone
 		projectilesound = 'sound/weapons/pulse2.ogg'
-	ion_trail = new
-	ion_trail.set_up(src)
+	ion_trail = new(src)
 	ion_trail.start()
 
-/mob/living/simple_animal/hostile/retaliate/malf_drone/Process_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/hostile/retaliate/malf_drone/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
 /mob/living/simple_animal/hostile/retaliate/malf_drone/ListTargets()
@@ -85,25 +84,21 @@
 
 	//repair a bit of damage
 	if(prob(1))
-		src.visible_message("\red \icon[src] [src] shudders and shakes as some of it's damaged systems come back online.")
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+		src.visible_message(span("alert", "\The [src] shudders and shakes as some of its damaged systems come back online."))
+		spark(src, 3, alldirs)
 		health += rand(25,100)
 
 	//spark for no reason
 	if(prob(5))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+		spark(src, 3, alldirs)
 
 	//sometimes our targetting sensors malfunction, and we attack anyone nearby
 	if(prob(disabled ? 0 : 1))
 		if(hostile_drone)
-			src.visible_message("\blue \icon[src] [src] retracts several targetting vanes, and dulls it's running lights.")
+			src.visible_message(span("notice", "\The [src] retracts several targetting vanes, and dulls its running lights."))
 			hostile_drone = 0
 		else
-			src.visible_message("\red \icon[src] [src] suddenly lights up, and additional targetting vanes slide into place.")
+			src.visible_message(span("alert", "\The [src] suddenly lights up, and additional targetting vanes slide into place."))
 			hostile_drone = 1
 
 	if(health / maxHealth > 0.9)
@@ -124,20 +119,19 @@
 		exploding = 0
 		if(!disabled)
 			if(prob(50))
-				src.visible_message("\blue \icon[src] [src] suddenly shuts down!")
+				src.visible_message(span("notice", "\The [src] suddenly shuts down!"))
 			else
-				src.visible_message("\blue \icon[src] [src] suddenly lies still and quiet.")
+				src.visible_message(span("notice", "\The [src] suddenly lies still and quiet."))
 			disabled = rand(150, 600)
 			walk(src,0)
 
 	if(exploding && prob(20))
 		if(prob(50))
-			src.visible_message("\red \icon[src] [src] begins to spark and shake violenty!")
+			src.visible_message(span("alert", "\The [src] begins to spark and shake violenty!"))
 		else
-			src.visible_message("\red \icon[src] [src] sparks and shakes like it's about to explode!")
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+			src.visible_message(span("alert", "\The [src] sparks and shakes like it's about to explode!"))
+
+		spark(src, 3, alldirs)
 
 	if(!exploding && !disabled && prob(explode_chance))
 		exploding = 1
@@ -162,11 +156,10 @@
 	qdel(src)
 
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Destroy()
+	QDEL_NULL(ion_trail)
 	//some random debris left behind
 	if(has_loot)
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+		spark(src, 3, alldirs)
 		var/obj/O
 
 		//shards
@@ -183,16 +176,16 @@
 			step_to(O, get_turf(pick(view(7, src))))
 
 		//rods
-		O = getFromPool(/obj/item/stack/rods, src.loc)
+		O = new /obj/item/stack/rods(src.loc)
 		step_to(O, get_turf(pick(view(7, src))))
 		if(prob(75))
-			O = getFromPool(/obj/item/stack/rods, src.loc)
+			O = new /obj/item/stack/rods(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 		if(prob(50))
-			O = getFromPool(/obj/item/stack/rods, src.loc)
+			O = new /obj/item/stack/rods(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 		if(prob(25))
-			O = getFromPool(/obj/item/stack/rods, src.loc)
+			O = new /obj/item/stack/rods(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 
 		//plasteel
@@ -270,7 +263,16 @@
 			C.name = "Corrupted drone morality core"
 			C.origin_tech = list(TECH_ILLEGAL = rand(3,6))
 
-	..()
+	return ..()
+
+/mob/living/simple_animal/hostile/retaliate/malf_drone/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/retaliate/malf_drone/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/retaliate/malf_drone/CanAvoidGravity()
+	return TRUE
 
 /obj/item/projectile/beam/drone
 	damage = 15

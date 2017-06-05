@@ -24,9 +24,8 @@
 	var/datum/wires/autolathe/wires = null
 
 
-/obj/machinery/autolathe/New()
-
-	..()
+/obj/machinery/autolathe/Initialize()
+	. = ..()
 	wires = new(src)
 	//Create parts for lathe.
 	component_parts = list()
@@ -238,7 +237,7 @@
 		if(!making || multiplier < 0 || multiplier > 100)
 			var/turf/exploit_loc = get_turf(usr)
 			message_admins("[key_name_admin(usr)] tried to exploit an autolathe to duplicate an item! ([exploit_loc ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[exploit_loc.x];Y=[exploit_loc.y];Z=[exploit_loc.z]'>JMP</a>" : "null"])", 0)
-			log_admin("EXPLOIT : [key_name(usr)] tried to exploit an autolathe to duplicate an item!")
+			log_admin("EXPLOIT : [key_name(usr)] tried to exploit an autolathe to duplicate an item!",ckey=key_name(usr))
 			return
 
 		busy = 1

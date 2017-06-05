@@ -8,7 +8,8 @@
 	var/list/engines = list()
 	var/obj/effect/map/ship/linked
 
-/obj/machinery/computer/engines/initialize()
+/obj/machinery/computer/engines/Initialize()
+	. = ..()
 	linked = map_sectors["[z]"]
 	if (linked)
 		if (!linked.eng_control)
@@ -51,7 +52,7 @@
 
 	data["engines_info"] = enginfo
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "engines_control.tmpl", "[linked.name] Engines Control", 380, 530)
 		ui.set_initial_data(data)

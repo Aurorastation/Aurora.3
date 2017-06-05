@@ -10,8 +10,8 @@
 	active_power_usage = 5000
 	var/efficiency
 
-/obj/machinery/telepad/New()
-	..()
+/obj/machinery/telepad/Initialize()
+	. = ..()
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/telesci_pad(null)
 	component_parts += new /obj/item/bluespace_crystal/artificial(null)
@@ -94,7 +94,7 @@
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
-	origin_tech = "bluespace=3"
+	origin_tech = list(TECH_BLUESPACE = 3)
 
 /obj/item/device/telepad_beacon/attack_self(mob/user)
 	if(user)
@@ -151,7 +151,5 @@
 /obj/item/weapon/rcs/attackby(var/obj/item/O, var/mob/user)
 	if (istype(O, /obj/item/weapon/card/emag) && !emagged)
 		emagged = 1
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(5, 1, src)
-		s.start()
+		spark(src, 5, alldirs)
 		user << "<span class='caution'>You emag the RCS. Click on it to toggle between modes.</span>"

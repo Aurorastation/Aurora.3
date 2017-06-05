@@ -1,6 +1,6 @@
 /obj/item/clothing/under/pj/red
-	name = "red pj's"
-	desc = "Sleepwear."
+	name = "red pyjamas"
+	desc = "Slightly old-fashioned sleepwear."
 	icon_state = "red_pyjamas"
 	worn_state = "red_pyjamas"
 	item_state = "w_suit"
@@ -17,8 +17,8 @@
 		)
 
 /obj/item/clothing/under/pj/blue
-	name = "blue pj's"
-	desc = "Sleepwear."
+	name = "blue pyjamas"
+	desc = "Slightly old-fashioned sleepwear."
 	icon_state = "blue_pyjamas"
 	worn_state = "blue_pyjamas"
 	item_state = "w_suit"
@@ -76,23 +76,23 @@
 //This set of uniforms looks fairly fancy and is generally used for high-ranking NT personnel from what I've seen, so lets give them appropriate ranks.
 /obj/item/clothing/under/rank/centcom
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain.\""
-	name = "\improper Officer's Dress Uniform"
+	name = "officer's dress uniform"
 	icon_state = "officer"
 	item_state = "lawyer_black"
 	worn_state = "officer"
 	displays_id = 0
 
 /obj/item/clothing/under/rank/centcom_officer
+	name = "officer's dress uniform"
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral.\""
-	name = "\improper Officer's Dress Uniform"
 	icon_state = "officer"
 	item_state = "lawyer_black"
 	worn_state = "officer"
 	displays_id = 0
 
 /obj/item/clothing/under/rank/centcom_captain
+	name = "officer's dress uniform"
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral-Executive.\""
-	name = "\improper Officer's Dress Uniform"
 	icon_state = "centcom"
 	item_state = "lawyer_black"
 	worn_state = "centcom"
@@ -105,6 +105,20 @@
 	item_state = "bl_suit"
 	worn_state = "ert_uniform"
 	siemens_coefficient = 0.7
+
+/obj/item/clothing/under/ccpolice
+	name = "ERT civil protection uniform"
+	desc = "A sturdy navy uniform, carefully ironed and folded. Worn by specialist troopers on civil protection duties."
+	icon_state = "officerdnavyclothes"
+	item_state = "scratch"
+	worn_state = "officerdnavyclothes"
+
+/obj/item/clothing/under/rank/centcom_commander
+	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Commander.\ It has a patch denoting a Pheonix on the sleeves."
+	name = "\improper ERT commander's dress uniform"
+	icon_state = "centcom"
+	item_state = "lawyer_black"
+	worn_state = "centcom"
 
 /obj/item/clothing/under/space
 	name = "\improper NASA jumpsuit"
@@ -153,12 +167,6 @@
 	icon_state = "rainbow"
 	item_state = "rainbow"
 	worn_state = "rainbow"
-
-/obj/item/clothing/under/cloud
-	name = "cloud"
-	desc = "cloud"
-	icon_state = "cloud"
-	worn_state = "cloud"
 
 /obj/item/clothing/under/psysuit
 	name = "dark undersuit"
@@ -331,7 +339,6 @@
 	icon_state = "dress_saloon"
 	item_state = "p_suit"
 	worn_state = "dress_saloon"
-
 
 /obj/item/clothing/under/dress/dress_cap
 	name = "captain's dress uniform"
@@ -517,12 +524,41 @@
 
 /obj/item/clothing/under/cheongsam
 	name = "white cheongsam"
-	desc = "It is a white cheongsam dress."
-	icon_state = "mai_yang"
-	item_state = "mai_yang"
-	worn_state = "mai_yang"
+	desc = "A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon."
+	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon_state = "cheongsamwhite"
+	item_state = "cheongsamwhite"
+	worn_state = "cheongsamwhite"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	contained_sprite = 1
 
+/obj/item/clothing/under/cheongsam/red
+	name = "red cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is red, with a golden dragon design that climbs the entire garment."
+	icon_state = "cheongsamred"
+	item_state = "cheongsamred"
+	worn_state = "cheongsamred"
+
+/obj/item/clothing/under/cheongsam/blue
+	name = "blue cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is blue, the fabric styled with flowering tree branches."
+	icon_state = "cheongsamblue"
+	item_state = "cheongsamblue"
+	worn_state = "cheongsamblue"
+
+/obj/item/clothing/under/cheongsam/green
+	name = "green cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is green, patterned with overlapping jade fans."
+	icon_state = "cheongsamgreen"
+	item_state = "cheongsamgreen"
+	worn_state = "cheongsamgreen"
+
+/obj/item/clothing/under/cheongsam/purple
+	name = "purple cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is purple, embroidered with plum blossoms."
+	icon_state = "cheongsampurple"
+	item_state = "cheongsampurple"
+	
 /obj/item/clothing/under/blazer
 	name = "blue blazer"
 	desc = "A bold but yet conservative outfit, red corduroys, navy blazer and a tie."
@@ -530,10 +566,74 @@
 	item_state = "blue_blazer"
 	worn_state = "blue_blazer"
 
-/obj/item/clothing/under/track
-	name = "track pants"
-	desc = "Track pants, perfect for squatting."
-	icon = 'icons/obj/tracksuit.dmi'
-	icon_state = "trackpants"
-	item_state = "trackpants"
-	contained_sprite = 1
+
+
+//stripper
+/obj/item/clothing/under/stripper
+	body_parts_covered = 0
+
+/obj/item/clothing/under/stripper/stripper_pink
+	name = "pink swimsuit"
+	desc = "A rather skimpy pink swimsuit."
+	icon_state = "stripper_p_under"
+	siemens_coefficient = 1
+
+/obj/item/clothing/under/stripper/stripper_green
+	name = "green swimsuit"
+	desc = "A rather skimpy green swimsuit."
+	icon_state = "stripper_g_under"
+	siemens_coefficient = 1
+
+/obj/item/clothing/suit/stripper/stripper_pink
+	name = "pink skimpy dress"
+	desc = "A rather skimpy pink dress."
+	icon_state = "stripper_p_over"
+	siemens_coefficient = 1
+
+/obj/item/clothing/suit/stripper/stripper_green
+	name = "green skimpy dress"
+	desc = "A rather skimpy green dress."
+	icon_state = "stripper_g_over"
+	item_state = "stripper_g"
+	siemens_coefficient = 1
+
+/obj/item/clothing/under/stripper/mankini
+	name = "mankini"
+	desc = "No honest man would wear this abomination"
+	icon_state = "mankini"
+	siemens_coefficient = 1
+
+//swimsuit
+/obj/item/clothing/under/swimsuit/
+	siemens_coefficient = 1
+	body_parts_covered = 0
+
+/obj/item/clothing/under/swimsuit/black
+	name = "black swimsuit"
+	desc = "An oldfashioned black swimsuit."
+	icon_state = "swim_black"
+	siemens_coefficient = 1
+
+/obj/item/clothing/under/swimsuit/blue
+	name = "blue swimsuit"
+	desc = "An oldfashioned blue swimsuit."
+	icon_state = "swim_blue"
+	siemens_coefficient = 1
+
+/obj/item/clothing/under/swimsuit/purple
+	name = "purple swimsuit"
+	desc = "An oldfashioned purple swimsuit."
+	icon_state = "swim_purp"
+	siemens_coefficient = 1
+
+/obj/item/clothing/under/swimsuit/green
+	name = "green swimsuit"
+	desc = "An oldfashioned green swimsuit."
+	icon_state = "swim_green"
+	siemens_coefficient = 1
+
+/obj/item/clothing/under/swimsuit/red
+	name = "red swimsuit"
+	desc = "An oldfashioned red swimsuit."
+	icon_state = "swim_red"
+	siemens_coefficient = 1

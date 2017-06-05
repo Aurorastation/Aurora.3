@@ -31,6 +31,7 @@
 	available_on_ntnet = 1
 	requires_ntnet = 1
 	required_access_download = access_heads
+	color = LIGHT_COLOR_ORANGE
 
 /datum/nano_module/camera_monitor
 	name = "Camera Monitoring program"
@@ -57,7 +58,7 @@
 	if(current_network)
 		data["cameras"] = camera_repository.cameras_in_network(current_network)
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "sec_camera.tmpl", "Camera Monitoring", 900, 800, state = state)
 		// ui.auto_update_layout = 1 // Disabled as with suit sensors monitor - breaks the UI map. Re-enable once it's fixed somehow.

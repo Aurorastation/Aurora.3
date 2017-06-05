@@ -1,13 +1,13 @@
-client/proc/ZoneTick()
+/*client/proc/ZoneTick()
 	set category = "Debug"
 	set name = "Process Atmos"
 
-	var/result = air_master.Tick()
+	var/result = SSair.tick(true)
 	if(result)
 		src << "Sucessfully Processed."
 
 	else
-		src << "Failed to process! ([air_master.tick_progress])"
+		src << "Failed to process! ([SSair.tick_progress])"*/
 
 
 client/proc/Zone_Info(turf/T as null|turf)
@@ -45,7 +45,9 @@ client/proc/Test_ZAS_Connection(var/turf/simulated/T as turf)
 		return
 
 	if(direction == "N/A")
-		if(!(T.c_airblock(T) & AIR_BLOCKED))
+		var/res
+		ATMOS_CANPASS_TURF(res, T, T)
+		if(!(res & AIR_BLOCKED))
 			mob << "The turf can pass air! :D"
 		else
 			mob << "No air passage :x"
@@ -55,8 +57,10 @@ client/proc/Test_ZAS_Connection(var/turf/simulated/T as turf)
 	if(!istype(other_turf))
 		return
 
-	var/t_block = T.c_airblock(other_turf)
-	var/o_block = other_turf.c_airblock(T)
+	var/t_block
+	ATMOS_CANPASS_TURF(t_block, T, other_turf)
+	var/o_block
+	ATMOS_CANPASS_TURF(o_block, other_turf, T)
 
 	if(o_block & AIR_BLOCKED)
 		if(t_block & AIR_BLOCKED)

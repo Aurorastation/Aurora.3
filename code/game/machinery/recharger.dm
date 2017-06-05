@@ -60,6 +60,8 @@ obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 			return
 		if (istype(G, /obj/item/weapon/gun/energy/staff))
 			return
+		if (istype(G, /obj/item/weapon/gun/energy/wand))
+			return
 		if(istype(G, /obj/item/modular_computer))
 			var/obj/item/modular_computer/C = G
 			if(!C.battery_module)

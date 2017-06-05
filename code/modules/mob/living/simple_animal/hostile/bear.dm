@@ -19,7 +19,7 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/bearmeat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
-	response_harm   = "pokes"
+	response_harm   = "hits"
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 80
 	melee_damage_lower = 16
@@ -64,8 +64,8 @@
 	var/stance_step = 0
 
 	faction = "russian"
-
-
+	
+	var/always_space_mode = FALSE	// If true, bear will always be in BEARMODE_SPACE, regardless of surroundings.
 
 
 //SPACE BEARS! SQUEEEEEEEE~     OW! FUCK! IT BIT MY HAND OFF!!
@@ -76,8 +76,8 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
 
-/mob/living/simple_animal/hostile/bear/New()
-	..()
+/mob/living/simple_animal/hostile/bear/Initialize()
+	. = ..()
 	update_bearmode()
 
 /mob/living/simple_animal/hostile/bear/harvest()
@@ -304,7 +304,7 @@
 			instant_aggro()
 
 
-/mob/living/simple_animal/hostile/bear/Process_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/hostile/bear/Allow_Spacemove(var/check_drift = 0)
 	inertia_dir = 0
 	return 1	//No drifting in space for space bears!
 	//Fixed this, it wasnt working
@@ -356,7 +356,7 @@
 
 	var/former = bearmode
 	bearmode = BEARMODE_INDOORS
-	if(loc && istype(loc,/turf/space))
+	if(always_space_mode || loc && istype(loc,/turf/space))
 		bearmode = BEARMODE_SPACE
 	else
 		if(istype(loc,/turf))
@@ -411,17 +411,11 @@
 	playsound(src, sound, 50, 1,3, usepressure = 0)
 
 
-
 //Plays a loud sound from a selection of four
 //Played when bear is attacking or dies
 /mob/living/simple_animal/hostile/bear/proc/growl_loud()
 	var/sound = pick(loud_sounds)
 	playsound(src, sound, 85, 1, 5, usepressure = 0)
-
-
-
-
-
 
 //A special bear subclass which is more powerful and has the ability to teleport around to seek out prey.
 //It dislikes other bears and refuses to cooperate with them. If two of them see each other, one or both will teleport away
@@ -437,8 +431,16 @@
 	var/focus_time//How long we've focused on this target
 	var/teleport_delay = 60
 	var/tactical_delay = 3//Procs between shortrange teleports
+	var/datum/effect_system/sparks/spark_system
+	always_space_mode = TRUE
 
+/mob/living/simple_animal/hostile/bear/spatial/Initialize()
+	. = ..()
+	spark_system = bind_spark(src, 5)
 
+/mob/living/simple_animal/hostile/bear/spatial/Destroy()
+	QDEL_NULL(spark_system)
+	return ..()
 
 //Called when we want to bypass ticks and attack immediately. For example in response to being shot
 //This calls several procs and some duplicated code from the parent class to immediately put us in an assault state and lash out
@@ -458,29 +460,6 @@
 			set_stance(HOSTILE_STANCE_ALERT)
 	else if (forcechange)
 		MoveToTarget()
-
-
-
-
-
-
-//These bears are always in spacemode
-/mob/living/simple_animal/hostile/bear/spatial/update_bearmode()
-	turns_per_move = initial(turns_per_move)
-	if (anger >= 3)
-		turns_per_move -= 1
-
-
-	bearmode = BEARMODE_SPACE
-
-	var/healthpercent = health / maxHealth
-	maxHealth = initial(maxHealth) * 1.5
-	health = maxHealth * healthpercent
-	melee_damage_lower = initial(melee_damage_lower)*1.2
-	melee_damage_upper = initial(melee_damage_upper)*1.2
-	turns_per_move -= 2
-
-	update_icons()
 
 /mob/living/simple_animal/hostile/bear/spatial/Life()
 	..()
@@ -515,19 +494,13 @@
 		teleport()
 		growl_soft()
 
-
-
-
 //Used to move to a new part of the station when it sees another bear, or it hasnt found any prey
 /mob/living/simple_animal/hostile/bear/spatial/proc/teleport()
 	if (stat == CONSCIOUS)
 		var/area/A = random_station_area()
 		var/turf/target = A.random_space()
 
-		sparks()
-		forceMove(target)
-		sparks()
-
+		teleport_to(target)
 
 //Used, with some luck, to reposition near the target. Hiding behind glass is a bad idea
 //Picks a random tile in the target's area and teleports there. Might be closer, might be farther away
@@ -539,30 +512,26 @@
 		if (A)
 			var/turf/target = A.random_space()
 			if (target)
-				sparks()
-				forceMove(target)
-				sparks()
+				teleport_to(target)
 				return 1
 	return 0
 
+/mob/living/simple_animal/hostile/bear/spatial/proc/teleport_to(var/turf/target)
+	if (stat != CONSCIOUS)
+		return
+
+	spark(src.loc, 5)
+	forceMove(target)
+	spark_system.queue()
 
 /mob/living/simple_animal/hostile/bear/spatial/bullet_act(obj/item/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
 	..(P, def_zone)
 	if (prob(P.damage*1.5))//Bear has a good chance of teleporting when shot, making it harder to burst down
 		teleport_tactical()
 
-
-/mob/living/simple_animal/hostile/bear/spatial/proc/sparks()
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(10, 1, get_turf(src))
-	s.start()
-	spawn(2)
-		qdel(s)
-
 /mob/living/simple_animal/hostile/bear/spatial/FoundTarget()
 	..()
 	focus_time = 0
-
 
 #undef BEARMODE_INDOORS
 #undef BEARMODE_SPACE

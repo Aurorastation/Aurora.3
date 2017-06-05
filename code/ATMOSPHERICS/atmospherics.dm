@@ -11,7 +11,9 @@ Pipelines + Other Objects -> Pipe network
 */
 /obj/machinery/atmospherics
 
-	auto_init = 0
+	var/auto_init = 0
+
+	var/no_special_init = FALSE
 
 	anchored = 1
 	idle_power_usage = 0
@@ -43,6 +45,18 @@ Pipelines + Other Objects -> Pipe network
 	if(!pipe_color_check(pipe_color))
 		pipe_color = null
 	..()
+
+/obj/machinery/atmospherics/proc/initialize()
+
+// Atmos machines are snowflakes and call initialize on themselves.
+// Do not refactor initialize() to Initialize() unless you know what you are doing.
+/obj/machinery/atmospherics/Initialize(mapload, ...)
+	if (no_special_init)
+		return ..()
+
+	. = ..()
+	if (mapload)
+		initialize()
 
 /obj/machinery/atmospherics/attackby(atom/A, mob/user as mob)
 	if(istype(A, /obj/item/device/pipe_painter))
@@ -115,6 +129,9 @@ obj/machinery/atmospherics/proc/check_connect_types(obj/machinery/atmospherics/a
 
 /obj/machinery/atmospherics/proc/reassign_network(datum/pipe_network/old_network, datum/pipe_network/new_network)
 	// Used when two pipe_networks are combining
+
+/obj/machinery/atmospherics/proc/remove_network(datum/pipe_network/network)
+	reassign_network(network, null)
 
 /obj/machinery/atmospherics/proc/return_network_air(datum/network/reference)
 	// Return a list of gas_mixture(s) in the object

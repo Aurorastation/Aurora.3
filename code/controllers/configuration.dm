@@ -19,7 +19,6 @@ var/list/gamemode_cache = list()
 	var/log_emote = 0					// log emotes
 	var/log_attack = 0					// log attack messages
 	var/log_adminchat = 0				// log admin chat messages
-	var/log_adminwarn = 0				// log warnings admins get about bomb construction and such
 	var/log_pda = 0						// log pda messages
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
@@ -77,6 +76,7 @@ var/list/gamemode_cache = list()
 	var/load_jobs_from_txt = 0
 	var/ToRban = 0
 	var/automute_on = 0					//enables automuting/spam prevention
+	var/macro_trigger = 5				// The grace period between messages before it's counted as abusing a macro.
 	var/jobs_have_minimal_access = 0	//determines whether jobs use minimal access or expanded access.
 
 	var/cult_ghostwriter = 1               //Allows ghosts to write in blood in cult rounds...
@@ -103,6 +103,7 @@ var/list/gamemode_cache = list()
 	var/banappeals
 	var/wikiurl
 	var/forumurl
+	var/forum_passphrase
 	var/githuburl
 
 	//Alert level description
@@ -176,8 +177,8 @@ var/list/gamemode_cache = list()
 	var/ghost_interaction = 0
 
 	var/night_lighting = 0
-	var/nl_start = 19 * TICKS_IN_HOUR
-	var/nl_finish = 8 * TICKS_IN_HOUR
+	var/nl_start = 19
+	var/nl_finish = 8
 
 	var/comms_password = ""
 
@@ -186,14 +187,15 @@ var/list/gamemode_cache = list()
 	var/use_discord_bot = 0
 	var/discord_bot_host = "localhost"
 	var/discord_bot_port = 0
+	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/use_lib_nudge = 0 //Use the C library nudge instead of the python nudge.
 	var/use_overmap = 0
 
-	var/list/station_levels = list(1)				// Defines which Z-levels the station exists on.
-	var/list/admin_levels= list(2)					// Defines which Z-levels which are for admin functionality, for example including such areas as Central Command and the Syndicate Shuttle
-	var/list/contact_levels = list(1, 5)			// Defines which Z-levels which, for example, a Code Red announcement may affect
-	var/list/player_levels = list(1, 3, 4, 5, 6)	// Defines all Z-levels a character can typically reach
+	var/list/station_levels = list(3, 4, 5, 6, 7)				// Defines which Z-levels the station exists on.
+	var/list/admin_levels= list(1)					// Defines which Z-levels which are for admin functionality, for example including such areas as Central Command and the Syndicate Shuttle
+	var/list/contact_levels = list(3, 4, 5, 6)			// Defines which Z-levels which, for example, a Code Red announcement may affect
+	var/list/player_levels = list(2, 3, 4, 5, 6, 7, 8)	// Defines all Z-levels a character can typically reach
 	var/list/sealed_levels = list() 				// Defines levels that do not allow random transit at the edges.
 
 	// Event settings
@@ -251,6 +253,31 @@ var/list/gamemode_cache = list()
 	//API Rate limiting
 	var/api_rate_limit = 50
 	var/list/api_rate_limit_whitelist = list()
+
+	// Master Controller settings.
+	var/mc_init_tick_limit = TICK_LIMIT_MC_INIT_DEFAULT
+
+	//UDP GELF Logging
+	var/log_gelf_enabled = 0
+	var/log_gelf_ip = ""
+	var/log_gelf_port = ""
+
+	//IP Intel vars
+	var/ipintel_email
+	var/ipintel_rating_bad = 1
+	var/ipintel_rating_kick = 0
+	var/ipintel_save_good = 12
+	var/ipintel_save_bad = 1
+	var/ipintel_domain = "check.getipintel.net"
+
+	// Access control/Panic bunker settings.
+	var/access_deny_new_players = 0
+	var/access_deny_new_accounts = -1
+	var/access_deny_vms = 0
+	var/access_warn_vms = 0
+
+	var/sun_accuracy = 8
+	var/sun_target_z = 7
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -356,9 +383,6 @@ var/list/gamemode_cache = list()
 				if ("log_adminchat")
 					config.log_adminchat = 1
 
-				if ("log_adminwarn")
-					config.log_adminwarn = 1
-
 				if ("log_pda")
 					config.log_pda = 1
 
@@ -457,6 +481,9 @@ var/list/gamemode_cache = list()
 
 				if ("forumurl")
 					config.forumurl = value
+
+				if ("forum_passphrase")
+					config.forum_passphrase = value
 
 				if ("githuburl")
 					config.githuburl = value
@@ -602,6 +629,9 @@ var/list/gamemode_cache = list()
 				if("automute_on")
 					automute_on = 1
 
+				if("macro_trigger")
+					macro_trigger = text2num(value)
+
 				if("usealienwhitelist")
 					usealienwhitelist = 1
 
@@ -625,10 +655,10 @@ var/list/gamemode_cache = list()
 					config.night_lighting = 1
 
 				if("nl_start_hour")
-					config.nl_start = text2num(value) * TICKS_IN_HOUR
+					config.nl_start = text2num(value)
 
 				if("nl_finish_hour")
-					config.nl_finish = text2num(value) * TICKS_IN_HOUR
+					config.nl_finish = text2num(value)
 
 				if("disable_player_mice")
 					config.disable_player_mice = 1
@@ -647,6 +677,9 @@ var/list/gamemode_cache = list()
 
 				if("discord_bot_port")
 					config.discord_bot_port = value
+
+				if("use_discord_pins")
+					config.use_discord_pins = 1
 
 				if("python_path")
 					if(value)
@@ -687,6 +720,9 @@ var/list/gamemode_cache = list()
 
 				if("player_levels")
 					config.player_levels = text2numlist(value, ";")
+
+				if("sealed_levels")
+					config.sealed_levels = text2numlist(value, ";")
 
 				if("expected_round_length")
 					config.expected_round_length = MinutesToTicks(text2num(value))
@@ -787,6 +823,40 @@ var/list/gamemode_cache = list()
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
 
+
+				if("mc_ticklimit_init")
+					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
+
+				if("log_gelf_enabled")
+					config.log_gelf_enabled = text2num(value)
+
+				if("log_gelf_ip")
+					config.log_gelf_ip = value
+
+				if("log_gelf_port")
+					config.log_gelf_port = value
+
+				if("ipintel_email")
+					if (value != "ch@nge.me")
+						ipintel_email = value
+				if("ipintel_rating_bad")
+					ipintel_rating_bad = text2num(value)
+				if("ipintel_rating_kick")
+					ipintel_rating_kick = text2num(value)
+				if("ipintel_domain")
+					ipintel_domain = value
+				if("ipintel_save_good")
+					ipintel_save_good = text2num(value)
+				if("ipintel_save_bad")
+					ipintel_save_bad = text2num(value)
+
+				if("access_deny_new_accounts")
+					access_deny_new_accounts = text2num(value) >= 0 ? text2num(value) : -1
+				if("access_deny_vms")
+					access_deny_vms = text2num(value)
+				if("access_warn_vms")
+					access_warn_vms = text2num(value)
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -853,6 +923,12 @@ var/list/gamemode_cache = list()
 				if("use_loyalty_implants")
 					config.use_loyalty_implants = 1
 
+				if ("sunlight_accuracy")
+					config.sun_accuracy = value
+
+				if ("sunlight_z")
+					config.sun_target_z = value
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -874,6 +950,8 @@ var/list/gamemode_cache = list()
 					discord_bot.active = 1
 				if ("robust_debug")
 					discord_bot.robust_debug = 1
+				if ("subscriber")
+					discord_bot.subscriber_role = value
 				else
 					log_misc("Unknown setting in discord configuration: '[name]'")
 

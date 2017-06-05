@@ -2,8 +2,8 @@ var/datum/antagonist/thrall/vampire_thrall = null
 
 /datum/antagonist/thrall
 	id = MODE_THRALL
-	role_text = "thrall"
-	role_text_plural = "thralls"
+	role_text = "Thrall"
+	role_text_plural = "Thralls"
 	bantype = "vampires"
 	feedback_tag = "thrall_objective"
 	restricted_jobs = list("AI", "Cyborg", "Chaplain")

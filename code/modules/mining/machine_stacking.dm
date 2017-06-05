@@ -7,18 +7,18 @@
 	density = 1
 	anchored = 1
 	var/obj/machinery/mineral/stacking_machine/machine = null
-	var/machinedir = SOUTHEAST
+	var/machinedir = NORTHEAST
+	use_power = 1
+	idle_power_usage = 15
+	active_power_usage = 50
 
-/obj/machinery/mineral/stacking_unit_console/New()
-
-	..()
-
-	spawn(7)
-		src.machine = locate(/obj/machinery/mineral/stacking_machine, get_step(src, machinedir))
-		if (machine)
-			machine.console = src
-		else
-			qdel(src)
+/obj/machinery/mineral/stacking_unit_console/Initialize()
+	. = ..()
+	src.machine = locate(/obj/machinery/mineral/stacking_machine, get_step(src, machinedir))
+	if (machine)
+		machine.console = src
+	else
+		return INITIALIZE_HINT_QDEL
 
 /obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -77,9 +77,12 @@
 	var/list/stack_storage[0]
 	var/list/stack_paths[0]
 	var/stack_amt = 50; // Amount to stack before releassing
+	use_power = 1
+	idle_power_usage = 15
+	active_power_usage = 50
 
-/obj/machinery/mineral/stacking_machine/New()
-	..()
+/obj/machinery/mineral/stacking_machine/Initialize()
+	. = ..()
 
 	for(var/stacktype in typesof(/obj/item/stack/material)-/obj/item/stack/material)
 		var/obj/item/stack/S = new stacktype(src)
@@ -94,17 +97,19 @@
 	stack_storage["plasteel"] = 0
 	stack_paths["plasteel"] = /obj/item/stack/material/plasteel
 
-	spawn( 5 )
-		for (var/dir in cardinal)
-			src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-			if(src.input) break
-		for (var/dir in cardinal)
-			src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-			if(src.output) break
-		return
-	return
+	for (var/dir in cardinal)
+		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
+		if(src.input) break
+	for (var/dir in cardinal)
+		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
+		if(src.output) break
 
 /obj/machinery/mineral/stacking_machine/process()
+	..()
+	if(!console)
+		log_debug("Stacking machine tried to process, but no console has linked itself to it.")
+		qdel(src)
+		return
 	if (src.output && src.input)
 		var/turf/T = get_turf(input)
 		for(var/obj/item/O in T.contents)

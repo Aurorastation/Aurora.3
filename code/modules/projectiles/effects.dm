@@ -12,10 +12,8 @@
 		transform = M
 
 /obj/effect/projectile/proc/activate(var/kill_delay = 3)
-	spawn(kill_delay)
-		qdel(src)	//see effect_system.dm - sets loc to null and lets GC handle removing these effects
+	QDEL_IN(src, kill_delay) //see effect_system.dm - sets loc to null and lets GC handle removing these effects
 
-	return
 
 //----------------------------
 // Laser beam
@@ -149,7 +147,45 @@
 	icon_state = "impact_solar"
 
 //----------------------------
+// Treye beam
+//----------------------------
+/obj/effect/projectile/trilaser/tracer
+	icon_state = "plasmacutter"
+
+/obj/effect/projectile/trilaser/muzzle
+	icon_state = "muzzle_plasmacutter"
+
+/obj/effect/projectile/trilaser/impact
+	icon_state = "impact_plasmacutter"
+
+//----------------------------
 // Pulse muzzle
 //----------------------------
 /obj/effect/projectile/pulse_bullet/muzzle
 	icon_state = "muzzle_pulse"
+
+
+//----------------------------
+// Demonic Beam
+//----------------------------
+/obj/effect/projectile/cult/tracer
+	icon_state = "cult"
+
+/obj/effect/projectile/cult/muzzle
+	icon_state = "muzzle_cult"
+
+/obj/effect/projectile/cult/impact
+	icon_state = "impact_cult"
+
+
+//----------------------------
+// Empowered Demonic Beam
+//----------------------------
+/obj/effect/projectile/cult/heavy/tracer
+	icon_state = "hcult"
+
+/obj/effect/projectile/cult/heavy/muzzle
+	icon_state = "muzzle_hcult"
+
+/obj/effect/projectile/cult/heavy/impact
+	icon_state = "impact_hcult"

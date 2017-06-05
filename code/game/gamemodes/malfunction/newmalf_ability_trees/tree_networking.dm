@@ -92,25 +92,89 @@
 	if(!ability_prechecks(user, price))
 		return
 
-	var/title = input("Select message title: ")
-	var/text = input("Select message text: ")
-	if(!title || !text || !ability_pay(user, price))
-		user << "Hack Aborted"
-		return
+	var/reporttitle
+	var/reportbody
+	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") in list("Template", "Custom", "Cancel")
+	switch(reporttype)
+		if("Template")
+			establish_db_connection(dbcon)
+			if (!dbcon.IsConnected())
+				src << "<span class='notice'>Unable to connect to the database.</span>"
+				return
+			var/DBQuery/query = dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
+			query.Execute()
 
-	log_ability_use(user, "advanced encryption hack")
+			var/list/template_names = list()
+			var/list/templates = list()
 
-	if(prob(50) && user.hack_can_fail)
-		user << "Hack Failed."
-		if(prob(5))
-			user.hack_fails ++
-			announce_hack_failure(user, "quantum message relay")
-			log_ability_use(user, "elite encryption hack (CRITFAIL - title: [title])")
+			while (query.NextRow())
+				template_names += query.item[1]
+				templates[query.item[1]] = query.item[2]
+
+			// Catch empty list
+			if (!templates.len)
+				src << "<span class='notice'>There are no templates in the database.</span>"
+				return
+
+			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in template_names
+			reportbody = templates[reporttitle]
+
+		if("Custom")
+			reporttitle = sanitizeSafe(input(usr, "Pick a title for the report.", "Title") as text|null)
+			if(!reporttitle)
+				reporttitle = "NanoTrasen Update"
+			reportbody = sanitize(input(usr, "Please enter anything you want. Anything. Serious.", "Body", "") as message|null, extra = 0)
+			if(!reportbody)
+				return
+		else
 			return
-		log_ability_use(user, "elite encryption hack (FAIL - title: [title])")
-		return
-	log_ability_use(user, "elite encryption hack (SUCCESS - title: [title])")
-	command_announcement.Announce(text, title)
+
+	if (reporttype == "Template")
+		sanitizeSafe(alert(usr, "Would you like it to appear as if CCIAMS made the report?",,"Yes","No"))
+		if ("Yes")
+			reportbody += "\n\n- CCIAMS, [commstation_name()]"
+		else
+
+	switch(alert("Should this be announced to the general population?",,"Yes","No"))
+		if("Yes")
+			if(!reporttitle || !reportbody || !ability_pay(user, price))
+				user << "Hack Aborted due to no title, no body message, or you do not have enough CPU for this action."
+				return
+
+			log_ability_use(user, "advanced encryption hack")
+
+			if(prob(50) && user.hack_can_fail)
+				user << "Hack Failed."
+				if(prob(5))
+					user.hack_fails ++
+					announce_hack_failure(user, "quantum message relay")
+					log_ability_use(user, "advanced encryption hack (CRITFAIL - title: [reporttitle])")
+					return
+				log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
+				return
+			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
+			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+
+		if("No")
+			if(!reporttitle || !reportbody || !ability_pay(user, price))
+				user << "Hack Aborted due to no title, no body message, or you do not have enough CPU for this action."
+				return
+
+			log_ability_use(user, "advanced encryption hack")
+
+			if(prob(50) && user.hack_can_fail)
+				user << "Hack Failed."
+				if(prob(5))
+					user.hack_fails ++
+					announce_hack_failure(user, "quantum message relay")
+					log_ability_use(user, "advanced encryption hack (CRITFAIL - title: [reporttitle])")
+					return
+				log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
+				return
+			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
+			world << "<span class='alert'>New [company_name] Update available at all communication consoles.</span>"
+			world << sound('sound/AI/commandreport.ogg')
+			post_comm_message(reporttitle, reportbody)
 
 /datum/game_mode/malfunction/verb/elite_encryption_hack()
 	set category = "Software"

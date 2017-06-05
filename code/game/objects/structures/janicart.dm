@@ -22,8 +22,21 @@
 	var/has_items = 0//This is set true whenever the cart has anything loaded/mounted on it
 	var/dismantled = 0//This is set true after the object has been dismantled to avoid an infintie loop
 
-///obj/structure/janitorialcart/New()
+/obj/structure/janitorialcart/New()
+	..()
+	janitorial_supplies |= src
 
+/obj/structure/janitorialcart/Destroy()
+	janitorial_supplies -= src
+	QDEL_NULL(mybag)
+	QDEL_NULL(mymop)
+	QDEL_NULL(myspray)
+	QDEL_NULL(myreplacer)
+	QDEL_NULL(mybucket)
+	return ..()
+
+/obj/structure/janitorialcart/proc/get_short_status()
+	return "Contents: [english_list(contents)]"
 
 /obj/structure/janitorialcart/examine(mob/user)
 	if(..(user, 1))
@@ -48,6 +61,7 @@
 //Altclick the cart with a mop to stow the mop away
 //Altclick the cart with a reagent container to pour things into the bucket without putting the bottle in trash
 /obj/structure/janitorialcart/AltClick()
+	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	var/obj/I = usr.get_active_hand()
 	if(istype(I, /obj/item/weapon/mop))
 		if(!mymop)
@@ -129,7 +143,7 @@
 		//This return will prevent afterattack from executing if the object goes into the trashbag,
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
-	else if (!has_items && (istype(I, /obj/item/weapon/wrench) || istype(I, /obj/item/weapon/weldingtool) || istype(I, /obj/item/weapon/pickaxe/plasmacutter)))
+	else if (!has_items && (istype(I, /obj/item/weapon/wrench) || istype(I, /obj/item/weapon/weldingtool) || istype(I, /obj/item/weapon/gun/energy/plasmacutter)))
 		dismantle(user)
 		return
 	..()
@@ -211,7 +225,7 @@
 	data["replacer"] = myreplacer ? capitalize(myreplacer.name) : null
 	data["signs"] = signs ? "[signs] sign\s" : null
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "janitorcart.tmpl", "Janitorial cart", 240, 160)
 		ui.set_initial_data(data)
@@ -266,28 +280,28 @@
 
 
 /obj/structure/janitorialcart/update_icon()
-	overlays = null
+	cut_overlays()
 	has_items = 0
 	if(mybucket)
-		overlays += "cart_bucket"
+		add_overlay("cart_bucket")
 		has_items = 1
 	if(mybag)
-		overlays += "cart_garbage"
+		add_overlay("cart_garbage")
 		has_items = 1
 	if(mymop)
-		overlays += "cart_mop"
+		add_overlay("cart_mop")
 		has_items = 1
 	if(myspray)
-		overlays += "cart_spray"
+		add_overlay("cart_spray")
 		has_items = 1
 	if(myreplacer)
 		if (istype(myreplacer, /obj/item/device/lightreplacer/advanced))
-			overlays += "cart_adv_lightreplacer"
+			add_overlay("cart_adv_lightreplacer")
 		else
-			overlays += "cart_replacer"
+			add_overlay("cart_replacer")
 		has_items = 1
 	if(signs)
-		overlays += "cart_sign[signs]"
+		add_overlay("cart_sign[signs]")
 		has_items = 1
 
 

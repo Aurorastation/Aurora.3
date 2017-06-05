@@ -6,7 +6,7 @@
 //DRINKS
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/cola
-	name = "\improper Space Cola"
+	name = "space cola"
 	desc = "Cola. in space."
 	icon_state = "cola"
 	center_of_mass = list("x"=16, "y"=10)
@@ -33,7 +33,7 @@
 		reagents.add_reagent("spacemountainwind", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko
-	name = "\improper Thirteen Loko"
+	name = "thirteen loko"
 	desc = "The CMO has advised crew members that consumption of Thirteen Loko may result in seizures, blindness, drunkeness, or even death. Please Drink Responsibly."
 	icon_state = "thirteen_loko"
 	center_of_mass = list("x"=16, "y"=8)
@@ -78,7 +78,7 @@
 		reagents.add_reagent("lemon_lime", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea
-	name = "\improper Vrisk Serket Iced Tea"
+	name = "\improper Vrisk Serket iced tea"
 	desc = "That sweet, refreshing southern earthy flavor. That's where it's from, right? South Earth?"
 	icon_state = "ice_tea_can"
 	center_of_mass = list("x"=16, "y"=10)
@@ -87,7 +87,7 @@
 		reagents.add_reagent("icetea", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice
-	name = "\improper Grapel Juice"
+	name = "\improper Grapel juice"
 	desc = "500 pages of rules of how to appropriately enter into a combat with this juice!"
 	icon_state = "purple_can"
 	center_of_mass = list("x"=16, "y"=10)
@@ -96,7 +96,7 @@
 		reagents.add_reagent("grapejuice", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/tonic
-	name = "\improper T-Borg's Tonic Water"
+	name = "\improper T-Borg's tonic water"
 	desc = "Quinine tastes funny, but at least it'll keep that Space Malaria away."
 	icon_state = "tonic"
 	center_of_mass = list("x"=16, "y"=10)

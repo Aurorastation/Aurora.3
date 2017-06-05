@@ -155,17 +155,6 @@
 	icon_state = "bronze"
 	item_state = "bronze"
 	
-/obj/item/clothing/accessory/medal/iron
-	name = "iron medal"
-	desc = "A simple iron medal."
-	icon_state = "iron"
-	item_state = "iron"
-
-/obj/item/clothing/accessory/medal/iron/merit
-	name = "iron merit medal"
-	desc = "An iron medal awarded to NanoTrasen employees for merit."
-	icon_state = "iron_nt"
-
 /obj/item/clothing/accessory/medal/conduct
 	name = "distinguished conduct medal"
 	desc = "A bronze medal awarded for distinguished conduct. Whilst a great honor, this is most basic award on offer. It is often awarded by a captain to a member of their crew."
@@ -179,6 +168,17 @@
 /obj/item/clothing/accessory/medal/nobel_science
 	name = "nobel sciences award"
 	desc = "A bronze medal which represents significant contributions to the field of science or engineering."
+
+/obj/item/clothing/accessory/medal/iron
+	name = "iron medal"
+	desc = "A simple iron medal."
+	icon_state = "iron"
+	item_state = "iron"
+
+/obj/item/clothing/accessory/medal/iron/merit
+	name = "iron merit medal"
+	desc = "An iron medal awarded to NanoTrasen employees for merit."
+	icon_state = "iron_nt"
 
 /obj/item/clothing/accessory/medal/silver
 	name = "silver medal"
@@ -224,3 +224,54 @@
 	desc = "They suspend the illusion of the mime's play."
 	icon_state = "suspenders"
 	item_state = "suspenders"
+
+/obj/item/clothing/accessory/scarf
+	name = "white scarf"
+	desc = "A simple scarf, to protect your neck from the cold of space."
+	icon_state = "whitescarf"
+	item_state = "whitescarf"
+	
+/obj/item/clothing/accessory/scarf/yellow
+	name = "yellow scarf"
+	icon_state = "yellowscarf"
+	item_state = "yellowscarf"
+	
+/obj/item/clothing/accessory/scarf/green
+	name = "green scarf"
+	icon_state = "greenscarf"
+	item_state = "greenscarf"
+	
+/obj/item/clothing/accessory/scarf/purple
+	name = "purple scarf"
+	icon_state = "purplescarf"
+	item_state = "purplescarf"
+	
+/obj/item/clothing/accessory/scarf/black
+	name = "black scarf"
+	icon_state = "blackscarf"
+	item_state = "blackscarf"
+	
+/obj/item/clothing/accessory/scarf/red
+	name = "red scarf"
+	icon_state = "redscarf"
+	item_state = "redscarf"
+	
+/obj/item/clothing/accessory/scarf/orange
+	name = "orange scarf"
+	icon_state = "orangescarf"
+	item_state = "orangescarf"
+	
+/obj/item/clothing/accessory/scarf/light_blue
+	name = "light blue scarf"
+	icon_state = "lightbluescarf"
+	item_state = "lightbluescarf"
+	
+/obj/item/clothing/accessory/scarf/dark_blue
+	name = "dark blue scarf"
+	icon_state = "darkbluescarf"
+	item_state = "darkbluescarf"
+	
+/obj/item/clothing/accessory/scarf/zebra
+	name = "zebra scarf"
+	icon_state = "zebrascarf"
+	item_state = "zebrascarf"

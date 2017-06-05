@@ -10,7 +10,7 @@
 	var/obj/item/weapon/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	mob_size = 9//Based on average weight of a human
 
-/mob/living/carbon/human/New(var/new_loc, var/new_species = null)
+/mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	eat_types |= TYPE_ORGANIC//Any mobs that are given the devour verb, can eat nonhumanoid organics. Only applies to unathi for now
 
 	if(!dna)
@@ -66,7 +66,8 @@
 
 
 	human_mob_list |= src
-	..()
+
+	. = ..()
 
 	if(dna)
 		dna.ready_dna(src)
@@ -81,8 +82,32 @@
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
-	if (DS)
-		qdel(DS)//prevents the dionastats holding onto references and blocking GC
+	organs = null
+	internal_organs_by_name = null
+	internal_organs = null
+	organs_by_name = null
+	bad_internal_organs = null
+	bad_external_organs = null
+
+	QDEL_NULL(vessel)
+
+	QDEL_NULL(DS)
+	// qdel and null out our equipment.
+	QDEL_NULL(shoes)
+	QDEL_NULL(belt)
+	QDEL_NULL(gloves)
+	QDEL_NULL(glasses)
+	QDEL_NULL(head)
+	QDEL_NULL(l_ear)
+	QDEL_NULL(r_ear)
+	QDEL_NULL(wear_id)
+	QDEL_NULL(r_store)
+	QDEL_NULL(l_store)
+	QDEL_NULL(s_store)
+	QDEL_NULL(wear_suit)
+	// Do this last so the mob's stuff doesn't drop on del.
+	QDEL_NULL(w_uniform)
+
 	return ..()
 
 /mob/living/carbon/human/Stat()
@@ -210,7 +235,11 @@
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
 	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
 
-	var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(M)
+	var/obj/item/weapon/implant/loyalty/L
+	if(isipc(M))
+		L = new/obj/item/weapon/implant/loyalty/ipc(M)
+	else
+		L = new/obj/item/weapon/implant/loyalty(M)
 	L.imp_in = M
 	L.implanted = 1
 	var/obj/item/organ/external/affected = M.organs_by_name["head"]
@@ -445,7 +474,7 @@
 												U.handle_regular_hud_updates()
 
 			if(!modified)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["secrecord"])
 		if(hasHUD(usr,"security"))
@@ -475,7 +504,7 @@
 								read = 1
 
 			if(!read)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["secrecordComment"])
 		if(hasHUD(usr,"security"))
@@ -505,7 +534,7 @@
 								usr << "<a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>"
 
 			if(!read)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["secrecordadd"])
 		if(hasHUD(usr,"security"))
@@ -573,7 +602,7 @@
 											U.handle_regular_hud_updates()
 
 			if(!modified)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["medrecord"])
 		if(hasHUD(usr,"medical"))
@@ -604,7 +633,7 @@
 								read = 1
 
 			if(!read)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["medrecordComment"])
 		if(hasHUD(usr,"medical"))
@@ -634,7 +663,7 @@
 								usr << "<a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>"
 
 			if(!read)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["medrecordadd"])
 		if(hasHUD(usr,"medical"))
@@ -756,7 +785,7 @@
 
 /mob/living/carbon/human/proc/play_xylophone()
 	if(!src.xylophone)
-		visible_message("\red \The [src] begins playing \his ribcage like a xylophone. It's quite spooky.","\blue You begin to play a spooky refrain on your ribcage.","\red You hear a spooky xylophone melody.")
+		visible_message("<span class='warning'>\The [src] begins playing \his ribcage like a xylophone. It's quite spooky.</span>","<span class='notice'>You begin to play a spooky refrain on your ribcage.</span>","<span class='warning'>You hear a spooky xylophone melody.</span>")
 		var/song = pick('sound/effects/xylophone1.ogg','sound/effects/xylophone2.ogg','sound/effects/xylophone3.ogg')
 		playsound(loc, song, 50, 1, -1)
 		xylophone = 1
@@ -851,7 +880,7 @@
 	regenerate_icons()
 	check_dna()
 
-	visible_message("\blue \The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!", "\blue You change your appearance!", "\red Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!")
+	visible_message("<span class='notice'>\The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!</span>", "<span class='notice'>You change your appearance!</span>", "<span class='warning'>Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!</span>")
 
 /mob/living/carbon/human/proc/remotesay()
 	set name = "Project mind"
@@ -874,11 +903,11 @@
 
 	var/say = sanitize(input("What do you wish to say"))
 	if(mRemotetalk in target.mutations)
-		target.show_message("\blue You hear [src.real_name]'s voice: [say]")
+		target.show_message("<span class='notice'>You hear [src.real_name]'s voice: [say]</span>")
 	else
-		target.show_message("\blue You hear a voice that seems to echo around the room: [say]")
-	usr.show_message("\blue You project your mind into [target.real_name]: [say]")
-	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]")
+		target.show_message("<span class='notice'>You hear a voice that seems to echo around the room: [say]</span>")
+	usr.show_message("<span class='notice'>You project your mind into [target.real_name]: [say]</span>")
+	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
 	for(var/mob/dead/observer/G in world)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
@@ -1102,7 +1131,7 @@
 	else
 		usr << "<span class='warning'>You failed to check the pulse. Try again.</span>"
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour)
+/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0)
 
 	if(!dna)
 		if(!new_species)
@@ -1154,7 +1183,7 @@
 
 	species.create_organs(src)
 
-	species.handle_post_spawn(src)
+	species.handle_post_spawn(src,kpg) // should be zero by default
 
 	maxHealth = species.total_health
 
@@ -1181,7 +1210,6 @@
 
 	exhaust_threshold = species.exhaust_threshold
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
-	nutrition = (rand(25,100)*0.01)*max_nutrition//Starting nutrition is randomised between 25-100% of max
 
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	if(species)
@@ -1381,9 +1409,11 @@
 	var/obj/item/organ/external/current_limb = organs_by_name[choice]
 
 	if(self)
-		src << "<span class='warning'>You brace yourself to relocate your [current_limb.joint]...</span>"
+		U.visible_message("<span class='warning'>[U] tries to relocate their [current_limb.joint]...</span>", \
+		"<span class='warning'>You brace yourself to relocate your [current_limb.joint]...</span>")
 	else
-		U << "<span class='warning'>You begin to relocate [S]'s [current_limb.joint]...</span>"
+		U.visible_message("<span class='warning'>[U] tries to relocate [S]'s [current_limb.joint]...</span>", \
+		"<span class='warning'>You begin to relocate [S]'s [current_limb.joint]...</span>")
 
 	if(!do_after(U, 30))
 		return
@@ -1391,10 +1421,11 @@
 		return
 
 	if(self)
-		src << "<span class='danger'>You pop your [current_limb.joint] back in!</span>"
+		U.visible_message("<span class='danger'>[U] pops their [current_limb.joint] back in!</span>", \
+		"<span class='danger'>You pop your [current_limb.joint] back in!</span>")
 	else
-		U << "<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>"
-		S << "<span class='danger'>[U] pops your [current_limb.joint] back in!</span>"
+		U.visible_message("<span class='danger'>[U] pops [S]'s [current_limb.joint] back in!</span>", \
+		"<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>")
 	current_limb.undislocate()
 
 /mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/Target = null)

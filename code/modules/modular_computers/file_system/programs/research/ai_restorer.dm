@@ -10,6 +10,7 @@
 	available_on_ntnet = 1
 	nanomodule_path = /datum/nano_module/program/computer_aidiag/
 	var/restoring = 0
+	color = LIGHT_COLOR_PURPLE
 
 /datum/computer_file/program/aidiag/proc/get_ai()
 	if(computer && computer.ai_slot && computer.ai_slot.check_functionality() && computer.ai_slot.enabled && computer.ai_slot.stored_card && computer.ai_slot.stored_card.carded_ai)
@@ -107,7 +108,7 @@
 
 		data["ai_laws"] = all_laws
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "aidiag.tmpl", "AI Maintenance Utility", 600, 400, state = state)
 		if(host.update_layout())

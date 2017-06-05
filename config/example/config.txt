@@ -162,7 +162,8 @@ VOTE_AUTOGAMEMODE_TIMELEFT 100
 ## min delay (deciseconds) before a transfer vote can be called (default 120 minutes)
 TRANSFER_TIMEOUT 72000
 
-## prevents dead players from voting or starting votes
+## Prevets lobby-sitters and ghosts who went straight from the lobby to observing from voting.
+## Ghosts who died will still be able to vote.
 #NO_DEAD_VOTE
 
 ## players' votes default to "No vote" (otherwise,  default to "No change")
@@ -174,9 +175,17 @@ ALLOW_ANTAG_HUD
 ## If ghosts use antagHUD they are no longer allowed to join the round.
 ANTAG_HUD_RESTRICTED
 
-## allow AI job
-ALLOW_AI
+## Prevents observers from joining as mice.
+#DISABLE_PLAYER_MICE
 
+## If enabled, observer-mice will only be able to understand other mice.
+#UNEDUCATED_MICE
+
+## How much time a drone fabricator will take to produce a single drone. In deciseconds.
+#DRONE_BUILD_TIME 1200
+
+## If set to 0, observers will be unable to spawn as drones. Default 1.
+#ALLOW_DRONE_SPAWN 1
 
 ## disable abandon mob
 # NORESPAWN
@@ -206,6 +215,9 @@ GUEST_BAN
 
 ## forum address
 # FORUMURL http://example.com
+
+## The passphrase for the forums
+# FORUM_PASSPHRASE
 
 ## Wiki address
 # WIKIURL http://example.com
@@ -246,6 +258,9 @@ SOCKET_TALK 0
 
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
+
+## Adjust this time to modify how sensitive to fast messages spam protection should be.
+MACRO_TRIGGER 5
 
 ## How long the delay is before the Away Mission gate opens. Default is half an hour.
 GATEWAY_DELAY 18000
@@ -297,17 +312,20 @@ CHARACTER_SLOTS 10
 ## Uncomment to use overmap system for zlevel travel
 #USE_OVERMAP
 
-## Defines which Z-levels the station exists on.
-STATION_LEVELS 1
+## Defines which Z-levels the station exists on. Only set if you need to change the defaults.
+#STATION_LEVELS 3;4;5;6;7
 
-## Defines which Z-levels are used for admin functionality, such as Central Command and the Syndicate Shuttle
-ADMIN_LEVELS 2
+## Defines which Z-levels are used for admin functionality, such as Central Command and the Syndicate Shuttle. Only set if you need to change the defaults.
+#ADMIN_LEVELS 1
 
-## Defines which Z-levels which, for example, a Code Red announcement may affect
-CONTACT_LEVELS 1;5
+## Defines which Z-levels which, for example, a Code Red announcement may affect. Only set if you need to change the defaults.
+#CONTACT_LEVELS 3;4;5;6
 
-## Defines all Z-levels a character can typically reach
-PLAYER_LEVELS 1;3;4;5;6
+## Defines all Z-levels a character can typically reach. Only set if you need to change the defaults.
+#PLAYER_LEVELS 2;3;4;5;6;7;8
+
+## Defines which levels cannot be left via touching map borders. Only set if you need to change the defaults.
+#SEALED_LEVELS
 
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 180
@@ -414,7 +432,7 @@ STARLIGHT 0
 ## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, and say.
 #ALLOW_CHAT_MARKUP
 
-## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and - 
+## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and -
 # DEFAULT_LANGUAGE_PREFIXES , # -
 
 ## A ; separated list of lobby screens to randomly pick from. The listed screens must exist as icon states in '/icons/misc/title.dmi'.
@@ -431,3 +449,44 @@ API_RATE_LIMIT 50
 ## IPs that should not be throttled by the API RATE Limiter
 ## IPs are separated by ;
 API_RATE_LIMIT_WHITELIST 127.0.0.1
+
+# The maximum amount of a tick that the MC is permitted to use during server startup.
+# If not set will default to 98%.
+# You can set this high (~5000) for local testing to *maybe* speed up startup a bit at the cost of lagging the lobby.
+# Should be below 99 on a server actually used for play.
+#MC_TICKLIMIT_INIT 98
+
+
+## GELF Logging Configuration
+LOG_GELF_ENABLED 0
+LOG_GELF_IP 192.168.100.80
+LOG_GELF_PORT 12201
+
+### IPINTEL:
+### This allows you to detect likely proxies by checking ips against getipintel.net
+## Rating to warn at: (0.90 is good, 1 is 100% likely to be a spammer/proxy, 0.8 is 80%, etc) anything equal to or higher then this number triggers an admin warning
+#IPINTEL_RATING_BAD 0.90
+## Rating to kick at. Keeps kicking a person if they join with a certain level of intel. Recommended value is 1. Leave out if you don't want to enable automatic kicking.
+#IPINTEL_RATING_KICK 1
+## Contact email, (required to use the service, leaving blank or default disables IPINTEL)
+#IPINTEL_EMAIL ch@nge.me
+## How long to save good matches (ipintel rate limits to 15 per minute and 500 per day. so this shouldn't be too low, getipintel.net suggests 6 hours, time is in hours) (Your ip will get banned if you go over 500 a day too many times)
+#IPINTEL_SAVE_GOOD 12
+## How long to save bad matches (these numbers can change as ips change hands, best not to save these for too long in case somebody gets a new ip used by a spammer/proxy before.)
+#IPINTEL_SAVE_BAD 3
+## Domain name to query (leave commented out for the default, only needed if you pay getipintel.net for more querys)
+#IPINTEL_DOMAIN check.getipintel.net
+
+### ACCESS CONTROL:
+### This allows you to adjust various parametres by which potentially malicious users can by identified.
+### Note that none of these are 100% accurate, and should only be used in cases where a "panic bunker" is warranted.
+### They don't apply bans, at will, at worst, kick folks.
+## This determined whether or not a player's account can be denied entry based on their BYOND account age.
+## If their account is younger than the amount of days specified here, they cannot enter. This is inclusive.
+# ACCESS_DENY_NEW_ACCOUNTS 1
+## This determines how many VM identifiers must be spotted on a user before they're kicked. Currently 2 are implemented.
+## Leave at 0 to disable, or commented out.
+# ACCESS_DENY_VMS 0
+## This determines how many VM identifiers must be spotted on a user before admins are warned about them joining.
+## Leave at 0 or commented out to disable.
+# ACCESS_WARN_VMS 2

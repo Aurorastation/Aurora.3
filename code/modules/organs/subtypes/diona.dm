@@ -3,7 +3,7 @@
 		return 0
 
 	//This is a terrible hack and I should be ashamed.
-	var/datum/seed/diona = plant_controller.seeds["diona"]
+	var/datum/seed/diona = SSplants.seeds["diona"]
 	if(!diona)
 		return 0
 
@@ -17,14 +17,17 @@
 					D.death()
 		return 1
 
+
+//Probable future TODO: Refactor diona organs to be /obj/item/organ/external/bodypart/diona
+//Having them not inherit from specific bodypart classes is a problem
+
 /obj/item/organ/external/diona
 	name = "tendril"
 	cannot_break = 1
-	amputation_point = "branch"
-	joint = "structural ligament"
-	dislocated = -1
 
-/obj/item/organ/external/diona/chest
+
+
+/obj/item/organ/external/chest/diona
 	name = "core trunk"
 	limb_name = "chest"
 	icon_name = "torso"
@@ -35,8 +38,12 @@
 	vital = 1
 	cannot_amputate = 1
 	parent_organ = null
-
-/obj/item/organ/external/diona/groin
+	cannot_break = 1
+	dislocated = -1
+	joint = "structural ligament"
+	amputation_point = "branch"
+//------
+/obj/item/organ/external/groin/diona
 	name = "fork"
 	limb_name = "groin"
 	icon_name = "groin"
@@ -45,8 +52,12 @@
 	w_class = 4
 	body_part = LOWER_TORSO
 	parent_organ = "chest"
+	cannot_break = 1
+	dislocated = -1
+	joint = "structural ligament"
+	amputation_point = "branch"
 
-/obj/item/organ/external/diona/arm
+/obj/item/organ/external/arm/diona
 	name = "left upper tendril"
 	limb_name = "l_arm"
 	icon_name = "l_arm"
@@ -56,14 +67,22 @@
 	body_part = ARM_LEFT
 	parent_organ = "chest"
 	can_grasp = 1
+	cannot_break = 1
+	dislocated = -1
+	joint = "structural ligament"
+	amputation_point = "branch"
 
-/obj/item/organ/external/diona/arm/right
+/obj/item/organ/external/arm/right/diona
 	name = "right upper tendril"
 	limb_name = "r_arm"
 	icon_name = "r_arm"
 	body_part = ARM_RIGHT
+	cannot_break = 1
+	dislocated = -1
+	joint = "structural ligament"
+	amputation_point = "branch"
 
-/obj/item/organ/external/diona/leg
+/obj/item/organ/external/leg/diona
 	name = "left lower tendril"
 	limb_name = "l_leg"
 	icon_name = "l_leg"
@@ -74,15 +93,23 @@
 	icon_position = LEFT
 	parent_organ = "groin"
 	can_stand = 1
+	cannot_break = 1
+	dislocated = -1
+	joint = "structural ligament"
+	amputation_point = "branch"
 
-/obj/item/organ/external/diona/leg/right
+/obj/item/organ/external/leg/right/diona
 	name = "right lower tendril"
 	limb_name = "r_leg"
 	icon_name = "r_leg"
 	body_part = LEG_RIGHT
 	icon_position = RIGHT
+	cannot_break = 1
+	dislocated = -1
+	joint = "structural ligament"
+	amputation_point = "branch"
 
-/obj/item/organ/external/diona/foot
+/obj/item/organ/external/foot/diona
 	name = "left foot"
 	limb_name = "l_foot"
 	icon_name = "l_foot"
@@ -93,8 +120,12 @@
 	icon_position = LEFT
 	parent_organ = "l_leg"
 	can_stand = 1
+	cannot_break = 1
+	dislocated = -1
+	joint = "structural ligament"
+	amputation_point = "branch"
 
-/obj/item/organ/external/diona/foot/right
+/obj/item/organ/external/foot/right/diona
 	name = "right foot"
 	limb_name = "r_foot"
 	icon_name = "r_foot"
@@ -103,8 +134,12 @@
 	parent_organ = "r_leg"
 	joint = "right ankle"
 	amputation_point = "right ankle"
+	cannot_break = 1
+	dislocated = -1
+	joint = "structural ligament"
+	amputation_point = "branch"
 
-/obj/item/organ/external/diona/hand
+/obj/item/organ/external/hand/diona
 	name = "left grasper"
 	limb_name = "l_hand"
 	icon_name = "l_hand"
@@ -114,15 +149,23 @@
 	body_part = HAND_LEFT
 	parent_organ = "l_arm"
 	can_grasp = 1
+	cannot_break = 1
+	dislocated = -1
+	joint = "structural ligament"
+	amputation_point = "branch"
 
-/obj/item/organ/external/diona/hand/right
+/obj/item/organ/external/hand/right/diona
 	name = "right grasper"
 	limb_name = "r_hand"
 	icon_name = "r_hand"
 	body_part = HAND_RIGHT
 	parent_organ = "r_arm"
+	cannot_break = 1
+	dislocated = -1
+	joint = "structural ligament"
+	amputation_point = "branch"
 
-/obj/item/organ/external/diona/head
+/obj/item/organ/external/head/diona
 	limb_name = "head"
 	icon_name = "head"
 	name = "head"
@@ -131,21 +174,12 @@
 	w_class = 3
 	body_part = HEAD
 	parent_organ = "chest"
+	cannot_break = 1
+	dislocated = -1
+	joint = "structural ligament"
+	amputation_point = "branch"
 
-/obj/item/organ/external/diona/head/removed()
-	if(owner)
-		owner.u_equip(owner.head)
-		owner.u_equip(owner.l_ear)
-	..()
 
-//DIONA ORGANS.
-/obj/item/organ/external/diona/removed()
-	var/mob/living/carbon/human/H = owner
-	..()
-	if(!istype(H) || !H.organs || !H.organs.len)
-		H.death()
-	if(prob(50) && spawn_diona_nymph(get_turf(src)))
-		qdel(src)
 
 /obj/item/organ/diona/process()
 	return
@@ -154,7 +188,7 @@
 	name = "neural strata"
 	parent_organ = "chest"
 	organ_tag = "neural strata"
-	
+
 
 /obj/item/organ/diona/bladder
 	name = "gas bladder"

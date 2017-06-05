@@ -221,7 +221,7 @@
 
 			for(var/a = 1 to 5)
 				spawn(0)
-					var/obj/effect/effect/water/W = getFromPool(/obj/effect/effect/water, get_turf(chassis))
+					var/obj/effect/effect/water/W = new /obj/effect/effect/water(get_turf(chassis))
 					var/turf/my_target
 					if(a == 1)
 						my_target = T
@@ -274,7 +274,7 @@
 					set_ready_state(0)
 					if(do_after_cooldown(target))
 						if(disabled) return
-						chassis.spark_system.start()
+						chassis.spark_system.queue()
 						target:ChangeTurf(/turf/simulated/floor/plating)
 						playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
 						chassis.use_power(energy_drain)
@@ -283,7 +283,7 @@
 					set_ready_state(0)
 					if(do_after_cooldown(target))
 						if(disabled) return
-						chassis.spark_system.start()
+						chassis.spark_system.queue()
 						target:ChangeTurf(get_base_turf_by_area(target))
 						playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
 						chassis.use_power(energy_drain)
@@ -292,7 +292,7 @@
 					set_ready_state(0)
 					if(do_after_cooldown(target))
 						if(disabled) return
-						chassis.spark_system.start()
+						chassis.spark_system.queue()
 						qdel(target)
 						playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
 						chassis.use_power(energy_drain)
@@ -304,7 +304,7 @@
 						if(disabled) return
 						target:ChangeTurf(/turf/simulated/floor/plating)
 						playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
-						chassis.spark_system.start()
+						chassis.spark_system.queue()
 						chassis.use_power(energy_drain*2)
 				else if(istype(target, /turf/simulated/floor))
 					occupant_message("Building Wall...")
@@ -313,7 +313,7 @@
 						if(disabled) return
 						target:ChangeTurf(/turf/simulated/wall)
 						playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
-						chassis.spark_system.start()
+						chassis.spark_system.queue()
 						chassis.use_power(energy_drain*2)
 			if(2)
 				if(istype(target, /turf/simulated/floor))
@@ -321,7 +321,7 @@
 					set_ready_state(0)
 					if(do_after_cooldown(target))
 						if(disabled) return
-						chassis.spark_system.start()
+						chassis.spark_system.queue()
 						var/obj/machinery/door/airlock/T = new /obj/machinery/door/airlock(target)
 						T.autoclose = 1
 						playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -606,7 +606,7 @@
 	Destroy()
 		qdel(pr_repair_droid)
 		pr_repair_droid = null
-		..()
+		return ..()
 
 	attach(obj/mecha/M as obj)
 		..()
@@ -699,7 +699,7 @@
 	Destroy()
 		qdel(pr_energy_relay)
 		pr_energy_relay = null
-		..()
+		return ..()
 
 	detach()
 		pr_energy_relay.stop()
@@ -787,7 +787,7 @@
 	Destroy()
 		qdel(pr_mech_generator)
 		pr_mech_generator = null
-		..()
+		return ..()
 
 	proc/init()
 		fuel = new /obj/item/stack/material/phoron(src)

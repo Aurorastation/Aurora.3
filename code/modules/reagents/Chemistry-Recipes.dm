@@ -96,7 +96,7 @@
 
 	return progress
 
-/datum/chemical_reaction/proc/process(var/datum/reagents/holder)
+/datum/chemical_reaction/process(var/datum/reagents/holder)
 	//determine how far the reaction can proceed
 	var/list/reaction_limits = list()
 	for(var/reactant in required_reagents)
@@ -605,9 +605,7 @@
 
 /datum/chemical_reaction/flash_powder/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(2, 1, location)
-	s.start()
+	spark(location, 2, alldirs)
 	for(var/mob/living/carbon/M in viewers(world.view, location))
 		switch(get_dist(M, location))
 			if(0 to 3)
@@ -1354,7 +1352,17 @@
 	Z.loc = get_turf(holder.my_atom)
 	Z.announce_to_ghosts()
 
-/* Food */
+
+
+
+
+
+
+/*
+====================
+	Food
+====================
+*/
 
 /datum/chemical_reaction/tofu
 	name = "Tofu"
@@ -1449,6 +1457,7 @@
 	id = "dough"
 	result = null
 	required_reagents = list("egg" = 3, "flour" = 10)
+	inhibitors = list("water" = 1, "beer" = 1) //To prevent it messing with batter recipes
 	result_amount = 1
 
 /datum/chemical_reaction/dough/on_reaction(var/datum/reagents/holder, var/created_volume)
@@ -1484,7 +1493,51 @@
 	required_reagents = list("capsaicin" = 1, "hot_ramen" = 6)
 	result_amount = 6
 
-/* Alcohol */
+/datum/chemical_reaction/coating/batter
+	name = "Batter"
+	id = "batter"
+	result = "batter"
+	required_reagents = list("egg" = 3, "flour" = 10, "water" = 5, "sodiumchloride" = 2)
+	result_amount = 20
+
+/datum/chemical_reaction/coating/beerbatter
+	name = "Beer Batter"
+	id = "beerbatter"
+	result = "beerbatter"
+	required_reagents = list("egg" = 3, "flour" = 10, "beer" = 5, "sodiumchloride" = 2)
+	result_amount = 20
+
+/datum/chemical_reaction/browniemix
+	name = "Brownie Mix"
+	id = "browniemix"
+	result = "browniemix"
+	required_reagents = list("flour" = 5, "coco" = 5, "sugar" = 5)
+	result_amount = 15
+
+/*
+	Todo in future:
+		Cornmeal batter for corndogs
+		KFC style coating for chicken
+		breadcrumbs
+*/
+
+/*
+	Food: Coatings
+========================
+*/
+
+
+
+
+
+
+
+
+/*
+====================
+	Alcohol
+====================
+*/
 
 /datum/chemical_reaction/goldschlager
 	name = "Goldschlager"
@@ -1514,6 +1567,8 @@
 	required_reagents = list("ice" = 1, "tea" = 2)
 	result_amount = 3
 
+
+
 /datum/chemical_reaction/icecoffee
 	name = "Iced Coffee"
 	id = "icecoffee"
@@ -1535,6 +1590,14 @@
 	required_reagents = list("nutriment" = 10)
 	catalysts = list("enzyme" = 5)
 	result_amount = 10
+
+/datum/chemical_reaction/butanol
+	name = "Butanol"
+	id = "butanol"
+	result = "butanol"
+	required_reagents = list("cornoil" = 10, "sugar" = 10)
+	catalysts = list("enzyme" = 5)
+	result_amount = 5
 
 /datum/chemical_reaction/grenadine
 	name = "Grenadine Syrup"

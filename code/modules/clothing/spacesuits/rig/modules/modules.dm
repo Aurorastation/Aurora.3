@@ -261,6 +261,10 @@
 	..()
 	src.module = module
 
+/stat_rig_module/Destroy()
+	module = null
+	return ..()
+
 /stat_rig_module/proc/AddHref(var/list/href_list)
 	return
 

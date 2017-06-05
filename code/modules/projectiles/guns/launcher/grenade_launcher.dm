@@ -6,7 +6,7 @@
 	w_class = 4
 	force = 10
 
-	fire_sound = 'sound/weapons/empty.ogg'
+	fire_sound = 'sound/weapons/grenadelaunch.ogg'
 	fire_sound_text = "a metallic thunk"
 	recoil = 0
 	throw_distance = 7
@@ -83,7 +83,7 @@
 
 /obj/item/weapon/gun/launcher/grenade/handle_post_fire(mob/user)
 	message_admins("[key_name_admin(user)] fired a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
-	log_game("[key_name_admin(user)] used a grenade ([chambered.name]).")
+	log_game("[key_name_admin(user)] used a grenade ([chambered.name]).",ckey=key_name(user))
 	chambered = null
 
 //Underslung grenade launcher to be used with the Z8

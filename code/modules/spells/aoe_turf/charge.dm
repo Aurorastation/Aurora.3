@@ -1,7 +1,6 @@
 /spell/aoe_turf/charge
 	name = "Charge"
 	desc = "This spell can be used to charge up spent magical artifacts, among other things."
-
 	school = "transmutation"
 	charge_max = 600
 	spell_flags = 0
@@ -9,7 +8,8 @@
 	invocation_type = SpI_WHISPER
 	range = 0
 	cooldown_min = 400 //50 deciseconds reduction per rank
-
+	cast_sound = 'sound/magic/Charge.ogg'
+	
 	hud_state = "wiz_charge"
 
 /spell/aoe_turf/charge/cast(var/list/targets, mob/user)
@@ -23,7 +23,7 @@
 		cast_charge(A)
 
 /spell/aoe_turf/charge/proc/mob_charge(var/mob/living/M)
-	if(M.spell_list.len != 0)
+	if(LAZYLEN(M.spell_list))
 		for(var/spell/S in M.spell_list)
 			if(!istype(S, /spell/aoe_turf/charge))
 				S.charge_counter = S.charge_max
@@ -44,15 +44,6 @@
 			var/mob/M = G.affecting
 			charged_item = mob_charge(M)
 
-	if(istype(target, /obj/item/weapon/spellbook/oneuse))
-		var/obj/item/weapon/spellbook/oneuse/I = target
-		if(prob(50))
-			I.visible_message("<span class='warning'>[I] catches fire!</span>")
-			qdel(I)
-		else
-			I.used = 0
-			charged_item = I
-
 	if(istype(target, /obj/item/weapon/cell/))
 		var/obj/item/weapon/cell/C = target
 		if(prob(80))
@@ -67,3 +58,12 @@
 	else
 		charged_item.visible_message("<span class='notice'>[charged_item] suddenly sparks with energy!</span>")
 		return 1
+
+
+/spell/aoe_turf/charge/blood
+	name = "blood charge"
+	desc = "This spell charges things around it using the lifeforce gained by sacrificed blood."
+
+	charge_type = Sp_HOLDVAR
+	holder_var_type = "bruteloss"
+	holder_var_amount = 30

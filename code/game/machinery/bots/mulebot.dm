@@ -55,34 +55,32 @@
 
 	var/bloodiness = 0		// count of bloodiness
 
-/obj/machinery/bot/mulebot/New()
-	..()
+/obj/machinery/bot/mulebot/Initialize()
+	. = ..()
 	wires = new(src)
 	botcard = new(src)
 	botcard.access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	cell = new(src)
 	cell.charge = 2000
 	cell.maxcharge = 2000
+	if(SSradio)
+		SSradio.add_object(src, control_freq, filter = RADIO_MULEBOT)
+		SSradio.add_object(src, beacon_freq, filter = RADIO_NAVBEACONS)
 
-	spawn(5)	// must wait for map loading to finish
-		if(radio_controller)
-			radio_controller.add_object(src, control_freq, filter = RADIO_MULEBOT)
-			radio_controller.add_object(src, beacon_freq, filter = RADIO_NAVBEACONS)
-
-		var/count = 0
-		for(var/obj/machinery/bot/mulebot/other in world)
-			count++
-		if(!suffix)
-			suffix = "#[count]"
-		name = "Mulebot ([suffix])"
+	var/count = 0
+	for(var/obj/machinery/bot/mulebot/other in world)
+		count++
+	if(!suffix)
+		suffix = "#[count]"
+	name = "Mulebot ([suffix])"
 
 /obj/machinery/bot/mulebot/Destroy()
 	unload(0)
 	qdel(wires)
 	wires = null
-	if(radio_controller)
-		radio_controller.remove_object(src,beacon_freq)
-		radio_controller.remove_object(src,control_freq)
+	if(SSradio)
+		SSradio.remove_object(src,beacon_freq)
+		SSradio.remove_object(src,control_freq)
 	return ..()
 
 // attack by item
@@ -821,7 +819,7 @@
 	if(freq == control_freq && !wires.RemoteTX())
 		return
 
-	var/datum/radio_frequency/frequency = radio_controller.return_frequency(freq)
+	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
 
 	if(!frequency) return
 
@@ -870,17 +868,15 @@
 	var/turf/Tsec = get_turf(src)
 
 	new /obj/item/device/assembly/prox_sensor(Tsec)
-	getFromPool(/obj/item/stack/rods, Tsec)
-	getFromPool(/obj/item/stack/rods, Tsec)
+	new /obj/item/stack/rods(Tsec)
+	new /obj/item/stack/rods(Tsec)
 	new /obj/item/stack/cable_coil/cut(Tsec)
 	if (cell)
 		cell.loc = Tsec
 		cell.update_icon()
 		cell = null
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, src)
-	s.start()
+	spark(Tsec, 3, alldirs)
 
 	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	unload(0)

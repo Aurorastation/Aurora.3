@@ -1,5 +1,6 @@
 /datum/species/machine/shell
 	name = "Shell Frame"
+	hide_name = TRUE
 	short_name = "jak"
 	name_plural = "Shells"
 	bodytype = "Human"
@@ -17,6 +18,9 @@
 	icobase = 'icons/mob/human_races/r_human.dmi'
 	deform = 'icons/mob/human_races/robotic.dmi'
 
+	light_range = 0
+	light_power = 0
+
 	eyes = "eyes_s"
 	show_ssd = "completely quiescent"
 
@@ -32,7 +36,7 @@
 		"Your synthetic flesh crawls in the heat, swelling into a disgusting morass of plastic."
 		)
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP | HAS_UNDERWEAR | HAS_SOCKS
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/shell),
@@ -48,6 +52,8 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/shell)
 		)
 
+/datum/species/machine/shell/get_light_color(hair_style)
+	return
 
 /datum/species/machine/shell/handle_post_spawn(var/mob/living/carbon/human/H)
 	add_inherent_verbs(H)
@@ -78,6 +84,9 @@
 
 /datum/species/machine/shell/get_bodytype()
 	return bodytype
+	
+/datum/species/machine/shell/equip_survival_gear(var/mob/living/carbon/human/H)
+	check_tag(H, H.client)
 
 /datum/species/machine/industrial
 	name = "Industrial Frame"
@@ -115,7 +124,7 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial)
 		)
 
-	appearance_flags = HAS_HAIR_COLOR
+	appearance_flags = HAS_EYE_COLOR
 
 	heat_level_1 = 600
 	heat_level_2 = 1200
@@ -127,6 +136,9 @@
 	nutrition_loss_factor = 2
 
 	sprint_speed_factor = 1.4
+
+/datum/species/machine/industrial/get_light_color(hair_style)
+	return LIGHT_COLOR_TUNGSTEN
 
 /datum/species/machine/industrial/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
@@ -155,6 +167,9 @@
 
 	icobase = 'icons/mob/human_races/r_terminator.dmi'
 	deform = 'icons/mob/human_races/r_terminator.dmi'
+
+	light_range = 0
+	light_power = 0
 
 	unarmed_types = list(/datum/unarmed_attack/terminator)
 	rarity_value = 20
@@ -202,11 +217,9 @@
 	has_organ = list(
 		"brain" = /obj/item/organ/mmi_holder/posibrain/terminator,
 		"shielded cell" = /obj/item/organ/cell/terminator,
-		"optics" = /obj/item/organ/optical_sensor/terminator,
+		"optics" = /obj/item/organ/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/data
 		)
-
-	vision_organ = "optics"
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/terminator),
@@ -231,6 +244,8 @@
 	sprint_speed_factor = 1.25
 	slowdown = 1
 
+/datum/species/machine/terminator/get_light_color(hair_style)
+	return
 
 /datum/species/machine/terminator/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)

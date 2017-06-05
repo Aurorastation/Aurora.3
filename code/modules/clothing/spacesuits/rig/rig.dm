@@ -79,7 +79,7 @@
 
 	// Wiring! How exciting.]
 	var/datum/wires/rig/wires
-	var/datum/effect/effect/system/spark_spread/spark_system
+	var/datum/effect_system/sparks/spark_system
 
 /obj/item/weapon/rig/examine()
 	usr << "This is \icon[src][src.name]."
@@ -94,20 +94,18 @@
 		usr << "The maintenance panel is [open ? "open" : "closed"]."
 		usr << "Hardsuit systems are [offline ? "<font color='red'>offline</font>" : "<font color='green'>online</font>"]."
 
-/obj/item/weapon/rig/New()
-	..()
+/obj/item/weapon/rig/Initialize()
+	. = ..()
 
 	item_state = icon_state
 	wires = new(src)
 
-	if((!req_access || !req_access.len) && (!req_one_access || !req_one_access.len))
+	if(!LAZYLEN(req_access) && !LAZYLEN(req_one_access))
 		locked = 0
 
-	spark_system = new()
-	spark_system.set_up(5, 0, src)
-	spark_system.attach(src)
+	spark_system = bind_spark(src, 5)
 
-	processing_objects |= src
+	START_PROCESSING(SSprocessing, src)
 
 	if(initial_modules && initial_modules.len)
 		for(var/path in initial_modules)
@@ -160,7 +158,7 @@
 		if(istype(M))
 			M.drop_from_inventory(piece)
 		qdel(piece)
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	qdel(wires)
 	wires = null
 	qdel(spark_system)
@@ -222,7 +220,7 @@
 
 		if(!instant)
 			wearer.visible_message("<font color='blue'>[wearer]'s suit emits a quiet hum as it begins to adjust its seals.</font>","<font color='blue'>With a quiet hum, the suit begins running checks and adjusting components.</font>")
-			if(seal_delay && !do_after(wearer,seal_delay))
+			if(seal_delay && !do_after(wearer, seal_delay, act_target = src))
 				if(wearer) wearer << "<span class='warning'>You must remain still while the suit is adjusting the components.</span>"
 				failed_to_seal = 1
 
@@ -246,7 +244,7 @@
 
 				if(!failed_to_seal && wearer.back == src && piece == compare_piece)
 
-					if(seal_delay && !instant && !do_after(wearer,seal_delay,needhand=0))
+					if(seal_delay && !instant && !do_after(wearer,seal_delay,needhand=0, act_target = src))
 						failed_to_seal = 1
 
 					piece.icon_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]"
@@ -471,7 +469,7 @@
 	if(module_list.len)
 		data["modules"] = module_list
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, ((src.loc != user) ? ai_interface_path : interface_path), interface_title, 480, 550, state = nano_state)
 		ui.set_initial_data(data)
@@ -725,7 +723,7 @@
 
 /obj/item/weapon/rig/proc/shock(mob/user)
 	if (electrocute_mob(user, cell, src)) //electrocute_mob() handles removing charge from the cell, no need to do that here.
-		spark_system.start()
+		spark_system.queue()
 		if(user.stunned)
 			return 1
 	return 0
@@ -846,9 +844,14 @@
 	if(!wearer.lastarea)
 		wearer.lastarea = get_area(wearer.loc)
 
-	if((istype(wearer.loc, /turf/space)) || (wearer.lastarea.has_gravity == 0))
-		if(!wearer.Process_Spacemove(0))
+	if(!wearer.check_solid_ground())
+		var/allowmove = wearer.Allow_Spacemove(0)
+		if(!allowmove)
 			return 0
+		else if(allowmove == -1 && wearer.handle_spaceslipping()) //Check to see if we slipped
+			return 0
+		else
+			wearer.inertia_dir = 0 //If not then we can reset inertia and move
 
 	if(malfunctioning)
 		direction = pick(cardinal)

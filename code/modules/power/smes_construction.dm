@@ -41,23 +41,19 @@
 
 // These are used on individual outposts as backup should power line be cut, or engineering outpost lost power.
 // 1M Charge, 150K I/O
-/obj/machinery/power/smes/buildable/outpost_substation/New()
-	..(0)
+/obj/machinery/power/smes/buildable/outpost_substation/Initialize()
+	. = ..()
 	component_parts += new /obj/item/weapon/smes_coil/weak(src)
 	recalc_coils()
 
 // This one is pre-installed on engineering shuttle. Allows rapid charging/discharging for easier transport of power to outpost
 // 11M Charge, 2.5M I/O
-/obj/machinery/power/smes/buildable/power_shuttle/New()
-	..(0)
+/obj/machinery/power/smes/buildable/power_shuttle/Initialize()
+	. = ..()
 	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
 	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
 	component_parts += new /obj/item/weapon/smes_coil(src)
 	recalc_coils()
-
-
-
-
 
 
 // END SMES SUBTYPES
@@ -78,8 +74,7 @@
 /obj/machinery/power/smes/buildable/Destroy()
 	qdel(wires)
 	wires = null
-	for(var/datum/nano_module/rcon/R in world)
-		R.FindDevices()
+	SSmachinery.queue_rcon_update()
 	return ..()
 
 // Proc: process()
@@ -88,9 +83,7 @@
 // This also causes the SMES to quickly discharge, and has small chance of damaging output APCs.
 /obj/machinery/power/smes/buildable/process()
 	if(!grounding && (Percentage() > 5))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(5, 1, src)
-		s.start()
+		spark(src, 5, alldirs)
 		charge -= (output_level_max * SMESRATE)
 		if(prob(1)) // Small chance of overload occuring since grounding is disabled.
 			apcs_overload(5,10,20)
@@ -124,6 +117,9 @@
 		for(var/i = 1, i <= cur_coils, i++)
 			component_parts += new /obj/item/weapon/smes_coil(src)
 		recalc_coils()
+
+	SSmachinery.queue_rcon_update()
+
 	..()
 
 // Proc: attack_hand()
@@ -176,14 +172,13 @@
 
 
 	// Preparations
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	// Check if user has protected gloves.
 	var/user_protected = 0
 	if(h_user.gloves)
 		var/obj/item/clothing/gloves/G = h_user.gloves
 		if(G.siemens_coefficient == 0)
 			user_protected = 1
-	log_game("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100")
+	log_game("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100",ckey=key_name(usr))
 	message_admins("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100 - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>")
 
 
@@ -191,8 +186,7 @@
 		if (0 to 15)
 			// Small overcharge
 			// Sparks, Weak shock
-			s.set_up(2, 1, src)
-			s.start()
+			small_spark.queue()	// This belongs to the parent SMES type.
 			if (user_protected && prob(80))
 				h_user << "Small electrical arc almost burns your hand. Luckily you had your gloves on!"
 			else
@@ -204,8 +198,7 @@
 		if (16 to 35)
 			// Medium overcharge
 			// Sparks, Medium shock, Weak EMP
-			s.set_up(4,1,src)
-			s.start()
+			big_spark.queue()
 			if (user_protected && prob(25))
 				h_user << "Medium electrical arc sparks and almost burns your hand. Luckily you had your gloves on!"
 			else
@@ -220,8 +213,8 @@
 		if (36 to 60)
 			// Strong overcharge
 			// Sparks, Strong shock, Strong EMP, 10% light overload. 1% APC failure
-			s.set_up(7,1,src)
-			s.start()
+			big_spark.queue()
+			big_spark.queue()
 			if (user_protected)
 				h_user << "Strong electrical arc sparks between you and [src], ignoring your gloves and burning your hand!"
 				h_user.adjustFireLoss(rand(25,60))
@@ -240,9 +233,9 @@
 		if (61 to INFINITY)
 			// Massive overcharge
 			// Sparks, Near - instantkill shock, Strong EMP, 25% light overload, 5% APC failure. 50% of SMES explosion. This is bad.
-			s.set_up(10,1,src)
-			s.start()
-			h_user << "Massive electrical arc sparks between you and [src]. Last thing you can think about is \"Oh shit...\""
+			big_spark.queue()
+			big_spark.queue()
+			h_user << "A massive electrical arc sparks between you and \the [src]. The last thing that goes through your mind is \"Oh shit...\"."
 			// Remember, we have few gigajoules of electricity here.. Turn them into crispy toast.
 			h_user.adjustFireLoss(rand(150,195))
 			h_user.Paralyse(25)
@@ -294,8 +287,8 @@
 // Description: Allows us to use special icon overlay for critical SMESs
 /obj/machinery/power/smes/buildable/update_icon()
 	if (failing)
-		overlays.Cut()
-		overlays += image('icons/obj/power.dmi', "smes-crit")
+		cut_overlays()
+		add_overlay("smes-crit")
 	else
 		..()
 
@@ -318,6 +311,7 @@
 			if(newtag)
 				RCon_tag = newtag
 				user << "<span class='notice'>You changed the RCON tag to: [newtag]</span>"
+				SSmachinery.queue_rcon_update()
 			return
 		// Charged above 1% and safeties are enabled.
 		if((charge > (capacity/100)) && safeties_enabled)
@@ -349,7 +343,7 @@
 					total_system_failure(failure_probability, user)
 					return
 
-				usr << "\red You have disassembled the SMES cell!"
+				usr << "<span class='warning'>You have disassembled the SMES cell!</span>"
 				var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 				M.state = 2
 				M.icon_state = "box_1"
@@ -374,7 +368,7 @@
 				W.loc = src
 				recalc_coils()
 			else
-				usr << "\red You can't insert more coils to this SMES unit!"
+				usr << "<span class='warning'>You can't insert more coils to this SMES unit!</span>"
 
 // Proc: toggle_input()
 // Parameters: None

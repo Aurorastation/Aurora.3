@@ -26,25 +26,53 @@
 
 	var/list/decals
 
-/turf/New()
-	..()
+	var/is_hole		// If true, turf will be treated as space or a hole
+	var/turf/baseturf = /turf/space
+
+// Parent code is duplicated in here instead of ..() for performance reasons.
+/turf/Initialize()
+	if (initialized)
+		crash_with("Warning: [src]([type]) initialized multiple times!")
+
+	initialized = TRUE
+
 	for(var/atom/movable/AM as mob|obj in src)
-		spawn( 0 )
-			src.Entered(AM)
-			return
-	turfs |= src
+		Entered(AM)
+
+	turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
 
-/turf/proc/update_icon()
-	return
+	if (smooth)
+		queue_smooth(src)
+
+	if (light_power && light_range)
+		update_light()
+
+	if (opacity)
+		has_opaque_atom = TRUE
+
+	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
+	if (!changing_turf)
+		crash_with("Improper turf qdeletion.")
+
+	changing_turf = FALSE
 	turfs -= src
 	..()
+	return QDEL_HINT_IWILLGC
+
+// This should be using mutable_appearance, but 510. Woe.
+// Update this & all overrides if/when we move to 511.
+/turf/proc/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.icon = icon
+	underlay_appearance.icon_state = icon_state
+	underlay_appearance.dir = adjacency_dir
+	return TRUE
 
 /turf/ex_act(severity)
 	return 0
@@ -136,28 +164,14 @@ var/const/enterloopsanity = 100
 		if(M.lastarea.has_gravity == 0)
 			inertial_drift(M)
 
-		if (!M.buckled)
-			var/mob/living/carbon/human/MOB = M
-			if(istype(MOB) && !MOB.lying && footstep_sound)
-				if(istype(MOB.shoes, /obj/item/clothing/shoes) && !MOB.shoes:silent)
-					if(MOB.m_intent == "run")
-						playsound(MOB, footstep_sound, 70, 1)
-					else //Run and walk footsteps switched, because walk is the normal movement mode now
-						if(MOB.footstep >= 2)
-							MOB.footstep = 0
-						else
-							MOB.footstep++
-						if(MOB.footstep == 0)
-							playsound(MOB, footstep_sound, 40, 1)
-
-
+		// Footstep SFX logic moved to human_movement.dm - Move().
 
 		else if(!istype(src, /turf/space))
 			M.inertia_dir = 0
 			M.make_floating(0)
 	..()
 	var/objects = 0
-	if(A && (A.flags & PROXMOVE))
+	if(A && (A.flags & PROXMOVE) && A.simulated)
 		for(var/atom/movable/thing in range(1))
 			if(objects > enterloopsanity) break
 			objects++
@@ -178,7 +192,7 @@ var/const/enterloopsanity = 100
 	if(!(A.last_move))	return
 	if((istype(A, /mob/) && src.x > 2 && src.x < (world.maxx - 1) && src.y > 2 && src.y < (world.maxy-1)))
 		var/mob/M = A
-		if(M.Process_Spacemove(1))
+		if(M.Allow_Spacemove(1))
 			M.inertia_dir  = 0
 			return
 		spawn(5)
@@ -225,8 +239,8 @@ var/const/enterloopsanity = 100
 				L.Add(t)
 	return L
 
-/turf/proc/process()
-	return PROCESS_KILL
+/turf/process()
+	STOP_PROCESSING(SSprocessing, src)
 
 /turf/proc/contains_dense_objects()
 	if(density)

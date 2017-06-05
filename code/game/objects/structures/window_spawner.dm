@@ -25,17 +25,20 @@
 /obj/effect/wingrille_spawn/attack_generic()
 	activate()
 
-/obj/effect/wingrille_spawn/initialize()
+/obj/effect/wingrille_spawn/Initialize(mapload)
+	if (!win_path)
+		return INITIALIZE_HINT_QDEL
+
 	..()
-	if(!win_path)
-		return
-	if(ticker && ticker.current_state < GAME_STATE_PLAYING)
-		activate()
+
+	activate()
+
+	return INITIALIZE_HINT_LATEQDEL
 
 /obj/effect/wingrille_spawn/proc/activate()
 	if(activated) return
 	if (!locate(/obj/structure/grille) in get_turf(src))
-		var/obj/structure/grille/G = getFromPool(/obj/structure/grille, src.loc)
+		var/obj/structure/grille/G = new /obj/structure/grille(src.loc)
 		handle_grille_spawn(G)
 	var/list/neighbours = list()
 	for (var/dir in cardinal)
@@ -49,15 +52,12 @@
 						found_connection = 1
 						qdel(W)
 			if(!found_connection)
-				var/obj/structure/window/new_win = getFromPool(win_path, src.loc)
+				var/obj/structure/window/new_win = new win_path(src.loc)
 				new_win.set_dir(dir)
 				handle_window_spawn(new_win)
 		else
 			neighbours |= other
 	activated = 1
-	for(var/obj/effect/wingrille_spawn/other in neighbours)
-		if(!other.activated) other.activate()
-	qdel(src)
 
 /obj/effect/wingrille_spawn/proc/handle_window_spawn(var/obj/structure/window/W)
 	return

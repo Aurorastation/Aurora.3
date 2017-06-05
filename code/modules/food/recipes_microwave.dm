@@ -28,44 +28,15 @@ I said no!
 
 /datum/recipe/boiledegg
 	reagents = list("water" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/egg
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/boiledegg
 
-/datum/recipe/dionaroast
-	fruit = list("apple" = 1)
-	reagents = list("pacid" = 5) //It dissolves the carapace. Still poisonous, though.
-	items = list(/obj/item/weapon/holder/diona)
-	result = /obj/item/weapon/reagent_containers/food/snacks/dionaroast
 
-/datum/recipe/jellydonut
-	reagents = list("berryjuice" = 5, "sugar" = 5)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/donut/jelly
 
-/datum/recipe/jellydonut/slime
-	reagents = list("slimejelly" = 5, "sugar" = 5)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/donut/slimejelly
 
-/datum/recipe/jellydonut/cherry
-	reagents = list("cherryjelly" = 5, "sugar" = 5)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/donut/cherryjelly
-
-/datum/recipe/donut
-	reagents = list("sugar" = 5)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/donut/normal
 
 /datum/recipe/humanburger
 	items = list(
@@ -144,6 +115,14 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/mimeburger
 
+/datum/recipe/mouseburger
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bun,
+		/obj/item/weapon/holder/mouse
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/mouseburger
+
+
 /datum/recipe/hotdog
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/bun,
@@ -168,9 +147,10 @@ I said no!
 	proc/warm_up(var/obj/item/weapon/reagent_containers/food/snacks/donkpocket/being_cooked)
 		being_cooked.heat()
 	make_food(var/obj/container as obj)
-		var/obj/item/weapon/reagent_containers/food/snacks/donkpocket/being_cooked = ..(container)
-		warm_up(being_cooked)
-		return being_cooked
+		. = ..(container)
+		for (var/obj/item/weapon/reagent_containers/food/snacks/donkpocket/D in .)
+			if (!D.warm)
+				warm_up(D)
 
 /datum/recipe/donkpocket/warm
 	reagents = list() //This is necessary since this is a child object of the above recipe and we don't want donk pockets to need flour
@@ -178,75 +158,21 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/donkpocket
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/donkpocket //SPECIAL
-	make_food(var/obj/container as obj)
-		var/obj/item/weapon/reagent_containers/food/snacks/donkpocket/being_cooked = locate() in container
-		if(being_cooked && !being_cooked.warm)
-			warm_up(being_cooked)
-		return being_cooked
 
-/datum/recipe/meatbread
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/meat,
-		/obj/item/weapon/reagent_containers/food/snacks/meat,
-		/obj/item/weapon/reagent_containers/food/snacks/meat,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/meatbread
 
-/datum/recipe/syntibread
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/meatbread
-
-/datum/recipe/xenomeatbread
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/xenomeat,
-		/obj/item/weapon/reagent_containers/food/snacks/xenomeat,
-		/obj/item/weapon/reagent_containers/food/snacks/xenomeat,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/xenomeatbread
-
-/datum/recipe/bananabread
-	fruit = list("banana" = 1)
-	reagents = list("milk" = 5, "sugar" = 15)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/bananabread
 
 /datum/recipe/omelette
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/egg,
-		/obj/item/weapon/reagent_containers/food/snacks/egg,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
+	reagents = list("egg" = 6)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/omelette
 
 /datum/recipe/muffin
 	reagents = list("milk" = 5, "sugar" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/dough
 	)
@@ -263,50 +189,19 @@ I said no!
 /datum/recipe/soylenviridians
 	fruit = list("soybeans" = 1)
 	reagents = list("flour" = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/soylenviridians
 
 /datum/recipe/soylentgreen
 	reagents = list("flour" = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/meat/human,
 		/obj/item/weapon/reagent_containers/food/snacks/meat/human
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/soylentgreen
 
-/datum/recipe/meatpie
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/weapon/reagent_containers/food/snacks/meat
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/meatpie
 
-/datum/recipe/tofupie
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/weapon/reagent_containers/food/snacks/tofu
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/tofupie
-
-/datum/recipe/xemeatpie
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/weapon/reagent_containers/food/snacks/xenomeat
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/xemeatpie
-
-/datum/recipe/pie
-	fruit = list("banana" = 1)
-	reagents = list("sugar" = 5)
-	items = list(/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough)
-	result = /obj/item/weapon/reagent_containers/food/snacks/pie
-
-/datum/recipe/cherrypie
-	fruit = list("cherries" = 1)
-	reagents = list("sugar" = 10)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/cherrypie
 
 /datum/recipe/berryclafoutis
 	fruit = list("berries" = 1)
@@ -322,12 +217,7 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/wingfangchu
 
-/datum/recipe/chaosdonut
-	reagents = list("frostoil" = 5, "capsaicin" = 5, "sugar" = 5)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/donut/chaos
+
 
 /datum/recipe/humankabob
 	items = list(
@@ -361,24 +251,19 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tofukabob
 
-/datum/recipe/tofubread
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/tofu,
-		/obj/item/weapon/reagent_containers/food/snacks/tofu,
-		/obj/item/weapon/reagent_containers/food/snacks/tofu,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/tofubread
+
 
 /datum/recipe/loadedbakedpotato
 	fruit = list("potato" = 1)
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/cheesewedge)
 	result = /obj/item/weapon/reagent_containers/food/snacks/loadedbakedpotato
+
+/datum/recipe/microchips
+	appliance = MICROWAVE
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/rawsticks
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/microchips
 
 /datum/recipe/cheesyfries
 	items = list(
@@ -387,47 +272,13 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/cheesyfries
 
-/datum/recipe/cubancarp
-	fruit = list("chili" = 1)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/carpmeat
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/cubancarp
+
 
 /datum/recipe/popcorn
 	fruit = list("corn" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/popcorn
 
-/datum/recipe/cookie
-	reagents = list("milk" = 5, "sugar" = 5)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/chocolatebar
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/cookie
 
-/datum/recipe/fortunecookie
-	reagents = list("sugar" = 5)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
-		/obj/item/weapon/paper
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/fortunecookie
-	make_food(var/obj/container as obj)
-		var/obj/item/weapon/paper/paper = locate() in container
-		paper.loc = null //prevent deletion
-		var/obj/item/weapon/reagent_containers/food/snacks/fortunecookie/being_cooked = ..(container)
-		paper.loc = being_cooked
-		being_cooked.trash = paper //so the paper is left behind as trash without special-snowflake(TM Nodrak) code ~carn
-		return being_cooked
-	check_items(var/obj/container as obj)
-		. = ..()
-		if (.)
-			var/obj/item/weapon/paper/paper = locate() in container
-			if (!paper.info)
-				return 0
-		return .
 
 /datum/recipe/meatsteak
 	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
@@ -439,54 +290,7 @@ I said no!
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh)
 	result = /obj/item/weapon/reagent_containers/food/snacks/meatsteak
 
-/datum/recipe/pizzamargherita
-	fruit = list("tomato" = 1)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/margherita
 
-/datum/recipe/meatpizza
-	fruit = list("tomato" = 1)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/weapon/reagent_containers/food/snacks/meat,
-		/obj/item/weapon/reagent_containers/food/snacks/meat,
-		/obj/item/weapon/reagent_containers/food/snacks/meat,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/meatpizza
-
-/datum/recipe/syntipizza
-	fruit = list("tomato" = 1)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/meatpizza
-
-/datum/recipe/mushroompizza
-	fruit = list("mushroom" = 5, "tomato" = 1)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/mushroompizza
-
-/datum/recipe/vegetablepizza
-	fruit = list("eggplant" = 1, "carrot" = 1, "corn" = 1, "tomato" = 1)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza
 
 /datum/recipe/spacylibertyduff
 	reagents = list("water" = 5, "vodka" = 5, "psilocybin" = 5)
@@ -496,9 +300,10 @@ I said no!
 	reagents = list("water" = 5, "vodka" = 5, "amatoxin" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/amanitajelly
 	make_food(var/obj/container as obj)
-		var/obj/item/weapon/reagent_containers/food/snacks/amanitajelly/being_cooked = ..(container)
-		being_cooked.reagents.del_reagent("amatoxin")
-		return being_cooked
+
+		. = ..(container)
+		for (var/obj/item/weapon/reagent_containers/food/snacks/amanitajelly/being_cooked in .)
+			being_cooked.reagents.del_reagent("amatoxin")
 
 /datum/recipe/meatballsoup
 	fruit = list("carrot" = 1, "potato" = 1)
@@ -512,11 +317,8 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/vegetablesoup
 
 /datum/recipe/nettlesoup
-	fruit = list("nettle" = 1, "potato" = 1)
-	reagents = list("water" = 10)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/egg
-	)
+	fruit = list("nettle" = 1, "potato" = 1, )
+	reagents = list("water" = 10, "egg" = 3)
 	result = /obj/item/weapon/reagent_containers/food/snacks/nettlesoup
 
 /datum/recipe/wishsoup
@@ -533,22 +335,7 @@ I said no!
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/meat)
 	result = /obj/item/weapon/reagent_containers/food/snacks/coldchili
 
-/datum/recipe/amanita_pie
-	reagents = list("amatoxin" = 5)
-	items = list(/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough)
-	result = /obj/item/weapon/reagent_containers/food/snacks/amanita_pie
 
-/datum/recipe/plump_pie
-	fruit = list("plumphelmet" = 1)
-	items = list(/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough)
-	result = /obj/item/weapon/reagent_containers/food/snacks/plump_pie
-
-/datum/recipe/spellburger
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/monkeyburger,
-		/obj/item/clothing/head/wizard/fake
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/spellburger
 
 /datum/recipe/spellburger
 	items = list(
@@ -562,40 +349,19 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/monkeyburger,
 		/obj/item/weapon/reagent_containers/food/snacks/meat,
 		/obj/item/weapon/reagent_containers/food/snacks/meat,
-		/obj/item/weapon/reagent_containers/food/snacks/meat,
-		/obj/item/weapon/reagent_containers/food/snacks/egg
+		/obj/item/weapon/reagent_containers/food/snacks/meat
 	)
+	reagents = list("egg" = 3)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/bigbiteburger
 
-/datum/recipe/enchiladas
-	fruit = list("chili" = 2, "corn" = 1)
-	items = list(/obj/item/weapon/reagent_containers/food/snacks/cutlet)
-	result = /obj/item/weapon/reagent_containers/food/snacks/enchiladas
 
-/datum/recipe/creamcheesebread
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/creamcheesebread
 
-/datum/recipe/monkeysdelight
-	fruit = list("banana" = 1)
-	reagents = list("sodiumchloride" = 1, "blackpepper" = 1, "flour" = 10)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/monkeycube
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/monkeysdelight
 
-/datum/recipe/baguette
-	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/dough
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/baguette
+
+
+
+
 
 /datum/recipe/fishandchips
 	items = list(
@@ -604,12 +370,7 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/fishandchips
 
-/datum/recipe/bread
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/egg
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/bread
+
 
 /datum/recipe/sandwich
 	items = list(
@@ -712,10 +473,7 @@ I said no!
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/spagetti)
 	result = /obj/item/weapon/reagent_containers/food/snacks/pastatomato
 
-/datum/recipe/poppypretzel
-	fruit = list("poppy" = 1)
-	items = list(/obj/item/weapon/reagent_containers/food/snacks/dough)
-	result = /obj/item/weapon/reagent_containers/food/snacks/poppypretzel
+
 
 /datum/recipe/meatballspagetti
 	reagents = list("water" = 5)
@@ -806,6 +564,7 @@ I said no!
 	items = list()
 	result = /obj/item/weapon/reagent_containers/food/snacks/slimesoup
 
+
 /datum/recipe/boiledslimeextract
 	reagents = list("water" = 5)
 	items = list(
@@ -826,29 +585,27 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/cutlet
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sausage
+	result_quantity = 2
 
 /datum/recipe/fishfingers
-	reagents = list("flour" = 10)
+	reagents = list("flour" = 10,"egg" = 3)
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/egg,
 		/obj/item/weapon/reagent_containers/food/snacks/carpmeat
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/fishfingers
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/mysterysoup
-	reagents = list("water" = 10)
+	reagents = list("water" = 10, "egg" = 3)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/badrecipe,
 		/obj/item/weapon/reagent_containers/food/snacks/tofu,
-		/obj/item/weapon/reagent_containers/food/snacks/egg,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/mysterysoup
 
-/datum/recipe/pumpkinpie
-	fruit = list("pumpkin" = 1)
-	reagents = list("milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pumpkinpie
+
 
 /datum/recipe/plumphelmetbiscuit
 	fruit = list("plumphelmet" = 1)
@@ -862,11 +619,7 @@ I said no!
 
 /datum/recipe/chawanmushi
 	fruit = list("mushroom" = 1)
-	reagents = list("water" = 5, "soysauce" = 5)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/egg,
-		/obj/item/weapon/reagent_containers/food/snacks/egg
-	)
+	reagents = list("water" = 5, "soysauce" = 5, "egg" = 6)
 	result = /obj/item/weapon/reagent_containers/food/snacks/chawanmushi
 
 /datum/recipe/beetsoup
@@ -874,13 +627,7 @@ I said no!
 	reagents = list("water" = 10)
 	result = /obj/item/weapon/reagent_containers/food/snacks/beetsoup
 
-/datum/recipe/appletart
-	fruit = list("goldapple" = 1)
-	reagents = list("sugar" = 5, "milk" = 5, "flour" = 10)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/egg
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/appletart
+
 
 /datum/recipe/tossedsalad
 	fruit = list("cabbage" = 2, "tomato" = 1, "carrot" = 1, "apple" = 1)
@@ -895,16 +642,12 @@ I said no!
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/meatball)
 	result = /obj/item/weapon/reagent_containers/food/snacks/validsalad
 	make_food(var/obj/container as obj)
-		var/obj/item/weapon/reagent_containers/food/snacks/validsalad/being_cooked = ..(container)
-		being_cooked.reagents.del_reagent("toxin")
-		return being_cooked
 
-/datum/recipe/cracker
-	reagents = list("sodiumchloride" = 1)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/doughslice
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/cracker
+		. = ..(container)
+		for (var/obj/item/weapon/reagent_containers/food/snacks/validsalad/being_cooked in .)
+			being_cooked.reagents.del_reagent("toxin")
+
+
 
 /datum/recipe/stuffing
 	reagents = list("water" = 5, "sodiumchloride" = 1, "blackpepper" = 1)
@@ -940,17 +683,9 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/taco
 
-/datum/recipe/bun
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/dough
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/bun
 
-/datum/recipe/flatbread
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/flatbread
+
+
 
 /datum/recipe/meatball
 	items = list(
@@ -964,64 +699,14 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/cutlet
 
-/datum/recipe/fries
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/rawsticks
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/fries
+
 
 /datum/recipe/mint
 	reagents = list("sugar" = 5, "frostoil" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/mint
 
 
-// Cakes.
-/datum/recipe/cake
-	reagents = list("milk" = 5, "flour" = 15, "sugar" = 15, "egg" = 9)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/plaincake
 
-/datum/recipe/cake/carrot
-	fruit = list("carrot" = 3)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/carrotcake
-
-/datum/recipe/cake/cheese
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesecake
-
-/datum/recipe/cake/orange
-	fruit = list("orange" = 1)
-	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "orangejuice" = 3, "sugar" = 5)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/orangecake
-
-/datum/recipe/cake/lime
-	fruit = list("lime" = 1)
-	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "limejuice" = 3, "sugar" = 5)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/limecake
-
-/datum/recipe/cake/lemon
-	fruit = list("lemon" = 1)
-	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "lemonjuice" = 3, "sugar" = 5)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/lemoncake
-
-/datum/recipe/cake/chocolate
-	items = list(/obj/item/weapon/reagent_containers/food/snacks/chocolatebar)
-	reagents = list("milk" = 5, "flour" = 15, "egg" = 9, "coco" = 4, "sugar" = 5)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/chocolatecake
-
-/datum/recipe/cake/birthday
-	items = list(/obj/item/clothing/head/cakehat)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/birthdaycake
-
-/datum/recipe/cake/apple
-	fruit = list("apple" = 2)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/applecake
-
-/datum/recipe/cake/brain
-	items = list(/obj/item/organ/brain)
-	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/braincake
 
 /datum/recipe/friedkois
 	fruit = list("koisspore" = 1)
@@ -1039,3 +724,160 @@ I said no!
 /datum/recipe/neuralbroke
 	items = list(/obj/item/organ/vaurca/neuralsocket)
 	result = /obj/item/weapon/neuralbroke
+
+
+/////////////////////////////////////////////////////////////
+//Synnono Meme Foods
+//
+//Most recipes replace reagents with RECIPE_REAGENT_REPLACE
+//to simplify the end product and balance the amount of reagents
+//in some foods. Many require the space spice reagent/condiment
+//to reduce the risk of future recipe conflicts.
+/////////////////////////////////////////////////////////////
+
+
+/datum/recipe/redcurry
+	reagents = list("cream" = 5, "spacespice" = 2, "rice" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet,
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/weapon/reagent_containers/food/snacks/redcurry
+
+/datum/recipe/greencurry
+	reagents = list("cream" = 5, "spacespice" = 2, "rice" = 5)
+	fruit = list("chili" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tofu,
+		/obj/item/weapon/reagent_containers/food/snacks/tofu
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/weapon/reagent_containers/food/snacks/greencurry
+
+/datum/recipe/yellowcurry
+	reagents = list("cream" = 5, "spacespice" = 2, "rice" = 5)
+	fruit = list("peanut" = 2, "potato" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/weapon/reagent_containers/food/snacks/yellowcurry
+
+/datum/recipe/bearburger
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bun,
+		/obj/item/weapon/reagent_containers/food/snacks/bearmeat 
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bearburger
+
+/datum/recipe/bearchili
+	fruit = list("chili" = 1, "tomato" = 1)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/bearmeat)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/weapon/reagent_containers/food/snacks/bearchili
+
+/datum/recipe/bearstew
+	fruit = list("potato" = 1, "tomato" = 1, "carrot" = 1, "eggplant" = 1, "mushroom" = 1)
+	reagents = list("water" = 10)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/bearmeat)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/weapon/reagent_containers/food/snacks/bearstew
+
+/datum/recipe/bibimbap
+	fruit = list("carrot" = 1, "cabbage" = 1, "mushroom" = 1)
+	reagents = list("rice" = 5, "spacespice" = 2)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/egg,
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/weapon/reagent_containers/food/snacks/bibimbap
+
+/datum/recipe/friedrice
+	reagents = list("water" = 5, "rice" = 10, "soysauce" = 5)
+	fruit = list("carrot" = 1, "cabbage" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/weapon/reagent_containers/food/snacks/friedrice
+
+/datum/recipe/lomein
+	reagents = list("water" = 5, "soysauce" = 5)
+	fruit = list("carrot" = 1, "cabbage" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/spagetti
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/weapon/reagent_containers/food/snacks/lomein
+
+/datum/recipe/chickenfillet //Also just combinable, like burgers and hot dogs.
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/chickenkatsu,
+		/obj/item/weapon/reagent_containers/food/snacks/bun
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/chickenfillet
+
+/datum/recipe/chilicheesefries	
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/fries,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/weapon/reagent_containers/food/snacks/hotchili
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/weapon/reagent_containers/food/snacks/chilicheesefries
+
+/datum/recipe/meatbun
+	reagents = list("spacespice" = 1, "water" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/rawcutlet
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Water used up in cooking
+	result = /obj/item/weapon/reagent_containers/food/snacks/meatbun
+
+/datum/recipe/custardbun
+	reagents = list("spacespice" = 1, "water" = 5, "egg" = 3)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Water, egg used up in cooking
+	result = /obj/item/weapon/reagent_containers/food/snacks/custardbun
+
+/datum/recipe/chickenmomo
+	reagents = list("spacespice" = 2, "water" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/meat/chicken
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/weapon/reagent_containers/food/snacks/chickenmomo
+
+/datum/recipe/veggiemomo
+	reagents = list("spacespice" = 2, "water" = 5)
+	fruit = list("carrot" = 1, "cabbage" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Get that water outta here
+	result = /obj/item/weapon/reagent_containers/food/snacks/veggiemomo
+
+/datum/recipe/risotto
+	reagents = list("wine" = 5, "rice" = 10, "spacespice" = 1)
+	fruit = list("mushroom" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Get that rice and wine outta here
+	result = /obj/item/weapon/reagent_containers/food/snacks/risotto
+
+/datum/recipe/poachedegg
+	reagents = list("spacespice" = 1, "sodiumchloride" = 1, "blackpepper" = 1, "water" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/egg
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Get that water outta here
+	result = /obj/item/weapon/reagent_containers/food/snacks/poachedegg
+
+/datum/recipe/honeytoast
+	reagents = list("honey" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/honeytoast

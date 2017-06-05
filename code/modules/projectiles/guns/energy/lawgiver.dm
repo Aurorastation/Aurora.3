@@ -65,12 +65,20 @@
 		)
 	)
 
+/obj/item/weapon/gun/energy/lawgiver/New()
+	..()
+	listening_objects += src
+
+/obj/item/weapon/gun/energy/lawgiver/Destroy()
+	listening_objects -= src
+	return ..()
+
 /obj/item/weapon/gun/energy/lawgiver/proc/play_message()
 	while (message_enabled && !message_disable) //Shut down command issued. Inform user that boardcasting has been stopped
 		usr.audible_message("<span class='warning'>[usr]'s [src.name] broadcasts: [message]</span>","")
 		playsound(get_turf(src), 'sound/voice/halt.ogg', 100, 1, vary = 0)
 		sleep(message_delay)
-	usr << "\red Broadcasting Message disabled"
+	usr << "<span class='warning'>Broadcasting Message disabled</span>"
 	message_enabled = 0
 	message_disable = 0
 
@@ -80,7 +88,7 @@
 	else
 		src.dna = user.dna.unique_enzymes
 		src.owner_name = user.real_name
-		user << "\blue You feel your palm heat up as the gun reads your DNA profile."
+		user << "<span class='notice'>You feel your palm heat up as the gun reads your DNA profile.</span>"
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
@@ -93,7 +101,7 @@
 			var/obj/item/organ/external/RA = H.get_organ("r_arm")
 			var/active_hand = H.hand
 			playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
-			user << "\red You hear a soft beep from the gun and 'ID FAIL' flashes across the screen."
+			user << "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>"
 			user << "<span class='danger'>You feel a tiny prick in your hand!</span>"
 			user.drop_item()
 			//Blow up Unauthorized Users Hand
@@ -118,7 +126,7 @@
 
 /obj/item/weapon/gun/energy/lawgiver/hear_talk(mob/living/M in range(0,src), msg)
 	var/mob/living/carbon/human/H = M
-	if (!H)
+	if (!H || !istype(H))
 		return
 	if( (src.dna==H.dna.unique_enzymes || emagged) && (src in H.contents))
 		hear(msg)
@@ -132,50 +140,50 @@
 		sel_mode = 1
 		projectile_type=/obj/item/projectile/bullet/pistol
 		fire_sound='sound/weapons/Gunshot_smg.ogg'
-		usr << "\red [src.name] is now set to single shot mode."
+		usr << "<span class='warning'>[src.name] is now set to single shot mode.</span>"
 	else if(findtext(msg,"rapidfire"))
 		sel_mode = 2
 		projectile_type=/obj/item/projectile/bullet/pistol
 		fire_sound='sound/weapons/Gunshot_smg.ogg'
-		usr << "\red [src.name] is now set to rapid fire mode."
+		usr << "<span class='warning'>[src.name] is now set to rapid fire mode.</span>"
 	else if(findtext(msg,"highex") || findtext(msg,"grenade"))
 		sel_mode = 3
 		projectile_type=/obj/item/projectile/bullet/gyro/law
 		fire_sound='sound/effects/Explosion1.ogg'
-		usr << "\red [src.name] is now set to high explosive mode."
+		usr << "<span class='warning'>[src.name] is now set to high explosive mode.</span>"
 	else if(findtext(msg,"stun"))
 		sel_mode = 4
 		projectile_type=/obj/item/projectile/beam/stun
 		fire_sound='sound/weapons/Taser.ogg'
-		usr << "\red [src.name] is now set to stun mode."
+		usr << "<span class='warning'>[src.name] is now set to stun mode.</span>"
 	else if(findtext(msg,"hotshot") || findtext(msg,"incendiary"))
 		sel_mode = 5
 		projectile_type=/obj/item/projectile/bullet/shotgun/incendiary
 		fire_sound='sound/weapons/Gunshot.ogg'
-		usr << "\red [src.name] is now set to incendiary mode."
+		usr << "<span class='warning'>[src.name] is now set to incendiary mode.</span>"
 	else if(findtext(msg,"armorpiercing") || findtext(msg,"execution"))
 		sel_mode = 6
 		projectile_type=/obj/item/projectile/bullet/rifle/a556
 		fire_sound='sound/weapons/Gunshot.ogg'
-		usr << "\red [src.name] is now set to armorpiercing mode."
+		usr << "<span class='warning'>[src.name] is now set to armorpiercing mode.</span>"
 	else if(findtext(msg,"pellets"))
 		sel_mode = 7
 		projectile_type=/obj/item/projectile/bullet/pellet/shotgun
 		fire_sound='sound/weapons/Gunshot.ogg'
-		usr << "\red [src.name] is now set to pellet mode."
+		usr << "<span class='warning'>[src.name] is now set to pellet mode.</span>"
 	/* Other Stuff */
 	else if(findtext(msg,"reset") && (findtext(msg,"user") || findtext(msg,"dna")))
 		dna = null
 		desc = default_desc
-		usr << "\red [src.name]´s owner has been reset. Do not attempt to fire [src.name] without rebinding a new owner"
+		usr << "<span class='warning'>[src.name]´s owner has been reset. Do not attempt to fire [src.name] without rebinding a new owner.</span>"
 	else if((findtext(msg,"disable") || findtext(msg,"deactivate")) && findtext(msg,"crowdcontrol"))
 		message_disable = 1
-		usr << "\red [src.name]´s crowdcontrol deactivation sequence started"
+		usr << "<span class='warning'>[src.name]´s crowdcontrol deactivation sequence started.</span>"
 	else if((findtext(msg,"enable") || findtext(msg,"activate")) && findtext(msg,"crowdcontrol"))
 		if(message_enabled) //Check if a message is already broadcasting -> abort
-			usr << "\red [src.name] is already broadcasting a message."
+			usr << "<span class='warning'>[src.name] is already broadcasting a message.</span>"
 			return
-		usr << "\red [src.name]´s crowdcontrol activation sequence started"
+		usr << "<span class='warning'>[src.name]´s crowdcontrol activation sequence started.</span>"
 		message = "Citizens stay calm. Stand back from the crime scene. Interference with the crime scene carries an automatic brig sentence."
 		message_enabled = 1
 		message_disable = 0

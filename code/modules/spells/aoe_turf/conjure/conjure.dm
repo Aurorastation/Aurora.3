@@ -25,7 +25,6 @@ How they spawn stuff is decided by behaviour vars, which are explained below
 	cast_sound = 'sound/items/welder.ogg'
 
 /spell/aoe_turf/conjure/cast(list/targets, mob/user)
-	playsound(get_turf(user), cast_sound, 50, 1)
 
 	for(var/i=1,i <= summon_amt,i++)
 		if(!targets.len)
@@ -58,6 +57,10 @@ How they spawn stuff is decided by behaviour vars, which are explained below
 		animation.icon = 'icons/effects/effects.dmi'
 		animation.layer = 3
 		animation.master = summoned_object
+
+		if(istype(summoned_object,/mob)) //we want them to NOT attack us.
+			var/mob/M = summoned_object
+			M.faction = user.faction
 
 		for(var/varName in newVars)
 			if(varName in summoned_object.vars)

@@ -12,11 +12,11 @@ You can grab someone by clicking on them with the grab intent, then upgrade the 
 Holding alt and left clicking a tile will allow you to see its contents in the top right window pane, which is much faster than right clicking.
 The resist button will allow you to resist out of handcuffs, being buckled to a chair or bed, out of locked lockers and more. Whenever you're stuck, try resisting!
 You can move an item out of the way by dragging it and then clicking on an adjacent tile with an empty hand.
-Maintenance is full of equipment that is randomized every round. Look around and see if anything is worth using.There are many places around the station to hide contraband. A few for starters: linen boxes, toilet cisterns, body bags. Experiment to find more!
+Maintenance is full of equipment that is randomized every round. Look around and see if anything is worth using. There are many places around the station to hide contraband. A few for starters: linen boxes, toilet cisterns, body bags. Experiment to find more!
 As the Captain, you are one of the highest priority targets on the station. Everything from revolutions, to nuclear operatives, to traitors that need to rob you of your unique lasgun or your life are things to worry about.
 As the Captain, you have absolute access and control over the station, but this does not mean that being a horrible person won't result in mutiny and a ban.
 As the Chief Medical Officer, your hypospray is like an instant injection syringe that can hold 30 units as opposed to the standard 15.
-As the Chief Medical Officer, coordinate and communicate with your doctors, chemists, and EMTs during a nuclear emergency, blob infestation, or some other crisis to keep people alive and fighting.
+As the Chief Medical Officer, coordinate and communicate with your doctors, chemists, and EMTs during a pirate raid, blob infestation, or some other crisis to keep people alive and fighting.
 As a Medical Doctor, you can attempt to drain blood from a husk with a syringe to determine the cause. If you can extract blood, it was caused by extreme temperatures or lasers, if there is no blood to extract, it was caused by something unnatural.
 As a Medical Doctor, you can surgically implant or extract things from people's chests. This can range from putting in a bomb to pulling out an alien larva.
 As a Medical Doctor, you must target the correct limb and be on help intent when trying to perform surgery on someone.
@@ -24,8 +24,8 @@ As a Chemist, there are dozens of chemicals that can heal, and even more that ca
 As the Virologist, you only require small amounts of vaccine to heal a sick patient. Work with the Chemist to distribute your cures more efficiently.
 As the Research Director, you can take AIs out of their cores by loading them into an intelliCard, and then from there into an AI system integrity restorer computer to revive and/or repair them.
 As the Research Director, you can lock down cyborgs instead of blowing them up. Then you can have their laws reset or if that doesn't work, safely dismantled.
-As a Xenoscientist, you can inject yourself with the mutation toxin extracted from green slimes to become a slime person, who will never be attacked by slimes!
-As a Xenoscientist, you can maximize the number of uses you get out of a slime by feeding it slime steroid, created from purple slimes, while alive. You can then apply extract enhancer, created from cerulean slimes, on each extract.
+As a Xenobiologist, you can inject yourself with the mutation toxin extracted from green slimes to become a slime person, who will never be attacked by slimes!
+As a Xenobiologist, you can maximize the number of uses you get out of a slime by feeding it slime steroid, created from purple slimes, while alive. You can then apply extract enhancer, created from cerulean slimes, on each extract.
 As a Scientist, researchable machine parts can seriously improve the efficiency and speed of machines around the station. In some cases, it can even unlock new functions.
 As a Scientist, the teleporter in Misc research can be set-up to teleport across the whole station! All you need to do is crack the formula.
 As a Roboticist, you can repair your cyborgs with a welding tool. If they have taken burn damage from lasers, you can remove their battery, expose the wiring with a screwdriver and replace their wires with a cable coil.
@@ -40,8 +40,6 @@ As the Chief Engineer, you can rename areas or create entirely new ones using yo
 As the Research Director, you can spy on and even forge PDA communications with the message monitor console! The key is in your office.
 As an Engineer, the supermatter shard is an extremely dangerous piece of equipment: touching it will disintegrate you.
 As an Engineer, you can electrify grilles by placing wire "nodes" beneath them: the big seemingly unconnected bulges from a half completed wiring job.
-As an Engineer, you can power the station solely with the solar arrays. While uninteresting, it is a much safer alternative to most other engines.
-As an Engineer, you can repair windows by using a welding tool on them while on any intent other than harm.
 As an Engineer, you can lock emitters using your ID card to prevent others from disabling them.
 As an Atmospheric Technician, you can't unwrench a pipe if the pressure within is too high.
 As the Head of Security, you are expected to coordinate your security force to handle any threat that comes to the station. Sometimes it means making use of the armory to handle a blob, sometimes it means being ruthless during a revolution or cult.
@@ -80,11 +78,11 @@ As a Traitor, the Captain and the Head of Security are two of the most difficult
 As a Traitor, you can manufacture and recycle revolver bullets at a hacked autolathe, making the revolver an extremely powerful tool.
 As a Traitor, you may sometimes hunt other traitors, and in turn be hunted by them.
 As a Traitor, the syndicate encryption key is very useful for coordinating plans with your fellow traitors -- or, of course, betraying them.
-As a Nuclear Operative, communication is key! Use your radio to speak to your fellow operatives and coordinate an attack plan.
-As a Nuclear Operative, you should look into purchasing a syndicate cyborg, as they can provide heavy fire support, are immune to conventional stuns, and can easily take down the AI.
-As a Nuclear Operative, stick together! While your equipment is robust, your fellow operatives are much better at saving your life: they can drag you away from danger while stunned and provide cover fire.
-As a Nuclear Operative, you might end up in a situation where the AI has bolted you into a room. Having some spare C4 in your pocket can save your life.
-As a Monkey, you can crawl through air or scrubber vents by alt+left clicking them. You must drop everything you are wearing and holding to do this, however.
+As a Mercenary, communication is key! Use your radio to speak to your fellow operatives and coordinate an attack plan.
+As a Mercenary, you should look into purchasing a syndicate cyborg, as they can provide heavy fire support, are immune to conventional stuns, and can easily take down the AI.
+As a Mercenary, stick together! While your equipment is robust, your fellow operatives are much better at saving your life: they can drag you away from danger while stunned and provide cover fire.
+As a Mercenary, you might end up in a situation where the AI has bolted you into a room. Having some spare C4 in your pocket can save your life.
+As a Monkey, you can crawl through air or scrubber vents by alt+left clicking them. You must drop everything you are wearing and holding to do this, however.		
 As a Monkey, you can still wear a few human items, such as backpacks, gas masks and hats, and still have two free hands.
 As the Malfunctioning AI, you should either order your cyborgs to dismantle the robotics console or blow it up yourself in order to protect them. Make sure to hunt down all those laptops too!
 As an Alien, your melee prowess is unmatched, but your ranged abilities are sorely lacking. Make use of corners to force a melee confrontation!
@@ -134,34 +132,35 @@ Remember the cheesy line!
 Toolboxes do more damage if they are full of things, but their contents will spill when you use them as a weapon.
 Heads of Staff will be more willing to help you if you bring paperwork that's already filled out.
 See no evil, hear no evil, speak no evil.
-Auto-Hiss, despite the name, can be used for Unathi, Tajara, and Vaurca.
+Despite the name, Auto-Hiss can be used for Unathi, Tajara, and Vaurca.
 Service borgs can use the special maidborg sprite if they pray hard enough.
-Chainswords and energy weapons can slice walls and people.
+Chainswords and energy weapons can slice both walls and people.
 If you see this message something has gone seriously wrong.
 If you're having trouble as an antagonist, consider a Dionaea whitelist.
 As a Medical Doctor, you can attach limbs from one species to the torso of another species. You too can make your own Frankenstein monster!
 The second antag contest is still running, you know.
 Killing mice on sight is not and never will be gank, no matter how much people complain.
-As an Unathi, you are the only species capable of wearing the rare Breacher hardsuits.
+Unathi are the only species capable of wearing the rare Breacher hardsuits.
 As an Unathi, you can devour small mobs after some time.
-As a Tajaran, you move pretty fast. Zoom zoom, kitty.
-As a Tajaran, your resistance to cold probably doesn't actually help you in space. Feel free to try, though.
-As a Skrell you can look pretty and...uhh...not slip?
-As a Skrell you have free reign to validhunt synthetics. (Not really, please don't do this oh God what have I done).
-As a Human you are the best. Why do you care about your mechanics?
-As a Human you are really very great.
-As an IPC you are immune to most chemicals and gasses.
-As an IPC you can survive longer than most species in space, despite your supposed "weakness".
-As a Dionaea you can survive pretty much anything except a tiny little bottle of weedkiller.
-As a Dionaea you will die in darkness. Find the light at the end of the tunnel, and quick.
-As a Vaurca you can remotely speak to any other Vaurca on board. Not that there are any.
-As a Vaurca you can wade freely through phoron gas. Avoid phoron fires though. Somehow a species that breathes phoron gas is really weak to fire.
+As a Tajara, you move pretty fast. Zoom zoom, kitty.
+As a Tajara, your resistance to cold probably doesn't actually help you in space. Feel free to try, though.
+As a Skrell, you can look pretty and...uhh...not slip?
+As a Skrell, you have free reign to validhunt synthetics. (Not really, please don't do this oh God what have I done).
+As a Human, you are the best. Why do you care about your mechanics?
+As a Human, you are really very great.
+Due to IPCs' synthetic nature, they're immune to most chemicals and gasses.
+IPCs can survive longer than most species in space, despite their supposed "weakness".
+As a Dionaea, you can survive pretty much anything except a tiny little bottle of weedkiller.
+Dionae die in darkness. Find the light at the end of the tunnel, and quick.
+All Vaurca can remotely speak to any other Vaurca on board. Not that there are any.
+Vaurca can wade freely through phoron gas. Avoid phoron fires though. Somehow a species that breathes phoron gas is really weak to fire.
 As an ERT trooper, your most powerful weapons are your team mates. Your second most powerful weapon is your bigass gun.
-As an ERT trooper you're still expected to roleplay and progress the round.
+ERT troopers are still expected to roleplay and progress the round. Try not to wordlessly gun down everyone you see.
 As a Ninja, you should learn the difference between invisibility and invulnerability.
 As a Ninja, you have a pretty badass sword. Use it.
-As a Cortical Borer, you a limp feather can kill you if you're outside of a host.
-As a NanoTrasen Actor you can't do anything. Thank Bay.
+A Ninja's sword can cut through many objects. Experiment!
+As a Cortical Borer, a limp feather can kill you if you're outside of a host.
+NanoTrasen Actors can't do anything. Thank Bay.
 As a Syndicate Commando you are a Nuke Operative with bigger and better guns. Use them.
 As a Death Commando you have only one course of action: RIP AND TEAR.
 As a Highlander, there can be only one.
@@ -169,3 +168,8 @@ As a Loyalist, remember that you are an antagonist too!
 As a Renegade, consider playing a better gamemode.
 As a Vampire, you can create new vampires out of willing and less than willing crew. Mind that new vampires may decide to turn their powers against you.
 As a Vampire, if you start going hungry for blood don't expect to stay hidden for long.
+You can use . (period) instead of : to speak into a radio.
+The radio key .i will allow you to speak into a nearby intercom, .r will speak into a radio in your right hand, and .l will speak into your left. The microphone does not need to be enabled for this to work.
+Your ID card's access determines what departmental channels you can set intercoms to.
+You can fax papers between request consoles by attacking the console with a paper. Make sure the paper tray is closed first!
+No wall or window is 100% impervious to heat.

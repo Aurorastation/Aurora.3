@@ -42,7 +42,7 @@
 	crew_announcement.newscast = 1
 
 /obj/machinery/computer/communications/process()
-	if(..())
+	if(operable())
 		if(state != STATE_STATUSDISPLAY)
 			src.updateDialog()
 
@@ -90,7 +90,7 @@
 					set_security_level(tmp_alertlevel)
 					if(security_level != old_level)
 						//Only notify the admins if an actual change happened
-						log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
+						log_game("[key_name(usr)] has changed the security level to [get_security_level()].",ckey=key_name(usr))
 						message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
 						switch(security_level)
 							if(SEC_LEVEL_GREEN)
@@ -195,7 +195,7 @@
 					return
 				Centcomm_announce(input, usr)
 				usr << "<span class='notice'>Message transmitted.</span>"
-				log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]")
+				log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]",ckey=key_name(usr))
 				centcomm_message_cooldown = 1
 				spawn(300)//30 second cooldown
 					centcomm_message_cooldown = 0
@@ -212,7 +212,7 @@
 					return
 				Syndicate_announce(input, usr)
 				usr << "<span class='notice'>Message transmitted.</span>"
-				log_say("[key_name(usr)] has made an illegal announcement: [input]")
+				log_say("[key_name(usr)] has made an illegal announcement: [input]",ckey=key_name(usr))
 				centcomm_message_cooldown = 1
 				spawn(300)//10 minute cooldown
 					centcomm_message_cooldown = 0
@@ -422,12 +422,12 @@
 	dat += "<BR>\[ [(src.aistate != STATE_DEFAULT) ? "<A HREF='?src=\ref[src];operation=ai-main'>Main Menu</A> | " : ""]<A HREF='?src=\ref[user];mach_close=communications'>Close</A> \]"
 	return dat
 
-/proc/enable_prison_shuttle(var/mob/user)
+/*/proc/enable_prison_shuttle(var/mob/user)
 	for(var/obj/machinery/computer/prison_shuttle/PS in world)
-		PS.allowedtocall = !(PS.allowedtocall)
+		PS.allowedtocall = !(PS.allowedtocall)*/
 
 /proc/call_shuttle_proc(var/mob/user)
-	if ((!( ticker ) || !emergency_shuttle.location()))
+	if ((!(ROUND_IS_STARTED) || !emergency_shuttle.location()))
 		return
 
 	if(!universe.OnShuttleCall(usr))
@@ -454,19 +454,19 @@
 		user << "The emergency shuttle is already on its way."
 		return
 
-	if(ticker.mode.name == "blob")
+	if(SSticker.mode.name == "blob")
 		user << "Under directive 7-10, [station_name()] is quarantined until further notice."
 		return
 
 	emergency_shuttle.call_evac()
-	log_game("[key_name(user)] has called the shuttle.")
+	log_game("[key_name(user)] has called the shuttle.",ckey=key_name(user))
 	message_admins("[key_name_admin(user)] has called the shuttle.", 1)
 
 
 	return
 
 /proc/init_shift_change(var/mob/user, var/force = 0)
-	if ((!( ticker ) || !emergency_shuttle.location()))
+	if ((!(ROUND_IS_STARTED) || !emergency_shuttle.location()))
 		return
 
 	if(emergency_shuttle.going_to_centcom())
@@ -491,20 +491,20 @@
 			user << "The shuttle is refueling. Please wait another [round((54000-world.time)/60)] minutes before trying again."
 			return
 
-		if(ticker.mode.auto_recall_shuttle)
+		if(SSticker.mode.auto_recall_shuttle)
 			//New version pretends to call the shuttle but cause the shuttle to return after a random duration.
 			emergency_shuttle.auto_recall = 1
 
-		if(ticker.mode.name == "blob" || ticker.mode.name == "epidemic")
+		if(SSticker.mode.name == "blob" || SSticker.mode.name == "epidemic")
 			user << "Under directive 7-10, [station_name()] is quarantined until further notice."
 			return
 
 	emergency_shuttle.call_transfer()
 
 	//delay events in case of an autotransfer
-	if (isnull(user))
-		event_manager.delay_events(EVENT_LEVEL_MODERATE, 9000) //15 minutes
-		event_manager.delay_events(EVENT_LEVEL_MAJOR, 9000)
+	if (!user)
+		SSevents.delay_events(EVENT_LEVEL_MODERATE, 9000) //15 minutes
+		SSevents.delay_events(EVENT_LEVEL_MAJOR, 9000)
 
 	log_game("[user? key_name(user) : "Autotransfer"] has called the shuttle.")
 	message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the shuttle.", 1)
@@ -512,14 +512,14 @@
 	return
 
 /proc/cancel_call_proc(var/mob/user)
-	if (!( ticker ) || !emergency_shuttle.can_recall())
+	if (!(ROUND_IS_STARTED) || !emergency_shuttle.can_recall())
 		return
-	if((ticker.mode.name == "blob")||(ticker.mode.name == "Meteor"))
+	if((SSticker.mode.name == "blob")||(SSticker.mode.name == "Meteor"))
 		return
 
 	if(!emergency_shuttle.going_to_centcom()) //check that shuttle isn't already heading to centcomm
 		emergency_shuttle.recall()
-		log_game("[key_name(user)] has recalled the shuttle.")
+		log_game("[key_name(user)] has recalled the shuttle.",key_name(user))
 		message_admins("[key_name_admin(user)] has recalled the shuttle.", 1)
 	return
 
@@ -532,7 +532,7 @@
 
 /obj/machinery/computer/communications/proc/post_status(var/command, var/data1, var/data2)
 
-	var/datum/radio_frequency/frequency = radio_controller.return_frequency(1435)
+	var/datum/radio_frequency/frequency = SSradio.return_frequency(1435)
 
 	if(!frequency) return
 

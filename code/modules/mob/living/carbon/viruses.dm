@@ -13,17 +13,22 @@
 		for(var/obj/effect/decal/cleanable/O in view(1,src))
 			if(istype(O,/obj/effect/decal/cleanable/blood))
 				var/obj/effect/decal/cleanable/blood/B = O
-				if(B.virus2 && B.virus2.len)
-					for (var/ID in B.virus2)
-						var/datum/disease2/disease/V = B.virus2[ID]
-						infect_virus2(src,V)
+				if (B.virus2 && islist(B.virus2))
+					if(B.virus2.len)
+						for (var/ID in B.virus2)
+							var/datum/disease2/disease/V = B.virus2[ID]
+							infect_virus2(src,V)
+				else
+					B.virus2 = list()
 
 			else if(istype(O,/obj/effect/decal/cleanable/mucus))
 				var/obj/effect/decal/cleanable/mucus/M = O
-				if(M.virus2 && M.virus2.len)
+				if(M.virus2 && islist(M.virus2) && M.virus2.len)
 					for (var/ID in M.virus2)
 						var/datum/disease2/disease/V = M.virus2[ID]
 						infect_virus2(src,V)
+				else
+					M.virus2 = list()
 
 	if(virus2 && virus2.len)
 		for (var/ID in virus2)

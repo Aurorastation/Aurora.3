@@ -12,8 +12,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	w_class = 2.0
 	slot_flags = SLOT_ID | SLOT_BELT
 	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/id.dmi')
-	//offset_light = 1
-	//diona_restricted_light = 1//Light emitted by this object or creature has limited interaction with diona
+	uv_intensity = 15
 
 	//Main variables
 	var/owner = null
@@ -313,10 +312,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
  *	The Actual PDA
  */
 
-/obj/item/device/pda/New()
-	..()
+/obj/item/device/pda/Initialize()
+	. = ..()
 	PDAs += src
-	PDAs = sortAtom(PDAs)
+	sortTim(PDAs, /proc/cmp_text_asc)
 	if(default_cartridge)
 		cartridge = new default_cartridge(src)
 	new /obj/item/weapon/pen(src)
@@ -344,6 +343,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	return id
 
 /obj/item/device/pda/AltClick(var/mob/user)
+	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
 	if (ismob(src.loc))
 		verb_remove_id()
 
@@ -356,7 +356,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	ui_tick++
-	var/datum/nanoui/old_ui = nanomanager.get_open_ui(user, src, "main")
+	var/datum/nanoui/old_ui = SSnanoui.get_open_ui(user, src, "main")
 	var/auto_update = 1
 	if(mode in no_auto_update)
 		auto_update = 0
@@ -467,7 +467,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(8)	//medical
 						if(P.icon_state == "pda-cmo"||P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem")
-							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))					
+							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 			count++
 
 		data["convopdas"] = convopdas
@@ -558,12 +558,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 		data["feed"] = feed
 
-	data["manifest"] = list("__json_cache" = ManifestJSON)
+	data["manifest"] = PDA_Manifest
 
 	nanoUI = data
 	// update the ui if it exists, returns null if no ui is passed/found
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
@@ -599,7 +599,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	..()
 	var/mob/user = usr
-	var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, "main")
+	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
 	var/mob/living/U = usr
 	//Looking for master was kind of pointless since PDAs don't appear to have one.
 	//if ((src in U.contents) || ( istype(loc, /turf) && in_range(src, U) ) )
@@ -730,12 +730,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			active_conversation = null
 			if(mode==21)
 				mode=2
-		
-		
+
+
 		if("Filter") // Filters through available pdas
 			if (href_list["option"])
 				pdafilter = sanitize_integer(text2num(href_list["option"]), 0, 8, pdafilter)
-				
+
 		if("Ringtone")
 			var/t = input(U, "Please enter new ringtone", name, ttone) as text|null
 			if (in_range(src, U) && loc == U)
@@ -853,11 +853,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 							U.show_message("<span class='warning'>Energy feeds back into your [src]!</span>", 1)
 							ui.close()
 							detonate_act(src)
-							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge but failed, blowing themselves up")
+							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge but failed, blowing themselves up",ckey=key_name(U),ckey_target=key_name(P))
 							message_admins("[key_name_admin(U)] just attempted to blow up [P] with the Detomatix cartridge but failed.", 1)
 						else
 							U.show_message("<span class='notice'>Success!</span>", 1)
-							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded")
+							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded",ckey=key_name(U),ckey_target=key_name(P))
 							message_admins("[key_name_admin(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded.", 1)
 							detonate_act(P)
 					else
@@ -908,9 +908,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/update_icon()
 	..()
 
-	overlays.Cut()
+	cut_overlays()
 	if(new_message || new_news)
-		overlays += image('icons/obj/pda.dmi', "pda-r")
+		add_overlay("pda-r")
 
 /obj/item/device/pda/proc/detonate_act(var/obj/item/device/pda/P)
 	//TODO: sometimes these attacks show up on the message server
@@ -957,9 +957,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			M.apply_effects(1,0,0,0,1)
 		message += "Your [P] flashes with a blinding white light! You feel weaker."
 	if(i>=85) //Sparks
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(2, 1, P.loc)
-		s.start()
+		spark(P.loc, 2)
 		message += "Your [P] begins to spark violently!"
 	if(i>45 && i<65 && prob(50)) //Nothing happens
 		message += "Your [P] bleeps loudly."
@@ -1047,7 +1045,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						ai.show_message("<i>Intercepted message from <b>[who]</b>: [t]</i>")
 
 		P.new_message_from_pda(src, t)
-		nanomanager.update_user_uis(U, src) // Update the sending user's PDA UI so that they can see the new message
+		SSnanoui.update_user_uis(U, src) // Update the sending user's PDA UI so that they can see the new message
 	else
 		U << "<span class='notice'>ERROR: Messaging server is not responding.</span>"
 
@@ -1067,7 +1065,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(L)
 		if(reception_message)
 			L << reception_message
-		nanomanager.update_user_uis(L, src) // Update the receiving user's PDA UI so that they can see the new message
+		SSnanoui.update_user_uis(L, src) // Update the receiving user's PDA UI so that they can see the new message
 
 /obj/item/device/pda/proc/new_news(var/message)
 	new_info(news_silent, newstone, news_silent ? "" : "\icon[src] <b>[message]</b>")
@@ -1086,7 +1084,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/reception_message = "\icon[src] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>)"
 	new_info(message_silent, ttone, reception_message)
 
-	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]")
+	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
 	new_message = 1
 	update_icon()
 
@@ -1098,7 +1096,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/reception_message = "\icon[src] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>) [track]"
 	new_info(message_silent, newstone, reception_message)
 
-	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]")
+	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
 	new_message = 1
 
 /obj/item/device/pda/verb/verb_reset_pda()
@@ -1111,7 +1109,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	if(can_use(usr))
 		mode = 0
-		nanomanager.update_uis(src)
+		SSnanoui.update_uis(src)
 		usr << "<span class='notice'>You press the reset button on \the [src].</span>"
 	else
 		usr << "<span class='notice'>You cannot do this while restrained.</span>"
@@ -1214,7 +1212,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		user.drop_item()
 		cartridge.loc = src
 		user << "<span class='notice'>You insert [cartridge] into [src].</span>"
-		nanomanager.update_uis(src) // update all UIs attached to src
+		SSnanoui.update_uis(src) // update all UIs attached to src
 		if(cartridge.radio)
 			cartridge.radio.hostpda = src
 
@@ -1243,7 +1241,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		pai = C
 		pai.update_location()//This notifies the pAI that they've been slotted into a PDA
 		user << "<span class='notice'>You slot \the [C] into [src].</span>"
-		nanomanager.update_uis(src) // update all UIs attached to src
+		SSnanoui.update_uis(src) // update all UIs attached to src
 	else if(istype(C, /obj/item/weapon/pen))
 		var/obj/item/weapon/pen/O = locate() in src
 		if(O)
@@ -1398,7 +1396,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	PDAs -= src
 	if (src.id && prob(90)) //IDs are kept in 90% of the cases
 		src.id.loc = get_turf(src.loc)
-	..()
+	return ..()
 
 /obj/item/device/pda/clown/Crossed(AM as mob|obj) //Clown PDA is slippery.
 	if (istype(AM, /mob/living))

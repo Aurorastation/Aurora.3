@@ -116,10 +116,10 @@
 			update_projections()
 			if(safety_disabled)
 				message_admins("[key_name_admin(usr)] overrode the holodeck's safeties")
-				log_game("[key_name(usr)] overrided the holodeck's safeties")
+				log_game("[key_name(usr)] overrided the holodeck's safeties",ckey=key_name(usr))
 			else
 				message_admins("[key_name_admin(usr)] restored the holodeck's safeties")
-				log_game("[key_name(usr)] restored the holodeck's safeties")
+				log_game("[key_name(usr)] restored the holodeck's safeties",ckey=key_name(usr))
 
 		else if(href_list["gravity"])
 			toggleGravity(linkedholodeck)
@@ -137,7 +137,7 @@
 		update_projections()
 		user << "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>"
 		user << "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [company_name] maintenance and do not use the simulator."
-		log_game("[key_name(usr)] emagged the Holodeck Control Computer")
+		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
 		return 1
 		src.updateUsrDialog()
 	else
@@ -161,7 +161,7 @@
 //This could all be done better, but it works for now.
 /obj/machinery/computer/HolodeckControl/Destroy()
 	emergencyShutdown()
-	..()
+	return ..()
 
 /obj/machinery/computer/HolodeckControl/ex_act(severity)
 	emergencyShutdown()
@@ -184,7 +184,7 @@
 				holographic_mobs -= C
 				C.derez()
 
-	if(!..())
+	if(inoperable())
 		return
 	if(active)
 		use_power(item_power_usage * (holographic_objs.len + holographic_mobs.len))
@@ -200,9 +200,7 @@
 
 			for(var/turf/T in linkedholodeck)
 				if(prob(30))
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(2, 1, T)
-					s.start()
+					spark(T, 2, alldirs)
 				T.ex_act(3)
 				T.hotspot_expose(1000,500,1)
 
@@ -294,9 +292,7 @@
 			if(L.name=="Atmospheric Test Start")
 				spawn(20)
 					var/turf/T = get_turf(L)
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(2, 1, T)
-					s.start()
+					spark(T, 2, alldirs)
 					if(T)
 						T.temperature = 5000
 						T.hotspot_expose(50000,50000,1)

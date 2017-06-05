@@ -23,6 +23,7 @@
 	src.verbs -= /obj/item/weapon/reagent_containers/verb/set_APTFT
 
 /obj/item/weapon/reagent_containers/spray/AltClick()
+	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	safety = !safety
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 	usr << "<span class = 'notice'>You twist the locking cap on the end of the nozzle, the spraybottle is now [safety ? "locked" : "unlocked"].</span>"
@@ -31,6 +32,11 @@
 /obj/item/weapon/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(istype(A, /obj/item/weapon/storage) || istype(A, /obj/structure/table) || istype(A, /obj/structure/closet) || istype(A, /obj/item/weapon/reagent_containers) || istype(A, /obj/structure/sink) || istype(A, /obj/structure/janitorialcart))
 		return
+
+	if(istype(A, /mob))
+		user.setClickCooldown(25)
+	else
+		user.setClickCooldown(4)
 
 	if(istype(A, /spell))
 		return
@@ -52,17 +58,17 @@
 
 	playsound(src.loc, 'sound/effects/spray2.ogg', 50, 1, -6)
 
-	user.setClickCooldown(4)
+
 
 	if(reagents.has_reagent("sacid"))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
-		log_game("[key_name(user)] fired sulphuric acid from \a [src].")
+		log_game("[key_name(user)] fired sulphuric acid from \a [src].",ckey=key_name(user))
 	if(reagents.has_reagent("pacid"))
 		message_admins("[key_name_admin(user)] fired Polyacid from \a [src].")
-		log_game("[key_name(user)] fired Polyacid from \a [src].")
+		log_game("[key_name(user)] fired Polyacid from \a [src].",ckey=key_name(user))
 	if(reagents.has_reagent("lube"))
 		message_admins("[key_name_admin(user)] fired Space lube from \a [src].")
-		log_game("[key_name(user)] fired Space lube from \a [src].")
+		log_game("[key_name(user)] fired Space lube from \a [src].",ckey=key_name(user))
 	return
 
 /obj/item/weapon/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)

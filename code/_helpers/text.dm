@@ -180,6 +180,28 @@
 	if(start)
 		return findtextEx(text, suffix, start, null)
 
+
+//Parses a string into a list
+/proc/dd_text2List(text, separator)
+	var/textlength      = lentext(text)
+	var/separatorlength = lentext(separator)
+	var/list/textList   = new /list()
+	var/searchPosition  = 1
+	var/findPosition    = 1
+	var/buggyText
+	while (1)															// Loop forever.
+		findPosition = findtextEx(text, separator, searchPosition, 0)
+		buggyText = copytext(text, searchPosition, findPosition)		// Everything from searchPosition to findPosition goes into a list element.
+		textList += "[buggyText]"										// Working around weird problem where "text" != "text" after this copytext().
+
+		searchPosition = findPosition + separatorlength					// Skip over separator.
+		if (findPosition == 0)											// Didn't find anything at end of string so stop here.
+			return textList
+		else
+			if (searchPosition > textlength)							// Found separator at very end of string.
+				textList += ""											// So add empty element
+
+
 /*
  * Text modification
  */
@@ -385,11 +407,7 @@ proc/TextPreview(var/string,var/len=40)
 #define strip_improper(input_text) replacetext(replacetext(input_text, "\proper", ""), "\improper", "")
 
 
-/proc/pencode2html(t)
-	t = replacetext(t, "\n", "<BR>")
-	t = replacetext(t, "\[center\]", "<center>")
-	t = replacetext(t, "\[/center\]", "</center>")
-	t = replacetext(t, "\[br\]", "<BR>")
+/proc/pencode2html(t, limited = 0)
 	t = replacetext(t, "\[b\]", "<B>")
 	t = replacetext(t, "\[/b\]", "</B>")
 	t = replacetext(t, "\[i\]", "<I>")
@@ -398,6 +416,17 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[/u\]", "</U>")
 	t = replacetext(t, "\[large\]", "<font size=\"4\">")
 	t = replacetext(t, "\[/large\]", "</font>")
+	t = replacetext(t, "\[small\]", "<font size = \"1\">")
+	t = replacetext(t, "\[/small\]", "</font>")
+
+	// A break for signature customization code to use this proc as well.
+	if (limited)
+		return t
+
+	t = replacetext(t, "\n", "<BR>")
+	t = replacetext(t, "\[center\]", "<center>")
+	t = replacetext(t, "\[/center\]", "</center>")
+	t = replacetext(t, "\[br\]", "<BR>")
 	t = replacetext(t, "\[field\]", "<span class=\"paper_field\"></span>")
 	t = replacetext(t, "\[h1\]", "<H1>")
 	t = replacetext(t, "\[/h1\]", "</H1>")
@@ -407,8 +436,6 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[/h3\]", "</H3>")
 	t = replacetext(t, "\[*\]", "<li>")
 	t = replacetext(t, "\[hr\]", "<HR>")
-	t = replacetext(t, "\[small\]", "<font size = \"1\">")
-	t = replacetext(t, "\[/small\]", "</font>")
 	t = replacetext(t, "\[list\]", "<ul>")
 	t = replacetext(t, "\[/list\]", "</ul>")
 	t = replacetext(t, "\[table\]", "<table border=1 cellspacing=0 cellpadding=3 style='border: 1px solid black;'>")
@@ -418,7 +445,22 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[row\]", "</td><tr>")
 	t = replacetext(t, "\[cell\]", "<td>")
 	t = replacetext(t, "\[logo\]", "<img src = ntlogo.png>")
+	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
+	return t
+
+/proc/html2pencode(t)
+	t = replacetext(t, "<B>", "\[b\]")
+	t = replacetext(t, "</B>", "\[/b\]")
+	t = replacetext(t, "<I>", "\[i\]")
+	t = replacetext(t, "</I>", "\[/i\]")
+	t = replacetext(t, "<U>", "\[u\]")
+	t = replacetext(t, "</U>", "\[/u\]")
+	t = replacetext(t, "<font size=\"4\">", "\[large\]")
+	t = replacetext(t, "</font>", "\[/large\]")
+	t = replacetext(t, "<font size = \"1\">", "\[small\]")
+	t = replacetext(t, "</font>", "\[/small\]")
+
 	return t

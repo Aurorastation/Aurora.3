@@ -25,6 +25,11 @@
 
 	//processing internal organs is pretty cheap, do that first.
 	for(var/obj/item/organ/I in internal_organs)
+		if (QDELETED(I))
+			log_debug("Organ [DEBUG_REF(src)] was not properly removed from its parent!")
+			internal_organs -= I
+			continue
+			
 		I.process()
 
 	handle_stance()
@@ -34,7 +39,7 @@
 		return
 
 	for(var/obj/item/organ/external/E in bad_external_organs)
-		if(!E)
+		if(QDELETED(E))
 			continue
 		if(!E.need_process())
 			bad_external_organs -= E
@@ -77,12 +82,7 @@
 			stance_damage += 2
 			if(prob(10))
 				visible_message("\The [src]'s [E.name] [pick("twitches", "shudders")] and sparks!")
-				var/datum/effect/effect/system/spark_spread/spark_system = new ()
-				spark_system.set_up(5, 0, src)
-				spark_system.attach(src)
-				spark_system.start()
-				spawn(10)
-					qdel(spark_system)
+				spark(src, 5)
 		else if (E.is_broken() || !E.is_usable())
 			stance_damage += 1
 		else if (E.is_dislocated())
@@ -160,12 +160,7 @@
 
 			emote("me", 1, "drops what they were holding, their [E.name] malfunctioning!")
 
-			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-			spark_system.set_up(5, 0, src)
-			spark_system.attach(src)
-			spark_system.start()
-			spawn(10)
-				qdel(spark_system)
+			spark(src, 5)
 
 //Handles chem traces
 /mob/living/carbon/human/proc/handle_trace_chems()

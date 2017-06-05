@@ -155,3 +155,17 @@
 							user << desc
 							if(P && P.loc != src && !istype(P, /obj/item/stack/cable_coil))
 								user << "<span class='warning'>You cannot add that component to the machine!</span>"
+
+
+/obj/machinery/constructable_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if (!mover)
+		return 1
+	if(istype(mover,/obj/item/projectile) && density)
+		if (prob(50))
+			return 1
+		else
+			return 0
+	else if(mover.checkpass(PASSTABLE))
+//Animals can run under them, lots of empty space
+		return 1
+	return ..()

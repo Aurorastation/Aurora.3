@@ -256,7 +256,7 @@
 
 /obj/item/device/radio/headset/ert/ccia
 	name = "central command internal affairs radio headset"
-	ks2type = /obj/item/device/encryptionkey/ert
+	ks2type = /obj/item/device/encryptionkey/ccia
 
 /obj/item/device/encryptionkey/ccia
 	name = "\improper CCIA radio encryption key"

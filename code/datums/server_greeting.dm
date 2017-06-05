@@ -46,8 +46,9 @@
 		if (F["motd"])
 			F["motd"] >> motd
 
-		if (F["memo"])
-			F["memo"] >> memo_list
+		if (!config.use_discord_pins)
+			if (F["memo"])
+				F["memo"] >> memo_list
 
 	update_data()
 
@@ -63,18 +64,32 @@
 		motd = initial(motd)
 		motd_hash = ""
 
-	if (memo_list.len)
-		memo = ""
-		for (var/ckey in memo_list)
-			var/data = {"<p><b>[ckey]</b> wrote on [memo_list[ckey]["date"]]:<br>
-			[memo_list[ckey]["content"]]</p>"}
+	if (!config.use_discord_pins)
+	// The initialization of memos in case use_discord_pins == 1 is done in discord_bot.dm
+	// Primary reason is to avoid null references when the bot isn't created yet.
+		if (memo_list.len)
+			memo = ""
+			for (var/ckey in memo_list)
+				var/data = {"<p><b>[ckey]</b> wrote on [memo_list[ckey]["date"]]:<br>
+				[memo_list[ckey]["content"]]</p>"}
 
-			memo += data
+				memo += data
 
-		memo_hash = md5(memo)
-	else
-		memo = initial(memo)
-		memo_hash = ""
+			memo_hash = md5(memo)
+		else
+			memo = initial(memo)
+			memo_hash = ""
+
+/datum/server_greeting/proc/update_pins()
+	var/list/temp_list = discord_bot.retreive_pins()
+
+	// A is a number in a string form
+	// temp_list[A] is a list of lists.
+	for (var/A in temp_list)
+		var/list/memos = temp_list[A]
+		var/flag = text2num(A)
+
+		memo_list += new /datum/memo_datum(memos, flag)
 
 /*
  * Helper to update the MoTD or memo contents.
@@ -94,9 +109,15 @@
 			motd = new_value
 
 		if ("memo_write")
+			if (config.use_discord_pins)
+				return 0
+
 			memo_list[new_value[1]] = list("date" = time2text(world.realtime, "DD-MMM-YYYY"), "content" = new_value[2])
 
 		if ("memo_delete")
+			if (config.use_discord_pins)
+				return 0
+
 			if (memo_list[new_value])
 				memo_list -= new_value
 			else
@@ -132,7 +153,7 @@
 	if (motd_hash && user.prefs.motd_hash != motd_hash)
 		outdated_info |= OUTDATED_MOTD
 
-	if (user.holder && memo_hash && user.prefs.memo_hash != memo_hash)
+	if (user.holder && user.prefs.memo_hash != get_memo_hash(user))
 		outdated_info |= OUTDATED_MEMO
 
 	if (user.prefs.notifications.len)
@@ -152,7 +173,28 @@
 	if (!user)
 		return
 
+	user.info_sent = 0
+
+	// Make sure the user has the welcome screen assets.
+	var/datum/asset/welcome = get_asset_datum(/datum/asset/simple/misc)
+	welcome.send(user)
+
 	user << browse('html/templates/welcome_screen.html', "window=greeting;size=640x500")
+
+/*
+ * A proc used to close the server greeting window for a user.
+ * Args:
+ * - var/user client
+ * - var/reason text
+ */
+/datum/server_greeting/proc/close_window(var/client/user, var/reason)
+	if (!user)
+		return
+
+	if (reason)
+		user << span("notice", reason)
+
+	user << browse(null, "window=greeting")
 
 /*
  * Sends data to the JS controllers used in the server greeting.
@@ -185,13 +227,13 @@
 	else
 		if (outdated_info & OUTDATED_MEMO)
 			data["update"] = 1
-			data["changeHash"] = memo_hash
+			data["changeHash"] = get_memo_hash(user)
 		else
 			data["update"] = 0
 			data["changeHash"] = null
 
 		data["div"] = "#memo"
-		data["content"] = memo
+		data["content"] = get_memo_content(user)
 		user << output(JS_SANITIZE(data), "greeting.browser:AddContent")
 
 	if (outdated_info & OUTDATED_MOTD)
@@ -215,6 +257,81 @@
 	switch (href_list["command"])
 		if ("request_data")
 			send_to_javascript(C)
+
+/*
+ * Gets the appropriate memo hash for the memo system in use.
+ * Args:
+ * - var/C client
+ * Returns:
+ * - string
+ */
+/datum/server_greeting/proc/get_memo_hash(var/client/C)
+	if (!C || !C.holder)
+		return ""
+
+	if (!config.use_discord_pins)
+		return memo_hash
+
+	var/joint_checksum = ""
+	for (var/A in memo_list)
+		var/datum/memo_datum/memo = A
+		if (C.holder.rights & memo.flag)
+			joint_checksum += memo.hash
+
+	return md5(joint_checksum)
+
+/*
+ * Gets the appropriate memo content for the memo system in use.
+ * Args:
+ * - var/C client
+ * Returns:
+ * - string if old memo system is used (config.use_discord_pins = 0)
+ * - list of strings if new memo system is used
+ */
+/datum/server_greeting/proc/get_memo_content(var/client/C)
+	if (!C || !C.holder)
+		return ""
+
+	if (!config.use_discord_pins)
+		return memo
+
+	var/list/content = list()
+	for (var/A in memo_list)
+		var/datum/memo_datum/memo = A
+		if (C.holder.rights & memo.flag)
+			content += memo.contents
+
+	return content
+
+/datum/memo_datum
+	var/contents
+	var/hash
+	var/flag
+
+/datum/memo_datum/New(var/list/input = list(), var/_flag)
+	flag = _flag
+
+	// Yes. This is an unfortunately acceptable way of doing it.
+	// Why? Because you cannot use numbers as indexes in an assoc list without fucking DM.
+	var/static/list/flags_to_divs = list("[R_ADMIN]" = "danger",
+										"[R_MOD]" = "warning",
+										"[(R_MOD|R_ADMIN)]" = "warning",
+										"[R_CCIAA]" = "info",
+										"[R_DEV]" = "info")
+
+	if (input.len)
+		contents = "<div class='alert alert-[flags_to_divs["[flag]"]]'>"
+		for (var/i = 1, i <= input.len, i++)
+			contents += "<b>[input[i]["author"]]</b> wrote:<br>[nl2br(input[i]["content"])]"
+
+			if (i < input.len)
+				contents += "<hr></hr>"
+
+		contents += "</div>"
+	else
+		contents = ""
+
+	hash = md5(contents)
 
 #undef OUTDATED_NOTE
 #undef OUTDATED_MEMO

@@ -33,9 +33,7 @@
 		user << "Controls are now [src.locked ? "locked." : "unlocked."]"
 		. = 1
 		updateDialog()
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(5, 1, src)
-	s.start()
+	spark(src, 5, alldirs)
 
 /obj/machinery/shield_capacitor/attackby(obj/item/W, mob/user)
 
@@ -46,10 +44,10 @@
 			user << "Controls are now [src.locked ? "locked." : "unlocked."]"
 			updateDialog()
 		else
-			user << "\red Access denied."
+			user << span("alert", "Access denied.")
 	else if(istype(W, /obj/item/weapon/wrench))
 		src.anchored = !src.anchored
-		src.visible_message("\blue \icon[src] [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by [user].")
+		src.visible_message(span("notice", "\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
 
 		if(anchored)
 			spawn(0)
@@ -128,7 +126,7 @@
 		return
 	if( href_list["toggle"] )
 		if(!active && !anchored)
-			usr << "\red The [src] needs to be firmly secured to the floor first."
+			usr << "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>"
 			return
 		active = !active
 	if( href_list["charge_rate"] )

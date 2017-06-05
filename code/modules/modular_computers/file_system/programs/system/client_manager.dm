@@ -7,6 +7,7 @@
 	filedesc = "NTOS Client Manager"
 	extended_desc = "This program allows configuration of computer's software"
 	program_icon_state = "generic"
+	color = LIGHT_COLOR_GREEN
 	unsendable = 1
 	undeletable = 1
 	size = 4
@@ -105,7 +106,7 @@
 		PRG._error_message = "Unable to determine enrollment status. Contact IT department"
 
 	data["error_message"] = PRG._error_message
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_clientmanager.tmpl", "NTOS Client Manager", 575, 700, state = state)
 		ui.auto_update_layout = 1

@@ -1,4 +1,3 @@
-//these are probably broken
 
 /obj/machinery/floodlight
 	name = "Emergency Floodlight"
@@ -10,7 +9,9 @@
 	var/use = 200 // 200W light
 	var/unlocked = 0
 	var/open = 0
-	var/brightness_on = 8		//can't remember what the maxed out value is
+	var/brightness_on = 12		//can't remember what the maxed out value is
+	light_color = LIGHT_COLOR_TUNGSTEN
+	light_wedge = LIGHT_WIDE
 
 /obj/machinery/floodlight/New()
 	src.cell = new(src)
@@ -32,10 +33,10 @@
 
 	// If the cell is almost empty rarely "flicker" the light. Aesthetic only.
 	if((cell.percent() < 10) && prob(5))
-		set_light(brightness_on/2, brightness_on/4)
+		set_light(brightness_on/2, 0.5)
 		spawn(20)
 			if(on)
-				set_light(brightness_on, brightness_on/2)
+				set_light(brightness_on, 1)
 
 	cell.use(use*CELLRATE)
 
@@ -48,7 +49,7 @@
 		return 0
 
 	on = 1
-	set_light(brightness_on, brightness_on / 2)
+	set_light(brightness_on, 1)
 	update_icon()
 	if(loud)
 		visible_message("\The [src] turns on.")
@@ -56,7 +57,7 @@
 
 /obj/machinery/floodlight/proc/turn_off(var/loud = 0)
 	on = 0
-	set_light(0, 0)
+	set_light(0)
 	update_icon()
 	if(loud)
 		visible_message("\The [src] shuts down.")
@@ -131,3 +132,19 @@
 				cell = W
 				user << "You insert the power cell."
 	update_icon()
+
+/obj/item/weapon/floodlight_diy
+	name = "Emergency Floodlight Kit"
+	desc = "A do-it-yourself kit for constructing the finest of emergency floodlights."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "inf_box"
+	item_state = "syringe_kit"
+
+/obj/item/weapon/floodlight_diy/attack_self(mob/user)
+	user << "<span class='notice'>You start piecing together the kit...</span>"
+	if(do_after(user, 80))
+		var/obj/machinery/floodlight/R = new /obj/machinery/floodlight(user.loc)
+		user.visible_message("<span class='notice'>[user] assembles \a [R].\
+			</span>", "<span class='notice'>You assemble \a [R].</span>")
+		R.add_fingerprint(user)
+		qdel(src)

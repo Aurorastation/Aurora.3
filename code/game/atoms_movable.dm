@@ -16,42 +16,25 @@
 	var/item_state = null // Base name of the image used for when the item is worn. Suffixes are added to this.
 	//Also used on holdable mobs for the same info related to their held version
 
-	var/auto_init = 1
+	var/can_hold_mob = FALSE
 
-/atom/movable/New()
-	..()
-	if (objects_initialized)
-		if (auto_init)
-			initialize()
-	else
-		objects_init_list += src
-
-/atom/movable/Del()
-	if(isnull(gcDestroyed) && loc)
+// We don't really need this, and apparently defining it slows down GC.
+/*/atom/movable/Del()
+	if(!QDELING(src) && loc)
 		testing("GC: -- [type] was deleted via del() rather than qdel() --")
 		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
-//	else if(isnull(gcDestroyed))
-//		testing("GC: [type] was deleted via GC without qdel()") //Not really a huge issue but from now on, please qdel()
-//	else
-//		testing("GC: [type] was deleted via GC with qdel()")
-	..()
+	..()*/
 
 /atom/movable/Destroy()
 	. = ..()
-	if(reagents)
-		qdel(reagents)
-		reagents = null
 	for(var/atom/movable/AM in contents)
 		qdel(AM)
 	loc = null
+	screen_loc = null
 	if (pulledby)
 		if (pulledby.pulling == src)
 			pulledby.pulling = null
 		pulledby = null
-
-/atom/movable/proc/initialize()
-	if(!isnull(gcDestroyed))
-		crash_with("GC: -- [type] had initialize() called after qdel() --")
 
 /atom/movable/Bump(var/atom/A, yes)
 	if(src.throwing)
@@ -209,6 +192,10 @@
 	src.thrower = null
 	src.throw_source = null
 
+	if (isturf(loc))
+		var/turf/Tloc = loc
+		Tloc.Entered(src)
+
 
 //Overlays
 /atom/movable/overlay
@@ -258,15 +245,15 @@
 			y = TRANSITIONEDGE + 1
 			x = rand(TRANSITIONEDGE + 2, world.maxx - TRANSITIONEDGE - 2)
 
-		if(ticker && istype(ticker.mode, /datum/game_mode/nuclear)) //only really care if the game mode is nuclear
-			var/datum/game_mode/nuclear/G = ticker.mode
+		if(istype(SSticker.mode, /datum/game_mode/nuclear)) //only really care if the game mode is nuclear
+			var/datum/game_mode/nuclear/G = SSticker.mode
 			G.check_nuke_disks()
 
 		spawn(0)
 			if(loc) loc.Entered(src)
 
 //This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
-var/list/accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "6" = 60)
+var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
 
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
@@ -281,13 +268,13 @@ var/list/accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "6" = 60)
 
 /atom/movable/proc/update_client_hook(atom/destination)
 	if(locate(/mob) in src)
-		for(var/client/C in parallax_on_clients)
+		for(var/client/C in SSparallax.parallax_on_clients)
 			if((get_turf(C.eye) == destination) && (C.mob.hud_used))
 				C.mob.hud_used.update_parallax_values()
 
 /mob/update_client_hook(atom/destination)
 	if(locate(/mob) in src)
-		for(var/client/C in parallax_on_clients)
+		for(var/client/C in SSparallax.parallax_on_clients)
 			if((get_turf(C.eye) == destination) && (C.mob.hud_used))
 				C.mob.hud_used.update_parallax_values()
 	else if(client && hud_used)

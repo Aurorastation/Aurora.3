@@ -4,7 +4,7 @@ sudo: true
 env:
   BYOND_MAJOR="510"
   BYOND_MINOR="1346"
-  MACRO_COUNT=1156
+  MACRO_COUNT=120
   FLYWAY_BUILD="4.0.3"
 
 cache:
@@ -54,4 +54,3 @@ script:
   - DreamDaemon baystation12.dmb -invisible -trusted -core 2>&1 | tee log.txt
   - grep "All Unit Tests Passed" log.txt
   - (! grep "runtime error:" log.txt)
-  - (! grep 'Process scheduler caught exception processing' log.txt)

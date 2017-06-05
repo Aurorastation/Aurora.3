@@ -92,7 +92,7 @@
 		return 1
 	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	if(do_after(user, 40))
+	if(do_after(user, 40, act_target = src))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \
@@ -240,7 +240,7 @@
 			qdel(P.network)
 			P.node = null
 
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/omni/initialize()
 	for(var/datum/omni_port/P in ports)

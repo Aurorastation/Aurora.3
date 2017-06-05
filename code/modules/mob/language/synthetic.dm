@@ -17,14 +17,14 @@
 	if (!message)
 		return
 
-	log_say("[key_name(speaker)] : ([name]) [message]")
+	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
 	var/message_start = "<i><span class='game say'>[name], <span class='name'>[speaker.name]</span>"
 	var/message_body = "<span class='message'>[speaker.say_quote(message)], \"[message]\"</span></span></i>"
 
 	for (var/mob/M in dead_mob_list)
 		if(!istype(M,/mob/new_player) && !istype(M,/mob/living/carbon/brain)) //No meta-evesdropping
-			M.show_message("[message_start] ([ghost_follow_link(speaker, M)]) [message_body]", 2)
+			M.show_message("[ghost_follow_link(speaker, M)] [message_start] [message_body]", 2)
 
 	for (var/mob/living/S in living_mob_list)
 

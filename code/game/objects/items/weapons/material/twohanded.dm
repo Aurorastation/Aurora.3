@@ -26,6 +26,7 @@
 	var/base_icon
 	var/base_name
 	var/unwielded_force_divisor = 0.25
+	action_button_name = "Wield two-handed weapon"
 
 /obj/item/weapon/material/twohanded/proc/unwield()
 	wielded = 0
@@ -106,6 +107,7 @@
 
 		var/obj/item/weapon/material/twohanded/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
+			user.u_equip(O)
 			O.unwield()
 
 	else //Trying to wield it
@@ -117,7 +119,7 @@
 		if (src.wieldsound)
 			playsound(src.loc, wieldsound, 50, 1)
 
-		var/obj/item/weapon/material/twohanded/offhand/O = new(user) ////Let's reserve his other hand~
+		var/obj/item/weapon/material/twohanded/offhand/O = new /obj/item/weapon/material/twohanded/offhand(user) ////Let's reserve his other hand~
 		O.name = "[base_name] - offhand"
 		O.desc = "Your second grip on the [base_name]."
 		user.put_in_inactive_hand(O)
@@ -129,6 +131,17 @@
 
 	return
 
+/obj/item/weapon/material/twohanded/ui_action_click()
+	if(src in usr)
+		attack_self(usr)
+
+/obj/item/weapon/material/twohanded/verb/wield_twohanded()
+	set name = "Wield two-handed weapon"
+	set category = "Object"
+	set src in usr
+
+	attack_self(usr)
+
 ///////////OFFHAND///////////////
 /obj/item/weapon/material/twohanded/offhand
 	w_class = 5
@@ -137,9 +150,17 @@
 	default_material = "placeholder"
 
 /obj/item/weapon/material/twohanded/offhand/unwield()
+	if (ismob(loc))
+		var/mob/living/our_mob = loc
+		our_mob.remove_from_mob(src)
+
 	qdel(src)
 
 /obj/item/weapon/material/twohanded/offhand/wield()
+	if (ismob(loc))
+		var/mob/living/our_mob = loc
+		our_mob.remove_from_mob(src)
+		
 	qdel(src)
 
 /obj/item/weapon/material/twohanded/offhand/update_icon()

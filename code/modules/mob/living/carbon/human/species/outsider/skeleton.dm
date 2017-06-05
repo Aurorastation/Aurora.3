@@ -1,10 +1,10 @@
-/mob/living/carbon/human/skeleton/New(var/new_loc)
-	..(new_loc, "Skeleton")
+/mob/living/carbon/human/skeleton/Initialize(mapload)
+	. = ..(mapload, "Skeleton")
 
 /datum/species/skeleton //SPOOKY
 	name = "Skeleton"
 	name_plural = "skeletons"
-
+	bodytype = "Skeleton"
 	icobase = 'icons/mob/human_races/r_skeleton.dmi'
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
 
@@ -16,6 +16,9 @@
 	has_organ = list() //skeletons are empty shells for now, maybe we can add something in the future
 	siemens_coefficient = 0
 	ethanol_resistance = -1 //no drunk skeletons
+	breakcuffs = list(MALE,FEMALE,NEUTER)
+
+	virus_immune = 1
 
 	rarity_value = 10
 	blurb = "Skeletons are undead brought back to life through dark wizardry, \

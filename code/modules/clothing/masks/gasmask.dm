@@ -86,12 +86,6 @@
 	icon_state = "sexymime"
 	item_state = "sexymime"
 
-/obj/item/clothing/mask/gas/death_commando
-	name = "Death Commando Mask"
-	icon_state = "death_commando_mask"
-	item_state = "death_commando_mask"
-	siemens_coefficient = 0.2
-
 /obj/item/clothing/mask/gas/cyborg
 	name = "cyborg visor"
 	desc = "Beep boop"
@@ -106,10 +100,7 @@
 /obj/item/clothing/mask/gas/tactical
 	name = "tactical mask"
 	desc = "A compact carbon-fiber respirator covering the mouth and nose to protect against the inhalation of smoke and other harmful gasses. "
-	icon_state = "tactigas"
-	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT
-	flags_inv = HIDEFACE
-	body_parts_covered = FACE
+	icon_state = "fullgas"
+	item_state = "fullgas"
 	w_class = 2.0
-	item_state = "tactigas"
 	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)

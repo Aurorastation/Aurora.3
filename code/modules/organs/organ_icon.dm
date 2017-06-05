@@ -1,5 +1,3 @@
-var/global/list/limb_icon_cache = list()
-
 /obj/item/organ/external/set_dir()
 	return
 
@@ -9,8 +7,9 @@ var/global/list/limb_icon_cache = list()
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
-				overlays += child.mob_icon
-		overlays += organ.mob_icon
+				add_overlay(child.mob_icon)
+		
+		overlays |= organ.mob_icon
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	s_tone = null
@@ -30,7 +29,7 @@ var/global/list/limb_icon_cache = list()
 	s_tone = null
 	s_col = null
 	h_col = null
-	if(status & ORGAN_ROBOT)
+	if(status & ORGAN_ROBOT && !force_skintone)
 		return
 	if(!isnull(dna.GetUIValue(DNA_UI_SKIN_TONE)) && (species.appearance_flags & HAS_SKIN_TONE))
 		s_tone = dna.GetUIValue(DNA_UI_SKIN_TONE)
@@ -40,22 +39,27 @@ var/global/list/limb_icon_cache = list()
 
 /obj/item/organ/external/head/sync_colour_to_human(var/mob/living/carbon/human/human)
 	..()
-	var/obj/item/organ/eyes/eyes = owner.internal_organs_by_name["eyes"]
-	if(eyes) eyes.update_colour()
+	var/obj/item/organ/eyes/eyes 
+	if (species.vision_organ)
+		eyes = owner.internal_organs_by_name[species.vision_organ]
+	else
+		eyes = owner.internal_organs_by_name["eyes"]
+
+	if(eyes) 
+		eyes.update_colour()
 
 /obj/item/organ/external/head/removed()
 	get_icon()
 	..()
 
 /obj/item/organ/external/head/get_icon()
-
 	..()
 	overlays.Cut()
 	if(!owner || !owner.species)
 		return
-	if(owner.species.has_organ["eyes"])
-		var/obj/item/organ/eyes/eyes = owner.internal_organs_by_name["eyes"]
-		if(species.eyes)
+	if(owner.species.has_organ["eyes"] || (owner.species.vision_organ && owner.species.has_organ[species.vision_organ]))
+		var/obj/item/organ/eyes/eyes = owner.internal_organs_by_name["eyes"] || owner.internal_organs_by_name[species.vision_organ]
+		if(eyes && species.eyes)
 			var/icon/eyes_icon = new/icon('icons/mob/human_face.dmi', species.eyes)
 			if(eyes)
 				eyes_icon.Blend(rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3]), ICON_ADD)
@@ -113,7 +117,7 @@ var/global/list/limb_icon_cache = list()
 
 			if(skeletal)
 				mob_icon = new /icon('icons/mob/human_races/r_skeleton.dmi', "[icon_name][gender ? "_[gender]" : ""]")
-			else if (status & ORGAN_ROBOT)
+			else if (status & ORGAN_ROBOT && !force_skintone)
 				mob_icon = new /icon('icons/mob/human_races/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
 			else
 				if (status & ORGAN_MUTATED)
@@ -134,6 +138,7 @@ var/global/list/limb_icon_cache = list()
 					mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_ADD)
 
 			if(body_hair && islist(h_col) && h_col.len >= 3)
+				var/list/limb_icon_cache = SSicon_cache.limb_icon_cache
 				var/cache_key = "[body_hair]-[icon_name]-[h_col[1]][h_col[2]][h_col[3]]"
 				if(!limb_icon_cache[cache_key])
 					var/icon/I = icon(species.icobase, "[icon_name]_[body_hair]")

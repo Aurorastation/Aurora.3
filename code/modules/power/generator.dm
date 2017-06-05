@@ -23,11 +23,25 @@
 	var/effective_gen = 0
 	var/lastgenlev = 0
 
-/obj/machinery/power/generator/New()
-	..()
+	var/datum/effect_system/sparks/spark_system
+
+/obj/machinery/power/generator/Initialize()
+	. = ..()
 	desc = initial(desc) + " Rated for [round(max_power/1000)] kW."
-	spawn(1)
-		reconnect()
+	var/dirs
+	if (dir == NORTH || dir == SOUTH)
+		dirs = list(EAST,WEST)
+	else
+		dirs = list(NORTH,SOUTH)
+
+	spark_system = bind_spark(src, 3, dirs)
+	reconnect()
+
+/obj/machinery/power/generator/Destroy()
+	QDEL_NULL(spark_system)
+	circ1 = null
+	circ2 = null
+	return ..()
 
 //generators connect in dir and reverse_dir(dir) directions
 //mnemonic to determine circulator/generator directions: the cirulators orbit clockwise around the generator
@@ -56,13 +70,9 @@
 				circ2 = null
 
 /obj/machinery/power/generator/proc/updateicon()
-	if(stat & (NOPOWER|BROKEN))
-		overlays.Cut()
-	else
-		overlays.Cut()
-
-		if(lastgenlev != 0)
-			overlays += image('icons/obj/power.dmi', "teg-op[lastgenlev]")
+	cut_overlays()
+	if(!(stat & (NOPOWER|BROKEN)) && lastgenlev)
+		add_overlay("teg-op[lastgenlev]")
 
 /obj/machinery/power/generator/process()
 	if(!circ1 || !circ2 || !anchored || stat & (BROKEN|NOPOWER))
@@ -111,9 +121,7 @@
 
 	//Exceeding maximum power leads to some power loss
 	if(effective_gen > max_power && prob(5))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+		spark_system.queue()
 		stored_energy *= 0.5
 
 	//Power
@@ -198,7 +206,7 @@
 
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm

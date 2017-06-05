@@ -4,6 +4,7 @@
 	shredding = 0
 	sharp = 1
 	edge = 1
+	damage = 5
 
 /datum/unarmed_attack/diona
 	attack_verb = list("lashed", "bludgeoned")
@@ -20,6 +21,7 @@
 	miss_sound = 'sound/weapons/slashmiss.ogg'
 	sharp = 1
 	edge = 1
+	damage = 5
 
 /datum/unarmed_attack/claws/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/skill = user.skills["combat"]
@@ -54,12 +56,12 @@
 
 /datum/unarmed_attack/claws/strong
 	attack_verb = list("slashed")
-	damage = 5
+	damage = 10
 	shredding = 1
 
 /datum/unarmed_attack/bite/strong
 	attack_verb = list("mauled")
-	damage = 8
+	damage = 10
 	shredding = 1
 
 /datum/unarmed_attack/slime_glomp
@@ -94,9 +96,7 @@
 		playsound(user, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>[user] shoves hard, sending [target] flying!</span>")
 		var/T = get_turf(user)
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, T)
-		s.start()
+		spark(T, 3, alldirs)
 		step_away(target,user,15)
 		sleep(1)
 		step_away(target,user,15)

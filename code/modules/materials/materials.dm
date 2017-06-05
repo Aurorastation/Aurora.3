@@ -429,8 +429,9 @@ var/list/name_to_material
 				if(!is_reinforced())
 					user << "<span class='warning'>This material is not reinforced enough to use for a door.</span>"
 					return
-				if((locate(/obj/structure/windoor_assembly) in T.contents) || (locate(/obj/machinery/door/window) in T.contents))
-					failed_to_build = 1
+				for(var/obj/obstacle in T)
+					if((obstacle.flags & ON_BORDER) && obstacle.dir == user.dir)
+						failed_to_build = 1
 	if(failed_to_build)
 		user << "<span class='warning'>There is no room in this location.</span>"
 		return 1
@@ -466,7 +467,7 @@ var/list/name_to_material
 	tableslam_noise = 'sound/effects/Glasshit.ogg'
 	hardness = 40
 	weight = 30
-	stack_origin_tech = "materials=2"
+	stack_origin_tech = list(TECH_MATERIAL = 2)
 	composite_material = list(DEFAULT_WALL_MATERIAL = 1875,"glass" = 3750)
 	window_options = list("One Direction" = 1, "Full Window" = 4, "Windoor" = 5)
 	created_window = /obj/structure/window/reinforced
@@ -567,9 +568,14 @@ var/list/name_to_material
 	hardness = 500
 	weight = 500
 
+/material/voxalloy/elevatorium
+	name = "elevatorium"
+	display_name = "elevator panelling"
+	icon_colour = "#666666"
+
 /material/wood
 	name = "wood"
-	stack_type = /obj/item/stack/material/wood
+	stack_type = /obj/item/stack/material/wood // why wouldn't it have a stacktype seriously guys why
 	icon_colour = "#824B28"
 	integrity = 50
 	icon_base = "solid"
@@ -586,6 +592,17 @@ var/list/name_to_material
 	destruction_desc = "splinters"
 	sheet_singular_name = "plank"
 	sheet_plural_name = "planks"
+
+/material/rust
+	name = "rust"
+	display_name = "rusty steel"
+	stack_type = null
+	icon_colour = "#B7410E"
+	icon_base = "arust"
+	integrity = 250
+	explosion_resistance = 8
+	hardness = 15
+	weight = 18
 
 /material/wood/holographic
 	name = "holowood"
@@ -757,7 +774,7 @@ var/list/name_to_material
 	flags = MATERIAL_PADDING
 	hardness = 1
 	weight = 1
-		
+
 /material/hide/corgi
 	name = "corgi hide"
 	stack_type = /obj/item/stack/material/animalhide/corgi
@@ -767,17 +784,17 @@ var/list/name_to_material
 	name = "cat hide"
 	stack_type = /obj/item/stack/material/animalhide/cat
 	icon_colour = "#444444"
-	
+
 /material/hide/monkey
 	name = "monkey hide"
 	stack_type = /obj/item/stack/material/animalhide/monkey
 	icon_colour = "#914800"
-	
+
 /material/hide/lizard
 	name = "lizard hide"
 	stack_type = /obj/item/stack/material/animalhide/lizard
 	icon_colour = "#34AF10"
-	
+
 /material/hide/xeno
 	name = "alien hide"
 	stack_type = /obj/item/stack/material/animalhide/xeno
@@ -787,3 +804,22 @@ var/list/name_to_material
 	name = "human hide"
 	stack_type = /obj/item/stack/material/animalhide/human
 	icon_colour = "#833C00"
+
+/material/bone
+	name = "bone"
+	icon_colour = "#e3dac9"
+	icon_base = "stone"
+	icon_reinf = "reinf_stone"
+	sheet_singular_name = "bone"
+	sheet_plural_name = "bones"
+	weight = 10
+	hardness = 20
+	integrity = 70
+	stack_origin_tech = list(TECH_MATERIAL = 2)
+	door_icon_base = "stone"
+
+/material/bone/necromancer
+	name = "cursed bone"
+	weight = 20
+	integrity = 150
+	hardness = 60

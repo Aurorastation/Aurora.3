@@ -1,6 +1,20 @@
 //conveyor2 is pretty much like the original, except it supports corners, but not diverters.
 //note that corner pieces transfer stuff clockwise when running forward, and anti-clockwise backwards.
 
+/datum/wifi/sender/conveyor/proc/set_dir(direction)
+	for (var/datum/wifi/receiver/conveyor/C in connected_devices)
+		C.direction_change(direction)
+
+/datum/wifi/receiver/conveyor/proc/direction_change(direction)
+	var/obj/machinery/conveyor/C = parent
+	C.operating = direction
+	C.setmove()
+
+/datum/wifi/receiver/conveyor/switch/direction_change(direction)
+	var/obj/machinery/conveyor_switch/S = parent
+	S.position = direction
+	S.update()
+
 /obj/machinery/conveyor
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "conveyor0"
@@ -16,13 +30,14 @@
 
 	var/list/affecting	// the list of all items that will be moved this ptick
 	var/id = ""			// the control ID	- must match controller ID
+	var/datum/wifi/receiver/conveyor/antenna
 
 /obj/machinery/conveyor/centcom_auto
 	id = "round_end_belt"
 
 	// create a conveyor
-/obj/machinery/conveyor/New(loc, newdir, on = 0)
-	..(loc)
+/obj/machinery/conveyor/Initialize(mapload, newdir, on = 0)
+	. = ..()
 	if(newdir)
 		set_dir(newdir)
 
@@ -37,7 +52,13 @@
 		operating = 1
 		setmove()
 
+	if (id)
+		antenna = new(id, src)
 
+/obj/machinery/conveyor/Destroy()
+	QDEL_NULL(antenna)
+	affecting = null
+	return ..()
 
 /obj/machinery/conveyor/proc/setmove()
 	if(operating == 1)
@@ -167,45 +188,36 @@
 
 	var/id = "" 				// must match conveyor IDs to control them
 
-	var/list/conveyors		// the list of converyors that are controlled by this switch
 	anchored = 1
 
+	var/datum/wifi/receiver/conveyor/switch/receiver
+	var/datum/wifi/sender/conveyor/transmitter
 
 
-/obj/machinery/conveyor_switch/New(loc, newid)
-	..(loc)
+/obj/machinery/conveyor_switch/Initialize(mapload, newid)
+	. = ..()
 	if(!id)
 		id = newid
 	update()
 
-	spawn(5)		// allow map load
-		conveyors = list()
-		for(var/obj/machinery/conveyor/C in world)
-			if(C.id == id)
-				conveyors += C
+	if (id)
+		receiver = new(id, src)
+		transmitter = new(id, src)
+
+/obj/machinery/conveyor_switch/Destroy()
+	QDEL_NULL(receiver)
+	QDEL_NULL(transmitter)
+	return ..()
 
 // update the icon depending on the position
 
 /obj/machinery/conveyor_switch/proc/update()
-	if(position<0)
+	if(position < 0)
 		icon_state = "switch-rev"
-	else if(position>0)
+	else if(position > 0)
 		icon_state = "switch-fwd"
 	else
 		icon_state = "switch-off"
-
-
-// timed process
-// if the switch changed, update the linked conveyors
-
-/obj/machinery/conveyor_switch/process()
-	if(!operated)
-		return
-	operated = 0
-
-	for(var/obj/machinery/conveyor/C in conveyors)
-		C.operating = position
-		C.setmove()
 
 // attack with hand, switch position
 /obj/machinery/conveyor_switch/attack_hand(mob/user)
@@ -227,12 +239,7 @@
 	operated = 1
 	update()
 
-	// find any switches with same id as this one, and set their positions to match us
-	for(var/obj/machinery/conveyor_switch/S in world)
-		if(S.id == src.id)
-			S.position = position
-			S.update()
-
+	transmitter.set_dir(position)
 
 /obj/machinery/conveyor_switch/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/weapon/crowbar))
@@ -256,13 +263,7 @@
 	operated = 1
 	update()
 
-	// find any switches with same id as this one, and set their positions to match us
-	for(var/obj/machinery/conveyor_switch/S in world)
-		if(S.id == src.id)
-			S.position = position
-			S.update()
-
-
+	transmitter.set_dir(position)
 
 //
 // CONVEYOR CONSTRUCTION STARTS HERE

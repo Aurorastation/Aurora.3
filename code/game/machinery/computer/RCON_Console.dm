@@ -22,7 +22,7 @@
 /obj/machinery/computer/rcon/Destroy()
 	qdel(rcon)
 	rcon = null
-	..()
+	return ..()
 
 // Proc: attack_hand()
 // Parameters: 1 (user - Person which clicked this computer)
@@ -40,4 +40,4 @@
 /obj/machinery/computer/rcon/update_icon()
 	..()
 	if(is_operable())
-		overlays += image('icons/obj/computer.dmi', "ai-fixer-empty", overlay_layer)
+		holographic_overlay(src, src.icon, "ai-fixer-empty")

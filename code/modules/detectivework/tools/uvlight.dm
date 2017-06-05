@@ -7,11 +7,10 @@
 	item_state = "electronic"
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
-	//offset_light = 1
 	var/list/scanned = list()
 	var/list/stored_alpha = list()
 	var/list/reset_objects = list()
-
+	uv_intensity = 255
 	var/range = 3
 	var/on = 0
 	var/step_alpha = 50
@@ -19,7 +18,7 @@
 /obj/item/device/uv_light/attack_self(var/mob/user)
 	on = !on
 	if(on)
-		set_light(range, 2, "#007fff", uv = 100)
+		set_light(range, 2, "#7700dd")
 		processing_objects |= src
 		icon_state = "uv_on"
 	else
@@ -41,7 +40,7 @@
 		stored_alpha.Cut()
 	if(reset_objects.len)
 		for(var/obj/item/I in reset_objects)
-			I.overlays -= I.blood_overlay
+			I.cut_overlay(I.blood_overlay, TRUE)
 			if(I.fluorescent == 2) I.fluorescent = 1
 		reset_objects.Cut()
 
@@ -65,5 +64,5 @@
 					if(istype(A, /obj/item))
 						var/obj/item/O = A
 						if(O.was_bloodied && !(O.blood_overlay in O.overlays))
-							O.overlays |= O.blood_overlay
+							O.add_overlay(O.blood_overlay, TRUE)
 							reset_objects |= O

@@ -32,14 +32,14 @@
 	updateallghostimages()
 	..()
 
-mob/eye/Destroy()
+/mob/eye/Destroy()
 	if (ghostimage)
 		ghost_darkness_images -= ghostimage
 		ghost_sightless_images -= ghostimage
 		qdel(ghostimage)
 		ghostimage = null
 		updateallghostimages()
-	..()
+	return ..()
 
 /mob/eye/Move(n, direct)
 	if(owner == src)

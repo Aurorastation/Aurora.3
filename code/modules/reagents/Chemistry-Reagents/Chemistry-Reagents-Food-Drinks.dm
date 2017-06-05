@@ -24,7 +24,7 @@
 	description = "All the vitamins, minerals, and carbohydrates the body needs in pure form."
 	reagent_state = SOLID
 	metabolism = REM * 4
-	var/nutriment_factor = 15 // Per unit
+	var/nutriment_factor = 12 // Per unit
 	var/blood_factor = 6
 	var/regen_factor = 0.8
 	var/injectable = 0
@@ -51,6 +51,87 @@
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 
+
+
+/*
+	Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
+	allows it to be covered in that, which will add a masked overlay to the sprite.
+
+	Coatings have both a raw and a cooked image. Raw coating is generally unhealthy
+	Generally coatings are intended for deep frying foods
+*/
+/datum/reagent/nutriment/coating
+	nutriment_factor = 6 //Less dense than the food itself, but coatings still add extra calories
+	var/messaged = 0
+	var/icon_raw
+	var/icon_cooked
+	var/coated_adj = "coated"
+	var/cooked_name = "coating"
+
+/datum/reagent/nutriment/coating/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+
+	//We'll assume that the batter isnt going to be regurgitated and eaten by someone else. Only show this once
+	if (data["cooked"] != 1)
+		if (!messaged)
+			M << "Ugh, this raw [name] tastes disgusting."
+			nutriment_factor *= 0.5
+			messaged = 1
+
+		//Raw coatings will sometimes cause vomiting
+		if (ishuman(M) && prob(1))
+			var/mob/living/carbon/human/H = M
+			H.delayed_vomit()
+	..()
+
+/datum/reagent/nutriment/coating/initialize_data(var/newdata) // Called when the reagent is created.
+	..()
+	if (!data)
+		data = list()
+	else
+		if (isnull(data["cooked"]))
+			data["cooked"] = 0
+		return
+	data["cooked"] = 0
+	if (holder && holder.my_atom && istype(holder.my_atom,/obj/item/weapon/reagent_containers/food/snacks))
+		data["cooked"] = 1
+		name = cooked_name
+
+		//Batter which is part of objects at compiletime spawns in a cooked state
+
+
+//Handles setting the temperature when oils are mixed
+/datum/reagent/nutriment/coating/mix_data(var/newdata, var/newamount)
+	if (!data)
+		data = list()
+
+	data["cooked"] = newdata["cooked"]
+
+
+/datum/reagent/nutriment/coating/batter
+	name = "batter mix"
+	cooked_name = "batter"
+	id = "batter"
+	color = "#f5f4e9"
+	reagent_state = LIQUID
+	icon_raw = "batter_raw"
+	icon_cooked = "batter_cooked"
+	coated_adj = "battered"
+
+/datum/reagent/nutriment/coating/beerbatter
+	name = "beer batter mix"
+	cooked_name = "beer batter"
+	id = "beerbatter"
+	color = "#f5f4e9"
+	reagent_state = LIQUID
+	icon_raw = "batter_raw"
+	icon_cooked = "batter_cooked"
+	coated_adj = "beer-battered"
+
+/datum/reagent/nutriment/coating/beerbatter/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.intoxication += removed*0.02 //Very slightly alcoholic
+
+//==============================
 /datum/reagent/nutriment/protein // Bad for Skrell!
 	name = "animal protein"
 	id = "protein"
@@ -87,6 +168,118 @@
 	name = "egg yolk"
 	id = "egg"
 	color = "#FFFFAA"
+
+
+//Fats
+//=========================
+/datum/reagent/nutriment/triglyceride
+	name = "triglyceride"
+	id = "triglyceride"
+	description = "More commonly known as fat, the third macronutrient, with over double the energy content of carbs and protein"
+
+	reagent_state = SOLID
+	nutriment_factor = 27//The caloric ratio of carb/protein/fat is 4:4:9
+	color = "#CCCCCC"
+
+//Unathi can digest fats too
+/datum/reagent/nutriment/triglyceride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_UNATHI)
+		digest(M,removed)
+		return
+	..()
+
+/datum/reagent/nutriment/triglyceride/oil
+	//Having this base class incase we want to add more variants of oil
+	name = "Oil"
+	id = "oil"
+	description = "Oils are liquid fats"
+	reagent_state = LIQUID
+	color = "#c79705"
+	touch_met = 1.5
+	var/lastburnmessage = 0
+
+/datum/reagent/nutriment/triglyceride/oil/touch_turf(var/turf/simulated/T)
+	if(!istype(T))
+		return
+
+	/*
+	//Why should oil put out fires? Pondering removing this
+
+	var/hotspot = (locate(/obj/fire) in T)
+	if(hotspot && !istype(T, /turf/space))
+		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
+		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
+		lowertemp.react()
+		T.assume_air(lowertemp)
+		qdel(hotspot)
+	*/
+
+	if(volume >= 3)
+		T.wet_floor(2)
+
+/datum/reagent/nutriment/triglyceride/oil/initialize_data(var/newdata) // Called when the reagent is created.
+	..()
+	if (!data)
+		data = list("temperature" = T20C)
+
+//Handles setting the temperature when oils are mixed
+/datum/reagent/nutriment/triglyceride/oil/mix_data(var/newdata, var/newamount)
+
+	if (!data)
+		data = list()
+
+	var/ouramount = volume - newamount
+	if (ouramount <= 0 || !data["temperature"] || !volume)
+		//If we get here, then this reagent has just been created, just copy the temperature exactly
+		data["temperature"] = newdata["temperature"]
+
+	else
+		//Our temperature is set to the mean of the two mixtures, taking volume into account
+		var/total = (data["temperature"] * ouramount) + (newdata["temperature"] * newamount)
+		data["temperature"] = total / volume
+
+	return ..()
+
+
+//Calculates a scaling factor for scalding damage, based on the temperature of the oil and creature's heat resistance
+/datum/reagent/nutriment/triglyceride/oil/proc/heatdamage(var/mob/living/carbon/M)
+	var/threshold = 360//Human heatdamage threshold
+	var/datum/species/S = M.get_species(1)
+	if (S && istype(S))
+		threshold = S.heat_level_1
+
+	//If temperature is too low to burn, return a factor of 0. no damage
+	if (data["temperature"] < threshold)
+		return 0
+
+	//Step = degrees above heat level 1 for 1.0 multiplier
+	var/step = 60
+	if (S && istype(S))
+		step = (S.heat_level_2 - S.heat_level_1)*1.5
+
+	. = data["temperature"] - threshold
+	. /= step
+	. = min(., 2.5)//Cap multiplier at 2.5
+
+/datum/reagent/nutriment/triglyceride/oil/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+	var/dfactor = heatdamage(M)
+	if (dfactor)
+		M.take_organ_damage(0, removed * 1.5 * dfactor)
+		data["temperature"] -= (6 * removed) / (1 + volume*0.1)//Cools off as it burns you
+		if (lastburnmessage+100 < world.time	)
+			M << span("danger", "Searing hot oil burns you, wash it off quick!")
+			lastburnmessage = world.time
+
+
+/datum/reagent/nutriment/triglyceride/oil/corn
+	name = "Corn Oil"
+	id = "cornoil"
+	description = "An oil derived from various types of corn."
+
+
+
+
+
 
 /datum/reagent/nutriment/egg/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_SKRELL)
@@ -156,28 +349,9 @@
 	nutriment_factor = 1
 	color = "#801E28"
 
-/datum/reagent/nutriment/cornoil
-	name = "Corn Oil"
-	id = "cornoil"
-	description = "An oil derived from various types of corn."
-	reagent_state = LIQUID
-	nutriment_factor = 20
-	color = "#302000"
 
-/datum/reagent/nutriment/cornoil/touch_turf(var/turf/simulated/T)
-	if(!istype(T))
-		return
 
-	var/hotspot = (locate(/obj/fire) in T)
-	if(hotspot && !istype(T, /turf/space))
-		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
-		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
-		lowertemp.react()
-		T.assume_air(lowertemp)
-		qdel(hotspot)
 
-	if(volume >= 3)
-		T.wet_floor()
 
 /datum/reagent/nutriment/virus_food
 	name = "Virus Food"
@@ -319,6 +493,8 @@
 
 	var/list/protection
 	if(istype(M, /mob/living/carbon/human))
+		if(M.isSynthetic())
+			return
 		var/mob/living/carbon/human/H = M
 		protection = list(H.head, H.glasses, H.wear_mask)
 		if(H.species && (H.species.flags & NO_PAIN))
@@ -372,6 +548,20 @@
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent("frostoil", 5)
+
+/datum/reagent/spacespice
+	name = "Space Spice"
+	id = "spacespice"
+	description = "An exotic blend of spices for cooking. Definitely not worms."
+	reagent_state = SOLID
+	color = "#e08702"
+
+/datum/reagent/browniemix
+	name = "Brownie Mix"
+	id = "browniemix"
+	description = "A dry mix for making delicious brownies."
+	reagent_state = SOLID
+	color = "#441a03"
 
 /* Drinks */
 
@@ -612,6 +802,7 @@
 	glass_name = "glass of iced tea"
 	glass_desc = "No relation to a certain rap artist/ actor."
 	glass_center_of_mass = list("x"=15, "y"=10)
+
 
 /datum/reagent/drink/coffee
 	name = "Coffee"
@@ -1086,6 +1277,18 @@
 	glass_icon_state = "ginvodkaglass"
 	glass_name = "glass of gin"
 	glass_desc = "A crystal clear glass of Griffeater gin."
+	glass_center_of_mass = list("x"=16, "y"=12)
+
+/datum/reagent/ethanol/victorygin
+	name = "Victory Gin"
+	id = "victorygin"
+	description = "An oily Adhomai-based gin."
+	color = "#664300"
+	strength = 32
+
+	glass_icon_state = "ginvodkaglass"
+	glass_name = "glass of gin"
+	glass_desc = "It has an oily smell and doesn't taste like typical gin."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 //Base type for alchoholic drinks containing coffee
@@ -2355,3 +2558,31 @@
 	glass_icon_state = "tallblackrussian"
 	glass_name = "glass of Tall Black Russian"
 	glass_desc = "Just like black russian but taller."
+
+
+// Butanol-based alcoholic drinks
+//=====================================
+//These are mainly for unathi, and have very little (but still some) effect on other species
+
+/datum/reagent/butanol/xuizijuice
+	name = "Xuizi Juice"
+	id = "xuizijuice"
+	description = "Blended flower buds from a Moghean Xuizi cactus. Has a mild butanol content and is a staple recreational beverage in Unathi culture."
+	color = "#91de47"
+	strength = 5
+
+	glass_icon_state = "xuiziglass"
+	glass_name = "glass of Xuizi Juice"
+	glass_desc = "The clear green liquid smells like vanilla, tastes like water. Unathi swear it has a rich taste and texture."
+
+/datum/reagent/butanol/sarezhiwine
+	name = "Sarezhi Wine"
+	id = "sarezhiwine"
+	description = "An alcoholic beverage made from lightly fermented Sareszhi berries, considered an upper class delicacy on Moghes. Significant butanol content indicates intoxicating effects on Unathi."
+	color = "#bf8fbc"
+	strength = 20
+
+	glass_icon_state = "sarezhiglass"
+	glass_name = "glass of Sarezhi Wine"
+	glass_desc = "It tastes like flat grape soda. Is this supposed to be alcoholic?"
+

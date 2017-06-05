@@ -12,7 +12,7 @@
 	return list("ss13_characters" = list("vars" = list("language" = "alternate_languages"), "args" = list("id")))
 
 /datum/category_item/player_setup_item/general/language/gather_load_parameters()
-	return list(":id" = pref.current_character)
+	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/language/gather_save_query()
 	return list("ss13_characters" = list("id" = 1,
@@ -20,9 +20,9 @@
 										 "language"))
 
 /datum/category_item/player_setup_item/general/language/gather_save_parameters()
-	return list(":language" = list2params(pref.alternate_languages),
-				":id" = pref.current_character,
-				":ckey" = pref.client.ckey)
+	return list("language" = list2params(pref.alternate_languages),
+				"id" = pref.current_character,
+				"ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/general/language/sanitize_character(var/sql_load = 0)
 	if (sql_load)
@@ -75,6 +75,9 @@
 			else
 				var/new_lang = input(user, "Select an additional language", "Character Generation", null) as null|anything in available_languages
 				if(new_lang)
-					pref.alternate_languages |= new_lang
+					if (pref.alternate_languages.len >= S.num_alternate_languages)
+						alert(user, "You have already selected the maximum number of alternate languages for this species!")
+					else
+						pref.alternate_languages |= new_lang
 					return TOPIC_REFRESH
 	return ..()

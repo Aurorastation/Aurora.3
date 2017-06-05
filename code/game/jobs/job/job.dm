@@ -25,15 +25,31 @@
 	var/account_allowed = 1				  // Does this job type come with a station account?
 	var/economic_modifier = 2			  // With how much does this job modify the initial account amount?
 
+	var/bag_type = /obj/item/weapon/storage/backpack
+	var/satchel_type = /obj/item/weapon/storage/backpack/satchel_norm
+	var/alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
+	var/duffel_type = /obj/item/weapon/storage/backpack/duffel
+
 /datum/job/proc/equip(var/mob/living/carbon/human/H)
 	return 1
 
 /datum/job/proc/equip_backpack(var/mob/living/carbon/human/H)
-	switch(H.backbag)
-		if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(H), slot_back)
-		if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
-		if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-		if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)
+	var/type_to_spawn
+	switch (H.backbag)
+		//if (1)	// No bag selected.
+		if (2)
+			type_to_spawn = bag_type
+		if (3)
+			type_to_spawn = satchel_type
+		if (4)
+			type_to_spawn = alt_satchel_type
+		if (5)
+			type_to_spawn = duffel_type
+
+	if (type_to_spawn)
+		var/obj/item/bag = new type_to_spawn
+		if (H.equip_to_slot_or_del(bag, slot_back))
+			bag.autodrobe_no_remove = TRUE
 
 /datum/job/proc/equip_survival(var/mob/living/carbon/human/H)
 	if(!H)	return 0
@@ -57,7 +73,7 @@
 	var/species_modifier = (H.species ? economic_species_modifier[H.species.type] : 2)
 	if(!species_modifier)
 		species_modifier = economic_species_modifier[/datum/species/human]
-	
+
 	var/money_amount = (rand(5,50) + rand(5, 50)) * loyalty * economic_modifier * species_modifier
 	var/datum/money_account/M = create_account(H.real_name, money_amount, null)
 	if(H.mind)
@@ -113,3 +129,56 @@
 /datum/job/proc/fetch_age_restriction()
 	if (config.age_restrictions[lowertext(title)])
 		minimal_player_age = config.age_restrictions[lowertext(title)]
+
+/datum/job/proc/late_equip(var/mob/living/carbon/human/H)
+	if(!H)
+		return 0
+
+	var/loyalty = 1
+	if(H.client)
+		switch(H.client.prefs.nanotrasen_relation)
+			if(COMPANY_LOYAL)		loyalty = 3
+			if(COMPANY_SUPPORTATIVE)loyalty = 2
+			if(COMPANY_NEUTRAL)		loyalty = 1
+			if(COMPANY_SKEPTICAL)	loyalty = -2
+			if(COMPANY_OPPOSED)		loyalty = -3
+
+	//give them an account in the station database
+	var/species_modifier = 0
+	if(economic_species_modifier[H.species.type])
+		switch(economic_species_modifier[H.species.type])
+			if(/datum/species/human)		species_modifier = 0
+			if(/datum/species/skrell)		species_modifier = 0
+			if(/datum/species/tajaran)		species_modifier = -2
+			if(/datum/species/unathi)		species_modifier = -2
+			if(/datum/species/diona)		species_modifier = -4
+			if(/datum/species/machine)		species_modifier = -4
+			if(/datum/species/bug)			species_modifier = -6
+			else							species_modifier = -3
+
+
+	var/wealth = (loyalty + economic_modifier + species_modifier)
+
+	switch(wealth)
+		if(-INFINITY to 2)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+		if(3 to 6)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/hoodie(H), slot_wear_suit)
+		if(7 to 9)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/red(H), slot_tie)
+		if(10 to 14)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/really_black(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(H), slot_l_hand)
+		if(15 to INFINITY)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/red(H), slot_tie)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/locket(H), slot_tie)
+

@@ -2,7 +2,7 @@
 	name = "laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 40
+	damage = 30
 	damage_type = BURN
 	check_armour = "laser"
 	eyeblur = 4
@@ -24,15 +24,17 @@
 	check_armour = "laser"
 	eyeblur = 2
 
+/obj/item/projectile/beam/pistol
+	damage = 25
+
 /obj/item/projectile/beam/midlaser
-	damage = 40
+	damage = 30
 	armor_penetration = 10
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
 	damage = 60
-	armor_penetration = 30
 
 	muzzle_type = /obj/effect/projectile/laser_heavy/muzzle
 	tracer_type = /obj/effect/projectile/laser_heavy/tracer
@@ -42,7 +44,7 @@
 	name = "xray beam"
 	icon_state = "xray"
 	damage = 25
-	armor_penetration = 50
+	armor_penetration = 30
 
 	muzzle_type = /obj/effect/projectile/xray/muzzle
 	tracer_type = /obj/effect/projectile/xray/tracer
@@ -52,7 +54,6 @@
 	name = "pulse"
 	icon_state = "u_laser"
 	damage = 50
-	armor_penetration = 30
 
 	muzzle_type = /obj/effect/projectile/laser_pulse/muzzle
 	tracer_type = /obj/effect/projectile/laser_pulse/tracer
@@ -191,9 +192,7 @@
 			if (M.mob_size <= 2 && (M.find_type() & TYPE_ORGANIC))
 				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
 				M.gib()
-				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-				s.set_up(3, 1, M)
-				s.start()
+				spark(M, 3, alldirs)
 			else if (iscarbon(M) && M.contents.len)
 				for (var/obj/item/weapon/holder/H in M.contents)
 					if (!H.contained)
@@ -225,7 +224,7 @@
 /obj/item/projectile/beam/megaglaive
 	name = "thermal lance"
 	icon_state = "megaglaive"
-	damage = 6
+	damage = 10
 	incinerate = 5
 	armor_penetration = 10
 	no_attack_log = 1
@@ -240,10 +239,27 @@
 	src.transform = effect_transform
 	..()
 
+/obj/item/projectile/beam/megaglaive/on_impact(var/atom/A)
+	if(isturf(A))
+		if(istype(A, /turf/simulated/mineral))
+			if(prob(75)) //likely because its a mining tool
+				var/turf/simulated/mineral/M = A
+				if(prob(10))
+					M.GetDrilled(1)
+				else if(!M.emitter_blasts_taken)
+					M.emitter_blasts_taken += 1
+				else if(prob(33))
+					M.emitter_blasts_taken += 1
+	if(ismob(A))
+		var/mob/living/M = A
+		M.apply_effect(1, INCINERATE, 0)
+	explosion(A, -1, 0, 2)
+	..()
+
 /obj/item/projectile/beam/thermaldrill
 	name = "thermal lance"
 	icon_state = "megaglaive"
-	damage = 3
+	damage = 5
 	no_attack_log = 1
 
 	muzzle_type = /obj/effect/projectile/solar/muzzle
@@ -255,8 +271,68 @@
 		if(istype(A, /turf/simulated/mineral))
 			if(prob(75)) //likely because its a mining tool
 				var/turf/simulated/mineral/M = A
-				M.GetDrilled()
+				if(prob(33))
+					M.GetDrilled(1)
+				else if(!M.emitter_blasts_taken)
+					M.emitter_blasts_taken += 2
+				else if(prob(66))
+					M.emitter_blasts_taken += 2
+
 	if(ismob(A))
 		var/mob/living/M = A
 		M.apply_effect(1, INCINERATE, 0)
 	..()
+
+
+
+//Beams of magical veil energy fired by empowered pylons. Some inbuilt armor penetration cuz magic.
+//Ablative armor is still overwhelmingly useful
+//These beams are very weak but rapid firing, ~twice per second.
+/obj/item/projectile/beam/cult
+	name = "energy bolt"
+	//For projectiles name is only shown in onhit messages, so its more of a layman's description
+	//of what the projectile looks like
+	damage = 3.5 //Very weak
+	accuracy = 4 //Guided by magic, unlikely to miss
+	eyeblur = 0 //Not bright or blinding
+	var/mob/living/ignore
+
+	muzzle_type = /obj/effect/projectile/cult/muzzle
+	tracer_type = /obj/effect/projectile/cult/tracer
+	impact_type = /obj/effect/projectile/cult/impact
+
+/obj/item/projectile/beam/cult/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
+	//Harmlessly passes through cultists and constructs
+	if (target_mob == ignore)
+		return 0
+	if (iscult(target_mob))
+		return 0
+
+	return ..()
+
+/obj/item/projectile/beam/cult/heavy
+	name = "glowing energy bolt"
+	damage = 10 //Stronger and better armor penetration, though still much weaker than a typical laser
+	armor_penetration = 10
+
+	muzzle_type = /obj/effect/projectile/cult/heavy/muzzle
+	tracer_type = /obj/effect/projectile/cult/heavy/tracer
+	impact_type = /obj/effect/projectile/cult/heavy/impact
+	
+/obj/item/projectile/beam/energy_net
+	name = "energy net projection"
+	icon_state = "xray"
+	nodamage = 1
+	damage_type = HALLOSS
+
+	muzzle_type = /obj/effect/projectile/xray/muzzle
+	tracer_type = /obj/effect/projectile/xray/tracer
+	impact_type = /obj/effect/projectile/xray/impact
+
+/obj/item/projectile/beam/energy_net/on_hit(var/atom/netted)
+	do_net(netted)
+	..()
+
+/obj/item/projectile/beam/energy_net/proc/do_net(var/mob/M)
+	var/obj/item/weapon/energy_net/net = new (get_turf(M))
+	net.throw_impact(M)

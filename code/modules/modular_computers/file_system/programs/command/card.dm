@@ -9,6 +9,7 @@
 	usage_flags = PROGRAM_CONSOLE
 	requires_ntnet = 0
 	size = 8
+	color = LIGHT_COLOR_BLUE
 
 /datum/nano_module/program/card_mod
 	name = "ID card modification program"
@@ -82,7 +83,7 @@
 					"accesses" = accesses)))
 			data["regions"] = regions
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "identification_computer.tmpl", name, 600, 700, state = state)
 		ui.auto_update_layout = 1
@@ -220,7 +221,7 @@
 	if(id_card)
 		id_card.name = text("[id_card.registered_name]'s ID Card ([id_card.assignment])")
 
-	nanomanager.update_uis(NM)
+	SSnanoui.update_uis(NM)
 	return 1
 
 /datum/computer_file/program/card_mod/proc/remove_nt_access(var/obj/item/weapon/card/id/id_card)

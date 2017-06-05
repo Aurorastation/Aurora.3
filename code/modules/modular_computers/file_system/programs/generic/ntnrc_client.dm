@@ -15,6 +15,7 @@
 	var/datum/ntnet_conversation/channel = null
 	var/operator_mode = 0		// Channel operator mode
 	var/netadmin_mode = 0		// Administrator mode (invisible to other users + bypasses passwords)
+	color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/chatclient/New()
 	username = "DefaultUser[rand(100, 999)]"
@@ -221,7 +222,7 @@
 				)))
 		data["all_channels"] = all_channels
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_chat.tmpl", "NTNet Relay Chat Client", 575, 700, state = state)
 		ui.auto_update_layout = 1

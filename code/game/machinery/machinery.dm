@@ -114,18 +114,15 @@ Class Procs:
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/printing = 0 // Is this machine currently printing anything?
 
-/obj/machinery/New(l, d=0)
-	..(l)
+/obj/machinery/Initialize(mapload, d=0)
+	. = ..()
 	if(d)
 		set_dir(d)
-	if(!machinery_sort_required && ticker)
-		dd_insertObjectList(machines, src)
-	else
-		machines += src
-		machinery_sort_required = 1
+
+	add_machine(src)
 
 /obj/machinery/Destroy()
-	machines -= src
+	remove_machine(src)
 	if(component_parts)
 		for(var/atom/A in component_parts)
 			if(A.loc == src) // If the components are inside the machine, delete them.
@@ -141,21 +138,20 @@ Class Procs:
 	if(!(use_power || idle_power_usage || active_power_usage))
 		return PROCESS_KILL
 
-	return
+	return M_NO_PROCESS
 
 /obj/machinery/emp_act(severity)
 	if(use_power && stat == 0)
 		use_power(7500/severity)
 
-		var/obj/effect/overlay/pulse2 = getFromPool(/obj/effect/overlay, src.loc)
+		var/obj/effect/overlay/pulse2 = new(src.loc)
 		pulse2.icon = 'icons/effects/effects.dmi'
 		pulse2.icon_state = "empdisable"
 		pulse2.name = "emp sparks"
 		pulse2.anchored = 1
 		pulse2.set_dir(pick(cardinal))
 
-		spawn(10)
-			qdel(pulse2)
+		QDEL_IN(pulse2, 10)
 	..()
 
 /obj/machinery/ex_act(severity)
@@ -280,9 +276,7 @@ Class Procs:
 		return 0
 	if(!prob(prb))
 		return 0
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(5, 1, src)
-	s.start()
+	spark(src, 5, alldirs)
 	if (electrocute_mob(user, get_area(src), src, 0.7))
 		var/area/temp_area = get_area(src)
 		if(temp_area)

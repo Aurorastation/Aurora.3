@@ -14,6 +14,9 @@
 		create_antagonist(player, move_to_spawn, do_not_announce, preserve_appearance)
 		if(!do_not_equip)
 			equip(player.current)
+			
+	player.current.faction = faction
+	
 	return 1
 
 /datum/antagonist/proc/add_antagonist_mind(var/datum/mind/player, var/ignore_role, var/nonstandard_role_type, var/nonstandard_role_msg)
@@ -42,7 +45,7 @@
 		update_icons_added(player)
 	return 1
 
-/datum/antagonist/proc/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
+/datum/antagonist/proc/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
 	if(!istype(player))
 		return 0
 
@@ -50,14 +53,15 @@
 		player.current.verbs -= faction_verb
 
 	if(player in current_antagonists)
-		player.current << "<span class='danger'><font size = 3>You are no longer a [role_text]!</font></span>"
+		if (show_message)
+			player.current << "<span class='danger'><font size = 3>You are no longer a [role_text]!</font></span>"
 		current_antagonists -= player
 		faction_members -= player
 		player.special_role = null
 		update_icons_removed(player)
 		BITSET(player.current.hud_updateflag, SPECIALROLE_HUD)
 
-		if (!is_special_character(player))
+		if (!is_special_character(player) && !player.current.client.holder)
 			player.current.client.verbs -= /client/proc/aooc
 
 		return 1

@@ -1,13 +1,15 @@
 /spell/aoe_turf/conjure/forcewall
 	name = "Forcewall"
 	desc = "Create a wall of pure energy at your location."
+	feedback = "FW"
 	summon_type = list(/obj/effect/forcefield)
 	duration = 300
 	charge_max = 100
 	spell_flags = 0
 	range = 0
 	cast_sound = null
-
+	cast_sound = 'sound/magic/ForceWall.ogg'
+	
 	hud_state = "wiz_shield"
 
 /spell/aoe_turf/conjure/forcewall/mime

@@ -2,7 +2,7 @@
 	if(istype(M) && M.a_intent == I_HELP && !(src.stat & DEAD))
 		if(M.species && M.species.name == "Diona" && do_merge(M))
 			return
-		M.visible_message("\blue [M] pets the [src]")
+		M.visible_message("<span class='notice'>[M] pets the [src]</span>")
 		return
 	else if (src.stat & DEAD)
 		get_scooped(M)

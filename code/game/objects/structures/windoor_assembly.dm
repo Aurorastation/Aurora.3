@@ -17,6 +17,7 @@ obj/structure/windoor_assembly
 	density = 0
 	dir = NORTH
 	w_class = 3
+	flags = ON_BORDER
 
 	var/obj/item/weapon/airlock_electronics/electronics = null
 
@@ -41,7 +42,7 @@ obj/structure/windoor_assembly/New(Loc, start_dir=NORTH, constructed=0)
 obj/structure/windoor_assembly/Destroy()
 	density = 0
 	update_nearby_tiles()
-	..()
+	return ..()
 
 /obj/structure/windoor_assembly/update_icon()
 	icon_state = "[facing]_[secure]windoor_assembly[state]"
@@ -79,7 +80,7 @@ obj/structure/windoor_assembly/Destroy()
 						user << "<span class='notice'>You dissasembled the windoor assembly!</span>"
 						new /obj/item/stack/material/glass/reinforced(get_turf(src), 5)
 						if(secure)
-							getFromPool(/obj/item/stack/rods, list(get_turf(src), 4))
+							new /obj/item/stack/rods(get_turf(src), 4)
 						qdel(src)
 				else
 					user << "<span class='notice'>You need more welding fuel to dissassemble the windoor assembly.</span>"
@@ -166,19 +167,21 @@ obj/structure/windoor_assembly/Destroy()
 
 			//Adding airlock electronics for access. Step 6 complete.
 			else if(istype(W, /obj/item/weapon/airlock_electronics) && W:icon_state != "door_electronics_smoked")
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
-				user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
-
-				if(do_after(user, 40))
-					if(!src) return
-
-					user.drop_item()
-					W.loc = src
-					user << "<span class='notice'>You've installed the airlock electronics!</span>"
-					src.name = "Near finished Windoor Assembly"
-					src.electronics = W
-				else
-					W.loc = src.loc
+				var/obj/item/weapon/airlock_electronics/EL = W
+				if(!EL.inuse)
+					playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+					user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
+					EL.inuse = 1
+					if(do_after(user, 40))
+						EL.inuse = 0
+						if(!src) return
+						user.drop_item()
+						EL.forceMove(src)
+						user << "<span class='notice'>You've installed the airlock electronics!</span>"
+						src.name = "Near finished Windoor Assembly"
+						src.electronics = EL
+					else
+						EL.inuse = 0
 
 			//Screwdriver to remove airlock electronics. Step 6 undone.
 			else if(istype(W, /obj/item/weapon/screwdriver) && src.electronics)
@@ -261,10 +264,21 @@ obj/structure/windoor_assembly/Destroy()
 
 
 //Rotates the windoor assembly clockwise
-/obj/structure/windoor_assembly/verb/revrotate()
-	set name = "Rotate Windoor Assembly"
+//These directions are fucked up, apparently dm rotates anticlockwise by default
+/obj/structure/windoor_assembly/verb/rotate()
+	set name = "Rotate Windoor Clockwise"
 	set category = "Object"
 	set src in oview(1)
+
+	var/targetdir = turn(src.dir, 270)
+
+	for(var/obj/obstacle in get_turf(src))
+		if (obstacle == src)
+			continue
+
+		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
+			usr << span("danger", "You can't turn the windoor assembly that way, there's already something there!")
+			return
 
 	if (src.anchored)
 		usr << "It is fastened to the floor; therefore, you can't rotate it!"
@@ -272,7 +286,38 @@ obj/structure/windoor_assembly/Destroy()
 	if(src.state != "01")
 		update_nearby_tiles(need_rebuild=1) //Compel updates before
 
-	src.set_dir(turn(src.dir, 270))
+	src.set_dir(targetdir)
+
+	if(src.state != "01")
+		update_nearby_tiles(need_rebuild=1)
+
+	update_icon()
+	return
+
+
+//Rotates the windoor assembly anticlockwise
+/obj/structure/windoor_assembly/verb/revrotate()
+	set name = "Rotate Windoor Anticlockwise"
+	set category = "Object"
+	set src in oview(1)
+
+	var/targetdir = turn(src.dir, 90)
+
+	for(var/obj/obstacle in get_turf(src))
+		if (obstacle == src)
+			continue
+
+		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
+			usr << span("danger", "You can't turn the windoor assembly that way, there's already something there!")
+			return
+
+	if (src.anchored)
+		usr << "It is fastened to the floor; therefore, you can't rotate it!"
+		return 0
+	if(src.state != "01")
+		update_nearby_tiles(need_rebuild=1) //Compel updates before
+
+	src.set_dir(targetdir)
 
 	if(src.state != "01")
 		update_nearby_tiles(need_rebuild=1)

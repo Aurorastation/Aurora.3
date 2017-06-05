@@ -1,7 +1,7 @@
 /spell/targeted/mind_transfer
 	name = "Mind Transfer"
 	desc = "This spell allows the user to switch bodies with a target."
-
+	feedback = "MT"
 	school = "transmutation"
 	charge_max = 600
 	spell_flags = 0
@@ -9,8 +9,10 @@
 	invocation_type = SpI_WHISPER
 	max_targets = 1
 	range = 1
+	level_max = list(Sp_TOTAL = 4, Sp_SPEED = 4, Sp_POWER = 2)
 	cooldown_min = 200 //100 deciseconds reduction per rank
 	compatible_mobs = list(/mob/living/carbon/human) //which types of mobs are affected by the spell. NOTE: change at your own risk
+	cast_sound = 'sound/magic/MandSwap.ogg'
 
 	// TODO: Update to new antagonist system.
 	var/list/protected_roles = list("Wizard","Changeling","Cultist", "Vampire") //which roles are immune to the spell
@@ -48,15 +50,15 @@
 				victim.verbs -= V
 
 		var/mob/dead/observer/ghost = victim.ghostize(0)
-		ghost.spell_list += victim.spell_list//If they have spells, transfer them. Now we basically have a backup mob.
+		LAZYADD(ghost.spell_list, victim.spell_list)	//If they have spells, transfer them. Now we basically have a backup mob.
 
 		caster.mind.transfer_to(victim)
-		for(var/spell/S in victim.spell_list) //get rid of spells the new way
-			victim.remove_spell(S) //This will make it so that players will not get the HUD and all that spell bugginess that caused copies of spells and stuff of that nature.
+		for(var/spell/S in victim.spell_list)
+			victim.remove_spell(S) //Doing it this way will allow the spell master to update accordingly and not cause bugs.
 
 		for(var/spell/S in caster.spell_list)
 			victim.add_spell(S) //Now they are inside the victim's body - this also generates the HUD
-			caster.remove_spell(S) //remove the spells from the caster
+			caster.remove_spell(S)
 
 		if(victim.mind.special_verbs.len)//To add all the special verbs for the original caster.
 			for(var/V in caster.mind.special_verbs)//Not too important but could come into play.
@@ -66,7 +68,8 @@
 		caster.key = ghost.key	//have to transfer the key since the mind was not active
 		for(var/spell/S in ghost.spell_list)
 			caster.add_spell(S)
-		ghost.spell_list = list()
+		
+		LAZYCLEARLIST(ghost.spell_list)
 
 		if(caster.mind.special_verbs.len)//If they had any special verbs, we add them here.
 			for(var/V in caster.mind.special_verbs)
@@ -79,3 +82,8 @@
 		//After a certain amount of time the victim gets a message about being in a different body.
 		spawn(msg_wait)
 			caster << "<span class='danger'>You feel woozy and lightheaded. Your body doesn't seem like your own.</span>"
+
+/spell/targeted/mind_transfer/empower_spell()
+	range++
+
+	return "You have increased the range of [src]."

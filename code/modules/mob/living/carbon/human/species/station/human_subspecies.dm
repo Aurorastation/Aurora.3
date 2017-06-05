@@ -1,5 +1,5 @@
 /datum/species/human/gravworlder
-	name = "grav-adapted Human"
+	name = "Grav-Adapted Human"
 	name_plural = "grav-adapted Humans"
 	blurb = "Heavier and stronger than a baseline human, gravity-adapted people have \
 	thick radiation-resistant skin with a high lead content, denser bones, and recessed \
@@ -17,7 +17,7 @@
 	spawn_flags = IS_RESTRICTED
 
 /datum/species/human/spacer
-	name = "space-adapted Human"
+	name = "Space-Adapted Human"
 	name_plural = "space-adapted Humans"
 	blurb = "Lithe and frail, these sickly folk were engineered for work in environments that \
 	lack both light and atmosphere. As such, they're quite resistant to asphyxiation as well as \
@@ -33,7 +33,7 @@
 	spawn_flags = IS_RESTRICTED
 
 /datum/species/human/vatgrown
-	name = "vat-grown Human"
+	name = "Vat-Grown Human"
 	name_plural = "vat-grown Humans"
 	blurb = "With cloning on the forefront of human scientific advancement, cheap mass production \
 	of bodies is a very real and rather ethically grey industry. Vat-grown humans tend to be paler than \
@@ -56,7 +56,7 @@
 // These guys are going to need full resprites of all the suits/etc so I'm going to
 // define them and commit the sprites, but leave the clothing for another day.
 /datum/species/human/chimpanzee
-	name = "uplifted Chimpanzee"
+	name = "Uplifted Chimpanzee"
 	name_plural = "uplifted Chimpanzees"
 	blurb = "Ook ook."
 	icobase = 'icons/mob/human_races/subspecies/r_upliftedchimp.dmi'

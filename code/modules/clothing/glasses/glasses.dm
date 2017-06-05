@@ -35,7 +35,7 @@
 		user.update_action_buttons()
 
 /obj/item/clothing/glasses/meson
-	name = "Optical Meson Scanner"
+	name = "optical meson scanner"
 	desc = "Used for seeing walls, floors, and stuff through anything."
 	icon_state = "meson"
 	item_state = "glasses"
@@ -45,8 +45,8 @@
 	vision_flags = SEE_TURFS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
-/obj/item/clothing/glasses/meson/New()
-	..()
+/obj/item/clothing/glasses/meson/Initialize()
+	. = ..()
 	overlay = global_hud.meson
 
 /obj/item/clothing/glasses/meson/prescription
@@ -55,19 +55,19 @@
 	prescription = 1
 
 /obj/item/clothing/glasses/science
-	name = "Science Goggles"
+	name = "science goggles"
 	desc = "Used to protect your eyes against harmful chemicals!"
 	icon_state = "purple"
 	item_state = "glasses"
 	toggleable = 1
 	unacidable = 1
 
-/obj/item/clothing/glasses/science/New()
-	..()
+/obj/item/clothing/glasses/science/Initialize()
+	. = ..()
 	overlay = global_hud.science
 
 /obj/item/clothing/glasses/night
-	name = "Night Vision Goggles"
+	name = "night vision goggles"
 	desc = "You can totally see in the dark now!"
 	icon_state = "night"
 	item_state = "glasses"
@@ -77,8 +77,8 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	off_state = "denight"
 
-/obj/item/clothing/glasses/night/New()
-	..()
+/obj/item/clothing/glasses/night/Initialize()
+	. = ..()
 	overlay = global_hud.nvg
 
 /obj/item/clothing/glasses/eyepatch
@@ -96,7 +96,7 @@
 	body_parts_covered = 0
 
 /obj/item/clothing/glasses/material
-	name = "Optical Material Scanner"
+	name = "optical material scanner"
 	desc = "Very confusing glasses."
 	icon_state = "material"
 	item_state = "glasses"
@@ -105,7 +105,7 @@
 	vision_flags = SEE_OBJS
 
 /obj/item/clothing/glasses/regular
-	name = "Prescription Glasses"
+	name = "prescription glasses"
 	desc = "Made by Nerd. Co."
 	icon_state = "glasses"
 	item_state = "glasses"
@@ -131,12 +131,12 @@
 		qdel(src)
 
 /obj/item/clothing/glasses/regular/scanners
-	name = "Scanning Goggles"
+	name = "scanning goggles"
 	desc = "A very oddly shaped pair of goggles with bits of wire poking out the sides. A soft humming sound emanates from it."
 	icon_state = "uzenwa_sissra_1"
 
 /obj/item/clothing/glasses/regular/hipster
-	name = "Prescription Glasses"
+	name = "prescription glasses"
 	desc = "Made by Uncool. Co."
 	icon_state = "hipster_glasses"
 	item_state = "hipster_glasses"
@@ -149,7 +149,7 @@
 	body_parts_covered = 0
 
 /obj/item/clothing/glasses/gglasses
-	name = "Green Glasses"
+	name = "green glasses"
 	desc = "Forest green glasses, like the kind you'd wear when hatching a nasty scheme."
 	icon_state = "gglasses"
 	item_state = "gglasses"
@@ -188,6 +188,7 @@
 			flags_inv |= HIDEEYES
 			body_parts_covered |= EYES
 			icon_state = initial(icon_state)
+			item_state = initial(item_state)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
 			usr << "You flip \the [src] down to protect your eyes."
@@ -196,6 +197,7 @@
 			flags_inv &= ~HIDEEYES
 			body_parts_covered &= ~EYES
 			icon_state = "[initial(icon_state)]up"
+			item_state = "[initial(item_state)]up"
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
 			usr << "You push \the [src] up out of your face."
@@ -218,7 +220,7 @@
 
 
 /obj/item/clothing/glasses/sunglasses/blinders
-	name = "Vaurcae Blinders"
+	name = "vaurcae blinders"
 	desc = "Specially designed Vaurca blindfold, designed to let in just enough light to see."
 	icon_state = "blinders"
 	item_state = "blinders"
@@ -242,12 +244,12 @@
 	item_state = "bigsunglasses"
 
 /obj/item/clothing/glasses/sunglasses/sechud
-	name = "HUDSunglasses"
+	name = "HUDsunglasses"
 	desc = "Sunglasses with a HUD."
 	icon_state = "sunhud"
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		src.hud = new/obj/item/clothing/glasses/hud/security(src)
 		return
 
@@ -257,7 +259,7 @@
 	icon_state = "swatgoggles"
 
 /obj/item/clothing/glasses/thermal
-	name = "Optical Thermal Scanner"
+	name = "optical thermal scanner"
 	desc = "Thermals in the shape of glasses."
 	icon_state = "thermal"
 	item_state = "glasses"
@@ -271,23 +273,25 @@
 	emp_act(severity)
 		if(istype(src.loc, /mob/living/carbon/human))
 			var/mob/living/carbon/human/M = src.loc
-			M << "<span class='danger'>The Optical Thermal Scanner overloads and blinds you!</span>"
+			M << "<span class='danger'>\The [src] overloads and blinds you!</span>"
 			if(M.glasses == src)
 				M.eye_blind = 3
 				M.eye_blurry = 5
 				// Don't cure being nearsighted
 				if(!(M.disabilities & NEARSIGHTED))
 					M.disabilities |= NEARSIGHTED
-					spawn(100)
-						M.disabilities &= ~NEARSIGHTED
+					addtimer(CALLBACK(M, /mob/living/carbon/human/.proc/thermal_reset_blindness), 100)
 		..()
 
-/obj/item/clothing/glasses/thermal/New()
-	..()
+/obj/item/clothing/glasses/thermal/Initialize()
+	. = ..()
 	overlay = global_hud.thermal
 
+/mob/living/carbon/human/proc/thermal_reset_blindness()
+	disabilities &= ~NEARSIGHTED
+
 /obj/item/clothing/glasses/thermal/syndi	//These are now a traitor item, concealed as mesons.	-Pete
-	name = "Optical Meson Scanner"
+	name = "optical meson scanner"
 	desc = "Used for seeing walls, floors, and stuff through anything."
 	icon_state = "meson"
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
@@ -298,7 +302,7 @@
 	action_button_name = null
 
 /obj/item/clothing/glasses/thermal/plain/monocle
-	name = "Thermoncle"
+	name = "thermoncle"
 	desc = "A monocle thermal."
 	icon_state = "thermoncle"
 	flags = null //doesn't protect eyes because it's a monocle, duh
@@ -306,14 +310,14 @@
 	body_parts_covered = 0
 
 /obj/item/clothing/glasses/thermal/plain/eyepatch
-	name = "Optical Thermal Eyepatch"
+	name = "optical thermal eyepatch"
 	desc = "An eyepatch with built-in thermal optics"
 	icon_state = "eyepatch"
 	item_state = "eyepatch"
 	body_parts_covered = 0
 
 /obj/item/clothing/glasses/thermal/plain/jensen
-	name = "Optical Thermal Implants"
+	name = "optical thermal implants"
 	desc = "A set of implantable lenses designed to augment your vision"
 	icon_state = "thermalimplants"
 	item_state = "syringe_kit"

@@ -2,6 +2,7 @@
 //
 // consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/weapon/light)
 
+#define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
 
 // status values shared between lighting fixtures and items
 #define LIGHT_OK 0
@@ -149,7 +150,7 @@
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
-	var/brightness_uv    = 200
+	uv_intensity = 255
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/weapon/light/tube		// the type of light item
@@ -175,7 +176,7 @@
 /obj/machinery/light/small/emergency
 	brightness_range = 6
 	brightness_power = 1
-	brightness_color = "#FF0000"
+	brightness_color = "#FA8282"//"#FF0000"
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
@@ -190,45 +191,46 @@
 	brightness_power = 4
 	supports_nightmode = FALSE
 
-/obj/machinery/light/built/New()
+/obj/machinery/light/built/Initialize()
+	. = ..()
 	status = LIGHT_EMPTY
 	update(0)
-	..()
 
-/obj/machinery/light/small/built/New()
+/obj/machinery/light/small/built/Initialize()
+	. = ..()
 	status = LIGHT_EMPTY
 	update(0)
-	..()
 
 // create a new lighting fixture
-/obj/machinery/light/New()
-	..()
+/obj/machinery/light/Initialize(mapload)
+	. = ..()
+	on = has_power()
 
-	spawn(2)
-		on = has_power()
+	switch(fitting)
+		if("tube")
+			if(mapload && prob(2))
+				broken(1)
+		if("bulb")
+			if(mapload && prob(5))
+				broken(1)
 
-		switch(fitting)
-			if("tube")
-				if(prob(2))
-					broken(1)
-			if("bulb")
-				if(prob(5))
-					broken(1)
-		spawn(1)
-			update(0)
+	update(0)
 
 /obj/machinery/light/Destroy()
 	var/area/A = get_area(src)
 	if(A)
 		on = 0
-//		A.update_lights()
-	..()
+	return ..()
 
 /obj/machinery/light/update_icon()
-
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
 			icon_state = "[base_state][on]"
+			if (supports_nightmode && nightmode && on)
+				color = "#d2d2d2"
+			else
+				color = null
+
 		if(LIGHT_EMPTY)
 			icon_state = "[base_state]-empty"
 			on = 0
@@ -238,11 +240,12 @@
 		if(LIGHT_BROKEN)
 			icon_state = "[base_state]-broken"
 			on = 0
-	return
+
+	if (!on)
+		color = null
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(var/trigger = 1)
-
 	update_icon()
 	if(on)
 		if (check_update())
@@ -262,10 +265,11 @@
 					set_light(0)
 			else
 				use_power = 2
+				active_power_usage = light_range * LIGHTING_POWER_FACTOR
 				if (supports_nightmode && nightmode)
-					set_light(night_brightness_range, night_brightness_power, brightness_color, uv = brightness_uv)
+					set_light(night_brightness_range, night_brightness_power, brightness_color)
 				else
-					set_light(brightness_range, brightness_power, brightness_color, uv = brightness_uv)
+					set_light(brightness_range, brightness_power, brightness_color)
 	else
 		use_power = 1
 		set_light(0)
@@ -369,7 +373,7 @@
 			for(var/mob/M in viewers(src))
 				if(M == user)
 					continue
-				M.show_message("[user.name] smashed the light!", 3, "You hear a tinkle of breaking glass", 2)
+				M.show_message("[user.name] smashes the light!", 3, "You hear a tinkle of breaking glass", 2)
 			if(on && (W.flags & CONDUCT))
 				//if(!user.mutations & COLD_RESISTANCE)
 				if (prob(12))
@@ -404,9 +408,7 @@
 
 		user << "You stick \the [W] into the light socket!"
 		if(has_power() && (W.flags & CONDUCT))
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark(src, 3)
 			//if(!user.mutations & COLD_RESISTANCE)
 			if (prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
@@ -418,19 +420,29 @@
 	var/area/A = get_area(src)
 	return A && A.lightswitch && (!A.requires_power || A.power_light)
 
-/obj/machinery/light/proc/flicker(var/amount = rand(10, 20))
-	if(flickering) return
-	flickering = 1
-	spawn(0)
-		if(on && status == LIGHT_OK)
-			for(var/i = 0; i < amount; i++)
-				if(status != LIGHT_OK) break
-				on = !on
-				update(0)
-				sleep(rand(5, 15))
-			on = (status == LIGHT_OK)
-			update(0)
-		flickering = 0
+/obj/machinery/light/proc/flicker(amount = rand(10,20))
+	set waitfor = FALSE
+	if (flickering || !on || status != LIGHT_OK)
+		return
+	
+	flickering = TRUE
+	var/offset = 1
+	var/thecallback = CALLBACK(src, .proc/handle_flicker)
+	for (var/i = 0; i < amount; i++)
+		addtimer(thecallback, offset)
+		offset += rand(5, 15)
+
+	addtimer(CALLBACK(src, .proc/end_flicker), offset)
+
+/obj/machinery/light/proc/handle_flicker()
+	if (status == LIGHT_OK)
+		on = !on
+		update(FALSE)
+
+/obj/machinery/light/proc/end_flicker()
+	on = (status == LIGHT_OK)
+	update(FALSE)
+	flickering = FALSE
 
 // ai attack - make lights flicker, because why not
 
@@ -452,7 +464,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.species.can_shred(H))
 			for(var/mob/M in viewers(src))
-				M.show_message("\red [user.name] smashed the light!", 3, "You hear a tinkle of breaking glass", 2)
+				M.show_message("<span class='warning'>[user.name] smashed the light!</span>", 3, "You hear a tinkle of breaking glass", 2)
 			broken()
 			return
 
@@ -538,11 +550,10 @@
 		if(status == LIGHT_OK || status == LIGHT_BURNED)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		if(on)
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark(src, 3)
 	status = LIGHT_BROKEN
 	update()
+	CHECK_TICK	// For lights-out events.
 
 /obj/machinery/light/proc/fix()
 	if(status == LIGHT_OK)
@@ -567,24 +578,12 @@
 				broken()
 	return
 
-//blob effect
-
-
-// timed process
-// use power
-
-#define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
-
-
-/obj/machinery/light/process()
-	if(on)
-		use_power(light_range * LIGHTING_POWER_FACTOR, LIGHT)
-
-
 // called when area power state changes
 /obj/machinery/light/power_change()
-	spawn(10)
-		seton(has_power())
+	addtimer(CALLBACK(src, .proc/handle_power_change), 10, TIMER_UNIQUE)
+
+/obj/machinery/light/proc/handle_power_change()
+	seton(has_power())
 
 // called when on fire
 
@@ -595,13 +594,13 @@
 // explode the light
 
 /obj/machinery/light/proc/explode()
+	set waitfor = FALSE
 	var/turf/T = get_turf(src.loc)
-	spawn(0)
-		broken()	// break it first to give a warning
-		sleep(2)
-		explosion(T, 0, 0, 2, 2)
-		sleep(1)
-		qdel(src)
+	broken()	// break it first to give a warning
+	sleep(2)
+	explosion(T, 0, 0, 2, 2)
+	sleep(1)
+	qdel(src)
 
 // Sets the light being output by a light tube or other static source
 // Non or negative inputs will reset to default
@@ -716,7 +715,7 @@
 
 		if(S.reagents.has_reagent("phoron", 5))
 
-			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
+			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.",ckey=key_name(user))
 			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
 
 			rigged = 1
@@ -741,7 +740,7 @@
 
 /obj/item/weapon/light/proc/shatter()
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
-		src.visible_message("\red [name] shatters.","\red You hear a small glass object shatter.")
+		src.visible_message("<span class='warning'>[name] shatters.</span>","<span class='warning'>You hear a small glass object shatter.</span>")
 		status = LIGHT_BROKEN
 		force = 5
 		sharp = 1

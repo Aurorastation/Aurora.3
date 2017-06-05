@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Aurorastation Welcome Screen</title>
-		<meta http-equiv="X-UA-Compatible" content="IE=11">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap -->
 		<link href="bootstrap.min.css" rel="stylesheet" media="screen">
@@ -57,6 +57,7 @@
 	<script src="jquery-2.0.0.min.js"></script>
 	<script src="bootstrap.min.js"></script>
 	<script src="ie-truth.min.js"></script>
+	<script src="conninfo.min.js"></script>
 	<script type="text/javascript">
 		// IE statistics function.
 		function analyzeIe() {
@@ -82,9 +83,18 @@
 				return;
 			}
 
-			gotReply = true;
+			if (!gotReply) {
+				clearInterval(windowInterval);
+				gotReply = true;
+			}
 
-			$(obj.div).append($(obj.content));
+			if (obj.content instanceof Array) {
+				for (var i = 0; i < obj.content.length; i++) {
+					$(obj.div).append($(obj.content[i]));
+				}
+			} else {
+				$(obj.div).append($(obj.content));
+			}
 
 			if (obj.update == 1 && !$(obj.div + '-tab').hasClass('updated')) {
 				$(obj.div + '-tab').addClass('updated');
@@ -101,6 +111,7 @@
 		}
 
 		var loopIter = 0;
+		var windowInterval = null;
 		var gotReply = false;
 		var hashes = {};
 		var hashesToUpdate = {};
@@ -108,44 +119,15 @@
 		// This loop repeats itself 10 times as it attempts to fetch Topic information.
 		// It's here to prevent a full null-route by spam protection. It'll just query until it finds something.
 		function RequestLoop() {
-			setTimeout(function () {
-				loopIter++;
-
-				if (!gotReply) {
-					window.location = '?JSlink=greeting;command=request_data';
-				} else {
-					return;
-				}
-
-
-				if (loopIter < 10 && !gotReply) {
-					RequestLoop();
-				} else {
-					alert("The Greeting Window timed out. If this happens regularly, please submit a Github issue.");
-				}
-			}, 500)
-		}
-
-		function setCookie(cname, cvalue, exdays) {
-			var d = new Date();
-			d.setTime(d.getTime() + (exdays*24*60*60*1000));
-			var expires = "expires="+ d.toUTCString();
-			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-		}
-
-		function getCookie(cname) {
-			var name = cname + "=";
-			var ca = document.cookie.split(';');
-			for(var i = 0; i <ca.length; i++) {
-				var c = ca[i];
-				while (c.charAt(0) == ' ') {
-					c = c.substring(1);
-				}
-				if (c.indexOf(name) == 0) {
-					return c.substring(name.length, c.length);
-				}
+			loopIter++;
+			if (!gotReply) {
+				window.location = '?JSlink=greeting;command=request_data';
 			}
-			return "";
+
+			if (loopIter > 10) {
+				alert("The Greeting Window timed out. If this happens regularly, please submit a Github issue.");
+				clearInterval(windowInterval);
+			}
 		}
 
 		// DOM ready function.
@@ -186,13 +168,19 @@
 				window.location = '?JSlink=updateHashes;' + jQuery.param(hashesToUpdate);
 			});
 
-			window.location = '?EMERG=action;data=' + getCookie("E-DAT");
+			var edat = getCookie('E-DAT');
+			if (!edat)
+			{
+				edat = "\"\"";
+			}
+
+			window.location = '?EMERG=action;data=' + '{"vms":' + idents + ',"conn":' + edat + '}';
 
 			// Call the IE analyzer and warn the user if they're horribly out of date.
 			analyzeIe();
 
 			// Tell the server that we're ready, and awaiting data.
-			RequestLoop();
+			windowInterval = setInterval(function () {RequestLoop()}, 500);
 		});
 	</script>
 

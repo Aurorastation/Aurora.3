@@ -64,7 +64,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 										"args" = list("id")))
 
 /datum/category_item/player_setup_item/general/body/gather_load_parameters()
-	return list(":id" = pref.current_character)
+	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/body/gather_save_query()
 	return list("ss13_characters" = list("species",
@@ -83,20 +83,20 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 										 "ckey" = 1))
 
 /datum/category_item/player_setup_item/general/body/gather_save_parameters()
-	return list(":species" = pref.species,
-				":hair_colour" = "#" + num2hex(pref.r_hair, 2) + num2hex(pref.g_hair, 2) + num2hex(pref.b_hair, 2),
-				":facial_colour" = "#" + num2hex(pref.r_facial, 2) + num2hex(pref.g_facial, 2) + num2hex(pref.b_facial, 2),
-				":skin_tone" = pref.s_tone,
-				":skin_colour" = "#" + num2hex(pref.r_skin, 2) + num2hex(pref.g_skin, 2) + num2hex(pref.b_skin, 2),
-				":hair_style" = pref.h_style,
-				":facial_style" = pref.f_style,
-				":eyes_colour" = "#" + num2hex(pref.r_eyes, 2) + num2hex(pref.g_eyes, 2) + num2hex(pref.b_eyes, 2),
-				":b_type" = pref.b_type,
-				":disabilities" = pref.disabilities,
-				":organs_data" = list2params(pref.organ_data),
-				":organs_robotic"= list2params(pref.rlimb_data),
-				":id" = pref.current_character,
-				":ckey" = pref.client.ckey)
+	return list("species" = pref.species,
+				"hair_colour" = "#" + num2hex(pref.r_hair, 2) + num2hex(pref.g_hair, 2) + num2hex(pref.b_hair, 2),
+				"facial_colour" = "#" + num2hex(pref.r_facial, 2) + num2hex(pref.g_facial, 2) + num2hex(pref.b_facial, 2),
+				"skin_tone" = pref.s_tone,
+				"skin_colour" = "#" + num2hex(pref.r_skin, 2) + num2hex(pref.g_skin, 2) + num2hex(pref.b_skin, 2),
+				"hair_style" = pref.h_style,
+				"facial_style" = pref.f_style,
+				"eyes_colour" = "#" + num2hex(pref.r_eyes, 2) + num2hex(pref.g_eyes, 2) + num2hex(pref.b_eyes, 2),
+				"b_type" = pref.b_type,
+				"disabilities" = pref.disabilities,
+				"organs_data" = list2params(pref.organ_data),
+				"organs_robotic"= list2params(pref.rlimb_data),
+				"id" = pref.current_character,
+				"ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/general/body/sanitize_character(var/sql_load = 0)
 	if(!pref.species || !(pref.species in playable_species))

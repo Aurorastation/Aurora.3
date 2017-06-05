@@ -29,7 +29,6 @@
 	var/hitsound_light = 'sound/effects/Glasshit.ogg'//Sound door makes when hit very gently
 	var/obj/item/stack/material/steel/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
-	var/close_door_at = 0 //When to automatically close the door, if possible
 	var/open_duration = 150//How long it stays open
 
 	var/hashatch = 0//If 1, this door has hatches, and certain small creatures can move through them without opening the door
@@ -41,8 +40,6 @@
 	var/hatch_open_sound = 'sound/machines/hatch_open.ogg'
 	var/hatch_close_sound = 'sound/machines/hatch_close.ogg'
 
-	var/hatchclosetime //A world.time value to tell us when the hatch should close
-
 	var/image/hatch_image
 
 	//Multi-tile doors
@@ -51,6 +48,8 @@
 
 	// turf animation
 	var/atom/movable/overlay/c_animation = null
+
+	atmos_canpass = CANPASS_PROC
 
 /obj/machinery/door/attack_generic(var/mob/user, var/damage)
 	if(damage >= 10)
@@ -62,7 +61,7 @@
 		playsound(src.loc, hitsound_light, 8, 1, -1)
 	user.do_attack_animation(src)
 
-/obj/machinery/door/New()
+/obj/machinery/door/Initialize()
 	. = ..()
 	if(density)
 		layer = closed_layer
@@ -89,25 +88,23 @@
 	return
 
 /obj/machinery/door/proc/setup_hatch()
+	hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
+	hatch_image.color = hatch_colour
+	hatch_image.pixel_x = hatch_offset_x
+	hatch_image.pixel_y = hatch_offset_y
+	hatch_image.dir = dir
 
-	if (overlays != null)
-		hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
-		hatch_image.color = hatch_colour
-		hatch_image.pixel_x = hatch_offset_x
-		hatch_image.pixel_y = hatch_offset_y
-
-		overlays += hatch_image
-		update_icon()
-	else
-		spawn(10)
-			setup_hatch()
+	add_overlay(hatch_image)
+	update_icon()
 
 /obj/machinery/door/proc/open_hatch(var/atom/mover = null)
 	if (!hatchstate)
 		hatchstate = 1
 		update_icon()
 		playsound(src.loc, hatch_open_sound, 40, 1, -1)
-	hatchclosetime = world.time + 29
+
+
+	close_hatch_in(29)
 
 	if (istype(mover, /mob/living))
 		var/mob/living/S = mover
@@ -122,26 +119,22 @@
 /obj/machinery/door/Destroy()
 	density = 0
 	update_nearby_tiles()
-	..()
-	return
 
-/obj/machinery/door/process()
-	if(close_door_at && world.time >= close_door_at)
-		if(autoclose)
-			close_door_at = next_close_time()
-			close()
-		else
-			close_door_at = 0
-	if (hatchstate && world.time > hatchclosetime)
-		close_hatch()
+	return ..()
+
+/obj/machinery/door/proc/close_door_in(var/time = 5 SECONDS)
+	addtimer(CALLBACK(src, .proc/close), time, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/obj/machinery/door/proc/close_hatch_in(var/time = 3 SECONDS)
+	addtimer(CALLBACK(src, .proc/close_hatch), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /obj/machinery/door/proc/can_open()
-	if(!density || operating || !ticker)
+	if(!density || operating || !ROUND_IS_STARTED)
 		return 0
 	return 1
 
 /obj/machinery/door/proc/can_close()
-	if(density || operating || !ticker)
+	if(density || operating || !ROUND_IS_STARTED)
 		return 0
 	return 1
 
@@ -228,7 +221,7 @@
 			switch (Proj.damage_type)
 				if(BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
-					getFromPool(/obj/item/stack/rods, list(src.loc, 3))
+					new /obj/item/stack/rods(src.loc, 3)
 				if(BURN)
 					new /obj/effect/decal/cleanable/ash(src.loc) // Turn it to ashes!
 			qdel(src)
@@ -236,7 +229,6 @@
 	if(damage)
 		//cap projectile damage so that there's still a minimum number of hits required to break the door
 		take_damage(min(damage, 100))
-
 
 
 /obj/machinery/door/hitby(AM as mob|obj, var/speed=5)
@@ -400,8 +392,7 @@
 
 /obj/machinery/door/emp_act(severity)
 	if(prob(20/severity) && (istype(src,/obj/machinery/door/airlock) || istype(src,/obj/machinery/door/window)) )
-		spawn(0)
-			open()
+		open()
 	..()
 
 
@@ -429,9 +420,7 @@
 				take_damage(damage)
 		if(3.0)
 			if(prob(80))
-				var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-				s.set_up(2, 1, src)
-				s.start()
+				spark(src, 2, alldirs)
 			var/damage = rand(100,150)
 			if (bolted)
 				damage *= 0.8
@@ -491,19 +480,25 @@
 	operating = 0
 
 	if(autoclose)
-		close_door_at = next_close_time()
+		close_door_in(next_close_time())
 
 	return 1
 
 /obj/machinery/door/proc/next_close_time()
-	return world.time + (normalspeed ? open_duration : 5)
+	return (normalspeed ? open_duration : 5)
+
+/obj/machinery/door/proc/autoclose()
+	if (!QDELETED(src) && can_close(FALSE) && autoclose)
+		close()
 
 /obj/machinery/door/proc/close(var/forced = 0)
 	if(!can_close(forced))
-		return
+		if (autoclose)
+			for (var/atom/movable/M in get_turf(src))
+				if (M.density && M != src)
+					addtimer(CALLBACK(src, .proc/autoclose), 60)
 	operating = 1
 
-	close_door_at = 0
 	do_animate("closing")
 	sleep(3)
 	src.density = 1
@@ -527,20 +522,15 @@
 
 /obj/machinery/door/allowed(mob/M)
 	if(!requiresID())
-		return ..(null) //don't care who they are or what they have, act as if they're NOTHING
+		return 1 // Door doesn't require an ID. So obviously they're allowed.
 	return ..(M)
 
 /obj/machinery/door/update_nearby_tiles(need_rebuild)
-	if(!air_master)
-		return 0
-
 	for(var/turf/T in locs)
 		if (istype(T, /turf/simulated))
 			var/turf/simulated/turf = T
 			update_heat_protection(turf)
-			air_master.mark_for_update(turf)
-
-		T.update_lights_now()
+			SSair.mark_for_update(turf)
 
 	return 1
 

@@ -26,8 +26,8 @@
 /turf/simulated/floor/is_plating()
 	return !flooring
 
-/turf/simulated/floor/New(var/newloc, var/floortype)
-	..(newloc)
+/turf/simulated/floor/Initialize(mapload, var/floortype)
+	. = ..()
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
 	if(floortype)
@@ -43,7 +43,7 @@
 //This proc auto corrects the grass tiles' siding.
 /turf/simulated/floor/proc/make_plating(var/place_product, var/defer_icon_update)
 
-	overlays.Cut()
+	cut_overlays()
 	if(islist(decals))
 		decals.Cut()
 		decals = null

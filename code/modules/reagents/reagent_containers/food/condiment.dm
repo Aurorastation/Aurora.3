@@ -6,7 +6,7 @@
 
 //Food items that aren't eaten normally and leave an empty container behind.
 /obj/item/weapon/reagent_containers/food/condiment
-	name = "Condiment Container"
+	name = "condiment container"
 	desc = "Just your average condiment container."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "emptycondiment"
@@ -28,7 +28,7 @@
 	afterattack(var/obj/target, var/mob/user, var/proximity)
 		if(!proximity)
 			return
-	
+
 		if(standard_dispenser_refill(user, target))
 			return
 		if(standard_pour_into(user, target))
@@ -58,51 +58,56 @@
 		if(reagents.reagent_list.len > 0)
 			switch(reagents.get_master_reagent_id())
 				if("ketchup")
-					name = "Ketchup"
+					name = "ketchup"
 					desc = "You feel more American already."
 					icon_state = "ketchup"
 					center_of_mass = list("x"=16, "y"=6)
 				if("capsaicin")
-					name = "Hotsauce"
+					name = "hotsauce"
 					desc = "You can almost TASTE the stomach ulcers now!"
 					icon_state = "hotsauce"
 					center_of_mass = list("x"=16, "y"=6)
 				if("enzyme")
-					name = "Universal Enzyme"
+					name = "universal enzyme"
 					desc = "Used in cooking various dishes."
 					icon_state = "enzyme"
 					center_of_mass = list("x"=16, "y"=6)
 				if("soysauce")
-					name = "Soy Sauce"
+					name = "soy sauce"
 					desc = "A salty soy-based flavoring."
 					icon_state = "soysauce"
 					center_of_mass = list("x"=16, "y"=6)
 				if("frostoil")
-					name = "Coldsauce"
+					name = "coldsauce"
 					desc = "Leaves the tongue numb in its passage."
 					icon_state = "coldsauce"
 					center_of_mass = list("x"=16, "y"=6)
 				if("sodiumchloride")
-					name = "Salt Shaker"
+					name = "salt shaker"
 					desc = "Salt. From space oceans, presumably."
 					icon_state = "saltshaker"
 					center_of_mass = list("x"=16, "y"=10)
 				if("blackpepper")
-					name = "Pepper Mill"
+					name = "pepper mill"
 					desc = "Often used to flavor food or make people sneeze."
 					icon_state = "peppermillsmall"
 					center_of_mass = list("x"=16, "y"=10)
 				if("cornoil")
-					name = "Corn Oil"
+					name = "corn oil"
 					desc = "A delicious oil used in cooking. Made from corn."
 					icon_state = "oliveoil"
 					center_of_mass = list("x"=16, "y"=6)
 				if("sugar")
-					name = "Sugar"
+					name = "sugar"
 					desc = "Tastey space sugar!"
 					center_of_mass = list("x"=16, "y"=6)
+				if("spacespice")
+					name = "bottle of space spice"
+					desc = "An exotic blend of spices for cooking. Definitely not worms."
+					icon_state = "spacespicebottle"
+					center_of_mass = list("x"=16, "y"=6)
 				else
-					name = "Misc Condiment Bottle"
+					name = "misc condiment bottle"
 					if (reagents.reagent_list.len==1)
 						desc = "Looks like it is [reagents.get_master_reagent_name()], but you are not sure."
 					else
@@ -111,13 +116,13 @@
 					center_of_mass = list("x"=16, "y"=6)
 		else
 			icon_state = "emptycondiment"
-			name = "Condiment Bottle"
+			name = "condiment bottle"
 			desc = "An empty condiment bottle."
 			center_of_mass = list("x"=16, "y"=6)
 			return
 
 /obj/item/weapon/reagent_containers/food/condiment/enzyme
-	name = "Universal Enzyme"
+	name = "universal enzyme"
 	desc = "Used in cooking various dishes."
 	icon_state = "enzyme"
 	New()
@@ -130,7 +135,7 @@
 		reagents.add_reagent("sugar", 50)
 
 /obj/item/weapon/reagent_containers/food/condiment/saltshaker		//Seperate from above since it's a small shaker rather then
-	name = "Salt Shaker"											//	a large one.
+	name = "salt shaker"											//	a large one.
 	desc = "Salt. From space oceans, presumably."
 	icon_state = "saltshakersmall"
 	possible_transfer_amounts = list(1,20) //for clown turning the lid off
@@ -141,7 +146,7 @@
 		reagents.add_reagent("sodiumchloride", 20)
 
 /obj/item/weapon/reagent_containers/food/condiment/peppermill
-	name = "Pepper Mill"
+	name = "pepper mill"
 	desc = "Often used to flavor food or make people sneeze."
 	icon_state = "peppermillsmall"
 	possible_transfer_amounts = list(1,20) //for clown turning the lid off
@@ -157,8 +162,20 @@
 	icon = 'icons/obj/food.dmi'
 	icon_state = "flour"
 	item_state = "flour"
+	volume = 220
 	New()
 		..()
-		reagents.add_reagent("flour", 30)
+		reagents.add_reagent("flour", 200)
 		src.pixel_x = rand(-10.0, 10)
 		src.pixel_y = rand(-10.0, 10)
+
+/obj/item/weapon/reagent_containers/food/condiment/spacespice
+	name = "space spices"
+	desc = "An exotic blend of spices for cooking. Definitely not worms."
+	icon_state = "spacespicebottle"
+	possible_transfer_amounts = list(1,40) //for clown turning the lid off
+	amount_per_transfer_from_this = 1
+	volume = 40
+	New()
+		..()
+		reagents.add_reagent("spacespice", 40)

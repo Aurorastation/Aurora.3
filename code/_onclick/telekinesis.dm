@@ -74,13 +74,19 @@ var/const/tk_maxrange = 15
 	var/atom/movable/focus = null
 	var/mob/living/host = null
 
+/obj/item/tk_grab/Destroy()
+	if (host)
+		host.remove_from_mob(src)
+		host = null
+	focus = null
+	return ..()
+
 /obj/item/tk_grab/dropped(mob/user as mob)
 	if(focus && user && loc != user && loc != user.loc) // drop_item() gets called when you tk-attack a table/closet with an item
 		if(focus.Adjacent(loc))
 			focus.loc = loc
 	loc = null
-	spawn(1)
-		qdel(src)
+	QDEL_IN(src, 1)
 	return
 
 //stops TK grabs being equipped anywhere but into hands
@@ -157,7 +163,7 @@ var/const/tk_maxrange = 15
 
 /obj/item/tk_grab/proc/apply_focus_overlay()
 	if(!focus)	return
-	var/obj/effect/overlay/O = getFromPool(/obj/effect/overlay, locate(focus.x,focus.y,focus.z))
+	var/obj/effect/overlay/O = new(locate(focus.x,focus.y,focus.z))
 	O.name = "sparkles"
 	O.anchored = 1
 	O.density = 0
@@ -166,9 +172,7 @@ var/const/tk_maxrange = 15
 	O.icon = 'icons/effects/effects.dmi'
 	O.icon_state = "nothing"
 	flick("empdisable",O)
-	spawn(5)
-		qdel(O)
-	return
+	QDEL_IN(O, 5)
 
 /obj/item/tk_grab/update_icon()
 	overlays.Cut()

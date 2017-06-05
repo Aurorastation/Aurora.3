@@ -7,7 +7,7 @@
 		return
 
 	if(alert("Are you sure you want to run [cinematic]?","Confirmation","Yes","No")=="No") return
-	if(!ticker)	return
+	if(!ROUND_IS_STARTED)	return
 	switch(cinematic)
 		if("explosion")
 			if(alert("The game will be over. Are you really sure?", "Confirmation" ,"Continue", "Cancel") == "Cancel")
@@ -19,9 +19,9 @@
 					override = input(src,"mode = ?","Enter Parameter",null) as anything in list("mercenary","no override")
 				if(0)
 					override = input(src,"mode = ?","Enter Parameter",null) as anything in list("blob","mercenary","AI malfunction","no override")
-			ticker.station_explosion_cinematic(parameter,override)
+			SSticker.station_explosion_cinematic(parameter,override)
 
-	log_admin("[key_name(src)] launched cinematic \"[cinematic]\"")
+	log_admin("[key_name(src)] launched cinematic \"[cinematic]\"",admin_key=key_name(usr))
 	message_admins("[key_name_admin(src)] launched cinematic \"[cinematic]\"", 1)
 
 	return

@@ -118,6 +118,8 @@
 	if(alien == IS_DIONA)
 		return //Diona can gain nutrients, but don't get drunk or suffer other effects
 
+	if(isunathi(M))//unathi are poisoned by alcohol as well
+		M.adjustToxLoss(1.5 * removed * (strength / 100))
 
 	var/quantity = (strength / 100) * removed
 	M.intoxication += quantity
@@ -155,6 +157,50 @@
 		affectedbook.dat = null
 		usr << "<span class='notice'>The solution dissolves the ink on the book.</span>"
 	return
+
+
+//Butanol is a common alcohol that is fairly ineffective for humans and most other species, but highly intoxicating to unathi
+//Butanol duplicates a lot of code from ethanol. This is by design, it does not inherit.
+//Possible future todo: Add "alcohol" as a parent class to both ethanol and butanol
+/datum/reagent/butanol
+	name = "Butanol" //Parent class for all alcoholic reagents.
+	id = "butanol"
+	description = "A fairly harmless alcohol that has intoxicating effects on certain species."
+	reagent_state = LIQUID
+	color = "#404030"
+	ingest_met = 0.17 //Extremely slow metabolic rate means the liver will generally purge it faster than it can intoxicate you
+	var/nutriment_factor = 0.5
+	var/strength = 100 // This is the ABV of the drink
+
+	glass_icon_state = "glass_clear"
+	glass_name = "glass of butanol"
+	glass_desc = "A fairly harmless alcohol that has intoxicating effects on certain species."
+
+/datum/reagent/butanol/touch_mob(var/mob/living/L, var/amount)
+	if(istype(L) && strength > 40)
+		L.adjust_fire_stacks((amount / 7) * (strength / 100)) //Butanol is a bit less flammable than ethanol
+
+/datum/reagent/butanol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustToxLoss(removed)
+	return
+
+/datum/reagent/butanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(isvaurca(M))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
+		M.adjustToxLoss(removed * (strength / 100))
+	else
+		M.nutrition += nutriment_factor * removed
+
+	if(alien == IS_DIONA)
+		return //Diona can gain nutrients, but don't get drunk or suffer other effects
+
+	if(isunathi(M))
+		ingest_met = initial(ingest_met)*3 //Unathi digest butanol much faster
+
+	var/quantity = (strength / 100) * removed
+	M.intoxication += quantity
+
+
+
 
 /datum/reagent/hydrazine
 	name = "Hydrazine"
@@ -208,6 +254,7 @@
 	description = "A chemical element."
 	reagent_state = LIQUID
 	color = "#484848"
+	ingest_met = REM*0.2
 
 /datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
@@ -215,7 +262,8 @@
 			step(M, pick(cardinal))
 		if(prob(5))
 			M.emote(pick("twitch", "drool", "moan"))
-		M.adjustBrainLoss(2)
+
+		M.adjustBrainLoss(removed)
 
 /datum/reagent/phosphorus
 	name = "Phosphorus"
@@ -270,11 +318,11 @@
 	color = "#DB5008"
 	metabolism = REM * 2
 	touch_met = 50 // It's acid!
-	var/power = 5
+	var/power = 4
 	var/meltdose = 10 // How much is needed to melt
 
 /datum/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.take_organ_damage(0, removed * power * 2)
+	M.take_organ_damage(0, removed * power)
 
 /datum/reagent/acid/affect_touch(var/mob/living/carbon/M, var/alien, var/removed) // This is the most interesting
 	if(ishuman(M))

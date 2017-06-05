@@ -229,7 +229,7 @@
 				if(building == 1)
 					I = new /obj/item/stack/tile/floor(src)
 				else
-					I = getFromPool(/obj/item/stack/rods, src)
+					I = new /obj/item/stack/rods(src)
 				A.attackby(I, src)
 		target = null
 		repairing = 0
@@ -283,9 +283,7 @@
 		new /obj/item/robot_parts/l_arm(Tsec)
 	var/obj/item/stack/tile/floor/T = new /obj/item/stack/tile/floor(Tsec)
 	T.amount = amount
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, src)
-	s.start()
+	spark(src, 3, alldirs)
 	qdel(src)
 
 /mob/living/bot/floorbot/proc/addTiles(var/am)
@@ -377,3 +375,20 @@
 		if(!in_range(src, user) && loc != user)
 			return
 		created_name = t
+
+/mob/living/bot/floorbot/floorbob
+	name = "B.O.B."
+	desc = "A little floor repairing robot, he can build it!"
+	icon_state = "floorbob0"
+	req_one_access = list(access_construction, access_robotics)
+
+	amount = 120 // 1 for tile, 2 for lattice
+	maxAmount = 120
+
+/mob/living/bot/floorbot/floorbob/update_icons()
+	if(repairing)
+		icon_state = "floorbob-c"
+	else if(amount > 0)
+		icon_state = "floorbob[on]"
+	else
+		icon_state = "floorbob[on]e"

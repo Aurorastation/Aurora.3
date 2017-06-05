@@ -99,7 +99,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_dev_bst,
 	/client/proc/clear_toxins,
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
-	/client/proc/flush_lighting_queues
+	/client/proc/fix_player_list,
+	/client/proc/reset_openturf
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -130,7 +131,8 @@ var/list/admin_verbs_fun = list(
 	/datum/admins/proc/call_supply_drop,
 	/datum/admins/proc/call_drop_pod,
 	/client/proc/show_tip,
-	/client/proc/fab_tip
+	/client/proc/fab_tip,
+	/client/proc/apply_sunstate
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -166,7 +168,10 @@ var/list/admin_verbs_server = list(
 	/client/proc/check_customitem_activity,
 	/client/proc/nanomapgen_DumpImage,
 	/client/proc/admin_edit_motd,
-	/client/proc/toggle_recursive_explosions
+	/client/proc/toggle_recursive_explosions,
+	/client/proc/restart_controller,
+	/client/proc/cmd_ss_panic,
+	/client/proc/configure_access_control
 	)
 var/list/admin_verbs_debug = list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
@@ -185,7 +190,6 @@ var/list/admin_verbs_debug = list(
 	/client/proc/air_report,
 	/client/proc/reload_admins,
 	/client/proc/reload_mentors,
-	/client/proc/restart_controller,
 	/client/proc/print_random_map,
 	/client/proc/create_random_map,
 	/client/proc/apply_random_map,
@@ -204,7 +208,14 @@ var/list/admin_verbs_debug = list(
 	/client/proc/dsay,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
-	/client/proc/flush_lighting_queues
+	/client/proc/debug_pooling,
+	/client/proc/fix_player_list,
+	/client/proc/lighting_show_verbs,
+	/client/proc/restart_controller,
+	/client/proc/cmd_display_del_log,
+	/client/proc/cmd_display_init_log,
+	/client/proc/cmd_ss_panic,
+	/client/proc/reset_openturf
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -276,7 +287,6 @@ var/list/admin_verbs_hideable = list(
 	/datum/admins/proc/adrev,
 	/datum/admins/proc/adspawn,
 	/datum/admins/proc/adjump,
-	/client/proc/restart_controller,
 	/client/proc/cmd_admin_list_open_jobs,
 	/client/proc/callproc,
 	/client/proc/callproc_target,
@@ -295,7 +305,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/roll_dices,
 	/proc/possess,
 	/proc/release,
-	/client/proc/toggle_recursive_explosions
+	/client/proc/toggle_recursive_explosions,
+	/client/proc/debug_pooling
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -351,12 +362,13 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
 	/client/proc/player_panel,
-	/client/proc/restart_controller,
 	/client/proc/togglebuildmodeself,
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_dev_bst,
-	/client/proc/flush_lighting_queues
+	/client/proc/lighting_show_verbs,
+	/client/proc/cmd_display_del_log,
+	/client/proc/cmd_display_init_log
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
@@ -481,11 +493,11 @@ var/list/admin_verbs_cciaa = list(
 	if(holder && mob)
 		if(mob.invisibility == INVISIBILITY_OBSERVER)
 			mob.invisibility = initial(mob.invisibility)
-			mob << "\red <b>Invisimin off. Invisibility reset.</b>"
+			mob << "<span class='danger'>Invisimin off. Invisibility reset.</span>"
 			mob.alpha = max(mob.alpha + 100, 255)
 		else
 			mob.invisibility = INVISIBILITY_OBSERVER
-			mob << "\blue <b>Invisimin on. You are now as invisible as a ghost.</b>"
+			mob << "<span class='notice'><b>Invisimin on. You are now as invisible as a ghost.</b></span>"
 			mob.alpha = max(mob.alpha - 100, 0)
 
 
@@ -510,7 +522,7 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 	if(holder)
 		holder.check_antagonists()
-		log_admin("[key_name(usr)] checked antagonists.")	//for tsar~
+		log_admin("[key_name(usr)] checked antagonists.",ckey=key_name(usr))	//for tsar~
 	feedback_add_details("admin_verb","CHA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
@@ -578,7 +590,7 @@ var/list/admin_verbs_cciaa = list(
 			if(length(new_key) >= 26)
 				new_key = copytext(new_key, 1, 26)
 			holder.fakekey = new_key
-		log_admin("[key_name(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]")
+		log_admin("[key_name(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]", admin_key=key_name(usr),ckey=holder.fakekey)
 		message_admins("[key_name_admin(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]", 1)
 	feedback_add_details("admin_verb","SM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -605,7 +617,7 @@ var/list/admin_verbs_cciaa = list(
 			var/light_impact_range = input("Light impact range (in tiles):") as num
 			var/flash_range = input("Flash range (in tiles):") as num
 			explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range)
-	message_admins("\blue [ckey] creating an admin explosion at [epicenter.loc].")
+	message_admins("<span class='notice'>[ckey] creating an admin explosion at [epicenter.loc].</span>")
 	feedback_add_details("admin_verb","DB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/give_disease(mob/T as mob in mob_list) // -- Giacom
@@ -621,8 +633,8 @@ var/list/admin_verbs_cciaa = list(
 	var/path = text2path("/datum/disease/[D]")
 	T.contract_disease(new path, 1)
 	feedback_add_details("admin_verb","GD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] gave [key_name(T)] the disease [D].")
-	message_admins("\blue [key_name_admin(usr)] gave [key_name(T)] the disease [D].", 1)
+	log_admin("[key_name(usr)] gave [key_name(T)] the disease [D].",admin_key=key_name(usr),ckey=key_name(T))
+	message_admins("<span class='notice'>[key_name_admin(usr)] gave [key_name(T)] the disease [D].</span>", 1)
 
 /client/proc/give_disease2(mob/T as mob in mob_list) // -- Giacom
 	set category = "Fun"
@@ -652,8 +664,8 @@ var/list/admin_verbs_cciaa = list(
 	infect_virus2(T,D,1)
 
 	feedback_add_details("admin_verb","GD2") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] gave [key_name(T)] a [greater] disease2 with infection chance [D.infectionchance].")
-	message_admins("\blue [key_name_admin(usr)] gave [key_name(T)] a [greater] disease2 with infection chance [D.infectionchance].", 1)
+	log_admin("[key_name(usr)] gave [key_name(T)] a [greater] disease2 with infection chance [D.infectionchance].",admin_key=key_name(usr),ckey=key_name(T))
+	message_admins("<span class='notice'>[key_name_admin(usr)] gave [key_name(T)] a [greater] disease2 with infection chance [D.infectionchance].</span>", 1)
 
 /client/proc/make_sound(var/obj/O in range(world.view)) // -- TLE
 	set category = "Special Verbs"
@@ -665,8 +677,8 @@ var/list/admin_verbs_cciaa = list(
 			return
 		for (var/mob/V in hearers(O))
 			V.show_message(message, 2)
-		log_admin("[key_name(usr)] made [O] at [O.x], [O.y], [O.z]. make a sound")
-		message_admins("\blue [key_name_admin(usr)] made [O] at [O.x], [O.y], [O.z]. make a sound", 1)
+		log_admin("[key_name(usr)] made [O] at [O.x], [O.y], [O.z]. make a sound",admin_key=key_name(usr))
+		message_admins("<span class='notice'>[key_name_admin(usr)] made [O] at [O.x], [O.y], [O.z]. make a sound</span>", 1)
 		feedback_add_details("admin_verb","MS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
@@ -692,15 +704,15 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Debug"
 	set name = "Kill Air"
 	set desc = "Toggle Air Processing"
-	if(air_processing_killed)
-		air_processing_killed = 0
+	if(!SSair.can_fire)
+		SSair.enable()
 		usr << "<b>Enabled air processing.</b>"
 	else
-		air_processing_killed = 1
+		SSair.disable()
 		usr << "<b>Disabled air processing.</b>"
 	feedback_add_details("admin_verb","KA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] used 'kill air'.")
-	message_admins("\blue [key_name_admin(usr)] used 'kill air'.", 1)
+	log_admin("[key_name(usr)] used 'kill air'.",admin_key=key_name(usr))
+	message_admins("<span class='notice'>[key_name_admin(usr)] used 'kill air'.</span>", 1)
 
 /client/proc/readmin_self()
 	set name = "Re-Admin self"
@@ -708,7 +720,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(deadmin_holder)
 		deadmin_holder.reassociate()
-		log_admin("[src] re-admined themself.")
+		log_admin("[src] re-admined themself.",admin_key=key_name(src))
 		message_admins("[src] re-admined themself.", 1)
 		src << "<span class='interface'>You now have the keys to control the planet, or atleast a small space station</span>"
 		verbs -= /client/proc/readmin_self
@@ -719,7 +731,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(holder)
 		if(alert("Confirm self-deadmin for the round? You can re-admin yourself at any time.",,"Yes","No") == "Yes")
-			log_admin("[src] deadmined themself.")
+			log_admin("[src] deadmined themself.",admin_key=key_name(src))
 			message_admins("[src] deadmined themself.", 1)
 			deadmin()
 			src << "<span class='interface'>You are now a normal player.</span>"
@@ -819,7 +831,7 @@ var/list/admin_verbs_cciaa = list(
 	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red","delta")-get_security_level())
 	if(alert("Switch from code [get_security_level()] to code [sec_level]?","Change security level?","Yes","No") == "Yes")
 		set_security_level(sec_level)
-		log_admin("[key_name(usr)] changed the security level to code [sec_level].")
+		log_admin("[key_name(usr)] changed the security level to code [sec_level].",admin_key=key_name(usr))
 
 
 //---- bs12 verbs ----
@@ -841,7 +853,7 @@ var/list/admin_verbs_cciaa = list(
 	var/mob/living/carbon/human/M = input("Select mob.", "Edit Appearance") as null|anything in human_mob_list
 
 	if(!istype(M, /mob/living/carbon/human))
-		usr << "\red You can only do this to humans!"
+		usr << "<span class='warning'>You can only do this to humans!</span>"
 		return
 	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi, Vox and Tajaran can result in unintended consequences.",,"Yes","No"))
 		if("No")
@@ -909,7 +921,7 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 	if(holder)
 		var/list/jobs = list()
-		for (var/datum/job/J in job_master.occupations)
+		for (var/datum/job/J in SSjobs.occupations)
 			if (J.current_positions >= J.total_positions && J.total_positions != -1)
 				jobs += J.title
 		if (!jobs.len)
@@ -917,7 +929,7 @@ var/list/admin_verbs_cciaa = list(
 			return
 		var/job = input("Please select job slot to free", "Free job slot")  as null|anything in jobs
 		if (job)
-			job_master.FreeRole(job)
+			SSjobs.FreeRole(job)
 			message_admins("A job slot for [job] has been opened by [key_name_admin(usr)]")
 			return
 
@@ -980,8 +992,8 @@ var/list/admin_verbs_cciaa = list(
 	T << "<span class='notice'><b><font size=3>Man up and deal with it.</font></b></span>"
 	T << "<span class='notice'>Move on.</span>"
 
-	log_admin("[key_name(usr)] told [key_name(T)] to man up and deal with it.")
-	message_admins("\blue [key_name_admin(usr)] told [key_name(T)] to man up and deal with it.", 1)
+	log_admin("[key_name(usr)] told [key_name(T)] to man up and deal with it.", admin_key=key_name(usr), ckey=key_name(T))
+	message_admins("<span class='notice'>[key_name_admin(usr)] told [key_name(T)] to man up and deal with it.</span>", 1)
 
 /client/proc/global_man_up()
 	set category = "Fun"
@@ -992,8 +1004,8 @@ var/list/admin_verbs_cciaa = list(
 		T << "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>"
 		T << 'sound/voice/ManUp1.ogg'
 
-	log_admin("[key_name(usr)] told everyone to man up and deal with it.")
-	message_admins("\blue [key_name_admin(usr)] told everyone to man up and deal with it.", 1)
+	log_admin("[key_name(usr)] told everyone to man up and deal with it.",admin_key=key_name(usr))
+	message_admins("<span class='notice'>[key_name_admin(usr)] told everyone to man up and deal with it.</span>", 1)
 
 /client/proc/give_spell(mob/T as mob in mob_list) // -- Urist
 	set category = "Fun"
@@ -1001,10 +1013,10 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Gives a spell to a mob."
 	var/spell/S = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in spells
 	if(!S) return
-	T.spell_list += new S
+	T.add_spell(new S)
 	feedback_add_details("admin_verb","GS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] gave [key_name(T)] the spell [S].")
-	message_admins("\blue [key_name_admin(usr)] gave [key_name(T)] the spell [S].", 1)
+	log_admin("[key_name(usr)] gave [key_name(T)] the spell [S].",admin_key=key_name(usr),ckey=key_name(T))
+	message_admins("<span class='notice'>[key_name_admin(usr)] gave [key_name(T)] the spell [S].</span>", 1)
 
 /client/proc/toggle_recursive_explosions()
 	set category = "Server"
@@ -1056,18 +1068,58 @@ var/list/admin_verbs_cciaa = list(
 
 	dbcon.Reconnect()
 
-/client/proc/flush_lighting_queues()
+/client/proc/fix_player_list()
+	set category = "Special Verbs"
+	set name = "Regenerate Player List"
+	set desc = "Use this to regenerate the player list if it becomes broken somehow."
+
+	if (!check_rights(R_DEBUG|R_ADMIN))
+		return
+
+	if (alert("Regenerate player lists?", "Player List Repair", "No", "No", "Yes") != "Yes")
+		return
+
+	log_and_message_admins("is rebuilding the master player mob list.")
+	for (var/P in player_list)
+		if (isnull(P) || !ismob(P))
+			var/msg = "P_LIST DEBUG: Found null entry in player_list!"
+			log_debug(msg)
+			message_admins(span("danger", msg))
+			player_list -= P
+		else
+			var/mob/M = P
+			if (!M.client)
+				var/msg = "P_LIST DEBUG: Found a mob without a client in player_list! [M.name]"
+				log_debug(msg)
+				message_admins(span("danger", msg))
+				player_list -= M
+
+/client/proc/reset_openturf()
 	set category = "Debug"
-	set name = "Reset Lighting"
-	set desc = "Flushes the lighting processor's work queue. Useful if the processor is hung with an invalid source."
+	set name = "Reset Openturfs"
+	set desc = "Deletes and regenerates all openturf overlays in the world."
 
-	if (!check_rights(R_DEBUG|R_ADMIN|R_DEV))
+	if (!check_rights(R_DEBUG|R_ADMIN))
 		return
 
-	if (alert("Flush Lighting Work Queue? This will invalidate all pending lighting updates.", "Reset Lighting", "No", "No", "Yes") != "Yes")
+	if (alert("Rebuild openturfs? Openturfs may look strange while this runs.", "Fix openturf", "No", "No", "DO IT") != "DO IT")
 		return
 
-	log_and_message_admins("has flushed the lighting processor queues.")
-	lighting_update_lights = list()
-	lighting_update_corners = list()
-	lighting_update_overlays = list()
+	log_and_message_admins("has regenerated all openturfs.")
+
+	SSopenturf.hard_reset()
+
+/client/proc/apply_sunstate()
+	set category = "Fun"
+	set name = "Apply Sun Preset"
+	set desc = "Changes the sun preset. This takes a long time to apply, use sparingly!"
+
+	if (!check_rights(R_FUN))
+		return
+
+	var/datum/sun_state/S = input("Choose a preset to apply:", "ILLUMINATE") as null|anything in SSsunlight.presets
+	if (!S)
+		to_chat(usr, "Cancelled.")
+
+	SSsunlight.apply_sun_state(S)
+	log_and_message_admins("has set the sun state to '[S]'.")

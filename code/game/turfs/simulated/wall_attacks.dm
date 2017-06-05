@@ -24,15 +24,19 @@
 	can_open = WALL_CAN_OPEN
 	update_icon()
 
-/turf/simulated/wall/proc/fail_smash(var/mob/user)
+/turf/simulated/wall/proc/fail_smash(var/mob/user, var/multiplier = 1)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2.5)
 	user << "<span class='danger'>You smash against the wall!</span>"
-	take_damage(rand(25,75))
+	user.do_attack_animation(src)
+	take_damage(rand(60,135)*multiplier)
+	return 1
 
 /turf/simulated/wall/proc/success_smash(var/mob/user)
 	user << "<span class='danger'>You smash through the wall!</span>"
 	user.do_attack_animation(src)
 	spawn(1)
 		dismantle_wall(1)
+	return 1
 
 /turf/simulated/wall/proc/try_touch(var/mob/user, var/rotting)
 
@@ -64,7 +68,7 @@
 		if (rotting || !prob(material.hardness))
 			success_smash(user)
 		else
-			fail_smash(user)
+			fail_smash(user, 2)
 			return 1
 
 	try_touch(user, rotting)
@@ -72,21 +76,21 @@
 /turf/simulated/wall/attack_generic(var/mob/user, var/damage, var/attack_message, var/wallbreaker)
 
 	radiate()
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	var/rotting = (locate(/obj/effect/overlay/wallrot) in src)
 	if(!damage || !wallbreaker)
 		try_touch(user, rotting)
 		return
 
+
 	if(rotting)
 		return success_smash(user)
 
 	if(reinf_material)
-		if((wallbreaker == 2) || (damage >= max(material.hardness,reinf_material.hardness)))
+		if((wallbreaker == 2) && (damage >= max(material.hardness,reinf_material.hardness)))
 			return success_smash(user)
 	else if(damage >= material.hardness)
 		return success_smash(user)
-	return fail_smash(user)
+	return fail_smash(user, wallbreaker)
 
 /turf/simulated/wall/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
@@ -125,14 +129,14 @@
 				thermitemelt(user)
 				return
 
-		else if(istype(W, /obj/item/weapon/pickaxe/plasmacutter))
+		else if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
 			thermitemelt(user)
 			return
 
 		else if( istype(W, /obj/item/weapon/melee/energy/blade) )
 			var/obj/item/weapon/melee/energy/blade/EB = W
 
-			EB.spark_system.start()
+			spark(EB, 5)
 			user << "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>"
 			playsound(src, "sparks", 50, 1)
 			playsound(src, 'sound/weapons/blade1.ogg', 50, 1)
@@ -267,7 +271,7 @@
 					else
 						user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 						return
-				else if (istype(W, /obj/item/weapon/pickaxe/plasmacutter))
+				else if (istype(W, /obj/item/weapon/gun/energy/plasmacutter))
 					cut_cover = 1
 				if(cut_cover)
 					user << "<span class='notice'>You begin slicing through the metal cover.</span>"
@@ -307,7 +311,7 @@
 					else
 						user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 						return
-				else if(istype(W, /obj/item/weapon/pickaxe/plasmacutter))
+				else if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
 					cut_cover = 1
 				if(cut_cover)
 					user << "<span class='notice'>You begin slicing through the support rods.</span>"

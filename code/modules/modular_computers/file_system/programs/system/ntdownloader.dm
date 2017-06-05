@@ -3,6 +3,7 @@
 	filedesc = "NTNet Software Download Tool"
 	program_icon_state = "generic"
 	extended_desc = "This program allows downloads of software from official NT repositories"
+	color = LIGHT_COLOR_GREEN
 	unsendable = 1
 	undeletable = 1
 	size = 4
@@ -175,7 +176,7 @@
 		else
 			data["downloadable_programs"] = list()
 			data["locked"] = 1
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_downloader.tmpl", "NTNet Download Program", 575, 700, state = state)
 		ui.auto_update_layout = 1

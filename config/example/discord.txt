@@ -7,3 +7,6 @@
 ## Uncomment this to enable robust debugging.
 ## This results in more messages being sent via log_debug() during bot operations.
 # ROBUST_DEBUG
+
+## The subscriber role ID goes here.
+# SUBSCRIBER

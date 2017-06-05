@@ -1,6 +1,6 @@
 //Skrell space gear. Sleek like a wetsuit.
 /obj/item/clothing/head/helmet/space/skrell
-	name = "Skrellian helmet"
+	name = "skrellian helmet"
 	desc = "Smoothly contoured and polished to a shine. Still looks like a fishbowl."
 	armor = list(melee = 20, bullet = 20, laser = 50,energy = 50, bomb = 50, bio = 100, rad = 100)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
@@ -14,7 +14,7 @@
 	icon_state = "skrell_helmet_black"
 
 /obj/item/clothing/suit/space/skrell
-	name = "Skrellian voidsuit"
+	name = "skrellian voidsuit"
 	desc = "Seems like a wetsuit with reinforced plating seamlessly attached to it. Very chic."
 	armor = list(melee = 20, bullet = 20, laser = 50,energy = 50, bomb = 50, bio = 100, rad = 100)
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rcd)
@@ -51,6 +51,7 @@
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0.6
 	item_flags = STOPPRESSUREDAMAGE
+	flags_inv = null
 	species_restricted = list("Vox","Vox Armalis")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/head.dmi',
@@ -240,7 +241,7 @@
 
 /obj/item/clothing/shoes/magboots/typec/attack_self(mob/user)
 	if(src.magpulse)
-		flags &= ~NOSLIP
+		item_flags &= ~NOSLIP
 		magpulse = 0
 		canremove = 1
 		user << "You relax your deathgrip on the flooring."
@@ -254,7 +255,7 @@
 			return
 
 
-		flags |= NOSLIP
+		item_flags |= NOSLIP
 		magpulse = 1
 		canremove = 0	//kinda hard to take off magclaws when you are gripping them tightly.
 		user << "You dig your claws deeply into the flooring, bracing yourself."
@@ -265,7 +266,7 @@
 	..()
 	if(src.magpulse)
 		user.visible_message("The [src] go limp as they are removed from [usr]'s feet.", "The [src] go limp as they are removed from your feet.")
-		flags &= ~NOSLIP
+		item_flags &= ~NOSLIP
 		magpulse = 0
 		canremove = 1
 

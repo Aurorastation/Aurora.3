@@ -1,23 +1,29 @@
-#define LIGHTING_INTERVAL       1    // Frequency, in 1/10ths of a second, of the lighting process.
+#define LIGHTING_INTERVAL       2     // Frequency, in 1/10ths of a second, of the lighting process.
 
 #define LIGHTING_HEIGHT         1 // height off the ground of light sources on the pseudo-z-axis, you should probably leave this alone
-#define LIGHTING_ROUND_VALUE    1 / 128 //Value used to round lumcounts, values smaller than 1/255 don't matter (if they do, thanks sinking points), greater values will make lighting less precise, but in turn increase performance, VERY SLIGHTLY.
+#define LIGHTING_ROUND_VALUE    1 / 200 //Value used to round lumcounts, values smaller than 1/255 don't matter (if they do, thanks sinking points), greater values will make lighting less precise, but in turn increase performance, VERY SLIGHTLY.
 
-#define LIGHTING_ICON 'icons/effects/lighting_overlay.png' // icon used for lighting shading effects
-#define DARKNESS_ICON 'icons/effects/darkness.png'	
+#define LIGHTING_ICON 'icons/effects/lighting_overlay.dmi' // icon used for lighting shading effects
+#define LIGHTING_BASE_ICON_STATE "matrix"	// icon_state used for normal color-matrix based lighting overlays.
+#define LIGHTING_STATION_ICON_STATE "tubedefault"	// icon_state used for lighting overlays that are just displaying standard station lighting.
+#define LIGHTING_DARKNESS_ICON_STATE "black"	// icon_state used for lighting overlays with no luminosity.
 
 #define LIGHTING_SOFT_THRESHOLD 0.001 // If the max of the lighting lumcounts of each spectrum drops below this, disable luminosity on the lighting overlays.
 
+// If defined, a tiny random number will be added to lighting matrixes to prevent a memory leak bug in v510 and below.
+// Enabling this disables lighting rounding.
+#define LIGHTING_USE_MEMORY_HACK
+
 // If I were you I'd leave this alone.
 #define LIGHTING_BASE_MATRIX \
-	list                     \
-	(                        \
-		LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, 0, \
-		LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, 0, \
-		LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, 0, \
-		LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, 0, \
-		0, 0, 0, 1           \
-	)                        \
+	list            \
+	(               \
+		1, 1, 1, 0, \
+		1, 1, 1, 0, \
+		1, 1, 1, 0, \
+		1, 1, 1, 0, \
+		0, 0, 0, 1  \
+	)               \
 
 // Helpers so we can (more easily) control the colour matrices.
 #define CL_MATRIX_RR 1
@@ -41,6 +47,18 @@
 #define CL_MATRIX_CB 19
 #define CL_MATRIX_CA 20
 
+// Higher numbers override lower.
+#define LIGHTING_NO_UPDATE 0
+#define LIGHTING_VIS_UPDATE 1
+#define LIGHTING_CHECK_UPDATE 2
+#define LIGHTING_FORCE_UPDATE 3
+
+// This color of overlay is very common - most of the station is this color when lit fully.
+// Tube lights are a bluish-white, so we can't just assume 1-1-1 is full-illumination.
+#define LIGHTING_DEFAULT_TUBE_R 0.96
+#define LIGHTING_DEFAULT_TUBE_G 1
+#define LIGHTING_DEFAULT_TUBE_B 1
+
 //Some defines to generalise colours used in lighting.
 //Important note on colors. Colors can end up significantly different from the basic html picture, especially when saturated
 #define LIGHT_COLOR_RED        "#FA8282" //Warm but extremely diluted red. rgb(250, 130, 130)
@@ -52,6 +70,7 @@
 #define LIGHT_COLOR_YELLOW     "#E1E17D" //Dimmed yellow, leaning kaki. rgb(225, 225, 125)
 #define LIGHT_COLOR_BROWN      "#966432" //Clear brown, mostly dim. rgb(150, 100, 50)
 #define LIGHT_COLOR_ORANGE     "#FA9632" //Mostly pure orange. rgb(250, 150, 50)
+#define LIGHT_COLOR_PURPLE     "#A97FAA" //Soft purple. rgb(169, 127, 170)
 
 //These ones aren't a direct colour like the ones above, because nothing would fit
 #define LIGHT_COLOR_FIRE       "#FAA019" //Warm orange color, leaning strongly towards yellow. rgb(250, 160, 25)
@@ -66,18 +85,31 @@
 #define LIGHT_BROKEN 2
 #define LIGHT_BURNED 3
 
-// Night lighting controller times
-// The time (in ticks based on worldtime2ticks()) that various actions trigger
-#define MORNING_LIGHT_RESET 252000       // 7am or 07:00 - lighting restores to normal in morning
-#define NIGHT_LIGHT_ACTIVE 648000        // 6pm or 18:00 - night lighting mode activates
+// Some angle presets for directional lighting.
+#define LIGHT_OMNI null
+#define LIGHT_SEMI 180
+#define LIGHT_WIDE 90
+#define LIGHT_NARROW 45
 
-// Update type flags.
-#define UPDATE_SCHEDULE 0	// Default behavior. Schedule an update with lighting process.
-#define UPDATE_NOW 1		// Update right now, fuck the scheduler. May cause lag.
-#define UPDATE_NONE 2		// Don't trigger an update at all. Useful if you're triggering the update manually.
+// Night lighting controller times
+// The time (in hours based on worldtime2hours()) that various actions trigger
+#define MORNING_LIGHT_RESET 7       // 7am or 07:00 - lighting restores to normal in morning
+#define NIGHT_LIGHT_ACTIVE 18        // 6pm or 18:00 - night lighting mode activates
 
 // Some brightness/range defines for objects.
 #define L_WALLMOUNT_POWER 0.4
 #define L_WALLMOUNT_RANGE 2
-#define L_WALLMOUNT_HI_POWER 2	// For red/delta alert on fire alarms.
+#define L_WALLMOUNT_HI_POWER 1	// For red/delta alert on fire alarms.
 #define L_WALLMOUNT_HI_RANGE 4
+// This controls by how much console sprites are dimmed before being overlayed.
+#define HOLOSCREEN_ADDITION_FACTOR 1
+#define HOLOSCREEN_MULTIPLICATION_FACTOR 0.5
+#define HOLOSCREEN_ADDITION_OPACITY 0.8
+#define HOLOSCREEN_MULTIPLICATION_OPACITY 1
+
+// Just so we can avoid unneeded proc calls when profiling is disabled.
+#define L_PROF(O,T) if (lighting_profiling) {lprof_write(O,T);}
+
+#if !defined(LIGHTING_USE_MEMORY_HACK) && DM_VERSION < 511
+#warn You appear to be using a pre-511 version of BYOND, but have the memory leak hack disabled. You may encounter server crashes due to a memory leak in BYOND 510 and below's handling of color matrixes.
+#endif

@@ -12,12 +12,8 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/igniter/wifi_receiver
 
-/obj/machinery/igniter/New()
-	..()
-	update_icon()
-
-/obj/machinery/igniter/initialize()
-	..()
+/obj/machinery/igniter/Initialize()
+	. = ..()
 	update_icon()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
@@ -76,8 +72,8 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/sparker/wifi_receiver
 
-/obj/machinery/sparker/initialize()
-	..()
+/obj/machinery/sparker/Initialize()
+	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 
@@ -126,9 +122,7 @@
 
 
 	flick("migniter-spark", src)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(2, 1, src)
-	s.start()
+	spark(src, 2, alldirs)
 	src.last_spark = world.time
 	use_power(1000)
 	var/turf/location = src.loc

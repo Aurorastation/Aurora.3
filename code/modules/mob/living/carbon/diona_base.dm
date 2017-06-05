@@ -81,19 +81,19 @@ var/list/diona_banned_languages = list(
 	//But diona gestalts gain nutrition by extracting matter from gases in the air. If a gestalt spends a long time in space or on the asteroid, it may need to actually eat food
 	//For simplicity, we'll assume any gas is fine, so they'll just absorb nutrition based on pressure
 	if (!pressure)
-		return
+		return 0
 
 	if (DS.nutrient_organ)
 		if (DS.nutrient_organ.is_broken())
-			return
+			return 0
 
 	var/plus= (min(pressure,diona_max_pressure)  / diona_max_pressure)* diona_nutrition_factor
 	if (DS.nutrient_organ)
 		if(DS.nutrient_organ.is_bruised())
 			plus *= 0.5
+	plus = min(plus, max_nutrition - nutrition)
 	nutrition += plus
-	if (nutrition > max_nutrition)
-		nutrition = max_nutrition
+	return plus*7 //The return value is the number of moles to remove from the local environment
 
 /mob/living/carbon/proc/diona_handle_temperature(var/datum/dionastats/DS)
 	if (bodytemperature < TEMP_REGEN_STOP)
@@ -270,7 +270,7 @@ var/list/diona_banned_languages = list(
 		for (var/i in species.has_limbs)
 			path = species.has_limbs[i]["path"]
 			var/limb_exists = 0
-			for (var/obj/item/organ/external/diona/B in H.organs)
+			for (var/obj/item/organ/external/B in H.organs)
 				if (B.type == path)
 					limb_exists = 1
 					break
@@ -291,8 +291,8 @@ var/list/diona_banned_languages = list(
 			DS.stored_energy -= REGROW_ENERGY_REQ
 			H.nutrition -= REGROW_FOOD_REQ
 			playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
-			src.visible_message("\red [src] begins to shift and quiver.",
-			"\red You begin to shift and quiver, feeling a stirring within your trunk ")
+			src.visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
+			"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
 			sleep(52)
 			var/obj/item/organ/O = new path(H)
 			src.visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [H.name]'s trunk, forming a new [O.name]</span>","<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [O.name]</span>")
@@ -392,7 +392,7 @@ var/list/diona_banned_languages = list(
 			src << "You feel a little more energised as you return to the light. Stay awhile."
 		else if (DS.EP <= 0.0 && DS.last_lightlevel <= 0)
 			DS.LMS = 4
-			src << "<span class='danger'> You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light.</span>"
+			src << "<span class='danger'>You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light.</span>"
 	//From here down, we immediately return to state 3 if we get any light
 	else
 		if (DS.EP > 0.0)//If there's any light at all, we can be saved
@@ -402,12 +402,12 @@ var/list/diona_banned_languages = list(
 			var/HP = 1 //diona_get_health(DS) / DS.max_health//HP  = health-percentage
 			if (DS.LMS == 4)
 				if (HP < 0.6)
-					src << "<span class='danger'> The darkness burns. Your nymphs decay and wilt You are in mortal danger!</span>"
+					src << "<span class='danger'>The darkness burns. Your nymphs decay and wilt You are in mortal danger!</span>"
 					DS.LMS = 5
 
 			else if (DS.LMS == 5)
 				if (paralysis > 0)
-					src << "<span class='danger'> Your body has reached critical integrity, it can no longer move. The end comes soon.</span>"
+					src << "<span class='danger'>Your body has reached critical integrity, it can no longer move. The end comes soon.</span>"
 					DS.LMS = 6
 			else if (DS.LMS == 6)
 				return
@@ -415,21 +415,22 @@ var/list/diona_banned_languages = list(
 //GETTER FUNCTIONS
 
 /mob/living/carbon/proc/get_lightlevel_diona(var/datum/dionastats/DS)
-	var/light_factor = 1
+	var/light_factor = 1.15
 	var/turf/T = get_turf(src)
 	if (is_ventcrawling)
 		return -1.5 //no light inside pipes
 
+
 	if (DS.light_organ)
 		if (DS.light_organ.is_broken())
-			light_factor = 0.55
+			light_factor *= 0.55
 		else if (DS.light_organ.is_bruised())
-			light_factor = 0.8
+			light_factor *= 0.8
 	else if (DS.dionatype == 2)
-		light_factor = 0.8
+		light_factor = 1
 
 	if (T)
-		var/raw = T.get_uv_lumcount(0, 2) * light_factor * 5.5
+		var/raw = min(T.get_uv_lumcount(0, 2) * light_factor * 5.5, 5.5)
 		return raw - 1.5
 
 /mob/living/carbon/proc/diona_get_health(var/datum/dionastats/DS)
@@ -512,7 +513,7 @@ var/list/diona_banned_languages = list(
 /datum/dionastats/Destroy()
 	light_organ = null//Nulling out these references to prevent GC errors
 	nutrient_organ = null
-	..()
+	return ..()
 
 
 #undef FLASHLIGHT_STRENGTH

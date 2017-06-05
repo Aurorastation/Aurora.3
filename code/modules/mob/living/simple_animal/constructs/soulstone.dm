@@ -26,7 +26,7 @@
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their soul captured with [src.name] by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to capture the soul of [M.name] ([M.ckey])</font>")
-	msg_admin_attack("[user.name] ([user.ckey]) used the [src.name] to capture the soul of [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+	msg_admin_attack("[user.name] ([user.ckey]) used the [src.name] to capture the soul of [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 
 	transfer_soul("VICTIM", M, user)
 	return
@@ -117,7 +117,9 @@
 	for(var/obj/item/W in T)
 		T.drop_from_inventory(W)
 
-	new /obj/effect/decal/remains/human(T.loc) //Spawns a skeleton
+	var/obj/effect/decal/remains/remains = T.species.remains_type //spawns a skeleton based on the species remain type
+	new remains(T.loc)
+		
 	T.invisibility = 101
 
 	var/atom/movable/overlay/animation = new /atom/movable/overlay( T.loc )

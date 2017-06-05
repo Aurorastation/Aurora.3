@@ -34,9 +34,7 @@
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(locked)
 			if (istype(W, /obj/item/weapon/melee/energy/blade) && emag_act(INFINITY, user, "You slice through the lock of \the [src]"))
-				var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-				spark_system.set_up(5, 0, src.loc)
-				spark_system.start()
+				W:spark_system.queue()
 				playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 				playsound(src.loc, "sparks", 50, 1)
 				return
@@ -104,15 +102,15 @@
 					src.l_set = 1
 				else if ((src.code == src.l_code) && (src.emagged == 0) && (src.l_set == 1))
 					src.locked = 0
-					src.overlays = null
-					overlays += image('icons/obj/storage.dmi', icon_opened)
+					cut_overlays()
+					add_overlay(icon_opened)
 					src.code = null
 				else
 					src.code = "ERROR"
 			else
 				if ((href_list["type"] == "R") && (src.emagged == 0) && (!src.l_setshort))
 					src.locked = 1
-					src.overlays = null
+					cut_overlays()
 					src.code = null
 					src.close(usr)
 				else
@@ -129,10 +127,10 @@
 /obj/item/weapon/storage/secure/emag_act(var/remaining_charges, var/mob/user, var/feedback)
 	if(!emagged)
 		emagged = 1
-		src.overlays += image('icons/obj/storage.dmi', icon_sparking)
+		add_overlay(icon_sparking)
 		sleep(6)
-		src.overlays = null
-		overlays += image('icons/obj/storage.dmi', icon_locking)
+		cut_overlays()
+		add_overlay(icon_locking)
 		locked = 0
 		user << (feedback ? feedback : "You short out the lock of \the [src].")
 		return 1
@@ -190,6 +188,7 @@
 	attack_hand(mob/user as mob)
 		return attack_self(user)
 
-/obj/item/weapon/storage/secure/safe/HoS/New()
+/*obj/item/weapon/storage/secure/safe/HoS/New()
 	..()
 	//new /obj/item/weapon/storage/lockbox/clusterbang(src) This item is currently broken... and probably shouldnt exist to begin with (even though it's cool)
+*/

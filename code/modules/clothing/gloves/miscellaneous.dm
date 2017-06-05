@@ -13,7 +13,7 @@
 
 /obj/item/clothing/gloves/swat
 	desc = "These tactical gloves are somewhat fire and impact-resistant."
-	name = "\improper SWAT Gloves"
+	name = "\improper SWAT gloves"
 	icon_state = "black"
 	item_state = "swat_gl"
 	siemens_coefficient = 0.50
@@ -45,13 +45,11 @@
 	permeability_coefficient = 0.01
 	germ_level = 0
 	
-/obj/item/clothing/gloves/botanic_leather
-	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
-	name = "botanist's leather gloves"
-	icon_state = "leather"
-	item_state = "ggloves"
-	permeability_coefficient = 0.05
-	siemens_coefficient = 0.50 //thick work gloves
+/obj/item/clothing/gloves/latex/nitrile
+	name = "nitrile gloves"
+	desc = "Sterile nitrile gloves."
+	icon_state = "nitrile"
+	item_state = "ngloves"
 
 /obj/item/clothing/gloves/latex/unathi
 	name = "unathi latex gloves"
@@ -59,8 +57,24 @@
 	species_restricted = list("Unathi")
 
 /obj/item/clothing/gloves/latex/tajara
-	name = "tajara latex gloves"
+	name = "tajaran latex gloves"
 	desc = "Sterile latex gloves. Designed for Tajara use."
+	species_restricted = list("Tajara")
+	
+/obj/item/clothing/gloves/botanic_leather
+	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
+	name = "leather gloves"
+	icon_state = "leather"
+	item_state = "ggloves"
+	permeability_coefficient = 0.05
+	siemens_coefficient = 0.50 //thick work gloves
+	
+/obj/item/clothing/gloves/botanic_leather/unathi
+	name = "unathi leather gloves"
+	species_restricted = list("Unathi")
+
+/obj/item/clothing/gloves/botanic_leather/tajara
+	name = "tajaran leather gloves"
 	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/watch
@@ -72,6 +86,7 @@
 	wired = 1
 	species_restricted = null
 	gender = NEUTER
+	body_parts_covered = null
 
 	verb/checktime()
 		set category = "Object"
@@ -81,7 +96,7 @@
 		if(wired && !clipped)
 			usr << "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
 			if (emergency_shuttle.get_status_panel_eta())
-				usr << "\red The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."
+				usr << "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>"
 		else if(wired && clipped)
 			usr << "You check your watch realising it's still open"
 		else
@@ -107,11 +122,11 @@
 	attackby(obj/item/weapon/W, mob/user)
 		if(istype(W, /obj/item/weapon/screwdriver))
 			if (clipped) //Using clipped because adding a new var for something is dumb
-				user.visible_message("\blue [user] screws the cover of the [src] closed.","\blue You screw the cover of the [src] closed..")
+				user.visible_message("<span class='notice'>[user] screws the cover of the [src] closed.</span>","<span class='notice'>You screw the cover of the [src] closed..</span>")
 				clipped = 0
 				return
 //			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			user.visible_message("\blue [user] unscrew the cover of the [src].","\blue You unscrew the cover of the [src].")
+			user.visible_message("<span class='notice'>[user] unscrew the cover of the [src].</span>","<span class='notice'>You unscrew the cover of the [src].</span>")
 			clipped = 1
 			return
 		if(wired)

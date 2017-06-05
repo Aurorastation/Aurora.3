@@ -19,6 +19,7 @@
 	name = "Mecha"
 	desc = "Exosuit"
 	icon = 'icons/mecha/mecha.dmi'
+	w_class = 20
 	density = 1 //Dense. To raise the heat.
 	opacity = 1 ///opaque. Menacing.
 	anchored = 1 //no pulling around.
@@ -50,7 +51,7 @@
 	var/add_req_access = 1
 	var/maint_access = 1
 	var/dna	//dna-locking the mech
-	var/datum/effect/effect/system/spark_spread/spark_system = new
+	var/datum/effect_system/sparks/spark_system
 	var/lights = 0
 	var/lights_power = 6
 
@@ -90,6 +91,8 @@
 
 	var/noexplode = 0//Used for cases where an exosuit is spawned and turned into wreckage
 
+	can_hold_mob = TRUE
+
 /obj/mecha/drain_power(var/drain_check)
 
 	if(drain_check)
@@ -108,8 +111,6 @@
 	add_radio()
 	add_cabin()
 	add_airtank() //All mecha currently have airtanks. No need to check unless changes are made.
-	spark_system.set_up(2, 0, src)
-	spark_system.attach(src)
 	add_cell()
 	add_iterators()
 	removeVerb(/obj/mecha/verb/disconnect_from_port)
@@ -117,7 +118,8 @@
 	loc.Entered(src)
 	mechas_list += src //global mech list
 	narrator_message(FIRSTRUN)
-	return
+
+	spark_system = bind_spark(src, 2)
 
 /obj/mecha/Destroy()
 	src.go_out()
@@ -159,19 +161,15 @@
 	cell = null
 	internal_tank = null
 
-	qdel(pr_int_temp_processor)
-	qdel(pr_inertial_movement)
-	qdel(pr_give_air)
-	qdel(pr_internal_damage)
-	qdel(pr_manage_warnings)
-	qdel(spark_system)
-	pr_int_temp_processor = null
-	pr_give_air = null
-	pr_internal_damage = null
-	spark_system = null
+	QDEL_NULL(pr_int_temp_processor)
+	QDEL_NULL(pr_inertial_movement)
+	QDEL_NULL(pr_give_air)
+	QDEL_NULL(pr_internal_damage)
+	QDEL_NULL(pr_manage_warnings)
+	QDEL_NULL(spark_system)
 
 	mechas_list -= src //global mech list
-	..()
+	return ..()
 
 ////////////////////////
 ////// Helpers /////////
@@ -595,12 +593,13 @@
 
 /obj/mecha/proc/update_health()
 	if(src.health > 0)
-		src.spark_system.start()
+		src.spark_system.queue()
 	else
 		qdel(src)
 	return
 
 /obj/mecha/attack_hand(mob/user as mob)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	src.log_message("Attack by hand/paw. Attacker - [user].",1)
 
 	if(istype(user,/mob/living/carbon/human))
@@ -668,7 +667,8 @@
 		if(istype(Proj, /obj/item/projectile/beam/pulse))
 			ignore_threshold = 1
 		src.hit_damage(Proj.damage, Proj.check_armour, is_melee=0)
-		if(prob(25)) spark_system.start()
+		if(prob(25))
+			spark_system.queue()
 		src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST,MECHA_INT_SHORT_CIRCUIT),ignore_threshold)
 
 		//AP projectiles have a chance to cause additional damage
@@ -872,6 +872,7 @@
 	else
 		src.log_message("Attacked by [W]. Attacker - [user]")
 
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(deflect_hit(is_melee=1))
 			user << "<span class='danger'>\The [W] bounces off [src.name].</span>"
 			src.log_append_to_last("Armor saved.")
@@ -995,19 +996,19 @@
 		return
 
 	if (!use_power(step_energy_drain*20))//Forcefully crashing into something costs 20x the power of taking a normal step
-		occupant  << "\red [src] lacks the remaining power to do that!"
+		occupant  << "<span class='warning'>[src] lacks the remaining power to do that!</span>"
 		return 0
 
 
 	//TODO: Add in a check for exosuit thrusters here after reworking them.
 	//Exosuits with thrusters should be able to use crash in space, and without the 0.5sec windup time
 	if (!check_for_support())
-		occupant  << "\red The [src] has no traction! There is nothing solid in reach to launch off."
+		occupant  << "<span class='warning'>The [src] has no traction! There is nothing solid in reach to launch off.</span>"
 		return 0
 
 	lastcrash = world.time
 
-	occupant << "\red You take a step back, and then..."
+	occupant << "<span class='warning'>You take a step back, and then...</span>"
 	sleep(5)
 
 
@@ -1069,7 +1070,7 @@
 	if (brokesomething)
 		playsound(get_turf(target), 'sound/weapons/heavysmash.ogg', 100, 1)
 		occupant.attack_log += "\[[time_stamp()]\]<font color='red'> driving [name] crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </font>"
-		msg_admin_attack("[key_name(occupant)] driving [name] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
+		msg_admin_attack("[key_name_admin(occupant)] driving [name] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)",ckey=key_name(occupant))
 
 
 	//5. If we get here, then we've broken through everything that could stop us
@@ -1108,12 +1109,12 @@
 		var/mob/living/M = A
 		occupant.attack_log += "\[[time_stamp()]\]<font color='red'> Crashed into [key_name(M)]with exosuit [name] </font>"
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed with the exosuit [name] driven by [key_name(occupant)]</font>"
-		msg_admin_attack("[key_name(occupant)] driving [name] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)" )
+		msg_admin_attack("[key_name_admin(occupant)] driving [name] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(occupant),ckey_target=key_name(M) )
 
 	A.ex_act(3)
 
 	sleep(1)
-	if (A && !(A.gcDestroyed) && A.type == oldtype)//We check if the object has been qdel'd or (for turfs) changed type
+	if (!QDELETED(A) && A.type == oldtype)//We check if the object has been qdel'd or (for turfs) changed type
 		src.visible_message("<span class='danger'>[src.name] crashes into the [aname]!</span>")
 		take_damage(damage)
 		return 0//If it survived the impact then we stop breaking things for this proc
@@ -1788,9 +1789,9 @@
 		var/obj/item/mecha_parts/mecha_equipment/tool/passenger/P = passengers[pname]
 		var/mob/occupant = P.occupant
 
-		user.visible_message("\red [user] begins opening the hatch on \the [P]...", "\red You begin opening the hatch on \the [P]...")
+		user.visible_message("<span class='warning'>[user] begins opening the hatch on \the [P]...</span>", "<span class='notice'>You begin opening the hatch on \the [P]...</span>")
 		if (do_after(user, 40, needhand=0))
-			user.visible_message("\red [user] opens the hatch on \the [P] and removes [occupant]!", "\red You open the hatch on \the [P] and remove [occupant]!")
+			user.visible_message("<span class='danger'>[user] opens the hatch on \the [P] and removes [occupant]!</span>", "<span class='danger'>You open the hatch on \the [P] and remove [occupant]!</span>")
 			P.go_out()
 			P.log_message("[occupant] was removed.")
 		return
@@ -1928,6 +1929,8 @@
 	return icon_state
 
 /obj/mecha/attack_generic(var/mob/user, var/damage, var/attack_message)
+
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if(!damage)
 		return 0
@@ -2248,7 +2251,7 @@
 					qdel(leaked_gas)
 		if(mecha.hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
 			if(mecha.get_charge())
-				mecha.spark_system.start()
+				mecha.spark_system.queue()
 				mecha.cell.charge -= min(20,mecha.cell.charge)
 				mecha.cell.maxcharge -= min(20,mecha.cell.maxcharge)
 		return
