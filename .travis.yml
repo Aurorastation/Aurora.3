@@ -18,7 +18,6 @@ addons:
       - libc6-i386
       - libgcc1:i386
       - libstdc++6:i386
-      - oracle-java8-set-default
 
 install:
   - pip install --user PyYaml -q
@@ -29,9 +28,9 @@ before_script:
   - ./install-byond.sh
   - chmod +x ./install-flyway.sh
   - ./install-flyway.sh
+  - mysql -e 'CREATE DATABASE ss13_test;'
 
 script:
-  - mysql -e 'CREATE DATABASE ss13_test;'
   - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test
   - shopt -s globstar
   - (! grep 'step_[xy]' maps/**/*.dmm)

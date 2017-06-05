@@ -2,7 +2,7 @@
 set -e
 if [ -f "$HOME/flyway-${FLYWAY_BUILD}/flyway" ];
 then
-  echo "Using cached directory."
+  echo "Using cached Flyway directory."
 else
   echo "Setting up Flyway."
   cd "$HOME"
