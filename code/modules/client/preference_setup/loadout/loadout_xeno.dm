@@ -130,8 +130,8 @@
 	sort_category = "Xenowear"
 	
 /datum/gear/suit/tajaran_labcoat
-	display_name = "people's republic medical coat (Tajara)"
+	display_name = "peoples republic medical coat (Tajara)"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = "Tajara"
-	allowed_roles = list("Chief Medical Officer","Medical Doctor","Chemist","Geneticist","Paramedic","Nursing Intern")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Nursing Intern")
 	sort_category = "Xenowear"
