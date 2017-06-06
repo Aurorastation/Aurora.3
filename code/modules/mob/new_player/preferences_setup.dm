@@ -221,7 +221,7 @@ datum/preferences
 
 /datum/preferences/proc/update_preview_icon()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = get_mannequin(client)
-	mannequin.delete_inventory()
+	mannequin.delete_inventory(TRUE)
 	dress_preview_mob(mannequin)
 
 	preview_icon = icon('icons/effects/effects.dmi', "nothing")
