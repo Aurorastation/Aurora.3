@@ -76,6 +76,7 @@ var/list/gamemode_cache = list()
 	var/load_jobs_from_txt = 0
 	var/ToRban = 0
 	var/automute_on = 0					//enables automuting/spam prevention
+	var/macro_trigger = 5				// The grace period between messages before it's counted as abusing a macro.
 	var/jobs_have_minimal_access = 0	//determines whether jobs use minimal access or expanded access.
 
 	var/cult_ghostwriter = 1               //Allows ghosts to write in blood in cult rounds...
@@ -191,10 +192,10 @@ var/list/gamemode_cache = list()
 	var/use_lib_nudge = 0 //Use the C library nudge instead of the python nudge.
 	var/use_overmap = 0
 
-	var/list/station_levels = list(1)				// Defines which Z-levels the station exists on.
-	var/list/admin_levels= list(2)					// Defines which Z-levels which are for admin functionality, for example including such areas as Central Command and the Syndicate Shuttle
-	var/list/contact_levels = list(1, 5)			// Defines which Z-levels which, for example, a Code Red announcement may affect
-	var/list/player_levels = list(1, 3, 4, 5, 6)	// Defines all Z-levels a character can typically reach
+	var/list/station_levels = list(3, 4, 5, 6, 7)				// Defines which Z-levels the station exists on.
+	var/list/admin_levels= list(1)					// Defines which Z-levels which are for admin functionality, for example including such areas as Central Command and the Syndicate Shuttle
+	var/list/contact_levels = list(3, 4, 5, 6)			// Defines which Z-levels which, for example, a Code Red announcement may affect
+	var/list/player_levels = list(2, 3, 4, 5, 6, 7, 8)	// Defines all Z-levels a character can typically reach
 	var/list/sealed_levels = list() 				// Defines levels that do not allow random transit at the edges.
 
 	// Event settings
@@ -253,9 +254,6 @@ var/list/gamemode_cache = list()
 	var/api_rate_limit = 50
 	var/list/api_rate_limit_whitelist = list()
 
-	// Subsystems.
-	var/obj/effect/statclick/statclick
-
 	// Master Controller settings.
 	var/mc_init_tick_limit = TICK_LIMIT_MC_INIT_DEFAULT
 
@@ -263,6 +261,23 @@ var/list/gamemode_cache = list()
 	var/log_gelf_enabled = 0
 	var/log_gelf_ip = ""
 	var/log_gelf_port = ""
+
+	//IP Intel vars
+	var/ipintel_email
+	var/ipintel_rating_bad = 1
+	var/ipintel_rating_kick = 0
+	var/ipintel_save_good = 12
+	var/ipintel_save_bad = 1
+	var/ipintel_domain = "check.getipintel.net"
+
+	// Access control/Panic bunker settings.
+	var/access_deny_new_players = 0
+	var/access_deny_new_accounts = -1
+	var/access_deny_vms = 0
+	var/access_warn_vms = 0
+
+	var/sun_accuracy = 8
+	var/sun_target_z = 7
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -614,6 +629,9 @@ var/list/gamemode_cache = list()
 				if("automute_on")
 					automute_on = 1
 
+				if("macro_trigger")
+					macro_trigger = text2num(value)
+
 				if("usealienwhitelist")
 					usealienwhitelist = 1
 
@@ -702,6 +720,9 @@ var/list/gamemode_cache = list()
 
 				if("player_levels")
 					config.player_levels = text2numlist(value, ";")
+
+				if("sealed_levels")
+					config.sealed_levels = text2numlist(value, ";")
 
 				if("expected_round_length")
 					config.expected_round_length = MinutesToTicks(text2num(value))
@@ -808,12 +829,33 @@ var/list/gamemode_cache = list()
 
 				if("log_gelf_enabled")
 					config.log_gelf_enabled = text2num(value)
-				
+
 				if("log_gelf_ip")
 					config.log_gelf_ip = value
-				
+
 				if("log_gelf_port")
 					config.log_gelf_port = value
+
+				if("ipintel_email")
+					if (value != "ch@nge.me")
+						ipintel_email = value
+				if("ipintel_rating_bad")
+					ipintel_rating_bad = text2num(value)
+				if("ipintel_rating_kick")
+					ipintel_rating_kick = text2num(value)
+				if("ipintel_domain")
+					ipintel_domain = value
+				if("ipintel_save_good")
+					ipintel_save_good = text2num(value)
+				if("ipintel_save_bad")
+					ipintel_save_bad = text2num(value)
+
+				if("access_deny_new_accounts")
+					access_deny_new_accounts = text2num(value) >= 0 ? text2num(value) : -1
+				if("access_deny_vms")
+					access_deny_vms = text2num(value)
+				if("access_warn_vms")
+					access_warn_vms = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
@@ -880,6 +922,12 @@ var/list/gamemode_cache = list()
 
 				if("use_loyalty_implants")
 					config.use_loyalty_implants = 1
+
+				if ("sunlight_accuracy")
+					config.sun_accuracy = value
+
+				if ("sunlight_z")
+					config.sun_target_z = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

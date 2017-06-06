@@ -89,8 +89,7 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 	user.put_in_active_hand(src)
 
 /obj/item/device/radiojammer/improvised/Destroy()
-	if (active)
-		processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 
@@ -121,10 +120,10 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 	if (active)
 		active_radio_jammers += src
 		icon_state = icon_state_active
-		processing_objects.Add(src)
+		START_PROCESSING(SSprocessing, src)
 
 		last_updated = world.time
 	else
 		active_radio_jammers -= src
 		icon_state = icon_state_inactive
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)

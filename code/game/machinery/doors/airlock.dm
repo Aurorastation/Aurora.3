@@ -146,8 +146,26 @@
 	opacity = 0
 	hatch_colour = "#606061"
 
-/obj/machinery/door/airlock/centcom/attackby()
-	return
+/obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
+	if (operating)
+		return
+
+	if (allowed(user) && operable())
+		if (density)
+			open()
+		else
+			close()
+	else
+		do_animate("deny")
+
+/obj/machinery/door/airlock/centcom/attack_ai(mob/user)
+	return attackby(null, user)
+
+/obj/machinery/door/airlock/centcom/take_damage()
+	return	// No.
+
+/obj/machinery/door/airlock/centcom/emag_act()
+	return NO_EMAG_ACT
 
 /obj/machinery/door/airlock/vault
 	name = "Vault"
@@ -419,7 +437,7 @@ About the new airlock wires panel:
 					return
 			else /*if(src.justzap)*/
 				return
-		else if(user.hallucination > 50 && prob(10) && src.operating == 0)
+		else if(user.hallucination > 50 && prob(10) && src.operating == 0 && !user.is_diona() && !user.isSynthetic())
 			user << "<span class='danger'>You feel a powerful shock course through your body!</span>"
 			user.halloss += 10
 			user.stunned += 10
@@ -619,13 +637,13 @@ About the new airlock wires panel:
 		if("opening")
 			cut_overlays()
 			if(p_open)
-				flick("o_door_opening", src)  
+				flick("o_door_opening", src)
 				update_icon()
 			else
 				flick("door_opening", src)//[stat ? "_stat":]
 				update_icon()
 		if("closing")
-			if(overlays) 
+			if(overlays)
 				cut_overlays()
 			if(p_open)
 				flick("o_door_closing", src)
@@ -667,7 +685,7 @@ About the new airlock wires panel:
 
 	data["commands"] = commands
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "door_control.tmpl", "Door Controls", 450, 350, state = state)
 		ui.set_initial_data(data)
@@ -964,7 +982,7 @@ About the new airlock wires panel:
 			O.show_message("[src.name]'s control panel bursts open, sparks spewing out!")
 
 	spark(src, 5, alldirs)
-	
+
 	update_icon()
 	return
 
@@ -1103,7 +1121,6 @@ About the new airlock wires panel:
 	if (operating && !forced) return 0
 	src.locked = 1
 	playsound(src, bolts_dropping, 30, 0, -6)
-	audible_message("You hear a click from the bottom of the door.")
 	update_icon()
 	return 1
 
@@ -1114,7 +1131,6 @@ About the new airlock wires panel:
 		if(operating || !src.arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) return
 	src.locked = 0
 	playsound(src, bolts_rising, 30, 0, -6)
-	audible_message("You hear a click from the bottom of the door.")
 	update_icon()
 	return 1
 

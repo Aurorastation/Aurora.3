@@ -94,6 +94,8 @@
 	var/scan_id = 1
 	var/obj/item/weapon/coin/coin
 	var/datum/wires/vending/wires = null
+	
+	var/can_move = 1	//if you can wrench the machine out of place
 
 /obj/machinery/vending/Initialize()
 	. = ..()
@@ -200,7 +202,7 @@
 			src.vend(currently_vending, usr)
 			return
 		else if(handled)
-			nanomanager.update_uis(src)
+			SSnanoui.update_uis(src)
 			return // don't smack that machine with your 2 credits
 
 	if (I || istype(W, /obj/item/weapon/spacecash))
@@ -213,7 +215,7 @@
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-panel")
 
-		nanomanager.update_uis(src)  // Speaker switch is on the main UI, not wires UI
+		SSnanoui.update_uis(src)  // Speaker switch is on the main UI, not wires UI
 		return
 	else if(istype(W, /obj/item/device/multitool)||istype(W, /obj/item/weapon/wirecutters))
 		if(src.panel_open)
@@ -225,9 +227,11 @@
 		coin = W
 		categories |= CAT_COIN
 		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
-		nanomanager.update_uis(src)
+		SSnanoui.update_uis(src)
 		return
 	else if(istype(W, /obj/item/weapon/wrench))
+		if(!can_move)
+			return
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		if(anchored)
 			user.visible_message("[user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")
@@ -452,7 +456,7 @@
 	else
 		data["panel"] = 0
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "vending_machine.tmpl", src.name, 440, 600)
 		ui.set_initial_data(data)
@@ -511,7 +515,7 @@
 			src.shut_up = !src.shut_up
 
 		src.add_fingerprint(usr)
-		nanomanager.update_uis(src)
+		SSnanoui.update_uis(src)
 
 /obj/machinery/vending/proc/vend(datum/data/vending_product/R, mob/user)
 	if (!R || R.amount < 1)
@@ -524,7 +528,7 @@
 	src.vend_ready = 0 //One thing at a time!!
 	src.status_message = "Vending..."
 	src.status_error = 0
-	nanomanager.update_uis(src)
+	SSnanoui.update_uis(src)
 
 
 
@@ -562,18 +566,19 @@
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
 	spawn(src.vend_delay)
+		playsound(src.loc, 'sound/machines/vending.ogg', 35, 1)
 		new R.product_path(get_turf(src))
 		src.status_message = ""
 		src.status_error = 0
 		src.vend_ready = 1
 		currently_vending = null
-		nanomanager.update_uis(src)
+		SSnanoui.update_uis(src)
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
-	user << "<span class='notice'>You insert \the [src] in the product receptor.</span>"
+	user << "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>"
 	R.amount++
 
-	nanomanager.update_uis(src)
+	SSnanoui.update_uis(src)
 
 /obj/machinery/vending/process()
 	if(stat & (BROKEN|NOPOWER))

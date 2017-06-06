@@ -9,6 +9,7 @@
 	density = 1
 	opacity = 0
 	anchored = 1
+	atmos_canpass = CANPASS_NEVER
 
 	CanPass(atom/movable/mover, turf/target, height, air_group)
 		if(!height || air_group) return 0
@@ -18,12 +19,7 @@
 	name = "engine"
 	density = 1
 	anchored = 1.0
-
-	CanPass(atom/movable/mover, turf/target, height, air_group)
-		if (!height || air_group) 
-			return FALSE
-		else
-			return ..()
+	atmos_canpass = CANPASS_NEVER
 
 /obj/structure/shuttle/engine/heater
 	name = "heater"

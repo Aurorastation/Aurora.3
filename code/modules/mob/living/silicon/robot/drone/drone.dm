@@ -1,5 +1,5 @@
-var/list/mob_hat_cache = list()
 /proc/get_hat_icon(var/obj/item/hat, var/offset_x = 0, var/offset_y = 0)
+	var/list/mob_hat_cache = SSicon_cache.mob_hat_cache
 	var/t_state = hat.icon_state
 	if(hat.item_state_slots && hat.item_state_slots[slot_head_str])
 		t_state = hat.item_state_slots[slot_head_str]
@@ -103,9 +103,8 @@ var/list/mob_hat_cache = list()
 	holder_type = /obj/item/weapon/holder/drone/heavy
 	range_limit = 0
 
-/mob/living/silicon/robot/drone/New()
-
-	..()
+/mob/living/silicon/robot/drone/Initialize()
+	. = ..()
 
 	verbs += /mob/living/proc/hide
 	remove_language("Robot Talk")

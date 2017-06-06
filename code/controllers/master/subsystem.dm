@@ -21,6 +21,7 @@
 	var/next_fire = 0		//scheduled world.time for next fire()
 	var/cost = 0			//average time to execute
 	var/tick_usage = 0		//average tick usage
+	var/tick_overrun = 0	//average tick overrun
 	var/state = SS_IDLE		//tracks the current state of the ss, running, paused, etc.
 	var/paused_ticks = 0	//ticks this ss is taking to run right now.
 	var/paused_tick_usage	//total tick_usage of all of our runs while pausing this run
@@ -213,7 +214,7 @@
 	if (flags & SS_NO_FIRE)
 		. = "NO FIRE"
 	else if (can_fire && !suspended)
-		. = "[round(cost,1)]ms|[round(tick_usage,1)]%|[round(ticks,0.1)]"
+		. = "[round(cost,1)]ms|[round(tick_usage,1)]%([round(tick_overrun,1)]%)|[round(ticks,0.1)]"
 	else if (!can_fire)
 		. = "OFFLINE"
 	else

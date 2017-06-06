@@ -51,7 +51,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/message = "";
 	var/recipient = ""; //the department which will be receiving the message
 	var/priority = -1 ; //Priority of the message being sent
-	
+
 	light_color = LIGHT_COLOR_RED
 	light_power = 0.25	// It's a tiny light, it ain't going to be bright.
 
@@ -164,7 +164,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	data["lid"] = lid
 	data["paper"] = paperstock
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "request_console.tmpl", "[department] Request Console", 520, 410)
 		ui.set_initial_data(data)
@@ -205,7 +205,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		var/log_msg = message
 		var/pass = 0
 		screen = RCS_SENTFAIL
-		for (var/obj/machinery/message_server/MS in world)
+		for (var/obj/machinery/message_server/MS in machines)
 			if(!MS.active) continue
 			MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority)
 			pass = 1
@@ -324,28 +324,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
 /obj/machinery/requests_console/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
-	/*
-	if (istype(O, /obj/item/weapon/crowbar))
-		if(open)
-			open = 0
-			icon_state="req_comp0"
-		else
-			open = 1
-			if(hackState == 0)
-				icon_state="req_comp_open"
-			else if(hackState == 1)
-				icon_state="req_comp_rewired"
-	if (istype(O, /obj/item/weapon/screwdriver))
-		if(open)
-			if(hackState == 0)
-				hackState = 1
-				icon_state="req_comp_rewired"
-			else if(hackState == 1)
-				hackState = 0
-				icon_state="req_comp_open"
-		else
-			user << "You can't do much with that."*/
-
 	if (istype(O, /obj/item/weapon/card/id))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
@@ -361,13 +339,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				reset_message()
 				user << "<span class='warning'>You are not authorized to send announcements.</span>"
 			updateUsrDialog()
-	if (istype(O, /obj/item/weapon/stamp))
+	else if (istype(O, /obj/item/weapon/stamp))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/weapon/stamp/T = O
 			msgStamped = text("<font color='blue'><b>Stamped with the [T.name]</b></font>")
 			updateUsrDialog()
-	if (istype(O, /obj/item/weapon/paper_bundle))
+	else if (istype(O, /obj/item/weapon/paper_bundle))
 		if(lid)	//More of that restocking business
 			var/obj/item/weapon/paper_bundle/C = O
 			paperstock += C.amount
@@ -377,7 +355,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
 		else
 			user << "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>"
-	if (istype(O, /obj/item/weapon/paper))
+	else if (istype(O, /obj/item/weapon/paper))
 		if(lid)					//Stocking them papers
 			var/obj/item/weapon/paper/C = O
 			user.drop_item(C)
@@ -388,12 +366,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		else if(screen == 0)	//Faxing them papers
 			var/pass = 0
 			var/sendto = input("Select department.", "Send Fax", null, null) in allConsoles
-			for (var/obj/machinery/message_server/MS in world)
+			for (var/obj/machinery/message_server/MS in machines)
 				if(!MS.active) continue
 				pass = 1
 			if(pass)
 				var/sent = 0
-				for(var/obj/machinery/requests_console/Console in world)
+				for(var/cc in allConsoles)
+					var/obj/machinery/requests_console/Console = cc
 					if(Console == sendto)
 						if(Console.paperstock == 0)
 							alert("Error! Receiving console out of paper! Aborting!")

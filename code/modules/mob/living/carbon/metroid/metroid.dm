@@ -60,21 +60,22 @@
 
 	var/core_removal_stage = 0 //For removing cores.
 
-/mob/living/carbon/slime/New(var/location, var/colour="grey")
+/mob/living/carbon/slime/Initialize(mapload, colour = "grey")
+	. = ..()
 
 	verbs += /mob/living/proc/ventcrawl
 
 	src.colour = colour
 	number = rand(1, 1000)
 	name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
-	if (is_adult)mob_size = 6
+	if (is_adult)
+		mob_size = 6
 	real_name = name
 	slime_mutation = mutation_table(colour)
 	mutation_chance = rand(25, 35)
 	var/sanitizedcolour = replacetext(colour, " ", "")
 	coretype = text2path("/obj/item/slime_extract/[sanitizedcolour]")
 	regenerate_icons()
-	..(location)
 
 /mob/living/carbon/slime/movement_delay()
 	if (bodytemperature >= 330.23) // 135 F
@@ -215,7 +216,7 @@
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 
 			else
-				visible_message("<span class='warning'> [M] manages to wrestle \the [name] off!</span>")
+				visible_message("<span class='warning'>[M] manages to wrestle \the [name] off!</span>")
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(90) && !client)
@@ -237,7 +238,7 @@
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 
 			else
-				visible_message("<span class='warning'> [M] manages to wrestle \the [name] off of [Victim]!</span>")
+				visible_message("<span class='warning'>[M] manages to wrestle \the [name] off of [Victim]!</span>")
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(80) && !client)

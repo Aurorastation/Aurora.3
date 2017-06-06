@@ -180,7 +180,7 @@
 			squeals --
 			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
-			src << "\red Your hoarse mousey throat can't squeal just now, stop and take a breath!"
+			src << "<span class='warning'>Your hoarse mousey throat can't squeal just now, stop and take a breath!</span>"
 
 
 //Wrapper verbs for the squeak functions
@@ -225,7 +225,7 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			M << "\blue \icon[src] Squeek!"
+			M << "<span class='notice'>\icon[src] Squeek!</span>"
 			poke(1) //Wake up if stepped on
 			if (prob(95))
 				squeak(0)
@@ -286,12 +286,14 @@
 //TOM IS ALIVE! SQUEEEEEEEE~K :)
 /mob/living/simple_animal/mouse/brown/Tom
 	name = "Tom"
+	real_name = "Tom"
 	desc = "Jerry the cat is not amused."
 
-/mob/living/simple_animal/mouse/brown/Tom/New()
-	..()
+/mob/living/simple_animal/mouse/brown/Tom/Initialize()
+	. = ..()
 	// Change my name back, don't want to be named Tom (666)
 	name = initial(name)
+	real_name = name
 
 /mob/living/simple_animal/mouse/cannot_use_vents()
 	return

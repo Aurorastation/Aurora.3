@@ -386,6 +386,12 @@
 	id = access_paramedic
 	desc = "Paramedic Equipment"
 	region = ACCESS_REGION_MEDBAY
+	
+/var/const/access_detective = 68
+/datum/access/access_detective
+	id = access_detective
+	desc = "Detective Equipment"
+	region = ACCESS_REGION_SECURITY
 
 /******************
 * Central Command *

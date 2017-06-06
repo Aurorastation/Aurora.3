@@ -102,39 +102,39 @@
 
 		establish_db_connection(dbcon)
 		if (!dbcon.IsConnected())
-			src << "\red Action failed! Database link could not be established!"
+			src << "<span class='warning'>Action failed! Database link could not be established!</span>"
 			return
 
 
-		var/DBQuery/check_query = dbcon.NewQuery("SELECT player_ckey, status FROM ss13_player_linking WHERE id = :id")
-		check_query.Execute(list(":id" = request_id))
+		var/DBQuery/check_query = dbcon.NewQuery("SELECT player_ckey, status FROM ss13_player_linking WHERE id = :id:")
+		check_query.Execute(list("id" = request_id))
 
 		if (!check_query.NextRow())
-			src << "\red No request found!"
+			src << "<span class='warning'>No request found!</span>"
 			return
 
 		if (ckey(check_query.item[1]) != ckey || check_query.item[2] != "new")
-			src << "\red Request authentication failed!"
+			src << "<span class='warning'>Request authentication failed!</span>"
 			return
 
 		var/query_contents = ""
-		var/list/query_details = list(":new_status", ":id")
+		var/list/query_details = list("new_status", "id")
 		var/feedback_message = ""
 		switch (href_list["linkingaction"])
 			if ("accept")
-				query_contents = "UPDATE ss13_player_linking SET status = :new_status, updated_at = NOW() WHERE id = :id"
-				query_details[":new_status"] = "confirmed"
-				query_details[":id"] = request_id
+				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, updated_at = NOW() WHERE id = :id:"
+				query_details["new_status"] = "confirmed"
+				query_details["id"] = request_id
 
 				feedback_message = "<font color='green'><b>Account successfully linked!</b></font>"
 			if ("deny")
-				query_contents = "UPDATE ss13_player_linking SET status = :new_status, deleted_at = NOW() WHERE id = :id"
-				query_details[":new_status"] = "rejected"
-				query_details[":id"] = request_id
+				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, deleted_at = NOW() WHERE id = :id:"
+				query_details["new_status"] = "rejected"
+				query_details["id"] = request_id
 
 				feedback_message = "<font color='red'><b>Link request rejected!</b></font>"
 			else
-				src << "\red Invalid command sent."
+				src << "<span class='warning'>Invalid command sent.</span>"
 				return
 
 		var/DBQuery/update_query = dbcon.NewQuery(query_contents)
@@ -214,7 +214,7 @@
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
 	if (config.automute_on && !holder)
 		if (last_message_time)
-			if (world.time - last_message_time < 5)
+			if (world.time - last_message_time < config.macro_trigger)
 				spam_alert++
 				if (spam_alert > 3)
 					if (!(prefs.muted & mute_type))
@@ -222,6 +222,7 @@
 
 					src << "<span class='danger'>You have tripped the macro filter. An auto-mute was applied.</span>"
 					last_message_time = world.time
+					spam_alert = 4
 					return 1
 			else
 				spam_alert = max(0, spam_alert--)
@@ -231,11 +232,11 @@
 		if(!isnull(message) && last_message == message)
 			last_message_count++
 			if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-				src << "\red You have exceeded the spam filter limit for identical messages. An auto-mute was applied."
+				src << "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>"
 				cmd_admin_mute(src.mob, mute_type, 1)
 				return 1
 			if(last_message_count >= SPAM_TRIGGER_WARNING)
-				src << "\red You are nearing the spam filter limit for identical messages."
+				src << "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>"
 				return 0
 
 	last_message = message
@@ -278,7 +279,7 @@
 		src.preload_rsc = pick(config.resource_urls)
 	else src.preload_rsc = 1 // If config.resource_urls is not set, preload like normal.
 
-	src << "\red If the title screen is black, resources are still downloading. Please be patient until the title screen appears."
+	src << "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>"
 
 
 	clients += src
@@ -291,6 +292,35 @@
 		holder.owner = src
 
 	log_client_to_db()
+
+	// New player, and we don't want any.
+	if (!holder)
+		if (config.access_deny_new_players && player_age == -1)
+			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.", ckey = ckey)
+			message_admins("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
+			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from never before seen players.</span>")
+			del(src)
+			return 0
+
+		// Check if the account is too young.
+		if (config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= config.access_deny_new_accounts)
+			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.", ckey = ckey)
+			message_admins("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
+			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from BYOND accounts this young.</span>")
+			del(src)
+			return 0
+
+	if (byond_version < config.client_error_version)
+		src << "<span class='danger'><b>Your version of BYOND is too old!</b></span>"
+		src << config.client_error_message
+		src << "Your version: [byond_version]."
+		src << "Required version: [config.client_error_version] or later."
+		src << "Visit http://www.byond.com/download/ to get the latest version of BYOND."
+		if (holder)
+			src << "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version."
+		else
+			del(src)
+			return 0
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
@@ -306,19 +336,6 @@
 	. = ..()	//calls mob.Login()
 
 	prefs.sanitize_preferences()
-
-	if (byond_version < config.client_error_version)
-		src << "<span class='danger'><b>Your version of BYOND is too old!</b></span>"
-		src << config.client_error_message
-		src << "Your version: [byond_version]."
-		src << "Required version: [config.client_error_version] or later."
-		src << "Visit http://www.byond.com/download/ to get the latest version of BYOND."
-		if (holder)
-			src << "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version."
-		else
-			del(src)
-			return 0
-
 
 	if(holder)
 		add_admin_verbs()
@@ -339,6 +356,8 @@
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	add_aooc_if_necessary()
+
+	check_ip_intel()
 
 	//////////////
 	//DISCONNECT//
@@ -372,26 +391,38 @@
 		return -1
 
 /client/proc/log_client_to_db()
-
-	if ( IsGuestKey(src.key) )
+	if (IsGuestKey(src.key))
 		return
 
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return
 
 	var/sql_ckey = sql_sanitize_text(src.ckey)
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT id, datediff(Now(),firstseen) as age, whitelist_status, migration_status FROM ss13_player WHERE ckey = '[sql_ckey]'")
-	query.Execute()
-	var/sql_id = 0
+	var/DBQuery/query = dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date) FROM ss13_player WHERE ckey = '[sql_ckey]'")
+
+	if(!query.Execute())
+		return
+
+	var/found = 0
 	player_age = 0	// New players won't have an entry so knowing we have a connection we set this to zero to be updated if their is a record.
-	while(query.NextRow())
-		sql_id = query.item[1]
-		player_age = text2num(query.item[2])
-		whitelist_status = text2num(query.item[3])
-		need_saves_migrated = text2num(query.item[4])
-		break
+
+	if (query.NextRow())
+		found = 1
+		player_age = text2num(query.item[1])
+		whitelist_status = text2num(query.item[2])
+		account_join_date = query.item[3]
+		account_age = text2num(query.item[4])
+		if (!account_age)
+			account_join_date = sanitizeSQL(findJoinDate())
+			if (!account_join_date)
+				account_age = -1
+			else
+				var/DBQuery/query_datediff = dbcon.NewQuery("SELECT DATEDIFF(NOW(), [account_join_date])")
+				if (!query_datediff.Execute())
+					return
+				if (query_datediff.NextRow())
+					account_age = text2num(query_datediff.item[1])
 
 	var/DBQuery/query_ip = dbcon.NewQuery("SELECT ckey FROM ss13_player WHERE ip = '[address]'")
 	query_ip.Execute()
@@ -407,13 +438,6 @@
 		related_accounts_cid += "[query_cid.item[1]], "
 		break
 
-	//Just the standard check to see if it's actually a number
-	if(sql_id)
-		if(istext(sql_id))
-			sql_id = text2num(sql_id)
-		if(!isnum(sql_id))
-			return
-
 	var/admin_rank = "Player"
 	if(src.holder)
 		admin_rank = src.holder.rank
@@ -422,15 +446,20 @@
 	var/sql_computerid = sql_sanitize_text(src.computer_id)
 	var/sql_admin_rank = sql_sanitize_text(admin_rank)
 
-
-	if(sql_id)
+	if(found)
 		//Player already identified previously, we need to just update the 'lastseen', 'ip' and 'computer_id' variables
-		var/DBQuery/query_update = dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = '[sql_ip]', computerid = '[sql_computerid]', lastadminrank = '[sql_admin_rank]' WHERE id = [sql_id]")
+		var/DBQuery/query_update = dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = '[sql_ip]', computerid = '[sql_computerid]', lastadminrank = '[sql_admin_rank]', account_join_date = [account_join_date ? "'[account_join_date]'" : "NULL"] WHERE ckey = '[sql_ckey]'")
 		query_update.Execute()
-	else
+	else if (!config.access_deny_new_players)
 		//New player!! Need to insert all the stuff
-		var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO ss13_player (id, ckey, firstseen, lastseen, ip, computerid, lastadminrank) VALUES (null, '[sql_ckey]', Now(), Now(), '[sql_ip]', '[sql_computerid]', '[sql_admin_rank]')")
+		var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date) VALUES ('[sql_ckey]', Now(), Now(), '[sql_ip]', '[sql_computerid]', '[sql_admin_rank]', [account_join_date ? "'[account_join_date]'" : "NULL"])")
 		query_insert.Execute()
+	else
+		// Flag as -1 to know we have to kiiick them.
+		player_age = -1
+
+	if (!account_join_date)
+		account_join_date = "Error"
 
 	//Logging player access
 	var/serverip = "[world.internet_address]:[world.port]"
@@ -487,9 +516,9 @@
 		return
 
 	var/list/requests = list()
-	var/list/query_details = list(":ckey" = ckey)
+	var/list/query_details = list("ckey" = ckey)
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, forum_id, forum_username, datediff(Now(), created_at) as request_age FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, forum_id, forum_username, datediff(Now(), created_at) as request_age FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")
 	select_query.Execute(query_details)
 
 	while (select_query.NextRow())
@@ -524,8 +553,8 @@
 	if (!dbcon.IsConnected())
 		return
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
-	select_query.Execute(list(":ckey" = ckey))
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")
+	select_query.Execute(list("ckey" = ckey))
 
 	if (select_query.NextRow())
 		if (text2num(select_query.item[1]) > 0)
@@ -584,6 +613,32 @@
 	server_greeting.find_outdated_info(src, 1)
 
 	server_greeting.display_to_client(src)
+
+/client/proc/check_ip_intel()
+	set waitfor = 0 //we sleep when getting the intel, no need to hold up the client connection while we sleep
+	if (config.ipintel_email)
+		var/datum/ipintel/res = get_ip_intel(address)
+		if (config.ipintel_rating_kick && res.intel >= config.ipintel_rating_kick)
+			message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
+			log_admin("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
+			to_chat(src, "<span class='danger'>Usage of proxies is not permitted by the rules. You are being kicked because of this.</span>")
+			del(src)
+		else if (res.intel >= config.ipintel_rating_bad)
+			message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.")
+		ip_intel = res.intel
+
+/client/proc/findJoinDate()
+	var/list/http = world.Export("http://byond.com/members/[ckey]?format=text")
+	if(!http)
+		log_debug("ACCESS CONTROL: Failed to connect to byond age check for [ckey]")
+		return
+	var/F = file2text(http["CONTENT"])
+	if(F)
+		var/regex/R = regex("joined = \"(\\d{4}-\\d{2}-\\d{2})\"")
+		if(R.Find(F))
+			. = R.group[1]
+		else
+			CRASH("Age check regex failed for [src.ckey]")
 
 // Byond seemingly calls stat, each tick.
 // Calling things each tick can get expensive real quick.

@@ -299,7 +299,7 @@
 
 /obj/structure/closet/secure_closet/detective
 	name = "detective's cabinet"
-	req_access = list(access_forensics_lockers)
+	req_access = list(access_detective)
 	icon_state = "cabinetdetective_locked"
 	icon_closed = "cabinetdetective"
 	icon_locked = "cabinetdetective_locked"
@@ -355,7 +355,7 @@
 		new /obj/item/clothing/under/det/forensics(src)
 		new /obj/item/clothing/suit/storage/forensics/blue(src)
 		new /obj/item/clothing/suit/storage/forensics/red(src)
-		new /obj/item/clothing/suit/storage/vest/detective(src)
+		new /obj/item/clothing/suit/storage/vest/csi(src)
 		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/shoes/brown(src)
 		new /obj/item/weapon/storage/box/evidence(src)

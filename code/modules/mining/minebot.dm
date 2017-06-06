@@ -15,9 +15,8 @@
 	var/melee_upgrade
 	var/drill_upgrade
 
-/mob/living/silicon/robot/drone/mining/New()
-
-	..()
+/mob/living/silicon/robot/drone/mining/Initialize()
+	. = ..()
 
 	verbs += /mob/living/proc/hide
 	remove_language("Robot Talk")
@@ -49,9 +48,17 @@
 	additional_law_channels["Drone"] = ":d"
 	if(!laws) laws = new law_type
 	if(!module) module = new module_type(src)
+	if(!jetpack)
+		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 
 	flavor_text = "It's a tiny little mining drone. The casing is stamped with an corporate logo and the subscript: '[company_name] Automated Pickaxe!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
+
+/mob/living/silicon/robot/drone/mining/request_player()
+	if(too_many_active_drones())
+		return
+	var/datum/ghosttrap/G = get_ghost_trap("mining drone")
+	G.request_player(src, "Someone is attempting to reboot a mining drone.", 30 SECONDS)
 
 /mob/living/silicon/robot/drone/mining/welcome_drone()
 	src << "<b>You are a mining drone, a tiny-brained robotic industrial machine</b>."
@@ -67,59 +74,43 @@
 
 	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
 
-		if(stat == 2)
+		var/choice = input("Select your choice.") in list("Reboot","Recycle")
+		if(choice=="Reboot")
 
-			var/choice = input("Look at your icon - is this what you want?") in list("Reboot","Recycle")
-			if(choice=="Reboot")
-
-				if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
-					user << "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>"
-					return
-
-				if(!allowed(usr))
-					user << "<span class='danger'>Access denied.</span>"
-					return
-
-				user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to reboot it.</span>", "<span class='danger'>>You swipe your ID card through \the [src], attempting to reboot it.</span>")
-				request_player()
+			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+				user << "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>"
 				return
 
-			else
-				var/obj/item/weapon/card/id/ID = W
-				if(!allowed(usr))
-					user << "<span class='danger'>Access denied.</span>"
-					return
-
-				user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], recycling it into points.</span>", "<span class='danger'>>You swipe your ID card through \the [src], recycling it into points.</span>")
-				ID.mining_points += 800
-				if(health_upgrade)
-					ID.mining_points += 600
-					health_upgrade = 0
-				if(ranged_upgrade)
-					ID.mining_points += 600
-					ranged_upgrade = 0
-				if(melee_upgrade)
-					ID.mining_points += 400
-					melee_upgrade = 0
-				if(drill_upgrade)
-					ID.mining_points += 2000
-					drill_upgrade = 0
-				qdel(src)
+			if(!allowed(usr))
+				user << "<span class='danger'>Access denied.</span>"
 				return
+
+			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to reboot it.</span>", "<span class='danger'>>You swipe your ID card through \the [src], attempting to reboot it.</span>")
+			request_player()
+			return
 
 		else
-			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to shut it down.</span>", "<span class='danger'>You swipe your ID card through \the [src], attempting to shut it down.</span>")
-
-			if(emagged)
+			var/obj/item/weapon/card/id/ID = W
+			if(!allowed(usr))
+				user << "<span class='danger'>Access denied.</span>"
 				return
 
-			if(allowed(usr))
-				shut_down()
-			else
-				user << "<span class='danger'>Access denied.</span>"
-
-		return
-
+			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], recycling it into points.</span>", "<span class='danger'>>You swipe your ID card through \the [src], recycling it into points.</span>")
+			ID.mining_points += 800
+			if(health_upgrade)
+				ID.mining_points += 600
+				health_upgrade = 0
+			if(ranged_upgrade)
+				ID.mining_points += 600
+				ranged_upgrade = 0
+			if(melee_upgrade)
+				ID.mining_points += 400
+				melee_upgrade = 0
+			if(drill_upgrade)
+				ID.mining_points += 2000
+				drill_upgrade = 0
+			qdel(src)
+			return
 	..()
 
 /mob/living/silicon/robot/drone/mining/verb/print_report()
@@ -190,6 +181,8 @@
 		new /obj/item/weapon/robot_module/mining_drone/drill(M)
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
+	if(!M.jetpack)
+		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 	qdel(src)
 
 /obj/item/device/mine_bot_ugprade/health
@@ -225,6 +218,8 @@
 	M.ranged_upgrade = 1
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
+	if(!M.jetpack)
+		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 	qdel(src)
 
 /obj/item/device/mine_bot_ugprade/thermal
@@ -240,4 +235,6 @@
 	M.emagged = 1
 	M.fakeemagged = 1
 	M.drill_upgrade = 1
+	if(!M.jetpack)
+		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 	qdel(src)

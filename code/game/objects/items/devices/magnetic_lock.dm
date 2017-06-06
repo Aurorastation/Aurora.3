@@ -112,8 +112,7 @@
 			user.visible_message("<span class='danger'>[user] bashes [src] with [I]!</span>", "<span class='danger'>You strike [src] with [I], damaging it!</span>")
 			takedamage(I.force)
 			playsound(loc, "sound/weapons/genhit[rand(1,3)].ogg", I.force*3, 1)
-			spawn(3)
-				playsound(loc, "sound/effects/sparks[rand(1,4)].ogg", 30, 1)
+			addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, loc, "sound/effects/sparks[rand(1,4)].ogg", 30, 1), 3, TIMER_CLIENT_TIME)
 			return
 		else
 			user.visible_message("<span class='danger'>[user] hits [src] with [I] but fails to damage it.</span>", "<span class='warning'>You hit [src] with [I], [I.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]</span>")
@@ -342,7 +341,7 @@
 			target_node2 = null
 		anchored = 0
 
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 		last_process_time = 0
 
 /obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
@@ -352,7 +351,7 @@
 	target = newtarget
 
 	last_process_time = world.time
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	anchored = 1
 
 	spawn(-15)
@@ -419,10 +418,7 @@
 		return
 
 	if (prob(50))
-		spark()
-
-/obj/item/device/magnetic_lock/proc/spark()
-	spark(target ? target : src, 5, alldirs)
+		spark(target ? target : src, 5, alldirs)
 
 #undef STATUS_INACTIVE
 #undef STATUS_ACTIVE

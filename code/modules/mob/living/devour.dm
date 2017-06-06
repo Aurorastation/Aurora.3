@@ -38,7 +38,7 @@
 	face_atom(victim)
 
 	if (victim == src)
-		src << "\red You can't eat yourself!"
+		src << "<span class='warning'>You can't eat yourself!</span>"
 		return 0
 
 	if (devouring == victim)
@@ -57,19 +57,19 @@
 	//Nymphs have seperate mechanics for gaining biomass from other diona
 	//This check prevents the exploit of almost-devouring a nymph, and then absorbing it to gain double biomass
 	if (victim.is_diona() && src.is_diona())
-		src << "\red You can't eat other diona!"
+		src << "<span class='warning'>You can't eat other diona!</span>"
 		return 0
 
 	if (!src.Adjacent(victim))
-		src << "\red That creature is too far away, move closer!"
+		src << "<span class='warning'>That creature is too far away, move closer!</span>"
 		return 0
 
 	if (!is_valid_for_devour(victim, eat_types))
-		src << "\red You can't eat that type of creature!"
+		src << "<span class='warning'>You can't eat that type of creature!</span>"
 		return 0
 
 	if (!victim.mob_size || !src.mob_size)
-		src << "<span class='danger'> Error, no mob size defined for [victim.type]! You have encountered a bug, report it on github </span>"
+		src << "<span class='danger'>Error, no mob size defined for [victim.type]! You have encountered a bug, report it on github </span>"
 		return 0
 
 	if (!mouth_size)

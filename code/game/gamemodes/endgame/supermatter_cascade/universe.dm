@@ -57,6 +57,8 @@ var/global/universe_has_ended = 0
 	// Disable Nar-Sie.
 	cult.allow_narsie = 0
 
+	SSgarbage.collection_timeout = 20 MINUTES	// Yeah, no point trying to hard-del stuff at this point.
+
 	PlayerSet()
 
 	new /obj/singularity/narsie/large/exit(pick(endgame_exits))

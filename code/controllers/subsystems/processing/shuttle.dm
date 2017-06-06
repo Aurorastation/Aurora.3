@@ -201,7 +201,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	ERT.area_offsite = locate(/area/shuttle/specops/station)	//centcom is the home station, the Exodus is offsite
 	ERT.area_station = locate(/area/shuttle/specops/centcom)
 	ERT.docking_controller_tag = "specops_shuttle_port"
-	ERT.docking_controller_tag_station = "specops_shuttle_port"
+	ERT.docking_controller_tag_station = "ert_shuttle_dock_airlock"
 	ERT.docking_controller_tag_offsite = "specops_shuttle_fore"
 	ERT.dock_target_station = "specops_centcom_dock"
 	ERT.dock_target_offsite = "specops_dock_airlock"

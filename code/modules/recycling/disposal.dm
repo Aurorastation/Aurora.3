@@ -97,7 +97,7 @@
 
 	if(istype(I, /obj/item/weapon/storage/bag/trash))
 		var/obj/item/weapon/storage/bag/trash/T = I
-		user << "\blue You empty the bag."
+		user << "<span class='notice'>You empty the bag.</span>"
 		for(var/obj/item/O in T.contents)
 			T.remove_from_storage(O,src)
 		T.update_icon()
@@ -113,9 +113,9 @@
 				L.forceMove(src)
 
 			if (count)
-				user << "\blue You empty [count] broken bulbs into the disposal."
+				user << "<span class='notice'>You empty [count] broken bulbs into the disposal.</span>"
 			else
-				user << "\blue There are no broken bulbs to empty out."
+				user << "<span class='notice'>There are no broken bulbs to empty out.</span>"
 			update()
 			return
 
@@ -131,11 +131,11 @@
 					GM.client.eye = src
 				GM.forceMove(src)
 				for (var/mob/C in viewers(src))
-					C.show_message("\red [GM.name] has been placed in the [src] by [user].", 3)
+					C.show_message("<span class='warning'>[GM.name] has been placed in the [src] by [user].</span>", 3)
 				qdel(G)
 				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has placed [GM.name] ([GM.ckey]) in disposals.</font>")
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
-				msg_admin_attack("[usr] ([usr.ckey]) placed [GM] ([GM.ckey]) in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
+				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
 		return
 	if(!dropsafety(I))
 		return
@@ -236,7 +236,7 @@
 		return
 
 	if(user && user.loc == src)
-		usr << "\red You cannot reach the controls from inside."
+		usr << "<span class='warning'>You cannot reach the controls from inside.</span>"
 		return
 
 	// Clumsy folks can only flush it.
@@ -285,11 +285,11 @@
 
 /obj/machinery/disposal/Topic(href, href_list)
 	if(usr.loc == src)
-		usr << "\red You cannot reach the controls from inside."
+		usr << "<span class='warning'>You cannot reach the controls from inside.</span>"
 		return
 
 	if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
-		usr << "\red The disposal units power is disabled."
+		usr << "<span class='warning'>The disposal units power is disabled.</span>"
 		return
 	if(..())
 		return
@@ -336,7 +336,7 @@
 
 // update the icon & overlays to reflect mode & status
 /obj/machinery/disposal/proc/update()
-	overlays.Cut()
+	cut_overlays()
 	if(stat & BROKEN)
 		icon_state = "disposal-broken"
 		mode = 0
@@ -345,7 +345,7 @@
 
 	// flush handle
 	if(flush)
-		overlays += image('icons/obj/pipes/disposal.dmi', "dispover-handle")
+		add_overlay("dispover-handle")
 
 	// only handle is shown if no power
 	if(stat & NOPOWER || mode == -1)
@@ -353,13 +353,13 @@
 
 	// 	check for items in disposal - occupied light
 	if(contents.len > 0)
-		overlays += image('icons/obj/pipes/disposal.dmi', "dispover-full")
+		add_overlay("dispover-full")
 
 	// charging and ready light
 	if(mode == 1)
-		overlays += image('icons/obj/pipes/disposal.dmi', "dispover-charge")
+		add_overlay("dispover-charge")
 	else if(mode == 2)
-		overlays += image('icons/obj/pipes/disposal.dmi', "dispover-ready")
+		add_overlay("dispover-ready")
 
 // timed process
 // charge the gas reservoir and perform flush if ready
@@ -575,7 +575,7 @@
 	if (!curr)
 		//spawn (0)	// expel() can sleep, so we gotta fork to not upset SSdisposals.
 		STOP_PROCESSING(SSdisposals, src)
-		tick_last.expel(src, loc.loc, dir)
+		tick_last.expel(src, get_turf(loc), dir)
 
 	if (!(count--))
 		STOP_PROCESSING(SSdisposals, src)
@@ -750,14 +750,14 @@
 	// expel the held objects into a turf
 	// called when there is a break in the pipe
 /obj/structure/disposalpipe/proc/expel(var/obj/disposalholder/H, var/turf/T, var/direction)
-	if(!istype(H))
+	if(!istype(H) || !istype(T))
 		return
 
 	// Empty the holder if it is expelled into a dense turf.
 	// Leaving it intact and sitting in a wall is stupid.
 	if(T.density)
 		for(var/atom/movable/AM in H)
-			AM.loc = T
+			AM.forceMove(T)
 			AM.pipe_eject(0)
 		qdel(H)
 		return
@@ -934,7 +934,7 @@
 				AM.forceMove(T)
 				AM.pipe_eject(0)
 			qdel(H)
-			
+
 			return ..()
 
 		// otherwise, do normal expel from turf
@@ -1127,7 +1127,7 @@
 /obj/structure/disposalpipe/tagger/Initialize()
 	. = ..()
 	dpdir = dir | turn(dir, 180)
-	if(sort_tag) 
+	if(sort_tag)
 		SSdisposals.tagger_locations |= sort_tag
 
 	updatename()
@@ -1144,7 +1144,7 @@
 		if(O.currTag)// Tag set
 			sort_tag = O.currTag
 			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			user << "\blue Changed tag to '[sort_tag]'."
+			user << "<span class='notice'>Changed tag to '[sort_tag]'.</span>"
 			updatename()
 			updatedesc()
 
@@ -1195,7 +1195,7 @@
 
 /obj/structure/disposalpipe/sortjunction/Initialize()
 	. = ..()
-	if(sortType) 
+	if(sortType)
 		SSdisposals.tagger_locations |= sortType
 
 	updatedir()
@@ -1213,7 +1213,7 @@
 		if(O.currTag)// Tag set
 			sortType = O.currTag
 			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			user << "\blue Changed filter to '[sortType]'."
+			user << "<span class='notice'>Changed filter to '[sortType]'.</span>"
 			updatename()
 			updatedesc()
 
@@ -1364,7 +1364,7 @@
 				D.expel(H)	// expel at disposal
 	else
 		if(H)
-			src.expel(H, src.loc, 0)	// expel at turf
+			src.expel(H, get_turf(src), 0)	// expel at turf
 	return null
 
 	// nextdir

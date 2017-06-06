@@ -146,9 +146,8 @@
 
 	var/stacktype = stack.type
 	var/t = getMaterialName(stacktype)
-	overlays += "protolathe_[t]"
-	spawn(10)
-		overlays -= "protolathe_[t]"
+	add_overlay("protolathe_[t]")
+	CUT_OVERLAY_IN("protolathe_[t]", 10)
 
 	busy = 1
 	use_power(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))

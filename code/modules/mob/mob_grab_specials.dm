@@ -77,7 +77,7 @@
 
 	attacker.attack_log += text("\[[time_stamp()]\] <font color='red'>Attacked [target.name]'s eyes using grab ([target.ckey])</font>")
 	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Had eyes attacked by [attacker.name]'s grab ([attacker.ckey])</font>")
-	msg_admin_attack("[key_name(attacker)] attacked [key_name(target)]'s eyes using a grab action.",ckey=key_name(attacker),ckey_target=key_name(target))
+	msg_admin_attack("[key_name_admin(attacker)] attacked [key_name_admin(target)]'s eyes using a grab action.",ckey=key_name(attacker),ckey_target=key_name(target))
 
 	attack.handle_eye_attack(attacker, target)
 

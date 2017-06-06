@@ -166,7 +166,7 @@
 	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 60)
-	base_iconstate = "ind_welder_off"
+	base_iconstate = "ind_welder"
 	origin_tech = list(TECH_ENGINEERING = 2)
 
 
@@ -176,7 +176,7 @@
 	max_fuel = 80
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 120)
-	base_iconstate = "adv_welder_off"
+	base_iconstate = "adv_welder"
 	origin_tech = list(TECH_ENGINEERING = 3)
 
 
@@ -187,7 +187,7 @@
 	max_fuel = 40
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
-	base_iconstate = "exp_welder_off"
+	base_iconstate = "exp_welder"
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
 	base_itemstate = "exp_welder"
 
@@ -218,8 +218,7 @@
 		M.update_inv_r_hand()
 
 /obj/item/weapon/weldingtool/Destroy()
-	if(welding)
-		processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/weapon/weldingtool/examine(mob/user)
@@ -435,9 +434,9 @@
 //A wrapper function for the experimental tool to override
 /obj/item/weapon/weldingtool/proc/set_processing(var/state = 0)
 	if (state == 1)
-		processing_objects.Add(src)
+		START_PROCESSING(SSprocessing, src)
 	else
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 
 
 //Decides whether or not to damage a player's eyes based on what they're wearing as protection
@@ -477,26 +476,26 @@
 				user.eye_blind = 5
 				user.eye_blurry = 5
 				user.disabilities |= NEARSIGHTED
-				spawn(100)
-					user.disabilities &= ~NEARSIGHTED
-
-	return
+				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
 
 
+// This is on /mob instead of the welder so the timer is stopped when the mob is deleted.
+/mob/proc/reset_nearsighted()
+	disabilities &= ~NEARSIGHTED
 
 
 /obj/item/weapon/weldingtool/Destroy()
-	processing_objects.Remove(src)//Stop processing when destroyed regardless of conditions
+	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
 	return ..()
 
 
 //Make sure the experimental tool only stops processing when its turned off AND full
 /obj/item/weapon/weldingtool/experimental/set_processing(var/state = 0)
 	if (state == 1)
-		processing_objects.Add(src)
+		START_PROCESSING(SSprocessing, src)
 		last_gen = world.time
 	else if (welding == 0 && get_fuel() >= max_fuel)
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 
 
 /obj/item/weapon/weldingtool/experimental/process()

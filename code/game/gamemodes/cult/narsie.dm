@@ -80,7 +80,7 @@ var/global/list/narsie_list = list()
 			if(M.status_flags & GODMODE)
 				continue
 			if(!iscultist(M))
-				M << "<span class='danger'> You feel your sanity crumble away in an instant as you gaze upon [src.name]...</span>"
+				M << "<span class='danger'>You feel your sanity crumble away in an instant as you gaze upon [src.name]...</span>"
 				M.apply_effect(3, STUN)
 
 
@@ -108,7 +108,15 @@ var/global/list/narsie_list = list()
 		movement_dir = force_move
 
 	if(target && prob(60))
-		movement_dir = get_dir(src,target)
+		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
+		if(target.z < z)
+			visible_message("<span class='danger'>\The [src] descends ominously.</span>")
+			zMove(DOWN)
+			visible_message("<span class='danger'>\The [src] appears from on high.</span>")
+		else if(target.z > z)
+			visible_message("<span class='danger'>\The [src] ascends ominously.</span>")
+			zMove(UP)
+			visible_message("<span class='danger'>\The [src] claws its way up from below.</span>")
 
 	spawn(0)
 		step(src, movement_dir)
@@ -126,7 +134,16 @@ var/global/list/narsie_list = list()
 		movement_dir = force_move
 
 	if(target && prob(60))
-		movement_dir = get_dir(src,target)
+		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
+		if(target.z < z)
+			visible_message("<span class='danger'>\The [src] descends ominously.</span>")
+			zMove(DOWN)
+			visible_message("<span class='danger'>\The [src] appears from on high.</span>")
+		else if(target.z > z)
+			visible_message("<span class='danger'>\The [src] ascends ominously.</span>")
+			zMove(UP)
+			visible_message("<span class='danger'>\The [src] claws its way up from below.</span>")
+
 	spawn(0)
 		step(src, movement_dir)
 		narsiefloor(get_turf(loc))

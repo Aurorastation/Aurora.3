@@ -52,9 +52,9 @@
 	if(!..(user,1 ))
 		return
 	if(active)
-		usr << "\blue The generator is on."
+		usr << "<span class='notice'>The generator is on.</span>"
 	else
-		usr << "\blue The generator is off."
+		usr << "<span class='notice'>The generator is off.</span>"
 
 /obj/machinery/power/port_gen/emp_act(severity)
 	var/duration = 6000 //ten minutes
@@ -257,9 +257,9 @@
 		var/obj/item/stack/addstack = O
 		var/amount = min((max_sheets - sheets), addstack.amount)
 		if(amount < 1)
-			user << "\blue The [src.name] is full!"
+			user << "<span class='notice'>The [src.name] is full!</span>"
 			return
-		user << "\blue You add [amount] sheet\s to the [src.name]."
+		user << "<span class='notice'>You add [amount] sheet\s to the [src.name].</span>"
 		sheets += amount
 		addstack.use(amount)
 		updateUsrDialog()
@@ -269,10 +269,10 @@
 
 			if(!anchored)
 				connect_to_network()
-				user << "\blue You secure the generator to the floor."
+				user << "<span class='notice'>You secure the generator to the floor.</span>"
 			else
 				disconnect_from_network()
-				user << "\blue You unsecure the generator from the floor."
+				user << "<span class='notice'>You unsecure the generator from the floor.</span>"
 
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
@@ -281,9 +281,9 @@
 			open = !open
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			if(open)
-				user << "\blue You open the access panel."
+				user << "<span class='notice'>You open the access panel.</span>"
 			else
-				user << "\blue You close the access panel."
+				user << "<span class='notice'>You close the access panel.</span>"
 		else if(istype(O, /obj/item/weapon/crowbar) && open)
 			var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 			for(var/obj/item/I in component_parts)
@@ -331,7 +331,7 @@
 
 
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "pacman.tmpl", src.name, 500, 560)
 		ui.set_initial_data(data)

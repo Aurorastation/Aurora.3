@@ -29,6 +29,7 @@ var/global/list/robot_modules = list(
 	var/list/modules = list()
 	var/list/datum/matter_synth/synths = list()
 	var/obj/item/emag = null
+	var/obj/item/malfAImodule = null
 	var/obj/item/borg/upgrade/jetpack = null
 	var/list/subsystems = list()
 	var/list/obj/item/borg/upgrade/supported_upgrades = list()
@@ -79,7 +80,9 @@ var/global/list/robot_modules = list(
 	synths.Cut()
 	qdel(emag)
 	qdel(jetpack)
+	qdel(malfAImodule)
 	emag = null
+	malfAImodule = null
 	jetpack = null
 	return ..()
 
@@ -363,6 +366,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
 	src.modules += new /obj/item/weapon/gripper(src)
+	src.malfAImodule += new /obj/item/weapon/rtf(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal()
 	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel()
@@ -407,7 +411,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
 	src.modules += new /obj/item/weapon/inflatable_dispenser(src)
-	src.emag = new /obj/item/borg/stun(src)
+	src.emag = new /obj/item/weapon/melee/baton/robot/arm(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(60000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(40000)
@@ -719,7 +723,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/sight/thermal(src)
 	src.modules += new /obj/item/weapon/melee/energy/sword(src)
 	src.modules += new /obj/item/weapon/gun/energy/mountedsmg(src)
-	src.modules += new /obj/item/weapon/gun/energy/crossbow/cyborg(src)
+	src.modules += new /obj/item/weapon/gun/energy/net/mounted(src)
 	src.modules += new /obj/item/weapon/gun/launcher/grenade/cyborg(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/weapon/card/emag(src)
@@ -864,7 +868,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/mining_drone/drill/New(var/mob/living/silicon/robot/robot)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/material(src)
-	src.modules += new /obj/item/weapon/storage/bag/ore(src)
+	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
 	src.modules += new /obj/item/weapon/pickaxe/jackhammer(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
@@ -877,7 +881,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/mining_drone/plasmacutter/New(var/mob/living/silicon/robot/robot)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/material(src)
-	src.modules += new /obj/item/weapon/storage/bag/ore(src)
+	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
 	src.modules += new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
@@ -890,7 +894,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/mining_drone/drillandplasmacutter/New(var/mob/living/silicon/robot/robot)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/material(src)
-	src.modules += new /obj/item/weapon/storage/bag/ore(src)
+	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
 	src.modules += new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
 	src.modules += new /obj/item/weapon/pickaxe/jackhammer(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)

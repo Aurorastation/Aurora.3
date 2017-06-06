@@ -417,6 +417,8 @@ proc/get_id_photo(var/mob/living/carbon/human/H, var/assigned_role)
 	G.fields["notes"] = "No notes found."
 	general += G
 
+	G.inDataCore = 1
+
 	return G
 
 /datum/datacore/proc/CreateSecurityRecord(var/name, var/id, var/incidents)
@@ -434,6 +436,8 @@ proc/get_id_photo(var/mob/living/carbon/human/H, var/assigned_role)
 	R.fields["notes"] = "No notes."
 	R.fields["incidents"]	= incidents
 	data_core.security += R
+
+	R.inDataCore = 1
 
 	return R
 
@@ -455,6 +459,8 @@ proc/get_id_photo(var/mob/living/carbon/human/H, var/assigned_role)
 	M.fields["cdi_d"]		= "No diseases have been diagnosed at the moment."
 	M.fields["notes"] = "No notes found."
 	data_core.medical += M
+
+	M.inDataCore = 1
 
 	return M
 

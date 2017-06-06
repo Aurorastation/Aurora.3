@@ -144,9 +144,14 @@ area/space/atmosalert()
 	if (!istype(Obj, /mob/living) || !SSarrivals)
 		return
 
-	log_debug("SSarrivals: [Obj] has entered arrival shuttle hotzone.")
+	SSarrivals.on_hotzone_enter(Obj)
 
-	SSarrivals.on_hotzone_enter()
+/area/shuttle/arrival/centcom/Exited(atom/movable/Obj, atom/newLoc)
+	. = ..()
+	if (!istype(Obj, /mob/living) || !SSarrivals)
+		return
+
+	SSarrivals.on_hotzone_exit(Obj)
 
 /area/shuttle/arrival/transit
 	icon_state = "shuttle2"
@@ -396,6 +401,11 @@ area/space/atmosalert()
 /area/syndicate_mothership/elite_squad
 	name = "\improper Elite Mercenary Squad"
 	icon_state = "syndie-elite"
+	
+/area/syndicate_mothership/raider_base
+	name = "\improper Pirate Hideout"
+	icon_state = "syndie-control"
+	dynamic_lighting = 1
 
 //EXTRA
 
@@ -464,7 +474,7 @@ area/space/atmosalert()
 
 //names are used
 /area/syndicate_station
-	name = "\improper Independant Station"
+	name = "\improper Independent Station"
 	icon_state = "yellow"
 	requires_power = 0
 	flags = RAD_SHIELDED
@@ -754,7 +764,7 @@ area/space/atmosalert()
 
 //Hallway
 
-/area/hallway/primary/
+/area/hallway
 	sound_env = LARGE_ENCLOSED
 	allow_nightmode = 1
 	station_area = 1
@@ -812,6 +822,10 @@ area/space/atmosalert()
 /area/hallway/secondary/entry/aft
 	name = "\improper Arrival Shuttle Hallway - Aft"
 	icon_state = "entry_4"
+
+/area/hallway/secondary/entry/dock
+	name = "\improper Arrival Shuttle Dock"
+	icon_state = "arrivals_dock"
 
 //Command
 
@@ -967,7 +981,7 @@ area/space/atmosalert()
 	allow_nightmode = 1
 
 /area/crew_quarters/locker/locker_toilet
-	name = "\improper Locker Toilets"
+	name = "\improper Main Level Toilets"
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
 
@@ -1184,7 +1198,6 @@ area/space/atmosalert()
 /area/solar
 	requires_power = 1
 	always_unpowered = 1
-	dynamic_lighting = 0
 	base_turf = /turf/space
 	station_area = 1
 
@@ -1968,25 +1981,21 @@ area/space/atmosalert()
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/AIsatextFS
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/AIsatextAS
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/AIsatextAP
 	name = "\improper AI Sat Ext"
 	icon_state = "storage"
 	luminosity = 1
-	dynamic_lighting = 0
 
 /area/turret_protected/NewAIMain
 	name = "\improper AI Main New"
@@ -2066,6 +2075,10 @@ area/space/atmosalert()
 /area/tcommsat/powercontrol
 	name = "\improper Telecommunications Power Control"
 	icon_state = "tcomsatwest"
+
+/area/tcommsat/mainlvl_tcomms__relay
+	name = "\improper Telecommucations Main Level Relay"
+	icon_state = "tcomsatcham"
 
 /////////////////////////////////////////////////////////////////////
 /*

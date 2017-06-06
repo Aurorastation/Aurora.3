@@ -17,29 +17,39 @@
 
 /turf/unsimulated/wall/supermatter/Initialize()
 	. = ..()
-	// Kick-start the timer chain.
-	addtimer(CALLBACK(src, .proc/tick), 5 SECONDS)
+	START_PROCESSING(SScalamity, src)
 
-/turf/unsimulated/wall/supermatter/proc/tick()
+/turf/unsimulated/wall/supermatter/process()
+	if (!(SScalamity.times_fired % 2))
+		// SScalamity ticks every 2s, we want to process every 4.
+		return
+
+
 	// No more available directions? Bail.
 	if(avail_dirs.len == 0)
+		STOP_PROCESSING(SScalamity, src)
 		return
 
 	// Choose a direction.
 	var/pdir = pick(avail_dirs)
 	avail_dirs -= pdir
 	var/turf/T = get_step(src, pdir)
+	var/turf/A = GetAbove(T)
+	var/turf/B = GetBelow(T)
 
 	// EXPAND
 	if(!istype(T,type))
 		// Do pretty fadeout animation for 1s.
 		new /obj/effect/overlay/bluespacify(T)
 		addtimer(CALLBACK(src, .proc/after_tick, T), 10)
-
+		if(A && !istype(A,type))
+			new /obj/effect/overlay/bluespacify(A)
+			addtimer(CALLBACK(src, .proc/after_tick, A), 10)
+		if(B && !istype(B,type))
+			new /obj/effect/overlay/bluespacify(B)
+			addtimer(CALLBACK(src, .proc/after_tick, B), 10)
 	if((spawned & (NORTH|SOUTH|EAST|WEST)) == (NORTH|SOUTH|EAST|WEST))
-		return
-
-	addtimer(CALLBACK(src, .proc/tick), 5 SECONDS)
+		STOP_PROCESSING(SScalamity, src)
 
 /turf/unsimulated/wall/supermatter/proc/after_tick(turf/T)
 	T.lighting_clear_overlay()
@@ -114,3 +124,6 @@
 		return
 
 	qdel(user)
+
+/turf/unsimulated/wall/supermatter/no_spread
+	avail_dirs = list()

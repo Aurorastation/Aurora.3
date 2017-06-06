@@ -148,8 +148,8 @@
 	endedAt = world.time
 
 	if(!dummy)
-		event_manager.active_events -= src
-		event_manager.event_complete(src)
+		SSevents.active_events -= src
+		SSevents.event_complete(src)
 
 
 
@@ -166,7 +166,7 @@
 	if (dummy)
 		return
 	// event needs to be responsible for this, as stuff like APLUs currently make their own events for curious reasons
-	event_manager.active_events += src
+	SSevents.active_events += src
 	startedAt = world.time
 
 	setup()

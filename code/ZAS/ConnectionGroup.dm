@@ -58,13 +58,12 @@ Class Procs:
 */
 
 
-/connection_edge/var/zone/A
-
-/connection_edge/var/list/connecting_turfs = list()
-/connection_edge/var/direct = 0
-/connection_edge/var/sleeping = 1
-
-/connection_edge/var/coefficient = 0
+/connection_edge
+	var/zone/A
+	var/list/connecting_turfs = list()
+	var/direct = 0
+	var/sleeping = 1
+	var/coefficient = 0
 
 /connection_edge/New()
 	CRASH("Cannot make connection edge without specifications.")
@@ -115,11 +114,10 @@ Class Procs:
 
 			M.airflow_dest = pick(close_turfs) //Pick a random midpoint to fly towards.
 
-			if(repelled) spawn if(M) M.RepelAirflowDest(differential/5)
-			else spawn if(M) M.GotoAirflowDest(differential/10)
-
-
-
+			if(repelled)
+				M.RepelAirflowDest(differential/5)
+			else
+				M.GotoAirflowDest(differential/10)
 
 /connection_edge/zone/var/zone/B
 
@@ -127,26 +125,26 @@ Class Procs:
 
 	src.A = A
 	src.B = B
-	A.edges.Add(src)
-	B.edges.Add(src)
+	LAZYADD(A.edges, src)
+	LAZYADD(B.edges, src)
 	//id = edge_id(A,B)
 //	log_debug("New edge between [A] and [B]")
 
 
 /connection_edge/zone/add_connection(connection/c)
 	. = ..()
-	connecting_turfs.Add(c.A)
+	connecting_turfs += c.A
 
 /connection_edge/zone/remove_connection(connection/c)
-	connecting_turfs.Remove(c.A)
+	connecting_turfs -= c.A
 	. = ..()
 
 /connection_edge/zone/contains_zone(zone/Z)
 	return A == Z || B == Z
 
 /connection_edge/zone/erase()
-	A.edges.Remove(src)
-	B.edges.Remove(src)
+	LAZYREMOVE(A.edges, src)
+	LAZYREMOVE(B.edges, src)
 	. = ..()
 
 /connection_edge/zone/tick()
@@ -198,7 +196,7 @@ Class Procs:
 /connection_edge/unsimulated/New(zone/A, turf/B)
 	src.A = A
 	src.B = B
-	A.edges.Add(src)
+	LAZYADD(A.edges, src)
 	air = B.return_air()
 	//id = 52*A.id
 //	log_debug("New edge from [A] to [B].")
@@ -215,7 +213,7 @@ Class Procs:
 	. = ..()
 
 /connection_edge/unsimulated/erase()
-	A.edges.Remove(src)
+	LAZYREMOVE(A.edges, src)
 	. = ..()
 
 /connection_edge/unsimulated/contains_zone(zone/Z)

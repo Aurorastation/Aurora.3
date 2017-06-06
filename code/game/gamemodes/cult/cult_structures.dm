@@ -68,7 +68,6 @@
 
 	var/damagetaken = 0
 	var/empowered = 0 //Number of empowered, higher-damage shots remaining
-	var/processing = 0
 	var/mob/living/sacrifice //Holds a reference to a mob that is a pending sacrifice
 	var/mob/living/sacrificer //A reference to the last mob that attempted to sacrifice something. So we can message them
 	//Sacrifier is also used in target handling. the pylon will not bite the hand that feeds it. Noncultist colleagues are fair game though
@@ -101,7 +100,7 @@
 
 
 /obj/structure/cult/pylon/Destroy()
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 //Another subtype which starts with infinite empower shots. For empowered adminbus
@@ -134,9 +133,7 @@
 
 /obj/structure/cult/pylon/proc/start_process()
 	process_interval = 1
-	if (!processing)
-		processing_objects += src
-		processing = 1
+	START_PROCESSING(SSprocessing, src)
 
 
 //If the pylon goes a long time without shooting anything, it will consider slowing down processing
@@ -186,8 +183,7 @@
 /obj/structure/cult/pylon/process()
 	ticks++
 	if(!check_process())
-		processing_objects.Remove(src)
-		processing = 0
+		STOP_PROCESSING(SSprocessing, src)
 		return
 
 	switch (pylonmode)

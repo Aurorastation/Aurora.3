@@ -18,13 +18,12 @@
 	var/space_speed = 1
 	var/bike_icon = "bike"
 
-	var/datum/effect/effect/system/ion_trail_follow/ion
+	var/datum/effect_system/ion_trail/ion
 	var/kickstand = 1
 
 /obj/vehicle/bike/New()
 	..()
-	ion = new /datum/effect/effect/system/ion_trail_follow()
-	ion.set_up(src)
+	ion = new(src)
 	turn_off()
 	overlays += image('icons/obj/bike.dmi', "[icon_state]_off_overlay", MOB_LAYER + 1)
 	icon_state = "[bike_icon]_off"
@@ -39,6 +38,7 @@
 	if(!on)
 		turn_on()
 		src.visible_message("\The [src] rumbles to life.", "You hear something rumble deeply.")
+		playsound(src, 'sound/misc/bike_start.ogg', 50, 1)
 	else
 		turn_off()
 		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
@@ -52,11 +52,13 @@
 
 	if(kickstand)
 		src.visible_message("\The [usr] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
+		playsound(src, 'sound/misc/bike_stand_up.ogg', 50, 1)
 	else
 		if(istype(src.loc,/turf/space))
-			usr << "<span class='warning'> You don't think kickstands work in space...</span>"
+			usr << "<span class='warning'>You don't think kickstands work in space...</span>"
 			return
 		src.visible_message("\The [usr] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
+		playsound(src, 'sound/misc/bike_stand_down.ogg', 50, 1)
 		if(pulledby)
 			pulledby.stop_pulling()
 
@@ -72,13 +74,19 @@
 
 /obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
 	if(!load(C))
-		user << "<span class='warning'> You were unable to load \the [C] onto \the [src].</span>"
+		user << "<span class='warning'>You were unable to load \the [C] onto \the [src].</span>"
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
 	if(user == load)
 		unload(load)
 		user << "You unbuckle yourself from \the [src]"
+	else if(user != load && load)
+		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
+		if(do_after(user, 8 SECONDS, act_target = src))
+			unload(load)
+			user <<"You unbuckle [load] from \the [src]"
+			load <<"You were unbuckled from \the [src] by [user]"
 
 /obj/vehicle/bike/relaymove(mob/user, direction)
 	if(user != load || !on || user.incapacitated())
@@ -137,6 +145,6 @@
 
 
 /obj/vehicle/bike/Destroy()
-	qdel(ion)
+	QDEL_NULL(ion)
 
 	return ..()

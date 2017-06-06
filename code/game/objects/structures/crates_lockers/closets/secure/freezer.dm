@@ -20,6 +20,7 @@
 		for(var/i = 0, i < 2, i++)
 			new /obj/item/weapon/reagent_containers/food/condiment/flour(src)
 		new /obj/item/weapon/reagent_containers/food/condiment/sugar(src)
+		new /obj/item/weapon/reagent_containers/food/condiment/spacespice(src)
 
 /obj/structure/closet/secure_closet/freezer/kitchen/mining
 	req_access = list()

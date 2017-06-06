@@ -97,25 +97,25 @@
 	//	return
 	..()
 	if (beakers.len)
-		user << "\blue [src] contains:"
+		user << "<span class='notice'>[src] contains:</span>"
 		for(var/obj/item/weapon/reagent_containers/glass/beaker/B in beakers)
 			if(B.reagents && B.reagents.reagent_list.len)
 				for(var/datum/reagent/R in B.reagents.reagent_list)
-					user << "\blue [R.volume] units of [R.name]"
+					user << "<span class='notice'>[R.volume] units of [R.name]</span>"
 
 /obj/item/weapon/gun/projectile/dartgun/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/weapon/reagent_containers/glass))
 		if(!istype(I, container_type))
-			user << "\blue [I] doesn't seem to fit into [src]."
+			user << "<span class='notice'>[I] doesn't seem to fit into [src].</span>"
 			return
 		if(beakers.len >= max_beakers)
-			user << "\blue [src] already has [max_beakers] beakers in it - another one isn't going to fit!"
+			user << "<span class='notice'>[src] already has [max_beakers] beakers in it - another one isn't going to fit!</span>"
 			return
 		var/obj/item/weapon/reagent_containers/glass/beaker/B = I
 		user.drop_item()
 		B.loc = src
 		beakers += B
-		user << "\blue You slot [B] into [src]."
+		user << "<span class='notice'>You slot [B] into [src].</span>"
 		src.updateUsrDialog()
 		return 1
 	..()

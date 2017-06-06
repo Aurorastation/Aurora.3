@@ -1,22 +1,25 @@
-#define SS_INIT_MISC_FIRST         18
-#define SS_INIT_SEEDS              17	// Plant controller setup.
-#define SS_INIT_ASTEROID           16	// Asteroid generation.
-#define SS_INIT_SHUTTLE            15	// Shuttle setup.
-#define SS_INIT_PARALLAX           14	// Parallax image cache generation. Must run before ghosts are able to join.
-#define SS_INIT_ATOMS              13	// World initialization. Will trigger lighting updates. Observers can join after this loads.
-#define SS_INIT_POWER              12	// Initial powernet build.
-#define SS_INIT_CARGO              11	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
-#define SS_INIT_PIPENET            10	// Initial pipenet build.
-#define SS_INIT_MACHINERY           9	// Machinery prune and powernet build.
-#define SS_INIT_WIRELESS            8	// Wireless pair queue flush.
-#define SS_INIT_AIR                 7	// Air setup and pre-bake.
-#define SS_INIT_NIGHT               6	// Nightmode controller. Will trigger lighting updates.
-#define SS_INIT_SMOOTHING           5	// Object icon smoothing. Creates overlays.
+#define SS_INIT_JOBS               20
+#define SS_INIT_MISC_FIRST         19
+#define SS_INIT_SEEDS              18	// Plant controller setup.
+#define SS_INIT_ASTEROID           17	// Asteroid generation.
+#define SS_INIT_SHUTTLE            16	// Shuttle setup.
+#define SS_INIT_PARALLAX           15	// Parallax image cache generation. Must run before ghosts are able to join.
+#define SS_INIT_ATOMS              14	// World initialization. Will trigger lighting updates. Observers can join after this loads.
+#define SS_INIT_POWER              13	// Initial powernet build.
+#define SS_INIT_CARGO              12	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
+#define SS_INIT_PIPENET            11	// Initial pipenet build.
+#define SS_INIT_MACHINERY          10	// Machinery prune and powernet build.
+#define SS_INIT_WIRELESS            9	// Wireless pair queue flush.
+#define SS_INIT_AIR                 8	// Air setup and pre-bake.
+#define SS_INIT_NIGHT               7	// Nightmode controller. Will trigger lighting updates.
+#define SS_INIT_SMOOTHING           6	// Object icon smoothing. Creates overlays.
+#define SS_INIT_ICON_UPDATE         5	// Icon update queue flush. Should run before overlays.
 #define SS_INIT_OVERLAY             4	// Overlay flush.
-#define SS_INIT_OPENTURF            3	// Openturf flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites. Causes lighting updates if starlight is enabled.
-#define SS_INIT_MISC                2	// Subsystems without an explicitly set initialization order start here.
-#define SS_INIT_LIGHTING            1	// Generation of lighting overlays and pre-bake.
-#define SS_INIT_LOBBY               0	// Lobby timer starts here.
+#define SS_INIT_MISC                3	// Subsystems without an explicitly set initialization order start here.
+#define SS_INIT_LIGHTING            2	// Generation of lighting overlays and pre-bake.
+#define SS_INIT_OPENTURF            1	// Openturf flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites. Causes lighting updates if starlight is enabled.
+#define SS_INIT_SUNLIGHT            0	// Sunlight setup. Creates lots of lighting & SSopenturf updates, but done after SSlighting inits so it doesn't delay boot.
+#define SS_INIT_LOBBY              -1	// Lobby timer starts here.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.
@@ -24,8 +27,9 @@
 
 // SS_TICKER
 #define SS_PRIORITY_OVERLAY        500	// Applies overlays. May cause overlay pop-in if it gets behind.
-#define SS_PRIORITY_ORBIT          30	// Orbit datum updates.
 #define SS_PRIORITY_SMOOTHING      35   // Smooth turf generation.
+#define SS_PRIORITY_ORBIT          30	// Orbit datum updates.
+#define SS_PRIORITY_ICON_UPDATE    20	// Queued icon updates. Mostly used by APCs and tables.
 
 // Normal
 #define SS_PRIORITY_TICKER         200	// Gameticker.
@@ -35,14 +39,13 @@
 #define SS_PRIORITY_MACHINERY      95	// Machinery + powernet ticks.
 #define SS_PRIORITY_CHEMISTRY      90	// Multi-tick chemical reactions.
 #define SS_PRIORITY_SHUTTLE        85	// Shuttle movement.
-#define SS_PRIORITY_CALAMITY       80	// Singularity, Tesla, Nar'sie, blob, etc. 
+#define SS_PRIORITY_AIR            80	// ZAS processing.
+#define SS_PRIORITY_CALAMITY       75	// Singularity, Tesla, Nar'sie, blob, etc. 
 #define SS_PRIORITY_EVENT          70
 #define SS_PRIORITY_DISEASE        60	// Disease ticks.
 #define SS_PRIORITY_ALARMS         50
 #define SS_PRIORITY_PLANTS         40	// Spreading plant effects.
 #define SS_PRIORITY_EFFECTS        35	// Effect master (Sparks)
-#define SS_PRIORITY_ICON_UPDATE    30	// Queued icon updates. Mostly used by APCs.
-#define SS_PRIORITY_AIR            25	// ZAS processing.
 #define SS_PRIORITY_LIGHTING       20	// Queued lighting engine updates.
 #define SS_PRIORITY_AIRFLOW        15	// Handles object movement due to ZAS airflow.
 

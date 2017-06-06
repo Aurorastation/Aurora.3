@@ -7,13 +7,13 @@ world/IsBanned(key,address,computer_id)
 	//Guest Checking
 	if(!config.guests_allowed && IsGuestKey(key))
 		log_access("Failed Login: [key] - Guests not allowed",ckey=key_name(key))
-		message_admins("\blue Failed Login: [key] - Guests not allowed")
+		message_admins("<span class='notice'>Failed Login: [key] - Guests not allowed</span>")
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
 
 	//check if the IP address is a known TOR node
 	if(config && config.ToRban && ToRban_isbanned(address))
 		log_access("Failed Login: [src] - Banned: ToR",ckey=key_name(src))
-		message_admins("\blue Failed Login: [src] - Banned: ToR")
+		message_admins("<span class='notice'>Failed Login: [src] - Banned: ToR</span>")
 		//ban their computer_id and ckey for posterity
 		AddBan(ckey(key), computer_id, "Use of ToR", "Automated Ban", 0, 0)
 		return list("reason"="Using ToR", "desc"="\nReason: The network you are using to connect has been banned.\nIf you believe this is a mistake, please request help at [config.banappeals]")
@@ -25,7 +25,7 @@ world/IsBanned(key,address,computer_id)
 		. = CheckBan( ckey(key), computer_id, address )
 		if(.)
 			log_access("Failed Login: [key] [computer_id] [address] - Banned [.["reason"]]",ckey=key_name(key))
-			message_admins("\blue Failed Login: [key] id:[computer_id] ip:[address] - Banned [.["reason"]]")
+			message_admins("<span class='notice'>Failed Login: [key] id:[computer_id] ip:[address] - Banned [.["reason"]]</span>")
 			return .
 
 		return ..()	//default pager ban stuff
@@ -54,13 +54,13 @@ world/IsBanned(key,address,computer_id)
 		var/params[] = list()
 		var/query_content = ""
 		if (pulled_ban_id)
-			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE id = :ban_id AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
-			params[":ban_id"] = pulled_ban_id
+			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE id = :ban_id: AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
+			params["ban_id"] = pulled_ban_id
 		else
-			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE (ckey = :ckey OR computerid = :computerid OR ip = :address) AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
-			params[":ckey"] = ckey
-			params[":computerid"] = computer_id
-			params[":address"] = address
+			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE (ckey = :ckey: OR computerid = :computerid: OR ip = :address:) AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
+			params["ckey"] = ckey
+			params["computerid"] = computer_id
+			params["address"] = address
 
 		var/DBQuery/query = dbcon.NewQuery(query_content)
 		query.Execute(params)

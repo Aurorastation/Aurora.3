@@ -277,10 +277,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	if(medHUD)
 		medHUD = 0
-		src << "\blue <B>Medical HUD Disabled</B>"
+		src << "<span class='notice'><B>Medical HUD Disabled</B></span>"
 	else
 		medHUD = 1
-		src << "\blue <B>Medical HUD Enabled</B>"
+		src << "<span class='notice'><B>Medical HUD Enabled</B></span>"
 
 /mob/dead/observer/verb/toggle_antagHUD()
 	set category = "Ghost"
@@ -291,11 +291,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	var/aux_staff = check_rights(R_MOD|R_ADMIN, 0)
 	if(!config.antag_hud_allowed && (!client.holder || aux_staff))
-		src << "\red Admins have disabled this for this round."
+		src << "<span class='warning'>Admins have disabled this for this round.</span>"
 		return
 	var/mob/dead/observer/M = src
 	if(jobban_isbanned(M, "AntagHUD"))
-		src << "\red <B>You have been banned from using this feature</B>"
+		src << "<span class='danger'>You have been banned from using this feature</span>"
 		return
 	if(config.antag_hud_restricted && !M.has_enabled_antagHUD && (!client.holder || aux_staff))
 		var/response = alert(src, "If you turn this on, you will not be able to take any part in the round.","Are you sure you want to turn this feature on?","Yes","No")
@@ -305,10 +305,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		M.has_enabled_antagHUD = 1
 	if(M.antagHUD)
 		M.antagHUD = 0
-		src << "\blue <B>AntagHUD Disabled</B>"
+		src << "<span class='notice'><B>AntagHUD Disabled</B></span>"
 	else
 		M.antagHUD = 1
-		src << "\blue <B>AntagHUD Enabled</B>"
+		src << "<span class='notice'><B>AntagHUD Enabled</B></span>"
 
 /mob/dead/observer/proc/dead_tele(A in ghostteleportlocs)
 	set category = "Ghost"
@@ -318,8 +318,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		usr << "Not when you're not dead!"
 		return
 	usr.verbs -= /mob/dead/observer/proc/dead_tele
-	spawn(30)
-		usr.verbs += /mob/dead/observer/proc/dead_tele
+	ADD_VERB_IN(usr, 30, /mob/dead/observer/proc/dead_tele)
 	var/area/thearea = ghostteleportlocs[A]
 	if(!thearea)	return
 
@@ -426,11 +425,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/memory()
 	set hidden = 1
-	src << "\red You are dead! You have no mind to store memory!"
+	src << "<span class='warning'>You are dead! You have no mind to store memory!</span>"
 
 /mob/dead/observer/add_memory()
 	set hidden = 1
-	src << "\red You are dead! You have no mind to store memory!"
+	src << "<span class='warning'>You are dead! You have no mind to store memory!</span>"
 
 /mob/dead/observer/Post_Incorpmove()
 	stop_following()
@@ -450,16 +449,16 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	var/pressure = environment.return_pressure()
 	var/total_moles = environment.total_moles
 
-	src << "\blue <B>Results:</B>"
+	src << "<span class='notice'><B>Results:</B></span>"
 	if(abs(pressure - ONE_ATMOSPHERE) < 10)
-		src << "\blue Pressure: [round(pressure,0.1)] kPa"
+		src << "<span class='notice'>Pressure: [round(pressure,0.1)] kPa</span>"
 	else
-		src << "\red Pressure: [round(pressure,0.1)] kPa"
+		src << "<span class='warning'>Pressure: [round(pressure,0.1)] kPa</span>"
 	if(total_moles)
 		for(var/g in environment.gas)
-			src << "\blue [gas_data.name[g]]: [round((environment.gas[g] / total_moles) * 100)]% ([round(environment.gas[g], 0.01)] moles)"
-		src << "\blue Temperature: [round(environment.temperature-T0C,0.1)]&deg;C ([round(environment.temperature,0.1)]K)"
-		src << "\blue Heat Capacity: [round(environment.heat_capacity(),0.1)]"
+			src << "<span class='notice'>[gas_data.name[g]]: [round((environment.gas[g] / total_moles) * 100)]% ([round(environment.gas[g], 0.01)] moles)</span>"
+		src << "<span class='notice'>Temperature: [round(environment.temperature-T0C,0.1)]&deg;C ([round(environment.temperature,0.1)]K)</span>"
+		src << "<span class='notice'>Heat Capacity: [round(environment.heat_capacity(),0.1)]</span>"
 
 /mob/dead/observer/verb/become_mouse()
 	set name = "Become mouse"
@@ -638,7 +637,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set desc = "If the round is sufficiently spooky, write a short message in blood on the floor or a wall. Remember, no IC in OOC or OOC in IC."
 
 	if(!(config.cult_ghostwriter))
-		src << "\red That verb is not currently permitted."
+		src << "<span class='warning'>That verb is not currently permitted.</span>"
 		return
 
 	if (!src.stat)
@@ -648,7 +647,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return 0 //something is terribly wrong
 
 	if(!round_is_spooky())
-		src << "\red The veil is not thin enough for you to do that."
+		src << "<span class='warning'>The veil is not thin enough for you to do that.</span>"
 		return
 
 	var/list/choices = list()
@@ -698,7 +697,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		W.update_icon()
 		W.message = message
 		W.add_hiddenprint(src)
-		W.visible_message("\red Invisible fingers crudely paint something in blood on [T]...")
+		W.visible_message("<span class='warning'>Invisible fingers crudely paint something in blood on [T]...</span>")
 
 /mob/dead/observer/pointed(atom/A as mob|obj|turf in view())
 	if(!..())
@@ -851,13 +850,13 @@ mob/dead/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 
 /mob/extra_ghost_link(var/atom/ghost)
 	if(client && eyeobj)
-		return "|<a href='byond://?src=\ref[ghost];track=\ref[eyeobj]'>eye</a>"
+		return "|<a href='byond://?src=\ref[ghost];track=\ref[eyeobj]'>\[E\]</a>"
 
 /mob/dead/observer/extra_ghost_link(var/atom/ghost)
 	if(mind && mind.current)
-		return "|<a href='byond://?src=\ref[ghost];track=\ref[mind.current]'>body</a>"
+		return "|<a href='byond://?src=\ref[ghost];track=\ref[mind.current]'>\[B\]</a>"
 
 /proc/ghost_follow_link(var/atom/target, var/atom/ghost)
 	if((!target) || (!ghost)) return
-	. = "<a href='byond://?src=\ref[ghost];track=\ref[target]'>follow</a>"
+	. = "<a href='byond://?src=\ref[ghost];track=\ref[target]'>\[F\]</a>"
 	. += target.extra_ghost_link(ghost)

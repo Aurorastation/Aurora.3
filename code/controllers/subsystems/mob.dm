@@ -5,6 +5,8 @@
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_MOB
 
+	var/list/slept = list()
+
 	var/list/currentrun = list()
 	var/list/all_mice = list()	// Contains all *living* mice.
 
@@ -35,7 +37,14 @@
 				return
 			continue
 
+		var/time = world.time
+
 		M.Life()
+
+		if (time != world.time && !slept[M.type])
+			slept[M.type] = TRUE
+			var/diff = world.time - time
+			log_debug("SSmob: Type '[M.type]' slept for [diff] ds in Life()! Suppressing further warnings.")
 
 		if (MC_TICK_CHECK)
 			return

@@ -2,7 +2,7 @@
 
 /obj/item/weapon/gun/energy/staff
 	name = "staff of change"
-	desc = "An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself"
+	desc = "An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself."
 	icon = 'icons/obj/gun.dmi'
 	item_icons = null
 	icon_state = "staffofchange"
@@ -13,15 +13,15 @@
 	w_class = 4.0
 	max_shots = 5
 	projectile_type = /obj/item/projectile/change
-	origin_tech = null
+	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_BLUESPACE = 7)
 	self_recharge = 1
 	charge_meter = 0
 
-obj/item/weapon/gun/energy/staff/special_check(var/mob/user)
+obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
 		return 0
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/new_mob
@@ -67,11 +67,11 @@ obj/item/weapon/gun/energy/staff/special_check(var/mob/user)
 	fire_sound = 'sound/magic/wand.ogg'
 	max_shots = 10
 
-obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/user)
+obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
 		return 0
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
@@ -103,11 +103,11 @@ obj/item/weapon/gun/energy/staff/focus
 	slot_flags = SLOT_BACK
 	projectile_type = /obj/item/projectile/forcebolt
 
-obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/user)
+obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
 		return 0
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
@@ -115,7 +115,7 @@ obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/user)
 			var/obj/item/organ/external/RA = H.get_organ("r_arm")
 			var/active_hand = H.hand
 			playsound(user, 'sound/magic/lightningbolt.ogg', 40, 1)
-			user << "\red Coruscating waves of energy wreathe around your arm...hot...so <b>hot</b>!"
+			user << "<span class='warning'>Coruscating waves of energy wreathe around your arm...hot...so <b>hot</b>!</span>"
 			user.show_message("<b>[user]</b> screams!",2)
 			user.drop_item()
 			if(active_hand)
@@ -151,14 +151,15 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	projectile_type = /obj/item/projectile/magic
 	var/list/possible_projectiles = list(/obj/item/projectile/magic, /obj/item/projectile/change, /obj/item/projectile/forcebolt,
 										/obj/item/weapon/gun/energy/staff/animate, /obj/item/projectile/magic/fireball, /obj/item/projectile/magic/teleport,
-										/obj/item/projectile/temp, /obj/item/projectile/ion, /obj/item/projectile/energy/declone, /obj/item/projectile/meteor)
-
-/obj/item/weapon/gun/energy/staff/chaos/special_check(var/mob/user)
+										/obj/item/projectile/temp, /obj/item/projectile/ion, /obj/item/projectile/energy/declone, /obj/item/projectile/meteor,
+										/obj/item/projectile/beam/thermaldrill, /obj/item/projectile/beam/energy_net, /obj/item/projectile/energy/bee)
+										
+/obj/item/weapon/gun/energy/staff/chaos/special_check(var/mob/living/user)
 	projectile_type = pick(possible_projectiles)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
 		return 0
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/obj/P = consume_next_projectile()
 			if(P)
@@ -184,7 +185,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	w_class = 3
 	max_shots = 20
 	projectile_type = /obj/item/projectile/magic
-	origin_tech = null
+	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5, TECH_BLUESPACE = 6)
 	charge_meter = 0
 
 /obj/item/weapon/gun/energy/wand/handle_click_empty(mob/user = null)
@@ -194,11 +195,14 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		src.visible_message("*fizzle*")
 	playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 1)
 	
-/obj/item/weapon/gun/energy/wand/special_check(var/mob/user)
+/obj/item/weapon/gun/energy/wand/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
 	return 1
+	
+/obj/item/weapon/gun/energy/wand/toy
+	origin_tech = null
 
 /obj/item/weapon/gun/energy/wand/fire
 	name = "wand of fire"
@@ -211,11 +215,11 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 5
 	projectile_type = /obj/item/projectile/magic/fireball
 
-/obj/item/weapon/gun/energy/wand/fire/special_check(var/mob/user)	
+/obj/item/weapon/gun/energy/wand/fire/special_check(var/mob/living/user)	
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			H.fire_stacks += 15
@@ -238,11 +242,11 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/change
 	
-/obj/item/weapon/gun/energy/wand/polymorph/special_check(var/mob/user)	
+/obj/item/weapon/gun/energy/wand/polymorph/special_check(var/mob/living/user)	
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			H.drop_item()
@@ -264,11 +268,11 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/magic/teleport
 	
-/obj/item/weapon/gun/energy/wand/teleport/special_check(var/mob/user) //todo: think of something else for this	
+/obj/item/weapon/gun/energy/wand/teleport/special_check(var/mob/living/user) //todo: think of something else for this	
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/O = H.internal_organs_by_name[pick("eyes","appendix","kidneys","liver", "heart", "lungs", "brain")]
@@ -300,11 +304,11 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/forcebolt
 
-/obj/item/weapon/gun/energy/wand/force/special_check(var/mob/user)	
+/obj/item/weapon/gun/energy/wand/force/special_check(var/mob/living/user)	
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			H.visible_message("<span class='danger'>\The [src] escapes from [H]'s hand, hitting their face and shattering into pieces!</span>")
@@ -326,11 +330,11 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/animate
 	
-/obj/item/weapon/gun/energy/wand/animation/special_check(var/mob/user)	
+/obj/item/weapon/gun/energy/wand/animation/special_check(var/mob/living/user)	
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			H.visible_message("<span class='danger'>\The [src] jumps from [H]'s hand and swifts into a crate!</span>")

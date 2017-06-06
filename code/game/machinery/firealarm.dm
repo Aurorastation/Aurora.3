@@ -179,7 +179,7 @@
 	var/area/A = get_area(src)
 	data["active"] = A.fire
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "firealarm.tmpl", "Fire Alarm", 325, 325, state = state)
 		ui.set_initial_data(data)
@@ -286,7 +286,7 @@ Just a object used in constructing fire alarms
 	var/area/A = get_area(src)
 	data["active"] = A.party
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "partyalarm.tmpl", "PARTY ALARM", 325, 325, state = state)
 		ui.set_initial_data(data)

@@ -29,19 +29,18 @@
 	var/volume = 70
 	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
 						//If they have and we haven't scanned it with the PDA or gas analyzer then we might just breath whatever they put in it.
-/obj/item/weapon/tank/New()
-	..()
+/obj/item/weapon/tank/Initialize()
+	. = ..()
 
-	src.air_contents = new /datum/gas_mixture()
-	src.air_contents.volume = volume //liters
-	src.air_contents.temperature = T20C
+	air_contents = new /datum/gas_mixture()
+	air_contents.volume = volume //liters
+	air_contents.temperature = T20C
+
 	START_PROCESSING(SSprocessing, src)
 	update_gauge()
-	return
 
 /obj/item/weapon/tank/Destroy()
-	if(air_contents)
-		qdel(air_contents)
+	QDEL_NULL(air_contents)
 
 	STOP_PROCESSING(SSprocessing, src)
 
@@ -138,7 +137,7 @@
 					data["maskConnected"] = 1
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm

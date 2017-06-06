@@ -1,4 +1,4 @@
-//unathi clothing
+//unathi items
 
 /datum/gear/suit/unathi_mantle
 	display_name = "hide mantle (Unathi)"
@@ -20,8 +20,27 @@
 	cost = 1
 	whitelisted = "Unathi"
 	sort_category = "Xenowear"
+	
+/datum/gear/gloves/unathi
+	display_name = "gloves selection (Unathi)"
+	path = /obj/item/clothing/gloves/black/unathi
+	whitelisted = "Unathi"
+	sort_category = "Xenowear"
 
-//skrell headtail adorns
+/datum/gear/gloves/unathi/New()
+	..()
+	var/un_gloves = list()
+	un_gloves["black gloves"] = /obj/item/clothing/gloves/black/unathi
+	un_gloves["red gloves"] = /obj/item/clothing/gloves/red/unathi
+	un_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/unathi
+	un_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/unathi
+	un_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/unathi
+	un_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/unathi
+	un_gloves["green gloves"] = /obj/item/clothing/gloves/green/unathi
+	un_gloves["white gloves"] = /obj/item/clothing/gloves/white/unathi
+	gear_tweaks += new/datum/gear_tweak/path(un_gloves)
+
+//skrell items
 
 /datum/gear/ears/f_skrell
 	display_name = "headtail-wear, female (Skrell)"
@@ -57,6 +76,7 @@
 	m_chains["blue-jeweled bands"] = /obj/item/clothing/ears/skrell/bluejeweled_band
 	m_chains["silver bands"] = /obj/item/clothing/ears/skrell/silver_band
 	m_chains["blue cloth"] = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_male
+	m_chains["blue cloth"] = /obj/item/clothing/ears/skrell/purple_skrell_cloth_male
 	gear_tweaks += new/datum/gear_tweak/path(m_chains)
 
 //vaurca items
@@ -82,26 +102,7 @@
 	whitelisted = "Vaurca Worker"
 	sort_category = "Xenowear"
 
-//beastmen gloves
-
-/datum/gear/gloves/unathi
-	display_name = "gloves selection (Unathi)"
-	path = /obj/item/clothing/gloves/black/unathi
-	whitelisted = "Unathi"
-	sort_category = "Xenowear"
-
-/datum/gear/gloves/unathi/New()
-	..()
-	var/un_gloves = list()
-	un_gloves["black gloves"] = /obj/item/clothing/gloves/black/unathi
-	un_gloves["red gloves"] = /obj/item/clothing/gloves/red/unathi
-	un_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/unathi
-	un_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/unathi
-	un_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/unathi
-	un_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/unathi
-	un_gloves["green gloves"] = /obj/item/clothing/gloves/green/unathi
-	un_gloves["white gloves"] = /obj/item/clothing/gloves/white/unathi
-	gear_tweaks += new/datum/gear_tweak/path(un_gloves)
+//tajara items
 
 /datum/gear/gloves/tajara
 	display_name = "gloves selection (Tajara)"
@@ -121,3 +122,16 @@
 	taj_gloves["green gloves"] = /obj/item/clothing/gloves/green/tajara
 	taj_gloves["white gloves"] = /obj/item/clothing/gloves/white/tajara
 	gear_tweaks += new/datum/gear_tweak/path(taj_gloves)
+
+/datum/gear/suit/tajara_coat
+	display_name = "tajaran naval coat (Tajara)"
+	path = /obj/item/clothing/suit/storage/tajaran
+	whitelisted = "Tajara"
+	sort_category = "Xenowear"
+	
+/datum/gear/suit/tajaran_labcoat
+	display_name = "people's republic medical coat (Tajara)"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
+	whitelisted = "Tajara"
+	allowed_roles = list("Chief Medical Officer","Medical Doctor","Chemist","Geneticist","Paramedic","Nursing Intern")
+	sort_category = "Xenowear"

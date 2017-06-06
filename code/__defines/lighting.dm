@@ -16,14 +16,14 @@
 
 // If I were you I'd leave this alone.
 #define LIGHTING_BASE_MATRIX \
-	list                     \
-	(                        \
-		LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, 0, \
-		LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, 0, \
-		LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, 0, \
-		LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, LIGHTING_SOFT_THRESHOLD, 0, \
-		0, 0, 0, 1           \
-	)                        \
+	list            \
+	(               \
+		1, 1, 1, 0, \
+		1, 1, 1, 0, \
+		1, 1, 1, 0, \
+		1, 1, 1, 0, \
+		0, 0, 0, 1  \
+	)               \
 
 // Helpers so we can (more easily) control the colour matrices.
 #define CL_MATRIX_RR 1
@@ -46,6 +46,12 @@
 #define CL_MATRIX_CG 18
 #define CL_MATRIX_CB 19
 #define CL_MATRIX_CA 20
+
+// Higher numbers override lower.
+#define LIGHTING_NO_UPDATE 0
+#define LIGHTING_VIS_UPDATE 1
+#define LIGHTING_CHECK_UPDATE 2
+#define LIGHTING_FORCE_UPDATE 3
 
 // This color of overlay is very common - most of the station is this color when lit fully.
 // Tube lights are a bluish-white, so we can't just assume 1-1-1 is full-illumination.

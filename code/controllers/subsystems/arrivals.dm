@@ -2,13 +2,15 @@
 
 /datum/controller/subsystem/arrivals
 	name = "Arrivals"
-	flags = SS_NO_INIT | SS_BACKGROUND
+	flags = SS_NO_INIT | SS_BACKGROUND | SS_NO_TICK_CHECK
 	priority = SS_PRIORITY_ARRIVALS
 
 	var/datum/shuttle/ferry/arrival/shuttle
 
 	var/launch_time			//the time at which the shuttle will be launched
 	var/wait_for_launch = 0	//if the shuttle is waiting to launch
+	var/failreturnnumber = 0 // the number of times the shuttle failed to leave the station
+	var/list/current_mobs = list()
 
 /datum/controller/subsystem/arrivals/New()
 	NEW_SS_GLOBAL(SSarrivals)
@@ -20,19 +22,35 @@
 		if (world.time >= launch_time)	//time to launch the shuttle
 			stop_launch_countdown()
 			shuttle.launch(src)
+			for (var/thing in current_mobs)
+				var/mob/living/carbon/human/M = locate(thing)
+				if (istype(M) && M.odin_despawn_timer)
+					deltimer(M.odin_despawn_timer)
+					M.odin_despawn_timer = null
+
+			current_mobs.Cut()
 	else
 		// Sleep, we ain't doin' shit. on_hotzone_enter() will wake us.
 		suspend()
 
 // Called when a living mob enters the shuttle area.
-/datum/controller/subsystem/arrivals/proc/on_hotzone_enter()
+/datum/controller/subsystem/arrivals/proc/on_hotzone_enter(mob/living/M)
 	if (!shuttle.location)
 		return
+
+	log_debug("SSarrivals: [M] has entered arrival shuttle hotzone.")
+
+	if (istype(M))
+		current_mobs += SOFTREF(M)
 
 	wake()	// Wake the process.
 
 	if (!wait_for_launch && shuttle.location == 1 && shuttle.moving_status == SHUTTLE_IDLE)
 		set_launch_countdown(30)
+
+/datum/controller/subsystem/arrivals/proc/on_hotzone_exit(mob/living/M)
+	current_mobs -= SOFTREF(M)
+	log_debug("SSarrivals: [M] has exited arrival shuttle hotzone.")
 
 //called when the shuttle has arrived.
 

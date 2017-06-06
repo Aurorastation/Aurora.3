@@ -453,6 +453,8 @@
 					src.active2 = R
 					src.screen = 4
 
+					R.inDataCore = 1
+
 			if (href_list["add_c"])
 				if (!( istype(src.active2, /datum/data/record) ))
 					return

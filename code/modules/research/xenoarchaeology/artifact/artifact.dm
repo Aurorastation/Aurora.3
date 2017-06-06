@@ -61,9 +61,9 @@
 
 	if (istype(W, /obj/item/device/measuring_tape))
 		var/obj/item/device/measuring_tape/P = W
-		user.visible_message("\blue[user] extends [P] towards [src].","\blue You extend [P] towards [src].")
+		user.visible_message("<span class='notice'>[user] extends [P] towards [src].</span>","<span class='notice'>You extend [P] towards [src].</span>")
 		if(do_after(user,40))
-			user << "\blue \icon[P] [src] has been excavated to a depth of [2*src.excavation_level]cm."
+			user << "<span class='notice'>\icon[P] [src] has been excavated to a depth of [2*src.excavation_level]cm.</span>"
 		return
 
 	if (istype(W, /obj/item/weapon/pickaxe))
@@ -73,20 +73,20 @@
 			return
 		last_act = world.time
 
-		user << "\red You start [P.drill_verb] [src]."
+		user << "<span class='warning'>You start [P.drill_verb] [src].</span>"
 
 
 
 		if(!do_after(user,P.digspeed))
 			return
 
-		user << "\blue You finish [P.drill_verb] [src]."
+		user << "<span class='notice'>You finish [P.drill_verb] [src].</span>"
 		excavation_level += P.excavation_amount
 
 		if(excavation_level > 100)
 			//failure
 			user.visible_message("<font color='red'><b>[src] suddenly crumbles away.</b></font>",\
-			"\red [src] has disintegrated under your onslaught, any secrets it was holding are long gone.")
+			"<span class='warning'>[src] has disintegrated under your onslaught, any secrets it was holding are long gone.</span>")
 			qdel(src)
 			return
 
@@ -102,7 +102,7 @@
 				src.visible_message("<font color='red'><b>[src] suddenly crumbles away.</b></font>")
 			else
 				user.visible_message("<font color='red'><b>[src] suddenly crumbles away.</b></font>",\
-				"\blue [src] has been whittled away under your careful excavation, but there was nothing of interest inside.")
+				"<span class='notice'>[src] has been whittled away under your careful excavation, but there was nothing of interest inside.</span>")
 			qdel(src)
 
 /obj/structure/boulder/Bumped(AM)

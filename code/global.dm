@@ -14,6 +14,7 @@ var/global/list/med_hud_users            = list() // List of all entities using 
 var/global/list/sec_hud_users            = list() // List of all entities using a security HUD.
 var/global/list/hud_icon_reference       = list()
 var/global/list/janitorial_supplies      = list()	// List of all the janitorial supplies on the map that the PDA cart may be tracking.
+var/global/list/world_phylactery	     = list() 	//List of all phylactery in the world, used by liches
 
 var/global/list/listening_objects         = list() // List of objects that need to be able to hear, used to avoid recursive searching through contents.
 
@@ -57,13 +58,14 @@ var/list/reg_dna       = list()
 
 var/list/monkeystart     = list()
 var/list/wizardstart     = list()
-var/list/newplayer_start = list()
+var/turf/newplayer_start = null
 
 //Spawnpoints.
 var/list/latejoin         = list()
 var/list/latejoin_gateway = list()
 var/list/latejoin_cryo    = list()
 var/list/latejoin_cyborg  = list()
+var/list/kickoffsloc = list()
 
 var/list/prisonwarp         = list() // Prisoners go to these
 var/list/holdingfacility    = list() // Captured people go here
@@ -100,10 +102,6 @@ var/datum/moduletypes/mods = new()
 var/gravity_is_on = 1
 
 var/datum/server_greeting/server_greeting = null
-var/forceblob = 0
-
-var/datum/nanomanager/nanomanager		= new() // NanoManager, the manager for Nano UIs.
-var/datum/event_manager/event_manager	= new() // Event Manager, the manager for events.
 
 var/list/awaydestinations = list() // Away missions. A list of landmarks that the warpgate can take you to.
 

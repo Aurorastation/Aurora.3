@@ -7,9 +7,7 @@
 	density = 1
 
 /turf/simulated/mineral //wall piece
-	name = "Rock"
-	//icon = 'icons/turf/walls.dmi'
-	//icon_state = "rock"
+	name = "rock"
 	icon = 'icons/turf/smooth/rock_wall.dmi'	// Until we get sprites.
 	icon_state = "rock"
 	layer = 2.01
@@ -17,7 +15,8 @@
 	canSmoothWith = list(
 		/turf/simulated/mineral,
 		/turf/simulated/wall,
-		/turf/unsimulated/wall
+		/turf/unsimulated/wall,
+		/turf/simulated/shuttle
 	)
 	oxygen = 0
 	nitrogen = 0
@@ -162,7 +161,7 @@
 /turf/simulated/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if (!usr.IsAdvancedToolUser())
-		usr << "\red You don't have the dexterity to do this!"
+		usr << "<span class='warning'>You don't have the dexterity to do this!</span>"
 		return
 
 	if (istype(W, /obj/item/device/core_sampler))
@@ -178,9 +177,12 @@
 
 	if (istype(W, /obj/item/device/measuring_tape))
 		var/obj/item/device/measuring_tape/P = W
-		user.visible_message("\blue[user] extends [P] towards [src].","\blue You extend [P] towards [src].")
+		user.visible_message("<span class='notice'>[user] extends [P] towards [src].</span>","<span class='notice'>You extend [P] towards [src].</span>")
 		if(do_after(user,25))
-			user << "\blue \icon[P] [src] has been excavated to a depth of [2*excavation_level]cm."
+			if (!istype(src, /turf/simulated/mineral))
+				return
+
+			user << "<span class='notice'>\icon[P] [src] has been excavated to a depth of [2*excavation_level]cm.</span>"
 		return
 
 	if (istype(W, /obj/item/weapon/pickaxe) && W.simulated)	// Pickaxe offhand is not simulated.
@@ -220,6 +222,9 @@
 					artifact_debris()
 
 		if(do_after(user,P.digspeed))
+			if (!istype(src, /turf/simulated/mineral))
+				return
+
 			P.drilling = 0
 
 			if(prob(50))
@@ -271,14 +276,14 @@
 			excavation_level += P.excavation_amount
 
 			//archaeo overlays
-			if(!archaeo_overlay && finds && finds.len)
+			/*if(!archaeo_overlay && finds && finds.len)
 				var/datum/find/F = finds[1]
 				if(F.excavation_required <= excavation_level + F.view_range)
 					archaeo_overlay = "overlay_archaeo[rand(1,3)]"
-					add_overlay(archaeo_overlay)
+					add_overlay(archaeo_overlay)*/
 
 		else
-			user << "<span class='notice'> You stop [P.drill_verb] the rock.</span>"
+			user << "<span class='notice'> You stop [P.drill_verb] [src].</span>"
 			P.drilling = 0
 
 	if (istype(W, /obj/item/weapon/autochisel))
@@ -290,6 +295,9 @@
 		user << "<span class='warning'>You start chiselling [src] into a sculptable block.</span>"
 
 		if(!do_after(user,80))
+			return
+
+		if (!istype(src, /turf/simulated/mineral))
 			return
 
 		user << "<span class='notice'>You finish chiselling [src] into a sculptable block.</span>"
@@ -383,7 +391,7 @@
 		var/obj/effect/suspension_field/S = locate() in src
 		if(!S || S.field_type != get_responsive_reagent(F.find_type))
 			if(X)
-				visible_message("\red<b>[pick("[display_name] crumbles away into dust","[display_name] breaks apart")].</b>")
+				visible_message("<span class='danger'>[pick("[display_name] crumbles away into dust","[display_name] breaks apart")].</span>")
 				qdel(X)
 
 	finds.Remove(F)
@@ -438,7 +446,7 @@
 		ORE_SILVER = 2,
 		ORE_PHORON = 5
 	)
-	var/mineralChance = 45
+	var/mineralChance = 55
 
 /turf/simulated/mineral/random/Initialize()
 	if (prob(mineralChance) && !mineral)
@@ -446,7 +454,8 @@
 		if (mineral_name && (mineral_name in ore_data))
 			mineral = ore_data[mineral_name]
 			UpdateMineral()
-		
+		MineralSpread()
+
 	. = ..()
 
 /turf/simulated/mineral/random/high_chance
@@ -460,7 +469,7 @@
 		ORE_SILVER = 2,
 		ORE_PHORON = 3
 	)
-	mineralChance = 45
+	mineralChance = 55
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
@@ -483,20 +492,19 @@
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
 	name = "sand"
-	//icon = 'icons/turf/flooring/asteroid.dmi'
-	//icon_state = "asteroid"
 	icon = 'icons/turf/smooth/ash.dmi'
 	icon_state = "ash"
 	smooth = SMOOTH_MORE | SMOOTH_BORDER
 	canSmoothWith = list(
 		/turf/simulated/floor/asteroid,
 		/turf/simulated/mineral,
-		/turf/simulated/wall
+		/turf/simulated/wall,
+		/turf/simulated/shuttle
 	)
 	base_name = "sand"
 	base_desc = "Gritty and unpleasant."
-	base_icon = 'icons/turf/flooring/asteroid.dmi'
-	base_icon_state = "asteroid"
+	base_icon = 'icons/turf/smooth/ash.dmi'
+	base_icon_state = "ash"
 
 	initial_flooring = null
 	oxygen = 0
@@ -504,6 +512,7 @@
 	temperature = TCMB
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/overlay_detail
+	var/digging
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
@@ -527,8 +536,13 @@
 		pixel_x = -4
 		pixel_y = -4
 		queue_smooth(src)
-	
+
 	return INITIALIZE_HINT_NORMAL
+
+/turf/simulated/floor/asteroid/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)
+	. = ..()
+	underlay_appearance.pixel_x = pixel_x
+	underlay_appearance.pixel_y = pixel_y
 
 /turf/simulated/floor/asteroid/ex_act(severity)
 	switch(severity)
@@ -601,55 +615,76 @@
 		var/turf/T = user.loc
 		if (!(istype(T)))
 			return
-
-		if (dug)
+		if(digging)
+			return
+		if(dug)
 			if(!GetBelow(src))
 				return
-			user << "<span class='warning'> You start digging deeper.</span>"
+			user << "<span class='warning'>You start digging deeper.</span>"
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
-			if(!do_after(user,60))
+			digging = 1
+			if(!do_after(user, 60))
+				if (istype(src, /turf/simulated/floor/asteroid))
+					digging = 0
 				return
+
+			// Turfs are special. They don't delete. So we need to check if it's
+			// still the same turf as before the sleep.
+			if (!istype(src, /turf/simulated/floor/asteroid))
+				return
+
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			if(prob(33))
 				switch(dug)
 					if(1)
-						user << "<span class='notice'> You've made a little progress.</span>"
+						user << "<span class='notice'>You've made a little progress.</span>"
 					if(2)
-						user << "<span class='notice'> You notice the hole is a little deeper.</span>"
+						user << "<span class='notice'>You notice the hole is a little deeper.</span>"
 					if(3)
-						user << "<span class='notice'> You think you're about halfway there.</span>"
+						user << "<span class='notice'>You think you're about halfway there.</span>"
 					if(4)
-						user << "<span class='notice'> You finish up lifting another pile of dirt.</span>"
+						user << "<span class='notice'>You finish up lifting another pile of dirt.</span>"
 					if(5)
-						user << "<span class='notice'> You dig a bit deeper. You're definitely halfway there now.</span>"
+						user << "<span class='notice'>You dig a bit deeper. You're definitely halfway there now.</span>"
 					if(6)
-						user << "<span class='notice'> You still have a ways to go.</span>"
+						user << "<span class='notice'>You still have a ways to go.</span>"
 					if(7)
-						user << "<span class='notice'> The hole looks pretty deep now.</span>"
+						user << "<span class='notice'>The hole looks pretty deep now.</span>"
 					if(8)
-						user << "<span class='notice'> The ground is starting to feel a lot looser.</span>"
+						user << "<span class='notice'>The ground is starting to feel a lot looser.</span>"
 					if(9)
-						user << "<span class='notice'> You can almost see the other side.</span>"
+						user << "<span class='notice'>You can almost see the other side.</span>"
 					if(10)
-						user << "<span class='notice'> Just a little deeper. . .</span>"
+						user << "<span class='notice'>Just a little deeper. . .</span>"
 					else
-						user << "<span class='notice'> You penetrate the virgin earth!</span>"
+						user << "<span class='notice'>You penetrate the virgin earth!</span>"
 			else
 				if(dug <= 10)
-					user << "<span class='notice'> You dig a little deeper.</span>"
+					user << "<span class='notice'>You dig a little deeper.</span>"
 				else
-					user << "<span class='notice'> You dug a big hole.</span>"
+					user << "<span class='notice'>You dug a big hole.</span>"
 
 			gets_dug()
+			digging = 0
 			return
 
-		user << "<span class='warning'> You start digging.</span>"
+		user << "<span class='warning'>You start digging.</span>"
 		playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 
+		digging = 1
 		if(!do_after(user,40))
+			if (istype(src, /turf/simulated/floor/asteroid))
+				digging = 0
+			return
+
+		// Turfs are special. They don't delete. So we need to check if it's
+		// still the same turf as before the sleep.
+		if (!istype(src, /turf/simulated/floor/asteroid))
 			return
 
 		user << "<span class='notice'> You dug a hole.</span>"
+		digging = 0
+
 		gets_dug()
 
 	else if(istype(W,/obj/item/weapon/storage/bag/ore))
@@ -671,34 +706,68 @@
 
 /turf/simulated/floor/asteroid/proc/gets_dug()
 
-	icon_state = "asteroid_dug"
+	add_overlay("asteroid_dug", TRUE)
 
-	new/obj/item/weapon/ore/glass(src)
+	if(prob(75))
+		new /obj/item/weapon/ore/glass(src)
 
-	if(prob(50))
-		var/list/ore = list(/obj/item/weapon/ore/coal = 8,
-		/obj/item/weapon/ore/iron = 6,
-		/obj/item/weapon/ore/phoron = 3,
-		/obj/item/weapon/ore/silver = 3,
-		/obj/item/weapon/ore/gold = 2,
-		/obj/item/weapon/ore/osmium = 3,
-		/obj/item/weapon/ore/hydrogen = 2,
-		/obj/item/weapon/ore/uranium = 1,
-		/obj/random/junk = 1,
-		/obj/item/weapon/ore/diamond = 0.5,
-		/obj/random/powercell = 0.2,
-		/obj/random/coin = 0.2,
-		/obj/random/loot = 0.1,
-		/obj/random/action_figure = 0.1)
-		var/ore_path = pickweight(ore)
+	if(prob(25) && has_resources)
+		var/list/ore = list()
+		for(var/metal in resources)
+
+			switch(metal)
+				if("silicates")
+					ore += /obj/item/weapon/ore/glass
+				if("carbonaceous rock")
+					ore += /obj/item/weapon/ore/coal
+				if("iron")
+					ore += /obj/item/weapon/ore/iron
+				if("gold")
+					ore += /obj/item/weapon/ore/gold
+				if("silver")
+					ore += /obj/item/weapon/ore/silver
+				if("diamond")
+					ore += /obj/item/weapon/ore/diamond
+				if("uranium")
+					ore += /obj/item/weapon/ore/uranium
+				if("phoron")
+					ore += /obj/item/weapon/ore/phoron
+				if("osmium")
+					ore += /obj/item/weapon/ore/osmium
+				if("hydrogen")
+					ore += /obj/item/weapon/ore/hydrogen
+				else
+					if(prob(25))
+						switch(rand(1,5))
+							if(1)
+								ore += /obj/random/junk
+							if(2)
+								ore += /obj/random/powercell
+							if(3)
+								ore += /obj/random/coin
+							if(4)
+								ore += /obj/random/loot
+							if(5)
+								ore += /obj/item/weapon/ore/glass
+					else
+						ore += /obj/item/weapon/ore/glass
+		var/ore_path = pick(ore)
 		if(ore)
 			new ore_path(src)
-			user << "<span class='notice'>You unearth something amidst the sand!</span>"
 
 	if(dug <= 10)
 		dug += 1
+		add_overlay("asteroid_dug", TRUE)
 	else
-		ChangeTurf(/turf/space)
+		var/turf/below = GetBelow(src)
+		if(below)
+			var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
+			if(below_area.station_area)
+				user << "<span class='alert'>You strike metal!</span>"
+				var/turf/T = ChangeTurf(/turf/simulated/floor/airless)
+				T.icon_state = "asteroidplating"
+			else
+				ChangeTurf(/turf/space)
 
 /turf/simulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
 	..()

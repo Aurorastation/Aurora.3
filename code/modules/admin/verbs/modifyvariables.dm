@@ -9,6 +9,19 @@ var/list/VVlocked = list("vars", "holder", "client", "virus", "viruses", "cuffed
 var/list/VVicon_edit_lock = list("icon", "icon_state", "overlays", "underlays")
 var/list/VVckey_edit = list("key", "ckey")
 
+// The paranoia box. Specify a var name => bitflags required to edit it.
+// Allows the securing of specific variables for, for example, config. That alter
+// how players could join! Definitely not something you want folks to touch if they
+// don't have the perms.
+var/list/VVdynamic_lock = list(
+	"access_deny_new_players" = R_SERVER,
+	"access_deny_new_accounts" = R_SERVER,
+	"access_deny_vms" = R_SERVER,
+	"access_warn_vms" = R_SERVER,
+	"ipintel_rating_bad" = R_SERVER,
+	"ipintel_rating_kick" = R_SERVER
+)
+
 /*
 /client/proc/cmd_modify_object_variables(obj/O as obj|mob|turf|area in world)   // Acceptable 'in world', as VV would be incredibly hampered otherwise
 	set category = "Debug"
@@ -171,6 +184,8 @@ var/list/VVckey_edit = list("key", "ckey")
 		if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
 	if(variable in VVicon_edit_lock)
 		if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
+	if(VVdynamic_lock[variable])
+		if(!check_rights(VVdynamic_lock[variable])) return
 
 	if(isnull(variable))
 		usr << "Unable to determine variable type."
@@ -364,6 +379,8 @@ var/list/VVckey_edit = list("key", "ckey")
 			if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
 		if(param_var_name in VVicon_edit_lock)
 			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
+		if(VVdynamic_lock[variable])
+			if(!check_rights(VVdynamic_lock[variable])) return
 
 		variable = param_var_name
 
@@ -426,6 +443,8 @@ var/list/VVckey_edit = list("key", "ckey")
 			if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
 		if(variable in VVicon_edit_lock)
 			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
+		if(VVdynamic_lock[variable])
+			if(!check_rights(VVdynamic_lock[variable])) return
 
 	if(!autodetect_class)
 

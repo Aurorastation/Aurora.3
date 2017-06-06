@@ -7,11 +7,11 @@
 //Main Lift
 /obj/turbolift_map_holder/aurora/civilian
 	name = "Aurora lift placeholder - Main"
-	dir = SOUTH
+	dir = WEST
 
 	depth = 3
-	lift_size_x = 6
-	lift_size_y = 6
+	lift_size_x = 4
+	lift_size_y = 4
 
 	areas_to_use = list(
 		/area/turbolift/main_station,
@@ -19,23 +19,62 @@
 		/area/turbolift/main_arrivals
 		)
 
+/obj/turbolift_map_holder/aurora/civilian_aux
+	name = "Aurora lift placeholder - Aux"
+	dir = WEST
+
+	depth = 3
+	lift_size_x = 4
+	lift_size_y = 4
+
+	areas_to_use = list(
+		/area/turbolift/main_station_aux,
+		/area/turbolift/main_mid_aux,
+		/area/turbolift/main_arrivals_aux
+		)
+
 /area/turbolift/main_arrivals
 	name = "Civilian Lift - Arrivals"
-	lift_announce_str = "Arriving at Arrivals"
+	lift_announce_str = "Arriving at the Surface Level. Facilities on this floor include: Blue, Red and Yellow Docks, Cryogenics Storage, Cargo Bay, Primary Tool Storage, Recreational Facilities."
 
-	lift_floor_label = "Arrivals"
-	lift_floor_name = "Arrivals"
+	lift_floor_label = "Surface Lvl."
+	lift_floor_name = "Surface Lvl."
+
+/area/turbolift/main_arrivals_aux
+	name = "Civilian Lift - Arrivals"
+	lift_announce_str = "Arriving at the Surface Level. Facilities on this floor include: Blue, Red and Yellow Docks, Cryogenics Storage, Cargo Bay, Primary Tool Storage, Recreational Facilities."
+
+	lift_floor_label = "Surface Lvl."
+	lift_floor_name = "Surface Lvl."
 
 /area/turbolift/main_station
 	name = "Civilian Lift - Main"
-	lift_announce_str = "Arriving at Main floor"
+	lift_announce_str = "Arriving at the Main Level. Facilities on this floor include: Engineering, Medical, Security, Science, Command departments, Cargo Office, Chapel, Bar, Kitchen."
 
-	lift_floor_label = "Main"
-	lift_floor_name = "Main"
+	lift_floor_label = "Main Lvl."
+	lift_floor_name = "Main Lvl."
+
+	base_turf = /turf/simulated/floor/plating
+
+/area/turbolift/main_station_aux
+	name = "Civilian Lift - Main"
+	lift_announce_str = "Arriving at the Main Level. Facilities on this floor include: Engineering, Medical, Security, Science, Command departments, Cargo Office, Chapel, Bar, Kitchen."
+
+	lift_floor_label = "Main Lvl."
+	lift_floor_name = "Main Lvl."
+
+	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/main_mid
 	name = "Civilian Lift - Mid Level"
-	lift_announce_str = "Arriving at Unknown"
+	lift_announce_str = "Arriving at (Unknown). Facilities on this floor include: (Unknown)."
+
+	lift_floor_label = "Under construction"
+	lift_floor_name = "Under construction"
+
+/area/turbolift/main_mid_aux
+	name = "Civilian Lift - Mid Level"
+	lift_announce_str = "Arriving at (Unknown). Facilities on this floor include: (Unknown)."
 
 	lift_floor_label = "Under construction"
 	lift_floor_name = "Under construction"
@@ -67,6 +106,8 @@
 	lift_floor_label = "Lower Sec"
 	lift_floor_name = "Lower Sec"
 
+	base_turf = /turf/simulated/floor/plating
+
 //Research
 /obj/turbolift_map_holder/aurora/research
 	name = "Aurora lift placeholder - Research"
@@ -83,18 +124,20 @@
 
 /area/turbolift/research_station
 	name = "Station - By Research"
-	lift_announce_str = "Arriving at the station level, by the R&D department."
+	lift_announce_str = "Arriving at the Research Main Level. Facilities in this floor include: Research and Development, Robotics, Genetics, Xenobotany, Miscellaneous Research, Conference Room."
 
-	lift_floor_label = "R&D Main"
-	lift_floor_name = "R&D Main"
+	lift_floor_label = "Main Level (Research)"
+	lift_floor_name = "Main Level (Research)"
 
 /area/turbolift/research_maintenance
 	name = "Maintenance - Below Research"
-	lift_announce_str = "Arriving at the maintenance level, below the R&D department."
+	lift_announce_str = "Arriving at the Research Sub-Level. Facilities in this floor include: Xenoarcheology, Toxins, Bomb Range, Xenobiology."
 	base_turf = /turf/simulated/floor/plating
 
-	lift_floor_label = "Lower R&D"
-	lift_floor_name = "Lower R&D"
+	lift_floor_label = "Sub-Level (Research)"
+	lift_floor_name = "Sub-Level (Research)"
+
+	base_turf = /turf/simulated/floor/plating
 
 //Engineering
 /obj/turbolift_map_holder/aurora/engineering
@@ -112,17 +155,19 @@
 
 /area/turbolift/engineering_station
 	name = "Station - By Engineering"
-	lift_announce_str = "Arriving at the station level, by the Engineering department."
+	lift_announce_str = "Arriving at the Engineering Main Level. Facilities in this floor include: Engine Bay, Main Storage, Hard Storage, Atmospherics, Monitoring Room, Lobby."
 
-	lift_floor_label = "Engineering Main"
-	lift_floor_name = "Engineering Main"
+	lift_floor_label = "Main Level (Engineering)"
+	lift_floor_name = "Main Level (Engineering)"
 
 /area/turbolift/engineering_maintenance
 	name = "Maintenance - Below Engineering"
-	lift_announce_str = "Arriving at the maintenance level, below the Engineering department."
+	lift_announce_str = "Arriving at the Engineering Sub-Level. Reminder: Stop located in Maintenance. Facilities in this floor include: Secondary Engine Bay, Break Room, Storage, Washroom."
 
-	lift_floor_label = "Lower Engineering"
-	lift_floor_name = "Lower Engineering"
+	lift_floor_label = "Sub-Level (Engineering)"
+	lift_floor_name = "Sub-Level (Engineering)"
+
+	base_turf = /turf/simulated/floor/plating
 
 //Cargo
 /obj/turbolift_map_holder/aurora/cargo
@@ -141,24 +186,26 @@
 
 /area/turbolift/cargo_station
 	name = "Station - By Cargo"
-	lift_announce_str = "Arriving at the station level, by the Cargo department."
+	lift_announce_str = "Arriving at the Cargo Main Level. Facilities in this floor include: Cargo Office, Warehouse, Resource Processing, Mining Station."
 
-	lift_floor_label = "Cargo Main"
-	lift_floor_name = "Cargo Main"
+	lift_floor_label = "Main Level (Cargo)"
+	lift_floor_name = "Main Level (Cargo)"
+
+	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/cargo_deliverys
 	name = "Arrivals - Cargo"
-	lift_announce_str = "Arriving at Cargo department, Deliverys."
+	lift_announce_str = "Arriving at the Cargo Surface Level. Facilities in this floor include: Cargo Shuttle Dock, Cargo Bay, Sorting Office."
 
-	lift_floor_label = "Cargo Arrivals"
-	lift_floor_name = "Cargo Arrivals"
+	lift_floor_label = "Surface Level (Cargo)"
+	lift_floor_name = "Surface Level (Cargo)"
 
 /area/turbolift/cargo_mid
 	name = "Arrivals - Cargo"
-	lift_announce_str = "Arriving at Unknown."
+	lift_announce_str = "Arriving at (Unknown). Facilities in this floor include: (Unknown)."
 
-	lift_floor_label = "Cargo Arrivals"
-	lift_floor_name = "Cargo Arrivals"
+	lift_floor_label = "Under Construction"
+	lift_floor_name = "Under Construction"
 
 
 //Medical
@@ -177,17 +224,19 @@
 
 /area/turbolift/medical_station
 	name = "Medical Lift - Main"
-	lift_announce_str = "Arriving at Medical bay"
+	lift_announce_str = "Arriving at the Medical Main Level. Facilities in this floor include: Lobby, Chemistry, Intensive Care Unit, General Treatment Unit, Surgery Wing, Consultation Wing, Cloning Wing, Briefing Room."
 
-	lift_floor_label = "Medical Main"
-	lift_floor_name = "Medical Main"
+	lift_floor_label = "Main Level (Medical)"
+	lift_floor_name = "Main Level (Medical)"
 
 /area/turbolift/medical_sub
 	name = "Medical Lift - Sub"
-	lift_announce_str = "Arriving at lower Medical"
+	lift_announce_str = "Arriving at the Medical Sub-Level. Facilities in this floor include: Virology, Patient Ward, Patient Acute Rooms, Cafeteria, Long-term Morgue, Staff Wing."
 
-	lift_floor_label = "Lower Medical"
-	lift_floor_name = "Lower Medical"
+	lift_floor_label = "Sub-Level (Medical)"
+	lift_floor_name = "Sub-Level (Medical)"
+
+	base_turf = /turf/simulated/floor/plating
 
 //AI Access
 /obj/turbolift_map_holder/aurora/aiaccess
@@ -205,17 +254,19 @@
 
 /area/turbolift/ai_station
 	name = "AI Access Lift - Main"
-	lift_announce_str = "Arriving at Main Floor"
+	lift_announce_str = "Arriving at the Command Main Level. Facilities in this floor include: Bridge, Command Dormitories, Command Recreational Area."
 
-	lift_floor_label = "Main"
-	lift_floor_name = "AI Control Main"
+	lift_floor_label = "Main Level (Command)"
+	lift_floor_name = "Main Level (Command)"
 
 /area/turbolift/ai_sub
 	name = "AI Access Lift - Lower"
-	lift_announce_str = "Arriving at AI control"
+	lift_announce_str = "Arriving at the Command Sub-Level. Facilities in this floor include: Messaging Server, Cyborg Charging Station, Artificial Intelligence Wing."
 
-	lift_floor_label = "AI Control"
-	lift_floor_name = "AI Control"
+	lift_floor_label = "Sub-Level (Command)"
+	lift_floor_name = "Sub-Level (Command)"
+
+	base_turf = /turf/simulated/floor/plating
 
 
 
@@ -235,18 +286,21 @@
 
 /area/turbolift/vault_station
 	name = "Vault Access Lift - Main"
-	lift_announce_str = "Arriving at Main floor"
+	lift_announce_str = "Arriving at the Main Level. Facilities on this floor include: Engineering, Medical, Security, Science and Command departments, Kitchen, Bar, Cargo Office."
 
-	lift_floor_label = "Main"
-	lift_floor_name = "Vault Main"
+	lift_floor_label = "Main Lvl."
+	lift_floor_name = "Main Lvl."
+
 
 
 /area/turbolift/vault_sub
 	name = "Vault Access Lift - sub"
-	lift_announce_str = "Arriving at Vault Access"
+	lift_announce_str = "Arriving at Vault Access. Facilities on this floor include: Vault. Alert: Secure Area ahead. Non-authorized personnel will be prosecuted."
 
-	lift_floor_label = "Vault Access"
-	lift_floor_name = "Vault Access"
+	lift_floor_label = "Sub-Level (Vault)"
+	lift_floor_name = "Sub-Level (Vault)"
+
+	base_turf = /turf/simulated/floor/plating
 
 
 //Command
@@ -266,20 +320,22 @@
 
 /area/turbolift/command_station
 	name = "Command Lift - Main"
-	lift_announce_str = "Arriving at Main floor"
+	lift_announce_str = "Arriving at the Command Surface Level. Facilities in this floor include: Escape Pods, Meeting Room, Secure Docks."
 
-	lift_floor_label = "Main"
-	lift_floor_name = "Command Main"
+	lift_floor_label = "Surface Level (Command)"
+	lift_floor_name = "Surface Level (Command)"
 
 /area/turbolift/command_sub
 	name = "Command Lift - Sub"
-	lift_announce_str = "Arriving at Command level"
+	lift_announce_str = "Arriving at the Command Main Level. Facilities in this floor include: Bridge, Command Dormitories, Command Recreational Area."
 
-	lift_floor_label = "Meeting/Escape Pods"
-	lift_floor_name = "Command Meeting"
+	lift_floor_label = "Main Level (Command)"
+	lift_floor_name = "Main Level (Command)"
+
+	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/command_mid
 	name = "Command Lift - Mid"
-	lift_announce_str = "Arriving at Command Unknown"
-	lift_floor_label = "Command Floor"
-	lift_floor_name = "Secret Command Floor"
+	lift_announce_str = "Arriving at the (Command Unknown). Facilities in this floor include: (Unknown)"
+	lift_floor_label = "Under Construction"
+	lift_floor_name = "Under Construction"

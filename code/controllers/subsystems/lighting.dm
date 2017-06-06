@@ -5,6 +5,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 /datum/controller/subsystem/lighting
 	name = "Lighting"
 	wait = LIGHTING_INTERVAL
+	flags = SS_FIRE_IN_LOBBY
 
 	priority = SS_PRIORITY_LIGHTING
 	init_order = SS_INIT_LIGHTING
@@ -31,7 +32,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 	LAZYINITLIST(lighting_overlays)
 
 /datum/controller/subsystem/lighting/stat_entry()
-	..("O:[lighting_overlays.len] C:[lighting_corners.len] ITL:[round(instant_tick_limit, 0.1)]%\n\tP:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}\n\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}")
+	var/out = "O:[lighting_overlays.len] C:[lighting_corners.len] ITL:[round(instant_tick_limit, 0.1)]%\n"
+	out += "\tP:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}\n"
+	out += "\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}\n"
+	..(out)
 
 /datum/controller/subsystem/lighting/ExplosionStart()
 	force_queued = TRUE
@@ -55,7 +59,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 			if (!A.dynamic_lighting)
 				continue
 
-			new /atom/movable/lighting_overlay(T, TRUE)
+			new /atom/movable/lighting_overlay(T)
 			overlaycount++
 
 			CHECK_TICK
@@ -95,17 +99,9 @@ var/datum/controller/subsystem/lighting/SSlighting
 		var/datum/light_source/L = curr_lights[curr_lights.len]
 		curr_lights.len--
 
-		if(QDELETED(L) || L.check() || L.force_update)
-			L.remove_lum()
-			if(!QDELETED(L))
-				L.apply_lum()
+		L.update_corners()
 
-		else if(L.vis_update)	//We smartly update only tiles that became (in) visible to use.
-			L.smart_vis_update()
-
-		L.vis_update   = FALSE
-		L.force_update = FALSE
-		L.needs_update = FALSE
+		L.needs_update = LIGHTING_NO_UPDATE
 
 		processed_lights++
 

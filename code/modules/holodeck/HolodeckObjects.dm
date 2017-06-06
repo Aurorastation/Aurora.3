@@ -209,7 +209,7 @@
 	if(src.density && istype(I, /obj/item/weapon) && !istype(I, /obj/item/weapon/card))
 		var/aforce = I.force
 		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
-		visible_message("\red <B>[src] was hit by [I].</B>")
+		visible_message("<span class='danger'>[src] was hit by [I].</span>")
 		if(I.damtype == BRUTE || I.damtype == BURN)
 			take_damage(aforce)
 		return
@@ -363,10 +363,7 @@
 	var/eventstarted = 0
 
 	anchored = 1.0
-	use_power = 1
-	idle_power_usage = 2
-	active_power_usage = 6
-	power_channel = ENVIRON
+	use_power = 0 // reason is because the holodeck already takes power so this can be powered as a result.
 
 /obj/machinery/readybutton/attack_ai(mob/user as mob)
 	user << "The station AI is not to interact with these devices!"
@@ -437,10 +434,7 @@
 	icon_gib = null
 	meat_amount = 0
 	meat_type = null
-
-/mob/living/simple_animal/hostile/carp/holodeck/New()
-	..()
-	set_light(2) //hologram lighting
+	light_range = 2
 
 /mob/living/simple_animal/hostile/carp/holodeck/proc/set_safety(var/safe)
 	if (safe)

@@ -20,13 +20,16 @@
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"
 	icon_rest = "mouse_gray_sleep"
+	
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	var/swarm_name = "peasentry"
 	var/announce_name = "Request"
 	var/list/rats = list()
 
-/mob/living/simple_animal/mouse/king/New()
-	..()
+/mob/living/simple_animal/mouse/king/Initialize()
+	. = ..()
 
 	update()
 
@@ -67,70 +70,70 @@
 	if( rats.len >= RAT_GOD_LEVEL)
 		name = "rat god"
 		swarm_name = "creation"
-		announce_name = "Commandment"
+		announce_name = "commandment"
 		desc = "A titanic swarm of rats."
 		attacktext = "swarmed"
 		melee_damage_lower = 15
 		melee_damage_upper = 20
-		maxHealth = 50
-		health = 50
+		maxHealth = 260
+		health = 260
 		mob_size = 10
 		universal_speak = 1
 	else if(rats.len >= RAT_SAVIOR_LEVEL)
 		name = "rat savior"
 		swarm_name = "flock"
-		announce_name = "Pronouncement"
+		announce_name = "pronouncement"
 		desc = "A massive swarm of rats."
 		attacktext = "swarmed"
 		melee_damage_lower = 10
 		melee_damage_upper = 10
-		maxHealth = 40
-		health = 40
+		maxHealth = 160
+		health = 160
 		mob_size = 9
 	else if(rats.len >= RAT_EMPEROR_LEVEL)
 		name = "rat emperor"
 		swarm_name = "empire"
-		announce_name = "Command"
+		announce_name = "command"
 		desc = "A large swarm of rats."
 		attacktext = "swarmed"
 		melee_damage_lower = 7
 		melee_damage_upper = 5
-		maxHealth = 35
-		health = 35
+		maxHealth = 110
+		health = 110
 		mob_size = 8
 	else if(rats.len >= RAT_KING_LEVEL)
 		name = "rat king"
 		swarm_name = "kingdom"
-		announce_name = "Decree"
+		announce_name = "decree"
 		desc = "A big swarm of rats."
 		attacktext = "swarmed"
 		melee_damage_lower = 5
 		melee_damage_upper = 5
-		maxHealth = 30
-		health = 30
+		maxHealth = 60
+		health = 60
 		mob_size = 7
 	else if(rats.len >= RAT_DUKE_LEVEL)
 		name = "rat duke"
 		swarm_name = "duchy"
-		announce_name = "Decree"
+		announce_name = "decree"
 		desc = "A swarm of rats."
 		attacktext = "bitten"
-		maxHealth = 25
-		health = 25
+		maxHealth = 35
+		health = 35
 		mob_size = 6
 	else if(rats.len >= RAT_BARON_LEVEL)
 		name = "rat baron"
 		swarm_name = "barony"
-		announce_name = "Decree"
+		announce_name = "decree"
 		desc = "A group of rats."
 		attacktext = "bitten"
-		maxHealth = 20
-		health = 20
+		maxHealth = 25
+		health = 25
 		mob_size = 4
 	else if(rats.len >= RAT_MAYOR_LEVEL)
 		name = "rat mayor"
 		swarm_name = "hamlet"
-		announce_name = "Decree"
+		announce_name = "decree"
 		desc = "A couple of rats."
 		attacktext = "bitten"
 		maxHealth = 15
@@ -139,7 +142,7 @@
 	else
 		name = "rat peasant"
 		swarm_name = "peasentry"
-		announce_name = "Request"
+		announce_name = "request"
 		desc = "A single rat. This one seems special."
 		attacktext = "scratched"
 		maxHealth = 10

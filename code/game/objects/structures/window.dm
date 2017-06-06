@@ -20,6 +20,8 @@
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
 	var/silicate = 0 // number of units of silicate
 
+	atmos_canpass = CANPASS_PROC
+
 /obj/structure/window/examine(mob/user)
 	. = ..(user)
 
@@ -91,12 +93,12 @@
 		index = 0
 		while(index < 2)
 			new shardtype(loc) //todo pooling?
-			if(reinf) 
+			if(reinf)
 				new /obj/item/stack/rods(loc)
 			index++
 	else
 		new shardtype(loc) //todo pooling?
-		if(reinf) 
+		if(reinf)
 			new /obj/item/stack/rods(loc)
 	qdel(src)
 	return
@@ -477,13 +479,27 @@
 /obj/structure/window/shuttle
 	name = "shuttle window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
-	icon = 'icons/obj/podwindows.dmi'
-	icon_state = "window"
+	icon = 'icons/obj/smooth/shuttle_window.dmi'
+	icon_state = "shuttle_window"
 	basestate = "window"
 	maxhealth = 40
 	reinf = 1
 	basestate = "w"
 	dir = 5
+	smooth = SMOOTH_TRUE | SMOOTH_CLEAR_ICON
+	can_be_unanchored = TRUE
+
+/obj/structure/window/shuttle/crescent
+	desc = "It looks rather strong."
+
+/obj/structure/window/shuttle/crescent/take_damage()
+	return
+
+/obj/structure/window/shuttle/update_nearby_icons()
+	queue_smooth_neighbors(src)
+
+/obj/structure/window/update_icon()
+	queue_smooth(src)
 
 /obj/structure/window/reinforced/polarized
 	name = "electrochromic window"
@@ -521,7 +537,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "light0"
 	desc = "A remote control switch for polarized windows."
-	var/range = 7
+	var/range = 16
 
 /obj/machinery/button/windowtint/attack_hand(mob/user as mob)
 	if(..())

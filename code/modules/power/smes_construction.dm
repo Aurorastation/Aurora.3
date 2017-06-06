@@ -343,7 +343,7 @@
 					total_system_failure(failure_probability, user)
 					return
 
-				usr << "\red You have disassembled the SMES cell!"
+				usr << "<span class='warning'>You have disassembled the SMES cell!</span>"
 				var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 				M.state = 2
 				M.icon_state = "box_1"
@@ -368,7 +368,7 @@
 				W.loc = src
 				recalc_coils()
 			else
-				usr << "\red You can't insert more coils to this SMES unit!"
+				usr << "<span class='warning'>You can't insert more coils to this SMES unit!</span>"
 
 // Proc: toggle_input()
 // Parameters: None

@@ -49,7 +49,7 @@ var/list/ai_verbs_default = list(
 	density = 1
 	status_flags = CANSTUN|CANPARALYSE|CANPUSH
 	//shouldnt_see - set in New()
-	var/list/network = list("Exodus")
+	var/list/network = list("Station")
 	var/obj/machinery/camera/camera = null
 	var/list/connected_robots = list()
 	var/aiRestorePowerRoutine = 0
@@ -75,6 +75,7 @@ var/list/ai_verbs_default = list(
 	var/APU_power = 0							// If set to 1 AI runs on APU power
 	var/hacking = 0								// Set to 1 if AI is hacking APC, cyborg, other AI, or running system override.
 	var/system_override = 0						// Set to 1 if system override is initiated, 2 if succeeded.
+	var/synthetic_takeover = 0					// 1 is started, 2 is complete.
 	var/hack_can_fail = 1						// If 0, all abilities have zero chance of failing.
 	var/hack_fails = 0							// This increments with each failed hack, and determines the warning message text.
 	var/errored = 0								// Set to 1 if runtime error occurs. Only way of this happening i can think of is admin fucking up with varedit.
@@ -98,7 +99,7 @@ var/list/ai_verbs_default = list(
 	src.verbs -= ai_verbs_default
 	src.verbs -= silicon_subsystems
 
-/mob/living/silicon/ai/New(loc, var/datum/ai_laws/L, var/obj/item/device/mmi/B, var/safety = 0)
+/mob/living/silicon/ai/Initialize(mapload, datum/ai_laws/L, obj/item/device/mmi/B, safety = 0)
 	shouldnt_see = typecacheof(/obj/effect/rune)
 	announcement = new()
 	announcement.title = "A.I. Announcement"
@@ -182,7 +183,7 @@ var/list/ai_verbs_default = list(
 	hud_list[SPECIALROLE_HUD] = image('icons/mob/hud.dmi', src, "hudblank")
 
 	ai_list += src
-	..()
+	return ..()
 
 /mob/living/silicon/ai/proc/init_powersupply()
 	new /obj/machinery/ai_powersupply(src)

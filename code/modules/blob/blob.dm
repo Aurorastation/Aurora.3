@@ -234,7 +234,7 @@
 			if(istype(W, /obj/item/weapon/weldingtool))
 				playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 		if("brute")
-			if(prob(30))
+			if(prob(30) && !issilicon(user))
 				visible_message("<span class='danger'>\The [W] gets caught in the gelatinous folds of \the [src]</span>")
 				user.drop_from_inventory(W)
 				W.forceMove(src.loc)

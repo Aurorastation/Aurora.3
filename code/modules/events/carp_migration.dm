@@ -3,6 +3,7 @@
 	endWhen 		= 900
 
 	var/list/spawned_carp = list()
+	var/list/spawned_dweller = list()
 	ic_name = "biological entities"
 
 /datum/event/carp_migration/setup()
@@ -40,11 +41,15 @@
 	while (i <= num_groups)
 		var/group_size = rand(group_size_min, group_size_max)
 		for (var/j = 1, j <= group_size, j++)
-			var/mob/living/simple_animal/hostile/carp/carp = new(spawn_locations[i])
-			spawned_carp += "\ref[carp]"
+			if(prob(99))
+				var/mob/living/simple_animal/hostile/carp/carp = new(spawn_locations[i])
+				spawned_carp += SOFTREF(carp)
+			else
+				var/mob/living/simple_animal/hostile/carp/shark/carp = new(spawn_locations[i])
+				spawned_carp += SOFTREF(carp)
 		i++
 
-/datum/event/carp_migration/proc/spawn_caverndweller(var/num_groups, var/group_size_min=3, var/group_size_max=5)
+/datum/event/carp_migration/proc/spawn_caverndweller(var/num_groups, var/group_size_min=2, var/group_size_max=3)
 	var/list/spawn_locations = list()
 
 	for(var/obj/effect/landmark/C in landmarks_list)
@@ -57,7 +62,8 @@
 	while (i <= num_groups)
 		var/group_size = rand(group_size_min, group_size_max)
 		for (var/j = 1, j <= group_size, j++)
-			spawned_carp.Add(new /mob/living/simple_animal/hostile/retaliate/cavern_dweller(spawn_locations[i]))
+			var/mob/living/simple_animal/hostile/retaliate/cavern_dweller/dweller = new(spawn_locations[i])
+			spawned_dweller += SOFTREF(dweller)
 		i++
 
 /datum/event/carp_migration/end()

@@ -13,7 +13,7 @@
 	var/group_multiplier = 1
 
 	//List of active tile overlays for this gas_mixture.  Updated by check_tile_graphic()
-	var/list/graphic = list()
+	var/list/graphic
 
 /datum/gas_mixture/New(_volume = CELL_VOLUME, _temperature = 0, _group_multiplier = 1)
 	volume = _volume
@@ -349,7 +349,7 @@
 //Two lists can be passed by reference if you need know specifically which graphics were added and removed.
 /datum/gas_mixture/proc/check_tile_graphic(list/graphic_add = null, list/graphic_remove = null)
 	for(var/g in gas_data.overlay_limit)
-		if (graphic[gas_data.tile_overlay[g]])
+		if (graphic && graphic[gas_data.tile_overlay[g]])
 			//Overlay is already applied for this gas, check if it's still valid.
 			if(gas[g] <= gas_data.overlay_limit[g])
 				LAZYADD(graphic_remove, gas_data.tile_overlay[g])
@@ -361,12 +361,15 @@
 	. = 0
 	//Apply changes
 	if(LAZYLEN(graphic_add))
+		LAZYINITLIST(graphic)
 		for (var/entry in graphic_add)
 			graphic[entry] = TRUE	// This is an assoc list to make checking it a bit faster.
 		. = 1
 	if(LAZYLEN(graphic_remove))
 		graphic -= graphic_remove
 		. = 1
+
+	UNSETEMPTY(graphic)
 
 //Simpler version of merge(), adjusts gas amounts directly and doesn't account for temperature or group_multiplier.
 /datum/gas_mixture/proc/add(datum/gas_mixture/right_side)

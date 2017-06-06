@@ -83,6 +83,15 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/disk/tech_disk
 	sort_string = "GAAAB"
 
+/datum/design/item/flora_disk
+	name = "Flora Data Storage Disk"
+	desc = "Produce additional disks for storing flora data."
+	id = "flora_disk"
+	req_tech = list(TECH_DATA = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
+	build_path = /obj/item/weapon/disk/botany
+	sort_string = "GAAAC"
+
 /datum/design/item/stock_part
 	build_type = PROTOLATHE
 

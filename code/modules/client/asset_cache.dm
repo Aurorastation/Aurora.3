@@ -178,7 +178,8 @@ var/list/asset_datums = list()
 		"bootstrap.min.css" = 'html/bootstrap/css/bootstrap.min.css',
 		"bootstrap.min.js" = 'html/bootstrap/js/bootstrap.min.js',
 		"jquery-2.0.0.min.js" = 'html/jquery/jquery-2.0.0.min.js',
-		"ie-truth.min.js" = 'html/iestats/ie-truth.min.js'
+		"ie-truth.min.js" = 'html/iestats/ie-truth.min.js',
+		"conninfo.min.js" = 'html/iestats/conninfo.min.js'
 	)
 
 /datum/asset/simple/paper
@@ -210,3 +211,22 @@ var/list/asset_datums = list()
 		"changelog.css" = 'html/changelog.css',
 		"changelog.js" = 'html/changelog.js'
 	)
+
+/datum/asset/chem_master
+	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
+	var/max_pill_sprite = 20
+	var/list/assets = list()
+
+/datum/asset/chem_master/register()
+	for (var/i = 1 to max_pill_sprite)
+		var/name = "pill[i].png"
+		register_asset(name, icon('icons/obj/chemical.dmi', "pill[i]"))
+		assets += name
+
+	for (var/sprite in bottle_sprites)
+		var/name = "[sprite].png"
+		register_asset(name, icon('icons/obj/chemical.dmi', sprite))
+		assets += name
+
+/datum/asset/chem_master/send(client)
+	send_asset_list(client, assets)

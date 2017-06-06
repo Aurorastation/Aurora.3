@@ -23,9 +23,6 @@
 
 	if(!holder)	return
 	switch(controller)
-		if("Jobs")
-			debug_variables(job_master)
-			feedback_add_details("admin_verb","DJobs")
 		if("Configuration")
 			debug_variables(config)
 			feedback_add_details("admin_verb","DConf")

@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - tweak: "Lights will now shine through Z-holes (openturfs)."

@@ -121,7 +121,12 @@ Class Procs:
 	can_fire = TRUE
 
 /datum/controller/subsystem/air/stat_entry()
-	..("TtU:[tiles_to_update.len] ZtU:[zones_to_update.len] AFZ:[active_fire_zones.len] AH:[active_hotspots.len] AE:[active_edges.len]")
+	var/out = "TtU:[tiles_to_update.len] "
+	out += "ZtU:[zones_to_update.len] "
+	out += "AFZ:[active_fire_zones.len] "
+	out += "AH:[active_hotspots.len] "
+	out += "AE:[active_edges.len]"
+	..(out)
 
 /datum/controller/subsystem/air/New()
 	NEW_SS_GLOBAL(SSair)
@@ -184,7 +189,9 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 			continue
 
 		//check if the turf is self-zone-blocked
-		if(T.c_airblock(T) & ZONE_BLOCKED)
+		var/c_airblock 
+		ATMOS_CANPASS_TURF(c_airblock, T, T)
+		if(c_airblock & ZONE_BLOCKED)
 			deferred += T
 			if (no_mc_tick)
 				CHECK_TICK
@@ -290,9 +297,12 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	ASSERT(isturf(A))
 	ASSERT(isturf(B))
 	#endif
-	var/ablock = A.c_airblock(B)
-	if(ablock == BLOCKED) return BLOCKED
-	return ablock | B.c_airblock(A)
+	var/ablock
+	ATMOS_CANPASS_TURF(ablock, A, B)
+	if(ablock == BLOCKED) 
+		return BLOCKED
+	ATMOS_CANPASS_TURF(., B, A)
+	return ablock | .
 
 /datum/controller/subsystem/air/proc/has_valid_zone(turf/simulated/T)
 	#ifdef ZASDBG

@@ -319,7 +319,7 @@
 		"siliconUser" = istype(user, /mob/living/silicon)
 	)
 
-	var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, ui_key)
+	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, ui_key)
 	if (!ui)
 		// the ui does not exist, so we'll create a new one
 		ui = new(user, src, ui_key, "ame.tmpl", "Antimatter Control Unit", 500, data["siliconUser"] ? 465 : 390)

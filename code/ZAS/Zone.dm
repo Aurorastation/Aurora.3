@@ -44,17 +44,17 @@ Class Procs:
 	var/name
 	var/invalid = 0
 	var/list/contents = list()
-	var/list/fire_tiles = list()
-	var/list/fuel_objs = list()
+	var/list/fire_tiles
+	var/list/fuel_objs
 
 	var/needs_update = 0
 
-	var/list/edges = list()
+	var/list/edges
 
 	var/datum/gas_mixture/air = new
 
-	var/list/graphic_add = list()
-	var/list/graphic_remove = list()
+	var/list/graphic_add
+	var/list/graphic_remove
 
 /zone/New()
 	SSair.add_zone(src)
@@ -74,9 +74,10 @@ Class Procs:
 	contents += T
 	if(T.fire)
 		var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
-		fire_tiles.Add(T)
+		LAZYADD(fire_tiles, T)
 		SSair.active_fire_zones |= src
-		if(fuel) fuel_objs += fuel
+		if (fuel)
+			LAZYADD(fuel_objs, fuel)
 	T.update_graphic(air.graphic)
 
 /zone/proc/remove(turf/simulated/T)
@@ -87,10 +88,10 @@ Class Procs:
 	soft_assert(T in contents, "Lists are weird broseph")
 #endif
 	contents -= T
-	fire_tiles -= T
+	LAZYREMOVE(fire_tiles, T)
 	if(T.fire)
 		var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
-		fuel_objs -= fuel
+		LAZYREMOVE(fuel_objs, fuel)
 	T.zone = null
 	T.update_graphic(graphic_remove = air.graphic)
 	if(contents.len)
@@ -154,11 +155,16 @@ Class Procs:
 		if(istype(T))
 			T.create_fire(vsc.fire_firelevel_multiplier)
 
+	LAZYINITLIST(graphic_add)
+	LAZYINITLIST(graphic_remove)
 	if(air.check_tile_graphic(graphic_add, graphic_remove))
 		for(var/turf/simulated/T in contents)
 			T.update_graphic(graphic_add, graphic_remove)
-		graphic_add.len = 0
-		graphic_remove.len = 0
+
+		LAZYCLEARLIST(graphic_add)
+		LAZYCLEARLIST(graphic_remove)
+		UNSETEMPTY(graphic_add)
+		UNSETEMPTY(graphic_remove)
 
 	for(var/connection_edge/E in edges)
 		if(E.sleeping)
@@ -172,7 +178,7 @@ Class Procs:
 	M << "O2 per N2: [(air.gas["nitrogen"] ? air.gas["oxygen"]/air.gas["nitrogen"] : "N/A")] Moles: [air.total_moles]"
 	M << "Simulated: [contents.len] ([air.group_multiplier])"
 	//M << "Unsimulated: [unsimulated_contents.len]"
-	//M << "Edges: [edges.len]"
+	//M << "Edges: [LAZYLEN(edges)]"
 	if(invalid) M << "Invalid!"
 	var/zone_edges = 0
 	var/space_edges = 0

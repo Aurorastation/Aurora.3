@@ -121,7 +121,7 @@
 				// Don't allow players to observe until initialization is more or less complete.
 				// Letting them join too early breaks things, they can wait.
 				src << span("alert", "The server is still initializing, try observing again in a minute or so.")
-				return 
+				return
 
 			if(alert(src,"Are you sure you wish to observe? You will have to wait 30 minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
 				if(!client)	return 1
@@ -158,7 +158,7 @@
 		if(href_list["late_join"])
 
 			if(SSticker.current_state != GAME_STATE_PLAYING)
-				usr << "\red The round is either not ready, or has already finished..."
+				usr << "<span class='warning'>The round is either not ready, or has already finished...</span>"
 				return
 
 			// Cannot join without a saved character, if we're on SQL saves.
@@ -302,7 +302,7 @@
 							vote_on_poll(pollid, optionid, 1)
 
 	proc/IsJobAvailable(rank)
-		var/datum/job/job = job_master.GetJob(rank)
+		var/datum/job/job = SSjobs.GetJob(rank)
 		if(!job)	return 0
 		if(!job.is_position_available()) return 0
 		if(jobban_isbanned(src,rank))	return 0
@@ -314,7 +314,7 @@
 		if(src != usr)
 			return 0
 		if(SSticker.current_state != GAME_STATE_PLAYING)
-			usr << "\red The round is either not ready, or has already finished..."
+			usr << "<span class='warning'>The round is either not ready, or has already finished...</span>"
 			return 0
 		if(!config.enter_allowed)
 			usr << "<span class='notice'>There is an administrative lock on entering the game!</span>"
@@ -329,11 +329,11 @@
 		spawning = 1
 		close_spawn_windows()
 
-		job_master.AssignRole(src, rank, 1)
+		SSjobs.AssignRole(src, rank, 1)
 
 		var/mob/living/character = create_character()	//creates the human and transfers vars and mind
 
-		character = job_master.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
+		character = SSjobs.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
 
 		UpdateFactionList(character)
 
@@ -358,7 +358,7 @@
 			return
 
 		//Find our spawning point.
-		var/join_message = job_master.LateSpawn(character, rank)
+		var/join_message = SSjobs.LateSpawn(character, rank)
 
 		character.lastarea = get_area(loc)
 		// Moving wheelchair if they have one
@@ -404,7 +404,7 @@
 					dat += "<font color='red'>The station is currently undergoing crew transfer procedures.</font><br>"
 
 		dat += "Choose from the following open/valid positions:<br>"
-		for(var/datum/job/job in job_master.occupations)
+		for(var/datum/job/job in SSjobs.occupations)
 			if(job && IsJobAvailable(job.title))
 				var/active = 0
 				// Only players with the job assigned and AFK for less than 10 minutes count as active
@@ -432,10 +432,10 @@
 		if(chosen_species && use_species_name)
 			// Have to recheck admin due to no usr at roundstart. Latejoins are fine though.
 			if(is_species_whitelisted(chosen_species) || has_admin_rights())
-				new_character = new(loc, use_species_name)
+				new_character = new(newplayer_start, use_species_name)
 
 		if(!new_character)
-			new_character = new(loc)
+			new_character = new(newplayer_start)
 
 		new_character.lastarea = get_area(loc)
 

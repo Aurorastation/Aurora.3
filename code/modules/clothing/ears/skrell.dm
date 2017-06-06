@@ -93,3 +93,9 @@
 	desc = "A blue cloth band worn by female skrell around their head tails."
 	icon_state = "blue_skrell_cloth_band_female"
 	item_state = "blue_skrell_cloth_band_female"
+	
+/obj/item/clothing/ears/skrell/purple_skrell_cloth_male
+	name = "skrell purple head cloth"
+	desc = "A purple cloth band worn by male skrell around their head tails."
+	icon_state = "purple_skrell_cloth_male"
+	item_state = "purple_skrell_cloth_male"

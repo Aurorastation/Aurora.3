@@ -87,6 +87,7 @@ var/list/flooring_types
 	desc = "It's like the 2390's all over again."
 	icon = 'icons/turf/flooring/linoleum.dmi'
 	icon_base = "lino"
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	can_paint = 1
 
 /decl/flooring/tiling/red
@@ -163,7 +164,7 @@ var/list/flooring_types
 	icon = 'icons/turf/flooring/circuit.dmi'
 	icon_base = "bcircuit"
 	build_type = null
-	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK
+	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_CROWBAR
 	can_paint = 1
 
 /decl/flooring/reinforced/circuit/green
@@ -196,3 +197,10 @@ var/list/flooring_types
 
 /decl/flooring/reinforced/ramp/bottom
 	icon_base = "rampbot"
+	
+/decl/flooring/diona
+	name = "biomass"
+	desc = "a mass of small intertwined aliens forming a floor... Creepy."
+	icon = 'icons/turf/floors.dmi'
+	icon_base = "diona"
+	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL

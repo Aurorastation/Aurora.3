@@ -52,12 +52,12 @@
 /datum/gear/head/beret/sec
 	display_name = "beret,security"
 	path = /obj/item/clothing/head/beret/sec
-	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
 /datum/gear/head/beret/warden
 	display_name = "beret,security (warden)"
 	path = /obj/item/clothing/head/beret/sec/warden
-	allowed_roles = list("Head of Security","Warden")
+	allowed_roles = list("Head of Security", "Warden")
 
 /datum/gear/head/beret/hos
 	display_name = "beret,security (head of security)"
@@ -67,12 +67,12 @@
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
-	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
+	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
 
 /datum/gear/head/sec
 	display_name = "cap, security"
 	path = /obj/item/clothing/head/soft/sec
-	allowed_roles = list("Security Officer","Head of Security","Warden","Security Cadet","Detective")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
 
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
@@ -128,13 +128,33 @@
 	hijab["brown hijab"] = /obj/item/clothing/head/hijab/brown
 	hijab["green hijab"] = /obj/item/clothing/head/hijab/green
 	hijab["blue hijab"] = /obj/item/clothing/head/hijab/blue
+	hijab["white hijab"] = /obj/item/clothing/head/hijab/white
 
 	gear_tweaks += new/datum/gear_tweak/path(hijab)
+	
+/datum/gear/head/turban
+	display_name = "turban selection"
+	path = /obj/item/clothing/head/turban
+
+/datum/gear/head/turban/New()
+	..()
+	var/turbans = list()
+	turbans["black turban"] = /obj/item/clothing/head/turban
+	turbans["blue turban"] = /obj/item/clothing/head/turban/blue
+	turbans["green turban"] = /obj/item/clothing/head/turban/green
+	turbans["grey turban"] = /obj/item/clothing/head/turban/grey
+	turbans["orange turban"] = /obj/item/clothing/head/turban/orange
+	turbans["purple turban"] = /obj/item/clothing/head/turban/purple
+	turbans["red turban"] = /obj/item/clothing/head/turban/red
+	turbans["white turban"] = /obj/item/clothing/head/turban/white
+	turbans["yellow turban"] = /obj/item/clothing/head/turban/yellow
+	
+	gear_tweaks += new/datum/gear_tweak/path(turbans)
 
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist","Chief Medical Officer","Medical Doctor","Geneticist","Chemist","Paramedic","Nursing Intern","Xenobiologist","Roboticist","Research Director","Detective")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Chemist", "Paramedic", "Nursing Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()

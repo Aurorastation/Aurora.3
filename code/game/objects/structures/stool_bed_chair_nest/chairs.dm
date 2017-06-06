@@ -212,3 +212,5 @@
 /obj/structure/bed/chair/wood/wings
 	icon_state = "wooden_chair_wings"
 
+/obj/structure/bed/chair/unmovable
+	can_dismantle = 0

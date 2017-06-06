@@ -25,15 +25,31 @@
 	var/account_allowed = 1				  // Does this job type come with a station account?
 	var/economic_modifier = 2			  // With how much does this job modify the initial account amount?
 
+	var/bag_type = /obj/item/weapon/storage/backpack
+	var/satchel_type = /obj/item/weapon/storage/backpack/satchel_norm
+	var/alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
+	var/duffel_type = /obj/item/weapon/storage/backpack/duffel
+
 /datum/job/proc/equip(var/mob/living/carbon/human/H)
 	return 1
 
 /datum/job/proc/equip_backpack(var/mob/living/carbon/human/H)
-	switch(H.backbag)
-		if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(H), slot_back)
-		if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
-		if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-		if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)
+	var/type_to_spawn
+	switch (H.backbag)
+		//if (1)	// No bag selected.
+		if (2)
+			type_to_spawn = bag_type
+		if (3)
+			type_to_spawn = satchel_type
+		if (4)
+			type_to_spawn = alt_satchel_type
+		if (5)
+			type_to_spawn = duffel_type
+
+	if (type_to_spawn)
+		var/obj/item/bag = new type_to_spawn
+		if (H.equip_to_slot_or_del(bag, slot_back))
+			bag.autodrobe_no_remove = TRUE
 
 /datum/job/proc/equip_survival(var/mob/living/carbon/human/H)
 	if(!H)	return 0

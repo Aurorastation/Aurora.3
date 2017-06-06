@@ -391,3 +391,10 @@
 		if((M.client && M.machine == src))
 			attack_self(M)
 	return
+
+/obj/item/device/violin/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+	..()
+	user.visible_message("<span class='danger'>\The [user] shatters \the [src] into pieces!</span>")
+	playsound(loc, 'sound/effects/kabong.ogg', 50, 1)
+	new /obj/item/weapon/material/shard/wood(get_turf(user))
+	qdel(src)

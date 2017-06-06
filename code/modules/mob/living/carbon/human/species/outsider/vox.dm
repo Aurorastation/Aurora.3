@@ -16,6 +16,7 @@
 	smell.<br/><br/>Most humans will never meet a Vox raider, instead learning of this insular species through \
 	dealing with their traders and merchants; those that do rarely enjoy the experience."
 
+	fall_mod = 0.25 //nimble, winged little shitbirds
 
 	stamina	=	120			  // Vox are even faster than unathi and can go longer, but recover slowly
 	sprint_speed_factor = 3
@@ -97,6 +98,7 @@
 	cold_level_1 = 130
 	cold_level_2 = 100
 	cold_level_3 = 60
+	fall_mod = 0.8
 
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws, /datum/unarmed_attack/bite)
 
@@ -163,6 +165,7 @@
 
 	brute_mod = 0.2
 	burn_mod = 0.2
+	fall_mod = 0.5
 
 	eyes = "blank_eyes"
 	breath_type = "nitrogen"

@@ -11,7 +11,7 @@
 	var/heal_burn = 0
 
 /obj/item/stack/medical/attack(mob/living/M as mob, mob/user as mob)
-	if (!istype(M) || istype(M, /mob/living/silicon))
+	if (!istype(M) || istype(M, /mob/living/silicon) || istype(M, /mob/living/simple_animal/spiderbot))
 		user << "<span class='warning'>\The [src] cannot be applied to [M]!</span>"
 		return 1
 

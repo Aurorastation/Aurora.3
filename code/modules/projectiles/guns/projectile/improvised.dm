@@ -18,6 +18,7 @@
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
 	var/fail_chance = 35
+	fire_sound = 'sound/weapons/shotgun.ogg'
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
 	if(prob(fail_chance))

@@ -100,6 +100,11 @@
 	desc = "A warning sign which reads 'HARD VACUUM AHEAD'."
 	icon_state = "space"
 
+/obj/structure/sign/drop
+	name = "\improper DANGER! DROP HAZARD"
+	desc = "A warning sign which reads 'DANGER! DROP HAZARD'."
+	icon_state = "drop"
+
 /obj/structure/sign/deathsposal
 	name = "\improper DISPOSAL LEADS TO SPACE"
 	desc = "A warning sign which reads 'DISPOSAL LEADS TO SPACE'."
