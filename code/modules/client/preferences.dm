@@ -139,6 +139,8 @@ datum/preferences
 	var/savefile/loaded_preferences
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
+	
+	var/dress_mob = TRUE
 
 /datum/preferences/New(client/C)
 	new_setup()
