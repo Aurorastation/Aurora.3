@@ -27,13 +27,13 @@
 	caps["flat cap"] = /obj/item/clothing/head/flatcap
 	caps["green cap"] = /obj/item/clothing/head/soft/green
 	caps["grey cap"] = /obj/item/clothing/head/soft/grey
-	caps["mailman cap"] = /obj/item/clothing/head/mailman
 	caps["orange cap"] = /obj/item/clothing/head/soft/orange
 	caps["purple cap"] = /obj/item/clothing/head/soft/purple
 	caps["rainbow cap"] = /obj/item/clothing/head/soft/rainbow
 	caps["red cap"] = /obj/item/clothing/head/soft/red
 	caps["white cap"] = /obj/item/clothing/head/soft/mime
 	caps["yellow cap"] = /obj/item/clothing/head/soft/yellow
+	caps["mailman cap"] = /obj/item/clothing/head/mailman
 	gear_tweaks += new/datum/gear_tweak/path(caps)
 
 /datum/gear/head/beret
@@ -50,17 +50,17 @@
 	path = /obj/item/clothing/head/beret/purple
 
 /datum/gear/head/beret/sec
-	display_name = "beret,security"
+	display_name = "beret, security"
 	path = /obj/item/clothing/head/beret/sec
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
 /datum/gear/head/beret/warden
-	display_name = "beret,security (warden)"
+	display_name = "beret, security (warden)"
 	path = /obj/item/clothing/head/beret/sec/warden
 	allowed_roles = list("Head of Security", "Warden")
 
 /datum/gear/head/beret/hos
-	display_name = "beret,security (head of security)"
+	display_name = "beret, security (head of security)"
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
 
@@ -77,7 +77,7 @@
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
+	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
 
 /datum/gear/head/hardhat/New()
 	..()
@@ -112,7 +112,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(hats)
 
 /datum/gear/head/philosopher_wig
-	display_name = "natural philosopher's wig"
+	display_name = "natural philosopher wig"
 	path = /obj/item/clothing/head/philosopher_wig
 
 /datum/gear/head/hijab
