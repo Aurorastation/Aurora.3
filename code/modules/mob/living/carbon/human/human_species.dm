@@ -2,6 +2,12 @@
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
 
+/mob/living/carbon/human/dummy/mannequin/New()
+    ..()
+    if (!initialized)
+        args[1] = TRUE
+        SSatoms.InitAtom(src, args)
+
 /mob/living/carbon/human/dummy/mannequin/Initialize()
 	. = ..()
 	mob_list -= src
