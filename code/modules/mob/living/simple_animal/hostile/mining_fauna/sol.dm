@@ -56,6 +56,7 @@
 	icon_dead = "bigbeepsky_dead"
 	ranged = 1
 	turns_per_move = 1
+	see_in_dark = 8
 	response_help = "taps"
 	response_disarm = "knocks"
 	response_harm = "raps"
@@ -85,7 +86,6 @@
 	max_n2 = 0
 	minbodytemp = 0
 	faction = "sol"
-	destroy_surroundings = 1
 
 	mob_bump_flag = HEAVY
 	mob_swap_flags = ALLMOBS
@@ -360,6 +360,18 @@
 	playsound(src.loc, 'sound/mecha/internaldmgalarm.ogg', 100, 0, -6.6, environment=1)
 	qdel(src)
 
+/mob/living/simple_animal/hostile/seraph/Allow_Spacemove(var/check_drift = 0)
+	return 1
+
+/mob/living/simple_animal/hostile/seraph/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/seraph/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/seraph/CanAvoidGravity()
+	return TRUE
+
 //////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////Sol Combat Drone///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -370,6 +382,7 @@
 	icon = 'icons/mob/cavern.dmi'
 	speak = list("Sol Alliance is here to - Sssol All-All-Alliance is here - serve.","Protect and and protect and s-s-s-seeer-rve.","Tres-trespassing is-is-is a violati-tion of Sol l-l-law!","Intruuuuuuuuuuuuuuuuder det-detected. Terminating","Sounding the - sounding the alarm.", "CODE RED!")
 	health = 65
+	see_in_dark = 8
 	maxHealth = 65
 
 	faction = "sol"
@@ -422,6 +435,9 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
+	light_range = 10
+	light_wedge = LIGHT_WIDE
+	see_in_dark = 8
 
 	faction = "sol"
 
@@ -461,7 +477,7 @@
 		if(target_ore)
 			walk_to(src, target_ore, 1, move_to_delay)
 		else
-			for(var/turf/simulated/mineral/M in oview(7,src))
+			for(var/turf/simulated/mineral/M in orange(7,src))
 				if(M.mineral)
 					rapid = 1
 					OpenFire(M)
@@ -477,14 +493,18 @@
 		O.forceMove(src.loc)
 	qdel(src)
 
-/mob/living/simple_animal/hostile/retaliate/adjustToxLoss(var/damage)
+/mob/living/simple_animal/hostile/retaliate/minedrone/adjustToxLoss(var/damage)
 	return
 
-/mob/living/simple_animal/hostile/retaliate/adjustOxyLoss(var/damage)
+/mob/living/simple_animal/hostile/retaliate/minedrone/adjustOxyLoss(var/damage)
 	return
 
-/mob/living/simple_animal/hostile/retaliate/adjustCloneLoss(var/damage)
+/mob/living/simple_animal/hostile/retaliate/minedrone/adjustCloneLoss(var/damage)
 	return
 
-/mob/living/simple_animal/hostile/retaliate/adjustHalLoss(var/damage)
+/mob/living/simple_animal/hostile/retaliate/minedrone/adjustHalLoss(var/damage)
 	return
+
+/mob/living/simple_animal/hostile/retaliate/minedrone/fall_impact()
+	visible_message("<span class='danger'>\The [src] bounces harmlessly on its inflated wheels.</span>")
+	return FALSE

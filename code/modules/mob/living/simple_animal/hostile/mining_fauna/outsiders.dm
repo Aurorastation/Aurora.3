@@ -27,6 +27,7 @@
 	icon_state = "shadow"
 	icon_living = "shadow"
 	icon_dead = "shadow_dead"
+	see_in_dark = 8
 	ranged = 1
 	turns_per_move = 5
 	response_help = "pets"

@@ -32,7 +32,7 @@
 	icon = 'icons/turf/space.dmi'
 	icon_state = ""
 	plane = PLANE_SPACE_BACKGROUND
-	density = 0
+	density = 1
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
 
@@ -176,3 +176,20 @@
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
 	return TRUE
+
+/turf/simulated/open/CanPass(atom/movable/mover, turf/target, height=1.5,air_group=0)
+	if(!target) return 0
+
+	if(!istype(mover))
+		if(target.blocks_air||blocks_air)
+			return 0
+
+		for(var/obj/obstacle in src)
+			if(!obstacle.CanPass(mover, target, height, air_group))
+				return 0
+		if(target != src)
+			for(var/obj/obstacle in target)
+				if(!obstacle.CanPass(mover, src, height, air_group))
+					return 0
+
+		return 1

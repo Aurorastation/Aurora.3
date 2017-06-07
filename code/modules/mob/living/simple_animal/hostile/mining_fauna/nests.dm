@@ -24,15 +24,18 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	layer = TURF_LAYER
+	layer = 2.1
+	see_in_dark = 8
 
+/mob/living/simple_animal/hostile/spawner/Move()
+	return
 
 /mob/living/simple_animal/hostile/spawner/Destroy()
 	for(var/mob/living/simple_animal/L in spawned_mobs)
 		if(L.nest == src)
 			L.nest = null
 	spawned_mobs = null
-	..()
+	return ..()
 
 /mob/living/simple_animal/hostile/spawner/FoundTarget()
 	if(target_mob.faction != "syndicate")
@@ -41,6 +44,10 @@
 	return
 
 /mob/living/simple_animal/hostile/spawner/proc/spawn_mob()
+	for(var/mob/living/simple_animal/L in spawned_mobs) //mobs on different z-levels are dead to us! dead!
+		if(L.z != z)
+			L.nest = null
+			spawned_mobs -= L
 	if(spawned_mobs.len >= max_mobs)
 		return 0
 	if(spawn_delay > world.time)

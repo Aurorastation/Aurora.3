@@ -37,6 +37,18 @@
 			update_icon()
 			anchored = 1
 
+/obj/item/weapon/beartrap/user_unbuckle_mob(mob/user as mob)
+	if(buckled_mob && can_use(user))
+		user.visible_message(
+			"<span class='notice'>\The [user] begins freeing \the [buckled_mob] from \the [src].</span>",
+			"<span class='notice'>You carefully begin to free \the [buckled_mob] from \the [src].</span>",
+			"<span class='notice'>You hear metal creaking.</span>"
+			)
+		if(do_after(user, time_to_escape))
+			user.visible_message("<span class='notice'>\The [buckled_mob] has been freed from \the [src] by \the [user].</span>")
+			unbuckle_mob()
+			anchored = 0
+
 /obj/item/weapon/beartrap/attack_hand(mob/user as mob)
 	if(buckled_mob && can_use(user))
 		user.visible_message(

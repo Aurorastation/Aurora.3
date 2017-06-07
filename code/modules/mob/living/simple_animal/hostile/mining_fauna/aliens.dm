@@ -35,6 +35,7 @@
 	projectilesound = 'sound/magic/lightningbolt.ogg'
 	destroy_surroundings = 1
 	emote_see = list("stares","hovers ominously","blinks")
+	see_in_dark = 8
 
 	min_oxy = 0
 	max_oxy = 0
@@ -105,6 +106,7 @@
 	pass_flags = PASSTABLE
 	mob_size = MOB_MINISCULE
 	density = 0
+	see_in_dark = 5
 
 	min_oxy = 0
 	max_oxy = 0
@@ -252,6 +254,7 @@
 	pass_flags = PASSTABLE
 	mob_size = MOB_MINISCULE
 	density = 0
+	see_in_dark = 8
 
 	min_oxy = 0
 	max_oxy = 0
@@ -297,6 +300,10 @@
 /mob/living/simple_animal/hostile/mouse/death()
 	..()
 	src.gib()
+
+/mob/living/simple_animal/hostile/mouse/fall_impact()
+	visible_message("<span class='danger'>\The [src] agilely scurries down the sheer cliff wall.</span>")
+	return FALSE
 
 /obj/effect/spider/mouse_egg
 	desc = "It looks like a weird egg."
@@ -357,6 +364,7 @@
 	faction = "syndicate"
 	status_flags = CANPUSH
 	var/laser_ammo
+	see_in_dark = 8
 
 /mob/living/simple_animal/hostile/vox/Initialize()
 	. = ..()
@@ -389,6 +397,9 @@
 			weapon2.power_supply.charge = laser_ammo*weapon2.charge_cost
 		qdel(src)
 		return
+
+/mob/living/simple_animal/hostile/vox/fall_impact()
+	return FALSE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////Blind hydra///////////////////////////////////////////

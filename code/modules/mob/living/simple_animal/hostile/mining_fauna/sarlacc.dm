@@ -17,14 +17,14 @@
 	throwforce = 0
 	anchored = 1
 	deployed = 1
-	time_to_escape = 180 SECONDS
+	time_to_escape = 45 SECONDS
 	var/mob/living/simple_animal/hostile/greatworm/originator
 	var/mob/living/captive
 
 /obj/item/weapon/beartrap/sarlacc/Destroy()
 	if(originator)
 		originator = null
-	..()
+	return ..()
 
 /obj/item/weapon/beartrap/sarlacc/Crossed(AM as mob|obj)
 	if(originator)
@@ -37,8 +37,9 @@
 				)
 			attack_mob(L)
 			originator.eating = 1
+			captive = L
 			captive << "<span class='danger'>\The [src] begins digesting your upper body</span>"
-			addtimer(CALLBACK(src, .proc/devour), 185 SECONDS)
+			addtimer(CALLBACK(src, .proc/devour), 50 SECONDS)
 	..()
 
 /obj/item/weapon/beartrap/sarlacc/proc/devour()
@@ -61,7 +62,7 @@
 		var/obj/item/organ/external/G = H.get_organ("groin")
 		G.droplimb(0,DROPLIMB_EDGE)
 		if(SSmob.greatasses.len)
-			var/obj/structure/sarlacc/S = pick(SSmob.greatasses)
+			var/obj/structure/greatworm/S = pick(SSmob.greatasses)
 			H.forceMove(S.loc)
 		else
 			H.gib()
@@ -92,6 +93,7 @@
 	desc = "The gaping maw opens and closes eternally, insatiably... Rumours however tell that those who can sate it are rewarded."
 	icon = 'icons/mob/cavern.dmi'
 	icon_state = "sarlacc"
+	see_in_dark = 8
 	health = 100
 	maxHealth = 100
 	gender = NEUTER
@@ -136,7 +138,7 @@
 	if(sarlacc)
 		qdel(sarlacc)
 		sarlacc = null
-	..()
+	return ..()
 
 /mob/living/simple_animal/hostile/greatworm/Life()
 	..()
@@ -144,6 +146,8 @@
 		var/obj/item/weapon/beartrap/sarlacc/L = new /obj/item/weapon/beartrap/sarlacc(src.loc)
 		L.originator = src
 		sarlacc = L
+	if(sarlacc && sarlacc.loc != src.loc) //if the sarlacc is not located on us, move it back onto us.
+		sarlacc.forceMove(src.loc)
 	if(sated < 0)
 		sated = 0
 	if(sated == 0 && asleep)
@@ -169,11 +173,11 @@
 			sated -= 1
 			if(health >= maxHealth)
 				health = maxHealth
-		if(sarlacc.deployed)
+		if(sarlacc && sarlacc.deployed)
 			sarlacc.deployed = 0
 	else
-		while(eating)
-			if(!sarlacc.deployed && sarlacc.captive) //if the sarlacc is not deployed but IS captivating, that means its captive escaped
+		if(eating)
+			if(sarlacc && !sarlacc.deployed && sarlacc.captive) //if the sarlacc is not deployed but IS captivating, that means its captive escaped
 				sarlacc.captive = null
 				sarlacc.deployed = 1
 				eating = 0
@@ -182,15 +186,22 @@
 					var/mob/living/L = sarlacc.captive
 					if(L)
 						L.apply_damage(rand(3,10),BRUTE)
+						L.visible_message(
+							"<span class='danger'>\The [src] tears at [L]'s flesh with its gruesome jaws.</span>",
+							"<span class='danger'>You feel a searing pain as \the [src] tears at your flesh!</span>",
+							"<b>You hear a sick tear!</b>"
+							)
+
 
 /mob/living/simple_animal/hostile/greatworm/death()
 	..()
 	visible_message("<span class='danger'>With a frenzy of tooth and tendril, \the [src] slides deep into the earth, leaving a gaping hole in its place!</span>")
 	var/turf/T = src.loc
 	T.ChangeTurf(/turf/space)
-	qdel()
+	qdel(src)
 
 /mob/living/simple_animal/hostile/greatworm/proc/Sandman()
+	set waitfor = FALSE
 	if(!asleep)
 		asleep = 1
 	icon_state = "sarlacc_asleep"
@@ -239,6 +250,9 @@
 	L.faction = src.faction
 	visible_message("<span class='danger'>\The [L] bursts from the earth under [target].</span>")
 
+/mob/living/simple_animal/hostile/greatworm/Move()
+	return
+
 
 ////////////////////////////////////////
 ////////Not So Great Worm///////////////
@@ -279,7 +293,7 @@
 /mob/living/simple_animal/hostile/lesserworm/Destroy()
 	if(originator)
 		originator.active_tentacles -= src
-	..()
+	return ..()
 
 /mob/living/simple_animal/hostile/lesserworm/proc/Penetrate()
 	playsound(src.loc, 'sound/effects/blobattack.ogg', 100, 1)
@@ -288,10 +302,14 @@
 		if(L != src)
 			L.apply_damage(15,BRUTE)
 			possible_targets += L
+			L << "<span class='danger'>\The [src] wraps around you tightly with its spiny teeth+!</span>"
 	if(Adjacent(originator) && possible_targets.len)
 		var/mob/living/L = pick(possible_targets)
-		L << "<span class='danger'>\The [src] wraps around you tightly and flings you into \the [originator]'s maw!</span>"
+		L << "<span class='danger'>\The [src] flings you into \the [originator]'s maw!</span>"
 		L.Move(originator.loc)
+
+/mob/living/simple_animal/hostile/lesserworm/Move()
+	return
 
 ////////////////////////////////////////
 ////////Really Quite Great Worm/////////
@@ -346,6 +364,7 @@
 	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
 	icon = 'icons/mob/cavern.dmi'
 	icon_state = "sarlaccbrain"
+	see_in_dark = 8
 	health = 300
 	maxHealth = 300
 	gender = MALE
@@ -377,9 +396,12 @@
 		L.death()
 	for(var/obj/structure/S in SSmob.greatasses)
 		qdel(S)
-	..()
+	return ..()
 
-/obj/structure/sarlacc
+/mob/living/simple_animal/hostile/greatwormking/Move()
+	return
+
+/obj/structure/greatworm
 	name = "great worm rectum"
 	desc = "The intestinal length of the great worm this end belongs to travels for what looks like miles."
 	icon = 'icons/mob/cavern.dmi'
@@ -388,13 +410,13 @@
 	density = 0
 	layer = 2.1
 
-/obj/structure/sarlacc/Initialize()
+/obj/structure/greatworm/Initialize()
 	. = ..()
 	SSmob.greatasses += src
 
-/obj/structure/sarlacc/Destroy()
+/obj/structure/greatworm/Destroy()
 	SSmob.greatasses -= src
-	..()
+	return ..()
 
 ////////////////////////////////////////
 ///////////////loot///////////////
