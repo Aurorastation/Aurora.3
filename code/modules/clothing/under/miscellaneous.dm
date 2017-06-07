@@ -530,12 +530,12 @@
 	item_state = "cheongsamwhite"
 	worn_state = "cheongsamwhite"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	flags_inv = HIDESHOES
+	var/show_above_shoes = 0
 	contained_sprite = 1
 
 /obj/item/clothing/under/cheongsam/red
 	name = "red cheongsam"
-	desc = "A Chinese dress that hugs the body. This one is red, with a golden dragon design that climbs the entire garment."
+	desc = "A Chinese dress that hugs the body. This one is red, with a golden leaf trim that climbs up the garment."
 	icon_state = "cheongsamred"
 	item_state = "cheongsamred"
 	worn_state = "cheongsamred"
