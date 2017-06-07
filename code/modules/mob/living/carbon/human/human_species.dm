@@ -2,7 +2,7 @@
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
 
-/mob/living/carbon/human/dummy/mannequin/New()
+/mob/living/carbon/human/dummy/mannequin/New(location, ...)
     ..()
     if (!initialized)
         args[1] = TRUE
