@@ -601,6 +601,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/disability_flag = text2num(href_list["disabilities"])
 		pref.disabilities ^= disability_flag
 		return TOPIC_REFRESH
+		
+	else if(href_list["toggle_clothing"])
+		pref.dress_mob = !pref.dress_mob
+		return TOPIC_REFRESH
 
 	return ..()
 
