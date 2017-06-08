@@ -385,6 +385,8 @@
 
 	updatehealth()
 
+	return TRUE
+
 // Humans can be synthetic. Never forgetti.
 	if(!isSynthetic())
 		switch(damage)
