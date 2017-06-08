@@ -88,7 +88,7 @@
 		return
 
 	if (!loc)
-		PROCLOG("loc is null, breaking self.")
+		PROCLOG_WEIRD("loc is null, breaking self.")
 		stat |= BROKEN
 		return
 
