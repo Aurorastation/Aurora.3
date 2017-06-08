@@ -31,8 +31,6 @@ var/global/list/language_keys[0]					// Table of say codes for all languages
 var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.
 var/global/list/playable_species = list("Human")    // A list of ALL playable species, whitelisted, latejoin or otherwise.
 
-var/list/mannequins_
-
 // Posters
 var/global/list/poster_designs = list()
 
@@ -185,12 +183,3 @@ var/global/list/cloaking_devices = list()
 				. += "    has: [t]\n"
 	world << .
 */
-
-/proc/get_mannequin(var/ckey)
-	if(!mannequins_)
-		mannequins_ = new()
-
-	. = mannequins_[ckey]
-	if(!.)
-		. = new/mob/living/carbon/human/dummy/mannequin()
-		mannequins_[ckey] = .
