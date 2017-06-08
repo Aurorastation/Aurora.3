@@ -980,12 +980,9 @@
 					fake_attack(src)
 				if(!handling_hal)
 					spawn handle_hallucinations() //The not boring kind!
-				/*if(client && prob(5))
+				if(client && prob(5))
+					addtimer(CALLBACK(src, .proc/reset_view_dir, client.dir), rand(20, 50))
 					client.dir = pick(2,4,8)
-					var/client/C = client
-					spawn(rand(20,50))
-						if(C)
-							C.dir = 1*/	// This breaks the lighting system.
 
 			if(hallucination<=2)
 				hallucination = 0
@@ -1077,6 +1074,9 @@
 
 	return 1
 
+/mob/living/carbon/human/proc/reset_view_dir(original)
+	if (client)
+		client.dir = original
 
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
