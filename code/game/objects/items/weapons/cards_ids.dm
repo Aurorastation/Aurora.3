@@ -348,14 +348,15 @@ var/const/NO_EMAG_ACT = -50
 		access = get_all_centcom_access()
 		..()
 
-/obj/item/weapon/card/id/centcom/ERT
+/obj/item/weapon/card/id/ERT
 	name = "\improper Emergency Response Team ID"
+	desc = "An ID straight from Cent. Com."
 	icon_state = "centcom"
 	assignment = "Emergency Response Team"
 
-obj/item/weapon/card/id/centcom/ERT/New()
-	..()
+/obj/item/weapon/card/id/ERT/New()
 	access = get_all_accesses() + get_centcom_access("Emergency Response Team")
+	..()
 
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"
