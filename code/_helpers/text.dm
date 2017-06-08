@@ -450,3 +450,17 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
 	return t
+
+/proc/html2pencode(t)
+	t = replacetext(t, "<B>", "\[b\]")
+	t = replacetext(t, "</B>", "\[/b\]")
+	t = replacetext(t, "<I>", "\[i\]")
+	t = replacetext(t, "</I>", "\[/i\]")
+	t = replacetext(t, "<U>", "\[u\]")
+	t = replacetext(t, "</U>", "\[/u\]")
+	t = replacetext(t, "<font size=\"4\">", "\[large\]")
+	t = replacetext(t, "</font>", "\[/large\]")
+	t = replacetext(t, "<font size = \"1\">", "\[small\]")
+	t = replacetext(t, "</font>", "\[/small\]")
+
+	return t

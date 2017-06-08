@@ -254,7 +254,7 @@
 	new /obj/item/weapon/gun/energy/wand/animation(src)
 
 /obj/item/weapon/storage/belt/mining
-	name = "explorer's webbing"
+	name = "explorer's belt"
 	desc = "A versatile chest rig, cherished by miners and hunters alike."
 	icon_state = "explorer"
 	item_state = "explorer"
@@ -268,6 +268,7 @@
 		/obj/item/weapon/wrench,
 		/obj/item/weapon/resonator,
 		/obj/item/weapon/oreportal,
+		/obj/item/weapon/oremagnet,
 		/obj/item/weapon/plastique/seismic,
 		/obj/item/weapon/extraction_pack,
 		/obj/item/weapon/ore_radar,
@@ -294,5 +295,9 @@
 		/obj/item/weapon/storage/pill_bottle,
 		/obj/item/weapon/ore,
 		/obj/item/weapon/reagent_containers/food/drinks,
-		/obj/item/weapon/storage/bag/plants
+		/obj/item/weapon/storage/bag/plants,
+		/obj/item/warp_core,
+		/obj/item/weapon/extraction_pack,
+		/obj/item/weapon/rrf,
+		/obj/item/weapon/gun/energy/kinetic_accelerator
 		)

@@ -192,10 +192,10 @@ var/list/gamemode_cache = list()
 	var/use_lib_nudge = 0 //Use the C library nudge instead of the python nudge.
 	var/use_overmap = 0
 
-	var/list/station_levels = list(1)				// Defines which Z-levels the station exists on.
-	var/list/admin_levels= list(2)					// Defines which Z-levels which are for admin functionality, for example including such areas as Central Command and the Syndicate Shuttle
-	var/list/contact_levels = list(1, 5)			// Defines which Z-levels which, for example, a Code Red announcement may affect
-	var/list/player_levels = list(1, 3, 4, 5, 6)	// Defines all Z-levels a character can typically reach
+	var/list/station_levels = list(3, 4, 5, 6, 7)				// Defines which Z-levels the station exists on.
+	var/list/admin_levels= list(1)					// Defines which Z-levels which are for admin functionality, for example including such areas as Central Command and the Syndicate Shuttle
+	var/list/contact_levels = list(3, 4, 5, 6)			// Defines which Z-levels which, for example, a Code Red announcement may affect
+	var/list/player_levels = list(2, 3, 4, 5, 6, 7, 8)	// Defines all Z-levels a character can typically reach
 	var/list/sealed_levels = list() 				// Defines levels that do not allow random transit at the edges.
 
 	// Event settings
@@ -254,9 +254,6 @@ var/list/gamemode_cache = list()
 	var/api_rate_limit = 50
 	var/list/api_rate_limit_whitelist = list()
 
-	// Subsystems.
-	var/obj/effect/statclick/statclick
-
 	// Master Controller settings.
 	var/mc_init_tick_limit = TICK_LIMIT_MC_INIT_DEFAULT
 
@@ -278,6 +275,9 @@ var/list/gamemode_cache = list()
 	var/access_deny_new_accounts = -1
 	var/access_deny_vms = 0
 	var/access_warn_vms = 0
+
+	var/sun_accuracy = 8
+	var/sun_target_z = 7
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -721,6 +721,9 @@ var/list/gamemode_cache = list()
 				if("player_levels")
 					config.player_levels = text2numlist(value, ";")
 
+				if("sealed_levels")
+					config.sealed_levels = text2numlist(value, ";")
+
 				if("expected_round_length")
 					config.expected_round_length = MinutesToTicks(text2num(value))
 
@@ -919,6 +922,12 @@ var/list/gamemode_cache = list()
 
 				if("use_loyalty_implants")
 					config.use_loyalty_implants = 1
+
+				if ("sunlight_accuracy")
+					config.sun_accuracy = value
+
+				if ("sunlight_z")
+					config.sun_target_z = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

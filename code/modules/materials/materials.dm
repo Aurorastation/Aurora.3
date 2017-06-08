@@ -575,7 +575,7 @@ var/list/name_to_material
 
 /material/wood
 	name = "wood"
-	stack_type = null
+	stack_type = /obj/item/stack/material/wood // why wouldn't it have a stacktype seriously guys why
 	icon_colour = "#824B28"
 	integrity = 50
 	icon_base = "solid"

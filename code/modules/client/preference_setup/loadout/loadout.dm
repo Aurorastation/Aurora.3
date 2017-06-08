@@ -44,7 +44,7 @@ var/list/gear_datums = list()
 	S["gear"] << pref.gear
 
 /datum/category_item/player_setup_item/loadout/gather_load_parameters()
-	return list(":id" = pref.current_character)
+	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/loadout/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("gear"), "args" = list("id")))
@@ -53,7 +53,7 @@ var/list/gear_datums = list()
 	return list("ss13_characters" = list("gear", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/loadout/gather_save_parameters()
-	return list(":gear" = json_encode(pref.gear), ":id" = pref.current_character, ":ckey" = pref.client.ckey)
+	return list("gear" = json_encode(pref.gear), "id" = pref.current_character, "ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
 	. = list()

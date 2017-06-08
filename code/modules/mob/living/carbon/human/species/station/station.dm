@@ -19,6 +19,7 @@
 	mob_size = 9
 	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
+	remains_type = /obj/effect/decal/remains/human
 
 	stamina	=	130			  // Humans can sprint for longer than any other species
 	stamina_recovery = 5
@@ -227,6 +228,7 @@
 	name_language = "Rootsong"
 	ethanol_resistance = -1//Can't get drunk
 	mob_size = 12//Worker gestalts are 150kg
+	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
 	species hailing from Epsilon Ursae Minoris. Each 'diona' is a cluster of numerous cat-sized organisms called nymphs; \
 	there is no effective upper limit to the number that can fuse in gestalt, and reports exist	of the Epsilon Ursae \
@@ -378,6 +380,7 @@
 	secondary_langs = list("Encoded Audio Language")
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
+	remains_type = /obj/effect/decal/remains/robot
 
 	// #TODO-MERGE: Check for balance and self-repair. If self-repair is a thing, RIP balance.
 	brute_mod = 0.8
@@ -479,14 +482,14 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		var/obj/item/organ/ipc_tag/tag = new_machine.internal_organs_by_name["ipc tag"]
 
 		var/status = 0
-		var/list/query_details = list(":ckey" = player.ckey, ":character_name" = player.prefs.real_name)
-		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey AND character_name = :character_name")
+		var/list/query_details = list("ckey" = player.ckey, "character_name" = player.prefs.real_name)
+		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
 		query.Execute(query_details)
 
 		if (query.NextRow())
 			status = text2num(query.item[1])
 		else
-			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name) VALUES (:ckey, :character_name)")
+			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name) VALUES (:ckey:, :character_name:)")
 			log_query.Execute(query_details)
 
 		if (!status)
@@ -504,8 +507,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if (target.internal_organs_by_name["ipc tag"])
 			status = 1
 
-		var/list/query_details = list(":ckey" = player.ckey, ":character_name" = target.real_name)
-		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey AND character_name = :character_name")
+		var/list/query_details = list("ckey" = player.ckey, "character_name" = target.real_name)
+		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
 		query.Execute(query_details)
 
 		if (query.NextRow())
@@ -513,9 +516,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			if (sql_status == status)
 				return
 
-			query_details.Add(":status")
-			query_details[":status"] = status
-			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status WHERE player_ckey = :ckey AND character_name = :character_name")
+			query_details["status"] = status
+			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status: WHERE player_ckey = :ckey: AND character_name = :character_name:")
 			update_query.Execute(query_details)
 
 /datum/species/machine/get_light_color(hair_style)
@@ -566,6 +568,10 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 		if ("yellow IPC screen")
 			return LIGHT_COLOR_YELLOW
+
+/datum/species/machine/equip_survival_gear(var/mob/living/carbon/human/H)
+	check_tag(H, H.client)
+	H.gender = NEUTER
 
 /datum/species/bug
 	name = "Vaurca Worker"

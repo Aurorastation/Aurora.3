@@ -19,10 +19,7 @@
 /datum/effect_system/proc/queue()
 	if (holder)
 		set_loc(holder)
-	if (SSeffects)
-		QUEUE_EFFECT(src)
-		return TRUE
-	return FALSE
+	QUEUE_EFFECT(src)
 
 /datum/effect_system/process(elapsed)
 	if (holder)

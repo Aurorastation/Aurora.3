@@ -6,7 +6,7 @@ var/global/list/station_networks = list(
 	NETWORK_ENGINE,
 	NETWORK_ENGINEERING,
 	NETWORK_ENGINEERING_OUTPOST,
-	NETWORK_EXODUS,
+	NETWORK_STATION,
 	NETWORK_MEDICAL,
 	NETWORK_MINE,
 	NETWORK_RESEARCH,
@@ -50,7 +50,7 @@ var/global/list/engineering_networks = list(
 	network = list(NETWORK_ERT)
 
 /obj/machinery/camera/network/exodus
-	network = list(NETWORK_EXODUS)
+	network = list(NETWORK_STATION)
 
 /obj/machinery/camera/network/mining
 	network = list(NETWORK_MINE)

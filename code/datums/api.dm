@@ -44,15 +44,15 @@
 	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.command_id
 	AND	api_t.deleted_at IS NULL
 	AND (
-	(token = :token AND ip = :ip AND command = :command)
+	(token = :token: AND ip = :ip: AND command = :command:)
 	OR
-	(token = :token AND ip IS NULL AND command = :command)
+	(token = :token: AND ip IS NULL AND command = :command:)
 	OR
-	(token = :token AND ip = :ip AND command = \"_ANY\")
+	(token = :token: AND ip = :ip: AND command = \"_ANY\")
 	OR
-	(token = :token AND ip IS NULL AND command = \"_ANY\")
+	(token = :token: AND ip IS NULL AND command = \"_ANY\")
 	OR
-	(token IS NULL AND ip IS NULL AND command = :command)
+	(token IS NULL AND ip IS NULL AND command = :command:)
 	)"})
 	//Check if the token is not deleted
 	//Check if one of the following is true:
@@ -62,7 +62,7 @@
 	// Any Command, Any IP - Token Matches, IP is set to NULL (not required), Command is set to _ANY
 	// Public - Token is set to NULL, IP is set to NULL and command matches
 
-	authquery.Execute(list(":token" = auth, ":ip" = addr, ":command" = command.name))
+	authquery.Execute(list("token" = auth, "ip" = addr, "command" = command.name))
 	log_debug("API: Auth Check - Query Executed - Returned Rows: [authquery.RowCount()]")
 
 	if (authquery.RowCount())
@@ -77,12 +77,12 @@ proc/api_update_command_database()
 		return 0 //Error
 
 	var/DBQuery/commandinsertquery = dbcon.NewQuery({"INSERT INTO ss13_api_commands (command,description)
-	VALUES (:command_name,:command_description)
-	ON DUPLICATE KEY UPDATE description = :command_description;"})
+	VALUES (:command_name:,:command_description:)
+	ON DUPLICATE KEY UPDATE description = :command_description:;"})
 
 	for(var/com in topic_commands)
 		var/datum/topic_command/command = topic_commands[com]
-		commandinsertquery.Execute(list(":command_name" = command.name, ":command_description" = command.description))
+		commandinsertquery.Execute(list("command_name" = command.name, "command_description" = command.description))
 	log_debug("API: DB Command Update Executed")
 	return 1 //OK
 
@@ -176,16 +176,16 @@ proc/api_update_command_database()
 	FROM ss13_api_token_command as api_t_f, ss13_api_tokens as api_t, ss13_api_commands as api_f
 	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.command_id
 	AND (
-		(token = :token AND ip = :ip)
+		(token = :token: AND ip = :ip:)
 		OR
-		(token = :token AND ip IS NULL)
+		(token = :token: AND ip IS NULL)
 		OR
-		(token IS NULL AND ip = :ip)
+		(token IS NULL AND ip = :ip:)
 	)
 	ORDER BY command DESC"})
 
 
-	commandsquery.Execute(list(":token" = queryparams["auth"], ":ip" = queryparams["addr"]))
+	commandsquery.Execute(list("token" = queryparams["auth"], "ip" = queryparams["addr"]))
 	while (commandsquery.NextRow())
 		commands[commandsquery.item[1]] = commandsquery.item[1]
 		if(commandsquery.item[1] == "_ANY")
@@ -228,15 +228,15 @@ proc/api_update_command_database()
 	WHERE api_t.id = api_t_f.token_id AND api_f.id = api_t_f.command_id
 	AND	api_t.deleted_at IS NULL
 	AND (
-	(token = :token AND ip = :ip AND command = :command)
+	(token = :token: AND ip = :ip: AND command = :command:)
 	OR
-	(token = :token AND ip IS NULL AND command = :command)
+	(token = :token: AND ip IS NULL AND command = :command:)
 	OR
-	(token = :token AND ip = :ip AND command = \"_ANY\")
+	(token = :token: AND ip = :ip: AND command = \"_ANY\")
 	OR
-	(token = :token AND ip IS NULL AND command = \"_ANY\")
+	(token = :token: AND ip IS NULL AND command = \"_ANY\")
 	OR
-	(token IS NULL AND ip IS NULL AND command = :command)
+	(token IS NULL AND ip IS NULL AND command = :command:)
 	)"})
 	//Get the tokens and the associated commands
 	//Check if the token, the ip and the command matches OR
@@ -244,7 +244,7 @@ proc/api_update_command_database()
 	// the token + ip matches and the command is NULL (Allow a specific ip with a specific token to use all commands)
 	// the token + ip is NULL and the command matches (Allow a specific command to be used without auth)
 
-	permquery.Execute(list(":token" = queryparams["auth"], ":ip" = queryparams["addr"], ":command" = queryparams["command"]))
+	permquery.Execute(list("token" = queryparams["auth"], "ip" = queryparams["addr"], "command" = queryparams["command"]))
 
 	if (!permquery.RowCount())
 		statuscode = 401

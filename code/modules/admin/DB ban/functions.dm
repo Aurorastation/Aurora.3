@@ -515,8 +515,8 @@
 					output += "</tr>"
 				if (bantype in list("PERMABAN", "TEMPBAN"))
 					var/mirror_count = 0
-					var/DBQuery/get_mirrors = dbcon.NewQuery("SELECT ban_mirror_id FROM ss13_ban_mirrors WHERE ban_id = :ban_id")
-					get_mirrors.Execute(list(":ban_id" = text2num(banid)))
+					var/DBQuery/get_mirrors = dbcon.NewQuery("SELECT ban_mirror_id FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
+					get_mirrors.Execute(list("ban_id" = text2num(banid)))
 
 					while (get_mirrors.NextRow())
 						mirror_count++

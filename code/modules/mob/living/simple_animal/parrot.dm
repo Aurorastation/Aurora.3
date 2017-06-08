@@ -83,8 +83,8 @@
 	var/obj/item/held_item = null
 
 
-/mob/living/simple_animal/parrot/New()
-	..()
+/mob/living/simple_animal/parrot/Initialize()
+	. = ..()
 	if(!ears)
 		var/headset = pick(/obj/item/device/radio/headset/headset_sec, \
 						/obj/item/device/radio/headset/headset_eng, \
@@ -683,10 +683,10 @@
 	desc = "Poly the Parrot. An expert on quantum cracker theory."
 	speak = list("Poly wanna cracker!", ":e Check the singlo, you chucklefucks!",":e Wire the solars, you lazy bums!",":e WHO TOOK THE DAMN VOIDSUITS?",":e OH GOD ITS FREE CALL THE SHUTTLE")
 
-/mob/living/simple_animal/parrot/Poly/New()
+/mob/living/simple_animal/parrot/Poly/Initialize()
 	ears = new /obj/item/device/radio/headset/headset_eng(src)
 	available_channels = list(":e")
-	..()
+	. = ..()
 
 /mob/living/simple_animal/parrot/say(var/message)
 
@@ -757,3 +757,12 @@
 	parrot_state = PARROT_SWOOP | PARROT_ATTACK //Attack other animals regardless
 	icon_state = "parrot_fly"
 	return success
+
+/mob/living/simple_animal/parrot/can_fall()
+	return FALSE
+	
+/mob/living/simple_animal/parrot/can_ztravel()
+	return TRUE
+	
+/mob/living/simple_animal/parrot/CanAvoidGravity()
+	return TRUE

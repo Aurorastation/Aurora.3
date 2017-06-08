@@ -58,6 +58,7 @@
 	var/can_stand
 	var/body_hair
 	var/painted = 0
+	var/list/markings = list()         // Markings (body_markings) to apply to the icon
 
 /obj/item/organ/external/Destroy()
 	if(parent && parent.children)

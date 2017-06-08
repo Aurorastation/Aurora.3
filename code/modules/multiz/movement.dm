@@ -172,23 +172,34 @@
  * invoked with the second argument being TRUE. As opposed to the default value, FALSE.
  *
  * @param	below The turf that the mob is expected to end up at.
+ * @param	dest The tile we're presuming the mob to be at for this check. Default
+ * value is src.loc, (src. is important there!) but this is used for magboot lookahead
+ * checks it turf/simulated/open/Enter().
  *
  * @return	TRUE if the atom can continue falling in its present situation.
  *			FALSE if it should stop falling and not invoke fall_through or fall_impact
  * this cycle.
  */
-/atom/movable/proc/can_fall(turf/below)
+/atom/movable/proc/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Anchored things don't fall.
 	if(anchored)
 		return FALSE
 
 	// Lattices and stairs stop things from falling.
-	if(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc))
+	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest))
+		return FALSE
+	//Ladders too
+	if(below && locate(/obj/structure/ladder) in below)
+		return FALSE
+		
+
+	// The var/climbers API is implemented here.
+	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
 		return FALSE
 
 	// See if something prevents us from falling.
-	for(var/atom/A in below)
-		if(!A.CanPass(src, src.loc))
+	for (var/atom/A in below)
+		if(!A.CanPass(src, dest))
 			return FALSE
 
 	// True otherwise.
@@ -200,7 +211,7 @@
 /obj/effect/decal/cleanable/can_fall()
 	return TRUE
 
-/obj/item/pipe/can_fall(turf/below)
+/obj/item/pipe/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	. = ..()
 
 	if((locate(/obj/structure/disposalpipe/up) in below) || locate(/obj/machinery/atmospherics/pipe/zpipe/up in below))
@@ -208,16 +219,20 @@
 
 // Only things that stop mechas are atoms that, well, stop them.
 // Lattices and stairs get crushed in fall_through.
-/obj/mecha/can_fall(turf/below)
+/obj/mecha/can_fall(turf/below, turf/simulated/open/dest = src.loc)
+	// The var/climbers API is implemented here.
+	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
+		return FALSE
+
 	// See if something prevents us from falling.
 	for(var/atom/A in below)
-		if(!A.CanPass(src, src.loc))
+		if(!A.CanPass(src, dest))
 			return FALSE
 
 	// True otherwise.
 	return TRUE
 
-/mob/living/carbon/human/can_fall()
+/mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Special condition for jetpack mounted folk!
 	if (!restrained())
 		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
@@ -231,7 +246,10 @@
 /mob/living/carbon/human/bst/can_fall()
 	return FALSE
 
-/mob/living/silicon/robot/can_fall()
+/mob/eye/can_fall()
+	return FALSE
+
+/mob/living/silicon/robot/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
 
 	if (thrust && thrust.stabilization_on && thrust.allow_thrust(0.02, src))
@@ -297,10 +315,11 @@
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	var/damage = 30 * levels_fallen
-	apply_damage(rand(0, damage), BRUTE)
-	apply_damage(rand(0, damage), BRUTE)
-	apply_damage(rand(0, damage), BRUTE)
+	var/z_velocity = 5*(levels_fallen**2)
+	var/damage = ((30 + z_velocity) + rand(-15,15))
+	apply_damage(damage, BRUTE)
+	apply_damage(damage, BRUTE)
+	apply_damage(damage, BRUTE)
 
 	// The only piece of duplicate code. I was so close. Soooo close. :ree:
 	if(!isSynthetic())
@@ -324,16 +343,25 @@
 	if (istype(loc, /turf/space) || (area && !area.has_gravity))
 		return FALSE
 
+	var/obj/item/weapon/rig/rig = get_rig()
+	if (istype(rig))
+		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
+			if (A.active && rig.check_power_cost(src, 10, A, 0))
+				visible_message("<span class='notice'>\The [src] lands flawlessly with \his [rig].</span>",
+					"<span class='notice'>You hear an electric <i>*whirr*</i> right after the slam!</span>")
+				return FALSE
+
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	var/damage = 25 * species.fall_mod * levels_fallen
+	var/z_velocity = 5*(levels_fallen**2)
+	var/damage = (((25 * species.fall_mod) + z_velocity) + rand(-13,13))
 	if(prob(20)) //landed on their head
-		apply_damage(rand(0, damage), BRUTE, "head")
+		apply_damage(damage, BRUTE, "head")
 
 	else if(prob(20)) //landed on their arms
-		apply_damage(rand(0, damage), BRUTE, "l_arm")
-		apply_damage(rand(0, damage), BRUTE, "r_arm")
+		apply_damage(damage, BRUTE, "l_arm")
+		apply_damage(damage, BRUTE, "r_arm")
 
 		if(prob(50))
 			apply_damage(rand(0, (damage/2)), BRUTE, "r_hand")
@@ -351,7 +379,7 @@
 		if(prob(50))
 			apply_damage(rand(0, (damage/2)), BRUTE, "groin")
 
-	apply_damage(rand(0, damage), BRUTE, "chest")
+	apply_damage(damage, BRUTE, "chest")
 
 	Weaken(rand(0, damage/2))
 
@@ -371,7 +399,15 @@
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
+	// Stats.
+	SSfeedback.IncrementSimpleStat("openturf_human_falls")
+	addtimer(CALLBACK(src, .proc/post_fall_death_check), 2 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
+
 	return TRUE
+
+/mob/living/carbon/human/proc/post_fall_death_check()
+	if (stat == DEAD)
+		SSfeedback.IncrementSimpleStat("openturf_human_deaths")
 
 /mob/living/carbon/human/bst/fall_impact()
 	return FALSE
@@ -381,11 +417,12 @@
 	if (!.)
 		return
 
-	var/damage = 40 * levels_fallen
-	take_damage(rand(0, damage))
-	take_damage(rand(0, damage))
-	take_damage(rand(0, damage))
-	take_damage(rand(0, damage))
+	var/z_velocity = 5*(levels_fallen**2)
+	var/damage = ((40 + z_velocity) + rand(-20,20))
+	take_damage(damage)
+	take_damage(damage)
+	take_damage(damage)
+	take_damage(damage)
 
 	playsound(loc, "sound/effects/bang.ogg", 100, 1)
 	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
@@ -395,11 +432,12 @@
 	if (!.)
 		return
 
-	var/damage = 35 * levels_fallen
-	health -= (rand(0, damage) * brute_dam_coeff)
-	health -= (rand(0, damage) * brute_dam_coeff)
-	health -= (rand(0, damage) * brute_dam_coeff)
-	health -= (rand(0, damage) * brute_dam_coeff)
+	var/z_velocity = 5*(levels_fallen**2)
+	var/damage = ((35 + z_velocity) + rand(-18,18))
+	health -= (damage * brute_dam_coeff)
+	health -= (damage * brute_dam_coeff)
+	health -= (damage * brute_dam_coeff)
+	health -= (damage * brute_dam_coeff)
 
 	playsound(loc, "sound/effects/clang.ogg", 75, 1)
 
@@ -427,10 +465,10 @@
 	var/weight = fall_specs[1]
 	var/fall_force = fall_specs[2]
 
-	var/speed = levels_fallen * throw_speed
-	var/mass = (weight / THROWNOBJ_KNOCKBACK_DIVISOR) + density + opacity
-	var/momentum = speed * mass
-	var/damage = round(fall_force * (speed / THROWNOBJ_KNOCKBACK_DIVISOR) * momentum)
+	var/speed = (levels_fallen-1) + throw_speed
+	var/mass = (weight / THROWNOBJ_KNOCKBACK_DIVISOR) + density + opacity //1
+	var/momentum = speed * mass //8
+	var/damage = round(fall_force * (speed / THROWNOBJ_KNOCKBACK_DIVISOR) * momentum) //64
 
 	var/miss_chance = max(15 * (levels_fallen - 1), 0)
 

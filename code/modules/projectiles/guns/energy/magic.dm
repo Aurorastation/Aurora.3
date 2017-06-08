@@ -2,7 +2,7 @@
 
 /obj/item/weapon/gun/energy/staff
 	name = "staff of change"
-	desc = "An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself"
+	desc = "An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself."
 	icon = 'icons/obj/gun.dmi'
 	item_icons = null
 	icon_state = "staffofchange"
@@ -13,7 +13,7 @@
 	w_class = 4.0
 	max_shots = 5
 	projectile_type = /obj/item/projectile/change
-	origin_tech = null
+	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_BLUESPACE = 7)
 	self_recharge = 1
 	charge_meter = 0
 
@@ -151,8 +151,9 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	projectile_type = /obj/item/projectile/magic
 	var/list/possible_projectiles = list(/obj/item/projectile/magic, /obj/item/projectile/change, /obj/item/projectile/forcebolt,
 										/obj/item/weapon/gun/energy/staff/animate, /obj/item/projectile/magic/fireball, /obj/item/projectile/magic/teleport,
-										/obj/item/projectile/temp, /obj/item/projectile/ion, /obj/item/projectile/energy/declone, /obj/item/projectile/meteor)
-
+										/obj/item/projectile/temp, /obj/item/projectile/ion, /obj/item/projectile/energy/declone, /obj/item/projectile/meteor,
+										/obj/item/projectile/beam/thermaldrill, /obj/item/projectile/beam/energy_net, /obj/item/projectile/energy/bee)
+										
 /obj/item/weapon/gun/energy/staff/chaos/special_check(var/mob/living/user)
 	projectile_type = pick(possible_projectiles)
 	if(HULK in user.mutations)
@@ -184,7 +185,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	w_class = 3
 	max_shots = 20
 	projectile_type = /obj/item/projectile/magic
-	origin_tech = null
+	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5, TECH_BLUESPACE = 6)
 	charge_meter = 0
 
 /obj/item/weapon/gun/energy/wand/handle_click_empty(mob/user = null)
@@ -199,6 +200,9 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
 	return 1
+	
+/obj/item/weapon/gun/energy/wand/toy
+	origin_tech = null
 
 /obj/item/weapon/gun/energy/wand/fire
 	name = "wand of fire"

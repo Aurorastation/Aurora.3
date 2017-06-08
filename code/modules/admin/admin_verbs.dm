@@ -131,7 +131,8 @@ var/list/admin_verbs_fun = list(
 	/datum/admins/proc/call_supply_drop,
 	/datum/admins/proc/call_drop_pod,
 	/client/proc/show_tip,
-	/client/proc/fab_tip
+	/client/proc/fab_tip,
+	/client/proc/apply_sunstate
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -1107,3 +1108,18 @@ var/list/admin_verbs_cciaa = list(
 	log_and_message_admins("has regenerated all openturfs.")
 
 	SSopenturf.hard_reset()
+
+/client/proc/apply_sunstate()
+	set category = "Fun"
+	set name = "Apply Sun Preset"
+	set desc = "Changes the sun preset. This takes a long time to apply, use sparingly!"
+
+	if (!check_rights(R_FUN))
+		return
+
+	var/datum/sun_state/S = input("Choose a preset to apply:", "ILLUMINATE") as null|anything in SSsunlight.presets
+	if (!S)
+		to_chat(usr, "Cancelled.")
+
+	SSsunlight.apply_sun_state(S)
+	log_and_message_admins("has set the sun state to '[S]'.")

@@ -117,7 +117,9 @@
 	for(var/obj/item/W in T)
 		T.drop_from_inventory(W)
 
-	new /obj/effect/decal/remains/human(T.loc) //Spawns a skeleton
+	var/obj/effect/decal/remains/remains = T.species.remains_type //spawns a skeleton based on the species remain type
+	new remains(T.loc)
+		
 	T.invisibility = 101
 
 	var/atom/movable/overlay/animation = new /atom/movable/overlay( T.loc )

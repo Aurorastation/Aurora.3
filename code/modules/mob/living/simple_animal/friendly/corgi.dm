@@ -27,8 +27,8 @@
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
 
-/mob/living/simple_animal/corgi/New()
-	..()
+/mob/living/simple_animal/corgi/Initialize()
+	. = ..()
 	nutrition = max_nutrition * 0.3	//Ian doesn't start with a full belly so will be hungry at roundstart
 	nutrition_step = mob_size * 0.12
 

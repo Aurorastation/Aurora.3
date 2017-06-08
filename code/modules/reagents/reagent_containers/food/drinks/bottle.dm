@@ -148,6 +148,9 @@
 	var/obj/item/weapon/broken_bottle/B = smash(target.loc, target)
 	user.put_in_active_hand(B)
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/bullet_act()
+	smash(loc)
+
 //Keeping this here for now, I'll ask if I should keep it here.
 /obj/item/weapon/broken_bottle
 

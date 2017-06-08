@@ -84,6 +84,9 @@
 
 /datum/species/machine/shell/get_bodytype()
 	return bodytype
+	
+/datum/species/machine/shell/equip_survival_gear(var/mob/living/carbon/human/H)
+	check_tag(H, H.client)
 
 /datum/species/machine/industrial
 	name = "Industrial Frame"

@@ -400,7 +400,7 @@
 
 /obj/random/voidsuit/Initialize(mapload, _damaged = 0)
 	damaged = _damaged
-	..(loc)
+	. = ..(mapload)
 
 /obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
 	var/helmet = suitmap[suit.type]
@@ -560,7 +560,8 @@
 		/obj/item/weapon/gun/energy/vaurca/gatlinglaser,
 		/obj/item/weapon/gun/energy/vaurca/blaster,
 		/obj/item/weapon/gun/energy/crossbow/largecrossbow,
-		/obj/item/weapon/gun/energy/rifle/laser/xray
+		/obj/item/weapon/gun/energy/rifle/laser/xray,
+		/obj/item/weapon/gun/energy/net
 	)
 
 /obj/random/colored_jumpsuit

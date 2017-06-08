@@ -99,6 +99,9 @@
 	max_w_class = 3
 	can_hold = list(/obj/item/weapon/ore)
 
+/obj/item/weapon/storage/bag/ore/drone
+	max_storage_space = 400
+
 
 // -----------------------------
 //          Plant bag

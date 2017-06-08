@@ -11,7 +11,6 @@
 	icon_state = "gsmes"
 	var/cells_amount = 0
 	var/capacitors_amount = 0
-	var/global/list/br_cache = null
 
 /obj/machinery/power/smes/batteryrack/New()
 	..()

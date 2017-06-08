@@ -58,13 +58,14 @@ var/list/reg_dna       = list()
 
 var/list/monkeystart     = list()
 var/list/wizardstart     = list()
-var/list/newplayer_start = list()
+var/turf/newplayer_start = null
 
 //Spawnpoints.
 var/list/latejoin         = list()
 var/list/latejoin_gateway = list()
 var/list/latejoin_cryo    = list()
 var/list/latejoin_cyborg  = list()
+var/list/kickoffsloc = list()
 
 var/list/prisonwarp         = list() // Prisoners go to these
 var/list/holdingfacility    = list() // Captured people go here

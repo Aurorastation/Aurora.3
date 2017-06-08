@@ -54,13 +54,13 @@ world/IsBanned(key,address,computer_id)
 		var/params[] = list()
 		var/query_content = ""
 		if (pulled_ban_id)
-			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE id = :ban_id AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
-			params[":ban_id"] = pulled_ban_id
+			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE id = :ban_id: AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
+			params["ban_id"] = pulled_ban_id
 		else
-			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE (ckey = :ckey OR computerid = :computerid OR ip = :address) AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
-			params[":ckey"] = ckey
-			params[":computerid"] = computer_id
-			params[":address"] = address
+			query_content = "SELECT id, ckey, ip, computerid, a_ckey, reason, expiration_time, duration, bantime, bantype FROM ss13_ban WHERE (ckey = :ckey: OR computerid = :computerid: OR ip = :address:) AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)"
+			params["ckey"] = ckey
+			params["computerid"] = computer_id
+			params["address"] = address
 
 		var/DBQuery/query = dbcon.NewQuery(query_content)
 		query.Execute(params)

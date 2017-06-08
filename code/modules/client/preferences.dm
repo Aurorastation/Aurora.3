@@ -104,6 +104,7 @@ datum/preferences
 	// will probably not be able to do this for head and torso ;)
 	var/list/organ_data = list()
 	var/list/rlimb_data = list()
+	var/list/body_markings = list() // "name" = "#rgbcolor"
 	var/list/player_alt_titles = new()		// the default name of a job like "Medical Doctor"
 
 	var/list/flavor_texts = list()
@@ -388,6 +389,19 @@ datum/preferences
 				else if(status == "mechanical")
 					I.robotize()
 
+	for(var/N in character.organs_by_name)
+		var/obj/item/organ/external/O = character.organs_by_name[N]
+		O.markings.Cut()
+
+	for(var/M in body_markings)
+		var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
+		var/mark_color = "[body_markings[M]]"
+
+		for(var/BP in mark_datum.body_parts)
+			var/obj/item/organ/external/O = character.organs_by_name[BP]
+			if(O)
+				O.markings[M] = list("color" = mark_color, "datum" = mark_datum)
+
 	character.underwear = underwear
 
 	character.undershirt = undershirt
@@ -415,8 +429,8 @@ datum/preferences
 			if(!dbcon.IsConnected())
 				return open_load_dialog_file(user)
 
-			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey AND deleted_at IS NULL ORDER BY id ASC")
-			query.Execute(list(":ckey" = user.client.ckey))
+			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
+			query.Execute(list("ckey" = user.client.ckey))
 
 			dat += "<b>Select a character slot to load</b><hr>"
 			var/name
@@ -471,8 +485,8 @@ datum/preferences
 	if (!config.sql_saves || !config.sql_stats || !establish_db_connection(dbcon) || !H)
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, special_role) VALUES (:char_id, :game_id, NOW(), :job, :special_role)")
-	query.Execute(list(":char_id" = current_character, ":game_id" = game_id, ":job" = H.mind.assigned_role, ":special_role" = H.mind.special_role))
+	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, special_role) VALUES (:char_id:, :game_id:, NOW(), :job:, :special_role:)")
+	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "special_role" = H.mind.special_role))
 
 // Turned into a proc so we could reuse it for SQL shenanigans.
 /datum/preferences/proc/new_setup(var/re_initialize = 0)
@@ -545,6 +559,7 @@ datum/preferences
 
 		organ_data = list()
 		rlimb_data = list()
+		body_markings = list()
 		player_alt_titles = new()
 
 		flavor_texts = list()
@@ -570,8 +585,8 @@ datum/preferences
 		C << "<span class='notice'>Unable to establish database connection.</span>"
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id")
-	query.Execute(list(":char_id" = current_character))
+	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id:")
+	query.Execute(list("char_id" = current_character))
 
 	// Create a new character.
 	new_setup(1)

@@ -5,6 +5,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 /datum/controller/subsystem/lighting
 	name = "Lighting"
 	wait = LIGHTING_INTERVAL
+	flags = SS_FIRE_IN_LOBBY
 
 	priority = SS_PRIORITY_LIGHTING
 	init_order = SS_INIT_LIGHTING
@@ -31,7 +32,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 	LAZYINITLIST(lighting_overlays)
 
 /datum/controller/subsystem/lighting/stat_entry()
-	..("O:[lighting_overlays.len] C:[lighting_corners.len] ITL:[round(instant_tick_limit, 0.1)]%\n\tP:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}\n\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}")
+	var/out = "O:[lighting_overlays.len] C:[lighting_corners.len] ITL:[round(instant_tick_limit, 0.1)]%\n"
+	out += "\tP:{L:[light_queue.len]|C:[corner_queue.len]|O:[overlay_queue.len]}\n"
+	out += "\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}\n"
+	..(out)
 
 /datum/controller/subsystem/lighting/ExplosionStart()
 	force_queued = TRUE

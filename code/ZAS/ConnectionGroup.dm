@@ -58,13 +58,12 @@ Class Procs:
 */
 
 
-/connection_edge/var/zone/A
-
-/connection_edge/var/list/connecting_turfs = list()
-/connection_edge/var/direct = 0
-/connection_edge/var/sleeping = 1
-
-/connection_edge/var/coefficient = 0
+/connection_edge
+	var/zone/A
+	var/list/connecting_turfs = list()
+	var/direct = 0
+	var/sleeping = 1
+	var/coefficient = 0
 
 /connection_edge/New()
 	CRASH("Cannot make connection edge without specifications.")
@@ -115,11 +114,10 @@ Class Procs:
 
 			M.airflow_dest = pick(close_turfs) //Pick a random midpoint to fly towards.
 
-			if(repelled) spawn if(M) M.RepelAirflowDest(differential/5)
-			else spawn if(M) M.GotoAirflowDest(differential/10)
-
-
-
+			if(repelled)
+				M.RepelAirflowDest(differential/5)
+			else
+				M.GotoAirflowDest(differential/10)
 
 /connection_edge/zone/var/zone/B
 

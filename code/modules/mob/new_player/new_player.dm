@@ -121,7 +121,7 @@
 				// Don't allow players to observe until initialization is more or less complete.
 				// Letting them join too early breaks things, they can wait.
 				src << span("alert", "The server is still initializing, try observing again in a minute or so.")
-				return 
+				return
 
 			if(alert(src,"Are you sure you wish to observe? You will have to wait 30 minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
 				if(!client)	return 1
@@ -432,10 +432,10 @@
 		if(chosen_species && use_species_name)
 			// Have to recheck admin due to no usr at roundstart. Latejoins are fine though.
 			if(is_species_whitelisted(chosen_species) || has_admin_rights())
-				new_character = new(loc, use_species_name)
+				new_character = new(newplayer_start, use_species_name)
 
 		if(!new_character)
-			new_character = new(loc)
+			new_character = new(newplayer_start)
 
 		new_character.lastarea = get_area(loc)
 

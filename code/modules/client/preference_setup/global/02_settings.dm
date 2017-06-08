@@ -26,21 +26,21 @@
 	return list("ss13_player_preferences" = list("vars" = list("lastchangelog", "current_character", "toggles", "asfx_togs", "lastmotd" = "motd_hash", "lastmemo" = "memo_hash"), "args" = list("ckey")))
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_parameters()
-	return list(":ckey" = pref.client.ckey)
+	return list("ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/player_global/settings/gather_save_query()
 	return list("ss13_player_preferences" = list("lastchangelog", "current_character", "toggles", "asfx_togs", "lastmotd", "lastmemo", "ckey" = 1, "parallax_toggles", "parallax_speed"))
 
 /datum/category_item/player_setup_item/player_global/settings/gather_save_parameters()
-	return list(":ckey" = pref.client.ckey,
-				":lastchangelog" = pref.lastchangelog,
-				":current_character" = pref.current_character,
-				":toggles" = pref.toggles,
-				":asfx_togs" = pref.asfx_togs,
-				":lastmotd" = pref.motd_hash,
-				":lastmemo" = pref.memo_hash,
-				":parallax_toggles" = pref.parallax_togs,
-				":parallax_speed" = pref.parallax_speed)
+	return list("ckey" = pref.client.ckey,
+				"lastchangelog" = pref.lastchangelog,
+				"current_character" = pref.current_character,
+				"toggles" = pref.toggles,
+				"asfx_togs" = pref.asfx_togs,
+				"lastmotd" = pref.motd_hash,
+				"lastmemo" = pref.memo_hash,
+				"parallax_toggles" = pref.parallax_togs,
+				"parallax_speed" = pref.parallax_speed)
 
 /datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
 	if (sql_load)

@@ -381,6 +381,14 @@
 	icon_badge = "detectivevest_badge"
 	icon_nobadge = "detectivevest_nobadge"
 
+/obj/item/clothing/suit/storage/vest/csi
+	name = "forensic technician armor vest"
+	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a forensic technician's badge clipped to the chest."
+	icon_state = "csivest_nobadge"
+	item_state = "csivest_nobadge"
+	icon_badge = "csivest_badge"
+	icon_nobadge = "csivest_nobadge"
+
 /obj/item/clothing/suit/storage/vest/heavy
 	name = "heavy armor vest"
 	desc = "A heavy kevlar plate carrier with webbing attached."

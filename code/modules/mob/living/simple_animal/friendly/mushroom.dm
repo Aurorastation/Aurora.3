@@ -23,8 +23,8 @@
 	holder_type = /obj/item/weapon/holder/mushroom
 	mob_size = 2
 
-/mob/living/simple_animal/mushroom/New()
-	..()
+/mob/living/simple_animal/mushroom/Initialize()
+	. = ..()
 	harvest_time = world.time
 	var/count = 0
 	for (var/mob/living/simple_animal/mushroom in living_mob_list)
@@ -32,8 +32,6 @@
 
 	if (count > GLOBAL_MUSHROOM_LIMIT)
 		qdel(src)
-
-
 
 /mob/living/simple_animal/mushroom/attack_hand(mob/living/carbon/human/M as mob)
 	if (src.stat == DEAD)//If the creature is dead, we don't pet it, we just pickup the corpse on click
