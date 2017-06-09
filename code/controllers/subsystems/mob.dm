@@ -9,6 +9,7 @@
 
 	var/list/currentrun = list()
 	var/list/all_mice = list()	// Contains all *living* mice.
+	var/list/mannequins = list()	//Contains all mannequins used by character preview
 
 /datum/controller/subsystem/mobs/New()
 	NEW_SS_GLOBAL(SSmob)
@@ -48,3 +49,9 @@
 
 		if (MC_TICK_CHECK)
 			return
+
+/datum/controller/subsystem/mobs/proc/get_mannequin(ckey)
+	. = mannequins[ckey]
+	if (!.)
+		. = new /mob/living/carbon/human/dummy/mannequin
+		mannequins[ckey] = .

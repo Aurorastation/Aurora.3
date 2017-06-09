@@ -26,6 +26,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["organ_data"]			>> pref.organ_data
 	S["rlimb_data"]			>> pref.rlimb_data
 	S["body_markings"]		>> pref.body_markings
+	pref.preview_icon = null
 
 /datum/category_item/player_setup_item/general/body/save_character(var/savefile/S)
 	S["species"]			<< pref.species
@@ -166,9 +167,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	pref.update_preview_icon()
-	if(pref.preview_icon_front && pref.preview_icon_side)
-		user << browse_rsc(pref.preview_icon_front, "previewicon.png")
-		user << browse_rsc(pref.preview_icon_side, "previewicon2.png")
+	if(!pref.preview_icon)
+		pref.update_preview_icon()
+	user << browse_rsc(pref.preview_icon, "previewicon.png")
 
 	var/datum/species/mob_species = all_species[pref.species]
 	. += "<table><tr style='vertical-align:top'><td><b>Body</b> "
@@ -257,7 +258,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else
 		. += "<br><br>"
 
-	. += "</td><td><b>Preview</b><br><img src=previewicon.png height=64 width=64><img src=previewicon2.png height=64 width=64>"
+	. += "</td><td><b>Preview</b><br>"
+	. += "<div class='statusDisplay'><center><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
+	. += "<br><a href='?src=\ref[src];toggle_clothing=1'>[pref.dress_mob ? "Hide equipment" : "Show equipment"]</a>"
 	. += "</td></tr></table>"
 
 	. += "<b>Hair</b><br>"
@@ -597,6 +600,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["disabilities"])
 		var/disability_flag = text2num(href_list["disabilities"])
 		pref.disabilities ^= disability_flag
+		return TOPIC_REFRESH
+		
+	else if(href_list["toggle_clothing"])
+		pref.dress_mob = !pref.dress_mob
 		return TOPIC_REFRESH
 
 	return ..()
