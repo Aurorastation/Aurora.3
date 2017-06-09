@@ -545,7 +545,6 @@ var/global/list/robot_modules = list(
 					LANGUAGE_SIIK_MAAS	= 1,
 					LANGUAGE_SIIK_TAJR	= 0,
 					LANGUAGE_SKRELLIAN	= 1,
-					LANGUAGE_RESOMI		= 1,
 					LANGUAGE_ROOTSONG	= 1,
 					LANGUAGE_TRADEBAND	= 1,
 					LANGUAGE_GUTTER		= 1
