@@ -35,6 +35,7 @@
 	spark(F, 4, alldirs)
 	ghost.request_player(F,"An operative is requesting a syndicate cyborg.", 60 SECONDS)
 	F.faction = usr.faction
+	mercs.add_antagonist_mind(F.mind,1)
 	spawn(600)
 		if(F)
 			if(!F.ckey || !F.client)
