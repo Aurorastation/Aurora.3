@@ -201,7 +201,7 @@
 				user << "<span class='warning'>This [W] does not seem to fit.</span>"
 				return
 
-			var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(loc), TRUE)
+			var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(loc), unfinished = 1)
 			if(!O)	return
 
 			user.drop_item()
