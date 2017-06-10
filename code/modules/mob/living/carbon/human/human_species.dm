@@ -2,6 +2,19 @@
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
 
+/mob/living/carbon/human/dummy/mannequin/New(location, ...)
+    ..()
+    if (!initialized)
+        args[1] = TRUE
+        SSatoms.InitAtom(src, args)
+
+/mob/living/carbon/human/dummy/mannequin/Initialize()
+	. = ..()
+	mob_list -= src
+	living_mob_list -= src
+	dead_mob_list -= src
+	delete_inventory()
+
 /mob/living/carbon/human/resomi/Initialize(mapload)
 	h_style = "Resomi Plumage"
 	. = ..(mapload, "Resomi")

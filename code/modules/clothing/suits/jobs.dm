@@ -11,7 +11,22 @@
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
 	allowed = list (/obj/item/weapon/reagent_containers/spray/plantbgone,/obj/item/device/analyzer/plant_analyzer,/obj/item/seeds,/obj/item/weapon/reagent_containers/glass/fertilizer,/obj/item/weapon/material/minihoe)
-
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	
+/obj/item/clothing/suit/apron/overalls
+	name = "coveralls"
+	desc = "A set of denim overalls."
+	icon_state = "overalls"
+	item_state = "overalls"
+		
+/obj/item/clothing/suit/apron/surgery
+	name = "surgical apron"
+	desc = "To keep their blood off while you knife them."
+	icon_state = "surgeon"
+	item_state = "surgeon"
+	allowed = list(/obj/item/stack/medical, /obj/item/weapon/reagent_containers/dropper, /obj/item/weapon/reagent_containers/hypospray, /obj/item/weapon/reagent_containers/syringe, \
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank/emergency_oxygen)
+	
 //Captain
 /obj/item/clothing/suit/captunic
 	name = "captain's parade tunic"
@@ -163,6 +178,24 @@
 	/obj/item/weapon/crowbar, /obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/wirecutters, /obj/item/weapon/wrench, /obj/item/weapon/tank/emergency_oxygen, \
 	/obj/item/clothing/mask/gas, /obj/item/taperoll/engineering)
 	body_parts_covered = UPPER_TORSO
+	
+/obj/item/clothing/suit/storage/hazardvest/blue
+	name = "blue hazard vest"
+	desc = "A high-visibility vest used in work zones. This one is blue."
+	icon_state = "hazard_b"
+	item_state = "hazard_b"
+
+/obj/item/clothing/suit/storage/hazardvest/white
+	name = "white hazard vest"
+	desc = "A high-visibility vest used in work zones. This one is white."
+	icon_state = "hazard_w"
+	item_state = "hazard_w"
+	
+/obj/item/clothing/suit/storage/hazardvest/green
+	name = "green hazard vest"
+	desc = "A high-visibility vest used in work zones. This one is green."
+	icon_state = "hazard_g"
+	item_state = "hazard_g"
 
 //Lawyer
 /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
