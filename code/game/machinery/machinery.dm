@@ -113,6 +113,7 @@ Class Procs:
 	var/global/gl_uid = 1
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/printing = 0 // Is this machine currently printing anything?
+	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
 
 /obj/machinery/Initialize(mapload, d=0)
 	. = ..()
@@ -375,8 +376,10 @@ Class Procs:
 	
 	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
 
-	spawn(print_delay)
-		paper.loc = src.loc
-		printing = 0
+	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
 
 	return 1
+
+/obj/machinery/proc/print_move_paper(obj/paper)
+	paper.forceMove(loc)
+	printing = FALSE

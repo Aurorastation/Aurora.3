@@ -72,6 +72,8 @@
 
 	if(cell.charge <= 0)
 		turn_off()
+		
+	update_icon()
 
 /obj/item/device/suit_cooling_unit/proc/get_environment_temperature()
 	if (ishuman(loc))

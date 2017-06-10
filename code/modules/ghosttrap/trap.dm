@@ -230,7 +230,8 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 
 /datum/ghosttrap/syndicateborg/welcome_candidate(var/mob/target)
 	target << "<span class='notice'><B>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you. Remember to speak to the other mercenaries to know more about their plans</B></span>"
-
+	mercs.add_antagonist_mind(target.mind,1)
+	
 /**************
 * pAI *
 **************/
