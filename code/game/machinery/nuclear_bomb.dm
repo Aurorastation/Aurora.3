@@ -24,8 +24,8 @@ var/bomb_set
 	var/previous_level = ""
 	var/datum/wires/nuclearbomb/wires = null
 
-/obj/machinery/nuclearbomb/New()
-	..()
+/obj/machinery/nuclearbomb/Initialize()
+	. = ..()
 	r_code = "[rand(10000, 99999.0)]"//Creates a random code upon object spawn.
 	wires = new/datum/wires/nuclearbomb(src)
 
@@ -40,7 +40,7 @@ var/bomb_set
 		if (timeleft <= 0)
 			spawn
 				explode()
-		nanomanager.update_uis(src)
+		SSnanoui.update_uis(src)
 	return
 
 /obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
@@ -49,12 +49,12 @@ var/bomb_set
 		if (src.auth)
 			if (panel_open == 0)
 				panel_open = 1
-				overlays |= "panel_open"
+				add_overlay("panel_open")
 				user << "You unscrew the control panel of [src]."
 				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 			else
 				panel_open = 0
-				overlays -= "panel_open"
+				cut_overlay("panel_open")
 				user << "You screw the control panel of [src] back on."
 				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 		else
@@ -62,7 +62,7 @@ var/bomb_set
 				user << "\The [src] emits a buzzing noise, the panel staying locked in."
 			if (panel_open == 1)
 				panel_open = 0
-				overlays -= "panel_open"
+				cut_overlay("panel_open")
 				user << "You screw the control panel of \the [src] back on."
 				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 			flick("lock", src)
@@ -195,7 +195,7 @@ var/bomb_set
 		if (yes_code)
 			data["message"] = "*****"
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "nuclear_bomb.tmpl", "Nuke Control Panel", 300, 510)
 		ui.set_initial_data(data)
@@ -269,19 +269,19 @@ var/bomb_set
 				timeleft = Clamp(timeleft, 120, 600)
 			if (href_list["timer"])
 				if (timing == -1)
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 				if (!anchored)
 					usr << "<span class='warning'>\The [src] needs to be anchored.</span>"
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 				if (safety)
 					usr << "<span class='warning'>The safety is still on.</span>"
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_TIMING))
 					usr << "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>"
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 
 				if (!timing && !safety)
@@ -298,7 +298,7 @@ var/bomb_set
 			if (href_list["safety"])
 				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_SAFETY))
 					usr << "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>"
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 				safety = !safety
 				if(safety)
@@ -308,7 +308,7 @@ var/bomb_set
 				if(removal_stage == 5)
 					anchored = 0
 					visible_message("<span class='warning'>\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut.</span>")
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 
 				if(!isinspace())
@@ -321,7 +321,7 @@ var/bomb_set
 				else
 					usr << "<span class='warning'>There is nothing to anchor to!</span>"
 
-	nanomanager.update_uis(src)
+	SSnanoui.update_uis(src)
 
 /obj/machinery/nuclearbomb/proc/secure_device()
 	if(timing <= 0)
@@ -345,8 +345,8 @@ var/bomb_set
 	src.safety = 1
 	update_icon()
 	playsound(src,'sound/machines/Alarm.ogg',100,0,5)
-	if (ticker && ticker.mode)
-		ticker.mode.explosion_in_progress = 1
+	if (SSticker.mode)
+		SSticker.mode.explosion_in_progress = 1
 	sleep(100)
 
 	var/off_station = 0
@@ -357,29 +357,27 @@ var/bomb_set
 	else
 		off_station = 2
 
-	if(ticker)
-		if(ticker.mode && ticker.mode.name == "Mercenary")
-			var/obj/machinery/computer/shuttle_control/multi/syndicate/syndie_location = locate(/obj/machinery/computer/shuttle_control/multi/syndicate)
-			if(syndie_location)
-				ticker.mode:syndies_didnt_escape = (syndie_location.z > 1 ? 0 : 1)	//muskets will make me change this, but it will do for now
-			ticker.mode:nuke_off_station = off_station
-		ticker.station_explosion_cinematic(off_station,null)
-		if(ticker.mode)
-			ticker.mode.explosion_in_progress = 0
-			if(off_station == 1)
-				world << "<b>A nuclear device was set off, but the explosion was out of reach of the station!</b>"
-			else if(off_station == 2)
-				world << "<b>A nuclear device was set off, but the device was not on the station!</b>"
-			else
-				world << "<b>The station was destoyed by the nuclear blast!</b>"
+	if(SSticker.mode && SSticker.mode.name == "Mercenary")
+		var/obj/machinery/computer/shuttle_control/multi/syndicate/syndie_location = locate(/obj/machinery/computer/shuttle_control/multi/syndicate)
+		if(syndie_location)
+			SSticker.mode:syndies_didnt_escape = (syndie_location.z > 1 ? 0 : 1)	//muskets will make me change this, but it will do for now
+		SSticker.mode:nuke_off_station = off_station
+	SSticker.station_explosion_cinematic(off_station,null)
+	if(SSticker.mode)
+		SSticker.mode.explosion_in_progress = 0
+		if(off_station == 1)
+			world << "<b>A nuclear device was set off, but the explosion was out of reach of the station!</b>"
+		else if(off_station == 2)
+			world << "<b>A nuclear device was set off, but the device was not on the station!</b>"
+		else
+			world << "<b>The station was destoyed by the nuclear blast!</b>"
 
-			ticker.mode.station_was_nuked = (off_station<2)	//offstation==1 is a draw. the station becomes irradiated and needs to be evacuated.
-															//kinda shit but I couldn't  get permission to do what I wanted to do.
+		SSticker.mode.station_was_nuked = (off_station<2)	//offstation==1 is a draw. the station becomes irradiated and needs to be evacuated.
+														//kinda shit but I couldn't  get permission to do what I wanted to do.
 
-			if(!ticker.mode.check_finished())//If the mode does not deal with the nuke going off so just reboot because everyone is stuck as is
-				universe_has_ended = 1
-				return
-	return
+		if(!SSticker.mode.check_finished())//If the mode does not deal with the nuke going off so just reboot because everyone is stuck as is
+			universe_has_ended = 1
+			return
 
 /obj/machinery/nuclearbomb/update_icon()
 	if(lighthack)
@@ -402,8 +400,8 @@ var/bomb_set
 	item_state = "card-id"
 	w_class = 1.0
 
-/obj/item/weapon/disk/nuclear/New()
-	..()
+/obj/item/weapon/disk/nuclear/Initialize()
+	. = ..()
 	nuke_disks |= src
 
 /obj/item/weapon/disk/nuclear/Destroy()
@@ -431,9 +429,12 @@ var/bomb_set
 	var/list/flash_tiles = list()
 	var/last_turf_state
 
-/obj/machinery/nuclearbomb/station/initialize()
+/obj/machinery/nuclearbomb/station/Initialize(mapload)
 	..()
 	verbs -= /obj/machinery/nuclearbomb/verb/toggle_deployable
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/nuclearbomb/station/LateInitialize()
 	for(var/turf/simulated/floor/T in trange(1, src))
 		T.set_flooring(get_flooring_data(/decl/flooring/reinforced/circuit/red))
 		flash_tiles += T

@@ -15,13 +15,16 @@
 	return src
 
 /proc/mobs_in_view(var/range, var/source)
-	var/list/mobs = list()
+	. = list()
 	for(var/atom/movable/AM in view(range, source))
-		var/M = AM.get_mob()
-		if(M)
-			mobs += M
+		if (ismob(AM))
+			. += AM
+			continue
 
-	return mobs
+		if (!AM.can_hold_mob)
+			continue
+
+		. += AM.get_mob()
 
 proc/random_hair_style(gender, species = "Human")
 	var/h_style = "Bald"

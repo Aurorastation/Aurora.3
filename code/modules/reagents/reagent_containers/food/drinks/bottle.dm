@@ -148,6 +148,9 @@
 	var/obj/item/weapon/broken_bottle/B = smash(target.loc, target)
 	user.put_in_active_hand(B)
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/bullet_act()
+	smash(loc)
+
 //Keeping this here for now, I'll ask if I should keep it here.
 /obj/item/weapon/broken_bottle
 
@@ -178,6 +181,15 @@
 	New()
 		..()
 		reagents.add_reagent("gin", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/victorygin
+	name = "Victory gin"
+	desc = "Pour one out for Al'mari. His gun was on stun, bless his heart."
+	icon_state = "victorygin"
+	center_of_mass = list("x"=16, "y"=4)
+	New()
+		..()
+		reagents.add_reagent("victorygin", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey
 	name = "Uncle Git's Special Reserve"
@@ -499,3 +511,25 @@
 	New()
 		..()
 		reagents.add_reagent("sbiten", 100)
+
+
+// Butanol-based alcoholic drinks
+//=====================================
+//These are mainly for unathi, and have very little (but still some) effect on other species
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/small/xuizijuice
+	name = "Xuizi Juice"
+	desc = "Blended flower buds from the Xuizi cactus. It smells faintly of vanilla. Bottled by the Arizi Guild for over 200 years."
+	icon_state = "xuizibottle"
+	center_of_mass = list("x"=16, "y"=10)
+	New()
+		..()
+		reagents.add_reagent("xuizijuice", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine
+	name = "Sarezhi Wine"
+	desc = "A premium Moghean wine made from Sareszhi berries. Bottled by the Arizi Guild for over 200 years."
+	icon_state = "sarezhibottle"
+	New()
+		..()
+		reagents.add_reagent("sarezhiwine", 100)

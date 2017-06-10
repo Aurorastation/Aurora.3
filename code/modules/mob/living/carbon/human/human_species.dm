@@ -2,92 +2,105 @@
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
 
-/mob/living/carbon/human/resomi/New(var/new_loc)
+/mob/living/carbon/human/dummy/mannequin/New(location, ...)
+    ..()
+    if (!initialized)
+        args[1] = TRUE
+        SSatoms.InitAtom(src, args)
+
+/mob/living/carbon/human/dummy/mannequin/Initialize()
+	. = ..()
+	mob_list -= src
+	living_mob_list -= src
+	dead_mob_list -= src
+	delete_inventory()
+
+/mob/living/carbon/human/resomi/Initialize(mapload)
 	h_style = "Resomi Plumage"
-	..(new_loc, "Resomi")
+	. = ..(mapload, "Resomi")
 
-/mob/living/carbon/human/skrell/New(var/new_loc)
+/mob/living/carbon/human/skrell/Initialize(mapload)
 	h_style = "Skrell Male Tentacles"
-	..(new_loc, "Skrell")
+	. = ..(mapload, "Skrell")
 
-/mob/living/carbon/human/tajaran/New(var/new_loc)
+/mob/living/carbon/human/tajaran/Initialize(mapload)
 	h_style = "Tajaran Ears"
-	..(new_loc, "Tajara")
+	. = ..(mapload, "Tajara")
 
-/mob/living/carbon/human/unathi/New(var/new_loc)
+/mob/living/carbon/human/unathi/Initialize(mapload)
 	h_style = "Unathi Horns"
-	..(new_loc, "Unathi")
+	. = ..(mapload, "Unathi")
 
-/mob/living/carbon/human/vox/New(var/new_loc)
+/mob/living/carbon/human/vox/Initialize(mapload)
 	h_style = "Short Vox Quills"
-	..(new_loc, "Vox")
+	. = ..(mapload, "Vox")
 
-/mob/living/carbon/human/voxarmalis/New(var/new_loc)
+/mob/living/carbon/human/voxarmalis/Initialize(mapload)
 	h_style = "Bald"
-	..(new_loc, "Vox Armalis")
+	. = ..(mapload, "Vox Armalis")
 
-/mob/living/carbon/human/diona/New(var/new_loc)
-	..(new_loc, "Diona")
+/mob/living/carbon/human/diona/Initialize(mapload)
+	. = ..(mapload, "Diona")
 	src.gender = NEUTER
 
-/mob/living/carbon/human/machine/New(var/new_loc)
+/mob/living/carbon/human/machine/Initialize(mapload)
 	h_style = "blue IPC screen"
-	..(new_loc, "Baseline Frame")
+	. = ..(mapload, "Baseline Frame")
 
 /mob/living/carbon/human/monkey
 	mob_size = 2.6//Based on howler monkey, rough real world equivilant to on-mob sprite size
 
-/mob/living/carbon/human/monkey/New(var/new_loc)
-	..(new_loc, "Monkey")
+/mob/living/carbon/human/monkey/Initialize(mapload)
+	. = ..(mapload, "Monkey")
 
 /mob/living/carbon/human/farwa
 	mob_size = 2.6//Roughly the same size as monkey
 
-/mob/living/carbon/human/farwa/New(var/new_loc)
-	..(new_loc, "Farwa")
+/mob/living/carbon/human/farwa/Initialize(mapload)
+	. = ..(mapload, "Farwa")
 
 /mob/living/carbon/human/neaera
 	mob_size = 2.6//Roughly the same size as monkey
 
-/mob/living/carbon/human/neaera/New(var/new_loc)
-	..(new_loc, "Neaera")
+/mob/living/carbon/human/neaera/Initialize(mapload)
+	. = ..(mapload, "Neaera")
 
 /mob/living/carbon/human/stok
 	mob_size = 2.6//Roughly the same size as monkey
 
-/mob/living/carbon/human/neaera/New(var/new_loc)
-	..(new_loc, "Neaera")
+/mob/living/carbon/human/stok/Initialize(mapload)
+	. = ..(mapload, "Stok")
 
 /mob/living/carbon/human/bug
 	mob_size = 2.6//Roughly the same size as monkey
 
-/mob/living/carbon/human/bug/New(var/new_loc)
-	..(new_loc, "V'krexi")
+/mob/living/carbon/human/bug/Initialize(mapload)
+	. = ..(mapload, "V'krexi")
 	src.gender = FEMALE
 
-/mob/living/carbon/human/type_a/New(var/new_loc)
-	..(new_loc, "Vaurca Worker")
+/mob/living/carbon/human/type_a/Initialize(mapload)
+	. = ..(mapload, "Vaurca Worker")
 	src.gender = NEUTER
 
-/mob/living/carbon/human/type_b/New(var/new_loc)
-	..(new_loc, "Vaurca Warrior")
+/mob/living/carbon/human/type_b/Initialize(mapload)
+	. = ..(mapload, "Vaurca Warrior")
 	src.gender = NEUTER
 
-/mob/living/carbon/human/type_c/New(var/new_loc)
-	..(new_loc, "Vaurca Breeder")
+/mob/living/carbon/human/type_c/Initialize(mapload)
+	. = ..(mapload, "Vaurca Breeder")
 	src.gender = FEMALE
 
 /mob/living/carbon/human/type_c
 	layer = 5
 
-/mob/living/carbon/human/industrial/New(var/new_loc)
-	..(new_loc, "Industrial Frame")
+/mob/living/carbon/human/industrial/Initialize(mapload)
+	..(mapload, "Industrial Frame")
 
-/mob/living/carbon/human/shell/New(var/new_loc)
-	..(new_loc, "Shell Frame")
+/mob/living/carbon/human/shell/Initialize(mapload)
+	..(mapload, "Shell Frame")
 
-/mob/living/carbon/human/terminator/New(var/new_loc)
-	..(new_loc, "Hunter-Killer")
+/mob/living/carbon/human/terminator/Initialize(mapload)
+	. = ..(mapload, "Hunter-Killer")
 	add_language(LANGUAGE_SOL_COMMON, 1)
 	add_language(LANGUAGE_UNATHI, 1)
 	add_language(LANGUAGE_SIIK_MAAS, 1)

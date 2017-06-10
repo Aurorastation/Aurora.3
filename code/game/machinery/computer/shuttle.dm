@@ -11,7 +11,7 @@
 
 	attackby(var/obj/item/weapon/card/W as obj, var/mob/user as mob)
 		if(stat & (BROKEN|NOPOWER))	return
-		if ((!( istype(W, /obj/item/weapon/card) ) || !( ticker ) || emergency_shuttle.location() || !( user )))	return
+		if ((!( istype(W, /obj/item/weapon/card) ) || !(ROUND_IS_STARTED) || emergency_shuttle.location() || !( user )))	return
 		if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
 			if (istype(W, /obj/item/device/pda))
 				var/obj/item/device/pda/pda = W
@@ -38,11 +38,11 @@
 					src.authorized += W:registered_name
 					if (src.auth_need - src.authorized.len > 0)
 						message_admins("[key_name_admin(user)] has authorized early shuttle launch")
-						log_game("[user.ckey] has authorized early shuttle launch",key_name(user))
+						log_game("[key_name(user)] has authorized early shuttle launch",ckey=key_name(user))
 						world << text("<span class='notice'><b>Alert: [] authorizations needed until shuttle is launched early</b></span>", src.auth_need - src.authorized.len)
 					else
 						message_admins("[key_name_admin(user)] has launched the shuttle")
-						log_game("[user.ckey] has launched the shuttle early",key_name(user))
+						log_game("[key_name(user)] has launched the shuttle early",ckey=key_name(user))
 						world << "<span class='notice'><b>Alert: Shuttle launch time shortened to 10 seconds!</b></span>"
 						emergency_shuttle.set_launch_countdown(10)
 						//src.authorized = null

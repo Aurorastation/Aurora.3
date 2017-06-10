@@ -107,7 +107,7 @@
 	if(C.prefs && C.prefs.toggles & SOUND_ADMINHELP)
 		C << 'sound/effects/adminhelp.ogg'
 
-	log_admin("PM: [key_name(src)]->[key_name(C)]: [msg]",admin_key=key_name(src),text=key_name(C))
+	log_admin("PM: [key_name(src)]->[key_name(C)]: [msg]", admin_key = key_name(src), ckey_target = key_name(C))
 
 	//we don't use message_admins here because the sender/receiver might get it too
 	for(var/client/X in admins)

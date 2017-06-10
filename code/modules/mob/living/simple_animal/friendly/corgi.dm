@@ -1,12 +1,12 @@
 //Corgi
 /mob/living/simple_animal/corgi
-	name = "\improper corgi"
+	name = "corgi"
 	real_name = "corgi"
 	desc = "It's a corgi."
 	icon_state = "corgi"
 	icon_living = "corgi"
 	icon_dead = "corgi_dead"
-	speak = list("YAP", "Woof!", "Bark!", "AUUUUUU")
+	speak = list("YAP!", "Woof!", "Bark!", "AUUUUUU!")
 	speak_emote = list("barks", "woofs")
 	emote_hear = list("barks", "woofs", "yaps","pants")
 	emote_see = list("shakes its head", "shivers")
@@ -19,7 +19,7 @@
 	response_harm   = "kicks"
 	see_in_dark = 5
 	mob_size = 5
-	max_nutrition = 250//Dogs are insatiable eating monsters. This scales with their mob size too
+	max_nutrition = 250	//Dogs are insatiable eating monsters. This scales with their mob size too
 	stomach_size_mult = 30
 	seek_speed = 6
 	possession_candidate = 1
@@ -27,9 +27,9 @@
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
 
-/mob/living/simple_animal/corgi/New()
-	..()
-	nutrition = max_nutrition * 0.3//Ian doesn't start with a full belly so will be hungry at roundstart
+/mob/living/simple_animal/corgi/Initialize()
+	. = ..()
+	nutrition = max_nutrition * 0.3	//Ian doesn't start with a full belly so will be hungry at roundstart
 	nutrition_step = mob_size * 0.12
 
 //IAN! SQUEEEEEEEEE~
@@ -55,10 +55,8 @@
 					sleep(1)
 
 
-
 /mob/living/simple_animal/corgi/beg(var/atom/thing, var/atom/holder)
 	visible_emote("stares at the [thing] that [holder] has with sad puppy eyes.",0)
-
 
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/corgi
@@ -70,7 +68,7 @@
 		if(!stat)
 			for(var/mob/M in viewers(user, null))
 				if ((M.client && !( M.blinded )))
-					M.show_message("\blue [user] baps [name] on the nose with the rolled up [O]")
+					M.show_message("<span class='notice'>[user] baps [name] on the nose with the rolled up [O]</span>")
 					scan_interval = max_scan_interval//discipline your dog to make it stop stealing food for a while
 					movement_target = null
 					foodtarget = 0
@@ -117,7 +115,7 @@
 //pupplies cannot wear anything.
 /mob/living/simple_animal/corgi/puppy/Topic(href, href_list)
 	if(href_list["remove_inv"] || href_list["add_inv"])
-		usr << "\red You can't fit this on [src]"
+		usr << "<span class='warning'>You can't fit this on [src]</span>"
 		return
 	..()
 
@@ -139,7 +137,7 @@
 //Lisa already has a cute bow!
 /mob/living/simple_animal/corgi/Lisa/Topic(href, href_list)
 	if(href_list["remove_inv"] || href_list["add_inv"])
-		usr << "\red [src] already has a cute bow!"
+		usr << "<span class='warning'>[src] already has a cute bow!</span>"
 		return
 	..()
 

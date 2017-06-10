@@ -5,6 +5,7 @@
 	name = "biomass flooring"
 	icon_state = "diona"
 	footstep_sound = "grassstep"
+	initial_flooring = /decl/flooring/diona
 
 /turf/simulated/floor/diona/attackby()
 	return
@@ -17,11 +18,26 @@
 	layer = 2
 
 /turf/simulated/shuttle/wall
+	icon = 'icons/turf/smooth/shuttle_wall.dmi'
 	name = "wall"
-	icon_state = "wall1"
+	icon_state = "map-shuttle"
 	opacity = 1
 	density = 1
 	blocks_air = 1
+	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
+	canSmoothWith = list(
+		/turf/simulated/shuttle/wall,
+		/obj/structure/window/shuttle,
+		/obj/machinery/door/airlock,
+		/obj/machinery/door/unpowered/shuttle,
+		/obj/structure/shuttle/engine/propulsion
+	)
+
+/turf/simulated/shuttle/wall/dark
+	icon = 'icons/turf/shuttle.dmi'
+	icon_state = "wall3"
+	smooth = SMOOTH_FALSE
+	canSmoothWith = null
 
 /turf/simulated/shuttle/floor
 	name = "floor"

@@ -19,6 +19,11 @@
 	var/shuttletarget = null
 	var/enroute = 0
 
+/mob/living/simple_animal/hostile/Destroy()
+	friends = null
+	target_mob = null
+	return ..()
+
 /mob/living/simple_animal/hostile/proc/FindTarget()
 
 	var/atom/T = null
@@ -35,7 +40,7 @@
 
 		if(isliving(A))
 			var/mob/living/L = A
-			if(L.faction == src.faction && !attack_same)
+			if((L.faction == src.faction) && !attack_same)
 				continue
 			else if(L in friends)
 				continue
@@ -74,7 +79,7 @@
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
-	if(!target_mob || SA_attackable(target_mob))
+	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
 	if(target_mob in ListTargets(10))
 		if(ranged)
@@ -89,7 +94,7 @@
 /mob/living/simple_animal/hostile/proc/AttackTarget()
 
 	stop_automated_movement = 1
-	if(!target_mob || SA_attackable(target_mob))
+	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
 		return 0
 	if(!(target_mob in ListTargets(10)))
@@ -129,7 +134,7 @@
 
 
 /mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)
-	var/list/L = hearers(src, dist)
+	var/list/L = view(src, dist)
 
 	for (var/obj/mecha/M in mechas_list)
 		if (M.z == src.z && get_dist(src, M) <= dist)
@@ -167,21 +172,14 @@
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
 	var/target = target_mob
-	visible_message("\red <b>[src]</b> fires at [target]!", 1)
+	visible_message("<span class='warning'> <b>[src]</b> fires at [target]!</span>", 1)
 
 	if(rapid)
-		spawn(1)
-			Shoot(target, src.loc, src)
-			if(casingtype)
-				new casingtype(get_turf(src))
-		spawn(4)
-			Shoot(target, src.loc, src)
-			if(casingtype)
-				new casingtype(get_turf(src))
-		spawn(6)
-			Shoot(target, src.loc, src)
-			if(casingtype)
-				new casingtype(get_turf(src))
+		var/datum/callback/shoot_cb = CALLBACK(src, .proc/shoot_wrapper, target, loc, src)
+		addtimer(shoot_cb, 1)
+		addtimer(shoot_cb, 4)
+		addtimer(shoot_cb, 6)
+
 	else
 		Shoot(target, src.loc, src)
 		if(casingtype)
@@ -191,6 +189,10 @@
 	target_mob = null
 	return
 
+/mob/living/simple_animal/hostile/proc/shoot_wrapper(target, location, user)
+	Shoot(target, location, user)
+	if (casingtype)
+		new casingtype(loc)
 
 /mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/user, var/bullet = 0)
 	if(target == start)

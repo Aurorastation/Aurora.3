@@ -16,10 +16,13 @@
 	action_button_name = "Toggle Flashlight"
 	var/on = 0
 	var/brightness_on = 3 //luminosity when on
+	var/activation_sound = 'sound/items/flashlight.ogg'
 
-/obj/item/device/flashlight/initialize()
-	..()
-	update_icon()
+/obj/item/device/flashlight/Initialize()
+	if (on)
+		light_range = brightness_on
+		update_icon()
+	. = ..()
 
 /obj/item/device/flashlight/update_icon()
 	if(on)
@@ -34,6 +37,8 @@
 		user << "You cannot turn the light on while in this [user.loc]." //To prevent some lighting anomalities.
 		return 0
 	on = !on
+	if(on && activation_sound)
+		playsound(src.loc, activation_sound, 75, 1)
 	update_icon()
 	user.update_action_buttons()
 	return 1
@@ -183,6 +188,7 @@
 	var/on_damage = 7
 	var/produce_heat = 1500
 	light_wedge = LIGHT_OMNI
+	activation_sound = 'sound/items/flare.ogg'
 
 /obj/item/device/flashlight/flare/New()
 	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
@@ -197,7 +203,7 @@
 		turn_off()
 		if(!fuel)
 			src.icon_state = "[initial(icon_state)]-empty"
-		processing_objects -= src
+		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/device/flashlight/flare/proc/turn_off()
 	on = 0
@@ -220,7 +226,7 @@
 		user.visible_message("<span class='notice'>[user] activates the flare.</span>", "<span class='notice'>You pull the cord on the flare, activating it!</span>")
 		src.force = on_damage
 		src.damtype = "fire"
-		processing_objects += src
+		START_PROCESSING(SSprocessing, src)
 
 /obj/item/device/flashlight/slime
 	gender = PLURAL
@@ -235,10 +241,6 @@
 	on = 1 //Bio-luminesence has one setting, on.
 	light_color = LIGHT_COLOR_SLIME_LAMP
 	light_wedge = LIGHT_OMNI
-
-/obj/item/device/flashlight/slime/New()
-	..()
-	set_light(brightness_on)
 
 /obj/item/device/flashlight/slime/update_icon()
 	return
@@ -262,6 +264,7 @@
 	uv_intensity = 255
 	var/fuel = 0
 	light_wedge = LIGHT_OMNI
+	activation_sound = null
 
 /obj/item/device/flashlight/glowstick/New()
 	fuel = rand(900, 1200)
@@ -273,7 +276,7 @@
 		turn_off()
 		if(!fuel)
 			src.icon_state = "[initial(icon_state)]-empty"
-		processing_objects -= src
+		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/device/flashlight/glowstick/proc/turn_off()
 	on = 0
@@ -300,7 +303,7 @@
 
 	if(.)
 		user.visible_message("<span class='notice'>[user] cracks and shakes \the [src].</span>", "<span class='notice'>You crack and shake \the [src], turning it on!</span>")
-		processing_objects += src
+		START_PROCESSING(SSprocessing, src)
 
 /obj/item/device/flashlight/glowstick/red
 	name = "red glowstick"

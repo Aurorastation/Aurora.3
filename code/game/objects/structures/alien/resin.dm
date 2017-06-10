@@ -28,7 +28,7 @@
 /obj/structure/alien/resin/Destroy()
 	var/turf/T = get_turf(src)
 	T.thermal_conductivity = initial(T.thermal_conductivity)
-	..()
+	return ..()
 
 /obj/structure/alien/resin/attack_hand(var/mob/user)
 	if (HULK in user.mutations)

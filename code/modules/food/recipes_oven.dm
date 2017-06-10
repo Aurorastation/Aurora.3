@@ -13,6 +13,17 @@
 	reagents = list("pacid" = 5) //It dissolves the carapace. Still poisonous, though.
 	items = list(/obj/item/weapon/holder/diona)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dionaroast
+	reagent_mix = RECIPE_REAGENT_REPLACE //No eating polyacid
+
+
+/datum/recipe/ribplate //Putting this here for not seeing a roast section.
+	appliance = OVEN
+	reagents = list("honey" = 5, "spacespice" = 2, "blackpepper" = 1)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/meat)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/weapon/reagent_containers/food/snacks/ribplate
+	
+
 
 
 //Predesigned breads
@@ -21,8 +32,11 @@
 	appliance = OVEN
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/dough,
-		/obj/item/weapon/reagent_containers/food/snacks/egg
+		/obj/item/weapon/reagent_containers/food/snacks/dough,
+		/obj/item/weapon/reagent_containers/food/snacks/dough,
+		/obj/item/weapon/reagent_containers/food/snacks/dough
 	)
+	reagents = list("sodiumchloride" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/bread
 
 /datum/recipe/baguette
@@ -194,15 +208,28 @@
 	fruit = list("pumpkin" = 1)
 	reagents = list("milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pumpkinpie
+	reagent_mix = RECIPE_REAGENT_REPLACE //We dont want raw egg in the result
 
 /datum/recipe/appletart
 	appliance = OVEN
 	fruit = list("goldapple" = 1)
-	reagents = list("sugar" = 5, "milk" = 5, "flour" = 10)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/egg
-	)
+	reagents = list("sugar" = 5, "milk" = 5, "flour" = 10, "egg" = 3)
 	result = /obj/item/weapon/reagent_containers/food/snacks/appletart
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/keylimepie
+	appliance = OVEN
+	fruit = list("lime" = 2)
+	reagents = list("milk" = 5, "sugar" = 5, "egg" = 3, "flour" = 10)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/keylimepie
+	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
+
+/datum/recipe/quiche
+	appliance = OVEN
+	reagents = list("milk" = 5, "egg" = 9, "flour" = 10)
+	items = list(/obj/item/weapon/reagent_containers/food/snacks/cheesewedge)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/quiche
+	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
 
 //Baked sweets:
 //---------------
@@ -216,6 +243,7 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/cookie
 	result_quantity = 4
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/fortunecookie
 	appliance = OVEN
@@ -280,6 +308,21 @@
 		/obj/item/weapon/reagent_containers/food/snacks/doughslice
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/cracker
+
+/datum/recipe/brownies
+	appliance = OVEN
+	reagents = list("browniemix" = 10, "egg" = 3)
+	reagent_mix = RECIPE_REAGENT_REPLACE //No egg or mix in final recipe
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/brownies
+	
+
+/datum/recipe/cosmicbrownies
+	appliance = OVEN
+	reagents = list("browniemix" = 10, "egg" = 3)
+	fruit = list("ambrosia" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //No egg or mix in final recipe
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/cosmicbrownies
+
 
 
 
@@ -362,7 +405,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/monkeycube
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/monkeysdelight
-
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 
 
@@ -374,6 +417,7 @@
 	appliance = OVEN
 	reagents = list("milk" = 5, "flour" = 15, "sugar" = 15, "egg" = 9)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/plaincake
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/cake/carrot
 	appliance = OVEN

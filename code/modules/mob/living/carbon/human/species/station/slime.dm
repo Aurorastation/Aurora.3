@@ -14,6 +14,7 @@
 	darksight = 3
 	rarity_value = 5
 	virus_immune = 1
+	fall_mod = 0
 
 	blood_color = "#05FF9B"
 	flesh_color = "#05FFFB"

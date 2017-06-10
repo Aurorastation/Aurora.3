@@ -39,13 +39,17 @@
 	faction = "scarybat"
 	var/mob/living/owner
 
-/mob/living/simple_animal/hostile/scarybat/New(loc, mob/living/L as mob)
-	..()
+/mob/living/simple_animal/hostile/scarybat/Initialize(mapload, mob/living/L as mob)
+	. = ..()
 	if(istype(L))
 		owner = L
 
-/mob/living/simple_animal/hostile/scarybat/Process_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/hostile/scarybat/Allow_Spacemove(var/check_drift = 0)
 	return ..()	//No drifting in space for space carp!	//original comments do not steal
+
+/mob/living/simple_animal/hostile/scarybat/Destroy()
+	owner = null
+	return ..()
 
 /mob/living/simple_animal/hostile/scarybat/FindTarget()
 	. = ..()
@@ -64,6 +68,15 @@
 		if(prob(15))
 			L.Stun(1)
 			L.visible_message("<span class='danger'>\the [src] scares \the [L]!</span>")
+
+/mob/living/simple_animal/hostile/scarybat/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/scarybat/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/scarybat/CanAvoidGravity()
+	return TRUE
 
 /mob/living/simple_animal/hostile/scarybat/cult
 	faction = "cult"

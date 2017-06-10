@@ -62,12 +62,25 @@
 	// the world.time since the mob has been brigged, or -1 if not at all
 	var/brigged_since = -1
 
+	// Custom signature data.
+	var/signature
+	var/signfont
+
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
+
 
 /datum/mind/New(var/key)
 	src.key = key
 	..()
+
+/datum/mind/proc/handle_mob_deletion(mob/living/deleted_mob)
+	if (current == deleted_mob)
+		current.spellremove()
+		current = null
+
+	if (original == deleted_mob)
+		original = null
 
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
@@ -80,7 +93,7 @@
 			current.remove_vampire_powers()
 		current.mind = null
 
-		nanomanager.user_transferred(current, new_character) // transfer active NanoUI instances to new user
+		SSnanoui.user_transferred(current, new_character) // transfer active NanoUI instances to new user
 	if(new_character.mind)		//remove any mind currently in our new body's mind variable
 		new_character.mind.current = null
 
@@ -112,7 +125,7 @@
 	recipient << browse(output,"window=memory")
 
 /datum/mind/proc/edit_memory()
-	if(!ticker || !ticker.mode)
+	if(!ROUND_IS_STARTED)
 		alert("Not before round-start!", "Alert")
 		return
 
@@ -152,7 +165,7 @@
 		var/datum/antagonist/antag = all_antag_types[href_list["add_antagonist"]]
 		if(antag)
 			if(antag.add_antagonist(src, 1, 1, 0, 1, 1)) // Ignore equipment and role type for this.
-				log_admin("[key_name_admin(usr)] made [key_name(src)] into a [antag.role_text].",admin_key=key_name_admin(usr),ckey=key_name(src))
+				log_admin("[key_name_admin(usr)] made [key_name(src, highlight_special = 1)] into a [antag.role_text].",admin_key=key_name(usr),ckey=key_name(src))
 			else
 				usr << "<span class='warning'>[src] could not be made into a [antag.role_text]!</span>"
 
@@ -211,7 +224,7 @@
 				var/objective_type = "[objective_type_capital][objective_type_text]"//Add them together into a text string.
 
 				var/list/possible_targets = list("Free objective")
-				for(var/datum/mind/possible_target in ticker.minds)
+				for(var/datum/mind/possible_target in SSticker.minds)
 					if ((possible_target != src) && istype(possible_target.current, /mob/living/carbon/human))
 						possible_targets += possible_target.current
 
@@ -370,7 +383,7 @@
 							else if(R.module_state_3 == R.module.emag)
 								R.module_state_3 = null
 								R.contents -= R.module.emag
-					log_admin("[key_name_admin(usr)] has unemag'ed [ai]'s Cyborgs.",admin_key=key_name_admin(usr),ckey_target=key_name(ai))
+					log_admin("[key_name_admin(usr)] has unemag'ed [ai]'s Cyborgs.",admin_key=key_name(usr),ckey_target=key_name(ai))
 
 	else if (href_list["common"])
 		switch(href_list["common"])
@@ -471,11 +484,13 @@
 	else
 		mind = new /datum/mind(key)
 		mind.original = src
-		if(ticker)
-			ticker.minds += mind
-		else
-			world.log << "## DEBUG: mind_initialize(): No ticker ready yet! Please inform Carn"
+		SSticker.minds += mind
 	if(!mind.name)	mind.name = real_name
+	if (client)
+		if (client.prefs.signature)
+			mind.signature = client.prefs.signature
+		if (client.prefs.signfont)
+			mind.signfont = client.prefs.signfont
 	mind.current = src
 
 //HUMAN

@@ -23,7 +23,7 @@
 			if(alarm.alarm_id && alarm.alarm_id in monitored_alarm_ids)
 				monitored_alarms += alarm
 		// machines may not yet be ordered at this point
-		monitored_alarms = dd_sortedObjectList(monitored_alarms)
+		sortTim(monitored_alarms, /proc/cmp_alarm, FALSE)
 
 /datum/nano_module/atmos_control/Topic(href, href_list)
 	if(..())
@@ -46,7 +46,7 @@
 		alarms[++alarms.len] = list("name" = sanitize(alarm.name), "ref"= "\ref[alarm]", "danger" = max(alarm.danger_level, alarm.alarm_area.atmosalm))
 	data["alarms"] = alarms
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "atmos_control.tmpl", src.name, 625, 625, state = state)
 		if(host.update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.

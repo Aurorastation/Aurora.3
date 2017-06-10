@@ -4,8 +4,7 @@
 	icon_state = "mixed"
 	icon_closed = "mixed"
 
-/obj/structure/closet/athletic_mixed/New()
-	..()
+/obj/structure/closet/athletic_mixed/fill()
 	new /obj/item/clothing/under/shorts/grey(src)
 	new /obj/item/clothing/under/shorts/black(src)
 	new /obj/item/clothing/under/shorts/red(src)
@@ -27,8 +26,7 @@
 	name = "boxing gloves"
 	desc = "It's a storage unit for gloves for use in the boxing ring."
 
-/obj/structure/closet/boxinggloves/New()
-	..()
+/obj/structure/closet/boxinggloves/fill()
 	new /obj/item/clothing/gloves/boxing/blue(src)
 	new /obj/item/clothing/gloves/boxing/green(src)
 	new /obj/item/clothing/gloves/boxing/yellow(src)
@@ -39,8 +37,7 @@
 	name = "mask closet"
 	desc = "IT'S A STORAGE UNIT FOR FIGHTER MASKS OLE!"
 
-/obj/structure/closet/masks/New()
-	..()
+/obj/structure/closet/masks/fill()
 	new /obj/item/clothing/mask/luchador(src)
 	new /obj/item/clothing/mask/luchador/rudos(src)
 	new /obj/item/clothing/mask/luchador/tecnicos(src)
@@ -52,8 +49,7 @@
 	icon_state = "red"
 	icon_closed = "red"
 
-/obj/structure/closet/lasertag/red/New()
-	..()
+/obj/structure/closet/lasertag/red/fill()
 	new /obj/item/weapon/gun/energy/lasertag/red(src)
 	new /obj/item/weapon/gun/energy/lasertag/red(src)
 	new /obj/item/clothing/suit/redtag(src)
@@ -66,8 +62,7 @@
 	icon_state = "blue"
 	icon_closed = "blue"
 
-/obj/structure/closet/lasertag/blue/New()
-	..()
+/obj/structure/closet/lasertag/blue/fill()
 	new /obj/item/weapon/gun/energy/lasertag/blue(src)
 	new /obj/item/weapon/gun/energy/lasertag/blue(src)
 	new /obj/item/clothing/suit/bluetag(src)

@@ -12,13 +12,13 @@
 	return list("ss13_characters" = list("vars" = list("be_special_role"), "args" = list("id")))
 
 /datum/category_item/player_setup_item/antagonism/candidacy/gather_load_parameters()
-	return list(":id" = pref.current_character)
+	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/antagonism/candidacy/gather_save_query()
 	return list("ss13_characters" = list("be_special_role", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/antagonism/candidacy/gather_save_parameters()
-	return list(":be_special_role" = list2params(pref.be_special_role), ":id" = pref.current_character, ":ckey" = pref.client.ckey)
+	return list("be_special_role" = list2params(pref.be_special_role), "id" = pref.current_character, "ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/antagonism/candidacy/sanitize_character(var/sql_load = 0)
 	if (sql_load)
@@ -35,10 +35,11 @@
 /datum/category_item/player_setup_item/antagonism/candidacy/content(var/mob/user)
 	. += "<b>Special Role Availability:</b><br>"
 	. += "<table>"
+	var/is_global_banned = jobban_isbanned(preference_mob(), "Antagonist")
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
 		. += "<tr><td>[antag.role_text]: </td><td>"
-		if(jobban_isbanned(preference_mob(), antag.bantype))
+		if(is_global_banned || jobban_isbanned(preference_mob(), antag.bantype))
 			. += "<span class='danger'>\[BANNED\]</span><br>"
 		else if(antag.role_type in pref.be_special_role)
 			. += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[antag.role_type]'>No</a></br>"

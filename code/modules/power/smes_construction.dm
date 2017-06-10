@@ -41,23 +41,19 @@
 
 // These are used on individual outposts as backup should power line be cut, or engineering outpost lost power.
 // 1M Charge, 150K I/O
-/obj/machinery/power/smes/buildable/outpost_substation/New()
-	..(0)
+/obj/machinery/power/smes/buildable/outpost_substation/Initialize()
+	. = ..()
 	component_parts += new /obj/item/weapon/smes_coil/weak(src)
 	recalc_coils()
 
 // This one is pre-installed on engineering shuttle. Allows rapid charging/discharging for easier transport of power to outpost
 // 11M Charge, 2.5M I/O
-/obj/machinery/power/smes/buildable/power_shuttle/New()
-	..(0)
+/obj/machinery/power/smes/buildable/power_shuttle/Initialize()
+	. = ..()
 	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
 	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
 	component_parts += new /obj/item/weapon/smes_coil(src)
 	recalc_coils()
-
-
-
-
 
 
 // END SMES SUBTYPES
@@ -78,8 +74,7 @@
 /obj/machinery/power/smes/buildable/Destroy()
 	qdel(wires)
 	wires = null
-	for(var/datum/nano_module/rcon/R in world)
-		R.FindDevices()
+	SSmachinery.queue_rcon_update()
 	return ..()
 
 // Proc: process()
@@ -122,6 +117,9 @@
 		for(var/i = 1, i <= cur_coils, i++)
 			component_parts += new /obj/item/weapon/smes_coil(src)
 		recalc_coils()
+
+	SSmachinery.queue_rcon_update()
+
 	..()
 
 // Proc: attack_hand()
@@ -289,8 +287,8 @@
 // Description: Allows us to use special icon overlay for critical SMESs
 /obj/machinery/power/smes/buildable/update_icon()
 	if (failing)
-		overlays.Cut()
-		overlays += image('icons/obj/power.dmi', "smes-crit")
+		cut_overlays()
+		add_overlay("smes-crit")
 	else
 		..()
 
@@ -313,6 +311,7 @@
 			if(newtag)
 				RCon_tag = newtag
 				user << "<span class='notice'>You changed the RCON tag to: [newtag]</span>"
+				SSmachinery.queue_rcon_update()
 			return
 		// Charged above 1% and safeties are enabled.
 		if((charge > (capacity/100)) && safeties_enabled)
@@ -344,7 +343,7 @@
 					total_system_failure(failure_probability, user)
 					return
 
-				usr << "\red You have disassembled the SMES cell!"
+				usr << "<span class='warning'>You have disassembled the SMES cell!</span>"
 				var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 				M.state = 2
 				M.icon_state = "box_1"
@@ -369,7 +368,7 @@
 				W.loc = src
 				recalc_coils()
 			else
-				usr << "\red You can't insert more coils to this SMES unit!"
+				usr << "<span class='warning'>You can't insert more coils to this SMES unit!</span>"
 
 // Proc: toggle_input()
 // Parameters: None

@@ -25,6 +25,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["disabilities"]		>> pref.disabilities
 	S["organ_data"]			>> pref.organ_data
 	S["rlimb_data"]			>> pref.rlimb_data
+	S["body_markings"]		>> pref.body_markings
+	pref.preview_icon = null
 
 /datum/category_item/player_setup_item/general/body/save_character(var/savefile/S)
 	S["species"]			<< pref.species
@@ -47,6 +49,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["disabilities"]		<< pref.disabilities
 	S["organ_data"]			<< pref.organ_data
 	S["rlimb_data"]			<< pref.rlimb_data
+	S["body_markings"]		<< pref.body_markings
 
 /datum/category_item/player_setup_item/general/body/gather_load_query()
 	return list("ss13_characters" = list("vars" = list("species",
@@ -60,11 +63,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 														"b_type",
 														"disabilities",
 														"organs_data" = "organ_data",
-														"organs_robotic" = "rlimb_data"),
+														"organs_robotic" = "rlimb_data",
+														"body_markings"),
 										"args" = list("id")))
 
 /datum/category_item/player_setup_item/general/body/gather_load_parameters()
-	return list(":id" = pref.current_character)
+	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/body/gather_save_query()
 	return list("ss13_characters" = list("species",
@@ -79,24 +83,26 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 										 "disabilities",
 										 "organs_data",
 										 "organs_robotic",
+										 "body_markings",
 										 "id" = 1,
 										 "ckey" = 1))
 
 /datum/category_item/player_setup_item/general/body/gather_save_parameters()
-	return list(":species" = pref.species,
-				":hair_colour" = "#" + num2hex(pref.r_hair, 2) + num2hex(pref.g_hair, 2) + num2hex(pref.b_hair, 2),
-				":facial_colour" = "#" + num2hex(pref.r_facial, 2) + num2hex(pref.g_facial, 2) + num2hex(pref.b_facial, 2),
-				":skin_tone" = pref.s_tone,
-				":skin_colour" = "#" + num2hex(pref.r_skin, 2) + num2hex(pref.g_skin, 2) + num2hex(pref.b_skin, 2),
-				":hair_style" = pref.h_style,
-				":facial_style" = pref.f_style,
-				":eyes_colour" = "#" + num2hex(pref.r_eyes, 2) + num2hex(pref.g_eyes, 2) + num2hex(pref.b_eyes, 2),
-				":b_type" = pref.b_type,
-				":disabilities" = pref.disabilities,
-				":organs_data" = list2params(pref.organ_data),
-				":organs_robotic"= list2params(pref.rlimb_data),
-				":id" = pref.current_character,
-				":ckey" = pref.client.ckey)
+	return list("species" = pref.species,
+				"hair_colour" = "#" + num2hex(pref.r_hair, 2) + num2hex(pref.g_hair, 2) + num2hex(pref.b_hair, 2),
+				"facial_colour" = "#" + num2hex(pref.r_facial, 2) + num2hex(pref.g_facial, 2) + num2hex(pref.b_facial, 2),
+				"skin_tone" = pref.s_tone,
+				"skin_colour" = "#" + num2hex(pref.r_skin, 2) + num2hex(pref.g_skin, 2) + num2hex(pref.b_skin, 2),
+				"hair_style" = pref.h_style,
+				"facial_style" = pref.f_style,
+				"eyes_colour" = "#" + num2hex(pref.r_eyes, 2) + num2hex(pref.g_eyes, 2) + num2hex(pref.b_eyes, 2),
+				"b_type" = pref.b_type,
+				"disabilities" = pref.disabilities,
+				"organs_data" = list2params(pref.organ_data),
+				"organs_robotic"= list2params(pref.rlimb_data),
+				"body_markings" = json_encode(pref.body_markings),
+				"id" = pref.current_character,
+				"ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/general/body/sanitize_character(var/sql_load = 0)
 	if(!pref.species || !(pref.species in playable_species))
@@ -131,6 +137,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.organ_data = params2list(pref.organ_data)
 		if (pref.rlimb_data)
 			pref.rlimb_data = params2list(pref.rlimb_data)
+		if (pref.body_markings)
+			pref.body_markings = json_decode(pref.body_markings)
 
 	pref.r_hair			= sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
 	pref.g_hair			= sanitize_integer(pref.g_hair, 0, 255, initial(pref.g_hair))
@@ -154,12 +162,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.organ_data = list()
 	if (!pref.rlimb_data || !islist(pref.rlimb_data))
 		pref.rlimb_data = list()
+	if (!pref.body_markings || !islist(pref.body_markings))
+		pref.body_markings = list()
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	pref.update_preview_icon()
-	if(pref.preview_icon_front && pref.preview_icon_side)
-		user << browse_rsc(pref.preview_icon_front, "previewicon.png")
-		user << browse_rsc(pref.preview_icon_side, "previewicon2.png")
+	if(!pref.preview_icon)
+		pref.update_preview_icon()
+	user << browse_rsc(pref.preview_icon, "previewicon.png")
 
 	var/datum/species/mob_species = all_species[pref.species]
 	. += "<table><tr style='vertical-align:top'><td><b>Body</b> "
@@ -248,7 +258,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else
 		. += "<br><br>"
 
-	. += "</td><td><b>Preview</b><br><img src=previewicon.png height=64 width=64><img src=previewicon2.png height=64 width=64>"
+	. += "</td><td><b>Preview</b><br>"
+	. += "<div class='statusDisplay'><center><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
+	. += "<br><a href='?src=\ref[src];toggle_clothing=1'>[pref.dress_mob ? "Hide equipment" : "Show equipment"]</a>"
 	. += "</td></tr></table>"
 
 	. += "<b>Hair</b><br>"
@@ -268,6 +280,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	if(has_flag(mob_species, HAS_SKIN_COLOR))
 		. += "<br><b>Body Color</b><br>"
 		. += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_skin, 2)][num2hex(pref.g_skin, 2)][num2hex(pref.b_skin, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_skin, 2)][num2hex(pref.g_skin, 2)][num2hex(pref.b_skin, 2)]'><tr><td>__</td></tr></table></font><br>"
+
+	. += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
+	for(var/M in pref.body_markings)
+		. += "[M] <a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
+		. += "<font face='fixedsys' size='3' color='[pref.body_markings[M]]'><table style='display:inline;' bgcolor='[pref.body_markings[M]]'><tr><td>__</td></tr></table></font>"
+		. += "<br>"
 
 /datum/category_item/player_setup_item/general/body/proc/has_flag(var/datum/species/mob_species, var/flag)
 	return mob_species && (mob_species.appearance_flags & flag)
@@ -350,6 +368,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 			pref.organ_data.Cut()
 			pref.rlimb_data.Cut()
+			pref.body_markings.Cut()
 
 			return TOPIC_REFRESH
 
@@ -435,6 +454,32 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/new_f_style = input(user, "Choose your character's facial-hair style:", "Character Preference", pref.f_style)  as null|anything in valid_facialhairstyles
 		if(new_f_style && has_flag(mob_species, HAS_HAIR_COLOR) && CanUseTopic(user))
 			pref.f_style = new_f_style
+			return TOPIC_REFRESH
+
+	else if(href_list["marking_style"])
+		var/list/usable_markings = pref.body_markings.Copy() ^ body_marking_styles_list.Copy()
+		for(var/M in usable_markings)
+			var/datum/sprite_accessory/S = usable_markings[M]
+			if(!S.species_allowed.len)
+				continue
+			else if(!(pref.species in S.species_allowed))
+				usable_markings -= M
+
+		var/new_marking = input(user, "Choose a body marking:", "Character Preference")  as null|anything in usable_markings
+		if(new_marking && CanUseTopic(user))
+			pref.body_markings[new_marking] = "#000000" //New markings start black
+			return TOPIC_REFRESH
+
+	else if(href_list["marking_remove"])
+		var/M = href_list["marking_remove"]
+		pref.body_markings -= M
+		return TOPIC_REFRESH
+
+	else if(href_list["marking_color"])
+		var/M = href_list["marking_color"]
+		var/mark_color = input(user, "Choose the [M] color: ", "Character Preference", pref.body_markings[M]) as color|null
+		if(mark_color && CanUseTopic(user))
+			pref.body_markings[M] = "[mark_color]"
 			return TOPIC_REFRESH
 
 	else if(href_list["limbs"])
@@ -555,6 +600,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["disabilities"])
 		var/disability_flag = text2num(href_list["disabilities"])
 		pref.disabilities ^= disability_flag
+		return TOPIC_REFRESH
+		
+	else if(href_list["toggle_clothing"])
+		pref.dress_mob = !pref.dress_mob
 		return TOPIC_REFRESH
 
 	return ..()

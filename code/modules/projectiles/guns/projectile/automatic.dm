@@ -92,9 +92,10 @@
 	w_class = 4
 	force = 10
 	caliber = "a762"
-	origin_tech = "combat=6;materials=1;syndicate=4"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
+	fire_sound = 'sound/weapons/rifleshot.ogg'
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
@@ -222,7 +223,7 @@
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
 	allowed_magazines = list(/obj/item/ammo_magazine/a762)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_saw.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762
 
@@ -284,6 +285,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/tommymag
 	allowed_magazines = list(/obj/item/ammo_magazine/tommymag, /obj/item/ammo_magazine/tommydrum)
+	fire_sound = 'sound/weapons/tommygun_shoot.ogg'
 
 /obj/item/weapon/gun/projectile/automatic/tommygun/update_icon()
 	..()
@@ -387,6 +389,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	recoil = 3
+	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
 
 	accuracy = -2
 	fire_delay = 10

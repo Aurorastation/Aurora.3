@@ -16,12 +16,12 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
 	
-	if(user.spell_list.len)
+	if(LAZYLEN(user.spell_list))
 		user.silence_spells(300) //30 seconds
 		user << "<span class='danger'>You've been silenced!</span>"
 		return
 
-	if (!(istype(user, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
+	if (!user.IsAdvancedToolUser())
 		user << "<span class='danger'>You don't have the dexterity to do this!</span>"
 		return
 
@@ -35,19 +35,19 @@
 		var/mob/living/K = M
 		if(cult && (K.mind in cult.current_antagonists) && prob(33))
 			if(do_after(user, 15))
-				K.visible_message("<span class='danger'>\The [user] waves \the [src] over \the [K]'s head, [K] looks captivated by it.</span>", "\red [user] wave's the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>")
+				K.visible_message("<span class='danger'>\The [user] waves \the [src] over \the [K]'s head, [K] looks captivated by it.</span>", "<span class='warning'>[user] wave's the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b></span>")
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
 				switch(choice)
 					if("Resist")
-						K.visible_message("\red The gaze in [K]'s eyes remains determined.", "\blue You turn away from the light, remaining true to your dark lord. <b>Anathema!</b>")
+						K.visible_message("<span class='warning'>The gaze in [K]'s eyes remains determined.</span>", "<span class='notice'>You turn away from the light, remaining true to your dark lord. <b>Anathema!</b></span>")
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
 					if("Give in")
-						K.visible_message("\blue [K]'s eyes become clearer, the evil gone, but not without leaving scars.")
+						K.visible_message("<span class='notice'>[K]'s eyes become clearer, the evil gone, but not without leaving scars.</span>")
 						K.take_overall_damage(15, 30)
 						cult.remove_antagonist(K.mind)
 			else
-				user.visible_message("\red [user]'s concentration is broken!", "\red Your concentration is broken! You and your target need to stay uninterrupted for longer!")
+				user.visible_message("<span class='warning'>[user]'s concentration is broken!</span>", "<span class='warning'>Your concentration is broken! You and your target need to stay uninterrupted for longer!</span>")
 				return
 		else if(prob(10))
 			user << "<span class='danger'>The rod slips in your hand.</span>"
@@ -59,7 +59,7 @@
 		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Is being deconverted with the [src.name] by [user.name] ([user.ckey])</font>")
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attempt to deconvert [M.name] ([M.ckey])</font>")
 
-		msg_admin_attack("[key_name(user)] attempted to deconvert [key_name(M)] with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
+		msg_admin_attack("[key_name_admin(user)] attempted to deconvert [key_name_admin(M)] with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 	else
 		return ..()
@@ -138,7 +138,7 @@
 		M << "You are free of the net!"
 
 	processing_objects -= src
-	..()
+	return ..()
 
 /obj/effect/energy_net/proc/healthcheck()
 

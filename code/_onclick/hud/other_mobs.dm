@@ -132,6 +132,7 @@
 	mymob.flash.name = "flash"
 	mymob.flash.screen_loc = ui_entire_screen
 	mymob.flash.layer = 17
+	mymob.flash.mouse_opacity = 0
 
 	if(constructtype)
 		mymob.fire = new /obj/screen()

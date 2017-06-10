@@ -16,7 +16,7 @@
 
 /mob/Stat()
 	. = ..()
-	if(. && spell_list && spell_list.len)
+	if(. && LAZYLEN(spell_list))
 		for(var/spell/S in spell_list)
 			if((!S.connected_button) || !statpanel(S.panel))
 				continue //Not showing the noclothes spell
@@ -40,7 +40,7 @@
 	if(spell_masters.len)
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 			if(spell_master.type == master_type)
-				spell_list.Add(spell_to_add)
+				LAZYADD(spell_list, spell_to_add)
 				spell_master.add_spell(spell_to_add)
 				return 1
 
@@ -52,7 +52,7 @@
 	if(spell_base)
 		new_spell_master.icon_state = spell_base
 	spell_masters.Add(new_spell_master)
-	spell_list.Add(spell_to_add)
+	LAZYADD(spell_list, spell_to_add)
 	if(mind)
 		if(!mind.learned_spells)
 			mind.learned_spells = list()
@@ -72,7 +72,7 @@
 
 	if(mind && mind.learned_spells)
 		mind.learned_spells.Remove(spell_to_remove)
-	spell_list.Remove(spell_to_remove)
+	LAZYREMOVE(spell_list, spell_to_remove)
 	for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 		spell_master.remove_spell(spell_to_remove)
 	return 1

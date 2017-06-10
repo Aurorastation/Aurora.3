@@ -28,6 +28,7 @@
 	var/radio_filter_in
 
 	var/welded = 0
+	//no_special_init = TRUE
 
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = 1
@@ -37,39 +38,47 @@
 	..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_FILTER
 
-	icon = null
+
+/obj/machinery/atmospherics/unary/vent_scrubber/Initialize()
+	. = ..()
+
 	initial_loc = get_area(loc)
 	area_uid = initial_loc.uid
 	if (!id_tag)
 		assign_uid()
 		id_tag = num2text(uid)
 
+	radio_filter_in = frequency==initial(frequency)?(RADIO_FROM_AIRALARM):null
+	radio_filter_out = frequency==initial(frequency)?(RADIO_TO_AIRALARM):null
+	if (frequency)
+		set_frequency(frequency)
+	
+	initialize()
+
+/obj/machinery/atmospherics/unary/vent_scrubber/initialize()
+	..()
+	broadcast_status()
+
 /obj/machinery/atmospherics/unary/vent_scrubber/Destroy()
 	unregister_radio(src, frequency)
-	..()
-
+	return ..()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/update_icon(var/safety = 0)
-	if(!check_icon_cache())
-		return
-
-	overlays.Cut()
-
 	var/turf/T = get_turf(src)
 	if(!istype(T))
 		return
 
-	var/scrubber_icon = "scrubber"
-	if(welded)
-		scrubber_icon += "weld"
+	if (welded)
+		icon_state = "weld"
+		return
+
+	if (!powered() || !use_power)
+		icon_state = "off"
+	else if (scrubbing)
+		icon_state = "on"
 	else
-		if(!powered())
-			scrubber_icon += "off"
-		else
-			scrubber_icon += "[use_power ? "[scrubbing ? "on" : "in"]" : "off"]"
-
-	overlays += icon_manager.get_atmos_icon("device", , , scrubber_icon)
-
+		icon_state = "in"
+		
 /obj/machinery/atmospherics/unary/vent_scrubber/update_underlays()
 	if(..())
 		underlays.Cut()
@@ -85,9 +94,9 @@
 				add_underlay(T,, dir)
 
 /obj/machinery/atmospherics/unary/vent_scrubber/proc/set_frequency(new_frequency)
-	radio_controller.remove_object(src, frequency)
+	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
-	radio_connection = radio_controller.add_object(src, frequency, radio_filter_in)
+	radio_connection = SSradio.add_object(src, frequency, radio_filter_in)
 
 /obj/machinery/atmospherics/unary/vent_scrubber/proc/broadcast_status()
 	if(!radio_connection)
@@ -111,22 +120,16 @@
 		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
 		"sigtype" = "status"
 	)
-	if(!initial_loc.air_scrub_names[id_tag])
-		var/new_name = "[initial_loc.name] Air Scrubber #[initial_loc.air_scrub_names.len+1]"
-		initial_loc.air_scrub_names[id_tag] = new_name
+	
+	var/area/A = get_area(src)
+	if(!A.air_scrub_names[id_tag])
+		var/new_name = "[A.name] Air Scrubber #[A.air_scrub_names.len+1]"
+		A.air_scrub_names[id_tag] = new_name
 		src.name = new_name
-	initial_loc.air_scrub_info[id_tag] = signal.data
+	A.air_scrub_info[id_tag] = signal.data
 	radio_connection.post_signal(src, signal, radio_filter_out)
 
 	return 1
-
-/obj/machinery/atmospherics/unary/vent_scrubber/initialize()
-	..()
-	radio_filter_in = frequency==initial(frequency)?(RADIO_FROM_AIRALARM):null
-	radio_filter_out = frequency==initial(frequency)?(RADIO_TO_AIRALARM):null
-	if (frequency)
-		set_frequency(frequency)
-		src.broadcast_status()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/process()
 	..()
@@ -242,13 +245,11 @@
 		return
 
 	if(signal.data["status"] != null)
-		spawn(2)
-			broadcast_status()
+		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 		return //do not update_icon
 
 //			log_debug("DEBUG \[[world.timeofday]\]: vent_scrubber/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-	spawn(2)
-		broadcast_status()
+	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 	update_icon()
 	return
 
@@ -320,5 +321,5 @@
 	if(initial_loc)
 		initial_loc.air_scrub_info -= id_tag
 		initial_loc.air_scrub_names -= id_tag
-	..()
-	return
+	
+	return ..()

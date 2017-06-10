@@ -6,13 +6,13 @@
 /area
 	var/global/global_uid = 0
 	var/uid
-	blend_mode = BLEND_MULTIPLY
 
-/area/New()
+/area/Initialize(mapload)
 	icon_state = "white"
 	layer = 10
 	uid = ++global_uid
 	all_areas += src
+	blend_mode = BLEND_MULTIPLY
 
 	if(!requires_power)
 		power_light = 0
@@ -23,24 +23,36 @@
 		luminosity = 0
 	else
 		luminosity = 1
+	if(centcomm_area)
+		centcom_areas |= src
+	if(station_area)
+		the_station_areas |= src
 
-	..()
 
-/area/proc/initialize()
 	if(!requires_power || !apc)
 		power_light = 0
 		power_equip = 0
 		power_environ = 0
-	power_change()		// all machines set to current power level, also updates lighting icon
+
+	if (!mapload)
+		power_change()		// all machines set to current power level, also updates lighting icon
+
+	blend_mode = BLEND_MULTIPLY
+
+	. = ..()
 
 /area/proc/get_contents()
 	return contents
 
 /area/proc/get_cameras()
-	var/list/cameras = list()
-	for (var/obj/machinery/camera/C in src)
-		cameras += C
-	return cameras
+	. = list()
+	for (var/thing in SSmachinery.all_cameras)
+		var/obj/machinery/camera/C = thing
+		if (!isturf(C.loc))
+			continue
+
+		if (C.loc.loc == src)
+			. += C
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
 	if (danger_level == 0)
@@ -304,7 +316,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 	if(istype(mob,/mob/living/carbon/human/))
 		var/mob/living/carbon/human/H = mob
-		if(istype(H.shoes, /obj/item/clothing/shoes/magboots) && (H.shoes.item_flags & NOSLIP))
+		if(H.Check_Shoegrip(FALSE))
 			return
 
 		if(H.m_intent == "run")

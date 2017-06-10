@@ -26,7 +26,7 @@
 		return
 	for(var/image/I in recipient.current.client.images)
 		if(I.icon_state == antag_indicator || (faction_indicator && I.icon_state == faction_indicator))
-			qdel(I)
+			recipient.current.client.images -= I
 
 /datum/antagonist/proc/get_indicator(var/datum/mind/recipient, var/datum/mind/other)
 	if(!antag_indicator || !other.current || !recipient.current)
@@ -46,44 +46,46 @@
 				antag.current.client.images |= get_indicator(antag, other_antag)
 
 /datum/antagonist/proc/update_icons_added(var/datum/mind/player)
+	set waitfor = FALSE
 	if(!antag_indicator || !player.current)
 		return
-	spawn(0)
 
-		var/give_to_player = (!faction_invisible || !(player in faction_members))
-		for(var/datum/mind/antag in current_antagonists)
-			if(!antag.current)
-				continue
-			if(antag.current.client)
-				antag.current.client.images |= get_indicator(antag, player)
-			if(!give_to_player)
-				continue
-			if(player.current.client)
-				player.current.client.images |= get_indicator(player, antag)
+	var/give_to_player = (!faction_invisible || !(player in faction_members))
+	for(var/datum/mind/antag in current_antagonists)
+		if(!antag.current)
+			continue
+		if(antag.current.client)
+			antag.current.client.images |= get_indicator(antag, player)
+		if(!give_to_player)
+			continue
+		if(player.current.client)
+			player.current.client.images |= get_indicator(player, antag)
 
 /datum/antagonist/proc/update_icons_removed(var/datum/mind/player)
+	set waitfor = FALSE
+
 	if(!antag_indicator || !player.current)
 		return
-	spawn(0)
-		clear_indicators(player)
-		if(player.current && player.current.client)
-			for(var/datum/mind/antag in current_antagonists)
-				if(antag.current && antag.current.client)
-					for(var/image/I in antag.current.client.images)
-						if(I.loc == player.current)
-							qdel(I)
+
+	clear_indicators(player)
+	if(player.current && player.current.client)
+		for(var/datum/mind/antag in current_antagonists)
+			if(antag.current && antag.current.client)
+				for(var/image/I in antag.current.client.images)
+					if(I.loc == player.current)
+						antag.current.client.images -= I
 
 /datum/antagonist/proc/update_current_antag_max()
 	cur_max = hard_cap
-	if(ticker && ticker.mode)
-		if(ticker.mode.antag_tags && (id in ticker.mode.antag_tags))
+	if(SSticker.mode)
+		if(SSticker.mode.antag_tags && (id in SSticker.mode.antag_tags))
 			cur_max = hard_cap_round
 
-	if(ticker.mode.antag_scaling_coeff)
+	if(SSticker.mode.antag_scaling_coeff)
 
 		var/count = 0
 
-		if (!ticker || ticker.current_state < GAME_STATE_PLAYING)
+		if (SSticker.current_state < GAME_STATE_PLAYING)
 			// If we're in the pre-game state, we count readied new players as players.
 			// Yes, not all get spawned, but it's a close enough guestimation.
 			for (var/mob/new_player/L in player_list)
@@ -96,7 +98,7 @@
 
 		// Minimum: initial_spawn_target
 		// Maximum: hard_cap or hard_cap_round
-		cur_max = max(initial_spawn_target,min(round(count/ticker.mode.antag_scaling_coeff),cur_max))
+		cur_max = max(initial_spawn_target,min(round(count/SSticker.mode.antag_scaling_coeff),cur_max))
 
 // Updates the initial spawn target to match the player count.
 // Intended to stop 6 nuke ops in a 15 player round. RIP those rounds.
@@ -104,12 +106,12 @@
 	// Default is a linear rise of one antag per 5 players.
 	var/modifier = 5
 
-	if (ticker.mode.antag_scaling_coeff)
-		modifier = ticker.mode.antag_scaling_coeff
+	if (SSticker.mode.antag_scaling_coeff)
+		modifier = SSticker.mode.antag_scaling_coeff
 
 	var/count = 0
 
-	if (!ticker || ticker.current_state < GAME_STATE_PLAYING)
+	if (SSticker.current_state < GAME_STATE_PLAYING)
 		// If we're in the pre-game state, we count readied new players as players.
 		// Yes, not all get spawned, but it's a close enough guestimation.
 		for (var/mob/new_player/L in player_list)

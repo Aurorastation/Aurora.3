@@ -8,7 +8,8 @@
 	origin_tech = list(TECH_DATA = 2, TECH_MAGNET = 2)
 	var/control = 0//
 
-/obj/item/mecha_parts/mecha_tracking/initialize()
+/obj/item/mecha_parts/mecha_tracking/Initialize()
+	. = ..()
 	if (in_mecha())
 		exo_beacons.Add(src)//For the sake of exosuits which spawn with a preinstalled tracking beacon
 

@@ -63,7 +63,7 @@ proc/cardinalrange(var/center)
 		shutdown_core()
 	visible_message("<span class='warning'>\The [src.name] melts!</span>")
 	//Might want to have it leave a mess on the floor but no sprites for now
-	..()
+	return ..()
 
 /obj/machinery/am_shielding/proc/controllerscan(var/priorscan = 0)
 	//Make sure we are the only one here

@@ -22,12 +22,15 @@
 	return 0
 
 /obj
-	var/list/datum/expansion/expansions = list()
+	var/list/datum/expansion/expansions
 
 /obj/Destroy()
-	for(var/expansion in expansions)
-		qdel(expansions[expansion])
-	expansions.Cut()
+	if (LAZYLEN(expansions))
+		for(var/expansion in expansions)
+			qdel(expansions[expansion])
+			
+	LAZYCLEARLIST(expansions)
+	expansions = null
 	return ..()
 
 /obj/resetVariables(var/list/exclude = list())
@@ -36,6 +39,7 @@
 	//expansions = list()
 
 /obj/proc/set_expansion(var/type, var/instance)
+	LAZYINITLIST(expansions)
 	if(expansions[type])
 		qdel(expansions[type])
 	expansions[type] = instance

@@ -44,23 +44,23 @@
 	frequency = ENT_FREQ
 	canhear_range = 4
 
-/obj/item/device/radio/intercom/New()
-	..()
+/obj/item/device/radio/intercom/Initialize()
+	. = ..()
 	power_interface = new(loc, src)
 
-/obj/item/device/radio/intercom/department/medbay/New()
-	..()
+/obj/item/device/radio/intercom/department/medbay/Initialize()
+	. = ..()
 	internal_channels = default_medbay_channels.Copy()
 
-/obj/item/device/radio/intercom/department/security/New()
-	..()
+/obj/item/device/radio/intercom/department/security/Initialize()
+	. = ..()
 	internal_channels = list(
 		num2text(PUB_FREQ) = list(),
 		num2text(SEC_I_FREQ) = list(access_security)
 	)
 
-/obj/item/device/radio/intercom/entertainment/New()
-	..()
+/obj/item/device/radio/intercom/entertainment/Initialize()
+	. = ..()
 	internal_channels = list(
 		num2text(PUB_FREQ) = list(),
 		num2text(ENT_FREQ) = list()
@@ -73,9 +73,20 @@
 	subspace_transmission = 1
 	syndie = 1
 
-/obj/item/device/radio/intercom/syndicate/New()
-	..()
+/obj/item/device/radio/intercom/syndicate/Initialize()
+	. = ..()
 	internal_channels[num2text(SYND_FREQ)] = list(access_syndicate)
+
+/obj/item/device/radio/intercom/raider
+	name = "illicit intercom"
+	desc = "Pirate radio, but not in the usual sense of the word."
+	frequency = RAID_FREQ
+	subspace_transmission = 1
+	syndie = 1
+
+/obj/item/device/radio/intercom/syndicate/Initialize()
+	. = ..()
+	internal_channels[num2text(RAID_FREQ)] = list(access_syndicate)
 
 /obj/item/device/radio/intercom/Destroy()
 	QDEL_NULL(power_interface)
@@ -83,13 +94,11 @@
 
 /obj/item/device/radio/intercom/attack_ai(mob/user as mob)
 	src.add_fingerprint(user)
-	spawn (0)
-		attack_self(user)
+	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
 
 /obj/item/device/radio/intercom/attack_hand(mob/user as mob)
 	src.add_fingerprint(user)
-	spawn (0)
-		attack_self(user)
+	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
 
 /obj/item/device/radio/intercom/receive_range(freq, level)
 	if (!on)

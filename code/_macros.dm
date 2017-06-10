@@ -43,6 +43,8 @@
 #define isslime(A) istype(A, /mob/living/carbon/slime)
 
 #define to_chat(target, message)                            target << message
+#define MAP_IMAGE_PATH "nano/images/"
+#define map_image_file_name(z_level) "Aurora-[z_level].png"
 #define to_world(message)                                   world << message
 #define sound_to(target, sound)                             target << sound
 #define to_file(file_entry, file_content)                   file_entry << file_content

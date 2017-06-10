@@ -13,25 +13,20 @@
 	var/lastgenlev = -1
 
 
-/obj/machinery/power/generator_type2/New()
-	..()
-	spawn(5)
-		input1 = locate(/obj/machinery/atmospherics/unary/generator_input) in get_step(src,turn(dir, 90))
-		input2 = locate(/obj/machinery/atmospherics/unary/generator_input) in get_step(src,turn(dir, -90))
-		if(!input1 || !input2)
-			stat |= BROKEN
-		updateicon()
+/obj/machinery/power/generator_type2/Initialize()
+	. = ..()
+	input1 = locate(/obj/machinery/atmospherics/unary/generator_input) in get_step(src,turn(dir, 90))
+	input2 = locate(/obj/machinery/atmospherics/unary/generator_input) in get_step(src,turn(dir, -90))
+	if(!input1 || !input2)
+		stat |= BROKEN
+	updateicon()
 
 
 /obj/machinery/power/generator_type2/proc/updateicon()
-
-	if(stat & (NOPOWER|BROKEN))
-		overlays.Cut()
-	else
-		overlays.Cut()
-
+	cut_overlays()
+	if(!(stat & (NOPOWER|BROKEN)))
 		if(lastgenlev != 0)
-			overlays += image('icons/obj/power.dmi', "teg-op[lastgenlev]")
+			add_overlay("teg-op[lastgenlev]")
 
 #define GENRATE 800		// generator output coefficient from Q
 
