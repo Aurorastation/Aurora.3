@@ -303,6 +303,11 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
 
+// These defines write to log_debug, prefixing the path to the current proc.
+//  When using them, try PROCLOG first. If it does not compile, try PROCLOG_WEIRD.
+#define PROCLOG(thing) log_debug("[THIS_PROC_TYPE]: [thing]")
+#define PROCLOG_WEIRD(thing) log_debug("[THIS_PROC_TYPE_WEIRD]: [thing]")
+
 //Recipe type defines. Used to determine what machine makes them
 #define MICROWAVE			0x1
 #define FRYER				0x2

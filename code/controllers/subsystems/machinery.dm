@@ -88,13 +88,13 @@
 
 		var/start_tick = world.time
 
-		if (M.isprocessing)
+		if (M.machinery_processing)
 			processes_this_tick++
 			switch (M.process())
 				if (PROCESS_KILL)
 					remove_machine(M)
 				if (M_NO_PROCESS)
-					M.isprocessing = FALSE
+					M.machinery_processing = FALSE
 
 		if (start_tick != world.time)
 			// Slept.
@@ -129,17 +129,24 @@
 			return
 
 /datum/controller/subsystem/machinery/stat_entry()
-	..("M:[machines.len] PI:[processing_power_items.len]\n\tLT:{T:[processes_this_tick]|P:[powerusers_this_tick]}")
+	var/list/out = list()
+	out += "M:[machines.len] PI:[processing_power_items.len]"
+	out += "LT:{T:[processes_this_tick]|P:[powerusers_this_tick]}"
+	..(out.Join("\n\t"))
 
 /proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))
+		crash_with("Attempted add of QDELETED machine [M ? M : "NULL"] to machines list, ignoring.")
 		return
 
-	M.isprocessing = TRUE
-	machines += M
+	M.machinery_processing = TRUE
+	if (machines[M])
+		crash_with("Type [M.type] was added to machines list twice! Ignoring duplicate.")
+
+	machines[M] = TRUE
 
 /proc/remove_machine(obj/machinery/M)
 	if (M)
-		M.isprocessing = FALSE
+		M.machinery_processing = FALSE
 	machines -= M
 	SSmachinery.processing_machinery -= M

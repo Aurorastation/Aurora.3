@@ -1700,7 +1700,7 @@
 "JL" = (/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/tiled,/area/hallway/secondary/entry/fore)
 "JM" = (/obj/structure/sign/drop{pixel_x = 32},/turf/simulated/floor/tiled,/area/turret_protected/tcomfoyer)
 "JP" = (/obj/structure/table/standard{name = "plastic table frame"},/obj/item/weapon/material/minihoe,/turf/simulated/floor/grass,/area/hydroponics/garden)
-"JQ" = (/obj/structure/disposalpipe/segment,/obj/machinery/camera/network/civilian_east{dir = 4},/turf/simulated/floor/tiled,/area/hallway/secondary/entry/aft)
+"JQ" = (/obj/structure/disposalpipe/segment,/obj/machinery/camera/network/civilian_east{c_tag = "Surface - Corridor Camera 9";dir = 4},/turf/simulated/floor/tiled,/area/hallway/secondary/entry/aft)
 "JR" = (/obj/machinery/light/small{dir = 4},/obj/machinery/recharge_station,/turf/simulated/floor/tiled/freezer,/area/crew_quarters/toilet)
 "JS" = (/turf/simulated/wall,/area/hallway/secondary/entry/dock)
 "JT" = (/turf/simulated/wall,/area/hallway/secondary/entry/dock)
