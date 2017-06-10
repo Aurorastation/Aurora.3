@@ -93,7 +93,7 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/trinary/filter/process()
+/obj/machinery/atmospherics/trinary/filter/machinery_process()
 	..()
 
 	last_power_draw = 0

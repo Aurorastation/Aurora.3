@@ -186,7 +186,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 
 	updateUsrDialog()
 
-/obj/machinery/photocopier/faxmachine/process()
+/obj/machinery/photocopier/faxmachine/machinery_process()
 	.=..()
 	var/static/ui_update_delay = 0
 

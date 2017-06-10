@@ -153,7 +153,7 @@
 
 
 
-/obj/machinery/space_heater/process()
+/obj/machinery/space_heater/machinery_process()
 	if(on)
 		if(cell && cell.charge)
 			var/datum/gas_mixture/env = loc.return_air()

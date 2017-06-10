@@ -24,7 +24,7 @@
 	. = ..()
 	update_icon()
 
-/obj/machinery/sleeper/process()
+/obj/machinery/sleeper/machinery_process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 

@@ -580,7 +580,7 @@
 
 	SSnanoui.update_uis(src)
 
-/obj/machinery/vending/process()
+/obj/machinery/vending/machinery_process()
 	if(stat & (BROKEN|NOPOWER))
 		return
 

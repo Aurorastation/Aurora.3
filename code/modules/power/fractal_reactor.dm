@@ -18,9 +18,9 @@
 /obj/machinery/power/fractal_reactor/New()
 	..()
 	if(!mapped_in)
-		world << "<b><span class='warning'>WARNING:</span> Map testing power source activated at: X:[src.loc.x] Y:[src.loc.y] Z:[src.loc.z]</b>"
+		world << "<b><span class='alert'>WARNING:</span> Map testing power source activated at: X:[src.loc.x] Y:[src.loc.y] Z:[src.loc.z]</b>"
 
-/obj/machinery/power/fractal_reactor/process()
+/obj/machinery/power/fractal_reactor/machinery_process()
 	if(!powernet && !powernet_connection_failed)
 		if(!connect_to_network())
 			powernet_connection_failed = 1
