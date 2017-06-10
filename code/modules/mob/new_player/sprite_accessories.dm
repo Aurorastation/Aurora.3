@@ -1006,29 +1006,23 @@
 		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
 		species_allowed = list("Unathi")
 
-	paw_socks
-		name = "Socks Coloration (Generic)"
-		icon_state = "pawsocks"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
-
 	paw_socks_belly
 		name = "Socks,Belly Coloration (Generic)"
 		icon_state = "pawsocksbelly"
 		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	belly_hands_feet
 		name = "Hands,Feet,Belly Color (Minor)"
 		icon_state = "bellyhandsfeetsmall"
 		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	hands_feet_belly_full
 		name = "Hands,Feet,Belly Color (Major)"
 		icon_state = "bellyhandsfeet"
 		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	patches
 		name = "Color Patches"
@@ -1041,6 +1035,18 @@
 		icon_state = "patchesface"
 		body_parts = list("head")
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+		
+	bands
+		name = "Color Bands"
+		icon_state = "bands"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","chest","groin")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	bandsface
+		name = "Color Bands (Face)"
+		icon_state = "bandsface"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tigerhead
 		name = "Tiger Stripes (Head, Minor)"
