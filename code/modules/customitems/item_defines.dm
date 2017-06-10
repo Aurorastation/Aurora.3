@@ -1037,7 +1037,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "azaroz_staff"
 	contained_sprite = 1
 	slot_flags = SLOT_BACK
-	w_class = 4
+	w_class = 3
 
 
 /obj/item/clothing/suit/fluff/eul_robe //Well Made Robe - Uelak Eul - lordraven001
@@ -1059,7 +1059,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 
 
-/obj/item/clothing/suit/poncho/fluff/flaming_poncho //Stitched Heart White Poncho - Flaming Hearts Love Stars -sleepywolf
+/obj/item/clothing/suit/poncho/fluff/flaming_poncho //Stitched Heart White Poncho - Flaming Hearts Love Stars - sleepywolf
 	name = "stitched heart white poncho"
 	desc = "A white poncho stitched together shoddily, with a pink heart made of flame patterned on the front. The fabric is rough, like chainmail."
 	icon = 'icons/obj/custom_items/flaming_poncho.dmi'
