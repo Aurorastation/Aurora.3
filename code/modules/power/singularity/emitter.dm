@@ -29,10 +29,6 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/emitter/New()
-	..()
-	spark_system = bind_spark(src, 5, alldirs)
-
 /obj/machinery/power/emitter/Destroy()
 	QDEL_NULL(spark_system)
 	return ..()
@@ -48,8 +44,9 @@
 	src.set_dir(turn(src.dir, 90))
 	return 1
 
-/obj/machinery/power/emitter/initialize()
-	..()
+/obj/machinery/power/emitter/Initialize()
+	. = ..()
+	spark_system = bind_spark(src, 5, alldirs)
 	if(state == 2 && anchored)
 		connect_to_network()
 		if(_wifi_id)
@@ -83,7 +80,7 @@
 			if(src.active==1)
 				src.active = 0
 				user << "You turn off [src]."
-				message_admins("Emitter turned off by [key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+				message_admins("Emitter turned off by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 				log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
 				investigate_log("turned <font color='red'>off</font> by [user.key]","singulo")
 			else
@@ -91,7 +88,7 @@
 				user << "You turn on [src]."
 				src.shot_number = 0
 				src.fire_delay = 100
-				message_admins("Emitter turned on by [key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+				message_admins("Emitter turned on by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 				log_game("Emitter turned on by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
 				investigate_log("turned <font color='green'>on</font> by [user.key]","singulo")
 			update_icon()

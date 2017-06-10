@@ -3,7 +3,7 @@
 	set name = "Cast"
 	set desc = "Cast a spell"
 
-	if(!spell_list.len)
+	if(!LAZYLEN(spell_list))
 		src.verbs -= /mob/proc/cast_spell
 		return
 

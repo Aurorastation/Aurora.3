@@ -54,11 +54,11 @@
 	var/datum/ship_engine/thermal/controller
 
 /obj/machinery/atmospherics/unary/engine/initialize()
-	..()
+	. = ..()
 	controller = new(src)
 
 /obj/machinery/atmospherics/unary/engine/Destroy()
-	..()
+	. = ..()
 	controller.die()
 
 /obj/machinery/atmospherics/unary/engine/proc/burn()

@@ -144,3 +144,14 @@
 		new/datum/computer_file/program/aidiag()
 	)
 	return _prg_list
+
+/datum/modular_computer_app_presets/trashcompactor
+	name = "trashcompactor"
+	display_name = "Trash Compactor"
+	description = "A preset for the Trash Compactor Wall Console"
+	available = 0
+/datum/modular_computer_app_presets/trashcompactor/return_install_programs()
+	var/list/_prg_list = list(
+		new/datum/computer_file/program/crushercontrol()
+	)
+	return _prg_list

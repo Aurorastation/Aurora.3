@@ -101,7 +101,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	// In case message_delay is left on 1, otherwise it won't reset the list and people can't say the same thing twice anymore.
 	if(message_delay)
 		message_delay = 0
-	..()
+	return ..()
 
 
 /*
@@ -255,7 +255,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	else if(data == 3)
 		for(var/antag_freq in ANTAG_FREQS)
-			var/datum/radio_frequency/antag_connection = radio_controller.return_frequency(antag_freq)
+			var/datum/radio_frequency/antag_connection = SSradio.return_frequency(antag_freq)
 			for (var/obj/item/device/radio/R in antag_connection.devices["[RADIO_CHAT]"])
 				if(R.receive_range(antag_freq, level) > -1)
 					radios += R
@@ -360,30 +360,32 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		//var/blackbox_admin_msg = "[part_a][M.name] (Real name: [M.real_name])[part_blackbox_b][quotedmsg][part_c]"
 
 		//BR.messages_admin += blackbox_admin_msg
-		if(istype(blackbox))
+		if(istype(SSfeedback))
 			switch(display_freq)
 				if(PUB_FREQ)
-					blackbox.msg_common += blackbox_msg
+					SSfeedback.msg_common += blackbox_msg
 				if(SCI_FREQ)
-					blackbox.msg_science += blackbox_msg
+					SSfeedback.msg_science += blackbox_msg
 				if(COMM_FREQ)
-					blackbox.msg_command += blackbox_msg
+					SSfeedback.msg_command += blackbox_msg
 				if(MED_FREQ)
-					blackbox.msg_medical += blackbox_msg
+					SSfeedback.msg_medical += blackbox_msg
 				if(ENG_FREQ)
-					blackbox.msg_engineering += blackbox_msg
+					SSfeedback.msg_engineering += blackbox_msg
 				if(SEC_FREQ)
-					blackbox.msg_security += blackbox_msg
+					SSfeedback.msg_security += blackbox_msg
 				if(DTH_FREQ)
-					blackbox.msg_deathsquad += blackbox_msg
+					SSfeedback.msg_deathsquad += blackbox_msg
 				if(SYND_FREQ)
-					blackbox.msg_syndicate += blackbox_msg
+					SSfeedback.msg_syndicate += blackbox_msg
+				if(RAID_FREQ)
+					SSfeedback.msg_raider += blackbox_msg
 				if(SUP_FREQ)
-					blackbox.msg_cargo += blackbox_msg
+					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
-					blackbox.msg_service += blackbox_msg
+					SSfeedback.msg_service += blackbox_msg
 				else
-					blackbox.messages += blackbox_msg
+					SSfeedback.messages += blackbox_msg
 
 		//End of research and feedback code.
 
@@ -432,7 +434,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/mob/living/carbon/human/H = new
 		M = H
 
-	var/datum/radio_frequency/connection = radio_controller.return_frequency(frequency)
+	var/datum/radio_frequency/connection = SSradio.return_frequency(frequency)
 
 	var/display_freq = connection.frequency
 
@@ -464,7 +466,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	else if(data == 3)
 		for(var/freq in ANTAG_FREQS)
-			var/datum/radio_frequency/antag_connection = radio_controller.return_frequency(freq)
+			var/datum/radio_frequency/antag_connection = SSradio.return_frequency(freq)
 			for (var/obj/item/device/radio/R in antag_connection.devices["[RADIO_CHAT]"])
 				var/turf/position = get_turf(R)
 				if(position && position.z == level)
@@ -535,7 +537,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 			part_b_extra = " <i>(Intercepted)</i>"
 
 		// Create a radio headset for the sole purpose of using its icon
-		var/obj/item/device/radio/headset/radio = new
+		var/static/obj/item/device/radio/headset/radio = new
 
 		var/part_b = "</span><b> \icon[radio]\[[freq_text]\][part_b_extra]</b> <span class='message'>" // Tweaked for security headsets -- TLE
 		var/part_blackbox_b = "</span><b> \[[freq_text]\]</b> <span class='message'>" // Tweaked for security headsets -- TLE
@@ -547,27 +549,29 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		if(istype(blackbox))
 			switch(display_freq)
 				if(PUB_FREQ)
-					blackbox.msg_common += blackbox_msg
+					SSfeedback.msg_common += blackbox_msg
 				if(SCI_FREQ)
-					blackbox.msg_science += blackbox_msg
+					SSfeedback.msg_science += blackbox_msg
 				if(COMM_FREQ)
-					blackbox.msg_command += blackbox_msg
+					SSfeedback.msg_command += blackbox_msg
 				if(MED_FREQ)
-					blackbox.msg_medical += blackbox_msg
+					SSfeedback.msg_medical += blackbox_msg
 				if(ENG_FREQ)
-					blackbox.msg_engineering += blackbox_msg
+					SSfeedback.msg_engineering += blackbox_msg
 				if(SEC_FREQ)
-					blackbox.msg_security += blackbox_msg
+					SSfeedback.msg_security += blackbox_msg
 				if(DTH_FREQ)
-					blackbox.msg_deathsquad += blackbox_msg
+					SSfeedback.msg_deathsquad += blackbox_msg
 				if(SYND_FREQ)
-					blackbox.msg_syndicate += blackbox_msg
+					SSfeedback.msg_syndicate += blackbox_msg
+				if(RAID_FREQ)
+					SSfeedback.msg_raider += blackbox_msg
 				if(SUP_FREQ)
-					blackbox.msg_cargo += blackbox_msg
+					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
-					blackbox.msg_service += blackbox_msg
+					SSfeedback.msg_service += blackbox_msg
 				else
-					blackbox.messages += blackbox_msg
+					SSfeedback.messages += blackbox_msg
 
 		//End of research and feedback code.
 
@@ -638,4 +642,32 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	//world.log << "Level: [signal.data["level"]] - Done: [signal.data["done"]]"
 
 	return signal
+
+/proc/telecomms_process_active()
+
+	// First, we want to generate a new radio signal
+	var/datum/signal/signal = new
+	signal.transmission_method = 2 // 2 would be a subspace transmission.
+
+	// --- Finally, tag the actual signal with the appropriate values ---
+	signal.data = list(
+		"slow" = 0, // how much to sleep() before broadcasting - simulates net lag
+		"message" = "TEST",
+		"compression" = rand(45, 50), // If the signal is compressed, compress our message too.
+		"traffic" = 0, // dictates the total traffic sum that the signal went through
+		"type" = 4, // determines what type of radio input it is: test broadcast
+		"reject" = 0,
+		"done" = 0,
+		"level" = 5 // The level it is being broadcasted at.
+	)
+	signal.frequency = PUB_FREQ// Common channel
+
+  //#### Sending the signal to all subspace receivers ####//
+	for(var/obj/machinery/telecomms/receiver/R in telecomms_list)
+		R.receive_signal(signal)
+
+	//world<< "Done: [signal.data["done"]]"
+
+	return signal
+
 

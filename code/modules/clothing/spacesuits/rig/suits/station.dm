@@ -77,11 +77,12 @@
 /obj/item/weapon/rig/industrial/equipped
 
 	initial_modules = list(
-		/obj/item/rig_module/device/plasmacutter,
+		/obj/item/rig_module/mounted/plasmacutter,
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/orescanner,
 		/obj/item/rig_module/device/rcd,
-		/obj/item/rig_module/vision/meson
+		/obj/item/rig_module/vision/meson,
+		/obj/item/rig_module/actuators
 		)
 
 /obj/item/weapon/rig/industrial/syndicate
@@ -109,7 +110,7 @@
 /obj/item/weapon/rig/eva/equipped
 
 	initial_modules = list(
-		/obj/item/rig_module/device/plasmacutter,
+		/obj/item/rig_module/mounted/plasmacutter,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/vision/meson
@@ -145,9 +146,10 @@
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/device/plasmacutter,
+		/obj/item/rig_module/mounted/plasmacutter,
 		/obj/item/rig_module/device/rcd,
-		/obj/item/rig_module/vision/meson
+		/obj/item/rig_module/vision/meson,
+		/obj/item/rig_module/actuators
 		)
 
 /obj/item/clothing/gloves/rig/ce

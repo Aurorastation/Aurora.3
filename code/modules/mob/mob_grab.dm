@@ -90,7 +90,7 @@
 			hud.screen_loc = ui_lhand
 
 /obj/item/weapon/grab/process()
-	if(gcDestroyed) // GC is trying to delete us, we'll kill our processing so we can cleanly GC
+	if(QDELING(src)) // GC is trying to delete us, we'll kill our processing so we can cleanly GC
 		return PROCESS_KILL
 
 	confirm()
@@ -262,7 +262,7 @@
 		assailant.set_dir(get_dir(assailant, affecting))
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their neck grabbed by [assailant.name] ([assailant.ckey])</font>"
 		assailant.attack_log += "\[[time_stamp()]\] <font color='red'>Grabbed the neck of [affecting.name] ([affecting.ckey])</font>"
-		msg_admin_attack("[key_name(assailant)] grabbed the neck of [key_name(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
+		msg_admin_attack("[key_name_admin(assailant)] grabbed the neck of [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
 		hud.icon_state = "kill"
 		hud.name = "kill"
 		affecting.Stun(10) //10 ticks of ensured grab
@@ -274,7 +274,7 @@
 		assailant.visible_message("<span class='danger'>[assailant] has tightened \his grip on [affecting]'s neck!</span>")
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been strangled (kill intent) by [assailant.name] ([assailant.ckey])</font>"
 		assailant.attack_log += "\[[time_stamp()]\] <font color='red'>Strangled (kill intent) [affecting.name] ([affecting.ckey])</font>"
-		msg_admin_attack("[key_name(assailant)] strangled (kill intent) [key_name(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
+		msg_admin_attack("[key_name_admin(assailant)] strangled (kill intent) [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
 
 		affecting.setClickCooldown(10)
 		affecting.losebreath += 1
@@ -361,4 +361,4 @@
 	qdel(hud)
 	hud = null
 	destroying = 1 // stops us calling qdel(src) on dropped()
-	..()
+	return ..()

@@ -55,7 +55,7 @@
 			return
 		if(speaker_name != speaker.real_name && speaker.real_name)
 			speaker_name = "[speaker.real_name] ([speaker_name])"
-		track = "([ghost_follow_link(speaker, src)]) "
+		track = "[ghost_follow_link(speaker, src)] "
 		if(client.prefs.toggles & CHAT_GHOSTEARS && speaker in view(src))
 			message = "<b>[message]</b>"
 
@@ -67,9 +67,9 @@
 				src << "<span class='name'>[speaker_name]</span>[alt_name] talks but you cannot hear \him."
 	else
 		if(language)
-			on_hear_say("<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [track][language.format_message(message, verb)]</span>")
+			on_hear_say("[track]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, verb)]</span>")
 		else
-			on_hear_say("<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [track][verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+			on_hear_say("[track]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
 			src.playsound_local(source, speech_sound, sound_vol, 1)
@@ -114,7 +114,11 @@
 		if(hard_to_hear)
 			message = stars(message)
 
-	var/speaker_name = speaker.name
+	var/speaker_name
+	if(speaker != null)
+		speaker_name = speaker.name
+	else
+		speaker_name = "unknown"
 
 	if(vname)
 		speaker_name = vname
@@ -178,9 +182,10 @@
 			track = "<a href='byond://?src=\ref[src];trackname=[html_encode(speaker_name)];track=\ref[speaker]'>[speaker_name] ([jobname])</a>"
 
 	if(istype(src, /mob/dead/observer))
-		if(speaker_name != speaker.real_name && !isAI(speaker)) //Announce computer and various stuff that broadcasts doesn't use it's real name but AI's can't pretend to be other mobs.
-			speaker_name = "[speaker.real_name] ([speaker_name])"
-		track = "[speaker_name] ([ghost_follow_link(speaker, src)])"
+		if(speaker != null)
+			if(speaker_name != speaker.real_name && !isAI(speaker)) //Announce computer and various stuff that broadcasts doesn't use it's real name but AI's can't pretend to be other mobs.
+				speaker_name = "[speaker.real_name] ([speaker_name])"
+		track = "[ghost_follow_link(speaker, src)] "
 
 	var/formatted
 	if(language)
@@ -200,7 +205,7 @@
 	src << "[part_a][speaker_name][part_b][formatted]"
 
 /mob/dead/observer/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
-	src << "[part_a][track][part_b][formatted]"
+	src << "[track][part_a][speaker_name][part_b][formatted]"
 
 /mob/living/silicon/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	var/time = say_timestamp()

@@ -20,6 +20,7 @@
 	add_req_access = 0
 	internal_damage_threshold = 25
 	force = 45
+	w_class = 35
 	max_equip = 4
 
 /obj/mecha/combat/marauder/seraph
@@ -40,6 +41,7 @@
 	name = "Mauler"
 	icon_state = "mauler"
 	initial_icon = "mauler"
+	w_class = 40
 	operation_req_access = list(access_syndicate)
 	wreckage = /obj/effect/decal/mecha_wreckage/mauler
 
@@ -78,7 +80,7 @@
 
 /obj/mecha/combat/marauder/Destroy()
 	qdel(smoke_system)
-	..()
+	return ..()
 
 /obj/mecha/combat/marauder/relaymove(mob/user,direction)
 	if(user != src.occupant) //While not "realistic", this piece is player friendly.

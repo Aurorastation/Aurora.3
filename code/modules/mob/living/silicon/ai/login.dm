@@ -8,6 +8,7 @@
 	flash.name = "flash"
 	flash.screen_loc = ui_entire_screen
 	flash.layer = 17
+	flash.mouse_opacity = 0
 	blind = new /obj/screen()
 	blind.icon_state = "black"
 	blind.name = " "

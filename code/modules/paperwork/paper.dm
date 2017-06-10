@@ -36,14 +36,16 @@
 	var/const/signfont = "Times New Roman"
 	var/const/crayonfont = "Comic Sans MS"
 
-/obj/item/weapon/paper/New(loc, text,title)
-	..(loc)
-	set_content(title, text ? text : info)
-
-// needed for subtyped papers with pre-defined content
-/obj/item/weapon/paper/New()
-	..()
-	update_icon()
+/obj/item/weapon/paper/Initialize(mapload, text, title)
+	. = ..()
+	if (text || title)
+		set_content(title, text ? text : info)
+	else
+		updateinfolinks()
+		if (mapload)
+			update_icon()
+		else
+			addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 
 /obj/item/weapon/paper/proc/set_content(title, text)
 	if(title)
@@ -53,7 +55,7 @@
 		info = parsepencode(text)
 	else
 		info = ""
-		
+
 	update_icon()
 	update_space(info)
 	updateinfolinks()
@@ -68,7 +70,7 @@
 		info = ""
 
 	update_icon()
-	update_space()
+	update_space(info)
 	updateinfolinks()
 
 /obj/item/weapon/paper/update_icon()
@@ -134,7 +136,7 @@
 		if (icon_state == "paper_plane")
 			user.show_message(span("alert", "The paper is already folded into a plane."))
 			return
-		user.visible_message(span("notice", "\The [user] carefully folds \the [src] into a plane."), 
+		user.visible_message(span("notice", "\The [user] carefully folds \the [src] into a plane."),
 			span("notice", "You carefully fold \the [src] into a plane."), "You hear paper rustling.")
 		icon_state = "paper_plane"
 		throw_range = 8
@@ -222,8 +224,7 @@
 
 /obj/item/weapon/paper/proc/updateinfolinks()
 	info_links = info
-	var/i = 0
-	for(i=1,i<=fields,i++)
+	for (var/i = 1, i <= min(fields, 35), i++)
 		addtofield(i, "<font face=\"[deffont]\"><A href='?src=\ref[src];write=[i]'>write</A></font>", 1)
 	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=\ref[src];write=end'>write</A></font>"
 
@@ -240,12 +241,25 @@
 /obj/item/weapon/paper/proc/get_signature(var/obj/item/weapon/pen/P, mob/user as mob)
 	if(P && istype(P, /obj/item/weapon/pen))
 		return P.get_signature(user)
-	return (user && user.real_name) ? user.real_name : "Anonymous"
+
+	if (user)
+		if (user.mind && user.mind.signature)
+			return user.mind.signature
+		else if (user.real_name)
+			return "<i>[user.real_name]</i>"
+
+	return "<i>Anonymous</i>"
+
+/obj/item/weapon/paper/proc/get_signfont(var/obj/item/weapon/pen/P, var/mob/user)
+	if (!istype(P, /obj/item/weapon/pen/chameleon))
+		if (user && user.mind && user.mind.signfont)
+			return user.mind.signfont
+
+	return signfont
 
 /obj/item/weapon/paper/proc/parsepencode(t, obj/item/weapon/pen/P, mob/user, iscrayon)
 
-	if(findtext(t, "\[sign\]"))
-		t = replacetext(t, "\[sign\]", "<font face=\"[signfont]\"><i>[get_signature(P, user)]</i></font>")
+	t = replacetext(t, "\[sign\]", "<font face=\"[get_signfont(P, user)]\">[get_signature(P, user)]</font>")
 
 	if(iscrayon) // If it is a crayon, and he still tries to use these, make them empty!
 		t = replacetext(t, "\[*\]", "")
@@ -316,7 +330,7 @@
 				qdel(src)
 
 			else
-				user << "\red You must hold \the [P] steady to burn \the [src]."
+				user << "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>"
 
 
 /obj/item/weapon/paper/Topic(href, href_list)
@@ -534,7 +548,7 @@
 /obj/item/weapon/paper/sentencing/New()
 	info = {"\[center\]\[logo\]\[/center\]
 \[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
-\[small\]In compliance with new NanoTrasen criminal regulations, the \[b\]NSS Exodus\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
+\[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
 \[br\]
 While preparing a convicted individual, remove their ID and have the terminal scan it.\[br\]
 Next, select all applicable charges from the menu available. The computer will calculate the sentence based on the minimum recommended sentence - any variables such as repeat offense will need to be manually accounted for.\[br\]

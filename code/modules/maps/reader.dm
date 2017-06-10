@@ -302,13 +302,6 @@ var/global/dmm_suite/preloader/_preloader = null
 		placed.set_opacity(1)
 	placed.underlays += turfs_underlays
 
-//atom creation method that preloads variables at creation
-/atom/New()
-	if(_preloader && (src.type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
-		_preloader.load(src)
-
-	. = ..()
-
 //////////////////
 //Preloader datum
 //////////////////

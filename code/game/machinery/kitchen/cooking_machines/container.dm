@@ -7,10 +7,12 @@
 	var/shortname
 	var/max_space = 20//Maximum sum of w-classes of foods in this container at once
 	var/max_reagents = 80//Maximum units of reagents
-
-	var/list/insertable = list(/obj/item/weapon/reagent_containers/food/snacks,
-	/obj/item/weapon/holder,
-	/obj/item/weapon/paper)
+	flags = OPENCONTAINER | NOREACT
+	var/list/insertable = list(
+		/obj/item/weapon/reagent_containers/food/snacks,
+		/obj/item/weapon/holder,
+		/obj/item/weapon/paper
+	)
 
 /obj/item/weapon/reagent_containers/cooking_container/New()
 	..()
@@ -43,17 +45,34 @@
 			return
 
 /obj/item/weapon/reagent_containers/cooking_container/verb/empty()
-	set src in view()
+	set src in oview(1)
 	set name = "Empty Container"
 	set category = "Object"
-	set desc = "Removes items from the container. does not remove reagents."
+	set desc = "Removes items from the container, excluding reagents."
 
-	if (!Adjacent(usr))
-		usr << "You can't reach the [src] from there, get closer!"
+	do_empty(usr)
+
+/obj/item/weapon/reagent_containers/cooking_container/proc/do_empty(mob/user)
+	if (!isliving(user))
+		//Here we only check for ghosts. Animals are intentionally allowed to remove things from oven trays so they can eat it
+		return
+
+	if (user.stat || user.restrained())
+		user << "<span class='notice'>You are in no fit state to do this.</span>"
+		return
+
+	if (!Adjacent(user))
+		user << "You can't reach [src] from here."
+		return
+
+	if (!contents.len)
+		user << span("warning", "There's nothing in the [src] you can remove!")
 		return
 
 	for (var/atom/movable/A in contents)
 		A.forceMove(get_turf(src))
+
+	user << span("notice", "You remove all the solid items from the [src].")
 
 /obj/item/weapon/reagent_containers/cooking_container/proc/check_contents()
 	if (contents.len == 0)
@@ -64,7 +83,8 @@
 			return 1//Contains only a single object which can be extracted alone
 	return 2//Contains multiple objects and/or reagents
 
-
+/obj/item/weapon/reagent_containers/cooking_container/AltClick(var/mob/user)
+	do_empty(user)
 
 //Deletes contents of container.
 //Used when food is burned, before replacing it with a burned mess
@@ -123,15 +143,15 @@
 
 
 /obj/item/weapon/reagent_containers/cooking_container/oven
-	name = "Oven Dish"
+	name = "oven dish"
 	shortname = "shelf"
-	desc = "Put ingredients in this for cooking to a recipe,in an oven."
+	desc = "Put ingredients in this; designed for use with an oven. Warranty void if used."
 	icon_state = "ovendish"
 	max_space = 30
 	max_reagents = 120
 
 /obj/item/weapon/reagent_containers/cooking_container/fryer
-	name = "Fryer basket"
+	name = "fryer basket"
 	shortname = "basket"
-	desc = "Belongs in a deep fryer, put ingredients in it for cooking to a recipe"
+	desc = "Put ingredients in this; designed for use with a deep fryer. Warranty void if used."
 	icon_state = "basket"

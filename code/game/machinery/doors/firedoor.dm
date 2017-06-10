@@ -50,12 +50,11 @@
 		"cold"
 	)
 
-/obj/machinery/door/firedoor/New()
+/obj/machinery/door/firedoor/Initialize()
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
 		if(F != src)
-			spawn(1)
-				qdel(src)
+			QDEL_IN(src, 1)
 			return .
 	var/area/A = get_area(src)
 	ASSERT(istype(A))
@@ -68,6 +67,9 @@
 		if(istype(A) && !(A in areas_added))
 			A.all_doors.Add(src)
 			areas_added += A
+
+	if (!density)
+		cut_overlay(hatch_image)	// Parent call adds this, but we don't want it just yet.
 
 /obj/machinery/door/firedoor/Destroy()
 	for(var/area/A in areas_added)
@@ -183,21 +185,25 @@
 			// Accountability!
 			users_to_open |= user.name
 			needs_to_close = !issilicon(user)
-		spawn()
-			open()
+
+		open()
 	else
-		spawn()
-			close()
+		close()
 
 	if(needs_to_close)
-		spawn(50)
-			alarmed = 0
-			for(var/area/A in areas_added)		//Just in case a fire alarm is turned off while the firedoor is going through an autoclose cycle
-				if(A.fire || A.air_doors_activated)
-					alarmed = 1
-			if(alarmed)
-				nextstate = FIREDOOR_CLOSED
-				close()
+		addtimer(CALLBACK(src, .proc/do_close), 50)
+
+/obj/machinery/door/firedoor/proc/do_close()
+	var/alarmed = FALSE
+	for (var/thing in areas_added)
+		var/area/A = thing
+		if (A.fire || A.air_doors_activated)
+			alarmed = TRUE
+			break
+
+	if (alarmed)
+		nextstate = FIREDOOR_CLOSED
+		close()
 
 /obj/machinery/door/firedoor/attackby(obj/item/weapon/C as obj, mob/user as mob)
 	add_fingerprint(user)
@@ -279,11 +285,9 @@
 					"You force \the [ blocked ? "welded" : "" ] [src] [density ? "open" : "closed"] with \the [C]!",\
 					"You hear metal strain and groan, and a door [density ? "opening" : "closing"].")
 			if(density)
-				spawn(0)
-					open(1)
+				open(1, user)
 			else
-				spawn(0)
-					close()
+				open(0, user)
 			return
 
 	return ..()
@@ -298,6 +302,7 @@
 		lockdown=0
 		// Pressure alerts
 		pdiff = getOPressureDifferential(src.loc)
+		pdiff = QUANTIZE(pdiff)	// Hello, sanity.
 		if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
 			lockdown = 1
 			if(!pdiff_alert)
@@ -316,7 +321,7 @@
 				continue // Bad data.
 			var/celsius = convert_k2c(tileinfo[1])
 
-			var/alerts=0
+			var/alerts = 0
 
 			// Temperatures
 			if(celsius >= FIREDOOR_MAX_TEMP)
@@ -347,12 +352,12 @@
 	return
 
 /obj/machinery/door/firedoor/close()
-	overlays.Cut()
+	cut_overlays()
 	latetoggle()
 	return ..()
 
-/obj/machinery/door/firedoor/open(var/forced = 0)
-	overlays.Cut()
+/obj/machinery/door/firedoor/open(forced = 0, user = usr)
+	cut_overlays()
 	if(hatch_open)
 		hatch_open = 0
 		visible_message("The maintenance panel of \the [src] closes.")
@@ -364,8 +369,7 @@
 		else
 			use_power(360)
 	else
-		log_admin("[usr]([usr.ckey]) has forced open an emergency shutter.",key_name(usr))
-		message_admins("[usr]([usr.ckey]) has forced open an emergency shutter.")
+		log_and_message_admins("has forced open an emergency shutter.", user, loc)
 	latetoggle()
 	return ..()
 
@@ -375,49 +379,52 @@
 			flick("door_opening", src)
 		if("closing")
 			flick("door_closing", src)
-	return
-
 
 /obj/machinery/door/firedoor/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	set_light(0)
 	var/do_set_light = 0
 
 	if(density)
 		icon_state = "door_closed"
 		if(hatch_open)
-			overlays += "hatch"
+			add_overlay("hatch")
 		if(blocked)
-			overlays += "welded"
+			add_overlay("welded")
 		if(pdiff_alert)
-			overlays += "palert"
+			add_overlay("palert")
 			do_set_light = 1
 		if(dir_alerts)
-			for(var/d=1;d<=4;d++)
+			for (var/d = 1; d <= 4; d++)
 				var/cdir = cardinal[d]
-				for(var/i=1;i<=ALERT_STATES.len;i++)
-					if(dir_alerts[d] & (1<<(i-1)))
-						overlays += new/icon(icon,"alert_[ALERT_STATES[i]]", dir=cdir)
-						do_set_light = 1
+				if (!dir_alerts[d])
+					continue
+				if (dir_alerts[d] & FIREDOOR_ALERT_COLD)
+					add_overlay("alert_cold_[cdir]")
+				if (dir_alerts[d] & FIREDOOR_ALERT_HOT)
+					add_overlay("alert_hot_[cdir]")
+
+				do_set_light = TRUE
+
 		if (hashatch)
-			hatch_image.color = hatch_colour//This line is unnecessary, but is here for configuring colours ingame. Should be removed when finished
 			if (hatchstate)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else
 				hatch_image.icon_state = hatchstyle
-			overlays += hatch_image
+			add_overlay(hatch_image)
 	else
 		icon_state = "door_open"
 		if(blocked)
-			overlays += "welded_open"
+			add_overlay("welded_open")
 
 	if(do_set_light)
-		set_light(1.5, 0.5, COLOR_SUN)
+		set_light(2, 0.5, COLOR_SUN)
 
 //These are playing merry hell on ZAS.  Sorry fellas :(
 
-/obj/machinery/door/firedoor/border_only
-/*
+/*/obj/machinery/door/firedoor/border_only
+
+
 	icon = 'icons/obj/doors/edge_Doorfire.dmi'
 	glass = 1 //There is a glass window so you can see through the door
 			  //This is needed due to BYOND limitations in controlling visibility
@@ -443,15 +450,15 @@
 
 
 	update_nearby_tiles(need_rebuild)
-		if(!air_master) return 0
+		if(!SSair) return 0
 
 		var/turf/simulated/source = loc
 		var/turf/simulated/destination = get_step(source,dir)
 
 		update_heat_protection(loc)
 
-		if(istype(source)) air_master.tiles_to_update += source
-		if(istype(destination)) air_master.tiles_to_update += destination
+		if(istype(source)) SSair.tiles_to_update += source
+		if(istype(destination)) SSair.tiles_to_update += destination
 		return 1
 */
 

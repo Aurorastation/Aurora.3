@@ -82,7 +82,7 @@
 		choices |= "Blood"
 	if(istype(A, /obj/item/clothing))
 		choices |= "Gunshot Residue"
-	if(A.other_DNA && A.other_DNA_type == "saliva")
+	if(LAZYLEN(A.other_DNA) && A.other_DNA_type == "saliva")
 		choices |= "Saliva"
 
 	var/choice
@@ -113,7 +113,7 @@
 			sample_type = "residue"
 
 		if ("Saliva")
-			if (!A.other_DNA || !length(A.other_DNA)) return
+			if (!LAZYLEN(A.other_DNA)) return
 			dna = A.other_DNA.Copy()
 			sample_type = "saliva"
 

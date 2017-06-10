@@ -59,7 +59,7 @@
 
 	H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been handcuffed (attempt) by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Attempted to handcuff [H.name] ([H.ckey])</font>")
-	msg_admin_attack("[key_name(user)] attempted to handcuff [key_name(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
+	msg_admin_attack("[key_name_admin(user)] attempted to handcuff [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
 	feedback_add_details("handcuffs","H")
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -88,6 +88,7 @@ var/last_chew = 0
 	if (!H.handcuffed) return
 	if (H.a_intent != I_HURT) return
 	if (H.zone_sel.selecting != "mouth") return
+	if (!H.check_has_mouth()) return
 	if (H.wear_mask) return
 	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket)) return
 

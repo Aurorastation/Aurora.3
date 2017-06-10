@@ -9,6 +9,7 @@
 		slot_r_hand_str = "eng_helm"
 		)
 	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 80)
+	brightness_on = 6
 
 /obj/item/clothing/suit/space/void/engineering
 	name = "engineering voidsuit"
@@ -34,6 +35,7 @@
 		)
 	armor = list(melee = 50, bullet = 5, laser = 20,energy = 5, bomb = 55, bio = 100, rad = 20)
 	light_overlay = "helmet_light_dual"
+	brightness_on = 6
 
 /obj/item/clothing/suit/space/void/mining
 	icon_state = "rig-mining"

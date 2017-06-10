@@ -21,7 +21,7 @@
 	var/seclevel
 
 /obj/machinery/firealarm/update_icon()
-	overlays.Cut()
+	cut_overlays()
 
 	if(wiresexposed)
 		switch(buildstage)
@@ -60,7 +60,7 @@
 					previous_state = icon_state
 					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = "#FF6633")
 
-		src.overlays += image('icons/obj/monitors.dmi', "overlay_[seclevel]")
+		add_overlay("overlay_[seclevel]")
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)
@@ -160,7 +160,6 @@
 			src.alarm()
 			src.time = 0
 			src.timing = 0
-			processing_objects.Remove(src)
 		src.updateDialog()
 	last_process = world.timeofday
 
@@ -171,8 +170,7 @@
 
 /obj/machinery/firealarm/power_change()
 	..()
-	spawn(rand(0,15))
-		update_icon()
+	queue_icon_update()
 
 /obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/data[0]
@@ -181,7 +179,7 @@
 	var/area/A = get_area(src)
 	data["active"] = A.fire
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "firealarm.tmpl", "Fire Alarm", 325, 325, state = state)
 		ui.set_initial_data(data)
@@ -228,12 +226,13 @@
 	//playsound(src.loc, 'sound/ambience/signal.ogg', 75, 0)
 	return
 
-/obj/machinery/firealarm/New(loc, dir, building)
-	..()
+/obj/machinery/firealarm/proc/set_security_level(var/newlevel)
+	if(seclevel != newlevel)
+		seclevel = newlevel
+		update_icon()
 
-	if(loc)
-		src.loc = loc
-
+/obj/machinery/firealarm/Initialize(mapload, dir, building)
+	. = ..()
 	if(dir)
 		src.set_dir(dir)
 
@@ -244,12 +243,6 @@
 		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
 		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
 
-/obj/machinery/firealarm/proc/set_security_level(var/newlevel)
-	if(seclevel != newlevel)
-		seclevel = newlevel
-		update_icon()
-
-/obj/machinery/firealarm/initialize()
 	if(z in config.contact_levels)
 		set_security_level(security_level? get_security_level() : "green")
 
@@ -293,7 +286,7 @@ Just a object used in constructing fire alarms
 	var/area/A = get_area(src)
 	data["active"] = A.party
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "partyalarm.tmpl", "PARTY ALARM", 325, 325, state = state)
 		ui.set_initial_data(data)

@@ -16,26 +16,27 @@
 	explosion_resistance = 5
 	air_properties_vary_with_direction = 1
 
-/obj/machinery/door/window/New()
-	..()
-	update_nearby_tiles()
-	if (src.req_access && src.req_access.len)
-		src.icon_state = "[src.icon_state]"
-		src.base_state = src.icon_state
-	return
+	atmos_canpass = CANPASS_PROC
+
+/obj/machinery/door/window/Initialize(mapload)
+	. = ..()
+	if (!mapload)
+		update_nearby_tiles()
+
+	if (LAZYLEN(req_access))
+		icon_state = "[icon_state]"
+		base_state = icon_state
 
 /obj/machinery/door/window/proc/shatter(var/display_message = 1)
 	new /obj/item/weapon/material/shard(src.loc)
-	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(src.loc)
+	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
 	CC.amount = 2
 	var/obj/item/weapon/airlock_electronics/ae
 	if(!electronics)
-		ae = new/obj/item/weapon/airlock_electronics( src.loc )
-		if(!src.req_access)
-			src.check_access()
-		if(src.req_access.len)
+		ae = new/obj/item/weapon/airlock_electronics(loc)
+		if(LAZYLEN(req_access))
 			ae.conf_access = src.req_access
-		else if (src.req_one_access.len)
+		else if (LAZYLEN(req_one_access))
 			ae.conf_access = src.req_one_access
 			ae.one_access = 1
 	else
@@ -54,36 +55,31 @@
 /obj/machinery/door/window/Destroy()
 	density = 0
 	update_nearby_tiles()
-	..()
+	return ..()
 
 /obj/machinery/door/window/Bumped(atom/movable/AM as mob|obj)
-	if (!( ismob(AM) ))
+	if (istype(AM, /obj))
 		var/mob/living/bot/bot = AM
 		if(istype(bot))
 			if(density && src.check_access(bot.botcard))
 				open()
-				sleep(50)
-				close()
+				addtimer(CALLBACK(src, .proc/close), 50)
 		else if(istype(AM, /obj/mecha))
 			var/obj/mecha/mecha = AM
 			if(density)
 				if(mecha.occupant && src.allowed(mecha.occupant))
 					open()
-					sleep(50)
-					close()
+					addtimer(CALLBACK(src, .proc/close), 50)
 		return
-	if (!( ticker ))
+	if (!( ROUND_IS_STARTED ))
 		return
 	if (src.operating)
 		return
 	if (src.density && (!issmall(AM) || ishuman(AM)) && src.allowed(AM))
 		open()
-		if(src.check_access(null))
-			sleep(50)
-		else //secure doors close faster
-			sleep(20)
-		close()
-	return
+		//secure doors close faster
+		var/time = check_access(null) ? 50 : 20
+		addtimer(CALLBACK(src, .proc/close), time)
 
 /obj/machinery/door/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover) && mover.checkpass(PASSGLASS))
@@ -105,18 +101,17 @@
 /obj/machinery/door/window/open()
 	if (src.operating == 1) //doors can still open when emag-disabled
 		return 0
-	if (!ticker)
+	if (!ROUND_IS_STARTED)
 		return 0
 	if(!src.operating) //in case of emag
 		src.operating = 1
-	flick(text("[]opening", src.base_state), src)
+	flick("[base_state]opening", src)
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
-	src.icon_state = text("[]open", src.base_state)
+	icon_state = "[base_state]open"
 	sleep(10)
 
 	explosion_resistance = 0
 	src.density = 0
-//	src.sd_SetOpacity(0)	//TODO: why is this here? Opaque windoors? ~Carn
 	update_nearby_tiles()
 
 	if(operating == 1) //emag again
@@ -127,14 +122,12 @@
 	if (src.operating)
 		return 0
 	src.operating = 1
-	flick(text("[]closing", src.base_state), src)
+	flick("[base_state]closing", src)
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
 	src.icon_state = src.base_state
 
 	src.density = 1
 	explosion_resistance = initial(explosion_resistance)
-//	if(src.visible)
-//		SetOpacity(1)	//TODO: why is this here? Opaque windoors? ~Carn
 	update_nearby_tiles()
 
 	sleep(10)
@@ -156,6 +149,7 @@
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(H.species.can_shred(H))
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 			visible_message("<span class='danger'>[user] smashes against the [src.name].</span>", 1)
 			take_damage(25)
@@ -207,11 +201,9 @@
 			var/obj/item/weapon/airlock_electronics/ae
 			if(!electronics)
 				ae = new/obj/item/weapon/airlock_electronics( src.loc )
-				if(!src.req_access)
-					src.check_access()
-				if(src.req_access.len)
+				if(LAZYLEN(req_access))
 					ae.conf_access = src.req_access
-				else if (src.req_one_access.len)
+				else if (LAZYLEN(req_one_access))
 					ae.conf_access = src.req_one_access
 					ae.one_access = 1
 			else
@@ -244,11 +236,7 @@
 			close()
 
 	else if (src.density)
-		flick(text("[]deny", src.base_state), src)
-
-	return
-
-
+		flick("[base_state]deny", src)
 
 /obj/machinery/door/window/brigdoor
 	name = "secure door"

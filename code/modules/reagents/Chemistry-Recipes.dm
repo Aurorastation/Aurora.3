@@ -96,7 +96,7 @@
 
 	return progress
 
-/datum/chemical_reaction/proc/process(var/datum/reagents/holder)
+/datum/chemical_reaction/process(var/datum/reagents/holder)
 	//determine how far the reaction can proceed
 	var/list/reaction_limits = list()
 	for(var/reactant in required_reagents)
@@ -1507,6 +1507,13 @@
 	required_reagents = list("egg" = 3, "flour" = 10, "beer" = 5, "sodiumchloride" = 2)
 	result_amount = 20
 
+/datum/chemical_reaction/browniemix
+	name = "Brownie Mix"
+	id = "browniemix"
+	result = "browniemix"
+	required_reagents = list("flour" = 5, "coco" = 5, "sugar" = 5)
+	result_amount = 15
+
 /*
 	Todo in future:
 		Cornmeal batter for corndogs
@@ -1560,6 +1567,8 @@
 	required_reagents = list("ice" = 1, "tea" = 2)
 	result_amount = 3
 
+
+
 /datum/chemical_reaction/icecoffee
 	name = "Iced Coffee"
 	id = "icecoffee"
@@ -1581,6 +1590,14 @@
 	required_reagents = list("nutriment" = 10)
 	catalysts = list("enzyme" = 5)
 	result_amount = 10
+
+/datum/chemical_reaction/butanol
+	name = "Butanol"
+	id = "butanol"
+	result = "butanol"
+	required_reagents = list("cornoil" = 10, "sugar" = 10)
+	catalysts = list("enzyme" = 5)
+	result_amount = 5
 
 /datum/chemical_reaction/grenadine
 	name = "Grenadine Syrup"

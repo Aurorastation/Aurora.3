@@ -141,6 +141,7 @@
 	M.confused = 0
 	M.sleeping = 0
 	M.jitteriness = 0
+	M.intoxication = 0
 	for(var/datum/disease/D in M.viruses)
 		D.spread = "Remissive"
 		D.stage--
@@ -194,7 +195,7 @@
 		return
 	M.SetParalysis(0)
 	M.SetWeakened(0)
-	M.adjustToxLoss(rand(3))
+	M.adjustToxLoss(rand(3)*removed)
 
 /datum/reagent/water/holywater
 	name = "Holy Water"

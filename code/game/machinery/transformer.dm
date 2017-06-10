@@ -8,11 +8,23 @@
 	density = 1
 	var/transform_dead = 0
 	var/transform_standing = 0
+	var/canuse = 1
 
-/obj/machinery/transformer/New()
+/obj/machinery/transformer/Initialize()
 	// On us
-	..()
-	new /obj/machinery/conveyor(loc, WEST, 1)
+	. = ..()
+	new /obj/machinery/conveyor(loc, WEST, 1) // this doesnt need to check for a location because it is under the machine so its assumed there is one
+	var/turf/T = get_turf(src)
+	if(T)// Spawn Conveyour Belts
+		//East
+		var/turf/east = get_step(src, EAST)
+		if(istype(east, /turf/simulated/floor))
+			new /obj/machinery/conveyor(east, WEST, 1)
+
+		// West
+		var/turf/west = get_step(src, WEST)
+		if(istype(west, /turf/simulated/floor))
+			new /obj/machinery/conveyor(west, WEST, 1)
 
 /obj/machinery/transformer/Bumped(var/atom/movable/AM)
 	// HasEntered didn't like people lying down.
@@ -20,37 +32,29 @@
 		// Only humans can enter from the west side, while lying down.
 		var/move_dir = get_dir(loc, AM.loc)
 		var/mob/living/carbon/human/H = AM
-		if((transform_standing || H.lying) && move_dir == EAST)// || move_dir == WEST)
+		if((transform_standing || H.lying) && move_dir == EAST)
 			AM.loc = src.loc
-			transform(AM)
+			make_robot(AM)
 
-/obj/machinery/transformer/proc/transform(var/mob/living/carbon/human/H)
+/obj/machinery/transformer/proc/make_robot(var/mob/living/carbon/human/H)
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(!transform_dead && H.stat == DEAD)
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 		return
-	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-	use_power(5000) // Use a lot of power.
-	var/mob/living/silicon/robot = H.Robotize()
-	robot.SetLockDown()
-	spawn(50) // So he can't jump out the gate right away.
+	if(canuse)
+		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+		use_power(6000) // Use a lot of power.
+		visible_message("<span class='danger'>The machine makes a series of loud sounds as it starts to replace [H]'s organs and limbs with robotic parts!</span>")
+		H <<"<span class='danger'>You feel a horrible pain as the machine you entered starts to rip you apart and replace your limbs and organs!</span>"
+		sleep(600) // takes some time so they aren't just instaconverted
+		H <<"<span class='danger'> You lose consciousness for a brief moment before waking up with a whole new body...</span>"
+		H.Robotize()
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-		if(robot)
-			robot.SetLockDown(0)
-
-/obj/machinery/transformer/conveyor/New()
-	..()
-	var/turf/T = loc
-	if(T)
-		// Spawn Conveyour Belts
-
-		//East
-		var/turf/east = locate(T.x + 1, T.y, T.z)
-		if(istype(east, /turf/simulated/floor))
-			new /obj/machinery/conveyor(east, WEST, 1)
-
-		// West
-		var/turf/west = locate(T.x - 1, T.y, T.z)
-		if(istype(west, /turf/simulated/floor))
-			new /obj/machinery/conveyor(west, WEST, 1)
+		canuse = 0
+		sleep(120) // cooldown
+		canuse = 1
+	else
+		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
+		visible_message("<span class='notice'>The machine displays an error message reading it is still making the required parts.</span>")
+		return

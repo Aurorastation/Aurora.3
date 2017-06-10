@@ -1,6 +1,5 @@
 /mob/living/silicon/robot/Life()
-	set invisibility = 0
-	set background = 1
+	set background = BACKGROUND_ENABLED
 
 	if (src.transforming)
 		return
@@ -58,7 +57,7 @@
 		src.has_power = 1
 	else
 		if (src.has_power)
-			src << "\red You are now running on emergency backup power."
+			src << "<span class='warning'>You are now running on emergency backup power.</span>"
 		src.has_power = 0
 		if(lights_on) // Light is on but there is no power!
 			lights_on = 0

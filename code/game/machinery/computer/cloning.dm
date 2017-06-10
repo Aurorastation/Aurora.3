@@ -16,8 +16,8 @@
 	var/obj/item/weapon/disk/data/diskette = null //Mostly so the geneticist can steal everything.
 	var/loading = 0 // Nice loading text
 
-/obj/machinery/computer/cloning/initialize()
-	..()
+/obj/machinery/computer/cloning/Initialize()
+	. = ..()
 	set_expansion(/datum/expansion/multitool, new/datum/expansion/multitool/cryo(src, list(/proc/is_operable)))
 	updatemodules()
 

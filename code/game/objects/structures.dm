@@ -10,7 +10,9 @@
 /obj/structure/Destroy()
 	if(parts)
 		new parts(loc)
-	..()
+	if (smooth)
+		queue_smooth_neighbors(src)
+	return ..()
 
 /obj/structure/attack_hand(mob/user)
 	if(breakable)
@@ -44,14 +46,14 @@
 		if(3.0)
 			return
 
-/obj/structure/New()
-	..()
+/obj/structure/Initialize()
+	. = ..()
 	updateVisibility(src)
 	if(climbable)
 		verbs += /obj/structure/proc/climb_on
-
-/obj/structure/Destroy()
-	..()
+	if (smooth)
+		queue_smooth(src)
+		queue_smooth_neighbors(src)
 
 /obj/structure/proc/climb_on()
 

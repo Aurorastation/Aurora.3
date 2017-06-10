@@ -1,4 +1,7 @@
 var/list/GPS_list = list()
+
+var/global/list/gps_by_type = list()
+
 /obj/item/device/gps
 	name = "global positioning system"
 	desc = "Helping lost spacemen find their way through the planets since 2016."
@@ -7,28 +10,35 @@ var/list/GPS_list = list()
 	w_class = 2
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	var/gps_prefix = "COM"
 	var/gpstag = "COM0"
 	var/emped = 0
 	var/turf/locked_location
 
-/obj/item/device/gps/New()
-	..()
+/obj/item/device/gps/Initialize()
+	. = ..()
 	GPS_list.Add(src)
+	LAZYADD(gps_by_type["[type]"], src)
+	gpstag = "[gps_prefix][LAZYLEN(gps_by_type["[type]"])]"
 	name = "global positioning system ([gpstag])"
-	overlays += "working"
+	add_overlay("working")
 
 /obj/item/device/gps/Destroy()
 	GPS_list.Remove(src)
+	var/list/typelist = gps_by_type["[type]"]
+	LAZYREMOVE(typelist, src)
 	return ..()
 
 /obj/item/device/gps/emp_act(severity)
 	emped = 1
-	overlays -= "working"
-	overlays += "emp"
-	spawn(300)
-		emped = 0
-		overlays -= "emp"
-		overlays += "working"
+	cut_overlay("working")
+	add_overlay("emp")
+	addtimer(CALLBACK(src, .proc/post_emp), 300)
+
+/obj/item/device/gps/proc/post_emp()
+	emped = 0
+	cut_overlay("emp")
+	add_overlay("working")
 
 /obj/item/device/gps/attack_self(mob/user)
 
@@ -69,13 +79,16 @@ var/list/GPS_list = list()
 
 /obj/item/device/gps/science
 	icon_state = "gps-s"
+	gps_prefix = "SCI"
 	gpstag = "SCI0"
 
 /obj/item/device/gps/engineering
 	icon_state = "gps-e"
+	gps_prefix = "ENG"
 	gpstag = "ENG0"
 
 /obj/item/device/gps/mining
 	icon_state = "gps-m"
-	gpstag = "MINE0"
+	gps_prefix = "MIN"
+	gpstag = "MIN0"
 	desc = "A positioning system helpful for rescuing trapped or injured miners, keeping one on you at all times while mining might just save your life."

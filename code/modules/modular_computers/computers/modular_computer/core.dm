@@ -50,24 +50,25 @@
 		for (var/datum/computer_file/program/prog in programs)
 			hard_drive.store_file(prog)
 
-/obj/item/modular_computer/New()
-	processing_objects.Add(src)
+/obj/item/modular_computer/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
 		install_default_programs()
 	update_icon()
-	..()
 
 /obj/item/modular_computer/Destroy()
 	kill_program(1)
 	for(var/obj/item/weapon/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/modular_computer/emag_act(var/remaining_charges, var/mob/user)
 	if(computer_emagged)
-		to_chat(user, "\The [src] was already emagged.")
+		to_chat(user, "\The [src] has already been emagged.")
 		return NO_EMAG_ACT
 	else
 		computer_emagged = 1
@@ -77,14 +78,14 @@
 /obj/item/modular_computer/update_icon()
 	icon_state = icon_state_unpowered
 
-	overlays.Cut()
+	cut_overlays()
 	if(!enabled)
 		var/probably_working = hard_drive && processor_unit && damage < broken_damage && (apc_power(0) || battery_power(0))
 		if(icon_state_screensaver && probably_working)
 			if (is_holographic)
 				holographic_overlay(src, src.icon, icon_state_screensaver)
 			else
-				overlays += image(icon_state_screensaver)
+				add_overlay(icon_state_screensaver)
 		
 		if (screensaver_light_range && probably_working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -96,13 +97,13 @@
 		if (is_holographic)
 			holographic_overlay(src, src.icon, state)
 		else
-			overlays += image(state)
+			add_overlay(state)
 		set_light(light_strength, l_color = active_program.color)
 	else
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_state_menu)
 		else
-			overlays += image(icon_state_menu)
+			add_overlay(icon_state_menu)
 		set_light(light_strength, l_color = menu_light_color)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)
@@ -178,7 +179,7 @@
 
 	idle_threads.Add(active_program)
 	active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
-	nanomanager.close_uis(active_program.NM ? active_program.NM : active_program)
+	SSnanoui.close_uis(active_program.NM ? active_program.NM : active_program)
 	active_program = null
 	update_icon()
 	if(istype(user))
@@ -224,11 +225,11 @@
 
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
-		nanomanager.update_uis(active_program)
+		SSnanoui.update_uis(active_program)
 		if(active_program.NM)
-			nanomanager.update_uis(active_program.NM)
+			SSnanoui.update_uis(active_program.NM)
 	else
-		nanomanager.update_uis(src)
+		SSnanoui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()
 	var/ui_update_needed = 0

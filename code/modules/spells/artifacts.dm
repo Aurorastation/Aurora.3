@@ -12,15 +12,15 @@
 	force = 10
 	hitsound = 'sound/items/welder2.ogg'
 
-/obj/item/weapon/scrying/attack_self(mob/user as mob)
-	if(!(user.faction == "Space Wizard"))
+/obj/item/weapon/scrying/attack_self(mob/living/user as mob)
+	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/E = H.internal_organs_by_name["eyes"]
-			user << "\red You stare deep into the abyss. . . and the abyss stares back."
+			user << "<span class='warning'>You stare deep into the abyss. . . and the abyss stares back.</span>"
 			sleep(10)
-			user << "\red Your eyes fill with painful light, and you feel a sharp burning sensation in your head!"
+			user << "<span class='warning'>Your eyes fill with painful light, and you feel a sharp burning sensation in your head!</span>"
 			user.show_message("<b>[user]</b> screams in horror!",2)
 			playsound(user, 'sound/hallucinations/far_noise.ogg', 40, 1)
 			user.drop_item()
@@ -78,7 +78,7 @@
 	user << "<span class='notice'>\The [src] slowly dies out.</span>"
 
 /obj/item/weapon/melee/energy/wizard/attack(mob/living/M, mob/living/user, var/target_zone)
-	if(user.faction == "Space Wizard")
+	if(user.is_wizard())
 		return ..()
 
 	var/zone = (user.hand ? "l_arm":"r_arm")
@@ -119,3 +119,43 @@
 /obj/item/weapon/material/twohanded/spear/bone
 	desc = "A spear crafted with bones of some long forgotten creature."
 	default_material = "cursed bone"
+
+//lich phylactery
+
+/obj/item/phylactery
+	name = "phylactery"
+	desc = "A twisted mummified heart."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "cursedheart-off"
+	origin_tech = list(TECH_BLUESPACE = 8, TECH_MATERIAL = 8, TECH_BIO = 8)
+	w_class = 5
+	light_color = "#6633CC"
+	light_power = 3
+	light_range = 4
+	
+	var/lich = null
+
+/obj/item/phylactery/New()
+	..()
+	world_phylactery += src
+
+/obj/item/phylactery/Destroy()
+	lich << "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>"
+	world_phylactery -= src
+	lich = null
+	return ..()
+	
+/obj/item/phylactery/examine(mob/user)
+	..(user)
+	if(!lich)
+		user << "The heart is inert."
+	else
+		user << "The heart is pulsing slowly."
+	
+/obj/item/phylactery/attackby(var/obj/item/I, var/mob/user)
+	..()
+	if(istype(I, /obj/item/weapon/nullrod))
+		src.visible_message("\The [src] twists violently and explodes!")
+		gibs(src.loc)
+		qdel(src)
+		return

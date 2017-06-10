@@ -19,7 +19,7 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/bearmeat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
-	response_harm   = "pokes"
+	response_harm   = "hits"
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 80
 	melee_damage_lower = 16
@@ -76,8 +76,8 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
 
-/mob/living/simple_animal/hostile/bear/New()
-	..()
+/mob/living/simple_animal/hostile/bear/Initialize()
+	. = ..()
 	update_bearmode()
 
 /mob/living/simple_animal/hostile/bear/harvest()
@@ -304,7 +304,7 @@
 			instant_aggro()
 
 
-/mob/living/simple_animal/hostile/bear/Process_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/hostile/bear/Allow_Spacemove(var/check_drift = 0)
 	inertia_dir = 0
 	return 1	//No drifting in space for space bears!
 	//Fixed this, it wasnt working
@@ -434,7 +434,7 @@
 	var/datum/effect_system/sparks/spark_system
 	always_space_mode = TRUE
 
-/mob/living/simple_animal/hostile/bear/spatial/New()
+/mob/living/simple_animal/hostile/bear/spatial/Initialize()
 	. = ..()
 	spark_system = bind_spark(src, 5)
 

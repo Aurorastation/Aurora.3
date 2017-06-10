@@ -5,7 +5,6 @@ var/datum/admin_secrets/admin_secrets = new()
 	var/list/datum/admin_secret_item/items
 
 /datum/admin_secrets/New()
-	..()
 	categories = init_subtypes(/datum/admin_secret_category)
 	items = list()
 	var/list/category_assoc = list()
@@ -19,8 +18,11 @@ var/datum/admin_secrets/admin_secrets = new()
 
 		var/datum/admin_secret_item/item = new item_type()
 		var/datum/admin_secret_category/category = category_assoc[item.category]
-		dd_insertObjectList(category.items, item)
+		category.items += item
 		items += item
+
+	for (var/datum/admin_secret_category/category in categories)
+		sortTim(category.items, /proc/cmp_text_dsc)
 
 /datum/admin_secret_category
 	var/name = ""

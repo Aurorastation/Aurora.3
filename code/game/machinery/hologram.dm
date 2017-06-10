@@ -44,7 +44,8 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 
 	var/list/mob/living/silicon/ai/masters = new() //List of AIs that use the holopad
 	var/last_request = 0 //to prevent request spam. ~Carn
-	var/holo_range = 5 // Change to change how far the AI can move away from the holopad before deactivating.
+	var/holo_range = 5 // Change to change how far the AI can move away from the holopad before deactivating
+	var/hacked = 0 // if hacked the hologram doesn't display. It only gives audio feedback.
 
 /obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
 	if(!istype(user))
@@ -80,7 +81,8 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 			user << "<span class='danger'>ERROR:</span> Image feed in progress."
 			return
 		create_holo(user)//Create one.
-		src.visible_message("A holographic image of [user] flicks to life right before your eyes!")
+		if(hacked == 0)
+			src.visible_message("A holographic image of [user] flicks to life right before your eyes!")
 	else
 		user << "<span class='danger'>ERROR:</span> Unable to project hologram."
 	return
@@ -120,19 +122,27 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	return
 
 /obj/machinery/hologram/holopad/proc/create_holo(mob/living/silicon/ai/A, turf/T = loc)
-	var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
-	hologram.icon = A.holo_icon
-	hologram.mouse_opacity = 0//So you can't click on it.
-	hologram.layer = FLY_LAYER//Above all the other objects/mobs. Or the vast majority of them.
-	hologram.anchored = 1//So space wind cannot drag it.
-	hologram.name = "[A.name] (Hologram)"//If someone decides to right click.
-	hologram.set_light(2)	//hologram lighting
-	hologram.color = color //painted holopad gives coloured holograms
-	masters[A] = hologram
-	set_light(2)			//pad lighting
-	icon_state = "holopad1"
-	A.holo = src
-	return 1
+	if(hacked == 0)
+		var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
+		hologram.icon = A.holo_icon
+		hologram.mouse_opacity = 0//So you can't click on it.
+		hologram.layer = FLY_LAYER//Above all the other objects/mobs. Or the vast majority of them.
+		hologram.anchored = 1//So space wind cannot drag it.
+		hologram.name = "[A.name] (Hologram)"//If someone decides to right click.
+		hologram.set_light(2)	//hologram lighting
+		hologram.color = color //painted holopad gives coloured holograms
+		masters[A] = hologram
+		set_light(2)			//pad lighting
+		icon_state = "holopad1"
+		A.holo = src
+		return 1
+	if(hacked == 1)
+		var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
+		hologram.mouse_opacity = 0//So you can't click on it.
+		hologram.anchored = 1//So space wind cannot drag it.
+		masters[A] = hologram
+		A.holo = src
+		return 1
 
 /obj/machinery/hologram/holopad/proc/clear_holo(mob/living/silicon/ai/user)
 	if(user.holo == src)
@@ -205,7 +215,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/Destroy()
 	for (var/mob/living/silicon/ai/master in masters)
 		clear_holo(master)
-	..()
+	return ..()
 
 /*
 Holographic project of everything else.

@@ -7,7 +7,7 @@
 
 /obj/machinery/mining/drill
 	name = "mining drill head"
-	desc = "An enormous drill."
+	desc = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
 	icon_state = "mining_drill"
 	var/braces_needed = 2
 	var/list/supports = list()

@@ -20,20 +20,26 @@ fundamental differences
 	..()
 	user << span("notice", "It is currently set to make a [selected_option]")
 
-/obj/machinery/appliance/mixer/New()
-	..()
-	cooking_objs.Add(new /datum/cooking_item/(new /obj/item/weapon/reagent_containers/cooking_container(src)))
+/obj/machinery/appliance/mixer/Initialize()
+	. = ..()
+	cooking_objs += new /datum/cooking_item(new /obj/item/weapon/reagent_containers/cooking_container(src))
 	cooking = 0
 	selected_option = pick(output_options)
 
 //Mixers cannot-not do combining mode. So the default option is removed from this. A combine target must be chosen
 /obj/machinery/appliance/mixer/choose_output()
-	set src in view()
+	set src in oview(1)
 	set name = "Choose output"
 	set category = "Object"
 
-	if(output_options.len)
+	if (!isliving(usr))
+		return
 
+	if (!usr.IsAdvancedToolUser())
+		usr << "<span class='notice'>You can't operate [src].</span>"
+		return
+
+	if(output_options.len)
 		var/choice = input("What specific food do you wish to make with \the [src]?") as null|anything in output_options
 		if(!choice)
 			return

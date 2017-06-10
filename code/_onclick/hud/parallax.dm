@@ -1,20 +1,9 @@
-// Until we convert to planes.
-#define PLANE_SPACE_BACKGROUND -98
-#define PLANE_SPACE_PARALLAX (PLANE_SPACE_BACKGROUND + 1) // -97
-#define PLANE_SPACE_DUST (PLANE_SPACE_PARALLAX + 1) // -96
-#define PLANE_ABOVE_PARALLAX (PLANE_SPACE_BACKGROUND + 3) // -95
-
 /*
  * This file handles all parallax-related business once the parallax itself is initialized with the rest of the HUD
  */
 #define PARALLAX_IMAGE_WIDTH 8
 #define PARALLAX_IMAGE_TILES (PARALLAX_IMAGE_WIDTH**2)
 #define GRID_WIDTH 3
-
-var/list/parallax_on_clients = list()
-var/parallax_initialized = 0
-var/space_color = "#050505"
-var/list/parallax_icon[(GRID_WIDTH**2)*3]
 
 /obj/screen/parallax
 	var/base_offset_x = 0
@@ -32,24 +21,26 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 /obj/screen/plane_master
 	appearance_flags = PLANE_MASTER
 	screen_loc = "CENTER,CENTER"
-	
+
 /obj/screen/plane_master/parallax_master
 	plane = PLANE_SPACE_PARALLAX
 	blend_mode = BLEND_MULTIPLY
 	color = list(
-	1,0,0,0,
-	0,1,0,0,
-	0,0,1,0,
-	0,0,0,0,
-	0,0,0,1)
+		1,0,0,0,
+		0,1,0,0,
+		0,0,1,0,
+		0,0,0,0,
+		0,0,0,1
+	)
 
 /obj/screen/plane_master/parallax_spacemaster //Turns space white, causing the parallax to only show in areas with opacity. Somehow
 	plane = PLANE_SPACE_BACKGROUND
 	color = list(
-	0,0,0,0,
-	0,0,0,0,
-	0,0,0,0,
-	1,1,1,1)
+		0,0,0,0,
+		0,0,0,0,
+		0,0,0,0,
+		1,1,1,1
+	)
 
 /obj/screen/plane_master/parallax_spacemaster/New()
 	..()
@@ -62,7 +53,7 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 	color = list(0,0,0,0)
 
 /datum/hud/proc/update_parallax_existence()
-	if(!parallax_initialized)
+	if(!SSparallax.parallax_initialized)
 		return
 	initialize_parallax()
 	update_parallax()
@@ -79,7 +70,7 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 		C.parallax_dustmaster = new /obj/screen/plane_master/parallax_dustmaster
 
 	if(!C.parallax.len)
-		for(var/obj/screen/parallax/bgobj in parallax_icon)
+		for(var/obj/screen/parallax/bgobj in SSparallax.parallax_icon)
 			var/obj/screen/parallax/parallax_layer = new /obj/screen/parallax
 			parallax_layer.appearance = bgobj.appearance
 			parallax_layer.base_offset_x = bgobj.base_offset_x
@@ -99,7 +90,7 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 /datum/hud/proc/update_parallax()
 	var/client/C = mymob.client
 	if(C.prefs.parallax_togs & PARALLAX_SPACE)
-		parallax_on_clients |= C
+		SSparallax.parallax_on_clients |= C
 		for(var/obj/screen/parallax/bgobj in C.parallax)
 			C.screen |= bgobj
 		C.screen |= C.parallax_master
@@ -115,17 +106,17 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 	else
 		for(var/obj/screen/parallax/bgobj in C.parallax)
 			C.screen -= bgobj
-		parallax_on_clients -= C
+		SSparallax.parallax_on_clients -= C
 		C.screen -= C.parallax_master
 		C.screen -= C.parallax_spacemaster
 		C.parallax_dustmaster.color = list(0,0,0,0)
 
 /datum/hud/proc/update_parallax_values()
 	var/client/C = mymob.client
-	if(!parallax_initialized)
+	if(!SSparallax.parallax_initialized)
 		return
 
-	if(!(locate(/turf/space) in trange(C.view,get_turf(C.eye))))
+	if(!(locate(/turf/space) in trange(C.view,get_turf(C.eye))) && !(locate(/turf/simulated/open) in trange(C.view,get_turf(C.eye))))
 		return
 
 	//ACTUALLY MOVING THE PARALLAX
@@ -193,7 +184,7 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 		parallax_layer.overlays = L
 		parallax_layer.parallax_speed = 0
 		parallax_layer.calibrate_parallax(i+1)
-		parallax_icon[index] = parallax_layer
+		SSparallax.parallax_icon[index] = parallax_layer
 		index++
 
 	for(var/i in 0 to ((GRID_WIDTH**2)-1))
@@ -210,7 +201,7 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 		parallax_layer.overlays = L
 		parallax_layer.parallax_speed = 0.5
 		parallax_layer.calibrate_parallax(i+1)
-		parallax_icon[index] = parallax_layer
+		SSparallax.parallax_icon[index] = parallax_layer
 		index++
 
 	for(var/i in 0 to ((GRID_WIDTH**2)-1))
@@ -226,10 +217,10 @@ var/list/parallax_icon[(GRID_WIDTH**2)*3]
 		parallax_layer.overlays = L
 		parallax_layer.parallax_speed = 1
 		parallax_layer.calibrate_parallax(i+1)
-		parallax_icon[index] = parallax_layer
+		SSparallax.parallax_icon[index] = parallax_layer
 		index++
 
-	parallax_initialized = 1
+	SSparallax.parallax_initialized = 1
 
 /obj/screen/parallax/proc/calibrate_parallax(var/i)
 	if(!i)

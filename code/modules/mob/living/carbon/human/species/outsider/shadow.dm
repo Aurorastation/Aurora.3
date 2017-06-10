@@ -14,6 +14,8 @@
 	rarity_value = 10
 	virus_immune = 1
 
+	fall_mod = 0
+
 	blood_color = "#CCCCCC"
 	flesh_color = "#AAAAAA"
 

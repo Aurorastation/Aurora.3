@@ -20,7 +20,8 @@
 	..()
 	beaker = new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
 
-/obj/machinery/sleeper/initialize()
+/obj/machinery/sleeper/Initialize()
+	. = ..()
 	update_icon()
 
 /obj/machinery/sleeper/process()
@@ -88,7 +89,7 @@
 		data["beaker"] = -1
 	data["filtering"] = filtering
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "sleeper.tmpl", "Sleeper UI", 600, 600, state = state)
 		ui.set_initial_data(data)

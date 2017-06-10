@@ -89,27 +89,33 @@
 	new src.foldable(get_turf(src))
 	qdel(src)
 
-/obj/item/weapon/storage/box/survival/
-	New()
-		..()
-		new /obj/item/clothing/mask/breath( src )
-		new /obj/item/weapon/tank/emergency_oxygen( src )
+/obj/item/weapon/storage/box/survival
+	autodrobe_no_remove = 1
 
-/obj/item/weapon/storage/box/vox/
-	New()
-		..()
-		new /obj/item/clothing/mask/breath( src )
-		new /obj/item/weapon/tank/emergency_nitrogen( src )
+/obj/item/weapon/storage/box/survival/New()
+	..()
+	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/weapon/tank/emergency_oxygen(src)
+	for(var/obj/item/thing in contents)
+		thing.autodrobe_no_remove = 1
 
-/obj/item/weapon/storage/box/engineer/
-	New()
-		..()
-		new /obj/item/clothing/mask/breath( src )
-		new /obj/item/weapon/tank/emergency_oxygen/engi( src )
+/obj/item/weapon/storage/box/vox/New()
+	..()
+	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/weapon/tank/emergency_nitrogen( src )
+
+/obj/item/weapon/storage/box/engineer
+	autodrobe_no_remove = 1
+/obj/item/weapon/storage/box/engineer/New()
+	..()
+	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/weapon/tank/emergency_oxygen/engi( src )
+	for(var/obj/item/thing in contents)
+		thing.autodrobe_no_remove = 1
 
 /obj/item/weapon/storage/box/gloves
-	name = "box of latex gloves"
-	desc = "Contains white gloves."
+	name = "box of sterile gloves"
+	desc = "Contains sterile gloves."
 	icon_state = "latex"
 
 	New()
@@ -118,9 +124,9 @@
 		new /obj/item/clothing/gloves/latex(src)
 		new /obj/item/clothing/gloves/latex(src)
 		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/clothing/gloves/latex(src)
+		new /obj/item/clothing/gloves/latex/nitrile(src)
+		new /obj/item/clothing/gloves/latex/nitrile(src)
+		new /obj/item/clothing/gloves/latex/nitrile(src)
 
 /obj/item/weapon/storage/box/masks
 	name = "box of sterile masks"
@@ -812,3 +818,13 @@
 		var/type = pick(snacks)
 		new type(src)
 	..()
+
+/obj/item/weapon/storage/box/stims
+	name = "stimpack value kit"
+	desc = "A box with several stimpack medipens for the economical miner."
+	icon_state = "syringe"
+
+/obj/item/weapon/storage/box/stims/New()
+	..()
+	for(var/i in 1 to 4)
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack(src)

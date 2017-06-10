@@ -113,22 +113,6 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 		//not returning 1 so people and borgs can still use things, like syringes and hyposprays, while their patients are on the table
 	return 0
 
-proc/sort_surgeries()
-	var/gap = surgery_steps.len
-	var/swapped = 1
-	while (gap > 1 || swapped)
-		swapped = 0
-		if(gap > 1)
-			gap = round(gap / 1.247330950103979)
-		if(gap < 1)
-			gap = 1
-		for(var/i = 1; gap + i <= surgery_steps.len; i++)
-			var/datum/surgery_step/l = surgery_steps[i]		//Fucking hate
-			var/datum/surgery_step/r = surgery_steps[gap+i]	//how lists work here
-			if(l.priority < r.priority)
-				surgery_steps.Swap(i, gap + i)
-				swapped = 1
-
 /datum/surgery_status/
 	var/eyes	=	0
 	var/face	=	0
