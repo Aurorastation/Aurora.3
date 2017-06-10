@@ -47,19 +47,6 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	req_access = list(access_research)	//Data and setting manipulation requires scientist access.
 
-/obj/machinery/computer/rdconsole/proc/CallTechName(var/ID) //A simple helper proc to find the name of a tech with a given ID.
-	var/datum/tech/check_tech
-	var/return_name = null
-	for(var/T in typesof(/datum/tech) - /datum/tech)
-		check_tech = null
-		check_tech = new T()
-		if(check_tech.id == ID)
-			return_name = check_tech.name
-			qdel(check_tech)
-			check_tech = null
-			break
-	return return_name
-
 /obj/machinery/computer/rdconsole/proc/CallMaterialName(var/ID)
 	var/return_name = ID
 	switch(return_name)
@@ -118,15 +105,13 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			C.files.AddDesign2Known(D)
 		C.files.RefreshResearch()
 
-/obj/machinery/computer/rdconsole/New()
-	..()
+/obj/machinery/computer/rdconsole/Initialize()
+	. = ..()
 	files = new /datum/research(src) //Setup the research data holder.
 	if(!id)
 		for(var/obj/machinery/r_n_d/server/centcom/S in machines)
-			S.initialize()
+			S.setup()
 			break
-
-/obj/machinery/computer/rdconsole/initialize()
 	SyncRDevices()
 
 /obj/machinery/computer/rdconsole/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)

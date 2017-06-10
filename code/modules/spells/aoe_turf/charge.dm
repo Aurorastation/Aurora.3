@@ -23,7 +23,7 @@
 		cast_charge(A)
 
 /spell/aoe_turf/charge/proc/mob_charge(var/mob/living/M)
-	if(M.spell_list.len != 0)
+	if(LAZYLEN(M.spell_list))
 		for(var/spell/S in M.spell_list)
 			if(!istype(S, /spell/aoe_turf/charge))
 				S.charge_counter = S.charge_max

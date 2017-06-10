@@ -44,7 +44,7 @@ nanoui is used to open and update nano browser uis
 	// show the map ui, this is used by the default layout
 	var/show_map = 0
 	// the map z level to display
-	var/map_z_level = 1
+	var/map_z_level = 3
 	// initial data, containing the full data structure, must be sent to the ui (the data structure cannot be extended later on)
 	var/list/initial_data[0]
 	// set to 1 to update the ui automatically every master_controller tick
@@ -185,7 +185,9 @@ nanoui is used to open and update nano browser uis
 			"autoUpdateLayout" = auto_update_layout,
 			"autoUpdateContent" = auto_update_content,
 			"showMap" = show_map,
+			"mapName" = "Aurora",
 			"mapZLevel" = map_z_level,
+			"mapZLevels" = map_levels,
 			"user" = list("name" = user.name)
 		)
 	return config_data
@@ -412,7 +414,7 @@ nanoui is used to open and update nano browser uis
 	winset(user, "mapwindow.map", "focus=true") // return keyboard focus to map
 	on_close_winset()
 	//onclose(user, window_id)
-	nanomanager.ui_opened(src)
+	SSnanoui.ui_opened(src)
 
  /**
   * Reinitialise this UI, potentially with a different template and/or initial data
@@ -433,7 +435,7 @@ nanoui is used to open and update nano browser uis
   */
 /datum/nanoui/proc/close()
 	is_auto_updating = 0
-	nanomanager.ui_closed(src)
+	SSnanoui.ui_closed(src)
 	user << browse(null, "window=[window_id]")
 	for(var/datum/nanoui/child in children)
 		child.close()
@@ -488,11 +490,15 @@ nanoui is used to open and update nano browser uis
 		map_update = 1
 
 	if(href_list["mapZLevel"])
-		set_map_z_level(text2num(href_list["mapZLevel"]))
-		map_update = 1
+		var/map_z = (text2num(href_list["mapZLevel"]))
+		if(map_z in map_levels)
+			set_map_z_level(map_z)
+			map_update = 1
+		else
+			return
 
 	if ((src_object && src_object.Topic(href, href_list, state)) || map_update)
-		nanomanager.update_uis(src_object) // update all UIs attached to src_object
+		SSnanoui.update_uis(src_object) // update all UIs attached to src_object
 
  /**
   * Process this UI, updating the entire UI or just the status (aka visibility)
@@ -502,7 +508,7 @@ nanoui is used to open and update nano browser uis
   *
   * @return nothing
   */
-/datum/nanoui/proc/process(update = 0)
+/datum/nanoui/process(update = 0)
 	if (!src_object || !user)
 		close()
 		return

@@ -11,8 +11,8 @@
 	var/charge = 45
 	var/repair = 0
 
-/obj/machinery/mech_recharger/New()
-	..()
+/obj/machinery/mech_recharger/Initialize()
+	. = ..()
 	component_parts = list()
 
 	component_parts += new /obj/item/weapon/circuitboard/mech_recharger(src)

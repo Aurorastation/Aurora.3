@@ -33,8 +33,8 @@ log transactions
 	var/editing_security_level = 0
 	var/view_screen = NO_SCREEN
 
-/obj/machinery/atm/initialize()
-	..()
+/obj/machinery/atm/Initialize()
+	. = ..()
 	machine_id = "[station_name()] RT #[num_financial_terminals++]"
 
 /obj/machinery/atm/Destroy()
@@ -87,7 +87,7 @@ log transactions
 	if(istype(I, /obj/item/weapon/card))
 		if(emagged > 0)
 			//prevent inserting id into an emagged ATM
-			user << "\red \icon[src] CARD READER ERROR. This system has been compromised!"
+			user << "<span class='warning'>\icon[src] CARD READER ERROR. This system has been compromised!</span>"
 			return
 		else if(istype(I,/obj/item/weapon/card/emag))
 			I.resolve_attackby(src, user)
@@ -127,7 +127,7 @@ log transactions
 
 /obj/machinery/atm/attack_hand(mob/user as mob)
 	if(istype(user, /mob/living/silicon))
-		user << "\red \icon[src] Artificial unit recognized. Artificial units do not currently receive monetary compensation, as per system banking regulation #1005."
+		user << "<span class='warning'>\icon[src] Artificial unit recognized. Artificial units do not currently receive monetary compensation, as per system banking regulation #1005.</span>"
 		return
 	if(get_dist(src,user) <= 1)
 
@@ -145,7 +145,7 @@ log transactions
 				dat += "<span class='alert'>Maximum number of pin attempts exceeded! Access to this ATM has been temporarily disabled.</span>"
 			else if(authenticated_account)
 				if(authenticated_account.suspended)
-					dat += "\red<b>Access to this account has been suspended, and the funds within frozen.</b>"
+					dat += "<span class='danger'>Access to this account has been suspended, and the funds within frozen.</span>"
 				else
 					switch(view_screen)
 						if(CHANGE_SECURITY_LEVEL)
@@ -272,7 +272,7 @@ log transactions
 				var/tried_pin = text2num(href_list["account_pin"])
 				var/datum/money_account/potential_account = get_account(tried_account_num)
 				if (!potential_account)
-					usr << "<span class='warning'> \icon[src] Account number not found.</span>"
+					usr << "<span class='warning'>\icon[src] Account number not found.</span>"
 					number_incorrect_tries++
 					handle_lockdown()
 					return
@@ -289,7 +289,7 @@ log transactions
 						else usr << "<span class='warning'>Account card not found.</span>"
 				if (!authenticated_account)
 					number_incorrect_tries++
-					usr << "<span class='warning'> \icon[src] Incorrect pin/account combination entered, [(max_pin_attempts+1) - number_incorrect_tries] attempts remaining.</span>"
+					usr << "<span class='warning'>\icon[src] Incorrect pin/account combination entered, [(max_pin_attempts+1) - number_incorrect_tries] attempts remaining.</span>"
 					handle_lockdown(tried_account_num)
 				else
 					bank_log_access(authenticated_account, machine_id)
@@ -430,7 +430,7 @@ log transactions
 				if(!held_card)
 					//this might happen if the user had the browser window open when somebody emagged it
 					if(emagged > 0)
-						usr << "\red \icon[src] The ATM card reader rejected your ID because this machine has been sabotaged!"
+						usr << "<span class='warning'>\icon[src] The ATM card reader rejected your ID because this machine has been sabotaged!</span>"
 					else
 						var/obj/item/I = usr.get_active_hand()
 						if (istype(I, /obj/item/weapon/card/id))
@@ -458,7 +458,7 @@ log transactions
 			if(I)
 				authenticated_account = attempt_account_access(I.associated_account_number)
 				if(authenticated_account)
-					human_user << "\blue \icon[src] Access granted. Welcome user '[authenticated_account.owner_name].'"
+					human_user << "<span class='notice'>\icon[src] Access granted. Welcome user '[authenticated_account.owner_name].'</span>"
 
 					//create a transaction log entry
 					var/datum/transaction/T = new()

@@ -9,23 +9,31 @@
 // - SoundScopes
 */
 
+/client
+	var/bst_cooldown	// So people can't spam BSTs.
+
+/client/proc/bst_spawn_cooldown()
+	bst_cooldown = null
+
 /client/proc/cmd_dev_bst()
 	set category = "Debug"
 	set name = "Spawn Bluespace Tech"
 	set desc = "Spawns a Bluespace Tech to debug stuff"
+
+	if (bst_cooldown)
+		src << "You've used this verb too recently, please wait a moment before trying again."
+		return
 
 	if(!check_rights(R_DEV|R_ADMIN))	return
 
 	if(!holder)
 		return //how did they get here?
 
-	if(!ticker)
-		alert("Wait until the game starts")
-		return
-
-	if(ticker.current_state < GAME_STATE_PLAYING)
+	if(!ROUND_IS_STARTED)
 		src << span("alert", "The game hasn't started yet!")
 		return
+
+	bst_cooldown = TRUE
 
 	if(istype(mob, /mob/living))
 		if(!holder.original_mob)
@@ -68,8 +76,8 @@
 			new /obj/item/weapon/reagent_containers/pill/adminordrazine(pills)
 		bst.equip_to_slot_or_del(pills, slot_in_backpack)
 
-  //Implant because access
-  bst.implant_loyalty(bst,TRUE)
+	//Implant because access
+	bst.implant_loyalty(bst,TRUE)
 
 	//Sort out ID
 	var/obj/item/weapon/card/id/bst/id = new/obj/item/weapon/card/id/bst(bst)
@@ -111,14 +119,17 @@
 	bst.add_language(LANGUAGE_CHANGELING)
 	bst.add_language(LANGUAGE_BORER)
 
-	spawn(5)
-		spark(T, 3, alldirs)
-		bst.anchored = 0
+	addtimer(CALLBACK(src, .proc/bst_post_spawn, bst), 5)
+	addtimer(CALLBACK(src, .proc/bst_spawn_cooldown), 5 SECONDS)
 
 	log_debug("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 
 	feedback_add_details("admin_verb","BST")
 	return 1
+
+/client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
+	spark(bst, 3, alldirs)
+	bst.anchored = FALSE
 
 /mob/living/carbon/human/bst
 	universal_understand = 1
@@ -150,20 +161,19 @@
 		return
 
 	src.custom_emote(1,"presses a button on their suit, followed by a polite bow.")
-	spawn(10)
-		spark(src, 5, alldirs)
-		if(key)
-			if(client.holder && client.holder.original_mob)
-				client.holder.original_mob.key = key
-			else
-				var/mob/dead/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
-				ghost.key = key
-				ghost.mind.name = "[ghost.key] BSTech"
-				ghost.name = "[ghost.key] BSTech"
-				ghost.real_name = "[ghost.key] BSTech"
-				ghost.voice_name = "[ghost.key] BSTech"
-		qdel(src)
-	return
+	spark(src, 5, alldirs)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, src), 10, TIMER_CLIENT_TIME)
+	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
+	if(key)
+		if(client.holder && client.holder.original_mob)
+			client.holder.original_mob.key = key
+		else
+			var/mob/dead/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
+			ghost.key = key
+			ghost.mind.name = "[ghost.key] BSTech"
+			ghost.name = "[ghost.key] BSTech"
+			ghost.real_name = "[ghost.key] BSTech"
+			ghost.voice_name = "[ghost.key] BSTech"
 
 /mob/living/carbon/human/bst/proc/bsc() //because we all have our unrealistic snowflakes right?
 	if(set_species("Tajara"))
@@ -446,7 +456,7 @@
 	name = "bluespace technician's shoes"
 	desc = "A pair of black shoes with extra grip. The letters 'BST' are stamped on the side."
 	icon_state = "black"
-	flags = NOSLIP
+	item_flags = NOSLIP
 	canremove = 0
 
 /obj/item/clothing/shoes/black/bst/attack_hand()

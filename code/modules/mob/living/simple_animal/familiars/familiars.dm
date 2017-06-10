@@ -19,8 +19,8 @@
 
 	var/list/wizardy_spells = list()
 
-/mob/living/simple_animal/familiar/New()
-	..()
+/mob/living/simple_animal/familiar/Initialize()
+	. = ..()
 	add_language(LANGUAGE_TCB)
 	for(var/spell in wizardy_spells)
 		src.add_spell(new spell, "const_spell_ready")
@@ -71,8 +71,17 @@
 
 	wizardy_spells = list(/spell/aoe_turf/conjure/forcewall)
 
-/mob/living/simple_animal/familiar/pike/Process_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/familiar/pike/Allow_Spacemove(var/check_drift = 0)
 	return 1
+
+/mob/living/simple_animal/familiar/pike/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/familiar/pike/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/familiar/pike/CanAvoidGravity()
+	return TRUE
 
 /mob/living/simple_animal/familiar/horror
 	name = "horror"
@@ -189,8 +198,8 @@
 
 	supernatural = 1
 
-/mob/living/simple_animal/mouse/familiar/New()
-	..()
+/mob/living/simple_animal/mouse/familiar/Initialize()
+	. = ..()
 	add_spell(new /spell/targeted/heal_target, "const_spell_ready")
 	add_spell(new /spell/targeted/heal_target/area, "const_spell_ready")
 	add_language(LANGUAGE_TCB)

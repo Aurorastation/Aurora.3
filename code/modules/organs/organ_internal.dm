@@ -109,7 +109,7 @@
 
 	if (germ_level > INFECTION_LEVEL_ONE)
 		if(prob(1))
-			owner << "\red Your skin itches."
+			owner << "<span class='warning'>Your skin itches.</span>"
 	if (germ_level > INFECTION_LEVEL_TWO)
 		if(prob(1))
 			spawn owner.delayed_vomit()
@@ -201,7 +201,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 	if (is_broken())
 		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
-			owner << "<span class='warning'> Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>"
+			owner << "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>"
 	else
 		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
 			owner.add_language(LANGUAGE_VAURCA)
@@ -247,9 +247,9 @@ obj/item/organ/vaurca/neuralsocket/process()
 	src.air_contents.adjust_gas("phoron", (ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 	src.air_contents.volume = volume //liters
 	src.air_contents.temperature = T20C
-	src.distribute_pressure = ((pick(1.0,1.1,1.2,1.3)*ONE_ATMOSPHERE)*O2STANDARD)
+	src.distribute_pressure = ((pick(1.8,2.0,2.4,2.8)*ONE_ATMOSPHERE)*O2STANDARD)
 
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	var/mob/living/carbon/location = loc
 
 	location.internal = src
@@ -263,8 +263,8 @@ obj/item/organ/vaurca/neuralsocket/process()
 	if(air_contents)
 		qdel(air_contents)
 
-	processing_objects.Remove(src)
-	..()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 /obj/item/organ/vaurca/preserve/examine(mob/user)
 	. = ..(user, 0)
@@ -357,7 +357,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 					data["maskConnected"] = 1
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm

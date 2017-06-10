@@ -106,9 +106,9 @@ var/global/list/additional_antag_types = list()
 			return
 		var/datum/antagonist/antag = all_antag_types[choice]
 		if(antag)
-			if(!islist(ticker.mode.antag_templates))
-				ticker.mode.antag_templates = list()
-			ticker.mode.antag_templates |= antag
+			if(!islist(SSticker.mode.antag_templates))
+				SSticker.mode.antag_templates = list()
+			SSticker.mode.antag_templates |= antag
 			message_admins("Admin [key_name_admin(usr)] added [antag.role_text] template to game mode.")
 
 	// I am very sure there's a better way to do this, but I'm not sure what it might be. ~Z
@@ -174,12 +174,12 @@ var/global/list/additional_antag_types = list()
 
 /datum/game_mode/proc/refresh_event_modifiers()
 	if(event_delay_mod_moderate || event_delay_mod_major)
-		event_manager.report_at_round_end = 1
+		SSevents.report_at_round_end = 1
 		if(event_delay_mod_moderate)
-			var/datum/event_container/EModerate = event_manager.event_containers[EVENT_LEVEL_MODERATE]
+			var/datum/event_container/EModerate = SSevents.event_containers[EVENT_LEVEL_MODERATE]
 			EModerate.delay_modifier = event_delay_mod_moderate
 		if(event_delay_mod_moderate)
-			var/datum/event_container/EMajor = event_manager.event_containers[EVENT_LEVEL_MAJOR]
+			var/datum/event_container/EMajor = SSevents.event_containers[EVENT_LEVEL_MAJOR]
 			EMajor.delay_modifier = event_delay_mod_major
 
 /datum/game_mode/proc/pre_setup()
@@ -217,8 +217,8 @@ var/global/list/additional_antag_types = list()
 		emergency_shuttle.auto_recall = 1
 
 	feedback_set_details("round_start","[time2text(world.realtime)]")
-	if(ticker && ticker.mode)
-		feedback_set_details("game_mode","[ticker.mode]")
+	if(SSticker.mode)
+		feedback_set_details("game_mode","[SSticker.mode]")
 	feedback_set_details("server_ip","[world.internet_address]:[world.port]")
 	return 1
 
@@ -444,7 +444,7 @@ var/global/list/additional_antag_types = list()
 		return candidates
 
 	// If this is being called post-roundstart then it doesn't care about ready status.
-	if(ticker && ticker.current_state == GAME_STATE_PLAYING)
+	if(SSticker.current_state == GAME_STATE_PLAYING)
 		for(var/mob/player in player_list)
 			if(!player.client)
 				continue
@@ -469,7 +469,7 @@ var/global/list/additional_antag_types = list()
 		// If we don't have enough antags, draft people who voted for the round.
 		if(candidates.len < required_enemies)
 			for(var/mob/new_player/player in players)
-				if(player.ckey in round_voters)
+				if(player.ckey in SSvote.round_voters)
 					log_debug("[player.key] voted for this round, so we are drafting them.")
 					candidates += player.mind
 					players -= player
@@ -602,16 +602,16 @@ proc/get_nt_opposed()
 	set name = "Check Round Info"
 	set category = "OOC"
 
-	if(!ticker || !ticker.mode)
+	if(!SSticker.mode)
 		usr << "Something is terribly wrong; there is no gametype."
 		return
 
 	if(master_mode != "secret")
-		usr << "<b>The roundtype is [capitalize(ticker.mode.name)]</b>"
-		if(ticker.mode.round_description)
-			usr << "<i>[ticker.mode.round_description]</i>"
-		if(ticker.mode.extended_round_description)
-			usr << "[ticker.mode.extended_round_description]"
+		usr << "<b>The roundtype is [capitalize(SSticker.mode.name)]</b>"
+		if(SSticker.mode.round_description)
+			usr << "<i>[SSticker.mode.round_description]</i>"
+		if(SSticker.mode.extended_round_description)
+			usr << "[SSticker.mode.extended_round_description]"
 	else
 		usr << "<i>Shhhh</i>. It's a secret."
 	return

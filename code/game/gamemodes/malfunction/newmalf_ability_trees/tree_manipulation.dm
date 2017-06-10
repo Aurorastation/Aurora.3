@@ -1,7 +1,7 @@
 // MANIPULATION TREE
 //
 // Abilities in this tree allow the AI to physically manipulate systems around the station.
-// T1 - Electrical Pulse - Sends out pulse that breaks some lights and sometimes even APCs. This can actually break the AI's APC so be careful!
+// T1 - Hack Holopad - Allows the AI to hack a holopad. Hacked holopads only activate the listening feature when turned on.
 // T2 - Hack Camera - Allows the AI to hack a camera. Deactivated areas may be reactivated, and functional cameras can be upgraded.
 // T3 - Emergency Forcefield - Allows the AI to project 1 tile forcefield that blocks movement and air flow. Forcefield�dissipates over time. It is also very susceptible to energetic weaponry.
 // T4 - Machine Overload - Detonates machine of choice in a minor explosion. Two of these are usually enough to kill or K/O someone.
@@ -9,11 +9,11 @@
 
 // BEGIN RESEARCH DATUMS
 
-/datum/malf_research_ability/manipulation/electrical_pulse
-	ability = new/datum/game_mode/malfunction/verb/electrical_pulse()
+/datum/malf_research_ability/manipulation/hack_holopad
+	ability = new/datum/game_mode/malfunction/verb/hack_holopad()
 	price = 50
 	next = new/datum/malf_research_ability/manipulation/hack_camera()
-	name = "Electrical Pulse"
+	name = "Hack Holopad"
 
 
 /datum/malf_research_ability/manipulation/hack_camera
@@ -38,26 +38,27 @@
 // END RESEARCH DATUMS
 // BEGIN ABILITY VERBS
 
-/datum/game_mode/malfunction/verb/electrical_pulse()
-	set name = "Electrical Pulse"
-	set desc = "15 CPU - Sends feedback pulse through station's power grid, overloading some sensitive systems, such as lights."
+/datum/game_mode/malfunction/verb/hack_holopad(var/obj/machinery/hologram/holopad/HP = null as obj in get_unhacked_holopads())
+	set name = "Hack Holopad"
+	set desc = "50 CPU - Hacks a holopad shorting out its projector. Using a hacked holopad only turns on the audio feature."
 	set category = "Software"
-	var/price = 15
+	var/price = 50
 	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price) || !ability_pay(user,price))
 		return
-	user << "Sending feedback pulse..."
-	for(var/obj/machinery/power/apc/AP in machines)
-		if(prob(5))
-			AP.overload_lighting()
-		if(prob(1) && prob(1)) // Very very small chance to actually destroy the APC.
-			AP.set_broken()
-	user.hacking = 1
-	log_ability_use(user, "electrical pulse")
-	spawn(150)
-		user.hacking = 0
+	if(HP.hacked)
+		user << "This holopad is already hacked!"
+		return
 
-/datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target in cameranet.cameras)
+	user << "Hacking holopad..."
+	user.hacking = 1
+	sleep(100)
+	HP.hacked = 1
+	log_ability_use(user, "hack_holopad")
+	user << "Holopad hacked."
+	user.hacking = 0
+
+/datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target = null as obj in cameranet.cameras)
 	set name = "Hack Camera"
 	set desc = "100 CPU - Hacks existing camera, allowing you to add upgrade of your choice to it. Alternatively it lets you reactivate broken camera."
 	set category = "Software"
@@ -68,55 +69,54 @@
 		user << "This is not a camera."
 		return
 
-	if(!target)
-		return
-
 	if(!ability_prechecks(user, price))
 		return
 
-	var/action = input("Select required action: ") in list("Reset", "Add X-Ray", "Add Motion Sensor", "Add EMP Shielding")
-	if(!action || !target)
+	if(!target)
 		return
-
-	switch(action)
-		if("Reset")
-			if(target.wires)
-				if(!ability_pay(user, price))
+	var/action = input("Select required action: ") in list("Reset", "Add X-Ray", "Add Motion Sensor", "Add EMP Shielding")
+	if(target)
+		switch(action)
+			if("Reset")
+				if(target.wires)
+					if(!ability_pay(user, price))
+						return
+					target.reset_wires()
+					user << "Camera reactivated."
+					log_ability_use(user, "hack camera (reset)", target)
 					return
-				target.reset_wires()
-				user << "Camera reactivated."
-				log_ability_use(user, "hack camera (reset)", target)
-				return
-		if("Add X-Ray")
-			if(target.isXRay())
-				user << "Camera already has X-Ray function."
-				return
-			else if(ability_pay(user, price))
-				target.upgradeXRay()
-				target.reset_wires()
-				user << "X-Ray camera module enabled."
-				log_ability_use(user, "hack camera (add X-Ray)", target)
-				return
-		if("Add Motion Sensor")
-			if(target.isMotion())
-				user << "Camera already has Motion Sensor function."
-				return
-			else if(ability_pay(user, price))
-				target.upgradeMotion()
-				target.reset_wires()
-				user << "Motion Sensor camera module enabled."
-				log_ability_use(user, "hack camera (add motion)", target)
-				return
-		if("Add EMP Shielding")
-			if(target.isEmpProof())
-				user << "Camera already has EMP Shielding function."
-				return
-			else if(ability_pay(user, price))
-				target.upgradeEmpProof()
-				target.reset_wires()
-				user << "EMP Shielding camera module enabled."
-				log_ability_use(user, "hack camera (add EMP shielding)", target)
-				return
+			if("Add X-Ray")
+				if(target.isXRay())
+					user << "Camera already has X-Ray function."
+					return
+				else if(ability_pay(user, price))
+					target.upgradeXRay()
+					target.reset_wires()
+					user << "X-Ray camera module enabled."
+					log_ability_use(user, "hack camera (add X-Ray)", target)
+					return
+			if("Add Motion Sensor")
+				if(target.isMotion())
+					user << "Camera already has Motion Sensor function."
+					return
+				else if(ability_pay(user, price))
+					target.upgradeMotion()
+					target.reset_wires()
+					user << "Motion Sensor camera module enabled."
+					log_ability_use(user, "hack camera (add motion)", target)
+					return
+			if("Add EMP Shielding")
+				if(target.isEmpProof())
+					user << "Camera already has EMP Shielding function."
+					return
+				else if(ability_pay(user, price))
+					target.upgradeEmpProof()
+					target.reset_wires()
+					user << "EMP Shielding camera module enabled."
+					log_ability_use(user, "hack camera (add EMP shielding)", target)
+					return
+	else
+		user << "Please pick a suitable camera."
 
 
 /datum/game_mode/malfunction/verb/emergency_forcefield(var/turf/T as turf in world)
@@ -134,8 +134,8 @@
 	new/obj/machinery/shield/malfai(T)
 	user.hacking = 1
 	log_ability_use(user, "emergency forcefield", T)
-	spawn(20)
-		user.hacking = 0
+	sleep(20)
+	user.hacking = 0
 
 
 /datum/game_mode/malfunction/verb/machine_overload(obj/machinery/M in machines)
@@ -160,7 +160,7 @@
 		else if (istype(N, /obj/machinery/power/apc)) // APC. Explosion is increased by available cell power.
 			var/obj/machinery/power/apc/A = N
 			if(A.cell && A.cell.charge)
-				explosion_intensity = 4 + round((A.cell.charge / CELLRATE) / 100000)
+				explosion_intensity = explosion_intensity + round((A.cell.charge / CELLRATE) / 100000)
 			else
 				user << "<span class='notice'>ERROR: APC Malfunction - Cell depleted or removed. Unable to overload.</span>"
 				return
@@ -207,9 +207,9 @@
 
 	log_ability_use(user, "machine overload", M)
 	M.visible_message("<span class='notice'>BZZZZZZZT</span>")
-	spawn(50)
-		explosion(get_turf(M), round(explosion_intensity/4),round(explosion_intensity/2),round(explosion_intensity),round(explosion_intensity * 2))
-		if(M)
-			qdel(M)
+	sleep(50)
+	explosion(get_turf(M), round(explosion_intensity/4),round(explosion_intensity/2),round(explosion_intensity),round(explosion_intensity * 2))
+	if(M)
+		qdel(M)
 
 // END ABILITY VERBS

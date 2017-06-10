@@ -11,6 +11,7 @@ var/list/department_radio_keys = list(
 	  ":s" = "Security",	".s" = "Security",
 	  ":w" = "whisper",		".w" = "whisper",
 	  ":t" = "Mercenary",	".t" = "Mercenary",
+	  ":x" = "Raider",		".x" = "Raider",
 	  ":u" = "Supply",		".u" = "Supply",
 	  ":v" = "Service",		".v" = "Service",
 	  ":p" = "AI Private",	".p" = "AI Private",
@@ -27,6 +28,7 @@ var/list/department_radio_keys = list(
 	  ":S" = "Security",	".S" = "Security",
 	  ":W" = "whisper",		".W" = "whisper",
 	  ":T" = "Mercenary",	".T" = "Mercenary",
+	  ":X" = "Raider",		".X" = "Raider",
 	  ":U" = "Supply",		".U" = "Supply",
 	  ":V" = "Service",		".V" = "Service",
 	  ":P" = "AI Private",	".P" = "AI Private",
@@ -133,7 +135,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
-			src << "\red You cannot speak in IC (Muted)."
+			src << "<span class='warning'>You cannot speak in IC (Muted).</span>"
 			return
 
 	if(stat)
@@ -243,13 +245,15 @@ proc/get_radio_key_from_channel(var/channel)
 		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj)
 
 
+	var/list/hear_clients = list()
+	for(var/mob/M in listening)
+		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+		if (M.client)
+			hear_clients += M.client
+
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
-	spawn(30) qdel(speech_bubble)
-
-	for(var/mob/M in listening)
-		M << speech_bubble
-		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_bubble, hear_clients, 30)
 
 	for(var/obj/O in listening_obj)
 		spawn(0)

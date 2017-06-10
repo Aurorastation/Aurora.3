@@ -34,7 +34,7 @@ AI MODULES
 			usr << "You haven't selected an AI to transmit laws to!"
 			return
 
-		if(ticker && ticker.mode && ticker.mode.name == "blob")
+		if(SSticker.mode && SSticker.mode.name == "blob")
 			usr << "Law uploads have been disabled by [company_name]!"
 			return
 

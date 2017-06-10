@@ -23,20 +23,20 @@
 	minimal_player_age = 14
 	ideal_character_age = 50
 
+	bag_type = /obj/item/weapon/storage/backpack/toxins
+	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
+	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
+
 	equip(var/mob/living/carbon/human/H)
-		if(!H)	return 0
+		if(!H)
+			return FALSE
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/heads/rd(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/research_director(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/heads/rd(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/weapon/clipboard(H), slot_l_hand)
-		switch(H.backbag)
-			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/toxins(H), slot_back)
-			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_tox(H), slot_back)
-			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel/tox(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
-		return 1
+		return TRUE
 
 
 
@@ -57,19 +57,19 @@
 
 	minimal_player_age = 14
 
+	bag_type = /obj/item/weapon/storage/backpack/toxins
+	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
+	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
+
 	equip(var/mob/living/carbon/human/H)
-		if(!H)	return 0
+		if(!H)
+			return FALSE
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sci(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/science(H), slot_belt)
-		switch(H.backbag)
-			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/toxins(H), slot_back)
-			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_tox(H), slot_back)
-			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel/tox(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/science(H), slot_wear_suit)
-		return 1
+		return TRUE
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
@@ -88,19 +88,20 @@
 
 	minimal_player_age = 14
 
+	bag_type = /obj/item/weapon/storage/backpack/toxins
+	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
+	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
+
 	equip(var/mob/living/carbon/human/H)
-		if(!H) return 0
+		if(!H)
+			return FALSE
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sci(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/science(H), slot_belt)
-		switch(H.backbag)
-			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/toxins(H), slot_back)
-			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_tox(H), slot_back)
-			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel/tox(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/science(H), slot_wear_suit)
-		return 1
+
+		return TRUE
 
 /datum/job/roboticist
 	title = "Roboticist"
@@ -120,16 +121,41 @@
 	minimal_player_age = 7
 
 	equip(var/mob/living/carbon/human/H)
-		if(!H)	return 0
+		if(!H)
+			return FALSE
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sci(H), slot_l_ear)
-		switch(H.backbag)
-			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(H), slot_back)
-			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(H), slot_back)
-			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel(H), slot_back)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/roboticist(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/roboticist(H), slot_l_store)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/utility/full(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
-		return 1
+		return TRUE
+
+/datum/job/geneticist
+	title = "Geneticist"
+	flag = GENETICIST
+	department = "Science"
+	department_flag = MEDSCI
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the research director"
+	selection_color = "#ffeeff"
+	economic_modifier = 7
+	access = list(access_genetics, access_tox, access_tox_storage, access_morgue, access_research)
+	minimal_access = list(access_medical, access_morgue, access_genetics, access_research)
+
+	bag_type = /obj/item/weapon/storage/backpack/genetics
+	satchel_type = /obj/item/weapon/storage/backpack/satchel_gen
+	duffel_type = /obj/item/weapon/storage/backpack/duffel/gen
+
+	equip(var/mob/living/carbon/human/H)
+		if(!H)
+			return FALSE
+		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sci(H), slot_l_ear)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/geneticist(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/device/pda/geneticist(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/genetics(H), slot_wear_suit)
+		H.equip_to_slot_or_del(new /obj/item/device/flashlight/pen(H), slot_s_store)
+		return TRUE

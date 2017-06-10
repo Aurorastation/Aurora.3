@@ -11,7 +11,8 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 #define FIRE_LIGHT_2	3
 #define FIRE_LIGHT_3	4
 
-/turf/var/obj/fire/fire = null
+/turf
+	var/tmp/obj/fire/fire = null
 
 //Some legacy definitions so fires can be started.
 atom/proc/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
@@ -40,7 +41,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	return igniting
 
 /zone/proc/process_fire()
-	var/datum/gas_mixture/burn_gas = air.remove_ratio(vsc.fire_consuption_rate, fire_tiles.len)
+	var/datum/gas_mixture/burn_gas = air.remove_ratio(vsc.fire_consuption_rate, LAZYLEN(fire_tiles))
 
 	var/firelevel = burn_gas.zburn(src, fire_tiles, force_burn = 1, no_check = 1)
 
@@ -52,21 +53,23 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 				T.fire.firelevel = firelevel
 			else
 				var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
-				fire_tiles -= T
-				fuel_objs -= fuel
+				LAZYREMOVE(fire_tiles, T)
+				LAZYREMOVE(fuel_objs, fuel)
 	else
 		for(var/turf/simulated/T in fire_tiles)
 			if(istype(T.fire))
 				T.fire.RemoveFire()
 			T.fire = null
-		fire_tiles.Cut()
-		fuel_objs.Cut()
+		LAZYCLEARLIST(fire_tiles)
+		LAZYCLEARLIST(fuel_objs)
+		UNSETEMPTY(fire_tiles)
+		UNSETEMPTY(fuel_objs)
 
-	if(!fire_tiles.len)
-		air_master.active_fire_zones.Remove(src)
+	if(!LAZYLEN(fire_tiles))
+		SSair.active_fire_zones -= src
 
 /zone/proc/remove_liquidfuel(var/used_liquid_fuel, var/remove_fire=0)
-	if(!fuel_objs.len)
+	if(!LAZYLEN(fuel_objs))
 		return
 
 	//As a simplification, we remove fuel equally from all fuel sources. It might be that some fuel sources have more fuel,
@@ -77,12 +80,12 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	for(var/O in fuel_objs)
 		var/obj/effect/decal/cleanable/liquid_fuel/fuel = O
 		if(!istype(fuel))
-			fuel_objs -= fuel
+			LAZYREMOVE(fuel_objs, fuel)
 			continue
 
 		fuel.amount -= fuel_to_remove
 		if(fuel.amount <= 0)
-			fuel_objs -= fuel
+			LAZYREMOVE(fuel_objs, fuel)
 			if(remove_fire)
 				var/turf/T = fuel.loc
 				if(istype(T) && T.fire) qdel(T.fire)
@@ -100,11 +103,13 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 		return 1
 
 	fire = new(src, fl)
-	air_master.active_fire_zones |= zone
+	SSair.active_fire_zones |= zone
 
 	var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in src
+	LAZYINITLIST(zone.fire_tiles)
 	zone.fire_tiles |= src
-	if(fuel) zone.fuel_objs += fuel
+	if(fuel) 
+		LAZYADD(zone.fuel_objs, fuel)
 
 	return 0
 
@@ -128,7 +133,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
 	var/turf/simulated/my_tile = loc
 	if(!istype(my_tile) || !my_tile.zone)
-		if(my_tile.fire == src)
+		if(my_tile && my_tile.fire == src)
 			my_tile.fire = null
 		RemoveFire()
 		return 1
@@ -180,8 +185,11 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 			else
 				enemy_tile.adjacent_fire_act(loc, air_contents, air_contents.temperature, air_contents.volume)
 
-	animate(src, color = fire_color(air_contents.temperature), 5)
 	set_light(l_color = color)
+	var/list/animate_targets = get_above_oo() + src
+	for (var/thing in animate_targets)
+		var/atom/movable/AM = thing
+		animate(AM, color = fire_color(air_contents.temperature), 5)
 
 /obj/fire/New(newLoc,fl)
 	..()
@@ -197,7 +205,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	set_light(3, 1, color)
 
 	firelevel = fl
-	air_master.active_hotspots.Add(src)
+	SSair.active_hotspots += src
 
 /obj/fire/proc/fire_color(var/env_temperature)
 	var/temperature = max(4000*sqrt(firelevel/vsc.fire_firelevel_multiplier), env_temperature)
@@ -206,7 +214,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 /obj/fire/Destroy()
 	RemoveFire()
 
-	..()
+	return ..()
 
 /obj/fire/proc/RemoveFire()
 	var/turf/T = loc
@@ -215,11 +223,14 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
 		T.fire = null
 		loc = null
-	air_master.active_hotspots.Remove(src)
+	SSair.active_hotspots -= src
 
+/turf/simulated
+	var/tmp/fire_protection = 0 //Protects newly extinguished tiles from being overrun again.
 
-/turf/simulated/var/fire_protection = 0 //Protects newly extinguished tiles from being overrun again.
 /turf/proc/apply_fire_protection()
+	return
+
 /turf/simulated/apply_fire_protection()
 	fire_protection = world.time
 

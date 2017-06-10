@@ -39,8 +39,8 @@
 	req_access = null
 	req_one_access = list(access_engine_equip, access_atmospherics)
 
-/obj/item/device/magnetic_lock/New()
-	..()
+/obj/item/device/magnetic_lock/Initialize()
+	. = ..()
 
 	powercell = new /obj/item/weapon/cell/high()
 	internal_cell = new /obj/item/weapon/cell/device()
@@ -112,8 +112,7 @@
 			user.visible_message("<span class='danger'>[user] bashes [src] with [I]!</span>", "<span class='danger'>You strike [src] with [I], damaging it!</span>")
 			takedamage(I.force)
 			playsound(loc, "sound/weapons/genhit[rand(1,3)].ogg", I.force*3, 1)
-			spawn(3)
-				playsound(loc, "sound/effects/sparks[rand(1,4)].ogg", 30, 1)
+			addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, loc, "sound/effects/sparks[rand(1,4)].ogg", 30, 1), 3, TIMER_CLIENT_TIME)
 			return
 		else
 			user.visible_message("<span class='danger'>[user] hits [src] with [I] but fails to damage it.</span>", "<span class='warning'>You hit [src] with [I], [I.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]</span>")
@@ -138,15 +137,15 @@
 				if (WT.remove_fuel(2, user))
 					user.visible_message(span("notice", "[user] starts welding the metal shell of [src]."), span("notice", "You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
-					overlays += "overlay_welding"
-					if (do_after(user, 25, 1))
+					add_overlay("overlay_welding")
+					if (do_after(user, 25))
 						user << span("notice", "You are able to [hacked ? "repair" : "weld through"] the metal shell of [src].")
 						if (hacked) locked = 1
 						else locked = 0
 						hacked = !hacked
-						overlays -= "overlay_welding"
+						cut_overlay("overlay_welding")
 					else
-						overlays -= "overlay_welding"
+						cut_overlay("overlay_welding")
 					update_icon()
 					return
 
@@ -269,7 +268,7 @@
 
 	user.visible_message("<span class='notice'>[user] starts mounting [src] onto [newtarget].</span>", "<span class='notice'>You begin mounting [src] onto [newtarget].</span>")
 
-	if (do_after(user, 35, 1))
+	if (do_after(user, 35))
 
 		if (!check_target(newtarget, user)) return
 
@@ -342,7 +341,7 @@
 			target_node2 = null
 		anchored = 0
 
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 		last_process_time = 0
 
 /obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
@@ -352,7 +351,7 @@
 	target = newtarget
 
 	last_process_time = world.time
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	anchored = 1
 
 	spawn(-15)
@@ -386,7 +385,7 @@
 	update_overlays()
 
 /obj/item/device/magnetic_lock/proc/update_overlays()
-	overlays.Cut()
+	cut_overlays()
 	switch (status)
 		if (STATUS_BROKEN)
 			icon_state = "broken"
@@ -394,16 +393,16 @@
 
 		if (STATUS_INACTIVE to STATUS_ACTIVE)
 			if (hacked)
-				overlays += "overlay_hacked"
+				add_overlay("overlay_hacked")
 			else if (locked)
-				overlays += "overlay_locked"
+				add_overlay("overlay_locked")
 			else
-				overlays += "overlay_unlocked"
+				add_overlay("overlay_unlocked")
 			switch (constructionstate)
 				if (0)
 					return
 				if (1 to 4)
-					overlays += "overlay_deconstruct_[constructionstate]"
+					add_overlay("overlay_deconstruct_[constructionstate]")
 
 /obj/item/device/magnetic_lock/proc/takedamage(var/damage)
 	health -= rand(damage/2, damage)
@@ -419,10 +418,7 @@
 		return
 
 	if (prob(50))
-		spark()
-
-/obj/item/device/magnetic_lock/proc/spark()
-	spark(target ? target : src, 5, alldirs)
+		spark(target ? target : src, 5, alldirs)
 
 #undef STATUS_INACTIVE
 #undef STATUS_ACTIVE

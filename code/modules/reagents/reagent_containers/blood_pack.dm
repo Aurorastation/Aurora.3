@@ -44,8 +44,8 @@
 		if (reagents.get_reagent_amount("blood"))
 			user.visible_message("<span class='warning'>[user] raises \the [src] up to their mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
 			vampire_marks = TRUE
-			if (!src.other_DNA.len)
-				src.other_DNA += M.dna.unique_enzymes
+			if (!LAZYLEN(src.other_DNA))
+				LAZYADD(src.other_DNA, M.dna.unique_enzymes)
 				src.other_DNA_type = "saliva"
 
 			while (do_after(user, 25, 5, 1))

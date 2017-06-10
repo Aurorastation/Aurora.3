@@ -262,6 +262,7 @@ var/list/global/random_stock_large = list(
 	"pipemachine" = 1.7,
 	"bike" = 0.3,
 	"sol" = 0.2,
+	"dog" = 0.2,
 	"nothing" = 0)
 
 
@@ -299,7 +300,6 @@ var/list/global/random_stock_large = list(
 	)
 
 /datum/cargospawner/New()
-
 	//First lets get the reference to our warehouse
 	for(var/areapath in typesof(/area/quartermaster/storage))
 		warehouse = locate(areapath)
@@ -311,6 +311,7 @@ var/list/global/random_stock_large = list(
 			for (var/obj/structure/table/B in warehouse)
 				tables |= B
 
+/datum/cargospawner/proc/start()
 	if (!warehouse || !warehouseturfs.len)
 		admin_notice("<span class='danger'>ERROR: Cargo spawner failed to locate warehouse. Terminating.</span>", R_DEBUG)
 		qdel(src)
@@ -1414,18 +1415,7 @@ var/list/global/random_stock_large = list(
 		if("cloak")
 			new /obj/item/weapon/cloaking_device(L)
 		if("sword")
-			var/list/swords = list(
-			/obj/item/weapon/material/sword,
-			/obj/item/weapon/material/sword/katana,
-			/obj/item/weapon/material/sword/rapier,
-			/obj/item/weapon/material/sword/longsword,
-			/obj/item/weapon/material/sword/trench,
-			/obj/item/weapon/material/sword/sabre,
-			/obj/item/weapon/material/sword/axe
-			)
-
-			var/type = pick(swords)
-			new type(L)
+			new /obj/random/sword(L)
 		if("ims")
 			new /obj/item/weapon/scalpel/manager(L)
 		if("hardsuit")
@@ -1666,6 +1656,12 @@ var/list/global/random_stock_large = list(
 				new /obj/structure/closet/sol/navy(L)
 			else
 				new /obj/structure/closet/sol/marine(L)
+		if ("dog")
+			var/list/dogs = list(/obj/structure/largecrate/animal/dog,
+			/obj/structure/largecrate/animal/dog/amaskan,
+			/obj/structure/largecrate/animal/dog/pug)
+			var/type = pick(dogs)
+			new type(L)
 
 	//This will be complex
 	//Spawns a random exosuit, Probably not in good condition

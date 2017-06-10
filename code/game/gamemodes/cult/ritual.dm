@@ -81,7 +81,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		qdel(blood_image)
 		blood_image = null
 		rune_list.Remove(src)
-		..()
+		return ..()
 
 	examine(mob/user)
 		..()

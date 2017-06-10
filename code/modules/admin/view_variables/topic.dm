@@ -194,6 +194,7 @@
 					if(Obj.type == O_type)
 						i++
 						if (del_action == "Hard Delete")
+							Obj.Destroy(TRUE)
 							del(Obj)
 						else
 							qdel(Obj)
@@ -208,9 +209,10 @@
 					if(istype(Obj,O_type))
 						i++
 						if (del_action == "Hard Delete")
+							Obj.Destroy(TRUE)
 							del(Obj)
 						else
-							qdel(Obj)
+							qdel(Obj, TRUE)
 				if(!i)
 					usr << "No objects of this type exist"
 					return
@@ -486,12 +488,13 @@
 			usr << "This can only be done on mobs with clients"
 			return
 
-		nanomanager.send_resources(H.client)
+		usr << span("alert", "This command is temporarily disabled.")
+		//SSnanoui.send_resources(H.client)
 
-		usr << "Resource files sent"
-		H << "Your NanoUI Resource files have been refreshed"
+		//usr << "Resource files sent"
+		//H << "Your NanoUI Resource files have been refreshed"
 
-		log_admin("[key_name(usr)] resent the NanoUI resource files to [key_name(H)] ", admin_key=key_name(usr), ckey=key_name(H))
+		//log_admin("[key_name(usr)] resent the NanoUI resource files to [key_name(H)] ", admin_key=key_name(usr), ckey=key_name(H))
 
 	else if(href_list["regenerateicons"])
 		if(!check_rights(0))	return

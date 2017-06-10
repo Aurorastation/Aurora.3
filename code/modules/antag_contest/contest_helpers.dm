@@ -30,8 +30,8 @@
 
 /datum/preferences/proc/load_character_contest(slot)
 	if (config.antag_contest_enabled && config.sql_enabled && establish_db_connection(dbcon))
-		var/DBQuery/query = dbcon.NewQuery("SELECT contest_faction FROM ss13_contest_participants WHERE character_id = :char_id")
-		query.Execute(list(":char_id" = slot))
+		var/DBQuery/query = dbcon.NewQuery("SELECT contest_faction FROM ss13_contest_participants WHERE character_id = :char_id:")
+		query.Execute(list("char_id" = slot))
 
 		if (query.NextRow())
 			antag_contest_faction = text2num(query.item[1])

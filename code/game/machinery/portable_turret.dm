@@ -46,6 +46,9 @@
 	var/check_synth	 = 0 	//if active, will shoot at anything not an AI or cyborg
 	var/ailock = 0 			// AI cannot use this
 
+	var/immobile = FALSE	// If TRUE, the turret cannot be detached from the ground with a wrench.
+	var/no_salvage = FALSE	// If TRUE, the turret cannot be salvaged for parts when broken.
+
 	var/attacked = 0		//if set to 1, the turret gets pissed off and shoots at people nearby (unless they have sec access!)
 
 	var/enabled = 1				//determines if the turret is on
@@ -61,23 +64,33 @@
 	var/last_target			//last target fired at, prevents turrets from erratically firing at all valid targets in range
 
 /obj/machinery/porta_turret/crescent
-	enabled = 0
-	ailock = 1
-	check_synth	 = 0
-	check_access = 1
-	check_arrest = 1
-	check_records = 1
-	check_weapons = 1
-	check_anomalies = 1
+	enabled = FALSE
+	ailock = TRUE
+	check_synth	 = FALSE
+	check_access = TRUE
+	check_arrest = TRUE
+	check_records = TRUE
+	check_weapons = TRUE
+	check_anomalies = TRUE
+	immobile = TRUE
+	no_salvage = TRUE
+
+	var/admin_emag_override = FALSE	// Set to true to allow emagging of this turret.
+
+/obj/machinery/porta_turret/crescent/emag_act()
+	if (admin_emag_override)
+		return ..()
+	else
+		return NO_EMAG_ACT
 
 /obj/machinery/porta_turret/stationary
 	ailock = 1
 	lethal = 1
 	installation = /obj/item/weapon/gun/energy/laser
 
-/obj/machinery/porta_turret/New()
-	..()
-	req_access.Cut()
+/obj/machinery/porta_turret/Initialize()
+	. = ..()
+	LAZYCLEARLIST(req_access)
 	req_one_access = list(access_security, access_heads)
 
 	//Sets up a spark system
@@ -85,9 +98,9 @@
 
 	setup()
 
-/obj/machinery/porta_turret/crescent/New()
-	..()
-	req_one_access.Cut()
+/obj/machinery/porta_turret/crescent/Initialize()
+	. = ..()
+	LAZYCLEARLIST(req_one_access)
 	req_access = list(access_cent_specops)
 
 /obj/machinery/porta_turret/Destroy()
@@ -212,7 +225,7 @@ var/list/turret_icons
 		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
 		data["settings"] = settings
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "turret_control.tmpl", "Turret Controls", 500, 300)
 		ui.set_initial_data(data)
@@ -266,12 +279,13 @@ var/list/turret_icons
 /obj/machinery/porta_turret/power_change()
 	if(powered())
 		stat &= ~NOPOWER
-		update_icon()
+		queue_icon_update()
 	else
-		spawn(rand(0, 15))
-			stat |= NOPOWER
-			update_icon()
+		addtimer(CALLBACK(src, .proc/lose_power), rand(0, 15))
 
+/obj/machinery/porta_turret/proc/lose_power()
+	stat |= NOPOWER
+	queue_icon_update()
 
 /obj/machinery/porta_turret/attackby(obj/item/I, mob/user)
 	if(stat & BROKEN)
@@ -280,7 +294,7 @@ var/list/turret_icons
 			//try and salvage its components
 			user << "<span class='notice'>You begin prying the metal coverings off.</span>"
 			if(do_after(user, 20))
-				if(prob(70))
+				if(prob(70) && !no_salvage)
 					user << "<span class='notice'>You remove the turret and salvage some components.</span>"
 					if(installation)
 						var/obj/item/weapon/gun/energy/Gun = new installation(loc)
@@ -295,6 +309,10 @@ var/list/turret_icons
 				qdel(src) // qdel
 
 	else if((istype(I, /obj/item/weapon/wrench)))
+		if (immobile)
+			user << "<span class='notice'>[src] is firmly attached to the ground with some form of epoxy.</span>"
+			return
+
 		if(enabled || raised)
 			user << "<span class='warning'>You cannot unsecure an active turret!</span>"
 			return
@@ -325,7 +343,7 @@ var/list/turret_icons
 				update_icon()
 		wrenching = 0
 
-	else if(istype(I, /obj/item/weapon/card/id)||istype(I, /obj/item/device/pda))
+	else if(istype(I, /obj/item/weapon/card/id) || istype(I, /obj/item/device/pda))
 		//Behavior lock/unlock mangement
 		if(allowed(user))
 			locked = !locked
@@ -341,10 +359,11 @@ var/list/turret_icons
 		if(I.force * 0.5 > 1) //if the force of impact dealt at least 1 damage, the turret gets pissed off
 			if(!attacked && !emagged)
 				attacked = 1
-				spawn()
-					sleep(60)
-					attacked = 0
+				addtimer(CALLBACK(src, .proc/reset_attacked), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 		..()
+
+/obj/machinery/porta_turret/proc/reset_attacked()
+	attacked = 0
 
 /obj/machinery/porta_turret/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
@@ -381,10 +400,7 @@ var/list/turret_icons
 	if(enabled)
 		if(!attacked && !emagged)
 			attacked = 1
-			spawn()
-				sleep(60)
-				attacked = 0
-
+			addtimer(CALLBACK(src, .proc/reset_attacked), 60, TIMER_UNIQUE | TIMER_OVERRIDE)
 	..()
 
 	take_damage(damage)
@@ -399,14 +415,15 @@ var/list/turret_icons
 		check_access = prob(20)	// check_access is a pretty big deal, so it's least likely to get turned on
 		check_anomalies = prob(50)
 		if(prob(5))
-			emagged = 1
+			emagged = TRUE
 
-		enabled=0
-		spawn(rand(60,600))
-			if(!enabled)
-				enabled=1
+		enabled = FALSE
+		addtimer(CALLBACK(src, .proc/post_emp_act), rand(60, 600))
 
 	..()
+
+/obj/machinery/porta_turret/proc/post_emp_act()
+	enabled = TRUE
 
 /obj/machinery/porta_turret/ex_act(severity)
 	switch (severity)
@@ -447,8 +464,7 @@ var/list/turret_icons
 
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets)) // if no valid targets, go for secondary targets
-			spawn()
-				popDown() // no valid targets, close the cover
+			popDown() // no valid targets, close the cover
 
 	if(auto_repair && (health < maxhealth))
 		use_power(20000)
@@ -533,6 +549,7 @@ var/list/turret_icons
 
 
 /obj/machinery/porta_turret/proc/popUp()	//pops the turret up
+	set waitfor = FALSE
 	if(disabled)
 		return
 	if(raising || raised)
@@ -542,7 +559,7 @@ var/list/turret_icons
 	set_raised_raising(raised, 1)
 	update_icon()
 
-	var/atom/flick_holder = getFromPool(/atom/movable/porta_turret_cover, loc)
+	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
 	flick("popup", flick_holder)
 	sleep(10)
@@ -552,6 +569,8 @@ var/list/turret_icons
 	update_icon()
 
 /obj/machinery/porta_turret/proc/popDown()	//pops the turret down
+	set waitfor = FALSE
+
 	last_target = null
 	if(disabled)
 		return
@@ -562,7 +581,7 @@ var/list/turret_icons
 	set_raised_raising(raised, 1)
 	update_icon()
 
-	var/atom/flick_holder = getFromPool(/atom/movable/porta_turret_cover, loc)
+	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
 	flick("popdown", flick_holder)
 	sleep(10)
@@ -581,13 +600,14 @@ var/list/turret_icons
 		return
 	if(target)
 		last_target = target
-		spawn()
-			popUp()				//pop the turret up if it's not already up.
+		popUp()				//pop the turret up if it's not already up.
 		set_dir(get_dir(src, target))	//even if you can't shoot, follow the target
-		spawn()
-			shootAt(target)
+		shootAt(target)
 		return 1
 	return
+
+/obj/machinery/porta_turret/proc/reset_last_fired()
+	last_fired = 0
 
 /obj/machinery/porta_turret/proc/shootAt(var/mob/living/target)
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
@@ -595,9 +615,7 @@ var/list/turret_icons
 		if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
 			return
 		last_fired = 1
-		spawn()
-			sleep(shot_delay)
-			last_fired = 0
+		addtimer(CALLBACK(src, .proc/reset_last_fired), shot_delay)
 
 	var/turf/T = get_turf(src)
 	var/turf/U = get_turf(target)

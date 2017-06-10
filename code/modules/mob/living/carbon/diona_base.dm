@@ -291,8 +291,8 @@ var/list/diona_banned_languages = list(
 			DS.stored_energy -= REGROW_ENERGY_REQ
 			H.nutrition -= REGROW_FOOD_REQ
 			playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
-			src.visible_message("\red [src] begins to shift and quiver.",
-			"\red You begin to shift and quiver, feeling a stirring within your trunk ")
+			src.visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
+			"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
 			sleep(52)
 			var/obj/item/organ/O = new path(H)
 			src.visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [H.name]'s trunk, forming a new [O.name]</span>","<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [O.name]</span>")
@@ -392,7 +392,7 @@ var/list/diona_banned_languages = list(
 			src << "You feel a little more energised as you return to the light. Stay awhile."
 		else if (DS.EP <= 0.0 && DS.last_lightlevel <= 0)
 			DS.LMS = 4
-			src << "<span class='danger'> You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light.</span>"
+			src << "<span class='danger'>You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light.</span>"
 	//From here down, we immediately return to state 3 if we get any light
 	else
 		if (DS.EP > 0.0)//If there's any light at all, we can be saved
@@ -402,12 +402,12 @@ var/list/diona_banned_languages = list(
 			var/HP = 1 //diona_get_health(DS) / DS.max_health//HP  = health-percentage
 			if (DS.LMS == 4)
 				if (HP < 0.6)
-					src << "<span class='danger'> The darkness burns. Your nymphs decay and wilt You are in mortal danger!</span>"
+					src << "<span class='danger'>The darkness burns. Your nymphs decay and wilt You are in mortal danger!</span>"
 					DS.LMS = 5
 
 			else if (DS.LMS == 5)
 				if (paralysis > 0)
-					src << "<span class='danger'> Your body has reached critical integrity, it can no longer move. The end comes soon.</span>"
+					src << "<span class='danger'>Your body has reached critical integrity, it can no longer move. The end comes soon.</span>"
 					DS.LMS = 6
 			else if (DS.LMS == 6)
 				return
@@ -513,7 +513,7 @@ var/list/diona_banned_languages = list(
 /datum/dionastats/Destroy()
 	light_organ = null//Nulling out these references to prevent GC errors
 	nutrient_organ = null
-	..()
+	return ..()
 
 
 #undef FLASHLIGHT_STRENGTH

@@ -47,9 +47,9 @@
 
 	for(var/mob/O in viewers(src, null))
 		if ((O.client && !( O.blinded )))
-			O.show_message(text("\red <B>[] [failed ? "tried to tackle" : "has tackled"] down []!</B>", src, T), 1)
+			O.show_message(text("<span class='danger'>[] [failed ? "tried to tackle" : "has tackled"] down []!</span>", src, T), 1)
 
-/mob/living/carbon/human/proc/leap()
+/mob/living/carbon/human/proc/leap(var/mob/living/T = null, var/max_range = 4)
 	set category = "Abilities"
 	set name = "Leap"
 	set desc = "Leap at a target and grab them aggressively."
@@ -61,17 +61,18 @@
 		src << "You cannot leap in your current state."
 		return
 
-	var/list/choices = list()
-	for(var/mob/living/M in view(6,src))
-		if(!istype(M,/mob/living/silicon))
-			choices += M
-	choices -= src
+	if (!T)
+		var/list/choices = list()
+		for(var/mob/living/M in view(6,src))
+			if(!istype(M,/mob/living/silicon))
+				choices += M
+		choices -= src
 
-	var/mob/living/T = input(src,"Who do you wish to leap at?") as null|anything in choices
+		T = input(src,"Who do you wish to leap at?") as null|anything in choices
 
 	if(!T || !src || src.stat) return
 
-	if(get_dist(get_turf(T), get_turf(src)) > 4) return
+	if(get_dist(get_turf(T), get_turf(src)) > max_range) return
 
 	if(last_special > world.time)
 		return
@@ -85,7 +86,10 @@
 
 	src.visible_message("<span class='danger'>\The [src] leaps at [T]!</span>")
 	src.throw_at(get_step(get_turf(T),get_turf(src)), 4, 1, src)
-	playsound(src.loc, 'sound/voice/shriek1.ogg', 50, 1)
+
+	// Only Vox get to shriek. Seriously.
+	if (isvox(src))
+		playsound(src.loc, 'sound/voice/shriek1.ogg', 50, 1)
 
 	sleep(5)
 
@@ -131,16 +135,16 @@
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		src << "\red You cannot do that in your current state."
+		src << "<span class='warning'>You cannot do that in your current state.</span>"
 		return
 
 	var/obj/item/weapon/grab/G = locate() in src
 	if(!G || !istype(G))
-		src << "\red You are not grabbing anyone."
+		src << "<span class='warning'>You are not grabbing anyone.</span>"
 		return
 
 	if(G.state < GRAB_AGGRESSIVE)
-		src << "\red You must have an aggressive grab to gut your prey!"
+		src << "<span class='warning'>You must have an aggressive grab to gut your prey!</span>"
 		return
 
 	last_special = world.time + 50
@@ -187,12 +191,12 @@
 
 	log_say("[key_name(src)] communed to [key_name(M)]: [text]",ckey=key_name(src))
 
-	M << "\blue Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]"
+	M << "<span class='notice'>Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>"
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		if(H.species.name == src.species.name)
 			return
-		H << "\red Your nose begins to bleed..."
+		H << "<span class='warning'>Your nose begins to bleed...</span>"
 		H.drip(1)
 
 /mob/living/carbon/human/proc/regurgitate()
@@ -200,12 +204,12 @@
 	set desc = "Empties the contents of your stomach"
 	set category = "Abilities"
 
-	if(stomach_contents.len)
+	if(LAZYLEN(stomach_contents))
 		for(var/mob/M in src)
 			if(M in stomach_contents)
-				stomach_contents.Remove(M)
-				M.loc = loc
-		src.visible_message("\red <B>[src] hurls out the contents of their stomach!</B>")
+				LAZYREMOVE(stomach_contents, M)
+				M.forceMove(loc)
+		src.visible_message(span("danger", "\The [src] hurls out the contents of their stomach!"))
 	return
 
 /mob/living/carbon/human/proc/psychic_whisper(mob/M as mob in oview())
@@ -230,7 +234,7 @@
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		src << "<span class='warning'> You cannot do that in your current state.</span>"
+		src << "<span class='warning'>You cannot do that in your current state.</span>"
 		return
 
 	var/obj/item/weapon/grab/G = locate() in src
@@ -426,15 +430,15 @@
 	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]",ckey=key_name(src))
 
 	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
-		M << "<span class='danger'> You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>"
+		M << "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>"
 		M << "<span class='notice'> [text]</span>"
 	else
-		M << "<span class='danger'> Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>"
+		M << "<span class='danger'>Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>"
 		if(istype(M,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
 			if(H.species.name == src.species.name)
 				return
-			H << "<span class='danger'> Your nose begins to bleed...</span>"
+			H << "<span class='danger'>Your nose begins to bleed...</span>"
 			H.drip(1)
 
 /mob/living/carbon/human/proc/quillboar(mob/target as mob in oview())

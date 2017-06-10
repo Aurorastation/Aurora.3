@@ -1,4 +1,6 @@
 /client
+	parent_type = /datum
+
 		////////////////
 		//ADMIN THINGS//
 		////////////////
@@ -39,6 +41,7 @@
 	var/info_sent = 0
 	// comment out the line below when debugging locally to enable the options & messages menu
 	//control_freak = 1
+	var/ip_intel = "Disabled"
 
 	var/received_discord_pm = -99999
 	var/discord_admin			//IRC- no more IRC, K? Discord admin that spoke with them last.
@@ -53,6 +56,8 @@
 	var/related_accounts_cid = "Requires database"	//So admins know why it isn't working - Used to determine what other accounts previously logged in from this computer id
 	var/whitelist_status = 0						//Used to determine what whitelists the player has access to. Uses bitflag values!
 	var/need_saves_migrated = "Requires database"	//Used to determine whether or not the ckey needs their saves migrated over to the database. Default is 0 upon successful connection.
+	var/account_age = -1							// Age on the BYOND account in days.
+	var/account_join_date = null					// Date of the BYOND account creation in ISO 8601 format.
 
 	preload_rsc = 0 // This is 0 so we can set it to an URL once the player logs in and have them download the resources from a different server.
 

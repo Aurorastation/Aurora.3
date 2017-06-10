@@ -3,7 +3,7 @@
 	name = "magboots"
 	icon_state = "magboots0"
 	species_restricted = null
-	force = 3
+	force = 5
 	overshoes = 1
 	var/magpulse = 0
 	var/icon_base = "magboots"

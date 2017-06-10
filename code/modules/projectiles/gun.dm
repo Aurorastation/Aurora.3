@@ -199,9 +199,6 @@
 	user.setMoveCooldown(move_delay)
 	next_fire_time = world.time + fire_delay
 
-	if(muzzle_flash)
-		set_light(0)
-
 //obtains the next projectile to fire
 /obj/item/weapon/gun/proc/consume_next_projectile()
 	return null
@@ -245,6 +242,7 @@
 
 		if(muzzle_flash)
 			set_light(muzzle_flash)
+			addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2)
 
 	if(recoil)
 		spawn()
@@ -325,9 +323,9 @@
 	var/mob/living/carbon/human/M = user
 
 	mouthshoot = 1
-	M.visible_message("\red [user] sticks their gun in their mouth, ready to pull the trigger...")
+	M.visible_message("<span class='warning'>[user] sticks their gun in their mouth, ready to pull the trigger...</span>")
 	if(!do_after(user, 40))
-		M.visible_message("\blue [user] decided life was worth living")
+		M.visible_message("<span class='notice'>[user] decided life was worth living</span>")
 		mouthshoot = 0
 		return
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
@@ -510,10 +508,18 @@
 	name = "offhand"
 
 	unwield()
-		qdel(src)
+		if (ismob(loc))
+			var/mob/the_mob = loc
+			the_mob.drop_from_inventory(src)
+		else
+			qdel(src)
 
 	wield()
-		qdel(src)
+		if (ismob(loc))
+			var/mob/the_mob = loc
+			the_mob.drop_from_inventory(src)
+		else
+			qdel(src)
 
 	dropped(mob/living/user as mob)
 		if(user)
@@ -522,7 +528,8 @@
 				user << "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>"
 				O.unwield()
 				unwield()
-		if(src)
+				
+		if (!QDELETED(src))
 			qdel(src)
 
 	mob_can_equip(M as mob, slot)

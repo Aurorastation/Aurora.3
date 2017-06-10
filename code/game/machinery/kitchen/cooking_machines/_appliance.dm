@@ -1,7 +1,8 @@
 // This folder contains code that was originally ported from Apollo Station and then refactored/optimized/changed.
 
 // Tracks precooked food to stop deep fried baked grilled grilled grilled diona nymph cereal.
-/obj/item/weapon/reagent_containers/food/snacks/var/list/cooked = list()
+/obj/item/weapon/reagent_containers/food/snacks
+	var/tmp/list/cooked = list()
 
 // Root type for cooking machines. See following files for specific implementations.
 /obj/machinery/appliance
@@ -15,7 +16,6 @@
 	use_power = 0
 	idle_power_usage = 5			// Power used when turned on, but not processing anything
 	active_power_usage = 1000		// Power used when turned on and actively cooking something
-
 
 	var/cooking_power  = 1
 	var/max_contents = 1			// Maximum number of things this appliance can simultaneously cook
@@ -34,26 +34,15 @@
 	// If the machine has multiple output modes, define them here.
 	var/selected_option
 	var/list/output_options = list()
-	var/list/datum/recipe/available_recipes // List of the recipes this appliance could possibly make
 
 	var/container_type = null
 
 	var/combine_first = 0//If 1, this appliance will do combinaiton cooking before checking recipes
 
-/obj/machinery/appliance/initialize()
-	..()
+/obj/machinery/appliance/Initialize()
+	. = ..()
 	if(output_options.len)
 		verbs += /obj/machinery/appliance/proc/choose_output
-
-	if (!available_recipes)
-		available_recipes = new
-
-	for (var/type in subtypesof(/datum/recipe))
-		var/datum/recipe/test = new type
-		if ((appliancetype & test.appliance))
-			available_recipes += test
-		else
-			qdel(test)
 
 /obj/machinery/appliance/Destroy()
 	for (var/a in cooking_objs)
@@ -111,65 +100,62 @@
 
 /obj/machinery/appliance/verb/toggle_power()
 	set name = "Toggle Power"
-	set category = null
-	set src in view() //So that AI can operate it remotely
+	set category  = "Object"
+	set src in view()
 
-	if (!isliving(usr))
-		usr << "Ghosts aren't allowed to toggle power switches"
+	attempt_toggle_power(usr)
+
+/obj/machinery/appliance/proc/attempt_toggle_power(mob/user)
+	if (!isliving(user))
 		return
 
-	if (isanimal(usr))
-		usr << "You lack the dexterity to do that!"
+	if (!user.IsAdvancedToolUser())
+		user << "You lack the dexterity to do that!"
 		return
 
-	if (usr.stat || usr.restrained() || usr.incapacitated())
+	if (user.stat || user.restrained() || user.incapacitated())
 		return
 
-	if (!Adjacent(usr))
-		if (!issilicon(usr))
-			usr << "You can't reach the power switch from there, get closer!"
-			return
+	if (!Adjacent(user) && !issilicon(user))
+		user << "You can't reach [src] from here."
+		return
 
 	if (stat & POWEROFF)//Its turned off
 		stat &= ~POWEROFF
 		use_power = 1
-		if (usr)
-			usr.visible_message("[usr] turns the [src] on", "You turn on the [src]")
+		user.visible_message("[user] turns [src] on.", "You turn on [src].")
+
 	else //Its on, turn it off
 		stat |= POWEROFF
 		use_power = 0
-		if (usr)
-			usr.visible_message("[usr] turns the [src] off", "You turn off the [src]")
+		user.visible_message("[user] turns [src] off.", "You turn off [src].")
 
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
 	update_icon()
 
-/obj/machinery/appliance/AICtrlClick()
-	toggle_power()
+/obj/machinery/appliance/AICtrlClick(mob/user)
+	attempt_toggle_power(user)
 
 /obj/machinery/appliance/proc/choose_output()
 	set src in view()
 	set name = "Choose output"
-	set category = null
+	set category = "Object"
 
 	if (!isliving(usr))
-		usr << "Ghosts aren't allowed to mess with cooking machines!"
 		return
 
-	if (isanimal(usr))
+	if (!usr.IsAdvancedToolUser())
 		usr << "You lack the dexterity to do that!"
 		return
 
 	if (usr.stat || usr.restrained() || usr.incapacitated())
 		return
 
-	if (!Adjacent(usr))
-		if (!issilicon(usr))
-			usr << "You can't adjust the [src] from this distance, get closer!"
-			return
+	if (!Adjacent(usr) && !issilicon(usr))
+		usr << "You can't adjust the [src] from this distance, get closer!"
+		return
 
 	if(output_options.len)
-
 		var/choice = input("What specific food do you wish to make with \the [src]?") as null|anything in output_options+"Default"
 		if(!choice)
 			return
@@ -217,7 +203,7 @@
 		user << "<span class='warning'>That would probably break [src].</span>"
 		return 0
 	else if(istype(check, /obj/item/weapon/disk/nuclear))
-		user << "Central Command would kill you if you [cook_type] that."
+		user << "<span class='warning'>You can't cook that.</span>"
 		return 0
 	else if(!istype(check) && !istype(check, /obj/item/weapon/holder))
 		user << "<span class='warning'>That's not edible.</span>"
@@ -238,8 +224,6 @@
 		user << "<span class='warning'>\The [src] is not working.</span>"
 		return
 
-
-
 	var/result = can_insert(I, user)
 	if (!result)
 		return
@@ -250,17 +234,9 @@
 			cook_mob(G.affecting, user)
 			return
 
-
 	//From here we can start cooking food
 	add_content(I, user)
-
-
 	update_icon()
-
-
-
-
-
 
 //Override for container mechanics
 /obj/machinery/appliance/proc/add_content(var/obj/item/I, var/mob/user)
@@ -285,7 +261,6 @@
 
 	if (selected_option)
 		CI.combine_target = selected_option
-
 
 	// We can actually start cooking now.
 	user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
@@ -348,7 +323,6 @@
 
 	CI.max_cookwork += work
 
-
 //Called every tick while we're cooking something
 /obj/machinery/appliance/proc/do_cooking_tick(var/datum/cooking_item/CI)
 	if (!CI.max_cookwork)
@@ -381,7 +355,6 @@
 			do_cooking_tick(i)
 
 
-
 /obj/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
 
 	src.visible_message("<span class='notice'>\The [src] pings!</span>")
@@ -394,7 +367,7 @@
 		C = CI.container
 	else
 		C = src
-	recipe = select_recipe(available_recipes,C)
+	recipe = select_recipe(RECIPE_LIST(appliancetype), C)
 
 	if (recipe)
 		CI.result_type = 4//Recipe type, a specific recipe will transform the ingredients into a new food
@@ -406,26 +379,25 @@
 			AM.loc = temp
 
 		//making multiple copies of a recipe from one container. For example, tons of fries
-		while (select_recipe(available_recipes,C) == recipe)
+		while (select_recipe(RECIPE_LIST(appliancetype), C) == recipe)
 			var/list/TR = list()
-			TR.Add(recipe.make_food(C))
+			TR += recipe.make_food(C)
 			for (var/atom/movable/AM in TR) //Move results to buffer
 				AM.loc = temp
-			results.Add(TR)
+			results += TR
 
 
 		for (var/r in results)
 			var/obj/item/weapon/reagent_containers/food/snacks/R = r
 			R.loc = C //Move everything from the buffer back to the container
-			R.cooked |= cook_type.
+			R.cooked |= cook_type
 
-		qdel(temp) //delete buffer object
-		temp = null
-		.=1 //None of the rest of this function is relevant for recipe cooking
+		QDEL_NULL(temp) //delete buffer object
+		. = 1 //None of the rest of this function is relevant for recipe cooking
 
 	else if(CI.combine_target)
 		CI.result_type = 3//Combination type. We're making something out of our ingredients
-		.=combination_cook(CI)
+		. = combination_cook(CI)
 
 
 	else
@@ -461,8 +433,6 @@
 		words |= dd_text2List(S.name," ")
 		cooktypes |= S.cooked
 
-
-
 		if (S.reagents && S.reagents.total_volume > 0)
 			if (S.filling_color)
 				if (!totalcolour || !buffer.total_volume)
@@ -493,7 +463,7 @@
 	result.filling_color = totalcolour
 
 	//Set the name.
-	words.Remove(list("and", "the", "in", "is", "bar", "raw", "sticks", "boiled", "fried", "deep", "-o-", "warm", "two", "flavored"))
+	words -= list("and", "the", "in", "is", "bar", "raw", "sticks", "boiled", "fried", "deep", "-o-", "warm", "two", "flavored")
 	//Remove common connecting words and unsuitable ones from the list. Unsuitable words include those describing
 	//the shape, cooked-ness/temperature or other state of an ingredient which doesn't apply to the finished product
 	words.Remove(result.name)
@@ -524,7 +494,7 @@
 	if (!result)
 		return
 
-	result.cooked |= cook_type.
+	result.cooked |= cook_type
 
 	// Set icon and appearance.
 	change_product_appearance(result, CI)
@@ -540,7 +510,7 @@
 
 	// Produce nasty smoke.
 	visible_message("<span class='danger'>\The [src] vomits a gout of rancid smoke!</span>")
-	var/datum/effect/effect/system/smoke_spread/bad/smoke = getFromPool(/datum/effect/effect/system/smoke_spread/bad)
+	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 	smoke.attach(src)
 	smoke.set_up(10, 0, get_turf(src), 300)
 	smoke.start()
@@ -600,16 +570,13 @@
 
 /obj/machinery/appliance/proc/change_product_strings(var/obj/item/weapon/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
 	product.name = "[cook_type] [product.name]"
-	product.desc = "[product.desc] It has been [cook_type]."
+	product.desc = "[product.desc]\nIt has been [cook_type]."
 
 
 /obj/machinery/appliance/proc/change_product_appearance(var/obj/item/weapon/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
 	if (!product.coating) //Coatings change colour through a new sprite
 		product.color = food_color
 	product.filling_color = food_color
-
-
-
 
 //This function creates a food item which represents a dead mob
 /obj/machinery/appliance/proc/create_mob_food(var/obj/item/weapon/holder/H, var/datum/cooking_item/CI)
@@ -649,9 +616,7 @@
 
 	return result
 
-
 /datum/cooking_item
-	//var/obj/object
 	var/max_cookwork
 	var/cookwork
 	var/overcook_mult = 3
@@ -674,10 +639,8 @@
 /datum/cooking_item/New(var/obj/item/I)
 	container = I
 
-
 //This is called for containers whose contents are ejected without removing the container
 /datum/cooking_item/proc/reset()
-	//object = null
 	max_cookwork = 0
 	cookwork = 0
 	result_type = 0

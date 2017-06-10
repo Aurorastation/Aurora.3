@@ -40,7 +40,6 @@ var/datum/discord_bot/discord_bot = null
 	var/robust_debug = 0
 
 	// Lazy man's rate limiting vars
-	var/datum/scheduled_task/push_task
 	var/list/queue = list()
 
 /*
@@ -129,8 +128,7 @@ var/datum/discord_bot/discord_bot = null
 			queue.Add(list(list(message, A - sent)))
 
 			// Schedule a push.
-			if (!push_task && scheduler)
-				push_task = schedule_task_with_source_in(10 SECONDS, src, /datum/discord_bot/proc/push_queue)
+			addtimer(CALLBACK(src, .proc/push_queue), 10 SECONDS, TIMER_UNIQUE)
 
 			// And exit.
 			return
@@ -237,8 +235,7 @@ var/datum/discord_bot/discord_bot = null
 		for (var/B in destinations)
 			var/datum/discord_channel/channel = B
 			if (channel.send_message_to(auth_token, message) == SEND_TIMEOUT)
-				// Tasks nuke themselves after use. So just make a new one! What could possibly go wrong!
-				push_task = schedule_task_with_source_in(10 SECONDS, src, /datum/discord_bot/proc/push_queue)
+				addtimer(CALLBACK(src, .proc/push_queue), 10 SECONDS, TIMER_UNIQUE)
 
 				return
 			else

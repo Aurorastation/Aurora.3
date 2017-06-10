@@ -96,7 +96,7 @@
 
 	return progress
 
-/datum/chemical_reaction/proc/process(var/datum/reagents/holder)
+/datum/chemical_reaction/process(var/datum/reagents/holder)
 	//determine how far the reaction can proceed
 	var/list/reaction_limits = list()
 	for(var/reactant in required_reagents)
@@ -1506,6 +1506,13 @@
 	result = "beerbatter"
 	required_reagents = list("egg" = 3, "flour" = 10, "beer" = 5, "sodiumchloride" = 2)
 	result_amount = 20
+
+/datum/chemical_reaction/browniemix
+	name = "Brownie Mix"
+	id = "browniemix"
+	result = "browniemix"
+	required_reagents = list("flour" = 5, "coco" = 5, "sugar" = 5)
+	result_amount = 15
 
 /*
 	Todo in future:

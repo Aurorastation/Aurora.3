@@ -88,7 +88,7 @@
 		if ("help")
 			src << "salute, bow, clap, flap, aflap, twitch, twitch_s, nod, beep, ping, \nbuzz, law, halt"
 		else
-			src << "\blue Unusable emote '[act]'. Say *help for a list."
+			src << "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>"
 
 	if ((message && src.stat == 0))
 		send_emote(message, m_type)

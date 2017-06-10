@@ -116,6 +116,7 @@
 	recipes += new/datum/stack_recipe("beehive assembly", /obj/item/beehive_assembly, 4)
 	recipes += new/datum/stack_recipe("beehive frame", /obj/item/honey_frame, 1)
 	recipes += new/datum/stack_recipe("book shelf", /obj/structure/bookcase, 5, time = 15, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("ore box", /obj/structure/ore_box, 10, time = 15, one_per_turf = 1, on_floor = 1)
 
 /material/cardboard/generate_recipes()
 	..()
@@ -140,11 +141,11 @@
 	..()
 	recipes += new/datum/stack_recipe("alien helmet", /obj/item/clothing/head/xenos)
 	recipes += new/datum/stack_recipe("alien suit", /obj/item/clothing/suit/xenos, 3)
-	
+
 /material/hide/corgi/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe("corgi costume", /obj/item/clothing/suit/storage/hooded/wintercoat/corgi, 3)
-	
+
 /material/hide/monkey/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe("monkey mask", /obj/item/clothing/mask/gas/monkeymask)

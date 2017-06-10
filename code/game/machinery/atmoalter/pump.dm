@@ -22,15 +22,15 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled
 	start_pressure = 90 * ONE_ATMOSPHERE
 
-/obj/machinery/portable_atmospherics/powered/pump/New()
-	..()
+/obj/machinery/portable_atmospherics/powered/pump/Initialize()
+	. = ..()
 	cell = new/obj/item/weapon/cell/apc(src)
 
 	var/list/air_mix = StandardAirMix()
 	src.air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
 
 /obj/machinery/portable_atmospherics/powered/pump/update_icon()
-	src.overlays = 0
+	cut_overlays()
 
 	if(on && cell && cell.charge)
 		icon_state = "psiphon:1"
@@ -38,10 +38,10 @@
 		icon_state = "psiphon:0"
 
 	if(holding)
-		overlays += "siphon-open"
+		add_overlay("siphon-open")
 
 	if(connected_port)
-		overlays += "siphon-connector"
+		add_overlay("siphon-connector")
 
 	return
 
@@ -139,7 +139,7 @@
 	if (holding)
 		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0))
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "portpump.tmpl", "Portable Pump", 480, 410, state = physical_state)
 		ui.set_initial_data(data)
