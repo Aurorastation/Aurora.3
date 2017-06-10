@@ -1051,9 +1051,9 @@
 /mob/living/carbon/human/clean_blood(var/clean_feet)
 	.=..()
 	gunshot_residue = null
-	if(clean_feet && !shoes && istype(feet_blood_DNA, /list) && feet_blood_DNA.len)
+	if(clean_feet && !shoes)
 		feet_blood_color = null
-		qdel(feet_blood_DNA)
+		feet_blood_DNA = null
 		update_inv_shoes(1)
 		return 1
 
@@ -1189,8 +1189,9 @@
 
 	spawn(0)
 		regenerate_icons()
-		vessel.add_reagent("blood",560-vessel.total_volume)
-		fixblood()
+		if (vessel)
+			vessel.add_reagent("blood",560-vessel.total_volume)
+			fixblood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
