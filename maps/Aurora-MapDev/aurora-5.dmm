@@ -968,7 +968,7 @@
 "sF" = (/obj/machinery/disposal,/obj/structure/disposalpipe/trunk,/turf/simulated/floor/tiled,/area/crew_quarters/sleep/cryo)
 "sG" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/crew_quarters/sleep/cryo)
 "sH" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/machinery/door/firedoor,/obj/structure/window/reinforced{icon_state = "rwindow";dir = 1},/turf/simulated/floor/plating,/area/hydroponics/garden)
-"sI" = (/obj/machinery/smartfridge/seeds,/turf/simulated/floor/grass,/area/hydroponics/garden)
+"sI" = (/obj/machinery/vending/hydroseeds,/turf/simulated/floor/grass,/area/hydroponics/garden)
 "sJ" = (/obj/structure/sink{dir = 4;icon_state = "sink";pixel_x = 11;pixel_y = 0},/turf/simulated/floor/tiled,/area/hydroponics/garden)
 "sK" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/structure/window/reinforced,/obj/machinery/door/firedoor,/obj/structure/window/reinforced{icon_state = "rwindow";dir = 1},/turf/simulated/floor/plating,/area/hydroponics/garden)
 "sL" = (/obj/structure/closet/wardrobe/xenos,/turf/simulated/floor/tiled,/area/crew_quarters/locker)
