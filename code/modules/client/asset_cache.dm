@@ -188,7 +188,8 @@ var/list/asset_datums = list()
 		"barcode0.png" = 'html/images/barcode0.png',
 		"barcode1.png" = 'html/images/barcode1.png',
 		"barcode2.png" = 'html/images/barcode2.png',
-		"barcode3.png" = 'html/images/barcode3.png'
+		"barcode3.png" = 'html/images/barcode3.png',
+		"ntlogo.png"   = 'html/images/ntlogo.png'
 	)
 
 /datum/asset/simple/changelog
