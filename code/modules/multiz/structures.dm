@@ -14,6 +14,7 @@
 	var/allowed_directions = DOWN
 	var/obj/structure/ladder/target_up
 	var/obj/structure/ladder/target_down
+	var/base_icon = "ladder"
 
 	var/const/climb_time = 2 SECONDS
 
@@ -25,7 +26,10 @@
 			if(L.allowed_directions & UP)
 				target_down = L
 				L.target_up = src
-				return
+
+				L.update_icon()
+				break
+
 	update_icon()
 
 /obj/structure/ladder/Destroy()
@@ -113,7 +117,7 @@
 	return airflow || !density
 
 /obj/structure/ladder/update_icon()
-	icon_state = "ladder[!!(allowed_directions & UP)][!!(allowed_directions & DOWN)]"
+	icon_state = "[base_icon][!!(allowed_directions & UP)][!!(allowed_directions & DOWN)]"
 
 /obj/structure/ladder/up
 	allowed_directions = UP
@@ -122,27 +126,6 @@
 /obj/structure/ladder/updown
 	allowed_directions = UP|DOWN
 	icon_state = "ladder11"
-
-/obj/structure/ladder/mobile/base
-	allowed_directions = UP
-	icon_state = "ladder11"
-/obj/structure/ladder/mobile/body
-	allowed_directions = DOWN
-	icon_state = "ladder11"
-
-/obj/structure/ladder/mobile/verb/fold()
-	set name = "Fold Ladder"
-	set category = "Object"
-	set src in oview(1)
-	var/obj/item/weapon/ladder_mobile/R = new(src.loc)
-	src.transfer_fingerprints_to(R)
-	
-	if(src.target_down == null)
-		QDEL_NULL(src.target_up)
-		qdel(src)
-	else
-		QDEL_NULL(src.target_down)
-		qdel(src)
 
 /obj/structure/stairs
 	name = "Stairs"
