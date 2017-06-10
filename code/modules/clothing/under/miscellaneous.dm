@@ -530,7 +530,6 @@
 	item_state = "cheongsamwhite"
 	worn_state = "cheongsamwhite"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	var/show_above_shoes = 0
 	contained_sprite = 1
 
 /obj/item/clothing/under/cheongsam/red
