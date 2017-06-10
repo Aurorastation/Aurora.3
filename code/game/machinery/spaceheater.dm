@@ -9,6 +9,7 @@
 	var/on = 0
 	var/set_temperature = T0C + 50	//K
 	var/heating_power = 40000
+	has_special_power_checks = TRUE
 
 
 /obj/machinery/space_heater/Initialize()
