@@ -580,7 +580,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(isnull(F))
 		return
 
-	F.damage += 5
+	F.take_damage(5)
 	src << "<span class='warning'>You feel a stabbing pain in your chest!</span>"
 	playsound(user, 'sound/effects/Heart Beat.ogg', 20, 1)
 
