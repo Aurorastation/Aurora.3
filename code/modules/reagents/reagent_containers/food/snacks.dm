@@ -3510,7 +3510,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/keylimepieslice/filled/New()
 	..()
-	reagents.add_reagent("nutriment", 1)
+	reagents.add_reagent("nutriment", 3)
+	reagents.add_reagent("protein", 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/quiche
 	name = "quiche"
@@ -3539,8 +3540,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/quicheslice/filled/New()
 	..()
-	reagents.add_reagent("nutriment", 1)
-	reagents.add_reagent("protein", 1)
+	reagents.add_reagent("nutriment", 3)
+	reagents.add_reagent("protein", 3)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/brownies
 	name = "brownies"

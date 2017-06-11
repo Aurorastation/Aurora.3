@@ -1,27 +1,30 @@
 // PRESETS
 var/global/list/station_networks = list(
-										NETWORK_CIVILIAN_EAST,
-										NETWORK_CIVILIAN_WEST,
-										NETWORK_COMMAND,
-										NETWORK_ENGINE,
-										NETWORK_ENGINEERING,
-										NETWORK_ENGINEERING_OUTPOST,
-										NETWORK_STATION,
-										NETWORK_MEDICAL,
-										NETWORK_MINE,
-										NETWORK_RESEARCH,
-										NETWORK_RESEARCH_OUTPOST,
-										NETWORK_ROBOTS,
-										NETWORK_PRISON,
-										NETWORK_SECURITY
-										)
+	NETWORK_CIVILIAN_EAST,
+	NETWORK_CIVILIAN_WEST,
+	NETWORK_COMMAND,
+	NETWORK_ENGINE,
+	NETWORK_ENGINEERING,
+	NETWORK_ENGINEERING_OUTPOST,
+	NETWORK_STATION,
+	NETWORK_MEDICAL,
+	NETWORK_MINE,
+	NETWORK_RESEARCH,
+	NETWORK_RESEARCH_OUTPOST,
+	NETWORK_ROBOTS,
+	NETWORK_PRISON,
+	NETWORK_SECURITY
+)
+
 var/global/list/engineering_networks = list(
-										NETWORK_ENGINE,
-										NETWORK_ENGINEERING,
-										NETWORK_ENGINEERING_OUTPOST,
-										"Atmosphere Alarms",
-										"Fire Alarms",
-										"Power Alarms")
+	NETWORK_ENGINE,
+	NETWORK_ENGINEERING,
+	NETWORK_ENGINEERING_OUTPOST,
+	"Atmosphere Alarms",
+	"Fire Alarms",
+	"Power Alarms"
+)
+
 /obj/machinery/camera/network/crescent
 	network = list(NETWORK_CRESCENT)
 
@@ -131,7 +134,7 @@ var/global/list/engineering_networks = list(
 	number = 1
 	var/area/A = get_area(src)
 	if(A)
-		for(var/obj/machinery/camera/autoname/C in world)
+		for(var/obj/machinery/camera/autoname/C in SSmachinery.all_cameras)
 			if(C == src) continue
 			var/area/CA = get_area(C)
 			if(CA.type == A.type)
@@ -172,7 +175,7 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/proc/upgradeMotion()
 	assembly.upgrades.Add(new /obj/item/device/assembly/prox_sensor(assembly))
 	setPowerUsage()
-	if(!(src in machines))
+	if(!(machines[src]))
 		add_machine(src)
 	update_coverage()
 
