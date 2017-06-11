@@ -137,7 +137,7 @@
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
 
 //Redefining some robot procs...
-/mob/living/silicon/robot/drone/SetName(pickedName as text)
+/mob/living/silicon/robot/drone/fully_replace_character_name(pickedName as text)
 	// Would prefer to call the grandparent proc but this isn't possible, so..
 	real_name = pickedName
 	name = real_name
