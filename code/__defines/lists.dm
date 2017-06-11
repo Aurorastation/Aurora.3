@@ -6,3 +6,4 @@
 #define LAZYACCESS(L, I) (L ? (isnum(I) ? (I > 0 && I <= L.len ? L[I] : null) : L[I]) : null)
 #define LAZYLEN(L) length(L)
 #define LAZYCLEARLIST(L) if(L) L.Cut()
+#define LAZYSET(L, K, V) if(!L) { L = list(); } L[K] = V;
