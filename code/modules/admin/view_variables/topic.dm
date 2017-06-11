@@ -23,7 +23,7 @@
 
 		if (issilicon(M) && alert(usr, "Synth detected. Would you like to run rename silicon verb automatically?",, "Yes", "No") == "Yes")
 			var/mob/living/silicon/S = M
-			S.SetName(new_name)
+			S.fully_replace_character_name(new_name)
 			to_chat(usr, span("notice", "Silicon properly renamed."))
 
 		href_list["datumrefresh"] = href_list["rename"]
