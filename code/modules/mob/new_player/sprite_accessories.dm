@@ -1006,21 +1006,9 @@
 		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
 		species_allowed = list("Unathi")
 
-	paw_socks_belly
-		name = "Socks,Belly Coloration (Generic)"
-		icon_state = "pawsocksbelly"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-
 	belly_hands_feet
 		name = "Hands,Feet,Belly Color (Minor)"
 		icon_state = "bellyhandsfeetsmall"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-
-	hands_feet_belly_full
-		name = "Hands,Feet,Belly Color (Major)"
-		icon_state = "bellyhandsfeet"
 		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
