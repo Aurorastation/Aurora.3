@@ -368,6 +368,7 @@
 
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
+	eyes = "blank_eyes"
 
 	light_range = 2
 	light_power = 0.5
