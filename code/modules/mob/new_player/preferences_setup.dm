@@ -216,29 +216,16 @@ datum/preferences
 
 	if(previewJob)
 		mannequin.job = previewJob.title
+
+		var/list/leftovers = list()
+		var/list/used_slots = list()
+
+		SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
+
 		previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
-		var/list/equipped_slots = list() //If more than one item takes the same slot only spawn the first
-		for(var/thing in gear)
-			var/datum/gear/G = gear_datums[thing]
-			if(G)
-				var/permitted = 0
-				if(G.allowed_roles)
-					for(var/job_name in G.allowed_roles)
-						if(previewJob.title == job_name)
-							permitted = 1
-				else
-					permitted = 1
 
-				if(G.whitelisted && (G.whitelisted != mannequin.species.name))
-					permitted = 0
+		SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 
-				if(!permitted)
-					continue
-
-				if(G.slot && !(G.slot in equipped_slots))
-					equipped_slots += G.slot
-					var/metadata = gear[G.display_name]
-					mannequin.equip_to_slot_or_del(G.spawn_item(mannequin, metadata), G.slot)
 		mannequin.update_icons()
 
 /datum/preferences/proc/update_preview_icon()
