@@ -22,6 +22,11 @@
 	can_buckle = 1
 	anchored = 1
 
+/obj/effect/hoist_hook/unbuckle_mob()
+	. = ..()
+	source_hoist.hoistee.anchored = 0
+	source_hoist.hoistee = null
+
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/M,mob/user)
 	if(!istype(M) || !M.simulated || M.anchored || source_hoist.hoistee || !Adjacent(M))
 		return
@@ -46,16 +51,16 @@
 		return
 	if (!dest.Adjacent(source_hoist.hoistee))
 		return
-
-	if (buckled_mob)
-		unbuckle_mob()
-
+		
 	var/turf/desturf = dest
 	source_hoist.hoistee.Move(desturf)
-
-	source_hoist.hoistee.anchored = 0
+		
+	if (buckled_mob)
+		unbuckle_mob()
+	else
+		source_hoist.hoistee.anchored = 0
+		source_hoist.hoistee = null
 	usr.visible_message(span("danger", "[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You detach \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You hear something unclamp."))
-	source_hoist.hoistee = null
 
 /obj/structure/hoist
 	icon = 'icons/obj/stationobjs.dmi'
