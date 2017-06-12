@@ -7,7 +7,7 @@
 	else if(istype(mover) && mover.checkpass(PASSTABLE))
 	//Animals can run under them, lots of empty space
 		return 1
-	return 0
+	return ..()
 
 /obj/item/modular_computer/console/preset/install_default_hardware()
 	..()

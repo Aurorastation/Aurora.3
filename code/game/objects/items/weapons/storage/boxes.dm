@@ -76,10 +76,6 @@
 		else
 			user << span("danger", "It is full of tears and holes.")
 
-
-
-
-
 // BubbleWrap - A box can be folded up to make card
 /obj/item/weapon/storage/box/attack_self(mob/user as mob)
 	if(..()) return
