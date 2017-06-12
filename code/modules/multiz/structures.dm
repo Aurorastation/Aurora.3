@@ -45,6 +45,9 @@
 	attack_hand(user)
 	return
 
+/obj/structure/ladder/attack_generic(var/mob/M)
+	attack_hand(M)
+
 /obj/structure/ladder/attack_hand(var/mob/M)
 	if(!M.may_climb_ladders(src))
 		return

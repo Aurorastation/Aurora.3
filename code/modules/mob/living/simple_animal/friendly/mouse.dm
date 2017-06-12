@@ -79,15 +79,16 @@
 	else
 		if ((world.time - timeofdeath) > decompose_time)
 			dust()
-			
+
 /mob/living/simple_animal/mouse/Destroy()
 	SSmob.all_mice -= src
-		
+
 	return ..()
-	
+
 //Pixel offsetting as they scamper around
 /mob/living/simple_animal/mouse/Move()
-	if(..())
+	.=..()
+	if(.)
 		if (prob(50))
 			pixel_x += rand(-2,2)
 			pixel_x = Clamp(pixel_x, -10, 10)
@@ -231,7 +232,7 @@
 				squeak(0)
 			else
 				squeak_loud(0)//You trod on its tail
-				
+
 	if(!health)
 		return
 
