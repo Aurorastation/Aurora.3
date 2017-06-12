@@ -87,7 +87,7 @@
 			W:spark_system.queue()
 			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 			playsound(src.loc, "sparks", 50, 1)
-	else if(istype(W, /obj/item/weapon/screwdriver) && canbemoved)
+	else if(isscrewdriver(W) && canbemoved)
 		if(screwed)
 			user << "<span class='notice'>You start to unscrew the locker from the floor...</span>"
 			playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
@@ -102,7 +102,7 @@
 				user << "<span class='notice'>You screw the locker!</span>"
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				screwed = 1
-	else if(istype(W, /obj/item/weapon/wrench) && canbemoved)
+	else if(iswrench(W) && canbemoved)
 		if(wrenched && !screwed)
 			user << "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>"
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
