@@ -327,7 +327,7 @@ var/datum/controller/subsystem/vote/SSvote
 	return 0
 
 /datum/controller/subsystem/vote/proc/interface(client/C)
-	if(!C)	
+	if(!C)
 		return
 	var/is_staff = 0
 	if(C.holder)
@@ -403,9 +403,9 @@ var/datum/controller/subsystem/vote/SSvote
 	. += "<a href='?src=\ref[src];vote=close' style='position:absolute;right:50px'>Close</a></body></html>"
 
 /datum/controller/subsystem/vote/Topic(href, list/href_list = list(), hsrc)
-	if(!usr || !usr.client)	
+	if(!usr || !usr.client)
 		return	//not necessary but meh...just in-case somebody does something stupid
-		
+
 	switch(href_list["vote"])
 		if("close")
 			voting -= usr.client
@@ -424,8 +424,25 @@ var/datum/controller/subsystem/vote/SSvote
 			if(usr.client.holder)
 				config.allow_vote_mode = !config.allow_vote_mode
 		if("restart")
-			if(config.allow_vote_restart || usr.client.holder)
+			if(usr.client.holder)
 				initiate_vote("restart",usr.key)
+			else if (config.allow_vote_restart)
+				var/admin_number_present = 0
+				var/admin_number_afk = 0
+
+				for (var/client/X in admins)
+					if (X.holder.rights & R_ADMIN)
+						admin_number_present++
+						if (X.is_afk())
+							admin_number_afk++
+						if (X.prefs.toggles & SOUND_ADMINHELP)
+							X << 'sound/effects/adminhelp.ogg'
+
+				if ((admin_number_present - admin_number_afk) <= 0)
+					initiate_vote("restart", usr.key)
+				else
+					log_and_message_admins("tried to start a restart vote.", usr, null)
+					to_chat(usr, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
 		if("gamemode")
 			if(config.allow_vote_mode || usr.client.holder)
 				initiate_vote("gamemode",usr.key)
@@ -459,7 +476,7 @@ var/datum/controller/subsystem/vote/SSvote
 		SSvote.setup_vote_window(client)
 
 	var/datum/browser/vote_window = client.vote_window
-	
+
 	vote_window.set_user(src)
 	vote_window.set_content(SSvote.interface(client))
 	vote_window.open()

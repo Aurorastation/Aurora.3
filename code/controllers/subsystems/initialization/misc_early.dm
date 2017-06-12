@@ -32,14 +32,16 @@
 	// Create robolimbs for chargen.
 	populate_robolimb_list()
 
-	if(config.ToRban)
-		ToRban_autoupdate()
-
 	// Set up antags.
 	populate_antag_type_list()
 
 	// Populate spawnpoints for char creation.
 	populate_spawn_points()
+
+	// Get BOREALIS to warn staff about a lazy admin forgetting visibility to 0
+	// before anyone has a chance to change it!
+	if (discord_bot)
+		discord_bot.alert_server_visibility()
 
 	lobby_image = new/obj/effect/lobby_image()
 

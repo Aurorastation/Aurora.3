@@ -205,10 +205,14 @@
 		update_connection_data(C, conn_info)
 
 	if (ding_bannu)
-		log_and_message_admins("[C.ckey] from [C.address]-[C.computer_id] was caught bandodging. Mirror applied for ban #[ding_bannu], kicking shortly.")
-		apply_ban_mirror(C.ckey, C.address, C.computer_id, ding_bannu)
-		spawn(20)
-			del(C)
+		if (!C.holder)
+			log_and_message_admins("[C.ckey] from [C.address]-[C.computer_id] was caught bandodging. Mirror applied for ban #[ding_bannu], kicking shortly.")
+			apply_ban_mirror(C.ckey, C.address, C.computer_id, ding_bannu)
+			spawn(20)
+				del(C)
+		else
+			// Stop kicking me off my test server, fuck.
+			log_and_message_admins("[C.ckey] is a staff but was caught bandodging! Ban ID: #[ding_bannu].")
 
 	return
 
