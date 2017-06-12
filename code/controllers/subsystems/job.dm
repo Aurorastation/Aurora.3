@@ -77,8 +77,6 @@
 			return FALSE
 		if(jobban_isbanned(player, rank))
 			return FALSE
-		if(!job.player_old_enough(player.client))
-			return FALSE
 
 		var/position_limit = job.total_positions
 		if(!latejoin)
@@ -109,9 +107,6 @@
 		if(jobban_isbanned(player, job.title))
 			Debug("FOC isbanned failed, Player: [player]")
 			continue
-		if(!job.player_old_enough(player.client))
-			Debug("FOC player not old enough, Player: [player]")
-			continue
 		if(flag && !(flag in player.client.prefs.be_special_role))
 			Debug("FOC flag failed, Player: [player], Flag: [flag], ")
 			continue
@@ -134,10 +129,6 @@
 
 		if(jobban_isbanned(player, job.title))
 			Debug("GRJ isbanned failed, Player: [player], Job: [job.title]")
-			continue
-
-		if(!job.player_old_enough(player.client))
-			Debug("GRJ player not old enough, Player: [player]")
 			continue
 
 		if((job.current_positions < job.spawn_positions) || job.spawn_positions == -1)
@@ -170,7 +161,7 @@
 			var/list/weightedCandidates = list()
 			for(var/mob/V in candidates)
 				// Log-out during round-start? What a bad boy, no head position for you!
-				if(!V.client) 
+				if(!V.client)
 					continue
 
 				var/age = V.client.prefs.age
@@ -278,10 +269,6 @@
 
 				if(jobban_isbanned(player, job.title))
 					Debug("DO isbanned failed, Player: [player], Job:[job.title]")
-					continue
-
-				if(!job.player_old_enough(player.client))
-					Debug("DO player not old enough, Player: [player], Job:[job.title]")
 					continue
 
 				// If the player wants that job on this level, then try give it to him.
@@ -606,7 +593,7 @@
 /datum/controller/subsystem/jobs/proc/HandleFeedbackGathering()
 	for(var/thing in occupations)
 		var/datum/job/job = thing
-		
+
 		var/tmp_str = "|[job.title]|"
 
 		var/level1 = 0 //high
@@ -614,15 +601,11 @@
 		var/level3 = 0 //low
 		var/level4 = 0 //never
 		var/level5 = 0 //banned
-		var/level6 = 0 //account too young
 		for(var/mob/new_player/player in player_list)
 			if(!(player.ready && player.mind && !player.mind.assigned_role))
 				continue //This player is not ready
 			if(jobban_isbanned(player, job.title))
 				level5++
-				continue
-			if(!job.player_old_enough(player.client))
-				level6++
 				continue
 			if(player.client.prefs.GetJobDepartment(job, 1) & job.flag)
 				level1++
@@ -632,7 +615,7 @@
 				level3++
 			else level4++ //not selected
 
-		tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|YOUNG=[level6]|-"
+		tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|-"
 		feedback_add_details("job_preferences",tmp_str)
 
 /datum/controller/subsystem/jobs/proc/LateSpawn(mob/living/carbon/human/H, rank)

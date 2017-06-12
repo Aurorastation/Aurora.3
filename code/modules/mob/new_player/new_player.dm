@@ -310,7 +310,6 @@
 		if(!job)	return 0
 		if(!job.is_position_available()) return 0
 		if(jobban_isbanned(src,rank))	return 0
-		if(!job.player_old_enough(src.client))	return 0
 		return 1
 
 
