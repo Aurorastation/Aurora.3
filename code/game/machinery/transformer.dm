@@ -16,9 +16,7 @@
 	if(loc)
 		MakeConveyor()
 	else
-		sleep(20)
-		if(loc)
-			MakeConveyor()
+		addtimer(CALLBACK(src, .proc/MakeConveyor), 5)
 
 /obj/machinery/transformer/proc/MakeConveyor()
 	new /obj/machinery/conveyor(loc, WEST, 1)
