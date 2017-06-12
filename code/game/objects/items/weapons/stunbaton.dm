@@ -16,6 +16,7 @@
 	var/agonyforce = 120
 	var/status = 0		//whether the thing is on or not
 	var/obj/item/weapon/cell/bcell = null
+	var/power_usage = 100
 	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
 	var/baton_color = "#FF6A00"
 
@@ -36,6 +37,7 @@
 			return 1
 		else
 			status = 0
+			deactivate()
 			update_icon()
 			return 0
 	return null
@@ -89,8 +91,10 @@
 	if(bcell && bcell.charge > hitcost)
 		status = !status
 		user << "<span class='notice'>[src] is now [status ? "on" : "off"].</span>"
-		playsound(loc, "sparks", 75, 1, -1)
-		update_icon()
+		if(status)
+			activate()
+		else
+			deactivate()
 	else
 		status = 0
 		if(!bcell)
@@ -98,6 +102,21 @@
 		else
 			user << "<span class='warning'>[src] is out of charge.</span>"
 	add_fingerprint(user)
+
+/obj/item/weapon/melee/baton/proc/activate()
+	START_PROCESSING(SSprocessing, src)
+	playsound(loc, "sparks", 75, 1, -1)
+	update_icon()
+
+/obj/item/weapon/melee/baton/proc/deactivate()
+	STOP_PROCESSING(SSprocessing, src)
+	playsound(loc, "sparks", 75, 1, -1)
+	update_icon()
+
+/obj/item/weapon/melee/baton/process()
+	if (!bcell || !bcell.checked_use(power_usage))
+		deactivate()
+		return
 
 /obj/item/weapon/melee/baton/attack(mob/M, mob/user, var/hit_zone)
 	if(status && (CLUMSY in user.mutations) && prob(50))
