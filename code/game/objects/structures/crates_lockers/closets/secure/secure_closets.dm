@@ -5,6 +5,7 @@
 	icon_state = "secure1"
 	density = 1
 	opened = 0
+	anchored = 0
 	var/locked = 1
 	var/broken = 0
 	var/large = 1
@@ -13,6 +14,9 @@
 	icon_opened = "secureopen"
 	var/icon_broken = "securebroken"
 	var/icon_off = "secureoff"
+	var/canbemoved = 0 // if it can be moved by people using the right tools
+	var/screwed = 1 // if its screwed in place
+	var/wrenched = 1 // if its wrenched down
 	wall_mounted = 0 //never solid (You can always pass over it)
 	health = 200
 
@@ -83,6 +87,38 @@
 			W:spark_system.queue()
 			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 			playsound(src.loc, "sparks", 50, 1)
+	else if(istype(W, /obj/item/weapon/screwdriver) && canbemoved)
+		if(screwed)
+			user << "<span class='notice'>You start to unscrew the locker from the floor...</span>"
+			playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			if (do_after(user, 10 SECONDS, act_target = src))
+				user << "<span class='notice'>You unscrew the locker!</span>"
+				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				screwed = 0
+		else if(!screwed && wrenched)
+			user << "<span class='notice'>You start to screw the locker to the floor...</span>"
+			playsound(src, 'sound/items/Welder.ogg', 80, 1)
+			if (do_after(user, 15, act_target = src))
+				user << "<span class='notice'>You screw the locker!</span>"
+				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				screwed = 1
+	else if(istype(W, /obj/item/weapon/wrench) && canbemoved)
+		if(wrenched && !screwed)
+			user << "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>"
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			if (do_after(user, 15 SECONDS, act_target = src))
+				user << "<span class='notice'>You unfasten the locker's bolts!</span>"
+				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				wrenched = 0
+				anchored = 0
+		else if(!wrenched)
+			user << "<span class='notice'>You start to fasten the bolts holding the locker in place...</span>"
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			if (do_after(user, 15, act_target = src))
+				user << "<span class='notice'>You fasten the locker's bolts!</span>"
+				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				wrenched = 1
+				anchored = 1
 	else if(!src.opened)
 		togglelock(user)//Attempt to lock locker if closed
 
