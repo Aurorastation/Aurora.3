@@ -427,7 +427,7 @@ About the new airlock wires panel:
 
 
 /obj/machinery/door/airlock/bumpopen(mob/living/user as mob) //Airlocks now zap you when you 'bump' them open when they're electrified. --NeoFite
-	if(!issilicon(usr))
+	if(!issilicon(user) && istype(user))
 		if(src.isElectrified())
 			if(!src.justzap)
 				if(src.shock(user, 100))
