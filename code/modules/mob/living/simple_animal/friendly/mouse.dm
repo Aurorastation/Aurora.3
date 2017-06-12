@@ -88,7 +88,7 @@
 
 //Pixel offsetting as they scamper around
 /mob/living/simple_animal/mouse/Move()
-	.=..()
+	. = ..()
 	if(.)
 		if (prob(50))
 			pixel_x += rand(-2,2)

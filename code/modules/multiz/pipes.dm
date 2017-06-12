@@ -55,11 +55,11 @@
 	. = ..()
 
 /obj/machinery/atmospherics/pipe/zpipe/Topic(href, href_list)
-	.=..()
+	. = ..()
 	if (href_list["crawl_user"])
 		var/mob/living/L = locate(href_list["crawl_user"])
 		var/direction = text2num(href_list["crawl_dir"])
-		if (L && istype(L))
+		if (istype(L))
 			return L.zMove(direction)
 
 /obj/machinery/atmospherics/pipe/zpipe/hide(var/i)

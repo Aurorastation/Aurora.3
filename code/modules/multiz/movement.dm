@@ -117,7 +117,7 @@
 /mob/living/can_ztravel(var/direction)
 	if (is_ventcrawling)
 		var/obj/machinery/atmospherics/P = loc
-		if (P && istype(P) && P.can_z_crawl(src, direction))
+		if (istype(P) && P.can_z_crawl(src, direction))
 			return TRUE
 	return FALSE
 
@@ -126,7 +126,7 @@
 	return TRUE
 
 /mob/living/carbon/human/can_ztravel(var/direction)
-	.=..()
+	. = ..()
 
 	if(incapacitated())
 		return FALSE
