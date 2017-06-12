@@ -71,7 +71,7 @@ var/global/list/bantype_to_antag_age = list()
 		// Set up age restrictions for the different antag bantypes.
 		if (!bantype_to_antag_age[A.bantype])
 			if (config.age_restrictions[lowertext(A.bantype)])
-				bantype_to_antag_age[A.bantype] = config.age_restrictions[lowertext(A.bantype)]
+				bantype_to_antag_age[lowertext(A.bantype)] = config.age_restrictions[lowertext(A.bantype)]
 			else
 				bantype_to_antag_age[A.bantype] = 0
 

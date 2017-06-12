@@ -108,7 +108,7 @@ var/list/whitelist = list()
  *			0 if they're old enough.
  */
 /proc/player_old_enough_for_role(client/C, job)
-	if (!job || !C)
+	if (!job || !C || C.holder)
 		return 0
 
 	if (ismob(C))
@@ -121,8 +121,8 @@ var/list/whitelist = list()
 	var/age_to_beat = 0
 
 	// Assume it's an antag role.
-	if (bantype_to_antag_age[job] && config.use_age_restriction_for_antags)
-		age_to_beat = bantype_to_antag_age[job]
+	if (bantype_to_antag_age[lowertext(job)] && config.use_age_restriction_for_antags)
+		age_to_beat = bantype_to_antag_age[lowertext(job)]
 
 	// Assume it's a job instead!
 	if (!age_to_beat)
