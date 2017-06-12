@@ -332,38 +332,8 @@
 		if(!megavend)	//Equip custom gear loadout.
 			job.equip_backpack(H)
 			job.setup_account(H)
-			if(H.client.prefs.gear && H.client.prefs.gear.len && job.title != "Cyborg" && job.title != "AI")
-				for(var/thing in H.client.prefs.gear)
-					var/datum/gear/G = gear_datums[thing]
-					if(G)
-						var/permitted
-						if(G.allowed_roles)
-							for(var/job_name in G.allowed_roles)
-								if(job.title == job_name)
-									permitted = TRUE
-						else
-							permitted = TRUE
 
-						if(G.whitelisted && !is_alien_whitelisted(H, all_species[G.whitelisted]))
-							permitted = FALSE
-
-						if(!permitted)
-							H << "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>"
-							continue
-
-						if(G.slot && !(G.slot in custom_equip_slots))
-							// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
-							// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
-							var/metadata = H.client.prefs.gear[G.display_name]
-							if(G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
-								custom_equip_leftovers += thing
-							else if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
-								H << "<span class='notice'>Equipping you with \the [thing]!</span>"
-								custom_equip_slots.Add(G.slot)
-							else
-								custom_equip_leftovers.Add(thing)
-						else
-							spawn_in_storage += thing
+			EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 			// This goes after custom loadout it doesn't prevent custom loadout stuff from being equipped.
 			job.equip_survival(H)
@@ -374,18 +344,7 @@
 		// Randomize nutrition. Defines are in __defines/mobs.dm
 		H.nutrition = (rand(CREW_MINIMUM_NUTRITION, CREW_MAXIMUM_NUTRITION) * 0.01) * H.max_nutrition
 
-		//If some custom items could not be equipped before, try again now.
-		for(var/thing in custom_equip_leftovers)
-			var/datum/gear/G = gear_datums[thing]
-			if(G.slot in custom_equip_slots)
-				spawn_in_storage += thing
-			else
-				var/metadata = H.client.prefs.gear[G.display_name]
-				if(H.equip_to_slot_or_del(G.spawn_item(H, metadata), G.slot))
-					H << "<span class='notice'>Equipping you with \the [thing]!</span>"
-					custom_equip_slots.Add(G.slot)
-				else
-					spawn_in_storage += thing
+		EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
 		H << "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator."
 
@@ -437,20 +396,8 @@
 				captain_announcement.Announce("All hands, Captain [H.real_name] on deck!", new_sound=announce_sound)
 
 		//Deferred item spawning.
-		if(spawn_in_storage && spawn_in_storage.len)
-			var/obj/item/weapon/storage/B
-			for(var/obj/item/weapon/storage/S in H.contents)
-				B = S
-				break
-
-			if(B)
-				for(var/thing in spawn_in_storage)
-					H << "<span class='notice'>Placing \the [thing] in your [B.name]!</span>"
-					var/datum/gear/G = gear_datums[thing]
-					var/metadata = H.client.prefs.gear[G.display_name]
-					G.spawn_item(B, metadata)
-			else
-				H << "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>"
+		if(LAZYLEN(spawn_in_storage))
+			EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	if(istype(H) && !megavend) //give humans wheelchairs, if they need them.
 		var/obj/item/organ/external/l_foot = H.get_organ("l_foot")
@@ -534,82 +481,26 @@
 		//Equip custom gear loadout.
 		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
 		var/list/custom_equip_leftovers = list()
-		if(LAZYLEN(H.client.prefs.gear) && job.title != "Cyborg" && job.title != "AI")
-			for(var/thing in H.client.prefs.gear)
-				var/datum/gear/G = gear_datums[thing]
-				if(G)
-					var/permitted
-					if(G.allowed_roles)
-						for(var/job_name in G.allowed_roles)
-							if(job.title == job_name)
-								permitted = TRUE
-								break
-					else
-						permitted = TRUE
 
-					if(G.whitelisted && !is_alien_whitelisted(H, all_species[G.whitelisted]))
-						permitted = FALSE
-
-					if(!permitted)
-						H << "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>"
-						continue
-
-					if(G.slot && !(G.slot in custom_equip_slots))
-						// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
-						// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
-						var/metadata = H.client.prefs.gear[G.display_name]
-						var/obj/item/CI = G.spawn_item(H,metadata)
-						if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
-							custom_equip_leftovers += thing
-						else if (H.equip_to_slot_or_del(CI, G.slot))
-							CI.autodrobe_no_remove = TRUE
-							H << "<span class='notice'>Equipping you with \the [thing]!</span>"
-							custom_equip_slots += G.slot
-						else
-							custom_equip_leftovers += thing
-					else
-						spawn_in_storage += thing
+		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		//Equip job items.
 		job.late_equip(H)
 		job.equip_backpack(H)
 		job.equip_survival(H)
 		job.setup_account(H)
+
+		EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
+
 		job.apply_fingerprints(H)
 
-		//If some custom items could not be equipped before, try again now.
-		for(var/thing in custom_equip_leftovers)
-			var/datum/gear/G = gear_datums[thing]
-			if(G.slot in custom_equip_slots)
-				spawn_in_storage += thing
-			else
-				var/metadata = H.client.prefs.gear[G.display_name]
-				var/obj/item/CI = G.spawn_item(H,metadata)
-				if(H.equip_to_slot_or_del(CI, G.slot))
-					H << "<span class='notice'>Equipping you with \the [thing]!</span>"
-					custom_equip_slots += G.slot
-					CI.autodrobe_no_remove = TRUE
-				else
-					spawn_in_storage += thing
 	else
 		H << "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator."
 
 	H.job = rank
 
 	if(LAZYLEN(spawn_in_storage))
-		var/obj/item/weapon/storage/B
-		for(var/obj/item/weapon/storage/S in H.contents)
-			B = S
-			break
-
-		if(B)
-			for(var/thing in spawn_in_storage)
-				H << "<span class='notice'>Placing \the [thing] in your [B.name]!</span>"
-				var/datum/gear/G = gear_datums[thing]
-				var/metadata = H.client.prefs.gear[G.display_name]
-				G.spawn_item(B, metadata)
-		else
-			H << "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>"
+		EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	if(istype(H)) //give humans wheelchairs, if they need them.
 		var/obj/item/organ/external/l_foot = H.get_organ("l_foot")
@@ -805,3 +696,90 @@
 
 	// Delete the mob.
 	qdel(H)
+
+// Equips a human-type with their custom loadout crap.
+// Returns TRUE on success, FALSE otherwise.
+// H, job, and prefs MUST be supplied and not null.
+// leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
+/datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/human/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
+	if (!istype(H) || !job)
+		return FALSE
+
+	switch (job.title)
+		if ("AI", "Cyborg")
+			return FALSE
+
+	for(var/thing in prefs.gear)
+		var/datum/gear/G = gear_datums[thing]
+		if(G)
+			var/permitted
+			if(G.allowed_roles)
+				for(var/job_name in G.allowed_roles)
+					if(job.title == job_name)
+						permitted = TRUE
+						break
+			else
+				permitted = TRUE
+
+			if(G.whitelisted && !is_alien_whitelisted(H, all_species[G.whitelisted]))
+				permitted = FALSE
+
+			if(!permitted)
+				H << "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>"
+				continue
+
+			if(G.slot && !(G.slot in custom_equip_slots))
+				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
+				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
+				var/metadata = prefs.gear[G.display_name]
+				var/obj/item/CI = G.spawn_item(H,metadata)
+				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
+					if (leftovers)
+						leftovers += thing
+				else if (H.equip_to_slot_or_del(CI, G.slot))
+					CI.autodrobe_no_remove = TRUE
+					H << "<span class='notice'>Equipping you with \a [thing]!</span>"
+					custom_equip_slots += G.slot
+				else if (leftovers)
+					leftovers += thing
+			else if (storage)
+				storage += thing
+	
+	return TRUE
+
+// Attempts to equip custom items that failed to equip in EquipCustom.
+// Returns a list of items that failed to equip & should be put in storage if possible.
+// H and prefs must not be null.
+/datum/controller/subsystem/jobs/proc/EquipCustomDeferred(mob/living/carbon/human/H, datum/preferences/prefs, list/items, list/used_slots)
+	. = list()
+	for (var/thing in items)
+		var/datum/gear/G = gear_datums[thing]
+
+		if (G.slot in used_slots)
+			. += thing
+		else
+			var/metadata = prefs.gear[G.display_name]
+			var/obj/item/CI = G.spawn_item(H, metadata)
+			if (H.equip_to_slot_or_del(CI, G.slot))
+				to_chat(H, "<span class='notice'>Equipping you with \a [thing]!</span>")
+				used_slots += G.slot
+				CI.autodrobe_no_remove = TRUE
+
+			else
+				. += thing
+
+// Attempts to place everything in items into a storage object located on H, deleting them if they're unable to be inserted.
+// H and prefs must not be null.
+// Returns nothing.
+/datum/controller/subsystem/jobs/proc/EquipItemsStorage(mob/living/carbon/human/H, datum/preferences/prefs, list/items)
+	if (LAZYLEN(items))
+		var/obj/item/weapon/storage/B = locate() in H
+		if (B)
+			for (var/thing in items)
+				to_chat(H, "<span class='notice'>Placing \the [thing] in your [B.name]!</span>")
+				var/datum/gear/G = gear_datums[thing]
+				var/metadata = prefs.gear[G.display_name]
+				G.spawn_item(B, metadata)
+
+		else
+			to_chat(H, "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>")
