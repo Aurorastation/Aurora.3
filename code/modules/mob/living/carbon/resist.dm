@@ -3,7 +3,12 @@
 
 	//drop && roll
 	if(on_fire && !buckled)
-		fire_stacks -= 1.2
+		if(fire_stacks >= 100) // really big fire!
+			fire_stacks -= 1.2 // Hard to put this out due to the size.
+		else if(fire_stacks >= 50) // not as big.
+			fire_stacks -= 3 // A bit difficult to put this fire out.
+		else 
+			fire_stacks -= 7 // Lose a bunch of firestacks because it's not that big of a fire.
 		Weaken(3)
 		spin(32,2)
 		visible_message(

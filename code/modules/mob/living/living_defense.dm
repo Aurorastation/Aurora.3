@@ -267,6 +267,13 @@
 /mob/living/proc/adjust_fire_stacks(add_fire_stacks) //Adjusting the amount of fire_stacks we have on person
     fire_stacks = Clamp(fire_stacks + add_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
 
+/mob/living/proc/adjust_divide_fire_stacks(divide_fire_stacks) //Adjusting the amount of fire_stacks we have on person
+    fire_stacks = Clamp(fire_stacks/divide_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
+
+/mob/living/proc/adjust_multiply_fire_stacks(multiply_fire_stacks) //Adjusting the amount of fire_stacks we have on person
+    fire_stacks = Clamp(fire_stacks*multiply_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
+
+
 /mob/living/proc/handle_fire()
 	if(fire_stacks < 0)
 		fire_stacks = min(0, ++fire_stacks) //If we've doused ourselves in water to avoid fire, dry off slowly
@@ -279,15 +286,24 @@
 
 	var/datum/gas_mixture/G = loc.return_air() // Check if we're standing in an oxygenless environment
 	if(G.gas["oxygen"] < 1)
-		ExtinguishMob() //If there's no oxygen in the tile we're on, put out the fire
-		return 1
+		if(fire_stacks < 40)
+			ExtinguishMob() //If there's no oxygen in the tile we're on, put out the fire. But only if we are below a certain firestacks.
+			return 1
+		else // if we aren't, halve those firestacks.
+			adjust_divide_fire_stacks(2)
+			return 1
+		
 
 	var/turf/location = get_turf(src)
 	location.hotspot_expose(fire_burn_temperature(), 50, 1)
 
 /mob/living/fire_act()
-	adjust_fire_stacks(2)
-	IgniteMob()
+	if(fire_stacks <= 1) // multiplying by something less than or equal to 1 doesn't work out so well in this case.
+		adjust_fire_stacks(2)
+		IgniteMob()
+	else // but it's okay if its more than 1 for actual growth.
+		adjust_multiply_fire_stacks(fire_stacks)
+		IgniteMob()
 
 /mob/living/proc/get_cold_protection()
 	return 0
