@@ -53,15 +53,30 @@
 			else
 				damage = L.mob_size//he bigger you are, the faster it tears
 
-			if ((health-damage) >= (maxHealth * 0.5))//I doubt it's worth the performance cost to make a variable to cache (health-damage), not that it matters
-				L.visible_message("[L] gnaws at the [src]", "You gnaw at the [src], tearing off a piece of cardboard.")
-			else if ((health-damage) < (maxHealth * 0.5) && (health-damage) > 0)
-				L.visible_message("<span class='warning'>[L] has almost gnawed through the [src]</span>", "<span class='warning'>You tear off more cardboard from the [src]. It's almost open!</span>")
-			else if ((health-damage) <= 0)
+			if (!damage || damage <= 0)
+				return
+
+			user.do_attack_animation(src)
+			if ((health-damage) <= 0)
 				L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
 				spill()
+			else
+				animate_shake()
+				var/toplay = pick(list('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'))
+				playsound(loc, toplay, 30, 1)
 			damage(damage)
 	..()
+
+
+/obj/item/weapon/storage/box/examine(var/mob/user)
+	..()
+	if (health < maxHealth)
+		if (health >= (maxHealth * 0.5))
+			user << span("warning", "It is slightly torn.")
+		else
+			user << span("danger", "It is full of tears and holes.")
+
+
 
 
 
