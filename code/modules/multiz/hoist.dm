@@ -119,7 +119,7 @@
 	qdel(src)
 
 /obj/structure/hoist/proc/can_move_dir(direction)
-	var/turf/dest = movedir == UP ? GetAbove(source_hook) : GetBelow(source_hook)
+	var/turf/dest = direction == UP ? GetAbove(source_hook) : GetBelow(source_hook)
 	switch(direction)
 		if (UP)
 			if (!istype(dest, /turf/simulated/open)) // can't move into a solid tile
@@ -131,12 +131,13 @@
 				return 0
 	if (!dest) // can't move if there's nothing to move to
 		return 0
+	return 1 // i thought i could trust myself to write something as simple as this, guess i was wrong
 
 /obj/structure/hoist/proc/move_dir(direction, ishoisting)
 	var/can = can_move_dir(direction)
 	if (!can)
 		return 0
-	var/turf/move_dest = movedir == UP ? GetAbove(source_hook) : GetBelow(source_hook)
+	var/turf/move_dest = direction == UP ? GetAbove(source_hook) : GetBelow(source_hook)
 	source_hook.forceMove(move_dest)
 	if (!ishoisting)
 		return 1
