@@ -79,7 +79,7 @@
 	power = 1	// IVE GOT THE POWER!
 	return 1
 
-/obj/machinery/shieldwallgen/process()
+/obj/machinery/shieldwallgen/machinery_process()
 	power()
 	if(power)
 		storedpower -= 2500 //the generator post itself uses some power

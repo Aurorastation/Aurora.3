@@ -17,7 +17,7 @@
 	desc = "A weak forcefield which seems to be projected by the station's emergency atmosphere containment field"
 	health = max_health/2 // Half health, it's not suposed to resist much.
 
-/obj/machinery/shield/malfai/process()
+/obj/machinery/shield/malfai/machinery_process()
 	health -= 0.5 // Slowly lose integrity over time
 	check_failure()
 
@@ -180,7 +180,7 @@
 		create_shields()
 	update_icon()
 
-/obj/machinery/shieldgen/process()
+/obj/machinery/shieldgen/machinery_process()
 	if (!active || (stat & NOPOWER))
 		return
 

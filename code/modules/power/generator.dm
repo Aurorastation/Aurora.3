@@ -74,7 +74,7 @@
 	if(!(stat & (NOPOWER|BROKEN)) && lastgenlev)
 		add_overlay("teg-op[lastgenlev]")
 
-/obj/machinery/power/generator/process()
+/obj/machinery/power/generator/machinery_process()
 	if(!circ1 || !circ2 || !anchored || stat & (BROKEN|NOPOWER))
 		stored_energy = 0
 		return

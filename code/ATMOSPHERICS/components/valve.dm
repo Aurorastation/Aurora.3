@@ -136,11 +136,9 @@
 	else
 		src.open()
 
-/obj/machinery/atmospherics/valve/process()
+/obj/machinery/atmospherics/valve/machinery_process()
 	..()
-	. = PROCESS_KILL
-
-	return
+	return PROCESS_KILL
 
 /obj/machinery/atmospherics/valve/initialize()
 	normalize_dir()

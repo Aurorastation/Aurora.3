@@ -479,7 +479,7 @@
 	mode = 0
 
 
-/obj/machinery/bot/mulebot/process()
+/obj/machinery/bot/mulebot/machinery_process()
 	if(!has_power())
 		on = 0
 		return

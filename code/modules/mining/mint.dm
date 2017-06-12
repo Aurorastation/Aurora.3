@@ -30,7 +30,7 @@
 		if(src.output) break
 	processing_objects.Add(src)
 
-/obj/machinery/mineral/mint/process()
+/obj/machinery/mineral/mint/machinery_process()
 	if ( src.input)
 		var/obj/item/stack/O
 		O = locate(/obj/item/stack, input.loc)

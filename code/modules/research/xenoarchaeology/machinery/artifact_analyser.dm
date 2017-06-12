@@ -55,7 +55,7 @@
 	user.set_machine(src)
 	onclose(user, "artanalyser")
 
-/obj/machinery/artifact_analyser/process()
+/obj/machinery/artifact_analyser/machinery_process()
 	if(scan_in_progress && world.time > scan_completion_time)
 		//finish scanning
 		scan_in_progress = 0

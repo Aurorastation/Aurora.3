@@ -173,7 +173,7 @@
 	..()
 	queue_icon_update()
 
-/obj/machinery/crusher_base/process()
+/obj/machinery/crusher_base/machinery_process()
 	set waitfor = FALSE
 	if(!pstn) //We dont process if theres no piston
 		return

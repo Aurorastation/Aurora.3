@@ -46,7 +46,7 @@ log transactions
 	return ..()
 
 
-/obj/machinery/atm/process()
+/obj/machinery/atm/machinery_process()
 	if(stat & NOPOWER)
 		return
 

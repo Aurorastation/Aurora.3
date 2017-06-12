@@ -167,7 +167,7 @@
 	return between(0, 100 * (occupant.health - occupant.maxHealth * config.health_threshold_crit / 100) / (occupant.maxHealth * (heal_level - config.health_threshold_crit) / 100), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
-/obj/machinery/clonepod/process()
+/obj/machinery/clonepod/machinery_process()
 
 	if(stat & NOPOWER) //Autoeject if power is lost
 		if(occupant)

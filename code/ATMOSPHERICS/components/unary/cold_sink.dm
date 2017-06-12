@@ -117,7 +117,7 @@
 
 	add_fingerprint(usr)
 
-/obj/machinery/atmospherics/unary/freezer/process()
+/obj/machinery/atmospherics/unary/freezer/machinery_process()
 	..()
 
 	if(stat & (NOPOWER|BROKEN) || !use_power)
