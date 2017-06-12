@@ -19,6 +19,9 @@
 		addtimer(CALLBACK(src, .proc/MakeConveyor), 5)
 
 /obj/machinery/transformer/proc/MakeConveyor()
+	if (!loc)
+		PROCLOG_WEIRD("Trying to spawn conveyor in null space.")
+		return
 	new /obj/machinery/conveyor(loc, WEST, 1)
 	var/turf/T = get_turf(src)
 	if(T)// Spawn Conveyour Belts
