@@ -40,6 +40,7 @@
 	known_commands = list("stay", "stop", "attack", "follow")
 
 	var/name_changed = 0
+	can_climb = 1 //See corgi
 
 /mob/living/simple_animal/hostile/commanded/dog/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	. = ..()

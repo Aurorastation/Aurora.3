@@ -90,6 +90,7 @@
 	var/response_disarm = "shoves"
 	var/response_harm   = "kicks"
 	var/harm_intent_damage = 15//based on 100 health, which is probably too much for a pai to have
+	can_climb = 1 //All the forms have limbs
 
 /mob/living/silicon/pai/attack_hand(mob/living/carbon/human/M as mob)
 	..()

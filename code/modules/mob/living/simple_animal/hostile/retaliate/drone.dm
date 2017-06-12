@@ -48,6 +48,7 @@
 
 	var/has_loot = 1
 	faction = "malf_drone"
+	can_climb = 1 //Flies
 
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Initialize()
 	. = ..()

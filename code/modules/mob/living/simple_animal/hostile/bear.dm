@@ -64,9 +64,9 @@
 	var/stance_step = 0
 
 	faction = "russian"
-	
-	var/always_space_mode = FALSE	// If true, bear will always be in BEARMODE_SPACE, regardless of surroundings.
 
+	var/always_space_mode = FALSE	// If true, bear will always be in BEARMODE_SPACE, regardless of surroundings.
+	can_climb = 1 //Google bear climbing ladder
 
 //SPACE BEARS! SQUEEEEEEEE~     OW! FUCK! IT BIT MY HAND OFF!!
 /mob/living/simple_animal/hostile/bear/Hudson
@@ -204,7 +204,7 @@
 
 				if(!L.client)
 					continue
-					
+
 				if(L.stat == CONSCIOUS)
 					if (dist < nearest_dist)
 						nearest_target = L

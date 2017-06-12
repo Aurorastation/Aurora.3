@@ -123,6 +123,8 @@
 	resistance = 10
 	construct_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
 
+	can_climb = 1 //It flies, its magic, and it has hands
+
 /mob/living/simple_animal/construct/armoured/Life()
 	weakened = 0
 	..()
@@ -169,6 +171,7 @@
 	see_in_dark = 7
 	attack_sound = 'sound/weapons/rapidslice.ogg'
 	construct_spells = list(/spell/targeted/ethereal_jaunt/shift)
+	can_climb = 1 //It flies, its magic
 
 /mob/living/simple_animal/construct/wraith/can_fall()
 	return FALSE
@@ -201,6 +204,7 @@
 	environment_smash = 1
 	attack_sound = 'sound/weapons/rapidslice.ogg'
 	can_repair = 1
+	can_climb = 1 //It flies, its magic
 	construct_spells = list(/spell/aoe_turf/conjure/construct/lesser,
 							/spell/aoe_turf/conjure/wall,
 							/spell/aoe_turf/conjure/floor,
@@ -233,6 +237,7 @@
 	resistance = 10
 	var/energy = 0
 	var/max_energy = 1000
+	can_climb = 1 //It flies, its magic
 	construct_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
 
 ////////////////////////Harvester////////////////////////////////
@@ -268,6 +273,8 @@
 			/spell/aoe_turf/conjure/forcewall/lesser
 		)
 	//Harvesters are endgame stuff, no harm giving them construct spells
+
+	can_climb = 1 //It flies, its magic, it has six limbs, it teleports, and it is endgame content
 
 /mob/living/simple_animal/construct/harvester/can_fall()
 	return FALSE

@@ -82,6 +82,8 @@
 	//Parrots are kleptomaniacs. This variable ... stores the item a parrot is holding.
 	var/obj/item/held_item = null
 
+	can_climb = 1 //Flies
+
 
 /mob/living/simple_animal/parrot/Initialize()
 	. = ..()
@@ -760,9 +762,9 @@
 
 /mob/living/simple_animal/parrot/can_fall()
 	return FALSE
-	
+
 /mob/living/simple_animal/parrot/can_ztravel()
 	return TRUE
-	
+
 /mob/living/simple_animal/parrot/CanAvoidGravity()
 	return TRUE

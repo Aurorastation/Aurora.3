@@ -46,6 +46,7 @@
 	var/atom/currentlyEating //what the worm is currently eating
 	var/eatingDuration = 0 //how long he's been eating it for
 
+
 	head
 		name = "space worm head"
 		icon_state = "spacewormhead"

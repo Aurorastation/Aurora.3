@@ -25,6 +25,7 @@
 	response_disarm = "pushes"
 
 	known_commands = list("stay", "stop", "attack", "follow", "dance", "boogie", "boogy")
+	can_climb = 1 //Bears climb
 
 /mob/living/simple_animal/hostile/commanded/bear/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	. = ..()

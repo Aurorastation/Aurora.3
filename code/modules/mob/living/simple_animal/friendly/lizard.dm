@@ -21,6 +21,7 @@
 	seek_speed = 0.75
 
 	var/decompose_time = 18000
+	can_climb = 1  //Lizards are great climbers
 
 /mob/living/simple_animal/lizard/Initialize()
 	. = ..()

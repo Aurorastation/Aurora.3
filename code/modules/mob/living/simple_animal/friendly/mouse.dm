@@ -51,6 +51,7 @@
 
 	can_pull_size = 1
 	can_pull_mobs = MOB_PULL_NONE
+	can_climb = 1 //Rodents are great climbers
 
 	var/decompose_time = 18000
 

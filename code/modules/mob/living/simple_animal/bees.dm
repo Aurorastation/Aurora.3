@@ -20,6 +20,7 @@
 	pass_flags = PASSTABLE
 	turns_per_move = 6
 	var/obj/machinery/portable_atmospherics/hydroponics/my_hydrotray
+	can_climb = 1 //They fly
 
 /mob/living/simple_animal/bee/Initialize(mapload, var/obj/machinery/beehive/new_parent)
 	. = ..()

@@ -100,6 +100,8 @@
 	var/can_nap = 0
 	var/icon_rest = null
 
+	can_climb = 0 //Default false, will justify setting it to 1 on a casebycase basis
+
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 

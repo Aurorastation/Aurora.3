@@ -103,6 +103,9 @@
 	if(incapacitated())
 		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
 		return FALSE
+	if (!can_climb)
+		to_chat(src, "<span class='warning'>You lack the dexterity or limbs to climb \the [ladder].</span>")
+		return FALSE
 	return TRUE
 
 /mob/observer/ghost/may_climb_ladders(var/ladder)

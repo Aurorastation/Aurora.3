@@ -158,6 +158,7 @@
 
 	var/can_pull_size = 10              // Maximum w_class the mob can pull.
 	var/can_pull_mobs = MOB_PULL_LARGER // Whether or not the mob can pull other mobs.
+	var/can_climb = 1 //Whether the mob can climb ladders
 
 	var/datum/dna/dna = null//Carbon
 

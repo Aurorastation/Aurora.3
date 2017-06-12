@@ -59,6 +59,7 @@
 	var/list/slime_mutation[4]
 
 	var/core_removal_stage = 0 //For removing cores.
+	can_climb = 0 //No limbs
 
 /mob/living/carbon/slime/Initialize(mapload, colour = "grey")
 	. = ..()
