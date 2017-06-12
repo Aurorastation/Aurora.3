@@ -108,14 +108,14 @@ var/list/whitelist = list()
  *			0 if they're old enough.
  */
 /proc/player_old_enough_for_role(client/C, job)
-	if (!job || !C || C.holder)
+	if (!job || !C)
 		return 0
 
 	if (ismob(C))
 		var/mob/M = C
 		C = M.client
 
-	if (!istype(C))
+	if (!istype(C) || C.holder)
 		return 0
 
 	var/age_to_beat = 0
