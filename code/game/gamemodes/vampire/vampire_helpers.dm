@@ -243,14 +243,11 @@
 
 	return
 
-/mob/proc/finish_ability_timeout(a_proc, vamp_flags = 0)
-	if (!a_proc)
-		return
-
+/mob/proc/finish_ability_timeout(vamp_flags = 0)
 	if (!mind || !mind.vampire)
-		return
+		return FALSE
 
 	if (vamp_flags && !(mind.vampire.status & vamp_flags))
-		return
+		return FALSE
 
-	verbs += a_proc
+	return TRUE
