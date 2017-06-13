@@ -44,6 +44,15 @@ default behaviour is:
 			return 1
 		return 0
 
+/*! \brief Determines, whether an object can be pushed by src.
+ *
+ * By default, all mobs can push anything. This will get restricted for
+ * each mob subtype individually.
+ *
+ * \return bool  true, if movable can be pushed */
+/mob/living/proc/can_move_obj(obj/movable)
+	return 1
+
 /mob/living/Bump(atom/movable/AM, yes)
 	spawn(0)
 		if ((!( yes ) || now_pushing) || !loc)
@@ -115,6 +124,9 @@ default behaviour is:
 				now_pushing = 1
 
 				if (!AM.anchored)
+					if (istype(AM, /obj) && !can_move_obj(AM))
+						now_pushing = 0
+						return
 					var/t = get_dir(src, AM)
 					if (istype(AM, /obj/structure/window))
 						for(var/obj/structure/window/win in get_step(AM,t))

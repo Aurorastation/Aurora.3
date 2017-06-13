@@ -58,6 +58,9 @@ var/list/mob_hat_cache = list()
 
 	holder_type = /obj/item/weapon/holder/drone
 
+	// Pushing
+	var/const/MAX_PUSH_WCLASS = 2 // Maximum obj/w_class that can be pushed
+
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/dead/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
 		return 0
@@ -367,3 +370,11 @@ var/list/mob_hat_cache = list()
 		if(D.key && D.client)
 			drones++
 	return drones >= config.max_maint_drones
+
+/*! \brief Determines, whether an object can be pushed by src.
+ *
+ * Overrides mob/living/can_move_obj.
+ *
+ * \return bool  true, if the object can be pushed */
+/mob/living/silicon/robot/drone/can_move_obj(obj/movable)
+	return !(movable.w_class > MAX_PUSH_WCLASS)
