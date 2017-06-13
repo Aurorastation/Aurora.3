@@ -88,3 +88,12 @@
 /mob/living/simple_animal/hostile/scarybat/cult/Life()
 	..()
 	check_horde()
+
+/mob/living/simple_animal/hostile/scarybat/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/scarybat/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/scarybat/CanAvoidGravity()
+	return TRUE

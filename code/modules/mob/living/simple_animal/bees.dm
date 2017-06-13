@@ -252,6 +252,14 @@
 /mob/living/simple_animal/bee/attempt_pull(var/mob/living/grabber)
 	return attempt_grab(grabber)
 
+/mob/living/simple_animal/bee/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/bee/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/bee/CanAvoidGravity()
+	return TRUE
 
 //Bee for spawning as a hostile mob, it wont fade without a hive
 /mob/living/simple_animal/bee/standalone
