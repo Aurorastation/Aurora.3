@@ -11,7 +11,6 @@
 	icon_state = "white"
 	layer = 10
 	uid = ++global_uid
-	all_areas += src
 	blend_mode = BLEND_MULTIPLY
 
 	if(!requires_power)

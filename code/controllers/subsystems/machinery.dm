@@ -148,6 +148,14 @@
 	out += "LT:{T:[processes_this_tick]|P:[powerusers_this_tick]}"
 	..(out.Join("\n\t"))
 
+/datum/controller/subsystem/machinery/proc/setup_template_powernets(list/cables)
+	for(var/A in cables)
+		var/obj/structure/cable/PC = A
+		if(!PC.powernet)
+			var/datum/powernet/NewPN = new()
+			NewPN.add_cable(PC)
+			propagate_network(PC, PC.powernet)
+
 /proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))
 		crash_with("Attempted add of QDELETED machine [M ? M : "NULL"] to machines list, ignoring.")
