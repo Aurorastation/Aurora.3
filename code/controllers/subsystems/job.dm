@@ -441,6 +441,7 @@
 			if(!src.megavend)
 				var/rank= src.mind.assigned_role
 				SSjobs.EquipRank(src, rank, 1)
+				src.megavend = TRUE
 		else
 			SSjobs.odin_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
 
