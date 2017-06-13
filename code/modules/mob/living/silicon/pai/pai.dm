@@ -45,7 +45,7 @@
 		)
 
 	var/obj/item/weapon/pai_cable/cable		// The cable we produce and use when door or camera jacking
-	var/obj/item/weapon/card/id/ID = null	//Internal ID used to store copied owner access, and to check access for airlocks
+	idcard_type = /obj/item/weapon/card/id	//Internal ID used to store copied owner access, and to check access for airlocks
 
 	var/master				// Name of the one who commands us
 	var/master_dna			// DNA string for owner verification
@@ -140,14 +140,17 @@
 
 	//PDA
 	pda = new(src)
-	ID = new(src)
-	ID.registered_name = ""
 	spawn(5)
 		pda.ownjob = "Personal Assistant"
 		pda.owner = text("[]", src)
 		pda.name = pda.owner + " (" + pda.ownjob + ")"
 		pda.toff = 1
 	..()
+
+/mob/living/silicon/pai/init_id()
+	. = ..()
+	idcard.registered_name = ""
+
 
 /mob/living/silicon/pai/Login()
 	greet()
