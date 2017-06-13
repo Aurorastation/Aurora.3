@@ -23,7 +23,7 @@
 	projectiletype = /obj/item/projectile/beam/drone
 	projectilesound = 'sound/weapons/laser3.ogg'
 	destroy_surroundings = 0
-	var/datum/effect/effect/system/ion_trail_follow/ion_trail
+	var/datum/effect_system/ion_trail/ion_trail
 
 	//the drone randomly switches between these states because it's malfunctioning
 	var/hostile_drone = 0
@@ -54,8 +54,7 @@
 	if(prob(5))
 		projectiletype = /obj/item/projectile/beam/pulse/drone
 		projectilesound = 'sound/weapons/pulse2.ogg'
-	ion_trail = new
-	ion_trail.set_up(src)
+	ion_trail = new(src)
 	ion_trail.start()
 
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Allow_Spacemove(var/check_drift = 0)

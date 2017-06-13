@@ -141,9 +141,13 @@
 				observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
 				announce_ghost_joinleave(src)
-				client.prefs.update_preview_icon()
-				observer.icon = client.prefs.preview_icon
+				var/mob/living/carbon/human/dummy/mannequin = new()
+				client.prefs.dress_preview_mob(mannequin)
+				observer.appearance = mannequin
 				observer.alpha = 127
+				observer.layer = initial(observer.layer)
+				observer.invisibility = initial(observer.invisibility)
+				qdel(mannequin)
 
 				observer.real_name = client.prefs.real_name
 				observer.name = observer.real_name
@@ -306,7 +310,6 @@
 		if(!job)	return 0
 		if(!job.is_position_available()) return 0
 		if(jobban_isbanned(src,rank))	return 0
-		if(!job.player_old_enough(src.client))	return 0
 		return 1
 
 

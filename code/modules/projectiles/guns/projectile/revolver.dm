@@ -8,6 +8,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/a357
+	fire_sound = 'sound/weapons/revolver_shoot.ogg'
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
 /obj/item/weapon/gun/projectile/revolver/verb/spin_cylinder()
@@ -73,6 +74,7 @@
 	icon_state = "deckard-empty"
 	caliber = "38"
 	ammo_type = /obj/item/ammo_casing/c38
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 
 /obj/item/weapon/gun/projectile/revolver/deckard/update_icon()
 	..()

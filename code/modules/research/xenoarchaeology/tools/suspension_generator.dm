@@ -19,7 +19,7 @@
 	src.cell = new/obj/item/weapon/cell/high(src)
 	..()
 
-/obj/machinery/suspension_gen/process()
+/obj/machinery/suspension_gen/machinery_process()
 	set background = 1
 
 	if (suspension_field)

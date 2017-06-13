@@ -131,7 +131,7 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_scrubber/process()
+/obj/machinery/atmospherics/unary/vent_scrubber/machinery_process()
 	..()
 
 	if (hibernate > world.time)

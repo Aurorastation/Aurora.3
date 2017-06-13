@@ -52,7 +52,7 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
   * @return /nanoui Returns the found ui, or null if none exists
   */
 /datum/controller/subsystem/processing/nanoui/proc/get_open_ui(mob/user, src_object, ui_key)
-	var/src_object_key = "\ref[src_object]"
+	var/src_object_key = SOFTREF(src_object)
 	if (!LAZYLEN(open_uis[src_object_key]) || !LAZYLEN(open_uis[src_object_key][ui_key]))
 		return null
 
@@ -71,7 +71,7 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
   * @return int The number of uis updated
   */
 /datum/controller/subsystem/processing/nanoui/proc/update_uis(src_object)
-	var/src_object_key = "\ref[src_object]"
+	var/src_object_key = SOFTREF(src_object)
 	if (!LAZYLEN(open_uis[src_object_key]))
 		return 0
 
@@ -92,7 +92,7 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
   * @return int The number of uis close
   */
 /datum/controller/subsystem/processing/nanoui/proc/close_uis(src_object)
-	var/src_object_key = "\ref[src_object]"
+	var/src_object_key = SOFTREF(src_object)
 	if (!open_uis[src_object_key] || !islist(open_uis[src_object_key]))
 		return 0
 
@@ -146,7 +146,7 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
   * @return nothing
   */
 /datum/controller/subsystem/processing/nanoui/proc/ui_opened(datum/nanoui/ui)
-	var/src_object_key = "\ref[ui.src_object]"
+	var/src_object_key = SOFTREF(ui.src_object)
 	LAZYINITLIST(open_uis[src_object_key])
 
 	LAZYADD(ui.user.open_uis, ui)
@@ -163,7 +163,7 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
   * @return int 0 if no ui was removed, 1 if removed successfully
   */
 /datum/controller/subsystem/processing/nanoui/proc/ui_closed(datum/nanoui/ui)
-	var/src_object_key = "\ref[ui.src_object]"
+	var/src_object_key = SOFTREF(ui.src_object)
 	var/ui_key = ui.ui_key
 	var/list/obj_uis = open_uis[src_object_key]
 

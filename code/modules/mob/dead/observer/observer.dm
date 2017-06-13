@@ -316,8 +316,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		usr << "Not when you're not dead!"
 		return
 	usr.verbs -= /mob/dead/observer/proc/dead_tele
-	spawn(30)
-		usr.verbs += /mob/dead/observer/proc/dead_tele
+	ADD_VERB_IN(usr, 30, /mob/dead/observer/proc/dead_tele)
 	var/area/thearea = ghostteleportlocs[A]
 	if(!thearea)	return
 

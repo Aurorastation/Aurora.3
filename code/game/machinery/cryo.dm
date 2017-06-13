@@ -41,7 +41,7 @@
 			node = target
 			break
 
-/obj/machinery/atmospherics/unary/cryo_cell/process()
+/obj/machinery/atmospherics/unary/cryo_cell/machinery_process()
 	..()
 	if(!node)
 		return

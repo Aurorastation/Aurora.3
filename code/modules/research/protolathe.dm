@@ -28,7 +28,7 @@
 	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
 	RefreshParts()
 
-/obj/machinery/r_n_d/protolathe/process()
+/obj/machinery/r_n_d/protolathe/machinery_process()
 	..()
 	if(stat)
 		update_icon()

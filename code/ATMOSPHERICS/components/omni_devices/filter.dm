@@ -57,7 +57,7 @@
 
 	return 0
 
-/obj/machinery/atmospherics/omni/filter/process()
+/obj/machinery/atmospherics/omni/filter/machinery_process()
 	if(!..())
 		return 0
 

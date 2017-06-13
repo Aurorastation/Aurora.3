@@ -92,23 +92,14 @@
 	H << "<span class='notice'><b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b></span>"
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/del()
-/datum/job/proc/equip_preview(mob/living/carbon/human/H)
-	return equip(H)
+/datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title)
+	. = equip(H, alt_title)
 
 /datum/job/proc/get_access()
 	if(!config || config.jobs_have_minimal_access)
 		return src.minimal_access.Copy()
 	else
 		return src.access.Copy()
-
-//If the configuration option is set to require players to be logged as old enough to play certain jobs, then this proc checks that they are, otherwise it just returns 1
-/datum/job/proc/player_old_enough(client/C)
-	return (available_in_days(C) == 0) //Available in 0 days = available right now = player is old enough to play.
-
-/datum/job/proc/available_in_days(client/C)
-	if(C && config.use_age_restriction_for_jobs && isnum(C.player_age) && isnum(minimal_player_age))
-		return max(0, minimal_player_age - C.player_age)
-	return 0
 
 /datum/job/proc/apply_fingerprints(var/mob/living/carbon/human/target)
 	if(!istype(target))
@@ -182,3 +173,5 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/locket(H), slot_tie)
 
+/datum/job/proc/has_alt_title(var/mob/H, var/supplied_title, var/desired_title)
+	return (supplied_title == desired_title) || (H.mind && H.mind.role_alt_title == desired_title)

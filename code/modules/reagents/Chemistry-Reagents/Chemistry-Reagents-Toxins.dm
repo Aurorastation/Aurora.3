@@ -102,6 +102,9 @@
 
 /datum/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_BLOOD))
+		return
 	M.adjustOxyLoss(20 * removed)
 	M.sleeping += 1
 
@@ -116,13 +119,14 @@
 
 /datum/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(H.stat != 1)
-			if(H.losebreath >= 10)
-				H.losebreath = max(10, H.losebreath - 10)
-			H.adjustOxyLoss(2)
-			H.Weaken(10)
+	var/mob/living/carbon/human/H = M
+	if(!istype(H) || (H.species.flags & NO_BLOOD))
+		return
+	if(H.stat != 1)
+		if(H.losebreath >= 10)
+			H.losebreath = max(10, H.losebreath - 10)
+		H.adjustOxyLoss(2)
+		H.Weaken(10)
 
 /datum/reagent/toxin/potassium_chlorophoride
 	name = "Potassium Chlorophoride"
@@ -135,13 +139,14 @@
 
 /datum/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(H.stat != 1)
-			if(H.losebreath >= 10)
-				H.losebreath = max(10, M.losebreath-10)
-			H.adjustOxyLoss(2)
-			H.Weaken(10)
+	var/mob/living/carbon/human/H = M
+	if(!istype(H) || (H.species.flags & NO_BLOOD))
+		return
+	if(H.stat != 1)
+		if(H.losebreath >= 10)
+			H.losebreath = max(10, M.losebreath-10)
+		H.adjustOxyLoss(2)
+		H.Weaken(10)
 
 /datum/reagent/toxin/zombiepowder
 	name = "Zombie Powder"
@@ -155,6 +160,9 @@
 /datum/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien == IS_DIONA)
+		return
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
 	M.status_flags |= FAKEDEATH
 	M.adjustOxyLoss(3 * removed)
@@ -246,6 +254,9 @@
 /datum/reagent/lexorin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_BLOOD))
+		return
 	M.adjustOxyLoss(2 * removed)
 	if(M.losebreath < 15)
 		M.losebreath++
@@ -291,6 +302,9 @@
 /datum/reagent/slimejelly/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_BLOOD))
+		return
 	if(prob(10))
 		M << "<span class='danger'>Your insides are burning!</span>"
 		M.adjustToxLoss(rand(100, 300) * removed)
@@ -308,6 +322,9 @@
 
 /datum/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
+		return
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	if(dose < 1)
 		if(dose == metabolism * 2 || prob(5))
@@ -333,6 +350,9 @@
 
 /datum/reagent/chloralhydrate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
+		return
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	if(dose == metabolism)
 		M.confused += 2
@@ -372,6 +392,9 @@
 /datum/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_BLOOD))
+		return
 	M.druggy = max(M.druggy, 15)
 	if(prob(10) && isturf(M.loc) && !istype(M.loc, /turf/space) && M.canmove && !M.restrained())
 		step(M, pick(cardinal))
@@ -390,6 +413,9 @@
 /datum/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_BLOOD))
+		return
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "gasp"))
 	return
@@ -405,6 +431,9 @@
 
 /datum/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
+		return
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.dizziness = max(150, M.dizziness)//Setting dizziness directly works as long as the make_dizzy proc is called after to spawn the process
 	M.make_dizzy(4)
@@ -454,6 +483,9 @@
 
 /datum/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
+		return
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.druggy = max(M.druggy, 30)
 	if(dose < 1)

@@ -11,6 +11,7 @@
 	var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 	if(L)
 		qdel(L)
+
 // Called after turf replaces old one
 /turf/proc/post_change()
 	levelupdate()
@@ -18,8 +19,11 @@
 	if(istype(T))
 		T.update_icon()
 
-//Creates a new turf
-/turf/proc/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0)
+	queue_smooth_neighbors(src)
+
+//Creates a new turf.
+// N is the type of the turf.
+/turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE)
 	if (!N)
 		return
 
@@ -27,7 +31,7 @@
 	if(N == /turf/space)
 		var/turf/below = GetBelow(src)
 		if(istype(below) && !istype(below,/turf/space))
-			N = below.density ? /turf/simulated/floor/airless : /turf/simulated/open
+			N = /turf/simulated/open
 
 	var/obj/fire/old_fire = fire
 	var/old_baseturf = baseturf
@@ -36,12 +40,9 @@
 
 	changing_turf = TRUE
 
-	if(connections) 
+	if(connections)
 		connections.erase_all()
 
-	cut_overlays()
-	underlays.Cut()
-	
 	// So we call destroy.
 	qdel(src)
 
@@ -63,11 +64,8 @@
 	W.baseturf = old_baseturf
 
 	W.post_change()
-	
-	. = W
 
-	queue_smooth(src)
-	queue_smooth_neighbors(src)
+	. = W
 
 /turf/proc/transport_properties_from(turf/other)
 	if(!istype(other, src.type))
@@ -102,7 +100,7 @@
 
 	if (dir != other.dir)
 		other.set_dir(dir)
-		
+
 	other.icon = icon
 	other.icon_state = icon_state
 	other.underlays = underlays.Copy()
@@ -114,7 +112,7 @@
 		other.priority_overlays = priority_overlays
 
 	other.overlays = overlays.Copy()
-	
+
 /turf/simulated/copy_turf(turf/simulated/other, ignore_air = FALSE)
 	. = ..()
 

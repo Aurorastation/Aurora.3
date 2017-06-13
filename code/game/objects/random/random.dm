@@ -400,7 +400,7 @@
 
 /obj/random/voidsuit/Initialize(mapload, _damaged = 0)
 	damaged = _damaged
-	..(loc)
+	. = ..(mapload)
 
 /obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
 	var/helmet = suitmap[suit.type]

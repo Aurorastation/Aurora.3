@@ -185,7 +185,7 @@ update_flag
 	else
 		return 1
 
-/obj/machinery/portable_atmospherics/canister/process()
+/obj/machinery/portable_atmospherics/canister/machinery_process()
 	if (destroyed)
 		return
 

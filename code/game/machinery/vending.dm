@@ -566,6 +566,7 @@
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
 	spawn(src.vend_delay)
+		playsound(src.loc, 'sound/machines/vending.ogg', 35, 1)
 		new R.product_path(get_turf(src))
 		src.status_message = ""
 		src.status_error = 0
@@ -579,7 +580,7 @@
 
 	SSnanoui.update_uis(src)
 
-/obj/machinery/vending/process()
+/obj/machinery/vending/machinery_process()
 	if(stat & (BROKEN|NOPOWER))
 		return
 

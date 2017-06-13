@@ -197,6 +197,9 @@
 	new /obj/item/weapon/extinguisher(src)
 	new /obj/item/clothing/head/hardhat/red(src)
 
+	if (prob(25))
+		new /obj/item/weapon/ladder_mobile(src)
+
 /*
  * First Aid
  */

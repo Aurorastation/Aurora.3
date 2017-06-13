@@ -359,7 +359,7 @@
 
 
 
-/obj/machinery/door/airlock/uranium/process()
+/obj/machinery/door/airlock/uranium/machinery_process()
 	if(world.time > last_event+20)
 		if(prob(50))
 			radiate()

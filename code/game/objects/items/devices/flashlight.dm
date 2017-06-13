@@ -16,6 +16,7 @@
 	action_button_name = "Toggle Flashlight"
 	var/on = 0
 	var/brightness_on = 3 //luminosity when on
+	var/activation_sound = 'sound/items/flashlight.ogg'
 
 /obj/item/device/flashlight/Initialize()
 	if (on)
@@ -36,6 +37,8 @@
 		user << "You cannot turn the light on while in this [user.loc]." //To prevent some lighting anomalities.
 		return 0
 	on = !on
+	if(on && activation_sound)
+		playsound(src.loc, activation_sound, 75, 1)
 	update_icon()
 	user.update_action_buttons()
 	return 1
@@ -185,6 +188,7 @@
 	var/on_damage = 7
 	var/produce_heat = 1500
 	light_wedge = LIGHT_OMNI
+	activation_sound = 'sound/items/flare.ogg'
 
 /obj/item/device/flashlight/flare/New()
 	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
@@ -260,6 +264,7 @@
 	uv_intensity = 255
 	var/fuel = 0
 	light_wedge = LIGHT_OMNI
+	activation_sound = null
 
 /obj/item/device/flashlight/glowstick/New()
 	fuel = rand(900, 1200)

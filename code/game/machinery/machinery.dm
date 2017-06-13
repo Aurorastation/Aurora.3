@@ -113,6 +113,8 @@ Class Procs:
 	var/global/gl_uid = 1
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/printing = 0 // Is this machine currently printing anything?
+	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
+	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
 
 /obj/machinery/Initialize(mapload, d=0)
 	. = ..()
@@ -133,6 +135,9 @@ Class Procs:
 		for(var/atom/A in contents)
 			qdel(A)
 	return ..()
+
+/obj/machinery/proc/machinery_process()
+	. = process()
 
 /obj/machinery/process()//If you dont use process or power why are you here
 	if(!(use_power || idle_power_usage || active_power_usage))
@@ -375,8 +380,10 @@ Class Procs:
 	
 	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
 
-	spawn(print_delay)
-		paper.loc = src.loc
-		printing = 0
+	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
 
 	return 1
+
+/obj/machinery/proc/print_move_paper(obj/paper)
+	paper.forceMove(loc)
+	printing = FALSE
