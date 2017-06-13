@@ -155,7 +155,7 @@
 	return ..()
 
 //stealth direct power usage
-/obj/machinery/power/singularity_beacon/process()
+/obj/machinery/power/singularity_beacon/machinery_process()
 	if(!active)
 		return PROCESS_KILL
 	else

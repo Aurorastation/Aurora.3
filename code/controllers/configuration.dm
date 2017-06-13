@@ -4,8 +4,6 @@ var/list/gamemode_cache = list()
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
-	var/nudge_script_path = "nudge.py"  // where the nudge.py script is located
-
 	var/list/lobby_screens = list("title") // Which lobby screens are available
 
 	var/log_ooc = 0						// log OOC channel
@@ -50,7 +48,6 @@ var/list/gamemode_cache = list()
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/Ticklag = 0.9
 	var/Tickcomp = 0
-	var/socket_talk	= 0					// use socket_talk to communicate with other processes
 	var/list/resource_urls = null
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
 	var/antag_hud_restricted = 0                    // Ghosts that turn on Antagovision cannot rejoin the round.
@@ -74,7 +71,6 @@ var/list/gamemode_cache = list()
 	var/mod_tempban_max = 1440
 	var/mod_job_tempban_max = 1440
 	var/load_jobs_from_txt = 0
-	var/ToRban = 0
 	var/automute_on = 0					//enables automuting/spam prevention
 	var/macro_trigger = 5				// The grace period between messages before it's counted as abusing a macro.
 	var/jobs_have_minimal_access = 0	//determines whether jobs use minimal access or expanded access.
@@ -98,7 +94,6 @@ var/list/gamemode_cache = list()
 	var/guests_allowed = 1
 	var/debugparanoid = 0
 
-	var/serverurl
 	var/server
 	var/banappeals
 	var/wikiurl
@@ -180,16 +175,10 @@ var/list/gamemode_cache = list()
 	var/nl_start = 19
 	var/nl_finish = 8
 
-	var/comms_password = ""
-
 	var/enter_allowed = 1
 
-	var/use_discord_bot = 0
-	var/discord_bot_host = "localhost"
-	var/discord_bot_port = 0
 	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
-	var/use_lib_nudge = 0 //Use the C library nudge instead of the python nudge.
 	var/use_overmap = 0
 
 	var/list/station_levels = list(3, 4, 5, 6, 7)				// Defines which Z-levels the station exists on.
@@ -461,14 +450,8 @@ var/list/gamemode_cache = list()
 				if ("serversuffix")
 					config.server_suffix = 1
 
-				if ("nudge_script_path")
-					config.nudge_script_path = value
-
 				if ("hostedby")
 					config.hostedby = value
-
-				if ("serverurl")
-					config.serverurl = value
 
 				if ("server")
 					config.server = value
@@ -614,17 +597,11 @@ var/list/gamemode_cache = list()
 				if("antag_hud_restricted")
 					config.antag_hud_restricted = 1
 
-				if("socket_talk")
-					socket_talk = text2num(value)
-
 				if("tickcomp")
 					Tickcomp = 1
 
 				if("humans_need_surnames")
 					humans_need_surnames = 1
-
-				if("tor_ban")
-					ToRban = 1
 
 				if("automute_on")
 					automute_on = 1
@@ -666,27 +643,12 @@ var/list/gamemode_cache = list()
 				if("uneducated_mice")
 					config.uneducated_mice = 1
 
-				if("comms_password")
-					config.comms_password = value
-
-				if("use_discord_bot")
-					config.use_discord_bot = 1
-
-				if("discord_bot_host")
-					config.discord_bot_host = value
-
-				if("discord_bot_port")
-					config.discord_bot_port = value
-
 				if("use_discord_pins")
 					config.use_discord_pins = 1
 
 				if("python_path")
 					if(value)
 						config.python_path = value
-
-				if("use_lib_nudge")
-					config.use_lib_nudge = 1
 
 				if("allow_cult_ghostwriter")
 					config.cult_ghostwriter = 1
@@ -934,7 +896,6 @@ var/list/gamemode_cache = list()
 
 		else if (type == "age_restrictions")
 			name = replacetext(name, "_", " ")
-			age_restrictions += name
 			age_restrictions[name] = text2num(value)
 
 		else if (type == "discord")
@@ -952,6 +913,8 @@ var/list/gamemode_cache = list()
 					discord_bot.robust_debug = 1
 				if ("subscriber")
 					discord_bot.subscriber_role = value
+				if ("alert_visibility")
+					discord_bot.alert_visibility = 1
 				else
 					log_misc("Unknown setting in discord configuration: '[name]'")
 

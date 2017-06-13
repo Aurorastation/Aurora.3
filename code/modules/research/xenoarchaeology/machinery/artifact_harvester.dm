@@ -70,7 +70,7 @@
 	user << browse(dat, "window=artharvester;size=450x500")
 	onclose(user, "artharvester")
 
-/obj/machinery/artifact_harvester/process()
+/obj/machinery/artifact_harvester/machinery_process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 

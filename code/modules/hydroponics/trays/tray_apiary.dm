@@ -108,7 +108,7 @@
 	else
 		return 0
 
-/obj/machinery/apiary/process()
+/obj/machinery/apiary/machinery_process()
 
 	if(swarming > 0)
 		swarming -= 1

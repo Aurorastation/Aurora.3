@@ -133,7 +133,7 @@
 			user << "<span class='notice'>You take all filled honeycombs out.</span>"
 		return
 
-/obj/machinery/beehive/process()
+/obj/machinery/beehive/machinery_process()
 	if(closed && !smoked && bee_count)
 		pollinate_flowers()
 		update_icon()

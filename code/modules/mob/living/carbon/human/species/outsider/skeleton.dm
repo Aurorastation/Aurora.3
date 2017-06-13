@@ -7,6 +7,7 @@
 	bodytype = "Skeleton"
 	icobase = 'icons/mob/human_races/r_skeleton.dmi'
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
+	eyes = "blank_eyes"
 
 	default_language = "Ceti Basic"
 	language = "Cult"

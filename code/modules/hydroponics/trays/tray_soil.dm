@@ -64,7 +64,7 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible/die()
 	qdel(src)
 
-/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/process()
+/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/machinery_process()
 	if(!seed)
 		qdel(src)
 		return

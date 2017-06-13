@@ -13,7 +13,16 @@
 /obj/machinery/transformer/Initialize()
 	// On us
 	. = ..()
-	new /obj/machinery/conveyor(loc, WEST, 1) // this doesnt need to check for a location because it is under the machine so its assumed there is one
+	if(loc)
+		MakeConveyor()
+	else
+		addtimer(CALLBACK(src, .proc/MakeConveyor), 5)
+
+/obj/machinery/transformer/proc/MakeConveyor()
+	if (!loc)
+		PROCLOG_WEIRD("Trying to spawn conveyor in null space.")
+		return
+	new /obj/machinery/conveyor(loc, WEST, 1)
 	var/turf/T = get_turf(src)
 	if(T)// Spawn Conveyour Belts
 		//East
@@ -25,7 +34,7 @@
 		var/turf/west = get_step(src, WEST)
 		if(istype(west, /turf/simulated/floor))
 			new /obj/machinery/conveyor(west, WEST, 1)
-
+	
 /obj/machinery/transformer/Bumped(var/atom/movable/AM)
 	// HasEntered didn't like people lying down.
 	if(ishuman(AM))
@@ -47,13 +56,14 @@
 		use_power(6000) // Use a lot of power.
 		visible_message("<span class='danger'>The machine makes a series of loud sounds as it starts to replace [H]'s organs and limbs with robotic parts!</span>")
 		H <<"<span class='danger'>You feel a horrible pain as the machine you entered starts to rip you apart and replace your limbs and organs!</span>"
-		sleep(600) // takes some time so they aren't just instaconverted
-		H <<"<span class='danger'> You lose consciousness for a brief moment before waking up with a whole new body...</span>"
-		H.Robotize()
-		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-		canuse = 0
-		sleep(120) // cooldown
-		canuse = 1
+		sleep(30)
+		if(H.loc == src.loc)
+			H <<"<span class='danger'> You lose consciousness for a brief moment before waking up with a whole new body...</span>"
+			H.Robotize()
+			playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+			canuse = 0
+			sleep(120) // cooldown
+			canuse = 1
 	else
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 		visible_message("<span class='notice'>The machine displays an error message reading it is still making the required parts.</span>")

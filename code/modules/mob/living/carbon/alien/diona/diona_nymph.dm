@@ -190,7 +190,7 @@
 //This is called periodically to register or remove this nymph's status as a bad organ of the gestalt
 //This is used to notify the gestalt when it needs repaired
 /mob/living/carbon/alien/diona/proc/check_status_as_organ()
-	if (istype(gestalt, /mob/living/carbon/human))
+	if (istype(gestalt, /mob/living/carbon/human) && !QDELETED(gestalt))
 		var/mob/living/carbon/human/H = gestalt
 
 		if (health < maxHealth)

@@ -12,13 +12,16 @@
 	data += "They must be reset every single time the server restarts.<br>"
 	data += "<b>If you do not know what these do, you shouldn't be touching them!</b><hr>"
 
+	data += "<h2>Hub Visibility Setting:</h2><br>"
+	data += "Currently [world.visibility ? "<font color='green'>VISIBLE</font>" : "<font color='red'>HIDDEN</font>"]. <a href='?_src_=holder;access_control=hub'>Toggle</a><br><hr>"
+
 	data += "<h2>IP Intel Settings:</h2><br><ul>"
 	data += "<li>Current warning level: [config.ipintel_rating_bad ? "[config.ipintel_rating_bad]" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=intel_bad'>Edit</a></li>"
 	data += "<li>Current kick level: [config.ipintel_rating_kick ? "[config.ipintel_rating_kick]" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=intel_kick'>Edit</a></li>"
 	data += "</ul><hr>"
 
 	data += "<h2>Player Age Settings:</h2><br><ul>"
-	data += "<li>New players: [config.access_deny_new_players ? "<font color='green'>ALLOWED</font>" : "<font color='red'>DENIED</font>"]. <a href='?_src_=holder;access_control=new_players;'>Toggle</a></li>"
+	data += "<li>New players: [config.access_deny_new_players ? "<font color='red'>DENIED</font>" : "<font color='green'>ALLOWED</font>"]. <a href='?_src_=holder;access_control=new_players;'>Toggle</a></li>"
 	data += "<li>Account age restriction: [config.access_deny_new_accounts == -1 ? "<font color='red'>DISABLED</font>" : "[config.access_deny_new_accounts] DAYS"]. <a href='?_src_=holder;access_control=new_accounts;'>Edit</a></li>"
 	data += "</ul><hr>"
 
@@ -93,6 +96,8 @@
 				log_and_message_admins("has set players with [config.access_deny_vms] positive identifiers out of 2 for VM usage to be warned.")
 			else
 				log_and_message_admins("has disabled warnings based on potential VM usage.")
+		if ("hub")
+			togglehubvisibility()
 		else
 			to_chat(usr, "<span class='danger'>Unknown control message sent. Cancelling.</span>")
 

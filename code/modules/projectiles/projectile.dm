@@ -423,7 +423,8 @@
 	return process(targloc)
 
 /obj/item/projectile/test/process(var/turf/targloc)
-	while(src) //Loop on through!
+	var/safety = 100	// We really never should need this to last longer than this number of iterations.
+	while(!QDELING(src) && safety > 0) //Loop on through!
 		if(result)
 			return (result - 1)
 		if((!( targloc ) || loc == targloc))
@@ -441,6 +442,11 @@
 			M = locate() in get_step(src,targloc)
 			if(istype(M))
 				return 1
+
+		safety--
+
+	if (safety < 0)
+		crash_with("test projectile process() maximum iterations exceeded, aborting!")
 
 //Helper proc to check if you can hit them or not.
 /proc/check_trajectory(atom/target as mob|obj, atom/firer as mob|obj, var/pass_flags=PASSTABLE|PASSGLASS|PASSGRILLE, flags=null)

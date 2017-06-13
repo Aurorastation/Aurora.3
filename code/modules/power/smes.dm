@@ -154,7 +154,7 @@
 			inputting = 1
 		// else inputting = 0, as set in process()
 
-/obj/machinery/power/smes/process()
+/obj/machinery/power/smes/machinery_process()
 	if(stat & BROKEN)	return
 	if(failure_timer)	// Disabled by gridcheck.
 		failure_timer--
@@ -459,7 +459,7 @@
 	output_level = 250000
 	should_be_mapped = 1
 
-/obj/machinery/power/smes/magical/process()
+/obj/machinery/power/smes/magical/machinery_process()
 	charge = 5000000
 	..()
 

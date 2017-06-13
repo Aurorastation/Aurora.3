@@ -138,7 +138,7 @@
 	return
 
 
-/obj/machinery/computer/pod/process()
+/obj/machinery/computer/pod/machinery_process()
 	if(inoperable())
 		return
 	if(timing)

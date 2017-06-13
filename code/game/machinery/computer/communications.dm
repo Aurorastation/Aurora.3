@@ -41,7 +41,7 @@
 	..()
 	crew_announcement.newscast = 1
 
-/obj/machinery/computer/communications/process()
+/obj/machinery/computer/communications/machinery_process()
 	if(operable())
 		if(state != STATE_STATUSDISPLAY)
 			src.updateDialog()
