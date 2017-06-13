@@ -82,7 +82,7 @@
 	if (T.mind)
 		if (T.mind.assigned_role == "Chaplain")
 			if (notify)
-				to_chat(src, "<span class='warning'>Your connection with the Veil is not strong enough to effect a man as devout as them.</span>")
+				to_chat(src, "<span class='warning'>Your connection with the Veil is not strong enough to affect a man as devout as them.</span>")
 			return 0
 		else if (T.mind.vampire)
 			if (notify)
@@ -98,7 +98,7 @@
 		for (var/obj/item/weapon/implant/loyalty/I in T)
 			if (I.implanted)
 				if (notify)
-					to_chat(src, "<span class='warning'>You feel [T.name]'s mind unreachable due to forced loyalty.</span>")
+					to_chat(src, "<span class='warning'>You feel that [T]'s mind is unreachable due to forced loyalty.</span>")
 				return 0
 
 	return 1

@@ -546,13 +546,13 @@
 			heal_organ_damage(50, 50)
 			blood_used += 12
 
-		var/static/list/emotes_lookers = list("[src.name]'s skin appears to liquefy for a moment, sealing up their wounds.",
-									"[src.name]'s veins turn black as their damaged flesh regenerates before your eyes!",
-									"[src.name]'s skin begins to split open. It turns to ash and falls away, revealing the wound to be fully healed.",
-									"Whispering arcane things, [src.name]'s damaged flesh appears to regenerate.",
-									"Thick globs of blood cover a wound on [src.name]'s body, eventually melding to be one with \his flesh.",
-									"[src.name]'s body crackles, skin and bone shifting back into place.")
-		var/static/list/emotes_self = list("Your skin appears to liquefy for a moment, sealing up your wounds.",
+		var/list/emotes_lookers = list("[src]'s skin appears to liquefy for a moment, sealing up their wounds.",
+									"[src]'s veins turn black as their damaged flesh regenerates before your eyes!",
+									"[src]'s skin begins to split open. It turns to ash and falls away, revealing the wound to be fully healed.",
+									"Whispering arcane things, [src]'s damaged flesh appears to regenerate.",
+									"Thick globs of blood cover a wound on [src]'s body, eventually melding to be one with \his flesh.",
+									"[src]'s body crackles, skin and bone shifting back into place.")
+		var/list/emotes_self = list("Your skin appears to liquefy for a moment, sealing up your wounds.",
 									"Your veins turn black as their damaged flesh regenerates before your eyes!",
 									"Your skin begins to split open. It turns to ash and falls away, revealing the wound to be fully healed.",
 									"Whispering arcane things, your damaged flesh appears to regenerate.",
@@ -605,15 +605,15 @@
 		return
 
 	if (!(vampire.status & VAMP_FULLPOWER))
-		to_chat(src, "<span class='notice'>You begin peering into [T.name]'s mind, looking for a way to gain control.</span>")
+		to_chat(src, "<span class='notice'>You begin peering into [T]'s mind, looking for a way to gain control.</span>")
 
 		if (!do_mob(src, T, 50))
 			to_chat(src, "<span class='warning'>Your concentration is broken!</span>")
 			return
 
-		to_chat(src, "<span class='notice'>You succeed in dominating [T.name]'s mind. They are yours to command.</span>")
+		to_chat(src, "<span class='notice'>You succeed in dominating [T]'s mind. They are yours to command.</span>")
 	else
-		to_chat(src, "<span class='notice'>You instantly dominate [T.name]'s mind, forcing them to obey your command.</span>")
+		to_chat(src, "<span class='notice'>You instantly dominate [T]'s mind, forcing them to obey your command.</span>")
 
 	var/command = input(src, "Command your victim.", "Your command.") as text|null
 
@@ -626,7 +626,7 @@
 	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
 
 	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
-	to_chat(src, "<span class='notice'>You command [T.name], and they will obey.</span>")
+	to_chat(src, "<span class='notice'>You command [T], and they will obey.</span>")
 	emote("me", 1, "whispers.")
 
 	vampire.use_blood(25)
@@ -665,14 +665,14 @@
 		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
 		return
 
-	visible_message("<span class='danger'>[src.name] tears the flesh on their wrist, and holds it up to [T.name]. In a gruesome display, [T.name] starts lapping up the blood that's oozing from the fresh wound.</span>", "<span class='warning'>You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process.</span>")
-	to_chat(T, "<span class='warning'>You feel an irresistable desire to drink the blood pooling out of [src.name]'s wound. Against your better judgement, you give in and start doing so.</span>")
+	visible_message("<span class='danger'>[src] tears the flesh on their wrist, and holds it up to [T]. In a gruesome display, [T] starts lapping up the blood that's oozing from the fresh wound.</span>", "<span class='warning'>You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process.</span>")
+	to_chat(T, "<span class='warning'>You feel an irresistable desire to drink the blood pooling out of [src]'s wound. Against your better judgement, you give in and start doing so.</span>")
 
 	if (!do_mob(src, T, 50))
-		visible_message("<span class='danger'>[src.name] yanks away their hand from [T.name]'s mouth as they're interrupted, the wound quickly sealing itself!</span>", "<span class='danger'>You are interrupted!</span>")
+		visible_message("<span class='danger'>[src] yanks away their hand from [T]'s mouth as they're interrupted, the wound quickly sealing itself!</span>", "<span class='danger'>You are interrupted!</span>")
 		return
 
-	to_chat(T, "<span class='danger'>Your mind blanks as you finish feeding from [src.name]'s wrist.</span>")
+	to_chat(T, "<span class='danger'>Your mind blanks as you finish feeding from [src]'s wrist.</span>")
 	vampire_thrall.add_antagonist(T.mind, 1, 1, 0, 1, 1)
 
 	T.mind.vampire.master = src
@@ -710,7 +710,7 @@
 	if (!vampire_can_affect_target(T))
 		return
 
-	to_chat(src, "<span class='notice'>You infect [T.name] with a deadly disease. They will soon fade away.</span>")
+	to_chat(src, "<span class='notice'>You infect [T] with a deadly disease. They will soon fade away.</span>")
 
 	T.help_shake_act(src)
 
@@ -750,11 +750,11 @@
 	vampire.status |= VAMP_PRESENCE
 
 	var/list/mob/living/carbon/human/affected = list()
-	var/list/emotes = list("[src.name] looks trusthworthy.",
-							"You feel as if [src.name] is a relatively friendly individual.",
-							"You feel yourself paying more attention to what [src.name] is saying.",
-							"[src.name] has your best interests at heart, you can feel it.",
-							"A quiet voice tells you that [src.name] should be considered a friend.")
+	var/list/emotes = list("[src] looks trusthworthy.",
+							"You feel as if [src] is a relatively friendly individual.",
+							"You feel yourself paying more attention to what [src] is saying.",
+							"[src] has your best interests at heart, you can feel it.",
+							"A quiet voice tells you that [src] should be considered a friend.")
 
 	vampire.use_blood(10)
 
@@ -819,11 +819,11 @@
 		return
 
 	if (!T.client)
-		to_chat(src, "<span class='warning'>[T.name] is a mindless husk. The Veil has no purpose for them.</span>")
+		to_chat(src, "<span class='warning'>[T] is a mindless husk. The Veil has no purpose for them.</span>")
 		return
 
 	if (T.stat == 2)
-		to_chat(src, "<span class='warning'>[T.name]'s body is broken and damaged beyond salvation. You have no use for them.</span>")
+		to_chat(src, "<span class='warning'>[T]'s body is broken and damaged beyond salvation. You have no use for them.</span>")
 		return
 
 	if (vampire.status & VAMP_DRAINING)
@@ -837,11 +837,11 @@
 			var/choice_text = ""
 			var/denial_response = ""
 			if (draining_vamp.master == src)
-				choice_text = "[T.name] is your thrall. Do you wish to release them from the blood bond and give them the chance to become your equal?"
+				choice_text = "[T] is your thrall. Do you wish to release them from the blood bond and give them the chance to become your equal?"
 				denial_response = "You opt against giving [T] a chance to ascend, and choose to keep them as a servant."
 			else
-				choice_text = "You can feel the taint of another master running in the veins of [T.name]. Do you wish to release them of their blood bond, and convert them into a vampire, in spite of their master?"
-				denial_response = "You choose not to continue with the Embrace, and permit [T.name] to keep serving their master."
+				choice_text = "You can feel the taint of another master running in the veins of [T]. Do you wish to release them of their blood bond, and convert them into a vampire, in spite of their master?"
+				denial_response = "You choose not to continue with the Embrace, and permit [T] to keep serving their master."
 
 			if (alert(src, choice_text, "Choices", "Yes", "No") == "No")
 				to_chat(src, "<span class='notice'>[denial_response]</span>")
@@ -851,12 +851,12 @@
 			qdel(draining_vamp)
 			draining_vamp = null
 		else
-			to_chat(src, "<span class='warning'>You feel corruption running in [T.name]'s blood. Much like yourself, \he[T] is already a spawn of the Veil, and cannot be Embraced.</span>")
+			to_chat(src, "<span class='warning'>You feel corruption running in [T]'s blood. Much like yourself, \he[T] is already a spawn of the Veil, and cannot be Embraced.</span>")
 			return
 
 	vampire.status |= VAMP_DRAINING
 
-	visible_message("<span class='danger'>[src.name] bites [T.name]'s neck!</span>", "<span class='danger'>You bite [T.name]'s neck and begin to drain their blood, as the first step of introducing the corruption of the Veil to them.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise.</span>")
+	visible_message("<span class='danger'>[src] bites [T]'s neck!</span>", "<span class='danger'>You bite [T]'s neck and begin to drain their blood, as the first step of introducing the corruption of the Veil to them.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise.</span>")
 
 	to_chat(T, "<span class='notice'><br>You are currently being turned into a vampire. You will die in the course of this, but you will be revived by the end. Please do not ghost out of your body until the process is complete.</span>")
 
@@ -921,7 +921,7 @@
 
 	var/mob/living/carbon/human/T = pick(targets)
 
-	visible_message("<span class='danger'>[src.name] leaps at [T]!</span>")
+	visible_message("<span class='danger'>[src] leaps at [T]!</span>")
 	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src)
 
 	status_flags |= LEAPING
