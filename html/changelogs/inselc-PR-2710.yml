@@ -1,0 +1,6 @@
+author: inselc
+
+delete-after: True
+
+changes: 
+  - bugfix: "Mice and drones are no longer able to push lockers around."
