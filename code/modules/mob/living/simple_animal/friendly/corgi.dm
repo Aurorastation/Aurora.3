@@ -27,6 +27,8 @@
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
 
+	can_climb = 1 //Dogs can climb ladders, google it for videos
+
 /mob/living/simple_animal/corgi/Initialize()
 	. = ..()
 	nutrition = max_nutrition * 0.3	//Ian doesn't start with a full belly so will be hungry at roundstart
@@ -111,6 +113,7 @@
 	icon_state = "puppy"
 	icon_living = "puppy"
 	icon_dead = "puppy_dead"
+	can_climb = 0 //I guess this doggo is too small to reach the rungs
 
 //pupplies cannot wear anything.
 /mob/living/simple_animal/corgi/puppy/Topic(href, href_list)

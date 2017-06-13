@@ -34,6 +34,7 @@
 	minbodytemp = 0
 	heat_damage_per_tick = 20
 	mob_size = 10
+	can_climb = 1 //Humanoid
 
 
 /mob/living/simple_animal/hostile/alien/drone
@@ -157,6 +158,7 @@
 	speak = list("Shuhn","Shrunnph?","Shunpf")
 	emote_see = list("scratches the ground","shakes out it's mane","tinkles gently")
 	mob_size = 5
+	can_climb = 1 //Its basically a dog
 
 /mob/living/simple_animal/yithian
 	name = "yithian"

@@ -33,6 +33,7 @@
 	seek_speed = 5
 	pass_flags = PASSTABLE
 	possession_candidate = 1
+	can_climb = 1 //Cats can climb ladders, google it for videos
 
 /mob/living/simple_animal/cat/Life()
 	//MICE!
@@ -263,6 +264,7 @@
 	can_nap = 0 //No resting sprite
 	gender = NEUTER
 	holder_type = /obj/item/weapon/holder/cat/kitten
+	can_climb = 0 //Not as good as an adult cat
 
 /mob/living/simple_animal/cat/kitten/death()
 	.=..()

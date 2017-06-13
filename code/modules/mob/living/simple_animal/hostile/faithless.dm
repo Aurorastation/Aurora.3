@@ -32,6 +32,7 @@
 	speed = 4
 
 	faction = "faithless"
+	can_climb = 1 //Humanoid, ghostly
 
 /mob/living/simple_animal/hostile/faithless/Allow_Spacemove(var/check_drift = 0)
 	return 1

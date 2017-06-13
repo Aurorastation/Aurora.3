@@ -33,6 +33,7 @@
 	var/weapon1 = /obj/item/weapon/melee/energy/sword/pirate
 
 	faction = "pirate"
+	can_climb = 1 //Humanoid
 
 /mob/living/simple_animal/hostile/pirate/ranged
 	name = "Pirate Gunner"

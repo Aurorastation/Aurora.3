@@ -35,6 +35,7 @@
 	minbodytemp = 0
 
 	environment_smash = 1
+	can_climb = 1 //Flies
 
 	faction = "scarybat"
 	var/mob/living/owner

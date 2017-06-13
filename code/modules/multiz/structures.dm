@@ -45,6 +45,9 @@
 	attack_hand(user)
 	return
 
+/obj/structure/ladder/attack_generic(var/mob/M)
+	attack_hand(M)
+
 /obj/structure/ladder/attack_hand(var/mob/M)
 	if(!M.may_climb_ladders(src))
 		return
@@ -99,6 +102,9 @@
 		return FALSE
 	if(incapacitated())
 		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		return FALSE
+	if (!can_climb)
+		to_chat(src, "<span class='warning'>You lack the dexterity or limbs to climb \the [ladder].</span>")
 		return FALSE
 	return TRUE
 

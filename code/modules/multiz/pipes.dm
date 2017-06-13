@@ -8,6 +8,11 @@
 	name = "upwards pipe"
 	desc = "A pipe segment to connect upwards."
 
+	var/travel_verbname = "UNDEFINED"
+	var/travel_direction_verb = "UNDEFINED"
+	var/travel_direction_name = "UNDEFINED"
+	var/travel_direction = "UNDEFINED"
+
 	volume = 70
 
 	dir = SOUTH
@@ -42,6 +47,20 @@
 			initialize_directions = EAST
 		if(SOUTHWEST)
 			initialize_directions = SOUTH
+
+/obj/machinery/atmospherics/pipe/zpipe/Entered(atom/movable/Obj)
+	if(istype(Obj, /mob/living))
+		var/mob/living/L = Obj
+		L << span("notice", "You are in a vertical pipe section. Use <a href='?src=\ref[src];crawl_user=\ref[L];crawl_dir=[travel_direction]'>[travel_verbname]</a> from the IC menu to [travel_direction_verb] a level.")
+	. = ..()
+
+/obj/machinery/atmospherics/pipe/zpipe/Topic(href, href_list)
+	. = ..()
+	if (href_list["crawl_user"])
+		var/mob/living/L = locate(href_list["crawl_user"])
+		var/direction = text2num(href_list["crawl_dir"])
+		if (istype(L))
+			return L.zMove(direction)
 
 /obj/machinery/atmospherics/pipe/zpipe/hide(var/i)
 	if(istype(loc, /turf/simulated))
@@ -117,6 +136,11 @@
 
 	name = "upwards pipe"
 	desc = "A pipe segment to connect upwards."
+	travel_verbname = "Move Upwards"
+	travel_direction_verb = "ascend"
+	travel_direction_name = "up"
+	travel_direction = UP
+
 
 /obj/machinery/atmospherics/pipe/zpipe/up/initialize()
 	normalize_dir()
@@ -155,6 +179,10 @@
 
 	name = "downwards pipe"
 	desc = "A pipe segment to connect downwards."
+	travel_verbname = "Move Downwards"
+	travel_direction_verb = "descend"
+	travel_direction_name = "down"
+	travel_direction = DOWN
 
 /obj/machinery/atmospherics/pipe/zpipe/down/initialize()
 	normalize_dir()

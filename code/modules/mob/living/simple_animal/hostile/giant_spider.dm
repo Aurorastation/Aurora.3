@@ -35,6 +35,7 @@
 	move_to_delay = 6
 	speed = 3
 	mob_size = 6
+	can_climb = 1 //Spiders dont even need ladders to climb, they routinely walk up sheer walls
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse

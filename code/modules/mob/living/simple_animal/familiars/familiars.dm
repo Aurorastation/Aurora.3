@@ -70,6 +70,7 @@
 	min_oxy = 0
 
 	wizardy_spells = list(/spell/aoe_turf/conjure/forcewall)
+	can_climb = 1 //It flies, its magic
 
 /mob/living/simple_animal/familiar/pike/Allow_Spacemove(var/check_drift = 0)
 	return 1
@@ -102,6 +103,7 @@
 	attacktext = "clawed"
 
 	wizardy_spells = list(/spell/targeted/torment)
+	can_climb = 1 //Its humanoid
 
 /mob/living/simple_animal/familiar/horror/death()
 	..(null,"rapidly deteriorates")
@@ -172,6 +174,7 @@
 	density = 0
 
 	wizardy_spells = list(/spell/targeted/subjugation)
+	can_climb = 1 //Cats can climb ladders, google it for videos
 
 
 /mob/living/simple_animal/mouse/familiar
@@ -197,6 +200,7 @@
 	unsuitable_atoms_damage = 1
 
 	supernatural = 1
+	can_climb = 1 //Rodents can climb ladders, google it for videos
 
 /mob/living/simple_animal/mouse/familiar/Initialize()
 	. = ..()

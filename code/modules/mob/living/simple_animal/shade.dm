@@ -28,6 +28,7 @@
 	faction = "cult"
 	status_flags = CANPUSH
 	hunger_enabled = 0
+	can_climb = 1 //Flies
 
 /mob/living/simple_animal/shade/cultify()
 	return

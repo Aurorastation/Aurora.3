@@ -34,6 +34,7 @@
 	environment_smash = 1
 	faction = "syndicate"
 	status_flags = CANPUSH
+	can_climb = 1 //Humanoid
 
 /mob/living/simple_animal/hostile/syndicate/death()
 	..()

@@ -32,7 +32,7 @@
 	unsuitable_atoms_damage = 15
 	faction = "russian"
 	status_flags = CANPUSH
-
+	can_climb = 1 //Humanoid
 
 /mob/living/simple_animal/hostile/russian/ranged
 	icon_state = "russianranged"

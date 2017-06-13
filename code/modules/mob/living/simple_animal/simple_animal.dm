@@ -100,6 +100,8 @@
 	var/can_nap = 0
 	var/icon_rest = null
 
+	can_climb = 0 //Default false, will justify setting it to 1 on a casebycase basis
+
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
@@ -111,7 +113,7 @@
 	verbs -= /mob/verb/observe
 	health = maxHealth
 	if (mob_size)
-		nutrition_step = mob_size * 0.03 * metabolic_factor
+		nutrition_step = mob_size * 0.024 * metabolic_factor
 		bite_factor = mob_size * 0.3
 		max_nutrition *= 1 + (nutrition_step*4)//Max nutrition scales faster than costs, so bigger creatures eat less often
 		reagents = new/datum/reagents(stomach_size_mult*mob_size, src)

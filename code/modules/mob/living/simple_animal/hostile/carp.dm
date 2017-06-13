@@ -38,6 +38,7 @@
 	break_stuff_probability = 15
 
 	faction = "carp"
+	can_climb = 1 //flies
 
 /mob/living/simple_animal/hostile/carp/Allow_Spacemove(var/check_drift = 0)
 	return 1	//No drifting in space for space carp!	//original comments do not steal
