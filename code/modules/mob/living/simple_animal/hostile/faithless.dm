@@ -89,3 +89,12 @@
 	. = ..()
 	for(var/spell in darkform_spells)
 		src.add_spell(new spell, "const_spell_ready")
+
+/mob/living/simple_animal/hostile/faithless/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/faithless/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/faithless/CanAvoidGravity()
+	return TRUE

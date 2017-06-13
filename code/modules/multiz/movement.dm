@@ -185,13 +185,13 @@
 	if(anchored)
 		return FALSE
 
-	// Lattices and stairs stop things from falling.
-	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest))
+	// Lattices, ladders, and stairs stop things from falling.
+	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest) || locate(/obj/structure/ladder, dest))
 		return FALSE
 	//Ladders too
 	if(below && locate(/obj/structure/ladder) in below)
 		return FALSE
-		
+
 
 	// The var/climbers API is implemented here.
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
