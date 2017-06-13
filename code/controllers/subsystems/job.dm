@@ -438,6 +438,9 @@
 			src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!</span>"
 			src.forceMove(pick(spawnpos.turfs))
 			global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
+			if(!src.megavend)
+				var/rank= src.mind.assigned_role
+				SSjobs.EquipRank(src, rank, 1)
 		else
 			SSjobs.odin_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
 
