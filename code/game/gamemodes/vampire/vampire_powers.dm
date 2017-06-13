@@ -540,19 +540,19 @@
 			adjustCloneLoss(0 - to_heal)
 			blood_used += round(to_heal * 1.2)
 
-		var/list/organs = get_damaged_organs()
+		var/list/organs = get_damaged_organs(1, 1)
 		if (organs.len)
 			// Heal an absurd amount, basically regenerate one organ.
 			heal_organ_damage(50, 50)
 			blood_used += 12
 
-		var/list/emotes_lookers = list("[src.name]'s skin appears to liquefy for a moment, sealing up their wounds.",
+		var/static/list/emotes_lookers = list("[src.name]'s skin appears to liquefy for a moment, sealing up their wounds.",
 									"[src.name]'s veins turn black as their damaged flesh regenerates before your eyes!",
 									"[src.name]'s skin begins to split open. It turns to ash and falls away, revealing the wound to be fully healed.",
 									"Whispering arcane things, [src.name]'s damaged flesh appears to regenerate.",
 									"Thick globs of blood cover a wound on [src.name]'s body, eventually melding to be one with \his flesh.",
 									"[src.name]'s body crackles, skin and bone shifting back into place.")
-		var/list/emotes_self = list("Your skin appears to liquefy for a moment, sealing up your wounds.",
+		var/static/list/emotes_self = list("Your skin appears to liquefy for a moment, sealing up your wounds.",
 									"Your veins turn black as their damaged flesh regenerates before your eyes!",
 									"Your skin begins to split open. It turns to ash and falls away, revealing the wound to be fully healed.",
 									"Whispering arcane things, your damaged flesh appears to regenerate.",
@@ -566,6 +566,10 @@
 			vampire.blood_usable = 0
 			vampire.status &= ~VAMP_HEALING
 			to_chat(src, "<span class='warning'>You ran out of blood, and are unable to continue!</span>")
+			break
+		else if (!blood_used)
+			vampire.status &= ~VAMP_HEALING
+			to_chat(src, "<span class='notice'>Your body has finished healing. You are ready to continue.</span>")
 			break
 
 	// We broke out of the loop naturally. Gotta catch that.
