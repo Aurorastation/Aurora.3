@@ -243,7 +243,7 @@
 
 	return
 
-/mob/proc/finish_ability_timeout(vamp_flags = 0)
+/mob/living/carbon/human/proc/finish_vamp_timeout(vamp_flags = 0)
 	if (!mind || !mind.vampire)
 		return FALSE
 

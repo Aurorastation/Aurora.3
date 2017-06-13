@@ -143,7 +143,7 @@
 	admin_attacker_log_many_victims(src, victims, "used glare to stun", "was stunned by [key_name(src)] using glare", "used glare to stun")
 
 	verbs -= /mob/living/carbon/human/proc/vampire_glare
-	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/vampire_glare, CALLBACK(src, /mob/proc/finish_ability_timeout))
+	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/vampire_glare, CALLBACK(src, .proc/finish_vamp_timeout))
 
 // Targeted stun ability, moderate duration.
 /mob/living/carbon/human/proc/vampire_hypnotise()
@@ -187,7 +187,7 @@
 		admin_attack_log(src, T, "used hypnotise to stun [key_name(T)]", "was stunned by [key_name(src)] using hypnotise", "used hypnotise on")
 
 		verbs -= /mob/living/carbon/human/proc/vampire_hypnotise
-		ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_hypnotise, CALLBACK(src, /mob/proc/finish_ability_timeout))
+		ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_hypnotise, CALLBACK(src, .proc/finish_vamp_timeout))
 	else
 		to_chat(src, "<span class='warning'>You broke your gaze.</span>")
 
@@ -236,7 +236,7 @@
 
 	vampire.use_blood(20)
 	verbs -= /mob/living/carbon/human/proc/vampire_veilstep
-	ADD_VERB_IN_IF(src, 300, /mob/living/carbon/human/proc/vampire_veilstep, CALLBACK(src, /mob/proc/finish_ability_timeout))
+	ADD_VERB_IN_IF(src, 300, /mob/living/carbon/human/proc/vampire_veilstep, CALLBACK(src, .proc/finish_vamp_timeout))
 
 // Summons bats.
 /mob/living/carbon/human/proc/vampire_bats()
@@ -282,7 +282,7 @@
 
 	vampire.use_blood(60)
 	verbs -= /mob/living/carbon/human/proc/vampire_bats
-	ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_bats, CALLBACK(src, /mob/proc/finish_ability_timeout))
+	ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_bats, CALLBACK(src, .proc/finish_vamp_timeout))
 
 // Chiropteran Screech
 /mob/living/carbon/human/proc/vampire_screech()
@@ -331,7 +331,7 @@
 		log_and_message_admins("used chiropteran screech.")
 
 	verbs -= /mob/living/carbon/human/proc/vampire_screech
-	ADD_VERB_IN_IF(src, 3600, /mob/living/carbon/human/proc/vampire_screech, CALLBACK(src, /mob/proc/finish_ability_timeout))
+	ADD_VERB_IN_IF(src, 3600, /mob/living/carbon/human/proc/vampire_screech, CALLBACK(src, .proc/finish_vamp_timeout))
 
 // Enables the vampire to be untouchable and walk through walls and other solid things.
 /mob/living/carbon/human/proc/vampire_veilwalk()
@@ -631,7 +631,7 @@
 
 	vampire.use_blood(25)
 	verbs -= /mob/living/carbon/human/proc/vampire_dominate
-	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_dominate, CALLBACK(src, /mob/proc/finish_ability_timeout))
+	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_dominate, CALLBACK(src, .proc/finish_vamp_timeout))
 
 // Enthralls a person, giving the vampire a mortal slave.
 /mob/living/carbon/human/proc/vampire_enthrall()
@@ -683,7 +683,7 @@
 
 	vampire.use_blood(150)
 	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
-	ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/human/proc/vampire_enthrall, CALLBACK(src, /mob/proc/finish_ability_timeout))
+	ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/human/proc/vampire_enthrall, CALLBACK(src, .proc/finish_vamp_timeout))
 
 // Gives a lethal disease to the target.
 /mob/living/carbon/human/proc/vampire_diseasedtouch()
@@ -726,7 +726,7 @@
 
 	vampire.use_blood(200)
 	verbs -= /mob/living/carbon/human/proc/vampire_diseasedtouch
-	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_diseasedtouch, CALLBACK(src, /mob/proc/finish_ability_timeout))
+	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_diseasedtouch, CALLBACK(src, .proc/finish_vamp_timeout))
 
 // Makes the vampire appear 'friendlier' to others.
 /mob/living/carbon/human/proc/vampire_presence()
@@ -960,4 +960,4 @@
 	G.synch()
 
 	verbs -= /mob/living/carbon/human/proc/grapple
-	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/grapple, CALLBACK(src, /mob/proc/finish_ability_timeout, VAMP_FRENZIED))
+	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/grapple, CALLBACK(src, .proc/finish_vamp_timeout, VAMP_FRENZIED))
