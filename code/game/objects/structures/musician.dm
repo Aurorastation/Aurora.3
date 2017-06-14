@@ -11,6 +11,7 @@
 	icon_state = "minimoog"
 	anchored = 1
 	density = 1
+	w_class = 5
 	var/datum/song/song
 	var/playing = 0
 	var/help = 0
@@ -26,6 +27,7 @@
 		name = "space piano"
 		desc = "This is a space piano, like a regular piano, but always in tune! Even if the musician isn't."
 		icon_state = "piano"
+		w_class = 15
 
 /obj/structure/device/piano/proc/playnote(var/note as text)
 	//world << "Note: [note]"

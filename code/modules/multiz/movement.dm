@@ -191,7 +191,7 @@
 	//Ladders too
 	if(below && locate(/obj/structure/ladder) in below)
 		return FALSE
-		
+
 
 	// The var/climbers API is implemented here.
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
@@ -354,8 +354,16 @@
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
+	var/combat_roll = 1
+	if(lying)
+		combat_roll = 0.7 //If you're sleeping, you take less damage because your body is less rigid. It's science 'n shit.
+		if(!sleeping)
+			combat_roll = 0.2 //Combat roll!
+			visible_message("<span class='notice'>\The [src] tucks into a roll as they hit \the [loc]!</span>",
+				"<span class='notice'>You tuck into a roll as you hit \the [loc], minimizing damage!</span>")
+
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = (((25 * species.fall_mod) + z_velocity) + rand(-13,13))
+	var/damage = (((25 * species.fall_mod) + z_velocity) + rand(-13,13)) * combat_roll
 	if(prob(20)) //landed on their head
 		apply_damage(damage, BRUTE, "head")
 
@@ -465,12 +473,17 @@
 	var/weight = fall_specs[1]
 	var/fall_force = fall_specs[2]
 
-	var/speed = (levels_fallen-1) + throw_speed
-	var/mass = (weight / THROWNOBJ_KNOCKBACK_DIVISOR) + density + opacity //1
-	var/momentum = speed * mass //8
-	var/damage = round(fall_force * (speed / THROWNOBJ_KNOCKBACK_DIVISOR) * momentum) //64
+	if(weight >= 3 && fall_force <= 5) //Necessary because some big large obj's do not have a defined throw_force (mechs, lockers, pianos, etc)
+		fall_force = throw_range
 
-	var/miss_chance = max(15 * (levels_fallen - 1), 0)
+	var/speed = ((levels_fallen-1) + throw_speed) / THROWFORCE_SPEED_DIVISOR
+	var/mass = weight + density + opacity //1
+	var/momentum = speed * mass //8
+	if(weight <= 10) //Keeps damages sane.
+		momentum = momentum / THROWNOBJ_KNOCKBACK_DIVISOR
+	var/damage = round(fall_force * momentum) //64
+
+	var/miss_chance = max(10 * (levels_fallen), 0)
 
 	if (prob(miss_chance))
 		return null
@@ -492,14 +505,14 @@
 
 	if (ishuman(L))
 		var/mob/living/carbon/human/H = L
-		H.apply_damage(rand(damage / 2, damage), BRUTE, "head")
-		H.apply_damage(damage, BRUTE, "chest")
+		var/cranial_damage = rand(0,damage/2)
+		H.apply_damage(cranial_damage, BRUTE, "head")
+		H.apply_damage((damage - cranial_damage), BRUTE, "chest")
 
 		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)
 			H.Weaken(rand(damage / 4, damage / 2))
 	else
 		L.apply_damage(damage, BRUTE)
-		L.apply_damage(rand(damage / 2, damage), BRUTE)
 
 	L.visible_message("<span class='danger'>\The [L] had \the [src] fall onto \him!</span>",
 		"<span class='danger'>You had \the [src] fall onto you and strike you!</span>")
