@@ -35,5 +35,7 @@ delete-after: True
 changes: 
   - tweak: "The Tajaran variant of the AMI has been modified following complaints of their feet being 'literrrally not shaped for the boots'."
   - tweak: "The Unathi stealth rig looks a little less like a ninja suit and a bit more like the stealth rig. (didn't have the heart to do the Tajarn&Skrell rigs)"
-  - tweak: "Low-profile changes have been made to a couple other alien RIGsuits."
+  - bugfix: "All Tajaran ERT helmets no longer permit the edge of the Tajaran's face to poke out of the helmet."
+  - bugfix: "The skin of the wearer will no longer poke through the Unathi ninja suit."
+  - tweak: "Other, more low-profile changes have been made to various alien RIGsuits."
   - experiment: "Punted puppies."
