@@ -100,9 +100,6 @@
 	var/can_nap = 0
 	var/icon_rest = null
 
-	// Pushing things
-	var/const/MAX_PUSH_WCLASS = 2	// Max w_class that can be pushed
-
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
@@ -688,11 +685,3 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	src << span("notice","You are now [resting ? "resting" : "getting up"]")
 
 	update_icons()
-
-/*! \brief Determines, whether an object can be pushed by src.
- *
- * Overrides mob/living/can_move_obj.
- *
- * \return bool  true, if the object can be pushed */
-/mob/living/simple_animal/can_move_obj(obj/movable)
-	return !(movable.w_class > MAX_PUSH_WCLASS)
