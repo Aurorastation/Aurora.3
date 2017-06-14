@@ -157,8 +157,8 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 					//Deaf people will feel vibrations though
 					if (volume > 0)//Only shake camera if someone was close enough to hear it
-						shake_camera(M, min(30,max(2,(power*2) / dist)), min(3,((power/3) / dist)),0.05)
-						//Maximum duration is 6 seconds, and max strength is 3.5
+						shake_camera(M, min(30,max(2,(power*2) / dist)), min(3.5,((power/3) / dist)),0.05)
+						//Maximum duration is 3 seconds, and max strength is 3.5
 						//Becuse values higher than those just get really silly
 
 	if(adminlog)
