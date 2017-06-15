@@ -144,6 +144,13 @@ var/datum/controller/subsystem/atoms/SSatoms
 		InitializeAtoms()
 	old_initialized = SSatoms.old_initialized
 
+/datum/controller/subsystem/atoms/proc/map_loader_begin()
+	old_initialized = initialized
+	initialized = INITIALIZATION_INSSATOMS
+
+/datum/controller/subsystem/atoms/proc/map_loader_stop()
+	initialized = old_initialized
+
 #undef BAD_INIT_QDEL_BEFORE
 #undef BAD_INIT_DIDNT_INIT
 #undef BAD_INIT_SLEPT
