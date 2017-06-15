@@ -81,8 +81,6 @@
 		world << "<span class='danger'>There aren't enough players for this mode!</span>"
 		world << "<span class='danger'>Rebooting world in 5 seconds.</span>"
 
-		if(blackbox)
-			blackbox.save_all_data_to_sql()
 		sleep(50)
 		world.Reboot()
 
@@ -132,7 +130,7 @@
 	checkwin_counter++
 	if(checkwin_counter >= 20)
 		if(!finished)
-			ticker.mode.check_win()
+			SSticker.mode.check_win()
 		checkwin_counter = 0
 	return 0
 
@@ -165,7 +163,7 @@
 ///Handle crew failure(station explodes)///
 ///////////////////////////////////////////
 /datum/game_mode/epidemic/proc/crew_lose()
-	ticker.mode:explosion_in_progress = 1
+	SSticker.mode:explosion_in_progress = 1
 	for(var/mob/M in world)
 		if(M.client)
 			M << 'sound/machines/Alarm.ogg'
@@ -175,11 +173,10 @@
 		world << "<span class='notice'><b>[i]..</b></span>"
 	sleep(10)
 	enter_allowed = 0
-	if(ticker)
-		ticker.station_explosion_cinematic(0,null)
-		if(ticker.mode)
-			ticker.mode:station_was_nuked = 1
-			ticker.mode:explosion_in_progress = 0
+	SSticker.station_explosion_cinematic(0,null)
+	if(SSticker.mode)
+		SSticker.mode:station_was_nuked = 1
+		SSticker.mode:explosion_in_progress = 0
 	finished = 2
 	return
 
@@ -190,9 +187,9 @@
 /datum/game_mode/epidemic/declare_completion()
 	if(finished == 1)
 		feedback_set_details("round_end_result","win - epidemic cured")
-		world << "<font size = 3><span class='danger'> The virus outbreak was contained! The crew wins!</span></font>"
+		world << "<font size = 3><span class='danger'>The virus outbreak was contained! The crew wins!</span></font>"
 	else if(finished == 2)
 		feedback_set_details("round_end_result","loss - rev heads killed")
-		world << "<font size = 3><span class='danger'> The crew succumbed to the epidemic!</span></font>"
+		world << "<font size = 3><span class='danger'>The crew succumbed to the epidemic!</span></font>"
 	..()
 	return 1

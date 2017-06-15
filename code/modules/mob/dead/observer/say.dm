@@ -4,14 +4,11 @@
 	if (!message)
 		return
 
-	log_say("Ghost/[src.key] : [message]")
+	log_say("Ghost/[src.key] : [message]",ckey=key_name(src))
 
 	if (src.client)
-		if(src.client.prefs.muted & MUTE_DEADCHAT)
-			src << "\red You cannot talk in deadchat (muted)."
-			return
-
-		if (src.client.handle_spam_prevention(message,MUTE_DEADCHAT))
+		if(src.client.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
+			src << "<span class='warning'>You cannot talk in deadchat (muted).</span>"
 			return
 
 	. = src.say_dead(message)
@@ -26,14 +23,11 @@
 	if(act != "me")
 		return
 
-	log_emote("Ghost/[src.key] : [message]")
+	log_emote("Ghost/[src.key] : [message]",ckey=key_name(src))
 
 	if(src.client)
-		if(src.client.prefs.muted & MUTE_DEADCHAT)
-			src << "\red You cannot emote in deadchat (muted)."
-			return
-
-		if(src.client.handle_spam_prevention(message, MUTE_DEADCHAT))
+		if(src.client.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
+			src << "<span class='warning'>You cannot emote in deadchat (muted).</span>"
 			return
 
 	. = src.emote_dead(message)

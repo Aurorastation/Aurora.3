@@ -22,11 +22,9 @@
 	if(length(masterdatumPool[type]) <= 0)
 
 		#ifdef DEBUG_DATUM_POOL
-		if(ticker)
-			to_chat(world, text("DEBUG_DATUM_POOL: new proc has been called ([] | []).", type, list2params(B)))
+		to_chat(world, text("DEBUG_DATUM_POOL: new proc has been called ([] | []).", type, list2params(B)))
 		#endif
 
-		//so the GC knows we're pooling this type.
 		if(isnull(masterdatumPool[type]))
 			masterdatumPool[type] = list()
 
@@ -71,7 +69,7 @@
 		to_chat(world, text("DEBUG_DATUM_POOL: returnToPool([]) exceeds [] discarding...", D.type, MAINTAINING_OBJECT_POOL_COUNT))
 		#endif
 
-		qdel(D)
+		qdel(D, force = TRUE)
 		return
 
 	if(isnull(masterdatumPool[D.type]))
@@ -134,6 +132,10 @@
 	set category = "Debug"
 
 	if (!check_rights(R_DEBUG))
+		return
+
+	if (!LAZYLEN(pooledvariables))
+		usr << "No objects have been added to the datum pool."
 		return
 
 	var/type = input("What is the typepath for the pooled object variables you wish to view?", "Pooled Variables") in pooledvariables|null

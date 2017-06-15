@@ -19,11 +19,11 @@
 			JOIN ss13_characters chr ON act_chr.char_id = chr.id
 			JOIN ss13_ccia_actions act ON act_chr.action_id = act.id
 		WHERE
-			act_chr.char_id = ':char_id' AND
+			act_chr.char_id = :char_id: AND
 			(act.expires_at IS NULL OR act.expires_at >= CURRENT_DATE()) AND
 				act.deleted_at IS NULL;
 		"})
-		if (!ccia_action_query.Execute(list(":char_id" = pref.current_character)))
+		if (!ccia_action_query.Execute(list("char_id" = pref.current_character)))
 			error("Error CCIA Actions for character #[pref.current_character]. SQL error message: '[ccia_action_query.ErrorMsg()]'.")
 
 		while(ccia_action_query.NextRow())
@@ -42,9 +42,9 @@
 			id, char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony
 		FROM ss13_character_incidents
 		WHERE
-			char_id = ':char_id' AND deleted_at IS NULL
+			char_id = :char_id: AND deleted_at IS NULL
 		"})
-		char_infraction_query.Execute(list(":char_id" = pref.current_character))
+		char_infraction_query.Execute(list("char_id" = pref.current_character))
 
 		while(char_infraction_query.NextRow())
 			var/datum/char_infraction/infraction = new()
@@ -60,7 +60,6 @@
 			infraction.fine = text2num(char_infraction_query.item[10])
 			infraction.felony = text2num(char_infraction_query.item[11])
 			pref.incidents.Add(infraction)
-			log_debug("Added infraction with [infraction.UID]")
 
 /datum/category_item/player_setup_item/other/incidents/content(var/mob/user)
 	pref.incidents = list()

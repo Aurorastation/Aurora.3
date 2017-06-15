@@ -208,7 +208,7 @@
 			admin_attack_log(firer, target_mob, attacker_message, victim_message, admin_message)
 		else
 			target_mob.attack_log += "\[[time_stamp()]\] <b>UNKNOWN SUBJECT (No longer exists)</b> shot <b>[target_mob]/[target_mob.ckey]</b> with <b>\a [src]</b>"
-			msg_admin_attack("UNKNOWN shot [target_mob] ([target_mob.ckey]) with \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target_mob.x];Y=[target_mob.y];Z=[target_mob.z]'>JMP</a>)")
+			msg_admin_attack("UNKNOWN shot [target_mob] ([target_mob.ckey]) with \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target_mob.x];Y=[target_mob.y];Z=[target_mob.z]'>JMP</a>)",ckey=key_name(target_mob))
 
 	//sometimes bullet_act() will want the projectile to continue flying
 	if (result == PROJECTILE_CONTINUE)
@@ -423,7 +423,8 @@
 	return process(targloc)
 
 /obj/item/projectile/test/process(var/turf/targloc)
-	while(src) //Loop on through!
+	var/safety = 100	// We really never should need this to last longer than this number of iterations.
+	while(!QDELING(src) && safety > 0) //Loop on through!
 		if(result)
 			return (result - 1)
 		if((!( targloc ) || loc == targloc))
@@ -441,6 +442,11 @@
 			M = locate() in get_step(src,targloc)
 			if(istype(M))
 				return 1
+
+		safety--
+
+	if (safety < 0)
+		crash_with("test projectile process() maximum iterations exceeded, aborting!")
 
 //Helper proc to check if you can hit them or not.
 /proc/check_trajectory(atom/target as mob|obj, atom/firer as mob|obj, var/pass_flags=PASSTABLE|PASSGLASS|PASSGRILLE, flags=null)

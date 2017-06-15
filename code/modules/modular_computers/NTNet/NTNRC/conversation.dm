@@ -16,7 +16,7 @@ var/global/ntnrc_uid = 0
 	..()
 
 /datum/ntnet_conversation/proc/add_message(var/message, var/username, var/mob/user)
-	log_ntirc("[user.client.ckey]/([username]) : [message]")
+	log_ntirc("[user.client.ckey]/([username]) : [message]",ckey=key_name(user),conversation=title)
 
 	message = "[worldtime2text()] [username]: [message]"
 	messages.Add(message)

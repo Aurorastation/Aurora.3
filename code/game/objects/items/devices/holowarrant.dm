@@ -47,6 +47,7 @@
 //sync with database
 /obj/item/device/holowarrant/proc/sync(var/mob/user)
 	if(!isnull(data_core.general))
+		storedwarrant = list()
 		for(var/datum/data/record/warrant/W in data_core.warrants)
 			storedwarrant += W.fields["namewarrant"]
 		to_chat(user, "<span class='notice'>The device hums faintly as it syncs with the station database</span>")

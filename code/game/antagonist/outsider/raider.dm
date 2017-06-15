@@ -15,6 +15,8 @@ var/datum/antagonist/raider/raiders
 	hard_cap_round = 10
 	initial_spawn_req = 4
 	initial_spawn_target = 6
+	
+	faction = "syndicate"
 
 	id_type = /obj/item/weapon/card/id/syndicate
 
@@ -241,7 +243,7 @@ var/datum/antagonist/raider/raiders
 	W.handle_item_insertion(id)
 	player.equip_to_slot_or_del(W, slot_wear_id)
 	spawn_money(rand(50,150)*10,W)
-	create_radio(SYND_FREQ, player)
+	create_radio(RAID_FREQ, player)
 
 	return 1
 

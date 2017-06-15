@@ -39,10 +39,10 @@
 
 
 	update_icon()
-		overlays.Cut()
+		cut_overlays()
 		attached_overlays = list()
 		if(on)
-			overlays += "infrared_on"
+			add_overlay("infrared_on")
 			attached_overlays += "infrared_on"
 
 		if(holder)
@@ -103,8 +103,7 @@
 		if(!holder)
 			visible_message("\icon[src] *beep* *beep*")
 		cooldown = 2
-		spawn(10)
-			process_cooldown()
+		addtimer(CALLBACK(src, .proc/process_cooldown), 10)
 		return
 
 
@@ -248,6 +247,8 @@
 /obj/effect/beam/i_beam/Crossed(atom/movable/AM as mob|obj)
 	if(istype(AM, /obj/effect/beam))
 		return
+	if( (AM.invisibility == INVISIBILITY_OBSERVER) || (AM.invisibility == 101) )
+		return
 	spawn(0)
 		hit()
 		return
@@ -259,4 +260,4 @@
 	if(next)
 		qdel(next)
 		next = null
-	..()
+	return ..()

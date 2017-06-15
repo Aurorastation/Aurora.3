@@ -8,7 +8,7 @@
 	active_power_usage = 10
 	layer = 5
 
-	var/list/network = list(NETWORK_EXODUS)
+	var/list/network = list(NETWORK_STATION)
 	var/c_tag = null
 	var/c_tag_order = 999
 	var/status = 1
@@ -35,10 +35,11 @@
 
 	var/affected_by_emp_until = 0
 
-/obj/machinery/camera/New()
+/obj/machinery/camera/Initialize()
 	wires = new(src)
 	assembly = new(src)
 	assembly.state = 4
+	SSmachinery.all_cameras += src
 
 	/* // Use this to look for cameras that have the same c_tag.
 	for(var/obj/machinery/camera/C in cameranet.cameras)
@@ -53,9 +54,10 @@
 			error("[src.name] in [get_area(src)]has errored. [src.network?"Empty network list":"Null network list"]")
 		ASSERT(src.network)
 		ASSERT(src.network.len > 0)
-	..()
+	return ..()
 
 /obj/machinery/camera/Destroy()
+	SSmachinery.all_cameras -= src
 	deactivate(null, 0) //kick anyone viewing out
 	if(assembly)
 		qdel(assembly)
@@ -64,7 +66,7 @@
 	wires = null
 	return ..()
 
-/obj/machinery/camera/process()
+/obj/machinery/camera/machinery_process()
 	if((stat & EMPED) && world.time >= affected_by_emp_until)
 		stat &= ~EMPED
 		cancelCameraAlarm()
@@ -86,7 +88,6 @@
 			kick_viewers()
 			update_icon()
 			update_coverage()
-			processing_objects |= src
 
 /obj/machinery/camera/bullet_act(var/obj/item/projectile/P)
 	take_damage(P.get_structure_damage())
@@ -118,6 +119,7 @@
 		return
 
 	if(user.species.can_shred(user))
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		set_status(0)
 		user.do_attack_animation(src)
 		visible_message("<span class='warning'>\The [user] slashes at [src]!</span>")
@@ -145,7 +147,7 @@
 				assembly.loc = src.loc
 				assembly.anchored = 1
 				assembly.camera_name = c_tag
-				assembly.camera_network = english_list(network, "Exodus", ",", ",")
+				assembly.camera_network = english_list(network, "Station", ",", ",")
 				assembly.update_icon()
 				assembly.dir = src.dir
 				if(stat & BROKEN)

@@ -22,7 +22,7 @@ obj/machinery/scanner/New()
 		if(!outputdir)
 			outputdir = 8
 
-/obj/machinery/scanner/process()
+/obj/machinery/scanner/machinery_process()
 	if(stat & NOPOWER)
 		return
 	use_power(50)
@@ -137,4 +137,7 @@ obj/machinery/scanner/attack_hand(mob/living/carbon/human/user)
 	data_core.security += S
 	data_core.locked += L
 
-
+	G.inDataCore = 1
+	M.inDataCore = 1
+	S.inDataCore = 1
+	L.inDataCore = 1

@@ -23,10 +23,10 @@
 									"The more carnivorous and knowledge hungry cousin of the space carp. Keep away from books."
 									)
 
-/obj/item/weapon/monster_manual/attack_self(mob/user as mob)
+/obj/item/weapon/monster_manual/attack_self(mob/living/user as mob)
 	if(!user)
 		return
-	if(!(user.faction == "Space Wizard"))
+	if(!user.is_wizard())
 		user <<"<span class='warning'>When you try to open the book, horrors pours out from among the pages!</span>"
 		new /mob/living/simple_animal/hostile/creature(user.loc)
 		playsound(user, 'sound/magic/Summon_Karp.ogg', 100, 1)
@@ -59,39 +59,33 @@
 		if(uses == 0)
 			usr << "This book is out of uses."
 			return
-		var/client/C = get_player()
-		if(!C)
-			usr << "There are no souls willing to become a familiar."
-			return
 
+		var/datum/ghosttrap/ghost = get_ghost_trap("wizard familiar")
 		var path = text2path(href_list["path"])
 		if(!ispath(path))
 			usr << "Invalid mob path in [src]. Contact a coder."
 			return
 
+		if(!(path in monster))
+			return
 
-		var/mob/living/simple_animal/familiar/F = new path(get_turf(src))
-		F.ckey = C.ckey
-		F.faction = usr.faction
-		F.add_spell(new /spell/contract/return_master(usr),"const_spell_ready")
-		if(C.mob && C.mob.mind)
-			C.mob.mind.transfer_to(F)
-		F << "<B>You are [F], a familiar to [usr]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>"
-		var/newname =  input(F,"Please choose a name. Leaving it blank or canceling will choose the default.", "Name",F.name) as null|text
-		if(newname)
-			F.name = newname
-		temp = "You have summoned \the [F]"
+		var/mob/living/simple_animal/F = new path(get_turf(src))
+		temp = "You have attempted summoning \the [F]"
+		ghost.request_player(F,"A wizard is requesting a familiar.", 60 SECONDS)
 		uses--
+		spawn(600)
+			if(F)
+				if(!F.ckey || !F.client)
+					F.visible_message("With no soul to keep \the [F] linked to this plane, it fades away.")
+					qdel(F)
+					uses++
+				else
+					F.faction = usr.faction
+					F.add_spell(new /spell/contract/return_master(usr), "const_spell_ready")
+					F << "<B>You are [F], a familiar to [usr]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>"
+					
+		if(Adjacent(usr))
+			src.interact(usr)
 
-	if(Adjacent(usr))
-		src.interact(usr)
-	else
-		usr << browse(null,"window=monstermanual")
-
-/obj/item/weapon/monster_manual/proc/get_player()
-	for(var/mob/O in dead_mob_list)
-		if(O.client)
-			var/getResponse = alert(O,"A wizard is requesting a familiar. Would you like to play as one?", "Wizard familiar summons","Yes","No")
-			if(getResponse == "Yes")
-				return O.client
-	return null
+		else
+			usr << browse(null,"window=monstermanual")

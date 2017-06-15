@@ -98,6 +98,9 @@
 		var/obj/item/clothing/under/S = src
 		if (S.accessories.len)
 			H = locate() in S.accessories
+	else if (istype(src, /obj/item/clothing/suit/armor/tactical))	// This armor is a snowflake and has an integrated holster.
+		var/obj/item/clothing/suit/armor/tactical/tacticool = src
+		H = tacticool.holster
 
 	if (!H)
 		usr << "<span class='warning'>Something is very wrong.</span>"

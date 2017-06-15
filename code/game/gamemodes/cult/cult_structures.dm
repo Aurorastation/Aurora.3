@@ -17,19 +17,6 @@
 	desc = "A forge used in crafting the unholy weapons used by the armies of Nar-Sie"
 	icon_state = "forge"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 	Cult pylons can be used as arcane defensive turrets.
 
@@ -57,7 +44,10 @@
 		Exosuits
 		Explosives
 		Ablative armour
+		Smoke grenades
+		Close the damn firelocks so they can't see you
 */
+
 /obj/structure/cult/pylon
 	name = "Pylon"
 	desc = "A floating crystal that hums with an unearthly energy"
@@ -78,7 +68,6 @@
 
 	var/damagetaken = 0
 	var/empowered = 0 //Number of empowered, higher-damage shots remaining
-	var/processing = 0
 	var/mob/living/sacrifice //Holds a reference to a mob that is a pending sacrifice
 	var/mob/living/sacrificer //A reference to the last mob that attempted to sacrifice something. So we can message them
 	//Sacrifier is also used in target handling. the pylon will not bite the hand that feeds it. Noncultist colleagues are fair game though
@@ -110,6 +99,10 @@
 	start_process()
 
 
+/obj/structure/cult/pylon/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
 //Another subtype which starts with infinite empower shots. For empowered adminbus
 /obj/structure/cult/pylon/turret/empowered
 	empowered = 99999999
@@ -140,9 +133,7 @@
 
 /obj/structure/cult/pylon/proc/start_process()
 	process_interval = 1
-	if (!processing)
-		processing_objects += src
-		processing = 1
+	START_PROCESSING(SSprocessing, src)
 
 
 //If the pylon goes a long time without shooting anything, it will consider slowing down processing
@@ -192,8 +183,7 @@
 /obj/structure/cult/pylon/process()
 	ticks++
 	if(!check_process())
-		processing_objects.Remove(src)
-		processing = 0
+		STOP_PROCESSING(SSprocessing, src)
 		return
 
 	switch (pylonmode)
@@ -202,12 +192,13 @@
 		if (2)
 			if ((ticks % process_interval) == 0)
 				handle_firing()
-				if (damagetaken && prob(50))
+				if (damagetaken && prob(50) && empowered > 0)
 					damagetaken = max(0, damagetaken-1) //An empowered pylon slowly self repairs
+					empowered = max(0, empowered - 0.2)
 					if (prob(10))
 						visible_message("Cracks in the [src] gradually seal as new crystalline matter grows to fill them.")
 
-	if (empowered && prob(2))
+	if (empowered && prob(4))
 		empowered = max(0, empowered - 1) //Overcharging gradually wears off over time
 		if (empowered <= 0)
 			update_icon()
@@ -278,7 +269,7 @@
 		//If the sacrifice was deleted somehow, we cant know exactly what happened. We'll assume it escaped
 		.=-1
 
-	else if(get_dist(src, sacrifice) > 5)
+	else if(get_dist(src, get_turf(sacrifice)) > 5)
 		//If the sacrifice gets more than 5 tiles away, it has escaped
 		.=-1
 	else if (sacrifice.stat == DEAD)
@@ -295,7 +286,11 @@
 			if (sacrifice)
 				walk_to(sacrifice,0)
 		else
-			walk_towards(sacrifice,src, 10)
+			if (istype(sacrifice.loc, /turf) && !(sacrifice.is_ventcrawling) && !(sacrifice.buckled))
+				//Suck the creature towards the pylon if possible
+				walk_towards(sacrifice,src, 10)
+			else
+				walk_to(sacrifice,0) //If we're not in a valid situation, cancel walking to prevent bugginess
 
 /obj/structure/cult/pylon/proc/finalize_sacrifice()
 	sacrifice.visible_message(span("danger","\The [sacrifice]'s physical form unwinds as its soul is extracted from the remains, and drawn into the pylon!"))
@@ -330,7 +325,7 @@
 			fire_at(target)
 			return
 		else
-			stuffcache = mobs_in_view(10, src)
+			stuffcache = mobs_in_view(9, src)
 			//for (var/turf/T in stuffcache)
 				//new /obj/effect/testtrans(T)
 			if ((target in stuffcache) && isInSight(src, target))
@@ -342,7 +337,7 @@
 
 	//We may have already populated stuffcache this run, dont repeat work
 	if (!stuffcache)
-		stuffcache = mobs_in_view(10, src)
+		stuffcache = mobs_in_view(9, src)
 
 	target = null //Either we lost a target or lack one
 	//for (var/turf/T in stuffcache)
@@ -398,6 +393,7 @@
 	A.ignore = sacrificer
 	A.launch(target)
 	next_shot = world.time + shot_delay
+	A = null //So projectiles can GC
 	spawn(shot_delay+1)
 		handle_firing()
 
@@ -465,7 +461,7 @@
 				visible_message(
 				"<span class='cult'>The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!</span>"
 				)
-			empowered += damage*0.3
+			empowered += damage*0.2
 			//When shot with a laser, the pylon absorbs the beam, becoming empowered for a while, glowing brighter
 			// and firing more powerful blasts which have some armor penetration
 			// Using lasers to empower a defensive pylon yields more total damage than directly shooting your enemies
@@ -485,7 +481,7 @@
 	if(!isbroken)
 		if (user)
 			user.do_attack_animation(src)
-		if(prob(damagetaken*0.5))
+		if(prob(damagetaken*0.75))
 			shatter()
 		else
 			if (user && !ranged)
@@ -553,18 +549,18 @@
 
 
 /obj/structure/cult/pylon/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if (pylonmode == 2)
 		anchored = 1
 		if (empowered > 0)
-			overlays += "crystal_overcharge"
+			add_overlay("crystal_overcharge")
 			set_light(7, 3, l_color = "#a160bf")
 		else
 			set_light(6, 3, l_color = "#3e0000")
-			overlays += "crystal_turret"
+			add_overlay("crystal_turret")
 	else if (!isbroken)
 		set_light(5, 2, l_color = "#3e0000")
-		overlays += "crystal_idle"
+		add_overlay("crystal_idle")
 		if (pylonmode == 1)
 			anchored = 1
 		else
@@ -633,10 +629,12 @@
 	return
 
 /obj/effect/gateway/active/New()
-	spawn(rand(30,60) SECONDS)
-		var/t = pick(spawnable)
-		new t(src.loc)
-		qdel(src)
+	addtimer(CALLBACK(src, .proc/do_spawn), rand(30, 60) SECONDS)
+
+/obj/effect/gateway/active/proc/do_spawn()
+	var/thing = pick(spawnable)
+	new thing(src.loc)
+	qdel(src)
 
 /obj/effect/gateway/active/Crossed(var/atom/A)
 	if(!istype(A, /mob/living))

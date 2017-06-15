@@ -650,7 +650,7 @@
 	build_path = /obj/item/rig_module/vision/meson
 
 /datum/design/hardsuitmodules/sechud_module
-	name = "hardsuit meson scanner"
+	name = "hardsuit security hud"
 	desc = "A simple tactical information system for a hardsuit."
 	id = "sechud_module"
 	req_tech = list(TECH_BIO = 3, TECH_MATERIAL = 2, TECH_MAGNET = 3)
@@ -674,7 +674,7 @@
 	build_path = /obj/item/rig_module/vision/nvg
 
 /datum/design/hardsuitmodules/healthscanner_module
-	name = "hardsuit night vision interface"
+	name = "hardsuit health scanner"
 	desc = "A hardsuit-mounted health scanner."
 	id = "healthscanner_module"
 	req_tech = list(TECH_BIO = 3, TECH_MATERIAL = 3, TECH_MAGNET = 2)
@@ -695,7 +695,7 @@
 	id = "plasmacutter_module"
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 3, TECH_PHORON = 4)
 	materials = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 30000, "silver" = 5250, "phoron" = 7250)
-	build_path = /obj/item/rig_module/device/plasmacutter
+	build_path = /obj/item/rig_module/mounted/plasmacutter
 
 /datum/design/hardsuitmodules/jet_module
 	name = "hardsuit maneuvering jets"
@@ -721,6 +721,14 @@
 	materials = list(DEFAULT_WALL_MATERIAL= 30000, "phoron" = 12500, "silver" = 10000, "gold" = 10000)
 	build_path = /obj/item/rig_module/device/rcd
 
+/datum/design/hardsuitmodules/actuators_module
+	name = "leg actuators"
+	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
+	id = "actuators_module"
+	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 85000, "glass" = 1250, "silver" = 5250, "gold" = 2750)
+	build_path = /obj/item/rig_module/actuators
+
 /datum/design/hardsuitmodules/taser_module
 	name = "mounted taser"
 	desc = "A palm-mounted nonlethal energy projector."
@@ -730,7 +738,7 @@
 	build_path = /obj/item/rig_module/mounted/taser
 
 /datum/design/hardsuitmodules/egun_module
-	name = "mounted taser"
+	name = "mounted energy gun"
 	desc = "A forearm-mounted energy projector."
 	id = "egun_module"
 	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 4, TECH_COMBAT = 4, TECH_MAGNET = 3)

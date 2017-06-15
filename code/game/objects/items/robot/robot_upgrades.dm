@@ -160,6 +160,7 @@
 		return 0
 
 	R.emagged = 1
+	R.fakeemagged = 1
 	return 1
 
 /obj/item/borg/upgrade/combat

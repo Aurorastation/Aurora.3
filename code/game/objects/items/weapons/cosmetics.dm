@@ -21,13 +21,16 @@
 /obj/item/weapon/lipstick/black
 	name = "black lipstick"
 	colour = "black"
-
+	
+/obj/item/weapon/lipstick/pink
+	name = "pink lipstick"
+	colour = "pink"
 
 /obj/item/weapon/lipstick/random
 	name = "lipstick"
 
 /obj/item/weapon/lipstick/random/New()
-	colour = pick("red","purple","jade","black")
+	colour = pick("red","purple","jade","pink","black")
 	name = "[colour] lipstick"
 
 

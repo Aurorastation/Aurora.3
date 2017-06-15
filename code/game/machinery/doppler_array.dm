@@ -11,7 +11,7 @@ var/list/doppler_arrays = list()
 
 /obj/machinery/doppler_array/Destroy()
 	doppler_arrays -= src
-	..()
+	return ..()
 
 /obj/machinery/doppler_array/proc/sense_explosion(var/x0,var/y0,var/z0,var/devastation_range,var/heavy_impact_range,var/light_impact_range,var/took)
 	if(stat & NOPOWER)	return

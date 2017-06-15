@@ -11,34 +11,44 @@
 
 
 datum/unit_test/apc_area_test
-	name = "MAP: Area Test APC / Scrubbers / Vents Z level 1"
+	name = "MAP: Area Test APC / Scrubbers / Vents (Station)"
 
 datum/unit_test/apc_area_test/start_test()
 	var/list/bad_areas = list()
 	var/area_test_count = 0
-	var/list/exempt_areas = typesof(/area/space, \
-					/area/syndicate_station, \
-					/area/skipjack_station,  \
-					/area/solar, \
-					/area/shuttle, \
-					/area/holodeck, \
-					/area/supply/station \
-					)
 
-	var/list/exempt_from_atmos = typesof(   /area/maintenance, \
-						/area/storage, \
-						/area/engineering/atmos/storage, \
-						/area/rnd/test_area, \
-						/area/construction, \
-						/area/server
-						)
+	// This is formatted strangely because it fails the indentation test if it's formatted properly.
+	// ¯\_(ツ)_/¯
+	var/list/exempt_areas = typesof(/area/space
+		,/area/syndicate_station
+		,/area/skipjack_station
+		,/area/solar
+		,/area/shuttle
+		,/area/holodeck
+		,/area/supply/station
+		,/area/wizard_station
+		,/area/tdome
+		,/area/centcom
+		,/area/syndicate_mothership
+		,/area/beach
+		,/area/prison
+		,/area/supply/dock
+	)
 
-	var/list/exempt_from_apc = typesof(	/area/construction, \
-						/area/medical/genetics
-						)
+	var/list/exempt_from_atmos = typesof(/area/maintenance
+		,/area/storage
+		,/area/engineering/atmos/storage
+		,/area/rnd/test_area
+		,/area/construction
+		,/area/server
+	)
+
+	var/list/exempt_from_apc = typesof(/area/construction
+		,/area/medical/genetics
+	)
 
 	for(var/area/A in world)
-		if(A.z == 1 && !(A.type in exempt_areas))
+		if(A.z in list(2,3,4,5) && !(A.type in exempt_areas))
 			area_test_count++
 			var/area_good = 1
 			var/bad_msg = "[ascii_red]--------------- [A.name]([A.type])"
@@ -69,7 +79,7 @@ datum/unit_test/apc_area_test/start_test()
 //=======================================================================================
 
 datum/unit_test/wire_test
-	name = "MAP: Cable Test Z level 1"
+	name = "MAP: Cable Test (Station)"
 
 datum/unit_test/wire_test/start_test()
 	var/wire_test_count = 0
@@ -83,7 +93,7 @@ datum/unit_test/wire_test/start_test()
 		T = null
 
 		T = get_turf(C)
-		if(T && T.z == 1)
+		if(T && T.z in list(2,3,4,5))
 			cable_turfs |= get_turf(C)
 
 	for(T in cable_turfs)

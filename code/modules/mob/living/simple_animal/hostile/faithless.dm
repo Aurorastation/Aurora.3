@@ -33,7 +33,7 @@
 
 	faction = "faithless"
 
-/mob/living/simple_animal/hostile/faithless/Process_Spacemove(var/check_drift = 0)
+/mob/living/simple_animal/hostile/faithless/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
 /mob/living/simple_animal/hostile/faithless/FindTarget()
@@ -49,6 +49,15 @@
 			L.Weaken(3)
 			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
 
+/mob/living/simple_animal/hostile/faithless/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/faithless/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/faithless/CanAvoidGravity()
+	return TRUE
+
 /mob/living/simple_animal/hostile/faithless/cult
 	faction = "cult"
 
@@ -58,3 +67,34 @@
 /mob/living/simple_animal/hostile/faithless/cult/Life()
 	..()
 	check_horde()
+
+/mob/living/simple_animal/hostile/faithless/wizard
+	name = "lost soul"
+	desc = "The result of a dark bargain."
+	speed = -3
+	maxHealth = 400
+	health = 400
+	universal_speak = 1
+	universal_understand = 1
+
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	harm_intent_damage = 0
+	melee_damage_lower = 25
+	melee_damage_upper = 25
+	var/list/darkform_spells = list(/spell/targeted/ethereal_jaunt/shift,
+									/spell/aoe_turf/conjure/forcewall/lesser)
+
+/mob/living/simple_animal/hostile/faithless/wizard/Initialize()
+	. = ..()
+	for(var/spell in darkform_spells)
+		src.add_spell(new spell, "const_spell_ready")
+
+/mob/living/simple_animal/hostile/faithless/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/faithless/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/faithless/CanAvoidGravity()
+	return TRUE

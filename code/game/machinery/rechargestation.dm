@@ -7,6 +7,7 @@
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 50
+	has_special_power_checks = TRUE
 	var/mob/occupant = null
 	var/obj/item/weapon/cell/cell = null
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks
@@ -21,8 +22,8 @@
 	var/weld_power_use = 2300	// power used per point of brute damage repaired. 2.3 kW ~ about the same power usage of a handheld arc welder
 	var/wire_power_use = 500	// power used per point of burn damage repaired.
 
-/obj/machinery/recharge_station/New()
-	..()
+/obj/machinery/recharge_station/Initialize()
+	. = ..()
 
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/recharge_station(src)
@@ -40,7 +41,7 @@
 /obj/machinery/recharge_station/proc/has_cell_power()
 	return cell && cell.percent() > 0
 
-/obj/machinery/recharge_station/process()
+/obj/machinery/recharge_station/machinery_process()
 	if(stat & (BROKEN))
 		return
 	if(!cell) // Shouldn't be possible, but sanity check
@@ -171,20 +172,20 @@
 		desc += "<br>It is capable of repairing burn damage."
 
 /obj/machinery/recharge_station/proc/build_overlays()
-	overlays.Cut()
+	cut_overlays()
 	switch(round(chargepercentage()))
 		if(1 to 20)
-			overlays += image('icons/obj/objects.dmi', "statn_c0")
+			add_overlay("statn_c0")
 		if(21 to 40)
-			overlays += image('icons/obj/objects.dmi', "statn_c20")
+			add_overlay("statn_c20")
 		if(41 to 60)
-			overlays += image('icons/obj/objects.dmi', "statn_c40")
+			add_overlay("statn_c40")
 		if(61 to 80)
-			overlays += image('icons/obj/objects.dmi', "statn_c60")
+			add_overlay("statn_c60")
 		if(81 to 98)
-			overlays += image('icons/obj/objects.dmi', "statn_c80")
+			add_overlay("statn_c80")
 		if(99 to 110)
-			overlays += image('icons/obj/objects.dmi', "statn_c100")
+			add_overlay("statn_c100")
 
 /obj/machinery/recharge_station/update_icon()
 	..()

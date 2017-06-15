@@ -62,13 +62,13 @@
 
 	if(reagents.has_reagent("sacid"))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
-		log_game("[key_name(user)] fired sulphuric acid from \a [src].")
+		log_game("[key_name(user)] fired sulphuric acid from \a [src].",ckey=key_name(user))
 	if(reagents.has_reagent("pacid"))
 		message_admins("[key_name_admin(user)] fired Polyacid from \a [src].")
-		log_game("[key_name(user)] fired Polyacid from \a [src].")
+		log_game("[key_name(user)] fired Polyacid from \a [src].",ckey=key_name(user))
 	if(reagents.has_reagent("lube"))
 		message_admins("[key_name_admin(user)] fired Space lube from \a [src].")
-		log_game("[key_name(user)] fired Space lube from \a [src].")
+		log_game("[key_name(user)] fired Space lube from \a [src].",ckey=key_name(user))
 	return
 
 /obj/item/weapon/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)

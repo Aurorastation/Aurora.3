@@ -151,14 +151,14 @@
 	name = "TTV bomb - proximity"
 	assembly_type = /obj/item/device/assembly/prox_sensor
 
-/obj/effect/spawner/newbomb/radio/custom/New(var/newloc, ph, ox, co)
+/obj/effect/spawner/newbomb/radio/custom/Initialize(mapload, ph, ox, co)
 	if(ph != null) phoron_amt = ph
 	if(ox != null) oxygen_amt = ox
 	if(co != null) carbon_amt = co
-	..()
+	. = ..()
 
-/obj/effect/spawner/newbomb/New(newloc)
-	..(newloc)
+/obj/effect/spawner/newbomb/Initialize()
+	. = ..()
 
 	var/obj/item/device/transfer_valve/V = new(src.loc)
 	var/obj/item/weapon/tank/phoron/PT = new(V)

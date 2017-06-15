@@ -52,7 +52,7 @@
 
 	var/dat
 
-	if (!( ticker ))
+	if (!(ROUND_IS_STARTED))
 		return
 
 	dat += "<hr/><br/><b>[storage_name]</b><br/>"
@@ -213,10 +213,10 @@
 	if(occupant)
 		occupant.forceMove(loc)
 		occupant.resting = 1
-	..()
+	return ..()
 
-/obj/machinery/cryopod/initialize()
-	..()
+/obj/machinery/cryopod/Initialize()
+	. = ..()
 
 	find_control_computer()
 
@@ -250,7 +250,7 @@
 	return 1
 
 //Lifted from Unity stasis.dm and refactored. ~Zuhayr
-/obj/machinery/cryopod/process()
+/obj/machinery/cryopod/machinery_process()
 	if(occupant)
 		//Allow a ten minute gap between entering the pod and actually despawning.
 		if(world.time - time_entered < time_till_despawn)
@@ -322,63 +322,15 @@
 			else
 				W.forceMove(src.loc)
 
-	//Update any existing objectives involving this mob.
-	for(var/datum/objective/O in all_objectives)
-		// We don't want revs to get objectives that aren't for heads of staff. Letting
-		// them win or lose based on cryo is silly so we remove the objective.
-		if(O.target == occupant.mind)
-			if(O.owner && O.owner.current)
-				O.owner.current << "<span class='warning'>You get the feeling your target is no longer within your reach...</span>"
-			qdel(O)
-
-	//Handle job slot/tater cleanup.
-	if (occupant.mind)
-		var/job = occupant.mind.assigned_role
-
-		job_master.FreeRole(job)
-
-		if(occupant.mind.objectives.len)
-			qdel(occupant.mind.objectives)
-			occupant.mind.special_role = null
-		//else
-			//if(ticker.mode.name == "AutoTraitor")
-				//var/datum/game_mode/traitor/autotraitor/current_mode = ticker.mode
-				//current_mode.possible_traitors.Remove(occupant)
-
-	// Delete them from datacore.
-
-	if(PDA_Manifest.len)
-		PDA_Manifest.Cut()
-	for(var/datum/data/record/R in data_core.medical)
-		if ((R.fields["name"] == occupant.real_name))
-			qdel(R)
-	for(var/datum/data/record/T in data_core.security)
-		if ((T.fields["name"] == occupant.real_name))
-			qdel(T)
-	for(var/datum/data/record/G in data_core.general)
-		if ((G.fields["name"] == occupant.real_name))
-			qdel(G)
-
 	icon_state = base_icon_state
-
-	//TODO: Check objectives/mode, update new targets if this mob is the target, spawn new antags?
-
-
-	//Make an announcement and log the person entering storage.
-	control_computer.frozen_crew += "[occupant.real_name], [occupant.mind.role_alt_title] - [worldtime2text()]"
-	control_computer._admin_logs += "[key_name(occupant)] ([occupant.mind.role_alt_title]) at [worldtime2text()]"
-	log_and_message_admins("[key_name(occupant)] ([occupant.mind.role_alt_title]) entered cryostorage.")
 
 	announce.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
 	visible_message("<span class='notice'>\The [initial(name)] hums and hisses as it moves [occupant.real_name] into storage.</span>", 3)
 
-	//This should guarantee that ghosts don't spawn.
-	occupant.ckey = null
+	// Let SSjobs handle the rest.
+	SSjobs.DespawnMob(occupant)
 
-	// Delete the mob.
-	qdel(occupant)
 	set_occupant(null)
-
 
 /obj/machinery/cryopod/attackby(var/obj/item/weapon/G as obj, var/mob/user as mob)
 
@@ -426,7 +378,7 @@
 
 			// Book keeping!
 			var/turf/location = get_turf(src)
-			log_admin("[key_name_admin(M)] has entered a stasis pod. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
+			log_admin("[key_name_admin(M)] has entered a stasis pod. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)",ckey=key_name(M))
 			message_admins("<span class='notice'>[key_name_admin(M)] has entered a stasis pod.</span>")
 
 			//Despawning occurs when process() is called with an occupant without a client.
@@ -486,7 +438,7 @@
 
 		// Book keeping!
 		var/turf/location = get_turf(src)
-		log_admin("[key_name_admin(L)] has entered a stasis pod.")
+		log_admin("[key_name_admin(L)] has entered a stasis pod.",ckey=key_name(L))
 		message_admins("<span class='notice'>[key_name_admin(L)] has entered a stasis pod.(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)</span>")
 
 		//Despawning occurs when process() is called with an occupant without a client.

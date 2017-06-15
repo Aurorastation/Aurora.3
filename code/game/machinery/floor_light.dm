@@ -14,6 +14,7 @@ var/list/floor_light_cache = list()
 	matter = list(DEFAULT_WALL_MATERIAL = 2500, "glass" = 2750)
 
 	var/on
+	var/on_state = "on"
 	var/damaged
 	var/default_light_range = 4
 	var/default_light_power = 2
@@ -77,7 +78,7 @@ var/list/floor_light_cache = list()
 		update_brightness()
 		return
 
-/obj/machinery/floor_light/process()
+/obj/machinery/floor_light/machinery_process()
 	..()
 	var/need_update
 	if((!anchored || broken()) && on)
@@ -108,7 +109,7 @@ var/list/floor_light_cache = list()
 		if(isnull(damaged))
 			var/cache_key = "floorlight-[default_light_colour]"
 			if(!floor_light_cache[cache_key])
-				var/image/I = image("on")
+				var/image/I = image("[on_state]")
 				I.color = default_light_colour
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
@@ -150,8 +151,20 @@ var/list/floor_light_cache = list()
 	var/area/A = get_area(src)
 	if(A)
 		on = 0
-	..()
+	return ..()
 
 /obj/machinery/floor_light/cultify()
 	default_light_colour = "#FF0000"
 	update_brightness()
+
+/obj/machinery/floor_light/dance
+	name = "dance floor"
+	on_state = "light_on-dancefloor_A"
+	anchored = 1
+	on = TRUE
+	use_power = 2
+
+/obj/machinery/floor_light/dance/alternate
+	name = "dance floor"
+	on_state = "light_on-dancefloor_B"
+	anchored = 1

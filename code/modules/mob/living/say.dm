@@ -11,6 +11,7 @@ var/list/department_radio_keys = list(
 	  ":s" = "Security",	".s" = "Security",
 	  ":w" = "whisper",		".w" = "whisper",
 	  ":t" = "Mercenary",	".t" = "Mercenary",
+	  ":x" = "Raider",		".x" = "Raider",
 	  ":u" = "Supply",		".u" = "Supply",
 	  ":v" = "Service",		".v" = "Service",
 	  ":p" = "AI Private",	".p" = "AI Private",
@@ -27,6 +28,7 @@ var/list/department_radio_keys = list(
 	  ":S" = "Security",	".S" = "Security",
 	  ":W" = "whisper",		".W" = "whisper",
 	  ":T" = "Mercenary",	".T" = "Mercenary",
+	  ":X" = "Raider",		".X" = "Raider",
 	  ":U" = "Supply",		".U" = "Supply",
 	  ":V" = "Service",		".V" = "Service",
 	  ":P" = "AI Private",	".P" = "AI Private",
@@ -133,7 +135,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
-			src << "\red You cannot speak in IC (Muted)."
+			src << "<span class='warning'>You cannot speak in IC (Muted).</span>"
 			return
 
 	if(stat)
@@ -225,10 +227,9 @@ proc/get_radio_key_from_channel(var/channel)
 			if (speech_sound)
 				sound_vol *= 0.5
 
-	var/turf/T = get_turf(src)
-
 	var/list/listening = list()
 	var/list/listening_obj = list()
+	var/turf/T = get_turf(src)
 
 	if(T)
 		//make sure the air can transmit speech - speaker's side
@@ -241,45 +242,29 @@ proc/get_radio_key_from_channel(var/channel)
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		var/list/hear = hear(message_range,T)
-		var/list/hearturfs = list()
-
-		for(var/I in hear)
-			if(ismob(I))
-				var/mob/M = I
-				listening += M
-				hearturfs += M.locs[1]
-			else if(isobj(I))
-				var/obj/O = I
-				hearturfs += O.locs[1]
-				listening_obj |= O
+		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj)
 
 
-		for(var/mob/M in player_list)
-			if(src.client && M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS))
-				listening |= M
-				continue
-			if(M.loc && M.locs[1] in hearturfs)
-				listening |= M
+	var/list/hear_clients = list()
+	for(var/mob/M in listening)
+		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+		if (M.client)
+			hear_clients += M.client
 
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
-	spawn(30) qdel(speech_bubble)
-
-	for(var/mob/M in listening)
-		M << speech_bubble
-		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_bubble, hear_clients, 30)
 
 	for(var/obj/O in listening_obj)
 		spawn(0)
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)
 
-	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]")
+	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 	return 1
 
 /mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language)
-	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]")
+	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
 
 	for (var/mob/O in viewers(src, null))
 		O.hear_signlang(message, verb, language, src)

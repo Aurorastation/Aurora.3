@@ -16,11 +16,9 @@
 	var/overlay_layer
 	var/is_holographic = TRUE
 
-/obj/machinery/computer/New()
+/obj/machinery/computer/Initialize()
+	. = ..()
 	overlay_layer = layer
-	..()
-
-/obj/machinery/computer/initialize()
 	power_change()
 	update_icon()
 
@@ -56,7 +54,7 @@
 	..()
 
 /obj/machinery/computer/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(stat & NOPOWER)
 		set_light(0)
 		return
@@ -64,11 +62,17 @@
 		set_light(light_range_on, light_power_on)
 
 	if(stat & BROKEN)
-		overlays += image(icon,"[icon_state]_broken", overlay_layer)
-	else if (is_holographic)
-		holographic_overlay(src, src.icon, icon_screen)
-	else
-		overlays += image(icon, icon_screen, overlay_layer)
+		if (overlay_layer != layer)
+			add_overlay(image(icon,"[icon_state]_broken", overlay_layer))
+		else
+			add_overlay("[icon_state]_broken")
+	else if (icon_screen)
+		if (is_holographic)
+			holographic_overlay(src, src.icon, icon_screen)
+		else if (overlay_layer != layer)
+			add_overlay(image(icon, icon_screen, overlay_layer))
+		else
+			add_overlay(icon_screen)
 
 /obj/machinery/computer/power_change()
 	..()

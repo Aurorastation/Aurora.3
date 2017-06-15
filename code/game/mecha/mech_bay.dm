@@ -5,13 +5,14 @@
 	icon_state = "recharge_floor"
 	density = 0
 	layer = TURF_LAYER + 0.1
+	anchored = 1
 
 	var/obj/mecha/charging = null
 	var/charge = 45
 	var/repair = 0
 
-/obj/machinery/mech_recharger/New()
-	..()
+/obj/machinery/mech_recharger/Initialize()
+	. = ..()
 	component_parts = list()
 
 	component_parts += new /obj/item/weapon/circuitboard/mech_recharger(src)
@@ -46,7 +47,7 @@
 		if(istype(P, /obj/item/weapon/stock_parts/manipulator))
 			repair += P.rating * 2
 
-/obj/machinery/mech_recharger/process()
+/obj/machinery/mech_recharger/machinery_process()
 	..()
 	if(!charging)
 		return

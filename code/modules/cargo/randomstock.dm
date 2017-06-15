@@ -115,7 +115,7 @@ var/list/global/random_stock_common = list(
 	"cosmetic" = 2.2,
 	"suitcooler" = 1.2,
 	"officechair" = 1.2,
-	"booze" = 3.5,
+	"booze" = 3.7,
 	"plant" = 3.5,
 	"bag" = 2,
 	"extinguish" = 2.2,
@@ -134,7 +134,6 @@ var/list/global/random_stock_common = list(
 	"paicard" = 2,
 	"phoronsheets" = 2,
 	"hide" = 1,
-	"paint" = 0.5,
 	"nothing" = 0)
 
 var/list/global/random_stock_uncommon = list(
@@ -219,7 +218,7 @@ var/list/global/random_stock_rare = list(
 	"energyshield" = 2,
 	"hardsuit" = 0.75,
 	"cluster" = 2.0,
-	"cloak" = 0.75,
+	"ladder" = 3,
 	"sword" = 0.5,
 	"ims" = 1.5,
 	"exogear" = 1.5,
@@ -263,6 +262,7 @@ var/list/global/random_stock_large = list(
 	"pipemachine" = 1.7,
 	"bike" = 0.3,
 	"sol" = 0.2,
+	"dog" = 0.2,
 	"nothing" = 0)
 
 
@@ -300,7 +300,6 @@ var/list/global/random_stock_large = list(
 	)
 
 /datum/cargospawner/New()
-
 	//First lets get the reference to our warehouse
 	for(var/areapath in typesof(/area/quartermaster/storage))
 		warehouse = locate(areapath)
@@ -312,6 +311,7 @@ var/list/global/random_stock_large = list(
 			for (var/obj/structure/table/B in warehouse)
 				tables |= B
 
+/datum/cargospawner/proc/start()
 	if (!warehouse || !warehouseturfs.len)
 		admin_notice("<span class='danger'>ERROR: Cargo spawner failed to locate warehouse. Terminating.</span>", R_DEBUG)
 		qdel(src)
@@ -796,7 +796,7 @@ var/list/global/random_stock_large = list(
 						break
 			new /obj/structure/bed/chair/office/dark(T)
 		if ("booze")
-			if (prob(8))//Spare keg of beer
+			if (prob(8))//Spare keg of beer or xuizi juice
 				var/turf/T = get_turf(L)
 				if (!turf_clear(T))
 					for (var/turf/U in range(T,1))
@@ -804,7 +804,10 @@ var/list/global/random_stock_large = list(
 							T = U
 							break
 
-				new /obj/structure/reagent_dispensers/beerkeg(T)
+				if (prob(80))
+					new /obj/structure/reagent_dispensers/beerkeg(T)
+				else
+					new /obj/structure/reagent_dispensers/xuizikeg(T)
 			else
 				var/list/drinks = typesof(/obj/item/weapon/reagent_containers/food/drinks/bottle)
 				drinks -= /obj/item/weapon/reagent_containers/food/drinks/bottle
@@ -988,67 +991,6 @@ var/list/global/random_stock_large = list(
 
 		if ("hide")
 			new /obj/item/stack/material/animalhide(L, rand(5,50))
-
-		if ("paint")
-			var/list/paints = list(
-			/obj/item/weapon/reagent_containers/glass/paint/red,
-			/obj/item/weapon/reagent_containers/glass/paint/yellow,
-			/obj/item/weapon/reagent_containers/glass/paint/green,
-			/obj/item/weapon/reagent_containers/glass/paint/blue,
-			/obj/item/weapon/reagent_containers/glass/paint/purple,
-			/obj/item/weapon/reagent_containers/glass/paint/black,
-			/obj/item/weapon/reagent_containers/glass/paint/white
-			)
-			var/type = pick(paints)
-			new type(L)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //Uncommon items below here
@@ -1442,53 +1384,6 @@ var/list/global/random_stock_large = list(
 			new /obj/random/coin(L)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Rare items below here:
 //=============================================================
 //=============================================================
@@ -1517,21 +1412,10 @@ var/list/global/random_stock_large = list(
 			new /obj/item/weapon/shield/energy(L)
 		if("cluster")
 			new /obj/item/weapon/grenade/flashbang/clusterbang(L)
-		if("cloak")
-			new /obj/item/weapon/cloaking_device(L)
+		if("ladder")
+			new /obj/item/weapon/ladder_mobile(L)
 		if("sword")
-			var/list/swords = list(
-			/obj/item/weapon/material/sword,
-			/obj/item/weapon/material/sword/katana,
-			/obj/item/weapon/material/sword/rapier,
-			/obj/item/weapon/material/sword/longsword,
-			/obj/item/weapon/material/sword/trench,
-			/obj/item/weapon/material/sword/sabre,
-			/obj/item/weapon/material/sword/axe
-			)
-
-			var/type = pick(swords)
-			new type(L)
+			new /obj/random/sword(L)
 		if("ims")
 			new /obj/item/weapon/scalpel/manager(L)
 		if("hardsuit")
@@ -1630,59 +1514,6 @@ var/list/global/random_stock_large = list(
 
 			var/type = pick(modkits)
 			new type(L)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //Large items go below here
@@ -1819,12 +1650,18 @@ var/list/global/random_stock_large = list(
 
 		if ("bike")
 			new /obj/vehicle/bike(L)
-			
+
 		if ("sol")
 			if (prob(50))
 				new /obj/structure/closet/sol/navy(L)
 			else
 				new /obj/structure/closet/sol/marine(L)
+		if ("dog")
+			var/list/dogs = list(/obj/structure/largecrate/animal/dog,
+			/obj/structure/largecrate/animal/dog/amaskan,
+			/obj/structure/largecrate/animal/dog/pug)
+			var/type = pick(dogs)
+			new type(L)
 
 	//This will be complex
 	//Spawns a random exosuit, Probably not in good condition

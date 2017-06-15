@@ -31,10 +31,10 @@
 	var/datum/radio_frequency/radio_connection
 
 /obj/machinery/atmospherics/trinary/filter/proc/set_frequency(new_frequency)
-	radio_controller.remove_object(src, frequency)
+	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
-		radio_connection = radio_controller.add_object(src, frequency, RADIO_ATMOSIA)
+		radio_connection = SSradio.add_object(src, frequency, RADIO_ATMOSIA)
 
 /obj/machinery/atmospherics/trinary/filter/New()
 	..()
@@ -93,7 +93,7 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/trinary/filter/process()
+/obj/machinery/atmospherics/trinary/filter/machinery_process()
 	..()
 
 	last_power_draw = 0

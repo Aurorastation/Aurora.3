@@ -12,45 +12,51 @@
 	var/obj/item/weapon/disk/nuclear/the_disk = null
 	var/active = 0
 
+/obj/item/weapon/pinpointer/attack_self()
+	if(!active)
+		active = 1
+		START_PROCESSING(SSfast_process, src)
+		usr << "<span class='notice'>You activate the pinpointer</span>"
+	else
+		active = 0
+		STOP_PROCESSING(SSfast_process, src)
+		icon_state = "pinoff"
+		usr << "<span>You deactivate the pinpointer</span>"
 
-	attack_self()
-		if(!active)
-			active = 1
-			workdisk()
-			usr << "<span class='notice'>You activate the pinpointer</span>"
-		else
-			active = 0
-			icon_state = "pinoff"
-			usr << "<span>You deactivate the pinpointer</span>"
+/obj/item/weapon/pinpointer/process()
+	if (active)
+		workdisk()
+	else
+		STOP_PROCESSING(SSfast_process, src)
 
-	proc/workdisk()
-		if(!active) return
+/obj/item/weapon/pinpointer/proc/workdisk()
+	if(!active) return
+	if(!the_disk)
+		the_disk = locate()
 		if(!the_disk)
-			the_disk = locate()
-			if(!the_disk)
-				icon_state = "pinonnull"
-				return
-		set_dir(get_dir(src,the_disk))
-		switch(get_dist(src,the_disk))
-			if(0)
-				icon_state = "pinondirect"
-			if(1 to 8)
-				icon_state = "pinonclose"
-			if(9 to 16)
-				icon_state = "pinonmedium"
-			if(16 to INFINITY)
-				icon_state = "pinonfar"
-		spawn(5) .()
+			icon_state = "pinonnull"
+			return
+	set_dir(get_dir(src,the_disk))
+	switch(get_dist(src,the_disk))
+		if(0)
+			icon_state = "pinondirect"
+		if(1 to 8)
+			icon_state = "pinonclose"
+		if(9 to 16)
+			icon_state = "pinonmedium"
+		if(16 to INFINITY)
+			icon_state = "pinonfar"
 
-	examine(mob/user)
-		..(user)
-		for(var/obj/machinery/nuclearbomb/bomb in world)
-			if(bomb.timing)
-				user << "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]"
+/obj/item/weapon/pinpointer/examine(mob/user)
+	..(user)
+	for(var/obj/machinery/nuclearbomb/bomb in world)
+		if(bomb.timing)
+			user << "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]"
 
 /obj/item/weapon/pinpointer/Destroy()
 	active = 0
-	..()
+	STOP_PROCESSING(SSfast_process, src)
+	return ..()
 
 /obj/item/weapon/pinpointer/advpinpointer
 	name = "Advanced Pinpointer"
@@ -60,58 +66,66 @@
 	var/turf/location = null
 	var/obj/target = null
 
-	attack_self()
-		if(!active)
-			active = 1
-			if(mode == 0)
-				workdisk()
-			if(mode == 1)
-				worklocation()
-			if(mode == 2)
-				workobj()
-			usr << "<span class='notice'>You activate the pinpointer</span>"
-		else
-			active = 0
-			icon_state = "pinoff"
-			usr << "<span class='notice'>You deactivate the pinpointer</span>"
+/obj/item/weapon/pinpointer/advpinpointer/attack_self()
+	if(!active)
+		active = 1
+		if(mode == 0)
+			workdisk()
+		if(mode == 1)
+			worklocation()
+		if(mode == 2)
+			workobj()
+		START_PROCESSING(SSfast_process, src)
+		usr << "<span class='notice'>You activate the pinpointer</span>"
+	else
+		active = 0
+		icon_state = "pinoff"
+		usr << "<span class='notice'>You deactivate the pinpointer</span>"
 
+/obj/item/weapon/pinpointer/advpinpointer/process()
+	switch(mode)
+		if (0)
+			workdisk()
+		if (1)
+			worklocation()
+		if (2)
+			workobj()
 
-	proc/worklocation()
-		if(!active)
-			return
-		if(!location)
-			icon_state = "pinonnull"
-			return
-		set_dir(get_dir(src,location))
-		switch(get_dist(src,location))
-			if(0)
-				icon_state = "pinondirect"
-			if(1 to 8)
-				icon_state = "pinonclose"
-			if(9 to 16)
-				icon_state = "pinonmedium"
-			if(16 to INFINITY)
-				icon_state = "pinonfar"
-		spawn(5) .()
+/obj/item/weapon/pinpointer/advpinpointer/proc/worklocation()
+	if(!active)
+		STOP_PROCESSING(SSfast_process, src)
+		return
+	if(!location)
+		icon_state = "pinonnull"
+		return
+	set_dir(get_dir(src,location))
+	switch(get_dist(src,location))
+		if(0)
+			icon_state = "pinondirect"
+		if(1 to 8)
+			icon_state = "pinonclose"
+		if(9 to 16)
+			icon_state = "pinonmedium"
+		if(16 to INFINITY)
+			icon_state = "pinonfar"
 
-
-	proc/workobj()
-		if(!active)
-			return
-		if(!target)
-			icon_state = "pinonnull"
-			return
-		set_dir(get_dir(src,target))
-		switch(get_dist(src,target))
-			if(0)
-				icon_state = "pinondirect"
-			if(1 to 8)
-				icon_state = "pinonclose"
-			if(9 to 16)
-				icon_state = "pinonmedium"
-			if(16 to INFINITY)
-				icon_state = "pinonfar"
-		spawn(5) .()
+/obj/item/weapon/pinpointer/advpinpointer/proc/workobj()
+	if(!active)
+		STOP_PROCESSING(SSfast_process, src)
+		return
+	if(!target)
+		icon_state = "pinonnull"
+		return
+	set_dir(get_dir(src,target))
+	switch(get_dist(src,target))
+		if(0)
+			icon_state = "pinondirect"
+		if(1 to 8)
+			icon_state = "pinonclose"
+		if(9 to 16)
+			icon_state = "pinonmedium"
+		if(16 to INFINITY)
+			icon_state = "pinonfar"
 
 /obj/item/weapon/pinpointer/advpinpointer/verb/toggle_mode()
 	set category = "Object"
@@ -120,7 +134,7 @@
 
 	active = 0
 	icon_state = "pinoff"
-	target=null
+	target = null
 	location = null
 
 	switch(alert("Please select the mode you want to put the pinpointer in.", "Pinpointer Mode Select", "Location", "Disk Recovery", "Other Signature"))
@@ -187,6 +201,7 @@
 /obj/item/weapon/pinpointer/nukeop/attack_self(mob/user as mob)
 	if(!active)
 		active = 1
+		START_PROCESSING(SSfast_process, src)
 		if(!mode)
 			workdisk()
 			user << "<span class='notice'>Authentication Disk Locator active.</span>"
@@ -195,9 +210,15 @@
 			user << "<span class='notice'>Shuttle Locator active.</span>"
 	else
 		active = 0
+		STOP_PROCESSING(SSfast_process, src)
 		icon_state = "pinoff"
 		user << "<span class='notice'>You deactivate the pinpointer.</span>"
 
+/obj/item/weapon/pinpointer/nukeop/process()
+	if (mode)
+		workdisk()
+	else
+		worklocation()
 
 /obj/item/weapon/pinpointer/nukeop/workdisk()
 	if(!active) return
@@ -229,9 +250,6 @@
 		if(16 to INFINITY)
 			icon_state = "pinonfar"
 
-	spawn(5) .()
-
-
 /obj/item/weapon/pinpointer/nukeop/proc/worklocation()
 	if(!active)	return
 	if(!mode)
@@ -261,5 +279,3 @@
 				icon_state = "pinonmedium"
 			if(16 to INFINITY)
 				icon_state = "pinonfar"
-
-	spawn(5) .()

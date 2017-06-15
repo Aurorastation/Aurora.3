@@ -20,17 +20,22 @@
 	var/RCon_tag = "NO_TAG"
 	var/update_locked = 0
 
+/obj/machinery/power/breakerbox/Initialize()
+	LAZYADD(SSpower.breaker_boxes, src)
+	return ..()
+
 /obj/machinery/power/breakerbox/Destroy()
-	..()
-	for(var/datum/nano_module/rcon/R in world)
-		R.FindDevices()
+	LAZYREMOVE(SSpower.breaker_boxes, src)
+	SSmachinery.queue_rcon_update()
+	return ..()
 
 /obj/machinery/power/breakerbox/activated
 	icon_state = "bbox_on"
 
 	// Enabled on server startup. Used in substations to keep them in bypass mode.
-/obj/machinery/power/breakerbox/activated/initialize()
-	set_state(1)
+/obj/machinery/power/breakerbox/activated/Initialize()
+	. = ..()
+	set_state(1)	
 
 /obj/machinery/power/breakerbox/examine(mob/user)
 	..()
@@ -54,9 +59,11 @@
 		set_state(!on)
 		user << "<span class='good'>Update Completed. New setting:[on ? "on": "off"]</span>"
 		update_locked = 1
-		spawn(600)
-			update_locked = 0
+		addtimer(CALLBACK(src, .proc/reset_locked), 600)
 	busy = 0
+
+/obj/machinery/power/breakerbox/proc/reset_locked()
+	update_locked = 0
 
 
 /obj/machinery/power/breakerbox/attack_hand(mob/user)
@@ -78,8 +85,7 @@
 		"<span class='notice'>[user.name] [on ? "enabled" : "disabled"] the breaker box!</span>",\
 		"<span class='notice'>You [on ? "enabled" : "disabled"] the breaker box!</span>")
 		update_locked = 1
-		spawn(600)
-			update_locked = 0
+		addtimer(CALLBACK(src, .proc/reset_locked), 600)
 	busy = 0
 
 /obj/machinery/power/breakerbox/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
@@ -88,6 +94,7 @@
 		if(newtag)
 			RCon_tag = newtag
 			user << "<span class='notice'>You changed the RCON tag to: [newtag]</span>"
+			SSmachinery.queue_rcon_update()
 
 /obj/machinery/power/breakerbox/proc/set_state(var/state)
 	on = state
@@ -126,8 +133,4 @@
 	if(!update_locked)
 		set_state(!on)
 		update_locked = 1
-		spawn(600)
-			update_locked = 0
-
-/obj/machinery/power/breakerbox/process()
-	return 1
+		addtimer(CALLBACK(src, .proc/reset_locked), 600)

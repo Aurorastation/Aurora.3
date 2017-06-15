@@ -98,7 +98,7 @@
 	return (copytext(message, length(message)) == "!") ? 2 : 1
 
 /datum/language/proc/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
-	log_say("[key_name(speaker)] : ([name]) [message]")
+	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
 	if(!speaker_mask) speaker_mask = speaker.name
 	message = format_message(message, get_spoken_verb(message))
@@ -116,7 +116,7 @@
 
 /mob/dead/observer/hear_broadcast(var/datum/language/language, var/mob/speaker, var/speaker_name, var/message)
 	if(speaker.name == speaker_name || antagHUD)
-		src << "<i><span class='game say'>[language.name], <span class='name'>[speaker_name]</span> ([ghost_follow_link(speaker, src)]) [message]</span></i>"
+		src << "[ghost_follow_link(speaker, src)] <i><span class='game say'>[language.name], <span class='name'>[speaker_name]</span> [message]</span></i>"
 	else
 		src << "<i><span class='game say'>[language.name], <span class='name'>[speaker_name]</span> [message]</span></i>"
 

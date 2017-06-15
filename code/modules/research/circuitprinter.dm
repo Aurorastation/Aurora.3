@@ -21,8 +21,8 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	idle_power_usage = 30
 	active_power_usage = 2500
 
-/obj/machinery/r_n_d/circuit_imprinter/New()
-	..()
+/obj/machinery/r_n_d/circuit_imprinter/Initialize()
+	. = ..()
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/circuit_imprinter(src)
 	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
@@ -31,7 +31,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
 	RefreshParts()
 
-/obj/machinery/r_n_d/circuit_imprinter/process()
+/obj/machinery/r_n_d/circuit_imprinter/machinery_process()
 	..()
 	if(stat)
 		update_icon()
@@ -58,13 +58,21 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 			update_icon()
 
 /obj/machinery/r_n_d/circuit_imprinter/RefreshParts()
+	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
 	for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
 		T += G.reagents.maximum_volume
 	create_reagents(T)
+	// Transfer all reagents from the beakers to internal reagent container
+	for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
+		G.reagents.trans_to_obj(src, G.reagents.total_volume)
+
+	// Adjust material storage capacity to scale with matter bin rating
 	max_material_storage = 0
 	for(var/obj/item/weapon/stock_parts/matter_bin/M in component_parts)
 		max_material_storage += M.rating * 75000
+
+	// Adjust production speed to increase with manipulator rating
 	T = 0
 	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
 		T += M.rating
@@ -87,13 +95,14 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 
 /obj/machinery/r_n_d/circuit_imprinter/dismantle()
 	for(var/obj/I in component_parts)
+		// This will distribute all reagents amongst the contained beakers
 		if(istype(I, /obj/item/weapon/reagent_containers/glass/beaker))
 			reagents.trans_to_obj(I, reagents.total_volume)
 	for(var/f in materials)
 		if(materials[f] >= SHEET_MATERIAL_AMOUNT)
 			var/path = getMaterialType(f)
 			if(path)
-				var/obj/item/stack/S = new f(loc)
+				var/obj/item/stack/S = new path(loc)
 				S.amount = round(materials[f] / SHEET_MATERIAL_AMOUNT)
 	..()
 

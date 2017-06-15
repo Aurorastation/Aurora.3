@@ -275,8 +275,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	handle_changeling_transform(chosen_dna)
 
 	src.verbs -= /mob/proc/changeling_transform
-	spawn(10)
-		src.verbs += /mob/proc/changeling_transform
+	ADD_VERB_IN(src, 10, /mob/proc/changeling_transform)
 
 	changeling_update_languages(changeling.absorbed_languages)
 
@@ -465,7 +464,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	src << "<span class='notice'>Your throat adjusts to launch the sting.</span>"
 	changeling.sting_range = 2
 	src.verbs -= /mob/proc/changeling_boost_range
-	spawn(5)	src.verbs += /mob/proc/changeling_boost_range
+	ADD_VERB_IN(src, 5, /mob/proc/changeling_boost_range)
 	feedback_add_details("changeling_powers","RS")
 	return 1
 
@@ -489,7 +488,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	C.update_canmove()
 
 	src.verbs -= /mob/proc/changeling_unstun
-	spawn(5)	src.verbs += /mob/proc/changeling_unstun
+	ADD_VERB_IN(src, 5, /mob/proc/changeling_unstun)
 	feedback_add_details("changeling_powers","UNS")
 	return 1
 
@@ -525,7 +524,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 			sleep(40)
 
 	src.verbs -= /mob/proc/changeling_digitalcamo
-	spawn(5)	src.verbs += /mob/proc/changeling_digitalcamo
+	ADD_VERB_IN(src, 5, /mob/proc/changeling_digitalcamo)
 	feedback_add_details("changeling_powers","CAM")
 	return 1
 
@@ -551,7 +550,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 				sleep(10)
 
 	src.verbs -= /mob/proc/changeling_rapidregen
-	spawn(5)	src.verbs += /mob/proc/changeling_rapidregen
+	ADD_VERB_IN(src, 5, /mob/proc/changeling_rapidregen)
 	feedback_add_details("changeling_powers","RR")
 	return 1
 
@@ -686,11 +685,14 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(!(T in view(changeling.sting_range))) return
 	if(!sting_can_reach(T, changeling.sting_range)) return
 	if(!changeling_power(required_chems)) return
+	if(T.isSynthetic())
+		src << "<span class='warning'>[T] is not compatible with our biology.</span>"
+		return
 
 	changeling.chem_charges -= required_chems
 	changeling.sting_range = 1
 	src.verbs -= verb_path
-	spawn(10)	src.verbs += verb_path
+	ADD_VERB_IN(src, 10, verb_path)
 
 	if(stealthy == 1)
 		src << "<span class='notice'>We stealthily sting [T].</span>"

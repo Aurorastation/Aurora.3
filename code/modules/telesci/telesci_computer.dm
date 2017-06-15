@@ -11,7 +11,7 @@
 	// VARIABLES //
 	var/teles_left	// How many teleports left until it becomes uncalibrated
 	var/datum/projectile_data/last_tele_data = null
-	var/z_co = 1
+	var/z_co = 3
 	var/power_off
 	var/rotation_off
 	//var/angle_off
@@ -30,10 +30,6 @@
 	var/list/crystals = list()
 	var/obj/item/device/gps/inserted_gps
 
-/obj/machinery/computer/telescience/New()
-	..()
-	recalibrate()
-
 /obj/machinery/computer/telescience/Destroy()
 	eject()
 	if(inserted_gps)
@@ -45,8 +41,9 @@
 	..()
 	user << "There are [crystals.len ? crystals.len : "no"] bluespace crystal\s in the crystal slots."
 
-/obj/machinery/computer/telescience/initialize()
-	..()
+/obj/machinery/computer/telescience/Initialize()
+	. = ..()
+	recalibrate()
 	for(var/i = 1; i <= starting_crystals; i++)
 		crystals += new /obj/item/bluespace_crystal/artificial(null) // starting crystals
 
@@ -97,9 +94,9 @@
 			t += "<span class='linkOff'>Set GPS memory</span>"
 		t += "<div class='statusDisplay'>[temp_msg]</div><BR>"
 		t += "<A href='?src=\ref[src];setrotation=1'>Set Bearing</A>"
-		t += "<div class='statusDisplay'>[rotation]°</div>"
+		t += "<div class='statusDisplay'>[rotation]&deg;</div>"
 		t += "<A href='?src=\ref[src];setangle=1'>Set Elevation</A>"
-		t += "<div class='statusDisplay'>[angle]°</div>"
+		t += "<div class='statusDisplay'>[angle]&deg;</div>"
 		t += "<span class='linkOn'>Set Power</span>"
 		t += "<div class='statusDisplay'>"
 
@@ -270,9 +267,9 @@
 		telefail()
 		temp_msg = "ERROR!<BR>Elevation is less than 1 or greater than 90."
 		return
-	if(z_co == 2 || z_co < 1 || z_co > 6)
+	if(z_co in config.admin_levels)
 		telefail()
-		temp_msg = "ERROR! Sector is less than 1, <BR>greater than 6, or equal to 2."
+		temp_msg = "ERROR! Sector is invalid! Valid sectors are [english_list(config.player_levels)]."
 		return
 	if(teles_left > 0)
 		doteleport(user)

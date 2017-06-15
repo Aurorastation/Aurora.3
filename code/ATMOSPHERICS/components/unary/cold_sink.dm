@@ -87,7 +87,7 @@
 	data["gasTemperatureClass"] = temp_class
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
@@ -117,7 +117,7 @@
 
 	add_fingerprint(usr)
 
-/obj/machinery/atmospherics/unary/freezer/process()
+/obj/machinery/atmospherics/unary/freezer/machinery_process()
 	..()
 
 	if(stat & (NOPOWER|BROKEN) || !use_power)

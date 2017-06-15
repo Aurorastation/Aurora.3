@@ -1,5 +1,6 @@
 /datum/species/machine/shell
 	name = "Shell Frame"
+	hide_name = TRUE
 	short_name = "jak"
 	name_plural = "Shells"
 	bodytype = "Human"
@@ -35,7 +36,7 @@
 		"Your synthetic flesh crawls in the heat, swelling into a disgusting morass of plastic."
 		)
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP | HAS_UNDERWEAR | HAS_SOCKS
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/shell),
@@ -83,6 +84,9 @@
 
 /datum/species/machine/shell/get_bodytype()
 	return bodytype
+	
+/datum/species/machine/shell/equip_survival_gear(var/mob/living/carbon/human/H)
+	check_tag(H, H.client)
 
 /datum/species/machine/industrial
 	name = "Industrial Frame"
@@ -120,7 +124,7 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial)
 		)
 
-	appearance_flags = HAS_HAIR_COLOR
+	appearance_flags = HAS_EYE_COLOR
 
 	heat_level_1 = 600
 	heat_level_2 = 1200
@@ -213,11 +217,9 @@
 	has_organ = list(
 		"brain" = /obj/item/organ/mmi_holder/posibrain/terminator,
 		"shielded cell" = /obj/item/organ/cell/terminator,
-		"optics" = /obj/item/organ/optical_sensor/terminator,
+		"optics" = /obj/item/organ/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/data
 		)
-
-	vision_organ = "optics"
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/terminator),

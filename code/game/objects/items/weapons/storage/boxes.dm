@@ -53,17 +53,28 @@
 			else
 				damage = L.mob_size//he bigger you are, the faster it tears
 
-			if ((health-damage) >= (maxHealth * 0.5))//I doubt it's worth the performance cost to make a variable to cache (health-damage), not that it matters
-				L.visible_message("[L] gnaws at the [src]", "You gnaw at the [src], tearing off a piece of cardboard.")
-			else if ((health-damage) < (maxHealth * 0.5) && (health-damage) > 0)
-				L.visible_message("<span class='warning'>[L] has almost gnawed through the [src]</span>", "<span class='warning'>You tear off more cardboard from the [src]. It's almost open!</span>")
-			else if ((health-damage) <= 0)
+			if (!damage || damage <= 0)
+				return
+
+			user.do_attack_animation(src)
+			if ((health-damage) <= 0)
 				L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
 				spill()
+			else
+				animate_shake()
+				var/toplay = pick(list('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'))
+				playsound(loc, toplay, 30, 1)
 			damage(damage)
 	..()
 
 
+/obj/item/weapon/storage/box/examine(var/mob/user)
+	..()
+	if (health < maxHealth)
+		if (health >= (maxHealth * 0.5))
+			user << span("warning", "It is slightly torn.")
+		else
+			user << span("danger", "It is full of tears and holes.")
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/weapon/storage/box/attack_self(mob/user as mob)
@@ -89,27 +100,33 @@
 	new src.foldable(get_turf(src))
 	qdel(src)
 
-/obj/item/weapon/storage/box/survival/
-	New()
-		..()
-		new /obj/item/clothing/mask/breath( src )
-		new /obj/item/weapon/tank/emergency_oxygen( src )
+/obj/item/weapon/storage/box/survival
+	autodrobe_no_remove = 1
 
-/obj/item/weapon/storage/box/vox/
-	New()
-		..()
-		new /obj/item/clothing/mask/breath( src )
-		new /obj/item/weapon/tank/emergency_nitrogen( src )
+/obj/item/weapon/storage/box/survival/New()
+	..()
+	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/weapon/tank/emergency_oxygen(src)
+	for(var/obj/item/thing in contents)
+		thing.autodrobe_no_remove = 1
 
-/obj/item/weapon/storage/box/engineer/
-	New()
-		..()
-		new /obj/item/clothing/mask/breath( src )
-		new /obj/item/weapon/tank/emergency_oxygen/engi( src )
+/obj/item/weapon/storage/box/vox/New()
+	..()
+	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/weapon/tank/emergency_nitrogen( src )
+
+/obj/item/weapon/storage/box/engineer
+	autodrobe_no_remove = 1
+/obj/item/weapon/storage/box/engineer/New()
+	..()
+	new /obj/item/clothing/mask/breath( src )
+	new /obj/item/weapon/tank/emergency_oxygen/engi( src )
+	for(var/obj/item/thing in contents)
+		thing.autodrobe_no_remove = 1
 
 /obj/item/weapon/storage/box/gloves
-	name = "box of latex gloves"
-	desc = "Contains white gloves."
+	name = "box of sterile gloves"
+	desc = "Contains sterile gloves."
 	icon_state = "latex"
 
 	New()
@@ -118,9 +135,9 @@
 		new /obj/item/clothing/gloves/latex(src)
 		new /obj/item/clothing/gloves/latex(src)
 		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/clothing/gloves/latex(src)
+		new /obj/item/clothing/gloves/latex/nitrile(src)
+		new /obj/item/clothing/gloves/latex/nitrile(src)
+		new /obj/item/clothing/gloves/latex/nitrile(src)
 
 /obj/item/weapon/storage/box/masks
 	name = "box of sterile masks"
@@ -812,3 +829,13 @@
 		var/type = pick(snacks)
 		new type(src)
 	..()
+
+/obj/item/weapon/storage/box/stims
+	name = "stimpack value kit"
+	desc = "A box with several stimpack medipens for the economical miner."
+	icon_state = "syringe"
+
+/obj/item/weapon/storage/box/stims/New()
+	..()
+	for(var/i in 1 to 4)
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack(src)

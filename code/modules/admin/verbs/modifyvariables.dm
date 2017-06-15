@@ -1,13 +1,26 @@
 var/list/forbidden_varedit_object_types = list(
-										/datum/admins,						//Admins editing their own admin-power object? Yup, sounds like a good idea.
-										/obj/machinery/blackbox_recorder,	//Prevents people messing with feedback gathering
-										/datum/feedback_variable,			//Prevents people messing with feedback gathering
-										/datum/discord_bot					//Nope.jpg. Stop it.
-									)
+	/datum/admins,						//Admins editing their own admin-power object? Yup, sounds like a good idea.
+	/datum/controller/subsystem/statistics,	//Prevents people messing with feedback gathering
+	/datum/feedback_variable,			//Prevents people messing with feedback gathering
+	/datum/discord_bot					//Nope.jpg. Stop it.
+)
 
 var/list/VVlocked = list("vars", "holder", "client", "virus", "viruses", "cuffed", "last_eaten", "unlock_content", "bound_x", "bound_y", "step_x", "step_y", "force_ending")
 var/list/VVicon_edit_lock = list("icon", "icon_state", "overlays", "underlays")
 var/list/VVckey_edit = list("key", "ckey")
+
+// The paranoia box. Specify a var name => bitflags required to edit it.
+// Allows the securing of specific variables for, for example, config. That alter
+// how players could join! Definitely not something you want folks to touch if they
+// don't have the perms.
+var/list/VVdynamic_lock = list(
+	"access_deny_new_players" = R_SERVER,
+	"access_deny_new_accounts" = R_SERVER,
+	"access_deny_vms" = R_SERVER,
+	"access_warn_vms" = R_SERVER,
+	"ipintel_rating_bad" = R_SERVER,
+	"ipintel_rating_kick" = R_SERVER
+)
 
 /*
 /client/proc/cmd_modify_object_variables(obj/O as obj|mob|turf|area in world)   // Acceptable 'in world', as VV would be incredibly hampered otherwise
@@ -17,16 +30,6 @@ var/list/VVckey_edit = list("key", "ckey")
 	src.modify_variables(O)
 	feedback_add_details("admin_verb","EDITV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 */
-
-/client/proc/cmd_modify_ticker_variables()
-	set category = "Debug"
-	set name = "Edit Ticker Variables"
-
-	if (ticker == null)
-		src << "Game hasn't started yet."
-	else
-		src.modify_variables(ticker)
-		feedback_add_details("admin_verb","ETV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/mod_list_add_ass() //haha
 
@@ -130,7 +133,7 @@ var/list/VVckey_edit = list("key", "ckey")
 		if("No")
 			L += var_value
 	world.log << "### ListVarEdit by [src]: [O.type] [objectvar]: ADDED=[var_value]"
-	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]")
+	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]",admin_key=key_name(src))
 	message_admins("[key_name_admin(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]")
 
 /client/proc/mod_list(var/list/L, atom/O, original_name, objectvar)
@@ -181,6 +184,8 @@ var/list/VVckey_edit = list("key", "ckey")
 		if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
 	if(variable in VVicon_edit_lock)
 		if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
+	if(VVdynamic_lock[variable])
+		if(!check_rights(VVdynamic_lock[variable])) return
 
 	if(isnull(variable))
 		usr << "Unable to determine variable type."
@@ -282,7 +287,7 @@ var/list/VVckey_edit = list("key", "ckey")
 
 		if("DELETE FROM LIST")
 			world.log << "### ListVarEdit by [src]: [O.type] [objectvar]: REMOVED=[html_encode("[variable]")]"
-			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: REMOVED=[variable]")
+			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: REMOVED=[variable]",admin_key=key_name(src))
 			message_admins("[key_name_admin(src)] modified [original_name]'s [objectvar]: REMOVED=[variable]")
 			L -= variable
 			return
@@ -344,7 +349,7 @@ var/list/VVckey_edit = list("key", "ckey")
 				L[L.Find(variable)] = new_var
 
 	world.log << "### ListVarEdit by [src]: [O.type] [objectvar]: [original_var]=[new_var]"
-	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: [original_var]=[new_var]")
+	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: [original_var]=[new_var]",admin_key=key_name(src))
 	message_admins("[key_name_admin(src)] modified [original_name]'s varlist [objectvar]: [original_var]=[new_var]")
 
 /client/proc/modify_variables(var/atom/O, var/param_var_name = null, var/autodetect_class = 0)
@@ -374,6 +379,8 @@ var/list/VVckey_edit = list("key", "ckey")
 			if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
 		if(param_var_name in VVicon_edit_lock)
 			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
+		if(VVdynamic_lock[variable])
+			if(!check_rights(VVdynamic_lock[variable])) return
 
 		variable = param_var_name
 
@@ -436,6 +443,8 @@ var/list/VVckey_edit = list("key", "ckey")
 			if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
 		if(variable in VVicon_edit_lock)
 			if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
+		if(VVdynamic_lock[variable])
+			if(!check_rights(VVdynamic_lock[variable])) return
 
 	if(!autodetect_class)
 
@@ -588,5 +597,5 @@ var/list/VVckey_edit = list("key", "ckey")
 			O.vars[variable] = holder.marked_datum
 
 	world.log << "### VarEdit by [src]: [O.type] [variable]=[html_encode("[O.vars[variable]]")]"
-	log_admin("[key_name(src)] modified [original_name]'s [variable] to [O.vars[variable]]")
+	log_admin("[key_name(src)] modified [original_name]'s [variable] to [O.vars[variable]]",admin_key=key_name(src))
 	message_admins("[key_name_admin(src)] modified [original_name]'s [variable] to [O.vars[variable]]")

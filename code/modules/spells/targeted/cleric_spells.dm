@@ -14,16 +14,16 @@
 	cooldown_reduc = 50
 	hud_state = "heal_minor"
 
-	amt_dam_brute = -3
-	amt_dam_fire = -1
+	amt_dam_brute = -15
+	amt_dam_fire = -15
 
 	message = "You feel a pleasant rush of heat move through your body."
 
 /spell/targeted/heal_target/empower_spell()
 	if(!..())
 		return 0
-	amt_dam_brute -= 3
-	amt_dam_fire -= 3
+	amt_dam_brute -= 5
+	amt_dam_fire -= 5
 
 	return "[src] will now heal more."
 
@@ -32,15 +32,15 @@
 	desc = "A spell used to fix others that cannot be fixed with regular medicine."
 	feedback = "CM"
 	charge_max = 300
-	spell_flags = SELECTABLE | NEEDSCLOTHES
+	spell_flags = INCLUDEUSER | SELECTABLE | NEEDSCLOTHES
 	invocation = "Borv Di'Nath"
 	range = 1
 	level_max = list(Sp_TOTAL = 2, Sp_SPEED = 1, Sp_POWER = 1)
 	cooldown_reduc = 100
 	hud_state = "heal_major"
 
-	amt_dam_brute = -15
-	amt_dam_fire  = -5
+	amt_dam_brute = -35
+	amt_dam_fire  = -25
 
 	message = "Your body feels like a furnace."
 
@@ -48,7 +48,7 @@
 	if(!..())
 		return 0
 	amt_dam_tox = -10
-	amt_dam_oxy = -7
+	amt_dam_oxy = -10
 
 	return "[src] now heals oxygen loss and toxic damage."
 
@@ -65,14 +65,14 @@
 	cooldown_reduc = 300
 	hud_state = "heal_area"
 
-	amt_dam_brute = -5
-	amt_dam_fire = -5
+	amt_dam_brute = -10
+	amt_dam_fire = -10
 
 /spell/targeted/heal_target/area/empower_spell()
 	if(!..())
 		return 0
-	amt_dam_brute -= 3
-	amt_dam_fire -= 3
+	amt_dam_brute -= 5
+	amt_dam_fire -= 5
 	range += 2
 
 	return "[src] now heals more in a wider area."

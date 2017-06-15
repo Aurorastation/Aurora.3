@@ -63,8 +63,7 @@
 		if (!movement_target)
 			walk_to(src,0)
 
-		spawn(2)
-			attack_mice()
+		addtimer(CALLBACK(src, .proc/attack_mice), 2)
 
 		if(prob(2)) //spooky
 			var/mob/dead/observer/spook = locate() in range(src,5)
@@ -76,7 +75,7 @@
 						visible += O
 				if(visible.len)
 					var/atom/A = pick(visible)
-					visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].")
+					visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].",0)
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
@@ -98,20 +97,19 @@
 			for(var/mob/living/simple_animal/mouse/M in oview(src,1))
 				if(M.stat != DEAD)
 					M.splat()
-					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"))
+					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"),0)
 					movement_target = null
 					stop_automated_movement = 0
 					if (prob(75))
 						break//usually only kill one mouse per proc
 
 /mob/living/simple_animal/cat/beg(var/atom/thing, var/atom/holder)
-	visible_emote("licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at [holder]'s [thing.name]")
+	visible_emote("licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at [holder]'s [thing.name]",0)
 
 /mob/living/simple_animal/cat/Released()
 	//A thrown cat will immediately attack mice near where it lands
 	handle_movement_target()
-	spawn(3)
-		attack_mice()
+	addtimer(CALLBACK(src, .proc/attack_mice), 3)
 	..()
 
 /mob/living/simple_animal/cat/death()
@@ -157,6 +155,9 @@
 	. = ..()
 	set_flee_target(AM.thrower? AM.thrower : src.loc)
 
+/mob/living/simple_animal/cat/fall_impact()
+	src.visible_message("<span class='notice'>\The [src] lands softly on \the [loc]!</span>")
+	return FALSE
 
 //Basic friend AI
 /mob/living/simple_animal/cat/fluff
@@ -164,7 +165,7 @@
 	var/befriend_job = null
 
 /mob/living/simple_animal/cat/fluff/handle_movement_target()
-	if (friend)
+	if (!QDELETED(friend))
 		var/follow_dist = 5
 		if (friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit) //danger
 			follow_dist = 1
@@ -197,7 +198,7 @@
 
 /mob/living/simple_animal/cat/fluff/Life()
 	..()
-	if (stat || !friend)
+	if (stat || QDELETED(friend))
 		return
 	if (get_dist(src, friend) <= 1)
 		if (friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit)
@@ -209,7 +210,7 @@
 				visible_emote(pick("nuzzles [friend].",
 								   "brushes against [friend].",
 								   "rubs against [friend].",
-								   "purrs."))
+								   "purrs."),0)
 	else if (friend.health <= 50)
 		if (prob(10))
 			var/verb = pick("meows", "mews", "mrowls")
@@ -284,6 +285,6 @@
 	.=..()
 	desc = "Bones is dead"
 
-/mob/living/simple_animal/cat/kitten/New()
+/mob/living/simple_animal/cat/kitten/Initialize()
+	. = ..()
 	gender = pick(MALE, FEMALE)
-	..()

@@ -116,10 +116,10 @@
 			update_projections()
 			if(safety_disabled)
 				message_admins("[key_name_admin(usr)] overrode the holodeck's safeties")
-				log_game("[key_name(usr)] overrided the holodeck's safeties")
+				log_game("[key_name(usr)] overrided the holodeck's safeties",ckey=key_name(usr))
 			else
 				message_admins("[key_name_admin(usr)] restored the holodeck's safeties")
-				log_game("[key_name(usr)] restored the holodeck's safeties")
+				log_game("[key_name(usr)] restored the holodeck's safeties",ckey=key_name(usr))
 
 		else if(href_list["gravity"])
 			toggleGravity(linkedholodeck)
@@ -137,7 +137,7 @@
 		update_projections()
 		user << "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>"
 		user << "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [company_name] maintenance and do not use the simulator."
-		log_game("[key_name(usr)] emagged the Holodeck Control Computer")
+		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
 		return 1
 		src.updateUsrDialog()
 	else
@@ -161,7 +161,7 @@
 //This could all be done better, but it works for now.
 /obj/machinery/computer/HolodeckControl/Destroy()
 	emergencyShutdown()
-	..()
+	return ..()
 
 /obj/machinery/computer/HolodeckControl/ex_act(severity)
 	emergencyShutdown()
@@ -173,7 +173,7 @@
 	if (stat != oldstat && active && (stat & NOPOWER))
 		emergencyShutdown()
 
-/obj/machinery/computer/HolodeckControl/process()
+/obj/machinery/computer/HolodeckControl/machinery_process()
 	for(var/item in holographic_objs) // do this first, to make sure people don't take items out when power is down.
 		if(!(get_turf(item) in linkedholodeck))
 			derez(item, 0)

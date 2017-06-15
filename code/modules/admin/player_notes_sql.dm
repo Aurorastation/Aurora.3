@@ -5,12 +5,12 @@
 	if(!player_ckey || !note)
 		return
 
-	var/list/query_details = list(":ckey" = player_ckey, ":address" = player_address ? player_address : null, ":computer_id" = player_computerid ? player_computerid : null, ":a_ckey" = null, ":note" = note)
+	var/list/query_details = list("ckey" = player_ckey, "address" = player_address ? player_address : null, "computer_id" = player_computerid ? player_computerid : null, "a_ckey" = null, "note" = note)
 
 	if (!user)
-		query_details[":a_ckey"] = "Adminbot"
+		query_details["a_ckey"] = "Adminbot"
 	else
-		query_details[":a_ckey"] = user.ckey
+		query_details["a_ckey"] = user.ckey
 
 	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
@@ -18,19 +18,19 @@
 		return
 
 	if (!player_address || !player_computerid)
-		var/DBQuery/init_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey")
-		init_query.Execute(list(":ckey" = player_ckey))
+		var/DBQuery/init_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey:")
+		init_query.Execute(list("ckey" = player_ckey))
 		if (init_query.NextRow())
-			if (!query_details[":address"])
-				query_details[":address"] = init_query.item[1]
-			if (!query_details[":computer_id"])
-				query_details[":computer_id"] = init_query.item[2]
+			if (!query_details["address"])
+				query_details["address"] = init_query.item[1]
+			if (!query_details["computer_id"])
+				query_details["computer_id"] = init_query.item[2]
 
-	var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_notes (id, adddate, ckey, ip, computerid, a_ckey, content) VALUES (null, Now(), :ckey, :address, :computer_id, :a_ckey, :note)")
+	var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_notes (id, adddate, ckey, ip, computerid, a_ckey, content) VALUES (null, Now(), :ckey:, :address:, :computer_id:, :a_ckey:, :note:)")
 	insert_query.Execute(query_details)
 
-	message_admins("\blue [key_name_admin(user)] has edited [player_ckey]'s notes.")
-	log_admin("[key_name(user)] has edited [player_ckey]'s notes.")
+	message_admins("<span class='notice'>[key_name_admin(user)] has edited [player_ckey]'s notes.</span>")
+	log_admin("[key_name(user)] has edited [player_ckey]'s notes.",admin_key=key_name(user),ckey=player_ckey)
 
 /proc/notes_edit_sql(var/note_id, var/note_edit)
 	if (!note_id || !note_edit)
@@ -45,31 +45,31 @@
 	var/ckey
 	var/note
 
-	var/DBQuery/init_query = dbcon.NewQuery("SELECT ckey, content FROM ss13_notes WHERE id = :note_id")
-	init_query.Execute(list(":note_id" = note_id))
+	var/DBQuery/init_query = dbcon.NewQuery("SELECT ckey, content FROM ss13_notes WHERE id = :note_id:")
+	init_query.Execute(list("note_id" = note_id))
 	while (init_query.NextRow())
 		ckey = init_query.item[1]
 		note = init_query.item[2]
 		count++
 
 	if (count == 0)
-		usr << "\red Database update failed due to a note id not being present in the database."
+		usr << "<span class='warning'>Database update failed due to a note id not being present in the database.</span>"
 		error("Database update failed due to a note id not being present in the database.")
 		return
 
 	if (count > 1)
-		usr << "\red Database update failed due to multiple notes having the same ID. Contact the database admin."
+		usr << "<span class='warning'>Database update failed due to multiple notes having the same ID. Contact the database admin.</span>"
 		error("Database update failed due to multiple notes having the same ID. Contact the database admin.")
 		return
 
 	switch (note_edit)
 		if ("delete")
 			if(alert("Delete this note?", "Delete?", "Yes", "No") == "Yes")
-				var/DBQuery/deletequery = dbcon.NewQuery("UPDATE ss13_notes SET visible = 0 WHERE id = :note_id")
-				deletequery.Execute(list(":note_id" = note_id))
+				var/DBQuery/deletequery = dbcon.NewQuery("UPDATE ss13_notes SET visible = 0 WHERE id = :note_id:")
+				deletequery.Execute(list("note_id" = note_id))
 
-				message_admins("\blue [key_name_admin(usr)] deleted one of [ckey]'s notes.")
-				log_admin("[key_name(usr)] deleted one of [ckey]'s notes.")
+				message_admins("<span class='notice'>[key_name_admin(usr)] deleted one of [ckey]'s notes.</span>")
+				log_admin("[key_name(usr)] deleted one of [ckey]'s notes.",admin_key=key_name(usr),ckey=ckey)
 			else
 				usr << "Cancelled"
 				return
@@ -78,8 +78,8 @@
 			if (!new_content)
 				usr << "Cancelled"
 				return
-			var/DBQuery/editquery = dbcon.NewQuery("UPDATE ss13_notes SET content = :new_content, lasteditor = :a_ckey, lasteditdate = Now(), edited = 1 WHERE id = :note_id")
-			editquery.Execute(list(":new_content" = new_content, ":a_ckey" = usr.client.ckey, ":note_id" = note_id))
+			var/DBQuery/editquery = dbcon.NewQuery("UPDATE ss13_notes SET content = :new_content:, lasteditor = :a_ckey:, lasteditdate = Now(), edited = 1 WHERE id = :note_id:")
+			editquery.Execute(list("new_content" = new_content, "a_ckey" = usr.client.ckey, "note_id" = note_id))
 
 /datum/admins/proc/show_notes_sql(var/player_ckey = null, var/admin_ckey = null)
 	if (!check_rights(R_ADMIN|R_MOD))
@@ -118,28 +118,26 @@
 	dat += "</tr>"
 
 	if (player_ckey)
-		var/list/query_details = list(":player_ckey" = player_ckey)
+		var/list/query_details = list("player_ckey" = player_ckey)
 
 		dat += "<tr><td align='center' colspan='4' bgcolor='white'><b><a href='?src=\ref[src];add_player_info=[player_ckey]'>Add Note</a></b></td></tr>"
 
-		var/DBQuery/init_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :player_ckey")
+		var/DBQuery/init_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :player_ckey:")
 		init_query.Execute(query_details)
 		if (init_query.NextRow())
-			query_details += ":player_address"
-			query_details += ":player_computerid"
-			query_details[":player_address"] = init_query.item[1]
-			query_details[":player_computerid"] = init_query.item[2]
+			query_details["player_address"] = init_query.item[1]
+			query_details["player_computerid"] = init_query.item[2]
 
-		var/query_content = "SELECT id, adddate, ckey, a_ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE ckey = :player_ckey AND visible = '1'"
+		var/query_content = "SELECT id, adddate, ckey, a_ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE ckey = :player_ckey: AND visible = '1'"
 
-		if (query_details[":player_address"])
-			query_content += " OR ip = :player_address AND visible = '1'"
-		if (query_details[":player_computerid"])
-			query_content += " OR computerid = :player_computerid AND visible = '1'"
+		if (query_details["player_address"])
+			query_content += " OR ip = :player_address: AND visible = '1'"
+		if (query_details["player_computerid"])
+			query_content += " OR computerid = :player_computerid: AND visible = '1'"
 
 		query_content += " ORDER BY adddate ASC"
 		var/DBQuery/query = dbcon.NewQuery(query_content)
-		query.Execute(query_details, 1)
+		query.Execute(query_details)
 
 		while (query.NextRow())
 			var/id = text2num(query.item[1])
@@ -161,9 +159,9 @@
 				dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	else if (admin_ckey && !player_ckey)
-		var/aquery_content = "SELECT id, adddate, ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE a_ckey = :a_ckey AND visible = '1' ORDER BY adddate ASC"
+		var/aquery_content = "SELECT id, adddate, ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE a_ckey = :a_ckey: AND visible = '1' ORDER BY adddate ASC"
 		var/DBQuery/admin_query = dbcon.NewQuery(aquery_content)
-		admin_query.Execute(list(":a_ckey" = admin_ckey))
+		admin_query.Execute(list("a_ckey" = admin_ckey))
 
 		while (admin_query.NextRow())
 			var/id = text2num(admin_query.item[1])
@@ -192,8 +190,8 @@
 	if (!dbcon.IsConnected())
 		return "Unable to establish database connection! Aborting!"
 
-	var/DBQuery/info_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey")
-	info_query.Execute(list(":ckey" = ckey))
+	var/DBQuery/info_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey:")
+	info_query.Execute(list("ckey" = ckey))
 
 	var/address = null
 	var/computer_id = null
@@ -201,15 +199,15 @@
 		address = info_query.item[1]
 		computer_id = info_query.item[2]
 
-	var/query_content = "SELECT a_ckey, adddate, content FROM ss13_notes WHERE visible = '1' AND ckey = :ckey"
-	var/query_details = list(":ckey" = ckey, ":address" = address, ":computerid" = computer_id)
+	var/query_content = "SELECT a_ckey, adddate, content FROM ss13_notes WHERE visible = '1' AND ckey = :ckey:"
+	var/query_details = list("ckey" = ckey, "address" = address, "computerid" = computer_id)
 	if (address)
-		query_content += " OR ip = :address"
+		query_content += " OR ip = :address:"
 	if (computer_id)
-		query_content += " OR computerid = :computerid"
+		query_content += " OR computerid = :computerid:"
 
 	var/DBQuery/query = dbcon.NewQuery(query_content)
-	query.Execute(query_details, 1)
+	query.Execute(query_details)
 
 	var/notes
 	while (query.NextRow())
