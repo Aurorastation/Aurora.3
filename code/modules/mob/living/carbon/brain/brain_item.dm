@@ -97,18 +97,18 @@
 
 	if(owner)
 		owner << "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>"
-		owner << "<b>You have been lobotomized. Your memories and your former life have been surgically removed from your brain, and while you are lobotomized you remember nothing that ever came before this moment.</b>"
+		owner << "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>"
 
 	else if(brainmob)
 		brainmob << "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>"
-		brainmob << "<b>You have been lobotomized. Your memories and your former life have been surgically removed from your brain, and while you are lobotomized you remember nothing that ever came before this moment.</b>"
+		brainmob << "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>"
 
 	return
 
 /obj/item/organ/brain/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/surgicaldrill))
 		if(!lobotomized)
-			user.visible_message("<span class='danger'>[user] drills [src] deftly with [W], severing part of the brain!</span>")
+			user.visible_message("<span class='danger'>[user] drills [src] deftly with [W] into the brain!</span>")
 			lobotomize(user)
 		else
 			user << "<span class='notice'>The brain has already been operated on!</span>"
