@@ -372,8 +372,9 @@
 		bitecount++
 		if (amount_eaten < m_bitesize)
 			user.visible_message("<span class='notice'><b>[user]</b> reluctantly nibbles a tiny part of \the [src].</span>","<span class='notice'>You reluctantly nibble a tiny part of \the [src]. <b>You can't stomach much more!</b>.</span>")
-		else
-			user.visible_message("<span class='notice'><b>[user]</b> nibbles away at \the [src].</span>","<span class='notice'>You nibble away at \the [src].</span>")
+		animate_shake()
+		var/toplay = pick(list('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'))
+		playsound(loc, toplay, 30, 1)
 	else
 		user << "<span class='danger'>You're too full to eat anymore!</span>"
 
