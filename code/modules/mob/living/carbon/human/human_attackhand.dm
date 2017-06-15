@@ -159,11 +159,6 @@
 
 			H.do_attack_animation(src)
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-			if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
-				G.state = GRAB_AGGRESSIVE
-				G.icon_state = "grabbed1"
-				visible_message("<span class='warning'>[M] gets a strong grip on [src]!</span>")
-				return 1
 			visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
 			return 1
 
