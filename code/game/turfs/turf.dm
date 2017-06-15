@@ -29,6 +29,9 @@
 	var/is_hole		// If true, turf will be treated as space or a hole
 	var/turf/baseturf = /turf/space
 
+	var/roof_type = /turf/simulated/floor/airless // The turf type we spawn as a roof.
+	var/tmp/roof_spawned = FALSE
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 /turf/Initialize()
 	if (initialized)
@@ -54,6 +57,8 @@
 
 	if (opacity)
 		has_opaque_atom = TRUE
+
+	roof_spawned = spawn_roof()
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -272,3 +277,17 @@ var/const/enterloopsanity = 100
 
 /turf/proc/update_blood_overlays()
 	return
+
+/**
+ * Will spawn a roof above the turf if iot needs one.
+ *
+ * @return TRUE if a roof has been spawned, FALSE if not.
+ */
+/turf/proc/spawn_roof()
+	var/turf/simulated/open/above = GetAbove(src)
+
+	if (istype(above) && roof_type)
+		new roof_type(above)
+		return TRUE
+
+	return FALSE
