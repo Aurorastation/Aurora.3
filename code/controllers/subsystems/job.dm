@@ -445,7 +445,7 @@
 		else
 			SSjobs.odin_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
 	else
-		var/datum/spawnpoint/spawnpos = spawntypes["Robotic Storage"]
+		var/datum/spawnpoint/spawnpos = spawntypes["Cyborg Storage"]
 		if(spawnpos && istype(spawnpos))
 			src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in robotic storage the whole time!</span>"
 			src.forceMove(pick(spawnpos.turfs))
@@ -467,20 +467,17 @@
 /datum/controller/subsystem/jobs/proc/EquipPersonal(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
 	if(!H)
 		return null
-
+	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
 	switch(rank)
 		if("Cyborg")
-			H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
 			return EquipRank(H, rank, 1)
 		if("AI")
-			H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
 			return EquipRank(H, rank, 1)
 	if(spawning_at != "Arrivals Shuttle")
 		return EquipRank(H, rank, 1)
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
-	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
 	H <<"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>"
 
 	if(job)
