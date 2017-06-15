@@ -38,7 +38,7 @@
 	if(!on)
 		turn_on()
 		src.visible_message("\The [src] rumbles to life.", "You hear something rumble deeply.")
-		playsound(src, 'sound/misc/bike_start.ogg', 50, 1)
+		playsound(src, 'sound/misc/bike_start.ogg', 100, 1)
 	else
 		turn_off()
 		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
@@ -51,13 +51,15 @@
 	if(usr.incapacitated()) return
 
 	if(kickstand)
-		src.visible_message("\The [usr] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
+		usr.visible_message("\The [usr] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/misc/bike_stand_up.ogg', 50, 1)
 	else
-		if(istype(src.loc,/turf/space))
-			usr << "<span class='warning'>You don't think kickstands work in space...</span>"
-			return
-		src.visible_message("\The [usr] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
+		if(isturf(loc))
+			var/turf/T = loc
+			if (T.is_hole)
+				usr << "<span class='warning'>You don't think kickstands work heres.</span>"
+				return
+		usr.visible_message("\The [usr] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/misc/bike_stand_down.ogg', 50, 1)
 		if(pulledby)
 			pulledby.stop_pulling()
@@ -96,9 +98,9 @@
 /obj/vehicle/bike/Move(var/turf/destination)
 	if(kickstand) return
 
-
 	//these things like space, not turf. Dragging shouldn't weigh you down.
-	if(istype(destination,/turf/space) || pulledby)
+	var/list/types = typecacheof(list(/turf/space, /turf/simulated/open, /turf/simulated/floor/asteroid))
+	if(is_type_in_typecache(destination,types) || pulledby)
 		if(!space_speed)
 			return 0
 		move_delay = space_speed
