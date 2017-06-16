@@ -534,7 +534,7 @@ datum/design/circuit/telepad
 
 /datum/design/item/weapon/decloner
 	id = "decloner"
-	req_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 7, TECH_BIO = 5, TECH_POWER = 6)
+	req_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 7, TECH_BIO = 5, TECH_POWER = 6)
 	materials = list("gold" = 5000,"uranium" = 10000, "mutagen" = 40)
 	build_path = /obj/item/weapon/gun/energy/decloner
 	sort_string = "TAAAE"
@@ -691,13 +691,6 @@ datum/design/item/weapon/lasercannon
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 1000, "diamond" = 2000)
 	build_path = /obj/item/weapon/gun/energy/rifle/laser/heavy
 	sort_string = "TVJAA"
-
-datum/design/item/weapon/decloner
-	id = "decloner"
-	req_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 7, TECH_BIO = 5, TECH_POWER = 6)
-	materials = list("gold" = 5000,"uranium" = 10000)
-	build_path = /obj/item/weapon/gun/energy/decloner
-	sort_string = "TVKAA"
 
 datum/design/item/weapon/mousegun
 	id = "mousegun"
