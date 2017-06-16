@@ -285,10 +285,10 @@
 /obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
 
 	charges = list(
-		list("tricordrazine", "tricordrazine", 0, 40),
-		list("tramadol",      "tramadol",      0, 40),
-		list("dexalin",  "dexalin",      0, 40),
-		list("inaprovaline",     "inaprovaline",     0, 40)
+		list("tricordrazine",	"tricordrazine", 0, 40),
+		list("tramadol",	"tramadol",      0, 40),
+		list("dexalin",		"dexalin",      0, 40),
+		list("inaprovaline",	"inaprovaline",     0, 40)
 		)
 
 /obj/item/rig_module/voice
