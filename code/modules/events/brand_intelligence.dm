@@ -8,7 +8,7 @@
 
 
 /datum/event/brand_intelligence/announce()
-	command_announcement.Announce("Rampant brand intelligence has been detected aboard [station_name()], please stand-by.", "Machine Learning Alert")
+	command_announcement.Announce("Rampant brand intelligence has been detected aboard [station_name()], please stand-by.", "Machine Learning Alert", new_sound = 'sound/AI/brandintelligence.ogg')
 
 
 /datum/event/brand_intelligence/start()

@@ -25,11 +25,11 @@ install:
   - pip install --user beautifulsoup4 -q
 
 before_script:
+  - mysql -e 'CREATE DATABASE ss13_test;'
   - chmod +x ./install-byond.sh
   - ./install-byond.sh
   - chmod +x ./install-flyway.sh
   - ./install-flyway.sh
-  - mysql -e 'CREATE DATABASE ss13_test;'
 
 script:
   - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test

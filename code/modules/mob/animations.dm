@@ -144,7 +144,12 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 	var/pixel_x_diff = 0
 	var/pixel_y_diff = 0
-	var/direction = get_dir(src, A)
+	var/direction
+	if (loc == A.loc)
+		if (A.flags & ON_BORDER)
+			direction = A.dir
+	else
+		direction = get_dir(src, A)
 	switch(direction)
 		if(NORTH)
 			pixel_y_diff = 8
@@ -166,6 +171,8 @@ note dizziness decrements automatically in the mob's Life() proc.
 		if(SOUTHWEST)
 			pixel_x_diff = -8
 			pixel_y_diff = -8
+		else
+			return 0//No valid direction
 	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 2)
 	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 2)
 
