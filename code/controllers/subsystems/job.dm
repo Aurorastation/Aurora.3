@@ -427,31 +427,49 @@
 
 /mob/living/proc/odin_timeout()
 	if (!istype(get_area(src), /area/centcom/spawning))
-		return
+		return FALSE
 
 	if (!client)
 		SSjobs.odin_despawn_mob(src)
-	else if(ishuman(src))
-		var/datum/spawnpoint/spawnpos = spawntypes["Cryogenic Storage"]
+		return FALSE
 
-		if(spawnpos && istype(spawnpos))
-			src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!</span>"
-			src.forceMove(pick(spawnpos.turfs))
-			global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
-			if(!src.megavend)
-				var/rank= src.mind.assigned_role
-				SSjobs.EquipRank(src, rank, 1)
-				src.megavend = TRUE
-		else
-			SSjobs.odin_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
+	return TRUE
+
+/mob/living/carbon/human/odin_timeout()
+	. = ..()
+
+	if (!.)
+		return FALSE
+
+	var/datum/spawnpoint/spawnpos = spawntypes["Cryogenic Storage"]
+	if(spawnpos && istype(spawnpos))
+		src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!</span>"
+		src.forceMove(pick(spawnpos.turfs))
+		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
+		if(!src.megavend)
+			var/rank= src.mind.assigned_role
+			SSjobs.EquipRank(src, rank, 1)
+			src.megavend = TRUE
 	else
-		var/datum/spawnpoint/spawnpos = spawntypes["Cyborg Storage"]
-		if(spawnpos && istype(spawnpos))
-			src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in robotic storage the whole time!</span>"
-			src.forceMove(pick(spawnpos.turfs))
-			global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
-		else
-			SSjobs.odin_despawn_mob(src)
+		SSjobs.odin_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
+
+	return TRUE
+
+/mob/living/silicon/robot/odin_timeout()
+	. = ..()
+
+	if (!.)
+		return FALSE
+
+	var/datum/spawnpoint/spawnpos = spawntypes["Cyborg Storage"]
+	if(spawnpos && istype(spawnpos))
+		src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in robotic storage the whole time!</span>"
+		src.forceMove(pick(spawnpos.turfs))
+		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
+	else
+		SSjobs.odin_despawn_mob(src)
+
+	return TRUE
 
 // Convenience wrapper.
 /datum/controller/subsystem/jobs/proc/odin_despawn_mob(mob/living/H)
