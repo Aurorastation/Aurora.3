@@ -10,6 +10,7 @@
  * /obj/item/rig_module/device/broadcaster
  * /obj/item/rig_module/chem_dispenser
  * /obj/item/rig_module/chem_dispenser/injector
+ * /obj/item/rig_module/chem_dispenser/injector/paramedic
  * /obj/item/rig_module/voice
  * /obj/item/rig_module/device/paperdispenser
  * /obj/item/rig_module/device/pen
@@ -280,6 +281,15 @@
 
 	interface_name = "mounted chem injector"
 	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
+
+/obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
+
+	charges = list(
+		list("tricordrazine", "tricordrazine", 0, 40),
+		list("tramadol",      "tramadol",      0, 40),
+		list("dexalin",  "dexalin",      0, 40),
+		list("inaprovaline",     "inaprovaline",     0, 40)
+		)
 
 /obj/item/rig_module/voice
 
