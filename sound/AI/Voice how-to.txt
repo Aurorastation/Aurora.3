@@ -1,0 +1,18 @@
+1. Get your system to record your web-browser.
+2. Go to https://www.naturalreaders.com/ and select the American heather voice.
+3. Type whatever you want/need and record it.
+4. I used audacity. Set the project rate (hz) to 16000.
+5. Apply reverb, the settings are this: 
+	Room size: 56
+	Pre-delay: 48
+	Reverberance: 47
+	Damping: 57
+	Tone low: 84
+	Tone High: 85
+	Wet gain (dB): 3
+	Dray gain (dB): -3
+	Stereo Width (%): 32
+	Wet only: no
+6. Apply amplify with -4.0
+7. Export as .ogg at 10 quality.
+8. Done.
