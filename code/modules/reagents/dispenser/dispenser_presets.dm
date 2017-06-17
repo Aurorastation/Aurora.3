@@ -18,7 +18,6 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/radium,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/water,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ethanol,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/butanol,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sacid,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tungsten
