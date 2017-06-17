@@ -764,8 +764,7 @@
 			var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)
 				user << "<span class='alert'>You strike metal!</span>"
-				var/turf/T = ChangeTurf(/turf/simulated/floor/airless)
-				T.icon_state = "asteroidplating"
+				below.spawn_roof(TRUE)
 			else
 				ChangeTurf(/turf/space)
 

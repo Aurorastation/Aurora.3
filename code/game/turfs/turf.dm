@@ -58,7 +58,7 @@
 	if (opacity)
 		has_opaque_atom = TRUE
 
-	roof_spawned = spawn_roof()
+	spawn_roof()
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -279,15 +279,23 @@ var/const/enterloopsanity = 100
 	return
 
 /**
- * Will spawn a roof above the turf if iot needs one.
+ * Will spawn a roof above the turf if it needs one.
+ *
+ * @param  forced If set to TRUE, a roof will be spawned regardless of whether
+ * or not the above turf is open space. Otherwise, only open space will be replaced.
  *
  * @return TRUE if a roof has been spawned, FALSE if not.
  */
-/turf/proc/spawn_roof()
+/turf/proc/spawn_roof(forced)
+	roof_spawned = FALSE
+	if (!HasAbove(z))
+		return FALSE
+
 	var/turf/simulated/open/above = GetAbove(src)
 
-	if (istype(above) && roof_type)
-		new roof_type(above)
+	if ((istype(above) || forced) && roof_type)
+		above.ChangeTurf(roof_type)
+		roof_spawned = TRUE
 		return TRUE
 
 	return FALSE
