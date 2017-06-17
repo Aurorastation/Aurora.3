@@ -207,6 +207,7 @@ var/list/asset_datums = list()
 		"wrench-screwdriver.png" = 'html/wrench-screwdriver.png',
 		"spell-check.png" = 'html/spell-check.png',
 		"burn-exclamation.png" = 'html/burn-exclamation.png',
+		"scales.png" = 'html/scales.png',
 		"chevron.png" = 'html/chevron.png',
 		"chevron-expand.png" = 'html/chevron-expand.png',
 		"changelog.css" = 'html/changelog.css',
