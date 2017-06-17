@@ -1,6 +1,6 @@
 
 //#define ZASDBG
-//#define MULTIZAS
+#define MULTIZAS
 
 #define AIR_BLOCKED 1
 #define ZONE_BLOCKED 2
@@ -58,7 +58,7 @@
 			}\
 		}\
 	}
-#else 
+#else
 
 #define ATMOS_CANPASS_TURF(ret,A,B) \
 	if (A.blocks_air & AIR_BLOCKED || B.blocks_air & AIR_BLOCKED) { \
@@ -93,4 +93,4 @@
 		}\
 	}
 
-#endif 
+#endif
