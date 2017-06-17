@@ -764,7 +764,7 @@
 			var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)
 				user << "<span class='alert'>You strike metal!</span>"
-				below.spawn_roof(TRUE)
+				below.spawn_roof(ROOF_FORCE_SPAWN)
 			else
 				ChangeTurf(/turf/space)
 

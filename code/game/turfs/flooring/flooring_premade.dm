@@ -80,7 +80,7 @@
 
 /turf/simulated/floor/reinforced/n20/Initialize()
 	. = ..()
-	if(!air) 
+	if(!air)
 		make_air()
 	air.adjust_gas("sleeping_agent", ATMOSTANK_NITROUSOXIDE)
 
@@ -161,6 +161,8 @@
 	nitrogen = 0
 	temperature = TCMB
 	footstep_sound = "concretestep"
+
+	roof_type = null
 
 /turf/simulated/floor/tiled/airless
 	name = "airless floor"
