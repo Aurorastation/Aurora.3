@@ -58,7 +58,7 @@
 			}\
 		}\
 	}
-#else 
+#else
 
 #define ATMOS_CANPASS_TURF(ret,A,B) \
 	if (A.blocks_air & AIR_BLOCKED || B.blocks_air & AIR_BLOCKED) { \
@@ -93,4 +93,4 @@
 		}\
 	}
 
-#endif 
+#endif
