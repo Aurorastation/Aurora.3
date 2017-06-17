@@ -218,7 +218,7 @@ var/list/global/random_stock_rare = list(
 	"energyshield" = 2,
 	"hardsuit" = 0.75,
 	"cluster" = 2.0,
-	"cloak" = 0.75,
+	"ladder" = 3,
 	"sword" = 0.5,
 	"ims" = 1.5,
 	"exogear" = 1.5,
@@ -1412,8 +1412,8 @@ var/list/global/random_stock_large = list(
 			new /obj/item/weapon/shield/energy(L)
 		if("cluster")
 			new /obj/item/weapon/grenade/flashbang/clusterbang(L)
-		if("cloak")
-			new /obj/item/weapon/cloaking_device(L)
+		if("ladder")
+			new /obj/item/weapon/ladder_mobile(L)
 		if("sword")
 			new /obj/random/sword(L)
 		if("ims")

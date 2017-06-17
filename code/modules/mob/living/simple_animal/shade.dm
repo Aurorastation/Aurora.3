@@ -51,3 +51,12 @@
 				ghostize()
 		qdel(src)
 		return
+
+/mob/living/simple_animal/shade/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/shade/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/shade/CanAvoidGravity()
+	return TRUE

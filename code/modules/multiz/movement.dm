@@ -185,13 +185,13 @@
 	if(anchored)
 		return FALSE
 
-	// Lattices and stairs stop things from falling.
-	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest))
+	// Lattices, ladders, and stairs stop things from falling.
+	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest) || locate(/obj/structure/ladder, dest))
 		return FALSE
 	//Ladders too
 	if(below && locate(/obj/structure/ladder) in below)
 		return FALSE
-		
+
 
 	// The var/climbers API is implemented here.
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
@@ -316,9 +316,7 @@
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((30 + z_velocity) + rand(-15,15))
-	apply_damage(damage, BRUTE)
-	apply_damage(damage, BRUTE)
+	var/damage = ((60 + z_velocity) + rand(-20,20))
 	apply_damage(damage, BRUTE)
 
 	// The only piece of duplicate code. I was so close. Soooo close. :ree:
@@ -351,37 +349,74 @@
 					"<span class='notice'>You hear an electric <i>*whirr*</i> right after the slam!</span>")
 				return FALSE
 
-	visible_message("\The [src] falls and lands on \the [loc]!",
-		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
+	var/combat_roll = 1
+	if(lying)
+		combat_roll = 0.7 //If you're sleeping, you take less damage because your body is less rigid. It's science 'n shit.
+		if(!sleeping)
+			combat_roll = 0.2 //Combat roll!
+			visible_message("<span class='notice'>\The [src] tucks into a roll as they hit \the [loc]!</span>",
+				"<span class='notice'>You tuck into a roll as you hit \the [loc], minimizing damage!</span>")
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = (((25 * species.fall_mod) + z_velocity) + rand(-13,13))
-	if(prob(20)) //landed on their head
-		apply_damage(damage, BRUTE, "head")
+	var/damage = (((60 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll
+	var/limb_damage = rand(0,damage/2)
 
-	else if(prob(20)) //landed on their arms
-		apply_damage(damage, BRUTE, "l_arm")
-		apply_damage(damage, BRUTE, "r_arm")
+	if(prob(30) && combat_roll >= 1) //landed on their head
+		apply_damage(limb_damage, BRUTE, "head")
+		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
+			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
+
+	else if(prob(30) && combat_roll >= 1) //landed on their arms
+		var/left_damage = rand(0,damage/4)
+		var/right_damage = rand(0,damage/4)
+		var/lefth_damage = rand(0,damage/4)
+		var/righth_damage = rand(0,damage/4)
+
+		apply_damage(left_damage, BRUTE, "l_arm")
+		apply_damage(right_damage, BRUTE, "r_arm")
 
 		if(prob(50))
-			apply_damage(rand(0, (damage/2)), BRUTE, "r_hand")
+			apply_damage(lefth_damage, BRUTE, "r_hand")
 		if(prob(50))
-			apply_damage(rand(0, (damage/2)), BRUTE, "l_hand")
+			apply_damage(righth_damage, BRUTE, "l_hand")
 
-	else //landed on their legs
-		apply_damage(10 + rand(10, damage), BRUTE, "l_leg")
-		apply_damage(10 + rand(10, damage), BRUTE, "r_leg")
+		limb_damage = left_damage + right_damage + lefth_damage + righth_damage
+
+		visible_message("<span class='warning'>\The [src] falls and lands arms first!</span>",
+			"<span class='danger'>You brace your fall with your arms, hitting \the [loc] with a loud thud.</span>", "You hear a thud!")
+
+	else if(prob(30) && combat_roll >= 1)//landed on their legs
+		var/left_damage = rand(0,damage/2)
+		var/right_damage = rand(0,damage/2)
+		var/leftf_damage = rand(0,damage/4)
+		var/rightf_damage = rand(0,damage/4)
+		var/groin_damage = rand(0,damage/4)
+
+
+		apply_damage(left_damage, BRUTE, "l_leg")
+		apply_damage(right_damage, BRUTE, "r_leg")
 
 		if(prob(50))
-			apply_damage(rand(0, (damage/2)), BRUTE, "r_foot")
+			apply_damage(leftf_damage, BRUTE, "r_foot")
 		if(prob(50))
-			apply_damage(rand(0, (damage/2)), BRUTE, "l_foot")
+			apply_damage(leftf_damage, BRUTE, "l_foot")
 		if(prob(50))
-			apply_damage(rand(0, (damage/2)), BRUTE, "groin")
+			apply_damage(groin_damage, BRUTE, "groin")
 
-	apply_damage(damage, BRUTE, "chest")
+		visible_message("<span class='warning'>\The [src] falls and lands directly on their legs!</span>",
+			"<span class='danger'>You land on your feet, and the impact brings you to your knees.</span>")
 
-	Weaken(rand(0, damage/2))
+		limb_damage = left_damage + right_damage + leftf_damage + rightf_damage + groin_damage
+
+	else
+		limb_damage = 0
+		if(combat_roll >= 0.5)
+			visible_message("\The [src] falls and lands on \the [loc]!",
+				"With a loud thud, you land on \the [loc]!", "You hear a thud!")
+
+	apply_damage(damage - limb_damage, "chest")
+
+	Weaken(rand(damage/2, damage))
 
 	updatehealth()
 
@@ -418,10 +453,7 @@
 		return
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((40 + z_velocity) + rand(-20,20))
-	take_damage(damage)
-	take_damage(damage)
-	take_damage(damage)
+	var/damage = ((60 + z_velocity) + rand(-20,20))
 	take_damage(damage)
 
 	playsound(loc, "sound/effects/bang.ogg", 100, 1)
@@ -433,10 +465,7 @@
 		return
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((35 + z_velocity) + rand(-18,18))
-	health -= (damage * brute_dam_coeff)
-	health -= (damage * brute_dam_coeff)
-	health -= (damage * brute_dam_coeff)
+	var/damage = ((60 + z_velocity) + rand(-20,20))
 	health -= (damage * brute_dam_coeff)
 
 	playsound(loc, "sound/effects/clang.ogg", 75, 1)
@@ -465,12 +494,17 @@
 	var/weight = fall_specs[1]
 	var/fall_force = fall_specs[2]
 
-	var/speed = (levels_fallen-1) + throw_speed
-	var/mass = (weight / THROWNOBJ_KNOCKBACK_DIVISOR) + density + opacity //1
-	var/momentum = speed * mass //8
-	var/damage = round(fall_force * (speed / THROWNOBJ_KNOCKBACK_DIVISOR) * momentum) //64
+	if(weight >= 3 && fall_force <= 5) //Necessary because some big large obj's do not have a defined throw_force (mechs, lockers, pianos, etc)
+		fall_force = throw_range
 
-	var/miss_chance = max(15 * (levels_fallen - 1), 0)
+	var/speed = ((levels_fallen-1) + throw_speed) / THROWFORCE_SPEED_DIVISOR
+	var/mass = weight + density + opacity //1
+	var/momentum = speed * mass //8
+	if(weight <= 10) //Keeps damages sane.
+		momentum = momentum / THROWNOBJ_KNOCKBACK_DIVISOR
+	var/damage = round(fall_force * momentum) //64
+
+	var/miss_chance = max(10 * (levels_fallen), 0)
 
 	if (prob(miss_chance))
 		return null
@@ -492,14 +526,14 @@
 
 	if (ishuman(L))
 		var/mob/living/carbon/human/H = L
-		H.apply_damage(rand(damage / 2, damage), BRUTE, "head")
-		H.apply_damage(damage, BRUTE, "chest")
+		var/cranial_damage = rand(0,damage/2)
+		H.apply_damage(cranial_damage, BRUTE, "head")
+		H.apply_damage((damage - cranial_damage), BRUTE, "chest")
 
 		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)
 			H.Weaken(rand(damage / 4, damage / 2))
 	else
 		L.apply_damage(damage, BRUTE)
-		L.apply_damage(rand(damage / 2, damage), BRUTE)
 
 	L.visible_message("<span class='danger'>\The [L] had \the [src] fall onto \him!</span>",
 		"<span class='danger'>You had \the [src] fall onto you and strike you!</span>")
