@@ -52,6 +52,8 @@
 	oxygen = 0
 	nitrogen = 0
 
+	roof_type = null
+
 /turf/simulated/floor/reinforced/airmix
 	oxygen = MOLES_O2ATMOS
 	nitrogen = MOLES_N2ATMOS
@@ -113,6 +115,7 @@
 /turf/simulated/floor/tiled/steel/airless
 	oxygen = 0
 	nitrogen = 0
+	roof_type = null
 
 /turf/simulated/floor/tiled/white
 	name = "white floor"
@@ -154,6 +157,7 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
+	roof_type = null
 
 /turf/simulated/floor/airless
 	name = "airless plating"

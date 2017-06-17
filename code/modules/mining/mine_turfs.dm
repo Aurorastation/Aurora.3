@@ -516,6 +516,8 @@
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
+	roof_type = null
+
 // Copypaste parent for performance.
 /turf/simulated/floor/asteroid/Initialize()
 	if(initialized)

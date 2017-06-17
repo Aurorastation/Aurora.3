@@ -29,7 +29,7 @@
 	var/is_hole		// If true, turf will be treated as space or a hole
 	var/turf/baseturf = /turf/space
 
-	var/roof_type = /turf/simulated/floor/airless/ceiling // The turf type we spawn as a roof.
+	var/roof_type = null // The turf type we spawn as a roof.
 	var/tmp/roof_flags = 0
 
 // Parent code is duplicated in here instead of ..() for performance reasons.
