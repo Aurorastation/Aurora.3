@@ -1189,12 +1189,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				usr << "<span class='notice'>There is no cartridge in the [name].</span>"
 			else
 				var/turf/T = get_turf(src)
-				cartridge.loc = T
+				cartridge.forceMove(T)
 				if (ismob(loc))
 					var/mob/M = loc
 					M.put_in_hands(cartridge)
-				else
-					cartridge.loc = get_turf(src)
+
 				mode = 0
 				scanmode = 0
 				if (cartridge.radio)
