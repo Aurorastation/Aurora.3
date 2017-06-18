@@ -343,3 +343,21 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define MAP_MAXX 4
 #define MAP_MAXY 5
 #define MAP_MAXZ 6
+
+// /atom/proc/use_check flags.
+#define USE_ALLOW_NONLIVING 1
+#define USE_ALLOW_NON_ADV_TOOL_USR 2
+#define USE_ALLOW_DEAD 4
+#define USE_ALLOW_INCAPACITATED 8
+#define USE_ALLOW_NON_ADJACENT 16
+#define USE_FORCE_SRC_IN_USER 32
+#define USE_DISALLOW_SILICONS 64
+
+#define USE_SUCCESS 0
+#define USE_FAIL_NON_ADJACENT 1
+#define USE_FAIL_NONLIVING 2
+#define USE_FAIL_NON_ADV_TOOL_USR 3
+#define USE_FAIL_DEAD 4
+#define USE_FAIL_INCAPACITATED 5
+#define USE_FAIL_NOT_IN_USER 6
+#define USE_FAIL_IS_SILICON 7
