@@ -1218,7 +1218,7 @@ var/list/WALLITEMS = list(
 	if (NOT_FLAG(USE_ALLOW_DEAD) && user.stat == DEAD)
 		return USE_FAIL_DEAD
 
-	if (NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated())
+	if (NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
 		return USE_FAIL_INCAPACITATED
 
 	if (NOT_FLAG(USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
