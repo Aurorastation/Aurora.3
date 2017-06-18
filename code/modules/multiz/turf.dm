@@ -114,7 +114,11 @@
  */
 /turf/simulated/open/proc/update()
 	below = GetBelow(src)
-	below.above = src
+
+	// Edge case for when an open turf is above space on the lowest level.
+	if (below)
+		below.above = src
+
 	levelupdate()
 	for (var/atom/movable/A in src)
 		ADD_FALLING_ATOM(A)
