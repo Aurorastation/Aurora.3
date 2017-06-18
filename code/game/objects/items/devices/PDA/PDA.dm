@@ -1036,9 +1036,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (last_text && world.time < last_text + 5)
 		return
 
-	var/res = use_check(U)
-	if(res)
-		PROCLOG_WEIRD("use_check returned [res], failed.")
+	if(use_check(U))
 		return
 
 	last_text = world.time
