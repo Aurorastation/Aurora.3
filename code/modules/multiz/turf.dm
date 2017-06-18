@@ -36,6 +36,8 @@
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
 
+	roof_type = null
+
 	var/tmp/turf/below
 	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
 	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
@@ -112,7 +114,11 @@
  */
 /turf/simulated/open/proc/update()
 	below = GetBelow(src)
-	below.above = src
+
+	// Edge case for when an open turf is above space on the lowest level.
+	if (below)
+		below.above = src
+
 	levelupdate()
 	for (var/atom/movable/A in src)
 		ADD_FALLING_ATOM(A)

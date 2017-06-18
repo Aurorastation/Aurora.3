@@ -11,6 +11,7 @@
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
 		client.screen = list()
+		client.cleanup_parallax_references()
 	if (mind)
 		mind.handle_mob_deletion(src)
 	for(var/infection in viruses)

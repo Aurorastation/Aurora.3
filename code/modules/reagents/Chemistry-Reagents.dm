@@ -34,6 +34,10 @@
 	var/color_weight = 1
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
+	if (!holder)
+		PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
+		return
+
 	holder.remove_reagent(id, amount)
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
