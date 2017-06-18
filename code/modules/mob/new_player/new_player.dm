@@ -14,13 +14,11 @@
 	canmove = 0
 
 	anchored = 1	//  don't get pushed around
+	simulated = FALSE
 
 	New()
-		mob_list += src
-
-	Destroy()
-		mob_list -= src
-		return ..()
+		..()
+		dead_mob_list -= src
 
 	verb/new_player_panel()
 		set src = usr
