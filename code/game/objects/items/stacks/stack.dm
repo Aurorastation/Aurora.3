@@ -36,8 +36,6 @@
 	update_icon()
 
 /obj/item/stack/Destroy()
-	if(uses_charge)
-		return 1
 	if (src && usr && usr.machine == src)
 		usr << browse(null, "window=stack")
 	return ..()

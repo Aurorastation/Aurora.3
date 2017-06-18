@@ -249,6 +249,13 @@
 
 	screen_loc = "CENTER:[base_offset_x],CENTER:[base_offset_y]"
 
+/client/proc/cleanup_parallax_references()
+	parallax_dustmaster = null
+	parallax_master = null
+	parallax_spacemaster = null
+	LAZYCLEARLIST(parallax)
+	LAZYCLEARLIST(parallax_movable)
+
 #undef PARALLAX4_ICON_NUMBER
 #undef PARALLAX3_ICON_NUMBER
 #undef PARALLAX2_ICON_NUMBER
