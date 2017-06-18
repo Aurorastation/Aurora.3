@@ -245,6 +245,7 @@ var/list/gamemode_cache = list()
 
 	// Master Controller settings.
 	var/mc_init_tick_limit = TICK_LIMIT_MC_INIT_DEFAULT
+	var/fastboot = FALSE	// If true, take some shortcuts during boot to speed it up for testing. Probably should not be used on production servers.
 
 	//UDP GELF Logging
 	var/log_gelf_enabled = 0
@@ -818,6 +819,9 @@ var/list/gamemode_cache = list()
 					access_deny_vms = text2num(value)
 				if("access_warn_vms")
 					access_warn_vms = text2num(value)
+
+				if("fastboot")
+					fastboot = TRUE
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

@@ -17,9 +17,15 @@
 	..("A:[config.sun_accuracy] LP:[light_points.len] Z:[config.sun_target_z]")
 
 /datum/controller/subsystem/sunlight/Initialize()
+
 	presets = list()
 	for (var/thing in subtypesof(/datum/sun_state))
 		presets += new thing
+
+	if (config.fastboot)
+		log_debug("sunlight: fastboot detected, skipping setup.")
+		..()
+		return
 
 	var/thing
 	var/turf/T

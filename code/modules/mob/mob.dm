@@ -751,6 +751,8 @@
 				stat("CPU:", world.cpu)
 				stat("Tick Usage:", world.tick_usage)
 				stat("Instances:", world.contents.len)
+				if (config.fastboot)
+					stat(null, "FASTBOOT ENABLED")
 				if(Master)
 					Master.stat_entry()
 				else
