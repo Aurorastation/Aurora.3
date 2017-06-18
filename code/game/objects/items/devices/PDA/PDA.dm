@@ -973,8 +973,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			M.put_in_hands(id)
 			usr << "<span class='notice'>You remove the ID from the [name].</span>"
 		else
-			id.forceMove(get)
-			id.loc = get_turf(src)
+			id.forceMove(get_turf(src))
 		id = null
 
 /obj/item/device/pda/proc/remove_pen(mob/user)
