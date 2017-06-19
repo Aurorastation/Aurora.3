@@ -414,9 +414,9 @@
 			visible_message("\The [src] falls and lands on \the [loc]!",
 				"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	apply_damage(damage - limb_damage, "chest")
+	apply_damage(damage - limb_damage, BRUTE, "chest")
 
-	Weaken(rand(damage/2, damage))
+	Weaken(rand(damage/4, damage/2))
 
 	updatehealth()
 

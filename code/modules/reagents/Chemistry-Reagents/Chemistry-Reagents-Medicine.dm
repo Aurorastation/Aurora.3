@@ -18,6 +18,9 @@
 		if (!modifier)
 			modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 0.6, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
+/datum/reagent/inaprovaline/Destroy()
+	QDEL_NULL(modifier)
+	return ..()
 
 /datum/reagent/bicaridine
 	name = "Bicaridine"
@@ -272,6 +275,9 @@
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
+/datum/reagent/synaptizine/Destroy()
+	QDEL_NULL(modifier)
+	return ..()
 
 
 /datum/reagent/alkysine
@@ -365,6 +371,9 @@
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
+/datum/reagent/hyperzine/Destroy()
+	QDEL_NULL(modifier)
+	return ..()
 
 #define ETHYL_INTOX_COST	3 //The cost of power to remove one unit of intoxication from the patient
 #define ETHYL_REAGENT_POWER	20 //The amount of power in one unit of ethyl
