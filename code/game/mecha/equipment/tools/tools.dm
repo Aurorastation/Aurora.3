@@ -279,13 +279,14 @@
 						playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
 						chassis.use_power(energy_drain)
 				else if (istype(target, /turf/simulated/floor))
-					occupant_message("Deconstructing [target]...")
+					var/turf/T = target
+					occupant_message("Deconstructing [T]...")
 					set_ready_state(0)
-					if(do_after_cooldown(target))
+					if(do_after_cooldown(T))
 						if(disabled) return
 						chassis.spark_system.queue()
-						target:ChangeTurf(get_base_turf_by_area(target))
-						playsound(target, 'sound/items/Deconstruct.ogg', 50, 1)
+						T:ChangeTurf(T.baseturf)
+						playsound(T, 'sound/items/Deconstruct.ogg', 50, 1)
 						chassis.use_power(energy_drain)
 				else if (istype(target, /obj/machinery/door/airlock))
 					occupant_message("Deconstructing [target]...")
