@@ -42,8 +42,8 @@
 			endy = rand(TRANSITIONEDGE,world.maxy-TRANSITIONEDGE)
 			endx = world.maxx-TRANSITIONEDGE
 
-	pickedstart = locate(startx, starty, 2)
-	pickedgoal = locate(endx, endy, 2)
+	pickedstart = locate(startx, starty, 6)
+	pickedgoal = locate(endx, endy, 6)
 	max_i--
 	if(max_i<=0) return
 
@@ -284,7 +284,7 @@
 
 /obj/effect/meteor/artifact
 	icon_state = "sharp"
-	meteordrop = /obj/machinery/artifact
+	meteordrop = /obj/item/weapon/archaeological_find
 	dropamt = 1
 
 /obj/effect/meteor/supermatter

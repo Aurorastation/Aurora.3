@@ -44,6 +44,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/cart = "" //A place to stick cartridge menu information
 	var/detonate = 1 // Can the PDA be blown up?
 	var/hidden = 0 // Is the PDA hidden from the PDA list?
+	var/has_pen = 1 // Does the PDA have a pen + penslot?
 	var/active_conversation = null // New variable that allows us to only view a single conversation.
 	var/list/conversations = list()    // For keeping up with who we have PDA messsages from.
 	var/new_message = 0			//To remove hackish overlay check
@@ -65,9 +66,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	var/obj/item/device/paicard/pai = null	// A slot for a personal AI device
 
+	var/obj/item/weapon/pen/pen
+
 /obj/item/device/pda/examine(mob/user)
 	if(..(user, 1))
 		user << "The time [worldtime2text()] is displayed in the corner of the screen."
+		if (pen)
+			user << "There is \a [pen] in the pen slot."
 
 /obj/item/device/pda/medical
 	default_cartridge = /obj/item/weapon/cartridge/medical
@@ -225,6 +230,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	ttone = "data"
 	newstone = "news"
 	detonate = 0
+	has_pen = 0
 
 
 /obj/item/device/pda/ai/proc/set_name_and_job(newname as text, newjob as text, newrank as null|text)
@@ -235,7 +241,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	else
 		ownrank = ownjob
 	name = newname + " (" + ownjob + ")"
-
+	try_sort_pda_list()
 
 //AI verb and proc for sending PDA messages.
 /obj/item/device/pda/ai/verb/cmd_send_pdamesg()
@@ -292,11 +298,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	HTML +="</body></html>"
 	usr << browse(HTML, "window=log;size=400x444;border=1;can_resize=1;can_close=1;can_minimize=0")
 
-
-/obj/item/device/pda/ai/can_use()
-	return 1
-
-
 /obj/item/device/pda/ai/attack_self(mob/user as mob)
 	if ((honkamt > 0) && (prob(60)))//For clown virus.
 		honkamt--
@@ -312,26 +313,19 @@ var/global/list/obj/item/device/pda/PDAs = list()
  *	The Actual PDA
  */
 
-/obj/item/device/pda/Initialize()
+/obj/item/device/pda/Initialize(mapload)
 	. = ..()
 	PDAs += src
-	sortTim(PDAs, /proc/cmp_text_asc)
+	if (!mapload)
+		try_sort_pda_list()
 	if(default_cartridge)
 		cartridge = new default_cartridge(src)
-	new /obj/item/weapon/pen(src)
 
-/obj/item/device/pda/proc/can_use()
+	if (has_pen)
+		pen = new /obj/item/weapon/pen(src)
 
-	if(!ismob(loc))
-		return 0
-
-	var/mob/M = loc
-	if(M.stat || M.restrained() || M.paralysis || M.stunned || M.weakened)
-		return 0
-	if((src in M.contents) || ( istype(loc, /turf) && in_range(src, M) ))
-		return 1
-	else
-		return 0
+/obj/item/device/pda/proc/try_sort_pda_list()
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/sortTim, PDAs, /proc/cmp_pda), 1 SECOND, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
 /obj/item/device/pda/GetAccess()
 	if(id)
@@ -347,12 +341,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (ismob(src.loc))
 		verb_remove_id()
 
+/obj/item/device/pda/CtrlShiftClick(mob/user)
+	remove_pen(user)
+
 /obj/item/device/pda/MouseDrop(obj/over_object as obj, src_location, over_location)
 	var/mob/M = usr
-	if((!istype(over_object, /obj/screen)) && can_use())
+	if((!istype(over_object, /obj/screen)) && !use_check(M))
 		return attack_self(M)
-	return
-
 
 /obj/item/device/pda/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	ui_tick++
@@ -601,11 +596,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/mob/user = usr
 	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
 	var/mob/living/U = usr
-	//Looking for master was kind of pointless since PDAs don't appear to have one.
-	//if ((src in U.contents) || ( istype(loc, /turf) && in_range(src, U) ) )
-	if (usr.stat == DEAD)
-		return 0
-	if(!can_use()) //Why reinvent the wheel? There's a proc that does exactly that.
+	//Looking for master was kind of pointless since PDAs don't appear to have one.)
+	if(use_check(usr)) // Need to allow silicons here.
 		U.unset_machine()
 		if(ui)
 			ui.close()
@@ -981,8 +973,49 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			M.put_in_hands(id)
 			usr << "<span class='notice'>You remove the ID from the [name].</span>"
 		else
-			id.loc = get_turf(src)
+			id.forceMove(get_turf(src))
 		id = null
+
+/obj/item/device/pda/proc/remove_pen(mob/user)
+	if (!istype(user))
+		PROCLOG_WEIRD("user variable was insane, aborting!")
+		return
+	if (!has_pen)
+		user << "<span class='notice'>[src] does not have a pen slot.</span>"
+		return
+
+	switch (use_check(user, USE_DISALLOW_SILICONS))
+		if (USE_FAIL_NON_ADJACENT)
+			user << "<span class='notice'>You are too far away from [src].</span>"
+
+		if (USE_FAIL_NON_ADV_TOOL_USR)
+			if (!pen)
+				user << "<span class='notice'>[src] does not have a pen in it.</span>"
+			else
+				user << "<span class='notice'>You are unable to figure out the mechanism holding [pen] in-place.</span>"
+
+		if (USE_FAIL_IS_SILICON)
+			if (pen)
+				user << "<span class='notice'>You do not have hands, how do you propose to remove [pen]?</span>"
+			else
+				user << "<span class='notice'>You do not have hands.</span>"
+
+		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
+			user << "<span class='notice'>You cannot do this in your current state.</span>"
+
+		if (USE_SUCCESS)
+			if (!pen)
+				user << "<span class='notice'>[src] does not have a pen in it.</span>"
+				return
+
+			if (loc == user && !user.get_active_hand())
+				user << "<span class='notice'>You remove [pen] from [src].</span>"
+				user.put_in_hands(pen)
+				pen = null
+			else
+				user << "<span class='notice'>You remove [pen] from [src], dropping it on the ground. Whoops.</span>"
+				pen.forceMove(get_turf(src))
+				pen = null
 
 /obj/item/device/pda/proc/create_message(var/mob/living/U = usr, var/obj/item/device/pda/P, var/tap = 1)
 	if(tap)
@@ -1002,7 +1035,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (last_text && world.time < last_text + 5)
 		return
 
-	if(!can_use())
+	if(use_check(U))
 		return
 
 	last_text = world.time
@@ -1107,12 +1140,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(issilicon(usr))
 		return
 
-	if(can_use(usr))
-		mode = 0
-		SSnanoui.update_uis(src)
-		usr << "<span class='notice'>You press the reset button on \the [src].</span>"
-	else
-		usr << "<span class='notice'>You cannot do this while restrained.</span>"
+	switch (use_check(usr, USE_FORCE_SRC_IN_USER))
+		if (USE_ALLOW_DEAD,USE_ALLOW_INCAPACITATED)
+			usr << "<span class='notice'>You cannot do this in your current state.</span>"
+		if (USE_SUCCESS)
+			mode = 0
+			SSnanoui.update_uis(src)
+			usr << "<span class='notice'>You press the reset button on \the [src].</span>"
 
 /obj/item/device/pda/verb/verb_remove_id()
 	set category = "Object"
@@ -1122,37 +1156,22 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(issilicon(usr))
 		return
 
-	if ( can_use(usr) )
-		if(id)
-			remove_id()
-		else
-			usr << "<span class='notice'>This PDA does not have an ID in it.</span>"
-	else
-		usr << "<span class='notice'>You cannot do this while restrained.</span>"
+	switch (use_check(usr, USE_DISALLOW_SILICONS))
+		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
+			usr << "<span class='notice'>You cannot do this in your current state.</span>"
 
+		if (USE_SUCCESS)
+			if(id)
+				remove_id()
+			else
+				usr << "<span class='notice'>This PDA does not have an ID in it.</span>"
 
 /obj/item/device/pda/verb/verb_remove_pen()
 	set category = "Object"
 	set name = "Remove pen"
 	set src in usr
 
-	if(issilicon(usr))
-		return
-
-	if ( can_use(usr) )
-		var/obj/item/weapon/pen/O = locate() in src
-		if(O)
-			if (istype(loc, /mob))
-				var/mob/M = loc
-				if(M.get_active_hand() == null)
-					M.put_in_hands(O)
-					usr << "<span class='notice'>You remove \the [O] from \the [src].</span>"
-					return
-			O.loc = get_turf(src)
-		else
-			usr << "<span class='notice'>This PDA does not have a pen in it.</span>"
-	else
-		usr << "<span class='notice'>You cannot do this while restrained.</span>"
+	remove_pen(usr)
 
 /obj/item/device/pda/verb/verb_remove_cartridge()
 	set category = "Object"
@@ -1162,26 +1181,25 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(issilicon(usr))
 		return
 
-	if (can_use(usr) && isnull(cartridge))
-		usr << "<span class='notice'>There is no cartridge in the [name].</span>"
-		return
+	switch (use_check(usr, USE_DISALLOW_SILICONS))
+		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
+			usr << "<span class='notice'>You cannot do this in your current state.</span>"
+		if (USE_SUCCESS)
+			if (!cartridge)
+				usr << "<span class='notice'>There is no cartridge in the [name].</span>"
+			else
+				var/turf/T = get_turf(src)
+				cartridge.forceMove(T)
+				if (ismob(loc))
+					var/mob/M = loc
+					M.put_in_hands(cartridge)
 
-	if (can_use(usr))
-		var/turf/T = get_turf(src)
-		cartridge.loc = T
-		if (ismob(loc))
-			var/mob/M = loc
-			M.put_in_hands(cartridge)
-		else
-			cartridge.loc = get_turf(src)
-		mode = 0
-		scanmode = 0
-		if (cartridge.radio)
-			cartridge.radio.hostpda = null
-		usr << "<span class='notice'>You remove \the [cartridge] from the [name].</span>"
-		cartridge = null
-	else
-		usr << "<span class='notice'>You cannot do this while restrained.</span>"
+				mode = 0
+				scanmode = 0
+				if (cartridge.radio)
+					cartridge.radio.hostpda = null
+				usr << "<span class='notice'>You remove \the [cartridge] from the [name].</span>"
+				cartridge = null
 
 /obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
 	if(choice == 1)
@@ -1227,6 +1245,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			ownrank = idcard.rank
 			name = "PDA-[owner] ([ownjob])"
 			user << "<span class='notice'>Card scanned.</span>"
+			try_sort_pda_list()
 		else
 			//Basic safety check. If either both objects are held by user or PDA is on ground and card is in hand.
 			if(((src in user.contents) && (C in user.contents)) || (istype(loc, /turf) && in_range(src, user) && (C in user.contents)) )
@@ -1243,12 +1262,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		user << "<span class='notice'>You slot \the [C] into [src].</span>"
 		SSnanoui.update_uis(src) // update all UIs attached to src
 	else if(istype(C, /obj/item/weapon/pen))
-		var/obj/item/weapon/pen/O = locate() in src
-		if(O)
+		if(pen)
 			user << "<span class='notice'>There is already a pen in \the [src].</span>"
 		else
 			user.drop_item()
-			C.loc = src
+			C.forceMove(src)
+			pen = C
 			user << "<span class='notice'>You slide \the [C] into \the [src].</span>"
 	return
 

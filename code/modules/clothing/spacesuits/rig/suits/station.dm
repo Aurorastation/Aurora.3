@@ -202,11 +202,14 @@
 
 /obj/item/weapon/rig/medical/equipped
 
+	req_access = list(access_paramedic)
+
 	initial_modules = list(
-		/obj/item/rig_module/chem_dispenser/injector,
+		/obj/item/rig_module/chem_dispenser/injector/paramedic,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/healthscanner,
-		/obj/item/rig_module/vision/medhud
+		/obj/item/rig_module/vision/medhud,
+		/obj/item/rig_module/actuators
 		)
 
 /obj/item/weapon/rig/hazard

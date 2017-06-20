@@ -425,32 +425,67 @@
 /mob/living/carbon/human
 	var/tmp/odin_despawn_timer
 
-/mob/living/carbon/human/proc/odin_timeout()
+/mob/living/proc/odin_timeout()
 	if (!istype(get_area(src), /area/centcom/spawning))
-		return
+		return FALSE
 
 	if (!client)
 		SSjobs.odin_despawn_mob(src)
-	else
-		var/datum/spawnpoint/spawnpos = spawntypes["Cryogenic Storage"]
+		return FALSE
 
-		if(spawnpos && istype(spawnpos))
-			src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!</span>"
-			src.forceMove(pick(spawnpos.turfs))
-			global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
-		else
-			SSjobs.odin_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
+	return TRUE
+
+/mob/living/carbon/human/odin_timeout()
+	. = ..()
+
+	if (!.)
+		return FALSE
+
+	var/datum/spawnpoint/spawnpos = spawntypes["Cryogenic Storage"]
+	if(spawnpos && istype(spawnpos))
+		src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!</span>"
+		src.forceMove(pick(spawnpos.turfs))
+		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
+		if(!src.megavend)
+			var/rank= src.mind.assigned_role
+			SSjobs.EquipRank(src, rank, 1)
+			src.megavend = TRUE
+	else
+		SSjobs.odin_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
+
+	return TRUE
+
+/mob/living/silicon/robot/odin_timeout()
+	. = ..()
+
+	if (!.)
+		return FALSE
+
+	var/datum/spawnpoint/spawnpos = spawntypes["Cyborg Storage"]
+	if(spawnpos && istype(spawnpos))
+		src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in robotic storage the whole time!</span>"
+		src.forceMove(pick(spawnpos.turfs))
+		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
+	else
+		SSjobs.odin_despawn_mob(src)
+
+	return TRUE
 
 // Convenience wrapper.
-/datum/controller/subsystem/jobs/proc/odin_despawn_mob(mob/living/carbon/human/H)
-	global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "NTCC Odin Cryogenic Oversight")
-	H.visible_message("<span class='notice'>[H.name] makes their way to the Odin's cryostorage, and departs.</span>", 3)
-	DespawnMob(H)
+/datum/controller/subsystem/jobs/proc/odin_despawn_mob(mob/living/H)
+	if(ishuman(H))
+		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "NTCC Odin Cryogenic Oversight")
+		H.visible_message("<span class='notice'>[H.name] makes their way to the Odin's cryostorage, and departs.</span>", 3)
+		DespawnMob(H)
+	else
+		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered roboticstorage.", "NTCC Odin Robotic Oversight")
+		H.visible_message("<span class='notice'>[H.name] makes their way to the Odin's robotic storage, and departs.</span>", 3)
+		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/EquipPersonal(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
 	if(!H)
 		return null
-
+	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
 	switch(rank)
 		if("Cyborg")
 			return EquipRank(H, rank, 1)
@@ -461,7 +496,6 @@
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
-	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
 	H <<"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>"
 
 	if(job)
