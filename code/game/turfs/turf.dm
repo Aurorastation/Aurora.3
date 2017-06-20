@@ -27,7 +27,7 @@
 	var/list/decals
 
 	var/is_hole		// If true, turf will be treated as space or a hole
-	var/turf/baseturf
+	var/tmp/turf/baseturf
 
 	var/roof_type = null // The turf type we spawn as a roof.
 	var/tmp/roof_flags = 0
