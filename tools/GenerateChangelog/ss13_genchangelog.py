@@ -61,7 +61,8 @@ validPrefixes = [
     'imagedel',
     'maptweak',
     'spellcheck',
-    'experiment'
+    'experiment',
+    'balance'
 ]
 
 

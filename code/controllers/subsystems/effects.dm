@@ -2,7 +2,7 @@ var/datum/controller/subsystem/effects/SSeffects
 
 /datum/controller/subsystem/effects
 	name = "Effects Master"
-	wait = 2		// Deciseconds.
+	wait = 1		// Deciseconds.
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_EFFECTS
 
@@ -35,8 +35,9 @@ var/datum/controller/subsystem/effects/SSeffects
 			continue
 
 		STOP_EFFECT(E)
+		var/last = E.last_fire
 		E.last_fire = world.time
-		switch (E.process(world.time - E.last_fire))
+		switch (E.process(world.time - last))
 			if (EFFECT_CONTINUE)
 				QUEUE_EFFECT(E)
 

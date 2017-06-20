@@ -139,7 +139,7 @@ datum/preferences
 	var/savefile/loaded_preferences
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
-	
+
 	var/dress_mob = TRUE
 
 /datum/preferences/New(client/C)
@@ -394,7 +394,8 @@ datum/preferences
 
 	for(var/N in character.organs_by_name)
 		var/obj/item/organ/external/O = character.organs_by_name[N]
-		O.markings.Cut()
+		if (O)
+			O.markings.Cut()
 
 	for(var/M in body_markings)
 		var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
