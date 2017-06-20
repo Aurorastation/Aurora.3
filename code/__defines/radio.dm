@@ -40,8 +40,8 @@ var/list/radiochannels = list(
 	"Service" 		= SRV_FREQ,
 	"AI Private"	= AI_FREQ,
 	"Entertainment" = ENT_FREQ,
-	"Medical(I)"	= MED_I_FREQ,
-	"Security(I)"	= SEC_I_FREQ
+	"Medical (I)"	= MED_I_FREQ,
+	"Security (I)"	= SEC_I_FREQ
 )
 
 // The assoc variants are separate lists because they need the keys to be strings, but some code expects numbers.

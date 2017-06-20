@@ -171,13 +171,13 @@ var/datum/controller/subsystem/radio/SSradio
 			. = "comradio"
 		if (AI_FREQ)	// AI Private
 			. = "airadio"
-		if (SEC_FREQ)
+		if (SEC_FREQ,SEC_I_FREQ)
 			. = "secradio"
 		if (ENG_FREQ)
 			. = "engradio"
 		if (SCI_FREQ)
 			. = "sciradio"
-		if (MED_FREQ)
+		if (MED_FREQ,MED_I_FREQ)
 			. = "medradio"
 		if (SUP_FREQ)	// cargo
 			. = "supradio"
