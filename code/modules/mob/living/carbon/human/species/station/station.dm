@@ -675,3 +675,5 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
+
+// lol
