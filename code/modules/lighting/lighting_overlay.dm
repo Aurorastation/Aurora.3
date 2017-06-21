@@ -120,7 +120,7 @@
 #endif 
 
 	if (bound_overlay)
-		update_oo()
+		update_above()
 
 // Variety of overrides so the overlays don't get affected by weird things.
 
