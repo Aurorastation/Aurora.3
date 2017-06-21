@@ -84,7 +84,7 @@
 /obj/structure/lattice/catwalk/indoor/attackby(obj/item/C, mob/user)
 	if (isscrewdriver(C))
 		anchored = !anchored
-		user << "<span class='notice'>You [anchored ? "" : "un"]anchor [src]."
+		user << "<span class='notice'>You [anchored ? "" : "un"]anchor [src].</span>"
 		playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 		queue_smooth(src)
 		queue_smooth_neighbors(src)
