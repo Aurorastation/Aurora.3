@@ -798,6 +798,9 @@
 	else if(href_list["boot2"])
 		var/mob/M = locate(href_list["boot2"])
 		if (ismob(M))
+			if(!check_rights(R_MOD, 0) && !check_rights(R_ADMIN, 0)) 
+				usr << "<span class='warning'>You do not have the appropriate permissions to boot users!</span>"
+				return
 			if(!check_if_greater_rights_than(M.client))
 				return
 			var/reason = sanitize(input("Please enter reason"))
