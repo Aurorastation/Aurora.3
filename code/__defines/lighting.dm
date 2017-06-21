@@ -1,4 +1,4 @@
-#define LIGHTING_INTERVAL       2     // Frequency, in 1/10ths of a second, of the lighting process.
+#define LIGHTING_INTERVAL       1     // Frequency, in 1/10ths of a second, of the lighting process.
 
 #define LIGHTING_HEIGHT         1 // height off the ground of light sources on the pseudo-z-axis, you should probably leave this alone
 #define LIGHTING_ROUND_VALUE    1 / 200 //Value used to round lumcounts, values smaller than 1/255 don't matter (if they do, thanks sinking points), greater values will make lighting less precise, but in turn increase performance, VERY SLIGHTLY.
