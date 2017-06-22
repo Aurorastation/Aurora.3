@@ -286,6 +286,11 @@ var/list/gamemode_cache = list()
 					src.votable_modes += M.config_tag
 	src.votable_modes += "secret"
 
+#ifdef UNIT_TEST
+	fastboot = TRUE
+	world.log << "UNIT_TEST present. Forcing fastboot on."
+#endif 
+
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 	var/list/Lines = file2list(filename)
 
