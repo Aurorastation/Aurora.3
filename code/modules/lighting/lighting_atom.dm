@@ -110,22 +110,25 @@
 		if (old_has_opaque_atom != T.has_opaque_atom)
 			T.reconsider_lights()
 
-
-// This code makes the light be queued for update when it is moved.
-// Entered() should handle it, however Exited() can do it if it is being moved to nullspace (as there would be no Entered() call in that situation).
-/atom/Entered(var/atom/movable/Obj, var/atom/OldLoc) //Implemented here because forceMove() doesn't call Move()
+/atom/movable/Move()
 	. = ..()
 
-	if (Obj && OldLoc != src && Obj.light_sources && Obj.light_sources.len)
-		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light()
+	var/datum/light_source/L
+	var/thing
+	for (thing in light_sources)
+		L = thing
+		L.source_atom.update_light()
 
-/atom/Exited(var/atom/movable/Obj, var/atom/newloc)
+
+/atom/movable/forceMove(atom/dest)
 	. = ..()
 
-	if (!newloc && Obj && newloc != src && Obj.light_sources && Obj.light_sources.len) // Incase the atom is being moved to nullspace, we handle queuing for a lighting update here.
-		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light()
+	var/datum/light_source/L
+	var/thing
+	for (thing in light_sources)
+		L = thing
+		L.source_atom.update_light()
+
 
 /atom/set_dir(new_dir)
 	. = ..()
@@ -133,4 +136,3 @@
 	for (var/datum/light_source/L in src.light_sources)
 		if (L.light_angle)
 			L.source_atom.update_light()
-
