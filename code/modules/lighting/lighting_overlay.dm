@@ -16,7 +16,7 @@
 	transform = matrix(WORLD_ICON_SIZE / 32, 0, (WORLD_ICON_SIZE - 32) / 2, 0, WORLD_ICON_SIZE / 32, (WORLD_ICON_SIZE - 32) / 2)
 	#endif
 
-/atom/movable/lighting_overlay/New(atom/loc)
+/atom/movable/lighting_overlay/Initialize()
 	. = ..()
 	verbs.Cut()
 	SSlighting.lighting_overlays += src
@@ -42,6 +42,9 @@
 		T.luminosity = 1
 	
 	return ..()
+
+// This is a macro PURELY so that the if below is actually readable.
+#define ALL_EQUAL ((rr == gr && gr == br && br == ar) && (rg == gg && gg == bg && bg == ag) && (rb == gb && gb == bb && bb == ab))
 
 /atom/movable/lighting_overlay/proc/update_overlay()
 	if (QDELING(src))	// This shouldn't happen.
@@ -91,13 +94,13 @@
 	var/ag = ca.cache_g
 	var/ab = ca.cache_b
 
-	// Check for a common value first so we can skip expensive color matrixes if possible.
-	var/all_equal = ((rr == gr && gr == br && br == ar) && (rg == gg && gg == bg && bg == ag) && (rb == gb && gb == bb && bb == ab))
-
-	if (!luminosity)
+	if ((rr & gr & br & ar) && (rg + gg + bg + ag + rb + gb + bb + ab == 8))
+		icon_state = LIGHTING_TRANSPARENT_ICON_STATE
+		color = null
+	else if (!luminosity)
 		icon_state = LIGHTING_DARKNESS_ICON_STATE
 		color = null
-	else if (all_equal && rr == LIGHTING_DEFAULT_TUBE_R && rg == LIGHTING_DEFAULT_TUBE_G && rb == LIGHTING_DEFAULT_TUBE_B)
+	else if (ALL_EQUAL && rr == LIGHTING_DEFAULT_TUBE_R && rg == LIGHTING_DEFAULT_TUBE_G && rb == LIGHTING_DEFAULT_TUBE_B)
 		icon_state = LIGHTING_STATION_ICON_STATE
 		color = null
 	else
@@ -121,6 +124,8 @@
 
 	if (bound_overlay)
 		update_above()
+
+#undef ALL_EQUAL
 
 // Variety of overrides so the overlays don't get affected by weird things.
 
