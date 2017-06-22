@@ -120,7 +120,7 @@
 		L.source_atom.update_light()
 
 
-/atom/movable/forceMove(atom/dest)
+/atom/movable/forceMove()
 	. = ..()
 
 	var/datum/light_source/L
