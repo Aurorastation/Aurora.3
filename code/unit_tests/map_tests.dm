@@ -48,7 +48,7 @@ datum/unit_test/apc_area_test/start_test()
 	)
 
 	for(var/area/A in world)
-		if(A.z in list(2,3,4,5) && !(A.type in exempt_areas))
+		if(A.z in config.station_levels && !(A.type in exempt_areas))
 			area_test_count++
 			var/area_good = 1
 			var/bad_msg = "[ascii_red]--------------- [A.name]([A.type])"
@@ -93,7 +93,7 @@ datum/unit_test/wire_test/start_test()
 		T = null
 
 		T = get_turf(C)
-		if(T && T.z in list(2,3,4,5))
+		if(T && T.z in config.station_levels)
 			cable_turfs |= get_turf(C)
 
 	for(T in cable_turfs)
