@@ -69,59 +69,61 @@
 /turf/unsimulated/wall
 	smooth_underlays = TRUE
 
-/proc/calculate_adjacencies(atom/A)
-	if(!A.loc)
+/atom/proc/calculate_adjacencies()
+	if (!loc)
 		return 0
 
 	var/adjacencies = 0
 
 	var/atom/movable/AM
-	if(istype(A, /atom/movable))
-		AM = A
-		if(AM.can_be_unanchored && !AM.anchored)
-			return 0
 
 	for(var/direction in cardinal)
-		AM = find_type_in_direction(A, direction)
+		AM = find_type_in_direction(src, direction)
 		if(AM == NULLTURF_BORDER)
-			if((A.smooth & SMOOTH_BORDER))
+			if((smooth & SMOOTH_BORDER))
 				adjacencies |= 1 << direction
 		else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 			adjacencies |= 1 << direction
 
 	if(adjacencies & N_NORTH)
 		if(adjacencies & N_WEST)
-			AM = find_type_in_direction(A, NORTHWEST)
+			AM = find_type_in_direction(src, NORTHWEST)
 			if(AM == NULLTURF_BORDER)
-				if((A.smooth & SMOOTH_BORDER))
+				if((smooth & SMOOTH_BORDER))
 					adjacencies |= N_NORTHWEST
 			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 				adjacencies |= N_NORTHWEST
 		if(adjacencies & N_EAST)
-			AM = find_type_in_direction(A, NORTHEAST)
+			AM = find_type_in_direction(src, NORTHEAST)
 			if(AM == NULLTURF_BORDER)
-				if((A.smooth & SMOOTH_BORDER))
+				if((smooth & SMOOTH_BORDER))
 					adjacencies |= N_NORTHEAST
 			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 				adjacencies |= N_NORTHEAST
 
 	if(adjacencies & N_SOUTH)
 		if(adjacencies & N_WEST)
-			AM = find_type_in_direction(A, SOUTHWEST)
+			AM = find_type_in_direction(src, SOUTHWEST)
 			if(AM == NULLTURF_BORDER)
-				if((A.smooth & SMOOTH_BORDER))
+				if((smooth & SMOOTH_BORDER))
 					adjacencies |= N_SOUTHWEST
 			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 				adjacencies |= N_SOUTHWEST
 		if(adjacencies & N_EAST)
-			AM = find_type_in_direction(A, SOUTHEAST)
+			AM = find_type_in_direction(src, SOUTHEAST)
 			if(AM == NULLTURF_BORDER)
-				if((A.smooth & SMOOTH_BORDER))
+				if((smooth & SMOOTH_BORDER))
 					adjacencies |= N_SOUTHEAST
 			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 				adjacencies |= N_SOUTHEAST
 
 	return adjacencies
+
+/atom/movable/calculate_adjacencies()
+	if (can_be_unanchored && !anchored)
+		return 0
+
+	return ..()
 
 //do not use, use queue_smooth(atom)
 /proc/smooth_icon(atom/A)
@@ -133,7 +135,7 @@
 	if(QDELETED(A))
 		return
 	if((A.smooth & SMOOTH_TRUE) || (A.smooth & SMOOTH_MORE))
-		var/adjacencies = calculate_adjacencies(A)
+		var/adjacencies = A.calculate_adjacencies()
 
 		if(A.smooth & SMOOTH_DIAGONAL)
 			A.diagonal_smooth(adjacencies)
