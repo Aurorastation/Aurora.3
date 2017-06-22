@@ -537,7 +537,7 @@
 	name = "Teleporter"
 	desc = "An exosuit module that allows teleportation to any position in view."
 	id = "mech_teleporter"
-	req_tech = list(TECH_BLUESPACE = 10, TECH_MAGNET = 5)
+	req_tech = list(TECH_BLUESPACE = 6, TECH_MAGNET = 5)
 	build_path = /obj/item/mecha_parts/mecha_equipment/teleporter
 
 /datum/design/item/mecha/rcd

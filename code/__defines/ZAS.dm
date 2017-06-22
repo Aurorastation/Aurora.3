@@ -1,6 +1,6 @@
 
 //#define ZASDBG
-//#define MULTIZAS
+#define MULTIZAS
 
 #define AIR_BLOCKED 1
 #define ZONE_BLOCKED 2
@@ -22,11 +22,15 @@
 		if (B.z < A.z) { \
 			if (!istype(A, /turf/simulated/open)) { \
 				ret = BLOCKED; \
+			} else { \
+				ret = ZONE_BLOCKED; \
 			} \
 		} \
 		else { \
 			if (!istype(B, /turf/simulated/open)) { \
 				ret = BLOCKED; \
+			} else { \
+				ret = ZONE_BLOCKED; \
 			} \
 		} \
 	} \
