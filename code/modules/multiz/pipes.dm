@@ -19,7 +19,11 @@
 	var/maximum_pressure = 70*ONE_ATMOSPHERE
 	var/fatigue_pressure = 55*ONE_ATMOSPHERE
 	alert_pressure = 55*ONE_ATMOSPHERE
-
+	
+	var/travel_verbname = "UNDEFINED"
+	var/travel_direction_verb = "UNDEFINED"
+	var/travel_direction_name = "UNDEFINED"
+	var/travel_direction = "UNDEFINED"
 
 	level = 1
 
@@ -42,6 +46,11 @@
 			initialize_directions = EAST
 		if(SOUTHWEST)
 			initialize_directions = SOUTH
+
+/obj/machinery/atmospherics/pipe/zpipe/Entered(mob/living/M)
+	if(istype(M))
+		M << span("notice", "You are in a vertical pipe section. Use [travel_verbname] from the IC menu to [travel_direction_verb] a level.")
+		. = ..()
 
 /obj/machinery/atmospherics/pipe/zpipe/hide(var/i)
 	if(istype(loc, /turf/simulated))
@@ -118,6 +127,11 @@
 	name = "upwards pipe"
 	desc = "A pipe segment to connect upwards."
 
+	travel_verbname = "Move Upwards"
+	travel_direction_verb = "ascend"
+	travel_direction_name = "up"
+	travel_direction = UP
+
 /obj/machinery/atmospherics/pipe/zpipe/up/initialize()
 	normalize_dir()
 	var/node1_dir
@@ -155,6 +169,11 @@
 
 	name = "downwards pipe"
 	desc = "A pipe segment to connect downwards."
+
+	travel_verbname = "Move Downwards"
+	travel_direction_verb = "descend"
+	travel_direction_name = "down"
+	travel_direction = DOWN
 
 /obj/machinery/atmospherics/pipe/zpipe/down/initialize()
 	normalize_dir()
