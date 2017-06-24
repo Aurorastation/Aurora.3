@@ -139,15 +139,10 @@
 	path = /obj/item/clothing/under/rank/security/navyblue
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet")
 
-/datum/gear/uniform/gearharness
-	display_name = "gear harness"
-	path = /obj/item/clothing/under/gearharness
-	cost = 2
-
 /datum/gear/uniform/pants
 	display_name = "pants selection"
 	path = /obj/item/clothing/under/pants
-	
+
 /datum/gear/uniform/pants/New()
 	..()
 	var/pants = list()
@@ -163,8 +158,8 @@
 	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
 	pants["track pants"] = /obj/item/clothing/under/pants/track
 	gear_tweaks += new/datum/gear_tweak/path(pants)
-	
+
 /datum/gear/uniform/turtleneck
-	display_name = "tacticool turtleneck"	
+	display_name = "tacticool turtleneck"
 	path = /obj/item/clothing/under/syndicate/tacticool
-	
+

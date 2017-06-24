@@ -20,7 +20,7 @@
 	cost = 1
 	whitelisted = "Unathi"
 	sort_category = "Xenowear"
-	
+
 /datum/gear/gloves/unathi
 	display_name = "gloves selection (Unathi)"
 	path = /obj/item/clothing/gloves/black/unathi
@@ -102,6 +102,14 @@
 	whitelisted = "Vaurca Worker"
 	sort_category = "Xenowear"
 
+/datum/gear/uniform/gearharness
+	display_name = "gear harness (Vaurca)"
+	path = /obj/item/clothing/under/gearharness
+	cost = 2
+	whitelisted = "Vaurca Worker"
+	sort_category = "Xenowear"
+
+
 //tajara items
 
 /datum/gear/gloves/tajara
@@ -128,7 +136,7 @@
 	path = /obj/item/clothing/suit/storage/tajaran
 	whitelisted = "Tajara"
 	sort_category = "Xenowear"
-	
+
 /datum/gear/suit/tajaran_labcoat
 	display_name = "PRA medical coat (Tajara)"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
