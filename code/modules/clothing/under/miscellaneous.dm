@@ -11,7 +11,7 @@
 	icon_state = "harness"
 	worn_state = "harness"
 	item_state = "w_suit"
-	species_restricted = null
+	species_restricted = list("Vaurca Worker, Vaurca Warrior, Diona, Industrial Frame, Baseline Frame")
 	sprite_sheets = list(
 		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
 		)
@@ -558,7 +558,7 @@
 	desc = "A Chinese dress that hugs the body. This one is purple, embroidered with plum blossoms."
 	icon_state = "cheongsampurple"
 	item_state = "cheongsampurple"
-	
+
 /obj/item/clothing/under/blazer
 	name = "blue blazer"
 	desc = "A bold but yet conservative outfit, red corduroys, navy blazer and a tie."
