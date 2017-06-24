@@ -103,7 +103,7 @@
 	sort_category = "Xenowear"
 
 /datum/gear/uniform/gearharness
-	display_name = "gear harness (Vaurca)"
+	display_name = "gear harness"
 	path = /obj/item/clothing/under/gearharness
 	cost = 2
 	whitelisted = "Vaurca Worker"
