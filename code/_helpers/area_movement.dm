@@ -17,10 +17,10 @@
 
 		if (T.x > xmax)
 			xmax = T.x
-		
+
 		if (T.x < xmin)
 			xmin = T.x
-		
+
 		if (T.y > ymax)
 			ymax = T.y
 
@@ -62,12 +62,12 @@
 			continue
 
 		var/turf/TT = ST.copy_turf(target_turfs[i])
-		
+
 		for (var/thing in ST)
 			var/atom/movable/AM = thing
 			AM.shuttle_move(TT)
 
-		ST.ChangeTurf(get_base_turf_by_area(ST))
+		ST.ChangeTurf(ST.baseturf)
 
 		if (istype(TT, /turf/simulated))
 			simulated_turfs += TT
@@ -106,7 +106,7 @@
 
 				T = target_turfs[idex]
 
-			baseturf = get_base_turf(T.z)
+			baseturf = T.baseturf
 
 	for (var/i = 1; i <= source_turfs.len; i++)
 		var/turf/ST = source_turfs[i]
@@ -115,7 +115,7 @@
 			continue
 
 		var/turf/TT = ST.copy_turf(TTi, ignore_air = TRUE)
-		
+
 		for (var/thing in ST)
 			var/atom/movable/AM = thing
 			var/atom/movable/copy = DuplicateObject(AM, 1)

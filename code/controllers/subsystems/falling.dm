@@ -8,7 +8,7 @@
 
 /datum/controller/subsystem/falling
 	name = "Falling"
-	flags = SS_NO_INIT | SS_TICKER | SS_KEEP_TIMING
+	flags = SS_NO_INIT
 	wait = 1
 
 	var/list/falling = list()

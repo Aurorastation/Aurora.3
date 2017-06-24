@@ -464,3 +464,7 @@ LOG_GELF_PORT 12201
 ## This determines how many VM identifiers must be spotted on a user before admins are warned about them joining.
 ## Leave at 0 or commented out to disable.
 # ACCESS_WARN_VMS 2
+
+
+# Enables fastboot - some features not essential to testing (like sunlight) will be disabled to speed up server boot. Should not be used on production servers.
+# FASTBOOT
