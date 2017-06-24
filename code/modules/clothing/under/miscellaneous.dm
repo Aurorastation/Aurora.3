@@ -11,7 +11,7 @@
 	icon_state = "harness"
 	worn_state = "harness"
 	item_state = "w_suit"
-	species_restricted = list("Vaurca Worker, Vaurca Warrior, Diona, Industrial Frame, Baseline Frame")
+	species_restricted = null
 	sprite_sheets = list(
 		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
 		)
