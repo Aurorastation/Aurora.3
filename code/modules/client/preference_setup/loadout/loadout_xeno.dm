@@ -106,7 +106,7 @@
 	display_name = "gear harness"
 	path = /obj/item/clothing/under/gearharness
 	cost = 2
-	whitelisted = "Vaurca Worker"
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Diona", "Industrial Frame", "Baseline Frame")
 	sort_category = "Xenowear"
 
 
