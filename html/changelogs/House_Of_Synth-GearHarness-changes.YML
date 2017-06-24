@@ -35,4 +35,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - tweak: "Removed the gear harness from the 'uniform and casual wear' section of the loadout and placed it in the 'xenowear' section of the loadout."
-  - tweak: "Restricted the gearharness to Vaurca, Diona, Industrial Frame and Baseline Frame."
+  - tweak: "Made it so that you cannot spawn with the gear harness unless the character in the slot is set to one of the following races: Diona, Vaurca, Baseline Frame and Industrial Frame."
