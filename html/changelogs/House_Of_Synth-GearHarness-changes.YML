@@ -34,6 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscdel: "Removed gear harness from the 'uniform and casual wear' section of the loadout."
-  - rscadd: "Placed the gear harness in the 'xenowear' section of the loadout."
+  - tweak: "Removed the gear harness from the 'uniform and casual wear' section of the loadout and placed it in the 'xenowear' section of the loadout."
   - tweak: "Restricted the gearharness to Vaurca, Diona, Industrial Frame and Baseline Frame."
