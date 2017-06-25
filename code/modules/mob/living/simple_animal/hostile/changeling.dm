@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/true_changeling
-	name = "abomination"
+	name = "shambling horror"
 	desc = "A monstrous creature, made of twisted flesh and bone."
 	speak_emote = list("says with one of its faces")
 	emote_hear = list("says with one of its faces")
