@@ -132,7 +132,7 @@
 	travel_direction_name = "up"
 	travel_direction = UP
 
-/obj/machinery/atmospherics/pipe/zpipe/up/initialize()
+/obj/machinery/atmospherics/pipe/zpipe/up/atmos_init()
 	normalize_dir()
 	var/node1_dir
 
@@ -175,7 +175,7 @@
 	travel_direction_name = "down"
 	travel_direction = DOWN
 
-/obj/machinery/atmospherics/pipe/zpipe/down/initialize()
+/obj/machinery/atmospherics/pipe/zpipe/down/atmos_init()
 	normalize_dir()
 	var/node1_dir
 
