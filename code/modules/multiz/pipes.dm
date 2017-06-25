@@ -2,8 +2,8 @@
 // parent class for pipes //
 ////////////////////////////
 /obj/machinery/atmospherics/pipe/zpipe
-	icon = 'icons/obj/structures.dmi'
 	icon_state = "up"
+	var/ptype	// What direction of pipe this is. Used for icons.
 
 	name = "upwards pipe"
 	desc = "A pipe segment to connect upwards."
@@ -29,6 +29,9 @@
 
 /obj/machinery/atmospherics/pipe/zpipe/New()
 	..()
+
+	icon = null
+
 	switch(dir)
 		if(SOUTH)
 			initialize_directions = SOUTH
@@ -46,6 +49,7 @@
 			initialize_directions = EAST
 		if(SOUTHWEST)
 			initialize_directions = SOUTH
+	
 
 /obj/machinery/atmospherics/pipe/zpipe/Entered(mob/living/M)
 	if(istype(M))
@@ -103,7 +107,21 @@
 	return list(node1, node2)
 
 /obj/machinery/atmospherics/pipe/zpipe/update_icon()
-	return
+	if (!check_icon_cache())
+		return
+
+	cut_overlays()
+
+	if(!node1 && !node2)
+		var/turf/T = get_turf(src)
+		new /obj/item/pipe(loc, make_from=src)
+		for (var/obj/machinery/meter/meter in T)
+			if (meter.target == src)
+				new /obj/item/pipe_meter(T)
+				qdel(meter)
+		qdel(src)
+	else
+		add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "[ptype][icon_connect_type]"))
 
 /obj/machinery/atmospherics/pipe/zpipe/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)
@@ -121,8 +139,8 @@
 // the elusive up pipe //
 /////////////////////////
 /obj/machinery/atmospherics/pipe/zpipe/up
-	icon = 'icons/obj/structures.dmi'
 	icon_state = "up"
+	ptype = "up"
 
 	name = "upwards pipe"
 	desc = "A pipe segment to connect upwards."
@@ -164,8 +182,8 @@
 ///////////////////////
 
 /obj/machinery/atmospherics/pipe/zpipe/down
-	icon = 'icons/obj/structures.dmi'
 	icon_state = "down"
+	ptype = "down"
 
 	name = "downwards pipe"
 	desc = "A pipe segment to connect downwards."
