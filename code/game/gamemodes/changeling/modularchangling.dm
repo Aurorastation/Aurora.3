@@ -192,6 +192,12 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 3
 	verbpath = /mob/proc/changeling_shield
 
+/datum/power/changeling/horror_form
+	name = "Horror Form"
+	desc = "We tear apart our human disguise, revealing our true form."
+	genomecost = 15
+	verbpath = /mob/proc/horror_form
+
 // Modularchangling, totally stolen from the new player panel.  YAYY
 /datum/changeling/proc/EvolutionMenu()//The new one
 	set category = "Changeling"

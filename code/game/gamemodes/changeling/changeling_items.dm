@@ -89,3 +89,14 @@
 			host.embedded -= src
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
+
+/obj/item/weapon/bone_dart
+	name = "bone dart"
+	desc = "A sharp piece of bone shapped as small dart."
+	icon = 'icons/obj/changeling.dmi'
+	icon_state = "bone_dart"
+	item_state = "bolt"
+	sharp = 1
+	edge = 0
+	throwforce = 5
+	w_class = 2
