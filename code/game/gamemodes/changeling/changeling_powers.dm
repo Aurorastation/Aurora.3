@@ -853,8 +853,12 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 /mob/proc/armblades()
 	set category = "Changeling"
-	set name = "Form Blades"
+	set name = "Form Blades (20)"
 	set desc="Rupture the flesh and mend the bone of your hand into a deadly blade."
+
+	var/datum/changeling/changeling = changeling_power(20,0,0)
+	if(!changeling)	return 0
+	src.mind.changeling.chem_charges -= 20
 
 	var/mob/living/M = src
 
@@ -873,8 +877,12 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 /mob/proc/changeling_shield()
 	set category = "Changeling"
-	set name = "Form Shield"
+	set name = "Form Shield (20)"
 	set desc="Bend the flesh and bone of your hand into a grotesque shield."
+
+	var/datum/changeling/changeling = changeling_power(20,0,0)
+	if(!changeling)	return 0
+	src.mind.changeling.chem_charges -= 20
 
 	var/mob/living/M = src
 
@@ -886,10 +894,60 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	shield.creator = M
 	M.put_in_hands(shield)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
-	src.visible_message("<span class='warning'>The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!</span>",
+	src.visible_message("<span class='danger'>The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!</span>",
 							"<span class='warning'>We inflate our hand into a robust shield.</span>",
 							"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	gibs(src.loc)
+
+/mob/proc/horror_form()
+	set category = "Changeling"
+	set name = "Horror Form (40)"
+	set desc = "Tear apart your human disguise, revealing your true form."
+
+	var/datum/changeling/changeling = changeling_power(40,0,0)
+	if(!changeling)	return 0
+	src.mind.changeling.chem_charges -= 40
+	
+	var/mob/living/M = src
+
+	M.visible_message("<span class='danger'>[src] writhes and contorts, their body expanding to inhuman proportions!</span>")
+	if(!do_after(src,60))
+		M.visible_message("<span class='warning'>[src]'s transformation abruptly reverts itself!</span>")
+		return 0
+
+	M.visible_message("<span class='danger'>[src] grows into an abomination and lets out an awful scream!</span>")
+
+	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))
+	
+	if(istype(M,/mob/living/carbon/human))
+		for(var/obj/item/I in M.contents)
+			if(istype(I,/obj/item/organ))
+				continue
+			M.drop_from_inventory(I)
+			
+	if(M.mind)
+		M.mind.transfer_to(ling)
+	else
+		ling.key = M.key
+	var/atom/movable/overlay/effect = new /atom/movable/overlay(get_turf(M))
+	effect.density = 0
+	effect.anchored = 1
+	effect.icon = 'icons/effects/effects.dmi'
+	effect.layer = 3
+	flick("summoning",effect)
+	spawn(10)
+		qdel(effect)
+	M.forceMove(ling) //move inside the new dude to hide him.
+	M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
+	spawn(3000) //around five minutes under this form
+		M.status_flags &= ~GODMODE //no more godmode.
+		if(ling.mind)
+			ling.mind.transfer_to(M)
+		else
+			M.key = ling.key
+		playsound(get_turf(M),'sound/effects/blobattack.ogg',50,1)
+		M.forceMove(get_turf(ling))
+		qdel(ling)
 
 //dna related datum
 
