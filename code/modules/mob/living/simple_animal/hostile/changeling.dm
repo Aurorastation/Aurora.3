@@ -48,6 +48,10 @@
 	..()
 	adjustBruteLoss(-10) //it will slowly heal brute damage, making fire/laser a stronger option
 	
+/mob/living/simple_animal/hostile/true_changeling/mind_initialize()
+	..()
+	mind.assigned_role = "Changeling"
+	
 /mob/living/simple_animal/hostile/true_changeling/death()
 	..()
 	visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
