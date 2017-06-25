@@ -9,6 +9,7 @@
 	icon_dead = "horror_dead"
 	stop_automated_movement = 1
 	universal_speak =1
+	universal_understand = 1
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
@@ -125,7 +126,7 @@
 
 	visible_message("<span class='warning'>\The [src]'s skin bulges and tears, launching a bone-dart at [target]!</span>")
 
-	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
 	var/obj/item/weapon/bone_dart/A = new /obj/item/weapon/bone_dart(usr.loc)
 	A.throw_at(target, 10, 20, user)
 	target.Weaken(5)
