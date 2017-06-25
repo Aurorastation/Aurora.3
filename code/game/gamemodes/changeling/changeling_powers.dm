@@ -184,10 +184,12 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 			if(2)
 				src << "<span class='notice'>We extend a proboscis.</span>"
 				src.visible_message("<span class='warning'>[src] extends a proboscis!</span>")
+				playsound(get_turf(src), 'sound/effects/lingextends.ogg', 50, 1)
 			if(3)
 				src << "<span class='notice'>We stab [T] with the proboscis.</span>"
 				src.visible_message("<span class='danger'>[src] stabs [T] with the proboscis!</span>")
 				T << "<span class='danger'>You feel a sharp stabbing pain!</span>"
+				playsound(get_turf(src), 'sound/effects/lingstabs.ogg', 50, 1)
 				var/obj/item/organ/external/affecting = T.get_organ(src.zone_sel.selecting)
 				if(affecting.take_damage(39,0,1,0,"large organic needle"))
 					T:UpdateDamageIcon()
@@ -201,6 +203,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	src << "<span class='notice'>We have absorbed [T]!</span>"
 	src.visible_message("<span class='danger'>[src] sucks the fluids from [T]!</span>")
 	T << "<span class='danger'>You have been absorbed by the changeling!</span>"
+	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
 	changeling.chem_charges += 10
 	changeling.geneticpoints += 2
@@ -869,7 +872,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	var/obj/item/weapon/melee/arm_blade/blade = new(M)
 	blade.creator = M
 	M.put_in_hands(blade)
-	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
+	playsound(loc, 'sound/weapons/bloodyslice.ogg', 30, 1)
 	src.visible_message("<span class='danger'>A grotesque blade forms around [M]\'s arm!</span>",
 							"<span class='danger'>Our arm twists and mutates, transforming it into a deadly blade.</span>",
 							"<span class='danger'>You hear organic matter ripping and tearing!</span>")
@@ -916,6 +919,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		return 0
 
 	M.visible_message("<span class='danger'>[src] grows into an abomination and lets out an awful scream!</span>")
+	playsound(loc, 'sound/effects/greaterling.ogg', 30, 1)
 
 	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))
 	
