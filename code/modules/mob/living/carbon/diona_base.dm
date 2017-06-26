@@ -116,15 +116,15 @@ var/list/diona_banned_languages = list(
 //Most medicines don't work on diona, but physical treatment for external wounds helps a little,
 //and some alternative things that are toxic to other life, such as radium and mutagen, will benefit diona
 /mob/living/carbon/proc/diona_handle_regeneration(var/datum/dionastats/DS)
-	if ((DS.stored_energy < 1 && !total_radiation))//we need energy or radiation to heal
-		return
+	if ((DS.stored_energy < 1 && !total_radiation)) //we need energy or radiation to heal
+		return FALSE
 
 	var/radiation = max(total_radiation, 0)
 
 
 	var/value //A little variable we'll reuse to optimise
-	var/CL//Cached loss, to save on repeatedly recalculating it
-	var/HF = DS.healing_factor//I don't know if fetching a variable from an object repeatedly is slow, but this seems safe
+	var/CL //Cached loss, to save on repeatedly recalculating it
+	var/HF = DS.healing_factor //I don't know if fetching a variable from an object repeatedly is slow, but this seems safe
 
 	//Diona only get halloss from running out of energy. If they have any, and yet we get this far,
 	//it means that they've just reached some light or radiation after almost dying.
@@ -223,30 +223,41 @@ var/list/diona_banned_languages = list(
 				adjustCloneLoss(value/-5)
 				DS.stored_energy -= value
 
-	var/mob/living/carbon/human/H
-	if (src.is_diona() == DIONA_WORKER)
-		H = src
-	else
+	if (src.is_diona() != DIONA_WORKER)
 		updatehealth()
-		return//If its a nymph then it doesnt go farther than this
+		return FALSE
 
+	// A little inter-proc communication.
+	// We need the continued radiation count for the sake of actually working.
+	return max(radiation, 0)
+
+// Continuation of the Diona regen proc, but for human specific actions.
+/mob/living/carbon/human/diona_handle_regeneration(var/datum/dionastats/DS)
+	. = ..()
+
+	// We cancel with regening organ, as it's meant to stop all other regenerative
+	// processes. Just pray to shit the timers don't implode.
+	if (!. || DS.regening_organ)
+		return FALSE
+
+	var/radiation = .
 
 	//Next up, healing any damage to internal organs.
 	//Diona really only have one critical organ, the light receptor node in the head.
-		//If badly damaged, the light receptor reduces the effectiveness of incoming light
-		//Nevertheless, we should still heal them all
+	//If badly damaged, the light receptor reduces the effectiveness of incoming light
+	//Nevertheless, we should still heal them all
 	if (life_tick % LIFETICK_INTERVAL_LESS == 0)
-
-		if (H.bad_internal_organs.len)
-			for (var/obj/item/organ/O in H.bad_internal_organs)
-				CL = O.damage
+		if (bad_internal_organs.len)
+			for (var/obj/item/organ/O in bad_internal_organs)
+				var/CL = O.damage
+				var/value
 				if (radiation > 0)
-					value = min(CL, radiation, 2*HF*LIFETICK_INTERVAL_LESS)
+					value = min(CL, radiation, 2 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
 					O.damage += value/-1.5
 					radiation -= value
 					CL = getCloneLoss()
 
-				value = min(CL, DS.stored_energy, 1*HF*LIFETICK_INTERVAL_LESS)
+				value = min(CL, DS.stored_energy, 1 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
 				O.damage += value/-3
 				DS.stored_energy -= value
 
@@ -255,7 +266,7 @@ var/list/diona_banned_languages = list(
 			//Survival of the collective is prioritised over individual members
 				//And healing nymphs can suck up a lot of energy, which the gestalt may need
 			if (DS.stored_energy > (0.75 * DS.max_energy))
-				for (var/mob/living/carbon/alien/diona/D in H.bad_internal_organs)
+				for (var/mob/living/carbon/alien/diona/D in bad_internal_organs)
 					if (!D.stat != DEAD)
 						D.diona_handle_regeneration(DS)
 						//IF a nymph inside the gestalt is damaged, we trigger its own regeneration function
@@ -270,7 +281,7 @@ var/list/diona_banned_languages = list(
 		for (var/i in species.has_limbs)
 			path = species.has_limbs[i]["path"]
 			var/limb_exists = 0
-			for (var/obj/item/organ/external/B in H.organs)
+			for (var/obj/item/organ/external/B in organs)
 				if (B.type == path)
 					limb_exists = 1
 					break
@@ -285,24 +296,17 @@ var/list/diona_banned_languages = list(
 			if (DS.stored_energy < REGROW_ENERGY_REQ)
 				src << "<span class='danger'>You try to regrow a lost limb, but you lack the energy. Find more light!</span>"
 				return
-			if (H.nutrition < REGROW_FOOD_REQ)
+			if (nutrition < REGROW_FOOD_REQ)
 				src << "<span class='danger'>You try to regrow a lost limb, but you lack the biomass. Find some food!</span>"
 				return
 			DS.stored_energy -= REGROW_ENERGY_REQ
-			H.nutrition -= REGROW_FOOD_REQ
+			nutrition -= REGROW_FOOD_REQ
 			playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
-			src.visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
-			"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
-			sleep(52)
-			var/obj/item/organ/O = new path(H)
-			src.visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [H.name]'s trunk, forming a new [O.name]</span>","<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [O.name]</span>")
-			var/datum/reagents/vessel = get_vessel(0)
-			var/datum/reagent/B = vessel.get_master_reagent()
-			B.touch_turf(get_turf(src))
-			H.regenerate_icons()
-			DS.LMS = min(2, DS.LMS)//Prevents a message about darkness in light areas
-			H.update_dionastats()//Re-find the organs in case they were lost or regained
-			updatehealth()
+			visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
+				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
+
+			DS.regening_organ = TRUE
+			addtimer(CALLBACK(src, .proc/diona_regen_callback, path), 52)
 			return
 
 
@@ -310,7 +314,7 @@ var/list/diona_banned_languages = list(
 		for (var/i in species.has_organ)
 			path = species.has_organ[i]
 			var/organ_exists = 0
-			for (var/obj/item/organ/diona/B in H.internal_organs)
+			for (var/obj/item/organ/diona/B in internal_organs)
 				if (B.type == path)
 					organ_exists = 1
 					break
@@ -325,26 +329,26 @@ var/list/diona_banned_languages = list(
 				src << "<span class='danger'>You try to regrow a lost organ, but you lack the energy. Find more light!</span>"
 				return
 
-			if (H.nutrition < REGROW_FOOD_REQ)
+			if (nutrition < REGROW_FOOD_REQ)
 				src << "<span class='danger'>You try to regrow a lost organ, but you lack the biomass. Find some food!</span>"
 				return
 
 			DS.stored_energy -= REGROW_ENERGY_REQ
-			H.nutrition -= REGROW_FOOD_REQ
-			var/obj/item/organ/O = new path(H)
-			H.internal_organs_by_name[O.organ_tag] = O
-			H.internal_organs.Add(O)
+			nutrition -= REGROW_FOOD_REQ
+			var/obj/item/organ/O = new path(src)
+			internal_organs_by_name[O.organ_tag] = O
+			internal_organs.Add(O)
 			src << "<span class='danger'>You feel a shifting sensation inside you as your nymphs move apart to make space, forming a new [O.name]</span>"
-			H.regenerate_icons()
+			regenerate_icons()
 			DS.LMS = max(2, DS.LMS)//Prevents a message about darkness in light areas
-			H.update_dionastats()//Re-find the organs in case they were lost or regained
+			update_dionastats()//Re-find the organs in case they were lost or regained
 			updatehealth()
 			return
 
-		if (DS.stored_energy < REGROW_ENERGY_REQ || H.nutrition < REGROW_FOOD_REQ)
+		if (DS.stored_energy < REGROW_ENERGY_REQ || nutrition < REGROW_FOOD_REQ)
 			return
 
-		for (var/mob/living/carbon/alien/diona/D in H.bad_internal_organs)
+		for (var/mob/living/carbon/alien/diona/D in bad_internal_organs)
 			if (D.stat == DEAD || D.health <= 0)
 				D.health = 1
 				D.stat = CONSCIOUS
@@ -354,11 +358,29 @@ var/list/diona_banned_languages = list(
 				//Only one per proc
 
 		//If we have less than six nymphs, we add one each proc
-		if (H.topup_nymphs(1))
+		if (topup_nymphs(1))
 			DS.stored_energy -= REGROW_ENERGY_REQ
-			H.nutrition -= REGROW_FOOD_REQ
+			nutrition -= REGROW_FOOD_REQ
 			src << "<span class='danger'>You feel a stirring inside you as a new nymph is born within your trunk!</span>"
 
+	updatehealth()
+
+/mob/living/carbon/human/proc/diona_regen_callback(organ_path, /datum/dionastats/DS)
+	if (!organ_path || !DS || DS.regening_organ)
+		return
+
+	var/obj/item/organ/O = new organ_path(src)
+	visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [O]</span>",
+		"<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [O]</span>")
+	var/datum/reagents/vessel = get_vessel(0)
+	var/datum/reagent/B = vessel.get_master_reagent()
+	B.touch_turf(get_turf(src))
+	regenerate_icons()
+
+	DS.LMS = min(2, DS.LMS)//Prevents a message about darkness in light areas
+	DS.regening_organ = FALSE
+
+	update_dionastats()//Re-find the organs in case they were lost or regained
 	updatehealth()
 
 //MESSAGE FUNCTIONS
@@ -491,15 +513,18 @@ var/list/diona_banned_languages = list(
 //It's used to store information which are relevant to both types of diona, to save on adding variables to carbon
 //Most of these values are calculated from information configured at authortime in either diona_nymph.dm or diona_gestalt.dm
 /datum/dionastats
-	var/max_energy//how much energy the diona can store. will determine how long its energy lasts in darkness
-	var/stored_energy//how much is currently stored
+	var/max_energy //how much energy the diona can store. will determine how long its energy lasts in darkness
+	var/stored_energy //how much is currently stored
 	var/EP//Energy percentage.
-	var/trauma_factor//Multiplied with severity to determine how much damage the diona takes in darkness
-	var/pain_factor//Multiplied with severity to determine how much pain the diona takes in darkness
+	var/trauma_factor //Multiplied with severity to determine how much damage the diona takes in darkness
+	var/pain_factor //Multiplied with severity to determine how much pain the diona takes in darkness
 	var/max_health = 100
-	var/healing_factor = 1.0//A multiplier that changes with body temperature
+	var/healing_factor = 1.0 //A multiplier that changes with body temperature
 	var/atom/last_location = null
 	var/last_lightlevel = 0
+
+	var/regening_organ = FALSE // Tracking whether or not an organ is currently
+                               // being regenreated.
 
 	var/restrictedlight_factor = 0.8//A value between 0 and 1 that determines how much we nerf the strength of certain worn lights
 		//1 means flashlights work normally., 0 means they do nothing
