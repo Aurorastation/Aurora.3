@@ -910,7 +910,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	var/datum/changeling/changeling = changeling_power(40,0,0)
 	if(!changeling)	return 0
 	src.mind.changeling.chem_charges -= 40
-	
+
 	var/mob/living/M = src
 
 	M.visible_message("<span class='danger'>[src] writhes and contorts, their body expanding to inhuman proportions!</span>")
@@ -919,16 +919,16 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		return 0
 
 	M.visible_message("<span class='danger'>[src] grows into an abomination and lets out an awful scream!</span>")
-	playsound(loc, 'sound/effects/greaterling.ogg', 30, 1)
+	playsound(loc, 'sound/effects/greaterling.ogg', 100, 1)
 
 	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))
-	
+
 	if(istype(M,/mob/living/carbon/human))
 		for(var/obj/item/I in M.contents)
 			if(istype(I,/obj/item/organ))
 				continue
 			M.drop_from_inventory(I)
-			
+
 	if(M.mind)
 		M.mind.transfer_to(ling)
 	else
@@ -942,15 +942,17 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	QDEL_IN(effect, 10)
 	M.forceMove(ling) //move inside the new dude to hide him.
 	M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
-	spawn(6000) //around ten minutes under this form
-		M.status_flags &= ~GODMODE //no more godmode.
-		if(ling.mind)
-			ling.mind.transfer_to(M)
-		else
-			M.key = ling.key
-		playsound(get_turf(M),'sound/effects/blobattack.ogg',50,1)
-		M.forceMove(get_turf(ling))
-		qdel(ling)
+	addtimer(CALLBACK(src, .proc/revert_horror_form,ling), 10 MINUTES)
+
+/mob/proc/revert_horror_form(var/mob/living/ling)
+	src.status_flags &= ~GODMODE //no more godmode.
+	if(ling.mind)
+		ling.mind.transfer_to(src)
+	else
+		src.key = ling.key
+	playsound(get_turf(src),'sound/effects/blobattack.ogg',50,1)
+	src.forceMove(get_turf(ling))
+	qdel(ling)
 
 //dna related datum
 
