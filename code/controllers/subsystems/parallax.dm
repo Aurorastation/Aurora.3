@@ -7,9 +7,7 @@ var/datum/controller/subsystem/parallax/SSparallax
 	init_order = SS_INIT_PARALLAX
 	flags = SS_NO_FIRE
 
-	var/list/parallax_on_clients = list()
 	var/list/parallax_icon[(GRID_WIDTH**2)*3]
-	var/space_color = "#050505"
 	var/parallax_initialized = 0
 
 /datum/controller/subsystem/parallax/New()
@@ -18,8 +16,5 @@ var/datum/controller/subsystem/parallax/SSparallax
 /datum/controller/subsystem/parallax/Initialize(timeofday)
 	create_global_parallax_icons()
 	..(timeofday, TRUE)
-
-/datum/controller/subsystem/parallax/stat_entry()
-	..("C:[parallax_on_clients.len]")
 
 #undef GRID_WIDTH

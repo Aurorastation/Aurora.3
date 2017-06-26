@@ -53,9 +53,9 @@
 	if (frequency)
 		set_frequency(frequency)
 	
-	initialize()
+	atmos_init()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/initialize()
+/obj/machinery/atmospherics/unary/vent_scrubber/atmos_init()
 	..()
 	broadcast_status()
 
