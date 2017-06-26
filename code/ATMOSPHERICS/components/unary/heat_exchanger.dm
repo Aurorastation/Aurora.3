@@ -30,7 +30,7 @@
 
 		..()
 
-	process()
+	machinery_process()
 		..()
 		if(QDELETED(partner))
 			return 0

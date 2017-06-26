@@ -50,7 +50,7 @@
 
 		return ..()
 
-	process()
+	machinery_process()
 		..()
 		if(anchored && !(stat&BROKEN))
 			kin_energy *= 1 - kin_loss
@@ -246,7 +246,7 @@
 			if (turbine.stat & (BROKEN) || !turbine.anchored || turn(turbine.dir,180) != dir)
 				turbine = null
 
-	process()
+	machinery_process()
 		updateConnection()
 		if(!turbine || !anchored || stat & (BROKEN))
 			return
