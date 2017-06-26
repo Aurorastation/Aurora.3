@@ -913,19 +913,21 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 	var/mob/living/M = src
 
-	M.visible_message("<span class='danger'>[src] writhes and contorts, their body expanding to inhuman proportions!</span>")
+	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inhuman proportions!</span>", \
+						"<span class='danger'>We begin our transformation to our true form!</span>")
 	if(!do_after(src,60))
-		M.visible_message("<span class='warning'>[src]'s transformation abruptly reverts itself!</span>")
+		M.visible_message("<span class='danger'>[M]'s transformation abruptly reverts itself!</span>", \
+							"<span class='danger'>Our transformation has been interrupted!</span>")
 		return 0
 
-	M.visible_message("<span class='danger'>[src] grows into an abomination and lets out an awful scream!</span>")
+	M.visible_message("<span class='danger'>[M] grows into an abomination and lets out an awful scream!</span>")
 	playsound(loc, 'sound/effects/greaterling.ogg', 100, 1)
 
 	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))
 
 	if(istype(M,/mob/living/carbon/human))
 		for(var/obj/item/I in M.contents)
-			if(istype(I,/obj/item/organ))
+			if(isorgan(I))
 				continue
 			M.drop_from_inventory(I)
 
@@ -945,6 +947,8 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	addtimer(CALLBACK(src, .proc/revert_horror_form,ling), 10 MINUTES)
 
 /mob/proc/revert_horror_form(var/mob/living/ling)
+	if(QDELETED(ling))
+		return
 	src.status_flags &= ~GODMODE //no more godmode.
 	if(ling.mind)
 		ling.mind.transfer_to(src)
