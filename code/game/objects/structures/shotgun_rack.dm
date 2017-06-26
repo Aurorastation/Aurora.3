@@ -13,10 +13,10 @@
 		return
 	if(istype(O, /obj/item/weapon/gun/projectile/shotgun) && O.w_class != 3) //w_class check is to stop people from placing a sawn off shotgun here
 		if(!rack_shotgun)
-			user.remove_from_mob(O)
-			contents += O
+			user.unEquip(O)
+			O.forceMove(src)
 			rack_shotgun = O
-			user << "<span class='notice'>You place \the [O] in [src].</span>"
+			user << "<span class='notice'>You place \the [O] in \the [src].</span>"
 			icon_state = "shotgun_rack_[O.icon_state]"
 
 /obj/structure/shotgun_rack/attack_hand(mob/user)
