@@ -169,3 +169,4 @@ var/last_chew = 0
 	icon_state = "ziptie"
 	breakouttime = 600
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
+	elastic = 1
