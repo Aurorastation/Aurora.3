@@ -34,13 +34,13 @@
 
 /datum/category_group/player_setup_category/global_preferences
 	name = "Global"
-	sort_order = 5
+	sort_order = 6
 	category_item_type = /datum/category_item/player_setup_item/player_global
 	sql_role = SQL_PREFERENCES
 
 /datum/category_group/player_setup_category/other_preferences
 	name = "Other"
-	sort_order = 6
+	sort_order = 7
 	category_item_type = /datum/category_item/player_setup_item/other
 
 /****************************
@@ -55,6 +55,14 @@
 	src.preferences = preferences
 	..()
 	selected_category = categories[1]
+	log_debug("Category order: [json_encode(categories)]")
+
+	var/test_msg = ""
+
+	for(var/datum/category_group/player_setup_category/PS in categories)
+		test_msg += "[PS.sort_order]->"
+
+	testing(test_msg)
 
 /datum/category_collection/player_setup_collection/Destroy()
 	preferences = null
@@ -122,6 +130,15 @@
 	var/sql_role = SQL_CHARACTER
 	var/modified = 0
 
+/datum/category_group/player_setup_category/New()
+	. = ..()
+
+	var/test_msg = "1"
+	for(var/datum/category_item/player_setup_item/PI in items)
+		test_msg += "[PI.sort_order]->"
+
+	testing(test_msg)
+
 /datum/category_group/player_setup_category/proc/sanitize_setup()
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_preferences()
@@ -150,11 +167,10 @@
 	if (!config.sql_saves || !establish_db_connection(dbcon))
 		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.save_character(S)
-	else
-		if (modified)
-			// No save here, because this is only called from the menu and needs to save /everything/.
-			handle_sql_saving(SQL_CHARACTER)
-			modified = 0
+	else if (modified)
+		// No save here, because this is only called from the menu and needs to save /everything/.
+		handle_sql_saving(SQL_CHARACTER)
+		modified = 0
 
 /datum/category_group/player_setup_category/proc/load_preferences(var/savefile/S)
 	if (!config.sql_saves || !establish_db_connection(dbcon))

@@ -210,9 +210,12 @@
 	log_debug("SQL CHARACTER SAVE: Started saving with arguments: [json_encode(arg_list)]. Role type: [role_type]")
 #endif
 
+	log_debug("Query cache: [json_encode(query_cache)]")
+
 	// Typecast the collection so we can access its preferences var.
 	var/datum/category_collection/player_setup_collection/cc = collection
 	for (var/query_text in query_cache[type])
+		log_debug("Saving type: [type]")
 		var/DBQuery/query = dbcon.NewQuery(query_text)
 		query.Execute(arg_list)
 
