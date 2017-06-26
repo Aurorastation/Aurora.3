@@ -51,11 +51,12 @@
 	..()
 	mind.assigned_role = "Changeling"
 	
-/mob/living/simple_animal/hostile/true_changeling/death(Gibbed = FALSE)
+/mob/living/simple_animal/hostile/true_changeling/death()
 	..()
 	visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
 	playsound(loc, 'sound/effects/creepyshriek.ogg', 30, 1)
-	gibs(src.loc)
+	if(!gibbed)
+		gibs(src.loc)
 	qdel(src)
 	return
 
