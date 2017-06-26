@@ -1,8 +1,7 @@
 /mob/living/simple_animal/hostile/true_changeling
 	name = "shambling horror"
 	desc = "A monstrous creature, made of twisted flesh and bone."
-	speak_emote = list("says with one of its faces")
-	emote_hear = list("says with one of its faces")
+	speak_emote = list("gibbers")
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "horror"
 	icon_living = "horror"
@@ -52,7 +51,7 @@
 	..()
 	mind.assigned_role = "Changeling"
 	
-/mob/living/simple_animal/hostile/true_changeling/death()
+/mob/living/simple_animal/hostile/true_changeling/death(Gibbed = FALSE)
 	..()
 	visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
 	playsound(loc, 'sound/effects/creepyshriek.ogg', 30, 1)
@@ -133,6 +132,4 @@
 	playsound(src.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
 	var/obj/item/weapon/bone_dart/A = new /obj/item/weapon/bone_dart(usr.loc)
 	A.throw_at(target, 10, 20, user)
-	target.Weaken(5)
-	msg_admin_attack("[key_name_admin(src)] launched a bone dart at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
-
+	add_logs(src, target, "launched a bone dart at")
