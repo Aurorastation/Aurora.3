@@ -943,7 +943,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		qdel(effect)
 	M.forceMove(ling) //move inside the new dude to hide him.
 	M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
-	spawn(3000) //around five minutes under this form
+	spawn(6000) //around ten minutes under this form
 		M.status_flags &= ~GODMODE //no more godmode.
 		if(ling.mind)
 			ling.mind.transfer_to(M)
