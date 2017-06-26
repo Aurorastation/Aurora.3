@@ -33,7 +33,7 @@
 		beaker.loc = get_step(loc, SOUTH) //Beaker is carefully ejected from the wreckage of the cryotube
 	return ..()
 
-/obj/machinery/atmospherics/unary/cryo_cell/initialize()
+/obj/machinery/atmospherics/unary/cryo_cell/atmos_init()
 	if(node) return
 	var/node_connect = dir
 	for(var/obj/machinery/atmospherics/target in get_step(src,node_connect))
