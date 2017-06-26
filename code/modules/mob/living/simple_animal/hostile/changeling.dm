@@ -53,12 +53,12 @@
 	
 /mob/living/simple_animal/hostile/true_changeling/death()
 	..()
-	visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
-	playsound(loc, 'sound/effects/creepyshriek.ogg', 30, 1)
 	if(!gibbed)
+		visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
+		playsound(loc, 'sound/effects/creepyshriek.ogg', 30, 1)
 		gibs(src.loc)
-	qdel(src)
-	return
+		qdel(src)
+		return
 
 /mob/living/simple_animal/hostile/true_changeling/verb/ling_devour(mob/living/target as mob in oview())
 	set category = "Changeling"
