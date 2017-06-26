@@ -939,8 +939,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	effect.icon = 'icons/effects/effects.dmi'
 	effect.layer = 3
 	flick("summoning",effect)
-	spawn(10)
-		qdel(effect)
+	QDEL_IN(effect, 10)
 	M.forceMove(ling) //move inside the new dude to hide him.
 	M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
 	spawn(6000) //around ten minutes under this form
