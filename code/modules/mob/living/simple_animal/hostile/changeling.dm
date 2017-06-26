@@ -51,7 +51,7 @@
 	..()
 	mind.assigned_role = "Changeling"
 	
-/mob/living/simple_animal/hostile/true_changeling/death()
+/mob/living/simple_animal/hostile/true_changeling/death(gibbed)
 	..()
 	if(!gibbed)
 		visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
