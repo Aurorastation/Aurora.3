@@ -67,52 +67,49 @@
 
 	if(!Adjacent(target))
 		return
-		
+
 	if(target.isSynthetic())
 		return
-		
-	var/mob/living/simple_animal/hostile/true_changeling/M = usr
-	
-	if(M.is_devouring)
-		usr << "<span class='warning'>We are already feasting on something!</span>"
+
+	if(src.is_devouring)
+		src << "<span class='warning'>We are already feasting on something!</span>"
 		return 0
 
 	if(!health)
-		usr << "<span class='notice'>We are dead, we cannot use any abilities!</span>"
+		src << "<span class='notice'>We are dead, we cannot use any abilities!</span>"
 		return
 
 	if(last_special > world.time)
-		usr << "<span class='warning'>We must wait a little while before we can use this ability again!</span>"
+		src << "<span class='warning'>We must wait a little while before we can use this ability again!</span>"
 		return
 
-	M.visible_message("<span class='warning'>[M] begins ripping apart and feasting on [target]!</span>")
-	M.is_devouring = TRUE
-					
+	src.visible_message("<span class='warning'>[src] begins ripping apart and feasting on [target]!</span>")
+	src.is_devouring = TRUE
+
 	target.adjustBruteLoss(35)
 
-	if(!do_after(M,150))
-		M<< "<span class='warning'>You need to wait longer to devour \the [target]!</span>"
-		M.is_devouring = FALSE
-		return 0
-		
-	M.visible_message("<span class='warning'>[M] tears a chunk from \the [target]'s flesh!</span>")
-	
-	target.adjustBruteLoss(35)
-		
-	if(!do_after(M,150))
-		M<< "<span class='warning'>You need to wait longer to devour \the [target]!</span>"
-		M.is_devouring = FALSE
+	if(!do_after(src,150))
+		src<< "<span class='warning'>You need to wait longer to devour \the [target]!</span>"
+		src.is_devouring = FALSE
 		return 0
 
-	M.visible_message("<span class='warning'>[target] is completely devoured by [M]!</span>", \
+	src.visible_message("<span class='warning'>[src] tears a chunk from \the [target]'s flesh!</span>")
+
+	target.adjustBruteLoss(35)
+
+	if(!do_after(src,150))
+		src<< "<span class='warning'>You need to wait longer to devour \the [target]!</span>"
+		src.is_devouring = FALSE
+		return 0
+
+	src.visible_message("<span class='warning'>[target] is completely devoured by [src]!</span>", \
 						"<span class='danger'>You completely devour \the [target]!</span>")
 	target.gib()
 	rejuvenate()
 	updatehealth()
 	last_special = world.time + 100
-	M.is_devouring = FALSE
+	src.is_devouring = FALSE
 	return
-	
 	
 /mob/living/simple_animal/hostile/true_changeling/verb/dart(mob/living/target as mob in oview())
 	set name = "Launch Bone Dart"
