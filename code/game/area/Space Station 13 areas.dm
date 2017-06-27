@@ -1540,6 +1540,7 @@ area/space/atmosalert()
 /area/security/nuke_storage
 	name = "\improper Vault"
 	icon_state = "nuke_storage"
+	holomap_color = null
 
 /area/security/nuke_storage/holomapAlwaysDraw()
 	return FALSE

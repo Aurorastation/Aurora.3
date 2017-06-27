@@ -50,8 +50,7 @@
 	holomap_datum.initialize_holomap(T, reinit = TRUE)
 
 	small_station_map = image(SSminimap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"], dir = dir)
-	// small_station_map.plane = LIGHTING_PLANE // Not until we do planes ~Leshana
-	// small_station_map.layer = LIGHTING_LAYER+1 // Weird things will happen!
+	small_station_map.layer = LIGHTING_LAYER + 0.1
 
 	floor_markings = image('icons/obj/machines/stationmap.dmi', "decal_station_map")
 	floor_markings.dir = src.dir

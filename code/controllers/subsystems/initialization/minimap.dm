@@ -23,7 +23,6 @@
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_HOLOMAP
 
-	var/list/holomaps_initialized = FALSE
 	var/list/holo_minimaps = list()
 	var/list/extra_minimaps = list()
 	var/list/station_holomaps = list()
