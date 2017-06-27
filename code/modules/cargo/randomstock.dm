@@ -296,6 +296,7 @@ var/list/global/random_stock_large = list(
 		/mob/living/simple_animal/hostile/shantak = 0.7,
 		/mob/living/simple_animal/hostile/bear = 0.5,
 		/mob/living/simple_animal/hostile/carp = 1.5,
+		/mob/living/simple_animal/hostile/carp/russian = 0.3,
 		"cratey" = 1
 	)
 
