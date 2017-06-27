@@ -18,7 +18,7 @@
 
 		return
 
-	initialize()
+	atmos_init()
 		if(!partner)
 			var/partner_connect = turn(dir,180)
 
@@ -30,7 +30,7 @@
 
 		..()
 
-	process()
+	machinery_process()
 		..()
 		if(QDELETED(partner))
 			return 0

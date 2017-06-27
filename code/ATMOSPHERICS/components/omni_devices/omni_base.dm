@@ -242,7 +242,7 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/omni/initialize()
+/obj/machinery/atmospherics/omni/atmos_init()
 	for(var/datum/omni_port/P in ports)
 		if(P.node || P.mode == 0)
 			continue

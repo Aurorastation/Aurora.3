@@ -49,15 +49,15 @@
 	if(!stat && !resting && !buckled)
 		if(prob(1))
 			visible_emote(pick("dances around","chases their tail"),0)
-			spawn(0)
-				for(var/i in list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
-					set_dir(i)
-					sleep(1)
+			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
 
+/mob/living/simple_animal/corgi/proc/do_dance(list/directions = list())
+	for(var/i in directions)
+		set_dir(i)
+		sleep(1)
 
 /mob/living/simple_animal/corgi/beg(var/atom/thing, var/atom/holder)
 	visible_emote("stares at the [thing] that [holder] has with sad puppy eyes.",0)
-
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/corgi
 	name = "Corgi meat"
@@ -74,10 +74,7 @@
 					foodtarget = 0
 					stop_automated_movement = 0
 					turns_since_scan = 0
-			spawn(0)
-				for(var/i in list(1,2,4,8,4,2,1,2))
-					set_dir(i)
-					sleep(1)
+			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2))
 	else
 		..()
 
@@ -168,7 +165,4 @@
 
 		if(prob(1))
 			visible_emote(pick("dances around","chases her tail"),0)
-			spawn(0)
-				for(var/i in list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
-					set_dir(i)
-					sleep(1)
+			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))

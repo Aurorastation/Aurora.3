@@ -18,7 +18,7 @@
 			icon_state = "exposed"
 		return
 
-	process()
+	machinery_process()
 		..()
 
 		var/datum/gas_mixture/environment = loc.return_air()
