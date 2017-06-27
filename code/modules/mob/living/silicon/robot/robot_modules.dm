@@ -559,8 +559,7 @@ var/global/list/robot_modules = list(
 					LANGUAGE_SIIK_MAAS = 1,
 					LANGUAGE_SKRELLIAN = 1,
 					LANGUAGE_GUTTER = 1,
-					LANGUAGE_ROOTSONG = 1,
-					LANGUAGE_SIIK_TAJR = 1
+					LANGUAGE_ROOTSONG = 1
 					)
 
 	sprites = list(	"Waitress" = "Service",
@@ -717,8 +716,7 @@ var/global/list/robot_modules = list(
 					LANGUAGE_SIIK_MAAS = 1,
 					LANGUAGE_SKRELLIAN = 1,
 					LANGUAGE_GUTTER = 1,
-					LANGUAGE_ROOTSONG = 1,
-					LANGUAGE_SIIK_TAJR = 1
+					LANGUAGE_ROOTSONG = 1
 					)
 
 	sprites = list(
