@@ -53,7 +53,7 @@
 	var/effective_pressure = 3000
 	var/datum/ship_engine/thermal/controller
 
-/obj/machinery/atmospherics/unary/engine/initialize()
+/obj/machinery/atmospherics/unary/engine/atmos_init()
 	. = ..()
 	controller = new(src)
 

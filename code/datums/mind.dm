@@ -560,3 +560,7 @@
 	..()
 	mind.assigned_role = "Syndicate Robot"
 	mind.special_role = "Mercenary"
+
+/mob/living/simple_animal/hostile/faithless/wizard/mind_initialize()
+	..()
+	mind.assigned_role = "Space Wizard"

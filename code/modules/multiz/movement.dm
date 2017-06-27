@@ -36,7 +36,7 @@
 		return eyeobj.zMove(direction)
 
 	// Check if we can actually travel a Z-level.
-	if (!can_ztravel())
+	if (!can_ztravel(direction))
 		to_chat(src, "<span class='warning'>You lack means of travel in that direction.</span>")
 		return FALSE
 
@@ -72,6 +72,14 @@
 	// Actually move.
 	Move(destination)
 	return TRUE
+	
+/mob/living/zMove(direction)
+	if (is_ventcrawling)
+		var/obj/machinery/atmospherics/pipe/zpipe/P = loc
+		if (istype(P) && P.can_z_crawl(src, direction))
+			return P.handle_z_crawl(src, direction)
+
+	return ..()
 
 /mob/eye/zMove(direction)
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
@@ -102,13 +110,13 @@
  * @return	TRUE if the mob can move a Z-level of its own volition.
  *			FALSE otherwise.
  */
-/mob/proc/can_ztravel()
+/mob/proc/can_ztravel(var/direction)
 	return FALSE
 
-/mob/dead/observer/can_ztravel()
+/mob/dead/observer/can_ztravel(var/direction)
 	return TRUE
 
-/mob/living/carbon/human/can_ztravel()
+/mob/living/carbon/human/can_ztravel(var/direction)
 	if(incapacitated())
 		return FALSE
 
@@ -120,7 +128,7 @@
 			if(T.density)
 				return TRUE
 
-/mob/living/silicon/robot/can_ztravel()
+/mob/living/silicon/robot/can_ztravel(var/direction)
 	if(incapacitated() || is_dead())
 		return FALSE
 

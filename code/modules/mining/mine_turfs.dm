@@ -716,7 +716,6 @@
 	if(prob(25) && has_resources)
 		var/list/ore = list()
 		for(var/metal in resources)
-
 			switch(metal)
 				if("silicates")
 					ore += /obj/item/weapon/ore/glass
@@ -753,9 +752,10 @@
 								ore += /obj/item/weapon/ore/glass
 					else
 						ore += /obj/item/weapon/ore/glass
-		var/ore_path = pick(ore)
-		if(ore)
-			new ore_path(src)
+		if (ore.len)
+			var/ore_path = pick(ore)
+			if(ore)
+				new ore_path(src)
 
 	if(dug <= 10)
 		dug += 1
