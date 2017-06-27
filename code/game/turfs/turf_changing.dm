@@ -2,7 +2,7 @@
 	var/tmp/changing_turf
 
 /turf/proc/ReplaceWithLattice()
-	src.ChangeTurf(get_base_turf_by_area(src))
+	src.ChangeTurf(baseturf)
 	spawn()
 		new /obj/structure/lattice( locate(src.x, src.y, src.z) )
 
@@ -61,7 +61,8 @@
 
 	SSair.mark_for_update(src) //handle the addition of the new turf.
 
-	W.baseturf = old_baseturf
+	if(!W.baseturf)
+		W.baseturf = old_baseturf
 
 	W.post_change()
 

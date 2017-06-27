@@ -90,7 +90,6 @@
 /datum/hud/proc/update_parallax()
 	var/client/C = mymob.client
 	if(C.prefs.parallax_togs & PARALLAX_SPACE)
-		SSparallax.parallax_on_clients |= C
 		for(var/obj/screen/parallax/bgobj in C.parallax)
 			C.screen |= bgobj
 		C.screen |= C.parallax_master
@@ -106,7 +105,6 @@
 	else
 		for(var/obj/screen/parallax/bgobj in C.parallax)
 			C.screen -= bgobj
-		SSparallax.parallax_on_clients -= C
 		C.screen -= C.parallax_master
 		C.screen -= C.parallax_spacemaster
 		C.parallax_dustmaster.color = list(0,0,0,0)

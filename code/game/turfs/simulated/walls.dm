@@ -160,7 +160,7 @@
 /turf/simulated/wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product, var/no_change = FALSE)
 	if (!no_change)	// No change is TRUE when this is called by destroy.
 		playsound(src, 'sound/items/Welder.ogg', 100, 1)
-		
+
 	if(!no_product)
 		if(reinf_material)
 			reinf_material.place_dismantled_girder(src, reinf_material)
@@ -186,7 +186,7 @@
 /turf/simulated/wall/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			src.ChangeTurf(get_base_turf(src.z))
+			src.ChangeTurf(baseturf)
 			return
 		if(2.0)
 			if(prob(75))

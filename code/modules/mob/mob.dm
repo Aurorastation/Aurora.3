@@ -751,6 +751,8 @@
 				stat("CPU:", world.cpu)
 				stat("Tick Usage:", world.tick_usage)
 				stat("Instances:", world.contents.len)
+				if (config.fastboot)
+					stat(null, "FASTBOOT ENABLED")
 				if(Master)
 					Master.stat_entry()
 				else
@@ -1167,6 +1169,18 @@ mob/proc/yank_out_object()
 			return ..(facing_dir)
 	else
 		return ..()
+
+/mob/forceMove(atom/dest)
+	var/atom/movable/AM
+	if (dest != loc && istype(dest, /atom/movable))
+		AM = dest
+		LAZYADD(AM.contained_mobs, src)
+	
+	if (istype(loc, /atom/movable))
+		AM = loc
+		LAZYREMOVE(AM.contained_mobs, src)
+	
+	. = ..()
 
 /mob/verb/northfaceperm()
 	set hidden = 1

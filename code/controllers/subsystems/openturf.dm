@@ -182,7 +182,7 @@
 			OO.layer = 1e6
 
 		if (OO.bound_overlay)	// If we have a bound overlay, queue it too.
-			OO.update_oo()
+			OO.update_above()
 
 		if (no_mc_tick)
 			CHECK_TICK

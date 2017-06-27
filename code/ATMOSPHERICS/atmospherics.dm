@@ -46,17 +46,18 @@ Pipelines + Other Objects -> Pipe network
 		pipe_color = null
 	..()
 
-/obj/machinery/atmospherics/proc/initialize()
+/obj/machinery/atmospherics/proc/atmos_init()
 
-// Atmos machines are snowflakes and call initialize on themselves.
-// Do not refactor initialize() to Initialize() unless you know what you are doing.
+
+// atmos_init() and Initialize() must be separate, as atmos_init() can be called multiple times after the machine has been initialized.
+
 /obj/machinery/atmospherics/Initialize(mapload, ...)
 	if (no_special_init)
 		return ..()
 
 	. = ..()
 	if (mapload)
-		initialize()
+		atmos_init()
 
 /obj/machinery/atmospherics/attackby(atom/A, mob/user as mob)
 	if(istype(A, /obj/item/device/pipe_painter))
