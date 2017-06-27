@@ -52,6 +52,8 @@
 	oxygen = 0
 	nitrogen = 0
 
+	roof_type = null
+
 /turf/simulated/floor/reinforced/airmix
 	oxygen = MOLES_O2ATMOS
 	nitrogen = MOLES_N2ATMOS
@@ -80,7 +82,7 @@
 
 /turf/simulated/floor/reinforced/n20/Initialize()
 	. = ..()
-	if(!air) 
+	if(!air)
 		make_air()
 	air.adjust_gas("sleeping_agent", ATMOSTANK_NITROUSOXIDE)
 
@@ -113,6 +115,7 @@
 /turf/simulated/floor/tiled/steel/airless
 	oxygen = 0
 	nitrogen = 0
+	roof_type = null
 
 /turf/simulated/floor/tiled/white
 	name = "white floor"
@@ -154,6 +157,7 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
+	roof_type = null
 
 /turf/simulated/floor/airless
 	name = "airless plating"
@@ -161,6 +165,8 @@
 	nitrogen = 0
 	temperature = TCMB
 	footstep_sound = "concretestep"
+
+	roof_type = null
 
 /turf/simulated/floor/tiled/airless
 	name = "airless floor"
@@ -196,7 +202,10 @@
 	footstep_sound = "gravelstep"
 /turf/simulated/floor/plating/snow
 	footstep_sound = "gravelstep"
+
 /turf/simulated/floor/airless/ceiling
+	icon_state = "asteroidplating"
+	baseturf = /turf/space
 
 /turf/simulated/floor/beach
 	name = "beach"

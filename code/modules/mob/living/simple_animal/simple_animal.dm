@@ -228,7 +228,7 @@
 		if (can_nap)
 			if (!resting && prob(1))
 				fall_asleep()
-			else if (resting && prob(0.5))
+			else if (resting && (prob(0.5) || !stat))
 				wake_up()
 
 
@@ -460,7 +460,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	if(statpanel("Status") && show_stat_health)
 		stat(null, "Health: [round((health / maxHealth) * 100)]%")
-		stat(null, "Nutrition: [nutrition]/[max_nutrition]%")
+		stat(null, "Nutrition: [nutrition]/[max_nutrition]")
 
 /mob/living/simple_animal/updatehealth()
 	..()

@@ -232,6 +232,7 @@
 	else if(istype(W, /obj/item/weapon/wrench))
 		if(!can_move)
 			return
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		if(anchored)
 			user.visible_message("[user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")

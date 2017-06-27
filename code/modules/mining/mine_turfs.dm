@@ -516,6 +516,8 @@
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
+	roof_type = null
+
 // Copypaste parent for performance.
 /turf/simulated/floor/asteroid/Initialize()
 	if(initialized)
@@ -714,7 +716,6 @@
 	if(prob(25) && has_resources)
 		var/list/ore = list()
 		for(var/metal in resources)
-
 			switch(metal)
 				if("silicates")
 					ore += /obj/item/weapon/ore/glass
@@ -751,9 +752,10 @@
 								ore += /obj/item/weapon/ore/glass
 					else
 						ore += /obj/item/weapon/ore/glass
-		var/ore_path = pick(ore)
-		if(ore)
-			new ore_path(src)
+		if (ore.len)
+			var/ore_path = pick(ore)
+			if(ore)
+				new ore_path(src)
 
 	if(dug <= 10)
 		dug += 1
@@ -764,8 +766,7 @@
 			var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)
 				user << "<span class='alert'>You strike metal!</span>"
-				var/turf/T = ChangeTurf(/turf/simulated/floor/airless)
-				T.icon_state = "asteroidplating"
+				below.spawn_roof(ROOF_FORCE_SPAWN)
 			else
 				ChangeTurf(/turf/space)
 

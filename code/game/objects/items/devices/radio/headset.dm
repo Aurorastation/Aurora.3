@@ -159,6 +159,10 @@
 		return -1 //Transciever Disabled.
 	return ..(freq, level, 1)
 
+/obj/item/device/radio/headset/heads/ai_integrated/Destroy()
+	myAi = null
+	return ..()
+
 /obj/item/device/radio/headset/heads/rd
 	name = "research director's headset"
 	desc = "Headset of the researching God."

@@ -40,6 +40,11 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 	for (var/zlevel = 1 to world.maxz)
 		smooth_zlevel(zlevel, FALSE)
 
+	if (config.fastboot)
+		log_debug("icon_smoothing: Skipping prebake, fastboot enabled.")
+		..()
+		return
+
 	var/queue = smooth_queue
 	smooth_queue = list()
 	for(var/V in queue)

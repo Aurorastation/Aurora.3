@@ -7,10 +7,6 @@
   *
  **/
 var/datum/controller/master/Master = new()
-var/MC_restart_clear = 0
-var/MC_restart_timeout = 0
-var/MC_restart_count = 0
-
 
 //current tick limit, assigned by the queue controller before running a subsystem.
 //used by check_tick as well so that the procs subsystems call can obey that SS's tick limits
@@ -53,6 +49,11 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	var/datum/controller/subsystem/queue_tail //End of queue linked list (used for appending to the list)
 	var/queue_priority_count = 0 //Running total so that we don't have to loop thru the queue each run to split up the tick
 	var/queue_priority_count_bg = 0 //Same, but for background subsystems
+	var/map_loading = FALSE	//Are we loading in a new map?
+
+	var/static/restart_clear = 0
+	var/static/restart_timeout = 0
+	var/static/restart_count = 0
 
 /datum/controller/master/New()
 	// Highlander-style: there can only be one! Kill off the old and replace it with the new.
@@ -79,14 +80,14 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 //	-1 if we encountered a runtime trying to recreate it
 /proc/Recreate_MC()
 	. = -1 //so if we runtime, things know we failed
-	if (world.time < MC_restart_timeout)
+	if (world.time < Master.restart_timeout)
 		return 0
-	if (world.time < MC_restart_clear)
-		MC_restart_count *= 0.5
+	if (world.time < Master.restart_clear)
+		Master.restart_count *= 0.5
 
-	var/delay = 50 * ++MC_restart_count
-	MC_restart_timeout = world.time + delay
-	MC_restart_clear = world.time + (delay * 2)
+	var/delay = 50 * ++Master.restart_count
+	Master.restart_timeout = world.time + delay
+	Master.restart_clear = world.time + (delay * 2)
 	Master.processing = 0 //stop ticking this one
 	try
 		new/datum/controller/master()
@@ -553,3 +554,18 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	if (SSticker.current_state >= GAME_STATE_PLAYING)
 		return TRUE
 	return FALSE
+
+/datum/controller/master/StartLoadingMap()
+	//disallow more than one map to load at once, multithreading it will just cause race conditions
+	while(map_loading)
+		stoplag()
+	for(var/S in subsystems)
+		var/datum/controller/subsystem/SS = S
+		SS.StartLoadingMap()
+	map_loading = TRUE
+
+/datum/controller/master/StopLoadingMap(bounds = null)
+	map_loading = FALSE
+	for(var/S in subsystems)
+		var/datum/controller/subsystem/SS = S
+		SS.StopLoadingMap()
