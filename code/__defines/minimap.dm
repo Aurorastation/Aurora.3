@@ -9,7 +9,6 @@
 // Holomap colors
 #define HOLOMAP_OBSTACLE "#FFFFFFDD"	// Color of walls and barriers
 #define HOLOMAP_PATH     "#66666699"	// Color of floors
-#define HOLOMAP_ROCK     "#66666644"	// Color of mineral walls
 #define HOLOMAP_HOLOFIER "#79FF79"	// Whole map is multiplied by this to give it a green holoish look
 
 #define HOLOMAP_AREACOLOR_COMMAND     "#386d8099"
