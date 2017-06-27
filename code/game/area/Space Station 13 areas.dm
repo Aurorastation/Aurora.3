@@ -586,6 +586,9 @@ area/space/atmosalert()
 	)
 	station_area = 1
 
+/area/maintenance/holomapAlwaysDraw()
+	return FALSE
+
 /area/maintenance/civ
 	name = "\improper Civilian Maintenance"
 	icon_state = "maintcentral"
@@ -768,6 +771,7 @@ area/space/atmosalert()
 	sound_env = LARGE_ENCLOSED
 	allow_nightmode = 1
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 
 /area/hallway/primary/fore
 	name = "\improper Fore Primary Hallway"
@@ -801,6 +805,7 @@ area/space/atmosalert()
 	name = "\improper Escape Shuttle Hallway"
 	icon_state = "escape"
 	no_light_control = 1
+	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
 
 /area/hallway/secondary/construction
 	name = "\improper Construction Area"
@@ -826,6 +831,7 @@ area/space/atmosalert()
 /area/hallway/secondary/entry/dock
 	name = "\improper Arrival Shuttle Dock"
 	icon_state = "arrivals_dock"
+	holomap_color = HOLOMAP_AREACOLOR_ARRIVALS
 
 //Command
 
@@ -834,6 +840,7 @@ area/space/atmosalert()
 	icon_state = "bridge"
 	no_light_control = 1
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/bridge/minibar
     name = "\improper Command Break Room"
@@ -869,6 +876,10 @@ area/space/atmosalert()
 	name = "\improper Command - Captain's Office"
 	icon_state = "captain"
 	sound_env = MEDIUM_SOFTFLOOR
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+
+/area/crew_quarters/heads
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/crew_quarters/heads/hop
 	name = "\improper Command - HoP's Office"
@@ -904,6 +915,7 @@ area/space/atmosalert()
 	name = "\improper Research Server Room"
 	icon_state = "server"
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 //Crew
 
@@ -922,11 +934,13 @@ area/space/atmosalert()
 	name = "\improper Dormitories"
 	icon_state = "Sleep"
 	allow_nightmode = 1
+	holomap_color = HOLOMAP_AREACOLOR_DORMS
 
 /area/crew_quarters/sleep/engi_wash
 	name = "\improper Engineering Washroom"
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/crew_quarters/sleep/bedrooms
 	name = "\improper Dormitory Bedroom One"
@@ -944,18 +958,22 @@ area/space/atmosalert()
 /area/crew_quarters/sleep/engineering
 	name = "\improper Engineering Dormitories"
 	icon_state = "Sleep"
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/crew_quarters/sleep/security
 	name = "\improper Security Dormitories"
 	icon_state = "Sleep"
+	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 
 /area/crew_quarters/sleep/research
 	name = "\improper Research Dormitories"
 	icon_state = "Sleep"
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/crew_quarters/sleep/medical
 	name = "\improper Medical Dormitories"
 	icon_state = "Sleep"
+	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 
 /area/crew_quarters/sleep_male
 	name = "\improper Male Dorm"
@@ -1114,6 +1132,7 @@ area/space/atmosalert()
 		'sound/ambience/ambisin4.ogg'
 	)
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/engineering/atmos
 	name = "\improper Atmospherics"
@@ -1280,6 +1299,7 @@ area/space/atmosalert()
 
 /area/medical
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 
 /area/medical/medbay
 	name = "\improper Medbay Hallway - Port"
@@ -1417,6 +1437,7 @@ area/space/atmosalert()
 /area/medical/genetics
 	name = "\improper Genetics Lab"
 	icon_state = "genetics"
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/medical/genetics_cloning
 	name = "\improper Cloning Lab"
@@ -1437,6 +1458,7 @@ area/space/atmosalert()
 /area/security
 	no_light_control = 1
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 
 /area/security/main
 	name = "\improper Security Office"
@@ -1519,6 +1541,9 @@ area/space/atmosalert()
 	name = "\improper Vault"
 	icon_state = "nuke_storage"
 
+/area/security/nuke_storage/holomapAlwaysDraw()
+	return FALSE
+
 /area/security/checkpoint
 	name = "\improper Security Checkpoint"
 	icon_state = "checkpoint1"
@@ -1555,6 +1580,7 @@ area/space/atmosalert()
 	name = "\improper Quartermasters"
 	icon_state = "quart"
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
 /area/quartermaster/office
 	name = "\improper Cargo Office"
@@ -1595,6 +1621,7 @@ area/space/atmosalert()
 //rnd (Research and Development
 /area/rnd
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/rnd/research
 	name = "\improper Research and Development"
@@ -1943,6 +1970,9 @@ area/space/atmosalert()
 /area/turret_protected
 	station_area = 1
 
+/area/turret_protected/holomapAlwaysDraw()
+	return FALSE
+
 /area/turret_protected/ai_upload
 	name = "\improper AI Upload Chamber"
 	icon_state = "ai_upload"
@@ -2034,6 +2064,7 @@ area/space/atmosalert()
 	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
 	no_light_control = 1
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/tcommsat/entrance
 	name = "\improper Telecoms Teleporter"
