@@ -37,3 +37,4 @@ changes:
   - rscadd: "Ivan the carp is invading your arcades and cargo warehouse."
   - bugfix: "Stopped the Tajaran industrial RIG chestpiece from obscuring the cat's mouth when he looks south with no helmet."
   - bugfix: "With any luck, stopped cigarettes from phasing in and out of existence when held. Tell me directly if this keeps being a thing."
+  - tweak: "Even if you hide a brick in your chin like Skull132, you shouldn't expose it to space, the paramedic Rescue RIG has been modified to reflect this."
