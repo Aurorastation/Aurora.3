@@ -37,6 +37,8 @@
 
 	shuttle_controller.setup_shuttle_docks()
 
+	admin_notice("<span class='notice'><b>Fastboot is enabled; some features may not be available.</b></span>", R_DEBUG)
+
 	..(timeofday, TRUE)
 
 /proc/resort_all_areas()
