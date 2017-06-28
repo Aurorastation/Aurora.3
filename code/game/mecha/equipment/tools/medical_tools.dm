@@ -613,7 +613,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/process()
 	// delay = 100 Only work every 100 ds.
-	if ((last_tick + 100) < world.time)
+	if ((last_tick + 100) > world.time)
 		return
 
 	last_tick = world.time
