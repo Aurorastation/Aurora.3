@@ -14,7 +14,8 @@
 	salvageable = 0
 
 /obj/item/mecha_parts/mecha_equipment/tool/sleeper/Destroy()
-	for(var/atom/movable/AM in src)
+	for(var/A in src)
+		var/atom/movable/AM = A
 		AM.forceMove(get_turf(src))
 	return ..()
 
@@ -37,7 +38,7 @@
 			occupant_message("[target] will not fit into the sleeper because they have a slime latched onto their head.")
 			return
 	occupant_message("You start putting [target] into [src].")
-	chassis.visible_message("[chassis] starts putting [target] into the [src].")
+	chassis.visible_message("[chassis] starts putting [target] into [src].")
 	var/C = chassis.loc
 	var/T = target.loc
 	if(do_after_cooldown(target))
@@ -377,11 +378,11 @@
 	create_reagents(max_volume)
 
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSfast_process, src)
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/detach()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSfast_process, src)
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/critfail()
@@ -423,37 +424,39 @@
 	S.icon_state = "syringeproj"
 	playsound(chassis, 'sound/items/syringeproj.ogg', 50, 1)
 	log_message("Launched [S] from [src], targeting [target].")
-	spawn(-1)
-		src = null //if src is deleted, still process the syringe
-		for(var/i=0, i<6, i++)
-			if(!S)
-				break
-			if(step_towards(S,trg))
-				var/list/mobs = new
-				for(var/mob/living/carbon/M in S.loc)
-					mobs += M
-				var/mob/living/carbon/M = safepick(mobs)
-				if(M)
-					S.icon_state = initial(S.icon_state)
-					S.icon = initial(S.icon)
-					S.reagents.trans_to_mob(M, S.reagents.total_volume, CHEM_BLOOD)
-					M.take_organ_damage(2)
-					S.visible_message("<span class=\"attack\"> [M] was hit by the syringe!</span>")
-					break
-				else if(S.loc == trg)
-					S.icon_state = initial(S.icon_state)
-					S.icon = initial(S.icon)
-					S.update_icon()
-					break
-			else
-				S.icon_state = initial(S.icon_state)
-				S.icon = initial(S.icon)
-				S.update_icon()
-				break
-			sleep(1)
+
+	INVOKE_ASYNC(src, .proc/action_callback, S, trg)
+
 	do_after_cooldown()
 	return 1
 
+/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/proc/action_callback(obj/item/weapon/reagent_containers/syringe/S, turf/trg)
+	for(var/i=0, i<6, i++)
+		if(!S || !trg)
+			return
+		if(step_towards(S, trg))
+			var/list/mobs = list()
+			for(var/mob/living/carbon/M in S.loc)
+				mobs += M
+			var/mob/living/carbon/M = safepick(mobs)
+			if(M)
+				S.icon_state = initial(S.icon_state)
+				S.icon = initial(S.icon)
+				S.reagents.trans_to_mob(M, S.reagents.total_volume, CHEM_BLOOD)
+				M.take_organ_damage(2)
+				S.visible_message("<span class=\"attack\"> [M] was hit by the syringe!</span>")
+				return
+			else if(S.loc == trg)
+				S.icon_state = initial(S.icon_state)
+				S.icon = initial(S.icon)
+				S.update_icon()
+				return
+		else
+			S.icon_state = initial(S.icon_state)
+			S.icon = initial(S.icon)
+			S.update_icon()
+			break
+		sleep(1)
 
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/Topic(href,href_list)
 	..()
@@ -612,8 +615,8 @@
 	return
 
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/process()
-	// delay = 100 Only work every 100 ds.
-	if ((last_tick + 100) > world.time)
+	// delay = 10 Only work every 10 ds.
+	if ((last_tick + 10) > world.time)
 		return
 
 	last_tick = world.time

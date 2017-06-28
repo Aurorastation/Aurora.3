@@ -80,7 +80,8 @@
 	if(!action_checks(target)) return
 	if(isobj(target))
 		var/obj/target_obj = target
-		if(!target_obj.vars.Find("unacidable") || target_obj.unacidable)	return
+		if(target_obj.unacidable)
+			return
 	set_ready_state(0)
 	chassis.use_power(energy_drain)
 	chassis.visible_message("<span class='danger'>\The [chassis] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
@@ -220,24 +221,26 @@
 		var/list/the_targets = list(T,T1,T2)
 
 		for(var/a = 1 to 5)
-			spawn(0)
-				var/obj/effect/effect/water/W = new /obj/effect/effect/water(get_turf(chassis))
-				var/turf/my_target
-				if(a == 1)
-					my_target = T
-				else if(a == 2)
-					my_target = T1
-				else if(a == 3)
-					my_target = T2
-				else
-					my_target = pick(the_targets)
-				W.create_reagents(5)
-				if(!W || !src)
-					return
-				reagents.trans_to_obj(W, spray_amount)
-				W.set_color()
-				W.set_up(my_target)
+			INVOKE_ASYNC(src, .proc/action_callback, T, T1, T2, the_targets, a)
 		return 1
+
+/obj/item/mecha_parts/mecha_equipment/tool/extinguisher/proc/action_callback(turf/T, turf/T1, turf/T2, list/target_list = list(), var/a = 1)
+	var/obj/effect/effect/water/W = new /obj/effect/effect/water(get_turf(chassis))
+	var/turf/my_target
+	if(a == 1)
+		my_target = T
+	else if(a == 2)
+		my_target = T1
+	else if(a == 3)
+		my_target = T2
+	else
+		my_target = target_list
+	W.create_reagents(5)
+	if(!W || !src)
+		return
+	reagents.trans_to_obj(W, spray_amount)
+	W.set_color()
+	W.set_up(my_target)
 
 /obj/item/mecha_parts/mecha_equipment/tool/extinguisher/get_equip_info()
 	return "[..()] \[[src.reagents.total_volume]\]"
@@ -413,9 +416,8 @@
 	P.icon_state = "anom"
 	P.name = "wormhole"
 	do_after_cooldown()
-	src = null
-	spawn(rand(150,300))
-		qdel(P)
+	QDEL_IN(P, rand(150,300))
+
 	return
 
 /obj/item/mecha_parts/mecha_equipment/gravcatapult
@@ -471,16 +473,22 @@
 			else
 				atoms = orange(target,3)
 			for(var/atom/movable/A in atoms)
-				if(A.anchored) continue
-				spawn(0)
-					var/iter = 5-get_dist(A,target)
-					for(var/i=0 to iter)
-						step_away(A,target)
-						sleep(2)
+				if(A.anchored)
+					continue
+				INVOKE_ASYNC(src, .proc/action_callback, A, target)
 			set_ready_state(0)
 			chassis.use_power(energy_drain)
 			do_after_cooldown()
 	return
+
+/obj/item/mecha_parts/mecha_equipment/gravcatapult/proc/action_callback(atom/movable/A, atom/movable/target)
+	if (!A || !target)
+		return
+
+	var/iter = 5-get_dist(A,target)
+	for(var/i=0 to iter)
+		step_away(A, target)
+		sleep(2)
 
 /obj/item/mecha_parts/mecha_equipment/gravcatapult/get_equip_info()
 	return "[..()] [mode==1?"([locked||"Nothing"])":null] \[<a href='?src=\ref[src];mode=1'>S</a>|<a href='?src=\ref[src];mode=2'>P</a>\]"
@@ -606,6 +614,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/repair_droid/destroy()
 	chassis.overlays -= droid_overlay
+	STOP_PROCESSING(SSprocessing, src)
 	..()
 	return
 
@@ -673,13 +682,14 @@
 	range = 0
 	var/coeff = 100
 	var/list/use_channels = list(EQUIP,ENVIRON,LIGHT)
+	var/last_tick = 0
 
 /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSfast_process, src)
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay/detach()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSfast_process, src)
 	..()
 	return
 
@@ -696,11 +706,11 @@
 	..()
 	if(href_list["toggle_relay"])
 		if(!isprocessing)
-			START_PROCESSING(SSprocessing, src)
+			START_PROCESSING(SSfast_process, src)
 			set_ready_state(0)
 			log_message("Activated.")
 		else
-			STOP_PROCESSING(SSprocessing, src)
+			STOP_PROCESSING(SSfast_process, src)
 			set_ready_state(1)
 			log_message("Deactivated.")
 	return
@@ -710,6 +720,11 @@
 	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp;[src.name] - <a href='?src=\ref[src];toggle_relay=1'>[ isprocessing ?"Dea":"A"]ctivate</a>"
 
 /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay/process()
+	if ((last_tick + 10) > world.time)
+		return
+
+	last_tick = world.time
+
 	if(!chassis || chassis.hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
 		set_ready_state(1)
 		return PROCESS_KILL
@@ -748,6 +763,7 @@
 	var/fuel_per_cycle_active = 500
 	var/power_per_cycle = 20
 	var/fuel_type = /obj/item/stack/material/phoron
+	var/last_tick = 0
 
 /obj/item/mecha_parts/mecha_equipment/generator/Initialize()
 	. = ..()
@@ -755,22 +771,22 @@
 	fuel.amount = 0
 
 /obj/item/mecha_parts/mecha_equipment/generator/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSfast_process, src)
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/generator/detach()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSfast_process, src)
 	..()
 
 /obj/item/mecha_parts/mecha_equipment/generator/Topic(href, href_list)
 	..()
 	if(href_list["toggle"])
 		if(!isprocessing)
-			START_PROCESSING(SSprocessing, src)
+			START_PROCESSING(SSfast_process, src)
 			set_ready_state(0)
 			log_message("Activated.")
 		else
-			STOP_PROCESSING(SSprocessing, src)
+			STOP_PROCESSING(SSfast_process, src)
 			set_ready_state(1)
 			log_message("Deactivated.")
 	return
@@ -835,6 +851,12 @@
 	return
 
 /obj/item/mecha_parts/mecha_equipment/generator/process()
+	// Process every 10 ds.
+	if ((last_tick + 10) > world.time)
+		return
+
+	last_tick = world.time
+
 	if(!chassis)
 		set_ready_state(1)
 		return PROCESS_KILL
@@ -914,7 +936,7 @@
 				if(do_after_cooldown(target))
 					if(T == chassis.loc && src == chassis.selected)
 						cargo_holder.cargo += O
-						O.loc = chassis
+						O.forceMove(chassis)
 						O.anchored = 0
 						chassis.occupant_message("<span class='notice'>[target] succesfully loaded.</span>")
 						chassis.log_message("Loaded [O]. Cargo compartment capacity: [cargo_holder.cargo_capacity - cargo_holder.cargo.len]")
