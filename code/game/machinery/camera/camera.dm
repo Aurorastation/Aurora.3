@@ -207,7 +207,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if (W.force >= src.toughness)
 			user.do_attack_animation(src)
-			user.visible_message("<span class='warning'>[user] has [LAZYPICK(W.attack_verb,"attacked")] [src] with [W]!</span>")
+			user.visible_message("<span class='danger'>[user] has [LAZYPICK(W.attack_verb,"attacked")] [src] with [W]!</span>")
 			if (istype(W, /obj/item)) //is it even possible to get into attackby() with non-items?
 				var/obj/item/I = W
 				if (I.hitsound)
