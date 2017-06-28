@@ -37,7 +37,7 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 	explosion_in_progress = TRUE
 
 /datum/controller/subsystem/icon_smooth/ExplosionEnd()
-	explosion_in_progress = FALSE	
+	explosion_in_progress = FALSE
 
 /datum/controller/subsystem/icon_smooth/Initialize()
 	for (var/zlevel = 1 to world.maxz)
