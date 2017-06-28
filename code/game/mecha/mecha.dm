@@ -431,6 +431,7 @@
 		if(istype(src.loc, /turf/space))
 			if(!src.check_for_support())
 				float_direction = direction
+				start_process(MECHA_PROC_MOVEMENT)
 				src.log_message("Movement control lost. Inertial movement started.")
 		if(do_after_mecha(step_in))
 			can_move = 1
