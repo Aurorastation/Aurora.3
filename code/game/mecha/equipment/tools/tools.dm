@@ -599,7 +599,7 @@
 	energy_drain = 100
 	range = 0
 	var/health_boost = 2
-	var/icon/droid_overlay
+	var/image/droid_overlay
 	var/list/repairable_damage = list(MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH)
 
 /obj/item/mecha_parts/mecha_equipment/repair_droid/Destroy()
@@ -608,18 +608,18 @@
 
 /obj/item/mecha_parts/mecha_equipment/repair_droid/attach(obj/mecha/M as obj)
 	..()
-	droid_overlay = new(src.icon, icon_state = "repair_droid")
-	M.overlays += droid_overlay
+	droid_overlay = new(icon, icon_state = "repair_droid")
+	M.add_overlay(droid_overlay)
 	return
 
 /obj/item/mecha_parts/mecha_equipment/repair_droid/destroy()
-	chassis.overlays -= droid_overlay
+	chassis.cut_overlay(droid_overlay)
 	STOP_PROCESSING(SSprocessing, src)
 	..()
 	return
 
 /obj/item/mecha_parts/mecha_equipment/repair_droid/detach()
-	chassis.overlays -= droid_overlay
+	chassis.cut_overlay(droid_overlay)
 	STOP_PROCESSING(SSprocessing, src)
 	..()
 	return
@@ -631,7 +631,7 @@
 /obj/item/mecha_parts/mecha_equipment/repair_droid/Topic(href, href_list)
 	..()
 	if(href_list["toggle_repairs"])
-		chassis.overlays -= droid_overlay
+		chassis.cut_overlay(droid_overlay)
 		if(!isprocessing)
 			START_PROCESSING(SSprocessing, src)
 			droid_overlay = new(src.icon, icon_state = "repair_droid_a")
@@ -641,7 +641,7 @@
 			droid_overlay = new(src.icon, icon_state = "repair_droid")
 			log_message("Deactivated.")
 			set_ready_state(1)
-		chassis.overlays += droid_overlay
+		chassis.add_overlay(droid_overlay)
 		send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",src.get_equip_info())
 	return
 
