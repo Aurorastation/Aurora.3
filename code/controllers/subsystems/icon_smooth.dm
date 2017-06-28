@@ -17,6 +17,9 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 /datum/controller/subsystem/icon_smooth/Recover()
 	smooth_queue = SSicon_smooth.smooth_queue
 
+/datum/controller/subsystem/icon_smooth/stat_entry()
+	..("Q:[smooth_queue.len]")
+
 /datum/controller/subsystem/icon_smooth/fire()
 	if (explosion_in_progress)
 		return
@@ -34,7 +37,7 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 	explosion_in_progress = TRUE
 
 /datum/controller/subsystem/icon_smooth/ExplosionEnd()
-	explosion_in_progress = FALSE
+	explosion_in_progress = FALSE	
 
 /datum/controller/subsystem/icon_smooth/Initialize()
 	for (var/zlevel = 1 to world.maxz)
