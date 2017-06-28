@@ -16,9 +16,7 @@
 	transform = matrix(WORLD_ICON_SIZE / 32, 0, (WORLD_ICON_SIZE - 32) / 2, 0, WORLD_ICON_SIZE / 32, (WORLD_ICON_SIZE - 32) / 2)
 	#endif
 
-/atom/movable/lighting_overlay/Initialize()
-	. = ..()
-	verbs.Cut()
+/atom/movable/lighting_overlay/New()
 	SSlighting.lighting_overlays += src
 
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
@@ -32,7 +30,7 @@
 	if (!force)
 		return QDEL_HINT_LETMELIVE	// STOP DELETING ME
 
-	L_PROF(loc, "overlay_destroy")
+	//L_PROF(loc, "overlay_destroy")
 	SSlighting.lighting_overlays -= src
 	SSlighting.overlay_queue     -= src
 
@@ -147,7 +145,7 @@
 // Override here to prevent things accidentally moving around overlays.
 /atom/movable/lighting_overlay/forceMove(atom/destination, no_tp = FALSE, harderforce = FALSE)
 	if(harderforce)
-		L_PROF(loc, "overlay_forcemove")
+		//L_PROF(loc, "overlay_forcemove")
 		. = ..()
 
 /atom/movable/lighting_overlay/resetVariables(...)
