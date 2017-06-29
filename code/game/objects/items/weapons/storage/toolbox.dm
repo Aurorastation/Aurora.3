@@ -16,7 +16,7 @@
 	attack_verb = list("robusted")
 	var/stunhit = 0
 
-/obj/item/weapon/storage/toolbox/Initialize(mapload)
+/obj/item/weapon/storage/toolbox/Initialize()
 	. = ..()
 	update_force()
 
@@ -25,8 +25,7 @@
 	icon_state = "red"
 	item_state = "toolbox_red"
 
-	Initialize()
-		. = ..()
+	fill()
 		new /obj/item/weapon/crowbar/red(src)
 		new /obj/item/weapon/extinguisher/mini(src)
 		if(prob(50))
@@ -40,8 +39,7 @@
 	icon_state = "blue"
 	item_state = "toolbox_blue"
 
-	Initialize()
-		. = ..()
+	fill()
 		new /obj/item/weapon/screwdriver(src)
 		new /obj/item/weapon/wrench(src)
 		new /obj/item/weapon/weldingtool(src)
@@ -54,8 +52,7 @@
 	icon_state = "yellow"
 	item_state = "toolbox_yellow"
 
-	Initialize()
-		. = ..()
+	fill()
 		var/color = pick("red","yellow","green","blue","pink","orange","cyan","white")
 		new /obj/item/weapon/screwdriver(src)
 		new /obj/item/weapon/wirecutters(src)
@@ -75,8 +72,7 @@
 	origin_tech = list(TECH_COMBAT = 1, TECH_ILLEGAL = 1)
 	force = 7.0
 
-	Initialize()
-		. = ..()
+	fill()
 		new /obj/item/clothing/gloves/yellow(src)
 		new /obj/item/weapon/screwdriver(src)
 		new /obj/item/weapon/wrench(src)
@@ -120,7 +116,7 @@
 	max_storage_space = 8
 	var/filled = FALSE
 
-/obj/item/weapon/storage/toolbox/lunchbox/New()
+/obj/item/weapon/storage/toolbox/lunchbox/fill()
 	..()
 	if(filled)
 		var/list/lunches = lunchables_lunches()
