@@ -77,7 +77,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	admin_notice(span("danger", "Processed [processed_lights] light sources."), R_DEBUG)
 	admin_notice(span("danger", "Processed [processed_corners] light corners."), R_DEBUG)
 	admin_notice(span("danger", "Processed [processed_overlays] light overlays."), R_DEBUG)
-	admin_notice(span("danger", "Lighting pre-bake completed in [(REALTIMEOFDAY - starttime)/10] seconds."))
+	admin_notice(span("danger", "Lighting pre-bake completed in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 
 	log_ss("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
 
