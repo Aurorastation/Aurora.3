@@ -332,7 +332,7 @@
 	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them. giggity."
 	reagent_state = LIQUID
 	color = "#009CA8"
-	taste_description = "slime"
+	taste_description = "cherry"
 
 /datum/reagent/lube/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
