@@ -408,18 +408,117 @@
 /mob/living/carbon/human/proc/get_idcard()
 	if(wear_id)
 		return wear_id.GetID()
-
-//Removed the horrible safety parameter. It was only being used by ninja code anyways.
-//Now checks siemens_coefficient of the affected area by default
+//now more shit and less good but now shocks more things
 /mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
 	if(status_flags & GODMODE)	return 0	//godmode
-
-	if (!def_zone)
-		def_zone = pick("l_hand", "r_hand")
-
+	if (!def_zone) //if no Defined zone.
+		switch (rand(1,6))// These go through 5 different "arcs", scaling down the given damage value per limb effeccted. so the foot will never get as damaged as the hand, ideally.
+			if (1)//Left hand to Right Hand, checks if there's gloves
+				if (gloves)
+					shock_damage *= gloves.siemens_coefficient
+				apply_damage(shock_damage, BURN, "l_hand")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "l_arm")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "chest")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "r_arm")
+				if (gloves)
+					shock_damage *= gloves.siemens_coefficient
+				else
+					shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "r_hand")
+				visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
+			if (2)//Right Hand to Left Hand
+				if (gloves)
+					shock_damage *= gloves.siemens_coefficient
+				apply_damage(shock_damage, BURN, "r_hand")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "r_arm")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "chest")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "l_arm")
+				if (gloves)
+					shock_damage *= gloves.siemens_coefficient
+				else
+					shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "l_hand")
+				visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
+			if (3)//Left Hand to Left Foot
+				if (gloves)
+					shock_damage *= gloves.siemens_coefficient
+				apply_damage(shock_damage, BURN, "l_hand")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "l_arm")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "chest")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "groin")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "l_leg")
+				if (shoes)
+					shock_damage *= shoes.siemens_coefficient
+				else
+					shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "l_foot")
+				visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
+			if (4)//Left Hand to Right Foot
+				if (gloves)
+					shock_damage *= gloves.siemens_coefficient
+				apply_damage(shock_damage, BURN, "l_hand")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "l_arm")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "chest")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "groin")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "r_leg")
+				if (shoes)
+					shock_damage *= shoes.siemens_coefficient
+				else
+					shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "r_foot")
+				visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
+			if (5)//Right Hand to Left Foot
+				if (gloves)
+					shock_damage *= gloves.siemens_coefficient
+				apply_damage(shock_damage, BURN, "r_hand")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "r_arm")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "chest")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "groin")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "l_leg")
+				if (shoes)
+					shock_damage *= shoes.siemens_coefficient
+				else
+					shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "l_foot")
+				visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
+			if (6)//Right hand to Right foot
+				if (gloves)
+					shock_damage *= gloves.siemens_coefficient
+				apply_damage(shock_damage, BURN, "r_hand")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "r_arm")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "chest")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "groin")
+				shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "r_leg")
+				if (shoes)
+					shock_damage *= shoes.siemens_coefficient
+				else
+					shock_damage *= 0.8
+				apply_damage(shock_damage, BURN, "r_foot")
+				visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
 	var/obj/item/organ/external/affected_organ = get_organ(check_zone(def_zone))
 	var/siemens_coeff = base_siemens_coeff * get_siemens_coefficient_organ(affected_organ)
-
 	return ..(shock_damage, source, siemens_coeff, def_zone, tesla_shock)
 
 
