@@ -7,7 +7,7 @@
 	var/nutriment_factor = 10
 	var/injectable = 0
 	color = "#dcd9cd"
-	taste_mult = 0 //no taste
+	taste_description = "boiled cabbage"
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
     if(isvaurca(M))
