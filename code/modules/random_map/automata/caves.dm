@@ -32,12 +32,9 @@
 
 // Create ore turfs.
 /datum/random_map/automata/cave_system/cleanup()
-	var/tmp_cell
-	for (var/x = 1 to limit_x)
-		for (var/y = 1 to limit_y)
-			tmp_cell = TRANSLATE_COORD(x, y)
-			if (CELL_ALIVE(map[tmp_cell]))
-				ore_turfs += tmp_cell
+	for (var/i = 1 to (limit_x * limit_y))
+		if (CELL_ALIVE(map[i]))
+			ore_turfs += i
 
 	game_log("ASGEN", "Found [ore_turfs.len] ore turfs.")
 	var/ore_count = round(map.len/20)

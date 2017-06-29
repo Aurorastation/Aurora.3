@@ -33,9 +33,8 @@
 // Diamond-square algorithm.
 /datum/random_map/noise/seed_map()
 	// Instantiate the grid.
-	for(var/x = 1, x <= limit_x, x++)
-		for(var/y = 1, y <= limit_y, y++)
-			map[TRANSLATE_COORD(x,y)] = 0
+	for (var/i = 1 to (limit_x * limit_y))
+		map[i] = 0
 
 	// Now dump in the actual random data.
 	map[TRANSLATE_COORD(1,1)]             = cell_base+rand(initial_cell_range)
