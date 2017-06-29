@@ -43,6 +43,8 @@
 	brute_mod = 0.8
 	fall_mod = 1.2
 	ethanol_resistance = 0.4
+	taste_sensitivity = TASTE_SENSITIVE
+	
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	name_language = LANGUAGE_UNATHI
