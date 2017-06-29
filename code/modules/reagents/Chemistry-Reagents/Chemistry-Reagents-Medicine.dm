@@ -640,7 +640,7 @@
 	color = "#280f0b"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	taste_description = "bitterness"
+	taste_description = "sweet syrup"
 
 /datum/reagent/ipecac/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (prob(10+dose))
