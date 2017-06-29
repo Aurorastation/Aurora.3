@@ -12,51 +12,53 @@
 
 // Automata-specific procs and processing.
 /datum/random_map/automata/generate_map()
-	for(var/i = 1 to iterations)
+	for(var/iter = 1 to iterations)
 		var/list/next_map[limit_x*limit_y]
-		var/current_cell
 		var/count
 		var/is_not_border_left
 		var/is_not_border_right
+		var/ilim_u
+		var/ilim_d
+		var/bottom_lim = ((limit_y - 1) * limit_x)
 
 		if (!islist(map))
 			set_map_size()
 
-		for(var/x = 1 to limit_x)
-			for(var/y = 1 to limit_y)
-				current_cell = TRANSLATE_COORD(x, y)	// No validation done on this one; loop should be sane.
-				count = 0
+		for (var/i in 1 to (limit_x * limit_y))
+			count = 0
 
-				is_not_border_left = (x != 1)
-				is_not_border_right = (x != limit_x)
+			is_not_border_left = i != 1 && ((i - 1) % limit_x)
+			is_not_border_right = i % limit_x
 
-				if (CELL_ALIVE(map[current_cell])) // Center row.
+			if (CELL_ALIVE(map[i])) // Center row.
+				++count
+			if (is_not_border_left && CELL_ALIVE(map[i - 1]))
+				++count
+			if (is_not_border_right && CELL_ALIVE(map[i + 1]))
+				++count
+
+			if (i > limit_x) // top row
+				ilim_u = i - limit_x
+				if (CELL_ALIVE(map[ilim_u]))
 					++count
-				if (is_not_border_left && CELL_ALIVE(map[TRANSLATE_COORD(x - 1, y)]))
+				if (is_not_border_left && CELL_ALIVE(map[ilim_u - 1]))
 					++count
-				if (is_not_border_right && CELL_ALIVE(map[TRANSLATE_COORD(x + 1, y)]))
+				if (is_not_border_right && CELL_ALIVE(map[ilim_u + 1]))
 					++count
 
-				if (y != 1) // top row
-					if (CELL_ALIVE(map[TRANSLATE_COORD(x, y - 1)]))
-						++count
-					if (is_not_border_left && CELL_ALIVE(map[TRANSLATE_COORD(x - 1, y - 1)]))
-						++count
-					if (is_not_border_right && CELL_ALIVE(map[TRANSLATE_COORD(x + 1, y - 1)]))
-						++count
+			if (i <= bottom_lim) // bottom row
+				ilim_d = i + limit_x
+				if (CELL_ALIVE(map[ilim_d]))
+					++count
+				if (is_not_border_left && CELL_ALIVE(map[ilim_d - 1]))
+					++count
+				if (is_not_border_right && CELL_ALIVE(map[ilim_d + 1]))
+					++count
 
-				if (y != limit_y) // bottom row
-					if (CELL_ALIVE(map[TRANSLATE_COORD(x, y + 1)]))
-						++count
-					if (is_not_border_left && CELL_ALIVE(map[TRANSLATE_COORD(x - 1, y + 1)]))
-						++count
-					if (is_not_border_right && CELL_ALIVE(map[TRANSLATE_COORD(x + 1, y + 1)]))
-						++count
-
-				if(count >= cell_threshold)
-					REVIVE_CELL(current_cell, next_map)
-				else	// Nope. Can't be alive. Kill it.
-					KILL_CELL(current_cell, next_map)
+			if(count >= cell_threshold)
+				REVIVE_CELL(i, next_map)
+			else	// Nope. Can't be alive. Kill it.
+				KILL_CELL(i, next_map)
 
 			CHECK_TICK
 
