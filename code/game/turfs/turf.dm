@@ -27,7 +27,7 @@
 	var/list/decals
 
 	var/is_hole		// If true, turf will be treated as space or a hole
-	var/turf/baseturf = /turf/space
+	var/tmp/turf/baseturf
 
 	var/roof_type = null // The turf type we spawn as a roof.
 	var/tmp/roof_flags = 0
@@ -57,6 +57,9 @@
 
 	if (opacity)
 		has_opaque_atom = TRUE
+
+	if(!baseturf)
+		baseturf = get_base_turf_by_area(src)
 
 	spawn_roof()
 
@@ -294,8 +297,9 @@ var/const/enterloopsanity = 100
 		return FALSE
 
 	var/turf/simulated/open/above = GetAbove(src)
+	var/area/A = loc
 
-	if ((istype(above) || (flags & ROOF_FORCE_SPAWN)) && roof_type)
+	if (((istype(above) && !A.no_roof) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
 		above.ChangeTurf(roof_type)
 		roof_flags |= flags
 		return TRUE

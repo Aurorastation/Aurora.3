@@ -1,3 +1,5 @@
+/atom/proc/update_above()
+
 /turf
 	// Reference to any open turf that might be above us to speed up atom Entered() updates.
 	var/tmp/turf/simulated/open/above
@@ -11,6 +13,10 @@
 /turf/Destroy()
 	above = null
 	return ..()
+
+/turf/update_above()
+	if (istype(above))
+		above.update_icon()
 
 /atom/movable
 	var/tmp/atom/movable/openspace/overlay/bound_overlay	// The overlay that is directly mirroring us that we proxy movement to.
@@ -32,7 +38,7 @@
 		// The overlay will handle cleaning itself up on non-openspace turfs.
 		bound_overlay.forceMove(get_step(src, UP))
 
-/atom/movable/proc/update_oo()
+/atom/movable/update_above()
 	if (!bound_overlay)
 		return
 

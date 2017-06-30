@@ -53,7 +53,7 @@
 			T.resources["carbonaceous rock"] = rand(3,5)
 
 			var/tmp_cell
-			PREPARE_CELL(x, y)
+			TRANSLATE_AND_VERIFY_COORD(x, y)
 			
 			if(tmp_cell < rare_val)      // Surface metals.
 				T.resources["iron"] =     rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)

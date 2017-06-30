@@ -32,12 +32,9 @@
 
 // Create ore turfs.
 /datum/random_map/automata/cave_system/cleanup()
-	var/tmp_cell
-	for (var/x = 1; x < limit_x; x++)
-		for (var/y = 1; y < limit_y; y++)
-			PREPARE_CELL(x, y)
-			if (tmp_cell && CELL_ALIVE(map[tmp_cell]))
-				ore_turfs += tmp_cell
+	for (var/i = 1 to (limit_x * limit_y))
+		if (CELL_ALIVE(map[i]))
+			ore_turfs += i
 
 	game_log("ASGEN", "Found [ore_turfs.len] ore turfs.")
 	var/ore_count = round(map.len/20)
@@ -68,8 +65,6 @@
 	if(!origin_z) origin_z = 1
 
 	var/tmp_cell
-	var/x
-	var/y
 	var/new_path
 	var/num_applied = 0
 	for (var/thing in block(locate(origin_x, origin_y, origin_z), locate(limit_x, limit_y, origin_z)))
@@ -78,13 +73,7 @@
 		if (!T || (target_turf_type && !istype(T, target_turf_type)))
 			continue
 
-		x = T.x
-		y = T.y
-
-		PREPARE_CELL(x,y)
-
-		if (!tmp_cell)
-			continue
+		tmp_cell = TRANSLATE_COORD(T.x, T.y)
 
 		switch (map[tmp_cell])
 			if(DOOR_CHAR)
@@ -119,7 +108,6 @@
     target_turf_type = /turf/unsimulated/chasm_mask
     mineral_sparse =  /turf/unsimulated/mask
     mineral_rich = /turf/unsimulated/mask
-    cell_threshold = 5
 
 /datum/random_map/automata/cave_system/chasms/apply_to_map()
 	if(!origin_x) origin_x = 1
@@ -127,9 +115,6 @@
 	if(!origin_z) origin_z = 1
 
 	var/tmp_cell
-	var/x
-	var/y
-	var/z
 	var/new_path
 	var/num_applied = 0
 	for (var/thing in block(locate(origin_x, origin_y, origin_z), locate(limit_x, limit_y, origin_z)))
@@ -138,14 +123,7 @@
 		if (!T || (target_turf_type && !istype(T, target_turf_type)))
 			continue
 
-		x = T.x
-		y = T.y
-		z = T.z
-
-		PREPARE_CELL(x,y)
-
-		if (!tmp_cell)
-			continue
+		tmp_cell = TRANSLATE_COORD(T.x, T.y)
 
 		switch (map[tmp_cell])
 			if(DOOR_CHAR)
@@ -153,7 +131,7 @@
 			if(EMPTY_CHAR)
 				new_path = mineral_rich
 			if(FLOOR_CHAR)
-				var/turf/below = GET_BELOW_OR_NULL(T, z)
+				var/turf/below = GET_BELOW_OR_NULL(T, T.z)
 				if(below)
 					var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 					if(below_area.station_area)

@@ -202,7 +202,10 @@
 	footstep_sound = "gravelstep"
 /turf/simulated/floor/plating/snow
 	footstep_sound = "gravelstep"
+
 /turf/simulated/floor/airless/ceiling
+	icon_state = "asteroidplating"
+	baseturf = /turf/space
 
 /turf/simulated/floor/beach
 	name = "beach"

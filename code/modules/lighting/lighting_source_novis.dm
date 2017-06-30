@@ -1,6 +1,6 @@
 /datum/light_source/novis
 
-/datum/light_source/novis/update_corners(now = FALSE)
+/datum/light_source/novis/update_corners()
 	set waitfor = FALSE
 	var/update = FALSE
 
@@ -103,7 +103,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, now, Sx, Sy)
+			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
 	else
 		L = corners - effect_str
 		for (thing in L)
@@ -113,7 +113,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, now, Sx, Sy)
+			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
 
 		for (thing in corners - L)
 			C = thing
@@ -121,12 +121,12 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, now, Sx, Sy)
+			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
 
 	L = effect_str - corners
 	for (thing in L)
 		C = thing
-		REMOVE_CORNER(C, now)
+		REMOVE_CORNER(C, FALSE)
 		LAZYREMOVE(C.affecting, src)
 
 	effect_str -= L

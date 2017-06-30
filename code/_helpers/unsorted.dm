@@ -1182,6 +1182,12 @@ var/list/WALLITEMS = list(
 #define DELTA_CALC max(((max(world.tick_usage, world.cpu) / 100) * max(Master.sleep_delta,1)), 1)
 
 /proc/stoplag()
+	// If we're initializing, our tick limit might be over 100 (testing config), but stoplag() penalizes procs that go over.
+	// 	Unfortunately, this penalty slows down init a *lot*. So, we disable it during boot and lobby, when relatively few things should be calling this.
+	if (!Master || Master.initializing || !Master.round_started)	
+		sleep(world.tick_lag)
+		return 1
+
 	. = 0
 	var/i = 1
 	do
@@ -1198,3 +1204,37 @@ var/list/WALLITEMS = list(
 		return
 
 	verbs += the_verb
+
+
+
+#define NOT_FLAG(flag) (!(flag & use_flags)) 
+#define HAS_FLAG(flag) (flag & use_flags)
+
+// Checks if user can use this object. Set use_flags to customize what checks are done.
+// Returns 0 if they can use it, a value representing why they can't if not.
+// Flags are in `code/__defines/misc.dm`
+/atom/proc/use_check(mob/user, use_flags = 0)
+	. = 0
+	if (NOT_FLAG(USE_ALLOW_NONLIVING) && !isliving(user))
+		return USE_FAIL_NONLIVING
+
+	if (NOT_FLAG(USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
+		return USE_FAIL_NON_ADJACENT
+
+	if (NOT_FLAG(USE_ALLOW_DEAD) && user.stat == DEAD)
+		return USE_FAIL_DEAD
+
+	if (NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
+		return USE_FAIL_INCAPACITATED
+
+	if (NOT_FLAG(USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
+		return USE_FAIL_NON_ADV_TOOL_USR
+
+	if (HAS_FLAG(USE_DISALLOW_SILICONS) && issilicon(user))
+		return USE_FAIL_IS_SILICON
+
+	if (HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
+		return USE_FAIL_NOT_IN_USER
+
+#undef NOT_FLAG
+#undef HAS_FLAG

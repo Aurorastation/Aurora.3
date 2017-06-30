@@ -240,11 +240,11 @@ GUEST_BAN
 
 ## Remove the # to allow special 'Easter-egg' events on special holidays such as seasonal holidays and stuff like 'Talk Like a Pirate Day' :3 YAARRR
 ALLOW_HOLIDAYS
-##Defines the ticklag for the world.  0.9 is the normal one, 0.5 is smoother.
-TICKLAG 0.9
+##Defines the ticklag for the world.  0.33 (30 FPS) is the normal one, though you can go as low as 0.2 (50 FPS) for low-load servers.
+TICKLAG 0.33
 
-## Defines if Tick Compensation is used.  It results in a minor slowdown of movement of all mobs, but attempts to result in a level movement speed across all ticks.  Recommended if tickrate is lowered.
-TICKCOMP 0
+## Defines if Tick Compensation is used.  It results in a minor slowdown of movement of all mobs, but attempts to result in a level movement speed across all ticks.
+#TICKCOMP
 
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
@@ -426,9 +426,9 @@ API_RATE_LIMIT_WHITELIST 127.0.0.1
 
 # The maximum amount of a tick that the MC is permitted to use during server startup.
 # If not set will default to 98%.
-# You can set this high (~5000) for local testing to *maybe* speed up startup a bit at the cost of lagging the lobby.
-# Should be below 99 on a server actually used for play.
-#MC_TICKLIMIT_INIT 98
+# You can set this high (~500) for local testing to *maybe* speed up startup a bit at the cost of lagging the lobby.
+# -- Should be below 99 (or undefined) on a server actually used for play. --
+MC_TICKLIMIT_INIT 500
 
 
 ## GELF Logging Configuration
@@ -464,3 +464,7 @@ LOG_GELF_PORT 12201
 ## This determines how many VM identifiers must be spotted on a user before admins are warned about them joining.
 ## Leave at 0 or commented out to disable.
 # ACCESS_WARN_VMS 2
+
+
+# Enables fastboot - some features not essential to testing (like sunlight) will be disabled to speed up server boot. Should not be used on production servers.
+FASTBOOT

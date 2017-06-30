@@ -16,7 +16,7 @@
 		var/item = spawn_item()
 		if (has_postspawn && item)
 			post_spawn(item)
-	
+
 	return INITIALIZE_HINT_QDEL
 
 // this function should return a specific item to spawn
@@ -293,6 +293,7 @@
 		/obj/structure/plushie/drone,
 		/obj/structure/plushie/carp,
 		/obj/structure/plushie/beepsky,
+		/obj/structure/plushie/ivancarp,
 		/obj/item/toy/plushie/nymph,
 		/obj/item/toy/plushie/mouse,
 		/obj/item/toy/plushie/kitten,
@@ -826,7 +827,7 @@
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/cookingoil
 	)
-	
+
 /obj/random/sword
 	name = "random sword"
 	desc = "This is a random sword."
