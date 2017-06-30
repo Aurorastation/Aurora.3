@@ -67,7 +67,7 @@
 		CC.update_icon()
 		overlays = list()
 		string_attached = null
-		user << "\blue You detach the string from the coin."
+		user << "<span class='notice'>You detach the string from the coin.</span>"
 	else ..()
 
 /obj/item/weapon/coin/attack_self(mob/user as mob)
@@ -77,5 +77,6 @@
 		comment = "tails"
 	else if(result == 2)
 		comment = "heads"
+	playsound(src.loc, 'sound/items/coinflip.ogg', 100, 1, -4)
 	user.visible_message("<span class='notice'>[user] has thrown \the [src]. It lands on [comment]! </span>", \
 						 "<span class='notice'>You throw \the [src]. It lands on [comment]! </span>")

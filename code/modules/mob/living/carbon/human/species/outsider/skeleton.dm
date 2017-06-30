@@ -1,5 +1,5 @@
-/mob/living/carbon/human/skeleton/New(var/new_loc)
-	..(new_loc, "Skeleton")
+/mob/living/carbon/human/skeleton/Initialize(mapload)
+	. = ..(mapload, "Skeleton")
 
 /datum/species/skeleton //SPOOKY
 	name = "Skeleton"
@@ -7,6 +7,7 @@
 	bodytype = "Skeleton"
 	icobase = 'icons/mob/human_races/r_skeleton.dmi'
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
+	eyes = "blank_eyes"
 
 	default_language = "Ceti Basic"
 	language = "Cult"

@@ -1,4 +1,4 @@
-/var/obj/effect/lobby_image = new/obj/effect/lobby_image()
+/var/obj/effect/lobby_image
 
 /obj/effect/lobby_image
 	name = "Aurorastation"
@@ -6,7 +6,8 @@
 	icon = 'icons/misc/title.dmi'
 	screen_loc = "WEST,SOUTH"
 
-/obj/effect/lobby_image/initialize()
+/obj/effect/lobby_image/New()
+	..()
 	var/list/known_icon_states = icon_states(icon)
 	for(var/lobby_screen in config.lobby_screens)
 		if(!(lobby_screen in known_icon_states))
@@ -32,7 +33,8 @@
 		mind.current = src
 
 	loc = null
-	client.screen += lobby_image
+	show_title()
+		
 	my_client = client
 	sight |= SEE_TURFS
 	player_list |= src
@@ -42,3 +44,12 @@
 		if(client)
 			handle_privacy_poll()
 			client.playtitlemusic()
+
+/mob/new_player/proc/show_title()
+	set waitfor = FALSE
+	if (lobby_image)
+		client.screen += lobby_image
+		return
+
+	sleep(5)
+	.()

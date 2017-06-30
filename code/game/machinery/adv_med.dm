@@ -30,7 +30,8 @@
 
 /obj/machinery/bodyscanner/Destroy()
 	// So the GC can qdel this.
-	src.connected.connected = null
+	if (connected)
+		connected.connected = null
 	return ..()
 
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
@@ -240,7 +241,8 @@
 	anchored = 1
 
 /obj/machinery/body_scanconsole/Destroy()
-	src.connected.connected = null
+	if (connected)
+		connected.connected = null
 	return ..()
 
 /obj/machinery/body_scanconsole/power_change()
@@ -265,13 +267,10 @@
 
 	return collapse_desc
 
-/obj/machinery/body_scanconsole/New()
-	..()
-	spawn(5)
-		src.connected = locate(/obj/machinery/bodyscanner, get_step(src, WEST))
-		src.connected.connected = src
-		return
-	return
+/obj/machinery/body_scanconsole/Initialize()
+	. = ..()
+	src.connected = locate(/obj/machinery/bodyscanner, get_step(src, WEST))
+	src.connected.connected = src
 
 /obj/machinery/body_scanconsole/attack_ai(user as mob)
 	return src.attack_hand(user)
@@ -344,7 +343,7 @@
 		data["hastgvirus"]		= occupant.viruses.len
 		data["tgvirus"]			= occupant.viruses
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "med_diagnostics.tmpl", "Medical Diagnostics", 800, 500, state = state)
 		ui.set_initial_data(data)

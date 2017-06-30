@@ -94,7 +94,7 @@
 				if(open)
 					health = min(maxhealth, health+10)
 					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-					user.visible_message("\red [user] repairs [src]!","\blue You repair [src]!")
+					user.visible_message("<span class='warning'>[user] repairs [src]!</span>","<span class='notice'>You repair [src]!</span>")
 				else
 					user << "<span class='notice'>Unable to repair with the maintenance panel closed.</span>"
 			else
@@ -143,21 +143,23 @@
 /obj/vehicle/emp_act(severity)
 	var/was_on = on
 	stat |= EMPED
-	var/obj/effect/overlay/pulse2 = getFromPool(/obj/effect/overlay, src.loc)
+	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(src.loc)
 	pulse2.icon = 'icons/effects/effects.dmi'
 	pulse2.icon_state = "empdisable"
 	pulse2.name = "emp sparks"
 	pulse2.anchored = 1
 	pulse2.set_dir(pick(cardinal))
 
-	spawn(10)
-		qdel(pulse2)
+	QDEL_IN(pulse2, 10)
 	if(on)
 		turn_off()
-	spawn(severity*300)
-		stat &= ~EMPED
-		if(was_on)
-			turn_on()
+
+	addtimer(CALLBACK(src, .proc/post_emp, was_on), severity * 300)
+
+/obj/vehicle/proc/post_emp(was_on)
+	stat &= ~EMPED
+	if(was_on)
+		turn_on()
 
 /obj/vehicle/attack_ai(mob/user as mob)
 	return
@@ -193,11 +195,11 @@
 		return 1
 
 /obj/vehicle/proc/explode()
-	src.visible_message("\red <B>[src] blows apart!</B>", 1)
+	src.visible_message("<span class='danger'>[src] blows apart!</span>", 1)
 	var/turf/Tsec = get_turf(src)
 
-	getFromPool(/obj/item/stack/rods, Tsec)
-	getFromPool(/obj/item/stack/rods, Tsec)
+	new /obj/item/stack/rods(Tsec)
+	new /obj/item/stack/rods(Tsec)
 	new /obj/item/stack/cable_coil/cut(Tsec)
 
 	if(cell)

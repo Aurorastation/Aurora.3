@@ -18,7 +18,7 @@
 	src.remoter_state = null
 
 	// Force an UI update before we go, ensuring that any windows we may have opened for the remote target closes.
-	nanomanager.update_uis(remote_target.nano_container())
+	SSnanoui.update_uis(remote_target.nano_container())
 	remote_target = null
 	return ..()
 

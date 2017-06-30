@@ -10,8 +10,8 @@
 	active_power_usage = 5000
 	var/efficiency
 
-/obj/machinery/telepad/New()
-	..()
+/obj/machinery/telepad/Initialize()
+	. = ..()
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/telesci_pad(null)
 	component_parts += new /obj/item/bluespace_crystal/artificial(null)

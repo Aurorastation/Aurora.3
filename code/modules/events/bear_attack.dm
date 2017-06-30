@@ -31,4 +31,4 @@
 	if (severity <= EVENT_LEVEL_MODERATE)
 		command_announcement.Announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", new_sound = 'sound/AI/aliens.ogg')
 	else
-		command_announcement.Announce("Highly dangerous bioweapons have escaped from a nearby research facility and boarded [station_name()]. Station security is advised to be on high alert.", "Lifesign Alert", new_sound = 'sound/AI/aliens.ogg')
+		command_announcement.Announce("Highly dangerous bioweapons have escaped from a nearby research facility and boarded [station_name()]. Station security is advised to be on high alert.", "Lifesign Alert", new_sound = 'sound/AI/bears.ogg')

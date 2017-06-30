@@ -14,7 +14,7 @@
 
 /datum/visualnet/Destroy()
 	visual_nets -= src
-	..()
+	return ..()
 
 // Checks if a chunk has been Generated in x, y, z.
 /datum/visualnet/proc/chunkGenerated(x, y, z)
@@ -64,7 +64,7 @@
 
 /datum/visualnet/proc/updateVisibility(atom/A, var/opacity_check = 1)
 
-	if(!ticker || (opacity_check && !A.opacity))
+	if((opacity_check && !A.opacity))
 		return
 	majorChunkChange(A, 2)
 

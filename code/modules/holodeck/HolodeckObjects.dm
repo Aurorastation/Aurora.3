@@ -74,13 +74,14 @@
 	plane = PLANE_SPACE_BACKGROUND
 	dynamic_lighting = 0
 
-/turf/simulated/floor/holofloor/space/New()
+/turf/simulated/floor/holofloor/space/Initialize()
+	. = ..()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
 	I.plane = PLANE_SPACE_DUST
 	I.alpha = 80
 	I.blend_mode = BLEND_ADD
-	overlays += I
+	add_overlay(I)
 
 /turf/simulated/floor/holofloor/beach
 	desc = "Uncomfortably gritty for a hologram."
@@ -120,10 +121,10 @@
 	initial_flooring = null
 	footstep_sound = "gravelstep"
 
-/turf/simulated/floor/holofloor/desert/New()
-	..()
+/turf/simulated/floor/holofloor/desert/Initialize()
+	. = ..()
 	if(prob(10))
-		overlays += "asteroid[rand(0,9)]"
+		add_overlay("asteroid[rand(0,9)]")
 
 /obj/structure/holostool
 	name = "stool"
@@ -139,7 +140,7 @@
 	item_state = "boxing"
 
 /obj/structure/window/reinforced/holowindow/Destroy()
-	..()
+	return ..()
 
 /obj/structure/window/reinforced/holowindow/attackby(obj/item/W as obj, mob/user as mob)
 	if(!istype(W)) return//I really wish I did not need this
@@ -195,10 +196,10 @@
 	return
 
 /obj/structure/window/reinforced/holowindow/disappearing/Destroy()
-	..()
+	return ..()
 
 /obj/machinery/door/window/holowindoor/Destroy()
-	..()
+	return ..()
 
 /obj/machinery/door/window/holowindoor/attackby(obj/item/weapon/I as obj, mob/user as mob)
 
@@ -208,7 +209,7 @@
 	if(src.density && istype(I, /obj/item/weapon) && !istype(I, /obj/item/weapon/card))
 		var/aforce = I.force
 		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
-		visible_message("\red <B>[src] was hit by [I].</B>")
+		visible_message("<span class='danger'>[src] was hit by [I].</span>")
 		if(I.damtype == BRUTE || I.damtype == BURN)
 			take_damage(aforce)
 		return
@@ -236,7 +237,7 @@
 	qdel(src)
 
 /obj/structure/bed/chair/holochair/Destroy()
-	..()
+	return ..()
 
 /obj/structure/bed/chair/holochair/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/wrench))
@@ -433,10 +434,7 @@
 	icon_gib = null
 	meat_amount = 0
 	meat_type = null
-
-/mob/living/simple_animal/hostile/carp/holodeck/New()
-	..()
-	set_light(2) //hologram lighting
+	light_range = 2
 
 /mob/living/simple_animal/hostile/carp/holodeck/proc/set_safety(var/safe)
 	if (safe)

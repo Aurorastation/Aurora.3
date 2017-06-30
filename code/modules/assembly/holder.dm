@@ -64,15 +64,15 @@
 
 
 	update_icon()
-		overlays.Cut()
+		cut_overlays()
 		if(a_left)
-			overlays += "[a_left.icon_state]_left"
+			add_overlay("[a_left.icon_state]_left")
 			for(var/O in a_left.attached_overlays)
-				overlays += "[O]_l"
+				add_overlay("[O]_l")
 		if(a_right)
-			src.overlays += "[a_right.icon_state]_right"
+			add_overlay("[a_right.icon_state]_right")
 			for(var/O in a_right.attached_overlays)
-				overlays += "[O]_r"
+				add_overlay("[O]_r")
 		if(master)
 			master.update_icon()
 
@@ -146,15 +146,15 @@
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(isscrewdriver(W))
 			if(!a_left || !a_right)
-				user << "\red BUG:Assembly part missing, please report this!"
+				user << "<span class='danger'>BUG:Assembly part missing, please report this!</span>"
 				return
 			a_left.toggle_secure()
 			a_right.toggle_secure()
 			secured = !secured
 			if(secured)
-				user << "\blue \The [src] is ready!"
+				user << "<span class='notice'>\The [src] is ready!</span>"
 			else
-				user << "\blue \The [src] can now be taken apart!"
+				user << "<span class='notice'>\The [src] can now be taken apart!</span>"
 			update_icon()
 			return
 		else if(W.IsSpecialAssembly())
@@ -168,7 +168,7 @@
 		src.add_fingerprint(user)
 		if(src.secured)
 			if(!a_left || !a_right)
-				user << "\red Assembly part missing!"
+				user << "<span class='warning'>Assembly part missing!</span>"
 				return
 			if(istype(a_left,a_right.type))//If they are the same type it causes issues due to window code
 				switch(alert("Which side would you like to use?",,"Left","Right"))
@@ -189,8 +189,7 @@
 			if(a_right)
 				a_right:holder = null
 				a_right.loc = T
-			spawn(0)
-				qdel(src)
+			QDEL_IN(src, 0)
 		return
 
 

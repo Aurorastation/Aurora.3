@@ -22,7 +22,7 @@
 	var/datum/nano_module/power_monitor/power_monitor
 
 // Checks the sensors for alerts. If change (alerts cleared or detected) occurs, calls for icon update.
-/obj/machinery/computer/power_monitor/process()
+/obj/machinery/computer/power_monitor/machinery_process()
 	var/alert = check_warnings()
 	if(alert != alerting)
 		alerting = !alerting
@@ -41,8 +41,8 @@
 	..()
 
 // On creation automatically connects to active sensors. This is delayed to ensure sensors already exist.
-/obj/machinery/computer/power_monitor/New()
-	..()
+/obj/machinery/computer/power_monitor/Initialize()
+	. = ..()
 	power_monitor = new(src)
 
 // On user click opens the UI of this computer.

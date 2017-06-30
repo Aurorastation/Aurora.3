@@ -15,22 +15,22 @@
 	var/list/owned_bee_swarms = list()
 
 /obj/machinery/beehive/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	icon_state = "beehive"
 	if(closed)
-		overlays += "lid"
+		add_overlay("lid")
 	if(frames)
-		overlays += "empty[frames]"
+		add_overlay("empty[frames]")
 	if(honeycombs >= 100)
-		overlays += "full[round(honeycombs / 100)]"
+		add_overlay("full[round(honeycombs / 100)]")
 	if(!smoked)
 		switch(bee_count)
 			if(1 to 40)
-				overlays += "bees1"
+				add_overlay("bees1")
 			if(41 to 80)
-				overlays += "bees2"
+				add_overlay("bees2")
 			if(81 to 100)
-				overlays += "bees3"
+				add_overlay("bees3")
 
 /obj/machinery/beehive/examine(var/mob/user)
 	..()
@@ -133,7 +133,7 @@
 			user << "<span class='notice'>You take all filled honeycombs out.</span>"
 		return
 
-/obj/machinery/beehive/process()
+/obj/machinery/beehive/machinery_process()
 	if(closed && !smoked && bee_count)
 		pollinate_flowers()
 		update_icon()
@@ -255,9 +255,9 @@
 	desc = "A frame for the beehive that the bees have filled with honeycombs."
 	honey = 20
 
-/obj/item/honey_frame/filled/New()
-	..()
-	overlays += "honeycomb"
+/obj/item/honey_frame/filled/Initialize()
+	. = ..()
+	add_overlay("honeycomb")
 
 /obj/item/beehive_assembly
 	name = "beehive assembly"
@@ -296,20 +296,20 @@ var/global/list/datum/stack_recipe/wax_recipes = list( \
 	icon_state = "beepack"
 	var/full = 1
 
-/obj/item/bee_pack/New()
-	..()
-	overlays += "beepack-full"
+/obj/item/bee_pack/Initialize()
+	. = ..()
+	add_overlay("beepack-full")
 
 /obj/item/bee_pack/proc/empty()
 	full = 0
 	name = "empty bee pack"
 	desc = "A stasis pack for moving bees. It's empty."
-	overlays.Cut()
-	overlays += "beepack-empty"
+	cut_overlays()
+	add_overlay("beepack-empty")
 
 /obj/item/bee_pack/proc/fill()
 	full = initial(full)
 	name = initial(name)
 	desc = initial(desc)
-	overlays.Cut()
-	overlays += "beepack-full"
+	cut_overlays()
+	add_overlay("beepack-full")

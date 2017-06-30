@@ -22,9 +22,8 @@
 
 	var/decompose_time = 18000
 
-/mob/living/simple_animal/lizard/New()
-	..()
-
+/mob/living/simple_animal/lizard/Initialize()
+	. = ..()
 	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
 
 /mob/living/simple_animal/lizard/Life()

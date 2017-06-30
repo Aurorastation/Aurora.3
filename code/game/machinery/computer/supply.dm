@@ -36,11 +36,11 @@
 	if(temp)
 		dat = temp
 	else
-		var/datum/shuttle/ferry/supply/shuttle = supply_controller.shuttle
+		var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
 		if (shuttle)
 			dat += {"<BR><B>Supply shuttle</B><HR>
 			Location: [shuttle.has_arrive_time() ? "Moving to station ([shuttle.eta_minutes()] Mins.)":shuttle.at_station() ? "Docked":"Away"]<BR>
-			<HR>Supply points: [supply_controller.points]<BR>
+			<HR>Supply points: [SScargo.points]<BR>
 		<BR>\n<A href='?src=\ref[src];order=categories'>Request items</A><BR><BR>
 		<A href='?src=\ref[src];vieworders=1'>View approved orders</A><BR><BR>
 		<A href='?src=\ref[src];viewrequests=1'>View requests</A><BR><BR>
@@ -62,18 +62,18 @@
 			//all_supply_groups
 			//Request what?
 			last_viewed_group = "categories"
-			temp = "<b>Supply points: [supply_controller.points]</b><BR>"
+			temp = "<b>Supply points: [SScargo.points]</b><BR>"
 			temp += "<A href='?src=\ref[src];mainmenu=1'>Main Menu</A><HR><BR><BR>"
 			temp += "<b>Select a category</b><BR><BR>"
 			for(var/supply_group_name in all_supply_groups )
 				temp += "<A href='?src=\ref[src];order=[supply_group_name]'>[supply_group_name]</A><BR>"
 		else
 			last_viewed_group = href_list["order"]
-			temp = "<b>Supply points: [supply_controller.points]</b><BR>"
+			temp = "<b>Supply points: [SScargo.points]</b><BR>"
 			temp += "<A href='?src=\ref[src];order=categories'>Back to all categories</A><HR><BR><BR>"
 			temp += "<b>Request from: [last_viewed_group]</b><BR><BR>"
-			for(var/supply_name in supply_controller.supply_packs )
-				var/datum/supply_packs/N = supply_controller.supply_packs[supply_name]
+			for(var/supply_name in SScargo.supply_packs )
+				var/datum/supply_packs/N = SScargo.supply_packs[supply_name]
 				if(N.hidden || N.contraband || N.group != last_viewed_group) continue								//Have to send the type instead of a reference to
 				temp += "<A href='?src=\ref[src];doorder=[supply_name]'>[supply_name]</A> Cost: [N.cost]<BR>"		//the obj because it would get caught by the garbage
 
@@ -84,7 +84,7 @@
 			return
 
 		//Find the correct supply_pack datum
-		var/datum/supply_packs/P = supply_controller.supply_packs[href_list["doorder"]]
+		var/datum/supply_packs/P = SScargo.supply_packs[href_list["doorder"]]
 		if(!istype(P))	return
 
 		var/timeout = world.time + 600
@@ -101,11 +101,11 @@
 		else if(issilicon(usr))
 			idname = usr.real_name
 
-		supply_controller.ordernum++
+		SScargo.ordernum++
 		var/obj/item/weapon/paper/reqform = new /obj/item/weapon/paper(loc)
 		reqform.name = "Requisition Form - [P.name]"
 		reqform.info += "<h3>[station_name] Supply Requisition Form</h3><hr>"
-		reqform.info += "INDEX: #[supply_controller.ordernum]<br>"
+		reqform.info += "INDEX: #[SScargo.ordernum]<br>"
 		reqform.info += "REQUESTED BY: [idname]<br>"
 		reqform.info += "RANK: [idrank]<br>"
 		reqform.info += "REASON: [reason]<br>"
@@ -121,24 +121,24 @@
 
 		//make our supply_order datum
 		var/datum/supply_order/O = new /datum/supply_order()
-		O.ordernum = supply_controller.ordernum
+		O.ordernum = SScargo.ordernum
 		O.object = P
 		O.orderedby = idname
-		supply_controller.requestlist += O
+		SScargo.requestlist += O
 
 		temp = "Thanks for your request. The cargo team will process it as soon as possible.<BR>"
 		temp += "<BR><A href='?src=\ref[src];order=[last_viewed_group]'>Back</A> <A href='?src=\ref[src];mainmenu=1'>Main Menu</A>"
 
 	else if (href_list["vieworders"])
 		temp = "Current approved orders: <BR><BR>"
-		for(var/S in supply_controller.shoppinglist)
+		for(var/S in SScargo.shoppinglist)
 			var/datum/supply_order/SO = S
 			temp += "[SO.object.name] approved by [SO.orderedby] [SO.comment ? "([SO.comment])":""]<BR>"
 		temp += "<BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"
 
 	else if (href_list["viewrequests"])
 		temp = "Current requests: <BR><BR>"
-		for(var/S in supply_controller.requestlist)
+		for(var/S in SScargo.requestlist)
 			var/datum/supply_order/SO = S
 			temp += "#[SO.ordernum] - [SO.object.name] requested by [SO.orderedby]<BR>"
 		temp += "<BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"
@@ -163,7 +163,7 @@
 	if (temp)
 		dat = temp
 	else
-		var/datum/shuttle/ferry/supply/shuttle = supply_controller.shuttle
+		var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
 		if (shuttle)
 			dat += "<BR><B>Supply shuttle</B><HR>"
 			dat += "\nLocation: "
@@ -198,7 +198,7 @@
 					dat += "<BR>\n<BR>"
 
 
-		dat += {"<HR>\nSupply points: [supply_controller.points]<BR>\n<BR>
+		dat += {"<HR>\nSupply points: [SScargo.points]<BR>\n<BR>
 		\n<A href='?src=\ref[src];order=categories'>Order items</A><BR>\n<BR>
 		\n<A href='?src=\ref[src];viewrequests=1'>View requests</A><BR>\n<BR>
 		\n<A href='?src=\ref[src];vieworders=1'>View orders</A><BR>\n<BR>
@@ -216,10 +216,10 @@
 		return 1
 
 /obj/machinery/computer/supplycomp/Topic(href, href_list)
-	if(!supply_controller)
-		world.log << "## ERROR: Eek. The supply_controller controller datum is missing somehow."
+	if(!SScargo)
+		world.log << "## ERROR: Eek. The SScargo controller datum is missing somehow."
 		return
-	var/datum/shuttle/ferry/supply/shuttle = supply_controller.shuttle
+	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
 	if (!shuttle)
 		world.log << "## ERROR: Eek. The supply/shuttle datum is missing somehow."
 		return
@@ -239,7 +239,7 @@
 				temp = "Initiating launch sequence. \[<span class='warning'><A href='?src=\ref[src];force_send=1'>Force Launch</A></span>\]<BR><BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"
 		else
 			shuttle.launch(src)
-			temp = "The supply shuttle has been called and will arrive in approximately [round(supply_controller.movetime/600,1)] minutes.<BR><BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"
+			temp = "The supply shuttle has been called and will arrive in approximately [round(SScargo.movetime/600,1)] minutes.<BR><BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"
 			post_signal("supply")
 
 	if (href_list["force_send"])
@@ -254,25 +254,25 @@
 			//all_supply_groups
 			//Request what?
 			last_viewed_group = "categories"
-			temp = "<b>Supply points: [supply_controller.points]</b><BR>"
+			temp = "<b>Supply points: [SScargo.points]</b><BR>"
 			temp += "<A href='?src=\ref[src];mainmenu=1'>Main Menu</A><HR><BR><BR>"
 			temp += "<b>Select a category</b><BR><BR>"
 			for(var/supply_group_name in all_supply_groups )
 				temp += "<A href='?src=\ref[src];order=[supply_group_name]'>[supply_group_name]</A><BR>"
 		else
 			last_viewed_group = href_list["order"]
-			temp = "<b>Supply points: [supply_controller.points]</b><BR>"
+			temp = "<b>Supply points: [SScargo.points]</b><BR>"
 			temp += "<A href='?src=\ref[src];order=categories'>Back to all categories</A><HR><BR><BR>"
 			temp += "<b>Request from: [last_viewed_group]</b><BR><BR>"
-			for(var/supply_name in supply_controller.supply_packs )
-				var/datum/supply_packs/N = supply_controller.supply_packs[supply_name]
+			for(var/supply_name in SScargo.supply_packs )
+				var/datum/supply_packs/N = SScargo.supply_packs[supply_name]
 				if((N.hidden && !hacked) || (N.contraband && !can_order_contraband) || N.group != last_viewed_group) continue								//Have to send the type instead of a reference to
 				temp += "<A href='?src=\ref[src];doorder=[supply_name]'>[supply_name]</A> Cost: [N.cost]<BR>"		//the obj because it would get caught by the garbage
 
-		/*temp = "Supply points: [supply_controller.points]<BR><HR><BR>Request what?<BR><BR>"
+		/*temp = "Supply points: [SScargo.points]<BR><HR><BR>Request what?<BR><BR>"
 
-		for(var/supply_name in supply_controller.supply_packs )
-			var/datum/supply_packs/N = supply_controller.supply_packs[supply_name]
+		for(var/supply_name in SScargo.supply_packs )
+			var/datum/supply_packs/N = SScargo.supply_packs[supply_name]
 			if(N.hidden && !hacked) continue
 			if(N.contraband && !can_order_contraband) continue
 			temp += "<A href='?src=\ref[src];doorder=[supply_name]'>[supply_name]</A> Cost: [N.cost]<BR>"    //the obj because it would get caught by the garbage
@@ -285,7 +285,7 @@
 			return
 
 		//Find the correct supply_pack datum
-		var/datum/supply_packs/P = supply_controller.supply_packs[href_list["doorder"]]
+		var/datum/supply_packs/P = SScargo.supply_packs[href_list["doorder"]]
 		if(!istype(P))	return
 
 		var/timeout = world.time + 600
@@ -302,11 +302,11 @@
 		else if(issilicon(usr))
 			idname = usr.real_name
 
-		supply_controller.ordernum++
+		SScargo.ordernum++
 		var/obj/item/weapon/paper/reqform = new /obj/item/weapon/paper(loc)
 		reqform.name = "Requisition Form - [P.name]"
 		reqform.info += "<h3>[station_name] Supply Requisition Form</h3><hr>"
-		reqform.info += "INDEX: #[supply_controller.ordernum]<br>"
+		reqform.info += "INDEX: #[SScargo.ordernum]<br>"
 		reqform.info += "REQUESTED BY: [idname]<br>"
 		reqform.info += "RANK: [idrank]<br>"
 		reqform.info += "REASON: [reason]<br>"
@@ -322,10 +322,10 @@
 
 		//make our supply_order datum
 		var/datum/supply_order/O = new /datum/supply_order()
-		O.ordernum = supply_controller.ordernum
+		O.ordernum = SScargo.ordernum
 		O.object = P
 		O.orderedby = idname
-		supply_controller.requestlist += O
+		SScargo.requestlist += O
 
 		temp = "Order request placed.<BR>"
 		temp += "<BR><A href='?src=\ref[src];order=[last_viewed_group]'>Back</A> | <A href='?src=\ref[src];mainmenu=1'>Main Menu</A> | <A href='?src=\ref[src];confirmorder=[O.ordernum]'>Authorize Order</A>"
@@ -336,15 +336,15 @@
 		var/datum/supply_order/O
 		var/datum/supply_packs/P
 		temp = "Invalid Request"
-		for(var/i=1, i<=supply_controller.requestlist.len, i++)
-			var/datum/supply_order/SO = supply_controller.requestlist[i]
+		for(var/i=1, i<=SScargo.requestlist.len, i++)
+			var/datum/supply_order/SO = SScargo.requestlist[i]
 			if(SO.ordernum == ordernum)
 				O = SO
 				P = O.object
-				if(supply_controller.points >= P.cost)
-					supply_controller.requestlist.Cut(i,i+1)
-					supply_controller.points -= P.cost
-					supply_controller.shoppinglist += O
+				if(SScargo.points >= P.cost)
+					SScargo.requestlist.Cut(i,i+1)
+					SScargo.points -= P.cost
+					SScargo.shoppinglist += O
 					temp = "Thanks for your order.<BR>"
 					temp += "<BR><A href='?src=\ref[src];viewrequests=1'>Back</A> <A href='?src=\ref[src];mainmenu=1'>Main Menu</A>"
 				else
@@ -354,7 +354,7 @@
 
 	else if (href_list["vieworders"])
 		temp = "Current approved orders: <BR><BR>"
-		for(var/S in supply_controller.shoppinglist)
+		for(var/S in SScargo.shoppinglist)
 			var/datum/supply_order/SO = S
 			temp += "#[SO.ordernum] - [SO.object.name] approved by [SO.orderedby][SO.comment ? " ([SO.comment])":""]<BR>"// <A href='?src=\ref[src];cancelorder=[S]'>(Cancel)</A><BR>"
 		temp += "<BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"
@@ -372,7 +372,7 @@
 */
 	else if (href_list["viewrequests"])
 		temp = "Current requests: <BR><BR>"
-		for(var/S in supply_controller.requestlist)
+		for(var/S in SScargo.requestlist)
 			var/datum/supply_order/SO = S
 			temp += "#[SO.ordernum] - [SO.object.name] requested by [SO.orderedby] <A href='?src=\ref[src];confirmorder=[SO.ordernum]'>Approve</A> <A href='?src=\ref[src];rreq=[SO.ordernum]'>Remove</A><BR>"
 
@@ -382,16 +382,16 @@
 	else if (href_list["rreq"])
 		var/ordernum = text2num(href_list["rreq"])
 		temp = "Invalid Request.<BR>"
-		for(var/i=1, i<=supply_controller.requestlist.len, i++)
-			var/datum/supply_order/SO = supply_controller.requestlist[i]
+		for(var/i=1, i<=SScargo.requestlist.len, i++)
+			var/datum/supply_order/SO = SScargo.requestlist[i]
 			if(SO.ordernum == ordernum)
-				supply_controller.requestlist.Cut(i,i+1)
+				SScargo.requestlist.Cut(i,i+1)
 				temp = "Request removed.<BR>"
 				break
 		temp += "<BR><A href='?src=\ref[src];viewrequests=1'>Back</A> <A href='?src=\ref[src];mainmenu=1'>Main Menu</A>"
 
 	else if (href_list["clearreq"])
-		supply_controller.requestlist.Cut()
+		SScargo.requestlist.Cut()
 		temp = "List cleared.<BR>"
 		temp += "<BR><A href='?src=\ref[src];mainmenu=1'>OK</A>"
 
@@ -404,7 +404,7 @@
 
 /obj/machinery/computer/supplycomp/proc/post_signal(var/command)
 
-	var/datum/radio_frequency/frequency = radio_controller.return_frequency(1435)
+	var/datum/radio_frequency/frequency = SSradio.return_frequency(1435)
 
 	if(!frequency) return
 

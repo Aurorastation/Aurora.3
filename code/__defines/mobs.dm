@@ -183,4 +183,10 @@
 #define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
 #define TYPE_WIERD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 
+// Maximum number of chickens allowed at once.
+// If the number of chickens on the map exceeds this, laid eggs will not hatch.
+#define MAX_CHICKENS 50
 
+
+#define CREW_MINIMUM_NUTRITION 50	// The minimum amount of nutrition a crewmember will spawn with.
+#define CREW_MAXIMUM_NUTRITION 100	// Same as above, but maximum.

@@ -19,8 +19,8 @@
 	var/list/req_one_access = list()
 	var/master_access = access_robotics
 
-/mob/living/bot/New()
-	..()
+/mob/living/bot/Initialize()
+	. = ..()
 	update_icons()
 
 	botcard = new /obj/item/weapon/card/id(src)
@@ -29,6 +29,11 @@
 	access_scanner = new /obj(src)
 	access_scanner.req_access = req_access.Copy()
 	access_scanner.req_one_access = req_one_access.Copy()
+
+/mob/living/bot/Destroy()
+	QDEL_NULL(botcard)
+	QDEL_NULL(access_scanner)
+	return ..()
 
 /mob/living/bot/Life()
 	..()

@@ -9,12 +9,6 @@
 	var/tmp/list/datum/lighting_corner/corners
 	var/tmp/has_opaque_atom = FALSE // Not to be confused with opacity, this will be TRUE if there's any opaque atom on the tile.
 
-/turf/New()
-	. = ..()
-
-	if (opacity)
-		has_opaque_atom = TRUE
-
 // Causes any affecting light sources to be queued for a visibility update, for example a door got opened.
 /turf/proc/reconsider_lights()
 	L_PROF(src, "turf_reconsider")
@@ -29,7 +23,12 @@
 
 /turf/proc/lighting_clear_overlay()
 	if (lighting_overlay)
-		returnToPool(lighting_overlay)
+		if (lighting_overlay.loc != src)
+			var/turf/badT = lighting_overlay.loc
+			crash_with("Lighting overlay variable on turf [DEBUG_REF(src)] is insane, lighting overlay actually located on [DEBUG_REF(lighting_overlay.loc)] at ([badT.x],[badT.y],[badT.z])!")
+
+		qdel(lighting_overlay, TRUE)
+		lighting_overlay = null
 
 	L_PROF(src, "turf_clear_overlay")
 
@@ -146,12 +145,21 @@
 			lighting_clear_overlay()
 
 /turf/proc/get_corners()
+	if (!dynamic_lighting && !light_sources)
+		return null
+
+	if (!lighting_corners_initialised)
+		generate_missing_corners()
+
 	if (has_opaque_atom)
 		return null // Since this proc gets used in a for loop, null won't be looped though.
 
 	return corners
 
 /turf/proc/generate_missing_corners()
+	if (!dynamic_lighting && !light_sources)
+		return
+		
 	lighting_corners_initialised = TRUE
 	if (!corners)
 		corners = list(null, null, null, null)
@@ -161,3 +169,36 @@
 			continue
 
 		corners[i] = new/datum/lighting_corner(src, LIGHTING_CORNER_DIAGONAL[i])
+
+/turf/ChangeTurf(turf/N, tell_universe = TRUE, force_lighting_update = FALSE)
+	if (!SSlighting)
+		return ..()
+
+	var/old_opacity = opacity
+	var/old_dynamic_lighting = dynamic_lighting
+	var/list/old_affecting_lights = affecting_lights
+	var/old_lighting_overlay = lighting_overlay
+	var/list/old_corners = corners
+
+	. = ..()
+
+	recalc_atom_opacity()
+	lighting_overlay = old_lighting_overlay
+	if (lighting_overlay && lighting_overlay.loc != src)
+		// This is a hack, but I can't figure out why the fuck they're not on the correct turf in the first place.
+		lighting_overlay.forceMove(src, harderforce = TRUE)
+		
+	affecting_lights = old_affecting_lights
+	corners = old_corners
+
+	if ((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
+		reconsider_lights()
+
+	if (dynamic_lighting != old_dynamic_lighting)
+		if (dynamic_lighting)
+			lighting_build_overlay()
+		else
+			lighting_clear_overlay()
+
+	for (var/turf/space/S in RANGE_TURFS(1, src))
+		S.update_starlight()

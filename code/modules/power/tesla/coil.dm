@@ -41,14 +41,18 @@
 	default_deconstruction_crowbar(user, W)
 
 /obj/machinery/power/tesla_coil/tesla_act(var/power)
-	being_shocked = 1
-	var/power_produced = power / power_loss
-	add_avail(power_produced*input_power_multiplier)
-	flick("coilhit", src)
-	playsound(src.loc, 'sound/magic/LightningShock.ogg', 100, 1, extrarange = 5)
-	tesla_zap(src, 5, power_produced)
-	spawn(10)
-		being_shocked = 0
+	if(anchored)
+		being_shocked = 1
+		//don't lose arc power when it's not connected to anything
+		//please place tesla coils all around the station to maximize effectiveness
+		var/power_produced = powernet ? power / power_loss : power
+		add_avail(power_produced*input_power_multiplier)
+		flick("coilhit", src)
+		playsound(src.loc, 'sound/magic/LightningShock.ogg', 100, 1, extrarange = 5)
+		tesla_zap(src, 5, power_produced)
+		addtimer(CALLBACK(src, .proc/reset_shocked), 10)
+	else
+		..()
 
 /obj/machinery/power/grounding_rod
 	name = "Grounding Rod"

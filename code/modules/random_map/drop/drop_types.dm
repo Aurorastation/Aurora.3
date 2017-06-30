@@ -3,7 +3,7 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /proc/supply_drop_random_loot_types()
 	if(!supply_drop)
 		supply_drop = init_subtypes(/datum/supply_drop_loot)
-		supply_drop = dd_sortedObjectList(supply_drop)
+		sortTim(supply_drop, /proc/cmp_supply_drop, FALSE)
 	return supply_drop
 
 /datum/supply_drop_loot
@@ -18,9 +18,6 @@ var/global/list/datum/supply_drop_loot/supply_drop
 	var/C = container ? new container(T) : T
 	for(var/content in contents())
 		new content(C)
-
-/datum/supply_drop_loot/dd_SortValue()
-	return name
 
 /datum/supply_drop_loot/supermatter
 	name = "Supermatter"

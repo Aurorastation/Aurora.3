@@ -18,7 +18,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 /obj/item/weapon/spellbook
 	name = "master spell book"
 	desc = "The legendary book of spells of the wizard."
-	icon = 'icons/obj/library.dmi'
+	icon = 'icons/obj/wizard.dmi'
 	icon_state = "spellbook"
 	throw_speed = 1
 	throw_range = 5
@@ -228,6 +228,5 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 				/datum/spellbook/battlemage = 1,
 				/datum/spellbook/spatial = 1,
 				/datum/spellbook/druid = 1,
-				/datum/spellbook/necromancer = 1,
-				/datum/spellbook/student = 1
+				/datum/spellbook/necromancer = 1
 				) //spell's path = cost of spell

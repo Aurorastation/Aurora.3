@@ -29,11 +29,8 @@
 
 //Convenience function for atoms to update turfs they occupy
 /atom/movable/proc/update_nearby_tiles(need_rebuild)
-	if(!air_master)
-		return 0
-
 	for(var/turf/simulated/turf in locs)
-		air_master.mark_for_update(turf)
+		SSair.mark_for_update(turf)
 
 	return 1
 
@@ -54,11 +51,11 @@ turf/c_airblock(turf/other)
 	#ifdef ZASDBG
 	ASSERT(isturf(other))
 	#endif
-	if(blocks_air || other.blocks_air)
+	if(((blocks_air & AIR_BLOCKED) || (other.blocks_air & AIR_BLOCKED)))
 		return BLOCKED
-
+	
 	//Z-level handling code. Always block if there isn't an open space.
-	#ifdef ZLEVELS
+	#ifdef MULTIZAS
 	if(other.z != src.z)
 		if(other.z < src.z)
 			if(!istype(src, /turf/simulated/open)) return BLOCKED
@@ -66,8 +63,17 @@ turf/c_airblock(turf/other)
 			if(!istype(other, /turf/simulated/open)) return BLOCKED
 	#endif
 
+	if(((blocks_air & ZONE_BLOCKED) || (other.blocks_air & ZONE_BLOCKED)))
+		if(z == other.z)
+			return ZONE_BLOCKED
+		else
+			return AIR_BLOCKED
+			
 	var/result = 0
 	for(var/atom/movable/M in contents)
 		result |= M.c_airblock(other)
 		if(result == BLOCKED) return BLOCKED
 	return result
+
+/atom/movable
+	var/atmos_canpass = CANPASS_ALWAYS

@@ -125,24 +125,19 @@
 	var/signature = ""
 
 /obj/item/weapon/pen/chameleon/attack_self(mob/user as mob)
-	/*
-	// Limit signatures to official crew members
-	var/personnel_list[] = list()
-	for(var/datum/data/record/t in data_core.locked) //Look in data core locked.
-		personnel_list.Add(t.fields["name"])
-	personnel_list.Add("Anonymous")
-
-	var/new_signature = input("Enter new signature pattern.", "New Signature") as null|anything in personnel_list
-	if(new_signature)
-		signature = new_signature
-	*/
 	signature = sanitize(input("Enter new signature. Leave blank for 'Anonymous'", "New Signature", signature))
 
 /obj/item/weapon/pen/proc/get_signature(var/mob/user)
-	return (user && user.real_name) ? user.real_name : "Anonymous"
+	if (user)
+		if (user.mind && user.mind.signature)
+			return user.mind.signature
+		else if (user.real_name)
+			return "<i>[user.real_name]</i>"
+
+	return "<i>Anonymous</i>"
 
 /obj/item/weapon/pen/chameleon/get_signature(var/mob/user)
-	return signature ? signature : "Anonymous"
+	return signature ? "<i>[signature]</i>" : "<i>Anonymous</i>"
 
 /obj/item/weapon/pen/chameleon/verb/set_colour()
 	set name = "Change Pen Colour"

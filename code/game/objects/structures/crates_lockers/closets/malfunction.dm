@@ -4,8 +4,7 @@
 	icon_closed = "syndicate"
 	icon_opened = "syndicateopen"
 
-/obj/structure/closet/malf/suits/New()
-	..()
+/obj/structure/closet/malf/suits/fill()
 	new /obj/item/weapon/tank/jetpack/void(src)
 	new /obj/item/clothing/mask/breath(src)
 	new /obj/item/clothing/head/helmet/space/void(src)

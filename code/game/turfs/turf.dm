@@ -26,25 +26,64 @@
 
 	var/list/decals
 
-/turf/New()
-	..()
+	var/is_hole		// If true, turf will be treated as space or a hole
+	var/tmp/turf/baseturf
+
+	var/roof_type = null // The turf type we spawn as a roof.
+	var/tmp/roof_flags = 0
+
+// Parent code is duplicated in here instead of ..() for performance reasons.
+/turf/Initialize()
+	if (initialized)
+		crash_with("Warning: [src]([type]) initialized multiple times!")
+
+	initialized = TRUE
+
 	for(var/atom/movable/AM as mob|obj in src)
-		spawn( 0 )
-			src.Entered(AM)
-			return
-	turfs |= src
+		Entered(AM)
+
+	turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
 
-/turf/proc/update_icon()
-	return
+	if (smooth)
+		queue_smooth(src)
+
+	if (light_power && light_range)
+		update_light()
+
+	if (opacity)
+		has_opaque_atom = TRUE
+
+	if(!baseturf)
+		baseturf = get_base_turf_by_area(src)
+
+	spawn_roof()
+
+	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
+	if (!changing_turf)
+		crash_with("Improper turf qdeletion.")
+
+	changing_turf = FALSE
 	turfs -= src
+
+	cleanup_roof()
+
 	..()
+	return QDEL_HINT_IWILLGC
+
+// This should be using mutable_appearance, but 510. Woe.
+// Update this & all overrides if/when we move to 511.
+/turf/proc/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.icon = icon
+	underlay_appearance.icon_state = icon_state
+	underlay_appearance.dir = adjacency_dir
+	return TRUE
 
 /turf/ex_act(severity)
 	return 0
@@ -164,7 +203,7 @@ var/const/enterloopsanity = 100
 	if(!(A.last_move))	return
 	if((istype(A, /mob/) && src.x > 2 && src.x < (world.maxx - 1) && src.y > 2 && src.y < (world.maxy-1)))
 		var/mob/M = A
-		if(M.Process_Spacemove(1))
+		if(M.Allow_Spacemove(1))
 			M.inertia_dir  = 0
 			return
 		spawn(5)
@@ -211,8 +250,8 @@ var/const/enterloopsanity = 100
 				L.Add(t)
 	return L
 
-/turf/proc/process()
-	return PROCESS_KILL
+/turf/process()
+	STOP_PROCESSING(SSprocessing, src)
 
 /turf/proc/contains_dense_objects()
 	if(density)
@@ -244,3 +283,40 @@ var/const/enterloopsanity = 100
 
 /turf/proc/update_blood_overlays()
 	return
+
+/**
+ * Will spawn a roof above the turf if it needs one.
+ *
+ * @param  flags The flags to assign to the turf which control roof spawning and
+ * deletion by this turf. Refer to _defines/turfs.dm for a full list.
+ *
+ * @return TRUE if a roof has been spawned, FALSE if not.
+ */
+/turf/proc/spawn_roof(flags = 0)
+	if (!HasAbove(z))
+		return FALSE
+
+	var/turf/simulated/open/above = GetAbove(src)
+	var/area/A = loc
+
+	if (((istype(above) && !A.no_roof) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
+		above.ChangeTurf(roof_type)
+		roof_flags |= flags
+		return TRUE
+
+	return FALSE
+
+/**
+ * Cleans up the roof above a tile if there is one spawned and the ROOF_CLEANUP
+ * flag is present on the source turf.
+ */
+/turf/proc/cleanup_roof()
+	if (!HasAbove(z))
+		return
+
+	if (roof_flags & ROOF_CLEANUP)
+		var/turf/above = GetAbove(src)
+		if (!above || istype(above, /turf/simulated/open))
+			return
+
+		above.ChangeTurf(/turf/simulated/open)
