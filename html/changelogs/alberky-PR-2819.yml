@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a new changeling power, horror form."
+  - soundadd: "Added new changeling related sounds."

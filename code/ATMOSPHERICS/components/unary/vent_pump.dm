@@ -89,10 +89,10 @@
 	if(frequency)
 		radio_connection = register_radio(src, frequency, frequency, radio_filter_in)
 
-	initialize()
+	atmos_init()
 
 // Different from the above.
-/obj/machinery/atmospherics/unary/vent_pump/initialize()
+/obj/machinery/atmospherics/unary/vent_pump/atmos_init()
 	..()
 	broadcast_status()
 

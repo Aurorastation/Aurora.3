@@ -363,6 +363,8 @@ var/datum/controller/subsystem/ticker/SSticker
 		SSjobs.ResetOccupations()
 		return 0
 
+	var/starttime = REALTIMEOFDAY
+
 	if(hide_mode)
 		world << "<B>The current game mode is - Secret!</B>"
 		if(runnable_modes.len)
@@ -401,6 +403,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
 	run_callback_list(roundstart_callbacks)
 	roundstart_callbacks = null
+
+	log_debug("SSticker: Round-start setup took [(REALTIMEOFDAY - starttime)/10] seconds.")
 
 	return 1
 

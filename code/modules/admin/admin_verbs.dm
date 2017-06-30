@@ -207,7 +207,6 @@ var/list/admin_verbs_debug = list(
 	/client/proc/dsay,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
-	/client/proc/debug_pooling,
 	/client/proc/fix_player_list,
 	/client/proc/lighting_show_verbs,
 	/client/proc/restart_controller,
@@ -303,8 +302,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/roll_dices,
 	/proc/possess,
 	/proc/release,
-	/client/proc/toggle_recursive_explosions,
-	/client/proc/debug_pooling
+	/client/proc/toggle_recursive_explosions
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,

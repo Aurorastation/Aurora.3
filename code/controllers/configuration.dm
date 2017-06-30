@@ -46,7 +46,7 @@ var/list/gamemode_cache = list()
 	var/continous_rounds = 0			// Gamemodes which end instantly will instead keep on going until the round ends by escape shuttle or nuke.
 	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
-	var/Ticklag = 0.9
+	var/Ticklag = 0.4
 	var/Tickcomp = 0
 	var/list/resource_urls = null
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
@@ -245,6 +245,7 @@ var/list/gamemode_cache = list()
 
 	// Master Controller settings.
 	var/mc_init_tick_limit = TICK_LIMIT_MC_INIT_DEFAULT
+	var/fastboot = FALSE	// If true, take some shortcuts during boot to speed it up for testing. Probably should not be used on production servers.
 
 	//UDP GELF Logging
 	var/log_gelf_enabled = 0
@@ -818,6 +819,10 @@ var/list/gamemode_cache = list()
 					access_deny_vms = text2num(value)
 				if("access_warn_vms")
 					access_warn_vms = text2num(value)
+
+				if("fastboot")
+					fastboot = TRUE
+					world.log << "Fastboot is ENABLED."
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

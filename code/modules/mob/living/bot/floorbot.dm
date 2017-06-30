@@ -173,7 +173,7 @@
 				break
 
 	if(target && get_turf(target) == loc)
-		UnarmedAttack(target)
+		INVOKE_ASYNC(src, .proc/UnarmedAttack, target)
 
 	if(target && get_turf(target) != loc && !path.len)
 		spawn(0)

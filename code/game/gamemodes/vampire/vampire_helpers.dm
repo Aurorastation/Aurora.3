@@ -35,7 +35,7 @@
 
 	if (!(vampire.status & VAMP_FULLPOWER) && vampire.blood_total >= 650)
 		vampire.status |= VAMP_FULLPOWER
-		src << "<span class='notice'>You've gained full power. Some abilities now have bonus functionality, or work faster.</span>"
+		to_chat(src, "<span class='notice'>You've gained full power. Some abilities now have bonus functionality, or work faster.</span>")
 
 // Runs the checks for whether or not we can use a power.
 /mob/proc/vampire_power(var/required_blood = 0, var/max_stat = 0, var/ignore_holder = 0, var/disrupt_healing = 1, var/required_vampire_blood = 0)
@@ -51,15 +51,15 @@
 		return
 
 	if (vampire.holder && !ignore_holder)
-		src << "<span class='warning'>You cannot use this power while walking through the Veil.</span>"
+		to_chat(src, "<span class='warning'>You cannot use this power while walking through the Veil.</span>")
 		return
 
 	if (stat > max_stat)
-		src << "<span class='warning'>You are incapacitated.</span>"
+		to_chat(src, "<span class='warning'>You are incapacitated.</span>")
 		return
 
 	if (required_blood > vampire.blood_usable)
-		src << "<span class='warning'>You do not have enough usable blood. [required_blood] needed.</span>"
+		to_chat(src, "<span class='warning'>You do not have enough usable blood. [required_blood] needed.</span>")
 		return
 
 	if ((vampire.status & VAMP_HEALING) && disrupt_healing)
@@ -82,23 +82,23 @@
 	if (T.mind)
 		if (T.mind.assigned_role == "Chaplain")
 			if (notify)
-				src << "<span class='warning'>Your connection with the Veil is not strong enough to effect a man as devout as them.</span>"
+				to_chat(src, "<span class='warning'>Your connection with the Veil is not strong enough to affect a man as devout as them.</span>")
 			return 0
 		else if (T.mind.vampire)
 			if (notify)
-				src << "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>"
+				to_chat(src, "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>")
 			return 0
 
 	if (isipc(T))
 		if (notify)
-			src << "<span class='warning'>You lack the power interact with mechanical constructs.</span>"
+			to_chat(src, "<span class='warning'>You lack the power interact with mechanical constructs.</span>")
 		return 0
 
 	if (account_loyalty_implant)
 		for (var/obj/item/weapon/implant/loyalty/I in T)
 			if (I.implanted)
 				if (notify)
-					src << "<span class='warning'>You feel [T.name]'s mind unreachable due to forced loyalty.</span>"
+					to_chat(src, "<span class='warning'>You feel that [T]'s mind is unreachable due to forced loyalty.</span>")
 				return 0
 
 	return 1
@@ -175,7 +175,7 @@
 
 		if (next_alert && message)
 			if (!vampire.last_frenzy_message || vampire.last_frenzy_message + next_alert < world.time)
-				usr << message
+				to_chat(usr, message)
 				vampire.last_frenzy_message = world.time
 
 	// Remove one point per every life() tick.
@@ -242,3 +242,12 @@
 	vampire_check_frenzy()
 
 	return
+
+/mob/living/carbon/human/proc/finish_vamp_timeout(vamp_flags = 0)
+	if (!mind || !mind.vampire)
+		return FALSE
+
+	if (vamp_flags && !(mind.vampire.status & vamp_flags))
+		return FALSE
+
+	return TRUE

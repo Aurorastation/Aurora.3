@@ -143,7 +143,7 @@
 	selection_color = "#ffeeff"
 	economic_modifier = 7
 	access = list(access_genetics, access_tox, access_tox_storage, access_morgue, access_research)
-	minimal_access = list(access_medical, access_morgue, access_genetics, access_research)
+	minimal_access = list(access_morgue, access_genetics, access_research)
 
 	bag_type = /obj/item/weapon/storage/backpack/genetics
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_gen

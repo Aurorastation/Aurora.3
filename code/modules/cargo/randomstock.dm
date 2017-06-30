@@ -296,6 +296,7 @@ var/list/global/random_stock_large = list(
 		/mob/living/simple_animal/hostile/shantak = 0.7,
 		/mob/living/simple_animal/hostile/bear = 0.5,
 		/mob/living/simple_animal/hostile/carp = 1.5,
+		/mob/living/simple_animal/hostile/carp/russian = 0.3,
 		"cratey" = 1
 	)
 
@@ -1820,21 +1821,19 @@ var/list/global/random_stock_large = list(
 					exosuit.cell.charge = 0
 
 
-				//Handle power or damage warnings
-				if (exosuit.pr_manage_warnings)
-					exosuit.pr_manage_warnings.process(exosuit)//Trigger them first, if they'll happen
+				exosuit.process_warnings()//Trigger them first, if they'll happen
 
-					if (exosuit.power_alert_status)
-						exosuit.pr_manage_warnings.last_power_warning = -99999999
-						//Make it go into infrequent warning state instantly
-						exosuit.pr_manage_warnings.power_warning_delay = 99999999
-						//and set the delay between warnings to a functionally infinite value
-						//so that it will shut up
+				if (exosuit.power_alert_status)
+					exosuit.last_power_warning = -99999999
+					//Make it go into infrequent warning state instantly
+					exosuit.power_warning_delay = 99999999
+					//and set the delay between warnings to a functionally infinite value
+					//so that it will shut up
 
-					if (exosuit.damage_alert_status)
-						exosuit.pr_manage_warnings.last_damage_warning = -99999999
-						exosuit.pr_manage_warnings.damage_warning_delay = 99999999
+				if (exosuit.damage_alert_status)
+					exosuit.last_damage_warning = -99999999
+					exosuit.damage_warning_delay = 99999999
 
-					exosuit.pr_manage_warnings.process(exosuit)
+				exosuit.process_warnings()
 		else
 			log_debug("ERROR: Random cargo spawn failed for [stock]")

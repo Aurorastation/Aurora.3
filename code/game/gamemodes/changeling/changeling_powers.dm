@@ -184,10 +184,12 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 			if(2)
 				src << "<span class='notice'>We extend a proboscis.</span>"
 				src.visible_message("<span class='warning'>[src] extends a proboscis!</span>")
+				playsound(get_turf(src), 'sound/effects/lingextends.ogg', 50, 1)
 			if(3)
 				src << "<span class='notice'>We stab [T] with the proboscis.</span>"
 				src.visible_message("<span class='danger'>[src] stabs [T] with the proboscis!</span>")
 				T << "<span class='danger'>You feel a sharp stabbing pain!</span>"
+				playsound(get_turf(src), 'sound/effects/lingstabs.ogg', 50, 1)
 				var/obj/item/organ/external/affecting = T.get_organ(src.zone_sel.selecting)
 				if(affecting.take_damage(39,0,1,0,"large organic needle"))
 					T:UpdateDamageIcon()
@@ -201,6 +203,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	src << "<span class='notice'>We have absorbed [T]!</span>"
 	src.visible_message("<span class='danger'>[src] sucks the fluids from [T]!</span>")
 	T << "<span class='danger'>You have been absorbed by the changeling!</span>"
+	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
 	changeling.chem_charges += 10
 	changeling.geneticpoints += 2
@@ -853,8 +856,12 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 /mob/proc/armblades()
 	set category = "Changeling"
-	set name = "Form Blades"
+	set name = "Form Blades (20)"
 	set desc="Rupture the flesh and mend the bone of your hand into a deadly blade."
+
+	var/datum/changeling/changeling = changeling_power(20,0,0)
+	if(!changeling)	return 0
+	src.mind.changeling.chem_charges -= 20
 
 	var/mob/living/M = src
 
@@ -865,7 +872,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	var/obj/item/weapon/melee/arm_blade/blade = new(M)
 	blade.creator = M
 	M.put_in_hands(blade)
-	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
+	playsound(loc, 'sound/weapons/bloodyslice.ogg', 30, 1)
 	src.visible_message("<span class='danger'>A grotesque blade forms around [M]\'s arm!</span>",
 							"<span class='danger'>Our arm twists and mutates, transforming it into a deadly blade.</span>",
 							"<span class='danger'>You hear organic matter ripping and tearing!</span>")
@@ -873,8 +880,12 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 /mob/proc/changeling_shield()
 	set category = "Changeling"
-	set name = "Form Shield"
+	set name = "Form Shield (20)"
 	set desc="Bend the flesh and bone of your hand into a grotesque shield."
+
+	var/datum/changeling/changeling = changeling_power(20,0,0)
+	if(!changeling)	return 0
+	src.mind.changeling.chem_charges -= 20
 
 	var/mob/living/M = src
 
@@ -886,10 +897,66 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	shield.creator = M
 	M.put_in_hands(shield)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
-	src.visible_message("<span class='warning'>The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!</span>",
+	src.visible_message("<span class='danger'>The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!</span>",
 							"<span class='warning'>We inflate our hand into a robust shield.</span>",
 							"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	gibs(src.loc)
+
+/mob/proc/horror_form()
+	set category = "Changeling"
+	set name = "Horror Form (40)"
+	set desc = "Tear apart your human disguise, revealing your true form."
+
+	var/datum/changeling/changeling = changeling_power(40,0,0)
+	if(!changeling)	return 0
+	src.mind.changeling.chem_charges -= 40
+
+	var/mob/living/M = src
+
+	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inhuman proportions!</span>", \
+						"<span class='danger'>We begin our transformation to our true form!</span>")
+	if(!do_after(src,60))
+		M.visible_message("<span class='danger'>[M]'s transformation abruptly reverts itself!</span>", \
+							"<span class='danger'>Our transformation has been interrupted!</span>")
+		return 0
+
+	M.visible_message("<span class='danger'>[M] grows into an abomination and lets out an awful scream!</span>")
+	playsound(loc, 'sound/effects/greaterling.ogg', 100, 1)
+
+	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))
+
+	if(istype(M,/mob/living/carbon/human))
+		for(var/obj/item/I in M.contents)
+			if(isorgan(I))
+				continue
+			M.drop_from_inventory(I)
+
+	if(M.mind)
+		M.mind.transfer_to(ling)
+	else
+		ling.key = M.key
+	var/atom/movable/overlay/effect = new /atom/movable/overlay(get_turf(M))
+	effect.density = 0
+	effect.anchored = 1
+	effect.icon = 'icons/effects/effects.dmi'
+	effect.layer = 3
+	flick("summoning",effect)
+	QDEL_IN(effect, 10)
+	M.forceMove(ling) //move inside the new dude to hide him.
+	M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
+	addtimer(CALLBACK(src, .proc/revert_horror_form,ling), 10 MINUTES)
+
+/mob/proc/revert_horror_form(var/mob/living/ling)
+	if(QDELETED(ling))
+		return
+	src.status_flags &= ~GODMODE //no more godmode.
+	if(ling.mind)
+		ling.mind.transfer_to(src)
+	else
+		src.key = ling.key
+	playsound(get_turf(src),'sound/effects/blobattack.ogg',50,1)
+	src.forceMove(get_turf(ling))
+	qdel(ling)
 
 //dna related datum
 

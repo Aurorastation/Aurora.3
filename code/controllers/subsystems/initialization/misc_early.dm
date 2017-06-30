@@ -20,7 +20,8 @@
 		global_hud.nvg,
 		global_hud.thermal,
 		global_hud.meson,
-		global_hud.science
+		global_hud.science,
+		global_hud.holomap
 	)
 
 	// This is kinda important. Set up details of what the hell things are made of.
