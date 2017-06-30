@@ -180,14 +180,9 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/weapon/material/minihoe(src)  // a hydroponist's hoe
-	src.modules += new /obj/item/weapon/material/kitchen/utensil/knife/plastic(src) // a plastic kitchen knife
-	src.modules += new /obj/item/weapon/soap(src) // a cheap bar of soap
-	src.modules += new /obj/item/weapon/book/manual/security_space_law(src) // book of security space laws
 	src.modules += new /obj/item/weapon/hand_labeler(src) // cool privatisation thing
 	src.modules += new /obj/item/weapon/folder(src) // a folder for any papers
 	src.modules += new /obj/item/weapon/form_printer(src) // a paper dispenser
-	src.modules += new /obj/item/device/lightreplacer/advanced(src) // for fixing lights
 	src.emag = new /obj/item/weapon/melee/energy/sword(src)
 
 
@@ -455,7 +450,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/pen/robopen(src) // to rwite on a peper
 	src.modules += new /obj/item/weapon/form_printer(src) // paper dispenser
 	src.modules += new /obj/item/weapon/gripper/paperwork(src) // to transfer a paper around
-	src.modules += new /obj/item/weapon/hand_labeler(src) // for marking some precious things
 	src.modules += new /obj/item/weapon/folder/yellow(src) // for any remarks
 	src.emag = new /obj/item/borg/stun(src)
 
@@ -529,7 +523,6 @@ var/global/list/robot_modules = list(
 	..()
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/sec(src)
-	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
 	src.modules += new /obj/item/weapon/melee/baton/robot(src)
 	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
 	src.modules += new /obj/item/taperoll/police(src)
@@ -540,7 +533,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/hand_labeler(src) // for marking some precious things
 	src.modules += new /obj/item/weapon/folder/blue(src) // for any remarks
 	src.modules += new /obj/item/weapon/book/manual/security_space_law(src) // book of security space laws
-	src.modules += new /obj/item/device/lightreplacer/advanced(src) // for fixing prisoner mess
+	src.modules += new /obj/item/weapon/handcuffs/cyborg(src) // for tie..tye..tieyeing people
 	src.emag = new /obj/item/weapon/gun/energy/laser/mounted(src)
 
 /obj/item/weapon/robot_module/security/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
