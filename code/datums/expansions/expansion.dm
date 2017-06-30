@@ -33,11 +33,6 @@
 	expansions = null
 	return ..()
 
-/obj/resetVariables(var/list/exclude = list())
-	exclude += "expansions"
-	..(exclude)
-	//expansions = list()
-
 /obj/proc/set_expansion(var/type, var/instance)
 	LAZYINITLIST(expansions)
 	if(expansions[type])
