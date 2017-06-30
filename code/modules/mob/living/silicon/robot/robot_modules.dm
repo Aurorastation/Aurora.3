@@ -402,7 +402,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/pen/robopen(src) // to rwite on a peper
 	src.modules += new /obj/item/weapon/form_printer(src) // paper dispenser
 	src.modules += new /obj/item/weapon/gripper/paperwork(src) // to transfer a paper around
-	src.modules += new /obj/item/weapon/hand_labeler(src) // for marking some precious things
 	src.modules += new /obj/item/weapon/folder/yellow(src) // for any remarks
 	src.malfAImodule += new /obj/item/weapon/rtf(src)
 
