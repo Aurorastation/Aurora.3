@@ -494,7 +494,7 @@
 	name = "sand"
 	icon = 'icons/turf/smooth/ash.dmi'
 	icon_state = "ash"
-	smooth = SMOOTH_MORE | SMOOTH_BORDER
+	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	canSmoothWith = list(
 		/turf/simulated/floor/asteroid,
 		/turf/simulated/mineral,
