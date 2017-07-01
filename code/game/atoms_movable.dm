@@ -279,5 +279,5 @@ var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
 
 /mob/update_client_hook(atom/destination)
 	. = ..()
-	if (. && hud_used && get_turf(client.eye) == destination)
+	if (. && hud_used && client && get_turf(client.eye) == destination)
 		hud_used.update_parallax_values()
