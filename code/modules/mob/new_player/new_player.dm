@@ -70,11 +70,12 @@
 	if(statpanel("Lobby"))
 		stat("Game ID:", game_id)
 
-		if(SSticker.hide_mode)
+		if(SSticker.hide_mode == ROUNDTYPE_SECRET)
 			stat("Game Mode:", "Secret")
+		else if (SSticker.hide_mode == ROUNDTYPE_MIXED_SECRET)
+			stat("Game Mode:", "Mixed Secret")
 		else
-			if(SSticker.hide_mode == 0)
-				stat("Game Mode:", "[master_mode]") // Old setting for showing the game mode
+			stat("Game Mode:", "[master_mode]") // Old setting for showing the game mode
 
 		if(SSticker.current_state == GAME_STATE_PREGAME)
 			if (SSticker.lobby_ready)
