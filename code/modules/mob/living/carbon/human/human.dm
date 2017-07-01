@@ -410,10 +410,15 @@
 		return wear_id.GetID()
 //now more shit and less good but now shocks more things
 /mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
+	var/hairvar = 0
 	if(status_flags & GODMODE)	return 0	//godmode
 	if(!def_zone)
 		var/list/damage_areas = list() //The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
-		switch (rand(1,6))
+		if(istype(user, /mob/living/carbon/human))
+			if(h_style == "Floorlength Braid" || h_style == "Very Long Hair")
+				hairvar = 1
+		var/count = hairvar == 1 ? rand(1, 7) : rand(1, 6)
+		switch (count)
 			if(1)
 				damage_areas = list("l_hand", "l_arm", "chest", "r_arm", "r_hand")
 			if(2)
@@ -425,10 +430,15 @@
 			if(5)
 				damage_areas = list("r_hand", "r_arm", "chest", "groin", "r_leg", "r_foot")
 			if(6)
-				damage_areas = list("r_hand", "r_arm", "chest", "groin", "l_leg", "l_foot")	
+				damage_areas = list("r_hand", "r_arm", "chest", "groin", "l_leg", "l_foot")
+			if(7)//snowflake arc - only happens when they have long hair.
+				damage_areas = list("r_hand", "r_arm", "chest", "head")
+				h_style = "skinhead"
+				visible_message("<span class='warning'>[src]'s hair gets a burst of electricty through it, burning and turning to dust!</span>", "<span class='danger'>your hair burns as the current flows through it, turning to dust!</span>", "<span class='notice'>You hear a crackling sound, and smell burned hair!.</span>")
+				update_hair()
 		if(gloves)
 			shock_damage *= gloves.siemens_coefficient
-		
+
 		for (var/area in damage_areas)
 			apply_damage(shock_damage, BURN, area)
 			shock_damage *= 0.8
