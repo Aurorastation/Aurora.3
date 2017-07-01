@@ -55,9 +55,9 @@
 
 // Defines (NOT FLAGS) for making secret, random, and mixed secret less snowflake-string
 // and number dependant.
+#define ROUNDTYPE_RANDOM       0
 #define ROUNDTYPE_SECRET       1
 #define ROUNDTYPE_MIXED_SECRET 2
-#define ROUNDTYPE_RANDOM       3
 
 #define ROUNDTYPE_STR_SECRET       "secret"
 #define ROUNDTYPE_STR_MIXED_SECRET "mixed secret"
