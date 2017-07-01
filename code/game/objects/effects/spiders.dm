@@ -21,10 +21,7 @@
 	return
 
 /obj/effect/spider/attackby(var/obj/item/weapon/W, var/mob/user)
-	if(W.attack_verb.len)
-		visible_message("<span class='warning'>\The [src] have been [pick(W.attack_verb)] with \the [W][(user ? " by [user]." : ".")]</span>")
-	else
-		visible_message("<span class='warning'>\The [src] have been attacked with \the [W][(user ? " by [user]." : ".")]</span>")
+	visible_message("<span class='warning'>[src] has been [LAZYPICK(W.attack_verb, "attacked")] with [W][(user ? " by [user]." : ".")]</span>")
 
 	var/damage = W.force / 4.0
 

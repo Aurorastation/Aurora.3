@@ -310,7 +310,7 @@
 		return null
 
 	var/datum/job/job = GetJob(rank)
-	var/list/spawn_in_storage = list()
+	var/list/spawn_in_storage
 	
 	if(job)
 		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
@@ -331,7 +331,7 @@
 		// Randomize nutrition. Defines are in __defines/mobs.dm
 		H.nutrition = (rand(CREW_MINIMUM_NUTRITION, CREW_MAXIMUM_NUTRITION) * 0.01) * H.max_nutrition
 
-		EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
+		spawn_in_storage = EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
 		H << "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator."
 
@@ -495,7 +495,7 @@
 		return EquipRank(H, rank, 1)
 
 	var/datum/job/job = GetJob(rank)
-	var/list/spawn_in_storage = list()
+	var/list/spawn_in_storage
 	H <<"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>"
 
 	if(job)
@@ -511,7 +511,7 @@
 		job.equip_survival(H)
 		job.setup_account(H)
 
-		EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
+		spawn_in_storage = EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 
 		job.apply_fingerprints(H)
 
@@ -572,7 +572,7 @@
 	if(C)
 		C.rank = rank
 		C.assignment = title ? title : rank
-		H.set_id_info(C)
+		addtimer(CALLBACK(H, /mob/.proc/set_id_info, C), 1 SECOND)	// Delay a moment to allow an icon update to happen.
 
 		//put the player's account number onto the ID
 		if(H.mind && H.mind.initial_account)
@@ -719,11 +719,14 @@
 // H, job, and prefs MUST be supplied and not null.
 // leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
 /datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/human/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
+	Debug("EC/([H]): Entry.")
 	if (!istype(H) || !job)
+		Debug("EC/([H]): Abort: invalid arguments.")
 		return FALSE
 
 	switch (job.title)
 		if ("AI", "Cyborg")
+			Debug("EC/([H]): Abort: synthetic.")
 			return FALSE
 
 	for(var/thing in prefs.gear)
@@ -753,15 +756,20 @@
 				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 					if (leftovers)
 						leftovers += thing
+					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
 					H << "<span class='notice'>Equipping you with \a [thing]!</span>"
 					custom_equip_slots += G.slot
+					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
 					leftovers += thing
+					Debug("EC/([H]): Unable to equip [thing]; sending to overflow.")
 			else if (storage)
 				storage += thing
+				Debug("EC/([H]): Unable to equip [thing]; sending to storage.")
 	
+	Debug("EC/([H]): Complete.")
 	return TRUE
 
 // Attempts to equip custom items that failed to equip in EquipCustom.
@@ -769,6 +777,7 @@
 // H and prefs must not be null.
 /datum/controller/subsystem/jobs/proc/EquipCustomDeferred(mob/living/carbon/human/H, datum/preferences/prefs, list/items, list/used_slots)
 	. = list()
+	Debug("ECD/([H]): Entry.")
 	for (var/thing in items)
 		var/datum/gear/G = gear_datums[thing]
 
@@ -781,15 +790,21 @@
 				to_chat(H, "<span class='notice'>Equipping you with \a [thing]!</span>")
 				used_slots += G.slot
 				CI.autodrobe_no_remove = TRUE
+				Debug("ECD/([H]): Equipped [thing] successfully.")
 
 			else
 				. += thing
+				Debug("ECD/([H]): Unable to equip [thing]; dumping into overflow.")
+
+	Debug("ECD/([H]): Complete.")
 
 // Attempts to place everything in items into a storage object located on H, deleting them if they're unable to be inserted.
 // H and prefs must not be null.
 // Returns nothing.
 /datum/controller/subsystem/jobs/proc/EquipItemsStorage(mob/living/carbon/human/H, datum/preferences/prefs, list/items)
+	Debug("EIS/([H]): Entry.")
 	if (LAZYLEN(items))
+		Debug("EIS/([H]): [items.len] items.")
 		var/obj/item/weapon/storage/B = locate() in H
 		if (B)
 			for (var/thing in items)
@@ -797,6 +812,10 @@
 				var/datum/gear/G = gear_datums[thing]
 				var/metadata = prefs.gear[G.display_name]
 				G.spawn_item(B, metadata)
+				Debug("EIS/([H]): placed [thing] in [B].")
 
 		else
 			to_chat(H, "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>")
+			Debug("EIS/([H]): unable to equip; no storage.")
+
+	Debug("EIS/([H]): Complete.")

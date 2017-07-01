@@ -22,7 +22,20 @@ var/global/list/robot_modules = list(
 	flags = CONDUCT
 	var/channels = list()
 	var/networks = list()
-	var/languages = list(LANGUAGE_SOL_COMMON = 1, LANGUAGE_TRADEBAND = 1, LANGUAGE_UNATHI = 0, LANGUAGE_SIIK_MAAS = 0, LANGUAGE_SKRELLIAN = 0, LANGUAGE_GUTTER = 0, LANGUAGE_VAURCESE = 0, LANGUAGE_ROOTSONG = 0)
+	var/languages = list(							//Any listed language will be understandable. Any set to 1 will be speakable
+					LANGUAGE_SOL_COMMON = 1,
+					LANGUAGE_TRADEBAND = 1,
+					LANGUAGE_UNATHI = 0,
+					LANGUAGE_SIIK_MAAS = 0,
+					LANGUAGE_SKRELLIAN = 0,
+					LANGUAGE_GUTTER = 1,
+					LANGUAGE_VAURCESE = 0,
+					LANGUAGE_ROOTSONG = 0,
+					LANGUAGE_SIGN = 0,
+					LANGUAGE_SIGN_TAJARA = 0,
+					LANGUAGE_SIIK_TAJR = 0,
+					LANGUAGE_AZAZIBA = 0
+					)
 	var/sprites = list()
 	var/can_be_pushed = 1
 	var/no_slip = 0
@@ -167,9 +180,9 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/standard
 	name = "standard robot module"
-	sprites = list(	"Basic" = "robot_old",
+	sprites = list(	"Basic" = "robot",
 					"Android" = "droid",
-					"Default" = "robot",
+					"Default" = "robot_old",
 					"Sleek" = "sleekstandard",
 					"Drone" = "drone-standard",
 					"Spider" = "spider"
@@ -193,8 +206,8 @@ var/global/list/robot_modules = list(
 	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	can_be_pushed = 0
 	sprites = list(
-				"Basic" = "Medbot",
-				"Classic" = "robotMedi",
+				"Basic" = "robotMedi",
+				"Classic" = "Medbot",
 				"Heavy" = "heavyMed",
 				"Needles" = "medicalrobot",
 				"Standard" = "surgeon",
@@ -263,8 +276,8 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/medical/rescue
 	name = "rescue robot module"
 	sprites = list(
-			"Basic" = "Medbot",
-			"Classic" = "robotMedi",
+			"Basic" = "robotMedi",
+			"Classic" = "Medbot",
 			"Standard" = "surgeon",
 			"Advanced Droid" = "droid-rescue",
 			"Sleek" = "sleekrescue",
@@ -334,13 +347,13 @@ var/global/list/robot_modules = list(
 	subsystems = list(/mob/living/silicon/proc/subsystem_power_monitor)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
-					"Basic" = "Engineering",
+					"Basic" = "robotEngi",
 					"Antique" = "engineerrobot",
 					"Landmate" = "landmate",
 					"Landmate - Treaded" = "engiborg+tread",
 					"Drone" = "drone-engineer",
 					"Android" = "droid",
-					"Classic" = "robotEngi",
+					"Classic" = "Engineering",
 					"Sleek" = "sleekengineer",
 					"Wide" = "wide",
 					"Spider" = "spidereng",
@@ -465,13 +478,13 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/security/general
 	sprites = list(
-					"Basic" = "secborg",
+					"Basic" = "robotSecy",
 					"Sleek" = "sleeksecurity",
 					"Black Knight" = "securityrobot",
 					"Bloodhound" = "bloodhound",
 					"Bloodhound - Treaded" = "treadhound",
 					"Drone" = "drone-sec",
-					"Classic" = "robotSecy",
+					"Classic" = "secborg",
 					"Wide" = "wide",
 					"Spider" = "spidersec",
 					"Heavy" = "heavySec"
@@ -507,11 +520,11 @@ var/global/list/robot_modules = list(
 	name = "custodial robot module"
 	channels = list("Service" = 1)
 	sprites = list(
-					"Basic" = "JanBot2",
+					"Basic" = "robotjani",
 					"Mopbot"  = "janitorrobot",
 					"Mop Gear Rex" = "mopgearrex",
 					"Drone" = "drone-janitor",
-					"Classic" = "robotJani",
+					"Classic" = "JanBot2",
 					"Buffer" = "mechaduster",
 					"Sleek" = "sleekjanitor"
 					)
@@ -540,24 +553,23 @@ var/global/list/robot_modules = list(
 	name = "service robot module"
 	channels = list("Service" = 1)
 	languages = list(
-					LANGUAGE_SOL_COMMON	= 1,
-					LANGUAGE_UNATHI		= 1,
-					LANGUAGE_SIIK_MAAS	= 1,
-					LANGUAGE_SIIK_TAJR	= 0,
-					LANGUAGE_SKRELLIAN	= 1,
-					LANGUAGE_ROOTSONG	= 1,
-					LANGUAGE_TRADEBAND	= 1,
-					LANGUAGE_GUTTER		= 1
+					LANGUAGE_SOL_COMMON = 1,
+					LANGUAGE_TRADEBAND = 1,
+					LANGUAGE_UNATHI = 1,
+					LANGUAGE_SIIK_MAAS = 1,
+					LANGUAGE_SKRELLIAN = 1,
+					LANGUAGE_GUTTER = 1,
+					LANGUAGE_ROOTSONG = 1
 					)
 
 	sprites = list(	"Waitress" = "Service",
 					"Kent" = "toiletbot",
 					"Bro" = "Brobot",
 					"Rich" = "maximillion",
-					"Default" = "Service2",
+					"Basic" = "robotserv",
 					"Drone - Service" = "drone-service",
 					"Drone - Hydro" = "drone-hydro",
-					"Classic" = "robotServ",
+					"Classic" = "Service2",
 					"Gardener" = "botany",
 					"Mobile Bar" = "heavyServ",
 					"Sleek" = "sleekservice"
@@ -626,12 +638,12 @@ var/global/list/robot_modules = list(
 	channels = list("Supply" = 1)
 	networks = list(NETWORK_MINE)
 	sprites = list(
-					"Basic" = "Miner_old",
+					"Basic" = "robotmine",
 					"Advanced Droid" = "droid-miner",
 					"Sleek" = "sleekminer",
 					"Treadhead" = "Miner",
 					"Drone" = "drone-miner",
-					"Classic" = "robotMine",
+					"Classic" = "Miner_old",
 					"Heavy" = "heavyMine",
 					"Spider" = "spidermining"
 				)
@@ -703,7 +715,8 @@ var/global/list/robot_modules = list(
 					LANGUAGE_UNATHI = 1,
 					LANGUAGE_SIIK_MAAS = 1,
 					LANGUAGE_SKRELLIAN = 1,
-					LANGUAGE_GUTTER = 1
+					LANGUAGE_GUTTER = 1,
+					LANGUAGE_ROOTSONG = 1
 					)
 
 	sprites = list(

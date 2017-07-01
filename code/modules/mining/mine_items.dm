@@ -10,9 +10,8 @@
 	icon_off = "miningsecoff"
 	req_access = list(access_mining)
 
-/obj/structure/closet/secure_closet/miner/New()
+/obj/structure/closet/secure_closet/miner/fill()
 	..()
-	sleep(2)
 	if(prob(50))
 		new /obj/item/weapon/storage/backpack/industrial(src)
 	else
@@ -1238,8 +1237,9 @@ var/list/total_extraction_beacons = list()
 	'sound/weapons/punch1.ogg', 'sound/weapons/punch2.ogg', 'sound/weapons/punch3.ogg', 'sound/weapons/punch4.ogg')
 
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
-		flick("[icon_state]2", src)
-		playsound(src.loc, pick(src.hit_sounds), 25, 1, -1)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	flick("[icon_state]2", src)
+	playsound(src.loc, pick(src.hit_sounds), 25, 1, -1)
 
 /obj/structure/weightlifter
 	name = "Weight Machine"

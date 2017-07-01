@@ -297,8 +297,9 @@ var/const/enterloopsanity = 100
 		return FALSE
 
 	var/turf/simulated/open/above = GetAbove(src)
+	var/area/A = loc
 
-	if ((istype(above) || (flags & ROOF_FORCE_SPAWN)) && roof_type)
+	if (((istype(above) && !A.no_roof) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
 		above.ChangeTurf(roof_type)
 		roof_flags |= flags
 		return TRUE

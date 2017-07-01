@@ -6,6 +6,8 @@
 /area
 	var/global/global_uid = 0
 	var/uid
+	var/holomap_color	// Color of this area on the holomap. Must be a hex color (as string) or null.
+	var/no_roof
 
 /area/Initialize(mapload)
 	icon_state = "white"
@@ -385,3 +387,11 @@ var/list/mob/living/forced_ambiance_list = new
 	if (turfs.len)
 		return pick(turfs)
 	else return null
+
+
+// Whether the turfs in the area should be drawn onto the "base" holomap.
+/area/proc/holomapAlwaysDraw()
+	return TRUE
+
+/area/shuttle/holomapAlwaysDraw()
+	return FALSE
