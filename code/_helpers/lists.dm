@@ -110,11 +110,12 @@ proc/clearlist(var/list/L)
 		L.Cut()
 
 //Removes any null entries from the list
-proc/listclearnulls(list/list)
-	if(istype(list))
-		while(null in list)
-			list -= null
-	return
+//Returns TRUE if the list had nulls, FALSE otherwise
+/proc/listclearnulls(list/L)
+	var/start_len = L.len
+	var/list/N = new(start_len)
+	L -= N
+	return L.len < start_len
 
 /*
  * Returns list containing all the entries from first list that are not present in second.
