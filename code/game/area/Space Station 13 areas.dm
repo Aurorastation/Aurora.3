@@ -1221,6 +1221,10 @@ area/space/atmosalert()
 	name = "\improper Engineering Workshop"
 	icon_state = "engineering_workshop"
 
+/area/engineering/cooling
+	name = "\improper Engineering Cooling Radiator"
+	icon_state = "engineering_monitoring"
+
 
 
 //Solars
@@ -1412,12 +1416,7 @@ area/space/atmosalert()
 	icon_state = "chem"
 
 /area/medical/surgery
-	name = "\improper Operating Theatre 1"
-	icon_state = "surgery"
-	no_light_control = 1
-
-/area/medical/surgery2
-	name = "\improper Operating Theatre 2"
+	name = "\improper Operating Theatre"
 	icon_state = "surgery"
 	no_light_control = 1
 

@@ -44,6 +44,11 @@
 	color = "#B8F5E3"
 	alpha = 200
 
+/obj/structure/curtain/open/medical
+	name = "plastic curtain"
+	color = "#B8F5E3"
+	alpha = 200
+
 /obj/structure/curtain/open/bed
 	name = "bed curtain"
 	color = "#854636"
