@@ -572,7 +572,7 @@
 	if(C)
 		C.rank = rank
 		C.assignment = title ? title : rank
-		H.set_id_info(C)
+		addtimer(CALLBACK(H, /mob/.proc/set_id_info, C), 1 SECOND)	// Delay a moment to allow an icon update to happen.
 
 		//put the player's account number onto the ID
 		if(H.mind && H.mind.initial_account)
