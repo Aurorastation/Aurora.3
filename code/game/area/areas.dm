@@ -7,6 +7,7 @@
 	var/global/global_uid = 0
 	var/uid
 	var/holomap_color	// Color of this area on the holomap. Must be a hex color (as string) or null.
+	var/no_roof
 
 /area/Initialize(mapload)
 	icon_state = "white"

@@ -13,7 +13,7 @@
 	desc = "To be applied to the head repeatedly."
 	icon_state ="bible"
 
-/obj/item/weapon/storage/bible/booze/New()
+/obj/item/weapon/storage/bible/booze/fill()
 	..()
 	new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer(src)
 	new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer(src)

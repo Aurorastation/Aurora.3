@@ -2,7 +2,8 @@
 	name = "holodeck control console"
 	desc = "A computer used to control a nearby holodeck."
 
-	icon_screen = "holocontrol"
+	icon_state  = "computerw"
+	icon_screen = "holocontrolw"
 	light_color = LIGHT_COLOR_CYAN
 
 	use_power = 1
@@ -335,6 +336,7 @@
 	use_power = 1
 
 /obj/machinery/computer/HolodeckControl/Exodus
+	density = 0
 	linkedholodeck_area = /area/holodeck/alphadeck
 
 /obj/machinery/computer/HolodeckControl/Exodus/New()
@@ -351,7 +353,9 @@
 	"Snow Field" 		= "snowfield",
 	"Theatre" 			= "theatre",
 	"Meeting Hall" 		= "meetinghall",
-	"Courtroom" 		= "courtroom"
+	"Courtroom" 		= "courtroom",
+	"Chapel"			= "chapel",
+	"Xavier Trasen Memorial Gymnasium" = "gym"
 	)
 
 	restricted_programs = list(

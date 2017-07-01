@@ -150,10 +150,5 @@
 		L_PROF(loc, "overlay_forcemove")
 		. = ..()
 
-/atom/movable/lighting_overlay/resetVariables(...)
-	color = LIGHTING_BASE_MATRIX
-
-	return ..("color")
-
 /atom/movable/lighting_overlay/shuttle_move(turf/loc)
 	return

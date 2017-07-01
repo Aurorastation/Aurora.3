@@ -401,7 +401,7 @@ area/space/atmosalert()
 /area/syndicate_mothership/elite_squad
 	name = "\improper Elite Mercenary Squad"
 	icon_state = "syndie-elite"
-	
+
 /area/syndicate_mothership/raider_base
 	name = "\improper Pirate Hideout"
 	icon_state = "syndie-control"
@@ -1064,6 +1064,17 @@ area/space/atmosalert()
 
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
+
+/area/holodeck/source_chapel
+	name = "\improper Holodeck - Chapel"
+
+/area/holodeck/source_gym
+	name = "\improper Holodeck - Gym"
+	sound_env = ARENA
+
+/area/holodeck/source_range
+	name = "\improper Holodeck - Range"
+	sound_env = ARENA
 
 /area/holodeck/source_emptycourt
 	name = "\improper Holodeck - Empty Court"

@@ -136,8 +136,7 @@
 /obj/item/weapon/storage/box/mechabeacons
 	name = "Exosuit Control Beacons"
 
-/obj/item/weapon/storage/box/mechabeacons/New()
-	..()
+/obj/item/weapon/storage/box/mechabeacons/fill()
 	new /obj/item/mecha_parts/mecha_tracking/control(src)
 	new /obj/item/mecha_parts/mecha_tracking/control(src)
 	new /obj/item/mecha_parts/mecha_tracking/control(src)
