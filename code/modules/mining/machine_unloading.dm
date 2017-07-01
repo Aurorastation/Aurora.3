@@ -23,7 +23,7 @@
 		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(src.output) break
 
-/obj/machinery/mineral/unloading_machine/process()
+/obj/machinery/mineral/unloading_machine/machinery_process()
 	..()
 	if (src.output && src.input)
 		if (locate(/obj/structure/ore_box, input.loc))

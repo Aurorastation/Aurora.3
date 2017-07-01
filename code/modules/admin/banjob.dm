@@ -47,7 +47,6 @@ var/list/jobban_keylist = list() // Global jobban list.
 	else
 		jobban_loaddatabase()
 
-	testing("Database: [json_encode(jobban_keylist)]")
 	return 1
 
 /**
@@ -114,9 +113,13 @@ var/list/jobban_keylist = list() // Global jobban list.
 	if (ckey)
 		if (guest_jobbans(rank))
 			if (config.guest_jobban && IsGuestKey(ckey))
-				return "Guest Job-ban"
+				return "GUEST JOB-BAN"
 			if (config.usewhitelist && ismob(player) && !check_whitelist(player))
-				return "No Whitelist"
+				return "WHITELISTED"
+
+		var/age_whitelist = player_old_enough_for_role(player, rank)
+		if (age_whitelist)
+			return "AGE WHITELISTED"
 
 		var/static/list/antag_bantypes
 

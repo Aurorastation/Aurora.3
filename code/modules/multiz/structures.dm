@@ -14,6 +14,7 @@
 	var/allowed_directions = DOWN
 	var/obj/structure/ladder/target_up
 	var/obj/structure/ladder/target_down
+	var/base_icon = "ladder"
 
 	var/const/climb_time = 2 SECONDS
 
@@ -25,7 +26,10 @@
 			if(L.allowed_directions & UP)
 				target_down = L
 				L.target_up = src
-				return
+
+				L.update_icon()
+				break
+
 	update_icon()
 
 /obj/structure/ladder/Destroy()
@@ -113,7 +117,7 @@
 	return airflow || !density
 
 /obj/structure/ladder/update_icon()
-	icon_state = "ladder[!!(allowed_directions & UP)][!!(allowed_directions & DOWN)]"
+	icon_state = "[base_icon][!!(allowed_directions & UP)][!!(allowed_directions & DOWN)]"
 
 /obj/structure/ladder/up
 	allowed_directions = UP
@@ -131,47 +135,47 @@
 	opacity = 0
 	anchored = 1
 
-	Initialize()
-		. = ..()
-		for(var/turf/turf in locs)
-			var/turf/simulated/open/above = GetAbove(turf)
-			if(!above)
-				warning("Stair created without level above: ([loc.x], [loc.y], [loc.z])")
-				return qdel(src)
-			if(!istype(above))
-				above.ChangeTurf(/turf/simulated/open)
+/obj/structure/stairs/Initialize()
+	. = ..()
+	for(var/turf/turf in locs)
+		var/turf/simulated/open/above = GetAbove(turf)
+		if(!above)
+			warning("Stair created without level above: ([loc.x], [loc.y], [loc.z])")
+			return qdel(src)
+		if(!istype(above))
+			above.ChangeTurf(/turf/simulated/open)
 
-	Uncross(atom/movable/A)
-		if(A.dir == dir)
-			// This is hackish but whatever.
-			var/turf/target = get_step(GetAbove(A), dir)
-			var/turf/source = A.loc
-			if(target.Enter(A, source))
-				A.loc = target
-				target.Entered(A, source)
-			return 0
-		return 1
+/obj/structure/stairs/Uncross(atom/movable/A)
+	if(A.dir == dir)
+		// This is hackish but whatever.
+		var/turf/target = get_step(GetAbove(A), dir)
+		var/turf/source = A.loc
+		if(target.Enter(A, source))
+			A.loc = target
+			target.Entered(A, source)
+		return FALSE
+	return TRUE
 
-	CanPass(obj/mover, turf/source, height, airflow)
-		return airflow || !density
+/obj/structure/stairs/CanPass(obj/mover, turf/source, height, airflow)
+	return airflow || !density
 
-	// type paths to make mapping easier.
-	north
-		dir = NORTH
-		bound_height = 64
-		bound_y = -32
-		pixel_y = -32
+// type paths to make mapping easier.
+/obj/structure/stairs/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+	pixel_y = -32
 
-	south
-		dir = SOUTH
-		bound_height = 64
+/obj/structure/stairs/south
+	dir = SOUTH
+	bound_height = 64
 
-	east
-		dir = EAST
-		bound_width = 64
-		bound_x = -32
-		pixel_x = -32
+/obj/structure/stairs/east
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
+	pixel_x = -32
 
-	west
-		dir = WEST
-		bound_width = 64
+/obj/structure/stairs/west
+	dir = WEST
+	bound_width = 64

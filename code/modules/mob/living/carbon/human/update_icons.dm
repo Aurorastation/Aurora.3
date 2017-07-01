@@ -1,12 +1,4 @@
-/*
-	Global associative list for caching humanoid icons.
-	Index format m or f, followed by a string of 0 and 1 to represent bodyparts followed by husk fat hulk skeleton 1 or 0.
-	TODO: Proper documentation
-	icon_key is [species.race_key][g][husk][fat][hulk][skeleton][s_tone]
-*/
-var/global/list/human_icon_cache = list()
-var/global/list/tail_icon_cache = list() //key is [species.race_key][r_skin][g_skin][b_skin]
-var/global/list/light_overlay_cache = list()
+// Human caches have been moved to SSicon_cache.
 
 	///////////////////////
 	//UPDATE_ICONS SYSTEM//
@@ -295,8 +287,8 @@ var/global/list/damage_icon_parts = list()
 
 	icon_key = "[icon_key][husk ? 1 : 0][fat ? 1 : 0][hulk ? 1 : 0][skeleton ? 1 : 0]"
 	var/icon/base_icon
-	if(update_icons != 2 && human_icon_cache[icon_key])//If update_icons is 2, then we forcibly generate a new icon
-		base_icon = human_icon_cache[icon_key]
+	if(update_icons != 2 && SSicon_cache.human_icon_cache[icon_key])//If update_icons is 2, then we forcibly generate a new icon
+		base_icon = SSicon_cache.human_icon_cache[icon_key]
 	else
 		//BEGIN CACHED ICON GENERATION.
 		var/obj/item/organ/external/chest = get_organ("chest")
@@ -338,7 +330,7 @@ var/global/list/damage_icon_parts = list()
 			husk_over.Blend(mask, ICON_ADD)
 			base_icon.Blend(husk_over, ICON_OVERLAY)
 
-		human_icon_cache[icon_key] = base_icon
+		SSicon_cache.human_icon_cache[icon_key] = base_icon
 
 	//END CACHED ICON GENERATION.
 	stand_icon.Blend(base_icon,ICON_OVERLAY)
@@ -819,8 +811,8 @@ var/global/list/damage_icon_parts = list()
 		if(istype(head,/obj/item/clothing/head))
 			var/obj/item/clothing/head/hat = head
 			var/cache_key = "[hat.light_overlay]_[species.get_bodytype()]"
-			if(hat.on && light_overlay_cache["[cache_key]"])
-				standing.overlays |= light_overlay_cache["[cache_key]"]
+			if(hat.on && SSicon_cache.light_overlay_cache["[cache_key]"])
+				standing.overlays |= SSicon_cache.light_overlay_cache["[cache_key]"]
 
 		standing.color = head.color
 		overlays_standing[HEAD_LAYER] = standing
@@ -1215,7 +1207,7 @@ var/global/list/damage_icon_parts = list()
 		return
 		
 	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin][r_hair][g_hair][b_hair]"
-	var/icon/tail_icon = tail_icon_cache[icon_key]
+	var/icon/tail_icon = SSicon_cache.tail_icon_cache[icon_key]
 	if(!tail_icon)
 		//generate a new one
 		tail_icon = new/icon(icon = (species.tail_animation? species.tail_animation : 'icons/effects/species.dmi'))
@@ -1225,7 +1217,7 @@ var/global/list/damage_icon_parts = list()
 			var/icon/hair_icon = icon('icons/effects/species.dmi', "[species.tail]_[species.tail_hair]")
 			hair_icon.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
 			tail_icon.Blend(hair_icon, ICON_OVERLAY)
-		tail_icon_cache[icon_key] = tail_icon
+		SSicon_cache.tail_icon_cache[icon_key] = tail_icon
 
 	return tail_icon
 

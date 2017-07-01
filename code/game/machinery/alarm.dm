@@ -186,7 +186,7 @@
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
 
-/obj/machinery/alarm/process()
+/obj/machinery/alarm/machinery_process()
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
 		return
 
@@ -610,7 +610,7 @@
 	. = shorted ? STATUS_DISABLED : STATUS_INTERACTIVE
 
 	if(. == STATUS_INTERACTIVE)
-		var/extra_href = state.href_list(usr)
+		var/extra_href = QDELETED(state) ? list() : state.href_list(usr)
 		// Prevent remote users from altering RCON settings unless they already have access
 		if(href_list["rcon"] && extra_href["remote_connection"] && !extra_href["remote_access"])
 			. = STATUS_UPDATE
@@ -650,7 +650,7 @@
 		return 1
 
 	// hrefs that need the AA unlocked -walter0o
-	var/extra_href = state.href_list(usr)
+	var/extra_href = QDELETED(state) ? list() : state.href_list(usr)
 	if(!(locked && !extra_href["remote_connection"]) || extra_href["remote_access"] || issilicon(usr))
 		if(href_list["command"])
 			var/device_id = href_list["id_tag"]

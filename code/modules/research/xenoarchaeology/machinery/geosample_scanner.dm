@@ -163,7 +163,7 @@
 		// auto update every Master Controller tick
 		ui.set_auto_update(1)
 
-/obj/machinery/radiocarbon_spectrometer/process()
+/obj/machinery/radiocarbon_spectrometer/machinery_process()
 	if(scanning)
 		if(!scanned_item || scanned_item.loc != src)
 			scanned_item = null

@@ -368,15 +368,15 @@
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/brain/B = target.op_stage.current_organ
-		user.visible_message("[user] begins lobotomizing [target]'s [B.name] with \the [tool].", \
-		"You start lobotomizing [target]'s [B.name] with \the [tool].")
-		target.custom_pain("Someone's scraping away at your [B.name]!",1)
+		user.visible_message("[user] begins to modify [target]'s [B] to remove their memory recall with \the [tool].", \
+		"You start to modify [target]'s [B] to remove their memory recall with \the [tool].")
+		target.custom_pain("Someone's scraping away at your [B]!",1)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/brain/B = target.op_stage.current_organ
-		user.visible_message("<span class='notice'>[user] has lobotomized [target]'s \the [B.name] with \the [tool].</span>" , \
-		"<span class='notice'>You have lobotomized [target]'s [B.name] with \the [tool].</span>")
+		user.visible_message("<span class='notice'>[user] has modified [target]'s [B] to remove their memory recall with \the [tool].</span>" , \
+		"<span class='notice'>You have removed [target]'s memory recall with \the [tool].</span>")
 		B.lobotomize(user)
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

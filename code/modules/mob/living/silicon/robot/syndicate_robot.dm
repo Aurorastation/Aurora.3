@@ -23,8 +23,8 @@
 	if(!jetpack)
 		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 
-/mob/living/silicon/robot/syndicate/New()
-	..()
+/mob/living/silicon/robot/syndicate/Initialize()
+	. = ..()
 	verbs += /mob/living/silicon/robot/proc/choose_icon
 
 /mob/living/silicon/robot/syndicate/updateicon() //because this was the only way I found out how to make their eyes and etc works

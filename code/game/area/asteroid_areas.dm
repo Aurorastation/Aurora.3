@@ -8,12 +8,13 @@
 /area/mine/explored
 	name = "Mine"
 	icon_state = "explored"
-	dynamic_lighting = 0
 
 /area/mine/unexplored
 	name = "Mine"
 	icon_state = "unexplored"
 
+/area/mine/unexplored/holomapAlwaysDraw()
+	return FALSE
 
 //S
 
@@ -34,6 +35,7 @@
 /area/outpost/mining_main
 	icon_state = "outpost_mine_main"
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
 /area/outpost/mining_main/dorms
 	name = "Mining Dormitory"
@@ -62,6 +64,7 @@
 /area/outpost/engineering
 	icon_state = "outpost_engine"
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/outpost/engineering/hallway
 	name = "Engineering Sublevel Hallway"
@@ -87,6 +90,7 @@
 /area/outpost/research
 	icon_state = "outpost_research"
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/outpost/research/hallway
 	name = "Research Sublevel Hallway"

@@ -33,6 +33,10 @@
 	var/message2
 	var/list/stored_data = list()
 
+/obj/item/weapon/cartridge/Destroy()
+	QDEL_NULL(radio)
+	return ..()
+
 /obj/item/weapon/cartridge/engineering
 	name = "\improper Power-ON cartridge"
 	icon_state = "cart-e"
@@ -101,7 +105,6 @@
 /obj/item/weapon/cartridge/signal
 	name = "generic signaler cartridge"
 	desc = "A data cartridge with an integrated radio signaler module."
-	var/qdeled = 0
 
 /obj/item/weapon/cartridge/signal/science
 	name = "\improper Signal Ace 2 cartridge"
@@ -113,10 +116,6 @@
 /obj/item/weapon/cartridge/signal/Initialize()
     . = ..()
     radio = new /obj/item/radio/integrated/signal(src)
-
-/obj/item/weapon/cartridge/signal/Destroy()
-	qdel(radio)
-	return ..()
 
 /obj/item/weapon/cartridge/quartermaster
 	name = "\improper Space Parts & Space Vendors cartridge"

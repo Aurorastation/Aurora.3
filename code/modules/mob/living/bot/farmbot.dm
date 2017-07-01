@@ -134,7 +134,7 @@
 
 	if(target)
 		if(Adjacent(target))
-			UnarmedAttack(target)
+			INVOKE_ASYNC(src, .proc/UnarmedAttack, target)
 			path = list()
 			target = null
 		else

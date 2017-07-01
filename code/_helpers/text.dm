@@ -407,11 +407,7 @@ proc/TextPreview(var/string,var/len=40)
 #define strip_improper(input_text) replacetext(replacetext(input_text, "\proper", ""), "\improper", "")
 
 
-/proc/pencode2html(t)
-	t = replacetext(t, "\n", "<BR>")
-	t = replacetext(t, "\[center\]", "<center>")
-	t = replacetext(t, "\[/center\]", "</center>")
-	t = replacetext(t, "\[br\]", "<BR>")
+/proc/pencode2html(t, limited = 0)
 	t = replacetext(t, "\[b\]", "<B>")
 	t = replacetext(t, "\[/b\]", "</B>")
 	t = replacetext(t, "\[i\]", "<I>")
@@ -420,6 +416,17 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[/u\]", "</U>")
 	t = replacetext(t, "\[large\]", "<font size=\"4\">")
 	t = replacetext(t, "\[/large\]", "</font>")
+	t = replacetext(t, "\[small\]", "<font size = \"1\">")
+	t = replacetext(t, "\[/small\]", "</font>")
+
+	// A break for signature customization code to use this proc as well.
+	if (limited)
+		return t
+
+	t = replacetext(t, "\n", "<BR>")
+	t = replacetext(t, "\[center\]", "<center>")
+	t = replacetext(t, "\[/center\]", "</center>")
+	t = replacetext(t, "\[br\]", "<BR>")
 	t = replacetext(t, "\[field\]", "<span class=\"paper_field\"></span>")
 	t = replacetext(t, "\[h1\]", "<H1>")
 	t = replacetext(t, "\[/h1\]", "</H1>")
@@ -429,8 +436,6 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[/h3\]", "</H3>")
 	t = replacetext(t, "\[*\]", "<li>")
 	t = replacetext(t, "\[hr\]", "<HR>")
-	t = replacetext(t, "\[small\]", "<font size = \"1\">")
-	t = replacetext(t, "\[/small\]", "</font>")
 	t = replacetext(t, "\[list\]", "<ul>")
 	t = replacetext(t, "\[/list\]", "</ul>")
 	t = replacetext(t, "\[table\]", "<table border=1 cellspacing=0 cellpadding=3 style='border: 1px solid black;'>")
@@ -445,3 +450,73 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
 	return t
+
+/proc/html2pencode(t)
+	t = replacetext(t, "<B>", "\[b\]")
+	t = replacetext(t, "</B>", "\[/b\]")
+	t = replacetext(t, "<I>", "\[i\]")
+	t = replacetext(t, "</I>", "\[/i\]")
+	t = replacetext(t, "<U>", "\[u\]")
+	t = replacetext(t, "</U>", "\[/u\]")
+	t = replacetext(t, "<font size=\"4\">", "\[large\]")
+	t = replacetext(t, "</font>", "\[/large\]")
+	t = replacetext(t, "<font size = \"1\">", "\[small\]")
+	t = replacetext(t, "</font>", "\[/small\]")
+
+	return t
+
+//Used for applying byonds text macros to strings that are loaded at runtime
+/proc/apply_text_macros(string)
+	var/next_backslash = findtext(string, "\\")
+	if(!next_backslash)
+		return string
+	
+	var/leng = length(string)
+
+	var/next_space = findtext(string, " ", next_backslash + 1)
+	if(!next_space)
+		next_space = leng - next_backslash
+
+	if(!next_space)	//trailing bs
+		return string
+
+	var/base = next_backslash == 1 ? "" : copytext(string, 1, next_backslash)
+	var/macro = lowertext(copytext(string, next_backslash + 1, next_space))
+	var/rest = next_backslash > leng ? "" : copytext(string, next_space + 1)
+
+	//See http://www.byond.com/docs/ref/info.html#/DM/text/macros
+	switch(macro)
+		//prefixes/agnostic
+		if("the")
+			rest = text("\the []", rest)
+		if("a")
+			rest = text("\a []", rest)
+		if("an")
+			rest = text("\an []", rest)
+		if("proper")
+			rest = text("\proper []", rest)
+		if("improper")
+			rest = text("\improper []", rest)
+		if("roman")
+			rest = text("\roman []", rest)
+		//postfixes
+		if("th")
+			base = text("[]\th", rest)
+		if("s")
+			base = text("[]\s", rest)
+		if("he")
+			base = text("[]\he", rest)
+		if("she")
+			base = text("[]\she", rest)
+		if("his")
+			base = text("[]\his", rest)
+		if("himself")
+			base = text("[]\himself", rest)
+		if("herself")
+			base = text("[]\herself", rest)
+		if("hers")
+			base = text("[]\hers", rest)
+
+	. = base
+	if(rest)
+		. += .(rest)

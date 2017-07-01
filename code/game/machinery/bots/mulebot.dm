@@ -153,11 +153,7 @@
 		unload(0)
 	if(prob(25))
 		src.visible_message("<span class='warning'>Something shorts out inside [src]!</span>")
-		var/index = 1<< (rand(0,9))
-		if(wires & index)
-			wires &= ~index
-		else
-			wires |= index
+		wires.RandomCut()
 	..()
 
 
@@ -479,7 +475,7 @@
 	mode = 0
 
 
-/obj/machinery/bot/mulebot/process()
+/obj/machinery/bot/mulebot/machinery_process()
 	if(!has_power())
 		on = 0
 		return

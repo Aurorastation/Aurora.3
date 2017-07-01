@@ -232,6 +232,7 @@
 	else if(istype(W, /obj/item/weapon/wrench))
 		if(!can_move)
 			return
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		if(anchored)
 			user.visible_message("[user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")
@@ -566,6 +567,7 @@
 	addtimer(CALLBACK(src, .proc/do_vend, R.product_path), vend_delay)
 
 /obj/machinery/vending/proc/do_vend(path)
+	playsound(src.loc, 'sound/machines/vending.ogg', 35, 1)
 	new path(get_turf(src))
 	status_message = ""
 	status_error = 0
@@ -574,12 +576,12 @@
 	SSnanoui.update_uis(src)
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
-	user << "<span class='notice'>You insert \the [src] in the product receptor.</span>"
+	user << "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>"
 	R.amount++
 
 	SSnanoui.update_uis(src)
 
-/obj/machinery/vending/process()
+/obj/machinery/vending/machinery_process()
 	if(stat & (BROKEN|NOPOWER))
 		return
 

@@ -103,8 +103,8 @@
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
-/mob/living/simple_animal/New()
-	..()
+/mob/living/simple_animal/Initialize()
+	. = ..()
 	seek_move_delay = (1 / seek_speed) / (world.tick_lag / 10)//number of ticks between moves
 	turns_since_scan = rand(min_scan_interval, max_scan_interval)//Randomise this at the start so animals don't sync up
 	health = maxHealth
@@ -233,7 +233,7 @@
 		if (can_nap)
 			if (!resting && prob(1))
 				fall_asleep()
-			else if (resting && prob(0.5))
+			else if (resting && (prob(0.5) || !stat))
 				wake_up()
 
 
@@ -465,7 +465,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	if(statpanel("Status") && show_stat_health)
 		stat(null, "Health: [round((health / maxHealth) * 100)]%")
-		stat(null, "Nutrition: [nutrition]/[max_nutrition]%")
+		stat(null, "Nutrition: [nutrition]/[max_nutrition]")
 
 /mob/living/simple_animal/updatehealth()
 	..()

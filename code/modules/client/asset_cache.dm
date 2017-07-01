@@ -188,7 +188,8 @@ var/list/asset_datums = list()
 		"barcode0.png" = 'html/images/barcode0.png',
 		"barcode1.png" = 'html/images/barcode1.png',
 		"barcode2.png" = 'html/images/barcode2.png',
-		"barcode3.png" = 'html/images/barcode3.png'
+		"barcode3.png" = 'html/images/barcode3.png',
+		"ntlogo.png"   = 'html/images/ntlogo.png'
 	)
 
 /datum/asset/simple/changelog
@@ -206,6 +207,7 @@ var/list/asset_datums = list()
 		"wrench-screwdriver.png" = 'html/wrench-screwdriver.png',
 		"spell-check.png" = 'html/spell-check.png',
 		"burn-exclamation.png" = 'html/burn-exclamation.png',
+		"scales.png" = 'html/scales.png',
 		"chevron.png" = 'html/chevron.png',
 		"chevron-expand.png" = 'html/chevron-expand.png',
 		"changelog.css" = 'html/changelog.css',

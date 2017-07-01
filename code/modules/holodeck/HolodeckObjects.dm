@@ -26,6 +26,18 @@
 	icon_state = "steel"
 	initial_flooring = /decl/flooring/tiling
 
+/turf/simulated/floor/holofloor/tiled/ramp
+	name = "foot ramp"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "ramptop"
+	initial_flooring = /decl/flooring/reinforced/ramp
+
+/turf/simulated/floor/holofloor/tiled/ramp/bottom
+	name = "foot ramp"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "rampbot"
+	initial_flooring = /decl/flooring/reinforced/ramp/bottom
+
 /turf/simulated/floor/holofloor/tiled/dark
 	name = "dark floor"
 	icon_state = "dark"
@@ -434,10 +446,7 @@
 	icon_gib = null
 	meat_amount = 0
 	meat_type = null
-
-/mob/living/simple_animal/hostile/carp/holodeck/New()
-	..()
-	set_light(2) //hologram lighting
+	light_range = 2
 
 /mob/living/simple_animal/hostile/carp/holodeck/proc/set_safety(var/safe)
 	if (safe)

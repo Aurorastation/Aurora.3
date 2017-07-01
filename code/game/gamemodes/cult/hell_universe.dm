@@ -65,11 +65,13 @@ In short:
 
 /datum/universal_state/hell/OverlayAndAmbientSet()
 	set waitfor = FALSE
-	for(var/turf/T in world)	// Expensive, but CHECK_TICK should prevent lag.
+	for(var/thing in turfs)	// Expensive, but CHECK_TICK should prevent lag.
+		var/turf/T = thing
 		if(istype(T, /turf/space))
-			T.overlays += image(icon = T.icon, icon_state = "hell01")
+			T.add_overlay("hell01")
 		else
-			T.underlays += "hell01"
+			var/static/image/I = image('icons/turf/space.dmi', "hell01")
+			T.underlays += I
 
 		if (istype(T, /turf/simulated/floor) && !T.holy && prob(1))
 			new /obj/effect/gateway/active/cult(T)

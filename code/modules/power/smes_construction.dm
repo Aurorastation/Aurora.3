@@ -81,7 +81,7 @@
 // Parameters: None
 // Description: Uses parent process, but if grounding wire is cut causes sparks to fly around.
 // This also causes the SMES to quickly discharge, and has small chance of damaging output APCs.
-/obj/machinery/power/smes/buildable/process()
+/obj/machinery/power/smes/buildable/machinery_process()
 	if(!grounding && (Percentage() > 5))
 		spark(src, 5, alldirs)
 		charge -= (output_level_max * SMESRATE)

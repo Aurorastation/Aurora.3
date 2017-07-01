@@ -6,18 +6,17 @@
 	var/suittoggled = 0
 	var/hooded = 0
 
-/obj/item/clothing/suit/storage/hooded/New()
+/obj/item/clothing/suit/storage/hooded/Initialize()
+	. = ..()
 	MakeHood()
-	..()
 
 /obj/item/clothing/suit/storage/hooded/Destroy()
-	qdel(hood)
+	QDEL_NULL(hood)
 	return ..()
 
 /obj/item/clothing/suit/storage/hooded/proc/MakeHood()
 	if(!hood)
-		var/obj/item/clothing/head/winterhood/W = new hoodtype(src)
-		hood = W
+		hood = new hoodtype(src)
 
 /obj/item/clothing/suit/storage/hooded/equipped(mob/user, slot)
 	if(slot != slot_wear_suit)

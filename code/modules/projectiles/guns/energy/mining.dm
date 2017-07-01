@@ -11,6 +11,7 @@
 	contained_sprite = 1
 	charge_meter = 0
 	fire_delay = 16
+	slot_flags = SLOT_BELT|SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4, TECH_POWER = 4)
 	projectile_type = /obj/item/projectile/kinetic
 	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
@@ -25,7 +26,7 @@
 			playsound(src.loc, 'sound/weapons/kenetic_reload.ogg', 60, 1)
 			user.visible_message(
 				"<span class='warning'>\The [user] pumps \the [src]!</span>",
-				"<span class='warning'>You pump \the [src]]!</span>"
+				"<span class='warning'>You pump \the [src]!</span>"
 				)
 			power_supply.charge = power_supply.maxcharge
 

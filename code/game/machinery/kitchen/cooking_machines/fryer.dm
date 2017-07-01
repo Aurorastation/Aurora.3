@@ -9,17 +9,15 @@
 	food_color = "#FFAD33"
 	cooked_sound = 'sound/machines/ding.ogg'
 	appliancetype = FRYER
-	active_power_usage	= 24000
-	//24 KW, based on real world values for a large commercial fryer.
+	active_power_usage = 12 KILOWATTS
 
 	optimal_power = 0.35
 
-	idle_power_usage = 6000
+	idle_power_usage = 3.6 KILOWATTS
 	//Power used to maintain temperature once it's heated.
 	//Going with 25% of the active power. This is a somewhat arbitrary value
 
-	resistance = 90000
-	//By default, about 15 mins to heat up.
+	resistance = 20000	// Approx. 8-9 minutes to heat up.
 
 	max_contents = 2
 	container_type = /obj/item/weapon/reagent_containers/cooking_container/fryer
@@ -33,7 +31,6 @@
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
 	if (..())//no need to duplicate adjacency check
 		user << "Oil Level: [oil.total_volume]/[optimal_oil]"
-
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
 	. = ..()
@@ -201,21 +198,17 @@
 
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has [cook_type] \the [victim] ([victim.ckey]) in \a [src]</font>")
 		victim.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been [cook_type] in \a [src] by [user.name] ([user.ckey])</font>")
-		msg_admin_attack("[user] ([user.ckey]) [cook_type] \the [victim] ([victim.ckey]) in \a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(victim))
+		msg_admin_attack("[key_name_admin(user)] [cook_type] \the [victim] ([victim.ckey]) in \a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(victim))
 
 	//Coat the victim in some oil
 	oil.trans_to(victim, 40)
-
-	return
-
-
 
 /obj/machinery/appliance/cooker/fryer/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/weapon/reagent_containers/glass) && I.reagents)
 		if (I.reagents.total_volume <= 0 && oil)
 			//Its empty, handle scooping some hot oil out of the fryer
 			oil.trans_to(I, I.reagents.maximum_volume)
-			user.visible_message("[user] scoops some oil out of \the [src]", span("notice","You scoop some oil out of \the [src]"))
+			user.visible_message("[user] scoops some oil out of \the [src].", span("notice","You scoop some oil out of \the [src]."))
 			return 1
 		else
 	//It contains stuff, handle pouring any oil into the fryer
@@ -231,8 +224,7 @@
 					I.reagents.remove_reagent(R.id, delta)
 					amount += delta
 			if (amount > 0)
-				user.visible_message("[user] pours some oil into \the [src]", span("notice","You pour [amount]u of oil into \the [src]"))
+				user.visible_message("[user] pours some oil into \the [src].", span("notice","You pour [amount]u of oil into \the [src]."), "<span class='notice'>You hear something viscous being poured into a metal container.</span>")
 				return 1
 	//If neither of the above returned, then call parent as normal
 	..()
-

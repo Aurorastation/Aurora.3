@@ -24,6 +24,9 @@
 		if (R.module)
 			for (var/obj/item/weapon/tank/jetpack/J in R.module.modules)
 				return J
+		// Synthetic jetpacks don't install into modules. They go into contents.
+		for (var/obj/item/weapon/tank/jetpack/J in R.contents)
+			return J
 
 	return null
 
@@ -35,7 +38,7 @@
 	w_class = 4.0
 	item_state = "jetpack"
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
-	var/datum/effect/effect/system/ion_trail_follow/ion_trail
+	var/datum/effect_system/ion_trail/ion_trail
 	var/on = 0.0
 	var/stabilization_on = 0
 	var/warned = 0
@@ -44,8 +47,7 @@
 
 /obj/item/weapon/tank/jetpack/Initialize()
 	. = ..()
-	src.ion_trail = new /datum/effect/effect/system/ion_trail_follow()
-	src.ion_trail.set_up(src)
+	ion_trail = new(src)
 
 /obj/item/weapon/tank/jetpack/Destroy()
 	QDEL_NULL(ion_trail)

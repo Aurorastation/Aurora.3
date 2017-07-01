@@ -72,7 +72,7 @@
 	if (!mixing_inputs)
 		mixing_inputs = list(src.air1 = node1_concentration, src.air2 = node2_concentration)
 
-/obj/machinery/atmospherics/trinary/mixer/process()
+/obj/machinery/atmospherics/trinary/mixer/machinery_process()
 	..()
 
 	last_power_draw = 0
@@ -195,7 +195,7 @@ obj/machinery/atmospherics/trinary/mixer/t_mixer/New()
 		if(WEST)
 			initialize_directions = WEST|NORTH|SOUTH
 
-obj/machinery/atmospherics/trinary/mixer/t_mixer/initialize()
+obj/machinery/atmospherics/trinary/mixer/t_mixer/atmos_init()
 	..()
 	if(node1 && node2 && node3) return
 
@@ -241,7 +241,7 @@ obj/machinery/atmospherics/trinary/mixer/m_mixer/New()
 		if(WEST)
 			initialize_directions = WEST|SOUTH|EAST
 
-obj/machinery/atmospherics/trinary/mixer/m_mixer/initialize()
+obj/machinery/atmospherics/trinary/mixer/m_mixer/atmos_init()
 	..()
 	if(node1 && node2 && node3) return
 

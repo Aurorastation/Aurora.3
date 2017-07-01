@@ -45,8 +45,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		if(istype(crossed,/mob/living/bot/cleanbot)) return 0
 		return ..()
 
-/mob/living/bot/cleanbot/New()
-	..()
+/mob/living/bot/cleanbot/Initialize()
+	. = ..()
 	get_targets()
 
 	listener = new /obj/cleanbot_listener(src)
@@ -54,8 +54,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 	janitorial_supplies |= src
 
-	if(SSradio)
-		SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
+	SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
 /mob/living/bot/cleanbot/Destroy()
 	. = ..()

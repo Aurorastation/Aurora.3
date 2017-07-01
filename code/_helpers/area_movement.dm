@@ -17,10 +17,10 @@
 
 		if (T.x > xmax)
 			xmax = T.x
-		
+
 		if (T.x < xmin)
 			xmin = T.x
-		
+
 		if (T.y > ymax)
 			ymax = T.y
 
@@ -34,8 +34,8 @@
 	ASSERT(z != -1)
 
 	// Now use our information to build an *ordered* list of turfs.
-	for (var/x = xmin; x <= xmax; x++)
-		for (var/y = ymin; y <= ymax; y++)
+	for (var/x = xmin to xmax)
+		for (var/y = ymin to ymax)
 			var/turf/T = locate(x, y, z)
 			if (T.loc != src || T.type == ignore_type)
 				// Not ours or ignored type, we don't give a crap.
@@ -54,30 +54,21 @@
 
 	ASSERT(source_turfs.len == target_turfs.len)
 
-	var/list/simulated_turfs = list()
-
-	for (var/i = 1; i <= source_turfs.len; i++)
+	for (var/i = 1 to source_turfs.len)
 		var/turf/ST = source_turfs[i]
 		if (!ST)	// Excluded turfs are null to keep the list ordered.
 			continue
 
 		var/turf/TT = ST.copy_turf(target_turfs[i])
-		
+
 		for (var/thing in ST)
 			var/atom/movable/AM = thing
 			AM.shuttle_move(TT)
 
-		ST.ChangeTurf(get_base_turf_by_area(ST))
+		ST.ChangeTurf(ST.baseturf)
 
-		if (istype(TT, /turf/simulated))
-			simulated_turfs += TT
-
-	for (var/thing in simulated_turfs)
-		var/turf/simulated/T = thing
-
-		T.update_icon()
-		if (istype(T.above))
-			T.above.queue_icon_update()
+		TT.update_icon()
+		TT.update_above()
 
 // Called when a movable area wants to move this object.
 /atom/movable/proc/shuttle_move(turf/loc)
@@ -106,16 +97,16 @@
 
 				T = target_turfs[idex]
 
-			baseturf = get_base_turf(T.z)
+			baseturf = T.baseturf
 
-	for (var/i = 1; i <= source_turfs.len; i++)
+	for (var/i = 1 to source_turfs.len)
 		var/turf/ST = source_turfs[i]
 		var/turf/TTi = target_turfs[i]
-		if (!ST || (plating_required && TTi.type != baseturf))	// Excluded turfs are null to keep the list ordered.
+		if (!ST || (plating_required && TTi.type == baseturf))	// Excluded turfs are null to keep the list ordered.
 			continue
 
 		var/turf/TT = ST.copy_turf(TTi, ignore_air = TRUE)
-		
+
 		for (var/thing in ST)
 			var/atom/movable/AM = thing
 			var/atom/movable/copy = DuplicateObject(AM, 1)

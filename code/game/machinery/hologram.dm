@@ -154,7 +154,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		icon_state = "holopad0"
 	return 1
 
-/obj/machinery/hologram/holopad/process()
+/obj/machinery/hologram/holopad/machinery_process()
 	for (var/mob/living/silicon/ai/master in masters)
 		var/active_ai = (master && !master.incapacitated() && master.client && master.eyeobj)//If there is an AI with an eye attached, it's not incapacitated, and it has a client
 		if((stat & NOPOWER) || !active_ai)

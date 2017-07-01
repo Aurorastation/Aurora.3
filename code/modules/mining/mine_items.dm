@@ -10,9 +10,8 @@
 	icon_off = "miningsecoff"
 	req_access = list(access_mining)
 
-/obj/structure/closet/secure_closet/miner/New()
+/obj/structure/closet/secure_closet/miner/fill()
 	..()
-	sleep(2)
 	if(prob(50))
 		new /obj/item/weapon/storage/backpack/industrial(src)
 	else
@@ -212,7 +211,7 @@
 	desc = "Yours is the drill that will pierce through the rock walls."
 	drill_verb = "drilling"
 	autodrill = 1
-	drill_sound = 'sound/weapons/circsawhit.ogg'
+	drill_sound = 'sound/weapons/drill.ogg'
 	digspeed = 20
 	digspeed_unwielded = 30
 	force_unwielded = 15.0
@@ -231,7 +230,7 @@
 	desc = "Cracks rocks with sonic blasts, perfect for killing cave lizards."
 	drill_verb = "hammering"
 	autodrill = 1
-	drill_sound = 'sound/weapons/resonator_blast.ogg'
+	drill_sound = 'sound/weapons/sonic_jackhammer.ogg'
 	digspeed = 15
 	digspeed_unwielded = 15
 	force_unwielded = 25.0
@@ -276,7 +275,7 @@
 	desc = "Yours is the drill that will pierce the heavens!"
 	drill_verb = "drilling"
 	autodrill = 1
-	drill_sound = 'sound/weapons/circsawhit.ogg'
+	drill_sound = 'sound/weapons/drill.ogg'
 	excavation_amount = 100
 
 	can_wield = 0
@@ -297,7 +296,7 @@
 	desc = ""
 	drill_verb = "drilling"
 	autodrill = 1
-	drill_sound = 'sound/weapons/circsawhit.ogg'
+	drill_sound = 'sound/weapons/drill.ogg'
 	can_wield = 0
 	force = 15.0
 	excavation_amount = 100
@@ -363,6 +362,11 @@
 	name = "green flags"
 	singular_name = "green flag"
 	icon_state = "greenflag"
+
+/obj/item/stack/flag/purple
+	name = "purple flags"
+	singular_name = "purple flag"
+	icon_state = "purpflag"
 
 /obj/item/stack/flag/attackby(obj/item/W as obj, mob/user as mob)
 	if(upright && istype(W,src.type))
@@ -1233,8 +1237,9 @@ var/list/total_extraction_beacons = list()
 	'sound/weapons/punch1.ogg', 'sound/weapons/punch2.ogg', 'sound/weapons/punch3.ogg', 'sound/weapons/punch4.ogg')
 
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
-		flick("[icon_state]2", src)
-		playsound(src.loc, pick(src.hit_sounds), 25, 1, -1)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	flick("[icon_state]2", src)
+	playsound(src.loc, pick(src.hit_sounds), 25, 1, -1)
 
 /obj/structure/weightlifter
 	name = "Weight Machine"

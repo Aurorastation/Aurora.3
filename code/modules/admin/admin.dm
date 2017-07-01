@@ -742,11 +742,11 @@ proc/admin_notice(var/message, var/rights)
 	set desc="Globally Toggles Hub Visibility"
 	set name="Toggle Hub Visibility"
 
-	if(!check_rights(R_ADMIN))
+	if(!check_rights(R_SERVER))
 		return
 
 	world.visibility = !(world.visibility)
-	var/long_message = " toggled hub visibility.  The server is now [world.visibility ? "visible" : "invisible"] ([world.visibility])."
+	var/long_message = " toggled hub visibility. The server is now [world.visibility ? "visible" : "invisible"] ([world.visibility])."
 
 	discord_bot.send_to_admins("[key_name(src)]" + long_message)
 	message_admins("[key_name_admin(usr)]" + long_message, 1)
@@ -1318,14 +1318,14 @@ proc/admin_notice(var/message, var/rights)
 	if(check_rights(R_ADMIN|R_MOD))
 		if (H.paralysis == 0)
 			H.paralysis = 8000
-			msg = "has paralyzed [key_name(H)]."
+			msg = "has paralyzed [key_name_admin(H)]."
 			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>[H] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</font>", "<font color='red'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></font>")
 		else
 			if (alert("The player is currently winded. Do you want to unwind him?", "Unwind player?", "Yes", "No") == "No")
 				return
 
 			H.paralysis = 0
-			msg = "has unparalyzed [key_name(H)]."
+			msg = "has unparalyzed [key_name_admin(H)]."
 			H.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[H] has been unwinded by a member of staff!</font>", "<font color='red'><b>You have been unwinded by a member of staff!</b></font>")
 		log_and_message_admins(msg)
 		feedback_add_details("admin_verb", "WIND")

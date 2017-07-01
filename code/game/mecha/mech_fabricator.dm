@@ -40,7 +40,7 @@
 	manufacturer = basic_robolimb.company
 	update_categories()
 
-/obj/machinery/mecha_part_fabricator/process()
+/obj/machinery/mecha_part_fabricator/machinery_process()
 	..()
 	if(stat)
 		return
@@ -225,7 +225,7 @@
 
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</font>")
 			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>")
-			msg_admin_attack("[key_name_admin(user.ckey)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 		else
 			return
 		if(!do_after(usr, 35))

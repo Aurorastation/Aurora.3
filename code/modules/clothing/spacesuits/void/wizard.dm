@@ -13,22 +13,22 @@
 	wizard_garb = 1
 	species_restricted = list("Human", "Machine", "Skeleton")
 
-	equipped(var/mob/user)
-		if(!(user.faction == "Space Wizard"))
-			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/LH = H.get_organ("l_hand")
-			var/obj/item/organ/external/RH = H.get_organ("r_hand")
-			var/active_hand = H.hand
-			user << "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>"
-			playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
-			user.drop_item()
-			if(active_hand)
-				LH.droplimb(0,DROPLIMB_BURN)
-			else
-				RH.droplimb(0,DROPLIMB_BURN)
-			return
+/obj/item/clothing/head/helmet/space/void/wizard/equipped(var/mob/living/user)
+	if(!user.is_wizard())
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/external/LH = H.get_organ("l_hand")
+		var/obj/item/organ/external/RH = H.get_organ("r_hand")
+		var/active_hand = H.hand
+		user << "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>"
+		playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
+		user.drop_item()
+		if(active_hand)
+			LH.droplimb(0,DROPLIMB_BURN)
 		else
-			..()
+			RH.droplimb(0,DROPLIMB_BURN)
+		return
+	else
+		..()
 
 
 /obj/item/clothing/suit/space/void/wizard
@@ -49,20 +49,20 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/teleportation_scroll,/obj/item/weapon/scrying,/obj/item/weapon/spellbook,/obj/item/device/soulstone,/obj/item/weapon/material/knife/ritual)
 	species_restricted = list("Human", "Skrell", "Machine", "Skeleton")
 
-	equipped(var/mob/user)
-		if(!(user.faction == "Space Wizard"))
-			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/LH = H.get_organ("l_hand")
-			var/obj/item/organ/external/RH = H.get_organ("r_hand")
-			var/active_hand = H.hand
-			user << "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>"
-			playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
-			user.drop_item()
-			if(active_hand)
-				LH.droplimb(0,DROPLIMB_BURN)
-			else
-				RH.droplimb(0,DROPLIMB_BURN)
-			return
+/obj/item/clothing/suit/space/void/wizard/equipped(var/mob/living/user)
+	if(!user.is_wizard())
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/external/LH = H.get_organ("l_hand")
+		var/obj/item/organ/external/RH = H.get_organ("r_hand")
+		var/active_hand = H.hand
+		user << "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>"
+		playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
+		user.drop_item()
+		if(active_hand)
+			LH.droplimb(0,DROPLIMB_BURN)
 		else
-			..()
+			RH.droplimb(0,DROPLIMB_BURN)
+		return
+	else
+		..()
 

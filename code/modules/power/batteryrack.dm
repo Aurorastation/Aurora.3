@@ -11,7 +11,6 @@
 	icon_state = "gsmes"
 	var/cells_amount = 0
 	var/capacitors_amount = 0
-	var/global/list/br_cache = null
 
 /obj/machinery/power/smes/batteryrack/New()
 	..()
@@ -181,7 +180,7 @@
 
 
 #define SMESRATE 0.05			// rate of internal charge to external power
-/obj/machinery/power/smes/batteryrack/makeshift/process()
+/obj/machinery/power/smes/batteryrack/makeshift/machinery_process()
 	if(stat & BROKEN)	return
 
 	//store machine state to see if we need to update the icon overlays

@@ -11,7 +11,7 @@
 	slot_flags = 0
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 5)
 	fire_sound = 'sound/effects/bang.ogg'
-	
+
 	release_force = 15
 	throw_distance = 30
 	var/max_rockets = 1
@@ -44,5 +44,5 @@
 
 /obj/item/weapon/gun/launcher/rocket/handle_post_fire(mob/user, atom/target)
 	message_admins("[key_name_admin(user)] fired a rocket from a rocket launcher ([src.name]) at [target].")
-	log_game("[key_name_admin(user)] used a rocket launcher ([src.name]) at [target].",ckey=key_name(src))
+	log_game("[key_name(user)] used a rocket launcher ([src.name]) at [target].",ckey=key_name(src))
 	..()

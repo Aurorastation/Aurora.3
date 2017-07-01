@@ -14,9 +14,10 @@
 	var/announcement = ""
 	if(severity == EVENT_LEVEL_MAJOR)
 		announcement = "Massive migration of unknown biological entities has been detected near [station_name()], please stand-by."
+		command_announcement.Announce(announcement, "Lifesign Alert", new_sound = 'sound/AI/massivespacecarp.ogg')
 	else
 		announcement = "Unknown biological [spawned_carp.len == 1 ? "entity has" : "entities have"] been detected near [station_name()], please stand-by."
-	command_announcement.Announce(announcement, "Lifesign Alert")
+		command_announcement.Announce(announcement, "Lifesign Alert", new_sound = 'sound/AI/spacecarp.ogg')
 
 /datum/event/carp_migration/start()
 	if(severity == EVENT_LEVEL_MAJOR)
@@ -43,10 +44,10 @@
 		for (var/j = 1, j <= group_size, j++)
 			if(prob(99))
 				var/mob/living/simple_animal/hostile/carp/carp = new(spawn_locations[i])
-				spawned_carp += "\ref[carp]"
+				spawned_carp += SOFTREF(carp)
 			else
 				var/mob/living/simple_animal/hostile/carp/shark/carp = new(spawn_locations[i])
-				spawned_carp += "\ref[carp]"
+				spawned_carp += SOFTREF(carp)
 		i++
 
 /datum/event/carp_migration/proc/spawn_caverndweller(var/num_groups, var/group_size_min=2, var/group_size_max=3)
@@ -63,7 +64,7 @@
 		var/group_size = rand(group_size_min, group_size_max)
 		for (var/j = 1, j <= group_size, j++)
 			var/mob/living/simple_animal/hostile/retaliate/cavern_dweller/dweller = new(spawn_locations[i])
-			spawned_dweller += "\ref[dweller]"
+			spawned_dweller += SOFTREF(dweller)
 		i++
 
 /datum/event/carp_migration/end()

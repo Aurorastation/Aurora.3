@@ -754,9 +754,9 @@
 				H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 				H.adjustFireLoss(10, 0)
 			if(infected)
-				if("\ref[H]" in hacked_ipcs)
+				if(SOFTREF(H) in hacked_ipcs)
 					return
-				LAZYADD(hacked_ipcs, "\ref[H]")
+				LAZYADD(hacked_ipcs, SOFTREF(H))
 				infected = 0
 				H << "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>"
 				hacker << "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are reparied.</span>"
@@ -1081,7 +1081,7 @@
 	else
 		return 0
 
-/obj/machinery/power/apc/process()
+/obj/machinery/power/apc/machinery_process()
 
 	if(stat & (BROKEN|MAINT))
 		return
@@ -1313,17 +1313,19 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 
 // overload the lights in this APC area
 
-/obj/machinery/power/apc/proc/overload_lighting(var/chance = 100)
-	if(/* !get_connection() || */ !operating || shorted)
+/obj/machinery/power/apc/proc/overload_lighting(var/chance = 100, var/force = FALSE)
+	if((!operating || shorted) && !force)
 		return
-	if( cell && cell.charge>=20)
-		cell.use(20);
+
+	if(force || (cell && cell.charge >= 20))
+		cell.use(20)	// Draining an empty cell is fine.
+
 		spawn(0)
-			for(var/obj/machinery/light/L in area)
-				if(prob(chance))
+			for (var/obj/machinery/light/L in area)
+				if (prob(chance))
 					L.on = 1
 					L.broken()
-				sleep(1)
+					sleep(1)
 
 /obj/machinery/power/apc/proc/flicker_all()
 	var/offset = 0

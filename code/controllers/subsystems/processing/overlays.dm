@@ -13,17 +13,10 @@ var/datum/controller/subsystem/processing/overlays/SSoverlays
 	var/list/overlay_icon_cache
 	var/initialized = FALSE
 
-	// External overlay lists that are defined here for VV purposes.
-	var/list/holo_multiplier_cache
-	var/list/holo_adder_cache
-
 /datum/controller/subsystem/processing/overlays/New()
 	NEW_SS_GLOBAL(SSoverlays)
 	LAZYINITLIST(overlay_icon_state_caches)
 	LAZYINITLIST(overlay_icon_cache)
-
-	LAZYINITLIST(holo_multiplier_cache)
-	LAZYINITLIST(holo_adder_cache)
 
 /datum/controller/subsystem/processing/overlays/Initialize()
 	initialized = TRUE
@@ -36,11 +29,12 @@ var/datum/controller/subsystem/processing/overlays/SSoverlays
 	processing = SSoverlays.processing
 
 /datum/controller/subsystem/processing/overlays/fire(resumed = FALSE, mc_check = TRUE)
+	var/list/processing = src.processing
 	while(processing.len)
 		var/atom/thing = processing[processing.len]
 		processing.len--
 		if(thing)
-			thing.compile_overlays(FALSE)
+			thing.compile_overlays()
 		if(mc_check)
 			if(MC_TICK_CHECK)
 				break

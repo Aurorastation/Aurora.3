@@ -236,7 +236,8 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 		"Surface of the station" = locate(/area/syndicate_station/surface),
 		"Above the station" = locate(/area/syndicate_station/above),
 		"Under the station" = locate(/area/syndicate_station/under),
-		"Mining caverns" = locate(/area/syndicate_station/caverns)
+		"Mining caverns" = locate(/area/syndicate_station/caverns),
+		"Arrivals dock" = locate(/area/syndicate_station/arrivals_dock)
 	)
 
 	MS.docking_controller_tag = "merc_shuttle"

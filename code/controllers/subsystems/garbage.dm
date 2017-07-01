@@ -138,12 +138,12 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	var/time = world.timeofday
 	var/tick = world.tick_usage
 	var/ticktime = world.time
-	
+
 	var/type = A.type
 	var/refID = "\ref[A]"
-	
+
 	del(A)
-	
+
 	tick = (world.tick_usage-tick+((world.time-ticktime)/world.tick_lag*100))
 	if (tick > highest_del_tickusage)
 		highest_del_tickusage = tick
@@ -215,21 +215,6 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 				#ifdef TESTING
 				D.find_references()
 				#endif
-			if (QDEL_HINT_POOL)
-				if (!force)
-					D.gcDestroyed = null
-					returnToPool(D)
-					return
-				// Returning POOL after being told to force destroy
-				// indicates the objects Destroy() does not respect force
-				if(!SSgarbage.noforcerespect["[D.type]"])
-					SSgarbage.noforcerespect["[D.type]"] = "[D.type]"
-					testing("WARNING: [D.type] has been force deleted, but is \
-						returning an immortal QDEL_HINT, indicating it does \
-						not respect the force flag for qdel(). It has been \
-						placed in the queue, further instances of this type \
-						will also be queued.")
-				SSgarbage.QueueForQueuing(D)
 			else
 				if(!SSgarbage.noqdelhint["[D.type]"])
 					SSgarbage.noqdelhint["[D.type]"] = "[D.type]"

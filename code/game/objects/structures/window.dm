@@ -479,13 +479,27 @@
 /obj/structure/window/shuttle
 	name = "shuttle window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
-	icon = 'icons/obj/podwindows.dmi'
-	icon_state = "window"
+	icon = 'icons/obj/smooth/shuttle_window.dmi'
+	icon_state = "shuttle_window"
 	basestate = "window"
 	maxhealth = 40
 	reinf = 1
 	basestate = "w"
 	dir = 5
+	smooth = SMOOTH_TRUE
+	can_be_unanchored = TRUE
+
+/obj/structure/window/shuttle/crescent
+	desc = "It looks rather strong."
+
+/obj/structure/window/shuttle/crescent/take_damage()
+	return
+
+/obj/structure/window/shuttle/update_nearby_icons()
+	queue_smooth_neighbors(src)
+
+/obj/structure/window/update_icon()
+	queue_smooth(src)
 
 /obj/structure/window/reinforced/polarized
 	name = "electrochromic window"

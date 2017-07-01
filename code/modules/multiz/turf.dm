@@ -1,18 +1,32 @@
+/**
+ * Used to check wether or not an atom can pass through a turf.
+ *
+ * @param	A The atom that's moving either up or down from this turf or to it.
+ * @param	direction The direction of the atom's movement in relation to its
+ * current position.
+ *
+ * @return	TRUE if A can pass in the movement direction, FALSE if not.
+ */
 /turf/proc/CanZPass(atom/A, direction)
 	if(z == A.z) //moving FROM this turf
 		return direction == UP //can't go below
 	else
 		if(direction == UP) //on a turf below, trying to enter
-			return 0
+			return FALSE
 		if(direction == DOWN) //on a turf above, trying to enter
 			return !density
 
 /turf/simulated/open/CanZPass(atom, direction)
-	return 1
+	return TRUE
 
 /turf/space/CanZPass(atom, direction)
-	return 1
+	return TRUE
 
+/**
+ * Open turf class.
+ *
+ * All atoms are able to pass through this, and also to see under it.
+ */
 /turf/simulated/open
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
@@ -22,31 +36,27 @@
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
 
+	roof_type = null
+
 	var/tmp/turf/below
 	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
 	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
 
 	var/tmp/depth
 
+	var/tmp/list/climbers									// A lazy list to contain a list of mobs who are currently scaling
+															// up this turf. Used in human/can_fall.
+
 // An override of turf/Enter() to make it so that magboots allow you to stop
 // falling off the damned rock.
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
-	if (istype(mover) && isturf(oldloc) && !istype(oldloc, /turf/simulated/open))
-		if (mover.Check_Shoegrip(FALSE))
-			to_chat(mover,span("notice",
+	if (istype(mover) && isturf(oldloc))
+		if (mover.Check_Shoegrip(FALSE) && mover.can_fall(below, src))
+			to_chat(mover, span("notice",
 				"You are stopped from falling off the edge by \the [mover.shoes] you're wearing!"))
 			return 0
 
 	return ..()
-
-/turf/simulated/open/proc/is_above_space()
-	var/turf/T = GetBelow(src)
-	while (T && T.is_hole)
-		if (istype(T, /turf/space))
-			return TRUE
-		T = GetBelow(T)
-
-	return FALSE
 
 /turf/simulated/open/Destroy()
 	SSopenturf.openspace_turfs -= src
@@ -61,7 +71,29 @@
 		above = null
 
 	below = null
+
+	LAZYCLEARLIST(climbers)
+	UNSETEMPTY(climbers)
+
 	return ..()
+
+/turf/simulated/open/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.appearance = src
+	return TRUE
+
+/**
+ * Used to check wether or not the specific open turf eventually leads into spess.
+ *
+ * @return	TRUE if the turfs/holes eventually lead into space. FALSE otherwise.
+ */
+/turf/simulated/open/proc/is_above_space()
+	var/turf/T = GetBelow(src)
+	while (T && T.is_hole)
+		if (istype(T, /turf/space))
+			return TRUE
+		T = GetBelow(T)
+
+	return FALSE
 
 /turf/simulated/open/airless
 	oxygen = 0
@@ -77,12 +109,19 @@
 	SSopenturf.openspace_turfs += src
 	update()
 
+/**
+ * Updates the turf with open turf's variables and basically resets it properly.
+ */
 /turf/simulated/open/proc/update()
 	below = GetBelow(src)
-	below.above = src
+
+	// Edge case for when an open turf is above space on the lowest level.
+	if (below)
+		below.above = src
+
 	levelupdate()
-	for(var/atom/movable/A in src)
-		A.fall()
+	for (var/atom/movable/A in src)
+		ADD_FALLING_ATOM(A)
 	update_icon()
 
 /turf/simulated/open/update_dirt()
@@ -90,7 +129,7 @@
 
 /turf/simulated/open/Entered(atom/movable/mover)
 	..()
-	mover.fall()
+	ADD_FALLING_ATOM(mover)
 	update_icon()
 
 // override to make sure nothing is hidden
@@ -142,4 +181,4 @@
 
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
-	return 1
+	return TRUE

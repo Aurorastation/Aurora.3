@@ -1,5 +1,5 @@
 /mob
-	var/bloody_hands = 0
+	var/bloody_hands = null
 	var/mob/living/carbon/human/bloody_hands_mob
 	var/track_blood = 0
 	var/list/feet_blood_DNA
@@ -144,7 +144,7 @@
 		return
 
 	if(!on_fire && istype(A) && (src in user))
-		if(A.is_open_container())
+		if(A.is_open_container() && !(A in user))
 			remove_contents(user, A)
 		else if(!ismob(A)) //mobs are handled in attack() - this prevents us from wiping down people while smothering them.
 			wipe_down(A, user)

@@ -4,6 +4,7 @@
 /obj/machinery/atmospherics/omni/mixer
 	name = "omni gas mixer"
 	icon_state = "map_mixer"
+	base_icon = "mixer"
 
 	use_power = 1
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
@@ -97,7 +98,7 @@
 
 	return 0
 
-/obj/machinery/atmospherics/omni/mixer/process()
+/obj/machinery/atmospherics/omni/mixer/machinery_process()
 	if(!..())
 		return 0
 

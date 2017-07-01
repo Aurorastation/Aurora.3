@@ -28,10 +28,9 @@ var/malftransformermade = 0
 
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 	var/used_energy = 100
-	var/obj/product = new /obj/machinery/transformer
-
 	user << "Fabricating machine..."
 	if(do_after(user, 30 SECONDS, act_target = src))
+		var/obj/product = new /obj/machinery/transformer
 		malftransformermade = 1
 		product.loc = get_turf(A)
 

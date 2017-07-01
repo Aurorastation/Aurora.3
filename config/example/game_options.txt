@@ -78,3 +78,11 @@ ANIMAL_DELAY 1
 
 ## If defined, vendors do not have a chance to explode when all vendors are infected.
 #VENDORS_DO_NOT_EXPLODE
+## Sunlight Settings ##
+
+# How many tiles should be between each light source. Higher is more accurate, but may take longer to process. Too low will freeze the server during updates.
+# You probably should leave this unset.
+#SUNLIGHT_ACCURACY 8
+
+# The Z-level the sun is generated at. Keep in mind that light can only go downwards when setting this.
+#SUNLIGHT_Z 7

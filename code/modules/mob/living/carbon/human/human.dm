@@ -10,7 +10,7 @@
 	var/obj/item/weapon/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	mob_size = 9//Based on average weight of a human
 
-/mob/living/carbon/human/New(var/new_loc, var/new_species = null)
+/mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	eat_types |= TYPE_ORGANIC//Any mobs that are given the devour verb, can eat nonhumanoid organics. Only applies to unathi for now
 
 	if(!dna)
@@ -66,7 +66,8 @@
 
 
 	human_mob_list |= src
-	..()
+
+	. = ..()
 
 	if(dna)
 		dna.ready_dna(src)
@@ -1050,9 +1051,9 @@
 /mob/living/carbon/human/clean_blood(var/clean_feet)
 	.=..()
 	gunshot_residue = null
-	if(clean_feet && !shoes && istype(feet_blood_DNA, /list) && feet_blood_DNA.len)
+	if(clean_feet && !shoes)
 		feet_blood_color = null
-		qdel(feet_blood_DNA)
+		feet_blood_DNA = null
 		update_inv_shoes(1)
 		return 1
 
@@ -1188,8 +1189,9 @@
 
 	spawn(0)
 		regenerate_icons()
-		vessel.add_reagent("blood",560-vessel.total_volume)
-		fixblood()
+		if (vessel)
+			vessel.add_reagent("blood",560-vessel.total_volume)
+			fixblood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)

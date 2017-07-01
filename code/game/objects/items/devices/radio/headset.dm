@@ -79,6 +79,11 @@
 	syndie = 1
 	ks1type = /obj/item/device/encryptionkey/syndicate
 
+/obj/item/device/radio/headset/raider
+	origin_tech = list(TECH_ILLEGAL = 2)
+	syndie = 1
+	ks1type = /obj/item/device/encryptionkey/raider
+
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)
 	ks1type = /obj/item/device/encryptionkey/binary
@@ -153,6 +158,10 @@
 	if (disabledAi)
 		return -1 //Transciever Disabled.
 	return ..(freq, level, 1)
+
+/obj/item/device/radio/headset/heads/ai_integrated/Destroy()
+	myAi = null
+	return ..()
 
 /obj/item/device/radio/headset/heads/rd
 	name = "research director's headset"

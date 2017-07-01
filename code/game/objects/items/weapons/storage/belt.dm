@@ -55,7 +55,7 @@
 		)
 
 
-/obj/item/weapon/storage/belt/utility/full/New()
+/obj/item/weapon/storage/belt/utility/full/fill()
 	..()
 	new /obj/item/weapon/screwdriver(src)
 	new /obj/item/weapon/wrench(src)
@@ -65,7 +65,7 @@
 	new /obj/item/stack/cable_coil(src,30,pick("red","yellow","orange"))
 
 
-/obj/item/weapon/storage/belt/utility/atmostech/New()
+/obj/item/weapon/storage/belt/utility/atmostech/fill()
 	..()
 	new /obj/item/weapon/screwdriver(src)
 	new /obj/item/weapon/wrench(src)
@@ -154,7 +154,7 @@
 		/obj/item/device/soulstone
 		)
 
-/obj/item/weapon/storage/belt/soulstone/full/New()
+/obj/item/weapon/storage/belt/soulstone/full/fill()
 	..()
 	new /obj/item/device/soulstone(src)
 	new /obj/item/device/soulstone(src)
@@ -245,7 +245,7 @@
 		/obj/item/weapon/gun/energy/wand
 		)
 
-/obj/item/weapon/storage/belt/wands/full/New()
+/obj/item/weapon/storage/belt/wands/full/fill()
 	..()
 	new /obj/item/weapon/gun/energy/wand/fire(src)
 	new /obj/item/weapon/gun/energy/wand/polymorph(src)
@@ -254,7 +254,7 @@
 	new /obj/item/weapon/gun/energy/wand/animation(src)
 
 /obj/item/weapon/storage/belt/mining
-	name = "explorer's webbing"
+	name = "explorer's belt"
 	desc = "A versatile chest rig, cherished by miners and hunters alike."
 	icon_state = "explorer"
 	item_state = "explorer"
@@ -268,6 +268,7 @@
 		/obj/item/weapon/wrench,
 		/obj/item/weapon/resonator,
 		/obj/item/weapon/oreportal,
+		/obj/item/weapon/oremagnet,
 		/obj/item/weapon/plastique/seismic,
 		/obj/item/weapon/extraction_pack,
 		/obj/item/weapon/ore_radar,
@@ -294,5 +295,9 @@
 		/obj/item/weapon/storage/pill_bottle,
 		/obj/item/weapon/ore,
 		/obj/item/weapon/reagent_containers/food/drinks,
-		/obj/item/weapon/storage/bag/plants
+		/obj/item/weapon/storage/bag/plants,
+		/obj/item/warp_core,
+		/obj/item/weapon/extraction_pack,
+		/obj/item/weapon/rrf,
+		/obj/item/weapon/gun/energy/kinetic_accelerator
 		)

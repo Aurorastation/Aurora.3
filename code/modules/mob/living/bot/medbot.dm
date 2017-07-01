@@ -49,7 +49,7 @@
 		if(patient)
 			if(Adjacent(patient))
 				if(!currently_healing)
-					UnarmedAttack(patient)
+					INVOKE_ASYNC(src, .proc/UnarmedAttack, patient)
 			else
 				if(path.len && (get_dist(patient, path[path.len]) > 2)) // We have a path, but it's off
 					path = list()

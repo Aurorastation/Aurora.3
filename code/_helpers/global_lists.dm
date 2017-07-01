@@ -46,6 +46,7 @@ var/global/list/facial_hair_styles_list = list()	//stores /datum/sprite_accessor
 var/global/list/facial_hair_styles_male_list = list()
 var/global/list/facial_hair_styles_female_list = list()
 var/global/list/skin_styles_female_list = list()		//unused
+var/global/list/body_marking_styles_list = list()
 	//Underwear
 var/global/list/underwear_m = list("White" = "m1", "Grey" = "m2", "Green" = "m3", "Blue" = "m4", "Black" = "m5", "Mankini" = "m6", "None") //Curse whoever made male/female underwear diffrent colours
 var/global/list/underwear_f = list("Red" = "f1", "White" = "f2", "Yellow" = "f3", "Blue" = "f4", "Black" = "f5", "Thong" = "f6", "Black Sports" = "f7","White Sports" = "f8","None")
@@ -117,6 +118,14 @@ var/global/list/cloaking_devices = list()
 			else
 				facial_hair_styles_male_list += H.name
 				facial_hair_styles_female_list += H.name
+				
+	//Body markings 
+	paths = subtypesof(/datum/sprite_accessory/marking)
+	for(var/path in paths)
+		var/datum/sprite_accessory/marking/M = new path()
+		body_marking_styles_list[M.name] = M
+
+	sortTim(body_marking_styles_list, /proc/cmp_text_asc)
 
 	//Surgery Steps - Initialize all /datum/surgery_step into a list
 	paths = subtypesof(/datum/surgery_step)
@@ -152,7 +161,13 @@ var/global/list/cloaking_devices = list()
 		S.race_key = rkey //Used in mob icon caching.
 		all_species[S.name] = S
 
-		if(!(S.spawn_flags & IS_RESTRICTED))
+	sortTim(all_species, /proc/cmp_text_asc)
+
+	// The other lists are generated *after* we sort the main one so they don't need sorting too.
+	for (var/thing in all_species)
+		var/datum/species/S = all_species[thing]
+		
+		if (!(S.spawn_flags & IS_RESTRICTED))
 			playable_species += S.name
 		if(S.spawn_flags & IS_WHITELISTED)
 			whitelisted_species += S.name

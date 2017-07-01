@@ -106,8 +106,8 @@
 			return
 
 
-		var/DBQuery/check_query = dbcon.NewQuery("SELECT player_ckey, status FROM ss13_player_linking WHERE id = :id")
-		check_query.Execute(list(":id" = request_id))
+		var/DBQuery/check_query = dbcon.NewQuery("SELECT player_ckey, status FROM ss13_player_linking WHERE id = :id:")
+		check_query.Execute(list("id" = request_id))
 
 		if (!check_query.NextRow())
 			src << "<span class='warning'>No request found!</span>"
@@ -118,19 +118,19 @@
 			return
 
 		var/query_contents = ""
-		var/list/query_details = list(":new_status", ":id")
+		var/list/query_details = list("new_status", "id")
 		var/feedback_message = ""
 		switch (href_list["linkingaction"])
 			if ("accept")
-				query_contents = "UPDATE ss13_player_linking SET status = :new_status, updated_at = NOW() WHERE id = :id"
-				query_details[":new_status"] = "confirmed"
-				query_details[":id"] = request_id
+				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, updated_at = NOW() WHERE id = :id:"
+				query_details["new_status"] = "confirmed"
+				query_details["id"] = request_id
 
 				feedback_message = "<font color='green'><b>Account successfully linked!</b></font>"
 			if ("deny")
-				query_contents = "UPDATE ss13_player_linking SET status = :new_status, deleted_at = NOW() WHERE id = :id"
-				query_details[":new_status"] = "rejected"
-				query_details[":id"] = request_id
+				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, deleted_at = NOW() WHERE id = :id:"
+				query_details["new_status"] = "rejected"
+				query_details["id"] = request_id
 
 				feedback_message = "<font color='red'><b>Link request rejected!</b></font>"
 			else
@@ -207,6 +207,20 @@
 				if (save)
 					src.prefs.save_preferences()
 
+		return
+
+	if (href_list["view_jobban"])
+		var/reason = jobban_isbanned(ckey, href_list["view_jobban"])
+		if (!reason)
+			to_chat(src, span("notice", "You do not appear jobbanned from this job. If you are still stopped from entering the role however, please adminhelp."))
+			return
+
+		var/data = "<center>Jobbanned from: <b>[href_list["view_jobban"]]</b><br>"
+		data += "Reason:<br>"
+		data += reason
+		data += "</center>"
+
+		show_browser(src, data, "jobban_reason")
 		return
 
 	..()	//redirect to hsrc.()
@@ -295,7 +309,7 @@
 
 	// New player, and we don't want any.
 	if (!holder)
-		if (config.access_deny_new_players && !player_age)
+		if (config.access_deny_new_players && player_age == -1)
 			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
 			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from never before seen players.</span>")
@@ -450,10 +464,13 @@
 		//Player already identified previously, we need to just update the 'lastseen', 'ip' and 'computer_id' variables
 		var/DBQuery/query_update = dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = '[sql_ip]', computerid = '[sql_computerid]', lastadminrank = '[sql_admin_rank]', account_join_date = [account_join_date ? "'[account_join_date]'" : "NULL"] WHERE ckey = '[sql_ckey]'")
 		query_update.Execute()
-	else
+	else if (!config.access_deny_new_players)
 		//New player!! Need to insert all the stuff
 		var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date) VALUES ('[sql_ckey]', Now(), Now(), '[sql_ip]', '[sql_computerid]', '[sql_admin_rank]', [account_join_date ? "'[account_join_date]'" : "NULL"])")
 		query_insert.Execute()
+	else
+		// Flag as -1 to know we have to kiiick them.
+		player_age = -1
 
 	if (!account_join_date)
 		account_join_date = "Error"
@@ -513,9 +530,9 @@
 		return
 
 	var/list/requests = list()
-	var/list/query_details = list(":ckey" = ckey)
+	var/list/query_details = list("ckey" = ckey)
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, forum_id, forum_username, datediff(Now(), created_at) as request_age FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, forum_id, forum_username, datediff(Now(), created_at) as request_age FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")
 	select_query.Execute(query_details)
 
 	while (select_query.NextRow())
@@ -550,8 +567,8 @@
 	if (!dbcon.IsConnected())
 		return
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL")
-	select_query.Execute(list(":ckey" = ckey))
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")
+	select_query.Execute(list("ckey" = ckey))
 
 	if (select_query.NextRow())
 		if (text2num(select_query.item[1]) > 0)

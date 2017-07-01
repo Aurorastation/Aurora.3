@@ -19,6 +19,7 @@
 /turf/unsimulated/wall/riveted
 	icon = 'icons/turf/smooth/riveted.dmi'
 	icon_state = "riveted"
+	desc = "It's a wall. It appears to be composed of a highly durable alloy."
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
 		/turf/unsimulated/wall/riveted,

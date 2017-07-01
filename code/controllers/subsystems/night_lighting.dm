@@ -42,18 +42,18 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 		log_debug("SSnightlight: disable_type was [disable_type] but can_fire was TRUE! Disabling self.")
 		suspend()
 		return
-		
+
 	var/time = worldtime2hours()
 	if (time <= 8 || time >= 19)
 		if (!isactive)
 			activate()
 			if (announce)
-				command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
+				command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/nightlight.ogg')
 	else
 		if (isactive)
 			deactivate()
 			if (announce)
-				command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
+				command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/nightlight.ogg')
 
 // 'whitelisted' areas are areas that have nightmode explicitly enabled
 

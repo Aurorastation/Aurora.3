@@ -17,7 +17,7 @@
 		//dbg(blocked)
 		return 1
 
-	#ifdef ZLEVELS
+	#ifdef MULTIZAS
 	for(var/d = 1, d < 64, d *= 2)
 	#else
 	for(var/d = 1, d < 16, d *= 2)
@@ -59,7 +59,7 @@
 	var/check_dirs = get_zone_neighbours(src)
 	var/unconnected_dirs = check_dirs
 	var/to_check = list(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
-	#ifdef ZLEVELS
+	#ifdef MULTIZAS
 	to_check += list(NORTHUP, EASTUP, WESTUP, SOUTHUP, NORTHDOWN, EASTDOWN, WESTDOWN, SOUTHDOWN)
 	#endif
 	for(var/dir in to_check)
@@ -79,7 +79,7 @@
 	. = 0
 	if(istype(T) && T.zone)
 		var/to_check = cardinal.Copy()
-		#ifdef ZLEVELS
+		#ifdef MULTIZAS
 		to_check += list(UP, DOWN)
 		#endif
 		for(var/dir in to_check)
@@ -118,7 +118,7 @@
 	open_directions = 0
 
 	var/list/postponed
-	#ifdef ZLEVELS
+	#ifdef MULTIZAS
 	for(var/d = 1, d < 64, d *= 2)
 	#else
 	for(var/d = 1, d < 16, d *= 2)
