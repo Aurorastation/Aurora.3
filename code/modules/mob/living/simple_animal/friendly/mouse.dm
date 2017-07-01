@@ -68,7 +68,7 @@
 				squeak_soft(0)
 
 			if(is_ventcrawling == 0)
-				sight = SEE_SELF // Returns mouse sight to normal when they leave a vent
+				sight = initial(sight) // Returns mouse sight to normal when they leave a vent
 
 			if (squeals < maxSqueals)
 				var/diff = world.time - last_squealgain
