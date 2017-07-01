@@ -498,3 +498,6 @@
 
 /mob/new_player/MayRespawn()
 	return 1
+
+/mob/new_player/show_message(msg, type, alt, alt_type)
+	return

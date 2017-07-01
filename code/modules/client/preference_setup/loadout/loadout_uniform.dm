@@ -147,7 +147,7 @@
 /datum/gear/uniform/pants
 	display_name = "pants selection"
 	path = /obj/item/clothing/under/pants
-	
+
 /datum/gear/uniform/pants/New()
 	..()
 	var/pants = list()
@@ -162,9 +162,10 @@
 	pants["tan pants"] = /obj/item/clothing/under/pants/tan
 	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
 	pants["track pants"] = /obj/item/clothing/under/pants/track
+	pants["camo pants"] = /obj/item/clothing/under/pants/camo
 	gear_tweaks += new/datum/gear_tweak/path(pants)
-	
+
 /datum/gear/uniform/turtleneck
-	display_name = "tacticool turtleneck"	
+	display_name = "tacticool turtleneck"
 	path = /obj/item/clothing/under/syndicate/tacticool
-	
+
