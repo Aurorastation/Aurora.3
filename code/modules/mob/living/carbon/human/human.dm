@@ -408,7 +408,7 @@
 /mob/living/carbon/human/proc/get_idcard()
 	if(wear_id)
 		return wear_id.GetID()
-//now more shit and less good but now shocks more things
+
 /mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
 	var/hairvar = 0
 	if(status_flags & GODMODE)	return 0	//godmode
@@ -446,8 +446,8 @@
 	var/obj/item/organ/external/affected_organ = get_organ(check_zone(def_zone))
 	var/siemens_coeff = base_siemens_coeff * get_siemens_coefficient_organ(affected_organ)
 	return ..(shock_damage, source, siemens_coeff, def_zone, tesla_shock)
-/mob/living/carbon/human/Topic(href, href_list)
 
+/mob/living/carbon/human/Topic(href, href_list)
 	if (href_list["refresh"])
 		if((machine)&&(in_range(src, usr)))
 			show_inv(machine)
