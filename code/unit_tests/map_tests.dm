@@ -145,7 +145,7 @@ datum/unit_test/wire_test/start_test()
 #define BLOCKED_DOWN 2
 
 /datum/unit_test/ladder_test
-	name = "MAP: Ladder Test"
+	name = "MAP: Ladder Test (Global)"
 
 /datum/unit_test/ladder_test/start_test()
 	var/ladders_total = 0
@@ -155,21 +155,21 @@ datum/unit_test/wire_test/start_test()
 	for (var/obj/structure/ladder/ladder in world)
 		ladders_total++
 
-		if (!target_up && !target_down)
+		if (!ladder.target_up && !ladder.target_down)
 			ladders_incomplete++
-			log_unit_test("[ascii_red]--------------- [T.name] \[[T.x] / [T.y] / [T.z]\] Is incomplete.")
+			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is incomplete.")
 			continue
 
 		var/bad = 0
-		if (target_up && !istype(GetAbove(src), /turf/simulated/open))
+		if (ladder.target_up && !istype(GetAbove(ladder), /turf/simulated/open))
 			bad |= BLOCKED_UP
 
-		if (target_down && !istype(GetBelow(src), /turf/simulated/open))
+		if (ladder.target_down && !istype(GetBelow(ladder), /turf/simulated/open))
 			bad |= BLOCKED_DOWN
 
 		if (bad)
 			ladders_blocked++
-			log_unit_test("[ascii_red]--------------- [T.name] \[[T.x] / [T.y] / [T.z]\] Is blocked in dirs: [(bad & BLOCKED_UP) ? "UP" : ""][(bad & BLOCKED_DOWN) ? " DOWN" : ""].")
+			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is blocked in dirs: [(bad & BLOCKED_UP) ? "UP" : ""][(bad & BLOCKED_DOWN) ? " DOWN" : ""].")
 
 	if (ladders_blocked || ladders_incomplete)
 		fail("\[[ladders_blocked + ladders_incomplete] / [ladders_total]\] ladders were bad.[ladders_blocked ? " [ladders_blocked] blocked." : ""][ladders_incomplete ? " [ladders_incomplete] incomplete." : ""]")
