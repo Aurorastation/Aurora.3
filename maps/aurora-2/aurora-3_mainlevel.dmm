@@ -15361,7 +15361,7 @@
 "aCB" = (
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
-	name = "Docking Area";
+	name = "Bridge";
 	req_access = list(19)
 	},
 /obj/machinery/door/firedoor,
@@ -19368,11 +19368,6 @@
 /area/bridge)
 "aIZ" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command{
-	id_tag = "";
-	name = "Docking Area";
-	req_access = list(19)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -19391,6 +19386,11 @@
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/machinery/door/airlock/glass_command{
+	id_tag = "";
+	name = "Bridge";
+	req_access = list(19)
 	},
 /turf/simulated/floor/tiled/white,
 /area/bridge)
@@ -23300,7 +23300,7 @@
 /obj/machinery/door/airlock/security{
 	id_tag = "detdoor";
 	name = "Detective";
-	req_access = list(4)
+	req_access = list(68)
 	},
 /turf/simulated/floor/wood,
 /area/security/detectives_office)
@@ -28130,7 +28130,7 @@
 "aXL" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Detective Maintenance";
-	req_access = list(4)
+	req_access = list(68)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -31657,11 +31657,6 @@
 /area/crew_quarters/captain)
 "bed" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command{
-	id_tag = "";
-	name = "Docking Area";
-	req_access = list(19)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -31670,13 +31665,18 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/glass_command{
+	id_tag = "";
+	name = "Bridge";
+	req_access = list(19)
+	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bee" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
-	name = "Docking Area";
+	name = "Bridge";
 	req_access = list(19)
 	},
 /turf/simulated/floor/tiled,
@@ -33177,11 +33177,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "bgK" = (
-/obj/machinery/door/airlock/glass_command{
-	id_tag = "";
-	name = "Docking Area";
-	req_access = list(19)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -33190,12 +33185,17 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/glass_command{
+	id_tag = "";
+	name = "Bridge";
+	req_access = list(19)
+	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bgL" = (
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
-	name = "Docking Area";
+	name = "Bridge";
 	req_access = list(19)
 	},
 /turf/simulated/floor/tiled,
@@ -39825,9 +39825,6 @@
 /obj/machinery/camera/network/civilian_west{
 	c_tag = "Central Corridor";
 	dir = 1
-	},
-/obj/machinery/computer/HolodeckControl/Exodus{
-	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
