@@ -22,7 +22,7 @@
 	icon_state = "ointment"
 	item_state = "firstaid-ointment"
 
-	fill()
+	New()
 		..()
 		if (empty) return
 
@@ -41,7 +41,7 @@
 /obj/item/weapon/storage/firstaid/regular
 	icon_state = "firstaid"
 
-	fill()
+	New()
 		..()
 		if (empty) return
 		new /obj/item/stack/medical/bruise_pack(src)
@@ -59,7 +59,7 @@
 	icon_state = "antitoxin"
 	item_state = "firstaid-toxin"
 
-	fill()
+	New()
 		..()
 		if (empty) return
 
@@ -80,7 +80,7 @@
 	icon_state = "o2"
 	item_state = "firstaid-o2"
 
-	fill()
+	New()
 		..()
 		if (empty) return
 		new /obj/item/weapon/reagent_containers/pill/dexalin( src )
@@ -98,7 +98,7 @@
 	icon_state = "advfirstaid"
 	item_state = "firstaid-advanced"
 
-/obj/item/weapon/storage/firstaid/adv/fill()
+/obj/item/weapon/storage/firstaid/adv/New()
 	..()
 	if (empty) return
 	new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
@@ -116,7 +116,7 @@
 	icon_state = "bezerk"
 	item_state = "firstaid-advanced"
 
-/obj/item/weapon/storage/firstaid/combat/fill()
+/obj/item/weapon/storage/firstaid/combat/New()
 	..()
 	if (empty) return
 	new /obj/item/weapon/storage/pill_bottle/bicaridine(src)
@@ -134,7 +134,7 @@
 	icon_state = "purplefirstaid"
 	item_state = "firstaid-advanced"
 
-/obj/item/weapon/storage/firstaid/surgery/fill()
+/obj/item/weapon/storage/firstaid/surgery/New()
 	..()
 	if (empty) return
 	new /obj/item/weapon/bonesetter(src)
@@ -155,7 +155,7 @@
 	desc = "A NanoTrasen care package for moderately injured miners."
 	icon_state = "brute"
 
-/obj/item/weapon/storage/firstaid/brute/fill()
+/obj/item/weapon/storage/firstaid/brute/New()
 		..()
 		if (empty) return
 		new /obj/item/stack/medical/bruise_pack(src)
@@ -186,7 +186,7 @@
 	name = "bottle of Dylovene pills"
 	desc = "Contains pills used to counter toxins."
 
-	fill()
+	New()
 		..()
 		new /obj/item/weapon/reagent_containers/pill/antitox( src )
 		new /obj/item/weapon/reagent_containers/pill/antitox( src )
@@ -200,7 +200,7 @@
 	name = "bottle of Bicaridine pills"
 	desc = "Contains pills used to stabilize the severely injured."
 
-/obj/item/weapon/storage/pill_bottle/bicaridine/fill()
+/obj/item/weapon/storage/pill_bottle/bicaridine/New()
     ..()
     new /obj/item/weapon/reagent_containers/pill/bicaridine(src)
     new /obj/item/weapon/reagent_containers/pill/bicaridine(src)
@@ -214,7 +214,7 @@
 	name = "bottle of Dexalin Plus pills"
 	desc = "Contains pills used to treat extreme cases of oxygen deprivation."
 
-/obj/item/weapon/storage/pill_bottle/dexalin_plus/fill()
+/obj/item/weapon/storage/pill_bottle/dexalin_plus/New()
     ..()
     new /obj/item/weapon/reagent_containers/pill/dexalin_plus(src)
     new /obj/item/weapon/reagent_containers/pill/dexalin_plus(src)
@@ -228,7 +228,7 @@
 	name = "bottle of Dermaline pills"
 	desc = "Contains pills used to treat burn wounds."
 
-/obj/item/weapon/storage/pill_bottle/dermaline/fill()
+/obj/item/weapon/storage/pill_bottle/dermaline/New()
     ..()
     new /obj/item/weapon/reagent_containers/pill/dermaline(src)
     new /obj/item/weapon/reagent_containers/pill/dermaline(src)
@@ -242,7 +242,7 @@
 	name = "bottle of Dylovene pills"
 	desc = "Contains pills used to treat toxic substances in the blood."
 
-/obj/item/weapon/storage/pill_bottle/dylovene/fill()
+/obj/item/weapon/storage/pill_bottle/dylovene/New()
     ..()
     new /obj/item/weapon/reagent_containers/pill/dylovene(src)
     new /obj/item/weapon/reagent_containers/pill/dylovene(src)
@@ -256,7 +256,7 @@
 	name = "bottle of Inaprovaline pills"
 	desc = "Contains pills used to stabilize patients."
 
-	fill()
+	New()
 		..()
 		new /obj/item/weapon/reagent_containers/pill/inaprovaline( src )
 		new /obj/item/weapon/reagent_containers/pill/inaprovaline( src )
@@ -270,7 +270,7 @@
 	name = "bottle of kelotane pills"
 	desc = "Contains pills used to treat burns."
 
-	fill()
+	New()
 		..()
 		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
 		new /obj/item/weapon/reagent_containers/pill/kelotane( src )
@@ -284,7 +284,7 @@
 	name = "bottle of Spaceacillin pills"
 	desc = "A theta-lactam antibiotic. Effective against many diseases likely to be encountered in space."
 
-/obj/item/weapon/storage/pill_bottle/spaceacillin/fill()
+/obj/item/weapon/storage/pill_bottle/spaceacillin/New()
     ..()
     new /obj/item/weapon/reagent_containers/pill/spaceacillin(src)
     new /obj/item/weapon/reagent_containers/pill/spaceacillin(src)
@@ -298,7 +298,7 @@
 	name = "bottle of Tramadol pills"
 	desc = "Contains pills used to relieve pain."
 
-	fill()
+	New()
 		..()
 		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
 		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
@@ -312,7 +312,7 @@
 	name = "bottle of Citalopram pills"
 	desc = "Contains pills used to stabilize a patient's mood."
 
-	fill()
+	New()
 		..()
 		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/citalopram( src )

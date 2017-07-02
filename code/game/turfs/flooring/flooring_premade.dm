@@ -229,7 +229,6 @@
 	name = "water"
 	icon_state = "water"
 	footstep_sound = "waterstep"
-	var/watertype = "water5"
 
 /turf/simulated/floor/beach/water/update_dirt()
 	return	// Water doesn't become dirty
@@ -237,11 +236,6 @@
 /turf/simulated/floor/beach/water/ocean
 	icon_state = "seadeep"
 
-/turf/simulated/floor/beach/water/pool
-	icon_state = "pool"
-	watertype = "poolwater"
-
 /turf/simulated/floor/beach/water/Initialize()
 	. = ..()
-	if(add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="[watertype]","layer"=MOB_LAYER+0.1)))
-		icon_state = "pool1"
+	add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1))

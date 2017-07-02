@@ -80,7 +80,7 @@
 /obj/item/weapon/storage/box/syndie_kit/imp_freedom
 	name = "boxed freedom implant (with injector)"
 
-/obj/item/weapon/storage/box/syndie_kit/imp_freedom/fill()
+/obj/item/weapon/storage/box/syndie_kit/imp_freedom/New()
 	..()
 	var/obj/item/weapon/implanter/O = new(src)
 	O.imp = new /obj/item/weapon/implant/freedom(O)
@@ -90,14 +90,15 @@
 /obj/item/weapon/storage/box/syndie_kit/imp_compress
 	name = "box (C)"
 
-/obj/item/weapon/storage/box/syndie_kit/imp_compress/fill()
+/obj/item/weapon/storage/box/syndie_kit/imp_compress/New()
 	new /obj/item/weapon/implanter/compressed(src)
 	..()
+	return
 
 /obj/item/weapon/storage/box/syndie_kit/imp_explosive
 	name = "box (E)"
 
-/obj/item/weapon/storage/box/syndie_kit/imp_explosive/fill()
+/obj/item/weapon/storage/box/syndie_kit/imp_explosive/New()
 	new /obj/item/weapon/implanter/explosive(src)
 	..()
 	return
@@ -105,7 +106,7 @@
 /obj/item/weapon/storage/box/syndie_kit/imp_uplink
 	name = "boxed uplink implant (with injector)"
 
-/obj/item/weapon/storage/box/syndie_kit/imp_uplink/fill()
+/obj/item/weapon/storage/box/syndie_kit/imp_uplink/New()
 	..()
 	var/obj/item/weapon/implanter/O = new(src)
 	O.imp = new /obj/item/weapon/implant/uplink(O)
@@ -115,19 +116,19 @@
 /obj/item/weapon/storage/box/syndie_kit/space
 	name = "boxed space suit and helmet"
 
-/obj/item/weapon/storage/box/syndie_kit/space/fill()
+/obj/item/weapon/storage/box/syndie_kit/space/New()
 	..()
 	new /obj/item/clothing/suit/space/syndicate(src)
 	new /obj/item/clothing/head/helmet/space/syndicate(src)
 	new /obj/item/clothing/mask/gas/syndicate(src)
 	new /obj/item/weapon/tank/emergency_oxygen/double(src)
-
+	return
 
 /obj/item/weapon/storage/box/syndie_kit/chameleon
 	name = "chameleon kit"
 	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
 
-/obj/item/weapon/storage/box/syndie_kit/chameleon/fill()
+/obj/item/weapon/storage/box/syndie_kit/chameleon/New()
 	..()
 	new /obj/item/clothing/under/chameleon(src)
 	new /obj/item/clothing/head/chameleon(src)
@@ -143,7 +144,7 @@
 	name = "clerical kit"
 	desc = "Comes with all you need to fake paperwork. Assumes you have passed basic writing lessons."
 
-/obj/item/weapon/storage/box/syndie_kit/clerical/fill()
+/obj/item/weapon/storage/box/syndie_kit/clerical/New()
 	..()
 	new /obj/item/weapon/stamp/chameleon(src)
 	new /obj/item/weapon/pen/chameleon(src)
@@ -155,7 +156,7 @@
 	name = "spy kit"
 	desc = "For when you want to conduct voyeurism from afar."
 
-/obj/item/weapon/storage/box/syndie_kit/spy/fill()
+/obj/item/weapon/storage/box/syndie_kit/spy/New()
 	..()
 	new /obj/item/device/spy_bug(src)
 	new /obj/item/device/spy_bug(src)
@@ -169,7 +170,7 @@
 	name = "\improper Smooth operator"
 	desc = "9mm with silencer kit."
 
-/obj/item/weapon/storage/box/syndie_kit/g9mm/fill()
+/obj/item/weapon/storage/box/syndie_kit/g9mm/New()
 	..()
 	new /obj/item/weapon/gun/projectile/pistol(src)
 	new /obj/item/weapon/silencer(src)
@@ -178,7 +179,7 @@
 	name = "toxin kit"
 	desc = "An apple will not be enough to keep the doctor away after this."
 
-/obj/item/weapon/storage/box/syndie_kit/toxin/fill()
+/obj/item/weapon/storage/box/syndie_kit/toxin/New()
 	..()
 	new /obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin(src)
 	new /obj/item/weapon/reagent_containers/syringe(src)
@@ -187,7 +188,7 @@
 	name = "\improper Tricky smokes"
 	desc = "Comes with the following brands of cigarettes, in this order: 2xFlash, 2xSmoke, 1xMindBreaker, 1xTricordrazine. Avoid mixing them up."
 
-/obj/item/weapon/storage/box/syndie_kit/cigarette/fill()
+/obj/item/weapon/storage/box/syndie_kit/cigarette/New()
 	..()
 	var/obj/item/weapon/storage/fancy/cigarettes/pack
 	pack = new /obj/item/weapon/storage/fancy/cigarettes(src)
@@ -228,7 +229,7 @@
 	name = "Electrowarfare and Voice Synthesiser kit"
 	desc = "Kit for confounding organic and synthetic entities alike."
 
-/obj/item/weapon/storage/box/syndie_kit/ewar_voice/fill()
+/obj/item/weapon/storage/box/syndie_kit/ewar_voice/New()
 	..()
 	new /obj/item/rig_module/electrowarfare_suite(src)
 	new /obj/item/rig_module/voice(src)
@@ -239,7 +240,9 @@
 	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
 
 
-/obj/item/weapon/storage/secure/briefcase/money/fill()
+
+
+/obj/item/weapon/storage/secure/briefcase/money/New()
 	..()
 	new /obj/item/weapon/spacecash/c1000(src)
 	new /obj/item/weapon/spacecash/c1000(src)
@@ -251,3 +254,5 @@
 	new /obj/item/weapon/spacecash/c1000(src)
 	new /obj/item/weapon/spacecash/c1000(src)
 	new /obj/item/weapon/spacecash/c1000(src)
+
+

@@ -153,7 +153,11 @@
 		unload(0)
 	if(prob(25))
 		src.visible_message("<span class='warning'>Something shorts out inside [src]!</span>")
-		wires.RandomCut()
+		var/index = 1<< (rand(0,9))
+		if(wires & index)
+			wires &= ~index
+		else
+			wires |= index
 	..()
 
 

@@ -46,7 +46,7 @@ var/list/gamemode_cache = list()
 	var/continous_rounds = 0			// Gamemodes which end instantly will instead keep on going until the round ends by escape shuttle or nuke.
 	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
-	var/Ticklag = 0.4
+	var/Ticklag = 0.9
 	var/Tickcomp = 0
 	var/list/resource_urls = null
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
@@ -285,6 +285,11 @@ var/list/gamemode_cache = list()
 				if (M.votable)
 					src.votable_modes += M.config_tag
 	src.votable_modes += "secret"
+
+#ifdef UNIT_TEST
+	fastboot = TRUE
+	world.log << "UNIT_TEST present. Forcing fastboot on."
+#endif 
 
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 	var/list/Lines = file2list(filename)
@@ -822,7 +827,6 @@ var/list/gamemode_cache = list()
 
 				if("fastboot")
 					fastboot = TRUE
-					world.log << "Fastboot is ENABLED."
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

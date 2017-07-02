@@ -10,7 +10,7 @@
 		handle_nutrition()
 
 		if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
-			sight = initial(sight)
+			sight = SEE_SELF
 
 		if (!client)
 			handle_targets()

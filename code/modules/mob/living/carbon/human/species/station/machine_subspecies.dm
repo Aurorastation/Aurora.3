@@ -201,7 +201,7 @@
 	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON
 	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR
-	vision_flags = DEFAULT_SIGHT | SEE_MOBS
+	vision_flags = SEE_SELF | SEE_MOBS
 
 	blood_color = "#1F181F"
 	flesh_color = "#575757"

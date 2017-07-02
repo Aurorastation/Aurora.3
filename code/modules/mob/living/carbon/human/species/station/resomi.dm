@@ -110,6 +110,6 @@
 
 /datum/species/resomi/get_vision_flags(var/mob/living/carbon/human/H)
 	if(!(H.sdisabilities & DEAF) && !H.ear_deaf)
-		return DEFAULT_SIGHT|SEE_MOBS
+		return SEE_SELF|SEE_MOBS
 	else
-		return DEFAULT_SIGHT
+		return SEE_SELF

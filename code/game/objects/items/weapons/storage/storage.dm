@@ -9,9 +9,9 @@
 	name = "storage"
 	icon = 'icons/obj/storage.dmi'
 	w_class = 3
-	var/list/can_hold = list() //List of objects which this item can store (if set, it can't store anything else)
-	var/list/cant_hold = list() //List of objects which this item can't store (in effect only if can_hold isn't set)
-	var/list/is_seeing //List of mobs which are currently seeing the contents of this item's storage
+	var/list/can_hold = new/list() //List of objects which this item can store (if set, it can't store anything else)
+	var/list/cant_hold = new/list() //List of objects which this item can't store (in effect only if can_hold isn't set)
+	var/list/is_seeing = new/list() //List of mobs which are currently seeing the contents of this item's storage
 	var/max_w_class = 3 //Max size of objects that this object can store (in effect only if can_hold isn't set)
 	var/max_storage_space = 8 //The sum of the storage costs of all the items in this storage item.
 	var/storage_slots = null //The number of storage slots in this container.
@@ -32,14 +32,20 @@
 
 /obj/item/weapon/storage/Destroy()
 	close_all()
-	QDEL_NULL(boxes)
-	QDEL_NULL(storage_start)
-	QDEL_NULL(storage_continue)
-	QDEL_NULL(storage_end)
-	QDEL_NULL(stored_start)
-	QDEL_NULL(stored_continue)
-	QDEL_NULL(stored_end)
-	QDEL_NULL(closer)
+	qdel(boxes)
+	qdel(src.storage_start)
+	qdel(src.storage_continue)
+	qdel(src.storage_end)
+	qdel(src.stored_start)
+	qdel(src.stored_continue)
+	qdel(src.stored_end)
+	qdel(closer)
+	while (contents.len)
+		var/thing = contents[contents.len]
+		contents.len--
+
+		qdel(thing)
+
 	return ..()
 
 /obj/item/weapon/storage/MouseDrop(obj/over_object as obj)
@@ -101,41 +107,40 @@
 				return
 	if(user.s_active)
 		user.s_active.hide_from(user)
-	user.client.screen -= boxes
-	user.client.screen -= storage_start
-	user.client.screen -= storage_continue
-	user.client.screen -= storage_end
-	user.client.screen -= closer
-	user.client.screen -= contents
-	user.client.screen += closer
-	user.client.screen += contents
+	user.client.screen -= src.boxes
+	user.client.screen -= src.storage_start
+	user.client.screen -= src.storage_continue
+	user.client.screen -= src.storage_end
+	user.client.screen -= src.closer
+	user.client.screen -= src.contents
+	user.client.screen += src.closer
+	user.client.screen += src.contents
 	if(storage_slots)
-		user.client.screen += boxes
+		user.client.screen += src.boxes
 	else
-		user.client.screen += storage_start
-		user.client.screen += storage_continue
-		user.client.screen += storage_end
+		user.client.screen += src.storage_start
+		user.client.screen += src.storage_continue
+		user.client.screen += src.storage_end
 	user.s_active = src
-	LAZYADD(is_seeing, user)
+	is_seeing |= user
 	return
 
 /obj/item/weapon/storage/proc/hide_from(mob/user as mob)
 
 	if(!user.client)
 		return
-	user.client.screen -= boxes
-	user.client.screen -= storage_start
-	user.client.screen -= storage_continue
-	user.client.screen -= storage_end
-	user.client.screen -= closer
-	user.client.screen -= contents
+	user.client.screen -= src.boxes
+	user.client.screen -= src.storage_start
+	user.client.screen -= src.storage_continue
+	user.client.screen -= src.storage_end
+	user.client.screen -= src.closer
+	user.client.screen -= src.contents
 	if(user.s_active == src)
 		user.s_active = null
-
-	LAZYREMOVE(is_seeing, user)
+	is_seeing -= user
 
 /obj/item/weapon/storage/proc/open(mob/user as mob)
-	if (use_sound)
+	if (src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 1, -5)
 
 	orient2hud(user)
@@ -144,7 +149,7 @@
 	show_to(user)
 
 /obj/item/weapon/storage/proc/close(mob/user as mob)
-	hide_from(user)
+	src.hide_from(user)
 	user.s_active = null
 	return
 
@@ -159,7 +164,7 @@
 		if(M.s_active == src && M.client)
 			cansee |= M
 		else
-			LAZYREMOVE(is_seeing, M)
+			is_seeing -= M
 	return cansee
 
 //This proc draws out the inventory and places the items on it. tx and ty are the upper left tile and mx, my are the bottm right.
@@ -202,7 +207,7 @@
 			if (cx > (4+cols))
 				cx = 4
 				cy--
-	closer.screen_loc = "[4+cols+1]:16,2:16"
+	src.closer.screen_loc = "[4+cols+1]:16,2:16"
 	return
 
 /obj/item/weapon/storage/proc/space_orient_objs(var/list/obj/item/display_contents)
@@ -216,11 +221,11 @@
 
 	var/matrix/M = matrix()
 	M.Scale((storage_width-storage_cap_width*2+3)/32,1)
-	storage_continue.transform = M
+	src.storage_continue.transform = M
 
-	storage_start.screen_loc = "4:16,2:16"
-	storage_continue.screen_loc = "4:[storage_cap_width+(storage_width-storage_cap_width*2)/2+2],2:16"
-	storage_end.screen_loc = "4:[19+storage_width-storage_cap_width],2:16"
+	src.storage_start.screen_loc = "4:16,2:16"
+	src.storage_continue.screen_loc = "4:[storage_cap_width+(storage_width-storage_cap_width*2)/2+2],2:16"
+	src.storage_end.screen_loc = "4:[19+storage_width-storage_cap_width],2:16"
 
 	var/startpoint = 0
 	var/endpoint = 1
@@ -236,18 +241,18 @@
 		M_continue.Scale((endpoint-startpoint-stored_cap_width*2)/32,1)
 		M_continue.Translate(startpoint+stored_cap_width+(endpoint-startpoint-stored_cap_width*2)/2 - 16,0)
 		M_end.Translate(endpoint-stored_cap_width,0)
-		stored_start.transform = M_start
-		stored_continue.transform = M_continue
-		stored_end.transform = M_end
-		storage_start.overlays += stored_start
-		storage_start.overlays += stored_continue
-		storage_start.overlays += stored_end
+		src.stored_start.transform = M_start
+		src.stored_continue.transform = M_continue
+		src.stored_end.transform = M_end
+		storage_start.overlays += src.stored_start
+		storage_start.overlays += src.stored_continue
+		storage_start.overlays += src.stored_end
 
 		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""
 		O.layer = 20
 
-	closer.screen_loc = "4:[storage_width+19],2:16"
+	src.closer.screen_loc = "4:[storage_width+19],2:16"
 	return
 
 /datum/numbered_display
@@ -509,74 +514,67 @@
 
 		CHECK_TICK
 
-/obj/item/weapon/storage/LateInitialize()
+/obj/item/weapon/storage/proc/post_init()
 	var/total_storage_space = 0
 	for(var/obj/item/I in contents)
 		total_storage_space += I.get_storage_cost()
 	max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
 
-// Override this to fill the storage object with stuff.
-/obj/item/weapon/storage/proc/fill()
-	return
-
-/obj/item/weapon/storage/Initialize()
+/obj/item/weapon/storage/New()
 	..()
-
-	fill()
-
-	if(!allow_quick_empty)
+	if(allow_quick_empty)
+		verbs += /obj/item/weapon/storage/verb/quick_empty
+	else
 		verbs -= /obj/item/weapon/storage/verb/quick_empty
 
-	if(!allow_quick_gather)
+	if(allow_quick_gather)
+		verbs += /obj/item/weapon/storage/verb/toggle_gathering_mode
+	else
 		verbs -= /obj/item/weapon/storage/verb/toggle_gathering_mode
 
-	boxes = new /obj/screen/storage
-	boxes.name = "storage"
-	boxes.master = src
-	boxes.icon_state = "block"
-	boxes.screen_loc = "7,7 to 10,8"
-	boxes.layer = 19
+	addtimer(CALLBACK(src, .proc/post_init), 5)
 
-	storage_start = new /obj/screen/storage
-	storage_start.name = "storage"
-	storage_start.master = src
-	storage_start.icon_state = "storage_start"
-	storage_start.screen_loc = "7,7 to 10,8"
-	storage_start.layer = 19
+	src.boxes = new /obj/screen/storage
+	src.boxes.name = "storage"
+	src.boxes.master = src
+	src.boxes.icon_state = "block"
+	src.boxes.screen_loc = "7,7 to 10,8"
+	src.boxes.layer = 19
 
-	storage_continue = new /obj/screen/storage
-	storage_continue.name = "storage"
-	storage_continue.master = src
-	storage_continue.icon_state = "storage_continue"
-	storage_continue.screen_loc = "7,7 to 10,8"
-	storage_continue.layer = 19
+	src.storage_start = new /obj/screen/storage
+	src.storage_start.name = "storage"
+	src.storage_start.master = src
+	src.storage_start.icon_state = "storage_start"
+	src.storage_start.screen_loc = "7,7 to 10,8"
+	src.storage_start.layer = 19
+	src.storage_continue = new /obj/screen/storage
+	src.storage_continue.name = "storage"
+	src.storage_continue.master = src
+	src.storage_continue.icon_state = "storage_continue"
+	src.storage_continue.screen_loc = "7,7 to 10,8"
+	src.storage_continue.layer = 19
+	src.storage_end = new /obj/screen/storage
+	src.storage_end.name = "storage"
+	src.storage_end.master = src
+	src.storage_end.icon_state = "storage_end"
+	src.storage_end.screen_loc = "7,7 to 10,8"
+	src.storage_end.layer = 19
 
-	storage_end = new /obj/screen/storage
-	storage_end.name = "storage"
-	storage_end.master = src
-	storage_end.icon_state = "storage_end"
-	storage_end.screen_loc = "7,7 to 10,8"
-	storage_end.layer = 19
+	src.stored_start = new /obj //we just need these to hold the icon
+	src.stored_start.icon_state = "stored_start"
+	src.stored_start.layer = 19
+	src.stored_continue = new /obj
+	src.stored_continue.icon_state = "stored_continue"
+	src.stored_continue.layer = 19
+	src.stored_end = new /obj
+	src.stored_end.icon_state = "stored_end"
+	src.stored_end.layer = 19
 
-	stored_start = new /obj //we just need these to hold the icon
-	stored_start.icon_state = "stored_start"
-	stored_start.layer = 19
-
-	stored_continue = new /obj
-	stored_continue.icon_state = "stored_continue"
-	stored_continue.layer = 19
-
-	stored_end = new /obj
-	stored_end.icon_state = "stored_end"
-	stored_end.layer = 19
-
-	closer = new /obj/screen/close
-	closer.master = src
-	closer.icon_state = "x"
-	closer.layer = 20
+	src.closer = new /obj/screen/close
+	src.closer.master = src
+	src.closer.icon_state = "x"
+	src.closer.layer = 20
 	orient2hud()
-
-	return INITIALIZE_HINT_LATELOAD
 
 /obj/item/weapon/storage/emp_act(severity)
 	if(!istype(src.loc, /mob/living))

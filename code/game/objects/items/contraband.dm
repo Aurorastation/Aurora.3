@@ -5,7 +5,7 @@
 	name = "bottle of Happy pills"
 	desc = "Highly illegal drug. When you want to see the rainbow."
 
-/obj/item/weapon/storage/pill_bottle/happy/fill()
+/obj/item/weapon/storage/pill_bottle/happy/New()
 	..()
 	new /obj/item/weapon/reagent_containers/pill/happy( src )
 	new /obj/item/weapon/reagent_containers/pill/happy( src )
@@ -19,7 +19,7 @@
 	name = "bottle of Zoom pills"
 	desc = "Highly illegal drug. Trade brain for speed."
 
-/obj/item/weapon/storage/pill_bottle/zoom/fill()
+/obj/item/weapon/storage/pill_bottle/zoom/New()
 	..()
 	new /obj/item/weapon/reagent_containers/pill/zoom( src )
 	new /obj/item/weapon/reagent_containers/pill/zoom( src )
