@@ -128,7 +128,7 @@
 		for(var/i = 1, i < uz, i++)
 			lift.floors += null // This silly hack allows lifts to not start on the first zlevel
 
-	for(var/cz = uz to ez)
+	for(var/cz = uz;cz<=ez;cz++)
 
 		var/datum/turbolift_floor/cfloor = new()
 		lift.floors += cfloor

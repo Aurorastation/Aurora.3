@@ -12,16 +12,14 @@
 	var/configuring = 0
 	//var/target_pressure = ONE_ATMOSPHERE	//a base type as abstract as this should NOT be making these kinds of assumptions
 
-	var/base_icon
-
 	var/tag_north = ATM_NONE
 	var/tag_south = ATM_NONE
 	var/tag_east = ATM_NONE
 	var/tag_west = ATM_NONE
 
-	var/list/on_states = list()
-	var/list/off_states = list()
-
+	var/overlays_on[5]
+	var/overlays_off[5]
+	var/overlays_error[2]
 	var/underlays_current[4]
 
 	var/list/ports = new()
@@ -46,22 +44,19 @@
 			initialize_directions |= d
 		ports += new_port
 
-/obj/machinery/atmospherics/omni/update_icon()
-	cut_overlays()
-	var/list/to_add = list(base_icon)
-	if(stat & NOPOWER)
-		to_add += off_states
-	else if(error_check())
-		to_add += "error"
-	else if (use_power)
-		to_add[1] = "[base_icon]_glow"
-		to_add += on_states
-	else
-		to_add += off_states
+	build_icons()
 
-	add_overlay(to_add)
+/obj/machinery/atmospherics/omni/update_icon()
+	if(stat & NOPOWER)
+		overlays = overlays_off
+	else if(error_check())
+		overlays = overlays_error
+	else
+		overlays = use_power ? (overlays_on) : (overlays_off)
 
 	underlays = underlays_current
+
+	return
 
 /obj/machinery/atmospherics/omni/proc/error_check()
 	return
@@ -113,12 +108,29 @@
 	ui_interact(user)
 	return
 
+/obj/machinery/atmospherics/omni/proc/build_icons()
+	if(!check_icon_cache())
+		return
+
+	var/core_icon = null
+	if(istype(src, /obj/machinery/atmospherics/omni/mixer))
+		core_icon = "mixer"
+	else if(istype(src, /obj/machinery/atmospherics/omni/filter))
+		core_icon = "filter"
+	else
+		return
+
+	//directional icons are layers 1-4, with the core icon on layer 5
+	if(core_icon)
+		overlays_off[5] = icon_manager.get_atmos_icon("omni", , , core_icon)
+		overlays_on[5] = icon_manager.get_atmos_icon("omni", , , core_icon + "_glow")
+
+		overlays_error[1] = icon_manager.get_atmos_icon("omni", , , core_icon)
+		overlays_error[2] = icon_manager.get_atmos_icon("omni", , , "error")
+
 /obj/machinery/atmospherics/omni/proc/update_port_icons()
 	if(!check_icon_cache())
 		return
-	
-	on_states.Cut()
-	off_states.Cut()
 
 	for(var/datum/omni_port/P in ports)
 		if(P.update)
@@ -136,19 +148,22 @@
 			if(!ref_layer)
 				continue
 
-			var/list/underlay_icon = select_port_icons(P)
-			if(underlay_icon)
+			var/list/port_icons = select_port_icons(P)
+			if(port_icons)
 				if(P.node)
-					underlays_current[ref_layer] = underlay_icon
+					underlays_current[ref_layer] = port_icons["pipe_icon"]
 				else
 					underlays_current[ref_layer] = null
+				overlays_off[ref_layer] = port_icons["off_icon"]
+				overlays_on[ref_layer] = port_icons["on_icon"]
 			else
 				underlays_current[ref_layer] = null
+				overlays_off[ref_layer] = null
+				overlays_on[ref_layer] = null
 
 	update_icon()
 
-// Assumes on_states and off_states have been cut if required.
-/obj/machinery/atmospherics/omni/proc/select_port_icons(datum/omni_port/P)
+/obj/machinery/atmospherics/omni/proc/select_port_icons(var/datum/omni_port/P)
 	if(!istype(P))
 		return
 
@@ -167,16 +182,21 @@
 				ic_on += "_filter"
 				ic_off += "_out"
 
-		on_states += ic_on
-		off_states += ic_off
+		ic_on = icon_manager.get_atmos_icon("omni", , , ic_on)
+		ic_off = icon_manager.get_atmos_icon("omni", , , ic_off)
 
+		var/pipe_state
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
 		if(!T.is_plating() && istype(P.node, /obj/machinery/atmospherics/pipe) && P.node.level == 1 )
-			. = icon_manager.get_atmos_icon("underlay", P.dir, color_cache_name(P.node), "down")
+			//pipe_state = icon_manager.get_atmos_icon("underlay_down", P.dir, color_cache_name(P.node))
+			pipe_state = icon_manager.get_atmos_icon("underlay", P.dir, color_cache_name(P.node), "down")
 		else
-			. = icon_manager.get_atmos_icon("underlay", P.dir, color_cache_name(P.node), "intact")
+			//pipe_state = icon_manager.get_atmos_icon("underlay_intact", P.dir, color_cache_name(P.node))
+			pipe_state = icon_manager.get_atmos_icon("underlay", P.dir, color_cache_name(P.node), "intact")
+
+		return list("on_icon" = ic_on, "off_icon" = ic_off, "pipe_icon" = pipe_state)
 
 /obj/machinery/atmospherics/omni/update_underlays()
 	for(var/datum/omni_port/P in ports)

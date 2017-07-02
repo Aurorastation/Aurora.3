@@ -199,7 +199,7 @@
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
 
-/obj/item/weapon/storage/backpack/chameleon/fill()
+/obj/item/weapon/storage/backpack/chameleon/New()
 	..()
 	if(!clothing_choices)
 		var/blocked = list(src.type, /obj/item/weapon/storage/backpack/satchel/withwallet)
