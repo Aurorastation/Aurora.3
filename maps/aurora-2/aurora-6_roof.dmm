@@ -108,9 +108,6 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "au" = (
@@ -118,7 +115,14 @@
 	icon_state = "ladder01";
 	pixel_y = 16
 	},
-/turf/simulated/open,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "av" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -152,10 +156,6 @@
 /area/tcommsat/lounge)
 "aA" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "aB" = (
@@ -1343,18 +1343,24 @@
 	},
 /area/security/checkpoint2)
 "cN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /obj/structure/ladder{
 	icon_state = "ladder01";
 	pixel_y = 16
 	},
-/turf/simulated/open,
+/turf/simulated/floor/tiled{
+	icon_state = "vault";
+	dir = 5
+	},
 /area/security/checkpoint2)
 "cO" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 5
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
 	dir = 5
@@ -1403,10 +1409,6 @@
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
 	dir = 5
@@ -1633,7 +1635,19 @@
 	icon_state = "ladder01";
 	pixel_y = 16
 	},
-/turf/simulated/open,
+/obj/effect/floor_decal/industrial/warning/dust{
+	tag = "icon-warning_dust (NORTHEAST)";
+	icon_state = "warning_dust";
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	tag = "icon-warning_dust (SOUTHWEST)";
+	icon_state = "warning_dust";
+	dir = 10
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
 /area/mine/explored)
 "dq" = (
 /obj/structure/boulder{
@@ -2148,7 +2162,7 @@
 	icon_state = "ladder01";
 	pixel_y = 16
 	},
-/turf/simulated/open,
+/turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "eu" = (
 /obj/structure/cable{
@@ -2612,49 +2626,6 @@
 	},
 /turf/simulated/open,
 /area/mine/explored)
-"ff" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/lounge)
-"fg" = (
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/lounge)
-"fh" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/lounge)
-"fi" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 5
-	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
-/area/security/checkpoint2)
-"fj" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
-/area/security/checkpoint2)
 
 (1,1,1) = {"
 aa
@@ -13798,7 +13769,7 @@ ah
 ah
 ap
 at
-fg
+az
 az
 az
 aT
@@ -14055,7 +14026,7 @@ ah
 ah
 ap
 au
-fh
+as
 as
 as
 aU
@@ -14311,7 +14282,7 @@ ah
 ah
 ah
 ap
-ff
+as
 aA
 aG
 aG
@@ -29232,8 +29203,8 @@ ah
 ah
 ah
 cE
-fi
-fj
+cM
+cS
 cS
 cS
 de
@@ -29490,7 +29461,7 @@ ah
 ah
 cC
 cN
-cM
+cS
 cS
 cS
 de
