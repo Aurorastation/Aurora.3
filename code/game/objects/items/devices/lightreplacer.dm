@@ -88,14 +88,14 @@
 		if(uses >= max_uses)
 			user << "<span class='warning'>[src.name] is full.</span>"
 			return
-		else if(G.use(5))
+		else if(G.use(1))
 			AddUses(2)
 			if (prob(50))
 				AddUses(1)
-			user << "<span class='notice'>You insert five pieces of glass into the [src.name]. You have [uses] lights remaining.</span>"
+			user << "<span class='notice'>You insert a piece of glass into the [src.name]. You have [uses] lights remaining.</span>"
 			return
 		else
-			user << "<span class='warning'>You need 5 sheets of glass to replace lights.</span>"
+			user << "<span class='warning'>You need at least one sheet of glass to replace lights.</span>"
 
 	if(istype(W, /obj/item/weapon/light))
 		var/obj/item/weapon/light/L = W
