@@ -90,8 +90,6 @@ datum/unit_test/wire_test/start_test()
 	var/list/dirs_checked = list()
 
 	for(C in world)
-		T = null
-
 		T = get_turf(C)
 		if(T && T.z in config.station_levels)
 			cable_turfs |= get_turf(C)
@@ -113,7 +111,35 @@ datum/unit_test/wire_test/start_test()
 		pass("All \[[wire_test_count]\] wires had no overlapping cables going the same direction.")
 
 	return 1
-				
+
+
+/datum/unit_test/roof_test
+	name = "MAP: Roof Test (Station)"
+
+/datum/unit_test/roof_test/start_test()
+	var/bad_tiles = 0
+	var/tiles_total = 0
+	var/turf/above
+	var/area/A
+	var/thing
+	for (thing in the_station_areas)
+		A = thing
+
+		for (var/turf/T in A)	// Areas don't just contain turfs, so typed loop it is.
+			T = thing
+			tiles_total++
+			above = GetAbove(T)
+
+			if (above && above.is_hole)
+				bad_tiles++
+				log_unit_test("[ascii_red]--------------- [T.name] \[[T.x] / [T.y] / [T.z]\] Has no roof.")
+
+	if (bad_tiles)
+		fail("\[[bad_tiles] / [tiles_total]\] station turfs had no roof.")
+	else
+		pass("All \[[tiles_total]\] station turfs had a roof.")
+
+	return 1
 
 #undef SUCCESS
 #undef FAILURE

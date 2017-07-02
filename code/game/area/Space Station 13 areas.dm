@@ -129,10 +129,11 @@ area/space/atmosalert()
 	requires_power = 0
 	sound_env = SMALL_ENCLOSED
 	no_light_control = 1
+	flags = SPAWN_ROOF
 
 /area/shuttle/arrival
 	name = "\improper Arrival Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/arrival/centcom
 	icon_state = "shuttle2"
@@ -164,7 +165,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape
 	name = "\improper Emergency Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape/station
 	name = "\improper Emergency Shuttle Station"
@@ -185,7 +186,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod1
 	name = "\improper Escape Pod One"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod1/station
 	icon_state = "shuttle2"
@@ -203,7 +204,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod2
 	name = "\improper Escape Pod Two"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod2/station
 	icon_state = "shuttle2"
@@ -221,7 +222,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod3
 	name = "\improper Escape Pod Three"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod3/station
 	icon_state = "shuttle2"
@@ -239,7 +240,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod5 //Pod 4 was lost to meteors
 	name = "\improper Escape Pod Five"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod5/station
 	icon_state = "shuttle2"
@@ -280,7 +281,7 @@ area/space/atmosalert()
 
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 	base_turf = /turf/unsimulated/floor
 	icon_state = "shuttlered"
 	centcomm_area = 1
@@ -292,7 +293,7 @@ area/space/atmosalert()
 
 /area/shuttle/syndicate_elite
 	name = "\improper Merc Elite Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/syndicate_elite/mothership
 	icon_state = "shuttlered"
@@ -304,7 +305,7 @@ area/space/atmosalert()
 	station_area = 1
 
 /area/shuttle/administration
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/administration/centcom
 	name = "\improper Administration Shuttle Centcom"
@@ -328,12 +329,6 @@ area/space/atmosalert()
 /area/shuttle/research/outpost
 	icon_state = "shuttle"
 	station_area = 1
-
-/area/airtunnel1/      // referenced in airtunnel.dm:759
-
-/area/dummy/           // Referenced in engine.dm:261
-
-// === end remove
 
 // CENTCOM
 
@@ -477,7 +472,7 @@ area/space/atmosalert()
 	name = "\improper Independent Station"
 	icon_state = "yellow"
 	requires_power = 0
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 	no_light_control = 1
 
 /area/syndicate_station/start
@@ -533,6 +528,7 @@ area/space/atmosalert()
 	requires_power = 0
 	no_light_control = 1
 	base_turf = /turf/space
+	flags = SPAWN_ROOF
 
 /area/skipjack_station/start
 	name = "\improper Skipjack"
@@ -2129,10 +2125,10 @@ area/space/atmosalert()
 */
 
 // CENTCOM
-var/list/centcom_areas = list ()
+var/list/centcom_areas = list()
 
 //SPACE STATION 13
-var/list/the_station_areas = list ()
+var/list/the_station_areas = list()
 
 /area/beach
 	name = "Keelin's private beach"
