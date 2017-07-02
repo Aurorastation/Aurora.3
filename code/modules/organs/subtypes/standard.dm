@@ -168,3 +168,13 @@
 				disfigure("brute")
 		if (burn_dam > 40)
 			disfigure("burn")
+
+/obj/item/organ/external/jaw/dislocate()
+	. = ..()
+	if(owner)
+		owner.brokejaw = 1
+
+/obj/item/organ/external/jaw/undislocate()
+	. = ..()
+	if(owner)
+		owner.brokejaw = 0

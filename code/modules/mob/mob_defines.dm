@@ -68,6 +68,7 @@
 	var/ear_damage = null	//Carbon
 	var/stuttering = null	//Carbon
 	var/slurring = null		//Carbon
+	var/brokejaw = null	    //Carbon
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""
