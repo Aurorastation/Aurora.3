@@ -62,8 +62,8 @@
 	desc = "A catwalk for easier EVA maneuvering."
 	icon = 'icons/obj/smooth/catwalk.dmi'
 	icon_state = "catwalk"
-	smooth = SMOOTH_TRUE
-	canSmoothWith = null
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(/obj/structure/lattice/catwalk)
 
 // Special catwalk that can be placed on regular flooring.
 /obj/structure/lattice/catwalk/indoor
