@@ -121,29 +121,28 @@
 	off_states.Cut()
 
 	for(var/datum/omni_port/P in ports)
-		if(P.update)
-			var/ref_layer = 0
-			switch(P.dir)
-				if(NORTH)
-					ref_layer = 1
-				if(SOUTH)
-					ref_layer = 2
-				if(EAST)
-					ref_layer = 3
-				if(WEST)
-					ref_layer = 4
+		var/ref_layer = 0
+		switch(P.dir)
+			if(NORTH)
+				ref_layer = 1
+			if(SOUTH)
+				ref_layer = 2
+			if(EAST)
+				ref_layer = 3
+			if(WEST)
+				ref_layer = 4
 
-			if(!ref_layer)
-				continue
+		if(!ref_layer)
+			continue
 
-			var/list/underlay_icon = select_port_icons(P)
-			if(underlay_icon)
-				if(P.node)
-					underlays_current[ref_layer] = underlay_icon
-				else
-					underlays_current[ref_layer] = null
+		var/list/underlay_icon = select_port_icons(P)
+		if(underlay_icon)
+			if(P.node)
+				underlays_current[ref_layer] = underlay_icon
 			else
 				underlays_current[ref_layer] = null
+		else
+			underlays_current[ref_layer] = null
 
 	update_icon()
 

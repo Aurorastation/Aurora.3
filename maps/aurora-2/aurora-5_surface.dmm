@@ -2035,7 +2035,9 @@
 "dS" = (
 /obj/machinery/porta_turret/stationary,
 /obj/effect/decal/warning_stripes,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "dT" = (
 /turf/simulated/wall/r_wall,
@@ -2230,7 +2232,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "em" = (
 /turf/simulated/floor/bluegrid{
@@ -2516,7 +2520,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "eM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
@@ -2767,7 +2773,9 @@
 	dir = 9;
 	pixel_y = 0
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "fk" = (
 /obj/machinery/telecomms/server/presets/supply,
@@ -2810,7 +2818,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "fr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3214,7 +3224,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "gd" = (
 /obj/structure/cable/blue{
@@ -3236,7 +3248,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "gf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3758,7 +3772,9 @@
 	icon_state = "map-scrubbers";
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "gU" = (
 /obj/structure/sign/nosmoking_2{
@@ -3840,7 +3856,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "he" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -4181,7 +4199,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "hK" = (
 /obj/machinery/telecomms/bus/preset_one,
@@ -4210,7 +4230,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "hQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4529,7 +4551,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "iw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5094,7 +5118,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
 /area/turret_protected/tcomsat)
 "jn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -15245,7 +15271,7 @@
 "Ch" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/station_map{
-	dir = 8;
+	dir = 4;
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
@@ -15744,7 +15770,7 @@
 	},
 /obj/machinery/newscaster{
 	pixel_x = 0;
-	pixel_y = -32
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
@@ -18484,7 +18510,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	status = 2
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/fitness)
@@ -18497,8 +18523,27 @@
 "HZ" = (
 /obj/machinery/light{
 	dir = 4;
-	status = 2
+	icon_state = "tube1"
 	},
+/turf/simulated/floor/beach/water/pool,
+/area/crew_quarters/fitness)
+"Ia" = (
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
+/area/turret_protected/tcomsat)
+"Ib" = (
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
+/area/turret_protected/tcomsat)
+"Ic" = (
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
+/area/turret_protected/tcomsat)
+"Id" = (
+/obj/machinery/light,
 /turf/simulated/floor/beach/water/pool,
 /area/crew_quarters/fitness)
 
@@ -22202,11 +22247,11 @@ du
 aa
 gH
 aa
-is
-is
-is
-is
-is
+du
+du
+du
+du
+du
 aa
 ac
 aa
@@ -26307,7 +26352,7 @@ by
 by
 by
 by
-bA
+Ia
 by
 by
 by
@@ -26317,7 +26362,7 @@ by
 by
 by
 by
-bA
+Ib
 by
 by
 ly
@@ -32999,7 +33044,7 @@ hU
 iy
 eQ
 by
-bA
+Ic
 by
 lf
 by
@@ -53344,7 +53389,7 @@ xg
 xg
 xg
 xg
-xg
+Id
 tj
 aa
 aa

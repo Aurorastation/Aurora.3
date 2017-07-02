@@ -52,16 +52,20 @@
 	if (smooth)
 		queue_smooth(src)
 
-	if (light_power && light_range)
+	if (light_range && light_power)
 		update_light()
 
 	if (opacity)
 		has_opaque_atom = TRUE
 
-	if(!baseturf)
-		baseturf = get_base_turf_by_area(src)
+	var/area/A = loc
 
-	spawn_roof()
+	if(!baseturf)
+		// Hard-coding this for performance reasons.
+		baseturf = A.base_turf || base_turf_by_z["[z]"] || /turf/space
+
+	if (A.flags & SPAWN_ROOF)
+		spawn_roof()
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -293,13 +297,11 @@ var/const/enterloopsanity = 100
  * @return TRUE if a roof has been spawned, FALSE if not.
  */
 /turf/proc/spawn_roof(flags = 0)
-	if (!HasAbove(z))
+	var/turf/simulated/open/above = GetAbove(src)
+	if (!above)
 		return FALSE
 
-	var/turf/simulated/open/above = GetAbove(src)
-	var/area/A = loc
-
-	if (((istype(above) && !A.no_roof) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
+	if (((istype(above)) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
 		above.ChangeTurf(roof_type)
 		roof_flags |= flags
 		return TRUE
