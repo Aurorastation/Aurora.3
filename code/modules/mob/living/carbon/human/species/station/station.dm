@@ -203,6 +203,7 @@
 
 	reagent_tag = IS_SKRELL
 	ethanol_resistance = 0.5//gets drunk faster
+	taste_sensitivity = TASTE_SENSITIVE
 
 	stamina	=	90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
