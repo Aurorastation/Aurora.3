@@ -145,7 +145,7 @@ datum/unit_test/wire_test/start_test()
 #define BLOCKED_DOWN 2
 
 /datum/unit_test/ladder_test
-	name = "MAP: Ladder Test (Global)"
+	name = "MAP: Ladder Test (Station)"
 
 /datum/unit_test/ladder_test/start_test()
 	var/ladders_total = 0
@@ -153,6 +153,9 @@ datum/unit_test/wire_test/start_test()
 	var/ladders_blocked = 0
 
 	for (var/obj/structure/ladder/ladder in world)
+		if (!(ladder.z in config.station_levels))
+			continue
+
 		ladders_total++
 
 		if (!ladder.target_up && !ladder.target_down)
@@ -175,6 +178,8 @@ datum/unit_test/wire_test/start_test()
 		fail("\[[ladders_blocked + ladders_incomplete] / [ladders_total]\] ladders were bad.[ladders_blocked ? " [ladders_blocked] blocked." : ""][ladders_incomplete ? " [ladders_incomplete] incomplete." : ""]")
 	else
 		pass("All [ladders_total] ladders were okay.")
+
+	return 1
 
 #undef BLOCKED_UP
 #undef BLOCKED_DOWN
