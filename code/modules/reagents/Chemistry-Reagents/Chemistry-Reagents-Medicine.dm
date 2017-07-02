@@ -9,6 +9,7 @@
 	overdose = REAGENTS_OVERDOSE * 2
 	metabolism = REM * 0.5
 	scannable = 1
+	taste_description = "bitterness"
 	var/datum/modifier/modifier
 
 /datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -31,6 +32,8 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	metabolism = REM * 1.5//Get to overdose state a bit faster
+	taste_description = "bitterness"
+	taste_mult = 3
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
@@ -58,11 +61,12 @@
 	color = "#FFA800"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	taste_description = "bitterness"
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(0, 6 * removed)
-		
+
 /datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
 		M.adjustFireLoss(8)
@@ -75,11 +79,13 @@
 	color = "#FF8000"
 	overdose = REAGENTS_OVERDOSE * 0.5
 	scannable = 1
+	taste_description = "bitterness"
+	taste_mult = 1.5
 
 /datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(0, 12 * removed)
-		
+
 /datum/reagent/dermaline/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
 		M.adjustFireLoss(18)
@@ -92,13 +98,14 @@
 	color = "#00A000"
 	scannable = 1
 	overdose = REAGENTS_OVERDOSE * 0.7
+	taste_description = "a roll of gauze"
 
 /datum/reagent/dylovene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
 		M.drowsyness = max(0, M.drowsyness - 6 * removed)
 		M.hallucination = max(0, M.hallucination - 9 * removed)
 		M.adjustToxLoss(-4 * removed)
-		
+
 /datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
 		M.adjustToxLoss(8)
@@ -111,6 +118,7 @@
 	color = "#0080FF"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	taste_description = "bitterness"
 
 /datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -119,7 +127,7 @@
 		M.adjustOxyLoss(-15 * removed)
 
 	holder.remove_reagent("lexorin", 2 * removed)
-	
+
 /datum/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
 		M.adjustOxyLoss(30)
@@ -132,6 +140,7 @@
 	color = "#0040FF"
 	overdose = REAGENTS_OVERDOSE * 0.5
 	scannable = 1
+	taste_description = "bitterness"
 
 /datum/reagent/dexalinp/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -149,13 +158,14 @@
 	color = "#8040FF"
 	scannable = 1
 	overdose = REAGENTS_OVERDOSE
+	taste_description = "bitterness"
 
 /datum/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
 		M.adjustOxyLoss(-6 * removed)
 		M.heal_organ_damage(3 * removed, 3 * removed)
 		M.adjustToxLoss(-3 * removed)
-		
+
 /datum/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
 		M.adjustToxLoss(6)
@@ -171,6 +181,7 @@
 	color = "#8080FF"
 	metabolism = REM * 0.5
 	scannable = 1
+	taste_description = "sludge"
 
 /datum/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.bodytemperature < 170 && alien != IS_DIONA)
@@ -187,6 +198,7 @@
 	color = "#80BFFF"
 	metabolism = REM * 0.5
 	scannable = 1
+	taste_description = "slime"
 
 /datum/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.bodytemperature < 170 && alien != IS_DIONA)
@@ -206,6 +218,7 @@
 	overdose = 60
 	scannable = 1
 	metabolism = 0.02
+	taste_description = "sickness"
 
 /datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
@@ -223,6 +236,7 @@
 	overdose = 30
 	scannable = 1
 	metabolism = 0.02
+	taste_description = "sourness"
 
 /datum/reagent/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
@@ -239,6 +253,7 @@
 	color = "#800080"
 	overdose = 20
 	metabolism = 0.02
+	taste_description = "bitterness"
 
 /datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
@@ -260,6 +275,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	var/datum/modifier/modifier
+	taste_description = "bitterness"
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -289,6 +305,7 @@
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	taste_description = "bitterness"
 
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -304,6 +321,7 @@
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	taste_description = "dull toxin"
 
 /datum/reagent/imidazoline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.eye_blurry = max(M.eye_blurry - 5, 0)
@@ -323,6 +341,7 @@
 	color = "#561EC3"
 	overdose = 10
 	scannable = 1
+	taste_description = "bitterness"
 
 /datum/reagent/peridaxon/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
@@ -339,6 +358,7 @@
 	reagent_state = SOLID
 	color = "#004000"
 	overdose = REAGENTS_OVERDOSE
+	taste_description = "acid"
 
 /datum/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/needs_update = M.mutations.len > 0
@@ -361,6 +381,7 @@
 	metabolism = REM * 0.15
 	overdose = REAGENTS_OVERDOSE * 0.5
 	var/datum/modifier = null
+	taste_description = "acid"
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -389,7 +410,7 @@
 	metabolism = REM * 0.3
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-
+	taste_description = "bitterness"
 
 /datum/reagent/ethylredoxrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -438,6 +459,7 @@
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	taste_description = "bitterness"
 
 /datum/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_radiation(-30 * removed)
@@ -451,6 +473,7 @@
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	taste_description = "bitterness"
 
 /datum/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_radiation(-70 * removed)
@@ -467,6 +490,7 @@
 	metabolism = REM * 0.05
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	taste_description = "bitterness"
 
 /datum/reagent/sterilizine
 	name = "Sterilizine"
@@ -475,6 +499,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	touch_met = 5
+	taste_description = "bitterness"
 
 /datum/reagent/sterilizine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	M.germ_level -= min(removed*20, M.germ_level)
@@ -508,6 +533,7 @@
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	taste_description = "bitterness"
 
 /datum/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.bodytemperature > 310)
@@ -527,6 +553,7 @@
 	color = "#BF80BF"
 	metabolism = 0.01
 	data = 0
+	taste_description = "sourness"
 
 /datum/reagent/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -567,6 +594,7 @@
 	color = "#FF80BF"
 	metabolism = 0.01
 	data = 0
+	taste_description = "bitterness"
 
 /datum/reagent/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -591,6 +619,7 @@
 	color = "#669900"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	taste_description = "sickness"
 
 /datum/reagent/rezadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustCloneLoss(-20 * removed)
@@ -611,7 +640,7 @@
 	color = "#280f0b"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-
+	taste_description = "sweet syrup"
 
 /datum/reagent/ipecac/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (prob(10+dose))
@@ -619,7 +648,6 @@
 
 	if (prob(dose))
 		M.vomit()
-
 
 /datum/reagent/ipecac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong
