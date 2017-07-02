@@ -6342,7 +6342,7 @@
 /turf/simulated/wall,
 /area/mine/unexplored)
 "kE" = (
-/obj/machinery/atmospherics/pipe/zpipe/up/cyan,
+/obj/machinery/atmospherics/pipe/zpipe/up/black,
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -6556,18 +6556,18 @@
 /turf/simulated/wall,
 /area/mine/unexplored)
 "la" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
 /area/maintenance/sublevel)
 "lb" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/green,
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -6677,20 +6677,20 @@
 	},
 /area/turret_protected/ai_upload_foyer)
 "lk" = (
-/obj/machinery/atmospherics/pipe/zpipe/down/cyan{
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/zpipe/down/black{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk,
 /turf/simulated/open,
 /area/maintenance/sublevel)
 "ll" = (
-/obj/machinery/atmospherics/pipe/zpipe/down/cyan{
-	dir = 1
-	},
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
 	tag = "icon-11-1";
 	icon_state = "11-1"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/green{
+	dir = 1
 	},
 /turf/simulated/open,
 /area/maintenance/sublevel)
@@ -22037,6 +22037,12 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/rnd/test_area)
+"LN" = (
+/obj/machinery/atmospherics/pipe/zpipe/up/green,
+/turf/simulated/floor/plating{
+	roof_type = null
+	},
+/area/maintenance/sublevel)
 
 (1,1,1) = {"
 aa
@@ -34234,7 +34240,7 @@ aa
 aa
 eZ
 eZ
-kE
+LN
 lb
 ll
 eZ

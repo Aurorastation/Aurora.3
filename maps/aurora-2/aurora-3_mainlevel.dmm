@@ -22712,41 +22712,13 @@
 /turf/simulated/floor/tiled/freezer,
 /area/bridge/ailobby)
 "aOA" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "EngineRadiatorViewport";
-	name = "Engine Radiator Viewport Shutter";
-	opacity = 0
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aOB" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "EngineRadiatorViewport";
-	name = "Engine Radiator Viewport Shutter";
-	opacity = 0
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aOC" = (
@@ -23489,11 +23461,6 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/command{
-	id_tag = "captaindoor";
-	name = "Captain's Office";
-	req_access = list(20)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -23589,16 +23556,18 @@
 /turf/simulated/floor/tiled/freezer,
 /area/bridge/ailobby)
 "aQc" = (
-/obj/machinery/atmospherics/pipe/zpipe/down/cyan{
-	dir = 1
-	},
 /obj/structure/sign/drop{
 	pixel_y = -32
+	},
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/zpipe/down/black{
+	dir = 1
 	},
 /turf/simulated/open,
 /area/engineering/engine_room)
 "aQd" = (
-/obj/machinery/atmospherics/pipe/zpipe/down/cyan{
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/zpipe/down/green{
 	dir = 1
 	},
 /turf/simulated/open,
@@ -58291,7 +58260,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
@@ -58299,19 +58268,16 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/structure/ladder,
-/obj/effect/decal/warning_stripes,
-/turf/simulated/floor/tiled,
+/turf/simulated/open,
 /area/maintenance/disposal)
 "bYz" = (
 /obj/machinery/alarm{
 	pixel_y = 22
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	icon_state = "warning";
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
@@ -58509,9 +58475,15 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bYV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bYW" = (
@@ -60940,6 +60912,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"cdh" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/disposal)
 
 (1,1,1) = {"
 aaa
@@ -73392,7 +73371,7 @@ aFO
 aHC
 aJl
 apq
-aMN
+apq
 aor
 aor
 aor
@@ -90175,7 +90154,7 @@ bMQ
 bML
 bYc
 bYz
-bYV
+cdh
 bZr
 bYc
 aaa
@@ -106546,7 +106525,7 @@ aJa
 aKM
 aMz
 aOq
-aPT
+awo
 aRB
 aST
 aUt
