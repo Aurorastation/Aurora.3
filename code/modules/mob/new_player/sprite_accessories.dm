@@ -466,6 +466,11 @@
 		icon_state = "hair_scully"
 		gender = FEMALE
 
+	wheeler
+		name = "Wheeler"
+		icon_state = "hair_wheeler"
+		gender = FEMALE
+
 	nitori
 		name = "Nitori"
 		icon_state = "hair_nitori"
@@ -1023,7 +1028,7 @@
 		icon_state = "patchesface"
 		body_parts = list("head")
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-		
+
 	bands
 		name = "Color Bands"
 		icon_state = "bands"
