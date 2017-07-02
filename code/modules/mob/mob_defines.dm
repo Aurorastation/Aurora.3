@@ -66,9 +66,6 @@
 	var/eye_blurry = null	//Carbon
 	var/ear_deaf = null		//Carbon
 	var/ear_damage = null	//Carbon
-	var/stuttering = null	//Carbon
-	var/slurring = null		//Carbon
-	var/brokejaw = null	    //Carbon
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""
@@ -133,6 +130,10 @@
 	var/obj/item/weapon/tank/internal = null//Human/Monkey
 	var/obj/item/weapon/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
+
+	var/stuttering = null	//Carbon
+	var/slurring = null		//Carbon
+	var/brokejaw = null	    //Carbon
 
 	var/seer = 0 //for cult//Carbon, probably Human
 
