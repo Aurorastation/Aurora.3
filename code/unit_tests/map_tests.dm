@@ -153,7 +153,7 @@ datum/unit_test/wire_test/start_test()
 	var/ladders_blocked = 0
 
 	for (var/obj/structure/ladder/ladder in world)
-		if (!(ladder.z in config.station_levels))
+		if (ladder.z in config.admin_levels)
 			continue
 
 		ladders_total++
@@ -167,12 +167,12 @@ datum/unit_test/wire_test/start_test()
 		if (ladder.target_up && !istype(GetAbove(ladder), /turf/simulated/open))
 			bad |= BLOCKED_UP
 
-		if (ladder.target_down && !istype(GetBelow(ladder), /turf/simulated/open))
+		if (ladder.target_down && !istype(ladder.loc, /turf/simulated/open))
 			bad |= BLOCKED_DOWN
 
 		if (bad)
 			ladders_blocked++
-			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is blocked in dirs: [(bad & BLOCKED_UP) ? "UP" : ""][(bad & BLOCKED_DOWN) ? " DOWN" : ""].")
+			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is blocked in dirs:[(bad & BLOCKED_UP) ? " UP" : ""][(bad & BLOCKED_DOWN) ? " DOWN" : ""].")
 
 	if (ladders_blocked || ladders_incomplete)
 		fail("\[[ladders_blocked + ladders_incomplete] / [ladders_total]\] ladders were bad.[ladders_blocked ? " [ladders_blocked] blocked." : ""][ladders_incomplete ? " [ladders_incomplete] incomplete." : ""]")
