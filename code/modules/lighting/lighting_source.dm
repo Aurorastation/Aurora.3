@@ -65,13 +65,13 @@
 
 	update()
 
-	L_PROF(source_atom, "source_new([type])")
+	//L_PROF(source_atom, "source_new([type])")
 
 	return ..()
 
 // Kill ourselves.
 /datum/light_source/Destroy(force)
-	L_PROF(source_atom, "source_destroy")
+	//L_PROF(source_atom, "source_destroy")
 
 	remove_lum()
 	if (source_atom)
@@ -115,19 +115,19 @@
 
 			top_atom.light_sources += src // Add ourselves to the light sources of our new top atom.
 
-	L_PROF(source_atom, "source_update")
+	//L_PROF(source_atom, "source_update")
 
 	INTELLIGENT_UPDATE(LIGHTING_CHECK_UPDATE)
 
 // Will force an update without checking if it's actually needed.
 /datum/light_source/proc/force_update()
-	L_PROF(source_atom, "source_forceupdate")
+	//L_PROF(source_atom, "source_forceupdate")
 
 	INTELLIGENT_UPDATE(LIGHTING_FORCE_UPDATE)
 
 // Will cause the light source to recalculate turfs that were removed or added to visibility only.
 /datum/light_source/proc/vis_update()
-	L_PROF(source_atom, "source_visupdate")
+	//L_PROF(source_atom, "source_visupdate")
 
 	INTELLIGENT_UPDATE(LIGHTING_VIS_UPDATE)
 

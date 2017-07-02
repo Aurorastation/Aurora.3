@@ -11,14 +11,18 @@
 
 // Causes any affecting light sources to be queued for a visibility update, for example a door got opened.
 /turf/proc/reconsider_lights()
-	L_PROF(src, "turf_reconsider")
-	for (var/datum/light_source/L in affecting_lights)
+	//L_PROF(src, "turf_reconsider")
+	var/datum/light_source/L
+	for (var/thing in affecting_lights)
+		L = thing
 		L.vis_update()
 
 // Forces a lighting update. Reconsider lights is preferred when possible.
 /turf/proc/force_update_lights()
-	L_PROF(src, "turf_forceupdate")
-	for (var/datum/light_source/L in affecting_lights)
+	//L_PROF(src, "turf_forceupdate")
+	var/datum/light_source/L
+	for (var/thing in affecting_lights)
+		L = thing
 		L.force_update()
 
 /turf/proc/lighting_clear_overlay()
@@ -30,7 +34,7 @@
 		qdel(lighting_overlay, TRUE)
 		lighting_overlay = null
 
-	L_PROF(src, "turf_clear_overlay")
+	//L_PROF(src, "turf_clear_overlay")
 
 	for (var/datum/lighting_corner/C in corners)
 		C.update_active()
@@ -40,7 +44,7 @@
 	if (lighting_overlay)
 		return
 
-	L_PROF(src, "turf_build_overlay")
+	//L_PROF(src, "turf_build_overlay")
 
 	var/area/A = loc
 	if (A.dynamic_lighting && dynamic_lighting)

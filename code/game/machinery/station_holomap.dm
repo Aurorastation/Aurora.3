@@ -34,6 +34,7 @@
 	return ..()
 
 /obj/machinery/station_map/Initialize()
+	. = ..()
 	holomap_datum = new()
 	original_zLevel = loc.z
 	SSminimap.station_holomaps += src

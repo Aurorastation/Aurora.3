@@ -486,7 +486,7 @@
 	reinf = 1
 	basestate = "w"
 	dir = 5
-	smooth = SMOOTH_TRUE | SMOOTH_CLEAR_ICON
+	smooth = SMOOTH_TRUE
 	can_be_unanchored = TRUE
 
 /obj/structure/window/shuttle/crescent

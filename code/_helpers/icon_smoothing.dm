@@ -37,7 +37,7 @@
 #define SMOOTH_DIAGONAL	4	//if atom should smooth diagonally, this should be present in 'smooth' var
 #define SMOOTH_BORDER	8	//atom will smooth with the borders of the map
 #define SMOOTH_QUEUED	16	//atom is currently queued to smooth.
-#define SMOOTH_CLEAR_ICON 32	// clear the atom's icon_state on smooth. SMOOTH_DIAGONAL implies this.
+#define SMOOTH_NO_CLEAR_ICON 32	// don't clear the atom's icon_state on smooth.
 
 #define NULLTURF_BORDER 123456789
 
@@ -281,7 +281,7 @@
 	if(New)
 		A.add_overlay(New)
 
-	if (A.icon_state && (A.smooth & SMOOTH_CLEAR_ICON))
+	if (A.icon_state && !(A.smooth & SMOOTH_NO_CLEAR_ICON))
 		A.icon_state = null
 
 /proc/find_type_in_direction(atom/source, direction)

@@ -472,7 +472,7 @@
 	recharge_time = 1
 	charge_meter = 1
 	use_external_power = 1
-	charge_cost = 200
+	charge_cost = 25
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	..()
