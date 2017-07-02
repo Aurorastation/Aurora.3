@@ -2,7 +2,7 @@
  *
  *  Map Unit Tests.
  *  Zone checks / APC / Scrubber / Vent.
- *  
+ *
  *
  */
 
@@ -65,13 +65,13 @@ datum/unit_test/apc_area_test/start_test()
 			if(!A.air_vent_info.len && !(A.type in exempt_from_atmos))
 				log_unit_test("[bad_msg] lacks an Air vent.[ascii_reset]")
 				area_good = 0
-		
+
 			if(!area_good)
 				bad_areas.Add(A)
 
 	if(bad_areas.len)
 		fail("\[[bad_areas.len]/[area_test_count]\]Some areas lacked APCs, Air Scrubbers, or Air vents.")
-	else			
+	else
 		pass("All \[[area_test_count]\] areas contained APCs, Air scrubbers, and Air vents.")
 
 	return 1
@@ -140,6 +140,49 @@ datum/unit_test/wire_test/start_test()
 		pass("All \[[tiles_total]\] station turfs had a roof.")
 
 	return 1
+
+#define BLOCKED_UP   1
+#define BLOCKED_DOWN 2
+
+/datum/unit_test/ladder_test
+	name = "MAP: Ladder Test (Station)"
+
+/datum/unit_test/ladder_test/start_test()
+	var/ladders_total = 0
+	var/ladders_incomplete = 0
+	var/ladders_blocked = 0
+
+	for (var/obj/structure/ladder/ladder in world)
+		if (ladder.z in config.admin_levels)
+			continue
+
+		ladders_total++
+
+		if (!ladder.target_up && !ladder.target_down)
+			ladders_incomplete++
+			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is incomplete.")
+			continue
+
+		var/bad = 0
+		if (ladder.target_up && !istype(GetAbove(ladder), /turf/simulated/open))
+			bad |= BLOCKED_UP
+
+		if (ladder.target_down && !istype(ladder.loc, /turf/simulated/open))
+			bad |= BLOCKED_DOWN
+
+		if (bad)
+			ladders_blocked++
+			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is blocked in dirs:[(bad & BLOCKED_UP) ? " UP" : ""][(bad & BLOCKED_DOWN) ? " DOWN" : ""].")
+
+	if (ladders_blocked || ladders_incomplete)
+		fail("\[[ladders_blocked + ladders_incomplete] / [ladders_total]\] ladders were bad.[ladders_blocked ? " [ladders_blocked] blocked." : ""][ladders_incomplete ? " [ladders_incomplete] incomplete." : ""]")
+	else
+		pass("All [ladders_total] ladders were okay.")
+
+	return 1
+
+#undef BLOCKED_UP
+#undef BLOCKED_DOWN
 
 #undef SUCCESS
 #undef FAILURE
