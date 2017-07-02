@@ -20582,9 +20582,12 @@
 	},
 /area/maintenance/research_port)
 "aLc" = (
-/obj/effect/decal/warning_stripes,
 /obj/structure/ladder/up{
 	pixel_y = 16
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	roof_type = null
@@ -20600,7 +20603,6 @@
 /turf/simulated/open,
 /area/maintenance/research_port)
 "aLe" = (
-/obj/effect/decal/warning_stripes,
 /obj/structure/ladder{
 	icon_state = "ladder01";
 	pixel_y = 16
@@ -21603,6 +21605,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "aMP" = (
@@ -21614,6 +21619,9 @@
 	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -32573,17 +32581,17 @@
 "bfE" = (
 /obj/structure/closet,
 /obj/item/weapon/bikehorn,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "bfF" = (
-/obj/effect/decal/warning_stripes,
 /obj/structure/ladder{
 	icon_state = "ladder01";
 	pixel_y = 16
 	},
-/turf/simulated/floor/plating{
-	roof_type = null
-	},
+/turf/simulated/open,
 /area/maintenance/maintcentral)
 "bfG" = (
 /obj/structure/table/rack{
@@ -60919,6 +60927,30 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
+"cdi" = (
+/obj/random/junk,
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
+"cdj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"cdk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 
 (1,1,1) = {"
 aaa
@@ -74656,7 +74688,7 @@ aFR
 aHG
 aEq
 aLc
-aMP
+cdi
 aOD
 aLf
 aaa
@@ -110907,7 +110939,7 @@ aaa
 aaa
 aZv
 bfE
-bfD
+cdj
 aZv
 aaa
 aab
@@ -111164,7 +111196,7 @@ aaa
 aaa
 aZv
 bfF
-aSE
+cdk
 aZv
 aaa
 aab

@@ -15469,10 +15469,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "CD" = (
-/obj/effect/decal/warning_stripes,
 /obj/structure/ladder{
 	icon_state = "ladder01";
 	pixel_y = 16
@@ -15543,6 +15545,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "CJ" = (
@@ -15580,6 +15585,9 @@
 "CO" = (
 /obj/structure/ladder/up{
 	pixel_y = 16
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
@@ -18546,6 +18554,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/beach/water/pool,
 /area/crew_quarters/fitness)
+"Ie" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 
 (1,1,1) = {"
 aa
@@ -26362,7 +26376,7 @@ by
 by
 by
 by
-Ib
+Ia
 by
 by
 ly
@@ -33044,7 +33058,7 @@ hU
 iy
 eQ
 by
-Ic
+Ia
 by
 lf
 by
@@ -53126,7 +53140,7 @@ tj
 tU
 uA
 vp
-wa
+wb
 xg
 xg
 xg
@@ -54154,7 +54168,7 @@ tj
 tU
 uA
 vp
-wa
+wb
 xg
 xg
 xg
@@ -64195,7 +64209,7 @@ rs
 rs
 si
 CD
-sk
+Ie
 rs
 CN
 ag
