@@ -110,9 +110,9 @@ proc/get_radio_key_from_channel(var/channel)
 		verb = pick("slobbers","slurs")
 		speech_problem_flag = 1
 		if(prob(50))
-			src << "<span class='danger'>You struggle to speak with a dislocated jaw!</span>"
+			src << "<span class='danger'>You struggle to speak with your dislocated jaw!</span>"
 		if(prob(10))
-			src << "<span class='danger'>You feel a horrible pain from your jaw as you speak!</span>"
+			src << "<span class='danger'>You feel a sharp pain from your jaw as you speak!</span>"
 			src.Weaken(3)
 	returns[1] = message
 	returns[2] = verb
