@@ -84,7 +84,7 @@
 
 /datum/species/machine/shell/get_bodytype()
 	return bodytype
-	
+
 /datum/species/machine/shell/equip_survival_gear(var/mob/living/carbon/human/H)
 	check_tag(H, H.client)
 
@@ -94,7 +94,7 @@
 	name_plural = "Industrials"
 	bald = 1
 
-	brute_mod = 0.5
+	brute_mod = 0.8
 	burn_mod = 1.3
 	slowdown = 4
 

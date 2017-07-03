@@ -387,8 +387,8 @@
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
 
-	// #TODO-MERGE: Check for balance and self-repair. If self-repair is a thing, RIP balance.
-	brute_mod = 0.8
+
+	brute_mod = 1.0
 	burn_mod = 1.0
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
