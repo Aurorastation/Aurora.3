@@ -23478,6 +23478,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/command{
+	name = "Captain's Office";
+	req_access = list(20)
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aPQ" = (
@@ -51954,17 +51958,22 @@
 /area/chapel/office)
 "bMe" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "chapel"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "chapel"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "chapel"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "chapel"
+	},
 /turf/simulated/floor/plating,
 /area/chapel/office)
 "bMf" = (
@@ -60993,6 +61002,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
+"cdn" = (
+/obj/structure/table/rack,
+/obj/effect/landmark/costume/pirate,
+/turf/simulated/floor/wood,
+/area/maintenance/library)
 
 (1,1,1) = {"
 aaa
@@ -96373,7 +96387,7 @@ bML
 bJp
 bML
 bML
-bQu
+bPp
 bQU
 bQV
 bQV
@@ -96892,7 +96906,7 @@ bQV
 bRq
 bRO
 bSh
-bQV
+cdn
 bJp
 bML
 bJp
