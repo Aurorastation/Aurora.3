@@ -109,8 +109,11 @@ proc/get_radio_key_from_channel(var/channel)
 		message = slur(message)
 		verb = pick("slobbers","slurs")
 		speech_problem_flag = 1
+		if(prob(50))
+			src << "<span class='danger'>You struggle to speak with a dislocated jaw!</span>"
 		if(prob(10))
 			src << "<span class='danger'>You feel a horrible pain from your jaw as you speak!</span>"
+			src.Weaken(3)
 	returns[1] = message
 	returns[2] = verb
 	returns[3] = speech_problem_flag
