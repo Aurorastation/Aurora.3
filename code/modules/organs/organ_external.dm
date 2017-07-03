@@ -171,7 +171,7 @@
 	if(owner)
 		replaced(owner)
 		sync_colour_to_human(owner)
-		
+
 	addtimer(CALLBACK(src, .proc/get_icon), 1)
 
 	if ((status & ORGAN_PLANT))
@@ -272,12 +272,14 @@
 				spillover += max(0, burn - can_inflict)
 
 		//If there are still hurties to dispense
-		if (spillover)
+		if (spillover && owner)
 			owner.shock_stage += spillover * config.organ_damage_spillover_multiplier
 
 	// sync the organ's damage with its wounds
 	src.update_damages()
-	owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
+
+	if (owner)
+		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
 
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
