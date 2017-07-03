@@ -43,7 +43,9 @@
 
 /obj/structure/ladder/attackby(obj/item/C as obj, mob/user as mob)
 	attack_hand(user)
-	return
+
+/obj/structure/ladder/attack_robot(mob/user)
+	attack_hand(user)
 
 /obj/structure/ladder/attack_hand(var/mob/M)
 	if(!M.may_climb_ladders(src))
@@ -94,6 +96,19 @@
 		return target_down || target_up
 
 /mob/proc/may_climb_ladders(var/ladder)
+	if(!Adjacent(ladder))
+		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
+		return FALSE
+	if(incapacitated())
+		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		return FALSE
+	return TRUE
+
+/mob/living/silicon/may_climb_ladders(ladder)
+	to_chat(src, "<span class='warning'>You're too heavy to climb [ladder]!</span>")
+	return FALSE
+
+/mob/living/silicon/robot/drone/may_climb_ladders(ladder)
 	if(!Adjacent(ladder))
 		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
 		return FALSE

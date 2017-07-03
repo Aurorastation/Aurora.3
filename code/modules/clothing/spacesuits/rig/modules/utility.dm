@@ -566,7 +566,7 @@
 
 	// Handle leaping at targets with a combat capable version here.
 	if (combatType && dist && (ismob(target) || (locate(/mob/living) in T)))
-		H.leap(target, leapDistance)
+		H.do_leap(target, leapDistance, FALSE)
 		return 1
 
 	// If dist -> horizontal leap. Otherwise, the user clicked the turf that they're
@@ -600,7 +600,7 @@
 
 		// This setting is necessary even for combat type, to stop you from moving onto
 		// the turf, falling back down, and then getting forcemoved to the final destination.
-		LAZYADD(TA.climbers, H)
+		TA.add_climber(H, CLIMBER_NO_EXIT)
 
 		H.forceMove(TA)
 
@@ -612,9 +612,13 @@
 			if (!do_after(H, 4 SECONDS, use_user_turf = TRUE))
 				H.visible_message("<span class='warning'>\The [H] is interrupted and falls!</span>",
 					"<span class='danger'>You are interrupted and fall back down!</span>")
-				LAZYREMOVE(TA.climbers, H)
 
-				ADD_FALLING_ATOM(H)
+				// Climbers will auto-fall if they exit the turf. This is for in case
+				// something else interrupts them.
+				if (H.loc == TA)
+					TA.remove_climber(H)
+					ADD_FALLING_ATOM(H)
+
 				return 1
 
 			H.visible_message("<span class='notice'>\The [H] finishes climbing onto \the [leapEnd].</span>",
@@ -623,7 +627,7 @@
 			H.visible_message("<span class='warning'>\The [H] lands on \the [leapEnd] with a heavy slam!</span>",
 				"<span class='warning'>You land on \the [leapEnd] with a heavy thud!</span>")
 
-		LAZYREMOVE(TA.climbers, H)
+		// open/Exited() removes from climbers.
 		H.forceMove(leapEnd)
 
 		return 1
