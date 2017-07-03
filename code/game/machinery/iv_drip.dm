@@ -85,6 +85,21 @@
 			return
 
 	if(src.attached && src.beaker)
+	
+		var/mob/living/carbon/human/T = attached
+
+		if(!istype(T))
+			return
+		
+		if(!T.dna)
+			return
+			
+		if(NOCLONE in T.mutations)
+			return
+
+		if(T.species.flags & NO_BLOOD)
+			return
+	
 		// Give blood
 		if(mode)
 			if(src.beaker.volume > 0)
@@ -98,17 +113,6 @@
 			// If the beaker is full, ping
 			if(amount == 0)
 				if(prob(5)) visible_message("\The [src] pings.")
-				return
-
-			var/mob/living/carbon/human/T = attached
-
-			if(!istype(T)) return
-			if(!T.dna)
-				return
-			if(NOCLONE in T.mutations)
-				return
-
-			if(T.species.flags & NO_BLOOD)
 				return
 
 			// If the human is losing too much blood, beep.
