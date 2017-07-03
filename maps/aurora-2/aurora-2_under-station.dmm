@@ -27,7 +27,8 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/cooling)
 "h" = (
-/turf/simulated/floor/airless,
+/obj/structure/lattice/catwalk,
+/turf/space,
 /area/space)
 "i" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -40,13 +41,13 @@
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "j" = (
-/obj/machinery/atmospherics/pipe/zpipe/up/cyan,
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/zpipe/up/black,
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
 /area/engineering/cooling)
 "k" = (
-/obj/machinery/atmospherics/pipe/zpipe/up/cyan,
 /obj/structure/cable{
 	icon_state = "12-0"
 	},
@@ -55,12 +56,15 @@
 	icon_state = "0-2";
 	pixel_y = 0
 	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/zpipe/up/green,
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
 /area/engineering/cooling)
 "l" = (
 /obj/structure/ladder/up,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -75,7 +79,8 @@
 	pixel_y = 25;
 	req_one_access = list(11)
 	},
-/turf/simulated/floor/airless,
+/obj/structure/lattice/catwalk,
+/turf/space,
 /area/space)
 "n" = (
 /obj/machinery/door/airlock/external{
@@ -154,6 +159,7 @@
 	dir = 1;
 	pixel_y = -22
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "r" = (
@@ -162,20 +168,25 @@
 	icon_state = "intact";
 	dir = 9
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "s" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "t" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
 /obj/machinery/light/small/emergency,
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/visible/green,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "u" = (
@@ -188,11 +199,11 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "v" = (
 /obj/structure/grille,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -202,17 +213,18 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "w" = (
 /obj/structure/grille,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/green,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "x" = (
@@ -230,11 +242,13 @@
 /area/engineering/cooling)
 "y" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
-/turf/simulated/floor/airless,
+/obj/structure/lattice/catwalk/indoor,
+/turf/space,
 /area/space)
 "z" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
-/turf/simulated/floor/airless,
+/obj/structure/lattice/catwalk/indoor,
+/turf/space,
 /area/space)
 "A" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -276,6 +290,11 @@
 	dir = 5
 	},
 /obj/structure/lattice,
+/turf/space,
+/area/space)
+"G" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk,
 /turf/space,
 /area/space)
 
@@ -10438,7 +10457,7 @@ h
 h
 h
 h
-h
+G
 a
 e
 a

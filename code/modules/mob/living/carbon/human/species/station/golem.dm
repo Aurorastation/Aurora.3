@@ -13,6 +13,9 @@
 	siemens_coefficient = 0
 	rarity_value = 5
 	
+	ethanol_resistance = -1
+	taste_sensitivity = TASTE_NUMB
+	
 	brute_mod = 0.5
 	slowdown = 1
 	virus_immune = 1
