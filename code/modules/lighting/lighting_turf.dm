@@ -148,6 +148,8 @@
 		else
 			lighting_clear_overlay()
 
+// This is inlined in lighting_source.dm and lighting_source_novis.dm.
+// Update them too if you change this.
 /turf/proc/get_corners()
 	if (!dynamic_lighting && !light_sources)
 		return null
@@ -160,6 +162,8 @@
 
 	return corners
 
+// This is inlined in lighting_source.dm and lighting_source_novis.dm.
+// Update them too if you change this.
 /turf/proc/generate_missing_corners()
 	if (!dynamic_lighting && !light_sources)
 		return
