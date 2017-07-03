@@ -20,14 +20,14 @@
 	} \
 	else if (B.z != A.z) { \
 		if (B.z < A.z) { \
-			if (!istype(A, /turf/simulated/open)) { \
+			if (!isopenturf(A)) { \
 				ret = BLOCKED; \
 			} else { \
 				ret = ZONE_BLOCKED; \
 			} \
 		} \
 		else { \
-			if (!istype(B, /turf/simulated/open)) { \
+			if (!isopenturf(B)) { \
 				ret = BLOCKED; \
 			} else { \
 				ret = ZONE_BLOCKED; \

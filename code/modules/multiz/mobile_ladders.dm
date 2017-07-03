@@ -12,7 +12,7 @@
 
 /obj/item/weapon/ladder_mobile/proc/place_ladder(atom/A, mob/user)
 
-	if (istype(A, /turf/simulated/open))         //Place into open space
+	if (isopenturf(A))         //Place into open space
 		var/turf/below_loc = GetBelow(A)
 		if (!below_loc || (istype(/turf/space, below_loc)))
 			to_chat(user, "<span class='notice'>Why would you do that?! There is only infinite space there...</span>")
@@ -33,7 +33,7 @@
 
 	else if (istype(A, /turf/simulated/floor))        //Place onto Floor
 		var/turf/upper_loc = GetAbove(A)
-		if (!upper_loc || !istype(upper_loc,/turf/simulated/open))
+		if (!upper_loc || !isopenturf(upper_loc))
 			user << "<span class='notice'>There is something above. You can't deploy!</span>"
 			return
 		user.visible_message("<span class='warning'>[user] begins deploying \the [src] on \the [A].</span>",

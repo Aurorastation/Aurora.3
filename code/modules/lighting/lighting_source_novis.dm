@@ -76,7 +76,7 @@
 
 		CHECK_TICK
 
-		if (istype(T, /turf/simulated/open) && T:below)
+		if (isopenturf(T) && T:below)
 			T = T:below
 			goto check_t
 

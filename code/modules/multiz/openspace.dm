@@ -7,7 +7,7 @@
 
 /turf/Entered(atom/movable/thing, atom/oldLoc)
 	. = ..()
-	if (above && !thing.no_z_overlay && !thing.bound_overlay && !istype(oldLoc, /turf/simulated/open))
+	if (above && !thing.no_z_overlay && !thing.bound_overlay && !isopenturf(oldLoc))
 		above.update_icon()
 
 /turf/Destroy()
@@ -43,8 +43,11 @@
 		return
 
 	// check_existence returns TRUE if the overlay is valid.
-	if (bound_overlay.check_existence() && !bound_overlay.queued)
+	if (isopenturf(bound_overlay.loc) && !bound_overlay.queued)
 		SSopenturf.queued_overlays += bound_overlay
+		bound_overlay.queued = TRUE
+	else
+		qdel(bound_overlay)
 
 /atom/movable/proc/get_above_oo()
 	. = list()
@@ -136,21 +139,12 @@
 
 /atom/movable/openspace/overlay/forceMove(atom/dest)
 	. = ..()
-	if (istype(dest, /turf/simulated/open))
+	if (isopenturf(dest))
 		if (destruction_timer)
 			deltimer(destruction_timer)
 			destruction_timer = null
 	else if (!destruction_timer)
 		destruction_timer = addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, src), 10 SECONDS, TIMER_STOPPABLE)
-
-// Checks if we've moved off of an openturf.
-// Returns TRUE if we're continuing to exist, FALSE if we're deleting ourselves.
-/atom/movable/openspace/overlay/proc/check_existence()
-	if (!istype(loc, /turf/simulated/open))
-		qdel(src)
-		return FALSE
-	else
-		return TRUE
 
 // Called when the turf we're on is deleted/changed.
 /atom/movable/openspace/overlay/proc/owning_turf_changed()
