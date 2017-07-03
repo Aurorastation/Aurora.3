@@ -17,9 +17,14 @@
 		return
 
 	var/turf/U
+	var/turf/T
 
-	for (var/T in RANGE_TURFS(field_radius, gen_turf))
-		if (istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T))
+	for (var/tt in RANGE_TURFS(field_radius, gen_turf))
+		T = tt
+		// Ignore station areas.
+		if (the_station_areas[T.loc])
+			continue
+		else if (istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T))
 			for (var/uu in RANGE_TURFS(1, T))
 				U = uu
 				if (T == U)
