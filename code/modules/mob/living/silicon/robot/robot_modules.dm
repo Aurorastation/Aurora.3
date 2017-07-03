@@ -196,9 +196,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/wrench(src)
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/weapon/hand_labeler(src) // cool privatisation thing
-	src.modules += new /obj/item/weapon/folder(src) // a folder for any papers
-	src.modules += new /obj/item/weapon/form_printer(src) // a paper dispenser
 	src.emag = new /obj/item/weapon/melee/energy/sword(src)
 
 
@@ -246,10 +243,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker/large(src) // a large beaker to contain any reagents
 	src.modules += new /obj/item/weapon/autopsy_scanner(src) // an autopsy scanner
-	src.modules += new /obj/item/weapon/folder/white(src) // a medical folder for any papers
-	src.modules += new /obj/item/weapon/pen/robopen(src) // a robotic pen
-	src.modules += new /obj/item/weapon/form_printer(src) // a paper dispenser
-	src.modules += new /obj/item/weapon/gripper/paperwork(src) // a paper gripper
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
@@ -311,10 +304,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
 	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // Allows usage of inflatables. Since they are basically robotic alternative to EMTs, they should probably have them.
 	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker/large(src) // a large beaker to contain any reagents of hypospray
-	src.modules += new /obj/item/weapon/folder/white(src) // a medical folder for any papers
-	src.modules += new /obj/item/weapon/pen/robopen(src) // a robotic pen
-	src.modules += new /obj/item/weapon/form_printer(src) // a paper dispenser
-	src.modules += new /obj/item/weapon/gripper/paperwork(src) // a paper gripper
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
@@ -399,10 +388,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/lightreplacer(src) // to install lightning in the area
 	src.modules += new /obj/item/device/floor_painter(src)// to make america great again (c)
 	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // to stop those pesky humans being entering the zone
-	src.modules += new /obj/item/weapon/pen/robopen(src) // to rwite on a peper
-	src.modules += new /obj/item/weapon/form_printer(src) // paper dispenser
-	src.modules += new /obj/item/weapon/gripper/paperwork(src) // to transfer a paper around
-	src.modules += new /obj/item/weapon/folder/yellow(src) // for any remarks
 	src.malfAImodule += new /obj/item/weapon/rtf(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
@@ -459,10 +444,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
 	src.modules += new /obj/item/weapon/inflatable_dispenser(src)
-	src.modules += new /obj/item/weapon/pen/robopen(src) // to rwite on a peper
-	src.modules += new /obj/item/weapon/form_printer(src) // paper dispenser
-	src.modules += new /obj/item/weapon/gripper/paperwork(src) // to transfer a paper around
-	src.modules += new /obj/item/weapon/folder/yellow(src) // for any remarks
 	src.emag = new /obj/item/weapon/melee/baton/robot/arm(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(60000)
@@ -540,13 +521,8 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
 	src.modules += new /obj/item/taperoll/police(src)
 	src.modules += new /obj/item/device/holowarrant(src)
-	src.modules += new /obj/item/weapon/pen/robopen(src) // to rwite on a peper
-	src.modules += new /obj/item/weapon/form_printer(src) // paper dispenser
-	src.modules += new /obj/item/weapon/gripper/paperwork(src) // to transfer a paper around
-	src.modules += new /obj/item/weapon/hand_labeler(src) // for marking some precious things
-	src.modules += new /obj/item/weapon/folder/blue(src) // for any remarks
 	src.modules += new /obj/item/weapon/book/manual/security_space_law(src) // book of security space laws
-	src.modules += new /obj/item/weapon/handcuffs/cyborg(src) // for tie..tye..tieyeing people
+	src.modules += new /obj/item/weapon/handcuffs/cyborg(src) // a cyborg-related handcuffs
 	src.emag = new /obj/item/weapon/gun/energy/laser/mounted(src)
 
 /obj/item/weapon/robot_module/security/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
@@ -583,12 +559,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/mop(src)
 	src.modules += new /obj/item/device/lightreplacer/advanced(src)
 	src.modules += new /obj/item/weapon/reagent_containers/glass/bucket(src) // a hydroponist's bucket
-	src.modules += new /obj/item/weapon/folder(src) // a folder for any papers
-	src.modules += new /obj/item/weapon/pen/robopen(src) // to write on a paper
-	src.modules += new /obj/item/weapon/form_printer(src) // paper dispenser
-	src.modules += new /obj/item/weapon/gripper/paperwork(src) // to transfer a paper around
-	src.modules += new /obj/item/weapon/hand_labeler(src) // for labelling stuff
-	src.modules += new /obj/item/weapon/folder/yellow(src) // for any remarks
 	src.modules += new /obj/item/weapon/matter_decompiler(src) // free drone remains for all
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("lube", 250)
