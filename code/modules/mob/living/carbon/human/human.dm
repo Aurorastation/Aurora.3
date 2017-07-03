@@ -409,22 +409,45 @@
 	if(wear_id)
 		return wear_id.GetID()
 
-//Removed the horrible safety parameter. It was only being used by ninja code anyways.
-//Now checks siemens_coefficient of the affected area by default
 /mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
+	var/hairvar = 0
 	if(status_flags & GODMODE)	return 0	//godmode
+	if(!def_zone)
+		var/list/damage_areas = list() //The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
+		if(istype(user, /mob/living/carbon/human))
+			if(h_style == "Floorlength Braid" || h_style == "Very Long Hair")
+				hairvar = 1
+		var/count = hairvar == 1 ? rand(1, 7) : rand(1, 6)
+		switch (count)
+			if(1)
+				damage_areas = list("l_hand", "l_arm", "chest", "r_arm", "r_hand")
+			if(2)
+				damage_areas = list("r_hand", "r_arm", "chest", "l_arm", "L_hand")
+			if(3)
+				damage_areas = list("l_hand", "l_arm", "chest", "groin", "l_leg", "l_foot")
+			if(4)
+				damage_areas = list("l_hand", "l_arm", "chest", "groin", "r_leg", "r_foot")
+			if(5)
+				damage_areas = list("r_hand", "r_arm", "chest", "groin", "r_leg", "r_foot")
+			if(6)
+				damage_areas = list("r_hand", "r_arm", "chest", "groin", "l_leg", "l_foot")
+			if(7)//snowflake arc - only happens when they have long hair.
+				damage_areas = list("r_hand", "r_arm", "chest", "head")
+				h_style = "skinhead"
+				visible_message("<span class='warning'>[src]'s hair gets a burst of electricty through it, burning and turning to dust!</span>", "<span class='danger'>your hair burns as the current flows through it, turning to dust!</span>", "<span class='notice'>You hear a crackling sound, and smell burned hair!.</span>")
+				update_hair()
+		if(gloves)
+			shock_damage *= gloves.siemens_coefficient
 
-	if (!def_zone)
-		def_zone = pick("l_hand", "r_hand")
-
+		for (var/area in damage_areas)
+			apply_damage(shock_damage, BURN, area)
+			shock_damage *= 0.8
+		visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
 	var/obj/item/organ/external/affected_organ = get_organ(check_zone(def_zone))
 	var/siemens_coeff = base_siemens_coeff * get_siemens_coefficient_organ(affected_organ)
-
 	return ..(shock_damage, source, siemens_coeff, def_zone, tesla_shock)
 
-
 /mob/living/carbon/human/Topic(href, href_list)
-
 	if (href_list["refresh"])
 		if((machine)&&(in_range(src, usr)))
 			show_inv(machine)
