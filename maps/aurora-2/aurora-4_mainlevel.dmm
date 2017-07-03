@@ -8174,6 +8174,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/closet/wardrobe/atmospherics_yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aqG" = (
@@ -33444,8 +33445,11 @@
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bhl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bhm" = (
@@ -33459,6 +33463,9 @@
 	pixel_x = 0
 	},
 /obj/item/weapon/hand_labeler,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bhn" = (
@@ -34163,15 +34170,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "biu" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
@@ -47217,13 +47224,11 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "bDp" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/fancy/vials,
-/obj/item/weapon/reagent_containers/dropper,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/machinery/chemical_dispenser/full,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "bDq" = (
@@ -47641,7 +47646,9 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/chemical_dispenser/full,
+/obj/structure/table/standard,
+/obj/item/weapon/storage/fancy/vials,
+/obj/item/weapon/reagent_containers/dropper,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "bEa" = (
@@ -48293,6 +48300,7 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
+/obj/machinery/chem_master,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "bEZ" = (
@@ -51674,6 +51682,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
+	},
+/obj/machinery/camera/network/civilian_west{
+	c_tag = "Chapel - Office";
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
@@ -57967,14 +57979,14 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
@@ -58126,6 +58138,8 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "bYe" = (
@@ -58270,6 +58284,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bYy" = (
@@ -58486,11 +58502,18 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bYV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
@@ -58743,6 +58766,9 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/closet/crate/trashcart,
 /obj/item/weapon/storage/bag/trash,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bZr" = (
@@ -60951,6 +60977,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"cdl" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
+"cdm" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/disposal)
 
 (1,1,1) = {"
 aaa
@@ -89930,7 +89972,7 @@ bMS
 bYc
 bYy
 bYV
-bZr
+cdm
 bYc
 aaa
 aaa
@@ -91458,7 +91500,7 @@ bSM
 bRH
 bTo
 bRH
-bRH
+cdl
 bUC
 bUC
 bUC
