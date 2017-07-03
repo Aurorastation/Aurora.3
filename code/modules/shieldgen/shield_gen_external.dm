@@ -11,17 +11,22 @@
 //Search for space turfs within range that are adjacent to a simulated turf.
 /obj/machinery/shield_gen/external/get_shielded_turfs()
 	var/list/out = list()
-	
+
 	var/turf/gen_turf = get_turf(src)
 	if (!gen_turf)
 		return
-	
-	var/turf/T
-	for (var/x_offset = -field_radius; x_offset <= field_radius; x_offset++)
-		for (var/y_offset = -field_radius; y_offset <= field_radius; y_offset++)
-			T = locate(gen_turf.x + x_offset, gen_turf.y + y_offset, gen_turf.z)
-			if (istype(T, /turf/space))
-				//check neighbors of T
-				if (locate(/turf/simulated/) in orange(1, T))
-					out += T
+
+	var/turf/U
+
+	for (var/T in RANGE_TURFS(field_radius, gen_turf))
+		if (istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T))
+			for (var/uu in RANGE_TURFS(1, T))
+				U = uu
+				if (T == U)
+					continue
+
+				if (the_station_areas[U.loc])
+					out += U
+					break
+
 	return out
