@@ -524,15 +524,6 @@
 	mind.special_role = ""
 
 //Animals
-/*
-/mob/living/simple_animal/mind_initialize()
-	..()
-	mind.assigned_role = "Animal"
-
-/mob/living/simple_animal/corgi/mind_initialize()
-	..()
-	mind.assigned_role = "Corgi"
-*/
 /mob/living/simple_animal/shade/mind_initialize()
 	..()
 	mind.assigned_role = "Shade"
