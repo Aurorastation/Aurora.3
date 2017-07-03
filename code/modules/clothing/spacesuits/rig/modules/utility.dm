@@ -566,7 +566,7 @@
 
 	// Handle leaping at targets with a combat capable version here.
 	if (combatType && dist && (ismob(target) || (locate(/mob/living) in T)))
-		H.leap(target, leapDistance)
+		H.do_leap(target, leapDistance, FALSE)
 		return 1
 
 	// If dist -> horizontal leap. Otherwise, the user clicked the turf that they're
