@@ -5727,8 +5727,8 @@
 	dir = 5
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "seccheckpointup";
-	name = "Watchpost Lockdown";
+	id = "seccheckpointoffice";
+	name = "Checkpoint Lockdown";
 	pixel_x = 5;
 	pixel_y = 32
 	},
@@ -14311,7 +14311,7 @@
 /area/crew_quarters/fitness)
 "Ab" = (
 /obj/machinery/station_map{
-	dir = 8;
+	dir = 4;
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
