@@ -318,7 +318,7 @@ var/const/enterloopsanity = 100
 
 	if (roof_flags & ROOF_CLEANUP)
 		var/turf/above = GetAbove(src)
-		if (!above || istype(above, /turf/simulated/open))
+		if (!above || isopenturf(above))
 			return
 
 		above.ChangeTurf(/turf/simulated/open)

@@ -43,7 +43,7 @@
 /obj/item/weapon/plastique/afterattack(atom/movable/target, mob/user, flag)
 	if (!flag)
 		return
-	if (ismob(target) || istype(target, /turf/unsimulated) || istype(target, /turf/simulated/shuttle)|| istype(target, /turf/simulated/open) || istype(target, /obj/item/weapon/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
+	if (ismob(target) || istype(target, /turf/unsimulated) || istype(target, /turf/simulated/shuttle)|| isopenturf(target) || istype(target, /obj/item/weapon/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
 		return
 	user << "Planting explosives..."
 	user.do_attack_animation(target)

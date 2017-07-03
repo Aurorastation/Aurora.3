@@ -195,6 +195,6 @@
 
 /datum/controller/subsystem/openturf/proc/calculate_depth(turf/simulated/open/T)
 	. = 0
-	while (T && istype(T.below, /turf/simulated/open))
+	while (T && isopenturf(T.below))
 		T = T.below
 		.++

@@ -590,7 +590,7 @@
 				return 0
 
 		var/turf/leapEnd = get_step(TA, H.dir)
-		if (!leapEnd || istype(leapEnd, /turf/simulated/open) || istype(leapEnd, /turf/space)\
+		if (!leapEnd || isopenturf(leapEnd) || istype(leapEnd, /turf/space)\
 			|| leapEnd.density || leapEnd.contains_dense_objects())
 			to_chat(H, "<span class='warning'>There is no valid ledge to scale ahead of you!</span>")
 			return 0

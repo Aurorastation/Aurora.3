@@ -342,7 +342,7 @@
 
 		turfs += T
 
-		if (istype(T, /turf/simulated/open) && T:below)
+		if (isopenturf(T) && T:below)
 			T = T:below	// Consider the turf below us as well. (Z-lights)
 			goto check_t
 

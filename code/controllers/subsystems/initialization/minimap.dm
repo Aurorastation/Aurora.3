@@ -2,7 +2,7 @@
 // Seems to be much simpler/saner than /vg/'s implementation.
 
 // Turfs that will be colored as HOLOMAP_ROCK
-#define IS_ROCK(tile) (istype(tile, /turf/simulated/mineral) || istype(tile, /turf/simulated/floor/asteroid) || istype(tile, /turf/simulated/open))
+#define IS_ROCK(tile) (istype(tile, /turf/simulated/mineral) || istype(tile, /turf/simulated/floor/asteroid) || isopenturf(tile))
 
 // Turfs that will be colored as HOLOMAP_OBSTACLE
 #define IS_OBSTACLE(tile) ((!istype(tile, /turf/space) && istype(tile.loc, /area/mine/unexplored)) \

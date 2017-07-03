@@ -164,10 +164,10 @@ datum/unit_test/wire_test/start_test()
 			continue
 
 		var/bad = 0
-		if (ladder.target_up && !istype(GetAbove(ladder), /turf/simulated/open))
+		if (ladder.target_up && !isopenturf(GetAbove(ladder)))
 			bad |= BLOCKED_UP
 
-		if (ladder.target_down && !istype(ladder.loc, /turf/simulated/open))
+		if (ladder.target_down && !isopenturf(ladder.loc))
 			bad |= BLOCKED_DOWN
 
 		if (bad)
