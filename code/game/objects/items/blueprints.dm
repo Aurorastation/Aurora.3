@@ -19,7 +19,7 @@
 	var/const/ROOM_ERR_SPACE = -1
 	var/const/ROOM_ERR_TOOLARGE = -2
 
-/obj/item/blueprints/attack_self(mob/user as mob) // shoutout to alberyk
+/obj/item/blueprints/attack_self(mob/user as mob)
         interact()
         add_fingerprint(user)
         return
