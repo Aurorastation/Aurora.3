@@ -8,10 +8,14 @@
 							/obj/item/clothing/suit/storage/forensics, /obj/item/clothing/suit/storage/trench)
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
+	if(isrobot(user))
+		return
+	if (!user.can_use_hand())
+		return
 	if(coat)
 		user.visible_message("[user] takes [coat] off \the [src].", "You take [coat] off the \the [src]")
-		if(!user.put_in_active_hand(coat))
-			coat.loc = get_turf(user)
+		coat.forceMove(get_turf(user))
+		user.put_in_hands(coat)
 		coat = null
 		update_icon()
 
