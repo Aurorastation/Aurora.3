@@ -61,12 +61,6 @@
 
 	return heard
 
-/proc/isStationLevel(var/level)
-	return level in config.station_levels
-
-/proc/isNotStationLevel(var/level)
-	return !isStationLevel(level)
-
 /proc/isPlayerLevel(var/level)
 	return level in config.player_levels
 
