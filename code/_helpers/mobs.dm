@@ -14,9 +14,6 @@
 /mob/get_mob()
 	return src
 
-//helper for inverting armor blocked values into a multiplier
-#define blocked_mult(blocked) max(1 - (blocked/100), 0)
-
 /proc/mobs_in_view(var/range, var/source)
 	. = list()
 	for(var/atom/movable/AM in view(range, source))
