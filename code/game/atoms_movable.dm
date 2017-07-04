@@ -17,6 +17,7 @@
 	//Also used on holdable mobs for the same info related to their held version
 
 	var/can_hold_mob = FALSE
+	var/list/contained_mobs
 
 // We don't really need this, and apparently defining it slows down GC.
 /*/atom/movable/Del()
@@ -203,8 +204,7 @@
 	anchored = 1
 
 /atom/movable/overlay/New()
-	for(var/x in src.verbs)
-		src.verbs -= x
+	verbs.Cut()
 	..()
 
 /atom/movable/overlay/attackby(a, b)
@@ -267,15 +267,17 @@ var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
 // Parallax stuff.
 
 /atom/movable/proc/update_client_hook(atom/destination)
-	if(locate(/mob) in src)
-		for(var/client/C in SSparallax.parallax_on_clients)
-			if((get_turf(C.eye) == destination) && (C.mob.hud_used))
-				C.mob.hud_used.update_parallax_values()
+	. = isturf(destination)
+	if (.)
+		for (var/thing in contained_mobs)
+			var/mob/M = thing
+			if (!M.client || !M.hud_used)
+				continue
+
+			if (get_turf(M.client.eye) == destination)
+				M.hud_used.update_parallax_values()
 
 /mob/update_client_hook(atom/destination)
-	if(locate(/mob) in src)
-		for(var/client/C in SSparallax.parallax_on_clients)
-			if((get_turf(C.eye) == destination) && (C.mob.hud_used))
-				C.mob.hud_used.update_parallax_values()
-	else if(client && hud_used)
+	. = ..()
+	if (. && hud_used && client && get_turf(client.eye) == destination)
 		hud_used.update_parallax_values()

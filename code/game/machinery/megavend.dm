@@ -17,7 +17,7 @@
 	var/list/slogan_list = list("Don't deploy just yet! Grab your gear!","Forgetting something?","Don't hop on in your skivvies, mate!","It's not Casual Friday, y'know?","Heaven's above, put some clothes on!")
 	var/shut_up = 0 //Stop spouting those godawful pitches!
 
-/obj/machinery/megavendor/process()
+/obj/machinery/megavendor/machinery_process()
 	if(((src.last_slogan + src.slogan_delay) <= world.time) && (src.slogan_list.len > 0) && (!src.shut_up) && prob(5))
 		var/slogan = pick(src.slogan_list)
 		src.ping(slogan)

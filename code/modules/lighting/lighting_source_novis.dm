@@ -1,6 +1,6 @@
 /datum/light_source/novis
 
-/datum/light_source/novis/update_corners(now = FALSE)
+/datum/light_source/novis/update_corners()
 	set waitfor = FALSE
 	var/update = FALSE
 
@@ -61,6 +61,7 @@
 	var/datum/lighting_corner/C
 	var/turf/T
 	var/Tthing
+	var/list/Tcorners
 	var/Sx = source_turf.x
 	var/Sy = source_turf.y
 
@@ -68,15 +69,32 @@
 	for (Tthing in RANGE_TURFS(Ceiling(light_range), source_turf))
 		T = Tthing
 		check_t:
-		for (thing in T.get_corners())
-			C = thing
-			corners[C] = 0
+
+		if (T.dynamic_lighting || T.light_sources)
+			Tcorners = T.corners
+			if (!T.lighting_corners_initialised)
+				T.lighting_corners_initialised = TRUE
+
+				if (!Tcorners)
+					T.corners = list(null, null, null, null)
+					Tcorners = T.corners
+
+				for (var/i = 1 to 4)
+					if (Tcorners[i])
+						continue
+
+					Tcorners[i] = new /datum/lighting_corner(T, LIGHTING_CORNER_DIAGONAL[i])
+
+			if (!T.has_opaque_atom)
+				for (thing in Tcorners)
+					C = thing
+					corners[C] = 0
 
 		turfs += T
 
 		CHECK_TICK
 
-		if (istype(T, /turf/simulated/open) && T:below)
+		if (isopenturf(T) && T:below)
 			T = T:below
 			goto check_t
 
@@ -103,7 +121,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, now, Sx, Sy)
+			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
 	else
 		L = corners - effect_str
 		for (thing in L)
@@ -113,7 +131,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, now, Sx, Sy)
+			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
 
 		for (thing in corners - L)
 			C = thing
@@ -121,12 +139,12 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, now, Sx, Sy)
+			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
 
 	L = effect_str - corners
 	for (thing in L)
 		C = thing
-		REMOVE_CORNER(C, now)
+		REMOVE_CORNER(C, FALSE)
 		LAZYREMOVE(C.affecting, src)
 
 	effect_str -= L

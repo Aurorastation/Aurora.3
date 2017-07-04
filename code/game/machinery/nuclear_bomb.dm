@@ -34,7 +34,7 @@ var/bomb_set
 	wires = null
 	return ..()
 
-/obj/machinery/nuclearbomb/process()
+/obj/machinery/nuclearbomb/machinery_process()
 	if (src.timing)
 		src.timeleft = max(timeleft - 2, 0) // 2 seconds per process()
 		if (timeleft <= 0)

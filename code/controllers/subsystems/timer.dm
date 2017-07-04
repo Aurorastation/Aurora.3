@@ -28,13 +28,6 @@ var/datum/controller/subsystem/timer/SStimer
 	var/static/bucket_auto_reset = TRUE
 
 /datum/controller/subsystem/timer/New()
-	processing = list()
-	hashes = list()
-	bucket_list = list()
-	timer_id_dict = list()
-
-	clienttime_timers = list()
-
 	NEW_SS_GLOBAL(SStimer)
 
 /datum/controller/subsystem/timer/stat_entry(msg)

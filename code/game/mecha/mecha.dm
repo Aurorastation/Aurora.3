@@ -1,19 +1,22 @@
-#define MECHA_INT_FIRE 1
-#define MECHA_INT_TEMP_CONTROL 2
-#define MECHA_INT_SHORT_CIRCUIT 4
-#define MECHA_INT_TANK_BREACH 8
-#define MECHA_INT_CONTROL_LOST 16
+#define MECHA_INT_FIRE          1 << 0
+#define MECHA_INT_TEMP_CONTROL  1 << 1
+#define MECHA_INT_SHORT_CIRCUIT 1 << 2
+#define MECHA_INT_TANK_BREACH   1 << 3
+#define MECHA_INT_CONTROL_LOST  1 << 4
 
-#define MELEE 1
+#define MECHA_PROC_MOVEMENT 1 << 0
+#define MECHA_PROC_DAMAGE   1 << 1
+#define MECHA_PROC_INT_TEMP 1 << 2
+
+#define MELEE  1
 #define RANGED 2
 
-
-#define NOMINAL		0
-#define FIRSTRUN	1
-#define POWER		2
-#define DAMAGE		3
-#define IMAGE		4
-#define WEAPONDOWN	5
+#define NOMINAL    0
+#define FIRSTRUN   1
+#define POWER      2
+#define DAMAGE     3
+#define IMAGE      4
+#define WEAPONDOWN 5
 
 /obj/mecha
 	name = "Mecha"
@@ -21,7 +24,7 @@
 	icon = 'icons/mecha/mecha.dmi'
 	w_class = 20
 	density = 1 //Dense. To raise the heat.
-	opacity = 1 ///opaque. Menacing.
+	opacity = 1 //opaque. Menacing.
 	anchored = 1 //no pulling around.
 	unacidable = 1 //and no deleting hoomans inside
 	layer = MOB_LAYER //icon draw layer
@@ -30,7 +33,7 @@
 	var/can_move = 1
 	var/mob/living/carbon/occupant = null
 	var/step_in = 10 //make a step in step_in/10 sec.
-	var/dir_in = 2//What direction will the mech face when entered/powered on? Defaults to South.
+	var/dir_in = 2 //What direction will the mech face when entered/powered on? Defaults to South.
 	var/step_energy_drain = 10
 	var/health = 300 //health is health
 	var/deflect_chance = 10 //chance to deflect incoming projectiles, hits, or lesser the effect of ex_act.
@@ -41,6 +44,9 @@
 	var/m_damage_coeff = 1
 	var/rhit_power_use = 0
 	var/mhit_power_use = 0
+
+	// These control what toggleable processes are executed within process().
+	var/current_processes = MECHA_PROC_INT_TEMP
 
 	//the values in this list show how much damage will pass through, not how much will be absorbed.
 	var/list/damage_absorption = list("brute"=0.8,"fire"=1.2,"bullet"=0.9,"laser"=1,"energy"=1,"bomb"=1)
@@ -68,14 +74,8 @@
 	var/internal_damage_threshold = 50 //health percentage below which internal damage is possible
 	var/internal_damage = 0 //contains bitflags
 
-	var/list/operation_req_access = list()//required access level for mecha operation
-	var/list/internals_req_access = list(access_engine,access_robotics)//required access level to open cell compartment
-
-	var/datum/global_iterator/pr_int_temp_processor //normalizes internal air mixture temperature
-	var/datum/global_iterator/pr_inertial_movement //controls intertial movement in spesss
-	var/datum/global_iterator/pr_give_air //moves air from tank to cabin
-	var/datum/global_iterator/pr_internal_damage //processes internal damage
-	var/datum/global_iterator/mecha_manage_warnings/pr_manage_warnings //Handles warning sounds for low power/health
+	var/list/operation_req_access = list() // required access level for mecha operation
+	var/list/internals_req_access = list(access_engine,access_robotics) // required access level to open cell compartment
 
 	var/wreckage
 
@@ -89,9 +89,24 @@
 	var/power_alert_status = 0
 	var/damage_alert_status = 0
 
-	var/noexplode = 0//Used for cases where an exosuit is spawned and turned into wreckage
+	var/noexplode = 0 // Used for cases where an exosuit is spawned and turned into wreckage
 
 	can_hold_mob = TRUE
+
+	// Warning variables.
+	var/sound/powerloop //Looping alert sounds played at alert 1
+	var/sound/damageloop
+
+	var/damage_warning_delay = 200 // Basic delay between warnings in alert status 2
+	var/power_warning_delay = 200 // Starts at 20 seconds but the delay will increase with each warning
+
+	var/last_power_warning = 0
+	var/last_damage_warning = 0
+
+	var/float_direction = 0
+
+	// Process() iterator count.
+	var/process_ticks = 0
 
 /obj/mecha/drain_power(var/drain_check)
 
@@ -112,7 +127,6 @@
 	add_cabin()
 	add_airtank() //All mecha currently have airtanks. No need to check unless changes are made.
 	add_cell()
-	add_iterators()
 	removeVerb(/obj/mecha/verb/disconnect_from_port)
 	log_message("[src.name] created.")
 	loc.Entered(src)
@@ -121,13 +135,17 @@
 
 	spark_system = bind_spark(src, 2)
 
+/obj/mecha/Initialize()
+	. = ..()
+
+	START_PROCESSING(SSfast_process, src)
+
 /obj/mecha/Destroy()
+	STOP_PROCESSING(SSfast_process, src)
+
 	src.go_out()
 	for(var/mob/M in src) //Let's just be ultra sure
-		M.Move(loc)
-
-	if(loc)
-		loc.Exited(src)
+		M.forceMove(loc)
 
 	if(!noexplode && prob(30))
 		explosion(get_turf(loc), 0, 0, 1, 3)
@@ -161,15 +179,34 @@
 	cell = null
 	internal_tank = null
 
-	QDEL_NULL(pr_int_temp_processor)
-	QDEL_NULL(pr_inertial_movement)
-	QDEL_NULL(pr_give_air)
-	QDEL_NULL(pr_internal_damage)
-	QDEL_NULL(pr_manage_warnings)
 	QDEL_NULL(spark_system)
 
 	mechas_list -= src //global mech list
 	return ..()
+
+// The main process loop to replace the ancient global iterators.
+// It's a bit hardcoded but I don't see anyone else adding stuff to
+// mechas, and it's easy enough to modify.
+/obj/mecha/process()
+	var/static/max_ticks = 16
+
+	if (current_processes & MECHA_PROC_MOVEMENT)
+		process_inertial_movement()
+
+	if ((current_processes & MECHA_PROC_DAMAGE) && !(process_ticks % 2))
+		process_internal_damage()
+
+	if ((current_processes & MECHA_PROC_INT_TEMP) && !(process_ticks % 4))
+		process_preserve_temp()
+
+	if (!(process_ticks % 3))
+		process_tank_give_air()
+
+	if (!(process_ticks % 16))
+		process_warnings()
+
+	// Max value is 16. So we let it run between [0, 16] with this.
+	process_ticks = (process_ticks + 1) % 17
 
 ////////////////////////
 ////// Helpers /////////
@@ -201,13 +238,6 @@
 	radio.icon = icon
 	radio.icon_state = icon_state
 	radio.subspace_transmission = 1
-
-/obj/mecha/proc/add_iterators()
-	pr_int_temp_processor = new /datum/global_iterator/mecha_preserve_temp(list(src))
-	pr_inertial_movement = new /datum/global_iterator/mecha_inertial_movement(null,0)
-	pr_give_air = new /datum/global_iterator/mecha_tank_give_air(list(src))
-	pr_internal_damage = new /datum/global_iterator/mecha_internal_damage(list(src),0)
-	pr_manage_warnings = new /datum/global_iterator/mecha_manage_warnings(list(src))
 
 /obj/mecha/proc/do_after_mecha(delay as num)
 	sleep(delay)
@@ -256,7 +286,7 @@
 	return
 
 
-/obj/mecha/proc/drop_item()//Derpfix, but may be useful in future for engineering exosuits.
+/obj/mecha/proc/drop_item() //Derpfix, but may be useful in future for engineering exosuits.
 	return
 
 /obj/mecha/hear_talk(mob/M as mob, text)
@@ -267,29 +297,6 @@
 ////////////////////////////
 ///// Action processing ////
 ////////////////////////////
-/*
-/atom/DblClick(object,location,control,params)
-	var/mob/M = src.mob
-	if(M && M.in_contents_of(/obj/mecha))
-
-		if(mech_click == world.time) return
-		mech_click = world.time
-
-		if(!istype(object, /atom)) return
-		if(istype(object, /obj/screen))
-			var/obj/screen/using = object
-			if(using.screen_loc == ui_acti || using.screen_loc == ui_iarrowleft || using.screen_loc == ui_iarrowright)//ignore all HUD objects save 'intent' and its arrows
-				return ..()
-			else
-				return
-		var/obj/mecha/Mech = M.loc
-		spawn() //this helps prevent clickspam fest.
-			if (Mech)
-				Mech.click_action(object,M)
-//	else
-//		return ..()
-*/
-
 /obj/mecha/proc/click_action(atom/target,mob/user)
 	if(!src.occupant || src.occupant != user ) return
 	if(user.stat) return
@@ -369,7 +376,7 @@
 			user << "You unscrew and pry out the powercell."
 			log_message("Powercell removed.")
 		if ("Tracking Beacon")
-			if (beacon && beacon.loc == src)//safety
+			if (beacon && beacon.loc == src) // safety
 				beacon.uninstall(user)
 
 /obj/mecha/proc/melee_action(atom/target)
@@ -407,7 +414,7 @@
 /obj/mecha/proc/do_move(direction)
 	if(!can_move)
 		return 0
-	if(src.pr_inertial_movement.active())
+	if(current_processes & MECHA_PROC_MOVEMENT)
 		return 0
 	if(!has_charge(step_energy_drain))
 		return 0
@@ -423,7 +430,8 @@
 		use_power(step_energy_drain)
 		if(istype(src.loc, /turf/space))
 			if(!src.check_for_support())
-				src.pr_inertial_movement.start(list(src,direction))
+				float_direction = direction
+				start_process(MECHA_PROC_MOVEMENT)
 				src.log_message("Movement control lost. Inertial movement started.")
 		if(do_after_mecha(step_in))
 			can_move = 1
@@ -455,7 +463,7 @@
 		if(istype(O, /obj/effect/portal)) //derpfix
 			src.anchored = 0
 			O.Crossed(src)
-			spawn(0)//countering portal teleport spawn(0), hurr
+			spawn(0) // countering portal teleport spawn(0), hurr
 				src.anchored = 1
 		else if(!O.anchored)
 			step(obstacle,src.dir)
@@ -488,15 +496,13 @@
 				destr.destroy()
 	return
 
-/obj/mecha/proc/hasInternalDamage(int_dam_flag=null)
+/obj/mecha/proc/hasInternalDamage(int_dam_flag = null)
 	return int_dam_flag ? internal_damage&int_dam_flag : internal_damage
 
 
 /obj/mecha/proc/setInternalDamage(int_dam_flag)
-	if(!pr_internal_damage) return
-
 	internal_damage |= int_dam_flag
-	pr_internal_damage.start()
+	start_process(MECHA_PROC_DAMAGE)
 	log_append_to_last("Internal damage of type [int_dam_flag].",1)
 	occupant << sound('sound/machines/warning-buzzer.ogg',wait=0)
 	return
@@ -506,7 +512,7 @@
 	switch(int_dam_flag)
 		if(MECHA_INT_TEMP_CONTROL)
 			occupant_message("<font color='blue'><b>Life support system reactivated.</b></font>")
-			pr_int_temp_processor.start()
+			start_process(MECHA_PROC_INT_TEMP)
 		if(MECHA_INT_FIRE)
 			occupant_message("<font color='blue'><b>Internal fire extinquished.</b></font>")
 		if(MECHA_INT_TANK_BREACH)
@@ -713,28 +719,6 @@
 				src.check_for_internal_damage(list(MECHA_INT_FIRE,MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST,MECHA_INT_SHORT_CIRCUIT),1)
 	return
 
-/*Will fix later -Sieve
-/obj/mecha/attack_blob(mob/user as mob)
-	src.log_message("Attack by blob. Attacker - [user].",1)
-	if(!prob(src.deflect_chance))
-		src.take_damage(6)
-		src.check_for_internal_damage(list(MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
-		playsound(src.loc, 'sound/effects/blobattack.ogg', 50, 1, -1)
-		user << "<span class='danger'>You smash at the armored suit!</span>"
-		for (var/mob/V in viewers(src))
-			if(V.client && !(V.blinded))
-				V.show_message("<span class='danger'>\The [user] smashes against [src.name]'s armor!</span>", 1)
-	else
-		src.log_append_to_last("Armor saved.")
-		playsound(src.loc, 'sound/effects/blobattack.ogg', 50, 1, -1)
-		user << "<span class='warning'>Your attack had no effect!</span>"
-		src.occupant_message("<span class='warning'>\The [user]'s attack is stopped by the armor.</span>")
-		for (var/mob/V in viewers(src))
-			if(V.client && !(V.blinded))
-				V.show_message("<span class='warning'>\The [user] rebounds off the [src.name] armor!</span>", 1)
-	return
-*/
-
 /obj/mecha/emp_act(severity)
 	if(get_charge())
 		use_power((4000)/severity)
@@ -884,17 +868,6 @@
 
 	return
 
-/*
-/obj/mecha/attack_ai(var/mob/living/silicon/ai/user as mob)
-	if(!istype(user, /mob/living/silicon/ai))
-		return
-	var/output = {"<b>Assume direct control over [src]?</b>
-						<a href='?src=\ref[src];ai_take_control=\ref[user];duration=3000'>Yes</a><br>
-						"}
-	user << browse(output, "window=mecha_attack_ai")
-	return
-*/
-
 /////////////////////////////////////
 ////////  Atmospheric stuff  ////////
 /////////////////////////////////////
@@ -985,20 +958,18 @@
 	set category = "Exosuit Interface"
 	set src = usr.loc
 
-	var/brokesomething = 0//true if we break anything
-	var/done = 0//Set true if we fail to break something. We won't try to break anything for the rest of the proc
+	var/brokesomething = 0 // true if we break anything
+	var/done = 0 // Set true if we fail to break something. We won't try to break anything for the rest of the proc
 	if(!src.occupant) return
 	if(usr!=src.occupant)
 		return
 
-
-	if ((world.time - lastcrash) < crash_cooldown)//prevent spamming it and breaking things too quickly
+	if ((world.time - lastcrash) < crash_cooldown) // prevent spamming it and breaking things too quickly
 		return
 
-	if (!use_power(step_energy_drain*20))//Forcefully crashing into something costs 20x the power of taking a normal step
+	if (!use_power(step_energy_drain*20)) // Forcefully crashing into something costs 20x the power of taking a normal step
 		occupant  << "<span class='warning'>[src] lacks the remaining power to do that!</span>"
 		return 0
-
 
 	//TODO: Add in a check for exosuit thrusters here after reworking them.
 	//Exosuits with thrusters should be able to use crash in space, and without the 0.5sec windup time
@@ -1010,15 +981,9 @@
 
 	occupant << "<span class='warning'>You take a step back, and then...</span>"
 	sleep(5)
-
-
 	//Crashing is done in five stages
-
-
-
 	//1. We check if we can move into the tile. If so, then we just lunge forward clumsily
 	var/turf/target = get_step(src, dir)
-
 
 	if (target.Enter(src, null))
 		mechstep(dir)
@@ -1028,8 +993,6 @@
 		done = 1
 		return
 
-
-
 	//2. We check for anything blocking us from leaving the tile. IE windoors or window panes,
 	//and if they're present try to smash them
 	//Failing to break any object we crash into will return and end execution
@@ -1038,13 +1001,7 @@
 			if(!obstacle.CheckExit(src, target))
 				brokesomething++
 				if (!crash_into(obstacle))
-					done = 1//If it survived the impact then we stop breaking things for this proc
-
-
-
-
-
-
+					done = 1 // If it survived the impact then we stop breaking things for this proc
 
 	//3. Now we hit the turf itself, if it's a wall
 	if (!done && !target.CanPass(src, target))
@@ -1053,8 +1010,6 @@
 		if (!target.CanPass(src, target))
 			done = 1
 
-
-
 	//4. Now we search the target tile for any dense objects that also block us.
 	//This could be girders left behind from the wall we just destroyed
 	if (!done)
@@ -1062,16 +1017,13 @@
 			if (A.density && A != src && A != occupant && A.loc != src)
 				brokesomething++
 				if (!crash_into(A))
-					done = 1//If it survived the impact then we stop breaking things for this proc
-
-
+					done = 1 // If it survived the impact then we stop breaking things for this proc
 
 	//If we hit any >0 number of things, whether they broke or not, we play the impact sound exactly once, and we send admin logs
 	if (brokesomething)
 		playsound(get_turf(target), 'sound/weapons/heavysmash.ogg', 100, 1)
 		occupant.attack_log += "\[[time_stamp()]\]<font color='red'> driving [name] crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </font>"
 		msg_admin_attack("[key_name_admin(occupant)] driving [name] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)",ckey=key_name(occupant))
-
 
 	//5. If we get here, then we've broken through everything that could stop us
 	//Step forward into the tile and display a victory message!
@@ -1081,7 +1033,7 @@
 		//No damage will be taken in this case
 	if (!done && target.Enter(src, null))
 		if (health <= 0)
-			return 0//This prevents bugginess if the exosuit breaks while crashing into stuff
+			return 0 // This prevents bugginess if the exosuit breaks while crashing into stuff
 
 		mechstep(dir)
 		if (brokesomething)
@@ -1089,21 +1041,17 @@
 		return
 	else
 		//if we fail to step forward, then we do the attack animation instead
-		target = get_step(src, dir)//re-fetch target just incase
+		target = get_step(src, dir) // re-fetch target just incase
 		do_attack_animation(target)
 
 
-
 /obj/mecha/proc/crash_into(var/atom/A)
-	var/aname = A.name//Cache this mainly because turfs change name when broken
+	var/aname = A.name // Cache this mainly because turfs change name when broken
 	var/oldtype = A.type
 	if (health <= 0)
-		return 0//This prevents bugginess if the exosuit explodes/dies while crashing into stuff
-
+		return 0 // This prevents bugginess if the exosuit explodes/dies while crashing into stuff
 
 	var/damage = crash_damage(A)
-
-
 
 	if (istype(A, /mob/living))
 		var/mob/living/M = A
@@ -1114,12 +1062,12 @@
 	A.ex_act(3)
 
 	sleep(1)
-	if (!QDELETED(A) && A.type == oldtype)//We check if the object has been qdel'd or (for turfs) changed type
+	if (!QDELETED(A) && A.type == oldtype) // We check if the object has been qdel'd or (for turfs) changed type
 		src.visible_message("<span class='danger'>[src.name] crashes into the [aname]!</span>")
 		take_damage(damage)
-		return 0//If it survived the impact then we stop breaking things for this proc
+		return 0 // If it survived the impact then we stop breaking things for this proc
 	else
-		take_damage(damage*0.5)//An object that breaks hurts less than one that resists the impact
+		take_damage(damage*0.5) // An object that breaks hurts less than one that resists the impact
 
 	return 1
 
@@ -1127,18 +1075,18 @@
 /obj/mecha/proc/crash_damage(var/A)
 	if (istype(A, /mob/living))
 		var/mob/living/M = A
-		return min((M.mob_size / 3),2)//Crashing into a cow or cyborg hurts more than crashing into a dog
+		return min((M.mob_size / 3),2) // Crashing into a cow or cyborg hurts more than crashing into a dog
 		//2 is a fallback for mobs with undefined size
 
 	else if (istype(A, /obj/structure/window))
-		return 1.5//windows are fragile
+		return 1.5 // windows are fragile
 	else if (istype(A, /obj/structure/grille))
-		return 3//Grilles are flexible and flimsy structures
+		return 3 // Grilles are flexible and flimsy structures
 	else if (istype(A, /obj/machinery))
 		return 3
 	else if (istype(A, /obj/structure))
 		return 6
-	else if (istype(A, /turf))//walls are tough
+	else if (istype(A, /turf)) // walls are tough
 		return 8
 	else
 		return 3
@@ -1229,11 +1177,7 @@
 		usr << "<span class='danger'>The [src.name] is already occupied!</span>"
 		src.log_append_to_last("Permission denied.")
 		return
-/*
-	if (usr.abiotic())
-		usr << "<span class='notice'>Subject cannot have abiotic items on.</span>"
-		return
-*/
+
 	var/passed
 	if(src.dna)
 		if(usr.dna.unique_enzymes==src.dna)
@@ -1248,7 +1192,6 @@
 		if(M.Victim == usr)
 			usr << "You're too busy getting your life sucked out of you."
 			return
-//	usr << "You start climbing into [src.name]"
 
 	visible_message("<span class='notice'>\The [usr] starts to climb into [src.name]</span>")
 
@@ -1264,10 +1207,6 @@
 /obj/mecha/proc/moved_inside(var/mob/living/carbon/human/H as mob)
 	if(H && H.client && H in range(1))
 		H.reset_view(src)
-		/*
-		H.client.perspective = EYE_PERSPECTIVE
-		H.client.eye = src
-		*/
 		H.stop_pulling()
 		H.forceMove(src)
 		src.occupant = H
@@ -1276,7 +1215,7 @@
 		src.log_append_to_last("[H] moved in as pilot.")
 		src.icon_state = src.reset_icon()
 		set_dir(dir_in)
-		pr_manage_warnings.resume_sounds(src)
+		resume_sounds()
 		playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 		if(cell && !hasInternalDamage() && cell.charge >= cell.maxcharge && health >= initial(health))
 			narrator_message(NOMINAL)
@@ -1291,18 +1230,8 @@
 	set popup_menu = 0
 	if(usr!=src.occupant)
 		return
-	//pr_update_stats.start()
 	src.occupant << browse(src.get_stats_html(), "window=exosuit")
 	return
-
-/*
-/obj/mecha/verb/force_eject()
-	set category = "Object"
-	set name = "Force Eject"
-	set src in view(5)
-	src.go_out()
-	return
-*/
 
 /obj/mecha/verb/eject()
 	set name = "Eject"
@@ -1318,8 +1247,8 @@
 
 /obj/mecha/proc/go_out()
 	if(!src.occupant) return
-	pr_manage_warnings.stop_sound(1, src)//We stop any looping warning sounds
-	pr_manage_warnings.stop_sound(2, src)
+	stop_sound(1) // We stop any looping warning sounds
+	stop_sound(2)
 	var/atom/movable/mob_container
 	if(ishuman(occupant))
 		mob_container = src.occupant
@@ -1328,35 +1257,10 @@
 		mob_container = brain.container
 	else
 		return
-	if(mob_container.forceMove(src.loc))//ejecting mob container
-	/*
-		if(ishuman(occupant) && (return_pressure() > HAZARD_HIGH_PRESSURE))
-			use_internal_tank = 0
-			var/datum/gas_mixture/environment = get_turf_air()
-			if(environment)
-				var/env_pressure = environment.return_pressure()
-				var/pressure_delta = (cabin.return_pressure() - env_pressure)
-		//Can not have a pressure delta that would cause environment pressure > tank pressure
-
-				var/transfer_moles = 0
-				if(pressure_delta > 0)
-					transfer_moles = pressure_delta*environment.volume/(cabin.return_temperature() * R_IDEAL_GAS_EQUATION)
-
-			//Actually transfer the gas
-					var/datum/gas_mixture/removed = cabin.air_contents.remove(transfer_moles)
-					loc.assume_air(removed)
-
-			occupant.SetStunned(5)
-			occupant.SetWeakened(5)
-			occupant << "You were blown out of the mech!"
-	*/
+	if(mob_container.forceMove(src.loc)) // ejecting mob container
 		src.log_message("[mob_container] moved out.")
 		occupant.reset_view()
-		/*
-		if(src.occupant.client)
-			src.occupant.client.eye = src.occupant.client.mob
-			src.occupant.client.perspective = MOB_PERSPECTIVE
-		*/
+
 		src.occupant << browse(null, "window=exosuit")
 		if(istype(mob_container, /obj/item/device/mmi))
 			var/obj/item/device/mmi/mmi = mob_container
@@ -1656,7 +1560,7 @@
 			file = 'sound/mecha/weapdestrnano.ogg'
 		else
 
-	playsound(src.loc, file, 100, 0, -6.6, environment=1)//using padded room environment to reduce echo
+	playsound(src.loc, file, 100, 0, -6.6, environment=1) // using padded room environment to reduce echo
 
 /////////////////
 ///// Topic /////
@@ -1847,54 +1751,6 @@
 		return
 	*/
 
-
-
-/*
-
-	if (href_list["ai_take_control"])
-		var/mob/living/silicon/ai/AI = locate(href_list["ai_take_control"])
-		var/duration = text2num(href_list["duration"])
-		var/mob/living/silicon/ai/O = new /mob/living/silicon/ai(src)
-		var/cur_occupant = src.occupant
-		O.invisibility = 0
-		O.canmove = 1
-		O.name = AI.name
-		O.real_name = AI.real_name
-		O.anchored = 1
-		O.aiRestorePowerRoutine = 0
-		O.control_disabled = 1 // Can't control things remotely if you're stuck in a card!
-		O.laws = AI.laws
-		O.stat = AI.stat
-		O.oxyloss = AI.getOxyLoss()
-		O.fireloss = AI.getFireLoss()
-		O.bruteloss = AI.getBruteLoss()
-		O.toxloss = AI.toxloss
-		O.updatehealth()
-		src.occupant = O
-		if(AI.mind)
-			AI.mind.transfer_to(O)
-		AI.name = "Inactive AI"
-		AI.real_name = "Inactive AI"
-		AI.icon_state = "ai-empty"
-		spawn(duration)
-			AI.name = O.name
-			AI.real_name = O.real_name
-			if(O.mind)
-				O.mind.transfer_to(AI)
-			AI.control_disabled = 0
-			AI.laws = O.laws
-			AI.oxyloss = O.getOxyLoss()
-			AI.fireloss = O.getFireLoss()
-			AI.bruteloss = O.getBruteLoss()
-			AI.toxloss = O.toxloss
-			AI.updatehealth()
-			qdel(O)
-			if (!AI.stat)
-				AI.icon_state = "ai"
-			else
-				AI.icon_state = "ai-crash"
-			src.occupant = cur_occupant
-*/
 	return
 
 ///////////////////////
@@ -1980,281 +1836,263 @@
 //Does a number of checks at probability, and alters some configuration values if succeeded
 /obj/mecha/proc/misconfigure_systems(var/probability)
 	if (prob(probability))
-		internal_tank_valve = rand(0,10000)//Screw up the cabin air pressure.
+		internal_tank_valve = rand(0,10000) // Screw up the cabin air pressure.
 		//This will probably kill the pilot if they dont check it before climbing in
 	if (prob(probability))
-		state = 1//Enable maintenance mode. It won't move.
+		state = 1 // Enable maintenance mode. It won't move.
 	if (prob(probability))
-		use_internal_tank = !use_internal_tank//Flip internal tank mode on or off
+		use_internal_tank = !use_internal_tank // Flip internal tank mode on or off
 	if (prob(probability))
-		toggle_lights()//toggle the lights
-	if (prob(probability))//Some settings to screw up the radio
+		toggle_lights() // toggle the lights
+	if (prob(probability)) // Some settings to screw up the radio
 		radio.broadcasting = !radio.broadcasting
 	if (prob(probability))
 		radio.listening = !radio.listening
 	if (prob(probability))
 		radio.set_frequency(rand(1200,1600))
 	if (prob(probability))
-		maint_access = 0//Disallow maintenance mode
-//////////////////////////////////////////
-////////  Mecha global iterators  ////////
-//////////////////////////////////////////
-/datum/global_iterator/mecha_manage_warnings
+		maint_access = 0 // Disallow maintenance mode
+
+/////////////////////////////////////////
+//////// Mecha process() helpers ////////
+/////////////////////////////////////////
+/obj/mecha/proc/stop_process(process)
+	current_processes &= ~process
+
+/obj/mecha/proc/start_process(process)
+	current_processes |= process
+
+/////////////////////////////////////////////////
+////////  Mecha process() subcomponents  ////////
+/////////////////////////////////////////////////
+
+// Handles the internal alarms for a mech.
+// Called every 16 iterations (80 deciseconds).
+/obj/mecha/proc/process_warnings()
 	//power/damage alerts have 3 different statuses
 	//0 = fine, no alert
 	//1 = Alert just started. Plays a looping sound for a few minutes
 	//2 = Alert status has lasted a while. Stops the looping sound and just plays an occasional warning.
 
-	delay = 80
-	var/sound/powerloop //Looping alert sounds played at alert 1
-	var/sound/damageloop
+	var/static/looptime = 1800 //time we stay in stage 1
 
-	var/looptime = 1800//time we stay in stage 1
+	if (!cell)
+		if(power_alert_status || damage_alert_status)
+			// No cell will kill warnings.
+			// Makes sense, caution systems are battery powered.
+			power_alert_status = 0 // cancel the alert status
+			power_warning_delay = initial(power_warning_delay) // Reset the delay
+			stop_sound(1)
 
-	var/damage_warning_delay = 200//Basic delay between warnings in alert status 2
-	var/power_warning_delay = 200//Starts at 20 seconds but the delay will increase with each warning
+			damage_alert_status = 0
+			damage_warning_delay = initial(damage_warning_delay) // Reset the delay
+			stop_sound(2)
+		return
 
+	if (!power_alert_status && cell) // If we're in the fine status
+		if (cell.charge < (cell.maxcharge*0.3)) // but power is below 30%
+			power_alert_status = 1 // Switch to the alert status
+			narrator_message(POWER) // And send a vocal warning
+			log_append_to_last("Entered critical power alert.")
 
-	var/last_power_warning = 0
-	var/last_damage_warning = 0
+	//No 'else' here, we want this to run in the same proc if the alert status was just enabled
 
+	if (power_alert_status) // IF we're in either warning status
 
-	process(var/obj/mecha/mecha)
-
-		if (!mecha)
+		if (cell.charge >= (cell.maxcharge*0.3)) // But power has risen back above danger levels
+			power_alert_status = 0 // cancel the alert status
+			power_warning_delay = initial(power_warning_delay) // Reset the delay
+			stop_sound(1)
+			occupant << "<span class='notice'>[src] power levels have returned to within safe operating parameters. Power alert status cancelled.</span>"
+			log_append_to_last("Power alert cleared")
 			return
 
-		if (!mecha.cell)
-			if((mecha.power_alert_status || mecha.damage_alert_status))
-				// No cell will kill warnings.
-				// Makes sense, caution systems are battery powered.
-				mecha.power_alert_status = 0//cancel the alert status
-				power_warning_delay = initial(power_warning_delay)//Reset the delay
-				stop_sound(1, mecha)
-				mecha.damage_alert_status = 0
-				damage_warning_delay = initial(damage_warning_delay)//Reset the delay
-				stop_sound(2, mecha)
+		if (power_alert_status == 1) // If we're in alert 1, constant loop
+			if (!powerloop) // If the powerloop sound var is still null, it means we havent started playing it yet
+				occupant << "<span class='danger'>WARNING: [src] power levels below 30%. Please pilot to the nearest recharging station immediately.</span>"
+				create_sound(1) // We create it
+				occupant << powerloop // and start playing it to the occupant
+				last_power_warning = world.time // We set this var when we enter alert 1, to track how long we've been in it
+
+			if ((world.time - last_power_warning) >= looptime) //If we've been in looping mode for long enough
+				occupant << "<span class='danger'>Alert: [src] power levels have remained in critical state for an unacceptably long period. Now switching to low-frequency warning mode to conserve power.</span>"
+				stop_sound(1) // We stop the soundloop
+				power_alert_status = 2 // And switch to alert 2
+				last_power_warning = world.time
+
+		else if (power_alert_status == 2) // If we're in alert 2 - infrequent vocal warnings
+			if ((world.time - last_power_warning) >= power_warning_delay) // IF its been long enough since the last warning
+				narrator_message(POWER) // We send a warning message to remind them
+				power_warning_delay *= 1.05 // We increase the delay between warnings by 5% multiplicatively each time
+				last_power_warning = world.time
+				//This causes the warnings to become less frequent and not be a constant annoyance
+
+
+	//The following block is basically a carbon copy of the above with minor alterations for damage
+	//--------------------------------------
+	if (!damage_alert_status)
+		if (health < (initial(health)*0.3))
+			damage_alert_status = 1
+			narrator_message(DAMAGE)
+			log_append_to_last("Entered critical hull integrity alert.")
+
+
+	if (damage_alert_status)
+		if (health >= (initial(health)*0.3))
+			damage_alert_status = 0
+			damage_warning_delay = initial(damage_warning_delay) // Reset the delay
+			stop_sound(2)
+			occupant << "<span class='notice'>[src] hull integrity is now within safe operating parameters. Integrity alert status cancelled.</span>"
+			log_append_to_last("Hull integrity alert cleared.")
 			return
 
-		if (!mecha.power_alert_status && mecha.cell)//If we're in the fine status
-			if (mecha.cell.charge < (mecha.cell.maxcharge*0.3))//but power is below 30%
-				mecha.power_alert_status = 1//Switch to the alert status
-				mecha.narrator_message(POWER)//And send a vocal warning
-				mecha.log_append_to_last("Entered critical power alert.")
-
-		//No 'else' here, we want this to run in the same proc if the alert status was just enabled
-
-		if (mecha.power_alert_status)//IF we're in either warning status
-
-			if (mecha.cell.charge >= (mecha.cell.maxcharge*0.3))//But power has risen back above danger levels
-				mecha.power_alert_status = 0//cancel the alert status
-				power_warning_delay = initial(power_warning_delay)//Reset the delay
-				stop_sound(1, mecha)
-				mecha.occupant << "<span class='notice'>[mecha] power levels have returned to within safe operating parameters. Power alert status cancelled.</span>"
-				mecha.log_append_to_last("Power alert cleared")
-				return
-
-			if (mecha.power_alert_status == 1)//If we're in alert 1, constant loop
-				if (!powerloop)//If the powerloop sound var is still null, it means we havent started playing it yet
-					mecha.occupant << "<span class='danger'>WARNING: [mecha] power levels below 30%. Please pilot to the nearest recharging station immediately.</span>"
-					create_sound(1)//We create it
-					mecha.occupant << powerloop//and start playing it to the occupant
-					last_power_warning = world.time//We set this var when we enter alert 1, to track how long we've been in it
-
-				if ((world.time - last_power_warning) >= looptime) //If we've been in looping mode for long enough
-					mecha.occupant << "<span class='danger'>Alert: [mecha] power levels have remained in critical state for an unacceptably long period. Now switching to low-frequency warning mode to conserve power.</span>"
-					stop_sound(1, mecha)//We stop the soundloop
-					mecha.power_alert_status = 2//And switch to alert 2
-					last_power_warning = world.time
-
-			else if (mecha.power_alert_status == 2)//If we're in alert 2 - infrequent vocal warnings
-				if ((world.time - last_power_warning) >= power_warning_delay)//IF its been long enough since the last warning
-					mecha.narrator_message(POWER)//We send a warning message to remind them
-					power_warning_delay *= 1.05//We increase the delay between warnings by 5% multiplicatively each time
-					last_power_warning = world.time
-					//This causes the warnings to become less frequent and not be a constant annoyance
-
-
-		//The following block is basically a carbon copy of the above with minor alterations for damage
-		//--------------------------------------
-		if (!mecha.damage_alert_status)
-			if (mecha.health < (initial(mecha.health)*0.3))
-				mecha.damage_alert_status = 1
-				mecha.narrator_message(DAMAGE)
-				mecha.log_append_to_last("Entered critical hull integrity alert.")
-
-
-		if (mecha.damage_alert_status)
-			if (mecha.health >= (initial(mecha.health)*0.3))
-				mecha.damage_alert_status = 0
-				damage_warning_delay = initial(damage_warning_delay)//Reset the delay
-				stop_sound(2, mecha)
-				mecha.occupant << "<span class='notice'>[mecha] hull integrity is now within safe operating parameters. Integrity alert status cancelled.</span>"
-				mecha.log_append_to_last("Hull integrity alert cleared.")
-				return
-
-			if (mecha.damage_alert_status == 1)
-				if (!damageloop)
-					mecha.occupant << "<span class='danger'>WARNING: [mecha] hull integrity below 30%. Please report to the nearest Nanotrasen Certified Robotics Laboratory for urgent repairs.</span>"
-					create_sound(2)
-					mecha.occupant << damageloop
-					last_damage_warning = world.time
-
-				if ((world.time - last_damage_warning) >= (looptime * 0.3)) //Looptime is shorter for the damage sound because its so horribly grating.
-					mecha.occupant << "<span class='danger'>Alert: [mecha] hull integrity has remained in critical state for a significant period of time. Now switching to low-frequency alert mode. Please seek repair as soon as possible.</span>"
-					stop_sound(2, mecha)//We stop the soundloop
-					mecha.damage_alert_status = 2//And switch to alert 2
-					last_damage_warning = world.time
-
-			else if (mecha.damage_alert_status == 2)
-				if ((world.time - last_damage_warning) >= damage_warning_delay)
-					mecha.narrator_message(DAMAGE)
-					damage_warning_delay *= 1.05
-					last_damage_warning = world.time
-
-
-	//This creates the sound loop datums as necessary
-	//They are destroyed when the sound stops, and re-created when it starts looping.
-	proc/create_sound(var/type)
-		if (type == 1)
-			if (!powerloop)
-				powerloop = new /sound()
-				powerloop.file = 'sound/mecha/lowpower.ogg'
-				powerloop.repeat = 1
-				powerloop.volume = 15
-				var/done = 0
-				while (!done)//This channel loop prevents both the looping sounds from sharing a channel
-					powerloop.channel = rand(1,100)
-					if (damageloop && damageloop.channel == powerloop.channel)
-						continue
-
-					if (powerloop.channel)
-						done = 1
-
-		else if (type == 2)
+		if (damage_alert_status == 1)
 			if (!damageloop)
-				damageloop = new /sound()
-				damageloop.file = 'sound/mecha/internaldmgalarm.ogg'
-				damageloop.repeat = 1
-				damageloop.volume = 5//lower volume because the sound file is louder
-				var/done = 0
-				while (!done)
-					damageloop.channel = rand(1,100)
-					if (powerloop && powerloop.channel == damageloop.channel)
-						continue
+				occupant << "<span class='danger'>WARNING: [src] hull integrity below 30%. Please report to the nearest Nanotrasen Certified Robotics Laboratory for urgent repairs.</span>"
+				create_sound(2)
+				occupant << damageloop
+				last_damage_warning = world.time
 
-					if (damageloop.channel)
-						done = 1
+			if ((world.time - last_damage_warning) >= (looptime * 0.3)) //Looptime is shorter for the damage sound because its so horribly grating.
+				occupant << "<span class='danger'>Alert: [src] hull integrity has remained in critical state for a significant period of time. Now switching to low-frequency alert mode. Please seek repair as soon as possible.</span>"
+				stop_sound(2) // We stop the soundloop
+				damage_alert_status = 2 // And switch to alert 2
+				last_damage_warning = world.time
 
-
-	proc/stop_sound(var/type, var/obj/mecha/mecha)
-		if (type == 1 && powerloop)
-			mecha.occupant << sound(null,channel=powerloop.channel)//this stops the sound
-			powerloop = null
-
-		else if (type == 2 && damageloop)
-			mecha.occupant << sound(null,channel=damageloop.channel)//this stops the sound
-			damageloop = null
+		else if (damage_alert_status == 2)
+			if ((world.time - last_damage_warning) >= damage_warning_delay)
+				narrator_message(DAMAGE)
+				damage_warning_delay *= 1.05
+				last_damage_warning = world.time
 
 
-	//This function exists for if someone enters the exosuit while its at alert stage 1
-	//It starts playing the alert loops for the new occupant
-	proc/resume_sounds(var/obj/mecha/mecha)
-		if (mecha.power_alert_status == 1)
-			create_sound(1)
-			mecha.occupant << powerloop
-		if (mecha.damage_alert_status == 1)
-			create_sound(2)
-			mecha.occupant << damageloop
+//This creates the sound loop datums as necessary
+//They are destroyed when the sound stops, and re-created when it starts looping.
+/obj/mecha/proc/create_sound(var/type)
+	if (type == 1)
+		if (!powerloop)
+			powerloop = new /sound()
+			powerloop.file = 'sound/mecha/lowpower.ogg'
+			powerloop.repeat = 1
+			powerloop.volume = 15
+			powerloop.channel = 50 // Only one mech can be heard at one time. So fuck the rand() deal.
+
+	else if (type == 2)
+		if (!damageloop)
+			damageloop = new /sound()
+			damageloop.file = 'sound/mecha/internaldmgalarm.ogg'
+			damageloop.repeat = 1
+			damageloop.volume = 5 //lower volume because the sound file is louder
+			damageloop.channel = 51
 
 
-/datum/global_iterator/mecha_preserve_temp  //normalizing cabin air temperature to 20 degrees celsius
-	delay = 20
+/obj/mecha/proc/stop_sound(var/type)
+	if (type == 1 && powerloop)
+		occupant << sound(null, channel=powerloop.channel) // this stops the sound
+		powerloop = null
 
-	process(var/obj/mecha/mecha)
-		if(mecha.cabin_air && mecha.cabin_air.volume > 0)
-			var/delta = mecha.cabin_air.temperature - T20C
-			mecha.cabin_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
-		return
+	else if (type == 2 && damageloop)
+		occupant << sound(null, channel=damageloop.channel) // this stops the sound
+		damageloop = null
 
-/datum/global_iterator/mecha_tank_give_air
-	delay = 15
+//This function exists for if someone enters the exosuit while its at alert stage 1
+//It starts playing the alert loops for the new occupant
+/obj/mecha/proc/resume_sounds()
+	if (power_alert_status == 1)
+		create_sound(1)
+		occupant << powerloop
+	if (damage_alert_status == 2)
+		create_sound(2)
+		occupant << damageloop
 
-	process(var/obj/mecha/mecha)
-		if(mecha.internal_tank)
-			var/datum/gas_mixture/tank_air = mecha.internal_tank.return_air()
-			var/datum/gas_mixture/cabin_air = mecha.cabin_air
+// Normalizing cabin air temperature to 20 degrees celsius.
+// Called every fourth process() tick (20 deciseconds).
+/obj/mecha/proc/process_preserve_temp()
+	if (cabin_air && cabin_air.volume > 0)
+		var/delta = cabin_air.temperature - T20C
+		cabin_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
 
-			var/release_pressure = mecha.internal_tank_valve
-			var/cabin_pressure = cabin_air.return_pressure()
-			var/pressure_delta = min(release_pressure - cabin_pressure, (tank_air.return_pressure() - cabin_pressure)/2)
-			var/transfer_moles = 0
-			if(pressure_delta > 0) //cabin pressure lower than release pressure
-				if(tank_air.temperature > 0)
-					transfer_moles = pressure_delta*cabin_air.volume/(cabin_air.temperature * R_IDEAL_GAS_EQUATION)
-					var/datum/gas_mixture/removed = tank_air.remove(transfer_moles)
-					cabin_air.merge(removed)
-			else if(pressure_delta < 0) //cabin pressure higher than release pressure
-				var/datum/gas_mixture/t_air = mecha.get_turf_air()
-				pressure_delta = cabin_pressure - release_pressure
+// Handles internal air tank action.
+// Called every third process() tick (15 deciseconds).
+/obj/mecha/proc/process_tank_give_air()
+	if(internal_tank)
+		var/datum/gas_mixture/tank_air = internal_tank.return_air()
+
+		var/release_pressure = internal_tank_valve
+		var/cabin_pressure = cabin_air.return_pressure()
+		var/pressure_delta = min(release_pressure - cabin_pressure, (tank_air.return_pressure() - cabin_pressure)/2)
+		var/transfer_moles = 0
+
+		if(pressure_delta > 0) //cabin pressure lower than release pressure
+			if(tank_air.temperature > 0)
+				transfer_moles = pressure_delta*cabin_air.volume/(cabin_air.temperature * R_IDEAL_GAS_EQUATION)
+				var/datum/gas_mixture/removed = tank_air.remove(transfer_moles)
+				cabin_air.merge(removed)
+
+		else if(pressure_delta < 0) //cabin pressure higher than release pressure
+			var/datum/gas_mixture/t_air = get_turf_air()
+			pressure_delta = cabin_pressure - release_pressure
+
+			if(t_air)
+				pressure_delta = min(cabin_pressure - t_air.return_pressure(), pressure_delta)
+			if(pressure_delta > 0) //if location pressure is lower than cabin pressure
+				transfer_moles = pressure_delta*cabin_air.volume/(cabin_air.temperature * R_IDEAL_GAS_EQUATION)
+
+				var/datum/gas_mixture/removed = cabin_air.remove(transfer_moles)
 				if(t_air)
-					pressure_delta = min(cabin_pressure - t_air.return_pressure(), pressure_delta)
-				if(pressure_delta > 0) //if location pressure is lower than cabin pressure
-					transfer_moles = pressure_delta*cabin_air.volume/(cabin_air.temperature * R_IDEAL_GAS_EQUATION)
-					var/datum/gas_mixture/removed = cabin_air.remove(transfer_moles)
-					if(t_air)
-						t_air.merge(removed)
-					else //just delete the cabin gas, we're in space or some shit
-						qdel(removed)
-		else
-			return stop()
+					t_air.merge(removed)
+				else //just delete the cabin gas, we're in space or some shit
+					qdel(removed)
+
+// Inertial movement in space.
+// Called every process() tick (5 deciseconds).
+/obj/mecha/proc/process_inertial_movement()
+	if(float_direction)
+		if(!step(src, float_direction) || check_for_support())
+			stop_process(MECHA_PROC_MOVEMENT)
+	else
+		stop_process(MECHA_PROC_MOVEMENT)
+	return
+
+// Processes internal damage.
+// Called every other process() tick (10 deciseconds).
+/obj/mecha/proc/process_internal_damage()
+	if(!hasInternalDamage())
+		stop_process(MECHA_PROC_DAMAGE)
 		return
 
-/datum/global_iterator/mecha_inertial_movement //inertial movement in space
-	delay = 7
+	if(hasInternalDamage(MECHA_INT_FIRE))
+		if(!hasInternalDamage(MECHA_INT_TEMP_CONTROL) && prob(5))
+			clearInternalDamage(MECHA_INT_FIRE)
+		if(internal_tank)
+			if(internal_tank.return_pressure()>internal_tank.maximum_pressure && !(hasInternalDamage(MECHA_INT_TANK_BREACH)))
+				setInternalDamage(MECHA_INT_TANK_BREACH)
+			var/datum/gas_mixture/int_tank_air = internal_tank.return_air()
+			if(int_tank_air && int_tank_air.volume>0) //heat the air_contents
+				int_tank_air.temperature = min(6000+T0C, int_tank_air.temperature+rand(10,15))
+		if(cabin_air && cabin_air.volume>0)
+			cabin_air.temperature = min(6000+T0C, cabin_air.temperature+rand(10,15))
+			if(cabin_air.temperature>max_temperature/2)
+				take_damage(4/round(max_temperature/cabin_air.temperature,0.1),"fire")
 
-	process(var/obj/mecha/mecha as obj,direction)
-		if(direction)
-			if(!step(mecha, direction)||mecha.check_for_support())
-				src.stop()
-		else
-			src.stop()
-		return
+	if(hasInternalDamage(MECHA_INT_TEMP_CONTROL))
+		stop_process(MECHA_PROC_INT_TEMP)
 
-/datum/global_iterator/mecha_internal_damage // processing internal damage
+	if(hasInternalDamage(MECHA_INT_TANK_BREACH)) //remove some air from internal tank
+		if(internal_tank)
+			var/datum/gas_mixture/int_tank_air = internal_tank.return_air()
+			var/datum/gas_mixture/leaked_gas = int_tank_air.remove_ratio(0.10)
+			if(istype(loc, /turf/simulated))
+				loc.assume_air(leaked_gas)
+			else
+				qdel(leaked_gas)
 
-	process(var/obj/mecha/mecha)
-		if(!mecha.hasInternalDamage())
-			return stop()
-		if(mecha.hasInternalDamage(MECHA_INT_FIRE))
-			if(!mecha.hasInternalDamage(MECHA_INT_TEMP_CONTROL) && prob(5))
-				mecha.clearInternalDamage(MECHA_INT_FIRE)
-			if(mecha.internal_tank)
-				if(mecha.internal_tank.return_pressure()>mecha.internal_tank.maximum_pressure && !(mecha.hasInternalDamage(MECHA_INT_TANK_BREACH)))
-					mecha.setInternalDamage(MECHA_INT_TANK_BREACH)
-				var/datum/gas_mixture/int_tank_air = mecha.internal_tank.return_air()
-				if(int_tank_air && int_tank_air.volume>0) //heat the air_contents
-					int_tank_air.temperature = min(6000+T0C, int_tank_air.temperature+rand(10,15))
-			if(mecha.cabin_air && mecha.cabin_air.volume>0)
-				mecha.cabin_air.temperature = min(6000+T0C, mecha.cabin_air.temperature+rand(10,15))
-				if(mecha.cabin_air.temperature>mecha.max_temperature/2)
-					mecha.take_damage(4/round(mecha.max_temperature/mecha.cabin_air.temperature,0.1),"fire")
-		if(mecha.hasInternalDamage(MECHA_INT_TEMP_CONTROL)) //stop the mecha_preserve_temp loop datum
-			mecha.pr_int_temp_processor.stop()
-		if(mecha.hasInternalDamage(MECHA_INT_TANK_BREACH)) //remove some air from internal tank
-			if(mecha.internal_tank)
-				var/datum/gas_mixture/int_tank_air = mecha.internal_tank.return_air()
-				var/datum/gas_mixture/leaked_gas = int_tank_air.remove_ratio(0.10)
-				if(mecha.loc && hascall(mecha.loc,"assume_air"))
-					mecha.loc.assume_air(leaked_gas)
-				else
-					qdel(leaked_gas)
-		if(mecha.hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
-			if(mecha.get_charge())
-				mecha.spark_system.queue()
-				mecha.cell.charge -= min(20,mecha.cell.charge)
-				mecha.cell.maxcharge -= min(20,mecha.cell.maxcharge)
-		return
+	if(hasInternalDamage(MECHA_INT_SHORT_CIRCUIT))
+		if(get_charge())
+			spark_system.queue()
+			cell.charge -= min(20,cell.charge)
+			cell.maxcharge -= min(20,cell.maxcharge)
+	return
 
 
 

@@ -140,7 +140,7 @@
 	src.alarm()
 	return
 
-/obj/machinery/firealarm/process()//Note: this processing was mostly phased out due to other code, and only runs when needed
+/obj/machinery/firealarm/machinery_process()//Note: this processing was mostly phased out due to other code, and only runs when needed
 	var/area/A = get_area(src)
 	if (A.fire != previous_fire_state)
 		update_icon()

@@ -1,6 +1,6 @@
 
 //#define ZASDBG
-//#define MULTIZAS
+#define MULTIZAS
 
 #define AIR_BLOCKED 1
 #define ZONE_BLOCKED 2
@@ -20,13 +20,17 @@
 	} \
 	else if (B.z != A.z) { \
 		if (B.z < A.z) { \
-			if (!istype(A, /turf/simulated/open)) { \
+			if (!isopenturf(A)) { \
 				ret = BLOCKED; \
+			} else { \
+				ret = ZONE_BLOCKED; \
 			} \
 		} \
 		else { \
-			if (!istype(B, /turf/simulated/open)) { \
+			if (!isopenturf(B)) { \
 				ret = BLOCKED; \
+			} else { \
+				ret = ZONE_BLOCKED; \
 			} \
 		} \
 	} \
@@ -58,7 +62,7 @@
 			}\
 		}\
 	}
-#else 
+#else
 
 #define ATMOS_CANPASS_TURF(ret,A,B) \
 	if (A.blocks_air & AIR_BLOCKED || B.blocks_air & AIR_BLOCKED) { \
@@ -93,4 +97,4 @@
 		}\
 	}
 
-#endif 
+#endif

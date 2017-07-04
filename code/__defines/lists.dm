@@ -7,3 +7,11 @@
 #define LAZYLEN(L) length(L)
 #define LAZYCLEARLIST(L) if(L) L.Cut()
 #define LAZYSET(L, K, V) if(!L) { L = list(); } L[K] = V;
+
+#define LAZYPICK(L,DEFAULT) (LAZYLEN(L) ? pick(L) : DEFAULT)
+
+// Shims for some list procs in lists.dm.
+#define islist(L) istype(L,/list)
+#define isemptylist(L) (!LAZYLEN(L))
+#define safepick(L) LAZYPICK(L,null)
+#define listgetindex(L,I) LAZYACCESS(L,I)

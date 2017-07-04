@@ -32,6 +32,7 @@
 
 		A.icon_update_queued = FALSE
 		A.update_icon()
+		A.update_above()
 		A.last_icon_update = world.time
 
 		if (no_mc_tick)
@@ -40,8 +41,8 @@
 			return
 
 /atom
-	var/last_icon_update
-	var/icon_update_queued
+	var/tmp/last_icon_update
+	var/tmp/icon_update_queued
 	var/icon_update_delay
 
 /atom/proc/update_icon()

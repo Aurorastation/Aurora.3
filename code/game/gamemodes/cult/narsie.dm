@@ -236,9 +236,10 @@ var/global/list/narsie_list = list()
 		if (A)
 			qdel(A)
 	else if (isturf(A))
-		var/dist = get_dist(A, src)
+		var/turf/T2 = A
+		var/dist = get_dist(T2, src)
 
-		for (var/atom/movable/AM2 in A.contents)
+		for (var/atom/movable/AM2 in T2.contents)
 			if (AM2 == src) // This is the snowflake.
 				continue
 
@@ -246,9 +247,8 @@ var/global/list/narsie_list = list()
 				consume(AM2)
 				continue
 
-		if (dist <= consume_range && !istype(A, get_base_turf_by_area(A)))
-			var/turf/T2 = A
-			T2.ChangeTurf(get_base_turf_by_area(A))
+		if (dist <= consume_range && !istype(T2, T2.baseturf))
+			T2.ChangeTurf(T2.baseturf)
 
 /obj/singularity/narsie/consume(const/atom/A) //This one is for the small ones.
 	if(!(A.singuloCanEat()))
@@ -270,9 +270,10 @@ var/global/list/narsie_list = list()
 		if (A)
 			qdel(A)
 	else if (isturf(A))
-		var/dist = get_dist(A, src)
+		var/turf/T2 = A
+		var/dist = get_dist(T2, src)
 
-		for (var/atom/movable/AM2 in A.contents)
+		for (var/atom/movable/AM2 in T2.contents)
 			if (AM2 == src) // This is the snowflake.
 				continue
 
@@ -290,9 +291,8 @@ var/global/list/narsie_list = list()
 				spawn (0)
 					AM2.singularity_pull(src, src.current_size)
 
-		if (dist <= consume_range && !istype(A, get_base_turf_by_area(A)))
-			var/turf/T2 = A
-			T2.ChangeTurf(get_base_turf_by_area(A))
+		if (dist <= consume_range && !istype(T2, T2.baseturf))
+			T2.ChangeTurf(T2.baseturf)
 
 /obj/singularity/narsie/ex_act(severity) //No throwing bombs at it either. --NEO
 	return

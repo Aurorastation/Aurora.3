@@ -228,7 +228,7 @@
 		if (can_nap)
 			if (!resting && prob(1))
 				fall_asleep()
-			else if (resting && prob(0.5))
+			else if (resting && (prob(0.5) || !stat))
 				wake_up()
 
 
@@ -460,7 +460,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	if(statpanel("Status") && show_stat_health)
 		stat(null, "Health: [round((health / maxHealth) * 100)]%")
-		stat(null, "Nutrition: [nutrition]/[max_nutrition]%")
+		stat(null, "Nutrition: [nutrition]/[max_nutrition]")
 
 /mob/living/simple_animal/updatehealth()
 	..()
@@ -685,3 +685,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	src << span("notice","You are now [resting ? "resting" : "getting up"]")
 
 	update_icons()
+	
+//Todo: add snowflakey shit to it.
+/mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
+	apply_damage(shock_damage, BURN)
+	visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")

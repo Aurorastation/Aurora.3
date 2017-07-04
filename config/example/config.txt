@@ -102,17 +102,25 @@ MOD_TEMPBAN_MAX 1440
 MOD_JOB_TEMPBAN_MAX 1440
 
 
-## probablities for game modes chosen in "secret" and "random" modes
+## Probablities for game modes chosen in "secret", "mixed secret" and "random" modes.
+## S or MS after the PROBABILITY keyword dictates whether the probability is for mixed
+## secret, or secret. These can overlap. "Random" will pick from both.
 ##
-## default probablity is 1, increase to make that mode more likely to be picked
-## set to 0 to disable that mode
-PROBABILITY EXTENDED 1
-PROBABILITY MALFUNCTION 1
-PROBABILITY MERCENARY 1
-PROBABILITY WIZARD 1
-PROBABILITY CHANGELING 1
-PROBABILITY CULT 1
-PROBABILITY EXTEND-A-TRAITORMONGOUS 6
+## Default probablity is 1, increase to make that mode more likely to be picked.
+## Set to 0 to disable that mode.
+PROBABILITY S EXTENDED 1
+PROBABILITY S MALFUNCTION 1
+PROBABILITY S MERCENARY 1
+PROBABILITY S WIZARD 1
+PROBABILITY S CHANGELING 1
+PROBABILITY S CULT 1
+PROBABILITY S EXTEND-A-TRAITORMONGOUS 6
+PROBABILITY MS CONFLUX 1
+PROBABILITY MS CROSSFIRE 1
+PROBABILITY MS PARANOIA 1
+PROBABILITY MS UPRISING 1
+PROBABILITY MS VISITORS 1
+PROBABILITY MS EXTENDED 1
 
 ## Hash out to disable random events during the round.
 ALLOW_RANDOM_EVENTS
@@ -209,10 +217,6 @@ GUEST_BAN
 ## set a server location for world reboot. Don't include the byond://, just give the address and port.
 #SERVER server.net:port
 
-## set a server URL for the IRC bot to use; like SERVER, don't include the byond://
-## Unlike SERVER, this one shouldn't break auto-reconnect
-#SERVERURL server.net:port
-
 ## forum address
 # FORUMURL http://example.com
 
@@ -244,17 +248,11 @@ GUEST_BAN
 
 ## Remove the # to allow special 'Easter-egg' events on special holidays such as seasonal holidays and stuff like 'Talk Like a Pirate Day' :3 YAARRR
 ALLOW_HOLIDAYS
-##Defines the ticklag for the world.  0.9 is the normal one, 0.5 is smoother.
-TICKLAG 0.9
+##Defines the ticklag for the world.  0.33 (30 FPS) is the normal one, though you can go as low as 0.2 (50 FPS) for low-load servers.
+TICKLAG 0.33
 
-## Defines if Tick Compensation is used.  It results in a minor slowdown of movement of all mobs, but attempts to result in a level movement speed across all ticks.  Recommended if tickrate is lowered.
-TICKCOMP 0
-
-## Whether the server will talk to other processes through socket_talk
-SOCKET_TALK 0
-
-## Uncomment this to ban use of ToR
-#TOR_BAN
+## Defines if Tick Compensation is used.  It results in a minor slowdown of movement of all mobs, but attempts to result in a level movement speed across all ticks.
+#TICKCOMP
 
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
@@ -289,16 +287,9 @@ NL_START_HOUR 19
 ##Remove the # to let ghosts spin chairs
 #GHOST_INTERACTION
 
-## Password used for authorizing ircbot and other external tools.
-#COMMS_PASSWORD
-
 ## Path to the python2 executable on the system.  Leave blank for default.
 ## Default is "python" on Windows, "/usr/bin/env python2" on UNIX.
 #PYTHON_PATH
-
-## Uncomment to use the C library nudge instead of the python script.
-## This helps security and stability on Linux, but you need to compile the library first.
-#USE_LIB_NUDGE
 
 ## Uncommen to allow ghosts to write in blood during Cult rounds.
 ALLOW_CULT_GHOSTWRITER
@@ -408,15 +399,6 @@ STARLIGHT 0
 ## Uncomment this to house player preferences and characters on the SQL database.
 # SQL_SAVES
 
-## Uncomment this to use the discord bot.
-# USE_DISCORD_BOT
-
-## The host address of the discord bot.
-# DISCORD_BOT_HOST
-
-## The port number which the discord bot is listening for nudges.
-# DISCORD_BOT_PORT
-
 ## Uncomment this and fill in the web interface's URL to use the web interface.
 # WEBINT_URL http://www.address.com/
 
@@ -452,9 +434,9 @@ API_RATE_LIMIT_WHITELIST 127.0.0.1
 
 # The maximum amount of a tick that the MC is permitted to use during server startup.
 # If not set will default to 98%.
-# You can set this high (~5000) for local testing to *maybe* speed up startup a bit at the cost of lagging the lobby.
-# Should be below 99 on a server actually used for play.
-#MC_TICKLIMIT_INIT 98
+# You can set this high (~500) for local testing to *maybe* speed up startup a bit at the cost of lagging the lobby.
+# -- Should be below 99 (or undefined) on a server actually used for play. --
+MC_TICKLIMIT_INIT 500
 
 
 ## GELF Logging Configuration
@@ -490,3 +472,7 @@ LOG_GELF_PORT 12201
 ## This determines how many VM identifiers must be spotted on a user before admins are warned about them joining.
 ## Leave at 0 or commented out to disable.
 # ACCESS_WARN_VMS 2
+
+
+# Enables fastboot - some features not essential to testing (like sunlight) will be disabled to speed up server boot. Should not be used on production servers.
+FASTBOOT

@@ -22,10 +22,9 @@
 
 	var/needs_update = FALSE
 
-	var/cache_r  = 0
-	var/cache_g  = 0
-	var/cache_b  = 0
-	var/cache_u  = 0
+	var/cache_r  = LIGHTING_SOFT_THRESHOLD
+	var/cache_g  = LIGHTING_SOFT_THRESHOLD
+	var/cache_b  = LIGHTING_SOFT_THRESHOLD
 	var/cache_mx = 0
 
 /datum/lighting_corner/New(var/turf/new_turf, var/diagonal)
@@ -84,9 +83,13 @@
 
 /datum/lighting_corner/proc/update_active()
 	active = FALSE
-	for (var/turf/T in masters)
+	var/turf/T
+	var/thing
+	for (thing in masters)
+		T = thing
 		if (T.lighting_overlay)
 			active = TRUE
+			break
 
 // God that was a mess, now to do the rest of the corner code! Hooray!
 /datum/lighting_corner/proc/update_lumcount(var/delta_r, var/delta_g, var/delta_b, var/delta_u, var/now = FALSE)
@@ -120,13 +123,11 @@
 	cache_r  = lum_r * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
 	cache_g  = lum_g * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
 	cache_b  = lum_b * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
-	cache_u  = lum_u * . || LIGHTING_SOFT_THRESHOLD
 	cache_mx = mx
 #else
 	cache_r  = round(lum_r * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
 	cache_g  = round(lum_g * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
 	cache_b  = round(lum_b * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
-	cache_u  = lum_u * . || LIGHTING_SOFT_THRESHOLD
 	cache_mx = round(mx, LIGHTING_ROUND_VALUE)
 #endif
 

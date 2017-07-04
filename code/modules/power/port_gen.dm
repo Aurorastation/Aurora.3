@@ -13,6 +13,7 @@
 	var/open = 0
 	var/recent_fault = 0
 	var/power_output = 1
+	has_special_power_checks = TRUE
 
 /obj/machinery/power/port_gen/proc/IsBroken()
 	return (stat & (BROKEN|EMPED))
@@ -29,7 +30,7 @@
 /obj/machinery/power/port_gen/proc/handleInactive()
 	return
 
-/obj/machinery/power/port_gen/process()
+/obj/machinery/power/port_gen/machinery_process()
 	if(active && HasFuel() && !IsBroken() && anchored && powernet)
 		add_avail(power_gen * power_output)
 		UseFuel()

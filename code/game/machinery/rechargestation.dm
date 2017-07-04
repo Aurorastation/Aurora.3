@@ -7,6 +7,7 @@
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 50
+	has_special_power_checks = TRUE
 	var/mob/occupant = null
 	var/obj/item/weapon/cell/cell = null
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks
@@ -40,7 +41,7 @@
 /obj/machinery/recharge_station/proc/has_cell_power()
 	return cell && cell.percent() > 0
 
-/obj/machinery/recharge_station/process()
+/obj/machinery/recharge_station/machinery_process()
 	if(stat & (BROKEN))
 		return
 	if(!cell) // Shouldn't be possible, but sanity check

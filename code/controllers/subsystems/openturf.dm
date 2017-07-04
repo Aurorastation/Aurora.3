@@ -182,7 +182,7 @@
 			OO.layer = 1e6
 
 		if (OO.bound_overlay)	// If we have a bound overlay, queue it too.
-			OO.update_oo()
+			OO.update_above()
 
 		if (no_mc_tick)
 			CHECK_TICK
@@ -195,6 +195,6 @@
 
 /datum/controller/subsystem/openturf/proc/calculate_depth(turf/simulated/open/T)
 	. = 0
-	while (T && istype(T.below, /turf/simulated/open))
+	while (T && isopenturf(T.below))
 		T = T.below
 		.++

@@ -16,9 +16,7 @@
 	transform = matrix(WORLD_ICON_SIZE / 32, 0, (WORLD_ICON_SIZE - 32) / 2, 0, WORLD_ICON_SIZE / 32, (WORLD_ICON_SIZE - 32) / 2)
 	#endif
 
-/atom/movable/lighting_overlay/New(atom/loc)
-	. = ..()
-	verbs.Cut()
+/atom/movable/lighting_overlay/New()
 	SSlighting.lighting_overlays += src
 
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
@@ -32,7 +30,7 @@
 	if (!force)
 		return QDEL_HINT_LETMELIVE	// STOP DELETING ME
 
-	L_PROF(loc, "overlay_destroy")
+	//L_PROF(loc, "overlay_destroy")
 	SSlighting.lighting_overlays -= src
 	SSlighting.overlay_queue     -= src
 
@@ -42,6 +40,9 @@
 		T.luminosity = 1
 	
 	return ..()
+
+// This is a macro PURELY so that the if below is actually readable.
+#define ALL_EQUAL ((rr == gr && gr == br && br == ar) && (rg == gg && gg == bg && bg == ag) && (rb == gb && gb == bb && bb == ab))
 
 /atom/movable/lighting_overlay/proc/update_overlay()
 	if (QDELING(src))	// This shouldn't happen.
@@ -91,13 +92,13 @@
 	var/ag = ca.cache_g
 	var/ab = ca.cache_b
 
-	// Check for a common value first so we can skip expensive color matrixes if possible.
-	var/all_equal = ((rr == gr && gr == br && br == ar) && (rg == gg && gg == bg && bg == ag) && (rb == gb && gb == bb && bb == ab))
-
-	if (!luminosity)
+	if ((rr & gr & br & ar) && (rg + gg + bg + ag + rb + gb + bb + ab == 8))
+		icon_state = LIGHTING_TRANSPARENT_ICON_STATE
+		color = null
+	else if (!luminosity)
 		icon_state = LIGHTING_DARKNESS_ICON_STATE
 		color = null
-	else if (all_equal && rr == LIGHTING_DEFAULT_TUBE_R && rg == LIGHTING_DEFAULT_TUBE_G && rb == LIGHTING_DEFAULT_TUBE_B)
+	else if (ALL_EQUAL && rr == LIGHTING_DEFAULT_TUBE_R && rg == LIGHTING_DEFAULT_TUBE_G && rb == LIGHTING_DEFAULT_TUBE_B)
 		icon_state = LIGHTING_STATION_ICON_STATE
 		color = null
 	else
@@ -120,7 +121,9 @@
 #endif 
 
 	if (bound_overlay)
-		update_oo()
+		update_above()
+
+#undef ALL_EQUAL
 
 // Variety of overrides so the overlays don't get affected by weird things.
 
@@ -142,13 +145,8 @@
 // Override here to prevent things accidentally moving around overlays.
 /atom/movable/lighting_overlay/forceMove(atom/destination, no_tp = FALSE, harderforce = FALSE)
 	if(harderforce)
-		L_PROF(loc, "overlay_forcemove")
+		//L_PROF(loc, "overlay_forcemove")
 		. = ..()
-
-/atom/movable/lighting_overlay/resetVariables(...)
-	color = LIGHTING_BASE_MATRIX
-
-	return ..("color")
 
 /atom/movable/lighting_overlay/shuttle_move(turf/loc)
 	return

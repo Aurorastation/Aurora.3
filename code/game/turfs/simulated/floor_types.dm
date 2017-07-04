@@ -17,6 +17,8 @@
 	heat_capacity = 0
 	layer = 2
 
+	roof_flags = ROOF_CLEANUP
+
 /turf/simulated/shuttle/wall
 	icon = 'icons/turf/smooth/shuttle_wall.dmi'
 	name = "wall"
@@ -67,3 +69,17 @@
 	name = "skipjack floor"
 	oxygen = 0
 	nitrogen = MOLES_N2STANDARD + MOLES_O2STANDARD
+
+/turf/simulated/shuttle/roof
+	name = "shuttle roof"
+	icon_state = "roof_white"
+
+	smooth = SMOOTH_DIAGONAL|SMOOTH_TRUE
+
+	oxygen = 0
+	nitrogen = 0
+
+	roof_type = null
+
+/turf/simulated/shuttle/roof/black
+	icon_state = "roof_black"

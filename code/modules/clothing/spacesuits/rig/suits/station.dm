@@ -24,7 +24,7 @@
 	suit_type = "augmented suit"
 	desc = "Prepare for paperwork."
 	icon_state = "internalaffairs_rig"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = null
 	siemens_coefficient = 0.9
 	slowdown = 0
 	offline_slowdown = 0
@@ -202,11 +202,14 @@
 
 /obj/item/weapon/rig/medical/equipped
 
+	req_access = list(access_paramedic)
+
 	initial_modules = list(
-		/obj/item/rig_module/chem_dispenser/injector,
+		/obj/item/rig_module/chem_dispenser/injector/paramedic,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/healthscanner,
-		/obj/item/rig_module/vision/medhud
+		/obj/item/rig_module/vision/medhud,
+		/obj/item/rig_module/actuators
 		)
 
 /obj/item/weapon/rig/hazard

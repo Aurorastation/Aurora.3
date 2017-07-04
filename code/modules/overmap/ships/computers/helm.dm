@@ -29,7 +29,7 @@
 			R.fields["y"] = S.y
 			known_sectors += R
 
-/obj/machinery/computer/helm/process()
+/obj/machinery/computer/helm/machinery_process()
 	if (autopilot && dx && dy)
 		var/turf/T = locate(dx,dy,1)
 		if(linked.loc == T)

@@ -144,6 +144,8 @@ mob/living/carbon/human/airflow_hit(atom/A)
 zone/proc/movables()
 	. = list()
 	for(var/turf/T in contents)
+		CHECK_TICK
+
 		for(var/atom/movable/A in T)
 			if(!A.simulated || A.anchored || istype(A, /obj/effect) || istype(A, /mob/eye))
 				continue

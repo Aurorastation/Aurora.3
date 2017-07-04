@@ -125,6 +125,8 @@ var/global/list/cloaking_devices = list()
 		var/datum/sprite_accessory/marking/M = new path()
 		body_marking_styles_list[M.name] = M
 
+	sortTim(body_marking_styles_list, /proc/cmp_text_asc)
+
 	//Surgery Steps - Initialize all /datum/surgery_step into a list
 	paths = subtypesof(/datum/surgery_step)
 	for(var/T in paths)
@@ -159,7 +161,13 @@ var/global/list/cloaking_devices = list()
 		S.race_key = rkey //Used in mob icon caching.
 		all_species[S.name] = S
 
-		if(!(S.spawn_flags & IS_RESTRICTED))
+	sortTim(all_species, /proc/cmp_text_asc)
+
+	// The other lists are generated *after* we sort the main one so they don't need sorting too.
+	for (var/thing in all_species)
+		var/datum/species/S = all_species[thing]
+		
+		if (!(S.spawn_flags & IS_RESTRICTED))
 			playable_species += S.name
 		if(S.spawn_flags & IS_WHITELISTED)
 			whitelisted_species += S.name

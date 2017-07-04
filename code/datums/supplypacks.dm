@@ -768,7 +768,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/gun/energy/taser,
 					/obj/item/weapon/storage/box/flashbangs,
 					/obj/item/weapon/storage/box/flashbangs,
-					/obj/item/ammo_magazine/tranq)
+					/obj/item/ammo_magazine/tranq,
+					/obj/item/weapon/storage/box/zipties)
 	cost = 60
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "Weapons crate"

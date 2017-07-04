@@ -93,8 +93,8 @@ Class Procs:
 /connection_edge/proc/recheck()
 
 /connection_edge/proc/flow(list/movable, differential, repelled)
-	for(var/i = 1; i <= movable.len; i++)
-		var/atom/movable/M = movable[i]
+	for(var/thing in movable)
+		var/atom/movable/M = thing
 
 		//If they're already being tossed, don't do it again.
 		if(M.last_airflow > world.time - vsc.airflow_delay) continue
@@ -102,14 +102,14 @@ Class Procs:
 
 		//Check for knocking people over
 		if(ismob(M) && differential > vsc.airflow_stun_pressure)
-			if(M:status_flags & GODMODE) continue
+			if(M:status_flags & GODMODE)
+				continue
 			M:airflow_stun()
 
 		if(M.check_airflow_movable(differential))
 			//Check for things that are in range of the midpoint turfs.
-			var/list/close_turfs = list()
-			for(var/turf/U in connecting_turfs)
-				if(get_dist(M,U) < world.view) close_turfs += U
+			var/list/close_turfs = connecting_turfs & RANGE_TURFS(world.view, M)
+
 			if(!close_turfs.len) continue
 
 			M.airflow_dest = pick(close_turfs) //Pick a random midpoint to fly towards.

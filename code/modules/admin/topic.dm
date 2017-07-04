@@ -420,6 +420,9 @@
 	else if(href_list["boot2"])
 		var/mob/M = locate(href_list["boot2"])
 		if (ismob(M))
+			if(!check_rights(R_MOD|R_ADMIN, 0))
+				usr << "<span class='warning'>You do not have the appropriate permissions to boot users!</span>"
+				return
 			if(!check_if_greater_rights_than(M.client))
 				return
 			var/reason = sanitize(input("Please enter reason"))
@@ -541,7 +544,7 @@
 
 		if(ROUND_IS_STARTED)
 			return alert(usr, "The game has already started.", null, null, null, null)
-		if(master_mode != "secret")
+		if(master_mode != ROUNDTYPE_STR_SECRET && master_mode != ROUNDTYPE_STR_MIXED_SECRET)
 			return alert(usr, "The game mode has to be secret!", null, null, null, null)
 		var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
 		for(var/mode in config.modes)
@@ -1594,12 +1597,16 @@
 			usr << "<span class='danger'>Player not found!</span>"
 			return
 
-		if (C.adminhelped == 2)
+		if (C.adminhelped >= 2)
 			log_and_message_admins("has called <font color='red'>dibs</font> on [key_name_admin(C)]'s adminhelp!")
 			usr << "<font color='blue'><b>You have taken over [key_name_admin(C)]'s adminhelp.</b></font>'"
 			usr << "[get_options_bar(C, 2, 1, 1)]"
 
 			C << "<font color='red'><b>Your adminhelp will be tended [usr.client.holder.fakekey ? "shortly" : "by [key_name(usr, 0, 0)]"]. Please allow the staff member a minute or two to write up a response.</b></font>"
+
+			if (C.adminhelped == 3)
+				discord_bot.send_to_admins("Request for Help from [key_name(C)] is being tended to by [key_name(usr)].")
+
 			C.adminhelped = 1
 		else
 			usr << "<font color='red'><b>The adminhelp has already been claimed!</b></font>"

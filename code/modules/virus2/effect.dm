@@ -365,12 +365,18 @@
 /datum/disease2/effect/sneeze
 	name = "Coldingtons Effect"
 	stage = 1
-	activate(var/mob/living/carbon/mob,var/multiplier)
+	activate(var/mob/living/carbon/mob, var/multiplier)
 		if (prob(30))
 			mob << "<span class='warning'>You feel like you are about to sneeze!</span>"
-		sleep(5)
+		addtimer(CALLBACK(src, .proc/do_sneeze, mob, multiplier), 5)
+
+
+	proc/do_sneeze(mob/living/carbon/mob, multiplier)
+		if (QDELETED(mob))
+			return
+
 		mob.say("*sneeze")
-		for(var/mob/living/carbon/M in get_step(mob,mob.dir))
+		for(var/mob/living/carbon/M in get_step(mob, mob.dir))
 			mob.spread_disease_to(M)
 		if (prob(50))
 			var/obj/effect/decal/cleanable/mucus/M = new(get_turf(mob))

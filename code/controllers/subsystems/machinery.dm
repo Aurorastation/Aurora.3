@@ -74,8 +74,8 @@
 			sortTim(cameranet.cameras, /proc/cmp_camera)
 			cameranet.cameras_unsorted = FALSE
 
-	var/list/curr_machinery = src.processing_machinery
-	var/list/curr_powersinks = src.processing_powersinks
+	var/list/curr_machinery = processing_machinery
+	var/list/curr_powersinks = processing_powersinks
 
 	while (curr_machinery.len)
 		var/obj/machinery/M = curr_machinery[curr_machinery.len]
@@ -90,7 +90,7 @@
 
 		if (M.machinery_processing)
 			processes_this_tick++
-			switch (M.process())
+			switch (M.machinery_process())
 				if (PROCESS_KILL)
 					remove_machine(M)
 				if (M_NO_PROCESS)
@@ -99,12 +99,26 @@
 		if (start_tick != world.time)
 			// Slept.
 			if (!slept_in_process[M.type])
-				log_debug("SSmachinery: Type '[M.type]' slept during process().")
+				log_debug("SSmachinery: Type '[M.type]' slept during machinery_process().")
 				slept_in_process[M.type] = TRUE
 
 		if (M.use_power)
 			powerusers_this_tick++
-			M.auto_use_power()
+			if (M.has_special_power_checks)
+				M.auto_use_power()
+			else
+				var/area/A = M.loc ? M.loc.loc : null
+				if (isarea(A))
+					var/chan = M.power_channel
+					if (A.powered(chan))
+						var/usage = 0
+						switch (M.use_power)
+							if (1)
+								usage = M.idle_power_usage
+							if (2)
+								usage = M.active_power_usage
+						
+						A.use_power(usage, chan)
 
 		if (no_mc_tick)
 			CHECK_TICK
@@ -133,6 +147,14 @@
 	out += "M:[machines.len] PI:[processing_power_items.len]"
 	out += "LT:{T:[processes_this_tick]|P:[powerusers_this_tick]}"
 	..(out.Join("\n\t"))
+
+/datum/controller/subsystem/machinery/proc/setup_template_powernets(list/cables)
+	for(var/A in cables)
+		var/obj/structure/cable/PC = A
+		if(!PC.powernet)
+			var/datum/powernet/NewPN = new()
+			NewPN.add_cable(PC)
+			propagate_network(PC, PC.powernet)
 
 /proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))

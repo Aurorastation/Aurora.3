@@ -58,9 +58,9 @@ turf/c_airblock(turf/other)
 	#ifdef MULTIZAS
 	if(other.z != src.z)
 		if(other.z < src.z)
-			if(!istype(src, /turf/simulated/open)) return BLOCKED
+			if(!isopenturf(src)) return BLOCKED
 		else
-			if(!istype(other, /turf/simulated/open)) return BLOCKED
+			if(!isopenturf(other)) return BLOCKED
 	#endif
 
 	if(((blocks_air & ZONE_BLOCKED) || (other.blocks_air & ZONE_BLOCKED)))

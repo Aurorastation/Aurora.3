@@ -167,13 +167,13 @@
 			holographic_overlay(src, icon, "[asmtype]-overlay-green")
 	if(panel_open)
 		add_overlay("[asmtype]-hatch")
-	update_oo()	
+	update_above()	
 
 /obj/machinery/crusher_base/power_change()
 	..()
 	queue_icon_update()
 
-/obj/machinery/crusher_base/process()
+/obj/machinery/crusher_base/machinery_process()
 	set waitfor = FALSE
 	if(!pstn) //We dont process if theres no piston
 		return

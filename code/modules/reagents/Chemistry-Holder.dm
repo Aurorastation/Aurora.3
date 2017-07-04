@@ -403,7 +403,7 @@
 			return trans_to_holder(R, amount, multiplier, copy)
 		if(type == CHEM_INGEST)
 			var/datum/reagents/R = C.ingested
-			return trans_to_holder(R, amount, multiplier, copy)
+			return C.ingest(src,R, amount, multiplier, copy)
 		if(type == CHEM_TOUCH)
 			var/datum/reagents/R = C.touching
 			return trans_to_holder(R, amount, multiplier, copy)
