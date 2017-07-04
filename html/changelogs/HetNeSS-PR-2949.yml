@@ -1,0 +1,38 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#################################
+
+# Your name.  
+author: HetNeSS
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscadd: "Added an autopsy scanner to mediborg; a t-ray scanner, an air analyzer, a lightreplacer, a floor painter, an inflatable dispenser and a blueprints to a construction borg; Added a wood (20000) and a plastic (15000) synthesizers to an engineering borg. Engineering borgs can now produce a wooden floor tiles, a white floor tiles, a freezer floor tiles and a dark floor tiles. Security borgs are now equipped with a power of book of security space laws. Janiborgs did receive a bucket and a matter decomplier. Service borgs did receive a brand new cheap bar of soap and a rag. Clerical borgs now do have their own fancy red folder to store papers within. Mining-related cyborgs now are equipped with a GPS tool, to help locate their own position in space."
+  - balance: " Changed the value of internal metal storage of construction borg to 80000, plasteel storage to 40000, glass storage to 60000, wire length to 60. Changed the wire length storage of engineering borg to 45. Maintenance drones internal storage of wood and plastic increased to 4000 and 2000, but their ammount of wire pieces has been decreased to 15"
