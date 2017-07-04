@@ -570,7 +570,7 @@ area/space/atmosalert()
 
 
 /area/maintenance
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = list(
@@ -581,9 +581,6 @@ area/space/atmosalert()
 		'sound/ambience/ambimaint5.ogg'
 	)
 	station_area = 1
-
-/area/maintenance/holomapAlwaysDraw()
-	return FALSE
 
 /area/maintenance/civ
 	name = "\improper Civilian Maintenance"
@@ -1547,9 +1544,7 @@ area/space/atmosalert()
 	name = "\improper Vault"
 	icon_state = "nuke_storage"
 	holomap_color = null
-
-/area/security/nuke_storage/holomapAlwaysDraw()
-	return FALSE
+	flags = HIDE_FROM_HOLOMAP
 
 /area/security/checkpoint
 	name = "\improper Security Checkpoint"
@@ -1976,9 +1971,7 @@ area/space/atmosalert()
 
 /area/turret_protected
 	station_area = 1
-
-/area/turret_protected/holomapAlwaysDraw()
-	return FALSE
+	flags = HIDE_FROM_HOLOMAP
 
 /area/turret_protected/ai_upload
 	name = "\improper AI Upload Chamber"
