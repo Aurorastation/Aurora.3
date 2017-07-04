@@ -19,12 +19,10 @@
 	var/const/ROOM_ERR_SPACE = -1
 	var/const/ROOM_ERR_TOOLARGE = -2
 
-/obj/item/blueprints/attack_self(mob/M as mob)
-	if (!istype(M,/mob/living/carbon/human))
-		M << "This stack of blue paper means nothing to you." //monkeys cannot into projecting
-		return
-	interact()
-	return
+/obj/item/blueprints/attack_self(mob/user as mob) // shoutout to alberyk
+        interact()
+        add_fingerprint(user)
+        return
 
 /obj/item/blueprints/Topic(href, href_list)
 	..()
