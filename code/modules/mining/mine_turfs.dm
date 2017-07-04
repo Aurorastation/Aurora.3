@@ -346,7 +346,7 @@
 				flick("flash",M.flash)
 				if(prob(50))
 					M.Stun(5)
-			M.apply_effect(25, IRRADIATE)
+			M.apply_effect(25, IRRADIATE, blocked = M.getarmor(null, "rad"))
 			if(prob(3))
 				excavate_find(prob(5), finds[1])
 
