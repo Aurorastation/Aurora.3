@@ -112,12 +112,10 @@
 /*
  * Cyborg modules
  */
- 
+
 /obj/item/stack/tile/wood/cyborg
 	name = "wood floor tile synthesizer"
 	desc = "A device that makes wood floor tiles."
-	gender = NEUTER
-	matter = null
 	uses_charge = 1
 	charge_costs = list(250)
 	stacktype = /obj/item/stack/tile/wood
@@ -125,9 +123,7 @@
 
 /obj/item/stack/tile/floor/cyborg
 	name = "floor tile synthesizer"
-	desc = "A device that makes floor tiles."
-	gender = NEUTER
-	matter = null
+	desc = "A device that makes steel floor tiles."
 	uses_charge = 1
 	charge_costs = list(250)
 	stacktype = /obj/item/stack/tile/floor
@@ -136,7 +132,6 @@
 /obj/item/stack/tile/floor_white/cyborg
 	name = "white floor tile synthesizer"
 	desc = "A device that makes plastic white floor tiles."
-	gender = NEUTER
 	matter = null
 	uses_charge = 1
 	charge_costs = list(250)
@@ -145,8 +140,7 @@
 
 /obj/item/stack/tile/floor_freezer/cyborg
 	name = "freezer floor tile synthesizer"
-	desc = "A device that makes plastic tiles which mainly used to build freezer rooms."
-	gender = NEUTER
+	desc = "A device that makes plastic tiles which are mainly used to build freezer rooms."
 	matter = null
 	uses_charge = 1
 	charge_costs = list(250)
@@ -156,7 +150,6 @@
 /obj/item/stack/tile/floor_dark/cyborg
 	name = "dark floor tile synthesizer"
 	desc = "A device that makes plasteel dark floor tiles."
-	gender = NEUTER
 	matter = null
 	uses_charge = 1
 	charge_costs = list(250)
@@ -165,8 +158,7 @@
 
 /obj/item/stack/tile/carpet/cyborg
 	name = "carpet tile synthesizer"
-	desc = "A device that makes a pieces of carpet! Wow!"
-	gender = NEUTER
+	desc = "A device that makes carpet tiles."
 	matter = null
 	uses_charge = 1
 	charge_costs = list(250)
