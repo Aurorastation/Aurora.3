@@ -241,7 +241,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
-	src.modules += new /obj/item/weapon/reagent_containers/glass/beaker/large(src) // a large beaker to contain any reagents
 	src.modules += new /obj/item/weapon/autopsy_scanner(src) // an autopsy scanner
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
@@ -386,7 +385,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/analyzer(src) // to check air pressure in the area
 	src.modules += new /obj/item/device/lightreplacer(src) // to install lightning in the area
 	src.modules += new /obj/item/device/floor_painter(src)// to make america great again (c)
-	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // to stop those pesky humans being entering the zone 
+	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // to stop those pesky humans being entering the zone
 	src.modules += new /obj/item/blueprints(src) // the essence of construction
 	src.malfAImodule += new /obj/item/weapon/rtf(src)
 
@@ -398,7 +397,6 @@ var/global/list/robot_modules = list(
 	synths += plasteel
 	synths += glass
 	synths += wire
-
 
 	var/obj/item/stack/material/cyborg/steel/M = new (src)
 	M.synths = list(metal)
@@ -495,23 +493,23 @@ var/global/list/robot_modules = list(
 	var/obj/item/stack/material/cyborg/wood/W = new (src)
 	W.synths = list(wood)
 	src.modules += W
-	
+
 	var/obj/item/stack/material/cyborg/plastic/PS = new (src)
 	PS.synths = list(plastic)
 	src.modules += PS
-	
+
 	var/obj/item/stack/tile/wood/cyborg/FWT = new (src)
 	FWT.synths = list(wood)
 	src.modules += FWT
-	
+
 	var/obj/item/stack/tile/floor_white/cyborg/FTW = new (src)
 	FTW.synths = list(plastic)
 	src.modules += FTW
-	
+
 	var/obj/item/stack/tile/floor_freezer/cyborg/FTF = new (src)
 	FTF.synths = list(plastic)
 	src.modules += FTF
-	
+
 	var/obj/item/stack/tile/floor_dark/cyborg/FTD = new (src)
 	FTD.synths = list(plasteel)
 	src.modules += FTD
