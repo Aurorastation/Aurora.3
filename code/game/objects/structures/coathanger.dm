@@ -4,7 +4,8 @@
 	icon = 'icons/obj/coatrack.dmi'
 	icon_state = "coatrack0"
 	var/obj/item/clothing/suit/coat
-	var/list/allowed = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/det_trench)
+	var/list/allowed = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/det_trench, 
+							/obj/item/clothing/suit/storage/forensics, /obj/item/clothing/suit/storage/trench)
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
 	user.visible_message("[user] takes [coat] off \the [src].", "You take [coat] off the \the [src]")
@@ -44,9 +45,5 @@
 
 /obj/structure/coatrack/update_icon()
 	cut_overlays()
-	if (istype(coat, /obj/item/clothing/suit/storage/toggle/labcoat))
-		add_overlay("coat_lab")
-	if (istype(coat, /obj/item/clothing/suit/storage/toggle/labcoat/cmo))
-		add_overlay("coat_cmo")
-	if (istype(coat, /obj/item/clothing/suit/storage/det_trench))
-		add_overlay("coat_det")
+	if (coat)
+		add_overlay("coat_[coat.icon_state]")
