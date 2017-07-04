@@ -8,9 +8,9 @@
 							/obj/item/clothing/suit/storage/forensics, /obj/item/clothing/suit/storage/trench)
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
-	if(user.incapacitated())
+	if (!ishuman(user))
 		return
-	if(isrobot(user))
+	if(user.incapacitated())
 		return
 	if (!user.can_use_hand())
 		return
