@@ -92,7 +92,7 @@
 				break
 			continue
 
-		if (!T.shadower)	// If we don't have our shadower yet, create it. (this can be created by lighting too)
+		if (!T.shadower)	// If we don't have our shadower yet, create it.
 			T.shadower = new(T)
 
 		// Figure out how many z-levels down we are.
