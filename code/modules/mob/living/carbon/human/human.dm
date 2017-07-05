@@ -303,7 +303,7 @@
 	if(legcuffed)
 		dat += "<BR><A href='?src=\ref[src];item=[slot_legcuffed]'>Legcuffed</A>"
 
-	if(suit && suit.accessories.len)
+	if(suit && LAZYLEN(suit.accessories))
 		dat += "<BR><A href='?src=\ref[src];item=tie'>Remove accessory</A>"
 	dat += "<BR><A href='?src=\ref[src];item=splints'>Remove splints</A>"
 	dat += "<BR><A href='?src=\ref[src];item=pockets'>Empty pockets</A>"

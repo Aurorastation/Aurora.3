@@ -543,7 +543,7 @@ var/global/list/damage_icon_parts = list()
 		//accessories
 		if (istype(w_uniform, /obj/item/clothing/under))//Prevent runtime errors with unusual objects
 			var/obj/item/clothing/under/under = w_uniform
-			if(under.accessories.len)
+			if(LAZYLEN(under.accessories))
 				for(var/obj/item/clothing/accessory/A in under.accessories)
 					standing.overlays |= A.get_mob_overlay()
 
@@ -924,7 +924,7 @@ var/global/list/damage_icon_parts = list()
 
 		// Accessories - copied from uniform, BOILERPLATE because fuck this system.
 		var/obj/item/clothing/suit/suit = wear_suit
-		if(istype(suit) && suit.accessories.len)
+		if(istype(suit) && LAZYLEN(suit.accessories))
 			for(var/obj/item/clothing/accessory/A in suit.accessories)
 				standing.overlays |= A.get_mob_overlay()
 
