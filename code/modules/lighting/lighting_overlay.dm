@@ -145,6 +145,7 @@
 		shadower.appearance = src
 		shadower.plane = OPENTURF_CAP_PLANE
 		shadower.layer = SHADOWER_LAYER
+		shadower.invisibility = 0
 		if (shadower.icon_state == LIGHTING_BASE_ICON_STATE)
 			// We're using a color matrix, so just darken the colors.
 			var/list/c_list = shadower.color
