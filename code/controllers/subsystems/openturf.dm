@@ -31,11 +31,15 @@
 
 		var/turf/simulated/open/T = get_turf(AM)
 		if (istype(T))
-			T.update()
+			T.update_icon()
 		else
 			qdel(AM)
 
 		CHECK_TICK
+
+	for (var/thing in openspace_turfs)
+		var/turf/simulated/open/T = thing
+		T.update_icon()
 
 	enable()
 
@@ -135,9 +139,9 @@
 					var/list/c_list = shadower.color
 					c_list[CL_MATRIX_RR] *= SHADOWER_DARKENING_FACTOR
 					c_list[CL_MATRIX_RG] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_RB] *= SHADOWER_DARKENING_FACTOR
 					c_list[CL_MATRIX_GR] *= SHADOWER_DARKENING_FACTOR
 					c_list[CL_MATRIX_GG] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_RB] *= SHADOWER_DARKENING_FACTOR
 					c_list[CL_MATRIX_GB] *= SHADOWER_DARKENING_FACTOR
 					c_list[CL_MATRIX_BR] *= SHADOWER_DARKENING_FACTOR
 					c_list[CL_MATRIX_BG] *= SHADOWER_DARKENING_FACTOR
