@@ -35,14 +35,14 @@
 	var/undies = get_undies()
 	var/gender_socks = get_gender_socks()
 	if(!get_key_by_value(undies, pref.underwear))
-		pref.underwear = undies[undies[1]]
+		pref.underwear = null
 	if(!get_key_by_value(undershirt_t, pref.undershirt))
 		pref.undershirt = undershirt_t[undershirt_t[1]]
 	if(!get_key_by_value(gender_socks, pref.socks))
-		pref.socks = gender_socks[gender_socks[1]]
-
+		pref.socks = null
 
 /datum/category_item/player_setup_item/general/equipment/content()
+	sanitize_character()
 	. += "<b>Equipment:</b><br>"
 	. += "Underwear: <a href='?src=\ref[src];change_underwear=1'><b>[get_key_by_value(get_undies(),pref.underwear)]</b></a><br>"
 	. += "Undershirt: <a href='?src=\ref[src];change_undershirt=1'><b>[get_key_by_value(undershirt_t,pref.undershirt)]</b></a><br>"
