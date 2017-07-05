@@ -100,7 +100,8 @@
 	can_hold = list(/obj/item/weapon/ore)
 
 /obj/item/weapon/storage/bag/ore/drone
-	max_storage_space = 400
+	// this used to be 400. The inventory system FUCKING DIED at this.
+	max_storage_space = 200
 
 
 // -----------------------------
