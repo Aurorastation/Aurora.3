@@ -18,7 +18,7 @@
 
 /datum/observ/proc/has_listeners(var/eventSource)
 	var/list/listeners = listeners_assoc[eventSource]
-	return listeners && listeners.len
+	return LAZYLEN(listeners)
 
 /datum/observ/proc/register(var/eventSource, var/datum/procOwner, var/proc_call)
 	if(!(eventSource && procOwner && procOwner))
@@ -29,11 +29,8 @@
 	if(!istype(eventSource, expected_type))
 		CRASH("Unexpected type. Expected [expected_type], was [eventSource]")
 
-	var/listeners = listeners_assoc[eventSource]
-	if(!listeners)
-		listeners = list()
-		listeners_assoc[eventSource] = listeners
-	listeners[procOwner] = proc_call
+	LAZYINITLIST(listeners_assoc[eventSource])
+	listeners_assoc[eventSource][procOwner] = proc_call
 	destroyed_event.register(procOwner, src, /datum/observ/proc/unregister)
 	return TRUE
 
@@ -43,19 +40,21 @@
 	if(istype(eventSource, /datum/observ))
 		return FALSE
 
-	var/listeners = listeners_assoc[eventSource]
+	var/list/listeners = listeners_assoc[eventSource]
 	if(!listeners)
 		return FALSE
 
 	listeners -= procOwner
+	if (!listeners.len)
+		listeners_assoc -= eventSource
 	destroyed_event.unregister(procOwner, src)
 	return TRUE
 
-/datum/observ/proc/raise_event(var/list/args = list())
+/datum/observ/proc/raise_event(...)
 	if(!args.len)
 		return
 	var/listeners = listeners_assoc[args[1]]
 	if(!listeners)
 		return
 	for(var/listener in listeners)
-		call(listener, listeners[listener])	(arglist(args))
+		call(listener, listeners[listener])(arglist(args))
