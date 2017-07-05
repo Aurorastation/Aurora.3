@@ -133,10 +133,10 @@
 	)
 #endif 
 
-	if (isopenturf(loc))
-		// If we're on an openturf, update the shadower object too.
-		// We could queue an icon update for the entire OT, but this involves less overhead.
-		var/turf/simulated/open/OT = loc
+	// If we're on an openturf, update the shadower object too.
+	// We could queue an icon update for the entire OT, but this involves less overhead.
+	var/turf/simulated/open/OT = loc:above
+	if (OT)
 		var/atom/movable/openspace/multiplier/shadower = OT.shadower
 		if (!shadower)	// The OT hasn't been initialized yet.
 			OT.update_icon()
@@ -168,7 +168,7 @@
 				0, SHADOWER_DARKENING_FACTOR, 0,
 				0, 0, SHADOWER_DARKENING_FACTOR
 			)
-		
+
 		if (shadower.bound_overlay)
 			shadower.update_above()
 
