@@ -528,10 +528,10 @@ About the new airlock wires panel:
 		src.electrified_until = 0
 	else if(duration)	//electrify door for the given duration seconds
 		if(usr)
-			shockedby += text("\[[time_stamp()]\] - [usr](ckey:[usr.ckey])")
+			LAZYADD(shockedby, "\[[time_stamp()]\] - [usr](ckey:[usr.ckey])")
 			usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Electrified the [name] at [x] [y] [z]</font>")
 		else
-			shockedby += text("\[[time_stamp()]\] - EMP)")
+			LAZYADD(shockedby, "\[[time_stamp()]\] - EMP)")
 		message = "The door is now electrified [duration == -1 ? "permanently" : "for [duration] second\s"]."
 		src.electrified_until = duration == -1 ? -1 : world.time + SecondsToTicks(duration)
 		if (electrified_until > 0)
@@ -588,6 +588,7 @@ About the new airlock wires panel:
 	if (QDELING(src))
 		return
 	cut_overlays()
+	var/list/new_overlays = list()
 	if(density)
 		if(locked && lights && src.arePowerSystemsOn())
 			icon_state = "door_locked"
@@ -601,23 +602,23 @@ About the new airlock wires panel:
 				has_set_boltlight = FALSE
 		if(p_open || welded)
 			if(p_open)
-				add_overlay("panel_open")
+				new_overlays += "panel_open"
 			if (!(stat & NOPOWER))
 				if(stat & BROKEN)
-					add_overlay("sparks_broken")
+					new_overlays += "sparks_broken"
 				else if (health < maxhealth * 3/4)
-					add_overlay("sparks_damaged")
+					new_overlays += "sparks_damaged"
 			if(welded)
-				add_overlay("welded")
+				new_overlays += "welded"
 		else if (health < maxhealth * 3/4 && !(stat & NOPOWER))
-			add_overlay("sparks_damaged")
+			new_overlays += "sparks_damaged"
 
 		if (hatch_image)
 			if (hatchstate)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else
 				hatch_image.icon_state = hatchstyle
-			add_overlay(hatch_image)
+			new_overlays += hatch_image
 	else
 		icon_state = "door_open"
 		if((stat & BROKEN) && !(stat & NOPOWER))
@@ -626,7 +627,7 @@ About the new airlock wires panel:
 			set_light(0)
 			has_set_boltlight = FALSE
 
-	update_above()
+	add_overlay(new_overlays)
 
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
