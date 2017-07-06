@@ -220,23 +220,20 @@
 	var/datum/radio_frequency/radio_connection
 
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 
 		if(autolink)
-			for(var/obj/machinery/magnetic_module/M in world)
-				if(M.freq == frequency && M.code == code)
-					magnets.Add(M)
-
-
-		spawn(45)	// must wait for map loading to finish
-			if(SSradio)
-				radio_connection = SSradio.add_object(src, frequency, RADIO_MAGNETS)
-
+			. = INITIALIZE_HINT_LATELOAD
+			radio_connection = SSradio.add_object(src, frequency, RADIO_MAGNETS)
 
 		if(path) // check for default path
 			filter_path() // renders rpath
 
+	LateInitialize()
+		for(var/obj/machinery/magnetic_module/M in machines)
+			if(M.freq == frequency && M.code == code)
+				magnets.Add(M)
 
 	process()
 		if(magnets.len == 0 && autolink)
