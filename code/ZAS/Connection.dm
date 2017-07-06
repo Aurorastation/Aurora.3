@@ -60,8 +60,8 @@ Class Procs:
 
 /connection/New(turf/simulated/A, turf/simulated/B)
 	#ifdef ZASDBG
-	ASSERT(SSair.has_valid_zone(A))
-	//ASSERT(SSair.has_valid_zone(B))
+	ASSERT(TURF_HAS_VALID_ZONE(A))
+	//ASSERT(TURF_HAS_VALID_ZONE(B))
 	#endif
 	src.A = A
 	src.B = B
