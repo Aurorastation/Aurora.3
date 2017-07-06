@@ -90,14 +90,15 @@
 /atom/movable/openspace/multiplier
 	name = "openspace multiplier"
 	desc = "You shouldn't see this."
-	icon = 'icons/misc/openspace.dmi'
-	icon_state = "white"
+	icon = 'icons/effects/lighting_overlay.dmi'
+	icon_state = "blank"
 	plane = OPENTURF_CAP_PLANE
+	layer = SHADOWER_LAYER
 	blend_mode = BLEND_MULTIPLY
 	color = list(
-		0.75, 0, 0,
-		0, 0.75, 0,
-		0, 0, 0.75
+		SHADOWER_DARKENING_FACTOR, 0, 0,
+		0, SHADOWER_DARKENING_FACTOR, 0,
+		0, 0, SHADOWER_DARKENING_FACTOR
 	)
 
 /atom/movable/openspace/multiplier/Destroy()

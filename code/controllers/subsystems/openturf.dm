@@ -1,6 +1,8 @@
 #define OPENTURF_MAX_PLANE -71
 #define OPENTURF_CAP_PLANE -70      // The multiplier goes here so it'll be on top of every other overlay.
 #define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
+#define SHADOWER_DARKENING_FACTOR 0.25	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
+#define SHADOWER_LAYER 0
 
 /var/datum/controller/subsystem/openturf/SSopenturf
 
@@ -29,11 +31,15 @@
 
 		var/turf/simulated/open/T = get_turf(AM)
 		if (istype(T))
-			T.update()
+			T.update_icon()
 		else
 			qdel(AM)
 
 		CHECK_TICK
+
+	for (var/thing in openspace_turfs)
+		var/turf/simulated/open/T = thing
+		T.update_icon()
 
 	enable()
 
@@ -119,23 +125,48 @@
 			var/atom/movable/object = thing
 			if (QDELETED(object) || object.no_z_overlay)
 				// Don't queue deleted stuff or stuff that doesn't need an overlay.
-				if (no_mc_tick)
-					CHECK_TICK
-				else if (MC_TICK_CHECK)
-					break
 				continue
 
-			// Cache our already-calculated depth so we don't need to re-calculate it a bunch of times.
+			if (istype(object, /atom/movable/lighting_overlay))	// Special case.
+				var/atom/movable/openspace/multiplier/shadower = T.shadower
+				// This is duplicated in lighting_overlay.dm for performance reasons.
+				shadower.appearance = object
+				shadower.plane = OPENTURF_CAP_PLANE
+				shadower.layer = SHADOWER_LAYER
+				shadower.invisibility = 0
+				if (shadower.icon_state == LIGHTING_BASE_ICON_STATE)
+					// We're using a color matrix, so just darken the colors.
+					var/list/c_list = shadower.color
+					c_list[CL_MATRIX_RR] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_RG] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_RB] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_GR] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_GG] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_GB] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_BR] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_BG] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_BB] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_AR] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_AG] *= SHADOWER_DARKENING_FACTOR
+					c_list[CL_MATRIX_AB] *= SHADOWER_DARKENING_FACTOR
+					shadower.color = c_list
+				else
+					shadower.color = list(
+						SHADOWER_DARKENING_FACTOR, 0, 0,
+						0, SHADOWER_DARKENING_FACTOR, 0,
+						0, 0, SHADOWER_DARKENING_FACTOR
+					)
+			else
+				if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
+					object.bound_overlay = new(T)
+					object.bound_overlay.associated_atom = object
 
-			if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
-				object.bound_overlay = new(T)
-				object.bound_overlay.associated_atom = object
+				var/atom/movable/openspace/overlay/OO = object.bound_overlay
 
-			var/atom/movable/openspace/overlay/OO = object.bound_overlay
+				// Cache our already-calculated depth so we don't need to re-calculate it a bunch of times.
+				OO.depth = depth
 
-			OO.depth = depth
-
-			queued_overlays += OO
+				queued_overlays += OO
 
 		T.updating = FALSE
 
@@ -178,8 +209,9 @@
 		OO.plane = OPENTURF_MAX_PLANE - OO.depth
 		OO.opacity = FALSE
 		OO.queued = FALSE
-		if (istype(OO.associated_atom, /atom/movable/openspace/multiplier))	// Special case for multipliers.
-			OO.layer = 1e6
+
+		if (istype(OO.associated_atom, /atom/movable/openspace/multiplier) && OO.plane < OPENTURF_MAX_PLANE)	// Special case for multipliers.
+			OO.plane++
 
 		if (OO.bound_overlay)	// If we have a bound overlay, queue it too.
 			OO.update_above()
