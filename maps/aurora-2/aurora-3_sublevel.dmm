@@ -748,6 +748,14 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Tesla Containment";
+	name_tag = "Tesla Containment"
+	},
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "bB" = (
@@ -4534,6 +4542,10 @@
 	output_attempt = 1;
 	output_level = 200000
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "AI Core - SMES Room 2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -4595,7 +4607,7 @@
 /area/turret_protected/ai)
 "hZ" = (
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core - SMES Room";
+	c_tag = "AI Core - SMES Room 1";
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6488,6 +6500,7 @@
 	pixel_y = 29;
 	req_access = list(20)
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "kU" = (
@@ -7301,8 +7314,8 @@
 /area/bridge/aibunker)
 "my" = (
 /obj/machinery/door/airlock/highsecurity{
-	name = "Ladder Access";
-	req_access = list(16)
+	name = "Command Bunker Access";
+	req_access = list(19)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7479,9 +7492,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor{
-	icon_state = "white"
-	},
+/turf/simulated/floor/tiled/white,
 /area/outpost/research/analysis)
 "mS" = (
 /turf/simulated/wall/r_wall,
@@ -8439,8 +8450,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/highsecurity{
-	name = "Ladder Access";
-	req_access = list(16)
+	name = "Command Bunker Access";
+	req_access = list(19)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -9459,7 +9470,7 @@
 /area/maintenance/sublevel)
 "qd" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list(19)
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -10022,6 +10033,9 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "rk" = (
@@ -11095,9 +11109,6 @@
 	pixel_x = -25;
 	pixel_y = -5;
 	req_access = list(40)
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/full,
 /obj/machinery/alarm{
@@ -12180,6 +12191,11 @@
 	dir = 6
 	},
 /obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "uK" = (
@@ -15404,6 +15420,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/lime,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "Ac" = (
@@ -22042,6 +22059,103 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
+/area/maintenance/sublevel)
+"LO" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	tag = ""
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Tesla Output";
+	name_tag = "Tesla Output"
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/outpost/engineering/power)
+"LP" = (
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"LQ" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -26;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
+"LR" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
+"LS" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
+"LT" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
+"LU" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/sublevel)
+"LV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light/small/emergency{
+	tag = "icon-bulb1 (EAST)";
+	icon_state = "bulb1";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/maintenance/sublevel)
 
 (1,1,1) = {"
@@ -33181,7 +33295,7 @@ au
 ad
 af
 af
-bV
+LO
 cp
 ad
 ag
@@ -39884,7 +39998,7 @@ fG
 dc
 fT
 fT
-gk
+fT
 eZ
 aa
 aa
@@ -40398,7 +40512,7 @@ fG
 dc
 fT
 fT
-fT
+gk
 eZ
 aa
 aa
@@ -40912,7 +41026,7 @@ fG
 dc
 fT
 fT
-gk
+fT
 eZ
 aa
 aa
@@ -41940,7 +42054,7 @@ aa
 aa
 eZ
 fT
-gk
+fT
 eZ
 aa
 aa
@@ -42444,7 +42558,7 @@ ab
 ab
 ab
 eZ
-fl
+fk
 eZ
 aa
 aa
@@ -42454,7 +42568,7 @@ aa
 aa
 eZ
 fT
-fT
+gk
 eZ
 aa
 aa
@@ -42958,7 +43072,7 @@ aa
 aa
 aa
 eZ
-fk
+fl
 eZ
 aa
 aa
@@ -42968,7 +43082,7 @@ aa
 aa
 eZ
 fT
-gk
+fT
 eZ
 aa
 aa
@@ -43472,7 +43586,7 @@ aa
 aa
 aa
 eZ
-fm
+ol
 fC
 fC
 fC
@@ -43480,7 +43594,7 @@ fN
 fC
 fC
 fC
-fN
+fC
 fC
 fC
 gG
@@ -61755,7 +61869,7 @@ eZ
 ne
 nD
 oi
-fT
+LS
 oP
 pg
 pH
@@ -62525,7 +62639,7 @@ fn
 fn
 aa
 eZ
-oj
+LR
 eZ
 eZ
 eZ
@@ -62535,7 +62649,7 @@ qA
 qR
 qR
 qR
-qR
+LV
 qR
 qR
 qR
@@ -62763,11 +62877,11 @@ fZ
 fZ
 ie
 ie
-ie
+ku
 ie
 ie
 id
-ie
+LP
 fa
 ab
 ab
@@ -64590,7 +64704,7 @@ eZ
 eZ
 eZ
 eZ
-fk
+LT
 eZ
 aa
 aa
@@ -69473,7 +69587,7 @@ fa
 aa
 aa
 eZ
-fk
+LU
 eZ
 aa
 aa
@@ -71775,7 +71889,7 @@ ab
 lV
 lZ
 mz
-mB
+LQ
 nE
 lV
 fn
