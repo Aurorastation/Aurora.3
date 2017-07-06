@@ -129,8 +129,7 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 		return
 
 	if(!owner.incapacitated() && owner.client)
-		spawn(0)
-			owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
+		INVOKE_ASYNC(owner, /atom/.proc/set_dir, get_dir(get_turf(owner), get_turf(src)))
 
 /obj/aiming_overlay/proc/aim_at(var/mob/target, var/obj/thing)
 
@@ -164,16 +163,16 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 		playsound(get_turf(owner), 'sound/weapons/TargetOn.ogg', 50,1)
 
 	forceMove(get_turf(target))
-	processing_objects |= src
+	START_PROCESSING(SSprocessing, src)
 
 	aiming_at.aimed |= src
 	toggle_active(1)
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35
-	moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
-	moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
-	destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
+	owner.OnMove(CALLBACK(src, .proc/update_aiming), "\ref[src]ownermove")
+	aiming_at.OnMove(CALLBACK(src, .proc/target_moved), "\ref[src]targetmove")
+	aiming_at.OnDestroy(CALLBACK(src, .proc/cancel_aiming), "\ref[src]targetdestroy")
 
 /obj/aiming_overlay/update_icon()
 	if(locked)
@@ -208,16 +207,16 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	if(!no_message)
 		owner.visible_message("<span class='notice'>\The [owner] lowers \the [aiming_with].</span>")
 
-	moved_event.unregister(owner, src)
+	owner.UnregisterOnMove("\ref[src]ownermove")
 	if(aiming_at)
-		moved_event.unregister(aiming_at, src)
-		destroyed_event.unregister(aiming_at, src)
+		aiming_at.UnregisterOnMove("\ref[src]targetmove")
+		aiming_at.UnregisterOnDestroy("\ref[src]targetdestroy")
 		aiming_at.aimed -= src
 		aiming_at = null
 
 	aiming_with = null
 	loc = null
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/aiming_overlay/proc/target_moved()
 	update_aiming()
