@@ -385,7 +385,7 @@
 
 	Destroy()
 		brig_closets -= src
-		return ..
+		return ..()
 
 	fill()
 		new /obj/item/clothing/under/color/orange( src )

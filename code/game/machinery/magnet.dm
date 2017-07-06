@@ -233,13 +233,13 @@
 	LateInitialize()
 		for(var/obj/machinery/magnetic_module/M in machines)
 			if(M.freq == frequency && M.code == code)
-				magnets.Add(M)
+				magnets += M
 
 	process()
 		if(magnets.len == 0 && autolink)
 			for(var/obj/machinery/magnetic_module/M in world)
 				if(M.freq == frequency && M.code == code)
-					magnets.Add(M)
+					magnets += M
 
 
 	attack_ai(mob/user as mob)
