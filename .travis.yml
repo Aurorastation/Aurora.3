@@ -7,11 +7,6 @@ env:
   MACRO_COUNT=120
   FLYWAY_BUILD="4.2.0"
 
-cache:
-  directories:
-    - $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}
-    - $HOME/flyway-${FLYWAY_BUILD}
-
 addons:
   mariadb: '10.1'
   apt:
