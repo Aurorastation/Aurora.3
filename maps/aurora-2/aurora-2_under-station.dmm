@@ -41,7 +41,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "j" = (
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/zpipe/up/black,
 /turf/simulated/floor/plating{
 	roof_type = null
@@ -56,7 +55,6 @@
 	icon_state = "0-2";
 	pixel_y = 0
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/zpipe/up/green,
 /turf/simulated/floor/plating{
 	roof_type = null
@@ -64,7 +62,6 @@
 /area/engineering/cooling)
 "l" = (
 /obj/structure/ladder/up,
-/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -159,7 +156,6 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "r" = (
@@ -168,12 +164,9 @@
 	icon_state = "intact";
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "s" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
@@ -184,7 +177,6 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/light/small/emergency,
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /turf/simulated/floor/plating,
@@ -199,7 +191,6 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
 "v" = (

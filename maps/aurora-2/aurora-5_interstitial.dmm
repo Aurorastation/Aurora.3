@@ -19,6 +19,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply,
 /obj/structure/cable{
+	d2 = 2;
 	icon_state = "11-2"
 	},
 /obj/structure/lattice,
@@ -1137,6 +1138,7 @@
 	dir = 8
 	},
 /obj/structure/cable/green{
+	d2 = 8;
 	icon_state = "11-8"
 	},
 /obj/structure/lattice,
@@ -1635,6 +1637,7 @@
 	dir = 8
 	},
 /obj/structure/cable{
+	d2 = 8;
 	icon_state = "11-8"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
