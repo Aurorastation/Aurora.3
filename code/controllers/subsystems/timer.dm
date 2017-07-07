@@ -52,6 +52,7 @@ var/datum/controller/subsystem/timer/SStimer
 			bucket_resolution = 0
 
 		log_ss(name, times_flushed ? "Timers flushed [times_flushed] times." : "Timers never flushed!")
+		log_ss(name, "Spent timers count: [spent ? spent.len : "0"].")
 		log_ss(name, "Active timers at tick [world.time]:")
 		for(var/I in processing)
 			var/datum/timedevent/TE = I
