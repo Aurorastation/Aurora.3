@@ -317,6 +317,7 @@
 
 		qdel(C)
 		qdel(src)
+		return
 
 	//Find our spawning point.
 	var/join_message = SSjobs.LateSpawn(character, rank)
