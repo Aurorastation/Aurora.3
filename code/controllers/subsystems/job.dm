@@ -511,8 +511,6 @@
 		job.equip_survival(H)
 		job.setup_account(H)
 
-		spawn_in_storage = EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
-
 		job.apply_fingerprints(H)
 
 	else
@@ -758,7 +756,6 @@
 						leftovers += thing
 					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
-					CI.autodrobe_no_remove = TRUE
 					H << "<span class='notice'>Equipping you with \a [thing]!</span>"
 					custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
@@ -789,7 +786,6 @@
 			if (H.equip_to_slot_or_del(CI, G.slot))
 				to_chat(H, "<span class='notice'>Equipping you with \a [thing]!</span>")
 				used_slots += G.slot
-				CI.autodrobe_no_remove = TRUE
 				Debug("ECD/([H]): Equipped [thing] successfully.")
 
 			else
