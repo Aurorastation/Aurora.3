@@ -27,6 +27,8 @@ var/datum/controller/subsystem/timer/SStimer
 	var/static/last_invoke_warning = 0
 	var/static/bucket_auto_reset = TRUE
 
+	var/static/times_flushed = 0
+
 /datum/controller/subsystem/timer/New()
 	NEW_SS_GLOBAL(SStimer)
 
@@ -49,7 +51,7 @@ var/datum/controller/subsystem/timer/SStimer
 		if(bucket_auto_reset)
 			bucket_resolution = 0
 		
-		log_ss(name, "Timer bucket reset. world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
+		log_ss(name, "Timer bucket reset. world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset], times_flushed: [times_flushed], length(spent): [length(spent)]")
 		for (var/i in 1 to length(bucket_list))
 			var/datum/timedevent/bucket_head = bucket_list[i]
 			if (!bucket_head)
@@ -126,6 +128,8 @@ var/datum/controller/subsystem/timer/SStimer
 		if (MC_TICK_CHECK)
 			return
 
+	times_flushed++
+
 	bucket_count -= length(spent)
 
 	for (var/spent_timer in spent)
@@ -135,11 +139,11 @@ var/datum/controller/subsystem/timer/SStimer
 
 /datum/controller/subsystem/timer/proc/get_timer_debug_string(datum/timedevent/TE)
 	. = "Timer: [TE]"
-	. += "Prev:[TE.prev ? TE.prev : "NULL"], Next: [TE.next ? TE.next : "NULL"]"
+	. += "Prev: [TE.prev ? TE.prev : "NULL"], Next: [TE.next ? TE.next : "NULL"]"
 	if(TE.spent)
 		. += ", SPENT"
 	if(QDELETED(TE))
-		. += "QDELETED"
+		. += ", QDELETED"
 
 /datum/controller/subsystem/timer/proc/shift_buckets()
 	var/list/bucket_list = src.bucket_list
