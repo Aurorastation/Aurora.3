@@ -40,6 +40,8 @@ var/datum/controller/subsystem/timer/SStimer
 	var/lit = last_invoke_tick
 	var/last_check = world.time - TIMER_NO_INVOKE_WARNING
 
+	var/static/list/spent = list()
+
 	if(!bucket_count)
 		last_invoke_tick = world.time
 
@@ -86,7 +88,6 @@ var/datum/controller/subsystem/timer/SStimer
 		if (MC_TICK_CHECK)
 			return
 
-	var/static/list/spent = list()
 	var/static/datum/timedevent/timer
 	var/static/datum/timedevent/head
 
