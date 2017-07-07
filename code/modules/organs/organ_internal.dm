@@ -240,14 +240,14 @@ obj/item/organ/vaurca/neuralsocket/process()
 	var/volume = 50
 	var/manipulated_by = null
 
-/obj/item/organ/vaurca/preserve/New()
-	..()
+/obj/item/organ/vaurca/preserve/Initialize()
+	. = ..()
 
-	src.air_contents = new /datum/gas_mixture()
-	src.air_contents.adjust_gas("phoron", (ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
-	src.air_contents.volume = volume //liters
-	src.air_contents.temperature = T20C
-	src.distribute_pressure = ((pick(1.8,2.0,2.4,2.8)*ONE_ATMOSPHERE)*O2STANDARD)
+	air_contents = new /datum/gas_mixture()
+	air_contents.adjust_gas("phoron", (ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	air_contents.volume = volume //liters
+	air_contents.temperature = T20C
+	distribute_pressure = ((pick(1.8,2.0,2.4,2.8)*ONE_ATMOSPHERE)*O2STANDARD)
 
 	START_PROCESSING(SSprocessing, src)
 	var/mob/living/carbon/location = loc
