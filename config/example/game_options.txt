@@ -71,6 +71,13 @@ ANIMAL_DELAY 1
 #USE_LOYALTY_IMPLANTS
 
 
+### Brand Intelligence event options ###
+
+## If defined, the Brand Intelligence event will act like the old one; vendors will not uproot themselves and attack people if the origin machine is not repaired.
+#PEACEFUL_VENDORS
+
+## If defined, vendors do not have a chance to explode when all vendors are infected.
+#VENDORS_DO_NOT_EXPLODE
 ## Sunlight Settings ##
 
 # How many tiles should be between each light source. Higher is more accurate, but may take longer to process. Too low will freeze the server during updates.

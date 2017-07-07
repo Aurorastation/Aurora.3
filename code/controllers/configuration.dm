@@ -253,6 +253,10 @@ var/list/gamemode_cache = list()
 	var/log_gelf_ip = ""
 	var/log_gelf_port = ""
 
+	// Brand intelligence stuff.
+	var/violent_vendors = TRUE
+	var/explosive_vendors = TRUE
+
 	//IP Intel vars
 	var/ipintel_email
 	var/ipintel_rating_bad = 1
@@ -898,6 +902,12 @@ var/list/gamemode_cache = list()
 
 				if("use_loyalty_implants")
 					config.use_loyalty_implants = 1
+
+				if ("peaceful_vendors")
+					config.violent_vendors = FALSE
+
+				if ("vendors_do_not_explode")
+					config.explosive_vendors = FALSE
 
 				if ("sunlight_accuracy")
 					config.sun_accuracy = value

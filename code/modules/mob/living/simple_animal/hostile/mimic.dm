@@ -9,6 +9,8 @@
 	icon_state = "crate"
 	icon_living = "crate"
 
+	hunger_enabled = FALSE
+
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
 	response_help = "touches"
 	response_disarm = "pushes"
@@ -134,9 +136,9 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 	var/destroy_objects = 0
 	var/knockdown_people = 0
 
-/mob/living/simple_animal/hostile/mimic/copy/Initialize(mapload, obj/copy, mob/living/creator)
+/mob/living/simple_animal/hostile/mimic/copy/Initialize(mapload, obj/copy, mob/living/creator, destroy_original = FALSE)
 	. = ..(mapload)
-	CopyObject(copy, creator)
+	CopyObject(copy, creator, destroy_original)
 
 /mob/living/simple_animal/hostile/mimic/copy/death()
 
@@ -149,15 +151,17 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 	. = ..()
 	return . - creator
 
-/mob/living/simple_animal/hostile/mimic/copy/proc/CopyObject(var/obj/O, var/mob/living/creator)
+/mob/living/simple_animal/hostile/mimic/copy/proc/CopyObject(var/obj/O, var/mob/living/creator, destroy_original = FALSE)
 
-	if((istype(O, /obj/item) || istype(O, /obj/structure)) && !is_type_in_list(O, protected_objects))
+	if((istype(O, /obj/item) || istype(O, /obj/structure) || istype(O, /obj/machinery)) && !is_type_in_list(O, protected_objects))
 
 		O.forceMove(src)
 		appearance = O
+		pixel_x = 0
+		pixel_y = 0
 		icon_living = icon_state
 
-		if(istype(O, /obj/structure))
+		if(istype(O, /obj/structure) || istype(O, /obj/machinery))
 			health = (anchored * 50) + 50
 			destroy_objects = 1
 			if(O.density && O.anchored)
@@ -175,6 +179,9 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 		if(creator)
 			src.creator = creator
 			faction = "\ref[creator]" // very unique
+
+		if (destroy_original)
+			qdel(O)
 		return 1
 	return
 
@@ -190,3 +197,9 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 			if(prob(15))
 				L.Weaken(1)
 				L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
+
+/mob/living/simple_animal/hostile/mimic/copy/get_health_text()
+	if (health < maxHealth * 0.5)
+		. = "<span class='warning'>It looks heavily damaged.</span>"
+	else if (health < maxHealth)
+		. = "<span class='alert'>It looks damaged.</span>"
