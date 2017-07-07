@@ -321,10 +321,10 @@
 			job.setup_account(H)
 
 			EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
-			
+
 			// This goes after custom loadout it doesn't prevent custom loadout stuff from being equipped.
 			job.equip_survival(H)
-			
+
 		job.equip(H)
 		job.apply_fingerprints(H)
 
