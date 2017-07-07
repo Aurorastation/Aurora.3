@@ -25,6 +25,7 @@ var/datum/controller/subsystem/atoms/SSatoms
 /datum/controller/subsystem/atoms/Initialize(timeofday)
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 	InitializeAtoms()
+	to_chat(world, "<span class='notice'><b>Pre-init completed, Observe & Character-Setup unlocked.</b></span>")
 	return ..()
 
 /datum/controller/subsystem/atoms/proc/InitializeAtoms(list/atoms)
