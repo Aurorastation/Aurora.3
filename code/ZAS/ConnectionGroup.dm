@@ -93,12 +93,16 @@ Class Procs:
 /connection_edge/proc/recheck()
 
 /connection_edge/proc/flow(list/movable, differential, repelled)
+	set waitfor = FALSE
 	for(var/thing in movable)
 		var/atom/movable/M = thing
 
 		//If they're already being tossed, don't do it again.
-		if(M.last_airflow > world.time - vsc.airflow_delay) continue
-		if(M.airflow_speed) continue
+		if(M.last_airflow > world.time - vsc.airflow_delay)
+			continue
+
+		if(M.airflow_speed)
+			continue
 
 		//Check for knocking people over
 		if(ismob(M) && differential > vsc.airflow_stun_pressure)
@@ -108,9 +112,13 @@ Class Procs:
 
 		if(M.check_airflow_movable(differential))
 			//Check for things that are in range of the midpoint turfs.
-			var/list/close_turfs = connecting_turfs & RANGE_TURFS(world.view, M)
+			var/list/close_turfs = list()
+			for (var/T in RANGE_TURFS(world.view, M))
+				if (connecting_turfs[T])
+					close_turfs += T
 
-			if(!close_turfs.len) continue
+			if(!close_turfs.len)
+				continue
 
 			M.airflow_dest = pick(close_turfs) //Pick a random midpoint to fly towards.
 
@@ -118,6 +126,8 @@ Class Procs:
 				M.RepelAirflowDest(differential/5)
 			else
 				M.GotoAirflowDest(differential/10)
+
+		CHECK_TICK
 
 /connection_edge/zone/var/zone/B
 
@@ -133,7 +143,7 @@ Class Procs:
 
 /connection_edge/zone/add_connection(connection/c)
 	. = ..()
-	connecting_turfs += c.A
+	connecting_turfs[c.A] = TRUE
 
 /connection_edge/zone/remove_connection(connection/c)
 	connecting_turfs -= c.A
@@ -165,6 +175,7 @@ Class Procs:
 			attracted = B.movables()
 			repelled = A.movables()
 
+		// These are async, with waitfor = FALSE
 		flow(attracted, abs(differential), 0)
 		flow(repelled, abs(differential), 1)
 
@@ -204,11 +215,11 @@ Class Procs:
 
 /connection_edge/unsimulated/add_connection(connection/c)
 	. = ..()
-	connecting_turfs.Add(c.B)
+	connecting_turfs[c.B] = TRUE
 	air.group_multiplier = coefficient
 
 /connection_edge/unsimulated/remove_connection(connection/c)
-	connecting_turfs.Remove(c.B)
+	connecting_turfs -= c.B
 	air.group_multiplier = coefficient
 	. = ..()
 
@@ -229,6 +240,7 @@ Class Procs:
 	var/differential = A.air.return_pressure() - air.return_pressure()
 	if(abs(differential) >= vsc.airflow_lightest_pressure)
 		var/list/attracted = A.movables()
+		// This call is async, with waitfor = FALSE
 		flow(attracted, abs(differential), differential < 0)
 
 	if(equiv)

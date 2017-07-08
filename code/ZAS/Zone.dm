@@ -115,10 +115,11 @@ Class Procs:
 		#endif
 
 	//rebuild the old zone's edges so that they will be possessed by the new zone
-	for(var/connection_edge/E in edges)
+	for(var/ee in edges)
+		var/connection_edge/E = ee
 		if(E.contains_zone(into))
 			continue //don't need to rebuild this edge
-		for(var/turf/T in E.connecting_turfs)
+		for(var/T in E.connecting_turfs)
 			SSair.mark_for_update(T)
 
 /zone/proc/c_invalidate()
@@ -183,7 +184,8 @@ Class Procs:
 	var/zone_edges = 0
 	var/space_edges = 0
 	var/space_coefficient = 0
-	for(var/connection_edge/E in edges)
+	for(var/ee in edges)
+		var/connection_edge/E = ee
 		if(E.type == /connection_edge/zone) zone_edges++
 		else
 			space_edges++
