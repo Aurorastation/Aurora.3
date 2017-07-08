@@ -93,6 +93,7 @@ Class Procs:
 /connection_edge/proc/recheck()
 
 /connection_edge/proc/flow(list/movable, differential, repelled)
+	set waitfor = FALSE
 	for(var/thing in movable)
 		var/atom/movable/M = thing
 
@@ -174,6 +175,7 @@ Class Procs:
 			attracted = B.movables()
 			repelled = A.movables()
 
+		// These are async, with waitfor = FALSE
 		flow(attracted, abs(differential), 0)
 		flow(repelled, abs(differential), 1)
 
@@ -238,6 +240,7 @@ Class Procs:
 	var/differential = A.air.return_pressure() - air.return_pressure()
 	if(abs(differential) >= vsc.airflow_lightest_pressure)
 		var/list/attracted = A.movables()
+		// This call is async, with waitfor = FALSE
 		flow(attracted, abs(differential), differential < 0)
 
 	if(equiv)
