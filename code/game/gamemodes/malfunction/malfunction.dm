@@ -16,7 +16,7 @@
 	sleep(15) //Adds a delay to notifying the cyborgs, which looks slightly more realistic. This should only pause the post_setup proc.
 	var/malf_ai = select_active_ai_with_fewest_borgs()
 	if (malf_ai)
-		for (var/mob/living/silicon/robot/borg in world) //This is similar to baystation's solution, but without a notification.
+		for (var/mob/living/silicon/robot/borg in silicon_mob_list) //This is similar to baystation's solution, but without a notification.
 			borg.connect_to_ai(malf_ai) //This will do nothing if the borg is synced before this line of code.
 			notify_borg(borg)
 	else

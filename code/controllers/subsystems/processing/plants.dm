@@ -47,11 +47,6 @@
 		S.uid = "[seeds.len]"
 		S.roundstart = 1
 
-	// Make sure any seed packets that were mapped in are updated
-	// correctly (since the seed datums did not exist a tick ago).
-	for(var/obj/item/seeds/S in world)
-		S.update_seed()
-
 	//Might as well mask the gene types while we're at it.
 	var/list/used_masks = list()
 	var/list/plant_traits = ALL_GENES

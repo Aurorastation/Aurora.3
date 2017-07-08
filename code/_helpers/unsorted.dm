@@ -757,47 +757,6 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	if(A.vars.Find(lowertext(varname))) return 1
 	else return 0
 
-//Returns: all the areas in the world
-/proc/return_areas()
-	var/list/area/areas = list()
-	for(var/area/A in world)
-		areas += A
-	return areas
-
-//Returns: all the areas in the world, sorted.
-/proc/return_sorted_areas()
-	return sortAtom(return_areas())
-
-//Takes: Area type as text string or as typepath OR an instance of the area.
-//Returns: A list of all areas of that type in the world.
-/proc/get_areas(var/areatype)
-	if(!areatype) return null
-	if(istext(areatype)) areatype = text2path(areatype)
-	if(isarea(areatype))
-		var/area/areatemp = areatype
-		areatype = areatemp.type
-
-	var/list/areas = new/list()
-	for(var/area/N in world)
-		if(istype(N, areatype)) areas += N
-	return areas
-
-//Takes: Area type as text string or as typepath OR an instance of the area.
-//Returns: A list of all atoms	(objs, turfs, mobs) in areas of that type of that type in the world.
-/proc/get_area_all_atoms(var/areatype)
-	if(!areatype) return null
-	if(istext(areatype)) areatype = text2path(areatype)
-	if(isarea(areatype))
-		var/area/areatemp = areatype
-		areatype = areatemp.type
-
-	var/list/atoms = new/list()
-	for(var/area/N in world)
-		if(istype(N, areatype))
-			for(var/atom/A in N)
-				atoms += A
-	return atoms
-
 proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 	if(!original)
 		return null

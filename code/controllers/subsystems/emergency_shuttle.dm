@@ -86,7 +86,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 	evac = 1
 	priority_announcement.Announce("An emergency evacuation shuttle has been called. It will arrive in approximately [round(estimate_arrival_time()/60)] minutes.", new_sound = 'sound/AI/emergencyshuttlecalled.ogg')
-	for(var/area/A in world)
+	for(var/area/A in all_areas)
 		if(istype(A, /area/hallway))
 			A.readyalert()
 
@@ -114,7 +114,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	if (evac)
 		priority_announcement.Announce("The emergency shuttle has been recalled.", new_sound = 'sound/AI/emergencyshuttlerecalled.ogg')
 
-		for(var/area/A in world)
+		for(var/area/A in all_areas)
 			if(istype(A, /area/hallway))
 				A.readyreset()
 		evac = 0
