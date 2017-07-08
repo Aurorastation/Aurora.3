@@ -98,7 +98,7 @@
 			if(prob(50))
 				qdel(src)
 			else
-				visible_message("The [src] shakes violently, and neatly collapses as its damage sensors go off.")
+				visible_message("The hoist shakes violently, and neatly collapses as its damage sensors go off.")
 				collapse_kit()
 			return
 		if(3.0)
