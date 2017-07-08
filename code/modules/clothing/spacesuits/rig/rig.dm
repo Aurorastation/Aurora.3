@@ -266,9 +266,11 @@
 
 					//sealed pieces become airtight, protecting against diseases
 					if (!seal_target)
+						LAZYINITLIST(piece.armor)
 						piece.armor["bio"] = 100
 					else
-						piece.armor["bio"] = src.armor["bio"]
+						LAZYINITLIST(piece.armor)
+						piece.armor["bio"] = LAZYACCESS(src.armor, "bio") || 0
 
 				else
 					failed_to_seal = 1

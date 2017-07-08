@@ -62,7 +62,7 @@ Thus, the two variables affect pump operation are set in New():
 /obj/machinery/atmospherics/binary/pump/hide(var/i)
 	update_underlays()
 
-/obj/machinery/atmospherics/binary/pump/process()
+/obj/machinery/atmospherics/binary/pump/machinery_process()
 	last_power_draw = 0
 	last_flow_rate = 0
 
@@ -143,7 +143,7 @@ Thus, the two variables affect pump operation are set in New():
 		ui.open()					// open the new ui window
 		ui.set_auto_update(1)		// auto update every Master Controller tick
 
-/obj/machinery/atmospherics/binary/pump/initialize()
+/obj/machinery/atmospherics/binary/pump/atmos_init()
 	..()
 	if(frequency)
 		set_frequency(frequency)

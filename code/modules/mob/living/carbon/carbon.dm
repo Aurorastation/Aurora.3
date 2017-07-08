@@ -1,11 +1,11 @@
-/mob/living/carbon/New()
+/mob/living/carbon/Initialize()
 	//setup reagent holders
 	bloodstr = new/datum/reagents/metabolism(1000, src, CHEM_BLOOD)
 	ingested = new/datum/reagents/metabolism(1000, src, CHEM_INGEST)
 	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
 	reagents = bloodstr
 
-	..()
+	. = ..()
 
 /mob/living/carbon/Life()
 	..()
@@ -303,8 +303,8 @@
 				H.update_inv_gloves(0)
 			H.gloves.germ_level = 0
 		else
-			if(H.bloody_hands)
-				H.bloody_hands = 0
+			if(!isnull(H.bloody_hands))
+				H.bloody_hands = null
 				H.update_inv_gloves(0)
 			H.germ_level = 0
 	update_icons()	//apply the now updated overlays to the mob

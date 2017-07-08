@@ -17,3 +17,9 @@
 
 // Called when SSexplosives finishes processing all queued explosions.
 /datum/controller/proc/ExplosionEnd()
+
+//when we enter dmm_suite.load_map
+/datum/controller/proc/StartLoadingMap()
+
+//when we exit dmm_suite.load_map
+/datum/controller/proc/StopLoadingMap()

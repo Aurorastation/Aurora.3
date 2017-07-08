@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - imageadd: "Some stacks' icons will now reflect how full said stack is."

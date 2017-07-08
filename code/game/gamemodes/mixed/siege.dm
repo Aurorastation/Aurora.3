@@ -1,5 +1,5 @@
 /datum/game_mode/siege
-	name = "Siege"
+	name = "Siege (Rev+Merc)"
 	config_tag = "siege"
 	round_description = "Some crewmembers are attempting to start a revolution while a mercenary strike force is approaching the station!"
 	extended_round_description = "Getting stuck between a rock and a hard place, maybe the nice visitors can help with your internal security problem?"

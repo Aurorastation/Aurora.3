@@ -50,7 +50,7 @@
 
 		return ..()
 
-	process()
+	machinery_process()
 		..()
 		if(anchored && !(stat&BROKEN))
 			kin_energy *= 1 - kin_loss
@@ -75,15 +75,15 @@
 			network2.update = 1
 
 	update_icon()
-		overlays.Cut()
+		cut_overlays()
 		if (dP > 10)
-			overlays += image('icons/obj/pipeturbine.dmi', "moto-turb")
+			add_overlay("moto-turb")
 		if (kin_energy > 100000)
-			overlays += image('icons/obj/pipeturbine.dmi', "low-turb")
+			add_overlay("low-turb")
 		if (kin_energy > 500000)
-			overlays += image('icons/obj/pipeturbine.dmi', "med-turb")
+			add_overlay("med-turb")
 		if (kin_energy > 1000000)
-			overlays += image('icons/obj/pipeturbine.dmi', "hi-turb")
+			add_overlay("hi-turb")
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/wrench))
@@ -96,13 +96,13 @@
 				else if(dir & (EAST|WEST))
 					initialize_directions = NORTH|SOUTH
 
-				initialize()
+				atmos_init()
 				build_network()
 				if (node1)
-					node1.initialize()
+					node1.atmos_init()
 					node1.build_network()
 				if (node2)
-					node2.initialize()
+					node2.atmos_init()
 					node2.build_network()
 			else
 				if(node1)
@@ -154,7 +154,7 @@
 
 		return null
 
-	initialize()
+	atmos_init()
 		if(node1 && node2) return
 
 		var/node2_connect = turn(dir, -90)
@@ -246,7 +246,7 @@
 			if (turbine.stat & (BROKEN) || !turbine.anchored || turn(turbine.dir,180) != dir)
 				turbine = null
 
-	process()
+	machinery_process()
 		updateConnection()
 		if(!turbine || !anchored || stat & (BROKEN))
 			return

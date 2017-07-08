@@ -6,6 +6,7 @@
 	var/light_color     // Hexadecimal RGB string representing the colour of the light.
 	var/uv_intensity = 255	// How much UV light is being emitted by this object. Valid range: 0-255.
 	var/light_wedge		// The angle that the light's emission should be restricted to. null for omnidirectional.
+	var/light_novis     // If TRUE, visibility checks will be skipped when calculating this light.
 
 	var/tmp/datum/light_source/light // Our light source. Don't fuck with this directly unless you have a good reason!
 	var/tmp/list/light_sources       // Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
@@ -15,7 +16,7 @@
 
 // The proc you should always use to set the light of this atom.
 /atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/angle = NONSENSICAL_VALUE, var/no_update = FALSE)
-	L_PROF(src, "atom_setlight")
+	//L_PROF(src, "atom_setlight")
 
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
 		l_range = MINIMUM_USEFUL_LIGHT_RANGE	//Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
@@ -42,7 +43,7 @@
 #undef NONSENSICAL_VALUE
 
 /atom/proc/set_uv(var/intensity, var/no_update)
-	L_PROF(src, "atom_setuv")
+	//L_PROF(src, "atom_setuv")
 	if (intensity < 0 || intensity > 255)
 		intensity = min(max(intensity, 255), 0)
 
@@ -59,7 +60,7 @@
 	if (QDELING(src))
 		return
 
-	L_PROF(src, "atom_update")
+	//L_PROF(src, "atom_update")
 
 	if (!light_power || !light_range) // We won't emit light anyways, destroy the light source.
 		QDEL_NULL(light)
@@ -71,6 +72,8 @@
 
 		if (light) // Update the light or create it if it does not exist.
 			light.update(.)
+		else if (light_novis)
+			light = new/datum/light_source/novis(src, .)
 		else
 			light = new/datum/light_source(src, .)
 
@@ -91,7 +94,7 @@
 	if (new_opacity == opacity)
 		return
 
-	L_PROF(src, "atom_setopacity")
+	//L_PROF(src, "atom_setopacity")
 
 	opacity = new_opacity
 	var/turf/T = loc
@@ -107,22 +110,25 @@
 		if (old_has_opaque_atom != T.has_opaque_atom)
 			T.reconsider_lights()
 
-
-// This code makes the light be queued for update when it is moved.
-// Entered() should handle it, however Exited() can do it if it is being moved to nullspace (as there would be no Entered() call in that situation).
-/atom/Entered(var/atom/movable/Obj, var/atom/OldLoc) //Implemented here because forceMove() doesn't call Move()
+/atom/movable/Move()
 	. = ..()
 
-	if (Obj && OldLoc != src && Obj.light_sources && Obj.light_sources.len)
-		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light()
+	var/datum/light_source/L
+	var/thing
+	for (thing in light_sources)
+		L = thing
+		L.source_atom.update_light()
 
-/atom/Exited(var/atom/movable/Obj, var/atom/newloc)
+
+/atom/movable/forceMove()
 	. = ..()
 
-	if (!newloc && Obj && newloc != src && Obj.light_sources && Obj.light_sources.len) // Incase the atom is being moved to nullspace, we handle queuing for a lighting update here.
-		for (var/datum/light_source/L in Obj.light_sources) // Cycle through the light sources on this atom and tell them to update.
-			L.source_atom.update_light()
+	var/datum/light_source/L
+	var/thing
+	for (thing in light_sources)
+		L = thing
+		L.source_atom.update_light()
+
 
 /atom/set_dir(new_dir)
 	. = ..()
@@ -130,4 +136,3 @@
 	for (var/datum/light_source/L in src.light_sources)
 		if (L.light_angle)
 			L.source_atom.update_light()
-

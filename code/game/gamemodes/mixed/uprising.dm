@@ -1,5 +1,5 @@
 /datum/game_mode/uprising
-	name = "Uprising"
+	name = "Uprising (Cult+Rev)"
 	config_tag = "uprising"
 	round_description = "Some crewmembers are attempting to start a revolution while a cult plots in the shadows!"
 	extended_round_description = "Cultists and revolutionaries spawn in this round."

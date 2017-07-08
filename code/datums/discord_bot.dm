@@ -27,6 +27,22 @@ var/datum/discord_bot/discord_bot = null
 
 	return 1
 
+/hook/roundstart/proc/alert_no_admins()
+	if (!discord_bot)
+		return 1
+
+	var/admins_number = 0
+
+	for (var/C in clients)
+		var/client/cc = C
+		if (cc.holder && (cc.holder.rights & (R_MOD|R_ADMIN)))
+			admins_number++
+
+	if (!admins_number)
+		discord_bot.send_to_admins("@here Round has started with no admins or mods online.")
+
+	return 1
+
 /datum/discord_bot
 	var/list/channels_to_group = list()		// Group flag -> list of channel datums map.
 	var/list/channels = list()				// Channel ID -> channel datum map. Will ensure that only one datum per channel ID exists.
@@ -41,6 +57,10 @@ var/datum/discord_bot/discord_bot = null
 
 	// Lazy man's rate limiting vars
 	var/list/queue = list()
+
+	// Used to determine if BOREALIS should alert staff if the server is created
+	// with world.visibility == 0.
+	var/alert_visibility = 0
 
 /*
  * Proc update_channels
@@ -242,6 +262,15 @@ var/datum/discord_bot/discord_bot = null
 				destinations.Remove(channel)
 
 		queue.Remove(A)
+
+/**
+ * Will alert the staff on Discord if the server is initialized in invisible mode.
+ * Can be toggled via config.
+ */
+/datum/discord_bot/proc/alert_server_visibility()
+	if (alert_visibility && !world.visibility)
+		send_to_admins("Server started as invisible!")
+
 
 // A holder class for channels.
 /datum/discord_channel

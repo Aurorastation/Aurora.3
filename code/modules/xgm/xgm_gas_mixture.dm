@@ -1,7 +1,7 @@
 /datum/gas_mixture
 	//Associative list of gas moles.
 	//Gases with 0 moles are not tracked and are pruned by update_values()
-	var/list/gas = list()
+	var/list/gas
 	//Temperature in Kelvin of this gas mix.
 	var/temperature = 0
 
@@ -19,6 +19,7 @@
 	volume = _volume
 	temperature = _temperature
 	group_multiplier = _group_multiplier
+	gas = list()
 
 /datum/gas_mixture/proc/get_gas(gasid)
 	if(!gas.len)

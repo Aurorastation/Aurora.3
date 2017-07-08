@@ -37,7 +37,7 @@
 	return list("ss13_characters" = list("vars" = list("jobs" = "unsanitized_jobs", "alternate_option", "alternate_titles" = "player_alt_titles"), "args" = list("id")))
 
 /datum/category_item/player_setup_item/occupation/gather_load_parameters()
-	return list(":id" = pref.current_character)
+	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/occupation/gather_save_query()
 	return list("ss13_characters" = list("jobs", "alternate_option", "alternate_titles", "id" = 1, "ckey" = 1))
@@ -53,7 +53,7 @@
 								"job_engsec_med" = pref.job_engsec_med,
 								"job_engsec_low" = pref.job_engsec_low)
 
-	return list(":jobs" = list2params(compiled_jobs), ":alternate_option" = pref.alternate_option, ":alternate_titles" = list2params(pref.player_alt_titles), ":id" = pref.current_character, ":ckey" = pref.client.ckey)
+	return list("jobs" = list2params(compiled_jobs), "alternate_option" = pref.alternate_option, "alternate_titles" = list2params(pref.player_alt_titles), "id" = pref.current_character, "ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/occupation/sanitize_character(var/sql_load = 0)
 	if (sql_load)
@@ -126,12 +126,16 @@
 		. += "<tr bgcolor='[job.selection_color]'><td width='60%' align='right'>"
 		var/rank = job.title
 		lastJob = job
-		if(jobban_isbanned(user, rank))
-			. += "<del>[rank]</del></td><td><b> \[BANNED]</b></td></tr>"
+		var/ban_reason = jobban_isbanned(user, rank)
+		if(ban_reason == "WHITELISTED")
+			. += "<del>[rank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
 			continue
-		if(!job.player_old_enough(user.client))
-			var/available_in_days = job.available_in_days(user.client)
+		else if (ban_reason == "AGE WHITELISTED")
+			var/available_in_days = player_old_enough_for_role(user.client, rank)
 			. += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
+			continue
+		else if (ban_reason)
+			. += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
 			continue
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
 			. += "<font color=orange>[rank]</font></td><td></td></tr>"

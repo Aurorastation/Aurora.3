@@ -89,8 +89,8 @@
 	var/list/icon_keys = list()		//keys
 	var/list/ammo_states = list()	//values
 
-/obj/item/ammo_magazine/New()
-	..()
+/obj/item/ammo_magazine/Initialize()
+	. = ..()
 	if(multiple_sprites)
 		initialize_magazine_icondata(src)
 
@@ -142,11 +142,12 @@
 	..()
 	user << "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!"
 
-//magazine icon state caching
-/var/global/list/magazine_icondata_keys = list()
-/var/global/list/magazine_icondata_states = list()
+//magazine icon state caching (caching lists are in SSicon_cache)
 
 /proc/initialize_magazine_icondata(var/obj/item/ammo_magazine/M)
+	var/list/magazine_icondata_keys = SSicon_cache.magazine_icondata_keys
+	var/list/magazine_icondata_states = SSicon_cache.magazine_icondata_states
+
 	var/typestr = "[M.type]"
 	if(!(typestr in magazine_icondata_keys) || !(typestr in magazine_icondata_states))
 		magazine_icondata_cache_add(M)
@@ -155,6 +156,9 @@
 	M.ammo_states = magazine_icondata_states[typestr]
 
 /proc/magazine_icondata_cache_add(var/obj/item/ammo_magazine/M)
+	var/list/magazine_icondata_keys = SSicon_cache.magazine_icondata_keys
+	var/list/magazine_icondata_states = SSicon_cache.magazine_icondata_states
+
 	var/list/icon_keys = list()
 	var/list/ammo_states = list()
 	var/list/states = icon_states(M.icon)

@@ -15,9 +15,8 @@
 	var/melee_upgrade
 	var/drill_upgrade
 
-/mob/living/silicon/robot/drone/mining/New()
-
-	..()
+/mob/living/silicon/robot/drone/mining/Initialize()
+	. = ..()
 
 	verbs += /mob/living/proc/hide
 	remove_language("Robot Talk")

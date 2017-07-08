@@ -3,6 +3,7 @@
 	layer = 4.0
 	animate_movement = 2
 	flags = PROXMOVE
+	sight = DEFAULT_SIGHT
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
@@ -65,8 +66,9 @@
 	var/eye_blurry = null	//Carbon
 	var/ear_deaf = null		//Carbon
 	var/ear_damage = null	//Carbon
-	var/stuttering = null	//Carbon
-	var/slurring = null		//Carbon
+	var/stuttering = null
+	var/slurring = null		
+	var/brokejaw = null	    
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""

@@ -99,7 +99,7 @@
 		deactivate()
 	return ..()
 
-/obj/machinery/power/supply_beacon/process()
+/obj/machinery/power/supply_beacon/machinery_process()
 	if(expended)
 		return PROCESS_KILL
 	if(!use_power)

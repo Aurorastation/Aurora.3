@@ -16,6 +16,8 @@
 
 	var/unwet_timer	// Used to keep track of the unwet timer & delete it on turf change so we don't runtime if the new turf is not simulated.
 
+	roof_type = /turf/simulated/floor/airless/ceiling
+
 /turf/simulated/proc/wet_floor(var/wet_val = 1)
 	if(wet_val < wet)
 		return
@@ -46,9 +48,11 @@
 	if (mapload)
 		if(istype(loc, /area/chapel))
 			holy = 1
-		
+
 	. = ..()
 	levelupdate(mapload)
+	if (!mapload)
+		updateVisibility(src)
 
 /turf/simulated/proc/AddTracks(var/typepath,var/bloodDNA,var/comingdir,var/goingdir,var/bloodcolor="#A10808")
 	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src

@@ -155,6 +155,9 @@
 	. = ..()
 	set_flee_target(AM.thrower? AM.thrower : src.loc)
 
+/mob/living/simple_animal/cat/fall_impact()
+	src.visible_message("<span class='notice'>\The [src] lands softly on \the [loc]!</span>")
+	return FALSE
 
 //Basic friend AI
 /mob/living/simple_animal/cat/fluff
@@ -282,6 +285,6 @@
 	.=..()
 	desc = "Bones is dead"
 
-/mob/living/simple_animal/cat/kitten/New()
+/mob/living/simple_animal/cat/kitten/Initialize()
+	. = ..()
 	gender = pick(MALE, FEMALE)
-	..()

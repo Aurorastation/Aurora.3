@@ -80,7 +80,6 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
-
 /obj/item/clothing/suit/judgerobe
 	name = "judge's robe"
 	desc = "This robe commands authority."
@@ -90,7 +89,6 @@
 	allowed = list(/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/spacecash)
 	flags_inv = HIDEJUMPSUIT
 
-
 /obj/item/clothing/suit/wcoat
 	name = "waistcoat"
 	desc = "For some classy, murderous fun."
@@ -98,15 +96,6 @@
 	item_state = "wcoat"
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-
-
-/obj/item/clothing/suit/apron/overalls
-	name = "coveralls"
-	desc = "A set of denim overalls."
-	icon_state = "overalls"
-	item_state = "overalls"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-
 
 /obj/item/clothing/suit/syndicatefake
 	name = "red space suit replica"
@@ -349,3 +338,37 @@
 	item_state = "flannel_blue"
 	icon_open = "flannel_blue_open"
 	icon_closed = "flannel_blue"
+
+/obj/item/clothing/suit/storage/toggle/flannel/gray
+	name = "grey flannel shirt"
+	icon_state = "flannel_gray"
+	item_state = "flannel_gray"
+	icon_open = "flannel_gray_open"
+	icon_closed = "flannel_gray"
+	
+/obj/item/clothing/suit/storage/toggle/flannel/purple
+	name = "purple flannel shirt"
+	icon_state = "flannel_purple"
+	item_state = "flannel_purple"
+	icon_open = "flannel_purple_open"
+	icon_closed = "flannel_purple"
+	
+/obj/item/clothing/suit/storage/toggle/flannel/yellow
+	name = "yellow flannel shirt"
+	icon_state = "flannel_yellow"
+	item_state = "flannel_yellow"
+	icon_open = "flannel_yellow_open"
+	icon_closed = "flannel_yellow"
+
+/obj/item/clothing/suit/storage/trench
+	name = "brown trenchcoat"
+	desc = "A rugged canvas trenchcoat."
+	icon_state = "trench"
+	item_state = "trench"
+	blood_overlay_type = "coat"
+	body_parts_covered = UPPER_TORSO|ARMS
+	
+/obj/item/clothing/suit/storage/trench/grey
+	name = "grey trenchcoat"
+	icon_state = "trench2"
+	item_state = "trench2"

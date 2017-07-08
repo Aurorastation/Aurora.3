@@ -34,12 +34,15 @@ client/proc/Test_ZAS_Connection(var/turf/simulated/T as turf)
 	if(!istype(T))
 		return
 
-	var/direction_list = list(\
-	"North" = NORTH,\
-	"South" = SOUTH,\
-	"East" = EAST,\
-	"West" = WEST,\
-	"N/A" = null)
+	var/direction_list = list(
+		"North" = NORTH,
+		"South" = SOUTH,
+		"East" = EAST,
+		"West" = WEST,
+		"Up" = UP,
+		"Down" = DOWN,
+		"N/A" = null
+	)
 	var/direction = input("What direction do you wish to test?","Set direction") as null|anything in direction_list
 	if(!direction)
 		return

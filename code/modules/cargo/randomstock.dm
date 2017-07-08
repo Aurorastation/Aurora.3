@@ -218,7 +218,7 @@ var/list/global/random_stock_rare = list(
 	"energyshield" = 2,
 	"hardsuit" = 0.75,
 	"cluster" = 2.0,
-	"cloak" = 0.75,
+	"ladder" = 3,
 	"sword" = 0.5,
 	"ims" = 1.5,
 	"exogear" = 1.5,
@@ -296,6 +296,7 @@ var/list/global/random_stock_large = list(
 		/mob/living/simple_animal/hostile/shantak = 0.7,
 		/mob/living/simple_animal/hostile/bear = 0.5,
 		/mob/living/simple_animal/hostile/carp = 1.5,
+		/mob/living/simple_animal/hostile/carp/russian = 0.3,
 		"cratey" = 1
 	)
 
@@ -1412,8 +1413,8 @@ var/list/global/random_stock_large = list(
 			new /obj/item/weapon/shield/energy(L)
 		if("cluster")
 			new /obj/item/weapon/grenade/flashbang/clusterbang(L)
-		if("cloak")
-			new /obj/item/weapon/cloaking_device(L)
+		if("ladder")
+			new /obj/item/weapon/ladder_mobile(L)
 		if("sword")
 			new /obj/random/sword(L)
 		if("ims")
@@ -1820,21 +1821,19 @@ var/list/global/random_stock_large = list(
 					exosuit.cell.charge = 0
 
 
-				//Handle power or damage warnings
-				if (exosuit.pr_manage_warnings)
-					exosuit.pr_manage_warnings.process(exosuit)//Trigger them first, if they'll happen
+				exosuit.process_warnings()//Trigger them first, if they'll happen
 
-					if (exosuit.power_alert_status)
-						exosuit.pr_manage_warnings.last_power_warning = -99999999
-						//Make it go into infrequent warning state instantly
-						exosuit.pr_manage_warnings.power_warning_delay = 99999999
-						//and set the delay between warnings to a functionally infinite value
-						//so that it will shut up
+				if (exosuit.power_alert_status)
+					exosuit.last_power_warning = -99999999
+					//Make it go into infrequent warning state instantly
+					exosuit.power_warning_delay = 99999999
+					//and set the delay between warnings to a functionally infinite value
+					//so that it will shut up
 
-					if (exosuit.damage_alert_status)
-						exosuit.pr_manage_warnings.last_damage_warning = -99999999
-						exosuit.pr_manage_warnings.damage_warning_delay = 99999999
+				if (exosuit.damage_alert_status)
+					exosuit.last_damage_warning = -99999999
+					exosuit.damage_warning_delay = 99999999
 
-					exosuit.pr_manage_warnings.process(exosuit)
+				exosuit.process_warnings()
 		else
 			log_debug("ERROR: Random cargo spawn failed for [stock]")

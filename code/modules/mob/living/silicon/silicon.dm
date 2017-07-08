@@ -32,9 +32,9 @@
 	#define SEC_HUD 1 //Security HUD mode
 	#define MED_HUD 2 //Medical HUD mode
 
-/mob/living/silicon/New()
+/mob/living/silicon/Initialize()
 	silicon_mob_list |= src
-	..()
+	. = ..()
 	add_language("Ceti Basic")
 	init_id()
 
@@ -367,7 +367,7 @@
 		cameraFollow = null
 
 /mob/living/silicon/Move(newloc, direct)
-	..(newloc,direct)
+	. = ..()
 	if (underdoor)
 		underdoor = 0
 		if ((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc

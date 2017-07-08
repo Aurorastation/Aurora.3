@@ -16,9 +16,7 @@
 	transform = matrix(WORLD_ICON_SIZE / 32, 0, (WORLD_ICON_SIZE - 32) / 2, 0, WORLD_ICON_SIZE / 32, (WORLD_ICON_SIZE - 32) / 2)
 	#endif
 
-/atom/movable/lighting_overlay/New(atom/loc)
-	. = ..()
-	verbs.Cut()
+/atom/movable/lighting_overlay/New()
 	SSlighting.lighting_overlays += src
 
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
@@ -32,7 +30,7 @@
 	if (!force)
 		return QDEL_HINT_LETMELIVE	// STOP DELETING ME
 
-	L_PROF(loc, "overlay_destroy")
+	//L_PROF(loc, "overlay_destroy")
 	SSlighting.lighting_overlays -= src
 	SSlighting.overlay_queue     -= src
 
@@ -43,10 +41,10 @@
 	
 	return ..()
 
-/atom/movable/lighting_overlay/proc/update_overlay()
-	if (QDELING(src))	// This shouldn't happen.
-		return
+// This is a macro PURELY so that the if below is actually readable.
+#define ALL_EQUAL ((rr == gr && gr == br && br == ar) && (rg == gg && gg == bg && bg == ag) && (rb == gb && gb == bb && bb == ab))
 
+/atom/movable/lighting_overlay/proc/update_overlay()
 	var/turf/T = loc
 	if (!istype(T)) // Erm...
 		if (loc)
@@ -91,24 +89,40 @@
 	var/ag = ca.cache_g
 	var/ab = ca.cache_b
 
-	// Check for a common value first so we can skip expensive color matrixes if possible.
-	var/all_equal = ((rr == gr && gr == br && br == ar) && (rg == gg && gg == bg && bg == ag) && (rb == gb && gb == bb && bb == ab))
-
-	if (!luminosity)
+	if ((rr & gr & br & ar) && (rg + gg + bg + ag + rb + gb + bb + ab == 8))
+		icon_state = LIGHTING_TRANSPARENT_ICON_STATE
+		color = null
+	else if (!luminosity)
 		icon_state = LIGHTING_DARKNESS_ICON_STATE
 		color = null
-	else if (all_equal && rr == LIGHTING_DEFAULT_TUBE_R && rg == LIGHTING_DEFAULT_TUBE_G && rb == LIGHTING_DEFAULT_TUBE_B)
+	else if (ALL_EQUAL && rr == LIGHTING_DEFAULT_TUBE_R && rg == LIGHTING_DEFAULT_TUBE_G && rb == LIGHTING_DEFAULT_TUBE_B)
 		icon_state = LIGHTING_STATION_ICON_STATE
 		color = null
 	else
 		icon_state = LIGHTING_BASE_ICON_STATE
-		color = list(
-			rr, rg, rb, 0,
-			gr, gg, gb, 0,
-			br, bg, bb, 0,
-			ar, ag, ab, 0,
-			0, 0, 0, 1
-		)
+		if (islist(color))
+			var/list/c_list = color
+			c_list[CL_MATRIX_RR] = rr
+			c_list[CL_MATRIX_RG] = rg
+			c_list[CL_MATRIX_RB] = rb
+			c_list[CL_MATRIX_GR] = gr
+			c_list[CL_MATRIX_GG] = gg
+			c_list[CL_MATRIX_GB] = gb
+			c_list[CL_MATRIX_BR] = br
+			c_list[CL_MATRIX_BG] = bg
+			c_list[CL_MATRIX_BB] = bb
+			c_list[CL_MATRIX_AR] = ar
+			c_list[CL_MATRIX_AG] = ag
+			c_list[CL_MATRIX_AB] = ab
+			color = c_list
+		else
+			color = list(
+				rr, rg, rb, 0,
+				gr, gg, gb, 0,
+				br, bg, bb, 0,
+				ar, ag, ab, 0,
+				0, 0, 0, 1
+			)
 #else 
 	color = list(
 		cr.cache_r, cr.cache_g, cr.cache_b, 0,
@@ -119,8 +133,46 @@
 	)
 #endif 
 
-	if (bound_overlay)
-		update_oo()
+	// If we're on an openturf, update the shadower object too.
+	// We could queue an icon update for the entire OT, but this involves less overhead.
+	var/turf/simulated/open/OT = loc:above
+	if (OT)
+		var/atom/movable/openspace/multiplier/shadower = OT.shadower
+		if (!shadower)	// The OT hasn't been initialized yet.
+			OT.update_icon()
+			return
+
+		shadower.appearance = src
+		shadower.plane = OPENTURF_CAP_PLANE
+		shadower.layer = SHADOWER_LAYER
+		shadower.invisibility = 0
+		if (shadower.icon_state == LIGHTING_BASE_ICON_STATE)
+			// We're using a color matrix, so just darken the colors.
+			var/list/c_list = shadower.color
+			c_list[CL_MATRIX_RR] *= SHADOWER_DARKENING_FACTOR
+			c_list[CL_MATRIX_RG] *= SHADOWER_DARKENING_FACTOR
+			c_list[CL_MATRIX_RB] *= SHADOWER_DARKENING_FACTOR
+			c_list[CL_MATRIX_GR] *= SHADOWER_DARKENING_FACTOR
+			c_list[CL_MATRIX_GG] *= SHADOWER_DARKENING_FACTOR
+			c_list[CL_MATRIX_GB] *= SHADOWER_DARKENING_FACTOR
+			c_list[CL_MATRIX_BR] *= SHADOWER_DARKENING_FACTOR
+			c_list[CL_MATRIX_BG] *= SHADOWER_DARKENING_FACTOR
+			c_list[CL_MATRIX_BB] *= SHADOWER_DARKENING_FACTOR
+			c_list[CL_MATRIX_AR] *= SHADOWER_DARKENING_FACTOR
+			c_list[CL_MATRIX_AG] *= SHADOWER_DARKENING_FACTOR
+			c_list[CL_MATRIX_AB] *= SHADOWER_DARKENING_FACTOR
+			shadower.color = c_list
+		else
+			shadower.color = list(
+				SHADOWER_DARKENING_FACTOR, 0, 0,
+				0, SHADOWER_DARKENING_FACTOR, 0,
+				0, 0, SHADOWER_DARKENING_FACTOR
+			)
+
+		if (shadower.bound_overlay)
+			shadower.update_above()
+
+#undef ALL_EQUAL
 
 // Variety of overrides so the overlays don't get affected by weird things.
 
@@ -142,13 +194,8 @@
 // Override here to prevent things accidentally moving around overlays.
 /atom/movable/lighting_overlay/forceMove(atom/destination, no_tp = FALSE, harderforce = FALSE)
 	if(harderforce)
-		L_PROF(loc, "overlay_forcemove")
+		//L_PROF(loc, "overlay_forcemove")
 		. = ..()
-
-/atom/movable/lighting_overlay/resetVariables(...)
-	color = LIGHTING_BASE_MATRIX
-
-	return ..("color")
 
 /atom/movable/lighting_overlay/shuttle_move(turf/loc)
 	return

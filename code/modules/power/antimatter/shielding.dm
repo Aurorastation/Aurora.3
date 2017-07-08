@@ -107,7 +107,7 @@ proc/cardinalrange(var/center)
 	return 0
 
 
-/obj/machinery/am_shielding/process()
+/obj/machinery/am_shielding/machinery_process()
 	if(!processing)
 		. = PROCESS_KILL
 	//TODO: core functions and stability

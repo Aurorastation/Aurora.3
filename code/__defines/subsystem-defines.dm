@@ -40,7 +40,7 @@
 
 // -- SSoverlays --
 #define CUT_OVERLAY_IN(ovr, time) addtimer(CALLBACK(src, /atom/.proc/cut_overlay, ovr), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
-
+#define ATOM_USING_SSOVERLAY(atom) (atom.our_overlays || atom.priority_overlays)
 
 // -- SSticker --
 #define ROUND_IS_STARTED (SSticker.current_state >= GAME_STATE_PLAYING)
@@ -58,8 +58,11 @@
 #define STOP_VISUAL(visual)	visual.isprocessing = FALSE; SSeffects.visuals -= visual;
 
 // -- SSopenturf --
-#define CHECK_OO_EXISTENCE(OO) if (OO && !istype(OO.loc, /turf/simulated/open)) { qdel(OO); }
-#define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_oo(); }
+#define CHECK_OO_EXISTENCE(OO) if (OO && !isopenturf(OO.loc)) { qdel(OO); }
+#define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_above(); }
 
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
+
+// -- SSmachinery --
+#define RECIPE_LIST(T) (SSmachinery.recipe_datums["[T]"])

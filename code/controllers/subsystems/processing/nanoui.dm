@@ -7,6 +7,7 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 	name = "NanoUI"
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_NANOUI
+	stat_tag = "A"
 
 	// NanoUI stuff.
 	var/list/open_uis = list()
@@ -51,12 +52,8 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
   * @return /nanoui Returns the found ui, or null if none exists
   */
 /datum/controller/subsystem/processing/nanoui/proc/get_open_ui(mob/user, src_object, ui_key)
-	var/src_object_key = "\ref[src_object]"
-	if (!open_uis[src_object_key] || !islist(open_uis[src_object_key]))
-		//testing("nanomanager/get_open_ui mob [user.name] [src_object:name] [ui_key] - there are no uis open")
-		return null
-	else if (!open_uis[src_object_key][ui_key] || !islist(open_uis[src_object_key][ui_key]))
-		//testing("nanomanager/get_open_ui mob [user.name] [src_object:name] [ui_key] - there are no uis open for this object")
+	var/src_object_key = SOFTREF(src_object)
+	if (!LAZYLEN(open_uis[src_object_key]) || !LAZYLEN(open_uis[src_object_key][ui_key]))
 		return null
 
 	for (var/datum/nanoui/ui in open_uis[src_object_key][ui_key])
@@ -74,17 +71,18 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
   * @return int The number of uis updated
   */
 /datum/controller/subsystem/processing/nanoui/proc/update_uis(src_object)
-	var/src_object_key = "\ref[src_object]"
-	if (!open_uis[src_object_key] || !islist(open_uis[src_object_key]))
+	var/src_object_key = SOFTREF(src_object)
+	if (!LAZYLEN(open_uis[src_object_key]))
 		return 0
 
-	var/update_count = 0
-	for (var/ui_key in open_uis[src_object_key])
-		for (var/datum/nanoui/ui in open_uis[src_object_key][ui_key])
+	. = 0
+	var/list/obj_uis = open_uis[src_object_key]
+	for (var/ui_key in obj_uis)
+		for (var/thing in obj_uis[ui_key])
+			var/datum/nanoui/ui = thing
 			if(ui && ui.src_object && ui.user && ui.src_object.nano_host())
 				ui.process(1)
-				update_count++
-	return update_count
+				.++
 
  /**
   * Close all /nanoui uis attached to src_object
@@ -94,17 +92,18 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
   * @return int The number of uis close
   */
 /datum/controller/subsystem/processing/nanoui/proc/close_uis(src_object)
-	var/src_object_key = "\ref[src_object]"
+	var/src_object_key = SOFTREF(src_object)
 	if (!open_uis[src_object_key] || !islist(open_uis[src_object_key]))
 		return 0
 
-	var/close_count = 0
-	for (var/ui_key in open_uis[src_object_key])
-		for (var/datum/nanoui/ui in open_uis[src_object_key][ui_key])
+	. = 0
+	var/list/obj_uis = open_uis[src_object_key]
+	for (var/ui_key in obj_uis)
+		for (var/thing in obj_uis[ui_key])
+			var/datum/nanoui/ui = thing
 			if(ui && ui.src_object && ui.user && ui.src_object.nano_host())
 				ui.close()
-				close_count++
-	return close_count
+				.++
 
  /**
   * Update /nanoui uis belonging to user
@@ -119,19 +118,19 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 	if (!LAZYLEN(user.open_uis))
 		return 0 // has no open uis
 
-	var/update_count = 0
-	for (var/datum/nanoui/ui in user.open_uis)
+	. = 0
+	for (var/thing in user.open_uis)
+		var/datum/nanoui/ui = thing
 		if (NULL_OR_EQUAL(src_object, ui.src_object) && NULL_OR_EQUAL(ui_key, ui.ui_key))
 			ui.process(1)
-			update_count++
-
-	return update_count
+			.++
 
 /datum/controller/subsystem/processing/nanoui/proc/close_user_uis(mob/user, src_object, ui_key)
 	if (!LAZYLEN(user.open_uis))
 		return 0
 
-	for (var/datum/nanoui/ui in user.open_uis)
+	for (var/thing in user.open_uis)
+		var/datum/nanoui/ui = thing
 		if (NULL_OR_EQUAL(src_object, ui.src_object) && NULL_OR_EQUAL(ui_key, ui.ui_key))
 			ui.close()
 			.++
@@ -147,15 +146,11 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
   * @return nothing
   */
 /datum/controller/subsystem/processing/nanoui/proc/ui_opened(datum/nanoui/ui)
-	var/src_object_key = "\ref[ui.src_object]"
-	if (!open_uis[src_object_key] || !islist(open_uis[src_object_key]))
-		open_uis[src_object_key] = list(ui.ui_key = list())
-	else if (!open_uis[src_object_key][ui.ui_key] || !islist(open_uis[src_object_key][ui.ui_key]))
-		open_uis[src_object_key][ui.ui_key] = list()
+	var/src_object_key = SOFTREF(ui.src_object)
+	LAZYINITLIST(open_uis[src_object_key])
 
-	ui.user.open_uis |= ui
-	var/list/uis = open_uis[src_object_key][ui.ui_key]
-	uis |= ui
+	LAZYADD(ui.user.open_uis, ui)
+	LAZYADD(open_uis[src_object_key][ui.ui_key], ui)
 	START_PROCESSING(SSnanoui, ui)
 	//testing("nanomanager/ui_opened mob [ui.user.name] [ui.src_object:name] [ui.ui_key] - user.open_uis [ui.user.open_uis.len] | uis [uis.len] | processing_uis [processing_uis.len]")
 
@@ -168,17 +163,24 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
   * @return int 0 if no ui was removed, 1 if removed successfully
   */
 /datum/controller/subsystem/processing/nanoui/proc/ui_closed(datum/nanoui/ui)
-	var/src_object_key = "\ref[ui.src_object]"
-	if (!open_uis[src_object_key] || !islist(open_uis[src_object_key]))
-		return 0 // wasn't open
-	else if (!open_uis[src_object_key][ui.ui_key] || !islist(open_uis[src_object_key][ui.ui_key]))
-		return 0 // wasn't open
+	var/src_object_key = SOFTREF(ui.src_object)
+	var/ui_key = ui.ui_key
+	var/list/obj_uis = open_uis[src_object_key]
+
+	if (!LAZYLEN(obj_uis) || !obj_uis[ui_key])
+		return 0	// Wasn't open.
 
 	STOP_PROCESSING(SSnanoui, ui)
 	if(ui.user)	// Sanity check in case a user has been deleted (say a blown up borg watching the alarm interface)
-		ui.user.open_uis.Remove(ui)
-	var/list/uis = open_uis[src_object_key][ui.ui_key]
-	uis -= ui
+		LAZYREMOVE(ui.user.open_uis, ui)
+
+	obj_uis[ui_key] -= ui
+
+	if (!LAZYLEN(obj_uis[ui_key]))
+		obj_uis -= ui_key
+
+	if (!LAZYLEN(obj_uis))
+		open_uis -= src_object_key
 
 	//testing("nanomanager/ui_closed mob [ui.user.name] [ui.src_object:name] [ui.ui_key] - user.open_uis [ui.user.open_uis.len] | uis [uis.len] | processing_uis [processing_uis.len]")
 
@@ -206,26 +208,23 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
   */
 /datum/controller/subsystem/processing/nanoui/proc/user_transferred(mob/oldMob, mob/newMob)
 	//testing("nanomanager/user_transferred from mob [oldMob.name] to mob [newMob.name]")
-	if (!oldMob || !oldMob.open_uis || !islist(oldMob.open_uis) || open_uis.len == 0)
+	if (!oldMob || !LAZYLEN(oldMob.open_uis) || !LAZYLEN(open_uis))
 		//testing("nanomanager/user_transferred mob [oldMob.name] has no open uis")
 		return 0 // has no open uis
 
-	LAZYINITLIST(newMob.open_uis)
-
-	for (var/datum/nanoui/ui in oldMob.open_uis)
+	for (var/thing in oldMob.open_uis)
+		var/datum/nanoui/ui = thing
 		ui.user = newMob
-		newMob.open_uis += ui
+		LAZYADD(newMob.open_uis, ui)
 
-	oldMob.open_uis.Cut()
+	oldMob.open_uis = null
 
 	return 1 // success
 
-/datum/asset/nanoui/register()
-	var/list/nano_asset_dirs = list(\
-		"nano/css/",
+/datum/asset/nanoui_templates/register()
+	var/list/nano_asset_dirs = list(
 		"nano/images/",
 		"nano/images/status_icons/",
-		"nano/js/",
 		"nano/templates/"
 	)
 
@@ -237,5 +236,21 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 				var/fullpath = path + filename
 				if(fexists(fullpath))
 					register_asset(filename, fcopy_rsc(fullpath))
+
+/datum/asset/simple/nanoui_common
+	assets = list(
+		"libraries.min.js" = 'nano/js/libraries.min.js',
+		"nano_base_callbacks.js" = 'nano/js/nano_base_callbacks.js',
+		"nano_base_helpers.js" = 'nano/js/nano_base_helpers.js',
+		"nano_state.js" = 'nano/js/nano_state.js',
+		"nano_state_default.js" = 'nano/js/nano_state_default.js',
+		"nano_state_manager.js" = 'nano/js/nano_state_manager.js',
+		"nano_template.js" = 'nano/js/nano_template.js',
+		"nano_utility.js" = 'nano/js/nano_utility.js',
+		"icons.css" = 'nano/css/icons.css',
+		"layout_basic.css" = 'nano/css/layout_basic.css',
+		"layout_default.css" = 'nano/css/layout_default.css',
+		"shared.css" = 'nano/css/shared.css'
+	)
 
 #undef NULL_OR_EQUAL

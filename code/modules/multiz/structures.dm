@@ -14,6 +14,7 @@
 	var/allowed_directions = DOWN
 	var/obj/structure/ladder/target_up
 	var/obj/structure/ladder/target_down
+	var/base_icon = "ladder"
 
 	var/const/climb_time = 2 SECONDS
 
@@ -25,7 +26,10 @@
 			if(L.allowed_directions & UP)
 				target_down = L
 				L.target_up = src
-				return
+
+				L.update_icon()
+				break
+
 	update_icon()
 
 /obj/structure/ladder/Destroy()
@@ -39,7 +43,9 @@
 
 /obj/structure/ladder/attackby(obj/item/C as obj, mob/user as mob)
 	attack_hand(user)
-	return
+
+/obj/structure/ladder/attack_robot(mob/user)
+	attack_hand(user)
 
 /obj/structure/ladder/attack_hand(var/mob/M)
 	if(!M.may_climb_ladders(src))
@@ -98,6 +104,19 @@
 		return FALSE
 	return TRUE
 
+/mob/living/silicon/may_climb_ladders(ladder)
+	to_chat(src, "<span class='warning'>You're too heavy to climb [ladder]!</span>")
+	return FALSE
+
+/mob/living/silicon/robot/drone/may_climb_ladders(ladder)
+	if(!Adjacent(ladder))
+		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
+		return FALSE
+	if(incapacitated())
+		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		return FALSE
+	return TRUE
+
 /mob/observer/ghost/may_climb_ladders(var/ladder)
 	return TRUE
 
@@ -113,7 +132,7 @@
 	return airflow || !density
 
 /obj/structure/ladder/update_icon()
-	icon_state = "ladder[!!(allowed_directions & UP)][!!(allowed_directions & DOWN)]"
+	icon_state = "[base_icon][!!(allowed_directions & UP)][!!(allowed_directions & DOWN)]"
 
 /obj/structure/ladder/up
 	allowed_directions = UP

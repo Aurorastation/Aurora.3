@@ -22,7 +22,7 @@ var/datum/observ/moved/moved_event = new()
 	var/old_loc = loc
 	. = ..()
 	if(.)
-		moved_event.raise_event(list(src, old_loc, loc))
+		moved_event.raise_event(src, old_loc, loc)
 
 /atom/movable/proc/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
 	var/turf/T = get_turf(new_loc)
@@ -34,7 +34,7 @@ var/datum/observ/moved/moved_event = new()
 
 /atom/Entered(var/atom/movable/am, atom/old_loc)
 	..()
-	moved_event.raise_event(list(am, old_loc, am.loc))
+	moved_event.raise_event(am, old_loc, am.loc)
 
 /atom/movable/Entered(var/atom/movable/am, atom/old_loc)
 	..()

@@ -55,6 +55,14 @@
 			L.Weaken(3)
 			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
 
+/mob/living/simple_animal/hostile/carp/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/carp/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/carp/CanAvoidGravity()
+	return TRUE
 
 /mob/living/simple_animal/hostile/carp/russian
 	name = "Ivan the carp"
@@ -78,14 +86,14 @@
 	icon_living = "shark"
 	icon_dead = "shark_dead"
 	meat_amount = 5
-	
+
 	pixel_x = -16
-	
+
 	maxHealth = 100
 	health = 100
-	
+
 	mob_size = 15
-	
+
 	harm_intent_damage = 5
 	melee_damage_lower = 20
 	melee_damage_upper = 25

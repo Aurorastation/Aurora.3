@@ -31,7 +31,7 @@
 				"ss13_characters" = list("vars" = list("home_system", "citizenship", "faction", "religion"), "args" = list("id")))
 
 /datum/category_item/player_setup_item/general/background/gather_load_parameters()
-	return list(":id" = pref.current_character, ":char_id" = pref.current_character)
+	return list("id" = pref.current_character, "char_id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/background/gather_save_query()
 	return list("ss13_characters_flavour" = list("records_employment",
@@ -41,16 +41,16 @@
 				"ss13_characters" = list("home_system", "citizenship", "faction", "religion", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/general/background/gather_save_parameters()
-	return list(":records_employment" = pref.gen_record,
-				":records_medical" = pref.med_record,
-				":records_security" = pref.sec_record,
-				":char_id" = pref.current_character,
-				":home_system" = pref.home_system,
-				":citizenship" = pref.citizenship,
-				":faction" = pref.faction,
-				":religion" = pref.religion,
-				":id" = pref.current_character,
-				":ckey" = pref.client.ckey)
+	return list("records_employment" = pref.gen_record,
+				"records_medical" = pref.med_record,
+				"records_security" = pref.sec_record,
+				"char_id" = pref.current_character,
+				"home_system" = pref.home_system,
+				"citizenship" = pref.citizenship,
+				"faction" = pref.faction,
+				"religion" = pref.religion,
+				"id" = pref.current_character,
+				"ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/general/background/sanitize_character()
 	if(!pref.home_system)

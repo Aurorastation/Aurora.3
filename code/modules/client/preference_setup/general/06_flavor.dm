@@ -59,7 +59,7 @@
 	return list("ss13_characters_flavour" = list("vars" = var_list, "args" = list("char_id")))
 
 /datum/category_item/player_setup_item/general/flavor/gather_load_parameters()
-	return list(":char_id" = pref.current_character)
+	return list("char_id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/flavor/gather_save_query()
 	var/list/var_list = list("flavour_general",
@@ -82,22 +82,22 @@
 	return list("ss13_characters_flavour" = var_list)
 
 /datum/category_item/player_setup_item/general/flavor/gather_save_parameters()
-	var/list/var_list = list(":char_id" = pref.current_character,
-							":flavour_general" = pref.flavor_texts["general"],
-							":flavour_head" = pref.flavor_texts["head"],
-							":flavour_face" = pref.flavor_texts["face"],
-							":flavour_eyes" = pref.flavor_texts["eyes"],
-							":flavour_torso" = pref.flavor_texts["torso"],
-							":flavour_arms" = pref.flavor_texts["arms"],
-							":flavour_hands" = pref.flavor_texts["hands"],
-							":flavour_legs" = pref.flavor_texts["legs"],
-							":flavour_feet" = pref.flavor_texts["feet"],
-							":robot_default" = pref.flavour_texts_robot["default"],
-							":signature_font" = pref.signfont,
-							":signature" = pref.signature)
+	var/list/var_list = list("char_id" = pref.current_character,
+							"flavour_general" = pref.flavor_texts["general"],
+							"flavour_head" = pref.flavor_texts["head"],
+							"flavour_face" = pref.flavor_texts["face"],
+							"flavour_eyes" = pref.flavor_texts["eyes"],
+							"flavour_torso" = pref.flavor_texts["torso"],
+							"flavour_arms" = pref.flavor_texts["arms"],
+							"flavour_hands" = pref.flavor_texts["hands"],
+							"flavour_legs" = pref.flavor_texts["legs"],
+							"flavour_feet" = pref.flavor_texts["feet"],
+							"robot_default" = pref.flavour_texts_robot["default"],
+							"signature" = pref.signature,
+							"signature_font" = pref.signfont)
 
 	for (var/module in robot_module_types)
-		var_list[":robot_[module]"] += pref.flavour_texts_robot[module]
+		var_list["robot_[module]"] += pref.flavour_texts_robot[module]
 
 	return var_list
 

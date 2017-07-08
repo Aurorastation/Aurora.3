@@ -20,6 +20,9 @@
 
 	var/list/slept_in_process = list()
 
+	// Cooking stuff. Not substantial enough to get its own SS, so it's shoved in here.
+	var/list/recipe_datums = list()
+
 /datum/controller/subsystem/machinery/Recover()
 	all_cameras = SSmachinery.all_cameras
 
@@ -29,9 +32,25 @@
 /datum/controller/subsystem/machinery/New()
 	NEW_SS_GLOBAL(SSmachinery)
 
+#define ADD_TO_RDATUMS(i,t) if (R.appliance & i) { LAZYADD(recipe_datums["[i]"], t); added++; }
+
 /datum/controller/subsystem/machinery/Initialize(timeofday)
+	for (var/type in subtypesof(/datum/recipe))
+		var/datum/recipe/R = new type
+		var/added = 0
+		ADD_TO_RDATUMS(MICROWAVE, R)
+		ADD_TO_RDATUMS(FRYER, R)
+		ADD_TO_RDATUMS(OVEN, R)
+		ADD_TO_RDATUMS(CANDYMAKER, R)
+		ADD_TO_RDATUMS(CEREALMAKER, R)
+		if (!added)
+			log_debug("SSmachinery: warning: type '[type]' does not have a valid machine type.")
+			qdel(R)
+
 	fire(FALSE, TRUE)	// Tick machinery once to pare down the list so we don't hammer the server on round-start.
 	..(timeofday)
+
+#undef ADD_TO_RDATUMS
 
 /datum/controller/subsystem/machinery/fire(resumed = 0, no_mc_tick = FALSE)
 	if (!resumed)
@@ -55,8 +74,8 @@
 			sortTim(cameranet.cameras, /proc/cmp_camera)
 			cameranet.cameras_unsorted = FALSE
 
-	var/list/curr_machinery = src.processing_machinery
-	var/list/curr_powersinks = src.processing_powersinks
+	var/list/curr_machinery = processing_machinery
+	var/list/curr_powersinks = processing_powersinks
 
 	while (curr_machinery.len)
 		var/obj/machinery/M = curr_machinery[curr_machinery.len]
@@ -69,23 +88,37 @@
 
 		var/start_tick = world.time
 
-		if (M.isprocessing)
+		if (M.machinery_processing)
 			processes_this_tick++
-			switch (M.process())
+			switch (M.machinery_process())
 				if (PROCESS_KILL)
 					remove_machine(M)
 				if (M_NO_PROCESS)
-					M.isprocessing = FALSE
+					M.machinery_processing = FALSE
 
 		if (start_tick != world.time)
 			// Slept.
 			if (!slept_in_process[M.type])
-				log_debug("SSmachinery: Type '[M.type]' slept during process().")
+				log_debug("SSmachinery: Type '[M.type]' slept during machinery_process().")
 				slept_in_process[M.type] = TRUE
 
 		if (M.use_power)
 			powerusers_this_tick++
-			M.auto_use_power()
+			if (M.has_special_power_checks)
+				M.auto_use_power()
+			else
+				var/area/A = M.loc ? M.loc.loc : null
+				if (isarea(A))
+					var/chan = M.power_channel
+					if (A.powered(chan))
+						var/usage = 0
+						switch (M.use_power)
+							if (1)
+								usage = M.idle_power_usage
+							if (2)
+								usage = M.active_power_usage
+						
+						A.use_power(usage, chan)
 
 		if (no_mc_tick)
 			CHECK_TICK
@@ -110,17 +143,32 @@
 			return
 
 /datum/controller/subsystem/machinery/stat_entry()
-	..("M:[machines.len] PI:[processing_power_items.len]\n\tLT:{T:[processes_this_tick]|P:[powerusers_this_tick]}")
+	var/list/out = list()
+	out += "M:[machines.len] PI:[processing_power_items.len]"
+	out += "LT:{T:[processes_this_tick]|P:[powerusers_this_tick]}"
+	..(out.Join("\n\t"))
+
+/datum/controller/subsystem/machinery/proc/setup_template_powernets(list/cables)
+	for(var/A in cables)
+		var/obj/structure/cable/PC = A
+		if(!PC.powernet)
+			var/datum/powernet/NewPN = new()
+			NewPN.add_cable(PC)
+			propagate_network(PC, PC.powernet)
 
 /proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))
+		crash_with("Attempted add of QDELETED machine [M ? M : "NULL"] to machines list, ignoring.")
 		return
 
-	M.isprocessing = TRUE
-	machines += M
+	M.machinery_processing = TRUE
+	if (machines[M])
+		crash_with("Type [M.type] was added to machines list twice! Ignoring duplicate.")
+
+	machines[M] = TRUE
 
 /proc/remove_machine(obj/machinery/M)
 	if (M)
-		M.isprocessing = FALSE
+		M.machinery_processing = FALSE
 	machines -= M
 	SSmachinery.processing_machinery -= M

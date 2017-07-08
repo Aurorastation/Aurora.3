@@ -12,7 +12,7 @@
 
 
 /datum/event/false_alarm/end()
-	command_announcement.Announce("Error, It appears our previous announcement about [eventname] was a sensor glitch. There is no cause for alarm, please return to your stations.", "False Alarm")
+	command_announcement.Announce("Error, It appears our previous announcement about [eventname] was a sensor glitch. There is no cause for alarm, please return to your stations.", "False Alarm", new_sound = 'sound/AI/falsealarm.ogg')
 	if(two_part)
 		E.end()
 	if (EM)

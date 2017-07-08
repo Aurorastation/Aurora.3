@@ -88,5 +88,13 @@
 	name = "nathi-snack corned beef"
 	icon_state = "cbeef-used"
 
+/obj/item/trash/brownies
+	name = "brownie tray"
+	icon_state = "brownies"
+
+/obj/item/trash/snacktray
+	name = "snacktray"
+	icon_state = "snacktray"
+
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return

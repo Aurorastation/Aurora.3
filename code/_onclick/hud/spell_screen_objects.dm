@@ -23,10 +23,6 @@
 			spell_holder.client.screen -= src
 		spell_holder = null
 
-/obj/screen/movable/spell_master/resetVariables(var/list/exclude = list())
-	exclude += "spell_objects"
-	..(exclude)
-
 /obj/screen/movable/spell_master/MouseDrop()
 	if(showing)
 		return

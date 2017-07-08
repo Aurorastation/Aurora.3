@@ -68,12 +68,12 @@
 /obj/item/weapon/gun/energy/meteorgun
 	name = "meteor gun"
 	desc = "For the love of god, make sure you're aiming this the right way!"
-	icon_state = "riotgun"
+	icon_state = "meteor_gun"
 	item_state = "c20r"
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 4
+	max_shots = 10
 	projectile_type = /obj/item/projectile/meteor
-	cell_type = /obj/item/weapon/cell/potato
 	self_recharge = 1
 	recharge_time = 5 //Time it takes for shots to recharge (in ticks)
 	charge_meter = 0
@@ -163,6 +163,23 @@
 		update_icon()
 	return 0
 
+/obj/item/weapon/gun/energy/net
+	name = "net gun"
+	desc = "A gun designed to deploy energy nets to capture animals or unruly crew members."
+	icon_state = "netgun"
+	projectile_type = /obj/item/projectile/beam/energy_net
+	fire_sound = 'sound/weapons/plasma_cutter.ogg'
+	slot_flags = SLOT_HOLSTER | SLOT_BELT
+	w_class = 3
+	max_shots = 4
+	fire_delay = 25
+
+/obj/item/weapon/gun/energy/net/mounted
+	max_shots = 1
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 40
+
 /* Vaurca Weapons */
 
 /obj/item/weapon/gun/energy/vaurca
@@ -236,7 +253,7 @@
 	if(!wielded)
 		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
 		return 0
-	playsound(src, 'sound/weapons/chainsawhit.ogg', 90, 1)
+	playsound(src, 'sound/weapons/chainsawstart.ogg', 90, 1)
 	user.visible_message(
 					"<span class='danger'>\The [user] begins spinning [src]'s barrels!</span>",
 					"<span class='danger'>You begin spinning [src]'s barrels!</span>",
@@ -455,7 +472,7 @@
 	recharge_time = 1
 	charge_meter = 1
 	use_external_power = 1
-	charge_cost = 200
+	charge_cost = 25
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	..()
@@ -486,9 +503,7 @@
 	projectile_type = /obj/item/projectile/energy/flamer
 	self_recharge = 1
 	recharge_time = 2
-
 	max_shots = 80
-
 	firemodes = list(
 		list(mode_name="spray", burst = 20, burst_delay = -1, fire_delay = 10, dispersion = list(0.5, 0.5, 1.0, 1.0, 1.5, 1.5, 2.0, 2.0, 2.5, 2.5, 3.0, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.0, 6.0)),
 		)*/

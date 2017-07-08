@@ -27,7 +27,10 @@
 	var/list/decals
 
 	var/is_hole		// If true, turf will be treated as space or a hole
-	var/turf/baseturf = /turf/space
+	var/tmp/turf/baseturf
+
+	var/roof_type = null // The turf type we spawn as a roof.
+	var/tmp/roof_flags = 0
 
 // Parent code is duplicated in here instead of ..() for performance reasons.
 /turf/Initialize()
@@ -49,11 +52,20 @@
 	if (smooth)
 		queue_smooth(src)
 
-	if (light_power && light_range)
+	if (light_range && light_power)
 		update_light()
 
 	if (opacity)
 		has_opaque_atom = TRUE
+
+	var/area/A = loc
+
+	if(!baseturf)
+		// Hard-coding this for performance reasons.
+		baseturf = A.base_turf || base_turf_by_z["[z]"] || /turf/space
+
+	if (A.flags & SPAWN_ROOF)
+		spawn_roof()
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -63,6 +75,9 @@
 
 	changing_turf = FALSE
 	turfs -= src
+
+	cleanup_roof()
+
 	..()
 	return QDEL_HINT_IWILLGC
 
@@ -272,3 +287,38 @@ var/const/enterloopsanity = 100
 
 /turf/proc/update_blood_overlays()
 	return
+
+/**
+ * Will spawn a roof above the turf if it needs one.
+ *
+ * @param  flags The flags to assign to the turf which control roof spawning and
+ * deletion by this turf. Refer to _defines/turfs.dm for a full list.
+ *
+ * @return TRUE if a roof has been spawned, FALSE if not.
+ */
+/turf/proc/spawn_roof(flags = 0)
+	var/turf/simulated/open/above = GetAbove(src)
+	if (!above)
+		return FALSE
+
+	if (((istype(above)) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
+		above.ChangeTurf(roof_type)
+		roof_flags |= flags
+		return TRUE
+
+	return FALSE
+
+/**
+ * Cleans up the roof above a tile if there is one spawned and the ROOF_CLEANUP
+ * flag is present on the source turf.
+ */
+/turf/proc/cleanup_roof()
+	if (!HasAbove(z))
+		return
+
+	if (roof_flags & ROOF_CLEANUP)
+		var/turf/above = GetAbove(src)
+		if (!above || isopenturf(above))
+			return
+
+		above.ChangeTurf(/turf/simulated/open)

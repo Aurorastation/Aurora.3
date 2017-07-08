@@ -12,8 +12,8 @@
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
 
-/obj/item/stack/material/New()
-	..()
+/obj/item/stack/material/Initialize()
+	. = ..()
 	pixel_x = rand(0,4)-4
 	pixel_y = rand(0,4)-4
 
@@ -22,7 +22,7 @@
 	material = get_material_by_name("[default_type]")
 	if(!material)
 		qdel(src)
-		return 0
+		return
 
 	recipes = material.get_recipes()
 	stacktype = material.stack_type
@@ -38,7 +38,6 @@
 
 	matter = material.get_matter()
 	update_strings()
-	return 1
 
 /obj/item/stack/material/get_material()
 	return material
@@ -118,6 +117,7 @@
 	name = "plastic"
 	icon_state = "sheet-plastic"
 	default_type = "plastic"
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/gold
 	name = "gold"
@@ -158,12 +158,14 @@
 	name = DEFAULT_WALL_MATERIAL
 	icon_state = "sheet-metal"
 	default_type = DEFAULT_WALL_MATERIAL
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/plasteel
 	name = "plasteel"
 	icon_state = "sheet-plasteel"
 	item_state = "sheet-metal"
 	default_type = "plasteel"
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/wood
 	name = "wooden plank"
@@ -174,6 +176,7 @@
 	name = "cloth"
 	icon_state = "sheet-cloth"
 	default_type = "cloth"
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/cardboard
 	name = "cardboard"
@@ -185,11 +188,13 @@
 	desc = "The by-product of mob grinding."
 	icon_state = "sheet-leather"
 	default_type = "leather"
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/glass
 	name = "glass"
 	icon_state = "sheet-glass"
 	default_type = "glass"
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
@@ -202,6 +207,7 @@
 	singular_name = "borosilicate glass sheet"
 	icon_state = "sheet-phoronglass"
 	default_type = "borosilicate glass"
+	icon_has_variants = FALSE
 
 /obj/item/stack/material/glass/phoronrglass
 	name = "reinforced borosilicate glass"
@@ -209,3 +215,4 @@
 	singular_name = "reinforced borosilicate glass sheet"
 	icon_state = "sheet-phoronrglass"
 	default_type = "reinforced borosilicate glass"
+	icon_has_variants = FALSE
