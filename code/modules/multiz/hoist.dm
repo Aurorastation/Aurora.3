@@ -3,7 +3,7 @@
 ///////////////////////////
 
 /obj/item/hoist_kit
-	name = "Hoist Kit"
+	name = "hoist kit"
 	desc = "A setup kit for a hoist that can be used to lift things. The hoist will deploy in the direction you're facing."
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_case"
@@ -14,7 +14,7 @@
 	qdel(src)
 
 /obj/effect/hoist_hook
-	name = "Hoist Clamp"
+	name = "hoist clamp"
 	desc = "A clamp used to lift people or things."
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_hook"
@@ -27,11 +27,19 @@
 		return
 	if (!AM.simulated || AM.anchored || source_hoist.hoistee || !Adjacent(AM))
 		return
-	source_hoist.hoistee = AM
-	if (get_turf(AM) != get_turf(src))
-		AM.Move(get_turf(src))
-	AM.anchored = 1
+	source_hoist.attach_hoistee(AM)
 	user.visible_message(span("danger", "[user] attaches \the [AM] to the hoist clamp."), span("danger", "You attach \the [AM] to the hoist clamp."), span("danger", "You hear something clamp into place."))
+
+/obj/structure/hoist/proc/attach_hoistee(atom/movable/AM)
+	if (get_turf(AM) != get_turf(src))
+		AM.forceMove(get_turf(src))
+	hoistee = AM
+	if(istype(AM, mob))
+		var/mob/M = AM
+		M.captured = 0
+		M.update_canmove()
+	else
+		AM.anchored = 0
 
 /obj/effect/hoist_hook/MouseDrop(atom/dest)
 	if(!usr || !dest) return
@@ -47,7 +55,7 @@
 		return
 
 	var/turf/desturf = dest
-	source_hoist.hoistee.Move(desturf)
+	source_hoist.hoistee.forceMove(desturf)
 	usr.visible_message(span("danger", "[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You detach \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You hear something unclamp."))
 	source_hoist.release_hoistee()
 
@@ -57,7 +65,7 @@
 	var/broken = 0
 	density = 1
 	anchored = 1
-	name = "Hoist"
+	name = "hoist"
 	desc = "A manual hoist, uses a clamp and pulley to hoist things."
 	var/atom/movable/hoistee
 	var/movedir = UP
@@ -77,7 +85,11 @@
 	return ..()
 
 /obj/structure/hoist/proc/release_hoistee()
-	hoistee.anchored = 0
+	if(istype(hoistee, mob))
+		hoistee.captured = 0
+		hoistee.update_canmove()
+	else
+		hoistee.anchored = 0
 	hoistee = null
 
 /obj/structure/hoist/proc/break_hoist()
@@ -98,7 +110,7 @@
 			if(prob(50))
 				qdel(src)
 			else
-				visible_message("The hoist shakes violently, and neatly collapses as its damage sensors go off.")
+				visible_message("\The [src] shakes violently, and neatly collapses as its damage sensors go off.")
 				collapse_kit()
 			return
 		if(3.0)
