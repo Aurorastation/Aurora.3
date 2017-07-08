@@ -19,27 +19,19 @@
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_hook"
 	var/obj/structure/hoist/source_hoist
-	can_buckle = 1
 	anchored = 1
 
-/obj/effect/hoist_hook/unbuckle_mob()
-	. = ..()
-	source_hoist.hoistee.anchored = 0
-	source_hoist.hoistee = null
-
-/obj/effect/hoist_hook/MouseDrop_T(atom/movable/M,mob/user)
-	if(!istype(M))
+/obj/effect/hoist_hook/MouseDrop_T(atom/movable/AM,mob/user)
+	if(!istype(AM))
 		log_debug("AAAAAAA")
 		return
-	if (!M.simulated || M.anchored || source_hoist.hoistee || !Adjacent(M))
+	if (!AM.simulated || AM.anchored || source_hoist.hoistee || !Adjacent(AM))
 		return
-	source_hoist.hoistee = M
-	if (get_turf(M) != get_turf(src))
-		M.Move(get_turf(src))
-	if (ismob(M))
-		user_buckle_mob(M, user)
-	M.anchored = 1
-	user.visible_message(span("danger", "[user] attaches \the [M] to the hoist clamp."), span("danger", "You attach \the [M] to the hoist clamp."), span("danger", "You hear something clamp into place."))
+	source_hoist.hoistee = AM
+	if (get_turf(AM) != get_turf(src))
+		AM.Move(get_turf(src))
+	AM.anchored = 1
+	user.visible_message(span("danger", "[user] attaches \the [AM] to the hoist clamp."), span("danger", "You attach \the [AM] to the hoist clamp."), span("danger", "You hear something clamp into place."))
 
 /obj/effect/hoist_hook/MouseDrop(atom/dest)
 	if(!usr || !dest) return
@@ -56,17 +48,13 @@
 
 	var/turf/desturf = dest
 	source_hoist.hoistee.Move(desturf)
-
-	if (buckled_mob)
-		unbuckle_mob()
-	else
-		source_hoist.hoistee.anchored = 0
-		source_hoist.hoistee = null
 	usr.visible_message(span("danger", "[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You detach \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You hear something unclamp."))
+	source_hoist.release_hoistee()
 
 /obj/structure/hoist
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_base"
+	var/broken = 0
 	density = 1
 	anchored = 1
 	name = "Hoist"
@@ -82,7 +70,62 @@
 	source_hook = new(newloc)
 	source_hook.source_hoist = src
 
+/obj/structure/hoist/Destroy()
+	if(hoistee)
+		release_hoistee()
+	QDEL_NULL(src.source_hook)
+	return ..()
+
+/obj/structure/hoist/proc/release_hoistee()
+	hoistee.anchored = 0
+	hoistee = null
+
+/obj/structure/hoist/proc/break_hoist()
+	if(broken)
+		return
+	broken = 1
+	desc += " It looks broken, and the clamp has retracted back into the hoist. Seems like you'd have to re-deploy it to get it to work again."
+	if(hoistee)
+		release_hoistee()
+	QDEL_NULL(source_hook)
+
+/obj/structure/hoist/ex_act(severity)
+	switch(severity)
+		if(1.0)
+			qdel(src)
+			return
+		if(2.0)
+			if(prob(50))
+				qdel(src)
+			else
+				visible_message("The [src] shakes violently, and neatly collapses as its damage sensors go off.")
+				collapse_kit()
+			return
+		if(3.0)
+			if(prob(50))
+				if(!broken)
+					break_hoist()
+			return
+
+/obj/effect/hoist_hook/ex_act(severity)
+	switch(severity)
+		if(1.0)
+			source_hoist.break_hoist()
+			return
+		if(2.0)
+			if(prob(50))
+				source_hoist.break_hoist()
+			return
+		if(3.0)
+			if(prob(25))
+				source_hoist.break_hoist()
+			return
+
+
 /obj/structure/hoist/attack_hand(mob/living/user)
+	if(broken)
+		to_chat(user, span("warning", "The hoist is broken!"))
+		return
 	var/can = can_move_dir(movedir)
 	var/movtext = movedir == UP ? "raise" : "lower"
 	if (!can) // If you can't...
@@ -107,6 +150,10 @@
 	if (do_after(user, (1 SECONDS) * size / 4, act_target = src))
 		move_dir(movedir, 1)
 
+/obj/structure/hoist/proc/collapse_kit()
+	new /obj/item/hoist_kit(get_turf(src))
+	qdel(src)
+
 /obj/structure/hoist/verb/collapse_hoist()
 	set name = "Collapse Hoist"
 	set category = "Object"
@@ -121,9 +168,7 @@
 	if (hoistee)
 		to_chat(usr, span("notice", "You cannot collapse the hoist with \the [hoistee] attached!"))
 		return
-	QDEL_NULL(src.source_hook)
-	new /obj/item/hoist_kit(get_turf(src))
-	qdel(src)
+	collapse_kit()
 
 /obj/structure/hoist/proc/can_move_dir(direction)
 	var/turf/dest = direction == UP ? GetAbove(source_hook) : GetBelow(source_hook)
