@@ -34,7 +34,7 @@
 	if (get_turf(AM) != get_turf(src))
 		AM.forceMove(get_turf(src))
 	hoistee = AM
-	if(istype(AM, mob))
+	if(ismob(AM))
 		var/mob/M = AM
 		M.captured = 0
 		M.update_canmove()
@@ -85,9 +85,10 @@
 	return ..()
 
 /obj/structure/hoist/proc/release_hoistee()
-	if(istype(hoistee, mob))
-		hoistee.captured = 0
-		hoistee.update_canmove()
+	if(ismob(hoistee))
+		var/mob/M = hoistee
+		M.captured = 0
+		M.update_canmove()
 	else
 		hoistee.anchored = 0
 	hoistee = null
