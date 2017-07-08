@@ -36,10 +36,10 @@
 	hoistee = AM
 	if(ismob(AM))
 		var/mob/M = AM
-		M.captured = 0
+		M.captured = 1
 		M.update_canmove()
 	else
-		AM.anchored = 0
+		AM.anchored = 1
 
 /obj/effect/hoist_hook/MouseDrop(atom/dest)
 	if(!usr || !dest) return
