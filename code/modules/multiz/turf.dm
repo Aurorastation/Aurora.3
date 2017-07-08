@@ -92,6 +92,9 @@
 		addtimer(CALLBACK(above, /turf/simulated/open/.proc/update), 0)
 		above = null
 
+	if (below)
+		below.above = null
+
 	below = null
 
 	LAZYCLEARLIST(climbers)
