@@ -5,8 +5,8 @@
 /obj/item/hoist_kit
 	name = "Hoist Kit"
 	desc = "A setup kit for a hoist that can be used to lift things. The hoist will deploy in the direction you're facing."
-	icon = 'icons/obj/forensics.dmi'
-	icon_state = "case"
+	icon = 'icons/obj/hoists.dmi'
+	icon_state = "hoist_case"
 
 /obj/item/hoist_kit/attack_self(mob/user)
 	new /obj/structure/hoist (get_turf(user), user.dir)
@@ -16,8 +16,8 @@
 /obj/effect/hoist_hook
 	name = "Hoist Clamp"
 	desc = "A clamp used to lift people or things."
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "up"
+	icon = 'icons/obj/hoists.dmi'
+	icon_state = "hoist_hook"
 	var/obj/structure/hoist/source_hoist
 	can_buckle = 1
 	anchored = 1
@@ -28,16 +28,18 @@
 	source_hoist.hoistee = null
 
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/M,mob/user)
-	if(!istype(M) || !M.simulated || M.anchored || source_hoist.hoistee || !Adjacent(M))
+	if(!istype(M))
+		log_debug("AAAAAAA")
+		return
+	if (!M.simulated || M.anchored || source_hoist.hoistee || !Adjacent(M))
 		return
 	source_hoist.hoistee = M
 	if (get_turf(M) != get_turf(src))
 		M.Move(get_turf(src))
 	if (ismob(M))
 		user_buckle_mob(M, user)
-	else
-		M.anchored = 1
-		user.visible_message(span("danger", "[user] attaches \the [M] to the hoist clamp."), span("danger", "You attach \the [M] to the hoist clamp."), span("danger", "You hear something clamp into place."))
+	M.anchored = 1
+	user.visible_message(span("danger", "[user] attaches \the [M] to the hoist clamp."), span("danger", "You attach \the [M] to the hoist clamp."), span("danger", "You hear something clamp into place."))
 
 /obj/effect/hoist_hook/MouseDrop(atom/dest)
 	if(!usr || !dest) return
@@ -51,10 +53,10 @@
 		return
 	if (!dest.Adjacent(source_hoist.hoistee))
 		return
-		
+
 	var/turf/desturf = dest
 	source_hoist.hoistee.Move(desturf)
-		
+
 	if (buckled_mob)
 		unbuckle_mob()
 	else
@@ -63,8 +65,8 @@
 	usr.visible_message(span("danger", "[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You detach \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You hear something unclamp."))
 
 /obj/structure/hoist
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "pipe_d"
+	icon = 'icons/obj/hoists.dmi'
+	icon_state = "hoist_base"
 	density = 1
 	anchored = 1
 	name = "Hoist"
