@@ -42,13 +42,11 @@
 		pref.socks = null
 
 /datum/category_item/player_setup_item/general/equipment/content()
-	sanitize_character()
 	. += "<b>Equipment:</b><br>"
 	. += "Underwear: <a href='?src=\ref[src];change_underwear=1'><b>[get_key_by_value(get_undies(),pref.underwear)]</b></a><br>"
 	. += "Undershirt: <a href='?src=\ref[src];change_undershirt=1'><b>[get_key_by_value(undershirt_t,pref.undershirt)]</b></a><br>"
 	. += "Socks: <a href='?src=\ref[src];change_socks=1'><b>[get_key_by_value(get_gender_socks(),pref.socks)]</b></a><br>"
 	. += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[backbaglist[pref.backbag]]</b></a><br>"
-
 
 /datum/category_item/player_setup_item/general/equipment/proc/get_undies()
 	return pref.gender == MALE ? underwear_m : underwear_f
