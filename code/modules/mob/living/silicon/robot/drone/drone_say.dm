@@ -34,7 +34,7 @@
 				D << "<b>[src]</b> transmits, \"[message]\""
 
 		for (var/mob/M in player_list)
-			if (isnull(M) || isnull(M.client))
+			if (isnull(M.client))
 				continue
 			if (istype(M, /mob/new_player))
 				continue
