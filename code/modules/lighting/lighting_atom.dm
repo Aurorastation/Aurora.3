@@ -110,16 +110,6 @@
 		if (old_has_opaque_atom != T.has_opaque_atom)
 			T.reconsider_lights()
 
-/atom/movable/Move()
-	. = ..()
-
-	var/datum/light_source/L
-	var/thing
-	for (thing in light_sources)
-		L = thing
-		L.source_atom.update_light()
-
-
 /atom/movable/forceMove()
 	. = ..()
 
