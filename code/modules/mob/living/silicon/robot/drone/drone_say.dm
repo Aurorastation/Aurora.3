@@ -23,7 +23,7 @@
 			return 0
 
 		// Message must not be empty
-		if (isnull(message) || length(message) == 0)
+		if (length(message) == 0)
 			return 0
 
 		var/list/listeners = hearers(5,src)
