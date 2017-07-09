@@ -270,6 +270,8 @@ var/list/gamemode_cache = list()
 	var/sun_accuracy = 8
 	var/sun_target_z = 7
 
+	var/cargo_load_items_from = "json"
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -828,6 +830,9 @@ var/list/gamemode_cache = list()
 					access_deny_vms = text2num(value)
 				if("access_warn_vms")
 					access_warn_vms = text2num(value)
+				
+				if("cargo_load_items_from")
+					cargo_load_items_from = value
 
 				if("fastboot")
 					fastboot = TRUE

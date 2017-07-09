@@ -1,0 +1,85 @@
+<div class="statusDisplay" style="min-height: 100px;">
+	<div class="item">
+		<div class="itemContent" style="width: 100%;">
+            <table>
+                <tr>
+                    <td><b>Welcome:</b></td>
+                    <td>{{:data.username}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h3>Order Status</h3></td>
+                </tr>
+                <tr>
+                    <td><b>Submitted Order Number:</b></td>
+                    <td>{{:data.order_submitted_number}}</td>
+                </tr>
+                <tr>
+                    <td><b>Submitted Order Value:</b></td>
+                    <td>{{:data.order_submitted_value}} Credits</td>
+                </tr>
+                <tr>
+                    <td colspan="2">{{:helper.link('Submitted Order Overview', 'cart', {'page' : 'overview_submitted'}, null)}}</td>
+                </tr>
+                <tr>
+                    <td><b>Appoved Order Number:</b></td>
+                    <td>{{:data.order_approved_number}}</td>
+                </tr>
+                <tr>
+                    <td><b>Appoved Order Value:</b></td>
+                    <td>{{:data.order_approved_value}} Credits</td>
+                </tr>
+                <tr>
+                    <td colspan="2">{{:helper.link('Approved Order Overview', 'cart', {'page' : 'overview_approved'}, null)}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h3>Shuttle Operations</h3></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                    {{:helper.link('Send', 'cart', {'shuttle_send' : '1'}, null)}}
+                    {{:helper.link('Cancel', 'cart', {'shuttle_cancel' : '1'}, null)}}
+                    {{:helper.link('Force', 'cart', {'shuttle_force' : '1'}, null)}}
+                    </td>
+                </tr>
+            </table>
+		</div>
+	</div>
+</div>
+{{if data.page == "overview_submitted"}}
+    <hr>
+	Overview Submitted
+    <div>
+	{{:helper.link('Return', 'cart', {'page' : 'main'}, null)}}
+	<table>
+    {{props data.submitted_orders}}
+		<tr>
+			<td>{{:value.order_id}}</td>
+            <td>{{:value.customer}}</td>
+            <td>{{:value.price}}</td>
+			<td>{{:helper.link('Approve', 'close', {'order_approve' : value.order_id}, null)}}{{:helper.link('Details', 'close', {'order_details' : value.order_id}, null)}}</td>
+		</tr>
+    {{/props}}
+	</table>
+    </div>
+{{else data.page == "overview_approved"}}
+    <hr>
+	Overview Approved
+    <div>
+	{{:helper.link('Return', 'cart', {'page' : 'main'}, null)}}
+	<table>
+    {{props data.approved_orders}}
+		<tr>
+			<td>{{:value.order_id}}</td>
+            <td>{{:value.customer}}</td>
+            <td>{{:value.price}}</td>
+		</tr>
+    {{/props}}
+	</table>
+    </div>
+{{else data.page == "settings"}}
+    settings
+{{else data.page == "details"}}
+    details
+{{else}}
+    else
+{{/if}}
