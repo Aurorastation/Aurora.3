@@ -146,7 +146,8 @@ zone/proc/movables()
 	for(var/turf/T in contents)
 		CHECK_TICK
 
-		for(var/atom/movable/A in T)
+		for(var/aa in T)
+			var/atom/movable/A = aa
 			if(!A.simulated || A.anchored || istype(A, /obj/effect) || istype(A, /mob/eye))
 				continue
 			. += A

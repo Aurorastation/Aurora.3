@@ -4,6 +4,10 @@
 // Do not remove this functionality without good reason, cough reagent_containers cough.
 // -Sayu
 
+// Because tick_checking this code gets funky (it's bound directly into user interaction)
+// We instead cap the amount of maximum storage space to 200. A loop that should be fine
+// for the server to handle without dying.
+#define STORAGE_SPACE_CAP 200
 
 /obj/item/weapon/storage
 	name = "storage"
@@ -254,11 +258,11 @@
 	var/obj/item/sample_object
 	var/number
 
-	New(obj/item/sample as obj)
-		if(!istype(sample))
-			qdel(src)
-		sample_object = sample
-		number = 1
+/datum/numbered_display/New(obj/item/sample as obj)
+	if(!istype(sample))
+		qdel(src)
+	sample_object = sample
+	number = 1
 
 //This proc determins the size of the inventory to be displayed. Please touch it only if you know what you're doing.
 /obj/item/weapon/storage/proc/orient2hud(mob/user as mob)
@@ -522,6 +526,10 @@
 /obj/item/weapon/storage/Initialize()
 	..()
 
+	if (max_storage_space > STORAGE_SPACE_CAP)
+		log_debug("STORAGE: [type] exceed STORAGE_SPACE_CAP. It has been reset to [STORAGE_SPACE_CAP].")
+		max_storage_space = STORAGE_SPACE_CAP
+
 	fill()
 
 	if(!allow_quick_empty)
@@ -666,3 +674,5 @@
 			return 1000
 
 		//return 2**(w_class-1) //1,2,4,8,16,...
+
+#undef STORAGE_SPACE_CAP

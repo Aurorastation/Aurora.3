@@ -67,6 +67,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define PARALLAX_SPACE 0x1
 #define PARALLAX_DUST  0x2
 #define PROGRESS_BARS  0x4
+#define PARALLAX_IS_STATIC 0x8
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
@@ -164,6 +165,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 //Area flags, possibly more to come
 #define RAD_SHIELDED 1 //shielded from radiation, clearly
 #define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
+#define HIDE_FROM_HOLOMAP 4 // if we shouldn't be drawn on station holomaps
 
 // Custom layer definitions, supplementing the default TURF_LAYER, MOB_LAYER, etc.
 #define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
@@ -369,3 +371,6 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #endif
 
 #define DEFAULT_SIGHT (SEE_SELF|SEE_BLACKNESS)
+
+#define isStationLevel(Z) ((Z) in config.station_levels)
+#define isNotStationLevel(Z) !isStationLevel(Z)

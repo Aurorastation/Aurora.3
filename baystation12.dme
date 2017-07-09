@@ -268,7 +268,6 @@
 #include "code\datums\observation\destroyed.dm"
 #include "code\datums\observation\moved.dm"
 #include "code\datums\observation\observation.dm"
-#include "code\datums\observation\task_triggered.dm"
 #include "code\datums\radio\frequency.dm"
 #include "code\datums\radio\signal.dm"
 #include "code\datums\repositories\cameras.dm"
