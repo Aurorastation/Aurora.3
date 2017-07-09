@@ -156,6 +156,9 @@
 						0, SHADOWER_DARKENING_FACTOR, 0,
 						0, 0, SHADOWER_DARKENING_FACTOR
 					)
+
+				if (shadower.bound_overlay)
+					shadower.update_above()
 			else
 				if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
 					object.bound_overlay = new(T)
