@@ -374,3 +374,8 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define isStationLevel(Z) ((Z) in config.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
+
+//Affects the chance that armour will block an attack. Should be between 0 and 1.
+//If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.
+//Of course, this will affect code that checks for blocked < 100, as blocked will be less likely to actually be 100.
+#define ARMOR_BLOCK_CHANCE_MULT 1.0
