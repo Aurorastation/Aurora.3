@@ -281,3 +281,27 @@ var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
 	. = ..()
 	if (. && hud_used && client && get_turf(client.eye) == destination)
 		hud_used.update_parallax_values()
+
+
+// Movement hooks.
+/atom/movable/Move()
+	var/old_loc = loc
+	. = ..()
+	if (.)
+		// Events.
+		moved_event.raise_event(src, old_loc, loc)
+
+		// Parallax.
+		update_client_hook()
+
+		// Lighting.
+		var/datum/light_source/L
+		var/thing
+		for (thing in light_sources)
+			L = thing
+			L.source_atom.update_light()
+
+		// Openturf.
+		if (bound_overlay)
+			// The overlay will handle cleaning itself up on non-openspace turfs.
+			bound_overlay.forceMove(get_step(src, UP))
