@@ -33,7 +33,7 @@ Since the implementation of the Stoned Master Controller, overrides of the `New(
 
 `LateInitialize()` is invoked as an asynchronous process whenever overridden.
 
-Refer to the [wiki](./wiki/Atom-Initialization) article for further information.
+Refer to the [wiki](https://github.com/Aurorastation/Aurora.3/wiki/Atom-Initialization) article for further information.
 
 ### qdel() and Destroy() usage
 All objects with an applicable type need to be deleted by `qdel()`, as opposed to the regular `del()` proc. While conducting this action, make sure you remove all possible references to the object you assign for deletion *after* calling `qdel()`. This will enable the garbage collector to handle the objects assigned to it at its own pace, thus reducing lag in the long run.
@@ -83,7 +83,7 @@ An example of how to define `Destroy()` for an item that needs it:
 
 You will have to use the regular `del()` proc to delete any object of that type (except for `/turf`, which should use `ChangeTurf()`).
 
-More details on qdel, Garbage, and `Destroy()` are available [[here|Garbage, qdel, and Destroy]].
+More details on qdel, Garbage, and `Destroy()` are available [on the wiki](https://github.com/Aurorastation/Aurora.3/wiki/Garbage%2C-qdel%2C-and-Destroy).
 
 ### HTML styling for user output
 All text output to the user, specially if the output operator `<<` is used, should be formatted in proper HTML. DM text macros for styling, such as `\red` and `\blue`, are no longer to be used actively. This will enable the modification of used HTML styling later down the line, via the centralized .css files. It will also enable a switch from an output panel, to other output methods.
