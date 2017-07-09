@@ -39,6 +39,6 @@
 			if (istype(M, /mob/new_player))
 				continue
 			else if(M.stat == 2 &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
-				if(M.client) M << "<b>[src]</b> transmits, \"[message]\""
+				M << "<b>[src]</b> transmits, \"[message]\""
 		return 1
 	return ..(message, 0)
