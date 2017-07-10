@@ -19,33 +19,45 @@
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_hook"
 	var/obj/structure/hoist/source_hoist
+	can_buckle = 1
 	anchored = 1
 
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/AM,mob/user)
-	if(!istype(AM))
-		log_debug("AAAAAAA")
+	if (!AM.simulated || AM.anchored)
+		to_chat(user, span("notice", "You can't do that."))
 		return
-	if (!AM.simulated || AM.anchored || source_hoist.hoistee || !Adjacent(AM))
+	if (!Adjacent(AM))
+		return
+	if (source_hoist.hoistee)
+		to_chat(user, span("notice", "\The [source_hoist.hoistee] is already attached to \the [src]!"))
 		return
 	source_hoist.attach_hoistee(AM)
-	user.visible_message(span("danger", "[user] attaches \the [AM] to the hoist clamp."), span("danger", "You attach \the [AM] to the hoist clamp."), span("danger", "You hear something clamp into place."))
+	user.visible_message(span("danger", "[user] attaches \the [AM] to \the [src]."), span("danger", "You attach \the [AM] to \the [src]."), span("danger", "You hear something clamp into place."))
 
 /obj/structure/hoist/proc/attach_hoistee(atom/movable/AM)
-	if (get_turf(AM) != get_turf(src))
-		AM.forceMove(get_turf(src))
+	if (get_turf(AM) != get_turf(source_hook))
+		AM.forceMove(get_turf(source_hook))
 	hoistee = AM
+	PROCLOG("source_hoist=[DEBUG_REF(src)],hoistee=[DEBUG_REF(src.hoistee)],AM=[DEBUG_REF(AM)]")
 	if(ismob(AM))
-		var/mob/M = AM
-		M.captured = 1
-		M.update_canmove()
+		source_hook.buckle_mob(AM)
 	else
 		AM.anchored = 1
 
 /obj/effect/hoist_hook/MouseDrop(atom/dest)
-	if(!usr || !dest) return
+	..()
 	if(!Adjacent(usr) || !dest.Adjacent(usr)) return // carried over from the default proc
 
-	INVOKE_ASYNC(dest, /atom/.proc/MouseDrop_T, src, usr) // thanks lohikode
+	if (!ishuman(usr))
+		return
+
+	if (usr.incapacitated())
+		to_chat(usr, span("notice", "You can't do that while incapacitated."))
+		return
+
+	if (!usr.IsAdvancedToolUser())
+		to_chat(usr, span("notice", "You stare cluelessly at \the [src]."))
+		return
 
 	if (!source_hoist.hoistee)
 		return
@@ -86,9 +98,7 @@
 
 /obj/structure/hoist/proc/release_hoistee()
 	if(ismob(hoistee))
-		var/mob/M = hoistee
-		M.captured = 0
-		M.update_canmove()
+		source_hook.unbuckle_mob(hoistee)
 	else
 		hoistee.anchored = 0
 	hoistee = null
@@ -115,9 +125,8 @@
 				collapse_kit()
 			return
 		if(3.0)
-			if(prob(50))
-				if(!broken)
-					break_hoist()
+			if(prob(50) && !broken)
+				break_hoist()
 			return
 
 /obj/effect/hoist_hook/ex_act(severity)
@@ -136,6 +145,17 @@
 
 
 /obj/structure/hoist/attack_hand(mob/living/user)
+	if (!ishuman(user))
+		return
+
+	if (user.incapacitated())
+		to_chat(user, span("notice", "You can't do that while incapacitated."))
+		return
+
+	if (!user.IsAdvancedToolUser())
+		to_chat(user, span("notice", "You stare cluelessly at \the [src]."))
+		return
+
 	if(broken)
 		to_chat(user, span("warning", "The hoist is broken!"))
 		return
@@ -170,7 +190,10 @@
 /obj/structure/hoist/verb/collapse_hoist()
 	set name = "Collapse Hoist"
 	set category = "Object"
-	set src = view(1)
+	set src in range(1)
+
+	if (!ishuman(usr))
+		return
 
 	if (isobserver(usr) || usr.incapacitated())
 		return
@@ -187,12 +210,12 @@
 	var/turf/dest = direction == UP ? GetAbove(source_hook) : GetBelow(source_hook)
 	switch(direction)
 		if (UP)
-			if (!istype(dest, /turf/simulated/open)) // can't move into a solid tile
+			if (!isopenturf(dest)) // can't move into a solid tile
 				return 0
 			if (source_hook in get_step(src, dir)) // you don't get to move above the hoist
 				return 0
 		if (DOWN)
-			if (!istype(get_turf(source_hook), /turf/simulated/open)) // can't move down through a solid tile
+			if (!isopenturf(get_turf(source_hook))) // can't move down through a solid tile
 				return 0
 	if (!dest) // can't move if there's nothing to move to
 		return 0
