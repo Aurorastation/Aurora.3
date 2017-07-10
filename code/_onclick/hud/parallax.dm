@@ -111,6 +111,9 @@
 	var/client/C = mymob.client
 	if(!SSparallax.parallax_initialized)
 		return
+	
+	if (C.prefs.parallax_togs & PARALLAX_IS_STATIC)
+		return
 
 	//ACTUALLY MOVING THE PARALLAX
 	var/turf/posobj = C.eye ? C.eye:loc : C.mob:loc
