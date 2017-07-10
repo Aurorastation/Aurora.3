@@ -1581,6 +1581,1822 @@
 	},
 /turf/space/transit/north/shuttlespace_ns8,
 /area/space)
+"es" = (
+/obj/effect/step_trigger/thrower{
+	affect_ghosts = 1;
+	direction = 2;
+	name = "thrower_throwdown";
+	tiles = 0
+	},
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/turf/space,
+/area/space)
+"et" = (
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/obj/effect/step_trigger/thrower{
+	affect_ghosts = 1;
+	direction = 2;
+	name = "thrower_throwdown";
+	tiles = 0
+	},
+/turf/space,
+/area/space)
+"eu" = (
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/obj/effect/step_trigger/thrower{
+	affect_ghosts = 1;
+	direction = 2;
+	name = "thrower_throwdown";
+	tiles = 0
+	},
+/turf/simulated/mineral,
+/area/space)
+"ev" = (
+/turf/simulated/mineral,
+/area/space)
+"ew" = (
+/turf/unsimulated/wall/riveted,
+/area/space)
+"ex" = (
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/space)
+"ey" = (
+/obj/item/weapon/shovel,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/space)
+"ez" = (
+/obj/item/weapon/coin/gold,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/space)
+"eA" = (
+/obj/effect/decal/remains,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/space)
+"eB" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
+/area/syndicate_mothership/raider_base)
+"eC" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
+/area/syndicate_mothership/raider_base)
+"eD" = (
+/obj/structure/sign/double/barsign,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
+/area/syndicate_mothership/raider_base)
+"eE" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
+/area/syndicate_mothership/raider_base)
+"eF" = (
+/turf/unsimulated/wall/riveted,
+/area/syndicate_mothership/raider_base)
+"eG" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
+/area/syndicate_mothership/raider_base)
+"eH" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
+/area/syndicate_mothership/raider_base)
+"eI" = (
+/obj/machinery/vending/cigarette{
+	name = "hacked cigarette machine";
+	prices = list();
+	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10, /obj/item/weapon/storage/box/matches = 10, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"eJ" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"eK" = (
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"eL" = (
+/obj/structure/table/woodentable,
+/obj/machinery/chemical_dispenser/bar_alc/full,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"eM" = (
+/obj/structure/table/woodentable,
+/obj/machinery/chemical_dispenser/bar_soft/full,
+/obj/machinery/light{
+	tag = "icon-tube1 (NORTH)";
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"eN" = (
+/obj/structure/reagent_dispensers/beerkeg,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"eO" = (
+/obj/machinery/acting/changer,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership/raider_base)
+"eP" = (
+/obj/structure/sink{
+	pixel_y = 11
+	},
+/obj/structure/mirror{
+	pixel_y = 28
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership/raider_base)
+"eQ" = (
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower,
+/obj/item/weapon/soap/syndie,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership/raider_base)
+"eR" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
+/area/syndicate_mothership/raider_base)
+"eS" = (
+/obj/item/weapon/broken_bottle,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"eT" = (
+/obj/structure/table/woodentable,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"eU" = (
+/obj/effect/decal/cleanable/blood,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership/raider_base)
+"eV" = (
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership/raider_base)
+"eW" = (
+/obj/item/weapon/mop,
+/obj/structure/mopbucket,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership/raider_base)
+"eX" = (
+/turf/simulated/mineral,
+/area/syndicate_mothership/raider_base)
+"eY" = (
+/obj/item/weapon/stool/padded,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"eZ" = (
+/obj/effect/decal/cleanable/ash,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fa" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/reagent_containers/glass/rag,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fb" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/storage/box/drinkingglasses,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fc" = (
+/obj/machinery/door/airlock/hatch{
+	req_access = list(150)
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fd" = (
+/obj/structure/closet/crate/loot,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"fe" = (
+/obj/vehicle/bike,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"ff" = (
+/obj/vehicle/bike,
+/obj/machinery/light{
+	tag = "icon-tube1 (NORTH)";
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"fg" = (
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"fh" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
+/area/syndicate_mothership/raider_base)
+"fi" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fj" = (
+/obj/effect/decal/cleanable/vomit,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fk" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/vending/cola{
+	name = "hacked Robust Softdrinks";
+	prices = list()
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fl" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"fm" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"fn" = (
+/obj/machinery/optable,
+/obj/item/organ/stack,
+/obj/effect/decal/cleanable/blood/xeno,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fo" = (
+/obj/effect/decal/cleanable/generic,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fp" = (
+/obj/item/weapon/stool/padded,
+/obj/effect/landmark{
+	name = "voxstart"
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fq" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/material/ashtray,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fr" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/reagent_containers/food/drinks/bottle/rum,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fs" = (
+/obj/machinery/door/airlock/hatch{
+	req_access = list(150)
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"ft" = (
+/obj/structure/closet/crate/loot,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"fu" = (
+/obj/random/vendor,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"fv" = (
+/obj/item/organ/xenos/eggsac,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fw" = (
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fx" = (
+/obj/structure/mirror/raider{
+	pixel_x = 0;
+	pixel_y = 28
+	},
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fy" = (
+/obj/item/clothing/head/philosopher_wig,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fz" = (
+/obj/structure/table/woodentable,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/deck/cards,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fA" = (
+/obj/structure/table/woodentable,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/reagent_containers/food/condiment/peppermill{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/item/weapon/reagent_containers/food/condiment/saltshaker{
+	pixel_x = -6
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fB" = (
+/obj/machinery/vending/snack{
+	name = "hacked Getmore Chocolate Corp";
+	prices = list()
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fC" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Warehouse";
+	req_access = list(150)
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"fD" = (
+/obj/structure/table/rack,
+/obj/item/clothing/under/vox/vox_casual,
+/obj/item/clothing/shoes/magboots/vox,
+/obj/item/clothing/gloves/yellow/vox,
+/obj/item/clothing/suit/space/vox/stealth,
+/obj/item/clothing/head/helmet/space/vox/stealth,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fE" = (
+/obj/item/tape/engineering{
+	icon_state = "engineering_v"
+	},
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fG" = (
+/obj/structure/table/woodentable,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/pizzabox/meat,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fH" = (
+/obj/structure/table/woodentable,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/dice,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fI" = (
+/obj/machinery/light,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fJ" = (
+/obj/item/weapon/cigbutt,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fK" = (
+/obj/machinery/vending/sovietsoda,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/syndicate_mothership/raider_base)
+"fL" = (
+/obj/machinery/light,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"fM" = (
+/obj/effect/decal/cleanable/generic,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/large_stock_marker,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"fN" = (
+/obj/structure/table/rack,
+/obj/item/clothing/under/vox/vox_casual,
+/obj/item/clothing/shoes/magboots/vox,
+/obj/item/clothing/gloves/yellow/vox,
+/obj/item/clothing/suit/space/vox/carapace,
+/obj/item/clothing/head/helmet/space/vox/carapace,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fO" = (
+/obj/effect/decal/remains/robot,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fP" = (
+/obj/structure/table/rack,
+/obj/item/clothing/under/vox/vox_casual,
+/obj/item/clothing/shoes/magboots/vox,
+/obj/item/clothing/gloves/yellow/vox,
+/obj/item/clothing/suit/space/vox/medic,
+/obj/item/clothing/head/helmet/space/vox/medic,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fQ" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fR" = (
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/thermal/plain/monocle,
+/obj/item/clothing/glasses/thermal/plain/monocle,
+/obj/item/clothing/glasses/thermal/plain/monocle,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fS" = (
+/obj/machinery/light{
+	tag = "icon-tube1 (NORTH)";
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"fT" = (
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership/raider_base)
+"fU" = (
+/obj/effect/decal/cleanable/cobweb2,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership/raider_base)
+"fV" = (
+/obj/structure/table/rack,
+/obj/item/clothing/under/vox/vox_robes,
+/obj/item/clothing/shoes/magboots/vox,
+/obj/item/clothing/gloves/yellow/vox,
+/obj/item/clothing/suit/space/vox/pressure,
+/obj/item/clothing/head/helmet/space/vox/pressure,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fW" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/launcher/spikethrower,
+/obj/item/weapon/gun/launcher/spikethrower,
+/obj/item/weapon/gun/launcher/spikethrower,
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"fX" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership/raider_base)
+"fY" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership/raider_base)
+"fZ" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/launcher/spikethrower,
+/obj/item/weapon/gun/launcher/spikethrower,
+/obj/item/weapon/gun/launcher/spikethrower,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"ga" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"gb" = (
+/obj/structure/bed/chair,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership/raider_base)
+"gc" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"gd" = (
+/obj/structure/table/rack,
+/obj/item/clothing/under/vox/vox_robes,
+/obj/item/clothing/shoes/magboots/vox,
+/obj/item/clothing/gloves/yellow/vox,
+/obj/item/clothing/suit/space/vox/carapace,
+/obj/item/clothing/head/helmet/space/vox/carapace,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"ge" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/item/weapon/tank/nitrogen,
+/obj/machinery/light/small{
+	brightness_color = "#DA0205";
+	brightness_power = 1;
+	brightness_range = 5
+	},
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"gf" = (
+/obj/structure/grille,
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"gg" = (
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"gh" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"gi" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"gj" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"gk" = (
+/obj/machinery/computer/shuttle_control/multi/vox,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership/raider_base)
+"gl" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/space,
+/area/syndicate_mothership/raider_base)
+"gm" = (
+/obj/machinery/door/airlock/external{
+	req_access = list(150)
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"gn" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/space,
+/area/syndicate_mothership/raider_base)
+"go" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/space,
+/area/syndicate_mothership/raider_base)
+"gp" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"gq" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/raider_base)
+"gr" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/space,
+/area/syndicate_mothership/raider_base)
+"gs" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"gt" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"gu" = (
+/turf/simulated/wall/voxshuttle,
+/area/skipjack_station/start)
+"gv" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1331;
+	master_tag = "vox_west_control";
+	req_one_access = list(150)
+	},
+/turf/simulated/wall/voxshuttle,
+/area/skipjack_station/start)
+"gw" = (
+/obj/machinery/door/airlock/hatch{
+	frequency = 1331;
+	icon_state = "door_closed";
+	id_tag = "vox_northwest_lock";
+	locked = 0;
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gx" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular{
+	id = "skipjackshutters";
+	name = "Skipjack Blast Shielding"
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gy" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/blast/regular{
+	id = "skipjackshutters";
+	name = "Skipjack Blast Shielding"
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gz" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	id = "skipjackshutters";
+	name = "Skipjack Blast Shielding"
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gA" = (
+/obj/machinery/door/airlock/hatch{
+	frequency = 1331;
+	icon_state = "door_closed";
+	id_tag = "vox_northeast_lock";
+	locked = 0;
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gB" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1331;
+	master_tag = "vox_east_control";
+	req_access = list(150)
+	},
+/turf/simulated/wall/voxshuttle,
+/area/skipjack_station/start)
+"gC" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1331;
+	id_tag = "vox_west_vent"
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gD" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "vox_west_sensor";
+	pixel_x = 25
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gE" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"gF" = (
+/obj/machinery/computer/shuttle_control/multi/vox,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"gG" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"gH" = (
+/obj/machinery/button/remote/blast_door{
+	id = "skipjackshutters";
+	name = "remote shutter control";
+	req_access = list(150)
+	},
+/turf/simulated/wall/voxshuttle,
+/area/skipjack_station/start)
+"gI" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "vox_east_sensor";
+	pixel_x = -25
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gJ" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 0;
+	frequency = 1331;
+	id_tag = "vox_east_vent"
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gK" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/obj/machinery/meter,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gL" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	tag_airpump = "vox_west_vent";
+	tag_exterior_door = "vox_northwest_lock";
+	frequency = 1331;
+	id_tag = "vox_west_control";
+	tag_interior_door = "vox_southwest_lock";
+	pixel_x = 24;
+	req_access = list(150);
+	tag_chamber_sensor = "vox_west_sensor"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1331;
+	id_tag = "vox_west_vent"
+	},
+/obj/machinery/light/small,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gM" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"gN" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"gO" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/item/clothing/glasses/thermal/plain/monocle,
+/obj/item/clothing/head/pirate,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"gP" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"gQ" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	tag_airpump = "vox_east_vent";
+	tag_exterior_door = "vox_northeast_lock";
+	frequency = 1331;
+	id_tag = "vox_east_control";
+	tag_interior_door = "vox_southeast_lock";
+	pixel_x = -24;
+	req_access = list(150);
+	tag_chamber_sensor = "vox_east_sensor"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1331;
+	id_tag = "vox_east_vent"
+	},
+/obj/machinery/light/small,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gR" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gS" = (
+/obj/machinery/door/airlock/hatch{
+	frequency = 1331;
+	icon_state = "door_closed";
+	id_tag = "vox_southwest_lock";
+	locked = 0;
+	req_access = list(150)
+	},
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gT" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/d762,
+/obj/item/weapon/gun/projectile/dragunov,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"gU" = (
+/obj/structure/table/rack,
+/obj/random/melee,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"gV" = (
+/obj/machinery/door/airlock/hatch{
+	frequency = 1331;
+	icon_state = "door_closed";
+	id_tag = "vox_southeast_lock";
+	locked = 0;
+	req_access = list(150)
+	},
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gW" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1331;
+	master_tag = "vox_west_control";
+	pixel_x = -22;
+	req_one_access = list(150)
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gX" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/ionrifle,
+/obj/item/weapon/material/harpoon,
+/obj/item/clothing/suit/space/void/merc,
+/obj/item/clothing/head/helmet/space/void/merc,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/weapon/tank/oxygen,
+/obj/item/weapon/tank/oxygen,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/obj/item/weapon/rig/light/stealth,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gY" = (
+/obj/machinery/microwave{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/obj/structure/table/steel,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"gZ" = (
+/obj/item/seeds/potatoseed,
+/obj/item/seeds/potatoseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/weapon/material/minihoe,
+/obj/item/weapon/beartrap,
+/obj/structure/table/steel,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"ha" = (
+/obj/machinery/vending/hydroseeds,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hb" = (
+/obj/structure/table/rack,
+/obj/random/energy_antag,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hc" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/belt/utility/full,
+/obj/item/weapon/storage/belt/utility/full,
+/obj/item/device/multitool,
+/obj/item/device/multitool,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hd" = (
+/obj/machinery/washing_machine,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"he" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/fancy/cigarettes,
+/obj/item/weapon/flame/lighter/zippo,
+/obj/item/clothing/gloves/yellow,
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/obj/item/stack/material/glass{
+	amount = 50
+	},
+/obj/item/weapon/card/emag,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hf" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/atmos,
+/obj/item/clothing/suit/space/void/atmos,
+/obj/item/weapon/tank/oxygen,
+/obj/item/weapon/tank/oxygen,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/obj/item/weapon/rig/light/hacker,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hg" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1331;
+	master_tag = "vox_east_control";
+	pixel_x = 22;
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hh" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hi" = (
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hj" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hk" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular{
+	id = "skipjackshutters";
+	name = "Skipjack Blast Shielding"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hl" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/blast/regular{
+	id = "skipjackshutters";
+	name = "Skipjack Blast Shielding"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hm" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	id = "skipjackshutters";
+	name = "Skipjack Blast Shielding"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hn" = (
+/obj/machinery/door/airlock/hatch{
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"ho" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black/engie,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/syndicate/black/engie,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hp" = (
+/obj/item/robot_parts/head,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hq" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular{
+	id = "skipjackshutters";
+	name = "Skipjack Blast Shielding"
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hr" = (
+/obj/item/robot_parts/l_leg,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hs" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular{
+	id = "skipjackshutters";
+	name = "Skipjack Blast Shielding"
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"ht" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hu" = (
+/obj/machinery/floodlight,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hv" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/launcher/crossbow,
+/obj/item/stack/rods{
+	amount = 10
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/item/weapon/beartrap,
+/obj/item/weapon/beartrap,
+/obj/item/weapon/beartrap,
+/obj/item/weapon/beartrap,
+/obj/item/weapon/beartrap,
+/obj/item/weapon/beartrap,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hw" = (
+/obj/structure/table/rack,
+/obj/item/weapon/grenade/empgrenade,
+/obj/item/weapon/grenade/flashbang,
+/obj/item/weapon/grenade/spawnergrenade/manhacks,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hx" = (
+/obj/structure/table/rack,
+/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit/improved,
+/obj/item/weapon/rig/industrial/syndicate,
+/obj/item/weapon/pickaxe/jackhammer,
+/obj/item/weapon/pickaxe/jackhammer,
+/obj/item/weapon/pickaxe/jackhammer,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hy" = (
+/obj/structure/table/steel,
+/obj/machinery/recharger,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hz" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hA" = (
+/obj/item/robot_parts/robot_suit,
+/obj/item/robot_parts/r_leg,
+/obj/item/robot_parts/r_arm,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hB" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular{
+	id = "skipjackshutters";
+	name = "Skipjack Blast Shielding"
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hC" = (
+/obj/machinery/door/airlock/hatch{
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hD" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hE" = (
+/obj/structure/table/steel,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hF" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hG" = (
+/obj/structure/sink{
+	icon_state = "sink";
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hH" = (
+/obj/item/weapon/wrench,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hI" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/item/weapon/crowbar,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hJ" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hK" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hL" = (
+/obj/machinery/suit_cycler/syndicate{
+	locked = 0
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hM" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/skipjack_station/start)
+"hN" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/skipjack_station/start)
+"hO" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hP" = (
+/obj/structure/table/steel,
+/obj/item/weapon/deck/cards,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hQ" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"hR" = (
+/obj/machinery/bodyscanner{
+	allowed_species = list("Human","Skrell","Unathi","Tajara","M'sai Tajara","Zhan-Khazan Tajara","Vaurca Worker","Vaurca Warrior","Diona","Vox");
+	dir = 8;
+	icon_state = "body_scanner_0";
+	tag = "icon-body_scanner_0 (EAST)"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/skipjack_station/start)
+"hS" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/body_scanconsole{
+	icon_state = "body_scannerconsole";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/skipjack_station/start)
+"hT" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/skipjack_station/start)
+"hU" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hV" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/item/weapon/tank/nitrogen,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hW" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hX" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"hY" = (
+/obj/structure/shuttle/engine/heater,
+/turf/simulated/shuttle/plating,
+/area/skipjack_station/start)
+"hZ" = (
+/obj/structure/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/skipjack_station/start)
+"ia" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"ib" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/simulated/shuttle/wall/dark,
+/area/skipjack_station/start)
+"ic" = (
+/obj/structure/table/standard,
+/obj/item/weapon/legcuffs,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/skipjack_station/start)
+"id" = (
+/obj/structure/table/standard,
+/obj/item/weapon/deck/cards,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/skipjack_station/start)
+"ie" = (
+/obj/machinery/light/small,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
+"if" = (
+/obj/structure/table/standard,
+/obj/item/weapon/circular_saw{
+	pixel_y = 8
+	},
+/obj/item/weapon/hemostat,
+/obj/item/weapon/scalpel,
+/obj/item/stack/medical/advanced/bruise_pack,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/skipjack_station/start)
+"ig" = (
+/obj/machinery/optable,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/skipjack_station/start)
+"ih" = (
+/obj/structure/table/standard,
+/obj/item/weapon/cautery,
+/obj/item/weapon/retractor,
+/obj/item/weapon/reagent_containers/glass/bottle/stoxin,
+/obj/item/weapon/reagent_containers/glass/bottle/stoxin,
+/obj/item/weapon/reagent_containers/syringe,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/skipjack_station/start)
+"ii" = (
+/obj/structure/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/skipjack_station/start)
+"ij" = (
+/obj/structure/table/standard,
+/obj/item/weapon/bonesetter,
+/obj/item/weapon/bonegel,
+/obj/item/weapon/FixOVein,
+/obj/item/weapon/reagent_containers/syringe/antiviral,
+/obj/item/weapon/reagent_containers/syringe/antiviral,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/skipjack_station/start)
+"ik" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/skipjack_station/start)
+"il" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/fire{
+	pixel_x = 1
+	},
+/obj/item/weapon/storage/firstaid/o2{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/skipjack_station/start)
+"im" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/adv{
+	pixel_x = 1
+	},
+/obj/item/weapon/storage/firstaid/toxin{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/skipjack_station/start)
+"in" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/skipjack_station/start)
+"io" = (
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
 
 (1,1,1) = {"
 aa
@@ -2019,61 +3835,61 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
 aN
 aN
 aN
@@ -2276,61 +4092,61 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
+ev
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+es
 aN
 aN
 aN
@@ -2533,61 +4349,61 @@ aN
 aN
 aN
 aN
+et
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -2790,61 +4606,61 @@ aN
 aN
 aN
 aN
+et
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
 aN
 aN
+ex
+ex
+ev
+ev
+ev
+ev
+eX
+eX
+eX
+eX
+eX
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -3047,61 +4863,61 @@ aN
 aN
 aN
 aN
+et
+ev
+ew
+ev
+ev
+ev
+ev
+ev
 aN
 aN
 aN
 aN
+ex
+ex
+ev
+ev
+eX
+eX
+fD
+fN
+fP
+eX
+eX
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
 aN
 aN
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -3304,6 +5120,40 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+aN
+aN
+aN
+aN
+aN
+ex
+ev
+eX
+eX
+fv
+fw
+fw
+fw
+fV
+eX
+eX
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
 aN
 aN
 aN
@@ -3313,52 +5163,18 @@ aN
 aN
 aN
 aN
+ev
+ev
+ev
+ev
+ev
+ev
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -3561,6 +5377,40 @@ aN
 aN
 aN
 aN
+eu
+ew
+ew
+ev
+ev
+ev
+ev
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+ev
+eX
+fn
+fw
+fw
+fw
+fQ
+fw
+fV
+eX
+eX
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
 aN
 aN
 aN
@@ -3571,51 +5421,17 @@ aN
 aN
 aN
 aN
+ev
+ev
+ev
+ev
+ev
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -3818,6 +5634,35 @@ aN
 aN
 aN
 aN
+eu
+ew
+ev
+ev
+ev
+ev
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+ev
+eX
+eX
+fx
+fw
+fw
+fw
+fw
+fw
+gd
+eX
+ev
+ev
+ev
+ev
 aN
 aN
 aN
@@ -3843,36 +5688,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -4075,6 +5891,35 @@ aN
 aN
 aN
 aN
+eu
+ew
+ev
+ex
+ez
+ev
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+ev
+eX
+fy
+fw
+fO
+fw
+fw
+fw
+ge
+eX
+ev
+ev
+ev
+ev
 aN
 aN
 aN
@@ -4100,36 +5945,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -4332,6 +6148,48 @@ aN
 aN
 aN
 aN
+eu
+ew
+ev
+ey
+ex
+ex
+aN
+aN
+aN
+aN
+aN
+eG
+eR
+eR
+fh
+eF
+eF
+eF
+fw
+fw
+fR
+fW
+fZ
+eX
+eX
+ev
+ev
+ev
+ev
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+ev
+ev
+ev
 aN
 aN
 aN
@@ -4344,49 +6202,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -4589,6 +6405,33 @@ aN
 aN
 aN
 aN
+eu
+ew
+ev
+ev
+eA
+ex
+aN
+aN
+aN
+aN
+eB
+eH
+eS
+eY
+fi
+eY
+eJ
+eF
+fE
+fE
+eX
+eX
+eX
+eX
+ev
+ev
+ev
 aN
 aN
 aN
@@ -4601,6 +6444,9 @@ aN
 aN
 aN
 aN
+ev
+ev
+ev
 aN
 aN
 aN
@@ -4613,37 +6459,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -4846,6 +6662,32 @@ aN
 aN
 aN
 aN
+eu
+ew
+ew
+ev
+ev
+aN
+aN
+aN
+aN
+aN
+eC
+eI
+eK
+eK
+eK
+eK
+eK
+eJ
+eK
+eK
+eF
+ev
+ev
+ev
+ev
+gg
 aN
 aN
 aN
@@ -4865,42 +6707,16 @@ aN
 aN
 aN
 aN
+ev
+ev
+ev
 aN
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -5103,6 +6919,31 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+aN
+aN
+aN
+aN
+aN
+eC
+eJ
+eK
+eZ
+eK
+eK
+eK
+eK
+eJ
+eF
+eF
+ev
+aN
+gf
+gf
 aN
 aN
 aN
@@ -5123,41 +6964,16 @@ aN
 aN
 aN
 aN
+ev
+ev
+ev
 aN
 aN
 aN
+ev
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -5360,6 +7176,28 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+aN
+aN
+aN
+aN
+aN
+eD
+eK
+eT
+eT
+eY
+eK
+fo
+eK
+eJ
+eF
+ev
+ev
 aN
 aN
 aN
@@ -5384,37 +7222,15 @@ aN
 aN
 aN
 aN
+ev
+ev
 aN
 aN
+ev
+ev
+ev
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -5617,6 +7433,32 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+aN
+aN
+aN
+aN
+aN
+eC
+eK
+eK
+fa
+eY
+eK
+eK
+eK
+fF
+eF
+ev
+ev
+ev
+gg
+gg
+gg
 aN
 aN
 aN
@@ -5629,6 +7471,8 @@ aN
 aN
 aN
 aN
+gs
+hX
 aN
 aN
 aN
@@ -5639,39 +7483,11 @@ aN
 aN
 aN
 aN
+ev
+ev
+ev
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -5874,6 +7690,47 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+aN
+aN
+aN
+eC
+eL
+eK
+eT
+eY
+eK
+fp
+fp
+fp
+eF
+eF
+eF
+eF
+eF
+eF
+gl
+go
+go
+gs
+gu
+gu
+gu
+gu
+gu
+gu
+hq
+hs
+hB
+gu
+gu
+hX
 aN
 aN
 aN
@@ -5882,53 +7739,12 @@ aN
 aN
 aN
 aN
+ev
+ev
+ev
+ev
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -6131,6 +7947,47 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+aN
+aN
+aN
+eC
+eM
+eK
+eT
+eY
+eK
+fq
+fz
+fG
+eF
+fg
+fg
+ga
+fg
+fg
+gm
+gp
+gp
+gm
+gv
+gC
+gK
+gS
+gW
+hh
+hh
+ht
+ht
+hJ
+hY
+ib
 aN
 aN
 aN
@@ -6139,53 +7996,12 @@ aN
 aN
 aN
 aN
+ev
+ev
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -6388,6 +8204,47 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+aN
+aN
+aN
+eE
+eN
+eK
+fb
+eY
+eK
+fr
+fA
+fH
+eF
+fg
+fg
+fg
+fg
+fg
+gm
+gq
+gq
+gm
+gw
+gD
+gL
+gu
+gX
+hi
+hi
+hi
+hi
+hK
+hY
+ib
 aN
 aN
 aN
@@ -6401,48 +8258,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -6645,6 +8461,47 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+aN
+aN
+aN
+aN
+eF
+eF
+eF
+eF
+eK
+eK
+fp
+fp
+fp
+eF
+fg
+fg
+fg
+eF
+eF
+gn
+gr
+gr
+gt
+gu
+gu
+gu
+gu
+gY
+hi
+hi
+hu
+hi
+hL
+gu
+ia
 aN
 aN
 aN
@@ -6658,48 +8515,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -6902,6 +8718,51 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+aN
+aN
+aN
+aN
+eF
+eO
+eU
+eF
+fj
+eK
+eK
+eK
+fI
+eF
+fS
+fg
+fg
+gh
+gg
+gg
+aN
+aN
+aN
+aN
+aN
+aN
+gu
+gZ
+hi
+hi
+hi
+gu
+gu
+gu
+gu
+gu
+gu
+gu
+in
 aN
 aN
 aN
@@ -6911,52 +8772,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -7159,6 +8975,51 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+aN
+aN
+aN
+aN
+eF
+eP
+eV
+fc
+eJ
+eK
+eK
+eK
+fJ
+eF
+fg
+fg
+fg
+gi
+gg
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+gu
+ha
+hj
+hi
+hi
+hC
+hM
+hM
+ic
+hM
+hM
+gu
+gu
 aN
 aN
 aN
@@ -7168,52 +9029,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -7416,6 +9232,52 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+aN
+aN
+aN
+aN
+eF
+eQ
+eW
+eF
+fk
+eJ
+eK
+fB
+fK
+eF
+fg
+fg
+fg
+gj
+gg
+gg
+aN
+aN
+aN
+aN
+gs
+gu
+gu
+gu
+gu
+hn
+gu
+gu
+hN
+hM
+id
+hM
+hM
+ik
+gu
+in
 aN
 aN
 aN
@@ -7424,53 +9286,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -7673,6 +9489,53 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+aN
+aN
+aN
+aN
+eF
+eF
+eF
+eF
+eF
+eF
+fs
+eF
+eF
+eF
+eF
+eF
+fs
+eF
+eF
+gg
+aN
+aN
+gs
+gu
+gu
+gu
+gT
+hb
+hk
+gE
+hv
+gu
+hM
+hM
+hM
+hM
+ii
+hM
+gu
+gu
+in
 aN
 aN
 aN
@@ -7680,54 +9543,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -7930,6 +9746,12 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
 aN
 aN
 aN
@@ -7938,6 +9760,39 @@ aN
 aN
 aN
 aN
+eF
+fg
+fg
+fg
+fg
+eF
+fT
+fX
+fT
+fT
+eF
+gg
+aN
+aN
+aN
+gx
+gu
+gM
+gE
+gE
+hl
+gE
+hw
+gu
+hq
+hs
+hB
+gu
+gu
+gu
+gu
+hY
+ib
 aN
 aN
 aN
@@ -7945,46 +9800,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -8187,6 +10003,11 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
 aN
 aN
 aN
@@ -8196,6 +10017,39 @@ aN
 aN
 aN
 aN
+eF
+fg
+fg
+fg
+fg
+eF
+fT
+fT
+fT
+fT
+gh
+gg
+aN
+aN
+aN
+gy
+gE
+gN
+gE
+gE
+hm
+gE
+gE
+hD
+hO
+hO
+ie
+gu
+gE
+gM
+io
+hY
+ib
 aN
 aN
 aN
@@ -8203,45 +10057,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -8444,6 +10260,11 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
 aN
 aN
 aN
@@ -8453,6 +10274,39 @@ aN
 aN
 aN
 aN
+eF
+fm
+fg
+fg
+fg
+fs
+fT
+fT
+gb
+gk
+gi
+gg
+aN
+aN
+aN
+gy
+gF
+gO
+gE
+gE
+hn
+gE
+gE
+hE
+hP
+hE
+gE
+hn
+gE
+gE
+io
+hY
+ib
 aN
 aN
 aN
@@ -8460,45 +10314,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -8701,6 +10517,12 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
 aN
 aN
 aN
@@ -8709,6 +10531,39 @@ aN
 aN
 aN
 aN
+eF
+fg
+fg
+fg
+fg
+eF
+fT
+fT
+fT
+fT
+gj
+gg
+aN
+aN
+aN
+gy
+gG
+gN
+gE
+gE
+hk
+gE
+gE
+hF
+hQ
+hQ
+ie
+gu
+gE
+gP
+io
+hY
+ib
 aN
 aN
 aN
@@ -8716,46 +10571,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -8958,6 +10774,13 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
 aN
 aN
 aN
@@ -8965,6 +10788,39 @@ aN
 aN
 aN
 aN
+eF
+fg
+fg
+fg
+fg
+eF
+fU
+fY
+fT
+fT
+eF
+gg
+aN
+aN
+aN
+gz
+gH
+gP
+gE
+gE
+hl
+gE
+hx
+gu
+hq
+hs
+hB
+gu
+gu
+gu
+gu
+hY
+ib
 aN
 aN
 aN
@@ -8972,47 +10828,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -9215,6 +11031,53 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+aN
+aN
+aN
+aN
+aN
+eF
+eF
+eF
+eF
+eF
+fC
+eF
+eF
+eF
+eF
+fs
+eF
+eF
+gg
+aN
+aN
+gt
+gu
+gu
+gu
+gU
+gU
+hm
+gE
+hy
+gu
+hR
+hT
+hT
+ig
+hT
+il
+gu
+gu
+ia
 aN
 aN
 aN
@@ -9222,54 +11085,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -9472,6 +11288,52 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+aN
+aN
+aN
+aN
+aN
+eF
+fd
+fg
+fg
+ft
+fl
+fd
+eF
+fg
+fg
+fg
+gh
+gg
+gg
+aN
+aN
+aN
+aN
+gt
+gu
+gu
+gu
+gu
+hn
+gu
+gu
+hS
+hT
+hT
+hT
+hT
+im
+gu
+ia
 aN
 aN
 aN
@@ -9480,53 +11342,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -9729,6 +11545,51 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+eF
+fe
+fl
+fl
+fg
+fl
+fl
+fC
+fg
+fg
+fg
+gi
+gg
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+gu
+hc
+ho
+hi
+hi
+hC
+hT
+hZ
+if
+ih
+ij
+gu
+gu
 aN
 aN
 aN
@@ -9738,52 +11599,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -9986,6 +11802,51 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+eF
+ff
+fg
+fd
+fl
+fl
+fL
+eF
+fS
+fg
+fg
+gj
+gg
+gg
+aN
+aN
+aN
+aN
+aN
+aN
+gu
+hd
+hi
+hi
+hz
+gu
+gu
+gu
+gu
+gu
+gu
+gu
+ia
 aN
 aN
 aN
@@ -9995,52 +11856,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -10243,6 +12059,47 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+eF
+fg
+fg
+fg
+fl
+fg
+fl
+eF
+fg
+fg
+fg
+eF
+eF
+gl
+go
+go
+gs
+gu
+gu
+gu
+gu
+he
+hi
+hr
+hi
+hG
+hU
+gu
+hX
 aN
 aN
 aN
@@ -10256,48 +12113,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -10500,6 +12316,47 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+eF
+fd
+fg
+fg
+fg
+fg
+fM
+eF
+fg
+fg
+fg
+fg
+fg
+gm
+gp
+gp
+gm
+gA
+gI
+gQ
+gu
+hf
+hp
+hi
+hA
+hH
+hV
+hY
+ib
 aN
 aN
 aN
@@ -10513,48 +12370,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -10757,6 +12573,47 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+eX
+eX
+fg
+fd
+fu
+fd
+fg
+eF
+fg
+fg
+gc
+fg
+fg
+gm
+gq
+gq
+gm
+gB
+gJ
+gR
+gV
+hg
+hh
+hh
+hh
+hI
+hW
+hY
+ib
 aN
 aN
 aN
@@ -10770,48 +12627,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -11014,6 +12830,47 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+eX
+eX
+eX
+eF
+eF
+eF
+eF
+eF
+eF
+eF
+eF
+eF
+gn
+gr
+gr
+gt
+gu
+gu
+gu
+gu
+gu
+gu
+hq
+hs
+hB
+gu
+gu
+ia
 aN
 aN
 aN
@@ -11027,48 +12884,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -11271,6 +13087,46 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
+gg
+gg
+gg
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+gt
+ia
 aN
 aN
 aN
@@ -11285,47 +13141,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -11528,6 +13344,26 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ew
+ev
+ev
+ev
 aN
 aN
 aN
@@ -11562,27 +13398,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -11785,6 +13601,25 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ev
+ew
+ew
+ew
+ev
+ev
 aN
 aN
 aN
@@ -11820,26 +13655,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -12042,6 +13858,21 @@ aN
 aN
 aN
 aN
+eu
+ev
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
+ew
 aN
 aN
 aN
@@ -12081,22 +13912,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
 aN
 aN
 aN
@@ -12299,61 +14115,61 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
+es
 aN
 aN
 aN
