@@ -2181,7 +2181,7 @@
 #include "code\ZAS\Zone.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\aurora-2\aurora-1_centcomm.dmm"
+#include "maps\aurora-2\aurora-1_centcomm_alt.dmm"
 #include "maps\aurora-2\aurora-2_under-station.dmm"
 #include "maps\aurora-2\aurora-3_sublevel.dmm"
 #include "maps\aurora-2\aurora-4_mainlevel.dmm"
