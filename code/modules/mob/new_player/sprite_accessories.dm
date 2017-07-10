@@ -972,3 +972,126 @@
 		icon_state = "default"
 		icon = 'icons/mob/human_races/r_skrell.dmi'
 		species_allowed = list("Skrell")
+
+/*
+////////////////////////////
+/  =--------------------=  /
+/  ==  Body Markings   ==  /
+/  =--------------------=  /
+////////////////////////////
+*/
+/datum/sprite_accessory/marking
+	icon = 'icons/mob/human_races/markings.dmi'
+	do_colouration = 1 //Almost all of them have it, COLOR_ADD
+
+	species_allowed = list()
+
+	var/body_parts = list() //A list of bodyparts this covers, TODO: port defines for organs someday
+
+	tiger_stripes
+		name = "Tiger Stripes (Tajara)"
+		icon_state = "tiger"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","chest","groin")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	taj_paw_socks
+		name = "Socks Coloration (Tajara)"
+		icon_state = "taj_pawsocks"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	una_paw_socks
+		name = "Socks Coloration (Unathi)"
+		icon_state = "una_pawsocks"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
+		species_allowed = list("Unathi")
+
+	belly_hands_feet
+		name = "Hands,Feet,Belly Color (Minor)"
+		icon_state = "bellyhandsfeetsmall"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	patches
+		name = "Color Patches"
+		icon_state = "patches"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","chest","groin")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	patchesface
+		name = "Color Patches (Face)"
+		icon_state = "patchesface"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+		
+	bands
+		name = "Color Bands"
+		icon_state = "bands"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","chest","groin")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	bandsface
+		name = "Color Bands (Face)"
+		icon_state = "bandsface"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tigerhead
+		name = "Tiger Stripes (Head, Minor)"
+		icon_state = "tigerhead"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	tigerface
+		name = "Tiger Stripes (Head, Major)"
+		icon_state = "tigerface"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	backstripe
+		name = "Back Stripe"
+		icon_state = "backstripe"
+		body_parts = list("chest")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	taj_nose
+		name = "Nose Color"
+		icon_state = "taj_nose"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	taj_muzzle
+		name = "Muzzle Color"
+		icon_state = "taj_muzzle"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	taj_face
+		name = "Cheeks Color"
+		icon_state = "taj_face"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	taj_all
+		name = "All Tajara Head"
+		icon_state = "taj_all"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	una_face
+		name = "Face Color"
+		icon_state = "una_face"
+		body_parts = list("head")
+		species_allowed = list("Unathi")
+
+	una_facelow
+		name = "Face Color Low"
+		icon_state = "una_facelow"
+		body_parts = list("head")
+		species_allowed = list("Unathi")
+
+	una_scutes
+		name = "Scutes"
+		icon_state = "una_scutes"
+		body_parts = list("chest")
+		species_allowed = list("Unathi")

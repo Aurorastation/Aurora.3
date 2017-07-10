@@ -75,7 +75,7 @@ steam.start() -- spawns the effect
 			spawn(0)
 				if(holder)
 					src.location = get_turf(holder)
-				var/obj/effect/effect/steam/steam = getFromPool(/obj/effect/effect/steam, src.location)
+				var/obj/effect/effect/steam/steam = new /obj/effect/effect/steam(src.location)
 				var/direction
 				if(src.cardinals)
 					direction = pick(cardinal)
@@ -84,8 +84,7 @@ steam.start() -- spawns the effect
 				for(i=0, i<pick(1,2,3), i++)
 					sleep(5)
 					step(steam,direction)
-				spawn(20)
-					qdel(steam)
+				QDEL_IN(steam, 20)
 
 /////////////////////////////////////////////
 //// SMOKE SYSTEMS
@@ -112,19 +111,13 @@ steam.start() -- spawns the effect
 	..()
 	if (duration)
 		time_to_live = duration
-	spawn (time_to_live)
-		kill()
+	addtimer(CALLBACK(src, .proc/kill), time_to_live)
 
 /obj/effect/effect/smoke/proc/kill()
-	set waitfor = FALSE
 	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)
 	set_opacity(FALSE)
-
-	var/turf/T = get_turf(src)
-	if (T)
-		T.force_update_lights()	// I hate it, but nothing else seems to work.
 	
-	QDEL_IN(src, 2 SECONDS)
+	QDEL_IN(src, 2.5 SECONDS)
 
 /obj/effect/effect/smoke/Crossed(mob/living/carbon/M as mob )
 	..()
@@ -270,7 +263,7 @@ steam.start() -- spawns the effect
 		spawn(0)
 			if(holder)
 				src.location = get_turf(holder)
-			var/obj/effect/effect/smoke/smoke = getFromPool(smoke_type, src.location)
+			var/obj/effect/effect/smoke/smoke = new smoke_type(src.location)
 			src.total_smoke++
 			var/direction = src.direction
 			if(!direction)
@@ -296,62 +289,6 @@ steam.start() -- spawns the effect
 /datum/effect/effect/system/smoke_spread/mustard
 	smoke_type = /obj/effect/effect/smoke/mustard
 
-
-/////////////////////////////////////////////
-//////// Attach an Ion trail to any object, that spawns when it moves (like for the jetpack)
-/// just pass in the object to attach it to in set_up
-/// Then do start() to start it and stop() to stop it, obviously
-/// and don't call start() in a loop that will be repeated otherwise it'll get spammed!
-/////////////////////////////////////////////
-
-/obj/effect/effect/ion_trails
-	name = "ion trails"
-	icon_state = "ion_trails"
-	anchored = 1.0
-
-/datum/effect/effect/system/ion_trail_follow
-	var/turf/oldposition
-	var/processing = 1
-	var/on = 1
-
-	set_up(atom/atom)
-		attach(atom)
-		oldposition = get_turf(atom)
-
-	start()
-		if(!src.on)
-			src.on = 1
-			src.processing = 1
-		if(src.processing)
-			src.processing = 0
-			spawn(0)
-				var/turf/T = get_turf(src.holder)
-				if(T != src.oldposition)
-					if(istype(T, /turf/space))
-						var/obj/effect/effect/ion_trails/I = getFromPool(/obj/effect/effect/ion_trails, src.oldposition)
-						src.oldposition = T
-						I.set_dir(src.holder.dir)
-						flick("ion_fade", I)
-						I.icon_state = "blank"
-						spawn( 20 )
-							qdel(I)
-					spawn(2)
-						if(src.on)
-							src.processing = 1
-							src.start()
-				else
-					spawn(2)
-						if(src.on)
-							src.processing = 1
-							src.start()
-
-	proc/stop()
-		src.processing = 0
-		src.on = 0
-
-
-
-
 /////////////////////////////////////////////
 //////// Attach a steam trail to an object (eg. a reacting beaker) that will follow it
 // even if it's carried of thrown.
@@ -374,7 +311,7 @@ steam.start() -- spawns the effect
 			src.processing = 0
 			spawn(0)
 				if(src.number < 3)
-					var/obj/effect/effect/steam/I = getFromPool(/obj/effect/effect/steam, src.oldposition)
+					var/obj/effect/effect/steam/I = new /obj/effect/effect/steam(src.oldposition)
 					src.number++
 					src.oldposition = get_turf(holder)
 					I.set_dir(src.holder.dir)

@@ -185,3 +185,22 @@ var/list/flooring_types
 	has_damage_range = 6
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK
 	can_paint = null
+
+/decl/flooring/reinforced/ramp
+	name = "foot ramp"
+	desc = "An archaic means of locomotion along the Z axis."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "ramptop"
+	build_type = null
+	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK
+	can_paint = 1
+
+/decl/flooring/reinforced/ramp/bottom
+	icon_base = "rampbot"
+	
+/decl/flooring/diona
+	name = "biomass"
+	desc = "a mass of small intertwined aliens forming a floor... Creepy."
+	icon = 'icons/turf/floors.dmi'
+	icon_base = "diona"
+	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL

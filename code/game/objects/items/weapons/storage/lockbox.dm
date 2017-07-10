@@ -112,7 +112,7 @@
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
 
-/obj/item/weapon/storage/lockbox/medal/New()
+/obj/item/weapon/storage/lockbox/medal/fill()
 	..()
 	new /obj/item/clothing/accessory/medal/conduct(src)
 	new /obj/item/clothing/accessory/medal/conduct(src)

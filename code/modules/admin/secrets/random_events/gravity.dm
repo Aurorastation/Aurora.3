@@ -5,7 +5,7 @@
 	name = "Toggle Station Artificial Gravity"
 
 /datum/admin_secret_item/random_event/gravity/can_execute(var/mob/user)
-	if(!(ticker && ticker.mode))
+	if(!(SSticker.mode))
 		return 0
 
 	return ..()

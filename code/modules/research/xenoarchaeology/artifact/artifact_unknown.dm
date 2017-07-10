@@ -72,7 +72,7 @@
 		if(prob(75))
 			my_effect.trigger = rand(1,4)
 
-/obj/machinery/artifact/process()
+/obj/machinery/artifact/machinery_process()
 
 	var/turf/L = loc
 	if(isnull(L) || !istype(L)) 	// We're inside a container or on null turf, either way stop processing effects
@@ -185,7 +185,7 @@
 
 /obj/machinery/artifact/attack_hand(var/mob/user as mob)
 	if (get_dist(user, src) > 1)
-		user << "\red You can't reach [src] from here."
+		user << "<span class='warning'>You can't reach [src] from here.</span>"
 		return
 	if(ishuman(user) && user:gloves)
 		user << "<b>You touch [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")]."

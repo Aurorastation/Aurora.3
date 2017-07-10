@@ -11,26 +11,28 @@
 	var/list/oxytanks = list()	//sorry for the similar var names
 	var/list/platanks = list()
 
-
 /obj/structure/dispenser/oxygen
 	phorontanks = 0
 
 /obj/structure/dispenser/phoron
 	oxygentanks = 0
 
-
-/obj/structure/dispenser/New()
+/obj/structure/dispenser/Initialize()
+	. = ..()
 	update_icon()
 
-
 /obj/structure/dispenser/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	switch(oxygentanks)
-		if(1 to 3)	overlays += "oxygen-[oxygentanks]"
-		if(4 to INFINITY) overlays += "oxygen-4"
+		if(1 to 3)	
+			add_overlay("oxygen-[oxygentanks]")
+		if(4 to INFINITY) 
+			add_overlay("oxygen-4")
 	switch(phorontanks)
-		if(1 to 4)	overlays += "phoron-[phorontanks]"
-		if(5 to INFINITY) overlays += "phoron-5"
+		if(1 to 4)
+			add_overlay("phoron-[phorontanks]")
+		if(5 to INFINITY) 
+			add_overlay("phoron-5")
 
 /obj/structure/dispenser/attack_ai(mob/user as mob)
 	if(user.Adjacent(src))

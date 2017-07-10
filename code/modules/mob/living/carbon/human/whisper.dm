@@ -3,14 +3,14 @@
 	var/alt_name = ""
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		usr << "\red Speech is currently admin-disabled."
+		usr << "<span class='warning'>Speech is currently admin-disabled.</span>"
 		return
 
 	message = sanitize(message)
 
 	if (src.client)
 		if (src.client.prefs.muted & MUTE_IC)
-			src << "\red You cannot whisper (muted)."
+			src << "<span class='warning'>You cannot whisper (muted).</span>"
 			return
 
 		if (src.client.handle_spam_prevention(message,MUTE_IC))
@@ -142,19 +142,24 @@
 	watching  -= eavesdropping
 
 	//now mobs
-	var/speech_bubble_test = say_test(message)
-	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
-	spawn(30) qdel(speech_bubble)
+
+	var/list/listening_clients = list()	// The clients we're going to show the speech bubble to.
 
 	for(var/mob/M in listening)
-		M << speech_bubble
 		M.hear_say(message, verb, speaking, alt_name, italics, src)
+		if (M.client)
+			listening_clients += M.client
 
 	if (eavesdropping.len)
 		var/new_message = stars(message)	//hopefully passing the message twice through stars() won't hurt... I guess if you already don't understand the language, when they speak it too quietly to hear normally you would be able to catch even less.
 		for(var/mob/M in eavesdropping)
-			M << speech_bubble
 			M.hear_say(new_message, verb, speaking, alt_name, italics, src)
+			if (M.client)
+				listening_clients += M.client
+
+	var/speech_bubble_test = say_test(message)
+	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
+	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_bubble, listening_clients, 30)
 
 	if (watching.len)
 		var/rendered = "<span class='game say'><span class='name'>[src.name]</span> [not_heard].</span>"

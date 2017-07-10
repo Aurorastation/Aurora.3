@@ -99,7 +99,7 @@
 	update_icon()
 	update_underlays()
 
-/obj/machinery/atmospherics/binary/dp_vent_pump/process()
+/obj/machinery/atmospherics/binary/dp_vent_pump/machinery_process()
 	..()
 
 	last_power_draw = 0
@@ -161,10 +161,10 @@
 //Radio remote control
 
 /obj/machinery/atmospherics/binary/dp_vent_pump/proc/set_frequency(new_frequency)
-	radio_controller.remove_object(src, frequency)
+	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
-		radio_connection = radio_controller.add_object(src, frequency, filter = RADIO_ATMOSIA)
+		radio_connection = SSradio.add_object(src, frequency, filter = RADIO_ATMOSIA)
 
 /obj/machinery/atmospherics/binary/dp_vent_pump/proc/broadcast_status()
 	if(!radio_connection)
@@ -189,7 +189,7 @@
 
 	return 1
 
-/obj/machinery/atmospherics/binary/dp_vent_pump/initialize()
+/obj/machinery/atmospherics/binary/dp_vent_pump/atmos_init()
 	..()
 	if(frequency)
 		set_frequency(frequency)
@@ -250,12 +250,10 @@
 		)
 
 	if(signal.data["status"])
-		spawn(2)
-			broadcast_status()
+		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 		return //do not update_icon
 
-	spawn(2)
-		broadcast_status()
+	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 	update_icon()
 
 #undef DEFAULT_PRESSURE_DELTA

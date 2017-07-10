@@ -25,10 +25,10 @@
 	melee_damage_upper = 5
 	var/datum/reagents/udder = null
 
-/mob/living/simple_animal/hostile/retaliate/goat/New()
+/mob/living/simple_animal/hostile/retaliate/goat/Initialize()
+	. = ..()
 	udder = new(50)
 	udder.my_atom = src
-	..()
 
 /mob/living/simple_animal/hostile/retaliate/goat/beg(var/atom/thing, var/atom/holder)
 	visible_emote("butts insistently at [holder]'s legs and reaches towards their [thing].",0)
@@ -43,7 +43,7 @@
 		if(enemies.len && prob(10))
 			enemies = list()
 			LoseTarget()
-			src.visible_message("\blue [src] calms down.")
+			src.visible_message("<span class='notice'>[src] calms down.</span>")
 
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
@@ -81,9 +81,9 @@
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
-			user << "\red The [O] is full."
+			user << "<span class='warning'>The [O] is full.</span>"
 		if(!transfered)
-			user << "\red The udder is dry. Wait a bit longer..."
+			user << "<span class='warning'>The udder is dry. Wait a bit longer...</span>"
 	else
 		..()
 //cow
@@ -113,10 +113,10 @@
 	var/datum/reagents/udder = null
 	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
 
-/mob/living/simple_animal/cow/New()
+/mob/living/simple_animal/cow/Initialize()
+	. = ..()
 	udder = new(50)
 	udder.my_atom = src
-	..()
 
 /mob/living/simple_animal/cow/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	var/obj/item/weapon/reagent_containers/glass/G = O
@@ -124,9 +124,9 @@
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
-			user << "\red The [O] is full."
+			user << "<span class='warning'>The [O] is full.</span>"
 		if(!transfered)
-			user << "\red The udder is dry. Wait a bit longer..."
+			user << "<span class='warning'>The udder is dry. Wait a bit longer...</span>"
 	else
 		..()
 
@@ -181,8 +181,8 @@
 	mob_size = 0.75//just a rough estimate, the real value should be way lower
 	hunger_enabled = FALSE
 
-/mob/living/simple_animal/chick/New()
-	..()
+/mob/living/simple_animal/chick/Initialize()
+	. = ..()
 	pixel_x = rand(-6, 6)
 	pixel_y = rand(0, 10)
 
@@ -199,9 +199,6 @@
 /mob/living/simple_animal/chick/death()
 	..()
 	desc = "How could you do this? You monster!"
-
-var/const/MAX_CHICKENS = 50
-var/global/chicken_count = 0
 
 /mob/living/simple_animal/chicken
 	name = "\improper chicken"
@@ -230,8 +227,10 @@ var/global/chicken_count = 0
 	mob_size = 2
 	hunger_enabled = FALSE
 
-/mob/living/simple_animal/chicken/New()
-	..()
+	var/static/chicken_count = 0
+
+/mob/living/simple_animal/chicken/Initialize()
+	. = ..()
 	if(!body_color)
 		body_color = pick( list("brown","black","white") )
 	icon_state = "chicken_[body_color]"
@@ -283,16 +282,19 @@ var/global/chicken_count = 0
 		E.pixel_x = rand(-6,6)
 		E.pixel_y = rand(-6,6)
 		if(chicken_count < MAX_CHICKENS && prob(10))
-			processing_objects.Add(E)
+			START_PROCESSING(SSprocessing, E)
 
-/obj/item/weapon/reagent_containers/food/snacks/egg/var/amount_grown = 0
+/obj/item/weapon/reagent_containers/food/snacks/egg
+	var/amount_grown = 0
+
 /obj/item/weapon/reagent_containers/food/snacks/egg/process()
 	if(isturf(loc))
 		amount_grown += rand(1,2)
 		if(amount_grown >= 100)
 			visible_message("[src] hatches with a quiet cracking sound.")
 			new /mob/living/simple_animal/chick(get_turf(src))
-			processing_objects.Remove(src)
+			STOP_PROCESSING(SSprocessing, src)
 			qdel(src)
 	else
+		STOP_PROCESSING(SSprocessing, src)
 		processing_objects.Remove(src)

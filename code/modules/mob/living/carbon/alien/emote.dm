@@ -16,7 +16,7 @@
 				return
 			if (src.client)
 				if (client.prefs.muted & MUTE_IC)
-					src << "\red You cannot send IC messages (muted)."
+					src << "<span class='warning'>You cannot send IC messages (muted).</span>"
 					return
 			if (stat)
 				return

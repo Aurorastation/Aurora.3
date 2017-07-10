@@ -199,21 +199,11 @@
 	ai_camera_list()
 
 /proc/camera_sort(list/L)
-	var/obj/machinery/camera/a
-	var/obj/machinery/camera/b
-
-	for (var/i = L.len, i > 0, i--)
-		for (var/j = 1 to i - 1)
-			a = L[j]
-			b = L[j + 1]
-			if (a.c_tag_order != b.c_tag_order)
-				if (a.c_tag_order > b.c_tag_order)
-					L.Swap(j, j + 1)
-			else
-				if (sorttext(a.c_tag, b.c_tag) < 0)
-					L.Swap(j, j + 1)
-	return L
-
+	if (!L)
+		return
+	var/list/target = L.Copy()
+	// sortTim sorts in-place, but returns a ref to the list anyways.
+	return sortTim(target, /proc/cmp_camera, FALSE)
 
 mob/living/proc/near_camera()
 	if (!isturf(loc))

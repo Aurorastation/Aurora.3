@@ -20,8 +20,8 @@
 
 	var/list/scrubbing_gas = list("phoron", "carbon_dioxide", "sleeping_agent")
 
-/obj/machinery/portable_atmospherics/powered/scrubber/New()
-	..()
+/obj/machinery/portable_atmospherics/powered/scrubber/Initialize()
+	. = ..()
 	cell = new/obj/item/weapon/cell/apc(src)
 
 /obj/machinery/portable_atmospherics/powered/scrubber/emp_act(severity)
@@ -36,7 +36,7 @@
 	..(severity)
 
 /obj/machinery/portable_atmospherics/powered/scrubber/update_icon()
-	src.overlays = 0
+	cut_overlays()
 
 	if(on && cell && cell.charge)
 		icon_state = "pscrubber:1"
@@ -44,14 +44,14 @@
 		icon_state = "pscrubber:0"
 
 	if(holding)
-		overlays += "scrubber-open"
+		add_overlay("scrubber-open")
 
 	if(connected_port)
-		overlays += "scrubber-connector"
+		add_overlay("scrubber-connector")
 
 	return
 
-/obj/machinery/portable_atmospherics/powered/scrubber/process()
+/obj/machinery/portable_atmospherics/powered/scrubber/machinery_process()
 	..()
 
 	var/power_draw = -1
@@ -115,7 +115,7 @@
 	if (holding)
 		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0))
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "portscrubber.tmpl", "Portable Scrubber", 480, 400, state = physical_state)
 		ui.set_initial_data(data)
@@ -157,9 +157,9 @@
 	var/global/gid = 1
 	var/id = 0
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/New()
-	..()
-	cell = null
+/obj/machinery/portable_atmospherics/powered/scrubber/huge/Initialize()
+	. = ..()
+	QDEL_NULL(cell)
 
 	id = gid
 	gid++
@@ -183,7 +183,7 @@
 	if (old_stat != stat)
 		update_icon()
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/process()
+/obj/machinery/portable_atmospherics/powered/scrubber/huge/machinery_process()
 	if(!on || (stat & (NOPOWER|BROKEN)))
 		update_use_power(0)
 		last_flow_rate = 0

@@ -8,6 +8,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/a357
+	fire_sound = 'sound/weapons/revolver_shoot.ogg'
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
 /obj/item/weapon/gun/projectile/revolver/verb/spin_cylinder()
@@ -67,12 +68,13 @@
 
 // Blade Runner pistol.
 /obj/item/weapon/gun/projectile/revolver/deckard
-	name = "Deckard .44"
+	name = "\improper Deckard .44"
 	desc = "A custom-built revolver, based off the semi-popular Detective Special model."
 	max_shells = 6
 	icon_state = "deckard-empty"
 	caliber = "38"
 	ammo_type = /obj/item/ammo_casing/c38
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 
 /obj/item/weapon/gun/projectile/revolver/deckard/update_icon()
 	..()
@@ -85,6 +87,9 @@
 	if(istype(A, /obj/item/ammo_magazine))
 		flick("deckard-reload",src)
 	..()
+
+/obj/item/weapon/gun/projectile/revolver/deckard/emp
+	ammo_type = /obj/item/ammo_casing/c38/emp
 
 /obj/item/weapon/gun/projectile/revolver/derringer
 	name = "derringer"

@@ -61,7 +61,7 @@
 /obj/machinery/atmospherics/omni/proc/error_check()
 	return
 
-/obj/machinery/atmospherics/omni/process()
+/obj/machinery/atmospherics/omni/machinery_process()
 	last_power_draw = 0
 	last_flow_rate = 0
 
@@ -240,9 +240,9 @@
 			qdel(P.network)
 			P.node = null
 
-	..()
+	return ..()
 
-/obj/machinery/atmospherics/omni/initialize()
+/obj/machinery/atmospherics/omni/atmos_init()
 	for(var/datum/omni_port/P in ports)
 		if(P.node || P.mode == 0)
 			continue

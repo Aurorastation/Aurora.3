@@ -493,6 +493,8 @@
 
 	var/list/protection
 	if(istype(M, /mob/living/carbon/human))
+		if(M.isSynthetic())
+			return
 		var/mob/living/carbon/human/H = M
 		protection = list(H.head, H.glasses, H.wear_mask)
 		if(H.species && (H.species.flags & NO_PAIN))
@@ -546,6 +548,20 @@
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent("frostoil", 5)
+
+/datum/reagent/spacespice
+	name = "Space Spice"
+	id = "spacespice"
+	description = "An exotic blend of spices for cooking. Definitely not worms."
+	reagent_state = SOLID
+	color = "#e08702"
+
+/datum/reagent/browniemix
+	name = "Brownie Mix"
+	id = "browniemix"
+	description = "A dry mix for making delicious brownies."
+	reagent_state = SOLID
+	color = "#441a03"
 
 /* Drinks */
 
@@ -818,20 +834,9 @@
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
-/datum/reagent/nutriment/coffee/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	if(alien == IS_TAJARA)
-		M.adjustToxLoss(2 * removed)
-		M.make_jittery(4)
-		return
-
-
 /datum/reagent/drink/coffee/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien == IS_DIONA)
 		return
-	if(alien == IS_TAJARA)
-		M.adjustToxLoss(4 * REM)
-		M.apply_effect(3, STUTTER)
 	M.make_jittery(5)
 
 /datum/reagent/drink/coffee/icecoffee

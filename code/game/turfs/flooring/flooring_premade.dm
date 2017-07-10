@@ -52,6 +52,8 @@
 	oxygen = 0
 	nitrogen = 0
 
+	roof_type = null
+
 /turf/simulated/floor/reinforced/airmix
 	oxygen = MOLES_O2ATMOS
 	nitrogen = MOLES_N2ATMOS
@@ -78,10 +80,10 @@
 	oxygen = 0
 	nitrogen = 0
 
-/turf/simulated/floor/reinforced/n20/New()
-	..()
-	sleep(-1)
-	if(!air) make_air()
+/turf/simulated/floor/reinforced/n20/Initialize()
+	. = ..()
+	if(!air)
+		make_air()
 	air.adjust_gas("sleeping_agent", ATMOSTANK_NITROUSOXIDE)
 
 /turf/simulated/floor/cult
@@ -113,6 +115,7 @@
 /turf/simulated/floor/tiled/steel/airless
 	oxygen = 0
 	nitrogen = 0
+	roof_type = null
 
 /turf/simulated/floor/tiled/white
 	name = "white floor"
@@ -130,6 +133,18 @@
 	icon_state = "freezer"
 	initial_flooring = /decl/flooring/tiling/freezer
 
+/turf/simulated/floor/tiled/ramp
+	name = "foot ramp"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "ramptop"
+	initial_flooring = /decl/flooring/reinforced/ramp
+
+/turf/simulated/floor/tiled/ramp/bottom
+	name = "foot ramp"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "rampbot"
+	initial_flooring = /decl/flooring/reinforced/ramp/bottom
+
 /turf/simulated/floor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
@@ -142,6 +157,7 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
+	roof_type = null
 
 /turf/simulated/floor/airless
 	name = "airless plating"
@@ -149,6 +165,8 @@
 	nitrogen = 0
 	temperature = TCMB
 	footstep_sound = "concretestep"
+
+	roof_type = null
 
 /turf/simulated/floor/tiled/airless
 	name = "airless floor"
@@ -184,7 +202,10 @@
 	footstep_sound = "gravelstep"
 /turf/simulated/floor/plating/snow
 	footstep_sound = "gravelstep"
+
 /turf/simulated/floor/airless/ceiling
+	icon_state = "asteroidplating"
+	baseturf = /turf/space
 
 /turf/simulated/floor/beach
 	name = "beach"
@@ -215,6 +236,6 @@
 /turf/simulated/floor/beach/water/ocean
 	icon_state = "seadeep"
 
-/turf/simulated/floor/beach/water/New()
-	..()
-	overlays += image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1)
+/turf/simulated/floor/beach/water/Initialize()
+	. = ..()
+	add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1))

@@ -161,7 +161,7 @@
 //This could all be done better, but it works for now.
 /obj/machinery/computer/HolodeckControl/Destroy()
 	emergencyShutdown()
-	..()
+	return ..()
 
 /obj/machinery/computer/HolodeckControl/ex_act(severity)
 	emergencyShutdown()
@@ -173,7 +173,7 @@
 	if (stat != oldstat && active && (stat & NOPOWER))
 		emergencyShutdown()
 
-/obj/machinery/computer/HolodeckControl/process()
+/obj/machinery/computer/HolodeckControl/machinery_process()
 	for(var/item in holographic_objs) // do this first, to make sure people don't take items out when power is down.
 		if(!(get_turf(item) in linkedholodeck))
 			derez(item, 0)

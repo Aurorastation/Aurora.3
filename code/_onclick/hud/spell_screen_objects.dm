@@ -13,7 +13,7 @@
 	var/mob/spell_holder
 
 /obj/screen/movable/spell_master/Destroy()
-	..()
+	. = ..()
 	for(var/obj/screen/spell/spells in spell_objects)
 		spells.spellmaster = null
 	spell_objects.Cut()
@@ -93,7 +93,7 @@
 	if(spell.spell_flags & NO_BUTTON) //no button to add if we don't get one
 		return
 
-	var/obj/screen/spell/newscreen = getFromPool(/obj/screen/spell)
+	var/obj/screen/spell/newscreen = new /obj/screen/spell
 	newscreen.spellmaster = src
 	newscreen.spell = spell
 
@@ -161,7 +161,7 @@
 	var/icon/last_charged_icon
 
 /obj/screen/spell/Destroy()
-	..()
+	. = ..()
 	spell = null
 	last_charged_icon = null
 	if(spellmaster)

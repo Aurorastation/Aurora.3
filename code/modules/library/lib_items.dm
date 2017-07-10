@@ -19,7 +19,8 @@
 	density = 1
 	opacity = 1
 
-/obj/structure/bookcase/initialize()
+/obj/structure/bookcase/Initialize()
+	. = ..()
 	for(var/obj/item/I in loc)
 		if(istype(I, /obj/item/weapon/book))
 			I.loc = src

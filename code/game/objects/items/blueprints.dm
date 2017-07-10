@@ -89,9 +89,7 @@ move an amendment</a> to the drawing.</p>
 		/area/asteroid,
 		/area/tdome,
 		/area/syndicate_station,
-		/area/wizard_station,
-		/area/prison
-		// /area/derelict //commented out, all hail derelict-rebuilders!
+		/area/wizard_station
 	)
 	for (var/type in SPECIALS)
 		if ( istype(A,type) )
@@ -132,6 +130,8 @@ move an amendment</a> to the drawing.</p>
 
 	A.always_unpowered = 0
 
+	sorted_add_area(A)
+
 	spawn(5)
 		//ma = A.master ? "[A.master]" : "(null)"
 		//world << "DEBUG: create_area(5): <br>A.name=[A.name]<br>A.tag=[A.tag]<br>A.master=[ma]"
@@ -157,6 +157,7 @@ move an amendment</a> to the drawing.</p>
 		return
 	set_area_machinery_title(A,str,prevname)
 	A.name = str
+	sortTim(all_areas, /proc/cmp_text_asc)
 	usr << "<span class='notice'>You set the area '[prevname]' title to '[str]'.</span>"
 	interact()
 	return

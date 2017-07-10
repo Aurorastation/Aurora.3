@@ -45,8 +45,8 @@
 	vision_flags = SEE_TURFS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
-/obj/item/clothing/glasses/meson/New()
-	..()
+/obj/item/clothing/glasses/meson/Initialize()
+	. = ..()
 	overlay = global_hud.meson
 
 /obj/item/clothing/glasses/meson/prescription
@@ -62,8 +62,8 @@
 	toggleable = 1
 	unacidable = 1
 
-/obj/item/clothing/glasses/science/New()
-	..()
+/obj/item/clothing/glasses/science/Initialize()
+	. = ..()
 	overlay = global_hud.science
 
 /obj/item/clothing/glasses/night
@@ -71,14 +71,15 @@
 	desc = "You can totally see in the dark now!"
 	icon_state = "night"
 	item_state = "glasses"
+	action_button_name = "Toggle Goggles"
 	origin_tech = list(TECH_MAGNET = 2)
 	darkness_view = 7
 	toggleable = 1
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	off_state = "denight"
 
-/obj/item/clothing/glasses/night/New()
-	..()
+/obj/item/clothing/glasses/night/Initialize()
+	. = ..()
 	overlay = global_hud.nvg
 
 /obj/item/clothing/glasses/eyepatch
@@ -100,6 +101,7 @@
 	desc = "Very confusing glasses."
 	icon_state = "material"
 	item_state = "glasses"
+	action_button_name = "Toggle Goggles"
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 	toggleable = 1
 	vision_flags = SEE_OBJS
@@ -248,8 +250,8 @@
 	desc = "Sunglasses with a HUD."
 	icon_state = "sunhud"
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		src.hud = new/obj/item/clothing/glasses/hud/security(src)
 		return
 
@@ -273,20 +275,22 @@
 	emp_act(severity)
 		if(istype(src.loc, /mob/living/carbon/human))
 			var/mob/living/carbon/human/M = src.loc
-			M << "<span class='danger'>The Optical Thermal Scanner overloads and blinds you!</span>"
+			M << "<span class='danger'>\The [src] overloads and blinds you!</span>"
 			if(M.glasses == src)
 				M.eye_blind = 3
 				M.eye_blurry = 5
 				// Don't cure being nearsighted
 				if(!(M.disabilities & NEARSIGHTED))
 					M.disabilities |= NEARSIGHTED
-					spawn(100)
-						M.disabilities &= ~NEARSIGHTED
+					addtimer(CALLBACK(M, /mob/living/carbon/human/.proc/thermal_reset_blindness), 100)
 		..()
 
-/obj/item/clothing/glasses/thermal/New()
-	..()
+/obj/item/clothing/glasses/thermal/Initialize()
+	. = ..()
 	overlay = global_hud.thermal
+
+/mob/living/carbon/human/proc/thermal_reset_blindness()
+	disabilities &= ~NEARSIGHTED
 
 /obj/item/clothing/glasses/thermal/syndi	//These are now a traitor item, concealed as mesons.	-Pete
 	name = "optical meson scanner"

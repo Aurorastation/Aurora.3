@@ -29,7 +29,6 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil/New()
 	..()
 	verbs -= /obj/machinery/portable_atmospherics/hydroponics/verb/close_lid_verb
-	verbs -= /obj/machinery/portable_atmospherics/hydroponics/verb/remove_label
 	verbs -= /obj/machinery/portable_atmospherics/hydroponics/verb/setlight
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/CanPass()
@@ -65,7 +64,7 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible/die()
 	qdel(src)
 
-/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/process()
+/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/machinery_process()
 	if(!seed)
 		qdel(src)
 		return
@@ -78,4 +77,4 @@
 	for(var/obj/effect/plant/plant in get_turf(src))
 		if(plant.invisibility == INVISIBILITY_MAXIMUM)
 			plant.invisibility = initial(plant.invisibility)
-	..()
+	return ..()

@@ -13,6 +13,7 @@ var/const/AI				=(1<<8)
 var/const/CYBORG			=(1<<9)
 var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
+var/const/FORENSICS			=(1<<12)
 
 
 var/const/MEDSCI			=(1<<1)
@@ -73,7 +74,6 @@ var/list/engineering_positions = list(
 var/list/medical_positions = list(
 	"Chief Medical Officer",
 	"Medical Doctor",
-	"Geneticist",
 	"Psychiatrist",
 	"Chemist",
 	"Paramedic",
@@ -114,6 +114,7 @@ var/list/security_positions = list(
 	"Head of Security",
 	"Warden",
 	"Detective",
+	"Forensic Technician",
 	"Security Officer",
 	"Security Cadet"
 )

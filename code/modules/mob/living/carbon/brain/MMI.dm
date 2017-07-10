@@ -74,9 +74,9 @@
 		if((istype(O,/obj/item/weapon/card/id)||istype(O,/obj/item/device/pda)) && brainmob)
 			if(allowed(user))
 				locked = !locked
-				user << "\blue You [locked ? "lock" : "unlock"] the brain holder."
+				user << "<span class='notice'>You [locked ? "lock" : "unlock"] the brain holder.</span>"
 			else
-				user << "\red Access denied."
+				user << "<span class='warning'>Access denied.</span>"
 			return
 		if(brainmob)
 			O.attack(brainmob, user)//Oh noooeeeee
@@ -86,11 +86,11 @@
 	//TODO: ORGAN REMOVAL UPDATE. Make the brain remain in the MMI so it doesn't lose organ data.
 	attack_self(mob/user as mob)
 		if(!brainmob)
-			user << "\red You upend the MMI, but there's nothing in it."
+			user << "<span class='warning'>You upend the MMI, but there's nothing in it.</span>"
 		else if(locked)
-			user << "\red You upend the MMI, but the brain is clamped into place."
+			user << "<span class='warning'>You upend the MMI, but the brain is clamped into place.</span>"
 		else
-			user << "\blue You upend the MMI, spilling the brain onto the floor."
+			user << "<span class='notice'>You upend the MMI, spilling the brain onto the floor.</span>"
 			var/obj/item/organ/brain/brain
 			if (brainobj)	//Pull brain organ out of MMI.
 				brainobj.loc = user.loc
@@ -137,7 +137,7 @@
 	if(brainmob)
 		qdel(brainmob)
 		brainmob = null
-	..()
+	return ..()
 
 /obj/item/device/mmi/radio_enabled
 	name = "radio-enabled man-machine interface"
@@ -163,7 +163,7 @@
 				brainmob << "Can't do that while incapacitated or dead."
 
 			radio.broadcasting = radio.broadcasting==1 ? 0 : 1
-			brainmob << "\blue Radio is [radio.broadcasting==1 ? "now" : "no longer"] broadcasting."
+			brainmob << "<span class='notice'>Radio is [radio.broadcasting==1 ? "now" : "no longer"] broadcasting.</span>"
 
 		Toggle_Listening()
 			set name = "Toggle Listening"
@@ -176,7 +176,7 @@
 				brainmob << "Can't do that while incapacitated or dead."
 
 			radio.listening = radio.listening==1 ? 0 : 1
-			brainmob << "\blue Radio is [radio.listening==1 ? "now" : "no longer"] receiving broadcast."
+			brainmob << "<span class='notice'>Radio is [radio.listening==1 ? "now" : "no longer"] receiving broadcast.</span>"
 
 /obj/item/device/mmi/emp_act(severity)
 	if(!brainmob)

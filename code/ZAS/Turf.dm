@@ -5,18 +5,19 @@
 /turf/var/datum/gas_mixture/air
 
 /turf/simulated/proc/update_graphic(list/graphic_add = null, list/graphic_remove = null)
-	if(graphic_add && graphic_add.len)
-		overlays += graphic_add
-	if(graphic_remove && graphic_remove.len)
-		overlays -= graphic_remove
+	if (LAZYLEN(graphic_add))
+		add_overlay(graphic_add.Copy(), TRUE)	// We need to copy because SSoverlay will mutate this list & add appearance objects.
+	if(LAZYLEN(graphic_remove))
+		cut_overlay(graphic_remove.Copy(), TRUE)
 
 /turf/proc/update_air_properties()
-	var/block = c_airblock(src)
+	var/block
+	ATMOS_CANPASS_TURF(block, src, src)
 	if(block & AIR_BLOCKED)
 		//dbg(blocked)
 		return 1
 
-	#ifdef ZLEVELS
+	#ifdef MULTIZAS
 	for(var/d = 1, d < 64, d *= 2)
 	#else
 	for(var/d = 1, d < 16, d *= 2)
@@ -27,13 +28,14 @@
 		if(!unsim)
 			continue
 
-		block = unsim.c_airblock(src)
+		ATMOS_CANPASS_TURF(block, unsim, src)
 
 		if(block & AIR_BLOCKED)
 			//unsim.dbg(air_blocked, turn(180,d))
 			continue
 
-		var/r_block = c_airblock(unsim)
+		var/r_block
+		ATMOS_CANPASS_TURF(r_block, src, unsim)
 
 		if(r_block & AIR_BLOCKED)
 			continue
@@ -41,9 +43,9 @@
 		if(istype(unsim, /turf/simulated))
 
 			var/turf/simulated/sim = unsim
-			if(air_master.has_valid_zone(sim))
+			if(SSair.has_valid_zone(sim))
 
-				air_master.connect(sim, src)
+				SSair.connect(sim, src)
 
 /*
 	Simple heuristic for determining if removing the turf from it's zone will not partition the zone (A very bad thing).
@@ -52,54 +54,60 @@
 */
 
 /turf/simulated/proc/can_safely_remove_from_zone()
-	#ifdef ZLEVELS
-	return 0 //TODO generalize this to multiz.
-	#else
-	
 	if(!zone) return 1
-	
+
 	var/check_dirs = get_zone_neighbours(src)
 	var/unconnected_dirs = check_dirs
-	
-	for(var/dir in list(NORTHWEST, NORTHEAST, SOUTHEAST, SOUTHWEST))
-		
+	var/to_check = list(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+	#ifdef MULTIZAS
+	to_check += list(NORTHUP, EASTUP, WESTUP, SOUTHUP, NORTHDOWN, EASTDOWN, WESTDOWN, SOUTHDOWN)
+	#endif
+	for(var/dir in to_check)
+
 		//for each pair of "adjacent" cardinals (e.g. NORTH and WEST, but not NORTH and SOUTH)
 		if((dir & check_dirs) == dir)
 			//check that they are connected by the corner turf
 			var/connected_dirs = get_zone_neighbours(get_step(src, dir))
-			if(connected_dirs && (dir & turn(connected_dirs, 180)) == dir)
+			if(connected_dirs && (dir & reverse_dir[connected_dirs]) == dir)
 				unconnected_dirs &= ~dir //they are, so unflag the cardinals in question
-	
+
 	//it is safe to remove src from the zone if all cardinals are connected by corner turfs
 	return !unconnected_dirs
-	
-	#endif
 
 //helper for can_safely_remove_from_zone()
 /turf/simulated/proc/get_zone_neighbours(turf/simulated/T)
 	. = 0
 	if(istype(T) && T.zone)
-		for(var/dir in cardinal)
+		var/to_check = cardinal.Copy()
+		#ifdef MULTIZAS
+		to_check += list(UP, DOWN)
+		#endif
+		for(var/dir in to_check)
 			var/turf/simulated/other = get_step(T, dir)
-			if(istype(other) && other.zone == T.zone && !(other.c_airblock(T) & AIR_BLOCKED) && get_dist(src, other) <= 1)
-				. |= dir
+			if (istype(other) && other.zone == T.zone)
+				var/block
+				ATMOS_CANPASS_TURF(block, other, T)
+				if (!(block & AIR_BLOCKED) && get_dist(src, other) <= 1)
+					. |= dir
 
 /turf/simulated/update_air_properties()
 
-	if(zone && zone.invalid)
-		c_copy_air()
+	if(zone && zone.invalid) //this turf's zone is in the process of being rebuilt
+		c_copy_air() //not very efficient :(
 		zone = null //Easier than iterating through the list at the zone.
 
-	var/s_block = c_airblock(src)
+	var/s_block
+	ATMOS_CANPASS_TURF(s_block, src, src)
 	if(s_block & AIR_BLOCKED)
 		#ifdef ZASDBG
-		if(verbose) world << "Self-blocked."
+		if(verbose) log_debug("Self-blocked.")
 		//dbg(blocked)
 		#endif
 		if(zone)
 			var/zone/z = zone
-			
+
 			if(can_safely_remove_from_zone()) //Helps normal airlocks avoid rebuilding zones all the time
+				c_copy_air() //we aren't rebuilding, but hold onto the old air so it can be readded
 				z.remove(src)
 			else
 				z.rebuild()
@@ -110,7 +118,7 @@
 	open_directions = 0
 
 	var/list/postponed
-	#ifdef ZLEVELS
+	#ifdef MULTIZAS
 	for(var/d = 1, d < 64, d *= 2)
 	#else
 	for(var/d = 1, d < 16, d *= 2)
@@ -121,21 +129,23 @@
 		if(!unsim) //edge of map
 			continue
 
-		var/block = unsim.c_airblock(src)
+		var/block
+		ATMOS_CANPASS_TURF(block, unsim, src)
 		if(block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
-			if(verbose) world << "[d] is blocked."
+			if(verbose) log_debug("[d] is blocked.")
 			//unsim.dbg(air_blocked, turn(180,d))
 			#endif
 
 			continue
 
-		var/r_block = c_airblock(unsim)
+		var/r_block
+		ATMOS_CANPASS_TURF(r_block, src, unsim)
 		if(r_block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
-			if(verbose) world << "[d] is blocked."
+			if(verbose) log_debug("[d] is blocked.")
 			//dbg(air_blocked, d)
 			#endif
 
@@ -156,17 +166,18 @@
 			var/turf/simulated/sim = unsim
 			sim.open_directions |= reverse_dir[d]
 
-			if(air_master.has_valid_zone(sim))
+			if(SSair.has_valid_zone(sim))
 
 				//Might have assigned a zone, since this happens for each direction.
 				if(!zone)
 
-					//We do not merge if 
+					//We do not merge if
 					//    they are blocking us and we are not blocking them, or if
 					//    we are blocking them and not blocking ourselves - this prevents tiny zones from forming on doorways.
 					if(((block & ZONE_BLOCKED) && !(r_block & ZONE_BLOCKED)) || ((r_block & ZONE_BLOCKED) && !(s_block & ZONE_BLOCKED)))
 						#ifdef ZASDBG
-						if(verbose) world << "[d] is zone blocked."
+						if(verbose) log_debug("[d] is zone blocked.")
+
 						//dbg(zone_blocked, d)
 						#endif
 
@@ -180,22 +191,22 @@
 
 						#ifdef ZASDBG
 						dbg(assigned)
-						if(verbose) world << "Added to [zone]"
+						if(verbose) log_debug("Added to [zone]")
 						#endif
 
 				else if(sim.zone != zone)
 
 					#ifdef ZASDBG
-					if(verbose) world << "Connecting to [sim.zone]"
+					if(verbose) log_debug("Connecting to [sim.zone]")
 					#endif
 
-					air_master.connect(src, sim)
+					SSair.connect(src, sim)
 
 
 			#ifdef ZASDBG
-				else if(verbose) world << "[d] has same zone."
+				else if(verbose) log_debug("[d] has same zone.")
 
-			else if(verbose) world << "[d] has invalid zone."
+			else if(verbose) log_debug("[d] has invalid zone.")
 			#endif
 
 		else
@@ -204,7 +215,7 @@
 			if(!postponed) postponed = list()
 			postponed.Add(unsim)
 
-	if(!air_master.has_valid_zone(src)) //Still no zone, make a new one.
+	if(!SSair.has_valid_zone(src)) //Still no zone, make a new one.
 		var/zone/newzone = new/zone()
 		newzone.add(src)
 
@@ -217,7 +228,7 @@
 	//At this point, a zone should have happened. If it hasn't, don't add more checks, fix the bug.
 
 	for(var/turf/T in postponed)
-		air_master.connect(src, T)
+		SSair.connect(src, T)
 
 /turf/proc/post_update_air_properties()
 	if(connections) connections.update_all()
@@ -273,7 +284,7 @@
 /turf/simulated/return_air()
 	if(zone)
 		if(!zone.invalid)
-			air_master.mark_zone_update(zone)
+			SSair.mark_zone_update(zone)
 			return zone.air
 		else
 			if(!air)

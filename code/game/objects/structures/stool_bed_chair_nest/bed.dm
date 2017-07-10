@@ -19,9 +19,10 @@
 	var/material/material
 	var/material/padding_material
 	var/base_icon = "bed"
+	var/can_dismantle = 1
 
-/obj/structure/bed/New(var/newloc, var/new_material, var/new_padding_material)
-	..(newloc)
+/obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
+	. = ..()
 	color = null
 	if(!new_material)
 		new_material = DEFAULT_WALL_MATERIAL
@@ -88,9 +89,10 @@
 
 /obj/structure/bed/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/wrench))
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		dismantle()
-		qdel(src)
+		if(can_dismantle)
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			dismantle()
+			qdel(src)
 	else if(istype(W,/obj/item/stack))
 		if(padding_material)
 			user << "\The [src] is already padded."

@@ -51,8 +51,8 @@
 		else
 			return "vanilla"
 
-/obj/machinery/icecream_vat/initialize()
-	..()
+/obj/machinery/icecream_vat/Initialize()
+	. = ..()
 	create_reagents(100)
 	while(product_types.len < 6)
 		product_types.Add(5)
@@ -184,7 +184,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/icecream/proc/add_ice_cream(var/flavour_name)
 	name = "[flavour_name] icecream"
-	src.overlays += "icecream_[flavour_name]"
+	add_overlay("icecream_[flavour_name]")
 	desc = "Delicious [cone_type] cone with a dollop of [flavour_name] ice cream."
 	ice_creamed = 1
 

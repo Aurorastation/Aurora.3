@@ -60,7 +60,7 @@
 
 /obj/machinery/particle_accelerator/control_box/update_icon()
 	if(active)
-		icon_state = "[reference]p1"
+		icon_state = "[reference]p[strength]"
 	else
 		if(use_power)
 			if(assembled)
@@ -115,6 +115,8 @@
 		part.strength = strength
 		part.update_icon()
 
+	update_icon()
+
 /obj/machinery/particle_accelerator/control_box/proc/add_strength(var/s)
 	if(assembled)
 		strength++
@@ -147,7 +149,7 @@
 	return
 
 
-/obj/machinery/particle_accelerator/control_box/process()
+/obj/machinery/particle_accelerator/control_box/machinery_process()
 	if(src.active)
 		//a part is missing!
 		if( length(connected_parts) < 6 )

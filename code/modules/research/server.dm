@@ -14,19 +14,9 @@
 	var/delay = 10
 	req_access = list(access_rd) //Only the R&D can change server settings.
 
-/obj/machinery/r_n_d/server/New()
-	..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/rdserver(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/stack/cable_coil(src)
-	component_parts += new /obj/item/stack/cable_coil(src)
-	RefreshParts()
-	initialize();
-
 /obj/machinery/r_n_d/server/Destroy()
 	griefProtection()
-	..()
+	return ..()
 
 /obj/machinery/r_n_d/server/RefreshParts()
 	var/tot_rating = 0
@@ -34,7 +24,18 @@
 		tot_rating += SP.rating
 	idle_power_usage /= max(1, tot_rating)
 
-/obj/machinery/r_n_d/server/initialize()
+/obj/machinery/r_n_d/server/Initialize()
+	. = ..()
+	component_parts = list()
+	component_parts += new /obj/item/weapon/circuitboard/rdserver(src)
+	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
+	component_parts += new /obj/item/stack/cable_coil(src)
+	component_parts += new /obj/item/stack/cable_coil(src)
+	RefreshParts()
+
+	setup()
+
+/obj/machinery/r_n_d/server/proc/setup()
 	if(!files)
 		files = new /datum/research(src)
 	var/list/temp_list
@@ -49,7 +50,7 @@
 		for(var/N in temp_list)
 			id_with_download += text2num(N)
 
-/obj/machinery/r_n_d/server/process()
+/obj/machinery/r_n_d/server/machinery_process()
 	var/datum/gas_mixture/environment = loc.return_air()
 	switch(environment.temperature)
 		if(0 to T0C)
@@ -123,7 +124,7 @@
 	name = "Central R&D Database"
 	server_id = -1
 
-/obj/machinery/r_n_d/server/centcom/initialize()
+/obj/machinery/r_n_d/server/centcom/setup()
 	..()
 	var/list/no_id_servers = list()
 	var/list/server_ids = list()
@@ -146,7 +147,7 @@
 				server_ids += num
 		no_id_servers -= S
 
-/obj/machinery/r_n_d/server/centcom/process()
+/obj/machinery/r_n_d/server/centcom/machinery_process()
 	return PROCESS_KILL //don't need process()
 
 /obj/machinery/computer/rdservercontrol

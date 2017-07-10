@@ -39,7 +39,7 @@
 
 	msg += "<EM>[src.name]</EM>"
 
-	if(species.name != "Human")
+	if(!species.hide_name)
 		msg += ", a <b><font color='[species.flesh_color]'>[species.name]</font></b>"
 	msg += "!\n"
 
