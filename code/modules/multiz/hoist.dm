@@ -23,10 +23,21 @@
 	anchored = 1
 
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/AM,mob/user)
+	var/canuse = use_check(user, USE_DISALLOW_SILICONS)
+	if(canuse) // to cut it down from 4+ return statements to just 1
+		switch(canuse)
+			if(USE_FAIL_INCAPACITATED)
+				to_chat(user, span("warning", "You can't do that while incapacitated!"))
+			if(USE_FAIL_NONLIVING)
+				to_chat(user, span("warning", "You can't do that while dead."))
+			if(USE_FAIL_IS_SILICON)
+				to_chat(user, span("notice", "You need hands for that."))
+			if(USE_FAIL_NON_ADV_TOOL_USR)
+				to_chat(user, span("warning", "You stare cluelessly at \the [src]."))
+		return
+
 	if (!AM.simulated || AM.anchored)
 		to_chat(user, span("notice", "You can't do that."))
-		return
-	if (!Adjacent(AM))
 		return
 	if (source_hoist.hoistee)
 		to_chat(user, span("notice", "\The [source_hoist.hoistee] is already attached to \the [src]!"))
@@ -38,7 +49,6 @@
 	if (get_turf(AM) != get_turf(source_hook))
 		AM.forceMove(get_turf(source_hook))
 	hoistee = AM
-	PROCLOG("source_hoist=[DEBUG_REF(src)],hoistee=[DEBUG_REF(src.hoistee)],AM=[DEBUG_REF(AM)]")
 	if(ismob(AM))
 		source_hook.buckle_mob(AM)
 	else
@@ -94,6 +104,10 @@
 	if(hoistee)
 		release_hoistee()
 	QDEL_NULL(src.source_hook)
+	return ..()
+
+/obj/effect/hoist_hook/Destroy()
+	source_hoist = null
 	return ..()
 
 /obj/structure/hoist/proc/release_hoistee()
