@@ -1598,9 +1598,6 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space,
-/area/space)
-"et" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
 	name = "escapeshuttle_leave";
@@ -1611,15 +1608,2418 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
+/turf/space,
+/area/space)
+"et" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
 	direction = 2;
 	name = "thrower_throwdown";
 	tiles = 0
+	},
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
 	},
 /turf/space,
 /area/space)
 "eu" = (
+/turf/simulated/mineral,
+/area/space)
+"ev" = (
+/obj/structure/grille,
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"ew" = (
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"ex" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/turf/space,
+/area/space)
+"ey" = (
+/obj/structure/lattice,
+/obj/structure/grille/broken,
+/turf/space,
+/area/space)
+"ez" = (
+/turf/unsimulated/wall/riveted,
+/area/syndicate_mothership)
+"eA" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/syndicate_mothership)
+"eB" = (
+/obj/structure/table/standard,
+/obj/effect/landmark{
+	name = "Nuclear-Code"
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/syndicate_mothership)
+"eC" = (
+/obj/structure/table/standard,
+/obj/item/weapon/paper_bin{
+	pixel_x = -3;
+	pixel_y = 8
+	},
+/obj/item/weapon/pen{
+	pixel_y = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/syndicate_mothership)
+"eD" = (
+/turf/unsimulated/wall/fakeglass{
+	dir = 1;
+	icon_state = "fakewindows"
+	},
+/area/syndicate_mothership)
+"eE" = (
+/obj/structure/bed,
+/obj/item/weapon/bedsheet/hos,
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/syndicate_mothership)
+"eF" = (
+/obj/effect/landmark{
+	name = "Syndicate-Spawn"
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/syndicate_mothership)
+"eG" = (
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/syndicate_mothership)
+"eH" = (
+/turf/unsimulated/wall/fakeglass{
+	icon_state = "fakewindows2";
+	dir = 1
+	},
+/area/syndicate_mothership)
+"eI" = (
+/turf/unsimulated/wall/fakeglass,
+/area/syndicate_mothership)
+"eJ" = (
+/obj/item/device/pda/syndicate,
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/syndicate_mothership)
+"eK" = (
+/obj/machinery/acting/changer,
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/syndicate_mothership)
+"eL" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership)
+"eM" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership)
+"eN" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership)
+"eO" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Barracks";
+	opacity = 1;
+	req_access = list(150)
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/syndicate_mothership)
+"eP" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"eQ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "syndieshutters";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"eR" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "syndieshutters";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"eS" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "syndieshutters";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"eT" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"eU" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership)
+"eV" = (
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"eW" = (
+/obj/structure/sign/double/map/left{
+	pixel_y = 32
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"eX" = (
+/obj/structure/sign/double/map/right{
+	pixel_y = 32
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"eY" = (
+/obj/machinery/vending/snack{
+	name = "hacked Getmore Chocolate Corp";
+	prices = list()
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"eZ" = (
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/syndicate_mothership)
+"fa" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/box/drinkingglasses{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/syndicate_mothership)
+"fb" = (
+/obj/structure/sink/kitchen{
+	pixel_y = 28
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/syndicate_mothership)
+"fc" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/syndicate_mothership)
+"fd" = (
+/turf/simulated/shuttle/wall/dark,
+/area/syndicate_station/start)
+"fe" = (
+/obj/machinery/recharger,
+/obj/structure/table/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"ff" = (
+/obj/machinery/computer/security/nuclear,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fg" = (
+/obj/machinery/computer/shuttle_control/multi/syndicate,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fh" = (
+/obj/structure/computerframe,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fi" = (
+/obj/machinery/button/remote/blast_door{
+	id = "syndieshutters";
+	name = "remote shutter control";
+	req_access = list(150)
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fj" = (
+/obj/structure/bed/chair/comfy/black,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"fk" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Kitchen";
+	opacity = 1;
+	req_access = list(150)
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/syndicate_mothership)
+"fl" = (
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/syndicate_mothership)
+"fm" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/syndicate_mothership)
+"fn" = (
+/obj/machinery/microwave{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fo" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fp" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fq" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"fr" = (
+/obj/item/weapon/folder{
+	pixel_y = 2
+	},
+/obj/structure/table/glass,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"fs" = (
+/obj/item/weapon/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/weapon/pen{
+	pixel_y = 4
+	},
+/obj/structure/table/glass,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"ft" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"fu" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/donkpockets{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/syndicate_mothership)
+"fv" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black/green,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/syndicate/black/green,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"fw" = (
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"fx" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black/blue,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/syndicate/black/blue,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"fy" = (
+/obj/item/weapon/storage/box/donkpockets{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fz" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fA" = (
+/obj/structure/computerframe,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fB" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"fC" = (
+/obj/machinery/vending/cola{
+	name = "hacked Robust Softdrinks";
+	prices = list()
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"fD" = (
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = list(150)
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/syndicate_mothership)
+"fE" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/tray{
+	pixel_y = 5
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/syndicate_mothership)
+"fF" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka{
+	pixel_x = 3;
+	pixel_y = 12
+	},
+/obj/item/weapon/reagent_containers/food/drinks/bottle/wine{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/syndicate_mothership)
+"fG" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black/med,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/syndicate/black/med,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"fH" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black/orange,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/syndicate/black/orange,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"fI" = (
+/obj/item/stack/material/glass{
+	amount = 15
+	},
+/obj/item/weapon/cell{
+	charge = 100;
+	maxcharge = 15000
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fJ" = (
+/obj/item/device/radio/intercom{
+	desc = "Talk through this. Evilly";
+	frequency = 1213;
+	name = "Syndicate Intercom";
+	pixel_y = -32;
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/obj/machinery/light,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fK" = (
+/obj/item/weapon/paper_bin{
+	pixel_x = -3;
+	pixel_y = 8
+	},
+/obj/item/weapon/pen{
+	pixel_y = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fL" = (
+/obj/machinery/vending/cigarette{
+	name = "hacked cigarette machine";
+	prices = list();
+	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10, /obj/item/weapon/storage/box/matches = 10, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/syndicate_mothership)
+"fM" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black/engie,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/syndicate/black/engie,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"fN" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black/red,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/syndicate/black/red,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"fO" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"fP" = (
+/obj/machinery/door/window/northright{
+	name = "Flight Deck";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"fQ" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"fR" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership)
+"fS" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership)
+"fT" = (
+/turf/unsimulated/floor{
+	icon_state = "bar";
+	dir = 2
+	},
+/area/syndicate_mothership)
+"fU" = (
+/obj/structure/urinal{
+	pixel_y = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership)
+"fV" = (
+/obj/machinery/shower{
+	pixel_y = 32
+	},
+/obj/structure/window/basic{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership)
+"fW" = (
+/obj/machinery/shower{
+	pixel_y = 32
+	},
+/obj/item/weapon/soap/syndie,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership)
+"fX" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/syndicate/black,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"fY" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/storage/vest/merc{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/storage/vest/merc{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/clothing/suit/storage/vest/merc{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"fZ" = (
+/obj/structure/closet/secure_closet/medical_wall{
+	pixel_x = -32;
+	pixel_y = 0;
+	req_access = list(150)
+	},
+/obj/item/stack/medical/splint,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/weapon/storage/belt/medical,
+/obj/item/weapon/storage/belt/medical,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"ga" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gb" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gc" = (
+/obj/structure/closet/hydrant{
+	pixel_y = 32
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gd" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/belt/military,
+/obj/item/weapon/storage/belt/military,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/weapon/gun/projectile/pistol,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"ge" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership)
+"gf" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Bathroom";
+	opacity = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership)
+"gg" = (
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership)
+"gh" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership)
+"gi" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -25
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gj" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gk" = (
+/obj/structure/closet,
+/obj/item/weapon/pickaxe/diamonddrill,
+/obj/item/weapon/pickaxe/diamonddrill,
+/obj/item/weapon/pickaxe/diamonddrill,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gl" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership)
+"gm" = (
+/obj/structure/mirror{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/structure/sink{
+	icon_state = "sink";
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor";
+	dir = 2
+	},
+/area/syndicate_mothership)
+"gn" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership)
+"go" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Suit Storage";
+	opacity = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gp" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -25
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gq" = (
+/obj/structure/closet,
+/obj/item/weapon/reagent_containers/food/snacks/liquidfood,
+/obj/item/weapon/reagent_containers/food/snacks/liquidfood,
+/obj/item/weapon/reagent_containers/food/snacks/liquidfood,
+/obj/item/weapon/reagent_containers/food/snacks/liquidfood,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gr" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"gs" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/ionrifle,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 5;
+	pixel_y = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gt" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/weapon/gun/projectile/automatic/c20r,
+/obj/item/weapon/gun/projectile/automatic/c20r,
+/obj/item/weapon/gun/projectile/automatic/c20r,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gu" = (
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/weapon/gun/projectile/automatic/rifle/sts35,
+/obj/item/weapon/gun/projectile/automatic/rifle/sts35,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gv" = (
+/obj/structure/sign/poster{
+	poster_type = "/datum/poster/bay_50";
+	pixel_x = -32
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gw" = (
+/obj/structure/closet,
+/obj/item/weapon/reagent_containers/food/snacks/tastybread,
+/obj/item/weapon/reagent_containers/food/snacks/tastybread,
+/obj/item/weapon/reagent_containers/food/snacks/tastybread,
+/obj/item/weapon/reagent_containers/food/snacks/tastybread,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gx" = (
+/obj/structure/window/reinforced,
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"gy" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1331;
+	id_tag = "merc_base";
+	pixel_x = -25;
+	pixel_y = -5
+	},
+/turf/unsimulated/floor{
+	icon_state = "bar";
+	dir = 2
+	},
+/area/syndicate_mothership)
+"gz" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/storage/black_pouches,
+/obj/item/clothing/accessory/storage/black_pouches,
+/obj/item/clothing/accessory/storage/black_pouches,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/accessory/storage/black_vest,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gA" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/storage/brown_pouches,
+/obj/item/clothing/accessory/storage/brown_pouches,
+/obj/item/clothing/accessory/storage/brown_pouches,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gB" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/storage/white_pouches,
+/obj/item/clothing/accessory/storage/white_pouches,
+/obj/item/clothing/accessory/storage/white_pouches,
+/obj/item/clothing/accessory/storage/white_vest,
+/obj/item/clothing/accessory/storage/white_vest,
+/obj/item/clothing/accessory/storage/white_vest,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gC" = (
+/obj/machinery/suit_cycler/syndicate{
+	locked = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gD" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/syndicate_station/start)
+"gE" = (
+/obj/machinery/flasher{
+	id = "syndieflash";
+	pixel_x = 0;
+	pixel_y = 28
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/syndicate_station/start)
+"gF" = (
+/obj/item/device/radio/electropack,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/syndicate_station/start)
+"gG" = (
+/obj/item/device/radio/intercom{
+	desc = "Talk through this. Evilly";
+	frequency = 1213;
+	name = "Syndicate Intercom";
+	pixel_x = 0;
+	pixel_y = -32;
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gH" = (
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = 28
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gI" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1331;
+	id_tag = "merc_shuttle_pump"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gJ" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "merc_shuttle_sensor";
+	pixel_x = 8;
+	pixel_y = 25
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gK" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1331;
+	id_tag = "merc_shuttle_pump"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1331;
+	id_tag = "merc_shuttle";
+	pixel_x = -8;
+	pixel_y = 25;
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gL" = (
+/obj/machinery/door/airlock/external{
+	density = 1;
+	frequency = 1331;
+	id_tag = "merc_shuttle_outer";
+	name = "Ship External Access";
+	req_access = list(150)
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "smindicate";
+	name = "Outer Airlock";
+	opacity = 0
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"gM" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	id_tag = "merc_base_hatch";
+	req_access = list(150)
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gN" = (
+/obj/machinery/door/airlock/vault{
+	name = "Armory";
+	req_access = list(150)
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gO" = (
+/obj/effect/landmark{
+	name = "Syndicate-Uplink"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gP" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gQ" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_station/start)
+"gR" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/syndicate_station/start)
+"gS" = (
+/obj/item/weapon/cigbutt,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/syndicate_station/start)
+"gT" = (
+/obj/machinery/door/window{
+	dir = 2;
+	name = "Seating";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gU" = (
+/obj/structure/table/standard,
+/obj/machinery/computer/pod/old/syndicate{
+	id = "smindicate"
+	},
+/obj/machinery/door/window{
+	dir = 4;
+	name = "Blast Door Control";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gV" = (
+/obj/machinery/atmospherics/pipe/manifold4w/visible,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gW" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1331;
+	id_tag = "merc_shuttle_pump"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"gX" = (
+/obj/structure/table/rack,
+/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/weapon/tank/jetpack/oxygen,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gY" = (
+/obj/structure/table/rack,
+/obj/item/weapon/tank/jetpack/carbondioxide,
+/obj/item/weapon/tank/jetpack/carbondioxide,
+/obj/item/weapon/tank/jetpack/carbondioxide,
+/obj/item/weapon/tank/jetpack/carbondioxide,
+/obj/item/weapon/tank/jetpack/carbondioxide,
+/obj/item/weapon/tank/jetpack/carbondioxide,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"gZ" = (
+/obj/structure/table/rack,
+/obj/item/device/binoculars,
+/obj/item/device/binoculars,
+/obj/item/device/binoculars,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"ha" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"hb" = (
+/obj/machinery/door/window{
+	dir = 1;
+	name = "Cell";
+	req_access = list(150)
+	},
+/obj/item/device/radio/intercom{
+	desc = "Talk through this. Evilly";
+	frequency = 1213;
+	name = "Syndicate Intercom";
+	pixel_x = -32;
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hc" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hd" = (
+/obj/machinery/vending/assist{
+	contraband = null;
+	name = "AntagCorpVend";
+	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/weapon/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/weapon/cartridge/signal = 4, /obj/item/clothing/glasses/sunglasses = 4)
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"he" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"hf" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	id_tag = "merc_shuttle_inner";
+	name = "Ship External Access";
+	req_access = list(0)
+	},
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hg" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"hh" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership)
+"hi" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/box/handcuffs{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/weapon/storage/box/flashbangs,
+/obj/item/weapon/storage/box/smokebombs,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"hj" = (
+/obj/structure/table/rack,
+/obj/item/weapon/pinpointer/nukeop,
+/obj/item/weapon/pinpointer/nukeop,
+/obj/item/weapon/pinpointer/nukeop,
+/obj/item/weapon/pinpointer/nukeop,
+/obj/item/weapon/pinpointer/nukeop,
+/obj/item/weapon/pinpointer/nukeop,
+/obj/item/weapon/shield/energy,
+/obj/item/weapon/shield/energy,
+/obj/item/weapon/shield/energy,
+/obj/item/weapon/shield/energy,
+/obj/item/weapon/shield/energy,
+/obj/item/weapon/shield/energy,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"hk" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/gun,
+/obj/item/weapon/gun/energy/gun,
+/obj/item/weapon/gun/energy/gun,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 5;
+	pixel_y = -32
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"hl" = (
+/obj/structure/table/rack,
+/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit/improved,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"hm" = (
+/obj/machinery/vending/cigarette{
+	name = "hacked cigarette machine";
+	prices = list();
+	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10, /obj/item/weapon/storage/box/matches = 10, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hn" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/machinery/button/flasher{
+	id = "syndieflash";
+	name = "Flasher";
+	pixel_x = 27;
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"ho" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4;
+	start_pressure = 740.5
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hp" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hq" = (
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1331;
+	master_tag = "merc_shuttle";
+	name = "interior access button";
+	pixel_x = 25;
+	pixel_y = 25;
+	req_access = list(150)
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 9
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hr" = (
+/obj/machinery/suit_cycler/syndicate{
+	locked = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hs" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Hardsuit Storage";
+	opacity = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"ht" = (
+/obj/item/weapon/material/kitchen/utensil/knife{
+	pixel_x = -6
+	},
+/obj/item/weapon/reagent_containers/syringe/drugs{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/obj/item/weapon/reagent_containers/syringe/drugs{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/weapon/reagent_containers/syringe/drugs{
+	pixel_x = 3;
+	pixel_y = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/structure/table/glass,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hu" = (
+/obj/machinery/door/window{
+	dir = 4;
+	name = "Brig";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hv" = (
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 8;
+	icon_state = "right";
+	name = "Preparation";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hw" = (
+/obj/structure/closet/syndicate/suit{
+	name = "suit closet"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hx" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/merc,
+/obj/item/clothing/mask/gas/syndicate,
+/obj/item/clothing/head/helmet/space/void/merc,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"hy" = (
+/obj/structure/closet{
+	name = "custodial"
+	},
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/weapon/mop,
+/obj/item/weapon/reagent_containers/spray/cleaner,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hz" = (
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 4;
+	icon_state = "right";
+	name = "Brig";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hA" = (
+/obj/machinery/door/window{
+	base_state = "left";
+	dir = 8;
+	icon_state = "left";
+	name = "Preparation";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hB" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/toolbox/syndicate{
+	pixel_x = -1;
+	pixel_y = 3
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hC" = (
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"hD" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"hE" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"hF" = (
+/obj/structure/table/standard,
+/obj/item/roller{
+	pixel_y = 8
+	},
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/syringe/antiviral,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"hG" = (
+/obj/structure/table/standard,
+/obj/structure/closet/secure_closet/medical_wall{
+	pixel_y = 32;
+	req_access = list(150)
+	},
+/obj/item/bodybag,
+/obj/item/weapon/reagent_containers/glass/bottle/antitoxin{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline{
+	pixel_x = 4;
+	pixel_y = 7
+	},
+/obj/item/weapon/reagent_containers/syringe,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/weapon/reagent_containers/syringe/antiviral,
+/obj/item/weapon/reagent_containers/syringe/antiviral,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"hH" = (
+/obj/item/device/radio/intercom{
+	desc = "Talk through this. Evilly";
+	frequency = 1213;
+	name = "Syndicate Intercom";
+	pixel_x = -32;
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hI" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hJ" = (
+/obj/item/clothing/gloves/yellow,
+/obj/item/device/assembly/signaler{
+	pixel_y = 2
+	},
+/obj/item/clothing/glasses/night,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/structure/table/steel,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hK" = (
+/obj/item/clothing/gloves/yellow,
+/obj/item/device/assembly/signaler{
+	pixel_y = 2
+	},
+/obj/item/clothing/glasses/night,
+/obj/structure/table/steel,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hL" = (
+/obj/item/clothing/gloves/yellow,
+/obj/item/device/assembly/prox_sensor{
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/obj/item/clothing/glasses/night,
+/obj/structure/table/steel,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hM" = (
+/obj/item/clothing/gloves/yellow,
+/obj/item/device/assembly/prox_sensor{
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/obj/item/clothing/glasses/night,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/table/steel,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hN" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "syndieshutters_infirmary";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"hO" = (
+/obj/item/device/radio/intercom{
+	desc = "Talk through this. Evilly";
+	frequency = 1213;
+	name = "Syndicate Intercom";
+	pixel_x = -32;
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hP" = (
+/obj/item/weapon/screwdriver,
+/obj/effect/spawner/newbomb/timer/syndicate,
+/obj/structure/table/steel,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hQ" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "syndieshutters_workshop";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"hR" = (
+/obj/structure/table/rack,
+/obj/item/weapon/rig/merc/empty,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership)
+"hS" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "syndieshutters_infirmary";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"hT" = (
+/obj/machinery/bodyscanner{
+	dir = 8;
+	icon_state = "body_scanner_0";
+	tag = "icon-body_scanner_0 (EAST)"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"hU" = (
+/obj/machinery/body_scanconsole{
+	icon_state = "body_scannerconsole";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"hV" = (
+/obj/machinery/door/window{
+	dir = 4;
+	name = "Infirmary";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"hW" = (
+/obj/machinery/door/window/westright{
+	name = "Tool Storage";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hX" = (
+/obj/item/weapon/stool/padded,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hY" = (
+/obj/effect/spawner/newbomb/timer/syndicate,
+/obj/structure/table/steel,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"hZ" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "syndieshutters_workshop";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"ia" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "syndieshutters_infirmary";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"ib" = (
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 4;
+	icon_state = "right";
+	name = "Infirmary";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"ic" = (
+/obj/machinery/door/window{
+	dir = 8;
+	name = "Tool Storage";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"id" = (
+/obj/item/weapon/aicard,
+/obj/effect/spawner/newbomb/timer/syndicate,
+/obj/structure/table/steel,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"ie" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "syndieshutters_workshop";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"if" = (
+/obj/machinery/button/remote/blast_door{
+	id = "syndieshutters_infirmary";
+	name = "remote shutter control";
+	pixel_x = -25
+	},
+/obj/structure/mopbucket,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"ig" = (
+/obj/item/device/radio/intercom{
+	desc = "Talk through this. Evilly";
+	frequency = 1213;
+	name = "Syndicate Intercom";
+	pixel_x = 32;
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"ih" = (
+/obj/machinery/door/window{
+	dir = 1;
+	name = "Secure Storage";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"ii" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/belt/utility/full,
+/obj/item/device/multitool,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"ij" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/belt/utility/full,
+/obj/item/device/multitool,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"ik" = (
+/obj/machinery/button/remote/blast_door{
+	id = "syndieshutters_telebay";
+	name = "remote shutter control";
+	pixel_x = 0;
+	pixel_y = -25;
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"il" = (
+/obj/machinery/button/remote/blast_door{
+	id = "syndieshutters_workshop";
+	name = "remote shutter control";
+	pixel_x = 25
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"im" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/table/standard,
+/obj/item/weapon/bonesetter,
+/obj/item/weapon/bonegel,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"in" = (
+/obj/machinery/door/window{
+	dir = 1;
+	name = "Surgery";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"io" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/iv_drip,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"ip" = (
+/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/weapon/storage/firstaid/toxin{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/firstaid/adv{
+	pixel_x = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"iq" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/o2{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/weapon/storage/firstaid/fire{
+	pixel_x = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"ir" = (
+/obj/item/weapon/weldingtool,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"is" = (
+/obj/structure/sign/securearea{
+	name = "\improper CAUTION";
+	pixel_x = 32
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"it" = (
+/obj/machinery/telecomms/allinone{
+	intercept = 1
+	},
+/obj/machinery/door/window/northright{
+	name = "Telecoms Mainframe";
+	req_access = list(150)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"iu" = (
+/obj/machinery/door/blast/regular{
+	id = "syndieshutters_telebay";
+	name = "Outer Airlock"
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"iv" = (
+/obj/structure/table/standard,
+/obj/item/weapon/scalpel,
+/obj/item/weapon/circular_saw{
+	pixel_y = 8
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"iw" = (
+/obj/structure/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/obj/item/weapon/reagent_containers/glass/bottle/stoxin,
+/obj/item/weapon/reagent_containers/glass/bottle/stoxin,
+/obj/item/weapon/reagent_containers/syringe,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/gloves/latex,
+/obj/item/weapon/surgicaldrill,
+/obj/structure/closet/secure_closet/medical_wall{
+	pixel_x = 32;
+	pixel_y = 0;
+	req_access = list(150)
+	},
+/obj/item/weapon/reagent_containers/syringe/antiviral,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"ix" = (
+/obj/effect/landmark{
+	name = "Nuclear-Bomb"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"iy" = (
+/obj/item/weapon/crowbar,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"iz" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"iA" = (
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 32
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"iB" = (
+/obj/structure/table/standard,
+/obj/item/weapon/cautery,
+/obj/item/weapon/hemostat,
+/obj/item/weapon/FixOVein,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"iC" = (
+/obj/machinery/optable,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"iD" = (
+/obj/structure/table/standard,
+/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/weapon/retractor,
+/obj/item/device/radio/intercom{
+	desc = "Talk through this. Evilly";
+	frequency = 1213;
+	name = "Syndicate Intercom";
+	pixel_x = 32;
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/syndicate_station/start)
+"iE" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/syndicate_station/start)
+"iF" = (
+/obj/machinery/teleport/station,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"iG" = (
+/obj/machinery/teleport/hub,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor6"
+	},
+/area/syndicate_station/start)
+"iH" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/space,
+/area/syndicate_station/start)
+"iI" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/space,
+/area/syndicate_station/start)
+"iJ" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/space,
+/area/syndicate_station/start)
+"iK" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"iL" = (
+/obj/effect/step_trigger/thrower{
+	affect_ghosts = 1;
+	direction = 2;
+	name = "thrower_throwdown";
+	tiles = 0
+	},
+/obj/effect/step_trigger/thrower{
+	affect_ghosts = 1;
+	direction = 2;
+	name = "thrower_throwdown";
+	tiles = 0
+	},
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/turf/space,
+/area/space)
+"iM" = (
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/obj/effect/step_trigger/thrower{
+	affect_ghosts = 1;
+	direction = 2;
+	name = "thrower_throwdown";
+	tiles = 0
+	},
+/turf/space,
+/area/space)
+"iN" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
 	name = "escapeshuttle_leave";
@@ -1638,36 +4038,33 @@
 	},
 /turf/simulated/mineral,
 /area/space)
-"ev" = (
-/turf/simulated/mineral,
-/area/space)
-"ew" = (
+"iO" = (
 /turf/unsimulated/wall/riveted,
 /area/space)
-"ex" = (
+"iP" = (
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
 /area/space)
-"ey" = (
+"iQ" = (
 /obj/item/weapon/shovel,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
 /area/space)
-"ez" = (
+"iR" = (
 /obj/item/weapon/coin/gold,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
 /area/space)
-"eA" = (
+"iS" = (
 /obj/effect/decal/remains,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
 /area/space)
-"eB" = (
+"iT" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1679,7 +4076,7 @@
 	icon_state = "plating"
 	},
 /area/syndicate_mothership/raider_base)
-"eC" = (
+"iU" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -1689,7 +4086,7 @@
 	icon_state = "plating"
 	},
 /area/syndicate_mothership/raider_base)
-"eD" = (
+"iV" = (
 /obj/structure/sign/double/barsign,
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -1700,7 +4097,7 @@
 	icon_state = "plating"
 	},
 /area/syndicate_mothership/raider_base)
-"eE" = (
+"iW" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -1713,10 +4110,10 @@
 	icon_state = "plating"
 	},
 /area/syndicate_mothership/raider_base)
-"eF" = (
+"iX" = (
 /turf/unsimulated/wall/riveted,
 /area/syndicate_mothership/raider_base)
-"eG" = (
+"iY" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1728,7 +4125,7 @@
 	icon_state = "plating"
 	},
 /area/syndicate_mothership/raider_base)
-"eH" = (
+"iZ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -1738,7 +4135,7 @@
 	icon_state = "plating"
 	},
 /area/syndicate_mothership/raider_base)
-"eI" = (
+"ja" = (
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
@@ -1750,20 +4147,20 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"eJ" = (
+"jb" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"eK" = (
+"jc" = (
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"eL" = (
+"jd" = (
 /obj/structure/table/woodentable,
 /obj/machinery/chemical_dispenser/bar_alc/full,
 /turf/unsimulated/floor{
@@ -1771,7 +4168,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"eM" = (
+"je" = (
 /obj/structure/table/woodentable,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/machinery/light{
@@ -1784,21 +4181,21 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"eN" = (
+"jf" = (
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"eO" = (
+"jg" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
 	},
 /area/syndicate_mothership/raider_base)
-"eP" = (
+"jh" = (
 /obj/structure/sink{
 	pixel_y = 11
 	},
@@ -1810,7 +4207,7 @@
 	dir = 2
 	},
 /area/syndicate_mothership/raider_base)
-"eQ" = (
+"ji" = (
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower,
 /obj/item/weapon/soap/syndie,
@@ -1819,7 +4216,7 @@
 	dir = 2
 	},
 /area/syndicate_mothership/raider_base)
-"eR" = (
+"jj" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1831,21 +4228,21 @@
 	icon_state = "plating"
 	},
 /area/syndicate_mothership/raider_base)
-"eS" = (
+"jk" = (
 /obj/item/weapon/broken_bottle,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"eT" = (
+"jl" = (
 /obj/structure/table/woodentable,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"eU" = (
+"jm" = (
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/light/small{
 	dir = 8
@@ -1855,13 +4252,13 @@
 	dir = 2
 	},
 /area/syndicate_mothership/raider_base)
-"eV" = (
+"jn" = (
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
 	},
 /area/syndicate_mothership/raider_base)
-"eW" = (
+"jo" = (
 /obj/item/weapon/mop,
 /obj/structure/mopbucket,
 /turf/unsimulated/floor{
@@ -1869,24 +4266,24 @@
 	dir = 2
 	},
 /area/syndicate_mothership/raider_base)
-"eX" = (
+"jp" = (
 /turf/simulated/mineral,
 /area/syndicate_mothership/raider_base)
-"eY" = (
+"jq" = (
 /obj/item/weapon/stool/padded,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"eZ" = (
+"jr" = (
 /obj/effect/decal/cleanable/ash,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fa" = (
+"js" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/reagent_containers/glass/rag,
 /turf/unsimulated/floor{
@@ -1894,7 +4291,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fb" = (
+"jt" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/storage/box/drinkingglasses,
 /turf/unsimulated/floor{
@@ -1902,7 +4299,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fc" = (
+"ju" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(150)
 	},
@@ -1911,19 +4308,19 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fd" = (
+"jv" = (
 /obj/structure/closet/crate/loot,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"fe" = (
+"jw" = (
 /obj/vehicle/bike,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"ff" = (
+"jx" = (
 /obj/vehicle/bike,
 /obj/machinery/light{
 	tag = "icon-tube1 (NORTH)";
@@ -1934,12 +4331,12 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"fg" = (
+"jy" = (
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"fh" = (
+"jz" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1952,7 +4349,7 @@
 	icon_state = "plating"
 	},
 /area/syndicate_mothership/raider_base)
-"fi" = (
+"jA" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
@@ -1964,7 +4361,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fj" = (
+"jB" = (
 /obj/effect/decal/cleanable/vomit,
 /obj/machinery/light{
 	dir = 1;
@@ -1976,7 +4373,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fk" = (
+"jC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/cola{
 	name = "hacked Robust Softdrinks";
@@ -1987,13 +4384,13 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fl" = (
+"jD" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"fm" = (
+"jE" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -2001,7 +4398,7 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"fn" = (
+"jF" = (
 /obj/machinery/optable,
 /obj/item/organ/stack,
 /obj/effect/decal/cleanable/blood/xeno,
@@ -2012,14 +4409,14 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fo" = (
+"jG" = (
 /obj/effect/decal/cleanable/generic,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fp" = (
+"jH" = (
 /obj/item/weapon/stool/padded,
 /obj/effect/landmark{
 	name = "voxstart"
@@ -2029,7 +4426,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fq" = (
+"jI" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/material/ashtray,
 /turf/unsimulated/floor{
@@ -2037,7 +4434,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fr" = (
+"jJ" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/rum,
 /turf/unsimulated/floor{
@@ -2045,7 +4442,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fs" = (
+"jK" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(150)
 	},
@@ -2053,7 +4450,7 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"ft" = (
+"jL" = (
 /obj/structure/closet/crate/loot,
 /obj/machinery/light{
 	dir = 8
@@ -2062,7 +4459,7 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"fu" = (
+"jM" = (
 /obj/random/vendor,
 /obj/machinery/light{
 	dir = 4;
@@ -2072,18 +4469,18 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"fv" = (
+"jN" = (
 /obj/item/organ/xenos/eggsac,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fw" = (
+"jO" = (
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fx" = (
+"jP" = (
 /obj/structure/mirror/raider{
 	pixel_x = 0;
 	pixel_y = 28
@@ -2092,14 +4489,14 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fy" = (
+"jQ" = (
 /obj/item/clothing/head/philosopher_wig,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fz" = (
+"jR" = (
 /obj/structure/table/woodentable,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/deck/cards,
@@ -2108,7 +4505,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fA" = (
+"jS" = (
 /obj/structure/table/woodentable,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/reagent_containers/food/condiment/peppermill{
@@ -2123,7 +4520,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fB" = (
+"jT" = (
 /obj/machinery/vending/snack{
 	name = "hacked Getmore Chocolate Corp";
 	prices = list()
@@ -2133,7 +4530,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fC" = (
+"jU" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Warehouse";
 	req_access = list(150)
@@ -2142,7 +4539,7 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"fD" = (
+"jV" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/vox/vox_casual,
 /obj/item/clothing/shoes/magboots/vox,
@@ -2153,7 +4550,7 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fE" = (
+"jW" = (
 /obj/item/tape/engineering{
 	icon_state = "engineering_v"
 	},
@@ -2161,7 +4558,7 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fF" = (
+"jX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light,
 /turf/unsimulated/floor{
@@ -2169,7 +4566,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fG" = (
+"jY" = (
 /obj/structure/table/woodentable,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/pizzabox/meat,
@@ -2178,7 +4575,7 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fH" = (
+"jZ" = (
 /obj/structure/table/woodentable,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/dice,
@@ -2187,34 +4584,34 @@
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fI" = (
+"ka" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fJ" = (
+"kb" = (
 /obj/item/weapon/cigbutt,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fK" = (
+"kc" = (
 /obj/machinery/vending/sovietsoda,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/syndicate_mothership/raider_base)
-"fL" = (
+"kd" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"fM" = (
+"ke" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/large_stock_marker,
@@ -2222,7 +4619,7 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"fN" = (
+"kf" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/vox/vox_casual,
 /obj/item/clothing/shoes/magboots/vox,
@@ -2236,13 +4633,13 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fO" = (
+"kg" = (
 /obj/effect/decal/remains/robot,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fP" = (
+"kh" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/vox/vox_casual,
 /obj/item/clothing/shoes/magboots/vox,
@@ -2253,13 +4650,13 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fQ" = (
+"ki" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fR" = (
+"kj" = (
 /obj/structure/table/rack,
 /obj/item/clothing/glasses/thermal/plain/monocle,
 /obj/item/clothing/glasses/thermal/plain/monocle,
@@ -2268,7 +4665,7 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fS" = (
+"kk" = (
 /obj/machinery/light{
 	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
@@ -2278,20 +4675,20 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"fT" = (
+"kl" = (
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
 	},
 /area/syndicate_mothership/raider_base)
-"fU" = (
+"km" = (
 /obj/effect/decal/cleanable/cobweb2,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
 	},
 /area/syndicate_mothership/raider_base)
-"fV" = (
+"kn" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/vox/vox_robes,
 /obj/item/clothing/shoes/magboots/vox,
@@ -2302,7 +4699,7 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fW" = (
+"ko" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/launcher/spikethrower,
 /obj/item/weapon/gun/launcher/spikethrower,
@@ -2315,7 +4712,7 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"fX" = (
+"kp" = (
 /obj/machinery/light{
 	dir = 8
 	},
@@ -2324,7 +4721,7 @@
 	icon_state = "cult"
 	},
 /area/syndicate_mothership/raider_base)
-"fY" = (
+"kq" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1";
@@ -2335,7 +4732,7 @@
 	icon_state = "cult"
 	},
 /area/syndicate_mothership/raider_base)
-"fZ" = (
+"kr" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/launcher/spikethrower,
 /obj/item/weapon/gun/launcher/spikethrower,
@@ -2344,7 +4741,7 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"ga" = (
+"ks" = (
 /obj/machinery/light{
 	dir = 8
 	},
@@ -2352,14 +4749,14 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"gb" = (
+"kt" = (
 /obj/structure/bed/chair,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
 	},
 /area/syndicate_mothership/raider_base)
-"gc" = (
+"ku" = (
 /obj/machinery/light{
 	dir = 4
 	},
@@ -2367,7 +4764,7 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"gd" = (
+"kv" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/vox/vox_robes,
 /obj/item/clothing/shoes/magboots/vox,
@@ -2378,7 +4775,7 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"ge" = (
+"kw" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/item/weapon/tank/nitrogen,
 /obj/machinery/light/small{
@@ -2390,16 +4787,7 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"gf" = (
-/obj/structure/grille,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
-"gg" = (
-/obj/structure/lattice,
-/turf/space,
-/area/space)
-"gh" = (
+"kx" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2412,7 +4800,7 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"gi" = (
+"ky" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2422,7 +4810,7 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"gj" = (
+"kz" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2435,14 +4823,14 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"gk" = (
+"kA" = (
 /obj/machinery/computer/shuttle_control/multi/vox,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
 	},
 /area/syndicate_mothership/raider_base)
-"gl" = (
+"kB" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -2452,7 +4840,7 @@
 	},
 /turf/space,
 /area/syndicate_mothership/raider_base)
-"gm" = (
+"kC" = (
 /obj/machinery/door/airlock/external{
 	req_access = list(150)
 	},
@@ -2460,7 +4848,7 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"gn" = (
+"kD" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -2470,14 +4858,14 @@
 	},
 /turf/space,
 /area/syndicate_mothership/raider_base)
-"go" = (
+"kE" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /turf/space,
 /area/syndicate_mothership/raider_base)
-"gp" = (
+"kF" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -2485,7 +4873,7 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"gq" = (
+"kG" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -2493,31 +4881,31 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/raider_base)
-"gr" = (
+"kH" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /turf/space,
 /area/syndicate_mothership/raider_base)
-"gs" = (
+"kI" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 8;
 	icon_state = "diagonalWall3"
 	},
 /area/skipjack_station/start)
-"gt" = (
+"kJ" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 6;
 	icon_state = "diagonalWall3"
 	},
 /area/skipjack_station/start)
-"gu" = (
+"kK" = (
 /turf/simulated/wall/voxshuttle,
 /area/skipjack_station/start)
-"gv" = (
+"kL" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1331;
@@ -2526,7 +4914,7 @@
 	},
 /turf/simulated/wall/voxshuttle,
 /area/skipjack_station/start)
-"gw" = (
+"kM" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
 	icon_state = "door_closed";
@@ -2536,7 +4924,7 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gx" = (
+"kN" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2551,7 +4939,7 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gy" = (
+"kO" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2563,7 +4951,7 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gz" = (
+"kP" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2578,7 +4966,7 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gA" = (
+"kQ" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
 	icon_state = "door_closed";
@@ -2588,7 +4976,7 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gB" = (
+"kR" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1331;
@@ -2597,14 +4985,14 @@
 	},
 /turf/simulated/wall/voxshuttle,
 /area/skipjack_station/start)
-"gC" = (
+"kS" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1331;
 	id_tag = "vox_west_vent"
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gD" = (
+"kT" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
 	id_tag = "vox_west_sensor";
@@ -2612,24 +5000,24 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gE" = (
+"kU" = (
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"gF" = (
+"kV" = (
 /obj/machinery/computer/shuttle_control/multi/vox,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"gG" = (
+"kW" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"gH" = (
+"kX" = (
 /obj/machinery/button/remote/blast_door{
 	id = "skipjackshutters";
 	name = "remote shutter control";
@@ -2637,7 +5025,7 @@
 	},
 /turf/simulated/wall/voxshuttle,
 /area/skipjack_station/start)
-"gI" = (
+"kY" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
 	id_tag = "vox_east_sensor";
@@ -2645,7 +5033,7 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gJ" = (
+"kZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 0;
 	frequency = 1331;
@@ -2653,14 +5041,14 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gK" = (
+"la" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
 	},
 /obj/machinery/meter,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gL" = (
+"lb" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	tag_airpump = "vox_west_vent";
 	tag_exterior_door = "vox_northwest_lock";
@@ -2679,7 +5067,7 @@
 /obj/machinery/light/small,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gM" = (
+"lc" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -2687,7 +5075,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"gN" = (
+"ld" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
@@ -2695,7 +5083,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"gO" = (
+"le" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
@@ -2705,7 +5093,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"gP" = (
+"lf" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -2713,7 +5101,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"gQ" = (
+"lg" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	tag_airpump = "vox_east_vent";
 	tag_exterior_door = "vox_northeast_lock";
@@ -2732,14 +5120,14 @@
 /obj/machinery/light/small,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gR" = (
+"lh" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /obj/machinery/meter,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gS" = (
+"li" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
 	icon_state = "door_closed";
@@ -2750,7 +5138,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gT" = (
+"lj" = (
 /obj/structure/table/rack,
 /obj/item/ammo_magazine/d762,
 /obj/item/weapon/gun/projectile/dragunov,
@@ -2758,14 +5146,14 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"gU" = (
+"lk" = (
 /obj/structure/table/rack,
 /obj/random/melee,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"gV" = (
+"ll" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
 	icon_state = "door_closed";
@@ -2776,7 +5164,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gW" = (
+"lm" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -2787,7 +5175,7 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gX" = (
+"ln" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/energy/ionrifle,
 /obj/item/weapon/material/harpoon,
@@ -2802,7 +5190,7 @@
 /obj/item/weapon/rig/light/stealth,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gY" = (
+"lo" = (
 /obj/machinery/microwave{
 	pixel_x = -1;
 	pixel_y = 8
@@ -2810,7 +5198,7 @@
 /obj/structure/table/steel,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"gZ" = (
+"lp" = (
 /obj/item/seeds/potatoseed,
 /obj/item/seeds/potatoseed,
 /obj/item/seeds/ambrosiavulgarisseed,
@@ -2819,18 +5207,18 @@
 /obj/structure/table/steel,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"ha" = (
+"lq" = (
 /obj/machinery/vending/hydroseeds,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hb" = (
+"lr" = (
 /obj/structure/table/rack,
 /obj/random/energy_antag,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hc" = (
+"ls" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/belt/utility/full,
 /obj/item/weapon/storage/belt/utility/full,
@@ -2838,11 +5226,11 @@
 /obj/item/device/multitool,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hd" = (
+"lt" = (
 /obj/machinery/washing_machine,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"he" = (
+"lu" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/fancy/cigarettes,
 /obj/item/weapon/flame/lighter/zippo,
@@ -2856,7 +5244,7 @@
 /obj/item/weapon/card/emag,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hf" = (
+"lv" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
@@ -2869,7 +5257,7 @@
 /obj/item/weapon/rig/light/hacker,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hg" = (
+"lw" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -2880,21 +5268,21 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hh" = (
+"lx" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hi" = (
+"ly" = (
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hj" = (
+"lz" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hk" = (
+"lA" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2911,7 +5299,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hl" = (
+"lB" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2925,7 +5313,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hm" = (
+"lC" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2942,7 +5330,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hn" = (
+"lD" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(150)
 	},
@@ -2950,7 +5338,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"ho" = (
+"lE" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/syndicate/black/engie,
@@ -2961,11 +5349,11 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hp" = (
+"lF" = (
 /obj/item/robot_parts/head,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hq" = (
+"lG" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -2982,11 +5370,11 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hr" = (
+"lH" = (
 /obj/item/robot_parts/l_leg,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hs" = (
+"lI" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -3000,16 +5388,16 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"ht" = (
+"lJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hu" = (
+"lK" = (
 /obj/machinery/floodlight,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hv" = (
+"lL" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/launcher/crossbow,
 /obj/item/stack/rods{
@@ -3028,7 +5416,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hw" = (
+"lM" = (
 /obj/structure/table/rack,
 /obj/item/weapon/grenade/empgrenade,
 /obj/item/weapon/grenade/flashbang,
@@ -3037,7 +5425,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hx" = (
+"lN" = (
 /obj/structure/table/rack,
 /obj/item/device/suit_cooling_unit/improved,
 /obj/item/device/suit_cooling_unit/improved,
@@ -3049,7 +5437,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hy" = (
+"lO" = (
 /obj/structure/table/steel,
 /obj/machinery/recharger,
 /obj/machinery/light/small{
@@ -3059,17 +5447,17 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hz" = (
+"lP" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hA" = (
+"lQ" = (
 /obj/item/robot_parts/robot_suit,
 /obj/item/robot_parts/r_leg,
 /obj/item/robot_parts/r_arm,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hB" = (
+"lR" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -3084,13 +5472,13 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hC" = (
+"lS" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(150)
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hD" = (
+"lT" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
@@ -3101,13 +5489,13 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hE" = (
+"lU" = (
 /obj/structure/table/steel,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hF" = (
+"lV" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
@@ -3118,7 +5506,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hG" = (
+"lW" = (
 /obj/structure/sink{
 	icon_state = "sink";
 	dir = 8;
@@ -3127,16 +5515,16 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hH" = (
+"lX" = (
 /obj/item/weapon/wrench,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hI" = (
+"lY" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/item/weapon/crowbar,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hJ" = (
+"lZ" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -3146,22 +5534,22 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hK" = (
+"ma" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hL" = (
+"mb" = (
 /obj/machinery/suit_cycler/syndicate{
 	locked = 0
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hM" = (
+"mc" = (
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
 /area/skipjack_station/start)
-"hN" = (
+"md" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -3169,7 +5557,7 @@
 	icon_state = "floor7"
 	},
 /area/skipjack_station/start)
-"hO" = (
+"me" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
@@ -3177,14 +5565,14 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hP" = (
+"mf" = (
 /obj/structure/table/steel,
 /obj/item/weapon/deck/cards,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hQ" = (
+"mg" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
@@ -3192,7 +5580,7 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"hR" = (
+"mh" = (
 /obj/machinery/bodyscanner{
 	allowed_species = list("Human","Skrell","Unathi","Tajara","M'sai Tajara","Zhan-Khazan Tajara","Vaurca Worker","Vaurca Warrior","Diona","Vox");
 	dir = 8;
@@ -3203,7 +5591,7 @@
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
-"hS" = (
+"mi" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -3215,23 +5603,23 @@
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
-"hT" = (
+"mj" = (
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
-"hU" = (
+"mk" = (
 /obj/structure/toilet{
 	dir = 4
 	},
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hV" = (
+"ml" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/item/weapon/tank/nitrogen,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hW" = (
+"mm" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -3241,17 +5629,35 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hX" = (
+"mn" = (
+/turf/unsimulated/wall/fakeglass{
+	icon_state = "fakewindows";
+	dir = 9
+	},
+/area/wizard_station)
+"mo" = (
+/turf/unsimulated/wall/fakeglass{
+	icon_state = "fakewindows2";
+	dir = 8
+	},
+/area/wizard_station)
+"mp" = (
+/turf/unsimulated/wall/fakeglass{
+	icon_state = "fakewindows";
+	dir = 5
+	},
+/area/wizard_station)
+"mq" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
 	icon_state = "diagonalWall3"
 	},
 /area/skipjack_station/start)
-"hY" = (
+"mr" = (
 /obj/structure/shuttle/engine/heater,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
-"hZ" = (
+"ms" = (
 /obj/structure/sink{
 	dir = 4;
 	icon_state = "sink";
@@ -3262,38 +5668,72 @@
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
-"ia" = (
+"mt" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 4;
 	icon_state = "diagonalWall3"
 	},
 /area/skipjack_station/start)
-"ib" = (
+"mu" = (
+/turf/unsimulated/wall/fakeglass,
+/area/wizard_station)
+"mv" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/storage/backpack/satchel/withwallet,
+/turf/unsimulated/floor{
+	dir = 9;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"mw" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/paper{
+	info = "\[center]\[b]LIST OF SPELLS AVAILABLE\[/b]\[/center]\[br]\[br]Magic Missile:\[br]This spell fires several, slow moving, magic projectiles at nearby targets. If they hit a target, it is paralyzed and takes minor damage.\[br]\[br]Fireball:\[br]This spell fires a fireball at a target and does not require wizard garb. Be careful not to fire it at people that are standing next to you.\[br]\[br]Disintegrate:\[br]This spell instantly kills somebody adjacent to you with the vilest of magick. It has a long cooldown.\[br]\[br]Disable Technology:\[br]This spell disables all weapons, cameras and most other technology in range.\[br]\[br]Smoke:\[br]This spell spawns a cloud of choking smoke at your location and does not require wizard garb.\[br]\[br]Blind:\[br]This spell temporarly blinds a single person and does not require wizard garb.\[br]Forcewall:\[br]This spell creates an unbreakable wall that lasts for 30 seconds and does not require wizard garb.\[br]\[br]Blink:\[br]This spell randomly teleports you a short distance. Useful for evasion or getting into areas if you have patience.\[br]\[br]Teleport:\[br]This spell teleports you to a type of area of your selection. Very useful if you are in danger, but has a decent cooldown, and is unpredictable.\[br]\[br]Mutate:\[br]This spell causes you to turn into a hulk, and gain telekinesis for a short while.\[br]\[br]Ethereal Jaunt:\[br]This spell creates your ethereal form, temporarily making you invisible and able to pass through walls.\[br]\[br]Knock:\[br]This spell opens nearby doors and does not require wizard garb.\[br]";
+	name = "List of Available Spells (READ)"
+	},
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"mx" = (
+/obj/structure/table/woodentable,
+/obj/item/device/flashlight/lamp/green{
+	on = 0;
+	pixel_x = -3;
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"my" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/shuttle/wall/dark,
 /area/skipjack_station/start)
-"ic" = (
+"mz" = (
 /obj/structure/table/standard,
 /obj/item/weapon/legcuffs,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
 /area/skipjack_station/start)
-"id" = (
+"mA" = (
 /obj/structure/table/standard,
 /obj/item/weapon/deck/cards,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
 /area/skipjack_station/start)
-"ie" = (
+"mB" = (
 /obj/machinery/light/small,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
-"if" = (
+"mC" = (
 /obj/structure/table/standard,
 /obj/item/weapon/circular_saw{
 	pixel_y = 8
@@ -3305,13 +5745,38 @@
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
-"ig" = (
+"mD" = (
+/turf/unsimulated/wall/riveted,
+/area/wizard_station)
+"mE" = (
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"mF" = (
+/obj/effect/landmark/start{
+	name = "wizard"
+	},
+/turf/unsimulated/floor{
+	dir = 2;
+	icon_state = "carpetsymbol"
+	},
+/area/wizard_station)
+"mG" = (
+/obj/structure/closet/coffin,
+/turf/unsimulated/floor{
+	dir = 4;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"mH" = (
 /obj/machinery/optable,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
-"ih" = (
+"mI" = (
 /obj/structure/table/standard,
 /obj/item/weapon/cautery,
 /obj/item/weapon/retractor,
@@ -3322,7 +5787,36 @@
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
-"ii" = (
+"mJ" = (
+/obj/machinery/suit_cycler/wizard,
+/turf/unsimulated/floor{
+	dir = 10;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"mK" = (
+/turf/unsimulated/floor{
+	dir = 2;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"mL" = (
+/obj/structure/table/woodentable,
+/obj/item/device/radio/intercom{
+	desc = "Talk through this. Evilly";
+	frequency = 1213;
+	name = "Syndicate Intercom";
+	pixel_x = 32;
+	subspace_transmission = 1;
+	syndie = 1
+	},
+/obj/item/weapon/reagent_containers/food/drinks/flask/barflask,
+/turf/unsimulated/floor{
+	dir = 6;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"mM" = (
 /obj/structure/sink{
 	dir = 4;
 	icon_state = "sink";
@@ -3333,7 +5827,7 @@
 	icon_state = "floor7"
 	},
 /area/skipjack_station/start)
-"ij" = (
+"mN" = (
 /obj/structure/table/standard,
 /obj/item/weapon/bonesetter,
 /obj/item/weapon/bonegel,
@@ -3344,7 +5838,16 @@
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
-"ik" = (
+"mO" = (
+/obj/structure/simple_door/iron{
+	name = "Interdimensional Prison Cell"
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"mP" = (
 /obj/structure/toilet{
 	dir = 4
 	},
@@ -3355,7 +5858,7 @@
 	icon_state = "floor7"
 	},
 /area/skipjack_station/start)
-"il" = (
+"mQ" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/firstaid/fire{
 	pixel_x = 1
@@ -3368,7 +5871,7 @@
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
-"im" = (
+"mR" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/firstaid/adv{
 	pixel_x = 1
@@ -3384,19 +5887,480 @@
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
-"in" = (
+"mS" = (
+/turf/unsimulated/wall/fakeglass{
+	dir = 1;
+	icon_state = "fakewindows"
+	},
+/area/wizard_station)
+"mT" = (
+/obj/structure/closet{
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
+	},
+/obj/item/clothing/under/psysuit,
+/obj/item/clothing/suit/wizrobe/psypurple,
+/obj/item/clothing/head/wizard/amp,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"mU" = (
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"mV" = (
+/obj/structure/closet{
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
+	},
+/obj/item/clothing/suit/wizrobe/red,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/head/wizard/red,
+/obj/item/weapon/staff,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"mW" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 5;
 	icon_state = "diagonalWall3"
 	},
 /area/skipjack_station/start)
-"io" = (
+"mX" = (
 /obj/structure/window/reinforced,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
+"mY" = (
+/turf/unsimulated/wall/fakeglass{
+	icon_state = "fakewindows2";
+	dir = 1
+	},
+/area/wizard_station)
+"mZ" = (
+/obj/structure/closet{
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
+	},
+/obj/item/clothing/shoes/sandal/marisa{
+	desc = "A set of fancy shoes that are as functional as they are comfortable.";
+	name = "Gentlemans Shoes"
+	},
+/obj/item/clothing/under/gentlesuit,
+/obj/item/clothing/suit/wizrobe/gentlecoat,
+/obj/item/clothing/head/wizard/cap,
+/obj/item/weapon/staff/gentcane,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"na" = (
+/obj/structure/closet{
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
+	},
+/obj/item/clothing/suit/wizrobe/marisa,
+/obj/item/clothing/shoes/sandal/marisa,
+/obj/item/clothing/head/wizard/marisa,
+/obj/item/weapon/staff/broom,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nb" = (
+/obj/structure/closet{
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
+	},
+/obj/item/clothing/suit/wizrobe/magusred,
+/obj/item/clothing/head/wizard/magus,
+/obj/item/weapon/staff,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nc" = (
+/obj/structure/closet{
+	icon_closed = "cabinet_closed";
+	icon_opened = "cabinet_open";
+	icon_state = "cabinet_closed"
+	},
+/obj/item/clothing/suit/wizrobe/magusblue,
+/obj/item/clothing/head/wizard/magus,
+/obj/item/weapon/staff,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nd" = (
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/green,
+/obj/item/clothing/gloves/rainbow,
+/obj/item/clothing/gloves/blue,
+/obj/item/clothing/gloves/orange,
+/obj/item/clothing/gloves/purple,
+/obj/item/clothing/gloves/red,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"ne" = (
+/obj/structure/table/rack,
+/obj/item/clothing/mask/gas/cyborg,
+/obj/item/clothing/mask/gas/mime,
+/obj/item/clothing/mask/gas/plaguedoctor,
+/obj/item/clothing/mask/luchador/rudos,
+/obj/item/clothing/mask/luchador/tecnicos,
+/obj/item/clothing/mask/pig,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nf" = (
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/eyepatch,
+/obj/item/clothing/glasses/monocle,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"ng" = (
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "spiderling";
+	name = "dead spider"
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nh" = (
+/obj/structure/table/rack,
+/obj/item/clothing/mask/smokable/pipe/cobpipe,
+/obj/item/clothing/mask/smokable/pipe,
+/obj/item/weapon/flame/lighter/zippo,
+/obj/item/weapon/storage/fancy/cigar,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"ni" = (
+/obj/structure/table/rack,
+/obj/item/weapon/dice/d20,
+/obj/item/weapon/dice,
+/obj/item/xenos_claw,
+/obj/item/device/megaphone,
+/obj/item/weapon/material/knife/ritual,
+/obj/item/device/flashlight/lantern,
+/obj/item/weapon/deck/cards,
+/obj/item/weapon/deck/tarot,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nj" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/backpack/cultpack,
+/obj/item/weapon/storage/backpack,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nk" = (
+/obj/structure/cult/tome,
+/obj/effect/decal/cleanable/cobweb,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nl" = (
+/obj/machinery/librarycomp,
+/obj/structure/table/woodentable,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nm" = (
+/obj/machinery/chemical_dispenser/bar_soft/full,
+/obj/structure/table/woodentable,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nn" = (
+/obj/machinery/vending/magivend,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"no" = (
+/obj/structure/bed/chair/wood/wings{
+	icon_state = "wooden_chair_wings";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	dir = 9;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"np" = (
+/obj/structure/table/woodentable,
+/obj/item/organ/heart,
+/turf/unsimulated/floor{
+	dir = 1;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"nq" = (
+/obj/structure/bed/chair/wood/wings{
+	icon_state = "wooden_chair_wings";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"nr" = (
+/obj/structure/bed/chair/wood/wings{
+	icon_state = "wooden_chair_wings";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"ns" = (
+/obj/structure/table/woodentable,
+/obj/item/toy/figure/wizard,
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/wizard_station)
+"nt" = (
+/obj/structure/bed/chair/wood/wings{
+	icon_state = "wooden_chair_wings";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	dir = 4;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"nu" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/storage/fancy/candle_box,
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/wizard_station)
+"nv" = (
+/obj/structure/bed/chair/wood/wings{
+	icon_state = "wooden_chair_wings";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	dir = 10;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"nw" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/storage/fancy/crayons,
+/turf/unsimulated/floor{
+	dir = 2;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"nx" = (
+/obj/structure/bed/chair/wood/wings{
+	icon_state = "wooden_chair_wings";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	dir = 6;
+	icon_state = "carpetside"
+	},
+/area/wizard_station)
+"ny" = (
+/obj/machinery/vending/snack{
+	name = "hacked Getmore Chocolate Corp";
+	prices = list()
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nz" = (
+/obj/structure/window/reinforced,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nA" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nB" = (
+/turf/unsimulated/floor{
+	icon_state = "rampbottom";
+	dir = 1
+	},
+/area/wizard_station)
+"nC" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nD" = (
+/obj/machinery/acting/changer,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nE" = (
+/turf/unsimulated/floor{
+	icon_state = "chapel"
+	},
+/area/wizard_station)
+"nF" = (
+/turf/unsimulated/floor{
+	dir = 1;
+	icon_state = "chapel"
+	},
+/area/wizard_station)
+"nG" = (
+/obj/effect/decal/cleanable/blood,
+/turf/unsimulated/floor{
+	dir = 1;
+	icon_state = "chapel"
+	},
+/area/wizard_station)
+"nH" = (
+/obj/effect/decal/cleanable/cobweb2,
+/turf/unsimulated/floor{
+	icon_state = "chapel"
+	},
+/area/wizard_station)
+"nI" = (
+/obj/structure/cult/pylon,
+/turf/unsimulated/floor{
+	dir = 1;
+	icon_state = "chapel"
+	},
+/area/wizard_station)
+"nJ" = (
+/obj/structure/table/rack,
+/obj/item/weapon/material/knife/ritual,
+/turf/unsimulated/floor{
+	icon_state = "chapel"
+	},
+/area/wizard_station)
+"nK" = (
+/obj/structure/cult/talisman,
+/obj/effect/decal/remains/human,
+/obj/effect/landmark{
+	name = "Teleport-Scroll"
+	},
+/obj/item/weapon/paper{
+	info = "Your sacrifice has not gone unnoticed. Today your imprisonment ends - be free, and do not contact us again so idly.";
+	name = "Letter From a Friend"
+	},
+/turf/unsimulated/floor{
+	dir = 1;
+	icon_state = "chapel"
+	},
+/area/wizard_station)
+"nL" = (
+/obj/structure/cult/pylon,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/wizard_station)
+"nM" = (
+/turf/unsimulated/wall/fakeglass{
+	tag = "icon-fakewindows2 (EAST)";
+	icon_state = "fakewindows2";
+	dir = 4
+	},
+/area/wizard_station)
+"nN" = (
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "lava"
+	},
+/area/wizard_station)
+"nO" = (
+/obj/effect/gibspawner/human,
+/mob/living/simple_animal/hostile/creature{
+	name = "Experiment 35b"
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "lava"
+	},
+/area/wizard_station)
+"nP" = (
+/turf/unsimulated/wall/fakeglass{
+	icon_state = "fakewindows";
+	dir = 10
+	},
+/area/wizard_station)
+"nQ" = (
+/turf/unsimulated/wall/fakeglass{
+	icon_state = "fakewindows";
+	dir = 6
+	},
+/area/wizard_station)
 
 (1,1,1) = {"
 aa
@@ -3835,61 +6799,61 @@ aN
 aN
 aN
 aN
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
 aN
 aN
 aN
@@ -4092,61 +7056,61 @@ aN
 aN
 aN
 aN
+iM
+eu
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
 et
-ev
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-es
 aN
 aN
 aN
@@ -4349,61 +7313,61 @@ aN
 aN
 aN
 aN
-et
-ev
-ew
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
+iM
+eu
+iO
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
-es
+et
 aN
 aN
 aN
@@ -4606,61 +7570,61 @@ aN
 aN
 aN
 aN
+iM
+eu
+iO
+eu
+eu
+eu
+eu
+eu
+eu
+aN
+aN
+iP
+iP
+eu
+eu
+eu
+eu
+jp
+jp
+jp
+jp
+jp
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+aN
+aN
 et
-ev
-ew
-ev
-ev
-ev
-ev
-ev
-ev
-aN
-aN
-ex
-ex
-ev
-ev
-ev
-ev
-eX
-eX
-eX
-eX
-eX
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-aN
-aN
-es
 aN
 aN
 aN
@@ -4863,61 +7827,61 @@ aN
 aN
 aN
 aN
+iM
+eu
+iO
+eu
+eu
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+iP
+iP
+eu
+eu
+jp
+jp
+jV
+kf
+kh
+jp
+jp
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+aN
+aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+aN
+aN
 et
-ev
-ew
-ev
-ev
-ev
-ev
-ev
-aN
-aN
-aN
-aN
-ex
-ex
-ev
-ev
-eX
-eX
-fD
-fN
-fP
-eX
-eX
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-aN
-aN
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-aN
-aN
-es
 aN
 aN
 aN
@@ -5120,40 +8084,40 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
-ev
-ev
-ev
+iO
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
 aN
 aN
-ex
-ev
-eX
-eX
-fv
-fw
-fw
-fw
-fV
-eX
-eX
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
+iP
+eu
+jp
+jp
+jN
+jO
+jO
+jO
+kn
+jp
+jp
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -5163,18 +8127,18 @@ aN
 aN
 aN
 aN
-ev
-ev
-ev
-ev
-ev
-ev
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -5377,13 +8341,13 @@ aN
 aN
 aN
 aN
+iN
+iO
+iO
 eu
-ew
-ew
-ev
-ev
-ev
-ev
+eu
+eu
+eu
 aN
 aN
 aN
@@ -5391,27 +8355,26 @@ aN
 aN
 aN
 aN
-ev
-eX
-fn
-fw
-fw
-fw
-fQ
-fw
-fV
-eX
-eX
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-aN
+eu
+jp
+jF
+jO
+jO
+jO
+ki
+jO
+kn
+jp
+jp
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -5421,17 +8384,18 @@ aN
 aN
 aN
 aN
-ev
-ev
-ev
-ev
-ev
+aN
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -5634,12 +8598,12 @@ aN
 aN
 aN
 aN
+iN
+iO
 eu
-ew
-ev
-ev
-ev
-ev
+eu
+eu
+eu
 aN
 aN
 aN
@@ -5648,27 +8612,21 @@ aN
 aN
 aN
 aN
-ev
-eX
-eX
-fx
-fw
-fw
-fw
-fw
-fw
-gd
-eX
-ev
-ev
-ev
-ev
-aN
-aN
-aN
-aN
-aN
-aN
+eu
+jp
+jp
+jP
+jO
+jO
+jO
+jO
+jO
+kv
+jp
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -5688,7 +8646,13 @@ aN
 aN
 aN
 aN
-es
+aN
+aN
+aN
+aN
+aN
+aN
+et
 aN
 aN
 aN
@@ -5891,12 +8855,12 @@ aN
 aN
 aN
 aN
+iN
+iO
 eu
-ew
-ev
-ex
-ez
-ev
+iP
+iR
+eu
 aN
 aN
 aN
@@ -5906,27 +8870,20 @@ aN
 aN
 aN
 aN
-ev
-eX
-fy
-fw
-fO
-fw
-fw
-fw
-ge
-eX
-ev
-ev
-ev
-ev
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+eu
+jp
+jQ
+jO
+kg
+jO
+jO
+jO
+kw
+jp
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -5945,7 +8902,14 @@ aN
 aN
 aN
 aN
-es
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+et
 aN
 aN
 aN
@@ -6148,48 +9112,35 @@ aN
 aN
 aN
 aN
+iN
+iO
 eu
-ew
-ev
-ey
-ex
-ex
+iQ
+iP
+iP
 aN
 aN
 aN
 aN
 aN
-eG
-eR
-eR
-fh
-eF
-eF
-eF
-fw
-fw
-fR
-fW
-fZ
-eX
-eX
-ev
-ev
-ev
-ev
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-ev
-ev
-ev
+iY
+jj
+jj
+jz
+iX
+iX
+iX
+jO
+jO
+kj
+ko
+kr
+jp
+jp
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -6200,9 +9151,22 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
 aN
 aN
-es
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+et
 aN
 aN
 aN
@@ -6405,48 +9369,33 @@ aN
 aN
 aN
 aN
+iN
+iO
 eu
-ew
-ev
-ev
-eA
-ex
+eu
+iS
+iP
 aN
 aN
 aN
 aN
-eB
-eH
-eS
-eY
-fi
-eY
-eJ
-eF
-fE
-fE
-eX
-eX
-eX
-eX
-ev
-ev
-ev
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-ev
-ev
-ev
+iT
+iZ
+jk
+jq
+jA
+jq
+jb
+iX
+jW
+jW
+jp
+jp
+jp
+jp
+eu
+eu
+eu
 aN
 aN
 aN
@@ -6459,7 +9408,22 @@ aN
 aN
 aN
 aN
-es
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+et
 aN
 aN
 aN
@@ -6662,32 +9626,32 @@ aN
 aN
 aN
 aN
+iN
+iO
+iO
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+iU
+ja
+jc
+jc
+jc
+jc
+jc
+jb
+jc
+jc
+iX
+eu
+eu
+eu
 eu
 ew
-ew
-ev
-ev
-aN
-aN
-aN
-aN
-aN
-eC
-eI
-eK
-eK
-eK
-eK
-eK
-eJ
-eK
-eK
-eF
-ev
-ev
-ev
-ev
-gg
 aN
 aN
 aN
@@ -6707,16 +9671,16 @@ aN
 aN
 aN
 aN
-ev
-ev
-ev
+eu
+eu
+eu
 aN
 aN
 aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -6919,61 +9883,61 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
+iO
+eu
+eu
 aN
 aN
 aN
 aN
 aN
-eC
-eJ
-eK
-eZ
-eK
-eK
-eK
-eK
-eJ
-eF
-eF
-ev
-aN
-gf
-gf
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+iU
+jb
+jc
+jr
+jc
+jc
+jc
+jc
+jb
+iX
+iX
+eu
 aN
 ev
 ev
-ev
 aN
 aN
 aN
-ev
 aN
 aN
-es
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+eu
+eu
+eu
+aN
+aN
+aN
+eu
+aN
+aN
+et
 aN
 aN
 aN
@@ -7176,33 +10140,28 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
+iO
+eu
+eu
 aN
 aN
 aN
 aN
 aN
-eD
-eK
-eT
-eT
-eY
-eK
-fo
-eK
-eJ
-eF
-ev
-ev
-aN
-aN
-aN
-aN
-aN
+iV
+jc
+jl
+jl
+jq
+jc
+jG
+jc
+jb
+iX
+eu
+eu
 aN
 aN
 aN
@@ -7222,15 +10181,20 @@ aN
 aN
 aN
 aN
-ev
-ev
 aN
 aN
-ev
-ev
-ev
 aN
-es
+aN
+aN
+eu
+eu
+aN
+aN
+eu
+eu
+eu
+aN
+et
 aN
 aN
 aN
@@ -7433,32 +10397,32 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+iU
+jc
+jc
+js
+jq
+jc
+jc
+jc
+jX
+iX
+eu
+eu
+eu
 ew
-ev
-ev
-aN
-aN
-aN
-aN
-aN
-eC
-eK
-eK
-fa
-eY
-eK
-eK
-eK
-fF
-eF
-ev
-ev
-ev
-gg
-gg
-gg
+ew
+ew
 aN
 aN
 aN
@@ -7471,8 +10435,8 @@ aN
 aN
 aN
 aN
-gs
-hX
+kI
+mq
 aN
 aN
 aN
@@ -7483,11 +10447,11 @@ aN
 aN
 aN
 aN
-ev
-ev
-ev
+eu
+eu
+eu
 aN
-es
+et
 aN
 aN
 aN
@@ -7690,61 +10654,61 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
-ev
-ev
+iO
+eu
+eu
+eu
+eu
 aN
 aN
 aN
-eC
-eL
-eK
-eT
-eY
-eK
-fp
-fp
-fp
-eF
-eF
-eF
-eF
-eF
-eF
-gl
-go
-go
-gs
-gu
-gu
-gu
-gu
-gu
-gu
-hq
-hs
-hB
-gu
-gu
-hX
-aN
-aN
-aN
+iU
+jd
+jc
+jl
+jq
+jc
+jH
+jH
+jH
+iX
+iX
+iX
+iX
+iX
+iX
+kB
+kE
+kE
+kI
+kK
+kK
+kK
+kK
+kK
+kK
+lG
+lI
+lR
+kK
+kK
+mq
 aN
 aN
 aN
 aN
 aN
-ev
-ev
-ev
-ev
 aN
-es
+aN
+aN
+eu
+eu
+eu
+eu
+aN
+et
 aN
 aN
 aN
@@ -7947,61 +10911,61 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
-ev
-ev
+iO
+eu
+eu
+eu
+eu
 aN
 aN
 aN
-eC
-eM
-eK
-eT
-eY
-eK
-fq
-fz
-fG
-eF
-fg
-fg
-ga
-fg
-fg
-gm
-gp
-gp
-gm
-gv
-gC
-gK
-gS
-gW
-hh
-hh
-ht
-ht
-hJ
-hY
-ib
-aN
-aN
-aN
+iU
+je
+jc
+jl
+jq
+jc
+jI
+jR
+jY
+iX
+jy
+jy
+ks
+jy
+jy
+kC
+kF
+kF
+kC
+kL
+kS
+la
+li
+lm
+lx
+lx
+lJ
+lJ
+lZ
+mr
+my
 aN
 aN
 aN
 aN
 aN
-ev
-ev
 aN
 aN
 aN
-es
+eu
+eu
+aN
+aN
+aN
+et
 aN
 aN
 aN
@@ -8204,50 +11168,47 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
-ev
-ev
+iO
+eu
+eu
+eu
+eu
 aN
 aN
 aN
-eE
-eN
-eK
-fb
-eY
-eK
-fr
-fA
-fH
-eF
-fg
-fg
-fg
-fg
-fg
-gm
-gq
-gq
-gm
-gw
-gD
-gL
-gu
-gX
-hi
-hi
-hi
-hi
-hK
-hY
-ib
-aN
-aN
-aN
+iW
+jf
+jc
+jt
+jq
+jc
+jJ
+jS
+jZ
+iX
+jy
+jy
+jy
+jy
+jy
+kC
+kG
+kG
+kC
+kM
+kT
+lb
+kK
+ln
+ly
+ly
+ly
+ly
+ma
+mr
+my
 aN
 aN
 aN
@@ -8258,7 +11219,10 @@ aN
 aN
 aN
 aN
-es
+aN
+aN
+aN
+et
 aN
 aN
 aN
@@ -8461,51 +11425,47 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
-ev
+iO
+eu
+eu
+eu
 aN
 aN
 aN
 aN
-eF
-eF
-eF
-eF
-eK
-eK
-fp
-fp
-fp
-eF
-fg
-fg
-fg
-eF
-eF
-gn
-gr
-gr
-gt
-gu
-gu
-gu
-gu
-gY
-hi
-hi
-hu
-hi
-hL
-gu
-ia
-aN
-aN
-aN
-aN
+iX
+iX
+iX
+iX
+jc
+jc
+jH
+jH
+jH
+iX
+jy
+jy
+jy
+iX
+iX
+kD
+kH
+kH
+kJ
+kK
+kK
+kK
+kK
+lo
+ly
+ly
+lK
+ly
+mb
+kK
+mt
 aN
 aN
 aN
@@ -8515,7 +11475,11 @@ aN
 aN
 aN
 aN
-es
+aN
+aN
+aN
+aN
+et
 aN
 aN
 aN
@@ -8718,51 +11682,51 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+iX
+jg
+jm
+iX
+jB
+jc
+jc
+jc
+ka
+iX
+kk
+jy
+jy
+kx
 ew
-ev
-ev
-ev
-aN
-aN
-aN
-aN
-eF
-eO
-eU
-eF
-fj
-eK
-eK
-eK
-fI
-eF
-fS
-fg
-fg
-gh
-gg
-gg
+ew
 aN
 aN
 aN
 aN
 aN
 aN
-gu
-gZ
-hi
-hi
-hi
-gu
-gu
-gu
-gu
-gu
-gu
-gu
-in
+kK
+lp
+ly
+ly
+ly
+kK
+kK
+kK
+kK
+kK
+kK
+kK
+mW
 aN
 aN
 aN
@@ -8772,7 +11736,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -8975,31 +11939,31 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+iX
+jh
+jn
+ju
+jb
+jc
+jc
+jc
+kb
+iX
+jy
+jy
+jy
+ky
 ew
-ev
-ev
-ev
-aN
-aN
-aN
-aN
-eF
-eP
-eV
-fc
-eJ
-eK
-eK
-eK
-fJ
-eF
-fg
-fg
-fg
-gi
-gg
 aN
 aN
 aN
@@ -9007,19 +11971,19 @@ aN
 aN
 aN
 aN
-gu
-ha
-hj
-hi
-hi
-hC
-hM
-hM
-ic
-hM
-hM
-gu
-gu
+kK
+lq
+lz
+ly
+ly
+lS
+mc
+mc
+mz
+mc
+mc
+kK
+kK
 aN
 aN
 aN
@@ -9029,7 +11993,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -9232,52 +12196,52 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+iX
+ji
+jo
+iX
+jC
+jb
+jc
+jT
+kc
+iX
+jy
+jy
+jy
+kz
 ew
-ev
-ev
-ev
+ew
 aN
 aN
 aN
 aN
-eF
-eQ
-eW
-eF
-fk
-eJ
-eK
-fB
-fK
-eF
-fg
-fg
-fg
-gj
-gg
-gg
-aN
-aN
-aN
-aN
-gs
-gu
-gu
-gu
-gu
-hn
-gu
-gu
-hN
-hM
-id
-hM
-hM
-ik
-gu
-in
+kI
+kK
+kK
+kK
+kK
+lD
+kK
+kK
+md
+mc
+mA
+mc
+mc
+mP
+kK
+mW
 aN
 aN
 aN
@@ -9286,7 +12250,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -9489,53 +12453,53 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+iX
+iX
+iX
+iX
+iX
+iX
+jK
+iX
+iX
+iX
+iX
+iX
+jK
+iX
+iX
 ew
-ev
-ev
-ev
 aN
 aN
-aN
-aN
-eF
-eF
-eF
-eF
-eF
-eF
-fs
-eF
-eF
-eF
-eF
-eF
-fs
-eF
-eF
-gg
-aN
-aN
-gs
-gu
-gu
-gu
-gT
-hb
-hk
-gE
-hv
-gu
-hM
-hM
-hM
-hM
-ii
-hM
-gu
-gu
-in
+kI
+kK
+kK
+kK
+lj
+lr
+lA
+kU
+lL
+kK
+mc
+mc
+mc
+mc
+mM
+mc
+kK
+kK
+mW
 aN
 aN
 aN
@@ -9543,7 +12507,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -9746,12 +12710,53 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+iX
+jy
+jy
+jy
+jy
+iX
+kl
+kp
+kl
+kl
+iX
 ew
-ev
-ev
-ev
+aN
+aN
+aN
+kN
+kK
+lc
+kU
+kU
+lB
+kU
+lM
+kK
+lG
+lI
+lR
+kK
+kK
+kK
+kK
+mr
+my
 aN
 aN
 aN
@@ -9759,48 +12764,7 @@ aN
 aN
 aN
 aN
-aN
-eF
-fg
-fg
-fg
-fg
-eF
-fT
-fX
-fT
-fT
-eF
-gg
-aN
-aN
-aN
-gx
-gu
-gM
-gE
-gE
-hl
-gE
-hw
-gu
-hq
-hs
-hB
-gu
-gu
-gu
-gu
-hY
-ib
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-es
+et
 aN
 aN
 aN
@@ -10003,11 +12967,53 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+iX
+jy
+jy
+jy
+jy
+iX
+kl
+kl
+kl
+kl
+kx
 ew
-ev
-ev
+aN
+aN
+aN
+kO
+kU
+ld
+kU
+kU
+lC
+kU
+kU
+lT
+me
+me
+mB
+kK
+kU
+lc
+mX
+mr
+my
 aN
 aN
 aN
@@ -10015,49 +13021,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-eF
-fg
-fg
-fg
-fg
-eF
-fT
-fT
-fT
-fT
-gh
-gg
-aN
-aN
-aN
-gy
-gE
-gN
-gE
-gE
-hm
-gE
-gE
-hD
-hO
-hO
-ie
-gu
-gE
-gM
-io
-hY
-ib
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-es
+et
 aN
 aN
 aN
@@ -10260,11 +13224,53 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+iX
+jE
+jy
+jy
+jy
+jK
+kl
+kl
+kt
+kA
+ky
 ew
-ev
-ev
+aN
+aN
+aN
+kO
+kV
+le
+kU
+kU
+lD
+kU
+kU
+lU
+mf
+lU
+kU
+lD
+kU
+kU
+mX
+mr
+my
 aN
 aN
 aN
@@ -10272,49 +13278,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-eF
-fm
-fg
-fg
-fg
-fs
-fT
-fT
-gb
-gk
-gi
-gg
-aN
-aN
-aN
-gy
-gF
-gO
-gE
-gE
-hn
-gE
-gE
-hE
-hP
-hE
-gE
-hn
-gE
-gE
-io
-hY
-ib
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-es
+et
 aN
 aN
 aN
@@ -10517,12 +13481,53 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+iX
+jy
+jy
+jy
+jy
+iX
+kl
+kl
+kl
+kl
+kz
 ew
-ev
-ev
-ev
+aN
+aN
+aN
+kO
+kW
+ld
+kU
+kU
+lA
+kU
+kU
+lV
+mg
+mg
+mB
+kK
+kU
+lf
+mX
+mr
+my
 aN
 aN
 aN
@@ -10530,48 +13535,7 @@ aN
 aN
 aN
 aN
-aN
-eF
-fg
-fg
-fg
-fg
-eF
-fT
-fT
-fT
-fT
-gj
-gg
-aN
-aN
-aN
-gy
-gG
-gN
-gE
-gE
-hk
-gE
-gE
-hF
-hQ
-hQ
-ie
-gu
-gE
-gP
-io
-hY
-ib
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-es
+et
 aN
 aN
 aN
@@ -10774,13 +13738,53 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+iX
+jy
+jy
+jy
+jy
+iX
+km
+kq
+kl
+kl
+iX
 ew
-ev
-ev
-ev
-ev
+aN
+aN
+aN
+kP
+kX
+lf
+kU
+kU
+lB
+kU
+lN
+kK
+lG
+lI
+lR
+kK
+kK
+kK
+kK
+mr
+my
 aN
 aN
 aN
@@ -10788,47 +13792,7 @@ aN
 aN
 aN
 aN
-eF
-fg
-fg
-fg
-fg
-eF
-fU
-fY
-fT
-fT
-eF
-gg
-aN
-aN
-aN
-gz
-gH
-gP
-gE
-gE
-hl
-gE
-hx
-gu
-hq
-hs
-hB
-gu
-gu
-gu
-gu
-hY
-ib
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-es
+et
 aN
 aN
 aN
@@ -11031,53 +13995,53 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+iX
+iX
+iX
+iX
+iX
+jU
+iX
+iX
+iX
+iX
+jK
+iX
+iX
 ew
-ev
-ev
-ev
-ev
 aN
 aN
-aN
-aN
-aN
-eF
-eF
-eF
-eF
-eF
-fC
-eF
-eF
-eF
-eF
-fs
-eF
-eF
-gg
-aN
-aN
-gt
-gu
-gu
-gu
-gU
-gU
-hm
-gE
-hy
-gu
-hR
-hT
-hT
-ig
-hT
-il
-gu
-gu
-ia
+kJ
+kK
+kK
+kK
+lk
+lk
+lC
+kU
+lO
+kK
+mh
+mj
+mj
+mH
+mj
+mQ
+kK
+kK
+mt
 aN
 aN
 aN
@@ -11085,7 +14049,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -11288,52 +14252,52 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+iX
+jv
+jy
+jy
+jL
+jD
+jv
+iX
+jy
+jy
+jy
+kx
 ew
-ev
-ev
-ev
-ev
+ew
 aN
 aN
 aN
 aN
-aN
-eF
-fd
-fg
-fg
-ft
-fl
-fd
-eF
-fg
-fg
-fg
-gh
-gg
-gg
-aN
-aN
-aN
-aN
-gt
-gu
-gu
-gu
-gu
-hn
-gu
-gu
-hS
-hT
-hT
-hT
-hT
-im
-gu
-ia
+kJ
+kK
+kK
+kK
+kK
+lD
+kK
+kK
+mi
+mj
+mj
+mj
+mj
+mR
+kK
+mt
 aN
 aN
 aN
@@ -11342,7 +14306,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -11545,31 +14509,31 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+iX
+jw
+jD
+jD
+jy
+jD
+jD
+jU
+jy
+jy
+jy
+ky
 ew
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-eF
-fe
-fl
-fl
-fg
-fl
-fl
-fC
-fg
-fg
-fg
-gi
-gg
 aN
 aN
 aN
@@ -11577,19 +14541,19 @@ aN
 aN
 aN
 aN
-gu
-hc
-ho
-hi
-hi
-hC
-hT
-hZ
-if
-ih
-ij
-gu
-gu
+kK
+ls
+lE
+ly
+ly
+lS
+mj
+ms
+mC
+mI
+mN
+kK
+kK
 aN
 aN
 aN
@@ -11599,7 +14563,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -11802,51 +14766,51 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+iX
+jx
+jy
+jv
+jD
+jD
+kd
+iX
+kk
+jy
+jy
+kz
 ew
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-eF
-ff
-fg
-fd
-fl
-fl
-fL
-eF
-fS
-fg
-fg
-gj
-gg
-gg
+ew
 aN
 aN
 aN
 aN
 aN
 aN
-gu
-hd
-hi
-hi
-hz
-gu
-gu
-gu
-gu
-gu
-gu
-gu
-ia
+kK
+lt
+ly
+ly
+lP
+kK
+kK
+kK
+kK
+kK
+kK
+kK
+mt
 aN
 aN
 aN
@@ -11856,7 +14820,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -12059,47 +15023,47 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-eF
-fg
-fg
-fg
-fl
-fg
-fl
-eF
-fg
-fg
-fg
-eF
-eF
-gl
-go
-go
-gs
-gu
-gu
-gu
-gu
-he
-hi
-hr
-hi
-hG
-hU
-gu
-hX
+iO
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+iX
+jy
+jy
+jy
+jD
+jy
+jD
+iX
+jy
+jy
+jy
+iX
+iX
+kB
+kE
+kE
+kI
+kK
+kK
+kK
+kK
+lu
+ly
+lH
+ly
+lW
+mk
+kK
+mq
 aN
 aN
 aN
@@ -12113,7 +15077,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -12316,47 +15280,47 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-eF
-fd
-fg
-fg
-fg
-fg
-fM
-eF
-fg
-fg
-fg
-fg
-fg
-gm
-gp
-gp
-gm
-gA
-gI
-gQ
-gu
-hf
-hp
-hi
-hA
-hH
-hV
-hY
-ib
+iO
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+iX
+jv
+jy
+jy
+jy
+jy
+ke
+iX
+jy
+jy
+jy
+jy
+jy
+kC
+kF
+kF
+kC
+kQ
+kY
+lg
+kK
+lv
+lF
+ly
+lQ
+lX
+ml
+mr
+my
 aN
 aN
 aN
@@ -12370,7 +15334,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -12573,47 +15537,47 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-eX
-eX
-fg
-fd
-fu
-fd
-fg
-eF
-fg
-fg
-gc
-fg
-fg
-gm
-gq
-gq
-gm
-gB
-gJ
-gR
-gV
-hg
-hh
-hh
-hh
-hI
-hW
-hY
-ib
+iO
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+jp
+jp
+jy
+jv
+jM
+jv
+jy
+iX
+jy
+jy
+ku
+jy
+jy
+kC
+kG
+kG
+kC
+kR
+kZ
+lh
+ll
+lw
+lx
+lx
+lx
+lY
+mm
+mr
+my
 aN
 aN
 aN
@@ -12627,7 +15591,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -12830,47 +15794,47 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-eX
-eX
-eX
-eF
-eF
-eF
-eF
-eF
-eF
-eF
-eF
-eF
-gn
-gr
-gr
-gt
-gu
-gu
-gu
-gu
-gu
-gu
-hq
-hs
-hB
-gu
-gu
-ia
+iO
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+jp
+jp
+jp
+iX
+iX
+iX
+iX
+iX
+iX
+iX
+iX
+iX
+kD
+kH
+kH
+kJ
+kK
+kK
+kK
+kK
+kK
+kK
+lG
+lI
+lR
+kK
+kK
+mt
 aN
 aN
 aN
@@ -12884,7 +15848,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -13087,32 +16051,32 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
+iO
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+iO
+eu
+eu
+eu
+eu
+eu
+eu
 ew
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
 ew
-ev
-ev
-ev
-ev
-ev
-ev
-gg
-gg
-gg
+ew
 aN
 aN
 aN
@@ -13125,8 +16089,8 @@ aN
 aN
 aN
 aN
-gt
-ia
+kJ
+mt
 aN
 aN
 aN
@@ -13141,7 +16105,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -13344,26 +16308,26 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ew
-ev
-ev
-ev
+iO
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+iO
+eu
+eu
+eu
 aN
 aN
 aN
@@ -13398,7 +16362,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -13601,25 +16565,25 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ev
-ew
-ew
-ew
-ev
-ev
+iO
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+iO
+iO
+iO
+eu
+eu
 aN
 aN
 aN
@@ -13655,7 +16619,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -13858,21 +16822,21 @@ aN
 aN
 aN
 aN
+iN
 eu
-ev
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
-ew
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
+iO
 aN
 aN
 aN
@@ -13912,7 +16876,7 @@ aN
 aN
 aN
 aN
-es
+et
 aN
 aN
 aN
@@ -14115,61 +17079,61 @@ aN
 aN
 aN
 aN
-eu
-eu
-eu
-eu
-eu
-eu
-eu
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
-es
+iN
+iN
+iN
+iN
+iN
+iN
+iN
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
 aN
 aN
 aN
@@ -53330,77 +56294,77 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+es
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
+iL
+et
+et
+et
+et
+et
+et
+et
+et
+et
+et
 aN
 aN
 aN
@@ -53587,6 +56551,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -53656,8 +56621,7 @@ aN
 aN
 aN
 aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -53844,6 +56808,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -53913,8 +56878,7 @@ aN
 aN
 aN
 aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -54101,6 +57065,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -54170,8 +57135,7 @@ aN
 aN
 aN
 aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -54358,6 +57322,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -54427,8 +57392,7 @@ aN
 aN
 aN
 aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -54615,6 +57579,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -54684,8 +57649,7 @@ aN
 aN
 aN
 aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -54872,6 +57836,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -54941,8 +57906,7 @@ aN
 aN
 aN
 aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -55129,6 +58093,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -55149,6 +58114,9 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
 aN
 aN
 aN
@@ -55195,11 +58163,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -55386,6 +58350,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -55405,6 +58370,11 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -55450,13 +58420,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -55643,6 +58607,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -55662,6 +58627,12 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -55706,14 +58677,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -55900,6 +58864,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -55920,6 +58885,12 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -55931,6 +58902,11 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -55958,19 +58934,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -56157,6 +59121,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -56177,6 +59142,12 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -56186,6 +59157,13 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -56213,21 +59191,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -56414,6 +59378,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -56435,6 +59400,10 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -56444,6 +59413,13 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -56472,19 +59448,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -56671,6 +59635,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -56704,6 +59669,13 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -56712,6 +59684,8 @@ aN
 aN
 aN
 aN
+eu
+eu
 aN
 aN
 aN
@@ -56731,17 +59705,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -56928,6 +59892,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -56961,6 +59926,11 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -56971,6 +59941,9 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
 aN
 aN
 aN
@@ -56989,16 +59962,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -57185,6 +60149,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -57234,6 +60199,8 @@ aN
 aN
 aN
 aN
+eu
+eu
 aN
 aN
 aN
@@ -57252,10 +60219,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -57442,6 +60406,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -57511,8 +60476,7 @@ aN
 aN
 aN
 aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -57699,6 +60663,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -57712,6 +60677,12 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -57762,14 +60733,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -57956,6 +60920,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -57967,6 +60932,16 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -57984,6 +60959,17 @@ aN
 aN
 aN
 aN
+eP
+fd
+hN
+hS
+ia
+fd
+fd
+fd
+fd
+fd
+fO
 aN
 aN
 aN
@@ -58004,29 +60990,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -58213,6 +61177,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -58223,6 +61188,17 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -58233,6 +61209,24 @@ aN
 aN
 aN
 aN
+eP
+fd
+gQ
+fd
+fd
+fd
+fd
+fd
+hC
+hD
+hT
+hD
+if
+im
+iv
+iB
+iE
+iH
 aN
 aN
 aN
@@ -58253,37 +61247,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -58470,6 +61434,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -58479,6 +61444,17 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -58490,6 +61466,24 @@ aN
 aN
 aN
 aN
+fd
+gD
+gR
+fd
+hm
+ht
+hy
+fd
+hD
+hD
+hU
+hD
+hD
+in
+hD
+iC
+iE
+iI
 aN
 aN
 aN
@@ -58510,37 +61504,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -58727,6 +61691,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -58735,6 +61700,17 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -58747,6 +61723,24 @@ aN
 aN
 aN
 aN
+fd
+gE
+gS
+gQ
+fo
+fo
+fo
+fd
+hE
+hD
+hD
+hD
+hD
+io
+iw
+iD
+iE
+iJ
 aN
 aN
 aN
@@ -58767,37 +61761,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -58984,6 +61948,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -58991,13 +61956,48 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
 aN
 aN
+eP
+fd
+fd
+fd
+fO
 aN
 aN
+eP
+fd
+gF
+gR
+hb
+fo
+fo
+fo
+fd
+hF
+hD
+hD
+hD
+hD
+ip
+fd
+fd
+fd
+fQ
 aN
 aN
 aN
@@ -59018,43 +62018,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+iL
 aN
 aN
 aN
@@ -59241,6 +62205,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -59248,11 +62213,45 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
 aN
 aN
+eP
+fd
+fn
+fy
+fI
+fd
+fd
+fd
+fd
+fd
+fd
+fd
+fd
+hn
+fo
+fo
+fd
+hG
+hD
+hD
+hD
+ig
+iq
+fd
 aN
 aN
 aN
@@ -59276,42 +62275,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -59498,6 +62462,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -59508,6 +62473,11 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -59515,6 +62485,32 @@ aN
 aN
 aN
 aN
+eQ
+fe
+fo
+fo
+fo
+fP
+fZ
+gi
+gp
+gv
+fo
+fd
+fd
+fd
+hu
+hz
+fd
+fd
+fd
+hV
+ib
+fd
+fd
+fd
+fd
+fO
 aN
 aN
 aN
@@ -59536,39 +62532,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -59755,6 +62719,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -59777,6 +62742,32 @@ aN
 aN
 aN
 aN
+eR
+ff
+fo
+fo
+fo
+fd
+ga
+gj
+ga
+ga
+gG
+fd
+hc
+fo
+fo
+fo
+fo
+hH
+fo
+fo
+fo
+he
+ir
+fo
+iE
+iH
 aN
 aN
 aN
@@ -59798,34 +62789,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -60012,6 +62976,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -60034,6 +62999,32 @@ aN
 aN
 aN
 aN
+eR
+fg
+fp
+fo
+fJ
+fd
+gb
+fz
+fz
+fz
+fo
+gT
+fo
+fo
+fo
+fo
+fo
+fo
+fo
+fo
+fo
+ih
+fo
+ix
+iE
+iI
 aN
 aN
 aN
@@ -60055,34 +63046,7 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
 aN
 aN
 aN
@@ -60269,6 +63233,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -60291,6 +63256,32 @@ aN
 aN
 aN
 aN
+eR
+fh
+fo
+fo
+fo
+fd
+gc
+fo
+fo
+fo
+gH
+fd
+hd
+fo
+fo
+fo
+fo
+hI
+fo
+fo
+fo
+he
+is
+iy
+iE
+iJ
 aN
 aN
 aN
@@ -60312,6 +63303,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -60378,75 +63370,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
 aN
 aN
 aN
@@ -60526,6 +63490,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -60548,6 +63513,32 @@ aN
 aN
 aN
 aN
+eS
+fi
+fo
+fz
+fo
+fd
+gd
+gk
+gq
+gw
+fd
+fd
+fd
+fd
+hv
+hA
+fd
+fd
+fd
+hW
+ic
+fd
+fd
+fd
+fd
+fQ
 aN
 aN
 aN
@@ -60569,6 +63560,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -60635,75 +63627,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+aO
+aR
 aN
 aN
 aN
@@ -60783,6 +63747,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -60805,6 +63770,30 @@ aN
 aN
 aN
 aN
+eT
+fd
+fh
+fA
+fK
+fd
+fd
+fd
+fd
+fd
+fd
+gU
+fd
+ho
+fo
+fo
+fd
+hJ
+hO
+fo
+fo
+ii
+it
+fd
 aN
 aN
 aN
@@ -60828,6 +63817,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -60894,73 +63884,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aS
+bb
 aN
 aN
 aN
@@ -61040,6 +64004,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -61063,8 +64028,32 @@ aN
 aN
 aN
 aN
+eT
+fd
+fd
+fd
+fQ
 aN
 aN
+eT
+fd
+gI
+gI
+he
+hp
+fo
+fo
+fd
+hK
+fo
+fo
+fo
+ij
+fd
+fd
+fd
+fd
+iK
 aN
 aN
 aN
@@ -61085,6 +64074,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -61151,73 +64141,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aO
+aR
+aU
+ac
+ai
+af
+an
+ak
+aa
+aj
+am
+ad
+al
+ao
+ab
+ae
+ah
+ag
+ac
+ai
+af
+an
+ak
+aa
+aj
+am
+ad
+al
+ao
+ab
+ae
+ah
+ag
+ac
+ai
+af
+an
+ak
+aY
+aX
+ba
 aN
 aN
 aN
@@ -61297,6 +64261,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -61307,6 +64272,11 @@ aN
 aN
 aN
 aN
+ev
+ev
+ev
+ex
+ey
 aN
 aN
 aN
@@ -61323,6 +64293,24 @@ aN
 aN
 aN
 aN
+fd
+gJ
+gV
+hf
+hq
+fo
+fo
+fd
+hK
+fo
+fo
+fo
+ik
+fd
+iz
+fh
+iE
+iH
 aN
 aN
 aN
@@ -61343,6 +64331,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -61409,72 +64398,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aY
+aV
+aX
+ad
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+ae
+aR
+aT
+aP
 aN
 aN
 aN
@@ -61554,15 +64518,21 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
 aN
 aN
+eu
+eu
+eu
 aN
 aN
 aN
+ew
 aN
+ew
 aN
 aN
 aN
@@ -61570,9 +64540,34 @@ aN
 aN
 aN
 aN
+eL
+eU
+eU
+eU
+eU
+eU
+fR
 aN
 aN
 aN
+fd
+gK
+gW
+he
+hr
+hw
+hB
+fd
+hL
+fo
+hX
+fo
+fo
+iu
+fo
+iF
+iE
+iI
 aN
 aN
 aN
@@ -61593,6 +64588,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -61659,79 +64655,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aZ
+bc
+aO
+ae
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+af
+aS
+bb
+aY
 aN
 aN
 aN
@@ -61811,19 +64775,56 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+ew
+eu
+eu
+eu
+ew
 aN
 aN
 aN
 aN
 aN
 aN
+eM
+eV
+eV
+fq
+eV
+eV
+eM
 aN
 aN
+ey
+eT
+gL
+gL
+fd
+fd
+fd
+fd
+fd
+hM
+hP
+hY
+id
+il
+fd
+iA
+iG
+iE
+iJ
 aN
 aN
 aN
@@ -61844,6 +64845,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -61910,85 +64912,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aT
+aP
+aW
+af
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+am
+ba
+aQ
+aZ
 aN
 aN
 aN
@@ -62068,21 +65032,56 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
 aN
 aN
 aN
+eM
+eW
+fj
+fr
+fB
+eV
+eM
 aN
 aN
+ex
+gx
+gM
+gM
+hg
+ew
+ex
 aN
+eT
+fd
+hQ
+hZ
+ie
+fd
+fd
+fd
+fd
+fd
+fQ
 aN
 aN
 aN
@@ -62103,6 +65102,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -62169,83 +65169,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aO
+aR
+aU
+ag
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aP
+aS
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+ak
+aY
+aV
+aX
 aN
 aN
 aN
@@ -62325,16 +65289,44 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+eD
+eH
+eI
+ez
 aN
+eN
+eX
+fj
+fs
+fB
+eV
+fS
 aN
 aN
+gr
+gx
+fw
+fw
+hg
 aN
+ex
 aN
 aN
 aN
@@ -62367,6 +65359,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -62433,76 +65426,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+bc
+aO
+aR
+ah
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+an
+bb
+aY
+aV
 aN
 aN
 aN
@@ -62582,6 +65546,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -62589,6 +65554,36 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+ez
+eE
+eE
+eE
+ez
+ez
+ez
+eV
+eV
+ft
+eV
+eV
+ez
+ge
+gl
+ez
+ez
+gM
+gM
+ez
+ew
+ex
 aN
 aN
 aN
@@ -62614,10 +65609,14 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
 aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -62684,82 +65683,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aS
+bb
+aY
+aa
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bw
+cl
+bu
+bo
+bx
+cb
+cg
+bn
+cn
+bm
+cp
+cr
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+ao
+bc
+aO
+aR
 aN
 aN
 aN
@@ -62839,6 +65803,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -62846,7 +65811,36 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+eA
+eF
+eF
+eF
+eG
+eK
+ez
+eV
+eV
+eV
+eV
+eV
+fT
+fT
+fT
+fT
+gy
+fT
+fT
+hh
 aN
+ex
 aN
 aN
 aN
@@ -62869,9 +65863,17 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -62938,85 +65940,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+bb
+aT
+aP
+ai
+aW
+aS
+bb
+aY
+aV
+aX
+bo
+bx
+cp
+cr
+cs
+cf
+bw
+cl
+mD
+mD
+mS
+mY
+mY
+mY
+mY
+mu
+mD
+mD
+cs
+cf
+bw
+aT
+aP
+aW
+aS
+bb
+aY
+aj
+aX
+ba
+aQ
 aN
 aN
 aN
@@ -63096,6 +66060,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -63104,6 +66069,33 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+eB
+eG
+eG
+eG
+eG
+eG
+eO
+eV
+eV
+eV
+eV
+eV
+fT
+fT
+fT
+fT
+fT
+fT
+fT
+eM
 aN
 aN
 aN
@@ -63127,9 +66119,18 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -63196,84 +66197,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aR
+aY
+aV
+aj
+aX
+ba
+bx
+cb
+cg
+bn
+cn
+mD
+mS
+mY
+mY
+mY
+mY
+mu
+mD
+nk
+mU
+mU
+mU
+mU
+mU
+mU
+ny
+mD
+mD
+mD
+cn
+cl
+bl
+bu
+bo
+aQ
+aZ
+ab
+aO
+aR
+aU
 aN
 aN
 aN
@@ -63353,6 +66317,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -63362,6 +66327,32 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+ez
+eC
+eF
+eF
+eF
+eJ
+eG
+ez
+eY
+eV
+eV
+fC
+fL
+fT
+fT
+fT
+fT
+fT
+fT
+fT
+fS
 aN
 aN
 aN
@@ -63384,9 +66375,19 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -63453,84 +66454,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aV
+aS
+bb
+ak
+aY
+aV
+bu
+mn
+mu
+mD
+mD
+mD
+mT
+mZ
+nb
+nd
+nf
+ni
+mD
+nl
+mU
+mU
+mU
+mU
+mU
+mU
+nz
+nE
+nI
+mn
+mY
+mY
+mY
+nP
+bl
+aX
+ba
+al
+aZ
+bc
+aO
 aN
 aN
 aN
@@ -63610,6 +66574,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -63619,9 +66584,40 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+ez
+ez
+eE
+eE
+eE
+ez
+ez
+ez
+ez
+fk
+ez
+ez
+ez
+ez
+gf
+ez
+ez
+fT
+fT
+fT
+ez
 aN
 aN
 aN
+ev
+ev
+ey
+ev
+ev
 aN
 aN
 aN
@@ -63636,9 +66632,19 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -63705,89 +66711,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+bc
+ba
+aQ
+al
+aZ
+bc
+bn
+mo
+mv
+mE
+mJ
+mD
+mU
+mU
+mU
+mU
+ng
+mU
+mD
+mU
+mU
+no
+nr
+nr
+nv
+mU
+nA
+nF
+nJ
+nM
+nN
+nN
+nN
+mo
+cg
+aO
+aR
+ag
+aT
+aP
+aW
 aN
 aN
 aN
@@ -63867,6 +66831,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -63876,10 +66841,39 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+ez
+ez
+ez
+ez
+eu
+ez
+eZ
+fl
+fl
+fD
+ez
+fU
+gg
+gm
+ez
+ez
+gN
+ez
+ez
+eu
 aN
 aN
 aN
+ew
 aN
+ew
 aN
 aN
 aN
@@ -63896,9 +66890,18 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -63965,86 +66968,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aW
+aV
+aX
+am
+ba
+aQ
+cb
+mo
+mw
+mF
+mK
+mO
+mU
+mU
+mU
+mU
+mU
+mU
+mO
+mU
+mU
+np
+ns
+nu
+nw
+mU
+nB
+nE
+nK
+nM
+nN
+nO
+nN
+mo
+bx
+aZ
+bc
+ae
+aR
+aU
+aT
 aN
 aN
 aN
@@ -64124,6 +67088,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -64132,9 +67097,47 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+fa
+fl
+fl
+fl
+ez
+fU
+gg
+gg
+ez
+gz
+fw
+gX
+ez
+eu
+eu
 aN
+ew
+eu
+eu
+ew
 aN
 aN
+ev
+ev
+ev
+ev
+ev
 aN
 aN
 aN
@@ -64146,10 +67149,16 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -64216,92 +67225,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aZ
+aW
+aS
+an
+bb
+aY
+bl
+mo
+mx
+mG
+mL
+mD
+mU
+mU
+mU
+mU
+mU
+mU
+mD
+mU
+mU
+nq
+nt
+nt
+nx
+mU
+nC
+nG
+nJ
+nM
+nN
+nN
+nN
+mo
+cl
+aV
+aX
+ad
+aQ
+aZ
+bc
 aN
 aN
 aN
@@ -64381,6 +67345,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -64389,14 +67354,46 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+fb
+fl
+fl
+fE
+ez
+fU
+gg
+gg
+ez
+gA
+fw
+gY
+ez
+eu
+eu
 aN
 aN
 aN
 aN
 aN
+ew
 aN
 aN
+ew
 aN
+ew
 aN
 aN
 aN
@@ -64410,10 +67407,15 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
 aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -64480,85 +67482,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aY
+aQ
+aZ
+ao
+bc
+aO
+cn
+mp
+mu
+mD
+mD
+mD
+mV
+na
+nc
+ne
+nh
+nj
+mD
+nm
+mU
+mU
+mU
+mU
+mU
+mU
+nz
+nH
+nL
+mp
+mY
+mY
+mY
+nQ
+bn
+aR
+aU
+ac
+aP
+aW
+aS
 aN
 aN
 aN
@@ -64638,6 +67602,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -64646,6 +67611,47 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+fc
+fm
+fu
+fF
+ez
+fV
+gh
+ez
+ez
+gB
+fw
+gZ
+ez
+ez
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ew
+ew
+ew
+ew
+ew
 aN
 aN
 aN
@@ -64659,10 +67665,14 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
 aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -64729,93 +67739,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aU
+aR
+aU
+ag
+aT
+aP
+cs
+cf
+bw
+cl
+bl
+mD
+mS
+mY
+mY
+mY
+mY
+mu
+mD
+nn
+mU
+mU
+mU
+mU
+mU
+mU
+nD
+mD
+mD
+mD
+bm
+cn
+bm
+cp
+cr
+aW
+aS
+ak
+aY
+aV
+aX
 aN
 aN
 aN
@@ -64895,6 +67859,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -64902,7 +67867,47 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+ez
+ez
+ez
+ez
+ez
+fW
+gh
+ez
+gs
+fw
+fw
+fw
+hi
+ez
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
+ew
 aN
 aN
 aN
@@ -64924,6 +67929,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -64990,89 +67996,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+ba
+aP
+aW
+af
+aS
+bb
+aY
+aV
+aX
+ba
+bx
+cb
+bw
+cl
+bl
+bu
+bo
+bx
+mD
+mD
+mS
+mY
+mY
+mY
+mY
+mu
+mD
+mD
+bl
+bu
+bo
+aP
+aW
+aS
+bb
+aY
+aV
+am
+ba
+aQ
+aZ
 aN
 aN
 aN
@@ -65152,6 +68116,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -65159,6 +68124,48 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+gs
+fw
+fw
+fw
+hj
+ez
+ez
+ez
+ez
+ez
+ez
+eu
+eu
+eu
+eu
+eu
+eu
+ew
+ew
 aN
 aN
 aN
@@ -65179,6 +68186,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -65245,91 +68253,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+bb
+aY
+aV
+aj
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+cl
+bl
+cb
+bx
+cb
+cg
+bn
+cn
+bm
+cp
+cr
+cs
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+ab
+aO
+aR
+aU
 aN
 aN
 aN
@@ -65409,6 +68373,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -65416,6 +68381,47 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+fv
+fG
+fM
+fX
+fX
+gn
+fw
+fw
+fw
+fw
+fw
+gn
+hx
+hx
+hx
+hx
+ez
+ez
+eu
+eu
+eu
+eu
+eu
+ew
 aN
 aN
 aN
@@ -65437,6 +68443,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -65503,90 +68510,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aR
+aU
+aT
+ac
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aZ
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aa
+aV
+aX
+ba
 aN
 aN
 aN
@@ -65666,6 +68630,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -65674,6 +68639,46 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+fw
+fw
+fw
+fw
+fw
+go
+fw
+fw
+gO
+fw
+fw
+hs
+fw
+fw
+fw
+fw
+hR
+ez
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -65695,6 +68700,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -65761,89 +68767,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aV
+aX
+ba
+ad
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aZ
+aS
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+ah
+aU
+aT
+aT
 aN
 aN
 aN
@@ -65923,6 +68887,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -65931,6 +68896,51 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+fx
+fH
+fN
+fY
+fY
+gn
+fw
+fw
+fw
+fw
+fw
+gn
+hx
+hx
+hx
+hx
+ez
+ez
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -65947,6 +68957,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -66013,94 +69024,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+bc
+aO
+aR
+ah
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+an
+bb
+aY
+aP
 aN
 aN
 aN
@@ -66180,6 +69144,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -66188,6 +69153,52 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+ez
+ez
+ez
+ez
+ez
+ez
+gt
+fw
+fw
+fw
+hk
+ez
+ez
+ez
+ez
+ez
+ez
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -66203,6 +69214,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -66269,95 +69281,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aW
+aS
+bb
+ak
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+al
+aZ
+bc
+aO
 aN
 aN
 aN
@@ -66437,6 +69401,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -66446,6 +69411,52 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+gt
+fw
+fw
+fw
+hk
+ez
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -66460,6 +69471,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -66526,95 +69538,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aQ
+aZ
+bc
+ae
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+ai
+aW
+bb
+aY
 aN
 aN
 aN
@@ -66694,6 +69658,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -66702,6 +69667,54 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+gu
+fw
+fw
+fw
+hl
+ez
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -66715,6 +69728,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -66781,97 +69795,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+bb
+aY
+aV
+am
+ad
+al
+ao
+ab
+ae
+ah
+ag
+ac
+ai
+af
+an
+ak
+aa
+aj
+am
+ad
+al
+ao
+ab
+ae
+ah
+ag
+ac
+ai
+af
+an
+ak
+aa
+aj
+am
+ad
+al
+ao
+ab
+aO
+aU
+aT
 aN
 aN
 aN
@@ -66951,6 +69915,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -66958,6 +69923,56 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+ez
+gC
+gP
+ha
+ez
+ez
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -66970,6 +69985,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -67036,99 +70052,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+bb
+bb
+aY
+aV
+ba
+aQ
 aN
 aN
 aN
@@ -67208,6 +70172,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -67215,6 +70180,57 @@ aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+ez
+ez
+ez
+ez
+ez
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -67226,6 +70242,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -67292,100 +70309,47 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aW
+aS
 aN
 aN
 aN
@@ -67465,12 +70429,67 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
 aN
 aN
 aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
 aN
 aN
 aN
@@ -67480,6 +70499,7 @@ aN
 aN
 aN
 aN
+et
 aN
 aN
 aN
@@ -67546,103 +70566,47 @@ aN
 aN
 aN
 aN
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+bb
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+aY
+aV
+aX
+ba
+aQ
+aZ
+bc
+aO
+aR
+aU
+aT
+aP
+aW
+aS
+bb
 aN
 aN
 aN
@@ -67722,77 +70686,77 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
+aN
+aN
+aN
+aN
+aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+et
 aN
 aN
 aN
@@ -67979,77 +70943,77 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
+aN
+aN
+aN
+aN
+aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+et
 aN
 aN
 aN
@@ -68236,77 +71200,77 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
+aN
+aN
+aN
+aN
+aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+et
 aN
 aN
 aN
@@ -68493,77 +71457,77 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+et
+aN
+aN
+aN
+aN
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+eu
+aN
+aN
+aN
+aN
+aN
+aN
+et
 aN
 aN
 aN
