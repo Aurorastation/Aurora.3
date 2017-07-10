@@ -10,7 +10,6 @@ versions. Instead, we generate both and store them in two fixed-length lists, bo
 (The indexes are in update_icons.dm): Each list for humans is (at the time of writing) of length 19.
 This will hopefully be reduced as the system is refined.
 
-	var/overlays_lying[19]			//For the lying down stance
 	var/overlays_standing[19]		//For the standing stance
 
 When we call update_icons, the 'lying' variable is checked and then the appropriate list is assigned to our overlays!
@@ -127,38 +126,30 @@ Please contact me on #coderbus IRC. ~Carn x
 #define TOTAL_LAYERS			26
 //////////////////////////////////
 
-
-
-
-
 /mob/living/carbon/human
 	var/list/overlays_standing[TOTAL_LAYERS]
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
 
 //UPDATES OVERLAYS FROM OVERLAYS_LYING/OVERLAYS_STANDING
-//Fixed by Nanako
 /mob/living/carbon/human/update_icons()
 	if (QDELING(src))
 		return	// No point.
 
 		//so we don't update overlays for lying/standing unless our stance changes again
 	update_hud()		//TODO: remove the need for this
-	overlays.Cut()
-
+	cut_overlays()
 
 	if(cloaked)
 		icon = 'icons/mob/human.dmi'
 		icon_state = "body_cloaked"
-		var/image/I	= overlays_standing[L_HAND_LAYER]
-		if(istype(I))	overlays += I
-		I 			= overlays_standing[R_HAND_LAYER]
-		if(istype(I))	overlays += I
+		add_overlay(list(overlays_standing[L_HAND_LAYER], overlays_standing[R_HAND_LAYER]))
 	else if (icon_update)
 		icon = stand_icon
-		for(var/image/I in overlays_standing)
-			overlays += I
+		var/list/ovr = overlays_standing.Copy()
 		if(species.has_floating_eyes)
-			overlays |= species.get_eyes(src)
+			ovr += species.get_eyes(src)
+
+		add_overlay(ovr)
 
 	if (lying_prev != lying || size_multiplier != 1)
 		if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
@@ -173,9 +164,8 @@ Please contact me on #coderbus IRC. ~Carn x
 			M.Translate(0, 16*(size_multiplier-1))
 			src.transform = M
 
+	compile_overlays()
 	lying_prev = lying
-
-var/global/list/damage_icon_parts = list()
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_ lists
@@ -210,7 +200,8 @@ var/global/list/damage_icon_parts = list()
 		if(O.damage_state == "00") continue
 		var/icon/DI
 		var/cache_index = "[O.damage_state]/[O.icon_name]/[species.blood_color]/[species.get_bodytype()]"
-		if(damage_icon_parts[cache_index] == null)
+		var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
+		if(!damage_icon_parts[cache_index])
 			DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
 			DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
 			DI.Blend(species.blood_color, ICON_MULTIPLY)

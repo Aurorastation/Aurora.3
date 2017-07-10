@@ -81,14 +81,13 @@
 	icon_state = "cane"
 	item_state = "stick"
 	flags = CONDUCT
-	force = 5.0
+	force = 10
 	throwforce = 7.0
-	w_class = 2.0
+	w_class = 4
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 
 /obj/item/weapon/cane/concealed
-	w_class = 4
 	var/concealed_blade
 
 /obj/item/weapon/cane/concealed/New()
@@ -108,6 +107,7 @@
 		user.update_inv_l_hand(0)
 		user.update_inv_r_hand()
 		concealed_blade = null
+		update_icon()
 	else
 		..()
 
@@ -121,6 +121,16 @@
 		update_icon()
 	else
 		..()
+
+/obj/item/weapon/cane/concealed/update_icon()
+	if(concealed_blade)
+		name = initial(name)
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
+	else
+		name = "cane shaft"
+		icon_state = "nullrod"
+		item_state = "foldcane"
 
 /obj/item/weapon/disk
 	name = "disk"
