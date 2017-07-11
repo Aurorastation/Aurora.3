@@ -145,6 +145,96 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		user << "<span class='notice'>You you disable the security protocols.</span>"
 		return 1
 
+/obj/machinery/computer/rdconsole/proc/get_task()
+	var/task = null
+	switch(screen)
+		if(0.0)
+			task = "Updating Database..."
+
+		if(0.1)
+			task= "Processing and Updating Database..."
+
+		if(0.3)
+			task= "Constructing Prototype. Please Wait..."
+
+		if(0.4)
+			task = "Imprinting Circuit. Please Wait..."
+
+		if(0.5)
+			task = "Printing Research Information. Please Wait..."
+		
+	return task
+
+/obj/machinery/computer/rdconsole/proc/screen_number2text()
+	var/textscreen = null
+	switch(screen)
+		if(1.0)
+			textscreen = "Main Menu"
+
+		if(1.1)
+			textscreen = "Research Levels Overview"
+
+		if(1.2 || 1.3)
+			textscreen = "Technology Disk Control"
+
+		if(1.4 || 1.5)	
+			textscreen = "Design Disk Control"
+
+		if(1.6)
+			textscreen = "Console Setings"
+
+		if(1.7)
+			textscreen = "Device Linking"
+
+		if(2.0 || 2.1 || 2.2)
+			textscreen = "Destructive Analyzer Control"
+		
+		if(3.0 || 3.1)
+			textscreen = "Protolathe Control"
+
+		if(3.2)
+			textscreen = "Protolathe Chemical Control"
+
+		if(3.3)
+			textscreen = "Protolathe Material Control"	
+		
+		if(4.0 || 4.1)
+			textscreen = "Circuit Imprinter Control"
+
+		if(4.2)
+			textscreen = "Circuit Imprinter Chemical Control"
+
+		if(4.3)
+			textscreen = "Circuit Imprinter Material Control"
+
+		if(5.0)
+			textscreen = "Device Management"
+
+	return textscreen
+
+/obj/machinery/computer/rdconsole/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+	var/data[0]
+	var/task = get_task()
+	var/textscreen = screen_number2text()
+	data["screen"] = screen
+	data["textscreen"] = textscreen
+	data["tdisk"] = t_disk
+	data["ddisk"] = d_disk
+	data["linked_analyzer"] = linked_destroy
+	data["linked_lathe"] = linked_lathe
+	data["linked_imprinter"] = linked_imprinter
+	data["known_designs"] = list(files.known_designs)
+	data["known_tech"] = list(files.known_tech)
+	data["emagged"] = emagged
+	data["task"] = task
+
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)	
+	if (!ui)
+		ui = new(user, src, ui_key, "rdconsole.tmpl", "Research Console", 520, 410)
+		ui.set_initial_data(data)		
+		ui.open()
+		ui.set_auto_update(1)
+
 /obj/machinery/computer/rdconsole/Topic(href, href_list)
 	if(..())
 		return 1
@@ -447,7 +537,11 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/attack_hand(mob/user as mob)
 	if(stat & (BROKEN|NOPOWER))
 		return
+		
+	files.RefreshResearch()
+	ui_interact(user)
 
+/*
 	user.set_machine(src)
 	var/dat = ""
 	files.RefreshResearch()
@@ -793,7 +887,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	user << browse("<TITLE>Research and Development Console</TITLE><HR>[dat]", "window=rdconsole;size=850x600")
 	onclose(user, "rdconsole")
-
+*/
 /obj/machinery/computer/rdconsole/robotics
 	name = "Robotics R&D Console"
 	id = 2
