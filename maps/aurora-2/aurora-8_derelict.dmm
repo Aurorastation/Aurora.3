@@ -4184,7 +4184,6 @@
 /area/derelict/hallway/southeast)
 "mY" = (
 /obj/structure/window/reinforced,
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "mZ" = (
@@ -7461,7 +7460,6 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "vy" = (
@@ -7536,7 +7534,6 @@
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/carbon/human/monkey,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "vG" = (
@@ -7998,6 +7995,15 @@
 /obj/machinery/the_singularitygen,
 /turf/simulated/floor/airless,
 /area/space)
+"xa" = (
+/turf/simulated/floor/airless,
+/area)
+"xb" = (
+/turf/space,
+/area)
+"xc" = (
+/turf/space,
+/area)
 
 (1,1,1) = {"
 aa
@@ -21475,7 +21481,7 @@ aa
 aa
 aa
 fb
-fo
+aH
 fF
 aa
 aa
@@ -25096,7 +25102,7 @@ aa
 iL
 iL
 ix
-jn
+ar
 aa
 iM
 iM
@@ -25352,8 +25358,8 @@ aa
 aa
 aa
 iT
-ix
-aa
+xa
+xb
 aa
 it
 aa
@@ -25610,7 +25616,7 @@ aa
 aa
 aa
 aa
-aa
+xc
 aa
 aa
 kC
@@ -29526,7 +29532,7 @@ aa
 aa
 wg
 wl
-wr
+ws
 wz
 wy
 aa
@@ -29784,7 +29790,7 @@ aa
 wh
 wm
 ws
-wn
+ws
 wh
 aa
 ac
@@ -30039,7 +30045,7 @@ aa
 ac
 ac
 wh
-wn
+ws
 ws
 ws
 wh
@@ -30807,7 +30813,7 @@ aa
 kZ
 ac
 ix
-vU
+ix
 ix
 wi
 wp
@@ -31067,7 +31073,7 @@ ix
 ix
 ix
 ix
-vU
+ix
 ix
 ix
 wF
@@ -31837,7 +31843,7 @@ ix
 ix
 vV
 ix
-vU
+ix
 ix
 wu
 ix
@@ -36966,7 +36972,7 @@ iX
 uR
 ir
 iu
-vr
+aa
 aa
 aa
 aa
@@ -37441,7 +37447,7 @@ ac
 aa
 aa
 ar
-mU
+ar
 aa
 ar
 aA
@@ -37647,7 +37653,7 @@ bn
 bm
 bq
 bh
-cR
+bn
 bn
 aa
 dh
@@ -41756,7 +41762,7 @@ aa
 bq
 bS
 ce
-cp
+cf
 bq
 cL
 cL
@@ -44664,7 +44670,7 @@ iq
 iq
 iq
 qO
-sQ
+qN
 qO
 iC
 qO
@@ -47720,7 +47726,7 @@ aa
 iq
 aa
 iq
-mL
+kb
 nb
 jt
 nF
@@ -50833,7 +50839,7 @@ aa
 aa
 iu
 sV
-tj
+sV
 sV
 iq
 sV
