@@ -3504,7 +3504,6 @@
 "jh" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/corpse/engineer/rotten,
 /turf/simulated/shuttle/floor,
 /area/space)
 "ji" = (
