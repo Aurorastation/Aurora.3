@@ -53,7 +53,7 @@ turf/c_airblock(turf/other)
 	#endif
 	if(((blocks_air & AIR_BLOCKED) || (other.blocks_air & AIR_BLOCKED)))
 		return BLOCKED
-	
+
 	//Z-level handling code. Always block if there isn't an open space.
 	#ifdef MULTIZAS
 	if(other.z != src.z)
@@ -68,9 +68,10 @@ turf/c_airblock(turf/other)
 			return ZONE_BLOCKED
 		else
 			return AIR_BLOCKED
-			
+
 	var/result = 0
-	for(var/atom/movable/M in contents)
+	for(var/mm in contents)
+		var/atom/movable/M = mm
 		result |= M.c_airblock(other)
 		if(result == BLOCKED) return BLOCKED
 	return result

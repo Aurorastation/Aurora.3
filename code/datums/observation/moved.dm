@@ -18,12 +18,6 @@ var/datum/observ/moved/moved_event = new()
 * Movement Handling *
 ********************/
 
-/atom/movable/Move()
-	var/old_loc = loc
-	. = ..()
-	if(.)
-		moved_event.raise_event(src, old_loc, loc)
-
 /atom/movable/proc/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
 	var/turf/T = get_turf(new_loc)
 	if(T && T != loc)

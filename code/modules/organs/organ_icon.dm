@@ -75,10 +75,17 @@
 
 	for(var/M in markings)
 		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-		var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
-		mark_s.Blend(markings[M]["color"], ICON_ADD)
-		overlays |= mark_s //So when it's not on your body, it has icons
-		mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
+		var/m_color = markings[M]["color"]
+		var/cache_key = "[mark_style.icon]-[mark_style.icon_state]-[limb_name]-[m_color]"
+
+		var/icon/finished_icon = SSicon_cache.markings_cache[cache_key]
+		if (!finished_icon)
+			finished_icon = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
+			finished_icon.Blend(m_color, ICON_ADD)
+			SSicon_cache.markings_cache[cache_key] = finished_icon
+
+		add_overlay(finished_icon) //So when it's not on your body, it has icons
+		mob_icon.Blend(finished_icon, ICON_OVERLAY) //So when it's on your body, it has icons
 
 	if(owner.f_style)
 		var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[owner.f_style]
@@ -147,13 +154,20 @@
 			//Body markings, does not include head, duplicated (sadly) above.
 			for(var/M in markings)
 				var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-				var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
-				mark_s.Blend(markings[M]["color"], ICON_ADD)
-				overlays |= mark_s //So when it's not on your body, it has icons
-				mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
+				var/m_color = markings[M]["color"]
+				var/cache_key = "[mark_style.icon]-[mark_style.icon_state]-[limb_name]-[m_color]"
+
+				var/icon/finished_icon = SSicon_cache.markings_cache[cache_key]
+				if (!finished_icon)
+					finished_icon = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
+					finished_icon.Blend(m_color, ICON_ADD)
+					SSicon_cache.markings_cache[cache_key] = finished_icon
+
+				add_overlay(finished_icon) //So when it's not on your body, it has icons
+				mob_icon.Blend(finished_icon, ICON_OVERLAY) //So when it's on your body, it has icons
 
 			if(body_hair && islist(h_col) && h_col.len >= 3)
-				var/list/limb_icon_cache = SSicon_cache.limb_icon_cache
+				var/list/limb_icon_cache = SSicon_cache.body_hair_cache
 				var/cache_key = "[body_hair]-[icon_name]-[h_col[1]][h_col[2]][h_col[3]]"
 				if(!limb_icon_cache[cache_key])
 					var/icon/I = icon(species.icobase, "[icon_name]_[body_hair]")

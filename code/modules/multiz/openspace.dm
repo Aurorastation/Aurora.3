@@ -26,12 +26,6 @@
 	. = ..()
 	QDEL_NULL(bound_overlay)
 
-/atom/movable/Move()
-	. = ..()
-	if (bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		bound_overlay.forceMove(get_step(src, UP))
-
 /atom/movable/forceMove(atom/dest)
 	. = ..(dest)
 	if (bound_overlay)
