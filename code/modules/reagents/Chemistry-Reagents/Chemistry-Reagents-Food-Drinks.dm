@@ -598,7 +598,7 @@
 /datum/reagent/spacespice
 	name = "Space Spice"
 	id = "spacespice"
-	description = "An exotic blend of spices for cooking. Definitely not worms."
+	description = "An exotic blend of spices for cooking. It must flow."
 	reagent_state = SOLID
 	color = "#e08702"
 	taste_description = "spices"
