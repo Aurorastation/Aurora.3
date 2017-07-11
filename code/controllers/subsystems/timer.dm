@@ -27,6 +27,9 @@ var/datum/controller/subsystem/timer/SStimer
 	var/static/last_invoke_warning = 0
 	var/static/bucket_auto_reset = TRUE
 
+	// Logging. Remove once timers have been diagnosed.
+	var/static/times_flushed = 0
+
 /datum/controller/subsystem/timer/New()
 	NEW_SS_GLOBAL(SStimer)
 
@@ -36,6 +39,8 @@ var/datum/controller/subsystem/timer/SStimer
 /datum/controller/subsystem/timer/fire(resumed = FALSE)
 	var/lit = last_invoke_tick
 	var/last_check = world.time - TIMER_NO_INVOKE_WARNING
+
+	var/static/list/spent = list()
 
 	if(!bucket_count)
 		last_invoke_tick = world.time
@@ -47,7 +52,9 @@ var/datum/controller/subsystem/timer/SStimer
 		WARNING(msg)
 		if(bucket_auto_reset)
 			bucket_resolution = 0
-		
+
+		log_ss(name, times_flushed ? "Timers flushed [times_flushed] times." : "Timers never flushed!")
+		log_ss(name, "Spent timers count: [spent ? spent.len : "0"].")
 		log_ss(name, "Active timers at tick [world.time]:")
 		for(var/I in processing)
 			var/datum/timedevent/TE = I
@@ -81,7 +88,6 @@ var/datum/controller/subsystem/timer/SStimer
 		if (MC_TICK_CHECK)
 			return
 
-	var/static/list/spent = list()
 	var/static/datum/timedevent/timer
 	var/static/datum/timedevent/head
 
@@ -127,6 +133,8 @@ var/datum/controller/subsystem/timer/SStimer
 		bucket_list[practical_offset++] = null
 		if (MC_TICK_CHECK)
 			return
+
+	times_flushed++
 
 	bucket_count -= length(spent)
 
