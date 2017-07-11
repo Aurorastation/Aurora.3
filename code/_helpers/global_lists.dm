@@ -108,6 +108,10 @@ var/global/list/cloaking_devices = list()
 				hair_styles_male_list += H.name
 				hair_styles_female_list += H.name
 
+	sortTim(hair_styles_list, /proc/cmp_text_asc)
+	sortTim(hair_styles_male_list, /proc/cmp_text_asc)
+	sortTim(hair_styles_female_list, /proc/cmp_text_asc)
+
 	//Facial Hair - Initialise all /datum/sprite_accessory/facial_hair into an list indexed by facialhair-style name
 	paths = subtypesof(/datum/sprite_accessory/facial_hair)
 	for(var/path in paths)
@@ -119,7 +123,11 @@ var/global/list/cloaking_devices = list()
 			else
 				facial_hair_styles_male_list += H.name
 				facial_hair_styles_female_list += H.name
-				
+
+	sortTim(facial_hair_styles_list, /proc/cmp_text_asc)
+	sortTim(facial_hair_styles_male_list, /proc/cmp_text_asc)
+	sortTim(facial_hair_styles_female_list, /proc/cmp_text_asc)
+
 	//Body markings 
 	paths = subtypesof(/datum/sprite_accessory/marking)
 	for(var/path in paths)
