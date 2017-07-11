@@ -1321,7 +1321,7 @@
 	trash = /obj/item/trash/waffles
 	filling_color = "#E6FA61"
 	center_of_mass = list("x"=15, "y"=11)
-	nutriment_desc = "some sort of protein"
+	nutriment_desc = list("some sort of protein" =5)
 	nutriment_amt = 10
 
 /obj/item/weapon/reagent_containers/food/snacks/soylenviridians/New()
