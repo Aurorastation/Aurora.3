@@ -1,4 +1,4 @@
-//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE 
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
 /turf/space,
 /area/space)
@@ -19799,7 +19799,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
 	name = "Hydroponics Maintenance";
-	 req_access = null;
+	 req_access = list();
 	 req_one_access = list(35,28)
 	},
 /obj/machinery/door/firedoor,

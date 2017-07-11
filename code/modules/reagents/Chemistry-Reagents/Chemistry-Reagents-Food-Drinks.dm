@@ -10,14 +10,14 @@
 	taste_description = "boiled cabbage"
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-    if(isvaurca(M))
-        M.heal_organ_damage(0.8 * removed, 0)
-        M.nutrition += nutriment_factor * removed // For hunger and fatness
-        M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
-    else
-        M.adjustToxLoss(1.5 * removed)
-        return
-    ..()
+	if(isvaurca(M))
+		M.heal_organ_damage(0.8 * removed, 0)
+		M.nutrition += nutriment_factor * removed // For hunger and fatness
+		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+	else
+		M.adjustToxLoss(1.5 * removed)
+		return
+	..()
 
 /datum/reagent/nutriment
 	name = "Nutriment"
@@ -33,7 +33,6 @@
 	color = "#664330"
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
-
 	if(!islist(newdata) || !newdata.len)
 		return
 	for(var/i in 1 to newdata.len)
@@ -44,6 +43,10 @@
 	var/totalFlavor = 0
 	for(var/i in 1 to data.len)
 		totalFlavor += data[data[i]]
+
+	if (!totalFlavor)
+		return
+
 	for(var/i in 1 to data.len) //cull the tasteless
 		if(data[data[i]]/totalFlavor * 100 < 10)
 			data[data[i]] = null

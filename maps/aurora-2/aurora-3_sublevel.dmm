@@ -1538,7 +1538,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Break Room";
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1565,7 +1565,7 @@
 "di" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Restrooms";
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1779,7 +1779,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
 	req_access = list(11);
-	req_one_access = null
+	req_one_access = list()
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/power)
@@ -2232,7 +2232,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Storage";
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2245,7 +2245,7 @@
 "er" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Storage";
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
@@ -2685,7 +2685,7 @@
 	pixel_x = 0
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3521,7 +3521,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,

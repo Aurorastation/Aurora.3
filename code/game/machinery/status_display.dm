@@ -47,18 +47,18 @@
 	var/const/STATUS_DISPLAY_CUSTOM = 99
 
 /obj/machinery/status_display/Destroy()
-	if(SSradio)
-		SSradio.remove_object(src,frequency)
+	SSmachinery.all_status_displays -= src
+	SSradio.remove_object(src,frequency)
 	return ..()
 
 // register for radio system
 /obj/machinery/status_display/Initialize()
 	. = ..()
-	if(SSradio)
-		if (hears_arrivals)
-			SSradio.add_object(src, frequency, RADIO_ARRIVALS)
-		else
-			SSradio.add_object(src, frequency)
+	SSmachinery.all_status_displays += src
+	if (hears_arrivals)
+		SSradio.add_object(src, frequency, RADIO_ARRIVALS)
+	else
+		SSradio.add_object(src, frequency)
 
 // timed process
 /obj/machinery/status_display/machinery_process()

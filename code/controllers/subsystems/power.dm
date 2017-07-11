@@ -14,9 +14,9 @@
 	var/list/rcon_breaker_units_by_tag = list()
 
 	var/list/breaker_boxes = list()
+	var/list/smes_units = list()
 
 	var/list/all_cables = list()
-
 	var/list/all_sensors = list()
 
 	var/list/powernets = list()
@@ -43,7 +43,7 @@
 	rcon_breaker_units.Cut()
 	rcon_breaker_units_by_tag.Cut()
 
-	for(var/obj/machinery/power/smes/buildable/SMES in machines)
+	for(var/obj/machinery/power/smes/buildable/SMES in smes_units)
 		if(SMES.RCon_tag && (SMES.RCon_tag != "NO_TAG") && SMES.RCon)
 			rcon_smes_units += SMES
 			rcon_smes_units_by_tag[SMES.RCon_tag] = SMES
