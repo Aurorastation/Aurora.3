@@ -615,6 +615,7 @@ I said no!
 /datum/recipe/mushroomsoup
 	fruit = list("mushroom" = 1)
 	reagents = list("water" = 5, "milk" = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/mushroomsoup
 
 /datum/recipe/chawanmushi
@@ -766,6 +767,7 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/bun,
 		/obj/item/weapon/reagent_containers/food/snacks/bearmeat 
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/bearburger
 
 /datum/recipe/bearchili
@@ -880,4 +882,5 @@ I said no!
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/breadslice
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/honeytoast

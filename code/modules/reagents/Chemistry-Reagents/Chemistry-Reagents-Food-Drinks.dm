@@ -179,13 +179,25 @@
 
 /datum/reagent/nutriment/protein/seafood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_SKRELL)
-		digest(M,removed)//Skrell are allowed to eat fish, but not other proteins
+		digest(M,removed) //Skrell are allowed to eat fish, but not other animal proteins
 		return
 	..()
 
 /datum/reagent/nutriment/protein/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_SKRELL)
 		M.adjustToxLoss(2 * removed)
+		return
+	..()
+
+/datum/reagent/nutriment/protein/tofu //Good for Skrell!
+	name = "tofu protein"
+	id = "tofu"
+	color = "#fdffa8"
+	taste_description = "tofu"
+
+/datum/reagent/nutriment/protein/tofu/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_SKRELL)
+		digest(M,removed) //Skrell are allowed to eat tofu, but not most animal proteins
 		return
 	..()
 
@@ -417,6 +429,14 @@
 	color = "#FFFFFF"
 	injectable = 1
 
+/datum/reagent/nutriment/mushroom
+	name = "Mushroom"
+	id = "mushroom"
+	description = "Savory fungus...is it a vegetable or not, anyway?"
+	nutriment_factor = 1
+	color = "#9c98ad"
+	taste_description = "mushrooms"
+
 /datum/reagent/lipozine // The anti-nutriment.
 	name = "Lipozine"
 	id = "lipozine"
@@ -610,7 +630,7 @@
 	description = "A dry mix for making delicious brownies."
 	reagent_state = SOLID
 	color = "#441a03"
-	taste_description = "dough"
+	taste_description = "chocolate"
 
 /* Drinks */
 
@@ -711,7 +731,7 @@
 	id = "limejuice"
 	description = "The sweet-sour juice of limes."
 	color = "#365E30"
-	taste_description = "unbearable sourness"
+	taste_description = "tart citrus"
 	taste_mult = 1.1
 
 	glass_icon_state = "glass_green"
