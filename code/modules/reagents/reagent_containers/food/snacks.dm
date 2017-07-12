@@ -813,11 +813,10 @@
 	desc = "We all love tofu."
 	filling_color = "#FFFEE0"
 	center_of_mass = list("x"=17, "y"=10)
-	nutriment_amt = 3
-	nutriment_desc = list("tofu" = 3)
-
+	
 /obj/item/weapon/reagent_containers/food/snacks/tofu/New()
 	..()
+	reagents.add_reagent("tofu", 3)
 	src.bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/tofurkey
@@ -826,11 +825,12 @@
 	icon_state = "tofurkey"
 	filling_color = "#FFFEE0"
 	center_of_mass = list("x"=16, "y"=8)
-	nutriment_amt = 12
-	nutriment_desc = list("turkey" = 3, "tofu" = 5)
+	nutriment_amt = 6
+	nutriment_desc = list("turkey" = 3)
 
 /obj/item/weapon/reagent_containers/food/snacks/tofurkey/New()
 	..()
+	reagents.add_reagent("tofu", 6)
 	reagents.add_reagent("stoxin", 3)
 	bitesize = 3
 
@@ -1127,11 +1127,12 @@
 	icon_state = "tofuburger"
 	filling_color = "#FFFEE0"
 	center_of_mass = list("x"=16, "y"=10)
-	nutriment_desc = list("bun" = 2, "soy meat" = 3)
-	nutriment_amt = 6
+	nutriment_desc = list("bun" = 2)
+	nutriment_amt = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/tofuburger/New()
 	..()
+	reagents.add_reagent("tofu", 3)
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/roburger
@@ -1348,11 +1349,12 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FFFEE0"
 	center_of_mass = list("x"=16, "y"=13)
-	nutriment_desc = list("tofu" = 2, "pie" = 8)
-	nutriment_amt = 10
+	nutriment_desc = list("pie" = 8)
+	nutriment_amt = 8
 
 /obj/item/weapon/reagent_containers/food/snacks/tofupie/New()
 	..()
+	reagents.add_reagent("tofu", 3)
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/amanita_pie
@@ -1449,11 +1451,10 @@
 	trash = /obj/item/stack/rods
 	filling_color = "#FFFEE0"
 	center_of_mass = list("x"=17, "y"=15)
-	nutriment_desc = list("tofu" = 3)
-	nutriment_amt = 8
 
 /obj/item/weapon/reagent_containers/food/snacks/tofukabob/New()
 	..()
+	reagents.add_reagent("tofu", 8)
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/cubancarp
