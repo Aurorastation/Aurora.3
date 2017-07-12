@@ -553,7 +553,8 @@
 			spark(src, 3)
 	status = LIGHT_BROKEN
 	update()
-	CHECK_TICK	// For lights-out events.
+	if (!skip_sound_and_sparks)
+		CHECK_TICK	// For lights-out events.
 
 /obj/machinery/light/proc/fix()
 	if(status == LIGHT_OK)

@@ -43,6 +43,8 @@
 	brute_mod = 0.8
 	fall_mod = 1.2
 	ethanol_resistance = 0.4
+	taste_sensitivity = TASTE_SENSITIVE
+	
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	name_language = LANGUAGE_UNATHI
@@ -201,6 +203,7 @@
 
 	reagent_tag = IS_SKRELL
 	ethanol_resistance = 0.5//gets drunk faster
+	taste_sensitivity = TASTE_SENSITIVE
 
 	stamina	=	90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
@@ -227,6 +230,7 @@
 	num_alternate_languages = 1
 	name_language = "Rootsong"
 	ethanol_resistance = -1//Can't get drunk
+	taste_sensitivity = TASTE_DULL
 	mob_size = 12//Worker gestalts are 150kg
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
@@ -383,8 +387,8 @@
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
 
-	// #TODO-MERGE: Check for balance and self-repair. If self-repair is a thing, RIP balance.
-	brute_mod = 0.8
+
+	brute_mod = 1.0
 	burn_mod = 1.0
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
@@ -601,6 +605,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	ethanol_resistance = 2
+	taste_sensitivity = TASTE_SENSITIVE
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
 	breath_type = "phoron"
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.

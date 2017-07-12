@@ -38,6 +38,16 @@ var/global/list/holodeck_programs = list(
 	"courtroom" 		= new/datum/holodeck_program(/area/holodeck/source_courtroom, list('sound/music/traitor.ogg')),
 	"burntest" 			= new/datum/holodeck_program(/area/holodeck/source_burntest, list()),
 	"wildlifecarp" 		= new/datum/holodeck_program(/area/holodeck/source_wildlife, list()),
+	"chapel" 			= new/datum/holodeck_program(/area/holodeck/source_chapel,
+													list(
+														'sound/ambience/ambicha1.ogg',
+														'sound/ambience/ambicha2.ogg',
+														'sound/ambience/ambicha3.ogg',
+														'sound/ambience/ambicha4.ogg',
+														'sound/music/traitor.ogg'
+														)
+													),
+	"gym" 				= new/datum/holodeck_program(/area/holodeck/source_gym),
 	"turnoff" 			= new/datum/holodeck_program(/area/holodeck/source_plating, list())
 	)
 

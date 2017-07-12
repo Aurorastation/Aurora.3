@@ -187,6 +187,12 @@
 // If the number of chickens on the map exceeds this, laid eggs will not hatch.
 #define MAX_CHICKENS 50
 
-
 #define CREW_MINIMUM_NUTRITION 50	// The minimum amount of nutrition a crewmember will spawn with.
 #define CREW_MAXIMUM_NUTRITION 100	// Same as above, but maximum.
+
+//carbon taste sensitivity defines, used in mob/living/carbon/proc/ingest
+#define TASTE_HYPERSENSITIVE 3 //anything below 5%
+#define TASTE_SENSITIVE 2 //anything below 7%
+#define TASTE_NORMAL 1 //anything below 15%
+#define TASTE_DULL 0.5 //anything below 30%
+#define TASTE_NUMB 0.1 //anything below 150%

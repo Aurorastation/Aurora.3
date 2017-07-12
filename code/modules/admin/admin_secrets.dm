@@ -47,9 +47,6 @@ var/datum/admin_secrets/admin_secrets = new()
 	var/permissions = R_ADMIN
 	var/warn_before_use = 0
 
-/datum/admin_secret_item/dd_SortValue()
-	return "[name]"
-
 /datum/admin_secret_item/proc/name()
 	return name
 

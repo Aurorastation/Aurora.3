@@ -4,9 +4,6 @@
 /obj/item/organ/external/head/ipc
 	dislocated = -1
 	can_intake_reagents = 0
-	vital = 1 //because it is now hosting the posibrain
-	max_damage = 50 //made same as arm, since it is not vital
-	min_broken_damage = 30
 	encased = "support frame"
 
 /obj/item/organ/external/head/ipc/New()
@@ -229,9 +226,6 @@
 /obj/item/organ/external/head/terminator
 	dislocated = -1
 	can_intake_reagents = 0
-	vital = 0
-	max_damage = 50 //made same as arm, since it is not vital
-	min_broken_damage = 30
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
@@ -339,9 +333,6 @@
 /obj/item/organ/external/head/industrial
 	dislocated = -1
 	can_intake_reagents = 0
-	vital = 0
-	max_damage = 50 //made same as arm, since it is not vital
-	min_broken_damage = 30
 	encased = "support frame"
 
 /obj/item/organ/external/head/industrial/New()
@@ -435,9 +426,6 @@
 /obj/item/organ/external/head/shell
 	dislocated = -1
 	can_intake_reagents = 0
-	vital = 0
-	max_damage = 50 //made same as arm, since it is not vital
-	min_broken_damage = 30
 	encased = "support frame"
 	force_skintone = TRUE
 

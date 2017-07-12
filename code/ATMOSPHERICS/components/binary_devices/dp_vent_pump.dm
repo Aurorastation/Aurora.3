@@ -59,23 +59,21 @@
 	if(!check_icon_cache())
 		return
 
-	overlays.Cut()
-
-	var/vent_icon = "vent"
+	var/istate = ""
 
 	var/turf/T = get_turf(src)
 	if(!istype(T))
 		return
 
 	if(!T.is_plating() && node1 && node2 && node1.level == 1 && node2.level == 1 && istype(node1, /obj/machinery/atmospherics/pipe) && istype(node2, /obj/machinery/atmospherics/pipe))
-		vent_icon += "h"
+		istate += "h"
 
 	if(!powered())
-		vent_icon += "off"
+		istate += "off"
 	else
-		vent_icon += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
+		istate += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
 
-	overlays += icon_manager.get_atmos_icon("device", , , vent_icon)
+	icon_state = istate
 
 /obj/machinery/atmospherics/binary/dp_vent_pump/update_underlays()
 	if(..())
@@ -189,7 +187,7 @@
 
 	return 1
 
-/obj/machinery/atmospherics/binary/dp_vent_pump/initialize()
+/obj/machinery/atmospherics/binary/dp_vent_pump/atmos_init()
 	..()
 	if(frequency)
 		set_frequency(frequency)

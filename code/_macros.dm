@@ -52,3 +52,5 @@
 #define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)
 
 #define CanInteract(user, state) (CanUseTopic(user, state) == STATUS_INTERACTIVE)
+
+#define isopenturf(target) istype(target, /turf/simulated/open)

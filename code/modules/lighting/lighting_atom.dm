@@ -16,7 +16,7 @@
 
 // The proc you should always use to set the light of this atom.
 /atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/angle = NONSENSICAL_VALUE, var/no_update = FALSE)
-	L_PROF(src, "atom_setlight")
+	//L_PROF(src, "atom_setlight")
 
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
 		l_range = MINIMUM_USEFUL_LIGHT_RANGE	//Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
@@ -43,7 +43,7 @@
 #undef NONSENSICAL_VALUE
 
 /atom/proc/set_uv(var/intensity, var/no_update)
-	L_PROF(src, "atom_setuv")
+	//L_PROF(src, "atom_setuv")
 	if (intensity < 0 || intensity > 255)
 		intensity = min(max(intensity, 255), 0)
 
@@ -60,7 +60,7 @@
 	if (QDELING(src))
 		return
 
-	L_PROF(src, "atom_update")
+	//L_PROF(src, "atom_update")
 
 	if (!light_power || !light_range) // We won't emit light anyways, destroy the light source.
 		QDEL_NULL(light)
@@ -94,7 +94,7 @@
 	if (new_opacity == opacity)
 		return
 
-	L_PROF(src, "atom_setopacity")
+	//L_PROF(src, "atom_setopacity")
 
 	opacity = new_opacity
 	var/turf/T = loc
@@ -109,16 +109,6 @@
 		T.recalc_atom_opacity()
 		if (old_has_opaque_atom != T.has_opaque_atom)
 			T.reconsider_lights()
-
-/atom/movable/Move()
-	. = ..()
-
-	var/datum/light_source/L
-	var/thing
-	for (thing in light_sources)
-		L = thing
-		L.source_atom.update_light()
-
 
 /atom/movable/forceMove()
 	. = ..()

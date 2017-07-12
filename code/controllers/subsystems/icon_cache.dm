@@ -28,7 +28,10 @@
 	var/list/human_icon_cache = list()
 	var/list/tail_icon_cache = list()	//key is [species.race_key][r_skin][g_skin][b_skin]
 	var/list/light_overlay_cache = list()
-	var/list/limb_icon_cache = list()
+	var/list/body_hair_cache = list()
+	var/list/damage_icon_parts = list()
+	// [icon]-[icon_state]-[limb_name]-[color]
+	var/list/markings_cache = list()
 
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)

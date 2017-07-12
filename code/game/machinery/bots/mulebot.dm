@@ -54,6 +54,7 @@
 	var/datum/wires/mulebot/wires = null
 
 	var/bloodiness = 0		// count of bloodiness
+	var/static/total_mules = 0
 
 /obj/machinery/bot/mulebot/Initialize()
 	. = ..()
@@ -67,11 +68,9 @@
 		SSradio.add_object(src, control_freq, filter = RADIO_MULEBOT)
 		SSradio.add_object(src, beacon_freq, filter = RADIO_NAVBEACONS)
 
-	var/count = 0
-	for(var/obj/machinery/bot/mulebot/other in world)
-		count++
+	total_mules++
 	if(!suffix)
-		suffix = "#[count]"
+		suffix = "#[total_mules]"
 	name = "Mulebot ([suffix])"
 
 /obj/machinery/bot/mulebot/Destroy()
@@ -153,11 +152,7 @@
 		unload(0)
 	if(prob(25))
 		src.visible_message("<span class='warning'>Something shorts out inside [src]!</span>")
-		var/index = 1<< (rand(0,9))
-		if(wires & index)
-			wires &= ~index
-		else
-			wires |= index
+		wires.RandomCut()
 	..()
 
 

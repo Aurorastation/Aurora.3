@@ -2,10 +2,10 @@ language: generic
 sudo: false
 
 env:
-  BYOND_MAJOR="510"
-  BYOND_MINOR="1346"
+  BYOND_MAJOR="511"
+  BYOND_MINOR="1385"
   MACRO_COUNT=120
-  FLYWAY_BUILD="4.0.3"
+  FLYWAY_BUILD="4.2.0"
 
 cache:
   directories:

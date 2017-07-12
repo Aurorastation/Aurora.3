@@ -65,8 +65,6 @@
 	var/datum/effect_system/sparks/big_spark
 	var/datum/effect_system/sparks/small_spark
 
-	var/static/list/smesImageCache
-
 /obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
 	if(drain_check)
@@ -76,9 +74,15 @@
 	charge -= smes_amt
 	return smes_amt / SMESRATE
 
+/obj/machinery/power/smes/Destroy()
+	QDEL_NULL(big_spark)
+	QDEL_NULL(small_spark)
+	SSpower.smes_units -= src
+	return ..()	// TODO: Properly clean up terminal.
 
 /obj/machinery/power/smes/Initialize()
 	. = ..()
+	SSpower.smes_units += src
 	big_spark = bind_spark(src, 5, alldirs)
 	small_spark = bind_spark(src, 3)
 	if(!powernet)

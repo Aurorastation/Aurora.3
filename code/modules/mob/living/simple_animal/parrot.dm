@@ -189,7 +189,7 @@
 						src.ears = headset_to_add
 						usr << "You fit the headset onto [src]."
 
-						clearlist(available_channels)
+						LAZYCLEARLIST(available_channels)
 						for(var/ch in headset_to_add.channels)
 							switch(ch)
 								if("Engineering")
@@ -293,7 +293,7 @@
 			speak.Remove(pick(speak))
 
 		speak.Add(pick(speech_buffer))
-		clearlist(speech_buffer)
+		LAZYCLEARLIST(speech_buffer)
 
 
 //-----SLEEPING

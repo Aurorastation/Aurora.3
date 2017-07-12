@@ -215,21 +215,6 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 				#ifdef TESTING
 				D.find_references()
 				#endif
-			if (QDEL_HINT_POOL)
-				if (!force)
-					D.gcDestroyed = null
-					returnToPool(D)
-					return
-				// Returning POOL after being told to force destroy
-				// indicates the objects Destroy() does not respect force
-				if(!SSgarbage.noforcerespect["[D.type]"])
-					SSgarbage.noforcerespect["[D.type]"] = "[D.type]"
-					testing("WARNING: [D.type] has been force deleted, but is \
-						returning an immortal QDEL_HINT, indicating it does \
-						not respect the force flag for qdel(). It has been \
-						placed in the queue, further instances of this type \
-						will also be queued.")
-				SSgarbage.QueueForQueuing(D)
 			else
 				if(!SSgarbage.noqdelhint["[D.type]"])
 					SSgarbage.noqdelhint["[D.type]"] = "[D.type]"
@@ -242,6 +227,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
+	destroyed_event.raise_event(src)
 	SSnanoui.close_uis(src)
 	tag = null
 	var/list/timers = active_timers

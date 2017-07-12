@@ -14,6 +14,7 @@
 	var/tmp/powerusers_this_tick = 0
 
 	var/list/all_cameras = list()
+	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 
 	var/rcon_update_queued = FALSE
 	var/powernet_update_queued = FALSE
@@ -25,6 +26,7 @@
 
 /datum/controller/subsystem/machinery/Recover()
 	all_cameras = SSmachinery.all_cameras
+	recipe_datums = SSmachinery.recipe_datums
 
 /datum/controller/subsystem/machinery/proc/queue_rcon_update()
 	rcon_update_queued = TRUE

@@ -118,14 +118,14 @@
 	desc = "A rather dull, blue robe meant to mimick real wizard robes."
 	icon_state = "wizard-fake"
 	item_state = "wizrobe"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = null
 	siemens_coefficient = 1.0
 
 /obj/item/clothing/head/wizard/marisa/fake
 	name = "witch hat"
 	desc = "Strange-looking hat-wear, makes you want to cast fireballs."
 	icon_state = "marisa"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = null
 	siemens_coefficient = 1.0
 
 /obj/item/clothing/suit/wizrobe/marisa/fake
@@ -134,7 +134,7 @@
 	icon_state = "marisa"
 	item_state = "marisarobe"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = null
 	siemens_coefficient = 1.0
 
 //black robes

@@ -372,11 +372,20 @@
 		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral(src)
 
 
+// These are special snowflakes that need to be in a global list.
 /obj/structure/closet/secure_closet/brig
 	name = "brig locker"
 	req_access = list(access_brig)
 	anchored = 1
 	var/id = null
+
+	Initialize()
+		. = ..()
+		brig_closets += src
+
+	Destroy()
+		brig_closets -= src
+		return ..()
 
 	fill()
 		new /obj/item/clothing/under/color/orange( src )

@@ -326,21 +326,34 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode
-	if(master_mode=="secret")
-		src.hide_mode = 1
+	if(master_mode == ROUNDTYPE_STR_SECRET)
+		src.hide_mode = ROUNDTYPE_SECRET
+	else if (master_mode == ROUNDTYPE_STR_MIXED_SECRET)
+		src.hide_mode = ROUNDTYPE_MIXED_SECRET
 
-	var/list/runnable_modes = config.get_runnable_modes()
-	if((master_mode=="random") || (master_mode=="secret"))
+	var/list/runnable_modes = config.get_runnable_modes(master_mode)
+	if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 		if(!runnable_modes.len)
 			current_state = GAME_STATE_PREGAME
 			world << "<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby."
 			return 0
-		if(secret_force_mode != "secret")
+		if(secret_force_mode != ROUNDTYPE_STR_SECRET && secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
 			src.mode = config.pick_mode(secret_force_mode)
 		if(!src.mode)
 			var/list/weighted_modes = list()
+			var/list/probabilities = list()
+
+			if (master_mode == ROUNDTYPE_STR_SECRET)
+				probabilities = config.probabilities_secret
+			else if (master_mode == ROUNDTYPE_STR_MIXED_SECRET)
+				probabilities = config.probabilities_mixed_secret
+			else
+				// master_mode == ROUNDTYPE_STR_RANDOM
+				probabilities = config.probabilities_secret.Copy()
+				probabilities |= config.probabilities_mixed_secret
+
 			for(var/datum/game_mode/GM in runnable_modes)
-				weighted_modes[GM.config_tag] = config.probabilities[GM.config_tag]
+				weighted_modes[GM.config_tag] = probabilities[GM.config_tag]
 			src.mode = gamemode_cache[pickweight(weighted_modes)]
 	else
 		src.mode = config.pick_mode(master_mode)
@@ -363,8 +376,10 @@ var/datum/controller/subsystem/ticker/SSticker
 		SSjobs.ResetOccupations()
 		return 0
 
+	var/starttime = REALTIMEOFDAY
+
 	if(hide_mode)
-		world << "<B>The current game mode is - Secret!</B>"
+		world << "<B>The current game mode is - [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!</B>"
 		if(runnable_modes.len)
 			var/list/tmpmodes = new
 			for (var/datum/game_mode/M in runnable_modes)
@@ -401,6 +416,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
 	run_callback_list(roundstart_callbacks)
 	roundstart_callbacks = null
+
+	log_debug("SSticker: Round-start setup took [(REALTIMEOFDAY - starttime)/10] seconds.")
 
 	return 1
 
