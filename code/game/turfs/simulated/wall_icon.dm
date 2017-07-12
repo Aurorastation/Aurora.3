@@ -11,6 +11,9 @@
 		material = get_material_by_name(DEFAULT_WALL_MATERIAL)
 	if(material)
 		explosion_resistance = material.explosion_resistance
+		if (material.wall_icon)
+			icon = material.wall_icon
+
 	if(reinf_material && reinf_material.explosion_resistance > explosion_resistance)
 		explosion_resistance = reinf_material.explosion_resistance
 
@@ -26,14 +29,16 @@
 	else if(material.opacity < 0.5 && opacity)
 		set_light(0)
 
-	update_connections(1)
 	update_icon()
-
 
 /turf/simulated/wall/proc/set_material(var/material/newmaterial, var/material/newrmaterial)
 	material = newmaterial
 	reinf_material = newrmaterial
 	update_material()
+
+/turf/simulated/wall
+	var/list/image/reinforcement_images
+	var/image/damage_image
 
 /turf/simulated/wall/update_icon()
 	if(!material)
@@ -42,37 +47,34 @@
 	if(!damage_overlays[1]) //list hasn't been populated
 		generate_overlays()
 
-	cut_overlays()
+	LAZYINITLIST(reinforcement_images)
+
+	var/list/cutlist = reinforcement_images + damage_image
+	cut_overlay(cutlist, TRUE)
+	reinforcement_images.Cut()
+	damage_image = null
+
 	var/list/overlays_to_add = list()
-	var/image/I
-
-	if(!density)
-		I = image('icons/turf/wall_masks.dmi', "[material.icon_base]fwall_open")
-		I.color = material.icon_colour
-		add_overlay(I)
-		return
-
-	for(var/i = 1 to 4)
-		I = image('icons/turf/wall_masks.dmi', "[material.icon_base][wall_connections[i]]", dir = 1<<(i-1))
-		I.color = material.icon_colour
-		overlays_to_add += I
 
 	if(reinf_material)
+		var/image/I
 		if(construction_stage != null && construction_stage < 6)
 			I = image('icons/turf/wall_masks.dmi', "reinf_construct-[construction_stage]")
 			I.color = reinf_material.icon_colour
-			overlays_to_add += I
+			reinforcement_images += I
 		else
-			if("[reinf_material.icon_reinf]0" in icon_states('icons/turf/wall_masks.dmi'))
+			if (material.has_multipart_reinf_icon)
 				// Directional icon
-				for(var/i = 1 to 4)
+				/*for(var/i = 1 to 4)
 					I = image('icons/turf/wall_masks.dmi', "[reinf_material.icon_reinf][wall_connections[i]]", dir = 1<<(i-1))
 					I.color = reinf_material.icon_colour
-					overlays_to_add += I
+					reinforcement_images += I*/	// Not sure how to handle this.
 			else
 				I = image('icons/turf/wall_masks.dmi', reinf_material.icon_reinf)
 				I.color = reinf_material.icon_colour
-				overlays_to_add += I
+				reinforcement_images += I
+
+		overlays_to_add += reinforcement_images
 
 	if(damage != 0)
 		var/integrity = material.integrity
@@ -83,9 +85,10 @@
 		if(overlay > damage_overlays.len)
 			overlay = damage_overlays.len
 
-		overlays_to_add += damage_overlays[overlay]
+		damage_image = damage_overlays[overlay]
+		overlays_to_add += damage_image
 
-	add_overlay(overlays_to_add)
+	add_overlay(overlays_to_add, TRUE)
 
 /turf/simulated/wall/proc/generate_overlays()
 	var/alpha_inc = 256 / damage_overlays.len
@@ -96,23 +99,48 @@
 		img.alpha = (i * alpha_inc) - 1
 		damage_overlays[i] = img
 
-
-/turf/simulated/wall/proc/update_connections(propagate = 0)
-	if(!material)
+/turf/simulated/wall/calculate_adjacencies()
+	. = 0
+	if (!loc || !material)
 		return
-	var/list/dirs = list()
-	for(var/turf/simulated/wall/W in orange(src, 1))
-		if(!W.material)
-			continue
-		if(propagate)
-			W.update_connections()
-			W.update_icon()
-		if(can_join_with(W))
-			dirs += get_dir(src, W)
 
-	wall_connections = dirs_to_corner_states(dirs)
+	var/turf/simulated/wall/W
+	var/material/M
+	var/our_icon_base = material.icon_base
 
-/turf/simulated/wall/proc/can_join_with(var/turf/simulated/wall/W)
-	if(material && W.material && material.icon_base == W.material.icon_base)
-		return 1
-	return 0
+	for (var/dir in cardinal)
+		W = get_step(src, dir)
+		if (istype(W) && W.smooth)
+			M = W.material
+			if (M && M.icon_base == our_icon_base)
+				. |= 1 << dir
+
+	if (. & N_NORTH)
+		if (. & N_WEST)
+			W = get_step(src, NORTHWEST)
+			if (istype(W) && W.smooth)
+				M = W.material
+				if (M && M.icon_base == our_icon_base)
+					. |= N_NORTHWEST
+
+		if (. & N_EAST)
+			W = get_step(src, NORTHEAST)
+			if (istype(W) && W.smooth)
+				M = W.material
+				if (M && M.icon_base == our_icon_base)
+					. |= N_NORTHEAST
+
+	if (. & N_SOUTH)
+		if (. & N_WEST)
+			W = get_step(src, SOUTHWEST)
+			if (istype(W) && W.smooth)
+				M = W.material
+				if (M && M.icon_base == our_icon_base)
+					. |= N_SOUTHWEST
+
+		if (. & N_EAST)
+			W = get_step(src, SOUTHEAST)
+			if (istype(W) && W.smooth)
+				M = W.material
+				if (M && M.icon_base == our_icon_base)
+					. |= N_SOUTHEAST
