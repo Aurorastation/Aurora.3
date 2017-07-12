@@ -63,4 +63,4 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/M = target
 		var/shock_damage = rand(10,20)
-		M.electrocute_act(shock_damage, ran_zone())
+		M.electrocute_act(shock_damage)
