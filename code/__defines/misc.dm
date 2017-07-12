@@ -336,6 +336,14 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 // as text so you don't necessarily fuck with an object's ability to be garbage collected.
 #define SOFTREF(A) "\ref[A]"
 
+// A slightly stronger version of the above that does type validation for you.
+#if DM_VERSION >= 511
+// This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
+#define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref ? D:weakref : (D:weakref = new(D))) : null)
+#else
+#define WEAKREF(D) _weakref(D)
+#endif
+
 #define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 #define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
