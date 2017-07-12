@@ -452,18 +452,18 @@
 
 		if (shock_damage > 15 || tesla_shock)
 			visible_message(
-			"<span class='warning'>[src] was shocked by the [source]!</span>", \
-			"<span class='danger'>You feel a powerful shock course through your body!</span>", \
-			"<span class='warning'>You hear a heavy electrical crack.</span>" \
+			"<span class='warning'>[src] was shocked by the [source]!</span>",
+			"<span class='danger'>You feel a powerful shock course through your body!</span>",
+			"<span class='warning'>You hear a heavy electrical crack.</span>"
 			)
 			Stun(10)//This should work for now, more is really silly and makes you lay there forever
 			Weaken(10)
 
 		else
 			visible_message(
-			"<span class='warning'>[src] was mildly shocked by the [source].</span>", \
-			"<span class='warning'>You feel a mild shock course through your body.</span>", \
-			"<span class='warning'>You hear a light zapping.</span>" \
+			"<span class='warning'>[src] was mildly shocked by the [source].</span>",
+			"<span class='warning'>You feel a mild shock course through your body.</span>",
+			"<span class='warning'>You hear a light zapping.</span>"
 			)
 
 		spark(loc, 5, alldirs)
