@@ -12,18 +12,18 @@
 	if(!damage || (blocked >= 100))	return 0
 	switch(damagetype)
 		if(BRUTE)
-			adjustBruteLoss(damage * blocked_mult(blocked))
+			adjustBruteLoss(damage * BLOCKED_MULT(blocked))
 		if(BURN)
 			if(COLD_RESISTANCE in mutations)	damage = 0
-			adjustFireLoss(damage * blocked_mult(blocked))
+			adjustFireLoss(damage * BLOCKED_MULT(blocked))
 		if(TOX)
-			adjustToxLoss(damage * blocked_mult(blocked))
+			adjustToxLoss(damage * BLOCKED_MULT(blocked))
 		if(OXY)
-			adjustOxyLoss(damage * blocked_mult(blocked))
+			adjustOxyLoss(damage * BLOCKED_MULT(blocked))
 		if(CLONE)
-			adjustCloneLoss(damage * blocked_mult(blocked))
+			adjustCloneLoss(damage * BLOCKED_MULT(blocked))
 		if(HALLOSS)
-			adjustHalLoss(damage * blocked_mult(blocked))
+			adjustHalLoss(damage * BLOCKED_MULT(blocked))
 	flash_weak_pain()
 	updatehealth()
 	return 1
@@ -45,25 +45,25 @@
 	if(!effect || (blocked >= 100))	return 0
 	switch(effecttype)
 		if(STUN)
-			Stun(effect * blocked_mult(blocked))
+			Stun(effect * BLOCKED_MULT(blocked))
 		if(WEAKEN)
-			Weaken(effect * blocked_mult(blocked))
+			Weaken(effect * BLOCKED_MULT(blocked))
 		if(PARALYZE)
-			Paralyse(effect * blocked_mult(blocked))
+			Paralyse(effect * BLOCKED_MULT(blocked))
 		if(AGONY)
-			adjustHalLoss(effect * blocked_mult(blocked)) //Changed this to use the wrapper function, it shouldn't directly alter the value
+			adjustHalLoss(effect * BLOCKED_MULT(blocked)) //Changed this to use the wrapper function, it shouldn't directly alter the value
 		if(IRRADIATE)
 			var/rad_protection = blocked ? getarmor(null, "rad")/100 : 0
-			apply_radiation(max((1-rad_protection) * blocked_mult(blocked),0))//Rads auto check armor
+			apply_radiation(max((1-rad_protection) * BLOCKED_MULT(blocked),0))//Rads auto check armor
 		if(STUTTER)
 			if(status_flags & CANSTUN) // stun is usually associated with stutter
-				stuttering = max(stuttering, effect * blocked_mult(blocked))
+				stuttering = max(stuttering, effect * BLOCKED_MULT(blocked))
 		if(EYE_BLUR)
-			eye_blurry = max(eye_blurry, effect * blocked_mult(blocked))
+			eye_blurry = max(eye_blurry, effect * BLOCKED_MULT(blocked))
 		if(DROWSY)
-			drowsyness = max(drowsyness, effect * blocked_mult(blocked))
+			drowsyness = max(drowsyness, effect * BLOCKED_MULT(blocked))
 		if(INCINERATE)
-			adjust_fire_stacks(effect * blocked_mult(blocked))
+			adjust_fire_stacks(effect * BLOCKED_MULT(blocked))
 			IgniteMob()
 	updatehealth()
 	return 1
