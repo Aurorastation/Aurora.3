@@ -189,7 +189,7 @@
 				Paralyse(10)
 
 	// factor in armour
-	var/protection = blocked_mult(getarmor(null, "bomb"))
+	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
 	b_loss *= protection
 	f_loss *= protection
 
