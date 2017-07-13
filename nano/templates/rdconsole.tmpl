@@ -12,9 +12,9 @@ Used In File(s): \code\modules\research\rdconsole.dm
         <div class="item">
             <div class="itemContent">
                 {{:helper.link('Main Menu', 'gear', {'menu' : 1},(data.screen == 1 ? 'selected' : null))}}<br><br>
-                {{if data.screen == 1.0}} {{:helper.link('Destructive Analyzer Control','gear', {'menu' :(data.linked_analyzer != null ? 2 : 2.1 )})}}<br><br>{{/if}}
-                {{if data.screen == 1.0}} {{:helper.link('Protolathe Control', 'gear', {'menu' :(data.linked_lathe != null ? 3 : 3.1)})}}<br><br>{{/if}}
-                {{if data.screen == 1.0}} {{:helper.link('Circuit Imprinter Control', 'gear', {'menu' :(data.linked_imprinter != null ? 4 : 4.1)})}}<br><br>{{/if}}
+                {{if data.screen == 1.0}} {{:helper.link('Destructive Analyzer Control','gear', {'menu' :(data.linked_analyzer == null ? 2 : 2.1 )})}}<br><br>{{/if}}
+                {{if data.screen == 1.0}} {{:helper.link('Protolathe Control', 'gear', {'menu' :(data.linked_lathe == null ? 3 : 3.1)})}}<br><br>{{/if}}
+                {{if data.screen == 1.0}} {{:helper.link('Circuit Imprinter Control', 'gear', {'menu' :(data.linked_imprinter == null ? 4 : 4.1)})}}<br><br>{{/if}}
                 {{if data.screen == 1.0}} {{:helper.link('Device Management', 'gear', {'menu' : 5})}}{{/if}}
             </div>
         </div>

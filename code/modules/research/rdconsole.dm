@@ -174,10 +174,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(1.1)
 			textscreen = "Research Levels Overview"
 
-		if(1.2 || 1.3)
+		if(1.2 to 1.3)
 			textscreen = "Technology Disk Control"
 
-		if(1.4 || 1.5)	
+		if(1.4 to 1.5)	
 			textscreen = "Design Disk Control"
 
 		if(1.6)
@@ -186,10 +186,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(1.7)
 			textscreen = "Device Linking"
 
-		if(2.0 || 2.1 || 2.2)
+		if(2.0 to 2.2)
 			textscreen = "Destructive Analyzer Control"
 		
-		if(3.0 || 3.1)
+		if(3.0 to 3.1)
 			textscreen = "Protolathe Control"
 
 		if(3.2)
@@ -198,7 +198,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(3.3)
 			textscreen = "Protolathe Material Control"	
 		
-		if(4.0 || 4.1)
+		if(4.0 to 4.1)
 			textscreen = "Circuit Imprinter Control"
 
 		if(4.2)
