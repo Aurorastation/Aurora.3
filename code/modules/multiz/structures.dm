@@ -135,7 +135,7 @@
 			return FALSE
 	var/obj/item/weapon/grab/G = mob.l_hand
 	if (!istype(G))
-    	G = mob.r_hand
+		G = mob.r_hand
 	if (istype(G))
 		G.affecting.forceMove(T)
 	return M.Move(T)
