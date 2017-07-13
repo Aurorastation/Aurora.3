@@ -85,7 +85,7 @@
 			if (G.state >= GRAB_AGGRESSIVE)
 				if(user.a_intent == I_HURT)
 					var/blocked = M.run_armor_check("head", "melee")
-					if (prob(30 * blocked_mult(blocked)))
+					if (prob(30 * BLOCKED_MULT(blocked)))
 						M.Weaken(5)
 					M.apply_damage(8, BRUTE, "head", blocked)
 					visible_message("<span class='danger'>[G.assailant] slams [G.affecting]'s face against \the [src]!</span>")
