@@ -383,7 +383,7 @@ This function restores all organs.
 	if(!organ)	return 0
 
 	if(blocked)
-		damage *= blocked_mult(blocked)
+		damage *= BLOCKED_MULT(blocked)
 
 	switch(damagetype)
 		if(BRUTE)
