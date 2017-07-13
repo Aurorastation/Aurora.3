@@ -54,6 +54,13 @@
 	var/obj/structure/ladder/target_ladder = getTargetLadder(M)
 	if(!target_ladder)
 		return
+	
+	var/obj/item/weapon/grab/G = mob.l_hand
+	if (!istype(G))
+		G = mob.r_hand
+	if (istype(G))
+		G.affected.Move(get_turf(src))
+	
 	if(!M.Move(get_turf(src)))
 		to_chat(M, "<span class='notice'>You fail to reach \the [src].</span>")
 		return
@@ -66,7 +73,7 @@
 
 	target_ladder.audible_message("<span class='notice'>You hear something coming [direction] \the [src]</span>")
 
-	if(do_after(M, climb_time))
+	if(do_after(M, istype(G) ? (climb_time*2) : climb_time))
 		climbLadder(M, target_ladder)
 
 /obj/structure/ladder/attack_ghost(var/mob/M)
