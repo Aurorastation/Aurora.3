@@ -284,7 +284,7 @@
 		if(3.0)
 			brute = 30
 
-	var/protection = blocked_mult(getarmor(null, "bomb"))
+	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
 	brute *= protection
 	burn *= protection
 
