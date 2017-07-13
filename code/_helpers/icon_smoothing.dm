@@ -259,26 +259,34 @@
 			se = "4-e"
 
 	var/list/New
+	var/list/Old
 
 	if(A.top_left_corner != nw)
-		A.cut_overlay(A.top_left_corner)
+		if (A.top_left_corner)
+			LAZYADD(Old, A.top_left_corner)
 		A.top_left_corner = nw
 		LAZYADD(New, nw)
 
 	if(A.top_right_corner != ne)
-		A.cut_overlay(A.top_right_corner)
+		if (A.top_right_corner)
+			LAZYADD(Old, A.top_right_corner)
 		A.top_right_corner = ne
 		LAZYADD(New, ne)
 
 	if(A.bottom_right_corner != sw)
-		A.cut_overlay(A.bottom_right_corner)
+		if (A.bottom_right_corner)
+			LAZYADD(Old, A.bottom_right_corner)
 		A.bottom_right_corner = sw
 		LAZYADD(New, sw)
 
 	if(A.bottom_left_corner != se)
-		A.cut_overlay(A.bottom_left_corner)
+		if (A.bottom_left_corner)
+			LAZYADD(Old, A.bottom_left_corner)
 		A.bottom_left_corner = se
 		LAZYADD(New, se)
+
+	if(Old)
+		A.cut_overlay(Old)
 
 	if(New)
 		A.add_overlay(New)
@@ -334,13 +342,10 @@
 					queue_smooth(A)
 
 /atom/proc/clear_smooth_overlays()
-	cut_overlay(top_left_corner)
+	cut_overlay(list(top_left_corner, top_right_corner, bottom_left_corner, bottom_right_corner))
 	top_left_corner = null
-	cut_overlay(top_right_corner)
 	top_right_corner = null
-	cut_overlay(bottom_right_corner)
 	bottom_right_corner = null
-	cut_overlay(bottom_left_corner)
 	bottom_left_corner = null
 
 /atom/proc/replace_smooth_overlays(nw, ne, sw, se)
