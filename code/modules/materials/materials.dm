@@ -155,6 +155,7 @@ var/list/name_to_material
 	if(!shard_icon)
 		shard_icon = shard_type
 
+	var/skip_blend = FALSE
 	switch (icon_base)
 		if ("solid")
 			wall_icon = 'icons/turf/smooth/composite_solid.dmi'
@@ -164,11 +165,12 @@ var/list/name_to_material
 		if ("metal")
 			wall_icon = 'icons/turf/smooth/composite_metal.dmi'
 		if ("cult")
-			wall_icon = 'icons/turf/smooth/composite_cult.dmi'
+			wall_icon = 'icons/turf/smooth/cult_wall.dmi'
+			skip_blend = TRUE
 		else
 			world.log << "materials: [src] has unknown icon_base [icon_base]."
 
-	if (wall_icon && icon_colour)
+	if (wall_icon && icon_colour && !skip_blend)
 		wall_icon = new(wall_icon)
 		wall_icon.Blend(icon_colour, ICON_MULTIPLY)
 
