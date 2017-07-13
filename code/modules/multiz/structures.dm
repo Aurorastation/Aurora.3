@@ -126,6 +126,11 @@
 		if(!A.CanPass(M, M.loc, 1.5, 0))
 			to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
 			return FALSE
+	var/obj/item/weapon/grab/G = mob.l_hand
+	if (!istype(G))
+    	G = mob.r_hand
+	if (istype(G))
+		G.affecting.forceMove(T)
 	return M.Move(T)
 
 /obj/structure/ladder/CanPass(obj/mover, turf/source, height, airflow)
