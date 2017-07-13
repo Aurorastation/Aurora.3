@@ -36,11 +36,6 @@
 	reinf_material = newrmaterial
 	update_material()
 
-/turf/simulated/wall
-	var/list/image/reinforcement_images
-	var/image/damage_image
-	var/image/fake_wall_image
-
 /turf/simulated/wall/update_icon()
 	if(!material)
 		return
