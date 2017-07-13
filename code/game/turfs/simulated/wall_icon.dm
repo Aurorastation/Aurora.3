@@ -39,6 +39,7 @@
 /turf/simulated/wall
 	var/list/image/reinforcement_images
 	var/image/damage_image
+	var/image/fake_wall_image
 
 /turf/simulated/wall/update_icon()
 	if(!material)
@@ -55,6 +56,19 @@
 	damage_image = null
 
 	var/list/overlays_to_add = list()
+
+	if (!density)	// We're a fake and we're open.
+		clear_smooth_overlays()
+		fake_wall_image = image('icons/turf/wall_masks.dmi', "[material.icon_base]fwall_open")
+		fake_wall_image.color = material.icon_colour
+		add_overlay(fake_wall_image)
+		smooth = SMOOTH_FALSE
+		return
+	else if (fake_wall_image)
+		cut_overlay(fake_wall_image)
+		fake_wall_image = null
+		smooth = initial(smooth)
+		queue_smooth(src)
 
 	if(reinf_material)
 		var/image/I
@@ -110,7 +124,7 @@
 
 	for (var/dir in cardinal)
 		W = get_step(src, dir)
-		if (istype(W) && W.smooth)
+		if (istype(W) && (W.smooth || !W.density))
 			M = W.material
 			if (M && M.icon_base == our_icon_base)
 				. |= 1 << dir
@@ -118,14 +132,14 @@
 	if (. & N_NORTH)
 		if (. & N_WEST)
 			W = get_step(src, NORTHWEST)
-			if (istype(W) && W.smooth)
+			if (istype(W) && (W.smooth || !W.density))
 				M = W.material
 				if (M && M.icon_base == our_icon_base)
 					. |= N_NORTHWEST
 
 		if (. & N_EAST)
 			W = get_step(src, NORTHEAST)
-			if (istype(W) && W.smooth)
+			if (istype(W) && (W.smooth || !W.density))
 				M = W.material
 				if (M && M.icon_base == our_icon_base)
 					. |= N_NORTHEAST
@@ -133,14 +147,14 @@
 	if (. & N_SOUTH)
 		if (. & N_WEST)
 			W = get_step(src, SOUTHWEST)
-			if (istype(W) && W.smooth)
+			if (istype(W) && (W.smooth || !W.density))
 				M = W.material
 				if (M && M.icon_base == our_icon_base)
 					. |= N_SOUTHWEST
 
 		if (. & N_EAST)
 			W = get_step(src, SOUTHEAST)
-			if (istype(W) && W.smooth)
+			if (istype(W) && (W.smooth || !W.density))
 				M = W.material
 				if (M && M.icon_base == our_icon_base)
 					. |= N_SOUTHEAST

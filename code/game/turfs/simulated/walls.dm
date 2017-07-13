@@ -19,7 +19,7 @@
 	var/last_state
 	var/construction_stage
 
-	smooth = SMOOTH_MORE
+	smooth = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON
 
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
