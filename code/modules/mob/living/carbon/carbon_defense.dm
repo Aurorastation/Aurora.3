@@ -26,7 +26,7 @@
 	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I))
 		var/damage = effective_force //just the effective damage used for sorting out embedding, no further damage is applied here
 		if (blocked)
-			damage *= blocked_mult(blocked)
+			damage *= BLOCKED_MULT(blocked)
 
 		if (I.can_embed)//If this weapon is allowed to embed in people
 			//blunt objects should really not be embedding in things unless a huge amount of force is involved
