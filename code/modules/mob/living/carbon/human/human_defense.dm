@@ -257,7 +257,7 @@ emp_act
 /mob/living/carbon/human/proc/attack_joint(var/obj/item/organ/external/organ, var/obj/item/W, var/blocked)
 	if(!organ || (organ.dislocated == 2) || (organ.dislocated == -1) || blocked >= 100)
 		return 0
-	if(prob(W.force * blocked_mult(blocked)))
+	if(prob(W.force * BLOCKED_MULT(blocked)))
 		visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
 		organ.dislocate(1)
 		return 1
@@ -343,7 +343,7 @@ emp_act
 				var/sharp = is_sharp(I)
 				var/damage = throw_damage
 				if (armor)
-					damage *= blocked_mult(armor)
+					damage *= BLOCKED_MULT(armor)
 
 				//blunt objects should really not be embedding in things unless a huge amount of force is involved
 				var/embed_chance = sharp? damage/I.w_class : damage/(I.w_class*3)
