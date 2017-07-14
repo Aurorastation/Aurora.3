@@ -57,12 +57,11 @@
 	agony = 80
 
 /obj/item/projectile/energy/declone
-	name = "declone"
+	name = "decloner beam"
 	icon_state = "declone"
-	nodamage = 1
+	damage = 20
 	damage_type = CLONE
 	irradiate = 40
-
 
 /obj/item/projectile/energy/dart
 	name = "dart"
