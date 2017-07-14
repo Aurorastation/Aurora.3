@@ -25,14 +25,14 @@
 	return use(cell_amt) / CELLRATE
 
 /obj/item/weapon/cell/update_icon()
-	overlays.Cut()
+	cut_overlays()
 
 	if(charge < 0.01)
 		return
 	else if(charge/maxcharge >=0.995)
-		overlays += image('icons/obj/power.dmi', "cell-o2")
+		add_overlay("cell-o2")
 	else
-		overlays += image('icons/obj/power.dmi', "cell-o1")
+		add_overlay("cell-o1")
 
 /obj/item/weapon/cell/proc/percent()		// return % charge of cell
 	return 100.0*charge/maxcharge

@@ -1609,14 +1609,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
-"dk" = (
-/obj/random/loot,
-/turf/simulated/open,
-/area/mine/explored)
-"dl" = (
-/obj/effect/landmark/corpse/engineer/rotten,
-/turf/simulated/floor/asteroid,
-/area/mine/explored)
 "dm" = (
 /obj/random/junk,
 /turf/simulated/floor/asteroid,
@@ -18454,7 +18446,7 @@ ab
 ac
 ac
 ac
-dl
+ab
 ab
 ab
 ab
