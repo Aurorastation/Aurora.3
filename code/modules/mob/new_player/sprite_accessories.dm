@@ -88,10 +88,6 @@
 		name = "Shoulder-length Hair"
 		icon_state = "hair_b"
 
-	longalt
-		name = "Shoulder-length Hair Alt"
-		icon_state = "hair_longfringe"
-
 	/*longish
 		name = "Longer Hair"
 		icon_state = "hair_b2"*/
@@ -105,7 +101,7 @@
 		icon_state = "hair_vlongfringe"
 
 	longeralt2
-		name = "Long Hair Alt 2"
+		name = "Long Hair Alt"
 		icon_state = "hair_longeralt2"
 
 	longest
@@ -116,9 +112,6 @@
 		name = "Long Fringe"
 		icon_state = "hair_longfringe"
 
-	longestalt
-		name = "Longer Fringe"
-		icon_state = "hair_vlongfringe"
 
 	halfbang
 		name = "Half-banged Hair"
