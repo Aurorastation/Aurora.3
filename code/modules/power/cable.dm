@@ -936,8 +936,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		return
 	..()
 
-/obj/structure/noose/New()
-	..()
+/obj/structure/noose/Initialize()
+	. = ..()
 	pixel_y += 16 //Noose looks like it's "hanging" in the air
 	over = image(icon, "noose_overlay")
 	over.layer = MOB_LAYER + 0.1
@@ -949,14 +949,14 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/structure/noose/post_buckle_mob(mob/living/M)
 	if(M == buckled_mob)
 		layer = MOB_LAYER
-		overlays += over
-		processing_objects |= src
+		add_overlay(over)
+		START_PROCESSING(SSprocessing, src)
 		M.pixel_y = initial(M.pixel_y) + 8 //rise them up a bit
 		M.dir = SOUTH
 	else
 		layer = initial(layer)
-		overlays -= over
-		processing_objects -= src
+		cut_overlay(over)
+		STOP_PROCESSING(SSprocessing, src)
 		pixel_x = initial(pixel_x)
 		M.pixel_x = initial(M.pixel_x)
 		M.pixel_y = initial(M.pixel_y)

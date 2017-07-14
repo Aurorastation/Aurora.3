@@ -321,6 +321,7 @@
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	taste_mult = 0.33 //Specifically to cut the dull toxin taste out of foods using carrot
 	taste_description = "dull toxin"
 
 /datum/reagent/imidazoline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)

@@ -43,7 +43,7 @@
 	cell = new /obj/item/weapon/cell/high(src)
 	key = new(src)
 	var/image/I = new(icon = icon, icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
-	overlays += I
+	add_overlay(I)
 	turn_off()	//so engine verbs are correctly set
 
 /obj/vehicle/train/cargo/engine/Move(var/turf/destination)

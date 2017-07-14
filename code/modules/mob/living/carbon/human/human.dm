@@ -412,6 +412,12 @@
 /mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
 	var/hairvar = 0
 	if(status_flags & GODMODE)	return 0	//godmode
+
+	if (!tesla_shock)
+		shock_damage *= base_siemens_coeff
+	if (shock_damage<1)
+		return 0
+
 	if(!def_zone)
 		var/list/damage_areas = list() //The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
 		if(istype(user, /mob/living/carbon/human))
@@ -440,12 +446,29 @@
 			shock_damage *= gloves.siemens_coefficient
 
 		for (var/area in damage_areas)
-			apply_damage(shock_damage, BURN, area)
-			shock_damage *= 0.8
-		visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
-	var/obj/item/organ/external/affected_organ = get_organ(check_zone(def_zone))
-	var/siemens_coeff = base_siemens_coeff * get_siemens_coefficient_organ(affected_organ)
-	return ..(shock_damage, source, siemens_coeff, def_zone, tesla_shock)
+			apply_damage(shock_damage, BURN, area, used_weapon="Electrocution")
+			shock_damage *= 0.4
+			playsound(loc, "sparks", 50, 1, -1)
+
+		if (shock_damage > 15 || tesla_shock)
+			visible_message(
+			"<span class='warning'>[src] was shocked by the [source]!</span>",
+			"<span class='danger'>You feel a powerful shock course through your body!</span>",
+			"<span class='warning'>You hear a heavy electrical crack.</span>"
+			)
+			Stun(10)//This should work for now, more is really silly and makes you lay there forever
+			Weaken(10)
+
+		else
+			visible_message(
+			"<span class='warning'>[src] was mildly shocked by the [source].</span>",
+			"<span class='warning'>You feel a mild shock course through your body.</span>",
+			"<span class='warning'>You hear a light zapping.</span>"
+			)
+
+		spark(loc, 5, alldirs)
+
+	return shock_damage
 
 /mob/living/carbon/human/Topic(href, href_list)
 	if (href_list["refresh"])
