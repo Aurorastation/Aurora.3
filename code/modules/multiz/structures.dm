@@ -55,9 +55,9 @@
 	if(!target_ladder)
 		return
 	
-	var/obj/item/weapon/grab/G = mob.l_hand
+	var/obj/item/weapon/grab/G = M.l_hand
 	if (!istype(G))
-		G = mob.r_hand
+		G = M.r_hand
 	if (istype(G))
 		G.affected.Move(get_turf(src))
 	
@@ -133,9 +133,9 @@
 		if(!A.CanPass(M, M.loc, 1.5, 0))
 			to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
 			return FALSE
-	var/obj/item/weapon/grab/G = mob.l_hand
+	var/obj/item/weapon/grab/G = M.l_hand
 	if (!istype(G))
-		G = mob.r_hand
+		G = M.r_hand
 	if (istype(G))
 		G.affecting.forceMove(T)
 	return M.Move(T)
