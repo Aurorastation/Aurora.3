@@ -78,7 +78,7 @@
 	if (!dest.Adjacent(source_hoist.hoistee))
 		return
 
-	source_hoist.consistency_check()
+	source_hoist.check_consistency()
 
 	var/turf/desturf = dest
 	source_hoist.hoistee.forceMove(desturf)
@@ -260,4 +260,4 @@
 	return 1
 
 /atom/movable/proc/hoist_act(turf/dest)
-	src.forceMove(move_dest)
+	src.forceMove(dest)
