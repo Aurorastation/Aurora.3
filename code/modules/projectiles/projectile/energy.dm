@@ -69,7 +69,6 @@
 	damage_type = TOX
 	weaken = 5
 
-
 /obj/item/projectile/energy/bolt
 	name = "bolt"
 	icon_state = "cbbolt"
