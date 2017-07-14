@@ -84,7 +84,7 @@ var/list/name_to_material
 	var/icon_reinf = "reinf_metal"                       // Overlay used
 	var/list/stack_origin_tech = list(TECH_MATERIAL = 1) // Research level for stacks.
 	var/icon/wall_icon
-	var/has_multipart_reinf_icon = FALSE
+	var/icon/multipart_reinf_icon
 
 	// Attributes
 	var/cut_delay = 0            // Delay in ticks when cutting through this wall.
@@ -161,7 +161,7 @@ var/list/name_to_material
 			wall_icon = 'icons/turf/smooth/composite_solid.dmi'
 		if ("stone")
 			wall_icon = 'icons/turf/smooth/composite_stone.dmi'
-			has_multipart_reinf_icon = TRUE
+			multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
 		if ("metal")
 			wall_icon = 'icons/turf/smooth/composite_metal.dmi'
 		if ("cult")
@@ -176,6 +176,9 @@ var/list/name_to_material
 	if (wall_icon && icon_colour && !skip_blend)
 		wall_icon = new(wall_icon)
 		wall_icon.Blend(icon_colour, ICON_MULTIPLY)
+		if (multipart_reinf_icon)
+			multipart_reinf_icon = new(multipart_reinf_icon)
+			multipart_reinf_icon.Blend(icon_colour, ICON_MULTIPLY)
 
 // This is a placeholder for proper integration of windows/windoors into the system.
 /material/proc/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)

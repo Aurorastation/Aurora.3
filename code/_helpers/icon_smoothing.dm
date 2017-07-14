@@ -174,7 +174,7 @@
 	if (smooth_underlays && adjacencies)
 		// This should be a mutable_appearance, but we're still on 510.
 		// Alas.
-		var/image/underlay_appearance = image(layer = TURF_LAYER)
+		var/mutable_appearance/underlay_appearance = new(layer = TURF_LAYER)
 		var/list/U = list(underlay_appearance)
 		if(fixed_underlay)
 			if(fixed_underlay["space"])
@@ -293,6 +293,63 @@
 
 	if (A.icon_state && !(A.smooth & SMOOTH_NO_CLEAR_ICON))
 		A.icon_state = null
+
+// A more stripped down version of the above, meant for using images to apply multiple smooth overlays
+//    at once.
+/proc/cardinal_smooth_image(image/I, adjacencies)
+	//NW CORNER
+	var/nw = "1-i"
+	if((adjacencies & N_NORTH) && (adjacencies & N_WEST))
+		if(adjacencies & N_NORTHWEST)
+			nw = "1-f"
+		else
+			nw = "1-nw"
+	else
+		if(adjacencies & N_NORTH)
+			nw = "1-n"
+		else if(adjacencies & N_WEST)
+			nw = "1-w"
+
+	//NE CORNER
+	var/ne = "2-i"
+	if((adjacencies & N_NORTH) && (adjacencies & N_EAST))
+		if(adjacencies & N_NORTHEAST)
+			ne = "2-f"
+		else
+			ne = "2-ne"
+	else
+		if(adjacencies & N_NORTH)
+			ne = "2-n"
+		else if(adjacencies & N_EAST)
+			ne = "2-e"
+
+	//SW CORNER
+	var/sw = "3-i"
+	if((adjacencies & N_SOUTH) && (adjacencies & N_WEST))
+		if(adjacencies & N_SOUTHWEST)
+			sw = "3-f"
+		else
+			sw = "3-sw"
+	else
+		if(adjacencies & N_SOUTH)
+			sw = "3-s"
+		else if(adjacencies & N_WEST)
+			sw = "3-w"
+
+	//SE CORNER
+	var/se = "4-i"
+	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST))
+		if(adjacencies & N_SOUTHEAST)
+			se = "4-f"
+		else
+			se = "4-se"
+	else
+		if(adjacencies & N_SOUTH)
+			se = "4-s"
+		else if(adjacencies & N_EAST)
+			se = "4-e"
+
+	I.add_overlay(list(nw, se, ne, sw))
 
 /proc/find_type_in_direction(atom/source, direction)
 	var/turf/target_turf = get_step(source, direction)
