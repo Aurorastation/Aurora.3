@@ -27,6 +27,10 @@ Used In File(s): \code\game\machinery\computer\crew.dm
 			<tr><td>{{:value.name}} ({{:value.assignment}})</td><td class='living'>{{:value.dead ? "<span class='bad'>Deceased</span>" : "<span class='good'>Living</span>"}} (<span class="oxyloss">{{:value.oxy}}</span>/<span class="toxin">{{:value.tox}}</span>/<span class="burn">{{:value.fire}}</span>/<span class="brute">{{:value.brute}}</span>)</td><td>{{:value.area}}({{:value.x}}, {{:value.y}}, {{:value.z}})</td>{{if data.isAI}}<td class='tracking'>{{:helper.link('Track', null, {'track' : value.ref})}}</td>{{/if}}</tr>
 		{{/if}}
 		{{empty}}
-			"<span class = 'bad'> Unable to establish a connection to telecommunications!</span>"
+			{{if data.signal == 0}}
+				<span class = 'bad'>Unable to estabalish a connection to telecommunications!</span>
+			{{else}}
+				<span class = 'bad'>No suit sensors detected!</span>
+			{{/if}}
 	{{/for}}
 </tbody></table>
