@@ -5,7 +5,6 @@
 	damage_type = BURN
 	check_armour = "energy"
 
-
 //releases a burst of light on impact or after travelling a distance
 /obj/item/projectile/energy/flash
 	name = "chemical shell"
