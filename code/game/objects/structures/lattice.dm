@@ -90,3 +90,9 @@
 		queue_smooth_neighbors(src)
 	else
 		..()
+
+/obj/structure/lattice/catwalk/hoist_act(turf/dest)
+	for (var/A in src)
+		var/atom/movable/AM = A
+		AM.hoist_act(dest)
+	..()
