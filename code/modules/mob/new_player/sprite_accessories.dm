@@ -581,7 +581,7 @@
 		gender = MALE
 
 	nofade
-		name = "Regulation Cut"
+		name = "No Fade"
 		icon_state = "hair_nofade"
 		gender = MALE
 
@@ -621,7 +621,7 @@
 		gender = MALE
 
 	regulationmohawk
-		name = "Regulation Mohawk"
+		name = "Shaved Mohawk"
 		icon_state = "hair_shavedmohawk"
 		gender = MALE
 
