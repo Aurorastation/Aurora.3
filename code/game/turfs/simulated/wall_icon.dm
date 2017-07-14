@@ -43,9 +43,9 @@
 	if(!damage_overlays[1]) //list hasn't been populated
 		generate_overlays()
 
-	var/list/cutlist = list(reinforcement_image, damage_image)
+	var/list/cutlist = (reinforcement_images||list()) + damage_image
 	cut_overlay(cutlist, TRUE)
-	reinforcement_image = null
+	LAZYCLEARLIST(reinforcement_images)
 	damage_image = null
 
 	var/list/overlays_to_add = list()
@@ -62,26 +62,24 @@
 		fake_wall_image = null
 		smooth = initial(smooth)
 
+	calculate_adjacencies()	// Update cached_adjacency
+
 	if(reinf_material)
 		var/image/I
 		if(construction_stage != null && construction_stage < 6)
 			I = image('icons/turf/wall_masks.dmi', "reinf_construct-[construction_stage]")
 			I.color = reinf_material.icon_colour
-			reinforcement_image = I
+			LAZYADD(reinforcement_images, I)
 		else
-			if (material.multipart_reinf_icon)
-				var/adj = calculate_adjacencies()
-				I = image(material.multipart_reinf_icon)
-				cardinal_smooth_image(I, adj)
-				reinforcement_image = I
-				for (var/turf/simulated/wall/W in RANGE_TURFS(1, src))
-					W.queue_icon_update()
+			if (reinf_material.multipart_reinf_icon)
+				LAZYADD(reinforcement_images, cardinal_smooth_fromicon(reinf_material.multipart_reinf_icon, cached_adjacency))
 			else
 				I = image('icons/turf/wall_masks.dmi', reinf_material.icon_reinf)
 				I.color = reinf_material.icon_colour
-				reinforcement_image = I
+				LAZYADD(reinforcement_images, I)
 
-		overlays_to_add += reinforcement_image
+		if (reinforcement_images)
+			overlays_to_add += reinforcement_images
 
 	if(damage != 0)
 		var/integrity = material.integrity
@@ -96,6 +94,7 @@
 		overlays_to_add += damage_image
 
 	add_overlay(overlays_to_add, TRUE)
+	UNSETEMPTY(reinforcement_images)
 	queue_smooth(src)
 
 /turf/simulated/wall/proc/generate_overlays()
@@ -152,3 +151,5 @@
 				M = W.material
 				if (M && M.icon_base == our_icon_base)
 					. |= N_SOUTHEAST
+
+	cached_adjacency = .

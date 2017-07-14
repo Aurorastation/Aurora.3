@@ -296,7 +296,7 @@
 
 // A more stripped down version of the above, meant for using images to apply multiple smooth overlays
 //    at once.
-/proc/cardinal_smooth_image(image/I, adjacencies)
+/proc/cardinal_smooth_fromicon(icon/I, adjacencies)
 	//NW CORNER
 	var/nw = "1-i"
 	if((adjacencies & N_NORTH) && (adjacencies & N_WEST))
@@ -349,7 +349,12 @@
 		else if(adjacencies & N_EAST)
 			se = "4-e"
 
-	I.add_overlay(list(nw, se, ne, sw))
+	var/image/nw_i = image(I, nw)
+	var/image/ne_i = image(I, ne)
+	var/image/sw_i = image(I, sw)
+	var/image/se_i = image(I, se)
+
+	return list(nw_i, ne_i, sw_i, se_i)
 
 /proc/find_type_in_direction(atom/source, direction)
 	var/turf/target_turf = get_step(source, direction)

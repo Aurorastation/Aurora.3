@@ -19,9 +19,10 @@
 	var/last_state
 	var/construction_stage
 
-	var/tmp/image/reinforcement_image
+	var/tmp/list/image/reinforcement_images
 	var/tmp/image/damage_image
 	var/tmp/image/fake_wall_image
+	var/tmp/cached_adjacency
 
 	smooth = SMOOTH_TRUE | SMOOTH_NO_CLEAR_ICON
 
