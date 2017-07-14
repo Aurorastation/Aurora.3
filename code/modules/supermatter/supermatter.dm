@@ -92,7 +92,7 @@
 
 	var/debug = 0
 
-/obj/machinery/power/supermatter/New()
+/obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 
