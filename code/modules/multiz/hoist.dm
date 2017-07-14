@@ -22,6 +22,9 @@
 	can_buckle = 1
 	anchored = 1
 
+/obj/effect/hoist_hook/attack_hand(mob/living/user)
+	return // no, bad
+
 /obj/effect/hoist_hook/MouseDrop_T(atom/movable/AM,mob/user)
 	var/canuse = use_check(user, USE_DISALLOW_SILICONS)
 	if(canuse) // to cut it down from 4+ return statements to just 1
@@ -51,8 +54,7 @@
 	hoistee = AM
 	if(ismob(AM))
 		source_hook.buckle_mob(AM)
-	else
-		AM.anchored = 1
+	AM.anchored = 1 // why isn't this being set by buckle_mob for silicons?
 
 /obj/effect/hoist_hook/MouseDrop(atom/dest)
 	..()
@@ -76,9 +78,11 @@
 	if (!dest.Adjacent(source_hoist.hoistee))
 		return
 
+	source_hoist.consistency_check()
+
 	var/turf/desturf = dest
 	source_hoist.hoistee.forceMove(desturf)
-	usr.visible_message(span("danger", "[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You detach \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You hear something unclamp."))
+	usr.visible_message(span("danger", "[usr] detaches \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You detach \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You hear something unclamp."))
 	source_hoist.release_hoistee()
 
 /obj/structure/hoist
@@ -109,6 +113,13 @@
 /obj/effect/hoist_hook/Destroy()
 	source_hoist = null
 	return ..()
+
+/obj/structure/hoist/proc/check_consistency()
+	if (!hoistee)
+		return
+	if (hoistee.z != source_hook.z)
+		release_hoistee()
+		return
 
 /obj/structure/hoist/proc/release_hoistee()
 	if(ismob(hoistee))
@@ -185,6 +196,8 @@
 		move_dir(movedir, 0)
 		return
 
+	check_consistency()
+
 	var/size
 	if (ismob(hoistee))
 		var/mob/M = hoistee
@@ -243,5 +256,8 @@
 	source_hook.forceMove(move_dest)
 	if (!ishoisting)
 		return 1
-	hoistee.forceMove(move_dest)
+	hoistee.hoist_act(move_dest)
 	return 1
+
+/atom/movable/proc/hoist_act(turf/dest)
+	src.forceMove(move_dest)
