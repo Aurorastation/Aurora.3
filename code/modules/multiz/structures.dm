@@ -59,7 +59,7 @@
 	if (!istype(G))
 		G = M.r_hand
 	if (istype(G))
-		G.affected.Move(get_turf(src))
+		G.affecting.Move(get_turf(src))
 	
 	if(!M.Move(get_turf(src)))
 		to_chat(M, "<span class='notice'>You fail to reach \the [src].</span>")
