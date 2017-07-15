@@ -129,6 +129,7 @@
 	set src in usr
 
 	toggle_wield(usr)
+	usr.update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
@@ -137,6 +138,10 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "arifle" : "arifle-empty"
+	if(wielded)
+		item_state = (ammo_magazine)? "arifle-wielded" : "arifle-wielded-empty"
+	else
+		item_state = (ammo_magazine)? "arifle" : "arifle-empty"
 	update_held_icon()
 
 /datum/firemode/z8
@@ -200,6 +205,11 @@
 		icon_state = "carbine-[round(ammo_magazine.stored_ammo.len,2)]"
 	else
 		icon_state = "carbine"
+	if(wielded)
+		item_state = "z8carbine-wielded"
+	else
+		item_state = "z8carbine"
+	update_held_icon()
 	return
 
 /obj/item/weapon/gun/projectile/automatic/rifle/z8/examine(mob/user)

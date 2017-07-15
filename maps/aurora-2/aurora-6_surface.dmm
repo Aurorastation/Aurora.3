@@ -2607,6 +2607,9 @@
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Yellow Dock Fore"
 	},
+/obj/machinery/status_display{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "eV" = (
@@ -2702,6 +2705,9 @@
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 5
+	},
+/obj/machinery/status_display{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -3672,7 +3678,7 @@
 	command = "cycle_interior";
 	frequency = 1379;
 	layer = 3.3;
-	master_tag = "civilian_eva_airlock";
+	master_tag = "brig_solar_inner";
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
@@ -6298,6 +6304,9 @@
 	c_tag = "Surface - Yellow Dock Aft";
 	dir = 1
 	},
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "lk" = (
@@ -6473,6 +6482,9 @@
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/machinery/status_display{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -7481,7 +7493,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = null;
+	req_access = list();
 	req_one_access = list(12,61)
 	},
 /turf/simulated/floor/plating,
@@ -8732,6 +8744,10 @@
 	pixel_x = 32
 	},
 /obj/structure/flora/pottedplant/random,
+/obj/machinery/status_display{
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "pH" = (
@@ -9861,6 +9877,10 @@
 	icon_state = "tube1";
 	dir = 1
 	},
+/obj/machinery/status_display{
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "rK" = (
@@ -10030,6 +10050,10 @@
 	dir = 4
 	},
 /obj/structure/flora/pottedplant/random,
+/obj/machinery/status_display{
+	pixel_x = 0;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "sd" = (
@@ -13568,6 +13592,10 @@
 /area/crew_quarters/sleep/cryo)
 "yQ" = (
 /obj/structure/undies_wardrobe,
+/obj/machinery/status_display{
+	pixel_x = 0;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "yR" = (
@@ -17149,6 +17177,9 @@
 	icon_state = "corner_white_full";
 	dir = 4
 	},
+/obj/machinery/status_display/supply_display{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "FJ" = (
@@ -18690,6 +18721,56 @@
 /area/hallway/secondary/entry/aft)
 "Ir" = (
 /obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
+"Is" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/status_display/arrivals_display{
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/dock)
+"It" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/status_display/arrivals_display{
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/dock)
+"Iu" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/status_display{
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/crew_quarters/locker)
+"Iv" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/status_display{
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 
@@ -43710,8 +43791,8 @@ az
 aw
 aa
 aa
-bp
-bN
+bq
+Is
 cl
 cl
 cl
@@ -43770,7 +43851,7 @@ yj
 yK
 zj
 zF
-Ad
+Iu
 uj
 sP
 sr
@@ -46794,8 +46875,8 @@ aw
 aw
 aa
 aa
-bp
-bN
+bq
+It
 cl
 cl
 cl
@@ -47386,9 +47467,9 @@ CF
 CF
 In
 CW
+Iv
 CF
-CF
-CK
+Ik
 CF
 CF
 El

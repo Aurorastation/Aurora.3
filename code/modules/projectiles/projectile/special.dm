@@ -100,7 +100,7 @@
 			var/mob/living/carbon/human/H = M
 			if((H.species.flags & IS_PLANT) && (M.nutrition < 500))
 				if(prob(15))
-					M.apply_effect((rand(30,80)),IRRADIATE)
+					H.apply_effect((rand(30,80)),IRRADIATE,blocked = H.getarmor(null, "rad"))
 					M.Weaken(5)
 					for (var/mob/V in viewers(src))
 						V.show_message("<span class='warning'>[M] writhes in pain as \his vacuoles boil.</span>", 3, "<span class='warning'>You hear the crunching of leaves.</span>", 2)
@@ -185,17 +185,17 @@
 	check_armour = "energy"
 	embed = 0
 	damage_type = HALLOSS
-	
+
 /obj/item/projectile/magic/fireball
 	name = "fireball"
 	icon_state = "fireball"
 	damage = 20
 	damage_type = BURN
-	
+
 /obj/item/projectile/magic/fireball/on_impact(var/atom/A)
 	explosion(A, 0, 0, 4)
 	..()
-		
+
 /obj/item/projectile/magic/teleport //literaly bluespace crystal code, because i am lazy and it seems to work
 	name = "bolt of teleportation"
 	icon = 'icons/obj/projectiles.dmi'
@@ -209,6 +209,6 @@
 	if(isliving(hit_atom))
 		blink_mob(hit_atom)
 	return ..()
-	
+
 /obj/item/projectile/magic/teleport/proc/blink_mob(mob/living/L)
 	do_teleport(L, get_turf(L), blink_range, asoundin = 'sound/effects/phasein.ogg')

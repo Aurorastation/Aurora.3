@@ -29,8 +29,8 @@
 	var/customjob		= "Admin"
 	var/custommessage 	= "This is a test, please ignore."
 
-/obj/machinery/computer/message_monitor/New()
-	..()
+/obj/machinery/computer/message_monitor/Initialize()
+	. = ..()
 	spark_system = bind_spark(src, 5)
 
 /obj/machinery/computer/message_monitor/Destroy()

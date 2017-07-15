@@ -81,9 +81,7 @@
 	..()
 	return QDEL_HINT_IWILLGC
 
-// This should be using mutable_appearance, but 510. Woe.
-// Update this & all overrides if/when we move to 511.
-/turf/proc/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)
+/turf/proc/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.icon = icon
 	underlay_appearance.icon_state = icon_state
 	underlay_appearance.dir = adjacency_dir

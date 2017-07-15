@@ -942,11 +942,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		message += "Large clouds of noxious smoke billow forth from your [P]!"
 	if(i>=65 && i<=75) //Weaken
 		if(M && isliving(M))
-			M.apply_effects(0,1)
+			M.apply_effects(weaken = 1)
 		message += "Your [P] flashes with a blinding white light! You feel weaker."
 	if(i>=75 && i<=85) //Stun and stutter
 		if(M && isliving(M))
-			M.apply_effects(1,0,0,0,1)
+			M.apply_effects(stun = 1, stutter = 1)
 		message += "Your [P] flashes with a blinding white light! You feel weaker."
 	if(i>=85) //Sparks
 		spark(P.loc, 2)

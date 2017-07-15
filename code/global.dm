@@ -1,6 +1,6 @@
 //#define TESTING
-#if DM_VERSION < 510
-#error Your version of BYOND is too old to compile the code. At least BYOND 510 is required.
+#if DM_VERSION < 511
+#error Your version of BYOND is too old to compile the code. At least BYOND 511 is required.
 #endif
 
 
@@ -32,7 +32,7 @@ var/diary               = null
 var/diary_runtime  = null
 var/diary_date_string = null
 var/href_logfile        = null
-var/station_name        = "NSS Aurora II"
+var/station_name        = "NSS Aurora"
 var/station_short       = "Aurora"
 var/const/dock_name     = "NTCC Odin"
 var/const/boss_name     = "Central Command"

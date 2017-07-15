@@ -18,9 +18,11 @@
 	// This checks if TCOMS is online using the test proc. If it isn't, the suit sensor data isn't loaded.
 	var/datum/signal/signal
 	signal = telecomms_process_active()
+	data["signal"] = 0
 	if(signal.data["done"] == 1)
 		data["isAI"] = isAI(user)
 		data["crewmembers"] = list()
+		data["signal"] = 1
 		for(var/z_level in map_levels)
 			data["crewmembers"] += crew_repository.health_data(z_level)
 

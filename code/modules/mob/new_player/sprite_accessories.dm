@@ -88,10 +88,6 @@
 		name = "Shoulder-length Hair"
 		icon_state = "hair_b"
 
-	longalt
-		name = "Shoulder-length Hair Alt"
-		icon_state = "hair_longfringe"
-
 	/*longish
 		name = "Longer Hair"
 		icon_state = "hair_b2"*/
@@ -105,7 +101,7 @@
 		icon_state = "hair_vlongfringe"
 
 	longeralt2
-		name = "Long Hair Alt 2"
+		name = "Long Hair Alt"
 		icon_state = "hair_longeralt2"
 
 	longest
@@ -116,9 +112,6 @@
 		name = "Long Fringe"
 		icon_state = "hair_longfringe"
 
-	longestalt
-		name = "Longer Fringe"
-		icon_state = "hair_vlongfringe"
 
 	halfbang
 		name = "Half-banged Hair"
@@ -232,6 +225,11 @@
 		icon_state = "hair_bobcut"
 		gender = FEMALE
 		species_allowed = list("Human","Unathi")
+
+	bobcutalt
+		name = "Chin Length Bob"
+		icon_state = "hair_bobcutalt"
+		gender = FEMALE
 
 	bowl
 		name = "Bowl"
@@ -382,6 +380,16 @@
 		icon_state = "hair_himecut_alt"
 		gender = FEMALE
 
+	shorthime
+		name = "Short Hime Cut"
+		icon_state = "hair_shorthime"
+		gender = FEMALE
+
+	grandebraid
+		name = "Grande Braid"
+		icon_state = "hair_grande"
+		gender = FEMALE
+
 	braid
 		name = "Floorlength Braid"
 		icon_state = "hair_braid"
@@ -429,6 +437,11 @@
 	mahdrills
 		name = "Drillruru"
 		icon_state = "hair_drillruru"
+		gender = FEMALE
+
+	fringetail
+		name = "Fringetail"
+		icon_state = "hair_fringetail"
 		gender = FEMALE
 
 	dandypomp
@@ -548,6 +561,104 @@
 		name = "Fringetail"
 		icon_state = "hair_fringetail"
 
+	lowfade
+		name = "Low Fade"
+		icon_state = "hair_lowfade"
+		gender = MALE
+
+	medfade
+		name = "Medium Fade"
+		icon_state = "hair_medfade"
+
+	highfade
+		name = "High Fade"
+		icon_state = "hair_highfade"
+		gender = MALE
+
+	baldfade
+		name = "Balding Fade"
+		icon_state = "hair_baldfade"
+		gender = MALE
+
+	nofade
+		name = "No Fade"
+		icon_state = "hair_nofade"
+		gender = MALE
+
+	trimflat
+		name = "Trimmed Flat Top"
+		icon_state = "hair_trimflat"
+		gender = MALE
+
+	shaved
+		name = "Shaved"
+		icon_state = "hair_shaved"
+		gender = MALE
+
+	trimmed
+		name = "Trimmed"
+		icon_state = "hair_trimmed"
+		gender = MALE
+
+	tightbun
+		name = "Tight Bun"
+		icon_state = "hair_tightbun"
+		gender = FEMALE
+
+	coffeehouse
+		name = "Coffee House Cut"
+		icon_state = "hair_coffeehouse"
+		gender = MALE
+
+	undercut
+		name = "Undercut"
+		icon_state = "hair_undercut"
+		gender = MALE
+
+	hightight
+		name = "High and Tight"
+		icon_state = "hair_hightight"
+		gender = MALE
+
+	regulationmohawk
+		name = "Shaved Mohawk"
+		icon_state = "hair_shavedmohawk"
+		gender = MALE
+
+	topknot
+		name = "Topknot"
+		icon_state = "hair_topknot"
+		gender = MALE
+
+	ronin
+		name = "Ronin"
+		icon_state = "hair_ronin"
+		gender = MALE
+
+	bowlcut2
+		name = "Bowl2"
+		icon_state = "hair_bowlcut2"
+		gender = MALE
+
+	thinning
+		name = "Thinning"
+		icon_state = "hair_thinning"
+		gender = MALE
+
+	thinningfront
+		name = "Thinning Front"
+		icon_state = "hair_thinningfront"
+		gender = MALE
+
+	thinningback
+		name = "Thinning Back"
+		icon_state = "hair_thinningrear"
+		gender = MALE
+
+	manbun
+		name = "Manbun"
+		icon_state = "hair_manbun"
+		gender = MALE
 
 
 /*
@@ -637,6 +748,50 @@
 	dwarf
 		name = "Dwarf Beard"
 		icon_state = "facial_dwarf"
+
+	threeOclock
+		name = "3 O'clock Shadow"
+		icon_state = "facial_3oclock"
+
+	threeOclockstache
+		name = "3 O'clock Shadow and Moustache"
+		icon_state = "facial_3oclockmoustache"
+
+	fiveOclock
+		name = "5 O'clock Shadow"
+		icon_state = "facial_5oclock"
+
+	fiveOclockstache
+		name = "5 O'clock Shadow and Moustache"
+		icon_state = "facial_5oclockmoustache"
+
+	sevenOclock
+		name = "7 O'clock Shadow"
+		icon_state = "facial_7oclock"
+
+	sevenOclockstache
+		name = "7 O'clock Shadow and Moustache"
+		icon_state = "facial_7oclockmoustache"
+
+	mutton
+		name = "Mutton Chops"
+		icon_state = "facial_mutton"
+
+	muttonstache
+		name = "Mutton Chops and Moustache"
+		icon_state = "facial_muttonmus"
+
+	walrus
+		name = "Walrus Moustache"
+		icon_state = "facial_walrus"
+
+	croppedbeard
+		name = "Full Cropped Beard"
+		icon_state = "facial_croppedfullbeard"
+
+	chinless
+		name = "Chinless Beard"
+		icon_state = "facial_chinlessbeard"
 
 /*
 ///////////////////////////////////

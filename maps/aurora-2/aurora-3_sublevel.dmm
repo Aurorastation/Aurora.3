@@ -1538,7 +1538,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Break Room";
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1565,7 +1565,7 @@
 "di" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Restrooms";
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1779,7 +1779,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
 	req_access = list(11);
-	req_one_access = null
+	req_one_access = list()
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/power)
@@ -1985,7 +1985,8 @@
 	dir = 4
 	},
 /obj/machinery/airlock_sensor{
-	master_tag = "eng_sl_eva_sensor";
+	id_tag = "eng_sl_eva_sensor";
+	master_tag = "eng_sl_eva_airlock";
 	pixel_y = 26
 	},
 /turf/simulated/floor{
@@ -2232,7 +2233,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Storage";
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2245,7 +2246,7 @@
 "er" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Storage";
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
@@ -2685,7 +2686,7 @@
 	pixel_x = 0
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3205,10 +3206,11 @@
 	},
 /area/turret_protected/ai)
 "gf" = (
+/obj/machinery/ai_status_display{
+	pixel_x = 32
+	},
 /obj/machinery/firealarm{
-	dir = 4;
-	layer = 3.3;
-	pixel_x = 26
+	pixel_y = 27
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
@@ -3521,7 +3523,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
+	req_access = list();
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
@@ -5226,11 +5228,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/status_display{
-	density = 0;
-	layer = 4;
-	pixel_x = 32;
-	pixel_y = 0
+/obj/machinery/ai_status_display{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
@@ -5657,9 +5656,6 @@
 "jC" = (
 /obj/machinery/computer/robotics,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/status_display{
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -5669,6 +5665,9 @@
 /obj/machinery/alarm/cold{
 	dir = 1;
 	pixel_y = -22
+	},
+/obj/machinery/ai_status_display{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
@@ -7909,6 +7908,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "nu" = (
@@ -8839,6 +8839,9 @@
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
+	},
+/obj/machinery/status_display{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
@@ -10851,6 +10854,7 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
 	id_tag = "research_sensor";
+	master_tag = "research_sensor";
 	pixel_x = -25;
 	pixel_y = 0
 	},
@@ -12234,6 +12238,9 @@
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
+	},
+/obj/machinery/status_display{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
@@ -14277,6 +14284,9 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/machinery/status_display{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "yn" = (
@@ -14894,6 +14904,9 @@
 /obj/item/weapon/reagent_containers/blood/OMinus,
 /obj/item/weapon/reagent_containers/blood/OMinus,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/status_display{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "zq" = (
@@ -15249,6 +15262,10 @@
 /obj/structure/bed/padded,
 /obj/item/clothing/under/color/white,
 /obj/item/clothing/shoes/white,
+/obj/machinery/status_display{
+	pixel_x = 32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "zT" = (
@@ -15524,6 +15541,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -25
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "Ah" = (
@@ -15764,6 +15785,10 @@
 "Az" = (
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/status_display{
+	pixel_x = -32;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
@@ -17854,14 +17879,7 @@
 	},
 /area/crew_quarters/medbreak)
 "Em" = (
-/obj/structure/table/standard,
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
-/obj/item/weapon/cane,
-/obj/item/weapon/cane,
-/obj/item/weapon/storage/box/rxglasses,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "En" = (
@@ -18172,7 +18190,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "EQ" = (
@@ -19050,8 +19067,11 @@
 /area/medical/medbay4)
 "Gr" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/lights/mixed,
-/obj/item/weapon/storage/box/lights/mixed,
+/obj/item/weapon/storage/box/lights/mixed{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/weapon/storage/box/cdeathalarm_kit,
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
@@ -19866,6 +19886,9 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/item/weapon/tape_roll,
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "HM" = (
@@ -20000,6 +20023,9 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
 	name = "CO2 to Connector"
+	},
+/obj/machinery/status_display{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
@@ -21161,6 +21187,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
+/obj/machinery/status_display{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Kd" = (
@@ -21187,6 +21216,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "Kg" = (
@@ -22157,6 +22187,69 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
+"LW" = (
+/obj/machinery/status_display{
+	density = 0;
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_upload_foyer)
+"LX" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/anomaly_analysis)
+"LY" = (
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled,
+/area/outpost/research/isolation_monitoring)
+"LZ" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology)
+"Ma" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/status_display{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/medical/medbay4)
+"Mb" = (
+/obj/structure/table/standard,
+/obj/item/weapon/cane,
+/obj/item/weapon/storage/box/rxglasses,
+/turf/simulated/floor/tiled,
+/area/medical/medbay4)
+"Mc" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/firealarm{
+	dir = 4;
+	layer = 3.3;
+	pixel_x = 26
+	},
+/turf/simulated/floor/tiled,
+/area/medical/medbay4)
 
 (1,1,1) = {"
 aa
@@ -42848,7 +42941,7 @@ ab
 ab
 lW
 mh
-mI
+LX
 mI
 nN
 oo
@@ -46455,7 +46548,7 @@ oA
 ob
 pL
 qk
-qI
+LY
 qI
 rB
 sf
@@ -47497,7 +47590,7 @@ eZ
 eZ
 eZ
 eZ
-zI
+LZ
 Au
 Au
 Au
@@ -51393,7 +51486,7 @@ Lt
 Lx
 Lt
 LE
-Lu
+Lt
 Lr
 aa
 aa
@@ -61381,7 +61474,7 @@ Bo
 BX
 CC
 BX
-BX
+Mb
 Em
 EP
 FC
@@ -61634,12 +61727,12 @@ ud
 ud
 zY
 AI
-Bp
+Ma
 Bp
 CD
 Do
 DT
-Bp
+Mc
 EQ
 FD
 Gp
@@ -69587,7 +69680,7 @@ fa
 aa
 aa
 eZ
-LU
+LT
 eZ
 aa
 aa
@@ -71610,7 +71703,7 @@ fO
 fO
 fO
 gq
-gQ
+LW
 hj
 hH
 ii
@@ -72379,7 +72472,7 @@ fO
 fO
 fO
 fO
-gc
+gR
 gs
 gS
 hm
