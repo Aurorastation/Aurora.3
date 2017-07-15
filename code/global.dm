@@ -1,6 +1,6 @@
 //#define TESTING
-#if DM_VERSION < 510
-#error Your version of BYOND is too old to compile the code. At least BYOND 510 is required.
+#if DM_VERSION < 511
+#error Your version of BYOND is too old to compile the code. At least BYOND 511 is required.
 #endif
 
 
