@@ -81,6 +81,8 @@
 
 /obj/screen/storage
 	name = "storage"
+	layer = 19
+	screen_loc = "7,7 to 10,8"
 
 /obj/screen/storage/Click()
 	if(!usr.canClick())
