@@ -58,12 +58,13 @@
 	var/obj/item/weapon/grab/G = M.l_hand
 	if (!istype(G))
 		G = M.r_hand
-	if (istype(G))
-		G.affecting.Move(get_turf(src))
 	
 	if(!M.Move(get_turf(src)))
 		to_chat(M, "<span class='notice'>You fail to reach \the [src].</span>")
 		return
+	
+	if (istype(G))
+		G.affecting.forceMove(get_turf(src))
 
 	var/direction = target_ladder == target_up ? "up" : "down"
 
