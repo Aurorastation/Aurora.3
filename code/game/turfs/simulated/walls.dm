@@ -19,7 +19,12 @@
 	var/last_state
 	var/construction_stage
 
-	var/list/wall_connections = list("0", "0", "0", "0")
+	var/tmp/list/image/reinforcement_images
+	var/tmp/image/damage_image
+	var/tmp/image/fake_wall_image
+	var/tmp/cached_adjacency
+
+	smooth = SMOOTH_TRUE | SMOOTH_NO_CLEAR_ICON
 
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
@@ -178,7 +183,6 @@
 	clear_plants()
 	material = get_material_by_name("placeholder")
 	reinf_material = null
-	update_connections(1)
 
 	if (!no_change)
 		ChangeTurf(/turf/simulated/floor/plating)
