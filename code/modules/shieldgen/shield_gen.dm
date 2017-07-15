@@ -43,7 +43,7 @@
 		field.Remove(D)
 		D.loc = null
 	return ..()
-	
+
 /obj/machinery/shield_gen/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
 		src.locked = !src.locked
@@ -237,25 +237,9 @@
 //TODO MAKE THIS MULTIZ COMPATIBLE
 //grab the border tiles in a circle around this machine
 /obj/machinery/shield_gen/proc/get_shielded_turfs()
-	var/list/out = list()
-
 	var/turf/gen_turf = get_turf(src)
+
 	if (!gen_turf)
 		return
 
-	var/turf/T
-	for (var/x_offset = -field_radius; x_offset <= field_radius; x_offset++)
-		T = locate(gen_turf.x + x_offset, gen_turf.y - field_radius, gen_turf.z)
-		if (T) out += T
-
-		T = locate(gen_turf.x + x_offset, gen_turf.y + field_radius, gen_turf.z)
-		if (T) out += T
-
-	for (var/y_offset = -field_radius+1; y_offset < field_radius; y_offset++)
-		T = locate(gen_turf.x - field_radius, gen_turf.y + y_offset, gen_turf.z)
-		if (T) out += T
-
-		T = locate(gen_turf.x + field_radius, gen_turf.y + y_offset, gen_turf.z)
-		if (T) out += T
-
-	return out
+	. = RANGE_TURFS(field_radius, gen_turf)

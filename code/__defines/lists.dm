@@ -6,3 +6,11 @@
 #define LAZYACCESS(L, I) (L ? (isnum(I) ? (I > 0 && I <= L.len ? L[I] : null) : L[I]) : null)
 #define LAZYLEN(L) length(L)
 #define LAZYCLEARLIST(L) if(L) L.Cut()
+
+#define LAZYPICK(L,DEFAULT) (LAZYLEN(L) ? pick(L) : DEFAULT)
+
+// Shims for some list procs in lists.dm.
+#define islist(L) istype(L,/list)
+#define isemptylist(L) (!LAZYLEN(L))
+#define safepick(L) LAZYPICK(L,null)
+#define listgetindex(L,I) LAZYACCESS(L,I)

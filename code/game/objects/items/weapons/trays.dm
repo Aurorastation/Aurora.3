@@ -238,8 +238,8 @@
 	user.remove_from_mob(I)
 	I.loc = src
 	current_weight += I.w_class
-	carrying.Add(I)
-	overlays += image("icon" = I.icon, "icon_state" = I.icon_state, "layer" = 30 + I.layer, "pixel_x" = I.pixel_x, "pixel_y" = I.pixel_y)
+	carrying += I
+	add_overlay(image("icon" = I.icon, "icon_state" = I.icon_state, "layer" = 30 + I.layer, "pixel_x" = I.pixel_x, "pixel_y" = I.pixel_y))
 	//rand(0, (max_offset_y*2)-3)-(max_offset_y)-3
 
 /obj/item/weapon/tray/verb/unload()
@@ -255,8 +255,9 @@
 
 		for(var/obj/item/I in carrying)
 			I.loc = dropspot
-			carrying.Remove(I)
-		overlays.Cut()
+			carrying -= I
+
+		cut_overlays()
 		current_weight = 0
 		usr.visible_message("[usr] unloads the tray.", "You unload the tray.")
 
@@ -270,7 +271,9 @@
 
 		for(var/obj/item/I in carrying)
 			I.loc = dropspot
-			carrying.Remove(I)
+			carrying -= I
+
+		cut_overlays()
 		overlays.Cut()
 		current_weight = 0
 		usr.visible_message("[usr] unloads the tray.", "You unload the tray.")
@@ -281,7 +284,7 @@
 	//its also called when a cyborg uses its tray on the floor
 	if (current_weight > 0)//can't spill a tray with nothing on it
 
-		overlays.Cut()
+		cut_overlays()
 
 		//First we have to find where the items are being dropped, unless a location has been passed in
 		if (!dropspot)

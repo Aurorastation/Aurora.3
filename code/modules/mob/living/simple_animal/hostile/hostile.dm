@@ -172,7 +172,7 @@
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
 	var/target = target_mob
-	visible_message("<span class='warning'> <b>[src]</b> fires at [target]!</span>", 1)
+	visible_message("<span class='warning'> <b>[src]</b> fires at [target]!</span>")
 
 	if(rapid)
 		var/datum/callback/shoot_cb = CALLBACK(src, .proc/shoot_wrapper, target, loc, src)
@@ -216,6 +216,13 @@
 				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 				return 1
 	return 0
+
+/mob/living/simple_animal/hostile/RangedAttack(atom/A, params) //Player firing
+	if(ranged)
+		setClickCooldown(attack_delay)
+		target = A
+		OpenFire(A)
+	..()
 
 
 /mob/living/simple_animal/hostile/proc/check_horde()

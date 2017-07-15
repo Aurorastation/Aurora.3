@@ -268,7 +268,8 @@ var/datum/controller/subsystem/vote/SSvote
 						continue
 					gamemode_names[M.config_tag] = capitalize(M.name) //It's ugly to put this here but it works
 					additional_text.Add("<td align = 'center'>[M.required_players]</td>")
-				gamemode_names["secret"] = "Secret"
+				gamemode_names[ROUNDTYPE_STR_SECRET] = "Secret"
+				gamemode_names[ROUNDTYPE_STR_MIXED_SECRET] = "Mixed Secret"
 			if("crew_transfer")
 				if(check_rights(R_ADMIN|R_MOD, 0))
 					question = "End the shift?"

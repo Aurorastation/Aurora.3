@@ -22,8 +22,8 @@ emp_act
 		if(shield_check < 0)
 			return shield_check
 		else
-			P.on_hit(src, 2, def_zone)
-			return 2
+			P.on_hit(src, 100, def_zone)
+			return 100
 
 	//Shrapnel
 	if(P.can_embed())
@@ -109,8 +109,8 @@ emp_act
 	for(var/gear in protective_gear)
 		if(gear && istype(gear ,/obj/item/clothing))
 			var/obj/item/clothing/C = gear
-			if(istype(C) && C.body_parts_covered & def_zone.body_part)
-				protection += C.armor[type]
+			if(istype(C) && C.body_parts_covered & def_zone.body_part && C.armor)
+				protection = add_armor(protection, C.armor[type])
 	return protection
 
 /mob/living/carbon/human/proc/check_head_coverage()
@@ -151,9 +151,6 @@ emp_act
 	..()
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
-	if(check_attack_throat(I, user))
-		return null
-
 	if(user == src) // Attacking yourself can't miss
 		return target_zone
 
@@ -182,7 +179,7 @@ emp_act
 	if(!affecting)
 		return //should be prevented by attacked_with_item() but for sanity.
 
-	visible_message("<span class='danger'>[src] has been [I.attack_verb.len? pick(I.attack_verb) : "attacked"] in the [affecting.name] with [I.name] by [user]!</span>")
+	visible_message("<span class='danger'>[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [affecting.name] with [I] by [user]!</span>")
 
 	var/blocked = run_armor_check(hit_zone, "melee", I.armor_penetration, "Your armor has protected your [affecting.name].", "Your armor has softened the blow to your [affecting.name].")
 	standard_weapon_hit_effects(I, user, effective_force, blocked, hit_zone)
@@ -258,9 +255,9 @@ emp_act
 	return 1
 
 /mob/living/carbon/human/proc/attack_joint(var/obj/item/organ/external/organ, var/obj/item/W, var/blocked)
-	if(!organ || (organ.dislocated == 2) || (organ.dislocated == -1) || blocked >= 2)
+	if(!organ || (organ.dislocated == 2) || (organ.dislocated == -1) || blocked >= 100)
 		return 0
-	if(prob(W.force / (blocked+1)))
+	if(prob(W.force * BLOCKED_MULT(blocked)))
 		visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
 		organ.dislocate(1)
 		return 1
@@ -327,7 +324,7 @@ emp_act
 		src.visible_message("<span class='warning'>[src] has been hit in the [hit_area] by [O].</span>")
 		var/armor = run_armor_check(affecting, "melee", O.armor_penetration, "Your armor has protected your [hit_area].", "Your armor has softened hit to your [hit_area].") //I guess "melee" is the best fit here
 
-		if(armor < 2)
+		if(armor < 100)
 			apply_damage(throw_damage, dtype, zone, armor, is_sharp(O), has_edge(O), O)
 
 		if(ismob(O.thrower))
@@ -346,7 +343,7 @@ emp_act
 				var/sharp = is_sharp(I)
 				var/damage = throw_damage
 				if (armor)
-					damage /= armor+1
+					damage *= BLOCKED_MULT(armor)
 
 				//blunt objects should really not be embedding in things unless a huge amount of force is involved
 				var/embed_chance = sharp? damage/I.w_class : damage/(I.w_class*3)

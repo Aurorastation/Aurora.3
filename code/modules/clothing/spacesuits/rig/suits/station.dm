@@ -24,7 +24,7 @@
 	suit_type = "augmented suit"
 	desc = "Prepare for paperwork."
 	icon_state = "internalaffairs_rig"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = null
 	siemens_coefficient = 0.9
 	slowdown = 0
 	offline_slowdown = 0

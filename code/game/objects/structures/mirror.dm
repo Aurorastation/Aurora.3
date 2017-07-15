@@ -96,6 +96,7 @@
 					vox.real_name = newname
 					vox.name = vox.real_name
 					raiders.update_access(vox)
+					vox.faction = "syndicate"	//so the vox is not attacked by viscerator
 				qdel(user)
 	..()
 

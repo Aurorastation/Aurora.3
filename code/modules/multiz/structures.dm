@@ -43,7 +43,9 @@
 
 /obj/structure/ladder/attackby(obj/item/C as obj, mob/user as mob)
 	attack_hand(user)
-	return
+
+/obj/structure/ladder/attack_robot(mob/user)
+	attack_hand(user)
 
 /obj/structure/ladder/attack_hand(var/mob/M)
 	if(!M.may_climb_ladders(src))
@@ -52,9 +54,17 @@
 	var/obj/structure/ladder/target_ladder = getTargetLadder(M)
 	if(!target_ladder)
 		return
+	
+	var/obj/item/weapon/grab/G = M.l_hand
+	if (!istype(G))
+		G = M.r_hand
+	
 	if(!M.Move(get_turf(src)))
 		to_chat(M, "<span class='notice'>You fail to reach \the [src].</span>")
 		return
+	
+	if (istype(G))
+		G.affecting.forceMove(get_turf(src))
 
 	var/direction = target_ladder == target_up ? "up" : "down"
 
@@ -64,7 +74,7 @@
 
 	target_ladder.audible_message("<span class='notice'>You hear something coming [direction] \the [src]</span>")
 
-	if(do_after(M, climb_time))
+	if(do_after(M, istype(G) ? (climb_time*2) : climb_time))
 		climbLadder(M, target_ladder)
 
 /obj/structure/ladder/attack_ghost(var/mob/M)
@@ -102,6 +112,19 @@
 		return FALSE
 	return TRUE
 
+/mob/living/silicon/may_climb_ladders(ladder)
+	to_chat(src, "<span class='warning'>You're too heavy to climb [ladder]!</span>")
+	return FALSE
+
+/mob/living/silicon/robot/drone/may_climb_ladders(ladder)
+	if(!Adjacent(ladder))
+		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
+		return FALSE
+	if(incapacitated())
+		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		return FALSE
+	return TRUE
+
 /mob/observer/ghost/may_climb_ladders(var/ladder)
 	return TRUE
 
@@ -111,6 +134,11 @@
 		if(!A.CanPass(M, M.loc, 1.5, 0))
 			to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
 			return FALSE
+	var/obj/item/weapon/grab/G = M.l_hand
+	if (!istype(G))
+		G = M.r_hand
+	if (istype(G))
+		G.affecting.forceMove(T)
 	return M.Move(T)
 
 /obj/structure/ladder/CanPass(obj/mover, turf/source, height, airflow)

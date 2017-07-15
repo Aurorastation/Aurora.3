@@ -1170,6 +1170,18 @@ mob/proc/yank_out_object()
 	else
 		return ..()
 
+/mob/forceMove(atom/dest)
+	var/atom/movable/AM
+	if (dest != loc && istype(dest, /atom/movable))
+		AM = dest
+		LAZYADD(AM.contained_mobs, src)
+	
+	if (istype(loc, /atom/movable))
+		AM = loc
+		LAZYREMOVE(AM.contained_mobs, src)
+	
+	. = ..()
+
 /mob/verb/northfaceperm()
 	set hidden = 1
 	set_face_dir(client.client_dir(NORTH))

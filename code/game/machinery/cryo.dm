@@ -33,7 +33,7 @@
 		beaker.loc = get_step(loc, SOUTH) //Beaker is carefully ejected from the wreckage of the cryotube
 	return ..()
 
-/obj/machinery/atmospherics/unary/cryo_cell/initialize()
+/obj/machinery/atmospherics/unary/cryo_cell/atmos_init()
 	if(node) return
 	var/node_connect = dir
 	for(var/obj/machinery/atmospherics/target in get_step(src,node_connect))
@@ -237,30 +237,33 @@
 					user.pulling = null
 
 /obj/machinery/atmospherics/unary/cryo_cell/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	var/list/ovr = list()
 	icon_state = "pod[on]"
 	var/image/I
 
 	I = image(icon, "pod[on]_top")
 	I.layer = 5 // this needs to be fairly high so it displays over most things, but it needs to be under lighting (at 10)
 	I.pixel_z = 32
-	overlays += I
+	ovr += I
 
 	if(occupant)
 		var/image/pickle = image(occupant.icon, occupant.icon_state)
 		pickle.overlays = occupant.overlays
 		pickle.pixel_z = 18
 		pickle.layer = 5
-		overlays += pickle
+		ovr += pickle
 
 	I = image(icon, "lid[on]")
 	I.layer = 5
-	overlays += I
+	ovr += I
 
 	I = image(icon, "lid[on]_top")
 	I.layer = 5
 	I.pixel_z = 32
-	overlays += I
+	ovr += I
+
+	add_overlay(ovr)
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/process_occupant()
 	if(air_contents.total_moles < 10)

@@ -47,7 +47,8 @@
 	worth = 0
 
 /obj/item/weapon/spacecash/bundle/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	var/list/ovr = list()
 	var/sum = src.worth
 	var/num = 0
 	for(var/i in list(1000,500,200,100,50,20,10,1))
@@ -59,14 +60,17 @@
 			M.Translate(rand(-6, 6), rand(-4, 8))
 			M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
 			banknote.transform = M
-			src.overlays += banknote
+			ovr += banknote
 	if(num == 0) // Less than one credit, let's just make it look like 1 for ease
 		var/image/banknote = image('icons/obj/items.dmi', "spacecash1")
 		var/matrix/M = matrix()
 		M.Translate(rand(-6, 6), rand(-4, 8))
 		M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
 		banknote.transform = M
-		src.overlays += banknote
+		ovr += banknote
+
+	add_overlay(ovr)
+	compile_overlays()	// The delay looks weird, so we force an update immediately.
 	src.desc = "They are worth [worth] credits."
 
 /obj/item/weapon/spacecash/bundle/attack_self()

@@ -58,26 +58,24 @@
 	return
 
 /datum/beam/proc/recalculate_in(time)
-	if(timing_id)
-		deltimer(timing_id)
-	timing_id = addtimer(CALLBACK(src, .proc/recalculate), time, TIMER_STOPPABLE)
+	timing_id = addtimer(CALLBACK(src, .proc/recalculate), time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
 
 /datum/beam/proc/after_calculate()
 	if((sleep_time == null) || finished)	//Does not automatically recalculate.
 		return
-	if(isnull(timing_id))
-		timing_id = addtimer(CALLBACK(src, .proc/recalculate), sleep_time, TIMER_STOPPABLE)
+	timing_id = addtimer(CALLBACK(src, .proc/recalculate), sleep_time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 /datum/beam/proc/End(destroy_self = TRUE)
 	finished = TRUE
-	if(!isnull(timing_id))
+	if(timing_id)
 		deltimer(timing_id)
-	if(!QDELETED(src) && destroy_self)
+	if(!QDELING(src) && destroy_self)
 		qdel(src)
 
 /datum/beam/proc/Reset()
 	for(var/obj/effect/ebeam/B in elements)
 		qdel(B)
+	elements.Cut()
 
 /datum/beam/Destroy()
 	Reset()
@@ -99,7 +97,7 @@
 	for(N in 0 to length-1 step 32)//-1 as we want < not <=, but we want the speed of X in Y to Z and step X
 		var/obj/effect/ebeam/X = new beam_type(origin_oldloc)
 		X.owner = src
-		elements |= X
+		elements += X
 
 		//Assign icon, for main segments it's base_icon, for the end, it's icon+icon_state
 		//cropped by a transparent box of length-N pixel size

@@ -1,8 +1,8 @@
 /obj/machinery/computer/sentencing
 	name = "criminal sentencing console"
 	desc = "Used to generate a criminal sentence."
-	icon_state = "securityw"
-	icon_screen = null
+	icon_state = "computerw"
+	icon_screen = "securityw"
 	light_color = LIGHT_COLOR_ORANGE
 	req_one_access = list( access_brig, access_heads )
 	circuit = "/obj/item/weapon/circuitboard/sentencing"

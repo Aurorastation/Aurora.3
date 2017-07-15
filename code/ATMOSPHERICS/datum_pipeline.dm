@@ -22,11 +22,6 @@
 
 	return ..()
 
-/datum/pipeline/resetVariables()
-	..("members", "edges")
-	members = list()
-	edges = list()
-
 /datum/pipeline/process()//This use to be called called from the pipe networks
 	//Check to see if pressure is within acceptable limits
 	var/pressure = air.return_pressure()
