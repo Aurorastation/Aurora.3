@@ -27,11 +27,17 @@
 	icon_state = "[initial(icon_state)]"
 	item_state = "[initial(item_state)]"
 	suittoggled = 0
+
+	// Hood got nuked. Probably because of RIGs or the like.
+	if (!hood)
+		MakeHood()
+		return
+
 	if(ishuman(hood.loc))
 		var/mob/living/carbon/H = hood.loc
 		H.unEquip(hood, 1)
 		H.update_inv_wear_suit()
-	hood.loc = src
+	hood.forceMove(src)
 
 /obj/item/clothing/suit/storage/hooded/dropped()
 	RemoveHood()

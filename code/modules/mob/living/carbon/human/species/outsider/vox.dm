@@ -23,6 +23,8 @@
 	stamina_recovery = 1
 	sprint_cost_factor = 1
 
+	taste_sensitivity = TASTE_DULL
+
 	speech_sounds = list('sound/voice/shriek1.ogg')
 	speech_chance = 20
 

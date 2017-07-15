@@ -37,13 +37,15 @@
 /obj/structure/bed/chair/update_icon()
 	..()
 
+	var/list/stool_cache = SSicon_cache.stool_cache
+
 	var/cache_key = "[base_icon]-[material.name]-over"
 	if(isnull(stool_cache[cache_key]))
 		var/image/I = image('icons/obj/furniture.dmi', "[base_icon]_over")
 		I.color = material.icon_colour
 		I.layer = FLY_LAYER
 		stool_cache[cache_key] = I
-	overlays |= stool_cache[cache_key]
+	add_overlay(stool_cache[cache_key])
 	// Padding overlay.
 	if(padding_material)
 		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]-over"
@@ -52,7 +54,7 @@
 			I.color = padding_material.icon_colour
 			I.layer = FLY_LAYER
 			stool_cache[padding_cache_key] = I
-		overlays |= stool_cache[padding_cache_key]
+		add_overlay(stool_cache[padding_cache_key])
 
 	if(buckled_mob && padding_material)
 		cache_key = "[base_icon]-armrest-[padding_material.name]"
@@ -61,7 +63,7 @@
 			I.layer = MOB_LAYER + 0.1
 			I.color = padding_material.icon_colour
 			stool_cache[cache_key] = I
-		overlays |= stool_cache[cache_key]
+		add_overlay(stool_cache[cache_key])
 
 /obj/structure/bed/chair/set_dir()
 	..()
@@ -187,7 +189,7 @@
 	. = ..()
 	var/image/I = image(icon, "[icon_state]_over")
 	I.layer = FLY_LAYER
-	overlays += I
+	add_overlay(I)
 
 // Chair types
 /obj/structure/bed/chair/wood
@@ -207,7 +209,7 @@
 	. = ..(mapload, "wood")
 	var/image/I = image(icon, "[icon_state]_over")
 	I.layer = FLY_LAYER
-	overlays += I
+	add_overlay(I)
 
 /obj/structure/bed/chair/wood/wings
 	icon_state = "wooden_chair_wings"

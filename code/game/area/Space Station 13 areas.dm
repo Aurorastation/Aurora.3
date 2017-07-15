@@ -129,10 +129,11 @@ area/space/atmosalert()
 	requires_power = 0
 	sound_env = SMALL_ENCLOSED
 	no_light_control = 1
+	flags = SPAWN_ROOF
 
 /area/shuttle/arrival
 	name = "\improper Arrival Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/arrival/centcom
 	icon_state = "shuttle2"
@@ -164,7 +165,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape
 	name = "\improper Emergency Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape/station
 	name = "\improper Emergency Shuttle Station"
@@ -185,7 +186,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod1
 	name = "\improper Escape Pod One"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod1/station
 	icon_state = "shuttle2"
@@ -203,7 +204,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod2
 	name = "\improper Escape Pod Two"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod2/station
 	icon_state = "shuttle2"
@@ -221,7 +222,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod3
 	name = "\improper Escape Pod Three"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod3/station
 	icon_state = "shuttle2"
@@ -239,7 +240,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod5 //Pod 4 was lost to meteors
 	name = "\improper Escape Pod Five"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod5/station
 	icon_state = "shuttle2"
@@ -280,7 +281,7 @@ area/space/atmosalert()
 
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 	base_turf = /turf/unsimulated/floor
 	icon_state = "shuttlered"
 	centcomm_area = 1
@@ -292,7 +293,7 @@ area/space/atmosalert()
 
 /area/shuttle/syndicate_elite
 	name = "\improper Merc Elite Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/syndicate_elite/mothership
 	icon_state = "shuttlered"
@@ -304,7 +305,7 @@ area/space/atmosalert()
 	station_area = 1
 
 /area/shuttle/administration
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/administration/centcom
 	name = "\improper Administration Shuttle Centcom"
@@ -328,12 +329,6 @@ area/space/atmosalert()
 /area/shuttle/research/outpost
 	icon_state = "shuttle"
 	station_area = 1
-
-/area/airtunnel1/      // referenced in airtunnel.dm:759
-
-/area/dummy/           // Referenced in engine.dm:261
-
-// === end remove
 
 // CENTCOM
 
@@ -401,7 +396,7 @@ area/space/atmosalert()
 /area/syndicate_mothership/elite_squad
 	name = "\improper Elite Mercenary Squad"
 	icon_state = "syndie-elite"
-	
+
 /area/syndicate_mothership/raider_base
 	name = "\improper Pirate Hideout"
 	icon_state = "syndie-control"
@@ -477,7 +472,7 @@ area/space/atmosalert()
 	name = "\improper Independent Station"
 	icon_state = "yellow"
 	requires_power = 0
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 	no_light_control = 1
 
 /area/syndicate_station/start
@@ -533,6 +528,7 @@ area/space/atmosalert()
 	requires_power = 0
 	no_light_control = 1
 	base_turf = /turf/space
+	flags = SPAWN_ROOF
 
 /area/skipjack_station/start
 	name = "\improper Skipjack"
@@ -574,7 +570,7 @@ area/space/atmosalert()
 
 
 /area/maintenance
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = list(
@@ -585,9 +581,6 @@ area/space/atmosalert()
 		'sound/ambience/ambimaint5.ogg'
 	)
 	station_area = 1
-
-/area/maintenance/holomapAlwaysDraw()
-	return FALSE
 
 /area/maintenance/civ
 	name = "\improper Civilian Maintenance"
@@ -1054,16 +1047,28 @@ area/space/atmosalert()
 /area/holodeck
 	name = "\improper Holodeck"
 	icon_state = "Holodeck"
-	dynamic_lighting = 0
 	sound_env = LARGE_ENCLOSED
-	no_light_control = 1
-	station_area = 1
+	no_light_control = TRUE
+	station_area = TRUE
+	dynamic_lighting = FALSE
 
 /area/holodeck/alphadeck
 	name = "\improper Holodeck Alpha"
+	dynamic_lighting = TRUE
 
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
+
+/area/holodeck/source_chapel
+	name = "\improper Holodeck - Chapel"
+
+/area/holodeck/source_gym
+	name = "\improper Holodeck - Gym"
+	sound_env = ARENA
+
+/area/holodeck/source_range
+	name = "\improper Holodeck - Range"
+	sound_env = ARENA
 
 /area/holodeck/source_emptycourt
 	name = "\improper Holodeck - Empty Court"
@@ -1209,6 +1214,10 @@ area/space/atmosalert()
 /area/engineering/workshop
 	name = "\improper Engineering Workshop"
 	icon_state = "engineering_workshop"
+
+/area/engineering/cooling
+	name = "\improper Engineering Cooling Radiator"
+	icon_state = "engineering_monitoring"
 
 
 
@@ -1401,12 +1410,7 @@ area/space/atmosalert()
 	icon_state = "chem"
 
 /area/medical/surgery
-	name = "\improper Operating Theatre 1"
-	icon_state = "surgery"
-	no_light_control = 1
-
-/area/medical/surgery2
-	name = "\improper Operating Theatre 2"
+	name = "\improper Operating Theatre"
 	icon_state = "surgery"
 	no_light_control = 1
 
@@ -1541,9 +1545,7 @@ area/space/atmosalert()
 	name = "\improper Vault"
 	icon_state = "nuke_storage"
 	holomap_color = null
-
-/area/security/nuke_storage/holomapAlwaysDraw()
-	return FALSE
+	flags = HIDE_FROM_HOLOMAP
 
 /area/security/checkpoint
 	name = "\improper Security Checkpoint"
@@ -1970,9 +1972,7 @@ area/space/atmosalert()
 
 /area/turret_protected
 	station_area = 1
-
-/area/turret_protected/holomapAlwaysDraw()
-	return FALSE
+	flags = HIDE_FROM_HOLOMAP
 
 /area/turret_protected/ai_upload
 	name = "\improper AI Upload Chamber"
@@ -2119,10 +2119,10 @@ area/space/atmosalert()
 */
 
 // CENTCOM
-var/list/centcom_areas = list ()
+var/list/centcom_areas = list()
 
 //SPACE STATION 13
-var/list/the_station_areas = list ()
+var/list/the_station_areas = list()
 
 /area/beach
 	name = "Keelin's private beach"

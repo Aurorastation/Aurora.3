@@ -92,7 +92,7 @@
 
 	var/debug = 0
 
-/obj/machinery/power/supermatter/New()
+/obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 
@@ -275,7 +275,7 @@
 		var/rads = (power / 10) * ( 1 / (radius**2) )
 		if (!(l in oview(rad_range, src)) && !(l in range(src, round(rad_range * 2/3))))
 			continue
-		l.apply_effect(rads, IRRADIATE)
+		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
@@ -356,7 +356,7 @@
 	user.drop_from_inventory(W)
 	Consume(W)
 
-	user.apply_effect(150, IRRADIATE)
+	user.apply_effect(150, IRRADIATE, blocked = user.getarmor(null, "rad"))
 
 
 /obj/machinery/power/supermatter/Bumped(atom/AM as mob|obj)
@@ -397,7 +397,7 @@
 		else
 			l.show_message("<span class=\"warning\">You hear an uneartly ringing and notice your skin is covered in fresh radiation burns.</span>", 2)
 		var/rads = 500 * sqrt( 1 / (get_dist(l, src) + 1) )
-		l.apply_effect(rads, IRRADIATE)
+		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
 
 
 /obj/machinery/power/supermatter/proc/supermatter_pull()

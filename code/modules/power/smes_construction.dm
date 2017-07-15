@@ -106,7 +106,7 @@
 // Proc: New()
 // Parameters: None
 // Description: Adds standard components for this SMES, and forces recalculation of properties.
-/obj/machinery/power/smes/buildable/New(var/install_coils = 1)
+/obj/machinery/power/smes/buildable/Initialize(mapload, install_coils = 1)
 	component_parts = list()
 	component_parts += new /obj/item/stack/cable_coil(src,30)
 	component_parts += new /obj/item/weapon/circuitboard/smes(src)
@@ -120,7 +120,7 @@
 
 	SSmachinery.queue_rcon_update()
 
-	..()
+	. = ..()
 
 // Proc: attack_hand()
 // Parameters: None

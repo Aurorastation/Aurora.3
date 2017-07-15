@@ -54,7 +54,8 @@ var/list/gamemode_cache = list()
 	var/list/mode_names = list()
 	var/list/modes = list()				// allowed modes
 	var/list/votable_modes = list()		// votable modes
-	var/list/probabilities = list()		// relative probability of each mode
+	var/list/probabilities_secret = list()			// relative probability of each mode in secret/random
+	var/list/probabilities_mixed_secret = list()	// relative probability of each mode in heavy secret mode
 	var/humans_need_surnames = 0
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 1					// allow ai job
@@ -281,10 +282,11 @@ var/list/gamemode_cache = list()
 				log_misc("Adding game mode [M.name] ([M.config_tag]) to configuration.")
 				src.modes += M.config_tag
 				src.mode_names[M.config_tag] = M.name
-				src.probabilities[M.config_tag] = M.probability
+				src.probabilities_secret[M.config_tag] = M.probability
 				if (M.votable)
 					src.votable_modes += M.config_tag
-	src.votable_modes += "secret"
+	src.votable_modes += ROUNDTYPE_STR_SECRET
+	votable_modes += ROUNDTYPE_STR_MIXED_SECRET
 
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 	var/list/Lines = file2list(filename)
@@ -522,15 +524,22 @@ var/list/gamemode_cache = list()
 					config.protect_roles_from_antagonist = 1
 
 				if ("probability")
-					var/prob_pos = findtext(value, " ")
-					var/prob_name = null
-					var/prob_value = null
+					var/list/chunks = splittext(value, " ")
+					var/prob_type
+					var/prob_name
+					var/prob_value
 
-					if (prob_pos)
-						prob_name = lowertext(copytext(value, 1, prob_pos))
-						prob_value = copytext(value, prob_pos + 1)
+					if (chunks.len == 3)
+						prob_type = lowertext(chunks[1])
+						prob_name = lowertext(chunks[2])
+						prob_value = text2num(chunks[3])
 						if (prob_name in config.modes)
-							config.probabilities[prob_name] = text2num(prob_value)
+							// S adds a mode to standard secret rotation
+							// MS adds a mode to mixed secret rotation
+							if (prob_type == "s")
+								config.probabilities_secret[prob_name] = prob_value
+							else if (prob_type == "ms")
+								config.probabilities_mixed_secret[prob_name] = prob_value
 						else
 							log_misc("Unknown game mode probability configuration definition: [prob_name].")
 					else
@@ -932,11 +941,21 @@ var/list/gamemode_cache = list()
 			return M
 	return gamemode_cache["extended"]
 
-/datum/configuration/proc/get_runnable_modes()
+/datum/configuration/proc/get_runnable_modes(secret_type = ROUNDTYPE_STR_SECRET)
+	var/list/probabilities = config.probabilities_secret
+
+	if (secret_type == ROUNDTYPE_STR_MIXED_SECRET)
+		probabilities = config.probabilities_mixed_secret
+	else if (secret_type == ROUNDTYPE_STR_RANDOM)
+		// Random picks from EVERYTHING. Need to use Copy() as to not pollute the
+		// original list. PBRef is /great/.
+		probabilities = config.probabilities_secret.Copy()
+		probabilities |= config.probabilities_mixed_secret
+
 	var/list/runnable_modes = list()
 	for(var/game_mode in gamemode_cache)
 		var/datum/game_mode/M = gamemode_cache[game_mode]
-		if(M && M.can_start() && !isnull(config.probabilities[M.config_tag]) && config.probabilities[M.config_tag] > 0)
+		if(M && M.can_start() && probabilities[M.config_tag] && probabilities[M.config_tag] > 0)
 			runnable_modes |= M
 	return runnable_modes
 

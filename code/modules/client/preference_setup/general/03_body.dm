@@ -138,7 +138,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if (pref.rlimb_data)
 			pref.rlimb_data = params2list(pref.rlimb_data)
 		if (pref.body_markings)
-			pref.body_markings = json_decode(pref.body_markings)
+			var/before = pref.body_markings
+			try
+				pref.body_markings = json_decode(pref.body_markings)
+			catch (var/exception/e)
+				log_debug("BODY MARKINGS: Caught [e]. Initial value: [before]")
+				pref.body_markings = list()
 
 	pref.r_hair			= sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
 	pref.g_hair			= sanitize_integer(pref.g_hair, 0, 255, initial(pref.g_hair))
@@ -601,7 +606,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/disability_flag = text2num(href_list["disabilities"])
 		pref.disabilities ^= disability_flag
 		return TOPIC_REFRESH
-		
+
 	else if(href_list["toggle_clothing"])
 		pref.dress_mob = !pref.dress_mob
 		return TOPIC_REFRESH

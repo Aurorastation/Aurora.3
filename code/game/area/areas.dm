@@ -23,11 +23,12 @@
 		luminosity = 0
 	else
 		luminosity = 1
-	if(centcomm_area)
-		centcom_areas |= src
-	if(station_area)
-		the_station_areas |= src
 
+	if(centcomm_area)
+		centcom_areas[src] = TRUE
+
+	if(station_area)
+		the_station_areas[src] = TRUE
 
 	if(!requires_power || !apc)
 		power_light = 0
@@ -35,9 +36,7 @@
 		power_environ = 0
 
 	if (!mapload)
-		power_change()		// all machines set to current power level, also updates lighting icon
-
-	blend_mode = BLEND_MULTIPLY
+		power_change()		// all machines set to current power level
 
 	. = ..()
 
@@ -386,11 +385,3 @@ var/list/mob/living/forced_ambiance_list = new
 	if (turfs.len)
 		return pick(turfs)
 	else return null
-
-
-// Whether the turfs in the area should be drawn onto the "base" holomap.
-/area/proc/holomapAlwaysDraw()
-	return TRUE
-
-/area/shuttle/holomapAlwaysDraw()
-	return FALSE

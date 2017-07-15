@@ -12,9 +12,7 @@
 /area/mine/unexplored
 	name = "Mine"
 	icon_state = "unexplored"
-
-/area/mine/unexplored/holomapAlwaysDraw()
-	return FALSE
+	flags = HIDE_FROM_HOLOMAP
 
 //S
 

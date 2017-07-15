@@ -13,6 +13,8 @@
 #define CANPASS_PROC 3
 #define CANPASS_NEVER 4
 
+#define TURF_HAS_VALID_ZONE(T) (istype(T, /turf/simulated) && T:zone && !T:zone:invalid)
+
 #ifdef MULTIZAS
 #define ATMOS_CANPASS_TURF(ret,A,B) \
 	if (A.blocks_air & AIR_BLOCKED || B.blocks_air & AIR_BLOCKED) { \
@@ -20,14 +22,14 @@
 	} \
 	else if (B.z != A.z) { \
 		if (B.z < A.z) { \
-			if (!istype(A, /turf/simulated/open)) { \
+			if (!isopenturf(A)) { \
 				ret = BLOCKED; \
 			} else { \
 				ret = ZONE_BLOCKED; \
 			} \
 		} \
 		else { \
-			if (!istype(B, /turf/simulated/open)) { \
+			if (!isopenturf(B)) { \
 				ret = BLOCKED; \
 			} else { \
 				ret = ZONE_BLOCKED; \

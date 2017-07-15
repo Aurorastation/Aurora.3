@@ -4,6 +4,10 @@
 // Do not remove this functionality without good reason, cough reagent_containers cough.
 // -Sayu
 
+// Because tick_checking this code gets funky (it's bound directly into user interaction)
+// We instead cap the amount of maximum storage space to 200. A loop that should be fine
+// for the server to handle without dying.
+#define STORAGE_SPACE_CAP 200
 
 /obj/item/weapon/storage
 	name = "storage"
@@ -212,7 +216,7 @@
 	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
 	var/storage_width = min( round( 224 * max_storage_space/baseline_max_storage_space ,1) ,284) //length of sprite for the box representing total storage space
 
-	storage_start.overlays.Cut()
+	storage_start.cut_overlays()
 
 	var/matrix/M = matrix()
 	M.Scale((storage_width-storage_cap_width*2+3)/32,1)
@@ -239,13 +243,13 @@
 		stored_start.transform = M_start
 		stored_continue.transform = M_continue
 		stored_end.transform = M_end
-		storage_start.overlays += stored_start
-		storage_start.overlays += stored_continue
-		storage_start.overlays += stored_end
+		storage_start.add_overlay(list(stored_start, stored_continue, stored_end))
 
 		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""
 		O.layer = 20
+
+	storage_start.compile_overlays()
 
 	closer.screen_loc = "4:[storage_width+19],2:16"
 	return
@@ -254,11 +258,11 @@
 	var/obj/item/sample_object
 	var/number
 
-	New(obj/item/sample as obj)
-		if(!istype(sample))
-			qdel(src)
-		sample_object = sample
-		number = 1
+/datum/numbered_display/New(obj/item/sample as obj)
+	if(!istype(sample))
+		qdel(src)
+	sample_object = sample
+	number = 1
 
 //This proc determins the size of the inventory to be displayed. Please touch it only if you know what you're doing.
 /obj/item/weapon/storage/proc/orient2hud(mob/user as mob)
@@ -522,6 +526,10 @@
 /obj/item/weapon/storage/Initialize()
 	..()
 
+	if (max_storage_space > STORAGE_SPACE_CAP)
+		log_debug("STORAGE: [type] exceed STORAGE_SPACE_CAP. It has been reset to [STORAGE_SPACE_CAP].")
+		max_storage_space = STORAGE_SPACE_CAP
+
 	fill()
 
 	if(!allow_quick_empty)
@@ -666,3 +674,5 @@
 			return 1000
 
 		//return 2**(w_class-1) //1,2,4,8,16,...
+
+#undef STORAGE_SPACE_CAP

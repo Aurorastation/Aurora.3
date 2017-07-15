@@ -21,6 +21,7 @@ var/global/list/surgery_steps = list()				//list of all surgery steps  |BS12
 var/global/list/side_effects = list()				//list of all medical sideeffects types by thier names |BS12
 var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mobs target tracking.
 var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
+var/global/list/brig_closets = list()				//list of all brig secure_closets. Used by brig timers. Probably should be converted to use SSwireless eventually.
 
 var/global/list/turfs = list()						//list of all turfs
 
@@ -107,6 +108,10 @@ var/global/list/cloaking_devices = list()
 				hair_styles_male_list += H.name
 				hair_styles_female_list += H.name
 
+	sortTim(hair_styles_list, /proc/cmp_text_asc)
+	sortTim(hair_styles_male_list, /proc/cmp_text_asc)
+	sortTim(hair_styles_female_list, /proc/cmp_text_asc)
+
 	//Facial Hair - Initialise all /datum/sprite_accessory/facial_hair into an list indexed by facialhair-style name
 	paths = subtypesof(/datum/sprite_accessory/facial_hair)
 	for(var/path in paths)
@@ -118,12 +123,18 @@ var/global/list/cloaking_devices = list()
 			else
 				facial_hair_styles_male_list += H.name
 				facial_hair_styles_female_list += H.name
-				
+
+	sortTim(facial_hair_styles_list, /proc/cmp_text_asc)
+	sortTim(facial_hair_styles_male_list, /proc/cmp_text_asc)
+	sortTim(facial_hair_styles_female_list, /proc/cmp_text_asc)
+
 	//Body markings 
 	paths = subtypesof(/datum/sprite_accessory/marking)
 	for(var/path in paths)
 		var/datum/sprite_accessory/marking/M = new path()
 		body_marking_styles_list[M.name] = M
+
+	sortTim(body_marking_styles_list, /proc/cmp_text_asc)
 
 	//Surgery Steps - Initialize all /datum/surgery_step into a list
 	paths = subtypesof(/datum/surgery_step)
@@ -159,7 +170,13 @@ var/global/list/cloaking_devices = list()
 		S.race_key = rkey //Used in mob icon caching.
 		all_species[S.name] = S
 
-		if(!(S.spawn_flags & IS_RESTRICTED))
+	sortTim(all_species, /proc/cmp_text_asc)
+
+	// The other lists are generated *after* we sort the main one so they don't need sorting too.
+	for (var/thing in all_species)
+		var/datum/species/S = all_species[thing]
+		
+		if (!(S.spawn_flags & IS_RESTRICTED))
 			playable_species += S.name
 		if(S.spawn_flags & IS_WHITELISTED)
 			whitelisted_species += S.name

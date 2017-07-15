@@ -19,7 +19,12 @@
 	var/last_state
 	var/construction_stage
 
-	var/list/wall_connections = list("0", "0", "0", "0")
+	var/tmp/list/image/reinforcement_images
+	var/tmp/image/damage_image
+	var/tmp/image/fake_wall_image
+	var/tmp/cached_adjacency
+
+	smooth = SMOOTH_TRUE | SMOOTH_NO_CLEAR_ICON
 
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
@@ -178,7 +183,6 @@
 	clear_plants()
 	material = get_material_by_name("placeholder")
 	reinf_material = null
-	update_connections(1)
 
 	if (!no_change)
 		ChangeTurf(/turf/simulated/floor/plating)
@@ -238,7 +242,7 @@
 		return
 
 	for(var/mob/living/L in range(3,src))
-		L.apply_effect(total_radiation, IRRADIATE,0)
+		L.apply_effect(total_radiation, IRRADIATE, blocked = L.getarmor(null, "rad"))
 	return total_radiation
 
 /turf/simulated/wall/proc/burn(temperature)

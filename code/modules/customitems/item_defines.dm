@@ -1078,3 +1078,30 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = 1
 	stored_name = "Francis Pyre"
 	badge_string = "CPD"
+
+
+/obj/item/toy/plushie/fluff/oz_plushie //Mr. Monkey - Oz Auman - theiguanaman2
+	name = "\improper Mr.Monkey"
+	desc = "A calming toy monkey."
+	icon = 'icons/obj/custom_items/oz_plushie.dmi'
+	icon_state = "oz_plushie"
+
+
+/obj/item/clothing/suit/storage/fluff/vizili_mantle //Maraziite Throw Over - Urzkrauzi Vizili - jackboot
+	name = "maraziite throw over"
+	desc = "A worn, grey poncho exclusively worn by members of the Maraziite Order."
+	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
+	icon_state = "vizili_mantle"
+	item_state = "vizili_mantle"
+	contained_sprite = 1
+
+/obj/item/clothing/mask/fluff/vizili_mask //Iron Mask - Urzkrauzi Vizili - jackboot
+	name = "iron mask"
+	desc = "A mask made of iron worn by members of the Maraziite Order. It can strike dread in the hearts of Unathi that don't toe the line of Sk'akh orthodoxy."
+	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
+	icon_state = "vizili_mask"
+	item_state = "vizili_mask"
+	contained_sprite = 1
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3.0

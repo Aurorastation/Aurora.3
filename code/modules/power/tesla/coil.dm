@@ -8,8 +8,8 @@
 	var/power_loss = 2
 	var/input_power_multiplier = 1
 
-/obj/machinery/power/tesla_coil/New()
-	..()
+/obj/machinery/power/tesla_coil/Initialize()
+	. = ..()
 	component_parts = list()
 //	component_parts += new /obj/item/weapon/circuitboard/tesla_coil(null)
 	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
@@ -62,8 +62,8 @@
 	anchored = 0
 	density = 1
 
-/obj/machinery/power/grounding_rod/New()
-	..()
+/obj/machinery/power/grounding_rod/Initialize()
+	. = ..()
 	component_parts = list()
 //	component_parts += new /obj/item/weapon/circuitboard/grounding_rod(null)
 	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
