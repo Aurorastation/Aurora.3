@@ -18,13 +18,13 @@
 	return list("ss13_characters" = list("vars" = list("underwear", "undershirt", "socks", "backbag"), "args" = list("id")))
 
 /datum/category_item/player_setup_item/general/equipment/gather_load_parameters()
-	return list(":id" = pref.current_character)
+	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/equipment/gather_save_query()
 	return list("ss13_characters" = list("underwear", "undershirt", "socks", "backbag", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/general/equipment/gather_save_parameters()
-	return list(":underwear" = pref.underwear, ":undershirt" = pref.undershirt, ":socks" = pref.socks, ":backbag" = pref.backbag, ":id" = pref.current_character, ":ckey" = pref.client.ckey)
+	return list("underwear" = pref.underwear, "undershirt" = pref.undershirt, "socks" = pref.socks, "backbag" = pref.backbag, "id" = pref.current_character, "ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/general/equipment/sanitize_character(var/sql_load = 0)
 	if (sql_load)

@@ -7,14 +7,16 @@
 
 /obj/item/weapon/reagent_containers/glass/replenishing/New()
 	..()
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	spawning_id = pick("blood","holywater","lube","stoxin","ethanol","ice","glycerol","fuel","cleaner")
 
 
 /obj/item/weapon/reagent_containers/glass/replenishing/process()
 	reagents.add_reagent(spawning_id, 0.3)
 
-
+/obj/item/weapon/reagent_containers/glass/replenishing/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 //a talking gas mask!
 /obj/item/clothing/mask/gas/poltergeist
@@ -23,11 +25,11 @@
 	var/max_stored_messages = 100
 
 /obj/item/clothing/mask/gas/poltergeist/New()
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	listening_objects += src
 
 /obj/item/clothing/mask/gas/poltergeist/Destroy()
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	listening_objects -= src
 	return ..()
 
@@ -112,7 +114,7 @@
 
 	if(charges >= 0.1)
 		if(prob(5))
-			src.visible_message("\red \icon[src] [src]'s eyes glow ruby red for a moment!")
+			src.visible_message("<span class='warning'>\icon[src] [src]'s eyes glow ruby red for a moment!</span>")
 			charges -= 0.1
 
 	//check on our shadow wights
@@ -142,7 +144,7 @@
 
 		var/target = pick(M.organs_by_name)
 		M.apply_damage(rand(5, 10), BRUTE, target)
-		M << "\red The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out."
+		M << "<span class='warning'>The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out.</span>"
 		var/obj/effect/decal/cleanable/blood/splatter/animated/B = new(M.loc)
 		B.target_turf = pick(range(1, src))
 		B.blood_DNA = list()

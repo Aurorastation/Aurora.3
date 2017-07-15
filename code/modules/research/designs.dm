@@ -327,7 +327,7 @@ other types of metals and chemistry for reagents).
 	id = "plasmacutter"
 	req_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 1500, "glass" = 500, "gold" = 500, "phoron" = 500)
-	build_path = /obj/item/weapon/pickaxe/plasmacutter
+	build_path = /obj/item/weapon/gun/energy/plasmacutter
 	sort_string = "KAAAC"
 
 /datum/design/item/weapon/mining/pick_diamond
@@ -534,8 +534,8 @@ datum/design/circuit/telepad
 
 /datum/design/item/weapon/decloner
 	id = "decloner"
-	req_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7, TECH_BIO = 5, TECH_POWER = 6)
-	materials = list("gold" = 5000,"uranium" = 10000, "mutagen" = 40)
+	req_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 7, TECH_BIO = 5, TECH_POWER = 6)
+	materials = list("gold" = 5000,"uranium" = 10000)
 	build_path = /obj/item/weapon/gun/energy/decloner
 	sort_string = "TAAAE"
 
@@ -620,7 +620,7 @@ datum/design/item/weapon/railgun
 	id = "railgun"
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
-	req_tech = list(TECH_COMBAT = 8, TECH_PHORON = 2, TECH_MATERIAL = 7, TECH_MAGNET = 4, TECH_POWER = 5, TECH_ILLEGAL = 3)
+	req_tech = list(TECH_COMBAT = 7, TECH_PHORON = 2, TECH_MATERIAL = 7, TECH_MAGNET = 4, TECH_POWER = 5, TECH_ILLEGAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 75000, "glass" = 18750, "phoron" = 11250, "gold" = 7500, "silver" = 7500)
 	build_path = /obj/item/weapon/gun/projectile/automatic/railgun
 	sort_string = "TVCAA"
@@ -691,13 +691,6 @@ datum/design/item/weapon/lasercannon
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 1000, "diamond" = 2000)
 	build_path = /obj/item/weapon/gun/energy/rifle/laser/heavy
 	sort_string = "TVJAA"
-
-datum/design/item/weapon/decloner
-	id = "decloner"
-	req_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7, TECH_BIO = 5, TECH_POWER = 6)
-	materials = list("gold" = 5000,"uranium" = 10000)
-	build_path = /obj/item/weapon/gun/energy/decloner
-	sort_string = "TVKAA"
 
 datum/design/item/weapon/mousegun
 	id = "mousegun"
@@ -1666,6 +1659,13 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/weapon/circuitboard/ntnet_relay
 	sort_string = "WAAAA"
+
+/datum/design/circuit/crusher_base
+	name = "trash compactor"
+	id = "crusher_base"
+	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 1, TECH_MAGNET = 1, TECH_MATERIALS = 3)
+	build_path = /obj/item/weapon/circuitboard/crusher
+	sort_string = "WAAAB"
 
 /datum/design/circuit/aicore
 	name = "AI core"

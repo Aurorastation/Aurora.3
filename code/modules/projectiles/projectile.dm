@@ -75,7 +75,7 @@
 
 //TODO: make it so this is called more reliably, instead of sometimes by bullet_act() and sometimes not
 /obj/item/projectile/proc/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
-	if(blocked >= 2)		return 0//Full block
+	if(blocked >= 100)		return 0//Full block
 	if(!isliving(target))	return 0
 	if(isanimal(target))	return 0
 	var/mob/living/L = target
@@ -84,7 +84,10 @@
 		var/obj/item/organ/external/organ = H.get_organ(def_zone)
 		var/armor = H.getarmor_organ(organ, check_armour)
 		agony = max(0, agony - armor)
-	L.apply_effects(stun, weaken, paralyze, irradiate, stutter, eyeblur, drowsy, agony, incinerate, blocked) // add in AGONY!
+
+	L.apply_effects(stun, weaken, paralyze, 0, stutter, eyeblur, drowsy, agony, incinerate, blocked) // add in AGONY!
+	//radiation protection is handled separately from other armour types.
+	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad"))
 	return 1
 
 //called when the projectile stops flying because it collided with something
@@ -423,7 +426,8 @@
 	return process(targloc)
 
 /obj/item/projectile/test/process(var/turf/targloc)
-	while(src) //Loop on through!
+	var/safety = 100	// We really never should need this to last longer than this number of iterations.
+	while(!QDELING(src) && safety > 0) //Loop on through!
 		if(result)
 			return (result - 1)
 		if((!( targloc ) || loc == targloc))
@@ -441,6 +445,11 @@
 			M = locate() in get_step(src,targloc)
 			if(istype(M))
 				return 1
+
+		safety--
+
+	if (safety < 0)
+		crash_with("test projectile process() maximum iterations exceeded, aborting!")
 
 //Helper proc to check if you can hit them or not.
 /proc/check_trajectory(atom/target as mob|obj, atom/firer as mob|obj, var/pass_flags=PASSTABLE|PASSGLASS|PASSGRILLE, flags=null)

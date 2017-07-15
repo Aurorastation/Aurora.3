@@ -19,7 +19,7 @@
 	disconnect_from_network()
 	disconnect_terminal()
 
-	..()
+	return ..()
 
 ///////////////////////////////
 // General procedures
@@ -190,6 +190,10 @@
 			. += C
 	return .
 
+/obj/machinery/power/shuttle_move(turf/loc)
+	..()
+	SSmachinery.powernet_update_queued = TRUE
+
 ///////////////////////////////////////////
 // GLOBAL PROCS for powernets handling
 //////////////////////////////////////////
@@ -233,16 +237,15 @@
 					. += C
 	return .
 
-/hook/startup/proc/buildPowernets()
-	return makepowernets()
-
-// rebuild all power networks from scratch - only called at world creation or by the admin verb
+// rebuild all power networks from scratch - called by area movement, world start, & by an admin verb.
 /proc/makepowernets()
+	var/list/powernets = SSpower.powernets
 	for(var/datum/powernet/PN in powernets)
 		qdel(PN)
 	powernets.Cut()
 
-	for(var/obj/structure/cable/PC in cable_list)
+	for(var/thing in SSpower.all_cables)
+		var/obj/structure/cable/PC = thing
 		if(!PC.powernet)
 			var/datum/powernet/NewPN = new()
 			NewPN.add_cable(PC)

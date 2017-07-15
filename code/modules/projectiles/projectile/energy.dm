@@ -5,7 +5,6 @@
 	damage_type = BURN
 	check_armour = "energy"
 
-
 //releases a burst of light on impact or after travelling a distance
 /obj/item/projectile/energy/flash
 	name = "chemical shell"
@@ -57,12 +56,11 @@
 	agony = 80
 
 /obj/item/projectile/energy/declone
-	name = "declone"
+	name = "decloner beam"
 	icon_state = "declone"
-	nodamage = 1
+	damage = 20
 	damage_type = CLONE
 	irradiate = 40
-
 
 /obj/item/projectile/energy/dart
 	name = "dart"
@@ -70,7 +68,6 @@
 	damage = 5
 	damage_type = TOX
 	weaken = 5
-
 
 /obj/item/projectile/energy/bolt
 	name = "bolt"

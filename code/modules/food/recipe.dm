@@ -280,28 +280,19 @@
 
 	return results
 
-
-
-
 //When exact is false, extraneous ingredients are ignored
 //When exact is true, extraneous ingredients will fail the recipe
 //In both cases, the full complement of required inredients is still needed
 /proc/select_recipe(var/list/datum/recipe/available_recipes, var/obj/obj as obj, var/exact = 0)
-	var/list/datum/recipe/possible_recipes = new
+	var/list/datum/recipe/possible_recipes = list()
 	for (var/datum/recipe/recipe in available_recipes)
 		if((recipe.check_reagents(obj.reagents) < exact) || (recipe.check_items(obj) < exact) || (recipe.check_fruit(obj) < exact))
 			continue
 		possible_recipes |= recipe
-	if (possible_recipes.len==0)
+	if (!possible_recipes.len)
 		return null
-	else if (possible_recipes.len==1)
+	else if (possible_recipes.len == 1)
 		return possible_recipes[1]
 	else //okay, let's select the most complicated recipe
-		var/highest_count = 0
-		. = possible_recipes[1]
-		for (var/datum/recipe/recipe in possible_recipes)
-			var/count = ((recipe.items)?(recipe.items.len):0) + ((recipe.reagents)?(recipe.reagents.len):0) + ((recipe.fruit)?(recipe.fruit.len):0)
-			if (count >= highest_count)
-				highest_count = count
-				. = recipe
-		return .
+		sortTim(possible_recipes, /proc/cmp_recipe_complexity_dsc)
+		return possible_recipes[1]

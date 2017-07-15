@@ -10,7 +10,7 @@ var/const/commandos_possible = 6 //if more Commandos are needed in the future
 		src << "Only administrators may use this command."
 		return
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		usr << "<font color='red'>The game hasn't started yet!</font>"
 		return
 

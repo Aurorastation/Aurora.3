@@ -8,7 +8,7 @@
 
 	remove_ai_verbs(src)
 
-	for(var/obj/machinery/ai_status_display/O in world)
+	for(var/obj/machinery/ai_status_display/O in SSmachinery.all_status_displays)
 		spawn( 0 )
 		O.mode = 2
 		if (istype(loc, /obj/item/weapon/aicard))

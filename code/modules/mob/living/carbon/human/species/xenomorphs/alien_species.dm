@@ -12,6 +12,7 @@
 	has_fine_manipulation = 0
 	siemens_coefficient = 0
 	gluttonous = GLUT_ANYTHING
+	fall_mod = 0
 
 	eyes = "blank_eyes"
 
@@ -19,7 +20,7 @@
 	sprint_speed_factor = 2
 	sprint_cost_factor = 0.80
 	stamina_recovery = 5
-	
+
 	virus_immune = 1
 
 	brute_mod = 0.25 // Hardened carapace.
@@ -50,7 +51,7 @@
 	breath_type = null
 	poison_type = null
 
-	vision_flags = SEE_SELF|SEE_MOBS
+	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
 	has_organ = list(
 		"heart" =           /obj/item/organ/heart,

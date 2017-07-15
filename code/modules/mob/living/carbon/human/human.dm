@@ -10,7 +10,7 @@
 	var/obj/item/weapon/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	mob_size = 9//Based on average weight of a human
 
-/mob/living/carbon/human/New(var/new_loc, var/new_species = null)
+/mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	eat_types |= TYPE_ORGANIC//Any mobs that are given the devour verb, can eat nonhumanoid organics. Only applies to unathi for now
 
 	if(!dna)
@@ -66,7 +66,8 @@
 
 
 	human_mob_list |= src
-	..()
+
+	. = ..()
 
 	if(dna)
 		dna.ready_dna(src)
@@ -87,6 +88,8 @@
 	organs_by_name = null
 	bad_internal_organs = null
 	bad_external_organs = null
+
+	QDEL_NULL(vessel)
 
 	QDEL_NULL(DS)
 	// qdel and null out our equipment.
@@ -147,7 +150,6 @@
 	if(!blinded)
 		flick("flash", flash)
 
-	var/shielded = 0
 	var/b_loss = null
 	var/f_loss = null
 
@@ -157,6 +159,7 @@
 	switch (severity)
 		if (1.0)
 			b_loss += 500
+			f_loss = 100
 			if (!prob(getarmor(null, "bomb")))
 				gib()
 				return
@@ -168,40 +171,37 @@
 				//user.throw_at(target, 200, 4)
 
 		if (2.0)
-			if (!shielded)
-				b_loss += 60
-
-			f_loss += 60
-
-			if (prob(getarmor(null, "bomb")))
-				b_loss = b_loss/1.5
-				f_loss = f_loss/1.5
+			b_loss = 60
+			f_loss = 60
 
 			if (!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
 				ear_damage += 30
 				ear_deaf += 120
-			if (prob(70) && !shielded)
+			if (prob(70))
 				Paralyse(10)
 
 		if(3.0)
-			b_loss += 30
-			if (prob(getarmor(null, "bomb")))
-				b_loss = b_loss/2
+			b_loss = 30
 			if (!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
 				ear_damage += 15
 				ear_deaf += 60
-			if (prob(50) && !shielded)
+			if (prob(50))
 				Paralyse(10)
+
+	// factor in armour
+	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
+	b_loss *= protection
+	f_loss *= protection
 
 	var/update = 0
 
 	// focus most of the blast on one organ
 	var/obj/item/organ/external/take_blast = pick(organs)
-	update |= take_blast.take_damage(b_loss * 0.9, f_loss * 0.9, used_weapon = "Explosive blast")
+	update |= take_blast.take_damage(b_loss * 0.7, f_loss * 0.7, used_weapon = "Explosive blast")
 
-	// distribute the remaining 10% on all limbs equally
-	b_loss *= 0.1
-	f_loss *= 0.1
+	// distribute the remaining 30% on all limbs equally (including the one already dealt damage)
+	b_loss *= 0.3
+	f_loss *= 0.3
 
 	var/weapon_message = "Explosive Blast"
 
@@ -406,22 +406,68 @@
 	if(wear_id)
 		return wear_id.GetID()
 
-//Removed the horrible safety parameter. It was only being used by ninja code anyways.
-//Now checks siemens_coefficient of the affected area by default
 /mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
+	var/hairvar = 0
 	if(status_flags & GODMODE)	return 0	//godmode
 
-	if (!def_zone)
-		def_zone = pick("l_hand", "r_hand")
+	if (!tesla_shock)
+		shock_damage *= base_siemens_coeff
+	if (shock_damage<1)
+		return 0
 
-	var/obj/item/organ/external/affected_organ = get_organ(check_zone(def_zone))
-	var/siemens_coeff = base_siemens_coeff * get_siemens_coefficient_organ(affected_organ)
+	if(!def_zone)
+		var/list/damage_areas = list() //The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
+		if(istype(user, /mob/living/carbon/human))
+			if(h_style == "Floorlength Braid" || h_style == "Very Long Hair")
+				hairvar = 1
+		var/count = hairvar == 1 ? rand(1, 7) : rand(1, 6)
+		switch (count)
+			if(1)
+				damage_areas = list("l_hand", "l_arm", "chest", "r_arm", "r_hand")
+			if(2)
+				damage_areas = list("r_hand", "r_arm", "chest", "l_arm", "L_hand")
+			if(3)
+				damage_areas = list("l_hand", "l_arm", "chest", "groin", "l_leg", "l_foot")
+			if(4)
+				damage_areas = list("l_hand", "l_arm", "chest", "groin", "r_leg", "r_foot")
+			if(5)
+				damage_areas = list("r_hand", "r_arm", "chest", "groin", "r_leg", "r_foot")
+			if(6)
+				damage_areas = list("r_hand", "r_arm", "chest", "groin", "l_leg", "l_foot")
+			if(7)//snowflake arc - only happens when they have long hair.
+				damage_areas = list("r_hand", "r_arm", "chest", "head")
+				h_style = "skinhead"
+				visible_message("<span class='warning'>[src]'s hair gets a burst of electricty through it, burning and turning to dust!</span>", "<span class='danger'>your hair burns as the current flows through it, turning to dust!</span>", "<span class='notice'>You hear a crackling sound, and smell burned hair!.</span>")
+				update_hair()
+		if(gloves)
+			shock_damage *= gloves.siemens_coefficient
 
-	return ..(shock_damage, source, siemens_coeff, def_zone, tesla_shock)
+		for (var/area in damage_areas)
+			apply_damage(shock_damage, BURN, area, used_weapon="Electrocution")
+			shock_damage *= 0.4
+			playsound(loc, "sparks", 50, 1, -1)
 
+		if (shock_damage > 15 || tesla_shock)
+			visible_message(
+			"<span class='warning'>[src] was shocked by the [source]!</span>",
+			"<span class='danger'>You feel a powerful shock course through your body!</span>",
+			"<span class='warning'>You hear a heavy electrical crack.</span>"
+			)
+			Stun(10)//This should work for now, more is really silly and makes you lay there forever
+			Weaken(10)
+
+		else
+			visible_message(
+			"<span class='warning'>[src] was mildly shocked by the [source].</span>",
+			"<span class='warning'>You feel a mild shock course through your body.</span>",
+			"<span class='warning'>You hear a light zapping.</span>"
+			)
+
+		spark(loc, 5, alldirs)
+
+	return shock_damage
 
 /mob/living/carbon/human/Topic(href, href_list)
-
 	if (href_list["refresh"])
 		if((machine)&&(in_range(src, usr)))
 			show_inv(machine)
@@ -471,7 +517,7 @@
 												U.handle_regular_hud_updates()
 
 			if(!modified)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["secrecord"])
 		if(hasHUD(usr,"security"))
@@ -501,7 +547,7 @@
 								read = 1
 
 			if(!read)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["secrecordComment"])
 		if(hasHUD(usr,"security"))
@@ -531,7 +577,7 @@
 								usr << "<a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>"
 
 			if(!read)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["secrecordadd"])
 		if(hasHUD(usr,"security"))
@@ -599,7 +645,7 @@
 											U.handle_regular_hud_updates()
 
 			if(!modified)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["medrecord"])
 		if(hasHUD(usr,"medical"))
@@ -630,7 +676,7 @@
 								read = 1
 
 			if(!read)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["medrecordComment"])
 		if(hasHUD(usr,"medical"))
@@ -660,7 +706,7 @@
 								usr << "<a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>"
 
 			if(!read)
-				usr << "\red Unable to locate a data core entry for this person."
+				usr << "<span class='warning'>Unable to locate a data core entry for this person.</span>"
 
 	if (href_list["medrecordadd"])
 		if(hasHUD(usr,"medical"))
@@ -782,7 +828,7 @@
 
 /mob/living/carbon/human/proc/play_xylophone()
 	if(!src.xylophone)
-		visible_message("\red \The [src] begins playing \his ribcage like a xylophone. It's quite spooky.","\blue You begin to play a spooky refrain on your ribcage.","\red You hear a spooky xylophone melody.")
+		visible_message("<span class='warning'>\The [src] begins playing \his ribcage like a xylophone. It's quite spooky.</span>","<span class='notice'>You begin to play a spooky refrain on your ribcage.</span>","<span class='warning'>You hear a spooky xylophone melody.</span>")
 		var/song = pick('sound/effects/xylophone1.ogg','sound/effects/xylophone2.ogg','sound/effects/xylophone3.ogg')
 		playsound(loc, song, 50, 1, -1)
 		xylophone = 1
@@ -877,7 +923,7 @@
 	regenerate_icons()
 	check_dna()
 
-	visible_message("\blue \The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!", "\blue You change your appearance!", "\red Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!")
+	visible_message("<span class='notice'>\The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!</span>", "<span class='notice'>You change your appearance!</span>", "<span class='warning'>Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!</span>")
 
 /mob/living/carbon/human/proc/remotesay()
 	set name = "Project mind"
@@ -900,10 +946,10 @@
 
 	var/say = sanitize(input("What do you wish to say"))
 	if(mRemotetalk in target.mutations)
-		target.show_message("\blue You hear [src.real_name]'s voice: [say]")
+		target.show_message("<span class='notice'>You hear [src.real_name]'s voice: [say]</span>")
 	else
-		target.show_message("\blue You hear a voice that seems to echo around the room: [say]")
-	usr.show_message("\blue You project your mind into [target.real_name]: [say]")
+		target.show_message("<span class='notice'>You hear a voice that seems to echo around the room: [say]</span>")
+	usr.show_message("<span class='notice'>You project your mind into [target.real_name]: [say]</span>")
 	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
 	for(var/mob/dead/observer/G in world)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
@@ -1048,9 +1094,9 @@
 /mob/living/carbon/human/clean_blood(var/clean_feet)
 	.=..()
 	gunshot_residue = null
-	if(clean_feet && !shoes && istype(feet_blood_DNA, /list) && feet_blood_DNA.len)
+	if(clean_feet && !shoes)
 		feet_blood_color = null
-		qdel(feet_blood_DNA)
+		feet_blood_DNA = null
 		update_inv_shoes(1)
 		return 1
 
@@ -1186,8 +1232,9 @@
 
 	spawn(0)
 		regenerate_icons()
-		vessel.add_reagent("blood",560-vessel.total_volume)
-		fixblood()
+		if (vessel)
+			vessel.add_reagent("blood",560-vessel.total_volume)
+			fixblood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)

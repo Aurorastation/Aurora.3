@@ -36,8 +36,8 @@ proc/cardinalrange(var/center)
 /obj/machinery/am_shielding/map
 	mapped = 1
 
-/obj/machinery/am_shielding/New(loc, var/obj/machinery/power/am_control_unit/AMC)
-	..()
+/obj/machinery/am_shielding/Initialize(mapload, var/obj/machinery/power/am_control_unit/AMC)
+	. = ..()
 	if(!AMC)
 		if (!mapped)
 			WARNING("AME sector somehow created without a parent control unit!")
@@ -45,8 +45,13 @@ proc/cardinalrange(var/center)
 		return
 	link_control(AMC)
 	remove_machine(src)
-	spawn (10)
-		update_icon()
+	if (mapload)
+		. = INITIALIZE_HINT_LATELOAD
+	else
+		addtimer(CALLBACK(src, /atom/.proc/update_icon), 1 SECOND)
+
+/obj/machinery/am_shielding/LateInitialize()
+	update_icon()
 
 /obj/machinery/am_shielding/proc/link_control(var/obj/machinery/power/am_control_unit/AMC)
 	if(!istype(AMC))
@@ -63,7 +68,7 @@ proc/cardinalrange(var/center)
 		shutdown_core()
 	visible_message("<span class='warning'>\The [src.name] melts!</span>")
 	//Might want to have it leave a mess on the floor but no sprites for now
-	..()
+	return ..()
 
 /obj/machinery/am_shielding/proc/controllerscan(var/priorscan = 0)
 	//Make sure we are the only one here
@@ -107,7 +112,7 @@ proc/cardinalrange(var/center)
 	return 0
 
 
-/obj/machinery/am_shielding/process()
+/obj/machinery/am_shielding/machinery_process()
 	if(!processing)
 		. = PROCESS_KILL
 	//TODO: core functions and stability

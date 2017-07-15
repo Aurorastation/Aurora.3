@@ -30,15 +30,16 @@
 							/obj/item/toy/cultsword							= 1
 							)
 
-/obj/machinery/computer/arcade/New()
-	..()
+/obj/machinery/computer/arcade/Initialize()
+	. = ..()
 	// If it's a generic arcade machine, pick a random arcade
 	// circuit board for it and make the new machine
 	if(!circuit)
 		var/choice = pick(typesof(/obj/item/weapon/circuitboard/arcade) - /obj/item/weapon/circuitboard/arcade)
 		var/obj/item/weapon/circuitboard/CB = new choice()
 		new CB.build_path(loc, CB)
-		qdel(src)
+
+		return INITIALIZE_HINT_QDEL 
 
 /obj/machinery/computer/arcade/proc/prizevend()
 	if(!contents.len)
@@ -92,8 +93,8 @@
 	var/blocked = 0 //Player cannot attack/heal while set
 	var/turtle = 0
 
-/obj/machinery/computer/arcade/battle/New()
-	..()
+/obj/machinery/computer/arcade/battle/Initialize()
+	. = ..()
 	var/name_action
 	var/name_part1
 	var/name_part2

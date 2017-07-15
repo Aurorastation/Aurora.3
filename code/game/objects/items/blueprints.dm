@@ -19,10 +19,11 @@
 	var/const/ROOM_ERR_SPACE = -1
 	var/const/ROOM_ERR_TOOLARGE = -2
 
-/obj/item/blueprints/attack_self(mob/M as mob)
-	if (!istype(M,/mob/living/carbon/human))
-		M << "This stack of blue paper means nothing to you." //monkeys cannot into projecting
+/obj/item/blueprints/attack_self(mob/user as mob)
+	if (use_check(user))
+		user << "This stack of blue paper means nothing to you."
 		return
+	add_fingerprint(user)
 	interact()
 	return
 
@@ -89,9 +90,7 @@ move an amendment</a> to the drawing.</p>
 		/area/asteroid,
 		/area/tdome,
 		/area/syndicate_station,
-		/area/wizard_station,
-		/area/prison
-		// /area/derelict //commented out, all hail derelict-rebuilders!
+		/area/wizard_station
 	)
 	for (var/type in SPECIALS)
 		if ( istype(A,type) )
@@ -132,6 +131,8 @@ move an amendment</a> to the drawing.</p>
 
 	A.always_unpowered = 0
 
+	sorted_add_area(A)
+
 	spawn(5)
 		//ma = A.master ? "[A.master]" : "(null)"
 		//world << "DEBUG: create_area(5): <br>A.name=[A.name]<br>A.tag=[A.tag]<br>A.master=[ma]"
@@ -157,6 +158,7 @@ move an amendment</a> to the drawing.</p>
 		return
 	set_area_machinery_title(A,str,prevname)
 	A.name = str
+	sortTim(all_areas, /proc/cmp_text_asc)
 	usr << "<span class='notice'>You set the area '[prevname]' title to '[str]'.</span>"
 	interact()
 	return

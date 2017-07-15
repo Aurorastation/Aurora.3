@@ -1,5 +1,3 @@
-var/global/list/limb_icon_cache = list()
-
 /obj/item/organ/external/set_dir()
 	return
 
@@ -9,8 +7,9 @@ var/global/list/limb_icon_cache = list()
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
-				overlays += child.mob_icon
-		overlays += organ.mob_icon
+				add_overlay(child.mob_icon)
+
+		overlays |= organ.mob_icon
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	s_tone = null
@@ -40,13 +39,13 @@ var/global/list/limb_icon_cache = list()
 
 /obj/item/organ/external/head/sync_colour_to_human(var/mob/living/carbon/human/human)
 	..()
-	var/obj/item/organ/eyes/eyes 
+	var/obj/item/organ/eyes/eyes
 	if (species.vision_organ)
 		eyes = owner.internal_organs_by_name[species.vision_organ]
 	else
 		eyes = owner.internal_organs_by_name["eyes"]
 
-	if(eyes) 
+	if(eyes)
 		eyes.update_colour()
 
 /obj/item/organ/external/head/removed()
@@ -54,7 +53,6 @@ var/global/list/limb_icon_cache = list()
 	..()
 
 /obj/item/organ/external/head/get_icon()
-
 	..()
 	overlays.Cut()
 	if(!owner || !owner.species)
@@ -74,6 +72,20 @@ var/global/list/limb_icon_cache = list()
 		var/icon/lip_icon = new/icon('icons/mob/human_face.dmi', "lips_[owner.lip_style]_s")
 		overlays |= lip_icon
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
+
+	for(var/M in markings)
+		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
+		var/m_color = markings[M]["color"]
+		var/cache_key = "[mark_style.icon]-[mark_style.icon_state]-[limb_name]-[m_color]"
+
+		var/icon/finished_icon = SSicon_cache.markings_cache[cache_key]
+		if (!finished_icon)
+			finished_icon = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
+			finished_icon.Blend(m_color, ICON_ADD)
+			SSicon_cache.markings_cache[cache_key] = finished_icon
+
+		add_overlay(finished_icon) //So when it's not on your body, it has icons
+		mob_icon.Blend(finished_icon, ICON_OVERLAY) //So when it's on your body, it has icons
 
 	if(owner.f_style)
 		var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[owner.f_style]
@@ -139,7 +151,23 @@ var/global/list/limb_icon_cache = list()
 				else if(s_col && s_col.len >= 3)
 					mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_ADD)
 
+			//Body markings, does not include head, duplicated (sadly) above.
+			for(var/M in markings)
+				var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
+				var/m_color = markings[M]["color"]
+				var/cache_key = "[mark_style.icon]-[mark_style.icon_state]-[limb_name]-[m_color]"
+
+				var/icon/finished_icon = SSicon_cache.markings_cache[cache_key]
+				if (!finished_icon)
+					finished_icon = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[limb_name]")
+					finished_icon.Blend(m_color, ICON_ADD)
+					SSicon_cache.markings_cache[cache_key] = finished_icon
+
+				add_overlay(finished_icon) //So when it's not on your body, it has icons
+				mob_icon.Blend(finished_icon, ICON_OVERLAY) //So when it's on your body, it has icons
+
 			if(body_hair && islist(h_col) && h_col.len >= 3)
+				var/list/limb_icon_cache = SSicon_cache.body_hair_cache
 				var/cache_key = "[body_hair]-[icon_name]-[h_col[1]][h_col[2]][h_col[3]]"
 				if(!limb_icon_cache[cache_key])
 					var/icon/I = icon(species.icobase, "[icon_name]_[body_hair]")

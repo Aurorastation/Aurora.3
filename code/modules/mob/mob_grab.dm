@@ -90,7 +90,7 @@
 			hud.screen_loc = ui_lhand
 
 /obj/item/weapon/grab/process()
-	if(gcDestroyed) // GC is trying to delete us, we'll kill our processing so we can cleanly GC
+	if(QDELING(src)) // GC is trying to delete us, we'll kill our processing so we can cleanly GC
 		return PROCESS_KILL
 
 	confirm()
@@ -288,7 +288,7 @@
 		return 0
 
 	if(affecting)
-		if(!isturf(assailant.loc) || ( !isturf(affecting.loc) || assailant.loc != affecting.loc && get_dist(assailant, affecting) > 1) )
+		if(!isturf(assailant.loc) || ( !isturf(affecting.loc) || assailant.loc != affecting.loc && get_dist(assailant, affecting) > 1) || assailant.z != affecting.z )
 			qdel(src)
 			return 0
 
@@ -361,4 +361,4 @@
 	qdel(hud)
 	hud = null
 	destroying = 1 // stops us calling qdel(src) on dropped()
-	..()
+	return ..()

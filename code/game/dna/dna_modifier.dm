@@ -52,8 +52,8 @@
 	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/opened = 0
 
-/obj/machinery/dna_scannernew/New()
-	..()
+/obj/machinery/dna_scannernew/Initialize()
+	. = ..()
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/clonescanner(src)
 	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
@@ -241,7 +241,7 @@
 			I.loc = src
 			src.disk = I
 			user << "You insert [I]."
-			nanomanager.update_uis(src) // update all UIs attached to src
+			SSnanoui.update_uis(src) // update all UIs attached to src
 			return
 	else
 		..()
@@ -401,7 +401,7 @@
 				data["beakerVolume"] += R.volume
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
 		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
@@ -438,7 +438,7 @@
 		irradiating = src.radiation_duration
 		var/lock_state = src.connected.locked
 		src.connected.locked = 1//lock it
-		nanomanager.update_uis(src) // update all UIs attached to src
+		SSnanoui.update_uis(src) // update all UIs attached to src
 
 		sleep(10*src.radiation_duration) // sleep for radiation_duration seconds
 
@@ -458,7 +458,7 @@
 			else
 				randmuti(src.connected.occupant)
 
-		src.connected.occupant.apply_effect(((src.radiation_intensity*3)+src.radiation_duration*3), IRRADIATE, check_protection = 0)
+		src.connected.occupant.apply_effect(((src.radiation_intensity*3)+src.radiation_duration*3), IRRADIATE, blocked = 0)
 		src.connected.locked = lock_state
 		return 1 // return 1 forces an update to all Nano uis attached to src
 
@@ -539,7 +539,7 @@
 		irradiating = src.radiation_duration
 		var/lock_state = src.connected.locked
 		src.connected.locked = 1//lock it
-		nanomanager.update_uis(src) // update all UIs attached to src
+		SSnanoui.update_uis(src) // update all UIs attached to src
 
 		sleep(10*src.radiation_duration) // sleep for radiation_duration seconds
 
@@ -552,7 +552,7 @@
 			block = miniscrambletarget(num2text(selected_ui_target), src.radiation_intensity, src.radiation_duration)
 			src.connected.occupant.dna.SetUISubBlock(src.selected_ui_block,src.selected_ui_subblock,block)
 			src.connected.occupant.UpdateAppearance()
-			src.connected.occupant.apply_effect((src.radiation_intensity+src.radiation_duration), IRRADIATE, check_protection = 0)
+			src.connected.occupant.apply_effect((src.radiation_intensity+src.radiation_duration), IRRADIATE, blocked = 0)
 		else
 			if	(prob(20+src.radiation_intensity))
 				randmutb(src.connected.occupant)
@@ -560,7 +560,7 @@
 			else
 				randmuti(src.connected.occupant)
 				src.connected.occupant.UpdateAppearance()
-			src.connected.occupant.apply_effect(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, check_protection = 0)
+			src.connected.occupant.apply_effect(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, blocked = 0)
 		src.connected.locked = lock_state
 		return 1 // return 1 forces an update to all Nano uis attached to src
 
@@ -597,7 +597,7 @@
 		irradiating = src.radiation_duration
 		var/lock_state = src.connected.locked
 		src.connected.locked = 1 //lock it
-		nanomanager.update_uis(src) // update all UIs attached to src
+		SSnanoui.update_uis(src) // update all UIs attached to src
 
 		sleep(10*src.radiation_duration) // sleep for radiation_duration seconds
 
@@ -617,10 +617,10 @@
 
 				//testing("Irradiated SE block [real_SE_block]:[src.selected_se_subblock] ([original_block] now [block]) [(real_SE_block!=selected_se_block) ? "(SHIFTED)":""]!")
 				connected.occupant.dna.SetSESubBlock(real_SE_block,selected_se_subblock,block)
-				src.connected.occupant.apply_effect((src.radiation_intensity+src.radiation_duration), IRRADIATE, check_protection = 0)
+				src.connected.occupant.apply_effect((src.radiation_intensity+src.radiation_duration), IRRADIATE, blocked = 0)
 				domutcheck(src.connected.occupant,src.connected)
 			else
-				src.connected.occupant.apply_effect(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, check_protection = 0)
+				src.connected.occupant.apply_effect(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, blocked = 0)
 				if	(prob(80-src.radiation_duration))
 					//testing("Random bad mut!")
 					randmutb(src.connected.occupant)
@@ -724,7 +724,7 @@
 			irradiating = 2
 			var/lock_state = src.connected.locked
 			src.connected.locked = 1//lock it
-			nanomanager.update_uis(src) // update all UIs attached to src
+			SSnanoui.update_uis(src) // update all UIs attached to src
 
 			sleep(10*2) // sleep for 2 seconds
 
@@ -742,7 +742,7 @@
 				src.connected.occupant.dna.SE = buf.dna.SE
 				src.connected.occupant.dna.UpdateSE()
 				domutcheck(src.connected.occupant,src.connected)
-			src.connected.occupant.apply_effect(rand(20,50), IRRADIATE, check_protection = 0)
+			src.connected.occupant.apply_effect(rand(20,50), IRRADIATE, blocked = 0)
 			return 1
 
 		if (bufferOption == "createInjector")

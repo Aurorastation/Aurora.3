@@ -14,11 +14,6 @@
 	item_cost = 2
 	path = /obj/item/weapon/storage/box/syndie_kit/cigarette
 
-/datum/uplink_item/item/stealthy_weapons/concealed_cane
-	name = "Concealed Cane Sword"
-	item_cost = 9
-	path = /obj/item/weapon/cane/concealed
-
 /datum/uplink_item/item/stealthy_weapons/random_toxin
 	name = "Random Toxin - Beaker"
 	item_cost = 2
@@ -33,3 +28,8 @@
 	name = "Paralysis Pen"
 	item_cost = 6
 	path = /obj/item/weapon/pen/reagent/paralysis
+
+/datum/uplink_item/item/stealthy_weapons/concealed_cane
+	name = "Concealed Cane Sword"
+	item_cost = 9
+	path = /obj/item/weapon/cane/concealed

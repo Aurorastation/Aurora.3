@@ -28,43 +28,38 @@
 	..()
 	update_icon()
 
-/obj/item/weapon/gun/energy/New()
-	..()
+/obj/item/weapon/gun/energy/Initialize()
+	. = ..()
 	if(cell_type)
 		power_supply = new cell_type(src)
 	else
 		power_supply = new /obj/item/weapon/cell/device/variable(src, max_shots*charge_cost)
-	if(self_recharge)
-		processing_objects.Add(src)
 	update_icon()
 
 /obj/item/weapon/gun/energy/Destroy()
-	if(self_recharge)
-		processing_objects.Remove(src)
-	..()
+	QDEL_NULL(power_supply)
+	return ..()
 
-/obj/item/weapon/gun/energy/process()
-	if(self_recharge) //Every [recharge_time] ticks, recharge a shot for the cyborg
-		charge_tick++
-		if(charge_tick < recharge_time) return 0
-		charge_tick = 0
+/obj/item/weapon/gun/energy/proc/try_recharge()
+	. = 1
+	if (!power_supply || power_supply.charge >= power_supply.maxcharge || !self_recharge)
+		return 0 // check if we actually need to recharge
+		
+	if (use_external_power)
+		var/obj/item/weapon/cell/external = get_external_power_supply()
+		if(!external || !external.use(charge_cost)) //Take power from the borg...
+			return 0
 
-		if(!power_supply || power_supply.charge >= power_supply.maxcharge)
-			return 0 // check if we actually need to recharge
+	power_supply.give(charge_cost) //... to recharge the shot
+	update_icon()
 
-		if(use_external_power)
-			var/obj/item/weapon/cell/external = get_external_power_supply()
-			if(!external || !external.use(charge_cost)) //Take power from the borg...
-				return 0
-
-		power_supply.give(charge_cost) //... to recharge the shot
-		update_icon()
-	return 1
+	addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 
 /obj/item/weapon/gun/energy/consume_next_projectile()
 	if(!power_supply) return null
 	if(!ispath(projectile_type)) return null
 	if(!power_supply.checked_use(charge_cost)) return null
+	if (self_recharge) addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 	return new projectile_type(src)
 
 /obj/item/weapon/gun/energy/proc/get_external_power_supply()

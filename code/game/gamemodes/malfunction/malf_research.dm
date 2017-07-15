@@ -22,7 +22,8 @@
 
 	available_abilities += new/datum/malf_research_ability/networking/basic_hack()
 	available_abilities += new/datum/malf_research_ability/interdiction/recall_shuttle()
-	available_abilities += new/datum/malf_research_ability/manipulation/electrical_pulse()
+	available_abilities += new/datum/malf_research_ability/manipulation/hack_holopad()
+	available_abilities += new/datum/malf_research_ability/synthetic/reset_module()
 
 
 // Proc:		finish_research()
@@ -43,7 +44,7 @@
 // Proc:		process()
 // Parameters: 	None
 // Description: Processes CPU gain and research progress based on "realtime" calculation.
-/datum/malf_research/proc/process(var/idle = 0)
+/datum/malf_research/process(var/idle = 0)
 	if(idle)		// No power or running on APU. Do nothing.
 		last_tick = world.time
 		return

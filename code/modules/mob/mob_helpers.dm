@@ -163,6 +163,12 @@ proc/getsensorlevel(A)
 /proc/hsl2rgb(h, s, l)
 	return //TODO: Implement
 
+/mob/living/proc/is_wizard(exclude_apprentice = FALSE)
+	if(exclude_apprentice)
+		return mind && mind.assigned_role == "Space Wizard"
+	else
+		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Apprentice")
+
 /*
 	Miss Chance
 */
@@ -537,7 +543,7 @@ proc/is_blind(A)
 			var/lname
 			if(subject)
 				if(subject != M)
-					follow = "([ghost_follow_link(subject, M)]) "
+					follow = "[ghost_follow_link(subject, M)] "
 				if(M.stat != DEAD && M.client.holder)
 					follow = "([admin_jump_link(subject, M.client.holder)]) "
 				var/mob/dead/observer/DM
@@ -553,7 +559,7 @@ proc/is_blind(A)
 					else										// Everyone else (dead people who didn't ghost yet, etc.)
 						lname = name
 				lname = "<span class='name'>[lname]</span> "
-			M << "<span class='deadsay'>" + create_text_tag("dead", "DEAD:", M.client) + " [lname][follow][message]</span>"
+			M << "[follow] <span class='deadsay'>" + create_text_tag("dead", "DEAD:", M.client) + " [lname][message]</span>"
 
 //Announces that a ghost has joined/left, mainly for use with wizards
 /proc/announce_ghost_joinleave(O, var/joined_ghosts = 1, var/message = "")

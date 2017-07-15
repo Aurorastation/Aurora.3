@@ -34,7 +34,7 @@
 
 /obj/machinery/power/supermatter
 	name = "Supermatter"
-	desc = "A strangely translucent and iridescent crystal. \red You get headaches just from looking at it."
+	desc = "A strangely translucent and iridescent crystal. <span class='warning'>You get headaches just from looking at it.</span>"
 	icon = 'icons/obj/engine.dmi'
 	icon_state = "darkmatter"
 	density = 1
@@ -92,7 +92,7 @@
 
 	var/debug = 0
 
-/obj/machinery/power/supermatter/New()
+/obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 
@@ -176,7 +176,7 @@
 
 	return ..()
 
-/obj/machinery/power/supermatter/process()
+/obj/machinery/power/supermatter/machinery_process()
 
 	var/turf/L = loc
 
@@ -275,7 +275,7 @@
 		var/rads = (power / 10) * ( 1 / (radius**2) )
 		if (!(l in oview(rad_range, src)) && !(l in range(src, round(rad_range * 2/3))))
 			continue
-		l.apply_effect(rads, IRRADIATE)
+		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
@@ -330,7 +330,7 @@
 		data["ambient_pressure"] = round(env.return_pressure())
 	data["detonating"] = grav_pulling
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "supermatter_crystal.tmpl", "Supermatter Crystal", 500, 300)
 		ui.set_initial_data(data)
@@ -356,10 +356,12 @@
 	user.drop_from_inventory(W)
 	Consume(W)
 
-	user.apply_effect(150, IRRADIATE)
+	user.apply_effect(150, IRRADIATE, blocked = user.getarmor(null, "rad"))
 
 
 /obj/machinery/power/supermatter/Bumped(atom/AM as mob|obj)
+	if(!AM.simulated)
+		return
 	if(istype(AM, /obj/effect))
 		return
 	if(istype(AM, /mob/living))
@@ -395,7 +397,7 @@
 		else
 			l.show_message("<span class=\"warning\">You hear an uneartly ringing and notice your skin is covered in fresh radiation burns.</span>", 2)
 		var/rads = 500 * sqrt( 1 / (get_dist(l, src) + 1) )
-		l.apply_effect(rads, IRRADIATE)
+		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
 
 
 /obj/machinery/power/supermatter/proc/supermatter_pull()
@@ -416,7 +418,7 @@
 
 /obj/machinery/power/supermatter/shard //Small subtype, less efficient and more sensitive, but less boom.
 	name = "Supermatter Shard"
-	desc = "A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure. \red You get headaches just from looking at it."
+	desc = "A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure. <span class='warning'>You get headaches just from looking at it.</span>"
 	icon_state = "darkmatter_shard"
 	base_icon_state = "darkmatter_shard"
 

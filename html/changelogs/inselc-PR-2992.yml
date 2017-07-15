@@ -1,7 +1,0 @@
-author: inselc
-
-delete-after: True
-
-changes: 
-  - bugfix: "Drones are no longer able to transmit empty messages."
-  - bugfix: "Invalid underwear or socks selections will now automatically revert to 'None' when changing the character's gender."

@@ -96,7 +96,7 @@
 
 	return progress
 
-/datum/chemical_reaction/proc/process(var/datum/reagents/holder)
+/datum/chemical_reaction/process(var/datum/reagents/holder)
 	//determine how far the reaction can proceed
 	var/list/reaction_limits = list()
 	for(var/reactant in required_reagents)
@@ -1082,13 +1082,15 @@
 	/mob/living/simple_animal/hostile/syndicate/ranged/space,
 	/mob/living/simple_animal/hostile/alien/queen/large,
 	/mob/living/simple_animal/hostile/faithless,
+	/mob/living/simple_animal/hostile/faithless/wizard,
 	/mob/living/simple_animal/hostile/retaliate,
 	/mob/living/simple_animal/hostile/retaliate/clown,
 	/mob/living/simple_animal/hostile/alien,
 	/mob/living/simple_animal/hostile/alien/drone,
 	/mob/living/simple_animal/hostile/alien/sentinel,
 	/mob/living/simple_animal/hostile/alien/queen,
-	/mob/living/simple_animal/hostile/alien/queen/large
+	/mob/living/simple_animal/hostile/alien/queen/large,
+	/mob/living/simple_animal/hostile/true_changeling
 	)//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
@@ -1506,6 +1508,13 @@
 	result = "beerbatter"
 	required_reagents = list("egg" = 3, "flour" = 10, "beer" = 5, "sodiumchloride" = 2)
 	result_amount = 20
+
+/datum/chemical_reaction/browniemix
+	name = "Brownie Mix"
+	id = "browniemix"
+	result = "browniemix"
+	required_reagents = list("flour" = 5, "coco" = 5, "sugar" = 5)
+	result_amount = 15
 
 /*
 	Todo in future:

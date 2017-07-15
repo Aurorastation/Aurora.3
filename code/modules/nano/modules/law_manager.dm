@@ -21,7 +21,7 @@
 		player_laws = new()
 
 		init_subtypes(/datum/ai_laws, admin_laws)
-		admin_laws = dd_sortedObjectList(admin_laws)
+		sortTim(admin_laws, /proc/cmp_name_asc)
 
 		for(var/datum/ai_laws/laws in admin_laws)
 			if(laws.selectable)
@@ -176,7 +176,7 @@
 	data["channels"] = channels
 	data["law_sets"] = package_multiple_laws(data["isAdmin"] ? admin_laws : player_laws)
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "law_manager.tmpl", sanitize("[src] - [owner]"), 800, is_malf(user) ? 600 : 400, state = state)
 		ui.set_initial_data(data)

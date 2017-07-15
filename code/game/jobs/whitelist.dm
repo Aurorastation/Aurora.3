@@ -96,4 +96,41 @@ var/list/whitelist = list()
 					return 1
 	return 0
 
+/**
+ * A centralized proc for checking whether or not a player is fit for playing
+ * any antag role or job role dependant on their ckey's age, job's age restriction,
+ * and config settings.
+ *
+ * @param	C The client object whose age we want to check. Can also be a mob.
+ * @param	job The job name/antag role name we want to check against.
+ *
+ * @return	Days left until the player can play the role if they're too young.
+ *			0 if they're old enough.
+ */
+/proc/player_old_enough_for_role(client/C, job)
+	if (!job || !C)
+		return 0
+
+	if (ismob(C))
+		var/mob/M = C
+		C = M.client
+
+	if (!istype(C) || C.holder)
+		return 0
+
+	var/age_to_beat = 0
+
+	// Assume it's an antag role.
+	if (bantype_to_antag_age[lowertext(job)] && config.use_age_restriction_for_antags)
+		age_to_beat = bantype_to_antag_age[lowertext(job)]
+
+	// Assume it's a job instead!
+	if (!age_to_beat)
+		var/datum/job/J = SSjobs.GetJob(job)
+		if (J && config.use_age_restriction_for_jobs)
+			age_to_beat = J.minimal_player_age
+
+	var/diff = age_to_beat - C.player_age
+	return (diff > 0) ? diff : 0
+
 #undef WHITELISTFILE

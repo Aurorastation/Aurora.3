@@ -15,8 +15,8 @@
 
 	var/bad_data = BAD_CKEY|BAD_IP|BAD_CID
 
-	var/DBQuery/original_ban = dbcon.NewQuery("SELECT ckey, ip, computerid FROM ss13_ban WHERE id = :ban_id")
-	original_ban.Execute(list(":ban_id" = ban_id))
+	var/DBQuery/original_ban = dbcon.NewQuery("SELECT ckey, ip, computerid FROM ss13_ban WHERE id = :ban_id:")
+	original_ban.Execute(list("ban_id" = ban_id))
 
 	if (original_ban.NextRow())
 		var/original_ckey = original_ban.item[1]
@@ -30,8 +30,8 @@
 			bad_data &= ~BAD_CID
 
 		if (bad_data)
-			var/DBQuery/mirrored_bans = dbcon.NewQuery("SELECT player_ckey, ban_mirror_ip, ban_mirror_computerid FROM ss13_ban_mirrors WHERE ban_id = :ban_id")
-			mirrored_bans.Execute(list(":ban_id" = ban_id))
+			var/DBQuery/mirrored_bans = dbcon.NewQuery("SELECT player_ckey, ban_mirror_ip, ban_mirror_computerid FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
+			mirrored_bans.Execute(list("ban_id" = ban_id))
 
 			while (mirrored_bans.NextRow())
 				var/mirrored_ckey = mirrored_bans.item[1]
@@ -66,8 +66,8 @@
 		log_misc("Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
 		return null
 
-	var/DBQuery/initial_query = dbcon.NewQuery("SELECT DISTINCT ban_id FROM ss13_ban_mirrors WHERE player_ckey = :ckey OR ban_mirror_ip = :address OR ban_mirror_computerid = :computerid")
-	initial_query.Execute(list(":ckey" = ckey, ":address" = address, ":computerid" = computer_id))
+	var/DBQuery/initial_query = dbcon.NewQuery("SELECT DISTINCT ban_id FROM ss13_ban_mirrors WHERE player_ckey = :ckey: OR ban_mirror_ip = :address: OR ban_mirror_computerid = :computerid:")
+	initial_query.Execute(list("ckey" = ckey, "address" = address, "computerid" = computer_id))
 
 	var/list/ban_ids = list()
 
@@ -78,8 +78,8 @@
 	if (!ban_ids.len)
 		return null
 
-	var/DBQuery/search_query = dbcon.NewQuery("SELECT id FROM ss13_ban WHERE id IN :vars AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)")
-	search_query.Execute(list(":vars" = ban_ids))
+	var/DBQuery/search_query = dbcon.NewQuery("SELECT id FROM ss13_ban WHERE id IN :vars: AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now())) AND isnull(unbanned)")
+	search_query.Execute(list("vars" = ban_ids))
 
 	var/list/active_bans = list()
 
@@ -103,8 +103,8 @@
 	if (!dbcon.IsConnected())
 		return null
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT ban_mirror_id, player_ckey, ban_mirror_ip, ban_mirror_computerid, date(ban_mirror_datetime) as datetime FROM ss13_ban_mirrors WHERE ban_id = :ban_id")
-	query.Execute(list(":ban_id" = ban_id))
+	var/DBQuery/query = dbcon.NewQuery("SELECT ban_mirror_id, player_ckey, ban_mirror_ip, ban_mirror_computerid, date(ban_mirror_datetime) as datetime FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
+	query.Execute(list("ban_id" = ban_id))
 
 	var/mirrors[] = list()
 	while (query.NextRow())
@@ -122,8 +122,8 @@
 	if (!ckey || !address || !computer_id || !ban_id)
 		return
 
-	var/DBQuery/new_mirror = dbcon.NewQuery("INSERT INTO ss13_ban_mirrors (ban_id, player_ckey, ban_mirror_ip, ban_mirror_computerid, ban_mirror_datetime) VALUES (:ban_id, :ckey, :address, :computerid, NOW())")
-	new_mirror.Execute(list(":ban_id" = ban_id, ":ckey" = ckey, ":address" = address, ":computerid" = computer_id))
+	var/DBQuery/new_mirror = dbcon.NewQuery("INSERT INTO ss13_ban_mirrors (ban_id, player_ckey, ban_mirror_ip, ban_mirror_computerid, ban_mirror_datetime) VALUES (:ban_id:, :ckey:, :address:, :computerid:, NOW())")
+	new_mirror.Execute(list("ban_id" = ban_id, "ckey" = ckey, "address" = address, "computerid" = computer_id))
 
 	log_misc("Mirrored ban #[ban_id] for player [ckey] from [address]-[computer_id].")
 
@@ -135,7 +135,33 @@
 		update_connection_data(C)
 		return
 
-	var/list/conn_info = json_decode(data)
+	var/list/data_object = json_decode(data)
+
+	if (!data_object || !data_object.len)
+		log_debug("CONN DATA: [C.ckey] has no connection data to showcase.")
+		return
+
+	if (data_object["vms"])
+		var/A = data_object["vms"]
+		var/count = 0
+		if (A & 1)
+			count++
+		if (A & 2)
+			count++
+
+		if (config.access_deny_vms && count >= config.access_deny_vms)
+			log_access("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[config.access_deny_vms] VM identifiers. IDs: [A].", ckey = C.ckey)
+			message_admins("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[config.access_deny_vms] VM identifiers. IDs: [A].")
+			spawn(20)
+				if (C)
+					del(C)
+			return
+
+		if (config.access_warn_vms && count >= config.access_warn_vms)
+			log_access("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].", ckey = C.ckey)
+			message_admins("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].")
+
+	var/list/conn_info = data_object["conn"]
 
 	if (!conn_info || !conn_info.len)
 		return
@@ -169,10 +195,14 @@
 		update_connection_data(C, conn_info)
 
 	if (ding_bannu)
-		log_and_message_admins("[C.ckey] from [C.address]-[C.computer_id] was caught bandodging. Mirror applied for ban #[ding_bannu], kicking shortly.")
-		apply_ban_mirror(C.ckey, C.address, C.computer_id, ding_bannu)
-		spawn(20)
-			del(C)
+		if (!C.holder)
+			log_and_message_admins("[C.ckey] from [C.address]-[C.computer_id] was caught bandodging. Mirror applied for ban #[ding_bannu], kicking shortly.")
+			apply_ban_mirror(C.ckey, C.address, C.computer_id, ding_bannu)
+			spawn(20)
+				del(C)
+		else
+			// Stop kicking me off my test server, fuck.
+			log_and_message_admins("[C.ckey] is a staff but was caught bandodging! Ban ID: #[ding_bannu].")
 
 	return
 

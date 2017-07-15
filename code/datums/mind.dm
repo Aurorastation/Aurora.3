@@ -62,12 +62,25 @@
 	// the world.time since the mob has been brigged, or -1 if not at all
 	var/brigged_since = -1
 
+	// Custom signature data.
+	var/signature
+	var/signfont
+
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
+
 
 /datum/mind/New(var/key)
 	src.key = key
 	..()
+
+/datum/mind/proc/handle_mob_deletion(mob/living/deleted_mob)
+	if (current == deleted_mob)
+		current.spellremove()
+		current = null
+
+	if (original == deleted_mob)
+		original = null
 
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
@@ -80,7 +93,7 @@
 			current.remove_vampire_powers()
 		current.mind = null
 
-		nanomanager.user_transferred(current, new_character) // transfer active NanoUI instances to new user
+		SSnanoui.user_transferred(current, new_character) // transfer active NanoUI instances to new user
 	if(new_character.mind)		//remove any mind currently in our new body's mind variable
 		new_character.mind.current = null
 
@@ -112,7 +125,7 @@
 	recipient << browse(output,"window=memory")
 
 /datum/mind/proc/edit_memory()
-	if(!ticker || !ticker.mode)
+	if(!ROUND_IS_STARTED)
 		alert("Not before round-start!", "Alert")
 		return
 
@@ -211,7 +224,7 @@
 				var/objective_type = "[objective_type_capital][objective_type_text]"//Add them together into a text string.
 
 				var/list/possible_targets = list("Free objective")
-				for(var/datum/mind/possible_target in ticker.minds)
+				for(var/datum/mind/possible_target in SSticker.minds)
 					if ((possible_target != src) && istype(possible_target.current, /mob/living/carbon/human))
 						possible_targets += possible_target.current
 
@@ -471,11 +484,13 @@
 	else
 		mind = new /datum/mind(key)
 		mind.original = src
-		if(ticker)
-			ticker.minds += mind
-		else
-			world.log << "## DEBUG: mind_initialize(): No ticker ready yet! Please inform Carn"
+		SSticker.minds += mind
 	if(!mind.name)	mind.name = real_name
+	if (client)
+		if (client.prefs.signature)
+			mind.signature = client.prefs.signature
+		if (client.prefs.signfont)
+			mind.signfont = client.prefs.signfont
 	mind.current = src
 
 //HUMAN
@@ -509,14 +524,6 @@
 	mind.special_role = ""
 
 //Animals
-/mob/living/simple_animal/mind_initialize()
-	..()
-	mind.assigned_role = "Animal"
-
-/mob/living/simple_animal/corgi/mind_initialize()
-	..()
-	mind.assigned_role = "Corgi"
-
 /mob/living/simple_animal/shade/mind_initialize()
 	..()
 	mind.assigned_role = "Shade"
@@ -545,3 +552,15 @@
 	..()
 	mind.assigned_role = "Syndicate Robot"
 	mind.special_role = "Mercenary"
+
+/mob/living/simple_animal/hostile/faithless/wizard/mind_initialize()
+	..()
+	mind.assigned_role = "Space Wizard"
+
+/mob/living/simple_animal/familiar/mind_initialize()
+	..()
+	mind.assigned_role = "Familiar"
+
+/mob/living/simple_animal/mouse/familiar/familiar/mind_initialize()
+	..()
+	mind.assigned_role = "Familiar"
