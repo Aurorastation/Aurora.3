@@ -813,7 +813,7 @@
 	desc = "We all love tofu."
 	filling_color = "#FFFEE0"
 	center_of_mass = list("x"=17, "y"=10)
-	
+
 /obj/item/weapon/reagent_containers/food/snacks/tofu/New()
 	..()
 	reagents.add_reagent("tofu", 3)
@@ -858,6 +858,20 @@
 	..()
 	reagents.add_reagent("seafood", 3)
 	reagents.add_reagent("carpotoxin", 3)
+	src.bitesize = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/dwellermeat
+	name = "worm fillet"
+	desc = "A fillet of electrifying cavern meat"
+	icon_state = "fishfillet"
+	filling_color = "#FFDEFE"
+	center_of_mass = list("x"=17, "y"=13)
+
+/obj/item/weapon/reagent_containers/food/snacks/dwellermeat/New()
+	..()
+	reagents.add_reagent("seafood", 6)
+	reagents.add_reagent("hyperzine", 15)
+	reagents.add_reagent("pacid",6)
 	src.bitesize = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/fishfingers
