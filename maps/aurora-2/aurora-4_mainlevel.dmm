@@ -6794,7 +6794,7 @@
 "anU" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Laser Rifle)";
-	req_access = list(2)
+	req_access = list(3)
 	},
 /obj/item/weapon/gun/energy/rifle/laser,
 /obj/item/weapon/gun/energy/rifle/laser,
@@ -7308,7 +7308,7 @@
 "aoV" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Ion Rifle)";
-	req_access = list(2)
+	req_access = list(3)
 	},
 /obj/item/weapon/gun/energy/ionrifle,
 /obj/item/weapon/gun/energy/ionrifle,
@@ -7669,7 +7669,7 @@
 	},
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (En. Carbine)";
-	req_access = list(2)
+	req_access = list(3)
 	},
 /obj/item/weapon/gun/energy/gun,
 /obj/item/weapon/gun/energy/gun,
@@ -8365,7 +8365,7 @@
 "aqU" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Shotgun)";
-	req_access = list(2)
+	req_access = list(3)
 	},
 /obj/item/weapon/gun/projectile/shotgun/pump,
 /obj/item/weapon/gun/projectile/shotgun/pump,
@@ -10302,11 +10302,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -23;
-	pixel_y = 0
-	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "aum" = (
@@ -11330,6 +11325,8 @@
 /obj/machinery/computer/sentencing/courtroom{
 	pixel_y = 28
 	},
+/obj/structure/table/standard,
+/obj/item/weapon/paper/sentencing,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "avR" = (
@@ -12195,12 +12192,12 @@
 	pixel_x = -3;
 	pixel_y = 9
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /obj/item/weapon/pen{
 	pixel_x = 3;
 	pixel_y = 7
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -18569,7 +18566,6 @@
 /obj/item/device/radio/off,
 /obj/item/device/radio/off,
 /obj/item/device/flashlight/heavy,
-/obj/item/weapon/ladder_mobile,
 /turf/simulated/floor/tiled,
 /area/engineering/storage)
 "aHM" = (
@@ -19738,6 +19734,8 @@
 	pixel_x = -27
 	},
 /obj/structure/table/rack,
+/obj/item/hoist_kit,
+/obj/item/weapon/ladder_mobile,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aJz" = (
@@ -23019,7 +23017,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/item/weapon/ladder_mobile,
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aOW" = (
@@ -61350,6 +61347,7 @@
 	codes_txt = "patrol;next_patrol=CP1";
 	location = "Eng"
 	},
+/mob/living/bot/secbot/beepsky,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "cdz" = (
@@ -62004,6 +62002,41 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
+"ceH" = (
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
+"ceI" = (
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
+"ceJ" = (
+/obj/structure/table/reinforced,
+/obj/item/hoist_kit,
+/obj/item/weapon/ladder_mobile,
+/turf/simulated/floor/tiled/dark,
+/area/ai_monitored/storage/eva)
+"ceK" = (
+/obj/effect/floor_decal/corner/brown{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/item/hoist_kit,
+/obj/structure/table/rack{
+	dir = 1
+	},
+/obj/item/weapon/ladder_mobile,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 
 (1,1,1) = {"
 aaa
@@ -85509,7 +85542,7 @@ aJG
 aLz
 aNj
 aGu
-aGw
+ceJ
 aGw
 aTr
 aUZ
@@ -86110,7 +86143,7 @@ cao
 cav
 cav
 caY
-cbk
+ceK
 cbB
 cbQ
 cce
@@ -87804,7 +87837,7 @@ ame
 ame
 anQ
 aoT
-aoT
+ceH
 aqQ
 arZ
 cek
@@ -89348,7 +89381,7 @@ anU
 aoV
 apL
 aqU
-aoT
+ceI
 cel
 auo
 avL
@@ -90140,7 +90173,7 @@ aLK
 aTB
 aVe
 aWk
-cdx
+aXD
 aYD
 aZN
 baS
@@ -90670,7 +90703,7 @@ bmn
 bix
 aZN
 bpS
-cez
+ceu
 aZN
 btJ
 btJ
@@ -90939,7 +90972,7 @@ btJ
 btJ
 btJ
 btJ
-ceC
+ceB
 aWn
 bFk
 aWn
@@ -94251,7 +94284,7 @@ aQP
 axu
 aTM
 aQL
-ces
+cep
 aLZ
 aYN
 aZU
