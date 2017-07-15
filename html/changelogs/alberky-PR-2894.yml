@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - balance: "Removed the ipc brute reduction, since robotic limbs have them by default, also reduced the brute reduction of industrial ipcs."
-  - bugfix: "Fixed shells and industrial's head not being marked as vital parts of their bodies."  

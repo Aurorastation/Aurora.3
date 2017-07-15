@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Ports baystation12 armor system: Armor now has a chance to either block an attack or absorb a fixed portion of damage, instead of randomly blocking either nothing, half, or full damage."
