@@ -28,7 +28,7 @@
 																"records_security" = "sec_record",
 																"records_ccia" = "ccia_record"),
 												"args" = list("char_id")),
-				"ss13_characters" = list("vars" = list("nt_relation", "home_system", "citizenship", "faction", "religion"), "args" = list("id")))
+				"ss13_characters" = list("vars" = list("nt_relation" = "nanotrasen_relation" ,"home_system", "citizenship", "faction", "religion"), "args" = list("id")))
 
 /datum/category_item/player_setup_item/general/background/gather_load_parameters()
 	return list("id" = pref.current_character, "char_id" = pref.current_character)
