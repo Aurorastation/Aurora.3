@@ -120,7 +120,7 @@
 	if (!isturf(posobj))
 		posobj = get_turf(posobj)
 
-	if(!(locate(/turf/space) in RANGE_TURFS(C.view, posobj)) && !(locate(/turf/simulated/open) in RANGE_TURFS(C.view, posobj)))
+	if(!posobj || (!(locate(/turf/space) in RANGE_TURFS(C.view, posobj)) && !(locate(/turf/simulated/open) in RANGE_TURFS(C.view, posobj))))
 		return
 
 	if(!C.previous_turf || (C.previous_turf.z != posobj.z))
