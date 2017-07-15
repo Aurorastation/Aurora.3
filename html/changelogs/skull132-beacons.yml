@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: true
+
+changes:
+  - tweak: "Mining flags are now light beacons. For added ambiance and usefulness on the dimly lit asteroid of NewMap."
