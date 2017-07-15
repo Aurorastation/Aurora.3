@@ -517,18 +517,12 @@
 
 		CHECK_TICK
 
-/obj/item/weapon/storage/LateInitialize()
-	var/total_storage_space = 0
-	for(var/obj/item/I in contents)
-		total_storage_space += I.get_storage_cost()
-	max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
-
 // Override this to fill the storage object with stuff.
 /obj/item/weapon/storage/proc/fill()
 	return
 
 /obj/item/weapon/storage/Initialize(mapload)
-	..()
+	. = ..()
 
 	if (max_storage_space > STORAGE_SPACE_CAP)
 		log_debug("STORAGE: [type] exceed STORAGE_SPACE_CAP. It has been reset to [STORAGE_SPACE_CAP].")
@@ -567,7 +561,10 @@
 	closer.master = src
 	orient2hud(null, mapload)
 
-	return INITIALIZE_HINT_LATELOAD
+	var/total_storage_space = 0
+	for(var/obj/item/I in contents)
+		total_storage_space += I.get_storage_cost()
+	max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
 
 /obj/item/weapon/storage/emp_act(severity)
 	if(!istype(src.loc, /mob/living))
