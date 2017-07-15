@@ -566,7 +566,7 @@
 	else
 		shrinkwrap()
 
-// Adjusts this storage object's max capacity to exactly the storage required by its contents. Will not increase max storage capacity, only decrease it.
+// Adjusts this storage object's max capacity to exactly the storage required by its contents. Will not decrease max storage capacity, only increase it.
 /obj/item/weapon/storage/proc/shrinkwrap()
 	var/total_storage_space = 0
 	for(var/obj/item/I in contents)
