@@ -334,8 +334,8 @@
 // Flags.
 
 /obj/item/stack/flag
-	name = "flags"
-	desc = "Some colourful flags."
+	name = "beacons"
+	desc = "A stack of light emitting beacons."
 	singular_name = "flag"
 	amount = 5
 	max_amount = 5
@@ -344,29 +344,36 @@
 	var/upright = 0
 	var/base_state
 
-/obj/item/stack/flag/New()
-	..()
+	light_color = LIGHT_COLOR_TUNGSTEN
+	light_power = 1.8
+
+/obj/item/stack/flag/Initialize()
+	. = ..()
 	base_state = icon_state
 
 /obj/item/stack/flag/red
-	name = "red flags"
-	singular_name = "red flag"
+	name = "red bebeacons"
+	singular_name = "red beacon"
 	icon_state = "redflag"
+	light_color = LIGHT_COLOR_RED
 
 /obj/item/stack/flag/yellow
-	name = "yellow flags"
-	singular_name = "yellow flag"
+	name = "yellow beacons"
+	singular_name = "yellow beacon"
 	icon_state = "yellowflag"
+	light_color = LIGHT_COLOR_YELLOW
 
 /obj/item/stack/flag/green
-	name = "green flags"
-	singular_name = "green flag"
+	name = "green beacons"
+	singular_name = "green beacon"
 	icon_state = "greenflag"
+	light_color = LIGHT_COLOR_GREEN
 
 /obj/item/stack/flag/purple
-	name = "purple flags"
-	singular_name = "purple flag"
+	name = "purple beacons"
+	singular_name = "purple beacon"
 	icon_state = "purpflag"
+	light_color = LIGHT_COLOR_PURPLE
 
 /obj/item/stack/flag/attackby(obj/item/W as obj, mob/user as mob)
 	if(upright && istype(W,src.type))
@@ -379,7 +386,8 @@
 		upright = 0
 		icon_state = base_state
 		anchored = 0
-		src.visible_message("<b>[user]</b> knocks down [src].")
+		set_light(0)
+		src.visible_message("<b>[user]</b> turns [src] off.")
 	else
 		..()
 
@@ -388,12 +396,12 @@
 	var/obj/item/stack/flag/F = locate() in get_turf(src)
 
 	var/turf/T = get_turf(src)
-	if(!T || !istype(T,/turf/simulated/floor/asteroid))
-		user << "The flag won't stand up in this terrain."
+	if(!T || !istype(T, /turf/simulated/floor/asteroid))
+		user << "The beacon won't stand up in this terrain."
 		return
 
 	if(F && F.upright)
-		user << "There is already a flag here."
+		user << "There is already a beacon here."
 		return
 
 	var/obj/item/stack/flag/newflag = new src.type(T)
@@ -403,6 +411,7 @@
 	newflag.name = newflag.singular_name
 	newflag.icon_state = "[newflag.base_state]_open"
 	newflag.visible_message("<b>[user]</b> plants [newflag] firmly in the ground.")
+	newflag.set_light(2)
 	src.use(1)
 
 /**********************Miner Carts***********************/
