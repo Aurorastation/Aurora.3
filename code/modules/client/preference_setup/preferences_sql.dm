@@ -214,8 +214,9 @@
 
 	// Typecast the collection so we can access its preferences var.
 	var/datum/category_collection/player_setup_collection/cc = collection
+	testing("Saving [sort_order] || [name]")
 	for (var/query_text in query_cache[type])
-		log_debug("Saving type: [type]")
+		log_debug("Executing query: [query_text]")
 		var/DBQuery/query = dbcon.NewQuery(query_text)
 		query.Execute(arg_list)
 
@@ -238,8 +239,8 @@
 			query.Execute()
 
 			if (query.NextRow())
-				arg_list[":id"] = text2num(query.item[1])
-				arg_list[":char_id"] = text2num(query.item[1])
+				arg_list["id"] = text2num(query.item[1])
+				arg_list["char_id"] = text2num(query.item[1])
 				cc.preferences.current_character = text2num(query.item[1])
 
 #ifdef SQL_PREF_DEBUG
