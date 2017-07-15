@@ -150,7 +150,6 @@
 	if(!blinded)
 		flick("flash", flash)
 
-	var/shielded = 0
 	var/b_loss = null
 	var/f_loss = null
 
@@ -160,6 +159,7 @@
 	switch (severity)
 		if (1.0)
 			b_loss += 500
+			f_loss = 100
 			if (!prob(getarmor(null, "bomb")))
 				gib()
 				return
@@ -171,40 +171,37 @@
 				//user.throw_at(target, 200, 4)
 
 		if (2.0)
-			if (!shielded)
-				b_loss += 60
-
-			f_loss += 60
-
-			if (prob(getarmor(null, "bomb")))
-				b_loss = b_loss/1.5
-				f_loss = f_loss/1.5
+			b_loss = 60
+			f_loss = 60
 
 			if (!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
 				ear_damage += 30
 				ear_deaf += 120
-			if (prob(70) && !shielded)
+			if (prob(70))
 				Paralyse(10)
 
 		if(3.0)
-			b_loss += 30
-			if (prob(getarmor(null, "bomb")))
-				b_loss = b_loss/2
+			b_loss = 30
 			if (!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
 				ear_damage += 15
 				ear_deaf += 60
-			if (prob(50) && !shielded)
+			if (prob(50))
 				Paralyse(10)
+
+	// factor in armour
+	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
+	b_loss *= protection
+	f_loss *= protection
 
 	var/update = 0
 
 	// focus most of the blast on one organ
 	var/obj/item/organ/external/take_blast = pick(organs)
-	update |= take_blast.take_damage(b_loss * 0.9, f_loss * 0.9, used_weapon = "Explosive blast")
+	update |= take_blast.take_damage(b_loss * 0.7, f_loss * 0.7, used_weapon = "Explosive blast")
 
-	// distribute the remaining 10% on all limbs equally
-	b_loss *= 0.1
-	f_loss *= 0.1
+	// distribute the remaining 30% on all limbs equally (including the one already dealt damage)
+	b_loss *= 0.3
+	f_loss *= 0.3
 
 	var/weapon_message = "Explosive Blast"
 
