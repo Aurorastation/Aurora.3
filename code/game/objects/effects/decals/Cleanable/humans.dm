@@ -39,21 +39,23 @@
 		D.cure(0)
 	return ..()
 
-/obj/effect/decal/cleanable/blood/Initialize()
+/obj/effect/decal/cleanable/blood/Initialize(mapload)
 	. = ..()
 	update_icon()
 	if(istype(src, /obj/effect/decal/cleanable/blood/gibs))
 		return
-	if(src.type == /obj/effect/decal/cleanable/blood)
-		if(src.loc && isturf(src.loc))
+	if(type == /obj/effect/decal/cleanable/blood)
+		if (isturf(loc))
 			for(var/obj/effect/decal/cleanable/blood/B in src.loc)
 				if(B != src)
 					if (B.blood_DNA)
 						blood_DNA |= B.blood_DNA.Copy()
 					qdel(B)
 	drytime = DRYING_TIME * (amount+1)
-	if (dries)
+	if (dries && !mapload)
 		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/blood/.proc/dry), drytime)
+	else if (dries)
+		dry()
 
 /obj/effect/decal/cleanable/blood/update_icon()
 	if(basecolor == "rainbow") basecolor = "#[get_random_colour(1)]"

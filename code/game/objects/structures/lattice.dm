@@ -23,7 +23,7 @@
 /obj/structure/lattice/Initialize()
 	. = ..()
 	if (restrict_placement)
-		if(!(istype(loc, /turf/space) || istype(loc, /turf/simulated/open) || istype(loc, /turf/simulated/floor/asteroid)))
+		if(!(istype(loc, /turf/space) || isopenturf(loc) || istype(loc, /turf/simulated/floor/asteroid)))
 			return INITIALIZE_HINT_QDEL
 	for(var/obj/structure/lattice/LAT in loc)
 		if(LAT != src)
@@ -62,8 +62,8 @@
 	desc = "A catwalk for easier EVA maneuvering."
 	icon = 'icons/obj/smooth/catwalk.dmi'
 	icon_state = "catwalk"
-	smooth = SMOOTH_TRUE
-	canSmoothWith = null
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(/obj/structure/lattice/catwalk)
 
 // Special catwalk that can be placed on regular flooring.
 /obj/structure/lattice/catwalk/indoor
@@ -90,3 +90,9 @@
 		queue_smooth_neighbors(src)
 	else
 		..()
+
+/obj/structure/lattice/catwalk/hoist_act(turf/dest)
+	for (var/A in src)
+		var/atom/movable/AM = A
+		AM.hoist_act(dest)
+	..()

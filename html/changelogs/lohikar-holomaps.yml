@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - rscadd: "Ported another server's implementation of /vg/'s holomaps."

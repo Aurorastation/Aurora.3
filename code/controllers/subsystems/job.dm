@@ -309,6 +309,8 @@
 	if(!H)
 		return null
 
+	Debug("ER/([H]): Entry, joined_late=[joined_late],megavend=[megavend].")
+
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
 	
@@ -317,6 +319,7 @@
 		var/list/custom_equip_leftovers = list()
 		//Equip job items.
 		if(!megavend)	//Equip custom gear loadout.
+			Debug("ER/([H]): Equipping custom loadout.")
 			job.equip_backpack(H)
 			job.setup_account(H)
 
@@ -331,7 +334,8 @@
 		// Randomize nutrition. Defines are in __defines/mobs.dm
 		H.nutrition = (rand(CREW_MINIMUM_NUTRITION, CREW_MAXIMUM_NUTRITION) * 0.01) * H.max_nutrition
 
-		EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
+		if (!megavend)
+			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
 		H << "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator."
 
@@ -375,15 +379,17 @@
 
 		switch(rank)
 			if("Cyborg")
+				Debug("ER/([H]): Job is Cyborg, returning early.")
 				return H.Robotize()
 			if("AI")
+				Debug("ER/([H]): Job is AI, returning early.")
 				return H
 			if("Captain")
 				var/sound/announce_sound = (SSticker.current_state <= GAME_STATE_SETTING_UP)? null : sound('sound/misc/boatswain.ogg', volume=20)
 				captain_announcement.Announce("All hands, Captain [H.real_name] on deck!", new_sound=announce_sound)
 
 		//Deferred item spawning.
-		if(LAZYLEN(spawn_in_storage))
+		if(!megavend && LAZYLEN(spawn_in_storage))
 			EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	if(istype(H) && !megavend) //give humans wheelchairs, if they need them.
@@ -420,6 +426,9 @@
 	BITSET(H.hud_updateflag, ID_HUD)
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
+
+	Debug("ER/([H]): Completed.")
+
 	return H
 
 /mob/living/carbon/human
@@ -483,13 +492,17 @@
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/EquipPersonal(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
+	Debug("EP/([H]): Entry.")
 	if(!H)
+		Debug("EP/([H]): Abort, H is null.")
 		return null
 	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
 	switch(rank)
 		if("Cyborg")
+			Debug("EP/([H]): Abort, H is borg..")
 			return EquipRank(H, rank, 1)
 		if("AI")
+			Debug("EP/([H]): Abort, H is AI.")
 			return EquipRank(H, rank, 1)
 	if(spawning_at != "Arrivals Shuttle")
 		return EquipRank(H, rank, 1)
@@ -511,7 +524,7 @@
 		job.equip_survival(H)
 		job.setup_account(H)
 
-		EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
+		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 
 		job.apply_fingerprints(H)
 
@@ -551,11 +564,15 @@
 
 	H << "<b>Welcome to the Odin! Simply proceed down and to the right to board the shuttle to your workplace!</b>."
 
+	Debug("EP/([H]): Completed.")
+
 	return H
 
 /datum/controller/subsystem/jobs/proc/spawnId(mob/living/carbon/human/H, rank, title)
 	if (!H)
 		return FALSE
+
+	Debug("SI/([H]): Entry; rank=[rank],title=[title].")
 
 	var/obj/item/weapon/card/id/C = null
 
@@ -563,6 +580,7 @@
 
 	if(job)
 		if(job.title == "Cyborg")
+			Debug("SI/([H]): Abort; job is cyborg.")
 			return
 		else
 			C = new job.idtype(H)
@@ -572,7 +590,7 @@
 	if(C)
 		C.rank = rank
 		C.assignment = title ? title : rank
-		H.set_id_info(C)
+		addtimer(CALLBACK(H, /mob/.proc/set_id_info, C), 1 SECOND)	// Delay a moment to allow an icon update to happen.
 
 		//put the player's account number onto the ID
 		if(H.mind && H.mind.initial_account)
@@ -588,6 +606,7 @@
 		pda.ownrank = C.rank
 		pda.name = "PDA-[H.real_name] ([pda.ownjob])"
 
+	Debug("SI/([H]): Completed.")
 	return TRUE
 
 /datum/controller/subsystem/jobs/proc/LoadJobs(jobsfile)
@@ -654,6 +673,7 @@
 
 /datum/controller/subsystem/jobs/proc/LateSpawn(mob/living/carbon/human/H, rank)
 	//spawn at one of the latespawn locations
+	Debug("LS/([H]): Entry; rank=[rank]")
 
 	var/datum/spawnpoint/spawnpos
 	
@@ -671,6 +691,8 @@
 	else
 		H.loc = pick(latejoin)
 		. = "is inbound from the NTCC Odin"
+
+	Debug("LS/([H]): Completed, spawning at area [H.loc.loc].")
 
 /datum/controller/subsystem/jobs/proc/DespawnMob(mob/living/carbon/human/H)
 	//Update any existing objectives involving this mob.
@@ -719,11 +741,14 @@
 // H, job, and prefs MUST be supplied and not null.
 // leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
 /datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/human/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
+	Debug("EC/([H]): Entry.")
 	if (!istype(H) || !job)
+		Debug("EC/([H]): Abort: invalid arguments.")
 		return FALSE
 
 	switch (job.title)
 		if ("AI", "Cyborg")
+			Debug("EC/([H]): Abort: synthetic.")
 			return FALSE
 
 	for(var/thing in prefs.gear)
@@ -753,15 +778,20 @@
 				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 					if (leftovers)
 						leftovers += thing
+					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
 					H << "<span class='notice'>Equipping you with \a [thing]!</span>"
 					custom_equip_slots += G.slot
+					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
 					leftovers += thing
+					Debug("EC/([H]): Unable to equip [thing]; sending to overflow.")
 			else if (storage)
 				storage += thing
+				Debug("EC/([H]): Unable to equip [thing]; sending to storage.")
 	
+	Debug("EC/([H]): Complete.")
 	return TRUE
 
 // Attempts to equip custom items that failed to equip in EquipCustom.
@@ -769,6 +799,7 @@
 // H and prefs must not be null.
 /datum/controller/subsystem/jobs/proc/EquipCustomDeferred(mob/living/carbon/human/H, datum/preferences/prefs, list/items, list/used_slots)
 	. = list()
+	Debug("ECD/([H]): Entry.")
 	for (var/thing in items)
 		var/datum/gear/G = gear_datums[thing]
 
@@ -781,15 +812,21 @@
 				to_chat(H, "<span class='notice'>Equipping you with \a [thing]!</span>")
 				used_slots += G.slot
 				CI.autodrobe_no_remove = TRUE
+				Debug("ECD/([H]): Equipped [thing] successfully.")
 
 			else
 				. += thing
+				Debug("ECD/([H]): Unable to equip [thing]; dumping into overflow.")
+
+	Debug("ECD/([H]): Complete.")
 
 // Attempts to place everything in items into a storage object located on H, deleting them if they're unable to be inserted.
 // H and prefs must not be null.
 // Returns nothing.
 /datum/controller/subsystem/jobs/proc/EquipItemsStorage(mob/living/carbon/human/H, datum/preferences/prefs, list/items)
+	Debug("EIS/([H]): Entry.")
 	if (LAZYLEN(items))
+		Debug("EIS/([H]): [items.len] items.")
 		var/obj/item/weapon/storage/B = locate() in H
 		if (B)
 			for (var/thing in items)
@@ -797,6 +834,10 @@
 				var/datum/gear/G = gear_datums[thing]
 				var/metadata = prefs.gear[G.display_name]
 				G.spawn_item(B, metadata)
+				Debug("EIS/([H]): placed [thing] in [B].")
 
 		else
 			to_chat(H, "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>")
+			Debug("EIS/([H]): unable to equip; no storage.")
+
+	Debug("EIS/([H]): Complete.")

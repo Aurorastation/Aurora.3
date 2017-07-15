@@ -134,7 +134,7 @@ var/global/list/additional_antag_types = list()
 			antag_summary += "[antag.role_text_plural]"
 			i++
 		antag_summary += "."
-		if(antag_templates.len > 1 && master_mode != "secret")
+		if(antag_templates.len > 1 && !SSticker.hide_mode)
 			world << "[antag_summary]"
 		else
 			message_admins("[antag_summary]")
@@ -606,7 +606,7 @@ proc/get_nt_opposed()
 		usr << "Something is terribly wrong; there is no gametype."
 		return
 
-	if(master_mode != "secret")
+	if(!SSticker.hide_mode)
 		usr << "<b>The roundtype is [capitalize(SSticker.mode.name)]</b>"
 		if(SSticker.mode.round_description)
 			usr << "<i>[SSticker.mode.round_description]</i>"

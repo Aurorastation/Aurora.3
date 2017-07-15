@@ -43,7 +43,7 @@
 		if(istype(unsim, /turf/simulated))
 
 			var/turf/simulated/sim = unsim
-			if(SSair.has_valid_zone(sim))
+			if(TURF_HAS_VALID_ZONE(sim))
 
 				SSair.connect(sim, src)
 
@@ -150,11 +150,15 @@
 			#endif
 
 			//Check that our zone hasn't been cut off recently.
-			//This happens when windows move or are constructed. We need to rebuild.
+			//This happens when windows move or are constructed. Try to remove first, otherwise we need to rebuild.
 			if((previously_open & d) && istype(unsim, /turf/simulated))
 				var/turf/simulated/sim = unsim
 				if(zone && sim.zone == zone)
-					zone.rebuild()
+					if (can_safely_remove_from_zone())
+						c_copy_air()
+						zone.remove(src)
+					else
+						zone.rebuild()
 					return
 
 			continue
@@ -166,8 +170,7 @@
 			var/turf/simulated/sim = unsim
 			sim.open_directions |= reverse_dir[d]
 
-			if(SSair.has_valid_zone(sim))
-
+			if(TURF_HAS_VALID_ZONE(sim))
 				//Might have assigned a zone, since this happens for each direction.
 				if(!zone)
 
@@ -182,11 +185,8 @@
 						#endif
 
 						//Postpone this tile rather than exit, since a connection can still be made.
-						if(!postponed) postponed = list()
-						postponed.Add(sim)
-
+						LAZYADD(postponed, sim)
 					else
-
 						sim.zone.add(src)
 
 						#ifdef ZASDBG
@@ -215,7 +215,7 @@
 			if(!postponed) postponed = list()
 			postponed.Add(unsim)
 
-	if(!SSair.has_valid_zone(src)) //Still no zone, make a new one.
+	if(!TURF_HAS_VALID_ZONE(src)) //Still no zone, make a new one.
 		var/zone/newzone = new/zone()
 		newzone.add(src)
 

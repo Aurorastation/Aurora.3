@@ -3,6 +3,11 @@
 ************/
 /datum/uplink_item/item/grenades
 	category = /datum/uplink_category/grenades
+	
+/datum/uplink_item/item/grenades/manhack
+	name = "Manhack Delivery Grenade"
+	item_cost = 3
+	path = /obj/item/weapon/grenade/spawnergrenade/manhacks
 
 /datum/uplink_item/item/grenades/anti_photon
 	name = "5xPhoton Disruption Grenades"
@@ -24,7 +29,3 @@
 	item_cost = 12
 	path = /obj/item/weapon/storage/box/frags
 
-/datum/uplink_item/item/grenades/manhack
-	name = "Manhack Delivery Grenade"
-	item_cost = 3
-	path = /obj/item/weapon/grenade/spawnergrenade/manhacks

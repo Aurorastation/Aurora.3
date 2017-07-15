@@ -5,6 +5,8 @@
 	reagent_state = LIQUID
 	metabolism = REM * 5
 	color = "#C80000"
+	taste_description = "iron"
+	taste_mult = 1.3
 
 	glass_icon_state = "glass_red"
 	glass_name = "glass of tomato juice"
@@ -97,6 +99,7 @@
 	id = "vaccine"
 	reagent_state = LIQUID
 	color = "#C81040"
+	taste_description = "slime"
 
 /datum/reagent/vaccine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(data)
@@ -119,6 +122,7 @@
 	id = "antibodies"
 	reagent_state = LIQUID
 	color = "#0050F0"
+	taste_description = "slime"
 
 /datum/reagent/antibodies/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(src.data)
@@ -133,6 +137,7 @@
 	reagent_state = LIQUID
 	color = "#0064C877"
 	metabolism = REM * 10
+	taste_description = "water"
 
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of water"
@@ -197,6 +202,7 @@
 	reagent_state = LIQUID
 	color = "#660000"
 	touch_met = 5
+	taste_description = "gross metal"
 
 	glass_icon_state = "dr_gibb_glass"
 	glass_name = "glass of welder fuel"

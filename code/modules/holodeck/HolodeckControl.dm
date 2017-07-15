@@ -2,7 +2,8 @@
 	name = "holodeck control console"
 	desc = "A computer used to control a nearby holodeck."
 
-	icon_screen = "holocontrol"
+	icon_state  = "computerw"
+	icon_screen = "holocontrolw"
 	light_color = LIGHT_COLOR_CYAN
 
 	use_power = 1
@@ -25,8 +26,8 @@
 	var/list/supported_programs
 	var/list/restricted_programs
 
-/obj/machinery/computer/HolodeckControl/New()
-	..()
+/obj/machinery/computer/HolodeckControl/Initialize()
+	. = ..()
 	linkedholodeck = locate(linkedholodeck_area)
 	supported_programs = list()
 	restricted_programs = list()
@@ -335,10 +336,11 @@
 	use_power = 1
 
 /obj/machinery/computer/HolodeckControl/Exodus
+	density = 0
 	linkedholodeck_area = /area/holodeck/alphadeck
 
-/obj/machinery/computer/HolodeckControl/Exodus/New()
-	..()
+/obj/machinery/computer/HolodeckControl/Exodus/Initialize()
+	. = ..()
 	supported_programs = list(
 	"Empty Court" 		= "emptycourt",
 	"Basketball Court" 	= "basketball",
@@ -351,7 +353,9 @@
 	"Snow Field" 		= "snowfield",
 	"Theatre" 			= "theatre",
 	"Meeting Hall" 		= "meetinghall",
-	"Courtroom" 		= "courtroom"
+	"Courtroom" 		= "courtroom",
+	"Chapel"			= "chapel",
+	"Xavier Trasen Memorial Gymnasium" = "gym"
 	)
 
 	restricted_programs = list(

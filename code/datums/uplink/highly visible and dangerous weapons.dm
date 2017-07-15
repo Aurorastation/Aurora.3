@@ -23,11 +23,6 @@
 	name = "Energy Sword"
 	item_cost = 8
 	path = /obj/item/weapon/melee/energy/sword
-	
-/datum/uplink_item/item/visible_weapons/hammer
-	name = "Kneebreaker Hammer"
-	item_cost = 10
-	path = /obj/item/weapon/melee/hammer
 
 /datum/uplink_item/item/visible_weapons/g9mm
 	name = "Silenced 9mm"
@@ -39,6 +34,11 @@
 	item_cost = 8
 	path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser
 
+/datum/uplink_item/item/visible_weapons/hammer
+	name = "Kneebreaker Hammer"
+	item_cost = 10
+	path = /obj/item/weapon/melee/hammer
+	
 /datum/uplink_item/item/visible_weapons/revolver
 	name = "Revolver"
 	item_cost = 12

@@ -77,7 +77,7 @@
 
 	custom_action(step, atom/used_atom, mob/user)
 		user.visible_message("[user] has connected [used_atom] to [holder].", "You connect [used_atom] to [holder]")
-		holder.overlays += used_atom.icon_state+"+o"
+		holder.add_overlay("[used_atom.icon_state]+o")
 		qdel(used_atom)
 		return 1
 
@@ -90,11 +90,8 @@
 		const_holder.icon = 'icons/mecha/mech_construction.dmi'
 		const_holder.icon_state = "ripley0"
 		const_holder.density = 1
-		const_holder.overlays.len = 0
-		spawn()
-			qdel(src)
-		return
-
+		const_holder.cut_overlays()
+		qdel(src)
 
 /datum/construction/reversible/mecha/ripley
 	result = "/obj/mecha/working/ripley"
@@ -288,7 +285,7 @@
 
 	custom_action(step, atom/used_atom, mob/user)
 		user.visible_message("[user] has connected [used_atom] to [holder].", "You connect [used_atom] to [holder]")
-		holder.overlays += used_atom.icon_state+"+o"
+		holder.add_overlay("[used_atom.icon_state]+o")
 		qdel(used_atom)
 		return 1
 
@@ -568,7 +565,7 @@
 
 	custom_action(step, atom/used_atom, mob/user)
 		user.visible_message("[user] has connected [used_atom] to [holder].", "You connect [used_atom] to [holder]")
-		holder.overlays += used_atom.icon_state+"+o"
+		holder.add_overlay("[used_atom.icon_state]+o")
 		user.drop_item()
 		qdel(used_atom)
 		return 1
@@ -792,7 +789,7 @@
 
 	custom_action(step, atom/used_atom, mob/user)
 		user.visible_message("[user] has connected [used_atom] to [holder].", "You connect [used_atom] to [holder]")
-		holder.overlays += used_atom.icon_state+"+o"
+		holder.add_overlay("[used_atom.icon_state]+o")
 		qdel(used_atom)
 		return 1
 
@@ -1074,7 +1071,7 @@
 
 	custom_action(step, atom/used_atom, mob/user)
 		user.visible_message("[user] has connected [used_atom] to [holder].", "You connect [used_atom] to [holder]")
-		holder.overlays += used_atom.icon_state+"+o"
+		holder.add_overlay("[used_atom.icon_state]+o")
 		qdel(used_atom)
 		return 1
 
@@ -1095,7 +1092,7 @@
 
 	custom_action(step, atom/used_atom, mob/user)
 		user.visible_message("[user] has connected [used_atom] to [holder].", "You connect [used_atom] to [holder]")
-		holder.overlays += used_atom.icon_state+"+o"
+		holder.add_overlay("[used_atom.icon_state]+o")
 		qdel(used_atom)
 		return 1
 

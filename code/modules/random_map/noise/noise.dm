@@ -33,15 +33,14 @@
 // Diamond-square algorithm.
 /datum/random_map/noise/seed_map()
 	// Instantiate the grid.
-	for(var/x = 1, x <= limit_x, x++)
-		for(var/y = 1, y <= limit_y, y++)
-			map[GET_MAP_CELL(x,y)] = 0
+	for (var/i = 1 to (limit_x * limit_y))
+		map[i] = 0
 
 	// Now dump in the actual random data.
-	map[GET_MAP_CELL(1,1)]             = cell_base+rand(initial_cell_range)
-	map[GET_MAP_CELL(1,limit_y)]       = cell_base+rand(initial_cell_range)
-	map[GET_MAP_CELL(limit_x,limit_y)] = cell_base+rand(initial_cell_range)
-	map[GET_MAP_CELL(limit_x,1)]       = cell_base+rand(initial_cell_range)
+	map[TRANSLATE_COORD(1,1)]             = cell_base+rand(initial_cell_range)
+	map[TRANSLATE_COORD(1,limit_y)]       = cell_base+rand(initial_cell_range)
+	map[TRANSLATE_COORD(limit_x,limit_y)] = cell_base+rand(initial_cell_range)
+	map[TRANSLATE_COORD(limit_x,1)]       = cell_base+rand(initial_cell_range)
 
 /datum/random_map/noise/generate_map()
 	// Begin recursion.
@@ -69,33 +68,33 @@
 	(x,y)----------(x+hsize,y)----------(x+isize,y)
 	*/
 	// Central edge values become average of corners.
-	map[GET_MAP_CELL(x+hsize,y+isize)] = round((\
-		map[GET_MAP_CELL(x,y+isize)] +          \
-		map[GET_MAP_CELL(x+isize,y+isize)] \
+	map[TRANSLATE_COORD(x+hsize,y+isize)] = round((\
+		map[TRANSLATE_COORD(x,y+isize)] +          \
+		map[TRANSLATE_COORD(x+isize,y+isize)] \
 		)/2)
 
-	map[GET_MAP_CELL(x+hsize,y)] = round((  \
-		map[GET_MAP_CELL(x,y)] +            \
-		map[GET_MAP_CELL(x+isize,y)]   \
+	map[TRANSLATE_COORD(x+hsize,y)] = round((  \
+		map[TRANSLATE_COORD(x,y)] +            \
+		map[TRANSLATE_COORD(x+isize,y)]   \
 		)/2)
 
 	map[get_map_cell(x,y+hsize)] = round((  \
-		map[GET_MAP_CELL(x,y+isize)] + \
-		map[GET_MAP_CELL(x,y)]              \
+		map[TRANSLATE_COORD(x,y+isize)] + \
+		map[TRANSLATE_COORD(x,y)]              \
 		)/2)
 
-	map[GET_MAP_CELL(x+isize,y+hsize)] = round((  \
-		map[GET_MAP_CELL(x+isize,y+isize)] + \
-		map[GET_MAP_CELL(x+isize,y)]        \
+	map[TRANSLATE_COORD(x+isize,y+hsize)] = round((  \
+		map[TRANSLATE_COORD(x+isize,y+isize)] + \
+		map[TRANSLATE_COORD(x+isize,y)]        \
 		)/2)
 
 	// Centre value becomes the average of all other values + possible random variance.
-	var/current_cell = GET_MAP_CELL(x+hsize,y+hsize)
+	var/current_cell = TRANSLATE_COORD(x+hsize,y+hsize)
 	map[current_cell] = round(( \
-		map[GET_MAP_CELL(x+hsize,y+isize)] + \
-		map[GET_MAP_CELL(x+hsize,y)] + \
-		map[GET_MAP_CELL(x,y+hsize)] + \
-		map[GET_MAP_CELL(x+isize,y)] \
+		map[TRANSLATE_COORD(x+hsize,y+isize)] + \
+		map[TRANSLATE_COORD(x+hsize,y)] + \
+		map[TRANSLATE_COORD(x,y+hsize)] + \
+		map[TRANSLATE_COORD(x+isize,y)] \
 		)/4)
 
 	if(prob(random_variance_chance))
@@ -113,51 +112,48 @@
 		subdivide(iteration, x+hsize, y+hsize, hsize)
 
 /datum/random_map/noise/cleanup()
-
-	for(var/i = 1;i<=smoothing_iterations;i++)
+	var/is_not_border_left
+	var/is_not_border_right
+	for(var/i = 1 to smoothing_iterations)
 		var/list/next_map[limit_x*limit_y]
-		for(var/x = 1, x <= limit_x, x++)
-			for(var/y = 1, y <= limit_y, y++)
-
-				var/current_cell = get_map_cell(x,y)
+		for(var/x = 1 to limit_x)
+			for(var/y = 1 to limit_y)
+				var/current_cell = TRANSLATE_COORD(x,y)
 				next_map[current_cell] = map[current_cell]
-				var/val_count = 0
-				var/total = 0
+				var/val_count = 1
+				var/total = map[current_cell]
 
-				// Get the average neighboring value.
-				var/tmp_cell
-				PREPARE_CELL(x+1,y+1)
-				if(tmp_cell)
-					total += map[tmp_cell]
-					val_count++
-				PREPARE_CELL(x-1,y-1)
-				if(tmp_cell)
-					total += map[tmp_cell]
-					val_count++
-				PREPARE_CELL(x+1,y-1)
-				if(tmp_cell)
-					total += map[tmp_cell]
-					val_count++
-				PREPARE_CELL(x-1,y+1)
-				if(tmp_cell)
-					total += map[tmp_cell]
-					val_count++
-				PREPARE_CELL(x-1,y)
-				if(tmp_cell)
-					total += map[tmp_cell]
-					val_count++
-				PREPARE_CELL(x,y-1)
-				if(tmp_cell)
-					total += map[tmp_cell]
-					val_count++
-				PREPARE_CELL(x+1,y)
-				if(tmp_cell)
-					total += map[tmp_cell]
-					val_count++
-				PREPARE_CELL(x,y+1)
-				if(tmp_cell)
-					total += map[tmp_cell]
-					val_count++
+				is_not_border_left = (x != 1)
+				is_not_border_right = (x != limit_x)
+
+				// Center row. Center value's already been done above.
+				if (is_not_border_left)
+					total += map[TRANSLATE_COORD(x - 1, y)]
+					++val_count
+				if (is_not_border_right)
+					total += map[TRANSLATE_COORD(x + 1, y)]
+					++val_count
+
+				if (y != 1) // top row
+					total += map[TRANSLATE_COORD(x, y - 1)]
+					++val_count
+					if (is_not_border_left)
+						total += map[TRANSLATE_COORD(x - 1, y - 1)]
+						++val_count
+					if (is_not_border_right)
+						total += map[TRANSLATE_COORD(x + 1, y - 1)]
+						++val_count
+
+				if (y != limit_y) // bottom row
+					total += map[TRANSLATE_COORD(x, y + 1)]
+					++val_count
+					if (is_not_border_left)
+						total += map[TRANSLATE_COORD(x - 1, y + 1)]
+						++val_count
+					if (is_not_border_right)
+						total += map[TRANSLATE_COORD(x + 1, y + 1)]
+						++val_count
+
 				total = round(total/val_count)
 
 				if(abs(map[current_cell]-total) <= cell_smooth_amt)

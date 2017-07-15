@@ -5,6 +5,7 @@
 	reagent_state = LIQUID
 	color = "#808080"
 	metabolism = REM * 0.2
+	taste_description = "acid"
 
 /datum/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed * 3)
@@ -32,6 +33,8 @@
 	description = "A silvery white and ductile member of the boron group of chemical elements."
 	reagent_state = SOLID
 	color = "#A8A8A8"
+	taste_description = "metal"
+	taste_mult = 1.1
 
 /datum/reagent/ammonia
 	name = "Ammonia"
@@ -40,6 +43,8 @@
 	reagent_state = LIQUID
 	color = "#404030"
 	metabolism = REM * 0.5
+	taste_description = "mordant"
+	taste_mult = 2
 
 /datum/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -54,6 +59,8 @@
 	reagent_state = SOLID
 	color = "#1C1300"
 	ingest_met = REM * 5
+	taste_description = "sour chalk"
+	taste_mult = 1.5
 
 /datum/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -79,6 +86,7 @@
 	id = "copper"
 	description = "A highly ductile metal."
 	color = "#6E3B08"
+	taste_description = "copper"
 
 /datum/reagent/ethanol
 	name = "Ethanol" //Parent class for all alcoholic reagents.
@@ -96,6 +104,8 @@
 	var/halluci = 0
 	var/datum/modifier/caffeine_mod
 	var/caffeine  = 0
+
+	taste_description = "pure alcohol"
 
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of ethanol"
@@ -172,6 +182,8 @@
 	var/nutriment_factor = 0.5
 	var/strength = 100 // This is the ABV of the drink
 
+	taste_description = "alcohol"
+
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of butanol"
 	glass_desc = "A fairly harmless alcohol that has intoxicating effects on certain species."
@@ -199,9 +211,6 @@
 	var/quantity = (strength / 100) * removed
 	M.intoxication += quantity
 
-
-
-
 /datum/reagent/hydrazine
 	name = "Hydrazine"
 	id = "hydrazine"
@@ -210,6 +219,7 @@
 	color = "#808080"
 	metabolism = REM * 0.2
 	touch_met = 5
+	taste_description = "sweet tasting metal"
 
 /datum/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(4 * removed)
@@ -229,6 +239,7 @@
 	description = "Pure iron is a metal."
 	reagent_state = SOLID
 	color = "#353535"
+	taste_description = "metal"
 
 /datum/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
@@ -240,6 +251,7 @@
 	description = "A chemical element, used as antidepressant."
 	reagent_state = SOLID
 	color = "#808080"
+	taste_description = "metal"
 
 /datum/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
@@ -255,6 +267,7 @@
 	reagent_state = LIQUID
 	color = "#484848"
 	ingest_met = REM*0.2
+	taste_mult = 0 //mercury apparently is tasteless
 
 /datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
@@ -271,6 +284,7 @@
 	description = "A chemical element, the backbone of biological energy carriers."
 	reagent_state = SOLID
 	color = "#832828"
+	taste_description = "vinegar"
 
 /datum/reagent/potassium
 	name = "Potassium"
@@ -278,6 +292,7 @@
 	description = "A soft, low-melting solid that can easily be cut with a knife. Reacts violently with water."
 	reagent_state = SOLID
 	color = "#A0A0A0"
+	taste_description = "sweetness" //potassium is bitter in higher doses but sweet in lower ones.
 
 /datum/reagent/radium
 	name = "Radium"
@@ -285,6 +300,7 @@
 	description = "Radium is an alkaline earth metal. It is extremely radioactive."
 	reagent_state = SOLID
 	color = "#C7C7C7"
+	taste_description = "the color blue, and regret"
 
 /datum/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_effect(10 * removed, IRRADIATE, 0) // Radium may increase your chances to cure a disease
@@ -320,6 +336,7 @@
 	touch_met = 50 // It's acid!
 	var/power = 4
 	var/meltdose = 10 // How much is needed to melt
+	taste_description = "acid"
 
 /datum/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.take_organ_damage(0, removed * power)
@@ -403,6 +420,7 @@
 	color = "#808080"
 	power = 3
 	meltdose = 8
+	taste_description = "stomach acid"
 
 /datum/reagent/silicon
 	name = "Silicon"
@@ -410,6 +428,7 @@
 	description = "A tetravalent metalloid, silicon is less reactive than its chemical analog carbon."
 	reagent_state = SOLID
 	color = "#A8A8A8"
+	taste_description = "metal"
 
 /datum/reagent/sodium
 	name = "Sodium"
@@ -417,6 +436,7 @@
 	description = "A chemical element, readily reacts with water."
 	reagent_state = SOLID
 	color = "#808080"
+	taste_description = "salty metal"
 
 /datum/reagent/sugar
 	name = "Sugar"
@@ -424,6 +444,9 @@
 	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 	reagent_state = SOLID
 	color = "#FFFFFF"
+	taste_description = "sugar"
+	taste_mult = 1.8
+
 	glass_icon_state = "iceglass"
 	glass_name = "glass of sugar"
 	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
@@ -437,6 +460,7 @@
 	description = "A chemical element with a pungent smell."
 	reagent_state = SOLID
 	color = "#BF8C00"
+	taste_description = "old eggs"
 
 /datum/reagent/tungsten
 	name = "Tungsten"
@@ -444,3 +468,4 @@
 	description = "A chemical element, and a strong oxidising agent."
 	reagent_state = SOLID
 	color = "#DCDCDC"
+	taste_mult = 0 //no taste

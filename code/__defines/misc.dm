@@ -67,6 +67,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define PARALLAX_SPACE 0x1
 #define PARALLAX_DUST  0x2
 #define PROGRESS_BARS  0x4
+#define PARALLAX_IS_STATIC 0x8
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
@@ -163,6 +164,8 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 //Area flags, possibly more to come
 #define RAD_SHIELDED 1 //shielded from radiation, clearly
+#define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
+#define HIDE_FROM_HOLOMAP 4 // if we shouldn't be drawn on station holomaps
 
 // Custom layer definitions, supplementing the default TURF_LAYER, MOB_LAYER, etc.
 #define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
@@ -333,6 +336,14 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 // as text so you don't necessarily fuck with an object's ability to be garbage collected.
 #define SOFTREF(A) "\ref[A]"
 
+// A slightly stronger version of the above that does type validation for you.
+#if DM_VERSION >= 511
+// This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
+#define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref ? D:weakref : (D:weakref = new(D))) : null)
+#else
+#define WEAKREF(D) _weakref(D)
+#endif
+
 #define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 #define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
@@ -361,3 +372,13 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define USE_FAIL_INCAPACITATED 5
 #define USE_FAIL_NOT_IN_USER 6
 #define USE_FAIL_IS_SILICON 7
+
+// 510 doesn't have this flag, so this shim will turn it into a no-op if it doesn't exist.
+#ifndef SEE_BLACKNESS
+#define SEE_BLACKNESS 0
+#endif 
+
+#define DEFAULT_SIGHT (SEE_SELF|SEE_BLACKNESS)
+
+#define isStationLevel(Z) ((Z) in config.station_levels)
+#define isNotStationLevel(Z) !isStationLevel(Z)

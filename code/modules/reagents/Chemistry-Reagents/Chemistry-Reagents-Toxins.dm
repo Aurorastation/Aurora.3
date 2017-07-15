@@ -8,6 +8,8 @@
 	color = "#CF3600"
 	metabolism = REM * 0.1 // 0.02 by default. They last a while and slowly kill you.
 	var/strength = 4 // How much damage it deals per unit
+	taste_description = "bitterness"
+	taste_mult = 1.2
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength && alien != IS_DIONA)
@@ -20,6 +22,7 @@
 	reagent_state = LIQUID
 	color = "#CF3600"
 	strength = 5
+	taste_description = "plastic"
 
 /datum/reagent/toxin/amatoxin
 	name = "Amatoxin"
@@ -28,6 +31,7 @@
 	reagent_state = LIQUID
 	color = "#792300"
 	strength = 10
+	taste_description = "mushroom"
 
 /datum/reagent/toxin/carpotoxin
 	name = "Carpotoxin"
@@ -36,6 +40,7 @@
 	reagent_state = LIQUID
 	color = "#003333"
 	strength = 10
+	taste_description = "fish"
 
 /datum/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_UNATHI)
@@ -50,6 +55,7 @@
 	color = "#9D14DB"
 	strength = 30
 	touch_met = 5
+	taste_mult = 1.5
 
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
@@ -99,6 +105,7 @@
 	color = "#CF3600"
 	strength = 20
 	metabolism = REM * 2
+	taste_mult = 1.5
 
 /datum/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -116,6 +123,7 @@
 	color = "#FFFFFF"
 	strength = 0
 	overdose = REAGENTS_OVERDOSE
+	taste_description = "salt"
 
 /datum/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien)
 	..()
@@ -136,6 +144,7 @@
 	color = "#FFFFFF"
 	strength = 10
 	overdose = 20
+	taste_description = "salt"
 
 /datum/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -156,6 +165,7 @@
 	color = "#669900"
 	metabolism = REM
 	strength = 3
+	taste_description = "death"
 
 /datum/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -183,6 +193,8 @@
 	reagent_state = LIQUID
 	strength = 0.5 // It's not THAT poisonous.
 	color = "#664330"
+	taste_description = "plant food"
+	taste_mult = 0.5
 
 /datum/reagent/toxin/fertilizer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -211,6 +223,7 @@
 	color = "#49002E"
 	strength = 4
 	metabolism = REM*1.5
+	taste_mult = 1
 
 /datum/reagent/toxin/plantbgone/touch_turf(var/turf/T)
 	if(istype(T, /turf/simulated/wall))
@@ -242,6 +255,7 @@
 	color = "#8E18A9"
 	power = 6
 	meltdose = 4
+	taste_description = "acid"
 
 /datum/reagent/lexorin
 	name = "Lexorin"
@@ -250,6 +264,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
+	taste_description = "acid"
 
 /datum/reagent/lexorin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -267,6 +282,8 @@
 	description = "Might cause unpredictable mutations. Keep away from children."
 	reagent_state = LIQUID
 	color = "#13BC5E"
+	taste_description = "slime"
+	taste_mult = 0.9
 
 /datum/reagent/mutagen/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(33))
@@ -298,6 +315,8 @@
 	description = "A gooey semi-liquid produced from one of the deadliest lifeforms in existence. SO REAL."
 	reagent_state = LIQUID
 	color = "#801E28"
+	taste_description = "slime"
+	taste_mult = 1.3
 
 /datum/reagent/slimejelly/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -319,6 +338,7 @@
 	color = "#009CA8"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
+	taste_description = "bitterness"
 
 /datum/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -347,6 +367,7 @@
 	color = "#000067"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE * 0.5
+	taste_description = "bitterness"
 
 /datum/reagent/chloralhydrate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -372,6 +393,7 @@
 	description = "An alcoholic beverage made from malted grains, hops, yeast, and water. The fermentation appears to be incomplete." //If the players manage to analyze this, they deserve to know something is wrong.
 	reagent_state = LIQUID
 	color = "#664300"
+	taste_description = "beer"
 
 	glass_icon_state = "beerglass"
 	glass_name = "glass of beer"
@@ -388,6 +410,8 @@
 	color = "#60A584"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
+	taste_description = "bitterness"
+	taste_mult = 0.4
 
 /datum/reagent/space_drugs/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -409,6 +433,7 @@
 	color = "#202040"
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
+	taste_description = "bitterness"
 
 /datum/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -428,6 +453,7 @@
 	color = "#000055"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
+	taste_description = "sourness"
 
 /datum/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -447,6 +473,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
+	taste_description = "numbness"
 
 /datum/reagent/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -467,6 +494,7 @@
 	color = "#B31008"
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
+	taste_description = "sourness"
 
 /datum/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -480,6 +508,7 @@
 	color = "#E700E7"
 	overdose = REAGENTS_OVERDOSE
 	metabolism = REM * 0.5
+	taste_description = "mushroom"
 
 /datum/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -516,6 +545,7 @@
 	description = "A highly addictive stimulant extracted from the tobacco plant."
 	reagent_state = LIQUID
 	color = "#181818"
+	taste_description = "bitterness"
 
 /* Transformations */
 
@@ -525,6 +555,7 @@
 	description = "A corruptive toxin produced by slimes."
 	reagent_state = LIQUID
 	color = "#13BC5E"
+	taste_description = "sludge"
 
 /datum/reagent/slimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
@@ -539,6 +570,7 @@
 	description = "An advanced corruptive toxin produced by slimes."
 	reagent_state = LIQUID
 	color = "#13BC5E"
+	taste_description = "sludge"
 
 /datum/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // TODO: check if there's similar code anywhere else
 	if(M.transforming)
@@ -571,6 +603,7 @@
 	description = "Microscopic construction robots."
 	reagent_state = LIQUID
 	color = "#535E66"
+	taste_description = "slimey metal"
 
 /datum/reagent/nanites/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(10))
@@ -585,6 +618,7 @@
 	description = "Microbes with an entirely alien cellular structure."
 	reagent_state = LIQUID
 	color = "#535E66"
+	taste_description = "sludge"
 
 /datum/reagent/xenomicrobes/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(10))

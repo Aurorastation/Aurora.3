@@ -49,9 +49,13 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 /datum/controller/subsystem/lighting/Initialize(timeofday)
 	var/overlaycount = 0
+	var/starttime = REALTIMEOFDAY
 	// Generate overlays.
+	var/turf/T
+	var/thing
 	for (var/zlevel = 1 to world.maxz)
-		for (var/turf/T in block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel)))
+		for (thing in block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel)))
+			T = thing
 			if (!T.dynamic_lighting)
 				continue
 
@@ -64,14 +68,16 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 			CHECK_TICK
 
-	admin_notice(span("danger", "Created [overlaycount] lighting overlays."), R_DEBUG)
+	admin_notice(span("danger", "Created [overlaycount] lighting overlays in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 
+	starttime = REALTIMEOFDAY
 	// Tick once to clear most lights.
 	fire(FALSE, TRUE)
 
 	admin_notice(span("danger", "Processed [processed_lights] light sources."), R_DEBUG)
 	admin_notice(span("danger", "Processed [processed_corners] light corners."), R_DEBUG)
 	admin_notice(span("danger", "Processed [processed_overlays] light overlays."), R_DEBUG)
+	admin_notice(span("danger", "Lighting pre-bake completed in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 
 	log_ss("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
 

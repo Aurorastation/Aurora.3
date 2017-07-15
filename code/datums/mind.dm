@@ -524,14 +524,6 @@
 	mind.special_role = ""
 
 //Animals
-/mob/living/simple_animal/mind_initialize()
-	..()
-	mind.assigned_role = "Animal"
-
-/mob/living/simple_animal/corgi/mind_initialize()
-	..()
-	mind.assigned_role = "Corgi"
-
 /mob/living/simple_animal/shade/mind_initialize()
 	..()
 	mind.assigned_role = "Shade"
@@ -564,3 +556,11 @@
 /mob/living/simple_animal/hostile/faithless/wizard/mind_initialize()
 	..()
 	mind.assigned_role = "Space Wizard"
+
+/mob/living/simple_animal/familiar/mind_initialize()
+	..()
+	mind.assigned_role = "Familiar"
+
+/mob/living/simple_animal/mouse/familiar/familiar/mind_initialize()
+	..()
+	mind.assigned_role = "Familiar"

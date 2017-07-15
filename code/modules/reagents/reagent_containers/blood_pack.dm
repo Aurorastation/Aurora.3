@@ -87,7 +87,7 @@
 
 	if (istype(P, /obj/item/weapon/) && P.sharp == 1)
 		var/mob/living/carbon/human/H = usr
-		if(P.attack_verb.len)
+		if(LAZYLEN(P.attack_verb))
 			user.visible_message("<span class='danger'>[src] has been [pick(P.attack_verb)] with \the [P] by [user]!</span>")
 		var/atkmsg_filled = null
 		if (reagents.get_reagent_amount("blood"))

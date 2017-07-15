@@ -11,7 +11,8 @@
 	var/obj/item/weapon/toppaper	//The topmost piece of paper.
 	slot_flags = SLOT_BELT
 
-/obj/item/weapon/clipboard/New()
+/obj/item/weapon/clipboard/Initialize()
+	. = ..()
 	update_icon()
 
 /obj/item/weapon/clipboard/MouseDrop(obj/over_object as obj) //Quick clipboard fix. -Agouri
@@ -34,15 +35,16 @@
 
 /obj/item/weapon/clipboard/update_icon()
 	cut_overlays()
+	var/list/to_add = list()
 	if(toppaper)
-		add_overlay(toppaper.icon_state)
+		to_add += toppaper.icon_state
 		// The overlay list is a special internal format.
 		// We need to copy it into a normal list before we can give it to SSoverlay.
-		var/list/paper_overlays = toppaper.overlays.Copy()
-		add_overlay(paper_overlays)
+		to_add += toppaper.overlays.Copy()
 	if(haspen)
-		add_overlay("clipboard_pen")
-	add_overlay("clipboard_over")
+		to_add += "clipboard_pen"
+	to_add += "clipboard_over"
+	add_overlay(to_add)
 
 /obj/item/weapon/clipboard/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	

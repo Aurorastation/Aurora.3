@@ -65,13 +65,13 @@
 
 	update()
 
-	L_PROF(source_atom, "source_new([type])")
+	//L_PROF(source_atom, "source_new([type])")
 
 	return ..()
 
 // Kill ourselves.
 /datum/light_source/Destroy(force)
-	L_PROF(source_atom, "source_destroy")
+	//L_PROF(source_atom, "source_destroy")
 
 	remove_lum()
 	if (source_atom)
@@ -115,19 +115,19 @@
 
 			top_atom.light_sources += src // Add ourselves to the light sources of our new top atom.
 
-	L_PROF(source_atom, "source_update")
+	//L_PROF(source_atom, "source_update")
 
 	INTELLIGENT_UPDATE(LIGHTING_CHECK_UPDATE)
 
 // Will force an update without checking if it's actually needed.
 /datum/light_source/proc/force_update()
-	L_PROF(source_atom, "source_forceupdate")
+	//L_PROF(source_atom, "source_forceupdate")
 
 	INTELLIGENT_UPDATE(LIGHTING_FORCE_UPDATE)
 
 // Will cause the light source to recalculate turfs that were removed or added to visibility only.
 /datum/light_source/proc/vis_update()
-	L_PROF(source_atom, "source_visupdate")
+	//L_PROF(source_atom, "source_visupdate")
 
 	INTELLIGENT_UPDATE(LIGHTING_VIS_UPDATE)
 
@@ -328,6 +328,7 @@
 	var/thing
 	var/datum/lighting_corner/C
 	var/turf/T
+	var/list/Tcorners
 	var/Sx = source_turf.x
 	var/Sy = source_turf.y
 
@@ -336,13 +337,29 @@
 		if (light_angle && check_light_cone(T.x, T.y))
 			continue
 
-		for (thing in T.get_corners())
-			C = thing
-			corners[C] = 0
+		if (T.dynamic_lighting || T.light_sources)
+			Tcorners = T.corners
+			if (!T.lighting_corners_initialised)
+				T.lighting_corners_initialised = TRUE
+
+				if (!Tcorners)
+					T.corners = list(null, null, null, null)
+					Tcorners = T.corners
+
+				for (var/i = 1 to 4)
+					if (Tcorners[i])
+						continue
+
+					Tcorners[i] = new /datum/lighting_corner(T, LIGHTING_CORNER_DIAGONAL[i])
+
+			if (!T.has_opaque_atom)
+				for (thing in Tcorners)
+					C = thing
+					corners[C] = 0
 
 		turfs += T
 
-		if (istype(T, /turf/simulated/open) && T:below)
+		if (isopenturf(T) && T:below)
 			T = T:below	// Consider the turf below us as well. (Z-lights)
 			goto check_t
 

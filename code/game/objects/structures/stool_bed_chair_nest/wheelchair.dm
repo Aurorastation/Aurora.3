@@ -10,13 +10,11 @@
 	var/bloodiness
 
 /obj/structure/bed/chair/wheelchair/update_icon()
-	return
+	cut_overlays()
+	add_overlay(image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", layer = FLY_LAYER))
 
 /obj/structure/bed/chair/wheelchair/set_dir()
 	..()
-	overlays = null
-	var/image/O = image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", layer = FLY_LAYER, dir = src.dir)
-	overlays += O
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
 

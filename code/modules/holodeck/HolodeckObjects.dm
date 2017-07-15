@@ -26,6 +26,18 @@
 	icon_state = "steel"
 	initial_flooring = /decl/flooring/tiling
 
+/turf/simulated/floor/holofloor/tiled/ramp
+	name = "foot ramp"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "ramptop"
+	initial_flooring = /decl/flooring/reinforced/ramp
+
+/turf/simulated/floor/holofloor/tiled/ramp/bottom
+	name = "foot ramp"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "rampbot"
+	initial_flooring = /decl/flooring/reinforced/ramp/bottom
+
 /turf/simulated/floor/holofloor/tiled/dark
 	name = "dark floor"
 	icon_state = "dark"
@@ -368,10 +380,6 @@
 /obj/machinery/readybutton/attack_ai(mob/user as mob)
 	user << "The station AI is not to interact with these devices!"
 	return
-
-/obj/machinery/readybutton/New()
-	..()
-
 
 /obj/machinery/readybutton/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	user << "The device is a solid button, there's nothing you can do with it!"

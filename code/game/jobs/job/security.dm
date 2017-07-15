@@ -106,7 +106,7 @@
 	selection_color = "#ffeeee"
 	economic_modifier = 5
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective)
-	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective)
+	minimal_access = list(access_security, access_sec_doors, access_morgue, access_maint_tunnels, access_detective)
 	minimal_player_age = 7
 
 

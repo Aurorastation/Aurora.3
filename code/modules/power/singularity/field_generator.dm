@@ -28,8 +28,8 @@ field_generator power level display
 	var/power = 30000  // Current amount of power
 	var/state = 0
 	var/warming_up = 0
-	var/list/obj/machinery/containment_field/fields
-	var/list/obj/machinery/field_generator/connected_gens
+	var/list/obj/machinery/containment_field/fields = list()
+	var/list/obj/machinery/field_generator/connected_gens = list()
 	var/clean_up = 0
 
 	//If keeping field generators powered is hard then increase the emitter active power usage.
@@ -51,12 +51,6 @@ field_generator power level display
 	level = between(0, level, num_power_levels)
 	if(level)
 		add_overlay("+p[level]")
-
-/obj/machinery/field_generator/New()
-	..()
-	fields = list()
-	connected_gens = list()
-	return
 
 /obj/machinery/field_generator/machinery_process()
 	if(Varedit_start == 1)

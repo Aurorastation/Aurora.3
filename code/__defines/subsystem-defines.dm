@@ -58,7 +58,7 @@
 #define STOP_VISUAL(visual)	visual.isprocessing = FALSE; SSeffects.visuals -= visual;
 
 // -- SSopenturf --
-#define CHECK_OO_EXISTENCE(OO) if (OO && !istype(OO.loc, /turf/simulated/open)) { qdel(OO); }
+#define CHECK_OO_EXISTENCE(OO) if (OO && !isopenturf(OO.loc)) { qdel(OO); }
 #define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_above(); }
 
 // -- SSfalling --
