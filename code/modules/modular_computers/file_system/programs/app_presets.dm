@@ -43,7 +43,7 @@
 	available = 1
 /datum/modular_computer_app_presets/medical/return_install_programs()
 	var/list/_prg_list = list(
-		new/datum/computer_file/program/filemanager()
+		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/suit_sensors()
 	)
