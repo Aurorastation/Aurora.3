@@ -55,14 +55,6 @@
 	src.preferences = preferences
 	..()
 	selected_category = categories[1]
-	log_debug("Category order: [json_encode(categories)]")
-
-	var/test_msg = ""
-
-	for(var/datum/category_group/player_setup_category/PS in categories)
-		test_msg += "[PS.sort_order]->"
-
-	testing(test_msg)
 
 /datum/category_collection/player_setup_collection/Destroy()
 	preferences = null
@@ -129,15 +121,6 @@
 	var/sort_order = 0
 	var/sql_role = SQL_CHARACTER
 	var/modified = 0
-
-/datum/category_group/player_setup_category/New()
-	. = ..()
-
-	var/test_msg = "1"
-	for(var/datum/category_item/player_setup_item/PI in items)
-		test_msg += "[PI.sort_order]->"
-
-	testing(test_msg)
 
 /datum/category_group/player_setup_category/proc/sanitize_setup()
 	for(var/datum/category_item/player_setup_item/PI in items)
