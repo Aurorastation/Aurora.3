@@ -25,6 +25,7 @@
 	available = 1
 /datum/modular_computer_app_presets/engineering/return_install_programs()
 	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/power_monitor(),
 		new/datum/computer_file/program/alarm_monitor(),
 		new/datum/computer_file/program/atmos_control(),
@@ -42,6 +43,7 @@
 	available = 1
 /datum/modular_computer_app_presets/medical/return_install_programs()
 	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/suit_sensors()
 	)
@@ -54,6 +56,7 @@
 	available = 1
 /datum/modular_computer_app_presets/research/return_install_programs()
 	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/ntnetmonitor(),
 		new/datum/computer_file/program/aidiag(),
@@ -68,6 +71,7 @@
 	available = 1
 /datum/modular_computer_app_presets/command/return_install_programs()
 	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/card_mod(),
 		new/datum/computer_file/program/comm()
@@ -81,6 +85,7 @@
 	available = 1
 /datum/modular_computer_app_presets/security/return_install_programs()
 	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/camera_monitor(),
 		new/datum/computer_file/program/comm(),
@@ -95,6 +100,7 @@
 	available = 1
 /datum/modular_computer_app_presets/civilian/return_install_programs()
 	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/game/arcade(),
 		new/datum/computer_file/program/game/sudoku()
@@ -108,6 +114,7 @@
 	available = 0
 /datum/modular_computer_app_presets/wall_generic/return_install_programs()
 	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/camera_monitor(),
 		new/datum/computer_file/program/alarm_monitor()
