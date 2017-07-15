@@ -84,7 +84,10 @@ var/list/gear_datums = list()
 
 	var/mob/preference_mob = preference_mob()
 	if(!islist(pref.gear))
+		crash_with("FFFFFFFFFFFFFFFFFFFFF")
 		pref.gear = list()
+	if (!length(pref.gear))
+		crash_with("GGGGGGGGGGGGGGGGGGGGGGG")
 
 	for(var/gear_name in pref.gear)
 		if(!(gear_name in gear_datums))
