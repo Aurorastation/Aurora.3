@@ -36,6 +36,10 @@
 	var/list/damage_icon_parts = list()
 	// [icon]-[icon_state]-[limb_name]-[color]
 	var/list/markings_cache = list()
+	var/list/human_eye_cache = list()
+	var/list/human_lip_cache = list()
+	var/list/human_hair_cache = list()
+	var/list/human_beard_cache = list()
 
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)
