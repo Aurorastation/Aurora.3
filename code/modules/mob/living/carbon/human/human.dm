@@ -938,8 +938,11 @@
 		src.verbs -= /mob/living/carbon/human/proc/remotesay
 		return
 	var/list/creatures = list()
-	for(var/mob/living/carbon/h in world)
-		creatures += h
+	for(var/hh in human_mob_list)
+		var/mob/living/carbon/human/H = hh
+		if (H.client)
+			creatures += hh
+
 	var/mob/target = input("Who do you want to project your mind to ?") as null|anything in creatures
 	if (isnull(target))
 		return
@@ -951,7 +954,7 @@
 		target.show_message("<span class='notice'>You hear a voice that seems to echo around the room: [say]</span>")
 	usr.show_message("<span class='notice'>You project your mind into [target.real_name]: [say]</span>")
 	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
-	for(var/mob/dead/observer/G in world)
+	for(var/mob/dead/observer/G in dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
 /mob/living/carbon/human/proc/remoteobserve()
@@ -976,9 +979,13 @@
 
 	var/list/mob/creatures = list()
 
-	for(var/mob/living/carbon/h in world)
-		var/turf/temp_turf = get_turf(h)
-		if((temp_turf.z != 1 && temp_turf.z != 5) || h.stat!=CONSCIOUS) //Not on mining or the station. Or dead
+	for(var/h in human_mob_list)
+		var/mob/living/carbon/human/H = h
+		if (!H.client)
+			continue
+
+		var/turf/temp_turf = get_turf(H)
+		if((temp_turf.z != 1 && temp_turf.z != 5) || H.stat!=CONSCIOUS) //Not on mining or the station. Or dead
 			continue
 		creatures += h
 

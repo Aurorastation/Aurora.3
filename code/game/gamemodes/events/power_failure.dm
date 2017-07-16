@@ -7,7 +7,7 @@
 		S.energy_fail(rand(15 * severity,30 * severity))
 
 
-	for(var/obj/machinery/power/apc/C in machines)
+	for(var/obj/machinery/power/apc/C in SSmachinery.processing_machines)
 		if(!C.is_critical)
 			C.energy_fail(rand(40 * severity,150 * severity))
 
@@ -16,7 +16,7 @@
 
 	if(announce)
 		command_announcement.Announce("Power has been restored to [station_name()]. We apologize for the inconvenience.", "Power Systems Nominal", new_sound = 'sound/AI/poweron.ogg')
-	for(var/obj/machinery/power/apc/C in machines)
+	for(var/obj/machinery/power/apc/C in SSmachinery.processing_machines)
 		if(C.cell && (C.z in config.station_levels))
 			C.cell.charge = C.cell.maxcharge
 	for(var/obj/machinery/power/smes/S in SSpower.smes_units)
