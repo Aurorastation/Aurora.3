@@ -167,10 +167,12 @@
 	if (src.loc == user)
 		if(!user.prepare_for_slotmove(src))
 			return
-	else
-		if(isliving(src.loc))
-			return
-	user.put_in_active_hand(src)
+	else if(isliving(src.loc))
+		return
+
+	// If equipping onto active hand fails, drop it on the floor.
+	if (!user.put_in_active_hand(src))
+		forceMove(user.loc)
 	return
 
 /obj/item/attack_ai(mob/user as mob)

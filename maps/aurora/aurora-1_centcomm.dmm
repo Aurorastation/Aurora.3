@@ -7307,8 +7307,9 @@
 	},
 /area/centcom/living)
 "rn" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor,
-/area/centcom/suppy)
+/area/centcom/living)
 "ro" = (
 /turf/unsimulated/floor{
 	icon_state = "warnplate";
@@ -7434,10 +7435,6 @@
 	},
 /area/centcom/living)
 "rH" = (
-/obj/structure/bed/chair/comfy/red{
-	icon_state = "comfychair_preview";
-	dir = 8
-	},
 /turf/unsimulated/floor{
 	icon_state = "bluefull"
 	},
@@ -8876,6 +8873,7 @@
 /area/centcom/specops)
 "uM" = (
 /obj/item/weapon/card/id/centcom,
+/obj/structure/table/rack,
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
@@ -12226,10 +12224,6 @@
 	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = 0
-	},
-/obj/structure/window/reinforced{
-	dir = 5;
-	health = 1e+007
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -20104,6 +20098,172 @@
 	dir = 5
 	},
 /area/tdome/tdomeadmin)
+"Sx" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/unsimulated/floor,
+/area/centcom/living)
+"Sy" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/unsimulated/floor,
+/area/centcom/living)
+"Sz" = (
+/obj/structure/filingcabinet,
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/living)
+"SA" = (
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/living)
+"SB" = (
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/living)
+"SC" = (
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/living)
+"SD" = (
+/obj/structure/table/woodentable,
+/obj/item/device/radio/phone,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"SE" = (
+/obj/structure/bed/chair,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"SF" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"SG" = (
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/living)
+"SH" = (
+/obj/structure/table/woodentable,
+/obj/item/device/flashlight/lamp,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"SI" = (
+/obj/structure/table/woodentable,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"SJ" = (
+/obj/structure/table/woodentable,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/living)
+"SK" = (
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/living)
+"SL" = (
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/living)
+"SM" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/living)
+"SN" = (
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/living)
+"SO" = (
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/living)
+"SP" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Interview Room";
+	opacity = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "carpet";
+	dir = 2
+	},
+/area/centcom/living)
+"SQ" = (
+/obj/machinery/door/airlock/centcom{
+	name = "NMSS Odin CCIA Administration";
+	opacity = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/living)
+"SR" = (
+/obj/machinery/door/airlock/centcom{
+	icon_state = "door_locked";
+	locked = 1;
+	name = "To: Administration Level"
+	},
+/turf/unsimulated/wall/riveted,
+/area/centcom/suppy)
+"SS" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/unsimulated/floor,
+/area/centcom/living)
+"ST" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/unsimulated/floor,
+/area/centcom/living)
+"SU" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/unsimulated/floor,
+/area/centcom/living)
+"SV" = (
+/obj/structure/table/standard,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/skipjack_station/start)
 
 (1,1,1) = {"
 aa
@@ -26740,7 +26900,7 @@ aN
 aN
 aN
 KP
-Lg
+SV
 Lw
 Lg
 Lg
@@ -54979,6 +55139,7 @@ zE
 AD
 AD
 AD
+Bi
 Bj
 Bj
 Bj
@@ -54986,7 +55147,6 @@ Bi
 Ca
 Cm
 CB
-CK
 CK
 Cp
 Cp
@@ -55236,6 +55396,7 @@ zE
 zE
 zE
 zE
+Bi
 Bj
 Bj
 Bj
@@ -55243,7 +55404,6 @@ Bi
 Cb
 Cn
 CC
-CL
 CL
 Cp
 Cp
@@ -59824,7 +59984,7 @@ pR
 pR
 pR
 pR
-pR
+SQ
 pR
 pR
 pR
@@ -60075,23 +60235,23 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-iD
-aN
 pR
-aN
+Sz
+SD
+SH
+SA
 pR
-aN
+qF
+pR
 iD
-aN
-aN
-aN
 iD
-aN
-aN
-aN
+iD
+iD
+iD
+iD
+iD
+iD
+iD
 pR
 aN
 aN
@@ -60332,16 +60492,16 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-iD
-iD
+Sx
+SA
+SE
+SI
+SM
 pR
-iD
-pR
-iD
-iD
+qF
+Sx
+aN
+aN
 aN
 aN
 aN
@@ -60589,16 +60749,16 @@ aN
 aN
 aN
 aN
+Sx
+SA
+SF
+SI
+SA
+SP
+qF
+Sx
 aN
 aN
-aN
-iD
-aN
-pR
-aN
-pR
-aN
-iD
 aN
 aN
 aN
@@ -60846,16 +61006,16 @@ aN
 aN
 aN
 aN
+pR
+SA
+SA
+SA
+SA
+pR
+qF
+Sx
 aN
 aN
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
 aN
 aN
 aN
@@ -61103,16 +61263,16 @@ aN
 aN
 aN
 aN
+pR
+pR
+pR
+pR
+pR
+pR
+qF
+Sx
 aN
 aN
-rb
-re
-rn
-rn
-rn
-rn
-rO
-rb
 aN
 aN
 aN
@@ -61362,14 +61522,14 @@ aN
 aN
 aN
 aN
-rb
-rf
-re
-rn
-rn
-rO
-sa
-rb
+aN
+aN
+aN
+pR
+qF
+Sx
+aN
+aN
 aN
 aN
 aN
@@ -61619,21 +61779,21 @@ aN
 aN
 aN
 aN
-rb
-rf
-rn
-rn
-rn
-rn
-sa
-rb
+aN
+aN
+aN
+pR
+qF
+pR
 iD
 iD
-aN
 iD
-aN
-aN
-aN
+iD
+iD
+iD
+iD
+iD
+iD
 pR
 aN
 aN
@@ -61876,23 +62036,23 @@ aN
 aN
 aN
 aN
+aN
 rb
-rf
-rn
-rn
-rn
-rn
-sa
 rb
-aN
-iD
-iD
-iD
-aN
-aN
-aN
-pR
-aN
+rb
+SR
+rb
+rb
+rb
+rb
+rb
+rb
+rb
+rb
+rb
+rb
+rb
+rb
 aN
 ta
 ui
@@ -62133,24 +62293,24 @@ aN
 aN
 aN
 aN
+aN
 rb
-rf
-rg
-rn
-rn
-rP
-sa
+ro
+ro
+ro
+rQ
+rp
+rp
+rp
+rp
+rp
+rp
+sN
+rp
+rp
+rp
 rb
-aN
-aN
 iD
-iD
-aN
-aN
-aN
-pR
-aN
-aN
 ta
 uj
 uj
@@ -62390,23 +62550,23 @@ aN
 aN
 aN
 aN
+aN
 rb
-rg
-rn
-rn
-rn
-rn
-rP
+rp
+rz
+rz
+rz
+rz
+rz
+rz
+rz
+rz
+rz
+rz
+rz
+rp
+rp
 rb
-aN
-aN
-aN
-iD
-iD
-aN
-aN
-pR
-aN
 aN
 ta
 uk
@@ -62647,24 +62807,24 @@ aN
 aN
 aN
 aN
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-rb
 aN
+rb
+rp
+rz
+rI
+rR
+rI
+rI
+rI
+rI
+rI
+rR
+rI
+rz
+sX
+rp
+rb
+iD
 ta
 ul
 va
@@ -62906,22 +63066,22 @@ aN
 aN
 aN
 rb
-ro
-ro
-ro
-rQ
 rp
-rp
-rp
-rp
-rp
-rp
-sN
-rp
-rp
+rz
+rI
+rI
+rI
+rI
+rI
+rI
+rI
+rI
+rI
+sS
+sY
 rp
 rb
-iD
+aN
 ta
 um
 vb
@@ -63163,22 +63323,22 @@ aN
 aN
 aN
 rb
-rp
+rq
 rz
-rz
-rz
-rz
-rz
-rz
-rz
-rz
-rz
-rz
-rz
-rp
-rp
+rI
+rI
+rI
+rI
+rI
+rI
+rI
+rI
+rI
+sT
+sY
+tk
 rb
-aN
+iD
 ta
 un
 vc
@@ -63423,19 +63583,19 @@ rb
 rp
 rz
 rI
-rR
 rI
 rI
 rI
 rI
 rI
-rR
 rI
-rz
-sX
+rI
+rI
+sU
+sY
 rp
 rb
-iD
+aN
 ta
 uo
 vd
@@ -63680,19 +63840,19 @@ rb
 rp
 rz
 rI
+rS
+sb
 rI
+si
 rI
+sC
+rS
 rI
-rI
-rI
-rI
-rI
-rI
-sS
-sY
+rz
+sZ
 rp
 rb
-aN
+iD
 ta
 up
 ve
@@ -63934,22 +64094,22 @@ aN
 aN
 aN
 rb
-rq
+rp
 rz
-rI
-rI
-rI
-rI
-rI
-rI
-rI
-rI
-rI
-sT
-sY
-tk
+rz
+rz
+sc
+se
+rz
+se
+sD
+rz
+rz
+rz
+rp
+rp
 rb
-iD
+aN
 ta
 uq
 vf
@@ -64191,22 +64351,22 @@ aN
 aN
 aN
 rb
-rp
-rz
-rI
-rI
-rI
-rI
-rI
-rI
-rI
-rI
-rI
-sU
-sY
-rp
+rr
+rr
+rJ
 rb
-aN
+rb
+rb
+rb
+rb
+rb
+rb
+sO
+rr
+rr
+rr
+rb
+iD
 ta
 ur
 vg
@@ -64448,22 +64608,22 @@ aN
 aN
 aN
 rb
-rp
-rz
-rI
-rS
-sb
-rI
-si
-rI
-sC
-rS
-rI
-rz
-sZ
-rp
+rs
+rs
+rs
+rs
+rs
+rs
+rs
+rs
+rs
+rs
+rs
+rs
+rs
+rs
 rb
-iD
+aN
 ta
 us
 vh
@@ -64704,22 +64864,22 @@ aN
 aN
 aN
 aN
-rb
-rp
-rz
-rz
-rz
-sc
-se
-rz
-se
-sD
-rz
-rz
-rz
-rp
-rp
-rb
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
 aN
 ta
 ut
@@ -64961,23 +65121,23 @@ aN
 aN
 aN
 aN
-rb
-rr
-rr
-rJ
-rb
-rb
-rb
-rb
-rb
-rb
-rb
-sO
-rr
-rr
-rr
-rb
-iD
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
 ta
 uu
 vj
@@ -65218,22 +65378,22 @@ aN
 aN
 aN
 aN
-rb
-rs
-rs
-rs
-rs
-rs
-rs
-rs
-rs
-rs
-rs
-rs
-rs
-rs
-rs
-rb
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
+aN
 aN
 ta
 uv

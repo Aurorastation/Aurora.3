@@ -260,4 +260,5 @@
 	return 1
 
 /atom/movable/proc/hoist_act(turf/dest)
-	src.forceMove(dest)
+	forceMove(dest)
+	return TRUE
