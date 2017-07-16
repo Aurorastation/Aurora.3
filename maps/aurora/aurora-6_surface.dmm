@@ -8333,14 +8333,14 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/machinery/camera/network/civilian_east{
+	c_tag = "Surface - Vacant Office 2";
+	dir = 8
+	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1";
 	pixel_x = 0
-	},
-/obj/machinery/camera/network/civilian_west{
-	c_tag = "Surface - Vacant Office 2";
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
@@ -8531,7 +8531,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Vacant Office 1";
 	dir = 1
 	},
@@ -9721,7 +9721,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core - SMES Room 2";
+	c_tag = "Bridge - Pod 2";
 	dir = 4
 	},
 /turf/simulated/shuttle/floor,
@@ -16044,13 +16044,13 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "DH" = (
+/obj/machinery/camera/network/civilian_east{
+	c_tag = "Cargo - Loading Bay 2";
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
-	},
-/obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Loading Bay 2";
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
@@ -16238,7 +16238,7 @@
 /area/quartermaster/loading)
 "Ef" = (
 /obj/machinery/vending/snack,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_east{
 	c_tag = "Cargo - Auxilliary Entrance";
 	dir = 4
 	},
@@ -16892,13 +16892,13 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
+/obj/machinery/camera/network/civilian_east{
+	c_tag = "Cargo - Equipment Storage";
+	dir = 8
+	},
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 6
-	},
-/obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Equipment Storage";
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
@@ -17252,14 +17252,14 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "FQ" = (
+/obj/machinery/camera/network/civilian_east{
+	c_tag = "Cargo - Loading Bay 1";
+	dir = 8
+	},
 /obj/machinery/firealarm{
 	dir = 4;
 	layer = 3.3;
 	pixel_x = 26
-	},
-/obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Loading Bay 1";
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
@@ -17340,14 +17340,14 @@
 /area/quartermaster/qm)
 "FX" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Quartermaster's Office";
-	dir = 8
-	},
 /obj/machinery/firealarm{
 	dir = 4;
 	layer = 3.3;
 	pixel_x = 26
+	},
+/obj/machinery/camera/network/civilian_east{
+	c_tag = "Cargo - Quartermaster's Office";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
@@ -18139,13 +18139,13 @@
 /turf/simulated/wall,
 /area/quartermaster/loading)
 "Hl" = (
-/obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Mail Room";
-	dir = 4
-	},
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = -24
+	},
+/obj/machinery/camera/network/civilian_east{
+	c_tag = "Cargo - Mail Room";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)

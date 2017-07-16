@@ -46967,7 +46967,7 @@
 /area/hallway/primary/central_one)
 "bCH" = (
 /obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Equipment Storage";
+	c_tag = "Central Corridor - Camera 3";
 	dir = 8
 	},
 /obj/machinery/newscaster{
@@ -48786,7 +48786,7 @@
 	eftpos_name = "Library EFTPOS scanner"
 	},
 /obj/machinery/camera/network/civilian_west{
-	c_tag = "Surface - Vacant Office 2";
+	c_tag = "Library - Backroom";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -53516,7 +53516,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Auxilliary Entrance";
+	c_tag = "Kitchen - Cold Storage";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -54189,7 +54189,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Loading Bay 2";
+	c_tag = "Hydroponics - Produce Storage";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
