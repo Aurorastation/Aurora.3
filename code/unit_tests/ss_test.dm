@@ -46,7 +46,7 @@
 		del world
 
 /datum/controller/subsystem/unit_tests/proc/handle_tests()
-var/list/curr = queue
+	var/list/curr = queue
 	while (curr.len)
 		var/datum/unit_test/test = curr[curr.len]
 		curr.len--
