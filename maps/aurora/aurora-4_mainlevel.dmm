@@ -62037,6 +62037,26 @@
 /obj/item/weapon/ladder_mobile,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
+"ceL" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "CybGlass"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "CybGlass"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "CybGlass"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "CybGlass"
+	},
+/turf/simulated/floor/plating,
+/area/assembly/robotics)
 
 (1,1,1) = {"
 aaa
@@ -87096,7 +87116,7 @@ baL
 bcb
 bcd
 bey
-bfO
+ceL
 bhk
 bis
 bju
@@ -89381,7 +89401,7 @@ anU
 aoV
 apL
 aqU
-ceI
+ceH
 cel
 auo
 avL

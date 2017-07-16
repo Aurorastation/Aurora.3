@@ -96,10 +96,6 @@
 		name = "Long Hair"
 		icon_state = "hair_vlong"
 
-	longeralt
-		name = "Long Hair Alt"
-		icon_state = "hair_vlongfringe"
-
 	longeralt2
 		name = "Long Hair Alt"
 		icon_state = "hair_longeralt2"
@@ -111,7 +107,10 @@
 	longfringe
 		name = "Long Fringe"
 		icon_state = "hair_longfringe"
-
+		
+	longeralt
+		name = "Longer Fringe"
+		icon_state = "hair_vlongfringe"
 
 	halfbang
 		name = "Half-banged Hair"
