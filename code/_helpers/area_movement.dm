@@ -50,8 +50,6 @@
 	var/list/source_turfs = src.build_ordered_turf_list(turf_to_leave)
 	var/list/target_turfs = A.build_ordered_turf_list()
 
-	//log_debug("move_contents_to: source_turfs.len=[source_turfs.len],target_turfs.len=[target_turfs.len]")
-
 	ASSERT(source_turfs.len == target_turfs.len)
 
 	for (var/i = 1 to source_turfs.len)
@@ -81,8 +79,6 @@
 	var/list/target_turfs = A.build_ordered_turf_list()
 
 	. = list()
-
-	log_debug("copy_contents_to: source_turfs.len=[source_turfs.len],target_turfs.len=[target_turfs.len]")
 
 	ASSERT(source_turfs.len == target_turfs.len)
 

@@ -1,0 +1,6 @@
+author: Skull132
+delete-after: true
+
+changes:
+  - bugfix: "Blueprints now work on the asteroid as they would work in space. They also no longer megalag the server to death."
+  - bugfix: "Attempting to power the entirety of the asteroid, and thus lagging the server to death, is no longer possible."
