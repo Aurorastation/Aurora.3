@@ -941,7 +941,7 @@
 	for(var/hh in human_mob_list)
 		var/mob/living/carbon/human/H = hh
 		if (H.client)
-			creatures += h
+			creatures += hh
 
 	var/mob/target = input("Who do you want to project your mind to ?") as null|anything in creatures
 	if (isnull(target))
@@ -984,8 +984,8 @@
 		if (!H.client)
 			continue
 
-		var/turf/temp_turf = get_turf(h)
-		if((temp_turf.z != 1 && temp_turf.z != 5) || h.stat!=CONSCIOUS) //Not on mining or the station. Or dead
+		var/turf/temp_turf = get_turf(H)
+		if((temp_turf.z != 1 && temp_turf.z != 5) || H.stat!=CONSCIOUS) //Not on mining or the station. Or dead
 			continue
 		creatures += h
 
