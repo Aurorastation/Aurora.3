@@ -88,7 +88,7 @@
 
 /datum/event/ionstorm/tick()
 	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in machines)
+		for(var/obj/machinery/bot/bot in SSmachinery.all_machines)
 			if(prob(botEmagChance))
 				bot.emag_act(1)
 

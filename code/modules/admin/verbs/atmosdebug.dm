@@ -12,17 +12,17 @@
 
 	usr << "Checking for disconnected pipes..."
 	//all plumbing - yes, some things might get stated twice, doesn't matter.
-	for (var/obj/machinery/atmospherics/plumbing in machines)
+	for (var/obj/machinery/atmospherics/plumbing in world)
 		if (plumbing.nodealert)
 			usr << "Unconnected [plumbing.name] located at [plumbing.x],[plumbing.y],[plumbing.z] ([get_area(plumbing.loc)])"
 
 	//Manifolds
-	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in machines)
+	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in world)
 		if (!pipe.node1 || !pipe.node2 || !pipe.node3)
 			usr << "Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])"
 
 	//Pipes
-	for (var/obj/machinery/atmospherics/pipe/simple/pipe in machines)
+	for (var/obj/machinery/atmospherics/pipe/simple/pipe in world)
 		if (!pipe.node1 || !pipe.node2)
 			usr << "Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])"
 

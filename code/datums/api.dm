@@ -880,7 +880,7 @@ proc/api_update_command_database()
 		reportannounce = 1
 
 	//Send the message to the communications consoles
-	for (var/obj/machinery/computer/communications/C in machines)
+	for (var/obj/machinery/computer/communications/C in SSmachinery.processing_machines)
 		if(! (C.stat & (BROKEN|NOPOWER) ) )
 			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( C.loc )
 			P.name = "[command_name()] Update"

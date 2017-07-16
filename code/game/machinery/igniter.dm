@@ -151,12 +151,11 @@
 	active = 1
 	icon_state = "launcheract"
 
-	for(var/obj/machinery/sparker/M in machines)
+	for(var/obj/machinery/sparker/M in SSmachinery.all_machines)
 		if (M.id == id)
-			spawn( 0 )
-				M.ignite()
+			INVOKE_ASYNC(M, /obj/machinery/sparker/proc/ignite)
 
-	for(var/obj/machinery/igniter/M in machines)
+	for(var/obj/machinery/igniter/M in SSmachinery.all_machines)
 		if(M.id == id)
 			M.ignite()
 

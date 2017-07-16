@@ -526,7 +526,7 @@
 
 
 /proc/is_relay_online()
-    for(var/obj/machinery/bluespacerelay/M in machines)
+    for(var/obj/machinery/bluespacerelay/M in SSmachinery.all_machines)
         if(M.stat == 0)
             return 1
     return 0
