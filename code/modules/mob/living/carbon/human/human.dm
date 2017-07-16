@@ -938,8 +938,11 @@
 		src.verbs -= /mob/living/carbon/human/proc/remotesay
 		return
 	var/list/creatures = list()
-	for(var/mob/living/carbon/h in human_mob_list)
-		creatures += h
+	for(var/hh in human_mob_list)
+		var/mob/living/carbon/human/H = hh
+		if (H.client)
+			creatures += h
+
 	var/mob/target = input("Who do you want to project your mind to ?") as null|anything in creatures
 	if (isnull(target))
 		return
@@ -976,7 +979,11 @@
 
 	var/list/mob/creatures = list()
 
-	for(var/mob/living/carbon/h in human_mob_list)
+	for(var/h in human_mob_list)
+		var/mob/living/carbon/human/H = h
+		if (!H.client)
+			continue
+
 		var/turf/temp_turf = get_turf(h)
 		if((temp_turf.z != 1 && temp_turf.z != 5) || h.stat!=CONSCIOUS) //Not on mining or the station. Or dead
 			continue
