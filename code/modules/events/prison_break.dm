@@ -6,7 +6,7 @@
 	var/list/area/areas = list()		//List of areas to affect. Filled by start()
 	ic_name = "an imprisonment system virus"
 	no_fake = 1
-	
+
 	var/eventDept = "Security"			//Department name in announcement
 	var/list/areaName = list("Brig")	//Names of areas mentioned in AI and Engineering announcements
 	var/list/areaType = list(/area/security/prison, /area/security/brig)	//Area types to include.
@@ -43,7 +43,7 @@
 
 
 /datum/event/prison_break/start()
-	for(var/area/A in world)
+	for(var/area/A in the_station_areas)
 		if(is_type_in_list(A,areaType) && !is_type_in_list(A,areaNotType))
 			areas += A
 

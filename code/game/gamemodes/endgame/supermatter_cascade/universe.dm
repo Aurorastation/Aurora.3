@@ -37,7 +37,7 @@ var/global/universe_has_ended = 0
 // Apply changes when entering state
 /datum/universal_state/supermatter_cascade/OnEnter()
 	set background = 1
-	
+
 	world << "<span class='sinister' style='font-size:22pt'>You are blinded by a brilliant flash of energy.</span>"
 
 	world << sound('sound/effects/cascade.ogg')
@@ -101,7 +101,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 
 /datum/universal_state/supermatter_cascade/OverlayAndAmbientSet()
 	set waitfor = FALSE
-	for(var/turf/T in world)
+	for(var/turf/T in turfs)
 		if(istype(T, /turf/space))
 			T.add_overlay("end01")
 		else
