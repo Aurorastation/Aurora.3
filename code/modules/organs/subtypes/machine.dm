@@ -4,10 +4,7 @@
 /obj/item/organ/external/head/ipc
 	dislocated = -1
 	can_intake_reagents = 0
-	vital = 1 //because it is now hosting the posibrain
-	max_damage = 50 //made same as arm, since it is not vital
-	min_broken_damage = 30
-	encased = null
+	encased = "support frame"
 
 /obj/item/organ/external/head/ipc/New()
 	robotize("Hephaestus Integrated Limb")
@@ -15,61 +12,79 @@
 
 /obj/item/organ/external/chest/ipc
 	dislocated = -1
-	encased = null
+	encased = "support frame"
+
 /obj/item/organ/external/chest/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
 
 /obj/item/organ/external/groin/ipc
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/groin/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
 
 /obj/item/organ/external/arm/ipc
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/arm/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
 
 /obj/item/organ/external/arm/right/ipc
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/arm/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
 
 /obj/item/organ/external/leg/ipc
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/leg/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
 
 /obj/item/organ/external/leg/right/ipc
 	dislocated = -1
+
 /obj/item/organ/external/leg/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
 
 /obj/item/organ/external/foot/ipc
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/foot/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
 
 /obj/item/organ/external/foot/right/ipc
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/foot/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
 
 /obj/item/organ/external/hand/ipc
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/hand/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
 
 /obj/item/organ/external/hand/right/ipc
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/hand/right/ipc/New()
 	robotize("Hephaestus Integrated Limb")
 	..()
@@ -108,7 +123,7 @@
 /obj/item/organ/ipc_tag
 	name = "identification tag"
 	organ_tag = "ipc tag"
-	parent_organ = "groin"
+	parent_organ = "head"
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
 	dead_icon = "gps-c"
@@ -211,10 +226,7 @@
 /obj/item/organ/external/head/terminator
 	dislocated = -1
 	can_intake_reagents = 0
-	vital = 0
-	max_damage = 50 //made same as arm, since it is not vital
-	min_broken_damage = 30
-	encased = null
+	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
 /obj/item/organ/eyes/optical_sensor/terminator
@@ -226,7 +238,7 @@
 
 /obj/item/organ/external/chest/terminator
 	dislocated = -1
-	encased = null
+	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
 /obj/item/organ/external/chest/terminator/New()
@@ -235,6 +247,7 @@
 
 /obj/item/organ/external/groin/terminator
 	dislocated = -1
+	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
 /obj/item/organ/external/groin/terminator/New()
@@ -243,6 +256,7 @@
 
 /obj/item/organ/external/arm/terminator
 	dislocated = -1
+	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
 /obj/item/organ/external/arm/terminator/New()
@@ -251,6 +265,7 @@
 
 /obj/item/organ/external/arm/right/terminator
 	dislocated = -1
+	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
 /obj/item/organ/external/arm/right/terminator/New()
@@ -259,6 +274,7 @@
 
 /obj/item/organ/external/leg/terminator
 	dislocated = -1
+	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
 /obj/item/organ/external/leg/terminator/New()
@@ -267,6 +283,7 @@
 
 /obj/item/organ/external/leg/right/terminator
 	dislocated = -1
+	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
 /obj/item/organ/external/leg/right/terminator/New()
@@ -275,6 +292,7 @@
 
 /obj/item/organ/external/foot/terminator
 	dislocated = -1
+	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
 /obj/item/organ/external/foot/terminator/New()
@@ -283,6 +301,7 @@
 
 /obj/item/organ/external/foot/right/terminator
 	dislocated = -1
+	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
 /obj/item/organ/external/foot/right/terminator/New()
@@ -291,6 +310,7 @@
 
 /obj/item/organ/external/hand/terminator
 	dislocated = -1
+	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
 /obj/item/organ/external/hand/terminator/New()
@@ -299,6 +319,7 @@
 
 /obj/item/organ/external/hand/right/terminator
 	dislocated = -1
+	encased = "reinforced support frame"
 	emp_coeff = 0.5
 
 /obj/item/organ/external/hand/right/terminator/New()
@@ -312,10 +333,7 @@
 /obj/item/organ/external/head/industrial
 	dislocated = -1
 	can_intake_reagents = 0
-	vital = 0
-	max_damage = 50 //made same as arm, since it is not vital
-	min_broken_damage = 30
-	encased = null
+	encased = "support frame"
 
 /obj/item/organ/external/head/industrial/New()
 	robotize("Hephaestus Industrial Limb")
@@ -323,61 +341,80 @@
 
 /obj/item/organ/external/chest/industrial
 	dislocated = -1
-	encased = null
+	encased = "support frame"
+
 /obj/item/organ/external/chest/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
 
 /obj/item/organ/external/groin/industrial
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/groin/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
 
 /obj/item/organ/external/arm/industrial
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/arm/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
 
 /obj/item/organ/external/arm/right/industrial
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/arm/right/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
 
 /obj/item/organ/external/leg/industrial
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/leg/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
 
 /obj/item/organ/external/leg/right/industrial
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/leg/right/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
 
 /obj/item/organ/external/foot/industrial
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/foot/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
 
 /obj/item/organ/external/foot/right/industrial
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/foot/right/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
 
 /obj/item/organ/external/hand/industrial
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/hand/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
 
 /obj/item/organ/external/hand/right/industrial
 	dislocated = -1
+	encased = "support frame"
+
 /obj/item/organ/external/hand/right/industrial/New()
 	robotize("Hephaestus Industrial Limb")
 	..()
@@ -389,10 +426,7 @@
 /obj/item/organ/external/head/shell
 	dislocated = -1
 	can_intake_reagents = 0
-	vital = 0
-	max_damage = 50 //made same as arm, since it is not vital
-	min_broken_damage = 30
-	encased = null
+	encased = "support frame"
 	force_skintone = TRUE
 
 /obj/item/organ/external/head/shell/New()
@@ -401,7 +435,7 @@
 
 /obj/item/organ/external/chest/shell
 	dislocated = -1
-	encased = null
+	encased = "support frame"
 	force_skintone = TRUE
 
 
@@ -411,6 +445,7 @@
 
 /obj/item/organ/external/groin/shell
 	dislocated = -1
+	encased = "support frame"
 	force_skintone = TRUE
 
 /obj/item/organ/external/groin/shell/New()
@@ -419,6 +454,7 @@
 
 /obj/item/organ/external/arm/shell
 	dislocated = -1
+	encased = "support frame"
 	force_skintone = TRUE
 
 /obj/item/organ/external/arm/shell/New()
@@ -427,6 +463,7 @@
 
 /obj/item/organ/external/arm/right/shell
 	dislocated = -1
+	encased = "support frame"
 	force_skintone = TRUE
 
 /obj/item/organ/external/arm/right/shell/New()
@@ -435,6 +472,7 @@
 
 /obj/item/organ/external/leg/shell
 	dislocated = -1
+	encased = "support frame"
 	force_skintone = TRUE
 
 /obj/item/organ/external/leg/shell/New()
@@ -443,6 +481,7 @@
 
 /obj/item/organ/external/leg/right/shell
 	dislocated = -1
+	encased = "support frame"
 	force_skintone = TRUE
 
 /obj/item/organ/external/leg/right/shell/New()
@@ -451,6 +490,7 @@
 
 /obj/item/organ/external/foot/shell
 	dislocated = -1
+	encased = "support frame"
 	force_skintone = TRUE
 
 /obj/item/organ/external/foot/shell/New()
@@ -459,6 +499,7 @@
 
 /obj/item/organ/external/foot/right/shell
 	dislocated = -1
+	encased = "support frame"
 	force_skintone = TRUE
 
 /obj/item/organ/external/foot/right/shell/New()
@@ -467,6 +508,7 @@
 
 /obj/item/organ/external/hand/shell
 	dislocated = -1
+	encased = "support frame"
 	force_skintone = TRUE
 
 /obj/item/organ/external/hand/shell/New()
@@ -475,6 +517,7 @@
 
 /obj/item/organ/external/hand/right/shell
 	dislocated = -1
+	encased = "support frame"
 	force_skintone = TRUE
 
 /obj/item/organ/external/hand/right/shell/New()

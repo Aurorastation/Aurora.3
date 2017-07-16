@@ -580,7 +580,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(isnull(F))
 		return
 
-	F.damage += 5
+	F.take_damage(5)
 	src << "<span class='warning'>You feel a stabbing pain in your chest!</span>"
 	playsound(user, 'sound/effects/Heart Beat.ogg', 20, 1)
 
@@ -850,7 +850,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret //LR-31MTA Beret - Ikrad Yam'hir - houseofsynth
-	name = "LR-31MTA beret"
+	name = "\improper LR-31MTA beret"
 	desc = "A silver beret with an insignia on the front, it looks like an old Tajaran cannon with a ring around it. \
 	Along the top half of the ring \"LR-31MTA\" is engraved. The word \"Yam'hir\" is engraved along the bottom half of the ring. \
 	The beret looks old and is worn in some places around the edges. It appears to have a flap inside, \
@@ -1027,3 +1027,81 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "leo_coat"
 	item_state = "leo_coat"
 	contained_sprite = 1
+
+
+/obj/item/weapon/nullrod/fluff/azaroz_staff //Null Staff - Kesaos Azaroz - paradoxspace
+	name = "null staff"
+	desc = "A long, heavy staff seemingly hand-crafted of obsidian and steel. Pure volcanic crystals lie at its end, giving it an appearance similar to a mace."
+	icon = 'icons/obj/custom_items/azaroz_staff.dmi'
+	icon_state = "azaroz_staff"
+	item_state = "azaroz_staff"
+	contained_sprite = 1
+	slot_flags = SLOT_BACK
+	w_class = 3
+
+
+/obj/item/clothing/suit/fluff/eul_robe //Well Made Robe - Uelak Eul - lordraven001
+	name = "well made robe"
+	desc = "A well made brown robe fashioned from viscose fabric with a white jabot dangling from the neck. There is a tail whole cut out in the back and the sleeves and lower skirt of the robe have been elongated. \
+	It looks old from wear and tear."
+	icon = 'icons/obj/custom_items/eul_clothing.dmi'
+	icon_state = "eul_robe"
+	item_state = "eul_robe"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	contained_sprite = 1
+	
+/obj/item/clothing/glasses/regular/fluff/eul_glasses //Chained Wooden Spectacles - Uelak Eul - lordraven001
+	name = "chained wooden spectacles"
+	desc = "A pair of wooden spectacles with a long bronze chain out the back of them. They have been bejeweled by benitoite and look elder from use."
+	icon = 'icons/obj/custom_items/eul_clothing.dmi'
+	icon_state = "eul_glasses"
+	item_state = "eul_glasses"
+	contained_sprite = 1
+
+
+/obj/item/clothing/suit/poncho/fluff/flaming_poncho //Stitched Heart White Poncho - Flaming Hearts Love Stars - sleepywolf
+	name = "stitched heart white poncho"
+	desc = "A white poncho stitched together shoddily, with a pink heart made of flame patterned on the front. The fabric is rough, like chainmail."
+	icon = 'icons/obj/custom_items/flaming_poncho.dmi'
+	icon_state = "flaming_poncho"
+	item_state = "flaming_poncho"
+	contained_sprite = 1
+
+
+/obj/item/clothing/accessory/badge/fluff/jane_badge //Tarnished Badge - Jane Pyre - somethingvile
+	name = "tarnished badge"
+	desc = "A worn, tarnished brass badge with ash and soot set deep in the grooves of its surface. The word, though faded and barely discernible, \"Pyre\" can be traced out lining its bottom edge."
+	icon = 'icons/obj/custom_items/jane_badge.dmi'
+	icon_state = "jane_badge"
+	item_state = "jane_badge"
+	slot_flags = SLOT_BELT | SLOT_TIE
+	contained_sprite = 1
+	stored_name = "Francis Pyre"
+	badge_string = "CPD"
+
+
+/obj/item/toy/plushie/fluff/oz_plushie //Mr. Monkey - Oz Auman - theiguanaman2
+	name = "\improper Mr.Monkey"
+	desc = "A calming toy monkey."
+	icon = 'icons/obj/custom_items/oz_plushie.dmi'
+	icon_state = "oz_plushie"
+
+
+/obj/item/clothing/suit/storage/fluff/vizili_mantle //Maraziite Throw Over - Urzkrauzi Vizili - jackboot
+	name = "maraziite throw over"
+	desc = "A worn, grey poncho exclusively worn by members of the Maraziite Order."
+	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
+	icon_state = "vizili_mantle"
+	item_state = "vizili_mantle"
+	contained_sprite = 1
+
+/obj/item/clothing/mask/fluff/vizili_mask //Iron Mask - Urzkrauzi Vizili - jackboot
+	name = "iron mask"
+	desc = "A mask made of iron worn by members of the Maraziite Order. It can strike dread in the hearts of Unathi that don't toe the line of Sk'akh orthodoxy."
+	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
+	icon_state = "vizili_mask"
+	item_state = "vizili_mask"
+	contained_sprite = 1
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3.0

@@ -172,7 +172,7 @@
 		num--
 
 		if(vermin == VERM_SPIDERS)
-			var/obj/effect/spider/spiderling/S = new(T)
+			var/obj/effect/spider/spiderling/S = new /obj/effect/spider/spiderling(T)
 			S.amount_grown = 1
 			S.growth_rate = (rand(50,300)/1000)//At most, they grow at 30% the usual rate. As low as 1/20th
 			if (severity == EVENT_LEVEL_MODERATE)
@@ -183,9 +183,9 @@
 
 /datum/event/infestation/announce()
 	if (severity == EVENT_LEVEL_MODERATE)
-		command_announcement.Announce("Bioscans indicate that large numbers of lifeforms have been breeding in [locstrings[1]] and [locstrings[2]]. Clear them out, before this starts to affect productivity.", "Vermin infestation")
+		command_announcement.Announce("Bioscans indicate that large numbers of lifeforms have been breeding in [locstrings[1]] and [locstrings[2]]. Clear them out, before this starts to affect productivity.", "Vermin infestation", new_sound = 'sound/AI/vermin.ogg')
 	else
-		command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in [locstrings[1]]. Clear them out, before this starts to affect productivity.", "Vermin infestation")
+		command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in [locstrings[1]]. Clear them out, before this starts to affect productivity.", "Vermin infestation", new_sound = 'sound/AI/vermin.ogg')
 
 
 #undef LOC_KITCHEN

@@ -60,8 +60,10 @@
 /obj/item/weapon/material/sword/sabre
 	name = "sabre"
 	desc = "A sharp curved backsword."
+	icon = 'icons/obj/sword.dmi'
 	icon_state = "sabre"
-	item_state = "katana"
+	item_state = "sabre"
+	contained_sprite = 1
 	slot_flags = SLOT_BELT
 
 /obj/item/weapon/material/sword/axe
@@ -75,3 +77,29 @@
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
 
+/obj/item/weapon/material/sword/khopesh
+	name = "khopesh"
+	desc = "An ancient sword shapped like a sickle."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "khopesh"
+	item_state = "khopesh"
+	contained_sprite = 1
+	slot_flags = SLOT_BELT
+
+/obj/item/weapon/material/sword/dao
+	name = "dao"
+	desc = "A single-edged broadsword."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "dao"
+	item_state = "dao"
+	contained_sprite = 1
+	slot_flags = SLOT_BELT
+
+/obj/item/weapon/material/sword/gladius
+	name = "gladius"
+	desc = "An ancient short sword, designed to stab and cut."
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "gladius"
+	item_state = "gladius"
+	contained_sprite = 1
+	slot_flags = SLOT_BELT

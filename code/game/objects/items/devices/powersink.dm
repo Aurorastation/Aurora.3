@@ -18,7 +18,7 @@
 	var/apc_drain_rate = 5000 		// Max. amount drained from single APC. In Watts.
 	var/dissipation_rate = 20000	// Passive dissipation of drained power. In Watts.
 	var/power_drained = 0 			// Amount of power drained.
-	var/max_power = 5e9				// Detonation point.
+	var/max_power = 8e8				// Detonation point. Roughly 18 minutes with default setup.
 	var/mode = 0					// 0 = off, 1=clamped (off), 2=operating
 	var/drained_this_tick = 0		// This is unfortunately necessary to ensure we process powersinks BEFORE other machinery such as APCs.
 
@@ -26,9 +26,10 @@
 	var/obj/structure/cable/attached		// the attached cable
 
 /obj/item/device/powersink/Destroy()
-	processing_objects.Remove(src)
-	processing_power_items.Remove(src)
-	..()
+	STOP_PROCESSING(SSprocessing, src)
+	processing_power_items -= src
+
+	return ..()
 
 /obj/item/device/powersink/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/weapon/screwdriver))
@@ -37,23 +38,23 @@
 			if(isturf(T) && !!T.is_plating())
 				attached = locate() in T
 				if(!attached)
-					user << "No exposed cable here to attach to."
+					to_chat(user, "<span class='warning'>No exposed cable here to attach to.</span>")
 					return
 				else
 					anchored = 1
 					mode = 1
-					src.visible_message("<span class='notice'>[user] attaches [src] to the cable!</span>")
+					visible_message("<span class='notice'>\The [user] attaches \the [src] to the cable!</span>")
 					return
 			else
-				user << "Device must be placed over an exposed cable to attach to it."
+				to_chat(user, "<span class='warning'>\The [src] must be placed over an exposed cable to attach to it.</span>")
 				return
 		else
 			if (mode == 2)
-				processing_objects.Remove(src) // Now the power sink actually stops draining the station's power if you unhook it. --NeoFite
+				STOP_PROCESSING(SSprocessing, src)
 				processing_power_items.Remove(src)
 			anchored = 0
 			mode = 0
-			src.visible_message("<span class='notice'>[user] detaches [src] from the cable!</span>")
+			visible_message("<span class='notice'>\The [user] detaches \the [src] from the cable!</span>")
 			set_light(0)
 			icon_state = "powersink0"
 
@@ -69,18 +70,18 @@
 		if(0)
 			..()
 		if(1)
-			src.visible_message("<span class='notice'>[user] activates [src]!</span>")
+			visible_message("<span class='notice'>\The [user] activates \the [src]!</span>")
 			mode = 2
 			icon_state = "powersink1"
-			processing_objects.Add(src)
-			processing_power_items.Add(src)
+			START_PROCESSING(SSprocessing, src)
+			processing_power_items += src
 		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
-			src.visible_message("<span class='notice'>[user] deactivates [src]!</span>")
+			visible_message("<span class='notice'>\The [user] deactivates \the [src]!</span>")
 			mode = 1
 			set_light(0)
 			icon_state = "powersink0"
-			processing_objects.Remove(src)
-			processing_power_items.Remove(src)
+			STOP_PROCESSING(SSprocessing, src)
+			processing_power_items -= src
 
 /obj/item/device/powersink/pwr_drain()
 	if(!attached)
@@ -120,13 +121,62 @@
 /obj/item/device/powersink/process()
 	drained_this_tick = 0
 	power_drained -= min(dissipation_rate, power_drained)
-	if(power_drained > max_power * 0.95)
-		playsound(src, 'sound/effects/screech.ogg', 100, 1, 1)
-	if(power_drained >= max_power)
-		explosion(src.loc, 3,6,9,12)
-		qdel(src)
-		return
+
 	if(attached && attached.powernet)
 		PN = attached.powernet
 	else
 		PN = null
+
+	if(power_drained > max_power * 0.98)	// Lower the screeching period. It was pretty long during testing.
+		playsound(src, 'sound/effects/screech.ogg', 100, 1, 1)
+
+	if(power_drained >= max_power)
+		handle_overload()
+		qdel(src)
+		return
+
+/obj/item/device/powersink/proc/handle_overload()
+	if (QDELETED(src))
+		return
+
+	// No attached node, or no powernet.
+	if (!PN)
+		explosion(src.loc, 0, 1, 3, 6)
+		return
+
+	// Propagate the power surge through the powernet nodes.
+	for (var/A in PN.nodes)
+		if (!A || A == src)
+			continue
+
+		var/dist = get_dist(src, A)
+
+		if (dist < 1)
+			dist = 1	// For later calculations.
+		else if (dist > 24)
+			continue	// Out of range.
+
+		// Map it to a range of [3, 1] for severity.
+		dist = round(MAP(dist, 1, 28, 3, 1))
+
+		// Check for terminals and affect their master nodes. Also add a special
+		// case for APCs whereby their lights are popped or flicked.
+		if (istype(A, /obj/machinery/power/terminal))
+			var/obj/machinery/power/terminal/T = A
+			if (istype(T.master, /obj/machinery/power/apc))
+				var/obj/machinery/power/apc/AP = T.master
+				if (dist > 1)
+					AP.overload_lighting(100, TRUE)
+				else
+					AP.flicker_all()
+			else if (T.master)
+				T.master.emp_act(dist)
+
+		var/atom/aa = A
+		aa.emp_act(dist)
+
+		if (prob(15 * dist))
+			explosion(aa.loc, 0, 0, 3, 4)
+
+	// Also destroy the source.
+	explosion(src.loc, 0, 0, 1, 2)

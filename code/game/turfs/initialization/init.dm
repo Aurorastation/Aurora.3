@@ -4,9 +4,9 @@
 /area
 	var/datum/turf_initializer/turf_initializer = null
 
-/area/initialize()
-	..()
-	for(var/turf/simulated/T in src)
-		T.initialize()
+/area/Initialize(mapload)
+	. = ..()
+	if (mapload)
 		if(turf_initializer)
-			turf_initializer.initialize(T)
+			for(var/turf/T in src)
+				turf_initializer.initialize(T)

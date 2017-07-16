@@ -86,7 +86,7 @@
 	else
 		data["have_shuttle"] = 0
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "communication.tmpl", name, 550, 420, state = state)
 		ui.auto_update_layout = 1
@@ -123,11 +123,11 @@
 					crew_announcement.announcer = "Unknown"
 				if(announcment_cooldown)
 					usr << "Please allow at least one minute to pass between announcements"
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|text
 				if(!input || !can_still_topic())
-					nanomanager.update_uis(src)
+					SSnanoui.update_uis(src)
 					return
 				crew_announcement.Announce(input)
 				announcment_cooldown = 1
@@ -139,11 +139,11 @@
 					if(is_autenthicated(user) && program.computer_emagged && !issilicon(usr) && ntn_comm)
 						if(centcomm_message_cooldown)
 							usr << "<span class='warning'>Arrays recycling. Please stand by.</span>"
-							nanomanager.update_uis(src)
+							SSnanoui.update_uis(src)
 							return
 						var/input = sanitize(input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
 						if(!input || !can_still_topic())
-							nanomanager.update_uis(src)
+							SSnanoui.update_uis(src)
 							return
 						Syndicate_announce(input, usr)
 						usr << "<span class='notice'>Message transmitted.</span>"
@@ -155,15 +155,15 @@
 				if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
 					if(centcomm_message_cooldown)
 						usr << "<span class='warning'>Arrays recycling. Please stand by.</span>"
-						nanomanager.update_uis(src)
+						SSnanoui.update_uis(src)
 						return
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
 						usr <<"<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>"
-						nanomanager.update_uis(src)
+						SSnanoui.update_uis(src)
 						return
 					var/input = sanitize(input("Please choose a message to transmit to [boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
 					if(!input || !can_still_topic())
-						nanomanager.update_uis(src)
+						SSnanoui.update_uis(src)
 						return
 					Centcomm_announce(input, usr)
 					usr << "<span class='notice'>Message transmitted.</span>"
@@ -239,11 +239,11 @@
 					else
 						program.computer.visible_message("<span class='notice'>\The [program.computer] prints out paper.</span>")
 
-	nanomanager.update_uis(src)
+	SSnanoui.update_uis(src)
 
 /datum/nano_module/program/comm/proc/post_status(var/command, var/data1, var/data2)
 
-	var/datum/radio_frequency/frequency = radio_controller.return_frequency(1435)
+	var/datum/radio_frequency/frequency = SSradio.return_frequency(1435)
 
 	if(!frequency) return
 

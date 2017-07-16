@@ -31,8 +31,8 @@
 	light_wedge = LIGHT_WIDE
 	on = 0
 
-/obj/item/clothing/head/helmet/space/initialize()
-	..()
+/obj/item/clothing/head/helmet/space/Initialize()
+	. = ..()
 	if(camera_networks && camera_networks.len)
 		verbs += /obj/item/clothing/head/helmet/space/proc/toggle_camera
 
@@ -60,7 +60,7 @@
 
 /obj/item/clothing/suit/space
 	name = "space suit"
-	desc = "A suit that protects against low pressure environments. \"NSS EXODUS\" is written in large block letters on the back."
+	desc = "A suit that protects against low pressure environments. \"NSS AURORA\" is written in large block letters on the back."
 	icon_state = "space"
 	item_state = "s_suit"
 	w_class = 4//bulky item

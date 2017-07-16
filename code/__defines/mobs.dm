@@ -113,6 +113,10 @@
 
 #define COMPANY_ALIGNMENTS		list(COMPANY_LOYAL,COMPANY_SUPPORTATIVE,COMPANY_NEUTRAL,COMPANY_SKEPTICAL,COMPANY_OPPOSED)
 
+// Defines the argument used for get_mobs_and_objs_in_view_fast
+#define GHOSTS_ALL_HEAR 1
+#define ONLY_GHOSTS_IN_VIEW 0
+
 
 // Defines mob sizes, used by lockers and to determine what is considered a small sized mob, etc.
 #define MOB_LARGE  		16
@@ -179,4 +183,19 @@
 #define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
 #define TYPE_WIERD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 
+// Maximum number of chickens allowed at once.
+// If the number of chickens on the map exceeds this, laid eggs will not hatch.
+#define MAX_CHICKENS 50
 
+#define CREW_MINIMUM_NUTRITION 50	// The minimum amount of nutrition a crewmember will spawn with.
+#define CREW_MAXIMUM_NUTRITION 100	// Same as above, but maximum.
+
+//carbon taste sensitivity defines, used in mob/living/carbon/proc/ingest
+#define TASTE_HYPERSENSITIVE 3 //anything below 5%
+#define TASTE_SENSITIVE 2 //anything below 7%
+#define TASTE_NORMAL 1 //anything below 15%
+#define TASTE_DULL 0.5 //anything below 30%
+#define TASTE_NUMB 0.1 //anything below 150%
+
+//helper for inverting armor blocked values into a multiplier
+#define BLOCKED_MULT(blocked) max(1 - (blocked/100), 0)

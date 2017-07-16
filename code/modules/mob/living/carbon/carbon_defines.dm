@@ -24,3 +24,8 @@
 
 	var/pulse = PULSE_NORM	//current pulse level
 	var/light_energy //Used by diona. Stored light energy
+
+	//these two help govern taste. The first is the last time a taste message was shown to the plaer.
+	//the second is the message in question.
+	var/last_taste_time = 0
+	var/last_taste_text = ""

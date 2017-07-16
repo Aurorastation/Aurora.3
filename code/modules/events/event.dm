@@ -29,7 +29,7 @@
 	if(!enabled)
 		return 0
 
-	if(excluded_gamemodes.len && (ticker.mode in excluded_gamemodes))
+	if(excluded_gamemodes.len && (SSticker.mode in excluded_gamemodes))
 		// There's no way it'll be run this round anyways.
 		enabled = 0
 		return 0
@@ -116,7 +116,7 @@
 
 //Do not override this proc, instead use the appropiate procs.
 //This proc will handle the calls to the appropiate procs.
-/datum/event/proc/process()
+/datum/event/process()
 	if(activeFor > startWhen && activeFor < endWhen)
 		tick()
 
@@ -148,8 +148,8 @@
 	endedAt = world.time
 
 	if(!dummy)
-		event_manager.active_events -= src
-		event_manager.event_complete(src)
+		SSevents.active_events -= src
+		SSevents.event_complete(src)
 
 
 
@@ -166,7 +166,7 @@
 	if (dummy)
 		return
 	// event needs to be responsible for this, as stuff like APLUs currently make their own events for curious reasons
-	event_manager.active_events += src
+	SSevents.active_events += src
 	startedAt = world.time
 
 	setup()

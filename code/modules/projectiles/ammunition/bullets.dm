@@ -23,6 +23,13 @@
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 	icon_state = "r-casing"
 	spent_icon = "r-casing-spent"
+	
+/obj/item/ammo_casing/c38/emp
+	name = ".38 haywire round"
+	desc = "A .38 bullet casing fitted with a single-use ion pulse generator."
+	projectile_type = /obj/item/projectile/ion/small
+	icon_state = "empcasing"
+	matter = list(DEFAULT_WALL_MATERIAL = 130, "uranium" = 100)
 
 /obj/item/ammo_casing/trod
 	desc = "hyperdense tungsten rod residue."
@@ -44,7 +51,7 @@
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 	icon_state = "r-casing"
 	spent_icon = "r-casing-spent"
-
+	
 /obj/item/ammo_casing/c9mm/practice
 	desc = "A 9mm practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/practice
@@ -154,6 +161,14 @@
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
 	matter = list(DEFAULT_WALL_MATERIAL = 450)
 
+/obj/item/ammo_casing/shotgun/emp
+	name = "haywire slug"
+	desc = "A 12-gauge shotgun slug fitted with a single-use ion pulse generator."
+	icon_state = "empshell"
+	spent_icon = "empshell-spent"
+	projectile_type  = /obj/item/projectile/ion
+	matter = list(DEFAULT_WALL_MATERIAL = 260, "uranium" = 200)
+
 /obj/item/ammo_casing/tranq
 	name = "PPS shell"
 	desc = "A .50 cal PPS bullet casing."
@@ -234,4 +249,3 @@
 
 /obj/item/ammo_casing/flechette/explosive
 	projectile_type = /obj/item/projectile/bullet/flechette/explosive
-

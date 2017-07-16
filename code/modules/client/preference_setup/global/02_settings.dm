@@ -26,21 +26,21 @@
 	return list("ss13_player_preferences" = list("vars" = list("lastchangelog", "current_character", "toggles", "asfx_togs", "lastmotd" = "motd_hash", "lastmemo" = "memo_hash"), "args" = list("ckey")))
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_parameters()
-	return list(":ckey" = pref.client.ckey)
+	return list("ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/player_global/settings/gather_save_query()
 	return list("ss13_player_preferences" = list("lastchangelog", "current_character", "toggles", "asfx_togs", "lastmotd", "lastmemo", "ckey" = 1, "parallax_toggles", "parallax_speed"))
 
 /datum/category_item/player_setup_item/player_global/settings/gather_save_parameters()
-	return list(":ckey" = pref.client.ckey,
-				":lastchangelog" = pref.lastchangelog,
-				":current_character" = pref.current_character,
-				":toggles" = pref.toggles,
-				":asfx_togs" = pref.asfx_togs,
-				":lastmotd" = pref.motd_hash,
-				":lastmemo" = pref.memo_hash,
-				":parallax_toggles" = pref.parallax_togs,
-				":parallax_speed" = pref.parallax_speed)
+	return list("ckey" = pref.client.ckey,
+				"lastchangelog" = pref.lastchangelog,
+				"current_character" = pref.current_character,
+				"toggles" = pref.toggles,
+				"asfx_togs" = pref.asfx_togs,
+				"lastmotd" = pref.motd_hash,
+				"lastmemo" = pref.memo_hash,
+				"parallax_toggles" = pref.parallax_togs,
+				"parallax_speed" = pref.parallax_speed)
 
 /datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
 	if (sql_load)
@@ -64,6 +64,7 @@
 	. += "<b>Space Parallax:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_SPACE]'><b>[(pref.parallax_togs & PARALLAX_SPACE) ? "Yes" : "No"]</b></a><br>"
 	. += "<b>Space Dust:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_DUST]'><b>[(pref.parallax_togs & PARALLAX_DUST) ? "Yes" : "No"]</b></a><br>"
 	. += "<b>Progress Bars:</b> <a href='?src=\ref[src];paratoggle=[PROGRESS_BARS]'><b>[(pref.parallax_togs & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>"
+	. += "<b>Static Space:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_IS_STATIC]'><b>[(pref.parallax_togs & PARALLAX_IS_STATIC) ? "Yes" : "No"]</b></a><br>"
 
 /datum/category_item/player_setup_item/player_global/settings/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["toggle"])
@@ -71,7 +72,7 @@
 		pref.toggles ^= toggle_flag
 		if(toggle_flag == SOUND_LOBBY && isnewplayer(user))
 			if(pref.toggles & SOUND_LOBBY)
-				user << sound(ticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1)
+				user << sound(SSticker.login_music, repeat = 0, wait = 0, volume = 85, channel = 1)
 			else
 				user << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1)
 		return TOPIC_REFRESH

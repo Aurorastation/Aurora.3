@@ -40,23 +40,24 @@ Class Procs:
 */
 
 
-/zone/var/name
-/zone/var/invalid = 0
-/zone/var/list/contents = list()
-/zone/var/list/fire_tiles = list()
-/zone/var/list/fuel_objs = list()
+/zone
+	var/name
+	var/invalid = 0
+	var/list/contents = list()
+	var/list/fire_tiles
+	var/list/fuel_objs
 
-/zone/var/needs_update = 0
+	var/needs_update = 0
 
-/zone/var/list/edges = list()
+	var/list/edges
 
-/zone/var/datum/gas_mixture/air = new
+	var/datum/gas_mixture/air = new
 
-/zone/var/list/graphic_add = list()
-/zone/var/list/graphic_remove = list()
+	var/list/graphic_add
+	var/list/graphic_remove
 
 /zone/New()
-	air_master.add_zone(src)
+	SSair.add_zone(src)
 	air.temperature = TCMB
 	air.group_multiplier = 1
 	air.volume = CELL_VOLUME
@@ -65,18 +66,18 @@ Class Procs:
 #ifdef ZASDBG
 	ASSERT(!invalid)
 	ASSERT(istype(T))
-	ASSERT(!air_master.has_valid_zone(T))
+	ASSERT(!TURF_HAS_VALID_ZONE(T))
 #endif
-
 	var/datum/gas_mixture/turf_air = T.return_air()
 	add_tile_air(turf_air)
 	T.zone = src
-	contents.Add(T)
+	contents += T
 	if(T.fire)
 		var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
-		fire_tiles.Add(T)
-		air_master.active_fire_zones |= src
-		if(fuel) fuel_objs += fuel
+		LAZYADD(fire_tiles, T)
+		SSair.active_fire_zones |= src
+		if (fuel)
+			LAZYADD(fuel_objs, fuel)
 	T.update_graphic(air.graphic)
 
 /zone/proc/remove(turf/simulated/T)
@@ -86,11 +87,11 @@ Class Procs:
 	ASSERT(T.zone == src)
 	soft_assert(T in contents, "Lists are weird broseph")
 #endif
-	contents.Remove(T)
-	fire_tiles.Remove(T)
+	contents -= T
+	LAZYREMOVE(fire_tiles, T)
 	if(T.fire)
 		var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
-		fuel_objs -= fuel
+		LAZYREMOVE(fuel_objs, fuel)
 	T.zone = null
 	T.update_graphic(graphic_remove = air.graphic)
 	if(contents.len)
@@ -114,28 +115,32 @@ Class Procs:
 		#endif
 
 	//rebuild the old zone's edges so that they will be possessed by the new zone
-	for(var/connection_edge/E in edges)
+	for(var/ee in edges)
+		var/connection_edge/E = ee
 		if(E.contains_zone(into))
 			continue //don't need to rebuild this edge
-		for(var/turf/T in E.connecting_turfs)
-			air_master.mark_for_update(T)
+		for(var/T in E.connecting_turfs)
+			SSair.mark_for_update(T)
 
 /zone/proc/c_invalidate()
 	invalid = 1
-	air_master.remove_zone(src)
+	SSair.remove_zone(src)
 	#ifdef ZASDBG
 	for(var/turf/simulated/T in contents)
 		T.dbg(invalid_zone)
 	#endif
 
 /zone/proc/rebuild()
+	set waitfor = FALSE
 	if(invalid) return //Short circuit for explosions where rebuild is called many times over.
 	c_invalidate()
 	for(var/turf/simulated/T in contents)
 		T.update_graphic(graphic_remove = air.graphic) //we need to remove the overlays so they're not doubled when the zone is rebuilt
 		//T.dbg(invalid_zone)
 		T.needs_air_update = 0 //Reset the marker so that it will be added to the list.
-		air_master.mark_for_update(T)
+		SSair.mark_for_update(T)
+
+		CHECK_TICK
 
 /zone/proc/add_tile_air(datum/gas_mixture/tile_air)
 	//air.volume += CELL_VOLUME
@@ -146,16 +151,21 @@ Class Procs:
 	air.group_multiplier = contents.len+1
 
 /zone/proc/tick()
-	if(air.temperature >= PHORON_FLASHPOINT && !(src in air_master.active_fire_zones) && air.check_combustability() && contents.len)
+	if(air.temperature >= PHORON_FLASHPOINT && !(src in SSair.active_fire_zones) && air.check_combustability() && contents.len)
 		var/turf/T = pick(contents)
 		if(istype(T))
 			T.create_fire(vsc.fire_firelevel_multiplier)
 
+	LAZYINITLIST(graphic_add)
+	LAZYINITLIST(graphic_remove)
 	if(air.check_tile_graphic(graphic_add, graphic_remove))
 		for(var/turf/simulated/T in contents)
 			T.update_graphic(graphic_add, graphic_remove)
-		graphic_add.len = 0
-		graphic_remove.len = 0
+
+		LAZYCLEARLIST(graphic_add)
+		LAZYCLEARLIST(graphic_remove)
+		UNSETEMPTY(graphic_add)
+		UNSETEMPTY(graphic_remove)
 
 	for(var/connection_edge/E in edges)
 		if(E.sleeping)
@@ -165,16 +175,17 @@ Class Procs:
 	M << name
 	for(var/g in air.gas)
 		M << "[gas_data.name[g]]: [air.gas[g]]"
-	M << "P: [air.return_pressure()] kPa V: [air.volume]L T: [air.temperature]°K ([air.temperature - T0C]°C)"
+	M << "P: [air.return_pressure()] kPa V: [air.volume]L T: [air.temperature]ï¿½K ([air.temperature - T0C]ï¿½C)"
 	M << "O2 per N2: [(air.gas["nitrogen"] ? air.gas["oxygen"]/air.gas["nitrogen"] : "N/A")] Moles: [air.total_moles]"
 	M << "Simulated: [contents.len] ([air.group_multiplier])"
 	//M << "Unsimulated: [unsimulated_contents.len]"
-	//M << "Edges: [edges.len]"
+	//M << "Edges: [LAZYLEN(edges)]"
 	if(invalid) M << "Invalid!"
 	var/zone_edges = 0
 	var/space_edges = 0
 	var/space_coefficient = 0
-	for(var/connection_edge/E in edges)
+	for(var/ee in edges)
+		var/connection_edge/E = ee
 		if(E.type == /connection_edge/zone) zone_edges++
 		else
 			space_edges++

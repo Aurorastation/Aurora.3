@@ -23,16 +23,16 @@
 			sandwich_limit += 4
 
 	if(src.contents.len > sandwich_limit)
-		user << "\red If you put anything else on \the [src] it's going to collapse."
+		user << "<span class='warning'>If you put anything else on \the [src] it's going to collapse.</span>"
 		return
 	else if(istype(W,/obj/item/weapon/material/shard))
-		user << "\blue You hide [W] in \the [src]."
+		user << "<span class='notice'>You hide [W] in \the [src].</span>"
 		user.drop_item()
 		W.loc = src
 		update()
 		return
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		user << "\blue You layer [W] over \the [src]."
+		user << "<span class='notice'>You layer [W] over \the [src].</span>"
 		var/obj/item/weapon/reagent_containers/F = W
 		F.reagents.trans_to_obj(src, F.reagents.total_volume)
 		user.drop_item()
@@ -46,7 +46,8 @@
 	var/fullname = "" //We need to build this from the contents of the var.
 	var/i = 0
 
-	overlays.Cut()
+	cut_overlays()
+	var/list/ovr = list()
 
 	for(var/obj/item/weapon/reagent_containers/food/snacks/O in ingredients)
 
@@ -62,12 +63,14 @@
 		I.color = O.filling_color
 		I.pixel_x = pick(list(-1,0,1))
 		I.pixel_y = (i*2)+1
-		overlays += I
+		ovr += I
 
 	var/image/T = new(src.icon, "sandwich_top")
 	T.pixel_x = pick(list(-1,0,1))
 	T.pixel_y = (ingredients.len * 2)+1
-	overlays += T
+	ovr += T
+
+	add_overlay(ovr)
 
 	name = lowertext("[fullname] sandwich")
 	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous"))] sandwich"
@@ -76,12 +79,12 @@
 /obj/item/weapon/reagent_containers/food/snacks/csandwich/Destroy()
 	for(var/obj/item/O in ingredients)
 		qdel(O)
-	..()
+	return ..()
 
 /obj/item/weapon/reagent_containers/food/snacks/csandwich/examine(mob/user)
 	..(user)
 	var/obj/item/O = pick(contents)
-	user << "\blue You think you can see [O.name] in there."
+	user << "<span class='notice'>You think you can see [O.name] in there.</span>"
 
 /obj/item/weapon/reagent_containers/food/snacks/csandwich/attack(mob/M as mob, mob/user as mob, def_zone)
 
@@ -96,6 +99,6 @@
 		H = M
 
 	if(H && shard && M == user) //This needs a check for feeding the food to other people, but that could be abusable.
-		H << "\red You lacerate your mouth on a [shard.name] in the sandwich!"
+		H << "<span class='warning'>You lacerate your mouth on a [shard.name] in the sandwich!</span>"
 		H.adjustBruteLoss(5) //TODO: Target head if human.
 	..()

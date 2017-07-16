@@ -2,16 +2,22 @@
 //**Cham Jumpsuit**
 //*****************
 
-/obj/item/proc/disguise(var/newtype)
+/obj/item/proc/disguise(newtype)
 	//this is necessary, unfortunately, as initial() does not play well with list vars
 	var/obj/item/copy = new newtype(null) //so that it is GCed once we exit
 
-	desc = copy.desc
-	name = copy.name
-	icon_state = copy.icon_state
+	var/original_layer = layer
+	var/original_plane = plane
+	appearance = copy
+	layer = original_layer	// So it doesn't get fucked up in the inv.
+	plane = original_plane
 	item_state = copy.item_state
 	body_parts_covered = copy.body_parts_covered
 	flags_inv = copy.flags_inv
+	body_parts_covered = copy.body_parts_covered
+	contained_sprite = copy.contained_sprite
+	icon_override = copy.icon_override
+	icon_species_tag = copy.icon_species_tag
 
 	if(copy.item_state_slots)									 // copy.item_state_slots.Copy() apears to be undefined
 		item_state_slots = copy.item_state_slots // however this appears to work perfectly fine
@@ -20,6 +26,8 @@
 	if(copy.sprite_sheets)
 		sprite_sheets = copy.sprite_sheets.Copy()
 	//copying sprite_sheets_obj should be unnecessary as chameleon items are not refittable.
+
+	QDEL_IN(copy, 1)	// The call chain should terminate by the time this triggers.
 
 	return copy //for inheritance
 
@@ -191,7 +199,7 @@
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
 
-/obj/item/weapon/storage/backpack/chameleon/New()
+/obj/item/weapon/storage/backpack/chameleon/fill()
 	..()
 	if(!clothing_choices)
 		var/blocked = list(src.type, /obj/item/weapon/storage/backpack/satchel/withwallet)

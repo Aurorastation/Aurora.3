@@ -47,7 +47,8 @@
 	worth = 0
 
 /obj/item/weapon/spacecash/bundle/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	var/list/ovr = list()
 	var/sum = src.worth
 	var/num = 0
 	for(var/i in list(1000,500,200,100,50,20,10,1))
@@ -59,14 +60,17 @@
 			M.Translate(rand(-6, 6), rand(-4, 8))
 			M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
 			banknote.transform = M
-			src.overlays += banknote
+			ovr += banknote
 	if(num == 0) // Less than one credit, let's just make it look like 1 for ease
 		var/image/banknote = image('icons/obj/items.dmi', "spacecash1")
 		var/matrix/M = matrix()
 		M.Translate(rand(-6, 6), rand(-4, 8))
 		M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
 		banknote.transform = M
-		src.overlays += banknote
+		ovr += banknote
+
+	add_overlay(ovr)
+	compile_overlays()	// The delay looks weird, so we force an update immediately.
 	src.desc = "They are worth [worth] credits."
 
 /obj/item/weapon/spacecash/bundle/attack_self()
@@ -161,4 +165,39 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 /obj/item/weapon/spacecash/ewallet/examine(mob/user)
 	..(user)
 	if (!(user in view(2)) && user!=src.loc) return
-	user << "\blue Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth]."
+	user << "<span class='notice'>Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth].</span>"
+
+/obj/item/weapon/spacecash/ewallet/lotto
+	name = "lottery card"
+	desc = "A scratch-action charge card that contains a variable amount of money."
+	worth = 0
+	var/scratched = 0
+
+/obj/item/weapon/spacecash/ewallet/lotto/attack_self(mob/user)
+	if(!scratched)
+		user << "<span class='notice'>You initiate the simulated scratch action process on the charge card. . .</span>"
+		if(do_after(user,5))
+			switch(rand(1,100))
+				if(1 to 29)
+					worth = rand(0,200)
+					user << "<span class='notice'>The card reads [worth]. Not your lucky day!</span>"
+				if(30 to 59)
+					worth = 200
+					user << "<span class='notice'>The card reads [worth]. At least you broke even.</span>"
+				if(60 to 79)
+					worth = pick(200,300,400,500)
+					user << "<span class='notice'>The card reads [worth]. That's a pretty penny!</span>"
+				if(80 to 95)
+					worth = pick(500,600,700,800,900,1000)
+					user << "<span class='notice'>The card reads [worth]. Your luck is running high!</span>"
+				if(95 to 99)
+					worth = pick(1000,2000,3000,4000,5000,6000,7000,8000,9000)
+					user << "<span class='notice'>The card reads [worth]. You're rich!</span>"
+				if(100)
+					worth = pick(10000,20000,30000,40000,50000)
+					user << "<span class='notice'>The card reads [worth]. You're blessed!</span>"
+				else
+					worth = 0
+					user << "<span class='notice'>The card reads [worth]. Not your lucky day!</span>"
+			scratched = 1
+			owner_name = user.name

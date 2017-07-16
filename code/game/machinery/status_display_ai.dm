@@ -38,7 +38,7 @@ var/list/ai_status_emotions = list(
 
 /proc/set_ai_status_displays(mob/user as mob)
 	var/emote = get_ai_emotion(user)
-	for (var/obj/machinery/M in machines) //change status
+	for (var/obj/machinery/M in SSmachinery.all_status_displays) //change status
 		if(istype(M, /obj/machinery/ai_status_display))
 			var/obj/machinery/ai_status_display/AISD = M
 			AISD.emotion = emote
@@ -67,7 +67,15 @@ var/list/ai_status_emotions = list(
 
 	var/emotion = "Neutral"
 
-/obj/machinery/ai_status_display/attack_ai/(mob/user as mob)
+/obj/machinery/ai_status_display/Initialize()
+	. = ..()
+	SSmachinery.all_status_displays += src
+
+/obj/machinery/ai_status_display/Destroy()
+	SSmachinery.all_status_displays -= src
+	return ..()
+
+/obj/machinery/ai_status_display/attack_ai(mob/user as mob)
 	var/emote = get_ai_emotion(user)
 	src.emotion = emote
 	src.update()
@@ -78,7 +86,7 @@ var/list/ai_status_emotions = list(
 /obj/machinery/ai_status_display/proc/update()
 	switch (mode)
 		if (0)	// Blank
-			overlays.Cut()
+			cut_overlays()
 
 		if (1)	// AI emoticon
 			var/datum/ai_emotion/ai_emotion = ai_status_emotions[emotion]
@@ -89,14 +97,12 @@ var/list/ai_status_emotions = list(
 
 /obj/machinery/ai_status_display/proc/set_picture(var/state)
 	picture_state = state
-	if(overlays.len)
-		overlays.Cut()
-	overlays += image('icons/obj/status_display.dmi', icon_state=picture_state)
+	cut_overlays()
+	add_overlay(picture_state)
 
 /obj/machinery/ai_status_display/power_change()
 	..()
 	if(stat & NOPOWER)
-		if(overlays.len)
-			overlays.Cut()
+		cut_overlays()
 	else
 		update()

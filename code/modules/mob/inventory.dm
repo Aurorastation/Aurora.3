@@ -29,7 +29,7 @@
 			qdel(W)
 		else
 			if(!disable_warning)
-				src << "\red You are unable to equip that." //Only print if del_on_fail is false
+				src << "<span class='warning'>You are unable to equip that.</span>" //Only print if del_on_fail is false
 		return 0
 
 	equip_to_slot(W, slot, redraw_mob) //This proc should not ever fail.
@@ -262,8 +262,14 @@ var/list/slot_equipment_priority = list( \
 	return null
 
 //Outdated but still in use apparently. This should at least be a human proc.
-/mob/proc/get_equipped_items()
-	return list()
+/mob/proc/get_equipped_items(var/include_carried = 0)
+	. = list()
+	if(slot_back) . += back
+	if(slot_wear_mask) . += wear_mask
+
+	if(include_carried)
+		if(slot_l_hand) . += l_hand
+		if(slot_r_hand) . += r_hand
 
 
 
@@ -304,7 +310,7 @@ var/list/slot_equipment_priority = list( \
 
 	//actually throw it!
 	if (item)
-		src.visible_message("\red [src] has thrown [item].")
+		src.visible_message("<span class='warning'>[src] has thrown [item].</span>")
 
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
@@ -321,3 +327,8 @@ var/list/slot_equipment_priority = list( \
 
 
 		item.throw_at(target, item.throw_range, item.throw_speed, src)
+
+/mob/proc/delete_inventory(var/include_carried = FALSE)
+	for(var/entry in get_equipped_items(include_carried))
+		drop_from_inventory(entry)
+		qdel(entry)

@@ -122,7 +122,7 @@
 		confirmed = 0
 		trigger_event(event)
 		log_game("[key_name(event_triggered_by)] triggered and [key_name(event_confirmed_by)] confirmed event [event]",ckey=key_name(event_triggered_by),ckey_target=key_name(event_confirmed_by))
-		message_admins("[key_name(event_triggered_by)] triggered and [key_name(event_confirmed_by)] confirmed event [event]", 1)
+		message_admins("[key_name_admin(event_triggered_by)] triggered and [key_name_admin(event_confirmed_by)] confirmed event [event]", 1)
 	reset()
 
 /obj/machinery/keycard_auth/proc/receive_request(var/obj/machinery/keycard_auth/source)
@@ -153,13 +153,13 @@
 			feedback_inc("alert_keycard_auth_maintRevoke",1)
 		if("Cyborg Crisis Override")
 			cyborg_crisis_override()
-			feedback_inc("alert_keycard_auth_borgCrisis",1)	
+			feedback_inc("alert_keycard_auth_borgCrisis",1)
 		if("Disable Cyborg Crisis Override")
 			disable_cyborg_crisis_override()
-			feedback_inc("alert_keycard_auth_borgDisable",1)	
+			feedback_inc("alert_keycard_auth_borgDisable",1)
 		if("Emergency Response Team")
 			if(is_ert_blocked())
-				usr << "\red All emergency response teams are dispatched and can not be called at this time."
+				usr << "<span class='warning'>All emergency response teams are dispatched and can not be called at this time.</span>"
 				return
 
 			trigger_armed_response_team(1)
@@ -167,7 +167,7 @@
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()
 	if(config.ert_admin_call_only) return 1
-	return ticker.mode && ticker.mode.ert_disabled
+	return SSticker.mode && SSticker.mode.ert_disabled
 
 var/global/maint_all_access = 0
 

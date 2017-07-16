@@ -26,7 +26,7 @@
 	var/blob_cost = 1 //point cost of the blob tile
 
 /obj/effect/blob/New(loc)
-	processing_objects.Add(src)
+	START_PROCESSING(SScalamity, src)
 	health = maxHealth
 	var/matrix/M = matrix()
 	M.Turn(90 * pick(0,1,2,3))
@@ -40,7 +40,9 @@
 		parent_core.blob_count -= blob_cost
 		parent_core = null
 
-	..()
+	STOP_PROCESSING(SScalamity, src)
+
+	return ..()
 
 /obj/effect/blob/process()
 	if(!parent_core)
@@ -50,7 +52,7 @@
 		return
 
 	// Make deleting the parent more responsive.
-	if(!isnull(parent_core.gcDestroyed))
+	if(QDELING(parent_core))
 		parent_core = null
 		return
 
@@ -232,7 +234,7 @@
 			if(istype(W, /obj/item/weapon/weldingtool))
 				playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 		if("brute")
-			if(prob(30))
+			if(prob(30) && !issilicon(user))
 				visible_message("<span class='danger'>\The [W] gets caught in the gelatinous folds of \the [src]</span>")
 				user.drop_from_inventory(W)
 				W.forceMove(src.loc)
@@ -303,7 +305,6 @@
 	expandType = /obj/effect/blob
 
 /obj/effect/blob/core/secondary/New()
-	processing_objects.Add(src)
 	health = maxHealth
 	update_icon()
 	return ..(loc)
@@ -311,7 +312,7 @@
 /obj/effect/blob/core/secondary/Destroy()
 	if(parent_core)
 		parent_core.core_count -= 1
-	..()
+	return ..()
 
 /obj/effect/blob/shield
 	name = "strong blob"
@@ -330,7 +331,7 @@
 /obj/effect/blob/shield/Destroy()
 	density = 0
 	update_nearby_tiles()
-	..()
+	return ..()
 
 /obj/effect/blob/shield/update_icon()
 	if(health > maxHealth * 2 / 3)

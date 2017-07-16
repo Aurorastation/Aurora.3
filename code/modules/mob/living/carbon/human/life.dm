@@ -32,10 +32,8 @@
 	var/temperature_alert = 0
 	var/in_stasis = 0
 	var/heartbeat = 0
-	var/global/list/overlays_cache = null
 
 /mob/living/carbon/human/Life()
-	set invisibility = 0
 	set background = BACKGROUND_ENABLED
 
 	if (transforming)
@@ -133,6 +131,9 @@
 
 	pressure_adjustment_coefficient = min(1,max(pressure_adjustment_coefficient,0)) // So it isn't less than 0 or larger than 1.
 
+	if(src.get_species() == "Industrial Frame")
+		pressure_adjustment_coefficient = 0 // woo, back-mounted cooling!
+
 	return pressure_adjustment_coefficient
 
 // Calculate how much of the enviroment pressure-difference affects the human.
@@ -169,13 +170,18 @@
 	if(species.vision_organ)
 		vision = internal_organs_by_name[species.vision_organ]
 
-	if(!vision) // Presumably if a species has no vision organs, they see via some other means.
-		eye_blind =  0
-		blinded =    0
-		eye_blurry = 0
-	else if(vision.is_broken())   // Vision organs cut out or broken? Permablind.
-		eye_blind =  1
-		blinded =    1
+	if (!vision)
+		if (species.vision_organ) // if they should have eyes but don't, they can't see
+			eye_blind = 1
+			blinded = 1
+			eye_blurry = 1
+		else // if they're not supposed to have a vision organ, then they must see by some other means
+			eye_blind = 0
+			blinded = 0
+			eye_blurry = 0
+	else if (vision.is_broken()) // if their eyes have been damaged or detached, they're blinded
+		eye_blind = 1
+		blinded = 1
 		eye_blurry = 1
 	else
 		//blindness
@@ -187,7 +193,7 @@
 
 	if (disabilities & EPILEPSY)
 		if ((prob(1) && paralysis < 1))
-			src << "\red You have a seizure!"
+			src << "<span class='warning'>You have a seizure!</span>"
 			for(var/mob/O in viewers(src, null))
 				if(O == src)
 					continue
@@ -1071,35 +1077,8 @@
 
 	return 1
 
-/mob/living/carbon/human/handle_regular_hud_updates()
-	if(!overlays_cache)
-		overlays_cache = list()
-		overlays_cache.len = 24
-		overlays_cache[1] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage1")
-		overlays_cache[2] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage2")
-		overlays_cache[3] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage3")
-		overlays_cache[4] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage4")
-		overlays_cache[5] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage5")
-		overlays_cache[6] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage6")
-		overlays_cache[7] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage7")
-		overlays_cache[8] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage8")
-		overlays_cache[9] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage9")
-		overlays_cache[10] = image('icons/mob/screen1_full.dmi', "icon_state" = "passage10")
-		overlays_cache[11] = image('icons/mob/screen1_full.dmi', "icon_state" = "oxydamageoverlay1")
-		overlays_cache[12] = image('icons/mob/screen1_full.dmi', "icon_state" = "oxydamageoverlay2")
-		overlays_cache[13] = image('icons/mob/screen1_full.dmi', "icon_state" = "oxydamageoverlay3")
-		overlays_cache[14] = image('icons/mob/screen1_full.dmi', "icon_state" = "oxydamageoverlay4")
-		overlays_cache[15] = image('icons/mob/screen1_full.dmi', "icon_state" = "oxydamageoverlay5")
-		overlays_cache[16] = image('icons/mob/screen1_full.dmi', "icon_state" = "oxydamageoverlay6")
-		overlays_cache[17] = image('icons/mob/screen1_full.dmi', "icon_state" = "oxydamageoverlay7")
-		overlays_cache[18] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay1")
-		overlays_cache[19] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay2")
-		overlays_cache[20] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay3")
-		overlays_cache[21] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay4")
-		overlays_cache[22] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay5")
-		overlays_cache[23] = image('icons/mob/screen1_full.dmi', "icon_state" = "brutedamageoverlay6")
-		overlays_cache[24] = image('icons/mob/screen1_full.dmi', "icon_state" = "frenzyoverlay")
 
+/mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
 		handle_hud_list()
 
@@ -1107,35 +1086,32 @@
 	if(!..())
 		return
 
-	if(damageoverlay.overlays)
-		damageoverlay.overlays = list()
+	damageoverlay.cut_overlays()
 
 	if(stat == UNCONSCIOUS)
 		//Critical damage passage overlay
 		if(health <= 0)
-			var/image/I
 			switch(health)
 				if(-20 to -10)
-					I = overlays_cache[1]
+					damageoverlay.add_overlay("passage1")
 				if(-30 to -20)
-					I = overlays_cache[2]
+					damageoverlay.add_overlay("passage2")
 				if(-40 to -30)
-					I = overlays_cache[3]
+					damageoverlay.add_overlay("passage3")
 				if(-50 to -40)
-					I = overlays_cache[4]
+					damageoverlay.add_overlay("passage4")
 				if(-60 to -50)
-					I = overlays_cache[5]
+					damageoverlay.add_overlay("passage5")
 				if(-70 to -60)
-					I = overlays_cache[6]
+					damageoverlay.add_overlay("passage6")
 				if(-80 to -70)
-					I = overlays_cache[7]
+					damageoverlay.add_overlay("passage7")
 				if(-90 to -80)
-					I = overlays_cache[8]
+					damageoverlay.add_overlay("passage8")
 				if(-95 to -90)
-					I = overlays_cache[9]
+					damageoverlay.add_overlay("passage9")
 				if(-INFINITY to -95)
-					I = overlays_cache[10]
-			damageoverlay.overlays += I
+					damageoverlay.add_overlay("passage10")
 	else
 		//Oxygen damage overlay
 		update_oxy_overlay()
@@ -1143,28 +1119,25 @@
 		// Vampire frenzy overlay.
 		if (mind.vampire)
 			if (mind.vampire.status & VAMP_FRENZIED)
-				var/image/I = overlays_cache[24]
-				damageoverlay.overlays += I
+				damageoverlay.add_overlay("frenzyoverlay")
 
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
 		damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
 		if(hurtdamage)
-			var/image/I
 			switch(hurtdamage)
 				if(10 to 25)
-					I = overlays_cache[18]
+					damageoverlay.add_overlay("brutedamageoverlay1")
 				if(25 to 40)
-					I = overlays_cache[19]
+					damageoverlay.add_overlay("brutedamageoverlay2")
 				if(40 to 55)
-					I = overlays_cache[20]
+					damageoverlay.add_overlay("brutedamageoverlay3")
 				if(55 to 70)
-					I = overlays_cache[21]
+					damageoverlay.add_overlay("brutedamageoverlay4")
 				if(70 to 85)
-					I = overlays_cache[22]
+					damageoverlay.add_overlay("brutedamageoverlay5")
 				if(85 to INFINITY)
-					I = overlays_cache[23]
-			damageoverlay.overlays += I
+					damageoverlay.add_overlay("brutedamageoverlay6")
 
 		update_health_display()
 
@@ -1256,23 +1229,6 @@
 		var/turf/T = loc
 		if(T.dynamic_lighting && T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_local(src,pick(scarySounds),50, 1, -1)
-
-/mob/living/carbon/human/handle_stomach()
-	spawn(0)
-		for(var/mob/living/M in stomach_contents)
-			if(M.loc != src)
-				stomach_contents.Remove(M)
-				continue
-			if(iscarbon(M)|| isanimal(M))
-				if(M.stat == 2)
-					M.death(1)
-					stomach_contents.Remove(M)
-					qdel(M)
-					continue
-				if(air_master.current_cycle%3==1)
-					if(!(M.status_flags & GODMODE))
-						M.adjustBruteLoss(5)
-					nutrition += 10
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind && mind.changeling)
@@ -1645,23 +1601,21 @@
 
 /mob/living/carbon/human/proc/update_oxy_overlay()
 	if(oxyloss)
-		var/image/I
 		switch(oxyloss)
 			if(10 to 20)
-				I = overlays_cache[11]
+				damageoverlay.add_overlay("oxydamageoverlay1")
 			if(20 to 25)
-				I = overlays_cache[12]
+				damageoverlay.add_overlay("oxydamageoverlay2")
 			if(25 to 30)
-				I = overlays_cache[13]
+				damageoverlay.add_overlay("oxydamageoverlay3")
 			if(30 to 35)
-				I = overlays_cache[14]
+				damageoverlay.add_overlay("oxydamageoverlay4")
 			if(35 to 40)
-				I = overlays_cache[15]
+				damageoverlay.add_overlay("oxydamageoverlay5")
 			if(40 to 45)
-				I = overlays_cache[16]
+				damageoverlay.add_overlay("oxydamageoverlay6")
 			if(45 to INFINITY)
-				I = overlays_cache[17]
-		damageoverlay.overlays += I
+				damageoverlay.add_overlay("oxydamageoverlay7")
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

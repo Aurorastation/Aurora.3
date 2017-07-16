@@ -43,9 +43,9 @@
 
 		if(istype(C,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = C
-			H.apply_effect((rand(15,30)),IRRADIATE,0)
+			H.apply_effect((rand(15,30)),IRRADIATE,blocked = H.getarmor(null, "rad"))
 			if(prob(4))
-				H.apply_effect((rand(20,60)),IRRADIATE,0)
+				H.apply_effect((rand(20,60)),IRRADIATE,blocked = H.getarmor(null, "rad"))
 				if (prob(75))
 					randmutb(H) // Applies bad mutation
 					domutcheck(H,null,MUTCHK_FORCED)

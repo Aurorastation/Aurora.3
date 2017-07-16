@@ -1,47 +1,4 @@
 
-/mob/new_player/proc/handle_privacy_poll()
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
-		return
-	var/voted = 0
-
-	var/DBQuery/query = dbcon.NewQuery("SELECT * FROM ss13_privacy WHERE ckey='[src.ckey]'")
-	query.Execute()
-	while(query.NextRow())
-		voted = 1
-		break
-
-	if(!voted)
-		privacy_poll()
-
-/mob/new_player/proc/privacy_poll()
-	var/output = "<div align='center'><B>Player poll</B>"
-	output +="<hr>"
-	output += "<b>We would like to expand our stats gathering.</b>"
-	output += "<br>This however involves gathering data about player behavior, play styles, unique player numbers, play times, etc. Data like that cannot be gathered fully anonymously, which is why we're asking you how you'd feel if player-specific data was gathered. Prior to any of this actually happening, a privacy policy will be discussed, but before that can begin, we'd preliminarily like to know how you feel about the concept."
-	output +="<hr>"
-	output += "How do you feel about the game gathering player-specific statistics? This includes statistics about individual players as well as in-game polling/opinion requests."
-
-	output += "<p><a href='byond://?src=\ref[src];privacy_poll=signed'>Signed stats gathering</A>"
-	output += "<br>Pick this option if you think usernames should be logged with stats. This allows us to have personalized stats as well as polls."
-
-	output += "<p><a href='byond://?src=\ref[src];privacy_poll=anonymous'>Anonymous stats gathering</A>"
-	output += "<br>Pick this option if you think only hashed (indecipherable) usernames should be logged with stats. This doesn't allow us to have personalized stats, as we can't tell who is who (hashed values aren't readable), we can however have ingame polls."
-
-	output += "<p><a href='byond://?src=\ref[src];privacy_poll=nostats'>No stats gathering</A>"
-	output += "<br>Pick this option if you don't want player-specific stats gathered. This does not allow us to have player-specific stats or polls."
-
-	output += "<p><a href='byond://?src=\ref[src];privacy_poll=later'>Ask again later</A>"
-	output += "<br>This poll will be brought up again next round."
-
-	output += "<p><a href='byond://?src=\ref[src];privacy_poll=abstain'>Don't ask again</A>"
-	output += "<br>Only pick this if you are fine with whatever option wins."
-
-	output += "</div>"
-
-	src << browse(output,"window=privacypoll;size=600x500")
-	return
-
 /datum/polloption
 	var/optionid
 	var/optiontext
@@ -103,7 +60,7 @@
 			break
 
 		if(!found)
-			usr << "\red Poll question details not found."
+			usr << "<span class='warning'>Poll question details not found.</span>"
 			return
 
 		switch(polltype)
@@ -360,7 +317,7 @@
 			break
 
 		if(!validpoll)
-			usr << "\red Poll is not valid."
+			usr << "<span class='warning'>Poll is not valid.</span>"
 			return
 
 		var/DBQuery/select_query2 = dbcon.NewQuery("SELECT id FROM ss13_poll_option WHERE id = [optionid] AND pollid = [pollid]")
@@ -373,7 +330,7 @@
 			break
 
 		if(!validoption)
-			usr << "\red Poll option is not valid."
+			usr << "<span class='warning'>Poll option is not valid.</span>"
 			return
 
 		var/alreadyvoted = 0
@@ -387,11 +344,11 @@
 				break
 
 		if(!multichoice && alreadyvoted)
-			usr << "\red You already voted in this poll."
+			usr << "<span class='warning'>You already voted in this poll.</span>"
 			return
 
 		if(multichoice && (alreadyvoted >= multiplechoiceoptions))
-			usr << "\red You already have more than [multiplechoiceoptions] logged votes on this poll. Enough is enough. Contact the database admin if this is an error."
+			usr << "<span class='warning'>You already have more than [multiplechoiceoptions] logged votes on this poll. Enough is enough. Contact the database admin if this is an error.</span>"
 			return
 
 		var/adminrank = "Player"
@@ -402,7 +359,7 @@
 		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_poll_vote (id ,datetime ,pollid ,optionid ,ckey ,ip ,adminrank) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]')")
 		insert_query.Execute()
 
-		usr << "\blue Vote successful."
+		usr << "<span class='notice'>Vote successful.</span>"
 		usr << browse(null,"window=playerpoll")
 
 
@@ -427,7 +384,7 @@
 			break
 
 		if(!validpoll)
-			usr << "\red Poll is not valid."
+			usr << "<span class='warning'>Poll is not valid.</span>"
 			return
 
 		var/alreadyvoted = 0
@@ -440,7 +397,7 @@
 			break
 
 		if(alreadyvoted)
-			usr << "\red You already sent your feedback for this poll."
+			usr << "<span class='warning'>You already sent your feedback for this poll.</span>"
 			return
 
 		var/adminrank = "Player"
@@ -460,7 +417,7 @@
 		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_poll_textreply (id ,datetime ,pollid ,ckey ,ip ,replytext ,adminrank) VALUES (null, Now(), [pollid], '[usr.ckey]', '[usr.client.address]', '[replytext]', '[adminrank]')")
 		insert_query.Execute()
 
-		usr << "\blue Feedback logging successful."
+		usr << "<span class='notice'>Feedback logging successful.</span>"
 		usr << browse(null,"window=playerpoll")
 
 
@@ -485,7 +442,7 @@
 			break
 
 		if(!validpoll)
-			usr << "\red Poll is not valid."
+			usr << "<span class='warning'>Poll is not valid.</span>"
 			return
 
 		var/DBQuery/select_query2 = dbcon.NewQuery("SELECT id FROM ss13_poll_option WHERE id = [optionid] AND pollid = [pollid]")
@@ -498,7 +455,7 @@
 			break
 
 		if(!validoption)
-			usr << "\red Poll option is not valid."
+			usr << "<span class='warning'>Poll option is not valid.</span>"
 			return
 
 		var/alreadyvoted = 0
@@ -511,7 +468,7 @@
 			break
 
 		if(alreadyvoted)
-			usr << "\red You already voted in this poll."
+			usr << "<span class='warning'>You already voted in this poll.</span>"
 			return
 
 		var/adminrank = "Player"
@@ -522,5 +479,5 @@
 		var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_poll_vote (id ,datetime ,pollid ,optionid ,ckey ,ip ,adminrank, rating) VALUES (null, Now(), [pollid], [optionid], '[usr.ckey]', '[usr.client.address]', '[adminrank]', [(isnull(rating)) ? "null" : rating])")
 		insert_query.Execute()
 
-		usr << "\blue Vote successful."
+		usr << "<span class='notice'>Vote successful.</span>"
 		usr << browse(null,"window=playerpoll")

@@ -61,9 +61,9 @@
 				handle_item_insertion(L, 1)//value of 1 suppresses confirmation messages from this one
 
 			if (count)
-				user << "\blue You empty [count] broken bulbs into the trashbag."
+				user << "<span class='notice'>You empty [count] broken bulbs into the trashbag.</span>"
 			else if (!bagfull)
-				user << "\blue There are no broken bulbs to empty out."
+				user << "<span class='notice'>There are no broken bulbs to empty out.</span>"
 			return 1
 	..()
 
@@ -98,6 +98,10 @@
 	max_storage_space = 100
 	max_w_class = 3
 	can_hold = list(/obj/item/weapon/ore)
+
+/obj/item/weapon/storage/bag/ore/drone
+	// this used to be 400. The inventory system FUCKING DIED at this.
+	max_storage_space = 200
 
 
 // -----------------------------

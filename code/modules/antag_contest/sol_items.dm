@@ -192,7 +192,7 @@
 	icon_closed = "syndicate1"
 	icon_opened = "syndicate1open"
 
-/obj/structure/closet/sol/navy/New()
+/obj/structure/closet/sol/navy/fill()
 	..()
 	new /obj/item/clothing/under/rank/fatigues(src)
 	new /obj/item/clothing/under/rank/fatigues(src)
@@ -211,7 +211,7 @@
 	name = "sol marines uniform closet"
 	desc = "It's a storage unit for Sol Alliance marine uniforms."
 
-/obj/structure/closet/sol/marine/New()
+/obj/structure/closet/sol/marine/fill()
 	..()
 	new /obj/item/clothing/under/rank/fatigues/marine(src)
 	new /obj/item/clothing/under/rank/fatigues/marine(src)
@@ -230,7 +230,7 @@
 	name = "sol navy dress uniform closet"
 	desc = "It's a storage unit for Sol Alliance navy dress uniforms."
 
-/obj/structure/closet/sol/navy_dress/New()
+/obj/structure/closet/sol/navy_dress/fill()
 	..()
 	new /obj/item/clothing/under/rank/dress(src)
 	new /obj/item/clothing/under/rank/dress(src)
@@ -249,7 +249,7 @@
 	name = "sol marine dress uniform closet"
 	desc = "It's a storage unit for Sol Alliance marine dress uniforms."
 
-/obj/structure/closet/sol/marine_dress/New()
+/obj/structure/closet/sol/marine_dress/fill()
 	..()
 	new /obj/item/clothing/under/rank/dress/marine(src)
 	new /obj/item/clothing/under/rank/dress/marine(src)
@@ -274,7 +274,7 @@
 	icon_broken = "capsecurebroken"
 	icon_off = "capsecureoff"
 
-/obj/structure/closet/secure_closet/soll_officer/New()
+/obj/structure/closet/secure_closet/soll_officer/fill()
 	..()
 	if(prob(50))
 		new /obj/item/weapon/storage/backpack/captain(src)

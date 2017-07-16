@@ -45,8 +45,8 @@
 	var/t_left_radspike = 0
 	var/rad_shield = 0
 
-/obj/machinery/radiocarbon_spectrometer/New()
-	..()
+/obj/machinery/radiocarbon_spectrometer/Initialize()
+	. = ..()
 	create_reagents(500)
 	coolant_reagents_purity["water"] = 0.5
 	coolant_reagents_purity["icecoffee"] = 0.6
@@ -151,7 +151,7 @@
 	data["rad_shield_on"] = rad_shield
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
@@ -163,7 +163,7 @@
 		// auto update every Master Controller tick
 		ui.set_auto_update(1)
 
-/obj/machinery/radiocarbon_spectrometer/process()
+/obj/machinery/radiocarbon_spectrometer/machinery_process()
 	if(scanning)
 		if(!scanned_item || scanned_item.loc != src)
 			scanned_item = null
@@ -200,7 +200,7 @@
 					if(!rad_shield)
 						//irradiate nearby mobs
 						for(var/mob/living/M in view(7,src))
-							M.apply_effect(radiation / 25, IRRADIATE, 0)
+							M.apply_effect(radiation / 25, IRRADIATE, blocked = M.getarmor(null, "rad"))
 				else
 					t_left_radspike = pick(10,15,25)
 
@@ -236,16 +236,16 @@
 			//emergency stop if seal integrity reaches 0
 			if(scanner_seal_integrity <= 0 || (scanner_temperature >= 1273 && !rad_shield))
 				stop_scanning()
-				src.visible_message("\blue \icon[src] buzzes unhappily. It has failed mid-scan!", 2)
+				src.visible_message("<span class='notice'>\icon[src] buzzes unhappily. It has failed mid-scan!</span>", 2)
 
 			if(prob(5))
-				src.visible_message("\blue \icon[src] [pick("whirrs","chuffs","clicks")][pick(" excitedly"," energetically"," busily")].", 2)
+				src.visible_message("<span class='notice'>\icon[src] [pick("whirrs","chuffs","clicks")][pick(" excitedly"," energetically"," busily")].</span>", 2)
 	else
 		//gradually cool down over time
 		if(scanner_temperature > 0)
 			scanner_temperature = max(scanner_temperature - 5 - 10 * rand(), 0)
 		if(prob(0.75))
-			src.visible_message("\blue \icon[src] [pick("plinks","hisses")][pick(" quietly"," softly"," sadly"," plaintively")].", 2)
+			src.visible_message("<span class='notice'>\icon[src] [pick("plinks","hisses")][pick(" quietly"," softly"," sadly"," plaintively")].</span>", 2)
 	last_process_worldtime = world.time
 
 /obj/machinery/radiocarbon_spectrometer/proc/stop_scanning()
@@ -263,7 +263,7 @@
 		used_coolant = 0
 
 /obj/machinery/radiocarbon_spectrometer/proc/complete_scan()
-	src.visible_message("\blue \icon[src] makes an insistent chime.", 2)
+	src.visible_message("<span class='notice'>\icon[src] makes an insistent chime.</span>", 2)
 
 	if(scanned_item)
 		//create report

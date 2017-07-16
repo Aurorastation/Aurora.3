@@ -60,8 +60,8 @@
 	var/attempt_open = 0
 
 // Pickup loot
-/mob/living/simple_animal/hostile/mimic/crate/initialize()
-	..()
+/mob/living/simple_animal/hostile/mimic/crate/Initialize()
+	. = ..()
 	for(var/obj/item/I in loc)
 		I.loc = src
 
@@ -134,8 +134,8 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 	var/destroy_objects = 0
 	var/knockdown_people = 0
 
-/mob/living/simple_animal/hostile/mimic/copy/New(loc, var/obj/copy, var/mob/living/creator)
-	..(loc)
+/mob/living/simple_animal/hostile/mimic/copy/Initialize(mapload, obj/copy, mob/living/creator)
+	. = ..(mapload)
 	CopyObject(copy, creator)
 
 /mob/living/simple_animal/hostile/mimic/copy/death()

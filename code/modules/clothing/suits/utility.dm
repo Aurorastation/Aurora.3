@@ -59,7 +59,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|FACE|EYES
 	siemens_coefficient = 0
-
+	tint = TINT_HEAVY
 
 
 //Changes by Nanako
@@ -151,7 +151,7 @@
 
 /obj/item/clothing/suit/bomb_suit/Destroy()
 	processing_objects.Remove(src)
-	..()
+	return ..()
 
 
 /obj/item/clothing/head/bomb_hood/security
