@@ -179,7 +179,7 @@
 	affect_ingest(M, alien, removed)
 
 /datum/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.apply_effect(5 * removed, IRRADIATE, 0)
+	M.apply_effect(5 * removed, IRRADIATE, blocked = 0)
 
 /datum/reagent/uranium/touch_turf(var/turf/T)
 	if(volume >= 3)
@@ -266,7 +266,7 @@
 		if(istype(T, /turf/simulated/wall))
 			var/turf/simulated/wall/W = T
 			W.thermite = 1
-			W.overlays += image('icons/effects/effects.dmi',icon_state = "#673910")
+			W.add_overlay(image('icons/effects/effects.dmi',icon_state = "#673910"))
 			remove_self(5)
 	return
 

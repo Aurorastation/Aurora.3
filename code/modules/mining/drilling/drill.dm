@@ -40,9 +40,8 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/mining/drill/New()
-
-	..()
+/obj/machinery/mining/drill/Initialize()
+	. = ..()
 
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/miningdrill(src)
@@ -340,8 +339,8 @@
 	icon_state = "mining_brace"
 	var/obj/machinery/mining/drill/connected
 
-/obj/machinery/mining/brace/New()
-	..()
+/obj/machinery/mining/brace/Initialize()
+	. = ..()
 
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/miningdrillbrace(src)

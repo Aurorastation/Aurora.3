@@ -241,6 +241,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
+	src.modules += new /obj/item/weapon/autopsy_scanner(src) // an autopsy scanner
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
@@ -379,14 +380,21 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
 	src.modules += new /obj/item/weapon/gripper(src)
+	src.modules += new /obj/item/device/t_scanner(src) // to check underfloor wiring
+	src.modules += new /obj/item/device/analyzer(src) // to check air pressure in the area
+	src.modules += new /obj/item/device/lightreplacer(src) // to install lightning in the area
+	src.modules += new /obj/item/device/floor_painter(src)// to make america great again (c)
+	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // to stop those pesky humans being entering the zone
 	src.malfAImodule += new /obj/item/weapon/rtf(src)
 
-	var/datum/matter_synth/metal = new /datum/matter_synth/metal()
-	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel()
-	var/datum/matter_synth/glass = new /datum/matter_synth/glass()
+	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
+	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel(40000)
+	var/datum/matter_synth/glass = new /datum/matter_synth/glass(60000)
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(60)
 	synths += metal
 	synths += plasteel
 	synths += glass
+	synths += wire
 
 	var/obj/item/stack/material/cyborg/steel/M = new (src)
 	M.synths = list(metal)
@@ -403,6 +411,14 @@ var/global/list/robot_modules = list(
 	var/obj/item/stack/material/cyborg/glass/reinforced/RG = new (src)
 	RG.synths = list(metal, glass)
 	src.modules += RG
+
+	var/obj/item/stack/tile/floor/cyborg/FT = new /obj/item/stack/tile/floor/cyborg(src) // to add floor over the metal rods lattice
+	FT.synths = list(metal)
+	src.modules += FT
+
+	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src) // Let there be light electric said and after that did cut the wire
+	C.synths = list(wire)
+	src.modules += C
 
 /obj/item/weapon/robot_module/engineering/general/New()
 	..()
@@ -429,11 +445,15 @@ var/global/list/robot_modules = list(
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(60000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(40000)
 	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel(20000)
-	var/datum/matter_synth/wire = new /datum/matter_synth/wire()
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(45)
+	var/datum/matter_synth/wood = new /datum/matter_synth/wood(20000)
+	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(15000)
 	synths += metal
 	synths += glass
 	synths += plasteel
 	synths += wire
+	synths += wood
+	synths += plastic
 
 	var/obj/item/weapon/matter_decompiler/MD = new /obj/item/weapon/matter_decompiler(src)
 	MD.metal = metal
@@ -467,6 +487,30 @@ var/global/list/robot_modules = list(
 	var/obj/item/stack/material/cyborg/plasteel/PL = new (src)
 	PL.synths = list(plasteel)
 	src.modules += PL
+
+	var/obj/item/stack/material/cyborg/wood/W = new (src)
+	W.synths = list(wood)
+	src.modules += W
+
+	var/obj/item/stack/material/cyborg/plastic/PS = new (src)
+	PS.synths = list(plastic)
+	src.modules += PS
+
+	var/obj/item/stack/tile/wood/cyborg/FWT = new (src)
+	FWT.synths = list(wood)
+	src.modules += FWT
+
+	var/obj/item/stack/tile/floor_white/cyborg/FTW = new (src)
+	FTW.synths = list(plastic)
+	src.modules += FTW
+
+	var/obj/item/stack/tile/floor_freezer/cyborg/FTF = new (src)
+	FTF.synths = list(plastic)
+	src.modules += FTF
+
+	var/obj/item/stack/tile/floor_dark/cyborg/FTD = new (src)
+	FTD.synths = list(plasteel)
+	src.modules += FTD
 
 /obj/item/weapon/robot_module/security
 	name = "security robot module"
@@ -502,6 +546,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
 	src.modules += new /obj/item/taperoll/police(src)
 	src.modules += new /obj/item/device/holowarrant(src)
+	src.modules += new /obj/item/weapon/book/manual/security_space_law(src) // book of security space law
 	src.emag = new /obj/item/weapon/gun/energy/laser/mounted(src)
 
 /obj/item/weapon/robot_module/security/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
@@ -537,6 +582,8 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/storage/bag/trash(src)
 	src.modules += new /obj/item/weapon/mop(src)
 	src.modules += new /obj/item/device/lightreplacer/advanced(src)
+	src.modules += new /obj/item/weapon/reagent_containers/glass/bucket(src) // a hydroponist's bucket
+	src.modules += new /obj/item/weapon/matter_decompiler(src) // free drone remains for all
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("lube", 250)
 	src.emag.name = "Lube spray"
@@ -591,6 +638,8 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/robot_harvester(src)
 	src.modules += new /obj/item/weapon/material/kitchen/rollingpin(src)
 	src.modules += new /obj/item/weapon/material/knife(src)
+	src.modules += new /obj/item/weapon/soap(src) // a cheap bar of soap
+	src.modules += new /obj/item/weapon/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
 
 	var/obj/item/weapon/rsf/M = new /obj/item/weapon/rsf(src)
 	M.stored_matter = 30
@@ -661,6 +710,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
+	src.modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
 	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
 	..()
 
@@ -791,9 +841,9 @@ var/global/list/robot_modules = list(
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)
-	var/datum/matter_synth/wood = new /datum/matter_synth/wood(2000)
-	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(1000)
-	var/datum/matter_synth/wire = new /datum/matter_synth/wire(30)
+	var/datum/matter_synth/wood = new /datum/matter_synth/wood(4000)
+	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(2000)
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(15)
 	synths += metal
 	synths += glass
 	synths += wood

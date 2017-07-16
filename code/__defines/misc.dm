@@ -336,6 +336,9 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 // as text so you don't necessarily fuck with an object's ability to be garbage collected.
 #define SOFTREF(A) "\ref[A]"
 
+// This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
+#define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref ? D:weakref : (D:weakref = new(D))) : null)
+
 #define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 #define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
@@ -368,9 +371,14 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 // 510 doesn't have this flag, so this shim will turn it into a no-op if it doesn't exist.
 #ifndef SEE_BLACKNESS
 #define SEE_BLACKNESS 0
-#endif 
+#endif
 
 #define DEFAULT_SIGHT (SEE_SELF|SEE_BLACKNESS)
 
 #define isStationLevel(Z) ((Z) in config.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
+
+//Affects the chance that armour will block an attack. Should be between 0 and 1.
+//If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.
+//Of course, this will affect code that checks for blocked < 100, as blocked will be less likely to actually be 100.
+#define ARMOR_BLOCK_CHANCE_MULT 1.0

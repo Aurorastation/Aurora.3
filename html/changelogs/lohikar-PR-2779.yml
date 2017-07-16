@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - experiment: "Tweaked all mobs' vision flags to hopefully reduce visual glitches with objects mounted on walls."

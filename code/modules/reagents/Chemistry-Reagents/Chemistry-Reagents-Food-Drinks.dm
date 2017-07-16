@@ -10,14 +10,14 @@
 	taste_description = "boiled cabbage"
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-    if(isvaurca(M))
-        M.heal_organ_damage(0.8 * removed, 0)
-        M.nutrition += nutriment_factor * removed // For hunger and fatness
-        M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
-    else
-        M.adjustToxLoss(1.5 * removed)
-        return
-    ..()
+	if(isvaurca(M))
+		M.heal_organ_damage(0.8 * removed, 0)
+		M.nutrition += nutriment_factor * removed // For hunger and fatness
+		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+	else
+		M.adjustToxLoss(1.5 * removed)
+		return
+	..()
 
 /datum/reagent/nutriment
 	name = "Nutriment"
@@ -33,7 +33,6 @@
 	color = "#664330"
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
-
 	if(!islist(newdata) || !newdata.len)
 		return
 	for(var/i in 1 to newdata.len)
@@ -44,6 +43,10 @@
 	var/totalFlavor = 0
 	for(var/i in 1 to data.len)
 		totalFlavor += data[data[i]]
+
+	if (!totalFlavor)
+		return
+
 	for(var/i in 1 to data.len) //cull the tasteless
 		if(data[data[i]]/totalFlavor * 100 < 10)
 			data[data[i]] = null
@@ -168,6 +171,18 @@
 		return
 	if(alien && alien == IS_UNATHI)
 		digest(M,removed)
+		return
+	..()
+
+/datum/reagent/nutriment/protein/tofu //Good for Skrell!
+	name = "tofu protein"
+	id = "tofu"
+	color = "#fdffa8"
+	taste_description = "tofu"
+
+/datum/reagent/nutriment/protein/tofu/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_SKRELL)
+		digest(M,removed) //Skrell are allowed to eat tofu, but not most animal proteins
 		return
 	..()
 
@@ -598,7 +613,7 @@
 /datum/reagent/spacespice
 	name = "Space Spice"
 	id = "spacespice"
-	description = "An exotic blend of spices for cooking. Definitely not worms."
+	description = "An exotic blend of spices for cooking. It must flow."
 	reagent_state = SOLID
 	color = "#e08702"
 	taste_description = "spices"
@@ -610,7 +625,7 @@
 	description = "A dry mix for making delicious brownies."
 	reagent_state = SOLID
 	color = "#441a03"
-	taste_description = "dough"
+	taste_description = "chocolate"
 
 /* Drinks */
 
@@ -711,7 +726,7 @@
 	id = "limejuice"
 	description = "The sweet-sour juice of limes."
 	color = "#365E30"
-	taste_description = "unbearable sourness"
+	taste_description = "tart citrus"
 	taste_mult = 1.1
 
 	glass_icon_state = "glass_green"
@@ -1531,7 +1546,7 @@
 
 /datum/reagent/ethanol/vodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, check_protection = 0)
+	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, blocked = 0)
 
 /datum/reagent/ethanol/whiskey
 	name = "Whiskey"

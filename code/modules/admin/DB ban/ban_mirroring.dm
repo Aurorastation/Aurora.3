@@ -135,16 +135,6 @@
 		update_connection_data(C)
 		return
 
-	var/static/last_time
-	if (!last_time)
-		last_time = world.time
-	else
-		var/delta = world.time - last_time
-		last_time = world.time
-		if (delta < 1)
-			log_debug("CONN DATA: [key_name(C)] might be spamming!")
-			return
-
 	var/list/data_object = json_decode(data)
 
 	if (!data_object || !data_object.len)

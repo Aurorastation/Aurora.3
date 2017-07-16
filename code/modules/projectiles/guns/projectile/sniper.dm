@@ -39,12 +39,18 @@
 	set src in usr
 
 	toggle_wield(usr)
+	usr.update_icon()
 
 /obj/item/weapon/gun/projectile/heavysniper/update_icon()
 	if(bolt_open)
 		icon_state = "heavysniper-open"
 	else
 		icon_state = "heavysniper"
+	if(wielded)
+		item_state = "heavysniper-wielded"
+	else
+		item_state = "heavysniper"
+	update_held_icon()
 
 /obj/item/weapon/gun/projectile/heavysniper/attack_self(mob/user as mob)
 	playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
@@ -124,3 +130,8 @@
 		icon_state = "tranqsniper-open"
 	else
 		icon_state = "tranqsniper"
+	if(wielded)
+		item_state = "heavysniper-wielded"
+	else
+		item_state = "heavysniper"
+	update_held_icon()

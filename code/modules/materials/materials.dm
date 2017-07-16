@@ -83,6 +83,8 @@ var/list/name_to_material
 	var/door_icon_base = "metal"                         // Door base icon tag. See header.
 	var/icon_reinf = "reinf_metal"                       // Overlay used
 	var/list/stack_origin_tech = list(TECH_MATERIAL = 1) // Research level for stacks.
+	var/icon/wall_icon
+	var/icon/multipart_reinf_icon
 
 	// Attributes
 	var/cut_delay = 0            // Delay in ticks when cutting through this wall.
@@ -152,6 +154,31 @@ var/list/name_to_material
 		use_name = display_name
 	if(!shard_icon)
 		shard_icon = shard_type
+
+	var/skip_blend = FALSE
+	switch (icon_base)
+		if ("solid")
+			wall_icon = 'icons/turf/smooth/composite_solid.dmi'
+		if ("stone")
+			wall_icon = 'icons/turf/smooth/composite_stone.dmi'
+			multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
+		if ("metal")
+			wall_icon = 'icons/turf/smooth/composite_metal.dmi'
+		if ("cult")
+			wall_icon = 'icons/turf/smooth/cult_wall.dmi'
+			skip_blend = TRUE
+		if ("arust")
+			wall_icon = 'icons/turf/smooth/rusty_wall.dmi'
+			skip_blend = TRUE
+		else
+			world.log << "materials: [src] has unknown icon_base [icon_base]."
+
+	if (wall_icon && icon_colour && !skip_blend)
+		wall_icon = new(wall_icon)
+		wall_icon.Blend(icon_colour, ICON_MULTIPLY)
+		if (multipart_reinf_icon)
+			multipart_reinf_icon = new(multipart_reinf_icon)
+			multipart_reinf_icon.Blend(icon_colour, ICON_MULTIPLY)
 
 // This is a placeholder for proper integration of windows/windoors into the system.
 /material/proc/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
@@ -599,6 +626,7 @@ var/list/name_to_material
 	stack_type = null
 	icon_colour = "#B7410E"
 	icon_base = "arust"
+	icon_reinf = "reinf_over"
 	integrity = 250
 	explosion_resistance = 8
 	hardness = 15

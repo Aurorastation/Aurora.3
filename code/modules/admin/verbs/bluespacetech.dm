@@ -70,7 +70,7 @@
 		bst.equip_to_slot_or_del(new /obj/item/device/pda/captain/bst(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/device/multitool(bst.back), slot_in_backpack)
 
-		var/obj/item/weapon/storage/box/pills = new /obj/item/weapon/storage/box
+		var/obj/item/weapon/storage/box/pills = new /obj/item/weapon/storage/box(null, TRUE)
 		pills.name = "adminordrazine"
 		for(var/i = 1, i < 12, i++)
 			new /obj/item/weapon/reagent_containers/pill/adminordrazine(pills)

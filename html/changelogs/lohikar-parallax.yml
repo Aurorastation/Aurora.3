@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Parallax now actually moves like it was intended to."
-  - rscadd: "Parallax can now be made static in your preferences to get an immobile star background effect."

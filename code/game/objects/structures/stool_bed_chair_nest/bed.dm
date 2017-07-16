@@ -41,22 +41,23 @@
 /obj/structure/bed/update_icon()
 	// Prep icon.
 	icon_state = ""
-	overlays.Cut()
+	cut_overlays()
+	var/list/stool_cache = SSicon_cache.stool_cache
 	// Base icon.
 	var/cache_key = "[base_icon]-[material.name]"
-	if(isnull(stool_cache[cache_key]))
+	if(!stool_cache[cache_key])
 		var/image/I = image('icons/obj/furniture.dmi', base_icon)
 		I.color = material.icon_colour
 		stool_cache[cache_key] = I
-	overlays |= stool_cache[cache_key]
+	add_overlay(stool_cache[cache_key])
 	// Padding overlay.
 	if(padding_material)
 		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]"
-		if(isnull(stool_cache[padding_cache_key]))
+		if(!stool_cache[padding_cache_key])
 			var/image/I =  image(icon, "[base_icon]_padding")
 			I.color = padding_material.icon_colour
 			stool_cache[padding_cache_key] = I
-		overlays |= stool_cache[padding_cache_key]
+		add_overlay(stool_cache[padding_cache_key])
 
 	// Strings.
 	desc = initial(desc)
