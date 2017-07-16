@@ -31,8 +31,6 @@
 		queue += D
 
 	log_unit_test("[queue.len] unit tests loaded.")
-
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/_ut_start_game), 10 SECONDS)
 	..()
 
 /datum/controller/subsystem/unit_tests/proc/start_game()
@@ -67,7 +65,7 @@
 	if (!curr.len)
 		stage++
 
-/datum/controller/subsystem/unit_test/proc/handle_async(resumed = 0)
+/datum/controller/subsystem/unit_tests/proc/handle_async(resumed = 0)
 	if (!resumed)
 		current_async = async_tests.Copy()
 
