@@ -206,9 +206,9 @@ var/global/list/robot_modules = list(
 	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	can_be_pushed = 0
 	sprites = list(
-				"Basic" = "robotMedi",
-				"Classic" = "Medbot",
-				"Heavy" = "heavyMed",
+				"Basic" = "robotmedi",
+				"Classic" = "medbot",
+				"Heavy" = "heavymed",
 				"Needles" = "medicalrobot",
 				"Standard" = "surgeon",
 				"Advanced Droid - Medical" = "droid-medical",
@@ -277,14 +277,14 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/medical/rescue
 	name = "rescue robot module"
 	sprites = list(
-			"Basic" = "robotMedi",
-			"Classic" = "Medbot",
+			"Basic" = "robotmedi",
+			"Classic" = "medbot",
 			"Standard" = "surgeon",
 			"Advanced Droid" = "droid-rescue",
 			"Sleek" = "sleekrescue",
 			"Needles" = "medicalrobot",
 			"Drone" = "drone-medical",
-			"Heavy" = "heavyMed"
+			"Heavy" = "heavymed"
 			)
 
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
@@ -348,18 +348,18 @@ var/global/list/robot_modules = list(
 	subsystems = list(/mob/living/silicon/proc/subsystem_power_monitor)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
-					"Basic" = "robotEngi",
+					"Basic" = "robotengi",
 					"Antique" = "engineerrobot",
 					"Landmate" = "landmate",
 					"Landmate - Treaded" = "engiborg+tread",
 					"Drone" = "drone-engineer",
 					"Android" = "droid",
-					"Classic" = "Engineering",
+					"Classic" = "engineering",
 					"Sleek" = "sleekengineer",
 					"Wide" = "wide",
 					"Spider" = "spidereng",
 					"Plated" = "ceborg",
-					"Heavy" = "heavyEng"
+					"Heavy" = "heavyeng"
 					)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -522,7 +522,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/security/general
 	sprites = list(
-					"Basic" = "robotSecy",
+					"Basic" = "robotsecy",
 					"Sleek" = "sleeksecurity",
 					"Black Knight" = "securityrobot",
 					"Bloodhound" = "bloodhound",
@@ -531,7 +531,7 @@ var/global/list/robot_modules = list(
 					"Classic" = "secborg",
 					"Wide" = "wide",
 					"Spider" = "spidersec",
-					"Heavy" = "heavySec"
+					"Heavy" = "heavysec"
 
 				)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
@@ -569,7 +569,7 @@ var/global/list/robot_modules = list(
 					"Mopbot"  = "janitorrobot",
 					"Mop Gear Rex" = "mopgearrex",
 					"Drone" = "drone-janitor",
-					"Classic" = "JanBot2",
+					"Classic" = "janbot2",
 					"Buffer" = "mechaduster",
 					"Sleek" = "sleekjanitor"
 					)
@@ -609,16 +609,16 @@ var/global/list/robot_modules = list(
 					LANGUAGE_ROOTSONG = 1
 					)
 
-	sprites = list(	"Waitress" = "Service",
+	sprites = list(	"Waitress" = "service",
 					"Kent" = "toiletbot",
-					"Bro" = "Brobot",
+					"Bro" = "brobot",
 					"Rich" = "maximillion",
 					"Basic" = "robotserv",
 					"Drone - Service" = "drone-service",
 					"Drone - Hydro" = "drone-hydro",
-					"Classic" = "Service2",
+					"Classic" = "service2",
 					"Gardener" = "botany",
-					"Mobile Bar" = "heavyServ",
+					"Mobile Bar" = "heavyserv",
 					"Sleek" = "sleekservice"
 				  	)
 
@@ -687,13 +687,13 @@ var/global/list/robot_modules = list(
 	channels = list("Supply" = 1)
 	networks = list(NETWORK_MINE)
 	sprites = list(
-					"Basic" = "robotmine",
+					"Basic" = "robotMine",
 					"Advanced Droid" = "droid-miner",
 					"Sleek" = "sleekminer",
-					"Treadhead" = "Miner",
+					"Treadhead" = "miner",
 					"Drone" = "drone-miner",
-					"Classic" = "Miner_old",
-					"Heavy" = "heavyMine",
+					"Classic" = "miner_old",
+					"Heavy" = "heavymine",
 					"Spider" = "spidermining"
 				)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
@@ -720,9 +720,9 @@ var/global/list/robot_modules = list(
 	sprites = list(
 					"Droid" = "droid-science",
 					"Drone" = "drone-science",
-					"Classic" = "robotJani",
+					"Classic" = "robotjani",
 					"Sleek" = "sleekscience",
-					"Heavy" = "heavySci"
+					"Heavy" = "heavysci"
 					)
 
 /obj/item/weapon/robot_module/research/New()

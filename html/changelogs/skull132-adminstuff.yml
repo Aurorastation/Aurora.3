@@ -1,7 +1,0 @@
-author: Skull132
-delete-after: True
-
-changes:
-  - rscadd: "You can now view the reason for your active job ban by clicking on the [BANNED] text on job/role selection."
-  - tweak: "Whitelisted jobs now display as [WHITELISTED] instead of [BANNED] if you are short a whitelist."
-  - tweak: "A restart vote can no longer be called if there are active admins on the server. They will be notified of your attempt, however."

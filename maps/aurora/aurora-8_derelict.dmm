@@ -4825,7 +4825,6 @@
 /area/derelict/hallway/southwest)
 "oG" = (
 /obj/item/weapon/mop,
-/obj/effect/landmark/corpse/chef,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,

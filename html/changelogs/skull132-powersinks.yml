@@ -1,6 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - tweak: "Modified the powersink to cause a large powersurge upon reaching its capacity, as opposed to flat out exploding violently. Powersurge causes EMP like effects on connected power nodes, light bursting, and small explosions. Said effects get lessen the further out the items are from range."

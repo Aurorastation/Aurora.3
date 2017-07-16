@@ -161,9 +161,9 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 
 		admin_notice(span("danger", "Air settling completed in [(REALTIMEOFDAY - starttime)/10] seconds!"), R_DEBUG)
 
-	..()
+	..(timeofday)
 
-/datum/controller/subsystem/air/fire(resumed = FALSE, no_mc_tick = FALSE)	
+/datum/controller/subsystem/air/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)
 		processing_edges = active_edges.Copy()
 		processing_fires = active_fire_zones.Copy()
