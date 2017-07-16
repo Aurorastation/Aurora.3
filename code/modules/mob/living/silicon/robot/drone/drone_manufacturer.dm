@@ -1,6 +1,6 @@
 /proc/count_drones()
 	var/drones = 0
-	for(var/mob/living/silicon/robot/drone/D in world)
+	for(var/mob/living/silicon/robot/drone/D in silicon_mob_list)
 		if(D.key && D.client)
 			drones++
 	return drones
@@ -75,9 +75,9 @@
 	flick("h_lathe_leave",src)
 
 	time_last_drone = world.time
-	if(player.mob && player.mob.mind) 
+	if(player.mob && player.mob.mind)
 		player.mob.mind.reset()
-		
+
 	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
 	new_drone.transfer_personality(player)
 	new_drone.master_fabricator = src
@@ -110,7 +110,7 @@
 	if(!fabricator)
 
 		var/list/all_fabricators = list()
-		for(var/obj/machinery/drone_fabricator/DF in machines)
+		for(var/obj/machinery/drone_fabricator/DF in SSmachinery.all_machines)
 			if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
 				continue
 			all_fabricators[DF.fabricator_tag] = DF

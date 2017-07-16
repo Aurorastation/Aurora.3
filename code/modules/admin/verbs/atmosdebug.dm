@@ -28,7 +28,7 @@
 
 	usr << "Checking for overlapping pipes..."
 	next_turf:
-		for(var/turf/T in world)
+		for(var/turf/T in turfs)
 			for(var/dir in cardinal)
 				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
 				for(var/obj/machinery/atmospherics/pipe in T)

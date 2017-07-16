@@ -7788,7 +7788,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/camera/network/command{
+/obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Corridor Camera 11";
 	dir = 4
 	},
@@ -8531,7 +8531,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Vacant Office 1";
 	dir = 1
 	},
@@ -9721,7 +9721,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core - SMES Room 2";
+	c_tag = "Bridge - Pod 2";
 	dir = 4
 	},
 /turf/simulated/shuttle/floor,
@@ -15667,7 +15667,7 @@
 "CU" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/network/security{
+/obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Custodial Closet"
 	},
 /turf/simulated/floor/plating,
@@ -17340,14 +17340,14 @@
 /area/quartermaster/qm)
 "FX" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Quartermaster's Office";
-	dir = 8
-	},
 /obj/machinery/firealarm{
 	dir = 4;
 	layer = 3.3;
 	pixel_x = 26
+	},
+/obj/machinery/camera/network/civilian_east{
+	c_tag = "Cargo - Quartermaster's Office";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
@@ -18139,13 +18139,13 @@
 /turf/simulated/wall,
 /area/quartermaster/loading)
 "Hl" = (
-/obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Mail Room";
-	dir = 4
-	},
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = -24
+	},
+/obj/machinery/camera/network/civilian_east{
+	c_tag = "Cargo - Mail Room";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
@@ -46876,7 +46876,7 @@ aw
 aa
 aa
 bq
-It
+Is
 cl
 cl
 cl

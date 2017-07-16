@@ -37,7 +37,7 @@ var/global/universe_has_ended = 0
 // Apply changes when entering state
 /datum/universal_state/supermatter_cascade/OnEnter()
 	set background = 1
-	
+
 	world << "<span class='sinister' style='font-size:22pt'>You are blinded by a brilliant flash of energy.</span>"
 
 	world << sound('sound/effects/cascade.ogg')
@@ -82,7 +82,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 	"}
 	priority_announcement.Announce(txt,"SUPERMATTER CASCADE DETECTED")
 
-	for(var/obj/machinery/computer/shuttle_control/C in machines)
+	for(var/obj/machinery/computer/shuttle_control/C in SSmachinery.processing_machines)
 		if(istype(C, /obj/machinery/computer/shuttle_control/research) || istype(C, /obj/machinery/computer/shuttle_control/mining))
 			C.req_access = list()
 			C.req_one_access = list()
@@ -101,7 +101,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 
 /datum/universal_state/supermatter_cascade/OverlayAndAmbientSet()
 	set waitfor = FALSE
-	for(var/turf/T in world)
+	for(var/turf/T in turfs)
 		if(istype(T, /turf/space))
 			T.add_overlay("end01")
 		else
@@ -118,13 +118,13 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/MiscSet()
-	for (var/obj/machinery/firealarm/alm in machines)
+	for (var/obj/machinery/firealarm/alm in SSmachinery.processing_machines)
 		if (!(alm.stat & BROKEN))
 			alm.ex_act(2)
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/APCSet()
-	for (var/obj/machinery/power/apc/APC in machines)
+	for (var/obj/machinery/power/apc/APC in SSmachinery.processing_machines)
 		if (!(APC.stat & BROKEN) && !APC.is_critical)
 			APC.chargemode = 0
 			if(APC.cell)
