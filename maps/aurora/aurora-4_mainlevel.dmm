@@ -2446,7 +2446,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/camera/network/command{
+/obj/machinery/camera/network/security{
 	c_tag = "Security - Corridor Camera 6"
 	},
 /turf/simulated/floor/tiled,
@@ -11880,7 +11880,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = list(11)
+	req_one_access = list(10)
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
@@ -12954,7 +12954,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = list(11)
+	req_one_access = list(10)
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
@@ -13924,16 +13924,16 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "aAa" = (
-/obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Hallway";
-	req_one_access = list(11)
-	},
 /obj/machinery/door/firedoor{
 	dir = 1;
 	name = "Engineering Firelock"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Engineering Hallway";
+	req_one_access = list(10)
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
@@ -14811,10 +14811,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring)
 "aBB" = (
-/obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Hallway";
-	req_one_access = list(11,24)
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -14826,6 +14822,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Engineering Hallway";
+	req_one_access = list(10)
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "aBC" = (
@@ -29985,7 +29985,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Virology Morgue";
+	c_tag = "Medical - EMT Garage";
 	dir = 4;
 	icon_state = "camera"
 	},
@@ -46967,7 +46967,7 @@
 /area/hallway/primary/central_one)
 "bCH" = (
 /obj/machinery/camera/network/civilian_west{
-	c_tag = "Central Corridor - Camera 3";
+	c_tag = "Cargo - Equipment Storage";
 	dir = 8
 	},
 /obj/machinery/newscaster{
@@ -48786,7 +48786,7 @@
 	eftpos_name = "Library EFTPOS scanner"
 	},
 /obj/machinery/camera/network/civilian_west{
-	c_tag = "Library - Backroom";
+	c_tag = "Surface - Vacant Office 2";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -50383,10 +50383,6 @@
 "bIp" = (
 /obj/machinery/light{
 	dir = 4
-	},
-/obj/machinery/camera/network/civilian_east{
-	c_tag = "Surface - Restrooms";
-	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
@@ -53520,7 +53516,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/civilian_west{
-	c_tag = "Kitchen - Cold Storage";
+	c_tag = "Cargo - Auxilliary Entrance";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -54193,7 +54189,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/camera/network/civilian_west{
-	c_tag = "Hydroponics - Produce Storage";
+	c_tag = "Cargo - Loading Bay 2";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -57363,13 +57359,13 @@
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
-/obj/machinery/camera/network/security{
-	c_tag = "Maintenance - Janitorial Office"
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/camera/network/civilian_west{
+	c_tag = "Maintenance - Janitorial Office"
 	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
@@ -62057,6 +62053,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
+"ceM" = (
+/obj/machinery/camera/network/civilian_west{
+	c_tag = "Main Level - Restrooms";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/locker/locker_toilet)
 
 (1,1,1) = {"
 aaa
@@ -91514,7 +91517,7 @@ bGK
 bHy
 bIp
 bHy
-bHy
+ceM
 bHy
 bGK
 bLI
