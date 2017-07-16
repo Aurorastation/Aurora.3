@@ -43,7 +43,8 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	//shuttle.dock_target_station = "cargo_bay"
 	shuttles["Escape"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
-	log_debug("Escape shuttle [shuttle ? "exists." : "DOES NOT EXIST!"]")
+	if(!shuttle)
+		log_debug("Escape shuttle does not exist!")
 
 	shuttle = new/datum/shuttle/ferry/escape_pod()
 	shuttle.location = 0
