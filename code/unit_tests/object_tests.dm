@@ -19,8 +19,8 @@
 			else
 				unfound_types[M.type]++
 
-			if (!all_types[M.type])
-				all_types[M.type] = 1
+		if (!all_types[M.type])
+			all_types[M.type] = 1
 
 	if (unfound_types.len)
 		for (var/t in unfound_types)
