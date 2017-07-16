@@ -259,6 +259,6 @@
 	hoistee.hoist_act(move_dest)
 	return 1
 
-/atom/movable/proc/hoist_act(turf/dest, atom/movable/hoistee)
+/atom/movable/proc/hoist_act(turf/dest)
 	forceMove(dest)
 	return TRUE
