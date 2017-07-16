@@ -4,28 +4,63 @@ Used In File(s): \code\modules\research\rdconsole.dm
  -->
 
 {{if data.task}}
-    <center><H3><span class="CHANGEME">Systems busy, please stand-by.</span>
+    <center><H3>Systems busy, please stand-by.
     Current task: <span class="average">{{:data.task}}</span></H3></center>
 {{else}}
+<div class="item">
+	<div class="itemLabelNarrow">
+		<b>Functions</b>:
+	</div>
+	<div class="itemContent">
+        {{:helper.link('Main Menu', 'gear', {'menu' : 1},(data.screen == 1 ? 'selected' : null), 'fixedLeftWider')}}
+        {{:helper.link('Destructive Analyzer Control','gear', {'menu' :((data.linked_analyzer == null) ? 2 : 2.1)}, ((data.screen >= 2 && data.screen < 2.9) ? 'selected' : null),'fixedLeftWider')}}
+        {{:helper.link('Protolathe Control', 'gear', {'menu' :((data.linked_lathe == null) ? 3 : 3.1)}, ((data.screen >= 3 && data.screen < 3.9) ? 'selected' : null),'fixedLeftWider')}}
+        {{:helper.link('Circuit Imprinter Control', 'gear', {'menu' :((data.linked_imprinter == null) ? 4 : 4.1)}, ((data.screen >= 4 && data.screen < 4.9) ? 'selected' : null),'fixedLeftWider')}}
+        {{:helper.link('Device Management', 'gear', {'menu' : 5}, ((data.screen >= 5 && data.screen < 5.9) ? 'selected' : null),'fixedLeftWider')}}
+	</div>
+</div>
 {{if data.screen}}
-    <center><H3><span class="CHANGEME">Current Menu</span>: {{:data.textscreen}}</H3>
-        <div class="item">
-            <div class="itemContent">
-                {{:helper.link('Main Menu', 'gear', {'menu' : 1},(data.screen == 1 ? 'selected' : null))}}<br><br>
-                {{if data.screen == 1.0}} {{:helper.link('Destructive Analyzer Control','gear', {'menu' :(data.linked_analyzer == null ? 2 : 2.1 )})}}<br><br>{{/if}}
-                {{if data.screen == 1.0}} {{:helper.link('Protolathe Control', 'gear', {'menu' :(data.linked_lathe == null ? 3 : 3.1)})}}<br><br>{{/if}}
-                {{if data.screen == 1.0}} {{:helper.link('Circuit Imprinter Control', 'gear', {'menu' :(data.linked_imprinter == null ? 4 : 4.1)})}}<br><br>{{/if}}
-                {{if data.screen == 1.0}} {{:helper.link('Device Management', 'gear', {'menu' : 5})}}{{/if}}
-            </div>
-        </div>
-{{/if}}
-{{if data.screen}}
+    <center><H3>Current Menu</span>: {{:data.textscreen}}</H3>
+    {{if data.screen == 1.0}}
+        {{:helper.link('Technology Disk', 'gear', {'menu' : 1.2},(data.tdisk ? null : 'disabled'))}}<br><br>
+        {{:helper.link('Design Disk', 'gear', {'menu' : 1.4},(data.ddisk ? null : 'disabled'))}}
+    {{/if}}
+
     {{if data.screen == 2.0}}
         <b><H3><center>No Destructive Analyzer Linked!</center></H3></b>
+    {{else (data.screen >= 2.1 && data.screen < 2.9)}}
+        {{if data.linked_analyzer_item}}
+            Loaded item: <span class="average">{{:data.linked_analyzer_item}}</span></H3></center>
+            {{:helper.link('Deconstruct Item', 'gear', {'deconstruct' : 'deconstruct'})}}<br><br>
+            {{:helper.link('Eject Item', 'gear', {'eject_item' : 'eject_item'})}}
+        {{else}}
+            <center><H3><span class="bad">No item loaded!</span></H3></center>
+        {{/if}}
     {{/if}}
 
     {{if data.screen == 3.0}}
         <b><H3><center>No Protolathe Linked!</center></H3></b>
+    {{/if}}
+
+    {{if data.screen == 3.1}}
+        {{:helper.link('View Queue', 'gear', {'menu' : 3.4 })}}<br><br>
+        {{for data.known_designs}}
+            {{if value.BuildType == 2}}
+                <div class="item">
+			        {{:helper.link(value.Name, 'gear', {'build' : value.ID})}}<br><br>
+		        </div>
+            {{/if}}
+        {{/for}}
+    {{/if}}
+
+    {{if data.screen == 3.4}}
+        <center><H3>Queue (Click to Remove):</center></H3>
+        {{:helper.link('Return', 'LeftArrow', {'menu' : 3.1})}}<br><br>
+        {{for data.linked_lathe_queue}}
+            {{:helper.link((value.Name), 'gear', {'removeI' : value.ID})}}<br><br>
+        {{empty}}
+            <center>No items in queue!</center>
+        {{/for}}
     {{/if}}
 
     {{if data.screen == 4.0}}

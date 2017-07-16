@@ -196,7 +196,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			textscreen = "Protolathe Chemical Control"
 
 		if(3.3)
-			textscreen = "Protolathe Material Control"	
+			textscreen = "Protolathe Material Control"
+
+		if(3.4)
+			textscreen = "Protolathe Queue Control"
 		
 		if(4.0 to 4.1)
 			textscreen = "Circuit Imprinter Control"
@@ -216,21 +219,33 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/data[0]
 	var/task = get_task()
 	var/textscreen = screen_number2text()
+	var/knowndesigns[0]
+	var/linked_lathe_queue[0]
+	for(var/datum/design/D in linked_lathe.queue)
+		linked_lathe_queue.add(list(list("QName" = "[D.name]")))
+
+	for(var/datum/design/D in files.known_designs)
+		knowndesigns.Add(list(list("Name" = "[D.name]", "BuildType" = "[D.build_type]", "BuildPath" = "[D.build_path]", "BuildTime" = "[D.time]", "ID" = "[D.id]")))
+
 	data["screen"] = screen
 	data["textscreen"] = textscreen
 	data["tdisk"] = t_disk
 	data["ddisk"] = d_disk
 	data["linked_analyzer"] = linked_destroy
+	data["linked_analyzer_item"] = linked_destroy.loaded_item
 	data["linked_lathe"] = linked_lathe
+	data["linked_lathe_materials"] = linked_lathe.materials
+	data["linked_lathe_queue"]	= linked_lathe_queue
 	data["linked_imprinter"] = linked_imprinter
-	data["known_designs"] = list(files.known_designs)
+	data["linked_imprinter_chemicals"] = linked_imprinter.reagents
+	data["known_designs"] = knowndesigns
 	data["known_tech"] = list(files.known_tech)
 	data["emagged"] = emagged
 	data["task"] = task
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)	
 	if (!ui)
-		ui = new(user, src, ui_key, "rdconsole.tmpl", "Research Console", 520, 410)
+		ui = new(user, src, ui_key, "rdconsole.tmpl", "Research Console", 600, 600)
 		ui.set_initial_data(data)		
 		ui.open()
 		ui.set_auto_update(1)
