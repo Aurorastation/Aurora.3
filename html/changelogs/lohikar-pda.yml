@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - rscadd: "You can now Ctrl-Shift-Click on a PDA to remove its pen."
-  - rscadd: "PDAs' examine text will now say if the PDA has a pen or not."

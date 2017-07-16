@@ -5,16 +5,6 @@
 	var/ref
 
 
-#if DM_VERSION < 511
-// Don't use this directly, use the WEAKREF macro.
-/proc/_weakref(datum/D)
-	if(!istype(D) || QDELETED(D))
-		return
-	if(!D.weakref)
-		D.weakref = new(D)
-	return D.weakref
-#endif
-
 /datum/weakref/New(datum/D)
 	ref = SOFTREF(D)
 

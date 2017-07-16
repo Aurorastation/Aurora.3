@@ -1,6 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - rscadd: "Added the leg actuator RIG module. These allow you to fall from heights if enabled, without taking damage; to leap horizontally (Vox style); and to climb up open turfs if you're facing a solid turf above you. Combat versions also allow you to grapel people."
