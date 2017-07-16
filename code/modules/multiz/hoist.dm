@@ -259,13 +259,6 @@
 	hoistee.hoist_act(move_dest)
 	return 1
 
-/atom/movable/proc/hoist_act(turf/dest)
-    if (anchored)
-        return FALSE
-
-    forceMove(dest)
-    return TRUE
-
-/obj/mecha/hoist_act(turf/dest)
+/atom/movable/proc/hoist_act(turf/dest, atom/movable/hoistee)
 	forceMove(dest)
 	return TRUE
