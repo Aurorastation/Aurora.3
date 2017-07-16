@@ -88,7 +88,7 @@
 
 		if (QDELETED(M))
 			log_debug("SSmachinery: QDELETED machine [DEBUG_REF(M)] found in machines list! Removing.")
-			remove_machine(M)
+			remove_machine(M, TRUE)
 			continue
 
 		var/start_tick = world.time
@@ -97,7 +97,7 @@
 			processes_this_tick++
 			switch (M.machinery_process())
 				if (PROCESS_KILL)
-					remove_machine(M)
+					remove_machine(M, FALSE)
 				if (M_NO_PROCESS)
 					M.machinery_processing = FALSE
 
@@ -185,10 +185,15 @@
  * @brief Removes a machine from all of the default global lists it's in.
  *
  * @param M The machine we want to remove.
+ * @param remove_from_global Boolean to indicate wether or not the machine should
+ * also be removed from the all_machines list. Defaults to FALSE.
  */
-/proc/remove_machine(obj/machinery/M)
+/proc/remove_machine(obj/machinery/M, remove_from_global = FALSE)
 	if (M)
 		M.machinery_processing = FALSE
-	SSmachinery.all_machines -= M
+
 	SSmachinery.processing_machines -= M
 	SSmachinery.working_machinery -= M
+
+	if (remove_from_global)
+		SSmachinery.all_machines -= M
