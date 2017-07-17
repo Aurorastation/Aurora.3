@@ -1,9 +1,6 @@
 // BEGIN_INTERNALS
 /*
-DIR: code code\modules code\modules\events 
-AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
-WINDOW: code\modules\events\wallrot.dm
-FILE: code\modules\events\wallrot.dm
+AUTO_FILE_DIR: OFF
 */
 // END_INTERNALS
