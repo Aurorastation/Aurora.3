@@ -222,10 +222,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/knowndesigns[0]
 	var/linked_lathe_queue[0]
 	for(var/datum/design/D in linked_lathe.queue)
-		linked_lathe_queue.Add(list(list("QName" = "[D.name]")))
+		linked_lathe_queue += list(list("QName" = "[D.name]"))
 
 	for(var/datum/design/D in files.known_designs)
-		knowndesigns.Add(list(list("Name" = "[D.name]", "BuildType" = "[D.build_type]", "BuildPath" = "[D.build_path]", "BuildTime" = "[D.time]", "ID" = "[D.id]")))
+		knowndesigns += list(list("Name" = "[D.name]", "BuildType" = "[D.build_type]", "BuildPath" = "[D.build_path]", "BuildTime" = "[D.time]", "ID" = "[D.id]"))
 
 	data["screen"] = screen
 	data["textscreen"] = textscreen
