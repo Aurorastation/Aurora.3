@@ -318,24 +318,27 @@ Please contact me on #coderbus IRC. ~Carn x
 
 	//Underwear
 	if(underwear && species.appearance_flags & HAS_UNDERWEAR)
-		var/icon/undies = SSicon_cache.human_underwear_cache[underwear]
+		var/uwear = "[underwear]"
+		var/icon/undies = SSicon_cache.human_underwear_cache[uwear]
 		if (!undies)
 			undies = new('icons/mob/human.dmi', underwear)
-			SSicon_cache.human_underwear_cache[underwear] = undies
+			SSicon_cache.human_underwear_cache[uwear] = undies
 		stand_icon.Blend(undies, ICON_OVERLAY)
 
 	if(undershirt && species.appearance_flags & HAS_UNDERWEAR)
-		var/icon/shirt = SSicon_cache.human_undershirt_cache[undershirt]
+		var/ushirt = "[undershirt]"
+		var/icon/shirt = SSicon_cache.human_undershirt_cache[ushirt]
 		if (!shirt)
 			shirt = new('icons/mob/human.dmi', undershirt)
-			SSicon_cache.human_undershirt_cache[undershirt] = shirt
+			SSicon_cache.human_undershirt_cache[ushirt] = shirt
 		stand_icon.Blend(shirt, ICON_OVERLAY)
 
 	if(socks && species.appearance_flags & HAS_SOCKS)
-		var/icon/socksicon = SSicon_cache.human_socks_cache[socks]
+		var/sockskey = "[socks]"
+		var/icon/socksicon = SSicon_cache.human_socks_cache[sockskey]
 		if (!socksicon)
 			socksicon = new('icons/mob/human.dmi', socks)
-			SSicon_cache.human_socks_cache[socks] = socksicon
+			SSicon_cache.human_socks_cache[sockskey] = socksicon
 		stand_icon.Blend(socksicon, ICON_OVERLAY)
 
 	if(update_icons)
