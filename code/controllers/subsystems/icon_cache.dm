@@ -40,6 +40,9 @@
 	var/list/human_lip_cache = list()
 	var/list/human_hair_cache = list()
 	var/list/human_beard_cache = list()
+	var/list/human_underwear_cache = list()
+	var/list/human_undershirt_cache = list()
+	var/list/human_socks_cache = list()
 
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)
