@@ -21,10 +21,9 @@ var/controlling
 /mob/living/carbon/var/list/parasites = list()
 
 /mob/living/parasite
-	var
-		mob/living/carbon/host // the host that this parasite occupies
+	var/mob/living/carbon/host // the host that this parasite occupies
 
-	Login()
+/mob/living/parasite/Login()
 		..()
 
 		// make the client see through the host instead
@@ -82,16 +81,16 @@ var/controlling
 
 	// if there are sleep toxins in the host's body, that's bad
 	if(host.reagents.has_reagent("stoxin"))
-		src << "\red <b>Something in your host's blood makes you lose consciousness.. you fade away..</b>"
+		src << "\red <b>Something in your host's blood makes you lose consciousness... you fade away...</b>"
 		src.death()
 		return
 	// a host without brain is no good
 	if(!host.mind)
-		src << "\red <b>Your host has no mind.. you fade away..</b>"
+		src << "\red <b>Your host has no mind... you fade away...</b>"
 		src.death()
 		return
 	if(host.stat == 2)
-		src << "\red <b>Your host has died.. you fade away..</b>"
+		src << "\red <b>Your host has died... you fade away...</b>"
 		src.death()
 		return
 
@@ -240,20 +239,20 @@ var/controlling
 
 	if(!src.host) return
 	/*if(!host.silent)
-		usr << "\red Your host already can't speak.."
+		usr << "\red Your host already can't speak."
 		return*/
 	if(!use_points(250)) return
 
 	spawn
 		// backup the host incase we switch hosts after using the verb
 		//var/mob/host = src.host
-		host << "\red Your tongue feels numb.. You lose your ability to speak."
+		host << "\red Your tongue feels numb... You lose your ability to speak."
 		usr << "\red Your host can't speak anymore."
 
 		host.silent += 60
 
 		sleep(1200)
-		host << "\red Your tongue has feeling again.."
+		host << "\red Your tongue has feeling again."
 		usr << "\red [host] can speak again."
 
 // Makes the host unable to emote
@@ -264,7 +263,7 @@ var/controlling
 
 	if(!src.host) return
 	/*if(!host.Weaken())
-		usr << "\red Your host already can't use body language.."
+		usr << "\red Your host already can't use body language."
 		return*/
 	if(!use_points(250)) return
 
@@ -272,13 +271,13 @@ var/controlling
 		// backup the host incase we switch hosts after using the verb
 		var/mob/host = src.host
 
-		host << "\red Your body feels numb.. You lose your ability to use body language."
+		host << "\red Your body feels numb... You lose your ability to use body language."
 		usr << "\red Your host can't use body language anymore."
 
 		host.Weaken(60)
 
 		sleep(1200)
-		host << "\red Your body has feeling again.."
+		host << "\red Your body has feeling again."
 		usr << "\red [host] can use body language again."
 
 
@@ -299,7 +298,7 @@ var/controlling
 		host.paralysis = max(host.paralysis, 2)
 
 		host.flash_weak_pain()
-		host << "\red <font size=5>You feel excrutiating pain all over your body! It is so bad you can't think or articulate yourself properly..</font>"
+		host << "\red <font size=5>You feel excrutiating pain all over your body! It is so bad you can't think or articulate yourself properly.</font>"
 
 		usr << "<b>You send a jolt of agonizing pain through [host], they should be unable to concentrate on anything else for half a minute.</b>"
 
@@ -317,7 +316,7 @@ var/controlling
 			if(i == 10)
 				host << "\red THE PAIN! AGHH, THE PAIN! MAKE IT STOP! ANYTHING TO MAKE IT STOP!"
 
-		host << "\red The pain subsides.."
+		host << "\red The pain subsides..."
 
 // Cause great joy with the host, used for conditioning the host
 /mob/living/parasite/meme/verb/Joy()
@@ -340,7 +339,7 @@ var/controlling
 		while(host.druggy > 0)
 			sleep(10)
 
-		host << "\red You are feeling clear-headed again.."
+		host << "\red You are feeling clear-headed again."
 
 // Cause the target to hallucinate.
 /mob/living/parasite/meme/verb/Hallucinate(mob/living/carbon/human/target as mob in oview())
@@ -349,7 +348,7 @@ var/controlling
 	set desc     = "Makes your host hallucinate, has a short delay."
 
 	if(!istype(target, /mob/living/carbon/human) || !target.mind)
-		src << "<b>You can't remotely ruin this ones mind.</b>"
+		src << "<b>You can't remotely ruin this one's mind.</b>"
 		return
 	if(!(target in view(host)))
 		src << "<b>You need to make eye-contact with the target.</b>"
@@ -366,13 +365,13 @@ var/controlling
 	usr << "<b>You make [target] hallucinate.</b>"
 
 // Jump to a closeby target through a whisper
-/mob/living/parasite/meme/verb/SubtleJump(mob/living/carbon/human/target as mob in oview())
+/mob/living/parasite/meme/verb/SubtleJump(mob/living/carbon/human/target as mob in view())
 	set category = "Meme"
 	set name	 = "Subtle Jump(350)"
-	set desc     = "Move to a closeby human through a whisper."
+	set desc     = "Move to a close-by human through a whisper."
 
 	if(!istype(target, /mob/living/carbon/human) || !target.mind)
-		src << "<b>You can't jump to this creature..</b>"
+		src << "<b>You can't jump to this creature.</b>"
 		return
 	if(!(target in view(1, host)+src))
 		src << "<b>The target is not close enough.</b>"
@@ -380,7 +379,7 @@ var/controlling
 
 	// Find out whether we can speak
 	if (host.silent || (host.disabilities & 64))
-		src << "<b>Your host can't speak..</b>"
+		src << "<b>Your host can't speak.</b>"
 		return
 
 	if(!use_points(350)) return
@@ -390,11 +389,11 @@ var/controlling
 
 	// Find out whether the target can hear
 	if(target.disabilities & 32 || target.ear_deaf)
-		src << "<b>Your target doesn't seem to hear you..</b>"
+		src << "<b>Your target doesn't seem to hear you.</b>"
 		return
 
 	if(target.parasites.len > 0)
-		src << "<b>Your target already is possessed by something..</b>"
+		src << "<b>Your target already is possessed by something.</b>"
 		return
 
 	src.exit_host()
@@ -405,13 +404,13 @@ var/controlling
 	message_admins("[src.key] has jumped to [target]")
 
 // Jump to a distant target through a shout
-/mob/living/parasite/meme/verb/ObviousJump(mob/living/carbon/human/target as mob in world)
+/mob/living/parasite/meme/verb/ObviousJump(mob/living/carbon/human/target as mob in view())
 	set category = "Meme"
 	set name	 = "Obvious Jump(750)"
 	set desc     = "Move to any mob in view through a shout."
 
 	if(!istype(target, /mob/living/carbon/human) || !target.mind)
-		src << "<b>You can't jump to this creature..</b>"
+		src << "<b>You can't jump to this creature.</b>"
 		return
 	if(!(target in view(host)))
 		src << "<b>The target is not close enough.</b>"
@@ -419,7 +418,7 @@ var/controlling
 
 	// Find out whether we can speak
 	if (host.silent || (host.disabilities & 64))
-		src << "<b>Your host can't speak..</b>"
+		src << "<b>Your host can't speak.</b>"
 		return
 
 	if(!use_points(750)) return
@@ -429,11 +428,11 @@ var/controlling
 
 	// Find out whether the target can hear
 	if(target.disabilities & 32 || target.ear_deaf)
-		src << "<b>Your target doesn't seem to hear you..</b>"
+		src << "<b>Your target doesn't seem to hear you.</b>"
 		return
 
 	if(target.parasites.len > 0)
-		src << "<b>Your target already is possessed by something..</b>"
+		src << "<b>Your target already is possessed by something.</b>"
 		return
 
 	src.exit_host()
@@ -444,13 +443,13 @@ var/controlling
 	message_admins("[src.key] has jumped to [target]")
 
 // Jump to an attuned mob for free
-/mob/living/parasite/meme/verb/AttunedJump(mob/living/carbon/human/target as mob in world)
+/mob/living/parasite/meme/verb/AttunedJump(mob/living/carbon/human/target as mob in indoctrinated)
 	set category = "Meme"
 	set name	 = "Attuned Jump(0)"
 	set desc     = "Move to a mob in sight that you have already attuned."
 
 	if(!istype(target, /mob/living/carbon/human) || !target.mind)
-		src << "<b>You can't jump to this creature..</b>"
+		src << "<b>You can't jump to this creature.</b>"
 		return
 	if(!(target in view(host)))
 		src << "<b>You need to make eye-contact with the target.</b>"
@@ -483,7 +482,7 @@ var/controlling
 	src.indoctrinated.Add(host)
 
 	usr << "<b>You successfully indoctrinated [host].</b>"
-	host << "\red Your head feels a bit roomier.."
+	host << "\red Your head feels a bit roomier."
 
 	log_admin("[src.key] has attuned [host]",ckey=key_name(src))
 	message_admins("[src.key] has attuned [host]")
@@ -501,11 +500,11 @@ var/controlling
 	if(!use_points(500)) return
 
 	usr << "<b>You inject drugs into [host].</b>"
-	host << "\red You feel your body strengthen and your pain subside.."
+	host << "\red You feel your body strengthen and your pain subside."
 	host.analgesic = 60
 	while(host.analgesic > 0)
 		sleep(60)
-	host << "\red The dizziness wears off, and you can feel pain again.."
+	host << "\red The dizziness wears off, and you can feel pain again."
 
 
 /mob/proc/clearHUD()
@@ -528,7 +527,7 @@ var/controlling
 		return
 
 
-	src << "You assume direct control..."
+	src << "You assume direct control."
 
 	spawn()
 
@@ -635,7 +634,7 @@ var/controlling
 	if(!host) return
 	if(!use_points(100)) return
 
-	usr << "<b>You enter dormant mode.. You won't be able to take action until all your points have recharged.</b>"
+	usr << "<b>You enter dormant mode. You won't be able to take action until all your points have recharged.</b>"
 
 	dormant = 1
 
