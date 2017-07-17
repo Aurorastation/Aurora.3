@@ -57,7 +57,7 @@ Used In File(s): \code\modules\research\rdconsole.dm
         <center><H3>Queue (Click to Remove):</center></H3>
         {{:helper.link('Return', 'LeftArrow', {'menu' : 3.1})}}<br><br>
         {{for data.linked_lathe_queue}}
-            {{:helper.link((value.Name), 'gear', {'removeI' : value.ID})}}<br><br>
+            {{:helper.link((value.QName), 'gear', {'removeI' : value.ID})}}<br><br>
         {{empty}}
             <center>No items in queue!</center>
         {{/for}}
