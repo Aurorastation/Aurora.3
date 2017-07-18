@@ -105,7 +105,7 @@
 /area/outpost/engineering/power)
 "an" = (
 /obj/machinery/power/smes/buildable{
-	charge = 2.5e+006;
+	charge = 2e+006;
 	RCon_tag = "\[ENG.2] Tesla - Containment"
 	},
 /obj/structure/cable{
@@ -1705,7 +1705,7 @@
 "dz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/camera/network/engineering_outpost{
-	c_tag = "Engineering Sublevel - Corridor Camera 4";
+	c_tag = "Engineering Sublevel - Corridor Camera 3";
 	dir = 2;
 	icon_state = "camera"
 	},
@@ -2094,7 +2094,7 @@
 "ed" = (
 /obj/machinery/light,
 /obj/machinery/camera/network/engineering_outpost{
-	c_tag = "Engineering Sublevel - Corridor Camera 3";
+	c_tag = "Engineering Sublevel - Corridor Camera 1";
 	dir = 1;
 	icon_state = "camera"
 	},
@@ -2450,7 +2450,7 @@
 /area/outpost/engineering/storage)
 "eL" = (
 /obj/machinery/camera/network/engineering_outpost{
-	c_tag = "Engineering Sublevel - Engine Aft Airlock";
+	c_tag = "Engineering Sublevel - Corridor Camera 4";
 	dir = 8;
 	icon_state = "camera"
 	},
@@ -4950,6 +4950,10 @@
 /area/turret_protected/ai_server_room)
 "iA" = (
 /obj/machinery/shieldwallgen,
+/obj/structure/cable/cyan{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "iB" = (
@@ -6391,6 +6395,7 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "sl1s";
+	master_tag = "sl1";
 	pixel_y = -26
 	},
 /turf/simulated/floor/plating,
@@ -7313,6 +7318,7 @@
 /area/bridge/aibunker)
 "my" = (
 /obj/machinery/door/airlock/highsecurity{
+	id_tag = "bunker1";
 	name = "Command Bunker Access";
 	req_access = list(19)
 	},
@@ -8450,6 +8456,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/highsecurity{
+	id_tag = "bunker1";
 	name = "Command Bunker Access";
 	req_access = list(19)
 	},
