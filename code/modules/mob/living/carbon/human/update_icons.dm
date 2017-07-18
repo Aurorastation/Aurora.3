@@ -216,9 +216,6 @@ Please contact me on #coderbus IRC. ~Carn x
 	if(update_icons)   update_icons()
 
 //BASE MOB SPRITE
-//Extension by Nanako
-//Passing in a value of 2 for update_icons will ignore any cached icon, and force a new one to be generated
-
 /mob/living/carbon/human/proc/update_body(var/update_icons=1)
 	if (QDELING(src))
 		return
@@ -226,10 +223,10 @@ Please contact me on #coderbus IRC. ~Carn x
 	var/husk_color_mod = rgb(96,88,80)
 	var/hulk_color_mod = rgb(48,224,40)
 
-	var/husk = (HUSK in src.mutations)
-	var/fat = (FAT in src.mutations)
-	var/hulk = (HULK in src.mutations)
-	var/skeleton = (SKELETON in src.mutations)
+	var/husk = (HUSK in mutations)
+	var/fat = (FAT in mutations)
+	var/hulk = (HULK in mutations)
+	var/skeleton = (SKELETON in mutations)
 	var/g = (gender == FEMALE ? "f" : "m")
 
 	pixel_x = species.icon_x_offset
@@ -243,12 +240,7 @@ Please contact me on #coderbus IRC. ~Carn x
 		qdel(stand_icon)
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
-
-	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin]"
-	if(lip_style)
-		icon_key += "[lip_style]"
-	else
-		icon_key += "nolips"
+	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"]"
 	var/obj/item/organ/eyes/eyes = internal_organs_by_name["eyes"]
 	if(eyes)
 		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
@@ -257,7 +249,7 @@ Please contact me on #coderbus IRC. ~Carn x
 
 	for(var/organ_tag in species.has_limbs)
 		var/obj/item/organ/external/part = organs_by_name[organ_tag]
-		if(isnull(part) || part.is_stump())
+		if(!part || part.is_stump())
 			icon_key += "0"
 		else if(part.status & ORGAN_ROBOT)
 			icon_key += "2[part.model ? "-[part.model]": ""]"
@@ -276,11 +268,9 @@ Please contact me on #coderbus IRC. ~Carn x
 			else
 				icon_key += "#000000"
 
-	icon_key = "[icon_key][husk ? 1 : 0][fat ? 1 : 0][hulk ? 1 : 0][skeleton ? 1 : 0]"
-	var/icon/base_icon
-	if(update_icons != 2 && SSicon_cache.human_icon_cache[icon_key])//If update_icons is 2, then we forcibly generate a new icon
-		base_icon = SSicon_cache.human_icon_cache[icon_key]
-	else
+	icon_key = "[icon_key][!!husk][!!fat][!!hulk][!!skeleton]"
+	var/icon/base_icon = SSicon_cache.human_icon_cache[icon_key]
+	if (!base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
 		var/obj/item/organ/external/chest = get_organ("chest")
 		base_icon = chest.get_icon()
@@ -328,13 +318,28 @@ Please contact me on #coderbus IRC. ~Carn x
 
 	//Underwear
 	if(underwear && species.appearance_flags & HAS_UNDERWEAR)
-		stand_icon.Blend(new /icon('icons/mob/human.dmi', underwear), ICON_OVERLAY)
+		var/uwear = "[underwear]"
+		var/icon/undies = SSicon_cache.human_underwear_cache[uwear]
+		if (!undies)
+			undies = new('icons/mob/human.dmi', underwear)
+			SSicon_cache.human_underwear_cache[uwear] = undies
+		stand_icon.Blend(undies, ICON_OVERLAY)
 
 	if(undershirt && species.appearance_flags & HAS_UNDERWEAR)
-		stand_icon.Blend(new /icon('icons/mob/human.dmi', undershirt), ICON_OVERLAY)
+		var/ushirt = "[undershirt]"
+		var/icon/shirt = SSicon_cache.human_undershirt_cache[ushirt]
+		if (!shirt)
+			shirt = new('icons/mob/human.dmi', undershirt)
+			SSicon_cache.human_undershirt_cache[ushirt] = shirt
+		stand_icon.Blend(shirt, ICON_OVERLAY)
 
 	if(socks && species.appearance_flags & HAS_SOCKS)
-		stand_icon.Blend(new /icon('icons/mob/human.dmi', socks), ICON_OVERLAY)
+		var/sockskey = "[socks]"
+		var/icon/socksicon = SSicon_cache.human_socks_cache[sockskey]
+		if (!socksicon)
+			socksicon = new('icons/mob/human.dmi', socks)
+			SSicon_cache.human_socks_cache[sockskey] = socksicon
+		stand_icon.Blend(socksicon, ICON_OVERLAY)
 
 	if(update_icons)
 		update_icons()
