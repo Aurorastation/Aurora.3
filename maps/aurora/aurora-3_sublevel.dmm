@@ -20226,12 +20226,12 @@
 "Ir" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/syringegun,
-/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun,
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
+/obj/item/weapon/gun/launcher/syringe,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "Is" = (
@@ -40321,15 +40321,15 @@ aa
 aa
 aa
 aa
-Lp
-Lp
-Lp
-Lp
-Lp
 aa
 aa
 aa
 aa
+Lp
+Lp
+Lp
+Lp
+Lp
 aa
 aa
 aa
@@ -40577,6 +40577,10 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 Lp
 Lp
 Lw
@@ -40584,10 +40588,6 @@ LI
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -40833,6 +40833,10 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 Lp
 Lp
 Lw
@@ -40842,10 +40846,6 @@ Lw
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -41089,6 +41089,10 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 Lp
 Lp
 Lw
@@ -41100,10 +41104,6 @@ Lw
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -41345,6 +41345,10 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 Lp
 Lp
 Lw
@@ -41358,10 +41362,6 @@ Lw
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -41599,6 +41599,10 @@ aa
 aa
 aa
 aa
+ab
+ab
+aa
+aa
 aa
 aa
 Lp
@@ -41616,10 +41620,6 @@ Lw
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -41856,6 +41856,10 @@ ab
 ab
 ab
 ab
+ab
+ab
+ab
+ab
 aa
 Lp
 Lp
@@ -41874,10 +41878,6 @@ Lw
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -42114,6 +42114,10 @@ ab
 ab
 ab
 ab
+ab
+ab
+ab
+ab
 Lp
 Ls
 Lw
@@ -42131,10 +42135,6 @@ Lw
 Lw
 Lw
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -42370,6 +42370,10 @@ Ln
 Ln
 Ln
 Ln
+Ln
+Ln
+Ln
+Ln
 Lm
 Lq
 Ls
@@ -42388,10 +42392,6 @@ Lw
 LM
 LI
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -42627,6 +42627,10 @@ ab
 ab
 ab
 ab
+ab
+ab
+ab
+ab
 Lo
 Lp
 Ls
@@ -42645,10 +42649,6 @@ Lw
 Lw
 Lw
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -42883,6 +42883,10 @@ ab
 ab
 ab
 ab
+ab
+ab
+ab
+ab
 aa
 aa
 Lp
@@ -42902,10 +42906,6 @@ Lw
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -43140,6 +43140,10 @@ aa
 aa
 ab
 ab
+ab
+ab
+ab
+aa
 aa
 aa
 aa
@@ -43158,10 +43162,6 @@ Lw
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -43401,6 +43401,10 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 Lp
 Lp
 Lw
@@ -43414,10 +43418,6 @@ Lw
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -43659,6 +43659,10 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 Lp
 Lp
 Lw
@@ -43670,10 +43674,6 @@ Lw
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -43917,6 +43917,10 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 Lp
 Lp
 Lw
@@ -43926,10 +43930,6 @@ Lw
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -44175,6 +44175,10 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 Lp
 Lp
 Lw
@@ -44182,10 +44186,6 @@ LI
 Lw
 Lp
 Lp
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -44433,15 +44433,15 @@ aa
 aa
 aa
 aa
-Lp
-Lp
-Lp
-Lp
-Lp
 aa
 aa
 aa
 aa
+Lp
+Lp
+Lp
+Lp
+Lp
 aa
 aa
 aa
