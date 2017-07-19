@@ -78,6 +78,7 @@
 	QDEL_NULL(big_spark)
 	QDEL_NULL(small_spark)
 	SSpower.smes_units -= src
+	QDEL_NULL(terminal)
 	return ..()	// TODO: Properly clean up terminal.
 
 /obj/machinery/power/smes/Initialize()

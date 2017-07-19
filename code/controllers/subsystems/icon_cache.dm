@@ -19,6 +19,10 @@
 	var/list/magazine_icondata_keys = list()
 	var/list/magazine_icondata_states = list()
 
+	var/list/stool_cache = list()
+	var/list/floor_light_cache = list()
+	var/list/ashtray_cache = list()
+
 /*
 	Global associative list for caching humanoid icons.
 	Index format m or f, followed by a string of 0 and 1 to represent bodyparts followed by husk fat hulk skeleton 1 or 0.
@@ -32,6 +36,13 @@
 	var/list/damage_icon_parts = list()
 	// [icon]-[icon_state]-[limb_name]-[color]
 	var/list/markings_cache = list()
+	var/list/human_eye_cache = list()
+	var/list/human_lip_cache = list()
+	var/list/human_hair_cache = list()
+	var/list/human_beard_cache = list()
+	var/list/human_underwear_cache = list()
+	var/list/human_undershirt_cache = list()
+	var/list/human_socks_cache = list()
 
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)

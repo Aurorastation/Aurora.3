@@ -15,9 +15,9 @@
 	var/obj/effect/suspension_field/suspension_field
 	var/list/secured_mobs = list()
 
-/obj/machinery/suspension_gen/New()
-	src.cell = new/obj/item/weapon/cell/high(src)
-	..()
+/obj/machinery/suspension_gen/Initialize()
+	. = ..()
+	cell = new/obj/item/weapon/cell/high(src)
 
 /obj/machinery/suspension_gen/machinery_process()
 	set background = 1
@@ -43,7 +43,7 @@
 		for(var/obj/item/I in T)
 			if(!suspension_field.contents.len)
 				suspension_field.icon_state = "energynet"
-				suspension_field.overlays += "shield2"
+				suspension_field.add_overlay("shield2")
 			I.loc = suspension_field
 
 		for(var/mob/living/simple_animal/M in T)
@@ -291,7 +291,7 @@
 
 	if(collected)
 		suspension_field.icon_state = "energynet"
-		suspension_field.overlays += "shield2"
+		suspension_field.add_overlay("shield2")
 		src.visible_message("<span class='notice'>\icon[suspension_field] [suspension_field] gently absconds [collected > 1 ? "something" : "several things"].</span>")
 	else
 		if(istype(T,/turf/simulated/mineral) || istype(T,/turf/simulated/wall))

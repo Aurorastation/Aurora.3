@@ -124,7 +124,7 @@ Class Procs:
 	add_machine(src)
 
 /obj/machinery/Destroy()
-	remove_machine(src)
+	remove_machine(src, TRUE)
 	if(component_parts)
 		for(var/atom/A in component_parts)
 			if(A.loc == src) // If the components are inside the machine, delete them.
@@ -377,7 +377,7 @@ Class Procs:
 
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
-	
+
 	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
 
 	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)

@@ -176,7 +176,8 @@ var/obj/machinery/blackbox_recorder/blackbox
 	// Note: actual logging has been moved to SSfeedback.
 
 	//Only one can exist in the world!
-/obj/machinery/blackbox_recorder/New()
+/obj/machinery/blackbox_recorder/Initialize()
+	. = ..()
 	if(blackbox)
 		if(istype(blackbox,/obj/machinery/blackbox_recorder))
 			qdel(src)

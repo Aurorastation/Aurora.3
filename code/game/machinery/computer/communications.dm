@@ -35,10 +35,11 @@
 	var/stat_msg1
 	var/stat_msg2
 
-	var/datum/announcement/priority/crew_announcement = new
+	var/datum/announcement/priority/crew_announcement
 
-/obj/machinery/computer/communications/New()
-	..()
+/obj/machinery/computer/communications/Initialize()
+	. = ..()
+	crew_announcement = new
 	crew_announcement.newscast = 1
 
 /obj/machinery/computer/communications/machinery_process()
@@ -525,7 +526,7 @@
 
 
 /proc/is_relay_online()
-    for(var/obj/machinery/bluespacerelay/M in machines)
+    for(var/obj/machinery/bluespacerelay/M in SSmachinery.all_machines)
         if(M.stat == 0)
             return 1
     return 0

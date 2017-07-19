@@ -530,7 +530,7 @@ datum/objective/steal
 						if(istype(M, /mob/living/silicon/ai) && M.stat != 2) //See if any AI's are alive inside that card.
 							return 1
 
-				for(var/mob/living/silicon/ai/ai in world)
+				for(var/mob/living/silicon/ai/ai in silicon_mob_list)
 					var/turf/T = get_turf(ai)
 					if(istype(T))
 						var/area/check_area = get_area(ai)
@@ -863,7 +863,7 @@ datum/objective/heist/salvage
 	explanation_text = "Summon Nar-Sie via the use of the appropriate rune (Hell join self). It will only work if nine cultists stand on and around it. The convert rune is join blood self."
 
 /datum/objective/cult/eldergod/check_completion()
-	return (locate(/obj/singularity/narsie/large) in machines)
+	return (locate(/obj/singularity/narsie/large) in SSmachinery.all_machines)
 
 /datum/objective/cult/sacrifice
 	explanation_text = "Conduct a ritual sacrifice for the glory of Nar-Sie."

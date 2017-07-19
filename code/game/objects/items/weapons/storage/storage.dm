@@ -9,6 +9,9 @@
 // for the server to handle without dying.
 #define STORAGE_SPACE_CAP 200
 
+/obj/storage_bullshit
+	layer = 19
+
 /obj/item/weapon/storage
 	name = "storage"
 	icon = 'icons/obj/storage.dmi'
@@ -209,14 +212,14 @@
 	closer.screen_loc = "[4+cols+1]:16,2:16"
 	return
 
-/obj/item/weapon/storage/proc/space_orient_objs(var/list/obj/item/display_contents)
+/obj/item/weapon/storage/proc/space_orient_objs(list/obj/item/display_contents, defer_overlays = FALSE)
 
 	var/baseline_max_storage_space = 16 //should be equal to default backpack capacity
 	var/storage_cap_width = 2 //length of sprite for start and end of the box representing total storage space
 	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
 	var/storage_width = min( round( 224 * max_storage_space/baseline_max_storage_space ,1) ,284) //length of sprite for the box representing total storage space
 
-	storage_start.overlays.Cut()
+	storage_start.cut_overlays()
 
 	var/matrix/M = matrix()
 	M.Scale((storage_width-storage_cap_width*2+3)/32,1)
@@ -243,13 +246,14 @@
 		stored_start.transform = M_start
 		stored_continue.transform = M_continue
 		stored_end.transform = M_end
-		storage_start.overlays += stored_start
-		storage_start.overlays += stored_continue
-		storage_start.overlays += stored_end
+		storage_start.add_overlay(list(stored_start, stored_continue, stored_end))
 
 		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""
 		O.layer = 20
+
+	if (!defer_overlays)
+		storage_start.compile_overlays()
 
 	closer.screen_loc = "4:[storage_width+19],2:16"
 	return
@@ -265,7 +269,7 @@
 	number = 1
 
 //This proc determins the size of the inventory to be displayed. Please touch it only if you know what you're doing.
-/obj/item/weapon/storage/proc/orient2hud(mob/user as mob)
+/obj/item/weapon/storage/proc/orient2hud(mob/user as mob, defer_overlays = FALSE)
 
 	var/adjusted_contents = contents.len
 
@@ -286,7 +290,7 @@
 				numbered_contents.Add( new/datum/numbered_display(I) )
 
 	if(storage_slots == null)
-		src.space_orient_objs(numbered_contents)
+		space_orient_objs(numbered_contents, defer_overlays)
 	else
 		var/row_num = 0
 		var/col_count = min(7,storage_slots) -1
@@ -513,18 +517,12 @@
 
 		CHECK_TICK
 
-/obj/item/weapon/storage/LateInitialize()
-	var/total_storage_space = 0
-	for(var/obj/item/I in contents)
-		total_storage_space += I.get_storage_cost()
-	max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
-
 // Override this to fill the storage object with stuff.
 /obj/item/weapon/storage/proc/fill()
 	return
 
-/obj/item/weapon/storage/Initialize()
-	..()
+/obj/item/weapon/storage/Initialize(mapload, defer_shrinkwrap = FALSE)
+	. = ..()
 
 	if (max_storage_space > STORAGE_SPACE_CAP)
 		log_debug("STORAGE: [type] exceed STORAGE_SPACE_CAP. It has been reset to [STORAGE_SPACE_CAP].")
@@ -538,53 +536,42 @@
 	if(!allow_quick_gather)
 		verbs -= /obj/item/weapon/storage/verb/toggle_gathering_mode
 
-	boxes = new /obj/screen/storage
-	boxes.name = "storage"
+	boxes = new /obj/screen/storage{icon_state = "block"}
 	boxes.master = src
-	boxes.icon_state = "block"
-	boxes.screen_loc = "7,7 to 10,8"
-	boxes.layer = 19
 
-	storage_start = new /obj/screen/storage
-	storage_start.name = "storage"
+	storage_start = new /obj/screen/storage{icon_state = "storage_start"}
 	storage_start.master = src
-	storage_start.icon_state = "storage_start"
-	storage_start.screen_loc = "7,7 to 10,8"
-	storage_start.layer = 19
 
-	storage_continue = new /obj/screen/storage
-	storage_continue.name = "storage"
+	storage_continue = new /obj/screen/storage{icon_state = "storage_continue"}
 	storage_continue.master = src
-	storage_continue.icon_state = "storage_continue"
-	storage_continue.screen_loc = "7,7 to 10,8"
-	storage_continue.layer = 19
 
-	storage_end = new /obj/screen/storage
-	storage_end.name = "storage"
+	storage_end = new /obj/screen/storage{icon_state = "storage_end"}
 	storage_end.master = src
-	storage_end.icon_state = "storage_end"
-	storage_end.screen_loc = "7,7 to 10,8"
-	storage_end.layer = 19
 
-	stored_start = new /obj //we just need these to hold the icon
-	stored_start.icon_state = "stored_start"
-	stored_start.layer = 19
+	stored_start = new /obj/storage_bullshit{icon_state = "stored_start"} //we just need these to hold the icon
 
-	stored_continue = new /obj
-	stored_continue.icon_state = "stored_continue"
-	stored_continue.layer = 19
+	stored_continue = new /obj/storage_bullshit{icon_state = "stored_continue"}
 
-	stored_end = new /obj
-	stored_end.icon_state = "stored_end"
-	stored_end.layer = 19
+	stored_end = new /obj/storage_bullshit{icon_state = "stored_end"}
 
-	closer = new /obj/screen/close
+	closer = new /obj/screen/close{
+		icon_state = "x";
+		layer = 20
+	}
 	closer.master = src
-	closer.icon_state = "x"
-	closer.layer = 20
-	orient2hud()
+	orient2hud(null, mapload)
 
-	return INITIALIZE_HINT_LATELOAD
+	if (defer_shrinkwrap)	// Caller wants to defer shrinkwrapping until after the current callstack; probably putting something in.
+		addtimer(CALLBACK(src, .proc/shrinkwrap), 0)
+	else
+		shrinkwrap()
+
+// Adjusts this storage object's max capacity to exactly the storage required by its contents. Will not decrease max storage capacity, only increase it.
+/obj/item/weapon/storage/proc/shrinkwrap()
+	var/total_storage_space = 0
+	for(var/obj/item/I in contents)
+		total_storage_space += I.get_storage_cost()
+	max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
 
 /obj/item/weapon/storage/emp_act(severity)
 	if(!istype(src.loc, /mob/living))

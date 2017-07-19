@@ -205,7 +205,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		var/log_msg = message
 		var/pass = 0
 		screen = RCS_SENTFAIL
-		for (var/obj/machinery/message_server/MS in machines)
+		for (var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
 			if(!MS.active) continue
 			MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority)
 			pass = 1
@@ -366,7 +366,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		else if(screen == 0)	//Faxing them papers
 			var/pass = 0
 			var/sendto = input("Select department.", "Send Fax", null, null) in allConsoles
-			for (var/obj/machinery/message_server/MS in machines)
+			for (var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
 				if(!MS.active) continue
 				pass = 1
 			if(pass)

@@ -17,8 +17,9 @@
 	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/risotto)
 	coating = /datum/reagent/nutriment/coating/batter
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/risottoballs
-	
+
 
 //Meaty Recipes
 //====================
@@ -69,9 +70,9 @@
 /datum/recipe/friedmushroom
 	appliance = FRYER
 	fruit = list("plumphelmet" = 1)
-	result = /obj/item/weapon/reagent_containers/food/snacks/friedmushroom
 	coating = /datum/reagent/nutriment/coating/beerbatter
-
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/weapon/reagent_containers/food/snacks/friedmushroom
 
 
 //Sweet Recipes.
