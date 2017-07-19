@@ -44,7 +44,7 @@ proc/cardinalrange(var/center)
 		controllerscan()
 		return
 	link_control(AMC)
-	remove_machine(src)
+	remove_machine(src, FALSE)
 	if (mapload)
 		. = INITIALIZE_HINT_LATELOAD
 	else

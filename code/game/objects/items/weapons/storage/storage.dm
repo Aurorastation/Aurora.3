@@ -521,7 +521,7 @@
 /obj/item/weapon/storage/proc/fill()
 	return
 
-/obj/item/weapon/storage/Initialize(mapload)
+/obj/item/weapon/storage/Initialize(mapload, defer_shrinkwrap = FALSE)
 	. = ..()
 
 	if (max_storage_space > STORAGE_SPACE_CAP)
@@ -561,6 +561,13 @@
 	closer.master = src
 	orient2hud(null, mapload)
 
+	if (defer_shrinkwrap)	// Caller wants to defer shrinkwrapping until after the current callstack; probably putting something in.
+		addtimer(CALLBACK(src, .proc/shrinkwrap), 0)
+	else
+		shrinkwrap()
+
+// Adjusts this storage object's max capacity to exactly the storage required by its contents. Will not decrease max storage capacity, only increase it.
+/obj/item/weapon/storage/proc/shrinkwrap()
 	var/total_storage_space = 0
 	for(var/obj/item/I in contents)
 		total_storage_space += I.get_storage_cost()

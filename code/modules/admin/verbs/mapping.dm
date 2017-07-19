@@ -423,7 +423,7 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 	set category = "Mapping"
 	set name = "Find Bad Doors"
 
-	for(var/obj/machinery/door/airlock/A in machines)
+	for(var/obj/machinery/door/airlock/A in world)
 		var/turf/T = get_turf(A)
 		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
 			usr << "Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc]."
@@ -432,7 +432,7 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 	set category = "Mapping"
 	set name = "Find Bad Fire Doors"
 
-	for(var/obj/machinery/door/firedoor/F in machines)
+	for(var/obj/machinery/door/firedoor/F in world)
 		var/turf/T = get_turf(F)
 		var/firelock_increment = 0
 		for(var/obj/machinery/door/firedoor/FD in T)

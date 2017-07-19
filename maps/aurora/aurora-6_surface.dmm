@@ -5590,7 +5590,7 @@
 	master_tag = "nuke_shuttle_dock_airlock";
 	name = "exterior access button";
 	pixel_x = -5;
-	pixel_y = -26;
+	pixel_y = 26;
 	req_one_access = list(13)
 	},
 /turf/simulated/floor/plating,
@@ -5824,6 +5824,11 @@
 	pixel_x = 30;
 	pixel_y = 26;
 	req_one_access = list(13)
+	},
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (WEST)";
+	icon_state = "corner_white";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -6489,10 +6494,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "lx" = (
-/obj/effect/floor_decal/corner/red/full{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
 /obj/machinery/status_display{
 	pixel_x = 32
 	},
@@ -7788,7 +7789,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/camera/network/command{
+/obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Corridor Camera 11";
 	dir = 4
 	},
@@ -8531,7 +8532,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/light,
-/obj/machinery/camera/network/civilian_west{
+/obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Vacant Office 1";
 	dir = 1
 	},
@@ -8743,11 +8744,11 @@
 /obj/structure/sign/drop{
 	pixel_x = 32
 	},
-/obj/structure/flora/pottedplant/random,
 /obj/machinery/status_display{
 	pixel_x = 0;
 	pixel_y = 32
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "pH" = (
@@ -9255,26 +9256,31 @@
 	dir = 4;
 	icon_state = "direction_med";
 	pixel_x = 0;
-	pixel_y = 8;
+	pixel_y = 4;
 	tag = "icon-direction_med (EAST)"
 	},
 /obj/structure/sign/directions/science{
 	dir = 4;
 	icon_state = "direction_sci";
-	pixel_y = 0;
+	pixel_y = -4;
 	tag = "icon-direction_sci (EAST)"
 	},
 /obj/structure/sign/directions/security{
 	dir = 4;
 	icon_state = "direction_sec";
 	pixel_x = 0;
-	pixel_y = -8;
+	pixel_y = -12;
 	tag = "icon-direction_sec (EAST)"
+	},
+/obj/structure/sign/directions/com{
+	dir = 4;
+	icon_state = "direction_com";
+	pixel_y = 12;
+	tag = "icon-direction_com (EAST)"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
 "qC" = (
-/obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 4
@@ -9283,6 +9289,7 @@
 	icon_state = "corner_white";
 	dir = 8
 	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "qD" = (
@@ -9721,7 +9728,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core - SMES Room 2";
+	c_tag = "Bridge - Pod 2";
 	dir = 4
 	},
 /turf/simulated/shuttle/floor,
@@ -15667,7 +15674,7 @@
 "CU" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/network/security{
+/obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Custodial Closet"
 	},
 /turf/simulated/floor/plating,
@@ -17340,14 +17347,14 @@
 /area/quartermaster/qm)
 "FX" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Quartermaster's Office";
-	dir = 8
-	},
 /obj/machinery/firealarm{
 	dir = 4;
 	layer = 3.3;
 	pixel_x = 26
+	},
+/obj/machinery/camera/network/civilian_east{
+	c_tag = "Cargo - Quartermaster's Office";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
@@ -18139,13 +18146,13 @@
 /turf/simulated/wall,
 /area/quartermaster/loading)
 "Hl" = (
-/obj/machinery/camera/network/civilian_west{
-	c_tag = "Cargo - Mail Room";
-	dir = 4
-	},
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = -24
+	},
+/obj/machinery/camera/network/civilian_east{
+	c_tag = "Cargo - Mail Room";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
@@ -18773,6 +18780,51 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Iw" = (
+/obj/effect/floor_decal/corner/red,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Ix" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Iy" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"Iz" = (
+/obj/machinery/door/window/brigdoor/eastleft{
+	dir = 1;
+	icon_state = "leftsecure";
+	name = "Holding Cell";
+	req_access = list(2);
+	tag = "icon-leftsecure (NORTH)"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
+"IA" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/exit)
 
 (1,1,1) = {"
 aa
@@ -46876,7 +46928,7 @@ aw
 aa
 aa
 bq
-It
+Is
 cl
 cl
 cl
@@ -48434,7 +48486,7 @@ fM
 ja
 fM
 fO
-fO
+Iw
 fM
 lu
 eI
@@ -48691,9 +48743,9 @@ fN
 jb
 fN
 fO
-fO
-fN
-lv
+Ix
+Iy
+IA
 eI
 aa
 aa
@@ -48949,7 +49001,7 @@ jc
 io
 hy
 ks
-fQ
+Iz
 lx
 eJ
 aa

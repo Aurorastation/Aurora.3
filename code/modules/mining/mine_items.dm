@@ -352,7 +352,7 @@
 	base_state = icon_state
 
 /obj/item/stack/flag/red
-	name = "red bebeacons"
+	name = "red beacons"
 	singular_name = "red beacon"
 	icon_state = "redflag"
 	light_color = LIGHT_COLOR_RED

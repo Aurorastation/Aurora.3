@@ -226,7 +226,7 @@
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
-	if (config.automute_on && !holder)
+	if (config.automute_on && !holder && length(message))
 		if (last_message_time)
 			if (world.time - last_message_time < config.macro_trigger)
 				spam_alert++
@@ -243,7 +243,7 @@
 
 		last_message_time = world.time
 
-		if(!isnull(message) && last_message == message)
+		if(last_message == message)
 			last_message_count++
 			if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
 				src << "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>"

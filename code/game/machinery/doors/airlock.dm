@@ -1173,7 +1173,7 @@ About the new airlock wires panel:
 		wires = new/datum/wires/airlock(src)
 
 	if(mapload && src.closeOtherId != null)
-		for (var/obj/machinery/door/airlock/A in world)
+		for (var/obj/machinery/door/airlock/A in SSmachinery.processing_machines)
 			if(A.closeOtherId == src.closeOtherId && A != src)
 				src.closeOther = A
 				break

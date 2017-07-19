@@ -1,5 +1,0 @@
-author: Skull132
-delete-after: true
-
-changes:
-  - bugfix: "Fixed the bug where your items would vanish if you were to unequip them from personal storage when lying down."

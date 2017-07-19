@@ -190,6 +190,7 @@
 		new /obj/item/clothing/suit/armor/vest/warden/commissar(src)
 		new /obj/item/clothing/head/helmet/warden(src)
 		new /obj/item/clothing/head/helmet/warden/commissar(src)
+		new /obj/item/clothing/head/helmet(src)
 		new /obj/item/weapon/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
@@ -203,7 +204,6 @@
 		new /obj/item/weapon/storage/box/holobadge(src)
 		new /obj/item/clothing/head/beret/sec/warden(src)
 		new /obj/item/clothing/accessory/badge/warden(src)
-		new /obj/item/ammo_magazine/c45m/rubber(src)
 		new /obj/item/weapon/storage/box/ids(src)
 
 

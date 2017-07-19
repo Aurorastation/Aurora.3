@@ -231,13 +231,13 @@
 			filter_path() // renders rpath
 
 	LateInitialize()
-		for(var/obj/machinery/magnetic_module/M in machines)
+		for(var/obj/machinery/magnetic_module/M in SSmachinery.all_machines)
 			if(M.freq == frequency && M.code == code)
 				magnets += M
 
 	process()
 		if(magnets.len == 0 && autolink)
-			for(var/obj/machinery/magnetic_module/M in world)
+			for(var/obj/machinery/magnetic_module/M in SSmachinery.all_machines)
 				if(M.freq == frequency && M.code == code)
 					magnets += M
 

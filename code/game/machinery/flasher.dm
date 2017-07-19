@@ -138,7 +138,7 @@
 	active = 1
 	icon_state = "launcheract"
 
-	for(var/obj/machinery/flasher/M in machines)
+	for(var/obj/machinery/flasher/M in SSmachinery.all_machines)
 		if(M.id == src.id)
 			spawn()
 				M.flash()

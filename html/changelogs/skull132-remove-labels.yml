@@ -1,6 +1,0 @@
-author: Skull132
-
-delete-after: True
-
-changes:
-  - rscadd: "Labels added with the hand labeler can now be removed."
