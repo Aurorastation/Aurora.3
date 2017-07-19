@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: true
+
+changes:
+  - bugfix: "I caved and made the spam filter actually work. It should no longer mute you for empty strings that are worthless."
