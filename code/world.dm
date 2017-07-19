@@ -185,22 +185,23 @@ var/list/world_api_rate_limit = list()
 /world/Error(var/exception/e)
 	var/static/inerror = 0
 
-// A horrible hack for unit tests but fuck runtiming timers.
-// They don't provide any useful information, and as such, are being suppressed.
-#ifdef UNIT_TEST
-
-	var/static/regex/fuck_timers = new("^Invalid Timer:")
-	if (fuck_timers.Find(e.name))
-		return
-
-#endif // UNIT_TEST
-
 	//runtime while processing runtimes
 	if (inerror)
 		inerror = 0
 		return ..(e)
 
 	inerror = 1
+
+// A horrible hack for unit tests but fuck runtiming timers.
+// They don't provide any useful information, and as such, are being suppressed.
+#ifdef UNIT_TEST
+
+	var/static/regex/fuck_timers = new("^Invalid Timer:")
+	if (fuck_timers.Find(e.name))
+		inerror = 0
+		return
+
+#endif // UNIT_TEST
 
 	e.time_stamp()
 	log_exception(e)
