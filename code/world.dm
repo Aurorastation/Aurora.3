@@ -196,8 +196,7 @@ var/list/world_api_rate_limit = list()
 // They don't provide any useful information, and as such, are being suppressed.
 #ifdef UNIT_TEST
 
-	var/static/regex/fuck_timers = new("^Invalid Timer:")
-	if (fuck_timers.Find(e.name))
+	if (findtextEx(e.name, "Invalid Timer:"))
 		inerror = 0
 		return
 
