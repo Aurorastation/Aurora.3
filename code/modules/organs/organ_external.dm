@@ -166,7 +166,7 @@
 	return
 
 /obj/item/organ/external/Initialize(mapload)
-	..(mapload, FALSE)
+	. = ..(mapload, FALSE)
 	if(owner)
 		replaced(owner)
 		sync_colour_to_human(owner)
@@ -174,10 +174,7 @@
 	if ((status & ORGAN_PLANT))
 		cannot_break = 1
 
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/item/organ/external/LateInitialize()
-	get_icon(TRUE)
+	get_icon()
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	owner = target
