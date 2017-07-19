@@ -6823,7 +6823,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Corridor Camera 9";
-	dir = 9;
+	dir = 8;
 	icon_state = "camera"
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -7319,7 +7319,6 @@
 	name = "Weaponry (Ion Rifle)";
 	req_access = list(3)
 	},
-/obj/item/weapon/gun/energy/ionrifle,
 /obj/item/weapon/gun/energy/ionrifle,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
@@ -15041,14 +15040,11 @@
 /area/security/armoury)
 "aBU" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/emps{
-	pixel_x = -2;
-	pixel_y = 2
-	},
 /obj/item/weapon/storage/box/flashbangs{
 	pixel_x = 2;
 	pixel_y = -2
 	},
+/obj/item/weapon/storage/box/teargas,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "aBV" = (
@@ -25944,7 +25940,7 @@
 /area/security/detectives_office)
 "aUb" = (
 /obj/machinery/camera/network/security{
-	c_tag = "Security - Firing Range Starboard";
+	c_tag = "Security - Detective's Office";
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -82949,7 +82945,7 @@ afw
 ahg
 ahb
 afw
-ceS
+ceR
 ajK
 aeE
 als
@@ -91450,7 +91446,7 @@ aAA
 aCa
 aDq
 aEW
-ceY
+aGH
 aIw
 aJW
 aLM
@@ -108144,7 +108140,7 @@ aab
 aab
 aab
 aqi
-ceX
+ceU
 asw
 asw
 auS
