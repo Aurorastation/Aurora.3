@@ -35,9 +35,9 @@ This will take a while to download, but it provides an easier method for updatin
 Once the repository is in place, run this command:
 ```bash
 cd Aurora.3
-git update-index --assume-unchanged baystation12.int
+git update-index --assume-unchanged aurorastation.int
 ```
-Now git will ignore changes to the file baystation12.int.
+Now git will ignore changes to the file aurorastation.int.
 
 ### INSTALLATION
 
