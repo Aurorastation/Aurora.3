@@ -108,9 +108,11 @@
 	req_one_access = list()
 
 /obj/item/weapon/rig/eva/equipped
-
+	
+	req_access = list(access_engine_equip)
+	
 	initial_modules = list(
-		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/device/basicdrill,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/vision/meson
@@ -146,7 +148,7 @@
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/actuators
@@ -231,6 +233,8 @@
 
 
 /obj/item/weapon/rig/hazard/equipped
+
+	req_access = list(access_brig)
 
 	initial_modules = list(
 		/obj/item/rig_module/vision/sechud,
