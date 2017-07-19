@@ -152,7 +152,7 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_SIIK_MAAS, 0)
 	add_language(LANGUAGE_SKRELLIAN, 0)
 	add_language("Tradeband", 1)
-	add_language("Gutter", 0)
+	add_language(LANGUAGE_GUTTER, 0)
 	add_language(LANGUAGE_VAURCA, 0)
 	add_language("Rootsong", 0)
 	add_language(LANGUAGE_EAL, 1)
