@@ -57,7 +57,7 @@
 // Criminal language.
 /datum/language/gutter
 	name = LANGUAGE_GUTTER
-	desc = "A language of renegades and frontiersmen descending from various languages from Earth. This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit."
+	desc = "A language of renegades and frontiersmen descending from various languages from Earth. This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit. Often called 'Gutter' by Alliance citizens."
 	speech_verb = "growls"
 	colour = "rough"
 	key = "3"
