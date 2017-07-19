@@ -1,5 +1,0 @@
-author: Skull132
-delete-after: true
-
-changes:
-  - bugfix: "Added language validation. It was previously possible to enter the game as a character with languages you weren't supposed to access. These are now properly purged as necessary."
