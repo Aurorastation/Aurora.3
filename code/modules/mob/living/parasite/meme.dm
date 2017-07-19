@@ -24,12 +24,11 @@ var/controlling
 	var/mob/living/carbon/host // the host that this parasite occupies
 
 /mob/living/parasite/Login()
-		..()
+	..()
 
-		// make the client see through the host instead
-		client.eye = host
-		client.perspective = EYE_PERSPECTIVE
-
+	// make the client see through the host instead
+	client.eye = host
+	client.perspective = EYE_PERSPECTIVE
 
 /mob/living/parasite/proc/enter_host(mob/living/carbon/host)
 	// by default, parasites can't share a body with other life forms
