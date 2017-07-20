@@ -5590,7 +5590,7 @@
 	master_tag = "nuke_shuttle_dock_airlock";
 	name = "exterior access button";
 	pixel_x = -5;
-	pixel_y = -26;
+	pixel_y = 26;
 	req_one_access = list(13)
 	},
 /turf/simulated/floor/plating,

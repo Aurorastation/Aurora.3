@@ -1175,7 +1175,7 @@ CIRCUITS BELOW
 /datum/design/circuit/sentencing
 	name = "criminal sentencing console"
 	id = "sentencing"
-	build_path = /obj/machinery/computer/sentencing
+	build_path = /obj/item/weapon/circuitboard/sentencing
 	sort_string = "DADAA"
 
 

@@ -63,6 +63,9 @@
 
 		total_unit_tests++
 
+		if (MC_TICK_CHECK)
+			return
+
 	if (!curr.len)
 		stage++
 
