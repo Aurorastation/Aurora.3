@@ -10,5 +10,5 @@ ALTER TABLE `ss13_ban_mirrors`
   CHANGE `ban_mirror_ip` `ip` VARCHAR(32) NOT NULL,
   CHANGE `ban_mirror_computerid` `computerid` VARCHAR(32) NOT NULL,
   CHANGE `ban_mirror_datetime` `datetime` DATETIME NOT NULL;
-  ADD `source` ENUM('legacy', 'conninfo', 'isbanned') DEFAULT 'legacy' NOT NULL AFTER `datetime`,
+  ADD `source` ENUM('legacy', 'conninfo', 'isbanned') NOT NULL AFTER `datetime`,
   ADD `extra_info` TEXT NULL DEFAULT NULL AFTER `source`;
