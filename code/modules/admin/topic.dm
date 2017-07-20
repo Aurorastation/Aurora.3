@@ -94,26 +94,12 @@
 		DB_ban_record(bantype, playermob, banduration, banreason, banjob, null, banckey, banip, bancid )
 
 	else if(href_list["dbbanmirrors"])
-		var/ban_id = text2num(href_list["dbbanmirrors"])
+		display_mirrors_panel(usr, text2num(href_list["dbbanmirrors"]))
+		return
 
-		var/list/mirrors = get_ban_mirrors(ban_id)
-
-		if (!mirrors)
-			usr << "<span class='warning'>Something went horribly wrong.</span>"
-			return
-
-		if (!mirrors.len)
-			usr << "<span class='warning'>No mirrors for this ban found.</span>"
-			return
-
-		var/output = "<b><center>Ban mirrors for ban #[ban_id]</center></b><br>"
-		output += "<center>Each line indicates a new bypass attempt.</center><hr>"
-		for (var/mirror in mirrors)
-			var/list/details = mirrors[mirror]
-
-			output += "[details["date"]] - [details["ckey"]] - IP: [details["ip"]] - CID: [details["computerid"]]<br>"
-
-		usr << browse(output, "window=banmirrors")
+	else if(href_list["dbbanmirrorckeys"])
+		display_mirrors_ckeys(usr, text2num(href_list["dbbanmirrorckeys"]))
+		return
 
 	else if(href_list["editrights"])
 		if(!check_rights(R_PERMISSIONS))
