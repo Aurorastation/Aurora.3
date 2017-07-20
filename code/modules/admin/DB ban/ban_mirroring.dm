@@ -102,7 +102,7 @@
 	for (var/i = 1; i <= extra_info.len && i <= 50; i++)
 		. |= extra_info[i][1]
 
-	var/DBQuery/new_mirror = dbcon.NewQuery("INSERT INTO ss13_ban_mirrors (ban_id, ckey, ip, computerid, source, extra_info, datetime) VALUES (:ban_id:, :ckey:, :address:, :computerid:, :source:, :info:, NOW())")
+	var/DBQuery/new_mirror = dbcon.NewQuery("INSERT INTO ss13_ban_mirrors (id, ban_id, ckey, ip, computerid, source, extra_info, datetime) VALUES (NULL, :ban_id:, :ckey:, :address:, :computerid:, :source:, :info:, NOW())")
 	new_mirror.Execute(list("ban_id" = ban_id, "ckey" = ckey, "address" = address, "computerid" = computer_id, "source" = source, "info" = json_encode(.)))
 
 	log_misc("Mirrored ban #[ban_id] for player [ckey] from [address]-[computer_id].")
