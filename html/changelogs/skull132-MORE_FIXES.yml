@@ -6,3 +6,4 @@ changes:
   - bugfix: "You can now put mining flags/beacons into your backpack after using them again."
   - bugfix: "Thralls can now be embraced, as was intended."
   - bugfix: "Ore magnets will no longer cause hilarious amounts of lag."
+  - bugfix: "Unbuckling yourself from a hoist clamp will no longer render the hoist kit unusable."
