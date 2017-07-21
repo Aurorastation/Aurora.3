@@ -1,0 +1,8 @@
+author: Skull132
+delete-after: true
+
+changes:
+  - bugfix: "Fixes custom loadouts and role preferences not loading properly on initial character load."
+  - bugfix: "NanoTrasen relation is now properly saved and loaded."
+  - bugfix: "You can now cancel out of adjusting amputated/proshetic limbs properly."
+  - bugfix: "Default cyborg module flavour text now saves properly."
