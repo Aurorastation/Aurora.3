@@ -68,9 +68,11 @@ var/list/gear_datums = list()
 		. += gear_name
 
 /datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
+	testing("Sanitizing! Gear as: [pref.gear]")
+	crash_with("Figure out why this sucks.")
 	if (sql_load)
 		gear_reset = FALSE
-		if (pref.gear && istext(pref.gear))
+		if (istext(pref.gear))
 			try
 				pref.gear = json_decode(pref.gear)
 			catch
@@ -78,16 +80,10 @@ var/list/gear_datums = list()
 
 				pref.gear = list()
 				gear_reset = TRUE
-		else
-			pref.gear = list()
-			gear_reset = TRUE
 
 	var/mob/preference_mob = preference_mob()
 	if(!islist(pref.gear))
-		crash_with("FFFFFFFFFFFFFFFFFFFFF")
 		pref.gear = list()
-	if (!length(pref.gear))
-		crash_with("GGGGGGGGGGGGGGGGGGGGGGG")
 
 	for(var/gear_name in pref.gear)
 		if(!(gear_name in gear_datums))

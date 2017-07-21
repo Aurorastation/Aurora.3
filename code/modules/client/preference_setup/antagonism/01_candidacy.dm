@@ -25,25 +25,17 @@
 	return list("be_special_role" = list2params(pref.be_special_role), "id" = pref.current_character, "ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/antagonism/candidacy/sanitize_character(var/sql_load = 0)
-	testing("Roles: [islist(pref.be_special_role) ? json_encode(pref.be_special_role) : pref.be_special_role]")
+	testing("Sanitizing.")
 	if (sql_load)
-		testing("SQL load activated.")
-		if (pref.be_special_role && istext(pref.be_special_role))
+		if (istext(pref.be_special_role))
 			pref.be_special_role = params2list(pref.be_special_role)
 
 	if (!istype(pref.be_special_role))
 		pref.be_special_role = list()
 
-	testing("Prenerf: [json_encode(pref.be_special_role)]")
-	if (!length(pref.be_special_role))
-		crash_with("EEEEEEEEEEEEEEEEEEEEEEEEEEEE")
-
 	for (var/role in pref.be_special_role)
 		if (!(role in valid_special_roles()))
 			pref.be_special_role -= role
-
-	if (!length(pref.be_special_role))
-		crash_with("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
 
 /datum/category_item/player_setup_item/antagonism/candidacy/content(var/mob/user)
 	. += "<b>Special Role Availability:</b><br>"
