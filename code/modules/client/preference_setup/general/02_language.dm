@@ -48,11 +48,14 @@
 
 	var/list/bad_langs = pref.alternate_languages - langs
 	if (bad_langs.len)
-		to_chat(pref.client, "<span class='warning'>[bad_langs.len] invalid languages were found in your character setup!</span>")
+		to_chat(pref.client, "<span class='warning'>[bad_langs.len] invalid language\s were found in your character setup! Please save your character again to stop this error from repeating!</span>")
 
 		for (var/L in bad_langs)
 			to_chat(pref.client, "<span class='notice'>Removing the language \"[L]\" from your character.</span>")
 			pref.alternate_languages -= L
+
+		var/datum/category_group/player_setup_category/cat = category
+		cat.modified = TRUE
 
 /datum/category_item/player_setup_item/general/language/content()
 	. += "<b>Languages</b><br>"
