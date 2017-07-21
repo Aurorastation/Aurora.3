@@ -261,10 +261,10 @@ Please contact me on #coderbus IRC. ~Carn x
 			icon_key += "[part.species.race_key]"
 			icon_key += "[part.dna.GetUIState(DNA_UI_GENDER)]"
 			icon_key += "[part.dna.GetUIValue(DNA_UI_SKIN_TONE)]"
-			if(part.s_col && part.s_col.len >= 3)
-				icon_key += "[rgb(part.s_col[1],part.s_col[2],part.s_col[3])]"
-			if(part.body_hair && part.h_col && part.h_col.len >= 3)
-				icon_key += "[rgb(part.h_col[1],part.h_col[2],part.h_col[3])]"
+			if(part.skin_color)
+				icon_key += "[part.skin_color]"
+			if(part.body_hair && part.hair_color)
+				icon_key += "[part.hair_color]"
 			else
 				icon_key += "#000000"
 
