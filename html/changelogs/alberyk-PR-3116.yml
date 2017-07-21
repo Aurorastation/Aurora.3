@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Changed how overdoses works, instead of triggered the affect after the reagents are processed, the overdose effect will now happen after the total dose is above the threshold."
+  - tweak: "Reduced the damage caused by dermaline, dylovene, kelotane, dexalin and tricordrazine overdoses."
