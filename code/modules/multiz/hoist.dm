@@ -86,11 +86,12 @@
 	source_hoist.release_hoistee()
 
 // This will handle mobs unbuckling themselves.
-/obj/effect/hoist_hook/post_unbuckle_mob(mob/user)
+/obj/effect/hoist_hook/unbuckle_mob()
 	. = ..()
 	if (. && !QDELETED(source_hoist))
+		var/mob/M = .
 		source_hoist.hoistee = null
-		ADD_FALLING_ATOM(.)	// fuck you, you fall now!
+		ADD_FALLING_ATOM(M)	// fuck you, you fall now!
 
 /obj/structure/hoist
 	icon = 'icons/obj/hoists.dmi'
