@@ -1104,6 +1104,9 @@ var/list/total_extraction_beacons = list()
 
 		CHECK_TICK
 
+		if (QDELETED(src))
+			return
+
 	currently_pulling = FALSE
 
 /obj/item/weapon/oremagnet/proc/toggle_on(mob/user)
