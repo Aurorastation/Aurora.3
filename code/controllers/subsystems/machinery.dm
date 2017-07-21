@@ -6,8 +6,11 @@
 	init_order = SS_INIT_MACHINERY
 	flags = SS_POST_FIRE_TIMING
 
-	var/tmp/list/processing_machinery = list()
-	var/tmp/list/processing_powersinks = list()
+	var/tmp/list/all_machines = list()        // A list of all machines. Including the non-processing ones.
+	var/tmp/list/processing_machines = list() // A list of machines that process.
+
+	var/tmp/list/working_machinery = list()   // A list of machinery left to process this work cycle.
+	var/tmp/list/working_powersinks = list()  // A list of machinery draining power to process this work cycle.
 	var/tmp/powernets_reset_yet
 
 	var/tmp/processes_this_tick = 0
@@ -56,8 +59,8 @@
 
 /datum/controller/subsystem/machinery/fire(resumed = 0, no_mc_tick = FALSE)
 	if (!resumed)
-		src.processing_machinery = machines.Copy()
-		src.processing_powersinks = processing_power_items.Copy()
+		src.working_machinery = processing_machines.Copy()
+		src.working_powersinks = processing_power_items.Copy()
 		powernets_reset_yet = FALSE
 
 		// Reset accounting vars.
@@ -76,8 +79,8 @@
 			sortTim(cameranet.cameras, /proc/cmp_camera)
 			cameranet.cameras_unsorted = FALSE
 
-	var/list/curr_machinery = processing_machinery
-	var/list/curr_powersinks = processing_powersinks
+	var/list/curr_machinery = working_machinery
+	var/list/curr_powersinks = working_powersinks
 
 	while (curr_machinery.len)
 		var/obj/machinery/M = curr_machinery[curr_machinery.len]
@@ -85,7 +88,7 @@
 
 		if (QDELETED(M))
 			log_debug("SSmachinery: QDELETED machine [DEBUG_REF(M)] found in machines list! Removing.")
-			remove_machine(M)
+			remove_machine(M, TRUE)
 			continue
 
 		var/start_tick = world.time
@@ -94,7 +97,7 @@
 			processes_this_tick++
 			switch (M.machinery_process())
 				if (PROCESS_KILL)
-					remove_machine(M)
+					remove_machine(M, FALSE)
 				if (M_NO_PROCESS)
 					M.machinery_processing = FALSE
 
@@ -119,7 +122,7 @@
 								usage = M.idle_power_usage
 							if (2)
 								usage = M.active_power_usage
-						
+
 						A.use_power(usage, chan)
 
 		if (no_mc_tick)
@@ -138,7 +141,7 @@
 		if (QDELETED(I) || !I.pwr_drain())
 			processing_power_items -= I
 			log_debug("SSmachinery: QDELETED item [DEBUG_REF(I)] found in processing power items list.")
-		
+
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
@@ -146,7 +149,7 @@
 
 /datum/controller/subsystem/machinery/stat_entry()
 	var/list/out = list()
-	out += "M:[machines.len] PI:[processing_power_items.len]"
+	out += "AM:[all_machines.len] PM:[processing_machines.len] PI:[processing_power_items.len]"
 	out += "LT:{T:[processes_this_tick]|P:[powerusers_this_tick]}"
 	..(out.Join("\n\t"))
 
@@ -158,19 +161,39 @@
 			NewPN.add_cable(PC)
 			propagate_network(PC, PC.powernet)
 
+/**
+ * @brief Adds a machine to the SSmachinery.processing_machines and the SSmachinery.all_machines list.
+ *
+ * Must be called in every machine's Initialize(). Is called in the parent override of that proc
+ * by default.
+ *
+ * @param M The machine we want to add.
+ */
 /proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))
 		crash_with("Attempted add of QDELETED machine [M ? M : "NULL"] to machines list, ignoring.")
 		return
 
 	M.machinery_processing = TRUE
-	if (machines[M])
-		crash_with("Type [M.type] was added to machines list twice! Ignoring duplicate.")
+	if (SSmachinery.processing_machines[M])
+		crash_with("Type [M.type] was added to the processing machines list twice! Ignoring duplicate.")
 
-	machines[M] = TRUE
+	SSmachinery.processing_machines[M] = TRUE
+	SSmachinery.all_machines[M] = TRUE
 
-/proc/remove_machine(obj/machinery/M)
+/**
+ * @brief Removes a machine from all of the default global lists it's in.
+ *
+ * @param M The machine we want to remove.
+ * @param remove_from_global Boolean to indicate wether or not the machine should
+ * also be removed from the all_machines list. Defaults to FALSE.
+ */
+/proc/remove_machine(obj/machinery/M, remove_from_global = FALSE)
 	if (M)
 		M.machinery_processing = FALSE
-	machines -= M
-	SSmachinery.processing_machinery -= M
+
+	SSmachinery.processing_machines -= M
+	SSmachinery.working_machinery -= M
+
+	if (remove_from_global)
+		SSmachinery.all_machines -= M

@@ -20,7 +20,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 		shuttle.init_docking_controllers()
 		shuttle.dock() //makes all shuttles docked to something at round start go into the docked state
 
-	for(var/obj/machinery/embedded_controller/C in machines)
+	for(var/obj/machinery/embedded_controller/C in SSmachinery.processing_machines)
 		if(istype(C.program, /datum/computer/file/embedded_program/docking))
 			C.program.tag = null //clear the tags, 'cause we don't need 'em anymore
 
@@ -43,7 +43,8 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	//shuttle.dock_target_station = "cargo_bay"
 	shuttles["Escape"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
-	log_debug("Escape shuttle [shuttle ? "exists." : "DOES NOT EXIST!"]")
+	if(!shuttle)
+		log_debug("Escape shuttle does not exist!")
 
 	shuttle = new/datum/shuttle/ferry/escape_pod()
 	shuttle.location = 0

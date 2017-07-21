@@ -84,7 +84,7 @@
 	src.msg_syndicate = SSfeedback.msg_syndicate
 	src.msg_cargo = SSfeedback.msg_cargo
 	src.msg_service = SSfeedback.msg_service
-	
+
 	src.feedback = SSfeedback.feedback
 
 /datum/controller/subsystem/statistics/proc/find_feedback_datum(variable)
@@ -103,7 +103,7 @@
 	var/pda_msg_amt = 0
 	var/rc_msg_amt = 0
 
-	for(var/obj/machinery/message_server/MS in machines)
+	for(var/obj/machinery/message_server/MS in SSmachinery.all_machines)
 		if(MS.pda_msgs.len > pda_msg_amt)
 			pda_msg_amt = MS.pda_msgs.len
 		if(MS.rc_msgs.len > rc_msg_amt)
@@ -159,7 +159,7 @@
 		var/DBQuery/query_insert = dbcon.NewQuery(sql)
 		query_insert.Execute()
 
-	
+
 // Sanitize inputs to avoid SQL injection attacks
 /proc/sql_sanitize_text(var/text)
 	text = replacetext(text, "'", "''")
@@ -168,7 +168,7 @@
 	return text
 
 /proc/feedback_set(var/variable,var/value)
-	if(!SSfeedback) 
+	if(!SSfeedback)
 		return
 
 	variable = sql_sanitize_text(variable)
