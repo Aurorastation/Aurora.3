@@ -7,6 +7,7 @@
 	S["real_name"]				>> pref.real_name
 	S["gender"]					>> pref.gender
 	S["age"]					>> pref.age
+	S["species"]				>> pref.species
 	S["spawnpoint"]				>> pref.spawnpoint
 	S["OOC_Notes"]				>> pref.metadata
 
@@ -14,6 +15,7 @@
 	S["real_name"]				<< pref.real_name
 	S["gender"]					<< pref.gender
 	S["age"]					<< pref.age
+	S["species"]				<< pref.species
 	S["spawnpoint"]				<< pref.spawnpoint
 	S["OOC_Notes"]				<< pref.metadata
 
@@ -22,7 +24,8 @@
 													"gender",
 													"age",
 													"metadata",
-													"spawnpoint",),
+													"spawnpoint",
+													"species"),
 										"args" = list("id")))
 
 /datum/category_item/player_setup_item/general/basic/gather_load_parameters()
@@ -34,6 +37,7 @@
 										 "age",
 										 "metadata",
 										 "spawnpoint",
+										 "species",
 										 "id" = 1,
 										 "ckey" = 1))
 
@@ -43,6 +47,7 @@
 				"age" = pref.age,
 				"metadata" = pref.metadata,
 				"spawnpoint" = pref.spawnpoint,
+				"species" = pref.species,
 				"id" = pref.current_character,
 				"ckey" = pref.client.ckey)
 
@@ -66,6 +71,9 @@
 			log_debug("SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
+	if(!pref.species || !(pref.species in playable_species))
+		pref.species = "Human"
+
 	pref.age			= sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender 		= sanitize_inlist(pref.gender, valid_player_genders, pick(valid_player_genders))
 	pref.real_name		= sanitize_name(pref.real_name, pref.species)
