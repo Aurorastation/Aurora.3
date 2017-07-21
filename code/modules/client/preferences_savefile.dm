@@ -96,7 +96,6 @@
 	return S
 
 /datum/preferences/proc/sanitize_preferences()
-	testing("Went here. SQL saves set as: [config.sql_saves].")
 	player_setup.sanitize_setup(config.sql_saves)
 	return 1
 

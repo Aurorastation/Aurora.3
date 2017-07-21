@@ -93,8 +93,6 @@
 	log_debug("SQL CHARACTER LOAD: Started loading with arguments: [json_encode(arg_list)]. Role type: [role_type]")
 #endif
 
-	testing("Loading: [name].")
-
 	for (var/query_text in query_cache[type])
 		var/DBQuery/query = dbcon.NewQuery(query_text)
 		query.Execute(arg_list)

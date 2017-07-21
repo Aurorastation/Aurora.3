@@ -62,8 +62,6 @@
 	return ..()
 
 /datum/category_collection/player_setup_collection/proc/sanitize_setup(sql_load = FALSE)
-	if (!sql_load)
-		crash_with("BBBBBBBBBBBBBB")
 	for(var/datum/category_group/player_setup_category/PS in categories)
 		PS.sanitize_setup(sql_load)
 
@@ -125,8 +123,6 @@
 	var/modified = 0
 
 /datum/category_group/player_setup_category/proc/sanitize_setup(sql_load = FALSE)
-	if (!sql_load)
-		crash_with("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC")
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_preferences(sql_load)
 	for(var/datum/category_item/player_setup_item/PI in items)

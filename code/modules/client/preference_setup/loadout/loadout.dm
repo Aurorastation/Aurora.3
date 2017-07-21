@@ -68,8 +68,6 @@ var/list/gear_datums = list()
 		. += gear_name
 
 /datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
-	testing("Sanitizing! Gear as: [pref.gear]")
-	crash_with("Figure out why this sucks.")
 	if (sql_load)
 		gear_reset = FALSE
 		if (istext(pref.gear))

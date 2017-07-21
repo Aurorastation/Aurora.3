@@ -293,7 +293,7 @@ datum/preferences
 
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, icon_updates = 1)
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
-	player_setup.sanitize_setup(config.sql_saves)
+	player_setup.sanitize_setup()
 
 	if(config.humans_need_surnames)
 		var/firstspace = findtext(real_name, " ")
