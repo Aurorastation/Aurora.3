@@ -148,19 +148,19 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/proc/get_task()
 	var/task = null
 	switch(screen)
-		if(0.0)
+		if(10)
 			task = "Updating Database..."
 
-		if(0.1)
+		if(11)
 			task= "Processing and Updating Database..."
 
-		if(0.3)
+		if(13)
 			task= "Constructing Prototype. Please Wait..."
 
-		if(0.4)
+		if(14)
 			task = "Imprinting Circuit. Please Wait..."
 
-		if(0.5)
+		if(15)
 			task = "Printing Research Information. Please Wait..."
 		
 	return task
@@ -168,49 +168,52 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/proc/screen_number2text()
 	var/textscreen = null
 	switch(screen)
-		if(1.0)
+		if(20)
 			textscreen = "Main Menu"
 
-		if(1.1)
+		if(21)
 			textscreen = "Research Levels Overview"
 
-		if(1.2 to 1.3)
+		if(22 to 23)
 			textscreen = "Technology Disk Control"
 
-		if(1.4 to 1.5)	
+		if(24 to 25)	
 			textscreen = "Design Disk Control"
 
-		if(1.6)
+		if(26)
 			textscreen = "Console Setings"
 
-		if(1.7)
+		if(27)
 			textscreen = "Device Linking"
 
-		if(2.0 to 2.2)
+		if(30 to 32)
 			textscreen = "Destructive Analyzer Control"
 		
-		if(3.0 to 3.1)
+		if(40 to 41)
 			textscreen = "Protolathe Control"
 
-		if(3.2)
+		if(42)
 			textscreen = "Protolathe Chemical Control"
 
-		if(3.3)
+		if(43)
 			textscreen = "Protolathe Material Control"
 
-		if(3.4)
+		if(44)
 			textscreen = "Protolathe Queue Control"
 		
-		if(4.0 to 4.1)
+		if(50 to 51)
 			textscreen = "Circuit Imprinter Control"
 
-		if(4.2)
+		if(52)
 			textscreen = "Circuit Imprinter Chemical Control"
 
-		if(4.3)
+		if(53)
 			textscreen = "Circuit Imprinter Material Control"
 
-		if(5.0)
+		if(54)
+			textscreen = "Circuit Imprinter Queue Control"
+
+		if(60)
 			textscreen = "Device Management"
 
 	return textscreen
@@ -221,8 +224,34 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/textscreen = screen_number2text()
 	var/knowndesigns[0]
 	var/linked_lathe_queue[0]
+	var/linked_imprinter_queue[0]
+	var/linked_destroy_iteminfo[0]
+	var/linked_lathe_materialsinfo[0]
+	var/linked_imprinter_materialsinfo[0]
+	var/linked_imprinter_reagentsinfo[0]
+	if(linked_lathe.materials)
+		for(var/M in linked_lathe.materials)
+			var/amount = linked_lathe.materials[M]
+			linked_lathe_materialsinfo += list(list("MName" = "[capitalize(M)]", "Mamount" = "[amount]"))
+
+	if(linked_imprinter.materials)
+		for(var/M in linked_imprinter.materials)
+			var/amount = linked_imprinter.materials[M]
+			linked_imprinter_materialsinfo += list(list("MName" = "[capitalize(M)]", "Mamount" = "[amount]"))
+
+	if(linked_imprinter.reagents)
+		for(var/datum/reagent/R in linked_imprinter.reagents.reagent_list)
+			linked_imprinter_reagentsinfo += list(list("CName" = "[capitalize(R)]", "Camount" = "[R.volume]"))
+					
+	if(linked_destroy.loaded_item)
+		for(var/T in linked_destroy.loaded_item.origin_tech)
+			linked_destroy_iteminfo += list(list("OriginTech" = "[CallTechName(T)]:[linked_destroy.loaded_item.origin_tech[T]]"))
+
 	for(var/datum/design/D in linked_lathe.queue)
-		linked_lathe_queue += list(list("QName" = "[D.name]"))
+		linked_lathe_queue += list(list("QName" = "[D.name]", "QID" = "[D.id]"))
+
+	for(var/datum/design/D in linked_imprinter.queue)
+		linked_imprinter_queue += list(list("IName" = "[D.name]", "IID" = "[D.id]"))
 
 	for(var/datum/design/D in files.known_designs)
 		knowndesigns += list(list("Name" = "[D.name]", "BuildType" = "[D.build_type]", "BuildPath" = "[D.build_path]", "BuildTime" = "[D.time]", "ID" = "[D.id]"))
@@ -233,15 +262,19 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	data["ddisk"] = d_disk
 	data["linked_analyzer"] = linked_destroy
 	data["linked_analyzer_item"] = linked_destroy.loaded_item
+	data["linked_analyzer_item_tech"] = linked_destroy_iteminfo
 	data["linked_lathe"] = linked_lathe
-	data["linked_lathe_materials"] = linked_lathe.materials
+	data["linked_lathe_materials"] = linked_lathe_materialsinfo
 	data["linked_lathe_queue"]	= linked_lathe_queue
 	data["linked_imprinter"] = linked_imprinter
-	data["linked_imprinter_chemicals"] = linked_imprinter.reagents
+	data["linked_imprinter_chemicals"] = linked_imprinter_reagentsinfo
+	data["linked_imprinter_materials"] = linked_imprinter_materialsinfo
+	data["linked_imprinter_queue"]	= linked_imprinter_queue
 	data["known_designs"] = knowndesigns
 	data["known_tech"] = list(files.known_tech)
 	data["emagged"] = emagged
 	data["task"] = task
+	data["sync"] = sync
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)	
 	if (!ui)
@@ -259,15 +292,15 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	usr.set_machine(src)
 	if(href_list["menu"]) //Switches menu screens. Converts a sent text string into a number. Saves a LOT of code.
 		var/temp_screen = text2num(href_list["menu"])
-		if(temp_screen <= 1.1 || (3 <= temp_screen && 4.9 >= temp_screen) || allowed(usr) || emagged) //Unless you are making something, you need access.
+		if(temp_screen <= 21 || (40 <= temp_screen && 59 >= temp_screen) || allowed(usr) || emagged) //Unless you are making something, you need access.
 			screen = temp_screen
 		else
 			usr << "Unauthorized Access."
 
 	else if(href_list["updt_tech"]) //Update the research holder with information from the technology disk.
-		screen = 0.0
+		screen = 10
 		spawn(50)
-			screen = 1.2
+			screen = 22
 			files.AddTech2Known(t_disk.stored)
 			updateUsrDialog()
 			griefProtection() //Update centcomm too
@@ -278,19 +311,19 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	else if(href_list["eject_tech"]) //Eject the technology disk.
 		t_disk.loc = loc
 		t_disk = null
-		screen = 1.0
+		screen = 20
 
 	else if(href_list["copy_tech"]) //Copys some technology data from the research holder to the disk.
 		for(var/datum/tech/T in files.known_tech)
 			if(href_list["copy_tech_ID"] == T.id)
 				t_disk.stored = T
 				break
-		screen = 1.2
+		screen = 22
 
 	else if(href_list["updt_design"]) //Updates the research holder with design data from the design disk.
-		screen = 0.0
+		screen = 10
 		spawn(50)
-			screen = 1.4
+			screen = 24
 			files.AddDesign2Known(d_disk.blueprint)
 			updateUsrDialog()
 			griefProtection() //Update centcomm too
@@ -301,14 +334,14 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	else if(href_list["eject_design"]) //Eject the design disk.
 		d_disk.loc = loc
 		d_disk = null
-		screen = 1.0
+		screen = 20
 
 	else if(href_list["copy_design"]) //Copy design data from the research holder to the design disk.
 		for(var/datum/design/D in files.known_designs)
 			if(href_list["copy_design_ID"] == D.id)
 				d_disk.blueprint = D
 				break
-		screen = 1.4
+		screen = 24
 
 	else if(href_list["eject_item"]) //Eject the item inside the destructive analyzer.
 		if(linked_destroy)
@@ -319,7 +352,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				linked_destroy.loaded_item.loc = linked_destroy.loc
 				linked_destroy.loaded_item = null
 				linked_destroy.icon_state = "d_analyzer"
-				screen = 2.1
+				screen = 31
 
 	else if(href_list["deconstruct"]) //Deconstruct the item in the destructive analyzer and update the research holder.
 		if(linked_destroy)
@@ -329,7 +362,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				if(alert("Proceeding will destroy loaded item. Continue?", "Destructive analyzer confirmation", "Yes", "No") == "No" || !linked_destroy)
 					return
 				linked_destroy.busy = 1
-				screen = 0.1
+				screen = 11
 				updateUsrDialog()
 				flick("d_analyzer_process", linked_destroy)
 				spawn(24)
@@ -337,7 +370,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 						linked_destroy.busy = 0
 						if(!linked_destroy.loaded_item)
 							usr <<"<span class='notice'>The destructive analyzer appears to be empty.</span>"
-							screen = 1.0
+							screen = 20
 							return
 
 						for(var/T in linked_destroy.loaded_item.origin_tech)
@@ -366,7 +399,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 									linked_destroy.icon_state = "d_analyzer"
 
 						use_power(linked_destroy.active_power_usage)
-						screen = 1.0
+						screen = 20
 						updateUsrDialog()
 
 	else if(href_list["lock"]) //Lock the console from use by anyone without tox access.
@@ -376,7 +409,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			usr << "Unauthorized Access."
 
 	else if(href_list["sync"]) //Sync the research holder with all the R&D consoles in the game that aren't sync protected.
-		screen = 0.0
+		screen = 10
 		if(!sync)
 			usr << "<span class='notice'>You must connect to the network first.</span>"
 		else
@@ -401,7 +434,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 							server_processed = 1
 						if(!istype(S, /obj/machinery/r_n_d/server/centcom) && server_processed)
 							S.produce_heat()
-					screen = 1.6
+					screen = 60
 					updateUsrDialog()
 
 	else if(href_list["togglesync"]) //Prevents the console from being synced by other consoles. Can still send data.
@@ -417,7 +450,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			if(being_built)
 				linked_lathe.addToQueue(being_built)
 
-		screen = 3.1
+		screen = 41
 		updateUsrDialog()
 
 	else if(href_list["imprint"]) //Causes the Circuit Imprinter to build something.
@@ -429,7 +462,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					break
 			if(being_built)
 				linked_imprinter.addToQueue(being_built)
-		screen = 4.1
+		screen = 51
 		updateUsrDialog()
 
 	else if(href_list["disposeI"] && linked_imprinter)  //Causes the circuit imprinter to dispose of a single reagent (all of it)
@@ -438,7 +471,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	else if(href_list["disposeallI"] && linked_imprinter) //Causes the circuit imprinter to dispose of all it's reagents.
 		linked_imprinter.reagents.clear_reagents()
 
-	else if(href_list["removeI"] && linked_lathe)
+	else if(href_list["removeI"] && linked_imprinter)
 		linked_imprinter.removeFromQueue(text2num(href_list["removeI"]))
 
 	else if(href_list["disposeP"] && linked_lathe)  //Causes the protolathe to dispose of a single reagent (all of it)
@@ -475,10 +508,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		linked_imprinter.materials[href_list["imprinter_ejectsheet"]] -= num_sheets * SHEET_MATERIAL_AMOUNT
 
 	else if(href_list["find_device"]) //The R&D console looks for devices nearby to link up with.
-		screen = 0.0
+		screen = 10
 		spawn(10)
 			SyncRDevices()
-			screen = 1.7
+			screen = 60
 			updateUsrDialog()
 
 	else if(href_list["disconnect"]) //The R&D console disconnects with a specific device.
@@ -497,15 +530,15 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		griefProtection()
 		var/choice = alert("R&D Console Database Reset", "Are you sure you want to reset the R&D console's database? Data lost cannot be recovered.", "Continue", "Cancel")
 		if(choice == "Continue")
-			screen = 0.0
+			screen = 10
 			qdel(files)
 			files = new /datum/research(src)
 			spawn(20)
-				screen = 1.6
+				screen = 60
 				updateUsrDialog()
 
 	else if (href_list["print"]) //Print research information
-		screen = 0.5
+		screen = 15
 		spawn(20)
 			var/obj/item/weapon/paper/PR = new/obj/item/weapon/paper
 			var/pname = "list of researched technologies"
