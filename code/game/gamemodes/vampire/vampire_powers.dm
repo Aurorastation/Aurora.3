@@ -815,7 +815,7 @@
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
-	if (!vampire_can_affect_target(T))
+	if (!vampire_can_affect_target(T, ignore_thrall = TRUE))
 		return
 
 	if (!T.client)
