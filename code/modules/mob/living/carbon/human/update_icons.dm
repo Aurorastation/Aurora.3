@@ -146,6 +146,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	else if (icon_update)
 		icon = stand_icon
 		var/list/ovr = list()
+		// We manually add each element instead of just using Copy() so that lists are appended instead of inserted.
 		for (var/item in overlays_standing)
 			if (item)
 				ovr += item
@@ -354,13 +355,15 @@ Please contact me on #coderbus IRC. ~Carn x
 	//tail
 	update_tail_showing(0)
 
+// This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
+// If `hair_is_visible` is FALSE, only facial hair will be drawn.
 /mob/living/carbon/human/proc/generate_hair_icon(hair_is_visible = TRUE)
 	var/cache_key = "[f_style ? "[f_style][r_facial][g_facial][b_facial]" : "nofacial"]_[(h_style && hair_is_visible) ? "[h_style][r_hair][g_hair][b_hair]" : "nohair"]"
 
-	//base icons
 	var/icon/face_standing = SSicon_cache.human_hair_cache[cache_key]
-	if (!face_standing)
+	if (!face_standing)	// Not cached, generate it from scratch.
 		face_standing = new /icon('icons/mob/human_face.dmi',"bald_s")
+		// Beard.
 		if(f_style)
 			var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]
 			if(facial_hair_style && facial_hair_style.species_allowed && (src.species.get_bodytype() in facial_hair_style.species_allowed))
@@ -370,6 +373,7 @@ Please contact me on #coderbus IRC. ~Carn x
 
 				face_standing.Blend(facial_s, ICON_OVERLAY)
 
+		// Hair.
 		if(hair_is_visible)
 			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
 			if(hair_style && (src.species.get_bodytype() in hair_style.species_allowed))
@@ -379,6 +383,7 @@ Please contact me on #coderbus IRC. ~Carn x
 
 				face_standing.Blend(hair_s, ICON_OVERLAY)
 
+		// Add it to the cache.
 		SSicon_cache.human_hair_cache[cache_key] = face_standing
 
 	return face_standing
