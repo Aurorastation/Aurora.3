@@ -1102,9 +1102,7 @@ var/list/total_extraction_beacons = list()
 		if(prob(80))
 			step_to(O, src.loc, 0)
 
-		CHECK_TICK
-
-		if (QDELETED(src))
+		if (TICK_CHECK && QDELING)
 			return
 
 	currently_pulling = FALSE
