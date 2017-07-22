@@ -202,16 +202,14 @@ Please contact me on #coderbus IRC. ~Carn x
 
 		O.update_icon()
 		if(O.damage_state == "00") continue
-		var/icon/DI
 		var/cache_index = "[O.damage_state]/[O.icon_name]/[species.blood_color]/[species.get_bodytype()]"
 		var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
-		if(!damage_icon_parts[cache_index])
+		var/icon/DI = damage_icon_parts[cache_index]
+		if(!DI)
 			DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
 			DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
 			DI.Blend(species.blood_color, ICON_MULTIPLY)
 			damage_icon_parts[cache_index] = DI
-		else
-			DI = damage_icon_parts[cache_index]
 
 		LAZYADD(ovr, DI)
 
