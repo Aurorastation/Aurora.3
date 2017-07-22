@@ -1093,6 +1093,8 @@ var/list/total_extraction_beacons = list()
 	toggle_on(user)
 
 /obj/item/weapon/oremagnet/process()
+	set waitfor = FALSE
+
 	if (currently_pulling)
 		return
 
@@ -1102,7 +1104,7 @@ var/list/total_extraction_beacons = list()
 		if(prob(80))
 			step_to(O, src.loc, 0)
 
-		if (TICK_CHECK && QDELING)
+		if (TICK_CHECK && QDELING(src))
 			return
 
 	currently_pulling = FALSE
