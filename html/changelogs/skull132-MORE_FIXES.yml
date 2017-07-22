@@ -7,3 +7,4 @@ changes:
   - bugfix: "Thralls can now be embraced, as was intended."
   - bugfix: "Ore magnets will no longer cause hilarious amounts of lag."
   - bugfix: "Unbuckling yourself from a hoist clamp will no longer render the hoist kit unusable."
+  - tweak: "The hoist clamp should now appear over whatever object it's clipped to while said object is clipped to it. It'll reset after unhooking."

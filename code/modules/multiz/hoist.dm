@@ -2,6 +2,8 @@
 // Dost thou even hoist? //
 ///////////////////////////
 
+#define NORMAL_LAYER 3
+
 /obj/item/hoist_kit
 	name = "hoist kit"
 	desc = "A setup kit for a hoist that can be used to lift things. The hoist will deploy in the direction you're facing."
@@ -55,6 +57,7 @@
 	if(ismob(AM))
 		source_hook.buckle_mob(AM)
 	AM.anchored = 1 // why isn't this being set by buckle_mob for silicons?
+	source_hook.layer = AM.layer + 0.1
 
 /obj/effect/hoist_hook/MouseDrop(atom/dest)
 	..()
@@ -135,6 +138,7 @@
 	else
 		hoistee.anchored = 0
 	hoistee = null
+	layer = NORMAL_LAYER
 
 /obj/structure/hoist/proc/break_hoist()
 	if(broken)
@@ -270,3 +274,5 @@
 /atom/movable/proc/hoist_act(turf/dest)
 	forceMove(dest)
 	return TRUE
+
+#undef NORMAL_LAYER
