@@ -49,7 +49,7 @@
 												"flavour_hands" = "flavor_texts/hands",
 												"flavour_legs" = "flavor_texts/legs",
 												"flavour_feet" = "flavor_texts/feet",
-												"robot_default" = "flavour_texts_robot/default",
+												"robot_default" = "flavour_texts_robot/Default",
 												"signature" = "signature",
 												"signature_font" = "signfont")
 
@@ -92,7 +92,7 @@
 							"flavour_hands" = pref.flavor_texts["hands"],
 							"flavour_legs" = pref.flavor_texts["legs"],
 							"flavour_feet" = pref.flavor_texts["feet"],
-							"robot_default" = pref.flavour_texts_robot["default"],
+							"robot_default" = pref.flavour_texts_robot["Default"],
 							"signature" = pref.signature,
 							"signature_font" = pref.signfont)
 

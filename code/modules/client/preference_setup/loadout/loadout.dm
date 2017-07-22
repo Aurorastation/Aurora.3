@@ -70,7 +70,7 @@ var/list/gear_datums = list()
 /datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
 	if (sql_load)
 		gear_reset = FALSE
-		if (pref.gear && istext(pref.gear))
+		if (istext(pref.gear))
 			try
 				pref.gear = json_decode(pref.gear)
 			catch
@@ -78,9 +78,6 @@ var/list/gear_datums = list()
 
 				pref.gear = list()
 				gear_reset = TRUE
-		else
-			pref.gear = list()
-			gear_reset = TRUE
 
 	var/mob/preference_mob = preference_mob()
 	if(!islist(pref.gear))
