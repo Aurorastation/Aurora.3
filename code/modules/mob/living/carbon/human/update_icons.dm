@@ -145,7 +145,12 @@ Please contact me on #coderbus IRC. ~Carn x
 		add_overlay(list(overlays_standing[L_HAND_LAYER], overlays_standing[R_HAND_LAYER]))
 	else if (icon_update)
 		icon = stand_icon
-		var/list/ovr = overlays_standing.Copy()
+		var/list/ovr = list()
+		// We manually add each element instead of just using Copy() so that lists are appended instead of inserted.
+		for (var/item in overlays_standing)
+			if (item)
+				ovr += item
+
 		if(species.has_floating_eyes)
 			ovr += species.get_eyes(src)
 
@@ -187,9 +192,8 @@ Please contact me on #coderbus IRC. ~Carn x
 
 	previous_damage_appearance = damage_appearance
 
-	var/icon/standing = new /icon(species.damage_overlays, "00")
-
-	var/image/standing_image = new /image("icon" = standing)
+	// The overlays we're going to add to the mob.
+	var/list/ovr
 
 	// blend the individual damage states with our icons
 	for(var/obj/item/organ/external/O in organs)
@@ -198,22 +202,21 @@ Please contact me on #coderbus IRC. ~Carn x
 
 		O.update_icon()
 		if(O.damage_state == "00") continue
-		var/icon/DI
 		var/cache_index = "[O.damage_state]/[O.icon_name]/[species.blood_color]/[species.get_bodytype()]"
 		var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
-		if(!damage_icon_parts[cache_index])
+		var/icon/DI = damage_icon_parts[cache_index]
+		if(!DI)
 			DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
 			DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
 			DI.Blend(species.blood_color, ICON_MULTIPLY)
 			damage_icon_parts[cache_index] = DI
-		else
-			DI = damage_icon_parts[cache_index]
 
-		standing_image.overlays += DI
+		LAZYADD(ovr, DI)
 
-	overlays_standing[DAMAGE_LAYER]	= standing_image
+	overlays_standing[DAMAGE_LAYER] = ovr
 
-	if(update_icons)   update_icons()
+	if(update_icons)
+		update_icons()
 
 //BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(var/update_icons=1)
@@ -261,12 +264,15 @@ Please contact me on #coderbus IRC. ~Carn x
 			icon_key += "[part.species.race_key]"
 			icon_key += "[part.dna.GetUIState(DNA_UI_GENDER)]"
 			icon_key += "[part.dna.GetUIValue(DNA_UI_SKIN_TONE)]"
-			if(part.s_col && part.s_col.len >= 3)
-				icon_key += "[rgb(part.s_col[1],part.s_col[2],part.s_col[3])]"
-			if(part.body_hair && part.h_col && part.h_col.len >= 3)
-				icon_key += "[rgb(part.h_col[1],part.h_col[2],part.h_col[3])]"
+			if(part.skin_color)
+				icon_key += "[part.skin_color]"
+			if(part.body_hair && part.hair_color)
+				icon_key += "[part.hair_color]"
 			else
 				icon_key += "#000000"
+
+			for(var/M in part.markings)
+				icon_key += "[M][part.markings[M]["color"]]"
 
 	icon_key = "[icon_key][!!husk][!!fat][!!hulk][!!skeleton]"
 	var/icon/base_icon = SSicon_cache.human_icon_cache[icon_key]
@@ -347,11 +353,44 @@ Please contact me on #coderbus IRC. ~Carn x
 	//tail
 	update_tail_showing(0)
 
+// This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
+// If `hair_is_visible` is FALSE, only facial hair will be drawn.
+/mob/living/carbon/human/proc/generate_hair_icon(hair_is_visible = TRUE)
+	var/cache_key = "[f_style ? "[f_style][r_facial][g_facial][b_facial]" : "nofacial"]_[(h_style && hair_is_visible) ? "[h_style][r_hair][g_hair][b_hair]" : "nohair"]"
+
+	var/icon/face_standing = SSicon_cache.human_hair_cache[cache_key]
+	if (!face_standing)	// Not cached, generate it from scratch.
+		face_standing = new /icon('icons/mob/human_face.dmi',"bald_s")
+		// Beard.
+		if(f_style)
+			var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]
+			if(facial_hair_style && facial_hair_style.species_allowed && (src.species.get_bodytype() in facial_hair_style.species_allowed))
+				var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
+				if(facial_hair_style.do_colouration)
+					facial_s.Blend(rgb(r_facial, g_facial, b_facial), ICON_ADD)
+
+				face_standing.Blend(facial_s, ICON_OVERLAY)
+
+		// Hair.
+		if(hair_is_visible)
+			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
+			if(hair_style && (src.species.get_bodytype() in hair_style.species_allowed))
+				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
+				if(hair_style.do_colouration)
+					hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
+
+				face_standing.Blend(hair_s, ICON_OVERLAY)
+
+		// Add it to the cache.
+		SSicon_cache.human_hair_cache[cache_key] = face_standing
+
+	return face_standing
+
 //HAIR OVERLAY
 /mob/living/carbon/human/proc/update_hair(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	//Reset our hair
 	overlays_standing[HAIR_LAYER]	= null
 
@@ -365,40 +404,24 @@ Please contact me on #coderbus IRC. ~Carn x
 		if(update_icons)   update_icons()
 		return
 
-	//base icons
-	var/icon/face_standing	= new /icon('icons/mob/human_face.dmi',"bald_s")
+	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR))
 
-	if(f_style)
-		var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]
-		if(facial_hair_style && facial_hair_style.species_allowed && (src.species.get_bodytype() in facial_hair_style.species_allowed))
-			var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
-			if(facial_hair_style.do_colouration)
-				facial_s.Blend(rgb(r_facial, g_facial, b_facial), ICON_ADD)
-
-			face_standing.Blend(facial_s, ICON_OVERLAY)
-
-	if(h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)))
-		var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
-		if(hair_style && (src.species.get_bodytype() in hair_style.species_allowed))
-			var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
-			if(hair_style.do_colouration)
-				hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
-
-			face_standing.Blend(hair_s, ICON_OVERLAY)
-
-			if (species.light_range)
-				var/col = species.get_light_color(h_style)
-				if (!col)
-					col = "#FFFFFF"
-					
+	var/icon/hair_icon = generate_hair_icon(has_visible_hair)
+	
+	// Handle light emission.
+	if (species.light_range)
+		if (has_visible_hair)
+			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
+			if (hair_style)
+				var/col = species.get_light_color(h_style) || "#FFFFFF"
 				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
-				
-	else if (species.light_range)
-		set_light(FALSE)	
-		
-	overlays_standing[HAIR_LAYER]	= image(face_standing)
+		else
+			set_light(0)
 
-	if(update_icons)   update_icons()
+	overlays_standing[HAIR_LAYER] = hair_icon
+
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/update_mutations(var/update_icons=1)
 	if (QDELING(src))
@@ -710,6 +733,7 @@ Please contact me on #coderbus IRC. ~Carn x
 		return
 		
 	overlays_standing[SHOES_LAYER] = null
+	var/list/ovr
 	if(check_draw_shoes())
 		var/image/standing
 		if(shoes.contained_sprite)
@@ -731,19 +755,24 @@ Please contact me on #coderbus IRC. ~Carn x
 		else
 			standing = image("icon" = 'icons/mob/feet.dmi', "icon_state" = "[shoes.icon_state]")
 
+		standing.color = shoes.color
+
+		ovr = list(standing)
+
 		if(shoes.blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = shoes.blood_color
-			standing.overlays += bloodsies
-		standing.color = shoes.color
-		overlays_standing[SHOES_LAYER] = standing
+			ovr += bloodsies
+
+		overlays_standing[SHOES_LAYER] = ovr
 	else
 		if(feet_blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = feet_blood_color
 			overlays_standing[SHOES_LAYER] = bloodsies
 
-	if(update_icons)   update_icons()
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/update_inv_s_store(var/update_icons=1)
 	if (QDELING(src))
@@ -1301,15 +1330,15 @@ Please contact me on #coderbus IRC. ~Carn x
 
 /mob/living/carbon/human/proc/update_surgery(var/update_icons=1)
 	overlays_standing[SURGERY_LEVEL] = null
-	var/image/total = new
+	var/list/ovr
 	for(var/obj/item/organ/external/E in organs)
 		if(E.open)
 			var/image/I = image("icon"='icons/mob/surgery.dmi', "icon_state"="[E.name][round(E.open)]", "layer"=-SURGERY_LEVEL)
-			total.overlays += I
-	overlays_standing[SURGERY_LEVEL] = total
-	if(update_icons)   update_icons()
+			LAZYADD(ovr, I)
+	overlays_standing[SURGERY_LEVEL] = ovr
 
-
+	if(update_icons)
+		update_icons()
 
 //Drawcheck functions
 //These functions check if an item should be drawn, or if its covered up by something else
