@@ -213,7 +213,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(54)
 			textscreen = "Circuit Imprinter Queue Control"
 
-		if(60)
+		if(60 to 69)
 			textscreen = "Device Management"
 
 	return textscreen
@@ -222,16 +222,16 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/data[0]
 	var/task = get_task()
 	var/textscreen = screen_number2text()
-	var/knowndesigns[0]
-	var/knowntech[0]
-	var/linked_lathe_queue[0]
-	var/linked_imprinter_queue[0]
-	var/linked_destroy_iteminfo[0]
-	var/linked_lathe_materialsinfo[0]
-	var/linked_imprinter_materialsinfo[0]
-	var/linked_imprinter_reagentsinfo[0]
-	var/tdiskinfo[0]
-	var/ddiskinfo[0]
+	var/list/knowndesigns = list()
+	var/list/knowntech = list()
+	var/list/linked_lathe_queue = list()
+	var/list/linked_imprinter_queue = list()
+	var/list/linked_destroy_iteminfo = list()
+	var/list/linked_lathe_materialsinfo = list()
+	var/list/linked_imprinter_materialsinfo = list()
+	var/list/linked_imprinter_reagentsinfo = list()
+	var/list/tdiskinfo = list()
+	var/list/ddiskinfo = list()
 	if(linked_lathe.materials)
 		for(var/M in linked_lathe.materials)
 			var/amount = linked_lathe.materials[M]
@@ -245,10 +245,11 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	if(linked_imprinter.reagents)
 		for(var/datum/reagent/R in linked_imprinter.reagents.reagent_list)
 			linked_imprinter_reagentsinfo += list(list("CName" = "[capitalize(R)]", "Camount" = "[R.volume]"))
-					
-	if(linked_destroy.loaded_item)
-		for(var/T in linked_destroy.loaded_item.origin_tech)
-			linked_destroy_iteminfo += list(list("OriginTech" = "[CallTechName(T)]:[linked_destroy.loaded_item.origin_tech[T]]"))
+
+	if(linked_destroy)
+		if(linked_destroy.loaded_item)
+			for(var/T in linked_destroy.loaded_item.origin_tech)
+				linked_destroy_iteminfo += list(list("OriginTech" = "[CallTechName(T)]:[linked_destroy.loaded_item.origin_tech[T]]"))
 
 	for(var/datum/design/D in linked_lathe.queue)
 		linked_lathe_queue += list(list("QName" = "[D.name]", "QID" = "[D.id]"))
@@ -329,7 +330,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["copy_tech"]) //Copys some technology data from the research holder to the disk.
 		for(var/datum/tech/T in files.known_tech)
-			if(href_list["copy_tech_ID"] == T.id)
+			if(href_list["copy_tech"] == T.id)
 				t_disk.stored = T
 				break
 		screen = 22
@@ -352,7 +353,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["copy_design"]) //Copy design data from the research holder to the design disk.
 		for(var/datum/design/D in files.known_designs)
-			if(href_list["copy_design_ID"] == D.id)
+			if(href_list["copy_design"] == D.id)
 				d_disk.blueprint = D
 				break
 		screen = 24

@@ -31,15 +31,28 @@ Used In File(s): \code\modules\research\rdconsole.dm
             {{:helper.link('Eject Disk', 'gear', {'eject_tech' : 'eject_tech'})}}<br><br>
             <H3>Loaded Tech:</H3><br><br>
             {{for data.tdisk}}
-                {{:helper.link(value.tdisktech, 'gear', {'copy_tech' : value.TID})}}<br><br>
+                {{:helper.link(value.tdisktech, 'gear', {'copy_tech' : value.TDID}, 'disabled')}}<br><br>
             {{/for}}
+            {{:helper.link('Upload Tech', 'gear', {'updt_tech' : 'updt_tech'}, (value.tdisktech ? null : 'disabled'))}}<br><br>
+            {{:helper.link('Clear Tech', 'gear', {'clear_tech' : 'clear_tech'}, (value.tdisktech ? null : 'disabled'))}}<br><br>
             <H3>Available Tech:</H3><br><br>
             {{for data.known_tech}}
                 {{:helper.link(value.TName+-+value.TLvl, 'gear', {'copy_tech' : value.TDID})}}<br><br>
             {{/for}}
 
         {{else data.screen == 24}}
-           {{:helper.link('Return', 'LeftArrow', {'menu' : 20})}}<br><br>
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 20})}}<br><br>
+            {{:helper.link('Eject Disk', 'gear', {'eject_design' : 'eject_design'})}}<br><br>
+            <H3>Loaded Design:</H3><br><br>
+            {{for data.ddisk}}
+                {{:helper.link(value.ddisktech, 'gear', {'copy_design' : 'copy_design'}, 'disabled')}}<br><br>
+            {{/for}}
+            {{:helper.link('Upload Design', 'gear', {'updt_design' : 'updt_design'}, (value.ddisktech ? null : 'disabled'))}}<br><br>
+            {{:helper.link('Clear Design', 'gear', {'clear_design' : 'clear_design'}, (value.ddisktech ? null : 'disabled'))}}<br><br>
+            <H3>Available Designs:</H3><br><br>
+            {{for data.known_designs}}
+                {{:helper.link(value.Name, 'gear', {'copy_design' : value.ID})}}<br><br>
+            {{/for}}
 
         {{else data.screen == 30}}
             <b><H3><center>No Destructive Analyzer Linked!</center></H3></b>
@@ -140,7 +153,24 @@ Used In File(s): \code\modules\research\rdconsole.dm
             {{:helper.link('Lock Console', 'gear', {'lock' : 'lock'})}}<br><br>
             {{:helper.link('Sync with database', 'gear', {'sync' : 'sync'}, ((data.sync) ? null : 'disabled'))}}<br><br>
             {{:helper.link('Toggle databse syncing', 'gear', {'togglesync' : 'togglesync'})}}<br><br>
-            {{:helper.link('Reset local databse', 'gear', {'reset' : 'reset'})}}
+            {{:helper.link('Reset local databse', 'gear', {'reset' : 'reset'})}}<br><br>
+            {{:helper.link('Disconnect Devices', 'gear', {'menu' : '61'})}}
+
+        {{else data.screen == 61}}
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 60})}}<br><br>
+            {{if data.linked_analyzer}}
+                {{:helper.link('Disconnect Analyzer', 'gear', {'disconnect' : 'destroy'})}}<br><br>
+            {{/if}}
+
+            {{if data.linked_lathe}}
+                {{:helper.link('Disconnect Protolathe', 'gear', {'disconnect' : 'lathe'})}}<br><br>
+            {{/if}}
+
+            {{if data.linked_imprinter}}
+                {{:helper.link('Disconnect Imprinter', 'gear', {'disconnect' : 'imprinter'})}}<br><br>
+            {{/if}}
+
+            
         {{/if}}
     {{/if}}
 {{/if}}
