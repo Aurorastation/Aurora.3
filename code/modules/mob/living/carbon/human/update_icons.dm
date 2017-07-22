@@ -268,6 +268,9 @@ Please contact me on #coderbus IRC. ~Carn x
 			else
 				icon_key += "#000000"
 
+			for(var/M in part.markings)
+				icon_key += "[M][part.markings[M]["color"]]"
+
 	icon_key = "[icon_key][!!husk][!!fat][!!hulk][!!skeleton]"
 	var/icon/base_icon = SSicon_cache.human_icon_cache[icon_key]
 	if (!base_icon)	// Icon ain't in the cache, so generate it.
