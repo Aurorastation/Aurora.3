@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Hopefully fixed a bug where markings would not show in certain cases."
