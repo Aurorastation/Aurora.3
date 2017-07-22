@@ -102,37 +102,7 @@
 		add_overlay(finished_icon) //So when it's not on your body, it has icons
 		mob_icon.Blend(finished_icon, ICON_OVERLAY) //So when it's on your body, it has icons
 
-	if(owner.f_style)
-		var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[owner.f_style]
-		if(facial_hair_style && facial_hair_style.species_allowed && (species.get_bodytype() in facial_hair_style.species_allowed))
-			var/facialcolor
-			if (facial_hair_style.do_colouration)
-				facialcolor = rgb(owner.r_facial, owner.g_facial, owner.b_facial)
-
-			var/cache_key = "[facial_hair_style.icon]_[facial_hair_style.icon_state]_[facialcolor || "nocolor"]"
-
-			var/icon/facial_s = SSicon_cache.human_beard_cache[cache_key]
-			if (!facial_s)
-				facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
-				if(facial_hair_style.do_colouration)
-					facial_s.Blend(facialcolor, ICON_ADD)
-
-				SSicon_cache.human_beard_cache[cache_key] = facial_s
-
-			add_overlay(facial_s)
-
-	if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
-		var/datum/sprite_accessory/hair_style = hair_styles_list[owner.h_style]
-		if(hair_style && (species.get_bodytype() in hair_style.species_allowed))
-			var/cache_key = "[hair_style.icon]_[hair_style.icon_state]_[hair_color || "nocolor"]"
-			var/icon/hair_s = SSicon_cache.human_hair_cache[cache_key]
-			if (!hair_s)
-				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
-				if(hair_style.do_colouration && hair_color)
-					hair_s.Blend(hair_color, ICON_ADD)
-
-				SSicon_cache.human_hair_cache[cache_key] = hair_s
-			add_overlay(hair_s)
+	add_overlay(owner.generate_hair_icon())
 
 	compile_overlays()
 
