@@ -26,7 +26,7 @@
 
 /datum/category_item/player_setup_item/antagonism/candidacy/sanitize_character(var/sql_load = 0)
 	if (sql_load)
-		if (pref.be_special_role)
+		if (istext(pref.be_special_role))
 			pref.be_special_role = params2list(pref.be_special_role)
 
 	if (!istype(pref.be_special_role))

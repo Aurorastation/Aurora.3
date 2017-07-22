@@ -349,8 +349,6 @@
 
 	. = ..()	//calls mob.Login()
 
-	prefs.sanitize_preferences()
-
 	if(holder)
 		add_admin_verbs()
 
