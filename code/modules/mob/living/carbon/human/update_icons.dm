@@ -392,7 +392,7 @@ Please contact me on #coderbus IRC. ~Carn x
 /mob/living/carbon/human/proc/update_hair(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	//Reset our hair
 	overlays_standing[HAIR_LAYER]	= null
 
@@ -411,13 +411,14 @@ Please contact me on #coderbus IRC. ~Carn x
 	var/icon/hair_icon = generate_hair_icon(has_visible_hair)
 	
 	// Handle light emission.
-	if (has_visible_hair)
-		var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
-		if (hair_style && species.light_range)
-			var/col = species.get_light_color(h_style) || "#FFFFFF"
-			set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
-	else if (species.light_range)
-		set_light(0)
+	if (species.light_range)
+		if (has_visible_hair)
+			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
+			if (hair_style)
+				var/col = species.get_light_color(h_style) || "#FFFFFF"
+				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
+		else
+			set_light(0)
 
 	overlays_standing[HAIR_LAYER] = hair_icon
 
