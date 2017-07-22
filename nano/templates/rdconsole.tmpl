@@ -22,15 +22,24 @@ Used In File(s): \code\modules\research\rdconsole.dm
     {{if data.screen}}
         <center><H3>Current Menu</span>: {{:data.textscreen}}</H3>
         {{if data.screen == 20}}
-            {{:helper.link('Technology Disk', 'gear', {'menu' : 22},(data.tdisk ? null : 'disabled'))}}<br><br>
-            {{:helper.link('Design Disk', 'gear', {'menu' : 24},(data.ddisk ? null : 'disabled'))}}<br><br>
+            {{:helper.link('Technology Disk', 'gear', {'menu' : 22},(data.hastdisk ? null : 'disabled'))}}<br><br>
+            {{:helper.link('Design Disk', 'gear', {'menu' : 24},(data.hasddisk ? null : 'disabled'))}}<br><br>
             {{:helper.link('Settings', 'gear', {'menu' : 60})}}
         
         {{else data.screen == 22}}
-            
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 20})}}<br><br>
+            {{:helper.link('Eject Disk', 'gear', {'eject_tech' : 'eject_tech'})}}<br><br>
+            <H3>Loaded Tech:</H3><br><br>
+            {{for data.tdisk}}
+                {{:helper.link(value.tdisktech, 'gear', {'copy_tech' : value.TID})}}<br><br>
+            {{/for}}
+            <H3>Available Tech:</H3><br><br>
+            {{for data.known_tech}}
+                {{:helper.link(value.TName+-+value.TLvl, 'gear', {'copy_tech' : value.TDID})}}<br><br>
+            {{/for}}
 
         {{else data.screen == 24}}
-           
+           {{:helper.link('Return', 'LeftArrow', {'menu' : 20})}}<br><br>
 
         {{else data.screen == 30}}
             <b><H3><center>No Destructive Analyzer Linked!</center></H3></b>
@@ -66,9 +75,9 @@ Used In File(s): \code\modules\research\rdconsole.dm
 
         {{else data.screen == 43}}
             <center><H3>Queue (Click to Remove):</center></H3>
-            {{:helper.link('Return', 'LeftArrow', {'menu' : 3.1})}}<br><br>
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 41})}}<br><br>
             {{for data.linked_lathe_materials}}
-                {{:helper.link((value.MName + (value.Mamount)), 'gear', {'lathe_ejectsheet' : value.Mamount})}}<br><br>
+                {{:helper.link((value.MName+-+(value.Mamount)), 'gear', {'lathe_ejectsheet' : value.Mamount})}}<br><br>
             {{empty}}
                 <center>No Materials Loaded!</center>
             {{/for}}
@@ -102,7 +111,7 @@ Used In File(s): \code\modules\research\rdconsole.dm
             <center><H3>Queue (Click to Remove):</center></H3>
             {{:helper.link('Return', 'LeftArrow', {'menu' : 51})}}<br><br>
             {{for data.linked_imprinter_chemicals}}
-                {{:helper.link((value.CName + (value.Camount)), 'gear', {'disposeallI' : value.Camount})}}<br><br>
+                {{:helper.link((value.CName+-+(value.Camount)), 'gear', {'disposeallI' : value.Camount})}}<br><br>
             {{empty}}
                 <center>No Chemicals Loaded!</center>
             {{/for}}
@@ -111,7 +120,7 @@ Used In File(s): \code\modules\research\rdconsole.dm
             <center><H3>Queue (Click to Remove):</center></H3>
             {{:helper.link('Return', 'LeftArrow', {'menu' : 51})}}<br><br>
             {{for data.linked_imprinter_materials}}
-                {{:helper.link((value.MName + (value.Mamount)), 'gear', {'imprinter_ejectsheet' : value.Mamount})}}<br><br>
+                {{:helper.link((value.MName+-+(value.Mamount)), 'gear', {'imprinter_ejectsheet' : value.Mamount})}}<br><br>
             {{empty}}
                 <center>No Materials Loaded!</center>
             {{/for}}
