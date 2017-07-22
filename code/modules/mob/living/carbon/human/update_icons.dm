@@ -512,7 +512,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (QDELING(src))
 		return
 		
-	overlays_standing[UNIFORM_LAYER]	= null
+	overlays_standing[UNIFORM_LAYER] = null
 	if(check_draw_underclothing())
 		w_uniform.screen_loc = ui_iclothing
 
@@ -549,24 +549,27 @@ Please contact me on #coderbus IRC. ~Carn x
 			else
 				under_state = w_uniform.icon_state + "_s"
 
-		//need to append _s to the icon state for legacy compatibility
 		var/image/standing = image(icon = under_icon, icon_state = under_state)
 		standing.color = w_uniform.color
+		var/list/ovr
 
 		//apply blood overlay
 		if(w_uniform.blood_DNA)
 			var/image/bloodsies	= image(icon = species.blood_mask, icon_state = "uniformblood")
 			bloodsies.color		= w_uniform.blood_color
-			standing.overlays	+= bloodsies
+			ovr = list(standing, bloodsies)
 
 		//accessories
 		if (istype(w_uniform, /obj/item/clothing/under))//Prevent runtime errors with unusual objects
 			var/obj/item/clothing/under/under = w_uniform
 			if(under.accessories.len)
-				for(var/obj/item/clothing/accessory/A in under.accessories)
-					standing.overlays |= A.get_mob_overlay()
+				if (!ovr)
+					ovr = list(standing)
 
-		overlays_standing[UNIFORM_LAYER]	= standing
+				for(var/obj/item/clothing/accessory/A in under.accessories)
+					ovr += A.get_mob_overlay()
+
+		overlays_standing[UNIFORM_LAYER] = ovr || standing
 
 	if(update_icons)
 		update_icons()
@@ -626,20 +629,25 @@ Please contact me on #coderbus IRC. ~Carn x
 		else
 			standing = image("icon" = 'icons/mob/hands.dmi', "icon_state" = "[t_state]")
 
-		if(gloves.blood_DNA)
-			var/image/bloodsies	= image("icon" = species.blood_mask, "icon_state" = "bloodyhands")
-			bloodsies.color = gloves.blood_color
-			standing.overlays	+= bloodsies
-		gloves.screen_loc = ui_gloves
 		standing.color = gloves.color
-		overlays_standing[GLOVES_LAYER]	= standing
+
+		var/list/ovr
+
+		if(gloves.blood_DNA)
+			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "bloodyhands")
+			bloodsies.color = gloves.blood_color
+			ovr = list(standing, bloodsies)
+
+		gloves.screen_loc = ui_gloves
+		overlays_standing[GLOVES_LAYER] = ovr || standing
 	else
 		if(blood_DNA)
 			var/image/bloodsies	= image("icon" = species.blood_mask, "icon_state" = "bloodyhands")
 			bloodsies.color = hand_blood_color
 			overlays_standing[GLOVES_LAYER]	= bloodsies
-	if(update_icons)   update_icons()
 
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/update_inv_glasses(var/update_icons=1)
 	if (QDELING(src))
@@ -658,7 +666,6 @@ Please contact me on #coderbus IRC. ~Carn x
 				overlays_standing[GLASSES_LAYER] = image("icon" = glasses.icon_override, "icon_state" = state)
 			else
 				overlays_standing[GLASSES_LAYER] = image("icon" = glasses.icon, "icon_state" = state)
-
 
 		else if(glasses.icon_override)
 			overlays_standing[GLASSES_LAYER] = image("icon" = glasses.icon_override, "icon_state" = "[glasses.icon_state]")
@@ -733,7 +740,6 @@ Please contact me on #coderbus IRC. ~Carn x
 		return
 		
 	overlays_standing[SHOES_LAYER] = null
-	var/list/ovr
 	if(check_draw_shoes())
 		var/image/standing
 		if(shoes.contained_sprite)
@@ -757,14 +763,14 @@ Please contact me on #coderbus IRC. ~Carn x
 
 		standing.color = shoes.color
 
-		ovr = list(standing)
+		var/list/ovr
 
 		if(shoes.blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = shoes.blood_color
-			ovr += bloodsies
+			ovr = list(standing, bloodsies)
 
-		overlays_standing[SHOES_LAYER] = ovr
+		overlays_standing[SHOES_LAYER] = ovr || standing
 	else
 		if(feet_blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
@@ -828,29 +834,36 @@ Please contact me on #coderbus IRC. ~Carn x
 			//Create the image
 			standing = image(icon = t_icon, icon_state = t_state)
 
+		standing.color = head.color
+
+		var/list/ovr
+
 		if(head.blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "helmetblood")
 			bloodsies.color = head.blood_color
-			standing.overlays	+= bloodsies
+			ovr = list(standing, bloodsies)
 
 		if(istype(head,/obj/item/clothing/head))
 			var/obj/item/clothing/head/hat = head
 			var/cache_key = "[hat.light_overlay]_[species.get_bodytype()]"
 			if(hat.on && SSicon_cache.light_overlay_cache["[cache_key]"])
-				standing.overlays |= SSicon_cache.light_overlay_cache["[cache_key]"]
+				if (!ovr)
+					ovr = list(standing)
+				ovr += SSicon_cache.light_overlay_cache["[cache_key]"]
 
-		standing.color = head.color
-		overlays_standing[HEAD_LAYER] = standing
+		overlays_standing[HEAD_LAYER] = ovr || standing
 
-	if(update_icons)   update_icons()
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/update_inv_belt(var/update_icons=1)
 	if (QDELING(src))
 		return
 		
 	overlays_standing[BELT_LAYER] = null
-	if(belt)
+	overlays_standing[BELT_LAYER_ALT] = null
 
+	if(belt)
 		belt.screen_loc = ui_belt	//TODO
 		var/t_state = belt.item_state
 		var/t_icon = belt.icon
@@ -875,8 +888,10 @@ Please contact me on #coderbus IRC. ~Carn x
 			t_icon = 'icons/mob/belt.dmi'
 
 		standing = image("icon" = t_icon, "icon_state" = t_state)
+		var/list/ovr
 
 		if(belt.contents.len && istype(belt, /obj/item/weapon/storage/belt))
+			ovr = list(standing)
 			for(var/obj/item/i in belt.contents)
 				var/c_state
 				var/c_icon
@@ -894,29 +909,24 @@ Please contact me on #coderbus IRC. ~Carn x
 					c_icon = 'icons/mob/belt.dmi'
 					c_state = i.item_state
 					if(!c_state) c_state = i.icon_state
-				standing.overlays	+= image("icon" = c_icon, "icon_state" = c_state)
-
+				ovr += image("icon" = c_icon, "icon_state" = c_state)
 
 		var/beltlayer = BELT_LAYER
-		var/otherlayer = BELT_LAYER_ALT
 		if(istype(belt, /obj/item/weapon/storage/belt))
 			var/obj/item/weapon/storage/belt/ubelt = belt
 			if(ubelt.show_above_suit)
 				beltlayer = BELT_LAYER_ALT
-				otherlayer = BELT_LAYER
 
-		overlays_standing[beltlayer] = standing
-		overlays_standing[otherlayer] = null
-	if(update_icons)   update_icons()
+		overlays_standing[beltlayer] = ovr || standing
 
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
 	if (QDELING(src))
 		return
 		
-
-	if( wear_suit && istype(wear_suit, /obj/item/) )
-
+	if (istype(wear_suit, /obj/item))
 		wear_suit.screen_loc = ui_oclothing
 
 		var/image/standing
@@ -939,31 +949,36 @@ Please contact me on #coderbus IRC. ~Carn x
 			standing = image("icon" = wear_suit.sprite_sheets[species.get_bodytype()], "icon_state" = "[wear_suit.icon_state]")
 		else
 			standing = image("icon" = 'icons/mob/suit.dmi', "icon_state" = "[wear_suit.icon_state]")
+
 		standing.color = wear_suit.color
+		var/list/ovr
 
 		if(wear_suit.blood_DNA)
 			var/obj/item/clothing/suit/S = wear_suit
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "[S.blood_overlay_type]blood")
 			bloodsies.color = wear_suit.blood_color
-			standing.overlays	+= bloodsies
+			ovr = list(standing, bloodsies)
 
 		// Accessories - copied from uniform, BOILERPLATE because fuck this system.
 		var/obj/item/clothing/suit/suit = wear_suit
 		if(istype(suit) && suit.accessories.len)
+			if (!ovr)
+				ovr = list(standing)
 			for(var/obj/item/clothing/accessory/A in suit.accessories)
-				standing.overlays |= A.get_mob_overlay()
+				ovr += A.get_mob_overlay()
 
-		overlays_standing[SUIT_LAYER]	= standing
+		overlays_standing[SUIT_LAYER] = ovr || standing
 		update_tail_showing(0)
 
 	else
-		overlays_standing[SUIT_LAYER]	= null
+		overlays_standing[SUIT_LAYER] = null
 		update_tail_showing(0)
 		update_inv_shoes(0)
 
 	update_collar(0)
 
-	if(update_icons)   update_icons()
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/update_inv_pockets(var/update_icons=1)
 	if (QDELING(src))
@@ -1000,14 +1015,19 @@ Please contact me on #coderbus IRC. ~Carn x
 			standing = image("icon" = wear_mask.sprite_sheets[species.get_bodytype()], "icon_state" = "[wear_mask.icon_state]")
 		else
 			standing = image("icon" = 'icons/mob/mask.dmi', "icon_state" = "[wear_mask.icon_state]")
+
 		standing.color = wear_mask.color
+		var/list/ovr
 
 		if( !istype(wear_mask, /obj/item/clothing/mask/smokable/cigarette) && wear_mask.blood_DNA )
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "maskblood")
 			bloodsies.color = wear_mask.blood_color
-			standing.overlays	+= bloodsies
-		overlays_standing[FACEMASK_LAYER]	= standing
-	if(update_icons)   update_icons()
+			ovr = list(standing, bloodsies)
+
+		overlays_standing[FACEMASK_LAYER] = ovr || standing
+
+	if(update_icons)
+		update_icons()
 
 
 /mob/living/carbon/human/update_inv_back(var/update_icons=1)
