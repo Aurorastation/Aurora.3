@@ -9,8 +9,6 @@
 	var/list/holo_multiplier_cache = list()
 	var/list/holo_adder_cache = list()
 
-	var/list/image/fluidtrack_cache = list()
-
 	var/list/floor_decals = list()
 	var/list/flooring_cache = list()
 
@@ -39,7 +37,6 @@
 	var/list/human_eye_cache = list()
 	var/list/human_lip_cache = list()
 	var/list/human_hair_cache = list()
-	var/list/human_beard_cache = list()
 	var/list/human_underwear_cache = list()
 	var/list/human_undershirt_cache = list()
 	var/list/human_socks_cache = list()
