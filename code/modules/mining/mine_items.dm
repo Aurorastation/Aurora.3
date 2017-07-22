@@ -407,7 +407,7 @@
 	var/obj/item/stack/flag/newflag = new src.type(T)
 	newflag.amount = 1
 	newflag.upright = 1
-	anchored = 1
+	newflag.anchored = 1
 	newflag.name = newflag.singular_name
 	newflag.icon_state = "[newflag.base_state]_open"
 	newflag.visible_message("<b>[user]</b> plants [newflag] firmly in the ground.")
@@ -1082,28 +1082,47 @@ var/list/total_extraction_beacons = list()
 	w_class = 3
 	force = 10
 	throwforce = 5
-	var/on = 0
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
+	var/currently_pulling = FALSE
 
 /obj/item/weapon/oremagnet/attack_self(mob/user)
-	if(!on)
-		user << "<span class='info'>You switch on the ore magnet.</span>"
-		on = 1
-	else
-		user << "<span class='warning'>You switch off the ore magnet,</span>"
-		on = 0
-	magneto()
-
-/obj/item/weapon/oremagnet/proc/magneto()
-	if(!src.loc)
-		on = 0
-	if(!on)
+	if (use_check(user))
+		to_chat(user, "<span class='warning'>You cannot do that right now.</span>")
 		return
+
+	toggle_on(user)
+
+/obj/item/weapon/oremagnet/process()
+	set waitfor = FALSE
+
+	if (currently_pulling)
+		return
+
+	currently_pulling = TRUE
+
 	for(var/obj/item/weapon/ore/O in oview(7,src.loc))
 		if(prob(80))
-			step_to(O,src.loc,0)
-	spawn(10)
-		.()
+			step_to(O, src.loc, 0)
+
+		if (TICK_CHECK && QDELING(src))
+			return
+
+	currently_pulling = FALSE
+
+/obj/item/weapon/oremagnet/proc/toggle_on(mob/user)
+	if (!isprocessing)
+		START_PROCESSING(SSprocessing, src)
+	else
+		STOP_PROCESSING(SSprocessing, src)
+
+	if (user)
+		to_chat(user, "<span class='[isprocessing ? "notice" : "warning"]'>You switch [isprocessing ? "on" : "off"] [src].</span>")
+
+/obj/item/weapon/oremagnet/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/******************************Ore Summoner*******************************/
 
 /obj/item/weapon/oreportal
 	name = "ore summoner"
