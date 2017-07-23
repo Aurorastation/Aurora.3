@@ -1985,6 +1985,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "eg" = (
@@ -2068,6 +2069,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "en" = (
@@ -2079,6 +2083,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "eo" = (
@@ -2356,6 +2361,9 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "eL" = (
@@ -2476,6 +2484,10 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "eT" = (
@@ -2490,6 +2502,11 @@
 	icon_state = "1-8"
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
 "eU" = (
@@ -2513,6 +2530,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/mine/explored)
@@ -2647,6 +2667,1061 @@
 	dir = 5
 	},
 /area/security/checkpoint2)
+"fk" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fl" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fm" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fn" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fo" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fp" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fq" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fr" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fs" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ft" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fu" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fv" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fw" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fx" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fy" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fz" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fA" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fB" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fD" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fE" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fF" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fG" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fH" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fI" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fJ" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fK" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fL" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fM" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fN" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fO" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fP" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fR" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fS" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fT" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fU" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fV" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fW" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fX" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fY" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"fZ" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ga" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gb" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gc" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gd" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ge" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gf" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gg" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gh" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gi" = (
+/obj/random/junk,
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gj" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gk" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gl" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gm" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gn" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"go" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gp" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gq" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gr" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gs" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gt" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gu" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gv" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gw" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gx" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gy" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gz" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gA" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gB" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gC" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gD" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gE" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gF" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gG" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gH" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gI" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gJ" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gK" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gL" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gM" = (
+/obj/random/junk,
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gN" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gO" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gP" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gQ" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gR" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gS" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gT" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gV" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gW" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gX" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gY" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"gZ" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ha" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hb" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hc" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hd" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"he" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hf" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hg" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hh" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hi" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hj" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hk" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hl" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hm" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hn" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ho" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hp" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hq" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hr" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hs" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ht" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hu" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hv" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hw" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hx" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hy" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hz" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hA" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hB" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hC" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hD" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hE" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hF" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hG" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hH" = (
+/obj/random/junk,
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hI" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hJ" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hK" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"hL" = (
+/obj/random/loot,
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hM" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hN" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hO" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hP" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hQ" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hR" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hS" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hT" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hU" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hV" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hW" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hX" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hY" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"hZ" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ia" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ib" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ic" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"id" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ie" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"if" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ig" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 
 (1,1,1) = {"
 aa
@@ -7887,9 +8962,9 @@ aa
 aa
 aa
 ad
+fN
 ah
-ah
-ah
+fY
 aw
 ab
 ab
@@ -8914,11 +9989,11 @@ ag
 ag
 ag
 ag
+fK
 ah
 ah
 ah
-ah
-ah
+fZ
 ag
 ag
 ag
@@ -10190,7 +11265,7 @@ ah
 ah
 ah
 ah
-ah
+fu
 ai
 ai
 ai
@@ -10212,7 +11287,7 @@ ai
 ai
 ai
 ai
-ah
+go
 ah
 ah
 ah
@@ -10446,7 +11521,7 @@ ah
 ah
 ah
 ah
-ah
+fp
 am
 aa
 aa
@@ -10470,7 +11545,7 @@ aa
 aa
 aa
 af
-ah
+gs
 ah
 ah
 ah
@@ -11474,12 +12549,12 @@ ah
 ah
 ah
 ah
-ah
+fq
 ag
 ag
 aw
 aa
-ad
+fx
 aP
 aP
 aP
@@ -11493,7 +12568,7 @@ aP
 aP
 aP
 aP
-aw
+gg
 aa
 aa
 aa
@@ -11991,9 +13066,9 @@ ah
 ah
 ah
 ah
-ah
+fw
 aD
-al
+fy
 aa
 ap
 ap
@@ -12269,7 +13344,7 @@ aa
 aa
 aa
 ad
-ah
+gt
 ah
 ah
 ah
@@ -12503,7 +13578,7 @@ ah
 ah
 ah
 ah
-ah
+fv
 ai
 am
 aa
@@ -12525,14 +13600,14 @@ cV
 aa
 ad
 ag
+gp
 ah
 ah
 ah
 ah
 ah
 ah
-ah
-ah
+gC
 ag
 ag
 ag
@@ -12778,9 +13853,9 @@ aU
 cv
 ap
 ag
-ah
+gh
 ag
-ah
+gm
 ah
 ah
 ah
@@ -13268,7 +14343,7 @@ ad
 ag
 ag
 ag
-ah
+fm
 ah
 ah
 ah
@@ -13307,7 +14382,7 @@ ah
 ah
 ah
 ah
-ah
+gG
 ag
 ag
 ag
@@ -13521,7 +14596,7 @@ aa
 aa
 ad
 ag
-ah
+fk
 ah
 ah
 ah
@@ -13568,7 +14643,7 @@ ah
 ah
 ah
 ah
-ah
+gI
 ag
 aw
 aa
@@ -14035,7 +15110,7 @@ aa
 aa
 af
 ai
-ah
+fl
 ah
 ah
 ah
@@ -14082,7 +15157,7 @@ ah
 ah
 ah
 ah
-ah
+gJ
 ai
 am
 aa
@@ -14296,7 +15371,7 @@ af
 ai
 ai
 ai
-ah
+fn
 ah
 ah
 ah
@@ -14333,7 +15408,7 @@ ah
 ah
 ah
 ah
-ah
+gF
 ai
 ai
 ai
@@ -14587,7 +15662,7 @@ ah
 ah
 ah
 ah
-ah
+gB
 ai
 ai
 am
@@ -14834,9 +15909,9 @@ cd
 cz
 ap
 ai
-an
+gi
 ai
-ah
+gn
 ah
 ah
 ah
@@ -15095,7 +16170,7 @@ cU
 aa
 af
 ai
-ah
+gq
 ah
 ah
 ah
@@ -15353,7 +16428,7 @@ aa
 aa
 aa
 af
-ah
+gu
 ah
 ah
 ah
@@ -15592,7 +16667,7 @@ ah
 ah
 ah
 ah
-ah
+fz
 ap
 bl
 bz
@@ -16106,20 +17181,20 @@ ah
 ah
 ah
 ah
-ah
+fA
 bb
 bb
 bb
 bb
 bb
-ag
+fQ
 bb
 bb
 bb
 bb
 bb
 bb
-am
+gj
 aa
 aa
 aa
@@ -16626,7 +17701,7 @@ aa
 ad
 ag
 ag
-ah
+fR
 ag
 ag
 aw
@@ -17126,9 +18201,9 @@ ab
 ae
 ah
 ah
-ah
+fo
 ai
-ah
+fr
 ah
 ah
 ah
@@ -17152,10 +18227,10 @@ aa
 aa
 aa
 ad
-ah
+gv
 ai
 ai
-ah
+gy
 ah
 al
 ab
@@ -17391,24 +18466,24 @@ ai
 ai
 ai
 ai
-ah
+fB
 ag
 ag
-ah
-ah
-ah
+fI
 ah
 ah
 ah
 ah
-ag
-ag
-ag
-ag
-ag
-ag
-ag
 ah
+ga
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+gr
 am
 ab
 ab
@@ -17651,13 +18726,13 @@ ab
 af
 ai
 ai
+fJ
 ah
 ah
 ah
 ah
 ah
-ah
-ah
+gb
 ai
 ai
 ai
@@ -25107,11 +26182,11 @@ aa
 aa
 ae
 ah
-ah
+fS
 ag
 ag
 ag
-ah
+gc
 ah
 bm
 aa
@@ -25362,6 +26437,7 @@ aa
 aa
 ad
 ao
+fL
 ah
 ah
 ah
@@ -25369,8 +26445,7 @@ ah
 ah
 ah
 ah
-ah
-ah
+ge
 ao
 aw
 aa
@@ -25435,7 +26510,7 @@ aa
 ad
 ag
 ao
-ah
+hY
 ah
 ah
 ah
@@ -25698,7 +26773,7 @@ ah
 ah
 ah
 ah
-ah
+ib
 ag
 ag
 ag
@@ -26203,7 +27278,7 @@ eo
 eo
 eo
 eo
-ah
+hV
 ah
 ah
 ah
@@ -26431,9 +27506,10 @@ ab
 ae
 ah
 ah
-ah
+hc
 ag
 ag
+hj
 ah
 ah
 ah
@@ -26441,8 +27517,7 @@ ah
 ah
 ah
 ah
-ah
-ah
+hC
 aw
 ab
 ab
@@ -27198,7 +28273,8 @@ ag
 ag
 ag
 ag
-ag
+gU
+gW
 ai
 ai
 ai
@@ -27211,8 +28287,7 @@ ai
 ai
 ai
 ai
-ai
-ah
+hA
 ah
 al
 ab
@@ -27416,10 +28491,11 @@ aa
 aa
 aa
 aa
-ae
+fC
 ai
 ai
 ai
+fT
 ah
 ah
 ah
@@ -27427,8 +28503,7 @@ ah
 ah
 ah
 ah
-ah
-ah
+gk
 ag
 ag
 ag
@@ -27673,7 +28748,7 @@ ag
 ag
 ag
 ag
-al
+fD
 aa
 aa
 aa
@@ -27728,7 +28803,7 @@ ed
 ee
 ae
 ah
-ah
+hD
 ag
 aw
 ab
@@ -27934,6 +29009,7 @@ al
 aa
 aa
 ad
+fU
 ah
 ah
 ah
@@ -27947,8 +29023,7 @@ ah
 ah
 ah
 ah
-ah
-ah
+gw
 aw
 aa
 aa
@@ -28179,7 +29254,7 @@ aa
 ad
 ag
 ag
-ah
+fs
 ah
 ah
 ah
@@ -28244,7 +29319,7 @@ ae
 ah
 ah
 ah
-ah
+hG
 ag
 ag
 bG
@@ -28532,7 +29607,7 @@ ah
 ah
 ah
 ah
-ah
+ie
 bG
 ag
 ag
@@ -28701,10 +29776,10 @@ ah
 ah
 ah
 ah
-ah
+fE
 ag
 bG
-ah
+fO
 ah
 ah
 ah
@@ -28720,10 +29795,10 @@ ah
 ah
 ah
 ah
-ah
+gz
 ag
 ag
-ah
+gD
 ah
 ah
 ah
@@ -29729,10 +30804,10 @@ ah
 ah
 ah
 ah
-ah
+fF
 ai
 ai
-ah
+fP
 ah
 ah
 ah
@@ -29748,10 +30823,10 @@ an
 ah
 ah
 ah
-ah
+gA
 ai
 ai
-ah
+gE
 ah
 ah
 ah
@@ -29790,9 +30865,9 @@ ah
 ah
 ah
 eg
-ah
+hM
 ai
-ah
+hQ
 ah
 al
 aa
@@ -30058,7 +31133,7 @@ ad
 ag
 ag
 ag
-ah
+hW
 eU
 ah
 ah
@@ -30078,11 +31153,11 @@ ah
 ah
 ah
 ah
-ah
+if
 ag
 ag
 ag
-ah
+ig
 ah
 ah
 ah
@@ -30235,7 +31310,7 @@ aa
 ak
 ai
 ai
-ah
+ft
 ah
 ah
 ah
@@ -30286,11 +31361,11 @@ al
 ag
 ag
 ag
-ag
+hd
 aP
-dS
+eb
 dU
-dY
+ad
 ag
 ag
 ag
@@ -30504,6 +31579,7 @@ al
 aa
 aa
 ak
+fV
 ah
 ah
 ah
@@ -30517,8 +31593,7 @@ ah
 ah
 ah
 ah
-ah
-ah
+gx
 am
 aa
 aa
@@ -30560,7 +31635,7 @@ dZ
 dZ
 dZ
 dZ
-eh
+hK
 al
 ab
 ae
@@ -30757,7 +31832,7 @@ aq
 aq
 aq
 aq
-al
+fG
 aa
 aa
 aa
@@ -30800,9 +31875,9 @@ al
 ai
 ai
 ai
-ai
+he
 bb
-dT
+eb
 dU
 ea
 ai
@@ -30844,7 +31919,7 @@ ah
 ah
 ah
 ah
-ah
+id
 ai
 ai
 ai
@@ -31014,10 +32089,11 @@ aa
 aa
 aa
 aa
-ae
+fH
 ag
 ag
 ag
+fW
 ah
 ah
 ah
@@ -31025,8 +32101,7 @@ ah
 ah
 ah
 ah
-ah
-ah
+gl
 ai
 ai
 ai
@@ -31075,9 +32150,9 @@ ah
 ah
 ah
 ah
-ah
+hN
 ag
-ah
+hR
 ah
 al
 aa
@@ -31336,9 +32411,10 @@ ah
 ah
 ah
 ah
-ah
+hS
 ag
 ag
+hU
 ah
 ah
 ah
@@ -31354,8 +32430,7 @@ ah
 ah
 ah
 ah
-ah
-ah
+ic
 ai
 ai
 am
@@ -31606,9 +32681,9 @@ ah
 ah
 ah
 ah
-ah
+hZ
 ai
-ah
+ia
 ah
 ah
 ah
@@ -31813,13 +32888,13 @@ ah
 ah
 ah
 ah
-ah
+gH
 ai
 ai
 ai
 ai
 ai
-ah
+gK
 ah
 ah
 ah
@@ -31850,14 +32925,14 @@ ah
 ah
 ah
 ah
-ah
+hT
 ai
 ai
 ai
 ai
 ai
 ai
-ah
+hX
 ah
 ah
 ah
@@ -32335,7 +33410,7 @@ ab
 ab
 af
 ai
-ah
+gL
 ah
 ah
 al
@@ -32850,7 +33925,7 @@ ab
 ab
 ab
 af
-ah
+gS
 ah
 al
 ah
@@ -33072,6 +34147,7 @@ aa
 aa
 af
 ao
+fM
 ah
 ah
 ah
@@ -33079,8 +34155,7 @@ ah
 ah
 ah
 ah
-ah
-ah
+gf
 ao
 am
 aa
@@ -33331,11 +34406,11 @@ aa
 aa
 ae
 ah
-ah
+fX
 ai
 ai
 ai
-ah
+gd
 ah
 al
 aa
@@ -33387,7 +34462,7 @@ ah
 ah
 ah
 ah
-bX
+hL
 ai
 ai
 ai
@@ -33880,7 +34955,7 @@ ab
 ab
 ae
 ah
-ah
+gV
 ag
 ag
 ag
@@ -33894,7 +34969,7 @@ ag
 ag
 ag
 ag
-ah
+hB
 ah
 ah
 ah
@@ -34150,13 +35225,13 @@ ah
 ah
 ah
 ah
-ah
+hx
 ai
 ai
 ai
 ai
 ai
-an
+hH
 ah
 al
 ab
@@ -34405,7 +35480,7 @@ ah
 ah
 ah
 ah
-ah
+hu
 ai
 am
 ab
@@ -34658,8 +35733,8 @@ ai
 ai
 ai
 ai
-ah
-ah
+hk
+hp
 ai
 ai
 am
@@ -34927,7 +36002,7 @@ ag
 ag
 ag
 ag
-ah
+hI
 ah
 al
 ab
@@ -35178,7 +36253,7 @@ aa
 ad
 ag
 ag
-ah
+hy
 ah
 ah
 ah
@@ -35687,8 +36762,9 @@ aa
 aa
 aa
 ae
-ah
+hq
 bb
+hs
 ah
 ah
 ah
@@ -35697,8 +36773,7 @@ ah
 ah
 ah
 ah
-ah
-ah
+hJ
 ai
 am
 ab
@@ -35949,7 +37024,7 @@ aa
 ae
 ah
 ah
-ah
+hz
 ai
 ai
 ai
@@ -36200,10 +37275,10 @@ ag
 ag
 ag
 ag
-ah
-ah
+hl
+hr
 ag
-ah
+ht
 ah
 ah
 al
@@ -46998,7 +48073,7 @@ ah
 ah
 ah
 ah
-ah
+hv
 ag
 ag
 ag
@@ -47249,7 +48324,7 @@ ab
 ab
 dP
 ag
-ah
+hf
 ah
 ah
 ah
@@ -47504,7 +48579,7 @@ ac
 ab
 ab
 ad
-ah
+gY
 ah
 ah
 ah
@@ -47774,13 +48849,13 @@ ah
 ah
 ah
 ah
-ah
+hE
 ag
 ag
 ag
 ag
 ag
-ah
+hO
 ah
 ah
 al
@@ -48288,13 +49363,13 @@ ah
 ah
 ah
 ah
-ah
+hF
 aq
 aq
 aq
 aq
 aq
-ah
+hP
 ah
 ah
 al
@@ -48532,7 +49607,7 @@ ac
 ac
 ab
 af
-ah
+gZ
 ah
 ah
 ah
@@ -49046,6 +50121,7 @@ ag
 ag
 ag
 ag
+ha
 ah
 ah
 ah
@@ -49053,8 +50129,7 @@ ah
 ah
 ah
 ah
-ah
-ah
+hw
 aq
 aq
 aq
@@ -49297,7 +50372,7 @@ aa
 aa
 aa
 ad
-an
+gM
 ah
 ah
 ah
@@ -49811,7 +50886,7 @@ aa
 aa
 aa
 af
-ah
+gN
 ah
 ah
 ah
@@ -50325,7 +51400,7 @@ aa
 aa
 aa
 ad
-ah
+gO
 ah
 ah
 ah
@@ -50839,7 +51914,7 @@ aa
 aa
 aa
 af
-ah
+gP
 ah
 ah
 ah
@@ -51104,7 +52179,7 @@ ah
 ah
 ah
 ah
-ah
+hg
 ai
 dW
 aq
@@ -51353,7 +52428,7 @@ aa
 aa
 aa
 ad
-ah
+gQ
 ah
 ah
 ah
@@ -51867,7 +52942,7 @@ aa
 aa
 aa
 af
-ah
+gR
 ah
 ah
 ah
@@ -52126,7 +53201,7 @@ aa
 aa
 af
 ai
-ah
+gT
 ah
 ah
 ah
@@ -52389,7 +53464,7 @@ ah
 ah
 ah
 ah
-ah
+hh
 bG
 aw
 ab
@@ -53413,13 +54488,13 @@ aa
 aa
 ao
 ah
-ah
+gX
 ai
-ah
+hb
 ai
+hi
 ah
-ah
-ah
+hm
 eb
 aa
 aa
@@ -54447,7 +55522,7 @@ cU
 aa
 ae
 ah
-ah
+hn
 ag
 aw
 aa
@@ -54961,7 +56036,7 @@ cU
 aa
 ae
 ah
-ah
+ho
 ai
 am
 aa

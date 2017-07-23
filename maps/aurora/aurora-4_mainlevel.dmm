@@ -8791,6 +8791,9 @@
 	c_tag = "Engineering - Camera Corridor 4";
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "arH" = (
@@ -10115,6 +10118,14 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "atW" = (
@@ -10995,6 +11006,11 @@
 "avi" = (
 /obj/machinery/alarm{
 	pixel_y = 22
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
@@ -11893,6 +11909,11 @@
 /obj/structure/sign/drop{
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "awP" = (
@@ -11931,6 +11952,10 @@
 	pixel_x = 24
 	},
 /obj/item/device/pipe_painter,
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "awS" = (
@@ -14690,6 +14715,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "aBs" = (
@@ -15469,6 +15497,14 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
@@ -16423,6 +16459,9 @@
 	},
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_airlock)
@@ -18496,6 +18535,11 @@
 	c_tag = "Engineering - Engine Airlock";
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_airlock)
 "aHG" = (
@@ -19618,6 +19662,11 @@
 	pixel_y = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (NORTH)";
+	icon_state = "warningcorner";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "aJp" = (
@@ -62293,6 +62342,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"cfk" = (
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	tag = "icon-warningcorner (EAST)";
+	icon_state = "warningcorner";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/engine_monitoring)
+"cfl" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/engine_monitoring)
 
 (1,1,1) = {"
 aaa
@@ -78075,7 +78142,7 @@ aoy
 arH
 asO
 aox
-avi
+cfk
 awK
 aym
 azX
@@ -78846,7 +78913,7 @@ aqx
 apy
 asQ
 aox
-aov
+cfl
 awK
 ayr
 azY
