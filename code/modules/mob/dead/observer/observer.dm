@@ -55,8 +55,10 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		attack_log = body.attack_log	//preserve our attack logs by copying them to our ghost
 
 		var/originaldesc = desc
+		var/o_transform = transform
 		appearance = body
 		desc = originaldesc
+		transform = o_transform
 
 		alpha = 127
 		invisibility = initial(invisibility)
