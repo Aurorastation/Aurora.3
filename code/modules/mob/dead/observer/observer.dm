@@ -59,6 +59,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		desc = originaldesc
 
 		alpha = 127
+		invisibility = initial(invisibility)
 
 		gender = body.gender
 		if(body.mind && body.mind.name)
