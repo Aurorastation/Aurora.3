@@ -54,7 +54,9 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		T = get_turf(body)				//Where is the body located?
 		attack_log = body.attack_log	//preserve our attack logs by copying them to our ghost
 
+		var/originaldesc = desc
 		appearance = body
+		desc = originaldesc
 
 		alpha = 127
 
