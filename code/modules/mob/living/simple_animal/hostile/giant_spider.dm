@@ -66,7 +66,7 @@
 
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
 	get_light_and_color(parent)
-	..()
+	. = ..()
 
 /mob/living/simple_animal/hostile/giant_spider/AttackingTarget()
 	. = ..()
