@@ -1,0 +1,6 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - tweak: "Reduced openturfs' darkening factor a bit: below objects should be easier to see now."
+  - rscadd: "You can now examine human-types and other objects with complex examine behavior through openturfs."
+  - bugfix: "Fixed a bug where sometimes openturfs would look strange after a nearby lighting update."
