@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscdel: "Removed cult word research, cultists can use their runes without having to find out the meanings."
