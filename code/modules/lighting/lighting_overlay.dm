@@ -123,43 +123,9 @@
 			)
 
 	// If we're on an openturf, update the shadower object too.
-	// We could queue an icon update for the entire OT, but this involves less overhead.
 	var/turf/simulated/open/OT = loc:above
 	if (OT)
-		var/atom/movable/openspace/multiplier/shadower = OT.shadower
-		if (!shadower)	// The OT hasn't been initialized yet.
-			OT.update_icon()
-			return
-
-		shadower.appearance = src
-		shadower.plane = OPENTURF_CAP_PLANE
-		shadower.layer = SHADOWER_LAYER
-		shadower.invisibility = 0
-		if (shadower.icon_state == LIGHTING_BASE_ICON_STATE)
-			// We're using a color matrix, so just darken the colors.
-			var/list/c_list = shadower.color
-			c_list[CL_MATRIX_RR] *= SHADOWER_DARKENING_FACTOR
-			c_list[CL_MATRIX_RG] *= SHADOWER_DARKENING_FACTOR
-			c_list[CL_MATRIX_RB] *= SHADOWER_DARKENING_FACTOR
-			c_list[CL_MATRIX_GR] *= SHADOWER_DARKENING_FACTOR
-			c_list[CL_MATRIX_GG] *= SHADOWER_DARKENING_FACTOR
-			c_list[CL_MATRIX_GB] *= SHADOWER_DARKENING_FACTOR
-			c_list[CL_MATRIX_BR] *= SHADOWER_DARKENING_FACTOR
-			c_list[CL_MATRIX_BG] *= SHADOWER_DARKENING_FACTOR
-			c_list[CL_MATRIX_BB] *= SHADOWER_DARKENING_FACTOR
-			c_list[CL_MATRIX_AR] *= SHADOWER_DARKENING_FACTOR
-			c_list[CL_MATRIX_AG] *= SHADOWER_DARKENING_FACTOR
-			c_list[CL_MATRIX_AB] *= SHADOWER_DARKENING_FACTOR
-			shadower.color = c_list
-		else
-			shadower.color = list(
-				SHADOWER_DARKENING_FACTOR, 0, 0,
-				0, SHADOWER_DARKENING_FACTOR, 0,
-				0, 0, SHADOWER_DARKENING_FACTOR
-			)
-
-		if (shadower.bound_overlay)
-			shadower.update_above()
+		OT.update_icon()
 
 #undef ALL_EQUAL
 
