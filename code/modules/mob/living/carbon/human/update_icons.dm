@@ -4,32 +4,27 @@
 	//UPDATE_ICONS SYSTEM//
 	///////////////////////
 /*
-Calling this  a system is perhaps a bit trumped up. It is essentially update_clothing dismantled into its
+Calling this a system is perhaps a bit trumped up. It is essentially update_clothing dismantled into its
 core parts. The key difference is that when we generate overlays we do not generate either lying or standing
-versions. Instead, we generate both and store them in two fixed-length lists, both using the same list-index
-(The indexes are in update_icons.dm): Each list for humans is (at the time of writing) of length 19.
-This will hopefully be reduced as the system is refined.
+versions. Instead, we generate one set of "raw" (non-overlay-list friendly) overlays which are further processed
+by SSoverlays when update_icons() runs. A single entry may be an /icon, an /image, or a /list of the former two.
 
-	var/overlays_standing[19]		//For the standing stance
+	var/overlays_raw[26]
 
-When we call update_icons, the 'lying' variable is checked and then the appropriate list is assigned to our overlays!
-That in itself uses a tiny bit more memory (no more than all the ridiculous lists the game has already mind you).
+This system involves a bit more list churn than the old (bay) system, but should involve significantly less appearance
+churn, plus has the benefit of reducing the number of overlays-with-overlays (compound overlays).
+We also can put raw /icon instances directly in the list this way and SSoverlays will automatically convert them into
+a more client-friendly format.
 
-On the other-hand, it should be very CPU cheap in comparison to the old system.
 In the old system, we updated all our overlays every life() call, even if we were standing still inside a crate!
 or dead!. 25ish overlays, all generated from scratch every second for every xeno/human/monkey and then applied.
 More often than not update_clothing was being called a few times in addition to that! CPU was not the only issue,
 all those icons had to be sent to every client. So really the cost was extremely cumulative. To the point where
 update_clothing would frequently appear in the top 10 most CPU intensive procs during profiling.
 
-Another feature of this new system is that our lists are indexed. This means we can update specific overlays!
-So we only regenerate icons when we need them to be updated! This is the main saving for this system.
-
-In practice this means that:
-	everytime you fall over, we just switch between precompiled lists. Which is fast and cheap.
-	Everytime you do something minor like take a pen out of your pocket, we only update the in-hand overlay
-	etc...
-
+Like the bay system, our list is indexed. This means we can update specific overlays!
+So we only regenerate icons when we need them to be updated!
+Also like bay, we use transforms to handle lying states instead of a separate set of icons.
 
 There are several things that need to be remembered:
 
@@ -41,7 +36,7 @@ There are several things that need to be remembered:
 		update_inv_gloves()
 		update_inv_shoes()
 		update_inv_w_uniform()
-		update_inv_glasse()
+		update_inv_glasses()
 		update_inv_l_hand()
 		update_inv_r_hand()
 		update_inv_belt()
@@ -66,7 +61,7 @@ There are several things that need to be remembered:
 																			...eyes were merged into update_body)
 		update_targeted() // Updates the target overlay when someone points a gun at you
 
->	All of these procs update our overlays_lying and overlays_standing, and then call update_icons() by default.
+>	All of these procs update overlays_raw, and then call update_icons() by default.
 	If you wish to update several overlays at once, you can set the argument to 0 to disable the update and call
 	it manually:
 		e.g.
@@ -74,7 +69,7 @@ There are several things that need to be remembered:
 		update_inv_l_hand(0)
 		update_inv_r_hand()		//<---calls update_icons()
 
-	or equivillantly:
+	or equivalently:
 		update_inv_head(0)
 		update_inv_l_hand(0)
 		update_inv_r_hand(0)
@@ -82,72 +77,66 @@ There are several things that need to be remembered:
 
 >	If you need to update all overlays you can use regenerate_icons(). it works exactly like update_clothing used to.
 
->	I reimplimented an old unused variable which was in the code called (coincidentally) var/update_icon
+>	I reimplemented an old unused variable which was in the code called (coincidentally) var/update_icon
 	It can be used as another method of triggering regenerate_icons(). It's basically a flag that when set to non-zero
 	will call regenerate_icons() at the next life() call and then reset itself to 0.
 	The idea behind it is icons are regenerated only once, even if multiple events requested it.
-
-This system is confusing and is still a WIP. It's primary goal is speeding up the controls of the game whilst
-reducing processing costs. So please bear with me while I iron out the kinks. It will be worth it, I promise.
-If I can eventually free var/lying stuff from the life() process altogether, stuns/death/status stuff
-will become less affected by lag-spikes and will be instantaneous! :3
-
-If you have any questions/constructive-comments/bugs-to-report/or have a massivly devestated butt...
-Please contact me on #coderbus IRC. ~Carn x
 */
 
-//Human Overlays Indexes/////////
-#define MUTATIONS_LAYER			1
-#define DAMAGE_LAYER			2
-#define SURGERY_LEVEL			3		//bs12 specific.
-#define UNIFORM_LAYER			4
-#define ID_LAYER				5
-#define SHOES_LAYER				6
-#define GLOVES_LAYER			7
-#define BELT_LAYER				8
-#define SUIT_LAYER				9
-#define TAIL_LAYER				10		//bs12 specific. this hack is probably gonna come back to haunt me
-#define GLASSES_LAYER			11
-#define BELT_LAYER_ALT			12
-#define SUIT_STORE_LAYER		13
-#define BACK_LAYER				14
-#define HAIR_LAYER				15		//TODO: make part of head layer?
-#define L_EAR_LAYER				16
-#define R_EAR_LAYER				17
-#define FACEMASK_LAYER			18
-#define HEAD_LAYER				19
-#define COLLAR_LAYER			20
-#define HANDCUFF_LAYER			21
-#define LEGCUFF_LAYER			22
-#define L_HAND_LAYER			23
-#define R_HAND_LAYER			24
-#define FIRE_LAYER				25		//If you're on fire
-#define TARGETED_LAYER			26		//BS12: Layer for the target overlay from weapon targeting system
-#define TOTAL_LAYERS			26
+// Human Overlays Indexes //
+#define MUTATIONS_LAYER   1
+#define DAMAGE_LAYER      2
+#define SURGERY_LAYER     3
+#define UNIFORM_LAYER     4
+#define ID_LAYER          5
+#define SHOES_LAYER       6
+#define GLOVES_LAYER      7
+#define BELT_LAYER        8
+#define SUIT_LAYER        9
+#define TAIL_LAYER       10
+#define GLASSES_LAYER    11
+#define BELT_LAYER_ALT   12
+#define SUIT_STORE_LAYER 13
+#define BACK_LAYER       14
+#define HAIR_LAYER       15
+#define L_EAR_LAYER      16
+#define R_EAR_LAYER      17
+#define FACEMASK_LAYER   18
+#define HEAD_LAYER       19
+#define COLLAR_LAYER     20
+#define HANDCUFF_LAYER   21
+#define LEGCUFF_LAYER    22
+#define L_HAND_LAYER     23
+#define R_HAND_LAYER     24
+#define FIRE_LAYER       25		//If you're on fire
+#define TARGETED_LAYER   26		//Layer for the target overlay from weapon targeting system
+#define TOTAL_LAYERS     26
 //////////////////////////////////
 
 /mob/living/carbon/human
-	var/list/overlays_standing[TOTAL_LAYERS]
+	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
 
-//UPDATES OVERLAYS FROM OVERLAYS_LYING/OVERLAYS_STANDING
+// Updates overlays from overlays_raw.
 /mob/living/carbon/human/update_icons()
 	if (QDELING(src))
 		return	// No point.
 
-		//so we don't update overlays for lying/standing unless our stance changes again
 	update_hud()		//TODO: remove the need for this
 	cut_overlays()
 
 	if(cloaked)
 		icon = 'icons/mob/human.dmi'
 		icon_state = "body_cloaked"
-		add_overlay(list(overlays_standing[L_HAND_LAYER], overlays_standing[R_HAND_LAYER]))
+		add_overlay(list(overlays_raw[L_HAND_LAYER], overlays_raw[R_HAND_LAYER]))
+
 	else if (icon_update)
-		icon = stand_icon
+		if (icon != stand_icon)
+			icon = stand_icon
+
 		var/list/ovr = list()
 		// We manually add each element instead of just using Copy() so that lists are appended instead of inserted.
-		for (var/item in overlays_standing)
+		for (var/item in overlays_raw)
 			if (item)
 				ovr += item
 
@@ -173,7 +162,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	lying_prev = lying
 
 //DAMAGE OVERLAYS
-//constructs damage icon for each organ from mask * damage field and saves it in our overlays_ lists
+//constructs damage icon for each organ from mask * damage field and saves it in our overlays_raw list (as a list of icons).
 /mob/living/carbon/human/UpdateDamageIcon(var/update_icons=1)
 	// first check whether something actually changed about damage appearance
 	var/damage_appearance = ""
@@ -213,7 +202,7 @@ Please contact me on #coderbus IRC. ~Carn x
 
 		LAZYADD(ovr, DI)
 
-	overlays_standing[DAMAGE_LAYER] = ovr
+	overlays_raw[DAMAGE_LAYER] = ovr
 
 	if(update_icons)
 		update_icons()
@@ -392,7 +381,7 @@ Please contact me on #coderbus IRC. ~Carn x
 		return
 
 	//Reset our hair
-	overlays_standing[HAIR_LAYER]	= null
+	overlays_raw[HAIR_LAYER] = null
 
 	var/obj/item/organ/external/head/head_organ = get_organ("head")
 	if(!head_organ || head_organ.is_stump() )
@@ -418,7 +407,7 @@ Please contact me on #coderbus IRC. ~Carn x
 		else
 			set_light(0)
 
-	overlays_standing[HAIR_LAYER] = hair_icon
+	overlays_raw[HAIR_LAYER] = hair_icon
 
 	if(update_icons)
 		update_icons()
@@ -461,13 +450,14 @@ Please contact me on #coderbus IRC. ~Carn x
 				add_image = 1
 			*/
 			if(LASER)
-				standing.overlays	+= "lasereyes_s"
+				standing.overlays += "lasereyes_s"
 				add_image = 1
 	if(add_image)
-		overlays_standing[MUTATIONS_LAYER]	= standing
+		overlays_raw[MUTATIONS_LAYER] = standing
 	else
-		overlays_standing[MUTATIONS_LAYER]	= null
-	if(update_icons)   update_icons()
+		overlays_raw[MUTATIONS_LAYER] = null
+	if(update_icons)
+		update_icons()
 
 /* --------------------------------------- */
 //For legacy support.
@@ -512,7 +502,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (QDELING(src))
 		return
 		
-	overlays_standing[UNIFORM_LAYER] = null
+	overlays_raw[UNIFORM_LAYER] = null
 	if(check_draw_underclothing())
 		w_uniform.screen_loc = ui_iclothing
 
@@ -569,7 +559,7 @@ Please contact me on #coderbus IRC. ~Carn x
 				for(var/obj/item/clothing/accessory/A in under.accessories)
 					ovr += A.get_mob_overlay()
 
-		overlays_standing[UNIFORM_LAYER] = ovr || standing
+		overlays_raw[UNIFORM_LAYER] = ovr || standing
 
 	if(update_icons)
 		update_icons()
@@ -578,7 +568,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (QDELING(src))
 		return
 		
-	overlays_standing[ID_LAYER]	= null
+	overlays_raw[ID_LAYER]	= null
 	if(wear_id)
 
 		wear_id.screen_loc = ui_id	//TODO
@@ -591,20 +581,21 @@ Please contact me on #coderbus IRC. ~Carn x
 				else
 					IDIcon = wear_id.icon
 
-				overlays_standing[ID_LAYER] = image("icon" = IDIcon, "icon_state" = "[wear_id.item_state][WORN_ID]")
+				overlays_raw[ID_LAYER] = image("icon" = IDIcon, "icon_state" = "[wear_id.item_state][WORN_ID]")
 			else
-				overlays_standing[ID_LAYER]	= image("icon" = 'icons/mob/mob.dmi', "icon_state" = "id")
+				overlays_raw[ID_LAYER] = image("icon" = 'icons/mob/mob.dmi', "icon_state" = "id")
 
 	BITSET(hud_updateflag, ID_HUD)
 	BITSET(hud_updateflag, WANTED_HUD)
 
-	if(update_icons)   update_icons()
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/update_inv_gloves(var/update_icons=1)
 	if (QDELING(src))
 		return
 		
-	overlays_standing[GLOVES_LAYER]	= null
+	overlays_raw[GLOVES_LAYER] = null
 	if(check_draw_gloves())
 
 		var/t_state = gloves.item_state
@@ -639,12 +630,12 @@ Please contact me on #coderbus IRC. ~Carn x
 			ovr = list(standing, bloodsies)
 
 		gloves.screen_loc = ui_gloves
-		overlays_standing[GLOVES_LAYER] = ovr || standing
+		overlays_raw[GLOVES_LAYER] = ovr || standing
 	else
 		if(blood_DNA)
 			var/image/bloodsies	= image("icon" = species.blood_mask, "icon_state" = "bloodyhands")
 			bloodsies.color = hand_blood_color
-			overlays_standing[GLOVES_LAYER]	= bloodsies
+			overlays_raw[GLOVES_LAYER] = bloodsies
 
 	if(update_icons)
 		update_icons()
@@ -653,7 +644,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (QDELING(src))
 		return
 		
-	overlays_standing[GLASSES_LAYER] = null
+	overlays_raw[GLASSES_LAYER] = null
 	if(check_draw_glasses())
 		if(glasses.contained_sprite)
 			glasses.auto_adapt_species(src)
@@ -663,16 +654,16 @@ Please contact me on #coderbus IRC. ~Carn x
 			state += "[glasses.item_state][WORN_EYES]"
 
 			if(glasses.icon_override)
-				overlays_standing[GLASSES_LAYER] = image("icon" = glasses.icon_override, "icon_state" = state)
+				overlays_raw[GLASSES_LAYER] = image("icon" = glasses.icon_override, "icon_state" = state)
 			else
-				overlays_standing[GLASSES_LAYER] = image("icon" = glasses.icon, "icon_state" = state)
+				overlays_raw[GLASSES_LAYER] = image("icon" = glasses.icon, "icon_state" = state)
 
 		else if(glasses.icon_override)
-			overlays_standing[GLASSES_LAYER] = image("icon" = glasses.icon_override, "icon_state" = "[glasses.icon_state]")
+			overlays_raw[GLASSES_LAYER] = image("icon" = glasses.icon_override, "icon_state" = "[glasses.icon_state]")
 		else if(glasses.sprite_sheets && glasses.sprite_sheets[species.get_bodytype()])
-			overlays_standing[GLASSES_LAYER]= image("icon" = glasses.sprite_sheets[species.get_bodytype()], "icon_state" = "[glasses.icon_state]")
+			overlays_raw[GLASSES_LAYER] = image("icon" = glasses.sprite_sheets[species.get_bodytype()], "icon_state" = "[glasses.icon_state]")
 		else
-			overlays_standing[GLASSES_LAYER]= image("icon" = 'icons/mob/eyes.dmi', "icon_state" = "[glasses.icon_state]")
+			overlays_raw[GLASSES_LAYER] = image("icon" = 'icons/mob/eyes.dmi', "icon_state" = "[glasses.icon_state]")
 
 	if(update_icons)   update_icons()
 
@@ -680,8 +671,8 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (QDELING(src))
 		return
 		
-	overlays_standing[L_EAR_LAYER] = null
-	overlays_standing[R_EAR_LAYER] = null
+	overlays_raw[L_EAR_LAYER] = null
+	overlays_raw[R_EAR_LAYER] = null
 
 	if (!check_draw_ears())
 		if(update_icons)   update_icons()
@@ -699,17 +690,17 @@ Please contact me on #coderbus IRC. ~Carn x
 					t_type += "[l_ear.icon_species_tag]_"
 				t_type += "[l_ear.item_state][WORN_LEAR]"
 				if(l_ear.icon_override)
-					overlays_standing[L_EAR_LAYER] = image("icon" = l_ear.icon_override, "icon_state" = t_type)
+					overlays_raw[L_EAR_LAYER] = image("icon" = l_ear.icon_override, "icon_state" = t_type)
 				else
-					overlays_standing[L_EAR_LAYER] = image("icon" = l_ear.icon, "icon_state" = t_type)
+					overlays_raw[L_EAR_LAYER] = image("icon" = l_ear.icon, "icon_state" = t_type)
 			else if(l_ear.icon_override)
 				t_type = "[t_type]_l"
-				overlays_standing[L_EAR_LAYER] = image("icon" = l_ear.icon_override, "icon_state" = "[t_type]")
+				overlays_raw[L_EAR_LAYER] = image("icon" = l_ear.icon_override, "icon_state" = "[t_type]")
 			else if(l_ear.sprite_sheets && l_ear.sprite_sheets[species.get_bodytype()])
 				t_type = "[t_type]_l"
-				overlays_standing[L_EAR_LAYER] = image("icon" = l_ear.sprite_sheets[species.get_bodytype()], "icon_state" = "[t_type]")
+				overlays_raw[L_EAR_LAYER] = image("icon" = l_ear.sprite_sheets[species.get_bodytype()], "icon_state" = "[t_type]")
 			else
-				overlays_standing[L_EAR_LAYER] = image("icon" = 'icons/mob/ears.dmi', "icon_state" = "[t_type]")
+				overlays_raw[L_EAR_LAYER] = image("icon" = 'icons/mob/ears.dmi', "icon_state" = "[t_type]")
 
 		if(r_ear)
 			var/t_type = r_ear.icon_state
@@ -720,18 +711,18 @@ Please contact me on #coderbus IRC. ~Carn x
 					t_type += "[r_ear.icon_species_tag]_"
 				t_type += "[r_ear.item_state][WORN_REAR]"
 				if(r_ear.icon_override)
-					overlays_standing[R_EAR_LAYER] = image("icon" = r_ear.icon_override, "icon_state" = t_type)
+					overlays_raw[R_EAR_LAYER] = image("icon" = r_ear.icon_override, "icon_state" = t_type)
 				else
-					overlays_standing[R_EAR_LAYER] = image("icon" = r_ear.icon, "icon_state" = t_type)
+					overlays_raw[R_EAR_LAYER] = image("icon" = r_ear.icon, "icon_state" = t_type)
 
 			else if(r_ear.icon_override)
 				t_type = "[t_type]_r"
-				overlays_standing[R_EAR_LAYER] = image("icon" = r_ear.icon_override, "icon_state" = "[t_type]")
+				overlays_raw[R_EAR_LAYER] = image("icon" = r_ear.icon_override, "icon_state" = "[t_type]")
 			else if(r_ear.sprite_sheets && r_ear.sprite_sheets[species.get_bodytype()])
 				t_type = "[t_type]_r"
-				overlays_standing[R_EAR_LAYER] = image("icon" = r_ear.sprite_sheets[species.get_bodytype()], "icon_state" = "[t_type]")
+				overlays_raw[R_EAR_LAYER] = image("icon" = r_ear.sprite_sheets[species.get_bodytype()], "icon_state" = "[t_type]")
 			else
-				overlays_standing[R_EAR_LAYER] = image("icon" = 'icons/mob/ears.dmi', "icon_state" = "[t_type]")
+				overlays_raw[R_EAR_LAYER] = image("icon" = 'icons/mob/ears.dmi', "icon_state" = "[t_type]")
 
 	if(update_icons)   update_icons()
 
@@ -739,7 +730,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (QDELING(src))
 		return
 		
-	overlays_standing[SHOES_LAYER] = null
+	overlays_raw[SHOES_LAYER] = null
 	if(check_draw_shoes())
 		var/image/standing
 		if(shoes.contained_sprite)
@@ -770,12 +761,12 @@ Please contact me on #coderbus IRC. ~Carn x
 			bloodsies.color = shoes.blood_color
 			ovr = list(standing, bloodsies)
 
-		overlays_standing[SHOES_LAYER] = ovr || standing
+		overlays_raw[SHOES_LAYER] = ovr || standing
 	else
 		if(feet_blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = feet_blood_color
-			overlays_standing[SHOES_LAYER] = bloodsies
+			overlays_raw[SHOES_LAYER] = bloodsies
 
 	if(update_icons)
 		update_icons()
@@ -788,10 +779,10 @@ Please contact me on #coderbus IRC. ~Carn x
 		//s_store.auto_adapt_species(src)
 		var/t_state = s_store.item_state
 		if(!t_state)	t_state = s_store.icon_state
-		overlays_standing[SUIT_STORE_LAYER]	= image("icon" = 'icons/mob/belt_mirror.dmi', "icon_state" = "[t_state]")
+		overlays_raw[SUIT_STORE_LAYER] = image("icon" = 'icons/mob/belt_mirror.dmi', "icon_state" = "[t_state]")
 		s_store.screen_loc = ui_sstore1		//TODO
 	else
-		overlays_standing[SUIT_STORE_LAYER]	= null
+		overlays_raw[SUIT_STORE_LAYER] = null
 	if(update_icons)   update_icons()
 
 
@@ -799,7 +790,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (QDELING(src))
 		return
 		
-	overlays_standing[HEAD_LAYER]	= null
+	overlays_raw[HEAD_LAYER] = null
 	if(head)
 		head.screen_loc = ui_head		//TODO
 		var/image/standing = null
@@ -851,7 +842,7 @@ Please contact me on #coderbus IRC. ~Carn x
 					ovr = list(standing)
 				ovr += SSicon_cache.light_overlay_cache["[cache_key]"]
 
-		overlays_standing[HEAD_LAYER] = ovr || standing
+		overlays_raw[HEAD_LAYER] = ovr || standing
 
 	if(update_icons)
 		update_icons()
@@ -860,8 +851,8 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (QDELING(src))
 		return
 		
-	overlays_standing[BELT_LAYER] = null
-	overlays_standing[BELT_LAYER_ALT] = null
+	overlays_raw[BELT_LAYER] = null
+	overlays_raw[BELT_LAYER_ALT] = null
 
 	if(belt)
 		belt.screen_loc = ui_belt	//TODO
@@ -917,7 +908,7 @@ Please contact me on #coderbus IRC. ~Carn x
 			if(ubelt.show_above_suit)
 				beltlayer = BELT_LAYER_ALT
 
-		overlays_standing[beltlayer] = ovr || standing
+		overlays_raw[beltlayer] = ovr || standing
 
 	if(update_icons)
 		update_icons()
@@ -967,11 +958,11 @@ Please contact me on #coderbus IRC. ~Carn x
 			for(var/obj/item/clothing/accessory/A in suit.accessories)
 				ovr += A.get_mob_overlay()
 
-		overlays_standing[SUIT_LAYER] = ovr || standing
+		overlays_raw[SUIT_LAYER] = ovr || standing
 		update_tail_showing(0)
 
 	else
-		overlays_standing[SUIT_LAYER] = null
+		overlays_raw[SUIT_LAYER] = null
 		update_tail_showing(0)
 		update_inv_shoes(0)
 
@@ -993,7 +984,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (QDELING(src))
 		return
 		
-	overlays_standing[FACEMASK_LAYER] = null
+	overlays_raw[FACEMASK_LAYER] = null
 	if(check_draw_mask())
 		wear_mask.screen_loc = ui_mask	//TODO
 		var/image/standing
@@ -1024,7 +1015,7 @@ Please contact me on #coderbus IRC. ~Carn x
 			bloodsies.color = wear_mask.blood_color
 			ovr = list(standing, bloodsies)
 
-		overlays_standing[FACEMASK_LAYER] = ovr || standing
+		overlays_raw[FACEMASK_LAYER] = ovr || standing
 
 	if(update_icons)
 		update_icons()
@@ -1035,7 +1026,7 @@ Please contact me on #coderbus IRC. ~Carn x
 		return
 		
 
-	overlays_standing[BACK_LAYER] = null
+	overlays_raw[BACK_LAYER] = null
 	if(back)
 
 		back.screen_loc = ui_back	//TODO
@@ -1083,8 +1074,7 @@ Please contact me on #coderbus IRC. ~Carn x
 		standing.color = back.color
 
 		//create the image
-		overlays_standing[BACK_LAYER] = image(icon = overlay_icon, icon_state = overlay_state)
-
+		overlays_raw[BACK_LAYER] = image(icon = overlay_icon, icon_state = overlay_state)
 
 	if(update_icons)
 		update_icons()
@@ -1113,11 +1103,13 @@ Please contact me on #coderbus IRC. ~Carn x
 			standing = image("icon" = handcuffed.sprite_sheets[species.get_bodytype()], "icon_state" = "handcuff1")
 		else
 			standing = image("icon" = 'icons/mob/mob.dmi', "icon_state" = "handcuff1")
-		overlays_standing[HANDCUFF_LAYER] = standing
+		overlays_raw[HANDCUFF_LAYER] = standing
 
 	else
-		overlays_standing[HANDCUFF_LAYER]	= null
-	if(update_icons)   update_icons()
+		overlays_raw[HANDCUFF_LAYER] = null
+
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/update_inv_legcuffed(var/update_icons=1)
 	if (QDELING(src))
@@ -1132,7 +1124,7 @@ Please contact me on #coderbus IRC. ~Carn x
 			standing = image("icon" = legcuffed.sprite_sheets[species.get_bodytype()], "icon_state" = "legcuff1")
 		else
 			standing = image("icon" = 'icons/mob/mob.dmi', "icon_state" = "legcuff1")
-		overlays_standing[LEGCUFF_LAYER] = standing
+		overlays_raw[LEGCUFF_LAYER] = standing
 
 		if(src.m_intent != "walk")
 			src.m_intent = "walk"
@@ -1140,15 +1132,17 @@ Please contact me on #coderbus IRC. ~Carn x
 				src.hud_used.move_intent.icon_state = "walking"
 
 	else
-		overlays_standing[LEGCUFF_LAYER]	= null
-	if(update_icons)   update_icons()
+		overlays_raw[LEGCUFF_LAYER] = null
+
+	if(update_icons)
+		update_icons()
 
 
 /mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
 	if (QDELING(src))
 		return
 		
-	overlays_standing[R_HAND_LAYER] = null
+	overlays_raw[R_HAND_LAYER] = null
 	if(r_hand)
 		r_hand.screen_loc = ui_rhand	//TODO
 
@@ -1161,9 +1155,9 @@ Please contact me on #coderbus IRC. ~Carn x
 			t_state += "[r_hand.item_state][WORN_RHAND]"
 
 			if(r_hand.icon_override)
-				overlays_standing[R_HAND_LAYER] = image(icon = r_hand.icon_override, icon_state = t_state)
+				overlays_raw[R_HAND_LAYER] = image(icon = r_hand.icon_override, icon_state = t_state)
 			else
-				overlays_standing[R_HAND_LAYER] = image(icon = r_hand.icon, icon_state = t_state)
+				overlays_raw[R_HAND_LAYER] = image(icon = r_hand.icon, icon_state = t_state)
 
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
@@ -1183,17 +1177,18 @@ Please contact me on #coderbus IRC. ~Carn x
 			else
 				t_icon = INV_R_HAND_DEF_ICON
 
-			overlays_standing[R_HAND_LAYER] = image(icon = t_icon, icon_state = t_state)
+			overlays_raw[R_HAND_LAYER] = image(icon = t_icon, icon_state = t_state)
 
 
-	if(update_icons) update_icons()
+	if(update_icons) 
+		update_icons()
 
 
 /mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
 	if (QDELING(src))
 		return
 		
-	overlays_standing[L_HAND_LAYER] = null
+	overlays_raw[L_HAND_LAYER] = null
 	if(l_hand)
 		l_hand.screen_loc = ui_lhand	//TODO
 
@@ -1206,9 +1201,9 @@ Please contact me on #coderbus IRC. ~Carn x
 			t_state += "[l_hand.item_state][WORN_LHAND]"
 
 			if(l_hand.icon_override)
-				overlays_standing[L_HAND_LAYER] = image(icon = l_hand.icon_override, icon_state = t_state)
+				overlays_raw[L_HAND_LAYER] = image(icon = l_hand.icon_override, icon_state = t_state)
 			else
-				overlays_standing[L_HAND_LAYER] = image(icon = l_hand.icon, icon_state = t_state)
+				overlays_raw[L_HAND_LAYER] = image(icon = l_hand.icon, icon_state = t_state)
 
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
@@ -1228,7 +1223,7 @@ Please contact me on #coderbus IRC. ~Carn x
 			else
 				t_icon = INV_L_HAND_DEF_ICON
 
-			overlays_standing[L_HAND_LAYER] = image(icon = t_icon, icon_state = t_state)
+			overlays_raw[L_HAND_LAYER] = image(icon = t_icon, icon_state = t_state)
 
 
 	if(update_icons) update_icons()
@@ -1237,11 +1232,11 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (QDELING(src))
 		return
 		
-	overlays_standing[TAIL_LAYER] = null
+	overlays_raw[TAIL_LAYER] = null
 
 	if(species.tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
-		overlays_standing[TAIL_LAYER] = image(tail_s, icon_state = "[species.tail]_s")
+		overlays_raw[TAIL_LAYER] = image(tail_s, icon_state = "[species.tail]_s")
 		animate_tail_reset(0)
 
 	if(update_icons)
@@ -1271,7 +1266,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (!species.tail)
 		return
 
-	var/image/tail_overlay = overlays_standing[TAIL_LAYER]
+	var/image/tail_overlay = overlays_raw[TAIL_LAYER]
 
 	if(tail_overlay && species.tail_animation)
 		if (tail_overlay.icon_state != t_state)
@@ -1285,7 +1280,7 @@ Please contact me on #coderbus IRC. ~Carn x
 /mob/living/carbon/human/proc/animate_tail_once()
 	var/t_state = "[species.tail]_once"
 
-	var/image/tail_overlay = overlays_standing[TAIL_LAYER]
+	var/image/tail_overlay = overlays_raw[TAIL_LAYER]
 	if(tail_overlay && tail_overlay.icon_state == t_state)
 		return //let the existing animation finish
 
@@ -1295,7 +1290,7 @@ Please contact me on #coderbus IRC. ~Carn x
 
 /mob/living/carbon/human/proc/end_animate_tail_once(image/tail_overlay)
 	//check that the animation hasn't changed in the meantime
-	if(overlays_standing[TAIL_LAYER] == tail_overlay && tail_overlay.icon_state == "[species.tail]_once")
+	if(overlays_raw[TAIL_LAYER] == tail_overlay && tail_overlay.icon_state == "[species.tail]_once")
 		animate_tail_stop()
 
 /mob/living/carbon/human/proc/animate_tail_start()
@@ -1333,7 +1328,7 @@ Please contact me on #coderbus IRC. ~Carn x
 		if(wear_suit.icon_state in C.IconStates())
 			standing = image("icon" = C, "icon_state" = "[wear_suit.icon_state]")
 
-	overlays_standing[COLLAR_LAYER]	= standing
+	overlays_raw[COLLAR_LAYER] = standing
 
 	if(update_icons)   update_icons()
 
@@ -1342,20 +1337,21 @@ Please contact me on #coderbus IRC. ~Carn x
 	if (QDELING(src))
 		return
 
-	overlays_standing[FIRE_LAYER] = null
+	overlays_raw[FIRE_LAYER] = null
 	if(on_fire)
-		overlays_standing[FIRE_LAYER] = image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing", "layer"=FIRE_LAYER)
+		overlays_raw[FIRE_LAYER] = image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing", "layer"=FIRE_LAYER)
 
-	if(update_icons)   update_icons()
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/proc/update_surgery(var/update_icons=1)
-	overlays_standing[SURGERY_LEVEL] = null
+	overlays_raw[SURGERY_LAYER] = null
 	var/list/ovr
 	for(var/obj/item/organ/external/E in organs)
 		if(E.open)
-			var/image/I = image("icon"='icons/mob/surgery.dmi', "icon_state"="[E.name][round(E.open)]", "layer"=-SURGERY_LEVEL)
+			var/image/I = image("icon"='icons/mob/surgery.dmi', "icon_state"="[E.name][round(E.open)]", "layer"=-SURGERY_LAYER)
 			LAZYADD(ovr, I)
-	overlays_standing[SURGERY_LEVEL] = ovr
+	overlays_raw[SURGERY_LAYER] = ovr
 
 	if(update_icons)
 		update_icons()
@@ -1430,7 +1426,7 @@ Please contact me on #coderbus IRC. ~Carn x
 //Human Overlays Indexes/////////
 #undef MUTATIONS_LAYER
 #undef DAMAGE_LAYER
-#undef SURGERY_LEVEL
+#undef SURGERY_LAYER
 #undef UNIFORM_LAYER
 #undef ID_LAYER
 #undef SHOES_LAYER
