@@ -35,8 +35,9 @@
 	MASK_TYPE = /obj/item/clothing/mask/breath
 
 
-/obj/machinery/suit_storage_unit/New()
-	src.update_icon()
+/obj/machinery/suit_storage_unit/Initialize()
+	. = ..()
+	update_icon()
 	if(SUIT_TYPE)
 		SUIT = new SUIT_TYPE(src)
 	if(HELMET_TYPE)
@@ -605,8 +606,8 @@
 
 	var/datum/wires/suit_storage_unit/wires = null
 
-/obj/machinery/suit_cycler/New()
-	..()
+/obj/machinery/suit_cycler/Initialize()
+	. = ..()
 
 	wires = new(src)
 	target_department = departments[1]

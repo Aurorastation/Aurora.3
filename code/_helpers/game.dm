@@ -32,7 +32,7 @@
 		.= loc.loc
 
 /proc/get_area_name(N) //get area by its name
-	for(var/area/A in world)
+	for(var/area/A in all_areas)
 		if(A.name == N)
 			return A
 	return 0
@@ -59,12 +59,6 @@
 	source.luminosity = lum
 
 	return heard
-
-/proc/isStationLevel(var/level)
-	return level in config.station_levels
-
-/proc/isNotStationLevel(var/level)
-	return !isStationLevel(level)
 
 /proc/isPlayerLevel(var/level)
 	return level in config.player_levels

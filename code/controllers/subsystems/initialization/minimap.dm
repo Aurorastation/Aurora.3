@@ -59,7 +59,11 @@
 	for(var/x = 1 to world.maxx)
 		for(var/y = 1 to world.maxy)
 			var/turf/tile = locate(x, y, zlevel)
-			if(tile && tile.loc:holomapAlwaysDraw())
+			var/area/A
+			if(tile)
+				A = tile.loc
+				if (A.flags & HIDE_FROM_HOLOMAP)
+					continue
 				if(IS_ROCK(tile))
 					continue
 				if(IS_OBSTACLE(tile))

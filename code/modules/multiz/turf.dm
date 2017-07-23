@@ -92,6 +92,9 @@
 		addtimer(CALLBACK(above, /turf/simulated/open/.proc/update), 0)
 		above = null
 
+	if (below)
+		below.above = null
+
 	below = null
 
 	LAZYCLEARLIST(climbers)
@@ -99,7 +102,7 @@
 
 	return ..()
 
-/turf/simulated/open/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)
+/turf/simulated/open/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.appearance = src
 	return TRUE
 

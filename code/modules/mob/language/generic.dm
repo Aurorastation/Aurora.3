@@ -57,11 +57,11 @@
 // Criminal language.
 /datum/language/gutter
 	name = LANGUAGE_GUTTER
-	desc = "Much like Standard, this crude pidgin tongue descended from numerous languages and serves as Tradeband for criminal elements."
+	desc = "A language of renegades and frontiersmen descending from various languages from Earth. This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit. Often called 'Gutter' by Alliance citizens."
 	speech_verb = "growls"
 	colour = "rough"
 	key = "3"
-	syllables = list ("slo","nik","ko","zels","het","zlo","nis","iv","da","ati","yib","ban","dup","sha","ansh","nou","nec","zby", "ci")
+	syllables = list("slo","nik","ko","zels","het","zlo","nis","iv","da","ati","yib","ban","dup","sha","ansh","nou","nec","zby", "ci")
 
 // Sign language
 /datum/language/sign

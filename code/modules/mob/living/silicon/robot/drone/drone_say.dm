@@ -22,6 +22,10 @@
 		if (stat)
 			return 0
 
+		// Message must not be empty
+		if (length(message) == 0)
+			return 0
+
 		var/list/listeners = hearers(5,src)
 		listeners |= src
 
@@ -30,9 +34,11 @@
 				D << "<b>[src]</b> transmits, \"[message]\""
 
 		for (var/mob/M in player_list)
+			if (isnull(M.client))
+				continue
 			if (istype(M, /mob/new_player))
 				continue
 			else if(M.stat == 2 &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
-				if(M.client) M << "<b>[src]</b> transmits, \"[message]\""
+				M << "<b>[src]</b> transmits, \"[message]\""
 		return 1
 	return ..(message, 0)

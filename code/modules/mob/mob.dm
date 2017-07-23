@@ -29,8 +29,8 @@
 	if (istype(src, /mob/living))
 		ghostize()
 
-	return ..() 
-	
+	return ..()
+
 
 /mob/proc/remove_screen_obj_references()
 	flash = null
@@ -211,7 +211,7 @@
 
 /mob/proc/is_physically_disabled()
 	return incapacitated(INCAPACITATION_DISABLED)
-	
+
 /mob/proc/cannot_stand()
 	return incapacitated(INCAPACITATION_KNOCKDOWN)
 
@@ -746,7 +746,7 @@
 							LAZYREMOVE(client.holder.watched_processes, ctrl)
 						else
 							ctrl.stat_entry()
-						
+
 			if(statpanel("MC"))
 				stat("CPU:", world.cpu)
 				stat("Tick Usage:", world.tick_usage)
@@ -766,7 +766,7 @@
 					for(var/datum/controller/subsystem/SS in Master.subsystems)
 						if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
 							continue
-					
+
 						SS.stat_entry()
 
 		if(listed_turf && client)
@@ -1137,12 +1137,11 @@ mob/proc/yank_out_object()
 	return
 
 /mob/verb/face_direction()
-
 	set name = "Face Direction"
 	set category = "IC"
 	set src = usr
 
-	set_face_dir()
+	set_face_dir(dir)
 
 	if(!facing_dir)
 		usr << "You are now not facing anything."
@@ -1175,11 +1174,11 @@ mob/proc/yank_out_object()
 	if (dest != loc && istype(dest, /atom/movable))
 		AM = dest
 		LAZYADD(AM.contained_mobs, src)
-	
+
 	if (istype(loc, /atom/movable))
 		AM = loc
 		LAZYREMOVE(AM.contained_mobs, src)
-	
+
 	. = ..()
 
 /mob/verb/northfaceperm()

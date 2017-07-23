@@ -60,4 +60,4 @@ calculate text size per text.
 			else
 				out += "[intensity_desc] [taste_desc]"
 
-	return english_list(out, "something indescribable")
+	return "[english_list(out, "something indescribable")]."

@@ -365,10 +365,10 @@
 	ntnet_global.intrusion_detection_alarm = 1
 	ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting NTNet relays detected from @!*x&!#*ERS*")
 	//lower the dos capacity of the relay
-	for(var/obj/machinery/ntnet_relay/T in machines)
+	for(var/obj/machinery/ntnet_relay/T in SSmachinery.processing_machines)
 		T.dos_capacity = 200
 	//And give all computers EMAGGED status so they can all have evil programs on them
-	for(var/obj/item/modular_computer/console/C in machines)
+	for(var/obj/item/modular_computer/console/C in SSmachinery.processing_machines)
 		C.computer_emagged = 1
 		user <<"New hacked files available on all current computers hooked to NTNet."
 	sleep(50) // give the AI some time to read they can download evil files

@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - tweak: "Examining a human-type will no longer explicitly tell you if they are a shell. Are your co-workers really what they say they are?"
-  - tweak: "IPC Tags are now located in the head. As such, you no longer need to stare at an IPC's groin to identify it."

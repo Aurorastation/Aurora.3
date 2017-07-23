@@ -26,17 +26,14 @@
 	. = ..()
 	QDEL_NULL(bound_overlay)
 
-/atom/movable/Move()
-	. = ..()
-	if (bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		bound_overlay.forceMove(get_step(src, UP))
-
 /atom/movable/forceMove(atom/dest)
 	. = ..(dest)
 	if (bound_overlay)
 		// The overlay will handle cleaning itself up on non-openspace turfs.
-		bound_overlay.forceMove(get_step(src, UP))
+		if (isturf(dest))
+			bound_overlay.forceMove(get_step(src, UP))
+		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
+			qdel(bound_overlay)
 
 /atom/movable/update_above()
 	if (!bound_overlay)
@@ -87,14 +84,15 @@
 /atom/movable/openspace/multiplier
 	name = "openspace multiplier"
 	desc = "You shouldn't see this."
-	icon = 'icons/misc/openspace.dmi'
-	icon_state = "white"
+	icon = 'icons/effects/lighting_overlay.dmi'
+	icon_state = "blank"
 	plane = OPENTURF_CAP_PLANE
+	layer = SHADOWER_LAYER
 	blend_mode = BLEND_MULTIPLY
 	color = list(
-		0.75, 0, 0,
-		0, 0.75, 0,
-		0, 0, 0.75
+		SHADOWER_DARKENING_FACTOR, 0, 0,
+		0, SHADOWER_DARKENING_FACTOR, 0,
+		0, 0, SHADOWER_DARKENING_FACTOR
 	)
 
 /atom/movable/openspace/multiplier/Destroy()

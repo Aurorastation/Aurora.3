@@ -10,7 +10,6 @@ versions. Instead, we generate both and store them in two fixed-length lists, bo
 (The indexes are in update_icons.dm): Each list for humans is (at the time of writing) of length 19.
 This will hopefully be reduced as the system is refined.
 
-	var/overlays_lying[19]			//For the lying down stance
 	var/overlays_standing[19]		//For the standing stance
 
 When we call update_icons, the 'lying' variable is checked and then the appropriate list is assigned to our overlays!
@@ -127,38 +126,30 @@ Please contact me on #coderbus IRC. ~Carn x
 #define TOTAL_LAYERS			26
 //////////////////////////////////
 
-
-
-
-
 /mob/living/carbon/human
 	var/list/overlays_standing[TOTAL_LAYERS]
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
 
 //UPDATES OVERLAYS FROM OVERLAYS_LYING/OVERLAYS_STANDING
-//Fixed by Nanako
 /mob/living/carbon/human/update_icons()
 	if (QDELING(src))
 		return	// No point.
 
 		//so we don't update overlays for lying/standing unless our stance changes again
 	update_hud()		//TODO: remove the need for this
-	overlays.Cut()
-
+	cut_overlays()
 
 	if(cloaked)
 		icon = 'icons/mob/human.dmi'
 		icon_state = "body_cloaked"
-		var/image/I	= overlays_standing[L_HAND_LAYER]
-		if(istype(I))	overlays += I
-		I 			= overlays_standing[R_HAND_LAYER]
-		if(istype(I))	overlays += I
+		add_overlay(list(overlays_standing[L_HAND_LAYER], overlays_standing[R_HAND_LAYER]))
 	else if (icon_update)
 		icon = stand_icon
-		for(var/image/I in overlays_standing)
-			overlays += I
+		var/list/ovr = overlays_standing.Copy()
 		if(species.has_floating_eyes)
-			overlays |= species.get_eyes(src)
+			ovr += species.get_eyes(src)
+
+		add_overlay(ovr)
 
 	if (lying_prev != lying || size_multiplier != 1)
 		if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
@@ -173,9 +164,8 @@ Please contact me on #coderbus IRC. ~Carn x
 			M.Translate(0, 16*(size_multiplier-1))
 			src.transform = M
 
+	compile_overlays()
 	lying_prev = lying
-
-var/global/list/damage_icon_parts = list()
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_ lists
@@ -210,7 +200,8 @@ var/global/list/damage_icon_parts = list()
 		if(O.damage_state == "00") continue
 		var/icon/DI
 		var/cache_index = "[O.damage_state]/[O.icon_name]/[species.blood_color]/[species.get_bodytype()]"
-		if(damage_icon_parts[cache_index] == null)
+		var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
+		if(!damage_icon_parts[cache_index])
 			DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
 			DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
 			DI.Blend(species.blood_color, ICON_MULTIPLY)
@@ -225,9 +216,6 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)   update_icons()
 
 //BASE MOB SPRITE
-//Extension by Nanako
-//Passing in a value of 2 for update_icons will ignore any cached icon, and force a new one to be generated
-
 /mob/living/carbon/human/proc/update_body(var/update_icons=1)
 	if (QDELING(src))
 		return
@@ -235,10 +223,10 @@ var/global/list/damage_icon_parts = list()
 	var/husk_color_mod = rgb(96,88,80)
 	var/hulk_color_mod = rgb(48,224,40)
 
-	var/husk = (HUSK in src.mutations)
-	var/fat = (FAT in src.mutations)
-	var/hulk = (HULK in src.mutations)
-	var/skeleton = (SKELETON in src.mutations)
+	var/husk = (HUSK in mutations)
+	var/fat = (FAT in mutations)
+	var/hulk = (HULK in mutations)
+	var/skeleton = (SKELETON in mutations)
 	var/g = (gender == FEMALE ? "f" : "m")
 
 	pixel_x = species.icon_x_offset
@@ -252,12 +240,7 @@ var/global/list/damage_icon_parts = list()
 		qdel(stand_icon)
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
-
-	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin]"
-	if(lip_style)
-		icon_key += "[lip_style]"
-	else
-		icon_key += "nolips"
+	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"]"
 	var/obj/item/organ/eyes/eyes = internal_organs_by_name["eyes"]
 	if(eyes)
 		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
@@ -266,7 +249,7 @@ var/global/list/damage_icon_parts = list()
 
 	for(var/organ_tag in species.has_limbs)
 		var/obj/item/organ/external/part = organs_by_name[organ_tag]
-		if(isnull(part) || part.is_stump())
+		if(!part || part.is_stump())
 			icon_key += "0"
 		else if(part.status & ORGAN_ROBOT)
 			icon_key += "2[part.model ? "-[part.model]": ""]"
@@ -285,11 +268,9 @@ var/global/list/damage_icon_parts = list()
 			else
 				icon_key += "#000000"
 
-	icon_key = "[icon_key][husk ? 1 : 0][fat ? 1 : 0][hulk ? 1 : 0][skeleton ? 1 : 0]"
-	var/icon/base_icon
-	if(update_icons != 2 && SSicon_cache.human_icon_cache[icon_key])//If update_icons is 2, then we forcibly generate a new icon
-		base_icon = SSicon_cache.human_icon_cache[icon_key]
-	else
+	icon_key = "[icon_key][!!husk][!!fat][!!hulk][!!skeleton]"
+	var/icon/base_icon = SSicon_cache.human_icon_cache[icon_key]
+	if (!base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
 		var/obj/item/organ/external/chest = get_organ("chest")
 		base_icon = chest.get_icon()
@@ -337,13 +318,28 @@ var/global/list/damage_icon_parts = list()
 
 	//Underwear
 	if(underwear && species.appearance_flags & HAS_UNDERWEAR)
-		stand_icon.Blend(new /icon('icons/mob/human.dmi', underwear), ICON_OVERLAY)
+		var/uwear = "[underwear]"
+		var/icon/undies = SSicon_cache.human_underwear_cache[uwear]
+		if (!undies)
+			undies = new('icons/mob/human.dmi', underwear)
+			SSicon_cache.human_underwear_cache[uwear] = undies
+		stand_icon.Blend(undies, ICON_OVERLAY)
 
 	if(undershirt && species.appearance_flags & HAS_UNDERWEAR)
-		stand_icon.Blend(new /icon('icons/mob/human.dmi', undershirt), ICON_OVERLAY)
+		var/ushirt = "[undershirt]"
+		var/icon/shirt = SSicon_cache.human_undershirt_cache[ushirt]
+		if (!shirt)
+			shirt = new('icons/mob/human.dmi', undershirt)
+			SSicon_cache.human_undershirt_cache[ushirt] = shirt
+		stand_icon.Blend(shirt, ICON_OVERLAY)
 
 	if(socks && species.appearance_flags & HAS_SOCKS)
-		stand_icon.Blend(new /icon('icons/mob/human.dmi', socks), ICON_OVERLAY)
+		var/sockskey = "[socks]"
+		var/icon/socksicon = SSicon_cache.human_socks_cache[sockskey]
+		if (!socksicon)
+			socksicon = new('icons/mob/human.dmi', socks)
+			SSicon_cache.human_socks_cache[sockskey] = socksicon
+		stand_icon.Blend(socksicon, ICON_OVERLAY)
 
 	if(update_icons)
 		update_icons()

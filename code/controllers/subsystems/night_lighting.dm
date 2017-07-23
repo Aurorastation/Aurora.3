@@ -14,12 +14,17 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 	NEW_SS_GLOBAL(SSnightlight)
 
 /datum/controller/subsystem/nightlight/Initialize(timeofday)
+	if (!config.night_lighting)
+		can_fire = FALSE
+		flags |= SS_NO_FIRE
+		return
+
 	fire(FALSE, FALSE)
 
 	..(timeofday, silent = TRUE)
 
 /datum/controller/subsystem/nightlight/stat_entry()
-	..("A:[isactive] T:[worldtime2hours()] DT:[config.nl_start] NT:[config.nl_finish]")
+	..("A:[isactive] T:[worldtime2hours()] DT:[config.nl_start] NT:[config.nl_finish] D:[disable_type]")
 
 /datum/controller/subsystem/nightlight/Recover()
 	src.isactive = SSnightlight.isactive
@@ -44,7 +49,7 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 		return
 
 	var/time = worldtime2hours()
-	if (time <= 8 || time >= 19)
+	if (time <= config.nl_finish || time >= config.nl_start)
 		if (!isactive)
 			activate()
 			if (announce)

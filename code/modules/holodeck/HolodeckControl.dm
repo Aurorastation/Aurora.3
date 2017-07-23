@@ -26,8 +26,8 @@
 	var/list/supported_programs
 	var/list/restricted_programs
 
-/obj/machinery/computer/HolodeckControl/New()
-	..()
+/obj/machinery/computer/HolodeckControl/Initialize()
+	. = ..()
 	linkedholodeck = locate(linkedholodeck_area)
 	supported_programs = list()
 	restricted_programs = list()
@@ -339,8 +339,8 @@
 	density = 0
 	linkedholodeck_area = /area/holodeck/alphadeck
 
-/obj/machinery/computer/HolodeckControl/Exodus/New()
-	..()
+/obj/machinery/computer/HolodeckControl/Exodus/Initialize()
+	. = ..()
 	supported_programs = list(
 	"Empty Court" 		= "emptycourt",
 	"Basketball Court" 	= "basketball",

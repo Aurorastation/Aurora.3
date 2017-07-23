@@ -477,18 +477,21 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
 		flick("flash", flash)
+
+	var/damage
 	switch (severity)
 		if (1.0)
-			apply_damage(500, BRUTE)
-			gib()
-			return
+			damage = 500
+			if(!prob(getarmor(null, "bomb")))
+				gib()
 
 		if (2.0)
-			apply_damage(60, BRUTE)
-
+			damage = 120
 
 		if(3.0)
-			apply_damage(30, BRUTE)
+			damage = 30
+
+	adjustBruteLoss(damage * BLOCKED_MULT(getarmor(null, "bomb")))
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))
@@ -685,7 +688,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	src << span("notice","You are now [resting ? "resting" : "getting up"]")
 
 	update_icons()
-	
+
 //Todo: add snowflakey shit to it.
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
 	apply_damage(shock_damage, BURN)

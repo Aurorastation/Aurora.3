@@ -256,7 +256,9 @@
 	meteordrop = /obj/item/weapon/ore/uranium
 
 /obj/effect/meteor/irradiated/meteor_effect()
-	new /obj/effect/decal/cleanable/greenglow(get_turf(src)) //todo: make this irradiate the place it lands
+	new /obj/effect/decal/cleanable/greenglow(get_turf(src))
+	for(var/mob/living/L in view(5, src))
+		L.apply_effect(40, IRRADIATE, blocked = L.getarmor(null, "rad"))
 
 /obj/effect/meteor/golden
 	name = "golden meteor"

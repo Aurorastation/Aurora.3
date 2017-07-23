@@ -152,7 +152,7 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_SIIK_MAAS, 0)
 	add_language(LANGUAGE_SKRELLIAN, 0)
 	add_language("Tradeband", 1)
-	add_language("Gutter", 0)
+	add_language(LANGUAGE_GUTTER, 0)
 	add_language(LANGUAGE_VAURCA, 0)
 	add_language("Rootsong", 0)
 	add_language(LANGUAGE_EAL, 1)
@@ -393,7 +393,7 @@ var/list/ai_verbs_default = list(
 
 	// hack to display shuttle timer
 	if(emergency_shuttle.online())
-		var/obj/machinery/computer/communications/C = locate() in machines
+		var/obj/machinery/computer/communications/C = locate() in SSmachinery.processing_machines
 		if(C)
 			C.post_status("shuttle")
 
