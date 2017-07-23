@@ -200,7 +200,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -211,7 +210,6 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -222,7 +220,6 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},

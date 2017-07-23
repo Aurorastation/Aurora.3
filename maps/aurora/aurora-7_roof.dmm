@@ -82,7 +82,6 @@
 /area/tcommsat/lounge)
 "aq" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (EAST)";
 	icon_state = "warning";
 	dir = 4
 	},
@@ -183,7 +182,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (EAST)";
 	icon_state = "warning";
 	dir = 4
 	},
@@ -302,12 +300,10 @@
 /area/mine/explored)
 "aQ" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	tag = "icon-down-scrubbers (NORTH)";
 	icon_state = "down-scrubbers";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	tag = "icon-down-supply (NORTH)";
 	icon_state = "down-supply";
 	dir = 1
 	},
@@ -315,7 +311,6 @@
 /obj/structure/cable/blue{
 	dir = 2;
 	icon_state = "11-1";
-	tag = "icon-11-4 (EAST)"
 	},
 /turf/simulated/open,
 /area/mine/explored)
@@ -324,7 +319,6 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (NORTHEAST)";
 	icon_state = "intact-scrubbers";
 	dir = 5
 	},
@@ -482,7 +476,6 @@
 /area/tcommsat/lounge)
 "bd" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -557,7 +550,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -650,12 +642,10 @@
 /area/tcommsat/lounge)
 "bx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (NORTHWEST)";
 	icon_state = "intact-supply";
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (NORTHWEST)";
 	icon_state = "intact-scrubbers";
 	dir = 9
 	},
@@ -936,7 +926,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -1014,7 +1003,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (NORTHEAST)";
 	icon_state = "intact-scrubbers";
 	dir = 5
 	},
@@ -1079,7 +1067,6 @@
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (NORTHWEST)";
 	icon_state = "intact-scrubbers";
 	dir = 9
 	},
@@ -1254,7 +1241,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -1265,7 +1251,6 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -1279,7 +1264,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -1691,7 +1675,6 @@
 /area/mine/explored)
 "dA" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (EAST)";
 	icon_state = "warning";
 	dir = 4
 	},
@@ -1913,7 +1896,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (EAST)";
 	icon_state = "warning";
 	dir = 4
 	},
@@ -2052,7 +2034,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -2112,7 +2093,6 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -2474,7 +2454,6 @@
 /area/mine/explored)
 "eS" = (
 /obj/structure/cable{
-	tag = "icon-1-8 (WEST)";
 	icon_state = "1-8";
 	dir = 8
 	},
@@ -2492,7 +2471,6 @@
 /area/mine/explored)
 "eT" = (
 /obj/structure/cable{
-	tag = "icon-1-2 (EAST)";
 	icon_state = "1-2";
 	dir = 4
 	},
@@ -2503,7 +2481,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2511,7 +2488,6 @@
 /area/mine/explored)
 "eU" = (
 /obj/structure/cable{
-	tag = "icon-1-2 (EAST)";
 	icon_state = "1-2";
 	dir = 4
 	},
@@ -2597,7 +2573,6 @@
 /obj/structure/cable{
 	dir = 2;
 	icon_state = "11-1";
-	tag = "icon-11-2 (NORTH)"
 	},
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -2669,7 +2644,6 @@
 /area/security/checkpoint2)
 "fk" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2677,7 +2651,6 @@
 /area/mine/explored)
 "fl" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2685,7 +2658,6 @@
 /area/mine/explored)
 "fm" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2693,7 +2665,6 @@
 /area/mine/explored)
 "fn" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2715,7 +2686,6 @@
 /area/mine/explored)
 "fr" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2723,7 +2693,6 @@
 /area/mine/explored)
 "fs" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2781,7 +2750,6 @@
 /area/mine/explored)
 "fB" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2800,7 +2768,6 @@
 "fD" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2819,7 +2786,6 @@
 "fG" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2836,7 +2802,6 @@
 /area/mine/explored)
 "fI" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2844,7 +2809,6 @@
 /area/mine/explored)
 "fJ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2852,7 +2816,6 @@
 /area/mine/explored)
 "fK" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2860,7 +2823,6 @@
 /area/mine/explored)
 "fL" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2868,7 +2830,6 @@
 /area/mine/explored)
 "fM" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2883,7 +2844,6 @@
 /area/mine/explored)
 "fO" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2891,7 +2851,6 @@
 /area/mine/explored)
 "fP" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2902,7 +2861,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2911,7 +2869,6 @@
 /area/mine/explored)
 "fR" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2928,7 +2885,6 @@
 /area/mine/explored)
 "fT" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2936,7 +2892,6 @@
 /area/mine/explored)
 "fU" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2944,7 +2899,6 @@
 /area/mine/explored)
 "fV" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -2952,7 +2906,6 @@
 /area/mine/explored)
 "fW" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2986,7 +2939,6 @@
 /area/mine/explored)
 "gc" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -2994,7 +2946,6 @@
 /area/mine/explored)
 "gd" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3016,7 +2967,6 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3024,7 +2974,6 @@
 /area/mine/explored)
 "gh" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3036,7 +2985,6 @@
 "gi" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3065,7 +3013,6 @@
 /area/mine/explored)
 "gm" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3073,7 +3020,6 @@
 /area/mine/explored)
 "gn" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3081,7 +3027,6 @@
 /area/mine/explored)
 "go" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3089,7 +3034,6 @@
 /area/mine/explored)
 "gp" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3097,7 +3041,6 @@
 /area/mine/explored)
 "gq" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3105,7 +3048,6 @@
 /area/mine/explored)
 "gr" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3114,7 +3056,6 @@
 /area/mine/explored)
 "gs" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3122,7 +3063,6 @@
 /area/mine/explored)
 "gt" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3130,7 +3070,6 @@
 /area/mine/explored)
 "gu" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3138,7 +3077,6 @@
 /area/mine/explored)
 "gv" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3220,7 +3158,6 @@
 /area/mine/explored)
 "gK" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3228,7 +3165,6 @@
 /area/mine/explored)
 "gL" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3237,7 +3173,6 @@
 "gM" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3251,7 +3186,6 @@
 /area/mine/explored)
 "gO" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3265,7 +3199,6 @@
 /area/mine/explored)
 "gQ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3279,7 +3212,6 @@
 /area/mine/explored)
 "gS" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3287,7 +3219,6 @@
 /area/mine/explored)
 "gT" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3322,7 +3253,6 @@
 /area/mine/explored)
 "gY" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3330,7 +3260,6 @@
 /area/mine/explored)
 "gZ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3338,7 +3267,6 @@
 /area/mine/explored)
 "ha" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3347,7 +3275,6 @@
 "hb" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3377,7 +3304,6 @@
 /area/mine/explored)
 "hf" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3414,7 +3340,6 @@
 /area/mine/explored)
 "hl" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3456,12 +3381,10 @@
 /area/mine/explored)
 "hs" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3469,7 +3392,6 @@
 /area/mine/explored)
 "ht" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3495,7 +3417,6 @@
 /area/mine/explored)
 "hy" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3507,7 +3428,6 @@
 /area/mine/explored)
 "hA" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3515,7 +3435,6 @@
 /area/mine/explored)
 "hB" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3552,7 +3471,6 @@
 "hH" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3560,7 +3478,6 @@
 /area/mine/explored)
 "hI" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3580,7 +3497,6 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3603,7 +3519,6 @@
 /area/mine/explored)
 "hO" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3647,7 +3562,6 @@
 /area/mine/explored)
 "hV" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3662,7 +3576,6 @@
 /area/mine/explored)
 "hX" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3670,7 +3583,6 @@
 /area/mine/explored)
 "hY" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
@@ -3682,7 +3594,6 @@
 /area/mine/explored)
 "ia" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -3716,7 +3627,6 @@
 /area/mine/explored)
 "ig" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
 	icon_state = "warningcorner";
 	dir = 1
 	},
