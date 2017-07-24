@@ -15,11 +15,11 @@
 	var/active = FALSE
 	var/list/whispers = list(
 			"You hear something behind you.",
-			"Endless eyes gazes upon you from the above.",
+			"Endless eyes gaze upon you from above.",
 			"All is gone.",
 			"The light is slowly dying.",
 			"This world is not yours, who are you?!",
-			"Blasphemous whispers invades your thoughts.",
+			"Blasphemous whispers invade your thoughts.",
 			"You hear a nasty ripping noise, as if flesh is being torn apart.",
 			"All hope is lost.",
 			"The abyss stares back at you.",
@@ -36,16 +36,15 @@
 			)
 
 /obj/machinery/from_beyond/attack_hand(var/mob/living/carbon/human/user as mob)
-	usr.set_machine(src)
 
 	if(!active)
 		src.visible_message("<span class='warning'>[user] switches \the [src] on.</span>")
-		usr << "<span class='warning'>The world beyond opens to your eyes.</span>"
+		user << "<span class='warning'>The world beyond opens to your eyes.</span>"
 		active = TRUE
 
 	else
 		src.visible_message("<span class='warning'>[user] switches \the [src] off.</span>")
-		usr << "<span class='warning'>The world beyond vanishes before your eyes.</span>"
+		user << "<span class='warning'>The world beyond vanishes before your eyes.</span>"
 		active = FALSE
 
 	update_icon()
@@ -60,14 +59,13 @@
 	else
 		icon_state = "ano60"
 
-	return
-
 /obj/machinery/from_beyond/machinery_process()
 	..()
 	if(active)
 
-		for(var/obj/machinery/light/P in view(7, src))
-			P.flicker(1)
+		if(prob(25))
+			for(var/obj/machinery/light/P in view(7, src))
+				P.flicker(1)
 
 		for(var/mob/living/carbon/human/L in view(7, src))
 			L.see_invisible = SEE_INVISIBLE_CULT

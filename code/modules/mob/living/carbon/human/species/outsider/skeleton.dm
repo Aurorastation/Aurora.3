@@ -92,7 +92,7 @@
 
 	remains_type = /obj/effect/decal/cleanable/ash
 
-	flesh_color = "#AAAAAA"
+	flesh_color = "#551A8B"
 
 	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_MINOR_CUT
 	spawn_flags = IS_RESTRICTED
@@ -103,6 +103,7 @@
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
 /datum/species/apparition/handle_death(var/mob/living/carbon/human/H)
-	spawn(1)
-		new /obj/effect/decal/cleanable/ash(H.loc)
-		qdel(H)
+	set waitfor = 0
+	sleep(1)
+	new /obj/effect/decal/cleanable/ash(H.loc)
+	qdel(H)

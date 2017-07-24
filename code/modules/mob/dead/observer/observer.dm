@@ -3,6 +3,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 /mob/dead
 	var/is_manifest = 0
+	var/ghost_cooldown = 0
 
 /mob/dead/observer
 	name = "ghost"
@@ -789,9 +790,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Move item"
 	set desc = "Move a small item to where you are."
 
-	var/cooldown = 0
-
-	if(cooldown > world.time)
+	if(ghost_cooldown > world.time)
 		return
 
 	if(!is_manifest)
@@ -818,7 +817,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(step_to(choice, T))
 		choice.visible_message("<span class='warning'>\The [choice] suddenly moves!</span>")
 
-	cooldown = world.time + 500
+	ghost_cooldown = world.time + 500
 
 /mob/dead/observer/verb/toggle_anonsay()
 	set category = "Ghost"
