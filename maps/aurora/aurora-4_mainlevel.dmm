@@ -3444,7 +3444,7 @@
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8;
 	icon_state = "map";
-	name = "Waste Venting";
+	name = "Waste Venting"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -4443,7 +4443,7 @@
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 4;
 	icon_state = "map";
-	name = "From Heat Exchanger";
+	name = "From Heat Exchanger"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -4463,7 +4463,7 @@
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 1;
 	icon_state = "map";
-	name = "From Temp. regulators";
+	name = "From Temp. regulators"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -4487,7 +4487,7 @@
 /obj/machinery/atmospherics/tvalve{
 	dir = 1;
 	icon_state = "map_tvalve0";
-	name = "Filtering/Heat Exchanger Valve 1";
+	name = "Filtering/Heat Exchanger Valve 1"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -17233,7 +17233,7 @@
 /obj/machinery/atmospherics/valve/digital{
 	dir = 1;
 	icon_state = "map_valve0";
-	name = "Emergency Cooling Valve 1";
+	name = "Emergency Cooling Valve 1"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -18909,6 +18909,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hos)
 "aIp" = (
@@ -23999,7 +24000,7 @@
 /obj/structure/urinal{
 	dir = 4;
 	icon_state = "urinal";
-	pixel_x = -32;
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
@@ -26986,13 +26987,13 @@
 	dir = 4;
 	icon_state = "direction_evac";
 	pixel_x = 0;
-	pixel_y = 32;
+	pixel_y = 32
 	},
 /obj/structure/sign/directions/medical{
 	dir = 4;
 	icon_state = "direction_med";
 	pixel_x = 0;
-	pixel_y = 24;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
@@ -27094,18 +27095,18 @@
 /obj/structure/sign/directions/security{
 	dir = 4;
 	icon_state = "direction_sec";
-	pixel_y = 24;
+	pixel_y = 24
 	},
 /obj/structure/sign/directions/medical{
 	dir = 4;
 	icon_state = "direction_med";
 	pixel_x = 0;
-	pixel_y = 32;
+	pixel_y = 32
 	},
 /obj/structure/sign/directions/com{
 	dir = 4;
 	icon_state = "direction_com";
-	pixel_y = 40;
+	pixel_y = 40
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -27150,7 +27151,7 @@
 	dir = 4;
 	icon_state = "direction_med";
 	pixel_x = 0;
-	pixel_y = 32;
+	pixel_y = 32
 	},
 /obj/structure/sign/directions/evac{
 	dir = 8;
@@ -27191,7 +27192,7 @@
 /obj/structure/sign/directions/security{
 	dir = 8;
 	icon_state = "direction_sec";
-	pixel_y = 24;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -27205,7 +27206,7 @@
 /obj/structure/sign/directions/cryo{
 	dir = 8;
 	icon_state = "direction_cryo";
-	pixel_y = 28;
+	pixel_y = 28
 	},
 /obj/machinery/light{
 	dir = 1
@@ -27222,7 +27223,7 @@
 /obj/structure/sign/directions/com{
 	dir = 4;
 	icon_state = "direction_com";
-	pixel_y = 40;
+	pixel_y = 40
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -30548,7 +30549,7 @@
 	dir = 1;
 	icon_state = "direction_com";
 	pixel_x = 0;
-	pixel_y = 8;
+	pixel_y = 8
 	},
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
@@ -30874,7 +30875,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 25;
-	pixel_y = 0;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
@@ -31351,13 +31352,13 @@
 	dir = 4;
 	icon_state = "direction_evac";
 	pixel_x = 0;
-	pixel_y = -4;
+	pixel_y = -4
 	},
 /obj/structure/sign/directions/cryo{
 	dir = 4;
 	icon_state = "direction_cryo";
 	pixel_x = 0;
-	pixel_y = 4;
+	pixel_y = 4
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -38342,7 +38343,7 @@
 	dir = 1;
 	icon_state = "direction_com";
 	pixel_x = -32;
-	pixel_y = 8;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -40825,19 +40826,19 @@
 	dir = 1;
 	icon_state = "direction_evac";
 	pixel_x = 32;
-	pixel_y = 0;
+	pixel_y = 0
 	},
 /obj/structure/sign/directions/cryo{
 	dir = 1;
 	icon_state = "direction_cryo";
 	pixel_x = 32;
-	pixel_y = -8;
+	pixel_y = -8
 	},
 /obj/structure/sign/directions/medical{
 	dir = 4;
 	icon_state = "direction_med";
 	pixel_x = 32;
-	pixel_y = 8;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -40878,13 +40879,13 @@
 	dir = 8;
 	icon_state = "direction_cryo";
 	pixel_x = -32;
-	pixel_y = -8;
+	pixel_y = -8
 	},
 /obj/structure/sign/directions/medical{
 	dir = 4;
 	icon_state = "direction_med";
 	pixel_x = -32;
-	pixel_y = 8;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -41658,7 +41659,7 @@
 	dir = 8;
 	icon_state = "shutter0";
 	id = "OR1shutters";
-	name = "OR-1 Privacy Shutter";
+	name = "OR-1 Privacy Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/medical/surgerywing)
@@ -42250,7 +42251,7 @@
 	dir = 8;
 	icon_state = "shutter0";
 	id = "OR1shutters";
-	name = "OR-1 Privacy Shutter";
+	name = "OR-1 Privacy Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/medical/surgerywing)
@@ -43847,7 +43848,7 @@
 	dir = 8;
 	icon_state = "shutter0";
 	id = "OR1shutters";
-	name = "OR-1 Privacy Shutter";
+	name = "OR-1 Privacy Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/medical/surgerywing)
@@ -46145,7 +46146,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 25;
-	pixel_y = 0;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -47084,7 +47085,7 @@
 	dir = 8;
 	icon_state = "shutter0";
 	id = "OR2shutters";
-	name = "OR-2 Privacy Shutters";
+	name = "OR-2 Privacy Shutters"
 	},
 /turf/simulated/floor/plating,
 /area/medical/surgerywing)
@@ -47556,7 +47557,7 @@
 	dir = 8;
 	icon_state = "shutter0";
 	id = "OR2shutters";
-	name = "OR-2 Privacy Shutters";
+	name = "OR-2 Privacy Shutters"
 	},
 /turf/simulated/floor/plating,
 /area/medical/surgerywing)
@@ -47709,13 +47710,13 @@
 	dir = 1;
 	icon_state = "right";
 	name = "Controlled Environment Zone";
-	req_access = list(55);
+	req_access = list(55)
 	},
 /obj/machinery/door/window/eastright{
 	dir = 2;
 	icon_state = "right";
 	name = "Controlled Environment Zone";
-	req_access = list(55);
+	req_access = list(55)
 	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -47891,7 +47892,7 @@
 /obj/structure/sign/directions/cryo{
 	dir = 8;
 	icon_state = "direction_cryo";
-	pixel_y = 28;
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -47924,18 +47925,18 @@
 /obj/structure/sign/directions/security{
 	dir = 4;
 	icon_state = "direction_sec";
-	pixel_y = 32;
+	pixel_y = 32
 	},
 /obj/structure/sign/directions/medical{
 	dir = 4;
 	icon_state = "direction_med";
 	pixel_x = 0;
-	pixel_y = 24;
+	pixel_y = 24
 	},
 /obj/structure/sign/directions/com{
 	dir = 4;
 	icon_state = "direction_com";
-	pixel_y = 40;
+	pixel_y = 40
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -48860,7 +48861,7 @@
 	dir = 8;
 	icon_state = "shutter0";
 	id = "OR2shutters";
-	name = "OR-2 Privacy Shutters";
+	name = "OR-2 Privacy Shutters"
 	},
 /turf/simulated/floor/plating,
 /area/medical/surgerywing)
@@ -51588,7 +51589,7 @@
 	dir = 1;
 	icon_state = "direction_evac";
 	pixel_x = 32;
-	pixel_y = 4;
+	pixel_y = 4
 	},
 /obj/structure/sign/directions/medical{
 	dir = 1;
@@ -52998,7 +52999,7 @@
 /obj/machinery/alarm/freezer{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 28;
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "freezer storage tiles";
@@ -55719,6 +55720,10 @@
 /area/turbolift/cargo_station)
 "bTj" = (
 /obj/machinery/autolathe,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bTk" = (
@@ -55815,11 +55820,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/cargo_station)
 "bTw" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 8
@@ -57066,7 +57066,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
@@ -59312,7 +59312,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -59329,7 +59329,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -59350,7 +59350,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -59368,7 +59368,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -59404,7 +59404,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -59432,7 +59432,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -59450,7 +59450,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -59496,6 +59496,7 @@
 	req_access = list(50)
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cao" = (
@@ -59642,6 +59643,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
 	icon_state = "map";
+	
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -59929,7 +59931,7 @@
 "cba" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
+	icon_state = "map"
 	},
 /obj/machinery/door/window/southright,
 /turf/simulated/floor/tiled,
@@ -60408,7 +60410,7 @@
 "cbR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -62052,7 +62054,7 @@
 /obj/structure/sign/directions/com{
 	dir = 4;
 	icon_state = "direction_com";
-	pixel_y = 40;
+	pixel_y = 40
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -62124,7 +62126,7 @@
 	dir = 1;
 	icon_state = "direction_com";
 	pixel_x = 32;
-	pixel_y = 8;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -86762,8 +86764,8 @@ bOD
 cad
 cal
 caq
-cax
-cax
+cbM
+cbM
 cba
 cbl
 cbD
@@ -87536,7 +87538,7 @@ cas
 caA
 caN
 cbd
-cbo
+cbd
 cbG
 cbT
 cci
