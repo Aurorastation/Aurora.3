@@ -984,7 +984,6 @@
 /area/hallway/secondary/entry/dock)
 "bU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (NORTHWEST)";
 	icon_state = "intact-supply";
 	dir = 9
 	},
@@ -2695,7 +2694,6 @@
 /area/hallway/secondary/exit)
 "fc" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -3926,7 +3924,6 @@
 	pixel_y = 0
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -4359,7 +4356,6 @@
 	icon_state = "direction_evac";
 	pixel_x = 0;
 	pixel_y = 36;
-	tag = "icon-direction_evac (EAST)"
 	},
 /obj/structure/sign/directions/all{
 	pixel_x = 0;
@@ -4436,7 +4432,6 @@
 	icon_state = "direction_evac";
 	pixel_x = 0;
 	pixel_y = 36;
-	tag = "icon-direction_evac (EAST)"
 	},
 /obj/structure/sign/directions/all{
 	pixel_x = 0;
@@ -5373,7 +5368,6 @@
 "jK" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -5637,7 +5631,6 @@
 	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -5826,7 +5819,6 @@
 	req_one_access = list(13)
 	},
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -6588,7 +6580,6 @@
 	icon_state = "leftsecure";
 	name = "Arrivals Processing Desk";
 	req_access = list(1);
-	tag = "icon-leftsecure (WEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -7299,7 +7290,6 @@
 	icon_state = "direction_evac";
 	pixel_x = 0;
 	pixel_y = -28;
-	tag = "icon-direction_evac (EAST)"
 	},
 /obj/structure/sign/directions/all{
 	pixel_x = 0;
@@ -7891,7 +7881,6 @@
 "nW" = (
 /obj/machinery/vending/cola,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -9143,13 +9132,11 @@
 	icon_state = "direction_evac";
 	pixel_x = 0;
 	pixel_y = 4;
-	tag = "icon-direction_evac (NORTH)"
 	},
 /obj/structure/sign/directions/engineering{
 	dir = 4;
 	icon_state = "direction_eng";
 	pixel_y = -4;
-	tag = "icon-direction_eng (EAST)"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
@@ -9257,26 +9244,22 @@
 	icon_state = "direction_med";
 	pixel_x = 0;
 	pixel_y = 4;
-	tag = "icon-direction_med (EAST)"
 	},
 /obj/structure/sign/directions/science{
 	dir = 4;
 	icon_state = "direction_sci";
 	pixel_y = -4;
-	tag = "icon-direction_sci (EAST)"
 	},
 /obj/structure/sign/directions/security{
 	dir = 4;
 	icon_state = "direction_sec";
 	pixel_x = 0;
 	pixel_y = -12;
-	tag = "icon-direction_sec (EAST)"
 	},
 /obj/structure/sign/directions/com{
 	dir = 4;
 	icon_state = "direction_com";
 	pixel_y = 12;
-	tag = "icon-direction_com (EAST)"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
@@ -9441,7 +9424,6 @@
 	dir = 4;
 	icon_state = "direction_civ";
 	pixel_y = 4;
-	tag = "icon-direction_civ (EAST)"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
@@ -9842,7 +9824,6 @@
 /area/crew_quarters/sleep/cryo)
 "rG" = (
 /obj/machinery/cryopod{
-	tag = "icon-body_scanner_0 (EAST)";
 	icon_state = "body_scanner_0";
 	dir = 4
 	},
@@ -9880,7 +9861,6 @@
 "rJ" = (
 /obj/machinery/cryopod,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -10547,7 +10527,6 @@
 	pixel_y = -25
 	},
 /obj/machinery/cryopod{
-	tag = "icon-body_scanner_0 (EAST)";
 	icon_state = "body_scanner_0";
 	dir = 4
 	},
@@ -11173,7 +11152,6 @@
 	icon_state = "direction_cryo";
 	pixel_x = 32;
 	pixel_y = 36;
-	tag = "icon-direction_cryo (EAST)"
 	},
 /obj/structure/sign/directions/all{
 	pixel_x = 32;
@@ -11189,7 +11167,6 @@
 /area/crew_quarters/sleep/cryo)
 "ut" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -12005,7 +11982,6 @@
 /area/crew_quarters/fitness)
 "vZ" = (
 /obj/effect/floor_decal/spline/plain{
-	tag = "icon-spline_plain (NORTHWEST)";
 	icon_state = "spline_plain";
 	dir = 9
 	},
@@ -12374,7 +12350,6 @@
 	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -12476,7 +12451,6 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/junction{
-	tag = "icon-pipe-j2";
 	icon_state = "pipe-j2";
 	dir = 2
 	},
@@ -12677,7 +12651,6 @@
 /area/crew_quarters/fitness)
 "xf" = (
 /obj/effect/floor_decal/spline/plain{
-	tag = "icon-spline_plain (WEST)";
 	icon_state = "spline_plain";
 	dir = 8
 	},
@@ -12699,7 +12672,6 @@
 	dir = 8
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -13572,7 +13544,6 @@
 "yN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -13947,13 +13918,11 @@
 	icon_state = "direction_cryo";
 	pixel_x = 32;
 	pixel_y = 8;
-	tag = "icon-direction_cryo (NORTH)"
 	},
 /obj/structure/sign/directions/all{
 	dir = 8;
 	icon_state = "direction_all";
 	pixel_x = 32;
-	tag = "icon-direction_all (WEST)"
 	},
 /obj/structure/sign/directions/evac{
 	dir = 8;
@@ -14149,21 +14118,18 @@
 	icon_state = "direction_evac";
 	pixel_x = 0;
 	pixel_y = -24;
-	tag = "icon-direction_evac (NORTH)"
 	},
 /obj/structure/sign/directions/all{
 	dir = 1;
 	icon_state = "direction_all";
 	pixel_x = 0;
 	pixel_y = -32;
-	tag = "icon-direction_all (NORTH)"
 	},
 /obj/structure/sign/directions/cryo{
 	dir = 4;
 	icon_state = "direction_cryo";
 	pixel_x = 0;
 	pixel_y = -40;
-	tag = "icon-direction_cryo (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
@@ -15533,14 +15499,12 @@
 	icon_state = "direction_evac";
 	pixel_x = 32;
 	pixel_y = 4;
-	tag = "icon-direction_evac (NORTH)"
 	},
 /obj/structure/sign/directions/all{
 	dir = 1;
 	icon_state = "direction_all";
 	pixel_x = 32;
 	pixel_y = -4;
-	tag = "icon-direction_all (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
@@ -15731,7 +15695,6 @@
 	dir = 8
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -17500,7 +17463,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -18299,7 +18261,6 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -18495,7 +18456,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/down{
-	tag = "icon-pipe-d (NORTH)";
 	icon_state = "pipe-d";
 	dir = 1
 	},
@@ -18662,7 +18622,6 @@
 /area/hallway/secondary/entry/fore)
 "Ij" = (
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -18811,7 +18770,6 @@
 	icon_state = "leftsecure";
 	name = "Holding Cell";
 	req_access = list(2);
-	tag = "icon-leftsecure (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)

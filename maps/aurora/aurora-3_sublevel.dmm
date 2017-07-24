@@ -461,7 +461,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -476,7 +475,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -489,7 +487,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -504,7 +501,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -522,7 +518,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -544,7 +539,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -919,7 +913,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -928,7 +921,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -938,7 +930,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -947,7 +938,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2324,7 +2314,6 @@
 /area/outpost/engineering/power)
 "ey" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -2367,7 +2356,6 @@
 "eC" = (
 /obj/machinery/power/tesla_coil,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -2744,7 +2732,6 @@
 	dir = 10
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -2893,7 +2880,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -3072,7 +3058,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -4627,7 +4612,6 @@
 	dir = 1
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -5713,7 +5697,6 @@
 /area/maintenance/sublevel)
 "jH" = (
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -6089,7 +6072,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10;
@@ -6111,7 +6093,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -6133,7 +6114,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -6148,7 +6128,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -6169,7 +6148,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -6190,7 +6168,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -6257,7 +6234,6 @@
 /area/security/nuke_storage)
 "ku" = (
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -6330,7 +6306,6 @@
 	icon_state = "alarm0";
 	pixel_x = 25;
 	pixel_y = 0;
-	tag = "icon-alarm0 (WEST)"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -6591,7 +6566,6 @@
 /area/maintenance/sublevel)
 "lc" = (
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -6703,7 +6677,6 @@
 "ll" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
-	tag = "icon-11-1";
 	icon_state = "11-1"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/green{
@@ -7604,7 +7577,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7627,7 +7599,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -7651,7 +7622,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -7669,7 +7639,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - AI Maint EVA"
@@ -7696,7 +7665,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -8083,7 +8051,6 @@
 	dir = 8
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -9364,7 +9331,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/valve/digital/open{
-	tag = "icon-map_valve1 (NORTH)";
 	icon_state = "map_valve1";
 	dir = 1
 	},
@@ -9453,7 +9419,6 @@
 /area/medical/virology)
 "qa" = (
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -9615,7 +9580,6 @@
 	pixel_y = -22
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber{
-	tag = "icon-map_scrubber_off (NORTH)";
 	icon_state = "map_scrubber_off";
 	dir = 1
 	},
@@ -9673,7 +9637,6 @@
 /area/mine/unexplored)
 "qv" = (
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -14107,7 +14070,6 @@
 /area/medical/morgue)
 "xZ" = (
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -15838,7 +15800,6 @@
 	dir = 1
 	},
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -15854,7 +15815,6 @@
 	icon_state = "camera"
 	},
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -16512,7 +16472,6 @@
 	name = "blobstart"
 	},
 /obj/machinery/cryopod{
-	tag = "icon-body_scanner_0 (EAST)";
 	icon_state = "body_scanner_0";
 	dir = 4
 	},
@@ -16540,7 +16499,6 @@
 	icon_state = "tube1"
 	},
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -16833,7 +16791,6 @@
 /area/medical/virology)
 "Cz" = (
 /obj/machinery/cryopod{
-	tag = "icon-body_scanner_0 (EAST)";
 	icon_state = "body_scanner_0";
 	dir = 4
 	},
@@ -18631,7 +18588,6 @@
 "FE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/unary/freezer{
-	tag = "icon-freezer_0 (EAST)";
 	icon_state = "freezer_0";
 	dir = 4
 	},
@@ -22025,7 +21981,6 @@
 /area/maintenance/disposal)
 "LE" = (
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -22067,7 +22022,6 @@
 /area/rnd/test_area)
 "LJ" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (WEST)";
 	icon_state = "tube1";
 	dir = 8
 	},
@@ -22084,7 +22038,6 @@
 /area/rnd/test_area)
 "LL" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (EAST)";
 	icon_state = "tube1";
 	dir = 4
 	},
@@ -22115,7 +22068,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
 	},
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Tesla Output";
@@ -22201,7 +22153,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
