@@ -195,7 +195,9 @@ var/list/sacrificed = list()
 	for(var/mob/M in range(1,src))
 		if(iscultist(M) && !M.stat)
 			M.say("Tok-lyr rqa'nap g[pick("'","`")]lt-ulotf!")
-			cultists += 1
+			if(istype(M, /mob/living/carbon/human/apparition))
+				continue
+			cultists.Add(M)
 	if(cultists.len >= 9)
 		log_and_message_admins_many(cultists, "summoned Nar-sie.")
 		new /obj/singularity/narsie/large(src.loc)
@@ -435,7 +437,7 @@ var/list/sacrificed = list()
 		return this_rune.fizzle()
 
 	usr.say("Gal'h'rfikk harfrandid mud[pick("'","`")]gib!")
-	var/mob/living/carbon/human/dummy/D = new(this_rune.loc)
+	var/mob/living/carbon/human/apparition/D = new(this_rune.loc)
 	usr.visible_message("<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
 	"<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
 	"<span class='warning'>You hear liquid flowing.</span>")
@@ -447,12 +449,6 @@ var/list/sacrificed = list()
 			chose_name = 1
 			break
 	D.universal_speak = 1
-	D.status_flags &= ~GODMODE
-	D.s_tone = 35
-	D.b_eyes = 200
-	D.r_eyes = 200
-	D.g_eyes = 200
-	D.update_eyes()
 	D.underwear = 0
 	D.key = ghost.key
 	cult.add_antagonist(D.mind)
