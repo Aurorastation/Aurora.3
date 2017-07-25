@@ -30,7 +30,7 @@
 			bad_data &= ~BAD_CID
 
 		if (bad_data)
-			var/DBQuery/mirrored_bans = dbcon.NewQuery("SELECT player_ckey, ban_mirror_ip, ban_mirror_computerid FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
+			var/DBQuery/mirrored_bans = dbcon.NewQuery("SELECT ckey, ip, computerid FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
 			mirrored_bans.Execute(list("ban_id" = ban_id))
 
 			while (mirrored_bans.NextRow())
@@ -46,7 +46,7 @@
 					bad_data &= ~BAD_CID
 
 			if (bad_data)
-				apply_ban_mirror(ckey, address, computer_id, ban_id)
+				apply_ban_mirror(ckey, address, computer_id, ban_id, 3)
 
 		return
 
@@ -66,7 +66,7 @@
 		log_misc("Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
 		return null
 
-	var/DBQuery/initial_query = dbcon.NewQuery("SELECT DISTINCT ban_id FROM ss13_ban_mirrors WHERE player_ckey = :ckey: OR ban_mirror_ip = :address: OR ban_mirror_computerid = :computerid:")
+	var/DBQuery/initial_query = dbcon.NewQuery("SELECT DISTINCT ban_id FROM ss13_ban_mirrors WHERE ckey = :ckey: OR ip = :address: OR computerid = :computerid:")
 	initial_query.Execute(list("ckey" = ckey, "address" = address, "computerid" = computer_id))
 
 	var/list/ban_ids = list()
@@ -94,6 +94,19 @@
 		// Just in case.
 		return active_bans[active_bans.len]
 
+/proc/apply_ban_mirror(var/ckey, var/address, var/computer_id, var/ban_id, var/source = 1, var/list/extra_info = list())
+	if (!ckey || !address || !computer_id || !ban_id)
+		return
+
+	. = list()
+	for (var/i = 1; i <= extra_info.len && i <= 50; i++)
+		. |= extra_info[i][1]
+
+	var/DBQuery/new_mirror = dbcon.NewQuery("INSERT INTO ss13_ban_mirrors (id, ban_id, ckey, ip, computerid, source, extra_info, datetime) VALUES (NULL, :ban_id:, :ckey:, :address:, :computerid:, :source:, :info:, NOW())")
+	new_mirror.Execute(list("ban_id" = ban_id, "ckey" = ckey, "address" = address, "computerid" = computer_id, "source" = source, "info" = json_encode(.)))
+
+	log_misc("Mirrored ban #[ban_id] for player [ckey] from [address]-[computer_id].")
+
 /proc/get_ban_mirrors(var/ban_id)
 	if (!ban_id)
 		return null
@@ -103,29 +116,116 @@
 	if (!dbcon.IsConnected())
 		return null
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT ban_mirror_id, player_ckey, ban_mirror_ip, ban_mirror_computerid, date(ban_mirror_datetime) as datetime FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
+	var/DBQuery/query = dbcon.NewQuery("SELECT id, ckey, ip, computerid, date(datetime) as datetime, source, extra_info FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
 	query.Execute(list("ban_id" = ban_id))
 
-	var/mirrors[] = list()
+	var/list/mirrors = list()
 	while (query.NextRow())
-		var/items[] = list()
+		var/list/items = list(7)
+		items["id"] = text2num(query.item[1])
 		items["ckey"] = query.item[2]
 		items["ip"] = query.item[3]
 		items["computerid"] = query.item[4]
 		items["date"] = query.item[5]
+		items["source"] = query.item[6]
 
-		mirrors[query.item[1]] = items
+		items["extra"] = FALSE
+		if (query.item[7])
+			try
+				var/list/temp = json_decode(query.item[7])
+				if (temp.len)
+					items["extra"] = TRUE
+			catch()
+
+		mirrors += list(items)
 
 	return mirrors
 
-/proc/apply_ban_mirror(var/ckey, var/address, var/computer_id, var/ban_id)
-	if (!ckey || !address || !computer_id || !ban_id)
+/proc/display_mirrors_panel(mob/user, ban_id)
+	if (!user || !check_rights(R_MOD|R_ADMIN) || !ban_id)
 		return
 
-	var/DBQuery/new_mirror = dbcon.NewQuery("INSERT INTO ss13_ban_mirrors (ban_id, player_ckey, ban_mirror_ip, ban_mirror_computerid, ban_mirror_datetime) VALUES (:ban_id:, :ckey:, :address:, :computerid:, NOW())")
-	new_mirror.Execute(list("ban_id" = ban_id, "ckey" = ckey, "address" = address, "computerid" = computer_id))
+	var/list/mirrors = get_ban_mirrors(ban_id)
 
-	log_misc("Mirrored ban #[ban_id] for player [ckey] from [address]-[computer_id].")
+	if (!mirrors)
+		user << "<span class='warning'>Something went horribly wrong.</span>"
+		return
+
+	if (!mirrors.len)
+		user << "<span class='warning'>No mirrors for this ban found.</span>"
+		return
+
+	var/output = "<b><center>Ban mirrors for ban #[ban_id]</center></b><br>"
+	output += "<center>Each line indicates a new bypass attempt.</center><br>"
+
+	output += "<table width='90%' bgcolor='#e3e3e3' cellpadding='5' cellspacing='0' align='center'>"
+	output += "<tr>"
+	output += "<th width='25%'><b>TYPE</b></th>"
+	output += "<th width='25%'><b>CKEY</b></th>"
+	output += "<th width='30%'><b>TIME APPLIED</b></th>"
+	output += "<th width='20%'><b>OPTIONS</b></th>"
+	output += "</tr>"
+
+	var/static/list/bg_colors = list("#ffeeee", "#ffdddd")
+	var/i = 0
+	for (var/mirror in mirrors)
+		var/bg = bg_colors[i + 1]
+		var/list/details = mirror
+
+		output += "<tr bgcolor='[bg]'>"
+		output += "<td align='center'>[details["source"]]</td>"
+		output += "<td align='center'>[details["ckey"]]</td>"
+		output += "<td align='center'>[details["date"]]</td>"
+		if (details["extra"])
+			output += "<td align='center'><a href='?_src_=holder;dbbanmirrorckeys=[details["id"]]'>View Ckeys</a></td>"
+		else
+			output += "<td></td>"
+		output += "</tr>"
+
+		output += "<tr bgcolor='[bg]'>"
+		output += "<td align='center' colspan='2'>IP: [details["ip"]]</td>"
+		output += "<td align='center' colspan='2'>CID: [details["computerid"]]</td>"
+		output += "</tr>"
+
+		i = (++i % 2)
+
+	output += "</table>"
+	user << browse(output, "window=banmirrors;size=600x400")
+
+/proc/display_mirrors_ckeys(mob/user, mirror_id)
+	if (!user || !check_rights(R_MOD|R_ADMIN) || !mirror_id)
+		return
+
+	if (!establish_db_connection(dbcon))
+		to_chat(user, "<span class='warning'>Database connection failed!</span>")
+		return
+
+	var/DBQuery/query = dbcon.NewQuery("SELECT extra_info, ban_id FROM ss13_ban_mirrors WHERE id = :id:")
+	query.Execute(list("id" = mirror_id))
+
+	if (!query.NextRow())
+		to_chat(user, "<span class='notice'>Unable to locate mirror with ID #[mirror_id].</span>")
+		return
+
+	if (!query.item[1] || !length(query.item[1]))
+		to_chat(user, "<span class='notice'>No attached ckeys were found.</span>")
+		return
+
+	var/output = "<a href='?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a><br><br>"
+	try
+		var/list/ckeys = json_decode(query.item[1])
+
+		if (!ckeys.len)
+			to_chat(user, "<span class='notice'>No alternate ckeys to report.</span>")
+			return
+
+		output += ckeys.Join("<br>")
+	catch()
+		to_chat(user, "<span class='notice'>Maligned data found. Please alert the system administrator.</span>")
+		return
+
+	output += "<br><br><a href='?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a>"
+	user << browse(output, "window=banmirrors")
 
 /proc/handle_connection_info(var/client/C, var/data)
 	if (!C)
@@ -197,7 +297,7 @@
 	if (ding_bannu)
 		if (!C.holder)
 			log_and_message_admins("[C.ckey] from [C.address]-[C.computer_id] was caught bandodging. Mirror applied for ban #[ding_bannu], kicking shortly.")
-			apply_ban_mirror(C.ckey, C.address, C.computer_id, ding_bannu)
+			apply_ban_mirror(C.ckey, C.address, C.computer_id, ding_bannu, 2, conn_info)
 			spawn(20)
 				del(C)
 		else

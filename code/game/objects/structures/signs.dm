@@ -225,6 +225,11 @@
 	desc = "A direction sign, pointing out which way the Civilian sector is."
 	icon_state = "direction_civ"
 
+/obj/structure/sign/directions/com
+	name = "\improper Command department"
+	desc = "A direction sign, pointing out which way the Command sector is."
+	icon_state = "direction_com"
+
 /obj/structure/sign/directions/all
 	name = "\improper All directions"
 	desc = "A multi-coloured direction sign, pointing out in which all main departments are located."

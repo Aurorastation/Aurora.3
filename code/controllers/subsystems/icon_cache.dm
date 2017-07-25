@@ -4,12 +4,13 @@
 	name = "Icon Cache"
 	flags = SS_NO_FIRE | SS_NO_INIT
 
+	// Cached bloody overlays, key is object type.
 	var/list/bloody_cache = list()
 
-	var/list/holo_multiplier_cache = list()
-	var/list/holo_adder_cache = list()
-
-	var/list/image/fluidtrack_cache = list()
+	// Cached holo effect multiplier images.
+	var/list/holo_multiplier_cache = list() // 2-layer list: icon -> icon_state -> /image
+	// Cached holo effect adder images.
+	var/list/holo_adder_cache = list() // 2-layer list: icon -> icon_state -> /image
 
 	var/list/floor_decals = list()
 	var/list/flooring_cache = list()
@@ -32,10 +33,23 @@
 	var/list/human_icon_cache = list()
 	var/list/tail_icon_cache = list()	//key is [species.race_key][r_skin][g_skin][b_skin]
 	var/list/light_overlay_cache = list()
+	// Cached body hair icons, used by resomi.
 	var/list/body_hair_cache = list()
+	// Cached human damage icons.
 	var/list/damage_icon_parts = list()
-	// [icon]-[icon_state]-[limb_name]-[color]
-	var/list/markings_cache = list()
+	// Cached human body markings.
+	var/list/markings_cache = list()	// [icon]-[icon_state]-[limb_name]-[color]
+	var/list/human_eye_cache = list()
+	var/list/human_lip_cache = list()
+	// Cached composited human hair (beard & hair).
+	// Key:
+	//    hair+beard: [beard_style][r_facial][g_facial][b_facial]_[hair_style][r_hair][g_hair][b_hair]
+	//    haironly:   nobeard_[hair_style][r_hair][g_hair][b_hair]
+	//    beardonly:  [beard_style][r_facial][g_facial][b_facial]_nohair
+	var/list/human_hair_cache = list()
+	var/list/human_underwear_cache = list()
+	var/list/human_undershirt_cache = list()
+	var/list/human_socks_cache = list()
 
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)

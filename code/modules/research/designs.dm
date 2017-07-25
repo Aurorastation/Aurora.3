@@ -1175,7 +1175,7 @@ CIRCUITS BELOW
 /datum/design/circuit/sentencing
 	name = "criminal sentencing console"
 	id = "sentencing"
-	build_path = /obj/machinery/computer/sentencing
+	build_path = /obj/item/weapon/circuitboard/sentencing
 	sort_string = "DADAA"
 
 
@@ -1663,7 +1663,7 @@ CIRCUITS BELOW
 /datum/design/circuit/crusher_base
 	name = "trash compactor"
 	id = "crusher_base"
-	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 1, TECH_MAGNET = 1, TECH_MATERIALS = 3)
+	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 1, TECH_MAGNET = 1, TECH_MATERIAL = 3)
 	build_path = /obj/item/weapon/circuitboard/crusher
 	sort_string = "WAAAB"
 
