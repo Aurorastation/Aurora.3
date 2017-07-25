@@ -1,7 +1,5 @@
 /var/global/datum/controller/subsystem/trade/SStrade
 
-var/global/
-
 /datum/controller/subsystem/trade
 	name = "Trade"
 	wait = 1 MINUTE
@@ -20,9 +18,9 @@ var/global/
 	for(var/a in traders)
 		var/datum/trader/T = a
 		if(!T.tick())
-			SStrade.traders -= T
+			traders -= T
 			qdel(T)
-	if(prob(100-SStrade.traders.len*10))
+	if(prob(100-traders.len*10))
 		generateTrader()
 
 /datum/controller/subsystem/trade/proc/generateTrader(var/stations = 0)
@@ -38,11 +36,11 @@ var/global/
 	for(var/i in 1 to 10)
 		var/type = pick(possible)
 		var/bad = 0
-		for(var/trader in SStrade.traders)
+		for(var/trader in traders)
 			if(istype(trader,type))
 				bad = 1
 				break
 		if(bad)
 			continue
-		SStrade.traders += new type
+		traders += new type
 		return
