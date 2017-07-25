@@ -1,12 +1,17 @@
-/var/global/datum/controller/process/trade/SStrade
+/var/global/datum/controller/subsystem/trade/SStrade
 
 /datum/controller/subsystem/trade
-	name = "trade"
+	name = "Trade"
 	wait = 1 MINUTE
+	flags = SS_NO_TICK_CHECK
 
 /datum/controller/subsystem/trade/New()
+	NEW_SS_GLOBAL(SStrade)
+
+/datum/controller/subsystem/trade/Initialize()
 	for(var/i in 1 to rand(1,3))
 		generateTrader(1)
+	..()
 
 /datum/controller/subsystem/trade/fire()
 	for(var/a in traders)
