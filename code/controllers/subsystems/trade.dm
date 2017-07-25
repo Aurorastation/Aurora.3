@@ -1,11 +1,12 @@
 /var/global/datum/controller/subsystem/trade/SStrade
 
-var/global/list/traders                  = list() //List of all nearby traders
+var/global/
 
 /datum/controller/subsystem/trade
 	name = "Trade"
 	wait = 1 MINUTE
 	flags = SS_NO_TICK_CHECK
+	var/list/traders = list() //List of all nearby traders
 
 /datum/controller/subsystem/trade/New()
 	NEW_SS_GLOBAL(SStrade)
@@ -19,9 +20,9 @@ var/global/list/traders                  = list() //List of all nearby traders
 	for(var/a in traders)
 		var/datum/trader/T = a
 		if(!T.tick())
-			traders -= T
+			SStrade.traders -= T
 			qdel(T)
-	if(prob(100-traders.len*10))
+	if(prob(100-SStrade.traders.len*10))
 		generateTrader()
 
 /datum/controller/subsystem/trade/proc/generateTrader(var/stations = 0)
@@ -37,11 +38,11 @@ var/global/list/traders                  = list() //List of all nearby traders
 	for(var/i in 1 to 10)
 		var/type = pick(possible)
 		var/bad = 0
-		for(var/trader in traders)
+		for(var/trader in SStrade.traders)
 			if(istype(trader,type))
 				bad = 1
 				break
 		if(bad)
 			continue
-		traders += new type
+		SStrade.traders += new type
 		return
