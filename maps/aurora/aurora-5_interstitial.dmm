@@ -1322,12 +1322,15 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/library)
 "cz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
 	id_tag = "fuckyou3_inner";
 	locked = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4;
+	icon_state = "intact"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
@@ -1610,7 +1613,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4

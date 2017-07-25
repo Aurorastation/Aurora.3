@@ -310,7 +310,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/blue{
 	dir = 2;
-	icon_state = "11-1";
+	icon_state = "11-1"
 	},
 /turf/simulated/open,
 /area/mine/explored)
@@ -2033,7 +2033,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -2258,9 +2258,6 @@
 	pixel_y = -25;
 	req_access = list(11,13)
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 8
-	},
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -2272,6 +2269,10 @@
 	icon_state = "2-8"
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "eG" = (
@@ -2572,7 +2573,7 @@
 "fb" = (
 /obj/structure/cable{
 	dir = 2;
-	icon_state = "11-1";
+	icon_state = "11-1"
 	},
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -3629,6 +3630,41 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
 	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ih" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 9
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ii" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ij" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"ik" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"il" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
@@ -8872,9 +8908,9 @@ aa
 aa
 aa
 ad
-fN
+fk
 ah
-fY
+fq
 aw
 ab
 ab
@@ -9899,11 +9935,11 @@ ag
 ag
 ag
 ag
-fK
+fk
 ah
 ah
 ah
-fZ
+fq
 ag
 ag
 ag
@@ -11175,7 +11211,7 @@ ah
 ah
 ah
 ah
-fu
+fo
 ai
 ai
 ai
@@ -11197,7 +11233,7 @@ ai
 ai
 ai
 ai
-go
+fl
 ah
 ah
 ah
@@ -11431,7 +11467,7 @@ ah
 ah
 ah
 ah
-fp
+fo
 am
 aa
 aa
@@ -11455,7 +11491,7 @@ aa
 aa
 aa
 af
-gs
+fl
 ah
 ah
 ah
@@ -13254,7 +13290,7 @@ aa
 aa
 aa
 ad
-gt
+fk
 ah
 ah
 ah
@@ -13488,7 +13524,7 @@ ah
 ah
 ah
 ah
-fv
+fo
 ai
 am
 aa
@@ -13510,14 +13546,14 @@ cV
 aa
 ad
 ag
-gp
+fk
 ah
 ah
 ah
 ah
 ah
 ah
-gC
+fq
 ag
 ag
 ag
@@ -13763,9 +13799,9 @@ aU
 cv
 ap
 ag
-gh
+fR
 ag
-gm
+fk
 ah
 ah
 ah
@@ -14253,7 +14289,7 @@ ad
 ag
 ag
 ag
-fm
+fk
 ah
 ah
 ah
@@ -14292,7 +14328,7 @@ ah
 ah
 ah
 ah
-gG
+fq
 ag
 ag
 ag
@@ -14553,7 +14589,7 @@ ah
 ah
 ah
 ah
-gI
+fq
 ag
 aw
 aa
@@ -15067,7 +15103,7 @@ ah
 ah
 ah
 ah
-gJ
+fo
 ai
 am
 aa
@@ -15281,7 +15317,7 @@ af
 ai
 ai
 ai
-fn
+fl
 ah
 ah
 ah
@@ -15318,7 +15354,7 @@ ah
 ah
 ah
 ah
-gF
+fo
 ai
 ai
 ai
@@ -15572,7 +15608,7 @@ ah
 ah
 ah
 ah
-gB
+fo
 ai
 ai
 am
@@ -15821,7 +15857,7 @@ ap
 ai
 gi
 ai
-gn
+fl
 ah
 ah
 ah
@@ -16080,7 +16116,7 @@ cU
 aa
 af
 ai
-gq
+fl
 ah
 ah
 ah
@@ -16338,7 +16374,7 @@ aa
 aa
 aa
 af
-gu
+fl
 ah
 ah
 ah
@@ -16577,7 +16613,7 @@ ah
 ah
 ah
 ah
-fz
+fo
 ap
 bl
 bz
@@ -17091,7 +17127,7 @@ ah
 ah
 ah
 ah
-fA
+fw
 bb
 bb
 bb
@@ -18113,7 +18149,7 @@ ah
 ah
 fo
 ai
-fr
+fl
 ah
 ah
 ah
@@ -18137,10 +18173,10 @@ aa
 aa
 aa
 ad
-gv
+gr
 ai
 ai
-gy
+ft
 ah
 al
 ab
@@ -18379,13 +18415,13 @@ ai
 fB
 ag
 ag
-fI
+fk
 ah
 ah
 ah
 ah
 ah
-ga
+fq
 ag
 ag
 ag
@@ -18636,13 +18672,13 @@ ab
 af
 ai
 ai
-fJ
+fl
 ah
 ah
 ah
 ah
 ah
-gb
+fo
 ai
 ai
 ai
@@ -26092,11 +26128,11 @@ aa
 aa
 ae
 ah
-fS
+fq
 ag
 ag
 ag
-gc
+fk
 ah
 bm
 aa
@@ -26347,7 +26383,7 @@ aa
 aa
 ad
 ao
-fL
+fk
 ah
 ah
 ah
@@ -26355,7 +26391,7 @@ ah
 ah
 ah
 ah
-ge
+fq
 ao
 aw
 aa
@@ -26420,7 +26456,7 @@ aa
 ad
 ag
 ao
-hY
+fk
 ah
 ah
 ah
@@ -26683,7 +26719,7 @@ ah
 ah
 ah
 ah
-ib
+fq
 ag
 ag
 ag
@@ -27188,7 +27224,7 @@ eo
 eo
 eo
 eo
-hV
+fk
 ah
 ah
 ah
@@ -27416,10 +27452,10 @@ ab
 ae
 ah
 ah
-hc
+fq
 ag
 ag
-hj
+fk
 ah
 ah
 ah
@@ -27427,7 +27463,7 @@ ah
 ah
 ah
 ah
-hC
+fq
 aw
 ab
 ab
@@ -28162,11 +28198,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-ad
+ih
+ii
+ij
+ik
+il
 ag
 ag
 ag
@@ -28197,7 +28233,7 @@ ai
 ai
 ai
 ai
-hA
+fl
 ah
 al
 ab
@@ -28405,7 +28441,7 @@ fC
 ai
 ai
 ai
-fT
+fl
 ah
 ah
 ah
@@ -28413,17 +28449,17 @@ ah
 ah
 ah
 ah
-gk
+fq
 ag
 ag
 ag
 ag
 ag
-aw
-aa
-aa
-aa
-ae
+fk
+ah
+ah
+ah
+ah
 an
 ah
 ah
@@ -28676,11 +28712,11 @@ ah
 ah
 ah
 ah
-al
-aa
-aa
-aa
-ae
+ah
+ah
+ah
+ah
+ah
 bX
 ah
 ah
@@ -28713,7 +28749,7 @@ ed
 ee
 ae
 ah
-hD
+fq
 ag
 aw
 ab
@@ -28919,7 +28955,7 @@ al
 aa
 aa
 ad
-fU
+fk
 ah
 ah
 ah
@@ -28933,11 +28969,11 @@ ah
 ah
 ah
 ah
-gw
-aw
-aa
-aa
-ae
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -29164,7 +29200,7 @@ aa
 ad
 ag
 ag
-fs
+fk
 ah
 ah
 ah
@@ -29191,10 +29227,10 @@ ah
 ah
 ah
 ah
-al
-aa
-aa
-ae
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -29229,7 +29265,7 @@ ae
 ah
 ah
 ah
-hG
+fq
 ag
 ag
 bG
@@ -29448,10 +29484,10 @@ ah
 ah
 ah
 ah
-al
-aa
-aa
-ae
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -29517,7 +29553,7 @@ ah
 ah
 ah
 ah
-ie
+fq
 bG
 ag
 ag
@@ -29686,10 +29722,10 @@ ah
 ah
 ah
 ah
-fE
+fq
 ag
 bG
-fO
+fk
 ah
 ah
 ah
@@ -29705,10 +29741,10 @@ ah
 ah
 ah
 ah
-gz
-ag
-ag
-gD
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -30714,10 +30750,10 @@ ah
 ah
 ah
 ah
-fF
+fo
 ai
 ai
-fP
+fl
 ah
 ah
 ah
@@ -30733,10 +30769,10 @@ an
 ah
 ah
 ah
-gA
+fo
 ai
 ai
-gE
+ft
 ah
 ah
 ah
@@ -30775,9 +30811,9 @@ ah
 ah
 ah
 eg
-hM
+fo
 ai
-hQ
+ft
 ah
 al
 aa
@@ -31043,7 +31079,7 @@ ad
 ag
 ag
 ag
-hW
+fk
 eU
 ah
 ah
@@ -31063,11 +31099,11 @@ ah
 ah
 ah
 ah
-if
+fq
 ag
 ag
 ag
-ig
+fk
 ah
 ah
 ah
@@ -31271,7 +31307,7 @@ al
 ag
 ag
 ag
-hd
+gU
 aP
 eb
 dU
@@ -31489,7 +31525,7 @@ al
 aa
 aa
 ak
-fV
+fl
 ah
 ah
 ah
@@ -31503,7 +31539,7 @@ ah
 ah
 ah
 ah
-gx
+fo
 am
 aa
 aa
@@ -31829,7 +31865,7 @@ ah
 ah
 ah
 ah
-id
+fo
 ai
 ai
 ai
@@ -32003,7 +32039,7 @@ fH
 ag
 ag
 ag
-fW
+fk
 ah
 ah
 ah
@@ -32011,7 +32047,7 @@ ah
 ah
 ah
 ah
-gl
+fo
 ai
 ai
 ai
@@ -32060,14 +32096,14 @@ ah
 ah
 ah
 ah
-hN
+fq
 ag
-hR
+fk
 ah
-al
-aa
-aa
-ae
+fq
+ag
+ag
+fk
 ah
 ah
 ah
@@ -32321,10 +32357,6 @@ ah
 ah
 ah
 ah
-hS
-ag
-ag
-hU
 ah
 ah
 ah
@@ -32340,7 +32372,11 @@ ah
 ah
 ah
 ah
-ic
+ah
+ah
+ah
+ah
+fo
 ai
 ai
 am
@@ -32591,9 +32627,9 @@ ah
 ah
 ah
 ah
-hZ
+fo
 ai
-ia
+fl
 ah
 ah
 ah
@@ -32798,13 +32834,13 @@ ah
 ah
 ah
 ah
-gH
+fo
 ai
 ai
 ai
 ai
 ai
-gK
+fl
 ah
 ah
 ah
@@ -32835,14 +32871,14 @@ ah
 ah
 ah
 ah
-hT
-ai
-ai
-ai
-ai
-ai
-ai
-hX
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 ah
 ah
 ah
@@ -33092,14 +33128,14 @@ ah
 ah
 ah
 ah
-al
-aa
-aa
-aa
-aa
-aa
-aa
-af
+fo
+ai
+ai
+ai
+ai
+ai
+ai
+ai
 ai
 ai
 ai
@@ -33320,7 +33356,7 @@ ab
 ab
 af
 ai
-gL
+fl
 ah
 ah
 al
@@ -33835,7 +33871,7 @@ ab
 ab
 ab
 af
-gS
+fl
 ah
 al
 ah
@@ -34057,7 +34093,7 @@ aa
 aa
 af
 ao
-fM
+fl
 ah
 ah
 ah
@@ -34065,7 +34101,7 @@ ah
 ah
 ah
 ah
-gf
+fo
 ao
 am
 aa
@@ -34316,11 +34352,11 @@ aa
 aa
 ae
 ah
-fX
+fo
 ai
 ai
 ai
-gd
+fl
 ah
 al
 aa
@@ -34865,7 +34901,7 @@ ab
 ab
 ae
 ah
-gV
+fq
 ag
 ag
 ag
@@ -34879,7 +34915,7 @@ ag
 ag
 ag
 ag
-hB
+fk
 ah
 ah
 ah
@@ -35135,7 +35171,7 @@ ah
 ah
 ah
 ah
-hx
+fo
 ai
 ai
 ai
@@ -35390,7 +35426,7 @@ ah
 ah
 ah
 ah
-hu
+fo
 ai
 am
 ab
@@ -35643,8 +35679,8 @@ ai
 ai
 ai
 ai
-hk
-hp
+ft
+fo
 ai
 ai
 am
@@ -35912,7 +35948,7 @@ ag
 ag
 ag
 ag
-hI
+fk
 ah
 al
 ab
@@ -36163,7 +36199,7 @@ aa
 ad
 ag
 ag
-hy
+fk
 ah
 ah
 ah
@@ -36672,7 +36708,7 @@ aa
 aa
 aa
 ae
-hq
+fw
 bb
 hs
 ah
@@ -36683,7 +36719,7 @@ ah
 ah
 ah
 ah
-hJ
+fo
 ai
 am
 ab
@@ -36934,7 +36970,7 @@ aa
 ae
 ah
 ah
-hz
+fo
 ai
 ai
 ai
@@ -37185,10 +37221,10 @@ ag
 ag
 ag
 ag
-hl
-hr
+fk
+fq
 ag
-ht
+fk
 ah
 ah
 al
@@ -47983,7 +48019,7 @@ ah
 ah
 ah
 ah
-hv
+fq
 ag
 ag
 ag
@@ -48234,7 +48270,7 @@ ab
 ab
 dP
 ag
-hf
+fk
 ah
 ah
 ah
@@ -48489,7 +48525,7 @@ ac
 ab
 ab
 ad
-gY
+fk
 ah
 ah
 ah
@@ -48759,13 +48795,13 @@ ah
 ah
 ah
 ah
-hE
+fq
 ag
 ag
 ag
 ag
 ag
-hO
+fk
 ah
 ah
 al
@@ -49273,13 +49309,13 @@ ah
 ah
 ah
 ah
-hF
+fo
 aq
 aq
 aq
 aq
 aq
-hP
+ft
 ah
 ah
 al
@@ -49517,7 +49553,7 @@ ac
 ac
 ab
 af
-gZ
+fl
 ah
 ah
 ah
@@ -50031,7 +50067,7 @@ ag
 ag
 ag
 ag
-ha
+fk
 ah
 ah
 ah
@@ -50039,7 +50075,7 @@ ah
 ah
 ah
 ah
-hw
+fo
 aq
 aq
 aq
@@ -50796,7 +50832,7 @@ aa
 aa
 aa
 af
-gN
+ft
 ah
 ah
 ah
@@ -51310,7 +51346,7 @@ aa
 aa
 aa
 ad
-gO
+fk
 ah
 ah
 ah
@@ -51824,7 +51860,7 @@ aa
 aa
 aa
 af
-gP
+ft
 ah
 ah
 ah
@@ -52089,7 +52125,7 @@ ah
 ah
 ah
 ah
-hg
+fo
 ai
 dW
 aq
@@ -52338,7 +52374,7 @@ aa
 aa
 aa
 ad
-gQ
+fk
 ah
 ah
 ah
@@ -52852,7 +52888,7 @@ aa
 aa
 aa
 af
-gR
+ft
 ah
 ah
 ah
@@ -53111,7 +53147,7 @@ aa
 aa
 af
 ai
-gT
+fl
 ah
 ah
 ah
@@ -53374,7 +53410,7 @@ ah
 ah
 ah
 ah
-hh
+fq
 bG
 aw
 ab
@@ -54398,13 +54434,13 @@ aa
 aa
 ao
 ah
-gX
+fo
 ai
 hb
 ai
-hi
+ft
 ah
-hm
+fw
 eb
 aa
 aa
@@ -55432,7 +55468,7 @@ cU
 aa
 ae
 ah
-hn
+fq
 ag
 aw
 aa
@@ -55946,7 +55982,7 @@ cU
 aa
 ae
 ah
-ho
+fo
 ai
 am
 aa
