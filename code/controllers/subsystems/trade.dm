@@ -14,6 +14,9 @@
 		generateTrader(1)
 	..()
 
+/datum/controller/subsystem/trade/Recover()
+	traders = SStrade.traders
+
 /datum/controller/subsystem/trade/fire()
 	for(var/a in traders)
 		var/datum/trader/T = a
