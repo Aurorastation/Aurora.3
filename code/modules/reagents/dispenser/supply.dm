@@ -43,7 +43,10 @@ datum/supply_packs/dispenser_cartridges
 	containername = "coffee beans crate"
 	containertype = /obj/structure/closet/crate
 	cost = 15
-	contains = list( /obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans, /obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans )
+	contains = list(
+		/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans,
+		/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans
+	)
 	group = "Hospitality"
 
 /datum/supply_packs/reagents
