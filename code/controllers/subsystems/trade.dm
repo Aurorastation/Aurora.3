@@ -1,5 +1,7 @@
 /var/global/datum/controller/subsystem/trade/SStrade
 
+var/global/list/traders                  = list() //List of all nearby traders
+
 /datum/controller/subsystem/trade
 	name = "Trade"
 	wait = 1 MINUTE
