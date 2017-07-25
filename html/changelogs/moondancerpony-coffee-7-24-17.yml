@@ -4,5 +4,5 @@ delete-after: True
 
 changes: 
   - rscadd: "Added a recipe for Cáfe Mélange, black coffee and cream."
-  - rscadd: "Cargo can now order premium coffee beans and Morning Glory Coffee Mates. This addition sponsored by Morning Glory Coffee©."
+  - rscadd: "Cargo can now order premium coffee beans and Morning Glory Coffee Mates. This addition sponsored by Morning Glory Coffee (registered trademark, trademarked, copyrighted, etc. etc.)."
   - bugfix: "The recipe for Cáfe Au Lait actually works now."
