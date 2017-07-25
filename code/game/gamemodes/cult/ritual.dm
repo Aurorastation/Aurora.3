@@ -65,14 +65,14 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 
 // self other technology - Communication rune  //was other hear blood
 // join hide technology - stun rune. Rune color: bright pink.
-/obj/effect/rune/New()
-	..()
+/obj/effect/rune/Initialize()
+	. = ..()
 	blood_image = image(loc = src)
 	blood_image.override = 1
 	for(var/mob/living/silicon/ai/AI in player_list)
 		if(AI.client)
 			AI.client.images += blood_image
-	rune_list.Add(src)
+	rune_list += src
 
 /obj/effect/rune/Destroy()
 	for(var/mob/living/silicon/ai/AI in player_list)
@@ -80,7 +80,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			AI.client.images -= blood_image
 	qdel(blood_image)
 	blood_image = null
-	rune_list.Remove(src)
+	rune_list -= src
 	return ..()
 
 /obj/effect/rune/examine(mob/user)
