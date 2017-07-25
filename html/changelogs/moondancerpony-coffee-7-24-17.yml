@@ -1,0 +1,8 @@
+author: MoondancerPony
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a recipe for Cafe Melange, black coffee and cream."
+  - rscadd: "Cargo can now order premium coffee beans and Morning Glory Coffee Mates. This addition sponsored by Morning Glory Coffee."
+  - bugfix: "The recipe for Cafe Au Lait actually works now."

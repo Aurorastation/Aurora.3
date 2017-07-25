@@ -28,6 +28,27 @@
 	containername = "soda dispenser crate"
 	group = "Reagents"
 
+/datum/supply_packs/coffee_machine
+	name = "Coffee machine"
+	contains = list(
+			/obj/machinery/chemical_dispenser/coffee{anchored = 0}
+		)
+	cost = 30
+	containertype = /obj/structure/largecrate
+	containername = "coffee machine crate"
+	group = "Hospitality"
+
+datum/supply_packs/dispenser_cartridges
+	name = "Coffee beans"
+	containername = "coffee beans crate"
+	containertype = /obj/structure/closet/crate
+	cost = 15
+	contains = list(
+		/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans,
+		/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans
+	)
+	group = "Hospitality"
+
 /datum/supply_packs/reagents
 	name = "Chemistry dispenser refill"
 	contains = list(
