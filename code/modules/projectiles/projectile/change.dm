@@ -17,7 +17,7 @@
 			return //Borer stuff - RR
 
 		if(istype(M, /mob/living/carbon/human/apparition))
-			visible_message("<span class='caution'>The bolt of change doesn't seem to affect [M] in any way.</span>")
+			visible_message("<span class='caution'>\\The [src] doesn't seem to affect [M] in any way.</span>")
 			return
 
 		if(istype(M, /mob/living/silicon/robot))

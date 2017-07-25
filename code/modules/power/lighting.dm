@@ -542,7 +542,7 @@
 
 /obj/machinery/light/attack_ghost(mob/user)
 	if(round_is_spooky())
-		src.flicker(rand(2,5))
+		flicker(rand(2,5))
 	else return ..()
 
 // break the light and make sparks if was on

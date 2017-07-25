@@ -47,8 +47,6 @@
 	..()
 	if(istype(I, /obj/item/weapon/nullrod))
 		to_chat(user, "<span class='notice'>\the [src] dissipates at the touch of the \the [I].</span>")
-		var/obj/item/weapon/material/sword/blade = new(get_turf(src))
-		blade.force = 15
 		qdel(src)
 
 /obj/effect/forcefield/mime
