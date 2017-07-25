@@ -1139,7 +1139,7 @@ About the new airlock wires panel:
 	. = ..()
 
 	//if assembly is given, create the new door from the assembly
-	if (assembly && istype(assembly))
+	if (istype(assembly))
 		assembly_type = assembly.type
 
 		electronics = assembly.electronics
@@ -1148,11 +1148,11 @@ About the new airlock wires panel:
 		//update the door's access to match the electronics'
 		secured_wires = electronics.secure
 		if(electronics.one_access)
-			req_access.Cut()
-			req_one_access = src.electronics.conf_access
+			req_access = null
+			req_one_access = electronics.conf_access
 		else
-			req_one_access.Cut()
-			req_access = src.electronics.conf_access
+			req_one_access = null
+			req_access = electronics.conf_access
 
 		//get the name from the assembly
 		if(assembly.created_name)
@@ -1164,9 +1164,9 @@ About the new airlock wires panel:
 		set_dir(assembly.dir)
 
 	//wires
-	var/turf/T = get_turf(src)
-	if(T && (T.z in config.admin_levels))
+	if(loc && (z in config.admin_levels))
 		secured_wires = 1
+
 	if (secured_wires)
 		wires = new/datum/wires/airlock/secure(src)
 	else
