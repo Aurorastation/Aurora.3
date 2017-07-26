@@ -187,6 +187,7 @@
 /datum/trader/ship/unique/bluespace
 	name = "Maximus Crane"
 	origin = "Bluespace Emporium"
+	trade_flags = TRADER_WANTED_ONLY|TRADER_GOODS|TRADER_MONEY
 
 	possible_wanted_items = list(
 		/obj/item/bluespace_crystal                   = TRADER_ALL,
@@ -198,7 +199,8 @@
 		/obj/item/weapon/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
 		/obj/item/phylactery                          = TRADER_THIS_TYPE,
 		/obj/item/blueprints                          = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/backpack/holding     = TRADER_THIS_TYPE
+		/obj/item/weapon/storage/backpack/holding     = TRADER_THIS_TYPE,
+		/obj/item/weapon/teleportation_scroll         = TRADER_THIS_TYPE
 
 	)
 	possible_trading_items = list(

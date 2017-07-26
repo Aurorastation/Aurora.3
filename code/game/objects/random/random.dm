@@ -760,7 +760,8 @@
 		/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/weapon/rig/military = 0.5,
 		/obj/item/weapon/rig/unathi/fancy = 0.5,
-		/obj/item/clothing/mask/ai = 0.5
+		/obj/item/clothing/mask/ai = 0.5,
+		/obj/item/weapon/anomaly_core = 0.5
 	)
 
 /obj/random/junk

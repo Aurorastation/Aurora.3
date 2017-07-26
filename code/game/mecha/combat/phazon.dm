@@ -21,7 +21,7 @@
 	max_equip = 4
 
 
-/obj/mecha/combat/phazon/New()
+/obj/mecha/combat/phazon/equipped/New()
 	..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/tool/rcd
 	ME.attach(src)
