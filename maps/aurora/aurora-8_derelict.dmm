@@ -373,7 +373,6 @@
 /area/derelict/hallway/northeast)
 "bl" = (
 /obj/structure/cryofeed{
-	tag = "icon-cryo_rear (EAST)";
 	icon_state = "cryo_rear";
 	dir = 4
 	},
@@ -528,7 +527,6 @@
 "bQ" = (
 /obj/machinery/constructable_frame/machine_frame,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -2971,7 +2969,6 @@
 /area/derelict/hallway/southeast)
 "jA" = (
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -2979,7 +2976,6 @@
 /area/derelict/hallway/southeast)
 "jB" = (
 /obj/machinery/light/small{
-	tag = "icon-bulb-broken (NORTH)";
 	icon_state = "bulb-broken";
 	dir = 1;
 	base_state = "bulb-broken"
@@ -3260,7 +3256,6 @@
 /area/derelict/hallway/southeast)
 "kr" = (
 /obj/machinery/light/small{
-	tag = "icon-bulb-broken (WEST)";
 	icon_state = "bulb-broken";
 	dir = 8;
 	base_state = "bulb-broken"
@@ -3549,7 +3544,6 @@
 "lm" = (
 /obj/item/weapon/material/shard,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -4989,7 +4983,6 @@
 /area/space)
 "pf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (NORTHWEST)";
 	icon_state = "spline_fancy";
 	dir = 9
 	},
@@ -4997,7 +4990,6 @@
 /area/derelict/hallway/southeast)
 "pg" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (NORTH)";
 	icon_state = "spline_fancy";
 	dir = 1
 	},
@@ -5005,7 +4997,6 @@
 /area/derelict/hallway/southeast)
 "ph" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (NORTHEAST)";
 	icon_state = "spline_fancy";
 	dir = 5
 	},
@@ -5139,7 +5130,6 @@
 /area/derelict/hallway/southeast)
 "pA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (WEST)";
 	icon_state = "spline_fancy";
 	dir = 8
 	},
@@ -5162,7 +5152,6 @@
 /area/derelict/hallway/southeast)
 "pC" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -5208,7 +5197,6 @@
 /area/derelict/hallway/southeast)
 "pK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (SOUTHWEST)";
 	icon_state = "spline_fancy";
 	dir = 10
 	},
@@ -5220,7 +5208,6 @@
 /area/derelict/hallway/southeast)
 "pM" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (SOUTHEAST)";
 	icon_state = "spline_fancy";
 	dir = 6
 	},
@@ -5347,7 +5334,6 @@
 	icon_state = "phoronwindow0"
 	},
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (NORTH)";
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -5434,7 +5420,6 @@
 /area/derelict/hallway/southeast)
 "qq" = (
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (NORTH)";
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -5487,12 +5472,10 @@
 	icon_state = "phoronsmall"
 	},
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (WEST)";
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (EAST)";
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
@@ -5548,12 +5531,10 @@
 "qH" = (
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (EAST)";
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (WEST)";
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -6078,7 +6059,6 @@
 /area/derelict/hallway/southeast)
 "sj" = (
 /obj/machinery/conveyor{
-	tag = "icon-conveyor-broken (WEST)";
 	icon_state = "conveyor-broken";
 	dir = 8
 	},
@@ -6110,7 +6090,6 @@
 /area/space)
 "sn" = (
 /obj/machinery/conveyor{
-	tag = "icon-conveyor-broken (EAST)";
 	icon_state = "conveyor-broken";
 	dir = 4
 	},
@@ -6462,7 +6441,6 @@
 /area/derelict/hallway/southeast)
 "ti" = (
 /obj/machinery/light/small{
-	tag = "icon-bulb-broken (WEST)";
 	icon_state = "bulb-broken";
 	dir = 8;
 	base_state = "bulb-broken"
@@ -6932,7 +6910,6 @@
 "up" = (
 /obj/structure/lattice,
 /obj/machinery/light/small{
-	tag = "icon-bulb-broken (NORTH)";
 	icon_state = "bulb-broken";
 	dir = 1;
 	base_state = "bulb-broken"
@@ -7780,12 +7757,10 @@
 "wq" = (
 /turf/simulated/shuttle/plating,
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (EAST)";
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
 /turf/simulated/shuttle/wall{
-	tag = "icon-propulsion (EAST)";
 	icon_state = "propulsion";
 	dir = 4
 	},

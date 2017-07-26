@@ -29,6 +29,10 @@
 	if (istype(src, /mob/living))
 		ghostize()
 
+	if (istype(src.loc, /atom/movable))
+		var/atom/movable/AM = src.loc
+		LAZYREMOVE(AM.contained_mobs, src)
+
 	return ..()
 
 

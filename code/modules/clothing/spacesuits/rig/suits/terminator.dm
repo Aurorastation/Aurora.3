@@ -25,7 +25,8 @@
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/mounted/plasmacutter
+		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/actuators/combat
 		)
 
 /obj/item/clothing/head/helmet/space/rig/terminator
@@ -52,5 +53,6 @@
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/mounted/plasmacutter
+		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/actuators/combat
 		)

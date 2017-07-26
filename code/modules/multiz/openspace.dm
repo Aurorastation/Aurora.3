@@ -135,6 +135,9 @@
 /atom/movable/openspace/overlay/attack_generic(mob/user as mob)
 	user << span("notice", "You cannot reach \the [src] from here.")
 
+/atom/movable/openspace/overlay/examine(mob/examiner)
+	associated_atom.examine(examiner)
+
 /atom/movable/openspace/overlay/forceMove(atom/dest)
 	. = ..()
 	if (isopenturf(dest))
