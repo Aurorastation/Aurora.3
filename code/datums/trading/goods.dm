@@ -242,7 +242,7 @@ Sells devices, odds and ends, and medical stuff
 		"compliment_accept" = "Mhm! I can agree to that!",
 		"insult_good"       = "Wow, where was that coming from?",
 		"insult_bad"        = "Don't make me blacklist your connection.",
-		"bribe_refusal"     = "Well, as much as I'd love to say 'yes', you realize I operate on a station, correct?",
+		"bribe_refusal"     = "Well, as much as I'd love to say 'yes', you realize I operate on a station, correct?"
 	)
 
 /datum/trader/ship/robots

@@ -36,7 +36,7 @@
 		"insult_good0"       = "Bah! Why does it have to deal with you?",
 		"insult_good1"       = "Where this come from? Is trade no good?",
 		"insult_bad0"        = "All you meats are the same! Fuck off!",
-		"insult_bad1"        = "If you say all this at home, you be dead!",
+		"insult_bad1"        = "If you say all this at home, you be dead!"
 	)
 
 	possible_wanted_items = list(
