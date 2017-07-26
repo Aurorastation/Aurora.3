@@ -180,7 +180,7 @@
 		"compliment_deny"      = "No kind wordzzzz...",
 		"compliment_accept"    = "I appreciate kind wordzzz.",
 		"insult_good"          = "Your humor izzz odd.",
-		"insult_bad"           = "I do not take inzzultzz kindly"
+		"insult_bad"           = "I do not take inzzultzz kindly."
 	)
 
 
@@ -215,7 +215,7 @@
 	want_multiplier = 5000
 
 	speech = list(
-		"hail_generic"         = "I trade bluespace and bluespace accessories",
+		"hail_generic"         = "I trade bluespace and bluespace accessories.",
 		"hail_deny"            = "I have nothing to deal with you.",
 		"trade_complete"       = "I am sure it is not going to malfuction!",
 		"trade_no_money"       = "You will need more credits than this, kid.",

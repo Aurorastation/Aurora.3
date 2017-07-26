@@ -81,7 +81,7 @@
 	name = "Comrade Sergei"
 	origin = "Comrade Sergei's Humble Shop"
 	speech = list(
-		"hail_generic"      = "Grrreetings, comrrrade! Sergei hopes they can enjoy his good's selection, nothing herrre was smuggled!",
+		"hail_generic"      = "Grrreetings, comrrrade! Sergei hopes they can enjoy his selection of goods, nothing herrre was smuggled!",
 		"hail_deny"         = "The shop is closed, comrrrade!",
 		"trade_complete"    = "Many thanks, comrrrade, enjoy it!",
 		"trade_blacklist"   = "No, no, nothing of this in his shop!",
