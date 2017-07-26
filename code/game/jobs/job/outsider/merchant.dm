@@ -1,9 +1,12 @@
 /datum/job/merchant
 	title = "Merchant"
 	faction = "Station"
-	total_positions = 1
+	department = "Civilian"
+	flag = MERCHANT
+	department_flag = CIVILIAN
+	total_positions = 0
 	spawn_positions = 1
-	supervisors = "yourself"
+	supervisors = "yourself and the market"
 	selection_color = "#515151"
 	idtype = /obj/item/weapon/card/id
 	minimal_player_age = 10
@@ -21,6 +24,8 @@
 		return FALSE
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/device/pda/merchant(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/device/price_scanner(H), slot_r_store)
 	return TRUE
 
 /datum/job/merchant/New()
