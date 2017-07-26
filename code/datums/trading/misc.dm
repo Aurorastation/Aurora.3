@@ -12,7 +12,7 @@
 		"trade_blacklist"      = "Legally I can' do that. Morally, I refuse to do that.",
 		"trade_found_unwanted" = "I only want animals. I don't need food, shiny things, I'm looking for specific ones at that. Ones I already have the cage and food for.",
 		"trade_not_enough"     = "I'd give you the animal for free, but I need the money to feed the others. So you must pay in full.",
-		"how_much"             = "This is a fine specimin, I believe it will cost you VALUE thalers.",
+		"how_much"             = "This is a fine specimin, I believe it will cost you VALUE credits.",
 		"what_want"            = "I have the facilities currently to support",
 		"compliment_deny"      = "That was almost charming.",
 		"compliment_accept"    = "Thank you. I needed that.",
@@ -45,25 +45,25 @@
 	)
 
 	possible_trading_items = list(
-		/mob/living/simple_animal/corgi     = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/cat         = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/crab        = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/lizard      = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/mouse       = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/mushroom    = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/parrot      = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/tindalos    = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/tomato      = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/cow         = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/chick       = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/chicken     = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/yithian     = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/diyaab = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/bear= TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/shantak= TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/samak= TRADER_THIS_TYPE,
+		/mob/living/simple_animal/corgi                  = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/cat                    = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/crab                   = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/lizard                 = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/mouse                  = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/mushroom               = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/parrot                 = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/tindalos               = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/tomato                 = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/cow                    = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/chick                  = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/chicken                = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/yithian                = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/diyaab         = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/bear           = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/shantak        = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/samak          = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/retaliate/goat = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/carp= TRADER_THIS_TYPE
+		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE
 	)
 
 /datum/trader/ship/prank_shop
@@ -80,7 +80,7 @@
 		"trade_complete"    = "We thank you for purchasing something. We enjoyed the experience of you doing so and we hope to learn from it.",
 		"trade_blacklist"   = "We are not allowed to do such. We are sorry.",
 		"trade_not_enough"  = "We have sufficiently experienced giving away goods for free. We wish to experience getting money in return.",
-		"how_much"          = "We believe that is worth VALUE thalers.",
+		"how_much"          = "We believe that is worth VALUE credits.",
 		"what_want"         = "We wish only for the experiences you give us, in all else we want",
 		"compliment_deny"   = "You are attempting to compliment us.",
 		"compliment_accept" = "You are attempting to compliment us.",
@@ -103,7 +103,6 @@
 		/obj/item/weapon/reagent_containers/food/snacks/pie   = TRADER_THIS_TYPE,
 		/obj/item/weapon/bikehorn                             = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/spray/waterflower = TRADER_THIS_TYPE,
-//		/obj/item/weapon/gun/launcher/pneumatic/small         = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/capgun       = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/fakemoustache                 = TRADER_THIS_TYPE
 	)
@@ -120,7 +119,7 @@
 		"trade_complete"    = "Now remember, these may be replicas, but they are still a bit sharp!",
 		"trade_blacklist"   = "No, I don't deal in that.",
 		"trade_not_enough"  = "Hm. Well, I need more money than that.",
-		"how_much"          = "This fine piece of craftsmanship costs about VALUE thalers.",
+		"how_much"          = "This fine piece of craftsmanship costs about VALUE credits.",
 		"what_want"         = "I want",
 		"compliment_deny"   = "Oh ho ho! Aren't you quite the jester.",
 		"compliment_accept" = "Hard to tell, isn't it? I make them all myself.",
@@ -132,7 +131,7 @@
 
 	possible_trading_items = list(
 		/obj/item/clothing/head/wizard/magus            = TRADER_THIS_TYPE,
-//		/obj/item/weapon/shield/buckler                 = TRADER_THIS_TYPE,
+		/obj/item/weapon/shield/buckler                 = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/redcoat                 = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/powdered_wig            = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/hasturhood              = TRADER_THIS_TYPE,

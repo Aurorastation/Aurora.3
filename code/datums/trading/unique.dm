@@ -36,8 +36,9 @@
 	)
 
 	possible_trading_items = list(
-		/obj/mecha/combat                         = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/gun/projectile/automatic = TRADER_SUBTYPES_ONLY
+		/obj/mecha/combat                               = TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/gun/projectile/automatic/rifle = TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/gun/energy/pulse               = TRADER_THIS_TYPE
 	)
 
 	blacklisted_trade_items = null
@@ -89,33 +90,42 @@
 		"insult_bad"           = "Blub feels bad now."
 	)
 
-//probably could stick soem Howl references in here but like, eh. Haven't seen it in years.
+
 /datum/trader/ship/unique/wizard
-	name = "Wizard"
-	origin = "A Moving Castle"
-	name_language = TRADER_DEFAULT_NAME
+	name = "The Grand Master"
+	origin = "Interdimensional Prison Cell"
 
 	possible_wanted_items = list(
-		/mob/living/simple_animal/construct       = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/melee/cultblade          = TRADER_THIS_TYPE,
-		/obj/item/clothing/head/culthood          = TRADER_ALL,
-		/obj/item/clothing/suit/space/cult        = TRADER_ALL,
-		/obj/item/clothing/suit/cultrobes         = TRADER_ALL,
-		/obj/item/clothing/head/helmet/space/cult = TRADER_ALL,
-		/obj/structure/cult                       = TRADER_SUBTYPES_ONLY,
-		/obj/structure/constructshell             = TRADER_ALL,
-		/mob/living/simple_animal/familiar        = TRADER_SUBTYPES_ONLY,
-		/mob/living/simple_animal/familiar/pet    = TRADER_BLACKLIST,
-		/mob/living/simple_animal/hostile/mimic   = TRADER_ALL
-	)
-
-	possible_trading_items = list(
+		/mob/living/simple_animal/construct              = TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/melee/cultblade                 = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/culthood                 = TRADER_ALL,
+		/obj/item/clothing/suit/space/cult               = TRADER_ALL,
+		/obj/item/clothing/suit/cultrobes                = TRADER_ALL,
+		/obj/item/clothing/head/helmet/space/cult        = TRADER_ALL,
+		/obj/structure/cult                              = TRADER_SUBTYPES_ONLY,
+		/obj/structure/constructshell                    = TRADER_ALL,
+		/mob/living/simple_animal/familiar               = TRADER_SUBTYPES_ONLY,
+		/mob/living/simple_animal/familiar/pet           = TRADER_BLACKLIST,
+		/mob/living/simple_animal/hostile/mimic          = TRADER_ALL,
 		/obj/item/clothing/head/helmet/space/void/wizard = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/wizard                   = TRADER_ALL,
 		/obj/item/clothing/suit/space/void/wizard        = TRADER_THIS_TYPE,
+		/obj/item/weapon/scrying                         = TRADER_THIS_TYPE,
+		/obj/item/weapon/melee/energy/wizard             = TRADER_THIS_TYPE,
+		/obj/item/phylactery                             = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/staff                = TRADER_ALL,
+		/obj/item/weapon/gun/energy/wand                 = TRADER_ALL,
+		/obj/item/weapon/gun/energy/wand/toy             = TRADER_BLACKLIST
+	)
+
+	possible_trading_items = list(
+		/obj/item/weapon/contract/wizard/tk              = TRADER_THIS_TYPE,
+		/obj/item/weapon/contract/boon/wizard/smoke      = TRADER_THIS_TYPE,
+		/obj/item/weapon/contract/boon/wizard/horsemask  = TRADER_THIS_TYPE,
+		/obj/item/weapon/contract/boon/wizard/gestalt    = TRADER_THIS_TYPE,
 		/obj/item/toy/figure/wizard                      = TRADER_THIS_TYPE,
 		/obj/item/weapon/staff                           = TRADER_ALL
-	) //Probably see about getting some more wizard based shit
+	)
 
 	speech = list(
 		"hail_generic"         = "Hello! Are you here on pleasure or business?",
@@ -131,4 +141,44 @@
 		"compliment_accept"    = "Haha! Aren't you nice.",
 		"insult_good"          = "Naughty naughty.",
 		"insult_bad"           = "Now where do you get off talking to me like that?"
+	)
+
+
+/datum/trader/ship/unique/vaurca
+	origin = "The Hive Shop"
+	name_language = LANGUAGE_VAURCA
+
+	possible_wanted_items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/grown/kois       = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
+		/obj/item/stack/material/phoron                                  = TRADER_THIS_TYPE
+	)
+
+	possible_trading_items = list(
+		/obj/item/clothing/mask/breath/vaurca            = TRADER_THIS_TYPE,
+		/obj/item/weapon/melee/energy/vaurca             = TRADER_THIS_TYPE,
+		/obj/item/vaurca/box                             = TRADER_THIS_TYPE,
+		/obj/item/weapon/melee/vaurca/rock               = TRADER_THIS_TYPE,
+		/obj/item/weapon/grenade/spawnergrenade/vaurca   = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/space/void/vaurca        = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/magboots/vox/vaurca     = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE,
+		/obj/item/weapon/staff                           = TRADER_ALL
+	)
+
+	speech = list(
+		"hail_generic"         = "Greetingzz.",
+		"hail_deny"            = "I'm zzorry, we do not want to zzzpeak to you.",
+		"trade_complete"       = "Enjoy it, zzzir!",
+		"trade_no_money"       = "I have no uzzze vhor creditzzz.",
+		"trade_not_enough"     = "I want more, zzzzir.",
+		"trade_found_unwanted" = "That izzz not what I want.",
+		"how_much"             = "We need k'oizz or vhoron, zzzir.",
+		"what_want"            = "K'oizzz or vhoron.",
+		"compliment_deny"      = "No kind wordzzzz...",
+		"compliment_accept"    = "I appreciate kind wordzzz.",
+		"insult_good"          = "Your humor izzz odd.",
+		"insult_bad"           = "I do not take inzzultzz kindly"
 	)

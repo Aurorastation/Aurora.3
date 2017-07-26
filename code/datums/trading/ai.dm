@@ -12,12 +12,12 @@ They sell generic supplies and ask for generic supplies.
 	name_language = LANGUAGE_EAL
 	trade_flags = TRADER_MONEY|TRADER_GOODS
 	speech = list(
-		"hail_generic"    = "Greetings, I am MERCHANT, Artifical Intelligence onboard ORIGIN, tasked with trading goods in return for thalers and supplies.",
+		"hail_generic"    = "Greetings, I am MERCHANT, Artifical Intelligence onboard ORIGIN, tasked with trading goods in return for credits and supplies.",
 		"hail_deny"         = "We are sorry, your connection has been blacklisted. Have a nice day.",
 		"trade_complete"    = "Thank you for your patronage.",
 		"trade_not_enough"  = "I'm sorry, your offer is not worth what you are asking for.",
 		"trade_blacklisted" = "You have offered a blacklisted item. My laws do not allow me to trade for that.",
-		"how_much"          = "ITEM will cost you roughly VALUE thalers, or something of equal worth.",
+		"how_much"          = "ITEM will cost you roughly VALUE credits, or something of equal worth.",
 		"what_want"         = "I have logged need for",
 		"compliment_deny"   = "I'm sorry, I am not allowed to let compliments affect the trade.",
 		"compliment_accept" = "Thank you, but that will not not change our business interactions.",
@@ -26,7 +26,7 @@ They sell generic supplies and ask for generic supplies.
 		"bribe_refusal"     = "You have given me money to stay, however, I am a station. I do not leave."
 	)
 	possible_wanted_items = list(
-		/obj/item/device/                       = TRADER_SUBTYPES_ONLY,
+		/obj/item/device/                        = TRADER_SUBTYPES_ONLY,
 		/obj/item/device/assembly                = TRADER_BLACKLIST_ALL,
 		/obj/item/device/assembly_holder         = TRADER_BLACKLIST_ALL,
 		/obj/item/device/encryptionkey/syndicate = TRADER_BLACKLIST,
@@ -103,7 +103,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/structure/coatrack             = TRADER_THIS_TYPE,
 		/obj/structure/bookcase             = TRADER_THIS_TYPE,
 		/obj/item/bee_pack                  = TRADER_THIS_TYPE,
-//		/obj/item/bee_smoker                = TRADER_THIS_TYPE,
+		/obj/item/weapon/bee_smoker         = TRADER_THIS_TYPE,
 		/obj/item/beehive_assembly          = TRADER_THIS_TYPE,
 		/obj/item/glass_jar                 = TRADER_THIS_TYPE,
 		/obj/item/honey_frame               = TRADER_THIS_TYPE,

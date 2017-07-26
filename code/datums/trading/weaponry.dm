@@ -18,25 +18,31 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/gun/projectile/pistol        = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/colt          = TRADER_ALL,
-//		/obj/item/weapon/gun/projectile/magnum_pistol = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/sec           = TRADER_ALL,
-//		/obj/item/weapon/gun/projectile/sec/MK        = TRADER_BLACKLIST,
-		/obj/item/weapon/gun/projectile/shotgun/pump  = TRADER_SUBTYPES_ONLY,
-		/obj/item/ammo_magazine                       = TRADER_SUBTYPES_ONLY,
-		/obj/item/ammo_magazine/a10mm/empty           = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/a556/empty            = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/a75/empty             = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/c45m/empty            = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/mc9mm/empty           = TRADER_BLACKLIST,
-//		/obj/item/ammo_magazine/box/c9mm/empty        = TRADER_BLACKLIST,
-//		/obj/item/ammo_magazine/box/c45/empty         = TRADER_BLACKLIST,
-//		/obj/item/ammo_magazine/box/a762/empty        = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/c45uzi/empty          = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/mc9mmt/empty          = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/a50/empty             = TRADER_BLACKLIST,
-		/obj/item/clothing/accessory/holster          = TRADER_ALL
+		/obj/item/weapon/gun/projectile/pistol               = TRADER_ALL,
+		/obj/item/weapon/gun/projectile/colt                 = TRADER_ALL,
+		/obj/item/weapon/gun/projectile/sec                  = TRADER_ALL,
+		/obj/item/weapon/gun/projectile/shotgun/pump         = TRADER_ALL,
+		/obj/item/weapon/gun/projectile/shotgun/doublebarrel = TRADER_ALL,
+		/obj/item/weapon/gun/projectile/tanto                = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/revolver/deckard     = TRADER_THIS_TYPE,
+		/obj/item/ammo_magazine                              = TRADER_SUBTYPES_ONLY,
+		/obj/item/ammo_magazine/a10mm/empty                  = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/a556/empty                   = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/a75/empty                    = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/c45m/empty                   = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/mc9mm/empty                  = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/trodpack/empty               = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/tranq/empty                  = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/c45uzi/empty                 = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/a762/empty                   = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/tommymag/empty               = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/d762/empty                   = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/flechette/empty              = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/flechette/explosive/empty    = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/mc9mmt/empty                 = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/a50/empty                    = TRADER_BLACKLIST,
+		/obj/item/clothing/accessory/holster                 = TRADER_ALL
 	)
 
 /datum/trader/ship/egunshop
@@ -59,44 +65,44 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/gun/energy/taser        = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/stunrevolver = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/xray         = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/laser        = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/gun          = TRADER_THIS_TYPE,
-		/obj/item/weapon/cell                    = TRADER_THIS_TYPE,
-		/obj/item/weapon/cell/crap               = TRADER_THIS_TYPE,
-		/obj/item/weapon/cell/high               = TRADER_THIS_TYPE,
-		/obj/item/weapon/cell/super              = TRADER_THIS_TYPE,
-		/obj/item/weapon/cell/hyper              = TRADER_THIS_TYPE,
-		/obj/item/clothing/accessory/holster     = TRADER_ALL
+		/obj/item/weapon/gun/energy/taser         = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/stunrevolver  = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/xray          = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/rifle         = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/rifle/laser   = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/gun           = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/pistol        = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/gun/nuclear   = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/laser/shotgun = TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/holster      = TRADER_ALL
 	)
 
-/datum/trader/dogan
-	name = "Dogan"
-	origin = "Dogan's Gun Beacon"
+/datum/trader/illegalgun
+	name = "Comrade Sergei"
+	origin = "Comrade Sergei's Humble Shop"
 	speech = list(
-		"hail_generic"      = "Hello! This is an automatic recording of me, Mr. Dogan! I hope you like the... GUNS... I've got in store for you today.",
-		"hail_deny"         = "I formally welcome you to... NOT... visit our store!",
-		"trade_complete"    = "Thank you for... PURCHASING... that quality... ITEM... from me!",
-		"trade_blacklist"   = "Thank you for... that quality... ILLEGAL OFFER THAT I WILL REFUSE... from me!",
-		"trade_no_goods"    = "Thank you for... that quality... OFFER THAT ISNT MONEY THAT I WILL REFUSE... from me!",
-		"trade_not_enough"  = "Thank you for... that quality... OFFER THAT IS NOT ENOUGH... from me!",
-		"how_much"          = "Thank you for... ASKING ME ABOUT MY PRICES... that quality... ITEM IS WORTH VALUE... from me!",
-		"compliment_deny"   = "Thank you for... that quality... COMPLIMENT... from me!",
-		"compliment_accept" = "Thank you for... that quality... COMPLIMENT... from me!",
-		"insult_good"       = "Thank you for... that quality... INSULT... from me!",
-		"insult_bad"        = "Thank you for... that quality... INSULT... from me!"
+		"hail_generic"      = "Grrreetings, comrrrade! Sergei hopes they can enjoy his good's selection, nothing herrre was smuggled!",
+		"hail_deny"         = "The shop is closed, comrrrade!",
+		"trade_complete"    = "Many thanks, comrrrade, enjoy it!",
+		"trade_blacklist"   = "No, no, nothing of this in his shop!",
+		"trade_no_goods"    = "He only deals with crrredits, comrrrade!",
+		"trade_not_enough"  = "Give him a bit morrre, comrrrade!",
+		"how_much"          = "Only VALUE, just forrr him, comrade!",
+		"compliment_deny"   = "He speaks like a officerrr, is he an officerrr?",
+		"compliment_accept" = "Pourrr one out for Al'marrri. His gun was on stun, bless his hearrrt.",
+		"insult_good"       = "Good one, comrrrade!",
+		"insult_bad"        = "Rrrracist!"
 	)
-	compliment_increase = 0
-	insult_drop = 0
 
 	possible_trading_items = list(
-		/obj/item/weapon/gun/projectile/pirate             = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/sec                = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/boltaction         = TRADER_ALL,
+		/obj/item/weapon/gun/projectile/dragunov           = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/silenced           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/heavysniper        = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/laser                  = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/automatic/tommygun = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/automatic/mini_uzi = TRADER_THIS_TYPE,
-		/obj/item/clothing/accessory/holster               = TRADER_ALL
+		/obj/item/weapon/gun/projectile/improvised_handgun = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/shotgun/improvised = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/retro                  = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/revolver/derringer = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/pirate             = TRADER_THIS_TYPE
 	)

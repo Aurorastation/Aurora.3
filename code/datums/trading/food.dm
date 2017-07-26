@@ -14,7 +14,7 @@
 		"trade_no_goods"    = "I'm sorry but we only take cash.",
 		"trade_blacklisted" = "Sir thats... highly illegal.",
 		"trade_not_enough"  = "Uhh... thats not enough money for pizza.",
-		"how_much"          = "That pizza will cost you VALUE thalers.",
+		"how_much"          = "That pizza will cost you VALUE credits.",
 		"compliment_deny"   = "That's a bit forward, don't you think?",
 		"compliment_accept" = "Thanks, sir! You're very nice!",
 		"insult_good"       = "Please stop that, sir.",
@@ -38,14 +38,20 @@
 	trade_flags = TRADER_MONEY
 	possible_wanted_items = list()
 	possible_trading_items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/monkeykabob  	       = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/monkeykabob  	           = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/monkeysdelight             = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/ricepudding                = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/xenomeatbreadslice/filled  = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/soydope                    = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/stewedsoymeat              = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/wingfangchu                = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/drinks/dry_ramen                  = TRADER_THIS_TYPE
+		/obj/item/weapon/reagent_containers/food/drinks/dry_ramen                  = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/bibimbap                   = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/lomein                     = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/friedrice                  = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/pisanggoreng               = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/chickenmomo                = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/veggiemomo                 = TRADER_THIS_TYPE
 	)
 
 	var/list/fortunes = list(
@@ -62,19 +68,19 @@
 	)
 
 	speech = list(
-		"hail_generic"     = "There are two things constant in life, death and Chinese food. How may I help you?",
+		"hail_generic"       = "There are two things constant in life, death and Chinese food. How may I help you?",
 		"hail_deny"          = "We do not take orders from rude customers.",
 		"trade_complete"     = "Thank you sir for your patronage.",
 		"trade_blacklist"    = "No, that is very odd. Why would you trade that away?",
 		"trade_no_goods"     = "I only accept money transfers.",
 		"trade_not_enough"   = "No, I am sorry that is not possible. I need to make a living.",
-		"how_much"           = "I give you ITEM for VALUE thalers. No more, no less.",
+		"how_much"           = "I give you ITEM for VALUE credits. No more, no less.",
 		"compliment_deny"    = "That was an odd thing to say, you are very odd.",
 		"compliment_accept"  = "Good philosophy, see good in bad, I like.",
 		"insult_good"        = "As a man said long ago, \"When anger rises, think of the consequences.\" Think on that.",
 		"insult_bad"         = "I do not need to take this from you.",
-		"bribe_refusal"     = "Hm... I'll think about it.",
-		"bribe_accept"      = "Oh yes! I think I'll stay a few more minutes, then."
+		"bribe_refusal"      = "Hm... I'll think about it.",
+		"bribe_accept"       = "Oh yes! I think I'll stay a few more minutes, then."
 	)
 
 /datum/trader/ship/chinese/trade(var/list/offers, var/num, var/turf/location)
@@ -107,13 +113,13 @@
 	)
 
 	speech = list(
-		"hail_generic"     = "Hello, welcome to ORIGIN, grocery store of the future!",
+		"hail_generic"       = "Hello, welcome to ORIGIN, grocery store of the future!",
 		"hail_deny"          = "I'm sorry, we've blacklisted your communications due to rude behavior.",
 		"trade_complete"     = "Thank you for shopping at ORIGIN!",
 		"trade_blacklist"    = "I... wow that's... no, sir. No.",
 		"trade_no_goods"     = "ORIGIN only accepts cash, sir.",
 		"trade_not_enough"   = "That is not enough money, sir.",
-		"how_much"           = "Sir, that'll cost you VALUE thalers. Will that be all?",
+		"how_much"           = "Sir, that'll cost you VALUE credits. Will that be all?",
 		"compliment_deny"    = "Sir, this is a professional environment. Please don't make me get my manager.",
 		"compliment_accept"  = "Thank you, sir!",
 		"insult_good"        = "Sir, please do not make a scene.",
@@ -128,13 +134,13 @@
 	possible_origins = list("Cakes By Design", "Corner Bakery Local", "My Favorite Cake & Pastry Cafe", "Mama Joes Bakery", "Sprinkles and Fun")
 
 	speech = list(
-		"hail_generic"     = "Hello, welcome to ORIGIN, we serve baked goods, including pies and cakes and anything sweet!",
+		"hail_generic"       = "Hello, welcome to ORIGIN, we serve baked goods, including pies and cakes and anything sweet!",
 		"hail_deny"          = "Our food is a privelege, not a right. Goodbye.",
 		"trade_complete"     = "Thank you for your purchase! Come again if you're hungry for more!",
 		"trade_blacklist"    = "We only accept money. Not... that.",
 		"trade_no_goods"     = "Cash for Cakes! That's our business!",
 		"trade_not_enough"   = "Our dishes are much more expensive than that, sir.",
-		"how_much"           = "That lovely dish will cost you VALUE thalers.",
+		"how_much"           = "That lovely dish will cost you VALUE credits.",
 		"compliment_deny"    = "Oh wow, how nice of you...",
 		"compliment_accept"  = "You're almost as sweet as my pies!",
 		"insult_good"        = "My pie are NOT knockoffs!",
@@ -143,7 +149,7 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/birthdaycakeslice/filled      = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/birthdaycakeslice/filled        = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/carrotcakeslice/filled	        = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesecakeslice/filled          = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/chocolatecakeslice/filled       = TRADER_THIS_TYPE,

@@ -221,7 +221,7 @@
 
 /datum/trader/proc/how_much_do_you_want(var/num)
 	var/atom/movable/M = trading_items[num]
-	. = get_response("how_much", "Hmm.... how about VALUE thalers?")
+	. = get_response("how_much", "Hmm.... how about VALUE credits?")
 	. = replacetext(.,"VALUE",get_item_value(num))
 	. = replacetext(.,"ITEM", initial(M.name))
 
