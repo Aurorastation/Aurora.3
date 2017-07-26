@@ -105,7 +105,8 @@
 		/obj/item/weapon/bikehorn                             = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/spray/waterflower = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/capgun       = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/fakemoustache                 = TRADER_THIS_TYPE
+		/obj/item/clothing/mask/fakemoustache                 = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/wand/toy                  = TRADER_THIS_TYPE
 	)
 
 /datum/trader/ship/replica_shop

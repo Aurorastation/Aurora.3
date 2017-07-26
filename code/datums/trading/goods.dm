@@ -143,16 +143,16 @@
 /datum/trader/ship/clothingshop/shoes
 	possible_origins = list("Foot Safe", "Paysmall", "Popular Footwear", "Grimbly's Shoes", "Right Steps")
 	possible_trading_items = list(
-		/obj/item/clothing/shoes               = TRADER_SUBTYPES_ONLY,
-		/obj/item/clothing/shoes/chameleon     = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/combat        = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/clown_shoes   = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/cult          = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/cyborg        = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/lightrig      = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/shoes/magboots      = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/shoes/swat          = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/syndigaloshes = TRADER_BLACKLIST,
+		/obj/item/clothing/shoes                        = TRADER_SUBTYPES_ONLY,
+		/obj/item/clothing/shoes/chameleon              = TRADER_BLACKLIST,
+		/obj/item/clothing/shoes/combat                 = TRADER_BLACKLIST,
+		/obj/item/clothing/shoes/clown_shoes            = TRADER_BLACKLIST,
+		/obj/item/clothing/shoes/cult                   = TRADER_BLACKLIST,
+		/obj/item/clothing/shoes/cyborg                 = TRADER_BLACKLIST,
+		/obj/item/clothing/shoes/lightrig               = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/shoes/magboots               = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/shoes/swat                   = TRADER_BLACKLIST,
+		/obj/item/clothing/shoes/syndigaloshes          = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/jackboots/unathi/fluff = TRADER_BLACKLIST_ALL
 	)
 
@@ -207,6 +207,7 @@ Sells devices, odds and ends, and medical stuff
 	possible_trading_items = list(
 		/obj/item/device/flashlight                = TRADER_ALL,
 		/obj/item/device/kit/paint                 = TRADER_SUBTYPES_ONLY,
+		/obj/item/device/kit/paint/ripley/fluff    = TRADER_BLACKLIST_ALL,
 		/obj/item/weapon/aicard                    = TRADER_THIS_TYPE,
 		/obj/item/device/binoculars                = TRADER_THIS_TYPE,
 		/obj/item/device/flash                     = TRADER_THIS_TYPE,
