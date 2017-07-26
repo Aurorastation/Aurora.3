@@ -95,9 +95,6 @@
 	if(!client)	return 0
 
 	if(href_list["show_preferences"])
-		if (!SSATOMS_IS_PROBABLY_DONE)
-			alert(src, "Please wait, character setup is not initialized yet.")
-			return 0
 		client.prefs.ShowChoices(src)
 		return 1
 

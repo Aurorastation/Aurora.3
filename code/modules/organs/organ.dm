@@ -27,6 +27,8 @@
 
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 
+INITIALIZE_IMMEDIATE(/obj/item/organ)
+
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	if(!owner)
