@@ -182,3 +182,48 @@
 		"insult_good"          = "Your humor izzz odd.",
 		"insult_bad"           = "I do not take inzzultzz kindly"
 	)
+
+
+/datum/trader/ship/unique/bluespace
+	name = "Maximus Crane"
+	origin = "Bluespace Emporium"
+
+	possible_wanted_items = list(
+		/obj/item/bluespace_crystal                   = TRADER_ALL,
+		/obj/machinery/bluespacerelay                 = TRADER_ALL,
+		/obj/item/stack/telecrystal                   = TRADER_THIS_TYPE,
+		/obj/item/organ/brain/golem                   = TRADER_THIS_TYPE,
+		/obj/item/device/soulstone                    = TRADER_THIS_TYPE,
+		/obj/item/weapon/circuitboard/telesci_console = TRADER_THIS_TYPE,
+		/obj/item/weapon/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
+		/obj/item/phylactery                          = TRADER_THIS_TYPE,
+		/obj/item/blueprints                          = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/backpack/holding     = TRADER_THIS_TYPE
+
+	)
+	possible_trading_items = list(
+		/obj/item/mecha_parts/chassis/phazon                 = TRADER_THIS_TYPE,
+		/obj/item/mecha_parts/part/phazon_torso              = TRADER_THIS_TYPE,
+		/obj/item/mecha_parts/part/phazon_head               = TRADER_THIS_TYPE,
+		/obj/item/mecha_parts/part/phazon_left_arm           = TRADER_THIS_TYPE,
+		/obj/item/mecha_parts/part/phazon_right_arm          = TRADER_THIS_TYPE,
+		/obj/item/mecha_parts/part/phazon_left_leg           = TRADER_THIS_TYPE,
+		/obj/item/mecha_parts/part/phazon_right_leg          = TRADER_THIS_TYPE
+	)
+	want_multiplier = 5000
+
+	speech = list(
+		"hail_generic"         = "I trade bluespace and bluespace accessories",
+		"hail_deny"            = "I have nothing to deal with you.",
+		"trade_complete"       = "I am sure it is not going to malfuction!",
+		"trade_no_money"       = "You will need more credits than this, kid.",
+		"trade_not_enough"     = "I will need far more than this.",
+		"trade_found_unwanted" = "This is useless for me.",
+		"trade_refuse"         = "Nope, bluespace is not so cheap.",
+		"how_much"             = "Not too much, but not too few.",
+		"what_want"            = "I want bluespace related items.",
+		"compliment_deny"      = "Well, well.",
+		"compliment_accept"    = "I know, the squirrel is great.",
+		"insult_good"          = "Witty.",
+		"insult_bad"           = "And you still want to do business?"
+	)
