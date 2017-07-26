@@ -63,7 +63,8 @@
 		/mob/living/simple_animal/hostile/shantak        = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/samak          = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/retaliate/goat = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE
+		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL
 	)
 
 /datum/trader/ship/prank_shop

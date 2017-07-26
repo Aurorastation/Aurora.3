@@ -1,5 +1,5 @@
 /obj/mecha/combat/phazon
-	desc = "An exosuit which can only be described as 'WTF?'."
+	desc = "The pinnacle of scientific research and pride of Nanotrasen, it uses cutting edge bluespace technology and expensive materials."
 	name = "Phazon"
 	icon_state = "phazon"
 	initial_icon = "phazon"

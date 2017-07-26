@@ -1565,7 +1565,7 @@ CIRCUITS BELOW
 /datum/design/circuit/mecha/durand_targ
 	name = "'Durand' weapon control and targeting"
 	id = "durand_targ"
-	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 2)
+	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 2)
 	build_path = /obj/item/weapon/circuitboard/mecha/durand/targeting
 	sort_string = "NAADC"
 

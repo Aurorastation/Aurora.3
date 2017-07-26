@@ -37,6 +37,7 @@
 
 	possible_trading_items = list(
 		/obj/mecha/combat                               = TRADER_SUBTYPES_ONLY,
+		/obj/mecha/combat/phazon                        = TRADER_BLACKLIST,
 		/obj/item/weapon/gun/projectile/automatic/rifle = TRADER_SUBTYPES_ONLY,
 		/obj/item/weapon/gun/energy/pulse               = TRADER_THIS_TYPE
 	)
@@ -201,8 +202,8 @@
 		/obj/item/blueprints                          = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/backpack/holding     = TRADER_THIS_TYPE,
 		/obj/item/weapon/teleportation_scroll         = TRADER_THIS_TYPE
-
 	)
+
 	possible_trading_items = list(
 		/obj/item/mecha_parts/chassis/phazon                 = TRADER_THIS_TYPE,
 		/obj/item/mecha_parts/part/phazon_torso              = TRADER_THIS_TYPE,
@@ -212,17 +213,16 @@
 		/obj/item/mecha_parts/part/phazon_left_leg           = TRADER_THIS_TYPE,
 		/obj/item/mecha_parts/part/phazon_right_leg          = TRADER_THIS_TYPE
 	)
-	want_multiplier = 5000
 
 	speech = list(
 		"hail_generic"         = "I trade bluespace and bluespace accessories.",
 		"hail_deny"            = "I have nothing to deal with you.",
 		"trade_complete"       = "I am sure it is not going to malfuction!",
-		"trade_no_money"       = "You will need more credits than this, kid.",
+		"trade_no_money"       = "I don't need credits.",
 		"trade_not_enough"     = "I will need far more than this.",
 		"trade_found_unwanted" = "This is useless for me.",
 		"trade_refuse"         = "Nope, bluespace is not so cheap.",
-		"how_much"             = "Not too much, but not too few.",
+		"how_much"             = "Maybe for VALUE, bluespace is not cheap!",
 		"what_want"            = "I want bluespace related items.",
 		"compliment_deny"      = "Well, well.",
 		"compliment_accept"    = "I know, the squirrel is great.",

@@ -72,3 +72,18 @@
 
 /material/leather
 	value = 3
+
+/material/hide
+	value = 5
+
+/material/hide/xeno
+	value = 35
+
+/material/hide/human
+	value = 35
+
+/material/bone
+	value = 5
+
+/material/bone/necromancer
+	value = 50

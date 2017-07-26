@@ -33,6 +33,9 @@
 /datum/reagent/ethanol
 	value = 0.01
 
+/datum/reagent/butanol
+	value = 0.02
+
 /datum/reagent/hydrazine
 	value = 0.017
 
@@ -65,6 +68,9 @@
 
 /datum/reagent/sulfur
 	value = 2
+
+/datum/reagent/kois
+	value = 0.5
 
 /datum/reagent/nutriment
 	value = 0.1
@@ -458,6 +464,9 @@
 
 /datum/reagent/rezadone
 	value = 5
+
+/datum/reagent/ipecac
+	value = 2
 
 /datum/reagent/crayon_dust
 	value = 0.001

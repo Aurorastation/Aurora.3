@@ -4,7 +4,7 @@
 	origin = "Gun Shop"
 	possible_origins = list("Rooty Tootie's Point-n-Shooties", "Bang-Bang Shop", "Wild-Wild-West Shop", "Jacobs", "Vladof", "Keleshnikov", "Hunting Depot", "Big Game Hunters")
 	speech = list(
-		"hail_generic"     = "Hello hello! I hope you have your permit, oh who are we kidding, you're welcome anyways!",
+		"hail_generic"      = "Hello hello! I hope you have your permit, oh who are we kidding, you're welcome anyways!",
 		"hail_deny"         = "Law dictates that you can fuck off.",
 		"trade_complete"    = "Thanks for buying your guns from ORIGIN!",
 		"trade_blacklist"   = "We may deal in guns, but that doesn't mean we'll trade for illegal goods...",
@@ -26,22 +26,12 @@
 		/obj/item/weapon/gun/projectile/tanto                = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/deckard     = TRADER_THIS_TYPE,
-		/obj/item/ammo_magazine                              = TRADER_SUBTYPES_ONLY,
-		/obj/item/ammo_magazine/a10mm/empty                  = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/a556/empty                   = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/a75/empty                    = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/c45m                         = TRADER_ALL,,
 		/obj/item/ammo_magazine/c45m/empty                   = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/mc9mm/empty                  = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/trodpack/empty               = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/tranq/empty                  = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/c45uzi/empty                 = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/a762/empty                   = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/tommymag/empty               = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/d762/empty                   = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/flechette/empty              = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/flechette/explosive/empty    = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/mc9mmt/empty                 = TRADER_BLACKLIST,
-		/obj/item/ammo_magazine/a50/empty                    = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/shotgun                      = TRADER_ALL,
+		/obj/item/ammo_magazine/t40                          = TRADER_ALL,
+		/obj/item/ammo_magazine/t40/empty                    = TRADER_BLACKLIST,
+		/obj/item/ammo_magazine/c38                          = TRADER_ALL,
 		/obj/item/clothing/accessory/holster                 = TRADER_ALL
 	)
 
@@ -88,7 +78,7 @@
 		"trade_no_goods"    = "He only deals with crrredits, comrrrade!",
 		"trade_not_enough"  = "Give him a bit morrre, comrrrade!",
 		"how_much"          = "Only VALUE, just forrr him, comrade!",
-		"compliment_deny"   = "He speaks like a officerrr, is he an officerrr?",
+		"compliment_deny"   = "They arre speaking like a officerrr, arre they an officerrr?",
 		"compliment_accept" = "Pourrr one out for Al'marrri. His gun was on stun, bless his hearrrt.",
 		"insult_good"       = "Good one, comrrrade!",
 		"insult_bad"        = "Rrrracist!"
