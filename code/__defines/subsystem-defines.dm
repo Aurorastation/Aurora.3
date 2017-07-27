@@ -25,6 +25,8 @@
 //number of byond ticks that are allowed to pass before the timer subsystem thinks it hung on something
 #define TIMER_NO_INVOKE_WARNING 600
 
+#define TIMER_ID_NULL -1
+
 // -- SSatoms stuff --
 // 	SSatoms Initialization state.
 #define INITIALIZATION_INSSATOMS 0	//New should not call Initialize

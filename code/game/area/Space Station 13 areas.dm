@@ -8,61 +8,7 @@
 	icon_state = "NAME OF ICON" 	(defaults to "unknown" (blank))
 	requires_power = 0 				(defaults to 1)
 
-NOTE: there are two lists of areas in the end of this file: centcom and station itself. Please maintain these lists valid. --rastaf0
-
 */
-
-
-
-/area
-	var/fire = null
-	var/atmos = 1
-	var/atmosalm = 0
-	var/poweralm = 1
-	var/party = null
-	level = null
-	name = "Unknown"
-	icon = 'icons/turf/areas.dmi'
-	icon_state = "unknown"
-	layer = 10
-	luminosity = 0
-	mouse_opacity = 0
-	var/lightswitch = 1
-
-	var/eject = null
-
-	var/debug = 0
-	var/requires_power = 1
-	var/always_unpowered = 0	//this gets overriden to 1 for space in area/New()
-
-	var/power_equip = 1
-	var/power_light = 1
-	var/power_environ = 1
-	var/used_equip = 0
-	var/used_light = 0
-	var/used_environ = 0
-
-	var/has_gravity = 1
-	var/obj/machinery/power/apc/apc = null
-	var/no_air = null
-//	var/list/lights				// list of all lights on this area
-	var/list/all_doors = list()		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
-	var/air_doors_activated = 0
-	var/list/ambience = list('sound/ambience/ambigen1.ogg','sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambigen12.ogg','sound/ambience/ambigen14.ogg')
-	var/list/forced_ambience = null
-	var/sound_env = STANDARD_STATION
-	var/turf/base_turf//The base turf type of the area, which can be used to override the z-level's base turf
-	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
-	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
-	var/station_area = 0
-	var/centcomm_area = 0
-
-/*Adding a wizard area teleport list because motherfucking lag -- Urist*/
-/*I am far too lazy to make it a proper list of areas so I'll just make it run the usual telepot routine at the start of the game*/
-
-// Setup moved to EMI.
-var/list/teleportlocs = list()
-var/list/ghostteleportlocs = list()
 
 /*-----------------------------------------------------------------------------*/
 
@@ -71,7 +17,7 @@ var/list/ghostteleportlocs = list()
 /////////
 
 /area/space
-	name = "\improper Space"
+	name = "Space"
 	icon_state = "space"
 	requires_power = 1
 	always_unpowered = 1
@@ -98,8 +44,6 @@ area/space/atmosalert()
 /area/space/partyalert()
 	return
 
-/area/turret_protected/
-
 /area/arrival
 	requires_power = 0
 	no_light_control = 1
@@ -113,17 +57,12 @@ area/space/atmosalert()
 	icon_state = "start"
 
 
-
 ////////////
 //SHUTTLES//
 ////////////
 //shuttle areas must contain at least two areas in a subgroup if you want to move a shuttle from one
 //place to another. Look at escape shuttle for example.
 //All shuttles should now be under shuttle since we have smooth-wall code.
-
-/area/shuttle/lifts/placeholder //placeholder until lift code is done.
-	name = "\improper Placeholder!1!!"
-	icon_state = "unknown"
 
 /area/shuttle
 	requires_power = 0
@@ -2111,18 +2050,6 @@ area/space/atmosalert()
 /area/tcommsat/mainlvl_tcomms__relay
 	name = "\improper Telecommucations Main Level Relay"
 	icon_state = "tcomsatcham"
-
-/////////////////////////////////////////////////////////////////////
-/*
- Lists of areas to be used with is_type_in_list.
- Used in gamemodes code at the moment. --rastaf0
-*/
-
-// CENTCOM
-var/list/centcom_areas = list()
-
-//SPACE STATION 13
-var/list/the_station_areas = list()
 
 /area/beach
 	name = "Keelin's private beach"
