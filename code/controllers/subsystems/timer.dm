@@ -1,5 +1,7 @@
 #define BUCKET_LEN (world.fps*1*60) //how many ticks should we keep in the bucket. (1 minutes worth)
 #define BUCKET_POS(timer) (round((timer.timeToRun - SStimer.head_offset) / world.tick_lag) + 1)
+#define TIMER_ID_MAX (2**24) //max float with integer precision
+
 var/datum/controller/subsystem/timer/SStimer
 
 /datum/controller/subsystem/timer
@@ -233,18 +235,23 @@ var/datum/controller/subsystem/timer/SStimer
 	var/static/nextid = 1
 
 /datum/timedevent/New(datum/callback/callBack, timeToRun, flags, hash)
-	id = nextid++
+	id = TIMER_ID_NULL
 	src.callBack = callBack
 	src.timeToRun = timeToRun
 	src.flags = flags
 	src.hash = hash
-
-	name = "Timer: [id]: TTR: [timeToRun], Flags: [jointext(bitfield2list(flags, list("TIMER_UNIQUE", "TIMER_OVERRIDE", "TIMER_CLIENT_TIME", "TIMER_STOPPABLE", "TIMER_NO_HASH_WAIT")), ", ")], callBack: \ref[callBack], callBack.object: [callBack.object]\ref[callBack.object]([getcallingtype()]), callBack.delegate:[callBack.delegate]([callBack.arguments ? callBack.arguments.Join(", ") : ""])"
-
+	
 	if (flags & TIMER_UNIQUE)
 		SStimer.hashes[hash] = src
 	if (flags & TIMER_STOPPABLE)
-		SStimer.timer_id_dict["timerid[id]"] = src
+		do
+			if (nextid >= TIMER_ID_MAX)
+				nextid = 1
+			id = nextid++
+		while(SStimer.timer_id_dict["timerid" + num2text(id, 8)])
+		SStimer.timer_id_dict["timerid" + num2text(id, 8)] = src
+
+	name = "Timer: " + num2text(id, 8) + ", TTR: [timeToRun], Flags: [jointext(bitfield2list(flags, list("TIMER_UNIQUE", "TIMER_OVERRIDE", "TIMER_CLIENT_TIME", "TIMER_STOPPABLE", "TIMER_NO_HASH_WAIT")), ", ")], callBack: \ref[callBack], callBack.object: [callBack.object]\ref[callBack.object]([getcallingtype()]), callBack.delegate:[callBack.delegate]([callBack.arguments ? callBack.arguments.Join(", ") : ""])"
 
 	if (callBack.object != GLOBAL_PROC)
 		LAZYADD(callBack.object.active_timers, src)
@@ -392,6 +399,8 @@ var/datum/controller/subsystem/timer/SStimer
 /proc/deltimer(id)
 	if (!id)
 		return FALSE
+	if (id == TIMER_ID_NULL)
+		CRASH("Tried to delete a null timerid. Use the TIMER_STOPPABLE flag.")
 	if (!istext(id))
 		if (istype(id, /datum/timedevent))
 			qdel(id)
