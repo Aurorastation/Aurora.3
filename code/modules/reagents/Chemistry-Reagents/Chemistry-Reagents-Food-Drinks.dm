@@ -2450,7 +2450,7 @@
 	glass_desc = "A mug of a rich strong roast, you think it could be a lot better if someone added something extra to it."
 
 /datum/reagent/drink/white_coffee
-	name = "CafÃ© Au Lait"
+	name = "Café Au Lait"
 	id = "white_coffee"
 	description = "A fancy name for something thats just coffee and milk."
 	color = "#482000"
@@ -2463,7 +2463,7 @@
 	taste_description = "creamy coffee"
 
 	glass_icon_state = "whitecoffee"
-	glass_name = "A mug of CafÃ© Au Lait"
+	glass_name = "A mug of Café Au Lait"
 	glass_desc = "A fancy name for something thats just coffee and milk."
 
 /datum/reagent/drink/white_coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -2471,7 +2471,7 @@
 	M.heal_organ_damage(0.5 * removed, 0)
 
 /datum/reagent/drink/cafe_melange
-	name = "CafÃ© MÃ©lange"
+	name = "Café Mélange"
 	id = "cafe_melange"
 	description = "A delicious mug of creamy coffee."
 	color = "#482000"
@@ -2484,7 +2484,7 @@
 	taste_description = "creamy coffee"
 
 	glass_icon_state = "whitecoffee"
-	glass_name = "A mug of CafÃ© MÃ©lange"
+	glass_name = "A mug of Café Mélange"
 	glass_desc = "A delicious mug of creamy coffee, keeps you cool headed in the most heated of situations."
 
 /datum/reagent/drink/cafe_melange/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)

@@ -2153,14 +2153,14 @@
 /////////////////////////////////////////Brightdawns super cool coffee drinks//////////////////////////////////////////////
 
 /datum/chemical_reaction/white_coffee
-	name = "CafÃ© Au Lait"
+	name = "Café Au Lait"
 	id = "white_coffee"
 	result = "white_coffee"
 	required_reagents = list("milk" = 1, "black_coffee" = 2)
 	result_amount = 3
 
 /datum/chemical_reaction/cafe_melange
-	name = "CafÃ© MÃ©lange"
+	name = "Café Mélange"
 	id = "cafe_melange"
 	result = "cafe_melange"
 	required_reagents = list("cream" = 1, "black_coffee" = 2)
