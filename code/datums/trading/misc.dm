@@ -42,7 +42,8 @@
 		/mob/living/simple_animal/hostile/samak          = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/retaliate/goat = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL
+		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL,
+		/obj/item/device/dociler                         = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
@@ -110,7 +111,8 @@
 		/obj/item/weapon/gun/energy/wand/toy                    = TRADER_THIS_TYPE,
 		/obj/item/weapon/grenade/spawnergrenade/fake_carp       = TRADER_THIS_TYPE,
 		/obj/item/weapon/grenade/spawnergrenade/singularity/toy = TRADER_THIS_TYPE,
-		/obj/item/weapon/grenade/fake                           = TRADER_THIS_TYPE
+		/obj/item/weapon/grenade/fake                           = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/launcher/pneumatic/small           = TRADER_THIS_TYPE
 	)
 
 /datum/trader/ship/replica_shop

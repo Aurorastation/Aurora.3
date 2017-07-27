@@ -100,6 +100,8 @@
 	var/can_nap = 0
 	var/icon_rest = null
 
+	var/tameable = TRUE //if you can tame it, used by the dociler for now
+
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
