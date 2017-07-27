@@ -360,7 +360,7 @@ var/bomb_set
 	if(SSticker.mode && SSticker.mode.name == "Mercenary")
 		var/obj/machinery/computer/shuttle_control/multi/syndicate/syndie_location = locate(/obj/machinery/computer/shuttle_control/multi/syndicate)
 		if(syndie_location)
-			SSticker.mode:syndies_didnt_escape = (syndie_location.z in config.admin_levels)	//muskets will make me change this, but it will do for now
+			SSticker.mode:syndies_didnt_escape = !(syndie_location.z in config.admin_levels)	//muskets will make me change this, but it will do for now
 		SSticker.mode:nuke_off_station = off_station
 
 	SSticker.station_explosion_cinematic(off_station, null, GetConnectedZlevels(z))
