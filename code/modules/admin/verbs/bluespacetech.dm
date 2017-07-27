@@ -450,7 +450,7 @@
 			vision_flags = 0
 			see_invisible = -1
 
-	usr << "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>."
+	usr << "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>.</span>"
 
 /*	New()
 		..()
