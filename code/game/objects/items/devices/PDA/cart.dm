@@ -399,25 +399,28 @@
 			supplyData["shuttle_loc"] = shuttle.at_station() ? "Station" : "Dock"
 		var/supplyOrderCount = 0
 		var/supplyOrderData[0]
+		/*
 		for(var/S in SScargo.shoppinglist)
 			var/datum/supply_order/SO = S
 
 			supplyOrderData[++supplyOrderData.len] = list("Number" = SO.ordernum, "Name" = html_encode(SO.object.name), "ApprovedBy" = SO.orderedby, "Comment" = html_encode(SO.comment))
 		if(!supplyOrderData.len)
 			supplyOrderData[++supplyOrderData.len] = list("Number" = null, "Name" = null, "OrderedBy"=null)
-
+		*/
+		supplyOrderData[++supplyOrderData.len] = list("Number" = null, "Name" = null, "OrderedBy"=null)
 		supplyData["approved"] = supplyOrderData
 		supplyData["approved_count"] = supplyOrderCount
 
 		var/requestCount = 0
 		var/requestData[0]
-		for(var/S in SScargo.requestlist)
+		/*for(var/S in SScargo.requestlist)
 			var/datum/supply_order/SO = S
 			requestCount++
 			requestData[++requestData.len] = list("Number" = SO.ordernum, "Name" = html_encode(SO.object.name), "OrderedBy" = SO.orderedby, "Comment" = html_encode(SO.comment))
 		if(!requestData.len)
 			requestData[++requestData.len] = list("Number" = null, "Name" = null, "orderedBy" = null, "Comment" = null)
-
+		*/
+		requestData[++requestData.len] = list("Number" = null, "Name" = null, "orderedBy" = null, "Comment" = null) 
 		supplyData["requests"] = requestData
 		supplyData["requests_count"] = requestCount
 

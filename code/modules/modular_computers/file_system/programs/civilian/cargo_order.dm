@@ -1,13 +1,13 @@
-/datum/computer_file/program/cargoorder
+/datum/computer_file/program/civilian/cargoorder
 	filename = "cargoorder"
 	filedesc = "Cargo Order"
 	extended_desc = "Application to Order Items from Cargo"
 	size = 2 //TODO: Increase this
 	requires_ntnet = 1
 	available_on_ntnet = 1
-	nanomodule_path = /datum/nano_module/program/cargoorder/
+	nanomodule_path = /datum/nano_module/program/civilian/cargoorder/
 
-/datum/nano_module/program/cargoorder/
+/datum/nano_module/program/civilian/cargoorder/
 	name = "Cargo Order"
 	var/page = "main" //main - Main Menu, order - Order Page, item_details - Item Details Page
 	var/selected_category = "" // Category that is currently selected
@@ -15,7 +15,7 @@
 	var/datum/cargo_order/co
 	var/last_user_name = "" //Name of the user that used the program
 
-/datum/nano_module/program/cargoorder/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/civilian/cargoorder/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	//Check if a cargo order exists. If not create a new one
 	if(!co)
 		var/datum/cargo_order/crord = new
@@ -59,13 +59,14 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/datum/nano_module/program/cargoorder/Topic(href, href_list)
+/datum/nano_module/program/civilian/cargoorder/Topic(href, href_list)
 	if(..())
 		return 1
 
 	//Send the order to cargo
 	if(href_list["submit_order"])
-		//TODO: Only submit order if there are items in it
+		if(co.items.len == 0)
+			return 1 //Only submit the order if there are items in it
 		co.customer = last_user_name
 		SScargo.submit_order(co)
 		co = null

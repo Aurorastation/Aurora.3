@@ -24,13 +24,6 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/points_per_platinum = 5 // 5 points per sheet
 	var/points_per_phoron = 5
 
-
-	//control
-	var/list/shoppinglist = list() //OLD
-	var/list/requestlist = list() //OLD
-	var/list/supply_packs = list() //OLD
-
-
 	var/ordernum
 	var/list/cargo_items = list() //The list of cargo items
 	var/list/cargo_categories = list() //The list of cargo categories
@@ -48,9 +41,9 @@ var/datum/controller/subsystem/cargo/SScargo
 
 /datum/controller/subsystem/cargo/Recover()
 	src.points = SScargo.points
-	src.shoppinglist = SScargo.shoppinglist
-	src.requestlist = SScargo.requestlist
-	src.supply_packs = SScargo.supply_packs
+	//src.shoppinglist = SScargo.shoppinglist
+	//src.requestlist = SScargo.requestlist
+	//src.supply_packs = SScargo.supply_packs
 
 	src.shuttle = SScargo.shuttle
 	src.cargo_items = SScargo.cargo_items
@@ -74,10 +67,6 @@ var/datum/controller/subsystem/cargo/SScargo
 	else if(config.cargo_load_items_from == "json")
 		log_debug("Cargo Items: Attempting to Load from JSON")
 		load_from_json()
-
-	for (var/typepath in subtypesof(/datum/supply_packs))
-		var/datum/supply_packs/P = new typepath()
-		supply_packs[P.name] = P
 
 	var/datum/cargospawner/spawner = new
 	spawner.start()
@@ -375,62 +364,4 @@ var/datum/controller/subsystem/cargo/SScargo
 		//Update the status of the order
 		ship_order(co)
 
-/*
-	for(var/S in shoppinglist)
-		if(!clear_turfs.len)	break
-		var/i = rand(1,clear_turfs.len)
-		var/turf/pickedloc = clear_turfs[i]
-		clear_turfs.Cut(i,i+1)
-
-		var/datum/supply_order/SO = S
-		var/datum/supply_packs/SP = SO.object
-
-		var/obj/A = new SP.containertype(pickedloc)
-		A.name = "[SP.containername] [SO.comment ? "([SO.comment])":"" ]"
-
-		//supply manifest generation begin
-
-		var/obj/item/weapon/paper/manifest/slip
-		if(!SP.contraband)
-			slip = new /obj/item/weapon/paper/manifest(A)
-			slip.is_copy = 0
-			slip.info = "<h3>[command_name()] Shipping Manifest</h3><hr><br>"
-			slip.info +="Order #[SO.ordernum]<br>"
-			slip.info +="Destination: [station_name]<br>"
-			slip.info +="[shoppinglist.len] PACKAGES IN THIS SHIPMENT<br>"
-			slip.info +="CONTENTS:<br><ul>"
-
-		//spawn the stuff, finish generating the manifest while you're at it
-		if(SP.access)
-			if(isnum(SP.access))
-				A.req_access = list(SP.access)
-			else if(islist(SP.access))
-				var/list/L = SP.access // access var is a plain var, we need a list
-				A.req_access = L.Copy()
-			else
-				world << "<span class='danger'>Supply pack with invalid access restriction [SP.access] encountered!</span>"
-
-		var/list/contains
-		if(istype(SP,/datum/supply_packs/randomised))
-			var/datum/supply_packs/randomised/SPR = SP
-			contains = list()
-			if(SPR.contains.len)
-				for(var/j=1,j<=SPR.num_contained,j++)
-					contains += pick(SPR.contains)
-		else
-			contains = SP.contains
-
-		for(var/typepath in contains)
-			if(!typepath)	continue
-			var/atom/B2 = new typepath(A)
-			if(SP.amount && B2:amount) B2:amount = SP.amount
-			if(slip) slip.info += "<li>[B2.name]</li>" //add the item to the manifest
-
-		//manifest finalisation
-		if(slip)
-			slip.info += "</ul><br>"
-			slip.info += "CHECK CONTENTS AND STAMP BELOW THE LINE TO CONFIRM RECEIPT OF GOODS<hr>"
-*/
-
-	shoppinglist.Cut()
 	return

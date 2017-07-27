@@ -59,7 +59,12 @@
 	_app_preset_name = "civilian"
 	enrolled = 1
 
-ERT
+// Supply
+/obj/item/modular_computer/console/preset/supply/
+	_app_preset_name = "supply"
+	enrolled = 1
+
+// ERT
 /obj/item/modular_computer/console/preset/ert/install_default_hardware()
 	..()
 	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)

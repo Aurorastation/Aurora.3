@@ -34,38 +34,48 @@
         <br>
         <div>
             {{props data.cargo_categories}}
-                {{:helper.link(value.display_name, 'gear', {'select_category' : value.name}, (data.selected_category == value.name) ? 'selected' : null)}}                
+                {{:helper.link(value.display_name, value.icon, {'select_category' : value.name}, (data.selected_category == value.name) ? 'selected' : null)}}                
             {{/props}}
         </div>
     </div>
     <hr>
     <div>
+	<table>
     {{for data.category_items}}
-        <p><b>{{:value.name}}</b></p>
-        <p><i>{{:value.description}}</i></p>
-        <p>{{:helper.link('Item Details', 'gear', {'item_details' : value.path}, null)}}</p>
-        <br>
-        <hr>
+		<tr>
+			<td><b>{{:value.name}}</b></td>
+		</tr>
+		<tr>
+			<td><i>{{:value.description}}</i></td>
+		</tr>
+		<tr>
+			<td>{{:helper.link('Item Details', 'gear', {'item_details' : value.path}, null)}}</td>
+		</tr>
+		<tr><td><hr></td></tr>
     {{/for}}
+	</table>
     </div>
 {{else data.page == "item_details"}}
 <div>
     <table>
+		<tr>
+			<td colspan="2">{{:helper.link('Return', 'gear', {'page' : 'main'}, null)}}</td>
+		</tr>
         <tr>
-            <td>Name:</td>
+            <td><b>Name:</b></td>
             <td>{{:data.item_details.name}}</td>
         </tr>
         <tr>
-            <td>Description:</td>
+            <td><b>Description:</b></td>
             <td>{{:data.item_details.description}}</td>
         </tr>
         <tr>
-            <td>Items per Order:</td>
+            <td><b>Items per Order:</b></td>
             <td>{{:data.item_details.amount}}</td>
         </tr>
     </table>
     <br>
-    Suppliers:
+    <b>Suppliers:</b>
     <br>
     {{props data.item_details.suppliers}}
         {{:helper.link(key + " " + value.base_purchase_price, 'gear', {'add_item' : data.item_details.path, 'supplier': key}, null)}}

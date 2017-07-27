@@ -1,4 +1,4 @@
-/datum/computer_file/program/cargocontrol
+/datum/computer_file/program/civilian/cargocontrol
 	filename = "cargocontrol"
 	filedesc = "Cargo Control"
 	extended_desc = "Application to Control Cargo Orders"
@@ -7,15 +7,15 @@
 	available_on_ntnet = 1
 	required_access_download = access_hop
 	required_access_run = access_cargo
-	nanomodule_path = /datum/nano_module/program/cargocontrol/
+	nanomodule_path = /datum/nano_module/program/civilian/cargocontrol/
 
-/datum/nano_module/program/cargocontrol/
+/datum/nano_module/program/civilian/cargocontrol/
 	name = "Cargo Control"
 	var/page = "main" //main - Main Menu, overview_submitted - Submitted Order Overview, overview_approved - Approved Order Overview, settings - Settings, details - order details
 	var/last_user_name = "" //Name of the User that last used the computer
 	var/shuttle_message = "" //The shuttle message that should be displayed
 
-/datum/nano_module/program/cargocontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/civilian/cargocontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
 	
 	post_signal("supply")
@@ -63,7 +63,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/datum/nano_module/program/cargocontrol/Topic(href, href_list)
+/datum/nano_module/program/civilian/cargocontrol/Topic(href, href_list)
 	if(!SScargo)
 		world.log << "## ERROR: Eek. The SScargo controller datum is missing somehow."
 		return
@@ -139,7 +139,7 @@
 
 	//Change Settings
 
-/datum/nano_module/program/cargocontrol/proc/post_signal(var/command) //Old code right here - Used to send a refresh command to the status screens incargo
+/datum/nano_module/program/civilian/cargocontrol/proc/post_signal(var/command) //Old code right here - Used to send a refresh command to the status screens incargo
 
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(1435)
 

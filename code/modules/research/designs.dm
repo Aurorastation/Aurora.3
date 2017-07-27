@@ -1447,19 +1447,6 @@ CIRCUITS BELOW
 	build_path = /obj/item/weapon/airlock_electronics/secure
 	sort_string = "JDAAA"
 
-/datum/design/circuit/ordercomp
-	name = "supply ordering console"
-	id = "ordercomp"
-	build_path = /obj/item/weapon/circuitboard/ordercomp
-	sort_string = "KAAAA"
-
-/datum/design/circuit/supplycomp
-	name = "supply control console"
-	id = "supplycomp"
-	req_tech = list(TECH_DATA = 3)
-	build_path = /obj/item/weapon/circuitboard/supplycomp
-	sort_string = "KAAAB"
-
 /datum/design/circuit/biogenerator
 	name = "biogenerator"
 	id = "biogenerator"

@@ -9,7 +9,7 @@
 /datum/modular_computer_app_presets/all
 	name = "all"
 	display_name = "All Programs"
-	description = "Contains all Progams"
+	description = "Contains all progams"
 	available = 0
 /datum/modular_computer_app_presets/all/return_install_programs()
 	var/list/_prg_list = list()
@@ -21,7 +21,7 @@
 /datum/modular_computer_app_presets/engineering
 	name = "engineering"
 	display_name = "Engineering"
-	description = "Contains the most common engineering Programs"
+	description = "Contains the most common engineering programs"
 	available = 1
 /datum/modular_computer_app_presets/engineering/return_install_programs()
 	var/list/_prg_list = list(
@@ -39,7 +39,7 @@
 /datum/modular_computer_app_presets/medical
 	name = "medical"
 	display_name = "Medical"
-	description = "Contains the most common medical Programs"
+	description = "Contains the most common medical programs"
 	available = 1
 /datum/modular_computer_app_presets/medical/return_install_programs()
 	var/list/_prg_list = list(
@@ -52,7 +52,7 @@
 /datum/modular_computer_app_presets/research
 	name = "research"
 	display_name = "Research"
-	description = "Contains the most common research Programs"
+	description = "Contains the most common research programs"
 	available = 1
 /datum/modular_computer_app_presets/research/return_install_programs()
 	var/list/_prg_list = list(
@@ -67,7 +67,7 @@
 /datum/modular_computer_app_presets/command
 	name = "command"
 	display_name = "Command"
-	description = "Contains the most common command Programs"
+	description = "Contains the most common command programs"
 	available = 1
 /datum/modular_computer_app_presets/command/return_install_programs()
 	var/list/_prg_list = list(
@@ -81,7 +81,7 @@
 /datum/modular_computer_app_presets/security
 	name = "security"
 	display_name = "Security"
-	description = "Contains the most common security Programs"
+	description = "Contains the most common security programs"
 	available = 1
 /datum/modular_computer_app_presets/security/return_install_programs()
 	var/list/_prg_list = list(
@@ -96,14 +96,29 @@
 /datum/modular_computer_app_presets/civilian
 	name = "civilian"
 	display_name = "Civilian"
-	description = "Contains the most common civilian Programs"
+	description = "Contains the most common civilian programs"
 	available = 1
 /datum/modular_computer_app_presets/civilian/return_install_programs()
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/game/arcade(),
-		new/datum/computer_file/program/game/sudoku()
+		new/datum/computer_file/program/game/sudoku(),
+		new/datum/computer_file/program/civilian/cargoorder()
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/civilian
+	name = "supply"
+	display_name = "Supply"
+	description = "Contains the most common cargo programs"
+	available = 1
+/datum/modular_computer_app_presets/civilian/return_install_programs()
+	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
+		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargocontrol(),
+		new/datum/computer_file/program/civilian/cargocontrol()
 	)
 	return _prg_list
 
