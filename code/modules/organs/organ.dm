@@ -27,7 +27,11 @@
 
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 
-INITIALIZE_IMMEDIATE(/obj/item/organ)
+/obj/item/organ/New(loc, ...)
+	..()
+	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
+		args[1] = TRUE
+		SSatoms.InitAtom(src, args)
 
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
