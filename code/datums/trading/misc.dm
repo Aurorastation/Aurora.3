@@ -41,7 +41,8 @@
 		/mob/living/simple_animal/hostile/shantak        = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/samak          = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/retaliate/goat = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE
+		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL
 	)
 
 	possible_trading_items = list(
@@ -92,21 +93,24 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/clothing/mask/gas/clown_hat                 = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/gas/mime                      = TRADER_THIS_TYPE,
-		/obj/item/clothing/shoes/clown_shoes                  = TRADER_THIS_TYPE,
-		/obj/item/clothing/under/rank/clown                   = TRADER_THIS_TYPE,
-		/obj/item/device/pda/clown                            = TRADER_THIS_TYPE,
-		/obj/item/weapon/cartridge/clown                      = TRADER_THIS_TYPE,
-		/obj/item/weapon/stamp/clown                          = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/backpack/clown               = TRADER_THIS_TYPE,
-		/obj/item/weapon/bananapeel                           = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/pie   = TRADER_THIS_TYPE,
-		/obj/item/weapon/bikehorn                             = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/spray/waterflower = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/capgun       = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/fakemoustache                 = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/wand/toy                  = TRADER_THIS_TYPE
+		/obj/item/clothing/mask/gas/clown_hat                   = TRADER_THIS_TYPE,
+		/obj/item/clothing/mask/gas/mime                        = TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/clown_shoes                    = TRADER_THIS_TYPE,
+		/obj/item/clothing/under/rank/clown                     = TRADER_THIS_TYPE,
+		/obj/item/device/pda/clown                              = TRADER_THIS_TYPE,
+		/obj/item/weapon/cartridge/clown                        = TRADER_THIS_TYPE,
+		/obj/item/weapon/stamp/clown                            = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/backpack/clown                 = TRADER_THIS_TYPE,
+		/obj/item/weapon/bananapeel                             = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/pie     = TRADER_THIS_TYPE,
+		/obj/item/weapon/bikehorn                               = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/spray/waterflower   = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/revolver/capgun         = TRADER_THIS_TYPE,
+		/obj/item/clothing/mask/fakemoustache                   = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/wand/toy                    = TRADER_THIS_TYPE,
+		/obj/item/weapon/grenade/spawnergrenade/fake_carp       = TRADER_THIS_TYPE,
+		/obj/item/weapon/grenade/spawnergrenade/singularity/toy = TRADER_THIS_TYPE,
+		/obj/item/weapon/grenade/fake                           = TRADER_THIS_TYPE
 	)
 
 /datum/trader/ship/replica_shop
