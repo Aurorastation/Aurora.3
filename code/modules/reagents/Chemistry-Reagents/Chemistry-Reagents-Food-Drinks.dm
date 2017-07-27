@@ -2303,7 +2303,7 @@
 	glass_center_of_mass = list("x"=16, "y"=9)
 
 /datum/reagent/ethanol/pinkgintonic
-	name = "Pink gin and Tonic."
+	name = "Pink Gin and Tonic."
 	id = "pinkgintonic"
 	description = "Bitterer gin and tonic."
 	color = "#F4BDDB"
