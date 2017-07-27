@@ -60,7 +60,7 @@ In short:
 		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
-		A.updateicon()
+		A.queue_icon_update()
 		CHECK_TICK
 
 /datum/universal_state/hell/OverlayAndAmbientSet()
