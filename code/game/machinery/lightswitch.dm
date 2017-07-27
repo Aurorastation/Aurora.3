@@ -40,7 +40,7 @@
 	on = !on
 
 	area.lightswitch = on
-	area.updateicon()
+	area.update_icon()
 
 	for(var/obj/machinery/light_switch/L in area)
 		L.on = on
