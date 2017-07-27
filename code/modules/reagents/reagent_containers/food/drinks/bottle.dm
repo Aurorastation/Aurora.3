@@ -230,7 +230,7 @@
 		reagents.add_reagent("nothing", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/bitters
-	name = " Angstra aromatic bitters"
+	name = "Angstra aromatic bitters"
 	desc = "Only the finest and highest quality herbs find their way into our cocktail bitters."
 	icon_state = "bitters"
 	center_of_mass = list("x"=16, "y"=10)
