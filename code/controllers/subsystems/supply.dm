@@ -16,13 +16,10 @@ var/datum/controller/subsystem/cargo/SScargo
 	init_order = SS_INIT_CARGO
 
 	//supply points
-	//TODO: Purge all the old stuff
-	var/points = 50 //OLD
-	var/points_per_process = 1
-	var/points_per_slip = 2
-	var/points_per_crate = 5
-	var/points_per_platinum = 5 // 5 points per sheet
-	var/points_per_phoron = 5
+	var/credits_per_crate = 100
+	var/credits_per_platinum = 100
+	var/credits_per_phoron = 100
+
 
 	var/ordernum
 	var/list/cargo_items = list() //The list of cargo items
@@ -40,11 +37,6 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/datum/shuttle/ferry/supply/shuttle
 
 /datum/controller/subsystem/cargo/Recover()
-	src.points = SScargo.points
-	//src.shoppinglist = SScargo.shoppinglist
-	//src.requestlist = SScargo.requestlist
-	//src.supply_packs = SScargo.supply_packs
-
 	src.shuttle = SScargo.shuttle
 	src.cargo_items = SScargo.cargo_items
 	src.cargo_categories = SScargo.cargo_categories
@@ -75,9 +67,6 @@ var/datum/controller/subsystem/cargo/SScargo
 
 /datum/controller/subsystem/cargo/New()
 	NEW_SS_GLOBAL(SScargo)
-
-/datum/controller/subsystem/cargo/fire()
-	points += points_per_process
 
 //Increments the orderid and returns it
 /datum/controller/subsystem/cargo/proc/get_next_order_id()
@@ -268,6 +257,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	var/phoron_count = 0
 	var/plat_count = 0
+	var/sell_credits = 0
 
 	for(var/atom/movable/MA in area_shuttle)
 		if(MA.anchored)	continue
@@ -276,19 +266,11 @@ var/datum/controller/subsystem/cargo/SScargo
 		if(istype(MA,/obj/structure/closet/crate))
 			callHook("sell_crate", list(MA, area_shuttle))
 
-			points += points_per_crate
-			var/find_slip = 1
+			sell_credits += credits_per_crate
 
 			for(var/atom in MA)
 				// Sell manifests
 				var/atom/A = atom
-				if(find_slip && istype(A,/obj/item/weapon/paper/manifest))
-					var/obj/item/weapon/paper/manifest/slip = A
-					if(!slip.is_copy && slip.stamped && slip.stamped.len) //yes, the clown stamp will work. clown is the highest authority on the station, it makes sense
-						points += points_per_slip
-						find_slip = 0
-					continue
-
 				// Sell phoron and platinum
 				if(istype(A, /obj/item/stack))
 					var/obj/item/stack/P = A
@@ -298,10 +280,12 @@ var/datum/controller/subsystem/cargo/SScargo
 		qdel(MA)
 
 	if(phoron_count)
-		points += phoron_count * points_per_phoron
+		sell_credits += phoron_count * credits_per_phoron
 
 	if(plat_count)
-		points += plat_count * points_per_platinum
+		sell_credits += plat_count * credits_per_platinum
+
+	charge_cargo("Shipment Credits",-sell_credits)
 
 //Buyin
 /datum/controller/subsystem/cargo/proc/buy()

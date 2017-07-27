@@ -118,7 +118,7 @@
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/civilian/cargocontrol(),
-		new/datum/computer_file/program/civilian/cargocontrol()
+		new/datum/computer_file/program/civilian/cargoorder()
 	)
 	return _prg_list
 
