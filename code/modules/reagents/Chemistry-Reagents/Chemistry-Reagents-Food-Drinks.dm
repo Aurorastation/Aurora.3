@@ -1065,6 +1065,18 @@
 	glass_name = "glass of Brown Star"
 	glass_desc = "It's not what it sounds like..."
 
+/datum/reagent/drink/mintsyrup
+	name = "Mint Syrup"
+	description = "A simple syrup that tastes strongly of mint."
+	id = "mintsyrup"
+	color = "#539830"
+	taste_description = "mint"
+
+	glass_icon_state = "mint_syrupglass"
+	glass_name = "glass of mint syrup"
+	glass_desc = "Pure mint syrup. Prepare your tastebuds."
+	glass_center_of_mass = list("x"=17, "y"=6)
+
 /datum/reagent/drink/milkshake
 	name = "Milkshake"
 	description = "Glorious brainfreezing mixture."
@@ -1331,6 +1343,19 @@
 		return
 	M.jitteriness = max(M.jitteriness - 3, 0)
 
+/datum/reagent/ethanol/bitters
+	name = "Aromatic Bitters"
+	id = "bitters"
+	description = "A very, very concentrated and bitter herbal alcohol."
+	color = "#223319"
+	strength = 40
+	taste_description = "bitter"
+
+	glass_icon_state = "bittersglass"
+	glass_name = "glass of bitters"
+	glass_desc = "A pungent glass of bitters."
+	glass_center_of_mass = list ("x"=17, "y"=8)
+
 /datum/reagent/ethanol/bluecuracao
 	name = "Blue Curacao"
 	id = "bluecuracao"
@@ -1342,6 +1367,19 @@
 	glass_icon_state = "curacaoglass"
 	glass_name = "glass of blue curacao"
 	glass_desc = "Exotically blue, fruity drink, distilled from oranges."
+	glass_center_of_mass = list("x"=16, "y"=5)
+
+/datum/reagent/ethanol/champagne
+	name = "Champagne"
+	id = "champagne"
+	description = "A classy sparkling wine, usually found in meeting rooms and basements."
+	color = "#EBECC0"
+	strength = 15
+	taste_description = "bubbly bitter-sweetness"
+
+	glass_icon_state = "champagneglass"
+	glass_name = "glass of champagne"
+	glass_desc = "Off-white and bubbly. So passe."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
 /datum/reagent/ethanol/cognac
