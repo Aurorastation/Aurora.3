@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "The nuke no longer destroys CC if detonated on the station."
-  - bugfix: "You should no longer make footstep sounds when being dragged around or when dead."
