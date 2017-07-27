@@ -26,7 +26,6 @@
 
 //all air alarms in area are connected via magic
 /area
-	var/obj/machinery/alarm/master_air_alarm
 	var/list/air_vent_names = list()
 	var/list/air_scrub_names = list()
 	var/list/air_vent_info = list()
@@ -157,8 +156,6 @@
 	first_run()
 
 	set_frequency(frequency)
-	if (!master_is_operating())
-		elect_master()
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -314,18 +311,6 @@
 		if (!(mode == AALARM_MODE_PANIC || mode == AALARM_MODE_CYCLE))
 			return 1
 
-	return 0
-
-
-/obj/machinery/alarm/proc/master_is_operating()
-	return alarm_area.master_air_alarm && !(alarm_area.master_air_alarm.stat & (NOPOWER|BROKEN))
-
-
-/obj/machinery/alarm/proc/elect_master()
-	for (var/obj/machinery/alarm/AA in alarm_area)
-		if (!(AA.stat & (NOPOWER|BROKEN)))
-			alarm_area.master_air_alarm = AA
-			return 1
 	return 0
 
 /obj/machinery/alarm/proc/get_danger_level(var/current_value, var/list/danger_levels)
