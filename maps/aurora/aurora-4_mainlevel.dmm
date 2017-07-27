@@ -4288,7 +4288,7 @@
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
 /obj/item/device/taperecorder,
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/tiled,
 /area/security/brig)
 "aiJ" = (
 /obj/item/device/radio/intercom{
@@ -34844,9 +34844,8 @@
 	},
 /obj/structure/bed/roller,
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Staff Area Hallway";
-	dir = 8;
-	icon_state = "camera"
+	c_tag = "Medical - Cloning Laboratory";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
@@ -38212,6 +38211,9 @@
 	icon_state = "corner_white_full";
 	dir = 1
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - CMO's Office"
+	},
 /mob/living/simple_animal/cat/fluff/Runtime{
 	name = "Bones"
 	},
@@ -40557,11 +40559,6 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Virology South";
-	dir = 8;
-	icon_state = "camera"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -40574,6 +40571,10 @@
 	},
 /obj/effect/landmark/start{
 	name = "Medical Doctor"
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Briefing Room";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -40668,11 +40669,6 @@
 	name = "Chief Medical Officer RC";
 	pixel_x = 30;
 	pixel_y = 0
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Morgue";
-	dir = 8;
-	icon_state = "camera"
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -43494,9 +43490,6 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Engine Cooling EVA"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bwG" = (
@@ -43903,13 +43896,12 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Virology South";
-	dir = 8;
-	icon_state = "camera"
-	},
 /obj/item/weapon/packageWrap,
 /obj/item/weapon/hand_labeler,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Medical Office";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bxq" = (
@@ -46136,9 +46128,8 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Patient Ward";
-	dir = 1;
-	icon_state = "camera"
+	c_tag = "Medical - Pre/Post Operatory Room";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -91195,7 +91186,7 @@ bMI
 bJa
 bIl
 ceF
-bRE
+bMI
 bJa
 bOf
 bSG
@@ -96258,7 +96249,7 @@ ahy
 cfn
 alC
 amn
-cfr
+cfq
 aoc
 cfu
 ard
