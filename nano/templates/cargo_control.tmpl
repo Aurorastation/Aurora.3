@@ -32,13 +32,25 @@
                     <td colspan="2">{{:helper.link('Approved Order Overview', 'cart', {'page' : 'overview_approved'}, null)}}</td>
                 </tr>
                 <tr>
-                    <td colspan="2"><h3>Shuttle Operations</h3></td>
+                    <td colspan="2"><b>Cargo Account Value</b></td>
                 </tr>
                 <tr>
+                    <td colspan="2">{{:data.cargo_money}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h3>Shuttle Operations</h3></td>
+                </tr>
+                {{if data.shuttle_has_arrive_time}}
+                <tr>
+                    <td>ETA:</td>
+                    <td>{{:data.shuttle_eta_minutes}}</td>
+                </tr>
+                {{/if}}
+                <tr>
                     <td colspan="2">
-                    {{:helper.link('Send', 'cart', {'shuttle_send' : '1'}, null)}}
-                    {{:helper.link('Cancel', 'cart', {'shuttle_cancel' : '1'}, null)}}
-                    {{:helper.link('Force', 'cart', {'shuttle_force' : '1'}, null)}}
+                    {{:helper.link('Send', 'cart', {'shuttle_send' : '1'}, null )}}
+                    {{:helper.link('Cancel', 'cart', {'shuttle_cancel' : '1'}, null )}}
+                    {{:helper.link('Force', 'cart', {'shuttle_force' : '1'}, null )}}
                     </td>
                 </tr>
             </table>
@@ -49,8 +61,10 @@
     <hr>
 	Overview Submitted
     <div>
-	{{:helper.link('Return', 'cart', {'page' : 'main'}, null)}}
 	<table>
+    <tr>
+        <td colspan="2">{{:helper.link('Return', 'cart', {'page' : 'main'}, null)}}</td>
+    </tr>
     {{props data.submitted_orders}}
 		<tr>
 			<td>{{:value.order_id}}</td>

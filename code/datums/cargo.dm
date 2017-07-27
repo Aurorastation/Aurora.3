@@ -53,6 +53,8 @@
 	var/time_approved = "" //Time the order has been approved by cargo
 	var/time_shipped = "" //Time the order has been shipped to the station
 	var/time_delivered = "" //Time the order has been delivered
+/datum/cargo_order/New()
+	price = SScargo.credits_per_crate + SScargo.cargo_handlingfee //Set the base price of the order
 /datum/cargo_order/proc/get_item_list()
 	var/list/item_list = list()
 	for (var/datum/cargo_order_item/coi in items)
@@ -135,3 +137,15 @@
 	return data
 /datum/cargo_order_item/Destroy()
 	ci = null
+
+/datum/cargo_shipment
+	var/list/orders //List of orders in that shipment
+	var/shipment_num //Number of the shipment
+	var/shipment_cost_sell //The amount of money cargo got for the shipment
+	var/shipment_cost_purchse //The amount of money cargo paid for the shipment
+	var/shipment_invoice //The invoice for the shipment (detailing the expenses ,credits received and charges)
+	var/current_shuttle_fee //The shuttle fee at the time of calling it
+	var/shuttle_called_by //The person that called the shuttle
+	var/shuttle_recalled_by //The person that recalled the shuttle
+/datum/cargo_shipment/proc/generate_invoice()
+	return shipment_invoice

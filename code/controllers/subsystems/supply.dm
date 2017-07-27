@@ -15,20 +15,26 @@ var/datum/controller/subsystem/cargo/SScargo
 	flags = SS_NO_TICK_CHECK
 	init_order = SS_INIT_CARGO
 
-	//supply points
-	var/credits_per_crate = 100
-	var/credits_per_platinum = 100
-	var/credits_per_phoron = 100
+	//Shipment stuff
+	var/shipmentnum
+	var/list/cargo_shipments = list() //List of the shipments to the station
+	var/datum/cargo_shipment/current_shipment = null // The current cargo shipment
 
-
+	//order stuff
 	var/ordernum
 	var/list/cargo_items = list() //The list of cargo items
 	var/list/cargo_categories = list() //The list of cargo categories
 	var/list/all_orders = list() //All orders
+
+	//Fee Stuff
+	var/credits_per_crate = 100 //Cost / Payment per crate shipped from / to centcom
+	var/credits_per_platinum = 100 //Per sheet
+	var/credits_per_phoron = 100 //Per sheet
 	var/cargo_handlingfee = 50 //The handling fee cargo takes per crate
 	var/cargo_handlingfee_min = 0 // The minimum handling fee
 	var/cargo_handlingfee_max = 500 // The maximum handling fee
-	var/cargo_handlingfee_change = 1 // If the handlingfee can be changed
+	var/cargo_handlingfee_change = 1 // If the handlingfee can be changed -> For a random event
+	var/cargo_shuttle_fee = 1000 // Price to call the shuttle
 	var/datum/money_account/supply_account
 
 
@@ -40,14 +46,16 @@ var/datum/controller/subsystem/cargo/SScargo
 	src.shuttle = SScargo.shuttle
 	src.cargo_items = SScargo.cargo_items
 	src.cargo_categories = SScargo.cargo_categories
+	src.cargo_shipments = SScargo.cargo_shipments
 	src.all_orders = SScargo.all_orders
 	src.cargo_handlingfee = SScargo.cargo_handlingfee
 	src.cargo_handlingfee_change = SScargo.cargo_handlingfee_change
 	src.supply_account = SScargo.supply_account
 
 /datum/controller/subsystem/cargo/Initialize(timeofday)
-	//Generate the ordernumber to start with
+	//Generate the ordernumber and shipmentnumber to start with
 	ordernum = rand(1,8000)
+	shipmentnum = rand(500,700)
 
 	//Fetch the cargo account once the round is started - TODO: Repalce that once economy gets its own subsystem
 	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/fetch_supply_account))
@@ -68,19 +76,19 @@ var/datum/controller/subsystem/cargo/SScargo
 /datum/controller/subsystem/cargo/New()
 	NEW_SS_GLOBAL(SScargo)
 
-//Increments the orderid and returns it
-/datum/controller/subsystem/cargo/proc/get_next_order_id()
-	. = ordernum
-	ordernum++
-	return .
 
+/*
+	Loading Data 
+*/
+//Load the cargo data from SQL
 /datum/controller/subsystem/cargo/proc/load_from_sql()
 	if(!dbcon.IsConnected())
 		log_debug("Cargo Items: SQL ERROR - Failed to connect. - Falling back to JSON")
 		return load_from_json()
 	else
 		return 1
-		
+
+//Loads the cargo data from JSON	
 /datum/controller/subsystem/cargo/proc/load_from_json()
 	var/list/cargoconfig = json_decode(return_file_text("config/cargo.json"))
 
@@ -130,6 +138,17 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	return 1
 
+
+/*
+	Getting items and categories
+*/
+//Increments the orderid and returns it
+/datum/controller/subsystem/cargo/proc/get_next_order_id()
+	. = ordernum
+	ordernum++
+	return .
+
+//Gets the items from a category
 /datum/controller/subsystem/cargo/proc/get_items_for_category(var/category)
 	var/datum/cargo_category/cc = cargo_categories[category]
 	if(cc)
@@ -137,6 +156,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	else
 		return list()
 
+//Gets the categories
 /datum/controller/subsystem/cargo/proc/get_category_list()
 	var/list/category_list = list()
 	for (var/cat_name in cargo_categories)
@@ -144,13 +164,15 @@ var/datum/controller/subsystem/cargo/SScargo
 		category_list.Add(list(cc.get_list()))
 	return category_list
 
+//Gets a order by order id
 /datum/controller/subsystem/cargo/proc/get_order_by_id(var/id)
 	for (var/datum/cargo_order/co in all_orders)
 		if(co.order_id == id)
 			return co
 	return null
-
-//Submit a specific order
+/*
+	Submitting, Approving, Rejecting and Shipping Orders
+*/
 /datum/controller/subsystem/cargo/proc/submit_order(var/datum/cargo_order/co)
 	co.status = "submitted"
 	co.time_submited = worldtime2text()
@@ -169,6 +191,7 @@ var/datum/controller/subsystem/cargo/SScargo
 				submitted_orders.Add(co)
 	return submitted_orders
 
+//Gets the value of the submitted orders
 /datum/controller/subsystem/cargo/proc/get_submitted_orders_value()
 	var/value = 0
 	for (var/datum/cargo_order/co in all_orders)
@@ -176,22 +199,24 @@ var/datum/controller/subsystem/cargo/SScargo
 			value += co.price
 	return value
 
-//Approve a order
+//Approve a order  - Returns a status message
 /datum/controller/subsystem/cargo/proc/approve_order(var/datum/cargo_order/co)
 	if(co.status == "submitted")
 		co.status = "approved"
 		co.time_approved = worldtime2text()
-		return 1
+		return "The order has been approved"
 	else 
-		return 0
-//Approve a order
+		return "The order could not be approved - Invalid Status"
+
+//Reject a order - Returns a status message
 /datum/controller/subsystem/cargo/proc/reject_order(var/datum/cargo_order/co)
 	if(co.status == "submitted")
 		co.status = "rejected"
 		co.time_approved = worldtime2text()
-		return 1
+		return "The order has been rejected"
 	else
-		return 0
+		return "The order could not be rejected - Invalid Status"
+
 //Get the orders that have been approved
 /datum/controller/subsystem/cargo/proc/get_approved_orders(var/data_list = 1)
 	var/list/approved_orders = list()
@@ -203,6 +228,7 @@ var/datum/controller/subsystem/cargo/SScargo
 				approved_orders.Add(co)
 	return approved_orders
 
+//Gets the value of the currently approved orders
 /datum/controller/subsystem/cargo/proc/get_approved_orders_value()
 	var/value = 0
 	for (var/datum/cargo_order/co in all_orders)
@@ -210,28 +236,84 @@ var/datum/controller/subsystem/cargo/SScargo
 			value += co.price
 	return value
 
+//Marks the order as shipped
 /datum/controller/subsystem/cargo/proc/ship_order(var/datum/cargo_order/co)
 	co.status = "shipped"
 	co.time_shipped = worldtime2text()
-
+	current_shipment.shipment_cost_purchse += co.price //Increase the price of the shipment
+	current_shipment.orders.Add(co) //Add the order to the order list
+//Generate a new cargo shipment
+/datum/controller/subsystem/cargo/proc/new_shipment()
+	current_shipment = new()
+	shipmentnum ++
+	cargo_shipments.Add(current_shipment)
+	current_shipment.shipment_num = shipmentnum
+	current_shipment.shipment_cost_purchse = cargo_shuttle_fee //Sets the shuttlefee
+/*
+	Changing Settings
+*/
+//Gets the current handlingfee
 /datum/controller/subsystem/cargo/proc/get_handlingfee()
 	return cargo_handlingfee
-
+// Sets the handling fee - Returns a status message
 /datum/controller/subsystem/cargo/proc/set_handlingfee(var/fee)
 	if(fee < cargo_handlingfee_min)
-		return 1
+		return "Unable to set handlingfee - Smaller than minimum: [cargo_handlingfee_min]"
 	if(fee > cargo_handlingfee_max)
-		return 2
+		return "Unable to set handlingfee - Higher than maximum: [cargo_handlingfee_max]"
 	if(cargo_handlingfee_change != 1)
-		return 3
+		return "Unable to set handlingfee - Changing the handlingfee is currently not possible"
 	cargo_handlingfee = fee
-	return 0
-
+	return
+//Gets the current shuttlefee
+/datum/controller/subsystem/cargo/proc/get_shuttlefee()
+	return cargo_shuttle_fee
+/*
+	Money Stuff
+*/
+//Gets the current money on the cargo account
+/datum/controller/subsystem/cargo/proc/get_cargo_money()
+	return supply_account.money
+//Charges cargo. Accepts a text that should appear as charge and the numer of credits to charge
 /datum/controller/subsystem/cargo/proc/charge_cargo(var/charge_text, var/charge_credits)
 	if(!supply_account)
 		log_debug("Cargo - Warning Tried to charge supply account but supply acount doesnt exist")
 		return 0
 	return charge_to_account(supply_account.account_number, "[commstation_name()] - Supply", "[charge_text]", "[commstation_name()] - Banking System", -charge_credits)
+
+/*
+	Shuttle Operations - Calling, Forcing, Canceling, Buying / Selling
+*/
+//Calls the shuttle. Returns a status message
+/datum/controller/subsystem/cargo/proc/shuttle_call(var/caller_name)
+	if(shuttle.at_station())
+		if (shuttle.forbidden_atoms_check())
+			. = "For safety reasons the automated supply shuttle cannot transport live organisms, classified nuclear weaponry or homing beacons."
+		else
+			shuttle.launch(src)
+			. = "Initiating launch sequence"
+			current_shipment.shuttle_recalled_by = caller_name
+	else
+		//Check if there is enough money on the account to call it
+		if(cargo_shuttle_fee > get_cargo_money())
+			. = "The supply shuttle could not be called. Insufficient cargo account balance."
+		else
+			//Create a new shipment if one does not exist already
+			if(!current_shipment)
+				new_shipment()
+			shuttle.launch(src)
+			. = "The supply shuttle has been called and will arrive in approximately [round(SScargo.movetime/600,1)] minutes."
+			current_shipment.shuttle_called_by = caller_name
+	return .
+
+//Cancels the shuttle. Can return a status message
+/datum/controller/subsystem/cargo/proc/shuttle_cancel()
+	shuttle.cancel_launch(src)
+	return
+//Forces the shuttle. Can return a status message
+/datum/controller/subsystem/cargo/proc/shuttle_force()
+	shuttle.force_launch(src)
+	return
 
 //To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
 /datum/controller/subsystem/cargo/proc/forbidden_atoms_check(atom/A)
@@ -249,7 +331,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		if(.(B))
 			return 1
 
-//Sellin
+//Sells stuff on the shuttle to centcom
 /datum/controller/subsystem/cargo/proc/sell()
 	//TODO: Only pay for specific stuff on the shuttle and not for everything else - Charge a cleanup fee for the rest
 	var/area/area_shuttle = shuttle.get_location_area()
@@ -257,7 +339,6 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	var/phoron_count = 0
 	var/plat_count = 0
-	var/sell_credits = 0
 
 	for(var/atom/movable/MA in area_shuttle)
 		if(MA.anchored)	continue
@@ -266,7 +347,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		if(istype(MA,/obj/structure/closet/crate))
 			callHook("sell_crate", list(MA, area_shuttle))
 
-			sell_credits += credits_per_crate
+			current_shipment.shipment_cost_sell += credits_per_crate
 
 			for(var/atom in MA)
 				// Sell manifests
@@ -280,21 +361,30 @@ var/datum/controller/subsystem/cargo/SScargo
 		qdel(MA)
 
 	if(phoron_count)
-		sell_credits += phoron_count * credits_per_phoron
+		current_shipment.shipment_cost_sell += phoron_count * credits_per_phoron
 
 	if(plat_count)
-		sell_credits += plat_count * credits_per_platinum
+		current_shipment.shipment_cost_sell += plat_count * credits_per_platinum
 
-	charge_cargo("Shipment Credits",-sell_credits)
+	charge_cargo("Shipment #[current_shipment.shipment_num] - Income", -current_shipment.shipment_cost_sell)
+	current_shipment.generate_invoice()
+	current_shipment = null //Null the current shipment because its completed
 
-//Buyin
+//Buys the item and places them on the shuttle
+//Returns 0 if unsuccessful returns 1 if the shuttle can be sent
 /datum/controller/subsystem/cargo/proc/buy()
+	if(!current_shipment)
+		new_shipment()
+
 	var/list/approved_orders = get_approved_orders(0)
 
-	if(!approved_orders.len) return
+	//Call the shuttle no matter if there are orders on board or not
+	//if(!approved_orders.len)
+	//	return 0
 
 	var/area/area_shuttle = shuttle.get_location_area()
-	if(!area_shuttle)	return
+	if(!area_shuttle)
+		return 0
 
 	var/list/clear_turfs = list()
 
@@ -312,8 +402,15 @@ var/datum/controller/subsystem/cargo/SScargo
 	for(var/datum/cargo_order/co in approved_orders)
 		if(!co)
 			break
+		//Check if there is enough money in the cargo account to purchse the shipment
+		if(current_shipment.shipment_cost_purchse + co.price > get_cargo_money())
+			//Abort sending new items and send the shuttle
+			break
+
+		//Check if theres space to place the order
 		if(!clear_turfs.len)
 			break
+
 		var/i = rand(1,clear_turfs.len)
 		var/turf/pickedloc = clear_turfs[i]
 		clear_turfs.Cut(i,i+1)
@@ -337,7 +434,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			//TODO: Spawn amount of items specified
 			var/atom/item = new coi.ci.path(A)
 
-			//TODO: Customize items with supplier data
+			//Customize items with supplier data
 			var/list/suppliers = coi.ci.suppliers
 			for(var/var_name in suppliers[coi.supplier]["vars"])
 				try
@@ -345,7 +442,11 @@ var/datum/controller/subsystem/cargo/SScargo
 				catch(var/exception/e)
 					log_debug("Cargo: Bad variable name [var_name] for item [coi.ci.path] - [e]")
 
-		//Update the status of the order
+		//Update the status of the order and incrase the price
 		ship_order(co)
 
-	return
+
+	//Shuttle is loaded now - Charge cargo for it
+	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchse)
+
+	return 1
