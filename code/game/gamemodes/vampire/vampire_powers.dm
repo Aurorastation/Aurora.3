@@ -510,7 +510,7 @@
 
 	log_and_message_admins("activated blood heal.")
 
-	while (do_after(src, 20, 5, 0))
+	while (do_after(src, 20, 0))
 		if (!(vampire.status & VAMP_HEALING))
 			to_chat(src, "<span class='warning'>Your concentration is broken! You are no longer regenerating!</span>")
 			break
