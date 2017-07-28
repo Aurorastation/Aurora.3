@@ -646,7 +646,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 
 	else return get_step(ref, base_dir)
 
-/proc/do_mob(mob/user, mob/target, delay = 30, needhand = TRUE, display_progress = TRUE) //This is quite an ugly solution but i refuse to use the old request system.
+/proc/do_mob(mob/user, mob/target, delay = 30, needhand = TRUE, display_progress = TRUE, datum/callback/extra_checks) //This is quite an ugly solution but i refuse to use the old request system.
 	if(!user || !target)
 		return 0
 
@@ -672,14 +672,14 @@ proc/GaussRandRound(var/sigma,var/roundto)
 			. = 0
 			break
 
-		if (user.loc != user_loc || target.loc != target_loc || (needhand && user.get_active_hand() != holding) || user.stat || user.weakened || user.stunned)
+		if (user.loc != user_loc || target.loc != target_loc || (needhand && user.get_active_hand() != holding) || user.stat || user.weakened || user.stunned || (extra_checks && !extra_checks.Invoke()))
 			. = 0
 			break
 
 	if (progbar)
 		qdel(progbar)
 
-/proc/do_after(mob/user as mob, delay as num, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE)
+/proc/do_after(mob/user as mob, delay as num, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks)
 	if(!user || isnull(user))
 		return 0
 
@@ -719,6 +719,10 @@ proc/GaussRandRound(var/sigma,var/roundto)
 			break
 
 		if(needhand && !(user.get_active_hand() == holding))	//Sometimes you don't want the user to have to keep their active hand
+			. = 0
+			break
+
+		if (extra_checks && !extra_checks.Invoke())
 			. = 0
 			break
 
