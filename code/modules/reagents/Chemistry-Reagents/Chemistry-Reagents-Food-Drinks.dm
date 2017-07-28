@@ -2453,7 +2453,7 @@
 	name = "Cafe Au Lait"
 	id = "white_coffee"
 	description = "A fancy name for something thats just coffee and milk."
-	color = "##A64D07"
+	color = "#A64D07"
 	adj_dizzy = -6
 	adj_drowsy = -4
 	adj_sleepy = -3
@@ -2474,7 +2474,7 @@
 	name = "Cafe Melange"
 	id = "cafe_melange"
 	description = "A delicious mug of creamy coffee."
-	color = "##A64D07"
+	color = "#A64D07"
 	adj_dizzy = -6
 	adj_drowsy = -4
 	adj_sleepy = -3
