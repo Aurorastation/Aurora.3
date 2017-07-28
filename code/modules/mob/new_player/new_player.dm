@@ -114,13 +114,13 @@
 		new_player_panel_proc()
 
 	if(href_list["observe"])
-		if (SSatoms.initialized < INITIALIZATION_INNEW_REGULAR)
+		if (!SSATOMS_IS_PROBABLY_DONE)
 			// Don't allow players to observe until initialization is more or less complete.
 			// Letting them join too early breaks things, they can wait.
-			src << span("alert", "The server is still initializing, try observing again in a minute or so.")
-			return
+			alert(src, "Please wait, the map is not initialized yet.")
+			return 0
 
-		if(alert(src,"Are you sure you wish to observe? You will have to wait 30 minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
+		if(alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
 			if(!client)	return 1
 			var/mob/dead/observer/observer = new /mob/dead/observer(src)
 			spawning = 1
