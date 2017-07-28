@@ -32,6 +32,9 @@
 		/obj/item/ammo_magazine/t40                          = TRADER_ALL,
 		/obj/item/ammo_magazine/t40/empty                    = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/c38                          = TRADER_ALL,
+		/obj/item/weapon/storage/box/beanbags                = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/shotgunammo             = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/shotgunshells           = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster                 = TRADER_ALL
 	)
 

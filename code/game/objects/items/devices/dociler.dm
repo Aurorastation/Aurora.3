@@ -6,7 +6,7 @@
 	icon_state = "animal_tagger1"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_guns.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_guns.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_guns.dmi'
 		)
 	item_state = "gun"
 	force = 0
