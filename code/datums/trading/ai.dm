@@ -57,7 +57,10 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/clothing/glasses                           = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/glasses/hud                       = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/glasses/sunglasses/blindfold/tape = TRADER_BLACKLIST,
-		/obj/item/clothing/glasses/chameleon                 = TRADER_BLACKLIST
+		/obj/item/clothing/glasses/chameleon                 = TRADER_BLACKLIST,
+		/obj/item/clothing/glasses/fluff                     = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/glasses/welding/fluff             = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/glasses/regular/fluff             = TRADER_BLACKLIST_ALL
 	)
 
 	insult_drop = 0
@@ -116,4 +119,39 @@ They sell generic supplies and ask for generic supplies.
 		/obj/structure/sign/double          = TRADER_BLACKLIST_ALL,
 		/obj/structure/sign/goldenplaque    = TRADER_BLACKLIST_ALL,
 		/obj/structure/sign/poster          = TRADER_BLACKLIST
+	)
+
+/datum/trader/trading_beacon/medical
+	origin = "Medical Beacon"
+
+	possible_trading_items = list(
+		/obj/item/weapon/storage/firstaid                               = TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/storage/pill_bottle                            = TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/reagent_containers/hypospray                   = TRADER_ALL,
+		/obj/item/device/healthanalyzer                                 = TRADER_THIS_TYPE,
+		/obj/item/stack/medical/bruise_pack                             = TRADER_THIS_TYPE,
+		/obj/item/stack/medical/ointment                                = TRADER_THIS_TYPE,
+		/obj/item/stack/medical/advanced                                = TRADER_SUBTYPES_ONLY,
+		/obj/item/stack/medical/splint                                  = TRADER_THIS_TYPE,
+		/obj/item/weapon/bonesetter                                     = TRADER_THIS_TYPE,
+		/obj/item/weapon/retractor                                      = TRADER_THIS_TYPE,
+		/obj/item/weapon/hemostat                                       = TRADER_THIS_TYPE,
+		/obj/item/weapon/cautery                                        = TRADER_THIS_TYPE,
+		/obj/item/weapon/surgicaldrill                                  = TRADER_THIS_TYPE,
+		/obj/item/weapon/scalpel                                        = TRADER_ALL,
+		/obj/item/weapon/circular_saw                                   = TRADER_THIS_TYPE,
+		/obj/item/weapon/bonegel                                        = TRADER_THIS_TYPE,
+		/obj/item/weapon/FixOVein                                       = TRADER_THIS_TYPE,
+		/obj/item/weapon/bonesetter                                     = TRADER_THIS_TYPE,
+		/obj/item/weapon/locator                                        = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/syringes                           = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/syringegun                         = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/masks                              = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/gloves                             = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/cdeathalarm_kit                    = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/beakers                            = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline   = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/glass/bottle/stoxin         = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/glass/bottle/chloralhydrate = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE
 	)

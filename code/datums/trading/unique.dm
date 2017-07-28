@@ -37,9 +37,10 @@
 
 	possible_trading_items = list(
 		/obj/mecha/combat                               = TRADER_SUBTYPES_ONLY,
-		/obj/mecha/combat/phazon                        = TRADER_BLACKLIST,
+		/obj/mecha/combat/phazon                        = TRADER_BLACKLIST_ALL,
 		/obj/item/weapon/gun/projectile/automatic/rifle = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/gun/energy/pulse               = TRADER_THIS_TYPE
+		/obj/item/weapon/gun/energy/pulse               = TRADER_ALL,
+		/obj/item/weapon/gun/energy/rifle/pulse         = TRADER_THIS_TYPE
 	)
 
 	blacklisted_trade_items = null
@@ -166,7 +167,7 @@
 		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
 		/obj/item/clothing/shoes/magboots/vox/vaurca     = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE,
-		/obj/item/weapon/staff                           = TRADER_ALL
+		/obj/item/weapon/gun/energy/vaurca/gatlinglaser  = TRADER_THIS_TYPE
 	)
 
 	speech = list(

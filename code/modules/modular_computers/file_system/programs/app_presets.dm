@@ -176,4 +176,3 @@
 		new /datum/computer_file/program/merchant()
 	)
 	return _prg_list
-	return _prg_list

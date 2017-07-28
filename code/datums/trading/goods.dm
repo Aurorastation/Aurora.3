@@ -76,6 +76,7 @@
 		/obj/item/weapon/circuitboard/mecha/durand        = TRADER_BLACKLIST,
 		/obj/item/weapon/circuitboard/mecha/gygax         = TRADER_BLACKLIST,
 		/obj/item/weapon/circuitboard/mecha/ripley        = TRADER_BLACKLIST,
+		/obj/item/weapon/circuitboard/mecha/phazon        = TRADER_BLACKLIST,
 		/obj/item/weapon/circuitboard/broken              = TRADER_BLACKLIST,
 		/obj/item/stack/cable_coil                        = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil/cyborg                 = TRADER_BLACKLIST,
@@ -340,11 +341,12 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/weapon/plastique/seismic               = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/energy/kinetic_accelerator  = TRADER_THIS_TYPE,
 		/obj/item/borg/upgrade/modkit                    = TRADER_SUBTYPES_ONLY,
-		/obj/item/projectile/beam/plasmacutter           = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/plasmacutter         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/mining = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/mining        = TRADER_THIS_TYPE,
 		/obj/machinery/mining/drill                      = TRADER_THIS_TYPE,
-		/obj/machinery/mining/brace                      = TRADER_THIS_TYPE
+		/obj/machinery/mining/brace                      = TRADER_THIS_TYPE,
+		/obj/mecha/working/ripley                        = TRADER_THIS_TYPE
 	)
 
 	speech = list(

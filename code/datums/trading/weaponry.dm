@@ -96,3 +96,4 @@
 		/obj/item/weapon/gun/projectile/revolver/derringer = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/pirate             = TRADER_THIS_TYPE
 	)
+

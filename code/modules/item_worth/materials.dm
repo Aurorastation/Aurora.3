@@ -5,7 +5,7 @@
 	value = 100
 
 /material/diamond
-	value = 70
+	value = 170
 
 /material/gold
 	value = 40
@@ -14,7 +14,7 @@
 	value = 35
 
 /material/phoron
-	value = 200
+	value = 150
 
 /material/stone/marble
 	value = 4
@@ -53,7 +53,7 @@
 	value = 100
 
 /material/platinum
-	value = 80
+	value = 200
 
 /material/iron
 	value = 5
