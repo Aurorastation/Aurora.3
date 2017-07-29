@@ -208,31 +208,49 @@ var/datum/controller/subsystem/cargo/SScargo
 /*
 	Submitting, Approving, Rejecting and Shipping Orders
 */
+//Gets the orders based on their status (submitted, approved, shipped)
+/datum/controller/subsystem/cargo/proc/get_orders_by_status(var/status, var/data_list=0)
+	if(!status)
+		log_debug("Cargo - get_orders_by_status has been called with a invalud status")
+		return list()
+	var/list/orders = list()
+	for (var/datum/cargo_order/co in all_orders)
+		if(co.status == status)
+			if(data_list)
+				orders.Add(list(co.get_list()))
+			else
+				orders.Add(co)
+	return orders
+//Gets the value of orders based on their status, type is passed on to co.get_value
+/datum/controller/subsystem/cargo/proc/get_orders_value_by_status(var/status, var/type=0)
+	if(!status)
+		log_debug("Cargo - get_orders_value_by_status has been called with a invalud status")
+		return 0
+	var/value = 0
+	for (var/datum/cargo_order/co in all_orders)
+		if(co.status == status)
+			value += co.get_value(type)
+	return value
+//Gets the suppliers of the orders of a specific type
+/datum/controller/subsystem/cargo/proc/get_order_suppliers_by_status(var/status)
+	if(!status)
+		log_debug("Cargo - get_order_suppliers_by_status has been called with a invalud status")
+		return list()
+	var/list/suppliers = list()
+	for(var/datum/cargo_order/co in all_orders)
+		if(co.status == status)
+			//Get the list of supplirs and add it to the suppliers list
+			for(var/supplier in co.get_supplier_list())
+				suppliers[supplier] = supplier
+	return suppliers
+
+//Submits an order to cargo
 /datum/controller/subsystem/cargo/proc/submit_order(var/datum/cargo_order/co)
 	co.status = "submitted"
 	co.time_submitted = worldtime2text()
 	co.order_id = get_next_order_id()
 	all_orders.Add(co)
 	return 1
-
-//Get the orders that have been submitted via order app but have not been approved yet
-/datum/controller/subsystem/cargo/proc/get_submitted_orders(var/data_list = 1)
-	var/list/submitted_orders = list()
-	for (var/datum/cargo_order/co in all_orders)
-		if(co.status == "submitted")
-			if(data_list)
-				submitted_orders.Add(list(co.get_list()))
-			else
-				submitted_orders.Add(co)
-	return submitted_orders
-
-//Gets the value of the submitted orders
-/datum/controller/subsystem/cargo/proc/get_submitted_orders_value()
-	var/value = 0
-	for (var/datum/cargo_order/co in all_orders)
-		if(co.status == "submitted")
-			value += co.price
-	return value
 
 //Approve a order  - Returns a status message
 /datum/controller/subsystem/cargo/proc/approve_order(var/datum/cargo_order/co)
@@ -252,35 +270,25 @@ var/datum/controller/subsystem/cargo/SScargo
 	else
 		return "The order could not be rejected - Invalid Status"
 
-//Get the orders that have been approved
-/datum/controller/subsystem/cargo/proc/get_approved_orders(var/data_list = 1)
-	var/list/approved_orders = list()
-	for (var/datum/cargo_order/co in all_orders)
-		if(co.status == "approved")
-			if(data_list)
-				approved_orders.Add(list(co.get_list()))
-			else
-				approved_orders.Add(co)
-	return approved_orders
 
-//Gets the value of the currently approved orders
-/datum/controller/subsystem/cargo/proc/get_approved_orders_value()
-	var/value = 0
-	for (var/datum/cargo_order/co in all_orders)
-		if(co.status == "approved")
-			value += co.price
-	return value
 
-//Marks the order as shipped
+
+//Checks if theorder can be shipped and marks it as shipped if possible
 /datum/controller/subsystem/cargo/proc/ship_order(var/datum/cargo_order/co)
-	//Check if there is enough money in the cargo account for the order
-	var/total_shipment_cost = current_shipment.shipment_cost_purchse + co.price + co.get_shipment_fee()
-	if(total_shipment_cost > get_cargo_money())
-		log_debug("Cargo - Order could not be shipped. Insufficient money. [total_shipment_cost] < [get_cargo_money()]")
+	//Get the price cargo has to pay for the order
+	var/item_price = co.get_value(1)
+
+	//Get the maximum shipment costs for the order
+	var/max_shipment_cost = co.get_max_shipment_cost()
+
+	//Check if cargo has enough money to pay for the shipment of the item and the maximum shipment cost
+	if(item_price + max_shipment_cost > get_cargo_money())
+		log_debug("Cargo - Order could not be shipped. Insufficient money. [item_price] + [max_shipment_cost] > [get_cargo_money()]")
 		return 0
+
 	co.status = "shipped"
 	co.time_shipped = worldtime2text()
-	current_shipment.shipment_cost_purchse += co.price //Increase the price of the shipment
+	current_shipment.shipment_cost_purchse += item_price //Increase the price of the shipment
 	current_shipment.orders.Add(co) //Add the order to the order list
 	return 1
 //Generate a new cargo shipment
@@ -323,23 +331,30 @@ var/datum/controller/subsystem/cargo/SScargo
 	return charge_to_account(supply_account.account_number, "[commstation_name()] - Supply", "[charge_text]", "[commstation_name()] - Banking System", -charge_credits)
 //Gets the pending shipment costs for the items that are about to be shipped to the station
 /datum/controller/subsystem/cargo/proc/get_pending_shipment_cost()
-	//Get the approved orders Loop through them and sum up the shipment cost
-	var/list/approved_orders = get_approved_orders()
-	var/shipment_fee = 0
-	for(var/datum/cargo_order/co in approved_orders)
-		shipment_fee += co.get_shipment_fee()
-	return shipment_fee
+	testing("Getting Shuttle Move price")
+	//Loop through all the orders marked as shipped and get the suppliers into a list of involved suppliers
+	var/list/suppliers = get_order_suppliers_by_status("approved")
+	var/price = 0
+	for(var/supplier in suppliers)
+		testing("[supplier]")
+		var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
+		if(cs)
+			testing("[cs.name] [cs.shuttle_price]")
+			price += cs.shuttle_price
+	return price
 //Gets the pending shipment time for the items that are about to be shipped to the station
 /datum/controller/subsystem/cargo/proc/get_pending_shipment_time()
 	testing("Getting Shuttle Move time")
-	//Get the approved orders Loop through them and sum up the shipment cost
-	var/list/approved_orders = get_approved_orders(0)
-	testing("a: [json_encode(approved_orders)]")
-	var/shipment_time = 0
-	for(var/datum/cargo_order/co in approved_orders)
-		testing("b: [co.order_id] - [co.customer]")
-		shipment_time += co.get_shipment_time()
-	return shipment_time
+	//Loop through all the orders marked as shipped and get the suppliers into a list of involved suppliers
+	var/list/suppliers = get_order_suppliers_by_status("approved")
+	var/time = 0
+	for(var/supplier in suppliers)
+		testing("[supplier]")
+		var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
+		if(cs)
+			testing("[cs.name] [cs.shuttle_time]")
+			time += cs.shuttle_time
+	return time
 
 /*
 	Shuttle Operations - Calling, Forcing, Canceling, Buying / Selling
@@ -350,6 +365,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		if (shuttle.forbidden_atoms_check())
 			. = "For safety reasons the automated supply shuttle cannot transport live organisms, classified nuclear weaponry or homing beacons."
 		else
+			movetime = 1200 //It always takes two minutes to get to centcom
 			shuttle.launch(src)
 			. = "Initiating launch sequence"
 			current_shipment.shuttle_recalled_by = caller_name
@@ -365,7 +381,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			
 			//Set the shuttle movement time
 			current_shipment.shuttle_time = get_pending_shipment_time()
-			current_shipment.shuttle_fee = get_pending_shipment_cost()
+			current_shipment.shuttle_fee = shipment_cost
 
 			if(current_shipment.shuttle_time < 1200)
 				log_debug("Cargo: Shuttle Time less than 1200: [current_shipment.shuttle_time] - Setting to 1200")
@@ -448,11 +464,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	if(!current_shipment)
 		new_shipment()
 
-	var/list/approved_orders = get_approved_orders(0)
-
-	//Call the shuttle no matter if there are orders on board or not
-	//if(!approved_orders.len)
-	//	return 0
+	var/list/approved_orders = get_orders_by_status("approved",0)
 
 	var/area/area_shuttle = shuttle.get_location_area()
 	if(!area_shuttle)

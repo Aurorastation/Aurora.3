@@ -31,7 +31,7 @@
 
 	//Pass the list of all ordered items and the order value
 	data["order_items"] = co.get_item_list()
-	data["order_value"] = co.get_value()
+	data["order_value"] = co.get_value(0)
 	data["order_item_count"] = co.get_item_count()
 
 	//Pass Data for Main page

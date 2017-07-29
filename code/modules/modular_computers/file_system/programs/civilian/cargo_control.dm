@@ -28,15 +28,15 @@
 	last_user_name = GetNameAndAssignmentFromId(user_id_card)
 	data["username"] = last_user_name
 
-	var/list/submitted_orders = SScargo.get_submitted_orders()
+	var/list/submitted_orders = SScargo.get_orders_by_status("submitted",1)
 	data["submitted_orders"] = submitted_orders
 	data["order_submitted_number"] = submitted_orders.len
-	data["order_submitted_value"] = SScargo.get_submitted_orders_value()
+	data["order_submitted_value"] = SScargo.get_orders_value_by_status("submitted",1)
 
-	var/list/approved_orders = SScargo.get_approved_orders()
+	var/list/approved_orders = SScargo.get_orders_by_status("approved",1)
 	data["approved_orders"] = approved_orders
 	data["order_approved_number"] = approved_orders.len
-	data["order_approved_value"] = SScargo.get_approved_orders_value()
+	data["order_approved_value"] = SScargo.get_orders_value_by_status("approved",1)
 
 	data["cargo_money"] = SScargo.get_cargo_money()
 

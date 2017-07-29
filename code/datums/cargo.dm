@@ -105,6 +105,7 @@
 	var/order_id = 0 //ID of the order
 	var/price = 0 //Total price of the order
 	var/item_id = 1 //Current id of the item in the order
+	var/item_num = 0 //Numer of items in the container - Used to limit the items in the crate //TODO: Implement that
 	var/status = "basket" //Status of the order: basket - Adding items, submitted - Submitted to cargo, approved - Order sent to suppliers, rejected - Order has been denied, shipped - Has been shipped to the station, delivered - Order has been delivered
 	var/container_type = "" //Type of the container for the order - cate, box
 	var/list/required_access = list() //Access required to unlock the crate
@@ -117,9 +118,10 @@
 	var/time_shipped = null //Time the order has been shipped to the station
 	var/time_delivered = null //Time the order has been delivered
 	var/tracking_code = null //Use this code with the order ID to get details about the order
-/datum/cargo_order/New()
-	price = SScargo.credits_per_crate + SScargo.cargo_handlingfee //Set the base price of the order
+	var/partial_shipment_fee = 0 //Partial Shipment Fee for the order
+	var/description = null //User defined description of the order
 
+//Gets the tracking code for the order. Generates one if it does not exist already
 /datum/cargo_order/proc/get_tracking_code()
 	if(!tracking_code)
 		tracking_code = "asdf"
@@ -170,9 +172,16 @@
 		else //No item in the order. Add it and set can_add_items to 0
 			can_add_items = 0
 
+	//Check if there is space in the container
+	if(item_num + coi.ci.amount > 10) //TODO: Fetch the actual max amount of items for the container here
+		return "Unable to add item - Container full"
+
 	//Set item id of coi and increment item_id of co
 	coi.item_id = item_id
 	item_id += 1
+
+	//Increment the item number
+	item_num += coi.ci.amount
 
 	//Add coi to ordered item
 	items.Add(coi)
@@ -192,12 +201,27 @@
 			if(coi.item_id == remove_item_id)
 				items.Remove(coi)
 				price -= coi.price
+				item_num -= coi.ci.amount
 				qdel(coi)
 				return "Item removed successfully"
 	return "Unable to remove item - Internal Error 608"
 
-// Returns the value of the forder
-/datum/cargo_order/proc/get_value()
+// Returns the value of the order
+/datum/cargo_order/proc/get_value(var/type=0) 
+	//Type specifies if the price cargo has to pay or the price the customer has to be should be returned
+	// 0 - Price the customer has to pay
+	// 1 - Price cargo has to pay
+	// 2 - Just the value of the items in the crate
+	if(type == 0)
+		//The price of the contents of the crate + the price for the crate + the handling fee + the partial shipment fee
+		return price + SScargo.get_cratefee() + SScargo.get_handlingfee() + partial_shipment_fee
+	else if(type == 1)
+		//The price of the contents of the crate + the price of the crate
+		return price + SScargo.get_cratefee()
+	else if(type == 2)
+		//Just the value of the items in the crate
+		return price
+	//As a fallback, return the value of the items
 	return price
 
 // Returns the number of items in the order
@@ -220,28 +244,20 @@
 	for(var/datum/cargo_order_item/coi in items)
 		supplier_list[coi.supplier] = coi.supplier
 	return supplier_list
-// Gets the shippment fee for the Cargo Order
-/datum/cargo_order/proc/get_shipment_fee()
-	var/list/supplier_list = get_supplier_list()
-	var/fee = 0
-	for(var/supplier in supplier_list)
-		var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
-		if(cs)
-			fee += cs.shuttle_price
-	return fee
 
-// Gets the shippment time for the Cargo Order
-/datum/cargo_order/proc/get_shipment_time()
-	testing("co-gs")
+// Gets the maximal shipment cost for the item
+/datum/cargo_order/proc/get_max_shipment_cost()
+	testing("co-sc")
 	var/list/supplier_list = get_supplier_list()
-	var/time = 0
+	var/cost = 0
 	for(var/supplier in supplier_list)
 		testing("[supplier]")
 		var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
 		if(cs)
-			testing("[cs.name] [cs.shuttle_time]")
-			time += cs.shuttle_time
-	return time
+			testing("[cs.name] [cs.shuttle_price]")
+			cost += cs.shuttle_price
+	testing("[cost]")
+	return cost
 
 // Gets the order status
 /datum/cargo_order/proc/get_order_status(var/pretty=1)
