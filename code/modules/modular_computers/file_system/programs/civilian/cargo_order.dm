@@ -14,6 +14,7 @@
 	var/selected_item = "" // Path of the currently selected item
 	var/datum/cargo_order/co
 	var/last_user_name = "" //Name of the user that used the program
+	var/status_message = null //Status Message to be displayed to the user
 
 /datum/nano_module/program/civilian/cargoorder/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	//Check if a cargo order exists. If not create a new one
@@ -51,6 +52,12 @@
 	//Pass the current page
 	data["page"] = page
 
+	//Pass the status message along
+	data["status_message"] = status_message
+
+	data["handling_fee"] = SScargo.get_handlingfee()
+	data["crate_fee"] = SScargo.get_cratefee()
+
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "cargo_order.tmpl", name, 500, 600, state = state)
@@ -69,6 +76,8 @@
 			return 1 //Only submit the order if there are items in it
 		co.customer = last_user_name
 		SScargo.submit_order(co)
+		status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking Code: [co.get_tracking_code()]"
+		//TODO: Print a list with the order data
 		co = null
 		return 1
 
@@ -80,29 +89,32 @@
 		//Check if the selected supplier exists for the item and get the price for the supplier
 		var/supplier_details = coi.ci.suppliers[coi.supplier]
 		if(supplier_details)
-			if(supplier_details["base_purchase_price"] && supplier_details["base_purchase_price"] > 0)
-				coi.price = supplier_details["base_purchase_price"]
-				co.add_item(coi)
+			coi.cs = SScargo.get_supplier_by_name(coi.supplier)
+			coi.calculate_price()
+			if(coi.price > 0)
+				status_message = co.add_item(coi)
 			else
-				log_debug("Cargo Order: Warning - Attempted to order item [href_list["order"]] from supplier [href_list["supplier"]] with invalid purchase price")
+				status_message = "Unable to add item [coi.ci.name] - Internal Error 602."
+				log_debug("Cargo Order: Warning - Attempted to order item [coi.ci.name] from supplier [href_list["supplier"]] with invalid purchase price")
 				qdel(coi)
 		else
-			log_debug("Cargo Order: Warning - Attempted to order item [href_list["order"]] from non existant supplier [href_list["supplier"]]")
+			status_message = "Unable to add item [coi.ci.name] - Internal Error 605."
+			log_debug("Cargo Order: Warning - Attempted to order item [coi.ci.name] from non existant supplier [href_list["supplier"]]")
 			qdel(coi)
 
-		//Reset page to main page
+		//Reset page to main page - TODO: Maybe add a way to disable jumping back to the main page
 		page = "main"
 		selected_item = ""
 		return 1
 	
 	//Remove item from the order list
 	if(href_list["remove_item"])
-		testing(href_list["remove_item"])
-		co.remove_item(text2num(href_list["remove_item"]))
+		status_message = co.remove_item(text2num(href_list["remove_item"]))
 		return 1
 
 	//Clear the items in the order list
 	if(href_list["clear_order"])
+		status_message = "Order Cleared"
 		qdel(co)
 		co = new
 		return 1
@@ -119,4 +131,8 @@
 	//Change the displayed item category
 	if(href_list["select_category"])
 		selected_category = href_list["select_category"]
+		return 1
+	
+	if(href_list["clear_message"])
+		status_message = null
 		return 1

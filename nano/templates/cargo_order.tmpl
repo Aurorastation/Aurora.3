@@ -6,6 +6,12 @@
                     <td><b>Welcome:</b></td>
                     <td>{{:data.username}}</td>
                 </tr>
+				{{if data.status_message}}
+				<tr>
+                    <td><b>Status:</b></td>
+                    <td>{{:data.status_message}}{{:helper.link('X', null, {'clear_message' : 1}, null)}}</td>
+                </tr>
+				{{/if}}
                 <tr>
                     <td><h3>Order</h3></td>
                 </tr>
@@ -18,7 +24,7 @@
                     <td>{{:data.order_value}} Credits</td>
                 </tr>
                 <tr>
-                    <td>{{:helper.link('Order Details', 'cart', {'page' : 'order'}, null)}}</td>
+                    <td>{{:helper.link('Details', 'cart', {'page' : 'order'}, null)}}</td>
                     <td>{{:helper.link('Clear', 'cancel', {'clear_order' : 'clear_order'}, null)}} {{:helper.link("Submit Order", 'gear', {'submit_order' : 'submit_order'}, null)}}</td>
                 </tr>
             </table>
@@ -28,10 +34,6 @@
 
 {{if data.page == "main"}}
     <div class="item">
-        <div class="itemLabel">
-            Item Category: {{:data.selected_category}}
-        </div>
-        <br>
         <div>
             {{props data.cargo_categories}}
                 {{:helper.link(value.display_name, value.icon, {'select_category' : value.name}, (data.selected_category == value.name) ? 'selected' : null)}}                
@@ -78,7 +80,11 @@
     <b>Suppliers:</b>
     <br>
     {{props data.item_details.suppliers}}
-        {{:helper.link(key + " " + value.base_purchase_price, 'gear', {'add_item' : data.item_details.path, 'supplier': key}, null)}}
+		{{if value.available}}
+			{{:helper.link(value.name + " " + value.adjusted_price, 'gear', {'add_item' : data.item_details.path, 'supplier': key}, null)}}
+		{{else}}
+			{{:helper.link(value.name + " /Unavailable/", 'gear', null, "disabled")}}
+		{{/if}}
     {{/for}}
 </div>
 {{else data.page == "order"}}
@@ -88,15 +94,31 @@
             <th>Name</th>
             <th>Supplier</th>
             <th>Price</th>
+			<th></th>
         </tr>
     {{props data.order_items}}
 		<tr>
 			<td>{{:value.name}}</td>
-            <td>{{:value.supplier}}</td>
+            <td>{{:value.supplier_name}}</td>
             <td>{{:value.price}}</td>
 			<td>{{:helper.link('Delete', 'close', {'remove_item' : value.item_id}, null)}}</td>
 		</tr>
     {{/props}}
+		<tr>
+			<td>Crate Fee</td>
+			<td>NT Supply Department</td>
+			<td>{{:data.crate_fee}}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Handling Fee</td>
+			<td>Cargo</td>
+			<td>{{:data.handling_fee}}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspawn="4">Additional Shuttle Fees may apply</td>
+		</tr>
 	</table>
 	<td>{{:helper.link("Submit Order", 'play', {'submit_order' : 'submit_order'}, null)}}</td>
 	

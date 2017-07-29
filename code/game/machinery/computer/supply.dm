@@ -1,3 +1,5 @@
+//TODO: Delete this
+
 /obj/machinery/computer/supplycomp
 	name = "supply control console"
 	icon = 'icons/obj/computer.dmi'

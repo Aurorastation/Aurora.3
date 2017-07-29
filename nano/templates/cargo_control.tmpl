@@ -43,14 +43,26 @@
                 {{if data.shuttle_has_arrive_time}}
                 <tr>
                     <td>ETA:</td>
-                    <td>{{:data.shuttle_eta_minutes}}</td>
+                    <td>{{:data.shuttle_eta_minutes}} Minutes</td>
                 </tr>
                 {{/if}}
                 <tr>
                     <td colspan="2">
-                    {{:helper.link('Send', 'cart', {'shuttle_send' : '1'}, null )}}
-                    {{:helper.link('Cancel', 'cart', {'shuttle_cancel' : '1'}, null )}}
-                    {{:helper.link('Force', 'cart', {'shuttle_force' : '1'}, null )}}
+                    {{if data.shuttle_can_launch}}
+                        {{:helper.link('Send', 'play', {'shuttle_send' : '1'}, null )}}
+                    {{else}}
+                        {{:helper.link('Send', 'play', null, "disabled" )}}
+                    {{/if}}
+                    {{if data.shuttle_can_cancel}}
+                        {{:helper.link('Cancel', 'stop', {'shuttle_cancel' : '1'}, null )}}
+                    {{else}}
+                        {{:helper.link('Cancel', 'stop', null, "disabled" )}}
+                    {{/if}}
+                    {{if data.shuttle_can_force}}
+                        {{:helper.link('Force', 'seek-end', {'shuttle_force' : '1'}, null )}}
+                    {{else}}
+                        {{:helper.link('Force', 'seek-end', null, "disabled" )}}
+                    {{/if}}
                     </td>
                 </tr>
             </table>
