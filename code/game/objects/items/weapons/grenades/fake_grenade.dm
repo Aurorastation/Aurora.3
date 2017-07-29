@@ -1,4 +1,5 @@
 /obj/item/weapon/grenade/fake
+	name = "fragmentation grenade"
 	icon_state = "frag"
 
 /obj/item/weapon/grenade/fake/prime()

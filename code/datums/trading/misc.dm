@@ -9,10 +9,10 @@
 		"hail_Skrell"          = "Ah! A fellow Skrell. How wonderful, I may have a few pets imported from back home. Take a look.",
 		"hail_deny"            = "I no longer wish to speak to you.",
 		"trade_complete"       = "Remember to give them attention and food. They are living beings, and you should treat them like so.",
-		"trade_blacklist"      = "Legally I can' do that. Morally, I refuse to do that.",
+		"trade_blacklist"      = "Legally I can't do that. Morally, I refuse to do that.",
 		"trade_found_unwanted" = "I only want animals. I don't need food, shiny things, I'm looking for specific ones at that. Ones I already have the cage and food for.",
 		"trade_not_enough"     = "I'd give you the animal for free, but I need the money to feed the others. So you must pay in full.",
-		"how_much"             = "This is a fine specimin, I believe it will cost you VALUE credits.",
+		"how_much"             = "This is a fine specimen, I believe it will cost you VALUE credits.",
 		"what_want"            = "I have the facilities currently to support",
 		"compliment_deny"      = "That was almost charming.",
 		"compliment_accept"    = "Thank you. I needed that.",
@@ -43,6 +43,7 @@
 		/mob/living/simple_animal/hostile/retaliate/goat = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL,
+		/mob/living/simple_animal/hostile/bear           = TRADER_THIS_TYPE,
 		/obj/item/device/dociler                         = TRADER_THIS_TYPE
 	)
 
@@ -66,7 +67,8 @@
 		/mob/living/simple_animal/hostile/samak          = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/retaliate/goat = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL
+		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL,
+		/mob/living/simple_animal/hostile/bear           = TRADER_THIS_TYPE
 	)
 
 /datum/trader/ship/prank_shop

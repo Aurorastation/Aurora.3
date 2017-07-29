@@ -50,6 +50,7 @@
 		/obj/item/weapon/gun/projectile/dartgun/vox                          = TRADER_SUBTYPES_ONLY,
 		/obj/item/mecha_parts/mecha_equipment/tool                           = TRADER_SUBTYPES_ONLY,
 		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic               = TRADER_SUBTYPES_ONLY,
+		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack  = TRADER_BLACKLIST,
 		/obj/item/trash                                                      = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/accessory                                         = TRADER_ALL,
 		/obj/item/clothing/accessory/fluff                                   = TRADER_BLACKLIST_ALL,

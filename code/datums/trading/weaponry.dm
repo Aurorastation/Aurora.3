@@ -80,7 +80,7 @@
 		"trade_blacklist"   = "No, no, nothing of this in his shop!",
 		"trade_no_goods"    = "He only deals with crrredits, comrrrade!",
 		"trade_not_enough"  = "Give him a bit morrre, comrrrade!",
-		"how_much"          = "Only VALUE, just forrr him, comrade!",
+		"how_much"          = "Only VALUE, just forrr them, comrade!",
 		"compliment_deny"   = "They arre speaking like a officerrr, arre they an officerrr?",
 		"compliment_accept" = "Pourrr one out for Al'marrri. His gun was on stun, bless his hearrrt.",
 		"insult_good"       = "Good one, comrrrade!",
@@ -100,3 +100,43 @@
 		/obj/item/weapon/gun/projectile/pirate             = TRADER_THIS_TYPE
 	)
 
+
+/datum/trader/ship/tactical
+	name = "Tactical Gear Shop Employee"
+	name_language = TRADER_DEFAULT_NAME
+	origin = "Tactical Gear Shop"
+	possible_origins = list("Mall Ninja. Co.", "Hephaestus Defense Supplies", "Tacticool Emporium", "The Redshirt", "The Harmbaton")
+	speech = list(
+		"hail_generic"      = "Welcome to ORIGIN, you will find everything you need to stay safe.",
+		"hail_deny"         = "We refuse to make business with you.",
+		"trade_complete"    = "Thank you, And stay safe.",
+		"trade_blacklist"   = "I have no use for this",
+		"trade_no_goods"    = "Credits or nothing..",
+		"trade_not_enough"  = "Our gear is more valuable than this.",
+		"how_much"          = "This fine piece will be yours for only VALUE.",
+		"compliment_deny"   = "Are you going to buy something any time soon?",
+		"compliment_accept" = "Thank you, no one has better tactical gear than us, ORIGIN.",
+		"insult_good"       = "Stop, I am not paid to hear this.",
+		"insult_bad"        = "Good luck staying safe without us then!"
+	)
+
+	possible_trading_items = list(
+		/obj/item/clothing/suit/armor/riot                        = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/bulletproof                 = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/laserproof                  = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/tactical                    = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/storage/vest                      = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet                            = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/riot                       = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/ablative                   = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/ballistic                  = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/tactical                   = TRADER_THIS_TYPE,
+		/obj/item/clothing/glasses/night                          = TRADER_THIS_TYPE,
+		/obj/item/clothing/glasses/sunglasses/sechud/tactical     = TRADER_THIS_TYPE,
+		/obj/item/clothing/gloves/swat                            = TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/swat                             = TRADER_THIS_TYPE,
+		/obj/item/clothing/under/tactical                         = TRADER_THIS_TYPE,
+		/obj/item/clothing/mask/gas/tactical                      = TRADER_THIS_TYPE,
+		/obj/item/weapon/shield/riot/tact                         = TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/belt/security/tactical           = TRADER_THIS_TYPE
+	)
