@@ -13,7 +13,7 @@
 	active_power_usage = 10 KILOWATTS
 
 	var/active = FALSE
-	var/list/whispers = list(
+	var/static/list/whispers = list(
 			"You hear something behind you.",
 			"Endless eyes gaze upon you from above.",
 			"All is gone.",
