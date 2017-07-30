@@ -16,8 +16,8 @@
 		return
 
 	gravity_is_on = !gravity_is_on
-	for(var/area/A in all_areas)
-		A.gravitychange(gravity_is_on,A)
+	for(var/obj/machinery/gravity_generator/main/A in gravity_generators)
+		A.eventshutofftoggle()
 
 	feedback_inc("admin_secrets_fun_used",1)
 	feedback_add_details("admin_secrets_fun_used","Grav")

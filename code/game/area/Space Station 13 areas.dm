@@ -1158,6 +1158,9 @@ area/space/atmosalert()
 	name = "\improper Engineering Cooling Radiator"
 	icon_state = "engineering_monitoring"
 
+/area/engineering/gravity_gen
+	name = "\improper Gravity Generator"
+	icon_state = "engine"
 
 
 //Solars

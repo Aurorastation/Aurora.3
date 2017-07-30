@@ -27,6 +27,9 @@
 	. = ..()
 	gunshot_residue = null
 
+/obj/item/proc/negates_gravity()
+	return 0
+
 //BS12: Species-restricted clothing check.
 /obj/item/clothing/mob_can_equip(M as mob, slot)
 

@@ -124,3 +124,13 @@
 			footstep++
 			if (footstep % 2)
 				playsound(src, T.footstep_sound, 40, 1)
+
+/mob/living/carbon/human/mob_has_gravity()
+	. = ..()
+	if(!.)
+		if(mob_negates_gravity())
+			. = 1
+			return .
+
+/mob/living/carbon/human/mob_negates_gravity()
+	return (shoes && shoes.negates_gravity())
