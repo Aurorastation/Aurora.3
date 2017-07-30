@@ -26,7 +26,7 @@
 		/obj/item/weapon/gun/projectile/tanto                = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/deckard     = TRADER_THIS_TYPE,
-		/obj/item/ammo_magazine/c45m                         = TRADER_ALL,,
+		/obj/item/ammo_magazine/c45m                         = TRADER_ALL,
 		/obj/item/ammo_magazine/c45m/empty                   = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/shotgun                      = TRADER_ALL,
 		/obj/item/ammo_magazine/t40                          = TRADER_ALL,
