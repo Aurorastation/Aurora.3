@@ -13,7 +13,7 @@
 		"trade_complete"    = "Thank you for choosing ORIGIN!",
 		"trade_no_goods"    = "I'm sorry but we only take cash.",
 		"trade_blacklisted" = "Sir thats... highly illegal.",
-		"trade_not_enough"  = "Uhh... thats not enough money for pizza.",
+		"trade_not_enough"  = "Uhh... that's not enough money for pizza.",
 		"how_much"          = "That pizza will cost you VALUE credits.",
 		"compliment_deny"   = "That's a bit forward, don't you think?",
 		"compliment_accept" = "Thanks, sir! You're very nice!",

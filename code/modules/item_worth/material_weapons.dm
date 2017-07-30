@@ -30,3 +30,6 @@
 
 /obj/item/weapon/material/twohanded/spear
 	worth_multiplier = 7 //blade + stuff
+
+/obj/item/weapon/material/star
+	worth_multiplier = 25

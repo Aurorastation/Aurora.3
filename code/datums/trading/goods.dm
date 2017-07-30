@@ -356,7 +356,7 @@ Sells devices, odds and ends, and medical stuff
 		"trade_blacklist"   = "I don't want this thing.",
 		"trade_no_goods"    = "Only cash here!",
 		"trade_not_enough"  = "I need more than that, son.",
-		"how_much"          = "This damn tool will be VALUE!",
+		"how_much"          = "This damn good tool will be VALUE!",
 		"compliment_deny"   = "Are you here to buy or chat?",
 		"compliment_accept" = "You are right, you won't find better tools anywhere else!",
 		"insult_good"       = "What did you just damn say to me?",

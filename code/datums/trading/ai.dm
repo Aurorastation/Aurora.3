@@ -143,7 +143,6 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/weapon/bonegel                                        = TRADER_THIS_TYPE,
 		/obj/item/weapon/FixOVein                                       = TRADER_THIS_TYPE,
 		/obj/item/weapon/bonesetter                                     = TRADER_THIS_TYPE,
-		/obj/item/weapon/locator                                        = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/syringes                           = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/syringegun                         = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/masks                              = TRADER_THIS_TYPE,
