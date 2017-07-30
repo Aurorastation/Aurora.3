@@ -1210,7 +1210,7 @@
 					<li>Do a complete inspection of the system and insure there are no physical defects.</li>
 					<li>Locate the control panel on the gravity generator. This is located on the bottom most part of the generator.</li>
 					<li>Locate the main beaker switch and switch it to the ON position.</li>
-					<li>Wait for the charge to drop to 100 percent before proceeding.<br></li>
+					<li>Wait for the charge to raise to 100 percent before proceeding.<br></li>
 					<li>Ensure that the gravity systems are working. If not, examine the generator for any physical damage.<br></li>
 					<b>Note</b>:If the startup procedure fails due to physical damage, read: <a href="#p8549">Procedure 8549</a>
 				</ul><br><br>
@@ -1234,7 +1234,7 @@
 					<li>Ensure the framework is properly secured with a screwdriver.<br></li>
 					<li>If the framework is damage, weld the damaged plating.<br></li>
 					<li>Apply plasteel plating to the welded damaged plating.<br></li>
-					<li>Secure the plasteel to the playing with a wrench.<br></li>
+					<li>Secure the plasteel to the plating with a wrench.<br></li>
 					<li>Follow the <a href="#StartUp">Startup procedure</a></li>
 				</ul><br>
 
@@ -1271,7 +1271,7 @@
 					<li>Press the red button.</li><br>
 					<li>Replace the panel with a crowbar.<br></li>
 					<li>If the generator does not shut down, immediately cut the power to the room to prevent the risk of death.</li><br>
-					<li>Follow the appropiate maintence procedure.</li>
+					<li>Follow the appropriate maintence procedure.</li>
 				</ul><br><br>
 
 				</body>
