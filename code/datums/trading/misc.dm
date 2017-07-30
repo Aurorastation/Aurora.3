@@ -44,7 +44,7 @@
 		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL,
 		/mob/living/simple_animal/hostile/bear           = TRADER_THIS_TYPE,
-		/obj/item/device/dociler                         = TRADER_THIS_TYPE
+		/mob/living/simple_animal/hostile/biglizard      = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
@@ -68,7 +68,9 @@
 		/mob/living/simple_animal/hostile/retaliate/goat = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/carp           = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL,
-		/mob/living/simple_animal/hostile/bear           = TRADER_THIS_TYPE
+		/mob/living/simple_animal/hostile/bear           = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/hostile/biglizard      = TRADER_THIS_TYPE,
+		/obj/item/device/dociler                         = TRADER_THIS_TYPE
 	)
 
 /datum/trader/ship/prank_shop
