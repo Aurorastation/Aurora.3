@@ -121,7 +121,7 @@ var/list/gravity_generators = list() // We will keep track of this by adding new
 	var/list/localareas = list()
 	var/round_start = 2 //To help stop a bug with round start
 	var/backpanelopen = 0
-	var/nofix = 0 
+	var/eventon = 0 
 
 /obj/machinery/gravity_generator/main/Destroy() 
 	log_debug("Gravity Generator Destroyed")
@@ -134,8 +134,8 @@ var/list/gravity_generators = list() // We will keep track of this by adding new
 	return ..()
 
 /obj/machinery/gravity_generator/main/proc/eventshutofftoggle() // Used by the gravity event. Bypasses charging and all of that stuff.
-	set_state(nofix)
-	nofix = !nofix
+	set_state(eventon)
+	eventon = !eventon
 
 /obj/machinery/gravity_generator/main/proc/setup_parts()
 	var/turf/our_turf = get_turf(src)
@@ -237,7 +237,7 @@ var/list/gravity_generators = list() // We will keep track of this by adding new
 	if(stat & BROKEN)
 		return
 	var/dat = "Gravity Generator Breaker: "
-	if(!nofix)
+	if(!eventon)
 		if(breaker)
 			dat += "<span class='linkOn'>ON</span> <A href='?src=\ref[src];gentoggle=1'>OFF</A>"
 		else
