@@ -261,9 +261,6 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if (istype(source, /obj/item/projectile))
-		if (istype(source, /obj/item/projectile/beam/cult))
-			return //No feedback loops
-
 		ranged = 1
 
 	if (!damage)

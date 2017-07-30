@@ -283,42 +283,6 @@
 		M.apply_effect(1, INCINERATE, 0)
 	..()
 
-
-
-//Beams of magical veil energy fired by empowered pylons. Some inbuilt armor penetration cuz magic.
-//Ablative armor is still overwhelmingly useful
-//These beams are very weak but rapid firing, ~twice per second.
-/obj/item/projectile/beam/cult
-	name = "energy bolt"
-	//For projectiles name is only shown in onhit messages, so its more of a layman's description
-	//of what the projectile looks like
-	damage = 3.5 //Very weak
-	accuracy = 4 //Guided by magic, unlikely to miss
-	eyeblur = 0 //Not bright or blinding
-	var/mob/living/ignore
-
-	muzzle_type = /obj/effect/projectile/cult/muzzle
-	tracer_type = /obj/effect/projectile/cult/tracer
-	impact_type = /obj/effect/projectile/cult/impact
-
-/obj/item/projectile/beam/cult/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
-	//Harmlessly passes through cultists and constructs
-	if (target_mob == ignore)
-		return 0
-	if (iscult(target_mob))
-		return 0
-
-	return ..()
-
-/obj/item/projectile/beam/cult/heavy
-	name = "glowing energy bolt"
-	damage = 10 //Stronger and better armor penetration, though still much weaker than a typical laser
-	armor_penetration = 10
-
-	muzzle_type = /obj/effect/projectile/cult/heavy/muzzle
-	tracer_type = /obj/effect/projectile/cult/heavy/tracer
-	impact_type = /obj/effect/projectile/cult/heavy/impact
-	
 /obj/item/projectile/beam/energy_net
 	name = "energy net projection"
 	icon_state = "xray"
