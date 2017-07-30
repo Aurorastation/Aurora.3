@@ -14,8 +14,7 @@ var/list/sacrificed = list()
 
 
 /////////////////////////////////////////FIRST RUNE
-/obj/effect/rune/proc/teleport(var/key)
-	var/mob/living/user = usr
+/obj/effect/rune/proc/teleport(var/mob/living/user, var/key)
 	var/allrunesloc[]
 	allrunesloc = new/list()
 	var/index = 0
@@ -49,7 +48,7 @@ var/list/sacrificed = list()
 		return
 
 
-/obj/effect/rune/proc/itemport(var/key)
+/obj/effect/rune/proc/itemport(var/mob/living/user, var/key)
 //	var/allrunesloc[]
 //	allrunesloc = new/list()
 //	var/index = 0
@@ -57,7 +56,6 @@ var/list/sacrificed = list()
 	var/culcount = 0
 	var/runecount = 0
 	var/obj/effect/rune/IP = null
-	var/mob/living/user = usr
 	for(var/obj/effect/rune/R in rune_list)
 		if(R == src)
 			continue
@@ -109,7 +107,7 @@ var/list/sacrificed = list()
 /////////////////////////////////////////THIRD RUNE
 
 /obj/effect/rune/proc/convert()
-	var/mob/attacker = usr
+	var/mob/attacker = user
 	var/mob/living/carbon/target = null
 	for(var/mob/living/carbon/M in src.loc)
 		if(!iscultist(M) && M.stat < DEAD && !(M in converting))
@@ -120,7 +118,7 @@ var/list/sacrificed = list()
 		if(!converting.len)
 			fizzle()
 		else
-			usr << "<span class='danger'>You sense that the power of the dark one is already working away at them.</span>"
+			user << "<span class='danger'>You sense that the power of the dark one is already working away at them.</span>"
 		return
 
 	usr.say("Mah[pick("'","`")]weyh pleggh at e'ntrath!")
@@ -555,8 +553,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////THIRTEENTH RUNE
 
-/obj/effect/rune/proc/mend()
-	var/mob/living/user = usr
+/obj/effect/rune/proc/mend(var/mob/living/user)
 	src = null
 	user.say("Uhrast ka'hfa heldsagen ver[pick("'","`")]lot!")
 	user.take_overall_damage(200, 0)
@@ -774,8 +771,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////EIGHTTEENTH RUNE
 
-/obj/effect/rune/proc/freedom()
-	var/mob/living/user = usr
+/obj/effect/rune/proc/freedom(var/mob/living/user)
 	var/list/mob/living/carbon/cultists = new
 	for(var/datum/mind/H in cult.current_antagonists)
 		if (istype(H.current,/mob/living/carbon))
@@ -821,8 +817,7 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////NINETEENTH RUNE
 
-/obj/effect/rune/proc/cultsummon()
-	var/mob/living/user = usr
+/obj/effect/rune/proc/cultsummon(var/mob/living/user)
 	var/list/mob/living/carbon/cultists = new
 	for(var/datum/mind/H in cult.current_antagonists)
 		if (istype(H.current,/mob/living/carbon))
@@ -1062,16 +1057,16 @@ var/list/sacrificed = list()
 
 /////////////////////////////////////////TWENTY-FIFTH RUNE
 
-/obj/effect/rune/proc/armor()
-	var/mob/living/carbon/human/user = usr
+/obj/effect/rune/proc/armor(var/mob/living/user)
+
 	if(istype(src,/obj/effect/rune))
-		usr.say("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
+		user.say("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
 	else
-		usr.whisper("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
-	usr.visible_message("<span class='warning'>The rune disappears with a flash of red light, and a set of armor appears on [usr]...</span>", \
+		user.whisper("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
+	user.visible_message("<span class='warning'>The rune disappears with a flash of red light, and a set of armor appears on [usr]...</span>", \
 	"<span class='warning'>You are blinded by the flash of red light! After you're able to see again, you see that you are now wearing a set of armor.</span>")
 
-	if(istype(usr, /mob/living/simple_animal/construct))
+	if(istype(user, /mob/living/simple_animal/construct))
 		var/mob/living/simple_animal/construct/C = user
 		var/construct_class
 		if(narsie_cometh)
