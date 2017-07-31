@@ -70,9 +70,10 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	while((tobequeued.len - (idex - 1)) && starttime == world.time && starttimeofday == world.timeofday)
 		if (MC_TICK_CHECK)
 			break
-		var/ref = tobequeued[idex++]
+		var/ref = tobequeued[idex]
+		tobequeued[idex++] = null	// Clear this ref to assist hard deletes in Queue().
 		Queue(ref)
-	
+
 	if (idex > 1)
 		tobequeued.Cut(1, idex)
 
