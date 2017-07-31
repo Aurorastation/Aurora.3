@@ -2,6 +2,7 @@
 	name = "A jar of Coffee Beans "
 	desc = "This goes into a coffee maker!"
 	label = "Spesscafe Dark Blend"
+	icon = 'icons/obj/drinks.dmi'
 	icon_state = "coffeejar"
 
 	w_class = 3

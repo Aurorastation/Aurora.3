@@ -24,7 +24,8 @@
 
 /atom/movable/Destroy()
 	. = ..()
-	QDEL_NULL(bound_overlay)
+	if (bound_overlay)
+		QDEL_NULL(bound_overlay)
 
 /atom/movable/forceMove(atom/dest)
 	. = ..(dest)
@@ -39,10 +40,10 @@
 	if (!bound_overlay)
 		return
 
-	// check_existence returns TRUE if the overlay is valid.
-	if (isopenturf(bound_overlay.loc) && !bound_overlay.queued)
-		SSopenturf.queued_overlays += bound_overlay
-		bound_overlay.queued = TRUE
+	if (isopenturf(bound_overlay.loc))
+		if (!bound_overlay.queued)
+			SSopenturf.queued_overlays += bound_overlay
+			bound_overlay.queued = TRUE
 	else
 		qdel(bound_overlay)
 

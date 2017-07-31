@@ -754,7 +754,7 @@
 			if(statpanel("MC"))
 				stat("CPU:", world.cpu)
 				stat("Tick Usage:", world.tick_usage)
-				stat("Instances:", world.contents.len)
+				stat("Instances:", num2text(world.contents.len, 7))
 				if (config.fastboot)
 					stat(null, "FASTBOOT ENABLED")
 				if(Master)

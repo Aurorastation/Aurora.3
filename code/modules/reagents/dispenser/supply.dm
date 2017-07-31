@@ -38,7 +38,7 @@
 	containername = "coffee machine crate"
 	group = "Hospitality"
 
-datum/supply_packs/dispenser_cartridges
+datum/supply_packs/dispenser_cartridges/coffee_beans
 	name = "Coffee beans"
 	containername = "coffee beans crate"
 	containertype = /obj/structure/closet/crate

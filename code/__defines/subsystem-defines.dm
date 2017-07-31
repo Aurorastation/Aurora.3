@@ -28,6 +28,18 @@
 #define TIMER_ID_NULL -1
 
 // -- SSatoms stuff --
+// Technically this check will fail if someone loads a map mid-round, but that's not enabled right now.
+#define SSATOMS_IS_PROBABLY_DONE (SSatoms.initialized == INITIALIZATION_INNEW_REGULAR)
+
+//type and all subtypes should always call Initialize in New()
+#define INITIALIZE_IMMEDIATE(X) ##X/New(loc, ...){\
+    ..();\
+    if(!initialized) {\
+        args[1] = TRUE;\
+        SSatoms.InitAtom(src, args);\
+    }\
+}
+
 // 	SSatoms Initialization state.
 #define INITIALIZATION_INSSATOMS 0	//New should not call Initialize
 #define INITIALIZATION_INNEW_MAPLOAD 1	//New should call Initialize(TRUE)

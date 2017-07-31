@@ -63,8 +63,8 @@
 
 	var/excavation_amount = 30
 	var/wielded = 0
-	var/force_unwielded = 10.0
-	var/force_wielded = 30.0
+	var/force_unwielded = 5.0
+	var/force_wielded = 15.0
 	var/digspeed_unwielded = 30
 	var/digspeed_wielded = 10
 	var/drilling = 0
@@ -233,7 +233,7 @@
 	drill_sound = 'sound/weapons/sonic_jackhammer.ogg'
 	digspeed = 15
 	digspeed_unwielded = 15
-	force_unwielded = 25.0
+	force_unwielded = 15.0
 	excavation_amount = 100
 
 	can_wield = 0
@@ -252,7 +252,6 @@
 
 	digspeed_unwielded = 30
 	digspeed_wielded = 5
-	force_wielded = 35.0
 
 /obj/item/weapon/pickaxe/diamond
 	name = "diamond pickaxe"
@@ -264,7 +263,7 @@
 
 	digspeed_unwielded = 20
 	digspeed_wielded = 1
-	force_wielded = 35.0
+	force_wielded = 25.0
 
 /obj/item/weapon/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
@@ -1277,7 +1276,9 @@ var/list/total_extraction_beacons = list()
 	density = 1
 	anchored = 1
 
-/obj/structure/weightlifter/attack_hand(mob/user as mob)
+/obj/structure/weightlifter/attack_hand(var/mob/living/carbon/human/user)
+	if(!istype(user))
+		return
 	if(in_use)
 		user << "It's already in use - wait a bit."
 		return
@@ -1314,6 +1315,7 @@ var/list/total_extraction_beacons = list()
 		icon_state = "fitnessweight"
 		overlays -= W
 		user << "[finishmessage]"
+		user.nutrition = user.nutrition - 10
 
 /******************************Seismic Charge*******************************/
 
