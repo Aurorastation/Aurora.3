@@ -211,6 +211,7 @@
 #include "code\datums\mind.dm"
 #include "code\datums\mixed.dm"
 #include "code\datums\modules.dm"
+#include "code\datums\progressbar.dm"
 #include "code\datums\server_greeting.dm"
 #include "code\datums\statistic.dm"
 #include "code\datums\supplypacks.dm"
