@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - tweak: "Progress bars will now stack instead of obscuring each other when you are doing multiple things at once."
