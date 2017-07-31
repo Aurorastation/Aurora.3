@@ -1,5 +1,3 @@
-var/list/gravity_generators = list() // We will keep track of this by adding new gravity generators to the list, and keying it with the z level.
-
 #define POWER_IDLE 0
 #define POWER_UP 1
 #define POWER_DOWN 2
@@ -409,15 +407,15 @@ var/list/gravity_generators = list() // We will keep track of this by adding new
 	var/turf/T = get_turf(src)
 	if(!T)
 		return 0
-	if(gravity_generators["[T.z]"])
-		return length(gravity_generators["[T.z]"])
+	if(SSmachinery.gravity_generators["[T.z]"])
+		return length(SSmachinery.gravity_generators["[T.z]"])
 	return 0
 
 /obj/machinery/gravity_generator/main/proc/update_list()
 	var/turf/T = get_turf(src.loc)
 	if(T)
-		if(!gravity_generators["[T.z]"])
-			gravity_generators["[T.z]"] = list()
+		if(!SSmachinery.gravity_generators["[T.z]"])
+			SSmachinery.gravity_generators["[T.z]"] = list()
 
 		if(on)
 			for(var/area/A in localareas)
@@ -428,12 +426,12 @@ var/list/gravity_generators = list() // We will keep track of this by adding new
 					A.gravitychange(A.has_gravity,A)
 			if(round_start == 1)
 				round_start = 0
-			gravity_generators["[T.z]"] |= src
+			SSmachinery.gravity_generators["[T.z]"] |= src
 		else
 			for(var/area/A in localareas)
 				A.has_gravity = 0
 				A.gravitychange(A.has_gravity,A)
-			gravity_generators["[T.z]"] -= src
+			SSmachinery.gravity_generators["[T.z]"] -= src
 
 /obj/machinery/gravity_generator/main/Initialize()
 	. = ..()

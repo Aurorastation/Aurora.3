@@ -390,7 +390,7 @@ var/list/mob/living/forced_ambiance_list = new
 	else if(A && A.has_gravity)
 		return 1
 	else
-		if(T && gravity_generators["[T.z]"] && length(gravity_generators["[T.z]"]))
+		if(T && SSmachinery.gravity_generators["[T.z]"] && length(SSmachinery.gravity_generators["[T.z]"]))
 			return 1
 	return 0
 
