@@ -415,9 +415,13 @@ var/list/gravity_generators = list() // We will keep track of this by adding new
 
 /obj/machinery/gravity_generator/main/proc/update_list()
 	var/turf/T = get_turf(src.loc)
+	var/turf/secondfloor = GetAbove(src)
+	var/turf/thirdfloor = GetAbove(secondfloor)
+	var/turf/fourthfloor = GetAbove(thirdfloor)
 	if(T)
 		if(!gravity_generators["[T.z]"])
 			gravity_generators["[T.z]"] = list()
+
 		if(on)
 			for(var/area/A in localareas)
 				A.has_gravity = 1
@@ -428,12 +432,23 @@ var/list/gravity_generators = list() // We will keep track of this by adding new
 			if(round_start == 1)
 				round_start = 0
 			gravity_generators["[T.z]"] |= src
+			if(secondfloor)
+				gravity_generators["[secondfloor.z]"] |= src
+				if(thirdfloor)
+					gravity_generators["[thirdfloor.z]"] |= src
+					if(fourthfloor)
+						gravity_generators["[fourthfloor.z]"] |= src
 		else
 			for(var/area/A in localareas)
 				A.has_gravity = 0
 				A.gravitychange(A.has_gravity,A)
 			gravity_generators["[T.z]"] -= src
-
+			if(secondfloor)
+				gravity_generators["[secondfloor.z]"] -= src
+				if(thirdfloor)
+					gravity_generators["[thirdfloor.z]"] -= src
+					if(fourthfloor)
+						gravity_generators["[fourthfloor.z]"] -= src
 
 /obj/machinery/gravity_generator/main/Initialize()
 	. = ..()
