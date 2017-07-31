@@ -175,6 +175,7 @@
 		/obj/item/clothing/gloves/swat/fluff            = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/black/fluff           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/gloves/yellow/typec          = TRADER_BLACKLIST,
 		/obj/item/clothing/head                         = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/head/beret/centcom           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/bio_hood                = TRADER_BLACKLIST_ALL,

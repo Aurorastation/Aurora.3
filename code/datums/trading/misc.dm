@@ -99,7 +99,7 @@
 
 	possible_trading_items = list(
 		/obj/item/clothing/mask/gas/clown_hat                   = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/gas/mime                        = TRADER_THIS_TYPE,
+		/obj/item/clothing/mask/gas/sexyclown                   = TRADER_THIS_TYPE,
 		/obj/item/clothing/shoes/clown_shoes                    = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/rank/clown                     = TRADER_THIS_TYPE,
 		/obj/item/device/pda/clown                              = TRADER_THIS_TYPE,
@@ -116,7 +116,10 @@
 		/obj/item/weapon/grenade/spawnergrenade/fake_carp       = TRADER_THIS_TYPE,
 		/obj/item/weapon/grenade/spawnergrenade/singularity/toy = TRADER_THIS_TYPE,
 		/obj/item/weapon/grenade/fake                           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/launcher/pneumatic/small           = TRADER_THIS_TYPE
+		/obj/item/weapon/gun/launcher/pneumatic/small           = TRADER_THIS_TYPE,
+		/obj/item/clothing/mask/gas/monkeymask                  = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/monkeysuit                      = TRADER_THIS_TYPE,
+		/obj/item/clothing/mask/luchador                        = TRADER_ALL
 	)
 
 /datum/trader/ship/replica_shop
