@@ -21,6 +21,7 @@
 
 /obj/item/weapon/gun/energy/kinetic_accelerator/attack_self(mob/living/user as mob)
 	if(power_supply.charge < power_supply.maxcharge)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user << "<span class='notice'>You begin charging \the [src]...</span>"
 		if(do_after(user,20))
 			playsound(src.loc, 'sound/weapons/kenetic_reload.ogg', 60, 1)
@@ -69,7 +70,7 @@
 /obj/item/projectile/kinetic
 	name = "kinetic force"
 	icon_state = null
-	damage = 30
+	damage = 15
 	damage_type = BRUTE
 	check_armour = "bomb"
 	kill_count = 5
