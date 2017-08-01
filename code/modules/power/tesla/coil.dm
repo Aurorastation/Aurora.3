@@ -31,11 +31,11 @@
 	if(istype(W, /obj/item/weapon/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
+		anchored = !anchored
 		if(!anchored)
 			disconnect_from_network()
 		else
 			connect_to_network()
-		anchored = !anchored
 		return
 
 	default_deconstruction_crowbar(user, W)
