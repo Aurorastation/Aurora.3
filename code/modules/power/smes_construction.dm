@@ -81,7 +81,7 @@
 // Parameters: None
 // Description: Uses parent process, but if grounding wire is cut causes sparks to fly around.
 // This also causes the SMES to quickly discharge, and has small chance of damaging output APCs.
-/obj/machinery/power/smes/buildable/process()
+/obj/machinery/power/smes/buildable/machinery_process()
 	if(!grounding && (Percentage() > 5))
 		spark(src, 5, alldirs)
 		charge -= (output_level_max * SMESRATE)
@@ -106,7 +106,7 @@
 // Proc: New()
 // Parameters: None
 // Description: Adds standard components for this SMES, and forces recalculation of properties.
-/obj/machinery/power/smes/buildable/New(var/install_coils = 1)
+/obj/machinery/power/smes/buildable/Initialize(mapload, install_coils = 1)
 	component_parts = list()
 	component_parts += new /obj/item/stack/cable_coil(src,30)
 	component_parts += new /obj/item/weapon/circuitboard/smes(src)
@@ -120,7 +120,7 @@
 
 	SSmachinery.queue_rcon_update()
 
-	..()
+	. = ..()
 
 // Proc: attack_hand()
 // Parameters: None

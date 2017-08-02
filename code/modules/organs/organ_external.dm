@@ -34,8 +34,8 @@
 	var/cannot_amputate
 	var/cannot_break
 	var/s_tone
-	var/list/s_col
-	var/list/h_col
+	var/skin_color
+	var/hair_color
 	var/list/wounds = list()
 	var/number_wounds = 0 // cache the number of wounds, which is NOT wounds.len!
 	var/perma_injury = 0
@@ -58,6 +58,7 @@
 	var/can_stand
 	var/body_hair
 	var/painted = 0
+	var/list/markings = list()         // Markings (body_markings) to apply to the icon
 
 /obj/item/organ/external/Destroy()
 	if(parent && parent.children)
@@ -164,17 +165,16 @@
 	damage = min(max_damage, (brute_dam + burn_dam))
 	return
 
-
-/obj/item/organ/external/New(var/mob/living/carbon/holder)
-	..(holder, 0)
+/obj/item/organ/external/Initialize(mapload)
+	. = ..(mapload, FALSE)
 	if(owner)
 		replaced(owner)
 		sync_colour_to_human(owner)
-		
-	addtimer(CALLBACK(src, .proc/get_icon), 1)
 
 	if ((status & ORGAN_PLANT))
 		cannot_break = 1
+
+	get_icon()
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	owner = target
@@ -228,7 +228,7 @@
 			brute -= brute / 2
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
-		if (!(owner.species && (owner.species.flags & NO_PAIN)))
+		if (owner && !(owner.species && (owner.species.flags & NO_PAIN)))
 			owner.emote("scream")	//getting hit on broken hand hurts
 	if(used_weapon)
 		add_autopsy_data("[used_weapon]", brute + burn)
@@ -271,12 +271,14 @@
 				spillover += max(0, burn - can_inflict)
 
 		//If there are still hurties to dispense
-		if (spillover)
+		if (spillover && owner)
 			owner.shock_stage += spillover * config.organ_damage_spillover_multiplier
 
 	// sync the organ's damage with its wounds
 	src.update_damages()
-	owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
+
+	if (owner)
+		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
 
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())

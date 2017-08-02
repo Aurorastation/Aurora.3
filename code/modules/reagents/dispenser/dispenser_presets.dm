@@ -18,7 +18,6 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/radium,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/water,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ethanol,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/butanol,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sacid,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tungsten
@@ -108,6 +107,7 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/wine,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/vodka,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/gin,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/champagne,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/rum,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tequila,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/vermouth,

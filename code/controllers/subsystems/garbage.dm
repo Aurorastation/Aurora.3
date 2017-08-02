@@ -38,7 +38,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	NEW_SS_GLOBAL(SSgarbage)
 
 /datum/controller/subsystem/garbage_collector/stat_entry(msg)
-	msg += "Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
+	msg += "W:[tobequeued.len]|Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
 	msg += "GR:"
 	if (!(delslasttick+gcedlasttick))
 		msg += "n/a|"
@@ -66,12 +66,16 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	var/list/tobequeued = src.tobequeued
 	var/starttime = world.time
 	var/starttimeofday = world.timeofday
-	while(tobequeued.len && starttime == world.time && starttimeofday == world.timeofday)
+	var/idex = 1
+	while((tobequeued.len - (idex - 1)) && starttime == world.time && starttimeofday == world.timeofday)
 		if (MC_TICK_CHECK)
 			break
-		var/ref = tobequeued[1]
+		var/ref = tobequeued[idex]
+		tobequeued[idex++] = null	// Clear this ref to assist hard deletes in Queue().
 		Queue(ref)
-		tobequeued.Cut(1, 2)
+
+	if (idex > 1)
+		tobequeued.Cut(1, idex)
 
 /datum/controller/subsystem/garbage_collector/proc/HandleQueue()
 	delslasttick = 0
@@ -80,18 +84,19 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	var/list/queue = src.queue
 	var/starttime = world.time
 	var/starttimeofday = world.timeofday
-	while(queue.len && starttime == world.time && starttimeofday == world.timeofday)
+	var/idex = 1
+	while((queue.len - (idex - 1)) && starttime == world.time && starttimeofday == world.timeofday)
 		if (MC_TICK_CHECK)
 			break
-		var/refID = queue[1]
+		var/refID = queue[idex]
 		if (!refID)
-			queue.Cut(1, 2)
+			idex++
 			continue
 
 		var/GCd_at_time = queue[refID]
 		if(GCd_at_time > time_to_kill)
 			break // Everything else is newer, skip them
-		queue.Cut(1, 2)
+		idex++
 		var/datum/A
 		A = locate(refID)
 		if (A && A.gcDestroyed == GCd_at_time) // So if something else coincidently gets the same ref, it's not deleted by mistake
@@ -111,6 +116,9 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		else
 			++gcedlasttick
 			++totalgcs
+
+	if (idex > 1)
+		queue.Cut(1, idex)
 
 /datum/controller/subsystem/garbage_collector/proc/QueueForQueuing(datum/A)
 	if (istype(A) && A.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
@@ -215,21 +223,6 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 				#ifdef TESTING
 				D.find_references()
 				#endif
-			if (QDEL_HINT_POOL)
-				if (!force)
-					D.gcDestroyed = null
-					returnToPool(D)
-					return
-				// Returning POOL after being told to force destroy
-				// indicates the objects Destroy() does not respect force
-				if(!SSgarbage.noforcerespect["[D.type]"])
-					SSgarbage.noforcerespect["[D.type]"] = "[D.type]"
-					testing("WARNING: [D.type] has been force deleted, but is \
-						returning an immortal QDEL_HINT, indicating it does \
-						not respect the force flag for qdel(). It has been \
-						placed in the queue, further instances of this type \
-						will also be queued.")
-				SSgarbage.QueueForQueuing(D)
 			else
 				if(!SSgarbage.noqdelhint["[D.type]"])
 					SSgarbage.noqdelhint["[D.type]"] = "[D.type]"
@@ -242,6 +235,8 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
+	weakref = null
+	destroyed_event.raise_event(src)
 	SSnanoui.close_uis(src)
 	tag = null
 	var/list/timers = active_timers

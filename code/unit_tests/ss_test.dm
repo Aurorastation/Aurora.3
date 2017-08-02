@@ -7,7 +7,12 @@
 /datum/controller/subsystem/unit_tests
 	name = "Unit Tests"
 	init_order = -1e6	// last.
-	flags = SS_NO_FIRE
+	var/list/queue = list()
+	var/list/async_tests = list()
+	var/list/current_async
+	var/stage = 0
+	wait = 2 SECONDS
+	flags = SS_FIRE_IN_LOBBY
 
 /datum/controller/subsystem/unit_tests/Initialize(timeofday)
 	log_unit_test("Initializing Unit Testing")	
@@ -18,62 +23,90 @@
 
 	world.save_mode("extended")
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/_ut_start_game), 10 SECONDS)
+	for (var/thing in subtypesof(/datum/unit_test))
+		var/datum/unit_test/D = new thing
+		if(findtext(D.name, "template"))
+			qdel(D)
+			continue
 
-/proc/_ut_start_game()
+		queue += D
+
+	log_unit_test("[queue.len] unit tests loaded.")
+	..()
+
+/datum/controller/subsystem/unit_tests/proc/start_game()
 	if (SSticker.current_state == GAME_STATE_PREGAME)
 		SSticker.current_state = GAME_STATE_SETTING_UP
 
 		log_unit_test("Round has been started.")
-
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/_ut_do_tests), 10 SECONDS)
-
-/proc/_ut_do_tests()
-	var/list/test_datums = typesof(/datum/unit_test)
-
-	var/list/async_test = list()
-	var/list/started_tests = list()
-
-	log_unit_test("Testing Started.")
-
-	for (var/test in test_datums)
-		var/datum/unit_test/d = new test()
-
-		if(d.disabled)
-			d.pass("[ascii_red]Check Disabled: [d.why_disabled]")
-			continue
-
-		if(findtext(d.name, "template"))
-			continue
-
-		if(isnull(d.start_test()))		// Start the test.
-			d.fail("Test Runtimed")
-		if(d.async)				// If it's async then we'll need to check back on it later.
-			async_test.Add(d)
-		total_unit_tests++
-		
-	//
-	// Check the async tests to see if they are finished.
-	// 
-
-	while(async_test.len)
-		for(var/datum/unit_test/test  in async_test)
-			if(test.check_result())
-				async_test.Remove(test)
-		sleep(1)
-
-	//
-	// Make sure all Unit Tests reported a result
-	//
-
-	for(var/datum/unit_test/test in started_tests)
-		if(!test.reported)
-			test.fail("Test failed to report a result.")
-
-	if(all_unit_tests_passed)
-		log_unit_test("[ascii_green]**** All Unit Tests Passed \[[total_unit_tests]\] ****[ascii_reset]")
-		del world
+		stage++
 	else
-		log_unit_test("[ascii_red]**** \[[failed_unit_tests]\\[total_unit_tests]\] Unit Tests Failed ****[ascii_reset]")
+		log_unit_test("Unable to start testing; SSticker.current_state=[SSticker.current_state]!")
 		del world
+
+/datum/controller/subsystem/unit_tests/proc/handle_tests()
+	var/list/curr = queue
+	while (curr.len)
+		var/datum/unit_test/test = curr[curr.len]
+		curr.len--
+
+		if (test.disabled)
+			test.pass("[ascii_red]Check Disabled: [test.why_disabled]")
+			if (MC_TICK_CHECK)
+				return
+			continue
+
+		if (test.start_test() == null)	// Runtimed.
+			test.fail("Test Runtimed")
+		if (test.async)
+			async_tests += test
+
+		total_unit_tests++
+
+		if (MC_TICK_CHECK)
+			return
+
+	if (!curr.len)
+		stage++
+
+/datum/controller/subsystem/unit_tests/proc/handle_async(resumed = 0)
+	if (!resumed)
+		current_async = async_tests.Copy()
+
+	var/list/async = current_async
+	while (async.len)
+		var/datum/unit_test/test = current_async[current_async.len]
+		current_async.len--
+
+		if (test.check_result())
+			async_tests -= test
+
+		if (MC_TICK_CHECK)
+			return
+
+	if (!async.len)
+		stage++
+
+/datum/controller/subsystem/unit_tests/fire(resumed = 0)
+	switch (stage)
+		if (0)
+			start_game()
+
+		if (1)
+			// wait a moment
+			stage++
+
+		if (2)	// do normal tests
+			handle_tests()
+
+		if (3)
+			handle_async(resumed)
+
+		if (4)	// Finalization.
+			if(all_unit_tests_passed)
+				log_unit_test("[ascii_green]**** All Unit Tests Passed \[[total_unit_tests]\] ****[ascii_reset]")
+			else
+				log_unit_test("[ascii_red]**** \[[failed_unit_tests]\\[total_unit_tests]\] Unit Tests Failed ****[ascii_reset]")
+			del world
+
 #endif

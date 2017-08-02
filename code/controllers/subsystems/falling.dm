@@ -8,7 +8,7 @@
 
 /datum/controller/subsystem/falling
 	name = "Falling"
-	flags = SS_NO_INIT | SS_TICKER | SS_KEEP_TIMING
+	flags = SS_NO_INIT
 	wait = 1
 
 	var/list/falling = list()
@@ -78,10 +78,10 @@
 		// Invokes fall_through() after the atom is moved to
 		// its new destination this cycle. Immediately invokes fall_impact and
 		// fall_collateral if the next turf is not open space.
-		if (istype(victim.loc, /turf/simulated/open))
+		if (isopenturf(victim.loc))
 			victim.forceMove(below)
 
-			if (istype(victim.loc, /turf/simulated/open))
+			if (isopenturf(victim.loc))
 				victim.fall_through()
 			else
 				// This is a lookahead. It removes any lag from being moved onto

@@ -4,6 +4,7 @@
 	singular_name = "hide piece"
 	icon_state = "sheet-hide"
 	default_type = "hide"
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/animalhide/human
 	name = "human skin"
@@ -17,6 +18,7 @@
 	singular_name = "corgi hide piece"
 	icon_state = "sheet-corgi"
 	default_type = "corgi hide"
+	icon_has_variants = FALSE
 
 /obj/item/stack/material/animalhide/cat
 	name = "cat hide"
@@ -24,6 +26,7 @@
 	icon_state = "sheet-cat"
 	singular_name = "cat hide piece"
 	default_type = "cat hide"
+	icon_has_variants = FALSE
 
 /obj/item/stack/material/animalhide/monkey
 	name = "monkey hide"
@@ -31,6 +34,7 @@
 	singular_name = "monkey hide piece"
 	icon_state = "sheet-monkey"
 	default_type = "monkey hide"
+	icon_has_variants = FALSE
 
 /obj/item/stack/material/animalhide/lizard
 	name = "lizard skin"
@@ -38,6 +42,7 @@
 	singular_name = "lizard skin piece"
 	icon_state = "sheet-lizard"
 	default_type = "lizard hide"
+	icon_has_variants = FALSE
 	
 /obj/item/stack/material/animalhide/xeno
 	name = "alien hide"
@@ -45,6 +50,7 @@
 	singular_name = "alien hide piece"
 	icon_state = "sheet-xeno"
 	default_type = "alien hide"
+	icon_has_variants = FALSE
 
 //don't see anywhere else to put these, maybe together they could be used to make the xenos suit?
 /obj/item/stack/material/xenochitin
@@ -79,6 +85,7 @@
 	icon_state = "sheet-wetleather"
 	var/wetness = 30 //Reduced when exposed to high temperautres
 	var/drying_threshold_temperature = 500 //Kelvin to start drying
+	icon_has_variants = TRUE
 
 //Step one - dehairing.
 /obj/item/stack/material/animalhide/attackby(obj/item/weapon/W as obj, mob/user as mob)

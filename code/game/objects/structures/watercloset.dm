@@ -141,8 +141,8 @@
 	var/is_washing = 0
 	var/list/temperature_settings = list("normal" = 310, "boiling" = T0C+100, "freezing" = T0C)
 
-/obj/machinery/shower/New()
-	..()
+/obj/machinery/shower/Initialize()
+	. = ..()
 	create_reagents(2)
 
 //add heat controls? when emagged, you can freeze to death in it?
@@ -309,7 +309,7 @@
 			if(istype(E,/obj/effect/rune) || istype(E,/obj/effect/decal/cleanable) || istype(E,/obj/effect/overlay))
 				qdel(E)
 
-/obj/machinery/shower/process()
+/obj/machinery/shower/machinery_process()
 	if(!on) return
 	wash_floor()
 	if(!mobpresent)	return

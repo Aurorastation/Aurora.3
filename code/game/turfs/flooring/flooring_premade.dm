@@ -52,6 +52,8 @@
 	oxygen = 0
 	nitrogen = 0
 
+	roof_type = null
+
 /turf/simulated/floor/reinforced/airmix
 	oxygen = MOLES_O2ATMOS
 	nitrogen = MOLES_N2ATMOS
@@ -80,7 +82,7 @@
 
 /turf/simulated/floor/reinforced/n20/Initialize()
 	. = ..()
-	if(!air) 
+	if(!air)
 		make_air()
 	air.adjust_gas("sleeping_agent", ATMOSTANK_NITROUSOXIDE)
 
@@ -113,6 +115,7 @@
 /turf/simulated/floor/tiled/steel/airless
 	oxygen = 0
 	nitrogen = 0
+	roof_type = null
 
 /turf/simulated/floor/tiled/white
 	name = "white floor"
@@ -154,6 +157,7 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
+	roof_type = null
 
 /turf/simulated/floor/airless
 	name = "airless plating"
@@ -161,6 +165,8 @@
 	nitrogen = 0
 	temperature = TCMB
 	footstep_sound = "concretestep"
+
+	roof_type = null
 
 /turf/simulated/floor/tiled/airless
 	name = "airless floor"
@@ -196,7 +202,10 @@
 	footstep_sound = "gravelstep"
 /turf/simulated/floor/plating/snow
 	footstep_sound = "gravelstep"
+
 /turf/simulated/floor/airless/ceiling
+	icon_state = "asteroidplating"
+	baseturf = /turf/space
 
 /turf/simulated/floor/beach
 	name = "beach"
@@ -220,6 +229,7 @@
 	name = "water"
 	icon_state = "water"
 	footstep_sound = "waterstep"
+	var/watertype = "water5"
 
 /turf/simulated/floor/beach/water/update_dirt()
 	return	// Water doesn't become dirty
@@ -227,6 +237,11 @@
 /turf/simulated/floor/beach/water/ocean
 	icon_state = "seadeep"
 
+/turf/simulated/floor/beach/water/pool
+	icon_state = "pool"
+	watertype = "poolwater"
+
 /turf/simulated/floor/beach/water/Initialize()
 	. = ..()
-	add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1))
+	if(add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="[watertype]","layer"=MOB_LAYER+0.1)))
+		icon_state = "pool1"

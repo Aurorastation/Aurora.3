@@ -81,23 +81,43 @@
 
 	// machine process
 	// move items to the target location
-/obj/machinery/conveyor/process()
+/obj/machinery/conveyor/machinery_process()
 	if(stat & (BROKEN | NOPOWER))
 		return
 	if(!operating)
 		return
+
+	if (!loc)
+		PROCLOG_WEIRD("loc is null, breaking self.")
+		stat |= BROKEN
+		return
+
 	use_power(100)
 
-	affecting = loc.contents - src		// moved items will be all in loc
-	spawn(1)	// slight delay to prevent infinite propagation due to map order	//TODO: please no spawn() in process(). It's a very bad idea
-		var/items_moved = 0
-		for(var/atom/movable/A in affecting)
-			if(!A.anchored)
-				if(A.loc == src.loc) // prevents the object from being affected if it's not currently here.
-					step(A,movedir)
-					items_moved++
-			if(items_moved >= 10)
-				break
+	var/list/affecting = loc.contents.Copy() - src
+	if (affecting.len)
+		addtimer(CALLBACK(src, .proc/post_process, affecting), 1)	// slight delay to prevent infinite propagation due to map order
+
+/obj/machinery/conveyor/proc/post_process(list/affecting)
+	var/items_moved = 0
+	for (var/thing in affecting)
+		var/atom/movable/AM = thing
+		if (AM.anchored || !AM.simulated)
+			continue
+
+		if (AM.loc != loc)	// prevents the object from being affected if it's not currently here.
+			continue
+
+		if (items_moved >= 10 || TICK_CHECK)
+			break
+
+		AM.conveyor_act(movedir)
+		items_moved++
+
+/atom/movable/proc/conveyor_act(move_dir)
+	set waitfor = FALSE
+	if (!anchored && simulated && has_gravity(src))
+		step(src, move_dir)
 
 // attack with item, place item on conveyor
 /obj/machinery/conveyor/attackby(var/obj/item/I, mob/user)

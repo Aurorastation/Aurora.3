@@ -8,61 +8,7 @@
 	icon_state = "NAME OF ICON" 	(defaults to "unknown" (blank))
 	requires_power = 0 				(defaults to 1)
 
-NOTE: there are two lists of areas in the end of this file: centcom and station itself. Please maintain these lists valid. --rastaf0
-
 */
-
-
-
-/area
-	var/fire = null
-	var/atmos = 1
-	var/atmosalm = 0
-	var/poweralm = 1
-	var/party = null
-	level = null
-	name = "Unknown"
-	icon = 'icons/turf/areas.dmi'
-	icon_state = "unknown"
-	layer = 10
-	luminosity = 0
-	mouse_opacity = 0
-	var/lightswitch = 1
-
-	var/eject = null
-
-	var/debug = 0
-	var/requires_power = 1
-	var/always_unpowered = 0	//this gets overriden to 1 for space in area/New()
-
-	var/power_equip = 1
-	var/power_light = 1
-	var/power_environ = 1
-	var/used_equip = 0
-	var/used_light = 0
-	var/used_environ = 0
-
-	var/has_gravity = 1
-	var/obj/machinery/power/apc/apc = null
-	var/no_air = null
-//	var/list/lights				// list of all lights on this area
-	var/list/all_doors = list()		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
-	var/air_doors_activated = 0
-	var/list/ambience = list('sound/ambience/ambigen1.ogg','sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambigen12.ogg','sound/ambience/ambigen14.ogg')
-	var/list/forced_ambience = null
-	var/sound_env = STANDARD_STATION
-	var/turf/base_turf//The base turf type of the area, which can be used to override the z-level's base turf
-	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
-	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
-	var/station_area = 0
-	var/centcomm_area = 0
-
-/*Adding a wizard area teleport list because motherfucking lag -- Urist*/
-/*I am far too lazy to make it a proper list of areas so I'll just make it run the usual telepot routine at the start of the game*/
-
-// Setup moved to EMI.
-var/list/teleportlocs = list()
-var/list/ghostteleportlocs = list()
 
 /*-----------------------------------------------------------------------------*/
 
@@ -71,7 +17,7 @@ var/list/ghostteleportlocs = list()
 /////////
 
 /area/space
-	name = "\improper Space"
+	name = "Space"
 	icon_state = "space"
 	requires_power = 1
 	always_unpowered = 1
@@ -98,8 +44,6 @@ area/space/atmosalert()
 /area/space/partyalert()
 	return
 
-/area/turret_protected/
-
 /area/arrival
 	requires_power = 0
 	no_light_control = 1
@@ -113,7 +57,6 @@ area/space/atmosalert()
 	icon_state = "start"
 
 
-
 ////////////
 //SHUTTLES//
 ////////////
@@ -121,18 +64,15 @@ area/space/atmosalert()
 //place to another. Look at escape shuttle for example.
 //All shuttles should now be under shuttle since we have smooth-wall code.
 
-/area/shuttle/lifts/placeholder //placeholder until lift code is done.
-	name = "\improper Placeholder!1!!"
-	icon_state = "unknown"
-
 /area/shuttle
 	requires_power = 0
 	sound_env = SMALL_ENCLOSED
 	no_light_control = 1
+	flags = SPAWN_ROOF
 
 /area/shuttle/arrival
 	name = "\improper Arrival Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/arrival/centcom
 	icon_state = "shuttle2"
@@ -164,7 +104,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape
 	name = "\improper Emergency Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape/station
 	name = "\improper Emergency Shuttle Station"
@@ -185,7 +125,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod1
 	name = "\improper Escape Pod One"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod1/station
 	icon_state = "shuttle2"
@@ -203,7 +143,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod2
 	name = "\improper Escape Pod Two"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod2/station
 	icon_state = "shuttle2"
@@ -221,7 +161,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod3
 	name = "\improper Escape Pod Three"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod3/station
 	icon_state = "shuttle2"
@@ -239,7 +179,7 @@ area/space/atmosalert()
 
 /area/shuttle/escape_pod5 //Pod 4 was lost to meteors
 	name = "\improper Escape Pod Five"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/escape_pod5/station
 	icon_state = "shuttle2"
@@ -280,7 +220,7 @@ area/space/atmosalert()
 
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 	base_turf = /turf/unsimulated/floor
 	icon_state = "shuttlered"
 	centcomm_area = 1
@@ -292,7 +232,7 @@ area/space/atmosalert()
 
 /area/shuttle/syndicate_elite
 	name = "\improper Merc Elite Shuttle"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/syndicate_elite/mothership
 	icon_state = "shuttlered"
@@ -304,7 +244,7 @@ area/space/atmosalert()
 	station_area = 1
 
 /area/shuttle/administration
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/administration/centcom
 	name = "\improper Administration Shuttle Centcom"
@@ -328,12 +268,6 @@ area/space/atmosalert()
 /area/shuttle/research/outpost
 	icon_state = "shuttle"
 	station_area = 1
-
-/area/airtunnel1/      // referenced in airtunnel.dm:759
-
-/area/dummy/           // Referenced in engine.dm:261
-
-// === end remove
 
 // CENTCOM
 
@@ -401,7 +335,7 @@ area/space/atmosalert()
 /area/syndicate_mothership/elite_squad
 	name = "\improper Elite Mercenary Squad"
 	icon_state = "syndie-elite"
-	
+
 /area/syndicate_mothership/raider_base
 	name = "\improper Pirate Hideout"
 	icon_state = "syndie-control"
@@ -477,7 +411,7 @@ area/space/atmosalert()
 	name = "\improper Independent Station"
 	icon_state = "yellow"
 	requires_power = 0
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | SPAWN_ROOF
 	no_light_control = 1
 
 /area/syndicate_station/start
@@ -533,6 +467,7 @@ area/space/atmosalert()
 	requires_power = 0
 	no_light_control = 1
 	base_turf = /turf/space
+	flags = SPAWN_ROOF
 
 /area/skipjack_station/start
 	name = "\improper Skipjack"
@@ -574,7 +509,7 @@ area/space/atmosalert()
 
 
 /area/maintenance
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = list(
@@ -768,6 +703,7 @@ area/space/atmosalert()
 	sound_env = LARGE_ENCLOSED
 	allow_nightmode = 1
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 
 /area/hallway/primary/fore
 	name = "\improper Fore Primary Hallway"
@@ -801,6 +737,7 @@ area/space/atmosalert()
 	name = "\improper Escape Shuttle Hallway"
 	icon_state = "escape"
 	no_light_control = 1
+	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
 
 /area/hallway/secondary/construction
 	name = "\improper Construction Area"
@@ -826,6 +763,7 @@ area/space/atmosalert()
 /area/hallway/secondary/entry/dock
 	name = "\improper Arrival Shuttle Dock"
 	icon_state = "arrivals_dock"
+	holomap_color = HOLOMAP_AREACOLOR_ARRIVALS
 
 //Command
 
@@ -834,6 +772,7 @@ area/space/atmosalert()
 	icon_state = "bridge"
 	no_light_control = 1
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/bridge/minibar
     name = "\improper Command Break Room"
@@ -869,6 +808,10 @@ area/space/atmosalert()
 	name = "\improper Command - Captain's Office"
 	icon_state = "captain"
 	sound_env = MEDIUM_SOFTFLOOR
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+
+/area/crew_quarters/heads
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/crew_quarters/heads/hop
 	name = "\improper Command - HoP's Office"
@@ -904,6 +847,7 @@ area/space/atmosalert()
 	name = "\improper Research Server Room"
 	icon_state = "server"
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 //Crew
 
@@ -922,11 +866,13 @@ area/space/atmosalert()
 	name = "\improper Dormitories"
 	icon_state = "Sleep"
 	allow_nightmode = 1
+	holomap_color = HOLOMAP_AREACOLOR_DORMS
 
 /area/crew_quarters/sleep/engi_wash
 	name = "\improper Engineering Washroom"
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/crew_quarters/sleep/bedrooms
 	name = "\improper Dormitory Bedroom One"
@@ -944,18 +890,22 @@ area/space/atmosalert()
 /area/crew_quarters/sleep/engineering
 	name = "\improper Engineering Dormitories"
 	icon_state = "Sleep"
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/crew_quarters/sleep/security
 	name = "\improper Security Dormitories"
 	icon_state = "Sleep"
+	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 
 /area/crew_quarters/sleep/research
 	name = "\improper Research Dormitories"
 	icon_state = "Sleep"
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/crew_quarters/sleep/medical
 	name = "\improper Medical Dormitories"
 	icon_state = "Sleep"
+	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 
 /area/crew_quarters/sleep_male
 	name = "\improper Male Dorm"
@@ -1036,16 +986,28 @@ area/space/atmosalert()
 /area/holodeck
 	name = "\improper Holodeck"
 	icon_state = "Holodeck"
-	dynamic_lighting = 0
 	sound_env = LARGE_ENCLOSED
-	no_light_control = 1
-	station_area = 1
+	no_light_control = TRUE
+	station_area = TRUE
+	dynamic_lighting = FALSE
 
 /area/holodeck/alphadeck
 	name = "\improper Holodeck Alpha"
+	dynamic_lighting = TRUE
 
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
+
+/area/holodeck/source_chapel
+	name = "\improper Holodeck - Chapel"
+
+/area/holodeck/source_gym
+	name = "\improper Holodeck - Gym"
+	sound_env = ARENA
+
+/area/holodeck/source_range
+	name = "\improper Holodeck - Range"
+	sound_env = ARENA
 
 /area/holodeck/source_emptycourt
 	name = "\improper Holodeck - Empty Court"
@@ -1114,6 +1076,7 @@ area/space/atmosalert()
 		'sound/ambience/ambisin4.ogg'
 	)
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/engineering/atmos
 	name = "\improper Atmospherics"
@@ -1190,6 +1153,10 @@ area/space/atmosalert()
 /area/engineering/workshop
 	name = "\improper Engineering Workshop"
 	icon_state = "engineering_workshop"
+
+/area/engineering/cooling
+	name = "\improper Engineering Cooling Radiator"
+	icon_state = "engineering_monitoring"
 
 
 
@@ -1280,6 +1247,7 @@ area/space/atmosalert()
 
 /area/medical
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 
 /area/medical/medbay
 	name = "\improper Medbay Hallway - Port"
@@ -1381,12 +1349,7 @@ area/space/atmosalert()
 	icon_state = "chem"
 
 /area/medical/surgery
-	name = "\improper Operating Theatre 1"
-	icon_state = "surgery"
-	no_light_control = 1
-
-/area/medical/surgery2
-	name = "\improper Operating Theatre 2"
+	name = "\improper Operating Theatre"
 	icon_state = "surgery"
 	no_light_control = 1
 
@@ -1417,6 +1380,7 @@ area/space/atmosalert()
 /area/medical/genetics
 	name = "\improper Genetics Lab"
 	icon_state = "genetics"
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/medical/genetics_cloning
 	name = "\improper Cloning Lab"
@@ -1437,6 +1401,7 @@ area/space/atmosalert()
 /area/security
 	no_light_control = 1
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 
 /area/security/main
 	name = "\improper Security Office"
@@ -1518,6 +1483,8 @@ area/space/atmosalert()
 /area/security/nuke_storage
 	name = "\improper Vault"
 	icon_state = "nuke_storage"
+	holomap_color = null
+	flags = HIDE_FROM_HOLOMAP
 
 /area/security/checkpoint
 	name = "\improper Security Checkpoint"
@@ -1555,6 +1522,7 @@ area/space/atmosalert()
 	name = "\improper Quartermasters"
 	icon_state = "quart"
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
 /area/quartermaster/office
 	name = "\improper Cargo Office"
@@ -1595,6 +1563,7 @@ area/space/atmosalert()
 //rnd (Research and Development
 /area/rnd
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/rnd/research
 	name = "\improper Research and Development"
@@ -1942,6 +1911,7 @@ area/space/atmosalert()
 
 /area/turret_protected
 	station_area = 1
+	flags = HIDE_FROM_HOLOMAP
 
 /area/turret_protected/ai_upload
 	name = "\improper AI Upload Chamber"
@@ -2034,6 +2004,7 @@ area/space/atmosalert()
 	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
 	no_light_control = 1
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/tcommsat/entrance
 	name = "\improper Telecoms Teleporter"
@@ -2079,18 +2050,6 @@ area/space/atmosalert()
 /area/tcommsat/mainlvl_tcomms__relay
 	name = "\improper Telecommucations Main Level Relay"
 	icon_state = "tcomsatcham"
-
-/////////////////////////////////////////////////////////////////////
-/*
- Lists of areas to be used with is_type_in_list.
- Used in gamemodes code at the moment. --rastaf0
-*/
-
-// CENTCOM
-var/list/centcom_areas = list ()
-
-//SPACE STATION 13
-var/list/the_station_areas = list ()
 
 /area/beach
 	name = "Keelin's private beach"

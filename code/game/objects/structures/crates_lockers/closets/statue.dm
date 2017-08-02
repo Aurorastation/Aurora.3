@@ -12,7 +12,7 @@
 	var/intialOxy = 0
 	var/timer = 240 //eventually the person will be freed
 
-/obj/structure/closet/statue/New(loc, var/mob/living/L)
+/obj/structure/closet/statue/Initialize(mapload, mob/living/L)
 	if(L && (ishuman(L) || L.isMonkey() || iscorgi(L)))
 		if(L.buckled)
 			L.buckled = 0

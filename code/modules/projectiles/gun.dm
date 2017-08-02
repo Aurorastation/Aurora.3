@@ -466,6 +466,9 @@
 	if(accuracy_wielded)
 		accuracy = initial(accuracy)
 
+	update_icon()
+	update_held_icon()
+
 /obj/item/weapon/gun/proc/wield()
 	wielded = 1
 	if(fire_delay_wielded)
@@ -474,6 +477,9 @@
 		recoil = recoil_wielded
 	if(accuracy_wielded)
 		accuracy = accuracy_wielded
+
+	update_icon()
+	update_held_icon()
 
 /obj/item/weapon/gun/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
@@ -528,7 +534,7 @@
 				user << "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>"
 				O.unwield()
 				unwield()
-				
+
 		if (!QDELETED(src))
 			qdel(src)
 

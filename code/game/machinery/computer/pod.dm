@@ -13,8 +13,11 @@
 	var/title = "Mass Driver Controls"
 
 /obj/machinery/computer/pod/Initialize()
-	. = ..()
-	for(var/obj/machinery/mass_driver/M in world)
+	..()
+	. = INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/pod/LateInitialize()
+	for(var/obj/machinery/mass_driver/M in SSmachinery.processing_machines)
 		if(M.id == id)
 			connected = M
 			return
@@ -27,22 +30,25 @@
 		viewers(null, null) << "Cannot locate mass driver connector. Cancelling firing sequence!"
 		return
 
-	for(var/obj/machinery/door/blast/M in world)
+	var/list/same_id = list()
+
+	for(var/obj/machinery/door/blast/M in SSmachinery.processing_machines)
 		if(M.id == id)
+			same_id += M
 			M.open()
 
 	sleep(20)
 
-	for(var/obj/machinery/mass_driver/M in world)
+	for(var/obj/machinery/mass_driver/M in SSmachinery.processing_machines)
 		if(M.id == id)
 			M.power = connected.power
 			M.drive()
 
 	sleep(50)
-	for(var/obj/machinery/door/blast/M in world)
-		if(M.id == id)
-			M.close()
-			return
+	for(var/mm in same_id)
+		var/obj/machinery/door/blast/M = mm
+		M.close()
+		return
 	return
 
 /*
@@ -138,7 +144,7 @@
 	return
 
 
-/obj/machinery/computer/pod/process()
+/obj/machinery/computer/pod/machinery_process()
 	if(inoperable())
 		return
 	if(timing)
@@ -165,7 +171,7 @@
 		if(href_list["alarm"])
 			alarm()
 		if(href_list["drive"])
-			for(var/obj/machinery/mass_driver/M in machines)
+			for(var/obj/machinery/mass_driver/M in SSmachinery.processing_machines)
 				if(M.id == id)
 					M.power = connected.power
 					M.drive()
@@ -177,7 +183,7 @@
 			time += tp
 			time = min(max(round(time), 0), 120)
 		if(href_list["door"])
-			for(var/obj/machinery/door/blast/M in world)
+			for(var/obj/machinery/door/blast/M in SSmachinery.processing_machines)
 				if(M.id == id)
 					if(M.density)
 						M.open()

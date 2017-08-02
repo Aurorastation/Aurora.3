@@ -100,7 +100,7 @@
 			singulo.target = src
 	icon_state = "[icontype]1"
 	active = 1
-	machines |= src
+	SSmachinery.processing_machines |= src
 	if(user)
 		user << "<span class='notice'>You activate the beacon.</span>"
 
@@ -155,7 +155,7 @@
 	return ..()
 
 //stealth direct power usage
-/obj/machinery/power/singularity_beacon/process()
+/obj/machinery/power/singularity_beacon/machinery_process()
 	if(!active)
 		return PROCESS_KILL
 	else

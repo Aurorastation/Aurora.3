@@ -359,7 +359,7 @@
 
 
 
-/obj/machinery/door/airlock/uranium/process()
+/obj/machinery/door/airlock/uranium/machinery_process()
 	if(world.time > last_event+20)
 		if(prob(50))
 			radiate()
@@ -377,7 +377,7 @@
 
 /obj/machinery/door/airlock/uranium/proc/radiate()
 	for(var/mob/living/L in range (3,src))
-		L.apply_effect(15,IRRADIATE,0)
+		L.apply_effect(15,IRRADIATE, blocked = L.getarmor(null, "rad"))
 	return
 
 
@@ -427,7 +427,7 @@ About the new airlock wires panel:
 
 
 /obj/machinery/door/airlock/bumpopen(mob/living/user as mob) //Airlocks now zap you when you 'bump' them open when they're electrified. --NeoFite
-	if(!issilicon(usr))
+	if(!issilicon(user))
 		if(src.isElectrified())
 			if(!src.justzap)
 				if(src.shock(user, 100))
@@ -444,9 +444,6 @@ About the new airlock wires panel:
 			return
 	..(user)
 
-/obj/machinery/door/airlock/bumpopen(mob/living/simple_animal/user as mob)
-	..(user)
-
 /obj/machinery/door/airlock/proc/isElectrified()
 	if(src.electrified_until != 0)
 		return 1
@@ -454,7 +451,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/isWireCut(var/wireIndex)
 	// You can find the wires in the datum folder.
-	return wires.IsIndexCut(wireIndex)
+	return QDELETED(wires) ? FALSE : wires.IsIndexCut(wireIndex)
 
 /obj/machinery/door/airlock/proc/canAIControl()
 	return ((src.aiControlDisabled!=1) && (!src.isAllPowerLoss()));
@@ -629,8 +626,7 @@ About the new airlock wires panel:
 			set_light(0)
 			has_set_boltlight = FALSE
 
-	update_oo()
-	return
+	update_above()
 
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
@@ -1143,7 +1139,7 @@ About the new airlock wires panel:
 	. = ..()
 
 	//if assembly is given, create the new door from the assembly
-	if (assembly && istype(assembly))
+	if (istype(assembly))
 		assembly_type = assembly.type
 
 		electronics = assembly.electronics
@@ -1152,11 +1148,11 @@ About the new airlock wires panel:
 		//update the door's access to match the electronics'
 		secured_wires = electronics.secure
 		if(electronics.one_access)
-			req_access.Cut()
-			req_one_access = src.electronics.conf_access
+			req_access = null
+			req_one_access = electronics.conf_access
 		else
-			req_one_access.Cut()
-			req_access = src.electronics.conf_access
+			req_one_access = null
+			req_access = electronics.conf_access
 
 		//get the name from the assembly
 		if(assembly.created_name)
@@ -1168,16 +1164,16 @@ About the new airlock wires panel:
 		set_dir(assembly.dir)
 
 	//wires
-	var/turf/T = get_turf(src)
-	if(T && (T.z in config.admin_levels))
+	if(loc && (z in config.admin_levels))
 		secured_wires = 1
+
 	if (secured_wires)
 		wires = new/datum/wires/airlock/secure(src)
 	else
 		wires = new/datum/wires/airlock(src)
 
 	if(mapload && src.closeOtherId != null)
-		for (var/obj/machinery/door/airlock/A in world)
+		for (var/obj/machinery/door/airlock/A in SSmachinery.processing_machines)
 			if(A.closeOtherId == src.closeOtherId && A != src)
 				src.closeOther = A
 				break

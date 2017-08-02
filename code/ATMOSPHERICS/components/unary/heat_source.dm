@@ -33,7 +33,7 @@
 
 	RefreshParts()
 
-/obj/machinery/atmospherics/unary/heater/initialize()
+/obj/machinery/atmospherics/unary/heater/atmos_init()
 	if(node)
 		return
 
@@ -66,7 +66,7 @@
 	return
 
 
-/obj/machinery/atmospherics/unary/heater/process()
+/obj/machinery/atmospherics/unary/heater/machinery_process()
 	..()
 
 	if(stat & (NOPOWER|BROKEN) || !use_power)

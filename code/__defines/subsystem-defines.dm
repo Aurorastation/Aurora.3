@@ -25,7 +25,21 @@
 //number of byond ticks that are allowed to pass before the timer subsystem thinks it hung on something
 #define TIMER_NO_INVOKE_WARNING 600
 
+#define TIMER_ID_NULL -1
+
 // -- SSatoms stuff --
+// Technically this check will fail if someone loads a map mid-round, but that's not enabled right now.
+#define SSATOMS_IS_PROBABLY_DONE (SSatoms.initialized == INITIALIZATION_INNEW_REGULAR)
+
+//type and all subtypes should always call Initialize in New()
+#define INITIALIZE_IMMEDIATE(X) ##X/New(loc, ...){\
+    ..();\
+    if(!initialized) {\
+        args[1] = TRUE;\
+        SSatoms.InitAtom(src, args);\
+    }\
+}
+
 // 	SSatoms Initialization state.
 #define INITIALIZATION_INSSATOMS 0	//New should not call Initialize
 #define INITIALIZATION_INNEW_MAPLOAD 1	//New should call Initialize(TRUE)
@@ -58,8 +72,11 @@
 #define STOP_VISUAL(visual)	visual.isprocessing = FALSE; SSeffects.visuals -= visual;
 
 // -- SSopenturf --
-#define CHECK_OO_EXISTENCE(OO) if (OO && !istype(OO.loc, /turf/simulated/open)) { qdel(OO); }
-#define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_oo(); }
+#define CHECK_OO_EXISTENCE(OO) if (OO && !isopenturf(OO.loc)) { qdel(OO); }
+#define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_above(); }
 
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
+
+// -- SSmachinery --
+#define RECIPE_LIST(T) (SSmachinery.recipe_datums["[T]"])

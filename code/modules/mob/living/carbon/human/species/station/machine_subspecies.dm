@@ -84,7 +84,7 @@
 
 /datum/species/machine/shell/get_bodytype()
 	return bodytype
-	
+
 /datum/species/machine/shell/equip_survival_gear(var/mob/living/carbon/human/H)
 	check_tag(H, H.client)
 
@@ -94,7 +94,7 @@
 	name_plural = "Industrials"
 	bald = 1
 
-	brute_mod = 0.5
+	brute_mod = 0.8
 	burn_mod = 1.3
 	slowdown = 4
 
@@ -201,7 +201,7 @@
 	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON
 	spawn_flags = IS_RESTRICTED
 	appearance_flags = HAS_HAIR_COLOR
-	vision_flags = SEE_SELF | SEE_MOBS
+	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
 	blood_color = "#1F181F"
 	flesh_color = "#575757"

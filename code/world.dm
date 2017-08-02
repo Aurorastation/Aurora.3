@@ -182,14 +182,25 @@ var/list/world_api_rate_limit = list()
 
 	..(reason)
 
-var/inerror = 0
 /world/Error(var/exception/e)
+	var/static/inerror = 0
+
 	//runtime while processing runtimes
 	if (inerror)
 		inerror = 0
 		return ..(e)
 
 	inerror = 1
+
+// A horrible hack for unit tests but fuck runtiming timers.
+// They don't provide any useful information, and as such, are being suppressed.
+#ifdef UNIT_TEST
+
+	if (findtextEx(e.name, "Invalid timer:") || findtextEx(e.desc, "Invalid timer:"))
+		inerror = 0
+		return
+
+#endif // UNIT_TEST
 
 	e.time_stamp()
 	log_exception(e)
@@ -247,7 +258,7 @@ var/inerror = 0
 	config.load("config/config.txt")
 	config.load("config/game_options.txt","game_options")
 
-	if (config.use_age_restriction_for_jobs)
+	if (config.use_age_restriction_for_jobs || config.use_age_restriction_for_antags)
 		config.load("config/age_restrictions.txt", "age_restrictions")
 
 /hook/startup/proc/loadMods()

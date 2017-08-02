@@ -17,15 +17,15 @@ var/global/list/rad_collectors = list()
 	var/locked = 0
 	var/drainratio = 1
 
-/obj/machinery/power/rad_collector/New()
-	..()
+/obj/machinery/power/rad_collector/Initialize()
+	. = ..()
 	rad_collectors += src
 
 /obj/machinery/power/rad_collector/Destroy()
 	rad_collectors -= src
 	return ..()
 
-/obj/machinery/power/rad_collector/process()
+/obj/machinery/power/rad_collector/machinery_process()
 	//so that we don't zero out the meter if the SM is processed first.
 	last_power = last_power_new
 	last_power_new = 0

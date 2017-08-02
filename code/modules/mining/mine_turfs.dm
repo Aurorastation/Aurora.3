@@ -7,9 +7,7 @@
 	density = 1
 
 /turf/simulated/mineral //wall piece
-	name = "Rock"
-	//icon = 'icons/turf/walls.dmi'
-	//icon_state = "rock"
+	name = "rock"
 	icon = 'icons/turf/smooth/rock_wall.dmi'	// Until we get sprites.
 	icon_state = "rock"
 	layer = 2.01
@@ -17,7 +15,8 @@
 	canSmoothWith = list(
 		/turf/simulated/mineral,
 		/turf/simulated/wall,
-		/turf/unsimulated/wall
+		/turf/unsimulated/wall,
+		/turf/simulated/shuttle
 	)
 	oxygen = 0
 	nitrogen = 0
@@ -277,14 +276,14 @@
 			excavation_level += P.excavation_amount
 
 			//archaeo overlays
-			if(!archaeo_overlay && finds && finds.len)
+			/*if(!archaeo_overlay && finds && finds.len)
 				var/datum/find/F = finds[1]
 				if(F.excavation_required <= excavation_level + F.view_range)
 					archaeo_overlay = "overlay_archaeo[rand(1,3)]"
-					add_overlay(archaeo_overlay)
+					add_overlay(archaeo_overlay)*/
 
 		else
-			user << "<span class='notice'> You stop [P.drill_verb] the rock.</span>"
+			user << "<span class='notice'> You stop [P.drill_verb] [src].</span>"
 			P.drilling = 0
 
 	if (istype(W, /obj/item/weapon/autochisel))
@@ -347,7 +346,7 @@
 				flick("flash",M.flash)
 				if(prob(50))
 					M.Stun(5)
-			M.apply_effect(25, IRRADIATE)
+			M.apply_effect(25, IRRADIATE, blocked = M.getarmor(null, "rad"))
 			if(prob(3))
 				excavate_find(prob(5), finds[1])
 
@@ -493,20 +492,19 @@
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
 	name = "sand"
-	//icon = 'icons/turf/flooring/asteroid.dmi'
-	//icon_state = "asteroid"
 	icon = 'icons/turf/smooth/ash.dmi'
 	icon_state = "ash"
-	smooth = SMOOTH_MORE | SMOOTH_BORDER
+	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	canSmoothWith = list(
 		/turf/simulated/floor/asteroid,
 		/turf/simulated/mineral,
-		/turf/simulated/wall
+		/turf/simulated/wall,
+		/turf/simulated/shuttle
 	)
 	base_name = "sand"
 	base_desc = "Gritty and unpleasant."
-	base_icon = 'icons/turf/flooring/asteroid.dmi'
-	base_icon_state = "asteroid"
+	base_icon = 'icons/turf/smooth/ash.dmi'
+	base_icon_state = "ash"
 
 	initial_flooring = null
 	oxygen = 0
@@ -517,6 +515,8 @@
 	var/digging
 	has_resources = 1
 	footstep_sound = "gravelstep"
+
+	roof_type = null
 
 // Copypaste parent for performance.
 /turf/simulated/floor/asteroid/Initialize()
@@ -541,7 +541,7 @@
 
 	return INITIALIZE_HINT_NORMAL
 
-/turf/simulated/floor/asteroid/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)
+/turf/simulated/floor/asteroid/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	. = ..()
 	underlay_appearance.pixel_x = pixel_x
 	underlay_appearance.pixel_y = pixel_y
@@ -708,42 +708,65 @@
 
 /turf/simulated/floor/asteroid/proc/gets_dug()
 
-	icon_state = "asteroid_dug"
+	add_overlay("asteroid_dug", TRUE)
 
 	if(prob(75))
-		new/obj/item/weapon/ore/glass(src)
+		new /obj/item/weapon/ore/glass(src)
 
-	if(prob(25))
-		var/list/ore = list(/obj/item/weapon/ore/coal = 12,
-		/obj/item/weapon/ore/iron = 8,
-		/obj/item/weapon/ore/phoron = 3,
-		/obj/item/weapon/ore/silver = 3,
-		/obj/item/weapon/ore/gold = 2,
-		/obj/item/weapon/ore/osmium = 3,
-		/obj/item/weapon/ore/hydrogen = 2,
-		/obj/item/weapon/ore/uranium = 1,
-		/obj/random/junk = 1,
-		/obj/item/weapon/ore/diamond = 0.5,
-		/obj/random/powercell = 0.2,
-		/obj/random/coin = 0.2,
-		/obj/random/loot = 0.1,
-		/obj/random/action_figure = 0.1)
-		var/ore_path = pickweight(ore)
-		if(ore)
-			new ore_path(src)
-			user << "<span class='notice'>You unearth something amidst the sand!</span>"
+	if(prob(25) && has_resources)
+		var/list/ore = list()
+		for(var/metal in resources)
+			switch(metal)
+				if("silicates")
+					ore += /obj/item/weapon/ore/glass
+				if("carbonaceous rock")
+					ore += /obj/item/weapon/ore/coal
+				if("iron")
+					ore += /obj/item/weapon/ore/iron
+				if("gold")
+					ore += /obj/item/weapon/ore/gold
+				if("silver")
+					ore += /obj/item/weapon/ore/silver
+				if("diamond")
+					ore += /obj/item/weapon/ore/diamond
+				if("uranium")
+					ore += /obj/item/weapon/ore/uranium
+				if("phoron")
+					ore += /obj/item/weapon/ore/phoron
+				if("osmium")
+					ore += /obj/item/weapon/ore/osmium
+				if("hydrogen")
+					ore += /obj/item/weapon/ore/hydrogen
+				else
+					if(prob(25))
+						switch(rand(1,5))
+							if(1)
+								ore += /obj/random/junk
+							if(2)
+								ore += /obj/random/powercell
+							if(3)
+								ore += /obj/random/coin
+							if(4)
+								ore += /obj/random/loot
+							if(5)
+								ore += /obj/item/weapon/ore/glass
+					else
+						ore += /obj/item/weapon/ore/glass
+		if (ore.len)
+			var/ore_path = pick(ore)
+			if(ore)
+				new ore_path(src)
 
 	if(dug <= 10)
 		dug += 1
-		add_overlay("asteroid_dug")
+		add_overlay("asteroid_dug", TRUE)
 	else
-		var/turf/below = (!(z > world.maxz || z > 17 || z < 2) && z_levels & (1 << (z - 2))) ? get_step(src, DOWN) : null
+		var/turf/below = GetBelow(src)
 		if(below)
 			var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)
 				user << "<span class='alert'>You strike metal!</span>"
-				var/turf/T = ChangeTurf(/turf/simulated/floor/airless)
-				T.icon_state = "asteroidplating"
+				below.spawn_roof(ROOF_FORCE_SPAWN)
 			else
 				ChangeTurf(/turf/space)
 

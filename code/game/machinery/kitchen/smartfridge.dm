@@ -130,7 +130,7 @@
 			return 1
 	return 0
 
-/obj/machinery/smartfridge/drying_rack/process()
+/obj/machinery/smartfridge/drying_rack/machinery_process()
 	..()
 	if (contents.len)
 		dry()
@@ -152,7 +152,7 @@
 		return
 	return
 
-/obj/machinery/smartfridge/process()
+/obj/machinery/smartfridge/machinery_process()
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(src.seconds_electrified > 0)

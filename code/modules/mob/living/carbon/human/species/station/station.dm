@@ -19,6 +19,7 @@
 	mob_size = 9
 	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
+	remains_type = /obj/effect/decal/remains/human
 
 	stamina	=	130			  // Humans can sprint for longer than any other species
 	stamina_recovery = 5
@@ -42,6 +43,8 @@
 	brute_mod = 0.8
 	fall_mod = 1.2
 	ethanol_resistance = 0.4
+	taste_sensitivity = TASTE_SENSITIVE
+
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	name_language = LANGUAGE_UNATHI
@@ -200,6 +203,7 @@
 
 	reagent_tag = IS_SKRELL
 	ethanol_resistance = 0.5//gets drunk faster
+	taste_sensitivity = TASTE_SENSITIVE
 
 	stamina	=	90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
@@ -226,7 +230,9 @@
 	num_alternate_languages = 1
 	name_language = "Rootsong"
 	ethanol_resistance = -1//Can't get drunk
+	taste_sensitivity = TASTE_DULL
 	mob_size = 12//Worker gestalts are 150kg
+	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
 	species hailing from Epsilon Ursae Minoris. Each 'diona' is a cluster of numerous cat-sized organisms called nymphs; \
 	there is no effective upper limit to the number that can fuse in gestalt, and reports exist	of the Epsilon Ursae \
@@ -347,7 +353,8 @@
 
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
-		H.diona_split_into_nymphs(0)
+		// This proc sleeps. Async it.
+		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
 
 /datum/species/machine
@@ -366,6 +373,7 @@
 
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
+	eyes = "blank_eyes"
 
 	light_range = 2
 	light_power = 0.5
@@ -378,9 +386,10 @@
 	secondary_langs = list("Encoded Audio Language")
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
+	remains_type = /obj/effect/decal/remains/robot
 
-	// #TODO-MERGE: Check for balance and self-repair. If self-repair is a thing, RIP balance.
-	brute_mod = 0.8
+
+	brute_mod = 1.0
 	burn_mod = 1.0
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
@@ -597,6 +606,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	ethanol_resistance = 2
+	taste_sensitivity = TASTE_SENSITIVE
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
 	breath_type = "phoron"
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.

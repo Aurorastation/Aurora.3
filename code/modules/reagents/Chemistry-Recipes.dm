@@ -1082,13 +1082,15 @@
 	/mob/living/simple_animal/hostile/syndicate/ranged/space,
 	/mob/living/simple_animal/hostile/alien/queen/large,
 	/mob/living/simple_animal/hostile/faithless,
+	/mob/living/simple_animal/hostile/faithless/wizard,
 	/mob/living/simple_animal/hostile/retaliate,
 	/mob/living/simple_animal/hostile/retaliate/clown,
 	/mob/living/simple_animal/hostile/alien,
 	/mob/living/simple_animal/hostile/alien/drone,
 	/mob/living/simple_animal/hostile/alien/sentinel,
 	/mob/living/simple_animal/hostile/alien/queen,
-	/mob/living/simple_animal/hostile/alien/queen/large
+	/mob/living/simple_animal/hostile/alien/queen/large,
+	/mob/living/simple_animal/hostile/true_changeling
 	)//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
@@ -1566,8 +1568,6 @@
 	result = "icetea"
 	required_reagents = list("ice" = 1, "tea" = 2)
 	result_amount = 3
-
-
 
 /datum/chemical_reaction/icecoffee
 	name = "Iced Coffee"
@@ -2127,6 +2127,83 @@
 	required_reagents = list("cream" = 1, "ice" = 2, "milk" = 2)
 	result_amount = 5
 
+/datum/chemical_reaction/cmojito
+	name = "Champagne Mojito"
+	id = "cmojito"
+	result = "cmojito"
+	required_reagents = list("mintsyrup" = 1, "champagne" = 1, "rum" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/classic
+	name = "The Classic"
+	id = "classic"
+	result = "classic"
+	required_reagents = list("champagne" = 2, "bitters" = 1, "lemonjuice" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/corkpopper
+	name = "Cork Popper"
+	id = "corkpopper"
+	result = "corkpopper"
+	required_reagents = list("whiskey" = 1, "champagne" = 1, "lemonjuice" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/french75
+	name = "French 75"
+	id = "french75"
+	result = "french75"
+	required_reagents = list("champagne" = 2, "gin" = 1, "lemonjuice" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/muscmule
+	name = "Muscovite Mule"
+	id = "muscmule"
+	result = "muscmule"
+	required_reagents = list("vodka" = 1, "limejuice" = 1, "mintsyrup" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/omimosa
+	name = "Orange Mimosa"
+	id = "omimosa"
+	result = "omimosa"
+	required_reagents = list("orangejuice" = 1, "champagne" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/pinkgin
+	name = "Pink Gin"
+	id = "pinkgin"
+	result = "pinkgin"
+	required_reagents = list("gin" = 2, "bitters" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/pinkgintonic
+	name = "Pink Gin and Tonic"
+	id = "pinkgintonic"
+	result = "pinkgintonic"
+	required_reagents = list("pinkgin" = 2, "tonic" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/piratepunch
+	name = "Pirate's Punch"
+	id = "piratepunch"
+	result = "piratepunch"
+	required_reagents = list("rum" = 1, "lemonjuice" = 1, "mintsyrup" = 1, "grenadine" = 1, "bitters" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/planterpunch
+	name = "Planter's Punch"
+	id = "planterpunch"
+	result = "planterpunch"
+	required_reagents = list("rum" = 2, "orangejuice" = 1, "grenadine" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/ssroyale
+	name = "Southside Royale"
+	id = "ssroyale"
+	result = "ssroyale"
+	required_reagents = list("mintsyrup" = 1, "gin" = 1, "limejuice" = 1, "champagne" = 1)
+	result_amount = 4
+
 /datum/chemical_reaction/rewriter
 	name = "Rewriter"
 	id = "rewriter"
@@ -2151,11 +2228,18 @@
 /////////////////////////////////////////Brightdawns super cool coffee drinks//////////////////////////////////////////////
 
 /datum/chemical_reaction/white_coffee
-	name = "Café Au Lait"
+	name = "Cafe Au Lait"
 	id = "white_coffee"
 	result = "white_coffee"
-	required_reagents = list("milk" = 1, "blackcoffee" = 2)
-	result_amount = 2
+	required_reagents = list("milk" = 1, "black_coffee" = 2)
+	result_amount = 3
+
+/datum/chemical_reaction/cafe_melange
+	name = "Cafe Melange"
+	id = "cafe_melange"
+	result = "cafe_melange"
+	required_reagents = list("cream" = 1, "black_coffee" = 2)
+	result_amount = 3
 
 //aurora's drinks
 

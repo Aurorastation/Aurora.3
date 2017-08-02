@@ -14,12 +14,17 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 	NEW_SS_GLOBAL(SSnightlight)
 
 /datum/controller/subsystem/nightlight/Initialize(timeofday)
+	if (!config.night_lighting)
+		can_fire = FALSE
+		flags |= SS_NO_FIRE
+		return
+
 	fire(FALSE, FALSE)
 
 	..(timeofday, silent = TRUE)
 
 /datum/controller/subsystem/nightlight/stat_entry()
-	..("A:[isactive] T:[worldtime2hours()] DT:[config.nl_start] NT:[config.nl_finish]")
+	..("A:[isactive] T:[worldtime2hours()] DT:[config.nl_start] NT:[config.nl_finish] D:[disable_type]")
 
 /datum/controller/subsystem/nightlight/Recover()
 	src.isactive = SSnightlight.isactive
@@ -42,18 +47,18 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 		log_debug("SSnightlight: disable_type was [disable_type] but can_fire was TRUE! Disabling self.")
 		suspend()
 		return
-		
+
 	var/time = worldtime2hours()
-	if (time <= 8 || time >= 19)
+	if (time <= config.nl_finish || time >= config.nl_start)
 		if (!isactive)
 			activate()
 			if (announce)
-				command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
+				command_announcement.Announce("Good evening. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now dim lighting in the public hallways in order to accommodate the circadian rhythm of some species.", "Automated Lighting System", new_sound = 'sound/misc/nightlight.ogg')
 	else
 		if (isactive)
 			deactivate()
 			if (announce)
-				command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/bosuns_whistle.ogg')
+				command_announcement.Announce("Good morning. The time is [worldtime2text()]. \n\nThe automated systems aboard the [station_name()] will now return the public hallway lighting levels to normal.", "Automated Lighting System", new_sound = 'sound/misc/nightlight.ogg')
 
 // 'whitelisted' areas are areas that have nightmode explicitly enabled
 

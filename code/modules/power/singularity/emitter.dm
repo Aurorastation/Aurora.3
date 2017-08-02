@@ -107,7 +107,7 @@
 			src.use_power = 1	*/
 	return 1
 
-/obj/machinery/power/emitter/process()
+/obj/machinery/power/emitter/machinery_process()
 	if(stat & (BROKEN))
 		return
 	if(src.state != 2 || (!powernet && active_power_usage))

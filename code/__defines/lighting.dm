@@ -1,4 +1,4 @@
-#define LIGHTING_INTERVAL       2     // Frequency, in 1/10ths of a second, of the lighting process.
+#define LIGHTING_INTERVAL       1     // Frequency, in 1/10ths of a second, of the lighting process.
 
 #define LIGHTING_HEIGHT         1 // height off the ground of light sources on the pseudo-z-axis, you should probably leave this alone
 #define LIGHTING_ROUND_VALUE    1 / 200 //Value used to round lumcounts, values smaller than 1/255 don't matter (if they do, thanks sinking points), greater values will make lighting less precise, but in turn increase performance, VERY SLIGHTLY.
@@ -7,12 +7,9 @@
 #define LIGHTING_BASE_ICON_STATE "matrix"	// icon_state used for normal color-matrix based lighting overlays.
 #define LIGHTING_STATION_ICON_STATE "tubedefault"	// icon_state used for lighting overlays that are just displaying standard station lighting.
 #define LIGHTING_DARKNESS_ICON_STATE "black"	// icon_state used for lighting overlays with no luminosity.
+#define LIGHTING_TRANSPARENT_ICON_STATE "blank"
 
 #define LIGHTING_SOFT_THRESHOLD 0.001 // If the max of the lighting lumcounts of each spectrum drops below this, disable luminosity on the lighting overlays.
-
-// If defined, a tiny random number will be added to lighting matrixes to prevent a memory leak bug in v510 and below.
-// Enabling this disables lighting rounding.
-#define LIGHTING_USE_MEMORY_HACK
 
 // If I were you I'd leave this alone.
 #define LIGHTING_BASE_MATRIX \
@@ -109,7 +106,3 @@
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.
 #define L_PROF(O,T) if (lighting_profiling) {lprof_write(O,T);}
-
-#if !defined(LIGHTING_USE_MEMORY_HACK) && DM_VERSION < 511
-#warn You appear to be using a pre-511 version of BYOND, but have the memory leak hack disabled. You may encounter server crashes due to a memory leak in BYOND 510 and below's handling of color matrixes.
-#endif

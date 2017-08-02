@@ -85,7 +85,7 @@
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/machinery/computer/diseasesplicer/process()
+/obj/machinery/computer/diseasesplicer/machinery_process()
 	if (inoperable())
 		return
 

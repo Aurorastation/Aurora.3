@@ -205,10 +205,6 @@
 	allow_occupant_types = list(/mob/living/silicon/robot)
 	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
 
-/obj/machinery/cryopod/New()
-	announce = new /obj/item/device/radio/intercom(src)
-	..()
-
 /obj/machinery/cryopod/Destroy()
 	if(occupant)
 		occupant.forceMove(loc)
@@ -250,7 +246,7 @@
 	return 1
 
 //Lifted from Unity stasis.dm and refactored. ~Zuhayr
-/obj/machinery/cryopod/process()
+/obj/machinery/cryopod/machinery_process()
 	if(occupant)
 		//Allow a ten minute gap between entering the pod and actually despawning.
 		if(world.time - time_entered < time_till_despawn)
@@ -295,7 +291,6 @@
 	//Delete all items not on the preservation list.
 	var/list/items = src.contents.Copy()
 	items -= occupant // Don't delete the occupant
-	items -= announce // or the autosay radio.
 
 	for(var/obj/item/W in items)
 
@@ -324,7 +319,7 @@
 
 	icon_state = base_icon_state
 
-	announce.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
+	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
 	visible_message("<span class='notice'>\The [initial(name)] hums and hisses as it moves [occupant.real_name] into storage.</span>", 3)
 
 	// Let SSjobs handle the rest.

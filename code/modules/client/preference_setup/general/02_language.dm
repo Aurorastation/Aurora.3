@@ -30,6 +30,32 @@
 
 	if(!islist(pref.alternate_languages))
 		pref.alternate_languages = list()
+		// Nothing to validate. Leave.
+		return
+
+	var/datum/species/S = all_species[pref.species] || all_species["Human"]
+
+	if (pref.alternate_languages.len > S.num_alternate_languages)
+		to_chat(pref.client, "<span class='warning'>You have too many languages saved for [pref.species].<br><b>The list has been reset. Please check your languages in character creation!</b></span>")
+		pref.alternate_languages.Cut()
+		return
+
+	var/list/langs = S.secondary_langs.Copy()
+	for (var/L in all_languages)
+		var/datum/language/lang = all_languages[L]
+		if (!(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(user, L) || !(lang.flags & WHITELISTED)))
+			langs |= L
+
+	var/list/bad_langs = pref.alternate_languages - langs
+	if (bad_langs.len)
+		to_chat(pref.client, "<span class='warning'>[bad_langs.len] invalid language\s were found in your character setup! Please save your character again to stop this error from repeating!</span>")
+
+		for (var/L in bad_langs)
+			to_chat(pref.client, "<span class='notice'>Removing the language \"[L]\" from your character.</span>")
+			pref.alternate_languages -= L
+
+		var/datum/category_group/player_setup_category/cat = category
+		cat.modified = TRUE
 
 /datum/category_item/player_setup_item/general/language/content()
 	. += "<b>Languages</b><br>"
@@ -52,7 +78,9 @@
 /datum/category_item/player_setup_item/general/language/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["remove_language"])
 		var/index = text2num(href_list["remove_language"])
-		pref.alternate_languages.Cut(index, index+1)
+		if (index > 0 && index <= pref.alternate_languages.len)
+			pref.alternate_languages -= pref.alternate_languages[index]
+
 		return TOPIC_REFRESH
 	else if(href_list["add_language"])
 		var/datum/species/S = all_species[pref.species]

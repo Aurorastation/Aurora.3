@@ -17,10 +17,6 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	var/deny_shuttle = 0	//allows admins to prevent the shuttle from being called
 	var/departed = 0		//if the shuttle has left the station at least once
 
-	var/datum/announcement/priority/emergency_shuttle_docked = new(0, new_sound = sound('sound/AI/shuttledock.ogg'))
-	var/datum/announcement/priority/emergency_shuttle_called = new(0, new_sound = sound('sound/AI/shuttlecalled.ogg'))
-	var/datum/announcement/priority/emergency_shuttle_recalled = new(0, new_sound = sound('sound/AI/shuttlerecalled.ogg'))
-
 /datum/controller/subsystem/emergency_shuttle/Recover()
 	// Just copy all the stuff over.
 	src.shuttle = emergency_shuttle.shuttle
@@ -58,9 +54,9 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 			set_launch_countdown(SHUTTLE_LEAVETIME)	//get ready to return
 
 			if (evac)
-				emergency_shuttle_docked.Announce("The Emergency Shuttle has docked with the station. You have approximately [round(estimate_launch_time()/60,1)] minutes to board the Emergency Shuttle.")
+				priority_announcement.Announce("The Emergency Shuttle has docked with the station. You have approximately [round(estimate_launch_time()/60,1)] minutes to board the Emergency Shuttle.", new_sound = 'sound/AI/emergencyshuttledock.ogg')
 			else
-				priority_announcement.Announce("The scheduled Crew Transfer Shuttle to [dock_name] has docked with the station. It will depart in approximately [round(emergency_shuttle.estimate_launch_time()/60,1)] minutes.")
+				priority_announcement.Announce("The scheduled Crew Transfer Shuttle to [dock_name] has docked with the station. It will depart in approximately [round(emergency_shuttle.estimate_launch_time()/60,1)] minutes.", new_sound = 'sound/AI/shuttledock.ogg')
 
 		//arm the escape pods
 		if (evac)
@@ -89,8 +85,8 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION
 
 	evac = 1
-	emergency_shuttle_called.Announce("An emergency evacuation shuttle has been called. It will arrive in approximately [round(estimate_arrival_time()/60)] minutes.")
-	for(var/area/A in world)
+	priority_announcement.Announce("An emergency evacuation shuttle has been called. It will arrive in approximately [round(estimate_arrival_time()/60)] minutes.", new_sound = 'sound/AI/emergencyshuttlecalled.ogg')
+	for(var/area/A in all_areas)
 		if(istype(A, /area/hallway))
 			A.readyalert()
 
@@ -106,7 +102,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	//reset the shuttle transit time if we need to
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION
 
-	priority_announcement.Announce("A crew transfer to [dock_name] has been scheduled. The shuttle has been called. It will arrive in approximately [round(estimate_arrival_time()/60)] minutes.")
+	priority_announcement.Announce("A crew transfer to [dock_name] has been scheduled. The shuttle has been called. It will arrive in approximately [round(estimate_arrival_time()/60)] minutes.", new_sound = 'sound/AI/shuttlecalled.ogg')
 
 //recalls the shuttle
 /datum/controller/subsystem/emergency_shuttle/proc/recall()
@@ -116,14 +112,14 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	shuttle.cancel_launch(src)
 
 	if (evac)
-		emergency_shuttle_recalled.Announce("The emergency shuttle has been recalled.")
+		priority_announcement.Announce("The emergency shuttle has been recalled.", new_sound = 'sound/AI/emergencyshuttlerecalled.ogg')
 
-		for(var/area/A in world)
+		for(var/area/A in all_areas)
 			if(istype(A, /area/hallway))
 				A.readyreset()
 		evac = 0
 	else
-		priority_announcement.Announce("The scheduled crew transfer has been cancelled.")
+		priority_announcement.Announce("The scheduled crew transfer has been cancelled.", new_sound = 'sound/AI/shuttlerecalled.ogg')
 
 /datum/controller/subsystem/emergency_shuttle/proc/can_call()
 	if (!universe.OnShuttleCall(null))

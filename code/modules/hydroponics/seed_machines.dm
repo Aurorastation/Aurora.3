@@ -27,7 +27,7 @@
 	name = "flora disk box"
 	desc = "A box of flora data disks, apparently."
 
-/obj/item/weapon/storage/box/botanydisk/New()
+/obj/item/weapon/storage/box/botanydisk/fill()
 	..()
 	for(var/i = 0;i<7;i++)
 		new /obj/item/weapon/disk/botany(src)
@@ -50,7 +50,7 @@
 	var/failed_task = 0
 	var/disk_needs_genes = 0
 
-/obj/machinery/botany/process()
+/obj/machinery/botany/machinery_process()
 
 	..()
 	if(!active) return

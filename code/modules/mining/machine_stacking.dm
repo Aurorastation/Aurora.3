@@ -104,7 +104,7 @@
 		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(src.output) break
 
-/obj/machinery/mineral/stacking_machine/process()
+/obj/machinery/mineral/stacking_machine/machinery_process()
 	..()
 	if(!console)
 		log_debug("Stacking machine tried to process, but no console has linked itself to it.")

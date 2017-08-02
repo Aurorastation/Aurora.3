@@ -106,12 +106,12 @@
 	selection_color = "#ffeeee"
 	economic_modifier = 5
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective)
-	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective)
+	minimal_access = list(access_security, access_sec_doors, access_morgue, access_maint_tunnels, access_detective)
 	minimal_player_age = 7
 
 
 	equip(var/mob/living/carbon/human/H)
-		if(!H)	
+		if(!H)
 			return FALSE
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sec(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/det(H), slot_w_uniform)
@@ -146,29 +146,27 @@
 	alt_titles = list("Crime Scene Investigator")
 	minimal_player_age = 3
 
-	equip(var/mob/living/carbon/human/H)
-		if(!H)	
+	equip(var/mob/living/carbon/human/H, var/alt_title)
+		if(!H)
 			return FALSE
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sec(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/det/slob(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/detective(H), slot_belt)
-		if(H.species.name == "Tajaran")
+		if(istajara(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-		if(H.species.name == "Unathi")
+		if(isunathi(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
-		if(H.mind.role_alt_title && H.mind.role_alt_title == "Crime Scene Investigator")
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/det_suit(H), slot_wear_suit)
+		if(has_alt_title(H, alt_title,"Crime Scene Investigator"))
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/csi(H), slot_wear_suit)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
 
 		if(H.backbag == 1)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/evidence(H), slot_l_hand)
 		else
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/evidence(H), slot_in_backpack)
 
 		return TRUE
@@ -194,7 +192,7 @@
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/sec
 
 	equip(var/mob/living/carbon/human/H)
-		if(!H)	
+		if(!H)
 			return FALSE
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sec(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/security(H), slot_w_uniform)

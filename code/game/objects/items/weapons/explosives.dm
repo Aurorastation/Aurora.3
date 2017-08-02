@@ -14,10 +14,10 @@
 	var/open_panel = 0
 	var/image_overlay = null
 
-/obj/item/weapon/plastique/New()
+/obj/item/weapon/plastique/Initialize()
+	. = ..()
 	wires = new(src)
 	image_overlay = image('icons/obj/assemblies.dmi', "plastic-explosive2")
-	..()
 
 /obj/item/weapon/plastique/Destroy()
 	qdel(wires)
@@ -43,7 +43,7 @@
 /obj/item/weapon/plastique/afterattack(atom/movable/target, mob/user, flag)
 	if (!flag)
 		return
-	if (ismob(target) || istype(target, /turf/unsimulated) || istype(target, /turf/simulated/shuttle)|| istype(target, /turf/simulated/open) || istype(target, /obj/item/weapon/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
+	if (ismob(target) || istype(target, /turf/unsimulated) || istype(target, /turf/simulated/shuttle)|| isopenturf(target) || istype(target, /obj/item/weapon/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
 		return
 	user << "Planting explosives..."
 	user.do_attack_animation(target)
@@ -62,13 +62,15 @@
 		else
 			message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted [src.name] on [target.name] at ([target.x],[target.y],[target.z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>) with [timer] second fuse",0,1)
 			log_game("[key_name(user)] planted [src.name] on [target.name] at ([target.x],[target.y],[target.z]) with [timer] second fuse",ckey=key_name(user))
-
-		target.overlays += image_overlay
+		
+		target.add_overlay(image_overlay, TRUE)
 		user << "Bomb has been planted. Timer counting down from [timer]."
-		spawn(timer*10)
-			explode(get_turf(target))
 
-/obj/item/weapon/plastique/proc/explode(var/turf/location)
+		addtimer(CALLBACK(src, .proc/explode, get_turf(target)), timer * 10)
+
+/obj/item/weapon/plastique/proc/explode(turf/location)
+	target.cut_overlay(image_overlay, TRUE)
+
 	if(!target)
 		target = get_atom_on_turf(src)
 	if(!target)

@@ -21,21 +21,35 @@
 	var/uses_charge = 0
 	var/list/charge_costs = null
 	var/list/datum/matter_synth/synths = null
+	var/icon_has_variants = FALSE
 
-/obj/item/stack/New(var/loc, var/amount=null)
-	..()
+/obj/item/stack/Initialize(mapload, amount)
+	. = ..()
 	if (!stacktype)
 		stacktype = type
 	if (amount)
 		src.amount = amount
-	return
+
+	if (icon_has_variants && !item_state)
+		item_state = icon_state
+
+	update_icon()
 
 /obj/item/stack/Destroy()
-	if(uses_charge)
-		return 1
 	if (src && usr && usr.machine == src)
 		usr << browse(null, "window=stack")
 	return ..()
+
+/obj/item/stack/update_icon()
+	if (!icon_has_variants)
+		return ..()
+	
+	if (amount <= (max_amount * (1/3)))
+		icon_state = initial(icon_state)
+	else if (amount <= (max_amount * (2/3)))
+		icon_state = "[initial(icon_state)]_2"
+	else
+		icon_state = "[initial(icon_state)]_3"
 
 /obj/item/stack/examine(mob/user)
 	if(..(user, 1))

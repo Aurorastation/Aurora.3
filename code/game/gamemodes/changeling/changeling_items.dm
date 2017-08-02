@@ -25,9 +25,8 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weapon/melee/arm_blade/dropped()
+/obj/item/weapon/melee/arm_blade/dropped(var/mob/living/user)
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
-	"<span class='notice'>We assimilate the weapon back into our body.</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
@@ -70,9 +69,8 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weapon/shield/riot/changeling/dropped()
-	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
-	"<span class='notice'>We assimilate the weapon back into our body.</span>",
+/obj/item/weapon/shield/riot/changeling/dropped(var/mob/living/user)
+	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their shield into an arm!</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
@@ -91,3 +89,14 @@
 			host.embedded -= src
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
+
+/obj/item/weapon/bone_dart
+	name = "bone dart"
+	desc = "A sharp piece of bone shapped as small dart."
+	icon = 'icons/obj/changeling.dmi'
+	icon_state = "bone_dart"
+	item_state = "bolt"
+	sharp = 1
+	edge = 0
+	throwforce = 5
+	w_class = 2

@@ -40,15 +40,15 @@
 /obj/machinery/door_timer/Initialize()
 	. = ..()
 
-	for(var/obj/machinery/door/window/brigdoor/M in machines)
+	for(var/obj/machinery/door/window/brigdoor/M in SSmachinery.all_machines)
 		if (M.id == src.id)
 			targets += M
 
-	for(var/obj/machinery/flasher/F in machines)
+	for(var/obj/machinery/flasher/F in SSmachinery.all_machines)
 		if(F.id == src.id)
 			targets += F
 
-	for(var/obj/structure/closet/secure_closet/brig/C in world)
+	for(var/obj/structure/closet/secure_closet/brig/C in brig_closets)
 		if(C.id == src.id)
 			targets += C
 
@@ -60,7 +60,7 @@
 //Main door timer loop, if it's timing and time is >0 reduce time by 1.
 // if it's less than 0, open door, reset timer
 // update the door_timer window and the icon
-/obj/machinery/door_timer/process()
+/obj/machinery/door_timer/machinery_process()
 	if(stat & (NOPOWER|BROKEN))	return
 
 	if(src.timing)
@@ -145,7 +145,7 @@
 
 	qdel( incident )
 	incident = null
-	
+
 	src.updateUsrDialog()
 
 	return 1

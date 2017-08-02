@@ -37,7 +37,7 @@
 	ignite()
 	return
 
-/obj/machinery/igniter/process()	//ugh why is this even in process()?
+/obj/machinery/igniter/machinery_process()	//ugh why is this even in process()?
 	if (on && powered() )
 		var/turf/location = src.loc
 		if (isturf(location))
@@ -151,12 +151,11 @@
 	active = 1
 	icon_state = "launcheract"
 
-	for(var/obj/machinery/sparker/M in machines)
+	for(var/obj/machinery/sparker/M in SSmachinery.all_machines)
 		if (M.id == id)
-			spawn( 0 )
-				M.ignite()
+			INVOKE_ASYNC(M, /obj/machinery/sparker/proc/ignite)
 
-	for(var/obj/machinery/igniter/M in machines)
+	for(var/obj/machinery/igniter/M in SSmachinery.all_machines)
 		if(M.id == id)
 			M.ignite()
 

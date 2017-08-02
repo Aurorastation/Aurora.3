@@ -123,12 +123,6 @@ datum/unit_test/zas_area_test/arrival_maint
 	name = "ZAS: Arrival Maintenance"
 	area_path = /area/maintenance/arrivals
 
-datum/unit_test/zas_area_test/mining_shuttle_at_station
-	name = "ZAS: Mining Shuttle (Station)"
-	area_path = /area/shuttle/mining/station
-	disabled = 1
-	why_disabled = "This test has not been updated for newmap."
-
 datum/unit_test/zas_area_test/
 	name = "ZAS: Cargo Maintenance"
 	area_path = /area/maintenance/cargo

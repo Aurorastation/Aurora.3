@@ -13,17 +13,17 @@
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_wedge = LIGHT_WIDE
 
-/obj/machinery/floodlight/New()
-	src.cell = new(src)
+/obj/machinery/floodlight/Initialize()
+	. = ..()
+	cell = new(src)
 	cell.maxcharge = 1000
 	cell.charge = 1000 // 41minutes @ 200W
-	..()
 
 /obj/machinery/floodlight/update_icon()
 	overlays.Cut()
 	icon_state = "flood[open ? "o" : ""][open && cell ? "b" : ""]0[on]"
 
-/obj/machinery/floodlight/process()
+/obj/machinery/floodlight/machinery_process()
 	if(!on)
 		return
 

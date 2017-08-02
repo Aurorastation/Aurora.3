@@ -598,7 +598,7 @@ proc/admin_notice(var/message, var/rights)
 		<center><B>Game Panel</B></center><hr>\n
 		<A href='?src=\ref[src];c_mode=1'>Change Game Mode</A><br>
 		"}
-	if(master_mode == "secret")
+	if(master_mode == ROUNDTYPE_STR_SECRET || master_mode == ROUNDTYPE_STR_MIXED_SECRET)
 		dat += "<A href='?src=\ref[src];f_secret=1'>(Force Secret Mode)</A><br>"
 
 	dat += {"
@@ -742,11 +742,11 @@ proc/admin_notice(var/message, var/rights)
 	set desc="Globally Toggles Hub Visibility"
 	set name="Toggle Hub Visibility"
 
-	if(!check_rights(R_ADMIN))
+	if(!check_rights(R_SERVER))
 		return
 
 	world.visibility = !(world.visibility)
-	var/long_message = " toggled hub visibility.  The server is now [world.visibility ? "visible" : "invisible"] ([world.visibility])."
+	var/long_message = " toggled hub visibility. The server is now [world.visibility ? "visible" : "invisible"] ([world.visibility])."
 
 	discord_bot.send_to_admins("[key_name(src)]" + long_message)
 	message_admins("[key_name_admin(usr)]" + long_message, 1)

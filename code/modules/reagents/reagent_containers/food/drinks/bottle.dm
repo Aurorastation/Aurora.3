@@ -127,7 +127,7 @@
 
 	// You are going to knock someone out for longer if they are not wearing a helmet.
 	var/weaken_duration = 0
-	if(blocked < 2)
+	if(blocked < 100)
 		weaken_duration = smash_duration + min(0, force - target.getarmor(hit_zone, "melee") + 10)
 
 	var/mob/living/carbon/human/H = target
@@ -147,6 +147,8 @@
 	//Finally, smash the bottle. This kills (qdel) the bottle.
 	var/obj/item/weapon/broken_bottle/B = smash(target.loc, target)
 	user.put_in_active_hand(B)
+
+	return blocked
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/bullet_act()
 	smash(loc)
@@ -226,6 +228,33 @@
 	New()
 		..()
 		reagents.add_reagent("nothing", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/bitters
+	name = "Angstra Aromatic Bitters"
+	desc = "Only the finest and highest quality herbs find their way into our cocktail bitters."
+	icon_state = "bitters"
+	center_of_mass = list("x"=16, "y"=10)
+	New()
+		..()
+		reagents.add_reagent("bitters",40)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne
+	name = "Tailfeather's Bubbliest champagne"
+	desc = "A rather fancy bottle of champagne, fit for collecting and storing in a cellar for decades."
+	icon_state = "champagnebottle"
+	center_of_mass = list("x"=16, "y"=4)
+	New()
+		..()
+		reagents.add_reagent("champagne",100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/mintsyrup
+	name = "Wintergreen Mint Syrup"
+	desc = "Minty fresh. NOTE: Do not use as a replacement for breath fresheners."
+	icon_state = "mint_syrup"
+	center_of_mass = list("x"=16, "y"=6)
+	New()
+		..()
+		reagents.add_reagent("mintsyrup", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/patron
 	name = "Wrapp Artiste patron"

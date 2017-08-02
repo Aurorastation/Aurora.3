@@ -17,9 +17,15 @@
 	..("A:[config.sun_accuracy] LP:[light_points.len] Z:[config.sun_target_z]")
 
 /datum/controller/subsystem/sunlight/Initialize()
+
 	presets = list()
 	for (var/thing in subtypesof(/datum/sun_state))
 		presets += new thing
+
+	if (config.fastboot)
+		log_debug("sunlight: fastboot detected, skipping setup.")
+		..()
+		return
 
 	var/thing
 	var/turf/T
@@ -68,6 +74,9 @@
 /atom/movable/sunobj/Initialize()
 	light_range = Ceiling(config.sun_accuracy * 1.2)
 	return ..()
+
+/atom/movable/sunobj/can_fall()
+	. = FALSE
 
 /datum/sun_state
 	var/color = "#FFFFFF"

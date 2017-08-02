@@ -191,7 +191,7 @@
 		invisibility = i ? 101 : 0
 	update_icon()
 
-/obj/machinery/atmospherics/pipe/simple/process()
+/obj/machinery/atmospherics/pipe/simple/machinery_process()
 	if(!parent) //This should cut back on the overhead calling build_network thousands of times per cycle
 		..()
 	else
@@ -272,7 +272,7 @@
 /obj/machinery/atmospherics/pipe/simple/update_underlays()
 	return
 
-/obj/machinery/atmospherics/pipe/simple/initialize()
+/obj/machinery/atmospherics/pipe/simple/atmos_init()
 	normalize_dir()
 	var/node1_dir
 	var/node2_dir
@@ -452,7 +452,7 @@
 /obj/machinery/atmospherics/pipe/manifold/pipeline_expansion()
 	return list(node1, node2, node3)
 
-/obj/machinery/atmospherics/pipe/manifold/process()
+/obj/machinery/atmospherics/pipe/manifold/machinery_process()
 	if(!parent)
 		..()
 	else
@@ -544,7 +544,7 @@
 	..()
 	update_icon()
 
-/obj/machinery/atmospherics/pipe/manifold/initialize()
+/obj/machinery/atmospherics/pipe/manifold/atmos_init()
 	var/connect_directions = (NORTH|SOUTH|EAST|WEST)&(~dir)
 
 	for(var/direction in cardinal)
@@ -697,7 +697,7 @@
 /obj/machinery/atmospherics/pipe/manifold4w/pipeline_expansion()
 	return list(node1, node2, node3, node4)
 
-/obj/machinery/atmospherics/pipe/manifold4w/process()
+/obj/machinery/atmospherics/pipe/manifold4w/machinery_process()
 	if(!parent)
 		..()
 	else
@@ -818,7 +818,7 @@
 		invisibility = i ? 101 : 0
 	update_icon()
 
-/obj/machinery/atmospherics/pipe/manifold4w/initialize()
+/obj/machinery/atmospherics/pipe/manifold4w/atmos_init()
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,1))
 		if(target.initialize_directions & 2)
@@ -960,7 +960,7 @@
 /obj/machinery/atmospherics/pipe/cap/pipeline_expansion()
 	return list(node)
 
-/obj/machinery/atmospherics/pipe/cap/process()
+/obj/machinery/atmospherics/pipe/cap/machinery_process()
 	if(!parent)
 		..()
 	else
@@ -998,7 +998,7 @@
 	cut_overlays()
 	add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "cap"))
 
-/obj/machinery/atmospherics/pipe/cap/initialize()
+/obj/machinery/atmospherics/pipe/cap/atmos_init()
 	for(var/obj/machinery/atmospherics/target in get_step(src, dir))
 		if(target.initialize_directions & get_dir(target,src))
 			if (check_connect_types(target,src))
@@ -1075,7 +1075,7 @@
 	initialize_directions = dir
 	..()
 
-/obj/machinery/atmospherics/pipe/tank/process()
+/obj/machinery/atmospherics/pipe/tank/machinery_process()
 	if(!parent)
 		..()
 	else
@@ -1103,7 +1103,7 @@
 /obj/machinery/atmospherics/pipe/tank/hide()
 	update_underlays()
 
-/obj/machinery/atmospherics/pipe/tank/initialize()
+/obj/machinery/atmospherics/pipe/tank/atmos_init()
 	var/connect_direction = dir
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,connect_direction))
@@ -1242,7 +1242,7 @@
 	name = "Larger vent"
 	volume = 1000
 
-/obj/machinery/atmospherics/pipe/vent/process()
+/obj/machinery/atmospherics/pipe/vent/machinery_process()
 	if(!parent)
 		if(build_killswitch <= 0)
 			. = PROCESS_KILL
@@ -1273,7 +1273,7 @@
 	else
 		icon_state = "exposed"
 
-/obj/machinery/atmospherics/pipe/vent/initialize()
+/obj/machinery/atmospherics/pipe/vent/atmos_init()
 	var/connect_direction = dir
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,connect_direction))

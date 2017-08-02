@@ -209,10 +209,24 @@
 
 		return
 
+	if (href_list["view_jobban"])
+		var/reason = jobban_isbanned(ckey, href_list["view_jobban"])
+		if (!reason)
+			to_chat(src, span("notice", "You do not appear jobbanned from this job. If you are still stopped from entering the role however, please adminhelp."))
+			return
+
+		var/data = "<center>Jobbanned from: <b>[href_list["view_jobban"]]</b><br>"
+		data += "Reason:<br>"
+		data += reason
+		data += "</center>"
+
+		show_browser(src, data, "jobban_reason")
+		return
+
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
-	if (config.automute_on && !holder)
+	if (config.automute_on && !holder && length(message))
 		if (last_message_time)
 			if (world.time - last_message_time < config.macro_trigger)
 				spam_alert++
@@ -229,7 +243,7 @@
 
 		last_message_time = world.time
 
-		if(!isnull(message) && last_message == message)
+		if(last_message == message)
 			last_message_count++
 			if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
 				src << "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>"
@@ -334,8 +348,6 @@
 	prefs.last_id = computer_id			//these are gonna be used for banning
 
 	. = ..()	//calls mob.Login()
-
-	prefs.sanitize_preferences()
 
 	if(holder)
 		add_admin_verbs()

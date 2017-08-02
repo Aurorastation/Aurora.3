@@ -16,7 +16,7 @@
 		var/item = spawn_item()
 		if (has_postspawn && item)
 			post_spawn(item)
-	
+
 	return INITIALIZE_HINT_QDEL
 
 // this function should return a specific item to spawn
@@ -293,6 +293,7 @@
 		/obj/structure/plushie/drone,
 		/obj/structure/plushie/carp,
 		/obj/structure/plushie/beepsky,
+		/obj/structure/plushie/ivancarp,
 		/obj/item/toy/plushie/nymph,
 		/obj/item/toy/plushie/mouse,
 		/obj/item/toy/plushie/kitten,
@@ -400,7 +401,7 @@
 
 /obj/random/voidsuit/Initialize(mapload, _damaged = 0)
 	damaged = _damaged
-	..(loc)
+	. = ..(mapload)
 
 /obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
 	var/helmet = suitmap[suit.type]
@@ -496,6 +497,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/rum,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/kahlua,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac,
@@ -826,7 +828,7 @@
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/cookingoil
 	)
-	
+
 /obj/random/sword
 	name = "random sword"
 	desc = "This is a random sword."

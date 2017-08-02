@@ -54,16 +54,14 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		T = get_turf(body)				//Where is the body located?
 		attack_log = body.attack_log	//preserve our attack logs by copying them to our ghost
 
-		if (ishuman(body))
-			var/mob/living/carbon/human/H = body
-			icon = H.stand_icon
-			overlays = H.overlays_standing
-		else
-			icon = body.icon
-			icon_state = body.icon_state
-			overlays = body.overlays
+		var/originaldesc = desc
+		var/o_transform = transform
+		appearance = body
+		desc = originaldesc
+		transform = o_transform
 
 		alpha = 127
+		invisibility = initial(invisibility)
 
 		gender = body.gender
 		if(body.mind && body.mind.name)
@@ -316,8 +314,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		usr << "Not when you're not dead!"
 		return
 	usr.verbs -= /mob/dead/observer/proc/dead_tele
-	spawn(30)
-		usr.verbs += /mob/dead/observer/proc/dead_tele
+	ADD_VERB_IN(usr, 30, /mob/dead/observer/proc/dead_tele)
 	var/area/thearea = ghostteleportlocs[A]
 	if(!thearea)	return
 
@@ -506,7 +503,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	//If we hit the limit without finding a valid one, then the best one we found is selected
 
 	var/list/found_vents = list()
-	for(var/obj/machinery/atmospherics/unary/vent_pump/v in machines)
+	for(var/obj/machinery/atmospherics/unary/vent_pump/v in SSmachinery.processing_machines)
 		if(!v.welded && v.z == ZLevel)
 			found_vents.Add(v)
 

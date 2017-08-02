@@ -253,7 +253,7 @@
 	if(!wielded)
 		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
 		return 0
-	playsound(src, 'sound/weapons/chainsawhit.ogg', 90, 1)
+	playsound(src, 'sound/weapons/chainsawstart.ogg', 90, 1)
 	user.visible_message(
 					"<span class='danger'>\The [user] begins spinning [src]'s barrels!</span>",
 					"<span class='danger'>You begin spinning [src]'s barrels!</span>",
@@ -472,7 +472,7 @@
 	recharge_time = 1
 	charge_meter = 1
 	use_external_power = 1
-	charge_cost = 200
+	charge_cost = 25
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	..()

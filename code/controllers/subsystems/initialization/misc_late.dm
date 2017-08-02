@@ -7,8 +7,8 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_late/Initialize(timeofday)
-	// Sort the area list.
-	sortTim(all_areas, /proc/cmp_name_asc)
+	// Generate the area list.
+	resort_all_areas()
 
 	var/turf/picked
 	// Setup the teleport locs.
@@ -37,4 +37,19 @@
 
 	shuttle_controller.setup_shuttle_docks()
 
-	..(timeofday, TRUE)
+	if (config.fastboot)
+		admin_notice("<span class='notice'><b>Fastboot is enabled; some features may not be available.</b></span>", R_DEBUG)
+
+	..(timeofday)
+
+/proc/resort_all_areas()
+	all_areas = list()
+	for (var/area/A in world)
+		all_areas += A
+
+	sortTim(all_areas, /proc/cmp_name_asc)
+
+/proc/sorted_add_area(area/A)
+	all_areas += A
+
+	sortTim(all_areas, /proc/cmp_name_asc)

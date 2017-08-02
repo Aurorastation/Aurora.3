@@ -115,6 +115,12 @@ default behaviour is:
 				now_pushing = 1
 
 				if (!AM.anchored)
+					if(isobj(AM))
+						var/obj/O = AM
+						if ((can_pull_size == 0) || (can_pull_size < O.w_class))
+							now_pushing = 0
+							return
+
 					var/t = get_dir(src, AM)
 					if (istype(AM, /obj/structure/window))
 						for(var/obj/structure/window/win in get_step(AM,t))
@@ -290,7 +296,6 @@ default behaviour is:
 
 /mob/living/proc/adjustHalLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
-
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 
 /mob/living/carbon/adjustHalLoss(var/amount, var/ignoreImmunity = 0)//An inherited version so this doesnt affect cyborgs

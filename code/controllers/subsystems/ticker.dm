@@ -82,13 +82,13 @@ var/datum/controller/subsystem/ticker/SSticker
 /datum/controller/subsystem/ticker/Recover()
 	// Copy stuff over so we don't lose any state.
 	current_state = SSticker.current_state
-	
+
 	hide_mode = SSticker.hide_mode
 	mode = SSticker.mode
 	post_game = SSticker.post_game
 
 	login_music = SSticker.login_music
-	
+
 	minds = SSticker.minds
 
 	Bible_icon_state = SSticker.Bible_icon_state
@@ -113,7 +113,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	if (!lobby_ready)
 		lobby_ready = TRUE
 		return
-		
+
 	switch (current_state)
 		if (GAME_STATE_PREGAME, GAME_STATE_SETTING_UP)
 			pregame_tick()
@@ -123,7 +123,7 @@ var/datum/controller/subsystem/ticker/SSticker
 /datum/controller/subsystem/ticker/proc/pregame_tick()
 	if (round_progressing)
 		pregame_timeleft--
-	
+
 	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == config.vote_autogamemode_timeleft)
 		if (!SSvote.time_remaining)
 			SSvote.autogamemode()
@@ -133,7 +133,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	if (pregame_timeleft <= 10 && !tipped)
 		send_tip_of_the_round()
 		tipped = TRUE
-	
+
 	if (pregame_timeleft <= 0 || current_state == GAME_STATE_SETTING_UP)
 		current_state = GAME_STATE_SETTING_UP
 		wait = 2 SECONDS
@@ -326,21 +326,34 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode
-	if(master_mode=="secret")
-		src.hide_mode = 1
+	if(master_mode == ROUNDTYPE_STR_SECRET)
+		src.hide_mode = ROUNDTYPE_SECRET
+	else if (master_mode == ROUNDTYPE_STR_MIXED_SECRET)
+		src.hide_mode = ROUNDTYPE_MIXED_SECRET
 
-	var/list/runnable_modes = config.get_runnable_modes()
-	if((master_mode=="random") || (master_mode=="secret"))
+	var/list/runnable_modes = config.get_runnable_modes(master_mode)
+	if(master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 		if(!runnable_modes.len)
 			current_state = GAME_STATE_PREGAME
 			world << "<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby."
 			return 0
-		if(secret_force_mode != "secret")
+		if(secret_force_mode != ROUNDTYPE_STR_SECRET && secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
 			src.mode = config.pick_mode(secret_force_mode)
 		if(!src.mode)
 			var/list/weighted_modes = list()
+			var/list/probabilities = list()
+
+			if (master_mode == ROUNDTYPE_STR_SECRET)
+				probabilities = config.probabilities_secret
+			else if (master_mode == ROUNDTYPE_STR_MIXED_SECRET)
+				probabilities = config.probabilities_mixed_secret
+			else
+				// master_mode == ROUNDTYPE_STR_RANDOM
+				probabilities = config.probabilities_secret.Copy()
+				probabilities |= config.probabilities_mixed_secret
+
 			for(var/datum/game_mode/GM in runnable_modes)
-				weighted_modes[GM.config_tag] = config.probabilities[GM.config_tag]
+				weighted_modes[GM.config_tag] = probabilities[GM.config_tag]
 			src.mode = gamemode_cache[pickweight(weighted_modes)]
 	else
 		src.mode = config.pick_mode(master_mode)
@@ -363,8 +376,10 @@ var/datum/controller/subsystem/ticker/SSticker
 		SSjobs.ResetOccupations()
 		return 0
 
+	var/starttime = REALTIMEOFDAY
+
 	if(hide_mode)
-		world << "<B>The current game mode is - Secret!</B>"
+		world << "<B>The current game mode is - [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!</B>"
 		if(runnable_modes.len)
 			var/list/tmpmodes = new
 			for (var/datum/game_mode/M in runnable_modes)
@@ -398,16 +413,11 @@ var/datum/controller/subsystem/ticker/SSticker
 		//Holiday Round-start stuff	~Carn
 		Holiday_Game_Start()
 
-	var/admins_number = 0
-	for(var/client/C)
-		if(C.holder && (C.holder.rights & (R_MOD|R_ADMIN)))
-			admins_number++
-	if(admins_number == 0)
-		discord_bot.send_to_admins("@here Round has started with no admins online.")
-
 	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
 	run_callback_list(roundstart_callbacks)
 	roundstart_callbacks = null
+
+	log_debug("SSticker: Round-start setup took [(REALTIMEOFDAY - starttime)/10] seconds.")
 
 	return 1
 
@@ -423,19 +433,20 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		CHECK_TICK
 
-/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null)
-	if (cinematic)	
+/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = config.station_levels)
+	if (cinematic)
 		return	//already a cinematic in progress!
 
 	//initialise our cinematic screen object
-	cinematic = new(src)
-	cinematic.icon = 'icons/effects/station_explosion.dmi'
-	cinematic.icon_state = "station_intact"
-	cinematic.layer = 20
-	cinematic.mouse_opacity = 0
-	cinematic.screen_loc = "1,0"
+	cinematic = new /obj/screen{
+		icon = 'icons/effects/station_explosion.dmi';
+		icon_state = "station_intact";
+		layer = 20;
+		mouse_opacity = 0;
+		screen_loc = "1,0"
+	}
 
-	var/obj/structure/bed/temp_buckle = new(src)
+	var/obj/structure/bed/temp_buckle = new
 	//Incredibly hackish. It creates a bed within the gameticker (lol) to stop mobs running around
 	if(station_missed)
 		for(var/mob/living/M in living_mob_list)
@@ -448,15 +459,17 @@ var/datum/controller/subsystem/ticker/SSticker
 			if(M.client)
 				M.client.screen += cinematic
 
-			switch(M.z)
-				if(0)	//inside a crate or something
-					var/turf/T = get_turf(M)
-					if(T && T.z in config.station_levels)				//we don't use M.death(0) because it calls a for(/mob) loop and
-						M.health = 0
-						M.stat = DEAD
-				if(1)	//on a z-level 1 turf.
-					M.health = 0
-					M.stat = DEAD
+			var/turf/Mloc = M.loc
+			if (!Mloc)
+				continue
+			
+			if (!istype(Mloc))
+				Mloc = get_turf(M)
+
+			if (Mloc.z in affected_levels)
+				M.dust()
+
+			CHECK_TICK
 
 	//Now animate the cinematic
 	switch(station_missed)
@@ -480,7 +493,6 @@ var/datum/controller/subsystem/ticker/SSticker
 		if(2)	//nuke was nowhere nearby	//TODO: a really distant explosion animation
 			sleep(50)
 			world << sound('sound/effects/explosionfar.ogg')
-
 
 		else	//station was destroyed
 			if( mode && !override )
@@ -510,18 +522,16 @@ var/datum/controller/subsystem/ticker/SSticker
 					flick("station_explode_fade_red", cinematic)
 					world << sound('sound/effects/explosionfar.ogg')
 					cinematic.icon_state = "summary_selfdes"
-			for(var/mob/living/M in living_mob_list)
-				if(M.loc.z in config.station_levels)
-					M.death()//No mercy
+
 	//If its actually the end of the round, wait for it to end.
 	//Otherwise if its a verb it will continue on afterwards.
 	sleep(300)
 
-	if(cinematic)	
+	if(cinematic)
 		QDEL_NULL(cinematic)		//end the cinematic
-	if(temp_buckle)	
+	if(temp_buckle)
 		QDEL_NULL(temp_buckle)	//release everybody
-	
+
 // Round setup stuff.
 
 /datum/controller/subsystem/ticker/proc/create_characters()
@@ -552,7 +562,7 @@ var/datum/controller/subsystem/ticker/SSticker
 				SSjobs.EquipRank(player, player.mind.assigned_role, 0)
 				UpdateFactionList(player)
 				equip_custom_items(player)
-				
+
 		CHECK_TICK
 	if(captainless)
 		for(var/mob/M in player_list)

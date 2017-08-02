@@ -646,157 +646,94 @@ proc/GaussRandRound(var/sigma,var/roundto)
 
 	else return get_step(ref, base_dir)
 
-/proc/do_mob(mob/user , mob/target, delay = 30, numticks = 10, needhand = TRUE, display_progress = TRUE) //This is quite an ugly solution but i refuse to use the old request system.
+/proc/do_mob(mob/user, mob/target, delay = 30, needhand = TRUE, display_progress = TRUE, datum/callback/extra_checks) //This is quite an ugly solution but i refuse to use the old request system.
 	if(!user || !target)
 		return 0
+
 	var/user_loc = user.loc
 	var/target_loc = target.loc
 	var/holding = user.get_active_hand()
-	var/delayfraction = round(delay/numticks)
-	var/image/progbar
-	if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && display_progress)
-		if(!progbar)
-			progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = target, icon_state = "prog_bar_0")
-			progbar.layer = 21
-			progbar.pixel_z = WORLD_ICON_SIZE
-			progbar.appearance_flags = RESET_TRANSFORM
-	for (var/i = 1 to numticks)
-		if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && progbar && display_progress)
-			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
-			user.client.images |= progbar
-		sleep(delayfraction)
-		if(!user || !target)
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
-		if (user.loc != user_loc || target.loc != target_loc || (needhand && user.get_active_hand() != holding) || user.stat || user.weakened || user.stunned)
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
-	if(user && user.client)
-		user.client.images -= progbar
-	if(progbar)
-		progbar.loc = null
-	return 1
 
-/proc/do_after(mob/user as mob, delay as num, numticks = 10, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE)
+	var/datum/progressbar/progbar
+	if (display_progress && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS))
+		progbar = new(user, delay, target)
+
+	var/endtime = world.time + delay
+	var/starttime = world.time
+
+	. = 1
+
+	while (world.time < endtime)
+		stoplag()
+		if (progbar)
+			progbar.update(world.time - starttime)
+
+		if(QDELETED(user) || QDELETED(target))
+			. = 0
+			break
+
+		if (user.loc != user_loc || target.loc != target_loc || (needhand && user.get_active_hand() != holding) || user.stat || user.weakened || user.stunned || (extra_checks && !extra_checks.Invoke()))
+			. = 0
+			break
+
+	if (progbar)
+		qdel(progbar)
+
+/proc/do_after(mob/user as mob, delay as num, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks)
 	if(!user || isnull(user))
-		return 0
-	if(numticks == 0)
 		return 0
 
 	if (!act_target)
 		act_target = user
 
-	var/delayfraction = round(delay/numticks)
 	var/Location
 	if(use_user_turf)	//When this is true, do_after() will check whether the user's turf has changed, rather than the user's loc.
 		Location = get_turf(user)
 	else
 		Location = user.loc
+
 	var/holding = user.get_active_hand()
-	var/image/progbar
-	if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && act_target && display_progress)
-		if(!progbar)
-			progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
-			progbar.pixel_z = WORLD_ICON_SIZE
-			progbar.layer = 21
-			progbar.appearance_flags = RESET_COLOR | RESET_TRANSFORM
-	for (var/i = 1 to numticks)
-		if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && act_target && display_progress)
-			if(!progbar)
-				progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
-				progbar.pixel_z = WORLD_ICON_SIZE
-				progbar.layer = 21
-				progbar.appearance_flags = RESET_COLOR | RESET_TRANSFORM
-			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
-			user.client.images |= progbar
-		sleep(delayfraction)
+
+	var/datum/progressbar/progbar
+	if (display_progress && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS))
+		progbar = new(user, delay, act_target)
+
+	var/endtime = world.time + delay
+	var/starttime = world.time
+
+	. = 1
+
+	while (world.time < endtime)
+		stoplag()
+		if (progbar)
+			progbar.update(world.time - starttime)
+
 		var/user_loc_to_check
 		if(use_user_turf)
 			user_loc_to_check = get_turf(user)
 		else
 			user_loc_to_check = user.loc
+
 		if (!user || user.stat || user.weakened || user.stunned || !(user_loc_to_check == Location))
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
+			. = 0
+			break
+
 		if(needhand && !(user.get_active_hand() == holding))	//Sometimes you don't want the user to have to keep their active hand
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
-	if(user && user.client)
-		user.client.images -= progbar
-	if(progbar)
-		progbar.loc = null
-	return 1
+			. = 0
+			break
+
+		if (extra_checks && !extra_checks.Invoke())
+			. = 0
+			break
+
+	if (progbar)
+		qdel(progbar)
 
 //Takes: Anything that could possibly have variables and a varname to check.
 //Returns: 1 if found, 0 if not.
 /proc/hasvar(var/datum/A, var/varname)
 	if(A.vars.Find(lowertext(varname))) return 1
 	else return 0
-
-//Returns: all the areas in the world
-/proc/return_areas()
-	var/list/area/areas = list()
-	for(var/area/A in world)
-		areas += A
-	return areas
-
-//Returns: all the areas in the world, sorted.
-/proc/return_sorted_areas()
-	return sortAtom(return_areas())
-
-//Takes: Area type as text string or as typepath OR an instance of the area.
-//Returns: A list of all areas of that type in the world.
-/proc/get_areas(var/areatype)
-	if(!areatype) return null
-	if(istext(areatype)) areatype = text2path(areatype)
-	if(isarea(areatype))
-		var/area/areatemp = areatype
-		areatype = areatemp.type
-
-	var/list/areas = new/list()
-	for(var/area/N in world)
-		if(istype(N, areatype)) areas += N
-	return areas
-
-//Takes: Area type as text string or as typepath OR an instance of the area.
-//Returns: A list of all atoms	(objs, turfs, mobs) in areas of that type of that type in the world.
-/proc/get_area_all_atoms(var/areatype)
-	if(!areatype) return null
-	if(istext(areatype)) areatype = text2path(areatype)
-	if(isarea(areatype))
-		var/area/areatemp = areatype
-		areatype = areatemp.type
-
-	var/list/atoms = new/list()
-	for(var/area/N in world)
-		if(istype(N, areatype))
-			for(var/atom/A in N)
-				atoms += A
-	return atoms
 
 proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 	if(!original)
@@ -1182,6 +1119,12 @@ var/list/WALLITEMS = list(
 #define DELTA_CALC max(((max(world.tick_usage, world.cpu) / 100) * max(Master.sleep_delta,1)), 1)
 
 /proc/stoplag()
+	// If we're initializing, our tick limit might be over 100 (testing config), but stoplag() penalizes procs that go over.
+	// 	Unfortunately, this penalty slows down init a *lot*. So, we disable it during boot and lobby, when relatively few things should be calling this.
+	if (!Master || Master.initializing || !Master.round_started)	
+		sleep(world.tick_lag)
+		return 1
+
 	. = 0
 	var/i = 1
 	do
@@ -1191,3 +1134,44 @@ var/list/WALLITEMS = list(
 	while (world.tick_usage > min(TICK_LIMIT_TO_RUN, CURRENT_TICKLIMIT))
 
 #undef DELTA_CALC
+
+// Helper for adding verbs with timers.
+/atom/proc/add_verb(the_verb, datum/callback/callback)
+	if (callback && !callback.Invoke())
+		return
+
+	verbs += the_verb
+
+
+
+#define NOT_FLAG(flag) (!(flag & use_flags)) 
+#define HAS_FLAG(flag) (flag & use_flags)
+
+// Checks if user can use this object. Set use_flags to customize what checks are done.
+// Returns 0 if they can use it, a value representing why they can't if not.
+// Flags are in `code/__defines/misc.dm`
+/atom/proc/use_check(mob/user, use_flags = 0)
+	. = 0
+	if (NOT_FLAG(USE_ALLOW_NONLIVING) && !isliving(user))
+		return USE_FAIL_NONLIVING
+
+	if (NOT_FLAG(USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
+		return USE_FAIL_NON_ADJACENT
+
+	if (NOT_FLAG(USE_ALLOW_DEAD) && user.stat == DEAD)
+		return USE_FAIL_DEAD
+
+	if (NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
+		return USE_FAIL_INCAPACITATED
+
+	if (NOT_FLAG(USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
+		return USE_FAIL_NON_ADV_TOOL_USR
+
+	if (HAS_FLAG(USE_DISALLOW_SILICONS) && issilicon(user))
+		return USE_FAIL_IS_SILICON
+
+	if (HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
+		return USE_FAIL_NOT_IN_USER
+
+#undef NOT_FLAG
+#undef HAS_FLAG
