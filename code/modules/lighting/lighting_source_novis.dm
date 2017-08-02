@@ -64,6 +64,7 @@
 	var/list/Tcorners
 	var/Sx = source_turf.x
 	var/Sy = source_turf.y
+	var/actual_range = light_range	// novis sources don't support directional lighting.
 
 	// We don't need no damn vis checks!
 	for (Tthing in RANGE_TURFS(Ceiling(light_range), source_turf))
