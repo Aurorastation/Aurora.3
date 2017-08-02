@@ -39,6 +39,8 @@
 	blood_color = "#CCCCCC"
 	flesh_color = "#AAAAAA"
 
+	remains_type = /obj/effect/decal/cleanable/ash
+
 	death_message = "collapses, their bones clattering in a symphony of demise."
 	death_sound = 'sound/effects/falling_bones.ogg'
 
@@ -66,3 +68,42 @@
 	stamina_recovery = 1
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
+
+/mob/living/carbon/human/apparition/Initialize(mapload)
+	. = ..(mapload, "Apparition")
+
+/datum/species/apparition
+	name = "Apparition"
+	name_plural = "apparitions"
+	bodytype = "Apparition"
+	icobase = 'icons/mob/human_races/r_manifested.dmi'
+	deform = 'icons/mob/human_races/r_manifested.dmi'
+
+	default_language = "Ceti Basic"
+	language = "Cult"
+	name_language = "Cult"
+	has_organ = list()
+
+	virus_immune = 1
+
+	rarity_value = 10
+	blurb = "Apparitions are vengeful spirits, they are given temporary bodies to fulfill the wicked \
+	desires of their masters. A common sight among the ranks of the geometer of blood."
+
+	remains_type = /obj/effect/decal/cleanable/ash
+
+	flesh_color = "#551A8B"
+
+	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_MINOR_CUT
+	spawn_flags = IS_RESTRICTED
+
+	stamina	=	500			  //Tireless automatons
+	stamina_recovery = 1
+	sprint_speed_factor = 0.3
+	exhaust_threshold = 0 //No oxyloss, so zero threshold
+
+/datum/species/apparition/handle_death(var/mob/living/carbon/human/H)
+	set waitfor = 0
+	sleep(1)
+	new /obj/effect/decal/cleanable/ash(H.loc)
+	qdel(H)

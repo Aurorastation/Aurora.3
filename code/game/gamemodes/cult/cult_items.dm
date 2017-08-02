@@ -1,6 +1,6 @@
 /obj/item/weapon/melee/cultblade
-	name = "cult blade"
-	desc = "An arcane weapon wielded by the followers of Nar-Sie"
+	name = "eldritch blade"
+	desc = "A sword humming with unholy energy. It glows with a dim red light."
 	icon_state = "cultblade"
 	item_state = "cultblade"
 	w_class = 4
@@ -45,12 +45,19 @@
 		user << "<span class='warning'>An overwhelming feeling of dread comes over you as you pick up the cultist's sword. It would be wise to be rid of this blade quickly.</span>"
 		user.make_dizzy(120)
 
+/obj/item/weapon/melee/cultblade/attackby(var/obj/item/I, var/mob/user)
+	..()
+	if(istype(I, /obj/item/weapon/nullrod))
+		to_chat(user, "<span class='notice'>You cleanse \the [src] of taint, restoring the blade to its original state.</span>")
+		var/obj/item/weapon/material/sword/blade = new(get_turf(src))
+		blade.force = 15
+		qdel(src)
 
 /obj/item/clothing/head/culthood
-	name = "cult hood"
+	name = "hood"
 	icon_state = "culthood"
-	desc = "A hood worn by the followers of Nar-Sie."
-	flags_inv = HIDEFACE
+	desc = "A torn, dust-caked hood."
+	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|EYES
 	armor = list(melee = 50, bullet = 30, laser = 50,energy = 20, bomb = 25, bio = 10, rad = 0)
 	cold_protection = HEAD
@@ -71,8 +78,8 @@
 	icon_state = "cult_hoodalt"
 
 /obj/item/clothing/suit/cultrobes
-	name = "cult robes"
-	desc = "A set of armored robes worn by the followers of Nar-Sie"
+	name = "robes"
+	desc = "A ragged, dusty set of robes."
 	icon_state = "cultrobes"
 	item_state = "cultrobes"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
@@ -90,7 +97,7 @@
 
 /obj/item/clothing/suit/cultrobes/magusred
 	name = "magus robes"
-	desc = "A set of armored robes worn by the followers of Nar-Sie"
+	desc = "A set of armored robes worn by the followers of Nar-Sie."
 	icon_state = "magusred"
 	item_state = "magusred"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
@@ -98,7 +105,7 @@
 
 /obj/item/clothing/head/helmet/space/cult
 	name = "cult helmet"
-	desc = "A space worthy helmet used by the followers of Nar-Sie"
+	desc = "A bulky helmet, bristling with spikes. It looks space proof."
 	icon_state = "cult_helmet"
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0

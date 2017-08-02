@@ -75,7 +75,7 @@
 
 /obj/item/clothing/shoes/cult
 	name = "boots"
-	desc = "A pair of boots worn by the followers of Nar-Sie."
+	desc = "A ragged, dusty pair of boots."
 	icon_state = "cult"
 	item_state = "cult"
 	force = 5
