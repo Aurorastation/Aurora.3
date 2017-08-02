@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	supervisors = "yourself and the market"
 	selection_color = "#515151"
-	idtype = /obj/item/weapon/card/id
+	idtype = /obj/item/weapon/card/id/merchant
 	minimal_player_age = 10
 	economic_modifier = 5
 	ideal_character_age = 30
