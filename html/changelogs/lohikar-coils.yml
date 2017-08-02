@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Tesla coils now actually work without requiring server staff intervention."

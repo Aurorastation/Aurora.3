@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Fixed a bug where orbits (such as the Tesla) didn't animate as they were intended to."
