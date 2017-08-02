@@ -46,7 +46,7 @@
 
 /obj/screen/plane_master/parallax_spacemaster/New()
 	..()
-	overlays += image(icon = 'icons/mob/screen1.dmi', icon_state = "blank")
+	overlays += image(icon = 'icons/mob/screen/generic.dmi', icon_state = "blank")
 	if(universe)
 		universe.convert_parallax(src)
 
@@ -111,7 +111,7 @@
 	var/client/C = mymob.client
 	if(!SSparallax.parallax_initialized)
 		return
-	
+
 	if (C.prefs.parallax_togs & PARALLAX_IS_STATIC)
 		return
 

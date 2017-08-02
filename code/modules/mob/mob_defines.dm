@@ -34,6 +34,7 @@
 	var/obj/screen/gun/move/gun_move_icon = null
 	var/obj/screen/gun/run/gun_run_icon = null
 	var/obj/screen/gun/mode/gun_setting_icon = null
+	var/obj/screen/up_hint = null
 
 	//spells hud icons - this interacts with add_spell and remove_spell
 	var/list/obj/screen/movable/spell_master/spell_masters = null
@@ -67,8 +68,8 @@
 	var/ear_deaf = null		//Carbon
 	var/ear_damage = null	//Carbon
 	var/stuttering = null
-	var/slurring = null		
-	var/brokejaw = null	    
+	var/slurring = null
+	var/brokejaw = null
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""

@@ -4,7 +4,7 @@ Basically: I can use it to target things where I click. I can then pass these ta
 
 /obj/item/magic_hand
 	name = "Magic Hand"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	flags = 0
 	abstract = 1
 	w_class = 5.0

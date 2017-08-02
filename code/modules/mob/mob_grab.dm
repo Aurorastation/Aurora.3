@@ -23,7 +23,7 @@
 
 /obj/item/weapon/grab
 	name = "grab"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "reinforce"
 	flags = 0
 	var/obj/screen/grab/hud = null

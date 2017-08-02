@@ -8,7 +8,7 @@
 */
 /obj/screen
 	name = ""
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	layer = 20.0
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
@@ -408,6 +408,9 @@
 			if(usr.client)
 				usr.client.drop_item()
 
+		if("up hint")
+			testing("memes were had")
+
 		if("module")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
@@ -573,7 +576,7 @@
 				if("run")//When in run mode, the button will have a flashing coloured overlay which gives a visual indicator of stamina
 					icon_state = "running"
 					if (user.max_stamina != -1)//If max stamina is -1, this species doesnt use stamina. no overlay for them
-						var/image/holder = image('icons/mob/screen1.dmi', src, "run_overlay")
+						var/image/holder = image('icons/mob/screen/generic.dmi', src, "run_overlay")
 						var/staminaportion = user.stamina / user.max_stamina
 						holder.color = percentage_to_colour(staminaportion)
 						holder.blend_mode = BLEND_MULTIPLY

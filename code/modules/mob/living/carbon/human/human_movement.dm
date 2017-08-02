@@ -112,6 +112,11 @@
 
 /mob/living/carbon/human/Move()
 	. = ..()
+
+	if (client)
+		up_hint.icon_state = "uphint[!!isopenturf(GetAbove(src))]"
+		testing("Uphint set to: uphint[!!isopenturf(GetAbove(src))]")
+
 	if (is_noisy && !stat && !lying)
 		var/turf/T = loc
 		if ((x == last_x && y == last_y) || !T.footstep_sound)
