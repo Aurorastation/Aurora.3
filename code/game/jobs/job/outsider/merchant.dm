@@ -18,7 +18,6 @@
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)
 
-
 /datum/job/merchant/equip(var/mob/living/carbon/human/H)
 	if(!H)
 		return FALSE
@@ -33,5 +32,5 @@
 
 /datum/job/merchant/New()
 	..()
-	if(prob(50))
+	if(prob(config.merchant_chance))
 		spawn_positions = 0
