@@ -179,22 +179,22 @@
 		if (NORTH)
 			limit_a_t = angle + 90
 			limit_b_t = -(angle) + 90
-			test_y_offset += 1
+			++test_y_offset
 
 		if (SOUTH)
 			limit_a_t = (angle) - 90
 			limit_b_t = -(angle) - 90
-			test_y_offset -= 1
+			--test_y_offset
 
 		if (EAST)
 			limit_a_t = angle
 			limit_b_t = -(angle)
-			test_x_offset += 1
+			++test_x_offset
 
 		if (WEST)
 			limit_a_t = angle + 180
 			limit_b_t = -(angle) - 180
-			test_x_offset -= 1
+			--test_x_offset
 
 	// Convert our angle + range into a vector.
 	limit_a_x = POLAR_TO_CART_X(light_range + ARBITRARY_NUMBER, limit_a_t)
