@@ -16974,18 +16974,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
@@ -17449,18 +17444,13 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "DC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
@@ -42566,10 +42556,10 @@ AW
 AW
 AW
 rq
-Et
-Fi
-FR
-Ec
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42823,10 +42813,10 @@ AW
 AW
 AW
 rq
-Et
-Fj
-Et
-Ec
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43080,10 +43070,10 @@ AW
 AW
 AW
 rq
-Et
-Et
-Et
-Ec
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43337,12 +43327,12 @@ rq
 rq
 rq
 rq
-Eu
-Fk
-Eu
-Ec
-Ec
-Ec
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43593,13 +43583,13 @@ pl
 pl
 pl
 DB
-Ec
-Ev
-Fl
-Fl
-GJ
-Hw
-Ec
+rq
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43850,13 +43840,13 @@ BF
 pJ
 CQ
 DC
-Ed
-Ew
-Fm
-FS
-GK
-Hx
-Ec
+rq
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44107,13 +44097,13 @@ BG
 qe
 CR
 DD
-Ec
-Ex
-Fn
-FT
-GL
-Hy
-Ec
+rq
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44365,12 +44355,12 @@ xk
 CS
 xk
 xk
-Ey
-Fn
-FU
-GM
-Hz
-Ec
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44622,12 +44612,12 @@ Co
 CT
 DE
 xk
-Ez
-Fo
-FV
-GN
-HA
-Ec
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
