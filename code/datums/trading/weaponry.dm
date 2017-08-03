@@ -70,7 +70,7 @@
 		/obj/item/clothing/accessory/holster      = TRADER_ALL
 	)
 
-/datum/trader/illegalgun
+/datum/trader/ship/illegalgun
 	name = "Comrade Sergei"
 	origin = "Comrade Sergei's Humble Shop"
 	speech = list(

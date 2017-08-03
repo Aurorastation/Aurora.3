@@ -170,3 +170,46 @@
 		/obj/item/weapon/material/star                  = TRADER_THIS_TYPE,
 		/obj/item/weapon/material/twohanded/baseballbat = TRADER_THIS_TYPE
 	)
+
+
+/datum/trader/ship/hardsuit
+	name = "Azazi Guild Seller"
+	name_language = LANGUAGE_UNATHI
+	origin = "Azazi Bulk Supply Guild"
+	possible_trading_items = list(
+		/obj/item/weapon/rig/unathi                    = TRADER_ALL,
+		/obj/item/weapon/rig/internalaffairs           = TRADER_THIS_TYPE,
+		/obj/item/weapon/rig/industrial                = TRADER_THIS_TYPE,
+		/obj/item/weapon/rig/eva                       = TRADER_THIS_TYPE,
+		/obj/item/weapon/rig/ce                        = TRADER_THIS_TYPE,
+		/obj/item/weapon/rig/hazmat                    = TRADER_THIS_TYPE,
+		/obj/item/weapon/rig/medical                   = TRADER_THIS_TYPE,
+		/obj/item/weapon/rig/hazard                    = TRADER_THIS_TYPE,
+		/obj/item/weapon/rig/combat                    = TRADER_THIS_TYPE,
+		/obj/item/rig_module/device/healthscanner      = TRADER_THIS_TYPE,
+		/obj/item/rig_module/device/drill              = TRADER_THIS_TYPE,
+		/obj/item/rig_module/device/rcd                = TRADER_THIS_TYPE,
+		/obj/item/rig_module/chem_dispenser            = TRADER_ALL,
+		/obj/item/rig_module/voice                     = TRADER_THIS_TYPE,
+		/obj/item/rig_module/vision                    = TRADER_SUBTYPES_ONLY,
+		/obj/item/rig_module/ai_container              = TRADER_THIS_TYPE,
+		/obj/item/rig_module/mounted                   = TRADER_SUBTYPES_ONLY
+
+	)
+
+	speech = list(
+		"hail_generic"      = "Welcome to the Azazi Bulk Sssupply Guild! We sssupply in bulk!",
+		"hail_silicon"      = "Hello fellow Sinta! We have many fine wares that will bring you a sense of home in this alien system.",
+		"hail_deny"         = "Go away, Guwan.",
+		"trade_complete"    = "Ah, excellent.",
+		"trade_blacklist"   = "I will pretend I didn't ssssee that.",
+		"trade_no_goods"    = "You gotta buy the robots, sir. I don't do trades.",
+		"trade_not_enough"  = "I can't go any lower. Pay in full.",
+		"how_much"          = "Ah! Thisss isss only VALUE creditssss.",
+		"compliment_deny"   = "Were it not for the lawsss of thisss land I would sslay you.",
+		"compliment_accept" = "Ancestors blessss you.",
+		"insult_good"       = "Ha! You have a fierce ssspirit, I like that.",
+		"insult_bad"        = "Were you never taught to resspect your eldersss?",
+		"bribe_refusal"     = "Do not try to dissshonor me again.",
+		"bribe_accept"      = "Very well. I will ssstay for a bit longer."
+	)
