@@ -199,7 +199,7 @@
 
 	speech = list(
 		"hail_generic"      = "Welcome to the Azazi Bulk Sssupply Guild! We sssupply in bulk!",
-		"hail_silicon"      = "Hello fellow Sinta! We have many fine wares that will bring you a sense of home in this alien system.",
+		"hail_Unathi"      = "Hello fellow Sinta! We have many fine wares that will bring you a sense of home in this alien system.",
 		"hail_deny"         = "Go away, Guwan.",
 		"trade_complete"    = "Ah, excellent.",
 		"trade_blacklist"   = "I will pretend I didn't ssssee that.",
