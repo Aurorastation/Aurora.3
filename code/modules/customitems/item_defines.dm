@@ -364,7 +364,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		slot_flags = initial(slot_flags)
 		attack_verb = list("prodded")
 
-	user.update_inv_l_hand()
+	user.update_inv_l_hand(FALSE)
 	user.update_inv_r_hand()
 
 
@@ -1147,7 +1147,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		user << "<span class='notice'>You turn \the [src] off.</span>"
 
 	update_icon()
-	user.update_inv_l_hand()
+	user.update_inv_l_hand(FALSE)
 	user.update_inv_r_hand()
 
 /obj/item/clothing/mask/fluff/corvo_cigarette/update_icon()
