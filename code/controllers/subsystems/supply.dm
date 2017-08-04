@@ -162,7 +162,11 @@ var/datum/controller/subsystem/cargo/SScargo
 
 //Loads the cargo data from JSON	
 /datum/controller/subsystem/cargo/proc/load_from_json()
-	var/list/cargoconfig = json_decode(return_file_text("config/cargo.json"))
+	var/json_config = return_file_text("config/cargo.json")
+	if(!json_config)
+		log_debug("Cargo: Warning: Could not load config, as cargo.json is missing")
+		return 1
+	var/list/cargoconfig = json_decode(json_config)
 
 	//Load the cargo categories
 	for (var/category in cargoconfig["categories"])
