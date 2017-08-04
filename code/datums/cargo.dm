@@ -246,7 +246,12 @@
 			else
 				return /obj/structure/closet/crate
 		if("box")
-			return /obj/structure/largecrate
+			if(required_access.len > 0)
+				return /obj/structure/closet/crate/secure/large
+			else
+				return /obj/structure/largecrate
+		if("freezer")
+			return /obj/structure/closet/crate/freezer
 		else
 			log_debug("Cargo: Tried to get container type for invalid container [container_type]")
 			return /obj/structure/largecrate
@@ -255,6 +260,8 @@
 	switch(container_type)
 		if("crate")
 			return 40 //Thats the default storage capacity of a crate
+		if("freezer")
+			return 40
 		if("box")
 			return 5 //You can fit 5 larger items into a box
 		else

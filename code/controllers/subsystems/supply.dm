@@ -82,9 +82,33 @@ var/datum/controller/subsystem/cargo/SScargo
 //Load the cargo data from SQL
 /datum/controller/subsystem/cargo/proc/load_from_sql()
 	if(!establish_db_connection(dbcon))
-		log_debug("Cargo Items: SQL ERROR - Failed to connect. - Falling back to JSON")
+		log_debug("Cargo: SQL ERROR - Failed to connect. - Falling back to JSON")
 		return load_from_json()
 	else
+		//Populate the items missing a name or a description with the missing name / description
+		var/DBQuery/item_null_query = dbcon.NewQuery("SELECT path, name, description FROM ss13_cargo_items WHERE name IS NULL OR description IS NULL" )
+		item_null_query.Execute()
+		while(item_null_query.NextRow())
+			//Spawn the item with the path
+			var/oldpath = item_null_query.item[1]
+			var/oldname = item_null_query.item[2]
+			var/olddsec = item_null_query.item[3]
+			var/path = text2path(oldpath)
+
+			log_debug("Cargo: Got path without name or description - updating: [oldpath]")
+			if(path)
+				var/obj/cargoitem = new path
+				if(cargoitem)
+					//Update the name of the item if its null
+					if(!oldname)
+						var/DBQuery/item_update_name_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET name = :name: WHERE path = :path:")
+						item_update_name_query.Execute(list("name" = cargoitem.name, "path" = oldpath ))
+					//Update the name of the item if its null
+					if(!olddsec)
+						var/DBQuery/item_update_desc_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET description = :desc: WHERE path = :path:")
+						item_update_desc_query.Execute(list("desc" = cargoitem.desc, "path" = oldpath ))
+				qdel(cargoitem)
+
 		//Load the categories
 		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories ORDER BY order_by ASC")
 		category_query.Execute()
@@ -118,7 +142,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			cargo_suppliers[cs.short_name] = cs
 
 		//Load the items
-		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_suppliers ORDER BY order_by AS")
+		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, name, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_items ORDER BY order_by")
 		item_query.Execute()
 		while(item_query.NextRow())
 			log_debug("Cargo Items: Loading Item: [item_query.item[2]]")
@@ -130,8 +154,8 @@ var/datum/controller/subsystem/cargo/SScargo
 			ci.path = item_query.item[1]
 			ci.name = item_query.item[2]
 			ci.description = item_query.item[3]
-			ci.categories = item_query.item[4]
-			ci.suppliers = item_query.item[5]
+			ci.categories = json_decode(item_query.item[4])
+			ci.suppliers = json_decode(item_query.item[5])
 			ci.amount = item_query.item[6]
 			ci.access = item_query.item[7]
 			ci.container_type = item_query.item[8]
