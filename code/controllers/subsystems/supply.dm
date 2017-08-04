@@ -86,56 +86,56 @@ var/datum/controller/subsystem/cargo/SScargo
 		return load_from_json()
 	else
 		//Load the categories
-		var/DBQuery/query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories")
-		query.Execute()
-		while(query.NextRow())
-			log_debug("Cargo Categories: Loading Category: [query.item[1]]")
+		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories")
+		category_query.Execute()
+		while(category_query.NextRow())
+			log_debug("Cargo Categories: Loading Category: [category_query.item[1]]")
 			var/datum/cargo_category/cc = new()
-			cc.name = query.item[1]
-			cc.display_name = query.item[2]
-			cc.description = query.item[3]
-			cc.icon = query.item[4]
-			cc.price_modifier = query.item[5]
+			cc.name = category_query.item[1]
+			cc.display_name = category_query.item[2]
+			cc.description = category_query.item[3]
+			cc.icon = category_query.item[4]
+			cc.price_modifier = category_query.item[5]
 
 			//Add the caregory to the cargo_categories list
 			cargo_categories[cc.name] = cc
 
 		//Load the suppliers
-		var/DBQuery/query = dbcon.NewQuery("SELECT short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers")
-		query.Execute()
-		while(query.NextRow())
-			log_debug("Cargo Supplier: Loading Supplier: [query.item[1]]")
+		var/DBQuery/supplier_query = dbcon.NewQuery("SELECT short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers")
+		supplier_query.Execute()
+		while(supplier_query.NextRow())
+			log_debug("Cargo Supplier: Loading Supplier: [supplier_query.item[1]]")
 			var/datum/cargo_supplier/cs = new()
-			cs.short_name = query.item[1]
-			cs.name = query.item[2]
-			cs.description = query.item[3]
-			cs.tag_line = query.item[4]
-			cs.shuttle_time = query.item[5]
-			cs.shuttle_price = query.item[6]
-			cs.available = query.item[7]
-			cs.price_modifier = query.item[8]
+			cs.short_name = supplier_query.item[1]
+			cs.name = supplier_query.item[2]
+			cs.description = supplier_query.item[3]
+			cs.tag_line = supplier_query.item[4]
+			cs.shuttle_time = supplier_query.item[5]
+			cs.shuttle_price = supplier_query.item[6]
+			cs.available = supplier_query.item[7]
+			cs.price_modifier = supplier_query.item[8]
 
 			cargo_suppliers[cs.short_name] = cs
 
 		//Load the items
-		var/DBQuery/query = dbcon.NewQuery("SELECT path, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_suppliers")
-		query.Execute()
-		while(query.NextRow())
-			log_debug("Cargo Items: Loading Item: [query.item[2]]")
-			var/itempath = text2path(query.item[1])
+		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_suppliers")
+		item_query.Execute()
+		while(item_query.NextRow())
+			log_debug("Cargo Items: Loading Item: [item_query.item[2]]")
+			var/itempath = text2path(item_query.item[1])
 			if(!ispath(itempath))
-				log_debug("Cargo Items: Warning - Attempted to add item with invalid path: [query.item[2]] - [query.item[1]]")
+				log_debug("Cargo Items: Warning - Attempted to add item with invalid path: [item_query.item[2]] - [item_query.item[1]]")
 				continue
 			var/datum/cargo_item/ci = new()
-			ci.path = query.item[1]
-			ci.name = query.item[2]
-			ci.description = query.item[3]
-			ci.categories = query.item[4]
-			ci.suppliers = query.item[5]
-			ci.amount = query.item[6]
-			ci.access = query.item[7]
-			ci.container_type = query.item[8]
-			ci.groupable = query.item[9]
+			ci.path = item_query.item[1]
+			ci.name = item_query.item[2]
+			ci.description = item_query.item[3]
+			ci.categories = item_query.item[4]
+			ci.suppliers = item_query.item[5]
+			ci.amount = item_query.item[6]
+			ci.access = item_query.item[7]
+			ci.container_type = item_query.item[8]
+			ci.groupable = item_query.item[9]
 			log_debug("Cargo Items: Loaded Item: [ci.name]")
 
 			//Verify the suppliers exist
