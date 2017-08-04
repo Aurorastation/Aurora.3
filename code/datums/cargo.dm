@@ -180,7 +180,7 @@
 			can_add_items = 0
 
 	//Check if there is space in the container
-	if(item_num + coi.ci.amount > 10) //TODO: Fetch the actual max amount of items for the container here
+	if(item_num + coi.ci.amount > get_container_storage())
 		return "Unable to add item - Container full"
 
 	//Set item id of coi and increment item_id of co
@@ -239,13 +239,27 @@
 
 // Returns the type of the required container for the order
 /datum/cargo_order/proc/get_container_type()
-	if(container_type == "crate")
-		if(required_access.len > 0)
-			return /obj/structure/closet/crate/secure
+	switch(container_type)
+		if("create")
+			if(required_access.len > 0)
+				return /obj/structure/closet/crate/secure
+			else
+				return /obj/structure/closet/crate
+		if("box")
+			return /obj/structure/largecrate
 		else
-			return /obj/structure/closet/crate
-	else if(container_type == "box")
-		return /obj/structure/largecrate
+			log_debug("Cargo: Tried to get container type for invalid container [container_type]")
+			return /obj/structure/largecrate
+// Returns the numer of items that can be stored in the container
+/datum/cargo_order/proc/get_container_storage()
+	switch(container_type)
+		if("crate")
+			return 40 //Thats the default storage capacity of a crate
+		if("box")
+			return 5 //You can fit 5 larger items into a box
+		else
+			log_debug("Cargo: Tried to get storage size for invalid container [container_type]")
+			return 0 //Something went wrong
 
 // Gets the list of the suppliers involved in the order
 /datum/cargo_order/proc/get_supplier_list()
