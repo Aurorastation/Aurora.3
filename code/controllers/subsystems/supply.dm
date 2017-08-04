@@ -86,7 +86,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		return load_from_json()
 	else
 		//Load the categories
-		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories")
+		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories ORDER BY order_by ASC")
 		category_query.Execute()
 		while(category_query.NextRow())
 			log_debug("Cargo Categories: Loading Category: [category_query.item[1]]")
@@ -118,7 +118,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			cargo_suppliers[cs.short_name] = cs
 
 		//Load the items
-		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_suppliers")
+		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_suppliers ORDER BY order_by AS")
 		item_query.Execute()
 		while(item_query.NextRow())
 			log_debug("Cargo Items: Loading Item: [item_query.item[2]]")
