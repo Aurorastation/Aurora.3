@@ -37,7 +37,6 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/cargo_handlingfee_change = 1 // If the handlingfee can be changed -> For a random event
 	var/datum/money_account/supply_account
 
-
 	//shuttle movement
 	var/movetime = 1200
 	var/datum/shuttle/ferry/supply/shuttle
@@ -149,7 +148,6 @@ var/datum/controller/subsystem/cargo/SScargo
 			//Setting the supplier
 			ci.suppliers[sup]["supplier_datum"] = cs
 			
-
 		//Add the item to the cargo_items list
 		cargo_items[ci.path] = ci
 
@@ -232,7 +230,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			value += co.get_value(type)
 	return value
 //Gets the suppliers of the orders of a specific type
-/datum/controller/subsystem/cargo/proc/get_order_suppliers_by_status(var/status)
+/datum/controller/subsystem/cargo/proc/get_order_suppliers_by_status(var/status, var/pretty_names=0)
 	if(!status)
 		log_debug("Cargo - get_order_suppliers_by_status has been called with a invalud status")
 		return list()
@@ -241,7 +239,11 @@ var/datum/controller/subsystem/cargo/SScargo
 		if(co.status == status)
 			//Get the list of supplirs and add it to the suppliers list
 			for(var/supplier in co.get_supplier_list())
-				suppliers[supplier] = supplier
+				if(pretty_names)
+					var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
+					suppliers[cs.short_name] = cs.name
+				else
+					suppliers[supplier] = supplier
 	return suppliers
 
 //Submits an order to cargo
@@ -330,10 +332,10 @@ var/datum/controller/subsystem/cargo/SScargo
 		return 0
 	return charge_to_account(supply_account.account_number, "[commstation_name()] - Supply", "[charge_text]", "[commstation_name()] - Banking System", -charge_credits)
 //Gets the pending shipment costs for the items that are about to be shipped to the station
-/datum/controller/subsystem/cargo/proc/get_pending_shipment_cost()
+/datum/controller/subsystem/cargo/proc/get_pending_shipment_cost(var/status="approved")
 	testing("Getting Shuttle Move price")
 	//Loop through all the orders marked as shipped and get the suppliers into a list of involved suppliers
-	var/list/suppliers = get_order_suppliers_by_status("approved")
+	var/list/suppliers = get_order_suppliers_by_status(status)
 	var/price = 0
 	for(var/supplier in suppliers)
 		testing("[supplier]")
@@ -343,10 +345,10 @@ var/datum/controller/subsystem/cargo/SScargo
 			price += cs.shuttle_price
 	return price
 //Gets the pending shipment time for the items that are about to be shipped to the station
-/datum/controller/subsystem/cargo/proc/get_pending_shipment_time()
+/datum/controller/subsystem/cargo/proc/get_pending_shipment_time(var/status="approved")
 	testing("Getting Shuttle Move time")
 	//Loop through all the orders marked as shipped and get the suppliers into a list of involved suppliers
-	var/list/suppliers = get_order_suppliers_by_status("approved")
+	var/list/suppliers = get_order_suppliers_by_status(status)
 	var/time = 0
 	for(var/supplier in suppliers)
 		testing("[supplier]")
@@ -487,12 +489,22 @@ var/datum/controller/subsystem/cargo/SScargo
 		if(!co)
 			break
 
-		//Check if there is enough money to ship the order
-		if(!ship_order(co))
-			break
-
 		//Check if theres space to place the order
 		if(!clear_turfs.len)
+			break
+
+		//Check if the supplier is still active
+		for(var/datum/cargo_order_item/coi in co.items)
+			var/datum/cargo_supplier/csu = get_supplier_by_name(coi.supplier)
+			if(!csu)
+				log_debug("Cargo - Order [co.order_id] could not be placed on the shuttle because supplier [coi.supplier] for item [coi.ci.name] is invalid")
+				break
+			if(!csu.available)
+				log_debug("Cargo - Order [co.order_id] could not be placed on the shuttle because supplier [coi.supplier] for item [coi.ci.name] is unavailable")
+				break
+
+		//Check if there is enough money to ship the order
+		if(!ship_order(co))
 			break
 
 		var/i = rand(1,clear_turfs.len)

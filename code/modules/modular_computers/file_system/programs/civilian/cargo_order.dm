@@ -9,7 +9,7 @@
 
 /datum/nano_module/program/civilian/cargoorder/
 	name = "Cargo Order"
-	var/page = "main" //main - Main Menu, order - Order Page, item_details - Item Details Page
+	var/page = "main" //main - Main Menu, order - Order Page, item_details - Item Details Page, tracking - Tracking Page
 	var/selected_category = "" // Category that is currently selected
 	var/selected_item = "" // Path of the currently selected item
 	var/datum/cargo_order/co
@@ -26,13 +26,19 @@
 
 	//Pass the ID Data
 	var/obj/item/weapon/card/id/user_id_card = user.GetIdCard()
-	last_user_name = GetNameAndAssignmentFromId(user_id_card)
+	if(!user_id_card)
+		last_user_name = "Unknown"
+	else
+		last_user_name = user_id_card.registered_name
+
+
 	data["username"] = last_user_name
 
 	//Pass the list of all ordered items and the order value
 	data["order_items"] = co.get_item_list()
 	data["order_value"] = co.get_value(0)
 	data["order_item_count"] = co.get_item_count()
+	data["order_shuttle_fee"] = co.get_max_shipment_cost()
 
 	//Pass Data for Main page
 	if(page == "main")
@@ -74,7 +80,18 @@
 	if(href_list["submit_order"])
 		if(co.items.len == 0)
 			return 1 //Only submit the order if there are items in it
+
+		if(last_user_name == "Unknown")
+			status_message = "Unable to submit oder. ID could not be located"
+			return 1
+
+		var/reason = sanitize(input(usr,"Reason:","Why do you require this item?","") as null|text)
+		if(!reason)
+			status_message = "Unable to submit order. No reason supplied"
+			return 1
+
 		co.customer = last_user_name
+		co.reason = reason
 		SScargo.submit_order(co)
 		status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking Code: [co.get_tracking_code()]"
 		//TODO: Print a list with the order data

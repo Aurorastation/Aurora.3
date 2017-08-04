@@ -11,9 +11,10 @@
 
 /datum/nano_module/program/civilian/cargocontrol/
 	name = "Cargo Control"
-	var/page = "main" //main - Main Menu, overview_submitted - Submitted Order Overview, overview_approved - Approved Order Overview, settings - Settings, details - order details
+	var/page = "overview_main" //overview_main - Main Menu, overview_submitted - Submitted Order Overview, overview_approved - Approved Order Overview, settings - Settings, details - order details
 	var/last_user_name = "" //Name of the User that last used the computer
 	var/status_message = null //A status message that can be displayed
+	var/list/order_details = list() //Order Details for the order
 
 /datum/nano_module/program/civilian/cargocontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
@@ -22,23 +23,48 @@
 
 	//Send the page to display
 	data["page"] = page
+	//Send teh status message
+	data["status_message"] = status_message
 
 	//Pass the ID Data
 	var/obj/item/weapon/card/id/user_id_card = user.GetIdCard()
 	last_user_name = GetNameAndAssignmentFromId(user_id_card)
 	data["username"] = last_user_name
 
+
+	//TODO: Send the data along depending on the page we are on
+
 	var/list/submitted_orders = SScargo.get_orders_by_status("submitted",1)
-	data["submitted_orders"] = submitted_orders
 	data["order_submitted_number"] = submitted_orders.len
 	data["order_submitted_value"] = SScargo.get_orders_value_by_status("submitted",1)
+	data["order_submitted_suppliers"] = SScargo.get_order_suppliers_by_status("submitted",1)
+	data["order_submitted_shuttle_time"] = SScargo.get_pending_shipment_time("submitted")
+	data["order_submitted_shuttle_price"] = SScargo.get_pending_shipment_cost("submitted")
+	if(page == "overview_submitted")
+		data["order_list"] = submitted_orders
 
 	var/list/approved_orders = SScargo.get_orders_by_status("approved",1)
-	data["approved_orders"] = approved_orders
 	data["order_approved_number"] = approved_orders.len
 	data["order_approved_value"] = SScargo.get_orders_value_by_status("approved",1)
+	data["order_approved_suppliers"] = SScargo.get_order_suppliers_by_status("approved",1)
+	data["order_approved_shuttle_time"] = SScargo.get_pending_shipment_time("approved")
+	data["order_approved_shuttle_price"] = SScargo.get_pending_shipment_cost("approved")
+	if(page == "overview_approved")
+		data["order_list"] = approved_orders
+
+	var/list/shipped_orders = SScargo.get_orders_by_status("shipped",1)
+	data["order_shipped_number"] = shipped_orders.len
+	data["order_shipped_value"] = SScargo.get_orders_value_by_status("shipped",1)
+	if(page == "overview_shipped")
+		data["order_list"] = shipped_orders
+
+
+	if(page == "order_details")
+		data["order_details"] = order_details
+
 
 	data["cargo_money"] = SScargo.get_cargo_money()
+	data["handling_fee"] = SScargo.get_handlingfee()
 
 	//Shuttle Stuff
 	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
@@ -59,7 +85,7 @@
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "cargo_control.tmpl", name, 500, 600, state = state)
+		ui = new(user, src, ui_key, "cargo_control.tmpl", name, 850, 600, state = state)
 		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
@@ -81,20 +107,23 @@
 	//Page switch between main, submitted, approved and settings
 	if(href_list["page"])
 		switch(href_list["page"])
+			if("overview_main")
+				page = "overview_main" //Main overview page with links to the different sub overview pages - submitted, approved, shipped
 			if("overview_submitted")
-				page = "overview_submitted"
+				page = "overview_submitted" //Overview page listing the orders that have been submitted with options to view them, approve them and reject them
 			if("overview_approved")
-				page = "overview_approved"
+				page = "overview_approved" //Overview page listing the current shuttle price and time as well as orders that have been approved, with options to view the details 
+			if("overview_shipped")
+				page = "overview_shipped" //Overview page listing the orders that have been shipped to the station but not delivered, with the option to mark them as delivered as well as to specify a person it has been delivered to
+			if("order_details")
+				page = "order_details" //Details page for a specific order - Lists the contents of the orde with the suppliers, prices and required access levels
+				//Fetch the order details and store it for the order. No need to fetch it again every 2 seconds
+				var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_details"]))
+				order_details = co.get_list()
 			if("settings")
-				page = "settings"
-			if("details")
-				page = "details"
+				page = "settings" //Settings page that allows to tweak various settings such as the cargo handling fee
 			else
-				page = "main"
-		return 1
-	
-	//Show order details
-	if(href_list["order_details"])
+				page = "overview_main" //fall back to overview_main if a unknown page has been supplied
 		return 1
 
 	//Approve a order
@@ -139,6 +168,11 @@
 	//Clear Status Message
 	if(href_list["clear_message"])
 		status_message = null
+		return 1
+
+	if(href_list["handling_fee"])
+		var/handling_fee = sanitize(input(usr,"Handling Fee:","Set the new handling fee?",SScargo.get_handlingfee()) as null|text)
+		status_message = SScargo.set_handlingfee(text2num(handling_fee))
 		return 1
 
 	//Change Settings

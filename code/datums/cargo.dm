@@ -119,7 +119,7 @@
 	var/time_delivered = null //Time the order has been delivered
 	var/tracking_code = null //Use this code with the order ID to get details about the order
 	var/partial_shipment_fee = 0 //Partial Shipment Fee for the order
-	var/description = null //User defined description of the order
+	var/reason = null //Reason for the order
 
 //Gets the tracking code for the order. Generates one if it does not exist already
 /datum/cargo_order/proc/get_tracking_code()
@@ -139,8 +139,11 @@
 /datum/cargo_order/proc/get_list()
 	var/list/data = list()
 	data["order_id"] = order_id
-	data["price"] = price
-	data["status"] = status
+	data["price"] = get_value(2)
+	data["price_customer"] = get_value(0)
+	data["price_cargo"] = get_value(1)
+	data["status"] = get_order_status(0)
+	data["status_pretty"] = get_order_status(1)
 	data["customer"] = customer
 	data["authorized_by"] = authorized_by
 	data["received_by"] = received_by
@@ -149,6 +152,8 @@
 	data["time_shipped"] = time_shipped
 	data["time_delivered"] = time_delivered
 	data["items"] = get_item_list()
+	data["shipment_cost"] = partial_shipment_fee
+	data["shipment_cost_max"] = get_max_shipment_cost()
 	return data
 
 //Adds a item to a order. Returns a status message

@@ -24,8 +24,12 @@
                     <td>{{:data.order_value}} Credits</td>
                 </tr>
                 <tr>
+                    <td><b>Shuttle Fee:</b></td>
+                    <td>{{:data.order_shuttle_fee}}</td>
+                </tr>
+                <tr>
                     <td>{{:helper.link('Details', 'cart', {'page' : 'order'}, null)}}</td>
-                    <td>{{:helper.link('Clear', 'cancel', {'clear_order' : 'clear_order'}, null)}} {{:helper.link("Submit Order", 'gear', {'submit_order' : 'submit_order'}, null)}}</td>
+                    <td>{{:helper.link('Clear', 'cancel', {'clear_order' : 'clear_order'}, null)}} {{:helper.link("Submit Order", 'play', {'submit_order' : 'submit_order'}, null)}}</td>
                 </tr>
             </table>
 		</div>
