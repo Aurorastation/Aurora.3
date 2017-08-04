@@ -252,16 +252,13 @@
 
 // Gets the maximal shipment cost for the item
 /datum/cargo_order/proc/get_max_shipment_cost()
-	testing("co-sc")
 	var/list/supplier_list = get_supplier_list()
 	var/cost = 0
 	for(var/supplier in supplier_list)
-		testing("[supplier]")
 		var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
 		if(cs)
 			testing("[cs.name] [cs.shuttle_price]")
 			cost += cs.shuttle_price
-	testing("[cost]")
 	return cost
 
 // Gets the order status

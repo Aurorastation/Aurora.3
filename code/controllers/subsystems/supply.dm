@@ -85,6 +85,79 @@ var/datum/controller/subsystem/cargo/SScargo
 		log_debug("Cargo Items: SQL ERROR - Failed to connect. - Falling back to JSON")
 		return load_from_json()
 	else
+		//Load the categories
+		var/DBQuery/query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories")
+		query.Execute()
+		while(query.NextRow())
+			log_debug("Cargo Categories: Loading Category: [query.item[1]]")
+			var/datum/cargo_category/cc = new()
+			cc.name = query.item[1]
+			cc.display_name = query.item[2]
+			cc.description = query.item[3]
+			cc.icon = query.item[4]
+			cc.price_modifier = query.item[5]
+
+			//Add the caregory to the cargo_categories list
+			cargo_categories[cc.name] = cc
+
+		//Load the suppliers
+		var/DBQuery/query = dbcon.NewQuery("SELECT short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers")
+		query.Execute()
+		while(query.NextRow())
+			log_debug("Cargo Supplier: Loading Supplier: [query.item[1]]")
+			var/datum/cargo_supplier/cs = new()
+			cs.short_name = query.item[1]
+			cs.name = query.item[2]
+			cs.description = query.item[3]
+			cs.tag_line = query.item[4]
+			cs.shuttle_time = query.item[5]
+			cs.shuttle_price = query.item[6]
+			cs.available = query.item[7]
+			cs.price_modifier = query.item[8]
+
+			cargo_suppliers[cs.short_name] = cs
+
+		//Load the items
+		var/DBQuery/query = dbcon.NewQuery("SELECT path, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_suppliers")
+		query.Execute()
+		while(query.NextRow())
+			log_debug("Cargo Items: Loading Item: [query.item[2]]")
+			var/itempath = text2path(query.item[1])
+			if(!ispath(itempath))
+				log_debug("Cargo Items: Warning - Attempted to add item with invalid path: [query.item[2]] - [query.item[1]]")
+				continue
+			var/datum/cargo_item/ci = new()
+			ci.path = query.item[1]
+			ci.name = query.item[2]
+			ci.description = query.item[3]
+			ci.categories = query.item[4]
+			ci.suppliers = query.item[5]
+			ci.amount = query.item[6]
+			ci.access = query.item[7]
+			ci.container_type = query.item[8]
+			ci.groupable = query.item[9]
+			log_debug("Cargo Items: Loaded Item: [ci.name]")
+
+			//Verify the suppliers exist
+			for(var/sup in ci.suppliers)
+				log_debug("Checking [sup]")
+				var/datum/cargo_supplier/cs = get_supplier_by_name(sup)
+				if(!cs)
+					log_debug("[sup] is not a valid supplier")
+				
+				//Setting the supplier
+				ci.suppliers[sup]["supplier_datum"] = cs
+				
+			//Add the item to the cargo_items list
+			cargo_items[ci.path] = ci
+
+			//Add the item to the categories
+			for(var/category in ci.categories)
+				var/datum/cargo_category/cc = cargo_categories[category]
+				if(cc) //Check if the category exists
+					cc.items.Add(ci)
+				else
+					log_debug("Cargo Items: Warning - Attempted to add item to category [category] that does not exist")
 		return 1
 
 //Loads the cargo data from JSON	
@@ -158,9 +231,6 @@ var/datum/controller/subsystem/cargo/SScargo
 				cc.items.Add(ci)
 			else
 				log_debug("Cargo Items: Warning - Attempted to add item to category that does not exist")
-
-		testing(json_encode(ci.get_list()))
-
 	return 1
 
 
@@ -333,28 +403,22 @@ var/datum/controller/subsystem/cargo/SScargo
 	return charge_to_account(supply_account.account_number, "[commstation_name()] - Supply", "[charge_text]", "[commstation_name()] - Banking System", -charge_credits)
 //Gets the pending shipment costs for the items that are about to be shipped to the station
 /datum/controller/subsystem/cargo/proc/get_pending_shipment_cost(var/status="approved")
-	testing("Getting Shuttle Move price")
 	//Loop through all the orders marked as shipped and get the suppliers into a list of involved suppliers
 	var/list/suppliers = get_order_suppliers_by_status(status)
 	var/price = 0
 	for(var/supplier in suppliers)
-		testing("[supplier]")
 		var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
 		if(cs)
-			testing("[cs.name] [cs.shuttle_price]")
 			price += cs.shuttle_price
 	return price
 //Gets the pending shipment time for the items that are about to be shipped to the station
 /datum/controller/subsystem/cargo/proc/get_pending_shipment_time(var/status="approved")
-	testing("Getting Shuttle Move time")
 	//Loop through all the orders marked as shipped and get the suppliers into a list of involved suppliers
 	var/list/suppliers = get_order_suppliers_by_status(status)
 	var/time = 0
 	for(var/supplier in suppliers)
-		testing("[supplier]")
 		var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
 		if(cs)
-			testing("[cs.name] [cs.shuttle_time]")
 			time += cs.shuttle_time
 	return time
 

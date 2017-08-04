@@ -93,7 +93,7 @@
 		co.customer = last_user_name
 		co.reason = reason
 		SScargo.submit_order(co)
-		status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking Code: [co.get_tracking_code()]"
+		status_message = "Order submitted successfully. Order ID: [co.order_id]" //TODO: Display the tracking code here
 		//TODO: Print a list with the order data
 		co = null
 		return 1
