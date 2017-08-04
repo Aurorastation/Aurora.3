@@ -14,7 +14,8 @@
 	var/allow_reagents = 0
 	var/malfunction = 0
 
-/obj/item/weapon/implant/New()
+/obj/item/weapon/implant/Initialize()
+	. = ..()
 	implants += src
 
 /obj/item/weapon/implant/proc/trigger(emote, source as mob)
