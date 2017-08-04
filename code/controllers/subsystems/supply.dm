@@ -86,27 +86,42 @@ var/datum/controller/subsystem/cargo/SScargo
 		return load_from_json()
 	else
 		//Populate the items missing a name or a description with the missing name / description
-		var/DBQuery/item_null_query = dbcon.NewQuery("SELECT path, name, description FROM ss13_cargo_items WHERE name IS NULL OR description IS NULL" )
+		var/DBQuery/item_null_query = dbcon.NewQuery("SELECT path, name, description, suppliers, id FROM ss13_cargo_items WHERE name IS NULL OR description IS NULL OR suppliers IS NULL" )
 		item_null_query.Execute()
 		while(item_null_query.NextRow())
 			//Spawn the item with the path
 			var/oldpath = item_null_query.item[1]
 			var/oldname = item_null_query.item[2]
 			var/olddsec = item_null_query.item[3]
+			var/oldsuppliers = item_null_query.item[4]
+			var/item_id = item_null_query.item[5]
 			var/path = text2path(oldpath)
 
 			log_debug("Cargo: Got path without name or description - updating: [oldpath]")
 			if(path)
 				var/obj/cargoitem = new path
+				//The following sql queries arnt overly optimized. Its just not worht it, because they are only run once if a item is added without the complete data
 				if(cargoitem)
 					//Update the name of the item if its null
 					if(!oldname)
-						var/DBQuery/item_update_name_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET name = :name: WHERE path = :path:")
-						item_update_name_query.Execute(list("name" = cargoitem.name, "path" = oldpath ))
+						log_debug("Cargo: Updating name to [cargoitem.name]")
+						var/DBQuery/item_update_name_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET name = :name: WHERE id = :item_id:")
+						item_update_name_query.Execute(list("name" = cargoitem.name, "item_id" = item_id ))
 					//Update the name of the item if its null
 					if(!olddsec)
-						var/DBQuery/item_update_desc_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET description = :desc: WHERE path = :path:")
-						item_update_desc_query.Execute(list("desc" = cargoitem.desc, "path" = oldpath ))
+						log_debug("Cargo: Updating desc to [cargoitem.desc]")
+						var/DBQuery/item_update_desc_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET description = :desc: WHERE id = :item_id:")
+						item_update_desc_query.Execute(list("desc" = cargoitem.desc, "item_id" = item_id ))
+					//Set NT as default supplier with a price 1.5 times of the item value
+					if(!oldsuppliers)
+						var/price = get_value(cargoitem) * 1.5
+						var/list/sups = list()
+						sups["nt"] = list()
+						sups["nt"]["base_purchase_price"] = price
+						sups["nt"]["vars"] = list()
+						log_debug("Cargo: Updating suppliers string to [json_encode(sups)]")
+						var/DBQuery/item_update_supl_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET suppliers = '[json_encode(sups)]' WHERE id = [item_id]")
+						item_update_supl_query.Execute()
 				qdel(cargoitem)
 
 		//Load the categories
