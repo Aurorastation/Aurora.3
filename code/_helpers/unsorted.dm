@@ -862,11 +862,6 @@ var/global/list/common_tools = list(
 		return 1
 	return 0
 
-/proc/iswire(O)
-	if(istype(O, /obj/item/stack/cable_coil))
-		return 1
-	return 0
-
 proc/is_hot(obj/item/W as obj)
 	switch(W.type)
 		if(/obj/item/weapon/weldingtool)
@@ -918,9 +913,9 @@ proc/is_hot(obj/item/W as obj)
 	if(W.sharp) return 1
 	return ( \
 		W.sharp													  || \
-		istype(W, /obj/item/weapon/screwdriver)                   || \
+		isscrewdriver(W)                   || \
 		istype(W, /obj/item/weapon/pen)                           || \
-		istype(W, /obj/item/weapon/weldingtool)					  || \
+		iswelder(W)					  || \
 		istype(W, /obj/item/weapon/flame/lighter/zippo)			  || \
 		istype(W, /obj/item/weapon/flame/match)            		  || \
 		istype(W, /obj/item/clothing/mask/smokable/cigarette) 		      || \

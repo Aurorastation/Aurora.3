@@ -58,7 +58,7 @@
 			src.name = "body bag"
 	//..() //Doesn't need to run the parent. Since when can fucking bodybags be welded shut? -Agouri
 		return
-	else if(istype(W, /obj/item/weapon/wirecutters))
+	else if(iswirecutter(W))
 		user << "You cut the tag off the bodybag"
 		src.name = "body bag"
 		cut_overlays()

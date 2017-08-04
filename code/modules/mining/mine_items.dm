@@ -546,7 +546,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(C, user)
 		return
-	if (istype(C, /obj/item/weapon/weldingtool))
+	if (iswelder(C))
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user << "<span class='notice'>Slicing apart connectors ...</span>"
@@ -1176,7 +1176,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 
-	if (istype(C, /obj/item/weapon/wrench))
+	if (iswrench(C))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>"
 		anchored = !anchored

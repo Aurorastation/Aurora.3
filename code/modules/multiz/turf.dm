@@ -230,7 +230,7 @@
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 
 	//To lay cable.
-	if(istype(C, /obj/item/stack/cable_coil))
+	if(iscoil(C))
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
 		return

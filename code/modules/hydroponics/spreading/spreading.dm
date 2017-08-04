@@ -241,7 +241,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	START_PROCESSING(SSplants, src)
 
-	if(istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/weapon/scalpel))
+	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if(sampled)
 			user << "<span class='warning'>\The [src] has already been sampled recently.</span>"
 			return
