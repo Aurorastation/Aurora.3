@@ -4403,7 +4403,7 @@
 /obj/machinery/airlock_sensor/airlock_interior{
 	frequency = 1380;
 	id_tag = "ai_core_sensor_interior";
-	master_tag = "ai_core_sensor_in";
+	master_tag = null;
 	pixel_x = -35;
 	pixel_y = -25
 	},
