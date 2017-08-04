@@ -46832,6 +46832,7 @@
 /area/maintenance/medbay)
 "bCd" = (
 /obj/structure/flora/pottedplant/random,
+/obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/turbolift/command_sub)
 "bCe" = (
@@ -62865,6 +62866,36 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
+"cgg" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/turbolift/main_station)
+"cgh" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/turbolift/main_station)
+"cgi" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/turbolift/main_station_aux)
+"cgj" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/turbolift/main_station_aux)
+"cgk" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turbolift/cargo_station)
+"cgl" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark,
+/area/turbolift/cargo_station)
 
 (1,1,1) = {"
 aaa
@@ -84360,7 +84391,7 @@ bIM
 bKQ
 cfZ
 cgc
-bLr
+cfZ
 aLf
 bNt
 bNT
@@ -84614,10 +84645,10 @@ bHV
 bIK
 bIM
 bIM
-bKR
-bLr
-bLr
-bLr
+cfX
+cfZ
+cfZ
+cfZ
 aLf
 bep
 aLi
@@ -85645,7 +85676,7 @@ bFV
 bFV
 bFV
 bGq
-cgf
+cge
 cdW
 bep
 bNU
@@ -86946,10 +86977,10 @@ bPD
 bSy
 bSO
 bTh
+cgk
 bTh
 bTh
-bTh
-bTh
+cgl
 bTh
 bSO
 aab
@@ -91262,15 +91293,15 @@ aXD
 aYE
 aZN
 baS
+cgg
 baS
-baS
-baS
+cgh
 baS
 aZN
 bix
+cgi
 bix
-bix
-bix
+cgj
 bix
 aZN
 bpV
