@@ -363,7 +363,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 		item_state = icon_state
 		slot_flags = initial(slot_flags)
 		attack_verb = list("prodded")
-	user.regenerate_icons()
+
+	user.update_inv_l_hand()
+	user.update_inv_r_hand()
 
 
 /obj/item/clothing/suit/armor/vest/fabian_coat //NT APF Armor - Fabian Goellstein - mirkoloio
@@ -1110,7 +1112,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/head/beret/engineering/fluff/make_beret //Tan Engineering Beret - M.A.K.E - toasterstrudes
 	name = "tan engineering beret"
-	desc = "An engineering beret that appears to have been modified to look tan, with an orange patch sewn into the middle of it."
+	desc = "An engineering beret that appears to have been dyed tan, with an orange patch sewn into the middle of it."
 	icon = 'icons/obj/custom_items/make_items.dmi'
 	icon_state = "make_beret"
 	item_state = "make_beret"
@@ -1145,7 +1147,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 		user << "<span class='notice'>You turn \the [src] off.</span>"
 
 	update_icon()
-	user.regenerate_icons()
+	user.update_inv_l_hand()
+	user.update_inv_r_hand()
 
 /obj/item/clothing/mask/fluff/corvo_cigarette/update_icon()
 	if(active)
