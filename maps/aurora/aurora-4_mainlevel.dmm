@@ -6241,11 +6241,6 @@
 	req_access = null;
 	req_one_access = list(11,24)
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -6253,6 +6248,12 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
 "amP" = (
@@ -62750,7 +62751,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "cfV" = (
-/obj/structure/table/reinforced,
 /obj/machinery/button/remote/blast_door{
 	id = "telescience";
 	name = "Containment Blast Doors";
@@ -62768,6 +62768,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "cfW" = (
@@ -84360,7 +84361,7 @@ bIM
 bKQ
 cfZ
 cgc
-bLr
+cfZ
 aLf
 bNt
 bNT
@@ -84614,10 +84615,10 @@ bHV
 bIK
 bIM
 bIM
-bKR
-bLr
-bLr
-bLr
+cfX
+cfZ
+cfZ
+cfZ
 aLf
 bep
 aLi
@@ -85645,7 +85646,7 @@ bFV
 bFV
 bFV
 bGq
-cgf
+cge
 cdW
 bep
 bNU
