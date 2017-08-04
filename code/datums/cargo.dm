@@ -105,7 +105,7 @@
 	var/order_id = 0 //ID of the order
 	var/price = 0 //Total price of the order
 	var/item_id = 1 //Current id of the item in the order
-	var/item_num = 0 //Numer of items in the container - Used to limit the items in the crate //TODO: Implement that
+	var/item_num = 0 //Numer of items in the container - Used to limit the items in the crate
 	var/status = "basket" //Status of the order: basket - Adding items, submitted - Submitted to cargo, approved - Order sent to suppliers, rejected - Order has been denied, shipped - Has been shipped to the station, delivered - Order has been delivered
 	var/container_type = "" //Type of the container for the order - cate, box
 	var/list/required_access = list() //Access required to unlock the crate
@@ -217,17 +217,19 @@
 	// 0 - Price the customer has to pay
 	// 1 - Price cargo has to pay
 	// 2 - Just the value of the items in the crate
-	if(type == 0)
-		//The price of the contents of the crate + the price for the crate + the handling fee + the partial shipment fee
-		return price + SScargo.get_cratefee() + SScargo.get_handlingfee() + partial_shipment_fee
-	else if(type == 1)
-		//The price of the contents of the crate + the price of the crate
-		return price + SScargo.get_cratefee()
-	else if(type == 2)
-		//Just the value of the items in the crate
-		return price
-	//As a fallback, return the value of the items
-	return price
+	switch(type)
+		if(0)
+			//The price of the contents of the crate + the price for the crate + the handling fee + the partial shipment fee
+			return price + SScargo.get_cratefee() + SScargo.get_handlingfee() + partial_shipment_fee
+		if(1)
+			//The price of the contents of the crate + the price of the crate
+			return price + SScargo.get_cratefee()
+		if(2)
+			//Just the value of the items in the crate
+			return price
+		else
+			//As a fallback, return the value of the items
+			return price
 
 // Returns the number of items in the order
 /datum/cargo_order/proc/get_item_count()
@@ -352,6 +354,7 @@
 /datum/cargo_order_item/Destroy()
 	ci = null
 	cs = null
+	return ..()
 
 /*
 	A shipment sent to the station. Contains multiple orders

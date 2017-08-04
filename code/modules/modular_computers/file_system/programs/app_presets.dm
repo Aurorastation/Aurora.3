@@ -9,7 +9,7 @@
 /datum/modular_computer_app_presets/all
 	name = "all"
 	display_name = "All Programs"
-	description = "Contains all progams"
+	description = "Contains all programs"
 	available = 0
 /datum/modular_computer_app_presets/all/return_install_programs()
 	var/list/_prg_list = list()

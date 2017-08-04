@@ -2,7 +2,7 @@
 	filename = "cargoorder"
 	filedesc = "Cargo Order"
 	extended_desc = "Application to Order Items from Cargo"
-	size = 2 //TODO: Increase this
+	size = 10
 	requires_ntnet = 1
 	available_on_ntnet = 1
 	nanomodule_path = /datum/nano_module/program/civilian/cargoorder/
@@ -82,12 +82,12 @@
 			return 1 //Only submit the order if there are items in it
 
 		if(last_user_name == "Unknown")
-			status_message = "Unable to submit oder. ID could not be located"
+			status_message = "Unable to submit order. ID could not be located"
 			return 1
 
 		var/reason = sanitize(input(usr,"Reason:","Why do you require this item?","") as null|text)
 		if(!reason)
-			status_message = "Unable to submit order. No reason supplied"
+			status_message = "Unable to submit order. No reason supplied."
 			return 1
 
 		co.customer = last_user_name

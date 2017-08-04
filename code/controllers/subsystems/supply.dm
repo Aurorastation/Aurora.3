@@ -585,7 +585,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 		//Set the access requirement
 		if(co.required_access.len > 0)
-			A.req_access = co.required_access
+			A.req_access = co.required_access.Copy()
 
 		//Loop through the items and spawn them
 		for(var/datum/cargo_order_item/coi in co.items)

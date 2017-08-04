@@ -2,7 +2,7 @@
 	filename = "cargocontrol"
 	filedesc = "Cargo Control"
 	extended_desc = "Application to Control Cargo Orders"
-	size = 2 //TODO: Increase this
+	size = 12
 	requires_ntnet = 1
 	available_on_ntnet = 1
 	required_access_download = access_hop
@@ -30,9 +30,6 @@
 	var/obj/item/weapon/card/id/user_id_card = user.GetIdCard()
 	last_user_name = GetNameAndAssignmentFromId(user_id_card)
 	data["username"] = last_user_name
-
-
-	//TODO: Send the data along depending on the page we are on
 
 	var/list/submitted_orders = SScargo.get_orders_by_status("submitted",1)
 	data["order_submitted_number"] = submitted_orders.len
@@ -92,11 +89,6 @@
 		ui.set_auto_update(1)
 
 /datum/nano_module/program/civilian/cargocontrol/Topic(href, href_list)
-	//TODO: Implement return message to notify user of whats going on
-
-	if(!SScargo)
-		world.log << "## ERROR: Eek. The SScargo controller datum is missing somehow."
-		return
 	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
 	if (!shuttle)
 		world.log << "## ERROR: Eek. The supply/shuttle datum is missing somehow."

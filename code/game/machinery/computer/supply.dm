@@ -218,9 +218,6 @@
 		return 1
 
 /obj/machinery/computer/supplycomp/Topic(href, href_list)
-	if(!SScargo)
-		world.log << "## ERROR: Eek. The SScargo controller datum is missing somehow."
-		return
 	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
 	if (!shuttle)
 		world.log << "## ERROR: Eek. The supply/shuttle datum is missing somehow."
