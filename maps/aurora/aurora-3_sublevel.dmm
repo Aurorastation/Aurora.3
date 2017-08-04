@@ -22348,6 +22348,62 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
+"Mo" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/engineering_maintenance)
+"Mp" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/engineering_maintenance)
+"Mq" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/vault_sub)
+"Mr" = (
+/obj/machinery/light/small,
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/ai_sub)
+"Ms" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/turbolift/medical_sub)
+"Mt" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled,
+/area/turbolift/medical_sub)
+"Mu" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/research_maintenance)
+"Mv" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/research_maintenance)
 
 (1,1,1) = {"
 aa
@@ -40183,7 +40239,7 @@ fg
 dc
 fG
 fG
-fG
+Mo
 fG
 fG
 dc
@@ -40954,7 +41010,7 @@ fj
 dc
 fG
 fG
-fG
+Mp
 fG
 fG
 dc
@@ -42295,7 +42351,7 @@ pL
 rq
 AW
 AW
-AW
+Mu
 AW
 AW
 rq
@@ -42809,7 +42865,7 @@ pL
 rq
 AW
 AW
-AW
+Mv
 AW
 AW
 rq
@@ -61811,9 +61867,9 @@ eZ
 qw
 eZ
 rm
+Ms
 rm
-rm
-rm
+Mt
 rm
 uf
 uO
@@ -62805,7 +62861,7 @@ ab
 ab
 fa
 fZ
-fZ
+Mq
 fZ
 fZ
 fZ
@@ -70020,7 +70076,7 @@ lz
 lH
 lH
 lH
-lH
+Mr
 lH
 fa
 ab
