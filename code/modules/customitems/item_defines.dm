@@ -36,7 +36,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/motaki_bandana.dmi'
 	icon_state = "motaki_bandana"
 	item_state = "motaki_bandana"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/armor/vest/fluff/zubari_jacket //Fancy Jacket - Zubari Akenzua - filthyfrankster
@@ -45,7 +45,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/zubari_jacket.dmi'
 	icon_state = "zubari_jacket"
 	item_state = "zubari_jacket"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/unathi/mantle/fluff/yinzr_mantle //Heirloom Unathi Mantle - Sslazhir Yinzr - alberyk
@@ -55,7 +55,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "yinzr_mantle" //special thanks to Araskael
 	item_state = "yinzr_mantle"
 	species_restricted = list("Unathi") //forged for lizardmen
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/glasses/fluff/nebula_glasses	//chich eyewear - Roxy Wallace - nebulaflare
@@ -64,7 +64,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/nebula_glasses.dmi'
 	icon_state = "nebula_glasses"
 	item_state = "nebula_glasses"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	var/obj/item/weapon/disk/chip
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/New()
@@ -114,11 +114,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/ears/skrell/fluff/dompesh_cloth //Skrell Purple Head Cloth - Shkor-Dyet Dom'Pesh - mofo1995
 	name = "male skrell purple head cloth"
-	desc = "A purple cloth band worn by male skrell around their head tails."
-	icon = 'icons/obj/custom_items/dompesh_cloth.dmi'
-	icon_state = "dompesh_cloth"
-	item_state = "dompesh_cloth"
-	contained_sprite = 1
+	desc = "A set of purple headcloths fit for a skrell's head tails. This one has a small SAMPLe logo on the interior of each cloth, perfect for scientific skrell."
 
 
 /obj/item/weapon/fluff/kiara_altar //Pocket Altar - Kiara Branwen - nursiekitty
@@ -145,7 +141,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_hat"
 	item_state = "bell_hat"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/det_trench/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6
 	name = "pinned brown coat"
@@ -153,7 +149,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_coat"
 	item_state = "bell_coat"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
 	/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
 
@@ -171,7 +167,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "knife"
 	slot_flags = SLOT_BELT
 	w_class = 1
-	force = 2
 
 
 /obj/item/device/kit/paint/ripley/fluff/zairjah_kit //Hephaestus Industrial Exosuit MK III Customization Kit - Zairjah - alberyk
@@ -189,7 +184,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/usiki_cane.dmi'
 	icon_state = "usiki_cane"
 	item_state = "usiki_cane"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/weapon/cane/fluff/usiki_cane/attack_self(mob/user as mob)
 	if(all_languages[LANGUAGE_UNATHI] in user.languages)
@@ -204,7 +199,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/kathleen_glove.dmi'
 	icon_state = "kathleen_glove"
 	item_state = "kathleen_glove"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	gender = NEUTER
 	body_parts_covered = null
 
@@ -241,7 +236,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list("Unathi")
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/mask/gas/fluff/karnaikai_mask //Unathi head wrappings - Azeazekal Karnaikai - canon35
@@ -251,7 +246,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "karnaikai_mask" //special thanks to Araskael
 	item_state = "karnaikai_mask"
 	species_restricted = list("Unathi")
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/weapon/contraband/poster/fluff/conservan_poster //ATLAS poster - Conservan Xullie - conservatron
@@ -318,7 +313,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/nioathi_hoodie.dmi'
 	icon_state = "nioathi_hoodie"
 	item_state = "nioathi_hoodie"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/weapon/implanter/fluff //snowflake implanters for snowflakes
@@ -349,8 +344,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_BELT
 	force = 2
 	w_class = 2
-	contained_sprite = 1
-	var/active = 0
+	contained_sprite = TRUE
+	var/active = FALSE
 
 /obj/item/weapon/fluff/moon_baton/attack_self(mob/user)
 	active= !active
@@ -368,7 +363,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 		item_state = icon_state
 		slot_flags = initial(slot_flags)
 		attack_verb = list("prodded")
-	user.regenerate_icons()
+
+	user.update_inv_l_hand(FALSE)
+	user.update_inv_r_hand()
 
 
 /obj/item/clothing/suit/armor/vest/fabian_coat //NT APF Armor - Fabian Goellstein - mirkoloio
@@ -377,7 +374,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/fabian_coat.dmi'
 	icon_state = "fabian_coat_open"
 	item_state = "fabian_coat_open"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/armor/vest/fabian_coat/verb/toggle()
 	set name = "Toggle Coat Zipper"
@@ -413,7 +410,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/vittorio_fez.dmi'
 	icon_state = "vittorio_fez"
 	item_state = "vittorio_fez"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/fluff/centurion_cloak //Paludamentum - Centurion - cakeisossim
@@ -423,7 +420,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "centurion_cloak"
 	item_state = "centurion_cloak"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/ears/bandanna/fluff/kir_bandanna //Kir's Bandanna - Kir Iziki - araskael
@@ -432,7 +429,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/kir_bandanna.dmi'
 	icon_state = "kir_bandanna"
 	item_state = "kir_bandanna"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/storage/toggle/bomber/fluff/ash_jacket //Hand-me-down Bomber Jacket - Ash LaCroix - superballs
@@ -444,7 +441,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ash_jacket"
 	icon_open = "ash_jacket_open"
 	icon_closed = "ash_jacket"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - sircatnip
@@ -455,7 +452,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "dylan_tags"
 	stored_name = "Wright, Dylan L"
 	badge_string = "Pacific Union Special Forces"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	slot_flags = SLOT_MASK | SLOT_TIE
 
 
@@ -465,10 +462,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/rico_stripes.dmi'
 	icon_state = "rico_stripes"
 	item_state = "rico_stripes"
-	contained_sprite = 1
-	canremove = 0
-	abstract = 1
+	contained_sprite = TRUE
+	canremove = FALSE
+	abstract = TRUE
 	species_restricted = list("Machine")
+	autodrobe_no_remove = TRUE
 
 
 /obj/item/weapon/reagent_containers/food/drinks/flask/fluff/barcia_flask //First Shot - Gabriel Barcia - mrgabol100
@@ -484,8 +482,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/stone_ring.dmi'
 	icon_state = "stone_ring"
 	item_state = "stone_ring"
-	contained_sprite = 1
-	clipped = 1
+	contained_sprite = TRUE
+	clipped = TRUE
 	species_restricted = null
 	gender = NEUTER
 	body_parts_covered = null
@@ -497,7 +495,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/sayyidah_dress.dmi' //special thanks to Coalf for the sprites
 	icon_state = "sayyidah_dress"
 	item_state = "sayyidah_dress"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/storage/fluff/vittorio_jacket //Atlas Overcoat - Vittorio Giurifiglio - tytostyris
@@ -506,7 +504,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/vittorio_jacket.dmi'
 	icon_state = "vittorio_jacket"
 	item_state = "vittorio_jacket"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/helmut_labcoat //CERN Labcoat - Helmut Kronigernischultz - pyrociraptor
@@ -517,7 +515,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "helmut_labcoat"
 	icon_open = "helmut_labcoat_open"
 	icon_closed = "helmut_labcoat"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/shoes/jackboots/unathi/fluff/yinzr_sandals //Marching Sandals - Sslazhir Yinzr - alberyk
@@ -526,7 +524,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/yinzr_sandals.dmi'
 	item_state = "yinzr_sandals"
 	icon_state = "yinzr_sandals"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/accessory/fluff/laikov_broach //Jeweled Broach - Aji'Rah Laikov - nebulaflare
@@ -535,7 +533,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/laikov_broach.dmi'
 	item_state = "laikov_broach"
 	icon_state = "laikov_broach"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/fluff/laikov_broach/attack_self(mob/user as mob)
 	if(isliving(user))
@@ -593,7 +591,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "caleb_badge"
 	stored_name = "Caleb Greene"
 	badge_string = "NOS Apollo Head of Security"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/fluff/messa_pressing //Pressing of Messa's Tears - Poslan Kur'yer-Isra - jboy2000000
@@ -616,7 +614,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/cat_religion.dmi'
 	icon_state = "poslan_jacket"
 	item_state = "poslan_jacket"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/sign/fluff/alexis_degree //Xenonuerology Doctorate - Alexis Shaw - tenenza
@@ -633,18 +631,19 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/rur_collar.dmi'
 	icon_state = "rur_collar"
 	item_state = "rur_collar"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	body_parts_covered = 0
-	canremove = 0
+	canremove = FALSE
 	species_restricted = list("Machine")
-	var/emagged = 0
+	autodrobe_no_remove = TRUE
+	var/emagged = FALSE
 
 /obj/item/clothing/mask/fluff/rur_collar/emag_act(var/remaining_charges, var/mob/user)
 	if (!emagged)
 		user << "<span class='danger'>You short out \the [src]'s locking mechanism.</span>"
 		src.icon_state = "rur_collar_broken"
-		src.canremove = 1
-		src.emagged = 1
+		src.canremove = TRUE
+		src.emagged = TRUE
 		playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 0)
 		return 1
 
@@ -655,7 +654,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/simon_scarf.dmi'
 	icon_state = "simon_scarf"
 	item_state = "simon_scarf"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/head/soft/sec/corp/fluff/karson_cap //Karson's Cap - Eric Karson - dronzthewolf
@@ -693,27 +692,16 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/zohjar_clothing.dmi'
 	icon_state = "zohjar_uniform"
 	item_state = "zohjar_uniform"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/zohjar_jacket //People's Republic Medical Officer Coat - Zohjar Rasateir - lordraven001
+/obj/item/clothing/suit/storage/toggle/labcoat/tajaran/fluff/zohjar_jacket //People's Republic Medical Officer Coat - Zohjar Rasateir - lordraven001
 	name = "people's republic medical officer coat"
 	desc = "A sterile insulated coat made of leather stitched over fur. It has two gold lapels indicating Officer rank. \
 	The a white armband with a scarlet line in the center indicates that the person wearing this coat is medically trained."
-	icon = 'icons/obj/custom_items/zohjar_clothing.dmi'
-	icon_state = "zohjar_jacket"
-	item_state = "zohjar_jacket"
-	icon_open = "zohjar_jacket_open"
-	icon_closed = "zohjar_jacket"
-	contained_sprite = 1
 
-
-/obj/item/clothing/suit/storage/fluff/maksim_coat //Tajaran Naval Officer's Coat - Maksim Vasilyev - aimlessanalyst
+/obj/item/clothing/suit/storage/tajaran/fluff/maksim_coat //Tajaran Naval Officer's Coat - Maksim Vasilyev - aimlessanalyst
 	name = "tajaran naval officer coat"
 	desc = "A thick wool coat from Adhomai, calling back to days long past."
-	icon = 'icons/obj/custom_items/maksim_coat.dmi'
-	icon_state = "maksim_coat"
-	item_state = "maksim_coat"
-	contained_sprite = 1
 
 
 /obj/item/sign/fluff/iskanz_atimono //Framed Zatimono - Iskanz Sal'Dans - zundy
@@ -730,7 +718,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/zahra_pin.dmi'
 	icon_state = "zahra_pin"
 	item_state = "zahra_pin"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/accessory/armband/fluff/karl_armband //Medizinercorps Armband - Karl Jonson - arrow768
@@ -739,7 +727,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/karl_armband.dmi'
 	icon_state = "karl_armband"
 	item_state = "karl_armband"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/weapon/melee/fluff/rook_whip //Ceremonial Whip - Rook Jameson - hivefleetchicken
@@ -749,7 +737,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "rook_whip"
 	item_state = "rook_whip"
 	slot_flags = SLOT_BELT
-	contained_sprite = 1
+	contained_sprite = TRUE
 	w_class = 3
 	force = 2
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
@@ -763,7 +751,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "lilith_coat"
 	icon_open = "lilith_coat_open"
 	icon_closed = "lilith_coat"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/head/fluff/sayyidah_tiara //Jeweled Tiara - Sayyidah Al-Kateb - alberyk
@@ -772,7 +760,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/sayyidah_dress.dmi' //special thanks to TheGreatJorge for the sprites
 	icon_state = "sayyidah_tiara"
 	item_state = "sayyidah_tiara"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/accessory/fluff/jeyne_pendant //Jeyne's Pendant - Jeyne Kahale - themuncorn
@@ -782,7 +770,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "jeyne_pendant"
 	item_state = "jeyne_pendant"
 	slot_flags = SLOT_MASK | SLOT_TIE
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/fluff/basil_coat //Consortium Magister's Robes - Basil Drabardi - aimlessanalyst
@@ -792,7 +780,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "basil_coat"
 	item_state = "basil_coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	contained_sprite = 1
+	contained_sprite = TRUE
 	hoodtype = /obj/item/clothing/head/winterhood/fluff/basil_hood
 
 /obj/item/clothing/head/winterhood/fluff/basil_hood
@@ -808,7 +796,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/iskra_clothing.dmi'
 	icon_state = "iskra_clothing"
 	item_state = "iskra_clothing"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/storage/fluff/tsali_coat //Mariziite Shroud - Cruz Tsali - serveris6
@@ -818,7 +806,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/tsali_coat.dmi'
 	icon_state = "tsali_coat"
 	item_state = "tsali_coat"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/under/fluff/ana_uniform //Retired Uniform - Ana Roh'hi'tin - suethecake
@@ -827,7 +815,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ana_clothing.dmi'
 	icon_state = "ana_uniform"
 	item_state = "ana_uniform"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/forensics/fluff/ana_jacket //CSI Jacket - Ana Roh'hi'tin - suethecake
 	name = "CSI jacket"
@@ -835,7 +823,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ana_clothing.dmi'
 	icon_state = "ana_jacket"
 	item_state = "ana_jacket"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/badge/old/fluff/ana_badge //Faded Badge - Ana Roh'hi'tin - suethecake
 	name = "faded badge"
@@ -858,7 +846,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ikrad_beret.dmi'
 	icon_state = "ikrad_beret"
 	item_state = "ikrad_beret"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	var/letter
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/New()
@@ -903,7 +891,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ryan_jacket.dmi'
 	icon_state = "ryan_jacket"
 	item_state = "ryan_jacket"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/storage/fluff/yuri_duster //Martian Duster - Yuri Daruski - bv1000
@@ -914,7 +902,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/yuri_duster.dmi'
 	icon_state = "yuri_duster"
 	item_state = "yuri_duster"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/accessory/badge/fluff/bell_badge //Detective's Credentials - Avery Bell - serveris6
@@ -923,7 +911,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_badge"
 	item_state = "bell_badge"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	stored_name = "Avery Bell"
 	badge_string = "Silhouette Co. Consulting Detective"
 
@@ -955,7 +943,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/karlan_beret.dmi'
 	icon_state = "karlan_beret"
 	item_state = "karlan_beret"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/under/fluff/guskov_uniform //Tajaran Service Uniform - Guskov Andrei - fireandglory
@@ -964,7 +952,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/guskov_uniform.dmi'
 	icon_state = "guskov_uniform"
 	item_state = "guskov_uniform"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/weapon/fluff/zhilin_book //Siik'maas-Tau Ceti Basic Dictionary - Zhilin Vadim - fireandglory
@@ -975,7 +963,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 3
 
 /obj/item/weapon/fluff/zhilin_book/attack_self(mob/user as mob)
-	user.visible_message("<span class='notice'>[user] starts flipping through \the [src].</span>", 
+	user.visible_message("<span class='notice'>[user] starts flipping through \the [src].</span>",
 						"<span class='notice'>You start looking through \the [src], it appears to be filled with translations of Tau-Ceti basic for tajaran users.</span>",
 						"<span class='notice'>You hear pages being flipped.</span>")
 	playsound(src.loc, "pageturn", 50, 1)
@@ -989,7 +977,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "fai_jacket"
 	icon_open = "fai_jacket_open"
 	icon_closed = "fai_jacket"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/under/fluff/faysal_uniform //Old Tajaran Nobleman Suit - Faysal Al-Shennawi - alberyk
@@ -998,7 +986,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/faysal_uniform.dmi'
 	icon_state = "faysal_uniform"
 	item_state = "faysal_uniform"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/glasses/welding/fluff/ghoz_eyes //Prosthetic Vaurca Eyelids - Ka'Akaix'Ghoz Zo'ra - sleepywolf
@@ -1007,7 +995,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ghoz_eyes.dmi'
 	icon_state = "ghoz_eyes"
 	item_state = "ghoz_eyes"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	action_button_name = "Toggle Eyelids"
 	species_restricted = list("Vaurca") //i think this would make sense since those are some kind of vaurca build prothestic
 
@@ -1018,7 +1006,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/leo_coat.dmi'
 	icon_state = "leo_hat"
 	item_state = "leo_hat"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/det_trench/fluff/leo_coat //Tagged brown coat - Leo Wyatt - keinto
 	name = "tagged brown coat"
@@ -1026,7 +1014,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/leo_coat.dmi'
 	icon_state = "leo_coat"
 	item_state = "leo_coat"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/weapon/nullrod/fluff/azaroz_staff //Null Staff - Kesaos Azaroz - paradoxspace
@@ -1035,7 +1023,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/azaroz_staff.dmi'
 	icon_state = "azaroz_staff"
 	item_state = "azaroz_staff"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	slot_flags = SLOT_BACK
 	w_class = 3
 
@@ -1048,15 +1036,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "eul_robe"
 	item_state = "eul_robe"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	contained_sprite = 1
-	
+	contained_sprite = TRUE
+
 /obj/item/clothing/glasses/regular/fluff/eul_glasses //Chained Wooden Spectacles - Uelak Eul - lordraven001
 	name = "chained wooden spectacles"
 	desc = "A pair of wooden spectacles with a long bronze chain out the back of them. They have been bejeweled by benitoite and look elder from use."
 	icon = 'icons/obj/custom_items/eul_clothing.dmi'
 	icon_state = "eul_glasses"
 	item_state = "eul_glasses"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/suit/poncho/fluff/flaming_poncho //Stitched Heart White Poncho - Flaming Hearts Love Stars - sleepywolf
@@ -1065,7 +1053,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/flaming_poncho.dmi'
 	icon_state = "flaming_poncho"
 	item_state = "flaming_poncho"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 
 /obj/item/clothing/accessory/badge/fluff/jane_badge //Tarnished Badge - Jane Pyre - somethingvile
@@ -1075,7 +1063,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "jane_badge"
 	item_state = "jane_badge"
 	slot_flags = SLOT_BELT | SLOT_TIE
-	contained_sprite = 1
+	contained_sprite = TRUE
 	stored_name = "Francis Pyre"
 	badge_string = "CPD"
 
@@ -1093,7 +1081,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
 	icon_state = "vizili_mantle"
 	item_state = "vizili_mantle"
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/mask/fluff/vizili_mask //Iron Mask - Urzkrauzi Vizili - jackboot
 	name = "iron mask"
@@ -1101,7 +1089,75 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
 	icon_state = "vizili_mask"
 	item_state = "vizili_mask"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	flags_inv = HIDEEARS|HIDEFACE
 	body_parts_covered = FACE
 	w_class = 3.0
+
+
+/obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/brianne_teapot	//Ceramic Teapot - Sean Brianne - zelmana
+	name = "ceramic teapot"
+	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
+	icon = 'icons/obj/custom_items/brianne_teapot.dmi'
+	icon_state = "brianne_teapot"
+
+
+/obj/item/weapon/reagent_containers/food/drinks/flask/fluff/nasser_flask //Workers Flask - Nasser Antonov - sonicgotnuked
+	name = "workers flask"
+	desc = "A steel fold down flask that is dented and scratched. It looks like some parts are welded together, making it so it can not fold down anymore. It smells strongly of vodka.."
+	icon = 'icons/obj/custom_items/nasser_flask.dmi'
+	icon_state = "nasser_flask"
+	volume = 55
+
+
+/obj/item/clothing/head/beret/engineering/fluff/make_beret //Tan Engineering Beret - M.A.K.E - toasterstrudes
+	name = "tan engineering beret"
+	desc = "An engineering beret that appears to have been dyed tan, with an orange patch sewn into the middle of it."
+	icon = 'icons/obj/custom_items/make_items.dmi'
+	icon_state = "make_beret"
+	item_state = "make_beret"
+	contained_sprite = TRUE
+
+/obj/item/device/radio/headset/fluff/make_antenna //Antenna - M.A.K.E - toasterstrudes
+	name = "antenna"
+	desc = "An antenna attachment that can be screwed into the side of an IPC's head. It looks to have radio functions."
+	icon = 'icons/obj/custom_items/make_items.dmi'
+	icon_state = "make_antenna"
+	item_state = "make_antenna"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/mask/fluff/corvo_cigarette //Vaporizer Pen - Nathan Corvo - jkjudgex
+	name = "vaporizer pen"
+	desc = "A simple vaporizer pen, the electronic version of the cigarette."
+	icon = 'icons/obj/custom_items/corvo_cigarette.dmi'
+	icon_state = "corvo_cigarette"
+	item_state = "corvo_cigarette"
+	body_parts_covered = 0
+	w_class = 2
+	slot_flags = SLOT_EARS | SLOT_MASK
+	contained_sprite = TRUE
+	var/active = FALSE
+
+/obj/item/clothing/mask/fluff/corvo_cigarette/attack_self(mob/user)
+	active= !active
+	if(active)
+		user << "<span class='notice'>You turn \the [src] on.</span>"
+	else
+		user << "<span class='notice'>You turn \the [src] off.</span>"
+
+	update_icon()
+	user.update_inv_l_hand(FALSE)
+	user.update_inv_r_hand()
+
+/obj/item/clothing/mask/fluff/corvo_cigarette/update_icon()
+	if(active)
+		icon_state = "corvo_cigarette_on"
+		item_state = "corvo_cigarette_on"
+	else
+		icon_state = "corvo_cigarette"
+		item_state = "corvo_cigarette"
+
+/obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user)
+	if(..(user, 1))
+		user << "It is [active ? "on" : "off"]."
