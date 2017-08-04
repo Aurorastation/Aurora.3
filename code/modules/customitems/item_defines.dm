@@ -1095,8 +1095,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/brianne_teapot	//Ceramic Teapot - Sean Brianne - zelmana
 	name = "ceramic teapot"
-	desc = "A blue ceramic teapot, gilded with the abbreviation for Nanotrasen."
+	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
 	icon = 'icons/obj/custom_items/brianne_teapot.dmi'
+	icon_state = "brianne_teapot"
 
 
 /obj/item/weapon/reagent_containers/food/drinks/flask/fluff/nasser_flask //Workers Flask - Nasser Antonov - sonicgotnuked
@@ -1104,24 +1105,24 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A steel fold down flask that is dented and scratched. It looks like some parts are welded together, making it so it can not fold down anymore. It smells strongly of vodka.."
 	icon = 'icons/obj/custom_items/nasser_flask.dmi'
 	icon_state = "nasser_flask"
+	volume = 55
 
 
 /obj/item/clothing/head/beret/engineering/fluff/make_beret //Tan Engineering Beret - M.A.K.E - toasterstrudes
 	name = "tan engineering beret"
-	desc = "A Engineering beret that appears to have been modified to look Tan, with an Orange patch sewn into the middle of it."
+	desc = "An engineering beret that appears to have been modified to look tan, with an orange patch sewn into the middle of it."
 	icon = 'icons/obj/custom_items/make_items.dmi'
 	icon_state = "make_beret"
 	item_state = "make_beret"
 	contained_sprite = TRUE
 
-/obj/item/device/radio/headset/fluff/make_radio	//Antenna - M.A.K.E - toasterstrudes
-	name "antenna"
+/obj/item/device/radio/headset/fluff/make_antenna //Antenna - M.A.K.E - toasterstrudes
+	name = "antenna"
 	desc = "An antenna attachment that can be screwed into the side of an IPC's head. It looks to have radio functions."
 	icon = 'icons/obj/custom_items/make_items.dmi'
-	icon_state = "make_radio"
-	item_state = "make_radio"
+	icon_state = "make_antenna"
+	item_state = "make_antenna"
 	contained_sprite = TRUE
-	species_restricted = list("Machine")
 
 
 /obj/item/clothing/mask/fluff/corvo_cigarette //Vaporizer Pen - Nathan Corvo - jkjudgex
@@ -1133,6 +1134,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	body_parts_covered = 0
 	w_class = 2
 	slot_flags = SLOT_EARS | SLOT_MASK
+	contained_sprite = TRUE
 	var/active = FALSE
 
 /obj/item/clothing/mask/fluff/corvo_cigarette/attack_self(mob/user)
@@ -1146,7 +1148,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	user.regenerate_icons()
 
 /obj/item/clothing/mask/fluff/corvo_cigarette/update_icon()
-	if(!opened)
+	if(active)
 		icon_state = "corvo_cigarette_on"
 		item_state = "corvo_cigarette_on"
 	else
