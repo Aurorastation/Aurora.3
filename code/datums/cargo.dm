@@ -257,7 +257,6 @@
 	for(var/supplier in supplier_list)
 		var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
 		if(cs)
-			testing("[cs.name] [cs.shuttle_price]")
 			cost += cs.shuttle_price
 	return cost
 
