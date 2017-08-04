@@ -467,11 +467,10 @@ var/datum/controller/subsystem/cargo/SScargo
 //Cancels the shuttle. Can return a status message
 /datum/controller/subsystem/cargo/proc/shuttle_cancel()
 	shuttle.cancel_launch(src)
-	return
+
 //Forces the shuttle. Can return a status message
 /datum/controller/subsystem/cargo/proc/shuttle_force()
 	shuttle.force_launch(src)
-	return
 
 //To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
 /datum/controller/subsystem/cargo/proc/forbidden_atoms_check(atom/A)

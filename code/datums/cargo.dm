@@ -43,6 +43,7 @@
 	data["suppliers"] = suppliers_list
 	return data
 
+
 /*
 	A supplier of items
 */
@@ -67,6 +68,7 @@
 	data["available"] = available
 	data["price_modifier"] = price_modifier
 	return data
+
 
 /*
 	A category displayed in the cargo order app
@@ -281,9 +283,10 @@
 			
 	else
 		return status
+
 // Returns a HTML to be printed for the order
 /datum/cargo_order/proc/get_report()
-	var/order_data = ""
+	var/list/order_data = list()
 	order_data += "<h4>Order [order_id]</h4><hr>"
 	order_data += "<hr>"
 	//List the personell involved in the order
@@ -317,8 +320,9 @@
 	order_data += "<li>Additional Shuttle Fees may apply</li>"
 	order_data += "</ul>"
 
+	return order_data.Join(",")
 
-	return order_data
+
 /*
 	A cargo order item. Part of a category.
 	specifies the item, the supplier and the price of the item
@@ -355,6 +359,7 @@
 	ci = null
 	cs = null
 	return ..()
+
 
 /*
 	A shipment sent to the station. Contains multiple orders
