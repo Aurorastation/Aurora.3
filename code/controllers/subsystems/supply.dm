@@ -81,7 +81,7 @@ var/datum/controller/subsystem/cargo/SScargo
 */
 //Load the cargo data from SQL
 /datum/controller/subsystem/cargo/proc/load_from_sql()
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		log_debug("Cargo Items: SQL ERROR - Failed to connect. - Falling back to JSON")
 		return load_from_json()
 	else
@@ -162,11 +162,12 @@ var/datum/controller/subsystem/cargo/SScargo
 
 //Loads the cargo data from JSON	
 /datum/controller/subsystem/cargo/proc/load_from_json()
-	var/json_config = return_file_text("config/cargo.json")
-	if(!json_config)
-		log_debug("Cargo: Warning: Could not load config, as cargo.json is missing")
-		return 1
-	var/list/cargoconfig = json_decode(json_config)
+	var/list/cargoconfig = list()
+	try
+		cargoconfig = json_decode(return_file_text("config/cargo.json"))
+	catch(var/exception/e)
+		log_debug("Cargo: Warning: Could not load config, as cargo.json is missing - [e]")
+		return
 
 	//Load the cargo categories
 	for (var/category in cargoconfig["categories"])
