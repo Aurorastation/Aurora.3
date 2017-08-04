@@ -1,0 +1,5 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - maptweak: "Elevators now use small lights instead of tube lights."
+  - tweak: "Lights will no longer mysteriously float in mid-air in elevator shafts."
