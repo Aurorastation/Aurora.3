@@ -23,12 +23,17 @@ var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mob
 var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
 var/global/list/brig_closets = list()				//list of all brig secure_closets. Used by brig timers. Probably should be converted to use SSwireless eventually.
 
+var/global/list/teleportlocs = list()
+var/global/list/ghostteleportlocs = list()
+var/global/list/centcom_areas = list()
+var/global/list/the_station_areas = list()
+
 var/global/list/turfs = list()						//list of all turfs
 
 //Languages/species/whitelist.
-var/global/list/all_species[0]
-var/global/list/all_languages[0]
-var/global/list/language_keys[0]					// Table of say codes for all languages
+var/global/list/all_species = list()
+var/global/list/all_languages = list()
+var/global/list/language_keys = list()					// Table of say codes for all languages
 var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.
 var/global/list/playable_species = list("Human")    // A list of ALL playable species, whitelisted, latejoin or otherwise.
 
@@ -71,7 +76,7 @@ var/global/list/socks_m = list(
 
 	//Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag")
-var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
+var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
 
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
@@ -128,7 +133,7 @@ var/global/list/cloaking_devices = list()
 	sortTim(facial_hair_styles_male_list, /proc/cmp_text_asc)
 	sortTim(facial_hair_styles_female_list, /proc/cmp_text_asc)
 
-	//Body markings 
+	//Body markings
 	paths = subtypesof(/datum/sprite_accessory/marking)
 	for(var/path in paths)
 		var/datum/sprite_accessory/marking/M = new path()
@@ -175,7 +180,7 @@ var/global/list/cloaking_devices = list()
 	// The other lists are generated *after* we sort the main one so they don't need sorting too.
 	for (var/thing in all_species)
 		var/datum/species/S = all_species[thing]
-		
+
 		if (!(S.spawn_flags & IS_RESTRICTED))
 			playable_species += S.name
 		if(S.spawn_flags & IS_WHITELISTED)

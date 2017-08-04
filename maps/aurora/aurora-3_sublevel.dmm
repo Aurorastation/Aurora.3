@@ -460,8 +460,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -476,7 +475,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
+	
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -488,8 +487,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -503,8 +501,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -521,8 +518,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -543,8 +539,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -918,8 +913,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -927,8 +921,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -937,8 +930,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -946,8 +938,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2116,11 +2107,6 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -24
-	},
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Sublevel - Corridor Camera 2";
 	dir = 1;
@@ -2324,7 +2310,6 @@
 /area/outpost/engineering/power)
 "ey" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -2367,7 +2352,6 @@
 "eC" = (
 /obj/machinery/power/tesla_coil,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -2744,7 +2728,6 @@
 	dir = 10
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -2893,7 +2876,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
+	
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -3072,7 +3055,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -4109,6 +4091,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/power/sensor{
+	long_range = 1;
 	name = "Powernet Sensor - AI Subgrid";
 	name_tag = "AI Subgrid"
 	},
@@ -4627,7 +4610,6 @@
 	dir = 1
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -5713,7 +5695,6 @@
 /area/maintenance/sublevel)
 "jH" = (
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -6088,8 +6069,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10;
@@ -6110,8 +6090,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -6132,8 +6111,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -6148,7 +6126,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
+	
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -6169,7 +6147,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
+	
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -6190,7 +6168,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	tag = ""
+	
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -6257,7 +6235,6 @@
 /area/security/nuke_storage)
 "ku" = (
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -6329,8 +6306,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 25;
-	pixel_y = 0;
-	tag = "icon-alarm0 (WEST)"
+	pixel_y = 0
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -6591,7 +6567,6 @@
 /area/maintenance/sublevel)
 "lc" = (
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -6703,7 +6678,6 @@
 "ll" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
-	tag = "icon-11-1";
 	icon_state = "11-1"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/green{
@@ -7603,8 +7577,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7626,8 +7599,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -7650,8 +7622,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -7668,8 +7639,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - AI Maint EVA"
@@ -7695,8 +7665,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -8083,7 +8052,6 @@
 	dir = 8
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -8952,6 +8920,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/sensor{
+	long_range = 1;
 	name = "Powernet Sensor - Medical (Sub-level)";
 	name_tag = "Medical (Sub-level)"
 	},
@@ -9364,7 +9333,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/valve/digital/open{
-	tag = "icon-map_valve1 (NORTH)";
 	icon_state = "map_valve1";
 	dir = 1
 	},
@@ -9453,7 +9421,6 @@
 /area/medical/virology)
 "qa" = (
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -9615,7 +9582,6 @@
 	pixel_y = -22
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber{
-	tag = "icon-map_scrubber_off (NORTH)";
 	icon_state = "map_scrubber_off";
 	dir = 1
 	},
@@ -9660,9 +9626,8 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Virology Starboard";
-	dir = 8
+/obj/structure/sign/deathsposal{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/virology)
@@ -9673,7 +9638,6 @@
 /area/mine/unexplored)
 "qv" = (
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -10585,10 +10549,6 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Virology Starboard";
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
@@ -11254,6 +11214,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/sensor{
+	long_range = 1;
 	name = "Powernet Sensor - Research (Sub-level)";
 	name_tag = "Research (Sub-level)"
 	},
@@ -13842,11 +13803,6 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Virology South";
-	dir = 8;
-	icon_state = "camera"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "xB" = (
@@ -14107,7 +14063,6 @@
 /area/medical/morgue)
 "xZ" = (
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -15831,6 +15786,9 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
+/obj/structure/sign/deathsposal{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "AF" = (
@@ -15838,7 +15796,6 @@
 	dir = 1
 	},
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -15854,7 +15811,6 @@
 	icon_state = "camera"
 	},
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -16512,7 +16468,6 @@
 	name = "blobstart"
 	},
 /obj/machinery/cryopod{
-	tag = "icon-body_scanner_0 (EAST)";
 	icon_state = "body_scanner_0";
 	dir = 4
 	},
@@ -16540,7 +16495,6 @@
 	icon_state = "tube1"
 	},
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -16833,7 +16787,6 @@
 /area/medical/virology)
 "Cz" = (
 /obj/machinery/cryopod{
-	tag = "icon-body_scanner_0 (EAST)";
 	icon_state = "body_scanner_0";
 	dir = 4
 	},
@@ -17420,13 +17373,13 @@
 /area/medical/patient_wing)
 "Dv" = (
 /obj/structure/disposalpipe/junction,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medbay Equipment Storage";
-	dir = 1
-	},
 /obj/machinery/light,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Patient Wing Hallway South";
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
@@ -18631,7 +18584,6 @@
 "FE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/unary/freezer{
-	tag = "icon-freezer_0 (EAST)";
 	icon_state = "freezer_0";
 	dir = 4
 	},
@@ -19506,13 +19458,13 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Operating Theatre One"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "Ha" = (
 /obj/machinery/vending/cigarette,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Staff Smoking Lounge"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "Hb" = (
@@ -20783,7 +20735,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Virology Starboard";
+	c_tag = "Medical - Staff Dormitories";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -20811,7 +20763,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medbay Equipment Storage";
+	c_tag = "Medical - Staff Hygiene Facilities";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -21319,6 +21271,9 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
+	},
+/obj/structure/sign/deathsposal{
+	pixel_x = 32
 	},
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
@@ -22025,7 +21980,6 @@
 /area/maintenance/disposal)
 "LE" = (
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -22067,7 +22021,6 @@
 /area/rnd/test_area)
 "LJ" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (WEST)";
 	icon_state = "tube1";
 	dir = 8
 	},
@@ -22084,7 +22037,6 @@
 /area/rnd/test_area)
 "LL" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (EAST)";
 	icon_state = "tube1";
 	dir = 4
 	},
@@ -22114,8 +22066,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
+	icon_state = "4-8"
 	},
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Tesla Output";
@@ -22201,7 +22152,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/light/small/emergency{
-	tag = "icon-bulb1 (EAST)";
 	icon_state = "bulb1";
 	dir = 4
 	},
@@ -22392,6 +22342,602 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
+"Mn" = (
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Patient Ward Entrance";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/patient_wing)
+"Mo" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
+"Mp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
+"Mq" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/machinery/door/airlock/engineering{
+	name = "Gravity Room";
+	req_access = list();
+	req_one_access = list(11,24)
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
+"Mr" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/simulated/wall/r_wall,
+/area/outpost/engineering/hallway)
+"Ms" = (
+/obj/structure/table/standard,
+/obj/item/stack/material/plasteel{
+	amount = 10
+	},
+/obj/machinery/camera/network/engineering_outpost{
+	c_tag = "Gravity Generator Foyer";
+	dir = 4;
+	icon_state = "camera"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Mt" = (
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Mu" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Mv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Mw" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Mx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"My" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Mz" = (
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MA" = (
+/obj/structure/closet/radiation,
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MB" = (
+/obj/structure/table/standard,
+/obj/item/weapon/book/manual/gravitygenerator,
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MC" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MD" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"ME" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MG" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MH" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"MI" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"MJ" = (
+/obj/structure/closet/radiation,
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"MK" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"ML" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MM" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MN" = (
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Generator Chamber";
+	req_access = list();
+	req_one_access = list(11,24)
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MO" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"MP" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"MQ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"MR" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/simulated/wall/r_wall,
+/area/outpost/engineering/hallway)
+"MS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"MV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"MZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Na" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Nb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Nc" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Nd" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Ne" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Nf" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Ng" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Nh" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Ni" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Nj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Nk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Nl" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Nm" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Nn" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"No" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Np" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Nq" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Nr" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Ns" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Nt" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Nu" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Nv" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Nw" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Nx" = (
+/obj/machinery/gravity_generator/main/station,
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Ny" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"Nz" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"NA" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"NB" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"NC" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"ND" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"NE" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"NF" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"NG" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"NH" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"NI" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"NJ" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"NK" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"NL" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NM" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/simulated/wall/r_wall,
+/area/mine/unexplored)
+"NN" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NO" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NP" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NQ" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NR" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NS" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NT" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NU" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NV" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NW" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NX" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NY" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"NZ" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"Oa" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"Ob" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"Oc" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/gravity_gen)
+"Od" = (
+/obj/machinery/camera/network/engineering_outpost{
+	c_tag = "Gravity Generator Chamber";
+	dir = 1;
+	icon_state = "camera"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
+"Oe" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/engineering_maintenance)
 
 (1,1,1) = {"
 aa
@@ -30958,7 +31504,7 @@ ad
 ai
 af
 af
-bc
+fu
 af
 bS
 af
@@ -31729,7 +32275,7 @@ ad
 ai
 af
 af
-bc
+fu
 af
 bS
 cl
@@ -32771,7 +33317,7 @@ cm
 cm
 af
 af
-fw
+fr
 aI
 fH
 ai
@@ -37142,9 +37688,9 @@ eD
 eD
 eD
 eD
-aa
-aa
-aa
+NN
+NN
+NN
 aa
 aa
 aa
@@ -37393,15 +37939,15 @@ du
 dM
 dq
 dc
-aa
-aa
-ab
-ab
-ab
-ab
-aa
-aa
-aa
+Ms
+MB
+MK
+MS
+Nb
+Nk
+Mt
+Mt
+NL
 aa
 aa
 aa
@@ -37648,17 +38194,17 @@ cT
 dh
 dv
 dK
-dq
+eg
 dc
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
+Mt
+MC
+ML
+MT
+Mt
+Nl
+Mt
+Mt
+NN
 aa
 aa
 aa
@@ -37905,17 +38451,17 @@ cU
 dh
 dw
 dN
-dq
+ec
 dc
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
+Mt
+Mt
+MM
+MT
+Mt
+Mt
+Mt
+Mt
+NN
 aa
 aa
 aa
@@ -38164,15 +38710,15 @@ dx
 dO
 ef
 dc
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
+Mv
+ME
+NN
+MV
+Mt
+Mt
+Mt
+Mt
+NN
 aa
 aa
 aa
@@ -38418,18 +38964,18 @@ cE
 cE
 aD
 dq
-dK
-dq
-dc
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
+Mo
+Mp
+Mq
+Mw
+MF
+MN
+MW
+Mt
+Mt
+Nx
+Od
+NN
 aa
 aa
 aa
@@ -38676,17 +39222,17 @@ cV
 di
 dy
 dP
-eg
+dq
 dc
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
+Mx
+MG
+NN
+MX
+Mt
+Mt
+Mt
+Mt
+NN
 aa
 aa
 aa
@@ -38934,16 +39480,16 @@ aD
 dq
 dK
 dq
-dc
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
+Mr
+My
+Mt
+MK
+MY
+Mt
+Mt
+Mt
+Mt
+NN
 aa
 aa
 aa
@@ -39192,15 +39738,15 @@ dq
 dK
 dq
 dc
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
+Mz
+Mt
+ML
+MY
+Mt
+Nr
+Mt
+Mt
+NN
 aa
 aa
 aa
@@ -39449,15 +39995,15 @@ dt
 dL
 dt
 dc
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
+MA
+MA
+MM
+Na
+Nj
+Ns
+Mt
+Mt
+NN
 aa
 aa
 aa
@@ -39706,10 +40252,10 @@ dq
 dK
 dq
 dc
-ab
-ab
-ab
-ab
+NN
+NN
+NN
+NN
 dc
 dc
 dc
@@ -39965,13 +40511,13 @@ dq
 dc
 dc
 dc
+Mr
 dc
 dc
-dc
 fG
 fG
 fG
-fG
+Oe
 fP
 dc
 fT
@@ -45125,7 +45671,7 @@ aa
 aa
 aa
 jJ
-km
+mW
 kJ
 ab
 aa
@@ -45382,7 +45928,7 @@ aa
 aa
 ab
 jK
-kn
+mV
 kK
 ab
 aa
@@ -45639,7 +46185,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -45896,7 +46442,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -46153,7 +46699,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 bP
 ab
@@ -46410,7 +46956,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -46667,7 +47213,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -46924,7 +47470,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -47181,7 +47727,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -47438,7 +47984,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -47695,7 +48241,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -47952,7 +48498,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -48209,7 +48755,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -48466,7 +49012,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 aa
 aa
@@ -48723,7 +49269,7 @@ aa
 aa
 aa
 ab
-km
+mW
 ab
 aa
 aa
@@ -48980,7 +49526,7 @@ aa
 aa
 aa
 ab
-km
+mW
 ab
 aa
 aa
@@ -49237,7 +49783,7 @@ aa
 aa
 aa
 ab
-km
+mW
 ab
 aa
 aa
@@ -49494,7 +50040,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -49751,7 +50297,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -50008,7 +50554,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -50265,7 +50811,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -50522,7 +51068,7 @@ aa
 ab
 ab
 jJ
-ko
+mX
 kL
 ab
 ab
@@ -62118,7 +62664,7 @@ rm
 rm
 uf
 uP
-vQ
+Mn
 vQ
 xA
 ye

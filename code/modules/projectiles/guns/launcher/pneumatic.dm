@@ -213,3 +213,9 @@
 		return
 	else
 		..()
+
+/obj/item/weapon/gun/launcher/pneumatic/small
+	name = "small pneumatic cannon"
+	desc = "It looks smaller than your garden variety cannon"
+	max_w_class = 1
+	w_class = 3

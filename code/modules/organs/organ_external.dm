@@ -34,8 +34,8 @@
 	var/cannot_amputate
 	var/cannot_break
 	var/s_tone
-	var/list/s_col
-	var/list/h_col
+	var/skin_color
+	var/hair_color
 	var/list/wounds = list()
 	var/number_wounds = 0 // cache the number of wounds, which is NOT wounds.len!
 	var/perma_injury = 0
@@ -165,17 +165,16 @@
 	damage = min(max_damage, (brute_dam + burn_dam))
 	return
 
-
-/obj/item/organ/external/New(var/mob/living/carbon/holder)
-	..(holder, 0)
+/obj/item/organ/external/Initialize(mapload)
+	. = ..(mapload, FALSE)
 	if(owner)
 		replaced(owner)
 		sync_colour_to_human(owner)
 
-	addtimer(CALLBACK(src, .proc/get_icon), 1)
-
 	if ((status & ORGAN_PLANT))
 		cannot_break = 1
+
+	get_icon()
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	owner = target

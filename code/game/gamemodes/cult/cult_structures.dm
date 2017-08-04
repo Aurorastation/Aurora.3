@@ -448,6 +448,9 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if (istype(source, /obj/item))
 		var/obj/item/I = source
+		if(istype(I, /obj/item/weapon/nullrod))
+			shatter()
+			return
 		if (I.damtype != BRUTE)
 			user << "You swing at the pylon to no effect."
 			return
@@ -636,48 +639,11 @@
 	new thing(src.loc)
 	qdel(src)
 
-/obj/effect/gateway/active/Crossed(var/atom/A)
-	if(!istype(A, /mob/living))
-		return
-
-	var/mob/living/M = A
-
-	if(M.stat != DEAD)
-		if(M.transforming)
-			return
-		if(M.has_brain_worms())
-			return //Borer stuff - RR
-
-		if(iscult(M)) return
-		if(!ishuman(M) && !isrobot(M)) return
-
-		M.transforming = 1
-		M.canmove = 0
-		M.icon = null
-		M.overlays.len = 0
-		M.invisibility = 101
-
-		if(istype(M, /mob/living/silicon/robot))
-			var/mob/living/silicon/robot/Robot = M
-			if(Robot.mmi)
-				qdel(Robot.mmi)
-		else
-			for(var/obj/item/W in M)
-				if(istype(W, /obj/item/weapon/implant))
-					qdel(W)
-					continue
-				W.layer = initial(W.layer)
-				W.loc = M.loc
-				W.dropped(M)
-
-		var/mob/living/new_mob = new /mob/living/simple_animal/corgi(A.loc)
-		new_mob.a_intent = I_HURT
-		if(M.mind)
-			M.mind.transfer_to(new_mob)
-		else
-			new_mob.key = M.key
-
-		new_mob << "<B>Your form morphs into that of a corgi.</B>"	//Because we don't have cluwnes
+/obj/effect/gateway/attackby(var/obj/item/I, var/mob/user)
+	..()
+	if(istype(I, /obj/item/weapon/nullrod))
+		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
+		qdel(src)
 
 /obj/effect/testtrans
 	icon = 'icons/obj/cult.dmi'

@@ -646,110 +646,88 @@ proc/GaussRandRound(var/sigma,var/roundto)
 
 	else return get_step(ref, base_dir)
 
-/proc/do_mob(mob/user , mob/target, delay = 30, numticks = 10, needhand = TRUE, display_progress = TRUE) //This is quite an ugly solution but i refuse to use the old request system.
+/proc/do_mob(mob/user, mob/target, delay = 30, needhand = TRUE, display_progress = TRUE, datum/callback/extra_checks) //This is quite an ugly solution but i refuse to use the old request system.
 	if(!user || !target)
 		return 0
+
 	var/user_loc = user.loc
 	var/target_loc = target.loc
 	var/holding = user.get_active_hand()
-	var/delayfraction = round(delay/numticks)
-	var/image/progbar
-	if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && display_progress)
-		if(!progbar)
-			progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = target, icon_state = "prog_bar_0")
-			progbar.layer = 21
-			progbar.pixel_z = WORLD_ICON_SIZE
-			progbar.appearance_flags = RESET_TRANSFORM
-	for (var/i = 1 to numticks)
-		if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && progbar && display_progress)
-			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
-			user.client.images |= progbar
-		sleep(delayfraction)
-		if(!user || !target)
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
-		if (user.loc != user_loc || target.loc != target_loc || (needhand && user.get_active_hand() != holding) || user.stat || user.weakened || user.stunned)
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
-	if(user && user.client)
-		user.client.images -= progbar
-	if(progbar)
-		progbar.loc = null
-	return 1
 
-/proc/do_after(mob/user as mob, delay as num, numticks = 10, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE)
+	var/datum/progressbar/progbar
+	if (display_progress && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS))
+		progbar = new(user, delay, target)
+
+	var/endtime = world.time + delay
+	var/starttime = world.time
+
+	. = 1
+
+	while (world.time < endtime)
+		stoplag()
+		if (progbar)
+			progbar.update(world.time - starttime)
+
+		if(QDELETED(user) || QDELETED(target))
+			. = 0
+			break
+
+		if (user.loc != user_loc || target.loc != target_loc || (needhand && user.get_active_hand() != holding) || user.stat || user.weakened || user.stunned || (extra_checks && !extra_checks.Invoke()))
+			. = 0
+			break
+
+	if (progbar)
+		qdel(progbar)
+
+/proc/do_after(mob/user as mob, delay as num, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks)
 	if(!user || isnull(user))
-		return 0
-	if(numticks == 0)
 		return 0
 
 	if (!act_target)
 		act_target = user
 
-	var/delayfraction = round(delay/numticks)
 	var/Location
 	if(use_user_turf)	//When this is true, do_after() will check whether the user's turf has changed, rather than the user's loc.
 		Location = get_turf(user)
 	else
 		Location = user.loc
+
 	var/holding = user.get_active_hand()
-	var/image/progbar
-	if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && act_target && display_progress)
-		if(!progbar)
-			progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
-			progbar.pixel_z = WORLD_ICON_SIZE
-			progbar.layer = 21
-			progbar.appearance_flags = RESET_COLOR | RESET_TRANSFORM
-	for (var/i = 1 to numticks)
-		if(user && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS) && act_target && display_progress)
-			if(!progbar)
-				progbar = image(icon = 'icons/effects/doafter_icon.dmi', loc = act_target, icon_state = "prog_bar_0")
-				progbar.pixel_z = WORLD_ICON_SIZE
-				progbar.layer = 21
-				progbar.appearance_flags = RESET_COLOR | RESET_TRANSFORM
-			progbar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
-			user.client.images |= progbar
-		sleep(delayfraction)
+
+	var/datum/progressbar/progbar
+	if (display_progress && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS))
+		progbar = new(user, delay, act_target)
+
+	var/endtime = world.time + delay
+	var/starttime = world.time
+
+	. = 1
+
+	while (world.time < endtime)
+		stoplag()
+		if (progbar)
+			progbar.update(world.time - starttime)
+
 		var/user_loc_to_check
 		if(use_user_turf)
 			user_loc_to_check = get_turf(user)
 		else
 			user_loc_to_check = user.loc
+
 		if (!user || user.stat || user.weakened || user.stunned || !(user_loc_to_check == Location))
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
+			. = 0
+			break
+
 		if(needhand && !(user.get_active_hand() == holding))	//Sometimes you don't want the user to have to keep their active hand
-			if(progbar)
-				progbar.icon_state = "prog_bar_stopped"
-				spawn(2)
-					if(user && user.client)
-						user.client.images -= progbar
-					if(progbar)
-						progbar.loc = null
-			return 0
-	if(user && user.client)
-		user.client.images -= progbar
-	if(progbar)
-		progbar.loc = null
-	return 1
+			. = 0
+			break
+
+		if (extra_checks && !extra_checks.Invoke())
+			. = 0
+			break
+
+	if (progbar)
+		qdel(progbar)
 
 //Takes: Anything that could possibly have variables and a varname to check.
 //Returns: 1 if found, 0 if not.

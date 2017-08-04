@@ -82,7 +82,7 @@
 	var/list/equipment = new
 	var/obj/item/mecha_parts/mecha_equipment/selected
 	var/max_equip = 3
-	var/datum/events/events
+	var/datum/mecha_events/events
 	var/lastcrash
 	var/crash_cooldown = 30
 

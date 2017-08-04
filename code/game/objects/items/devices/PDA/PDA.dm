@@ -223,6 +223,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	default_cartridge = /obj/item/weapon/cartridge/medical
 	icon_state = "pda-gene"
 
+/obj/item/device/pda/merchant
+	icon_state = "pda-chef"
+	hidden = 1
 
 // Special AI/pAI PDAs that cannot explode.
 /obj/item/device/pda/ai

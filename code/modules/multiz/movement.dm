@@ -72,7 +72,7 @@
 	// Actually move.
 	Move(destination)
 	return TRUE
-	
+
 /mob/living/zMove(direction)
 	if (is_ventcrawling)
 		var/obj/machinery/atmospherics/pipe/zpipe/P = loc
@@ -189,6 +189,9 @@
  * this cycle.
  */
 /atom/movable/proc/can_fall(turf/below, turf/simulated/open/dest = src.loc)
+	if (!istype(dest))
+		return FALSE
+
 	// Anchored things don't fall.
 	if(anchored)
 		return FALSE

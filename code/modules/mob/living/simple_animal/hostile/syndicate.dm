@@ -35,6 +35,8 @@
 	faction = "syndicate"
 	status_flags = CANPUSH
 
+	tameable = FALSE
+
 /mob/living/simple_animal/hostile/syndicate/death()
 	..()
 	if(corpse)
@@ -158,6 +160,8 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
+
+	tameable = FALSE
 
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")

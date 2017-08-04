@@ -578,7 +578,6 @@
 "bA" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -591,7 +590,6 @@
 "bB" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (SOUTHWEST)";
 	icon_state = "spline_fancy";
 	dir = 10
 	},
@@ -656,7 +654,6 @@
 "bO" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -665,7 +662,6 @@
 "bP" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -744,7 +740,6 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -754,7 +749,6 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (NORTHWEST)";
 	icon_state = "spline_fancy";
 	dir = 9
 	},
@@ -862,7 +856,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -889,7 +882,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
 	icon_state = "chapel";
 	dir = 8
 	},
@@ -901,7 +893,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -1109,12 +1100,10 @@
 /area/holodeck/source_gym)
 "cQ" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -1123,7 +1112,6 @@
 "cR" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
 	icon_state = "chapel";
 	dir = 8
 	},
@@ -1133,7 +1121,6 @@
 "cS" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -1161,7 +1148,6 @@
 "cU" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -1171,7 +1157,6 @@
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
 	icon_state = "chapel";
 	dir = 8
 	},
@@ -1179,12 +1164,10 @@
 /area/holodeck/source_chapel)
 "cW" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -1346,7 +1329,6 @@
 /area/holodeck/source_gym)
 "dn" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
 	icon_state = "chapel";
 	dir = 8
 	},
@@ -1356,12 +1338,10 @@
 "do" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -1381,12 +1361,10 @@
 "dq" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -1395,7 +1373,6 @@
 "dr" = (
 /obj/effect/floor_decal/chapel,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
 	icon_state = "chapel";
 	dir = 8
 	},
@@ -1576,7 +1553,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -1589,7 +1565,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (SOUTHWEST)";
 	icon_state = "spline_fancy";
 	dir = 10
 	},
@@ -1928,7 +1903,6 @@
 "eF" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (NORTHWEST)";
 	icon_state = "spline_fancy";
 	dir = 9
 	},
@@ -3369,7 +3343,6 @@
 /turf/space,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/wall/dark{
-	tag = "icon-swall_c";
 	icon_state = "swall_c"
 	},
 /area/space)
@@ -3477,7 +3450,6 @@
 /turf/space,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/wall/dark{
-	tag = "icon-swall_c (WEST)";
 	icon_state = "swall_c";
 	dir = 8
 	},
@@ -3492,7 +3464,6 @@
 /turf/space,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/wall/dark{
-	tag = "icon-swall_c (EAST)";
 	icon_state = "swall_c";
 	dir = 4
 	},
@@ -4256,7 +4227,6 @@
 "lk" = (
 /turf/space,
 /turf/simulated/shuttle/wall/dark{
-	tag = "icon-swall_c";
 	icon_state = "swall_c"
 	},
 /area/space)
@@ -6292,7 +6262,6 @@
 /obj/machinery/bodyscanner{
 	dir = 8;
 	icon_state = "body_scanner_0";
-	tag = "icon-body_scanner_0 (EAST)"
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -7319,7 +7288,6 @@
 /area/centcom/suppy)
 "rq" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -7482,7 +7450,6 @@
 /area/centcom/suppy)
 "rQ" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (WEST)";
 	icon_state = "tube1";
 	dir = 8
 	},
@@ -7990,7 +7957,6 @@
 /area/shuttle/administration/centcom)
 "sN" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (WEST)";
 	icon_state = "tube1";
 	dir = 8
 	},
@@ -8000,7 +7966,6 @@
 /area/centcom/suppy)
 "sO" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -9203,7 +9168,6 @@
 	},
 /obj/effect/decal/warning_stripes,
 /turf/unsimulated/floor{
-	tag = "icon-wood_siding2 (SOUTHEAST)";
 	icon_state = "wood_siding2";
 	dir = 6
 	},
@@ -9574,7 +9538,6 @@
 	icon_state = "engine"
 	},
 /turf/unsimulated/floor{
-	tag = "icon-wood_siding1 (SOUTHEAST)";
 	icon_state = "wood_siding1";
 	dir = 6
 	},
@@ -9711,7 +9674,6 @@
 /area/centcom/test)
 "wr" = (
 /obj/machinery/sleeper{
-	tag = "icon-sleeper_0 (WEST)";
 	icon_state = "sleeper_0";
 	dir = 8
 	},
@@ -11073,7 +11035,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	tag = "icon-wood_siding1 (SOUTHEAST)";
 	icon_state = "wood_siding1";
 	dir = 6
 	},
@@ -11085,7 +11046,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/stool,
 /turf/unsimulated/floor{
-	tag = "icon-wood_siding1 (SOUTHEAST)";
 	icon_state = "wood_siding1";
 	dir = 6
 	},
@@ -11097,7 +11057,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/storage/toolbox/electrical,
 /turf/unsimulated/floor{
-	tag = "icon-wood_siding1 (SOUTHEAST)";
 	icon_state = "wood_siding1";
 	dir = 6
 	},
@@ -11522,7 +11481,6 @@
 	pixel_y = 0
 	},
 /obj/machinery/light/small/readylight{
-	tag = "icon-bulb1 (WEST)";
 	icon_state = "bulb1";
 	dir = 8
 	},
@@ -11791,7 +11749,6 @@
 /area/centcom/holding)
 "Av" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (WEST)";
 	icon_state = "tube1";
 	dir = 8
 	},
@@ -11831,7 +11788,6 @@
 /area/shuttle/escape/centcom)
 "AB" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (EAST)";
 	icon_state = "tube1";
 	dir = 4
 	},
@@ -12178,7 +12134,6 @@
 /area/centcom/ferry)
 "Br" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -12530,7 +12485,6 @@
 /area/shuttle/transport1/centcom)
 "Cl" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (EAST)";
 	icon_state = "tube1";
 	dir = 4
 	},
@@ -12918,7 +12872,6 @@
 /area/centcom/holding)
 "Db" = (
 /obj/machinery/cryopod{
-	tag = "icon-body_scanner_0 (EAST)";
 	icon_state = "body_scanner_0";
 	dir = 4
 	},
@@ -13253,7 +13206,6 @@
 /obj/structure/table/woodentable,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -13676,7 +13628,6 @@
 "EH" = (
 /obj/vehicle/bike,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -14259,7 +14210,6 @@
 /area/centcom/holding)
 "FS" = (
 /obj/machinery/sleeper{
-	tag = "icon-sleeper_0 (WEST)";
 	icon_state = "sleeper_0";
 	dir = 8
 	},
@@ -14295,7 +14245,6 @@
 	dir = 1;
 	icon_state = "direction_civ";
 	pixel_x = 32;
-	tag = "icon-direction_civ (NORTH)"
 	},
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -14316,7 +14265,6 @@
 /area/shuttle/escape/centcom)
 "FY" = (
 /obj/machinery/sleeper{
-	tag = "icon-sleeper_0 (WEST)";
 	icon_state = "sleeper_0";
 	dir = 8
 	},
@@ -14967,7 +14915,6 @@
 /area/centcom/spawning)
 "Hs" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (WEST)";
 	icon_state = "tube1";
 	dir = 8
 	},
@@ -14982,7 +14929,6 @@
 /area/centcom/spawning)
 "Hu" = (
 /obj/machinery/light/spot{
-	tag = "icon-tube1 (EAST)";
 	icon_state = "tube1";
 	dir = 4
 	},
@@ -15018,7 +14964,6 @@
 /area/syndicate_mothership/raider_base)
 "Hy" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -15187,7 +15132,6 @@
 /obj/machinery/bodyscanner{
 	dir = 8;
 	icon_state = "body_scanner_0";
-	tag = "icon-body_scanner_0 (EAST)"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -15717,7 +15661,6 @@
 	icon_state = "left";
 	name = "Arrivals Shuttle Oversight";
 	pixel_x = 32;
-	tag = "icon-left (EAST)"
 	},
 /obj/structure/window/reinforced/crescent{
 	icon_state = "rwindow";
@@ -15938,7 +15881,6 @@
 	icon_state = "aimainframe";
 	name = "Arrivals Shuttle Oversight";
 	pixel_x = 32;
-	tag = "icon-aimainframe (EAST)"
 	},
 /obj/structure/window/reinforced/crescent{
 	icon_state = "rwindow";
@@ -15985,7 +15927,6 @@
 	icon_state = "left";
 	name = "Arrivals Shuttle Oversight";
 	pixel_x = 32;
-	tag = "icon-left (NORTHEAST)"
 	},
 /obj/structure/window/reinforced/crescent{
 	icon_state = "rwindow";
@@ -16900,7 +16841,6 @@
 	icon_state = "direction_dock";
 	pixel_x = 0;
 	pixel_y = 32;
-	tag = "icon-direction_dock (EAST)"
 	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
@@ -17152,7 +17092,6 @@
 	dir = 1;
 	icon_state = "direction_dock";
 	pixel_y = -32;
-	tag = "icon-direction_dock (NORTH)"
 	},
 /obj/structure/bed/chair/unmovable{
 	dir = 1
@@ -17460,7 +17399,6 @@
 /area/centcom/spawning)
 "MJ" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -17756,7 +17694,6 @@
 	icon_state = "direction_dock";
 	pixel_x = 0;
 	pixel_y = -32;
-	tag = "icon-direction_dock (EAST)"
 	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
@@ -17846,7 +17783,6 @@
 	allowed_species = list("Human","Skrell","Unathi","Tajara","M'sai Tajara","Zhan-Khazan Tajara","Vaurca Worker","Vaurca Warrior","Diona","Vox");
 	dir = 8;
 	icon_state = "body_scanner_0";
-	tag = "icon-body_scanner_0 (EAST)"
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -18269,7 +18205,6 @@
 /area/centcom/spawning)
 "Ow" = (
 /obj/machinery/cryopod{
-	tag = "icon-body_scanner_0 (EAST)";
 	icon_state = "body_scanner_0";
 	dir = 4
 	},
@@ -18537,7 +18472,6 @@
 /obj/item/device/radio/headset/ert,
 /obj/item/clothing/head/beret/centcom/officer,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -18827,7 +18761,6 @@
 /area/wizard_station)
 "Pz" = (
 /turf/unsimulated/floor{
-	tag = "icon-ramptop (NORTH)";
 	icon_state = "ramptop";
 	dir = 1
 	},
@@ -18870,14 +18803,12 @@
 /area/centcom/holding)
 "PD" = (
 /turf/unsimulated/floor{
-	tag = "icon-rampbottom (WEST)";
 	icon_state = "rampbottom";
 	dir = 8
 	},
 /area/centcom/spawning)
 "PE" = (
 /turf/unsimulated/floor{
-	tag = "icon-ramptop (WEST)";
 	icon_state = "ramptop";
 	dir = 8
 	},
@@ -19001,7 +18932,6 @@
 	dir = 8;
 	icon_state = "direction_civ";
 	pixel_y = -32;
-	tag = "icon-direction_civ (WEST)"
 	},
 /turf/unsimulated/floor{
 	icon_state = "red";
@@ -19014,7 +18944,6 @@
 	icon_state = "direction_dock";
 	pixel_x = 0;
 	pixel_y = -32;
-	tag = "icon-direction_dock (EAST)"
 	},
 /turf/unsimulated/floor{
 	icon_state = "red";
@@ -19531,7 +19460,6 @@
 /area/tdome/tdome1)
 "Rh" = (
 /turf/unsimulated/wall/fakeglass{
-	tag = "icon-fakewindows2 (EAST)";
 	icon_state = "fakewindows2";
 	dir = 4
 	},
@@ -79219,7 +79147,7 @@ lZ
 mW
 aN
 aN
-nv
+lC
 nB
 mA
 mA

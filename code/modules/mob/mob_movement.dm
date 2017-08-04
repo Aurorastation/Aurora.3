@@ -504,3 +504,12 @@
 	set name = ".moveleft"
 	set instant = 1
 	Move(get_step(mob, WEST), WEST)
+
+/mob/proc/update_gravity()
+	return
+
+/mob/proc/mob_has_gravity(turf/T)
+	return has_gravity(src, T)
+
+/mob/proc/mob_negates_gravity()
+	return 0

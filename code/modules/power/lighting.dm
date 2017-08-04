@@ -424,7 +424,7 @@
 	set waitfor = FALSE
 	if (flickering || !on || status != LIGHT_OK)
 		return
-	
+
 	flickering = TRUE
 	var/offset = 1
 	var/thecallback = CALLBACK(src, .proc/handle_flicker)
@@ -539,6 +539,11 @@
 
 	status = LIGHT_EMPTY
 	update()
+
+/obj/machinery/light/attack_ghost(mob/user)
+	if(round_is_spooky())
+		flicker(rand(2,5))
+	else return ..()
 
 // break the light and make sparks if was on
 
