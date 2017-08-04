@@ -4269,6 +4269,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	frequency = 1380;
+	id_tag = "ai_core_sensor_exterior";
+	master_tag = null;
+	pixel_x = 35;
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -4304,7 +4311,9 @@
 	tag_airpump = "ai_core_pump";
 	tag_chamber_sensor = "ai_core_sensor";
 	tag_exterior_door = "ai_core_outer";
-	tag_interior_door = "ai_core_inner"
+	tag_exterior_sensor = "ai_core_sensor_exterior";
+	tag_interior_door = "ai_core_inner";
+	tag_interior_sensor = "ai_core_sensor_interior"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -4390,6 +4399,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/airlock_sensor/airlock_interior{
+	frequency = 1380;
+	id_tag = "ai_core_sensor_interior";
+	master_tag = null;
+	pixel_x = -35;
+	pixel_y = -25
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
@@ -16134,7 +16150,7 @@
 /area/medical/virology)
 "Bn" = (
 /obj/machinery/camera/network/medbay{
-	c_tag = "Virology Starboard";
+	c_tag = "Medical - Virology Starboard";
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
@@ -40480,7 +40496,7 @@ aa
 aa
 ab
 ab
-bP
+gH
 ab
 ab
 ab
