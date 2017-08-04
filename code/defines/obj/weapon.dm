@@ -628,6 +628,13 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "ectoplasm"
 
+/obj/item/weapon/anomaly_core
+	name = "anomaly core"
+	desc = "An advanced bluespace device, little is know about its applications."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "anomaly_core"
+	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)
+
 /obj/item/weapon/research
 	name = "research debugging device"
 	desc = "Instant research tool. For testing purposes only."

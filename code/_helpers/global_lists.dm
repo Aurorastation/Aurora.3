@@ -76,7 +76,7 @@ var/global/list/socks_m = list(
 
 	//Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag")
-var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
+var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
 
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
@@ -133,7 +133,7 @@ var/global/list/cloaking_devices = list()
 	sortTim(facial_hair_styles_male_list, /proc/cmp_text_asc)
 	sortTim(facial_hair_styles_female_list, /proc/cmp_text_asc)
 
-	//Body markings 
+	//Body markings
 	paths = subtypesof(/datum/sprite_accessory/marking)
 	for(var/path in paths)
 		var/datum/sprite_accessory/marking/M = new path()
@@ -180,7 +180,7 @@ var/global/list/cloaking_devices = list()
 	// The other lists are generated *after* we sort the main one so they don't need sorting too.
 	for (var/thing in all_species)
 		var/datum/species/S = all_species[thing]
-		
+
 		if (!(S.spawn_flags & IS_RESTRICTED))
 			playable_species += S.name
 		if(S.spawn_flags & IS_WHITELISTED)

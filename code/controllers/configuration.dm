@@ -270,6 +270,8 @@ var/list/gamemode_cache = list()
 	var/sun_accuracy = 8
 	var/sun_target_z = 7
 
+	var/merchant_chance = 20 //Chance, in percentage, of the merchant job slot being open at round start
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -832,6 +834,9 @@ var/list/gamemode_cache = list()
 				if("fastboot")
 					fastboot = TRUE
 					world.log << "Fastboot is ENABLED."
+
+				if("merchant_chance")
+					config.merchant_chance = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

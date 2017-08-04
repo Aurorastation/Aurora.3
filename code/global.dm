@@ -60,10 +60,11 @@ var/list/wizardstart     = list()
 var/turf/newplayer_start = null
 
 //Spawnpoints.
-var/list/latejoin         = list()
-var/list/latejoin_gateway = list()
-var/list/latejoin_cryo    = list()
-var/list/latejoin_cyborg  = list()
+var/list/latejoin          = list()
+var/list/latejoin_gateway  = list()
+var/list/latejoin_cryo     = list()
+var/list/latejoin_cyborg   = list()
+var/list/latejoin_merchant = list()
 var/list/kickoffsloc = list()
 
 var/list/prisonwarp         = list() // Prisoners go to these
