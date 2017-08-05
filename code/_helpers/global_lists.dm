@@ -213,7 +213,6 @@ var/global/list/cloaking_devices = list()
 
 	// Some setup work for the eat-types lists.
 	mtl_synthetic = typecacheof(mtl_synthetic) + list(
-		/mob/living/carbon/human/machine,
 		/mob/living/simple_animal/hostile/retaliate/malf_drone,
 		/mob/living/simple_animal/hostile/viscerator,
 		/mob/living/simple_animal/spiderbot
