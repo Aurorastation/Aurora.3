@@ -47,7 +47,7 @@
 				movement_target = snack
 				foodtarget = 0//chasing mice takes precedence over eating food
 				if(prob(15))
-					audible_emote(pick("hisses and spits!","hisses at the [snack]","eyes [snack] hungrily."))
+					audible_emote(pick("hisses and spits!","hisses at the [snack]!","eyes [snack] hungrily."))
 				break
 
 		if(!buckled)
