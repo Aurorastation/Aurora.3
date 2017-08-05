@@ -262,9 +262,48 @@
 	emote_hear = list("hisses")
 	emote_see = list("slithers")
 	holder_type = null
+	can_nap = 0//sneks do not sleep
 
-/mob/living/simple_animal/cat/snek/corpus
+/mob/living/simple_animal/cat/snek/fluff/Corpus
 	name = "Corpus"
+	befriend_job = "Chief Medical Officer"
+
+
+/mob/living/simple_animal/cat/snek/fluff/verb/friend()
+	set name = "Become Friends"
+	set category = "IC"
+	set src in view(1)
+
+	if(friend && usr == friend)
+		set_dir(get_dir(src, friend))
+		say("Hisss")
+		return
+
+	if (!(ishuman(usr) && befriend_job && usr.job == befriend_job))
+		usr << "<span class='notice'>[src] ignores you.</span>"
+		return
+
+	friend = usr
+
+/mob/living/simple_animal/cat/snek/fluff/Life()
+	..()
+	if (stat || QDELETED(friend))
+		return
+	if (get_dist(src, friend) <= 1)
+		if (friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit)
+			if (prob((friend.stat < DEAD)? 50 : 15))
+				var/verb = pick("Hisses")
+				audible_emote(pick("[verb] in distress.", "[verb] anxiously."))
+		else
+			if (prob(5))
+				visible_emote(pick("nuzzles [friend].",
+								   "brushes against [friend].",
+								   "rubs against [friend].",
+								   "Hisses seductively."),0)
+	else if (friend.health <= 50)
+		if (prob(10))
+			var/verb = pick("Hisses")
+			audible_emote("[verb].")
 
 /mob/living/simple_animal/cat/fluff/Runtime/death()
 	.=..()
