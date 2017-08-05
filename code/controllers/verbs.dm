@@ -12,8 +12,7 @@
 	"Jobs",
 	"Configuration",
 	"Cameras",
-	"Gas Data",
-	"Observation"
+	"Gas Data"
 )
 
 /client/proc/debug_controller(controller in controller_debug_list)
@@ -32,7 +31,4 @@
 		if("Gas Data")
 			debug_variables(gas_data)
 			feedback_add_details("admin_verb","DGasdata")
-		if("Observation")
-			debug_variables(all_observable_events)
-			feedback_add_details("admin_verb", "DObservation")
 	message_admins("Admin [key_name_admin(usr)] is debugging the [controller] controller.")

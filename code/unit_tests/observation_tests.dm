@@ -1,5 +1,5 @@
 /proc/is_listening_to_movement(var/atom/movable/listening_to, var/listener)
-	return moved_event.is_listening(listening_to, listener)
+	return listening_to.move_listeners && listening_to.move_listeners[listener]
 
 datum/unit_test/observation
 	name = "OBSERVATION template"
