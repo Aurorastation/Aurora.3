@@ -249,6 +249,11 @@
 	befriend_job = "Chief Medical Officer"
 	holder_type = /obj/item/weapon/holder/cat/black
 
+//Advanced Noodle AI.
+/mob/living/simple_animal/cat/snek/fluff
+	var/mob/living/carbon/human/friend
+	var/befriend_job = null
+
 //something you shouldn't step on
 /mob/living/simple_animal/cat/snek
 	name = "snake"
@@ -304,6 +309,7 @@
 		if (prob(10))
 			var/verb = pick("Hisses")
 			audible_emote("[verb].")
+
 
 /mob/living/simple_animal/cat/fluff/Runtime/death()
 	.=..()
