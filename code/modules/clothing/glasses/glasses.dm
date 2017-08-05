@@ -107,7 +107,7 @@
 		to_chat(user, "You change \the [src] to cover the left eye.")
 	else
 		src.icon_state = initial(icon_state)
-		src.icon_state = initial(icon_state)"
+		src.icon_state = initial(icon_state)
 		to_chat(user, "You change \the [src] to cover the right eye..")
 	user.update_inv_glasses()
 
