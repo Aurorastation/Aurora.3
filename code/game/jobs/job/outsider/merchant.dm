@@ -5,7 +5,7 @@
 	flag = MERCHANT
 	department_flag = CIVILIAN
 	total_positions = 0
-	spawn_positions = 1
+	spawn_positions = 0
 	supervisors = "yourself and the market"
 	selection_color = "#515151"
 	idtype = /obj/item/weapon/card/id/merchant
@@ -33,4 +33,4 @@
 /datum/job/merchant/New()
 	..()
 	if(prob(config.merchant_chance))
-		spawn_positions = 0
+		spawn_positions = 1
