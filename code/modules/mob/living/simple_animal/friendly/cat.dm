@@ -213,8 +213,8 @@
 								   "purrs."),0)
 	else if (friend.health <= 50)
 		if (prob(10))
-			var/verb = pick("meows", "mews", "mrowls")
-			audible_emote("[verb] anxiously.")
+			var/catnoise = pick("meows", "mews", "mrowls")
+			audible_emote("[catnoise] anxiously.")
 
 /mob/living/simple_animal/cat/fluff/verb/friend()
 	set name = "Become Friends"
@@ -263,9 +263,9 @@
 	icon_dead = "snek_dead"
 	gender = NEUTER
 	speak = list("SssssSSSS.", "Slirp.","HSSSSS")
-	speak_emote = list("hisses")
-	emote_hear = list("hisses")
-	emote_see = list("slithers")
+	speak_emote = ("hisses")
+	emote_hear = ("hisses")
+	emote_see = list("slithers, tastes the air.")
 	holder_type = null
 	can_nap = 0//sneks do not sleep
 
@@ -297,18 +297,16 @@
 	if (get_dist(src, friend) <= 1)
 		if (friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit)
 			if (prob((friend.stat < DEAD)? 50 : 15))
-				var/verb = pick("Hisses")
-				audible_emote(pick("[verb] in distress.", "[verb] anxiously."))
+				audible_emote(pick("hisses."))
 		else
 			if (prob(5))
 				visible_emote(pick("nuzzles [friend].",
 								   "brushes against [friend].",
 								   "rubs against [friend].",
-								   "Hisses seductively."),0)
+								   "hisses happily."),0)
 	else if (friend.health <= 50)
 		if (prob(10))
-			var/verb = pick("Hisses")
-			audible_emote("[verb].")
+			audible_emote("hisses.")
 
 
 /mob/living/simple_animal/cat/fluff/Runtime/death()
