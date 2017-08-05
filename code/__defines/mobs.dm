@@ -181,7 +181,7 @@
 #define TYPE_ORGANIC	1//Almost any creature under /mob/living/carbon and most simple animals
 #define	TYPE_SYNTHETIC	2//Everything under /mob/living/silicon, plus IPCs, viscerators
 #define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
-#define TYPE_WIERD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
+#define TYPE_WEIRD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 
 // Maximum number of chickens allowed at once.
 // If the number of chickens on the map exceeds this, laid eggs will not hatch.

@@ -15,18 +15,12 @@
 		//Mob is fully digested when it has taken genetic damage equal to its max health.  This continues past death if necessary
 		//Devouring is interrupted if you or the mob move away from each other, or if the eater gets disabled.
 
-#define PPM	9//Protein per meat, used for calculating the quantity of protein in an animal
+#define PPM 9	//Protein per meat, used for calculating the quantity of protein in an animal
 
-
-/mob/living/var/swallowed_mob = 0
-//This is set true if there are any mobs in this mob's contents. they will be slowly digested.
-//just used as a boolean to minimise extra processing
-
-/mob/living/var/mob/living/devouring = null
-//If we are currently devouring a mob, a reference to it goes here.
+/mob/living
+	var/mob/living/devouring	// The mob we're currently eating, if any.
 
 /mob/living/proc/attempt_devour(var/mob/living/victim, var/eat_types, var/mouth_size = null)
-
 
 	//This function will attempt to eat the victim,
 	//either by swallowing them if they're small enough, or starting to devour them otherwise
@@ -135,18 +129,17 @@
 
 	src.visible_message("<span class='danger'>[src] starts devouring [victim]</span>","<span class='danger'>You start devouring [victim], this will take approximately [time_needed_string]. You and the victim must remain still to continue, but you can interrupt feeding anytime and leave with what you've already eaten.</span>")
 
-	var/i = 0
-	for (i=0;i < num_bites_needed;i++)
-		if(do_mob(src, victim, bite_delay*10) && devouring == victim)
+	for (var/i = 1 to num_bites_needed)
+		if(do_mob(src, victim, bite_delay*10, extra_checks = CALLBACK(src, .proc/devouring_equals, victim)))
 			face_atom(victim)
 			victim.adjustCloneLoss(victim_maxhealth*PEPB)
 			victim.adjustHalLoss(victim_maxhealth*PEPB*5)//Being eaten hurts!
-			src.ingested.add_reagent(victim.composition_reagent, victim.composition_reagent_quantity*PEPB)
-			src.visible_message("<span class='danger'>[src] bites a chunk out of [victim]</span>","<span class='danger'>[bitemessage(victim)]</span>")
+			ingested.add_reagent(victim.composition_reagent, victim.composition_reagent_quantity*PEPB)
+			visible_message("<span class='danger'>[src] bites a chunk out of [victim]</span>","<span class='danger'>[bitemessage(victim)]</span>")
 			if (messes < victim.mob_size - 1 && prob(50))
 				handle_devour_mess(src, victim, vessel)
 			if (victim.cloneloss >= victim_maxhealth)
-				src.visible_message("[src] finishes devouring [victim]","You finish devouring [victim]")
+				visible_message("[src] finishes devouring [victim].","You finish devouring [victim].")
 				handle_devour_mess(src, victim, vessel, 1)
 				qdel(victim)
 				devouring = null
@@ -156,39 +149,47 @@
 			if (victim && victimloc != victim.loc)
 				src << "<span class='danger'>[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.</span>"
 			else if (ourloc != src.loc)
-				src << "<span class='danger'>You moved! Devouring cancelled</span>"
+				src << "<span class='danger'>You moved! Devouring cancelled.</span>"
 			else
-				src << "Devouring Cancelled"//reason unknown, maybe the eater got stunned?
+				src << "Devouring Cancelled."//reason unknown, maybe the eater got stunned?
 				//This can also happen if you start devouring something else
 			break
+
+/mob/living/proc/devouring_equals(target)
+	return target && devouring == target
 
 //this function gradually digests things inside the mob's contents.
 //It is called from life.dm. Any creatures that don't want to digest their contents simply don't call it
 /mob/living/proc/handle_stomach()
-	for(var/mob/living/M in stomach_contents)
-		if(M.loc != src)//if something somehow escaped the stomach, then we remove it
-			LAZYREMOVE(stomach_contents, M)
-			continue
+	if (stomach_contents)
+		for(var/thing in stomach_contents)
+			var/mob/living/M = thing
+			if(M.loc != src)//if something somehow escaped the stomach, then we remove it
+				LAZYREMOVE(stomach_contents, M)
+				continue
 
-		if(!M.composition_reagent_quantity)
-			M.calculate_composition()
+			if(!M.composition_reagent_quantity)
+				M.calculate_composition()
 
-		var/digestion_power = (((mob_size * mob_size)/10) / (M.mob_size * M.mob_size))
-		var/digestion_time = digestion_power * 60	//Number of seconds it will take to digest in total
-		var/DPPP = 1 / (digestion_time / 2.1)	//Digestion percentage per proc
-		M.adjustCloneLoss(M.maxHealth*DPPP)
-		//Digestion power is how much of the creature we can digest per minute. Calculated as a tenth of our mob size squared, divided by the victim's mob size squared
-		//If the resulting value is >1, digestion will take under a minute.
-		src.ingested.add_reagent(M.composition_reagent, M.composition_reagent_quantity*DPPP)
-		if ((M.stat != DEAD) && (M.cloneloss > (M.maxHealth*0.5)))	//If we've consumed half of the victim, then it dies
-			M.death()
-			M.stat = DEAD //Just in case the death function doesn't set it
-			src << "Your stomach feels a little more relaxed as \the [M] finally stops fighting."
+			var/dmg_factor = 4*log(M.mob_size)+1
+			if (dmg_factor <= 0)
+				dmg_factor = 1
 
-		if (M.cloneloss >= M.maxHealth)	//If we've consumed all of it, then digestion is finished.
-			LAZYREMOVE(stomach_contents, M)
-			src << "Your stomach feels a little more empty as you finish digesting \the [M]."
-			qdel(M)
+			M.adjustBruteLoss(dmg_factor * 0.33)
+			M.adjustFireLoss(dmg_factor * 0.66)
+
+			ingested.add_reagent(M.composition_reagent, M.composition_reagent_quantity * 1/dmg_factor)
+
+			if (M.stat == DEAD && !stomach_contents[M])	// If the mob has died, poke the consuming mob about it.
+				src << "Your stomach feels a little more relaxed as \the [M] finally stops fighting."
+				stomach_contents[M] = TRUE	// So the message doesn't play more than once.
+				continue
+
+			var/damage_dealt = (M.getFireLoss() * 0.66) + (M.getBruteLoss() * 0.33)
+			if (stomach_contents[M] && (damage_dealt >= M.maxHealth))	//If we've consumed all of it, then digestion is finished.
+				LAZYREMOVE(stomach_contents, M)
+				src << "Your stomach feels a little more empty as you finish digesting \the [M]."
+				qdel(M)
 
 //Helpers
 /proc/bitemessage(var/mob/living/victim)
@@ -238,7 +239,6 @@
 		return 1
 	return 0
 
-
 /proc/devour_add_blood(var/mob/living/M, var/turf/location, var/datum/reagents/vessel)
 	for(var/datum/reagent/blood/source in vessel.reagent_list)
 		var/obj/effect/decal/cleanable/blood/B = new /obj/effect/decal/cleanable/blood(location)
@@ -271,23 +271,8 @@
 /proc/is_valid_for_devour(var/mob/living/test, var/eat_types)
 	var/mobtypes = test.find_type()//We find a bitfield of types for the victim
 
-	//Then for each type the victim has, we test if we're allowed to eat that type.
-	//eat_types must contain all types that the mob has. For example we need both humanoid and synthetic to eat an IPC
-	if (mobtypes & TYPE_SYNTHETIC)
-		if (!(eat_types & TYPE_SYNTHETIC))
-			return 0
-	if (mobtypes & TYPE_HUMANOID)
-		if (!(eat_types & TYPE_HUMANOID))
-			return 0
-	if (mobtypes & TYPE_WIERD)
-		if (!(eat_types & TYPE_WIERD))
-			return 0
-	if (mobtypes & TYPE_ORGANIC)
-		if (!(eat_types & TYPE_ORGANIC))
-			return 0
-
-	//If we get here, none of the checks have failed, the mob must be valid!
-	return 1
+	//eat_types must contain all types that the mob has. For example we need both humanoid and synthetic to eat an IPC.
+	. = (mobtypes & eat_types) == eat_types
 
 /mob/living/proc/calculate_composition()
 	if (!composition_reagent)//if no reagent has been set, then we'll set one

@@ -12,6 +12,7 @@
 	has_fine_manipulation = 0
 	siemens_coefficient = 0
 	gluttonous = GLUT_ANYTHING
+	mouth_size = 15	// Should be larger than any human-type.
 	fall_mod = 0
 
 	eyes = "blank_eyes"
