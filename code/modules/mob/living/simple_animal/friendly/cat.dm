@@ -249,6 +249,23 @@
 	befriend_job = "Chief Medical Officer"
 	holder_type = /obj/item/weapon/holder/cat/black
 
+//something you shouldn't step on
+/mob/living/simple_animal/cat/snek
+	name = "snake"
+	desc = "sssSSSSsss"
+	icon_state = "snek"
+	icon_living = "snek"
+	icon_dead = "snek_dead"
+	gender = NEUTER
+	speak = list("SssssSSSS.", "Slirp.","HSSSSS")
+	speak_emote = list("hisses")
+	emote_hear = list("hisses")
+	emote_see = list("slithers")
+	holder_type = null
+
+/mob/living/simple_animal/cat/snek/corpus
+	name = "Corpus"
+
 /mob/living/simple_animal/cat/fluff/Runtime/death()
 	.=..()
 	desc = "Oh no, Runtime is dead! What kind of monster would do this?"
