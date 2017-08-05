@@ -125,11 +125,6 @@
 #define MOB_TINY 		4
 #define MOB_MINISCULE	1
 
-// Gluttony levels.
-#define GLUT_TINY 1       // Eat anything tiny and smaller
-#define GLUT_SMALLER 2    // Eat anything smaller than we are
-#define GLUT_ANYTHING 3   // Eat anything, ever
-
 #define BASE_MAX_NUTRITION	400
 #define HUNGER_FACTOR		0.05 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
 
