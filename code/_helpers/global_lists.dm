@@ -94,6 +94,25 @@ var/global/list/syndicate_access = list(access_maint_tunnels, access_syndicate, 
 //Cloaking devices
 var/global/list/cloaking_devices = list()
 
+// Devour types (these are typecaches). Only simple_animals check these, other types are handled specially.
+/var/list/mtl_synthetic = list(
+	/mob/living/simple_animal/hostile/hivebot
+)
+
+/var/list/mtl_weird = list(
+	/mob/living/simple_animal/construct,
+	/mob/living/simple_animal/shade,
+	/mob/living/simple_animal/slime,
+	/mob/living/simple_animal/hostile/faithless
+)
+
+// Actual human mobs are delibrately not in this list as they are handled elsewhere.
+/var/list/mtl_humanoid = list(
+	/mob/living/simple_animal/hostile/pirate,
+	/mob/living/simple_animal/hostile/russian,
+	/mob/living/simple_animal/hostile/syndicate
+)
+
 //////////////////////////
 /////Initial Building/////
 //////////////////////////
@@ -191,6 +210,17 @@ var/global/list/cloaking_devices = list()
 	for(var/T in paths)
 		var/datum/poster/P = new T
 		poster_designs += P
+
+	// Some setup work for the eat-types lists.
+	mtl_synthetic = typecacheof(mtl_synthetic) + list(
+		/mob/living/simple_animal/hostile/retaliate/malf_drone,
+		/mob/living/simple_animal/hostile/viscerator,
+		/mob/living/simple_animal/spiderbot
+	)
+
+	mtl_weird = typecacheof(mtl_weird) + /mob/living/simple_animal/adultslime
+
+	mtl_humanoid = typecacheof(mtl_humanoid)
 
 	return 1
 
