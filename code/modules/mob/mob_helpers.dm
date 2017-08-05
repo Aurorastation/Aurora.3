@@ -1009,6 +1009,8 @@ proc/is_blind(A)
 /mob/living/carbon/human/find_type()
 	. = ..()
 	. |= isSynthetic() ? TYPE_SYNTHETIC : TYPE_ORGANIC
+	if (!islesserform(src))
+		. |= TYPE_HUMANOID
 
 /mob/living/carbon/slime/find_type()
 	. = ..()

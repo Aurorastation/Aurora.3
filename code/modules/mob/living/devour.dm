@@ -3,11 +3,9 @@
 //There are two ways to eat a mob:
 	//Swallowing whole can only be done if the mob is sufficiently small
 		//It will place the mob inside you, and slowly digest it,
-			//Digesting deals genetic damage to the victim,
-			//drains blood from it,
-				//and adds protein to your stomach, based on the quantitys.
+			//Digesting deals brute+fire damage to the victim and adds protein to your stomach based on the damage dealt.
 			//Mob will be deleted from your contents when fully digested.
-				//Mob is fully digested when it has taken genetic damage equal to its max health. This continues past death if necessary
+				//Mob is fully digested when it has taken fire+brute damage equal to its max health plus 50% (calculated after death)
 
 	//Devouring eats the mob piece by piece. Taking a bite periodically
 		//Each bite deals genetic damage, and drains blood.
@@ -75,23 +73,28 @@
 		devour_gradual(victim,mouth_size)
 
 /mob/living/proc/swallow(var/mob/living/victim, var/mouth_size)
+	set waitfor = FALSE
 	//This function will move the victim inside the eater's contents.. There they will be digested over time
 
 	var/swallow_time = max(3 + (victim.mob_size * victim.mob_size) - mouth_size, 3)
 	src.visible_message("[src] starts swallowing \the [victim]!","You start swallowing \the [victim], this will take approximately [swallow_time] seconds.")
 	var/turf/ourloc = src.loc
 	var/turf/victimloc = victim.loc
-	if (do_mob(src, victim, swallow_time*10))
+	devouring = victim
+	if (do_mob(src, victim, swallow_time*10, extra_checks = CALLBACK(src, .proc/devouring_equals, victim)))
 		victim.forceMove(src)
 		LAZYADD(stomach_contents, victim)
 	else if (victimloc != victim.loc)
 		src << "[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first."
 	else if (ourloc != src.loc)
 		src << "You moved! Can't eat if you move away from the victim"
-	else
+	else if (devouring)
 		src << "Swallowing failed!"//reason unknown, maybe the eater got stunned?
 
+	devouring = null
+
 /mob/living/proc/devour_gradual(var/mob/living/victim, var/mouth_size)
+	set waitfor = FALSE
 	//This function will start consuming the victim by taking bites out of them.
 	//Victim or attacker moving will interrupt it
 	//A bite will be taken every 4 seconds
@@ -171,12 +174,12 @@
 			if(!M.composition_reagent_quantity)
 				M.calculate_composition()
 
-			var/dmg_factor = 4*log(M.mob_size)+1
+			var/dmg_factor = 2*log(M.mob_size)	// log(n) is natural log in BYOND.
 			if (dmg_factor <= 0)
-				dmg_factor = 1
+				dmg_factor = 0.5
 
-			M.adjustBruteLoss(dmg_factor * 0.33)
-			M.adjustFireLoss(dmg_factor * 0.66)
+			M.adjustBruteLoss(round(dmg_factor * 0.33, 0.1) || 0.1)
+			M.adjustFireLoss(round(dmg_factor * 0.66, 0.1) || 0.1)
 
 			ingested.add_reagent(M.composition_reagent, M.composition_reagent_quantity * 1/dmg_factor)
 
@@ -186,7 +189,7 @@
 				continue
 
 			var/damage_dealt = (M.getFireLoss() * 0.66) + (M.getBruteLoss() * 0.33)
-			if (stomach_contents[M] && (damage_dealt >= M.maxHealth))	//If we've consumed all of it, then digestion is finished.
+			if (stomach_contents[M] && (damage_dealt >= M.maxHealth * 1.5))	//If we've consumed all of it (plus a bit), then digestion is finished.
 				LAZYREMOVE(stomach_contents, M)
 				src << "Your stomach feels a little more empty as you finish digesting \the [M]."
 				qdel(M)
@@ -269,10 +272,8 @@
 	return 0
 
 /proc/is_valid_for_devour(var/mob/living/test, var/eat_types)
-	var/mobtypes = test.find_type()//We find a bitfield of types for the victim
-
 	//eat_types must contain all types that the mob has. For example we need both humanoid and synthetic to eat an IPC.
-	. = (mobtypes & eat_types) == eat_types
+	. = (test.find_type() & eat_types) == eat_types
 
 /mob/living/proc/calculate_composition()
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
