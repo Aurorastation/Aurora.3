@@ -29,6 +29,9 @@ JOBS_HAVE_MINIMAL_ACCESS
 ## Non-automatic antagonist recruitment, such as being converted to cultism is not affected. Has the same database requirements and notes as USE_AGE_RESTRICTION_FOR_JOBS.
 #USE_AGE_RESTRICTION_FOR_ANTAGS
 
+## Unhash to enable loading of age restrictions from age_restrictions.txt.
+#LOAD_AGE_RESTRICTIONS_FROM_FILE
+
 ## Unhash this to use recursive explosions, keep it hashed to use circle explosions. Recursive explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU and are (as of january 2013) experimental
 #USE_RECURSIVE_EXPLOSIONS
 
