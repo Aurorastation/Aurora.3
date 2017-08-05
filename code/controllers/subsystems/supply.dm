@@ -86,7 +86,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		return load_from_json()
 	else
 		//Populate the items missing a name or a description with the missing name / description
-		var/DBQuery/item_null_query = dbcon.NewQuery("SELECT path, name, description, suppliers, id FROM ss13_cargo_items WHERE name IS NULL OR description IS NULL OR suppliers IS NULL" )
+		var/DBQuery/item_null_query = dbcon.NewQuery("SELECT path, name, description, suppliers, id FROM ss13_cargo_items WHERE (name IS NULL OR description IS NULL OR suppliers IS NULL) AND deleted_at IS NULL" )
 		item_null_query.Execute()
 		while(item_null_query.NextRow())
 			//Spawn the item with the path
@@ -125,7 +125,7 @@ var/datum/controller/subsystem/cargo/SScargo
 				qdel(cargoitem)
 
 		//Load the categories
-		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories ORDER BY order_by ASC")
+		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
 		category_query.Execute()
 		while(category_query.NextRow())
 			log_debug("Cargo Categories: Loading Category: [category_query.item[1]]")
@@ -134,13 +134,13 @@ var/datum/controller/subsystem/cargo/SScargo
 			cc.display_name = category_query.item[2]
 			cc.description = category_query.item[3]
 			cc.icon = category_query.item[4]
-			cc.price_modifier = category_query.item[5]
+			cc.price_modifier = text2num(category_query.item[5])
 
 			//Add the caregory to the cargo_categories list
 			cargo_categories[cc.name] = cc
 
 		//Load the suppliers
-		var/DBQuery/supplier_query = dbcon.NewQuery("SELECT short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers")
+		var/DBQuery/supplier_query = dbcon.NewQuery("SELECT short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
 		supplier_query.Execute()
 		while(supplier_query.NextRow())
 			log_debug("Cargo Supplier: Loading Supplier: [supplier_query.item[1]]")
@@ -149,15 +149,15 @@ var/datum/controller/subsystem/cargo/SScargo
 			cs.name = supplier_query.item[2]
 			cs.description = supplier_query.item[3]
 			cs.tag_line = supplier_query.item[4]
-			cs.shuttle_time = supplier_query.item[5]
-			cs.shuttle_price = supplier_query.item[6]
-			cs.available = supplier_query.item[7]
-			cs.price_modifier = supplier_query.item[8]
+			cs.shuttle_time = text2num(supplier_query.item[5])
+			cs.shuttle_price = text2num(supplier_query.item[6])
+			cs.available = text2num(supplier_query.item[7])
+			cs.price_modifier = text2num(supplier_query.item[8])
 
 			cargo_suppliers[cs.short_name] = cs
 
 		//Load the items
-		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, name, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_items ORDER BY order_by")
+		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, name, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_items WHERE deleted_at is NULL ORDER BY order_by")
 		item_query.Execute()
 		while(item_query.NextRow())
 			log_debug("Cargo Items: Loading Item: [item_query.item[2]]")
@@ -166,16 +166,20 @@ var/datum/controller/subsystem/cargo/SScargo
 				log_debug("Cargo Items: Warning - Attempted to add item with invalid path: [item_query.item[2]] - [item_query.item[1]]")
 				continue
 			var/datum/cargo_item/ci = new()
-			ci.path = item_query.item[1]
-			ci.name = item_query.item[2]
-			ci.description = item_query.item[3]
-			ci.categories = json_decode(item_query.item[4])
-			ci.suppliers = json_decode(item_query.item[5])
-			ci.amount = item_query.item[6]
-			ci.access = item_query.item[7]
-			ci.container_type = item_query.item[8]
-			ci.groupable = item_query.item[9]
-			log_debug("Cargo Items: Loaded Item: [ci.name]")
+			try
+				ci.path = item_query.item[1]
+				ci.name = item_query.item[2]
+				ci.description = item_query.item[3]
+				ci.categories = json_decode(item_query.item[4])
+				ci.suppliers = json_decode(item_query.item[5])
+				ci.amount = text2num(item_query.item[6])
+				ci.access = text2num(item_query.item[7]) //TODO: Maybe add the option to specify tha access as string instead of number
+				ci.container_type = item_query.item[8]
+				ci.groupable = text2num(item_query.item[9])
+			catch(var/exception/e)
+				log_debug("Cargo Items: Error when loading item: [e]")
+				qdel(ci)
+				continue
 
 			//Verify the suppliers exist
 			for(var/sup in ci.suppliers)
@@ -190,6 +194,10 @@ var/datum/controller/subsystem/cargo/SScargo
 			//Add the item to the cargo_items list
 			cargo_items[ci.path] = ci
 
+			//Log a message if no categories are specified
+			if(ci.categories.len == 0)
+				log_debug("Cargo Items: No categories speicfied for item")
+
 			//Add the item to the categories
 			for(var/category in ci.categories)
 				var/datum/cargo_category/cc = cargo_categories[category]
@@ -197,6 +205,8 @@ var/datum/controller/subsystem/cargo/SScargo
 					cc.items.Add(ci)
 				else
 					log_debug("Cargo Items: Warning - Attempted to add item to category [category] that does not exist")
+			
+			log_debug("Cargo Items: Loaded Item: [ci.name]")
 		return 1
 
 //Loads the cargo data from JSON	
