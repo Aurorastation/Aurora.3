@@ -236,7 +236,7 @@
 		return
 
 	var/types = victim.find_type()
-	if ((!(types & TYPE_ORGANIC)) || ((types & TYPE_WIERD)))
+	if ((!(types & TYPE_ORGANIC)) || ((types & TYPE_WEIRD)))
 		//Invalid sacrifice. Display a message and return
 		speak_to(user, "This soulless automaton cannot satisfy our hunger. We yearn for life essence, it must have a soul.")
 		return

@@ -119,8 +119,13 @@
 	return (current_positions < total_positions) || (total_positions == -1)
 
 /datum/job/proc/fetch_age_restriction()
+	if (!config.age_restrictions_from_file)
+		return
+
 	if (config.age_restrictions[lowertext(title)])
 		minimal_player_age = config.age_restrictions[lowertext(title)]
+	else
+		minimal_player_age = 0
 
 /datum/job/proc/late_equip(var/mob/living/carbon/human/H)
 	if(!H)

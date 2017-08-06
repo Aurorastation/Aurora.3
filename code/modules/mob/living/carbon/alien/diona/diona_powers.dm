@@ -222,7 +222,7 @@
 		donor.adjustBruteLoss(4)
 		nutrition += 20
 		return
-	else if (types & TYPE_WIERD)
+	else if (types & TYPE_WEIRD)
 		src.visible_message("<span class='danger'>[src] attempts to bite into [donor.name] but passes right through it!.</span>", "<span class='danger'>You attempt to sink your fangs into [donor.name] but pass right through it!</span>")
 		return
 	else if (donor.is_diona())

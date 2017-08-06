@@ -1002,134 +1002,74 @@ proc/is_blind(A)
 //Below here is stuff related to devouring, but which is generally helpful and thus placed here
 //See Devour.dm for more info in how these are used
 
-
-
-//Blacklists of mobs that can be excluded from eating by flags in the bitfield
-
-//All of these specific human subtypes are here for a reason.
-//Using /mob/living/carbon/human as a generic type would include monkey/stok/farwa/neara.
-//We do not want those to count as humanoids, only player species
-var/list/humanoid_mobs_specific = list( /mob/living/carbon/human,
-	/mob/living/carbon/human/bst,
-	/mob/living/carbon/human/skrell,
-	/mob/living/carbon/human/unathi,
-	/mob/living/carbon/human/diona,
-	/mob/living/carbon/human/tajaran,
-	/mob/living/carbon/human/vox,
-	/mob/living/carbon/human/machine,
-	/mob/living/carbon/human/type_a,
-	/mob/living/carbon/human/type_b
-	)
-
-var/list/humanoid_mobs_inclusive = list(
-	/mob/living/simple_animal/hostile/pirate,
-	/mob/living/simple_animal/hostile/russian,
-	/mob/living/simple_animal/hostile/syndicate
-	)
-
-var/list/synthetic_mobs_specific = list(
-	/mob/living/carbon/human/machine,
-	/mob/living/simple_animal/hostile/retaliate/malf_drone,
-	/mob/living/simple_animal/hostile/viscerator,
-	/mob/living/simple_animal/spiderbot
-	)
-
-
-var/list/synthetic_mobs_inclusive = list( /mob/living/silicon,
-	/mob/living/simple_animal/hostile/hivebot,
-	/mob/living/bot
-	)
-
-var/list/wierd_mobs_specific = list(/mob/living/simple_animal/adultslime)
-
-var/list/wierd_mobs_inclusive = list( /mob/living/simple_animal/construct,
-	/mob/living/simple_animal/shade,
-	/mob/living/simple_animal/slime,
-	/mob/living/simple_animal/hostile/faithless,
-	/mob/living/carbon/slime
-	)
-
-
+// Returns a bitfield representing the mob's type as relevant to the devour system.
 /mob/proc/find_type()
-	if (istype(src, /mob/living))
-		var/mob/living/L = src
-		return L.find_type()
 	return 0
 
-/mob/living/find_type()
-	//This function returns a bitfield indicating what type(s) the passed mob is.
-	//Synthetic and wierd are exclusive from organic. We assume it's organic if it's not either of those
-	//var/mob/living/test = src
-	var/mobtypes = 0
+/mob/living/carbon/human/find_type()
+	. = ..()
+	. |= isSynthetic() ? TYPE_SYNTHETIC : TYPE_ORGANIC
+	if (!islesserform(src))
+		. |= TYPE_HUMANOID
 
-	if (mob_listed(src, synthetic_mobs_specific,1))
-		mobtypes |= TYPE_SYNTHETIC
-	else if (mob_listed(src, synthetic_mobs_inclusive,0))
-		mobtypes |= TYPE_SYNTHETIC
-	else
-		if (isSynthetic())
-			mobtypes |= TYPE_SYNTHETIC
+/mob/living/carbon/slime/find_type()
+	. = ..()
+	. |= TYPE_WEIRD
 
-	if (mob_listed(src, wierd_mobs_specific,1))
-		mobtypes |= TYPE_WIERD
-	else if (mob_listed(src, wierd_mobs_inclusive,0))
-		mobtypes |= TYPE_WIERD
+/mob/living/bot/find_type()
+	. = ..()
+	. |= TYPE_SYNTHETIC
 
-	if (!(mobtypes & TYPE_WIERD) && !(mobtypes & TYPE_SYNTHETIC))
-		mobtypes |= TYPE_ORGANIC
+// Yeah, I'm just going to cheat and do istype(src) checks here.
+// It's not worth adding a proc for every single one of these types.
+/mob/living/simple_animal/find_type()
+	. = ..()
+	if (is_type_in_typecache(src, global.mtl_synthetic))
+		. |= TYPE_SYNTHETIC
 
+	if (is_type_in_typecache(src, global.mtl_weird))
+		. |= TYPE_WEIRD
 
-	if (mob_listed(src, humanoid_mobs_specific,1))
-		mobtypes |= TYPE_HUMANOID
-	else if (mob_listed(src, humanoid_mobs_inclusive,0))
-		mobtypes |= TYPE_HUMANOID
+	// If it's not TYPE_SYNTHETIC or TYPE_WEIRD, we can assume it's TYPE_ORGANIC.
+	if (!(. & (TYPE_SYNTHETIC|TYPE_WEIRD)))
+		. |= TYPE_ORGANIC
 
-	return mobtypes
+	if (is_type_in_typecache(src, global.mtl_humanoid))
+		. |= TYPE_HUMANOID
 
+/mob/living/proc/get_vessel(create = FALSE)
+	if (!create)
+		return
 
-//This function attempts to find the mob's blood vessel, if it has one.
-//If it doesn't, and the create var is true, then it will create a new temporary one filled with blood that has fake DNA, and return that
-//If no vessel and no create var, then null is returned, getting blood isnt possible.
-//The fake DNA is generally useful for animals, it contains enough information to tell what kind of creature it came from
-/mob/living/proc/get_vessel(var/create = 0)
-	//Add any other creatures which have blood, here
-	if(istype(src, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = src
-		return H.vessel
-	else if (istype(src, /mob/living/carbon/alien/diona))
-		var/mob/living/carbon/alien/diona/D = src
-		return D.vessel
-	else if (create)
+	//we make a new vessel for whatever creature we're devouring. this allows blood to come from creatures that can't normally bleed
+	//We create an MD5 hash of the mob's reference to use as its DNA string.
+	//This creates unique DNA for each creature in a consistently repeatable process
+	var/datum/reagents/vessel = new/datum/reagents(600)
+	vessel.add_reagent("blood",560)
+	for(var/datum/reagent/blood/B in vessel.reagent_list)
+		if(B.id == "blood")
+			B.data = list(
+				"donor" = src,
+				"viruses" = null,
+				"species" = name,
+				"blood_DNA" = md5("\ref[src]"), 
+				"blood_colour" = "#a10808",
+				"blood_type" = null,
+				"resistances" = null,
+				"trace_chem" = null,
+				"virus2" = null,
+				"antibodies" = list()
+			)
 
-		//we make a new vessel for whatever creature we're devouring. this allows blood to come from creatures that can't normally bleed
-		//We create an MD5 hash of the mob's reference to use as its DNA string.
-		//This creates unique DNA for each creature in a consistently repeatable process
-		var/datum/reagents/vessel = new/datum/reagents(600)
-		vessel.add_reagent("blood",560)
-		for(var/datum/reagent/blood/B in vessel.reagent_list)
-			if(B.id == "blood")
-				B.data = list(	"donor"=src,"viruses"=null,"species"=src.name,"blood_DNA"=md5("\ref[src]"),"blood_colour"= "#a10808","blood_type"=null,	\
-								"resistances"=null,"trace_chem"=null, "virus2" = null, "antibodies" = list())
+			B.color = B.data["blood_colour"]
 
-				B.color = B.data["blood_colour"]
+	return vessel
 
-		return vessel
+/mob/living/carbon/human/get_vessel(create = FALSE)
+	. = vessel
 
-	else return null
-
-//This function checks against a list to see if the mob is in it.
-//Any specified types are checked against exactly, using ==, not istype
-//Any types ending in * will be tested with isType
-/proc/mob_listed(var/mob/living/test, var/list/toCheck, var/specific = 0)
-	for (var/i in toCheck)
-		if (specific)
-			if (test.type == i)
-				return 1
-		else
-			if (istype(test, i))
-				return 1
-	return 0
-
+/mob/living/carbon/alien/diona/get_vessel(create = FALSE)
+	. = vessel
 
 #define POSESSIVE_PRONOUN	0
 #define POSESSIVE_ADJECTIVE	1
