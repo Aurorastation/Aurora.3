@@ -28,6 +28,8 @@ var/global/list/ghostteleportlocs = list()
 var/global/list/centcom_areas = list()
 var/global/list/the_station_areas = list()
 
+var/global/list/implants = list()
+
 var/global/list/turfs = list()						//list of all turfs
 
 //Languages/species/whitelist.
