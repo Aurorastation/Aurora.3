@@ -47,7 +47,7 @@ datum/unit_test/apc_area_test/start_test()
 		,/area/medical/genetics
 	)
 
-	for(var/area/A in all_areas)
+	for(var/area/A in world)
 		if(A.z in config.station_levels && !(A.type in exempt_areas))
 			area_test_count++
 			var/area_good = 1
