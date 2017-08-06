@@ -47,7 +47,7 @@
 				movement_target = snack
 				foodtarget = 0//chasing mice takes precedence over eating food
 				if(prob(15))
-					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
+					audible_emote(pick("hisses and spits!","hisses at the [snack]!","eyes [snack] hungrily."))
 				break
 
 		if(!buckled)
@@ -213,8 +213,8 @@
 								   "purrs."),0)
 	else if (friend.health <= 50)
 		if (prob(10))
-			var/verb = pick("meows", "mews", "mrowls")
-			audible_emote("[verb] anxiously.")
+			var/catnoise = pick("meows", "mews", "mrowls")
+			audible_emote("[catnoise] anxiously.")
 
 /mob/living/simple_animal/cat/fluff/verb/friend()
 	set name = "Become Friends"
@@ -248,6 +248,66 @@
 	can_nap = 1
 	befriend_job = "Chief Medical Officer"
 	holder_type = /obj/item/weapon/holder/cat/black
+
+//Advanced Noodle AI.
+/mob/living/simple_animal/cat/snek/fluff
+	var/mob/living/carbon/human/friend
+	var/befriend_job = null
+
+//something you shouldn't step on
+/mob/living/simple_animal/cat/snek
+	name = "snake"
+	desc = "sssSSSSsss"
+	icon_state = "snek"
+	icon_living = "snek"
+	icon_dead = "snek_dead"
+	gender = NEUTER
+	speak = list("SssssSSSS.", "Slirp.","HSSSSS")
+	speak_emote = ("hisses")
+	emote_hear = ("hisses")
+	emote_see = list("slithers, tastes the air.")
+	holder_type = null
+	can_nap = 0//sneks do not sleep
+
+/mob/living/simple_animal/cat/snek/fluff/Corpus
+	name = "Corpus"
+	befriend_job = "Chief Medical Officer"
+
+
+/mob/living/simple_animal/cat/snek/fluff/verb/friend()
+	set name = "Become Friends"
+	set category = "IC"
+	set src in view(1)
+
+	if(friend && usr == friend)
+		set_dir(get_dir(src, friend))
+		say("Hisss")
+		return
+
+	if (!(ishuman(usr) && befriend_job && usr.job == befriend_job))
+		usr << "<span class='notice'>[src] ignores you.</span>"
+		return
+
+	friend = usr
+
+/mob/living/simple_animal/cat/snek/fluff/Life()
+	..()
+	if (stat || QDELETED(friend))
+		return
+	if (get_dist(src, friend) <= 1)
+		if (friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit)
+			if (prob((friend.stat < DEAD)? 50 : 15))
+				audible_emote(pick("hisses."))
+		else
+			if (prob(5))
+				visible_emote(pick("nuzzles [friend].",
+								   "brushes against [friend].",
+								   "rubs against [friend].",
+								   "hisses happily."),0)
+	else if (friend.health <= 50)
+		if (prob(10))
+			audible_emote("hisses.")
+
 
 /mob/living/simple_animal/cat/fluff/Runtime/death()
 	.=..()
