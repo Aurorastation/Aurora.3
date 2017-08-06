@@ -8,12 +8,11 @@
 	var/power_loss = 2
 	var/input_power_multiplier = 1
 
-/obj/machinery/power/tesla_coil/Initialize()
-	. = ..()
-	component_parts = list()
-//	component_parts += new /obj/item/weapon/circuitboard/tesla_coil(null)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
-	RefreshParts()
+/obj/machinery/power/tesla_coil/setup_components()
+	. = list(
+	//	new /obj/item/weapon/circuitboard/tesla_coil,
+		new /obj/item/weapon/stock_parts/capacitor
+	)
 
 /obj/machinery/power/tesla_coil/RefreshParts()
 	var/power_multiplier = 0
@@ -62,12 +61,11 @@
 	anchored = 0
 	density = 1
 
-/obj/machinery/power/grounding_rod/Initialize()
-	. = ..()
-	component_parts = list()
-//	component_parts += new /obj/item/weapon/circuitboard/grounding_rod(null)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
-	RefreshParts()
+/obj/machinery/power/grounding_rod/setup_components()
+	. = list(
+	//	new /obj/item/weapon/circuitboard/grounding_rod,
+		new /obj/item/weapon/stock_parts/capacitor
+	)
 
 /obj/machinery/power/grounding_rod/attackby(obj/item/W, mob/user)
 	if(default_deconstruction_screwdriver(user, W))

@@ -41,20 +41,17 @@
 
 // These are used on individual outposts as backup should power line be cut, or engineering outpost lost power.
 // 1M Charge, 150K I/O
-/obj/machinery/power/smes/buildable/outpost_substation/Initialize()
+/obj/machinery/power/smes/buildable/outpost_substation/setup_components()
 	. = ..()
-	component_parts += new /obj/item/weapon/smes_coil/weak(src)
-	recalc_coils()
+	. += new /obj/item/weapon/smes_coil/weak(src)
 
 // This one is pre-installed on engineering shuttle. Allows rapid charging/discharging for easier transport of power to outpost
 // 11M Charge, 2.5M I/O
-/obj/machinery/power/smes/buildable/power_shuttle/Initialize()
+/obj/machinery/power/smes/buildable/power_shuttle/setup_components()
 	. = ..()
-	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
-	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
-	component_parts += new /obj/item/weapon/smes_coil(src)
-	recalc_coils()
-
+	. += new /obj/item/weapon/smes_coil/super_io(src)
+	. += new /obj/item/weapon/smes_coil/super_io(src)
+	. += new /obj/item/weapon/smes_coil(src)
 
 // END SMES SUBTYPES
 
@@ -68,6 +65,7 @@
 	var/grounding = 1			// Cut to quickly discharge, at cost of "minor" electrical issues in output powernet.
 	var/RCon = 1				// Cut to disable AI and remote control.
 	var/RCon_tag = "NO_TAG"		// RCON tag, change to show it on SMES Remote control console.
+	var/install_coils = TRUE
 	charge = 0
 	should_be_mapped = 1
 
@@ -107,20 +105,25 @@
 // Parameters: None
 // Description: Adds standard components for this SMES, and forces recalculation of properties.
 /obj/machinery/power/smes/buildable/Initialize(mapload, install_coils = 1)
-	component_parts = list()
-	component_parts += new /obj/item/stack/cable_coil(src,30)
-	component_parts += new /obj/item/weapon/circuitboard/smes(src)
-	src.wires = new /datum/wires/smes(src)
-
-	// Allows for mapped-in SMESs with larger capacity/IO
-	if(install_coils)
-		for(var/i = 1, i <= cur_coils, i++)
-			component_parts += new /obj/item/weapon/smes_coil(src)
-		recalc_coils()
+	wires = new /datum/wires/smes(src)
+	src.install_coils = install_coils
 
 	SSmachinery.queue_rcon_update()
 
-	. = ..()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/power/smes/buildable/LateInitialize()
+	recalc_coils()
+
+/obj/machinery/power/smes/buildable/setup_components()
+	. = list(
+		new /obj/item/stack/cable_coil(src, 30),
+		new /obj/item/weapon/circuitboard/smes(src)
+	)
+	if (install_coils)
+		for (var/i in 1 to cur_coils)
+			. += new /obj/item/weapon/smes_coil(src)
 
 // Proc: attack_hand()
 // Parameters: None

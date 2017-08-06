@@ -27,18 +27,20 @@
 
 /obj/machinery/mecha_part_fabricator/Initialize()
 	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/mechfab(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-	RefreshParts()
 
 	files = new /datum/research(src) //Setup the research data holder.
 	manufacturer = basic_robolimb.company
 	update_categories()
+
+/obj/machinery/mecha_part_fabricator/setup_components()
+	. = list(
+		new /obj/item/weapon/circuitboard/mechfab(src),
+		new /obj/item/weapon/stock_parts/matter_bin(src),
+		new /obj/item/weapon/stock_parts/matter_bin(src),
+		new /obj/item/weapon/stock_parts/manipulator(src),
+		new /obj/item/weapon/stock_parts/micro_laser(src),
+		new /obj/item/weapon/stock_parts/console_screen(src)
+	)
 
 /obj/machinery/mecha_part_fabricator/machinery_process()
 	..()

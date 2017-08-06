@@ -54,21 +54,6 @@
 /obj/machinery/crusher_base/Initialize()
 	. = ..()
 
-	//Create parts for crusher.
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/crusher(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	RefreshParts()
-
 	action_start_time = world.time
 
 	//Spawn the stage 1 pistons south of it with a density of 0
@@ -78,6 +63,21 @@
 	queue_icon_update()
 	// Change the icons of the neighboring bases
 	change_neighbor_base_icons()
+
+/obj/machinery/crusher_base/setup_components()
+	. = list(
+		new /obj/item/weapon/circuitboard/crusher(src),
+		new /obj/item/weapon/stock_parts/matter_bin(src),
+		new /obj/item/weapon/stock_parts/matter_bin(src),
+		new /obj/item/weapon/stock_parts/matter_bin(src),
+		new /obj/item/weapon/stock_parts/matter_bin(src),
+		new /obj/item/weapon/stock_parts/manipulator(src),
+		new /obj/item/weapon/stock_parts/manipulator(src),
+		new /obj/item/weapon/stock_parts/manipulator(src),
+		new /obj/item/weapon/reagent_containers/glass/beaker(src),
+		new /obj/item/weapon/reagent_containers/glass/beaker(src),
+		new /obj/item/weapon/reagent_containers/glass/beaker(src)
+	)
 
 /obj/machinery/crusher_base/Destroy()
 	var/oldloc = loc

@@ -10,16 +10,15 @@
 	active_power_usage = 5000
 	var/efficiency
 
-/obj/machinery/telepad/Initialize()
-	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/telesci_pad(null)
-	component_parts += new /obj/item/bluespace_crystal/artificial(null)
-	component_parts += new /obj/item/bluespace_crystal/artificial(null)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(null)
-	component_parts += new /obj/item/stack/cable_coil(null, 1)
-	RefreshParts()
+/obj/machinery/telepad/setup_components()
+	. = list(
+		new /obj/item/weapon/circuitboard/telesci_pad,
+		new /obj/item/bluespace_crystal/artificial,
+		new /obj/item/bluespace_crystal/artificial,
+		new /obj/item/weapon/stock_parts/capacitor,
+		new /obj/item/weapon/stock_parts/console_screen,
+		new /obj/item/stack/cable_coil(null, 1)
+	)
 
 /obj/machinery/telepad/RefreshParts()
 	var/E

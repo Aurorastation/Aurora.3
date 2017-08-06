@@ -45,18 +45,19 @@
 
 /obj/machinery/clonepod/Initialize()
 	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/clonepod(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 2)
-
-	RefreshParts()
 	update_icon()
 	set_expansion(/datum/expansion/multitool, new/datum/expansion/multitool/store(src))
+
+/obj/machinery/clonepod/setup_components()
+	. = list(
+		new /obj/item/weapon/circuitboard/clonepod(src),
+		new /obj/item/weapon/stock_parts/manipulator(src),
+		new /obj/item/weapon/stock_parts/manipulator(src),
+		new /obj/item/weapon/stock_parts/scanning_module(src),
+		new /obj/item/weapon/stock_parts/scanning_module(src),
+		new /obj/item/weapon/stock_parts/console_screen(src),
+		new /obj/item/stack/cable_coil(src, 2)
+	)
 
 /obj/machinery/clonepod/Destroy()
 	if(connected)

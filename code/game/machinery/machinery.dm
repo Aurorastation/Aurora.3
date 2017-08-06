@@ -121,6 +121,12 @@ Class Procs:
 	if(d)
 		set_dir(d)
 
+	component_parts = setup_components()
+	if (component_parts)
+		RefreshParts()
+	else
+		component_parts = list()
+
 	add_machine(src)
 
 /obj/machinery/Destroy()
@@ -135,6 +141,8 @@ Class Procs:
 		for(var/atom/A in contents)
 			qdel(A)
 	return ..()
+
+/obj/machinery/proc/setup_components()
 
 /obj/machinery/proc/machinery_process()
 	. = process()

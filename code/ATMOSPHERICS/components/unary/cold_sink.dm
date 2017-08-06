@@ -23,14 +23,16 @@
 /obj/machinery/atmospherics/unary/freezer/New()
 	..()
 	initialize_directions = dir
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/unary_atmos/cooler(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 2)
-	RefreshParts()
+
+/obj/machinery/atmospherics/unary/freezer/setup_components()
+	. = list(
+		new /obj/item/weapon/circuitboard/unary_atmos/cooler(src),
+		new /obj/item/weapon/stock_parts/matter_bin(src),
+		new /obj/item/weapon/stock_parts/capacitor(src),
+		new /obj/item/weapon/stock_parts/capacitor(src),
+		new /obj/item/weapon/stock_parts/manipulator(src),
+		new /obj/item/stack/cable_coil(src, 2)
+	)
 
 /obj/machinery/atmospherics/unary/freezer/atmos_init()
 	if(node)

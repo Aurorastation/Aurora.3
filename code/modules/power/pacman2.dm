@@ -30,16 +30,15 @@
 		P.air_contents.phoron -= 0.01
 		return
 
-	New()
-		..()
-		component_parts = list()
-		component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-		component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
-		component_parts += new /obj/item/stack/cable_coil(src)
-		component_parts += new /obj/item/stack/cable_coil(src)
-		component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-		component_parts += new board_path(src)
-		RefreshParts()
+	setup_components()
+		. = list(
+			new /obj/item/weapon/stock_parts/matter_bin(src),
+			new /obj/item/weapon/stock_parts/micro_laser(src),
+			new /obj/item/stack/cable_coil(src),
+			new /obj/item/stack/cable_coil(src),
+			new /obj/item/weapon/stock_parts/capacitor(src),
+			new board_path(src)
+		)
 
 	RefreshParts()
 		var/temp_rating = 0

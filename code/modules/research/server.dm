@@ -26,14 +26,15 @@
 
 /obj/machinery/r_n_d/server/Initialize()
 	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/rdserver(src)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/stack/cable_coil(src)
-	component_parts += new /obj/item/stack/cable_coil(src)
-	RefreshParts()
-
 	setup()
+
+/obj/machinery/r_n_d/server/setup_components()
+	. = list(
+		new /obj/item/weapon/circuitboard/rdserver(src),
+		new /obj/item/weapon/stock_parts/scanning_module(src),
+		new /obj/item/stack/cable_coil(src),
+		new /obj/item/stack/cable_coil(src)
+	)
 
 /obj/machinery/r_n_d/server/proc/setup()
 	if(!files)

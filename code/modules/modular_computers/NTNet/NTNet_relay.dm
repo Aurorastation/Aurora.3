@@ -100,12 +100,10 @@
 		ntnet_global.add_log("Quantum relay manually [enabled ? "enabled" : "disabled"].")
 		update_icon()
 
-/obj/machinery/ntnet_relay/New()
+/obj/machinery/ntnet_relay/Initialize()
+	. = ..()
 	uid = gl_uid
 	gl_uid++
-	component_parts = list()
-	component_parts += new /obj/item/stack/cable_coil(src,15)
-	component_parts += new /obj/item/weapon/circuitboard/ntnet_relay(src)
 
 	update_icon()
 
@@ -113,7 +111,12 @@
 		ntnet_global.relays.Add(src)
 		NTNet = ntnet_global
 		ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
-	..()
+
+/obj/machinery/ntnet_relay/setup_components()
+	. = list(
+		new /obj/item/stack/cable_coil(src,15),
+		new /obj/item/weapon/circuitboard/ntnet_relay(src)
+	)
 
 /obj/machinery/ntnet_relay/Destroy()
 	if(ntnet_global)

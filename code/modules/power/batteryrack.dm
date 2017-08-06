@@ -12,20 +12,14 @@
 	var/cells_amount = 0
 	var/capacitors_amount = 0
 
-/obj/machinery/power/smes/batteryrack/Initialize()
-	. = ..()
-	add_parts()
-	RefreshParts()
-
 //Maybe this should be moved up to obj/machinery
-/obj/machinery/power/smes/batteryrack/proc/add_parts()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/batteryrack
-	component_parts += new /obj/item/weapon/cell/high
-	component_parts += new /obj/item/weapon/cell/high
-	component_parts += new /obj/item/weapon/cell/high
-	return
-
+/obj/machinery/power/smes/batteryrack/setup_components()
+	. = list(
+		new /obj/item/weapon/circuitboard/batteryrack(src),
+		new /obj/item/weapon/cell/high(src),
+		new /obj/item/weapon/cell/high(src),
+		new /obj/item/weapon/cell/high(src)
+	)
 
 /obj/machinery/power/smes/batteryrack/RefreshParts()
 	capacitors_amount = 0
@@ -105,14 +99,13 @@
 	var/overcharge_percent = 0
 
 
-/obj/machinery/power/smes/batteryrack/makeshift/add_parts()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/ghettosmes
-	component_parts += new /obj/item/weapon/cell/high
-	component_parts += new /obj/item/weapon/cell/high
-	component_parts += new /obj/item/weapon/cell/high
-	return
-
+/obj/machinery/power/smes/batteryrack/makeshift/setup_components()
+	. = list(
+		new /obj/item/weapon/circuitboard/ghettosmes(src),
+		new /obj/item/weapon/cell/high(src),
+		new /obj/item/weapon/cell/high(src),
+		new /obj/item/weapon/cell/high(src)
+	)
 
 /obj/machinery/power/smes/batteryrack/makeshift/update_icon()
 	cut_overlays()

@@ -42,17 +42,16 @@
 
 /obj/machinery/mining/drill/Initialize()
 	. = ..()
-
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/miningdrill(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
-	component_parts += new /obj/item/weapon/cell/high(src)
-
 	spark_system = bind_spark(src, 3)
 
-	RefreshParts()
+/obj/machinery/mining/drill/setup_components()
+	. = list(
+		new /obj/item/weapon/circuitboard/miningdrill(src),
+		new /obj/item/weapon/stock_parts/matter_bin(src),
+		new /obj/item/weapon/stock_parts/capacitor(src),
+		new /obj/item/weapon/stock_parts/micro_laser(src),
+		new /obj/item/weapon/cell/high(src)
+	)
 
 /obj/machinery/mining/drill/Destroy()
 	QDEL_NULL(spark_system)
@@ -339,11 +338,10 @@
 	icon_state = "mining_brace"
 	var/obj/machinery/mining/drill/connected
 
-/obj/machinery/mining/brace/Initialize()
-	. = ..()
-
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/miningdrillbrace(src)
+/obj/machinery/mining/brace/setup_components()
+	. = list(
+		new /obj/item/weapon/circuitboard/miningdrillbrace(src)
+	)
 
 /obj/machinery/mining/brace/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(connected && connected.active)

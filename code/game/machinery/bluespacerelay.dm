@@ -25,16 +25,16 @@
 	else
 		icon_state = "[initial(icon_state)]_off"
 
-/obj/machinery/bluespacerelay/Initialize()
-	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/bluespacerelay(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/subspace/filter(src)
-	component_parts += new /obj/item/weapon/stock_parts/subspace/crystal(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 30)
-	
+/obj/machinery/bluespacerelay/setup_components()
+	. = list(
+		new /obj/item/weapon/circuitboard/bluespacerelay(src),
+		new /obj/item/weapon/stock_parts/manipulator(src),
+		new /obj/item/weapon/stock_parts/manipulator(src),
+		new /obj/item/weapon/stock_parts/subspace/filter(src),
+		new /obj/item/weapon/stock_parts/subspace/crystal(src),
+		new /obj/item/stack/cable_coil(src, 30)
+	)
+
 /obj/machinery/bluespacerelay/proc/update_power()
 
 	if(stat & (BROKEN|NOPOWER|EMPED))
