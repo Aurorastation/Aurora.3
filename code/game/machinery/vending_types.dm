@@ -221,7 +221,7 @@
 		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5
 	)
 	prices = list(
-		/obj/item/weapon/storage/fancy/cigarettes = 510,
+		/obj/item/weapon/storage/fancy/cigarettes = 200,
 		/obj/item/weapon/storage/box/matches = 12,
 		/obj/item/weapon/flame/lighter/random = 12
 	)
