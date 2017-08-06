@@ -40,7 +40,7 @@
 			user << "<span class='notice'>There is a [M.name] mod installed, using <b>[M.cost]%</b> capacity.</span>"
 
 /obj/item/weapon/gun/energy/kinetic_accelerator/attackby(obj/item/A, mob/user)
-	if(istype(A, /obj/item/weapon/crowbar))
+	if(iscrowbar(A))
 		if(modkits.len)
 			user << "<span class='notice'>You pry the modifications out.</span>"
 			playsound(loc, 100, 1)

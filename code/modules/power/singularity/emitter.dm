@@ -151,7 +151,7 @@
 
 /obj/machinery/power/emitter/attackby(obj/item/W, mob/user)
 
-	if(istype(W, /obj/item/weapon/wrench))
+	if(iswrench(W))
 		if(active)
 			user << "Turn off [src] first."
 			return
@@ -174,7 +174,7 @@
 				user << "<span class='warning'>\The [src] needs to be unwelded from the floor.</span>"
 		return
 
-	if(istype(W, /obj/item/weapon/weldingtool))
+	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(active)
 			user << "Turn off [src] first."

@@ -10,7 +10,6 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
-#include "code\_macros.dm"
 #include "code\global.dm"
 #include "code\hub.dm"
 #include "code\names.dm"
@@ -18,6 +17,7 @@
 #include "code\world.dm"
 #include "code\__defines\_compile_options.dm"
 #include "code\__defines\_layers.dm"
+#include "code\__defines\_macros.dm"
 #include "code\__defines\admin.dm"
 #include "code\__defines\atmos.dm"
 #include "code\__defines\callback.dm"
