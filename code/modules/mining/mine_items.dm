@@ -1141,6 +1141,9 @@ var/list/total_extraction_beacons = list()
 		single_spark(O.loc)
 		do_teleport(O, user, 0)
 
+		if (TICK_CHECK)
+			return
+
 /******************************Sculpting*******************************/
 /obj/item/weapon/autochisel
 	name = "auto-chisel"
