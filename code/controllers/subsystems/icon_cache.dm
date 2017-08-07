@@ -24,6 +24,8 @@
 	var/list/floor_light_cache = list()
 	var/list/ashtray_cache = list()
 
+	var/list/uristrunes = list()
+
 /*
 	Global associative list for caching humanoid icons.
 	Index format m or f, followed by a string of 0 and 1 to represent bodyparts followed by husk fat hulk skeleton 1 or 0.

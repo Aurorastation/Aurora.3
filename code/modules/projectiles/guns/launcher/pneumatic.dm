@@ -185,7 +185,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(istype(W,/obj/item/weapon/weldingtool))
+	else if(iswelder(W))
 		if(buildstate == 1)
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))
@@ -213,3 +213,9 @@
 		return
 	else
 		..()
+
+/obj/item/weapon/gun/launcher/pneumatic/small
+	name = "small pneumatic cannon"
+	desc = "It looks smaller than your garden variety cannon"
+	max_w_class = 1
+	w_class = 3

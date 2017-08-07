@@ -30,7 +30,7 @@
 /turf/simulated/open
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
-	icon_state = ""
+	icon_state = "opendebug"
 	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
@@ -167,6 +167,7 @@
 
 /turf/simulated/open/Initialize()
 	. = ..()
+	icon_state = ""	// Clear out the debug icon.
 	SSopenturf.openspace_turfs += src
 	update()
 
@@ -229,7 +230,7 @@
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 
 	//To lay cable.
-	if(istype(C, /obj/item/stack/cable_coil))
+	if(iscoil(C))
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
 		return

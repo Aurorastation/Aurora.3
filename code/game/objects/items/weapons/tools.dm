@@ -227,7 +227,7 @@
 
 
 /obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		if (isrobot(loc))
 			user << span("alert", "You cannot modify your own welder!")
 			return

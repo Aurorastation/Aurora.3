@@ -49,6 +49,8 @@
 	var/has_loot = 1
 	faction = "malf_drone"
 
+	tameable = FALSE
+
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Initialize()
 	. = ..()
 	if(prob(5))

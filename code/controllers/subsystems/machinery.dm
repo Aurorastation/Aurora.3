@@ -18,6 +18,7 @@
 
 	var/list/all_cameras = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
+	var/list/gravity_generators = list()
 
 	var/rcon_update_queued = FALSE
 	var/powernet_update_queued = FALSE

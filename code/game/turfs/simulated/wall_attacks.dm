@@ -108,7 +108,7 @@
 			burn(is_hot(W))
 
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		if(istype(W, /obj/item/weapon/weldingtool) )
+		if(iswelder(W) )
 			var/obj/item/weapon/weldingtool/WT = W
 			if( WT.remove_fuel(0,user) )
 				user << "<span class='notice'>You burn away the fungi with \the [WT].</span>"
@@ -123,7 +123,7 @@
 
 	//THERMITE related stuff. Calls src.thermitemelt() which handles melting simulated walls and the relevant effects
 	if(thermite)
-		if( istype(W, /obj/item/weapon/weldingtool) )
+		if( iswelder(W) )
 			var/obj/item/weapon/weldingtool/WT = W
 			if( WT.remove_fuel(0,user) )
 				thermitemelt(user)
@@ -146,7 +146,7 @@
 
 	var/turf/T = user.loc	//get user's location for delay checks
 
-	if(damage && istype(W, /obj/item/weapon/weldingtool))
+	if(damage && iswelder(W))
 
 		var/obj/item/weapon/weldingtool/WT = W
 
@@ -171,7 +171,7 @@
 		var/dismantle_verb
 		var/dismantle_sound
 
-		if(istype(W,/obj/item/weapon/weldingtool))
+		if(iswelder(W))
 			var/obj/item/weapon/weldingtool/WT = W
 			if(!WT.isOn())
 				return
@@ -235,7 +235,7 @@
 	else
 		switch(construction_stage)
 			if(6)
-				if (istype(W, /obj/item/weapon/wirecutters))
+				if (iswirecutter(W))
 					playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 					construction_stage = 5
 					new /obj/item/stack/rods( src )
@@ -243,7 +243,7 @@
 					update_icon()
 					return
 			if(5)
-				if (istype(W, /obj/item/weapon/screwdriver))
+				if (isscrewdriver(W))
 					user << "<span class='notice'>You begin removing the support lines.</span>"
 					playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 					if(!do_after(user,40) || !istype(src, /turf/simulated/wall) || construction_stage != 5)
@@ -262,7 +262,7 @@
 						return
 			if(4)
 				var/cut_cover
-				if(istype(W,/obj/item/weapon/weldingtool))
+				if(iswelder(W))
 					var/obj/item/weapon/weldingtool/WT = W
 					if(!WT.isOn())
 						return
@@ -283,7 +283,7 @@
 					user << "<span class='notice'>You press firmly on the cover, dislodging it.</span>"
 					return
 			if(3)
-				if (istype(W, /obj/item/weapon/crowbar))
+				if (iscrowbar(W))
 					user << "<span class='notice'>You struggle to pry off the cover.</span>"
 					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
 					if(!do_after(user,100) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
@@ -293,7 +293,7 @@
 					user << "<span class='notice'>You pry off the cover.</span>"
 					return
 			if(2)
-				if (istype(W, /obj/item/weapon/wrench))
+				if (iswrench(W))
 					user << "<span class='notice'>You start loosening the anchoring bolts which secure the support rods to their frame.</span>"
 					playsound(src, 'sound/items/Ratchet.ogg', 100, 1)
 					if(!do_after(user,40) || !istype(src, /turf/simulated/wall) || construction_stage != 2)
@@ -304,7 +304,7 @@
 					return
 			if(1)
 				var/cut_cover
-				if(istype(W, /obj/item/weapon/weldingtool))
+				if(iswelder(W))
 					var/obj/item/weapon/weldingtool/WT = W
 					if( WT.remove_fuel(0,user) )
 						cut_cover=1
@@ -324,7 +324,7 @@
 					user << "<span class='notice'>The support rods drop out as you cut them loose from the frame.</span>"
 					return
 			if(0)
-				if(istype(W, /obj/item/weapon/crowbar))
+				if(iscrowbar(W))
 					user << "<span class='notice'>You struggle to pry off the outer sheath.</span>"
 					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
 					sleep(100)

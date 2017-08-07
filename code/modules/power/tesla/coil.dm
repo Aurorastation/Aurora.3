@@ -28,14 +28,14 @@
 	if(default_part_replacement(user, W))
 		return
 
-	if(istype(W, /obj/item/weapon/wrench))
+	if(iswrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
+		anchored = !anchored
 		if(!anchored)
 			disconnect_from_network()
 		else
 			connect_to_network()
-		anchored = !anchored
 		return
 
 	default_deconstruction_crowbar(user, W)
@@ -76,7 +76,7 @@
 	if(default_part_replacement(user, W))
 		return
 
-	if(istype(W, /obj/item/weapon/wrench))
+	if(iswrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
 		anchored = !anchored

@@ -192,7 +192,7 @@
 		to_chat(src, "<span class='warning'>You broke your gaze.</span>")
 
 // Targeted teleportation, must be to a low-light tile.
-/mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in world)
+/mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in turfs)
 	set category = "Vampire"
 	set name = "Veil Step (20)"
 	set desc = "For a moment, move through the Veil and emerge at a shadow of your choice."
@@ -510,7 +510,7 @@
 
 	log_and_message_admins("activated blood heal.")
 
-	while (do_after(src, 20, 5, 0))
+	while (do_after(src, 20, 0))
 		if (!(vampire.status & VAMP_HEALING))
 			to_chat(src, "<span class='warning'>Your concentration is broken! You are no longer regenerating!</span>")
 			break

@@ -6241,11 +6241,6 @@
 	req_access = null;
 	req_one_access = list(11,24)
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -6253,6 +6248,12 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
 "amP" = (
@@ -46832,6 +46833,7 @@
 /area/maintenance/medbay)
 "bCd" = (
 /obj/structure/flora/pottedplant/random,
+/obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/turbolift/command_sub)
 "bCe" = (
@@ -49430,7 +49432,7 @@
 /area/crew_quarters/sleep/research)
 "bGq" = (
 /turf/simulated/wall/r_wall,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bGr" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -49445,12 +49447,8 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bGs" = (
-/obj/machinery/door/airlock/glass_research{
-	name = "Genetics Lab";
-	req_access = list(9)
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -49460,8 +49458,12 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/research{
+	name = "Miscellaneous Research Room";
+	req_one_access = list(7,29)
+	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bGt" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -49476,7 +49478,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bGu" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -49897,33 +49899,22 @@
 /turf/simulated/open,
 /area/turbolift/research_station)
 "bHd" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/box/disks,
-/obj/item/device/flashlight/pen,
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 8
-	},
-/obj/machinery/light_switch{
-	pixel_x = -23;
-	pixel_y = 0
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bHe" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bHf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -49932,21 +49923,13 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 5
-	},
 /obj/structure/disposalpipe/segment{
-	dir = 8;
+	dir = 1;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bHg" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/box/bodybags,
-/obj/item/weapon/hand_labeler,
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -49959,12 +49942,14 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bHh" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/disks,
-/obj/item/device/flashlight/pen,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -49985,7 +49970,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bHi" = (
 /obj/machinery/computer/general_air_control{
 	name = "Chamber Gas Sensor";
@@ -50309,36 +50294,23 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bHU" = (
-/obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/requests_console{
-	department = "Genetics Lab";
-	departmentType = 2;
-	name = "Requests Console";
-	pixel_x = -32;
-	pixel_y = 0
-	},
+/obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bHV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bHW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bHX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -50350,7 +50322,7 @@
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Genetics Laboratory";
+	c_tag = "Research - Telescience Laboratory";
 	dir = 8;
 	network = list("Research")
 	},
@@ -50362,8 +50334,11 @@
 	pixel_x = 24;
 	pixel_y = 0
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bHZ" = (
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Miscellaneous Gas Controller";
@@ -50646,47 +50621,49 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bIJ" = (
-/obj/machinery/computer/scan_consolenew,
-/obj/item/device/radio/intercom{
-	pixel_x = -27
-	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/genetics)
-"bIK" = (
-/obj/structure/bed/chair/office/dark{
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	icon_state = "corner_white_diagonal";
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/genetics)
-"bIL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 10
+/obj/machinery/computer/telescience{
+	starting_crystals = 3
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
-"bIM" = (
-/obj/structure/bed/chair/office/dark{
+/area/rnd/telesci)
+"bIK" = (
+/obj/structure/table/reinforced,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	icon_state = "corner_white_diagonal";
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
-"bIN" = (
-/obj/machinery/computer/scan_consolenew,
-/obj/item/device/radio/intercom{
-	pixel_x = 27
+/area/rnd/telesci)
+"bIL" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
 	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
+"bIM" = (
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
+"bIN" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/structure/closet/bombcloset,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bIO" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -51096,12 +51073,8 @@
 /area/medical/genetics)
 "bJH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 5
-	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bJI" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
@@ -51110,17 +51083,13 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics)
 "bJJ" = (
-/obj/machinery/dna_scannernew,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
+/obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bJK" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/tinted{
@@ -51367,30 +51336,29 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics)
 "bKm" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bKn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
+"bKo" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
-"bKo" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/window/westleft{
-	req_access = list(9)
-	},
-/obj/effect/decal/warning_stripes,
-/mob/living/carbon/human/monkey,
-/turf/simulated/floor/plating,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bKp" = (
 /obj/machinery/computer/operating{
 	name = "Robotics Operating Computer"
@@ -51646,26 +51614,50 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bKQ" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "telescience";
+	name = "Containment Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/northleft,
+/obj/machinery/door/window/southright,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/telesci)
+"bKR" = (
+/obj/structure/grille,
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
 	dir = 1
 	},
-/obj/machinery/door/window/eastright{
-	req_access = list(9)
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
 	},
-/obj/effect/decal/warning_stripes,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
 	},
-/mob/living/carbon/human/farwa,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "telescience";
+	name = "Containment Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
-/area/medical/genetics)
-"bKR" = (
-/obj/effect/floor_decal/corner/mauve/full,
-/turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bKS" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -51681,21 +51673,17 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics)
 "bKU" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
 	},
-/obj/machinery/door/window/westleft{
-	req_access = list(9)
-	},
-/obj/effect/decal/warning_stripes,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light{
 	dir = 4;
-	status = 0
+	status = 2
 	},
-/mob/living/carbon/human/monkey,
-/turf/simulated/floor/plating,
-/area/medical/genetics)
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
 "bKV" = (
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
@@ -51923,20 +51911,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bLr" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northright{
-	req_one_access = list(9)
-	},
-/obj/effect/decal/warning_stripes,
-/mob/living/carbon/human/stok,
-/turf/simulated/floor/plating,
-/area/medical/genetics)
+/turf/simulated/floor/tiled/dark,
+/area/rnd/telesci)
 "bLs" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -51945,20 +51921,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics)
 "bLt" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northleft{
-	req_access = list(9)
-	},
-/obj/effect/decal/warning_stripes,
-/mob/living/carbon/human/monkey,
-/turf/simulated/floor/plating,
-/area/medical/genetics)
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
 "bLu" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/alarm{
@@ -52451,9 +52419,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bMu" = (
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/telesci)
 "bMv" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/reagent_dispensers/fueltank,
@@ -52469,13 +52441,14 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics)
 "bMx" = (
+/obj/machinery/light/small,
 /obj/effect/floor_decal/corner/mauve,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "bMy" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon{
 	dir = 1
@@ -61681,7 +61654,7 @@
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics)
+/area/rnd/telesci)
 "cdW" = (
 /obj/effect/floor_decal/corner/mauve,
 /obj/effect/floor_decal/corner/mauve{
@@ -62742,6 +62715,188 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
+"cfT" = (
+/obj/structure/table/standard,
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
+/obj/machinery/light_switch{
+	pixel_x = -23;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/item/clothing/mask/gas,
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
+"cfU" = (
+/obj/structure/table/standard,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/requests_console{
+	department = "Telescience Lab";
+	departmentType = 2;
+	name = "Requests Console";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
+"cfV" = (
+/obj/machinery/button/remote/blast_door{
+	id = "telescience";
+	name = "Containment Blast Doors";
+	pixel_x = 0;
+	pixel_y = 4;
+	req_access = list(55)
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	icon_state = "corner_white_diagonal";
+	dir = 8
+	},
+/obj/item/device/radio/intercom{
+	dir = 0;
+	name = "Station Intercom (General)";
+	pixel_x = -27
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
+"cfW" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
+"cfX" = (
+/obj/structure/grille,
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "telescience";
+	name = "Containment Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/rnd/telesci)
+"cfY" = (
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Telescience Test Chamber";
+	dir = 4;
+	network = list("Research")
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/telesci)
+"cfZ" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/telesci)
+"cga" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
+"cgb" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/telesci)
+"cgc" = (
+/obj/machinery/telepad,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/telesci)
+"cgd" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/research{
+	name = "Miscellaneous Research Room";
+	req_one_access = list(7,29)
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
+"cge" = (
+/obj/effect/floor_decal/corner/mauve,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
+"cgf" = (
+/obj/effect/floor_decal/corner/mauve,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
+"cgg" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/turbolift/main_station)
+"cgh" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/turbolift/main_station)
+"cgi" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/turbolift/main_station_aux)
+"cgj" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/turbolift/main_station_aux)
+"cgk" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turbolift/cargo_station)
+"cgl" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark,
+/area/turbolift/cargo_station)
 
 (1,1,1) = {"
 aaa
@@ -83723,8 +83878,8 @@ bGp
 bGp
 aLf
 aLf
-aMP
-bMu
+aLf
+aLf
 bep
 baD
 baD
@@ -83972,16 +84127,16 @@ bCh
 bEN
 bFT
 bGq
-bGq
-bGq
-bGq
-bGq
-bGq
-bGq
-bGq
-bGq
+cfT
+cfU
+cfV
+cfW
+bIM
+cfX
+cfY
+cgb
 bMu
-bMW
+aLf
 bep
 baD
 bOz
@@ -84232,13 +84387,13 @@ bGq
 bHd
 bHU
 bIJ
-bJF
-bKk
+bIM
+bIM
 bKQ
-bGq
-bGq
-bMv
-bMu
+cfZ
+cgc
+cfZ
+aLf
 bNt
 bNT
 bOA
@@ -84489,13 +84644,13 @@ bGr
 bHe
 bHV
 bIK
-bJG
-bKl
-bKR
-bLr
-bGq
-baD
-baD
+bIM
+bIM
+cfX
+cfZ
+cfZ
+cfZ
+aLf
 bep
 aLi
 aMP
@@ -84748,11 +84903,11 @@ bHW
 bIL
 bJH
 bKm
-bKS
-bLs
-bLW
-bMw
-baD
+bGq
+bGq
+bGq
+bGq
+aLf
 bep
 aLi
 aLi
@@ -85001,13 +85156,13 @@ bqZ
 bCr
 bGt
 bHg
-bHX
+bHV
 bIM
-bJI
+bIM
 bKn
-bKT
+bIM
 bLt
-bGq
+cgd
 bMx
 baD
 bep
@@ -85263,9 +85418,9 @@ bIN
 bJJ
 bKo
 bKU
+cga
 bGq
-bGq
-bMx
+cge
 baD
 bNu
 baD
@@ -85521,8 +85676,8 @@ bFV
 bFV
 bFV
 bFV
-bFV
-bMx
+bGq
+cge
 cdW
 bep
 bNU
@@ -86036,7 +86191,7 @@ bHq
 bHq
 bHq
 bLX
-bMw
+bMx
 baD
 aLf
 bLp
@@ -86823,10 +86978,10 @@ bPD
 bSy
 bSO
 bTh
+cgk
 bTh
 bTh
-bTh
-bTh
+cgl
 bTh
 bSO
 aab
@@ -91139,15 +91294,15 @@ aXD
 aYE
 aZN
 baS
+cgg
 baS
-baS
-baS
+cgh
 baS
 aZN
 bix
+cgi
 bix
-bix
-bix
+cgj
 bix
 aZN
 bpV

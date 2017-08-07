@@ -312,9 +312,16 @@ var/const/NO_EMAG_ACT = -50
 	item_state = "gold_id"
 	registered_name = "Captain"
 	assignment = "Captain"
+
 /obj/item/weapon/card/id/captains_spare/New()
 	access = get_all_station_access()
 	..()
+
+/obj/item/weapon/card/id/merchant
+	name = "merchant pass"
+	icon_state = "centcom"
+	desc = "An identification card issued to NanoTrasen sanctioned merchants, indicating their right to sell and buy goods."
+	access = list(access_merchant)
 
 /obj/item/weapon/card/id/synthetic
 	name = "\improper Synthetic ID"

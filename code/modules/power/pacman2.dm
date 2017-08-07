@@ -77,7 +77,7 @@
 			O.loc = src
 			user << "<span class='notice'>You add the phoron tank to the generator.</span>"
 		else if(!active)
-			if(istype(O, /obj/item/weapon/wrench))
+			if(iswrench(O))
 				anchored = !anchored
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				if(anchored)
@@ -85,14 +85,14 @@
 				else
 					user << "<span class='notice'>You unsecure the generator from the floor.</span>"
 				SSmachinery.powernet_update_queued = TRUE
-			else if(istype(O, /obj/item/weapon/screwdriver))
+			else if(isscrewdriver(O))
 				open = !open
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				if(open)
 					user << "<span class='notice'>You open the access panel.</span>"
 				else
 					user << "<span class='notice'>You close the access panel.</span>"
-			else if(istype(O, /obj/item/weapon/crowbar) && !open)
+			else if(iscrowbar(O) && !open)
 				var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 				for(var/obj/item/I in component_parts)
 					I.loc = src.loc
