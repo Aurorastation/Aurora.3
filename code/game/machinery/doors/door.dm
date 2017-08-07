@@ -85,7 +85,6 @@
 	update_nearby_tiles(need_rebuild=1)
 	if (hashatch)
 		setup_hatch()
-	return
 
 /obj/machinery/door/proc/setup_hatch()
 	hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
@@ -94,7 +93,6 @@
 	hatch_image.pixel_y = hatch_offset_y
 	hatch_image.dir = dir
 
-	add_overlay(hatch_image)
 	update_icon()
 
 /obj/machinery/door/proc/open_hatch(var/atom/mover = null)
