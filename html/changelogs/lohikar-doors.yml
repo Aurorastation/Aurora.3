@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Fixed a visual inconsistency where airlock hatches & maint panel overlays would draw over the opening animation when they shouldn't have."
