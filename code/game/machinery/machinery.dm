@@ -107,6 +107,18 @@ Class Procs:
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
 	var/power_channel = EQUIP //EQUIP, ENVIRON or LIGHT
+	/* List of types that should be spawned as component_parts for this machine.
+		Structure:
+			type -> num_objects
+
+		num_objects is optional, and will be treated as 1 if omitted.
+
+		example:
+		component_types = list(
+			/obj/foo/bar,
+			/obj/baz = 2
+		)
+	*/
 	var/list/component_types
 	var/list/component_parts = null //list of all the parts used to build it, if made from certain kinds of frames.
 	var/uid
