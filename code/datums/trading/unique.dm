@@ -117,7 +117,8 @@
 		/obj/item/phylactery                             = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/energy/staff                = TRADER_ALL,
 		/obj/item/weapon/gun/energy/wand                 = TRADER_ALL,
-		/obj/item/weapon/gun/energy/wand/toy             = TRADER_BLACKLIST
+		/obj/item/weapon/gun/energy/wand/toy             = TRADER_BLACKLIST,
+		/obj/item/device/soulstone                       = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
@@ -125,8 +126,12 @@
 		/obj/item/weapon/contract/boon/wizard/smoke      = TRADER_THIS_TYPE,
 		/obj/item/weapon/contract/boon/wizard/horsemask  = TRADER_THIS_TYPE,
 		/obj/item/weapon/contract/boon/wizard/gestalt    = TRADER_THIS_TYPE,
+		/obj/item/weapon/contract/boon/wizard/fireball   = TRADER_THIS_TYPE,
+		/obj/item/weapon/contract/boon/wizard/forcewall  = TRADER_THIS_TYPE,
+		/obj/item/weapon/contract/boon/wizard/charge     = TRADER_THIS_TYPE,
 		/obj/item/toy/figure/wizard                      = TRADER_THIS_TYPE,
-		/obj/item/weapon/staff                           = TRADER_ALL
+		/obj/item/weapon/staff                           = TRADER_ALL,
+		/obj/machinery/from_beyond                       = TRADER_ALL
 	)
 
 	speech = list(
