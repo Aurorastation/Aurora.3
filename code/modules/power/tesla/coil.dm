@@ -8,7 +8,7 @@
 	var/power_loss = 2
 	var/input_power_multiplier = 1
 
-	spawn_components = list(
+	component_types = list(
 		///obj/item/weapon/circuitboard/tesla_coil,
 		/obj/item/weapon/stock_parts/capacitor
 	)
@@ -60,7 +60,7 @@
 	anchored = 0
 	density = 1
 
-	spawn_components = list(
+	component_types = list(
 		///obj/item/weapon/circuitboard/grounding_rod,
 		/obj/item/weapon/stock_parts/capacitor
 	)

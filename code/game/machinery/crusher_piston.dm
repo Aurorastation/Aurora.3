@@ -51,7 +51,7 @@
 
 	var/process_lock = 0 //If the call to process is locked because it is still running
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/crusher,
 		/obj/item/weapon/stock_parts/matter_bin = 4,
 		/obj/item/weapon/stock_parts/manipulator = 3,

@@ -23,7 +23,7 @@
 
 	var/datum/wires/autolathe/wires
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/autolathe,
 		/obj/item/weapon/stock_parts/matter_bin = 3,
 		/obj/item/weapon/stock_parts/manipulator,

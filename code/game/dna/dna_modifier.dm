@@ -52,7 +52,7 @@
 	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/opened = 0
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/clonescanner,
 		/obj/item/weapon/stock_parts/scanning_module,
 		/obj/item/weapon/stock_parts/manipulator,

@@ -16,7 +16,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 	idle_power_usage = 30
 	active_power_usage = 2500
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/destructive_analyzer,
 		/obj/item/weapon/stock_parts/scanning_module,
 		/obj/item/weapon/stock_parts/manipulator,

@@ -25,7 +25,7 @@
 	var/manufacturer = null
 	var/sync_message = ""
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/mechfab,
 		/obj/item/weapon/stock_parts/matter_bin = 2,
 		/obj/item/weapon/stock_parts/manipulator,

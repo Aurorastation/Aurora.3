@@ -68,7 +68,7 @@
 	var/install_coils = TRUE
 	charge = 0
 	should_be_mapped = 1
-	spawn_components = list(
+	component_types = list(
 		/obj/item/stack/cable_coil,
 		/obj/item/weapon/circuitboard/smes
 	)

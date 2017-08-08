@@ -21,7 +21,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	idle_power_usage = 30
 	active_power_usage = 2500
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/circuit_imprinter,
 		/obj/item/weapon/stock_parts/matter_bin,
 		/obj/item/weapon/stock_parts/manipulator,

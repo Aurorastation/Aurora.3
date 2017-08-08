@@ -40,7 +40,7 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/miningdrill,
 		/obj/item/weapon/stock_parts/matter_bin,
 		/obj/item/weapon/stock_parts/capacitor,
@@ -337,7 +337,7 @@
 	icon_state = "mining_brace"
 	var/obj/machinery/mining/drill/connected
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/miningdrillbrace
 	)
 

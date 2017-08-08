@@ -12,7 +12,7 @@
 	idle_power_usage = 15000
 	active_power_usage = 15000
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/bluespacerelay,
 		/obj/item/weapon/stock_parts/manipulator = 2,
 		/obj/item/weapon/stock_parts/subspace/filter,

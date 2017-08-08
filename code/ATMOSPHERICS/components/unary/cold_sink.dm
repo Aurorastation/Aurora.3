@@ -20,7 +20,7 @@
 	var/set_temperature = T20C		// Thermostat
 	var/cooling = 0
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/unary_atmos/cooler,
 		/obj/item/weapon/stock_parts/matter_bin,
 		/obj/item/weapon/stock_parts/capacitor = 2,

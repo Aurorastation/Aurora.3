@@ -15,7 +15,7 @@
 	var/eat_eff = 1
 	var/capacity = 50
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/biogenerator,
 		/obj/item/weapon/stock_parts/matter_bin,
 		/obj/item/weapon/stock_parts/manipulator

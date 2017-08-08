@@ -11,7 +11,7 @@
 	var/charge = 45
 	var/repair = 0
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/mech_recharger,
 		/obj/item/weapon/stock_parts/capacitor = 2,
 		/obj/item/weapon/stock_parts/scanning_module,

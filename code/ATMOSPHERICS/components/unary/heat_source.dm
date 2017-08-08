@@ -20,7 +20,7 @@
 	var/set_temperature = T20C	//thermostat
 	var/heating = 0		//mainly for icon updates
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/unary_atmos/heater,
 		/obj/item/weapon/stock_parts/matter_bin,
 		/obj/item/weapon/stock_parts/capacitor = 2,

@@ -107,7 +107,7 @@ Class Procs:
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
 	var/power_channel = EQUIP //EQUIP, ENVIRON or LIGHT
-	var/list/spawn_components
+	var/list/component_types
 	var/list/component_parts = null //list of all the parts used to build it, if made from certain kinds of frames.
 	var/uid
 	var/panel_open = 0
@@ -123,10 +123,10 @@ Class Procs:
 	if(d)
 		set_dir(d)
 
-	if (spawn_components && populate_components)
+	if (component_types && populate_components)
 		component_parts = list()
-		for (var/type in spawn_components)
-			var/count = spawn_components[type]
+		for (var/type in component_types)
+			var/count = component_types[type]
 			if (count > 1)
 				for (var/i in 1 to count)
 					component_parts += new type(src)

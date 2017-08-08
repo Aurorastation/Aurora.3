@@ -12,7 +12,7 @@
 	var/cells_amount = 0
 	var/capacitors_amount = 0
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/batteryrack,
 		/obj/item/weapon/cell/high = 3
 	)
@@ -94,7 +94,7 @@
 	desc = "A rack of batteries connected by a mess of wires posing as a PSU."
 	var/overcharge_percent = 0
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/ghettosmes,
 		/obj/item/weapon/cell/high = 3
 	)

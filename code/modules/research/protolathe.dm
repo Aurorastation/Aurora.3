@@ -16,7 +16,7 @@
 	var/mat_efficiency = 1
 	var/speed = 1
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/protolathe,
 		/obj/item/weapon/stock_parts/matter_bin = 2,
 		/obj/item/weapon/stock_parts/manipulator = 2,

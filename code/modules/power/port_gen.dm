@@ -110,7 +110,7 @@
 	var/temperature = 0		//The current temperature
 	var/overheating = 0		//if this gets high enough the generator explodes
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/stock_parts/matter_bin,
 		/obj/item/weapon/stock_parts/micro_laser,
 		/obj/item/stack/cable_coil = 2,
@@ -118,7 +118,7 @@
 	)
 
 /obj/machinery/power/port_gen/pacman/Initialize()
-	spawn_components += board_path
+	component_types += board_path
 	. = ..()
 
 	if(anchored)

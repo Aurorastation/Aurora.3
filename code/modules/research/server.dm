@@ -14,7 +14,7 @@
 	var/delay = 10
 	req_access = list(access_rd) //Only the R&D can change server settings.
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/rdserver,
 		/obj/item/weapon/stock_parts/scanning_module,
 		/obj/item/stack/cable_coil = 2

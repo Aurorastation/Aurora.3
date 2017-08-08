@@ -19,7 +19,7 @@
 	var/dos_capacity = 500		// Amount of DoS "packets" in buffer required to crash the relay
 	var/dos_dissipate = 1		// Amount of DoS "packets" dissipated over time.
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/stack/cable_coil{amount = 15},
 		/obj/item/weapon/circuitboard/ntnet_relay
 	)

@@ -43,7 +43,7 @@
 	var/eject_wait = 0 //Don't eject them as soon as they are created fuckkk
 	var/biomass = CLONE_BIOMASS * 3
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/clonepod,
 		/obj/item/weapon/stock_parts/manipulator = 2,
 		/obj/item/weapon/stock_parts/scanning_module = 2,

@@ -10,7 +10,7 @@
 	active_power_usage = 5000
 	var/efficiency
 
-	spawn_components = list(
+	component_types = list(
 		/obj/item/weapon/circuitboard/telesci_pad,
 		/obj/item/bluespace_crystal/artificial = 2,
 		/obj/item/weapon/stock_parts/capacitor,
