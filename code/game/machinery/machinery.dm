@@ -118,12 +118,12 @@ Class Procs:
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
 	var/global/total_spawned_components = 0
 
-/obj/machinery/Initialize(mapload, d=0)
+/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
 	if(d)
 		set_dir(d)
 
-	if (spawn_components)
+	if (spawn_components && populate_components)
 		component_parts = list()
 		for (var/type in spawn_components)
 			var/count = spawn_components[type]

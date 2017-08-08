@@ -105,16 +105,18 @@
 	if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr) && open_hatch)
 		wires.Interact(usr)
 
-// Proc: New()
-// Parameters: None
+// Proc: Initialize()
+// Parameters: 2 (dir - direction machine should face, install_coils - if coils should be spawned)
 // Description: Adds standard components for this SMES, and forces recalculation of properties.
-/obj/machinery/power/smes/buildable/Initialize(mapload, install_coils = 1)
+/obj/machinery/power/smes/buildable/Initialize(mapload, dir, install_coils = 1)
 	wires = new /datum/wires/smes(src)
 	src.install_coils = install_coils
 
 	SSmachinery.queue_rcon_update()
 
 	..()
+
+	LAZYINITLIST(component_parts)	// Parent machinery call won't initialize this list if this is a newly constructed SMES.
 
 	if (install_coils)
 		for (var/i in 1 to cur_coils)
