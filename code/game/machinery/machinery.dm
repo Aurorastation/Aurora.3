@@ -107,6 +107,7 @@ Class Procs:
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
 	var/power_channel = EQUIP //EQUIP, ENVIRON or LIGHT
+	var/list/spawn_components
 	var/list/component_parts = null //list of all the parts used to build it, if made from certain kinds of frames.
 	var/uid
 	var/panel_open = 0
@@ -115,17 +116,28 @@ Class Procs:
 	var/printing = 0 // Is this machine currently printing anything?
 	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
+	var/global/total_spawned_components = 0
 
 /obj/machinery/Initialize(mapload, d=0)
 	. = ..()
 	if(d)
 		set_dir(d)
 
-	component_parts = setup_components()
-	if (component_parts)
-		RefreshParts()
-	else
+	if (spawn_components)
 		component_parts = list()
+		for (var/type in spawn_components)
+			var/count = spawn_components[type]
+			if (count > 1)
+				for (var/i in 1 to count)
+					component_parts += new type(src)
+
+				total_spawned_components += count
+			else
+				component_parts += new type(src)
+				total_spawned_components++
+
+		if (component_parts.len)
+			RefreshParts()
 
 	add_machine(src)
 
@@ -137,12 +149,8 @@ Class Procs:
 				qdel(A)
 			else // Otherwise we assume they were dropped to the ground during deconstruction, and were not removed from the component_parts list by deconstruction code.
 				component_parts -= A
-	if(contents) // The same for contents.
-		for(var/atom/A in contents)
-			qdel(A)
-	return ..()
 
-/obj/machinery/proc/setup_components()
+	return ..()
 
 /obj/machinery/proc/machinery_process()
 	. = process()

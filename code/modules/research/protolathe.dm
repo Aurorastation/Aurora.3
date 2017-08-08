@@ -16,15 +16,11 @@
 	var/mat_efficiency = 1
 	var/speed = 1
 
-/obj/machinery/r_n_d/protolathe/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/protolathe(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/reagent_containers/glass/beaker(src),
-		new /obj/item/weapon/reagent_containers/glass/beaker(src)
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/protolathe,
+		/obj/item/weapon/stock_parts/matter_bin = 2,
+		/obj/item/weapon/stock_parts/manipulator = 2,
+		/obj/item/weapon/reagent_containers/glass/beaker = 2
 	)
 
 /obj/machinery/r_n_d/protolathe/machinery_process()

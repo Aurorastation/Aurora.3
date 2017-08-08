@@ -43,21 +43,18 @@
 	var/eject_wait = 0 //Don't eject them as soon as they are created fuckkk
 	var/biomass = CLONE_BIOMASS * 3
 
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/clonepod,
+		/obj/item/weapon/stock_parts/manipulator = 2,
+		/obj/item/weapon/stock_parts/scanning_module = 2,
+		/obj/item/weapon/stock_parts/console_screen,
+		/obj/item/stack/cable_coil{amount = 2}
+	)
+
 /obj/machinery/clonepod/Initialize()
 	. = ..()
 	update_icon()
 	set_expansion(/datum/expansion/multitool, new/datum/expansion/multitool/store(src))
-
-/obj/machinery/clonepod/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/clonepod(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/scanning_module(src),
-		new /obj/item/weapon/stock_parts/scanning_module(src),
-		new /obj/item/weapon/stock_parts/console_screen(src),
-		new /obj/item/stack/cable_coil(src, 2)
-	)
 
 /obj/machinery/clonepod/Destroy()
 	if(connected)

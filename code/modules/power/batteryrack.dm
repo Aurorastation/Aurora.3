@@ -12,13 +12,9 @@
 	var/cells_amount = 0
 	var/capacitors_amount = 0
 
-//Maybe this should be moved up to obj/machinery
-/obj/machinery/power/smes/batteryrack/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/batteryrack(src),
-		new /obj/item/weapon/cell/high(src),
-		new /obj/item/weapon/cell/high(src),
-		new /obj/item/weapon/cell/high(src)
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/batteryrack,
+		/obj/item/weapon/cell/high = 3
 	)
 
 /obj/machinery/power/smes/batteryrack/RefreshParts()
@@ -98,13 +94,9 @@
 	desc = "A rack of batteries connected by a mess of wires posing as a PSU."
 	var/overcharge_percent = 0
 
-
-/obj/machinery/power/smes/batteryrack/makeshift/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/ghettosmes(src),
-		new /obj/item/weapon/cell/high(src),
-		new /obj/item/weapon/cell/high(src),
-		new /obj/item/weapon/cell/high(src)
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/ghettosmes,
+		/obj/item/weapon/cell/high = 3
 	)
 
 /obj/machinery/power/smes/batteryrack/makeshift/update_icon()

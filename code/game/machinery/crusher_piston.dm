@@ -51,6 +51,13 @@
 
 	var/process_lock = 0 //If the call to process is locked because it is still running
 
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/crusher,
+		/obj/item/weapon/stock_parts/matter_bin = 4,
+		/obj/item/weapon/stock_parts/manipulator = 3,
+		/obj/item/weapon/reagent_containers/glass/beaker = 3
+	)
+
 /obj/machinery/crusher_base/Initialize()
 	. = ..()
 
@@ -63,21 +70,6 @@
 	queue_icon_update()
 	// Change the icons of the neighboring bases
 	change_neighbor_base_icons()
-
-/obj/machinery/crusher_base/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/crusher(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/reagent_containers/glass/beaker(src),
-		new /obj/item/weapon/reagent_containers/glass/beaker(src),
-		new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	)
 
 /obj/machinery/crusher_base/Destroy()
 	var/oldloc = loc

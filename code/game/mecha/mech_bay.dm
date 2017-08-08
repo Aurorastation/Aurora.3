@@ -11,14 +11,11 @@
 	var/charge = 45
 	var/repair = 0
 
-/obj/machinery/mech_recharger/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/mech_recharger(src),
-		new /obj/item/weapon/stock_parts/capacitor(src),
-		new /obj/item/weapon/stock_parts/capacitor(src),
-		new /obj/item/weapon/stock_parts/scanning_module(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/manipulator(src)
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/mech_recharger,
+		/obj/item/weapon/stock_parts/capacitor = 2,
+		/obj/item/weapon/stock_parts/scanning_module,
+		/obj/item/weapon/stock_parts/manipulator = 2
 	)
 
 /obj/machinery/mech_recharger/Crossed(var/obj/mecha/M)

@@ -20,19 +20,17 @@
 	var/set_temperature = T20C		// Thermostat
 	var/cooling = 0
 
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/unary_atmos/cooler,
+		/obj/item/weapon/stock_parts/matter_bin,
+		/obj/item/weapon/stock_parts/capacitor = 2,
+		/obj/item/weapon/stock_parts/manipulator,
+		/obj/item/stack/cable_coil{amount = 2}
+	)
+
 /obj/machinery/atmospherics/unary/freezer/New()
 	..()
 	initialize_directions = dir
-
-/obj/machinery/atmospherics/unary/freezer/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/unary_atmos/cooler(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/capacitor(src),
-		new /obj/item/weapon/stock_parts/capacitor(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/stack/cable_coil(src, 2)
-	)
 
 /obj/machinery/atmospherics/unary/freezer/atmos_init()
 	if(node)

@@ -8,10 +8,9 @@
 	var/power_loss = 2
 	var/input_power_multiplier = 1
 
-/obj/machinery/power/tesla_coil/setup_components()
-	. = list(
-	//	new /obj/item/weapon/circuitboard/tesla_coil,
-		new /obj/item/weapon/stock_parts/capacitor
+	spawn_components = list(
+		///obj/item/weapon/circuitboard/tesla_coil,
+		/obj/item/weapon/stock_parts/capacitor
 	)
 
 /obj/machinery/power/tesla_coil/RefreshParts()
@@ -61,10 +60,9 @@
 	anchored = 0
 	density = 1
 
-/obj/machinery/power/grounding_rod/setup_components()
-	. = list(
-	//	new /obj/item/weapon/circuitboard/grounding_rod,
-		new /obj/item/weapon/stock_parts/capacitor
+	spawn_components = list(
+		///obj/item/weapon/circuitboard/grounding_rod,
+		/obj/item/weapon/stock_parts/capacitor
 	)
 
 /obj/machinery/power/grounding_rod/attackby(obj/item/W, mob/user)

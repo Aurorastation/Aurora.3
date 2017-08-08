@@ -20,18 +20,16 @@
 	var/set_temperature = T20C	//thermostat
 	var/heating = 0		//mainly for icon updates
 
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/unary_atmos/heater,
+		/obj/item/weapon/stock_parts/matter_bin,
+		/obj/item/weapon/stock_parts/capacitor = 2,
+		/obj/item/stack/cable_coil{amount = 5}
+	)
+
 /obj/machinery/atmospherics/unary/heater/New()
 	..()
 	initialize_directions = dir
-
-/obj/machinery/atmospherics/unary/heater/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/unary_atmos/heater(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/capacitor(src),
-		new /obj/item/weapon/stock_parts/capacitor(src),
-		new /obj/item/stack/cable_coil(src, 5)
-	)
 
 /obj/machinery/atmospherics/unary/heater/atmos_init()
 	if(node)

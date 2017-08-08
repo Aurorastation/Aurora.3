@@ -21,13 +21,11 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	idle_power_usage = 30
 	active_power_usage = 2500
 
-/obj/machinery/r_n_d/circuit_imprinter/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/circuit_imprinter(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/reagent_containers/glass/beaker(src),
-		new /obj/item/weapon/reagent_containers/glass/beaker(src)
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/circuit_imprinter,
+		/obj/item/weapon/stock_parts/matter_bin,
+		/obj/item/weapon/stock_parts/manipulator,
+		/obj/item/weapon/reagent_containers/glass/beaker = 2
 	)
 
 /obj/machinery/r_n_d/circuit_imprinter/machinery_process()

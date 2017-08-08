@@ -19,6 +19,11 @@
 	var/dos_capacity = 500		// Amount of DoS "packets" in buffer required to crash the relay
 	var/dos_dissipate = 1		// Amount of DoS "packets" dissipated over time.
 
+	spawn_components = list(
+		/obj/item/stack/cable_coil{amount = 15},
+		/obj/item/weapon/circuitboard/ntnet_relay
+	)
+
 // TODO: Implement more logic here. For now it's only a placeholder.
 /obj/machinery/ntnet_relay/operable()
 	if(!..(EMPED))
@@ -111,12 +116,6 @@
 		ntnet_global.relays.Add(src)
 		NTNet = ntnet_global
 		ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
-
-/obj/machinery/ntnet_relay/setup_components()
-	. = list(
-		new /obj/item/stack/cable_coil(src,15),
-		new /obj/item/weapon/circuitboard/ntnet_relay(src)
-	)
 
 /obj/machinery/ntnet_relay/Destroy()
 	if(ntnet_global)

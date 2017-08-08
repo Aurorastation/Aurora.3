@@ -23,19 +23,16 @@
 
 	var/datum/wires/autolathe/wires
 
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/autolathe,
+		/obj/item/weapon/stock_parts/matter_bin = 3,
+		/obj/item/weapon/stock_parts/manipulator,
+		/obj/item/weapon/stock_parts/console_screen
+	)
+
 /obj/machinery/autolathe/Initialize()
 	. = ..()
 	wires = new(src)
-
-/obj/machinery/autolathe/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/autolathe(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/console_screen(src)
-	)
 
 /obj/machinery/autolathe/Destroy()
 	qdel(wires)

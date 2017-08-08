@@ -10,14 +10,12 @@
 	active_power_usage = 5000
 	var/efficiency
 
-/obj/machinery/telepad/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/telesci_pad,
-		new /obj/item/bluespace_crystal/artificial,
-		new /obj/item/bluespace_crystal/artificial,
-		new /obj/item/weapon/stock_parts/capacitor,
-		new /obj/item/weapon/stock_parts/console_screen,
-		new /obj/item/stack/cable_coil(null, 1)
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/telesci_pad,
+		/obj/item/bluespace_crystal/artificial = 2,
+		/obj/item/weapon/stock_parts/capacitor,
+		/obj/item/weapon/stock_parts/console_screen,
+		/obj/item/stack/cable_coil{amount = 1}
 	)
 
 /obj/machinery/telepad/RefreshParts()

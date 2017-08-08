@@ -52,15 +52,13 @@
 	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/opened = 0
 
-/obj/machinery/dna_scannernew/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/clonescanner(src),
-		new /obj/item/weapon/stock_parts/scanning_module(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/micro_laser(src),
-		new /obj/item/weapon/stock_parts/console_screen(src),
-		new /obj/item/stack/cable_coil(src),
-		new /obj/item/stack/cable_coil(src)
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/clonescanner,
+		/obj/item/weapon/stock_parts/scanning_module,
+		/obj/item/weapon/stock_parts/manipulator,
+		/obj/item/weapon/stock_parts/micro_laser,
+		/obj/item/weapon/stock_parts/console_screen,
+		/obj/item/stack/cable_coil = 2
 	)
 
 /obj/machinery/dna_scannernew/relaymove(mob/user as mob)

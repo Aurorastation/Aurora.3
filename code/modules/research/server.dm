@@ -14,6 +14,12 @@
 	var/delay = 10
 	req_access = list(access_rd) //Only the R&D can change server settings.
 
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/rdserver,
+		/obj/item/weapon/stock_parts/scanning_module,
+		/obj/item/stack/cable_coil = 2
+	)
+
 /obj/machinery/r_n_d/server/Destroy()
 	griefProtection()
 	return ..()
@@ -27,14 +33,6 @@
 /obj/machinery/r_n_d/server/Initialize()
 	. = ..()
 	setup()
-
-/obj/machinery/r_n_d/server/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/rdserver(src),
-		new /obj/item/weapon/stock_parts/scanning_module(src),
-		new /obj/item/stack/cable_coil(src),
-		new /obj/item/stack/cable_coil(src)
-	)
 
 /obj/machinery/r_n_d/server/proc/setup()
 	if(!files)

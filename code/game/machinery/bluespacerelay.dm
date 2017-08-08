@@ -12,28 +12,25 @@
 	idle_power_usage = 15000
 	active_power_usage = 15000
 
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/bluespacerelay,
+		/obj/item/weapon/stock_parts/manipulator = 2,
+		/obj/item/weapon/stock_parts/subspace/filter,
+		/obj/item/weapon/stock_parts/subspace/crystal,
+		/obj/item/stack/cable_coil
+	)
+
 /obj/machinery/bluespacerelay/machinery_process()
 
 	update_power()
 
 	update_icon()
 
-
 /obj/machinery/bluespacerelay/update_icon()
 	if(on)
 		icon_state = initial(icon_state)
 	else
 		icon_state = "[initial(icon_state)]_off"
-
-/obj/machinery/bluespacerelay/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/bluespacerelay(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/subspace/filter(src),
-		new /obj/item/weapon/stock_parts/subspace/crystal(src),
-		new /obj/item/stack/cable_coil(src, 30)
-	)
 
 /obj/machinery/bluespacerelay/proc/update_power()
 

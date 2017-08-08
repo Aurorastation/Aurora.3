@@ -15,6 +15,11 @@
 	var/eat_eff = 1
 	var/capacity = 50
 
+	spawn_components = list(
+		/obj/item/weapon/circuitboard/biogenerator,
+		/obj/item/weapon/stock_parts/matter_bin,
+		/obj/item/weapon/stock_parts/manipulator
+	)
 
 /obj/machinery/biogenerator/Initialize()
 	. = ..()
@@ -22,13 +27,6 @@
 	reagents = R
 	R.my_atom = src
 	beaker = new /obj/item/weapon/reagent_containers/glass/bottle(src)
-
-/obj/machinery/biogenerator/setup_components()
-	. = list(
-		new /obj/item/weapon/circuitboard/biogenerator(src),
-		new /obj/item/weapon/stock_parts/matter_bin(src),
-		new /obj/item/weapon/stock_parts/manipulator(src)
-	)
 
 /obj/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
 	update_icon()
