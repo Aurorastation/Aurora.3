@@ -116,7 +116,6 @@ Class Procs:
 	var/printing = 0 // Is this machine currently printing anything?
 	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
-	var/global/total_spawned_components = 0
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
@@ -130,11 +129,8 @@ Class Procs:
 			if (count > 1)
 				for (var/i in 1 to count)
 					component_parts += new type(src)
-
-				total_spawned_components += count
 			else
 				component_parts += new type(src)
-				total_spawned_components++
 
 		if (component_parts.len)
 			RefreshParts()
