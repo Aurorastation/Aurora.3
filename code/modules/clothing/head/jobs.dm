@@ -152,13 +152,13 @@
 	var/hat_color
 	contained_sprite = 1
 
-/obj/item/clothing/head/det/technicolor/New()
+/obj/item/clothing/head/det/technicolor/Initialize()
 	if(prob(5))
 		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
 		var/color = pickweight(colors)
 		icon_state = "hat_detective_[color]"
 		item_state = "hat_detective_[color]"
-	..()
+	. = ..()
 
 /obj/item/clothing/head/det/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
