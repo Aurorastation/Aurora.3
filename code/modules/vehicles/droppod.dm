@@ -72,32 +72,68 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/vehicle/droppod/proc/Fire(var/turf/A)
-	if(!istype(A))
+/obj/vehicle/droppod/proc/firefromarea(var/area/A)
+	var/turf/targetturf = pick_area_turf(A)
+	if(iswall(targetturf))
+		ermessage(0,2)
+		firefromarea(A)
+	else
+		fire(targetturf)
+
+/obj/vehicle/droppod/proc/fire(var/turf/A)
+	if(!isturf(A))
+		world << "not a turf"
 		ermessage()
 		return
 
 	if(!(src.z in validfirelocations))
 		ermessage(1, 1)
-	
-	if(GetAbove(A))
-		if(!A.is_hole)
-			var/turf/abovetarget = GetAbove(A)
-			forceMove(abovetarget)
-		else
-			forceMove(A)
 
-/obj/vehicle/droppod/proc/setlaunchdestinationfromcoords(var/X, var/Y, var/Z)
-	return
+	var/turf/aboveturf = GetAbove(A)
+	world << "Above turf is [aboveturf]"
+	if(aboveturf)
+		if(aboveturf.is_hole)
+			visible_message("<span class='danger'>The [src] drops through the hole in the roof!</span>")
+			applyfalldamage(A)
+			forceMove(aboveturf)
+		else
+			applyfalldamage(aboveturf)
+			aboveturf.ChangeTurf(/turf/space) // change turf will make it into a hole if the turf is set to be turned into space
+			applyfalldamage(A)
+			visible_message("<span class='danger'>The [src] crashes through the roof!</span>")
+			forceMove(A)
+		
+		var/turf/belowturf = GetBelow(A)
+		if(belowturf)
+			//sound here
+			belowturf.visible_message("<span class='danger'>You hear something crash into the ceiling above!</span>")
+
+		if(load)
+			load.forceMove(loc)
+
+		if(passenger) // there can be a passenger w/o a main load
+			passenger.forceMove(loc)
+
+/obj/vehicle/droppod/proc/applyfalldamage(var/turf/A)
+	for(var/mob/T in A)
+		T.gib()
+		T.visible_message("<span class='danger'>[T] is squished by the drop pod!</span>")
+
 
 /obj/vehicle/droppod/proc/ermessage(var/type = 0, var/subtype = 0)
 	if(!type)
 		if(!subtype)
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-			visible_message("<span class='danger'>\The [src]'s screen flashes an error!</span>")
-		else
+			visible_message("<span class='warning'>\The [src]'s screen flashes an error!</span>")
+		else if(subtype == 1)
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-			visible_message("<span class='danger'>\The [src]'s screen flashes an error reading 'Invalid location to launch from!'</span>")
+			visible_message("<span class='warning'>\The [src]'s screen flashes an error reading 'Invalid location to launch from!'</span>")
+		else if(subtype == 2)
+			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
+			visible_message("<span class='warning'>Target location blocked... Rerouting...</span>")
+
 	else
 		if(subtype == 1)
 			visible_message("<span class='notice'>\The [src]'s screen flashes a message reading 'Launch coordinates verified.'</span>")
+		else if(subtype == 2)
+			visible_message("<span class='notice'>The [src]'s screen flashes a message reading 'Laucnhing.'</span>")

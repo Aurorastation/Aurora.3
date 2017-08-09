@@ -770,6 +770,15 @@
 			else
 				ChangeTurf(/turf/space)
 
+/turf/floor/proc/makehole()
+	var/turf/below = GetBelow(src)
+	if(below)
+		var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
+		if(below_area.station_area)
+			below.spawn_roof(ROOF_FORCE_SPAWN)
+		else
+			ChangeTurf(/turf/space)
+
 /turf/simulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
 	..()
 	if(istype(M,/mob/living/silicon/robot))
