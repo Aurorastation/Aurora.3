@@ -273,7 +273,8 @@
 
 /proc/is_valid_for_devour(var/mob/living/test, var/eat_types)
 	//eat_types must contain all types that the mob has. For example we need both humanoid and synthetic to eat an IPC.
-	. = (test.find_type() & eat_types) == eat_types
+	var/test_types = test.find_type()
+	. = (eat_types & test_types) == test_types
 
 /mob/living/proc/calculate_composition()
 	if (!composition_reagent)//if no reagent has been set, then we'll set one

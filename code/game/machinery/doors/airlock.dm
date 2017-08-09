@@ -634,6 +634,7 @@ About the new airlock wires panel:
 	switch(animation)
 		if("opening")
 			cut_overlays()
+			compile_overlays()	// Flick will prevent SSoverlays from changing the overlay list mid-flick, so we force it.
 			if(p_open)
 				flick("o_door_opening", src)
 				update_icon()
@@ -643,6 +644,7 @@ About the new airlock wires panel:
 		if("closing")
 			if(overlays)
 				cut_overlays()
+				compile_overlays()
 			if(p_open)
 				flick("o_door_closing", src)
 				update_icon()

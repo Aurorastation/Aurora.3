@@ -94,6 +94,8 @@
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
 
+	queue_icon_update()
+
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
 //Otherwise, if you want handle_click_empty() to be called, check in consume_next_projectile() and return null there.
