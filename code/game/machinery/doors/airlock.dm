@@ -210,12 +210,13 @@
 	hatch_colour = "#5b5b5b"
 	var/hatch_colour_bolted = "#695a5a"
 
-	update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
+/obj/machinery/door/airlock/hatch/update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
+	if (hashatch)
 		if(density && locked && lights && src.arePowerSystemsOn())
 			hatch_image.color = hatch_colour_bolted
 		else
 			hatch_image.color = hatch_colour
-		..()
+	..()
 
 /obj/machinery/door/airlock/maintenance_hatch
 	name = "Maintenance Hatch"
