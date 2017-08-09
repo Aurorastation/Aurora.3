@@ -121,9 +121,9 @@ var/global/list/minevendor_list = list( //keep in order of price
 	dat += "<br><b>Equipment point cost list:</b><BR><table border='0' width='300'>"
 	for(var/datum/data/mining_equipment/prize in minevendor_list)
 		if(prize.amount > 0)
-			dat += "<tr><td>[prize.equipment_name]</td><td>[prize.cost]</td><td><A href='?src=\ref[src];purchase=\ref[prize]'>Purchase</A>([prize.amount])</td></tr>"
+			dat += "<tr><td>[prize.equipment_name]</td><td>[prize.cost]</td><td><A href='?src=\ref[src];purchase=\ref[prize]'>Purchase</A> ([prize.amount])</td></tr>"
 		else if(prize.amount == -1)
-			dat += "<tr><td>[prize.equipment_name]</td><td>[prize.cost]</td><td><A href='?src=\ref[src];purchase=\ref[prize]'>Purchase</A>(No limit.)</td></tr>"
+			dat += "<tr><td>[prize.equipment_name]</td><td>[prize.cost]</td><td><A href='?src=\ref[src];purchase=\ref[prize]'>Purchase</A> (No limit.)</td></tr>"
 		else
 			dat += "<tr><td>[prize.equipment_name]</td><td>(Out of stock!)</td></tr>"
 	dat += "</table>"
