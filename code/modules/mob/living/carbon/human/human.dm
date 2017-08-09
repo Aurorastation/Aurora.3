@@ -1182,7 +1182,7 @@
 		usr << "<span class='warning'>You failed to check the pulse. Try again.</span>"
 
 /mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0)
-
+	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
 			new_species = "Human"
