@@ -175,8 +175,8 @@
 	var/use_launcher = 0
 	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
 
-/obj/item/weapon/gun/projectile/automatic/rifle/z8/New()
-	..()
+/obj/item/weapon/gun/projectile/automatic/rifle/z8/Initialize()
+	. = ..()
 	launcher = new(src)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
