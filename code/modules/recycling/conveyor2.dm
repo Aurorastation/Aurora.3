@@ -119,6 +119,9 @@
 	if (!anchored && simulated && has_gravity(src))
 		step(src, move_dir)
 
+/obj/effect/conveyor_act()
+	return
+
 // attack with item, place item on conveyor
 /obj/machinery/conveyor/attackby(var/obj/item/I, mob/user)
 	if(iscrowbar(I))
