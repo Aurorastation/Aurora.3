@@ -98,7 +98,7 @@
 			forceMove(aboveturf)
 		else
 			applyfalldamage(aboveturf)
-			aboveturf.ChangeTurf(/turf/space) // change turf will make it into a hole if the turf is set to be turned into space
+			aboveturf.ChangeTurf(/turf/space)
 			applyfalldamage(A)
 			visible_message("<span class='danger'>The [src] crashes through the roof!</span>")
 			forceMove(A)
