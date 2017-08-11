@@ -163,3 +163,39 @@
 
 /datum/light_source/novis/update_angle()
 	return
+
+#define QUEUE_UPDATE(level) \
+	var/_should_update = needs_update == LIGHTING_NO_UPDATE; \
+	if (needs_update < level) {        \
+		needs_update = level;          \
+	}                                  \
+	if (_should_update) {              \
+		SSlighting.light_queue += src; \
+	}
+
+/datum/light_source/novis/update(atom/new_top_atom)
+	// This top atom is different.
+	if (new_top_atom && new_top_atom != top_atom)
+		if(top_atom != source_atom) // Remove ourselves from the light sources of that top atom.
+			LAZYREMOVE(top_atom.light_sources, src)
+
+		top_atom = new_top_atom
+
+		if (top_atom != source_atom)
+			if(!top_atom.light_sources)
+				top_atom.light_sources = list()
+
+			top_atom.light_sources += src // Add ourselves to the light sources of our new top atom.
+
+	//L_PROF(source_atom, "source_update")
+
+	QUEUE_UPDATE(LIGHTING_CHECK_UPDATE)
+
+/datum/light_source/novis/force_update()
+	QUEUE_UPDATE(LIGHTING_FORCE_UPDATE)
+
+/datum/light_source/novis/vis_update()
+	QUEUE_UPDATE(LIGHTING_VIS_UPDATE)
+
+
+#undef QUEUE_UPDATE
