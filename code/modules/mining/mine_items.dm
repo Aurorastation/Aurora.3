@@ -1082,7 +1082,6 @@ var/list/total_extraction_beacons = list()
 	force = 10
 	throwforce = 5
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
-	var/currently_pulling = FALSE
 
 /obj/item/weapon/oremagnet/attack_self(mob/user)
 	if (use_check(user))
