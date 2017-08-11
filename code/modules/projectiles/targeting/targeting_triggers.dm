@@ -20,6 +20,8 @@
 	var/obj/item/weapon/gun/G = aiming_with
 	if(istype(G))
 		G.Fire(aiming_at, owner)
+	cancel_aiming()
+	aim_cooldown(3)
 
 /mob/living/ClickOn(var/atom/A, var/params)
 	. = ..()

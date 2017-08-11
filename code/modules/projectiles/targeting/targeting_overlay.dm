@@ -133,6 +133,8 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 			owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
 
 /obj/aiming_overlay/proc/aim_at(var/mob/target, var/obj/thing)
+	if (aimcooldown > world.time) 
+		return
 
 	if(!owner)
 		return
@@ -174,6 +176,10 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
 	moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
 	destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
+var/aimcooldown //this is hacky im sorry.
+/obj/aiming_overlay/proc/aim_cooldown(var/seconds)
+	aimcooldown = world.time + seconds SECONDS	
+	
 
 /obj/aiming_overlay/update_icon()
 	if(locked)
@@ -222,3 +228,4 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 /obj/aiming_overlay/proc/target_moved()
 	update_aiming()
 	trigger(TARGET_CAN_MOVE)
+
