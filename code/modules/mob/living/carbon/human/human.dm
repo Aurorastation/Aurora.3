@@ -1019,6 +1019,9 @@
 	// This will ignore any prosthetics in the prefs currently.
 	species.create_organs(src)
 
+	if (client)
+		sync_organ_prefs_to_mob(client.prefs)
+
 	if(!client || !key) //Don't boot out anyone already in the mob.
 		for (var/obj/item/organ/brain/H in world)
 			if(H.brainmob)
