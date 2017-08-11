@@ -65,8 +65,8 @@
 		)
 	)
 
-/obj/item/weapon/gun/energy/lawgiver/New()
-	..()
+/obj/item/weapon/gun/energy/lawgiver/Initialize()
+	. = ..()
 	listening_objects += src
 
 /obj/item/weapon/gun/energy/lawgiver/Destroy()

@@ -89,11 +89,11 @@
 	name = "grenade launcher"
 	desc = "A bulky pump-action grenade launcher. Loaded with 3 frag grenades."
 
-/obj/item/weapon/gun/launcher/grenade/cyborg/New()
-	..()
+/obj/item/weapon/gun/launcher/grenade/cyborg/Initialize()
+	. = ..()
 
 	grenades = list(
-			new /obj/item/weapon/grenade/frag(src),
-			new /obj/item/weapon/grenade/frag(src),
-			new /obj/item/weapon/grenade/frag(src)
-			)
+		new /obj/item/weapon/grenade/frag(src),
+		new /obj/item/weapon/grenade/frag(src),
+		new /obj/item/weapon/grenade/frag(src)
+	)
