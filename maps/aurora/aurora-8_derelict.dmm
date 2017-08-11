@@ -61,6 +61,7 @@
 "aj" = (
 /obj/structure/table/woodentable,
 /obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "ak" = (
@@ -87,7 +88,6 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "ao" = (
-/obj/random/energy_antag,
 /obj/item/weapon/card/emag_broken,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
@@ -563,6 +563,7 @@
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "bW" = (
@@ -570,7 +571,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "bX" = (
-/obj/random/energy,
+/obj/random/loot,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "bY" = (
@@ -682,7 +683,9 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/northeast)
 "cr" = (
-/obj/item/weapon/gun/projectile/sec/flash,
+/obj/item/weapon/gun/projectile/sec/flash{
+	jam_chance = 50
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "cs" = (
@@ -848,7 +851,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "cV" = (
-/obj/random/projectile,
+/obj/random/loot,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "cW" = (
@@ -1404,6 +1407,7 @@
 /area/derelict/hallway/northeast)
 "eJ" = (
 /obj/structure/table/woodentable,
+/obj/random/loot,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "eK" = (
@@ -2110,6 +2114,7 @@
 /area/derelict/hallway/northwest)
 "gF" = (
 /obj/structure/table/standard,
+/obj/random/loot,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "gG" = (
@@ -2572,6 +2577,7 @@
 /area/derelict/hallway/northwest)
 "ig" = (
 /obj/structure/table/rack,
+/obj/random/loot,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "ih" = (
@@ -2747,7 +2753,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "iP" = (
-/obj/structure/closet/crate,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "iQ" = (
@@ -3100,6 +3106,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
+/obj/random/loot,
 /turf/space,
 /area/space)
 "jU" = (
@@ -3605,6 +3612,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "lw" = (
@@ -3843,6 +3851,7 @@
 /area/derelict/hallway/southwest)
 "ma" = (
 /obj/structure/table/reinforced,
+/obj/random/loot,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "mb" = (
@@ -5193,6 +5202,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "pK" = (
@@ -5507,6 +5517,7 @@
 /area/space)
 "qC" = (
 /obj/structure/table/woodentable,
+/obj/random/loot,
 /turf/simulated/floor/carpet/blue,
 /area/derelict/hallway/southeast)
 "qD" = (
@@ -5583,7 +5594,7 @@
 /area/derelict/hallway/southeast)
 "qQ" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight,
+/obj/random/loot,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "qR" = (
@@ -5719,6 +5730,7 @@
 /area/derelict/hallway/southeast)
 "rl" = (
 /obj/structure/table/standard,
+/obj/random/loot,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "rm" = (
@@ -7679,22 +7691,19 @@
 /area/derelict/hallway/southeast)
 "wg" = (
 /turf/space,
-/turf/simulated/shuttle/wall{
-	icon_state = "pwall";
-	dir = 9
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
 	},
 /area/derelict/hallway/southwest)
 "wh" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "pwall";
-	dir = 1
-	},
+/turf/simulated/shuttle/wall/dark,
 /area/derelict/hallway/southwest)
 "wi" = (
 /turf/simulated/floor/airless,
-/turf/simulated/shuttle/wall{
-	icon_state = "pwall";
-	dir = 10
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
 	},
 /area/derelict/hallway/southwest)
 "wj" = (
@@ -7721,9 +7730,9 @@
 /turf/simulated/shuttle/floor{
 	icon_state = "floor2"
 	},
-/turf/simulated/shuttle/wall{
-	icon_state = "pwall";
-	dir = 6
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
 	},
 /area/derelict/hallway/southwest)
 "wm" = (
@@ -7749,21 +7758,17 @@
 /area/derelict/hallway/southwest)
 "wp" = (
 /turf/simulated/floor/airless,
-/turf/simulated/shuttle/wall{
-	icon_state = "pwall";
-	dir = 6
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
 	},
 /area/derelict/hallway/southwest)
 "wq" = (
-/turf/simulated/shuttle/plating,
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
-/turf/simulated/shuttle/wall{
-	icon_state = "propulsion";
-	dir = 4
-	},
+/turf/simulated/shuttle/wall/dark,
 /area/derelict/hallway/southwest)
 "wr" = (
 /mob/living/simple_animal/hostile/hivebot/strong,
@@ -7811,18 +7816,18 @@
 /area/derelict/hallway/southeast)
 "wy" = (
 /turf/space,
-/turf/simulated/shuttle/wall{
-	icon_state = "pwall";
-	dir = 5
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
 	},
 /area/derelict/hallway/southwest)
 "wz" = (
 /turf/simulated/shuttle/floor{
 	icon_state = "floor2"
 	},
-/turf/simulated/shuttle/wall{
-	icon_state = "pwall";
-	dir = 10
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
 	},
 /area/derelict/hallway/southwest)
 "wA" = (
@@ -7978,6 +7983,190 @@
 "xc" = (
 /turf/space,
 /area)
+"xd" = (
+/obj/structure/table/woodentable,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hallway/northwest)
+"xe" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/gun/projectile/pistol{
+	jam_chance = 50
+	},
+/turf/simulated/floor/wood,
+/area/derelict/hallway/northwest)
+"xf" = (
+/obj/structure/table,
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/northeast)
+"xg" = (
+/obj/structure/table/standard,
+/obj/random/loot,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hallway/northwest)
+"xh" = (
+/obj/structure/lattice,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/northeast)
+"xi" = (
+/obj/item/weapon/gun/projectile/revolver/capgun{
+	desc = "The classic Necropolis Industries .357 revolver, for when you only want to shoot once.";
+	name = "revolver"
+	},
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hallway/northeast)
+"xj" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/space)
+"xk" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/northwest)
+"xl" = (
+/obj/structure/table/reinforced,
+/obj/random/loot,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hallway/northeast)
+"xm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
+/turf/simulated/floor/tiled/airless,
+/area/space)
+"xn" = (
+/obj/random/loot,
+/turf/simulated/floor/tiled/airless,
+/area/space)
+"xo" = (
+/obj/structure/table/standard,
+/obj/random/loot,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hallway/northeast)
+"xp" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hallway/northwest)
+"xq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/colored_jumpsuit,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hallway/northwest)
+"xr" = (
+/obj/random/loot,
+/turf/simulated/floor/tiled/airless,
+/area/space)
+"xs" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/space)
+"xt" = (
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
+/turf/simulated/floor/tiled/white,
+/area/derelict/hallway/southeast)
+"xu" = (
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
+/turf/simulated/floor/tiled/white,
+/area/derelict/hallway/southeast)
+"xv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hallway/southwest)
+"xw" = (
+/obj/random/coin,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/southeast)
+"xx" = (
+/obj/item/weapon/gun/projectile/shotgun/improvised,
+/turf/simulated/floor/wood,
+/area/space)
+"xy" = (
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
+/turf/simulated/floor/tiled/white,
+/area/derelict/hallway/southeast)
+"xz" = (
+/obj/random/loot,
+/turf/simulated/floor/tiled/white,
+/area/derelict/hallway/southeast)
+"xA" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/space)
+"xB" = (
+/obj/structure/table/rack,
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/southeast)
+"xC" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/space)
+"xD" = (
+/obj/random/loot,
+/turf/simulated/floor/tiled/white,
+/area/derelict/hallway/southeast)
+"xE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
+/turf/simulated/floor/tiled/white,
+/area/derelict/hallway/southeast)
+"xF" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/southwest)
+"xG" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/southwest)
+"xH" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/southwest)
+"xI" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/southeast)
+"xJ" = (
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
+/turf/simulated/floor/tiled/white,
+/area/derelict/hallway/southeast)
+"xK" = (
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
+/turf/simulated/floor/tiled/white,
+/area/derelict/hallway/southeast)
+"xL" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/southwest)
+"xM" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/southeast)
+"xN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/loot,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/hallway/southwest)
+"xO" = (
+/obj/random/loot,
+/turf/simulated/floor/airless,
+/area/space)
 
 (1,1,1) = {"
 aa
@@ -17084,7 +17273,7 @@ ac
 aa
 ar
 eF
-eN
+xm
 eF
 eF
 ac
@@ -18383,7 +18572,7 @@ ac
 aa
 aa
 ax
-av
+xp
 bd
 aa
 aa
@@ -22470,7 +22659,7 @@ dc
 aH
 aH
 aH
-aH
+xk
 aH
 aH
 aH
@@ -23266,7 +23455,7 @@ av
 av
 au
 gS
-av
+xq
 av
 aH
 aa
@@ -23535,7 +23724,7 @@ iH
 iS
 jb
 je
-je
+xv
 it
 aa
 kZ
@@ -23580,7 +23769,7 @@ tN
 tN
 tN
 ac
-ix
+xG
 ac
 tN
 tN
@@ -25332,8 +25521,8 @@ aa
 aa
 aa
 iT
-xa
-xb
+ix
+aa
 aa
 it
 aa
@@ -25590,7 +25779,7 @@ aa
 aa
 aa
 aa
-xb
+aa
 aa
 aa
 kC
@@ -26102,7 +26291,7 @@ ac
 aa
 aa
 aa
-ar
+xs
 ac
 aa
 aa
@@ -27623,7 +27812,7 @@ aa
 aa
 aa
 aa
-ft
+aa
 aa
 aa
 aa
@@ -27852,9 +28041,9 @@ aa
 aa
 aa
 aa
+df
 aa
-aa
-aa
+bf
 aa
 aa
 aa
@@ -28108,9 +28297,9 @@ as
 aB
 ae
 aN
-as
-aU
-ae
+hf
+ac
+aa
 aa
 aa
 aa
@@ -28366,8 +28555,8 @@ aC
 aK
 ap
 ap
-aV
-ae
+ac
+ac
 aa
 aa
 aa
@@ -28464,7 +28653,7 @@ aa
 kZ
 uO
 ix
-ix
+xH
 kZ
 aa
 ac
@@ -28976,7 +29165,7 @@ aa
 aa
 ac
 it
-ix
+xF
 ix
 ix
 it
@@ -29137,7 +29326,7 @@ aF
 ae
 at
 ap
-aY
+xe
 ae
 aa
 aa
@@ -29393,7 +29582,7 @@ ae
 ae
 ae
 aC
-aQ
+aY
 aZ
 ae
 ae
@@ -29479,7 +29668,7 @@ aa
 aa
 aa
 ad
-ar
+xC
 aa
 aa
 aa
@@ -29665,7 +29854,7 @@ aa
 aa
 aa
 ae
-ar
+xj
 ar
 ar
 aa
@@ -29903,7 +30092,7 @@ aa
 aa
 ag
 an
-aw
+xd
 aw
 aM
 at
@@ -30276,9 +30465,9 @@ kZ
 kZ
 kZ
 wh
-wo
 ws
-wA
+ws
+ws
 wh
 kZ
 aa
@@ -31821,7 +32010,7 @@ ix
 ix
 wu
 ix
-ix
+xL
 kZ
 aa
 ac
@@ -32012,7 +32201,7 @@ aa
 aa
 aa
 ar
-az
+xr
 az
 aa
 aa
@@ -32344,7 +32533,7 @@ aa
 ar
 ac
 ar
-ar
+xO
 aa
 ac
 ac
@@ -32553,7 +32742,7 @@ aa
 aa
 aa
 aa
-ar
+xA
 it
 qJ
 ix
@@ -33767,7 +33956,7 @@ aa
 aa
 aa
 ae
-bP
+xg
 cb
 cm
 cx
@@ -34395,7 +34584,7 @@ wD
 wC
 wC
 wD
-wC
+xN
 sw
 aa
 ac
@@ -37621,7 +37810,7 @@ aa
 be
 bj
 bj
-bD
+xf
 bD
 bn
 bm
@@ -37935,7 +38124,7 @@ ac
 ac
 ll
 mJ
-mJ
+xx
 az
 az
 aA
@@ -37992,7 +38181,7 @@ wE
 wE
 iq
 wO
-ir
+xM
 iu
 wU
 wU
@@ -38707,7 +38896,7 @@ aa
 ac
 aa
 aa
-no
+aa
 nB
 aA
 ac
@@ -40767,7 +40956,7 @@ aa
 aa
 aa
 ir
-kf
+xz
 iq
 ir
 ac
@@ -42312,8 +42501,8 @@ aa
 aa
 aa
 ir
-pb
-pt
+kf
+pZ
 jt
 kf
 ir
@@ -43296,7 +43485,7 @@ bq
 bn
 ac
 bq
-eA
+xl
 bn
 ac
 aa
@@ -45434,7 +45623,7 @@ iq
 jt
 jt
 jt
-jv
+xK
 vR
 vZ
 wd
@@ -45936,7 +46125,7 @@ ac
 df
 iq
 uf
-jt
+xE
 iq
 jt
 vj
@@ -46111,9 +46300,9 @@ bn
 bn
 bq
 be
-az
-az
-az
+bn
+bn
+bn
 be
 bh
 bn
@@ -46908,7 +47097,7 @@ bn
 bU
 hB
 bj
-hM
+xo
 hM
 bq
 bn
@@ -46973,7 +47162,7 @@ aa
 iu
 jv
 jv
-jv
+xJ
 kq
 kq
 vP
@@ -47135,7 +47324,7 @@ aa
 aa
 ac
 aa
-ar
+bh
 bh
 db
 bn
@@ -47903,8 +48092,8 @@ ac
 ac
 aa
 aa
-ck
-bn
+xh
+xi
 cC
 bh
 cl
@@ -47916,7 +48105,7 @@ bq
 bq
 bh
 bh
-bh
+bX
 bn
 bq
 aa
@@ -47962,7 +48151,7 @@ mX
 kq
 jt
 nV
-jv
+xy
 ir
 ac
 ac
@@ -50033,7 +50222,7 @@ qw
 kf
 iu
 aa
-qP
+qQ
 rf
 aa
 aa
@@ -50776,7 +50965,7 @@ iE
 iD
 iD
 jk
-jv
+xt
 jt
 jt
 kS
@@ -51059,7 +51248,7 @@ ac
 aa
 aa
 iu
-qP
+xB
 aa
 iq
 iq
@@ -52042,7 +52231,7 @@ ad
 aa
 aa
 ar
-az
+xn
 az
 ar
 aa
@@ -53384,7 +53573,7 @@ iu
 iu
 iu
 iu
-kf
+xD
 jt
 kq
 kq
@@ -54888,7 +55077,7 @@ aa
 ac
 aa
 iu
-jM
+xu
 jt
 jt
 kb
@@ -55919,7 +56108,7 @@ aa
 aa
 aa
 ac
-ir
+xw
 ir
 iq
 iq
@@ -57508,7 +57697,7 @@ ir
 ir
 ir
 ir
-ir
+xI
 ir
 vG
 tm
@@ -57742,7 +57931,7 @@ iq
 iq
 iq
 iq
-qP
+qQ
 aa
 rw
 rI
