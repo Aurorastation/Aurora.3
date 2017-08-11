@@ -154,3 +154,6 @@
 
 /atom/movable/lighting_overlay/shuttle_move(turf/loc)
 	return
+
+/atom/movable/lighting_overlay/conveyor_act()
+	return
