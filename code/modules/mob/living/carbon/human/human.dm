@@ -1016,10 +1016,10 @@
 		fixblood()
 
 	// Fix up all organs.
-	// This will ignore any prosthetics in the prefs currently.
 	species.create_organs(src)
 
-	if (client)
+	if (client && real_name == client.prefs.real_name)
+		// Re-apply the mob's markings and prosthetics if their pref is their current char.
 		sync_organ_prefs_to_mob(client.prefs)
 
 	if(!client || !key) //Don't boot out anyone already in the mob.
@@ -1038,6 +1038,7 @@
 		V.cure(src)
 
 	losebreath = 0
+	shock_stage = 0
 
 	..()
 
