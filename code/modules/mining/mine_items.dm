@@ -1092,21 +1092,12 @@ var/list/total_extraction_beacons = list()
 	toggle_on(user)
 
 /obj/item/weapon/oremagnet/process()
-	set waitfor = FALSE
-
-	if (currently_pulling)
-		return
-
-	currently_pulling = TRUE
-
-	for(var/obj/item/weapon/ore/O in oview(7,src.loc))
+	for(var/obj/item/weapon/ore/O in oview(7, loc))
 		if(prob(80))
 			step_to(O, src.loc, 0)
 
-		if (TICK_CHECK || QDELING(src))
+		if (TICK_CHECK)
 			return
-
-	currently_pulling = FALSE
 
 /obj/item/weapon/oremagnet/proc/toggle_on(mob/user)
 	if (!isprocessing)
