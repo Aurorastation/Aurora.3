@@ -1009,7 +1009,7 @@
 	else
 		germ_level += n
 
-/mob/living/carbon/human/revive(reset_to_roundstart)
+/mob/living/carbon/human/revive(reset_to_roundstart = TRUE)
 
 	if(species && !(species.flags & NO_BLOOD))
 		vessel.add_reagent("blood",560-vessel.total_volume)
