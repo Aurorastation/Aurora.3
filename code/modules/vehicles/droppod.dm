@@ -17,7 +17,7 @@
 	var/atom/movable/passenger // two seater
 
 	var/area/targetlocation = null
-	var/list/protrectedareas = list()
+	var/list/protrectedareas = list(/area/hallway/secondary/entry/dock, /area/crew_quarters/sleep/cryo, /area/crew_quarters/sleep/bedrooms)
 
 /obj/vehicle/droppod/Initialize()
 	. = ..()
@@ -73,6 +73,10 @@
 		ui.set_auto_update(1)
 
 /obj/vehicle/droppod/proc/firefromarea(var/area/A)
+	if(A in protrectedareas)
+		ermessage()
+		return
+
 	var/turf/targetturf = pick_area_turf(A)
 	if(iswall(targetturf))
 		ermessage(0,2)
@@ -111,14 +115,16 @@
 		if(load)
 			load.forceMove(loc)
 
-		if(passenger) // there can be a passenger w/o a main load
+		if(passenger)
 			passenger.forceMove(loc)
 
 /obj/vehicle/droppod/proc/applyfalldamage(var/turf/A)
 	for(var/mob/T in A)
 		T.gib()
 		T.visible_message("<span class='danger'>[T] is squished by the drop pod!</span>")
-
+	for(var/obj/B in A)
+		qdel(B)
+		B.visible_message("<span class='danger'>[B] is destroyed by the drop pod!</span>")
 
 /obj/vehicle/droppod/proc/ermessage(var/type = 0, var/subtype = 0)
 	if(!type)
