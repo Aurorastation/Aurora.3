@@ -1009,7 +1009,7 @@
 	else
 		germ_level += n
 
-/mob/living/carbon/human/revive()
+/mob/living/carbon/human/revive(reset_to_roundstart)
 
 	if(species && !(species.flags & NO_BLOOD))
 		vessel.add_reagent("blood",560-vessel.total_volume)
@@ -1018,9 +1018,15 @@
 	// Fix up all organs.
 	species.create_organs(src)
 
-	if (client && real_name == client.prefs.real_name)
+	var/datum/preferences/prefs
+	if (client)
+		prefs = client.prefs
+	else if (ckey)	// Mob might be logged out.
+		prefs = preferences_datums[ckey(ckey)]	// run the ckey through ckey() here so that aghosted mobs can be rejuv'd too. (Their ckeys are prefixed with @)
+
+	if (prefs && real_name == prefs.real_name)
 		// Re-apply the mob's markings and prosthetics if their pref is their current char.
-		sync_organ_prefs_to_mob(client.prefs)
+		sync_organ_prefs_to_mob(prefs, reset_to_roundstart)	// Don't apply prosthetics if we're a ling rejuving.
 
 	if(!client || !key) //Don't boot out anyone already in the mob.
 		for (var/obj/item/organ/brain/H in world)
