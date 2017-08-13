@@ -40,7 +40,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/weapon/storage/bag/cash                    = TRADER_BLACKLIST,
 		/obj/item/weapon/storage/backpack                    = TRADER_ALL,
 		/obj/item/weapon/storage/backpack/cultpack           = TRADER_BLACKLIST,
-		/obj/item/weapon/storage/backpack/holding            = TRADER_BLACKLIST,
+		/obj/item/weapon/storage/backpack/holding            = TRADER_BLACKLIST_ALL,
 		/obj/item/weapon/storage/backpack/satchel/withwallet = TRADER_BLACKLIST,
 		/obj/item/weapon/storage/backpack/chameleon          = TRADER_BLACKLIST,
 		/obj/item/weapon/storage/backpack/chameleon          = TRADER_BLACKLIST,
@@ -59,6 +59,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/clothing/glasses/hud                       = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/glasses/sunglasses/blindfold/tape = TRADER_BLACKLIST,
 		/obj/item/clothing/glasses/chameleon                 = TRADER_BLACKLIST,
+		/obj/item/clothing/glasses/sunglasses/bst            = TRADER_BLACKLIST,
 		/obj/item/clothing/glasses/fluff                     = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/glasses/welding/fluff             = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/glasses/regular/fluff             = TRADER_BLACKLIST_ALL
