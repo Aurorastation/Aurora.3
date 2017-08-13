@@ -22,6 +22,7 @@
 		G.Fire(aiming_at, owner)
 	cancel_aiming()
 	aim_cooldown(3)
+	owner.aiming.toggle_active()
 
 /mob/living/ClickOn(var/atom/A, var/params)
 	. = ..()
