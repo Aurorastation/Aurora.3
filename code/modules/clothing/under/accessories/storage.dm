@@ -7,8 +7,8 @@
 	var/obj/item/weapon/storage/internal/hold
 	w_class = 3.0
 
-/obj/item/clothing/accessory/storage/New()
-	..()
+/obj/item/clothing/accessory/storage/Initialize()
+	. = ..()
 	hold = new/obj/item/weapon/storage/internal(src)
 	hold.storage_slots = slots
 	hold.max_storage_space = 12
@@ -96,14 +96,16 @@
 	icon_state = "unathiharness2"
 	slots = 2
 
-/obj/item/clothing/accessory/storage/knifeharness/New()
-	..()
+/obj/item/clothing/accessory/storage/knifeharness/Initialize()
+	. = ..()
 	hold.max_storage_space = 4
-	hold.can_hold = list(/obj/item/weapon/material/hatchet/unathiknife,\
-	/obj/item/weapon/material/kitchen/utensil/knife,\
-	/obj/item/weapon/material/kitchen/utensil/knife/plastic,\
-	/obj/item/weapon/material/knife,\
-	/obj/item/weapon/material/knife/ritual)
+	hold.can_hold = list(
+		/obj/item/weapon/material/hatchet/unathiknife,
+		/obj/item/weapon/material/kitchen/utensil/knife,
+		/obj/item/weapon/material/kitchen/utensil/knife/plastic,
+		/obj/item/weapon/material/knife,
+		/obj/item/weapon/material/knife/ritual
+	)
 
 	new /obj/item/weapon/material/hatchet/unathiknife(hold)
 	new /obj/item/weapon/material/hatchet/unathiknife(hold)

@@ -54,6 +54,7 @@
 	var/list/human_socks_cache = list()
 	// This is an assoc list of all icon states in `icons/mob/collar.dmi`, used by human update-icons.
 	var/list/collar_states
+	var/list/uniform_states
 
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)
@@ -62,3 +63,8 @@
 	collar_states = list()
 	for (var/i in icon_states('icons/mob/collar.dmi'))
 		collar_states[i] = TRUE
+
+/datum/controller/subsystem/icon_cache/proc/setup_uniform_mappings()
+	uniform_states = list()
+	for (var/i in icon_states('icons/mob/uniform.dmi'))
+		uniform_states[i] = TRUE

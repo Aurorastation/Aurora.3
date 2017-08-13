@@ -36,6 +36,12 @@
 /datum/reagent/butanol
 	value = 0.02
 
+/datum/reagent/butanol/xuizijuice
+	value = 0.2
+
+/datum/reagent/butanol/xuizijuice
+	value = 0.2
+
 /datum/reagent/hydrazine
 	value = 0.017
 
@@ -150,8 +156,17 @@
 /datum/reagent/ethanol/beer
 	value = 0.12
 
+/datum/reagent/ethanol/bitters
+	value = 0.15
+
 /datum/reagent/ethanol/bluecuracao
 	value = 0.16
+
+/datum/reagent/ethanol/champagne
+	value = 0.2
+
+/datum/reagent/ethanol/cognac
+	value = 0.2
 
 /datum/reagent/ethanol/deadrum
 	value = 0.15
@@ -240,11 +255,20 @@
 /datum/reagent/ethanol/coffee/brave_bull
 	value = 0.16
 
+/datum/reagent/ethanol/cmojito
+	value = 0.14
+
 /datum/reagent/ethanol/changelingsting
 	value = 0.19
 
+/datum/reagent/ethanol/classic
+	value = 0.14
+
 /datum/reagent/ethanol/martini
 	value = 0.16
+
+/datum/reagent/ethanol/corkpopper
+	value = 0.13
 
 /datum/reagent/ethanol/cuba_libre
 	value = 0.15
@@ -260,6 +284,9 @@
 
 /datum/reagent/ethanol/ginfizz
 	value = 0.13
+
+/datum/reagent/ethanol/french75
+	value = 0.17
 
 /datum/reagent/ethanol/grog
 	value = 0.11
@@ -315,11 +342,29 @@
 /datum/reagent/ethanol/moonshine
 	value = 0.11
 
+/datum/reagent/ethanol/muscmule
+	value = 0.14
+
 /datum/reagent/ethanol/neurotoxin
 	value = 0.2
 
+/datum/reagent/ethanol/omimosa
+	value = 0.18
+
 /datum/reagent/ethanol/patron
 	value = 0.16
+
+/datum/reagent/ethanol/pinkgin
+	value = 0.11
+
+/datum/reagent/ethanol/pinkgintonic
+	value = 0.13
+
+/datum/reagent/ethanol/piratepunch
+	value = 0.14
+
+/datum/reagent/ethanol/planterpunch
+	value = 0.13
 
 /datum/reagent/ethanol/pwine
 	value = 0.19
@@ -341,6 +386,9 @@
 
 /datum/reagent/ethanol/snowwhite
 	value = 0.125
+
+/datum/reagent/ethanol/ssroyale
+	value = 0.14
 
 /datum/reagent/ethanol/suidream
 	value = 0.12
@@ -374,6 +422,75 @@
 
 /datum/reagent/ethanol/specialwhiskey
 	value = 0.3
+
+/datum/reagent/ethanol/daiquiri
+	value = 0.15
+
+/datum/reagent/ethanol/icepick
+	value = 0.15
+
+/datum/reagent/ethanol/poussecafe
+	value = 0.17
+
+/datum/reagent/ethanol/mintjulep
+	value = 0.15
+
+/datum/reagent/ethanol/johncollins
+	value = 0.17
+
+/datum/reagent/ethanol/gimlet
+	value = 0.13
+
+/datum/reagent/ethanol/starsandstripes
+	value = 0.15
+
+/datum/reagent/ethanol/metropolitan
+	value = 0.13
+
+/datum/reagent/ethanol/caruso
+	value = 0.18
+
+/datum/reagent/ethanol/aprilshower
+	value = 0.15
+
+/datum/reagent/ethanol/carthusiansazerac
+	value = 0.17
+
+/datum/reagent/ethanol/deweycocktail
+	value = 0.15
+
+/datum/reagent/ethanol/chartreusegreen
+	value = 0.18
+
+/datum/reagent/ethanol/chartreuseyellow
+	value = 0.18
+
+/datum/reagent/ethanol/cremewhite
+	value = 0.14
+
+/datum/reagent/ethanol/cremeyvette
+	value = 0.17
+
+/datum/reagent/ethanol/brandy
+	value = 0.2
+
+/datum/reagent/ethanol/guinnes
+	value = 0.1
+
+/datum/reagent/ethanol/drambuie
+	value = 0.18
+
+/datum/reagent/ethanol/oldfashioned
+	value = 0.15
+
+/datum/reagent/ethanol/blindrussian
+	value = 0.16
+
+/datum/reagent/ethanol/rustynail
+	value = 0.13
+
+/datum/reagent/ethanol/tallrussian
+	value = 0.15
 
 /datum/reagent/inaprovaline
 	value = 3.5
@@ -486,13 +603,11 @@
 /datum/reagent/adrenaline
 	value = 2
 
-
 /datum/reagent/diethylamine
 	value = 0.9
 
 /datum/reagent/surfactant
 	value = 0.05
-
 
 /datum/reagent/thermite
 	value = 6

@@ -93,19 +93,25 @@ obj/var/contaminated = 0
 
 	//Burn eyes if exposed.
 	if(vsc.plc.EYE_BURNS)
-		if(!head)
-			if(!wear_mask)
-				burn_eyes()
-			else
-				if(!(wear_mask.body_parts_covered & EYES))
-					burn_eyes()
-		else
-			if(!(head.body_parts_covered & EYES))
-				if(!wear_mask)
-					burn_eyes()
-				else
-					if(!(wear_mask.body_parts_covered & EYES))
-						burn_eyes()
+
+		var/burn_eyes = 1
+
+		//Check for protective glasses
+		if(glasses && (glasses.body_parts_covered & EYES) && (glasses.item_flags & AIRTIGHT))
+			burn_eyes = 0
+
+		//Check for protective maskwear
+		if(burn_eyes && wear_mask && (wear_mask.body_parts_covered & EYES) && (wear_mask.item_flags & AIRTIGHT))
+			burn_eyes = 0
+
+		//Check for protective helmets
+		if(burn_eyes && head && (head.body_parts_covered & EYES) && (head.item_flags & AIRTIGHT))
+			burn_eyes = 0
+
+		//If we still need to, burn their eyes
+		if(burn_eyes)
+			burn_eyes()
+
 
 	//Genetic Corruption
 	if(vsc.plc.GENETIC_CORRUPTION)

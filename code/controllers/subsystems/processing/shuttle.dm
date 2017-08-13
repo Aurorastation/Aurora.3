@@ -164,6 +164,20 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	shuttles["Administration"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
 
+	// Merchant Shuttle
+
+	shuttle = new()
+	shuttle.location = 1
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/merchant_ship/start)
+	shuttle.area_station = locate(/area/merchant_ship/docked)
+	shuttle.docking_controller_tag = "merchant_shuttle"
+	shuttle.dock_target_station = "merchant_shuttle_dock"
+	shuttle.dock_target_offsite = "merchant_station"
+	shuttles["Merchant"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
+
 	/*// Public shuttles
 	shuttle = new()
 	shuttle.warmup_time = 10
