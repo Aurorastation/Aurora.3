@@ -17,7 +17,7 @@
 	var/lock_time = 0          // When -will- we lock on?
 	var/active =    0          // Is our owner intending to take hostages?
 	var/target_permissions = 0 // Permission bitflags.
-
+	var/aimcooldown
 /obj/aiming_overlay/New(var/newowner)
 	..()
 	owner = newowner
@@ -176,7 +176,7 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
 	moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
 	destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
-var/aimcooldown
+
 /obj/aiming_overlay/proc/aim_cooldown(var/seconds)
 	aimcooldown = world.time + seconds SECONDS
 
