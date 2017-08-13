@@ -543,18 +543,20 @@ BLIND     // can't see anything
 		return
 	..()
 
-/obj/item/clothing/under/New()
-	..()
+/obj/item/clothing/under/Initialize()
+	. = ..()
 	if(worn_state)
-		if(!item_state_slots)
-			item_state_slots = list()
+		LAZYINITLIST(item_state_slots)
 		item_state_slots[slot_w_uniform_str] = worn_state
 	else
 		worn_state = icon_state
 
 	//autodetect rollability
 	if(rolled_down < 0)
-		if((worn_state + "_d_s") in icon_states('icons/mob/uniform.dmi'))
+		if (!SSicon_cache.uniform_states)
+			SSicon_cache.setup_uniform_mappings()
+
+		if (SSicon_cache.uniform_states["[worn_state]_d_s"])
 			rolled_down = 0
 
 /obj/item/clothing/under/proc/update_rolldown_status()
@@ -721,6 +723,6 @@ BLIND     // can't see anything
 		usr << "<span class='notice'>You roll down your [src]'s sleeves.</span>"
 	update_clothing_icon()
 
-/obj/item/clothing/under/rank/New()
+/obj/item/clothing/under/rank/Initialize()
 	sensor_mode = pick(0,1,2,3)
-	..()
+	. = ..()
