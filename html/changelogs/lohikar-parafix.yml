@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Fixed a bug which caused space parallax to always be static, regardless of preferences."
