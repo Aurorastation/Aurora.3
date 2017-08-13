@@ -292,7 +292,7 @@ var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
 		moved_event.raise_event(src, old_loc, loc)
 
 		// Parallax.
-		update_client_hook()
+		update_client_hook(loc)
 
 		// Lighting.
 		var/datum/light_source/L
