@@ -38,7 +38,10 @@
 	if(istype(crate))
 		return
 
-	C.forceMove(loc)
+	// This is ugly but forcemove calls entered which forces the person already in the droppod off.
+	C.x = loc.x
+	C.y = loc.y
+
 	C.set_dir(dir)
 	C.anchored = 1
 
