@@ -28,11 +28,7 @@
 /obj/vehicle/droppod/Move()
 	return
 
-/obj/vehicle/droppod/load(var/atom/movable/C)
-	fullload(C)
-	return 1
-
-/obj/vehicle/droppod/proc/fullload(var/atom/movable/C)
+/obj/vehicle/droppod/load(var/atom/movable/C) // this won't call the parent load proc becasue it doesn't support 2 people.
 	if(!isturf(C.loc)) 
 		return 0
 	if((load && passenger) || C.anchored)
