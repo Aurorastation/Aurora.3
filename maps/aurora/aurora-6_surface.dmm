@@ -16108,10 +16108,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "DT" = (
@@ -18696,7 +18694,23 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Ir" = (
-/obj/structure/closet/emcloset,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/westleft{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Is" = (
@@ -19179,6 +19193,588 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
+"Jn" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atm{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
+"Jo" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Jp" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Jq" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Jr" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Js" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Jt" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ju" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Jv" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Jw" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Jx" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Jy" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Jz" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JA" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JB" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JC" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JD" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JE" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JF" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JG" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JH" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JI" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JJ" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JK" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JL" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JM" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JN" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JO" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JP" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JQ" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JR" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JS" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JT" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JU" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JV" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JW" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JX" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JY" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"JZ" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ka" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"Kb" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"Kc" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"Kd" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ke" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kf" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kg" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kh" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ki" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kj" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kk" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kl" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Km" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kn" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ko" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kp" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kq" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kr" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ks" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kt" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ku" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kv" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kw" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Kx" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ky" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
+"Kz" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "merchant_shuttle_dock_inner";
+	locked = 1;
+	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "merchant_shuttle_dock";
+	name = "interior access button";
+	pixel_y = 32;
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"KA" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "merchant_shuttle_dock_pump"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "merchant_shuttle_dock";
+	in_use = 0;
+	pixel_x = 0;
+	pixel_y = 27;
+	req_access = list(13);
+	tag_airpump = "merchant_shuttle_dock_pump";
+	tag_chamber_sensor = "merchant_shuttle_dock_sensor";
+	tag_exterior_door = "merchant_shuttle_dock_outer";
+	tag_interior_door = "merchant_shuttle_dock_inner"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"KB" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "merchant_shuttle_dock_sensor";
+	pixel_y = -27
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"KC" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "merchant_shuttle_dock_outer";
+	locked = 1;
+	req_access = list(13)
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "merchant_shuttle_dock";
+	name = "exterior access button";
+	pixel_y = 32;
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"KD" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KE" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KF" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KG" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KH" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KI" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KJ" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KK" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KL" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KM" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KN" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KO" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KP" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KQ" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KR" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KS" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KT" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KU" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KV" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KW" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KX" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"KY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
+"KZ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
+	icon_state = "space";
+	layer = 4;
+	name = "EXTERNAL AIRLOCK";
+	pixel_x = 0
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"La" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"Lb" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"Lc" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/aft)
+"Ld" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Le" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lf" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lg" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lh" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Li" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lj" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lk" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ll" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lm" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ln" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lo" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lp" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lq" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lr" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ls" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lt" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lu" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lv" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lw" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lx" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ly" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Lz" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LA" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LB" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LC" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LD" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LE" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LF" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LG" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LH" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LI" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LJ" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LK" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LL" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LM" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LN" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LO" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LP" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LQ" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LR" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LS" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LT" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LU" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LV" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LW" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LX" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LY" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"LZ" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Ma" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Mb" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Mc" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Md" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Me" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Mf" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Mg" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Mh" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Mi" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
+"Mj" = (
+/turf/simulated/floor/asteroid,
+/area/merchant_ship/docked)
 
 (1,1,1) = {"
 aa
@@ -42154,9 +42750,9 @@ eR
 IF
 gp
 hm
-hY
-hY
-hY
+IF
+IF
+IF
 IK
 kg
 fz
@@ -43968,8 +44564,8 @@ mw
 mI
 gs
 IT
-IY
-Jg
+IT
+IT
 gs
 nU
 oj
@@ -44992,7 +45588,7 @@ lH
 jR
 jT
 mx
-IP
+IO
 jz
 mK
 IW
@@ -47874,7 +48470,7 @@ CF
 In
 CW
 Iv
-CF
+Jn
 Ik
 CF
 CF
@@ -48392,8 +48988,8 @@ BB
 CM
 BB
 Cj
-BB
-BB
+Ky
+KY
 Ir
 Cg
 ag
@@ -48649,8 +49245,8 @@ Ip
 Cg
 DF
 DS
-DS
-DS
+Kz
+KZ
 EY
 Cg
 ag
@@ -48905,9 +49501,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+Ka
+KA
+Ka
 aa
 ag
 ag
@@ -49162,9 +49758,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+Ka
+KB
+Ka
 aa
 aa
 aa
@@ -49419,9 +50015,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+Kc
+KC
+Kc
 aa
 aa
 aa
@@ -49676,9 +50272,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -49932,11 +50528,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -50184,17 +50780,17 @@ ag
 ag
 ag
 ag
-ag
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -50441,17 +51037,17 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -50698,17 +51294,17 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
-ag
 aa
 aa
 aa
 aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -50955,17 +51551,17 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
-ag
-ag
 aa
 aa
 aa
 aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -51212,17 +51808,17 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
-ag
-ag
 aa
 aa
 aa
 aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -51469,18 +52065,18 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
-ag
-ag
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -51726,18 +52322,18 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
-ag
-ag
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -51983,18 +52579,18 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
-ag
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -52240,17 +52836,17 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
-ag
 aa
 aa
 aa
 aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -52497,17 +53093,17 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -52757,15 +53353,15 @@ ag
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -53014,15 +53610,15 @@ ag
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -53267,18 +53863,18 @@ aa
 aa
 aa
 aa
+ag
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -53530,11 +54126,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -53787,11 +54383,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -54044,11 +54640,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -54301,11 +54897,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -54558,11 +55154,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
@@ -54815,11 +55411,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Jo
+Jo
+Jo
+Jo
+Jo
 aa
 aa
 aa
