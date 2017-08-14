@@ -59,10 +59,7 @@
 		ShiftClickOn(A)
 		return 0
 	if(modifiers["alt"]) // alt and alt-gr (rightalt)
-		if (modifiers["right"])
-			AltRightClickOn(A)
-		else
-			AltClickOn(A)
+		AltClickOn(A)
 		return
 	if(modifiers["ctrl"])
 		CtrlClickOn(A)
