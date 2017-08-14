@@ -24,7 +24,6 @@
 
 	var/account_allowed = 1				  // Does this job type come with a station account?
 	var/economic_modifier = 2			  // With how much does this job modify the initial account amount?
-	var/create_record = 1                 // Do we announce/make records for people who spawn on this job?
 
 	var/bag_type = /obj/item/weapon/storage/backpack
 	var/satchel_type = /obj/item/weapon/storage/backpack/satchel_norm
@@ -143,7 +142,7 @@
 			if(COMPANY_OPPOSED)      loyalty = -3
 
 	//give them an account in the station database
-	var/species_modifier = H.species ? H.species.economic_modifier : 0
+	var/species_modifier = min((H.species ? H.species.economic_modifier : 0) - 10, 0)
 
 	var/wealth = (loyalty + economic_modifier + species_modifier)
 
