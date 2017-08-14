@@ -1,0 +1,5 @@
+author: SoundScopes
+delete-after: True
+changes: 
+  - rscdel: "The abillity suppress the rightclick menu with alt+up due to it being a conflicting hotkey"
+  - rscdel: "Can no longer point at things using alt+rightclick due to hacky code"
