@@ -27,6 +27,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/medic
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_med
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/med
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/med
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -58,6 +59,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/medic
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_med
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/med
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/med
 
 	equip(var/mob/living/carbon/human/H, var/alt_title)
 		if(!H)
@@ -81,6 +83,7 @@
 				if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/virology(H), slot_back)
 				if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_vir(H), slot_back)
 				if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
+				if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/messenger/viro(H), slot_back)
 		else if(has_alt_title(H, alt_title,"Nurse"))
 			if(H.gender == FEMALE)
 				if(prob(50))
@@ -122,6 +125,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/chemistry
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_chem
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/chem
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/chem
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -181,6 +185,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/medic
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_med
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/med
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/med
 
 	equip(var/mob/living/carbon/human/H, var/alt_title)
 		if(!H)
