@@ -13,6 +13,7 @@
 	var/bodytype
 	var/age_min = 17
 	var/age_max = 85
+	var/economic_modifier = 0
 
 	// Icon/appearance vars.
 	var/icobase = 'icons/mob/human_races/r_human.dmi'    // Normal icon set.
