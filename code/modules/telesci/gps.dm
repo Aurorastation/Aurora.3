@@ -94,6 +94,6 @@ var/global/list/gps_by_type = list()
 	desc = "A positioning system helpful for rescuing trapped or injured miners, keeping one on you at all times while mining might just save your life."
 
 /obj/item/device/gps/medical
-	icon_state = "gps-e"
+	icon_state = "gps-s"
 	gps_prefix = "MED"
 	gpstag = "MED0"
