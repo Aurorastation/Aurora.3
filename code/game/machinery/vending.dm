@@ -97,6 +97,14 @@
 	
 	var/can_move = 1	//if you can wrench the machine out of place
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/vending,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/console_screen,
+			/obj/item/weapon/stock_parts/matter_bin
+		)
+
 /obj/machinery/vending/Initialize()
 	. = ..()
 	wires = new(src)
@@ -245,7 +253,9 @@
 			anchored = !anchored
 		return
 
-	else if (!is_borg_item(W))
+	else if(default_part_replacement(user, W))
+		return
+	else if(!is_borg_item(W))
 
 		for(var/datum/data/vending_product/R in product_records)
 			if(istype(W, R.product_path))
@@ -253,6 +263,7 @@
 				qdel(W)
 				return
 		..()
+
 	else
 		..()
 
@@ -665,3 +676,27 @@
 		throw_item.throw_at(target, 16, 3, src)
 	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
 	return 1
+
+/obj/machinery/vending/RefreshParts()
+	..()
+	var/scan_rating = 0
+	var/cap_rating = 0
+
+	for(var/obj/item/weapon/stock_parts/P in component_parts)
+		if(istype(P, /obj/item/weapon/stock_parts/scanning_module))
+			scan_rating += P.rating
+		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+			cap_rating += P.rating
+
+	vend_delay = vend_delay - scan_rating
+	vend_power_usage = vend_power_usage - cap_rating
+
+/obj/item/weapon/circuitboard/vending
+	name = "vending machine circuitry"
+	desc = "The circuitboard for a vending machine. Not of much use."
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 2,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/matter_bin" = 1,
+							"/obj/item/weapon/stock_parts/console_screen" = 1)
