@@ -433,19 +433,20 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		CHECK_TICK
 
-/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null)
+/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = config.station_levels)
 	if (cinematic)
 		return	//already a cinematic in progress!
 
 	//initialise our cinematic screen object
-	cinematic = new(src)
-	cinematic.icon = 'icons/effects/station_explosion.dmi'
-	cinematic.icon_state = "station_intact"
-	cinematic.layer = 20
-	cinematic.mouse_opacity = 0
-	cinematic.screen_loc = "1,0"
+	cinematic = new /obj/screen{
+		icon = 'icons/effects/station_explosion.dmi';
+		icon_state = "station_intact";
+		layer = 20;
+		mouse_opacity = 0;
+		screen_loc = "1,0"
+	}
 
-	var/obj/structure/bed/temp_buckle = new(src)
+	var/obj/structure/bed/temp_buckle = new
 	//Incredibly hackish. It creates a bed within the gameticker (lol) to stop mobs running around
 	if(station_missed)
 		for(var/mob/living/M in living_mob_list)
@@ -458,15 +459,17 @@ var/datum/controller/subsystem/ticker/SSticker
 			if(M.client)
 				M.client.screen += cinematic
 
-			switch(M.z)
-				if(0)	//inside a crate or something
-					var/turf/T = get_turf(M)
-					if(T && T.z in config.station_levels)				//we don't use M.death(0) because it calls a for(/mob) loop and
-						M.health = 0
-						M.stat = DEAD
-				if(1)	//on a z-level 1 turf.
-					M.health = 0
-					M.stat = DEAD
+			var/turf/Mloc = M.loc
+			if (!Mloc)
+				continue
+			
+			if (!istype(Mloc))
+				Mloc = get_turf(M)
+
+			if (Mloc.z in affected_levels)
+				M.dust()
+
+			CHECK_TICK
 
 	//Now animate the cinematic
 	switch(station_missed)
@@ -490,7 +493,6 @@ var/datum/controller/subsystem/ticker/SSticker
 		if(2)	//nuke was nowhere nearby	//TODO: a really distant explosion animation
 			sleep(50)
 			world << sound('sound/effects/explosionfar.ogg')
-
 
 		else	//station was destroyed
 			if( mode && !override )
@@ -520,9 +522,7 @@ var/datum/controller/subsystem/ticker/SSticker
 					flick("station_explode_fade_red", cinematic)
 					world << sound('sound/effects/explosionfar.ogg')
 					cinematic.icon_state = "summary_selfdes"
-			for(var/mob/living/M in living_mob_list)
-				if(M.loc.z in config.station_levels)
-					M.death()//No mercy
+
 	//If its actually the end of the round, wait for it to end.
 	//Otherwise if its a verb it will continue on afterwards.
 	sleep(300)

@@ -47,7 +47,8 @@ var/const/LAWYER			=(1<<9)
 var/const/CHAPLAIN			=(1<<10)
 var/const/CLOWN				=(1<<11)
 var/const/MIME				=(1<<12)
-var/const/ASSISTANT			=(1<<13)
+var/const/MERCHANT			=(1<<13)
+var/const/ASSISTANT			=(1<<14)
 
 
 var/list/assistant_occupations = list() //Leaving this on one line stops Travis complaining ~Scopes
@@ -106,6 +107,7 @@ var/list/civilian_positions = list(
 	"Janitor",
 	"Librarian",
 	"Chaplain",
+	"Merchant",
 	"Assistant"
 )
 
@@ -118,7 +120,6 @@ var/list/security_positions = list(
 	"Security Officer",
 	"Security Cadet"
 )
-
 
 var/list/nonhuman_positions = list(
 	"AI",

@@ -7,7 +7,6 @@
 // Items that ask to be called every cycle.
 var/global/datum/datacore/data_core = null
 var/global/list/all_areas                = list()
-var/global/list/machines                 = list()
 var/global/list/processing_objects       = list()
 var/global/list/processing_power_items   = list()
 var/global/list/med_hud_users            = list() // List of all entities using a medical HUD.
@@ -61,10 +60,11 @@ var/list/wizardstart     = list()
 var/turf/newplayer_start = null
 
 //Spawnpoints.
-var/list/latejoin         = list()
-var/list/latejoin_gateway = list()
-var/list/latejoin_cryo    = list()
-var/list/latejoin_cyborg  = list()
+var/list/latejoin          = list()
+var/list/latejoin_gateway  = list()
+var/list/latejoin_cryo     = list()
+var/list/latejoin_cyborg   = list()
+var/list/latejoin_merchant = list()
 var/list/kickoffsloc = list()
 
 var/list/prisonwarp         = list() // Prisoners go to these

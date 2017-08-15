@@ -13,7 +13,7 @@
 
 /datum/event/vent_clog/setup()
 	endWhen = rand(25, 100)
-	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in machines)
+	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in SSmachinery.processing_machines)
 		if(!temp_vent)
 			continue
 		if(temp_vent.z in config.station_levels)//STATION ZLEVEL

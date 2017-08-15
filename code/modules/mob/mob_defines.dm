@@ -232,3 +232,5 @@
 
 	var/list/active_genes=list()
 	var/mob_size = MOB_MEDIUM
+
+	var/list/progressbars

@@ -156,7 +156,7 @@
 				bsu()
 			if("Skrell")
 				bss()
-			if("Vaurca")
+			if("Vaurca Worker")
 				bsv()
 		return
 
@@ -289,10 +289,6 @@
 		ghostize(0)
 		key = null
 		suicide()
-
-/mob/living/carbon/human/bst/say(var/message)
-	var/verb = "says in a subdued tone"
-	..(message, verb)
 
 /mob/living/carbon/human/bst/verb/bstwalk()
 	set name = "Ruin Everything"
@@ -436,6 +432,26 @@
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	canremove = 0
+
+/obj/item/clothing/glasses/sunglasses/bst/verb/toggle_xray(mode in list("X-Ray without Lighting", "X-Ray with Lighting", "Normal"))
+	set name = "Change Vision Mode"
+	set desc = "Changes your glasses' vision mode."
+	set category = "BST"
+	set src in usr
+
+	switch (mode)
+		if ("X-Ray without Lighting")
+			vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
+			see_invisible = SEE_INVISIBLE_NOLIGHTING
+		if ("X-Ray with Lighting")
+			vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
+			see_invisible = -1
+		if ("Normal")
+			vision_flags = 0
+			see_invisible = -1
+
+	usr << "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>.</span>"
+
 /*	New()
 		..()
 		src.hud += new/obj/item/clothing/glasses/hud/security(src)

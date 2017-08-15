@@ -37,6 +37,7 @@
 	var/tmp/targ_sign       // The sign to test the point against.
 	var/tmp/test_x_offset   // How much the X coord should be offset due to direction.
 	var/tmp/test_y_offset   // How much the Y coord should be offset due to direction.
+	var/tmp/facing_opaque = FALSE
 
 	var/list/datum/lighting_corner/effect_str     // List used to store how much we're affecting corners.
 	var/list/turf/affecting_turfs
@@ -159,46 +160,41 @@
 	if (T.x == cached_origin_x && T.y == cached_origin_y && old_direction == top_atom.dir)
 		return
 
-	var/do_offset = TRUE
-	var/turf/front = get_step(T, top_atom.dir)
-	if (front && front.has_opaque_atom)
-		do_offset = FALSE
-
-	cached_origin_x = T.x
-	test_x_offset = cached_origin_x
-	cached_origin_y = T.y
-	test_y_offset = cached_origin_y
-
 	if (istype(top_atom, /mob) && top_atom:facing_dir)
 		old_direction = top_atom:facing_dir
 	else
 		old_direction = top_atom.dir
+
+	var/turf/front = get_step(T, old_direction)
+	facing_opaque = (front && front.has_opaque_atom)
+
+	cached_origin_x = test_x_offset = T.x
+	cached_origin_y = test_y_offset = T.y
+
+	if (facing_opaque)
+		return
 
 	var/angle = light_angle / 2
 	switch (old_direction)
 		if (NORTH)
 			limit_a_t = angle + 90
 			limit_b_t = -(angle) + 90
-			if (do_offset)
-				test_y_offset += 1
+			++test_y_offset
 
 		if (SOUTH)
 			limit_a_t = (angle) - 90
 			limit_b_t = -(angle) - 90
-			if (do_offset)
-				test_y_offset -= 1
+			--test_y_offset
 
 		if (EAST)
 			limit_a_t = angle
 			limit_b_t = -(angle)
-			if (do_offset)
-				test_x_offset += 1
+			++test_x_offset
 
 		if (WEST)
 			limit_a_t = angle + 180
 			limit_b_t = -(angle) - 180
-			if (do_offset)
-				test_x_offset -= 1
+			--test_x_offset
 
 	// Convert our angle + range into a vector.
 	limit_a_x = POLAR_TO_CART_X(light_range + ARBITRARY_NUMBER, limit_a_t)
@@ -254,6 +250,8 @@
 	if (effect_str[C]) // Already have one.
 		REMOVE_CORNER(C,now)
 		effect_str[C] = 0
+
+	var/actual_range = light_range
 
 	APPLY_CORNER(C,now)
 	UNSETEMPTY(effect_str)
@@ -331,10 +329,12 @@
 	var/list/Tcorners
 	var/Sx = source_turf.x
 	var/Sy = source_turf.y
+	var/use_reduced = (light_angle && facing_opaque)
+	var/actual_range = use_reduced ? light_range * LIGHTING_BLOCKED_FACTOR : light_range
 
-	FOR_DVIEW(T, Ceiling(light_range), source_turf, 0)
+	FOR_DVIEW(T, Ceiling(actual_range), source_turf, 0)
 		check_t:
-		if (light_angle && check_light_cone(T.x, T.y))
+		if (light_angle && !facing_opaque && check_light_cone(T.x, T.y))
 			continue
 
 		if (T.dynamic_lighting || T.light_sources)

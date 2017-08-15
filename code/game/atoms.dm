@@ -16,7 +16,7 @@
 	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
 	var/simulated = 1 //filter for actions - used by lighting overlays
 	var/fluorescent // Shows up under a UV light.
-	
+
 	///Chemistry.
 	var/datum/reagents/reagents = null
 
@@ -226,10 +226,9 @@
 
 		//Deal with gloves the pass finger/palm prints.
 		if(!ignoregloves)
-			if(H.gloves != src)
-				if(prob(75) && istype(H.gloves, /obj/item/clothing/gloves/latex))
-					return 0
-				else if(H.gloves && !istype(H.gloves, /obj/item/clothing/gloves/latex))
+			if(H.gloves && H.gloves != src)
+				var/obj/item/clothing/gloves/G = H.gloves
+				if(!prob(G.fingerprint_chance))
 					return 0
 
 		//More adminstuffz

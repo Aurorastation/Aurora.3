@@ -837,6 +837,15 @@ datum/design/item/experimental_welder
 	build_path = /obj/item/weapon/storage/backpack/holding
 	sort_string = "VAEAA"
 
+/datum/design/item/bluespace_crystal
+	name = "Artificial Bluespace Crystal"
+	desc = "An artificially made bluespace crystal."
+	id = "bluespace_crystal"
+	req_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 6)
+	materials = list("gold" = 1500, "diamond" = 1500, "phoron" = 1500)
+	build_path = /obj/item/bluespace_crystal/artificial
+	sort_string = "VAFAA"
+
 /datum/design/item/binaryencrypt
 	name = "Binary encryption key"
 	desc = "Allows for deciphering the binary channel on-the-fly."
@@ -1175,7 +1184,7 @@ CIRCUITS BELOW
 /datum/design/circuit/sentencing
 	name = "criminal sentencing console"
 	id = "sentencing"
-	build_path = /obj/machinery/computer/sentencing
+	build_path = /obj/item/weapon/circuitboard/sentencing
 	sort_string = "DADAA"
 
 
@@ -1569,6 +1578,27 @@ CIRCUITS BELOW
 	build_path = /obj/item/weapon/circuitboard/mecha/durand/targeting
 	sort_string = "NAADC"
 
+/datum/design/circuit/mecha/phazon_main
+	name = "'Phazon' central control"
+	id = "phazon_main"
+	req_tech = list(TECH_DATA = 6, TECH_BLUESPACE = 6)
+	build_path = /obj/item/weapon/circuitboard/mecha/phazon/main
+	sort_string = "NAAEA"
+
+/datum/design/circuit/mecha/phazon_peri
+	name = "'Phazon' peripherals control"
+	id = "phazon_peri"
+	req_tech = list(TECH_DATA = 6, TECH_BLUESPACE = 6)
+	build_path = /obj/item/weapon/circuitboard/mecha/phazon/peripherals
+	sort_string = "NAAEB"
+
+/datum/design/circuit/mecha/phazon_targ
+	name = "'Phazon' weapon control and targeting"
+	id = "phazon_targ"
+	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 6, TECH_BLUESPACE = 6)
+	build_path = /obj/item/weapon/circuitboard/mecha/phazon/targeting
+	sort_string = "NAAEC"
+
 /datum/design/circuit/tcom
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
 
@@ -1663,7 +1693,7 @@ CIRCUITS BELOW
 /datum/design/circuit/crusher_base
 	name = "trash compactor"
 	id = "crusher_base"
-	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 1, TECH_MAGNET = 1, TECH_MATERIALS = 3)
+	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 1, TECH_MAGNET = 1, TECH_MATERIAL = 3)
 	build_path = /obj/item/weapon/circuitboard/crusher
 	sort_string = "WAAAB"
 

@@ -223,6 +223,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	default_cartridge = /obj/item/weapon/cartridge/medical
 	icon_state = "pda-gene"
 
+/obj/item/device/pda/merchant
+	icon_state = "pda-chef"
+	hidden = 1
 
 // Special AI/pAI PDAs that cannot explode.
 /obj/item/device/pda/ai
@@ -807,7 +810,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 		if("Toggle Door")
 			if(cartridge && cartridge.access_remote_door)
-				for(var/obj/machinery/door/blast/M in world)
+				for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
 					if(M.id == cartridge.remote_door_id)
 						if(M.density)
 							M.open()

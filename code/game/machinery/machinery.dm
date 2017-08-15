@@ -107,6 +107,19 @@ Class Procs:
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
 	var/power_channel = EQUIP //EQUIP, ENVIRON or LIGHT
+	/* List of types that should be spawned as component_parts for this machine.
+		Structure:
+			type -> num_objects
+
+		num_objects is optional, and will be treated as 1 if omitted.
+
+		example:
+		component_types = list(
+			/obj/foo/bar,
+			/obj/baz = 2
+		)
+	*/
+	var/list/component_types
 	var/list/component_parts = null //list of all the parts used to build it, if made from certain kinds of frames.
 	var/uid
 	var/panel_open = 0
@@ -116,24 +129,35 @@ Class Procs:
 	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
 
-/obj/machinery/Initialize(mapload, d=0)
+/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
 	if(d)
 		set_dir(d)
 
+	if (component_types && populate_components)
+		component_parts = list()
+		for (var/type in component_types)
+			var/count = component_types[type]
+			if (count > 1)
+				for (var/i in 1 to count)
+					component_parts += new type(src)
+			else
+				component_parts += new type(src)
+
+		if (component_parts.len)
+			RefreshParts()
+
 	add_machine(src)
 
 /obj/machinery/Destroy()
-	remove_machine(src)
+	remove_machine(src, TRUE)
 	if(component_parts)
 		for(var/atom/A in component_parts)
 			if(A.loc == src) // If the components are inside the machine, delete them.
 				qdel(A)
 			else // Otherwise we assume they were dropped to the ground during deconstruction, and were not removed from the component_parts list by deconstruction code.
 				component_parts -= A
-	if(contents) // The same for contents.
-		for(var/atom/A in contents)
-			qdel(A)
+
 	return ..()
 
 /obj/machinery/proc/machinery_process()
@@ -377,7 +401,7 @@ Class Procs:
 
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
-	
+
 	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
 
 	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)

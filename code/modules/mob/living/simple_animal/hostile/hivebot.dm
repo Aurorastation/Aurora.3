@@ -28,6 +28,8 @@
 	minbodytemp = 0
 	speed = 4
 
+	tameable = FALSE
+
 /mob/living/simple_animal/hostile/hivebot/range
 	name = "Hivebot"
 	desc = "A smallish robot, this one is armed!"

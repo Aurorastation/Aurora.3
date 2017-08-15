@@ -44,7 +44,7 @@
 	fall_mod = 1.2
 	ethanol_resistance = 0.4
 	taste_sensitivity = TASTE_SENSITIVE
-	
+
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	name_language = LANGUAGE_UNATHI
@@ -196,6 +196,16 @@
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
 	flags = NO_SLIP
+
+	has_organ = list(
+		"heart" =    /obj/item/organ/heart/skrell,
+		"lungs" =    /obj/item/organ/lungs/skrell,
+		"liver" =    /obj/item/organ/liver/skrell,
+		"kidneys" =  /obj/item/organ/kidneys/skrell,
+		"brain" =    /obj/item/organ/brain/skrell,
+		"appendix" = /obj/item/organ/appendix,
+		"eyes" =     /obj/item/organ/eyes/skrell
+		)
 
 	flesh_color = "#8CD7A3"
 	blood_color = "#1D2CBF"
@@ -353,7 +363,8 @@
 
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
-		H.diona_split_into_nymphs(0)
+		// This proc sleeps. Async it.
+		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
 
 /datum/species/machine

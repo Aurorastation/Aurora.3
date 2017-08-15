@@ -37,7 +37,7 @@
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
-		PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
+		//PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
 		return
 
 	holder.remove_reagent(id, amount)
@@ -61,7 +61,7 @@
 	if(!dose && volume)//If dose is currently zero, we do the first effect
 		initial_effect(M, alien)
 
-	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
+	if(overdose && (volume > overdose) && (location != CHEM_TOUCH))
 		overdose(M, alien)
 	var/removed = metabolism
 	if(ingest_met && (location == CHEM_INGEST))

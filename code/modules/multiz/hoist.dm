@@ -2,6 +2,8 @@
 // Dost thou even hoist? //
 ///////////////////////////
 
+#define NORMAL_LAYER 3
+
 /obj/item/hoist_kit
 	name = "hoist kit"
 	desc = "A setup kit for a hoist that can be used to lift things. The hoist will deploy in the direction you're facing."
@@ -55,6 +57,7 @@
 	if(ismob(AM))
 		source_hook.buckle_mob(AM)
 	AM.anchored = 1 // why isn't this being set by buckle_mob for silicons?
+	source_hook.layer = AM.layer + 0.1
 
 /obj/effect/hoist_hook/MouseDrop(atom/dest)
 	..()
@@ -84,6 +87,14 @@
 	source_hoist.hoistee.forceMove(desturf)
 	usr.visible_message(span("danger", "[usr] detaches \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You detach \the [source_hoist.hoistee] from the hoist clamp."), span("danger", "You hear something unclamp."))
 	source_hoist.release_hoistee()
+
+// This will handle mobs unbuckling themselves.
+/obj/effect/hoist_hook/unbuckle_mob()
+	. = ..()
+	if (. && !QDELETED(source_hoist))
+		var/mob/M = .
+		source_hoist.hoistee = null
+		ADD_FALLING_ATOM(M)	// fuck you, you fall now!
 
 /obj/structure/hoist
 	icon = 'icons/obj/hoists.dmi'
@@ -127,6 +138,7 @@
 	else
 		hoistee.anchored = 0
 	hoistee = null
+	layer = NORMAL_LAYER
 
 /obj/structure/hoist/proc/break_hoist()
 	if(broken)
@@ -260,12 +272,7 @@
 	return 1
 
 /atom/movable/proc/hoist_act(turf/dest)
-    if (anchored)
-        return FALSE
-
-    forceMove(dest)
-    return TRUE
-
-/obj/mecha/hoist_act(turf/dest)
 	forceMove(dest)
 	return TRUE
+
+#undef NORMAL_LAYER
