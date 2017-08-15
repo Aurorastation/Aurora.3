@@ -1,0 +1,178 @@
+<!-- 
+Title: RD Console
+Used In File(s): \code\modules\research\rdconsole.dm
+ -->
+
+{{if data.task}}
+    <center><H3>Systems busy, please stand-by.
+    Current task: <span class="average">{{:data.task}}</span></H3></center>
+{{else}}
+    <div class="item">
+	    <div class="itemLabelNarrow">
+		    <b>Functions</b>:
+	    </div>
+	    <div class="itemContent">
+            {{:helper.link('Main Menu', 'gear', {'menu' : 20},(data.screen == 20 ? 'selected' : null), 'fixedLeftWider')}}
+            {{:helper.link('Destructive Analyzer Control','gear', {'menu' :(data.linked_analyzer == null ? 30 : 31)}, ((data.screen >= 30 && data.screen < 39) ? 'selected' : null),'fixedLeftWider')}}
+            {{:helper.link('Protolathe Control', 'gear', {'menu' :(data.linked_lathe == null ? 40 : 41)}, ((data.screen >= 40 && data.screen < 49) ? 'selected' : null),'fixedLeftWider')}}
+            {{:helper.link('Circuit Imprinter Control', 'gear', {'menu' :(data.linked_imprinter == null ? 50 : 51)}, ((data.screen >= 50 && data.screen < 59) ? 'selected' : null),'fixedLeftWider')}}
+            {{:helper.link('Device Management', 'gear', {'menu' : 60}, ((data.screen >= 60 && data.screen < 69) ? 'selected' : null),'fixedLeftWider')}}
+	    </div>
+    </div>
+    {{if data.screen}}
+        <center><H3>Current Menu</span>: {{:data.textscreen}}</H3>
+        {{if data.screen == 20}}
+            {{:helper.link('Technology Disk', 'gear', {'menu' : 22},(data.hastdisk ? null : 'disabled'))}}<br><br>
+            {{:helper.link('Design Disk', 'gear', {'menu' : 24},(data.hasddisk ? null : 'disabled'))}}<br><br>
+            {{:helper.link('Settings', 'gear', {'menu' : 60})}}
+        
+        {{else data.screen == 22}}
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 20})}}<br><br>
+            {{:helper.link('Eject Disk', 'gear', {'eject_tech' : 'eject_tech'})}}<br><br>
+            <H3>Loaded Tech:</H3><br><br>
+            {{for data.tdisk}}
+                {{:helper.link(value.tdisktech, 'gear', {'copy_tech' : value.TDID}, 'disabled')}}<br><br>
+            {{/for}}
+            {{:helper.link('Upload Tech', 'gear', {'updt_tech' : 'updt_tech'}, (value.tdisktech ? null : 'disabled'))}}<br><br>
+            {{:helper.link('Clear Tech', 'gear', {'clear_tech' : 'clear_tech'}, (value.tdisktech ? null : 'disabled'))}}<br><br>
+            <H3>Available Tech:</H3><br><br>
+            {{for data.known_tech}}
+                {{:helper.link(value.TName+-+value.TLvl, 'gear', {'copy_tech' : value.TDID})}}<br><br>
+            {{/for}}
+
+        {{else data.screen == 24}}
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 20})}}<br><br>
+            {{:helper.link('Eject Disk', 'gear', {'eject_design' : 'eject_design'})}}<br><br>
+            <H3>Loaded Design:</H3><br><br>
+            {{for data.ddisk}}
+                {{:helper.link(value.ddisktech, 'gear', {'copy_design' : 'copy_design'}, 'disabled')}}<br><br>
+            {{/for}}
+            {{:helper.link('Upload Design', 'gear', {'updt_design' : 'updt_design'}, (value.ddisktech ? null : 'disabled'))}}<br><br>
+            {{:helper.link('Clear Design', 'gear', {'clear_design' : 'clear_design'}, (value.ddisktech ? null : 'disabled'))}}<br><br>
+            <H3>Available Designs:</H3><br><br>
+            {{for data.known_designs}}
+                {{:helper.link(value.Name, 'gear', {'copy_design' : value.ID})}}<br><br>
+            {{/for}}
+
+        {{else data.screen == 30}}
+            <b><H3><center>No Destructive Analyzer Linked!</center></H3></b>
+            
+        {{else (data.screen >= 31 && data.screen < 39)}}
+            {{if data.linked_analyzer_item}}
+                Loaded item: <span class="average">{{:data.linked_analyzer_item}}</span></H3></center>
+                <center><H3>Item Technology:</H3></center>
+                {{for data.linked_analyzer_item_tech}}
+                {{:value.OriginTech}}<br><br>
+                {{/for}}
+                <center><H3>Options:</H3>
+                {{:helper.link('Deconstruct Item', 'gear', {'deconstruct' : 'deconstruct'})}}<br><br>
+                {{:helper.link('Eject Item', 'gear', {'eject_item' : 'eject_item'})}}
+            {{else}}
+                <center><H3><span class="bad">No item loaded!</span></H3></center>
+            {{/if}}
+
+        {{else data.screen == 40}}
+            <b><H3><center>No Protolathe Linked!</center></H3></b>
+
+        {{else data.screen == 41}}
+            {{:helper.link('Material Control', 'gear', {'menu' : 43})}}<br><br>
+            {{:helper.link('View Queue', 'gear', {'menu' : 44 })}}<br><br>
+            <H3>Print Design:</H3>
+            {{for data.known_designs}}
+                {{if value.BuildType == 2}}
+                    <div class="item">
+			            {{:helper.link(value.Name, 'gear', {'build' : value.ID})}}<br><br>
+		            </div>
+                {{/if}}
+            {{/for}}
+
+        {{else data.screen == 43}}
+            <center><H3>Queue (Click to Remove):</center></H3>
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 41})}}<br><br>
+            {{for data.linked_lathe_materials}}
+                {{:helper.link((value.MName+-+(value.Mamount)), 'gear', {'lathe_ejectsheet' : value.Mamount})}}<br><br>
+            {{empty}}
+                <center>No Materials Loaded!</center>
+            {{/for}}
+
+        {{else data.screen == 44}}
+            <center><H3>Queue (Click to Remove):</center></H3>
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 41})}}<br><br>
+            {{for data.linked_lathe_queue}}
+                {{:helper.link(value.QName, 'gear', {'removeP' : '1'})}}<br><br>
+            {{empty}}
+                <center>No items in queue!</center>
+            {{/for}}
+
+        {{else data.screen == 50}}
+            <b><H3><center>No Circuit Imprinter Linked!</center></H3></b>
+
+        {{else data.screen == 51}}
+            {{:helper.link('Chemical Control', 'gear', {'menu' : 52})}}<br><br>
+            {{:helper.link('Material Control', 'gear', {'menu' : 53})}}<br><br>
+            {{:helper.link('View Queue', 'gear', {'menu' : 54 })}}<br><br>
+            <H3>Imprint Design:</H3>
+            {{for data.known_designs}}
+                {{if value.BuildType == 1}}
+                    <div class="item">
+			            {{:helper.link(value.Name, 'gear', {'imprint' : value.ID})}}<br><br>
+		            </div>
+                {{/if}}
+            {{/for}}
+
+        {{else data.screen == 52}}
+            <center><H3>Queue (Click to Remove):</center></H3>
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 51})}}<br><br>
+            {{for data.linked_imprinter_chemicals}}
+                {{:helper.link((value.CName+-+(value.Camount)), 'gear', {'disposeallI' : value.Camount})}}<br><br>
+            {{empty}}
+                <center>No Chemicals Loaded!</center>
+            {{/for}}
+
+        {{else data.screen == 53}}
+            <center><H3>Queue (Click to Remove):</center></H3>
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 51})}}<br><br>
+            {{for data.linked_imprinter_materials}}
+                {{:helper.link((value.MName+-+(value.Mamount)), 'gear', {'imprinter_ejectsheet' : value.Mamount})}}<br><br>
+            {{empty}}
+                <center>No Materials Loaded!</center>
+            {{/for}}
+
+        {{else data.screen == 54}}
+            <center><H3>Queue (Click to Remove):</center></H3>
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 51})}}<br><br>
+            {{for data.linked_imprinter_queue}}
+                {{:helper.link(value.IName, 'gear', {'removeI' : '1'})}}<br><br>
+            {{empty}}
+                <center>No items in queue!</center>
+            {{/for}}
+
+        {{else data.screen == 60}}
+            {{:helper.link('Link Nearby Devices', 'gear', {'find_device' : 'find_device'})}}<br><br>
+            {{:helper.link('Print Research Overview', 'gear', {'print' : 'print'})}}<br><br>
+            {{:helper.link('Lock Console', 'gear', {'lock' : 'lock'})}}<br><br>
+            {{:helper.link('Sync with database', 'gear', {'sync' : 'sync'}, ((data.sync) ? null : 'disabled'))}}<br><br>
+            {{:helper.link('Toggle databse syncing', 'gear', {'togglesync' : 'togglesync'})}}<br><br>
+            {{:helper.link('Reset local databse', 'gear', {'reset' : 'reset'})}}<br><br>
+            {{:helper.link('Disconnect Devices', 'gear', {'menu' : '61'})}}
+
+        {{else data.screen == 61}}
+            {{:helper.link('Return', 'LeftArrow', {'menu' : 60})}}<br><br>
+            {{if data.linked_analyzer}}
+                {{:helper.link('Disconnect Analyzer', 'gear', {'disconnect' : 'destroy'})}}<br><br>
+            {{/if}}
+
+            {{if data.linked_lathe}}
+                {{:helper.link('Disconnect Protolathe', 'gear', {'disconnect' : 'lathe'})}}<br><br>
+            {{/if}}
+
+            {{if data.linked_imprinter}}
+                {{:helper.link('Disconnect Imprinter', 'gear', {'disconnect' : 'imprinter'})}}<br><br>
+            {{/if}}
+
+            
+        {{/if}}
+    {{/if}}
+{{/if}}
+
+
