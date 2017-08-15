@@ -164,7 +164,6 @@
 
 /obj/vehicle/droppod/proc/fire(var/turf/A)
 	if(!isturf(A))
-		world << "not a turf"
 		ermessage()
 		return
 
@@ -173,7 +172,6 @@
 		return
 
 	var/turf/aboveturf = GetAbove(A)
-	world << "Above turf is [aboveturf]"
 	if(aboveturf)
 		if(aboveturf.is_hole)
 			A.visible_message("<span class='danger'>The [src] drops through the hole in the roof!</span>")
