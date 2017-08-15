@@ -178,6 +178,9 @@
 	if(P)
 		C.forceMove(get_turf(P))
 		C << "<span class='notice'>Your dead body returns to your phylactery, slowly rebuilding itself.</span>"
+		if(prob(25))
+			var/area/A = get_area(P)
+			command_announcement.Announce("High levels of bluespace activity detected at \the [A]. Investigate it soon as possible.", "Bluespace Anomaly Report")
 		C.verbs -= /mob/living/carbon/proc/dark_resurrection
 		addtimer(CALLBACK(src, .proc/post_dark_resurrection), rand(400, 800))
 
