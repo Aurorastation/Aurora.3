@@ -1,6 +1,6 @@
 /obj/structure/closet/statue
 	name = "statue"
-	desc = "An incredibly lifelike marble carving"
+	desc = "An incredibly lifelike marble carving."
 	icon = 'icons/obj/statue.dmi'
 	icon_state = "human_male"
 	density = 1
@@ -12,6 +12,9 @@
 	var/intialOxy = 0
 	var/timer = 240 //eventually the person will be freed
 
+/obj/structure/closet/statue/eternal
+	timer = -1
+
 /obj/structure/closet/statue/Initialize(mapload, mob/living/L)
 	if(L && (ishuman(L) || L.isMonkey() || iscorgi(L)))
 		if(L.buckled)
@@ -22,7 +25,7 @@
 			L.client.eye = src
 		L.loc = src
 		L.sdisabilities |= MUTE
-		health = L.health + 100 //stoning damaged mobs will result in easier to shatter statues
+		health = L.health + 300 //stoning damaged mobs will result in easier to shatter statues
 		intialTox = L.getToxLoss()
 		intialFire = L.getFireLoss()
 		intialBrute = L.getBruteLoss()
@@ -92,6 +95,7 @@
 	return
 
 /obj/structure/closet/statue/attack_generic(var/mob/user, damage, attacktext, environment_smash)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage && environment_smash)
 		for(var/mob/M in src)
 			shatter(M)
@@ -103,6 +107,7 @@
 		check_health()
 
 /obj/structure/closet/statue/attackby(obj/item/I as obj, mob/user as mob)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	health -= I.force
 	user.do_attack_animation(src)
 	visible_message("<span class='danger'>[user] strikes [src] with [I].</span>")
