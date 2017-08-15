@@ -602,7 +602,12 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/r_vaurca.dmi'
 	name_language = LANGUAGE_VAURCA
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/bite/sharp
+	)
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/bug
 	rarity_value = 4
 	slowdown = 1
@@ -646,37 +651,35 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
 	halloss_message = "crumbles to the ground, too weak to continue fighting."
 
-	list/heat_discomfort_strings = list(
+	heat_discomfort_strings = list(
 		"Your blood feels like its boiling in the heat.",
 		"You feel uncomfortably warm.",
 		"Your carapace feels hot as the sun."
-		)
-	list/cold_discomfort_strings = list(
+	)
+
+	cold_discomfort_strings = list(
 		"You chitter in the cold.",
 		"You shiver suddenly.",
 		"Your carapace is ice to the touch."
-		)
+	)
 
-	stamina	=	100			  // Long period of sprinting, but relatively low speed gain
+	stamina = 100			  // Long period of sprinting, but relatively low speed gain
 	sprint_speed_factor = 0.7
 	sprint_cost_factor = 0.30
-	stamina_recovery = 2//slow recovery
-
+	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
-		"neural socket" =  /obj/item/organ/vaurca/neuralsocket,
-		"lungs" =    /obj/item/organ/lungs,
-		"filtration bit" = /obj/item/organ/vaurca/filtrationbit,
-		"lungs" =    /obj/item/organ/lungs,
-		"heart" =    /obj/item/organ/heart,
+		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
+		"lungs"               = /obj/item/organ/lungs,
+		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit,
+		"right heart"         = /obj/item/organ/heart/right,
+		"left heart"          = /obj/item/organ/heart/left,
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
-		"second heart" =    /obj/item/organ/heart,
-		"left heart" =    /obj/item/organ/heart/left,
-		"liver" =    /obj/item/organ/liver,
-		"kidneys" =  /obj/item/organ/kidneys,
-		"brain" =    /obj/item/organ/brain,
-		"eyes" =     /obj/item/organ/eyes
-		)
+		"liver"               = /obj/item/organ/liver,
+		"kidneys"             = /obj/item/organ/kidneys,
+		"brain"               = /obj/item/organ/brain,
+		"eyes"                = /obj/item/organ/eyes
+	)
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
