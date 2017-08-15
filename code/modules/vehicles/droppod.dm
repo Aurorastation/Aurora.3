@@ -18,7 +18,7 @@
 	var/mob/humanload 
 	var/mob/passenger
 
-	var/list/protrectedareas = list(/area/hallway/secondary/entry/dock, /area/crew_quarters/sleep/cryo, /area/crew_quarters/sleep/bedrooms)
+	var/list/protectedareas = list(/area/hallway/secondary/entry/dock, /area/crew_quarters/sleep/cryo, /area/crew_quarters/sleep/bedrooms)
 
 /obj/vehicle/droppod/Initialize()
 	. = ..()
@@ -151,7 +151,7 @@
 			firefromarea(/area/bridge/levela)
 
 /obj/vehicle/droppod/proc/firefromarea(var/area/A)
-	if(A in protrectedareas)
+	if(A in protectedareas)
 		ermessage()
 		return
 
