@@ -1166,6 +1166,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "Spark Theorem"
 	title = "Spark Theorem"
 	icon_state = "book6"
-	author = "Kyyir'ry'avii ‘Karima' Ile'nagrii Al'Ghul-Mo'Taki"
+	author = "Kyyir'ry'avii 'Karima' Ile'nagrii Al'Ghul-Mo'Taki"
 	dat = "<!doctype html><html style=\"width:100%;height:100%;\"><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></head><body><iframe style=\"width:100%;height:100%\" src=\"https://assets.lohikar.io/mdp/sparktheorem.html\"></iframe></body></html>"
 	desc = "A bound copy of the 2458 research paper 'Spark Theorem: Research Into the Development of Synthetic Consciousness and Sapience'. This one is signed by the author."
