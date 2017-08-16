@@ -8,12 +8,10 @@
 	var/power_loss = 2
 	var/input_power_multiplier = 1
 
-/obj/machinery/power/tesla_coil/Initialize()
-	. = ..()
-	component_parts = list()
-//	component_parts += new /obj/item/weapon/circuitboard/tesla_coil(null)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
-	RefreshParts()
+	component_types = list(
+		///obj/item/weapon/circuitboard/tesla_coil,
+		/obj/item/weapon/stock_parts/capacitor
+	)
 
 /obj/machinery/power/tesla_coil/RefreshParts()
 	var/power_multiplier = 0
@@ -28,7 +26,7 @@
 	if(default_part_replacement(user, W))
 		return
 
-	if(istype(W, /obj/item/weapon/wrench))
+	if(iswrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
 		anchored = !anchored
@@ -62,12 +60,10 @@
 	anchored = 0
 	density = 1
 
-/obj/machinery/power/grounding_rod/Initialize()
-	. = ..()
-	component_parts = list()
-//	component_parts += new /obj/item/weapon/circuitboard/grounding_rod(null)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
-	RefreshParts()
+	component_types = list(
+		///obj/item/weapon/circuitboard/grounding_rod,
+		/obj/item/weapon/stock_parts/capacitor
+	)
 
 /obj/machinery/power/grounding_rod/attackby(obj/item/W, mob/user)
 	if(default_deconstruction_screwdriver(user, W))
@@ -76,7 +72,7 @@
 	if(default_part_replacement(user, W))
 		return
 
-	if(istype(W, /obj/item/weapon/wrench))
+	if(iswrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
 		anchored = !anchored

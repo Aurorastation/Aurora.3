@@ -44,32 +44,17 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	h_style = "blue IPC screen"
 	. = ..(mapload, "Baseline Frame")
 
-/mob/living/carbon/human/monkey
-	mob_size = 2.6//Based on howler monkey, rough real world equivilant to on-mob sprite size
-
 /mob/living/carbon/human/monkey/Initialize(mapload)
 	. = ..(mapload, "Monkey")
-
-/mob/living/carbon/human/farwa
-	mob_size = 2.6//Roughly the same size as monkey
 
 /mob/living/carbon/human/farwa/Initialize(mapload)
 	. = ..(mapload, "Farwa")
 
-/mob/living/carbon/human/neaera
-	mob_size = 2.6//Roughly the same size as monkey
-
 /mob/living/carbon/human/neaera/Initialize(mapload)
 	. = ..(mapload, "Neaera")
 
-/mob/living/carbon/human/stok
-	mob_size = 2.6//Roughly the same size as monkey
-
 /mob/living/carbon/human/stok/Initialize(mapload)
 	. = ..(mapload, "Stok")
-
-/mob/living/carbon/human/bug
-	mob_size = 2.6//Roughly the same size as monkey
 
 /mob/living/carbon/human/bug/Initialize(mapload)
 	. = ..(mapload, "V'krexi")

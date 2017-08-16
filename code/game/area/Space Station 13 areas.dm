@@ -1158,6 +1158,9 @@ area/space/atmosalert()
 	name = "\improper Engineering Cooling Radiator"
 	icon_state = "engineering_monitoring"
 
+/area/engineering/gravity_gen
+	name = "\improper Gravity Generator"
+	icon_state = "engine"
 
 
 //Solars
@@ -2108,3 +2111,38 @@ area/space/atmosalert()
 
 	spawn(60) .()
 */
+
+
+//merchant station and shuttle
+
+/area/merchant_station
+	name = "\improper Merchant Station"
+	icon_state = "merchant"
+	requires_power = 0
+	dynamic_lighting = 1
+	no_light_control = 1
+	centcomm_area = 1
+
+/area/merchant_station/transit
+	name = "\improper Hyperspace"
+	icon_state = "shuttle"
+	centcomm_area = 1
+
+/area/merchant_ship
+	name = "\improper Merchant Ship"
+	icon_state = "yellow"
+	requires_power = 0
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	no_light_control = 1
+
+/area/merchant_ship/start
+	name = "\improper Merchant Ship Docked"
+	icon_state = "yellow"
+	centcomm_area = 1
+	base_turf = /turf/space
+
+/area/merchant_ship/docked
+	name = "\improper Docked with station"
+	icon_state = "southwest"
+	station_area = 1
+	base_turf = /turf/simulated/floor/asteroid

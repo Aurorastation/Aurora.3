@@ -322,7 +322,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
 /obj/item/weapon/module/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (istype(W, /obj/item/device/multitool))
+	if (ismultitool(W))
 		var/obj/item/weapon/circuitboard/ghettosmes/newcircuit = new/obj/item/weapon/circuitboard/ghettosmes(user.loc)
 		qdel(src)
 		user.put_in_hands(newcircuit)
@@ -406,7 +406,7 @@
 	icon_state = "neuralbroke"
 
 /obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		user << "You bypass the fried security chip and extract the encryption key."
@@ -627,6 +627,13 @@
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "ectoplasm"
+
+/obj/item/weapon/anomaly_core
+	name = "anomaly core"
+	desc = "An advanced bluespace device, little is know about its applications."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "anomaly_core"
+	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)
 
 /obj/item/weapon/research
 	name = "research debugging device"

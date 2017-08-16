@@ -189,3 +189,28 @@
 		damage_state = n_is
 		return 1
 	return 0
+
+// This is NOT safe for caching the organ's own icon, it's only meant to be used for the mob icon cache.
+/obj/item/organ/external/proc/get_mob_cache_key()
+	var/list/keyparts = list()
+	if (is_stump())
+		keyparts += "stump"
+	else if (status & ORGAN_ROBOT)
+		keyparts += "robot:[model || "nomodel"]"
+	else if (status & ORGAN_DEAD)
+		keyparts += "dead"
+	else
+		keyparts += "norm"
+
+	keyparts += "[species.race_key]"
+	keyparts += "[dna.GetUIState(DNA_UI_GENDER)]"
+	keyparts += "[dna.GetUIValue(DNA_UI_SKIN_TONE)]"
+	if (skin_color)
+		keyparts += "[skin_color]"
+	if (body_hair && hair_color)
+		keyparts += "[hair_color]"
+
+	for (var/marking in markings)
+		keyparts += "[marking][markings[marking]["color"]]"
+
+	. = keyparts.Join("_")

@@ -125,11 +125,6 @@
 #define MOB_TINY 		4
 #define MOB_MINISCULE	1
 
-// Gluttony levels.
-#define GLUT_TINY 1       // Eat anything tiny and smaller
-#define GLUT_SMALLER 2    // Eat anything smaller than we are
-#define GLUT_ANYTHING 3   // Eat anything, ever
-
 #define BASE_MAX_NUTRITION	400
 #define HUNGER_FACTOR		0.05 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
 
@@ -181,7 +176,7 @@
 #define TYPE_ORGANIC	1//Almost any creature under /mob/living/carbon and most simple animals
 #define	TYPE_SYNTHETIC	2//Everything under /mob/living/silicon, plus IPCs, viscerators
 #define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
-#define TYPE_WIERD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
+#define TYPE_WEIRD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 
 // Maximum number of chickens allowed at once.
 // If the number of chickens on the map exceeds this, laid eggs will not hatch.

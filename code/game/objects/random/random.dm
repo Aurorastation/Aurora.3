@@ -497,6 +497,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/rum,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/kahlua,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac,
@@ -537,6 +538,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "coin"
 	problist = list(
+		/obj/item/weapon/coin/iron = 5,
 		/obj/item/weapon/coin/silver = 3,
 		/obj/item/weapon/coin/gold = 0.7,
 		/obj/item/weapon/coin/phoron = 0.5,
@@ -760,7 +762,8 @@
 		/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/weapon/rig/military = 0.5,
 		/obj/item/weapon/rig/unathi/fancy = 0.5,
-		/obj/item/clothing/mask/ai = 0.5
+		/obj/item/clothing/mask/ai = 0.5,
+		/obj/item/weapon/anomaly_core = 0.5
 	)
 
 /obj/random/junk

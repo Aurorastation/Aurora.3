@@ -229,6 +229,33 @@
 		..()
 		reagents.add_reagent("nothing", 100)
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/bitters
+	name = "Angstra Aromatic Bitters"
+	desc = "Only the finest and highest quality herbs find their way into our cocktail bitters."
+	icon_state = "bitters"
+	center_of_mass = list("x"=16, "y"=10)
+	New()
+		..()
+		reagents.add_reagent("bitters",40)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne
+	name = "Tailfeather's Bubbliest champagne"
+	desc = "A rather fancy bottle of champagne, fit for collecting and storing in a cellar for decades."
+	icon_state = "champagnebottle"
+	center_of_mass = list("x"=16, "y"=4)
+	New()
+		..()
+		reagents.add_reagent("champagne",100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/mintsyrup
+	name = "Wintergreen Mint Syrup"
+	desc = "Minty fresh. NOTE: Do not use as a replacement for breath fresheners."
+	icon_state = "mint_syrup"
+	center_of_mass = list("x"=16, "y"=6)
+	New()
+		..()
+		reagents.add_reagent("mintsyrup", 100)
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/patron
 	name = "Wrapp Artiste patron"
 	desc = "Silver laced tequilla, served in space night clubs across the galaxy."

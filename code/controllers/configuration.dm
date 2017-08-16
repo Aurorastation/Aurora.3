@@ -160,6 +160,7 @@ var/list/gamemode_cache = list()
 	var/ban_legacy_system = 0	//Defines whether the server uses the legacy banning system with the files in /data or the SQL system. Config option in config.txt
 	var/use_age_restriction_for_jobs = 0 //Do jobs use account age restrictions? --requires database
 	var/use_age_restriction_for_antags = 0 //Do antags use account age restrictions? --requires database
+	var/age_restrictions_from_file = 0 // Are hardcoded values used or config ones?
 	var/sql_stats = 0			//Do we record round statistics on the database (deaths, round reports, population, etcetera) or not?
 	var/sql_whitelists = 0		//Defined whether the server uses an SQL based whitelist system, or the legacy one with two .txts. Config option in config.txt
 	var/sql_saves = 0			//Defines whether the server uses an SQL based character and preference saving system. Config option in config.txt
@@ -270,6 +271,8 @@ var/list/gamemode_cache = list()
 	var/sun_accuracy = 8
 	var/sun_target_z = 7
 
+	var/merchant_chance = 20 //Chance, in percentage, of the merchant job slot being open at round start
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -329,6 +332,9 @@ var/list/gamemode_cache = list()
 
 				if ("use_age_restriction_for_antags")
 					config.use_age_restriction_for_antags = 1
+
+				if ("load_age_restrictions_from_file")
+					config.age_restrictions_from_file = 1
 
 				if ("jobs_have_minimal_access")
 					config.jobs_have_minimal_access = 1
@@ -832,6 +838,9 @@ var/list/gamemode_cache = list()
 				if("fastboot")
 					fastboot = TRUE
 					world.log << "Fastboot is ENABLED."
+
+				if("merchant_chance")
+					config.merchant_chance = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

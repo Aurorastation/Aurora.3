@@ -24,7 +24,8 @@
 	var/last_twitch = 0
 	var/max_stored_messages = 100
 
-/obj/item/clothing/mask/gas/poltergeist/New()
+/obj/item/clothing/mask/gas/poltergeist/Initialize()
+	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	listening_objects += src
 
