@@ -39,6 +39,13 @@
 
 	var/combine_first = 0//If 1, this appliance will do combinaiton cooking before checking recipes
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/cooking,
+			/obj/item/weapon/stock_parts/capacitor = 3,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/matter_bin = 2
+		)
+
 /obj/machinery/appliance/Initialize()
 	. = ..()
 	if(output_options.len)
@@ -225,10 +232,17 @@
 		return
 
 	var/result = can_insert(I, user)
-	if (!result)
-		return
+	if(!result)
+		if(isscrewdriver(I))
+			panel_open = !panel_open
+			user << "You [panel_open ? "open" : "close"] the maintenance panel."
+			return
+		else if(default_part_replacement(user, I))
+			return
+		else
+			return
 
-	if (result == 2)
+	if(result == 2)
 		var/obj/item/weapon/grab/G = I
 		if (G && istype(G) && G.affecting)
 			cook_mob(G.affecting, user)
@@ -649,3 +663,26 @@
 	oil = 0
 	combine_target = null
 	//Container is not reset
+
+/obj/machinery/appliance/RefreshParts()
+	..()
+	var/scan_rating = 0
+	var/cap_rating = 0
+
+	for(var/obj/item/weapon/stock_parts/P in component_parts)
+		if(istype(P, /obj/item/weapon/stock_parts/scanning_module))
+			scan_rating += P.rating
+		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+			cap_rating += P.rating
+
+	active_power_usage = active_power_usage - scan_rating*10
+	cooking_power = cooking_power + (scan_rating+cap_rating)/10
+
+/obj/item/weapon/circuitboard/cooking
+	name = "kitchen appliance circuitry"
+	desc = "The circuitboard for many kitchen appliances. Not of much use."
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 3,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/matter_bin" = 2)

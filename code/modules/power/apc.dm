@@ -120,6 +120,13 @@
 
 	var/datum/effect_system/sparks/spark_system
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/vending,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/console_screen,
+			/obj/item/weapon/stock_parts/matter_bin
+		)
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
 		return

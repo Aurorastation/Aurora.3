@@ -315,13 +315,13 @@
 	icon_state = "card_mod"
 	desc = "An electronic module for reading data and ID cards."
 
-/obj/item/weapon/module/power_control
+/obj/item/weapon/circuitboard/power_control
 	name = "power control module"
 	icon_state = "power_mod"
 	desc = "Heavy-duty switching circuits for power control."
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
-/obj/item/weapon/module/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/item/weapon/circuitboard/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (ismultitool(W))
 		var/obj/item/weapon/circuitboard/ghettosmes/newcircuit = new/obj/item/weapon/circuitboard/ghettosmes(user.loc)
 		qdel(src)
@@ -449,3 +449,12 @@
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"
 	origin_tech = list(TECH_MATERIAL = 19, TECH_ENGINEERING = 19, TECH_PHORON = 19, TECH_POWER = 19, TECH_BLUESPACE = 19, TECH_BIO = 19, TECH_COMBAT = 19, TECH_MAGNET = 19, TECH_DATA = 19, TECH_ILLEGAL = 19, TECH_ARCANE = 19)
+
+/obj/item/weapon/circuitboard/cooking
+	name = "kitchen appliance circuitry"
+	desc = "The circuitboard for many kitchen appliances. Not of much use."
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 3,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/matter_bin" = 2)
