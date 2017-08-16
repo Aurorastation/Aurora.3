@@ -3,26 +3,39 @@
 	sort_order = 2
 
 /datum/category_item/player_setup_item/general/language/load_character(var/savefile/S)
-	S["language"]			>> pref.alternate_languages
+	S["language"] >> pref.alternate_languages
 
 /datum/category_item/player_setup_item/general/language/save_character(var/savefile/S)
-	S["language"]			<< pref.alternate_languages
+	S["language"] << pref.alternate_languages
 
 /datum/category_item/player_setup_item/general/language/gather_load_query()
-	return list("ss13_characters" = list("vars" = list("language" = "alternate_languages"), "args" = list("id")))
+	return list(
+		"ss13_characters" = list(
+			"vars" = list(
+				"language" = "alternate_languages"
+			), 
+			"args" = list("id")
+		)
+	)
 
 /datum/category_item/player_setup_item/general/language/gather_load_parameters()
 	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/language/gather_save_query()
-	return list("ss13_characters" = list("id" = 1,
-										 "ckey" = 1,
-										 "language"))
+	return list(
+		"ss13_characters" = list(
+			"id" = 1,
+			"ckey" = 1,
+			"language"
+		)
+	)
 
 /datum/category_item/player_setup_item/general/language/gather_save_parameters()
-	return list("language" = list2params(pref.alternate_languages),
-				"id" = pref.current_character,
-				"ckey" = pref.client.ckey)
+	return list(
+		"language" = list2params(pref.alternate_languages),
+		"id" = pref.current_character,
+		"ckey" = pref.client.ckey
+	)
 
 /datum/category_item/player_setup_item/general/language/sanitize_character(var/sql_load = 0)
 	if (sql_load)
@@ -58,22 +71,24 @@
 		cat.modified = TRUE
 
 /datum/category_item/player_setup_item/general/language/content()
-	. += "<b>Languages</b><br>"
+	var/list/dat = list("<b>Languages</b><br>")
 	var/datum/species/S = all_species[pref.species]
 	if(S.language)
-		. += "- [S.language]<br>"
+		dat += "- [S.language]<br>"
 	if(S.default_language && S.default_language != S.language)
-		. += "- [S.default_language]<br>"
+		dat += "- [S.default_language]<br>"
 	if(S.num_alternate_languages)
 		if(pref.alternate_languages.len)
 			for(var/i = 1 to pref.alternate_languages.len)
 				var/lang = pref.alternate_languages[i]
-				. += "- [lang] - <a href='?src=\ref[src];remove_language=[i]'>remove</a><br>"
+				dat += "- [lang] - <a href='?src=\ref[src];remove_language=[i]'>remove</a><br>"
 
 		if(pref.alternate_languages.len < S.num_alternate_languages)
-			. += "- <a href='?src=\ref[src];add_language=1'>add</a> ([S.num_alternate_languages - pref.alternate_languages.len] remaining)<br>"
+			dat += "- <a href='?src=\ref[src];add_language=1'>add</a> ([S.num_alternate_languages - pref.alternate_languages.len] remaining)<br>"
 	else
-		. += "- [pref.species] cannot choose secondary languages.<br>"
+		dat += "- [pref.species] cannot choose secondary languages.<br>"
+
+	. = dat.Join()
 
 /datum/category_item/player_setup_item/general/language/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["remove_language"])
