@@ -73,7 +73,7 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 		if(istajara(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/botanic_leather/tajara(H), slot_gloves)
-		if(isunathi(H))
+		else if(isunathi(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/botanic_leather/unathi(H), slot_gloves)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/botanic_leather(H), slot_gloves)
