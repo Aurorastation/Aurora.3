@@ -174,7 +174,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/y0 = epicenter.y
 	var/z0 = epicenter.z
 
-	for(var/turf/T in trange(max_range, epicenter))
+	for(var/turf/T in RANGE_TURFS(max_range, epicenter))
 		var/dist = sqrt((T.x - x0)**2 + (T.y - y0)**2)
 
 		if (dist < devastation_range)
@@ -226,8 +226,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	//This steap handles the gathering of turfs which will be ex_act() -ed in the next step. It also ensures each turf gets the maximum possible amount of power dealt to it.
 	for(var/direction in cardinal)
 		var/turf/T = get_step(epicenter, direction)
-		explosion_spread(T, power - epicenter.explosion_resistance, direction)
-		CHECK_TICK
+		if (T)
+			explosion_spread(T, power - epicenter.explosion_resistance, direction)
+			CHECK_TICK
 
 	//This step applies the ex_act effects for the explosion, as planned in the previous step.
 	for(var/turf/T in explosion_turfs)
@@ -270,11 +271,14 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			spread_power -= O.explosion_resistance
 
 	var/turf/T = get_step(s, direction)
-	explosion_spread(T, spread_power, direction)
+	if (T)
+		explosion_spread(T, spread_power, direction)
 	T = get_step(s, turn(direction,90))
-	explosion_spread(T, spread_power, turn(direction,90))
+	if (T)
+		explosion_spread(T, spread_power, turn(direction,90))
 	T = get_step(s, turn(direction,-90))
-	explosion_spread(T, spread_power, turn(direction,90))
+	if (T)
+		explosion_spread(T, spread_power, turn(direction,90))
 
 // Add an explosion to the queue for processing.
 /datum/controller/subsystem/explosives/proc/queue(var/datum/explosiondata/data)
