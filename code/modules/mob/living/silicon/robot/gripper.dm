@@ -15,7 +15,7 @@
 		/obj/item/weapon/airalarm_electronics,
 		/obj/item/weapon/airlock_electronics,
 		/obj/item/weapon/tracker_electronics,
-		/obj/item/weapon/module/power_control,
+		/obj/item/weapon/circuitboard/power_control,
 		/obj/item/weapon/stock_parts,
 		/obj/item/frame,
 		/obj/item/weapon/camera_assembly,

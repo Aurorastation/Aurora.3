@@ -681,6 +681,9 @@
 	..()
 	var/scan_rating = 0
 	var/cap_rating = 0
+	if(!component_parts)
+		scan_rating = 1
+		cap_rating = 2
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(istype(P, /obj/item/weapon/stock_parts/scanning_module))

@@ -145,6 +145,8 @@
 	..()
 	var/man_rating = 0
 	var/cap_rating = 0
+	if(!component_parts)
+		populate_components()
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(istype(P, /obj/item/weapon/stock_parts/capacitor))

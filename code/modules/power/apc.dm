@@ -121,12 +121,12 @@
 	var/datum/effect_system/sparks/spark_system
 
 	component_types = list(
-			/obj/item/weapon/circuitboard/vending,
-			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/circuitboard/power_control,
+			/obj/item/weapon/stock_parts/capacitor = 4,
 			/obj/item/weapon/stock_parts/scanning_module,
-			/obj/item/weapon/stock_parts/console_screen,
-			/obj/item/weapon/stock_parts/matter_bin
+			/obj/item/weapon/stock_parts/console_screen
 		)
+
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
 		return
@@ -457,8 +457,9 @@
 						user.visible_message(\
 							"<span class='warning'>[user.name] has removed the power control board from [src.name]!</span>",\
 							"<span class='notice'>You remove the power control board.</span>")
-						new /obj/item/weapon/module/power_control(loc)
+						new /obj/item/weapon/circuitboard/power_control(loc)
 		else if (opened!=2) //cover isn't removed
+			panel_open = 0
 			opened = 0
 			update_icon()
 	else if (iscrowbar(W) && !((stat & BROKEN) || hacker) )
@@ -467,6 +468,7 @@
 			return
 		else
 			opened = 1
+			panel_open = 1		
 			update_icon()
 	else if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/weapon/gripper/Gri = W
@@ -524,7 +526,8 @@
 			wiresexposed = !wiresexposed
 			user << "The wires have been [wiresexposed ? "exposed" : "unexposed"]"
 			update_icon()
-
+	else if(default_part_replacement(user, W))
+		return
 	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))			// trying to unlock the interface with an ID card
 		if(emagged)
 			user << "The interface is broken."
@@ -585,7 +588,7 @@
 				new /obj/item/stack/cable_coil(loc,10)
 				user << "<span class='notice'>You cut the cables and dismantle the power terminal.</span>"
 				qdel(terminal)
-	else if (istype(W, /obj/item/weapon/module/power_control) && opened && has_electronics==0 && !((stat & BROKEN)))
+	else if (istype(W, /obj/item/weapon/circuitboard/power_control) && opened && has_electronics==0 && !((stat & BROKEN)))
 		user.visible_message("<span class='warning'>[user.name] inserts the power control board into [src].</span>", \
 							"You start to insert the power control board into the frame...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -594,7 +597,7 @@
 				has_electronics = 1
 				user << "<span class='notice'>You place the power control board inside the frame.</span>"
 				qdel(W)
-	else if (istype(W, /obj/item/weapon/module/power_control) && opened && has_electronics==0 && ((stat & BROKEN)))
+	else if (istype(W, /obj/item/weapon/circuitboard/power_control) && opened && has_electronics==0 && ((stat & BROKEN)))
 		user << "<span class='warning'>You cannot put the board inside, the frame is damaged.</span>"
 		return
 	else if (iswelder(W) && opened && has_electronics==0 && !terminal)
@@ -1372,3 +1375,15 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	locked = 1
 	update_icon()
 	return 1
+
+/obj/machinery/power/apc/RefreshParts()
+	..()
+	var/cap_rating = 0
+	if(!component_parts)
+		cap_rating = 4
+
+	for(var/obj/item/weapon/stock_parts/P in component_parts)
+		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+			cap_rating += P.rating
+
+	chargelevel = chargelevel + cap_rating/10000

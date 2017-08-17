@@ -36,7 +36,7 @@
 "aJ" = (/obj/structure/table/standard,/obj/item/stack/cable_coil{pixel_x = -1; pixel_y = 7},/obj/item/stack/cable_coil{pixel_x = 0; pixel_y = 3},/obj/item/stack/cable_coil{pixel_x = 0; pixel_y = 0},/turf/simulated/floor/plating,/area/awaymission/labs/cave)
 "aK" = (/obj/structure/table/standard,/turf/simulated/floor/plating,/area/awaymission/labs/cave)
 "aL" = (/obj/structure/table/standard,/obj/machinery/cell_charger,/obj/machinery/camera{c_tag = "Engineering SMES Room"; dir = 4; network = "SS13"},/turf/simulated/floor/plating,/area/awaymission/labs/cave)
-"aM" = (/obj/structure/table/standard,/obj/item/weapon/airlock_electronics,/obj/item/weapon/airlock_electronics,/obj/item/weapon/module/power_control,/obj/item/weapon/cell/high{charge = 100; maxcharge = 15000},/obj/item/weapon/cell/high{charge = 100; maxcharge = 15000},/obj/machinery/light,/turf/simulated/floor/plating,/area/awaymission/labs/cave)
+"aM" = (/obj/structure/table/standard,/obj/item/weapon/airlock_electronics,/obj/item/weapon/airlock_electronics,/obj/item/weapon/circuitboard/power_control,/obj/item/weapon/cell/high{charge = 100; maxcharge = 15000},/obj/item/weapon/cell/high{charge = 100; maxcharge = 15000},/obj/machinery/light,/turf/simulated/floor/plating,/area/awaymission/labs/cave)
 "aN" = (/obj/effect/alien/flesh/weeds/node,/turf/unsimulated/desert,/area/awaymission/labs/cave)
 "aO" = (/obj/effect/critter/fleshmonster/fleshslime,/turf/unsimulated/desert,/area/awaymission/labs/cave)
 "aP" = (/obj/machinery/door/airlock/engineering,/turf/simulated/floor/plating,/area/awaymission/labs/cave)

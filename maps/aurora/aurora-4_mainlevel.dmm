@@ -33518,7 +33518,7 @@
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "bgW" = (
-/obj/item/weapon/module/power_control,
+/obj/item/weapon/circuitboard/power_control,
 /obj/item/weapon/airlock_electronics,
 /obj/structure/table/steel,
 /obj/machinery/camera/network/engineering{
