@@ -622,6 +622,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	hazard_low_pressure = 0
 	ethanol_resistance = 2
 	taste_sensitivity = TASTE_SENSITIVE
+	reagent_tag = IS_VAURCA
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
 	breath_type = "phoron"
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
