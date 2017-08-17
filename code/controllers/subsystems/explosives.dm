@@ -174,7 +174,12 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/y0 = epicenter.y
 	var/z0 = epicenter.z
 
-	for(var/turf/T in RANGE_TURFS(max_range, epicenter))
+	for(var/thing in RANGE_TURFS(max_range, epicenter))
+		var/turf/T = thing
+		if (!T)
+			CHECK_TICK
+			continue
+
 		var/dist = sqrt((T.x - x0)**2 + (T.y - y0)**2)
 
 		if (dist < devastation_range)
@@ -184,6 +189,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		else if (dist < light_impact_range)
 			dist = 3
 		else
+			CHECK_TICK
 			continue
 
 		T.ex_act(dist)
@@ -232,9 +238,8 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 	//This step applies the ex_act effects for the explosion, as planned in the previous step.
 	for(var/turf/T in explosion_turfs)
-		if(explosion_turfs[T] <= 0)
-			continue
-		if(!T)
+		if(!T || explosion_turfs[T] <= 0)
+			CHECK_TICK
 			continue
 
 		//Wow severity looks confusing to calculate... Fret not, I didn't leave you with any additional instructions or help. (just kidding, see the line under the calculation)
