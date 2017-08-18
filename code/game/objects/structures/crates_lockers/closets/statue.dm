@@ -1,11 +1,11 @@
-/mob/living/statue_mob
+/mob/statue_mob
 	name = "statue prisoner"
 	universal_understand = 1
 
-/mob/living/statue_mob/send_emote()
+/mob/statue_mob/send_emote()
  	return
 
-/mob/living/statue_mob/say()
+/mob/statue_mob/say()
  	return
 
 /obj/structure/closet/statue
@@ -17,7 +17,7 @@
 	anchored = 1
 	health = 0 //destroying the statue kills the mob within
 	var/timer = 240 //eventually the person will be freed
-	var/mob/living/statue_mob/imprisoned = null //the temporary mob that is created when someone is put inside a statue
+	var/mob/statue_mob/imprisoned = null //the temporary mob that is created when someone is put inside a statue
 
 /obj/structure/closet/statue/eternal
 	timer = -1
@@ -56,11 +56,9 @@
 			name = "statue of a corgi"
 			desc = "If it takes forever, I will wait for you..."
 
-		var/mob/living/statue_mob/temporarymob = new (src)
+		var/mob/statue_mob/temporarymob = new (src)
 		temporarymob.forceMove(src)
 		if(L.mind)
-			L.mind.transfer_to(temporarymob)
-		else
 			temporarymob.key = L.key
 		imprisoned = temporarymob
 
@@ -86,10 +84,8 @@
 
 	for(var/mob/living/M in src)
 		if(imprisoned)
-			if(imprisoned.mind)
-				imprisoned.mind.transfer_to(M)
-			else
-				imprisoned.key = M.key
+			if(imprisoned.key)
+				M.key = imprisoned.key
 
 		M.forceMove(src.loc)
 		M.sdisabilities &= ~MUTE
