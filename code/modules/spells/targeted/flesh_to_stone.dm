@@ -18,14 +18,6 @@
 /spell/targeted/flesh_to_stone/cast(var/list/targets, mob/user)
 	..()
 	for(var/mob/living/target in targets)
-		var/obj/structure/closet/statue/statue = new(target.loc, target)
+		new /obj/structure/closet/statue(target.loc, target)
 		target.visible_message("<span class='danger'>[target] turns into a statue!</span>")
-		statue.appearance = target
-		statue.color = list(
-					    0.30, 0.3, 0.25,
-					    0.30, 0.3, 0.25,
-					    0.30, 0.3, 0.25
-					)
-		statue.name = "statue of [target.name]"
-		statue.desc = "An incredibly lifelike stone carving."
 	return

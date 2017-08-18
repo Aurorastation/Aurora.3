@@ -1,3 +1,6 @@
+/mob
+	var/frozen = FALSE
+
 /obj/structure/closet/statue
 	name = "statue"
 	desc = "An incredibly lifelike marble carving."
@@ -6,41 +9,43 @@
 	density = 1
 	anchored = 1
 	health = 0 //destroying the statue kills the mob within
-	var/intialTox = 0 	//these are here to keep the mob from taking damage from things that logically wouldn't affect a rock
-	var/intialFire = 0	//it's a little sloppy I know but it was this or the GODMODE flag. Lesser of two evils.
-	var/intialBrute = 0
-	var/intialOxy = 0
 	var/timer = 240 //eventually the person will be freed
 
 /obj/structure/closet/statue/eternal
 	timer = -1
 
 /obj/structure/closet/statue/Initialize(mapload, mob/living/L)
-	if(L && (ishuman(L) || L.isMonkey() || iscorgi(L)))
+
+	if(isliving(L))
 		if(L.buckled)
 			L.buckled = 0
 			L.anchored = 0
 		if(L.client)
 			L.client.perspective = EYE_PERSPECTIVE
 			L.client.eye = src
-		L.loc = src
+
+		L.forceMove(src)
 		L.sdisabilities |= MUTE
 		health = L.health + 300 //stoning damaged mobs will result in easier to shatter statues
-		intialTox = L.getToxLoss()
-		intialFire = L.getFireLoss()
-		intialBrute = L.getBruteLoss()
-		intialOxy = L.getOxyLoss()
-		if(ishuman(L))
-			name = "statue of [L.name]"
-			if(L.gender == "female")
-				icon_state = "human_female"
-		else if(L.isMonkey())
-			name = "statue of a monkey"
-			icon_state = "monkey"
-		else if(iscorgi(L))
+		L.frozen = TRUE
+
+		appearance = L
+		color = list(
+					    0.30, 0.3, 0.25,
+					    0.30, 0.3, 0.25,
+					    0.30, 0.3, 0.25
+					)
+		name = "statue of [L.name]"
+		desc = "An incredibly lifelike stone carving."
+
+		if(iscorgi(L))
 			name = "statue of a corgi"
-			icon_state = "corgi"
 			desc = "If it takes forever, I will wait for you..."
+
+		var/mob/temporarymob = new (src)
+		temporarymob.forceMove(src)
+		if(L.key)
+			temporarymob.key = L.key
 
 	if(health == 0) //meaning if the statue didn't find a valid target
 		qdel(src)
@@ -51,11 +56,6 @@
 
 /obj/structure/closet/statue/process()
 	timer--
-	for(var/mob/living/M in src) //Go-go gadget stasis field
-		M.setToxLoss(intialTox)
-		M.adjustFireLoss(intialFire - M.getFireLoss())
-		M.adjustBruteLoss(intialBrute - M.getBruteLoss())
-		M.setOxyLoss(intialOxy)
 	if (timer <= 0)
 		dump_contents()
 		processing_objects.Remove(src)
@@ -64,11 +64,12 @@
 /obj/structure/closet/statue/dump_contents()
 
 	for(var/obj/O in src)
-		O.loc = src.loc
+		O.forceMove(src.loc)
 
 	for(var/mob/living/M in src)
-		M.loc = src.loc
+		M.forceMove(src.loc)
 		M.sdisabilities &= ~MUTE
+		M.frozen = FALSE
 		M.take_overall_damage((M.health - health - 100),0) //any new damage the statue incurred is transfered to the mob
 		if(M.client)
 			M.client.eye = M.client.mob
@@ -130,6 +131,7 @@
 
 /obj/structure/closet/statue/proc/shatter(mob/user as mob)
 	if (user)
+		user.frozen = FALSE
 		user.dust()
 	dump_contents()
 	visible_message("<span class='warning'>[src] shatters!.</span>")
