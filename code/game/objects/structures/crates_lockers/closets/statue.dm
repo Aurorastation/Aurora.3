@@ -24,7 +24,7 @@
 
 /obj/structure/closet/statue/Destroy()
 	QDEL_NULL(imprisoned)
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/structure/closet/statue/Initialize(mapload, mob/living/L)
@@ -66,7 +66,7 @@
 		qdel(src)
 		return
 
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	..()
 
 /obj/structure/closet/statue/process()
