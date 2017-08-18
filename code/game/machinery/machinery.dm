@@ -330,7 +330,6 @@ Class Procs:
 			return 0
 		else
 			RefreshParts(1) // make default parts for us to replace
-			sleep(1)
 	if(panel_open)
 		var/obj/item/weapon/circuitboard/CB = locate(/obj/item/weapon/circuitboard) in component_parts
 		var/P

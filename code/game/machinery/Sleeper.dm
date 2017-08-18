@@ -15,10 +15,16 @@
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 200 //builtin health analyzer, dialysis machine, injectors.
-
+	component_types = list(
+			/obj/item/weapon/circuitboard/sleeper,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/weapon/stock_parts/console_screen,
+			/obj/item/weapon/reagent_containers/glass/beaker/large
+		)
 /obj/machinery/sleeper/Initialize()
 	. = ..()
-	beaker = new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
+	populate_components() // has a beaker so it needs to populate
 	update_icon()
 
 /obj/machinery/sleeper/machinery_process()
@@ -39,6 +45,23 @@
 
 /obj/machinery/sleeper/update_icon()
 	icon_state = "sleeper_[occupant ? "1" : "0"]"
+
+/obj/machinery/sleeper/RefreshParts()
+	..()
+	var/scan_rating = 0
+	var/cap_rating = 0
+	if(!component_parts) 
+		populate_components()
+
+	for(var/obj/item/weapon/stock_parts/P in component_parts)
+		if(istype(P, /obj/item/weapon/stock_parts/scanning_module))
+			scan_rating += P.rating
+		else if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+			cap_rating += P.rating
+
+	beaker = locate(/obj/item/weapon/reagent_containers/glass/beaker) in component_parts
+
+	active_power_usage = active_power_usage - (cap_rating + scan_rating)*2
 
 /obj/machinery/sleeper/attack_hand(var/mob/user)
 	if(..())
@@ -251,3 +274,13 @@
 			user << "The subject has too many chemicals."
 	else
 		user << "There's no suitable occupant in \the [src]."
+	
+/obj/item/weapon/circuitboard/sleeper
+	name = "sleeper circuitry"
+	desc = "The circuitboard for a sleeper."
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 2,
+							"/obj/item/weapon/stock_parts/scanning_module" = 2,
+							"/obj/item/weapon/stock_parts/console_screen" = 1,
+							"/obj/item/weapon/reagent_containers/glass/beaker/large" = 1)
