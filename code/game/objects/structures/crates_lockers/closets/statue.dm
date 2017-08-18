@@ -10,9 +10,14 @@
 	anchored = 1
 	health = 0 //destroying the statue kills the mob within
 	var/timer = 240 //eventually the person will be freed
+	var/mob/imprisoned //the temporary mob that is created when someone is put inside a statue
 
 /obj/structure/closet/statue/eternal
 	timer = -1
+
+/obj/structure/closet/statue/Destroy()
+	QDEL_NULL(imprisoned)
+	return ..()
 
 /obj/structure/closet/statue/Initialize(mapload, mob/living/L)
 
@@ -30,6 +35,7 @@
 		L.frozen = TRUE
 
 		appearance = L
+		dir = L.dir
 		color = list(
 					    0.30, 0.3, 0.25,
 					    0.30, 0.3, 0.25,
@@ -43,9 +49,11 @@
 			desc = "If it takes forever, I will wait for you..."
 
 		var/mob/temporarymob = new (src)
+		temporarymob.name = "imprisioned [L.name]"
 		temporarymob.forceMove(src)
 		if(L.key)
 			temporarymob.key = L.key
+		imprisoned = temporarymob
 
 	if(health == 0) //meaning if the statue didn't find a valid target
 		qdel(src)
@@ -67,6 +75,11 @@
 		O.forceMove(src.loc)
 
 	for(var/mob/living/M in src)
+		if(imprisoned)
+			if(imprisoned.key)
+				imprisoned.key = M.key
+				qdel(imprisoned)
+
 		M.forceMove(src.loc)
 		M.sdisabilities &= ~MUTE
 		M.frozen = FALSE
