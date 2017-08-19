@@ -1,8 +1,8 @@
 /obj/vehicle/droppod
 	name = "drop pod"
 	desc = "A big metal pod, what could be inside?"
-	icon = 'icons/obj/bike.dmi'
-	icon_state = "bike_off"
+	icon = 'icons/obj/vehicles.dmi'
+	icon_state = "droppod"
 	dir = SOUTH
 
 	load_item_visible = 0
@@ -11,14 +11,14 @@
 
 	fire_dam_coeff = 0.6
 	brute_dam_coeff = 0.5
-	var/list/validfirelocations = list(7)
+	var/list/validfirelocations = list(7) // 7 Is above the station.
 
 	var/used = 0
 
 	var/mob/humanload 
 	var/mob/passenger
 
-	var/list/protectedareas = list(/area/hallway/secondary/entry/dock, /area/crew_quarters/sleep/cryo, /area/crew_quarters/sleep/bedrooms)
+	var/static/list/protrectedareas = list(/area/hallway/secondary/entry/dock, /area/crew_quarters/sleep/cryo, /area/crew_quarters/sleep/bedrooms)
 
 /obj/vehicle/droppod/Initialize()
 	. = ..()
@@ -29,9 +29,16 @@
 /obj/vehicle/droppod/Move()
 	return
 
+/obj/vehicle/droppod/verb/launchinterface()
+	set src in oview(1)
+	set category = "Vehicle"
+	set name = "Open launch interface"
+
+	ui_interact(usr)
+
 /obj/vehicle/droppod/load(var/mob/C) // this won't call the parent proc due to the differences and the fact it doesn't use load. Also only mobs can be loaded.
 	if(!ismob(C))
-		return
+		return 0
 	if(!isturf(C.loc)) 
 		return 0
 	if((humanload && passenger) || C.anchored)
@@ -47,12 +54,14 @@
 	C.anchored = 1
 
 	C.resting = 1
+	
+	C.canshoot = 0
 
 	return 1
 
 /obj/vehicle/droppod/unload(var/mob/user, var/direction) // this also won't call the parent proc because it relies on load and doesn't expect a 2nd person
 	if(!(humanload || passenger))
-		return
+		return 0
 
 	var/turf/dest = null
 
@@ -85,6 +94,7 @@
 	user.pixel_x = initial(user.pixel_x)
 	user.pixel_y = initial(user.pixel_y)
 	user.layer = initial(user.layer)
+	user.canshoot = 1
 
 	if(user == humanload)
 		humanload = null
@@ -151,7 +161,7 @@
 			firefromarea(/area/bridge/levela)
 
 /obj/vehicle/droppod/proc/firefromarea(var/area/A)
-	if(A in protectedareas)
+	if(A in protrectedareas)
 		ermessage()
 		return
 
