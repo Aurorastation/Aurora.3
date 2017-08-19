@@ -105,7 +105,7 @@
 
 	var/mob/living/M = user
 	if(!M.canshoot)
-		return
+		return 0
 	if(HULK in M.mutations)
 		M << "<span class='danger'>Your fingers are much too large for the trigger guard!</span>"
 		return 0
