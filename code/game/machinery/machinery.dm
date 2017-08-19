@@ -262,7 +262,7 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/proc/RefreshParts(var/makeparts = 0) //Calculates the upgrades in a machine. Does not include beakers, however.
+/obj/machinery/proc/RefreshParts(var/makeparts = 0)
 	if(makeparts)
 		populate_components()
 	return

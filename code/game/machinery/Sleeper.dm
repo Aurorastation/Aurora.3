@@ -184,7 +184,12 @@
 			update_icon()
 			qdel(G)
 			return
+	else if(isscrewdriver(I))
+		user << "You [panel_open ? "open" : "close"] the maintenance panel."
+		panel_open = !panel_open
 
+	else if(default_part_replacement(user, I))
+		return
 /obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
 	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))
 		return
