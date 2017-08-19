@@ -100,6 +100,7 @@
 	var/list/speak_emote = list("says") // Verbs used when speaking. Defaults to 'say' if speak_emote is null.
 	var/emote_type = 1		// Define emote default type, 1 for seen emotes, 2 for heard emotes
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
+	var/canshoot = 1 // If they can shoot a gun
 
 	var/name_archive //For admin things like possession
 
