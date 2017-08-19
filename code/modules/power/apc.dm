@@ -71,6 +71,7 @@
 	var/areastring = null
 	var/obj/item/weapon/cell/cell
 	var/chargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
+	var/initalchargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 	var/start_charge = 90				// initial cell charge %
 	var/cell_type = /obj/item/weapon/cell/apc
 	var/opened = 0 //0=closed, 1=opened, 2=cover removed
@@ -123,7 +124,6 @@
 	component_types = list(
 			/obj/item/weapon/circuitboard/power_control,
 			/obj/item/weapon/stock_parts/capacitor = 4,
-			/obj/item/weapon/stock_parts/scanning_module,
 			/obj/item/weapon/stock_parts/console_screen
 		)
 
@@ -1386,4 +1386,4 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 		if(iscapacitor(P))
 			cap_rating += P.rating
 
-	chargelevel = chargelevel + cap_rating/10000
+	chargelevel = initalchargelevel + cap_rating/10000

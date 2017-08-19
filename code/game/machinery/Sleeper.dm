@@ -61,7 +61,7 @@
 
 	beaker = locate(/obj/item/weapon/reagent_containers/glass/beaker) in component_parts
 
-	active_power_usage = active_power_usage - (cap_rating + scan_rating)*2
+	active_power_usage = 200 - (cap_rating + scan_rating)*2
 
 /obj/machinery/sleeper/attack_hand(var/mob/user)
 	if(..())

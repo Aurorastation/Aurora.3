@@ -53,6 +53,8 @@
 	var/active = 1 //No sales pitches if off!
 	var/vend_ready = 1 //Are we ready to vend?? Is it time??
 	var/vend_delay = 10 //How long does it take to vend?
+	var/inital_vend_delay = vend_delay //How long does it take to vend?
+
 	var/categories = CAT_NORMAL // Bitmask of cats we're currently showing
 	var/datum/data/vending_product/currently_vending = null // What we're requesting payment for right now
 	var/status_message = "" // Status screen messages like "insufficient funds", displayed in NanoUI
@@ -691,5 +693,5 @@
 		else if(iscapacitor(P))
 			cap_rating += P.rating
 
-	vend_delay = vend_delay - scan_rating
-	vend_power_usage = vend_power_usage - cap_rating
+	vend_delay = inital_vend_delay - scan_rating
+	vend_power_usage = 160 - cap_rating * 5

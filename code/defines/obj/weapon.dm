@@ -322,7 +322,6 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 	req_components = list(
 						"/obj/item/weapon/stock_parts/capacitor" = 4,
-						"/obj/item/weapon/stock_parts/scanning_module" = 1,
 						"/obj/item/weapon/stock_parts/console_screen" = 1)
 
 /obj/item/weapon/circuitboard/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)

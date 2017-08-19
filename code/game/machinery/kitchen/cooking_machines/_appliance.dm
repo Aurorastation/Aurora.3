@@ -16,8 +16,10 @@
 	use_power = 0
 	idle_power_usage = 5			// Power used when turned on, but not processing anything
 	active_power_usage = 1000		// Power used when turned on and actively cooking something
+	var/initalactive_power_usage = active_power_usage
 
 	var/cooking_power  = 1
+	var/inital_cooking_power  = cooking_power
 	var/max_contents = 1			// Maximum number of things this appliance can simultaneously cook
 	var/on_icon						// Icon state used when cooking.
 	var/off_icon					// Icon state used when not cooking.
@@ -678,8 +680,8 @@
 		else if(iscapacitor(P))
 			cap_rating += P.rating
 
-	active_power_usage = active_power_usage - scan_rating*10
-	cooking_power = cooking_power + (scan_rating+cap_rating)/10
+	active_power_usage = initalactive_power_usage - scan_rating*10
+	cooking_power = inital_cooking_power + (scan_rating+cap_rating)/10
 
 /obj/item/weapon/circuitboard/cooking
 	name = "kitchen appliance circuitry"
