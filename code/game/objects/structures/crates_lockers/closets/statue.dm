@@ -72,6 +72,9 @@
 /obj/structure/closet/statue/process()
 	timer--
 
+	if (timer == 50)
+		visible_message("<span class='notice'>\The [src]'s surface begins cracking and dissolving!</span>")
+
 	if (timer <= 0)
 		dump_contents()
 		processing_objects.Remove(src)
