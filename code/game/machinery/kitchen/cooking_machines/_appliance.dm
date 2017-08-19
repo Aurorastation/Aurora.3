@@ -16,10 +16,10 @@
 	use_power = 0
 	idle_power_usage = 5			// Power used when turned on, but not processing anything
 	active_power_usage = 1000		// Power used when turned on and actively cooking something
-	var/initalactive_power_usage = active_power_usage
+	var/initalactive_power_usage = 1000
 
 	var/cooking_power  = 1
-	var/inital_cooking_power  = cooking_power
+	var/inital_cooking_power  = 1
 	var/max_contents = 1			// Maximum number of things this appliance can simultaneously cook
 	var/on_icon						// Icon state used when cooking.
 	var/off_icon					// Icon state used when not cooking.
@@ -52,7 +52,8 @@
 	. = ..()
 	if(output_options.len)
 		verbs += /obj/machinery/appliance/proc/choose_output
-
+	inital_cooking_power = cooking_power
+	initalactive_power_usage = active_power_usage
 /obj/machinery/appliance/Destroy()
 	for (var/a in cooking_objs)
 		var/datum/cooking_item/CI = a
