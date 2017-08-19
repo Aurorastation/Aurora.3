@@ -3,10 +3,10 @@
 	universal_understand = 1
 
 /mob/statue_mob/send_emote()
- 	return
+	src << "You are unable to emote while trapped as a statue."
 
 /mob/statue_mob/say()
- 	return
+	src << "You are unable to speak while trapped as a statue."
 
 /obj/structure/closet/statue
 	name = "statue"
