@@ -673,9 +673,9 @@
 		cap_rating = 3
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/scanning_module))
+		if(isscanner(P))
 			scan_rating += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		else if(iscapacitor(P))
 			cap_rating += P.rating
 
 	active_power_usage = active_power_usage - scan_rating*10

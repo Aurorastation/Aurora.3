@@ -1383,7 +1383,7 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 		cap_rating = 4
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		if(iscapacitor(P))
 			cap_rating += P.rating
 
 	chargelevel = chargelevel + cap_rating/10000

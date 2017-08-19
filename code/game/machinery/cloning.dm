@@ -281,7 +281,7 @@
 	if(!component_parts)
 		rating = 4
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/scanning_module) || istype(P, /obj/item/weapon/stock_parts/manipulator))
+		if(isscanner(P) || ismanipulator(P))
 			rating += P.rating
 
 	heal_level = rating * 10 - 20

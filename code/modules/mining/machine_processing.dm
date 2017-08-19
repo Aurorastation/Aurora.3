@@ -326,21 +326,12 @@
 		laser_rating = 2
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/scanning_module))
+		if(isscanner(P))
 			scan_rating += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		else if(iscapacitor(P))
 			cap_rating += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/micro_laser))
+		else if(ismicrolaser(P))
 			laser_rating += P.rating
 
 	sheets_per_tick += scan_rating + cap_rating + laser_rating
 
-/obj/item/weapon/circuitboard/refiner
-	name = "ore processer circuitry"
-	desc = "The circuitboard for an ore processing machine."
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	req_components = list(
-							"/obj/item/weapon/stock_parts/capacitor" = 2,
-							"/obj/item/weapon/stock_parts/scanning_module" = 1,
-							"/obj/item/weapon/stock_parts/matter_bin" = 1,
-							"/obj/item/weapon/stock_parts/micro_laser" = 2)

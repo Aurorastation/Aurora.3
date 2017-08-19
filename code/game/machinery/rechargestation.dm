@@ -134,9 +134,9 @@
 	if(!occupant)
 		if(default_deconstruction_screwdriver(user, O))
 			return
-		if(default_deconstruction_crowbar(user, O))
+		else if(default_deconstruction_crowbar(user, O))
 			return
-		if(default_part_replacement(user, O))
+		else if(default_part_replacement(user, O))
 			return
 
 	..()
@@ -149,9 +149,9 @@
 		populate_components()
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		if(iscapacitor(P))
 			cap_rating += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/manipulator))
+		else if(ismanipulator(P))
 			man_rating += P.rating
 	cell = locate(/obj/item/weapon/cell) in component_parts
 

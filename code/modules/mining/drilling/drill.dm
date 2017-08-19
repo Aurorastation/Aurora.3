@@ -254,11 +254,11 @@
 	if(!component_parts)
 		populate_components()
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/micro_laser))
+		if(ismicrolaser(P))
 			harvest_speed = P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/matter_bin))
+		else if(ismatterbin(P))
 			capacity = 200 * P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		else if(iscapacitor(P))
 			charge_use -= 10 * P.rating
 	cell = locate(/obj/item/weapon/cell) in component_parts
 

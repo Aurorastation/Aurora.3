@@ -54,9 +54,9 @@
 		populate_components()
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/scanning_module))
+		if(isscanner(P))
 			scan_rating += P.rating
-		else if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		else if(iscapacitor(P))
 			cap_rating += P.rating
 
 	beaker = locate(/obj/item/weapon/reagent_containers/glass/beaker) in component_parts
@@ -279,13 +279,3 @@
 			user << "The subject has too many chemicals."
 	else
 		user << "There's no suitable occupant in \the [src]."
-	
-/obj/item/weapon/circuitboard/sleeper
-	name = "sleeper circuitry"
-	desc = "The circuitboard for a sleeper."
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	req_components = list(
-							"/obj/item/weapon/stock_parts/capacitor" = 2,
-							"/obj/item/weapon/stock_parts/scanning_module" = 2,
-							"/obj/item/weapon/stock_parts/console_screen" = 1,
-							"/obj/item/weapon/reagent_containers/glass/beaker/large" = 1)

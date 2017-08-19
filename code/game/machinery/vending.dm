@@ -686,20 +686,10 @@
 		cap_rating = 2
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/scanning_module))
+		if(isscanner(P))
 			scan_rating += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		else if(iscapacitor(P))
 			cap_rating += P.rating
 
 	vend_delay = vend_delay - scan_rating
 	vend_power_usage = vend_power_usage - cap_rating
-
-/obj/item/weapon/circuitboard/vending
-	name = "vending machine circuitry"
-	desc = "The circuitboard for a vending machine. Not of much use."
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	req_components = list(
-							"/obj/item/weapon/stock_parts/capacitor" = 2,
-							"/obj/item/weapon/stock_parts/scanning_module" = 1,
-							"/obj/item/weapon/stock_parts/matter_bin" = 1,
-							"/obj/item/weapon/stock_parts/console_screen" = 1)
