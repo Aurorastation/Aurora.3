@@ -508,7 +508,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/helmut_labcoat //CERN Labcoat - Helmut Kronigernischultz - pyrociraptor
-	name = "CERN labcoat"
+	name = "\improper CERN labcoat"
 	desc = "A Labcoat with a blue pocket and blue collar. On the pocket, you can read \"C.E.R.N.\"."
 	icon = 'icons/obj/custom_items/helmut_labcoat.dmi'
 	icon_state = "helmut_labcoat"
@@ -698,6 +698,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "people's republic medical officer coat"
 	desc = "A sterile insulated coat made of leather stitched over fur. It has two gold lapels indicating Officer rank. \
 	The a white armband with a scarlet line in the center indicates that the person wearing this coat is medically trained."
+
 
 /obj/item/clothing/suit/storage/tajaran/fluff/maksim_coat //Tajaran Naval Officer's Coat - Maksim Vasilyev - aimlessanalyst
 	name = "tajaran naval officer coat"
@@ -1161,3 +1162,80 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user)
 	if(..(user, 1))
 		user << "It is [active ? "on" : "off"]."
+
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac/fluff/leonce_cognac //Old Earth Luxury Cognac - Francois Leonce - driecg36
+	name = "old earth luxury cognac"
+	desc = "An unusually shaped crystal bottle, covered in elaborate etchings displaying the symbol of the house that produced it. Inside is a smooth, amber liquor, \
+	which smells of the barrel it was aged in. The region and producer are on the label."
+	icon = 'icons/obj/custom_items/leonce_cognac.dmi'
+	icon_state = "leonce_cognac"
+
+
+/obj/item/clothing/under/fluff/birkin_uniform //White Suit - Joseph Birkin - unknownmurder
+	name = "white suit"
+	desc = "This collared uniform appears to be little wrinkled and the tie is a bit loose from the collar. The jean seems to be neatly straight with the leather belt attached."
+	icon = 'icons/obj/custom_items/birkin_uniform.dmi'
+	icon_state = "birkin_uniform"
+	item_state = "birkin_uniform"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/fluff/sonorous_mantle //Maraziite Throw Over - Sonorous Zouzoror - sleepywolf
+	name = "maraziite throw over"
+	desc = "A grey poncho, exclusively warn by members of the Maraziite Order. This one has the flag of the Izweski Hegemony stitched on."
+	icon = 'icons/obj/custom_items/sonorous_clothing.dmi'
+	icon_state = "sonorous_mantle"
+	item_state = "sonorous_mantle"
+	contained_sprite = TRUE
+
+/obj/item/clothing/mask/fluff/sonorous_mask //Iron Mask - Sonorous Zouzoror - sleepywolf
+	name = "iron mask"
+	desc = "A mask made of iron worn by members of the Maraziite Order. This one looks like it's modeled after a fish."
+	icon = 'icons/obj/custom_items/sonorous_clothing.dmi'
+	icon_state = "sonorous_mask"
+	item_state = "sonorous_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3.0
+
+
+/obj/item/clothing/under/fluff/ellie_uniform //Cheery Blazer - Ellie Shoshanna - resilynn
+	name = "cheery blazer"
+	desc = "A cheery but professional outfit, mauve corduroys, blue blazer and a tie."
+	icon = 'icons/obj/custom_items/ellie_uniform.dmi'
+	icon_state = "ellie_uniform"
+	item_state = "ellie_uniform"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/accessory/fluff/zhilin_necklace //Tajaran Religious Necklace - Zhilin Vadim - fireandglory
+	name = "tajaran religious necklace"
+	desc = "A necklace with black string, it appears to have carved wooden figures of the Tajaran god Mata'ke and all of his pantheon strung through it."
+	icon = 'icons/obj/custom_items/zhilin_necklace.dmi'
+	icon_state = "zhilin_necklace"
+	item_state = "zhilin_necklace"
+	contained_sprite = TRUE
+	slot_flags = SLOT_EARS | SLOT_TIE
+
+
+/obj/item/weapon/book/fluff/huntington_book //Spark Theorem - Monica Huntington - moondancerpony
+	name = "\improper Spark Theorem"
+	desc = "A bound copy of the 2458 research paper \"Spark Theorem: Research Into the Development of Synthetic Consciousness and Sapience\". This one is signed by the author."
+	title = "Spark Theorem"
+	icon_state = "book6"
+	author = "Kyyir'ry'avii 'Karima' Ile'nagrii Al'Ghul-Mo'Taki"
+	dat = "<!doctype html><html style=\"width:100%;height:100%;\"><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></head><body><iframe style=\"width:100%;height:100%\" src=\"https://assets.lohikar.io/mdp/sparktheorem.html\"></iframe></body></html>"
+	due_date = 0
+	unique = 1
+
+
+/obj/item/clothing/shoes/fluff/hikmat_shoes //Native Tajaran Foot-wear - Hikmat Rrhazkal-Jawdat - prospekt1559
+	name = "native tajaran foot-wear"
+	desc = "Native foot and leg wear worn by Tajara, completely covering the legs in wraps and the feet in native Tajaran fabric."
+	icon = 'icons/obj/custom_items/hikmat_shoes.dmi'
+	icon_state = "hikmat_shoes"
+	item_state = "hikmat_shoes"
+	species_restricted = null
+	contained_sprite = TRUE
