@@ -15,7 +15,7 @@
 
 	var/used = 0
 
-	var/mob/humanload 
+	var/mob/humanload
 	var/mob/passenger
 
 	var/static/list/protrectedareas = list(/area/hallway/secondary/entry/dock, /area/crew_quarters/sleep/cryo, /area/crew_quarters/sleep/bedrooms)
@@ -48,14 +48,10 @@
 	else
 		humanload = C
 
-	C.forceMove(loc)
+	C.forceMove(src)
 
 	C.set_dir(dir)
 	C.anchored = 1
-
-	C.resting = 1
-	
-	C.canshoot = 0
 
 	return 1
 
@@ -86,15 +82,12 @@
 	if(!isturf(dest))
 		return 0
 
-	user.resting = 0
-
 	user.forceMove(dest)
 	user.set_dir(get_dir(loc, dest))
 	user.anchored = 0
 	user.pixel_x = initial(user.pixel_x)
 	user.pixel_y = initial(user.pixel_y)
 	user.layer = initial(user.layer)
-	user.canshoot = 1
 
 	if(user == humanload)
 		humanload = null
