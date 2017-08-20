@@ -436,7 +436,7 @@ var/bomb_set
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/nuclearbomb/station/LateInitialize()
-	for(var/turf/simulated/floor/T in trange(1, src))
+	for(var/turf/simulated/floor/T in RANGE_TURFS(1, src))
 		T.set_flooring(get_flooring_data(/decl/flooring/reinforced/circuit/red))
 		flash_tiles += T
 	update_icon()

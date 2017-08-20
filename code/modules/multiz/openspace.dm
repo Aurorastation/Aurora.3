@@ -33,8 +33,14 @@
 		// The overlay will handle cleaning itself up on non-openspace turfs.
 		if (isturf(dest))
 			bound_overlay.forceMove(get_step(src, UP))
+			bound_overlay.set_dir(dir)
 		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
 			qdel(bound_overlay)
+
+/atom/movable/set_dir(ndir)
+	. = ..()
+	if (. && bound_overlay)
+		bound_overlay.set_dir(dir)
 
 /atom/movable/update_above()
 	if (!bound_overlay)
