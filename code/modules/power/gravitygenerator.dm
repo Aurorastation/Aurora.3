@@ -385,11 +385,9 @@
 						middle.overlays += overlay_state
 					current_overlay = overlay_state
 
-/obj/machinery/gravity_generator/main/proc/pulse_radiation(var/amount)
-	if(!amount)
-		amount = 20
+/obj/machinery/gravity_generator/main/proc/pulse_radiation(var/amount = 20)
 	for(var/mob/living/L in view(7, src))
-		L.apply_effect(amount, IRRADIATE)
+		L.apply_effect(amount, IRRADIATE, blocked = L.getarmor(null, "rad"))
 
 // Shake everyone on the z level to let them know that gravity was enagaged/disenagaged.
 /obj/machinery/gravity_generator/main/proc/shake_everyone()
@@ -407,15 +405,15 @@
 	var/turf/T = get_turf(src)
 	if(!T)
 		return 0
-	if(SSmachinery.gravity_generators["[T.z]"])
-		return length(SSmachinery.gravity_generators["[T.z]"])
+	if(SSmachinery.gravity_generators)
+		return length(SSmachinery.gravity_generators)
 	return 0
 
 /obj/machinery/gravity_generator/main/proc/update_list()
 	var/turf/T = get_turf(src.loc)
 	if(T)
-		if(!SSmachinery.gravity_generators["[T.z]"])
-			SSmachinery.gravity_generators["[T.z]"] = list()
+		if(!SSmachinery.gravity_generators)
+			SSmachinery.gravity_generators = list()
 
 		if(on)
 			for(var/area/A in localareas)
@@ -426,12 +424,12 @@
 					A.gravitychange(A.has_gravity,A)
 			if(round_start == 1)
 				round_start = 0
-			SSmachinery.gravity_generators["[T.z]"] |= src
+			SSmachinery.gravity_generators += src
 		else
 			for(var/area/A in localareas)
 				A.has_gravity = 0
 				A.gravitychange(A.has_gravity,A)
-			SSmachinery.gravity_generators["[T.z]"] -= src
+			SSmachinery.gravity_generators -= src
 
 /obj/machinery/gravity_generator/main/Initialize()
 	. = ..()

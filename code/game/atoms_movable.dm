@@ -305,3 +305,4 @@ var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
 		if (bound_overlay)
 			// The overlay will handle cleaning itself up on non-openspace turfs.
 			bound_overlay.forceMove(get_step(src, UP))
+			bound_overlay.set_dir(dir)
