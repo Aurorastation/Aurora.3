@@ -6,7 +6,7 @@
 	w_class = 2.0
 	var/rating = 1
 
-/obj/item/weapon/stock_parts/Initalize()
+/obj/item/weapon/stock_parts/Initialize()
 	. = ..
 	src.pixel_x = rand(-5.0, 5)
 	src.pixel_y = rand(-5.0, 5)
