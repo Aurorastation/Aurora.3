@@ -99,14 +99,6 @@
 	
 	var/can_move = 1	//if you can wrench the machine out of place
 
-	component_types = list(
-			/obj/item/weapon/circuitboard/vending,
-			/obj/item/weapon/stock_parts/capacitor = 2,
-			/obj/item/weapon/stock_parts/scanning_module,
-			/obj/item/weapon/stock_parts/console_screen,
-			/obj/item/weapon/stock_parts/matter_bin
-		)
-
 /obj/machinery/vending/Initialize()
 	. = ..()
 	wires = new(src)
@@ -255,8 +247,6 @@
 			anchored = !anchored
 		return
 
-	else if(default_part_replacement(user, W))
-		return
 	else if(!is_borg_item(W))
 
 		for(var/datum/data/vending_product/R in product_records)
@@ -678,20 +668,3 @@
 		throw_item.throw_at(target, 16, 3, src)
 	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
 	return 1
-
-/obj/machinery/vending/RefreshParts()
-	..()
-	var/scan_rating = 0
-	var/cap_rating = 0
-	if(!component_parts)
-		scan_rating = 1
-		cap_rating = 2
-
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(isscanner(P))
-			scan_rating += P.rating
-		else if(iscapacitor(P))
-			cap_rating += P.rating
-
-	vend_delay = inital_vend_delay - scan_rating
-	vend_power_usage = 160 - cap_rating * 5

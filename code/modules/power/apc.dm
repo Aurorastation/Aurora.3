@@ -121,12 +121,6 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-	component_types = list(
-			/obj/item/weapon/circuitboard/power_control,
-			/obj/item/weapon/stock_parts/capacitor = 4,
-			/obj/item/weapon/stock_parts/console_screen
-		)
-
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
 		return
@@ -526,8 +520,7 @@
 			wiresexposed = !wiresexposed
 			user << "The wires have been [wiresexposed ? "exposed" : "unexposed"]"
 			update_icon()
-	else if(default_part_replacement(user, W))
-		return
+
 	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))			// trying to unlock the interface with an ID card
 		if(emagged)
 			user << "The interface is broken."
@@ -1375,15 +1368,3 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	locked = 1
 	update_icon()
 	return 1
-
-/obj/machinery/power/apc/RefreshParts()
-	..()
-	var/cap_rating = 0
-	if(!component_parts)
-		cap_rating = 4
-
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(iscapacitor(P))
-			cap_rating += P.rating
-
-	chargelevel = initalchargelevel + cap_rating/10000
