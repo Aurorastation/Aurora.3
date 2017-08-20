@@ -8,7 +8,6 @@
 
 /datum/controller/subsystem/openturf
 	name = "Open Space"
-	flags = SS_BACKGROUND | SS_FIRE_IN_LOBBY
 	wait = 1
 	init_order = SS_INIT_OPENTURF
 	priority = SS_PRIORITY_OPENTURF

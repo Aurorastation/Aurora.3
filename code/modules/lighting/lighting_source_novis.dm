@@ -1,7 +1,6 @@
 /datum/light_source/novis
 
 /datum/light_source/novis/update_corners()
-	set waitfor = FALSE
 	var/update = FALSE
 
 	if (QDELETED(source_atom))
@@ -158,9 +157,6 @@
 	UNSETEMPTY(effect_str)
 	UNSETEMPTY(affecting_turfs)
 
-/datum/light_source/novis/check_light_cone()
-	return FALSE
-
 /datum/light_source/novis/update_angle()
 	return
 
@@ -182,10 +178,7 @@
 		top_atom = new_top_atom
 
 		if (top_atom != source_atom)
-			if(!top_atom.light_sources)
-				top_atom.light_sources = list()
-
-			top_atom.light_sources += src // Add ourselves to the light sources of our new top atom.
+			LAZYADD(top_atom.light_sources, src)	// Add ourselves to the light sources of our new top atom.
 
 	//L_PROF(source_atom, "source_update")
 
@@ -196,6 +189,5 @@
 
 /datum/light_source/novis/vis_update()
 	QUEUE_UPDATE(LIGHTING_VIS_UPDATE)
-
 
 #undef QUEUE_UPDATE
