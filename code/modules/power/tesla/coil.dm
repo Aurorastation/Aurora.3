@@ -10,7 +10,7 @@
 
 	component_types = list(
 		/obj/item/weapon/circuitboard/tesla_coil,
-		/obj/item/weapon/stock_parts/capacitor = 1
+		/obj/item/weapon/stock_parts/capacitor
 	)
 
 /obj/machinery/power/tesla_coil/RefreshParts()

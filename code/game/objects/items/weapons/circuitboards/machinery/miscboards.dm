@@ -21,7 +21,7 @@
 							/obj/item/weapon/reagent_containers/glass/beaker/large = 1)
 
 /obj/item/weapon/circuitboard/refiner
-	name = T_BOARD("ore processer")
+	name = T_BOARD("ore processor")
 	desc = "The circuitboard for an ore processing machine."
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	board_type = "other" // change this to machine if you want it to be buildable
