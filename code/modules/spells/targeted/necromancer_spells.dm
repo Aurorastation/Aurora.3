@@ -113,11 +113,11 @@
 				if(!F.ckey || !F.client)
 					F.visible_message("With no soul to keep \the [F] linked to this plane, it turns into dust.")
 					F.dust()
-					
+
 			else
 				F << "<B>You are a skeleton minion to [usr], they are your master. Obey and protect your master at all costs, you have no free will.</B>"
-				F.faction = usr.faction	
-		
+				F.faction = usr.faction
+
 		//equips the skeleton war gear
 		F.equip_to_slot_or_del(new /obj/item/clothing/under/gladiator(F), slot_w_uniform)
 		F.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(F), slot_shoes)
@@ -168,16 +168,19 @@
 	if(!C.stat)
 		C << "<span class='notice'>You're not dead yet!</span>"
 		return
-		
+
 	var/obj/item/phylactery/P
 	for(var/thing in world_phylactery)
 		var/obj/item/phylactery/N = thing
 		if (!QDELETED(N) && N.lich == C)
 			P = N
-		 
+
 	if(P)
 		C.forceMove(get_turf(P))
 		C << "<span class='notice'>Your dead body returns to your phylactery, slowly rebuilding itself.</span>"
+		if(prob(25))
+			var/area/A = get_area(P)
+			command_announcement.Announce("High levels of bluespace activity detected at \the [A]. Investigate it soon as possible.", "Bluespace Anomaly Report")
 		C.verbs -= /mob/living/carbon/proc/dark_resurrection
 		addtimer(CALLBACK(src, .proc/post_dark_resurrection), rand(400, 800))
 
