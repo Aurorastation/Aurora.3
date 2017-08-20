@@ -30,6 +30,7 @@
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_eng
 	alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/eng
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/engi
 
 
 	equip(var/mob/living/carbon/human/H)
@@ -69,6 +70,7 @@
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_eng
 	alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/eng
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/engi
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -111,6 +113,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/industrial
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_eng
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/eng
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/engi
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0

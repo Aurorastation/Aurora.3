@@ -27,6 +27,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/security
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_sec
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/sec
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/sec
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -68,6 +69,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/security
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_sec
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/sec
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/sec
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -190,6 +192,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/security
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_sec
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/sec
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/sec
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
