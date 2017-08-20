@@ -202,11 +202,13 @@
 
 /obj/vehicle/droppod/proc/applyfalldamage(var/turf/A)
 	for(var/mob/T in A)
-		T.gib()
-		T.visible_message("<span class='danger'>[T] is squished by the drop pod!</span>")
+		if(T.simulated)
+			T.gib()
+			T.visible_message("<span class='danger'>[T] is squished by the drop pod!</span>")
 	for(var/obj/B in A)
-		qdel(B)
-		B.visible_message("<span class='danger'>[B] is destroyed by the drop pod!</span>")
+		if(B.simulated)
+			qdel(B)
+			B.visible_message("<span class='danger'>[B] is destroyed by the drop pod!</span>")
 
 /obj/vehicle/droppod/proc/ermessage(var/type = 0, var/subtype = 0)
 	if(!type)
