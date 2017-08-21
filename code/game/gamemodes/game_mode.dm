@@ -639,4 +639,4 @@ proc/get_nt_opposed()
 				var/percentage = round(config.probabilities_mixed_secret[config_tag] / sum * 100, 0.1)
 				to_chat(src, "[config_tag] [percentage]%")
 	else
-		to_chat(src, "Gamemode odds are disabled in the config.")
+		to_chat(src, "Displaying gamemode odds is disabled in the config.")
