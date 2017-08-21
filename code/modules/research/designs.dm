@@ -32,13 +32,12 @@ other types of metals and chemistry for reagents).
 	var/build_path = null			//The path of the object that gets created.
 	var/time = 10					//How many ticks it requires to build
 	var/category = null 			//Primarily used for Mech Fabricators, but can be used for anything.
+	var/sort_string = "ZZZZZ" 		// How things are sorted
 
 /datum/design/New()
 	..()
 	item_name = name
 	AssembleDesignInfo()
-	var/obj/T = build_path
-	time = T.w_class * 3
 
 //These procs are used in subtypes for assigning names and descriptions dynamically
 /datum/design/proc/AssembleDesignInfo()

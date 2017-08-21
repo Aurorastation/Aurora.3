@@ -255,7 +255,30 @@
 /obj/item/weapon/melee/energy/sword/pirate/activate(mob/living/user)
 	..()
 	icon_state = "cutlass1"
+/*
+*Power Sword
+*/
 
+/obj/item/weapon/melee/energy/sword/powersword
+	name = "power sword"
+	desc = "For when you really want to ruin someone's day. It is extremely heavy."
+	icon_state = "powerswordoff"
+	base_reflectchance = 65
+	active_force = 40
+	base_block_chance = 65
+	active_w_class = 3
+	w_class = 3
+
+/obj/item/weapon/melee/energy/sword/powersword/activate(mob/living/user)
+	..()
+	icon_state = "powerswordon"
+
+/obj/item/weapon/melee/energy/sword/powersword/attack_self(mob/living/user as mob)
+	..()
+	if(prob(30))
+		user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
+		"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
+		user.take_organ_damage(5,5)
 /*
  *Energy Blade
  */
