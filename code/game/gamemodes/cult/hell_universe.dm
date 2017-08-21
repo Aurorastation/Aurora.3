@@ -41,7 +41,7 @@ In short:
 
 // Apply changes when entering state
 /datum/universal_state/hell/OnEnter()
-	set background = 1
+	SSgarbage.disable()	// Yeah, fuck it. No point hard-deleting stuff now.
 
 	escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
 
@@ -60,7 +60,7 @@ In short:
 		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
-		A.updateicon()
+		A.queue_icon_update()
 		CHECK_TICK
 
 /datum/universal_state/hell/OverlayAndAmbientSet()

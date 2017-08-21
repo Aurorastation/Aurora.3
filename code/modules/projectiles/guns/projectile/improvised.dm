@@ -32,7 +32,7 @@
 
 
 /obj/item/weapon/gun/projectile/shotgun/improvised/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(w_class == 3 && (istype(A, /obj/item/weapon/circular_saw) || istype(A, /obj/item/weapon/melee/energy) || istype(A, /obj/item/weapon/gun/energy/plasmacutter)))
+	if(istype(A, /obj/item/weapon/circular_saw) || istype(A, /obj/item/weapon/melee/energy) || istype(A, /obj/item/weapon/gun/energy/plasmacutter) && w_class != 3)
 		user << "<span class='notice'>You begin to shorten the barrel of \the [src].</span>"
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
@@ -41,7 +41,7 @@
 			return
 		if(do_after(user, 30))
 			icon_state = "ishotgunsawn"
-			item_state = "sawnshotgun"
+			item_state = "ishotgunsawn"
 			w_class = 3
 			force = 5
 			slot_flags &= ~SLOT_BACK
@@ -227,5 +227,5 @@
 	fire_delay = 2
 	dispersion = list(1.0, -1.0, 2.0, -2.0)
 	jam_chance = 20
-	
+
 	firemodes = null

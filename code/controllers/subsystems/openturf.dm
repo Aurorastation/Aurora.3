@@ -1,7 +1,7 @@
 #define OPENTURF_MAX_PLANE -71
 #define OPENTURF_CAP_PLANE -70      // The multiplier goes here so it'll be on top of every other overlay.
 #define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
-#define SHADOWER_DARKENING_FACTOR 0.25	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
+#define SHADOWER_DARKENING_FACTOR 0.4	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
 #define SHADOWER_LAYER 0
 
 /var/datum/controller/subsystem/openturf/SSopenturf
@@ -100,7 +100,11 @@
 			T.shadower = new(T)
 
 		// Figure out how many z-levels down we are.
-		var/depth = calculate_depth(T)
+		var/depth = 0
+		var/turf/simulated/open/Td = T
+		while (Td && isopenturf(Td.below))
+			Td = Td.below
+			depth++
 		if (depth > OPENTURF_MAX_DEPTH)
 			depth = OPENTURF_MAX_DEPTH
 
@@ -178,7 +182,7 @@
 		else if (MC_TICK_CHECK)
 			break
 
-	if (qt_idex > 1 && qo_idex <= curr_turfs.len)
+	if (qt_idex > 1 && qt_idex <= curr_turfs.len)
 		curr_turfs.Cut(1, qt_idex)
 		qt_idex = 1
 
@@ -227,9 +231,3 @@
 		if (qo_idex > 1 && qo_idex <= curr_ov.len)
 			curr_ov.Cut(1, qo_idex)
 			qo_idex = 1
-
-/datum/controller/subsystem/openturf/proc/calculate_depth(turf/simulated/open/T)
-	. = 0
-	while (T && isopenturf(T.below))
-		T = T.below
-		.++

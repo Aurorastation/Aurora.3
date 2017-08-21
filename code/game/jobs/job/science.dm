@@ -137,8 +137,8 @@
 	department = "Science"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "the research director"
 	selection_color = "#ffeeff"
 	economic_modifier = 7

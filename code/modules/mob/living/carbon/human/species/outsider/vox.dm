@@ -36,7 +36,7 @@
 	cold_level_3 = 0
 
 	eyes = "vox_eyes_s"
-	gluttonous = GLUT_SMALLER
+	gluttonous = TRUE
 	virus_immune = 1
 
 	breath_type = "nitrogen"

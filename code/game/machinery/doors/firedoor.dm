@@ -374,6 +374,7 @@
 	return ..()
 
 /obj/machinery/door/firedoor/do_animate(animation)
+	compile_overlays()
 	switch(animation)
 		if("opening")
 			flick("door_opening", src)

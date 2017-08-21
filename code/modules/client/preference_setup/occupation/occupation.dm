@@ -34,26 +34,51 @@
 	S["player_alt_titles"]	<< pref.player_alt_titles
 
 /datum/category_item/player_setup_item/occupation/gather_load_query()
-	return list("ss13_characters" = list("vars" = list("jobs" = "unsanitized_jobs", "alternate_option", "alternate_titles" = "player_alt_titles"), "args" = list("id")))
+	return list(
+		"ss13_characters" = list(
+			"vars" = list(
+				"jobs" = "unsanitized_jobs",
+				"alternate_option",
+				"alternate_titles" = "player_alt_titles"
+			),
+			"args" = list("id")
+		)
+	)
 
 /datum/category_item/player_setup_item/occupation/gather_load_parameters()
 	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/occupation/gather_save_query()
-	return list("ss13_characters" = list("jobs", "alternate_option", "alternate_titles", "id" = 1, "ckey" = 1))
+	return list(
+		"ss13_characters" = list(
+			"jobs",
+			"alternate_option",
+			"alternate_titles",
+			"id" = 1,
+			"ckey" = 1
+		)
+	)
 
 /datum/category_item/player_setup_item/occupation/gather_save_parameters()
-	var/list/compiled_jobs = list("job_civilian_high" = pref.job_civilian_high,
-								"job_civilian_med" = pref.job_civilian_med,
-								"job_civilian_low" = pref.job_civilian_low,
-								"job_medsci_high" = pref.job_medsci_high,
-								"job_medsci_med" = pref.job_medsci_med,
-								"job_medsci_low" = pref.job_medsci_low,
-								"job_engsec_high" = pref.job_engsec_high,
-								"job_engsec_med" = pref.job_engsec_med,
-								"job_engsec_low" = pref.job_engsec_low)
+	var/list/compiled_jobs = list(
+		"job_civilian_high" = pref.job_civilian_high,
+		"job_civilian_med" = pref.job_civilian_med,
+		"job_civilian_low" = pref.job_civilian_low,
+		"job_medsci_high" = pref.job_medsci_high,
+		"job_medsci_med" = pref.job_medsci_med,
+		"job_medsci_low" = pref.job_medsci_low,
+		"job_engsec_high" = pref.job_engsec_high,
+		"job_engsec_med" = pref.job_engsec_med,
+		"job_engsec_low" = pref.job_engsec_low
+	)
 
-	return list("jobs" = list2params(compiled_jobs), "alternate_option" = pref.alternate_option, "alternate_titles" = list2params(pref.player_alt_titles), "id" = pref.current_character, "ckey" = pref.client.ckey)
+	return list(
+		"jobs" = list2params(compiled_jobs),
+		"alternate_option" = pref.alternate_option,
+		"alternate_titles" = list2params(pref.player_alt_titles),
+		"id" = pref.current_character,
+		"ckey" = pref.client.ckey
+	)
 
 /datum/category_item/player_setup_item/occupation/sanitize_character(var/sql_load = 0)
 	if (sql_load)
@@ -82,16 +107,16 @@
 					log_debug("LOADING: Bad job preference key: [preference].")
 					log_debug(e.desc)
 
-	pref.alternate_option	= sanitize_integer(text2num(pref.alternate_option), 0, 2, initial(pref.alternate_option))
-	pref.job_civilian_high	= sanitize_integer(text2num(pref.job_civilian_high), 0, 65535, initial(pref.job_civilian_high))
-	pref.job_civilian_med	= sanitize_integer(text2num(pref.job_civilian_med), 0, 65535, initial(pref.job_civilian_med))
-	pref.job_civilian_low	= sanitize_integer(text2num(pref.job_civilian_low), 0, 65535, initial(pref.job_civilian_low))
-	pref.job_medsci_high	= sanitize_integer(text2num(pref.job_medsci_high), 0, 65535, initial(pref.job_medsci_high))
-	pref.job_medsci_med		= sanitize_integer(text2num(pref.job_medsci_med), 0, 65535, initial(pref.job_medsci_med))
-	pref.job_medsci_low		= sanitize_integer(text2num(pref.job_medsci_low), 0, 65535, initial(pref.job_medsci_low))
-	pref.job_engsec_high	= sanitize_integer(text2num(pref.job_engsec_high), 0, 65535, initial(pref.job_engsec_high))
-	pref.job_engsec_med 	= sanitize_integer(text2num(pref.job_engsec_med), 0, 65535, initial(pref.job_engsec_med))
-	pref.job_engsec_low 	= sanitize_integer(text2num(pref.job_engsec_low), 0, 65535, initial(pref.job_engsec_low))
+	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 2, initial(pref.alternate_option))
+	pref.job_civilian_high = sanitize_integer(text2num(pref.job_civilian_high), 0, 65535, initial(pref.job_civilian_high))
+	pref.job_civilian_med  = sanitize_integer(text2num(pref.job_civilian_med), 0, 65535, initial(pref.job_civilian_med))
+	pref.job_civilian_low  = sanitize_integer(text2num(pref.job_civilian_low), 0, 65535, initial(pref.job_civilian_low))
+	pref.job_medsci_high   = sanitize_integer(text2num(pref.job_medsci_high), 0, 65535, initial(pref.job_medsci_high))
+	pref.job_medsci_med    = sanitize_integer(text2num(pref.job_medsci_med), 0, 65535, initial(pref.job_medsci_med))
+	pref.job_medsci_low    = sanitize_integer(text2num(pref.job_medsci_low), 0, 65535, initial(pref.job_medsci_low))
+	pref.job_engsec_high   = sanitize_integer(text2num(pref.job_engsec_high), 0, 65535, initial(pref.job_engsec_high))
+	pref.job_engsec_med    = sanitize_integer(text2num(pref.job_engsec_med), 0, 65535, initial(pref.job_engsec_med))
+	pref.job_engsec_low    = sanitize_integer(text2num(pref.job_engsec_low), 0, 65535, initial(pref.job_engsec_low))
 
 	if (!pref.player_alt_titles)
 		pref.player_alt_titles = new()
@@ -102,89 +127,91 @@
 			pref.player_alt_titles -= job.title
 
 /datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Medical Officer"))
-
-	. += "<tt><center>"
-	. += "<b>Choose occupation chances</b><br>Unavailable occupations are crossed out.<br>"
-	. += "<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>" // Table within a table for alignment, also allows you to easily add more colomns.
-	. += "<table width='100%' cellpadding='1' cellspacing='0'>"
+	var/list/dat = list(
+		"<tt><center>",
+		"<b>Choose occupation chances</b><br>Unavailable occupations are crossed out.<br>",
+		"<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>", // Table within a table for alignment, also allows you to easily add more colomns.
+		"<table width='100%' cellpadding='1' cellspacing='0'>"
+	)
 	var/index = -1
 
 	//The job before the current job. I only use this to get the previous jobs color when I'm filling in blank rows.
 	var/datum/job/lastJob
 	for(var/datum/job/job in SSjobs.occupations)
-
 		index += 1
 		if((index >= limit) || (job.title in splitJobs))
 			if((index < limit) && (lastJob != null))
 				//If the cells were broken up by a job in the splitJob list then it will fill in the rest of the cells with
 				//the last job's selection color. Creating a rather nice effect.
 				for(var/i = 0, i < (limit - index), i += 1)
-					. += "<tr bgcolor='[lastJob.selection_color]'><td width='60%' align='right'><a>&nbsp</a></td><td><a>&nbsp</a></td></tr>"
-			. += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
+					dat += "<tr bgcolor='[lastJob.selection_color]'><td width='60%' align='right'><a>&nbsp</a></td><td><a>&nbsp</a></td></tr>"
+			dat += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
 			index = 0
 
-		. += "<tr bgcolor='[job.selection_color]'><td width='60%' align='right'>"
+		dat += "<tr bgcolor='[job.selection_color]'><td width='60%' align='right'>"
 		var/rank = job.title
 		lastJob = job
 		var/ban_reason = jobban_isbanned(user, rank)
 		if(ban_reason == "WHITELISTED")
-			. += "<del>[rank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
+			dat += "<del>[rank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
 			continue
 		else if (ban_reason == "AGE WHITELISTED")
 			var/available_in_days = player_old_enough_for_role(user.client, rank)
-			. += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
+			dat += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
 			continue
 		else if (ban_reason)
-			. += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
+			dat += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
 			continue
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
-			. += "<font color=orange>[rank]</font></td><td></td></tr>"
+			dat += "<font color=orange>[rank]</font></td><td></td></tr>"
 			continue
 		if((rank in command_positions) || (rank == "AI"))//Bold head jobs
-			. += "<b>[rank]</b>"
+			dat += "<b>[rank]</b>"
 		else
-			. += "[rank]"
+			dat += "[rank]"
 
-		. += "</td><td width='40%'>"
+		dat += "</td><td width='40%'>"
 
-		. += "<a href='?src=\ref[src];set_job=[rank]'>"
+		dat += "<a href='?src=\ref[src];set_job=[rank]'>"
 
 		if(rank == "Assistant")//Assistant is special
 			if(pref.job_civilian_low & ASSISTANT)
-				. += " <font color=green>\[Yes]</font>"
+				dat += " <font color=green>\[Yes]</font>"
 			else
-				. += " <font color=red>\[No]</font>"
+				dat += " <font color=red>\[No]</font>"
 			if(job.alt_titles) //Blatantly cloned from a few lines down.
-				. += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
-			. += "</a></td></tr>"
+				dat += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+			dat += "</a></td></tr>"
 			continue
 
 		if(pref.GetJobDepartment(job, 1) & job.flag)
-			. += " <font color=blue>\[High]</font>"
+			dat += " <font color=blue>\[High]</font>"
 		else if(pref.GetJobDepartment(job, 2) & job.flag)
-			. += " <font color=green>\[Medium]</font>"
+			dat += " <font color=green>\[Medium]</font>"
 		else if(pref.GetJobDepartment(job, 3) & job.flag)
-			. += " <font color=orange>\[Low]</font>"
+			dat += " <font color=orange>\[Low]</font>"
 		else
-			. += " <font color=red>\[NEVER]</font>"
+			dat += " <font color=red>\[NEVER]</font>"
 		if(job.alt_titles)
-			. += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
-		. += "</a></td></tr>"
+			dat += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+		dat += "</a></td></tr>"
 
-	. += "</td'></tr></table>"
+	dat += "</td'></tr></table>"
 
-	. += "</center></table>"
+	dat += "</center></table>"
 
 	switch(pref.alternate_option)
 		if(GET_RANDOM_JOB)
-			. += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=green>Get random job if preferences unavailable</font></a></u></center><br>"
+			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=green>Get random job if preferences unavailable</font></a></u></center><br>"
 		if(BE_ASSISTANT)
-			. += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=red>Be assistant if preference unavailable</font></a></u></center><br>"
+			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=red>Be assistant if preference unavailable</font></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
-			. += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=purple>Return to lobby if preference unavailable</font></a></u></center><br>"
+			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=purple>Return to lobby if preference unavailable</font></a></u></center><br>"
 
-	. += "<center><a href='?src=\ref[src];reset_jobs=1'>\[Reset\]</a></center>"
-	. += "</tt>"
+	dat += "<center><a href='?src=\ref[src];reset_jobs=1'>\[Reset\]</a></center>"
+	dat += "</tt>"
+
+	. = dat.Join()
 
 /datum/category_item/player_setup_item/occupation/OnTopic(href, href_list, user)
 	if(href_list["reset_jobs"])

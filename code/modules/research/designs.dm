@@ -837,6 +837,15 @@ datum/design/item/experimental_welder
 	build_path = /obj/item/weapon/storage/backpack/holding
 	sort_string = "VAEAA"
 
+/datum/design/item/bluespace_crystal
+	name = "Artificial Bluespace Crystal"
+	desc = "An artificially made bluespace crystal."
+	id = "bluespace_crystal"
+	req_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 6)
+	materials = list("gold" = 1500, "diamond" = 1500, "phoron" = 1500)
+	build_path = /obj/item/bluespace_crystal/artificial
+	sort_string = "VAFAA"
+
 /datum/design/item/binaryencrypt
 	name = "Binary encryption key"
 	desc = "Allows for deciphering the binary channel on-the-fly."
