@@ -273,7 +273,7 @@ var/list/gamemode_cache = list()
 
 	var/merchant_chance = 20 //Chance, in percentage, of the merchant job slot being open at round start
 
-	var/show_game_type_odd = 1 // If the game type odds are shown in server revision
+	var/show_game_type_odd = 1 // If the check gamemode probability verb is enabled or not
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
