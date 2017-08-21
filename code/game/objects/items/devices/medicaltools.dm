@@ -2,6 +2,7 @@
 Contains:
 - Handheld suit sensor monitor
 - Topical Spray
+- Space Klot
 
 */
 //HANDHELD SUIT SENSOR
@@ -36,6 +37,60 @@ Contains:
 	slot_flags = SLOT_BELT
 	volume = 120
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/topical/kelotane/Initialize()
+/obj/item/weapon/reagent_containers/spray/chemsprayer/topical_spray/kelotane/Initialize()
 	. = ..()
 	reagents.add_reagent("kelotanetopical", 120)
+
+// SPACE KLOT.
+/obj/item/stack/medical/advanced/bruise_pack/spaceklot
+	name = "Space Klot"
+	singular_name = "Space Klot"
+	desc = "A powder that, when poured on an open wound, quickly stops the bleeding. Combine with bandages for the best effect."
+	icon_state = "traumakit" // needs sprite
+	heal_brute = 15
+	origin_tech = list(TECH_BIO = 4)
+	var/open = 0
+	var/used = 0
+
+/obj/item/stack/medical/advanced/bruise_pack/spaceklot/attack(mob/living/carbon/M as mob, mob/user as mob)
+	if(..())
+		return 1
+	if(used)
+		return
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+
+		if(affecting.open == 0)
+			if(affecting.is_bandaged() && affecting.is_disinfected())
+				user << "<span class='warning'>The wounds on [M]'s [affecting.name] have already been treated.</span>"
+				return 1
+			else
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+				user.visible_message("<span class='notice'>\The [user] starts treating [M]'s [affecting.name].</span>", \
+						             "<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
+				for (var/datum/wound/W in affecting.wounds)
+					if (W.internal)
+						if(prob(25)) // Space Klot technology.
+							W.heal_damage(heal_brute, 1)
+					if (W.bandaged)
+						continue
+					if(used == amount)
+						break
+					if(!do_mob(user, M, W.damage/5))
+						user << "<span class='notice'>You must stand still to bandage wounds.</span>"
+						break
+					if (W.current_stage <= W.max_bleeding_stage)
+						user.visible_message("<span class='notice'>\The [user] pours the powder \a [W.desc] on [M]'s [affecting.name].</span>", \
+						                     "<span class='notice'>You pour the powder \a [W.desc] on [M]'s [affecting.name].</span>" )
+					
+					W.bandage()
+					W.heal_damage(heal_brute, 0)
+					used = 1
+				affecting.update_damages()
+		else
+			if (can_operate(H))        //Checks if mob is lying down on table for surgery
+				if (do_surgery(H,user,src))
+					return
+			else
+				user << "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>"
