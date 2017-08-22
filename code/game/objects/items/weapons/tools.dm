@@ -180,7 +180,6 @@
 	base_iconstate = "adv_welder"
 	origin_tech = list(TECH_ENGINEERING = 3)
 
-
 //The Experimental Welding Tool!
 /obj/item/weapon/weldingtool/experimental
 	name = "experimental welding tool"
@@ -196,7 +195,6 @@
 	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
 	//800 = 1 unit per 1 minute and 20 seconds,
 	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
-
 
 //Welding tool functionality here
 /obj/item/weapon/weldingtool/Initialize()
@@ -225,7 +223,6 @@
 /obj/item/weapon/weldingtool/examine(mob/user)
 	if(..(user, 0))
 		user << text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel )
-
 
 /obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
 	if(isscrewdriver(W))
@@ -266,7 +263,6 @@
 
 	..()
 	return
-
 
 /obj/item/weapon/weldingtool/process()
 	if(welding)
@@ -323,7 +319,6 @@
 	else
 		return ..()
 
-
 /obj/item/weapon/weldingtool/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!proximity) return
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && !src.welding)
@@ -365,7 +360,6 @@
 			location.hotspot_expose(700, 50, 1)
 	return
 
-
 /obj/item/weapon/weldingtool/attack_self(mob/user as mob)
 	setWelding(!welding, usr)
 	return
@@ -373,7 +367,6 @@
 //Returns the amount of fuel in the welder
 /obj/item/weapon/weldingtool/proc/get_fuel()
 	return reagents.get_reagent_amount("fuel")
-
 
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob. This should probably be renamed to use()
 /obj/item/weapon/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null)
@@ -392,8 +385,6 @@
 //Returns whether or not the welding tool is currently on.
 /obj/item/weapon/weldingtool/proc/isOn()
 	return src.welding
-
-
 
 //Sets the welding state of the welding tool. If you see W.welding = 1 anywhere, please change it to W.setWelding(1)
 //so that the welding tool updates accordingly
@@ -431,14 +422,12 @@
 		set_processing(0)
 		update_icon()
 
-
 //A wrapper function for the experimental tool to override
 /obj/item/weapon/weldingtool/proc/set_processing(var/state = 0)
 	if (state == 1)
 		START_PROCESSING(SSprocessing, src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
-
 
 //Decides whether or not to damage a player's eyes based on what they're wearing as protection
 //Note: This should probably be moved to mob
@@ -479,16 +468,13 @@
 				user.disabilities |= NEARSIGHTED
 				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
 
-
 // This is on /mob instead of the welder so the timer is stopped when the mob is deleted.
 /mob/proc/reset_nearsighted()
 	disabilities &= ~NEARSIGHTED
 
-
 /obj/item/weapon/weldingtool/Destroy()
 	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
 	return ..()
-
 
 //Make sure the experimental tool only stops processing when its turned off AND full
 /obj/item/weapon/weldingtool/experimental/set_processing(var/state = 0)
@@ -502,7 +488,6 @@
 /obj/item/weapon/weldingtool/experimental/process()
 	..()
 	fuel_gen()
-
 
 /obj/item/weapon/weldingtool/experimental/proc/fuel_gen()//Proc to make the experimental welder generate fuel, optimized as fuck -Sieve
 
@@ -519,8 +504,6 @@
 	else
 		set_processing(0)
 	last_gen = world.time
-
-
 
 /*
  * Crowbar
@@ -545,7 +528,6 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "red_crowbar"
 	item_state = "crowbar_red"
-
 
 // Pipe wrench
 /obj/item/weapon/pipewrench
