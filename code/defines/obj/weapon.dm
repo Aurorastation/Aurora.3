@@ -315,13 +315,13 @@
 	icon_state = "card_mod"
 	desc = "An electronic module for reading data and ID cards."
 
-/obj/item/weapon/circuitboard/power_control
+/obj/item/weapon/module/power_control
 	name = "power control module"
 	icon_state = "power_mod"
 	desc = "Heavy-duty switching circuits for power control."
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
-/obj/item/weapon/circuitboard/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/item/weapon/module/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (ismultitool(W))
 		var/obj/item/weapon/circuitboard/ghettosmes/newcircuit = new/obj/item/weapon/circuitboard/ghettosmes(user.loc)
 		qdel(src)

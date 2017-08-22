@@ -2674,7 +2674,7 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/weapon/circuitboard/power_control,
+/obj/item/weapon/module/power_control,
 /obj/item/weapon/cell{
 	maxcharge = 2000
 	},

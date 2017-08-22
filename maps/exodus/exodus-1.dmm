@@ -53508,7 +53508,7 @@
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "bPB" = (
-/obj/item/weapon/circuitboard/power_control,
+/obj/item/weapon/module/power_control,
 /obj/item/weapon/airlock_electronics,
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
