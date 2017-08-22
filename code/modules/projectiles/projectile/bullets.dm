@@ -218,20 +218,16 @@
 			if(!isrobot(target))
 				L.apply_effect(5, DROWSY, 0)
 				if(def_zone == "torso")
-					if(blocked < 100 && !(blocked < 1))
+					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						L.emote("moans")
 						addtimer(CALLBACK(src, .proc/apply_sedative, target, 10), 120)
 				if(def_zone == "head" && blocked < 100)
 					addtimer(CALLBACK(src, .proc/apply_sedative, target, 20), 35)
-					spawn(35)
-						L.apply_effect(20, PARALYZE, 0)
 				if(def_zone != "torso" && def_zone != "head")
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						L.emote("moans")
 						addtimer(CALLBACK(src, .proc/apply_sedative, target, 15), 45)
 
 	if(isanimal(target))
@@ -245,7 +241,7 @@
 
 /obj/item/projectile/bullet/rifle/tranq/proc/apply_sedative(var/mob/living/L, var/severity)
 	L.apply_effect(severity, PARALYZE, 0)
-
+	L.emote("moans")
 /* Miscellaneous */
 
 /obj/item/projectile/bullet/suffocationbullet//How does this even work?
