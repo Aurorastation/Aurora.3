@@ -51,23 +51,15 @@
 
 	var/process_lock = 0 //If the call to process is locked because it is still running
 
+	component_types = list(
+		/obj/item/weapon/circuitboard/crusher,
+		/obj/item/weapon/stock_parts/matter_bin = 4,
+		/obj/item/weapon/stock_parts/manipulator = 3,
+		/obj/item/weapon/reagent_containers/glass/beaker = 3
+	)
+
 /obj/machinery/crusher_base/Initialize()
 	. = ..()
-
-	//Create parts for crusher.
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/crusher(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	RefreshParts()
 
 	action_start_time = world.time
 

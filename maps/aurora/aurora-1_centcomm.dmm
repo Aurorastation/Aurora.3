@@ -6261,7 +6261,7 @@
 "oX" = (
 /obj/machinery/bodyscanner{
 	dir = 8;
-	icon_state = "body_scanner_0";
+	icon_state = "body_scanner_0"
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -14244,7 +14244,7 @@
 /obj/structure/sign/directions/civ{
 	dir = 1;
 	icon_state = "direction_civ";
-	pixel_x = 32;
+	pixel_x = 32
 	},
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -15131,7 +15131,7 @@
 "HP" = (
 /obj/machinery/bodyscanner{
 	dir = 8;
-	icon_state = "body_scanner_0";
+	icon_state = "body_scanner_0"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -15660,7 +15660,7 @@
 	dir = 4;
 	icon_state = "left";
 	name = "Arrivals Shuttle Oversight";
-	pixel_x = 32;
+	pixel_x = 32
 	},
 /obj/structure/window/reinforced/crescent{
 	icon_state = "rwindow";
@@ -15880,7 +15880,7 @@
 	dir = 4;
 	icon_state = "aimainframe";
 	name = "Arrivals Shuttle Oversight";
-	pixel_x = 32;
+	pixel_x = 32
 	},
 /obj/structure/window/reinforced/crescent{
 	icon_state = "rwindow";
@@ -15926,7 +15926,7 @@
 	dir = 5;
 	icon_state = "left";
 	name = "Arrivals Shuttle Oversight";
-	pixel_x = 32;
+	pixel_x = 32
 	},
 /obj/structure/window/reinforced/crescent{
 	icon_state = "rwindow";
@@ -16840,7 +16840,7 @@
 	dir = 4;
 	icon_state = "direction_dock";
 	pixel_x = 0;
-	pixel_y = 32;
+	pixel_y = 32
 	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
@@ -17091,7 +17091,7 @@
 /obj/structure/sign/directions/dock{
 	dir = 1;
 	icon_state = "direction_dock";
-	pixel_y = -32;
+	pixel_y = -32
 	},
 /obj/structure/bed/chair/unmovable{
 	dir = 1
@@ -17693,7 +17693,7 @@
 	dir = 4;
 	icon_state = "direction_dock";
 	pixel_x = 0;
-	pixel_y = -32;
+	pixel_y = -32
 	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
@@ -17782,7 +17782,7 @@
 /obj/machinery/bodyscanner{
 	allowed_species = list("Human","Skrell","Unathi","Tajara","M'sai Tajara","Zhan-Khazan Tajara","Vaurca Worker","Vaurca Warrior","Diona","Vox");
 	dir = 8;
-	icon_state = "body_scanner_0";
+	icon_state = "body_scanner_0"
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -18931,7 +18931,7 @@
 /obj/structure/sign/directions/civ{
 	dir = 8;
 	icon_state = "direction_civ";
-	pixel_y = -32;
+	pixel_y = -32
 	},
 /turf/unsimulated/floor{
 	icon_state = "red";
@@ -18943,7 +18943,7 @@
 	dir = 4;
 	icon_state = "direction_dock";
 	pixel_x = 0;
-	pixel_y = -32;
+	pixel_y = -32
 	},
 /turf/unsimulated/floor{
 	icon_state = "red";
@@ -20188,6 +20188,1828 @@
 	icon_state = "floor4"
 	},
 /area/skipjack_station/start)
+"SW" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"SX" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"SY" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"SZ" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Ta" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Tb" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Tc" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Td" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Te" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Tf" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Tg" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Th" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Ti" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Tj" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Tk" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Tl" = (
+/obj/machinery/autolathe{
+	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
+	hacked = 1;
+	name = "Unlocked Autolathe"
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Tm" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Tn" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/weapon/storage/belt/utility,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"To" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Tp" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Tq" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Tr" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Ts" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Tt" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Tu" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Tv" = (
+/obj/structure/cryofeed,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Tw" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Tx" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Ty" = (
+/obj/machinery/sleeper{
+	icon_state = "sleeper_0";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Tz" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"TA" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"TB" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TC" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TD" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TE" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TF" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TG" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"TH" = (
+/obj/structure/closet/wardrobe/suit,
+/obj/random/backpack,
+/obj/random/colored_jumpsuit,
+/turf/simulated/floor/wood,
+/area/merchant_station)
+"TI" = (
+/obj/structure/sign/poster{
+	pixel_x = 0;
+	pixel_y = 32;
+	poster_type = "/datum/poster/bay_15"
+	},
+/turf/simulated/floor/wood,
+/area/merchant_station)
+"TJ" = (
+/obj/machinery/vending/wallmed1{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/merchant_station)
+"TK" = (
+/obj/structure/bed/padded,
+/obj/item/weapon/bedsheet/brown,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/wood,
+/area/merchant_station)
+"TL" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"TM" = (
+/obj/structure/cryofeed,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TN" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TO" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TP" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/firstaid/fire,
+/obj/item/weapon/storage/firstaid/o2,
+/obj/item/weapon/storage/firstaid/toxin,
+/obj/item/weapon/storage/firstaid/regular,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TQ" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"TR" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"TS" = (
+/obj/machinery/suit_cycler{
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TT" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/obj/item/stack/material/glass{
+	amount = 50
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TU" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TV" = (
+/obj/structure/table/rack,
+/obj/random/voidsuit,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TW" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/item/weapon/tank/air,
+/obj/item/weapon/tank/air,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"TX" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"TY" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/storage/fancy/cigar,
+/obj/item/weapon/flame/lighter/zippo,
+/turf/simulated/floor/wood,
+/area/merchant_station)
+"TZ" = (
+/obj/machinery/light/small{
+	brightness_color = "#DA0205";
+	brightness_power = 1;
+	brightness_range = 5
+	},
+/turf/simulated/floor/wood,
+/area/merchant_station)
+"Ua" = (
+/turf/simulated/floor/wood,
+/area/merchant_station)
+"Ub" = (
+/obj/structure/table/woodentable,
+/obj/item/device/flashlight/lamp,
+/obj/random/plushie,
+/turf/simulated/floor/wood,
+/area/merchant_station)
+"Uc" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Ud" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Ue" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Uf" = (
+/obj/machinery/door/airlock/glass{
+	hashatch = 0;
+	name = "Cryo Storage";
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Ug" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Uh" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Ui" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Uj" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"Uk" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Ul" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Um" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Un" = (
+/obj/effect/floor_decal/industrial/loading,
+/obj/machinery/door/airlock/hatch{
+	name = "Warehouse";
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Uo" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Up" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Uq" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Ur" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Us" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Ut" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Dormitories"
+	},
+/turf/simulated/floor/wood,
+/area/merchant_station)
+"Uu" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Uv" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Uw" = (
+/obj/structure/flora/pottedplant,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Ux" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Uy" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Uz" = (
+/obj/structure/noticeboard{
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UA" = (
+/obj/structure/closet/secure_closet/merchant,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UB" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"UC" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"UD" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"UE" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"UF" = (
+/obj/structure/flora/pottedplant,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UG" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UH" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UI" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UJ" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UK" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UL" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UM" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UN" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UO" = (
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UP" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"UQ" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UR" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"US" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UT" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UU" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"UV" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"UW" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/asteroid,
+/area/merchant_station)
+"UX" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"UY" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"UZ" = (
+/obj/machinery/merchant_pad,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Va" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vb" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vc" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vd" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Ve" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vf" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vg" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vh" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vi" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vj" = (
+/obj/machinery/door/airlock/glass{
+	hashatch = 0;
+	name = "Operations Office";
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vk" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vl" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vm" = (
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 9
+	},
+/turf/simulated/floor/carpet,
+/area/merchant_station)
+"Vn" = (
+/obj/structure/bed/chair/office/dark,
+/obj/effect/landmark{
+	name = "JoinLateMerchant"
+	},
+/obj/effect/landmark/start{
+	name = "Merchant"
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/merchant_station)
+"Vo" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 5
+	},
+/obj/item/clothing/accessory/holster/armpit,
+/obj/item/weapon/gun/energy/pistol,
+/turf/simulated/floor/carpet,
+/area/merchant_station)
+"Vp" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"Vq" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Vr" = (
+/obj/item/modular_computer/console/preset/merchant,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vs" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vt" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vu" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vv" = (
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vw" = (
+/obj/structure/bed/chair/comfy/brown{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vx" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/material/ashtray/bronze,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vy" = (
+/obj/structure/bed/chair/comfy/brown{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Vz" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"VA" = (
+/obj/machinery/vending/snack,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"VB" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"VC" = (
+/obj/structure/coatrack,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"VD" = (
+/obj/machinery/computer/shuttle_control/merchant,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"VE" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen/multi,
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 10
+	},
+/turf/simulated/floor/carpet,
+/area/merchant_station)
+"VF" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/folder/blue,
+/obj/effect/floor_decal/carpet,
+/turf/simulated/floor/carpet,
+/area/merchant_station)
+"VG" = (
+/obj/structure/table/reinforced,
+/obj/item/device/flashlight/lamp,
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 6
+	},
+/turf/simulated/floor/carpet,
+/area/merchant_station)
+"VH" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/space,
+/area/merchant_station)
+"VI" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"VJ" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/spacecash/c1000,
+/obj/item/weapon/spacecash/c1000,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"VK" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"VL" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"VM" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"VN" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"VO" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"VP" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"VQ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"VR" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"VS" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"VT" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"VU" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"VV" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"VW" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"VX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"VY" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"VZ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"Wa" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Wb" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Wc" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Wd" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"We" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Wf" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Wg" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Wh" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Wi" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Wj" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Wk" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l";
+	dir = 8
+	},
+/turf/space,
+/area/merchant_ship/start)
+"Wl" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Wm" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Wn" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l";
+	dir = 8
+	},
+/turf/space,
+/area/merchant_ship/start)
+"Wo" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Wp" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Wq" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Wr" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Ws" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Wt" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Wu" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l";
+	dir = 8
+	},
+/turf/space,
+/area/merchant_ship/start)
+"Wv" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Ww" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Wx" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"Wy" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"Wz" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"WA" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"WB" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"WC" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"WD" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"WE" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"WF" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"WG" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"WH" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"WI" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"WJ" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"WK" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "merchant_station";
+	pixel_x = 0;
+	pixel_y = 32;
+	tag_door = "merchant_station_door"
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"WL" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	tag = "icon-rwindow (EAST)";
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	tag = "icon-rwindow (NORTH)";
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"WM" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"WN" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"WO" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"WP" = (
+/obj/structure/flora/pottedplant,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"WQ" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/southleft{
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"WR" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southright{
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"WS" = (
+/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window/southleft{
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"WT" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/machinery/door/window/southleft{
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"WU" = (
+/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/southright{
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"WV" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/southleft{
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"WW" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southright{
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"WX" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"WY" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"WZ" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Xa" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Xb" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Xc" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Xd" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Xe" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Xf" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Xg" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Xh" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Xi" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Xj" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Xk" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	tag = "icon-rwindow (EAST)";
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"Xl" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced,
+/turf/space,
+/area/space)
+"Xm" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced,
+/turf/space,
+/area/space)
+"Xn" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Xo" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Xp" = (
+/obj/structure/sign/vacuum{
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating,
+/area/merchant_ship/start)
+"Xq" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"Xr" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Xs" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Xt" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Xu" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Xv" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Xw" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Xx" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Xy" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Xz" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"XA" = (
+/obj/machinery/door/window/westleft{
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"XB" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"XC" = (
+/obj/structure/closet/secure_closet/merchant,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"XD" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"XE" = (
+/obj/machinery/vending/wallmed1{
+	pixel_y = 32
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "merchant_shuttle";
+	pixel_x = -32;
+	pixel_y = 0;
+	tag_door = "merchant_shuttle_hatch"
+	},
+/turf/simulated/floor/wood,
+/area/merchant_ship/start)
+"XF" = (
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 9
+	},
+/obj/item/weapon/storage/secure/safe{
+	pixel_x = 5;
+	pixel_y = 32
+	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/hand_labeler,
+/turf/simulated/floor/carpet,
+/area/merchant_ship/start)
+"XG" = (
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 5
+	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/wallet,
+/obj/machinery/light{
+	tag = "icon-tube1 (NORTH)";
+	icon_state = "tube1";
+	dir = 1
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 32
+	},
+/turf/simulated/floor/carpet,
+/area/merchant_ship/start)
+"XH" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"XI" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"XJ" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"XK" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"XL" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"XM" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "merchant_station_door";
+	locked = 1;
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/loading{
+	dir = 8;
+	icon_state = "loadingarea"
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"XN" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"XO" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "merchant_station_door";
+	locked = 1;
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"XP" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "merchant_shuttle_hatch";
+	name = "Ship External Access";
+	req_access = list(110)
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"XQ" = (
+/turf/simulated/floor/plating,
+/area/merchant_ship/start)
+"XR" = (
+/turf/simulated/floor/plating,
+/area/merchant_ship/start)
+"XS" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "merchant_shuttle_hatch";
+	name = "Ship External Access";
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"XT" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"XU" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"XV" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"XW" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"XX" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"XY" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"XZ" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Ya" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Yb" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Yc" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen/multi,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Yd" = (
+/obj/effect/floor_decal/plaque,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Ye" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Yf" = (
+/obj/machinery/door/airlock/silver{
+	hashatch = 0;
+	name = "Bridge";
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Yg" = (
+/turf/simulated/floor/wood,
+/area/merchant_ship/start)
+"Yh" = (
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 8
+	},
+/obj/structure/bed/chair/office/bridge{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/merchant_ship/start)
+"Yi" = (
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 4
+	},
+/obj/machinery/computer/shuttle_control/merchant,
+/turf/simulated/floor/carpet,
+/area/merchant_ship/start)
+"Yj" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"Yk" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Yl" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Ym" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Yn" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"Yo" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	tag = "icon-rwindow (EAST)";
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	tag = "icon-rwindow (NORTH)";
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"Yp" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced{
+	tag = "icon-rwindow (NORTH)";
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/space,
+/area/space)
+"Yq" = (
+/obj/structure/lattice,
+/obj/structure/window/reinforced{
+	tag = "icon-rwindow (NORTH)";
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/space,
+/area/space)
+"Yr" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Ys" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Yt" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/merchant_ship/start)
+"Yu" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"Yv" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Yw" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Yx" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Yy" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Yz" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YA" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YB" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YC" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YD" = (
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YE" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/westleft{
+	req_access = list(110)
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YF" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YG" = (
+/obj/structure/closet/secure_closet/merchant,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YH" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"YI" = (
+/obj/structure/closet/secure_closet/merchant,
+/turf/simulated/floor/wood,
+/area/merchant_ship/start)
+"YJ" = (
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 10
+	},
+/obj/structure/table/reinforced,
+/obj/random/coin,
+/obj/item/device/radio/intercom{
+	pixel_y = -32
+	},
+/turf/simulated/floor/carpet,
+/area/merchant_ship/start)
+"YK" = (
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	icon_state = "carpet_edges";
+	dir = 6
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/light,
+/obj/item/weapon/storage/secure/briefcase,
+/turf/simulated/floor/carpet,
+/area/merchant_ship/start)
+"YL" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"YM" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"YN" = (
+/obj/structure/flora/pottedplant,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"YO" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"YP" = (
+/turf/simulated/floor/tiled,
+/area/merchant_station)
+"YQ" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	tag = "icon-rwindow (EAST)";
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
+"YR" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"YS" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"YT" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"YU" = (
+/obj/machinery/light,
+/obj/structure/flora/pottedplant,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YV" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1;
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YW" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	tag = "icon-rwindow (EAST)";
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window/northright{
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YX" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/machinery/door/window{
+	dir = 1;
+	name = "display case";
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YY" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/closet/crate,
+/obj/machinery/door/window{
+	dir = 1;
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"YZ" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/machinery/door/window/northright{
+	name = "display case";
+	req_access = list(110)
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Za" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1;
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Zb" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/northright{
+	name = "display case";
+	req_access = list(110)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
+"Zc" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zd" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Ze" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zf" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zg" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zh" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zi" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zj" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zk" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zl" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Zm" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Zn" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Zo" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Zp" = (
+/turf/simulated/wall,
+/area/merchant_station)
+"Zq" = (
+/obj/structure/shuttle/engine/propulsion{
+	dir = 8;
+	icon_state = "propulsion_r"
+	},
+/turf/space,
+/area/merchant_ship/start)
+"Zr" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zs" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zt" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"Zu" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"Zv" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zw" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zx" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"Zy" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"Zz" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/merchant_ship/start)
+"ZA" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"ZB" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"ZC" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"ZD" = (
+/obj/structure/shuttle/engine/propulsion{
+	dir = 8;
+	icon_state = "propulsion_r"
+	},
+/turf/space,
+/area/merchant_ship/start)
+"ZE" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"ZF" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"ZG" = (
+/obj/structure/shuttle/engine/propulsion{
+	dir = 8;
+	icon_state = "propulsion_r"
+	},
+/turf/space,
+/area/merchant_ship/start)
+"ZH" = (
+/turf/simulated/shuttle/wall,
+/area/merchant_ship/start)
+"ZI" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ZJ" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/asteroid,
+/area/merchant_station)
+"ZK" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ZL" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ZM" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ZN" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ZO" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ZP" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ZQ" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ZR" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ZS" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ZT" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ZU" = (
+/turf/simulated/floor/asteroid,
+/area/space)
 
 (1,1,1) = {"
 aa
@@ -20562,14 +22384,14 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
 aN
 aN
 aN
@@ -20809,24 +22631,24 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+hW
 aN
 aN
 aN
@@ -21063,33 +22885,33 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+hW
+hW
+hW
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+if
+if
+if
+if
+aQ
+hW
+hW
+hW
+hW
+hW
+hW
+hW
 aN
 aN
 aN
@@ -21320,35 +23142,35 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+aQ
+aQ
+aQ
+aQ
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+hW
+hW
+hW
 aN
 aN
 aN
@@ -21577,35 +23399,35 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+aQ
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+aQ
+aQ
+aQ
+hW
 aN
 aN
 aN
@@ -21834,35 +23656,35 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+aQ
+if
+if
+if
+if
+SW
+SW
+SW
+SW
+SW
+SW
+SW
+SW
+SW
+SW
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -22091,35 +23913,35 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+aQ
+if
+if
+if
+if
+SW
+Tk
+TB
+TS
+SW
+Uw
+UZ
+Vr
+VJ
+SW
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -22348,37 +24170,37 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+aQ
+if
+if
+if
+if
+SW
+Tl
+TC
+TT
+SW
+UG
+TC
+TC
+TC
+SW
+SW
+SW
+SW
+SW
+SW
+SW
+SW
+SW
+if
+if
+if
+aQ
+hW
+hW
+hW
 aN
 aN
 aN
@@ -22605,39 +24427,39 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+aQ
+if
+if
+if
+if
+SW
+Tk
+TC
+TC
+Un
+TC
+TC
+TC
+TC
+TC
+Wh
+TC
+TC
+TC
+Wh
+TC
+Uw
+SW
+if
+if
+if
+aQ
+aQ
+aQ
+hW
+hW
+hW
 aN
 aN
 aN
@@ -22862,39 +24684,39 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+aQ
+if
+if
+if
+if
+SW
+Tn
+TC
+TV
+SW
+TC
+TC
+TC
+TC
+TC
+Wi
+TC
+TC
+TC
+TC
+TC
+YO
+SW
+if
+if
+if
+if
+if
+aQ
+aQ
+aQ
+hW
 aN
 aN
 aN
@@ -23119,39 +24941,39 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+aQ
+aQ
+if
+if
+if
+SW
+Tk
+TC
+TW
+SW
+TC
+TC
+Vv
+SW
+SW
+SW
+SW
+WK
+TC
+TC
+TC
+TC
+SW
+if
+if
+if
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -23376,40 +25198,40 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+hW
+aQ
+if
+if
+if
+SW
+SW
+SW
+SW
+SW
+TC
+TC
+Vw
+VO
+iD
+iD
+SW
+WL
+Xk
+XM
+WL
+YQ
+SW
+iD
+iD
+if
+if
+if
+if
+if
+aQ
+hW
+hW
 aN
 aN
 aN
@@ -23634,39 +25456,39 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+if
+SW
+TH
+TY
+SW
+TC
+TC
+Vx
+VP
+iD
 aN
 aN
 aN
+Xl
+TC
+Yp
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+iD
+iD
+iD
+if
+if
+if
+aQ
+aQ
+hW
 aN
 aN
 aN
@@ -23891,39 +25713,39 @@ aN
 aN
 aN
 aN
+hW
+aQ
+aQ
+if
+if
+if
+SW
+TI
+TZ
+SW
+TC
+TC
+Vy
+VP
+aN
+aN
+aN
+aN
+Xl
+XO
+Yp
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+iD
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -24148,40 +25970,40 @@ aN
 aN
 aN
 aN
+hW
+hW
+aQ
+if
+if
+if
+SW
+TJ
+Ua
+Ut
+TC
+TC
+TC
+VR
+aN
+aN
+aN
+aN
+Wl
+XP
+Wl
 aN
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+aQ
+hW
+hW
 aN
 aN
 aN
@@ -24406,39 +26228,39 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+SW
+TK
+Ub
+SW
+UO
+TC
+VA
+SW
+aN
+aN
+aN
+Wl
+Wl
+XQ
+Wl
+Wl
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+iD
+if
+if
+if
+aQ
+aQ
+hW
 aN
 aN
 aN
@@ -24662,40 +26484,40 @@ aN
 aN
 aN
 aN
+hW
+hW
+aQ
+if
+if
+SW
+SW
+SW
+SW
+SW
+SW
+Vj
+SW
+SW
+aN
+aN
+Wk
+Wl
+Xp
+XQ
+Yt
+Wl
+Zq
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+iD
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -24919,40 +26741,40 @@ aN
 aN
 aN
 aN
+hW
+aQ
+aQ
+if
+if
+SW
+Tv
+Tv
+SW
+Uw
+TC
+TC
+VC
+SW
+aN
+aN
+Wl
+Wl
+Wx
+XS
+Wx
+Wl
+Wl
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+iD
+iD
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -25176,40 +26998,40 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+SW
+Tw
+Tw
+SW
+Ux
+TC
+TC
+VD
+VV
+aN
+aN
+Wl
+WP
+Xr
+Xr
+Xr
+YU
+Wl
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+iD
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -25433,40 +27255,40 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+SW
+Tx
+TC
+Uf
+TC
+TC
+Vm
+VE
+VP
+aN
+aN
+Wx
+WQ
+Xr
+Xr
+Xr
+YV
+Wx
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -25690,40 +27512,40 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+SW
+Ty
+TP
+SW
+Uz
+TC
+Vn
+VF
+VP
+aN
+aN
+Wx
+WR
+Xr
+XV
+Xr
+YW
+Wx
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+Uj
+Uj
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -25947,40 +27769,40 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+SW
+SW
+SW
+SW
+UA
+UU
+Vo
+VG
+VP
+aN
+Wk
+Wl
+WS
+Xr
+XV
+Xr
+YX
+Wl
+Zq
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+ZJ
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -26204,40 +28026,40 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+iD
+aN
+aN
+SW
+SW
+SW
+Vp
+VH
+VZ
+aN
+Wl
+Wl
+WT
+Xr
+XV
+Xr
+YY
+Wl
+Wl
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+Uj
+Uj
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -26461,6 +28283,12 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+iD
 aN
 aN
 aN
@@ -26470,31 +28298,25 @@ aN
 aN
 aN
 aN
+Wl
+Wl
+WU
+Xr
+Xr
+Xr
+YZ
+Wl
+Wl
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+Uj
+Uj
+Uj
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -26718,6 +28540,14 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+iD
+iD
+iD
 aN
 aN
 aN
@@ -26726,32 +28556,24 @@ aN
 aN
 aN
 aN
+Wx
+WQ
+Xr
+XV
+Xr
+YV
+Wx
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+Uj
+Uj
+Uj
+Uj
+if
+aQ
+hW
 aN
 aN
 aN
@@ -26975,6 +28797,14 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+if
+if
+iD
 aN
 aN
 aN
@@ -26983,32 +28813,24 @@ aN
 aN
 aN
 aN
+Wx
+WR
+Xr
+XV
+Xr
+Zb
+Wx
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+Uj
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -27232,6 +29054,14 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+if
+if
+if
 aN
 aN
 aN
@@ -27239,33 +29069,25 @@ aN
 aN
 aN
 aN
+Wk
+Wl
+Wl
+Xr
+Xr
+Xr
+Wl
+Wl
+Zq
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -27489,40 +29311,40 @@ aN
 aN
 aN
 aN
+hW
+aQ
+if
+if
+if
+if
+if
+if
+if
 aN
 aN
 aN
 aN
 aN
 aN
+Wl
+Wl
+Wl
+XA
+Yc
+YE
+Wl
+Wl
+Wl
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -27746,6 +29568,15 @@ aN
 aN
 aN
 aN
+hW
+aQ
+aQ
+aQ
+aQ
+if
+if
+if
+if
 aN
 aN
 aN
@@ -27753,33 +29584,24 @@ aN
 aN
 aN
 aN
+Wl
+Wl
+XB
+Yd
+YF
+Wl
+Wl
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -28003,6 +29825,16 @@ aN
 aN
 aN
 aN
+hW
+hW
+hW
+hW
+aQ
+if
+if
+if
+if
+if
 aN
 aN
 aN
@@ -28010,33 +29842,23 @@ aN
 aN
 aN
 aN
+Wl
+XC
+Xr
+XC
+Wl
 aN
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -28263,6 +30085,13 @@ aN
 aN
 aN
 aN
+hW
+aQ
+aQ
+if
+if
+if
+if
 aN
 aN
 aN
@@ -28270,30 +30099,23 @@ aN
 aN
 aN
 aN
+Wl
+Wl
+Yf
+Wl
+Wl
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -28520,6 +30342,13 @@ aN
 aN
 aN
 aN
+hW
+hW
+aQ
+aQ
+aQ
+if
+if
 aN
 aN
 aN
@@ -28527,30 +30356,23 @@ aN
 aN
 aN
 aN
+Wl
+XE
+Yg
+YI
+Wl
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -28778,36 +30600,36 @@ aN
 aN
 aN
 aN
+hW
+hW
+if
+aQ
+if
+if
+if
 aN
 aN
 aN
 aN
 aN
 aN
+Wl
+XF
+Yh
+YJ
+Wl
 aN
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -29036,35 +30858,35 @@ aN
 aN
 aN
 aN
+hW
+if
+aQ
+if
+if
+UW
 aN
 aN
 aN
 aN
 aN
 aN
+Wl
+XG
+Yi
+YK
+Wl
 aN
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -29293,35 +31115,35 @@ aN
 aN
 aN
 aN
+hW
+if
+if
+if
+Uj
+Uj
 aN
 aN
 aN
 aN
 aN
 aN
+Wl
+Wx
+Wx
+Wx
+Wl
 aN
 aN
 aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -29550,6 +31372,11 @@ aN
 aN
 aN
 aN
+hW
+hW
+if
+Uj
+Uj
 aN
 aN
 aN
@@ -29568,17 +31395,12 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -29808,6 +31630,7 @@ aN
 aN
 aN
 aN
+hW
 aN
 aN
 aN
@@ -29829,13 +31652,12 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -30065,6 +31887,12 @@ aN
 aN
 aN
 aN
+hW
+aN
+aN
+aN
+aN
+if
 aN
 aN
 aN
@@ -30080,19 +31908,13 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -30322,6 +32144,13 @@ aN
 aN
 aN
 aN
+hW
+aN
+aN
+aN
+aN
+if
+if
 aN
 aN
 aN
@@ -30336,20 +32165,13 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+aQ
+aQ
+hW
 aN
 aN
 aN
@@ -30579,6 +32401,14 @@ aN
 aN
 aN
 aN
+hW
+aN
+aN
+aN
+if
+if
+if
+if
 aN
 aN
 aN
@@ -30591,22 +32421,14 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+if
+aQ
+hW
+hW
 aN
 aN
 aN
@@ -30836,6 +32658,13 @@ aN
 aN
 aN
 aN
+hW
+aN
+aN
+aN
+if
+if
+if
 aN
 aN
 aN
@@ -30849,20 +32678,13 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+if
+aQ
+hW
 aN
 aN
 aN
@@ -31093,6 +32915,12 @@ aN
 aN
 aN
 aN
+hW
+aN
+aN
+aN
+aN
+if
 aN
 aN
 aN
@@ -31108,18 +32936,12 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+aQ
+aQ
+aQ
+hW
 aN
 aN
 aN
@@ -31350,6 +33172,7 @@ aN
 aN
 aN
 aN
+hW
 aN
 aN
 aN
@@ -31371,12 +33194,11 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
+if
+if
+if
+if
+hW
 aN
 aN
 aN
@@ -31607,33 +33429,33 @@ aN
 aN
 aN
 aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
-aN
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
 aN
 aN
 aN

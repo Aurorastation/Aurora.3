@@ -258,7 +258,7 @@ var/list/world_api_rate_limit = list()
 	config.load("config/config.txt")
 	config.load("config/game_options.txt","game_options")
 
-	if (config.use_age_restriction_for_jobs || config.use_age_restriction_for_antags)
+	if (config.age_restrictions_from_file)
 		config.load("config/age_restrictions.txt", "age_restrictions")
 
 /hook/startup/proc/loadMods()

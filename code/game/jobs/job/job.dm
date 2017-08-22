@@ -30,6 +30,7 @@
 	var/satchel_type = /obj/item/weapon/storage/backpack/satchel_norm
 	var/alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
 	var/duffel_type = /obj/item/weapon/storage/backpack/duffel
+	var/messenger_bag_type = /obj/item/weapon/storage/backpack/messenger
 
 /datum/job/proc/equip(var/mob/living/carbon/human/H)
 	return 1
@@ -46,6 +47,8 @@
 			type_to_spawn = alt_satchel_type
 		if (5)
 			type_to_spawn = duffel_type
+		if (6)
+			type_to_spawn = messenger_bag_type
 
 	if (type_to_spawn)
 		var/obj/item/bag = new type_to_spawn
@@ -119,8 +122,13 @@
 	return (current_positions < total_positions) || (total_positions == -1)
 
 /datum/job/proc/fetch_age_restriction()
+	if (!config.age_restrictions_from_file)
+		return
+
 	if (config.age_restrictions[lowertext(title)])
 		minimal_player_age = config.age_restrictions[lowertext(title)]
+	else
+		minimal_player_age = 0
 
 /datum/job/proc/late_equip(var/mob/living/carbon/human/H)
 	if(!H)

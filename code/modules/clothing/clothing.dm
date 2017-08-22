@@ -214,6 +214,7 @@ BLIND     // can't see anything
 	var/wired = 0
 	var/obj/item/weapon/cell/cell = 0
 	var/clipped = 0
+	var/fingerprint_chance = 0
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
@@ -241,7 +242,7 @@ BLIND     // can't see anything
 	return 0 // return 1 to cancel attack_hand()
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
-	if(istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/weapon/scalpel))
+	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if (clipped)
 			user << "<span class='notice'>The [src] have already been clipped!</span>"
 			update_icon()
@@ -542,18 +543,20 @@ BLIND     // can't see anything
 		return
 	..()
 
-/obj/item/clothing/under/New()
-	..()
+/obj/item/clothing/under/Initialize()
+	. = ..()
 	if(worn_state)
-		if(!item_state_slots)
-			item_state_slots = list()
+		LAZYINITLIST(item_state_slots)
 		item_state_slots[slot_w_uniform_str] = worn_state
 	else
 		worn_state = icon_state
 
 	//autodetect rollability
 	if(rolled_down < 0)
-		if((worn_state + "_d_s") in icon_states('icons/mob/uniform.dmi'))
+		if (!SSicon_cache.uniform_states)
+			SSicon_cache.setup_uniform_mappings()
+
+		if (SSicon_cache.uniform_states["[worn_state]_d_s"])
 			rolled_down = 0
 
 /obj/item/clothing/under/proc/update_rolldown_status()
@@ -720,6 +723,6 @@ BLIND     // can't see anything
 		usr << "<span class='notice'>You roll down your [src]'s sleeves.</span>"
 	update_clothing_icon()
 
-/obj/item/clothing/under/rank/New()
+/obj/item/clothing/under/rank/Initialize()
 	sensor_mode = pick(0,1,2,3)
-	..()
+	. = ..()

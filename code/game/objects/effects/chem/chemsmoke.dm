@@ -29,6 +29,10 @@
 	if(destination)
 		walk_to(src, destination)
 
+/obj/effect/effect/smoke/chem/Destroy()
+	walk(src, 0)
+	return ..()
+
 /obj/effect/effect/smoke/chem/Move()
 	var/list/oldlocs = view(1, src)
 	. = ..()

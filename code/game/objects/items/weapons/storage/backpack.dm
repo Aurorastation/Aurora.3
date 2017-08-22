@@ -412,3 +412,67 @@
 	name = "wizardly duffel bag"
 	desc = "A fancy blue wizard bag, duffel edition."
 	icon_state = "duffel-wizard"
+
+/*
+ * Messenger Bags
+ */
+
+/obj/item/weapon/storage/backpack/messenger
+	name = "messenger bag"
+	desc = "A sturdy backpack worn over one shoulder."
+	icon_state = "courierbag"
+
+/obj/item/weapon/storage/backpack/messenger/chem
+	name = "chemistry messenger bag"
+	desc = "A serile backpack worn over one shoulder.  This one is in chemsitry colors."
+	icon_state = "courierbagchem"
+
+/obj/item/weapon/storage/backpack/messenger/med
+	name = "medical messenger bag"
+	desc = "A sterile backpack worn over one shoulder used in medical departments."
+	icon_state = "courierbagmed"
+
+/obj/item/weapon/storage/backpack/messenger/viro
+	name = "virology messenger bag"
+	desc = "A sterile backpack worn over one shoulder.  This one is in virology colors."
+	icon_state = "courierbagviro"
+
+/obj/item/weapon/storage/backpack/messenger/tox
+	name = "research messenger bag"
+	desc = "A backpack worn over one shoulder.  Useful for holding science materials."
+	icon_state = "courierbagnt"
+
+/obj/item/weapon/storage/backpack/messenger/gen
+	name = "geneticist messenger bag"
+	desc = "A backpack worn over one shoulder.  Useful for holding DNA injectors and data disks."
+	icon_state = "courierbaggenetics"
+
+/obj/item/weapon/storage/backpack/messenger/com
+	name = "captain's messenger bag"
+	desc = "A special backpack worn over one shoulder.  This one is made specifically for command officers."
+	icon_state = "courierbagcom"
+
+/obj/item/weapon/storage/backpack/messenger/engi
+	name = "engineering messenger bag"
+	desc = "A strong backpack worn over one shoulder. This one is designed for industrial work."
+	icon_state = "courierbagengi"
+
+/obj/item/weapon/storage/backpack/messenger/hyd
+	name = "hydroponics messenger bag"
+	desc = "A backpack worn over one shoulder.  This one is designed for plant-related work."
+	icon_state = "courierbaghyd"
+
+/obj/item/weapon/storage/backpack/messenger/sec
+	name = "security messenger bag"
+	desc = "A tactical backpack worn over one shoulder. This one is in security colors."
+	icon_state = "courierbagsec"
+
+/obj/item/weapon/storage/backpack/messenger/syndie
+	name = "syndicate messenger bag"
+	desc = "A sturdy backpack worn over one shoulder. This one is in red and black menacing colors."
+	icon_state = "courierbag"
+
+/obj/item/weapon/storage/backpack/messenger/wizard
+	name = "wizardly messenger bag"
+	desc = "A wizardly backpack worn over one shoulder. This one is in blue and purple colors. "
+	icon_state = "courierbag"

@@ -322,7 +322,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
 /obj/item/weapon/module/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (istype(W, /obj/item/device/multitool))
+	if (ismultitool(W))
 		var/obj/item/weapon/circuitboard/ghettosmes/newcircuit = new/obj/item/weapon/circuitboard/ghettosmes(user.loc)
 		qdel(src)
 		user.put_in_hands(newcircuit)
@@ -406,7 +406,7 @@
 	icon_state = "neuralbroke"
 
 /obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		user << "You bypass the fried security chip and extract the encryption key."

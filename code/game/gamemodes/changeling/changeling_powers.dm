@@ -443,7 +443,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	var/mob/living/carbon/C = src
 	// restore us to health
-	C.revive()
+	C.revive(FALSE)
 	// remove our fake death flag
 	C.status_flags &= ~(FAKEDEATH)
 	// let us move again

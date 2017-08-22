@@ -17,7 +17,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/lit = 0
 
 /proc/isflamesource(A)
-	if(istype(A, /obj/item/weapon/weldingtool))
+	if(iswelder(A))
 		var/obj/item/weapon/weldingtool/WT = A
 		return (WT.isOn())
 	else if(istype(A, /obj/item/weapon/flame))
@@ -186,7 +186,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			text = zippomes
 		else if(istype(W, /obj/item/weapon/flame/lighter))
 			text = lightermes
-		else if(istype(W, /obj/item/weapon/weldingtool))
+		else if(iswelder(W))
 			text = weldermes
 		else if(istype(W, /obj/item/device/assembly/igniter))
 			text = ignitermes
