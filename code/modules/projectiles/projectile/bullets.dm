@@ -188,6 +188,10 @@
 /obj/item/projectile/bullet/rifle/a556
 	damage = 30
 
+/obj/item/projectile/bullet/rifle/a556/ap
+	damage = 25
+	armor_penetration = 25
+
 /obj/item/projectile/bullet/rifle/a145
 	damage = 80
 	stun = 3
@@ -214,19 +218,19 @@
 			if(!isrobot(target))
 				L.apply_effect(5, DROWSY, 0)
 				if(def_zone == "torso")
-					if(blocked < 2 && !(blocked < 1))
+					if(blocked < 100 && !(blocked < 1))
 						target.visible_message("<b>[target]</b> yawns.")
-					if(blocked < 1)
+					if(blocked < 20)
 						spawn(120)
 							L.apply_effect(10, PARALYZE, 0)
 							target.visible_message("<b>[target]</b> moans.")
-				if(def_zone == "head" && blocked < 2)
+				if(def_zone == "head" && blocked < 100)
 					spawn(35)
 						L.apply_effect(20, PARALYZE, 0)
 				if(def_zone != "torso" && def_zone != "head")
-					if(blocked < 2 && !(blocked < 1))
+					if(blocked < 100 && !(blocked < 20))
 						target.visible_message("<b>[target]</b> yawns.")
-					if(blocked < 1)
+					if(blocked < 20)
 						spawn(45)
 							L.apply_effect(15, PARALYZE, 0)
 							target.visible_message("<b>[target]</b> moans.")
@@ -246,10 +250,6 @@
 	damage = 20
 	damage_type = OXY
 
-/obj/item/projectile/bullet/rifle/a556/ap
-	damage = 25
-	armor_penetration = 25
-
 /obj/item/projectile/bullet/cyanideround
 	name = "poison bullet"
 	damage = 40
@@ -262,8 +262,8 @@
 	edge = 1
 
 /obj/item/projectile/bullet/burstbullet/on_impact(var/atom/A)
-		explosion(A, -1, 0, 2)
-		..()
+	explosion(A, -1, 0, 2)
+	..()
 
 /obj/item/projectile/bullet/blank
 	invisibility = 101

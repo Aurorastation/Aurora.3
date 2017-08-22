@@ -17,6 +17,7 @@
 		)
 
 /obj/item/weapon/gun/energy/pulse/mounted
+	name = "mounted pulse carbine"
 	charge_cost = 400
 	self_recharge = 1
 	use_external_power = 1

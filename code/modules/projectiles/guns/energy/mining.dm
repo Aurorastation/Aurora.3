@@ -1,4 +1,5 @@
 /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg
+	name = "mounted proto-kinetic accelerator"
 	self_recharge = 1
 	use_external_power = 1
 
@@ -284,6 +285,7 @@
 /*******************PLASMA CUTTER*******************/
 
 /obj/item/weapon/gun/energy/plasmacutter/mounted
+	name = "mounted plasma cutter"
 	self_recharge = 1
 	use_external_power = 1
 
