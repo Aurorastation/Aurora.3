@@ -73,7 +73,7 @@
 		if (light) // Update the light or create it if it does not exist.
 			light.update(.)
 		else if (light_novis)
-			light = new/datum/light_source/novis(src, .)
+			light = new/datum/light_source/sunlight(src, .)
 		else
 			light = new/datum/light_source(src, .)
 

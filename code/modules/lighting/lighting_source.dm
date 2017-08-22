@@ -345,7 +345,7 @@
 				T.lighting_corners_initialised = TRUE
 
 				if (!Tcorners)
-					T.corners = list(null, null, null, null)
+					T.corners = new(4)
 					Tcorners = T.corners
 
 				for (var/i = 1 to 4)
@@ -355,9 +355,10 @@
 					Tcorners[i] = new /datum/lighting_corner(T, LIGHTING_CORNER_DIAGONAL[i])
 
 			if (!T.has_opaque_atom)
-				for (thing in Tcorners)
-					C = thing
-					corners[C] = 0
+				corners[Tcorners[1]] = 0
+				corners[Tcorners[2]] = 0
+				corners[Tcorners[3]] = 0
+				corners[Tcorners[4]] = 0
 
 		turfs += T
 
