@@ -301,8 +301,6 @@
 	temperature = sample.temperature
 	if (fast)
 		total_moles = sample.total_moles
-		if (sample.group_multiplier != group_multiplier)
-			total_moles *= (group_multiplier / sample.group_multiplier)
 	else
 		update_values()
 
