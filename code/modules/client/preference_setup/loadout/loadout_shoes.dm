@@ -13,9 +13,17 @@
 	display_name = "workboots"
 	path = /obj/item/clothing/shoes/workboots
 
+/datum/gear/shoes/workboots_toeless
+	display_name = "/obj/item/clothing/shoes/workboots/toeless"
+	path = /obj/item/clothing/shoes/workboots/toeless
+
 /datum/gear/shoes/sandals
 	display_name = "sandals"
 	path = /obj/item/clothing/shoes/sandal
+
+/datum/gear/shoes/footwraps
+	display_name = "cloth footwraps"
+	path = /obj/item/clothing/shoes/footwraps
 
 /datum/gear/shoes/color
 	display_name = "shoe selection"

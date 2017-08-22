@@ -17,8 +17,8 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 	var/wire_count = 0 // Max is 16
 	var/wires_status = 0 // BITFLAG OF WIRES
 
-	var/list/wires = list()
-	var/list/signallers = list()
+	var/list/wires
+	var/list/signallers
 
 	var/table_options = " align='center'"
 	var/row_options1 = " width='80px'"
@@ -27,7 +27,8 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 	var/window_y = 470
 
 /datum/wires/New(var/atom/holder)
-	..()
+	wires = list()
+	signallers = list()
 	src.holder = holder
 	if(!istype(holder, holder_type))
 		CRASH("Our holder is null/the wrong type!")

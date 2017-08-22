@@ -1,5 +1,3 @@
-var/global/list/turbolifts = list()
-
 // Lift master datum. One per turbolift.
 /datum/turbolift
 	var/datum/turbolift_floor/target_floor              // Where are we going?

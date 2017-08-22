@@ -84,8 +84,7 @@
 	harm_intent_damage = 0
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	var/list/darkform_spells = list(/spell/targeted/ethereal_jaunt/shift,
-									/spell/aoe_turf/conjure/forcewall/lesser)
+	var/list/darkform_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
 
 /mob/living/simple_animal/hostile/faithless/wizard/Initialize()
 	. = ..()

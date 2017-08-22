@@ -77,7 +77,7 @@ var/global/list/socks_m = list(
 	"Rainbow normal" = "rainbow_norm", "Rainbow short" = "rainbow_short", "Rainbow knee" = "rainbow_knee", "None")
 
 	//Backpacks
-var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag")
+var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag", "Messenger Bag")
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
 
 // Visual nets
