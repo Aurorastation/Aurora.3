@@ -219,21 +219,21 @@
 				L.apply_effect(5, DROWSY, 0)
 				if(def_zone == "torso")
 					if(blocked < 100 && !(blocked < 1))
-						target.visible_message("<b>[target]</b> yawns.")
+						L.emote("yawns")
 					if(blocked < 20)
-						spawn(120)
-							L.apply_effect(10, PARALYZE, 0)
-							target.visible_message("<b>[target]</b> moans.")
+						L.emote("moans")
+						addtimer(CALLBACK(src, .proc/apply_sedative, target, 10), 120)
 				if(def_zone == "head" && blocked < 100)
+					addtimer(CALLBACK(src, .proc/apply_sedative, target, 20), 35)
 					spawn(35)
 						L.apply_effect(20, PARALYZE, 0)
 				if(def_zone != "torso" && def_zone != "head")
 					if(blocked < 100 && !(blocked < 20))
-						target.visible_message("<b>[target]</b> yawns.")
+						L.emote("yawns")
 					if(blocked < 20)
-						spawn(45)
-							L.apply_effect(15, PARALYZE, 0)
-							target.visible_message("<b>[target]</b> moans.")
+						L.emote("moans")
+						addtimer(CALLBACK(src, .proc/apply_sedative, target, 15), 45)
+
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
 		L.apply_damage(35, TOX) //temporary until simple_mob paralysis actually works.
@@ -242,6 +242,9 @@
 			target.visible_message("<b>[target]</b> collapses.")
 			M.Sleeping(1200)*/ //commented out until simple_mob paralysis actually works.
 	..()
+
+/obj/item/projectile/bullet/rifle/tranq/proc/apply_sedative(var/mob/living/L, var/severity)
+	L.apply_effect(severity, PARALYZE, 0)
 
 /* Miscellaneous */
 
