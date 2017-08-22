@@ -431,6 +431,8 @@ var/datum/controller/subsystem/cargo/SScargo
 	return cargo_handlingfee
 // Sets the handling fee - Returns a status message
 /datum/controller/subsystem/cargo/proc/set_handlingfee(var/fee)
+	if(!fee)
+		return "Unable to set handlingfee - Can not be NULL"
 	if(fee < cargo_handlingfee_min)
 		return "Unable to set handlingfee - Smaller than minimum: [cargo_handlingfee_min]"
 	if(fee > cargo_handlingfee_max)
@@ -557,7 +559,6 @@ var/datum/controller/subsystem/cargo/SScargo
 			current_shipment.shipment_cost_sell += credits_per_crate
 
 			for(var/atom in MA)
-				// Sell manifests
 				var/atom/A = atom
 				// Sell phoron and platinum
 				if(istype(A, /obj/item/stack))
@@ -608,6 +609,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 		//Check if theres space to place the order
 		if(!clear_turfs.len)
+			log_debug("Cargo - Order [co.order_id] could not be placed on the shuttle because the shuttle is full")
 			break
 
 		//Check if the supplier is still active
@@ -659,5 +661,10 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	//Shuttle is loaded now - Charge cargo for it
 	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchse)
+
+	//Now calculate the aliquot shipment cost for the orders and add it to each order
+	var/aliquot_shipment_cost = current_shipment.shuttle_fee / current_shipment.orders.len
+	for(var/datum/cargo_order/co in current_shipment.orders)
+		co.partial_shipment_fee = aliquot_shipment_cost
 
 	return 1

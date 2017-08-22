@@ -126,8 +126,7 @@
 //Gets the tracking code for the order. Generates one if it does not exist already
 /datum/cargo_order/proc/get_tracking_code()
 	if(!tracking_code)
-		tracking_code = "asdf"
-		//Generate Tracking code TODO: Finish That
+		tracking_code = rand(1000,9999)
 	return tracking_code
 
 // Returns a list of the items in the order - Formated as list to be json_encoded
@@ -338,7 +337,10 @@
 		order_data += "<li>[item["name"]] - [item["price"]]</li>"
 	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]</li>"
 	order_data += "<li>Handling Fee: [SScargo.get_handlingfee()]</li>"
-	order_data += "<li>Additional Shuttle Fees may apply</li>"
+	if(partial_shipment_fee == 0) //If the partial shipment fee has been calculated, then display it. Otherwise just display a placeholder
+		order_data += "<li>Additional Shuttle Fees may apply</li>"
+	else
+		order_data += "<li>Shuttle Fee: [partial_shipment_fee]</li>"
 	order_data += "</ul>"
 
 	return order_data.Join(",")
@@ -396,9 +398,22 @@
 	var/shuttle_called_by //The person that called the shuttle
 	var/shuttle_recalled_by //The person that recalled the shuttle
 
-// Generates the invoice at the time of shipping //TODO: Finish this
+// Generates the invoice at the time of shipping
 /datum/cargo_shipment/proc/generate_invoice()
-	return
+	var/list/invoice_data = list()
+	invoice_data += "One day <br>"
+	invoice_data += "This will contain the invoice <br>"
+	invoice_data += "Right now its just a placeholder <br>"
+	invoice_data += "Shipment num: [shipment_num]<br>"
+	invoice_data += "shipment cost sell: [shipment_cost_sell]<br>"
+	invoice_data += "shipment cost purchse: [shipment_cost_purchse]<br>"
+	invoice_data += "shuttle fee: [shuttle_fee]<br>"
+	invoice_data += "shuttle time: [shuttle_time]<br>"
+	invoice_data += "shuttle called by: [shuttle_called_by]<br>"
+	invoice_data += "shuttle recalled by: [shuttle_recalled_by]<br>"
+
+	shipment_invoice = invoice_data.Join(",")
+	return shipment_invoice
 
 // Returns the invoice. Generates it if it does not exist
 /datum/cargo_shipment/proc/get_invoice()
