@@ -134,7 +134,7 @@
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Adhomai in the S'rendarr \
 	system. They have been brought up into the space age by the Humans and Skrell, who alledgedly influenced their \
-	eventual revolution that overthrew their ancient monarchies to become totalitarian - and NanoTrasen friendly - \
+	eventual revolution that overthrew their ancient monarchies to become totalitarian - and NanoTarsen friendly - \
 	republics. Adhomai is still enduring a global war in the aftermath of the new world order, and many Tajara are \
 	fleeing their homeworld to seek safety and employment in human space. They prefer colder environments, and speak \
 	a variety of languages, mostly Siik'Maas, using unique inflections their mouths form."

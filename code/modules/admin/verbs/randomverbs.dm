@@ -556,7 +556,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if("Custom")
 			reporttitle = sanitizeSafe(input(usr, "Pick a title for the report.", "Title") as text|null)
 			if(!reporttitle)
-				reporttitle = "NanoTrasen Update"
+				reporttitle = "NanoTarsen Update"
 			reportbody = sanitize(input(usr, "Please enter anything you want. Anything. Serious.", "Body", "") as message|null, extra = 0)
 			if(!reportbody)
 				return

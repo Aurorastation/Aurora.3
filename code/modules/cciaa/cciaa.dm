@@ -85,7 +85,7 @@
 
 			var/obj/item/weapon/storage/backpack/satchel/bag = new(M)
 			bag.name = "officer's leather satchel"
-			bag.desc = "A well cared for leather satchel for Nanotrasen officers."
+			bag.desc = "A well cared for leather satchel for Nanotarsen officers."
 			M.equip_to_slot_or_del(bag, slot_back)
 			if(M.backbag == 1)
 				M.equip_to_slot_or_del(new /obj/item/weapon/stamp/centcomm(M), slot_in_backpack)

@@ -86,7 +86,7 @@ var/datum/antagonist/deathsquad/deathsquad
 		id.access |= get_all_station_access()
 		id.icon_state = "centcom"
 
-/* //disabling this until the names are fixed to don't be dumb, NanoTrasen has no military
+/* //disabling this until the names are fixed to don't be dumb, NanoTarsen has no military
 /datum/antagonist/deathsquad/update_antag_mob(var/datum/mind/player)
 	..()
 	var/syndicate_commando_rank

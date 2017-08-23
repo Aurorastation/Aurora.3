@@ -336,7 +336,7 @@
 
 /obj/item/weapon/storage/backpack/duffel/cap
 	name = "captain's duffel bag"
-	desc = "A rare and special duffel bag for only the most air-headed of Nanotrasen personnel."
+	desc = "A rare and special duffel bag for only the most air-headed of Nanotarsen personnel."
 	icon_state = "duffel-captain"
 	item_state_slots = list(
 		slot_l_hand_str = "duffle_captain",

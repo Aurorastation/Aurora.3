@@ -833,7 +833,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "faded badge"
 	desc = "A faded badge, backed with leather, that reads \"NT Security Force\" across the front. It bears the emblem of the forensic division."
 	stored_name = "Ana Issek"
-	badge_string = "NanoTrasen Security Department"
+	badge_string = "NanoTarsen Security Department"
 
 
 /obj/item/clothing/head/hairflower/fluff/aquila_pin //Magnetic Flower Pin - Aquila - nandastar
@@ -978,7 +978,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/suit/storage/toggle/fluff/fay_jacket //Emergency Response Team Duty Jacket - Fai Sinsa - soundscopes
 	name = "emergency response team duty jacket"
-	desc = "A militaristic duty jacket worn by members of the NanoTrasen Emergency Response Teams. The nameplate reads: \"Tpr Sinsa\"."
+	desc = "A militaristic duty jacket worn by members of the NanoTarsen Emergency Response Teams. The nameplate reads: \"Tpr Sinsa\"."
 	icon = 'icons/obj/custom_items/fai_jacket.dmi'
 	icon_state = "fai_jacket"
 	item_state = "fai_jacket"
@@ -1104,7 +1104,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/brianne_teapot	//Ceramic Teapot - Sean Brianne - zelmana
 	name = "ceramic teapot"
-	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
+	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTarsen."
 	icon = 'icons/obj/custom_items/brianne_teapot.dmi'
 	icon_state = "brianne_teapot"
 

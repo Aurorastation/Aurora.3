@@ -105,7 +105,7 @@
 	projectile_type = /obj/item/projectile/energy/phoron
 
 /obj/item/weapon/gun/energy/beegun
-	name = "\improper NanoTrasen Portable Apiary"
+	name = "\improper NanoTarsen Portable Apiary"
 	desc = "An experimental firearm that converts energy into bees, for purely botanical purposes."
 	icon_state = "gyrorifle"
 	item_state = "arifle"

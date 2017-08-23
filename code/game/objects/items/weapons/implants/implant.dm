@@ -371,7 +371,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 
 /obj/item/weapon/implant/loyalty/ipc
 	name = "loyalty chip"
-	desc = "A device that sets directives programmed for loyalty to NanoTrasen on the synthetic subject. Will not work on organics."
+	desc = "A device that sets directives programmed for loyalty to NanoTarsen on the synthetic subject. Will not work on organics."
 
 /obj/item/weapon/implant/loyalty/ipc/implanted(mob/M)
 

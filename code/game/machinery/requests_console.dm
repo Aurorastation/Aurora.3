@@ -300,7 +300,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			alert("Invalid query. Try again.")
 		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=[whatisid]")
 		query.Execute()
-		var/dat = "<center><b>NanoTrasen Corporate Form</b><br>"
+		var/dat = "<center><b>NanoTarsen Corporate Form</b><br>"
 		while(query.NextRow())
 			var/id = query.item[1]
 			var/name = query.item[2]

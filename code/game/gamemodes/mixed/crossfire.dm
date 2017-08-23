@@ -1,7 +1,7 @@
 /datum/game_mode/crossfire
 	name = "Crossfire (Merc+Heist)"
 	round_description = "Mercenaries and raiders are approaching the station."
-	extended_round_description = "NanoTrasen's wealth and success created several enemies over the years \
+	extended_round_description = "NanoTarsen's wealth and success created several enemies over the years \
 		and many seek to undermine them using illegal ways. Their crown jewel research stations are not safe from those \
 		malicious activities."
 	config_tag = "crossfire"

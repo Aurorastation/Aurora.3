@@ -177,7 +177,7 @@
 
 /obj/item/clothing/accessory/medal/iron/merit
 	name = "iron merit medal"
-	desc = "An iron medal awarded to NanoTrasen employees for merit."
+	desc = "An iron medal awarded to NanoTarsen employees for merit."
 	icon_state = "iron_nt"
 
 /obj/item/clothing/accessory/medal/silver

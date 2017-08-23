@@ -358,7 +358,7 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 	dat += "<b>Welcome, [name].<br></b>"
 	dat += "Round Duration: [round_duration()]<br>"
 
-	if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
+	if(emergency_shuttle) //In case Nanotarsen decides reposess CentComm's shuttles.
 		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
 			dat += "<font color='red'><b>The station has been evacuated.</b></font><br>"
 		if(emergency_shuttle.online())

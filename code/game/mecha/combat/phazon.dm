@@ -1,5 +1,5 @@
 /obj/mecha/combat/phazon
-	desc = "The pinnacle of scientific research and pride of Nanotrasen, it uses cutting edge bluespace technology and expensive materials."
+	desc = "The pinnacle of scientific research and pride of Nanotarsen, it uses cutting edge bluespace technology and expensive materials."
 	name = "Phazon"
 	icon_state = "phazon"
 	initial_icon = "phazon"

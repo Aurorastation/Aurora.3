@@ -39,7 +39,7 @@
 
 /obj/item/weapon/gun/projectile/sec
 	name = ".45 pistol"
-	desc = "A NanoTrasen designed sidearm, found pretty much everywhere humans are. Uses .45 rounds."
+	desc = "A NanoTarsen designed sidearm, found pretty much everywhere humans are. Uses .45 rounds."
 	icon_state = "secguncomp"
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
@@ -63,7 +63,7 @@
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
 /obj/item/weapon/gun/projectile/sec/wood
-	desc = "A Nanotrasen designed sidearm, this one has a sweet wooden grip. Uses .45 rounds."
+	desc = "A Nanotarsen designed sidearm, this one has a sweet wooden grip. Uses .45 rounds."
 	name = "custom .45 Pistol"
 	icon_state = "secgundark"
 
