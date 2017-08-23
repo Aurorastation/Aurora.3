@@ -1,7 +1,7 @@
 
 /obj/machinery/megavendor
-	name = "\improper NanoTrasen AutoDrobe"
-	desc = "NanoTrasen science proudly brings to you the wardrobe of the future! No more hassle in getting dressed! Order one today!"
+	name = "\improper NanoTarsen AutoDrobe"
+	desc = "NanoTarsen science proudly brings to you the wardrobe of the future! No more hassle in getting dressed! Order one today!"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "tele0"
 	layer = 2.9

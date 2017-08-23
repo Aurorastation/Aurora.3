@@ -145,7 +145,7 @@
 		var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
 		P.name = "mining report - [customname]"
 		P.info = {"<center><img src = ntlogo.png></center>
-	<center><b><i>NanoTrasen Mining Drone Report</b></i><br>
+	<center><b><i>NanoTarsen Mining Drone Report</b></i><br>
 	<font size = \"1\">FOR YOUR EYES ONLY</font><hr><br>
 	<font size = \"1\"><font face='Courier New'>[input]</font></font><hr>
 	<font size = \"1\">[status_report]</font><br>

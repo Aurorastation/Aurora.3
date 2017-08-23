@@ -19,7 +19,7 @@ var/list/weighted_mundaneevent_locations = list()
 //distance is measured in AU and co-relates to travel time
 /datum/trade_destination/centcomm
 	name = "CentComm"
-	description = "NanoTrasen's administrative centre for Tau Ceti."
+	description = "NanoTarsen's administrative centre for Tau Ceti."
 	distance = 1.2
 	willing_to_buy = list()
 	willing_to_sell = list()
@@ -66,7 +66,7 @@ var/list/weighted_mundaneevent_locations = list()
 
 /datum/trade_destination/beltway
 	name = "Beltway mining chain"
-	description = "A co-operative effort between Beltway and NanoTrasen to exploit the rich outer asteroid belt of the Tau Ceti system."
+	description = "A co-operative effort between Beltway and NanoTarsen to exploit the rich outer asteroid belt of the Tau Ceti system."
 	distance = 7.5
 	willing_to_buy = list()
 	willing_to_sell = list()

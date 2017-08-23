@@ -2,7 +2,7 @@
 
 
 /* --- Traffic Control Scripting Language --- */
-	// Nanotrasen TCS Language - Made by Doohl
+	// Nanotarsen TCS Language - Made by Doohl
 
 /n_Interpreter/TCS_Interpreter
 	var/datum/TCS_Compiler/Compiler

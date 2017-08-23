@@ -423,7 +423,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/koisbar
 	name = "k'ois bar"
-	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron."
+	desc = "Bland NanoTarsen produced K'ois bars, rich in syrup and injected with extra phoron."
 	icon_state = "koisbar"
 	trash = /obj/item/trash/koisbar
 	filling_color = "#dcd9cd"

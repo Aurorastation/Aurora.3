@@ -30,7 +30,7 @@
 		return "Invalid ID card!"
 
 	if( !C.mob )
-		return "ID card not tied to a NanoTrasen Employee!"
+		return "ID card not tied to a NanoTarsen Employee!"
 
 	// if( criminal == C.mob ) //Uncommented because you should be able to give a statement in your case
 	// 	return "The criminal cannot hold official court positions in his own trial!"

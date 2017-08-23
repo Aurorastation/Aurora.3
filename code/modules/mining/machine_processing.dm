@@ -99,7 +99,7 @@
 							ping( "\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"" )
 						points = 0
 					else
-						usr << "<span class='warning'>[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared.</span>"
+						usr << "<span class='warning'>[station_name()]'s mining division is currently indebted to NanoTarsen. Transaction incomplete until debt is cleared.</span>"
 				else
 					usr << "<span class='warning'>Required access not found.</span>"
 		else if(href_list["choice"] == "insert")

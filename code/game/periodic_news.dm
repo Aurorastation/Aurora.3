@@ -5,7 +5,7 @@
 	var
 		round_time // time of the round at which this should be announced, in seconds
 		message // body of the message
-		author = "NanoTrasen Editor"
+		author = "NanoTarsen Editor"
 		channel_name = "Tau Ceti Daily"
 		can_be_redacted = 0
 		message_type = "Story"
@@ -14,7 +14,7 @@
 
 		paycuts_suspicion
 			round_time = 60*10
-			message = {"Reports have leaked that NanoTrasen is planning to put paycuts into
+			message = {"Reports have leaked that NanoTarsen is planning to put paycuts into
 						effect on many of its Research Stations in Tau Ceti. Apparently these research
 						stations haven't been able to yield the expected revenue, and thus adjustments
 						have to be made."}
@@ -35,7 +35,7 @@
 			 			on live humans, including virology research, genetic manipulation, and \"feeding them
 			 			to the slimes to see what happens\". Allegedly, these test subjects were neither
 			 			humanified monkeys nor volunteers, but rather unqualified staff that were forced into
-			 			the experiments, and reported to have died in a \"work accident\" by NanoTrasen."}
+			 			the experiments, and reported to have died in a \"work accident\" by NanoTarsen."}
 			author = "Unauthorized"
 
 	bluespace_research
@@ -96,9 +96,9 @@
 			author = "Reporter Ro'kii Ar-Raqis"
 
 			message = {"Breaking news: Food riots have broken out throughout the Refuge asteroid colony in the Tenebrae
-						Lupus system. This comes only hours after NanoTrasen officials announced they will no longer trade with the
+						Lupus system. This comes only hours after NanoTarsen officials announced they will no longer trade with the
 						colony, citing the increased presence of \"hostile factions\" on the colony has made trade too dangerous to
-						continue. NanoTrasen officials have not given any details about said factions. More on that at the top of
+						continue. NanoTarsen officials have not given any details about said factions. More on that at the top of
 						the hour."}
 			round_time = 60 * 10
 
@@ -106,11 +106,11 @@
 			channel_name = "Tau Ceti Daily"
 			author = "Reporter Ro'kii Ar-Raqis"
 
-			message = {"More on the Refuge food riots: The Refuge Council has condemned NanoTrasen's withdrawal from
-			the colony, claiming \"there has been no increase in anti-NanoTrasen activity\", and \"\[the only] reason
-			NanoTrasen withdrew was because the \[Tenebrae Lupus] system's Phoron deposits have been completely mined out.
-			We have little to trade with them now\". NanoTrasen officials have denied these allegations, calling them
-			\"further proof\" of the colony's anti-NanoTrasen stance. Meanwhile, Refuge Security has been unable to quell
+			message = {"More on the Refuge food riots: The Refuge Council has condemned NanoTarsen's withdrawal from
+			the colony, claiming \"there has been no increase in anti-NanoTarsen activity\", and \"\[the only] reason
+			NanoTarsen withdrew was because the \[Tenebrae Lupus] system's Phoron deposits have been completely mined out.
+			We have little to trade with them now\". NanoTarsen officials have denied these allegations, calling them
+			\"further proof\" of the colony's anti-NanoTarsen stance. Meanwhile, Refuge Security has been unable to quell
 			the riots. More on this at 6."}
 			round_time = 60 * 60
 

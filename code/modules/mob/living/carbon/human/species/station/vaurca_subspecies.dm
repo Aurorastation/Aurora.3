@@ -15,7 +15,7 @@
 	taste_sensitivity = TASTE_DULL
 	blurb = "Type BA, a sub-type of the generic Type B Warriors, are the second most prominent type of Vaurca society, taking the form of hive security and military grunts. \
 	Type BA can range in size from 6ft tall to 9ft tall, and are bipedal. Unlike most other Type B's, Type BA are deprived of advanced augments, especially aboard \
-	NanoTrasen stations. Warriors in general, unlike other types of Vaurca, are not typically passive. This means that they tend to be more suitable for combat \
+	NanoTarsen stations. Warriors in general, unlike other types of Vaurca, are not typically passive. This means that they tend to be more suitable for combat \
 	orientated positions, more passive unlike workers. Compared to workers, they are more physically intimidating and more resistant to heat, but have a thinner carapace \
 	allowing for greater mobility at the cost of some trauma resistance. \
 	<b>Type BA are most comfortable obviously in security positions, but can rarely be found in the lower hierarchies of other departments.</b>"

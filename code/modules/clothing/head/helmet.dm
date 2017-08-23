@@ -169,5 +169,5 @@
 //Medical
 /obj/item/clothing/head/helmet/ert/medical
 	name = "emergency response team medical helmet"
-	desc = "A set of armor worn by medical members of the NanoTrasen Emergency Response Team. Has red and white highlights."
+	desc = "A set of armor worn by medical members of the NanoTarsen Emergency Response Team. Has red and white highlights."
 	icon_state = "erthelmet_med"

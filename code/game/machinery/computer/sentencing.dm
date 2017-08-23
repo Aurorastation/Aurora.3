@@ -641,7 +641,7 @@
 		// 		if( incident && C.mob )
 		// 			render_guilty_fine( usr, C)
 		// 		else
-		// 			usr << "<span class='alert'>\The [src] buzzes, \"ID card not tied to a NanoTrasen Employee!\"</span>"
+		// 			usr << "<span class='alert'>\The [src] buzzes, \"ID card not tied to a NanoTarsen Employee!\"</span>"
 		// 	else
 		// 		usr << "<span class='alert'>\The [src] buzzes, \"The suspects ID is required to fine them\"</span>"
 

@@ -44,7 +44,7 @@
 	if(href_list["shock"])
 		var/obj/item/mecha_parts/mecha_tracking/MT = filter.getObj("shock")
 
-		var/response = alert(usr,"Are you certain you wish to terminate this exosuit? Executing this procedure will render it inoperable, and should only be used in extreme circumstances. Improper use will result in your being held liable for damage to Nanotrasen property","Confirm shutdown","Destroy","Cancel")
+		var/response = alert(usr,"Are you certain you wish to terminate this exosuit? Executing this procedure will render it inoperable, and should only be used in extreme circumstances. Improper use will result in your being held liable for damage to Nanotarsen property","Confirm shutdown","Destroy","Cancel")
 		if (response == "Destroy")
 			MT.shock(usr)
 	if(href_list["get_log"])

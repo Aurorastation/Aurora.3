@@ -1948,7 +1948,7 @@
 
 		if (damage_alert_status == 1)
 			if (!damageloop)
-				occupant << "<span class='danger'>WARNING: [src] hull integrity below 30%. Please report to the nearest Nanotrasen Certified Robotics Laboratory for urgent repairs.</span>"
+				occupant << "<span class='danger'>WARNING: [src] hull integrity below 30%. Please report to the nearest Nanotarsen Certified Robotics Laboratory for urgent repairs.</span>"
 				create_sound(2)
 				occupant << damageloop
 				last_damage_warning = world.time

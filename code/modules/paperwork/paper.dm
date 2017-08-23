@@ -535,7 +535,7 @@
 
 /obj/item/weapon/paper/incident/New()
 	info = {"\[center\]\[logo\]\[/center\]
-\[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
+\[center\]\[b\]\[i\]Encoded NanoTarsen Security Incident Report\[/b\]\[/i\]\[hr\]
 \[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
 \[barcode\]\[/center\]"}
 
@@ -548,7 +548,7 @@
 /obj/item/weapon/paper/sentencing/New()
 	info = {"\[center\]\[logo\]\[/center\]
 \[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
-\[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
+\[small\]In compliance with new NanoTarsen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
 \[br\]
 While preparing a convicted individual, remove their ID and have the terminal scan it.\[br\]
 Next, select all applicable charges from the menu available. The computer will calculate the sentence based on the minimum recommended sentence - any variables such as repeat offense will need to be manually accounted for.\[br\]

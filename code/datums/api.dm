@@ -858,7 +858,7 @@ proc/api_update_command_database()
 	description = "Sends a command report"
 	params = list(
 		"senderkey" = list("name"="senderkey","desc"="Unique id of the person that sent the commandreport","req"=1,"type"="senderkey"),
-		"title" = list("name"="title","desc"="The message title that should be sent, Defaults to NanoTrasen Update if not specified","req"=0,"type"="str"),
+		"title" = list("name"="title","desc"="The message title that should be sent, Defaults to NanoTarsen Update if not specified","req"=0,"type"="str"),
 		"body" = list("name"="body","desc"="The message body that should be sent","req"=1,"type"="str"),
 		"type" = list("name"="type","desc"="The type of the message that should be sent, Defaults to freeform","req"=0,"type"="slct","options"=list("freeform","ccia")),
 		"sendername" = list("name"="sendername","desc"="IC Name of the sender for the CCIA Report, Defaults to CCIAAMS, \[Command-StationName\]","req"=0,"type"="string"),
@@ -873,7 +873,7 @@ proc/api_update_command_database()
 	var/reportannounce = text2num(queryparams["announce"]) //Announce the contents report to the public: 1 / 0
 
 	if(!reporttitle)
-		reporttitle = "NanoTrasen Update"
+		reporttitle = "NanoTarsen Update"
 	if(!reporttype)
 		reporttype = "freeform"
 	if(!reportannounce)
@@ -900,7 +900,7 @@ proc/api_update_command_database()
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
 	if(reportannounce == 0)
-		world << "<span class='alert'>New NanoTrasen Update available at all communication consoles.</span>"
+		world << "<span class='alert'>New NanoTarsen Update available at all communication consoles.</span>"
 		world << sound('sound/AI/commandreport.ogg')
 
 

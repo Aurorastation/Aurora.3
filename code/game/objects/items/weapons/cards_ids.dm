@@ -320,12 +320,12 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/weapon/card/id/merchant
 	name = "merchant pass"
 	icon_state = "centcom"
-	desc = "An identification card issued to NanoTrasen sanctioned merchants, indicating their right to sell and buy goods."
+	desc = "An identification card issued to NanoTarsen sanctioned merchants, indicating their right to sell and buy goods."
 	access = list(access_merchant)
 
 /obj/item/weapon/card/id/synthetic
 	name = "\improper Synthetic ID"
-	desc = "Access module for NanoTrasen Synthetics"
+	desc = "Access module for NanoTarsen Synthetics"
 	icon_state = "id-robot"
 	item_state = "tdgreen"
 	assignment = "Synthetic"
@@ -336,7 +336,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/weapon/card/id/synthetic/minedrone
 	name = "\improper Minedrone ID"
-	desc = "Access module for NanoTrasen Minedrones"
+	desc = "Access module for NanoTarsen Minedrones"
 	icon_state = "id-robot"
 	item_state = "tdgreen"
 	assignment = "Minedrone"
