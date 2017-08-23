@@ -133,5 +133,5 @@
 	display_name = "PRA medical coat (Tajara)"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = "Tajara"
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Nursing Intern")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident")
 	sort_category = "Xenowear"
