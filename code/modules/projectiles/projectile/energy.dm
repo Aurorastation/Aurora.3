@@ -217,10 +217,10 @@
 /obj/item/projectile/energy/gravitydisabler/on_impact(atom/target)
 	. = ..()
 	var/area/A = get_area(target)
-	if(A)
+	if(A && A.has_gravity == 1)
 		A.has_gravity = 0
 		A.gravitychange(A.has_gravity,A)
-		spawn(150)
+		spawn(150) // convert to timer... soon...
 			A.has_gravity = 1
 			A.gravitychange(A.has_gravity,A)
 	if(istype(target, /obj/machinery/gravity_generator/main))
