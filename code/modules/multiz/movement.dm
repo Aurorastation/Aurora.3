@@ -35,6 +35,9 @@
 	if (eyeobj)
 		return eyeobj.zMove(direction)
 
+	if (istype(src.loc,/obj/mecha))
+		return FALSE
+
 	// Check if we can actually travel a Z-level.
 	if (!can_ztravel(direction))
 		to_chat(src, "<span class='warning'>You lack means of travel in that direction.</span>")
