@@ -1,5 +1,5 @@
 /datum/game_mode/infiltration
-	name = "Infiltration (Malf + Ninja)"
+	name = "Infiltration (Malf+Ninja)"
 	round_description = "The AI is malfunctioning and a ninja is onboard!"
 	extended_round_description = "A malf AI and a Ninja spawn during this round."
 	config_tag = "infiltration"

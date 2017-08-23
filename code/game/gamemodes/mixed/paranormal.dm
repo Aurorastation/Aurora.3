@@ -1,7 +1,7 @@
 /datum/game_mode/paranormal
-	name = "Paranormal (Cult + Vamp)"
+	name = "Paranormal (Cult+Vamp)"
 	round_description = "Paranormal activities occur on the station."
-	extended_round_description = "Vampires and a Clut spawn in this mode."
+	extended_round_description = "Vampires and a Cult spawn in this mode."
 	config_tag = "paranormal"
 	required_players = 15
 	required_enemies = 3

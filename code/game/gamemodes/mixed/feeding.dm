@@ -1,6 +1,6 @@
 /datum/game_mode/feeding
-	name = "Feeding (Vamp + Ling)"
-	round_description = "The the crew is being fed upon!"
+	name = "Feeding (Vamp+Ling)"
+	round_description = "The crew is being fed upon!"
 	extended_round_description = "Vampires and Changelings spawn during this round."
 	config_tag = "feeding"
 	required_players = 20
