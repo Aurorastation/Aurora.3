@@ -237,7 +237,7 @@
 			else
 				new /obj/item/stack/material/steel(src.loc)
 				user.visible_message(
-					"<span class='notice'>[src] has been cut apart by [user] with [WT].",
+					"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
 					"<span class='notice'>You cut apart [src] with [WT].</span>"
 				)
 				qdel(src)
