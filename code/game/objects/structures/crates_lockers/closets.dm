@@ -224,7 +224,7 @@
 			var/obj/item/weapon/weldingtool/WT = W
 			user.visible_message(
 				"<span class='warning'>[user] begins cutting [src] apart.</span>",
-				"<span class='notice'>You begin welding [src] apart.</span>",
+				"<span class='notice'>You begin cutting [src] apart.</span>",
 				"You hear a welding torch on metal."
 			)
 			playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
