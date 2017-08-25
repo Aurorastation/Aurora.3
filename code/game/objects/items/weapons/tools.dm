@@ -534,7 +534,7 @@
 	name = "pipe wrench"
 	desc = "A big wrench that is made for working with pipes."
 	icon = 'icons/obj/items.dmi'
-	icon_state = "wrench" // sprites
+	icon_state = "pipewrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 5.0

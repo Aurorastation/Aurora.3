@@ -41,12 +41,13 @@ Contains:
 	. = ..()
 	reagents.add_reagent("kelotanetopical", 120)
 
-// SPACE KLOT.
+// SPACE KLOT. This stops bleeding and has a small chance to stop some internal bleeding, but it will be locked behind a tech tree + does not disinfect like a normal bruise pack.
 /obj/item/stack/medical/advanced/bruise_pack/spaceklot
 	name = "Space Klot"
 	singular_name = "Space Klot"
 	desc = "A powder that, when poured on an open wound, quickly stops the bleeding. Combine with bandages for the best effect."
-	icon_state = "traumakit" // needs sprite
+	icon = 'icons/obj/items.dmi'
+	icon_state = "powderbag"
 	heal_brute = 15
 	origin_tech = list(TECH_BIO = 4)
 	var/open = 0
@@ -88,9 +89,3 @@ Contains:
 					W.heal_damage(heal_brute, 0)
 					used = 1
 				affecting.update_damages()
-		else
-			if (can_operate(H))        //Checks if mob is lying down on table for surgery
-				if (do_surgery(H,user,src))
-					return
-			else
-				user << "<span class='notice'>The [affecting.name] is cut open, you'll need more than a bandage!</span>"
