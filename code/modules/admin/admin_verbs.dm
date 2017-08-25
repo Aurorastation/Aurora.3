@@ -145,7 +145,7 @@ var/list/admin_verbs_spawn = list(
 	/client/proc/spawn_chemdisp_cartridge
 	)
 var/list/admin_verbs_server = list(
-	/datum/admins/proc/capture_map,
+	/datum/admins/proc/capture_map_part,
 	/client/proc/Set_Holiday,
 	/datum/admins/proc/startnow,
 	/datum/admins/proc/restart,
@@ -213,7 +213,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_ss_panic,
-	/client/proc/reset_openturf
+	/client/proc/reset_openturf,
+	/datum/admins/proc/capture_map
 	)
 
 var/list/admin_verbs_paranoid_debug = list(

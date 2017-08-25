@@ -744,7 +744,13 @@ as a single icon. Useful for when you want to manipulate an icon via the above a
 			curblend = BLEND_OVERLAY
 			add = icon(I:icon, I:icon_state, I:dir)
 		else // 'I' is an appearance object.
-			add = getFlatIcon(new/image(I), curdir, curicon, curstate, curblend, TRUE)
+			if(istype(A,/obj/machinery/atmospherics) && I in A.underlays)
+				var/image/Im = I
+				add = getFlatIcon(new/image(I), Im.dir, curicon, curstate, curblend, 1)
+			else if(istype(A,/mob) || istype(A,/obj/structure/bed)) // Special snowflakes...
+				add = getFlatIcon(new/image(I), curdir, curicon, curstate, curblend, TRUE)
+			else
+				add = getFlatIcon(new/image(I), curdir, curicon, curstate, curblend, always_use_defdir)
 
 		// Find the new dimensions of the flat icon to fit the added overlay
 		addX1 = min(flatX1, I:pixel_x+1)
@@ -758,8 +764,15 @@ as a single icon. Useful for when you want to manipulate an icon via the above a
 			flatX1=addX1;flatX2=addX2
 			flatY1=addY1;flatY2=addY2
 
+		var/iconmode
+		if(I in A.overlays)
+			iconmode = ICON_OVERLAY
+		else if(I in A.underlays)
+			iconmode = ICON_UNDERLAY
+		else
+			iconmode = blendMode2iconMode(curblend)
 		// Blend the overlay into the flattened icon
-		flat.Blend(add, blendMode2iconMode(curblend), I:pixel_x + 2 - flatX1, I:pixel_y + 2 - flatY1)
+		flat.Blend(add, iconmode, I:pixel_x + 2 - flatX1, I:pixel_y + 2 - flatY1)
 
 	if(A.color)
 		flat.Blend(A.color, ICON_MULTIPLY)
@@ -862,8 +875,8 @@ proc/generate_image(var/tx as num, var/ty as num, var/tz as num, var/range as nu
 				if(!suppress_errors)
 					return
 
-	return generate_image_from_turfs(turfstocapture, range, cap_mode, user, lighting)
-	
+	return generate_image_from_turfs(locate(tx, ty, tz), turfstocapture, range, cap_mode, user, lighting)
+
 /proc/generate_image_from_turfs(turf/topleft, list/turf/turfstocapture, range as num, cap_mode = CAPTURE_MODE_PARTIAL, mob/living/user, lighting = TRUE)
 	var/tx = topleft.x
 	var/ty = topleft.y
@@ -875,7 +888,7 @@ proc/generate_image(var/tx as num, var/ty as num, var/tz as num, var/range as nu
 			if(istype(A, /atom/movable/lighting_overlay)) //Special case for lighting
 				continue
 
-			if(A.invisibility) 
+			if(A.invisibility)
 				continue
 
 			atoms += A
