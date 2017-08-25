@@ -20,9 +20,11 @@
 	var/obj/item/weapon/gun/G = aiming_with
 	if(istype(G))
 		G.Fire(aiming_at, owner)
-	cancel_aiming()
+	cancel_aiming()//if you can't remove it, nerf it
 	aim_cooldown(3)
 	toggle_active()
+	if (owner.client)
+		owner.client.remove_gun_icons()
 	
 /mob/living/ClickOn(var/atom/A, var/params)
 	. = ..()
