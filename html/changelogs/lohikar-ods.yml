@@ -1,0 +1,5 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - balance: "Reverted most overdoses more or less to their pre-buff behavior."
+  - balance: "Kelotane, dexalin, and dermaline now deal Toxin damage instead of their respective heal types."
