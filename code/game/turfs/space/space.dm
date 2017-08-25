@@ -59,6 +59,12 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
+/turf/space/can_have_cabling()
+	if (locate(/obj/structure/lattice/catwalk) in src)
+		return 1
+
+	return 0
+
 /turf/space/proc/update_starlight()
 	if(config.starlight)
 		for (var/T in RANGE_TURFS(1, src))
@@ -96,8 +102,8 @@
 			return
 		else
 			user << "<span class='warning'>The plating is going to need some support.</span>"
-	return
-
+	
+	..(C, user)
 
 // Ported from unstable r355
 
