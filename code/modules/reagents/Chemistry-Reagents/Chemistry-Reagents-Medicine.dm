@@ -121,7 +121,7 @@
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
 	id = "dexalinp"
-	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective, but much harsher on the patient's circulatory system."
+	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective."
 	reagent_state = LIQUID
 	color = "#0040FF"
 	overdose = 5
