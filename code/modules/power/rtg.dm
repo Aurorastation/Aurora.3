@@ -72,7 +72,7 @@
 		/obj/item/weapon/stock_parts/micro_laser,
 		/obj/item/stack/material/uranium{amount = 10},
 		/obj/item/stack/material/phoron{amount = 5},
-		/obj/item/weapon/circuitboard/rtg/advanced,
+		/obj/item/weapon/circuitboard/rtg/advanced
 	)
 
 
