@@ -38,7 +38,7 @@
 	range = 1
 	level_max = list(Sp_TOTAL = 2, Sp_SPEED = 1, Sp_POWER = 1)
 	cooldown_reduc = 100
-	hud_state = "heal_wound"
+	hud_state = "heal_major"
 
 	amt_dam_brute = -35
 	amt_dam_fire  = -35
