@@ -11,6 +11,26 @@
 	throwforce = 10
 	w_class = 2
 
+/obj/item/weapon/nullrod/nullstaff
+	name = "null staff"
+	desc = "A staff of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
+	icon_state = "nullstaff"
+	item_state = "nullstaff"
+	slot_flags = SLOT_BACK
+	w_class = 4
+
+/obj/item/weapon/nullrod/nullsphere
+	name = "null sphere"
+	desc = "A sphere of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
+	icon_state = "nullsphere"
+	item_state = "nullsphere"
+
+	/obj/item/weapon/nullrod/nullathame
+	name = "null athame"
+	desc = "An athame of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
+	icon_state = "nullathame"
+	item_state = "nullathame"
+
 /obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
