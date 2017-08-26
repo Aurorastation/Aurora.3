@@ -251,7 +251,7 @@
 	bcell = new/obj/item/weapon/cell/high(src)
 	return
 
-/obj/item/weapon/melee/baton/slime/update_icon()
+/obj/item/weapon/melee/baton/slime/update_icon() // sprite
 
 /obj/item/weapon/melee/baton/slime/attack(mob/M, mob/user, var/hit_zone)
 	if(isrobot(M) || ishuman(M))
@@ -274,58 +274,6 @@
 			L.Discipline = 0
 			L.rabid = 1 // heres that "or piss them off part"
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
-
-	if(status)
-		deductcharge(hitcost)
-	return 1
-
-/obj/item/weapon/melee/baton/ion // sprites
-	name = "Ion Baton"
-	desc = "A special baton used to help deal with synthetic hostiles. The baton is not strong enough to harm cyborgs, however."
-	icon = 'icons/obj/stunrod.dmi'
-	icon_state = "stunrod"
-	item_state = "stunrod"
-	force = 10
-	baton_color = "#75ACFF"
-	origin_tech = list(TECH_COMBAT = 1)
-
-/obj/item/weapon/melee/baton/ion/New()
-	..()
-	bcell = new/obj/item/weapon/cell/high(src)
-	return
-
-/obj/item/weapon/melee/baton/ion/update_icon()
-
-/obj/item/weapon/melee/baton/ion/attack(mob/M, mob/user, var/hit_zone)
-	if(ishuman(M))
-		..()
-		return
-
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(M)
-	var/mob/living/L = M
-	var/target_zone = check_zone(hit_zone)
-	if(isipc(L))
-		user.lastattacked = L
-		L.lastattacker = user
-
-		if (user != L)
-			target_zone = get_zone_with_miss_chance(user.zone_sel.selecting, L)
-
-		if(!target_zone)
-			L.visible_message("<span class='warning'>[user] misses [L] with \the [src]!</span>")
-			return 0
-
-		var/mob/living/carbon/human/H = L
-		var/obj/item/organ/external/affecting = H.get_organ(target_zone)
-		if (affecting)
-			if(!status)
-				L.visible_message("<span class='warning'>[L] has been prodded in the [affecting.name] with [src] by [user]. Luckily it was off.</span>")
-				return 1
-			else
-				H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with [src] by [user]!</span>")
-		L.ion_disrupt()
-	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1) // new sound
 
 	if(status)
 		deductcharge(hitcost)
