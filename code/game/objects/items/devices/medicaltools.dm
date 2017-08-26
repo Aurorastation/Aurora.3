@@ -63,7 +63,7 @@ Contains:
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open == 0)
-			if(affecting.is_bandaged() && affecting.is_disinfected())
+			if(affecting.is_bandaged())
 				user << "<span class='warning'>The wounds on [M]'s [affecting.name] have already been treated.</span>"
 				return 1
 			else

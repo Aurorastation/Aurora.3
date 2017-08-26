@@ -6,7 +6,6 @@
 
 /*
  * First Aid Kits
- * ALS kit
  */
 /obj/item/weapon/storage/firstaid
 	name = "first-aid kit"
@@ -322,25 +321,3 @@
 		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-
-/obj/item/weapon/storage/firstaid/als
-	name = "ALS kit"
-	desc = "Contains all the equipment a paramedic would need. This one is specifically designed to hold certain tools and keep them safe."
-	icon_state = "ALSkit"
-	w_class = 3
-
-/obj/item/weapon/storage/firstaid/als/fill()
-	..()
-	if (empty) return
-	new /obj/item/weapon/bonesetter(src)
-	new /obj/item/weapon/cautery(src)
-	new /obj/item/weapon/circular_saw(src)
-	new /obj/item/weapon/hemostat(src)
-	new /obj/item/weapon/retractor(src)
-	new /obj/item/weapon/scalpel(src)
-	new /obj/item/weapon/surgicaldrill(src)
-	new /obj/item/weapon/bonegel(src)
-	new /obj/item/weapon/FixOVein(src)
-	new /obj/item/stack/medical/advanced/bruise_pack(src)
-
-	make_exact_fit()
