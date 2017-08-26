@@ -1,8 +1,16 @@
 
 //Either pass the mob you wish to ban in the 'banned_mob' attribute, or the banckey, banip and bancid variables. If both are passed, the mob takes priority! If a mob is not passed, banckey is the minimum that needs to be passed! banip and bancid are optional.
-datum/admins/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = -1, var/reason, var/job = "", var/rounds = 0, var/banckey = null, var/banip = null, var/bancid = null)
+/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = -1, var/reason, var/job = "", var/rounds = 0, var/banckey = null, var/banip = null, var/bancid = null)
+	if(!check_rights(R_MOD,0) && !check_rights(R_BAN))
+		return
 
-	if(!check_rights(R_MOD,0) && !check_rights(R_BAN))	return
+	var/datum/admins/holder = null
+
+	if (usr)
+		holder = usr.client ? usr.client.holder : null
+
+		if (!holder)
+			return
 
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
@@ -63,10 +71,14 @@ datum/admins/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = 
 	var/a_computerid
 	var/a_ip
 
-	if(src.owner && istype(src.owner, /client))
-		a_ckey = src.owner:ckey
-		a_computerid = src.owner:computer_id
-		a_ip = src.owner:address
+	if(holder && holder.owner && istype(holder.owner, /client))
+		a_ckey = holder.owner:ckey
+		a_computerid = holder.owner:computer_id
+		a_ip = holder.owner:address
+	else
+		a_ckey = "Adminbot"
+		a_computerid = ""
+		a_ip = world.address
 
 	var/who
 	for(var/client/C in clients)
@@ -87,12 +99,10 @@ datum/admins/proc/DB_ban_record(var/bantype, var/mob/banned_mob, var/duration = 
 	var/sql = "INSERT INTO ss13_ban (`id`,`bantime`,`serverip`,`bantype`,`reason`,`job`,`duration`,`rounds`,`expiration_time`,`ckey`,`computerid`,`ip`,`a_ckey`,`a_computerid`,`a_ip`,`who`,`adminwho`,`edits`,`unbanned`,`unbanned_datetime`,`unbanned_ckey`,`unbanned_computerid`,`unbanned_ip`) VALUES (null, Now(), '[serverip]', '[bantype_str]', '[reason]', '[job]', [(duration)?"[duration]":"0"], [(rounds)?"[rounds]":"0"], Now() + INTERVAL [(duration>0) ? duration : 0] MINUTE, '[ckey]', '[computerid]', '[ip]', '[a_ckey]', '[a_computerid]', '[a_ip]', '[who]', '[adminwho]', '', null, null, null, null, null)"
 	var/DBQuery/query_insert = dbcon.NewQuery(sql)
 	query_insert.Execute()
-	usr << "\blue Ban saved to database."
+	usr << "<span class='notice'>Ban saved to database.</span>"
 	message_admins("[key_name_admin(usr)] has added a [bantype_str] for [ckey] [(job)?"([job])":""] [(duration > 0)?"([duration] minutes)":""] with the reason: \"[reason]\" to the ban database.",1)
 
-
-
-datum/admins/proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
+/proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
 
 	if(!check_rights(R_BAN))	return
 
@@ -141,22 +151,22 @@ datum/admins/proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
 		ban_number++;
 
 	if(ban_number == 0)
-		usr << "\red Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin."
+		usr << "<span class='warning'>Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin.</span>"
 		return
 
 	if(ban_number > 1)
-		usr << "\red Database update failed due to multiple bans fitting the search criteria. Note down the ckey, job and current time and contact the database admin."
+		usr << "<span class='warning'>Database update failed due to multiple bans fitting the search criteria. Note down the ckey, job and current time and contact the database admin.</span>"
 		return
 
 	if(istext(ban_id))
 		ban_id = text2num(ban_id)
 	if(!isnum(ban_id))
-		usr << "\red Database update failed due to a ban ID mismatch. Contact the database admin."
+		usr << "<span class='warning'>Database update failed due to a ban ID mismatch. Contact the database admin.</span>"
 		return
 
 	DB_ban_unban_by_id(ban_id)
 
-datum/admins/proc/DB_ban_edit(var/banid = null, var/param = null)
+/proc/DB_ban_edit(var/banid = null, var/param = null)
 
 	if(!check_rights(R_BAN))	return
 
@@ -216,17 +226,17 @@ datum/admins/proc/DB_ban_edit(var/banid = null, var/param = null)
 			usr << "Cancelled"
 			return
 
-datum/admins/proc/DB_ban_unban_by_id(var/id)
+/proc/DB_ban_unban_by_id(var/id)
 
 	if(!check_rights(R_BAN))	return
 
-	var/sql = "SELECT ckey, bantype FROM ss13_ban WHERE id = [id]"
+	var/sql = "SELECT ckey, bantype, job FROM ss13_ban WHERE id = [id]"
 
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		return
 
-	var/reason = input("Please specify an unban reason.", "Unban Reason", "Unbanned as per appear.")
+	var/reason = input("Please specify an unban reason.", "Unban Reason", "Unbanned as per appeal.")
 	if (!reason)
 		usr << "<span class='warning'>Invalid reason given. Cancelled.</span>"
 		return
@@ -235,27 +245,34 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 	var/pckey
 	var/ban_type
+	var/job		// This is for integrating the static jobban API into this.
 	var/DBQuery/query = dbcon.NewQuery(sql)
 	query.Execute()
 	while(query.NextRow())
 		pckey = query.item[1]
 		ban_type = query.item[2]
+		job = query.item[3]
 		ban_number++;
 
 	if(ban_number == 0)
-		usr << "\red Database update failed due to a ban id not being present in the database."
+		usr << "<span class='warning'>Database update failed due to a ban id not being present in the database.</span>"
 		return
 
 	if(ban_number > 1)
-		usr << "\red Database update failed due to multiple bans having the same ID. Contact the database admin."
+		usr << "<span class='warning'>Database update failed due to multiple bans having the same ID. Contact the database admin.</span>"
 		return
 
-	if(!src.owner || !istype(src.owner, /client))
-		return
+	var/datum/admins/holder = null
 
-	var/unban_ckey = src.owner:ckey
-	var/unban_computerid = src.owner:computer_id
-	var/unban_ip = src.owner:address
+	if (usr)
+		holder = usr.client ? usr.client.holder : null
+
+		if (!holder)
+			return
+
+	var/unban_ckey = holder ? holder.owner.ckey : "Adminbot"
+	var/unban_computerid = holder ? holder.owner.computer_id : ""
+	var/unban_ip = holder ? holder.owner.address : world.address
 	var/unban_reason = sanitizeSQL(reason)
 
 	var/sql_update = "UPDATE ss13_ban SET unbanned = 1, unbanned_datetime = Now(), unbanned_ckey = '[unban_ckey]', unbanned_computerid = '[unban_computerid]', unbanned_ip = '[unban_ip]', unbanned_reason = '[unban_reason]' WHERE id = [id]"
@@ -265,6 +282,10 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 	query_update.Execute()
 
 	notes_add_sql(ckey(pckey), "[ban_type] (#[id]) lifted. Reason for unban: [reason].", usr)
+
+	// If we're lifting a jobban, update the local array of bans.
+	if ((ban_type == "JOB_TEMPBAN" || ban_type == "JOB_PERMABAN") && job)
+		jobban_unban(pckey, job)
 
 /client/proc/DB_ban_panel()
 	set category = "Admin"
@@ -285,7 +306,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
-		usr << "\red Failed to establish database connection"
+		usr << "<span class='warning'>Failed to establish database connection</span>"
 		return
 
 	var/output = "<div align='center'><table width='90%'><tr>"
@@ -366,30 +387,27 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 			var/alcolor = "#eeeeff" // auto-unbanned light
 			var/adcolor = "#ddddff" // auto-unbanned dark
 
-			output += "<table width='90%' bgcolor='#e3e3e3' cellpadding='5' cellspacing='0' align='center'>"
-			output += "<tr>"
-			output += "<th width='25%'><b>TYPE</b></th>"
-			output += "<th width='20%'><b>CKEY</b></th>"
-			output += "<th width='20%'><b>TIME APPLIED</b></th>"
-			output += "<th width='20%'><b>ADMIN</b></th>"
-			output += "<th width='15%'><b>OPTIONS</b></th>"
-			output += "</tr>"
-
 			var/adminsearch = ""
 			var/playersearch = ""
 			var/ipsearch = ""
 			var/cidsearch = ""
 			var/bantypesearch = ""
+			var/mirror_player = ""
+			var/mirror_ip = ""
+			var/mirror_cid = ""
 
 			if(!match)
 				if(adminckey)
 					adminsearch = "AND a_ckey = '[adminckey]' "
 				if(playerckey)
 					playersearch = "AND ckey = '[playerckey]' "
+					mirror_player = "AND mirrors.ckey = '[playerckey]' "
 				if(playerip)
 					ipsearch  = "AND ip = '[playerip]' "
+					mirror_ip = "AND mirrors.ip = '[playerip]' "
 				if(playercid)
 					cidsearch  = "AND computerid = '[playercid]' "
+					mirror_cid = "AND mirrors.computerid = '[playercid]'"
 			else
 				if(adminckey && lentext(adminckey) >= 3)
 					adminsearch = "AND a_ckey LIKE '[adminckey]%' "
@@ -412,6 +430,42 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 						bantypesearch += "'JOB_TEMPBAN' "
 					else
 						bantypesearch += "'PERMABAN' "
+
+			/**
+			 * Do mirror checks first! Basically find active mirrors and add those to the output before we proceed onto finding bans.
+			 */
+			if (!match)
+				var/DBQuery/mirror_query = dbcon.NewQuery({"SELECT DISTINCT(mirrors.ban_id), bans.ckey FROM ss13_ban_mirrors mirrors
+					JOIN ss13_ban bans ON mirrors.ban_id = bans.id
+					WHERE (1 [mirror_player] [mirror_ip] [mirror_cid])
+					AND (
+						ISNULL(bans.unbanned) AND (
+							(bans.bantype = 'PERMABAN')
+							OR
+							(bans.bantype = 'TEMPBAN' AND bans.expiration_time > NOW())
+						)
+					)"})
+				mirror_query.Execute()
+
+				var/mirror_count = 0
+				var/mirror_data = "<br>"
+				while (mirror_query.NextRow())
+					mirror_data += "Active mirror for #[mirror_query.item[1]] (<a href='?src=\ref[src];dbsearchckey=[mirror_query.item[2]];'>View Ban</a>)<br>"
+					mirror_count++
+
+				if (mirror_count)
+					output += "<div style=\"text-align:center\"><b>[mirror_count] Active Mirrors Found!</b><br>"
+					output += mirror_data
+					output += "<br>"
+
+			output += "<table width='90%' bgcolor='#e3e3e3' cellpadding='5' cellspacing='0' align='center'>"
+			output += "<tr>"
+			output += "<th width='25%'><b>TYPE</b></th>"
+			output += "<th width='20%'><b>CKEY</b></th>"
+			output += "<th width='20%'><b>TIME APPLIED</b></th>"
+			output += "<th width='20%'><b>ADMIN</b></th>"
+			output += "<th width='15%'><b>OPTIONS</b></th>"
+			output += "</tr>"
 
 			var/DBQuery/select_query = dbcon.NewQuery("SELECT id, bantime, bantype, reason, job, duration, expiration_time, ckey, a_ckey, unbanned, unbanned_ckey, unbanned_datetime, unbanned_reason, edits, ip, computerid FROM ss13_ban WHERE 1 [playersearch] [adminsearch] [ipsearch] [cidsearch] [bantypesearch] ORDER BY bantime DESC LIMIT 100")
 			select_query.Execute()
@@ -494,8 +548,8 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 					output += "</tr>"
 				if (bantype in list("PERMABAN", "TEMPBAN"))
 					var/mirror_count = 0
-					var/DBQuery/get_mirrors = dbcon.NewQuery("SELECT ban_mirror_id FROM ss13_ban_mirrors WHERE ban_id = :ban_id")
-					get_mirrors.Execute(list(":ban_id" = text2num(banid)))
+					var/DBQuery/get_mirrors = dbcon.NewQuery("SELECT id FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
+					get_mirrors.Execute(list("ban_id" = text2num(banid)))
 
 					while (get_mirrors.NextRow())
 						mirror_count++

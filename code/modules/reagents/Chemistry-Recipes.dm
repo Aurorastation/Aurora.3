@@ -96,7 +96,7 @@
 
 	return progress
 
-/datum/chemical_reaction/proc/process(var/datum/reagents/holder)
+/datum/chemical_reaction/process(var/datum/reagents/holder)
 	//determine how far the reaction can proceed
 	var/list/reaction_limits = list()
 	for(var/reactant in required_reagents)
@@ -1082,13 +1082,15 @@
 	/mob/living/simple_animal/hostile/syndicate/ranged/space,
 	/mob/living/simple_animal/hostile/alien/queen/large,
 	/mob/living/simple_animal/hostile/faithless,
+	/mob/living/simple_animal/hostile/faithless/wizard,
 	/mob/living/simple_animal/hostile/retaliate,
 	/mob/living/simple_animal/hostile/retaliate/clown,
 	/mob/living/simple_animal/hostile/alien,
 	/mob/living/simple_animal/hostile/alien/drone,
 	/mob/living/simple_animal/hostile/alien/sentinel,
 	/mob/living/simple_animal/hostile/alien/queen,
-	/mob/living/simple_animal/hostile/alien/queen/large
+	/mob/living/simple_animal/hostile/alien/queen/large,
+	/mob/living/simple_animal/hostile/true_changeling
 	)//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
@@ -1506,6 +1508,13 @@
 	result = "beerbatter"
 	required_reagents = list("egg" = 3, "flour" = 10, "beer" = 5, "sodiumchloride" = 2)
 	result_amount = 20
+
+/datum/chemical_reaction/browniemix
+	name = "Brownie Mix"
+	id = "browniemix"
+	result = "browniemix"
+	required_reagents = list("flour" = 5, "coco" = 5, "sugar" = 5)
+	result_amount = 15
 
 /*
 	Todo in future:
@@ -2144,11 +2153,18 @@
 /////////////////////////////////////////Brightdawns super cool coffee drinks//////////////////////////////////////////////
 
 /datum/chemical_reaction/white_coffee
-	name = "Café Au Lait"
+	name = "Cafe Au Lait"
 	id = "white_coffee"
 	result = "white_coffee"
-	required_reagents = list("milk" = 1, "blackcoffee" = 2)
-	result_amount = 2
+	required_reagents = list("milk" = 1, "black_coffee" = 2)
+	result_amount = 3
+
+/datum/chemical_reaction/cafe_melange
+	name = "Cafe Melange"
+	id = "cafe_melange"
+	result = "cafe_melange"
+	required_reagents = list("cream" = 1, "black_coffee" = 2)
+	result_amount = 3
 
 //aurora's drinks
 

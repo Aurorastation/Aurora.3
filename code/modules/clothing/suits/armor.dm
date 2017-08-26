@@ -27,7 +27,7 @@
 	if (pockets)
 		qdel(pockets)
 		pockets = null
-	..()
+	return ..()
 
 /obj/item/clothing/suit/armor/attack_hand(mob/user as mob)
 	if (pockets)
@@ -225,11 +225,11 @@
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	src.active = !( src.active )
 	if (src.active)
-		user << "\blue The reactive armor is now active."
+		user << "<span class='notice'>The reactive armor is now active.</span>"
 		src.icon_state = "reactive"
 		src.item_state = "reactive"
 	else
-		user << "\blue The reactive armor is now inactive."
+		user << "<span class='notice'>The reactive armor is now inactive.</span>"
 		src.icon_state = "reactiveoff"
 		src.item_state = "reactiveoff"
 		src.add_fingerprint(user)
@@ -380,6 +380,14 @@
 	item_state = "detectivevest_nobadge"
 	icon_badge = "detectivevest_badge"
 	icon_nobadge = "detectivevest_nobadge"
+
+/obj/item/clothing/suit/storage/vest/csi
+	name = "forensic technician armor vest"
+	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a forensic technician's badge clipped to the chest."
+	icon_state = "csivest_nobadge"
+	item_state = "csivest_nobadge"
+	icon_badge = "csivest_badge"
+	icon_nobadge = "csivest_nobadge"
 
 /obj/item/clothing/suit/storage/vest/heavy
 	name = "heavy armor vest"

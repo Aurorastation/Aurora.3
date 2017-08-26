@@ -7,7 +7,7 @@ var/list/datum/puddle/puddles = list()
 datum/puddle
 	var/list/obj/effect/liquid/liquid_objects = list()
 
-datum/puddle/proc/process()
+datum/puddle/process()
 	//world << "DEBUG: Puddle process!"
 	for(var/obj/effect/liquid/L in liquid_objects)
 		L.spread()
@@ -26,7 +26,7 @@ datum/puddle/Destroy()
 	puddles -= src
 	for(var/obj/O in liquid_objects)
 		qdel(O)
-	..()
+	return ..()
 
 client/proc/splash()
 	var/volume = input("Volume?","Volume?", 0 ) as num
@@ -133,7 +133,7 @@ obj/effect/liquid/Move()
 
 obj/effect/liquid/Destroy()
 	src.controller.liquid_objects.Remove(src)
-	..()
+	return ..()
 
 obj/effect/liquid/proc/update_icon2()
 	//icon_state = num2text( max(1,min(7,(floor(volume),10)/10)) )

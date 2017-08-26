@@ -64,7 +64,7 @@
 
 		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been attacked with [src.name] by [user.name] ([user.ckey])</font>")
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attack [M.name] ([M.ckey])</font>")
-		msg_admin_attack("[user.name] ([user.ckey]) used the [src.name] to attack [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
+		msg_admin_attack("[key_name_admin(user)] used the [src.name] to attack [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 		if(prob(15))
 			if(!issilicon(M)) M.Weaken(3)
@@ -121,7 +121,7 @@
 			return
 
 	else if (!issilicon(M))//No eye or head protection, tough luck!
-		M << "\red You get slammed in the face with the tray!"
+		M << "<span class='danger'>You get slammed in the face with the tray!</span>"
 		if(prob(33))
 			src.add_blood(M)
 			var/turf/location = H.loc
@@ -238,8 +238,8 @@
 	user.remove_from_mob(I)
 	I.loc = src
 	current_weight += I.w_class
-	carrying.Add(I)
-	overlays += image("icon" = I.icon, "icon_state" = I.icon_state, "layer" = 30 + I.layer, "pixel_x" = I.pixel_x, "pixel_y" = I.pixel_y)
+	carrying += I
+	add_overlay(image("icon" = I.icon, "icon_state" = I.icon_state, "layer" = 30 + I.layer, "pixel_x" = I.pixel_x, "pixel_y" = I.pixel_y))
 	//rand(0, (max_offset_y*2)-3)-(max_offset_y)-3
 
 /obj/item/weapon/tray/verb/unload()
@@ -255,8 +255,9 @@
 
 		for(var/obj/item/I in carrying)
 			I.loc = dropspot
-			carrying.Remove(I)
-		overlays.Cut()
+			carrying -= I
+
+		cut_overlays()
 		current_weight = 0
 		usr.visible_message("[usr] unloads the tray.", "You unload the tray.")
 
@@ -270,7 +271,9 @@
 
 		for(var/obj/item/I in carrying)
 			I.loc = dropspot
-			carrying.Remove(I)
+			carrying -= I
+
+		cut_overlays()
 		overlays.Cut()
 		current_weight = 0
 		usr.visible_message("[usr] unloads the tray.", "You unload the tray.")
@@ -281,7 +284,7 @@
 	//its also called when a cyborg uses its tray on the floor
 	if (current_weight > 0)//can't spill a tray with nothing on it
 
-		overlays.Cut()
+		cut_overlays()
 
 		//First we have to find where the items are being dropped, unless a location has been passed in
 		if (!dropspot)

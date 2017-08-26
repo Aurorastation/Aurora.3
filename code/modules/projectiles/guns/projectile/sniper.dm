@@ -18,6 +18,8 @@
 	scoped_accuracy = 2
 	var/bolt_open = 0
 
+	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+
 	recoil_wielded = 2
 	accuracy_wielded = -1
 
@@ -27,7 +29,9 @@
 /obj/item/weapon/gun/projectile/heavysniper/can_wield()
 	return 1
 
-
+/obj/item/weapon/gun/projectile/heavysniper/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
 
 /obj/item/weapon/gun/projectile/heavysniper/verb/wield_rifle()
 	set name = "Wield rifle"
@@ -35,12 +39,18 @@
 	set src in usr
 
 	toggle_wield(usr)
+	usr.update_icon()
 
 /obj/item/weapon/gun/projectile/heavysniper/update_icon()
 	if(bolt_open)
 		icon_state = "heavysniper-open"
 	else
 		icon_state = "heavysniper"
+	if(wielded)
+		item_state = "heavysniper-wielded"
+	else
+		item_state = "heavysniper"
+	update_held_icon()
 
 /obj/item/weapon/gun/projectile/heavysniper/attack_self(mob/user as mob)
 	playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
@@ -120,3 +130,8 @@
 		icon_state = "tranqsniper-open"
 	else
 		icon_state = "tranqsniper"
+	if(wielded)
+		item_state = "heavysniper-wielded"
+	else
+		item_state = "heavysniper"
+	update_held_icon()

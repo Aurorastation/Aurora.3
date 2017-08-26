@@ -14,10 +14,6 @@
 
 	consume_range = 6
 
-/obj/singularity/narsie/large/exit/New()
-	..()
-	processing_objects.Add(src)
-
 /obj/singularity/narsie/large/exit/update_icon()
 	overlays = 0
 

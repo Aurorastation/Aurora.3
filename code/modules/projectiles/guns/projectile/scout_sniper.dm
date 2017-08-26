@@ -35,3 +35,10 @@
 		toggle_scope(2.0, usr)
 	else
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+
+/obj/item/weapon/gun/projectile/automatic/rifle/w556/update_icon()
+	if(wielded)
+		item_state = "heavysniper-wielded"
+	else
+		item_state = "heavysniper"
+	update_held_icon()

@@ -97,7 +97,8 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/self_destruct
+		/obj/item/rig_module/self_destruct,
+		/obj/item/rig_module/actuators/combat
 		)
 
 	..()

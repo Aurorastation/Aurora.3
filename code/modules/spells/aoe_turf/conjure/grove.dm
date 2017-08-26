@@ -22,7 +22,7 @@
 	if(seed_type)
 		seed = new seed_type()
 	else
-		seed = plant_controller.create_random_seed(1)
+		seed = SSplants.create_random_seed(1)
 
 /spell/aoe_turf/conjure/grove/before_cast()
 	var/turf/T = get_turf(holder)
@@ -61,7 +61,7 @@
 	chems = list("bicaridine" = list(3,7), "dermaline" = list(3,7), "anti_toxin" = list(3,7), "tricordrazine" = list(3,7), "alkysine" = list(1,2), "imidazoline" = list(1,2), "peridaxon" = list(4,5))
 	kitchen_tag = "berries"
 
-/datum/seed/merlin_tear/New()
+/datum/seed/merlin_tear/setup_traits()
 	..()
 	set_trait(TRAIT_PLANT_ICON,"bush5")
 	set_trait(TRAIT_PRODUCT_ICON,"berry")
@@ -73,3 +73,20 @@
 	set_trait(TRAIT_POTENCY,10)
 	set_trait(TRAIT_HARVEST_REPEAT,1)
 	set_trait(TRAIT_IMMUTABLE,1)
+
+/spell/aoe_turf/conjure/grove/gestalt
+	name = "Convert Gestalt"
+	desc = "Converts the surrounding area into a Dionaea gestalt."
+
+	school = "conjuration"
+	spell_flags = 0
+	invocation_type = SpI_EMOTE
+	invocation = "rumbles as green alien plants grow quickly along the floor."
+
+	charge_type = Sp_HOLDVAR
+
+	spell_flags = Z2NOCAST | IGNOREPREV | IGNOREDENSE
+	summon_type = list(/turf/simulated/floor/diona)
+	seed_type = /datum/seed/diona
+
+	hud_state = "wiz_diona"

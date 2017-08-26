@@ -12,7 +12,7 @@
 	idle_power_usage = 15000
 	active_power_usage = 15000
 
-/obj/machinery/bluespacerelay/process()
+/obj/machinery/bluespacerelay/machinery_process()
 
 	update_power()
 

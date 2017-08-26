@@ -17,15 +17,17 @@
 	if(istype(rig))
 		rig.forced_move(direction, user)
 
-/obj/item/device/paicard/New()
-	..()
-	overlays += "pai-off"
+/obj/item/device/paicard/Initialize()
+	. = ..()
+	add_overlay("pai_off")
+	SSpai.all_pai_devices += src
 
 /obj/item/device/paicard/Destroy()
+	SSpai.all_pai_devices -= src
 	//Will stop people throwing friend pAIs into the singularity so they can respawn
-	if(!isnull(pai))
+	if(pai)
 		pai.death(0)
-	..()
+	return ..()
 
 /obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
 	if(istype(C, /obj/item/weapon/card/id))
@@ -53,16 +55,16 @@
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
-	pai.ID.access.Cut()
-	pai.ID.access = card.access.Copy()
-	pai.ID.registered_name = card.registered_name
+	pai.idcard.access.Cut()
+	pai.idcard.access = card.access.Copy()
+	pai.idcard.registered_name = card.registered_name
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-	user << "<span class='notice'>ID Registration for [pai.ID.registered_name] is a success. PAI access updated!</span>"
+	user << "<span class='notice'>ID Registration for [pai.idcard.registered_name] is a success. PAI access updated!</span>"
 	return 1
 
 /obj/item/device/paicard/proc/ID_readout()
-	if (pai.ID.registered_name)
-		return "<span class='notice'>Identity of owner: [pai.ID.registered_name] registered.</span>"
+	if (pai.idcard.registered_name)
+		return "<span class='notice'>Identity of owner: [pai.idcard.registered_name] registered.</span>"
 	else
 		return "<span class='warning'>No ID card registered! Please scan your ID to share access.</span>"
 
@@ -284,7 +286,7 @@
 			pai << "<font color = red><h3>You have been bound to a new master.</h3></font>"
 	if(href_list["request"])
 		src.looking_for_personality = 1
-		paiController.findPAI(src, usr)
+		SSpai.findPAI(src, usr)
 	if(href_list["wipe"])
 		var/confirm = input("Are you CERTAIN you wish to delete the current personality? This action cannot be undone.", "Personality Wipe") in list("Yes", "No")
 		if(confirm == "Yes")
@@ -320,34 +322,37 @@
 
 /obj/item/device/paicard/proc/setPersonality(mob/living/silicon/pai/personality)
 	src.pai = personality
-	src.overlays += "pai-happy"
+	add_overlay("pai-happy")
 
 /obj/item/device/paicard/proc/removePersonality()
 	src.pai = null
-	src.overlays.Cut()
-	src.overlays += "pai-off"
+	cut_overlays()
+	add_overlay("pai-off")
 
 /obj/item/device/paicard
 	var/current_emotion = 1
 /obj/item/device/paicard/proc/setEmotion(var/emotion)
 	if(pai)
-		src.overlays.Cut()
+		cut_overlays()
+		var/new_state
 		switch(emotion)
-			if(1) src.overlays += "pai-happy"
-			if(2) src.overlays += "pai-cat"
-			if(3) src.overlays += "pai-extremely-happy"
-			if(4) src.overlays += "pai-face"
-			if(5) src.overlays += "pai-laugh"
-			if(6) src.overlays += "pai-off"
-			if(7) src.overlays += "pai-sad"
-			if(8) src.overlays += "pai-angry"
-			if(9) src.overlays += "pai-what"
-			if(10) src.overlays += "pai-neutral"
-			if(11) src.overlays += "pai-silly"
-			if(12) src.overlays += "pai-nose"
-			if(13) src.overlays += "pai-smirk"
-			if(14) src.overlays += "pai-exclamation"
-			if(15) src.overlays += "pai-question"
+			if(1) new_state = "pai-happy"
+			if(2) new_state = "pai-cat"
+			if(3) new_state = "pai-extremely-happy"
+			if(4) new_state = "pai-face"
+			if(5) new_state = "pai-laugh"
+			if(6) new_state = "pai-off"
+			if(7) new_state = "pai-sad"
+			if(8) new_state = "pai-angry"
+			if(9) new_state = "pai-what"
+			if(10) new_state = "pai-neutral"
+			if(11) new_state = "pai-silly"
+			if(12) new_state = "pai-nose"
+			if(13) new_state = "pai-smirk"
+			if(14) new_state = "pai-exclamation"
+			if(15) new_state = "pai-question"
+		if (new_state)
+			add_overlay(new_state)
 		current_emotion = emotion
 
 /obj/item/device/paicard/proc/alertUpdate()

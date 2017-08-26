@@ -53,7 +53,7 @@
 		if (t)
 			src.name = "body bag - "
 			src.name += t
-			src.overlays += image(src.icon, "bodybag_label")
+			add_overlay("bodybag_label")
 		else
 			src.name = "body bag"
 	//..() //Doesn't need to run the parent. Since when can fucking bodybags be welded shut? -Agouri
@@ -61,7 +61,7 @@
 	else if(istype(W, /obj/item/weapon/wirecutters))
 		user << "You cut the tag off the bodybag"
 		src.name = "body bag"
-		src.overlays.Cut()
+		cut_overlays()
 		return
 
 /obj/structure/closet/body_bag/store_mobs(var/stored_units)

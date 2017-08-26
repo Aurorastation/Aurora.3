@@ -5,7 +5,7 @@
 	name = "Toggle Station Artificial Gravity"
 
 /datum/admin_secret_item/random_event/gravity/can_execute(var/mob/user)
-	if(!(ticker && ticker.mode))
+	if(!(SSticker.mode))
 		return 0
 
 	return ..()
@@ -16,7 +16,7 @@
 		return
 
 	gravity_is_on = !gravity_is_on
-	for(var/area/A in world)
+	for(var/area/A in all_areas)
 		A.gravitychange(gravity_is_on,A)
 
 	feedback_inc("admin_secrets_fun_used",1)

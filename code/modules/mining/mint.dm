@@ -20,22 +20,17 @@
 	var/chosen = DEFAULT_WALL_MATERIAL //which material will be used to make coins
 	var/coinsToProduce = 10
 
+/obj/machinery/mineral/mint/Initialize()
+	. = ..()
+	for (var/dir in cardinal)
+		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
+		if(src.input) break
+	for (var/dir in cardinal)
+		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
+		if(src.output) break
+	processing_objects.Add(src)
 
-/obj/machinery/mineral/mint/New()
-	..()
-	spawn( 5 )
-		for (var/dir in cardinal)
-			src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-			if(src.input) break
-		for (var/dir in cardinal)
-			src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-			if(src.output) break
-		processing_objects.Add(src)
-		return
-	return
-
-
-/obj/machinery/mineral/mint/process()
+/obj/machinery/mineral/mint/machinery_process()
 	if ( src.input)
 		var/obj/item/stack/O
 		O = locate(/obj/item/stack, input.loc)
@@ -120,7 +115,7 @@
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
 	if(processing==1)
-		usr << "\blue The machine is processing."
+		usr << "<span class='notice'>The machine is processing.</span>"
 		return
 	if(href_list["choose"])
 		chosen = href_list["choose"]

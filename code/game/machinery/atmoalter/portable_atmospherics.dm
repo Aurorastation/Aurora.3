@@ -12,28 +12,23 @@
 	var/start_pressure = ONE_ATMOSPHERE
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
 
-/obj/machinery/portable_atmospherics/New()
-	..()
-
-	air_contents.volume = volume
-	air_contents.temperature = T20C
-
-	return 1
-
 /obj/machinery/portable_atmospherics/Destroy()
 	qdel(air_contents)
 	qdel(holding)
-	..()
+	return ..()
 
-/obj/machinery/portable_atmospherics/initialize()
+/obj/machinery/portable_atmospherics/Initialize()
 	. = ..()
-	spawn()
-		var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
-		if(port)
-			connect(port)
-			update_icon()
 
-/obj/machinery/portable_atmospherics/process()
+	air_contents.volume = volume
+	air_contents.temperature = T20C
+	
+	var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
+	if(port)
+		connect(port)
+		update_icon()
+
+/obj/machinery/portable_atmospherics/machinery_process()
 	if(!connected_port) //only react when pipe_network will ont it do it for you
 		//Allow for reactions
 		air_contents.react()
@@ -43,7 +38,7 @@
 /obj/machinery/portable_atmospherics/Destroy()
 	qdel(air_contents)
 
-	..()
+	return ..()
 
 /obj/machinery/portable_atmospherics/proc/StandardAirMix()
 	return list(
@@ -148,6 +143,7 @@
 	var/power_losses
 	var/last_power_draw = 0
 	var/obj/item/weapon/cell/cell
+	has_special_power_checks = TRUE
 
 /obj/machinery/portable_atmospherics/powered/powered()
 	if(use_power) //using area power
@@ -200,4 +196,4 @@
 		user = usr
 
 	log_admin("[user] ([user.ckey]) opened '[src.name]' containing [gases].", ckey=key_name(user))
-	message_admins("[user] ([user.ckey]) opened '[src.name]' containing [gases]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+	message_admins("[key_name_admin(user)] opened '[src.name]' containing [gases]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")

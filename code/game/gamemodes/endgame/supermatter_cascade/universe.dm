@@ -14,10 +14,10 @@ var/global/universe_has_ended = 0
 
 /datum/universal_state/supermatter_cascade/OnTurfChange(var/turf/T)
 	if(T.name == "space")
-		T.overlays += image(icon = T.icon, icon_state = "end01")
+		T.add_overlay("end01")
 		T.underlays -= "end01"
 	else
-		T.overlays -= image(icon = T.icon, icon_state = "end01")
+		T.cut_overlay("end01")
 
 /datum/universal_state/supermatter_cascade/DecayTurf(var/turf/T)
 	if(istype(T,/turf/simulated/wall))
@@ -36,8 +36,8 @@ var/global/universe_has_ended = 0
 
 // Apply changes when entering state
 /datum/universal_state/supermatter_cascade/OnEnter()
-	set background = 1
-	garbage_collector.garbage_collect = 0
+	SSgarbage.disable()
+
 	world << "<span class='sinister' style='font-size:22pt'>You are blinded by a brilliant flash of energy.</span>"
 
 	world << sound('sound/effects/cascade.ogg')
@@ -60,8 +60,14 @@ var/global/universe_has_ended = 0
 	PlayerSet()
 
 	new /obj/singularity/narsie/large/exit(pick(endgame_exits))
-	spawn(rand(30,60) SECONDS)
-		var/txt = {"
+	var/time = rand(30, 60)
+	log_debug("universal_state/cascade: Announcing to world in [time] seconds.")
+	log_debug("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")
+	addtimer(CALLBACK(src, .proc/announce_to_world), time SECONDS)
+	addtimer(CALLBACK(src, .proc/end_universe), time SECONDS + 5 MINUTES)
+
+/datum/universal_state/supermatter_cascade/proc/announce_to_world()
+	var/txt = {"
 There's been a galaxy-wide electromagnetic pulse.  All of our systems are heavily damaged and many personnel are dead or dying. We are seeing increasing indications of the universe itself beginning to unravel.
 
 [station_name()], you are the only facility nearby a bluespace rift, which is near your research outpost. You are hereby directed to enter the rift using all means necessary, quite possibly as the last of your species alive.
@@ -71,38 +77,37 @@ You have five minutes before the universe collapses. Good l\[\[###!!!-
 AUTOMATED ALERT: Link to [command_name()] lost.
 
 The access requirements on the Asteroid Shuttles' consoles have now been revoked.
-"}
-		priority_announcement.Announce(txt,"SUPERMATTER CASCADE DETECTED")
+	"}
+	priority_announcement.Announce(txt,"SUPERMATTER CASCADE DETECTED")
 
-		for(var/obj/machinery/computer/shuttle_control/C in machines)
-			if(istype(C, /obj/machinery/computer/shuttle_control/research) || istype(C, /obj/machinery/computer/shuttle_control/mining))
-				C.req_access = list()
-				C.req_one_access = list()
+	for(var/obj/machinery/computer/shuttle_control/C in SSmachinery.processing_machines)
+		if(istype(C, /obj/machinery/computer/shuttle_control/research) || istype(C, /obj/machinery/computer/shuttle_control/mining))
+			C.req_access = list()
+			C.req_one_access = list()
 
-		spawn(5 MINUTES)
-			ticker.station_explosion_cinematic(0,null) // TODO: Custom cinematic
-			universe_has_ended = 1
-		return
+/datum/universal_state/supermatter_cascade/proc/end_universe()
+	SSticker.station_explosion_cinematic(0, null, config.player_levels) // TODO: Custom cinematic
+	universe_has_ended = 1
 
 /datum/universal_state/supermatter_cascade/proc/AreaSet()
 	for(var/area/A in all_areas)
 		if(!istype(A,/area) || istype(A, /area/space) || istype(A,/area/beach))
 			continue
 
-		A.updateicon()
+		A.queue_icon_update()
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/OverlayAndAmbientSet()
 	set waitfor = FALSE
 	for(var/turf/T in turfs)
 		if(istype(T, /turf/space))
-			T.overlays += image(icon = T.icon, icon_state = "end01")
+			T.add_overlay("end01")
 		else
 			if (!(T.z in config.admin_levels))
 				T.underlays += "end01"
 		CHECK_TICK
 
-	for(var/datum/lighting_corner/C in global.all_lighting_corners)
+	for(var/datum/lighting_corner/C in SSlighting.lighting_corners)
 		if (!C.active)
 			continue
 
@@ -111,13 +116,13 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/MiscSet()
-	for (var/obj/machinery/firealarm/alm in machines)
+	for (var/obj/machinery/firealarm/alm in SSmachinery.processing_machines)
 		if (!(alm.stat & BROKEN))
 			alm.ex_act(2)
 		CHECK_TICK
 
 /datum/universal_state/supermatter_cascade/proc/APCSet()
-	for (var/obj/machinery/power/apc/APC in machines)
+	for (var/obj/machinery/power/apc/APC in SSmachinery.processing_machines)
 		if (!(APC.stat & BROKEN) && !APC.is_critical)
 			APC.chargemode = 0
 			if(APC.cell)

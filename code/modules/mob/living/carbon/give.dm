@@ -5,7 +5,7 @@
 	if(incapacitated())
 		return
 	if(!istype(target) || target.stat || target.lying || target.resting || target.restrained() || target.client == null)
-		usr << "\red [target.name] is in no condition to handle items!"
+		usr << "<span class='warning'>[target.name] is in no condition to handle items!</span>"
 		return
 
 	var/obj/item/I = usr.get_active_hand()

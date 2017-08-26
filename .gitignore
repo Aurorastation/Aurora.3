@@ -1,14 +1,18 @@
 #ignore misc BYOND files
 Thumbs.db
 *.log
-*.int
 *.rsc
+*.int
 *.dmb
 *.lk
 *.backup
+*.before
 data/
 cfg/
 build_log.txt
 
+__pycache__/
+*.py[cod]
+*$py.class
 /.atom-build.json
 .vscode/

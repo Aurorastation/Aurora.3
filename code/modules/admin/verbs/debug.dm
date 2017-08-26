@@ -29,11 +29,11 @@
 
 	var/datum/gas_mixture/env = T.return_air()
 
-	var/t = "\blue Coordinates: [T.x],[T.y],[T.z]\n"
-	t += "\red Temperature: [env.temperature]\n"
-	t += "\red Pressure: [env.return_pressure()]kPa\n"
+	var/t = "<span class='notice'>Coordinates: [T.x],[T.y],[T.z]\n</span>"
+	t += "<span class='warning'>Temperature: [env.temperature]\n</span>"
+	t += "<span class='warning'>Pressure: [env.return_pressure()]kPa\n</span>"
 	for(var/g in env.gas)
-		t += "\blue [g]: [env.gas[g]] / [env.gas[g] * R_IDEAL_GAS_EQUATION * env.temperature / env.volume]kPa\n"
+		t += "<span class='notice'>[g]: [env.gas[g]] / [env.gas[g] * R_IDEAL_GAS_EQUATION * env.temperature / env.volume]kPa\n</span>"
 
 	usr.show_message(t, 1)
 	feedback_add_details("admin_verb","ASL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -42,7 +42,7 @@
 	set category = "Fun"
 	set name = "Make Robot"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon/human))
@@ -57,7 +57,7 @@
 	set category = "Fun"
 	set name = "Make Simple Animal"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 
@@ -78,7 +78,7 @@
 	set category = "Fun"
 	set name = "Make Alien"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(ishuman(M))
@@ -87,7 +87,7 @@
 			M:Alienize()
 			feedback_add_details("admin_verb","MKAL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		log_admin("[key_name(usr)] made [key_name(M)] into an alien.",admin_key=key_name(usr),ckey=key_name(M))
-		message_admins("\blue [key_name_admin(usr)] made [key_name(M)] into an alien.", 1)
+		message_admins("<span class='notice'>[key_name_admin(usr)] made [key_name(M)] into an alien.</span>", 1)
 	else
 		alert("Invalid mob")
 
@@ -95,16 +95,14 @@
 	set category = "Fun"
 	set name = "Make slime"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(ishuman(M))
-		log_admin("[key_name(src)] has slimeized [M.key].",admin_key=key_name(usr))
+		log_and_message_admins("has slimeized [key_name(M)].", user = usr)
 		spawn(10)
 			M:slimeize()
 			feedback_add_details("admin_verb","MKMET") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-		log_admin("[key_name(usr)] made [key_name(M)] into a slime.",admin_key=key_name(usr),ckey=key_name(M))
-		message_admins("\blue [key_name_admin(usr)] made [key_name(M)] into a slime.", 1)
 	else
 		alert("Invalid mob")
 
@@ -113,7 +111,7 @@
 	set category = "Fun"
 	set name = "Make Monkey"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon/human))
@@ -128,7 +126,7 @@
 	set category = "Fun"
 	set name = "Make Changeling"
 
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon/human))
@@ -148,7 +146,7 @@
 
 	usr << "Ruby Mode disabled. Command aborted."
 	return
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts.")
 		return
 	if(istype(M, /mob/living/carbon/human))
@@ -166,7 +164,7 @@
 	if(!cultwords["travel"])
 		runerandom()
 	if(M)
-		if(M.mind in ticker.mode.cult)
+		if(M.mind in SSticker.mode.cult)
 			return
 		else
 			if(alert("Spawn that person a tome?",,"Yes","No")=="Yes")
@@ -195,7 +193,7 @@
 
 			if(M.mind)
 				M.mind.special_role = "Cultist"
-				ticker.mode.cult += M.mind
+				SSticker.mode.cult += M.mind
 			src << "Made [M] a cultist."
 */
 
@@ -210,9 +208,9 @@
 	if(hsbitem)
 		for(var/atom/O in world)
 			if(istype(O, hsbitem))
-				qdel(O)
-		log_admin("[key_name(src)] has deleted all instances of [hsbitem].",admin_key=key_name(usr))
-		message_admins("[key_name_admin(src)] has deleted all instances of [hsbitem].", 0)
+				qdel(O, TRUE)
+				CHECK_TICK
+		log_and_message_admins("has deleted all instances of [hsbitem].")
 	feedback_add_details("admin_verb","DELA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_debug_make_powernets()
@@ -236,7 +234,7 @@
 	set category = "Admin"
 	set name = "Grant Full Access"
 
-	if (!ticker)
+	if (!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if (istype(M, /mob/living/carbon/human))
@@ -261,7 +259,7 @@
 		alert("Invalid mob")
 	feedback_add_details("admin_verb","GFA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(src)] has granted [M.key] full access.",admin_key=key_name(usr),ckey=key_name(M))
-	message_admins("\blue [key_name_admin(usr)] has granted [M.key] full access.", 1)
+	message_admins("<span class='notice'>[key_name_admin(usr)] has granted [M.key] full access.</span>", 1)
 
 /client/proc/cmd_assume_direct_control(var/mob/M in mob_list)
 	set category = "Admin"
@@ -275,7 +273,7 @@
 		else
 			var/mob/dead/observer/ghost = new/mob/dead/observer(M,1)
 			ghost.ckey = M.ckey
-	message_admins("\blue [key_name_admin(usr)] assumed direct control of [M].", 1)
+	message_admins("<span class='notice'>[key_name_admin(usr)] assumed direct control of [M].</span>", 1)
 	log_admin("[key_name(usr)] assumed direct control of [M].",admin_key=key_name(usr))
 	var/mob/adminmob = src.mob
 	M.ckey = src.ckey
@@ -432,13 +430,13 @@
 			if (isnull(selected_job))
 				return
 
-			var/datum/job/job = job_master.GetJob(selected_job)
+			var/datum/job/job = SSjobs.GetJob(selected_job)
 			if(!job)
 				return
 
 			job.equip(M)
 			job.apply_fingerprints(M)
-			job_master.spawnId(M, selected_job)
+			SSjobs.spawnId(M, selected_job)
 
 		if ("standard space gear")
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(M), slot_shoes)
@@ -461,7 +459,7 @@
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/thunderdome(M), slot_head)
 
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pulse_rifle/destroyer(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/rifle/pulse/destroyer(M), slot_r_hand)
 			M.equip_to_slot_or_del(new /obj/item/weapon/material/knife(M), slot_l_hand)
 			M.equip_to_slot_or_del(new /obj/item/weapon/grenade/smokebomb(M), slot_r_store)
 
@@ -718,7 +716,7 @@
 			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/gun/nuclear(M.back), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/swat/peacekeeper(M.back), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/clothing/accessory/holster/hip(M.back), slot_in_backpack)
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/gun(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pistol(M.back), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/officer(M), slot_head)
 
 			var/obj/item/weapon/card/id/W = new(M)
@@ -774,7 +772,6 @@
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
 
-
 		if("odin security")
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/ccpolice(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper(M), slot_wear_suit)
@@ -803,8 +800,6 @@
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
 
-
-
 		if("special ops officer")
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/syndicate/combat(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/swat/officer(M), slot_wear_suit)
@@ -814,7 +809,7 @@
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/thermal/plain/eyepatch(M), slot_glasses)
 			M.equip_to_slot_or_del(new /obj/item/clothing/mask/smokable/cigarette/cigar/havana(M), slot_wear_mask)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/deathsquad/beret(M), slot_head)
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pulse_rifle/M1911(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pulse/pistol(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/weapon/flame/lighter/zippo(M), slot_r_store)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
 
@@ -826,6 +821,7 @@
 			W.assignment = "Special Operations Officer"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
+			
 		if("blue wizard")
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/lightpurple(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/wizrobe(M), slot_wear_suit)
@@ -861,6 +857,7 @@
 			M.equip_to_slot_or_del(new /obj/item/weapon/staff(M), slot_l_hand)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(M), slot_back)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box(M), slot_in_backpack)
+			
 		if("soviet admiral")
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/hgpiratecap(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/combat(M), slot_shoes)
@@ -883,7 +880,7 @@
 	M.regenerate_icons()
 
 	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [dresscode].",admin_key=key_name(usr),ckey=key_name(M))
-	message_admins("\blue [key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [dresscode]..", 1)
+	message_admins("<span class='notice'>[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [dresscode]..</span>", 1)
 	return
 
 /client/proc/startSinglo()
@@ -958,7 +955,7 @@
 
 // DNA2 - Admin Hax
 /client/proc/cmd_admin_toggle_block(var/mob/M,var/block)
-	if(!ticker)
+	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon))
@@ -971,3 +968,29 @@
 		log_admin("[key_name(src)] has toggled [M.key]'s [blockname] block [state]!",admin_key=key_name(src),ckey=key_name(M))
 	else
 		alert("Invalid mob")
+
+/client/proc/cmd_display_del_log()
+	set category = "Debug"
+	set name = "Display del() Log"
+	set desc = "Displays a list of things that have failed to GC this round"
+
+	var/dat = "<B>List of things that failed to GC this round</B><BR><BR>"
+	for(var/path in SSgarbage.didntgc)
+		dat += "[path] - [SSgarbage.didntgc[path]] times<BR>"
+
+	dat += "<B>List of paths that did not return a qdel hint in Destroy()</B><BR><BR>"
+	for(var/path in SSgarbage.noqdelhint)
+		dat += "[path]<BR>"
+
+	dat += "<B>List of paths that slept in Destroy()</B><BR><BR>"
+	for(var/path in SSgarbage.sleptDestroy)
+		dat += "[path]<BR>"
+
+	usr << browse(dat, "window=dellog")
+
+/client/proc/cmd_display_init_log()
+	set category = "Debug"
+	set name = "Display Initialize() Log"
+	set desc = "Displays a list of things that didn't handle Initialize() properly"
+
+	usr << browse(replacetext(SSatoms.InitLog(), "\n", "<br>"), "window=initlog")

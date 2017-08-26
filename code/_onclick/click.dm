@@ -176,8 +176,7 @@
 	return
 
 /mob/living/UnarmedAttack(var/atom/A, var/proximity_flag)
-
-	if(!ticker)
+	if(!Master.round_started)
 		src << "You cannot attack people before the game has started."
 		return 0
 
@@ -352,14 +351,22 @@ client/verb/set_context_menu_enabled(Enable as num)
 	if(!A || !x || !y || !A.x || !A.y) return
 	var/dx = A.x - x
 	var/dy = A.y - y
-	if(!dx && !dy) return
 
 	var/direction
-	if(abs(dx) < abs(dy))
-		if(dy > 0)	direction = NORTH
-		else		direction = SOUTH
+	if (loc == A.loc && A.flags & ON_BORDER)
+		direction = A.dir
+	else if (!dx && !dy)
+		return
+	else if(abs(dx) < abs(dy))
+		if(dy > 0)
+			direction = NORTH
+		else
+			direction = SOUTH
 	else
-		if(dx > 0)	direction = EAST
-		else		direction = WEST
+		if(dx > 0)
+			direction = EAST
+		else
+			direction = WEST
+
 	if(direction != dir)
 		facedir(direction)

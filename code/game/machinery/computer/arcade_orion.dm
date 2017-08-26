@@ -414,7 +414,7 @@
 			else
 				usr << "<span class='warning'>You feel ill.</span>"
 		if(ORION_TRAIL_CARP)
-			usr << "<span class='danger'> Something bit you!</span>"
+			usr << "<span class='danger'>Something bit you!</span>"
 			var/mob/living/M = usr
 			M.adjustBruteLoss(10)
 		if(ORION_TRAIL_FLUX)

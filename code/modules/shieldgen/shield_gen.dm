@@ -30,21 +30,20 @@
 	var/energy_conversion_rate = 0.0002	//how many renwicks per watt?
 	use_power = 0	//doesn't use APC power
 
-/obj/machinery/shield_gen/New()
-	spawn(10)
-		for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
-			if(get_dir(possible_cap, src) == possible_cap.dir)
-				owned_capacitor = possible_cap
-				break
-	field = new/list()
-	..()
+/obj/machinery/shield_gen/Initialize()
+	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
+		if(get_dir(possible_cap, src) == possible_cap.dir)
+			owned_capacitor = possible_cap
+			break
+	field = list()
+	. = ..()
 
 /obj/machinery/shield_gen/Destroy()
 	for(var/obj/effect/energy_field/D in field)
 		field.Remove(D)
 		D.loc = null
-	..()
-	
+	return ..()
+
 /obj/machinery/shield_gen/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
 		src.locked = !src.locked
@@ -135,7 +134,7 @@
 	user << browse(t, "window=shield_generator;size=500x400")
 	user.set_machine(src)
 
-/obj/machinery/shield_gen/process()
+/obj/machinery/shield_gen/machinery_process()
 	if (!anchored && active)
 		toggle()
 
@@ -184,7 +183,7 @@
 		return
 	else if( href_list["toggle"] )
 		if (!active && !anchored)
-			usr << "\red The [src] needs to be firmly secured to the floor first."
+			usr << "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>"
 			return
 		toggle()
 	else if( href_list["change_radius"] )
@@ -238,25 +237,9 @@
 //TODO MAKE THIS MULTIZ COMPATIBLE
 //grab the border tiles in a circle around this machine
 /obj/machinery/shield_gen/proc/get_shielded_turfs()
-	var/list/out = list()
-
 	var/turf/gen_turf = get_turf(src)
+
 	if (!gen_turf)
 		return
 
-	var/turf/T
-	for (var/x_offset = -field_radius; x_offset <= field_radius; x_offset++)
-		T = locate(gen_turf.x + x_offset, gen_turf.y - field_radius, gen_turf.z)
-		if (T) out += T
-
-		T = locate(gen_turf.x + x_offset, gen_turf.y + field_radius, gen_turf.z)
-		if (T) out += T
-
-	for (var/y_offset = -field_radius+1; y_offset < field_radius; y_offset++)
-		T = locate(gen_turf.x - field_radius, gen_turf.y + y_offset, gen_turf.z)
-		if (T) out += T
-
-		T = locate(gen_turf.x + field_radius, gen_turf.y + y_offset, gen_turf.z)
-		if (T) out += T
-
-	return out
+	. = RANGE_TURFS(field_radius, gen_turf)

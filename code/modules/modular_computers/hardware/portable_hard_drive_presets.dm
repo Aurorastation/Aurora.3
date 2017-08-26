@@ -42,7 +42,8 @@
     desc = "A crate containing a backup of all the NT Software available"
     name = "Backup Software Crate"
 
-/obj/structure/closet/crate/software_backup/initialize()
+/obj/structure/closet/crate/software_backup/Initialize()
+    . = ..()
     for(var/F in typesof(/datum/computer_file/program))
         var/datum/computer_file/program/prog = new F
         // Invalid type (shouldn't be possible but just in case), invalid filetype (not executable program) or invalid filename (unset program)

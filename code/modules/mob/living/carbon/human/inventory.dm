@@ -19,7 +19,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 			else
 				update_inv_r_hand(0)
 		else
-			H << "\red You are unable to equip that."
+			H << "<span class='warning'>You are unable to equip that.</span>"
 
 /mob/living/carbon/human/proc/equip_in_one_of_slots(obj/item/W, list/slots, del_on_fail = 1)
 	for (var/slot in slots)
@@ -258,8 +258,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 				update_hair(redraw_mob)	//rebuild hair
 				update_inv_ears(0)
 				update_inv_wear_mask(0)
-			if(istype(W,/obj/item/clothing/head/kitty))
-				W.update_icon(src)
 			W.equipped(src, slot)
 			update_inv_head(redraw_mob)
 		if(slot_shoes)
@@ -435,10 +433,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 		return
 
 	if (shoes:silent)
-		return
-
-	var/turf/T = get_turf(src)
-	if (!istype(T) || !T.footstep_sound)
 		return
 
 	is_noisy = TRUE

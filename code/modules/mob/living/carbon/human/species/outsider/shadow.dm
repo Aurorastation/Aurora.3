@@ -4,6 +4,7 @@
 
 	icobase = 'icons/mob/human_races/r_shadow.dmi'
 	deform = 'icons/mob/human_races/r_shadow.dmi'
+	eyes = "blank_eyes"
 
 	language = "Sol Common" //todo?
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/sharp)
@@ -13,6 +14,8 @@
 	siemens_coefficient = 0
 	rarity_value = 10
 	virus_immune = 1
+
+	fall_mod = 0
 
 	blood_color = "#CCCCCC"
 	flesh_color = "#AAAAAA"

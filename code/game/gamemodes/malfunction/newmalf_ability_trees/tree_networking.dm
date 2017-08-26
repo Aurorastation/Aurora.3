@@ -172,7 +172,7 @@
 				log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
 				return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
-			world << "\red New [company_name] Update available at all communication consoles."
+			world << "<span class='alert'>New [company_name] Update available at all communication consoles.</span>"
 			world << sound('sound/AI/commandreport.ogg')
 			post_comm_message(reporttitle, reportbody)
 
@@ -217,7 +217,7 @@
 		return
 	log_ability_use(user, "system override (STARTED)")
 	var/list/remaining_apcs = list()
-	for(var/obj/machinery/power/apc/A in machines)
+	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
 		if(!(A.z in config.station_levels)) 		// Only station APCs
 			continue
 		if(A.hacker == user || A.aidisabled) 		// This one is already hacked, or AI control is disabled on it.
@@ -263,7 +263,7 @@
 	user << "## REACHABLE APC SYSTEMS OVERTAKEN. BYPASSING PRIMARY FIREWALL."
 	sleep(300)
 	// Hack all APCs, including those built during hack sequence.
-	for(var/obj/machinery/power/apc/A in machines)
+	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
 		if((!A.hacker || A.hacker != src) && !A.aidisabled && A.z in config.station_levels)
 			A.ai_hack(src)
 

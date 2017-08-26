@@ -21,8 +21,8 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	idle_power_usage = 30
 	active_power_usage = 2500
 
-/obj/machinery/r_n_d/circuit_imprinter/New()
-	..()
+/obj/machinery/r_n_d/circuit_imprinter/Initialize()
+	. = ..()
 	component_parts = list()
 	component_parts += new /obj/item/weapon/circuitboard/circuit_imprinter(src)
 	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
@@ -31,7 +31,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
 	RefreshParts()
 
-/obj/machinery/r_n_d/circuit_imprinter/process()
+/obj/machinery/r_n_d/circuit_imprinter/machinery_process()
 	..()
 	if(stat)
 		update_icon()
@@ -102,7 +102,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		if(materials[f] >= SHEET_MATERIAL_AMOUNT)
 			var/path = getMaterialType(f)
 			if(path)
-				var/obj/item/stack/S = new f(loc)
+				var/obj/item/stack/S = new path(loc)
 				S.amount = round(materials[f] / SHEET_MATERIAL_AMOUNT)
 	..()
 
