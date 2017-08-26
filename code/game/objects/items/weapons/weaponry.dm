@@ -41,18 +41,18 @@
 /obj/item/weapon/nullrod/itembox/attack_self(mob/user as mob)
 	if(..()) return
 
-	var/selection = input("Pick a null item type.") in list ("Rod","Staff", /*"Orb",*/ "Athame")
+	var/selection = input("Pick a null item type.") in list("Rod","Staff", /*"Orb",*/ "Athame")
 	switch(selection)
 		if ("Rod")
-			new /obj/item/weapon/nullrod(usr.loc)
+			new /obj/item/weapon/nullrod(user.loc)
 			user << "<span class='notice'>A simple obsidian rod, a classic. Rods like these are seen in the hands of religious folks all across the galaxy.</span>"
 		if ("Staff")
-			new /obj/item/weapon/nullrod/nullstaff(usr.loc)
+			new /obj/item/weapon/nullrod/nullstaff(user.loc)
 			user << "<span class='notice'>A simple staff, a popular choice amongst shamans and wise men. You doubt this will fit in your bag, but you can put it on your back.</span>"
 		if ("Orb")
-			new /obj/item/weapon/nullrod/nullorb(usr.loc)
+			new /obj/item/weapon/nullrod/nullorb(user.loc)
 		if ("Athame")
-			new /obj/item/weapon/nullrod/nullathame(usr.loc)
+			new /obj/item/weapon/nullrod/nullathame(user.loc)
 			user << "<span class='notice'>An athame, a ritualistic dagger. It's blade is curved and ornate, yet it is rather blunt.</span>"
 	user << "<span class='notice'>You take your [selection] from the box, and throw the empty box away.</span>"
 	qdel(src)
