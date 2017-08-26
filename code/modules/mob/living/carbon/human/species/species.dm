@@ -7,7 +7,8 @@
 	// Descriptors and strings.
 	var/name                                             // Species name.
 	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
-	var/short_name											 // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
+	var/hide_name = FALSE                                // If TRUE, the species' name won't be visible on examine.
+	var/short_name                                       // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 	var/bodytype
 	var/age_min = 17
@@ -65,7 +66,8 @@
 	var/toxins_mod =    1                    // Toxloss modifier
 	var/radiation_mod = 1                    // Radiation modifier
 	var/flash_mod =     1                    // Stun from blindness modifier.
-	var/vision_flags = SEE_SELF              // Same flags as glasses.
+	var/fall_mod =      1                    // Fall damage modifier, further modified by brute damage modifier
+	var/vision_flags = DEFAULT_SIGHT              // Same flags as glasses.
 	var/list/breakcuffs = list()                      //used in resist.dm to check if they can break hand/leg cuffs
 
 	// Death vars.
@@ -133,6 +135,7 @@
 	var/holder_type
 	var/rarity_value = 1          // Relative rarity/collector value for this species.
 	var/ethanol_resistance = 1	  // How well the mob resists alcohol, lower values get drunk faster, higher values need to drink more
+	var/taste_sensitivity = TASTE_NORMAL // How sensitive the species is to minute tastes. Higher values means less sensitive. Lower values means more sensitive.
 
 	var/stamina	=	100			  	// The maximum stamina this species has. Determines how long it can sprint
 	var/stamina_recovery = 3	  	// Flat amount of stamina species recovers per proc
@@ -140,7 +143,9 @@
 	var/sprint_cost_factor = 0.9  	// Multiplier on stamina cost for sprinting
 	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
 
-	var/gluttonous                // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING.
+	var/gluttonous                // Can eat some mobs. Boolean.
+	var/mouth_size                // How big the mob's mouth is. Limits how large a mob this species can swallow. Only relevant if gluttonous is TRUE.
+	var/allowed_eat_types = TYPE_ORGANIC
 	var/max_nutrition_factor = 1	//Multiplier on maximum nutrition
 	var/nutrition_loss_factor = 1	//Multiplier on passive nutrition losses
 
@@ -324,6 +329,8 @@
 	H.mob_push_flags = push_flags
 	H.pass_flags = pass_flags
 	H.mob_size = mob_size
+	H.mouth_size = mouth_size || 2
+	H.eat_types = allowed_eat_types
 	if(!kpg)
 		if(islesserform(H))
 			H.dna.SetSEState(MONKEYBLOCK,1)

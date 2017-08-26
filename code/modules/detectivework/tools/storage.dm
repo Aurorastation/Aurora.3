@@ -6,7 +6,7 @@
 	can_hold = list(/obj/item/weapon/forensics/swab)
 	storage_slots = 14
 
-/obj/item/weapon/storage/box/swabs/New()
+/obj/item/weapon/storage/box/swabs/fill()
 	..()
 	for(var/i=0;i<storage_slots,i++) // Fill 'er up.
 		new /obj/item/weapon/forensics/swab(src)
@@ -16,7 +16,7 @@
 	icon_state = "solution_trays"
 	storage_slots = 7
 
-/obj/item/weapon/storage/box/slides/New()
+/obj/item/weapon/storage/box/slides/fill()
 	..()
 	for(var/i=0;i<storage_slots,i++)
 		new /obj/item/weapon/forensics/slide(src)
@@ -26,7 +26,7 @@
 	desc = "A box claiming to contain evidence bags."
 	storage_slots = 6
 
-/obj/item/weapon/storage/box/evidence/New()
+/obj/item/weapon/storage/box/evidence/fill()
 	..()
 	for(var/i=0;i<storage_slots,i++)
 		new /obj/item/weapon/evidencebag(src)
@@ -39,7 +39,7 @@
 	can_hold = list(/obj/item/weapon/sample/print)
 	storage_slots = 14
 
-/obj/item/weapon/storage/box/fingerprints/New()
+/obj/item/weapon/storage/box/fingerprints/fill()
 	..()
 	for(var/i=0;i<storage_slots,i++)
 		new /obj/item/weapon/sample/print(src)

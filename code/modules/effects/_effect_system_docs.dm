@@ -13,7 +13,7 @@
 /datum/effect_system/proc/queue()
 - Called when the object is queued for update. Overriding procs should call ..()
 
-/datum/effect_system/proc/process()
+/datum/effect_system/process()
 - Called when the processor processes this effect. 
 	Return ..() to allow default behavior of self-destroying after one tick.
 	Alternately; EFFECT_HALT, EFFECT_CONTINUE, and EFFECT_DESTROY can be used to tell the processor what to do with the object.

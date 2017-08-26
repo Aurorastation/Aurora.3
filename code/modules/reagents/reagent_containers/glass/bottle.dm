@@ -33,7 +33,7 @@
 			icon_state = "bottle-[rand(1,4)]"
 
 	update_icon()
-		overlays.Cut()
+		cut_overlays()
 
 		if(reagents.total_volume && (icon_state == "bottle-1" || icon_state == "bottle-2" || icon_state == "bottle-3" || icon_state == "bottle-4"))
 			var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
@@ -49,11 +49,10 @@
 				if(91 to INFINITY)	filling.icon_state = "[icon_state]-100"
 
 			filling.color = reagents.get_color()
-			overlays += filling
+			add_overlay(filling)
 
 		if (!is_open_container())
-			var/image/lid = image(icon, src, "lid_bottle")
-			overlays += lid
+			add_overlay("lid_bottle")
 
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline
 	name = "inaprovaline bottle"

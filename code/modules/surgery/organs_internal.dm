@@ -101,7 +101,7 @@
 /datum/surgery_step/internal/detatch_organ
 
 	allowed_tools = list(
-	/obj/item/weapon/scalpel = 100,	
+	/obj/item/weapon/scalpel = 100,
 	/obj/item/weapon/material/knife = 75,
 	/obj/item/weapon/material/shard = 50
 	)
@@ -335,6 +335,51 @@
 		var/obj/item/organ/I = target.internal_organs_by_name[target.op_stage.current_organ]
 		if(I && istype(I))
 			I.status &= ~ORGAN_CUT_AWAY
+
+	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+		var/obj/item/organ/external/affected = target.get_organ(target_zone)
+		user.visible_message("<span class='warning'>[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!</span>", \
+		"<span class='warning'>Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!</span>")
+		affected.createwound(BRUISE, 20)
+
+/datum/surgery_step/internal/lobotomize
+	allowed_tools = list(
+	/obj/item/weapon/scalpel/manager = 95,
+	/obj/item/weapon/surgicaldrill = 75,
+	/obj/item/weapon/pickaxe/ = 5
+	)
+
+	min_duration = 100
+	max_duration = 120
+
+	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+
+		if (!..())
+			return 0
+
+		var/obj/item/organ/external/affected = target.get_organ(target_zone)
+		var/obj/item/organ/brain/sponge = target.internal_organs_by_name["brain"]
+		if (!affected || !istype(sponge) || !(sponge in affected.internal_organs))
+			return 0
+
+		if (!sponge.can_lobotomize || sponge.lobotomized)
+			return 0
+
+		target.op_stage.current_organ = sponge
+		return ..()
+
+	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+		var/obj/item/organ/brain/B = target.op_stage.current_organ
+		user.visible_message("[user] begins to modify [target]'s [B] to remove their memory recall with \the [tool].", \
+		"You start to modify [target]'s [B] to remove their memory recall with \the [tool].")
+		target.custom_pain("Someone's scraping away at your [B]!",1)
+		..()
+
+	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+		var/obj/item/organ/brain/B = target.op_stage.current_organ
+		user.visible_message("<span class='notice'>[user] has modified [target]'s [B] to remove their memory recall with \the [tool].</span>" , \
+		"<span class='notice'>You have removed [target]'s memory recall with \the [tool].</span>")
+		B.lobotomize(user)
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)

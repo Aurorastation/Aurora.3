@@ -5,7 +5,7 @@
 
 ///process()
 ///Called by the gameticker
-/datum/game_mode/proc/process()
+/datum/game_mode/process()
 	if(round_autoantag && world.time >= next_spawn && !emergency_shuttle.departed)
 		process_autoantag()
 

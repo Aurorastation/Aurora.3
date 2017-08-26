@@ -1,6 +1,6 @@
 /proc/count_drones()
 	var/drones = 0
-	for(var/mob/living/silicon/robot/drone/D in world)
+	for(var/mob/living/silicon/robot/drone/D in silicon_mob_list)
 		if(D.key && D.client)
 			drones++
 	return drones
@@ -15,7 +15,7 @@
 	idle_power_usage = 20
 	active_power_usage = 5000
 
-	var/fabricator_tag = "Exodus"
+	var/fabricator_tag = "Aurora"
 	var/drone_progress = 0
 	var/produce_drones = 1
 	var/time_last_drone = 500
@@ -29,17 +29,14 @@
 	fabricator_tag = "Derelict"
 	drone_type = /mob/living/silicon/robot/drone/construction
 
-/obj/machinery/drone_fabricator/New()
-	..()
-
 /obj/machinery/drone_fabricator/power_change()
 	..()
 	if (stat & NOPOWER)
 		icon_state = "drone_fab_nopower"
 
-/obj/machinery/drone_fabricator/process()
+/obj/machinery/drone_fabricator/machinery_process()
 
-	if(ticker.current_state < GAME_STATE_PLAYING)
+	if(!ROUND_IS_STARTED)
 		return
 
 	if(stat & NOPOWER || !produce_drones)
@@ -78,8 +75,10 @@
 	flick("h_lathe_leave",src)
 
 	time_last_drone = world.time
-	if(player.mob && player.mob.mind) player.mob.mind.reset()
-	var/mob/living/silicon/robot/drone/new_drone = getFromPool(drone_type, get_turf(src))
+	if(player.mob && player.mob.mind)
+		player.mob.mind.reset()
+
+	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
 	new_drone.transfer_personality(player)
 	new_drone.master_fabricator = src
 
@@ -93,7 +92,7 @@
 
 /proc/try_drone_spawn(var/mob/user, var/obj/machinery/drone_fabricator/fabricator)
 
-	if(ticker.current_state < GAME_STATE_PLAYING)
+	if(!ROUND_IS_STARTED)
 		user << "<span class='danger'>The game hasn't started yet!</span>"
 		return
 
@@ -111,7 +110,7 @@
 	if(!fabricator)
 
 		var/list/all_fabricators = list()
-		for(var/obj/machinery/drone_fabricator/DF in machines)
+		for(var/obj/machinery/drone_fabricator/DF in SSmachinery.all_machines)
 			if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
 				continue
 			all_fabricators[DF.fabricator_tag] = DF

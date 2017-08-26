@@ -16,8 +16,8 @@
 	var/obj/item/weapon/disk/data/diskette = null //Mostly so the geneticist can steal everything.
 	var/loading = 0 // Nice loading text
 
-/obj/machinery/computer/cloning/initialize()
-	..()
+/obj/machinery/computer/cloning/Initialize()
+	. = ..()
 	set_expansion(/datum/expansion/multitool, new/datum/expansion/multitool/cryo(src, list(/proc/is_operable)))
 	updatemodules()
 
@@ -42,7 +42,7 @@
 	//Then look for a free one in the area
 	if(!scannerf)
 		var/area/A = get_area(src)
-		for(var/obj/machinery/dna_scannernew/S in A.get_contents())
+		for(var/obj/machinery/dna_scannernew/S in A)
 			return S
 
 	return
@@ -83,7 +83,7 @@
 /obj/machinery/computer/cloning/proc/findcloner()
 	var/num = 1
 	var/area/A = get_area(src)
-	for(var/obj/machinery/clonepod/P in A.get_contents())
+	for(var/obj/machinery/clonepod/P in A)
 		if(!P.connected)
 			pods += P
 			P.connected = src

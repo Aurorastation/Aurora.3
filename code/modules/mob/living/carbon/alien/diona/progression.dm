@@ -28,15 +28,15 @@
 
 
 	if(nutrition < evolve_nutrition)
-		src << "\red You do not have enough biomass to grow yet. Currently [nutrition]/[evolve_nutrition]."
+		src << "<span class='warning'>You do not have enough biomass to grow yet. Currently [nutrition]/[evolve_nutrition].</span>"
 		return
 
 	if(gestalt)
-		src << "\red You are already part of a collective, if you wish to form your own, you must split off first"
+		src << "<span class='warning'>You are already part of a collective, if you wish to form your own, you must split off first.</span>"
 		return
 
 	if (!istype(loc, /turf))
-		src << "\red There's not enough space to grow here. Stand on the floor!."
+		src << "<span class='warning'>There's not enough space to grow here. Stand on the floor!.</span>"
 		return
 
 	// confirm_evolution() handles choices and other specific requirements.
@@ -47,11 +47,11 @@
 	stunned = 10//No more moving or talking for now
 	//muted = 10
 	playsound(src.loc, 'sound/species/diona/gestalt_grow.ogg', 100, 1)
-	src.visible_message("\red [src] begins to shift and quiver.",
-	"\red You begin to shift and quiver, feeling your awareness splinter. ")
+	src.visible_message("<span class='warning'> [src] begins to shift and quiver.</span>",
+	"<span class='warning'> You begin to shift and quiver, feeling your awareness splinter.</span>")
 	sleep(52)
-	src.visible_message("\red [src] erupts in a shower of shed bark as it splits into a tangle of half a dozen new dionaea.",
-	"\red All at once, we consume our stored nutrients to surge with growth, splitting into a tangle of half a dozen new dionaea. We have attained our gestalt form.")
+	src.visible_message("<span class='warning'> [src] erupts in a shower of shed bark as it splits into a tangle of half a dozen new dionaea.</span>",
+	"<span class='warning'> All at once, we consume our stored nutrients to surge with growth, splitting into a tangle of half a dozen new dionaea. We have attained our gestalt form.</span>")
 
 	var/mob/living/carbon/human/adult = new adult_form(get_turf(src))
 	adult.set_species(new_species)

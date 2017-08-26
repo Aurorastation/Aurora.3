@@ -43,3 +43,8 @@
 	name = "atlas armband"
 	desc = "This is a armband showing anyone who sees this person, as a member of the political party Atlas. This one is black."
 	icon_state = "black"
+
+/obj/item/clothing/accessory/armband/iac
+	name = "interstellar aid corps armband"
+	desc = "An armband denoting its wearer as a medical worker of the Interstellar Aid Corps. This one is white and blue."
+	icon_state = "iac"

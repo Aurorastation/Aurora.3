@@ -29,8 +29,8 @@
 	var/customjob		= "Admin"
 	var/custommessage 	= "This is a test, please ignore."
 
-/obj/machinery/computer/message_monitor/New()
-	..()
+/obj/machinery/computer/message_monitor/Initialize()
+	. = ..()
 	spark_system = bind_spark(src, 5)
 
 /obj/machinery/computer/message_monitor/Destroy()
@@ -65,7 +65,7 @@
 			MK.loc = src.loc
 			// Will help make emagging the console not so easy to get away with.
 			MK.info += "<br><br><font color='red'>£%@%(*$%&(£&?*(%&£/{}</font>"
-			spawn(100*length(src.linkedServer.decryptkey)) UnmagConsole()
+			addtimer(CALLBACK(src, .proc/UnmagConsole), 100 * length(linkedServer.decryptkey))
 			message = rebootmsg
 			update_icon()
 			return 1
@@ -79,12 +79,12 @@
 		icon_screen = initial(icon_screen)
 	..()
 
-/obj/machinery/computer/message_monitor/initialize()
+/obj/machinery/computer/message_monitor/Initialize()
+	. = ..()
 	//Is the server isn't linked to a server, and there's a server available, default it to the first one in the list.
 	if(!linkedServer)
 		if(message_servers && message_servers.len > 0)
 			linkedServer = message_servers[1]
-	return
 
 /obj/machinery/computer/message_monitor/attack_hand(var/mob/living/user as mob)
 	if(stat & (NOPOWER|BROKEN))
@@ -427,7 +427,7 @@
 							if(!P.owner || P.toff || P.hidden) continue
 							sendPDAs += P
 						if(PDAs && PDAs.len > 0)
-							customrecepient = input(usr, "Select a PDA from the list.") as null|anything in sortAtom(sendPDAs)
+							customrecepient = input(usr, "Select a PDA from the list.") as null|anything in sendPDAs
 						else
 							customrecepient = null
 
@@ -517,14 +517,16 @@
 	name = "Monitor Decryption Key"
 	var/obj/machinery/message_server/server = null
 
-/obj/item/weapon/paper/monitorkey/New()
+/obj/item/weapon/paper/monitorkey/Initialize()
 	..()
-	spawn(10)
-		if(message_servers)
-			for(var/obj/machinery/message_server/server in message_servers)
-				if(!isnull(server))
-					if(!isnull(server.decryptkey))
-						info = "<center><h2>Daily Key Reset</h2></center><br>The new message monitor key is '[server.decryptkey]'.<br>Please keep this a secret and away from the clown.<br>If necessary, change the password to a more secure one."
-						info_links = info
-						icon_state = "paper_words"
-						break
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/weapon/paper/monitorkey/LateInitialize()
+	if(message_servers)
+		for(var/obj/machinery/message_server/server in message_servers)
+			if(!isnull(server))
+				if(!isnull(server.decryptkey))
+					info = "<center><h2>Daily Key Reset</h2></center><br>The new message monitor key is '[server.decryptkey]'.<br>Please keep this a secret and away from the clown.<br>If necessary, change the password to a more secure one."
+					info_links = info
+					icon_state = "paper_words"
+					break

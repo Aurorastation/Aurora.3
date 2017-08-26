@@ -39,7 +39,7 @@
 		return
 
 	for(var/obj/item/organ/external/E in bad_external_organs)
-		if(!E)
+		if(QDELETED(E))
 			continue
 		if(!E.need_process())
 			bad_external_organs -= E

@@ -100,7 +100,7 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = 2
+	w_class = 1
 	origin_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	attack_verb = list("shoved", "bashed")
 	var/shield_power = 150
@@ -241,9 +241,9 @@
 		force = 3
 		throwforce = 3
 		throw_speed = 3
-		w_class = 2
+		w_class = 3
 		slot_flags = 0
-		user << "<span class='notice'>The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame.</span>"
+		user << "<span class='notice'>\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame.</span>"
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user

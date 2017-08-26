@@ -14,12 +14,13 @@
 	var/obj/machinery/computer/helm/nav_control
 	var/obj/machinery/computer/engines/eng_control
 
-/obj/effect/map/ship/initialize()
-	for(var/obj/machinery/computer/engines/E in machines)
+/obj/effect/map/ship/Initialize()
+	. = ..()
+	for(var/obj/machinery/computer/engines/E in SSmachinery.processing_machines)
 		if (E.z == map_z)
 			eng_control = E
 			break
-	for(var/obj/machinery/computer/helm/H in machines)
+	for(var/obj/machinery/computer/helm/H in SSmachinery.processing_machines)
 		if (H.z == map_z)
 			nav_control = H
 			break
@@ -111,5 +112,5 @@
 		var/turf/newloc = locate(x + deltas[1], y + deltas[2], z)
 		if(newloc)
 			Move(newloc)
-		if(rotate)	
+		if(rotate)
 			rotate(get_heading())

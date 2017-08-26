@@ -23,6 +23,10 @@
 // Give Random Bad Mutation to M
 /proc/randmutb(var/mob/living/M)
 	if(!M) return
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.species && H.species.flags & NO_SCAN)
+			return
 	M.dna.check_integrity()
 	var/block = pick(GLASSESBLOCK,COUGHBLOCK,FAKEBLOCK,NERVOUSBLOCK,CLUMSYBLOCK,TWITCHBLOCK,HEADACHEBLOCK,BLINDBLOCK,DEAFBLOCK,HALLUCINATIONBLOCK)
 	M.dna.SetSEState(block, 1)
@@ -30,6 +34,10 @@
 // Give Random Good Mutation to M
 /proc/randmutg(var/mob/living/M)
 	if(!M) return
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.species && H.species.flags & NO_SCAN)
+			return
 	M.dna.check_integrity()
 	var/block = pick(HULKBLOCK,XRAYBLOCK,FIREBLOCK,TELEBLOCK,NOBREATHBLOCK,REMOTEVIEWBLOCK,REGENERATEBLOCK,INCREASERUNBLOCK,REMOTETALKBLOCK,MORPHBLOCK,BLENDBLOCK,NOPRINTSBLOCK,SHOCKIMMUNITYBLOCK,SMALLSIZEBLOCK)
 	M.dna.SetSEState(block, 1)
@@ -154,6 +162,13 @@
 			H.gender = FEMALE
 		else
 			H.gender = MALE
+
+		//Body markings
+		for(var/tag in dna.body_markings)
+			var/obj/item/organ/external/E = H.organs_by_name[tag]
+			if(E)
+				var/list/marklist = dna.body_markings[tag]
+				E.markings = marklist.Copy()
 
 		//Hair
 		var/hair = dna.GetUIValueRange(DNA_UI_HAIR_STYLE,hair_styles_list.len)

@@ -113,16 +113,18 @@ Class Procs:
 	var/global/gl_uid = 1
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/printing = 0 // Is this machine currently printing anything?
+	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
+	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
 
-/obj/machinery/New(l, d=0)
-	..(l)
+/obj/machinery/Initialize(mapload, d=0)
+	. = ..()
 	if(d)
 		set_dir(d)
 
 	add_machine(src)
 
 /obj/machinery/Destroy()
-	remove_machine(src)
+	remove_machine(src, TRUE)
 	if(component_parts)
 		for(var/atom/A in component_parts)
 			if(A.loc == src) // If the components are inside the machine, delete them.
@@ -134,30 +136,27 @@ Class Procs:
 			qdel(A)
 	return ..()
 
+/obj/machinery/proc/machinery_process()
+	. = process()
+
 /obj/machinery/process()//If you dont use process or power why are you here
 	if(!(use_power || idle_power_usage || active_power_usage))
 		return PROCESS_KILL
 
 	return M_NO_PROCESS
 
-/obj/machinery/proc/get_process_type()
-	. |= M_PROCESSES
-	if (use_power || idle_power_usage || active_power_usage)
-		. |= M_USES_POWER
-
 /obj/machinery/emp_act(severity)
 	if(use_power && stat == 0)
 		use_power(7500/severity)
 
-		var/obj/effect/overlay/pulse2 = getFromPool(/obj/effect/overlay, src.loc)
+		var/obj/effect/overlay/pulse2 = new(src.loc)
 		pulse2.icon = 'icons/effects/effects.dmi'
 		pulse2.icon_state = "empdisable"
 		pulse2.name = "emp sparks"
 		pulse2.anchored = 1
 		pulse2.set_dir(pick(cardinal))
 
-		spawn(10)
-			qdel(pulse2)
+		QDEL_IN(pulse2, 10)
 	..()
 
 /obj/machinery/ex_act(severity)
@@ -378,11 +377,13 @@ Class Procs:
 
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
-	
+
 	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
 
-	spawn(print_delay)
-		paper.loc = src.loc
-		printing = 0
+	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
 
 	return 1
+
+/obj/machinery/proc/print_move_paper(obj/paper)
+	paper.forceMove(loc)
+	printing = FALSE

@@ -147,9 +147,6 @@ var/global/ManifestJSON
 		"misc" = misc\
 		)
 	ManifestJSON = json_encode(PDA_Manifest)
-	return
-
-
 
 /obj/effect/laser
 	name = "laser"
@@ -158,26 +155,10 @@ var/global/ManifestJSON
 	var/damage = 0.0
 	var/range = 10.0
 
-
-/obj/effect/list_container
-	name = "list container"
-
-/obj/effect/list_container/mobl
-	name = "mobl"
-	var/master = null
-
-	var/list/container = list(  )
-
 /obj/effect/projection
 	name = "Projection"
 	desc = "This looks like a projection of something."
 	anchored = 1.0
-
-
-/obj/effect/shut_controller
-	name = "shut controller"
-	var/moving = null
-	var/list/parts = list(  )
 
 /obj/structure/showcase
 	name = "Showcase"
@@ -208,12 +189,19 @@ var/global/ManifestJSON
 		user.drop_item()
 		src.throw_at(target, throw_range, throw_speed, user)
 
-/obj/effect/stop
-	var/victim = null
-	icon_state = "empty"
-	name = "Geas"
-	desc = "You can't resist."
-	// name = ""
-
 /obj/effect/spawner
 	name = "object spawner"
+
+/obj/structure/spaceship
+	name = "Abandoned Shuttle"
+	desc = "An ancient and inoperable shuttle-craft"
+	icon = 'icons/obj/machines/spaceship.dmi'
+	anchored = 1
+	density = 1
+
+/obj/structure/mainframe
+	name = "Ancient Mainframe"
+	desc = "A long-fried AI mainframe from the 2420s. It's more fit to be holding rats than AIs at this point."
+	icon = 'icons/obj/mainframe.dmi'
+	anchored = 1
+	density = 1

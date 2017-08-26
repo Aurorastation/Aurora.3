@@ -20,6 +20,8 @@
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
 	var/silicate = 0 // number of units of silicate
 
+	atmos_canpass = CANPASS_PROC
+
 /obj/structure/window/examine(mob/user)
 	. = ..(user)
 
@@ -91,14 +93,15 @@
 		index = 0
 		while(index < 2)
 			new shardtype(loc) //todo pooling?
-			if(reinf) getFromPool(/obj/item/stack/rods, loc)
+			if(reinf)
+				new /obj/item/stack/rods(loc)
 			index++
 	else
 		new shardtype(loc) //todo pooling?
-		if(reinf) getFromPool(/obj/item/stack/rods, loc)
+		if(reinf)
+			new /obj/item/stack/rods(loc)
 	qdel(src)
 	return
-
 
 /obj/structure/window/bullet_act(var/obj/item/projectile/Proj)
 
@@ -214,25 +217,7 @@
 	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(istype(G.affecting,/mob/living))
-			var/mob/living/M = G.affecting
-			var/state = G.state
-			qdel(W)	//gotta delete it here because if window breaks, it won't get deleted
-			switch (state)
-				if(1)
-					M.visible_message("<span class='warning'>[user] slams [M] against \the [src]!</span>")
-					M.apply_damage(7)
-					hit(10)
-				if(2)
-					M.visible_message("<span class='danger'>[user] bashes [M] against \the [src]!</span>")
-					if (prob(50))
-						M.Weaken(1)
-					M.apply_damage(10)
-					hit(25)
-				if(3)
-					M.visible_message("<span class='danger'><big>[user] crushes [M] against \the [src]!</big></span>")
-					M.Weaken(5)
-					M.apply_damage(20)
-					hit(50)
+			grab_smash_attack(G, BRUTE)
 			return
 
 	if(W.flags & NOBLUDGEON) return
@@ -282,6 +267,32 @@
 		..()
 	return
 
+/obj/structure/window/proc/grab_smash_attack(obj/item/weapon/grab/G, var/damtype = BRUTE)
+	var/mob/living/M = G.affecting
+	var/mob/living/user = G.assailant
+
+	var/state = G.state
+	qdel(G)	//gotta delete it here because if window breaks, it won't get deleted
+
+	var/def_zone = ran_zone("head", 20)
+	var/blocked = M.run_armor_check(def_zone, "melee")
+	switch (state)
+		if(1)
+			M.visible_message("<span class='warning'>[user] slams [M] against \the [src]!</span>")
+			M.apply_damage(7, damtype, def_zone, blocked, src)
+			hit(10)
+		if(2)
+			M.visible_message("<span class='danger'>[user] bashes [M] against \the [src]!</span>")
+			if (prob(50))
+				M.Weaken(1)
+			M.apply_damage(10, damtype, def_zone, blocked, src)
+			hit(25)
+		if(3)
+			M.visible_message("<span class='danger'><big>[user] crushes [M] against \the [src]!</big></span>")
+			M.Weaken(5)
+			M.apply_damage(20, damtype, def_zone, blocked, src)
+			hit(50)
+
 /obj/structure/window/proc/hit(var/damage, var/sound_effect = 1)
 	if(reinf) damage *= 0.5
 	take_damage(damage)
@@ -325,8 +336,8 @@
 	update_nearby_tiles(need_rebuild=1)
 	return
 
-/obj/structure/window/New(Loc, start_dir=null, constructed=0)
-	..()
+/obj/structure/window/Initialize(mapload, start_dir = null, constructed=0)
+	. = ..()
 
 	//player-constructed windows
 	if (constructed)
@@ -351,7 +362,7 @@
 	for(var/obj/structure/window/W in orange(location, 1))
 		W.update_icon()
 	loc = location
-	..()
+	return ..()
 
 
 /obj/structure/window/Move()
@@ -476,13 +487,27 @@
 /obj/structure/window/shuttle
 	name = "shuttle window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
-	icon = 'icons/obj/podwindows.dmi'
-	icon_state = "window"
+	icon = 'icons/obj/smooth/shuttle_window.dmi'
+	icon_state = "shuttle_window"
 	basestate = "window"
 	maxhealth = 40
 	reinf = 1
 	basestate = "w"
 	dir = 5
+	smooth = SMOOTH_TRUE
+	can_be_unanchored = TRUE
+
+/obj/structure/window/shuttle/crescent
+	desc = "It looks rather strong."
+
+/obj/structure/window/shuttle/crescent/take_damage()
+	return
+
+/obj/structure/window/shuttle/update_nearby_icons()
+	queue_smooth_neighbors(src)
+
+/obj/structure/window/update_icon()
+	queue_smooth(src)
 
 /obj/structure/window/reinforced/polarized
 	name = "electrochromic window"
@@ -520,7 +545,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "light0"
 	desc = "A remote control switch for polarized windows."
-	var/range = 7
+	var/range = 16
 
 /obj/machinery/button/windowtint/attack_hand(mob/user as mob)
 	if(..())

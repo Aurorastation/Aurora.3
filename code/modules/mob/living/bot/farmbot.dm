@@ -27,12 +27,15 @@
 	var/atom/target
 	var/frustration = 0
 
-/mob/living/bot/farmbot/New()
-	..()
-	spawn(5)
-		tank = locate() in contents
-		if(!tank)
-			tank = new /obj/structure/reagent_dispensers/watertank(src)
+/mob/living/bot/farmbot/Initialize()
+	. = ..()
+	tank = locate() in contents
+	if(!tank)
+		tank = new /obj/structure/reagent_dispensers/watertank(src)
+
+/mob/living/bot/farmbot/Destroy()
+	QDEL_NULL(tank)
+	return ..()
 
 /mob/living/bot/farmbot/attack_hand(var/mob/user as mob)
 	. = ..()
@@ -131,18 +134,20 @@
 
 	if(target)
 		if(Adjacent(target))
-			UnarmedAttack(target)
+			INVOKE_ASYNC(src, .proc/UnarmedAttack, target)
 			path = list()
 			target = null
 		else
 			if(path.len && frustration < 5)
 				if(path[1] == loc)
 					path -= path[1]
-				var/t = step_towards(src, path[1])
-				if(t)
-					path -= path[1]
-				else
-					++frustration
+
+				if (path.len)
+					var/t = step_towards(src, path[1])
+					if(t)
+						path -= path[1]
+					else
+						++frustration
 			else
 				path = list()
 				target = null

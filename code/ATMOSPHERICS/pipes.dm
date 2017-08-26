@@ -64,11 +64,12 @@
 	return parent.return_network(reference)
 
 /obj/machinery/atmospherics/pipe/Destroy()
-	qdel(parent)
+	QDEL_NULL(parent)
 	if(air_temporary)
 		loc.assume_air(air_temporary)
+		QDEL_NULL(air_temporary)
 
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/pipe/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (istype(src, /obj/machinery/atmospherics/pipe/tank))
@@ -190,7 +191,7 @@
 		invisibility = i ? 101 : 0
 	update_icon()
 
-/obj/machinery/atmospherics/pipe/simple/process()
+/obj/machinery/atmospherics/pipe/simple/machinery_process()
 	if(!parent) //This should cut back on the overhead calling build_network thousands of times per cycle
 		..()
 	else
@@ -231,7 +232,10 @@
 	if(node2)
 		node2.disconnect(src)
 
-	..()
+	node1 = null
+	node2 = null
+
+	return ..()
 
 /obj/machinery/atmospherics/pipe/simple/pipeline_expansion()
 	return list(node1, node2)
@@ -250,7 +254,7 @@
 
 	alpha = 255
 
-	overlays.Cut()
+	cut_overlays()
 
 	if(!node1 && !node2)
 		var/turf/T = get_turf(src)
@@ -261,14 +265,14 @@
 				qdel(meter)
 		qdel(src)
 	else if(node1 && node2)
-		overlays += icon_manager.get_atmos_icon("pipe", , pipe_color, "[pipe_icon]intact[icon_connect_type]")
+		add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "[pipe_icon]intact[icon_connect_type]"))
 	else
-		overlays += icon_manager.get_atmos_icon("pipe", , pipe_color, "[pipe_icon]exposed[node1?1:0][node2?1:0][icon_connect_type]")
+		add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "[pipe_icon]exposed[node1?1:0][node2?1:0][icon_connect_type]"))
 
 /obj/machinery/atmospherics/pipe/simple/update_underlays()
 	return
 
-/obj/machinery/atmospherics/pipe/simple/initialize()
+/obj/machinery/atmospherics/pipe/simple/atmos_init()
 	normalize_dir()
 	var/node1_dir
 	var/node2_dir
@@ -302,12 +306,12 @@
 /obj/machinery/atmospherics/pipe/simple/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)
 		if(istype(node1, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node1 = null
 
 	if(reference == node2)
 		if(istype(node2, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node2 = null
 
 	update_icon()
@@ -448,7 +452,7 @@
 /obj/machinery/atmospherics/pipe/manifold/pipeline_expansion()
 	return list(node1, node2, node3)
 
-/obj/machinery/atmospherics/pipe/manifold/process()
+/obj/machinery/atmospherics/pipe/manifold/machinery_process()
 	if(!parent)
 		..()
 	else
@@ -462,22 +466,26 @@
 	if(node3)
 		node3.disconnect(src)
 
-	..()
+	node1 = null
+	node2 = null
+	node3 = null
+
+	return ..()
 
 /obj/machinery/atmospherics/pipe/manifold/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)
 		if(istype(node1, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node1 = null
 
 	if(reference == node2)
 		if(istype(node2, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node2 = null
 
 	if(reference == node3)
 		if(istype(node3, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node3 = null
 
 	update_icon()
@@ -509,9 +517,11 @@
 				qdel(meter)
 		qdel(src)
 	else
-		overlays.Cut()
-		overlays += icon_manager.get_atmos_icon("manifold", , pipe_color, "core" + icon_connect_type)
-		overlays += icon_manager.get_atmos_icon("manifold", , , "clamps" + icon_connect_type)
+		cut_overlays()
+		add_overlay(icon_manager.get_atmos_icon("manifold", , pipe_color, "core" + icon_connect_type))
+		add_overlay(icon_manager.get_atmos_icon("manifold", , , "clamps" + icon_connect_type))
+		
+		// Can't handle underlays with SSoverlay.
 		underlays.Cut()
 
 		var/turf/T = get_turf(src)
@@ -534,7 +544,7 @@
 	..()
 	update_icon()
 
-/obj/machinery/atmospherics/pipe/manifold/initialize()
+/obj/machinery/atmospherics/pipe/manifold/atmos_init()
 	var/connect_directions = (NORTH|SOUTH|EAST|WEST)&(~dir)
 
 	for(var/direction in cardinal)
@@ -687,7 +697,7 @@
 /obj/machinery/atmospherics/pipe/manifold4w/pipeline_expansion()
 	return list(node1, node2, node3, node4)
 
-/obj/machinery/atmospherics/pipe/manifold4w/process()
+/obj/machinery/atmospherics/pipe/manifold4w/machinery_process()
 	if(!parent)
 		..()
 	else
@@ -703,27 +713,32 @@
 	if(node4)
 		node4.disconnect(src)
 
-	..()
+	node1 = null
+	node2 = null
+	node3 = null
+	node4 = null
+
+	return ..()
 
 /obj/machinery/atmospherics/pipe/manifold4w/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)
 		if(istype(node1, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node1 = null
 
 	if(reference == node2)
 		if(istype(node2, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node2 = null
 
 	if(reference == node3)
 		if(istype(node3, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node3 = null
 
 	if(reference == node4)
 		if(istype(node4, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node4 = null
 
 	update_icon()
@@ -757,9 +772,10 @@
 				qdel(meter)
 		qdel(src)
 	else
-		overlays.Cut()
-		overlays += icon_manager.get_atmos_icon("manifold", , pipe_color, "4way" + icon_connect_type)
-		overlays += icon_manager.get_atmos_icon("manifold", , , "clamps_4way" + icon_connect_type)
+		cut_overlays()
+		add_overlay(icon_manager.get_atmos_icon("manifold", , pipe_color, "4way" + icon_connect_type))
+		add_overlay(icon_manager.get_atmos_icon("manifold", , , "clamps_4way" + icon_connect_type))
+
 		underlays.Cut()
 
 		/*
@@ -802,7 +818,7 @@
 		invisibility = i ? 101 : 0
 	update_icon()
 
-/obj/machinery/atmospherics/pipe/manifold4w/initialize()
+/obj/machinery/atmospherics/pipe/manifold4w/atmos_init()
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,1))
 		if(target.initialize_directions & 2)
@@ -944,7 +960,7 @@
 /obj/machinery/atmospherics/pipe/cap/pipeline_expansion()
 	return list(node)
 
-/obj/machinery/atmospherics/pipe/cap/process()
+/obj/machinery/atmospherics/pipe/cap/machinery_process()
 	if(!parent)
 		..()
 	else
@@ -953,12 +969,14 @@
 	if(node)
 		node.disconnect(src)
 
-	..()
+	node = null
+
+	return ..()
 
 /obj/machinery/atmospherics/pipe/cap/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node)
 		if(istype(node, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node = null
 
 	update_icon()
@@ -977,10 +995,10 @@
 
 	alpha = 255
 
-	overlays.Cut()
-	overlays += icon_manager.get_atmos_icon("pipe", , pipe_color, "cap")
+	cut_overlays()
+	add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "cap"))
 
-/obj/machinery/atmospherics/pipe/cap/initialize()
+/obj/machinery/atmospherics/pipe/cap/atmos_init()
 	for(var/obj/machinery/atmospherics/target in get_step(src, dir))
 		if(target.initialize_directions & get_dir(target,src))
 			if (check_connect_types(target,src))
@@ -1057,7 +1075,7 @@
 	initialize_directions = dir
 	..()
 
-/obj/machinery/atmospherics/pipe/tank/process()
+/obj/machinery/atmospherics/pipe/tank/machinery_process()
 	if(!parent)
 		..()
 	else
@@ -1067,7 +1085,9 @@
 	if(node1)
 		node1.disconnect(src)
 
-	..()
+	node1 = null
+
+	return ..()
 
 /obj/machinery/atmospherics/pipe/tank/pipeline_expansion()
 	return list(node1)
@@ -1083,7 +1103,7 @@
 /obj/machinery/atmospherics/pipe/tank/hide()
 	update_underlays()
 
-/obj/machinery/atmospherics/pipe/tank/initialize()
+/obj/machinery/atmospherics/pipe/tank/atmos_init()
 	var/connect_direction = dir
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,connect_direction))
@@ -1097,7 +1117,7 @@
 /obj/machinery/atmospherics/pipe/tank/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)
 		if(istype(node1, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node1 = null
 
 	update_underlays()
@@ -1222,7 +1242,7 @@
 	name = "Larger vent"
 	volume = 1000
 
-/obj/machinery/atmospherics/pipe/vent/process()
+/obj/machinery/atmospherics/pipe/vent/machinery_process()
 	if(!parent)
 		if(build_killswitch <= 0)
 			. = PROCESS_KILL
@@ -1237,7 +1257,9 @@
 	if(node1)
 		node1.disconnect(src)
 
-	..()
+	node1 = null
+
+	return ..()
 
 /obj/machinery/atmospherics/pipe/vent/pipeline_expansion()
 	return list(node1)
@@ -1251,7 +1273,7 @@
 	else
 		icon_state = "exposed"
 
-/obj/machinery/atmospherics/pipe/vent/initialize()
+/obj/machinery/atmospherics/pipe/vent/atmos_init()
 	var/connect_direction = dir
 
 	for(var/obj/machinery/atmospherics/target in get_step(src,connect_direction))
@@ -1265,7 +1287,7 @@
 /obj/machinery/atmospherics/pipe/vent/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)
 		if(istype(node1, /obj/machinery/atmospherics/pipe))
-			qdel(parent)
+			QDEL_NULL(parent)
 		node1 = null
 
 	update_icon()
@@ -1292,8 +1314,8 @@
 
 	alpha = 255
 
-	overlays.Cut()
-	overlays += icon_manager.get_atmos_icon("pipe", , pipe_color, "universal")
+	cut_overlays()
+	add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "universal"))
 	underlays.Cut()
 
 	if (node1)
@@ -1307,7 +1329,7 @@
 		universal_underlays(node2)
 	else
 		universal_underlays(,dir)
-		universal_underlays(dir, -180)
+		universal_underlays(,turn(dir, -180))
 
 /obj/machinery/atmospherics/pipe/simple/visible/universal/update_underlays()
 	..()
@@ -1327,8 +1349,9 @@
 
 	alpha = 255
 
-	overlays.Cut()
-	overlays += icon_manager.get_atmos_icon("pipe", , pipe_color, "universal")
+	cut_overlays()
+	add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "universal"))
+	
 	underlays.Cut()
 
 	if (node1)

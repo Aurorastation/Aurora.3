@@ -59,23 +59,21 @@
 	if(!check_icon_cache())
 		return
 
-	overlays.Cut()
-
-	var/vent_icon = "vent"
+	var/istate = ""
 
 	var/turf/T = get_turf(src)
 	if(!istype(T))
 		return
 
 	if(!T.is_plating() && node1 && node2 && node1.level == 1 && node2.level == 1 && istype(node1, /obj/machinery/atmospherics/pipe) && istype(node2, /obj/machinery/atmospherics/pipe))
-		vent_icon += "h"
+		istate += "h"
 
 	if(!powered())
-		vent_icon += "off"
+		istate += "off"
 	else
-		vent_icon += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
+		istate += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
 
-	overlays += icon_manager.get_atmos_icon("device", , , vent_icon)
+	icon_state = istate
 
 /obj/machinery/atmospherics/binary/dp_vent_pump/update_underlays()
 	if(..())
@@ -99,7 +97,7 @@
 	update_icon()
 	update_underlays()
 
-/obj/machinery/atmospherics/binary/dp_vent_pump/process()
+/obj/machinery/atmospherics/binary/dp_vent_pump/machinery_process()
 	..()
 
 	last_power_draw = 0
@@ -161,10 +159,10 @@
 //Radio remote control
 
 /obj/machinery/atmospherics/binary/dp_vent_pump/proc/set_frequency(new_frequency)
-	radio_controller.remove_object(src, frequency)
+	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
-		radio_connection = radio_controller.add_object(src, frequency, filter = RADIO_ATMOSIA)
+		radio_connection = SSradio.add_object(src, frequency, filter = RADIO_ATMOSIA)
 
 /obj/machinery/atmospherics/binary/dp_vent_pump/proc/broadcast_status()
 	if(!radio_connection)
@@ -189,7 +187,7 @@
 
 	return 1
 
-/obj/machinery/atmospherics/binary/dp_vent_pump/initialize()
+/obj/machinery/atmospherics/binary/dp_vent_pump/atmos_init()
 	..()
 	if(frequency)
 		set_frequency(frequency)
@@ -250,12 +248,10 @@
 		)
 
 	if(signal.data["status"])
-		spawn(2)
-			broadcast_status()
+		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 		return //do not update_icon
 
-	spawn(2)
-		broadcast_status()
+	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 	update_icon()
 
 #undef DEFAULT_PRESSURE_DELTA

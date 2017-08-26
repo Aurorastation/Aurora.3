@@ -7,6 +7,9 @@
 #define SQL_CHARACTER	0x1
 #define SQL_PREFERENCES	0x2
 
+// General-purpose helper for drawing a colored box.
+#define HTML_RECT(color) "&nbsp;<div style=\"display:inline;height:10px;width:30px;background:'[color || "#FFFFFF"]'\"></div>&nbsp;"
+
 /datum/category_group/player_setup_category/general_preferences
 	name = "General"
 	sort_order = 1
@@ -34,13 +37,13 @@
 
 /datum/category_group/player_setup_category/global_preferences
 	name = "Global"
-	sort_order = 5
+	sort_order = 6
 	category_item_type = /datum/category_item/player_setup_item/player_global
 	sql_role = SQL_PREFERENCES
 
 /datum/category_group/player_setup_category/other_preferences
 	name = "Other"
-	sort_order = 6
+	sort_order = 7
 	category_item_type = /datum/category_item/player_setup_item/other
 
 /****************************
@@ -61,9 +64,9 @@
 	selected_category = null
 	return ..()
 
-/datum/category_collection/player_setup_collection/proc/sanitize_setup()
+/datum/category_collection/player_setup_collection/proc/sanitize_setup(sql_load = FALSE)
 	for(var/datum/category_group/player_setup_category/PS in categories)
-		PS.sanitize_setup()
+		PS.sanitize_setup(sql_load)
 
 /datum/category_collection/player_setup_collection/proc/load_character(var/savefile/S)
 	for(var/datum/category_group/player_setup_category/PS in categories)
@@ -122,14 +125,11 @@
 	var/sql_role = SQL_CHARACTER
 	var/modified = 0
 
-/datum/category_group/player_setup_category/dd_SortValue()
-	return sort_order
-
-/datum/category_group/player_setup_category/proc/sanitize_setup()
+/datum/category_group/player_setup_category/proc/sanitize_setup(sql_load = FALSE)
 	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.sanitize_preferences()
+		PI.sanitize_preferences(sql_load)
 	for(var/datum/category_item/player_setup_item/PI in items)
-		PI.sanitize_character()
+		PI.sanitize_character(sql_load)
 
 /datum/category_group/player_setup_category/proc/load_character(var/savefile/S)
 	// Load all data, then sanitize it.
@@ -153,11 +153,10 @@
 	if (!config.sql_saves || !establish_db_connection(dbcon))
 		for (var/datum/category_item/player_setup_item/PI in items)
 			PI.save_character(S)
-	else
-		if (modified)
-			// No save here, because this is only called from the menu and needs to save /everything/.
-			handle_sql_saving(SQL_CHARACTER)
-			modified = 0
+	else if (modified)
+		// No save here, because this is only called from the menu and needs to save /everything/.
+		handle_sql_saving(SQL_CHARACTER)
+		modified = 0
 
 /datum/category_group/player_setup_category/proc/load_preferences(var/savefile/S)
 	if (!config.sql_saves || !establish_db_connection(dbcon))
@@ -213,9 +212,6 @@
 /datum/category_item/player_setup_item/Destroy()
 	pref = null
 	return ..()
-
-/datum/category_item/player_setup_item/dd_SortValue()
-	return sort_order
 
 /*
 * Called when the item is asked to load per character settings - Only called when sql saves are disabled or unavailable

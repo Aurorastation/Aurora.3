@@ -1,4 +1,20 @@
 #define DEBUG
+
+//These get to go at the top, because they're special
+//You can use these defines to get the typepath of the currently running proc/verb (yes procs + verbs are objects)
+/* eg:
+/mob/living/carbon/human/death()
+	world << THIS_PROC_TYPE_STR //You can only output the string versions
+Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a string with () (eg: the _WITH_ARGS defines) to make it look nicer)
+*/
+#define THIS_PROC_TYPE .....
+#define THIS_PROC_TYPE_STR "[THIS_PROC_TYPE]" //Because you can only obtain a string of THIS_PROC_TYPE using "[]", and it's nice to just +/+= strings
+#define THIS_PROC_TYPE_STR_WITH_ARGS "[THIS_PROC_TYPE]([args.Join(",")])"
+#define THIS_PROC_TYPE_WEIRD ...... //This one is WEIRD, in some cases (When used in certain defines? (eg: ASSERT)) THIS_PROC_TYPE will fail to work, but THIS_PROC_TYPE_WEIRD will work instead
+#define THIS_PROC_TYPE_WEIRD_STR "[THIS_PROC_TYPE_WEIRD]" //Included for completeness
+#define THIS_PROC_TYPE_WEIRD_STR_WITH_ARGS "[THIS_PROC_TYPE_WEIRD]([args.Join(",")])" //Ditto
+
+
 // Turf-only flags.
 #define NOJAUNT 1 // This is used in literally one place, turf.dm, to block ethereal jaunt.
 
@@ -51,6 +67,7 @@
 #define PARALLAX_SPACE 0x1
 #define PARALLAX_DUST  0x2
 #define PROGRESS_BARS  0x4
+#define PARALLAX_IS_STATIC 0x8
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
@@ -147,6 +164,8 @@
 
 //Area flags, possibly more to come
 #define RAD_SHIELDED 1 //shielded from radiation, clearly
+#define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
+#define HIDE_FROM_HOLOMAP 4 // if we shouldn't be drawn on station holomaps
 
 // Custom layer definitions, supplementing the default TURF_LAYER, MOB_LAYER, etc.
 #define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
@@ -267,14 +286,8 @@
 #define LAYER_ABOVE_TABLE	2.81
 
 // Stoplag.
-#define TICK_LIMIT 80
-#define TICK_CHECK ( world.tick_usage > TICK_LIMIT ? stoplag() : 0 )
-#define CHECK_TICK if (world.tick_usage > TICK_LIMIT)  stoplag()
-
-// Effect Systems.
-#define EFFECT_CONTINUE 0 	// Keep processing.
-#define EFFECT_HALT 1		// Stop processing, but don't qdel.
-#define EFFECT_DESTROY 2	// qdel.
+#define TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? stoplag() : 0 )
+#define CHECK_TICK if (world.tick_usage > CURRENT_TICKLIMIT)  stoplag()
 
 // Performance bullshit.
 
@@ -286,12 +299,17 @@
   )
 
 #define get_turf(A) (get_step(A, 0))
-#define QDELETED(TARGET) (!TARGET || TARGET.gcDestroyed)
-#define QDEL_NULL(item) qdel(item); item = null
-// Shim until addtimer is merged or I figure out if it is safe to use scheduler for this.
-#define QDEL_IN(OBJ, TIME) spawn(TIME) qdel(OBJ)
+
+#define UNTIL(X) while(!(X)) stoplag()
+
+#define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
 
 #define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
+
+// These defines write to log_debug, prefixing the path to the current proc.
+//  When using them, try PROCLOG first. If it does not compile, try PROCLOG_WEIRD.
+#define PROCLOG(thing) log_debug("[THIS_PROC_TYPE]: [thing]")
+#define PROCLOG_WEIRD(thing) log_debug("[THIS_PROC_TYPE_WEIRD]: [thing]")
 
 //Recipe type defines. Used to determine what machine makes them
 #define MICROWAVE			0x1
@@ -299,3 +317,68 @@
 #define OVEN				0x4
 #define CANDYMAKER			0x8
 #define CEREALMAKER			0x10
+
+// MultiZAS directions.
+#define NORTHUP (NORTH|UP)
+#define EASTUP (EAST|UP)
+#define SOUTHUP (SOUTH|UP)
+#define WESTUP (WEST|UP)
+#define NORTHDOWN (NORTH|DOWN)
+#define EASTDOWN (EAST|DOWN)
+#define SOUTHDOWN (SOUTH|DOWN)
+#define WESTDOWN (WEST|DOWN)
+
+#define NL_NOT_DISABLED      0
+#define NL_TEMPORARY_DISABLE 1
+#define NL_PERMANENT_DISABLE 2
+
+// Used for creating soft references to objects. A manner of storing an item reference
+// as text so you don't necessarily fuck with an object's ability to be garbage collected.
+#define SOFTREF(A) "\ref[A]"
+
+// This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
+#define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref ? D:weakref : (D:weakref = new(D))) : null)
+
+#define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+#define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+
+// Maploader bounds indices
+#define MAP_MINX 1
+#define MAP_MINY 2
+#define MAP_MINZ 3
+#define MAP_MAXX 4
+#define MAP_MAXY 5
+#define MAP_MAXZ 6
+
+// /atom/proc/use_check flags.
+#define USE_ALLOW_NONLIVING 1
+#define USE_ALLOW_NON_ADV_TOOL_USR 2
+#define USE_ALLOW_DEAD 4
+#define USE_ALLOW_INCAPACITATED 8
+#define USE_ALLOW_NON_ADJACENT 16
+#define USE_FORCE_SRC_IN_USER 32
+#define USE_DISALLOW_SILICONS 64
+
+#define USE_SUCCESS 0
+#define USE_FAIL_NON_ADJACENT 1
+#define USE_FAIL_NONLIVING 2
+#define USE_FAIL_NON_ADV_TOOL_USR 3
+#define USE_FAIL_DEAD 4
+#define USE_FAIL_INCAPACITATED 5
+#define USE_FAIL_NOT_IN_USER 6
+#define USE_FAIL_IS_SILICON 7
+
+// 510 doesn't have this flag, so this shim will turn it into a no-op if it doesn't exist.
+#ifndef SEE_BLACKNESS
+#define SEE_BLACKNESS 0
+#endif
+
+#define DEFAULT_SIGHT (SEE_SELF|SEE_BLACKNESS)
+
+#define isStationLevel(Z) ((Z) in config.station_levels)
+#define isNotStationLevel(Z) !isStationLevel(Z)
+
+//Affects the chance that armour will block an attack. Should be between 0 and 1.
+//If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.
+//Of course, this will affect code that checks for blocked < 100, as blocked will be less likely to actually be 100.
+#define ARMOR_BLOCK_CHANCE_MULT 1.0

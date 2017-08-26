@@ -70,8 +70,7 @@
 			var/list/arg_names = tables[table]["args"]
 			count = arg_names.len
 			for (i = 1, i <= count, i++)
-				query += "[arg_names[i]] = :[arg_names[i]]"
-				arg_names[i] = ":[arg_names[i]]"
+				query += "[arg_names[i]] = :[arg_names[i]]:"
 
 				if (i != count)
 					query += " AND "
@@ -96,7 +95,7 @@
 
 	for (var/query_text in query_cache[type])
 		var/DBQuery/query = dbcon.NewQuery(query_text)
-		query.Execute(arg_list, 1)
+		query.Execute(arg_list)
 		if (query.ErrorMsg())
 			error("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
 			log_debug("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
@@ -180,7 +179,7 @@
 			// Process the args.
 			var/list/arg_names = list()
 			for (var/variable in var_names)
-				arg_names += ":[variable]"
+				arg_names += ":[variable]:"
 
 			query += "[jointext(arg_names, ", ")]) ON DUPLICATE KEY UPDATE"
 
@@ -215,7 +214,7 @@
 	var/datum/category_collection/player_setup_collection/cc = collection
 	for (var/query_text in query_cache[type])
 		var/DBQuery/query = dbcon.NewQuery(query_text)
-		query.Execute(arg_list, 1)
+		query.Execute(arg_list)
 
 		if (query.ErrorMsg())
 			error("SQL CHARACTER SAVE: SQL query error: [query.ErrorMsg()]")
@@ -236,8 +235,8 @@
 			query.Execute()
 
 			if (query.NextRow())
-				arg_list[":id"] = text2num(query.item[1])
-				arg_list[":char_id"] = text2num(query.item[1])
+				arg_list["id"] = text2num(query.item[1])
+				arg_list["char_id"] = text2num(query.item[1])
 				cc.preferences.current_character = text2num(query.item[1])
 
 #ifdef SQL_PREF_DEBUG

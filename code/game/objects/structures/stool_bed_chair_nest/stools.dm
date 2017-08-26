@@ -1,5 +1,4 @@
 //Todo: add leather and cloth for arbitrary coloured stools.
-var/global/list/stool_cache = list() //haha stool
 
 /obj/item/weapon/stool
 	name = "stool"
@@ -39,22 +38,23 @@ var/global/list/stool_cache = list() //haha stool
 /obj/item/weapon/stool/update_icon()
 	// Prep icon.
 	icon_state = ""
-	overlays.Cut()
+	cut_overlays()
+	var/list/stool_cache = SSicon_cache.stool_cache
 	// Base icon.
 	var/cache_key = "stool-[material.name]"
-	if(isnull(stool_cache[cache_key]))
+	if(!stool_cache[cache_key])
 		var/image/I = image(icon, base_icon)
 		I.color = material.icon_colour
 		stool_cache[cache_key] = I
-	overlays |= stool_cache[cache_key]
+	add_overlay(stool_cache[cache_key])
 	// Padding overlay.
 	if(padding_material)
 		var/padding_cache_key = "stool-padding-[padding_material.name]"
-		if(isnull(stool_cache[padding_cache_key]))
-			var/image/I =  image(icon, "stool_padding")
+		if(!stool_cache[padding_cache_key])
+			var/image/I = image(icon, "stool_padding")
 			I.color = padding_material.icon_colour
 			stool_cache[padding_cache_key] = I
-		overlays |= stool_cache[padding_cache_key]
+		add_overlay(stool_cache[padding_cache_key])
 	// Strings.
 	if(padding_material)
 		name = "[padding_material.display_name] [initial(name)]" //this is not perfect but it will do for now.
@@ -73,19 +73,21 @@ var/global/list/stool_cache = list() //haha stool
 		padding_material = null
 	update_icon()
 
-/obj/item/weapon/stool/attack(mob/M as mob, mob/user as mob)
-	if (prob(5) && istype(M,/mob/living))
-		user.visible_message("<span class='danger'>[user] breaks [src] over [M]'s back!</span>")
+/obj/item/weapon/stool/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+	if (prob(5))
+		user.visible_message("<span class='danger'>[user] breaks [src] over [target]'s back!</span>")
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		user.do_attack_animation(M)
-		
+		user.do_attack_animation(target)
+
 		user.remove_from_mob(src)
 		dismantle()
 		qdel(src)
-		var/mob/living/T = M
-		T.Weaken(10)
-		T.apply_damage(20)
+
+		var/blocked = target.run_armor_check(hit_zone, "melee")
+		target.Weaken(10 * BLOCKED_MULT(blocked))
+		target.apply_damage(20, BRUTE, hit_zone, blocked, src)
 		return
+
 	..()
 
 /obj/item/weapon/stool/ex_act(severity)

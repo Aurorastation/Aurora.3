@@ -2,26 +2,24 @@
 	name = "oven"
 	desc = "Cookies are ready, dear."
 	icon = 'icons/obj/cooking_machines.dmi'
-	icon_state = "oven_off"
-	on_icon = "oven_on"
-	off_icon = "oven_off"
+	icon_state = "ovenopen"
 	cook_type = "baked"
 	appliancetype = OVEN
 	food_color = "#A34719"
 	can_burn_food = 1
-	active_power_usage	= 19000
+	active_power_usage = 6 KILOWATTS
 	//Based on a double deck electric convection oven
 
-	resistance = 72000
-	idle_power_usage	= 6000
-	//uses 30% power to stay warm
+	resistance = 16000
+	idle_power_usage = 2 KILOWATTS
+	//uses ~30% power to stay warm
 	optimal_power = 0.2
 
 	light_x = 2
 	max_contents = 5
 	container_type = /obj/item/weapon/reagent_containers/cooking_container/oven
 
-	stat = POWEROFF//Starts turned off
+	stat = POWEROFF	//Starts turned off
 
 	var/open = 1
 
@@ -35,7 +33,7 @@
 		"Waffles" = /obj/item/weapon/reagent_containers/food/snacks/variable/waffles,
 		"Cookie" = /obj/item/weapon/reagent_containers/food/snacks/variable/cookie,
 		"Donut" = /obj/item/weapon/reagent_containers/food/snacks/variable/donut
-		)
+	)
 
 
 /obj/machinery/appliance/cooker/oven/update_icon()
@@ -48,16 +46,25 @@
 		icon_state = "ovenopen"
 	..()
 
-
 /obj/machinery/appliance/cooker/oven/AltClick(var/mob/user)
-	if(user.stat || user.restrained())	return
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)//No spamming the door, it makes a sound
-	toggle_door()
+	try_toggle_door(user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 /obj/machinery/appliance/cooker/oven/verb/toggle_door()
-	set src in view()
-	set name = "Open/close oven door"
+	set src in oview(1)
 	set category = "Object"
+	set name = "Open/close oven door"
+
+	try_toggle_door(usr)
+
+/obj/machinery/appliance/cooker/oven/proc/try_toggle_door(mob/user)
+	if (!isliving(usr) || isAI(user))
+		return
+
+	if (!usr.IsAdvancedToolUser())
+		usr << "You lack the dexterity to do that."
+		return
+
 	if (!Adjacent(usr))
 		usr << "You can't reach the [src] from there, get closer!"
 		return
@@ -67,12 +74,11 @@
 		loss = (active_power_usage / resistance)*0.5
 	else
 		open = 1
-		loss = (active_power_usage / resistance)*6
+		loss = (active_power_usage / resistance)*4
 		//When the oven door is opened, heat is lost MUCH faster
 
 	playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
 	update_icon()
-
 
 /obj/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
 	if (!open)

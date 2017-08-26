@@ -12,7 +12,7 @@
 			continue
 		players += player.real_name
 
-	for (var/mob/living/silicon/ai/target in world)
+	for (var/mob/living/silicon/ai/target in silicon_mob_list)
 		var/random_player = "The Captain"
 		if(players.len)
 			random_player = pick(players)		//Random player's name, to be used in laws.
@@ -72,7 +72,7 @@
 								"[prob(50)?"The crew":random_player] is [prob(50)?"less":"more"] intelligent than average. Point out every action and statement which supports this fact.",
 								"There will be a mandatory tea break every 30 minutes, with a duration of 5 minutes. Anyone caught working during a tea break must be sent a formal, but fairly polite, complaint about their actions, in writing.")
 		var/law = pick(laws)
-		target << "\red <b>You have detected a change in your laws information:</b>"
+		target << "<span class='danger'>You have detected a change in your laws information:</span>"
 		target << law
 		target.add_ion_law(law)
 		target.show_laws()
@@ -88,7 +88,7 @@
 
 /datum/event/ionstorm/tick()
 	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in world)
+		for(var/obj/machinery/bot/bot in SSmachinery.all_machines)
 			if(prob(botEmagChance))
 				bot.emag_act(1)
 

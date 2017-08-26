@@ -29,6 +29,10 @@
 	if(destination)
 		walk_to(src, destination)
 
+/obj/effect/effect/smoke/chem/Destroy()
+	walk(src, 0)
+	return ..()
+
 /obj/effect/effect/smoke/chem/Move()
 	var/list/oldlocs = view(1, src)
 	. = ..()
@@ -71,8 +75,8 @@
 	var/datum/seed/seed
 
 /datum/effect/effect/system/smoke_spread/chem/spores/New(seed_name)
-	if(seed_name && plant_controller)
-		seed = plant_controller.seeds[seed_name]
+	if(seed_name && SSplants)
+		seed = SSplants.seeds[seed_name]
 	if(!seed)
 		qdel(src)
 	..()
@@ -231,7 +235,7 @@
 	if(passed_smoke)
 		smoke = passed_smoke
 	else
-		smoke = getFromPool(/obj/effect/effect/smoke/chem, location, smoke_duration + rand(smoke_duration*-0.25, smoke_duration*0.25), T, I)
+		smoke = new /obj/effect/effect/smoke/chem(location, smoke_duration + rand(smoke_duration*-0.25, smoke_duration*0.25), T, I)
 
 	if(chemholder.reagents.reagent_list.len)
 		chemholder.reagents.trans_to_obj(smoke, chemholder.reagents.total_volume / dist, copy = 1) //copy reagents to the smoke so mob/breathe() can handle inhaling the reagents
@@ -242,7 +246,7 @@
 
 
 /datum/effect/effect/system/smoke_spread/chem/spores/spawnSmoke(var/turf/T, var/smoke_duration, var/icon/I, var/dist = 1)
-	var/obj/effect/effect/smoke/chem/spores = getFromPool(/obj/effect/effect/smoke/chem, location)
+	var/obj/effect/effect/smoke/chem/spores = new /obj/effect/effect/smoke/chem(location)
 	spores.name = "cloud of [seed.seed_name] [seed.seed_noun]"
 	..(T, I, smoke_duration, dist, spores)
 

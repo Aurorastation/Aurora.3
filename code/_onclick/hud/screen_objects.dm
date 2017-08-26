@@ -13,7 +13,7 @@
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 
-/obj/screen/Destroy()
+/obj/screen/Destroy(force = FALSE)
 	master = null
 	screen_loc = null
 	return ..()
@@ -46,7 +46,7 @@
 	var/obj/item/owner
 
 /obj/screen/item_action/Destroy()
-	..()
+	. = ..()
 	owner = null
 
 /obj/screen/item_action/Click()
@@ -81,6 +81,8 @@
 
 /obj/screen/storage
 	name = "storage"
+	layer = 19
+	screen_loc = "7,7 to 10,8"
 
 /obj/screen/storage/Click()
 	if(!usr.canClick())

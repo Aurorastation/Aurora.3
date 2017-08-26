@@ -114,6 +114,7 @@ var/const/NO_EMAG_ACT = -50
 	var/sex = "\[UNSET\]"
 	var/icon/front
 	var/icon/side
+	var/mining_points //miners gotta eat
 
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job
@@ -182,6 +183,8 @@ var/const/NO_EMAG_ACT = -50
 	dat += text("Fingerprint: []</A><BR>\n", fingerprint_hash)
 	dat += text("Blood Type: []<BR>\n", blood_type)
 	dat += text("DNA Hash: []<BR><BR>\n", dna_hash)
+	if(mining_points)
+		dat += text("Ore Redemption Points: []<BR><BR>\n", mining_points)
 	if(front && side)
 		dat +="<td align = center valign = top>Photo:<br><img src=front.png height=80 width=80 border=4><img src=side.png height=80 width=80 border=4></td>"
 	dat += "</tr></table>"
@@ -279,6 +282,8 @@ var/const/NO_EMAG_ACT = -50
 	usr << "The blood type on the card is [blood_type]."
 	usr << "The DNA hash on the card is [dna_hash]."
 	usr << "The fingerprint hash on the card is [fingerprint_hash]."
+	if(mining_points)
+		usr << "A ticker indicates the card has [mining_points] ore redemption points available."
 	return
 
 /obj/item/weapon/card/id/silver
@@ -322,6 +327,17 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access() + access_synth
 	..()
 
+/obj/item/weapon/card/id/synthetic/minedrone
+	name = "\improper Minedrone ID"
+	desc = "Access module for NanoTrasen Minedrones"
+	icon_state = "id-robot"
+	item_state = "tdgreen"
+	assignment = "Minedrone"
+
+/obj/item/weapon/card/id/synthetic/minedrone/New()
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
+	..()
+
 /obj/item/weapon/card/id/centcom
 	name = "\improper CentCom. ID"
 	desc = "An ID straight from Cent. Com."
@@ -340,7 +356,7 @@ var/const/NO_EMAG_ACT = -50
 obj/item/weapon/card/id/centcom/ERT/New()
 	..()
 	access = get_all_accesses() + get_centcom_access("Emergency Response Team")
-	
+
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"
 	desc = "The spare ID of the Lord of Lords himself."

@@ -52,7 +52,7 @@
 
 	attacker.visible_message("<span class='danger'>[attacker] [pick("bent", "twisted")] [target]'s [organ.name] into a jointlock!</span>")
 	var/armor = target.run_armor_check(target, "melee")
-	if(armor < 2)
+	if(armor < 100)
 		target << "<span class='danger'>You feel extreme pain!</span>"
 		affecting.adjustHalLoss(Clamp(0, 60-affecting.halloss, 30)) //up to 60 halloss
 
@@ -77,7 +77,7 @@
 
 	attacker.attack_log += text("\[[time_stamp()]\] <font color='red'>Attacked [target.name]'s eyes using grab ([target.ckey])</font>")
 	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Had eyes attacked by [attacker.name]'s grab ([attacker.ckey])</font>")
-	msg_admin_attack("[key_name(attacker)] attacked [key_name(target)]'s eyes using a grab action.",ckey=key_name(attacker),ckey_target=key_name(target))
+	msg_admin_attack("[key_name_admin(attacker)] attacked [key_name_admin(target)]'s eyes using a grab action.",ckey=key_name(attacker),ckey_target=key_name(target))
 
 	attack.handle_eye_attack(attacker, target)
 
@@ -97,7 +97,7 @@
 	target.apply_damage(damage, BRUTE, "head", armor)
 	attacker.apply_damage(10, BRUTE, "head", attacker.run_armor_check("head", "melee"))
 
-	if(!armor && target.headcheck("head") && prob(damage))
+	if(armor < 25 && target.headcheck("head") && prob(damage))
 		target.apply_effect(20, PARALYZE)
 		target.visible_message("<span class='danger'>[target] [target.species.knockout_message]</span>")
 

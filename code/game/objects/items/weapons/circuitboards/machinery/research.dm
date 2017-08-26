@@ -67,7 +67,7 @@ obj/item/weapon/circuitboard/rdserver
 	name = T_BOARD("telepad")
 	build_path = "/obj/machinery/telepad"
 	board_type = "machine"
-	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3, TECH_MATERIALS = 3, TECH_BLUESPACE = 4)
+	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3, TECH_MATERIAL = 3, TECH_BLUESPACE = 4)
 	req_components = list(
 							"/obj/item/bluespace_crystal" = 2,
 							"/obj/item/weapon/stock_parts/capacitor" = 1,

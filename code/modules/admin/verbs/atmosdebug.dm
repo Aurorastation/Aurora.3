@@ -28,7 +28,7 @@
 
 	usr << "Checking for overlapping pipes..."
 	next_turf:
-		for(var/turf/T in world)
+		for(var/turf/T in turfs)
 			for(var/dir in cardinal)
 				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
 				for(var/obj/machinery/atmospherics/pipe in T)
@@ -48,7 +48,7 @@
 		return
 	feedback_add_details("admin_verb","CPOW") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-	for (var/datum/powernet/PN in powernets)
+	for (var/datum/powernet/PN in SSpower.powernets)
 		if (!PN.nodes || !PN.nodes.len)
 			if(PN.cables && (PN.cables.len > 1))
 				var/obj/structure/cable/C = PN.cables[1]

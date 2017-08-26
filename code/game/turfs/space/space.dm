@@ -10,17 +10,46 @@
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
-//	heat_capacity = 700000 No.
 
-/turf/space/New()
+	var/static/list/dust_cache
+	
+//	heat_capacity = 700000 No.
+	is_hole = TRUE
+
+/turf/space/proc/build_dust_cache()
+	LAZYINITLIST(dust_cache)
+	for (var/i in 0 to 25)
+		var/image/im = image('icons/turf/space_parallax1.dmi',"[i]")
+		im.plane = PLANE_SPACE_DUST
+		im.alpha = 80
+		im.blend_mode = BLEND_ADD
+		dust_cache["[i]"] = im
+
+// Copypaste of parent for performance.
+/turf/space/Initialize()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
-	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
-	I.plane = PLANE_SPACE_DUST
-	I.alpha = 80
-	I.blend_mode = BLEND_ADD
-	overlays += I
+	if (!dust_cache)
+		build_dust_cache()
+
+	add_overlay(dust_cache[icon_state])
 	update_starlight()
-	..()
+
+	if (initialized)
+		crash_with("Warning: [src]([type]) initialized multiple times!")
+
+	initialized = TRUE
+
+	for(var/atom/movable/AM as mob|obj in src)
+		src.Entered(AM)
+		
+	turfs += src
+
+	if(dynamic_lighting)
+		luminosity = 0
+	else
+		luminosity = 1
+	
+	return INITIALIZE_HINT_NORMAL
 
 /turf/space/is_space()
 	return 1
@@ -31,14 +60,15 @@
 		O.hide(0)
 
 /turf/space/proc/update_starlight()
-	if(!config.starlight)
-		return
+	if(config.starlight)
+		for (var/T in RANGE_TURFS(1, src))
+			if (istype(T, /turf/space))
+				continue
 
-	for (var/T in RANGE_TURFS(1, src))
-		if (istype(T, /turf/space))
-			continue
+			set_light(config.starlight)
+			return
 
-		set_light(config.starlight)
+		set_light(0)
 
 /turf/space/attackby(obj/item/C as obj, mob/user as mob)
 
@@ -80,7 +110,7 @@
 
 	inertial_drift(A)
 
-	if(ticker && ticker.mode)
+	if(SSticker.mode)
 
 		// Okay, so let's make it so that people can travel z levels but not nuke disks!
 		// if(ticker.mode.name == "mercenary")	return

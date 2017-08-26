@@ -56,11 +56,13 @@
 
 /datum/language/tajaran/get_random_name(var/gender)
 
-	var/new_name = ..(gender,1)
-	if(prob(50))
-		new_name += " [pick(list("Hadii","Kaytam","Nazkiin","Zhan-Khazan","Hharar","Njarir'Akhan","Faaira'Nrezi","Rhezar","Mi'dynh","Rrhazkal","Bayan","Al'Manq","Mi'jri","Chur'eech","Sanu'dra","Ii'rka"))]"
-	else
-		new_name += " [..(gender,1)]"
+	var/new_name
+	if(gender==FEMALE)
+		new_name += pick(list("Aisha","Amani","Agashka","Agramakova","Bakhteiarova","Bratomila","Dekhova","Derzhka","Farah","Faizah","Hanifa","Ikram","Jenna","Khadija","Kandaza","Karyme","Kismet","Malika","Mumtaz","Nashwa","Nafisha","Shahar","Sabah","Takiyah","Wafiqah","Wasime","Yesenia","Zahra","Zohra","Rajjurl","Marryam","Dhrarmela","Rrhuyala","Irryavga","Ahvulyar","Purryalna","Yasmin"))
+	else if(gender==MALE)
+		new_name += pick(list("Abdal","Akhtar","Akim","Alik","Arif","Azzam","Anton","Alzrun","Bahir","Barakh","Bohdan","Coman","Dekel","Dima","Fa'iq","Faidah","Fredek","Fakhr","Hasam","Hashim","Ioakim","Kadir","Kareef","Khrazmrrug","Khazarir","Rrhazumar","Mrrhazugal","Harrmalik","Mata'ke","Njadrasanukii","Tajrhalrr","Rhagrrhuzau","Vahzirthaamro","Lev","Misha","Mahir","Nasser","Nasir","Oleg","Qadir","Sharif","Stepka","Tamir","Yasir","Zahid"))
+	new_name += " "
+	new_name += pick(list("Alfarsi","Alekseev","Al-Barik","Al-Hamdan","Al-Mansur","Al-Kandari","Al-Shahrani","Antonov","Bogdanov","El-Hasem","El-Amin","Rrhakaslav","Mrrazhughran","Jrruzhani","Rrhamrare","Mrakiizar","Hirron","Prruzhulkanich","El-Tusi","Nejem","Hanar","Karimi","Markov","Saif","Yakub","Zaman","Zaydan","Zidan","Zahawi"))
 	return new_name
 	
 // tajaran sign language

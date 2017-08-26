@@ -170,12 +170,38 @@
 // Description: Returns a list of all unhacked APCs
 /proc/get_unhacked_apcs(var/mob/living/silicon/ai/user)
 	var/list/H = list()
-	for(var/obj/machinery/power/apc/A in machines)
+	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
 		if(A.hacker && A.hacker == user)
 			continue
 		H.Add(A)
 	return H
 
+// Proc: get_hacked_apcs()
+// Parameters: None
+// Description: Returns a list of all hacked APCs
+/proc/get_hacked_apcs()
+	var/list/H = list()
+	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
+		if(!A.hacker)
+			continue
+		H.Add(A)
+	return H
+
+// Proc: get_apcs()
+// Parameters: None
+// Description: Returns a list of all APCs
+/proc/get_apcs()
+	var/list/H = list()
+	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
+		H.Add(A)
+	return H
+
+/proc/get_unhacked_holopads()
+	var/list/H = list()
+	for(var/obj/machinery/hologram/holopad/HP in SSmachinery.processing_machines)
+		if(!HP.hacked)
+			H.Add(HP)
+	return H
 
 // Helper procs which return lists of relevant mobs.
 /proc/get_unlinked_cyborgs(var/mob/living/silicon/ai/A)
@@ -202,7 +228,7 @@
 
 	var/list/L = list()
 	for(var/mob/living/silicon/ai/AT in mob_list)
-		if(L == A)
+		if(AT == A)
 			continue
 		L.Add(AT)
 	return L

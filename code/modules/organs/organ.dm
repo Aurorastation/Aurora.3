@@ -1,5 +1,3 @@
-var/list/organ_cache = list()
-
 /obj/item/organ
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
@@ -29,8 +27,14 @@ var/list/organ_cache = list()
 
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 
+/obj/item/organ/New(loc, ...)
+	..()
+	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
+		args[1] = TRUE
+		SSatoms.InitAtom(src, args)
+
 /obj/item/organ/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	if(!owner)
 		return ..()
 
@@ -53,8 +57,9 @@ var/list/organ_cache = list()
 /obj/item/organ/proc/update_health()
 	return
 
-/obj/item/organ/New(var/mob/living/carbon/holder, var/internal)
-	..(holder)
+/obj/item/organ/Initialize(mapload, internal)
+	. = ..()
+	var/mob/living/carbon/holder = loc
 	create_reagents(5)
 	if(!max_damage)
 		max_damage = min_broken_damage * 2
@@ -92,7 +97,7 @@ var/list/organ_cache = list()
 		return
 	damage = max_damage
 	status |= ORGAN_DEAD
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	if(dead_icon)
 		icon_state = dead_icon
 	if(owner && vital)
@@ -105,7 +110,7 @@ var/list/organ_cache = list()
 
 	if (QDELETED(src))
 		log_debug("QDELETED organ [DEBUG_REF(src)] had process() called!")
-		processing_objects -= src
+		STOP_PROCESSING(SSprocessing, src)
 		return
 
 	//dead already, no need for more processing
@@ -302,7 +307,7 @@ var/list/organ_cache = list()
 	if(affected) affected.internal_organs -= src
 
 	loc = get_turf(owner)
-	processing_objects |= src
+	START_PROCESSING(SSprocessing, src)
 	rejecting = null
 	if (!reagents)
 		create_reagents(5)
@@ -337,7 +342,7 @@ var/list/organ_cache = list()
 
 	owner = target
 	loc = owner
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	target.internal_organs |= src
 	affected.internal_organs |= src
 	target.internal_organs_by_name[organ_tag] = src
@@ -359,7 +364,7 @@ var/list/organ_cache = list()
 	if(robotic)
 		return
 
-	user << "\blue You take an experimental bite out of \the [src]."
+	user << "<span class='notice'>You take an experimental bite out of \the [src].</span>"
 	var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
 	blood_splatter(src,B,1)
 

@@ -1,5 +1,6 @@
 /datum/species/human
 	name = "Human"
+	hide_name = TRUE
 	short_name = "hum"
 	name_plural = "Humans"
 	bodytype = "Human"
@@ -18,6 +19,7 @@
 	mob_size = 9
 	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
+	remains_type = /obj/effect/decal/remains/human
 
 	stamina	=	130			  // Humans can sprint for longer than any other species
 	stamina_recovery = 5
@@ -39,7 +41,10 @@
 	gluttonous = 1
 	slowdown = 0.5
 	brute_mod = 0.8
+	fall_mod = 1.2
 	ethanol_resistance = 0.4
+	taste_sensitivity = TASTE_SENSITIVE
+
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	name_language = LANGUAGE_UNATHI
@@ -98,7 +103,9 @@
 
 /datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
+	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	if(H.equip_to_slot_or_del(S,slot_shoes))
+		S.autodrobe_no_remove = 1
 
 /datum/species/tajaran
 	name = "Tajara"
@@ -113,6 +120,7 @@
 	darksight = 8
 	slowdown = -1
 	brute_mod = 1.2
+	fall_mod = 0.5
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR)
 	name_language = LANGUAGE_SIIK_MAAS
@@ -157,7 +165,9 @@
 
 /datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
+	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	if(H.equip_to_slot_or_del(S,slot_shoes))
+		S.autodrobe_no_remove = 1
 
 /datum/species/skrell
 	name = "Skrell"
@@ -193,6 +203,7 @@
 
 	reagent_tag = IS_SKRELL
 	ethanol_resistance = 0.5//gets drunk faster
+	taste_sensitivity = TASTE_SENSITIVE
 
 	stamina	=	90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
@@ -219,7 +230,9 @@
 	num_alternate_languages = 1
 	name_language = "Rootsong"
 	ethanol_resistance = -1//Can't get drunk
+	taste_sensitivity = TASTE_DULL
 	mob_size = 12//Worker gestalts are 150kg
+	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
 	species hailing from Epsilon Ursae Minoris. Each 'diona' is a cluster of numerous cat-sized organisms called nymphs; \
 	there is no effective upper limit to the number that can fuse in gestalt, and reports exist	of the Epsilon Ursae \
@@ -321,10 +334,14 @@
 	return species_language.get_random_name()
 
 /datum/species/diona/equip_survival_gear(var/mob/living/carbon/human/H)
+	var/obj/item/device/flashlight/flare/F = new /obj/item/device/flashlight/flare(H)
 	if(H.backbag == 1)
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
+		H.equip_to_slot_or_del(F, slot_r_hand)
 	else
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H.back), slot_in_backpack)
+		H.equip_to_slot_or_del(F, slot_in_backpack)
+	if(!QDELETED(F))
+		F.autodrobe_no_remove = 1
+	H.gender = NEUTER
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
@@ -336,7 +353,8 @@
 
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
-		H.diona_split_into_nymphs(0)
+		// This proc sleeps. Async it.
+		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
 
 /datum/species/machine
@@ -355,6 +373,7 @@
 
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
+	eyes = "blank_eyes"
 
 	light_range = 2
 	light_power = 0.5
@@ -367,9 +386,10 @@
 	secondary_langs = list("Encoded Audio Language")
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
+	remains_type = /obj/effect/decal/remains/robot
 
-	// #TODO-MERGE: Check for balance and self-repair. If self-repair is a thing, RIP balance.
-	brute_mod = 0.8
+
+	brute_mod = 1.0
 	burn_mod = 1.0
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
@@ -468,14 +488,14 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		var/obj/item/organ/ipc_tag/tag = new_machine.internal_organs_by_name["ipc tag"]
 
 		var/status = 0
-		var/list/query_details = list(":ckey" = player.ckey, ":character_name" = player.prefs.real_name)
-		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey AND character_name = :character_name")
+		var/list/query_details = list("ckey" = player.ckey, "character_name" = player.prefs.real_name)
+		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
 		query.Execute(query_details)
 
 		if (query.NextRow())
 			status = text2num(query.item[1])
 		else
-			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name) VALUES (:ckey, :character_name)")
+			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name) VALUES (:ckey:, :character_name:)")
 			log_query.Execute(query_details)
 
 		if (!status)
@@ -493,8 +513,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if (target.internal_organs_by_name["ipc tag"])
 			status = 1
 
-		var/list/query_details = list(":ckey" = player.ckey, ":character_name" = target.real_name)
-		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey AND character_name = :character_name")
+		var/list/query_details = list("ckey" = player.ckey, "character_name" = target.real_name)
+		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
 		query.Execute(query_details)
 
 		if (query.NextRow())
@@ -502,9 +522,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			if (sql_status == status)
 				return
 
-			query_details.Add(":status")
-			query_details[":status"] = status
-			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status WHERE player_ckey = :ckey AND character_name = :character_name")
+			query_details["status"] = status
+			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status: WHERE player_ckey = :ckey: AND character_name = :character_name:")
 			update_query.Execute(query_details)
 
 /datum/species/machine/get_light_color(hair_style)
@@ -556,6 +575,10 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if ("yellow IPC screen")
 			return LIGHT_COLOR_YELLOW
 
+/datum/species/machine/equip_survival_gear(var/mob/living/carbon/human/H)
+	check_tag(H, H.client)
+	H.gender = NEUTER
+
 /datum/species/bug
 	name = "Vaurca Worker"
 	short_name = "vau"
@@ -569,7 +592,12 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/r_vaurca.dmi'
 	name_language = LANGUAGE_VAURCA
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/bite/sharp
+	)
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/bug
 	rarity_value = 4
 	slowdown = 1
@@ -583,6 +611,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	ethanol_resistance = 2
+	taste_sensitivity = TASTE_SENSITIVE
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
 	breath_type = "phoron"
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
@@ -612,42 +641,44 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
 	halloss_message = "crumbles to the ground, too weak to continue fighting."
 
-	list/heat_discomfort_strings = list(
+	heat_discomfort_strings = list(
 		"Your blood feels like its boiling in the heat.",
 		"You feel uncomfortably warm.",
 		"Your carapace feels hot as the sun."
-		)
-	list/cold_discomfort_strings = list(
+	)
+
+	cold_discomfort_strings = list(
 		"You chitter in the cold.",
 		"You shiver suddenly.",
 		"Your carapace is ice to the touch."
-		)
+	)
 
-	stamina	=	100			  // Long period of sprinting, but relatively low speed gain
+	stamina = 100			  // Long period of sprinting, but relatively low speed gain
 	sprint_speed_factor = 0.7
 	sprint_cost_factor = 0.30
-	stamina_recovery = 2//slow recovery
-
+	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
-		"neural socket" =  /obj/item/organ/vaurca/neuralsocket,
-		"lungs" =    /obj/item/organ/lungs,
-		"filtration bit" = /obj/item/organ/vaurca/filtrationbit,
-		"lungs" =    /obj/item/organ/lungs,
-		"heart" =    /obj/item/organ/heart,
+		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
+		"lungs"               = /obj/item/organ/lungs,
+		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit,
+		"right heart"         = /obj/item/organ/heart/right,
+		"left heart"          = /obj/item/organ/heart/left,
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
-		"second heart" =    /obj/item/organ/heart,
-		"left heart" =    /obj/item/organ/heart/left,
-		"liver" =    /obj/item/organ/liver,
-		"kidneys" =  /obj/item/organ/kidneys,
-		"brain" =    /obj/item/organ/brain,
-		"eyes" =     /obj/item/organ/eyes
-		)
+		"liver"               = /obj/item/organ/liver,
+		"kidneys"             = /obj/item/organ/kidneys,
+		"brain"               = /obj/item/organ/brain,
+		"eyes"                = /obj/item/organ/eyes
+	)
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
-	H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), slot_wear_mask)
+	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	if(H.equip_to_slot_or_del(S,slot_shoes))
+		S.autodrobe_no_remove = 1
+	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
+	if(H.equip_to_slot_or_del(M, slot_wear_mask))
+		M.autodrobe_no_remove = 1
 	H.gender = NEUTER
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)

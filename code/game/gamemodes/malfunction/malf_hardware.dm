@@ -24,7 +24,7 @@
 /datum/malf_hardware/apu_gen/get_examine_desc()
 	var/msg = "It seems to have some sort of power generator attached to its core."
 	if(owner.hardware_integrity() < 50)
-		msg += "<span class='warning'> It seems to be too damaged to function properly.</span>"
+		msg += "<span class='warning'>It seems to be too damaged to function properly.</span>"
 	else if(owner.APU_power)
 		msg += " The generator appears to be active."
 	return msg
@@ -60,7 +60,7 @@
 
 /datum/malf_hardware/strong_turrets/install()
 	..()
-	for(var/obj/machinery/porta_turret/T in machines)
+	for(var/obj/machinery/porta_turret/T in SSmachinery.processing_machines)
 		T.maxhealth = round(initial(T.maxhealth) * 2)
 		T.shot_delay = round(initial(T.shot_delay) / 2)
 		T.auto_repair = 1
