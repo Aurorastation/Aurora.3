@@ -306,10 +306,10 @@
 	var/mob/living/L = M
 	var/target_zone = check_zone(hit_zone)
 	if(isipc(L))
-		user.lastattacked = L	//are these used at all, if we have logs?
+		user.lastattacked = L
 		L.lastattacker = user
 
-		if (user != L) // Attacking yourself can't miss
+		if (user != L)
 			target_zone = get_zone_with_miss_chance(user.zone_sel.selecting, L)
 
 		if(!target_zone)
@@ -324,7 +324,7 @@
 				return 1
 			else
 				H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with [src] by [user]!</span>")
-
+		L.ion_disrupt()
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1) // new sound
 
 	if(status)

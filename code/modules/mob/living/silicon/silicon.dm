@@ -385,20 +385,3 @@
 			if (!underdoor)
 				spawn(3)//A slight delay to let us finish walking out from under the door
 					layer = initial(layer)
-
-/mob/living/silicon/proc/ion_effect(var/amount = 0)
-	// No cell inserted
-	if(!cell)
-		return 0
-
-	// Power cell is empty.
-	if(cell.charge == 0)
-		return 0
-
-	var/power_use = amount * CYBORG_POWER_USAGE_MULTIPLIER
-	if(overclocked == 1)
-		power_use = power_use + 200
-	if(cell.checked_use(CELLRATE * power_use))
-		used_power_this_tick += power_use
-		return 1
-	return 0
