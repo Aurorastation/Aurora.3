@@ -48,7 +48,7 @@
 			user << "<span class='notice'>A simple obsidian rod, a classic. Rods like these are seen in the hands of religious folks all across the galaxy.</span>"
 		if ("Staff")
 			new /obj/item/weapon/nullrod/nullstaff(usr.loc)
-			user << "<span class='notice'>A simple staff, a popular choice amongst shamans and wise men. You doubt this fill fit in your bag, but you can put it on your back.</span>"
+			user << "<span class='notice'>A simple staff, a popular choice amongst shamans and wise men. You doubt this will fit in your bag, but you can put it on your back.</span>"
 		if ("Orb")
 			new /obj/item/weapon/nullrod/nullorb(usr.loc)
 		if ("Athame")
