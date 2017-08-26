@@ -205,12 +205,12 @@
 /turf/space,
 /area/space)
 "aB" = (
-/obj/machinery/door/airlock,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/engineering)
 "aC" = (
@@ -485,6 +485,7 @@
 /obj/machinery/light,
 /obj/item/weapon/storage/box/lights/mixed,
 /obj/item/device/lightreplacer,
+/obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering)
 "bm" = (
@@ -509,8 +510,8 @@
 /turf/simulated/wall/r_wall,
 /area/hallway/primary/central_one)
 "bp" = (
-/obj/machinery/door/airlock,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "bq" = (
@@ -867,7 +868,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "ci" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
 "cj" = (
@@ -924,7 +925,9 @@
 /turf/simulated/wall/r_wall,
 /area/bridge)
 "cr" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock/glass_command{
+	name = "Bridge"
+	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "cs" = (
@@ -1332,6 +1335,21 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"dA" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/clothing/shoes/magboots,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
+"dB" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry)
+"dC" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry)
 
 (1,1,1) = {"
 aa
@@ -2051,7 +2069,7 @@ ae
 af
 aj
 au
-au
+dA
 aU
 bf
 bo
@@ -3462,7 +3480,7 @@ bu
 bu
 ci
 bu
-ci
+dB
 bu
 ci
 bu
@@ -3570,7 +3588,7 @@ ac
 ac
 ac
 bu
-ci
+dC
 bu
 ac
 ac
