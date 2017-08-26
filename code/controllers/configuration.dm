@@ -273,6 +273,8 @@ var/list/gamemode_cache = list()
 
 	var/merchant_chance = 20 //Chance, in percentage, of the merchant job slot being open at round start
 
+	var/show_game_type_odd = 1 // If the check gamemode probability verb is enabled or not
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -842,6 +844,8 @@ var/list/gamemode_cache = list()
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
 
+				if("show_game_type_odd")
+					config.show_game_type_odd = 1
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
