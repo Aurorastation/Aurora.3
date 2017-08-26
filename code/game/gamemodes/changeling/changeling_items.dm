@@ -8,7 +8,6 @@
 	w_class = 4
 	force = 30
 	sharp = 1
-	flags = ONLYDROP
 	edge = 1
 	anchored = 1
 	throwforce = 0 //Just to be on the safe side

@@ -347,7 +347,7 @@
 
 				//Actually disarm them
 				for(var/obj/item/I in holding)
-					if(I && !(I.flags & ONLYDROP))
+					if(I)
 						drop_from_inventory(I)
 						visible_message("<span class='danger'>[M] has disarmed [src]!</span>")
 						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)

@@ -9,9 +9,6 @@
 
 	var/obj/item/target_slot = get_equipped_item(text2num(slot_to_strip))
 
-	if(target_slot.flags & ONLYDROP)
-		to_chat(user, "<span class='warning'>You can't remove \the [target_slot.name], it appears to be stuck!</span>")
-		return
 
 	switch(slot_to_strip)
 		// Handle things that are part of this interface but not removing/replacing a given item.
