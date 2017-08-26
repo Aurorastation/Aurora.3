@@ -9,7 +9,6 @@
 
 	var/obj/item/target_slot = get_equipped_item(text2num(slot_to_strip))
 
-
 	switch(slot_to_strip)
 		// Handle things that are part of this interface but not removing/replacing a given item.
 		if("pockets")
