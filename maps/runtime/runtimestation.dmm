@@ -163,8 +163,8 @@
 /area/engineering/atmos)
 "ax" = (
 /obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/visible/blue{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/visible/blue{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
