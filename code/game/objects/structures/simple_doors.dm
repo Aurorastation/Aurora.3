@@ -42,7 +42,7 @@
 /obj/structure/simple_door/Destroy()
 	processing_objects -= src
 	update_nearby_tiles()
-	..()
+	return ..()
 
 /obj/structure/simple_door/get_material()
 	return material
@@ -134,7 +134,7 @@
 		hardness -= W.force/100
 		user << "You hit the [name] with your [W.name]!"
 		CheckHardness()
-	else if(istype(W,/obj/item/weapon/weldingtool))
+	else if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(material.ignition_point && WT.remove_fuel(0, user))
 			TemperatureAct(150)

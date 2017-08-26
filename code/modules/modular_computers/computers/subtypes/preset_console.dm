@@ -1,3 +1,14 @@
+/obj/item/modular_computer/console/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(istype(mover,/obj/item/projectile))
+		if (prob(80))
+	//Holoscreens are non solid, and the frames of the computers are thin. So projectiles will usually
+	//pass through
+			return 1
+	else if(istype(mover) && mover.checkpass(PASSTABLE))
+	//Animals can run under them, lots of empty space
+		return 1
+	return ..()
+
 /obj/item/modular_computer/console/preset/install_default_hardware()
 	..()
 	processor_unit = new/obj/item/weapon/computer_hardware/processor_unit(src)
@@ -67,6 +78,18 @@ ERT
 	enrolled = 2
 
 /obj/item/modular_computer/console/preset/mercenary/install_default_hardware()
+	..()
+	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
+	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+
+
+// Merchant
+/obj/item/modular_computer/console/preset/merchant
+	_app_preset_name = "merchant"
+	enrolled = 2
+
+/obj/item/modular_computer/console/preset/merchant/install_default_hardware()
 	..()
 	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
 	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)

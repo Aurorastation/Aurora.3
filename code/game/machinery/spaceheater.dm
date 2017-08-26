@@ -9,18 +9,19 @@
 	var/on = 0
 	var/set_temperature = T0C + 50	//K
 	var/heating_power = 40000
+	has_special_power_checks = TRUE
 
 
-/obj/machinery/space_heater/New()
-	..()
+/obj/machinery/space_heater/Initialize()
+	. = ..()
 	cell = new(src)
 	update_icon()
 
 /obj/machinery/space_heater/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	icon_state = "sheater[on]"
 	if(panel_open)
-		overlays  += "sheater-open"
+		add_overlay("sheater-open")
 
 /obj/machinery/space_heater/examine(mob/user)
 	..(user)
@@ -65,7 +66,7 @@
 		else
 			user << "The hatch must be open to insert a power cell."
 			return
-	else if(istype(I, /obj/item/weapon/screwdriver))
+	else if(isscrewdriver(I))
 		panel_open = !panel_open
 		user.visible_message("<span class='notice'>[user] [panel_open ? "opens" : "closes"] the hatch on the [src].</span>", "<span class='notice'>You [panel_open ? "open" : "close"] the hatch on the [src].</span>")
 		update_icon()
@@ -153,7 +154,7 @@
 
 
 
-/obj/machinery/space_heater/process()
+/obj/machinery/space_heater/machinery_process()
 	if(on)
 		if(cell && cell.charge)
 			var/datum/gas_mixture/env = loc.return_air()

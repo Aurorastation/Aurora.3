@@ -12,15 +12,6 @@
 	var/base_block_chance = 25
 	var/shield_power = 100
 	var/can_block_bullets = 0
-	var/datum/effect_system/sparks/spark_system
-
-/obj/item/weapon/melee/energy/New()
-	spark_system = bind_spark(src, 5)
-	..()
-
-/obj/item/weapon/melee/energy/Destroy()
-	QDEL_NULL(spark_system)
-	return ..()
 
 /obj/item/weapon/melee/energy/proc/activate(mob/living/user)
 	anchored = 1
@@ -68,7 +59,7 @@
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
-		spark_system.queue()
+		spark(src, 5)
 		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 		return 1
 	else
@@ -84,7 +75,7 @@
 		if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
 			if(prob(base_block_chance))
-				spark_system.queue()
+				spark(src, 5)
 				playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 				shield_power -= round(damage/4)
 
@@ -151,12 +142,12 @@
 /obj/item/weapon/melee/energy/glaive/activate(mob/living/user)
 	..()
 	icon_state = "eglaive1"
-	user << "\blue \The [src] is now energised."
+	user << "<span class='notice'>\The [src] is now energised.</span>"
 
 /obj/item/weapon/melee/energy/glaive/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	user << "\blue \The [src] is de-energised."
+	user << "<span class='notice'>\The [src] is de-energised.</span>"
 
 /*
  * Energy Axe
@@ -298,18 +289,18 @@
 
 /obj/item/weapon/melee/energy/blade/Destroy()
 	processing_objects -= src
-	..()
+	return ..()
 
 /obj/item/weapon/melee/energy/blade/deactivate(mob/living/user)
 	if(!active)
 		return
 	playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 	user.drop_from_inventory(src)
-	spawn(1) if(src) qdel(src)
+	QDEL_IN(src, 1)
 
 
 /obj/item/weapon/melee/energy/blade/dropped()
-	spawn(1) if(src) qdel(src)
+	QDEL_IN(src, 1)
 
 /obj/item/weapon/melee/energy/blade/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
@@ -324,4 +315,4 @@
 			host.pinned -= src
 			host.embedded -= src
 			host.drop_from_inventory(src)
-		spawn(1) if(src) qdel(src)
+		QDEL_IN(src, 1)

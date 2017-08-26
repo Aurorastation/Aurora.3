@@ -121,7 +121,7 @@
 /datum/surgery_step/robotics/repair_brute
 	allowed_tools = list(
 		/obj/item/weapon/weldingtool = 100,
-		/obj/item/weapon/pickaxe/plasmacutter = 50
+		/obj/item/weapon/gun/energy/plasmacutter = 50
 	)
 
 	min_duration = 50
@@ -130,7 +130,7 @@
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			if(istype(tool,/obj/item/weapon/weldingtool))
+			if(iswelder(tool))
 				var/obj/item/weapon/weldingtool/welder = tool
 				if(!welder.isOn() || !welder.remove_fuel(1,user))
 					return 0

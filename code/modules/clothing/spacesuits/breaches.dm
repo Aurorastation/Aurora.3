@@ -19,9 +19,9 @@
 	var/burn_damage = 0                     // Specifically burn damage.
 	var/base_name                           // Used to keep the original name safe while we apply modifiers.
 
-/obj/item/clothing/suit/space/New()
-	..()
-	base_name = "[name]"
+/obj/item/clothing/suit/space/Initialize()
+	. = ..()
+	base_name = name
 
 //Some simple descriptors for breaches. Global because lazy, TODO: work out a better way to do this.
 
@@ -203,10 +203,10 @@ var/global/list/breach_burn_descriptors = list(
 			repair_breaches(BURN, use_amt * repair_power, user)
 		return
 
-	else if(istype(W, /obj/item/weapon/weldingtool))
+	else if(iswelder(W))
 
 		if(istype(src.loc,/mob/living))
-			user << "\red How do you intend to patch a voidsuit while someone is wearing it?"
+			user << "<span class='warning'>How do you intend to patch a voidsuit while someone is wearing it?</span>"
 			return
 
 		if (!damage || ! brute_damage)
@@ -215,7 +215,7 @@ var/global/list/breach_burn_descriptors = list(
 
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.remove_fuel(5))
-			user << "\red You need more welding fuel to repair this suit."
+			user << "<span class='warning'>You need more welding fuel to repair this suit.</span>"
 			return
 
 		repair_breaches(BRUTE, 3, user)
@@ -227,4 +227,4 @@ var/global/list/breach_burn_descriptors = list(
 	..(user)
 	if(can_breach && breaches && breaches.len)
 		for(var/datum/breach/B in breaches)
-			user << "\red <B>It has \a [B.descriptor].</B>"
+			user << "<span class='danger'>It has \a [B.descriptor].</span>"

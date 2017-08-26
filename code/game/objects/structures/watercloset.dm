@@ -12,7 +12,8 @@
 	var/w_items = 0			//the combined w_class of all the items in the cistern
 	var/mob/living/swirlie = null	//the mob being given a swirlie
 
-/obj/structure/toilet/New()
+/obj/structure/toilet/Initialize()
+	. = ..()
 	open = round(rand(0, 1))
 	update_icon()
 
@@ -44,7 +45,7 @@
 	icon_state = "toilet[open][cistern]"
 
 /obj/structure/toilet/attackby(obj/item/I as obj, mob/living/user as mob)
-	if(istype(I, /obj/item/weapon/crowbar))
+	if(iscrowbar(I))
 		user << "<span class='notice'>You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"].</span>"
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		if(do_after(user, 30))
@@ -91,7 +92,14 @@
 		user << "You carefully place \the [I] into the cistern."
 		return
 
+/obj/structure/toilet/noose
+	desc = "The HT-451, a torque rotation-based, waste disposal unit for small matter. This one's cistern seems remarkably scratched."
 
+/obj/structure/toilet/noose/Initialize()
+	. = ..()
+	new /obj/item/stack/cable_coil(src)
+	if(prob(5))
+		cistern = 1
 
 /obj/structure/urinal
 	name = "urinal"
@@ -133,8 +141,8 @@
 	var/is_washing = 0
 	var/list/temperature_settings = list("normal" = 310, "boiling" = T0C+100, "freezing" = T0C)
 
-/obj/machinery/shower/New()
-	..()
+/obj/machinery/shower/Initialize()
+	. = ..()
 	create_reagents(2)
 
 //add heat controls? when emagged, you can freeze to death in it?
@@ -160,7 +168,7 @@
 /obj/machinery/shower/attackby(obj/item/I as obj, mob/user as mob)
 	if(I.type == /obj/item/device/analyzer)
 		user << "<span class='notice'>The water temperature seems to be [watertemp].</span>"
-	if(istype(I, /obj/item/weapon/wrench))
+	if(iswrench(I))
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
 		user << "<span class='notice'>You begin to adjust the temperature valve with \the [I].</span>"
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -182,17 +190,19 @@
 			spawn(50)
 				if(src && on)
 					ismist = 1
-					mymist = getFromPool(/obj/effect/mist,loc)
+					mymist = new /obj/effect/mist(loc)
 		else
 			ismist = 1
-			mymist = getFromPool(/obj/effect/mist,loc)
+			mymist = new /obj/effect/mist(loc)
 	else if(ismist)
 		ismist = 1
-		mymist = getFromPool(/obj/effect/mist,loc)
-		spawn(250)
-			if(src && !on)
-				qdel(mymist)
-				ismist = 0
+		mymist = new /obj/effect/mist(loc)
+		addtimer(CALLBACK(src, .proc/clear_mist), 250, TIMER_OVERRIDE)
+
+/obj/machinery/shower/proc/clear_mist()
+	if (!on)
+		QDEL_NULL(mymist)
+		ismist = FALSE
 
 /obj/machinery/shower/Crossed(atom/movable/O)
 	..()
@@ -299,7 +309,7 @@
 			if(istype(E,/obj/effect/rune) || istype(E,/obj/effect/decal/cleanable) || istype(E,/obj/effect/overlay))
 				qdel(E)
 
-/obj/machinery/shower/process()
+/obj/machinery/shower/machinery_process()
 	if(!on) return
 	wash_floor()
 	if(!mobpresent)	return

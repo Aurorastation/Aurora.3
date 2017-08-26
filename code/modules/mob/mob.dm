@@ -3,7 +3,7 @@
 	dead_mob_list -= src
 	living_mob_list -= src
 	unset_machine()
-	qdel(hud_used)
+	QDEL_NULL(hud_used)
 	if(client)
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 			qdel(spell_master)
@@ -11,12 +11,12 @@
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
 		client.screen = list()
-	if(mind && mind.current == src)
-		spellremove(src)
+		client.cleanup_parallax_references()
+	if (mind)
+		mind.handle_mob_deletion(src)
 	for(var/infection in viruses)
 		qdel(infection)
-
-
+	viruses.Cut()
 
 	//Added this to prevent nonliving mobs from ghostising
 	//The only non 'living' mobs are:
@@ -28,7 +28,13 @@
 	//Ghosts are the only ones that even technically 'exist' and aren't just an abstraction using mob code for convenience
 	if (istype(src, /mob/living))
 		ghostize()
-	..()
+
+	if (istype(src.loc, /atom/movable))
+		var/atom/movable/AM = src.loc
+		LAZYREMOVE(AM.contained_mobs, src)
+
+	return ..()
+
 
 /mob/proc/remove_screen_obj_references()
 	flash = null
@@ -103,6 +109,10 @@
 
 	for(var/A in player_list)
 		var/mob/M = A
+		if (QDELETED(M))
+			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
+			player_list -= M
+			continue
 		if (!M.client || istype(M, /mob/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
@@ -158,21 +168,25 @@
 	var/range = world.view
 	if(hearing_distance)
 		range = hearing_distance
-	var/list/hear = get_mobs_or_objects_in_view(range,src)
 
-	for(var/I in hear)
-		if(isobj(I))
-			spawn(0)
-				if(I) //It's possible that it could be deleted in the meantime.
-					var/obj/O = I
-					O.show_message( message, 2, deaf_message, 1)
-		else if(ismob(I))
-			var/mob/M = I
-			var/msg = message
-			if(self_message && M==src)
-				msg = self_message
-			M.show_message( msg, 2, deaf_message, 1)
+	var/turf/T = get_turf(src)
 
+	var/list/mobs = list()
+	var/list/objs = list()
+	get_mobs_and_objs_in_view_fast(T, range, mobs, objs)
+
+
+	for(var/m in mobs)
+		var/mob/M = m
+		if(self_message && M==src)
+			M.show_message(self_message,2,deaf_message,1)
+			continue
+
+		M.show_message(message,2,deaf_message,1)
+
+	for(var/o in objs)
+		var/obj/O = o
+		O.show_message(message,2,deaf_message,1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -201,7 +215,7 @@
 
 /mob/proc/is_physically_disabled()
 	return incapacitated(INCAPACITATION_DISABLED)
-	
+
 /mob/proc/cannot_stand()
 	return incapacitated(INCAPACITATION_KNOCKDOWN)
 
@@ -297,17 +311,19 @@
 
 	pointing_effect = new /obj/effect/decal/point(tile)
 	pointing_effect.invisibility = invisibility
-	spawn (20)
-		if(pointing_effect)
-			qdel(pointing_effect)	// qdel
-			pointing_effect = null
+	addtimer(CALLBACK(src, .proc/clear_point), 20)
 
 	face_atom(A)
 	return 1
 
+/mob/proc/clear_point()
+	QDEL_NULL(pointing_effect)
 
+/datum/mobl	// I have no idea what the fuck this is, but it's better for it to be a datum than an /obj/effect.
+	var/list/container = list()
+	var/master
 
-/mob/proc/ret_grab(obj/effect/list_container/mobl/L as obj, flag)
+/mob/proc/ret_grab(datum/mobl/L, flag)
 	if ((!( istype(l_hand, /obj/item/weapon/grab) ) && !( istype(r_hand, /obj/item/weapon/grab) )))
 		if (!( L ))
 			return null
@@ -315,26 +331,24 @@
 			return L.container
 	else
 		if (!( L ))
-			L = new /obj/effect/list_container/mobl( null )
+			L = new /datum/mobl
 			L.container += src
 			L.master = src
 		if (istype(l_hand, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = l_hand
-			if (!( L.container.Find(G.affecting) ))
+			if (!(L.container.Find(G.affecting)))
 				L.container += G.affecting
 				if (G.affecting)
 					G.affecting.ret_grab(L, 1)
 		if (istype(r_hand, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = r_hand
-			if (!( L.container.Find(G.affecting) ))
+			if (!(L.container.Find(G.affecting)))
 				L.container += G.affecting
 				if (G.affecting)
 					G.affecting.ret_grab(L, 1)
 		if (!( flag ))
 			if (L.master == src)
-				var/list/temp = list(  )
-				temp += L.container
-				//L = null
+				var/list/temp = L.container.Copy()
 				qdel(L)
 				return temp
 			else
@@ -422,9 +436,9 @@
 	if (flavor_text && flavor_text != "")
 		var/msg = replacetext(flavor_text, "\n", " ")
 		if(lentext(msg) <= 40)
-			return "\blue [msg]"
+			return "<span class='notice'>[msg]</span>"
 		else
-			return "\blue [copytext_preserve_html(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a>"
+			return "<span class='notice'>[copytext_preserve_html(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a></span>"
 
 /*
 /mob/verb/help()
@@ -443,10 +457,10 @@
 	if (!( config.abandon_allowed ))
 		usr << "<span class='notice'>Respawn is disabled.</span>"
 		return
-	if ((stat != DEAD || !( ticker )))
+	if (stat != DEAD)
 		usr << "<span class='notice'><B>You must be dead to use this!</B></span>"
 		return
-	if (ticker.mode.deny_respawn) //BS12 EDIT
+	if (SSticker.mode && SSticker.mode.deny_respawn) //BS12 EDIT
 		usr << "<span class='notice'>Respawn is disabled for this roundtype.</span>"
 		return
 	else if(!MayRespawn(1, CREW))
@@ -482,26 +496,8 @@
 /client/verb/changes()
 	set name = "Changelog"
 	set category = "OOC"
-	getFiles(
-		'html/88x31.png',
-		'html/bug-minus.png',
-		'html/cross-circle.png',
-		'html/hard-hat-exclamation.png',
-		'html/image-minus.png',
-		'html/image-plus.png',
-		'html/map-pencil.png',
-		'html/music-minus.png',
-		'html/music-plus.png',
-		'html/tick-circle.png',
-		'html/wrench-screwdriver.png',
-		'html/spell-check.png',
-		'html/burn-exclamation.png',
-		'html/chevron.png',
-		'html/chevron-expand.png',
-		'html/changelog.css',
-		'html/changelog.js',
-		'html/changelog.html'
-		)
+	var/datum/asset/changelog = get_asset_datum(/datum/asset/simple/changelog)
+	changelog.send(src)
 	src << browse('html/changelog.html', "window=changes;size=675x650")
 	if(prefs.lastchangelog != changelog_hash)
 		prefs.lastchangelog = changelog_hash
@@ -516,7 +512,7 @@
 	if(client.holder && (client.holder.rights & R_ADMIN))
 		is_admin = 1
 	else if(stat != DEAD || istype(src, /mob/new_player))
-		usr << "\blue You must be observing to use this!"
+		usr << "<span class='notice'>You must be observing to use this!</span>"
 		return
 
 	if(is_admin && stat == DEAD)
@@ -699,7 +695,7 @@
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		if(H.pull_damage())
-			src << "\red <B>Pulling \the [H] in their current condition would probably be a bad idea.</B>"
+			src << "<span class='danger'>Pulling \the [H] in their current condition would probably be a bad idea.</span>"
 
 	//Attempted fix for people flying away through space when cuffed and dragged.
 	if(M)
@@ -741,33 +737,56 @@
 	. = (is_client_active(10 MINUTES))
 
 	if(.)
-		if(statpanel("Status") && ticker && ticker.current_state != GAME_STATE_PREGAME)
+		if(statpanel("Status") && SSticker.current_state != GAME_STATE_PREGAME)
 			stat("Game ID", game_id)
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", round_duration())
-			stat("Last Transfer Vote", vote.last_transfer_vote ? time2text(vote.last_transfer_vote, "hh:mm") : "Never")
+			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
 
 		if(client.holder)
 			if(statpanel("Status"))
 				stat("Location:", "([x], [y], [z]) [loc]")
-				stat("CPU:","[world.cpu]")
-				stat("Instances:","[world.contents.len]")
-			if(statpanel("Processes"))
-				if(processScheduler)
-					processScheduler.statProcesses()
+				if (LAZYLEN(client.holder.watched_processes))
+					for (var/datum/controller/ctrl in client.holder.watched_processes)
+						if (!ctrl)
+							LAZYREMOVE(client.holder.watched_processes, ctrl)
+						else
+							ctrl.stat_entry()
+
+			if(statpanel("MC"))
+				stat("CPU:", world.cpu)
+				stat("Tick Usage:", world.tick_usage)
+				stat("Instances:", num2text(world.contents.len, 7))
+				if (config.fastboot)
+					stat(null, "FASTBOOT ENABLED")
+				if(Master)
+					Master.stat_entry()
+				else
+					stat("Master Controller:", "ERROR")
+				if(Failsafe)
+					Failsafe.stat_entry()
+				else
+					stat("Failsafe Controller:", "ERROR")
+				if (Master)
+					stat(null, "- Subsystems -")
+					for(var/datum/controller/subsystem/SS in Master.subsystems)
+						if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
+							continue
+
+						SS.stat_entry()
 
 		if(listed_turf && client)
 			if(!TurfAdjacent(listed_turf))
 				listed_turf = null
 			else
 				if(statpanel("Turf"))
-					stat("\icon[listed_turf]", listed_turf.name)
+					stat("Turf:", listed_turf)
 					for(var/atom/A in listed_turf)
 						if(!A.mouse_opacity)
 							continue
 						if(A.invisibility > see_invisible)
 							continue
-						if(is_type_in_list(A, shouldnt_see))
+						if(is_type_in_typecache(A, shouldnt_see))
 							continue
 						stat(A)
 
@@ -1124,12 +1143,11 @@ mob/proc/yank_out_object()
 	return
 
 /mob/verb/face_direction()
-
 	set name = "Face Direction"
 	set category = "IC"
 	set src = usr
 
-	set_face_dir()
+	set_face_dir(dir)
 
 	if(!facing_dir)
 		usr << "You are now not facing anything."
@@ -1156,6 +1174,18 @@ mob/proc/yank_out_object()
 			return ..(facing_dir)
 	else
 		return ..()
+
+/mob/forceMove(atom/dest)
+	var/atom/movable/AM
+	if (dest != loc && istype(dest, /atom/movable))
+		AM = dest
+		LAZYADD(AM.contained_mobs, src)
+
+	if (istype(loc, /atom/movable))
+		AM = loc
+		LAZYREMOVE(AM.contained_mobs, src)
+
+	. = ..()
 
 /mob/verb/northfaceperm()
 	set hidden = 1

@@ -157,11 +157,9 @@
 		src.blind.screen_loc = ui_entire_screen
 		if (src.blind.invisibility != 0)
 			src.blind.invisibility = 0
-		src.sight = src.sight&~SEE_TURFS
-		src.sight = src.sight&~SEE_MOBS
-		src.sight = src.sight&~SEE_OBJS
-		src.see_in_dark = 0
-		src.see_invisible = SEE_INVISIBLE_LIVING
+		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
+		see_in_dark = 0
+		see_invisible = SEE_INVISIBLE_LIVING
 	else
 		update_dead_sight()
 

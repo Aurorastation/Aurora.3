@@ -22,7 +22,7 @@ var/global/list/narsie_list = list()
 
 /obj/singularity/narsie/Destroy()
 	narsie_list.Remove(src)
-	..()
+	return ..()
 
 /obj/singularity/narsie/large
 	name = "Nar-Sie"
@@ -80,7 +80,7 @@ var/global/list/narsie_list = list()
 			if(M.status_flags & GODMODE)
 				continue
 			if(!iscultist(M))
-				M << "<span class='danger'> You feel your sanity crumble away in an instant as you gaze upon [src.name]...</span>"
+				M << "<span class='danger'>You feel your sanity crumble away in an instant as you gaze upon [src.name]...</span>"
 				M.apply_effect(3, STUN)
 
 
@@ -108,7 +108,15 @@ var/global/list/narsie_list = list()
 		movement_dir = force_move
 
 	if(target && prob(60))
-		movement_dir = get_dir(src,target)
+		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
+		if(target.z < z)
+			visible_message("<span class='danger'>\The [src] descends ominously.</span>")
+			zMove(DOWN)
+			visible_message("<span class='danger'>\The [src] appears from on high.</span>")
+		else if(target.z > z)
+			visible_message("<span class='danger'>\The [src] ascends ominously.</span>")
+			zMove(UP)
+			visible_message("<span class='danger'>\The [src] claws its way up from below.</span>")
 
 	spawn(0)
 		step(src, movement_dir)
@@ -126,7 +134,16 @@ var/global/list/narsie_list = list()
 		movement_dir = force_move
 
 	if(target && prob(60))
-		movement_dir = get_dir(src,target)
+		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
+		if(target.z < z)
+			visible_message("<span class='danger'>\The [src] descends ominously.</span>")
+			zMove(DOWN)
+			visible_message("<span class='danger'>\The [src] appears from on high.</span>")
+		else if(target.z > z)
+			visible_message("<span class='danger'>\The [src] ascends ominously.</span>")
+			zMove(UP)
+			visible_message("<span class='danger'>\The [src] claws its way up from below.</span>")
+
 	spawn(0)
 		step(src, movement_dir)
 		narsiefloor(get_turf(loc))
@@ -142,6 +159,8 @@ var/global/list/narsie_list = list()
 	return 1
 
 /obj/singularity/narsie/proc/narsiefloor(var/turf/T)//leaving "footprints"
+	if (QDELETED(T))
+		return
 	if(!(istype(T, /turf/simulated/wall/cult)||istype(T, /turf/space)))
 		if(T.icon_state != "cult-narsie")
 			T.desc = "something that goes beyond your understanding went this way"
@@ -168,6 +187,7 @@ var/global/list/narsie_list = list()
 		old_narsie(A)
 
 /obj/singularity/narsie/proc/new_narsie(const/atom/A)
+	CHECK_TICK
 	if (istype(A, /mob/) && (get_dist(A, src) <= 7))
 		var/mob/M = A
 
@@ -200,6 +220,8 @@ var/global/list/narsie_list = list()
 	if(!(A.singuloCanEat()))
 		return 0
 
+	CHECK_TICK
+
 	if (istype(A, /mob/living/))
 		var/mob/living/C2 = A
 
@@ -214,9 +236,10 @@ var/global/list/narsie_list = list()
 		if (A)
 			qdel(A)
 	else if (isturf(A))
-		var/dist = get_dist(A, src)
+		var/turf/T2 = A
+		var/dist = get_dist(T2, src)
 
-		for (var/atom/movable/AM2 in A.contents)
+		for (var/atom/movable/AM2 in T2.contents)
 			if (AM2 == src) // This is the snowflake.
 				continue
 
@@ -224,13 +247,14 @@ var/global/list/narsie_list = list()
 				consume(AM2)
 				continue
 
-		if (dist <= consume_range && !istype(A, get_base_turf_by_area(A)))
-			var/turf/T2 = A
-			T2.ChangeTurf(get_base_turf_by_area(A))
+		if (dist <= consume_range && !istype(T2, T2.baseturf))
+			T2.ChangeTurf(T2.baseturf)
 
 /obj/singularity/narsie/consume(const/atom/A) //This one is for the small ones.
 	if(!(A.singuloCanEat()))
 		return 0
+
+	CHECK_TICK
 
 	if (istype(A, /mob/living/))
 		var/mob/living/C2 = A
@@ -246,9 +270,10 @@ var/global/list/narsie_list = list()
 		if (A)
 			qdel(A)
 	else if (isturf(A))
-		var/dist = get_dist(A, src)
+		var/turf/T2 = A
+		var/dist = get_dist(T2, src)
 
-		for (var/atom/movable/AM2 in A.contents)
+		for (var/atom/movable/AM2 in T2.contents)
 			if (AM2 == src) // This is the snowflake.
 				continue
 
@@ -266,9 +291,8 @@ var/global/list/narsie_list = list()
 				spawn (0)
 					AM2.singularity_pull(src, src.current_size)
 
-		if (dist <= consume_range && !istype(A, get_base_turf_by_area(A)))
-			var/turf/T2 = A
-			T2.ChangeTurf(get_base_turf_by_area(A))
+		if (dist <= consume_range && !istype(T2, T2.baseturf))
+			T2.ChangeTurf(T2.baseturf)
 
 /obj/singularity/narsie/ex_act(severity) //No throwing bombs at it either. --NEO
 	return
@@ -355,7 +379,7 @@ var/global/list/narsie_list = list()
 	grav_pull = 0
 
 /obj/singularity/narsie/wizard/eat()
-	for (var/turf/T in trange(consume_range, src))
+	for (var/turf/T in RANGE_TURFS(consume_range, src))
 		consume(T)
 
 /obj/singularity/narsie/proc/narsie_spawn_animation()

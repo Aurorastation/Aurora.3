@@ -141,7 +141,7 @@
 
 /datum/teleport/instant/science/setEffects(datum/effect/effect/system/aeffectin,datum/effect/effect/system/aeffectout)
 	if(!aeffectin || !aeffectout)
-		var/datum/effect_system/sparks/aeffect = getFromPool(/datum/effect_system/sparks, null, FALSE, 5, alldirs)
+		var/datum/effect_system/sparks/aeffect = new(null, FALSE, 5, alldirs)
 		effectin = effectin || aeffect
 		effectout = effectout || aeffect
 		return 1

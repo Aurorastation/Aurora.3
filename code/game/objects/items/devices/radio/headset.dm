@@ -20,8 +20,8 @@
 
 	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/ears.dmi')
 
-/obj/item/device/radio/headset/New()
-	..()
+/obj/item/device/radio/headset/Initialize()
+	. = ..()
 	internal_channels.Cut()
 	if(ks1type)
 		keyslot1 = new ks1type(src)
@@ -78,6 +78,11 @@
 	origin_tech = list(TECH_ILLEGAL = 3)
 	syndie = 1
 	ks1type = /obj/item/device/encryptionkey/syndicate
+
+/obj/item/device/radio/headset/raider
+	origin_tech = list(TECH_ILLEGAL = 2)
+	syndie = 1
+	ks1type = /obj/item/device/encryptionkey/raider
 
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)
@@ -154,6 +159,10 @@
 		return -1 //Transciever Disabled.
 	return ..(freq, level, 1)
 
+/obj/item/device/radio/headset/heads/ai_integrated/Destroy()
+	myAi = null
+	return ..()
+
 /obj/item/device/radio/headset/heads/rd
 	name = "research director's headset"
 	desc = "Headset of the researching God."
@@ -227,15 +236,15 @@
 /obj/item/device/radio/headset/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
-	if (!( istype(W, /obj/item/weapon/screwdriver) || (istype(W, /obj/item/device/encryptionkey/ ))))
+	if (!( isscrewdriver(W) || (istype(W, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		if(keyslot1 || keyslot2)
 
 
 			for(var/ch_name in channels)
-				radio_controller.remove_object(src, radiochannels[ch_name])
+				SSradio.remove_object(src, radiochannels[ch_name])
 				secure_radio_connections[ch_name] = null
 
 
@@ -327,13 +336,13 @@
 
 
 	for (var/ch_name in channels)
-		if(!radio_controller)
-			sleep(30) // Waiting for the radio_controller to be created.
-		if(!radio_controller)
+		if(!SSradio)
+			sleep(30) // Waiting for the SSradio to be created.
+		if(!SSradio)
 			src.name = "broken radio headset"
 			return
 
-		secure_radio_connections[ch_name] = radio_controller.add_object(src, radiochannels[ch_name],  RADIO_CHAT)
+		secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name],  RADIO_CHAT)
 
 	if(setDescription)
 		setupRadioDescription()

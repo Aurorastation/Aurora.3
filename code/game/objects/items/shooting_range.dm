@@ -16,7 +16,7 @@
 				T.pinned_target = null
 				T.density = 1
 				break
-		..() // delete target
+		return ..() // delete target
 
 	Move()
 		..()
@@ -33,7 +33,7 @@
 
 
 	attackby(obj/item/W as obj, mob/user as mob)
-		if (istype(W, /obj/item/weapon/weldingtool))
+		if (iswelder(W))
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.remove_fuel(0, user))
 				overlays.Cut()

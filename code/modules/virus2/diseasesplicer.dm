@@ -13,7 +13,7 @@
 	var/scanning = 0
 
 /obj/machinery/computer/diseasesplicer/attackby(var/obj/I as obj, var/mob/user as mob)
-	if(istype(I, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(I))
 		return ..(I,user)
 
 	if(istype(I,/obj/item/weapon/virusdish))
@@ -79,13 +79,13 @@
 	else
 		data["info"] = "No dish loaded."
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "disease_splicer.tmpl", src.name, 400, 600)
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/machinery/computer/diseasesplicer/process()
+/obj/machinery/computer/diseasesplicer/machinery_process()
 	if (inoperable())
 		return
 
@@ -93,12 +93,12 @@
 		scanning -= 1
 		if(!scanning)
 			ping("\The [src] pings, \"Analysis complete.\"")
-			nanomanager.update_uis(src)
+			SSnanoui.update_uis(src)
 	if(splicing)
 		splicing -= 1
 		if(!splicing)
 			ping("\The [src] pings, \"Splicing operation complete.\"")
-			nanomanager.update_uis(src)
+			SSnanoui.update_uis(src)
 	if(burning)
 		burning -= 1
 		if(!burning)
@@ -120,13 +120,13 @@
 					d.species = species_buffer
 
 			ping("\The [src] pings, \"Backup disk saved.\"")
-			nanomanager.update_uis(src)
+			SSnanoui.update_uis(src)
 
 /obj/machinery/computer/diseasesplicer/Topic(href, href_list)
 	if(..()) return 1
 
 	var/mob/user = usr
-	var/datum/nanoui/ui = nanomanager.get_open_ui(user, src, "main")
+	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
 
 	src.add_fingerprint(user)
 

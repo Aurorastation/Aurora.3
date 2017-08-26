@@ -22,21 +22,20 @@
 /obj/machinery/gibber/autogibber
 	var/turf/input_plate
 
-/obj/machinery/gibber/autogibber/New()
-	..()
-	spawn(5)
-		for(var/i in cardinal)
-			var/obj/machinery/mineral/input/input_obj = locate( /obj/machinery/mineral/input, get_step(src.loc, i) )
-			if(input_obj)
-				if(isturf(input_obj.loc))
-					input_plate = input_obj.loc
-					gib_throw_dir = i
-					qdel(input_obj)
-					break
+/obj/machinery/gibber/autogibber/Initialize()
+	. = ..()
+	for(var/i in cardinal)
+		var/obj/machinery/mineral/input/input_obj = locate( /obj/machinery/mineral/input, get_step(src.loc, i) )
+		if(input_obj)
+			if(isturf(input_obj.loc))
+				input_plate = input_obj.loc
+				gib_throw_dir = i
+				qdel(input_obj)
+				break
 
-		if(!input_plate)
-			log_misc("a [src] didn't find an input plate.")
-			return
+	if(!input_plate)
+		log_misc("a [src] didn't find an input plate.")
+		return
 
 /obj/machinery/gibber/autogibber/Bumped(var/atom/A)
 	if(!input_plate) return
@@ -50,22 +49,22 @@
 			M.gib()
 
 
-/obj/machinery/gibber/New()
-	..()
-	src.overlays += image('icons/obj/kitchen.dmi', "grjam")
+/obj/machinery/gibber/Initialize()
+	. = ..()
+	add_overlay("grjam")
 
 /obj/machinery/gibber/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if (dirty)
-		src.overlays += image('icons/obj/kitchen.dmi', "grbloody")
+		add_overlay("grbloody")
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if (!occupant)
-		src.overlays += image('icons/obj/kitchen.dmi', "grjam")
+		add_overlay("grjam")
 	else if (operating)
-		src.overlays += image('icons/obj/kitchen.dmi', "gruse")
+		add_overlay("gruse")
 	else
-		src.overlays += image('icons/obj/kitchen.dmi', "gridle")
+		add_overlay("gridle")
 
 /obj/machinery/gibber/relaymove(mob/user as mob)
 	src.go_out()
@@ -141,7 +140,7 @@
 
 	user.visible_message("<span class='danger'>[user] starts to put [victim] into the gibber!</span>")
 	src.add_fingerprint(user)
-	if(do_after(user, 30) && victim.Adjacent(src) && user.Adjacent(src) && victim.Adjacent(user) && !occupant)
+	if(do_after(user, 30 SECONDS, act_target = src) && victim.Adjacent(src) && user.Adjacent(src) && victim.Adjacent(user) && !occupant)
 		user.visible_message("<span class='danger'>[user] stuffs [victim] into the gibber!</span>")
 		if(victim.client)
 			victim.client.perspective = EYE_PERSPECTIVE
@@ -218,7 +217,7 @@
 
 	src.occupant.attack_log += "\[[time_stamp()]\] Was gibbed by <b>[user]/[user.ckey]</b>" //One shall not simply gib a mob unnoticed!
 	user.attack_log += "\[[time_stamp()]\] Gibbed <b>[src.occupant]/[src.occupant.ckey]</b>"
-	msg_admin_attack("[user.name] ([user.ckey]) gibbed [src.occupant] ([src.occupant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src.occupant))
+	msg_admin_attack("[key_name_admin(user)] gibbed [src.occupant] ([src.occupant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src.occupant))
 
 	src.occupant.ghostize()
 
@@ -226,7 +225,7 @@
 
 		src.operating = 0
 		src.occupant.gib()
-		qdel(src.occupant)
+		occupant = null
 
 		playsound(src.loc, 'sound/effects/splat.ogg', 50, 1)
 		operating = 0

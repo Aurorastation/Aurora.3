@@ -1,5 +1,5 @@
 /obj/mecha/combat/phazon
-	desc = "An exosuit which can only be described as 'WTF?'."
+	desc = "The pinnacle of scientific research and pride of Nanotrasen, it uses cutting edge bluespace technology and expensive materials."
 	name = "Phazon"
 	icon_state = "phazon"
 	initial_icon = "phazon"
@@ -21,7 +21,7 @@
 	max_equip = 4
 
 
-/obj/mecha/combat/phazon/New()
+/obj/mecha/combat/phazon/equipped/New()
 	..()
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/tool/rcd
 	ME.attach(src)

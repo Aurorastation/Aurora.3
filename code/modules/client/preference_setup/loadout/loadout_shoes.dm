@@ -13,9 +13,17 @@
 	display_name = "workboots"
 	path = /obj/item/clothing/shoes/workboots
 
+/datum/gear/shoes/workboots_toeless
+	display_name = "/obj/item/clothing/shoes/workboots/toeless"
+	path = /obj/item/clothing/shoes/workboots/toeless
+
 /datum/gear/shoes/sandals
 	display_name = "sandals"
 	path = /obj/item/clothing/shoes/sandal
+
+/datum/gear/shoes/footwraps
+	display_name = "cloth footwraps"
+	path = /obj/item/clothing/shoes/footwraps
 
 /datum/gear/shoes/color
 	display_name = "shoe selection"
@@ -43,3 +51,19 @@
 /datum/gear/shoes/leather
 	display_name = "shoes, leather"
 	path = /obj/item/clothing/shoes/leather
+
+/datum/gear/shoes/flats
+	display_name = "flats selection"
+	description = "Low-heeled dress flats, in a selection of colors."
+	path = /obj/item/clothing/shoes/flats
+
+/datum/gear/shoes/flats/New()
+	..()
+	var/shoes = list()
+	shoes["dress flats, black"] = /obj/item/clothing/shoes/flats
+	shoes["dress flats, white"] = /obj/item/clothing/shoes/flats/white
+	shoes["dress flats, red"] = /obj/item/clothing/shoes/flats/red
+	shoes["dress flats, blue"] = /obj/item/clothing/shoes/flats/blue
+	shoes["dress flats, green"] = /obj/item/clothing/shoes/flats/green
+	shoes["dress flats, purple"] = /obj/item/clothing/shoes/flats/purple
+	gear_tweaks += new/datum/gear_tweak/path(shoes)

@@ -87,7 +87,7 @@
 		paste.use(1)
 		return
 
-	else if(istype(W,/obj/item/stack/cable_coil))
+	else if(iscoil(W))
 
 		switch(damage)
 			if(0)
@@ -260,6 +260,10 @@
 /stat_rig_module/New(var/obj/item/rig_module/module)
 	..()
 	src.module = module
+
+/stat_rig_module/Destroy()
+	module = null
+	return ..()
 
 /stat_rig_module/proc/AddHref(var/list/href_list)
 	return

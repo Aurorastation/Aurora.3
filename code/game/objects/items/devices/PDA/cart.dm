@@ -33,6 +33,10 @@
 	var/message2
 	var/list/stored_data = list()
 
+/obj/item/weapon/cartridge/Destroy()
+	QDEL_NULL(radio)
+	return ..()
+
 /obj/item/weapon/cartridge/engineering
 	name = "\improper Power-ON cartridge"
 	icon_state = "cart-e"
@@ -58,9 +62,9 @@
 	icon_state = "cart-s"
 	access_security = 1
 
-/obj/item/weapon/cartridge/security/initialize()
+/obj/item/weapon/cartridge/security/Initialize()
+	. = ..()
 	radio = new /obj/item/radio/integrated/beepsky(src)
-	..()
 
 /obj/item/weapon/cartridge/detective
 	name = "\improper D.E.T.E.C.T. cartridge"
@@ -101,7 +105,6 @@
 /obj/item/weapon/cartridge/signal
 	name = "generic signaler cartridge"
 	desc = "A data cartridge with an integrated radio signaler module."
-	var/qdeled = 0
 
 /obj/item/weapon/cartridge/signal/science
 	name = "\improper Signal Ace 2 cartridge"
@@ -110,13 +113,9 @@
 	access_reagent_scanner = 1
 	access_atmos = 1
 
-/obj/item/weapon/cartridge/signal/initialize()
+/obj/item/weapon/cartridge/signal/Initialize()
+    . = ..()
     radio = new /obj/item/radio/integrated/signal(src)
-    ..()
-
-/obj/item/weapon/cartridge/signal/Destroy()
-	qdel(radio)
-	return ..()
 
 /obj/item/weapon/cartridge/quartermaster
 	name = "\improper Space Parts & Space Vendors cartridge"
@@ -124,9 +123,9 @@
 	icon_state = "cart-q"
 	access_quartermaster = 1
 
-/obj/item/weapon/cartridge/quartermaster/initialize()
+/obj/item/weapon/cartridge/quartermaster/Initialize()
+	. = ..()
 	radio = new /obj/item/radio/integrated/mule(src)
-	..()
 
 /obj/item/weapon/cartridge/head
 	name = "\improper Easy-Record DELUXE"
@@ -141,7 +140,8 @@
 	access_janitor = 1
 	access_security = 1
 
-/obj/item/weapon/cartridge/hop/initialize()
+/obj/item/weapon/cartridge/hop/Initialize()
+	. = ..()
 	radio = new /obj/item/radio/integrated/mule(src)
 
 /obj/item/weapon/cartridge/hos
@@ -150,9 +150,9 @@
 	access_status_display = 1
 	access_security = 1
 
-/obj/item/weapon/cartridge/hos/initialize()
+/obj/item/weapon/cartridge/hos/Initialize()
+	. = ..()
 	radio = new /obj/item/radio/integrated/beepsky(src)
-	..()
 
 /obj/item/weapon/cartridge/ce
 	name = "\improper Power-On DELUXE"
@@ -175,9 +175,9 @@
 	access_reagent_scanner = 1
 	access_atmos = 1
 
-/obj/item/weapon/cartridge/rd/initialize()
+/obj/item/weapon/cartridge/rd/Initialize()
+	. = ..()
 	radio = new /obj/item/radio/integrated/signal(src)
-	..()
 
 /obj/item/weapon/cartridge/captain
 	name = "\improper Value-PAK cartridge"
@@ -202,7 +202,7 @@
 
 /obj/item/weapon/cartridge/proc/post_status(var/command, var/data1, var/data2)
 
-	var/datum/radio_frequency/frequency = radio_controller.return_frequency(1435)
+	var/datum/radio_frequency/frequency = SSradio.return_frequency(1435)
 	if(!frequency) return
 
 	var/datum/signal/status_signal = new
@@ -259,11 +259,11 @@
 
 	/*		Power Monitor (Mode: 43 / 433)			*/
 
-	if(mode==43 || mode==433)
+	if(mode == 43 || mode == 433)
 		var/list/sensors = list()
 		var/obj/machinery/power/sensor/MS = null
 
-		for(var/obj/machinery/power/sensor/S in machines)
+		for(var/obj/machinery/power/sensor/S in SSpower.all_sensors)
 			sensors.Add(list(list("name_tag" = S.name_tag)))
 			if(S.name_tag == selected_sensor)
 				MS = S
@@ -392,14 +392,14 @@
 
 	if(mode==47)
 		var/supplyData[0]
-		var/datum/shuttle/ferry/supply/shuttle = supply_controller.shuttle
+		var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
 		if (shuttle)
 			supplyData["shuttle_moving"] = shuttle.has_arrive_time()
 			supplyData["shuttle_eta"] = shuttle.eta_minutes()
 			supplyData["shuttle_loc"] = shuttle.at_station() ? "Station" : "Dock"
 		var/supplyOrderCount = 0
 		var/supplyOrderData[0]
-		for(var/S in supply_controller.shoppinglist)
+		for(var/S in SScargo.shoppinglist)
 			var/datum/supply_order/SO = S
 
 			supplyOrderData[++supplyOrderData.len] = list("Number" = SO.ordernum, "Name" = html_encode(SO.object.name), "ApprovedBy" = SO.orderedby, "Comment" = html_encode(SO.comment))
@@ -411,7 +411,7 @@
 
 		var/requestCount = 0
 		var/requestData[0]
-		for(var/S in supply_controller.requestlist)
+		for(var/S in SScargo.requestlist)
 			var/datum/supply_order/SO = S
 			requestCount++
 			requestData[++requestData.len] = list("Number" = SO.ordernum, "Name" = html_encode(SO.object.name), "OrderedBy" = SO.orderedby, "Comment" = html_encode(SO.comment))

@@ -7,9 +7,6 @@
 
 */
 
-#define STATION_Z 1
-#define TELECOMM_Z 3
-
 /obj/machinery/telecomms
 	var/temp = "" // output message
 	var/construct_op = 0
@@ -18,7 +15,7 @@
 /obj/machinery/telecomms/attackby(obj/item/P as obj, mob/user as mob)
 
 	// Using a multitool lets you access the receiver's interface
-	if(istype(P, /obj/item/device/multitool))
+	if(ismultitool(P))
 		attack_hand(user)
 
 
@@ -36,25 +33,25 @@
 
 	switch(construct_op)
 		if(0)
-			if(istype(P, /obj/item/weapon/screwdriver))
+			if(isscrewdriver(P))
 				user << "You unfasten the bolts."
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				construct_op ++
 		if(1)
-			if(istype(P, /obj/item/weapon/screwdriver))
+			if(isscrewdriver(P))
 				user << "You fasten the bolts."
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				construct_op --
-			if(istype(P, /obj/item/weapon/wrench))
+			if(iswrench(P))
 				user << "You dislodge the external plating."
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				construct_op ++
 		if(2)
-			if(istype(P, /obj/item/weapon/wrench))
+			if(iswrench(P))
 				user << "You secure the external plating."
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				construct_op --
-			if(istype(P, /obj/item/weapon/wirecutters))
+			if(iswirecutter(P))
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				user << "You remove the cables."
 				construct_op ++
@@ -62,7 +59,7 @@
 				A.amount = 5
 				stat |= BROKEN // the machine's been borked!
 		if(3)
-			if(istype(P, /obj/item/stack/cable_coil))
+			if(iscoil(P))
 				var/obj/item/stack/cable_coil/A = P
 				if (A.use(5))
 					user << "<span class='notice'>You insert the cables.</span>"
@@ -70,7 +67,7 @@
 					stat &= ~BROKEN // the machine's not borked anymore!
 				else
 					user << "<span class='warning'>You need five coils of wire for this.</span>"
-			if(istype(P, /obj/item/weapon/crowbar))
+			if(iscrowbar(P))
 				user << "You begin prying out the circuit board other components..."
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 				if(do_after(user,60))
@@ -91,7 +88,7 @@
 								newpath = text2path(I)
 								var/obj/item/s = new newpath
 								s.loc = user.loc
-								if(istype(P, /obj/item/stack/cable_coil))
+								if(iscoil(P))
 									var/obj/item/stack/cable_coil/A = P
 									A.amount = 1
 
@@ -102,7 +99,7 @@
 					var/obj/machinery/constructable_frame/machine_frame/F = new
 					F.loc = src.loc
 					qdel(src)
-	
+
 	update_icon()
 
 /obj/machinery/telecomms/attack_ai(var/mob/user as mob)
@@ -176,26 +173,6 @@
 	user << browse(dat, "window=tcommachine;size=520x500;can_resize=0")
 	onclose(user, "dormitory")
 
-
-// Off-Site Relays
-//
-// You are able to send/receive signals from the station's z level (changeable in the STATION_Z #define) if
-// the relay is on the telecomm satellite (changable in the TELECOMM_Z #define)
-
-
-/obj/machinery/telecomms/relay/proc/toggle_level()
-
-	var/turf/position = get_turf(src)
-
-	// Toggle on/off getting signals from the station or the current Z level
-	if(src.listening_level == STATION_Z) // equals the station
-		src.listening_level = position.z
-		return 1
-	else if(position.z == TELECOMM_Z)
-		src.listening_level = STATION_Z
-		return 1
-	return 0
-
 // Returns a multitool from a user depending on their mobtype.
 
 /obj/machinery/telecomms/proc/get_multitool(mob/user as mob)
@@ -241,8 +218,6 @@
 
 /obj/machinery/telecomms/relay/Options_Menu()
 	var/dat = ""
-	if(src.z == TELECOMM_Z)
-		dat += "<br>Signal Locked to Station: <A href='?src=\ref[src];change_listening=1'>[listening_level == STATION_Z ? "TRUE" : "FALSE"]</a>"
 	dat += "<br>Broadcasting: <A href='?src=\ref[src];broadcast=1'>[broadcasting ? "YES" : "NO"]</a>"
 	dat += "<br>Receiving:    <A href='?src=\ref[src];receive=1'>[receiving ? "YES" : "NO"]</a>"
 	return dat
@@ -255,15 +230,6 @@
 	if(href_list["broadcast"])
 		broadcasting = !broadcasting
 		temp = "<font color = #666633>-% Broadcasting mode changed. %-</font>"
-	if(href_list["change_listening"])
-		//Lock to the station OR lock to the current position!
-		//You need at least two receivers and two broadcasters for this to work, this includes the machine.
-		var/result = toggle_level()
-		if(result)
-			temp = "<font color = #666633>-% [src]'s signal has been successfully changed.</font>"
-		else
-			temp = "<font color = #666633>-% [src] could not lock it's signal onto the station. Two broadcasters or receivers required.</font>"
-
 // BUS
 
 /obj/machinery/telecomms/bus/Options_Menu()
@@ -403,6 +369,3 @@
 	if(issilicon(user) || in_range(user, src))
 		return 1
 	return 0
-
-#undef TELECOMM_Z
-#undef STATION_Z

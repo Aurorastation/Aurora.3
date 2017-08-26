@@ -3,7 +3,7 @@
 	name = "magboots"
 	icon_state = "magboots0"
 	species_restricted = null
-	force = 3
+	force = 5
 	overshoes = 1
 	var/magpulse = 0
 	var/icon_base = "magboots"
@@ -45,6 +45,12 @@
 		user << "You enable the mag-pulse traction system."
 	user.update_inv_shoes()	//so our mob-overlays update
 	user.update_action_buttons()
+
+/obj/item/clothing/shoes/magboots/negates_gravity()
+	if(magpulse)
+		return 1
+	else
+		return 0
 
 /obj/item/clothing/shoes/magboots/mob_can_equip(mob/user)
 	var/mob/living/carbon/human/H = user

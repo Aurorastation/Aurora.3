@@ -11,23 +11,11 @@
 	icon_state = "gsmes"
 	var/cells_amount = 0
 	var/capacitors_amount = 0
-	var/global/list/br_cache = null
 
-/obj/machinery/power/smes/batteryrack/New()
-	..()
-	add_parts()
-	RefreshParts()
-	return
-
-//Maybe this should be moved up to obj/machinery
-/obj/machinery/power/smes/batteryrack/proc/add_parts()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/batteryrack
-	component_parts += new /obj/item/weapon/cell/high
-	component_parts += new /obj/item/weapon/cell/high
-	component_parts += new /obj/item/weapon/cell/high
-	return
-
+	component_types = list(
+		/obj/item/weapon/circuitboard/batteryrack,
+		/obj/item/weapon/cell/high = 3
+	)
 
 /obj/machinery/power/smes/batteryrack/RefreshParts()
 	capacitors_amount = 0
@@ -47,30 +35,17 @@
 
 
 /obj/machinery/power/smes/batteryrack/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(stat & BROKEN)	return
 	
-	if(!br_cache)
-		br_cache = list()
-		br_cache.len = 7
-		br_cache[1] = image('icons/obj/power.dmi', "gsmes_outputting")
-		br_cache[2] = image('icons/obj/power.dmi', "gsmes_charging")
-		br_cache[3] = image('icons/obj/power.dmi', "gsmes_overcharge")
-		br_cache[4] = image('icons/obj/power.dmi', "gsmes_og1")
-		br_cache[5] = image('icons/obj/power.dmi', "gsmes_og2")
-		br_cache[6] = image('icons/obj/power.dmi', "gsmes_og3")
-		br_cache[7] = image('icons/obj/power.dmi', "gsmes_og4")
-	
 	if (output_attempt)
-		overlays += br_cache[1]
+		add_overlay("gsmes_outputting")
 	if(inputting)
-		overlays += br_cache[2]
+		add_overlay("gsmes_charging")
 
 	var/clevel = chargedisplay()
 	if(clevel>0)
-		overlays += br_cache[3+clevel]
-	return
-
+		add_overlay("gsmes_og[clevel]")
 
 /obj/machinery/power/smes/batteryrack/chargedisplay()
 	return round(4 * charge/(capacity ? capacity : 5e6))
@@ -79,7 +54,7 @@
 /obj/machinery/power/smes/batteryrack/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob) //these can only be moved by being reconstructed, solves having to remake the powernet.
 	..() //SMES attackby for now handles screwdriver, cable coils and wirecutters, no need to repeat that here
 	if(open_hatch)
-		if(istype(W, /obj/item/weapon/crowbar))
+		if(iscrowbar(W))
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
 					playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
@@ -119,31 +94,25 @@
 	desc = "A rack of batteries connected by a mess of wires posing as a PSU."
 	var/overcharge_percent = 0
 
-
-/obj/machinery/power/smes/batteryrack/makeshift/add_parts()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/ghettosmes
-	component_parts += new /obj/item/weapon/cell/high
-	component_parts += new /obj/item/weapon/cell/high
-	component_parts += new /obj/item/weapon/cell/high
-	return
-
+	component_types = list(
+		/obj/item/weapon/circuitboard/ghettosmes,
+		/obj/item/weapon/cell/high = 3
+	)
 
 /obj/machinery/power/smes/batteryrack/makeshift/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(stat & BROKEN)	return
 
 	if (output_attempt)
-		overlays += br_cache[1]
+		add_overlay("gsmes_outputting")
 	if(inputting)
-		overlays += br_cache[2]
+		add_overlay("gsmes_charging")
 	if (overcharge_percent > 100)
-		overlays += br_cache[3]
+		add_overlay("gsmes_overcharge")
 	else
 		var/clevel = chargedisplay()
 		if(clevel>0)
-			overlays += br_cache[3+clevel]
-	return
+			add_overlay("gsmes_og[clevel]")
 
 //This mess of if-elses and magic numbers handles what happens if the engies don't pay attention and let it eat too much charge
 //What happens depends on how much capacity has the ghetto smes and how much it is overcharged.
@@ -195,7 +164,7 @@
 
 
 #define SMESRATE 0.05			// rate of internal charge to external power
-/obj/machinery/power/smes/batteryrack/makeshift/process()
+/obj/machinery/power/smes/batteryrack/makeshift/machinery_process()
 	if(stat & BROKEN)	return
 
 	//store machine state to see if we need to update the icon overlays

@@ -7,6 +7,7 @@
 	S["real_name"]				>> pref.real_name
 	S["gender"]					>> pref.gender
 	S["age"]					>> pref.age
+	S["species"]				>> pref.species
 	S["spawnpoint"]				>> pref.spawnpoint
 	S["OOC_Notes"]				>> pref.metadata
 
@@ -14,6 +15,7 @@
 	S["real_name"]				<< pref.real_name
 	S["gender"]					<< pref.gender
 	S["age"]					<< pref.age
+	S["species"]				<< pref.species
 	S["spawnpoint"]				<< pref.spawnpoint
 	S["OOC_Notes"]				<< pref.metadata
 
@@ -22,11 +24,12 @@
 													"gender",
 													"age",
 													"metadata",
-													"spawnpoint",),
+													"spawnpoint",
+													"species"),
 										"args" = list("id")))
 
 /datum/category_item/player_setup_item/general/basic/gather_load_parameters()
-	return list(":id" = pref.current_character)
+	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/basic/gather_save_query()
 	return list("ss13_characters" = list("name",
@@ -34,17 +37,19 @@
 										 "age",
 										 "metadata",
 										 "spawnpoint",
+										 "species",
 										 "id" = 1,
 										 "ckey" = 1))
 
 /datum/category_item/player_setup_item/general/basic/gather_save_parameters()
-	return list(":name" = pref.real_name,
-				":gender" = pref.gender,
-				":age" = pref.age,
-				":metadata" = pref.metadata,
-				":spawnpoint" = pref.spawnpoint,
-				":id" = pref.current_character,
-				":ckey" = pref.client.ckey)
+	return list("name" = pref.real_name,
+				"gender" = pref.gender,
+				"age" = pref.age,
+				"metadata" = pref.metadata,
+				"spawnpoint" = pref.spawnpoint,
+				"species" = pref.species,
+				"id" = pref.current_character,
+				"ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/general/basic/load_special()
 	pref.can_edit_name = 1
@@ -55,8 +60,8 @@
 
 		// Called /after/ loading and /before/ sanitization.
 		// So we have pref.current_character. It's just in text format.
-		var/DBQuery/query = dbcon.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id")
-		query.Execute(list(":id" = text2num(pref.current_character)))
+		var/DBQuery/query = dbcon.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id:")
+		query.Execute(list("id" = text2num(pref.current_character)))
 
 		if (query.NextRow())
 			if (text2num(query.item[1]) > 5)
@@ -66,6 +71,9 @@
 			log_debug("SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
+	if(!pref.species || !(pref.species in playable_species))
+		pref.species = "Human"
+
 	pref.age			= sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender 		= sanitize_inlist(pref.gender, valid_player_genders, pick(valid_player_genders))
 	pref.real_name		= sanitize_name(pref.real_name, pref.species)
@@ -118,6 +126,9 @@
 
 	else if(href_list["gender"])
 		pref.gender = next_in_list(pref.gender, valid_player_genders)
+
+		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
+		equipment_item.sanitize_character()	// sanitize equipment
 		return TOPIC_REFRESH
 
 	else if(href_list["age"])

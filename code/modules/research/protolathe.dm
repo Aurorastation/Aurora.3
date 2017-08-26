@@ -16,19 +16,14 @@
 	var/mat_efficiency = 1
 	var/speed = 1
 
-/obj/machinery/r_n_d/protolathe/New()
-	..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/protolathe(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	RefreshParts()
+	component_types = list(
+		/obj/item/weapon/circuitboard/protolathe,
+		/obj/item/weapon/stock_parts/matter_bin = 2,
+		/obj/item/weapon/stock_parts/manipulator = 2,
+		/obj/item/weapon/reagent_containers/glass/beaker = 2
+	)
 
-/obj/machinery/r_n_d/protolathe/process()
+/obj/machinery/r_n_d/protolathe/machinery_process()
 	..()
 	if(stat)
 		update_icon()
@@ -90,7 +85,7 @@
 		if(materials[f] >= SHEET_MATERIAL_AMOUNT)
 			var/path = getMaterialType(f)
 			if(path)
-				var/obj/item/stack/S = new f(loc)
+				var/obj/item/stack/S = new path(loc)
 				S.amount = round(materials[f] / SHEET_MATERIAL_AMOUNT)
 	..()
 
@@ -146,9 +141,8 @@
 
 	var/stacktype = stack.type
 	var/t = getMaterialName(stacktype)
-	overlays += "protolathe_[t]"
-	spawn(10)
-		overlays -= "protolathe_[t]"
+	add_overlay("protolathe_[t]")
+	CUT_OVERLAY_IN("protolathe_[t]", 10)
 
 	busy = 1
 	use_power(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))

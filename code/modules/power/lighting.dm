@@ -45,7 +45,7 @@
 
 /obj/machinery/light_construct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
-	if (istype(W, /obj/item/weapon/wrench))
+	if (iswrench(W))
 		if (src.stage == 1)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			usr << "You begin deconstructing [src]."
@@ -64,7 +64,7 @@
 			usr << "You have to unscrew the case first."
 			return
 
-	if(istype(W, /obj/item/weapon/wirecutters))
+	if(iswirecutter(W))
 		if (src.stage != 2) return
 		src.stage = 1
 		switch(fixture_type)
@@ -78,7 +78,7 @@
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		return
 
-	if(istype(W, /obj/item/stack/cable_coil))
+	if(iscoil(W))
 		if (src.stage != 1) return
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.use(1))
@@ -92,7 +92,7 @@
 				"You add wires to [src].")
 		return
 
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		if (src.stage == 2)
 			switch(fixture_type)
 				if ("tube")
@@ -159,7 +159,6 @@
 								// this is used to calc the probability the light burns out
 
 	var/rigged = 0				// true if rigged to explode
-	var/datum/effect_system/sparks/spark_system
 
 // the smaller bulb light fixture
 
@@ -177,7 +176,7 @@
 /obj/machinery/light/small/emergency
 	brightness_range = 6
 	brightness_power = 1
-	brightness_color = "#FF0000"
+	brightness_color = "#FA8282"//"#FF0000"
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
@@ -192,41 +191,36 @@
 	brightness_power = 4
 	supports_nightmode = FALSE
 
-/obj/machinery/light/built/New()
+/obj/machinery/light/built/Initialize()
+	. = ..()
 	status = LIGHT_EMPTY
 	update(0)
-	..()
 
-/obj/machinery/light/small/built/New()
+/obj/machinery/light/small/built/Initialize()
+	. = ..()
 	status = LIGHT_EMPTY
 	update(0)
-	..()
 
 // create a new lighting fixture
-/obj/machinery/light/New()
-	..()
+/obj/machinery/light/Initialize(mapload)
+	. = ..()
+	on = has_power()
 
-	spark_system = bind_spark(src, 3)
+	switch(fitting)
+		if("tube")
+			if(mapload && prob(2))
+				broken(1)
+		if("bulb")
+			if(mapload && prob(5))
+				broken(1)
 
-	spawn(2)
-		on = has_power()
-
-		switch(fitting)
-			if("tube")
-				if(prob(2))
-					broken(1)
-			if("bulb")
-				if(prob(5))
-					broken(1)
-		spawn(1)
-			update(0)
+	update(0)
 
 /obj/machinery/light/Destroy()
 	var/area/A = get_area(src)
 	if(A)
 		on = 0
-//		A.update_lights()
-	..()
+	return ..()
 
 /obj/machinery/light/update_icon()
 	switch(status)		// set icon_states
@@ -379,7 +373,7 @@
 			for(var/mob/M in viewers(src))
 				if(M == user)
 					continue
-				M.show_message("[user.name] smashed the light!", 3, "You hear a tinkle of breaking glass", 2)
+				M.show_message("[user.name] smashes the light!", 3, "You hear a tinkle of breaking glass", 2)
 			if(on && (W.flags & CONDUCT))
 				//if(!user.mutations & COLD_RESISTANCE)
 				if (prob(12))
@@ -391,7 +385,7 @@
 
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
-		if(istype(W, /obj/item/weapon/screwdriver)) //If it's a screwdriver open it.
+		if(isscrewdriver(W)) //If it's a screwdriver open it.
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
 			user.visible_message("[user.name] opens [src]'s casing.", \
 				"You open [src]'s casing.", "You hear a noise.")
@@ -414,7 +408,7 @@
 
 		user << "You stick \the [W] into the light socket!"
 		if(has_power() && (W.flags & CONDUCT))
-			spark_system.queue()
+			spark(src, 3)
 			//if(!user.mutations & COLD_RESISTANCE)
 			if (prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
@@ -426,19 +420,29 @@
 	var/area/A = get_area(src)
 	return A && A.lightswitch && (!A.requires_power || A.power_light)
 
-/obj/machinery/light/proc/flicker(var/amount = rand(10, 20))
-	if(flickering) return
-	flickering = 1
-	spawn(0)
-		if(on && status == LIGHT_OK)
-			for(var/i = 0; i < amount; i++)
-				if(status != LIGHT_OK) break
-				on = !on
-				update(0)
-				sleep(rand(5, 15))
-			on = (status == LIGHT_OK)
-			update(0)
-		flickering = 0
+/obj/machinery/light/proc/flicker(amount = rand(10,20))
+	set waitfor = FALSE
+	if (flickering || !on || status != LIGHT_OK)
+		return
+
+	flickering = TRUE
+	var/offset = 1
+	var/thecallback = CALLBACK(src, .proc/handle_flicker)
+	for (var/i = 0; i < amount; i++)
+		addtimer(thecallback, offset)
+		offset += rand(5, 15)
+
+	addtimer(CALLBACK(src, .proc/end_flicker), offset)
+
+/obj/machinery/light/proc/handle_flicker()
+	if (status == LIGHT_OK)
+		on = !on
+		update(FALSE)
+
+/obj/machinery/light/proc/end_flicker()
+	on = (status == LIGHT_OK)
+	update(FALSE)
+	flickering = FALSE
 
 // ai attack - make lights flicker, because why not
 
@@ -460,7 +464,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.species.can_shred(H))
 			for(var/mob/M in viewers(src))
-				M.show_message("\red [user.name] smashed the light!", 3, "You hear a tinkle of breaking glass", 2)
+				M.show_message("<span class='warning'>[user.name] smashed the light!</span>", 3, "You hear a tinkle of breaking glass", 2)
 			broken()
 			return
 
@@ -536,6 +540,11 @@
 	status = LIGHT_EMPTY
 	update()
 
+/obj/machinery/light/attack_ghost(mob/user)
+	if(round_is_spooky())
+		flicker(rand(2,5))
+	else return ..()
+
 // break the light and make sparks if was on
 
 /obj/machinery/light/proc/broken(var/skip_sound_and_sparks = 0)
@@ -546,10 +555,11 @@
 		if(status == LIGHT_OK || status == LIGHT_BURNED)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		if(on)
-			spark_system.queue()
+			spark(src, 3)
 	status = LIGHT_BROKEN
 	update()
-	CHECK_TICK	// For lights-out events.
+	if (!skip_sound_and_sparks)
+		CHECK_TICK	// For lights-out events.
 
 /obj/machinery/light/proc/fix()
 	if(status == LIGHT_OK)
@@ -576,8 +586,10 @@
 
 // called when area power state changes
 /obj/machinery/light/power_change()
-	spawn(10)
-		seton(has_power())
+	addtimer(CALLBACK(src, .proc/handle_power_change), 10, TIMER_UNIQUE)
+
+/obj/machinery/light/proc/handle_power_change()
+	seton(has_power())
 
 // called when on fire
 
@@ -588,13 +600,13 @@
 // explode the light
 
 /obj/machinery/light/proc/explode()
+	set waitfor = FALSE
 	var/turf/T = get_turf(src.loc)
-	spawn(0)
-		broken()	// break it first to give a warning
-		sleep(2)
-		explosion(T, 0, 0, 2, 2)
-		sleep(1)
-		qdel(src)
+	broken()	// break it first to give a warning
+	sleep(2)
+	explosion(T, 0, 0, 2, 2)
+	sleep(1)
+	qdel(src)
 
 // Sets the light being output by a light tube or other static source
 // Non or negative inputs will reset to default
@@ -734,7 +746,7 @@
 
 /obj/item/weapon/light/proc/shatter()
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
-		src.visible_message("\red [name] shatters.","\red You hear a small glass object shatter.")
+		src.visible_message("<span class='warning'>[name] shatters.</span>","<span class='warning'>You hear a small glass object shatter.</span>")
 		status = LIGHT_BROKEN
 		force = 5
 		sharp = 1

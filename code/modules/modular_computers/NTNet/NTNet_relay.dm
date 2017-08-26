@@ -1,8 +1,3 @@
-#define NTR_NORMAL 0
-#define NTR_OVERLOAD 1
-#define NTR_DISABLE 2
-#define NTR_POWERLOSS 3
-
 // Relays don't handle any actual communication. Global NTNet datum does that, relays only tell the datum if it should or shouldn't work.
 /obj/machinery/ntnet_relay
 	name = "NTNet Quantum Relay"
@@ -24,7 +19,10 @@
 	var/dos_capacity = 500		// Amount of DoS "packets" in buffer required to crash the relay
 	var/dos_dissipate = 1		// Amount of DoS "packets" dissipated over time.
 
-	var/overlay_cache = list()
+	component_types = list(
+		/obj/item/stack/cable_coil{amount = 15},
+		/obj/item/weapon/circuitboard/ntnet_relay
+	)
 
 // TODO: Implement more logic here. For now it's only a placeholder.
 /obj/machinery/ntnet_relay/operable()
@@ -36,46 +34,27 @@
 		return 0
 	return 1
 
-/obj/machinery/ntnet_relay/proc/get_state()
-	if (!enabled)
-		return NTR_DISABLE
-	if (dos_failure)
-		return NTR_OVERLOAD
-	if (!operable())
-		return NTR_POWERLOSS
-
-	return NTR_NORMAL
-
 /obj/machinery/ntnet_relay/update_icon()
-	var/state = get_state()
 	icon_state = initial(icon_state)
+
+	cut_overlays()
 
 	if (panel_open)
 		icon_state += "_o"
 
-	switch (state)
-		if (NTR_NORMAL)
-			overlays += overlay_cache["ok"]
-			overlays -= overlay_cache["problem"]
-			overlays -= overlay_cache["error"]
+	if (!operable())
+		icon_state += "_off"
 
-		if (NTR_OVERLOAD)
-			overlays -= overlay_cache["ok"]
-			overlays += overlay_cache["problem"]
-			overlays -= overlay_cache["error"]
-		
-		if (NTR_DISABLE)
-			overlays -= overlay_cache["ok"]
-			overlays -= overlay_cache["problem"]
-			overlays += overlay_cache["error"]
+	else if (dos_failure)
+		add_overlay("ntnet_o_problem")
+	
+	else if (!enabled)
+		add_overlay("ntnet_o_error")
 
-		if (NTR_POWERLOSS)
-			overlays -= overlay_cache["ok"]
-			overlays -= overlay_cache["problem"]
-			overlays -= overlay_cache["error"]
-			icon_state += "_off"
+	else
+		add_overlay("ntnet_o_ok")
 
-/obj/machinery/ntnet_relay/process()
+/obj/machinery/ntnet_relay/machinery_process()
 	if(operable())
 		use_power = 2
 	else
@@ -103,7 +82,7 @@
 	data["dos_overload"] = dos_overload
 	data["dos_crashed"] = dos_failure
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_relay.tmpl", "NTNet Quantum Relay", 500, 300, state = state)
 		ui.set_initial_data(data)
@@ -126,17 +105,10 @@
 		ntnet_global.add_log("Quantum relay manually [enabled ? "enabled" : "disabled"].")
 		update_icon()
 
-/obj/machinery/ntnet_relay/New()
+/obj/machinery/ntnet_relay/Initialize()
+	. = ..()
 	uid = gl_uid
 	gl_uid++
-	component_parts = list()
-	component_parts += new /obj/item/stack/cable_coil(src,15)
-	component_parts += new /obj/item/weapon/circuitboard/ntnet_relay(src)
-
-	overlay_cache = list()
-	overlay_cache["ok"] = image('icons/obj/machines/telecomms.dmi', "ntnet_o_ok")
-	overlay_cache["problem"] = image('icons/obj/machines/telecomms.dmi', "ntnet_o_problem")
-	overlay_cache["error"] = image('icons/obj/machines/telecomms.dmi', "ntnet_o_error")
 
 	update_icon()
 
@@ -144,7 +116,6 @@
 		ntnet_global.relays.Add(src)
 		NTNet = ntnet_global
 		ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
-	..()
 
 /obj/machinery/ntnet_relay/Destroy()
 	if(ntnet_global)
@@ -154,15 +125,15 @@
 	for(var/datum/computer_file/program/ntnet_dos/D in dos_sources)
 		D.target = null
 		D.error = "Connection to quantum relay severed"
-	..()
+	return ..()
 
 /obj/machinery/ntnet_relay/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		panel_open = !panel_open
 		user << "You [panel_open ? "open" : "close"] the maintenance hatch"
 		return
-	if(istype(W, /obj/item/weapon/crowbar))
+	if(iscrowbar(W))
 		if(!panel_open)
 			user << "Open the maintenance panel first."
 			return
@@ -175,7 +146,3 @@
 		qdel(src)
 		return
 	..()
-
-#undef NTR_NORMAL
-#undef NTR_OVERLOAD
-#undef NTR_DISABLE

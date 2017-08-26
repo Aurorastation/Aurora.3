@@ -21,6 +21,7 @@ a img {border:none;}
 .spellcheck {background-image:url(spell-check.png)}
 .experiment {background-image:url(burn-exclamation.png)}
 .maptweak {background-image:url(map-pencil.png)}
+.balance {background-image:url(scales.png)}
 .sansserif {font-size:12px;}
 .commit {
 	margin-bottom:20px;

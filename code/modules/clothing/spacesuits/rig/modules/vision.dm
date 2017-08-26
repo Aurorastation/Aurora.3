@@ -28,6 +28,11 @@
 /datum/rig_vision/meson/New()
 	glasses = new /obj/item/clothing/glasses/meson
 
+/datum/rig_vision/material
+	mode = "meson scanner"
+/datum/rig_vision/material/New()
+	glasses = new /obj/item/clothing/glasses/material
+
 /datum/rig_vision/sechud
 	mode = "security HUD"
 /datum/rig_vision/sechud/New()
@@ -83,7 +88,7 @@
 
 /obj/item/rig_module/vision/meson
 
-	name = "hardsuit meson scanner"
+	name = "hardsuit meson/material scanner"
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "meson"
 
@@ -92,10 +97,11 @@
 	construction_cost = list("glass"=5000,DEFAULT_WALL_MATERIAL=1500)
 	construction_time = 300
 
-	interface_name = "meson scanner"
-	interface_desc = "An integrated meson scanner."
+	interface_name = "meson/material scanner"
+	interface_desc = "An integrated meson/material scanner."
 
-	vision_modes = list(/datum/rig_vision/meson)
+	vision_modes = list(/datum/rig_vision/meson,
+						/datum/rig_vision/material)
 
 /obj/item/rig_module/vision/thermal
 

@@ -26,7 +26,6 @@
 
 //all air alarms in area are connected via magic
 /area
-	var/obj/machinery/alarm/master_air_alarm
 	var/list/air_vent_names = list()
 	var/list/air_scrub_names = list()
 	var/list/air_vent_info = list()
@@ -106,8 +105,8 @@
 /obj/machinery/alarm/cold
 	target_temperature = T0C + 5
 
-/obj/machinery/alarm/server/New()
-	..()
+/obj/machinery/alarm/server/Initialize()
+	. = ..()
 	TLV["oxygen"] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
 	TLV["carbon dioxide"] = list(-1.0, -1.0,   5,  10) // Partial pressure, kpa
 	TLV["phoron"] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
@@ -119,15 +118,15 @@
 //While temperature stabilises.
 
 //Kitchen freezer
-/obj/machinery/alarm/freezer/New()
-	..()
+/obj/machinery/alarm/freezer/Initialize()
+	. = ..()
 	TLV["oxygen"] = list(16, 17, 135, 140) // Partial pressure, kpa
 	TLV["pressure"] = list(ONE_ATMOSPHERE*0.50,ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
 	TLV["temperature"] = list(0, 0, 273, T0C+40) // No lower limits. Alarm above 0c. Major alarm at harmful heat
 
 //Refridgerated area, cold but above-freezing
-/obj/machinery/alarm/cold/New()
-	..()
+/obj/machinery/alarm/cold/Initialize()
+	. = ..()
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(247, 273, 288, T0C+40) // Shouldn't go below 0
 
@@ -137,13 +136,13 @@
 	wires = null
 	return ..()
 
-/obj/machinery/alarm/New(var/loc, var/dir, var/building = 0)
-	..()
+/obj/machinery/alarm/LateInitialize()
+	apply_mode()
+
+/obj/machinery/alarm/Initialize(mapload, var/dir, var/building = 0)
+	. = ..()
 
 	if(building)
-		if(loc)
-			src.loc = loc
-
 		if(dir)
 			src.set_dir(dir)
 
@@ -155,6 +154,10 @@
 		return
 
 	first_run()
+
+	set_frequency(frequency)
+
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
@@ -180,13 +183,7 @@
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
 
-
-/obj/machinery/alarm/initialize()
-	set_frequency(frequency)
-	if (!master_is_operating())
-		elect_master()
-
-/obj/machinery/alarm/process()
+/obj/machinery/alarm/machinery_process()
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
 		return
 
@@ -316,18 +313,6 @@
 
 	return 0
 
-
-/obj/machinery/alarm/proc/master_is_operating()
-	return alarm_area.master_air_alarm && !(alarm_area.master_air_alarm.stat & (NOPOWER|BROKEN))
-
-
-/obj/machinery/alarm/proc/elect_master()
-	for (var/obj/machinery/alarm/AA in alarm_area)
-		if (!(AA.stat & (NOPOWER|BROKEN)))
-			alarm_area.master_air_alarm = AA
-			return 1
-	return 0
-
 /obj/machinery/alarm/proc/get_danger_level(var/current_value, var/list/danger_levels)
 	if((current_value > danger_levels[4] && danger_levels[4] > 0) || current_value < danger_levels[1])
 		return 2
@@ -363,46 +348,6 @@
 
 	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)
 
-/obj/machinery/alarm/receive_signal(datum/signal/signal)
-	if(stat & (NOPOWER|BROKEN))
-		return
-	if (alarm_area.master_air_alarm != src)
-		if (master_is_operating())
-			return
-		elect_master()
-		if (alarm_area.master_air_alarm != src)
-			return
-	if(!signal || signal.encryption)
-		return
-	var/id_tag = signal.data["tag"]
-	if (!id_tag)
-		return
-	if (signal.data["area"] != area_uid)
-		return
-	if (signal.data["sigtype"] != "status")
-		return
-
-	var/dev_type = signal.data["device"]
-	if(!(id_tag in alarm_area.air_scrub_names) && !(id_tag in alarm_area.air_vent_names))
-		register_env_machine(id_tag, dev_type)
-	if(dev_type == "AScr")
-		alarm_area.air_scrub_info[id_tag] = signal.data
-	else if(dev_type == "AVP")
-		alarm_area.air_vent_info[id_tag] = signal.data
-
-/obj/machinery/alarm/proc/register_env_machine(var/m_id, var/device_type)
-	var/new_name
-	if (device_type=="AVP")
-		new_name = "[alarm_area.name] Vent Pump #[alarm_area.air_vent_names.len+1]"
-		alarm_area.air_vent_names[m_id] = new_name
-	else if (device_type=="AScr")
-		new_name = "[alarm_area.name] Air Scrubber #[alarm_area.air_scrub_names.len+1]"
-		alarm_area.air_scrub_names[m_id] = new_name
-	else
-		return
-	spawn (10)
-		send_signal(m_id, list("init" = new_name) )
-
 /obj/machinery/alarm/proc/refresh_all()
 	for(var/id_tag in alarm_area.air_vent_names)
 		var/list/I = alarm_area.air_vent_info[id_tag]
@@ -413,12 +358,12 @@
 		var/list/I = alarm_area.air_scrub_info[id_tag]
 		if (I && I["timestamp"]+AALARM_REPORT_TIMEOUT/2 > world.time)
 			continue
-		send_signal(id_tag, list("status") )
+		send_signal(id_tag, list("status"))
 
 /obj/machinery/alarm/proc/set_frequency(new_frequency)
-	radio_controller.remove_object(src, frequency)
+	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
-	radio_connection = radio_controller.add_object(src, frequency, RADIO_TO_AIRALARM)
+	radio_connection = SSradio.add_object(src, frequency, RADIO_TO_AIRALARM)
 
 /obj/machinery/alarm/proc/send_signal(var/target, var/list/command)//sends signal 'command' to 'target'. Returns 0 if no radio connection, 1 otherwise
 	if(!radio_connection)
@@ -481,7 +426,7 @@
 	update_icon()
 
 /obj/machinery/alarm/proc/post_alert(alert_level)
-	var/datum/radio_frequency/frequency = radio_controller.return_frequency(alarm_frequency)
+	var/datum/radio_frequency/frequency = SSradio.return_frequency(alarm_frequency)
 	if(!frequency)
 		return
 
@@ -533,7 +478,7 @@
 	if(!(locked && !remote_connection) || remote_access || issilicon(user))
 		populate_controls(data)
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "air_alarm.tmpl", src.name, 325, 625, master_ui = master_ui, state = state)
 		ui.set_initial_data(data)
@@ -650,7 +595,7 @@
 	. = shorted ? STATUS_DISABLED : STATUS_INTERACTIVE
 
 	if(. == STATUS_INTERACTIVE)
-		var/extra_href = state.href_list(usr)
+		var/extra_href = QDELETED(state) ? list() : state.href_list(usr)
 		// Prevent remote users from altering RCON settings unless they already have access
 		if(href_list["rcon"] && extra_href["remote_connection"] && !extra_href["remote_access"])
 			. = STATUS_UPDATE
@@ -690,7 +635,7 @@
 		return 1
 
 	// hrefs that need the AA unlocked -walter0o
-	var/extra_href = state.href_list(usr)
+	var/extra_href = QDELETED(state) ? list() : state.href_list(usr)
 	if(!(locked && !extra_href["remote_connection"]) || extra_href["remote_access"] || issilicon(usr))
 		if(href_list["command"])
 			var/device_id = href_list["id_tag"]
@@ -806,13 +751,13 @@
 
 	switch(buildstage)
 		if(2)
-			if(istype(W, /obj/item/weapon/screwdriver))  // Opening that Air Alarm up.
+			if(isscrewdriver(W))  // Opening that Air Alarm up.
 				wiresexposed = !wiresexposed
 				user << "<span class='notice'>You [wiresexposed ? "open" : "close"] the maintenance panel.</span>"
 				update_icon()
 				return
 
-			if (wiresexposed && istype(W, /obj/item/weapon/wirecutters))
+			if (wiresexposed && iswirecutter(W))
 				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
@@ -833,7 +778,7 @@
 			return
 
 		if(1)
-			if(istype(W, /obj/item/stack/cable_coil))
+			if(iscoil(W))
 				var/obj/item/stack/cable_coil/C = W
 				if (C.use(5))
 					user << "<span class='notice'>You wire \the [src].</span>"
@@ -845,7 +790,7 @@
 					user << "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>"
 					return
 
-			else if(istype(W, /obj/item/weapon/crowbar))
+			else if(iscrowbar(W))
 				user << "You start prying out the circuit."
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 				if(do_after(user,20))
@@ -863,8 +808,8 @@
 				update_icon()
 				return
 
-			else if(istype(W, /obj/item/weapon/wrench))
-				user << "You remove the fire alarm assembly from the wall!"
+			else if(iswrench(W))
+				user << "You remove the air alarm assembly from the wall!"
 				new /obj/item/frame/air_alarm(get_turf(user))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 				qdel(src)
@@ -873,8 +818,7 @@
 
 /obj/machinery/alarm/power_change()
 	..()
-	spawn(rand(0,15))
-		update_icon()
+	queue_icon_update()
 
 /obj/machinery/alarm/examine(mob/user)
 	..(user)

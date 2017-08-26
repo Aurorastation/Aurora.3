@@ -23,33 +23,32 @@
 	if(!jetpack)
 		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 
-/mob/living/silicon/robot/syndicate/New()
-	..()
+/mob/living/silicon/robot/syndicate/Initialize()
+	. = ..()
 	verbs += /mob/living/silicon/robot/proc/choose_icon
 
 /mob/living/silicon/robot/syndicate/updateicon() //because this was the only way I found out how to make their eyes and etc works
-	overlays.Cut()
+	cut_overlays()
 	if(stat == 0)
-		overlays += "eyes-[icon_state]"
+		add_overlay("eyes-[icon_state]")
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
 		if(wiresexposed)
-			overlays += "[panelprefix]-openpanel +w"
+			add_overlay("[panelprefix]-openpanel +w")
 		else if(cell)
-			overlays += "[panelprefix]-openpanel +c"
+			add_overlay("[panelprefix]-openpanel +c")
 		else
-			overlays += "[panelprefix]-openpanel -c"
+			add_overlay("[panelprefix]-openpanel -c")
 
 	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
-		overlays += "[icon_state]-shield"
+		add_overlay("[icon_state]-shield")
 
 	if(modtype == "Combat")
 		if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
 			icon_state = "[icon_state]-roll"
 		else
 			icon_state = module_sprites[icontype]
-		return
 
 /mob/living/silicon/robot/syndicate/death()
 	..()
@@ -90,11 +89,11 @@
 	name = "grenade launcher"
 	desc = "A bulky pump-action grenade launcher. Loaded with 3 frag grenades."
 
-/obj/item/weapon/gun/launcher/grenade/cyborg/New()
-	..()
+/obj/item/weapon/gun/launcher/grenade/cyborg/Initialize()
+	. = ..()
 
 	grenades = list(
-			new /obj/item/weapon/grenade/frag(src),
-			new /obj/item/weapon/grenade/frag(src),
-			new /obj/item/weapon/grenade/frag(src)
-			)
+		new /obj/item/weapon/grenade/frag(src),
+		new /obj/item/weapon/grenade/frag(src),
+		new /obj/item/weapon/grenade/frag(src)
+	)

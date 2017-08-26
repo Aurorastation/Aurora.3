@@ -9,7 +9,7 @@
 	max_storage_space = 35
 	contained_sprite = 1
 
-/obj/item/weapon/storage/briefcase/crimekit/New()
+/obj/item/weapon/storage/briefcase/crimekit/fill()
 	..()
 	new /obj/item/weapon/storage/box/swabs(src)
 	new /obj/item/weapon/storage/box/fingerprints(src)

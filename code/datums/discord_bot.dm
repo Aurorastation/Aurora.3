@@ -27,6 +27,22 @@ var/datum/discord_bot/discord_bot = null
 
 	return 1
 
+/hook/roundstart/proc/alert_no_admins()
+	if (!discord_bot)
+		return 1
+
+	var/admins_number = 0
+
+	for (var/C in clients)
+		var/client/cc = C
+		if (cc.holder && (cc.holder.rights & (R_MOD|R_ADMIN)))
+			admins_number++
+
+	if (!admins_number)
+		discord_bot.send_to_admins("@here Round has started with no admins or mods online.")
+
+	return 1
+
 /datum/discord_bot
 	var/list/channels_to_group = list()		// Group flag -> list of channel datums map.
 	var/list/channels = list()				// Channel ID -> channel datum map. Will ensure that only one datum per channel ID exists.
@@ -40,8 +56,11 @@ var/datum/discord_bot/discord_bot = null
 	var/robust_debug = 0
 
 	// Lazy man's rate limiting vars
-	var/datum/scheduled_task/push_task
 	var/list/queue = list()
+
+	// Used to determine if BOREALIS should alert staff if the server is created
+	// with world.visibility == 0.
+	var/alert_visibility = 0
 
 /*
  * Proc update_channels
@@ -129,8 +148,7 @@ var/datum/discord_bot/discord_bot = null
 			queue.Add(list(list(message, A - sent)))
 
 			// Schedule a push.
-			if (!push_task)
-				push_task = schedule_task_with_source_in(10 SECONDS, src, /datum/discord_bot/proc/push_queue)
+			addtimer(CALLBACK(src, .proc/push_queue), 10 SECONDS, TIMER_UNIQUE)
 
 			// And exit.
 			return
@@ -153,10 +171,14 @@ var/datum/discord_bot/discord_bot = null
 		return list()
 
 	if (!channels.len || isnull(channels_to_group["channel_pins"]))
-		testing("No group.")
+		if (robust_debug)
+			log_debug("BOREALIS: No pins channel group.")
 		return list()
 
 	var/list/output = list()
+
+	if (robust_debug)
+		log_debug("BOREALIS: Acquiring pins.")
 
 	for (var/A in channels_to_group["channel_pins"])
 		var/datum/discord_channel/channel = A
@@ -164,6 +186,9 @@ var/datum/discord_bot/discord_bot = null
 			output["[channel.pin_flag]"] = list()
 
 		output["[channel.pin_flag]"] += channel.get_pins(auth_token)
+
+	if (robust_debug)
+		log_debug("BOREALIS: Finished acquiring pins.")
 
 	return output
 
@@ -230,14 +255,22 @@ var/datum/discord_bot/discord_bot = null
 		for (var/B in destinations)
 			var/datum/discord_channel/channel = B
 			if (channel.send_message_to(auth_token, message) == SEND_TIMEOUT)
-				// Tasks nuke themselves after use. So just make a new one! What could possibly go wrong!
-				push_task = schedule_task_with_source_in(10 SECONDS, src, /datum/discord_bot/proc/push_queue)
+				addtimer(CALLBACK(src, .proc/push_queue), 10 SECONDS, TIMER_UNIQUE)
 
 				return
 			else
 				destinations.Remove(channel)
 
 		queue.Remove(A)
+
+/**
+ * Will alert the staff on Discord if the server is initialized in invisible mode.
+ * Can be toggled via config.
+ */
+/datum/discord_bot/proc/alert_server_visibility()
+	if (alert_visibility && !world.visibility)
+		send_to_admins("Server started as invisible!")
+
 
 // A holder class for channels.
 /datum/discord_channel

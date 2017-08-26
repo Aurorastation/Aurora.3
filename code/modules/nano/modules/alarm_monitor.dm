@@ -13,7 +13,7 @@
 
 /datum/nano_module/alarm_monitor/all/New()
 	..()
-	alarm_handlers = alarm_manager.all_handlers
+	alarm_handlers = SSalarm.all_handlers
 
 /datum/nano_module/alarm_monitor/engineering/New()
 	..()
@@ -96,7 +96,7 @@
 					"lost_sources" = lost_sources.len ? sanitize(english_list(lost_sources, nothing_text = "", and_text = ", ")) : ""))
 	data["categories"] = categories
 
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "alarm_monitor.tmpl", "Alarm Monitoring Console", 800, 800, state = state)
 		if(host.update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.

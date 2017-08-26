@@ -9,6 +9,13 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 
+/obj/item/weapon/gun/projectile/colt/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "colt"
+	else
+		icon_state = "colt-e"
+
 /obj/item/weapon/gun/projectile/colt/detective
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 
@@ -41,6 +48,13 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 
+/obj/item/weapon/gun/projectile/sec/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "secguncomp"
+	else
+		icon_state = "secguncomp-e"
+
 /obj/item/weapon/gun/projectile/sec/lethal
 	magazine_type = /obj/item/ammo_magazine/c45m
 
@@ -52,6 +66,13 @@
 	desc = "A Nanotrasen designed sidearm, this one has a sweet wooden grip. Uses .45 rounds."
 	name = "custom .45 Pistol"
 	icon_state = "secgundark"
+
+/obj/item/weapon/gun/projectile/sec/wood/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "secgundark"
+	else
+		icon_state = "secgundark-e"
 
 /obj/item/weapon/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
@@ -205,9 +226,18 @@
 	else
 		icon_state = "pistol"
 
+/obj/item/weapon/gun/projectile/pistol/update_icon()
+	..()
+	if(silenced)
+		icon_state = "pistol-silencer"
+	else
+		icon_state = "pistol"
+	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
+		icon_state = "[icon_state]-e"
+
 /obj/item/weapon/silencer
 	name = "silencer"
-	desc = "a silencer"
+	desc = "A silencer"
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "silencer"
 	w_class = 2
@@ -227,16 +257,16 @@
 		/obj/item/ammo_casing/shotgun           = "12 gauge",
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
-		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
 		/obj/item/ammo_casing/shotgun/beanbag   = "12 gauge",
+		/obj/item/ammo_casing/shotgun/emp	= "12 gauge",
 		/obj/item/ammo_casing/a762              = "7.62mm",
 		/obj/item/ammo_casing/a556              = "5.56mm"
 		)
 
-/obj/item/weapon/gun/projectile/pirate/New()
+/obj/item/weapon/gun/projectile/pirate/Initialize()
 	ammo_type = pick(ammo_types)
 	desc += " Uses [ammo_types[ammo_type]] rounds."
 
 	var/obj/item/ammo_casing/ammo = ammo_type
 	caliber = initial(ammo.caliber)
-	..()
+	. = ..()

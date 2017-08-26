@@ -19,13 +19,15 @@
 	var/charge_rate = 100000	//100 kW
 	var/obj/machinery/shield_gen/owned_gen
 
-/obj/machinery/shield_capacitor/New()
-	spawn(10)
-		for(var/obj/machinery/shield_gen/possible_gen in range(1, src))
-			if(get_dir(src, possible_gen) == src.dir)
-				possible_gen.owned_capacitor = src
-				break
+/obj/machinery/shield_capacitor/Initialize()
 	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/shield_capacitor/LateInitialize()
+	for(var/obj/machinery/shield_gen/possible_gen in range(1, src))
+		if(get_dir(src, possible_gen) == src.dir)
+			possible_gen.owned_capacitor = src
+			break
 	
 /obj/machinery/shield_capacitor/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
@@ -45,7 +47,7 @@
 			updateDialog()
 		else
 			user << span("alert", "Access denied.")
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(iswrench(W))
 		src.anchored = !src.anchored
 		src.visible_message(span("notice", "\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
 
@@ -97,7 +99,7 @@
 	user << browse(t, "window=shield_capacitor;size=500x400")
 	user.set_machine(src)
 
-/obj/machinery/shield_capacitor/process()
+/obj/machinery/shield_capacitor/machinery_process()
 	if (!anchored)
 		active = 0
 
@@ -126,7 +128,7 @@
 		return
 	if( href_list["toggle"] )
 		if(!active && !anchored)
-			usr << "\red The [src] needs to be firmly secured to the floor first."
+			usr << "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>"
 			return
 		active = !active
 	if( href_list["charge_rate"] )

@@ -32,10 +32,10 @@
 /obj/item/weapon/melee/chainsword/attack_self(mob/user)
 	active= !active
 	if(active)
-		playsound(user, 'sound/weapons/chainsawhit.ogg', 50, 1)
+		playsound(user, 'sound/weapons/chainsawstart.ogg', 50, 1)
 		user << span("notice", "\The [src] rumbles to life.")
 		force = 35
-		hitsound = 'sound/weapons/chainsawhit.ogg'
+		hitsound = 'sound/weapons/chainsword.ogg'
 		icon_state = "chainswordon"
 		slot_flags = null
 	else
@@ -48,7 +48,7 @@
 
 /*
 /obj/item/weapon/melee/chainsword/suicide_act(mob/user)
-	viewers(user) << "\red <b>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</b>"
+	viewers(user) << "<span class='danger'>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</span>"
 	return (BRUTELOSS|OXYLOSS)
 */
 

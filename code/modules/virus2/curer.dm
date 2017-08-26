@@ -65,7 +65,7 @@
 	onclose(user, "computer")
 	return
 
-/obj/machinery/computer/curer/process()
+/obj/machinery/computer/curer/machinery_process()
 	if (inoperable())
 		return
 	use_power(500)

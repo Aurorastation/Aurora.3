@@ -20,20 +20,18 @@
 	var/set_temperature = T20C	//thermostat
 	var/heating = 0		//mainly for icon updates
 
+	component_types = list(
+		/obj/item/weapon/circuitboard/unary_atmos/heater,
+		/obj/item/weapon/stock_parts/matter_bin,
+		/obj/item/weapon/stock_parts/capacitor = 2,
+		/obj/item/stack/cable_coil{amount = 5}
+	)
+
 /obj/machinery/atmospherics/unary/heater/New()
 	..()
 	initialize_directions = dir
 
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/unary_atmos/heater(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 5)
-
-	RefreshParts()
-
-/obj/machinery/atmospherics/unary/heater/initialize()
+/obj/machinery/atmospherics/unary/heater/atmos_init()
 	if(node)
 		return
 
@@ -66,7 +64,7 @@
 	return
 
 
-/obj/machinery/atmospherics/unary/heater/process()
+/obj/machinery/atmospherics/unary/heater/machinery_process()
 	..()
 
 	if(stat & (NOPOWER|BROKEN) || !use_power)
@@ -108,7 +106,7 @@
 	data["gasTemperatureClass"] = temp_class
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm

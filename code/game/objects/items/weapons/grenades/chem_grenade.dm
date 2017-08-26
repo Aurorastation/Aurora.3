@@ -72,7 +72,7 @@
 			icon_state = initial(icon_state) +"_ass"
 			name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 			stage = 1
-		else if(istype(W,/obj/item/weapon/screwdriver) && path != 2)
+		else if(isscrewdriver(W) && path != 2)
 			if(stage == 1)
 				path = 1
 				if(beakers.len)
@@ -181,9 +181,9 @@
 			C.throw_mode_off()
 
 		invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
-		spawn(50)		   //To make sure all reagents can work
-			qdel(src)	   //correctly before deleting the grenade.
-
+		//To make sure all reagents can work
+		//correctly before deleting the grenade.
+		QDEL_IN(src, 50)  
 
 /obj/item/weapon/grenade/chem_grenade/large
 	name = "large chem grenade"

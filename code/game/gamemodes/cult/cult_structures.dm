@@ -68,7 +68,6 @@
 
 	var/damagetaken = 0
 	var/empowered = 0 //Number of empowered, higher-damage shots remaining
-	var/processing = 0
 	var/mob/living/sacrifice //Holds a reference to a mob that is a pending sacrifice
 	var/mob/living/sacrificer //A reference to the last mob that attempted to sacrifice something. So we can message them
 	//Sacrifier is also used in target handling. the pylon will not bite the hand that feeds it. Noncultist colleagues are fair game though
@@ -101,7 +100,7 @@
 
 
 /obj/structure/cult/pylon/Destroy()
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 //Another subtype which starts with infinite empower shots. For empowered adminbus
@@ -134,9 +133,7 @@
 
 /obj/structure/cult/pylon/proc/start_process()
 	process_interval = 1
-	if (!processing)
-		processing_objects += src
-		processing = 1
+	START_PROCESSING(SSprocessing, src)
 
 
 //If the pylon goes a long time without shooting anything, it will consider slowing down processing
@@ -186,8 +183,7 @@
 /obj/structure/cult/pylon/process()
 	ticks++
 	if(!check_process())
-		processing_objects.Remove(src)
-		processing = 0
+		STOP_PROCESSING(SSprocessing, src)
 		return
 
 	switch (pylonmode)
@@ -240,7 +236,7 @@
 		return
 
 	var/types = victim.find_type()
-	if ((!(types & TYPE_ORGANIC)) || ((types & TYPE_WIERD)))
+	if ((!(types & TYPE_ORGANIC)) || ((types & TYPE_WEIRD)))
 		//Invalid sacrifice. Display a message and return
 		speak_to(user, "This soulless automaton cannot satisfy our hunger. We yearn for life essence, it must have a soul.")
 		return
@@ -452,6 +448,9 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if (istype(source, /obj/item))
 		var/obj/item/I = source
+		if(istype(I, /obj/item/weapon/nullrod))
+			shatter()
+			return
 		if (I.damtype != BRUTE)
 			user << "You swing at the pylon to no effect."
 			return
@@ -553,18 +552,18 @@
 
 
 /obj/structure/cult/pylon/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if (pylonmode == 2)
 		anchored = 1
 		if (empowered > 0)
-			overlays += "crystal_overcharge"
+			add_overlay("crystal_overcharge")
 			set_light(7, 3, l_color = "#a160bf")
 		else
 			set_light(6, 3, l_color = "#3e0000")
-			overlays += "crystal_turret"
+			add_overlay("crystal_turret")
 	else if (!isbroken)
 		set_light(5, 2, l_color = "#3e0000")
-		overlays += "crystal_idle"
+		add_overlay("crystal_idle")
 		if (pylonmode == 1)
 			anchored = 1
 		else
@@ -633,53 +632,18 @@
 	return
 
 /obj/effect/gateway/active/New()
-	spawn(rand(30,60) SECONDS)
-		var/t = pick(spawnable)
-		new t(src.loc)
+	addtimer(CALLBACK(src, .proc/do_spawn), rand(30, 60) SECONDS)
+
+/obj/effect/gateway/active/proc/do_spawn()
+	var/thing = pick(spawnable)
+	new thing(src.loc)
+	qdel(src)
+
+/obj/effect/gateway/attackby(var/obj/item/I, var/mob/user)
+	..()
+	if(istype(I, /obj/item/weapon/nullrod))
+		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
 		qdel(src)
-
-/obj/effect/gateway/active/Crossed(var/atom/A)
-	if(!istype(A, /mob/living))
-		return
-
-	var/mob/living/M = A
-
-	if(M.stat != DEAD)
-		if(M.transforming)
-			return
-		if(M.has_brain_worms())
-			return //Borer stuff - RR
-
-		if(iscult(M)) return
-		if(!ishuman(M) && !isrobot(M)) return
-
-		M.transforming = 1
-		M.canmove = 0
-		M.icon = null
-		M.overlays.len = 0
-		M.invisibility = 101
-
-		if(istype(M, /mob/living/silicon/robot))
-			var/mob/living/silicon/robot/Robot = M
-			if(Robot.mmi)
-				qdel(Robot.mmi)
-		else
-			for(var/obj/item/W in M)
-				if(istype(W, /obj/item/weapon/implant))
-					qdel(W)
-					continue
-				W.layer = initial(W.layer)
-				W.loc = M.loc
-				W.dropped(M)
-
-		var/mob/living/new_mob = new /mob/living/simple_animal/corgi(A.loc)
-		new_mob.a_intent = I_HURT
-		if(M.mind)
-			M.mind.transfer_to(new_mob)
-		else
-			new_mob.key = M.key
-
-		new_mob << "<B>Your form morphs into that of a corgi.</B>"	//Because we don't have cluwnes
 
 /obj/effect/testtrans
 	icon = 'icons/obj/cult.dmi'

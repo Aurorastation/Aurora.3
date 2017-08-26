@@ -45,7 +45,6 @@
 /obj/item/weapon/soap/deluxe/New()
 	..()
 	desc = "A deluxe Waffle Co. brand bar of soap. Smells of [pick("lavender", "vanilla", "strawberry", "chocolate" ,"space")]."
-	..()
 
 /obj/item/weapon/soap/syndie
 	desc = "An untrustworthy bar of soap. Smells of fear."
@@ -82,14 +81,13 @@
 	icon_state = "cane"
 	item_state = "stick"
 	flags = CONDUCT
-	force = 5.0
+	force = 10
 	throwforce = 7.0
-	w_class = 2.0
+	w_class = 4
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 
 /obj/item/weapon/cane/concealed
-	w_class = 4
 	var/concealed_blade
 
 /obj/item/weapon/cane/concealed/New()
@@ -102,25 +100,37 @@
 	if(concealed_blade)
 		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
-		playsound(user.loc, 'sound/weapons/flipblade.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/blade_unsheath.ogg', 50, 1)
 		user.drop_from_inventory(src)
 		user.put_in_hands(concealed_blade)
 		user.put_in_hands(src)
 		user.update_inv_l_hand(0)
 		user.update_inv_r_hand()
 		concealed_blade = null
+		update_icon()
 	else
 		..()
 
 /obj/item/weapon/cane/concealed/attackby(var/obj/item/weapon/canesword/W, var/mob/user)
 	if(!src.concealed_blade && istype(W))
 		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
+		playsound(user.loc, 'sound/weapons/blade_sheath.ogg', 50, 1)
 		user.drop_from_inventory(W)
 		W.loc = src
 		src.concealed_blade = W
 		update_icon()
 	else
 		..()
+
+/obj/item/weapon/cane/concealed/update_icon()
+	if(concealed_blade)
+		name = initial(name)
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
+	else
+		name = "cane shaft"
+		icon_state = "nullrod"
+		item_state = "foldcane"
 
 /obj/item/weapon/disk
 	name = "disk"
@@ -312,7 +322,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
 /obj/item/weapon/module/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (istype(W, /obj/item/device/multitool))
+	if (ismultitool(W))
 		var/obj/item/weapon/circuitboard/ghettosmes/newcircuit = new/obj/item/weapon/circuitboard/ghettosmes(user.loc)
 		qdel(src)
 		user.put_in_hands(newcircuit)
@@ -396,7 +406,7 @@
 	icon_state = "neuralbroke"
 
 /obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		user << "You bypass the fried security chip and extract the encryption key."
@@ -617,6 +627,13 @@
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "ectoplasm"
+
+/obj/item/weapon/anomaly_core
+	name = "anomaly core"
+	desc = "An advanced bluespace device, little is know about its applications."
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "anomaly_core"
+	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)
 
 /obj/item/weapon/research
 	name = "research debugging device"

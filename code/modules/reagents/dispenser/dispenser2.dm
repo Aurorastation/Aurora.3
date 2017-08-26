@@ -18,8 +18,8 @@
 	density = 1
 	anchored = 1
 
-/obj/machinery/chemical_dispenser/New()
-	..()
+/obj/machinery/chemical_dispenser/Initialize()
+	. = ..()
 
 	if(spawn_cartridges)
 		for(var/type in spawn_cartridges)
@@ -56,16 +56,16 @@
 
 	C.loc = src
 	cartridges[C.label] = C
-	cartridges = sortAssoc(cartridges)
-	nanomanager.update_uis(src)
+	sortTim(cartridges, /proc/cmp_text_asc)
+	SSnanoui.update_uis(src)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
 	. = cartridges[label]
 	cartridges -= label
-	nanomanager.update_uis(src)
+	SSnanoui.update_uis(src)
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/weapon/W, mob/user)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(iswrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		user << "<span class='notice'>You begin to [anchored ? "un" : ""]fasten \the [src].</span>"
 		if (do_after(user, 20))
@@ -80,7 +80,7 @@
 	else if(istype(W, /obj/item/weapon/reagent_containers/chem_disp_cartridge))
 		add_cartridge(W, user)
 
-	else if(istype(W, /obj/item/weapon/screwdriver))
+	else if(isscrewdriver(W))
 		var/label = input(user, "Which cartridge would you like to remove?", "Chemical Dispenser") as null|anything in cartridges
 		if(!label) return
 		var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = remove_cartridge(label)
@@ -107,7 +107,7 @@
 		user.drop_from_inventory(RC)
 		RC.loc = src
 		user << "<span class='notice'>You set \the [RC] on \the [src].</span>"
-		nanomanager.update_uis(src) // update all UIs attached to src
+		SSnanoui.update_uis(src) // update all UIs attached to src
 
 	else
 		return ..()
@@ -138,7 +138,7 @@
 	data["chemicals"] = chemicals
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "chem_disp.tmpl", ui_title, 390, 680)
 		ui.set_initial_data(data)

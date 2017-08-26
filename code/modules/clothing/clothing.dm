@@ -24,8 +24,11 @@
 
 // Aurora forensics port.
 /obj/item/clothing/clean_blood()
-	..()
+	. = ..()
 	gunshot_residue = null
+
+/obj/item/proc/negates_gravity()
+	return 0
 
 //BS12: Species-restricted clothing check.
 /obj/item/clothing/mob_can_equip(M as mob, slot)
@@ -61,8 +64,8 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Human", "Skrell")	//humanoid bodytypes
-			species_restricted = list("Human", "Skrell") //skrell/humans can wear each other's suits
+		if("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame")	//humanoid bodytypes
+			species_restricted = list("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame") //skrell/humans like to share with IPCs
 		else
 			species_restricted = list(target_species)
 
@@ -84,7 +87,7 @@
 	//Set species_restricted list
 	switch(target_species)
 		if("Skrell")
-			species_restricted = list("Human", "Skrell") //skrell helmets fit humans too
+			species_restricted = list("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame") // skrell helmets like to share
 
 		else
 			species_restricted = list(target_species)
@@ -211,6 +214,7 @@ BLIND     // can't see anything
 	var/wired = 0
 	var/obj/item/weapon/cell/cell = 0
 	var/clipped = 0
+	var/fingerprint_chance = 0
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
@@ -238,14 +242,14 @@ BLIND     // can't see anything
 	return 0 // return 1 to cancel attack_hand()
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
-	if(istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/weapon/scalpel))
+	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if (clipped)
 			user << "<span class='notice'>The [src] have already been clipped!</span>"
 			update_icon()
 			return
 
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-		user.visible_message("\red [user] cuts the fingertips off of the [src].","\red You cut the fingertips off of the [src].")
+		user.visible_message("<span class='warning'>[user] cuts the fingertips off of the [src].</span>","<span class='warning'>You cut the fingertips off of the [src].</span>")
 
 		clipped = 1
 		name = "modified [name]"
@@ -339,25 +343,22 @@ BLIND     // can't see anything
 
 /obj/item/clothing/head/update_icon(var/mob/user)
 
-	overlays.Cut()
+	cut_overlays()
 	var/mob/living/carbon/human/H
 	if(istype(user,/mob/living/carbon/human))
 		H = user
 
 	if(on)
-
 		// Generate object icon.
-		if(!light_overlay_cache["[light_overlay]_icon"])
-			light_overlay_cache["[light_overlay]_icon"] = image("icon" = 'icons/obj/light_overlays.dmi', "icon_state" = "[light_overlay]")
-		overlays |= light_overlay_cache["[light_overlay]_icon"]
+		if(!SSicon_cache.light_overlay_cache["[light_overlay]_icon"])
+			SSicon_cache.light_overlay_cache["[light_overlay]_icon"] = image("icon" = 'icons/obj/light_overlays.dmi', "icon_state" = "[light_overlay]")
+		add_overlay(SSicon_cache.light_overlay_cache["[light_overlay]_icon"])
 
 		// Generate and cache the on-mob icon, which is used in update_inv_head().
 		var/cache_key = "[light_overlay][H ? "_[H.species.get_bodytype()]" : ""]"
-		if(!light_overlay_cache[cache_key])
+		if(!SSicon_cache.light_overlay_cache[cache_key])
 			var/use_icon = 'icons/mob/light_overlays.dmi'
-			if(H && sprite_sheets && sprite_sheets[H.species.get_bodytype()])
-				use_icon = sprite_sheets[H.species.get_bodytype()]
-			light_overlay_cache[cache_key] = image("icon" = use_icon, "icon_state" = "[light_overlay]")
+			SSicon_cache.light_overlay_cache[cache_key] = image("icon" = use_icon, "icon_state" = "[light_overlay]")
 
 	if(H)
 		H.update_inv_head()
@@ -410,12 +411,11 @@ BLIND     // can't see anything
 
 	permeability_coefficient = 0.50
 	slowdown = SHOES_SLOWDOWN
-	force = 2
+	force = 0
 	var/overshoes = 0
-	species_restricted = list("exclude","Unathi","Tajara","Vaurca","Vaurca Breeder")
+	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder")
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
 	var/silent = 0
-	species_restricted = list("exclude","Unathi","Tajara","Vox", "Vaurca")
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/shoes.dmi',
 		"Resomi" = 'icons/mob/species/resomi/shoes.dmi'
@@ -461,9 +461,9 @@ BLIND     // can't see anything
 		return ..()
 
 /obj/item/clothing/shoes/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(holding)
-		overlays += image(icon, "[icon_state]_knife")
+		add_overlay("[icon_state]_knife")
 	return ..()
 
 /obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
@@ -482,7 +482,7 @@ BLIND     // can't see anything
 	var/fire_resist = T0C+100
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen)
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = null
 	slot_flags = SLOT_OCLOTHING
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
@@ -511,7 +511,7 @@ BLIND     // can't see anything
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	permeability_coefficient = 0.90
 	slot_flags = SLOT_ICLOTHING
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = null
 	w_class = 3
 	var/has_sensor = 1 //For the crew computer 2 = unable to change mode
 	var/sensor_mode = 0
@@ -543,18 +543,20 @@ BLIND     // can't see anything
 		return
 	..()
 
-/obj/item/clothing/under/New()
-	..()
+/obj/item/clothing/under/Initialize()
+	. = ..()
 	if(worn_state)
-		if(!item_state_slots)
-			item_state_slots = list()
+		LAZYINITLIST(item_state_slots)
 		item_state_slots[slot_w_uniform_str] = worn_state
 	else
 		worn_state = icon_state
 
 	//autodetect rollability
 	if(rolled_down < 0)
-		if((worn_state + "_d_s") in icon_states('icons/mob/uniform.dmi'))
+		if (!SSicon_cache.uniform_states)
+			SSicon_cache.setup_uniform_mappings()
+
+		if (SSicon_cache.uniform_states["[worn_state]_d_s"])
 			rolled_down = 0
 
 /obj/item/clothing/under/proc/update_rolldown_status()
@@ -654,7 +656,7 @@ BLIND     // can't see anything
 		switch(sensor_mode)
 			if(0)
 				for(var/mob/V in viewers(usr, 1))
-					V.show_message("\red [usr] disables [src.loc]'s remote sensing equipment.", 1)
+					V.show_message("<span class='warning'>[usr] disables [src.loc]'s remote sensing equipment.</span>", 1)
 			if(1)
 				for(var/mob/V in viewers(usr, 1))
 					V.show_message("[usr] turns [src.loc]'s remote sensors to binary.", 1)
@@ -721,6 +723,6 @@ BLIND     // can't see anything
 		usr << "<span class='notice'>You roll down your [src]'s sleeves.</span>"
 	update_clothing_icon()
 
-/obj/item/clothing/under/rank/New()
+/obj/item/clothing/under/rank/Initialize()
 	sensor_mode = pick(0,1,2,3)
-	..()
+	. = ..()

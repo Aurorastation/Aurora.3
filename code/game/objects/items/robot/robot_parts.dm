@@ -82,24 +82,24 @@
 	var/obj/item/robot_parts/head/head = null
 	var/created_name = ""
 
-/obj/item/robot_parts/robot_suit/New()
-	..()
+/obj/item/robot_parts/robot_suit/Initialize()
+	. = ..()
 	src.updateicon()
 
 /obj/item/robot_parts/robot_suit/proc/updateicon()
-	src.overlays.Cut()
+	cut_overlays()
 	if(src.l_arm)
-		src.overlays += "l_arm+o"
+		add_overlay("l_arm+o")
 	if(src.r_arm)
-		src.overlays += "r_arm+o"
+		add_overlay("r_arm+o")
 	if(src.chest)
-		src.overlays += "chest+o"
+		add_overlay("chest+o")
 	if(src.l_leg)
-		src.overlays += "l_leg+o"
+		add_overlay("l_leg+o")
 	if(src.r_leg)
-		src.overlays += "r_leg+o"
+		add_overlay("r_leg+o")
 	if(src.head)
-		src.overlays += "head+o"
+		add_overlay("head+o")
 
 /obj/item/robot_parts/robot_suit/proc/check_completion()
 	if(src.l_arm && src.r_arm)
@@ -201,7 +201,7 @@
 				user << "<span class='warning'>This [W] does not seem to fit.</span>"
 				return
 
-			var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(loc), unfinished = 1)
+			var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(loc), TRUE)
 			if(!O)	return
 
 			user.drop_item()
@@ -258,7 +258,7 @@
 			W.loc = src
 			src.cell = W
 			user << "<span class='notice'>You insert the cell!</span>"
-	if(istype(W, /obj/item/stack/cable_coil))
+	if(iscoil(W))
 		if(src.wires)
 			user << "<span class='warning'>You have already inserted wire!</span>"
 			return

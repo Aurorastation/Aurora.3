@@ -54,35 +54,32 @@
 	var/datum/wires/mulebot/wires = null
 
 	var/bloodiness = 0		// count of bloodiness
+	var/static/total_mules = 0
 
-/obj/machinery/bot/mulebot/New()
-	..()
+/obj/machinery/bot/mulebot/Initialize()
+	. = ..()
 	wires = new(src)
 	botcard = new(src)
 	botcard.access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	cell = new(src)
 	cell.charge = 2000
 	cell.maxcharge = 2000
+	if(SSradio)
+		SSradio.add_object(src, control_freq, filter = RADIO_MULEBOT)
+		SSradio.add_object(src, beacon_freq, filter = RADIO_NAVBEACONS)
 
-	spawn(5)	// must wait for map loading to finish
-		if(radio_controller)
-			radio_controller.add_object(src, control_freq, filter = RADIO_MULEBOT)
-			radio_controller.add_object(src, beacon_freq, filter = RADIO_NAVBEACONS)
-
-		var/count = 0
-		for(var/obj/machinery/bot/mulebot/other in world)
-			count++
-		if(!suffix)
-			suffix = "#[count]"
-		name = "Mulebot ([suffix])"
+	total_mules++
+	if(!suffix)
+		suffix = "#[total_mules]"
+	name = "Mulebot ([suffix])"
 
 /obj/machinery/bot/mulebot/Destroy()
 	unload(0)
 	qdel(wires)
 	wires = null
-	if(radio_controller)
-		radio_controller.remove_object(src,beacon_freq)
-		radio_controller.remove_object(src,control_freq)
+	if(SSradio)
+		SSradio.remove_object(src,beacon_freq)
+		SSradio.remove_object(src,control_freq)
 	return ..()
 
 // attack by item
@@ -97,7 +94,7 @@
 		C.loc = src
 		cell = C
 		updateDialog()
-	else if(istype(I,/obj/item/weapon/screwdriver))
+	else if(isscrewdriver(I))
 		if(locked)
 			user << "<span class='notice'>The maintenance hatch cannot be opened or closed while the controls are locked.</span>"
 			return
@@ -112,7 +109,7 @@
 			icon_state = "mulebot0"
 
 		updateDialog()
-	else if (istype(I, /obj/item/weapon/wrench))
+	else if (iswrench(I))
 		if (src.health < maxhealth)
 			src.health = min(maxhealth, src.health+25)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -155,11 +152,7 @@
 		unload(0)
 	if(prob(25))
 		src.visible_message("<span class='warning'>Something shorts out inside [src]!</span>")
-		var/index = 1<< (rand(0,9))
-		if(wires & index)
-			wires &= ~index
-		else
-			wires |= index
+		wires.RandomCut()
 	..()
 
 
@@ -481,7 +474,7 @@
 	mode = 0
 
 
-/obj/machinery/bot/mulebot/process()
+/obj/machinery/bot/mulebot/machinery_process()
 	if(!has_power())
 		on = 0
 		return
@@ -821,7 +814,7 @@
 	if(freq == control_freq && !wires.RemoteTX())
 		return
 
-	var/datum/radio_frequency/frequency = radio_controller.return_frequency(freq)
+	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
 
 	if(!frequency) return
 
@@ -870,8 +863,8 @@
 	var/turf/Tsec = get_turf(src)
 
 	new /obj/item/device/assembly/prox_sensor(Tsec)
-	getFromPool(/obj/item/stack/rods, Tsec)
-	getFromPool(/obj/item/stack/rods, Tsec)
+	new /obj/item/stack/rods(Tsec)
+	new /obj/item/stack/rods(Tsec)
 	new /obj/item/stack/cable_coil/cut(Tsec)
 	if (cell)
 		cell.loc = Tsec

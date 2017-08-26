@@ -204,7 +204,7 @@
 		return
 
 	update_icon()
-		overlays.Cut()
+		cut_overlays()
 
 		if(mode == SYRINGE_BROKEN)
 			icon_state = "broken"
@@ -218,7 +218,7 @@
 					injoverlay = "draw"
 				if (SYRINGE_INJECT)
 					injoverlay = "inject"
-			overlays += injoverlay
+			add_overlay(injoverlay)
 		icon_state = "[rounded_vol]"
 		item_state = "syringe_[rounded_vol]"
 
@@ -228,7 +228,7 @@
 			filling.icon_state = "syringe[rounded_vol]"
 
 			filling.color = reagents.get_color()
-			overlays += filling
+			add_overlay(filling)
 
 	proc/syringestab(mob/living/carbon/target as mob, mob/living/carbon/user as mob)
 
@@ -250,7 +250,7 @@
 
 			if (target != user && H.getarmor(target_zone, "melee") > 5 && prob(50))
 				for(var/mob/O in viewers(world.view, user))
-					O.show_message(text("\red <B>[user] tries to stab [target] in \the [hit_area] with [src.name], but the attack is deflected by armor!</B>"), 1)
+					O.show_message(text("<span class='danger'>[user] tries to stab [target] in \the [hit_area] with [src.name], but the attack is deflected by armor!</span>"), 1)
 				user.remove_from_mob(src)
 				qdel(src)
 

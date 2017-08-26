@@ -27,13 +27,13 @@
 	update_icon()
 
 /obj/structure/fireaxecabinet/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if(fireaxe)
-		overlays += image(icon, "fireaxe_item")
+		add_overlay("fireaxe_item")
 	if(shattered)
-		overlays += image(icon, "fireaxe_window_broken")
+		add_overlay("fireaxe_window_broken")
 	else if(!open)
-		overlays += image(icon, "fireaxe_window")
+		add_overlay("fireaxe_window")
 
 /obj/structure/fireaxecabinet/New()
 	..()
@@ -78,7 +78,7 @@
 
 /obj/structure/fireaxecabinet/attackby(var/obj/item/O, var/mob/user)
 
-	if(istype(O, /obj/item/device/multitool))
+	if(ismultitool(O))
 		toggle_lock(user)
 		return
 

@@ -16,14 +16,14 @@
 	var/sun_angle = 0		// sun angle as set by sun datum
 	var/obj/machinery/power/solar_control/control = null
 
-/obj/machinery/power/tracker/New(var/turf/loc, var/obj/item/solar_assembly/S)
-	..(loc)
+/obj/machinery/power/tracker/Initialize(mapload, obj/item/solar_assembly/S)
+	. = ..()
 	Make(S)
 	connect_to_network()
 
 /obj/machinery/power/tracker/Destroy()
 	unset_control() //remove from control computer
-	..()
+	return ..()
 
 //set the control of the tracker to a given computer if closer than SOLAR_MAX_DIST
 /obj/machinery/power/tracker/proc/set_control(var/obj/machinery/power/solar_control/SC)
@@ -59,7 +59,7 @@
 
 /obj/machinery/power/tracker/attackby(var/obj/item/weapon/W, var/mob/user)
 
-	if(istype(W, /obj/item/weapon/crowbar))
+	if(iscrowbar(W))
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		user.visible_message("<span class='notice'>[user] begins to take the glass off the solar tracker.</span>")
 		if(do_after(user, 50))

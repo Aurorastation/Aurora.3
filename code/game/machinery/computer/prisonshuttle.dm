@@ -27,7 +27,7 @@ var/prison_shuttle_timeleft = 0
 		return src.attack_hand(user)
 
 	attackby(I as obj, user as mob)
-		if(istype(I, /obj/item/weapon/screwdriver))
+		if(isscrewdriver(I))
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			if(do_after(user, 20))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
@@ -143,7 +143,7 @@ var/prison_shuttle_timeleft = 0
 
 
 	proc/post_signal(var/command)
-		var/datum/radio_frequency/frequency = radio_controller.return_frequency(1311)
+		var/datum/radio_frequency/frequency = SSradio.return_frequency(1311)
 		if(!frequency) return
 		var/datum/signal/status_signal = new
 		status_signal.source = src

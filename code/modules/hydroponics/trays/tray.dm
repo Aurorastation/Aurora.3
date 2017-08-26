@@ -340,7 +340,7 @@
 
 	//Remove the seed if something is already planted.
 	if(seed) seed = null
-	seed = plant_controller.seeds[pick(list("reishi","nettles","amanita","mushrooms","plumphelmet","towercap","harebells","weeds"))]
+	seed = SSplants.seeds[pick(list("reishi","nettles","amanita","mushrooms","plumphelmet","towercap","harebells","weeds"))]
 	if(!seed) return //Weed does not exist, someone fucked up.
 
 	dead = 0
@@ -370,27 +370,17 @@
 	// We need to make sure we're not modifying one of the global seed datums.
 	// If it's not in the global list, then no products of the line have been
 	// harvested yet and it's safe to assume it's restricted to this tray.
-	if(!isnull(plant_controller.seeds[seed.name]))
+	if(!isnull(SSplants.seeds[seed.name]))
 		seed = seed.diverge()
 	seed.mutate(severity,get_turf(src))
 
 	return
 
-/obj/machinery/portable_atmospherics/hydroponics/verb/remove_label()
+/obj/machinery/portable_atmospherics/hydroponics/remove_label()
+	if(..())
+		labelled = null
+		update_icon()
 
-	set name = "Remove Label"
-	set category = "Object"
-	set src in view(1)
-
-	if(usr.incapacitated())
-		return
-	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
-		if(labelled)
-			usr << "You remove the label."
-			labelled = null
-			update_icon()
-		else
-			usr << "There is no label to remove."
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/verb/setlight()
@@ -426,8 +416,8 @@
 
 	var/previous_plant = seed.display_name
 	var/newseed = seed.get_mutant_variant()
-	if(newseed in plant_controller.seeds)
-		seed = plant_controller.seeds[newseed]
+	if(newseed in SSplants.seeds)
+		seed = SSplants.seeds[newseed]
 	else
 		return
 
@@ -463,7 +453,7 @@
 	if (O.is_open_container())
 		return 0
 
-	if(istype(O, /obj/item/weapon/wirecutters) || istype(O, /obj/item/weapon/scalpel))
+	if(iswirecutter(O) || istype(O, /obj/item/weapon/scalpel))
 
 		if(!seed)
 			user << "There is nothing to take a sample from in \the [src]."
@@ -568,7 +558,7 @@
 		qdel(O)
 		check_health()
 
-	else if(mechanical && istype(O, /obj/item/weapon/wrench))
+	else if(mechanical && iswrench(O))
 
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)

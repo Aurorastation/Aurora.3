@@ -10,14 +10,14 @@
 	var/energy = 0
 	var/creation_type = /obj/singularity
 
-/obj/machinery/the_singularitygen/process()
+/obj/machinery/the_singularitygen/machinery_process()
 	var/turf/T = get_turf(src)
 	if(src.energy >= 200)
 		new creation_type(T, 50)
 		if(src) qdel(src)
 
 /obj/machinery/the_singularitygen/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(iswrench(W))
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		if(anchored)

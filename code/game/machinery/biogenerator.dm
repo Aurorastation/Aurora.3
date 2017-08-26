@@ -15,20 +15,18 @@
 	var/eat_eff = 1
 	var/capacity = 50
 
+	component_types = list(
+		/obj/item/weapon/circuitboard/biogenerator,
+		/obj/item/weapon/stock_parts/matter_bin,
+		/obj/item/weapon/stock_parts/manipulator
+	)
 
-/obj/machinery/biogenerator/New()
-	..()
+/obj/machinery/biogenerator/Initialize()
+	. = ..()
 	var/datum/reagents/R = new/datum/reagents(1000)
 	reagents = R
 	R.my_atom = src
 	beaker = new /obj/item/weapon/reagent_containers/glass/bottle(src)
-
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/biogenerator(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-
-	RefreshParts()
 
 /obj/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
 	update_icon()
@@ -73,6 +71,9 @@
 				if(i >= capacity)
 					user << "<span class='notice'>You fill \the [src] to its capacity.</span>"
 					break
+
+				CHECK_TICK
+				
 			if(i < capacity)
 				user << "<span class='notice'>You empty \the [O] into \the [src].</span>"
 
@@ -154,6 +155,7 @@
 			points += 1
 		else points += I.reagents.get_reagent_amount("nutriment") * 10 * eat_eff
 		qdel(I)
+		CHECK_TICK
 	if(S)
 		processing = 1
 		update_icon()

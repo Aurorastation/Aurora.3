@@ -73,8 +73,6 @@ datum/preferences
 
 		//Mob preview
 	var/icon/preview_icon = null
-	var/icon/preview_icon_front = null
-	var/icon/preview_icon_side = null
 	var/is_updating_icon = 0
 
 		//Jobs, uses bitflags
@@ -104,6 +102,7 @@ datum/preferences
 	// will probably not be able to do this for head and torso ;)
 	var/list/organ_data = list()
 	var/list/rlimb_data = list()
+	var/list/body_markings = list() // "name" = "#rgbcolor"
 	var/list/player_alt_titles = new()		// the default name of a job like "Medical Doctor"
 
 	var/list/flavor_texts = list()
@@ -131,11 +130,17 @@ datum/preferences
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
+	// Signature information
+	var/signature = ""
+	var/signfont = ""
+
 	var/client/client = null
 
 	var/savefile/loaded_preferences
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
+
+	var/dress_mob = TRUE
 
 /datum/preferences/New(client/C)
 	new_setup()
@@ -233,7 +238,7 @@ datum/preferences
 	dat += player_setup.content(user)
 
 	dat += "</html></body>"
-	user << browse(dat, "window=preferences;size=625x736")
+	user << browse(dat, "window=preferences;size=800x800")
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(!user)	return
@@ -286,7 +291,7 @@ datum/preferences
 	ShowChoices(usr)
 	return 1
 
-/datum/preferences/proc/copy_to(mob/living/carbon/human/character, safety = 0)
+/datum/preferences/proc/copy_to(mob/living/carbon/human/character, icon_updates = 1)
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
 	player_setup.sanitize_setup()
 
@@ -300,6 +305,7 @@ datum/preferences
 
 	character.real_name = real_name
 	character.name = character.real_name
+	character.set_species(species)
 	if(character.dna)
 		character.dna.real_name = character.real_name
 
@@ -330,10 +336,12 @@ datum/preferences
 	character.g_eyes = g_eyes
 	character.b_eyes = b_eyes
 
+	character.h_style = h_style
 	character.r_hair = r_hair
 	character.g_hair = g_hair
 	character.b_hair = b_hair
 
+	character.f_style = f_style
 	character.r_facial = r_facial
 	character.g_facial = g_facial
 	character.b_facial = b_facial
@@ -355,34 +363,8 @@ datum/preferences
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints
 
-	// Destroy/cyborgize organs
-
-	for(var/name in organ_data)
-
-		var/status = organ_data[name]
-		var/obj/item/organ/external/O = character.organs_by_name[name]
-		if(O)
-			O.status = 0
-			if(status == "amputated")
-				character.organs_by_name[O.limb_name] = null
-				character.organs -= O
-				if(O.children) // This might need to become recursive.
-					for(var/obj/item/organ/external/child in O.children)
-						character.organs_by_name[child.limb_name] = null
-						character.organs -= child
-
-			else if(status == "cyborg")
-				if(rlimb_data[name])
-					O.robotize(rlimb_data[name])
-				else
-					O.robotize()
-		else
-			var/obj/item/organ/I = character.internal_organs_by_name[name]
-			if(I)
-				if(status == "assisted")
-					I.mechassist()
-				else if(status == "mechanical")
-					I.robotize()
+	// Destroy/cyborgize organs & setup body markings
+	character.sync_organ_prefs_to_mob(src)
 
 	character.underwear = underwear
 
@@ -390,15 +372,16 @@ datum/preferences
 
 	character.socks = socks
 
-	if(backbag > 5 || backbag < 1)
+	if(backbag > 6 || backbag < 1)
 		backbag = 1 //Same as above
 	character.backbag = backbag
 
-	//Debugging report to track down a bug, which randomly assigned the plural gender to people.
-	if(character.gender in list(PLURAL, NEUTER))
-		if(isliving(src)) //Ghosts get neuter by default
-			message_admins("[character] ([character.ckey]) has spawned with their gender as plural or neuter. Please notify coders.")
-			character.gender = MALE
+	if(icon_updates)
+		character.force_update_limbs()
+		character.update_mutations(0)
+		character.update_body(0)
+		character.update_hair(0)
+		character.update_icons()
 
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
 	var/dat = "<body>"
@@ -411,8 +394,8 @@ datum/preferences
 			if(!dbcon.IsConnected())
 				return open_load_dialog_file(user)
 
-			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey AND deleted_at IS NULL ORDER BY id ASC")
-			query.Execute(list(":ckey" = user.client.ckey))
+			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
+			query.Execute(list("ckey" = user.client.ckey))
 
 			dat += "<b>Select a character slot to load</b><hr>"
 			var/name
@@ -467,8 +450,8 @@ datum/preferences
 	if (!config.sql_saves || !config.sql_stats || !establish_db_connection(dbcon) || !H)
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, special_role) VALUES (:char_id, :game_id, NOW(), :job, :special_role)")
-	query.Execute(list(":char_id" = current_character, ":game_id" = game_id, ":job" = H.mind.assigned_role, ":special_role" = H.mind.special_role))
+	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, special_role) VALUES (:char_id:, :game_id:, NOW(), :job:, :special_role:)")
+	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "special_role" = H.mind.special_role))
 
 // Turned into a proc so we could reuse it for SQL shenanigans.
 /datum/preferences/proc/new_setup(var/re_initialize = 0)
@@ -480,6 +463,8 @@ datum/preferences
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
 	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
+	signature = "<i>[real_name]</i>"
+	signfont = "Verdana"
 
 	current_character = 0
 	can_edit_name = 1
@@ -539,6 +524,7 @@ datum/preferences
 
 		organ_data = list()
 		rlimb_data = list()
+		body_markings = list()
 		player_alt_titles = new()
 
 		flavor_texts = list()
@@ -564,8 +550,8 @@ datum/preferences
 		C << "<span class='notice'>Unable to establish database connection.</span>"
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id")
-	query.Execute(list(":char_id" = current_character))
+	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id:")
+	query.Execute(list("char_id" = current_character))
 
 	// Create a new character.
 	new_setup(1)

@@ -6,59 +6,64 @@
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespace"
 
-	//luminosity = 5
-	//l_color="#0066FF"
-	layer = LIGHTING_LAYER+1
+	layer = LIGHTING_LAYER + 1
+	light_color = "#0066FF"
+	light_range = 2
+	light_power = 2
 
-	var/spawned=0 // DIR mask
-	var/next_check=0
+	var/spawned = 0 // DIR mask
+	var/next_check = 0
 	var/list/avail_dirs = list(NORTH,SOUTH,EAST,WEST)
 
-/turf/unsimulated/wall/supermatter/New()
-	..()
-	processing_turfs.Add(src)
-	next_check = world.time+5 SECONDS
-
-/turf/unsimulated/wall/supermatter/Destroy()
-	processing_turfs.Remove(src)
-	..()
+/turf/unsimulated/wall/supermatter/Initialize()
+	. = ..()
+	START_PROCESSING(SScalamity, src)
 
 /turf/unsimulated/wall/supermatter/process()
-	// Only check infrequently.
-	if(next_check>world.time) return
+	if (!(SScalamity.times_fired % 2))
+		// SScalamity ticks every 2s, we want to process every 4.
+		return
 
-	// No more available directions? Shut down process().
-	if(avail_dirs.len==0)
-		processing_objects.Remove(src)
-		return 1
 
-	// We're checking, reset the timer.
-	next_check = world.time+5 SECONDS
+	// No more available directions? Bail.
+	if(avail_dirs.len == 0)
+		STOP_PROCESSING(SScalamity, src)
+		return
 
 	// Choose a direction.
 	var/pdir = pick(avail_dirs)
 	avail_dirs -= pdir
-	var/turf/T=get_step(src,pdir)
+	var/turf/T = get_step(src, pdir)
+	var/turf/A = GetAbove(T)
+	var/turf/B = GetBelow(T)
 
 	// EXPAND
 	if(!istype(T,type))
 		// Do pretty fadeout animation for 1s.
 		new /obj/effect/overlay/bluespacify(T)
-		spawn(10)
-			// Nom.
-			for(var/atom/movable/A in T)
-				if(A)
-					if(istype(A,/mob/living))
-						qdel(A)
-					else if(istype(A,/mob)) // Observers, AI cameras.
-						continue
-					else
-						qdel(A)
-			T.ChangeTurf(type)
-
+		addtimer(CALLBACK(src, .proc/after_tick, T), 10)
+		if(A && !istype(A,type))
+			new /obj/effect/overlay/bluespacify(A)
+			addtimer(CALLBACK(src, .proc/after_tick, A), 10)
+		if(B && !istype(B,type))
+			new /obj/effect/overlay/bluespacify(B)
+			addtimer(CALLBACK(src, .proc/after_tick, B), 10)
 	if((spawned & (NORTH|SOUTH|EAST|WEST)) == (NORTH|SOUTH|EAST|WEST))
-		processing_turfs -= src
-		return
+		STOP_PROCESSING(SScalamity, src)
+
+/turf/unsimulated/wall/supermatter/proc/after_tick(turf/T)
+	T.lighting_clear_overlay()
+	for(var/atom/movable/A in T)
+		if (A && A.simulated)	// No eating lighting overlays.
+			if(istype(A, /mob/living))
+				qdel(A)
+			else if(istype(A, /mob)) // Observers, AI cameras.
+				continue
+			else
+				qdel(A)
+
+		CHECK_TICK
+	T.ChangeTurf(type)
 
 /turf/unsimulated/wall/supermatter/attack_generic(mob/user as mob)
 	return attack_hand(user)
@@ -98,6 +103,9 @@
 
 
 /turf/unsimulated/wall/supermatter/Bumped(atom/AM as mob|obj)
+	if (!AM.simulated)
+		return ..()
+
 	if(istype(AM, /mob/living))
 		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... \his body starts to glow and catch flame before flashing into ash.</span>",\
 		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
@@ -116,3 +124,6 @@
 		return
 
 	qdel(user)
+
+/turf/unsimulated/wall/supermatter/no_spread
+	avail_dirs = list()

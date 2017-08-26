@@ -27,7 +27,8 @@
 	icon_state = "tallcabinet"
 
 
-/obj/structure/filingcabinet/initialize()
+/obj/structure/filingcabinet/Initialize()
+	. = ..()
 	for(var/obj/item/I in loc)
 		if(istype(I, /obj/item/weapon/paper) || istype(I, /obj/item/weapon/folder) || istype(I, /obj/item/weapon/photo) || istype(I, /obj/item/weapon/paper_bundle))
 			I.loc = src
@@ -42,7 +43,7 @@
 		sleep(5)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
-	else if(istype(P, /obj/item/weapon/wrench))
+	else if(iswrench(P))
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
 		user << "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>"

@@ -28,7 +28,7 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 /obj/item/device/radiojammer/Destroy()
 	if (active)
 		active_radio_jammers -= src
-	..()
+	return ..()
 
 
 /obj/item/device/radiojammer/attack_self()
@@ -89,9 +89,8 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 	user.put_in_active_hand(src)
 
 /obj/item/device/radiojammer/improvised/Destroy()
-	if (active)
-		processing_objects.Remove(src)
-	..()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 
 /obj/item/device/radiojammer/improvised/process()
@@ -104,7 +103,7 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 
 
 /obj/item/device/radiojammer/improvised/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/screwdriver))
+	if (isscrewdriver(W))
 		user << "<span class='notice'>You disassemble the improvised signal jammer.</span>"
 		user.put_in_hands(assembly_holder)
 		user.put_in_hands(cell)
@@ -121,10 +120,10 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 	if (active)
 		active_radio_jammers += src
 		icon_state = icon_state_active
-		processing_objects.Add(src)
+		START_PROCESSING(SSprocessing, src)
 
 		last_updated = world.time
 	else
 		active_radio_jammers -= src
 		icon_state = icon_state_inactive
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)

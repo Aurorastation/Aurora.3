@@ -31,8 +31,8 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
 
-/obj/machinery/door/blast/initialize()
-	..()
+/obj/machinery/door/blast/Initialize()
+	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 
@@ -103,7 +103,7 @@
 // This only works on broken doors or doors without power. Also allows repair with Plasteel.
 /obj/machinery/door/blast/attackby(obj/item/weapon/C as obj, mob/user as mob)
 	src.add_fingerprint(user)
-	if(istype(C, /obj/item/weapon/crowbar) || (istype(C, /obj/item/weapon/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/weapon/melee/hammer)))
+	if(iscrowbar(C) || (istype(C, /obj/item/weapon/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/weapon/melee/hammer)))
 		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
 			force_toggle()
 		else
@@ -188,3 +188,8 @@ obj/machinery/door/blast/regular/open
 	icon_state_closed = "shutter1"
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
+
+/obj/machinery/door/blast/shutters/open
+	icon_state = "shutter0"
+	density = 0
+	opacity = 0

@@ -78,3 +78,51 @@
 /mob/living/carbon/human/proc/process_rig(var/obj/item/weapon/rig/O)
 	if(O.visor && O.visor.active && O.visor.vision && O.visor.vision.glasses && (!O.helmet || (head && O.helmet == head)))
 		process_glasses(O.visor.vision.glasses)
+
+// Applies organ/markings prefs to this mob.
+/mob/living/carbon/human/proc/sync_organ_prefs_to_mob(datum/preferences/prefs, apply_prosthetics = TRUE, apply_markings = TRUE)
+	if (apply_prosthetics)
+		var/list/rlimb_data = prefs.rlimb_data
+		var/list/organ_data = prefs.organ_data
+		for(var/name in organ_data)
+			var/status = organ_data[name]
+			var/obj/item/organ/external/O = organs_by_name[name]
+			if(O)
+				O.status = 0
+				switch(status)
+					if ("amputated")
+						organs_by_name[O.limb_name] = null
+						organs -= O
+						if(O.children) // This might need to become recursive.
+							for(var/obj/item/organ/external/child in O.children)
+								organs_by_name[child.limb_name] = null
+								organs -= child
+					if ("cyborg")
+						if (rlimb_data[name])
+							O.robotize(rlimb_data[name])
+						else
+							O.robotize()
+			else
+				var/obj/item/organ/I = internal_organs_by_name[name]
+				if(I)
+					switch (status)
+						if ("assisted")
+							I.mechassist()
+						if ("mechanical")
+							I.robotize()
+
+	if (apply_markings)
+		for(var/N in organs_by_name)
+			var/obj/item/organ/external/O = organs_by_name[N]
+			if (O)
+				O.markings.Cut()
+
+		var/list/body_markings = prefs.body_markings
+		for(var/M in body_markings)
+			var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
+			var/mark_color = "[body_markings[M]]"
+
+			for(var/BP in mark_datum.body_parts)
+				var/obj/item/organ/external/O = organs_by_name[BP]
+				if(O)
+					O.markings[M] = list("color" = mark_color, "datum" = mark_datum)

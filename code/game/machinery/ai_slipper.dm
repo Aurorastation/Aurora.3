@@ -8,7 +8,6 @@
 	idle_power_usage = 10
 	var/uses = 20
 	var/disabled = 1
-	var/lethal = 0
 	var/locked = 1
 	var/cooldown_time = 0
 	var/cooldown_timeleft = 0
@@ -16,8 +15,8 @@
 	req_access = list(access_ai_upload)
 
 
-/obj/machinery/ai_slipper/New()
-	..()
+/obj/machinery/ai_slipper/Initialize()
+	. = ..()
 	update_icon()
 
 /obj/machinery/ai_slipper/power_change()

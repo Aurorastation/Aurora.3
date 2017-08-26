@@ -25,8 +25,8 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/generator/New()
-	..()
+/obj/machinery/power/generator/Initialize()
+	. = ..()
 	desc = initial(desc) + " Rated for [round(max_power/1000)] kW."
 	var/dirs
 	if (dir == NORTH || dir == SOUTH)
@@ -35,8 +35,13 @@
 		dirs = list(NORTH,SOUTH)
 
 	spark_system = bind_spark(src, 3, dirs)
-	spawn(1)
-		reconnect()
+	reconnect()
+
+/obj/machinery/power/generator/Destroy()
+	QDEL_NULL(spark_system)
+	circ1 = null
+	circ2 = null
+	return ..()
 
 //generators connect in dir and reverse_dir(dir) directions
 //mnemonic to determine circulator/generator directions: the cirulators orbit clockwise around the generator
@@ -65,15 +70,11 @@
 				circ2 = null
 
 /obj/machinery/power/generator/proc/updateicon()
-	if(stat & (NOPOWER|BROKEN))
-		overlays.Cut()
-	else
-		overlays.Cut()
+	cut_overlays()
+	if(!(stat & (NOPOWER|BROKEN)) && lastgenlev)
+		add_overlay("teg-op[lastgenlev]")
 
-		if(lastgenlev != 0)
-			overlays += image('icons/obj/power.dmi', "teg-op[lastgenlev]")
-
-/obj/machinery/power/generator/process()
+/obj/machinery/power/generator/machinery_process()
 	if(!circ1 || !circ2 || !anchored || stat & (BROKEN|NOPOWER))
 		stored_energy = 0
 		return
@@ -144,7 +145,7 @@
 	attack_hand(user)
 
 /obj/machinery/power/generator/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(iswrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
@@ -205,7 +206,7 @@
 
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm

@@ -13,9 +13,9 @@
 	var/pocket_size = 2
 	var/pocket_total = null//This will be calculated, unless specifically overidden
 
-/obj/item/clothing/suit/armor/New()
-	..()
-	pockets = new/obj/item/weapon/storage/internal(src)
+/obj/item/clothing/suit/armor/Initialize()
+	. = ..()
+	pockets = new /obj/item/weapon/storage/internal(src)
 	pockets.storage_slots = pocket_slots	//two slots
 	pockets.max_w_class = pocket_size		//fit only pocket sized items
 	if (pocket_total)
@@ -25,9 +25,8 @@
 
 /obj/item/clothing/suit/armor/Destroy()
 	if (pockets)
-		qdel(pockets)
-		pockets = null
-	..()
+		QDEL_NULL(pockets)
+	return ..()
 
 /obj/item/clothing/suit/armor/attack_hand(mob/user as mob)
 	if (pockets)
@@ -225,11 +224,11 @@
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	src.active = !( src.active )
 	if (src.active)
-		user << "\blue The reactive armor is now active."
+		user << "<span class='notice'>The reactive armor is now active.</span>"
 		src.icon_state = "reactive"
 		src.item_state = "reactive"
 	else
-		user << "\blue The reactive armor is now inactive."
+		user << "<span class='notice'>The reactive armor is now inactive.</span>"
 		src.icon_state = "reactiveoff"
 		src.item_state = "reactiveoff"
 		src.add_fingerprint(user)
@@ -253,12 +252,12 @@
 	siemens_coefficient = 0.5
 	var/obj/item/clothing/accessory/holster/holster
 
-/obj/item/clothing/suit/armor/tactical/New()
-	..()
+/obj/item/clothing/suit/armor/tactical/Initialize()
+	. = ..()
 	holster = new()
 	holster.on_attached(src)	//its inside a suit, we set  this so it can be drawn from
 	QDEL_NULL(pockets)	//Tactical armour has internal holster instead of pockets, so we null this out
-	overlays.Cut()	// Remove the holster's overlay.
+	cut_overlays()	// Remove the holster's overlay.
 
 /obj/item/clothing/suit/armor/tactical/attackby(obj/item/W as obj, mob/user as mob)
 	..()
@@ -336,8 +335,8 @@
 	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
 	siemens_coefficient = 0.5
 
-/obj/item/clothing/suit/storage/vest/New()
-	..()
+/obj/item/clothing/suit/storage/vest/Initialize()
+	. = ..()
 	pockets.storage_slots = 2	//two slots
 
 /obj/item/clothing/suit/storage/vest/officer
@@ -380,6 +379,14 @@
 	item_state = "detectivevest_nobadge"
 	icon_badge = "detectivevest_badge"
 	icon_nobadge = "detectivevest_nobadge"
+
+/obj/item/clothing/suit/storage/vest/csi
+	name = "forensic technician armor vest"
+	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a forensic technician's badge clipped to the chest."
+	icon_state = "csivest_nobadge"
+	item_state = "csivest_nobadge"
+	icon_badge = "csivest_badge"
+	icon_nobadge = "csivest_nobadge"
 
 /obj/item/clothing/suit/storage/vest/heavy
 	name = "heavy armor vest"

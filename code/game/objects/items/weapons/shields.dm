@@ -86,6 +86,31 @@
 	else
 		..()
 
+/obj/item/weapon/shield/buckler
+	name = "buckler"
+	desc = "A wooden buckler used to block sharp things from entering your body back in the day."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "buckler"
+	slot_flags = SLOT_BACK
+	force = 8
+	throwforce = 8
+	base_block_chance = 60
+	throw_speed = 10
+	throw_range = 20
+	w_class = 4.0
+	origin_tech = list(TECH_MATERIAL = 1)
+	matter = list(DEFAULT_WALL_MATERIAL = 1000, "Wood" = 1000)
+	attack_verb = list("shoved", "bashed")
+
+/obj/item/weapon/shield/buckler/handle_shield(mob/user)
+	. = ..()
+	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+
+/obj/item/weapon/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
+	if(istype(damage_source, /obj/item/projectile))
+		return 0
+	return base_block_chance
+
 /*
  * Energy Shield
  */
@@ -100,7 +125,7 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = 2
+	w_class = 1
 	origin_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	attack_verb = list("shoved", "bashed")
 	var/shield_power = 150
@@ -112,7 +137,7 @@
 
 	if(user.incapacitated())
 		return 0
- 
+
 	if(.)
 		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
@@ -241,9 +266,9 @@
 		force = 3
 		throwforce = 3
 		throw_speed = 3
-		w_class = 2
+		w_class = 3
 		slot_flags = 0
-		user << "<span class='notice'>The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame.</span>"
+		user << "<span class='notice'>\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame.</span>"
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user

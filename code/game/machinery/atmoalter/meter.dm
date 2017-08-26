@@ -11,16 +11,13 @@
 	use_power = 1
 	idle_power_usage = 15
 
-/obj/machinery/meter/New()
-	..()
-	src.target = locate(/obj/machinery/atmospherics/pipe) in loc
-	return 1
 
-/obj/machinery/meter/initialize()
+/obj/machinery/meter/Initialize()
+	. = ..()
 	if (!target)
 		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
 
-/obj/machinery/meter/process()
+/obj/machinery/meter/machinery_process()
 	if(!target)
 		icon_state = "meterX"
 		return 0
@@ -50,7 +47,7 @@
 		icon_state = "meter4"
 
 	if(frequency)
-		var/datum/radio_frequency/radio_connection = radio_controller.return_frequency(frequency)
+		var/datum/radio_frequency/radio_connection = SSradio.return_frequency(frequency)
 
 		if(!radio_connection) return
 
@@ -94,7 +91,7 @@
 	return ..()
 
 /obj/machinery/meter/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W))
 		return ..()
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
@@ -108,13 +105,9 @@
 
 // TURF METER - REPORTS A TILE'S AIR CONTENTS
 
-/obj/machinery/meter/turf/New()
-	..()
+/obj/machinery/meter/turf/Initialize()
+	. = ..()
 	src.target = loc
-	return 1
-
-
-/obj/machinery/meter/turf/initialize()
 	if (!target)
 		src.target = loc
 

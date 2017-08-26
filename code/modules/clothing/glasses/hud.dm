@@ -35,7 +35,7 @@
 	new /obj/item/clothing/glasses/hud/health(T)
 	new /obj/item/clothing/glasses/regular(T)
 	user.drop_item(src)
-	del(src)
+	qdel(src)
 
 /obj/item/clothing/glasses/hud/security
 	name = "security HUD"
@@ -57,7 +57,7 @@
 	new /obj/item/clothing/glasses/hud/health(T)
 	new /obj/item/clothing/glasses/regular(T)
 	user.drop_item(src)
-	del(src)
+	qdel(src)
 
 /obj/item/clothing/glasses/hud/security/jensenshades
 	name = "augmented shades"

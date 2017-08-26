@@ -21,7 +21,7 @@
 	return
 
 /obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
-	if(istype(tool, /obj/item/weapon/screwdriver) && !istype(src, /obj/structure/sign/double))
+	if(isscrewdriver(tool) && !istype(src, /obj/structure/sign/double))
 		user << "You unfasten the sign with your [tool]."
 		unfasten()
 	else ..()
@@ -44,7 +44,7 @@
 	var/sign_state = ""
 
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
-	if(istype(tool, /obj/item/weapon/screwdriver) && isturf(user.loc))
+	if(isscrewdriver(tool) && isturf(user.loc))
 		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
 		if(direction == "Cancel") return
 		var/obj/structure/sign/S = new(user.loc)
@@ -99,6 +99,11 @@
 	name = "\improper HARD VACUUM AHEAD"
 	desc = "A warning sign which reads 'HARD VACUUM AHEAD'."
 	icon_state = "space"
+
+/obj/structure/sign/drop
+	name = "\improper DANGER! DROP HAZARD"
+	desc = "A warning sign which reads 'DANGER! DROP HAZARD'."
+	icon_state = "drop"
 
 /obj/structure/sign/deathsposal
 	name = "\improper DISPOSAL LEADS TO SPACE"
@@ -201,9 +206,35 @@
 	icon_state = "direction_med"
 
 /obj/structure/sign/directions/evac
-	name = "\improper Escape Arm"
+	name = "\improper Escape Dock"
 	desc = "A direction sign, pointing out which way the escape shuttle dock is."
 	icon_state = "direction_evac"
+
+/obj/structure/sign/directions/cryo
+	name = "\improper Cryogenics Storage"
+	desc = "A direction sign, pointing out which way the station's Cryogenics Storage station is."
+	icon_state = "direction_cryo"
+
+/obj/structure/sign/directions/dock
+	name = "\improper Departures/Arrivals Dock"
+	desc = "A direction sign. It reads: 'Reminder: All personnel are required to make use of the Auto-locker device before heading to the Docking area. Thank you.'"
+	icon_state = "direction_dock"
+
+/obj/structure/sign/directions/civ
+	name = "\improper Civilian department"
+	desc = "A direction sign, pointing out which way the Civilian sector is."
+	icon_state = "direction_civ"
+
+/obj/structure/sign/directions/com
+	name = "\improper Command department"
+	desc = "A direction sign, pointing out which way the Command sector is."
+	icon_state = "direction_com"
+
+/obj/structure/sign/directions/all
+	name = "\improper All directions"
+	desc = "A multi-coloured direction sign, pointing out in which all main departments are located."
+	icon_state = "direction_all"
+
 
 /obj/structure/sign/christmas/lights
 	name = "Christmas lights"

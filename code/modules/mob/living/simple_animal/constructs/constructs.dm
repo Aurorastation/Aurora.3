@@ -29,6 +29,9 @@
 	supernatural = 1
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
+	tameable = FALSE
+
 	var/nullblock = 0
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
@@ -37,11 +40,12 @@
 	var/list/construct_spells = list()
 	var/can_repair = 0
 
+
 /mob/living/simple_animal/construct/cultify()
 	return
 
-/mob/living/simple_animal/construct/New()
-	..()
+/mob/living/simple_animal/construct/Initialize()
+	. = ..()
 	name = text("[initial(name)] ([rand(1, 1000)])")
 	real_name = name
 	add_language("Cult")
@@ -170,6 +174,14 @@
 	attack_sound = 'sound/weapons/rapidslice.ogg'
 	construct_spells = list(/spell/targeted/ethereal_jaunt/shift)
 
+/mob/living/simple_animal/construct/wraith/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/construct/wraith/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/construct/wraith/CanAvoidGravity()
+	return TRUE
 
 /////////////////////////////Artificer/////////////////////////
 
@@ -260,6 +272,15 @@
 			/spell/aoe_turf/conjure/forcewall/lesser
 		)
 	//Harvesters are endgame stuff, no harm giving them construct spells
+
+/mob/living/simple_animal/construct/harvester/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/construct/harvester/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/construct/harvester/CanAvoidGravity()
+	return TRUE
 
 ////////////////Glow//////////////////
 /mob/living/simple_animal/construct/proc/add_glow()

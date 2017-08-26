@@ -38,9 +38,9 @@
 			prisoner.equip_to_slot_or_del(new /obj/item/clothing/under/color/orange(prisoner), slot_w_uniform)
 			prisoner.equip_to_slot_or_del(new /obj/item/clothing/shoes/orange(prisoner), slot_shoes)
 		spawn(50)
-			M << "\red You have been sent to the prison station!"
+			M << "<span class='danger'>You have been sent to the prison station!</span>"
 		log_admin("[key_name(usr)] sent [key_name(M)] to the prison station.",admin_key=key_name(usr),ckey=key_name(M))
-		message_admins("\blue [key_name_admin(usr)] sent [key_name_admin(M)] to the prison station.", 1)
+		message_admins("<span class='notice'>[key_name_admin(usr)] sent [key_name_admin(M)] to the prison station.</span>", 1)
 		feedback_add_details("admin_verb","PRISON") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_subtle_message(mob/M as mob in mob_list)
@@ -62,7 +62,7 @@
 				M << "\bold You hear a voice in your head... \italic [msg]"
 
 	log_admin("SubtlePM: [key_name(usr)] -> [key_name(M)] : [msg]",admin_key=key_name(usr),ckey=key_name(M))
-	message_admins("\blue \bold SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] : [msg]", 1)
+	message_admins("<span class='notice'><b>SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] : [msg]</b></span>", 1)
 	feedback_add_details("admin_verb","SMS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_mentor_check_new_players()	//Allows mentors / admins to determine who the newer players are.
@@ -115,7 +115,7 @@
 		return
 	world << "[msg]"
 	log_admin("GlobalNarrate: [key_name(usr)] : [msg]",admin_key=key_name(usr))
-	message_admins("\blue \bold GlobalNarrate: [key_name_admin(usr)] : [msg]<BR>", 1)
+	message_admins("<span class='notice'>\bold GlobalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
 	feedback_add_details("admin_verb","GLN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_direct_narrate(var/mob/M)	// Targetted narrate -- TLE
@@ -139,7 +139,7 @@
 
 	M << msg
 	log_admin("DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]",admin_key=key_name(usr),ckey=key_name(M))
-	message_admins("\blue \bold DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]<BR>", 1)
+	message_admins("<span class='notice'>\bold DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]<BR></span>", 1)
 	feedback_add_details("admin_verb","DIRN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_godmode(mob/M as mob in mob_list)
@@ -149,7 +149,7 @@
 		src << "Only administrators may use this command."
 		return
 	M.status_flags ^= GODMODE
-	usr << "\blue Toggled [(M.status_flags & GODMODE) ? "ON" : "OFF"]"
+	usr << "<span class='notice'>Toggled [(M.status_flags & GODMODE) ? "ON" : "OFF"]</span>"
 
 	log_admin("[key_name(usr)] has toggled [key_name(M)]'s nodamage to [(M.status_flags & GODMODE) ? "On" : "Off"]",admin_key=key_name(usr),ckey=key_name(M))
 	message_admins("[key_name_admin(usr)] has toggled [key_name_admin(M)]'s nodamage to [(M.status_flags & GODMODE) ? "On" : "Off"]", 1)
@@ -197,6 +197,7 @@ proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 	if(M.client.prefs.muted & mute_type)
 		muteunmute = "unmuted"
 		M.client.prefs.muted &= ~mute_type
+		M.client.spam_alert = 0
 	else
 		muteunmute = "muted"
 		M.client.prefs.muted |= mute_type
@@ -291,7 +292,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
-	G:show_message(text("\blue <B>You may now respawn.  You should roleplay as if you learned nothing about the round during your time with the dead.</B>"), 1)
+	G:show_message(text("<span class='notice'><B>You may now respawn.  You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
 	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the 30 minute respawn limit",admin_key=key_name(usr),ckey=key_name(G))
 	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit", 1)
 
@@ -311,18 +312,18 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 			if(g.antagHUD)
 				g.antagHUD = 0						// Disable it on those that have it enabled
 				g.has_enabled_antagHUD = 2				// We'll allow them to respawn
-				g << "\red <B>The Administrator has disabled AntagHUD </B>"
+				g << "<span class='warning'>The Administrator has disabled AntagHUD.</span> "
 		config.antag_hud_allowed = 0
-		src << "\red <B>AntagHUD usage has been disabled</B>"
+		src << "<span class='danger'>AntagHUD usage has been disabled.</span>"
 		action = "disabled"
 	else
 		for(var/mob/dead/observer/g in get_ghosts())
 			if(!g.client.holder)						// Add the verb back for all non-admin ghosts
 				g.verbs += /mob/dead/observer/verb/toggle_antagHUD
-			g << "\blue <B>The Administrator has enabled AntagHUD </B>"	// Notify all observers they can now use AntagHUD
+			g << "<span class='notice'><B>The Administrator has enabled AntagHUD.</B></span>"	// Notify all observers they can now use AntagHUD
 		config.antag_hud_allowed = 1
 		action = "enabled"
-		src << "\blue <B>AntagHUD usage has been enabled</B>"
+		src << "<span class='notice'><B>AntagHUD usage has been enabled.</B></span>"
 
 
 	log_admin("[key_name(usr)] has [action] antagHUD usage for observers",admin_key=key_name(usr))
@@ -339,19 +340,19 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	var/action=""
 	if(config.antag_hud_restricted)
 		for(var/mob/dead/observer/g in get_ghosts())
-			g << "\blue <B>The administrator has lifted restrictions on joining the round if you use AntagHUD</B>"
+			g << "<span class='notice'><B>The administrator has lifted restrictions on joining the round if you use AntagHUD</B></span>"
 		action = "lifted restrictions"
 		config.antag_hud_restricted = 0
-		src << "\blue <B>AntagHUD restrictions have been lifted</B>"
+		src << "<span class='notice'><B>AntagHUD restrictions have been lifted</B></span>"
 	else
 		for(var/mob/dead/observer/g in get_ghosts())
-			g << "\red <B>The administrator has placed restrictions on joining the round if you use AntagHUD</B>"
-			g << "\red <B>Your AntagHUD has been disabled, you may choose to re-enabled it but will be under restrictions </B>"
+			g << "<span class='danger'>The administrator has placed restrictions on joining the round if you use AntagHUD</span>"
+			g << "<span class='danger'>Your AntagHUD has been disabled, you may choose to re-enabled it but will be under restrictions </span>"
 			g.antagHUD = 0
 			g.has_enabled_antagHUD = 0
 		action = "placed restrictions"
 		config.antag_hud_restricted = 1
-		src << "\red <B>AntagHUD restrictions have been enabled</B>"
+		src << "<span class='danger'>AntagHUD restrictions have been enabled</span>"
 
 	log_admin("[key_name(usr)] has [action] on joining the round if they use AntagHUD",admin_key=key_name(usr))
 	message_admins("Admin [key_name_admin(usr)] has [action] on joining the round if they use AntagHUD", 1)
@@ -451,7 +452,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		antag_data.add_antagonist(new_character.mind)
 		antag_data.place_mob(new_character)
 	else
-		job_master.EquipRank(new_character, new_character.mind.assigned_role, 1)
+		SSjobs.EquipRank(new_character, new_character.mind.assigned_role, 1)
 
 	//Announces the character on all the systems, based on the record.
 	if(!issilicon(new_character))//If they are not a cyborg/AI.
@@ -463,7 +464,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			if(alert(new_character,"Would you like an active AI to announce this character?",,"No","Yes")=="Yes")
 				call(/proc/AnnounceArrival)(new_character, new_character.mind.assigned_role)
 
-	message_admins("\blue [admin] has respawned [player_key] as [new_character.real_name].", 1)
+	message_admins("<span class='notice'>[admin] has respawned [player_key] as [new_character.real_name].</span>", 1)
 
 	new_character << "You have been fully respawned. Enjoy the game."
 
@@ -513,7 +514,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		M.revive()
 
 		log_admin("[key_name(usr)] healed / revived [key_name(M)]",admin_key=key_name(usr),ckey=key_name(M))
-		message_admins("\red Admin [key_name_admin(usr)] healed / revived [key_name_admin(M)]!", 1)
+		message_admins("<span class='danger'>Admin [key_name_admin(usr)] healed / revived [key_name_admin(M)]!</span>", 1)
 	else
 		alert("Admin revive disabled")
 	feedback_add_details("admin_verb","REJU") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -573,7 +574,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if("Yes")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
-			world << "\red New [company_name] Update available at all communication consoles."
+			world << "<span class='warning'>New [company_name] Update available at all communication consoles.</span>"
 			world << sound('sound/AI/commandreport.ogg')
 
 	log_admin("[key_name(src)] has created a command report: [reportbody]",admin_key=key_name(usr))
@@ -600,14 +601,20 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		var/mob/dead/observer/M = O
 		if (M.client && alert(src, "They are still connected. Are you sure, they will loose connection.", "Confirmation", "Yes", "No") != "Yes")
 			return
-	log_admin("[key_name(usr)] deleted [O] at ([O.x],[O.y],[O.z])",,admin_key=key_name(usr))
+	log_admin("[key_name(usr)] deleted [O] at ([O.x],[O.y],[O.z])",admin_key=key_name(usr))
 	message_admins("[key_name_admin(usr)] deleted [O] at ([O.x],[O.y],[O.z])", 1)
 	feedback_add_details("admin_verb","DEL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+	if (isturf(O))	// Can't qdel a turf.
+		var/turf/T = O
+		T.ChangeTurf(/turf/space)
+		return
+
 	if (action == "Yes")
-		qdel(O)
+		qdel(O, TRUE)
 	else
 		// This is naughty, but sometimes necessary.
+		O.Destroy(TRUE)	// Because direct del without this breaks things.
 		del(O)
 
 /client/proc/cmd_admin_list_open_jobs()
@@ -617,9 +624,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if (!holder)
 		src << "Only administrators may use this command."
 		return
-	if(job_master)
-		for(var/datum/job/job in job_master.occupations)
-			src << "[job.title]: [job.total_positions]"
+
+	for(var/datum/job/job in SSjobs.occupations)
+		src << "[job.title]: [job.total_positions]"
 	feedback_add_details("admin_verb","LFS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_explosion(atom/O as obj|mob|turf in range(world.view))
@@ -705,7 +712,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			mob.gib()
 
 		log_admin("[key_name(usr)] used gibself.",admin_key=key_name(usr))
-		message_admins("\blue [key_name_admin(usr)] used gibself.", 1)
+		message_admins("<span class='notice'>[key_name_admin(usr)] used gibself.</span>", 1)
 		feedback_add_details("admin_verb","GIBS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 /*
 /client/proc/cmd_manual_ban()
@@ -829,7 +836,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Admin"
 	set name = "Call Shuttle"
 
-	if ((!( ticker ) || !emergency_shuttle.location()))
+	if ((!( ROUND_IS_STARTED ) || !emergency_shuttle.location()))
 		return
 
 	if(!check_rights(R_ADMIN))	return
@@ -838,7 +845,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(confirm != "Yes") return
 
 	var/choice
-	if(ticker.mode.auto_recall_shuttle)
+	if(SSticker.mode.auto_recall_shuttle)
 		choice = input("The shuttle will just return if you call it. Call anyway?") in list("Confirm", "Cancel")
 		if(choice == "Confirm")
 			emergency_shuttle.auto_recall = 1	//enable auto-recall
@@ -854,7 +861,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	feedback_add_details("admin_verb","CSHUT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] admin-called the emergency shuttle.",admin_key=key_name(usr))
-	message_admins("\blue [key_name_admin(usr)] admin-called the emergency shuttle.", 1)
+	message_admins("<span class='notice'>[key_name_admin(usr)] admin-called the emergency shuttle.</span>", 1)
 	return
 
 /client/proc/admin_cancel_shuttle()
@@ -865,13 +872,13 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(alert(src, "You sure?", "Confirm", "Yes", "No") != "Yes") return
 
-	if(!ticker || !emergency_shuttle.can_recall())
+	if(!ROUND_IS_STARTED || !emergency_shuttle.can_recall())
 		return
 
 	emergency_shuttle.recall()
 	feedback_add_details("admin_verb","CCSHUT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] admin-recalled the emergency shuttle.",admin_key=key_name(usr))
-	message_admins("\blue [key_name_admin(usr)] admin-recalled the emergency shuttle.", 1)
+	message_admins("<span class='notice'>[key_name_admin(usr)] admin-recalled the emergency shuttle.</span>", 1)
 
 	return
 
@@ -879,7 +886,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Admin"
 	set name = "Toggle Deny Shuttle"
 
-	if (!ticker)
+	if (!ROUND_IS_STARTED)
 		return
 
 	if(!check_rights(R_ADMIN))	return
@@ -893,7 +900,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Special Verbs"
 	set name = "Attack Log"
 
-	usr << text("\red <b>Attack Log for []</b>", mob)
+	usr << text("<span class='danger'>Attack Log for []</span>", mob)
 	for(var/t in M.attack_log)
 		usr << t
 	feedback_add_details("admin_verb","ATTL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -906,12 +913,12 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(!check_rights(R_FUN))	return
 
-	if (ticker && ticker.mode)
+	if (SSticker.mode)
 		usr << "Nope you can't do this, the game's already started. This only works before rounds!"
 		return
 
-	if(ticker.random_players)
-		ticker.random_players = 0
+	if(SSticker.random_players)
+		SSticker.random_players = 0
 		message_admins("Admin [key_name_admin(usr)] has disabled \"Everyone is Special\" mode.", 1)
 		usr << "Disabled."
 		return
@@ -925,11 +932,11 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	message_admins("Admin [key_name_admin(usr)] has forced the players to have random appearances.", 1)
 
 	if(notifyplayers == "Yes")
-		world << "\blue <b>Admin [usr.key] has forced the players to have completely random identities!</b>"
+		world << "<span class='notice'><b>Admin [usr.key] has forced the players to have completely random identities!</b></span>"
 
 	usr << "<i>Remember: you can always disable the randomness by using the verb again, assuming the round hasn't started yet</i>."
 
-	ticker.random_players = 1
+	SSticker.random_players = 1
 	feedback_add_details("admin_verb","MER") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
@@ -963,15 +970,12 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!input)
 		return
 
-	if(!ticker)
-		return
-
-	ticker.selected_tip = input
+	SSticker.selected_tip = input
 
 	// If we've already tipped, then send it straight away.
-	if(ticker.tipped)
-		ticker.send_tip_of_the_round()
-		ticker.selected_tip = initial(ticker.selected_tip)
+	if(SSticker.tipped)
+		SSticker.send_tip_of_the_round()
+		SSticker.selected_tip = initial(SSticker.selected_tip)
 
 
 	message_admins("[key_name_admin(usr)] sent a tip of the round.")
@@ -987,10 +991,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!holder)
 		return
 
-	if(!ticker)
-		return
-
-	ticker.send_tip_of_the_round()
+	SSticker.send_tip_of_the_round()
 
 
 	message_admins("[key_name_admin(usr)] sent a pregenerated tip of the round.")

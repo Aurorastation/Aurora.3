@@ -1,82 +1,98 @@
 /obj/structure/lattice
 	name = "lattice"
 	desc = "A lightweight support lattice."
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "latticefull"
-	density = 0
-	anchored = 1.0
+	icon = 'icons/obj/smooth/lattice.dmi'
+	icon_state = "lattice"
+	density = FALSE
+	anchored = TRUE
 	w_class = 3
 	layer = 2.3 //under pipes
 	//	flags = CONDUCT
+	var/restrict_placement = TRUE
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/obj/structure/lattice,
+		/turf/simulated/wall,
+		/turf/simulated/floor,
+		/turf/simulated/mineral,
+		/turf/unsimulated/wall,
+		/turf/unsimulated/floor,
+		/obj/structure/grille
+	)
 
-/obj/structure/lattice/initialize()
-	..()
-///// Z-Level Stuff
-	if(!(istype(src.loc, /turf/space) || istype(src.loc, /turf/simulated/open) || istype(src.loc, /turf/simulated/floor/asteroid)))
-///// Z-Level Stuff
-		qdel(src)
-	for(var/obj/structure/lattice/LAT in src.loc)
+/obj/structure/lattice/Initialize()
+	. = ..()
+	if (restrict_placement)
+		if(!(istype(loc, /turf/space) || isopenturf(loc) || istype(loc, /turf/simulated/floor/asteroid)))
+			return INITIALIZE_HINT_QDEL
+	for(var/obj/structure/lattice/LAT in loc)
 		if(LAT != src)
 			qdel(LAT)
-	icon = 'icons/obj/smoothlattice.dmi'
-	icon_state = "latticeblank"
-	updateOverlays()
-	for (var/dir in cardinal)
-		var/obj/structure/lattice/L
-		if(locate(/obj/structure/lattice, get_step(src, dir)))
-			L = locate(/obj/structure/lattice, get_step(src, dir))
-			L.updateOverlays()
-
-/obj/structure/lattice/Destroy()
-	for (var/dir in cardinal)
-		var/obj/structure/lattice/L
-		if(locate(/obj/structure/lattice, get_step(src, dir)))
-			L = locate(/obj/structure/lattice, get_step(src, dir))
-			L.updateOverlays(src.loc)
-	..()
 
 /obj/structure/lattice/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
-			return
 		if(2.0)
 			qdel(src)
-			return
-		if(3.0)
-			return
-		else
 	return
 
 /obj/structure/lattice/attackby(obj/item/C as obj, mob/user as mob)
-
 	if (istype(C, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
 		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
-	if (istype(C, /obj/item/weapon/weldingtool))
+	if (iswelder(C))
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user << "<span class='notice'>Slicing lattice joints ...</span>"
-		getFromPool(/obj/item/stack/rods, src.loc)
+		new /obj/item/stack/rods(src.loc)
 		qdel(src)
-
-	return
-
-/obj/structure/lattice/proc/updateOverlays()
-	//if(!(istype(src.loc, /turf/space)))
-	//	qdel(src)
-	spawn(1)
-		overlays = list()
-
-		var/dir_sum = 0
-
-		for (var/direction in cardinal)
-			if(locate(/obj/structure/lattice, get_step(src, direction)))
-				dir_sum += direction
-			else
-				if(!(istype(get_step(src, direction), /turf/space)))
-					dir_sum += direction
-
-		icon_state = "lattice[dir_sum]"
+	if (istype(C, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = C
+		if (R.use(2))
+			user << "<span class='notice'>Constructing catwalk ...</span>"
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			new /obj/structure/lattice/catwalk(src.loc)
+			qdel(src)
 		return
+
+/obj/structure/lattice/catwalk
+	name = "catwalk"
+	desc = "A catwalk for easier EVA maneuvering."
+	icon = 'icons/obj/smooth/catwalk.dmi'
+	icon_state = "catwalk"
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(/obj/structure/lattice/catwalk)
+
+// Special catwalk that can be placed on regular flooring.
+/obj/structure/lattice/catwalk/indoor
+	desc = "A floor-mounted catwalk designed to protect pipes & station wiring from passing feet."
+	restrict_placement = FALSE
+	can_be_unanchored = TRUE
+	layer = 2.7	// Above wires.
+
+/obj/structure/lattice/catwalk/attackby(obj/item/C, mob/user)
+	if (iswelder(C))
+		var/obj/item/weapon/weldingtool/WT = C
+		if (do_after(user, 5, act_target = src) && WT.remove_fuel(1, user))
+			user << "<span class='notice'>You slice apart [src].</span>"
+			playsound(src, 'sound/items/Welder.ogg', 50, 1)
+			new /obj/item/stack/rods{amount = 3}(loc)
+			qdel(src)
+
+/obj/structure/lattice/catwalk/indoor/attackby(obj/item/C, mob/user)
+	if (isscrewdriver(C))
+		anchored = !anchored
+		user << "<span class='notice'>You [anchored ? "" : "un"]anchor [src].</span>"
+		playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+		queue_smooth(src)
+		queue_smooth_neighbors(src)
+	else
+		..()
+
+/obj/structure/lattice/catwalk/hoist_act(turf/dest)
+	for (var/A in loc)
+		var/atom/movable/AM = A
+		AM.forceMove(dest)
+	..()

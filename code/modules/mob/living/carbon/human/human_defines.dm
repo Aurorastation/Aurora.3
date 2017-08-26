@@ -102,3 +102,5 @@
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
 	var/last_x = 0
 	var/last_y = 0
+
+	var/cached_bodytype

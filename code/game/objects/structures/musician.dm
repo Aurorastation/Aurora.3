@@ -11,6 +11,7 @@
 	icon_state = "minimoog"
 	anchored = 1
 	density = 1
+	w_class = 5
 	var/datum/song/song
 	var/playing = 0
 	var/help = 0
@@ -26,6 +27,7 @@
 		name = "space piano"
 		desc = "This is a space piano, like a regular piano, but always in tune! Even if the musician isn't."
 		icon_state = "piano"
+		w_class = 15
 
 /obj/structure/device/piano/proc/playnote(var/note as text)
 	//world << "Note: [note]"
@@ -412,7 +414,7 @@
 	return
 
 /obj/structure/device/piano/attackby(obj/item/O as obj, mob/user as mob)
-	if (istype(O, /obj/item/weapon/wrench))
+	if (iswrench(O))
 		if (anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 			user << "<span class='notice'>You begin to loosen \the [src]'s casters...</span>"

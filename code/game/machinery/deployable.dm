@@ -181,7 +181,7 @@ for reference:
 					visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 					return
 			return
-		else if (istype(W, /obj/item/weapon/wrench))
+		else if (iswrench(W))
 			if (src.health < src.maxhealth)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				src.health = src.maxhealth
@@ -235,20 +235,16 @@ for reference:
 			return 0
 
 	proc/explode()
-
 		visible_message("<span class='danger'>[src] blows apart!</span>")
-		var/turf/Tsec = get_turf(src)
 
 	/*	var/obj/item/stack/rods/ =*/
-		getFromPool(/obj/item/stack/rods, Tsec)
+		new /obj/item/stack/rods(get_turf(src))
 
 		spark(src, 3, alldirs)
 
 		explosion(src.loc,-1,-1,0)
-		if(src)
-			qdel(src)
+		qdel(src)
 
-		
 /obj/machinery/deployable/barrier/emag_act(var/remaining_charges, var/mob/user)
 	if (src.emagged == 0)
 		src.emagged = 1

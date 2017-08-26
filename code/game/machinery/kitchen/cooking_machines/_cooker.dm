@@ -1,19 +1,19 @@
 /obj/machinery/appliance/cooker
 	var/temperature = T20C
-	var/min_temp = 353//Minimum temperature to do any cooking
-	var/optimal_temp = 472//Temperature at which we have 100% efficiency. efficiency is lowered on either side of this
+	var/min_temp = 80 + T0C	//Minimum temperature to do any cooking
+	var/optimal_temp = 200 + T0C	//Temperature at which we have 100% efficiency. efficiency is lowered on either side of this
 	var/optimal_power = 0.1//cooking power at 100%
 
-	var/loss = 1//Temp lost per proc when equalising
-	var/resistance = 320000//Resistance to heating. combines with active power usage to determine how long heating takes
+	var/loss = 1	//Temp lost per proc when equalising
+	var/resistance = 320000	//Resistance to heating. combines with active power usage to determine how long heating takes
 
 	var/light_x = 0
 	var/light_y = 0
 	cooking_power = 0
 
 /obj/machinery/appliance/cooker/examine(var/mob/user)
-	.=..()
-	if (.)//no need to duplicate adjacency check
+	. = ..()
+	if (.)	//no need to duplicate adjacency check
 		if (!stat)
 			if (temperature < min_temp)
 				user << span("warning", "The [src] is still heating up and is too cold to cook anything yet.")
@@ -37,19 +37,20 @@
 		usr << span("notice","It is empty.")
 
 /obj/machinery/appliance/cooker/proc/get_efficiency()
-	. = cooking_power / optimal_power
-	. *= 100
+	. = (cooking_power / optimal_power) * 100
 
-/obj/machinery/appliance/cooker/New()
-	..()
+/obj/machinery/appliance/cooker/Initialize()
+	. = ..()
 	loss = (active_power_usage / resistance)*0.5
 	cooking_objs = list()
 	for (var/i = 0, i < max_contents, i++)
 		cooking_objs.Add(new /datum/cooking_item/(new container_type(src)))
 	cooking = 0
 
+	queue_icon_update()
+
 /obj/machinery/appliance/cooker/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	var/image/light
 	if (use_power == 2 && !stat)
 		light = image(icon, "light_on")
@@ -57,15 +58,11 @@
 		light = image(icon, "light_off")
 	light.pixel_x = light_x
 	light.pixel_y = light_y
-	overlays += light
+	add_overlay(light)
 
-
-
-
-/obj/machinery/appliance/cooker/process()
+/obj/machinery/appliance/cooker/machinery_process()
 	if (!stat)
 		heat_up()
-
 	else
 		var/turf/T = get_turf(src)
 		if (temperature > T.temperature)
@@ -73,8 +70,8 @@
 	..()
 
 /obj/machinery/appliance/cooker/power_change()
-	.=..()
-	update_icon()
+	. = ..()
+	queue_icon_update()
 
 /obj/machinery/appliance/cooker/proc/update_cooking_power()
 	var/temp_scale = 0
@@ -112,29 +109,23 @@
 			equalize_temperature()
 			return -1
 
-
 /obj/machinery/appliance/cooker/proc/equalize_temperature()
 	temperature -= loss//Temperature will fall somewhat slowly
 	update_cooking_power()
 
-
 //Cookers do differently, they use containers
 /obj/machinery/appliance/cooker/has_space(var/obj/item/I)
-
 	if (istype(I, /obj/item/weapon/reagent_containers/cooking_container))
 		//Containers can go into an empty slot
 		if (cooking_objs.len < max_contents)
 			return 1
-
 	else
-
 		//Any food items directly added need an empty container. A slot without a container cant hold food
 		for (var/datum/cooking_item/CI in cooking_objs)
 			if (CI.container.check_contents() == 0)
 				return CI
 
 	return 0
-
 
 /obj/machinery/appliance/cooker/add_content(var/obj/item/I, var/mob/user)
 	var/datum/cooking_item/CI = ..()
