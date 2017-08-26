@@ -110,7 +110,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/list/curr_corners = corner_queue
 	var/list/curr_overlays = overlay_queue
 
-	while (curr_lights.len && lq_idex <= curr_lights.len)
+	while (lq_idex <= curr_lights.len)
 		var/datum/light_source/L = curr_lights[lq_idex++]
 
 		if (L.needs_update != LIGHTING_NO_UPDATE)
@@ -132,7 +132,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	if (!no_mc_tick)
 		MC_SPLIT_TICK
 
-	while (curr_corners.len && cq_idex <= curr_corners.len)
+	while (cq_idex <= curr_corners.len)
 		var/datum/lighting_corner/C = curr_corners[cq_idex++]
 
 		if (C.needs_update)
@@ -154,7 +154,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	if (!no_mc_tick)
 		MC_SPLIT_TICK
 
-	while (curr_overlays.len && oq_idex <= curr_overlays.len)
+	while (oq_idex <= curr_overlays.len)
 		var/atom/movable/lighting_overlay/O = curr_overlays[oq_idex++]
 
 		if (O.needs_update)

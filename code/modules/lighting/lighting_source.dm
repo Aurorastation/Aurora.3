@@ -345,7 +345,7 @@
 				T.lighting_corners_initialised = TRUE
 
 				if (!Tcorners)
-					T.corners = new(4)
+					T.corners = list(null, null, null, null)
 					Tcorners = T.corners
 
 				for (var/i = 1 to 4)
