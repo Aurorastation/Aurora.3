@@ -131,6 +131,9 @@ PROBABILITY MS SIEGE 1
 PROBABILITY MS TRAITORLING 1
 PROBABILITY MS EXTENDED 1
 
+## If the game type odds are showed in the check gamemode probability verb.
+SHOW_GAME_TYPE_ODD
+
 ## Hash out to disable random events during the round.
 ALLOW_RANDOM_EVENTS
 
