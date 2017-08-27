@@ -4491,7 +4491,7 @@
 	filling_color = "#E6E600"
 
 /obj/item/weapon/reagent_containers/food/snacks/koisjelly/Initialize()
-	..()
+	. = ..()
 	reagents.add_reagent("koispaste", 25)
 	reagents.add_reagent("imidazoline", 20)
 	reagents.add_reagent("phoron", 20)
