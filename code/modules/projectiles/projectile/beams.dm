@@ -54,6 +54,7 @@
 	name = "pulse"
 	icon_state = "u_laser"
 	damage = 50
+	armor_penetration = 50
 
 	muzzle_type = /obj/effect/projectile/laser_pulse/muzzle
 	tracer_type = /obj/effect/projectile/laser_pulse/tracer
@@ -318,7 +319,7 @@
 	muzzle_type = /obj/effect/projectile/cult/heavy/muzzle
 	tracer_type = /obj/effect/projectile/cult/heavy/tracer
 	impact_type = /obj/effect/projectile/cult/heavy/impact
-	
+
 /obj/item/projectile/beam/energy_net
 	name = "energy net projection"
 	icon_state = "xray"
