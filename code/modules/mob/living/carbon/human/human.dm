@@ -765,15 +765,14 @@
 ///eyecheck()
 ///Returns a number between -1 to 2
 /mob/living/carbon/human/eyecheck()
-	if(!species.has_organ["eyes"]) //No eyes, can't hurt them.
+	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
-	if(internal_organs_by_name["eyes"]) // Eyes are fucked, not a 'weak point'.
-		var/obj/item/organ/I = internal_organs_by_name["eyes"]
-		if(I.status & ORGAN_CUT_AWAY)
-			return FLASH_PROTECTION_MAJOR
+	var/obj/item/organ/I = get_eyes()	// Eyes are fucked, not a 'weak point'.
+	if (I && I.status & ORGAN_CUT_AWAY)
+		return FLASH_PROTECTION_MAJOR
 
-	return flash_protection
+	return species.inherent_eye_protection ? max(species.inherent_eye_protection, flash_protection) : flash_protection
 
 //Used by various things that knock people out by applying blunt trauma to the head.
 //Checks that the species has a "head" (brain containing organ) and that hit_zone refers to it.
@@ -1421,10 +1420,9 @@
 	return 0
 
 /mob/living/carbon/human/has_eyes()
-	if(internal_organs_by_name["eyes"])
-		var/obj/item/organ/eyes = internal_organs_by_name["eyes"]
-		if(eyes && istype(eyes) && !(eyes.status & ORGAN_CUT_AWAY))
-			return 1
+	var/obj/item/organ/eyes = get_eyes()
+	if(istype(eyes) && !(eyes.status & ORGAN_CUT_AWAY))
+		return 1
 	return 0
 
 /mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)

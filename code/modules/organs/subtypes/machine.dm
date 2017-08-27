@@ -77,6 +77,7 @@
 
 /obj/item/organ/eyes/optical_sensor
 	name = "optical sensor"
+	singular_name = "optical sensor"
 	organ_tag = "optics"
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "camera"

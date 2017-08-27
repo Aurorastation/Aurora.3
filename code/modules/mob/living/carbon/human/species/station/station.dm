@@ -391,6 +391,9 @@
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
 
+	inherent_eye_protection = FLASH_PROTECTION_MAJOR
+	eyes_are_impermeable = TRUE
+
 	name_language = "Encoded Audio Language"
 	num_alternate_languages = 2
 	secondary_langs = list("Encoded Audio Language")
@@ -616,6 +619,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	slowdown = 1
 	darksight = 8 //USELESS
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
+	eyes_are_impermeable = TRUE
 	brute_mod = 0.5
 	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
 	toxins_mod = 2 //they're not used to all our weird human bacteria.
