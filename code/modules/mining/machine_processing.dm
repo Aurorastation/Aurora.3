@@ -308,10 +308,8 @@
 	console.updateUsrDialog()
 
 /obj/machinery/mineral/processing_unit/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isscrewdriver(W))
-		panel_open = !panel_open
-
-		user << "You [panel_open ? "open" : "close"] the maintenance panel."
+	if(default_deconstruction_screwdriver(user, W))
+		return
 	else if(default_part_replacement(user, W))
 		return
 	

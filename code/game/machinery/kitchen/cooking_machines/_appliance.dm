@@ -236,9 +236,7 @@
 
 	var/result = can_insert(I, user)
 	if(!result)
-		if(isscrewdriver(I))
-			panel_open = !panel_open
-			user << "You [panel_open ? "open" : "close"] the maintenance panel."
+		if(default_deconstruction_screwdriver(user, I))
 			return
 		else if(default_part_replacement(user, I))
 			return
