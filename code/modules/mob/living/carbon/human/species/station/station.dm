@@ -499,8 +499,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			log_query.Execute(query_details)
 
 		if (!status)
-			new_machine.internal_organs_by_name.Remove("ipc tag")
-			new_machine.internal_organs.Remove(tag)
+			new_machine.internal_organs_by_name -= "ipc tag"
+			new_machine.internal_organs -= tag
 			qdel(tag)
 
 /datum/species/machine/proc/update_tag(var/mob/living/carbon/human/target, var/client/player)
@@ -508,10 +508,10 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		return
 
 	if (establish_db_connection(dbcon))
-		var/status = 0
-		var/sql_status = 0
+		var/status = FALSE
+		var/sql_status = FALSE
 		if (target.internal_organs_by_name["ipc tag"])
-			status = 1
+			status = TRUE
 
 		var/list/query_details = list("ckey" = player.ckey, "character_name" = target.real_name)
 		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
