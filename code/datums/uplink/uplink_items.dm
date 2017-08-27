@@ -86,11 +86,8 @@ var/datum/uplink/uplink = new()
 		if(antag.is_antagonist(U.uplink_owner))
 			return 1
 
-	if (antag_job = U.uplink_owner.assigned_role) //for a quick and easy list of the assigned_role, look in specialty.dm
+	if (antag_job == U.uplink_owner.assigned_role) //for a quick and easy list of the assigned_role, look in specialty.dm
 		return 1
-	else
-		return 0
-
 	return 0
 
 /datum/uplink_item/proc/cost(var/telecrystals)

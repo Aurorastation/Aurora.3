@@ -49,7 +49,8 @@ Quick and easy list of all the occupations for farther expansion and addition.
 	item_cost = 6
 	path = /obj/item/weapon/gun/energy/crossbow
 	antag_job = "assistant"
-/*
+*/
+
 
 
 
