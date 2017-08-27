@@ -28,7 +28,7 @@
 
 	range = 1
 
-	summon_amt = 4
+	summon_amt = 2
 	summon_type = list(/mob/living/simple_animal/hostile/scarybat)
 
 	hud_state = "wiz_bats"
