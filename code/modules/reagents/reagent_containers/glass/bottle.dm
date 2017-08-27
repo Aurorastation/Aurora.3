@@ -126,7 +126,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle-1"
 
-	Initialize())
+	Initialize()
 		. = ..()
 		reagents.add_reagent("mutagen", 60)
 		update_icon()
