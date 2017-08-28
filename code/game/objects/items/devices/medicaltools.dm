@@ -70,6 +70,8 @@ Contains:
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message("<span class='notice'>\The [user] starts treating [M]'s [affecting.name].</span>", \
 						             "<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
+				if(!do_after(user, 100, act_target == M))
+					return
 				for (var/datum/wound/W in affecting.wounds)
 					if (W.internal)
 						if(prob(25)) // Space Klot technology.
