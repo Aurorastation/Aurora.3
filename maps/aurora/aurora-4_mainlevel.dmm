@@ -62897,6 +62897,13 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/cargo_station)
+"cgm" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/bag/circuits/basic,
+/obj/item/device/integrated_electronics/debugger,
+/obj/item/device/integrated_electronics/wirer,
+/turf/simulated/floor/tiled,
+/area/assembly/robotics)
 
 (1,1,1) = {"
 aaa
@@ -88477,7 +88484,7 @@ bjw
 bkJ
 bin
 bnx
-boI
+cgm
 aZK
 brj
 bsC
