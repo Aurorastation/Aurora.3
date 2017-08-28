@@ -10,6 +10,7 @@
 
 /turf/simulated/wall/cult/Initialize(mapload)
 	. = ..(mapload,"cult")
+	desc = "Hideous images dance beneath the surface."	
 
 /turf/simulated/wall/cult_reinforced/Initialize(mapload)
 	. = ..(mapload,"cult","cult2")
