@@ -1,6 +1,6 @@
 /mob/living/carbon/human/emote(var/act,var/m_type=1,var/message = null)
 	var/param = null
-
+	var/emotecooldown = 0
 	if (findtext(act, "-", 1, null))
 		var/t1 = findtext(act, "-", 1, null)
 		param = copytext(act, t1 + 1, length(act) + 1)
@@ -654,7 +654,11 @@
 			if (isipc(src))
 				src << "<span class='warning'>You are unable to vomit.</span>"
 				return
+			if (emotecooldown > world.time) 
+				src << "<span class='warning'>You are unable to vomit so soon.</span>"
+				emotecooldown = world.time + 4 SECONDS
 			vomit()
+			emotecooldown = world.time + 10 SECONDS
 			return
 
 
