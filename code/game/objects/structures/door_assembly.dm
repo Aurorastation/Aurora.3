@@ -101,10 +101,22 @@
 	airlock_type = "/maintenance_hatch"
 	glass = -1
 
-/obj/structure/door_assembly/door_assembly_highsecurity // Borrowing this until WJohnston makes sprites for the assembly
+/obj/structure/door_assembly/door_assembly_highsecurity
 	base_icon_state = "highsec"
 	base_name = "High Security Airlock"
 	airlock_type = "/highsecurity"
+	glass = -1
+
+/obj/structure/door_assembly/door_assembly_vault
+	base_icon_state = "vault"
+	base_name = "Vault"
+	airlock_type = "/vault"
+	glass = -1
+
+/obj/structure/door_assembly/door_assembly_lift
+	base_icon_state = "lift"
+	base_name = "Elevator Door"
+	airlock_type = "/lift"
 	glass = -1
 
 /obj/structure/door_assembly/multi_tile
