@@ -43,3 +43,6 @@
 //for when you need a reliable time number that doesn't depend on byond time.
 #define REALTIMEOFDAY (world.timeofday + (MIDNIGHT_ROLLOVER * MIDNIGHT_ROLLOVER_CHECK))
 #define MIDNIGHT_ROLLOVER_CHECK ( rollovercheck_last_timeofday != world.timeofday ? update_midnight_rollover() : midnight_rollovers )
+
+#define round_duration_in_ticks (round_start_time ? world.time - round_start_time : 0)
+#define station_time_in_ticks (roundstart_hour HOURS + round_duration_in_ticks)

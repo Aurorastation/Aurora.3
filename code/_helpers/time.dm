@@ -4,16 +4,24 @@
 #define MINUTE *600
 #define MINUTES *600
 
+#define HOUR *36000
+#define HOURS *36000
+
+#define DAY *864000
+#define DAYS *864000
+
 var/roundstart_hour = 0
+var/round_start_time
+
 //Returns the world time in english
 /proc/worldtime2text(time = world.time, timeshift = 1)
 	if(!roundstart_hour) roundstart_hour = rand(0, 23)
-	return timeshift ? time2text(time+(36000*roundstart_hour), "hh:mm") : time2text(time, "hh:mm")
+	return timeshift ? time2text(time+(roundstart_hour HOURS), "hh:mm") : time2text(time, "hh:mm")
 
 /proc/worldtime2hours()
 	if (!roundstart_hour)
 		worldtime2text()
-	. = text2num(time2text(world.time + (36000 * roundstart_hour), "hh"))
+	. = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
 
 /proc/worlddate2text()
 	return num2text(game_year) + "-" + time2text(world.timeofday, "MM-DD")
