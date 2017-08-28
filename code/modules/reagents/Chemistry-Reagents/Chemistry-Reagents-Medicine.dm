@@ -658,7 +658,7 @@
 	reagent_state = LIQUID
 	color = "#FFA800"
 	overdose = 0
-	scannable = 0
+	scannable = 1
 	taste_description = "bitterness"
 
 /datum/reagent/kelotane/topical/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // doesn't work in the blood.
