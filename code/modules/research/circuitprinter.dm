@@ -56,6 +56,8 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 
 /obj/machinery/r_n_d/circuit_imprinter/RefreshParts()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
+	if(!component_parts)
+		populate_components()
 	var/T = 0
 	for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
 		T += G.reagents.maximum_volume

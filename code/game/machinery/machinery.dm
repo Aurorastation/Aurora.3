@@ -129,23 +129,10 @@ Class Procs:
 	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
 
-/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
+/obj/machinery/Initialize(mapload, d = 0)
 	. = ..()
 	if(d)
 		set_dir(d)
-
-	if (component_types && populate_components)
-		component_parts = list()
-		for (var/type in component_types)
-			var/count = component_types[type]
-			if (count > 1)
-				for (var/i in 1 to count)
-					component_parts += new type(src)
-			else
-				component_parts += new type(src)
-
-		if (component_parts.len)
-			RefreshParts()
 
 	add_machine(src)
 
@@ -275,7 +262,9 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/proc/RefreshParts() //Placeholder proc for machines that are built using frames.
+/obj/machinery/proc/RefreshParts(var/makeparts = 0)
+	if(makeparts)
+		populate_components()
 	return
 
 /obj/machinery/proc/assign_uid()
@@ -337,7 +326,10 @@ Class Procs:
 	if(!istype(R))
 		return 0
 	if(!component_parts)
-		return 0
+		if(!component_types)
+			return 0
+		else
+			RefreshParts(1) // make default parts for us to replace
 	if(panel_open)
 		var/obj/item/weapon/circuitboard/CB = locate(/obj/item/weapon/circuitboard) in component_parts
 		var/P
@@ -375,12 +367,25 @@ Class Procs:
 						user << "<span class='notice'>[A.name] replaced with [B.name].</span>"
 						break
 		update_icon()
-		RefreshParts()
 	else
 		user << "<span class='notice'>Following parts detected in the machine:</span>"
 		for(var/var/obj/item/C in component_parts)
 			user << "<span class='notice'>    [C.name]</span>"
 	return 1
+
+/obj/machinery/proc/populate_components()
+	if(component_types)
+		component_parts = list()
+		for (var/type in component_types)
+			var/count = component_types[type]
+			if (count > 1)
+				for (var/i in 1 to count)
+					component_parts += new type(src)
+			else
+				component_parts += new type(src)
+
+		if(component_parts.len)
+			RefreshParts()
 
 /obj/machinery/proc/dismantle()
 	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)

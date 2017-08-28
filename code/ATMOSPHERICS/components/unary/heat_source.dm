@@ -141,11 +141,13 @@
 	..()
 	var/cap_rating = 0
 	var/bin_rating = 0
-
+	if(!component_parts)
+		cap_rating = 2
+		bin_rating = 1
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		if(iscapacitor(P))
 			cap_rating += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/matter_bin))
+		else if(ismatterbin(P))
 			bin_rating += P.rating
 
 	max_power_rating = initial(max_power_rating) * cap_rating / 2

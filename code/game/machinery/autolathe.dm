@@ -279,6 +279,9 @@
 	..()
 	var/mb_rating = 0
 	var/man_rating = 0
+	if(!component_parts)
+		mb_rating = 3
+		man_rating = 1
 	for(var/obj/item/weapon/stock_parts/matter_bin/MB in component_parts)
 		mb_rating += MB.rating
 	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
