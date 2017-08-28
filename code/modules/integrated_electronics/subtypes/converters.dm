@@ -143,12 +143,12 @@
 	complexity = 4
 	inputs = list(
 		"string to split" = IC_PINTYPE_STRING,
-		"index" = IC_PINTYPE_NUMBER,
-		)
+		"index" = IC_PINTYPE_NUMBER
+	)
 	outputs = list(
 		"before split" = IC_PINTYPE_STRING,
 		"after split" = IC_PINTYPE_STRING
-		)
+	)
 	activators = list("separate" = IC_PINTYPE_PULSE_IN, "on separated" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 

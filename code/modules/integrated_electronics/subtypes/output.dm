@@ -194,7 +194,7 @@
 		"i am the law" = 'sound/voice/biamthelaw.ogg',
 		"insult"       = 'sound/voice/binsult.ogg',
 		"radio"        = 'sound/voice/bradio.ogg',
-		"secure day"   = 'sound/voice/bsecureday.ogg',
+		"secure day"   = 'sound/voice/bsecureday.ogg'
 	)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_ILLEGAL = 1)
@@ -217,7 +217,7 @@
 		"catch"       = 'sound/voice/medbot/mcatch.ogg',
 		"delicious"   = 'sound/voice/medbot/mdelicious.ogg',
 		"apple"       = 'sound/voice/medbot/mapple.ogg',
-		"no"          = 'sound/voice/medbot/mno.ogg',
+		"no"          = 'sound/voice/medbot/mno.ogg'
 	)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 1)
