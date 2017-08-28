@@ -654,7 +654,7 @@
 /datum/reagent/kelotane/topical
 	name = "Kelotizol"
 	id = "kelotanetopical"
-	description = "Kelotane is a drug used to treat burns. This version is specifically made to be directly applied to the skin."
+	description = "Kelotizol is a drug used to treat burns. This version is derived from Kelotane and is applied to the skin."
 	reagent_state = LIQUID
 	color = "#FFA800"
 	overdose = 0
