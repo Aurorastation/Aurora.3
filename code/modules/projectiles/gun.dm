@@ -201,17 +201,17 @@
 	user.setMoveCooldown(move_delay)
 	next_fire_time = world.time + fire_delay
 
+// Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/weapon/gun/proc/Fire_userless(atom/target)
-	if (!target)
+	if(!target)
 		return
 
 	if(world.time < next_fire_time)
 		return
 
-	var/shoot_time = (burst - 1) * burst_delay
+	var/shoot_time = (burst - 1)* burst_delay
 	next_fire_time = world.time + shoot_time
 
-	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
 	for(var/i in 1 to burst)
 		var/obj/projectile = consume_next_projectile()
@@ -219,12 +219,28 @@
 			handle_click_empty()
 			break
 
-		var/acc = burst_accuracy[min(i, burst_accuracy.len)]
-		var/disp = dispersion[min(i, dispersion.len)]
-		process_accuracy(projectile, null, target, acc, disp)
+		if(istype(projectile, /obj/item/projectile))
+			var/obj/item/projectile/P = projectile
 
-		if(process_projectile(projectile, null, target, null, null))
-			handle_post_fire(null, target, FALSE, FALSE, FALSE)
+			var/acc = burst_accuracy[min(i, burst_accuracy.len)]
+			var/disp = dispersion[min(i, dispersion.len)]
+
+			P.accuracy = accuracy + acc
+			P.dispersion = disp
+
+			P.shot_from = src.name
+			P.silenced = silenced
+
+			P.launch(target)
+
+			if(silenced)
+				playsound(src, fire_sound, 10, 1)
+			else
+				playsound(src, fire_sound, 50, 1)
+
+			if (muzzle_flash)
+				set_light(muzzle_flash)
+				addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)
 			update_icon()
 
 		if(i < burst)
@@ -233,10 +249,10 @@
 		if(!(target && target.loc))
 			target = targloc
 
-	update_held_icon()
-
 	//update timing
 	next_fire_time = world.time + fire_delay
+
+	accuracy = initial(accuracy)	//Reset the gun's accuracy
 
 //obtains the next projectile to fire
 /obj/item/weapon/gun/proc/consume_next_projectile()

@@ -827,6 +827,7 @@
 #include "code\game\objects\items\weapons\implants\implant.dm"
 #include "code\game\objects\items\weapons\implants\implantcase.dm"
 #include "code\game\objects\items\weapons\implants\implantchair.dm"
+#include "code\game\objects\items\weapons\implants\implantcircuits.dm"
 #include "code\game\objects\items\weapons\implants\implanter.dm"
 #include "code\game\objects\items\weapons\implants\implantfreedom.dm"
 #include "code\game\objects\items\weapons\implants\implantpad.dm"

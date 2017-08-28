@@ -1,5 +1,5 @@
-#define IC_SPAWN_DEFAULT			1 // If the circuit comes in the default circuit box and able to be printed in the IC printer.
-#define IC_SPAWN_RESEARCH 			2 // If the circuit design will be available in the IC printer after upgrading it.
+#define IC_SPAWN_DEFAULT  1 // If the circuit comes in the default circuit box and able to be printed in the IC printer.
+#define IC_SPAWN_RESEARCH 2 // If the circuit design will be available in the IC printer after upgrading it.
 
 /var/datum/controller/subsystem/processing/electronics/SSelectronics
 
@@ -33,9 +33,7 @@
 			return
 
 /datum/controller/subsystem/processing/electronics/Initialize(timeofday)
-	for(var/thing in subtypesof(/obj/item/integrated_circuit))
-		all_integrated_circuits += new thing()
-		CHECK_TICK
+	init_subtypes(/obj/item/integrated_circuit, all_integrated_circuits)
 
 	// First loop is to seperate the actual circuits from base circuits.
 	var/list/circuits_to_use = list()
@@ -58,22 +56,21 @@
 				current_list += IC
 
 	// Now for non-circuit things.
-	var/list/assembly_list = list(
+	printer_recipe_list["Assemblies"] = list(
 		new /obj/item/device/electronic_assembly,
 		new /obj/item/device/electronic_assembly/medium,
 		new /obj/item/device/electronic_assembly/large,
 		new /obj/item/device/electronic_assembly/drone,
+		new /obj/item/weapon/implant/integrated_circuit,
 		new /obj/item/device/assembly/electronic_assembly
 	)
-	printer_recipe_list["Assemblies"] = assembly_list
 
-	var/list/tools_list = list(
+	printer_recipe_list["Tools"] = list(
 		new /obj/item/device/integrated_electronics/wirer,
 		new /obj/item/device/integrated_electronics/debugger
 	)
-	printer_recipe_list["Tools"] = tools_list
 
 	..()
 
 #undef IC_SPAWN_DEFAULT
-#undef IC_SPAWN_RESEARCH 
+#undef IC_SPAWN_RESEARCH
