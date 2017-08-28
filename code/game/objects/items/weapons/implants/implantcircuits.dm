@@ -16,7 +16,7 @@
 /obj/item/weapon/implant/integrated_circuit/Destroy()
 	IC.implant = null
 	qdel(IC)
-	..()
+	return ..()
 
 /obj/item/weapon/implant/integrated_circuit/get_data()
 	var/dat = {"
