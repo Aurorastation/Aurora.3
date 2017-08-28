@@ -201,6 +201,43 @@
 	user.setMoveCooldown(move_delay)
 	next_fire_time = world.time + fire_delay
 
+/obj/item/weapon/gun/proc/Fire_userless(atom/target)
+	if (!target)
+		return
+
+	if(world.time < next_fire_time)
+		return
+
+	var/shoot_time = (burst - 1) * burst_delay
+	next_fire_time = world.time + shoot_time
+
+	//actually attempt to shoot
+	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
+	for(var/i in 1 to burst)
+		var/obj/projectile = consume_next_projectile()
+		if(!projectile)
+			handle_click_empty()
+			break
+
+		var/acc = burst_accuracy[min(i, burst_accuracy.len)]
+		var/disp = dispersion[min(i, dispersion.len)]
+		process_accuracy(projectile, null, target, acc, disp)
+
+		if(process_projectile(projectile, null, target, null, null))
+			handle_post_fire(null, target, FALSE, FALSE, FALSE)
+			update_icon()
+
+		if(i < burst)
+			sleep(burst_delay)
+
+		if(!(target && target.loc))
+			target = targloc
+
+	update_held_icon()
+
+	//update timing
+	next_fire_time = world.time + fire_delay
+
 //obtains the next projectile to fire
 /obj/item/weapon/gun/proc/consume_next_projectile()
 	return null

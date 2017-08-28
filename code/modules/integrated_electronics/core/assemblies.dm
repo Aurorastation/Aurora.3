@@ -7,11 +7,10 @@
 	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/electronic_assemblies.dmi'
 	icon_state = "setup_small"
-	show_messages = TRUE
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
 	var/opened = 0
-	var/obj/item/weapon/cell/device/battery = null // Internal cell which most circuits need to work.
+	var/obj/item/weapon/cell/device/battery // Internal cell which most circuits need to work.
 
 /obj/item/device/electronic_assembly/medium
 	name = "electronic mechanism"
@@ -40,11 +39,11 @@
 /obj/item/device/electronic_assembly/Initialize()
 	..()
 	battery = new(src)
-	START_PROCESSING(SSprocessing, src)
+	START_PROCESSING(SSelectronics, src)
 
 /obj/item/device/electronic_assembly/Destroy()
 	battery = null
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSelectronics, src)
 	return ..()
 
 /obj/item/device/electronic_assembly/process()
@@ -168,13 +167,6 @@
 	. = list()
 	for(var/obj/item/integrated_circuit/part in contents)
 		. |= part.GetAccess()
-
-/obj/item/device/electronic_assembly/GetIdCard()
-	. = list()
-	for(var/obj/item/integrated_circuit/part in contents)
-		var/id_card = part.GetIdCard()
-		if(id_card)
-			return id_card
 
 /obj/item/device/electronic_assembly/examine(mob/user)
 	. = ..(user, 1)

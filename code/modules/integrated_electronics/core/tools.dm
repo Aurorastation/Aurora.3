@@ -179,17 +179,17 @@
 
 /obj/item/device/multitool/update_icon()
 	if(selected_io)
-		if(buffer || connecting || connectable)
+		if(buffer || connecting || buffer_object)
 			icon_state = "multitool_tracking"
 		else
 			icon_state = "multitool_red"
 	else
-		if(buffer || connecting || connectable)
+		if(buffer || connecting || buffer_object)
 			icon_state = "multitool_tracking_fail"
 		else
 			icon_state = "multitool"
 
-/obj/item/device/multitool/proc/wire(var/datum/integrated_io/io, mob/user)
+/obj/item/device/multitool/proc/wire(datum/integrated_io/io, mob/user)
 	if(!io.holder.assembly)
 		to_chat(user, "<span class='warning'>\The [io.holder] needs to be secured inside an assembly first.</span>")
 		return
@@ -234,16 +234,6 @@
 		[io1.name] and the [io2.holder.displayed_name]'s [io2.name].</span>")
 		io1.holder.interact(user) // This is to update the UI.
 		update_icon()
-
-
-
-
-
-
-
-
-
-
 
 /obj/item/weapon/storage/bag/circuits
 	name = "circuit kit"
@@ -326,7 +316,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/arithmetic/fill()
 	..()
-	for(var/obj/item/integrated_circuit/arithmetic/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/arithmetic/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -343,7 +333,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/trig/fill()
 	..()
-	for(var/obj/item/integrated_circuit/trig/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/trig/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -360,7 +350,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/input/fill()
 	..()
-	for(var/obj/item/integrated_circuit/input/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/input/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -377,7 +367,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/output/fill()
 	..()
-	for(var/obj/item/integrated_circuit/output/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/output/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -394,7 +384,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/memory/fill()
 	..()
-	for(var/obj/item/integrated_circuit/memory/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/memory/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -411,7 +401,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/logic/fill()
 	..()
-	for(var/obj/item/integrated_circuit/logic/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/logic/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -428,7 +418,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/time/fill()
 	..()
-	for(var/obj/item/integrated_circuit/time/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/time/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -445,7 +435,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/reagents/fill()
 	..()
-	for(var/obj/item/integrated_circuit/reagent/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/reagent/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -462,7 +452,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/transfer/fill()
 	..()
-	for(var/obj/item/integrated_circuit/transfer/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/transfer/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -479,7 +469,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/converter/fill()
 	..()
-	for(var/obj/item/integrated_circuit/converter/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/converter/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -495,7 +485,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/smart/fill()
 	..()
-	for(var/obj/item/integrated_circuit/smart/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/smart/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -511,7 +501,7 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/manipulation/fill()
 	..()
-	for(var/obj/item/integrated_circuit/manipulation/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/manipulation/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
@@ -527,11 +517,11 @@
 
 /obj/item/weapon/storage/bag/circuits/mini/power/fill()
 	..()
-	for(var/obj/item/integrated_circuit/passive/power/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/passive/power/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)
-	for(var/obj/item/integrated_circuit/power/IC in all_integrated_circuits)
+	for(var/obj/item/integrated_circuit/power/IC in SSelectronics.all_integrated_circuits)
 		if(IC.spawn_flags & spawn_flags_to_use)
 			for(var/i = 1 to 4)
 				new IC.type(src)

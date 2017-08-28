@@ -6,7 +6,7 @@
 #define DATA_CHANNEL "data channel"
 #define PULSE_CHANNEL "pulse channel"
 
-// Methods of obtaining a circuit.
+// Methods of obtaining a circuit. These are also defined in SSelectronics.
 #define IC_SPAWN_DEFAULT			1 // If the circuit comes in the default circuit box and able to be printed in the IC printer.
 #define IC_SPAWN_RESEARCH 			2 // If the circuit design will be available in the IC printer after upgrading it.
 
@@ -39,12 +39,6 @@
 
 // Data limits.
 #define IC_MAX_LIST_LENGTH			200
-
-var/list/all_integrated_circuits = list()
-
-/proc/initialize_integrated_circuits_list()
-	for(var/thing in typesof(/obj/item/integrated_circuit))
-		all_integrated_circuits += new thing()
 
 /obj/item/integrated_circuit
 	name = "integrated circuit"

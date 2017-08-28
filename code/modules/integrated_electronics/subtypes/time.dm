@@ -65,7 +65,7 @@
 /obj/item/integrated_circuit/time/delay/custom/do_work()
 	var/delay_input = get_pin_data(IC_INPUT, 1)
 	if(delay_input && isnum(delay_input) )
-		var/new_delay = between(1, delay_input, 36000) //An hour.
+		var/new_delay = between(1, delay_input, 1 HOUR)
 		delay = new_delay
 
 	..()
@@ -84,21 +84,21 @@
 	power_draw_per_use = 4
 
 /obj/item/integrated_circuit/time/ticker/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSelectronics, src)
 	. = ..()
 
 /obj/item/integrated_circuit/time/ticker/on_data_written()
 	var/do_tick = get_pin_data(IC_INPUT, 1)
 	if(do_tick && !is_running)
 		is_running = TRUE
-		START_PROCESSING(SSprocessing, src)
+		START_PROCESSING(SSelectronics, src)
 	else if(is_running)
 		is_running = FALSE
-		STOP_PROCESSING(SSprocessing, src)
+		STOP_PROCESSING(SSelectronics, src)
 		ticks_completed = 0
 
 /obj/item/integrated_circuit/time/ticker/process()
-	var/process_ticks = SSprocessing.wait
+	var/process_ticks = SSelectronics.wait
 	ticks_completed += process_ticks
 	if(ticks_completed >= ticks_to_pulse)
 		if(ticks_to_pulse >= process_ticks)

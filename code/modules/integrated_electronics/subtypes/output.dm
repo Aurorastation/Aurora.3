@@ -172,30 +172,30 @@
 	the speaker to tell the user if something goes very wrong when booting up.  It can also do other similar synthetic sounds such \
 	as buzzing, pinging, chiming, and more."
 	sounds = list(
-		"beep"			= 'sound/machines/twobeep.ogg',
-		"chime"			= 'sound/machines/chime.ogg',
-		"buzz sigh"		= 'sound/machines/buzz-sigh.ogg',
-		"buzz twice"	= 'sound/machines/buzz-two.ogg',
-		"ping"			= 'sound/machines/ping.ogg',
-		"synth yes"		= 'sound/machines/synth_yes.ogg',
-		"synth no"		= 'sound/machines/synth_no.ogg',
-		"warning buzz"	= 'sound/machines/warning-buzzer.ogg'
-		)
+		"beep"         = 'sound/machines/twobeep.ogg',
+		"chime"        = 'sound/machines/chime.ogg',
+		"buzz sigh"    = 'sound/machines/buzz-sigh.ogg',
+		"buzz twice"   = 'sound/machines/buzz-two.ogg',
+		"ping"         = 'sound/machines/ping.ogg',
+		"synth yes"    = 'sound/machines/synth_yes.ogg',
+		"synth no"     = 'sound/machines/synth_no.ogg',
+		"warning buzz" = 'sound/machines/warning-buzzer.ogg'
+	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/output/sound/beepsky
 	name = "securitron sound circuit"
 	desc = "A miniature speaker is attached to this component.  Considered by some to be the essential component for a securitron."
 	sounds = list(
-		"creep"			= 'sound/voice/bcreep.ogg',
-		"criminal"		= 'sound/voice/bcriminal.ogg',
-		"freeze"		= 'sound/voice/bfreeze.ogg',
-		"god"			= 'sound/voice/bgod.ogg',
-		"i am the law"	= 'sound/voice/biamthelaw.ogg',
-		"insult"		= 'sound/voice/binsult.ogg',
-		"radio"			= 'sound/voice/bradio.ogg',
-		"secure day"	= 'sound/voice/bsecureday.ogg',
-		)
+		"creep"        = 'sound/voice/bcreep.ogg',
+		"criminal"     = 'sound/voice/bcriminal.ogg',
+		"freeze"       = 'sound/voice/bfreeze.ogg',
+		"god"          = 'sound/voice/bgod.ogg',
+		"i am the law" = 'sound/voice/biamthelaw.ogg',
+		"insult"       = 'sound/voice/binsult.ogg',
+		"radio"        = 'sound/voice/bradio.ogg',
+		"secure day"   = 'sound/voice/bsecureday.ogg',
+	)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_ILLEGAL = 1)
 
@@ -203,22 +203,22 @@
 	name = "medbot sound circuit"
 	desc = "A miniature speaker is attached to this component, used to annoy patients while they get pricked by a medbot."
 	sounds = list(
-		"surgeon"		= 'sound/voice/medbot/msurgeon.ogg',
-		"radar"			= 'sound/voice/medbot/mradar.ogg',
-		"feel better"	= 'sound/voice/medbot/mfeelbetter.ogg',
-		"patched up"	= 'sound/voice/medbot/mpatchedup.ogg',
-		"injured"		= 'sound/voice/medbot/minjured.ogg',
-		"insult"		= 'sound/voice/medbot/minsult.ogg',
-		"coming"		= 'sound/voice/medbot/mcoming.ogg',
-		"help"			= 'sound/voice/medbot/mhelp.ogg',
-		"live"			= 'sound/voice/medbot/mlive.ogg',
-		"lost"			= 'sound/voice/medbot/mlost.ogg',
-		"flies"			= 'sound/voice/medbot/mflies.ogg',
-		"catch"			= 'sound/voice/medbot/mcatch.ogg',
-		"delicious"		= 'sound/voice/medbot/mdelicious.ogg',
-		"apple"			= 'sound/voice/medbot/mapple.ogg',
-		"no"			= 'sound/voice/medbot/mno.ogg',
-		)
+		"surgeon"     = 'sound/voice/medbot/msurgeon.ogg',
+		"radar"       = 'sound/voice/medbot/mradar.ogg',
+		"feel better" = 'sound/voice/medbot/mfeelbetter.ogg',
+		"patched up"  = 'sound/voice/medbot/mpatchedup.ogg',
+		"injured"     = 'sound/voice/medbot/minjured.ogg',
+		"insult"      = 'sound/voice/medbot/minsult.ogg',
+		"coming"      = 'sound/voice/medbot/mcoming.ogg',
+		"help"        = 'sound/voice/medbot/mhelp.ogg',
+		"live"        = 'sound/voice/medbot/mlive.ogg',
+		"lost"        = 'sound/voice/medbot/mlost.ogg',
+		"flies"       = 'sound/voice/medbot/mflies.ogg',
+		"catch"       = 'sound/voice/medbot/mcatch.ogg',
+		"delicious"   = 'sound/voice/medbot/mdelicious.ogg',
+		"apple"       = 'sound/voice/medbot/mapple.ogg',
+		"no"          = 'sound/voice/medbot/mno.ogg',
+	)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 1)
 
@@ -232,7 +232,7 @@
 	inputs = list(
 		"camera name" = IC_PINTYPE_STRING,
 		"camera active" = IC_PINTYPE_BOOLEAN
-		)
+	)
 	inputs_default = list("1" = "video camera circuit")
 	outputs = list()
 	activators = list()

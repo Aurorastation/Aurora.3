@@ -11,57 +11,12 @@
 
 	var/upgraded = FALSE		// When hit with an upgrade disk, will turn true, allowing it to print the higher tier circuits.
 	var/can_clone = FALSE		// Same for above, but will allow the printer to duplicate a specific assembly.
-	var/static/list/recipe_list = list()
 	var/current_category = null
 	var/obj/item/device/electronic_assembly/assembly_to_clone = null
 
 /obj/item/device/integrated_circuit_printer/upgraded
 	upgraded = TRUE
 	can_clone = TRUE
-
-/obj/item/device/integrated_circuit_printer/Initialize()
-	. = ..()
-	if(!recipe_list.len)
-		// Unfortunately this needed a lot of loops, but it should only be run once at init.
-
-		// First loop is to seperate the actual circuits from base circuits.
-		var/list/circuits_to_use = list()
-		for(var/obj/item/integrated_circuit/IC in all_integrated_circuits)
-			if((IC.spawn_flags & IC_SPAWN_DEFAULT) || (IC.spawn_flags & IC_SPAWN_RESEARCH))
-				circuits_to_use.Add(IC)
-
-		// Second loop is to find all categories.
-		var/list/found_categories = list()
-		for(var/obj/item/integrated_circuit/IC in circuits_to_use)
-			if(!(IC.category_text in found_categories))
-				found_categories.Add(IC.category_text)
-
-		// Third loop is to initialize lists by category names, then put circuits matching the category inside.
-		for(var/category in found_categories)
-			recipe_list[category] = list()
-			var/list/current_list = recipe_list[category]
-			for(var/obj/item/integrated_circuit/IC in circuits_to_use)
-				if(IC.category_text == category)
-					current_list.Add(IC)
-
-		// Now for non-circuit things.
-		var/list/assembly_list = list()
-		assembly_list.Add(
-			new /obj/item/device/electronic_assembly(null),
-			new /obj/item/device/electronic_assembly/medium(null),
-			new /obj/item/device/electronic_assembly/large(null),
-			new /obj/item/device/electronic_assembly/drone(null),
-			new /obj/item/device/assembly/electronic_assembly(null)
-		)
-		recipe_list["Assemblies"] = assembly_list
-
-		var/list/tools_list = list()
-		tools_list.Add(
-			new /obj/item/device/integrated_electronics/wirer(null),
-			new /obj/item/device/integrated_electronics/debugger(null)
-		)
-		recipe_list["Tools"] = tools_list
-
 
 /obj/item/device/integrated_circuit_printer/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O,/obj/item/stack/material))
@@ -113,7 +68,7 @@
 	var/window_width = 500
 
 	if(isnull(current_category))
-		current_category = recipe_list[1]
+		current_category = SSelectronics.printer_recipe_list[1]
 
 	var/HTML = "<center><h2>Integrated Circuit Printer</h2></center><br>"
 	HTML += "Metal: [metal/metal_per_sheet]/[max_metal/metal_per_sheet] sheets.<br>"
@@ -124,7 +79,7 @@
 	HTML += "Crossed out circuits mean that the printer is not sufficentally upgraded to create that circuit.<br>"
 	HTML += "<hr>"
 	HTML += "Categories:"
-	for(var/category in recipe_list)
+	for(var/category in SSelectronics.printer_recipe_list)
 		if(category != current_category)
 			HTML += " <a href='?src=\ref[src];category=[category]'>\[[category]\]</a> "
 		else // Bold the button if it's already selected.
@@ -132,7 +87,7 @@
 	HTML += "<hr>"
 	HTML += "<center><h4>[current_category]</h4></center>"
 
-	var/list/current_list = recipe_list[current_category]
+	var/list/current_list = SSelectronics.printer_recipe_list[current_category]
 	for(var/obj/O in current_list)
 		var/can_build = TRUE
 		if(istype(O, /obj/item/integrated_circuit))
