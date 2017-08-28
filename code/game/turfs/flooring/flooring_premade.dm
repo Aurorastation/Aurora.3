@@ -196,12 +196,35 @@
 	temperature = TCMB
 
 // Placeholders
+
 /turf/simulated/floor/airless/lava
-/turf/simulated/floor/light
+	name = "lava"
+	icon = 'icons/turf/flooring/lava.dmi'
+	icon_state = "lava"
+
+/turf/simulated/floor/ice
+	name = "ice"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "ice"
+
 /turf/simulated/floor/snow
+	name = "snow"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snow"
 	footstep_sound = "gravelstep"
+
+/turf/simulated/floor/snow/Initialize()
+	. = ..()
+	icon_state = pick("snow[rand(1,12)]","snow0")
+
+/turf/simulated/floor/light
+
 /turf/simulated/floor/plating/snow
-	footstep_sound = "gravelstep"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snow"
+	footstep_sound = "snowplating"
+
+/turf/simulated/floor/light
 
 /turf/simulated/floor/airless/ceiling
 	icon_state = "asteroidplating"
