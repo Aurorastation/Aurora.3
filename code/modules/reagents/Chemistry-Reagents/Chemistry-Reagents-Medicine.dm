@@ -651,20 +651,17 @@
 /datum/reagent/ipecac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong
 
-/datum/reagent/kelotane/topical
+/datum/reagent/kelotanetopical
 	name = "Topical Kelotane"
 	id = "kelotanetopical"
 	description = "Kelotane is a drug used to treat burns. This version is specifically made to be directly applied to the skin."
 	reagent_state = LIQUID
 	color = "#FFA800"
-	overdose = REAGENTS_OVERDOSE
+	overdose = 0
 	scannable = 0
 	taste_description = "bitterness"
 
-/datum/reagent/kelotane/topical/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // doesn't work in the blood.
-	return
-
-/datum/reagent/kelotane/topical/overdose(var/mob/living/carbon/M, var/alien) // can't overdose on it
+/datum/reagent/kelotanetopical/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // doesn't work in the blood.
 	return
 
 /datum/reagent/kelotane/topcial/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)

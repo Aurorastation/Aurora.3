@@ -220,12 +220,15 @@
 	if(A && A.has_gravity == 1)
 		A.has_gravity = 0
 		A.gravitychange(A.has_gravity,A)
-		spawn(150) // convert to timer... soon...
-			A.has_gravity = 1
-			A.gravitychange(A.has_gravity,A)
+		addtimer(CALLBACK(src, .proc/turnongravity), 150)
+
 	if(istype(target, /obj/machinery/gravity_generator/main))
 		var/obj/machinery/gravity_generator/main/T = target
 		T.eshutoff()
+
+/obj/item/projectile/energy/gravitydisabler/proc/turnongravity(var/area/A)
+	A.has_gravity = 1
+	A.gravitychange(A.has_gravity,A)
 
 /obj/item/projectile/energy/bee
 	name = "bees"

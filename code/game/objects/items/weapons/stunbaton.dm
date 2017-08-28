@@ -246,8 +246,8 @@
 	stunforce = 1
 	origin_tech = list(TECH_COMBAT = 1)
 
-/obj/item/weapon/melee/baton/slime/New()
-	..()
+/obj/item/weapon/melee/baton/slime/Initialize()
+	. = ..()
 	bcell = new/obj/item/weapon/cell/high(src)
 	return
 
@@ -264,7 +264,7 @@
 	if(isslime(M))
 		var/mob/living/carbon/slime/L =  M
 		if(!status)
-			L.visible_message("<span class='warning'>[L] has been prodded with \the [src] by [user]. Luckily it was off.</span>")
+			L.visible_message("<span class='warning'>[L] has been prodded with \the [src] by [user]. Too bad it was off.</span>")
 			return 1
 		else
 			L.visible_message("<span class='danger'>[L] has been prodded with \the [src] by [user]!</span>")
