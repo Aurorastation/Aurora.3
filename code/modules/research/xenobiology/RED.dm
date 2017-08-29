@@ -167,8 +167,50 @@ There is also a non-destrutive option, but... It's not as fun.
 		machinery_processing = TRUE
 		return
 	else if(processing_status == 40)
+		if(prob(50))
+			playsound(src.loc, 'sound/machines/red_powerup.ogg', 75, 1) // SOUND
+		else
+			playsound(src.loc, 'sound/machines/red_powerup_alt.ogg', 75, 1) // SOUND
+		processing_status = 60
+		sleep(300)
+		switch(part_number)
+			if(1)
+				ping("\The [src] pings loudly, 'Scan type: [scantype2text()] prepartions loaded. Loading maintenance procedures.'")
+				processing_status = 40
+			if(2)
+				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+					ping("\The [src] pings loudly, 'Analyzing internal structual...'")
+				else if(mainpart.scan_type in list(SCAN_CLONE))
+					ping("\The [src] pings loudly, 'Reading specimen DNA...'")
+				else if(mainpart.scan_type in list(SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+					ping("\The [src] pings loudly, 'Preparing specimen DNA for reading...'")
+				else
+					ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(0,100)]%'")
+			if(3)
+				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+					src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
+				else if(mainpart.scan_type in list(SCAN_CLONE))
+					src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
+				else if(mainpart.scan_type in list(SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+					src.visible_message("<span class='notice'>The [src] emits a heavy dronning sound as the sample is scanned...</span>")
+				else
+					src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
+			if(4)
+				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+					src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
+				else if(mainpart.scan_type in list(SCAN_CLONE, SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+					src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
+				else
+					src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
+			if(5)
+				ping("\The [src] pings loudly, 'Finalizing processes... 40 Percent.'")
+		sleep(100)
+		machinery_processing = TRUE
+		return
 	else if(processing_status == 60)
+		return
 	else if(processing_status == 80)
+		return
 
 
 
@@ -178,9 +220,19 @@ There is also a non-destrutive option, but... It's not as fun.
 		
 
 /obj/machinery/red/proc/complete_mob_analysis()
-	if(part_number == 5 && processing_status == 100)
+	if(part_number != 5 && processing_status != 100)
 		return
-
+	switch(mainpart.scan_type)
+		if(SCAN_ALIVE)
+		if(SCAN_ANALYZEONLY)
+		if(SCAN_CLONE)
+		if(SCAN_CONVERT_ORIGIN)
+		if(SCAN_DESTROY)
+		if(SCAN_NODESTROY)
+		if(SAMPLE_CLONE)
+		if(SAMPLE_DEEPANALYZE)
+		if(SAMPLE_TO_DISK)
+		
 
 /obj/machinery/red/main
 	icon_state = "red_3_0"
@@ -242,7 +294,7 @@ There is also a non-destrutive option, but... It's not as fun.
 	if(!ismob(O))
 		user << "The machine smartly refuses to accept the non-living item."
 		return
-	if(ishuman(O) && !emagged)
+	if(ishuman(O) && !emagged  && !islesserform(user))
 		user << "The machines saftey mechanisms refuse to accept the [O]"
 		return
 	if(part_number == 1)
