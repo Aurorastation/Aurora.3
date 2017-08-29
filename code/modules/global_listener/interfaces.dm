@@ -1,39 +1,30 @@
-//-------------------------------
+
+// -- Global Listeners --
 /*
-	Interfaces
+This is basically just a simple way to add a reference to an object to an automatically maintained & named global list.
+ Lists are indexed by a string ID, and the lists can contain any /datum type.
 
-	These are the datums that an object needs to connect via the wireless controller. You will need a /wifi/receiver to 
-	allow other devices to connect to your device and send it instructions. You will need a /wifi/sender to send signals
-	to other devices with wifi receivers. You can have multiple devices (senders and receivers) if you program your 
-	device to handle them.
+Creating a listener:
 
-	Each wifi interface has one "id". This identifies which devices can connect to each other. Multiple senders can 
-	connect to multiple receivers as long as they have the same id.
+/obj/myobj
+	var/listener/listener
 
-	Variants are found in devices.dm	
+/obj/myobj/Initialize()
+	. = ..()
+	listener = new("myid", src)
 
-	To add a receiver to an object:
-		Add the following variables to the object:
-			var/_wifi_id		<< variable that can be configured on the map, this is passed to the receiver later
-			var/datum/wifi/receiver/subtype/wifi_receiver		<< the receiver (and subtype itself)
+/obj/myobj/Destroy()
+	QDEL_NULL(listener)
+	return ..()
 
-		Add or modify the objects initialize() proc to include:
-			if(_wifi_id)		<< only creates a wifi receiver if an id is set
-				wifi_receiver = new(_wifi_id, src)		<< this needs to be in initialize() as New() is usually too 
-														   early, and the receiver will try to connect to the controller 
-														   before it is setup.
+Iterating through a listener list:
 
-		Add or modify the objects Destroy() proc to include:
-			QDEL_NULL(wifi_receiver)
+/proc/print_myobj()
+	for (var/thing in GET_LISTENERS("myid"))
+		var/listener/L = thing
+		world << L.target
 
-	Senders are setup the same way, except with a  var/datum/wifi/sender/subtype/wifi_sender  variable instead of (or in 
-	addition to) a /wifi/receiver variable.
-	You will however need to call the /wifi/senders code to pass commands onto any connected receivers.
-	Example:
-		obj/machinery/button/attack_hand()
-			wifi_sender.activate()
 */
-//-------------------------------
 
 /listener
 	var/datum/target
@@ -52,7 +43,7 @@
 	return ..()
 
 //-------------------------------
-// Wifi
+// Wifi (Deprecated, use /listener instead)
 //-------------------------------
 /datum/wifi
 	var/obj/parent
