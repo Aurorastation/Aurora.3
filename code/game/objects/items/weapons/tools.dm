@@ -445,7 +445,7 @@
 	if(!iscarbon(user))	return 1
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+		var/obj/item/organ/eyes/E = H.get_eyes()
 		if(!E)
 			return
 		var/safety = H.eyecheck()

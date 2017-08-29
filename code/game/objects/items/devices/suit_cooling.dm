@@ -207,7 +207,7 @@
 			user << "It's switched on and running."
 		else if (istype(src.loc, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src.loc
-			if (H.get_species() == "Industrial Frame")
+			if (global.mechanical_species[H.get_species()] == MECHANICAL_SPECIES_INDUSTRIAL)
 				user << "It's switched on and running, connected to the cooling systems of [H]."
 		else
 			user << "It's switched on, but not attached to anything."

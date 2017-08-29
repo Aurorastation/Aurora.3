@@ -22,3 +22,6 @@ var/datum/controller/subsystem/listener/SSlistener
 /datum/controller/subsystem/listener/proc/unregister(listener/L)
 	if (listeners[L.channel])
 		listeners[L.channel] -= L
+	
+	if (!LAZYLEN(listeners[L.channel]))
+		listeners[L.channel] = null

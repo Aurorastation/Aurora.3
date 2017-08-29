@@ -688,10 +688,10 @@
 // Gives a lethal disease to the target.
 /mob/living/carbon/human/proc/vampire_diseasedtouch()
 	set category = "Vampire"
-	set name = "Diseased Touch (200)"
+	set name = "Diseased Touch (100)"
 	set desc = "Infects the victim with corruption from the Veil, causing their organs to fail."
 
-	var/datum/vampire/vampire = vampire_power(200, 0)
+	var/datum/vampire/vampire = vampire_power(100, 0)
 	if (!vampire)
 		return
 
