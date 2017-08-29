@@ -238,12 +238,12 @@
 
 	for (var/thing in GET_LISTENERS(id))
 		var/datum/listener/L = thing
-		var/obj/machinery/conveyor/C = L.parent
+		var/obj/machinery/conveyor/C = L.target
 		if (istype(C))
 			C.operating = position
 			C.setmove()
 		else
-			var/obj/machinery/conveyor_switch/S = L.parent
+			var/obj/machinery/conveyor_switch/S = L.target
 			if (istype(S))
 				S.position = position
 				S.update()

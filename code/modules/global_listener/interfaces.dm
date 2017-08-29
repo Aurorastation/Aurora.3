@@ -36,13 +36,13 @@
 //-------------------------------
 
 /datum/listener
-	var/datum/parent
+	var/datum/target
 	var/channel
 
 /datum/listener/New(listening_channel, datum/target)
 	channel = listening_channel
 	if (istype(target))
-		parent = target
+		src.target = target
 
 	SSlistener.register(src)
 
