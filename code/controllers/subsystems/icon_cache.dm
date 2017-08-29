@@ -53,5 +53,8 @@
 	var/list/human_undershirt_cache = list()
 	var/list/human_socks_cache = list()
 
+	// This is for the kitty ears item.
+	var/list/kitty_ear_cache = list()
+
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)

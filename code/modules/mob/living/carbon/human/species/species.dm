@@ -146,6 +146,7 @@
 
 	var/gluttonous                // Can eat some mobs. Boolean.
 	var/mouth_size                // How big the mob's mouth is. Limits how large a mob this species can swallow. Only relevant if gluttonous is TRUE.
+	var/allowed_eat_types = TYPE_ORGANIC
 	var/max_nutrition_factor = 1	//Multiplier on maximum nutrition
 	var/nutrition_loss_factor = 1	//Multiplier on passive nutrition losses
 
@@ -330,6 +331,7 @@
 	H.pass_flags = pass_flags
 	H.mob_size = mob_size
 	H.mouth_size = mouth_size || 2
+	H.eat_types = allowed_eat_types
 	if(!kpg)
 		if(islesserform(H))
 			H.dna.SetSEState(MONKEYBLOCK,1)

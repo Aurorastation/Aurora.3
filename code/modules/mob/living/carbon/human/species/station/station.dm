@@ -508,7 +508,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 		var/obj/item/organ/ipc_tag/tag = new_machine.internal_organs_by_name["ipc tag"]
 
-		var/status = 0
+		var/status = TRUE
 		var/list/query_details = list("ckey" = player.ckey, "character_name" = player.prefs.real_name)
 		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
 		query.Execute(query_details)
@@ -516,12 +516,12 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if (query.NextRow())
 			status = text2num(query.item[1])
 		else
-			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name) VALUES (:ckey:, :character_name:)")
+			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name, tag_status) VALUES (:ckey:, :character_name:, 1)")
 			log_query.Execute(query_details)
 
 		if (!status)
-			new_machine.internal_organs_by_name.Remove("ipc tag")
-			new_machine.internal_organs.Remove(tag)
+			new_machine.internal_organs_by_name -= "ipc tag"
+			new_machine.internal_organs -= tag
 			qdel(tag)
 
 /datum/species/machine/proc/update_tag(var/mob/living/carbon/human/target, var/client/player)
@@ -529,10 +529,10 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		return
 
 	if (establish_db_connection(dbcon))
-		var/status = 0
-		var/sql_status = 0
+		var/status = FALSE
+		var/sql_status = FALSE
 		if (target.internal_organs_by_name["ipc tag"])
-			status = 1
+			status = TRUE
 
 		var/list/query_details = list("ckey" = player.ckey, "character_name" = target.real_name)
 		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
@@ -614,7 +614,12 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	icobase = 'icons/mob/human_races/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/r_vaurca.dmi'
 	name_language = LANGUAGE_VAURCA
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/bite/sharp
+	)
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/bug
 	rarity_value = 4
 	slowdown = 1
@@ -658,36 +663,35 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
 	halloss_message = "crumbles to the ground, too weak to continue fighting."
 
-	list/heat_discomfort_strings = list(
+	heat_discomfort_strings = list(
 		"Your blood feels like its boiling in the heat.",
 		"You feel uncomfortably warm.",
 		"Your carapace feels hot as the sun."
-		)
-	list/cold_discomfort_strings = list(
+	)
+
+	cold_discomfort_strings = list(
 		"You chitter in the cold.",
 		"You shiver suddenly.",
 		"Your carapace is ice to the touch."
-		)
+	)
 
-	stamina = 100  // Long period of sprinting, but relatively low speed gain
+	stamina = 100			  // Long period of sprinting, but relatively low speed gain
 	sprint_speed_factor = 0.7
 	sprint_cost_factor = 0.30
-	stamina_recovery = 2//slow recovery
+	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
-		"neural socket" =  /obj/item/organ/vaurca/neuralsocket,
-		"lungs" =    /obj/item/organ/lungs,
-		"filtration bit" = /obj/item/organ/vaurca/filtrationbit,
-		"lungs" =    /obj/item/organ/lungs,
-		"heart" =    /obj/item/organ/heart,
+		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
+		"lungs"               = /obj/item/organ/lungs,
+		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit,
+		"right heart"         = /obj/item/organ/heart/right,
+		"left heart"          = /obj/item/organ/heart/left,
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
-		"second heart" =    /obj/item/organ/heart,
-		"left heart" =    /obj/item/organ/heart/left,
-		"liver" =    /obj/item/organ/liver,
-		"kidneys" =  /obj/item/organ/kidneys,
-		"brain" =    /obj/item/organ/brain,
-		"eyes" =     /obj/item/organ/eyes
-		)
+		"liver"               = /obj/item/organ/liver,
+		"kidneys"             = /obj/item/organ/kidneys,
+		"brain"               = /obj/item/organ/brain,
+		"eyes"                = /obj/item/organ/eyes
+	)
 
 /datum/species/bug/equip_survival_gear(var/mob/living/carbon/human/H)
 	..()
