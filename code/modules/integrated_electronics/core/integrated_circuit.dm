@@ -96,18 +96,17 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	var/table_edge_width = "30%"
 	var/table_middle_width = "40%"
 
-	var/HTML = list()
-	HTML += "<html><head><title>[src.displayed_name]</title></head><body>"
+	var/list/HTML = list()
 	HTML += "<div align='center'>"
 	HTML += "<table border='1' style='undefined;table-layout: fixed; width: 80%'>"
 
-	HTML += "<br><a href='?src=\ref[src];return=1'>\[Return to Assembly\]</a>"
+	HTML += "<br><a href='?src=\ref[src];return=1'>Return to Assembly</a>"
 
-	HTML += "<br><a href='?src=\ref[src];'>\[Refresh\]</a>  |  "
-	HTML += "<a href='?src=\ref[src];rename=1'>\[Rename\]</a>  |  "
-	HTML += "<a href='?src=\ref[src];scan=1'>\[Scan with Device\]</a>  |  "
+	HTML += "<br><a href='?src=\ref[src];'>Refresh</a>  |  "
+	HTML += "<a href='?src=\ref[src];rename=1'>Rename</a>  |  "
+	HTML += "<a href='?src=\ref[src];scan=1'>Scan with Device</a>  |  "
 	if(src.removable)
-		HTML += "<a href='?src=\ref[src];remove=1'>\[Remove\]</a><br>"
+		HTML += "<a href='?src=\ref[src];remove=1'>Remove</a><br>"
 
 	HTML += "<colgroup>"
 	HTML += "<col style='width: [table_edge_width]'>"
@@ -162,12 +161,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		var/datum/integrated_io/io = activator
 		var/words = list()
 
-		words += "<b><a href=?src=\ref[src];pin_name=1;pin=\ref[io]><font color='FF0000'>[io.name]</font></a> <a href=?src=\ref[src];pin_data=1;pin=\ref[io]><font color='FF0000'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</font></a></b><br>"
+		words += "<b><a href=?src=\ref[src];pin_name=1;pin=\ref[io]><span class='bad'>[io.name]</span></a> <a href=?src=\ref[src];pin_data=1;pin=\ref[io]><span class='bad'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</span></a></b><br>"
 		if(io.linked.len)
 			for(var/datum/integrated_io/linked in io.linked)
 //				words += "<a href=?src=\ref[linked.holder];pin_name=1;pin=\ref[linked];link=\ref[io]>\[[linked.name]\]</a>
-				words += "<a href=?src=\ref[src];pin_unwire=1;pin=\ref[io];link=\ref[linked]><font color='FF0000'>[linked.name]</font></a> \
-				@ <a href=?src=\ref[linked.holder];examine=1;><font color='FF0000'>[linked.holder.displayed_name]</font></a><br>"
+				words += "<a href=?src=\ref[src];pin_unwire=1;pin=\ref[io];link=\ref[linked]><span class='bad'>[linked.name]</span></a> \
+				@ <a href=?src=\ref[linked.holder];examine=1;><span class='bad'>[linked.holder.displayed_name]</span></a><br>"
 
 		HTML += "<tr>"
 		HTML += "<td colspan='3' align='center'>[jointext(words, null)]</td>"
@@ -179,20 +178,16 @@ a creative player the means to solve many problems.  Circuits are held inside an
 //	HTML += "<br><font color='33CC33'>Meta Variables;</font>" // If more meta vars get introduced, uncomment this.
 //	HTML += "<br>"
 
-	HTML += "<br><font color='0000AA'>Complexity: [complexity]</font>"
+	HTML += "<br><span class='highlight'>Complexity: [complexity]</span>"
 	if(power_draw_idle)
-		HTML += "<br><font color='0000AA'>Power Draw: [power_draw_idle] W (Idle)</font>"
+		HTML += "<br><span class='highlight'>Power Draw: [power_draw_idle] W (Idle)</span>"
 	if(power_draw_per_use)
-		HTML += "<br><font color='0000AA'>Power Draw: [power_draw_per_use] W (Active)</font>" // Borgcode says that powercells' checked_use() takes joules as input.
-	HTML += "<br><font color='0000AA'>[extended_desc]</font>"
+		HTML += "<br><span class='highlight'>Power Draw: [power_draw_per_use] W (Active)</span>" // Borgcode says that powercells' checked_use() takes joules as input.
+	HTML += "<br><span class='highlight'>[extended_desc]</span>"
 
-	HTML += "</body></html>"
-	if(src.assembly)
-		user << browse(jointext(HTML, null), "window=assembly-\ref[src.assembly];size=[window_width]x[window_height];border=1;can_resize=1;can_close=1;can_minimize=1")
-	else
-		user << browse(jointext(HTML, null), "window=circuit-\ref[src];size=[window_width]x[window_height];border=1;can_resize=1;can_close=1;can_minimize=1")
-
-	onclose(user, "assembly-\ref[src.assembly]")
+	var/datum/browser/B = new(user, assembly ? "assembly-\ref[assembly]" : "circuit-\ref[src]", name, window_width, window_height)
+	B.set_content(HTML.Join())
+	B.open()
 
 /obj/item/integrated_circuit/Topic(href, href_list, state = interactive_state)
 	if(!check_interactivity(usr))
@@ -317,10 +312,9 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	if(href_list["return"])
 		if(A)
 			update_to_assembly = 1
-			usr << browse(null, "window=circuit-\ref[src];border=1;can_resize=1;can_close=1;can_minimize=1")
+			usr << browse(null, "window=circuit-\ref[src]")
 		else
 			to_chat(usr, "<span class='warning'>This circuit is not in an assembly!</span>")
-
 
 	if(href_list["remove"])
 		if(!A)

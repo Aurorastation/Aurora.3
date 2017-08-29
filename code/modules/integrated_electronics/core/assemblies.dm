@@ -98,15 +98,14 @@
 	for(var/obj/item/integrated_circuit/part in contents)
 		total_parts += part.size
 		total_complexity = total_complexity + part.complexity
-	var/HTML = list()
+	var/list/HTML = list()
 
-	HTML += "<html><head><title>[src.name]</title></head><body>"
-	HTML += "<br><a href='?src=\ref[src]'>\[Refresh\]</a>  |  "
-	HTML += "<a href='?src=\ref[src];rename=1'>\[Rename\]</a><br>"
+	HTML += "<br><a href='?src=\ref[src]'>Refresh</a>  |  "
+	HTML += "<a href='?src=\ref[src];rename=1'>Rename</a><br>"
 	HTML += "[total_parts]/[max_components] ([round((total_parts / max_components) * 100, 0.1)]%) space taken up in the assembly.<br>"
 	HTML += "[total_complexity]/[max_complexity] ([round((total_complexity / max_complexity) * 100, 0.1)]%) maximum complexity.<br>"
 	if(battery)
-		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='?src=\ref[src];remove_cell=1'>\[Remove\]</a>"
+		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='?src=\ref[src];remove_cell=1'>Remove</a>"
 	else
 		HTML += "<span class='danger'>No powercell detected!</span>"
 	HTML += "<br><br>"
@@ -118,9 +117,9 @@
 	for(var/obj/item/integrated_circuit/circuit in contents)
 		if(!circuit.removable)
 			HTML += "<a href=?src=\ref[circuit];examine=1;from_assembly=1>[circuit.displayed_name]</a> | "
-			HTML += "<a href=?src=\ref[circuit];rename=1;from_assembly=1>\[Rename\]</a> | "
-			HTML += "<a href=?src=\ref[circuit];scan=1;from_assembly=1>\[Scan with Debugger\]</a> | "
-			HTML += "<a href=?src=\ref[circuit];bottom=\ref[circuit];from_assembly=1>\[Move to Bottom\]</a>"
+			HTML += "<a href=?src=\ref[circuit];rename=1;from_assembly=1>Rename</a> | "
+			HTML += "<a href=?src=\ref[circuit];scan=1;from_assembly=1>Scan with Debugger</a> | "
+			HTML += "<a href=?src=\ref[circuit];bottom=\ref[circuit];from_assembly=1>Move to Bottom</a>"
 			HTML += "<br>"
 
 	HTML += "<hr>"
@@ -129,14 +128,15 @@
 	for(var/obj/item/integrated_circuit/circuit in contents)
 		if(circuit.removable)
 			HTML += "<a href=?src=\ref[circuit];examine=1;from_assembly=1>[circuit.displayed_name]</a> | "
-			HTML += "<a href=?src=\ref[circuit];rename=1;from_assembly=1>\[Rename\]</a> | "
-			HTML += "<a href=?src=\ref[circuit];scan=1;from_assembly=1>\[Scan with Debugger\]</a> | "
-			HTML += "<a href=?src=\ref[circuit];remove=1;from_assembly=1>\[Remove\]</a> | "
-			HTML += "<a href=?src=\ref[circuit];bottom=\ref[circuit];from_assembly=1>\[Move to Bottom\]</a>"
+			HTML += "<a href=?src=\ref[circuit];rename=1;from_assembly=1>Rename</a> | "
+			HTML += "<a href=?src=\ref[circuit];scan=1;from_assembly=1>Scan with Debugger</a> | "
+			HTML += "<a href=?src=\ref[circuit];remove=1;from_assembly=1>Remove</a> | "
+			HTML += "<a href=?src=\ref[circuit];bottom=\ref[circuit];from_assembly=1>Move to Bottom</a>"
 			HTML += "<br>"
 
-	HTML += "</body></html>"
-	user << browse(jointext(HTML,null), "window=assembly-\ref[src];size=600x350;border=1;can_resize=1;can_close=1;can_minimize=1")
+	var/datum/browser/B = new(user, "assembly-\ref[src]", name, 600, 400)
+	B.set_content(HTML.Join())
+	B.open(FALSE)
 
 /obj/item/device/electronic_assembly/Topic(href, href_list[])
 	if(..())

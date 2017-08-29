@@ -83,7 +83,7 @@
 		if(category != current_category)
 			HTML += " <a href='?src=\ref[src];category=[category]'>\[[category]\]</a> "
 		else // Bold the button if it's already selected.
-			HTML += " <b>\[[category]\]</b> "
+			HTML += " <b>[category]</b> "
 	HTML += "<hr>"
 	HTML += "<center><h4>[current_category]</h4></center>"
 
@@ -95,11 +95,13 @@
 			if((IC.spawn_flags & IC_SPAWN_RESEARCH) && (!(IC.spawn_flags & IC_SPAWN_DEFAULT)) && !upgraded)
 				can_build = FALSE
 		if(can_build)
-			HTML += "<A href='?src=\ref[src];build=[O.type]'>\[[O.name]\]</A>: [O.desc]<br>"
+			HTML += "<A href='?src=\ref[src];build=[O.type]'>[O.name]</A>: [O.desc]<br>"
 		else
-			HTML += "<s>\[[O.name]\]: [O.desc]</s><br>"
+			HTML += "<s>[O.name]: [O.desc]</s><br>"
 
-	user << browse(jointext(HTML, null), "window=integrated_printer;size=[window_width]x[window_height];border=1;can_resize=1;can_close=1;can_minimize=1")
+	var/datum/browser/B = new(user, "integrated_printer", null, window_width, window_height)
+	B.set_content(HTML)
+	B.open(FALSE)
 
 /obj/item/device/integrated_circuit_printer/Topic(href, href_list)
 	if(..())
