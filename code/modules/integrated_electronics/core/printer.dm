@@ -81,7 +81,7 @@
 	HTML += "Categories:"
 	for(var/category in SSelectronics.printer_recipe_list)
 		if(category != current_category)
-			HTML += " <a href='?src=\ref[src];category=[category]'>\[[category]\]</a> "
+			HTML += " <a href='?src=\ref[src];category=[category]'>[category]</a> "
 		else // Bold the button if it's already selected.
 			HTML += " <b>[category]</b> "
 	HTML += "<hr>"
