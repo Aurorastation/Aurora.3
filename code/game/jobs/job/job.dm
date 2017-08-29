@@ -142,7 +142,7 @@
 			if(COMPANY_OPPOSED)      loyalty = -3
 
 	//give them an account in the station database
-	var/species_modifier = min((H.species ? H.species.economic_modifier : 0) - 10, 0)
+	var/species_modifier = min((H.species ? H.species.economic_modifier : 0) - 9, 0)
 
 	var/wealth = (loyalty + economic_modifier + species_modifier)
 
