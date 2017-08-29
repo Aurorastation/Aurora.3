@@ -6,6 +6,7 @@
 /datum/controller/subsystem/processing/electronics
 	name = "Electronics"
 	wait = 2 SECONDS
+	priority = SS_PRIORITY_ELECTRONICS
 	flags = SS_KEEP_TIMING
 	init_order = SS_INIT_MISC_FIRST
 
@@ -14,23 +15,6 @@
 
 /datum/controller/subsystem/processing/electronics/New()
 	NEW_SS_GLOBAL(SSelectronics)
-
-/datum/controller/subsystem/processing/electronics/fire(resumed = 0)
-	if (!resumed)
-		currentrun = processing.Copy()
-	//cache for sanic speed (lists are references anyways)
-	var/list/current_run = currentrun
-
-	while(current_run.len)
-		var/datum/thing = current_run[current_run.len]
-		current_run.len--
-		if(!QDELETED(thing))
-			thing.process()
-		else
-			processing -= thing
-
-		if (MC_TICK_CHECK)
-			return
 
 /datum/controller/subsystem/processing/electronics/Initialize(timeofday)
 	init_subtypes(/obj/item/integrated_circuit, all_integrated_circuits)

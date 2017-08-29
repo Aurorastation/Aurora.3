@@ -36,6 +36,7 @@
 #define SS_PRIORITY_MOB            150	// Mob Life().
 #define SS_PRIORITY_NANOUI         120	// UI updates.
 #define SS_PRIORITY_VOTE           110
+#define SS_PRIORITY_ELECTRONICS   100	// Integrated Electronics processing.
 #define SS_PRIORITY_MACHINERY      95	// Machinery + powernet ticks.
 #define SS_PRIORITY_CHEMISTRY      90	// Multi-tick chemical reactions.
 #define SS_PRIORITY_SHUTTLE        85	// Shuttle movement.

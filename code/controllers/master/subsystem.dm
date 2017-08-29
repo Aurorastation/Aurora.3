@@ -167,12 +167,11 @@
 	init_state = SS_INITSTATE_DONE
 
 //used to initialize the subsystem AFTER the map has loaded
-/datum/controller/subsystem/Initialize(start_timeofday, silent = FALSE)
+/datum/controller/subsystem/Initialize(start_timeofday)
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	init_time = time
 	var/msg = "Initialized [name] subsystem within [time] second[time == 1 ? "" : "s"]!"
-	if (!silent)
-		admin_notice(span("danger", msg), R_DEBUG)
+	admin_notice(span("danger", msg), R_DEBUG)
 	world.log << "SS Init: [msg]"
 	log_ss_init(msg)
 	return time
