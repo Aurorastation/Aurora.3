@@ -81,7 +81,6 @@
 	set name = "Print Data"
 
 	if(use_check(usr))
-		usr << "No."
 		return
 
 	var/scan_data = ""
