@@ -64,6 +64,8 @@
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
 
+	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin//standard firing pin for most guns.
+
 
 	var/next_fire_time = 0
 
@@ -93,7 +95,15 @@
 
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
+	if(pin)
+		pin = new pin(src)
 
+/obj/item/weapon/gun/examine(mob/user)
+	..()
+	if(pin)
+		user << "It has [pin] installed."
+	else
+		user << "It doesn't have a firing pin installed, and won't fire."
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
 //Otherwise, if you want handle_click_empty() to be called, check in consume_next_projectile() and return null there.
