@@ -17,7 +17,7 @@
 	var/list/affecting	// the list of all items that will be moved this ptick
 	var/id = ""			// the control ID	- must match controller ID
 	
-	var/datum/listener/antenna
+	var/listener/antenna
 
 /obj/machinery/conveyor/centcom_auto
 	id = "round_end_belt"
@@ -237,7 +237,7 @@
 	update()
 
 	for (var/thing in GET_LISTENERS(id))
-		var/datum/listener/L = thing
+		var/listener/L = thing
 		var/obj/machinery/conveyor/C = L.target
 		if (istype(C))
 			C.operating = position
@@ -271,13 +271,13 @@
 	update()
 
 	for (var/thing in GET_LISTENERS(id))
-		var/datum/listener/L = thing
-		var/obj/machinery/conveyor/C = L.parent
+		var/listener/L = thing
+		var/obj/machinery/conveyor/C = L.target
 		if (istype(C))
 			C.operating = position
 			C.setmove()
 		else
-			var/obj/machinery/conveyor_switch/S = L.parent
+			var/obj/machinery/conveyor_switch/S = L.target
 			if (istype(S))
 				S.position = position
 				S.update()

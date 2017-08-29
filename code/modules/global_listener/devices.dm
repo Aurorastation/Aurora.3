@@ -6,11 +6,15 @@
 //			  it in a subtype if you want it to do something.
 //-------------------------------
 /datum/wifi/sender/button/activate(mob/living/user)
-	for(var/datum/wifi/receiver/button/B in GET_LISTENERS(id))
+	for(var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/datum/wifi/receiver/button/B = L.target
 		B.activate(user)
 
 /datum/wifi/sender/button/deactivate(mob/living/user)
-	for(var/datum/wifi/receiver/button/B in GET_LISTENERS(id))
+	for(var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/datum/wifi/receiver/button/B = L.target
 		B.deactivate(user)
 
 /datum/wifi/receiver/button/proc/activate(mob/living/user)
@@ -31,11 +35,12 @@
 		return
 
 	var/datum/spawn_sync/S = new()
-
-	for(var/datum/wifi/receiver/button/door/D in GET_LISTENERS(id))
+	
+	for (var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/datum/wifi/receiver/button/door/D = L.target
 		S.start_worker(D, command)
 	S.wait_until_done()
-	return
 
 //Receiver procs
 /datum/wifi/receiver/button/door/proc/open()
@@ -175,20 +180,30 @@
 	var/datum/spawn_sync/S = new()
 
 	//tell all doors to open
-	for(var/datum/wifi/receiver/button/door/D in GET_LISTENERS(id))
-		S.start_worker(D, "open")
+	for (var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/datum/wifi/receiver/button/door/D = L.target
+		if (istype(D))
+			S.start_worker(D, "open")
+
 	S.wait_until_done()
 	S.reset()
 	//tell all mass drivers to launch
-	for(var/datum/wifi/receiver/button/mass_driver/M in GET_LISTENERS(id))
-		spawn()
-			M.activate()
+	for (var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/datum/wifi/receiver/button/mass_driver/M = L.target
+		if (istype(M))
+			spawn()
+				M.activate()
 	sleep(20)
 
 	//tell all doors to close
 	S.reset()
-	for(var/datum/wifi/receiver/button/door/D in GET_LISTENERS(id))
-		S.start_worker(D, "close")
+	for (var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/datum/wifi/receiver/button/door/D = L.target
+		if (istype(D))
+			S.start_worker(D, "close")
 	S.wait_until_done()
 	return
 
