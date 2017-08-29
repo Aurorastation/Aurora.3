@@ -221,8 +221,8 @@
 
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/snow.dmi'
-	icon_state = "snow"
-	footstep_sound = "snowplating"
+	icon_state = "snowplating"
+	footstep_sound = "gravelstep"
 
 /turf/simulated/floor/light
 
