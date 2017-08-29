@@ -44,12 +44,16 @@
 			return 1
 	return 0
 
-/proc/instances_of_type_in_list(var/atom/A, var/list/L)
-	var/instances = 0
-	for(var/type in L)
-		if(istype(A, type))
-			instances++
-	return instances
+/proc/instances_of_type_in_list(atom/A, list/L, strict = FALSE)
+	. = 0
+	if (strict)
+		for (var/type in L)
+			if (type == A.type)
+				.++
+	else
+		for(var/type in L)
+			if(istype(A, type))
+				.++
 
 //Removes any null entries from the list
 //Returns TRUE if the list had nulls, FALSE otherwise
