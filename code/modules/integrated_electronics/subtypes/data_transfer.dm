@@ -102,3 +102,56 @@
 	icon_state = "dmux16"
 	w_class = ITEMSIZE_SMALL
 	number_of_outputs = 16
+
+/obj/item/integrated_circuit/transfer/wireless
+	name = "subspace transceiver"
+	desc = "A wireless transmitter-receiver pair that can transmit data between devices."
+	extended_desc = "The first input is the data to send to the other device, and the second input is the channel to send it on."
+	complexity = 12
+	spawn_flags = IC_SPAWN_RESEARCH
+	icon_state = "bluespace"
+	power_draw_per_use = 100	// fancy subspace comms aren't cheap power-wise
+	w_class = ITEMSIZE_SMALL
+	inputs = list(
+		"data" = IC_PINTYPE_ANY,
+		"channel" = IC_PINTYPE_STRING
+	)
+	outputs = list(
+		"data" = IC_PINTYPE_ANY
+	)
+	activators = list(
+		"send" = IC_PINTYPE_PULSE_IN,
+		"receive" = IC_PINTYPE_PULSE_OUT
+	)
+
+	var/last_channel
+
+	var/listener/listener
+
+/obj/item/integrated_circuit/transfer/wireless/do_work()
+	pull_data()
+
+	var/data = get_pin_data(IC_INPUT, 1)
+	if (data != null)
+		var/chan = "[WP_ELECTRONICS][get_pin_data(IC_INPUT, 2) || "default"]"
+		for (var/thing in GET_LISTENERS(chan))
+			var/listener/L = thing
+			var/obj/item/integrated_circuit/transfer/wireless/W = L.target
+			if (W != src)
+				W.receive(data)
+
+/obj/item/integrated_circuit/transfer/wireless/proc/receive(data)
+	set_pin_data(IC_OUTPUT, 1, data)
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/transfer/wireless/Destroy()
+	QDEL_NULL(listener)
+	return ..()
+
+/obj/item/integrated_circuit/transfer/wireless/on_data_written()
+	var/chan = "[WP_ELECTRONICS][get_pin_data(IC_INPUT, 2) || "default"]"
+	if (chan != last_channel)
+		QDEL_NULL(listener)
+		listener = new(chan, src)
+		last_channel = chan
