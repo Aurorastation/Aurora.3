@@ -12,6 +12,7 @@
 	charge_cost = 300
 	max_shots = 10
 	projectile_type = /obj/item/projectile/ion
+	pin = null
 
 /obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
@@ -38,6 +39,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_POWER = 3)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/energy/declone
+	pin = null
 
 /obj/item/weapon/gun/energy/floragun
 	name = "floral somatoray"
@@ -103,6 +105,7 @@
 	w_class = 3.0
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/item/projectile/energy/phoron
+	pin = null
 
 /obj/item/weapon/gun/energy/beegun
 	name = "\improper NanoTrasen Portable Apiary"
@@ -283,6 +286,7 @@
 	burst = 1
 	burst_delay = 1
 	fire_delay = 0
+	pin = null
 
 	firemodes = list(
 		list(mode_name="single shot", burst=1, burst_delay = 1, fire_delay = 0),

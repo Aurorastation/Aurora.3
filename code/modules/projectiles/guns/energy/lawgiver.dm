@@ -15,6 +15,7 @@
 	var/message_enabled = 0 //If playing the message should be enabled
 	var/message_disable = 0 //If the loop should be stopped
 	var/default_desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
+	pin = null
 
 	firemodes = list(
 		list(
@@ -82,7 +83,7 @@
 	message_enabled = 0
 	message_disable = 0
 
-/obj/item/weapon/gun/energy/lawgiver/attack_self(mob/living/carbon/user as mob)
+/obj/item/weapon/gun/energy/lawgiver/attack_self(mob/living/carbon/user as mob) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
 	if(dna != null)
 		return
 	else

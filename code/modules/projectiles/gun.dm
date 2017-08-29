@@ -112,6 +112,16 @@
 		return 0
 	if(!user.IsAdvancedToolUser())
 		return 0
+	
+	if(pin)
+		if(pin.pin_auth(user) || pin.emagged)
+			return 1
+		else
+			pin.auth_fail(user)
+			return 0
+	else
+		to_chat(user, "<span class='warning'>[src]'s trigger is locked. This weapon doesn't have a firing pin installed!</span>")
+	return 0
 
 	var/mob/living/M = user
 
@@ -550,3 +560,14 @@
 
 	mob_can_equip(M as mob, slot)
 		return 0
+
+/obj/item/weapon/gun/proc/handle_pins(mob/living/user)
+	if(pin)
+		if(pin.pin_auth(user) || pin.emagged)
+			return 1
+		else
+			pin.auth_fail(user)
+			return 0
+	else
+		to_chat(user, "<span class='warning'>[src]'s trigger is locked. This weapon doesn't have a firing pin installed!</span>")
+	return 0

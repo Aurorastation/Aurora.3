@@ -6,6 +6,7 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
 	max_shots = 10
+	pin = null
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -33,7 +34,8 @@
 	self_recharge = 1
 	modifystate = null
 	var/reliability = 95
-
+	pin = null
+	
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg')

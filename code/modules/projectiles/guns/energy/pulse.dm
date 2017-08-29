@@ -9,6 +9,7 @@
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
 	max_shots = 10
+	pin = null
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg', fire_delay=null, charge_cost=null),
@@ -29,3 +30,4 @@
 	icon_state = "pulse_pistol"
 	item_state = "pulse_pistol"
 	max_shots = 5
+	pin = null
