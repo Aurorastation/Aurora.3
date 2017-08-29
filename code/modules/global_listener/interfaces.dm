@@ -35,20 +35,20 @@
 */
 //-------------------------------
 
-/datum/listener
-	var/datum/parent
+/listener
+	var/datum/target
 	var/channel
 
-/datum/listener/New(listening_channel, datum/target)
+/listener/New(listening_channel, datum/target)
 	channel = listening_channel
 	if (istype(target))
-		parent = target
+		src.target = target
 
 	SSlistener.register(src)
 
-/datum/listener/Destroy()
+/listener/Destroy()
 	SSlistener.unregister(src)
-	parent = null
+	target = null
 	return ..()
 
 //-------------------------------
@@ -71,11 +71,11 @@
 // Receiver
 //-------------------------------
 /datum/wifi/receiver
-	var/datum/listener
+	var/listener/listener
 
 /datum/wifi/receiver/New()
 	..()
-	listener = new(id, parent)
+	listener = new(id, src)
 
 /datum/wifi/receiver/Destroy()
 	QDEL_NULL(listener)
