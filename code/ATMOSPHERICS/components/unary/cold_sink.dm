@@ -153,13 +153,16 @@
 	var/cap_rating = 0
 	var/manip_rating = 0
 	var/bin_rating = 0
-
+	if(!component_parts)
+		cap_rating = 2
+		manip_rating = 1
+		bin_rating = 1
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		if(iscapacitor(P))
 			cap_rating += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/manipulator))
+		else if(ismanipulator(P))
 			manip_rating += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/matter_bin))
+		else if(ismatterbin(P))
 			bin_rating += P.rating
 
 	power_rating = initial(power_rating) * cap_rating / 2			//more powerful

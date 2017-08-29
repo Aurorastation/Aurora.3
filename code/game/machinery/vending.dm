@@ -53,6 +53,7 @@
 	var/active = 1 //No sales pitches if off!
 	var/vend_ready = 1 //Are we ready to vend?? Is it time??
 	var/vend_delay = 10 //How long does it take to vend?
+
 	var/categories = CAT_NORMAL // Bitmask of cats we're currently showing
 	var/datum/data/vending_product/currently_vending = null // What we're requesting payment for right now
 	var/status_message = "" // Status screen messages like "insufficient funds", displayed in NanoUI
@@ -245,7 +246,7 @@
 			anchored = !anchored
 		return
 
-	else if (!is_borg_item(W))
+	else if(!is_borg_item(W))
 
 		for(var/datum/data/vending_product/R in product_records)
 			if(istype(W, R.product_path))
@@ -253,6 +254,7 @@
 				qdel(W)
 				return
 		..()
+
 	else
 		..()
 
