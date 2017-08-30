@@ -379,10 +379,11 @@ var/datum/controller/subsystem/cargo/SScargo
 	return 1
 
 //Approve a order  - Returns a status message
-/datum/controller/subsystem/cargo/proc/approve_order(var/datum/cargo_order/co)
+/datum/controller/subsystem/cargo/proc/approve_order(var/datum/cargo_order/co, var/approved_by)
 	if(co.status == "submitted")
 		co.status = "approved"
 		co.time_approved = worldtime2text()
+		co.authorized_by = approved_by
 		return "The order has been approved"
 	else 
 		return "The order could not be approved - Invalid Status"

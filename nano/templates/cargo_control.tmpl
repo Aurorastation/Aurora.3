@@ -210,6 +210,10 @@
                     <tr>
                         <td colspan="2"><h3>Order No: {{:data.order_details.order_id}}</h3></td>
                     </tr>
+					<tr>
+                        <td><b>Tracking Code:</b></td>
+                        <td>{{:data.order_details.tracking_code}}</td>
+                    </tr>
                     <tr>
                         <td><b>Price (Customer):</b></td>
                         <td>{{:data.order_details.price_customer}}</td>
@@ -222,16 +226,16 @@
                         <td><b>Item Value:</b></td>
                         <td>{{:data.order_details.price}}</td>
                     </tr>
-                    {{if data.shipment_cost != "0"}}
-                    <tr>
-                        <td><b>Shipment Cost: (aliquot)</b></td>
-                        <td>{{:data.order_details.shipment_cost}}</td>
-                    </tr>
-                    {{else}}
-                    <tr>
-                        <td><b>Shipment Cost: (max)</b></td>
-                        <td>{{:data.order_details.shipment_cost_max}}</td>
-                    </tr>
+                    {{if data.order_details.shipment_cost != 0}}
+						<tr>
+							<td><b>Shipment Cost: (aliquot)</b></td>
+							<td>{{:data.order_details.shipment_cost}}</td>
+						</tr>
+					{{else}}
+						<tr>
+							<td><b>Shipment Cost: (max)</b></td>
+							<td>{{:data.order_details.shipment_cost_max}}</td>
+						</tr>
                     {{/if}}
                     <tr>
                         <td><b>Status:</b></td>

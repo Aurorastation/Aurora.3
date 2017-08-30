@@ -122,7 +122,7 @@
 	if(href_list["order_approve"])
 		var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_approve"]))
 		if(co)
-			var/message = SScargo.approve_order(co)
+			var/message = SScargo.approve_order(co,last_user_name)
 			if(message)
 				status_message = message
 		return 1

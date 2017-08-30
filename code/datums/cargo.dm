@@ -140,6 +140,7 @@
 /datum/cargo_order/proc/get_list()
 	var/list/data = list()
 	data["order_id"] = order_id
+	data["tracking_code"] = get_tracking_code()
 	data["price"] = get_value(2)
 	data["price_customer"] = get_value(0)
 	data["price_cargo"] = get_value(1)
