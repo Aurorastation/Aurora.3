@@ -217,14 +217,10 @@
 	. = ..()
 	icon_state = pick("snow[rand(1,12)]","snow0")
 
-/turf/simulated/floor/light
-
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snowplating"
 	footstep_sound = "gravelstep"
-
-/turf/simulated/floor/light
 
 /turf/simulated/floor/airless/ceiling
 	icon_state = "asteroidplating"
