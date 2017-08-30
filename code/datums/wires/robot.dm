@@ -60,8 +60,7 @@ var/const/BORG_WIRE_CAMERA = 16
 		if (BORG_WIRE_CAMERA)
 			if(!isnull(R.camera) && R.camera.can_use() && !R.scrambledcodes)
 				R.camera.kick_viewers() // Kick anyone watching the Cyborg's camera
-				R.visible_message("[R]'s camera lense focuses loudly.")
-				R << "Your camera lense focuses loudly."
+				R.visible_message("[R]'s camera lense focuses loudly.", "<span class='notice'>Your camera lense focuses loudly.</span>", "<span class='notice'>You hear some mechanical movement.</span>")
 
 		if(BORG_WIRE_LOCKED_DOWN)
 			R.SetLockdown(!R.lockcharge) // Toggle
