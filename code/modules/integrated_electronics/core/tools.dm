@@ -312,7 +312,7 @@
 		var/obj/item/integrated_circuit/IC = thing
 		if (IC.spawn_flags & spawn_flags_to_use)
 			for (var/i in 1 to 4)
-				new IC.type
+				new IC.type(src)
 
 	make_exact_fit()
 
