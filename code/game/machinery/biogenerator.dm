@@ -250,9 +250,6 @@
 	..()
 	var/man_rating = 1
 	var/bin_rating = 1
-	if(!component_parts)
-		man_rating = 1
-		bin_rating = 1
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(ismatterbin(P))

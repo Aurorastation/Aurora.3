@@ -335,11 +335,9 @@ Class Procs:
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/weapon/storage/part_replacer/R)
 	if(!istype(R))
 		return 0
-	if(!component_parts)
-		if(!component_types)
-			return 0
-		else
-			RefreshParts(1) // make default parts for us to replace
+	if(!LAZYLEN(component_parts))
+		return 0
+
 	if(panel_open)
 		var/obj/item/weapon/circuitboard/CB = locate(/obj/item/weapon/circuitboard) in component_parts
 		var/P
