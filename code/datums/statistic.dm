@@ -68,10 +68,12 @@
 /datum/statistic/numeric/gibbings
 	name = "Gibbings"
 	key = "gibs"
+	write_to_db = TRUE
 
 /datum/statistic/numeric/clonings
 	name = "Clones Produced"
 	key = "clones"
+	write_to_db = TRUE
 
 /datum/statistic/grouped/most_deaths
 	name = "Most Overall Deaths (by ckey)"
