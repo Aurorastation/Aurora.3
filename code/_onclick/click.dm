@@ -298,7 +298,7 @@
 /mob/living/LaserEyes(atom/A)
 	setClickCooldown(4)
 	var/turf/T = get_turf(src)
-	src.visible_message("<span class='danger'>\The [src]'s eyes flare with ruby light!</span>")
+	src.visible_message("<span class='danger'>\The [src]'s eyes flare with ruby light!</span>", "<span class='notice'>Your eyes flare with ruby light!</span>")
 	var/obj/item/projectile/beam/LE = new (T)
 	LE.muzzle_type = /obj/effect/projectile/eyelaser/muzzle
 	LE.tracer_type = /obj/effect/projectile/eyelaser/tracer
@@ -312,8 +312,7 @@
 		nutrition = max(nutrition - rand(1,5),0)
 		handle_regular_hud_updates()
 	else
-		src << "<span class='warning'>You're out of energy!  You need food!</span>"
-
+		to_chat(src, "<span class='warning'>You're out of energy! You need food!</span>") 
 // Simple helper to face what you clicked on, in case it should be needed in more than one place
 /mob/proc/face_atom(var/atom/A)
 	if(!A || !x || !y || !A.x || !A.y) return
