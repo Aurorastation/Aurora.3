@@ -1,6 +1,6 @@
 /obj/proc/analyze_gases(var/obj/A, var/mob/user)
 	if(src != A)
-		user.visible_message("<span class='notice'>\The [user] has used \an [src] on \the [A]</span>")
+		user.visible_message("<span class='notice'>\The [user] has used \an [src] on \the [A]</span>", "<span class='notice'>You has use \the [src] on \the [A]</span>", "<span class='notice'>You hear some beeping sounds...</span>" )
 
 	A.add_fingerprint(user)
 	var/list/result = A.atmosanalyze(user)
