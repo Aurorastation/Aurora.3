@@ -63,7 +63,7 @@
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)
-				user.visible_message("<span class='warning'>[user] repairs [src]!</span>","<span class='notice'>You repair [src]!</span>")
+				user.visible_message("<span class='warning'>[user] repairs [src]!</span>","<span class='notice'>You repair [src]!</span>", "<span class='notice'>You hear welding.</span>" )
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			else
 				user << "<span class='notice'>Unable to repair with the maintenance panel closed.</span>"
@@ -138,7 +138,7 @@
 
 	if(user.species.can_shred(user))
 		src.health -= rand(15,30)*brute_dam_coeff
-		src.visible_message("<span class='danger'>[user] has slashed [src]!</span>")
+		src.visible_message("<span class='danger'>[user] has slashed [src]!</span>", "<span class='danger'>You have slashed \the [src]!</span>", "<span class='danger'>You hear a slashing sound!</span>")
 		playsound(src.loc, 'sound/weapons/slice.ogg', 25, 1, -1)
 		if(prob(10))
 			new /obj/effect/decal/cleanable/blood/oil(src.loc)
