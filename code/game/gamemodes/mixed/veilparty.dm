@@ -1,8 +1,8 @@
-/datum/game_mode/paranormal
-	name = "Paranormal (Cult+Vamp)"
+/datum/game_mode/veilparty
+	name = "Veil Party (Cult+Vamp)"
 	round_description = "Paranormal activities occur on the station."
 	extended_round_description = "Vampires and a Cult spawn in this mode."
-	config_tag = "paranormal"
+	config_tag = "veilparty"
 	required_players = 15
 	required_enemies = 3
 	end_on_antag_death = 0
