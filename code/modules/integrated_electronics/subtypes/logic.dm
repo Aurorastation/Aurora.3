@@ -13,7 +13,11 @@
 
 /obj/item/integrated_circuit/logic/binary
 	inputs = list("A","B")
-	activators = list("compare" = IC_PINTYPE_PULSE_IN, "on true result" = IC_PINTYPE_PULSE_OUT, "on false result" = IC_PINTYPE_PULSE_OUT)
+	activators = list(
+		"compare" = IC_PINTYPE_PULSE_IN,
+		"on true result" = IC_PINTYPE_PULSE_OUT,
+		"on false result" = IC_PINTYPE_PULSE_OUT
+	)
 
 /obj/item/integrated_circuit/logic/binary/do_work()
 	pull_data()
@@ -28,7 +32,7 @@
 		activate_pin(3)
 	..()
 
-/obj/item/integrated_circuit/logic/binary/proc/do_compare(var/datum/integrated_io/A, var/datum/integrated_io/B)
+/obj/item/integrated_circuit/logic/binary/proc/do_compare(datum/integrated_io/A, datum/integrated_io/B)
 	return FALSE
 
 /obj/item/integrated_circuit/logic/unary

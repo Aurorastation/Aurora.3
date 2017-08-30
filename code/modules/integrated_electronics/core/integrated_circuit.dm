@@ -32,8 +32,10 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 /obj/item/integrated_circuit/Initialize()
 	displayed_name = name
-	if(!size) size = w_class
-	if(size == -1) size = 0
+	if(!size)
+		size = w_class
+	if(size == -1) 
+		size = 0
 	setup_io(inputs, /datum/integrated_io, inputs_default)
 	setup_io(outputs, /datum/integrated_io, outputs_default)
 	setup_io(activators, /datum/integrated_io/activate)
@@ -85,26 +87,20 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/interact(mob/user)
 	if(!check_interactivity(user))
 		return
-//	if(!assembly)
-//		return
 
 	var/window_height = 350
 	var/window_width = 600
-
-	//var/table_edge_width = "[(window_width - window_width * 0.1) / 4]px"
-	//var/table_middle_width = "[(window_width - window_width * 0.1) - (table_edge_width * 2)]px"
 	var/table_edge_width = "30%"
 	var/table_middle_width = "40%"
 
-	var/list/HTML = list()
-	HTML += "<div align='center'>"
-	HTML += "<table border='1' style='undefined;table-layout: fixed; width: 80%'>"
-
-	HTML += "<br><a href='?src=\ref[src];return=1'>Return to Assembly</a>"
-
-	HTML += "<br><a href='?src=\ref[src];'>Refresh</a>  |  "
-	HTML += "<a href='?src=\ref[src];rename=1'>Rename</a>  |  "
-	HTML += "<a href='?src=\ref[src];scan=1'>Scan with Device</a>  |  "
+	var/list/HTML = list(
+		"<div align='center'>",
+		"<table border='1' style='undefined;table-layout: fixed; width: 80%'>",
+		"<br><a href='?src=\ref[src];return=1'>Return to Assembly</a>",
+		"<br><a href='?src=\ref[src];'>Refresh</a>  |  ",
+		"<a href='?src=\ref[src];rename=1'>Rename</a>  |  ",
+		"<a href='?src=\ref[src];scan=1'>Scan with Device</a>  |  ",
+	)
 	if(src.removable)
 		HTML += "<a href='?src=\ref[src];remove=1'>Remove</a><br>"
 
@@ -130,7 +126,6 @@ a creative player the means to solve many problems.  Circuits are held inside an
 						words += "<b><a href=?src=\ref[src];pin_name=1;pin=\ref[io]>[io.display_pin_type()] [io.name]</a> <a href=?src=\ref[src];pin_data=1;pin=\ref[io]>[io.display_data(io.data)]</a></b><br>"
 						if(io.linked.len)
 							for(var/datum/integrated_io/linked in io.linked)
-//								words += "<a href=?src=\ref[linked.holder];pin_name=1;pin=\ref[linked];link=\ref[io]>\[[linked.name]\]</a>
 								words += "<a href=?src=\ref[src];pin_unwire=1;pin=\ref[io];link=\ref[linked]>[linked.name]</a> \
 								@ <a href=?src=\ref[linked.holder];examine=1;>[linked.holder.displayed_name]</a><br>"
 
@@ -148,7 +143,6 @@ a creative player the means to solve many problems.  Circuits are held inside an
 						words += "<b><a href=?src=\ref[src];pin_name=1;pin=\ref[io]>[io.display_pin_type()] [io.name]</a> <a href=?src=\ref[src];pin_data=1;pin=\ref[io]>[io.display_data(io.data)]</a></b><br>"
 						if(io.linked.len)
 							for(var/datum/integrated_io/linked in io.linked)
-//								words += "<a href=?src=\ref[linked.holder];pin_name=1;pin=\ref[linked];link=\ref[io]>\[[linked.name]\]</a>
 								words += "<a href=?src=\ref[src];pin_unwire=1;pin=\ref[io];link=\ref[linked]>[linked.name]</a> \
 								@ <a href=?src=\ref[linked.holder];examine=1;>[linked.holder.displayed_name]</a><br>"
 
@@ -159,12 +153,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 	for(var/activator in activators)
 		var/datum/integrated_io/io = activator
-		var/words = list()
+		var/words = list(
+			"<b><a href=?src=\ref[src];pin_name=1;pin=\ref[io]><span class='bad'>[io.name]</span></a> <a href=?src=\ref[src];pin_data=1;pin=\ref[io]><span class='bad'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</span></a></b><br>"
+		)
 
-		words += "<b><a href=?src=\ref[src];pin_name=1;pin=\ref[io]><span class='bad'>[io.name]</span></a> <a href=?src=\ref[src];pin_data=1;pin=\ref[io]><span class='bad'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</span></a></b><br>"
 		if(io.linked.len)
 			for(var/datum/integrated_io/linked in io.linked)
-//				words += "<a href=?src=\ref[linked.holder];pin_name=1;pin=\ref[linked];link=\ref[io]>\[[linked.name]\]</a>
 				words += "<a href=?src=\ref[src];pin_unwire=1;pin=\ref[io];link=\ref[linked]><span class='bad'>[linked.name]</span></a> \
 				@ <a href=?src=\ref[linked.holder];examine=1;><span class='bad'>[linked.holder.displayed_name]</span></a><br>"
 
@@ -220,8 +214,6 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			var/obj/item/device/multitool/M = held_item
 			M.wire(pin,usr)
 
-
-
 	if(href_list["pin_data"])
 		if (!istype(held_item, /obj/item/device/multitool) || !allow_multitool)
 			href_list["wire"] = 1
@@ -229,34 +221,6 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		else
 			var/datum/integrated_io/io = pin
 			io.ask_for_pin_data(usr) // The pins themselves will determine how to ask for data, and will validate the data.
-			/*
-			if(io.io_type == DATA_CHANNEL)
-
-				var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in list("string","number", "null")
-				if(!check_interactivity(usr))
-					return
-
-				var/new_data = null
-				switch(type_to_use)
-					if("string")
-						new_data = input("Now type in a string.","[src] string writing") as null|text
-						to_chat(usr, "<span class='notice'>You input [new_data] into the pin.</span>")
-							//to_chat(user, "<span class='notice'>You write '[new_data]' to the '[io]' pin of \the [io.holder].</span>")
-					if("number")
-						new_data = input("Now type in a number.","[src] number writing") as null|num
-						if(isnum(new_data) && check_interactivity(usr) )
-							to_chat(usr, "<span class='notice'>You input [new_data] into the pin.</span>")
-					if("null")
-						if(check_interactivity(usr))
-							to_chat(usr, "<span class='notice'>You clear the pin's memory.</span>")
-
-				io.write_data_to_pin(new_data)
-
-			else if(io.io_type == PULSE_CHANNEL)
-				io.holder.check_then_do_work(ignore_power = TRUE)
-				to_chat(usr, "<span class='notice'>You pulse \the [io.holder]'s [io] pin.</span>")
-			*/
-
 
 	if(href_list["pin_unwire"])
 		if (!istype(held_item, /obj/item/device/multitool) || !allow_multitool)
@@ -337,12 +301,10 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		return
 
 	if(update)
-		if(A && istype(A) && update_to_assembly)
+		if(istype(A) && update_to_assembly)
 			A.interact(usr)
 		else
 			interact(usr) // To refresh the UI.
-
-
 
 /obj/item/integrated_circuit/proc/push_data()
 	for(var/datum/integrated_io/O in outputs)
@@ -368,7 +330,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		return TRUE // Battery has enough.
 	return FALSE // Not enough power.
 
-/obj/item/integrated_circuit/proc/check_then_do_work(var/ignore_power = FALSE)
+/obj/item/integrated_circuit/proc/check_then_do_work(ignore_power = FALSE)
 	if(world.time < next_use) 	// All intergrated circuits have an internal cooldown, to protect from spam.
 		return
 	if(power_draw_per_use && !ignore_power)

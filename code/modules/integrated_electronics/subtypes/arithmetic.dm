@@ -10,7 +10,7 @@
 		"F" = IC_PINTYPE_NUMBER,
 		"G" = IC_PINTYPE_NUMBER,
 		"H" = IC_PINTYPE_NUMBER
-		)
+	)
 	outputs = list("result" = IC_PINTYPE_NUMBER)
 	activators = list("compute" = IC_PINTYPE_PULSE_IN, "on computed" = IC_PINTYPE_PULSE_OUT)
 	category_text = "Arithmetic"

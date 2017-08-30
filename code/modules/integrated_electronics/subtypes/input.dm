@@ -113,13 +113,13 @@
 	complexity = 12
 	inputs = list("\<REF\> target")
 	outputs = list(
-		"total health %"		= IC_PINTYPE_NUMBER,
-		"total missing health"	= IC_PINTYPE_NUMBER,
-		"brute damage"			= IC_PINTYPE_NUMBER,
-		"burn damage"			= IC_PINTYPE_NUMBER,
-		"tox damage"			= IC_PINTYPE_NUMBER,
-		"oxy damage"			= IC_PINTYPE_NUMBER,
-		"clone damage"			= IC_PINTYPE_NUMBER
+		"total health %"       = IC_PINTYPE_NUMBER,
+		"total missing health" = IC_PINTYPE_NUMBER,
+		"brute damage"         = IC_PINTYPE_NUMBER,
+		"burn damage"          = IC_PINTYPE_NUMBER,
+		"tox damage"           = IC_PINTYPE_NUMBER,
+		"oxy damage"           = IC_PINTYPE_NUMBER,
+		"clone damage"         = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -156,13 +156,10 @@
 	power_draw_per_use = 20
 
 /obj/item/integrated_circuit/input/local_locator/do_work()
-	var/datum/integrated_io/O = outputs[1]
-	O.data = null
-	if(assembly)
-		if(istype(assembly.loc, /mob/living)) // Now check if someone's holding us.
-			O.data = WEAKREF(assembly.loc)
-
-	O.push_data()
+	if(assembly && istype(assembly.loc, /mob/living))
+		set_pin_data(IC_OUTPUT, 1, WEAKREF(assembly.loc))
+	else
+		set_pin_data(IC_OUTPUT, 1, null)
 
 /obj/item/integrated_circuit/input/adjacent_locator
 	name = "adjacent locator"
@@ -178,14 +175,9 @@
 	power_draw_per_use = 30
 
 /obj/item/integrated_circuit/input/adjacent_locator/do_work()
-	var/datum/integrated_io/I = inputs[1]
-	var/datum/integrated_io/O = outputs[1]
-	O.data = null
-
-	if(!isweakref(I.data))
-		return
-	var/atom/A = I.data.resolve()
+	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
 	if(!A)
+		set_pin_data(IC_OUTPUT, 1, null)
 		return
 	var/desired_type = A.type
 
@@ -194,11 +186,11 @@
 	for(var/atom/thing in nearby_things)
 		if(thing.type != desired_type)
 			continue
-		valid_things.Add(thing)
+		valid_things += thing
+
 	if(valid_things.len)
-		var/thing = pick(valid_things)
-		O.data = WEAKREF(thing)
-	O.push_data()
+		var/datum/thing = pick(valid_things)
+		set_pin_data(IC_OUTPUT, 1, WEAKREF(thing))
 
 /obj/item/integrated_circuit/input/signaler
 	name = "integrated signaler"
@@ -307,7 +299,6 @@
 	push_data()
 	activate_pin(2)
 
-
 /obj/item/integrated_circuit/input/microphone
 	name = "microphone"
 	desc = "Useful for spying on people or for voice activated machines."
@@ -318,10 +309,13 @@
 	complexity = 8
 	inputs = list()
 	outputs = list(
-	"speaker" = IC_PINTYPE_STRING,
-	"message" = IC_PINTYPE_STRING
+		"speaker" = IC_PINTYPE_STRING,
+		"message" = IC_PINTYPE_STRING
 	)
-	activators = list("on message received" = IC_PINTYPE_PULSE_OUT, "on translation" = IC_PINTYPE_PULSE_OUT)
+	activators = list(
+		"on message received" = IC_PINTYPE_PULSE_OUT,
+		"on translation" = IC_PINTYPE_PULSE_OUT
+	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 15
 

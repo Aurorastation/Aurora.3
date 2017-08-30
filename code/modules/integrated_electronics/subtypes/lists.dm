@@ -2,7 +2,7 @@
 /obj/item/integrated_circuit/list
 	complexity = 1
 	inputs = list(
-	"input" = IC_PINTYPE_LIST
+		"input" = IC_PINTYPE_LIST
 	)
 	outputs = list("result" = IC_PINTYPE_STRING)
 	activators = list("compute" = IC_PINTYPE_PULSE_IN, "on computed" = IC_PINTYPE_PULSE_OUT)
@@ -26,7 +26,6 @@
 	push_data()
 	activate_pin(2)
 
-
 /obj/item/integrated_circuit/list/append
 	name = "append circuit"
 	desc = "This circuit will add an element to a list."
@@ -45,8 +44,7 @@
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/list/output_list = list()
 	var/new_entry = get_pin_data(IC_INPUT, 2)
-	output_list = input_list.Copy()
-	output_list.Add(new_entry)
+	output_list = input_list + new_entry
 
 	set_pin_data(IC_OUTPUT, 1, output_list)
 	push_data()

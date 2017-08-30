@@ -33,6 +33,7 @@ D [1]/  ||
 	holder = newloc
 	if(!istype(holder))
 		message_admins("ERROR: An integrated_io ([src.name]) spawned without a valid holder!  This is a bug.")
+		log_debug("ERROR: An integrated_io ([src.name]) spawned without a valid holder!  This is a bug.")
 
 /datum/integrated_io/Destroy()
 	disconnect()
@@ -42,7 +43,6 @@ D [1]/  ||
 
 /datum/integrated_io/nano_host()
 	return holder.nano_host()
-
 
 /datum/integrated_io/proc/data_as_type(var/as_type)
 	if(!isweakref(data))
@@ -138,11 +138,10 @@ list[](
 		//While doing that, we iterate them as well, and disconnect ourselves from them.
 		for(var/datum/integrated_io/their_linked_io in their_io.linked)
 			if(their_linked_io == src)
-				their_io.linked.Remove(src)
-			else
-				continue
+				their_io.linked -= src
+
 		//Now that we're removed from them, we gotta remove them from us.
-		src.linked.Remove(their_io)
+		linked -= their_io
 
 /datum/integrated_io/proc/ask_for_data_type(mob/user, var/default, var/list/allowed_data_types = list("string","number","null"))
 	var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in allowed_data_types
@@ -156,11 +155,13 @@ list[](
 			if(istext(new_data) && holder.check_interactivity(user) )
 				to_chat(user, "<span class='notice'>You input [new_data] into the pin.</span>")
 				return new_data
+
 		if("number")
 			new_data = input("Now type in a number.","[src] number writing", isnum(default) ? default : null) as null|num
 			if(isnum(new_data) && holder.check_interactivity(user) )
 				to_chat(user, "<span class='notice'>You input [new_data] into the pin.</span>")
 				return new_data
+
 		if("null")
 			if(holder.check_interactivity(user))
 				to_chat(user, "<span class='notice'>You clear the pin's memory.</span>")

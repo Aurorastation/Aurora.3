@@ -21,7 +21,7 @@
 /obj/item/integrated_circuit/memory/examine(mob/user)
 	..()
 	var/i
-	for(i = 1, i <= outputs.len, i++)
+	for (i in 1 to outputs.len)
 		var/datum/integrated_io/O = outputs[i]
 		var/data = "nothing"
 		if(isweakref(O.data))

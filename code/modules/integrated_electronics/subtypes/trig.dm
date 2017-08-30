@@ -10,9 +10,12 @@
 		"F" = IC_PINTYPE_NUMBER,
 		"G" = IC_PINTYPE_NUMBER,
 		"H" = IC_PINTYPE_NUMBER
-		)
+	)
 	outputs = list("result" = IC_PINTYPE_NUMBER)
-	activators = list("compute" = IC_PINTYPE_PULSE_IN, "on computed" = IC_PINTYPE_PULSE_OUT)
+	activators = list(
+		"compute" = IC_PINTYPE_PULSE_IN,
+		"on computed" = IC_PINTYPE_PULSE_OUT
+	)
 	category_text = "Trig"
 	extended_desc = "Input and output are in degrees."
 	power_draw_per_use = 1 // Still cheap math.

@@ -1,8 +1,7 @@
-#define WIRE		"wire"
-#define WIRING		"wiring"
-#define UNWIRE		"unwire"
-#define UNWIRING	"unwiring"
-
+#define WIRE     "wire"
+#define WIRING   "wiring"
+#define UNWIRE   "unwire"
+#define UNWIRING "unwiring"
 
 /obj/item/device/integrated_electronics/wirer
 	name = "circuit wirer"
@@ -14,7 +13,7 @@
 	item_state = "wirer"
 	flags = CONDUCT
 	w_class = 2
-	var/datum/integrated_io/selected_io = null
+	var/datum/integrated_io/selected_io
 	var/mode = WIRE
 
 /obj/item/device/integrated_electronics/wirer/update_icon()
@@ -24,61 +23,61 @@
 	if(!io.holder.assembly)
 		to_chat(user, "<span class='warning'>\The [io.holder] needs to be secured inside an assembly first.</span>")
 		return
-	if(mode == WIRE)
-		selected_io = io
-		to_chat(user, "<span class='notice'>You attach a data wire to \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
-		mode = WIRING
-		update_icon()
-	else if(mode == WIRING)
-		if(io == selected_io)
-			to_chat(user, "<span class='warning'>Wiring \the [selected_io.holder]'s [selected_io.name] into itself is rather pointless.</span>")
-			return
-		if(io.io_type != selected_io.io_type)
-			to_chat(user, "<span class='warning'>Those two types of channels are incompatable.  The first is a [selected_io.io_type], \
-			while the second is a [io.io_type].</span>")
-			return
-		if(io.holder.assembly && io.holder.assembly != selected_io.holder.assembly)
-			to_chat(user, "<span class='warning'>Both \the [io.holder] and \the [selected_io.holder] need to be inside the same assembly.</span>")
-			return
-		selected_io.linked |= io
-		io.linked |= selected_io
 
-		to_chat(user, "<span class='notice'>You connect \the [selected_io.holder]'s [selected_io.name] to \the [io.holder]'s [io.name].</span>")
-		mode = WIRE
-		update_icon()
-		selected_io.holder.interact(user) // This is to update the UI.
-		selected_io = null
+	switch (mode)
+		if (WIRE)
+			selected_io = io
+			to_chat(user, "<span class='notice'>You attach a data wire to \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
+			mode = WIRING
+			update_icon()
 
-	else if(mode == UNWIRE)
-		selected_io = io
-		if(!io.linked.len)
-			to_chat(user, "<span class='warning'>There is nothing connected to \the [selected_io] data channel.</span>")
-			selected_io = null
-			return
-		to_chat(user, "<span class='notice'>You prepare to detach a data wire from \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
-		mode = UNWIRING
-		update_icon()
-		return
+		if (WIRING)
+			if(io == selected_io)
+				to_chat(user, "<span class='warning'>Wiring \the [selected_io.holder]'s [selected_io.name] into itself is rather pointless.</span>")
+				return
+			if(io.io_type != selected_io.io_type)
+				to_chat(user, "<span class='warning'>Those two types of channels are incompatable.  The first is a [selected_io.io_type], \
+				while the second is a [io.io_type].</span>")
+				return
+			if(io.holder.assembly && io.holder.assembly != selected_io.holder.assembly)
+				to_chat(user, "<span class='warning'>Both \the [io.holder] and \the [selected_io.holder] need to be inside the same assembly.</span>")
+				return
+			selected_io.linked |= io
+			io.linked |= selected_io
 
-	else if(mode == UNWIRING)
-		if(io == selected_io)
-			to_chat(user, "<span class='warning'>You can't wire a pin into each other, so unwiring \the [selected_io.holder] from \
-			the same pin is rather moot.</span>")
-			return
-		if(selected_io in io.linked)
-			io.linked.Remove(selected_io)
-			selected_io.linked.Remove(io)
-			to_chat(user, "<span class='notice'>You disconnect \the [selected_io.holder]'s [selected_io.name] from \
-			\the [io.holder]'s [io.name].</span>")
+			to_chat(user, "<span class='notice'>You connect \the [selected_io.holder]'s [selected_io.name] to \the [io.holder]'s [io.name].</span>")
+			mode = WIRE
+			update_icon()
 			selected_io.holder.interact(user) // This is to update the UI.
 			selected_io = null
-			mode = UNWIRE
+
+		if (UNWIRE)
+			selected_io = io
+			if(!io.linked.len)
+				to_chat(user, "<span class='warning'>There is nothing connected to \the [selected_io] data channel.</span>")
+				selected_io = null
+				return
+			to_chat(user, "<span class='notice'>You prepare to detach a data wire from \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
+			mode = UNWIRING
 			update_icon()
-		else
-			to_chat(user, "<span class='warning'>\The [selected_io.holder]'s [selected_io.name] and \the [io.holder]'s \
-			[io.name] are not connected.</span>")
-			return
-	return
+	
+		if (UNWIRING)
+			if(io == selected_io)
+				to_chat(user, "<span class='warning'>You can't wire a pin into each other, so unwiring \the [selected_io.holder] from \
+				the same pin is rather moot.</span>")
+				return
+			if(selected_io in io.linked)
+				io.linked.Remove(selected_io)
+				selected_io.linked.Remove(io)
+				to_chat(user, "<span class='notice'>You disconnect \the [selected_io.holder]'s [selected_io.name] from \
+				\the [io.holder]'s [io.name].</span>")
+				selected_io.holder.interact(user) // This is to update the UI.
+				selected_io = null
+				mode = UNWIRE
+				update_icon()
+			else
+				to_chat(user, "<span class='warning'>\The [selected_io.holder]'s [selected_io.name] and \the [io.holder]'s \
+				[io.name] are not connected.</span>")
 
 /obj/item/device/integrated_electronics/wirer/attack_self(mob/user)
 	switch(mode)
@@ -151,17 +150,18 @@
 		accepting_refs = 0
 
 /obj/item/device/integrated_electronics/debugger/proc/write_data(var/datum/integrated_io/io, mob/user)
-	if(io.io_type == DATA_CHANNEL)
-		io.write_data_to_pin(data_to_write)
-		var/data_to_show = data_to_write
-		if(isweakref(data_to_write))
-			var/datum/weakref/w = data_to_write
-			var/atom/A = w.resolve()
-			data_to_show = A.name
-		to_chat(user, "<span class='notice'>You write '[data_to_write ? data_to_show : "NULL"]' to the '[io]' pin of \the [io.holder].</span>")
-	else if(io.io_type == PULSE_CHANNEL)
-		io.holder.check_then_do_work(ignore_power = TRUE)
-		to_chat(user, "<span class='notice'>You pulse \the [io.holder]'s [io].</span>")
+	switch (io.io_type)
+		if (DATA_CHANNEL)
+			io.write_data_to_pin(data_to_write)
+			var/data_to_show = data_to_write
+			if(isweakref(data_to_write))
+				var/datum/weakref/w = data_to_write
+				var/atom/A = w.resolve()
+				data_to_show = A.name
+			to_chat(user, "<span class='notice'>You write '[data_to_write ? data_to_show : "NULL"]' to the '[io]' pin of \the [io.holder].</span>")
+		if (PULSE_CHANNEL)
+			io.holder.check_then_do_work(ignore_power = TRUE)
+			to_chat(user, "<span class='notice'>You pulse \the [io.holder]'s [io].</span>")
 
 	io.holder.interact(user) // This is to update the UI.
 
@@ -218,8 +218,7 @@
 
 	update_icon()
 
-
-/obj/item/device/multitool/proc/unwire(var/datum/integrated_io/io1, var/datum/integrated_io/io2, mob/user)
+/obj/item/device/multitool/proc/unwire(datum/integrated_io/io1, datum/integrated_io/io2, mob/user)
 	if(!io1.linked.len || !io2.linked.len)
 		to_chat(user, "<span class='warning'>There is nothing connected to the data channel.</span>")
 		return
@@ -250,7 +249,7 @@
 		/obj/item/weapon/crowbar,
 		/obj/item/weapon/screwdriver,
 		/obj/item/device/multitool
-		)
+	)
 
 /obj/item/weapon/storage/bag/circuits/basic/fill()
 	new /obj/item/weapon/storage/bag/circuits/mini/arithmetic(src)
@@ -305,224 +304,158 @@
 	display_contents_with_number = 1
 	can_hold = list(/obj/item/integrated_circuit)
 	var/spawn_flags_to_use = IC_SPAWN_DEFAULT
+	var/list/spawn_types = list()
+
+/obj/item/weapon/storage/bag/circuits/mini/fill()
+	spawn_types = typecacheof(spawn_types)
+	for (var/thing in typecache_filter_list(SSelectronics.all_integrated_circuits, spawn_types))
+		var/obj/item/integrated_circuit/IC = thing
+		if (IC.spawn_flags & spawn_flags_to_use)
+			for (var/i in 1 to 4)
+				new IC.type
+
+	make_exact_fit()
 
 /obj/item/weapon/storage/bag/circuits/mini/arithmetic
 	name = "arithmetic circuit box"
 	desc = "Warning: Contains math."
 	icon_state = "box_arithmetic"
+	spawn_types = list(
+		/obj/item/integrated_circuit/arithmetic
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/arithmetic/all // Don't believe this will ever be needed.
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/arithmetic/fill()
-	..()
-	for(var/obj/item/integrated_circuit/arithmetic/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
-
 
 /obj/item/weapon/storage/bag/circuits/mini/trig
 	name = "trig circuit box"
 	desc = "Danger: Contains more math."
 	icon_state = "box_trig"
+	spawn_types = list(
+		/obj/item/integrated_circuit/trig
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/trig/all // Ditto
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/trig/fill()
-	..()
-	for(var/obj/item/integrated_circuit/trig/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
-
 
 /obj/item/weapon/storage/bag/circuits/mini/input
 	name = "input circuit box"
 	desc = "Tell these circuits everything you know."
 	icon_state = "box_input"
+	spawn_types = list(
+		/obj/item/integrated_circuit/input
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/input/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/input/fill()
-	..()
-	for(var/obj/item/integrated_circuit/input/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
-
 
 /obj/item/weapon/storage/bag/circuits/mini/output
 	name = "output circuit box"
 	desc = "Circuits to interface with the world beyond itself."
 	icon_state = "box_output"
+	spawn_types = list(
+		/obj/item/integrated_circuit/output
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/output/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/output/fill()
-	..()
-	for(var/obj/item/integrated_circuit/output/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
-
 
 /obj/item/weapon/storage/bag/circuits/mini/memory
 	name = "memory circuit box"
 	desc = "Machines can be quite forgetful without these."
 	icon_state = "box_memory"
+	spawn_types = list(
+		/obj/item/integrated_circuit/memory
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/memory/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/memory/fill()
-	..()
-	for(var/obj/item/integrated_circuit/memory/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
-
 
 /obj/item/weapon/storage/bag/circuits/mini/logic
 	name = "logic circuit box"
 	desc = "May or may not be Turing complete."
 	icon_state = "box_logic"
+	spawn_types = list(
+		/obj/item/integrated_circuit/logic
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/logic/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/logic/fill()
-	..()
-	for(var/obj/item/integrated_circuit/logic/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
-
 
 /obj/item/weapon/storage/bag/circuits/mini/time
 	name = "time circuit box"
 	desc = "No time machine parts, sadly."
 	icon_state = "box_time"
+	spawn_types = list(
+		/obj/item/integrated_circuit/time
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/time/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/time/fill()
-	..()
-	for(var/obj/item/integrated_circuit/time/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
-
 
 /obj/item/weapon/storage/bag/circuits/mini/reagents
 	name = "reagent circuit box"
 	desc = "Unlike most electronics, these circuits are supposed to come in contact with liquids."
 	icon_state = "box_reagents"
+	spawn_types = list(
+		/obj/item/integrated_circuit/reagent
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/reagents/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/reagents/fill()
-	..()
-	for(var/obj/item/integrated_circuit/reagent/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
-
 
 /obj/item/weapon/storage/bag/circuits/mini/transfer
 	name = "transfer circuit box"
 	desc = "Useful for moving data representing something arbitrary to another arbitrary virtual place."
 	icon_state = "box_transfer"
+	spawn_types = list(
+		/obj/item/integrated_circuit/transfer
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/transfer/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/transfer/fill()
-	..()
-	for(var/obj/item/integrated_circuit/transfer/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
-
 
 /obj/item/weapon/storage/bag/circuits/mini/converter
 	name = "converter circuit box"
 	desc = "Transform one piece of data to another type of data with these."
 	icon_state = "box_converter"
+	spawn_types = list(
+		/obj/item/integrated_circuit/converter
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/converter/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/converter/fill()
-	..()
-	for(var/obj/item/integrated_circuit/converter/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
 
 /obj/item/weapon/storage/bag/circuits/mini/smart
 	name = "smart box"
 	desc = "Sentience not included."
 	icon_state = "box_ai"
+	spawn_types = list(
+		/obj/item/integrated_circuit/smart
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/smart/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/smart/fill()
-	..()
-	for(var/obj/item/integrated_circuit/smart/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
 
 /obj/item/weapon/storage/bag/circuits/mini/manipulation
 	name = "manipulation box"
 	desc = "Make your machines actually useful with these."
 	icon_state = "box_manipulation"
+	spawn_types = list(
+		/obj/item/integrated_circuit/manipulation
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/manipulation/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/manipulation/fill()
-	..()
-	for(var/obj/item/integrated_circuit/manipulation/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()
 
 /obj/item/weapon/storage/bag/circuits/mini/power
 	name = "power circuit box"
 	desc = "Electronics generally require electricity."
 	icon_state = "box_power"
+	spawn_types = list(
+		/obj/item/integrated_circuit/passive/power,
+		/obj/item/integrated_circuit/power
+	)
 
 /obj/item/weapon/storage/bag/circuits/mini/power/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/weapon/storage/bag/circuits/mini/power/fill()
-	..()
-	for(var/obj/item/integrated_circuit/passive/power/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	for(var/obj/item/integrated_circuit/power/IC in SSelectronics.all_integrated_circuits)
-		if(IC.spawn_flags & spawn_flags_to_use)
-			for(var/i = 1 to 4)
-				new IC.type(src)
-	make_exact_fit()

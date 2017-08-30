@@ -25,9 +25,8 @@
 	var/light_amount = T ? T.get_lumcount() : 0
 	var/adjusted_power = max(max_power * light_amount, 0)
 	adjusted_power = round(adjusted_power, 0.1)
-	if(adjusted_power)
-		if(assembly)
-			assembly.give_power(adjusted_power)
+	if(adjusted_power && assembly)
+		assembly.give_power(adjusted_power)
 
 // For fat machines that need fat power, like drones.
 /obj/item/integrated_circuit/passive/power/relay
@@ -81,14 +80,15 @@
 	return TRUE
 
 /obj/item/integrated_circuit/passive/power/metabolic_siphon/make_energy()
-	var/mob/living/carbon/human/host = null
+	var/mob/living/carbon/human/host
 	if(assembly && istype(assembly, /obj/item/device/electronic_assembly/implant))
 		var/obj/item/device/electronic_assembly/implant/implant_assembly = assembly
 		if(implant_assembly.implant.imp_in)
 			host = implant_assembly.implant.imp_in
-	if(host && test_validity(host))
-		assembly.give_power(10)
-		host.nutrition = max(host.nutrition - HUNGER_FACTOR, 0)
+
+			if(test_validity(host))
+				assembly.give_power(10)
+				host.nutrition = max(host.nutrition - HUNGER_FACTOR, 0)
 
 /obj/item/integrated_circuit/passive/power/metabolic_siphon/synthetic
 	name = "internal energy siphon"

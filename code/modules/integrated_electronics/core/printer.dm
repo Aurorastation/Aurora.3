@@ -9,10 +9,10 @@
 	var/max_metal = 100
 	var/metal_per_sheet = 10 // One sheet equals this much metal.
 
-	var/upgraded = FALSE		// When hit with an upgrade disk, will turn true, allowing it to print the higher tier circuits.
-	var/can_clone = FALSE		// Same for above, but will allow the printer to duplicate a specific assembly.
-	var/current_category = null
-	var/obj/item/device/electronic_assembly/assembly_to_clone = null
+	var/upgraded = FALSE  // When hit with an upgrade disk, will turn true, allowing it to print the higher tier circuits.
+	var/can_clone = FALSE // Same for above, but will allow the printer to duplicate a specific assembly.
+	var/current_category
+	var/obj/item/device/electronic_assembly/assembly_to_clone
 
 /obj/item/device/integrated_circuit_printer/upgraded
 	upgraded = TRUE

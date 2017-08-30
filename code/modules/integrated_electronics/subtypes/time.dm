@@ -127,7 +127,7 @@
 
 /obj/item/integrated_circuit/time/clock
 	name = "integrated clock"
-	desc = "Tells you what the local time is, specific to your station or planet."
+	desc = "Tells you what the local time is, specific to your station, planet, or facility."
 	icon_state = "clock"
 	inputs = list()
 	outputs = list(
@@ -135,7 +135,7 @@
 		"hours" = IC_PINTYPE_NUMBER,
 		"minutes" = IC_PINTYPE_NUMBER,
 		"seconds" = IC_PINTYPE_NUMBER
-		)
+	)
 	activators = list("get time" = IC_PINTYPE_PULSE_IN, "on time got" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4

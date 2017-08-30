@@ -1,5 +1,5 @@
-#define IC_COMPONENTS_BASE		20
-#define IC_COMPLEXITY_BASE		60
+#define IC_COMPONENTS_BASE 20
+#define IC_COMPLEXITY_BASE 60
 
 /obj/item/device/electronic_assembly
 	name = "electronic assembly"
@@ -51,7 +51,7 @@
 	START_PROCESSING(SSelectronics, src)
 
 /obj/item/device/electronic_assembly/Destroy()
-	battery = null
+	QDEL_NULL(battery)
 	STOP_PROCESSING(SSelectronics, src)
 	return ..()
 
@@ -65,15 +65,12 @@
 
 	// Now spend it.
 	for(var/obj/item/integrated_circuit/IC in contents)
-		if(IC.power_draw_idle)
-			if(!draw_power(IC.power_draw_idle))
-				IC.power_fail()
-
+		if(IC.power_draw_idle && !draw_power(IC.power_draw_idle))
+			IC.power_fail()
 
 /obj/item/device/electronic_assembly/implant/update_icon()
 	..()
 	implant.icon_state = icon_state
-
 
 /obj/item/device/electronic_assembly/implant/nano_host()
 	return implant
@@ -152,7 +149,7 @@
 			var/turf/T = get_turf(src)
 			battery.forceMove(T)
 			playsound(T, 'sound/items/Crowbar.ogg', 50, 1)
-			to_chat(usr, "<span class='notice'>You pull \the [battery] out of \the [src]'s power supplier.</span>")
+			to_chat(usr, "<span class='notice'>You pull \the [battery] out of \the [src]'s power supply.</span>")
 			battery = null
 
 	interact(usr) // To refresh the UI.
@@ -179,7 +176,7 @@
 
 /obj/item/device/electronic_assembly/update_icon()
 	if(opened)
-		icon_state = initial(icon_state) + "-open"
+		icon_state = "[initial(icon_state)]-open"
 	else
 		icon_state = initial(icon_state)
 
@@ -193,9 +190,6 @@
 	if(.)
 		for(var/obj/item/integrated_circuit/IC in contents)
 			IC.external_examine(user)
-	//	for(var/obj/item/integrated_circuit/output/screen/S in contents)
-	//		if(S.stuff_to_display)
-	//			to_chat(user, "There's a little screen labeled '[S.name]', which displays '[S.stuff_to_display]'.")
 		if(opened)
 			interact(user)
 
@@ -210,12 +204,12 @@
 		. += part.size
 
 // Returns true if the circuit made it inside.
-/obj/item/device/electronic_assembly/proc/add_circuit(var/obj/item/integrated_circuit/IC, var/mob/user)
+/obj/item/device/electronic_assembly/proc/add_circuit(obj/item/integrated_circuit/IC, mob/user)
 	if(!opened)
 		to_chat(user, "<span class='warning'>\The [src] isn't opened, so you can't put anything inside.  Try using a crowbar.</span>")
 		return FALSE
 
-	if(IC.w_class > src.w_class)
+	if(IC.w_class > w_class)
 		to_chat(user, "<span class='warning'>\The [IC] is way too big to fit into \the [src].</span>")
 		return FALSE
 
@@ -240,47 +234,51 @@
 	if(proximity)
 		var/scanned = FALSE
 		for(var/obj/item/integrated_circuit/input/sensor/S in contents)
-//			S.set_pin_data(IC_OUTPUT, 1, WEAKREF(target))
-//			S.check_then_do_work()
 			if(S.scan(target))
 				scanned = TRUE
 		if(scanned)
 			visible_message("<span class='notice'>\The [user] waves \the [src] around [target].</span>")
 
-/obj/item/device/electronic_assembly/attackby(var/obj/item/I, var/mob/user)
+/obj/item/device/electronic_assembly/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/integrated_circuit))
 		if(!user.unEquip(I))
 			return FALSE
+
 		if(add_circuit(I, user))
 			to_chat(user, "<span class='notice'>You slide \the [I] inside \the [src].</span>")
 			playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 			interact(user)
 			return TRUE
+
 	else if(istype(I, /obj/item/weapon/crowbar))
 		playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
 		opened = !opened
-		to_chat(user, "<span class='notice'>You [opened ? "opened" : "closed"] \the [src].</span>")
+		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] \the [src].</span>")
 		update_icon()
 		return TRUE
+
 	else if(istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger) || istype(I, /obj/item/weapon/screwdriver))
 		if(opened)
 			interact(user)
 		else
-			to_chat(user, "<span class='warning'>\The [src] isn't opened, so you can't fiddle with the internal components.  \
+			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't fiddle with the internal components.  \
 			Try using a crowbar.</span>")
+
 	else if(istype(I, /obj/item/weapon/cell/device))
 		if(!opened)
-			to_chat(user, "<span class='warning'>\The [src] isn't opened, so you can't put anything inside.  Try using a crowbar.</span>")
+			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't put anything inside.  Try using a crowbar.</span>")
 			return FALSE
+
 		if(battery)
 			to_chat(user, "<span class='warning'>\The [src] already has \a [battery] inside.  Remove it first if you want to replace it.</span>")
 			return FALSE
+
 		var/obj/item/weapon/cell/device/cell = I
 		user.drop_item(cell)
 		cell.forceMove(src)
 		battery = cell
 		playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You slot \the [cell] inside \the [src]'s power supplier.</span>")
+		to_chat(user, "<span class='notice'>You slot \the [cell] inside \the [src]'s power supply.</span>")
 		interact(user)
 		return TRUE
 	else
@@ -332,4 +330,3 @@
 	if(battery && battery.give(amount * CELLRATE))
 		return TRUE
 	return FALSE
-

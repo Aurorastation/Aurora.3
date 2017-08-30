@@ -1,4 +1,4 @@
-/obj/item/integrated_circuit/proc/setup_io(var/list/io_list, var/io_type, var/list/io_default_list)
+/obj/item/integrated_circuit/proc/setup_io(list/io_list, io_type, list/io_default_list)
 	var/list/io_list_copy = io_list.Copy()
 	io_list.Cut()
 	var/i = 0
@@ -14,23 +14,23 @@
 
 		if(io_type_override)
 	//		world << "io_type_override is now [io_type_override] on [src]."
-			io_list.Add(new io_type_override(src, io_entry, default_data))
+			io_list += new io_type_override(src, io_entry, default_data)
 		else
-			io_list.Add(new io_type(src, io_entry, default_data))
+			io_list += new io_type(src, io_entry, default_data)
 
-/obj/item/integrated_circuit/proc/set_pin_data(var/pin_type, var/pin_number, var/new_data)
+/obj/item/integrated_circuit/proc/set_pin_data(pin_type, pin_number, new_data)
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
 	return pin.write_data_to_pin(new_data)
 
-/obj/item/integrated_circuit/proc/get_pin_data(var/pin_type, var/pin_number)
+/obj/item/integrated_circuit/proc/get_pin_data(pin_type, pin_number)
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
 	return pin.get_data()
 
-/obj/item/integrated_circuit/proc/get_pin_data_as_type(var/pin_type, var/pin_number, var/as_type)
+/obj/item/integrated_circuit/proc/get_pin_data_as_type(pin_type, pin_number, as_type)
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
 	return pin.data_as_type(as_type)
 
-/obj/item/integrated_circuit/proc/activate_pin(var/pin_number)
+/obj/item/integrated_circuit/proc/activate_pin(pin_number)
 	var/datum/integrated_io/activate/A = activators[pin_number]
 	A.push_data()
 
@@ -41,7 +41,7 @@
 		return data.resolve()
 	return data
 
-/obj/item/integrated_circuit/proc/get_pin_ref(var/pin_type, var/pin_number)
+/obj/item/integrated_circuit/proc/get_pin_ref(pin_type, pin_number)
 	switch(pin_type)
 		if(IC_INPUT)
 			if(pin_number > inputs.len)
@@ -57,7 +57,7 @@
 			return activators[pin_number]
 	return null
 
-/obj/item/integrated_circuit/proc/handle_wire(var/datum/integrated_io/pin, var/obj/item/device/integrated_electronics/tool)
+/obj/item/integrated_circuit/proc/handle_wire(datum/integrated_io/pin, obj/item/device/integrated_electronics/tool)
 	if(istype(tool, /obj/item/device/integrated_electronics/wirer))
 		var/obj/item/device/integrated_electronics/wirer/wirer = tool
 		if(pin)

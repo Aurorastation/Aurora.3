@@ -3,7 +3,6 @@
 	name = "list pin"
 	data = list()
 
-
 /datum/integrated_io/list/ask_for_pin_data(mob/user)
 	interact(user)
 
@@ -26,19 +25,19 @@
 	B.set_content(t)
 	B.open(FALSE)
 
-/datum/integrated_io/list/proc/add_to_list(mob/user, var/new_entry)
+/datum/integrated_io/list/proc/add_to_list(mob/user, new_entry)
 	if(!new_entry && user)
 		new_entry = ask_for_data_type(user)
 	if(is_valid(new_entry))
 		Add(new_entry)
 
-/datum/integrated_io/list/proc/Add(var/new_entry)
+/datum/integrated_io/list/proc/Add(new_entry)
 	var/list/my_list = data
 	if(my_list.len > IC_MAX_LIST_LENGTH)
-		my_list.Cut(Start=1,End=2)
+		my_list.Cut(1, 2)
 	my_list.Add(new_entry)
 
-/datum/integrated_io/list/proc/remove_from_list_by_position(mob/user, var/position)
+/datum/integrated_io/list/proc/remove_from_list_by_position(mob/user, position)
 	var/list/my_list = data
 	if(!my_list.len)
 		to_chat(user, "<span class='warning'>The list is empty, there's nothing to remove.</span>")
@@ -47,9 +46,9 @@
 		return
 	var/target_entry = my_list.Find(position)
 	if(target_entry)
-		my_list.Remove(target_entry)
+		my_list -= target_entry
 
-/datum/integrated_io/list/proc/remove_from_list(mob/user, var/target_entry)
+/datum/integrated_io/list/proc/remove_from_list(mob/user, target_entry)
 	var/list/my_list = data
 	if(!my_list.len)
 		to_chat(user, "<span class='warning'>The list is empty, there's nothing to remove.</span>")
@@ -57,9 +56,9 @@
 	if(!target_entry)
 		target_entry = input("Which piece of data do you want to remove?", "Remove") as null|anything in my_list
 	if(target_entry)
-		my_list.Remove(target_entry)
+		my_list -= target_entry
 
-/datum/integrated_io/list/proc/edit_in_list(mob/user, var/target_entry)
+/datum/integrated_io/list/proc/edit_in_list(mob/user, target_entry)
 	var/list/my_list = data
 	if(!my_list.len)
 		to_chat(user, "<span class='warning'>The list is empty, there's nothing to modify.</span>")
@@ -148,4 +147,3 @@
 
 	holder.interact(usr) // Refresh the main UI,
 	interact(usr) // and the list UI.
-
