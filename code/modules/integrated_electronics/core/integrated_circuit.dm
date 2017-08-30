@@ -99,7 +99,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		"<br><a href='?src=\ref[src];return=1'>Return to Assembly</a>",
 		"<br><a href='?src=\ref[src];'>Refresh</a>  |  ",
 		"<a href='?src=\ref[src];rename=1'>Rename</a>  |  ",
-		"<a href='?src=\ref[src];scan=1'>Scan with Device</a>  |  ",
+		"<a href='?src=\ref[src];scan=1'>Scan with Device</a>  |  "
 	)
 	if(src.removable)
 		HTML += "<a href='?src=\ref[src];remove=1'>Remove</a><br>"
