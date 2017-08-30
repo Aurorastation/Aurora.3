@@ -145,7 +145,7 @@
 /obj/item/device/integrated_electronics/debugger/afterattack(atom/target, mob/living/user, proximity)
 	if(accepting_refs && proximity)
 		data_to_write = WEAKREF(target)
-		visible_message("<span class='notice'>[user] slides \a [src]'s over \the [target].</span>")
+		visible_message("<span class='notice'>[user] slides [src]'s ref scanner over \the [target].</span>")
 		to_chat(user, "<span class='notice'>You set \the [src]'s memory to a reference to [target.name] \[Ref\].  The ref scanner is \
 		now off.</span>")
 		accepting_refs = 0
