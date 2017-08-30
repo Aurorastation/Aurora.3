@@ -108,12 +108,12 @@
 	)
 	return _prg_list
 
-/datum/modular_computer_app_presets/civilian
+/datum/modular_computer_app_presets/supply
 	name = "supply"
 	display_name = "Supply"
 	description = "Contains the most common cargo programs"
 	available = 1
-/datum/modular_computer_app_presets/civilian/return_install_programs()
+/datum/modular_computer_app_presets/supply/return_install_programs()
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
