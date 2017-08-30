@@ -129,10 +129,23 @@ Class Procs:
 	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
 
-/obj/machinery/Initialize(mapload, d = 0)
+/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
 	if(d)
 		set_dir(d)
+
+	if (populate_components && component_types)
+		component_parts = list()
+		for (var/type in component_types)
+			var/count = component_types[type]
+			if (count > 1)
+				for (var/i in 1 to count)
+					component_parts += new type(src)
+			else
+				component_parts += new type(src)
+
+		if(component_parts.len)
+			RefreshParts()
 
 	add_machine(src)
 
@@ -262,10 +275,7 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/proc/RefreshParts(var/makeparts = 0)
-	if(makeparts)
-		populate_components()
-	return
+/obj/machinery/proc/RefreshParts()
 
 /obj/machinery/proc/assign_uid()
 	uid = gl_uid
@@ -372,20 +382,6 @@ Class Procs:
 		for(var/var/obj/item/C in component_parts)
 			user << "<span class='notice'>    [C.name]</span>"
 	return 1
-
-/obj/machinery/proc/populate_components()
-	if(component_types)
-		component_parts = list()
-		for (var/type in component_types)
-			var/count = component_types[type]
-			if (count > 1)
-				for (var/i in 1 to count)
-					component_parts += new type(src)
-			else
-				component_parts += new type(src)
-
-		if(component_parts.len)
-			RefreshParts()
 
 /obj/machinery/proc/dismantle()
 	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
