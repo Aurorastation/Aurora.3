@@ -311,9 +311,9 @@
 /obj/item/integrated_circuit/input/microphone
 	name = "microphone"
 	desc = "Useful for spying on people or for voice activated machines."
-	extended_desc = "This will automatically translate most languages it hears to Galactic Common.  \
+	extended_desc = "This will automatically translate most languages it hears to Tau Ceti Basic.  \
 	The first activation pin is always pulsed when the circuit hears someone talk, while the second one \
-	is only triggered if it hears someone speaking a language other than Galactic Common."
+	is only triggered if it hears someone speaking a language other than Tau Ceti Basic."
 	icon_state = "recorder"
 	complexity = 8
 	inputs = list()
