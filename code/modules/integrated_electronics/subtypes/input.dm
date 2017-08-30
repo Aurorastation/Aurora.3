@@ -321,7 +321,7 @@
 	"speaker" = IC_PINTYPE_STRING,
 	"message" = IC_PINTYPE_STRING
 	)
-	activators = list("on message received" = IC_PINTYPE_PULSE_IN, "on translation" = IC_PINTYPE_PULSE_OUT)
+	activators = list("on message received" = IC_PINTYPE_PULSE_OUT, "on translation" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 15
 
@@ -347,8 +347,6 @@
 	if(translated)
 		activate_pin(2)
 
-
-
 /obj/item/integrated_circuit/input/sensor
 	name = "sensor"
 	desc = "Scans and obtains a reference for any objects or persons near you.  All you need to do is shove the machine in their face."
@@ -371,4 +369,3 @@
 	push_data()
 	activate_pin(1)
 	return TRUE
-
