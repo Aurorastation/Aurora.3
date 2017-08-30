@@ -15,6 +15,8 @@
 	var/datum/cargo_order/co
 	var/last_user_name = "" //Name of the user that used the program
 	var/status_message = null //Status Message to be displayed to the user
+	var/user_tracking_id = 0 //Tracking id of the user
+	var/user_tracking_code = 0 //Tracking Code of the user
 
 /datum/nano_module/program/civilian/cargoorder/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	//Check if a cargo order exists. If not create a new one
@@ -54,6 +56,26 @@
 		var/datum/cargo_item/ci = SScargo.cargo_items[selected_item]
 		if(ci)
 			data["item_details"] = ci.get_list()
+
+	else if (page == "tracking")
+		data["tracking_id"] = user_tracking_id
+		data["tracking_code"] = user_tracking_code
+		//If no tracking id / code is entered the page the enter them should be displayed
+		if(!user_tracking_id || !user_tracking_code)
+			data["tracking_status"] = "Incomplete Input"
+		//If we have a tracking id / code, then try to find a order with mathing details
+		else if(user_tracking_id && user_tracking_code)
+			//Now, lets try to find a order with a matching id
+			var/datum/cargo_order/co = SScargo.get_order_by_id(user_tracking_id)
+			if(co)
+				if(co.tracking_code == user_tracking_code)
+					data["tracking_status"] = "Success"
+					data["tracked_order"] = co.get_list()
+					data["tracked_order_report"] = co.get_report()
+				else
+					data["tracking_status"] = "Invalid Tracking Code"
+			else
+				data["tracking_status"] = "Invalid Order"
 
 	//Pass the current page
 	data["page"] = page
@@ -144,7 +166,17 @@
 	if(href_list["page"])
 		page = href_list["page"]
 		return 1
-
+	//Tracking Stuff
+	if(href_list["trackingid"])
+		var/trackingid = text2num(sanitize(input(usr,"Order ID:","ID of the Order that you want to track","") as null|text))
+		if(trackingid)
+			user_tracking_id = trackingid
+		return 1
+	if(href_list["trackingcode"])
+		var/trackingcode = text2num(sanitize(input(usr,"Tracking Code:","Tracking Code of the Order that you want to track","") as null|text))
+		if(trackingcode)
+			user_tracking_code = trackingcode
+		return 1
 	//Change the displayed item category
 	if(href_list["select_category"])
 		selected_category = href_list["select_category"]

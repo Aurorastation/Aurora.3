@@ -307,7 +307,7 @@
 // Returns a HTML to be printed for the order
 /datum/cargo_order/proc/get_report()
 	var/list/order_data = list()
-	order_data += "<h4>Order [order_id]</h4><hr>"
+	order_data += "<h4>Order [order_id]</h4>"
 	order_data += "<hr>"
 	//List the personell involved in the order
 	order_data += "<u>Ordered by:</u> [customer]<br>"
@@ -325,16 +325,17 @@
 	order_data += "<u>Tracking Code:</u> [get_tracking_code()]<br>"
 	order_data += "<u>Order Status:</u> [get_order_status(1)]<br>"
 	order_data += "<hr>"
-	order_data += "<u>Required Access:</u><br>"
-	order_data += "<ul>"
-	for(var/A in required_access)
-		order_data += "<li>[get_access_desc(A)]</li>"
-	order_data += "</ul>"
-	order_data += "<hr>"
+	if(required_access.len)
+		order_data += "<u>Required Access:</u><br>"
+		order_data += "<ul>"
+		for(var/A in required_access)
+			order_data += "<li>[get_access_desc(A)]</li>"
+		order_data += "</ul>"
+		order_data += "<hr>"
 	order_data += "<u>Order Fees:</u><br>"
 	order_data += "<ul>"
 	for(var/item in get_item_list())
-		order_data += "<li>[item["name"]] - [item["price"]]</li>"
+		order_data += "<li>[item["name"]]: [item["price"]]</li>"
 	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]</li>"
 	order_data += "<li>Handling Fee: [SScargo.get_handlingfee()]</li>"
 	if(partial_shipment_fee == 0) //If the partial shipment fee has been calculated, then display it. Otherwise just display a placeholder
@@ -343,7 +344,7 @@
 		order_data += "<li>Shuttle Fee: [partial_shipment_fee]</li>"
 	order_data += "</ul>"
 
-	return order_data.Join(",")
+	return order_data.Join("")
 
 
 /*
@@ -412,7 +413,7 @@
 	invoice_data += "shuttle called by: [shuttle_called_by]<br>"
 	invoice_data += "shuttle recalled by: [shuttle_recalled_by]<br>"
 
-	shipment_invoice = invoice_data.Join(",")
+	shipment_invoice = invoice_data.Join("")
 	return shipment_invoice
 
 // Returns the invoice. Generates it if it does not exist
