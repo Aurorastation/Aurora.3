@@ -25,8 +25,8 @@
 	power_draw_per_use = 50 // The targeting mechanism uses this.  The actual gun uses its own cell for firing if it's an energy weapon.
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/Destroy()
-	qdel(installed_gun)
-	..()
+	QDEL_NULL(installed_gun)
+	. = ..()
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/attackby(var/obj/O, var/mob/user)
 	if(istype(O, /obj/item/weapon/gun))
@@ -155,7 +155,7 @@
 	if(attached_grenade && !attached_grenade.active)
 		attached_grenade.dropInto(loc)
 	detach_grenade()
-	. =..()
+	. = ..()
 
 /obj/item/integrated_circuit/manipulation/grenade/attackby(var/obj/item/weapon/grenade/G, var/mob/user)
 	if(istype(G))
