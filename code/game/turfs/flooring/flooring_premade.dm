@@ -226,6 +226,8 @@
 	icon_state = "asteroidplating"
 	baseturf = /turf/space
 
+/turf/simulated/floor/light
+
 /turf/simulated/floor/beach
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'
