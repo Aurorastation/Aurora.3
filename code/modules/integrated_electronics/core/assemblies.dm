@@ -138,6 +138,9 @@
 /obj/item/device/electronic_assembly/Topic(href, href_list[])
 	if(..())
 		return 1
+	if(!opened)
+		to_chat(usr, "<span class='warning'>\The [src] is not open!</span>")
+		return
 
 	if(href_list["rename"])
 		rename(usr)

@@ -186,6 +186,9 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/Topic(href, href_list, state = interactive_state)
 	if(!check_interactivity(usr))
 		return
+	if (assembly && !assembly.opened)
+		to_chat(usr, "<span class='warning'>\The [assembly] is not open!</span>")
+		return
 	if(..())
 		return 1
 

@@ -161,7 +161,7 @@
 			to_chat(user, "<span class='notice'>You write '[data_to_write ? data_to_show : "NULL"]' to the '[io]' pin of \the [io.holder].</span>")
 		if (PULSE_CHANNEL)
 			io.holder.check_then_do_work(ignore_power = TRUE)
-			to_chat(user, "<span class='notice'>You pulse \the [io.holder]'s [io].</span>")
+			to_chat(user, "<span class='notice'>You pulse \the [io.holder]'s '[io]' pin.</span>")
 
 	io.holder.interact(user) // This is to update the UI.
 
@@ -196,7 +196,7 @@
 
 	if(selected_io)
 		if(io == selected_io)
-			to_chat(user, "<span class='warning'>Wiring \the [selected_io.holder]'s [selected_io.name] into itself is rather pointless.</span>")
+			to_chat(user, "<span class='warning'>Wiring \the [selected_io.holder]'s '[selected_io.name]' pin into itself is rather pointless.</span>")
 			return
 		if(io.io_type != selected_io.io_type)
 			to_chat(user, "<span class='warning'>Those two types of channels are incompatable.  The first is a [selected_io.io_type], \
@@ -208,7 +208,7 @@
 		selected_io.linked |= io
 		io.linked |= selected_io
 
-		to_chat(user, "<span class='notice'>You connect \the [selected_io.holder]'s [selected_io.name] to \the [io.holder]'s [io.name].</span>")
+		to_chat(user, "<span class='notice'>You connect \the [selected_io.holder]'s '[selected_io.name]' pin to \the [io.holder]'s '[io.name]' pin.</span>")
 		selected_io.holder.interact(user) // This is to update the UI.
 		selected_io = null
 
@@ -230,7 +230,7 @@
 		io1.linked.Remove(io2)
 		io2.linked.Remove(io1)
 		to_chat(user, "<span class='notice'>You clip the data connection between the [io1.holder.displayed_name]'s \
-		[io1.name] and the [io2.holder.displayed_name]'s [io2.name].</span>")
+		'[io1.name]' pin and the [io2.holder.displayed_name]'s '[io2.name]' pin.</span>")
 		io1.holder.interact(user) // This is to update the UI.
 		update_icon()
 

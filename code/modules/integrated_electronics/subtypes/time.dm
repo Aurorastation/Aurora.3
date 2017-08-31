@@ -17,10 +17,7 @@
 	power_draw_per_use = 2
 
 /obj/item/integrated_circuit/time/delay/do_work()
-	set waitfor = 0  // Don't sleep in a proc that is called by a processor. It'll delay the entire thing
-
-	sleep(delay)
-	activate_pin(2)
+	addtimer(CALLBACK(src, /obj/item/integrated_circuit/.proc/activate_pin, 2), delay)
 
 /obj/item/integrated_circuit/time/delay/five_sec
 	name = "five-sec delay circuit"
