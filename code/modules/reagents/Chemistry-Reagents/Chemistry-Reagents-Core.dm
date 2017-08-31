@@ -1,5 +1,15 @@
 /datum/reagent/blood
-	data = new/list("donor" = null, "viruses" = null, "species" = "Human", "blood_DNA" = null, "blood_type" = null, "blood_colour" = "#A10808", "resistances" = null, "trace_chem" = null, "antibodies" = list())
+	data = list(
+		"donor" = null,
+		"viruses" = null,
+		"species" = "Human",
+		"blood_DNA" = null,
+		"blood_type" = null,
+		"blood_colour" = "#A10808",
+		"resistances" = null,
+		"trace_chem" = null,
+		"antibodies" = list()
+	)
 	name = "Blood"
 	id = "blood"
 	reagent_state = LIQUID
@@ -45,9 +55,13 @@
 /datum/reagent/blood/touch_turf(var/turf/simulated/T)
 	if(!istype(T) || volume < 3)
 		return
-	if(!data["donor"] || istype(data["donor"], /mob/living/carbon/human))
+	var/datum/weakref/W = data["donor"]
+	if (!W)
 		blood_splatter(T, src, 1)
-	else if(istype(data["donor"], /mob/living/carbon/alien))
+	W = W.resolve()
+	if(istype(W, /mob/living/carbon/human))
+		blood_splatter(T, src, 1)
+	else if(istype(W, /mob/living/carbon/alien))
 		var/obj/effect/decal/cleanable/blood/B = blood_splatter(T, src, 1)
 		if(B)
 			B.blood_DNA["UNKNOWN DNA STRUCTURE"] = "X*"
