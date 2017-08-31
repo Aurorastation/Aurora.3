@@ -14601,7 +14601,6 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "yP" = (
@@ -14943,14 +14942,24 @@
 /turf/simulated/floor/plating,
 /area/medical/patient_wing)
 "zw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/mauve,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "zx" = (
@@ -22358,6 +22367,460 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
+"Mo" = (
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"Mp" = (
+/obj/effect/decal/warning_stripes,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"Mq" = (
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"Mr" = (
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"Ms" = (
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"Mt" = (
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"Mu" = (
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"Mv" = (
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"Mw" = (
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"Mx" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"My" = (
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"Mz" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 0
+	},
+/turf/simulated/floor/reinforced,
+/area/mine/unexplored)
+"MA" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"MB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/rnd/range)
+"MC" = (
+/turf/simulated/floor/reinforced,
+/area/rnd/range)
+"MD" = (
+/turf/simulated/floor/reinforced,
+/area/rnd/range)
+"ME" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"MF" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"MG" = (
+/obj/machinery/door/window/eastleft,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"MH" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/turf/simulated/floor/reinforced,
+/area/rnd/range)
+"MI" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced,
+/area/rnd/range)
+"MJ" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced,
+/area/rnd/range)
+"MK" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"ML" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"MM" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"MN" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/recharger,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"MO" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/door/window/northright,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"MP" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/recharger,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"MQ" = (
+/obj/machinery/button/switch,
+/turf/simulated/wall/r_wall,
+/area/outpost/research/hallway)
+"MR" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"MS" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"MT" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"MU" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"MV" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"MW" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"MX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/outpost/research/hallway)
+"MY" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
+"MZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
+"Na" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Nb" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/requests_console{
+	department = "Science";
+	departmentType = 2;
+	name = "Science Requests Console";
+	pixel_x = -30;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nc" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Ne" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nf" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Ng" = (
+/obj/machinery/door/airlock/glass_research{
+	name = "Testing Range";
+	req_access = list(7)
+	},
+/turf/simulated/floor/plating,
+/area/outpost/research/hallway)
+"Nh" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Ni" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
+	},
+/obj/structure/table/rack,
+/obj/item/device/healthanalyzer,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nj" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nm" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nn" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/outpost/research/hallway)
+"No" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Np" = (
+/obj/structure/table/steel_reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nq" = (
+/obj/structure/bed/chair/office/light,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Ns" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nt" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nu" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Nv" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/table/steel_reinforced,
+/obj/item/weapon/paper_bin,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nw" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/weapon/pen/multi,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nx" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/closet/crate{
+	name = "Target Crate"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Ny" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/structure/closet/crate,
+/obj/item/weapon/storage/box/monkeycubes,
+/obj/item/weapon/storage/box/monkeycubes,
+/obj/item/weapon/storage/box/monkeycubes,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Nz" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/structure/closet/crate,
+/obj/item/device/firing_pin/test_range,
+/obj/item/device/firing_pin/test_range,
+/obj/item/device/firing_pin/test_range,
+/obj/item/device/firing_pin/test_range,
+/obj/item/device/firing_pin/test_range,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"NA" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"NB" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"NC" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"ND" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"NE" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"NF" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"NG" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
+"NH" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
+"NI" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
+"NJ" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
+"NK" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
+"NL" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
+"NM" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
+"NN" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
+"NO" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
+"NP" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
+"NQ" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
+"NR" = (
+/turf/unsimulated/chasm_mask,
+/area/rnd/range)
 
 (1,1,1) = {"
 aa
@@ -38196,7 +38659,7 @@ ab
 ab
 ab
 ab
-ab
+aa
 Ep
 EW
 FE
@@ -38442,7 +38905,7 @@ aa
 aa
 aa
 aa
-ab
+aa
 ab
 ab
 ab
@@ -38452,8 +38915,8 @@ aa
 aa
 aa
 ab
-ab
-ab
+aa
+aa
 Ep
 EX
 FF
@@ -38699,8 +39162,8 @@ aa
 aa
 aa
 aa
-ab
-ab
+aa
+aa
 ab
 ab
 ab
@@ -38708,8 +39171,8 @@ ab
 aa
 aa
 aa
-ab
-ab
+aa
+aa
 aa
 Ep
 EY
@@ -38956,17 +39419,17 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
+aa
+aa
+aa
 ab
 bP
 ab
 ab
 ab
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 Ep
 EZ
@@ -39214,17 +39677,17 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 aa
+ME
+MK
+MR
+Na
+Nh
+No
+Nu
+NA
+NG
+NM
 Ep
 Ep
 FI
@@ -39471,17 +39934,17 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
+fa
+MF
+ML
+MS
+Nb
+Ni
+Np
+Nv
+NB
+NH
+NN
 Ep
 Fa
 FJ
@@ -39722,23 +40185,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
+fa
+fa
+fa
+fa
+fa
+fa
+MA
+MG
+MM
+MT
+Nc
+Nj
+Nq
+Nw
+NC
+NI
+NO
 Ep
 Fb
 FK
@@ -39979,23 +40442,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
+fa
+fa
+Mo
+Mr
+Mu
+Mx
+MB
+MH
+MN
+MU
+Nd
+Nk
+Nr
+Nx
+ND
+NJ
+NP
 Ep
 Fc
 FL
@@ -40235,24 +40698,24 @@ aa
 aa
 aa
 aa
-ab
-ab
 aa
-aa
-aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
-aa
+fa
+fa
+Mp
+Ms
+Mv
+My
+MC
+MI
+MO
+MV
+Ne
+Nl
+Ns
+Ny
+NE
+NK
+NQ
 Ep
 Ep
 Ep
@@ -40493,23 +40956,23 @@ aa
 ab
 ab
 ab
-ab
-ab
-aa
-aa
-aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-aa
-aa
-aa
+fa
+fa
+Mq
+Mt
+Mw
+Mz
+MD
+MJ
+MP
+MW
+Nf
+Nm
+Nt
+Nz
+NF
+NL
+NR
 Eq
 Fd
 Fd
@@ -40757,11 +41220,11 @@ rn
 rn
 rn
 rn
-oR
-pk
-pk
-pk
-pk
+rq
+MQ
+MX
+Ng
+Nn
 qW
 rq
 rq
@@ -41016,7 +41479,7 @@ wP
 rn
 yl
 yO
-pl
+MY
 wd
 AT
 BC
@@ -41273,7 +41736,7 @@ wQ
 rn
 oT
 oA
-oA
+MZ
 Ao
 AU
 BD
@@ -45399,7 +45862,7 @@ FX
 GP
 zM
 zM
-II
+zM
 xk
 aa
 aa

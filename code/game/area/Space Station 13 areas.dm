@@ -1619,6 +1619,10 @@ area/space/atmosalert()
 	name = "\improper Miscellaneous Research"
 	icon_state = "toxmisc"
 
+/area/rnd/range
+	name = "\improper Science - Firing Range"
+	icon_state = "firingrange"
+
 /area/toxins
 	station_area = 1
 
