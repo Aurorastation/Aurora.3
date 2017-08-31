@@ -139,7 +139,9 @@
 			if (W != src)
 				W.receive(data)
 
-/obj/item/integrated_circuit/transfer/wireless/proc/receive(data)
+/obj/item/integrated_circuit/transfer/wireless/proc/receive(datum/data)
+	if (istype(data))
+		data = WEAKREF(data)
 	set_pin_data(IC_OUTPUT, 1, data)
 	push_data()
 	activate_pin(2)

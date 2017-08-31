@@ -14,12 +14,12 @@
 	inputs = list(
 		"target X rel" = IC_PINTYPE_NUMBER,
 		"target Y rel" = IC_PINTYPE_NUMBER
-		)
+	)
 	outputs = list()
 	activators = list(
 		"fire" = IC_PINTYPE_PULSE_IN
 	)
-	var/obj/item/weapon/gun/installed_gun = null
+	var/obj/item/weapon/gun/installed_gun
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 4)
 	power_draw_per_use = 50 // The targeting mechanism uses this.  The actual gun uses its own cell for firing if it's an energy weapon.
@@ -48,7 +48,7 @@
 		installed_gun.forceMove(get_turf(src))
 		user << "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>"
 		size = initial(size)
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+		playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 		installed_gun = null
 	else
 		user << "<span class='notice'>There's no weapon to remove from the mechanism.</span>"
@@ -57,48 +57,30 @@
 	if(!installed_gun)
 		return
 
-	var/datum/integrated_io/target_x = inputs[1]
-	var/datum/integrated_io/target_y = inputs[2]
+	var/target_x = get_pin_data(IC_INPUT, 1)
+	var/target_y = get_pin_data(IC_INPUT, 2)
 
-	if(src.assembly)
-		if(isnum(target_x.data))
-			target_x.data = round(target_x.data)
-		if(isnum(target_y.data))
-			target_y.data = round(target_y.data)
+	if (!isnum(target_x) || !isnum(target_y) || !assembly)
+		return
 
-		var/turf/T = get_turf(src.assembly)
+	target_x = round(target_x)
+	target_y = round(target_y)
 
-		if(target_x.data == 0 && target_y.data == 0) // Don't shoot ourselves.
-			return
+	if(target_x == 0 && target_y == 0) // Don't shoot ourselves.
+		return
 
-		// We need to do this in order to enable relative coordinates, as locate() only works for absolute coordinates.
-		var/i
-		if(target_x.data > 0)
-			i = abs(target_x.data)
-			while(i > 0)
-				T = get_step(T, EAST)
-				i--
-		else
-			i = abs(target_x.data)
-			while(i > 0)
-				T = get_step(T, WEST)
-				i--
+	var/turf/T = get_turf(assembly)
+	var/Tx = T.x + target_x
+	var/Ty = T.y + target_y
+	if (Tx > world.maxx || Tx < 1 || Ty > world.maxy || Ty < 1)
+		return	// Off the edge of the map.
 
-		i = 0
-		if(target_y.data > 0)
-			i = abs(target_y.data)
-			while(i > 0)
-				T = get_step(T, NORTH)
-				i--
-		else if(target_y.data < 0)
-			i = abs(target_y.data)
-			while(i > 0)
-				T = get_step(T, SOUTH)
-				i--
+	T = locate(Tx, Ty, T.z)
 
-		if(!T)
-			return
-		installed_gun.Fire_userless(T)
+	if(!T)
+		return
+
+	installed_gun.Fire_userless(T)
 
 /obj/item/integrated_circuit/manipulation/locomotion
 	name = "locomotion circuit"
