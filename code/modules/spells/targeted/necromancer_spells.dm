@@ -56,10 +56,10 @@
 	for(var/mob/living/M in targets)
 		if(M.stat == DEAD)
 			user << "There is no left life to steal."
-			return
+			return 0
 		if(isipc(M))
 			user << "There is no life to steal."
-			return
+			return 0
 		M.visible_message("<span class='danger'>Blood flows from \the [M] into \the [user]!</span>")
 		gibs(M.loc)
 		user.adjustBruteLoss(-15)
@@ -89,19 +89,19 @@
 	for(var/mob/living/target in targets)
 		if(!(target.stat == DEAD))
 			user << "This spell can't affect the living."
-			return
+			return 0
 
 		if(isskeleton(target))
 			user << "This spell can't affect the undead."
-			return
+			return 0
 
 		if(islesserform(target))
 			user << "This spell can't affect this lesser creature."
-			return
+			return 0
 
 		if(isipc(target))
 			user << "This spell can't affect non-organics."
-			return
+			return 0
 
 		var/mob/living/carbon/human/skeleton/F = new(get_turf(target))
 		target.visible_message("<span class='cult'>\The [target] explodes in a shower of gore, a skeleton emerges from the remains!</span>")
@@ -125,6 +125,8 @@
 		F.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/bone(F), slot_head)
 		F.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/bone(F), slot_wear_suit)
 
+		return 1
+
 /spell/targeted/lichdom
 	name = "Lichdom"
 	desc = "Trade your life and soul for immortality and power."
@@ -144,10 +146,11 @@
 
 	if(isskeleton(user))
 		user << "You have no soul or life to offer."
-		return
+		return 0
 
 	user.visible_message("<span class='cult'>\The [user]'s skin sloughs off bone, their blood boils and guts turn to dust!</span>")
 	gibs(user.loc)
+	playsound(src, 'sound/magic/pope_entry.ogg', 100, 1)
 	user.verbs += /mob/living/carbon/proc/dark_resurrection
 	user.set_species("Skeleton")
 	user.unEquip(user.wear_suit)
@@ -158,6 +161,8 @@
 	var/obj/item/phylactery/G = new(get_turf(user))
 	G.lich = user
 	G.icon_state = "cursedheart-on"
+
+	return 1
 
 /mob/living/carbon/proc/dark_resurrection()
 	set category = "Abilities"
@@ -200,6 +205,7 @@
 	src.reagents.clear_reagents()
 	src << "<span class='danger'>You have returned to life!</span>"
 	src.visible_message("<span class='cult'>[src] rises up from the dead!</span>")
+	playsound(src, 'sound/magic/pope_entry.ogg', 100, 1)
 	src.update_canmove()
 	src.verbs += /mob/living/carbon/proc/dark_resurrection
 	return 1
