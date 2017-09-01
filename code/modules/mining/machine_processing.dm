@@ -318,10 +318,6 @@
 	var/scan_rating = 0
 	var/cap_rating = 0
 	var/laser_rating = 0
-	if(!component_parts)
-		scan_rating = 1
-		cap_rating = 2
-		laser_rating = 2
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(isscanner(P))
@@ -332,4 +328,3 @@
 			laser_rating += P.rating
 
 	sheets_per_tick += scan_rating + cap_rating + laser_rating
-
