@@ -11,11 +11,6 @@
 	var/busy = 0
 	var/obj/machinery/computer/rdconsole/linked_console
 
-
-/obj/machinery/r_n_d/Initialize()
-	. = ..()
-	populate_components()
-
 /obj/machinery/r_n_d/attack_hand(mob/user as mob)
 	return
 
