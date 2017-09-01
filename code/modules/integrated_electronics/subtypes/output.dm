@@ -285,6 +285,7 @@
 	power_draw_idle = 0 // Raises to 1 when lit.
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/led_color
+	var/color_name
 
 /obj/item/integrated_circuit/output/led/on_data_written()
 	power_draw_idle = get_pin_data(IC_INPUT, 1) ? 1 : 0
@@ -302,41 +303,50 @@
 		text_output += "\an [name]"
 	else
 		text_output += "\an ["\improper[initial_name]"] labeled '[name]'"
-	text_output += " which is currently [get_pin_data(IC_INPUT, 1) ? "lit <font color=[led_color]>�</font>" : "unlit."]"
+	text_output += " which is currently [get_pin_data(IC_INPUT, 1) ? "lit <font color=[led_color]>[color_name]</font>" : "unlit."]"
 	to_chat(user,jointext(text_output,null))
 
 /obj/item/integrated_circuit/output/led/red
 	name = "red LED"
 	led_color = COLOR_RED
+	color_name = "red"
 
 /obj/item/integrated_circuit/output/led/orange
 	name = "orange LED"
 	led_color = COLOR_ORANGE
+	color_name = "orange"
 
 /obj/item/integrated_circuit/output/led/yellow
 	name = "yellow LED"
 	led_color = COLOR_YELLOW
+	color_name = "yellow"
 
 /obj/item/integrated_circuit/output/led/green
 	name = "green LED"
 	led_color = COLOR_GREEN
+	color_name = "green"
 
 /obj/item/integrated_circuit/output/led/blue
 	name = "blue LED"
 	led_color = COLOR_BLUE
+	color_name = "blue"
 
 /obj/item/integrated_circuit/output/led/purple
 	name = "purple LED"
 	led_color = COLOR_PURPLE
+	color_name = "purple"
 
 /obj/item/integrated_circuit/output/led/cyan
 	name = "cyan LED"
 	led_color = COLOR_CYAN
+	color_name = "cyan"
 
 /obj/item/integrated_circuit/output/led/white
 	name = "white LED"
 	led_color = COLOR_WHITE
+	color_name = "white"
 
 /obj/item/integrated_circuit/output/led/pink
 	name = "pink LED"
 	led_color = COLOR_PINK
+	color_name = "pink"

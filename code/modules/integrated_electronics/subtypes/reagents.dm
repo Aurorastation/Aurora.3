@@ -89,10 +89,17 @@
 	outside the machine if it is next to the machine.  Note that this cannot be used on entities."
 	flags = OPENCONTAINER
 	complexity = 8
-	inputs = list("source" = IC_PINTYPE_REF, "target" = IC_PINTYPE_REF, "injection amount" = IC_PINTYPE_NUMBER)
+	inputs = list(
+		"source" = IC_PINTYPE_REF,
+		"target" = IC_PINTYPE_REF,
+		"injection amount" = IC_PINTYPE_NUMBER
+	)
 	inputs_default = list("3" = 5)
 	outputs = list()
-	activators = list("transfer reagents" = IC_PINTYPE_PULSE_IN, "on transfer" = IC_PINTYPE_PULSE_OUT)
+	activators = list(
+		"transfer reagents" = IC_PINTYPE_PULSE_IN,
+		"on transfer" = IC_PINTYPE_PULSE_OUT
+	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 	var/transfer_amount = 10

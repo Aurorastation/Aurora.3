@@ -1,24 +1,29 @@
 /obj/item/integrated_circuit/memory
-	name = "memory chip"
-	desc = "This tiny chip can store one piece of data."
-	icon_state = "memory"
 	complexity = 1
+	category_text = "Memory"
+	power_draw_per_use = 1
+
+/obj/item/integrated_circuit/memory/storage
+	name = "memory chip"
+	icon_state = "memory"
+	desc = "This tiny chip can store one piece of data."
 	inputs = list()
 	outputs = list()
-	activators = list("set" = IC_PINTYPE_PULSE_IN, "on set" = IC_PINTYPE_PULSE_OUT)
-	category_text = "Memory"
+	activators = list(
+		"set" = IC_PINTYPE_PULSE_IN,
+		"on set" = IC_PINTYPE_PULSE_OUT
+	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 1
 	var/number_of_pins = 1
 
-/obj/item/integrated_circuit/memory/Initialize()
+/obj/item/integrated_circuit/memory/storage/Initialize()
 	for(var/i = 1 to number_of_pins)
 		inputs["input [i]"] = IC_PINTYPE_ANY // This is just a string since pins don't get built until ..() is called.
 		outputs["output [i]"] = IC_PINTYPE_ANY
 	complexity = number_of_pins
 	. = ..()
 
-/obj/item/integrated_circuit/memory/examine(mob/user)
+/obj/item/integrated_circuit/memory/storage/examine(mob/user)
 	..()
 	var/i
 	for (i in 1 to outputs.len)
@@ -32,21 +37,21 @@
 			data = O.data
 		to_chat(user, "\The [src] has [data] saved to address [i].")
 
-/obj/item/integrated_circuit/memory/do_work()
+/obj/item/integrated_circuit/memory/storage/do_work()
 	for(var/i = 1 to inputs.len)
 		var/data = get_pin_data(IC_INPUT, i)
-		set_pin_data(IC_OUTPUT, i, istype(data, /datum) ? WEAKREF(data) : data)
+		set_pin_data(IC_OUTPUT, i, isdatum(data) ? WEAKREF(data) : data)
 
 	activate_pin(2)
 
-/obj/item/integrated_circuit/memory/medium
+/obj/item/integrated_circuit/memory/storage/medium
 	name = "memory circuit"
 	desc = "This circuit can store four pieces of data."
 	icon_state = "memory4"
 	power_draw_per_use = 2
 	number_of_pins = 4
 
-/obj/item/integrated_circuit/memory/large
+/obj/item/integrated_circuit/memory/storage/large
 	name = "large memory circuit"
 	desc = "This big circuit can hold eight pieces of data."
 	icon_state = "memory8"
@@ -54,7 +59,7 @@
 	power_draw_per_use = 4
 	number_of_pins = 8
 
-/obj/item/integrated_circuit/memory/huge
+/obj/item/integrated_circuit/memory/storage/huge
 	name = "large memory stick"
 	desc = "This stick of memory can hold up up to sixteen pieces of data."
 	icon_state = "memory16"
@@ -64,13 +69,10 @@
 	power_draw_per_use = 8
 	number_of_pins = 16
 
-/obj/item/integrated_circuit/constant
+/obj/item/integrated_circuit/memory/constant
 	name = "constant chip"
 	desc = "This tiny chip can store one piece of data, which cannot be overwritten without disassembly."
 	icon_state = "memory"
-	category_text = "Memory"
-	complexity = 1
-	power_draw_per_use = 1
 	inputs = list()
 	outputs = list("output pin" = IC_PINTYPE_ANY)
 	activators = list(
@@ -81,11 +83,11 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/data
 
-/obj/item/integrated_circuit/constant/do_work()
+/obj/item/integrated_circuit/memory/constant/do_work()
 	set_pin_data(IC_OUTPUT, 1, data)
 	activate_pin(2)
 
-/obj/item/integrated_circuit/constant/attack_self(mob/user)
+/obj/item/integrated_circuit/memory/constant/attack_self(mob/user)
 	var/datum/integrated_io/O = outputs[1]
 	var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in list("string","number","ref", "null")
 	if(!CanInteract(user, physical_state))
@@ -113,7 +115,7 @@
 			data = null
 			to_chat(user, "<span class='notice'>You set \the [src]'s memory to absolutely nothing.</span>")
 
-/obj/item/integrated_circuit/constant/afterattack(atom/target, mob/living/user, proximity)
+/obj/item/integrated_circuit/memory/constant/afterattack(atom/target, mob/living/user, proximity)
 	if(accepting_refs && proximity)
 		var/datum/integrated_io/O = outputs[1]
 		data = WEAKREF(target)

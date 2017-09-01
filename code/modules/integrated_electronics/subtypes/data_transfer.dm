@@ -11,7 +11,10 @@
 	icon_state = "mux2"
 	inputs = list("input selection" = IC_PINTYPE_NUMBER)
 	outputs = list("output" = IC_PINTYPE_ANY)
-	activators = list("select" = IC_PINTYPE_PULSE_IN, "on select" = IC_PINTYPE_PULSE_OUT)
+	activators = list(
+		"select" = IC_PINTYPE_PULSE_IN,
+		"on select" = IC_PINTYPE_PULSE_OUT
+	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
 	var/number_of_inputs = 2
@@ -32,7 +35,7 @@
 	if(!isnull(input_index) && (input_index >= 1 && input_index < inputs.len))
 		output = get_pin_data(IC_INPUT, input_index + 1)
 
-	set_pin_data(IC_OUTPUT, 1, output)
+	set_pin_data(IC_OUTPUT, 1, isdatum(output) ? WEAKREF(output) : output)
 	push_data()
 	activate_pin(2)
 
@@ -60,9 +63,15 @@
 	If the output selection is outside the valid range then no output is given."
 	complexity = 2
 	icon_state = "dmux2"
-	inputs = list("output selection" = IC_PINTYPE_NUMBER, "input" = IC_PINTYPE_ANY)
+	inputs = list(
+		"output selection" = IC_PINTYPE_NUMBER,
+		"input" = IC_PINTYPE_ANY
+	)
 	outputs = list()
-	activators = list("select" = IC_PINTYPE_PULSE_IN, "on select" = IC_PINTYPE_PULSE_OUT)
+	activators = list(
+		"select" = IC_PINTYPE_PULSE_IN,
+		"on select" = IC_PINTYPE_PULSE_OUT
+	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
 	var/number_of_outputs = 2
@@ -79,6 +88,8 @@
 /obj/item/integrated_circuit/transfer/demultiplexer/do_work()
 	var/output_index = get_pin_data(IC_INPUT, 1)
 	var/output = get_pin_data(IC_INPUT, 2)
+	if (isdatum(output))
+		output = WEAKREF(output)
 
 	for(var/i = 1 to outputs.len)
 		set_pin_data(IC_OUTPUT, i, i == output_index ? output : null)

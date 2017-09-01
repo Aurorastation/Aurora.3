@@ -118,7 +118,7 @@
 		"F" = IC_PINTYPE_STRING,
 		"G" = IC_PINTYPE_STRING,
 		"H" = IC_PINTYPE_STRING
-		)
+	)
 	outputs = list("result" = IC_PINTYPE_STRING)
 	activators = list("concatenate" = IC_PINTYPE_PULSE_IN, "on concatenated" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH

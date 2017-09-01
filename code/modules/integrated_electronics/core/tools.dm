@@ -365,8 +365,7 @@
 	desc = "Machines can be quite forgetful without these."
 	icon_state = "box_memory"
 	spawn_types = list(
-		/obj/item/integrated_circuit/memory,
-		/obj/item/integrated_circuit/constant
+		/obj/item/integrated_circuit/memory
 	)
 
 /obj/item/weapon/storage/bag/circuits/mini/memory/all

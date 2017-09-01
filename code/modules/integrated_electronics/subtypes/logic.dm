@@ -3,13 +3,16 @@
 	desc = "This tiny chip will decide for you!"
 	extended_desc = "Logic circuits will treat a null, 0, and a \"\" string value as FALSE and anything else as TRUE."
 	complexity = 3
-	outputs = list("result")
+	outputs = list("result" = IC_PINTYPE_BOOLEAN)
 	activators = list("compare" = IC_PINTYPE_PULSE_IN)
 	category_text = "Logic"
 	power_draw_per_use = 1
 
 /obj/item/integrated_circuit/logic/binary
-	inputs = list("A","B")
+	inputs = list(
+		"A" = IC_PINTYPE_ANY,
+		"B" = IC_PINTYPE_ANY
+	)
 	activators = list(
 		"compare" = IC_PINTYPE_PULSE_IN,
 		"on true result" = IC_PINTYPE_PULSE_OUT,
@@ -30,7 +33,9 @@
 	return FALSE
 
 /obj/item/integrated_circuit/logic/unary
-	inputs = list("A")
+	inputs = list(
+		"A" = IC_PINTYPE_ANY
+	)
 	activators = list(
 		"compare" = IC_PINTYPE_PULSE_IN,
 		"on compare" = IC_PINTYPE_PULSE_OUT

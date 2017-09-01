@@ -14,7 +14,7 @@
 	can_be_asked_input = 1
 	inputs = list()
 	outputs = list()
-	activators = list("on pressed" = IC_PINTYPE_PULSE_IN)
+	activators = list("on pressed" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/input/button/ask_for_input(mob/user) //Bit misleading name for this specific use.
@@ -29,7 +29,7 @@
 	can_be_asked_input = 1
 	inputs = list()
 	outputs = list("on" = IC_PINTYPE_BOOLEAN)
-	activators = list("on toggle" = IC_PINTYPE_PULSE_IN)
+	activators = list("on toggle" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/input/toggle_button/ask_for_input(mob/user) // Ditto.
@@ -46,7 +46,7 @@
 	can_be_asked_input = 1
 	inputs = list()
 	outputs = list("number entered" = IC_PINTYPE_NUMBER)
-	activators = list("on entered" = IC_PINTYPE_PULSE_IN)
+	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
 
@@ -65,7 +65,7 @@
 	can_be_asked_input = 1
 	inputs = list()
 	outputs = list("string entered" = IC_PINTYPE_STRING)
-	activators = list("on entered" = IC_PINTYPE_PULSE_IN)
+	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
 
@@ -81,11 +81,11 @@
 	desc = "A very small version of the common medical analyser.  This allows the machine to know how healthy someone is."
 	icon_state = "medscan"
 	complexity = 4
-	inputs = list("\<REF\> target")
+	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(
 		"total health %" = IC_PINTYPE_NUMBER,
 		"total missing health" = IC_PINTYPE_NUMBER
-		)
+	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
@@ -111,7 +111,7 @@
 	This type is much more precise, allowing the machine to know much more about the target than a normal analyzer."
 	icon_state = "medscan_adv"
 	complexity = 12
-	inputs = list("\<REF\> target")
+	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(
 		"total health %"       = IC_PINTYPE_NUMBER,
 		"total missing health" = IC_PINTYPE_NUMBER,
@@ -150,7 +150,7 @@
 	desc = "This is needed for certain devices that demand a reference for a target to act upon.  This type only locates something \
 	that is holding the machine containing it."
 	inputs = list()
-	outputs = list("located ref")
+	outputs = list("located ref" = IC_PINTYPE_REF)
 	activators = list("locate" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 20
@@ -168,8 +168,8 @@
 	extended_desc = "The first pin requires a ref to a kind of object that you want the locator to acquire.  This means that it will \
 	give refs to nearby objects that are similar.  If more than one valid object is found nearby, it will choose one of them at \
 	random."
-	inputs = list("desired type ref")
-	outputs = list("located ref")
+	inputs = list("desired type ref" = IC_PINTYPE_REF)
+	outputs = list("located ref" = IC_PINTYPE_REF)
 	activators = list("locate" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 30
@@ -200,12 +200,16 @@
 	Meaning the default frequency is expressed as 1457, not 145.7.  To send a signal, pulse the 'send signal' activator pin."
 	icon_state = "signal"
 	complexity = 4
-	inputs = list("frequency" = IC_PINTYPE_NUMBER,"code" = IC_PINTYPE_NUMBER)
+	inputs = list(
+		"frequency" = IC_PINTYPE_NUMBER,
+		"code" = IC_PINTYPE_NUMBER
+	)
 	outputs = list()
 	activators = list(
 		"send signal" = IC_PINTYPE_PULSE_IN,
 		"on signal sent" = IC_PINTYPE_PULSE_OUT,
-		"on signal received" = IC_PINTYPE_PULSE_OUT)
+		"on signal received" = IC_PINTYPE_PULSE_OUT
+	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_MAGNET = 2)
 	power_draw_idle = 5
@@ -280,8 +284,14 @@
 	icon_state = "gps"
 	complexity = 4
 	inputs = list()
-	outputs = list("X"= IC_PINTYPE_NUMBER, "Y" = IC_PINTYPE_NUMBER)
-	activators = list("get coordinates" = IC_PINTYPE_PULSE_IN, "on get coordinates" = IC_PINTYPE_PULSE_OUT)
+	outputs = list(
+		"X"= IC_PINTYPE_NUMBER,
+		"Y" = IC_PINTYPE_NUMBER
+	)
+	activators = list(
+		"get coordinates" = IC_PINTYPE_PULSE_IN,
+		"on get coordinates" = IC_PINTYPE_PULSE_OUT
+	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 30
 
