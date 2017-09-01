@@ -35,7 +35,7 @@
 
 	w_class = 4
 	max_w_class = 2
-	can_hold = list() // any
+	can_hold = null // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
 
 /obj/item/weapon/storage/bag/trash/update_icon()
@@ -81,7 +81,7 @@
 
 	w_class = 4
 	max_w_class = 2
-	can_hold = list() // any
+	can_hold = null // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
 
 // -----------------------------

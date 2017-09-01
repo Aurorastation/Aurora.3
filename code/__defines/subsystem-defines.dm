@@ -80,3 +80,6 @@
 
 // -- SSmachinery --
 #define RECIPE_LIST(T) (SSmachinery.recipe_datums["[T]"])
+
+// -- SSlistener --
+#define GET_LISTENERS(id) (id ? SSlistener.listeners["[id]"] : null)

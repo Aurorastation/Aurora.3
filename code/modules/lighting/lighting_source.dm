@@ -85,6 +85,7 @@
 	if (!force)
 		return QDEL_HINT_IWILLGC
 
+#ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 // Picks either scheduled or instant updates based on current server load.
 #define INTELLIGENT_UPDATE(level)                      \
 	var/_should_update = needs_update == LIGHTING_NO_UPDATE; \
@@ -92,7 +93,7 @@
 		needs_update = level;                          \
 	}                                                  \
 	if (_should_update) {                              \
-		if (world.tick_usage > SSlighting.instant_tick_limit || SSlighting.force_queued) {	\
+		if (world.tick_usage > CURRENT_TICKLIMIT || SSlighting.force_queued) {	\
 			SSlighting.light_queue += src;              \
 		}                                               \
 		else {                                          \
@@ -100,6 +101,13 @@
 			needs_update = LIGHTING_NO_UPDATE;          \
 		}                                               \
 	}
+#else
+#define INTELLIGENT_UPDATE(level)           \
+	if (needs_update == LIGHTING_NO_UPDATE) \
+		SSlighting.light_queue += src;      \
+	if (needs_update < level)               \
+		needs_update = level;
+#endif
 
 // This proc will cause the light source to update the top atom, and add itself to the update queue.
 /datum/light_source/proc/update(atom/new_top_atom)
@@ -154,14 +162,17 @@
 /datum/light_source/proc/update_angle()
 	var/turf/T = get_turf(top_atom)
 
+	var/ndir
 	if (istype(top_atom, /mob) && top_atom:facing_dir)
-		old_direction = top_atom:facing_dir
+		ndir = top_atom:facing_dir
 	else
-		old_direction = top_atom.dir
+		ndir = top_atom.dir
 
 	// Don't do anything if nothing is different, trig ain't free.
-	if (T.x == cached_origin_x && T.y == cached_origin_y && old_direction == top_atom.dir)
+	if (T.x == cached_origin_x && T.y == cached_origin_y && old_direction == ndir)
 		return
+
+	old_direction = ndir
 
 	var/turf/front = get_step(T, old_direction)
 	facing_opaque = (front && front.has_opaque_atom)
@@ -344,9 +355,10 @@
 					Tcorners[i] = new /datum/lighting_corner(T, LIGHTING_CORNER_DIAGONAL[i])
 
 			if (!T.has_opaque_atom)
-				for (thing in Tcorners)
-					C = thing
-					corners[C] = 0
+				corners[Tcorners[1]] = 0
+				corners[Tcorners[2]] = 0
+				corners[Tcorners[3]] = 0
+				corners[Tcorners[4]] = 0
 
 		turfs += T
 

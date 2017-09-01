@@ -615,3 +615,28 @@ proc/get_nt_opposed()
 	else
 		usr << "<i>Shhhh</i>. It's a secret."
 	return
+
+/mob/verb/check_gamemode_probability()
+	set name = "Check Gamemode Probability"
+	set category = "OOC"
+
+	if(config.show_game_type_odd)
+		to_chat(src, "<b>Secret Mode Odds:</b>")
+		var/sum = 0
+		for(var/config_tag in config.probabilities_secret)
+			sum += config.probabilities_secret[config_tag]
+		for(var/config_tag in config.probabilities_secret)
+			if(config.probabilities_secret[config_tag] > 0)
+				var/percentage = round(config.probabilities_secret[config_tag] / sum * 100, 0.1)
+				to_chat(src, "[config_tag] [percentage]%")
+
+		to_chat(src, "<b>Mixed Secret Mode Odds:</b>")
+		sum = 0
+		for(var/config_tag in config.probabilities_mixed_secret)
+			sum += config.probabilities_mixed_secret[config_tag]
+		for(var/config_tag in config.probabilities_mixed_secret)
+			if(config.probabilities_mixed_secret[config_tag] > 0)
+				var/percentage = round(config.probabilities_mixed_secret[config_tag] / sum * 100, 0.1)
+				to_chat(src, "[config_tag] [percentage]%")
+	else
+		to_chat(src, "Displaying gamemode odds is disabled in the config.")

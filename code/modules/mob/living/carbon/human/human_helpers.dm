@@ -126,3 +126,16 @@
 				var/obj/item/organ/external/O = organs_by_name[BP]
 				if(O)
 					O.markings[M] = list("color" = mark_color, "datum" = mark_datum)
+
+// Helper proc that grabs whatever organ this humantype uses to see.
+// Usually eyes, but can be something else.
+// If `no_synthetic` is TRUE, returns null for mobs that are mechanical, or for mechanical eyes.
+/mob/living/carbon/human/proc/get_eyes(no_synthetic = FALSE)
+	if (!species.vision_organ || !species.has_organ[species.vision_organ] || (no_synthetic && (global.mechanical_species[get_species()])))
+		return null
+
+	var/obj/item/organ/O = internal_organs_by_name[species.vision_organ]
+	if (no_synthetic && O.status & ORGAN_ROBOT)
+		return null
+
+	return O

@@ -134,11 +134,11 @@
 							for(var/I in req_components)
 								if(istype(P, text2path(I)) && (req_components[I] > 0))
 									playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-									if(iscoil(P))
-										var/obj/item/stack/cable_coil/CP = P
+									if (istype(P, /obj/item/stack))
+										var/obj/item/stack/CP = P
 										if(CP.get_amount() > 1)
 											var/camt = min(CP.amount, req_components[I]) // amount of cable to take, idealy amount required, but limited by amount provided
-											var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(src)
+											var/obj/item/stack/CC = new CP.type(src)
 											CC.amount = camt
 											CC.update_icon()
 											CP.use(camt)
@@ -153,7 +153,7 @@
 									update_desc()
 									break
 							user << desc
-							if(P && P.loc != src && !iscoil(P))
+							if(P && P.loc != src && !istype(P, /obj/item/stack))
 								user << "<span class='warning'>You cannot add that component to the machine!</span>"
 
 

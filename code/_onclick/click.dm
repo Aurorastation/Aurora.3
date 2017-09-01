@@ -299,7 +299,7 @@
 /mob/living/LaserEyes(atom/A)
 	setClickCooldown(4)
 	var/turf/T = get_turf(src)
-
+	src.visible_message("<span class='danger'>\The [src]'s eyes flare with ruby light!</span>")
 	var/obj/item/projectile/beam/LE = new (T)
 	LE.muzzle_type = /obj/effect/projectile/eyelaser/muzzle
 	LE.tracer_type = /obj/effect/projectile/eyelaser/tracer

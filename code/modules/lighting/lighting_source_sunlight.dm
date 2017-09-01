@@ -1,6 +1,6 @@
-/datum/light_source/novis
+/datum/light_source/sunlight
 
-/datum/light_source/novis/update_corners()
+/datum/light_source/sunlight/update_corners()
 	var/update = FALSE
 
 	if (QDELETED(source_atom))
@@ -63,11 +63,14 @@
 	var/list/Tcorners
 	var/Sx = source_turf.x
 	var/Sy = source_turf.y
-	var/actual_range = light_range	// novis sources don't support directional lighting.
+	var/actual_range = light_range	// sunlight sources don't support directional lighting.
 
 	// We don't need no damn vis checks!
 	for (Tthing in RANGE_TURFS(Ceiling(light_range), source_turf))
 		T = Tthing
+		if (the_station_areas[T.loc])
+			continue
+
 		check_t:
 
 		if (T.dynamic_lighting || T.light_sources)
@@ -86,9 +89,10 @@
 					Tcorners[i] = new /datum/lighting_corner(T, LIGHTING_CORNER_DIAGONAL[i])
 
 			if (!T.has_opaque_atom)
-				for (thing in Tcorners)
-					C = thing
-					corners[C] = 0
+				corners[Tcorners[1]] = 0
+				corners[Tcorners[2]] = 0
+				corners[Tcorners[3]] = 0
+				corners[Tcorners[4]] = 0
 
 		turfs += T
 
@@ -157,19 +161,16 @@
 	UNSETEMPTY(effect_str)
 	UNSETEMPTY(affecting_turfs)
 
-/datum/light_source/novis/update_angle()
+/datum/light_source/sunlight/update_angle()
 	return
 
-#define QUEUE_UPDATE(level) \
-	var/_should_update = needs_update == LIGHTING_NO_UPDATE; \
-	if (needs_update < level) {        \
-		needs_update = level;          \
-	}                                  \
-	if (_should_update) {              \
-		SSlighting.light_queue += src; \
-	}
+#define QUEUE_UPDATE(level)                 \
+	if (needs_update == LIGHTING_NO_UPDATE) \
+		SSlighting.light_queue += src;      \
+	if (needs_update < level)               \
+		needs_update = level;
 
-/datum/light_source/novis/update(atom/new_top_atom)
+/datum/light_source/sunlight/update(atom/new_top_atom)
 	// This top atom is different.
 	if (new_top_atom && new_top_atom != top_atom)
 		if(top_atom != source_atom) // Remove ourselves from the light sources of that top atom.
@@ -184,10 +185,10 @@
 
 	QUEUE_UPDATE(LIGHTING_CHECK_UPDATE)
 
-/datum/light_source/novis/force_update()
+/datum/light_source/sunlight/force_update()
 	QUEUE_UPDATE(LIGHTING_FORCE_UPDATE)
 
-/datum/light_source/novis/vis_update()
+/datum/light_source/sunlight/vis_update()
 	QUEUE_UPDATE(LIGHTING_VIS_UPDATE)
 
 #undef QUEUE_UPDATE
