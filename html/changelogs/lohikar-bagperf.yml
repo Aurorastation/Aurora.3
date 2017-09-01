@@ -1,0 +1,5 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - experiment: "Storage code has been tweaked so ore bags should no longer take multiple seconds to fill/empty."
+  - tweak: "The ore summoner should actually transport useful amounts of ore now."
