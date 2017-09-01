@@ -62898,6 +62898,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/cargo_station)
 "cgm" = (
+/obj/structure/table/gamblingtable,
+/obj/item/weapon/storage/bag/circuits/basic,
+/turf/simulated/floor/tiled,
+/area/engineering/foyer)
+"cgn" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/bag/circuits/basic,
 /obj/item/device/integrated_electronics/debugger,
@@ -82292,7 +82297,7 @@ avr
 aCV
 aEF
 aGg
-aHV
+cgm
 aHV
 aLn
 aNc
@@ -88484,7 +88489,7 @@ bjw
 bkJ
 bin
 bnx
-cgm
+cgn
 aZK
 brj
 bsC
