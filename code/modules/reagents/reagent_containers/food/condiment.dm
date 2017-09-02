@@ -125,13 +125,13 @@
 	name = "universal enzyme"
 	desc = "Used in cooking various dishes."
 	icon_state = "enzyme"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("enzyme", 50)
 
 /obj/item/weapon/reagent_containers/food/condiment/sugar
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("sugar", 50)
 
 /obj/item/weapon/reagent_containers/food/condiment/saltshaker		//Seperate from above since it's a small shaker rather then
@@ -141,8 +141,8 @@
 	possible_transfer_amounts = list(1,20) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
 	volume = 20
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("sodiumchloride", 20)
 
 /obj/item/weapon/reagent_containers/food/condiment/peppermill
@@ -152,8 +152,8 @@
 	possible_transfer_amounts = list(1,20) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
 	volume = 20
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("blackpepper", 20)
 
 /obj/item/weapon/reagent_containers/food/condiment/flour
@@ -163,8 +163,8 @@
 	icon_state = "flour"
 	item_state = "flour"
 	volume = 220
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("flour", 200)
 		src.pixel_x = rand(-10.0, 10)
 		src.pixel_y = rand(-10.0, 10)
@@ -176,6 +176,6 @@
 	possible_transfer_amounts = list(1,40) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
 	volume = 40
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("spacespice", 40)
