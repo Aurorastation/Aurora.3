@@ -312,7 +312,7 @@ There is also a non-destrutive option, but... It's not as fun.
 		if(SAMPLE_CLONE)
 		if(SAMPLE_DEEPANALYZE)
 		if(SAMPLE_TO_DISK)
-		
+	return
 
 /obj/machinery/red/main
 	icon_state = "red_3_0"
