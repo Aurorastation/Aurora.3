@@ -35,7 +35,7 @@
 	var/secured_wires = 0
 	var/datum/wires/airlock/wires = null
 	var/obj/item/device/magnetic_lock/bracer = null
-	var/panel_visible_while_open = 0
+	var/panel_visible_while_open = FALSE
 
 	var/open_sound_powered = 'sound/machines/airlock.ogg'
 	var/close_sound_powered = 'sound/machines/AirlockClose.ogg'
@@ -139,7 +139,7 @@
 	explosion_resistance = 5
 	opacity = 0
 	glass = 1
-	panel_visible_while_open = 1
+	panel_visible_while_open = TRUE
 	hatch_colour = "#eaeaea"
 
 /obj/machinery/door/airlock/centcom
@@ -179,7 +179,7 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_vault
 	hashatch = 0
 	maxhealth = 800
-	panel_visible_while_open = 1
+	panel_visible_while_open = TRUE
 
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"

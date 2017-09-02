@@ -8,7 +8,7 @@
 	icon = 'icons/obj/doors/doorlift.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_lift
 	hashatch = 0
-	panel_visible_while_open = 1
+	panel_visible_while_open = TRUE
 
 	var/datum/turbolift/lift
 	var/datum/turbolift_floor/floor
