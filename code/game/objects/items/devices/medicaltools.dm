@@ -1,7 +1,6 @@
 /*
 Contains:
 - Handheld suit sensor monitor
-- Topical Spray
 - Space Klot
 
 */
@@ -26,20 +25,6 @@ Contains:
 
 /obj/item/device/handheld_medical/attack_self(mob/user)
 	crew_monitor.ui_interact(user)
-
-// TOPICAL SPRAY. For now it's only used for salving burns. Can be used for other topical medicines.
-/obj/item/weapon/reagent_containers/spray/chemsprayer/topical_spray/kelotane
-	name = "Topical sprayer"
-	desc = "A small can of medicine that applies a pre-loaded mixture of chemicals to the effected area. This version is loaded with topical kelotane."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "topicalspray"
-	w_class = 2
-	slot_flags = SLOT_BELT
-	volume = 120
-
-/obj/item/weapon/reagent_containers/spray/chemsprayer/topical_spray/kelotane/Initialize()
-	. = ..()
-	reagents.add_reagent("kelotanetopical", 120)
 
 // SPACE KLOT. This stops bleeding and has a small chance to stop some internal bleeding, but it will be locked behind a tech tree + does not disinfect like a normal bruise pack.
 /obj/item/stack/medical/advanced/bruise_pack/spaceklot
