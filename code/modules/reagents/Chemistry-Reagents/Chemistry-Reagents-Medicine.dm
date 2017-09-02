@@ -650,27 +650,3 @@
 
 /datum/reagent/ipecac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong
-
-/datum/reagent/kelotane/topical
-	name = "Kelotizol"
-	id = "kelotanetopical"
-	description = "Kelotizol is a drug used to treat burns. This version is derived from Kelotane and is applied to the skin."
-	reagent_state = LIQUID
-	color = "#FFA800"
-	overdose = 0
-	scannable = 1
-	taste_description = "bitterness"
-
-/datum/reagent/kelotane/topical/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // doesn't work in the blood.
-	return
-
-/datum/reagent/kelotane/topcial/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		for(var/obj/item/organ/external/E in H.organs)
-			if(!E.is_salved())
-				var/heal_burn = rand(2,5)
-				E.heal_damage(0,heal_burn)
-				E.salve()
-
-
