@@ -160,10 +160,7 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/proc/machinery_process()
-	. = process()
-
-/obj/machinery/process()//If you dont use process or power why are you here
+/obj/machinery/proc/machinery_process()	//If you dont use process or power why are you here
 	if(!(use_power || idle_power_usage || active_power_usage))
 		return PROCESS_KILL
 
