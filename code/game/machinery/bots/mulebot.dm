@@ -101,11 +101,11 @@
 
 		open = !open
 		if(open)
-			src.visible_message("[user] opens the maintenance hatch of [src]", "<span class='notice'>You open [src]'s maintenance hatch.</span>", "<span class='notice'>You hear a screwdriver sound.</span>")
+			src.visible_message("[user] opens the maintenance hatch of [src]", "<span class='notice'>You open [src]'s maintenance hatch.</span>")
 			on = 0
 			icon_state="mulebot-hatch"
 		else
-			src.visible_message("[user] closes the maintenance hatch of [src]", "<span class='notice'>You close [src]'s maintenance hatch.</span>", "<span class='notice'>You hear a screwdriver sound.</span>")
+			src.visible_message("[user] closes the maintenance hatch of [src]", "<span class='notice'>You close [src]'s maintenance hatch.</span>")
 			icon_state = "mulebot0"
 
 		updateDialog()
@@ -115,15 +115,14 @@
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			user.visible_message(
 				"<span class='notice'>\The [user] repairs \the [src]!</span>",
-				"<span class='notice'>You repair \the [src]!</span>",
-				, "<span class='notice'>You hear a ratchet.</span>"
+				"<span class='notice'>You repair \the [src]!</span>"
 			)
 		else
 			user << "<span class='notice'>[src] does not need a repair!</span>"
 	else if(load && ismob(load))  // chance to knock off rider
 		if(prob(1+I.force * 2))
 			unload(0)
-			user.visible_message("<span class='warning'>[user] knocks [load] off [src] with \the [I]!</span>", "<span class='warning'>You knock [load] off [src] with \the [I]!</span>", "<span class='warning'>You hear something being pushed!</span>")
+			user.visible_message("<span class='warning'>[user] knocks [load] off [src] with \the [I]!</span>", "<span class='warning'>You knock [load] off [src] with \the [I]!</span>")
 		else
 			user << "You hit [src] with \the [I] but to no effect."
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

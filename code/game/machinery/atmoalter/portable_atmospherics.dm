@@ -164,16 +164,16 @@
 		C.add_fingerprint(user)
 		cell = C
 		C.loc = src
-		user.visible_message("<span class='notice'>[user] opens the panel on [src] and inserts [C].</span>", "<span class='notice'>You open the panel on [src] and insert [C].</span>" ,"<span class='notice'>You hear what sounds like a battery being inserted.</span>" )
+		user.visible_message("<span class='notice'>[user] opens the panel on [src] and inserts [C].</span>", "<span class='notice'>You open the panel on [src] and insert [C].</span>")
 		power_change()
 		return
 
 	if(isscrewdriver(I))
 		if(!cell)
-			to_chat(user, "<span class='warning'>There is no power cell installed.</span>") 
+			user << "<span class='warning'>There is no power cell installed.</span>"
 			return
 
-		user.visible_message("<span class='notice'>[user] opens the panel on [src] and removes [cell].</span>", "<span class='notice'>You open the panel on [src] and remove [cell].</span>", "<span class='notice'>You hear what sounds like a battery being removed.</span>")
+		user.visible_message("<span class='notice'>[user] opens the panel on [src] and removes [cell].</span>", "<span class='notice'>You open the panel on [src] and remove [cell].</span>")
 		cell.add_fingerprint(user)
 		cell.loc = src.loc
 		cell = null
