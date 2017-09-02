@@ -574,7 +574,7 @@
 
 		CHECK_TICK
 
-	post_remove_from_storage_deferred(loc, user)
+	post_remove_from_storage_deferred(loc, usr)
 
 // Override this to fill the storage object with stuff.
 /obj/item/weapon/storage/proc/fill()
