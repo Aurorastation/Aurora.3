@@ -35,7 +35,7 @@
 	if(!isnull(input_index) && (input_index >= 1 && input_index < inputs.len))
 		output = get_pin_data(IC_INPUT, input_index + 1)
 
-	set_pin_data(IC_OUTPUT, 1, isdatum(output) ? WEAKREF(output) : output)
+	set_pin_data(IC_OUTPUT, 1, output)
 	push_data()
 	activate_pin(2)
 
@@ -88,8 +88,6 @@
 /obj/item/integrated_circuit/transfer/demultiplexer/do_work()
 	var/output_index = get_pin_data(IC_INPUT, 1)
 	var/output = get_pin_data(IC_INPUT, 2)
-	if (isdatum(output))
-		output = WEAKREF(output)
 
 	for(var/i = 1 to outputs.len)
 		set_pin_data(IC_OUTPUT, i, i == output_index ? output : null)
@@ -151,8 +149,6 @@
 				W.receive(data)
 
 /obj/item/integrated_circuit/transfer/wireless/proc/receive(datum/data)
-	if (istype(data))
-		data = WEAKREF(data)
 	set_pin_data(IC_OUTPUT, 1, data)
 	push_data()
 	activate_pin(2)

@@ -40,7 +40,7 @@
 /obj/item/integrated_circuit/memory/storage/do_work()
 	for(var/i = 1 to inputs.len)
 		var/data = get_pin_data(IC_INPUT, i)
-		set_pin_data(IC_OUTPUT, i, isdatum(data) ? WEAKREF(data) : data)
+		set_pin_data(IC_OUTPUT, i, data)
 
 	activate_pin(2)
 

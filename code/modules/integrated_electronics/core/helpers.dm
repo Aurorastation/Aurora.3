@@ -6,20 +6,26 @@
 		var/default_data = null
 		var/io_type_override = null
 		// Override the default data.
-		if(io_default_list && io_default_list.len) // List containing special pin types that need to be added.
+		if(LAZYLEN(io_default_list)) // List containing special pin types that need to be added.
 			default_data = io_default_list["[i]"] // This is deliberately text because the index is a number in text form.
+
 		// Override the pin type.
 		if(io_list_copy[io_entry])
 			io_type_override = io_list_copy[io_entry]
 
 		if(io_type_override)
-	//		world << "io_type_override is now [io_type_override] on [src]."
 			io_list += new io_type_override(src, io_entry, default_data)
 		else
 			io_list += new io_type(src, io_entry, default_data)
 
-/obj/item/integrated_circuit/proc/set_pin_data(pin_type, pin_number, new_data)
+/obj/item/integrated_circuit/proc/set_pin_data(pin_type, pin_number, datum/new_data)
+	if (istype(new_data) && !isweakref(new_data))
+		PROCLOG_WEIRD("converting hardref to [DEBUG_REF(new_data)] into weakref.")
+		new_data = WEAKREF(new_data)
+
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
+	if (!pin)
+		CRASH("Invalid pin ref.")
 	return pin.write_data_to_pin(new_data)
 
 /obj/item/integrated_circuit/proc/get_pin_data(pin_type, pin_number)

@@ -157,7 +157,7 @@
 
 /obj/item/integrated_circuit/input/local_locator/do_work()
 	if(assembly && istype(assembly.loc, /mob/living))
-		set_pin_data(IC_OUTPUT, 1, WEAKREF(assembly.loc))
+		set_pin_data(IC_OUTPUT, 1, assembly.loc)
 	else
 		set_pin_data(IC_OUTPUT, 1, null)
 
@@ -189,8 +189,7 @@
 		valid_things += thing
 
 	if(valid_things.len)
-		var/datum/thing = pick(valid_things)
-		set_pin_data(IC_OUTPUT, 1, WEAKREF(thing))
+		set_pin_data(IC_OUTPUT, 1, pick(valid_things))
 
 /obj/item/integrated_circuit/input/signaler
 	name = "integrated signaler"
@@ -369,7 +368,7 @@
 		if(istype(A, /obj/item/weapon/storage))
 			return FALSE
 
-	set_pin_data(IC_OUTPUT, 1, WEAKREF(A))
+	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
 	activate_pin(1)
 	return TRUE
