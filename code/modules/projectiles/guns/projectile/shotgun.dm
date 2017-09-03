@@ -67,7 +67,6 @@
 	else
 		item_state = "[icon_state]"
 	update_held_icon()
-	return
 
 /obj/item/weapon/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
