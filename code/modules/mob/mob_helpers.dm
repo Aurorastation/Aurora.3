@@ -71,17 +71,10 @@
 	return 0
 
 /proc/isipc(A)
+	. = 0
 	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
-			if ("Baseline Frame")
-				return 1
-			if ("Industrial Frame")
-				return 1
-			if ("Shell Frame")
-				return 1
-			if ("Hunter-Killer")
-				return 1
-	return 0
+		var/mob/living/carbon/human/H = A
+		. = !!global.mechanical_species[H.get_species()]
 
 /proc/isvox(A)
 	if(istype(A, /mob/living/carbon/human))

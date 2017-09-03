@@ -17,7 +17,7 @@
 	var/lock_time = 0          // When -will- we lock on?
 	var/active =    0          // Is our owner intending to take hostages?
 	var/target_permissions = 0 // Permission bitflags.
-
+	var/aimcooldown			   // How long untill we can re-aim?
 /obj/aiming_overlay/New(var/newowner)
 	..()
 	owner = newowner
@@ -133,6 +133,8 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 			owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
 
 /obj/aiming_overlay/proc/aim_at(var/mob/target, var/obj/thing)
+	if (aimcooldown > world.time)
+		return
 
 	if(!owner)
 		return
@@ -174,6 +176,9 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	owner.OnMove(CALLBACK(src, .proc/update_aiming))
 	aiming_at.OnMove(CALLBACK(src, .proc/target_moved))
 	aiming_at.OnDestroy(CALLBACK(src, .proc/cancel_aiming))
+
+/obj/aiming_overlay/proc/aim_cooldown(var/seconds)
+	aimcooldown = world.time + seconds SECONDS
 
 /obj/aiming_overlay/update_icon()
 	if(locked)
@@ -222,3 +227,4 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 /obj/aiming_overlay/proc/target_moved()
 	update_aiming()
 	trigger(TARGET_CAN_MOVE)
+

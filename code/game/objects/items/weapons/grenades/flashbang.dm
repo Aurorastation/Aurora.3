@@ -56,7 +56,7 @@
 				//Vaurca damage 15/01/16
 			var/mob/living/carbon/human/H = M
 			if(isvaurca(H))
-				var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+				var/obj/item/organ/eyes/E = H.get_eyes()
 				if(!E)
 					return
 				usr << span("alert", "Your eyes burn with the intense light of the flash!.")
@@ -102,7 +102,7 @@
 //This really should be in mob not every check
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+			var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
 			if (E && E.damage >= E.min_bruised_damage)
 				M << "<span class='danger'>Your eyes start to burn badly!</span>"
 				if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))

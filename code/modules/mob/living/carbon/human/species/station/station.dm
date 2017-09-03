@@ -391,6 +391,9 @@
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
 
+	inherent_eye_protection = FLASH_PROTECTION_MAJOR
+	eyes_are_impermeable = TRUE
+
 	name_language = "Encoded Audio Language"
 	num_alternate_languages = 2
 	secondary_langs = list("Encoded Audio Language")
@@ -461,6 +464,10 @@
 	stamina	= -1		  // Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1	  // About as capable of speed as a human
 
+	// Special snowflake machine vars.
+	var/sprint_temperature_factor = 1.15
+	var/sprint_charge_factor = 0.65
+
 datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	. = ..()
@@ -468,23 +475,22 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
-		H.bodytemperature += cost*1.15
-		H.nutrition -= cost*0.65
+		H.bodytemperature += cost * sprint_temperature_factor
+		H.nutrition -= cost * sprint_charge_factor
 		if (H.nutrition > 0)
 			return 1
 		else
-			H.Weaken(30)
+			H.Weaken(15)
 			H.m_intent = "walk"
 			H.hud_used.move_intent.update_move_icon(H)
-			H << span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in 60 seconds, initiate charging as primary directive.")
+			H << span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive.")
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
 	return 0
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
 	H.h_style = ""
-	spawn(100)
-		if(H) H.update_hair()
+	addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/update_hair), 100)
 
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
@@ -613,6 +619,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	slowdown = 1
 	darksight = 8 //USELESS
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
+	eyes_are_impermeable = TRUE
 	brute_mod = 0.5
 	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
 	toxins_mod = 2 //they're not used to all our weird human bacteria.
@@ -622,6 +629,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	hazard_low_pressure = 0
 	ethanol_resistance = 2
 	taste_sensitivity = TASTE_SENSITIVE
+	reagent_tag = IS_VAURCA
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
 	breath_type = "phoron"
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.

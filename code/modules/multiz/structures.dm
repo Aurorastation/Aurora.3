@@ -17,6 +17,7 @@
 	var/base_icon = "ladder"
 
 	var/const/climb_time = 2 SECONDS
+	var/static/list/climbsounds = list('sound/effects/ladder.ogg','sound/effects/ladder2.ogg','sound/effects/ladder3.ogg','sound/effects/ladder4.ogg')
 
 /obj/structure/ladder/Initialize()
 	. = ..()
@@ -54,15 +55,15 @@
 	var/obj/structure/ladder/target_ladder = getTargetLadder(M)
 	if(!target_ladder)
 		return
-	
+
 	var/obj/item/weapon/grab/G = M.l_hand
 	if (!istype(G))
 		G = M.r_hand
-	
+
 	if(!M.Move(get_turf(src)))
 		to_chat(M, "<span class='notice'>You fail to reach \the [src].</span>")
 		return
-	
+
 	if (istype(G))
 		G.affecting.forceMove(get_turf(src))
 
@@ -134,6 +135,8 @@
 		if(!A.CanPass(M, M.loc, 1.5, 0))
 			to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
 			return FALSE
+	playsound(src, pick(climbsounds), 50)
+	playsound(target_ladder, pick(climbsounds), 50)
 	var/obj/item/weapon/grab/G = M.l_hand
 	if (!istype(G))
 		G = M.r_hand

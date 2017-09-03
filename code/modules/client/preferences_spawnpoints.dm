@@ -44,7 +44,7 @@ var/list/spawntypes = list()
 /datum/spawnpoint/cyborg
 	display_name = "Cyborg Storage"
 	msg = "has been activated from storage"
-	restrict_job = list("Cyborg", "Merchant")
+	restrict_job = list("Cyborg")
 
 /datum/spawnpoint/cyborg/New()
 	..()
@@ -55,4 +55,5 @@ var/list/spawntypes = list()
 	restrict_job = list("Merchant")
 
 /datum/spawnpoint/merchant/New()
+	..()
 	turfs = latejoin_merchant

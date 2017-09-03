@@ -126,12 +126,8 @@ var/const/NO_EMAG_ACT = -50
 	return ..()
 
 /obj/item/weapon/card/id/examine(mob/user)
-	set src in oview(1)
-	if(in_range(usr, src))
-		show(usr)
-		usr << desc
-	else
-		usr << "<span class='warning'>It is too far away.</span>"
+	if (..(user, 1))
+		show(user)
 
 /obj/item/weapon/card/id/proc/prevent_tracking()
 	return 0
@@ -140,7 +136,7 @@ var/const/NO_EMAG_ACT = -50
 	if(front && side)
 		user << browse_rsc(front, "front.png")
 		user << browse_rsc(side, "side.png")
-	var/datum/browser/popup = new(user, "idcard", name, 600, 250)
+	var/datum/browser/popup = new(user, "idcard", name, 650, 260)
 	popup.set_content(dat())
 	popup.set_title_image(usr.browse_rsc_icon(src.icon, src.icon_state))
 	popup.open()
@@ -151,7 +147,9 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/weapon/card/id/proc/set_id_photo(var/mob/M)
 	front = getFlatIcon(M, SOUTH, always_use_defdir = 1)
+	front.Scale(128, 128)
 	side = getFlatIcon(M, WEST, always_use_defdir = 1)
+	side.Scale(128, 128)
 
 /mob/proc/set_id_info(var/obj/item/weapon/card/id/id_card)
 	id_card.age = 0
@@ -186,7 +184,7 @@ var/const/NO_EMAG_ACT = -50
 	if(mining_points)
 		dat += text("Ore Redemption Points: []<BR><BR>\n", mining_points)
 	if(front && side)
-		dat +="<td align = center valign = top>Photo:<br><img src=front.png height=80 width=80 border=4><img src=side.png height=80 width=80 border=4></td>"
+		dat +="<td align = center valign = top>Photo:<br><img src=front.png height=128 width=128 border=4><img src=side.png height=128 width=128 border=4></td>"
 	dat += "</tr></table>"
 	return dat
 

@@ -507,3 +507,37 @@
 	firemodes = list(
 		list(mode_name="spray", burst = 20, burst_delay = -1, fire_delay = 10, dispersion = list(0.5, 0.5, 1.0, 1.0, 1.5, 1.5, 2.0, 2.0, 2.5, 2.5, 3.0, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.0, 6.0)),
 		)*/
+
+/obj/item/weapon/gun/energy/tesla
+	name = "tesla gun"
+	desc = "A gun that shoots a projectile that bounces from living thing to living thing. Keep your distance from whatever you are shooting at."
+	icon_state = "tesla"
+	icon = 'icons/obj/gun.dmi'
+	charge_meter = 0
+	w_class = 4
+	fire_sound = 'sound/magic/LightningShock.ogg'
+	force = 30
+	projectile_type = /obj/item/projectile/energy/tesla
+	slot_flags = SLOT_BACK
+	max_shots = 3
+	sel_mode = 1
+	fire_delay = 10
+	accuracy = 80
+	muzzle_flash = 15
+
+/obj/item/weapon/gun/energy/gravity_gun
+	name = "gravity gun"
+	desc = "This nifty gun disables the gravity in the area you shoot at. Use with caution."
+	icon_state = "gravity_gun"
+	icon = 'icons/obj/gun.dmi'
+	charge_meter = 0
+	w_class = 4
+	fire_sound = 'sound/magic/Repulse.ogg'
+	force = 30
+	projectile_type = /obj/item/projectile/energy/gravitydisabler
+	slot_flags = SLOT_BACK
+	max_shots = 2
+	sel_mode = 1
+	fire_delay = 20
+	accuracy = 40
+	muzzle_flash = 10
