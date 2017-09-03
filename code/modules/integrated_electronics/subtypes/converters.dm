@@ -59,8 +59,8 @@
 /obj/item/integrated_circuit/converter/ref2text/do_work()
 	var/result = null
 	pull_data()
-	var/atom/A = get_pin_data(IC_INPUT, 1)
-	if(A && istype(A))
+	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+	if(A)
 		result = A.name
 
 	set_pin_data(IC_OUTPUT, 1, result)

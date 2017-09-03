@@ -150,8 +150,13 @@
 	desc = "This is needed for certain devices that demand a reference for a target to act upon.  This type only locates something \
 	that is holding the machine containing it."
 	inputs = list()
-	outputs = list("located ref" = IC_PINTYPE_REF)
-	activators = list("locate" = IC_PINTYPE_PULSE_IN)
+	outputs = list(
+		"located ref" = IC_PINTYPE_REF
+	)
+	activators = list(
+		"locate" = IC_PINTYPE_PULSE_IN,
+		"on locate" = IC_PINTYPE_PULSE_OUT
+	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 20
 
@@ -160,6 +165,8 @@
 		set_pin_data(IC_OUTPUT, 1, assembly.loc)
 	else
 		set_pin_data(IC_OUTPUT, 1, null)
+
+	activate_pin(2)
 
 /obj/item/integrated_circuit/input/adjacent_locator
 	name = "adjacent locator"
