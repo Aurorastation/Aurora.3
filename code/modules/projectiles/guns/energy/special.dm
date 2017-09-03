@@ -35,7 +35,7 @@
 	icon_state = "decloner"
 	item_state = "decloner"
 	fire_sound = 'sound/weapons/pulse3.ogg'
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_POWER = 3)
+	origin_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 4, TECH_POWER = 3)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/energy/declone
 
@@ -193,6 +193,7 @@
 	icon_state = "bfg"
 	item_state = "bfg"
 	charge_meter = 0
+	origin_tech = list(TECH_COMBAT = 20)
 	w_class = 4
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 30
@@ -210,7 +211,7 @@
 	icon_state = "gatling"
 	item_state = "gatling"
 	fire_sound = 'sound/weapons/Laser.ogg'
-	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6)
+	origin_tech = list(TECH_COMBAT = 7, TECH_PHORON = 5, TECH_MATERIAL = 6)
 	charge_meter = 0
 	slot_flags = SLOT_BACK
 	w_class = 4
@@ -272,7 +273,7 @@
 	desc = "An elegant weapon for a more civilized time."
 	icon_state = "blaster"
 	item_state = "blaster"
-	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
+	origin_tech = list(TECH_COMBAT = 4, TECH_PHORON = 4)
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
@@ -461,6 +462,7 @@
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = 4
+	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	force = 15
 	projectile_type = /obj/item/projectile/beam/thermaldrill
 	max_shots = 90
@@ -519,6 +521,7 @@
 	force = 30
 	projectile_type = /obj/item/projectile/energy/tesla
 	slot_flags = SLOT_BACK
+	origin_tech = list(TECH_COMBAT = 11)
 	max_shots = 3
 	sel_mode = 1
 	fire_delay = 10
@@ -536,6 +539,7 @@
 	force = 30
 	projectile_type = /obj/item/projectile/energy/gravitydisabler
 	slot_flags = SLOT_BACK
+	origin_tech = list(TECH_COMBAT = 15)
 	max_shots = 2
 	sel_mode = 1
 	fire_delay = 20

@@ -48,7 +48,7 @@
 	icon_state = "laser"
 	item_state = "laser"
 	fire_sound = 'sound/weapons/Laser.ogg'
-	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/beam
 
 	firemodes = list()
@@ -60,9 +60,8 @@
 	icon_state = "lasercannon"
 	item_state = "lasercannon"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	origin_tech = "combat=4;materials=3;powerstorage=3"
 	projectile_type = /obj/item/projectile/beam/heavylaser
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
+	origin_tech = list(TECH_COMBAT = 10, TECH_MATERIAL = 3, TECH_POWER = 3)
 	charge_cost = 400
 	max_shots = 5
 	fire_delay = 40
@@ -77,7 +76,7 @@
 	item_state = "xray"
 	fire_sound = 'sound/weapons/laser3.ogg'
 	projectile_type = /obj/item/projectile/beam/xray
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 40
 	
 /obj/item/weapon/gun/energy/rifle/pulse
@@ -88,7 +87,7 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
-	origin_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 6, TECH_MAGNET = 4)
+	origin_tech = list(TECH_COMBAT = 18, TECH_MATERIAL = 6, TECH_MAGNET = 4)
 	
 	modifystate = null
 

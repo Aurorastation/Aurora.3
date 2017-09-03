@@ -4,7 +4,7 @@
 	icon_state = "revolver"
 	item_state = "revolver"
 	caliber = "357"
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/a357
@@ -36,7 +36,7 @@
 /obj/item/weapon/gun/projectile/revolver/mateba
 	name = "mateba"
 	icon_state = "mateba"
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	origin_tech = list(TECH_COMBAT = 13, TECH_MATERIAL = 2)
 
 /obj/item/weapon/gun/projectile/revolver/detective
 	name = "revolver"

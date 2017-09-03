@@ -140,7 +140,7 @@
 	name = "Lawgiver"
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
 	id = "lawgiver"
-	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_BLUESPACE = 5, TECH_MATERIAL = 7)
+	req_tech = list(TECH_COMBAT = 13, TECH_PHORON = 4, TECH_BLUESPACE = 5, TECH_MATERIAL = 7)
 	build_type = PROTOLATHE
 	materials = list(DEFAULT_WALL_MATERIAL = 6000, "glass" = 1000, "uranium" = 1000, "phoron" = 1000, "diamond" = 3000)
 	build_path = /obj/item/weapon/gun/energy/lawgiver

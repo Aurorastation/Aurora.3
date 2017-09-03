@@ -27,7 +27,7 @@
 	name = "advanced energy gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
 	icon_state = "nucgun"
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 3)
+	origin_tech = list(TECH_COMBAT = 9, TECH_MATERIAL = 5, TECH_POWER = 3)
 	slot_flags = SLOT_BELT
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
