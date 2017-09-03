@@ -16,6 +16,8 @@
 	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_BLUESPACE = 7)
 	self_recharge = 1
 	charge_meter = 0
+	pin = /obj/item/device/firing_pin/magic
+
 
 obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
@@ -187,6 +189,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	projectile_type = /obj/item/projectile/magic
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5, TECH_BLUESPACE = 6)
 	charge_meter = 0
+	pin = /obj/item/device/firing_pin/magic
 
 /obj/item/weapon/gun/energy/wand/handle_click_empty(mob/user = null)
 	if (user)

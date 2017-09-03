@@ -166,6 +166,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define RAD_SHIELDED 1 //shielded from radiation, clearly
 #define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
 #define HIDE_FROM_HOLOMAP 4 // if we shouldn't be drawn on station holomaps
+#define FIRING_RANGE	8
 
 // Custom layer definitions, supplementing the default TURF_LAYER, MOB_LAYER, etc.
 #define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6

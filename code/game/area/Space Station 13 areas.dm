@@ -1457,6 +1457,7 @@ area/space/atmosalert()
 /area/security/range
 	name = "\improper Security - Firing Range"
 	icon_state = "firingrange"
+	flags = FIRING_RANGE
 
 /area/security/tactical
 	name = "\improper Security - Tactical Equipment"
@@ -1620,8 +1621,9 @@ area/space/atmosalert()
 	icon_state = "toxmisc"
 
 /area/rnd/range
-	name = "\improper Science - Firing Range"
+	name = "\improper Science Test Range."
 	icon_state = "firingrange"
+	flags = FIRING_RANGE
 
 /area/toxins
 	station_area = 1

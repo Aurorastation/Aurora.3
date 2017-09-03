@@ -16,6 +16,7 @@
 	var/obj/item/weapon/gun/gun
 
 
+
 /obj/item/device/firing_pin/New(newloc)
 	..()
 	if(istype(newloc, /obj/item/weapon/gun))
@@ -80,10 +81,11 @@
 	origin_tech = "combat=2;materials=2"
 
 /obj/item/device/firing_pin/test_range/pin_auth(mob/living/user)
-	for(var/obj/machinery/magnetic_controller/M in range(user, 3))
+	var/area/A = get_area(src)
+	if (A && A.flags & FIRING_RANGE)
 		return 1
-	return 0
-
+	else
+		return 0
 
 // Implant pin, checks for implant
 /obj/item/device/firing_pin/implant
@@ -187,3 +189,9 @@
 	if(gun)
 		gun.pin = null
 	return ..()
+
+obj/item/weapon/gun/Destroy()
+	if (istype(pin))
+		QDEL_NULL(pin)
+
+
