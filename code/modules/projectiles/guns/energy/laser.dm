@@ -90,7 +90,7 @@ obj/item/weapon/gun/energy/retro
 	icon_state = "sniper"
 	item_state = "sniper"
 	fire_sound = 'sound/weapons/marauder.ogg'
-	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
+	origin_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 5, TECH_POWER = 4)
 	projectile_type = /obj/item/projectile/beam/sniper
 	slot_flags = SLOT_BACK
 	charge_cost = 400

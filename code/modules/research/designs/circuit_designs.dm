@@ -418,7 +418,7 @@
 /datum/design/circuit/mecha/gygax_targ
 	name = "'Gygax' weapon control and targeting"
 	id = "gygax_targ"
-	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 2)
+	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 4)
 	build_path = /obj/item/weapon/circuitboard/mecha/gygax/targeting
 	sort_string = "NAACC"
 
@@ -439,7 +439,7 @@
 /datum/design/circuit/mecha/durand_targ
 	name = "'Durand' weapon control and targeting"
 	id = "durand_targ"
-	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 2)
+	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 4)
 	build_path = /obj/item/weapon/circuitboard/mecha/durand/targeting
 	sort_string = "NAADC"
 

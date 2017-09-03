@@ -211,7 +211,7 @@
 	icon_state = "gatling"
 	item_state = "gatling"
 	fire_sound = 'sound/weapons/Laser.ogg'
-	origin_tech = list(TECH_COMBAT = 7, TECH_PHORON = 5, TECH_MATERIAL = 6)
+	origin_tech = list(TECH_COMBAT = 11, TECH_PHORON = 5, TECH_MATERIAL = 6)
 	charge_meter = 0
 	slot_flags = SLOT_BACK
 	w_class = 4
@@ -273,7 +273,7 @@
 	desc = "An elegant weapon for a more civilized time."
 	icon_state = "blaster"
 	item_state = "blaster"
-	origin_tech = list(TECH_COMBAT = 4, TECH_PHORON = 4)
+	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4)
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
@@ -521,7 +521,7 @@
 	force = 30
 	projectile_type = /obj/item/projectile/energy/tesla
 	slot_flags = SLOT_BACK
-	origin_tech = list(TECH_COMBAT = 11)
+	origin_tech = list(TECH_COMBAT = 15)
 	max_shots = 3
 	sel_mode = 1
 	fire_delay = 10

@@ -56,6 +56,7 @@
 	force = 10
 	icon_state = "crossbowlarge"
 	item_state = "crossbow"
+	origin_tech = list(TECH_COMBAT = 5, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
 	matter = list(DEFAULT_WALL_MATERIAL = 200000)
 	projectile_type = /obj/item/projectile/energy/bolt/large
 	

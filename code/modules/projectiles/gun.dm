@@ -123,6 +123,10 @@
 		else
 			handle_click_empty(user)
 		return 0
+	if(prob((100 - reliability)))
+		reliability_fail(user, (100 - reliability))
+		return 0
+
 	return 1
 
 /obj/item/weapon/gun/emp_act(severity)
@@ -274,6 +278,20 @@
 	P.damage *= damage_mult
 	//you can't miss at point blank..
 	P.can_miss = 1
+
+/obj/item/weapon/gun/reliability_fail(var/mob/user, var/severity)
+	if(prob(40+severity))
+		switch_firemodes()
+	else if(prob(10+severity))
+		var/obj/P = consume_next_projectile()
+		if(P)
+			if(process_projectile(P, user, user, pick("l_foot", "r_foot")))
+				handle_post_fire(user, user)
+				user.visible_message(
+					"<span class='danger'>\The [user] shoots \himself in the foot with \the [src]!</span>",
+					"<span class='danger'>You shoot yourself in the foot with \the [src]!</span>"
+					)
+				user.drop_item()
 
 /obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
 	var/obj/item/projectile/P = projectile
