@@ -32,9 +32,6 @@
 	..()
 	charge = 0
 	repair = -5
-	if(!component_parts)
-		charge = 45
-		repair = 0
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(iscapacitor(P))

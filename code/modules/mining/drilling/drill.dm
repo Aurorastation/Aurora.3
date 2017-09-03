@@ -251,8 +251,7 @@
 	harvest_speed = 0
 	capacity = 0
 	charge_use = 50
-	if(!component_parts)
-		populate_components()
+
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(ismicrolaser(P))
 			harvest_speed = P.rating
