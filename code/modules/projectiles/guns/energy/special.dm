@@ -512,6 +512,7 @@
 	name = "tesla gun"
 	desc = "A gun that shoots a projectile that bounces from living thing to living thing. Keep your distance from whatever you are shooting at."
 	icon_state = "tesla"
+	item_state = "tesla"
 	icon = 'icons/obj/gun.dmi'
 	charge_meter = 0
 	w_class = 4
@@ -529,6 +530,7 @@
 	name = "gravity gun"
 	desc = "This nifty gun disables the gravity in the area you shoot at. Use with caution."
 	icon_state = "gravity_gun"
+	item_state = "gravity_gun"
 	icon = 'icons/obj/gun.dmi'
 	charge_meter = 0
 	w_class = 4
