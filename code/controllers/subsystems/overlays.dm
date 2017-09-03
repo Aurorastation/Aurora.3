@@ -35,7 +35,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 	while(idex <= processing.len)
 		var/atom/thing = processing[idex++]
 
-		if(!QDELETED(thing))
+		if(!QDELETED(thing) && thing.overlay_queued)	// Don't double-process if something already forced a compile.
 			thing.compile_overlays()
 
 		if(mc_check)
