@@ -30,3 +30,8 @@
 /mob/living/Destroy()
 	death_listeners = null
 	return ..()
+
+/mob/living/death(gibbed, deathmessage = "seizes up and falls limp...")
+	. = ..()
+	if (.)
+		RaiseOnDeath(gibbed)
