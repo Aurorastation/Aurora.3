@@ -7,6 +7,13 @@
 		if (callback.object && callback.object != GLOBAL_PROC)
 			callback.object.OnDestroy(CALLBACK(src, .proc/UnregisterOnMove, callback.object))
 
+		var/atom/movable/parent = loc
+		var/atom/movable/child = src
+		while (istype(parent) && (!parent.move_listeners || !(parent.move_listeners[child])))
+			parent.OnMove(CALLBACK(child, .proc/recursive_move))
+			child = parent
+			parent = child.loc
+
 /atom/movable/proc/UnregisterOnMove(object)
 	if (!move_listeners)
 		return FALSE
