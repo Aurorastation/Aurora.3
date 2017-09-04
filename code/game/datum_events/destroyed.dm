@@ -3,8 +3,6 @@
 
 /datum/proc/OnDestroy(datum/callback/callback)
 	LAZYSET(destroy_listeners, callback.object, callback)
-	if (callback.object && callback.object != GLOBAL_PROC)
-		callback.object.OnDestroy(CALLBACK(src, .proc/UnregisterOnDestroy, callback.object))
 
 /datum/proc/UnregisterOnDestroy(object)
 	if (!destroy_listeners)
