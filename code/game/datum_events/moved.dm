@@ -52,3 +52,9 @@
 	var/turf/T = get_turf(new_loc)
 	if (T && T != loc)
 		forceMove(T)
+
+/atom/movable/forceMove(atom/dest)
+	var/oldloc = loc
+	. = ..()
+	if (. && move_listeners)
+		RaiseOnMove(src, oldloc, loc)
