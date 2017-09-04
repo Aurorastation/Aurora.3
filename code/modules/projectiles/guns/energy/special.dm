@@ -159,7 +159,7 @@
 			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
 			M.apply_effect(300, IRRADIATE)
 		//crit_fail = 1 //break the gun so it stops recharging
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 		update_icon()
 	return 0
 
