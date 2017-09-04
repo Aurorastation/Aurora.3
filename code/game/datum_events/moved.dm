@@ -21,9 +21,11 @@
 	if (!move_listeners)
 		return FALSE
 
+	. = 0
 	for (var/thing in move_listeners)
 		var/datum/callback/cb = move_listeners[thing]
 		cb.InvokeAsync(source, old_loc, new_loc)
+		.++
 
 /atom/Entered(atom/movable/AM, atom/old_loc)
 	. = ..()
@@ -33,7 +35,7 @@
 /atom/movable/Entered(atom/movable/AM, atom/old_loc)
 	. = ..()
 	if (AM.move_listeners && !(move_listeners && move_listeners[AM]))
-		OnMove(AM, .proc/recursive_move)
+		OnMove(CALLBACK(AM, .proc/recursive_move))
 
 /atom/movable/proc/recursive_move(atom/movable/AM, old_loc, new_loc)
 	if (move_listeners)
