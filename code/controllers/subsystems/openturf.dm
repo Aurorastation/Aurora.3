@@ -20,6 +20,8 @@
 	var/list/openspace_overlays = list()
 	var/list/openspace_turfs = list()
 
+	var/starlight_enabled = FALSE
+
 /datum/controller/subsystem/openturf/New()
 	NEW_SS_GLOBAL(SSopenturf)
 
@@ -67,8 +69,21 @@
 	..("Q:{T:[queued_turfs.len - (qt_idex - 1)]|O:[queued_overlays.len - (qo_idex - 1)]} T:{T:[openspace_turfs.len]|O:[openspace_overlays.len]}")
 
 /datum/controller/subsystem/openturf/Initialize(timeofday)
+	starlight_enabled = config.starlight && config.openturf_starlight_permitted
 	// Flush the queue.
 	fire(FALSE, TRUE)
+	if (starlight_enabled)
+		var/t = REALTIMEOFDAY
+		admin_notice("<span class='danger'>Openturf setup completed in [(t - timeofday)/10] seconds!</span>", R_DEBUG)
+
+		SSlighting.fire(FALSE, TRUE)
+		admin_notice("<span class='danger'>Secondary lighting flush completed in [(REALTIMEOFDAY - t)/10] seconds!")
+
+		t = REALTIMEOFDAY
+
+		fire(FALSE, TRUE)	// Fire /again/ to flush updates caused by the above.
+		admin_notice("<span class='danger'>Secondary openturf flush completed in [(REALTIMEOFDAY - t)/10] seconds!")
+
 	..()
 
 /datum/controller/subsystem/openturf/fire(resumed = FALSE, no_mc_tick = FALSE)
@@ -116,12 +131,12 @@
 		// Handle space parallax & starlight.
 		if (T.is_above_space())
 			T.plane = PLANE_SPACE_BACKGROUND
-			/*if (config.starlight)	// Openturf starlight is broken. SSlighting and SSopenturf will fight if this is un-commented-out. Maybe someone will fix it someday.
-				T.set_light(config.starlight, 0.5)*/
+			if (starlight_enabled && !T.light_range)
+				T.set_light(config.starlight, 0.5)
 		else
 			T.plane = OPENTURF_MAX_PLANE - depth
-			/*if (config.starlight && T.light_range != 0)
-				T.set_light(0)*/
+			if (starlight_enabled && T.light_range)
+				T.set_light(0)
 
 		// Add everything below us to the update queue.
 		for (var/thing in T.below)
