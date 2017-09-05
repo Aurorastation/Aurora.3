@@ -77,12 +77,12 @@
 		admin_notice("<span class='danger'>Openturf setup completed in [(t - timeofday)/10] seconds!</span>", R_DEBUG)
 
 		SSlighting.fire(FALSE, TRUE)
-		admin_notice("<span class='danger'>Secondary lighting flush completed in [(REALTIMEOFDAY - t)/10] seconds!")
+		admin_notice("<span class='danger'>Secondary lighting flush completed in [(REALTIMEOFDAY - t)/10] seconds!</span>", R_DEBUG)
 
 		t = REALTIMEOFDAY
 
 		fire(FALSE, TRUE)	// Fire /again/ to flush updates caused by the above.
-		admin_notice("<span class='danger'>Secondary openturf flush completed in [(REALTIMEOFDAY - t)/10] seconds!")
+		admin_notice("<span class='danger'>Secondary openturf flush completed in [(REALTIMEOFDAY - t)/10] seconds!</span>", R_DEBUG)
 
 	..()
 
