@@ -192,11 +192,11 @@
 			if ("help")
 				var/html = ""
 				html += "A character's signature can be augmented with the following tags:<br>"
-				html += "<ul><li><i>Italics</i> - \[i\]text\[\\i\]</li>"
-				html += "<li><b>Bold</b> - \[b\]text\[\\b\]</li>"
-				html += "<li><u>Underline</u> - \[u\]text\[\\u\]</li>"
-				html += "<li><font size='4'>Large text</font> - \[large\]text\[\\large\]</li>"
-				html += "<li><font size='1'>Small text</font> - \[small\]text\[\\small\]</li></ul>"
+				html += "<ul><li><i>Italics</i> - \[i\]text\[/i\]</li>"
+				html += "<li><b>Bold</b> - \[b\]text\[/b\]</li>"
+				html += "<li><u>Underline</u> - \[u\]text\[/u\]</li>"
+				html += "<li><font size='4'>Large text</font> - \[large\]text\[/large\]</li>"
+				html += "<li><font size='1'>Small text</font> - \[small\]text\[/small\]</li></ul>"
 				html += "<br><br>Beyond that, a maximum of 100 symbols are allowed for the signature text."
 				html += " Note that this includes mark-up symbols."
 
