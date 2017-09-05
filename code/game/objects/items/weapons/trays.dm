@@ -240,7 +240,9 @@
 	I.forceMove(src)
 	current_weight += I.w_class
 	carrying += I
-	add_overlay(I)
+	var/mutable_appearance/MA = new(I)
+	MA.layer = FLOAT_LAYER
+	add_overlay(MA)
 	//rand(0, (max_offset_y*2)-3)-(max_offset_y)-3
 
 /obj/item/weapon/tray/verb/unload()
