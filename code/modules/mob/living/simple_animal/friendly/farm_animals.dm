@@ -297,4 +297,3 @@
 			qdel(src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
-		STOP_PROCESSING(SSprocessing, src)
