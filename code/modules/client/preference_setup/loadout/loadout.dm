@@ -67,6 +67,8 @@ var/list/gear_datums = list()
 				if(is_alien_whitelisted(preference_mob, species))
 					. += gear_name
 					break
+		else
+			+= gear_name
 
 /datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
 	if (sql_load)
