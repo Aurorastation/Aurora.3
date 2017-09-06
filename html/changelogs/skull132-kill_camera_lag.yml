@@ -1,5 +1,0 @@
-author: Skull132
-delete-after: true
-
-changes:
-  - bugfix: "Cameras will no longer lag the server to death whenever you click to jump to a turf that's outside the station."
