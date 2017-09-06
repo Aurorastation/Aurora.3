@@ -68,7 +68,7 @@ var/list/gear_datums = list()
 					. += gear_name
 					break
 		else
-			+= gear_name
+			.+= gear_name
 
 /datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
 	if (sql_load)
