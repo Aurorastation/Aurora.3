@@ -506,7 +506,7 @@
 
 	src.set_light(4,-20)
 
-	CALLBACK(src, /atom/.proc/set_light, 0)
+	addtimer(CALLBACK(src, /atom/.proc/set_light, 0))
 
 /mob/living/carbon/human/proc/darkness_eyes()
 	set category = "Abilities"
