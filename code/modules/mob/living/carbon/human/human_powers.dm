@@ -483,10 +483,6 @@
 		src << "<span class='danger'>You're still regaining your strength!</span>"
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		src << "<span class='warning'>You cannot do that in your current state.</span>"
-		return
-
 	last_special = world.time + 50
 
 	visible_message("<span class='danger'>\The [src] shrieks!</span>")
@@ -504,17 +500,13 @@
 		src << "<span class='danger'>You're still regaining your strength!</span>"
 		return
 
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		src << "<span class='warning'>You cannot do that in your current state.</span>"
-		return
-
 	last_special = world.time + 100
 
 	playsound(src.loc, 'sound/species/shadow/grue_growl.ogg', 100, 1)
 
 	src.set_light(4,-20)
 
-	addtimer(CALLBACK(src, .proc/uncreate_darkness, src), 30 SECONDS)
+	CALLBACK(src, /atom/.proc/set_light, 0)
 
 /mob/living/carbon/human/proc/uncreate_darkness()
 	src.set_light(0)
@@ -523,10 +515,6 @@
 	set category = "Abilities"
 	set name = "Toggle Shadow Vision"
 	set desc = "Toggle between seeing shadows or not."
-
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		src << "<span class='warning'>You cannot do that in your current state.</span>"
-		return
 
 	if (!stop_sight_update)
 		src << "<span class='notice'>Your eyes shift around, allowing you to see in the dark.</span>"
@@ -554,7 +542,7 @@
 		src << "<span class='warning'>You cannot do that.</span>"
 		return
 
-	if (!istype(loc, /turf))
+	if(!isturf(loc))
 		to_chat(src, "<span class='warning'>You cannot teleport out of your current location.</span>")
 		return
 
@@ -570,7 +558,7 @@
 
 	visible_message("<span class='danger'>\The [src] vanishes into the shadows!</span>")
 
-	anim(get_turf(loc), loc,'icons/mob/mob.dmi',,"shadow",,loc.dir)
+	anim(get_turf(loc), loc,'icons/mob/mob.dmi',,"shadow", null ,loc.dir)
 
 	forceMove(T)
 

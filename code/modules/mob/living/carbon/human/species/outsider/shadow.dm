@@ -96,9 +96,9 @@
 	if(H.mind)
 		H.mind.assigned_role = "Shadow"
 		H.mind.special_role = "Shadow"
-	H.real_name = "Grue"
+	H.real_name = "grue"
 	H.name = H.real_name
 	..()
 
 /datum/species/shadow/get_random_name()
-	return "Grue"
+	return "grue"
