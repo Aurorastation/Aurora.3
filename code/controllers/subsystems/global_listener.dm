@@ -24,5 +24,4 @@ var/datum/controller/subsystem/listener/SSlistener
 		listeners[L.channel] -= L
 	
 	if (!LAZYLEN(listeners[L.channel]))
-		listeners[L.channel] = null
 		listeners -= L.channel
