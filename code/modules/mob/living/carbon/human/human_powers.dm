@@ -508,9 +508,6 @@
 
 	CALLBACK(src, /atom/.proc/set_light, 0)
 
-/mob/living/carbon/human/proc/uncreate_darkness()
-	src.set_light(0)
-
 /mob/living/carbon/human/proc/darkness_eyes()
 	set category = "Abilities"
 	set name = "Toggle Shadow Vision"
@@ -532,10 +529,6 @@
 
 	if(last_special > world.time)
 		src << "<span class='danger'>You're still regaining your strength!</span>"
-		return
-
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		src << "<span class='warning'>You cannot do that in your current state.</span>"
 		return
 
 	if (!T || T.density || T.contains_dense_objects())
