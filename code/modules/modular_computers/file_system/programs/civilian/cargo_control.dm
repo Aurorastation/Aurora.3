@@ -15,6 +15,7 @@
 	var/last_user_name = "" //Name of the User that last used the computer
 	var/status_message = null //A status message that can be displayed
 	var/list/order_details = list() //Order Details for the order
+	var/list/shipment_details = list() //Shipment Details for a selected shipment
 
 /datum/nano_module/program/civilian/cargocontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
@@ -58,6 +59,13 @@
 
 	if(page == "order_details")
 		data["order_details"] = order_details
+
+
+	if(page == "overview_shipments")
+		data["shipment_list"] = list() //TODO: Fetch completed shipments from SScargo
+	
+	if(page == "shipment_details")
+		data["shipment_details"] = shipment_details
 
 
 	data["cargo_money"] = SScargo.get_cargo_money()
@@ -112,6 +120,11 @@
 				//Fetch the order details and store it for the order. No need to fetch it again every 2 seconds
 				var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_details"]))
 				order_details = co.get_list()
+			if("overview_shipments") //Overview of the shipments to / from the station
+				page = "overview_shipments"
+			if("shipment_details") //Details of a Shipment to / from the station
+				page = "shipment_details"
+
 			if("settings")
 				page = "settings" //Settings page that allows to tweak various settings such as the cargo handling fee
 			else

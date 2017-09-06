@@ -79,12 +79,24 @@ var/datum/controller/subsystem/cargo/SScargo
 /*
 	Loading Data 
 */
+//Reset cargo to prep for loading in new items
+/datum/controller/subsystem/caregory/proc/reset_cargo()
+	cargo_shipments = list() //List of the shipments to the station
+	current_shipment = null // The current cargo shipment
+	cargo_items = list() //The list of items
+	cargo_categories = list() //The list of categories
+	cargo_suppliers = list() //The list of suppliers
+	all_orders = list() //All orders
+
 //Load the cargo data from SQL
 /datum/controller/subsystem/cargo/proc/load_from_sql()
 	if(!establish_db_connection(dbcon))
 		log_debug("Cargo: SQL ERROR - Failed to connect. - Falling back to JSON")
 		return load_from_json()
 	else
+		//Reset the currently loaded data
+		reset_cargo()
+
 		//Populate the items missing a name or a description with the missing name / description
 		var/DBQuery/item_null_query = dbcon.NewQuery("SELECT path, name, description, suppliers, id FROM ss13_cargo_items WHERE (name IS NULL OR description IS NULL OR suppliers IS NULL) AND deleted_at IS NULL" )
 		item_null_query.Execute()
@@ -217,6 +229,9 @@ var/datum/controller/subsystem/cargo/SScargo
 	catch(var/exception/e)
 		log_debug("Cargo: Warning: Could not load config, as cargo.json is missing - [e]")
 		return
+
+	//Reset the currently loaded data
+	reset_cargo()
 
 	//Load the cargo categories
 	for (var/category in cargoconfig["categories"])

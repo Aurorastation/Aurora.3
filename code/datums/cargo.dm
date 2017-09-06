@@ -358,6 +358,7 @@
 	var/supplier //Supplier the item has been ordered from
 	var/price //Price of the item with the given supplier
 	var/item_id //Item id in the order
+	//TODO: Maybe add the option to set a fake item for traitors here -> So that cargo cant see what they are really ordering
 
 //Calculate Price
 /datum/cargo_order_item/proc/calculate_price()
@@ -399,6 +400,7 @@
 	var/shuttle_time //The time the shuttle took to get to the station
 	var/shuttle_called_by //The person that called the shuttle
 	var/shuttle_recalled_by //The person that recalled the shuttle
+	var/completed = 0
 
 // Generates the invoice at the time of shipping
 /datum/cargo_shipment/proc/generate_invoice()
@@ -415,10 +417,14 @@
 	invoice_data += "shuttle recalled by: [shuttle_recalled_by]<br>"
 
 	shipment_invoice = invoice_data.Join("")
+	completed = 1
 	return shipment_invoice
 
 // Returns the invoice. Generates it if it does not exist
 /datum/cargo_shipment/proc/get_invoice()
 	if(!shipment_invoice)
-		generate_invoice()
+		if(completed == 1)
+			generate_invoice()
+		else
+			return "Invoice Unavailable. Shipment not completed."
 	return shipment_invoice
