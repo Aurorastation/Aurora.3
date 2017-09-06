@@ -669,9 +669,6 @@
 	..()
 	var/scan_rating = 0
 	var/cap_rating = 0
-	if(!component_parts)
-		scan_rating = 2
-		cap_rating = 3
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(isscanner(P))

@@ -26,6 +26,9 @@ var/global/list/global_map = null
 // Noises made when hit while typing.
 var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
 
+//Map levels for the crew suit sensors. Make sure you update this for different maps.
+var/list/map_levels = list(3,4,6)
+
 
 var/diary               = null
 var/diary_runtime  = null

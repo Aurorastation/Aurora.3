@@ -24,7 +24,6 @@
 		)
 /obj/machinery/sleeper/Initialize()
 	. = ..()
-	populate_components() // has a beaker so it needs to populate
 	update_icon()
 
 /obj/machinery/sleeper/machinery_process()
@@ -50,8 +49,6 @@
 	..()
 	var/scan_rating = 0
 	var/cap_rating = 0
-	if(!component_parts) 
-		populate_components()
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(isscanner(P))

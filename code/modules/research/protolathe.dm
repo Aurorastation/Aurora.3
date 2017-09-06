@@ -56,8 +56,6 @@
 	return t
 
 /obj/machinery/r_n_d/protolathe/RefreshParts()
-	if(!component_parts)
-		populate_components()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
 	for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
