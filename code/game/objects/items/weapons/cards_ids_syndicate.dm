@@ -65,13 +65,13 @@
 	unset_registered_user()
 	registered_user = user
 	user.set_id_info(src)
-	destroyed_event.register(user, src, /obj/item/weapon/card/id/syndicate/proc/unset_registered_user)
+	user.OnDestroy(CALLBACK(src, .proc/unset_registered_user))
 	return TRUE
 
 /obj/item/weapon/card/id/syndicate/proc/unset_registered_user(var/mob/user)
 	if(!registered_user || (user && user != registered_user))
 		return
-	destroyed_event.unregister(registered_user, src)
+	registered_user.UnregisterOnDestroy(src)
 	registered_user = null
 
 /obj/item/weapon/card/id/syndicate/CanUseTopic(mob/user)
