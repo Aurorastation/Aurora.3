@@ -83,6 +83,9 @@
 
 			if (isopenturf(victim.loc))
 				victim.fall_through()
+			else if (locate(/obj/structure/stairs) in victim.loc)
+				victim.multiz_falling = 0
+				falling -= victim
 			else
 				// This is a lookahead. It removes any lag from being moved onto
 				// the destination turf, and calling fall_impact.
