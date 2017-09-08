@@ -12,7 +12,7 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/ringer/wifi_receiver
 	var/on = TRUE
-	var/department = "Hop's harem" //whatever department/desk you put this thing
+	var/department = "HOP's harem" //whatever department/desk you put this thing
 
 /obj/machinery/ringer/Initialize()
 	. = ..()
@@ -92,7 +92,7 @@
 		if (pda.toff || pda.message_silent)
 			continue
 
-		var/message = "Notification from [department]!"
+		var/message = "Notification from the [department]!"
 		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
 
 /obj/machinery/ringer/proc/remove_pda(var/obj/item/device/pda/pda)
