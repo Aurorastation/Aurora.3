@@ -657,6 +657,9 @@
 		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
 		return
 
+	if (!vampire_can_affect_target(T, 1, 1))
+		return
+
 	if (!T.client || !T.mind)
 		to_chat(src, "<span class='warning'>[T]'s mind is empty and useless. They cannot be forced into a blood bond.</span>")
 		return
