@@ -31,6 +31,7 @@
 /obj/item/device/flashlight/lantern
 	name = "lantern"
 	icon_state = "lantern"
+	item_state = "lantern"
 	desc = "A mining lantern."
 	light_power = 1
 	brightness_on = 6
