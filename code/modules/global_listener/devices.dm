@@ -149,16 +149,6 @@
 //-------------------------------
 /datum/wifi/receiver/button/igniter/activate(mob/living/user)
 	..()
-	var/obj/machinery/ringer/F = parent
-	if(istype(F))
-		F.ring_pda()
-
-//-------------------------------
-// Ringer
-// Rings pdas and things.
-//-------------------------------
-/datum/wifi/receiver/button/ringer/wifi_receiver/activate(mob/living/user)
-	..()
 	var/obj/machinery/igniter/I = parent
 	if(istype(I))
 		if(!I.on)
@@ -169,6 +159,16 @@
 		var/obj/machinery/igniter/I = parent
 		if(I.on)
 			I.ignite()
+
+//-------------------------------
+// Ringer
+// Rings pdas and things.
+//-------------------------------
+/datum/wifi/receiver/button/ringer/wifi_receiver/activate(mob/living/user)
+	..()
+	var/obj/machinery/ringer/F = parent
+	if(istype(F))
+		F.ring_pda()
 
 //-------------------------------
 // Sparker

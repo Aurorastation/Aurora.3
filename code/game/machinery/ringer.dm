@@ -32,10 +32,10 @@
 	if(stat & NOPOWER)
 		icon_state = "bell_off"
 		return
-	if(!on)
-		icon_state = "bell_off"
 	if (rings_pdas || rings_pdas.len)
 		icon_state = "bell_active"
+	if(!on)
+		icon_state = "bell_off"
 	else
 		icon_state = "bell_standby"
 
@@ -52,6 +52,7 @@
 			return
 		usr << "<span class='notice'>You link \the [C] to \the [src], it will now ring upon someone using \the [src].</span>"
 		rings_pdas += C
+		C.OnDestroy(CALLBACK(src, .proc/remove_pda, C))
 		update_icon()
 
 	else
@@ -94,6 +95,10 @@
 		var/message = "Notification from [department]!"
 		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
 
+/obj/machinery/ringer/proc/remove_pda(var/obj/item/device/pda/pda)
+	if (istype(pda))
+		rings_pdas -= pda
+
 /obj/machinery/button/ringer
 	name = "ringer button"
 	desc = "Use this to get someone's attention, or to annoy them."
@@ -103,19 +108,13 @@
 	if(..())
 		return
 
-	use_power(5)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-	active = 1
-	icon_state = "launcheract"
+	use_power(5)
 
 	for(var/obj/machinery/ringer/M in SSmachinery.all_machines)
 		if(M.id == src.id)
 			spawn()
 				M.ring_pda()
-
-	sleep(50)
-
-	icon_state = "launcherbtt"
-	active = 0
 
 	return
