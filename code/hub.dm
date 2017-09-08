@@ -1,6 +1,6 @@
 /world
 	hub = "Exadv1.spacestation13"
-	name = "Space Station 13"
+	name = "maidbot"
 #ifdef HUB_ENABLED
 	hub_password = "kMZy3U5jJHSiBQjr"
 #else
