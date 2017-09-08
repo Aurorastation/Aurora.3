@@ -10,7 +10,7 @@
 /obj/machinery/porta_turret
 	name = "turret"
 	icon = 'icons/obj/turrets.dmi'
-	icon_state = "turretCover"
+	icon_state = "cover"
 	anchored = 1
 
 	density = 0
@@ -162,27 +162,25 @@
 var/list/turret_icons
 
 /obj/machinery/porta_turret/update_icon()
-	if(!turret_icons)
-		turret_icons = list()
-		turret_icons["open"] = image(icon, "openTurretCover")
-
+	cut_overlays()
 	underlays.Cut()
-	underlays += turret_icons["open"]
 
-	if(stat & BROKEN)
-		icon_state = "destroyed_target_prism"
-	else if(raised || raising)
+	if(raised || raising)
+		icon_state = "turret_laser"
+		underlays += "cover_open"
 		if(powered() && enabled)
 			if(iconholder)
 				//lasers have a orange icon
-				icon_state = "orange_target_prism"
+				add_overlay("target_prism_lethal")
 			else
 				//almost everything has a blue icon
-				icon_state = "target_prism"
-		else
-			icon_state = "grey_target_prism"
+				add_overlay("target_prism_stun")
+	else if(stat & BROKEN)
+		icon_state = "turret_laser"
+		add_overlay("destroyed")
+		underlays += "cover_open"
 	else
-		icon_state = "turretCover"
+		icon_state = "cover"
 
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
@@ -558,6 +556,7 @@ var/list/turret_icons
 		return
 	set_raised_raising(raised, 1)
 	update_icon()
+	compile_overlays()
 
 	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
@@ -580,6 +579,7 @@ var/list/turret_icons
 		return
 	set_raised_raising(raised, 1)
 	update_icon()
+	compile_overlays()
 
 	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
@@ -680,7 +680,7 @@ var/list/turret_icons
 /obj/machinery/porta_turret_construct
 	name = "turret frame"
 	icon = 'icons/obj/turrets.dmi'
-	icon_state = "turret_frame"
+	icon_state = "turret_frame_1"
 	density=1
 	var/target_type = /obj/machinery/porta_turret	// The type we intend to build
 	var/build_step = 0			//the current step in the building process
@@ -713,7 +713,7 @@ var/list/turret_icons
 				if(M.use(2))
 					user << "<span class='notice'>You add some metal armor to the interior frame.</span>"
 					build_step = 2
-					icon_state = "turret_frame2"
+					icon_state = "turret_frame_2"
 				else
 					user << "<span class='warning'>You need two sheets of metal to continue construction.</span>"
 				return
