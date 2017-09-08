@@ -4,6 +4,7 @@
 	item_state = "gun"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)
 	sel_mode = 1
+	var/mode_check = 1
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
 	var/dna	= null//dna-locking the firearm
 	var/emagged = 0 //if the gun is emagged or not
@@ -16,88 +17,88 @@
 
 	firemodes = list(
 		list(
-			mode_name="singleshot",
-			charge_cost=50,
-			fire_delay=3,
-			recoil=1,
-			burst=null,
-			move_delay=null,
+			mode_name = "singleshot",
+			charge_cost = 50,
+			fire_delay = 3,
+			recoil = 1,
+			burst = null,
+			move_delay = null,
 			accuracy = null,
 			dispersion = null,
-			projectile_type=/obj/item/projectile/bullet/pistol,
-			fire_sound='sound/weapons/Gunshot_smg.ogg'
+			projectile_type = /obj/item/projectile/bullet/pistol,
+			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 		),
 		list(
-			mode_name="rapidfire",
-			charge_cost=150,
-			fire_delay=3,
-			recoil=1,
-			burst=3,
-			move_delay=4,
+			mode_name = "rapidfire",
+			charge_cost = 150,
+			fire_delay = 3,
+			recoil = 1,
+			burst = 3,
+			move_delay = 4,
 			accuracy = list(0,-1,-1,-2,-2),
 			dispersion = list(0.0, 0.6, 1.0),
-			projectile_type=/obj/item/projectile/bullet/pistol,
-			fire_sound='sound/weapons/Gunshot_smg.ogg'
+			projectile_type = /obj/item/projectile/bullet/pistol,
+			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 		),
 		list(
-			mode_name="highex",
-			charge_cost=400,
-			fire_delay=6,
-			recoil=3,
-			burst=null,
-			move_delay=null,
+			mode_name = "highex",
+			charge_cost = 400,
+			fire_delay = 6,
+			recoil = 3,
+			burst = null,
+			move_delay = null,
 			accuracy = null,
 			dispersion = null,
-			projectile_type=/obj/item/projectile/bullet/gyro/law,
-			fire_sound='sound/effects/Explosion1.ogg'
+			projectile_type = /obj/item/projectile/bullet/gyro/law,
+			fire_sound = 'sound/effects/Explosion1.ogg'
 		),
 		list(
-			mode_name="stun",
-			charge_cost=50,
-			fire_delay=4,
-			recoil=0,
-			burst=null,
-			move_delay=null,
+			mode_name = "stun",
+			charge_cost = 50,
+			fire_delay = 4,
+			recoil = 0,
+			burst = null,
+			move_delay = null,
 			accuracy = null,
 			dispersion = null,
-			projectile_type=/obj/item/projectile/beam/stun,
-			fire_sound='sound/weapons/Taser.ogg'
+			projectile_type = /obj/item/projectile/beam/stun,
+			fire_sound = 'sound/weapons/Taser.ogg'
 		),
 		list(
-			mode_name="hotshot",
-			charge_cost=250,
-			fire_delay=4,
-			recoil=3,
-			burst=null,
-			move_delay=null,
+			mode_name = "hotshot",
+			charge_cost = 250,
+			fire_delay = 4,
+			recoil = 3,
+			burst = null,
+			move_delay = null,
 			accuracy = null,
 			dispersion = null,
-			projectile_type=/obj/item/projectile/bullet/shotgun/incendiary,
-			fire_sound='sound/weapons/Gunshot.ogg'
+			projectile_type = /obj/item/projectile/bullet/shotgun/incendiary,
+			fire_sound = 'sound/weapons/Gunshot.ogg'
 		),
 		list(
-			mode_name="armorpiercing",
-			charge_cost=130,
-			fire_delay=6,
-			recoil=3,
-			burst=null,
-			move_delay=null,
+			mode_name = "armorpiercing",
+			charge_cost = 130,
+			fire_delay = 6,
+			recoil = 3,
+			burst = null,
+			move_delay = null,
 			accuracy = null,
 			dispersion = null,
-			projectile_type=/obj/item/projectile/bullet/rifle/a556,
-			fire_sound='sound/weapons/Gunshot.ogg'
+			projectile_type = /obj/item/projectile/bullet/rifle/a556,
+			fire_sound = 'sound/weapons/Gunshot.ogg'
 		),
 		list(
-			mode_name="pellets",
-			charge_cost=250,
-			fire_delay=6,
-			recoil=3,
-			burst=null,
-			move_delay=null,
+			mode_name = "pellets",
+			charge_cost = 250,
+			fire_delay = 6,
+			recoil = 3,
+			burst = null,
+			move_delay = null,
 			accuracy = null,
 			dispersion = null,
-			projectile_type=/obj/item/projectile/bullet/pellet/shotgun,
-			fire_sound='sound/weapons/Gunshot.ogg'
+			projectile_type = /obj/item/projectile/bullet/pellet/shotgun,
+			fire_sound = 'sound/weapons/Gunshot.ogg'
 		)
 	)
 
@@ -214,6 +215,7 @@
 		message_disable = 0
 		play_message()
 	
-	var/datum/firemode/new_mode = firemodes[sel_mode]
-	new_mode.apply_to(src)
-	return
+	if(mode_check != sel_mode)
+		var/datum/firemode/new_mode = firemodes[sel_mode]
+		new_mode.apply_to(src)
+		mode_check = sel_mode
