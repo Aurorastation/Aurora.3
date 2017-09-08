@@ -354,6 +354,9 @@
 
 /datum/reagent/nutriment/flour/touch_turf(var/turf/simulated/T)
 	if(!istype(T, /turf/space))
+		for(var/obj/effect/decal/cleanable/flour in T.contents)
+			return
+
 		new /obj/effect/decal/cleanable/flour(T)
 
 /datum/reagent/nutriment/coco
