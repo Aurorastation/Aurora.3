@@ -88,6 +88,8 @@
 	if (!rings_pdas || !rings_pdas.len)
 		return
 
+	playsound(src.loc, 'sound/machines/ringer.ogg', 50, 1)
+
 	for (var/obj/item/device/pda/pda in rings_pdas)
 		if (pda.toff || pda.message_silent)
 			continue
