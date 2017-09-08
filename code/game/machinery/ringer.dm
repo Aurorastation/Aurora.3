@@ -1,5 +1,5 @@
 /obj/machinery/ringer
-	name = "ringer"
+	name = "A ringer terminal, PDAs can be linked to it."
 	desc = "It rings shit."
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "bell_standby"
@@ -11,6 +11,8 @@
 	var/list/obj/item/device/pda/rings_pdas = list() //A list of PDAs to alert upon someone touching the machine
 	var/_wifi_id
 	var/datum/wifi/receiver/button/ringer/wifi_receiver
+	var/on = TRUE
+	var/department = "Hop's harem" //whatever department/desk you put this thing
 
 /obj/machinery/ringer/Initialize()
 	. = ..()
@@ -30,6 +32,8 @@
 	if(stat & NOPOWER)
 		icon_state = "bell_off"
 		return
+	if(!on)
+		icon_state = "bell_off"
 	if (rings_pdas || rings_pdas.len)
 		icon_state = "bell_active"
 	else
@@ -64,13 +68,21 @@
 	if(stat & (BROKEN|NOPOWER) || !istype(usr,/mob/living))
 		return
 
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(!on)
+		user << "<span class='notice'>Your turn \the [src] on, now all pdas linked to it will be notified.</span>"
+		on = TRUE
 
-	ring_pda()
+	else
+		user << "<span class='notice'>Your turn \the [src] off.</span>"
+		on = FALSE
+
+	update_icon()
 
 	return
 
 /obj/machinery/ringer/proc/ring_pda()
+	if(!on)
+		return
 
 	if (!rings_pdas || !rings_pdas.len)
 		return
@@ -79,12 +91,12 @@
 		if (pda.toff || pda.message_silent)
 			continue
 
-		var/message = "Your pda rings!"
+		var/message = "Notification from [department]!"
 		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
 
 /obj/machinery/button/ringer
-	name = "ringer"
-	desc = "DING DING MOTHERFUCKER."
+	name = "ringer button"
+	desc = "Use this to get someone's attention, or to annoy them."
 
 /obj/machinery/button/ringer/attack_hand(mob/user as mob)
 
@@ -97,12 +109,9 @@
 	icon_state = "launcheract"
 
 	for(var/obj/machinery/ringer/M in SSmachinery.all_machines)
-		if (M.id == id)
-			INVOKE_ASYNC(M, /obj/machinery/ringer/proc/ring_pda)
-
-	for(var/obj/machinery/ringer/M in SSmachinery.all_machines)
-		if(M.id == id)
-			M.ring_pda()
+		if(M.id == src.id)
+			spawn()
+				M.ring_pda()
 
 	sleep(50)
 
