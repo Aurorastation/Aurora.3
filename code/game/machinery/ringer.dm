@@ -12,7 +12,7 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/ringer/wifi_receiver
 	var/on = TRUE
-	var/department = "HOP's harem" //whatever department/desk you put this thing
+	var/department = "Head of personnel office" //whatever department/desk you put this thing
 
 /obj/machinery/ringer/Initialize()
 	. = ..()
