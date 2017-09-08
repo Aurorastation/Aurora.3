@@ -165,7 +165,11 @@ var/list/turret_icons
 	cut_overlays()
 	underlays.Cut()
 
-	if(raised || raising)
+	if(stat & BROKEN)
+		icon_state = "turret_laser"
+		add_overlay("destroyed")
+		underlays += "cover_open"
+	else if(raised || raising)
 		icon_state = "turret_laser"
 		underlays += "cover_open"
 		if(powered() && enabled)
@@ -175,10 +179,6 @@ var/list/turret_icons
 			else
 				//almost everything has a blue icon
 				add_overlay("target_prism_stun")
-	else if(stat & BROKEN)
-		icon_state = "turret_laser"
-		add_overlay("destroyed")
-		underlays += "cover_open"
 	else
 		icon_state = "cover"
 
