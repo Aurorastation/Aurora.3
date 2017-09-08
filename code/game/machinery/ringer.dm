@@ -102,6 +102,14 @@
 /obj/machinery/button/ringer
 	name = "ringer button"
 	desc = "Use this to get someone's attention, or to annoy them."
+	icon = 'icons/obj/terminals.dmi'
+	icon_state = "ringer"
+
+/obj/machinery/button/update_icon()
+	if(active)
+		icon_state = "ringer"
+	else
+		icon_state = "ringer_off"
 
 /obj/machinery/button/ringer/attack_hand(mob/user as mob)
 
@@ -111,10 +119,19 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	use_power(5)
+	active = 1
+
+	icon_state = "ringer_on"
 
 	for(var/obj/machinery/ringer/M in SSmachinery.all_machines)
 		if(M.id == src.id)
 			spawn()
 				M.ring_pda()
+
+	sleep(50)
+
+	icon_state = "ringer"
+
+	active = 0
 
 	return
