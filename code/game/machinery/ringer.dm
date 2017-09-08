@@ -1,6 +1,6 @@
 /obj/machinery/ringer
-	name = "A ringer terminal, PDAs can be linked to it."
-	desc = "It rings shit."
+	name = "ringer terminal"
+	desc = "A ringer terminal, PDAs can be linked to it."
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "bell_standby"
 	anchored = 1.0
