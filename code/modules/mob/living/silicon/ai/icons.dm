@@ -155,7 +155,7 @@ var/list/datum/ai_icon/ai_icons
 	alive_icon = "ai-hades"
 	dead_icon = "ai-hades_dead"
 
-/datum/ai_icon/triumvirate_static
+/datum/ai_icon/triumvirate
 	name = "Triumvirate"
 	alive_icon = "ai-triumvirate"
 	alive_light = "#020B2B"
