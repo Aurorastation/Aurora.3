@@ -232,8 +232,8 @@ var/list/dir2bdir = list(
 	N_EAST,	     // EAST
 	N_NORTHEAST, // NORTHEAST
 	N_SOUTHEAST, // SOUTHEAST
-	0,	         // not a dir
-	N_WEST,	     // WEST
+	0,           // not a dir
+	N_WEST,      // WEST
 	N_NORTHWEST, // NORTHWEST
 	N_SOUTHWEST  // SOUTHWEST
 )
