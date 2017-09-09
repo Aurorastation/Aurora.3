@@ -2,7 +2,7 @@
 	name = "megaphone"
 	desc = "A device used to project your voice. Loudly."
 	icon_state = "megaphone"
-	item_state = "radio"
+	item_state = "megaphone"
 	w_class = 2.0
 	flags = CONDUCT
 
