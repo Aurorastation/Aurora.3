@@ -91,7 +91,7 @@
 
 		if (corner != 7)	// 7 is the 'no shadows' state, no reason to add overlays for it.
 			var/image/I = image('icons/turf/flooring/shadows.dmi', "[corner]", dir = 1 << (i-1))
-			I.alpha = 80
+			I.alpha = WALL_AO_ALPHA
 			LAZYADD(ao_ovr, I)
 
 	add_overlay(to_add)

@@ -15,6 +15,9 @@
 // If defined, instant updates will be used whenever server load permits. Otherwise queued updates are always used.
 #define USE_INTELLIGENT_LIGHTING_UPDATES
 
+// Not handled by the lighting engine, but related. Controls the alpha of the ambient occlusion effect on walls.
+#define WALL_AO_ALPHA 100
+
 // If I were you I'd leave this alone.
 #define LIGHTING_BASE_MATRIX \
 	list            \
