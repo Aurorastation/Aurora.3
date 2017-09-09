@@ -410,6 +410,8 @@ default behaviour is:
 /mob/living/proc/restore_all_organs()
 	return
 
+/mob/living/proc/monkeyize()
+	return
 
 
 /mob/living/proc/revive(reset_to_roundstart = TRUE)	// this param is only used in human regen.

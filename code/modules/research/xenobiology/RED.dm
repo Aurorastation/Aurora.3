@@ -292,26 +292,57 @@ There is also a non-destrutive option, but... It's not as fun.
 		machinery_processing = TRUE
 		return
 
-
-
-
 /obj/machinery/red/proc/scantype2text()
 	return
 		
-
 /obj/machinery/red/proc/complete_mob_analysis()
 	if(part_number != 5 && processing_status != 100)
 		return
+	var/human = 0
+	var/mob/living/T = mobinside
+
+	if(ishuman(mobinside))
+		human = 1
+
 	switch(mainpart.scan_type)
 		if(SCAN_ALIVE)
+			spitmob()
 		if(SCAN_ANALYZEONLY)
+			spitmob()
 		if(SCAN_CLONE)
+			var/mob/B
+			B = new T
+			B.loc = src
 		if(SCAN_CONVERT_ORIGIN)
+			if(human)
+				T.monkeyize() // this will make them into their origin species.
+			else
+				qdel(T)
 		if(SCAN_DESTROY)
+			if(human)
+				if(T.stat == DEAD)
+					T.gib()
+				else
+					T << "<span class ='danger'>You feel a horrible pain as the machine rips you apart!</span>"
+			else
+				qdel(T)
+
 		if(SCAN_NODESTROY)
+			spitmob()
 		if(SAMPLE_CLONE)
+			return
 		if(SAMPLE_DEEPANALYZE)
+			return
 		if(SAMPLE_TO_DISK)
+			return
+	print_lore()
+	return
+
+/obj/machinery/red/proc/print_lore(var/special) // ew
+	var/obj/item/weapon/paper/REDresult/T = new(src)
+	T.changeinfo(mobinside, mainpart.scan_type)
+
+/obj/machinery/red/proc/spitmob()
 	return
 
 /obj/machinery/red/main
