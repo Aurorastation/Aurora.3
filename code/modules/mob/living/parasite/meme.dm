@@ -517,7 +517,7 @@ var/controlling
 	if(!use_points(500)) return
 
 	usr << "<span class='notice'>You inject drugs into [host].</span>"
-	host << "<span class='danger>You feel your body strengthen and your pain subside.</span>"
+	host << "<span class='danger'>You feel your body strengthen and your pain subside.</span>"
 	host.analgesic = 60
 	while(host.analgesic > 0)
 		sleep(60)
