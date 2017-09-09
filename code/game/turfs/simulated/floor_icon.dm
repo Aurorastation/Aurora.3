@@ -70,6 +70,29 @@
 		if(!isnull(burnt) && (flooring.flags & TURF_CAN_BURN))
 			add_overlay(get_flooring_overlay("[flooring.icon_base]-burned-[burnt]","[flooring.icon_base]_burned[burnt]"))
 
+	var/list/shadow_edges = list()
+	for(var/thing in RANGE_TURFS(1,src))
+		var/turf/neighbor = thing
+		if(neighbor && neighbor != src && !neighbor.density)
+			shadow_edges += get_dir(src, neighbor)
+
+	var/image/AO = new()
+	for(var/i = 1 to 4)
+		var/cdir = cornerdirs[i]
+		var/corner = 0
+		if(cdir in shadow_edges)
+			corner |= 2
+		if(turn(cdir,45) in shadow_edges)
+			corner |= 1
+		if(turn(cdir,-45) in shadow_edges)
+			corner |= 4
+
+		var/image/I = image('icons/turf/flooring/shadows.dmi', "[corner]", dir = 1 << (i-1))
+		I.alpha = 80
+		AO.overlays += I
+
+	add_overlay(AO)
+
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in range(src, 1))
 			if(F == src)
