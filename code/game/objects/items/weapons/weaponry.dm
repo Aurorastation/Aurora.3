@@ -11,11 +11,58 @@
 	throwforce = 10
 	w_class = 2
 
+/obj/item/weapon/nullrod/nullstaff
+	name = "null staff"
+	desc = "A staff of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
+	icon_state = "nullstaff"
+	item_state = "nullstaff"
+	slot_flags = SLOT_BACK
+	w_class = 4
+
+/obj/item/weapon/nullrod/nullorb
+	name = "null sphere"
+	desc = "An orb of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
+	icon_state = "nullorb"
+	item_state = "nullorb"
+
+/obj/item/weapon/nullrod/nullathame
+	name = "null athame"
+	desc = "An athame of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
+	icon_state = "nullathame"
+	item_state = "nullathame"
+
+/obj/item/weapon/nullrod/itembox
+	name = "null item box"
+	desc = "A box to safe keep your religious items. What item did you bring to work today?"
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "box"
+	item_state = "box"
+
+/obj/item/weapon/nullrod/itembox/attack_self(mob/user as mob)
+	if(..()) return
+
+	var/selection = input("Pick a null item type.") in list("Rod","Staff", /*"Orb",*/ "Athame")
+	switch(selection)
+		if ("Rod")
+			new /obj/item/weapon/nullrod(user.loc)
+			user << "<span class='notice'>A simple obsidian rod, a classic. Rods like these are seen in the hands of religious folks all across the galaxy.</span>"
+		if ("Staff")
+			new /obj/item/weapon/nullrod/nullstaff(user.loc)
+			user << "<span class='notice'>A simple staff, a popular choice amongst shamans and wise men. You doubt this will fit in your bag, but you can put it on your back.</span>"
+		if ("Orb")
+			new /obj/item/weapon/nullrod/nullorb(user.loc)
+		if ("Athame")
+			new /obj/item/weapon/nullrod/nullathame(user.loc)
+			user << "<span class='notice'>An athame, a ritualistic dagger. It's blade is curved and ornate, yet it is rather blunt.</span>"
+	user << "<span class='notice'>You take your [selection] from the box, and throw the empty box away.</span>"
+	qdel(src)
+	return
+
 /obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
-	
+
 	if(LAZYLEN(user.spell_list))
 		user.silence_spells(300) //30 seconds
 		user << "<span class='danger'>You've been silenced!</span>"

@@ -14,6 +14,8 @@
 	var/name = "Reagent"
 	var/id = "reagent"
 	var/description = "A non-descript chemical."
+	var/taste_description = "old rotten bandaids"
+	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
 	var/datum/reagents/holder = null
 	var/reagent_state = SOLID
 	var/list/data = null
@@ -35,7 +37,7 @@
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
-		PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
+		//PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
 		return
 
 	holder.remove_reagent(id, amount)
@@ -59,7 +61,7 @@
 	if(!dose && volume)//If dose is currently zero, we do the first effect
 		initial_effect(M, alien)
 
-	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
+	if(overdose && (volume > overdose) && (location != CHEM_TOUCH))
 		overdose(M, alien)
 	var/removed = metabolism
 	if(ingest_met && (location == CHEM_INGEST))

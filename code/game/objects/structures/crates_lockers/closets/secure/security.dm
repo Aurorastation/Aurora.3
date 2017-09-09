@@ -190,6 +190,7 @@
 		new /obj/item/clothing/suit/armor/vest/warden/commissar(src)
 		new /obj/item/clothing/head/helmet/warden(src)
 		new /obj/item/clothing/head/helmet/warden/commissar(src)
+		new /obj/item/clothing/head/helmet(src)
 		new /obj/item/weapon/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
@@ -203,7 +204,6 @@
 		new /obj/item/weapon/storage/box/holobadge(src)
 		new /obj/item/clothing/head/beret/sec/warden(src)
 		new /obj/item/clothing/accessory/badge/warden(src)
-		new /obj/item/ammo_magazine/c45m/rubber(src)
 		new /obj/item/weapon/storage/box/ids(src)
 
 
@@ -372,11 +372,20 @@
 		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral(src)
 
 
+// These are special snowflakes that need to be in a global list.
 /obj/structure/closet/secure_closet/brig
 	name = "brig locker"
 	req_access = list(access_brig)
 	anchored = 1
 	var/id = null
+
+	Initialize()
+		. = ..()
+		brig_closets += src
+
+	Destroy()
+		brig_closets -= src
+		return ..()
 
 	fill()
 		new /obj/item/clothing/under/color/orange( src )

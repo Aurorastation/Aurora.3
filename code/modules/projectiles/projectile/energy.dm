@@ -5,7 +5,6 @@
 	damage_type = BURN
 	check_armour = "energy"
 
-
 //releases a burst of light on impact or after travelling a distance
 /obj/item/projectile/energy/flash
 	name = "chemical shell"
@@ -57,12 +56,11 @@
 	agony = 80
 
 /obj/item/projectile/energy/declone
-	name = "declone"
+	name = "decloner beam"
 	icon_state = "declone"
-	nodamage = 1
+	damage = 20
 	damage_type = CLONE
 	irradiate = 40
-
 
 /obj/item/projectile/energy/dart
 	name = "dart"
@@ -70,7 +68,6 @@
 	damage = 5
 	damage_type = TOX
 	weaken = 5
-
 
 /obj/item/projectile/energy/bolt
 	name = "bolt"
@@ -186,7 +183,52 @@
 		if(!hitscan)
 			sleep(step_delay)	//add delay between movement iterations if it's not a hitscan weapon
 
+/obj/item/projectile/energy/tesla
+	name = "tesla bolt"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "lightning1"
+	damage = 10
+	damage_type = BURN
+	pass_flags = PASSTABLE | PASSGRILLE
+	kill_count = 40
+	embed = 0
+	step_delay = 2
+	light_range = 5
+	light_color = "#b5ff5b"
 
+/obj/item/projectile/energy/tesla/on_impact(atom/target)
+	. = ..()
+	if(isliving(target))
+		tesla_zap(target, 3, 5000)
+
+/obj/item/projectile/energy/gravitydisabler
+	name = "gravity disabler"
+	icon = 'icons/effects/projectiles.dmi'
+	icon_state = "bluespace"
+	damage = 0
+	damage_type = BRUTE
+	pass_flags = PASSTABLE | PASSGRILLE
+	kill_count = 10
+	embed = 0
+	step_delay = 3
+	light_range = 4
+	light_color = "#b5ff5b"
+
+/obj/item/projectile/energy/gravitydisabler/on_impact(atom/target)
+	. = ..()
+	var/area/A = get_area(target)
+	if(A && A.has_gravity == 1)
+		A.has_gravity = 0
+		A.gravitychange(A.has_gravity,A)
+		addtimer(CALLBACK(src, .proc/turnongravity), 150)
+
+	if(istype(target, /obj/machinery/gravity_generator/main))
+		var/obj/machinery/gravity_generator/main/T = target
+		T.eshutoff()
+
+/obj/item/projectile/energy/gravitydisabler/proc/turnongravity(var/area/A)
+	A.has_gravity = 1
+	A.gravitychange(A.has_gravity,A)
 
 /obj/item/projectile/energy/bee
 	name = "bees"

@@ -2,7 +2,7 @@
 // Seems to be much simpler/saner than /vg/'s implementation.
 
 // Turfs that will be colored as HOLOMAP_ROCK
-#define IS_ROCK(tile) (istype(tile, /turf/simulated/mineral) || istype(tile, /turf/simulated/floor/asteroid) || istype(tile, /turf/simulated/open))
+#define IS_ROCK(tile) (istype(tile, /turf/simulated/mineral) || istype(tile, /turf/simulated/floor/asteroid) || isopenturf(tile))
 
 // Turfs that will be colored as HOLOMAP_OBSTACLE
 #define IS_OBSTACLE(tile) ((!istype(tile, /turf/space) && istype(tile.loc, /area/mine/unexplored)) \
@@ -59,7 +59,11 @@
 	for(var/x = 1 to world.maxx)
 		for(var/y = 1 to world.maxy)
 			var/turf/tile = locate(x, y, zlevel)
-			if(tile && tile.loc:holomapAlwaysDraw())
+			var/area/A
+			if(tile)
+				A = tile.loc
+				if (A.flags & HIDE_FROM_HOLOMAP)
+					continue
 				if(IS_ROCK(tile))
 					continue
 				if(IS_OBSTACLE(tile))

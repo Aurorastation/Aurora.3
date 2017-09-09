@@ -50,6 +50,7 @@
 		user.mind.assigned_role = "Apprentice"
 		user << "<span class='notice'>With the signing of this paper you agree to become \the [contract_master]'s apprentice in the art of wizardry.</span>"
 		user.faction = "Space Wizard"
+		wizards.add_antagonist_mind(user.mind,1)
 		new /obj/item/weapon/spellbook/student(get_turf(user))
 		return 1
 	return 0
@@ -153,3 +154,7 @@
 /obj/item/weapon/contract/boon/wizard/gestalt
 	path = /spell/aoe_turf/conjure/grove/gestalt
 	desc = "This contract is a druid's favorite."
+
+/obj/item/weapon/contract/boon/wizard/statue
+	path = /spell/targeted/flesh_to_stone
+	desc = "This contract is truly petrifying."

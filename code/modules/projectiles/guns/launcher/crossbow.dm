@@ -162,7 +162,7 @@
 		else
 			user << "<span class='notice'>[src] already has a cell installed.</span>"
 
-	else if(istype(W, /obj/item/weapon/screwdriver))
+	else if(isscrewdriver(W))
 		if(cell)
 			var/obj/item/C = cell
 			C.loc = get_turf(user)
@@ -226,7 +226,7 @@
 			else
 				user << "<span class='notice'>You need at least three rods to complete this task.</span>"
 			return
-	else if(istype(W,/obj/item/weapon/weldingtool))
+	else if(iswelder(W))
 		if(buildstate == 1)
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))
@@ -236,7 +236,7 @@
 			buildstate++
 			update_icon()
 		return
-	else if(istype(W,/obj/item/stack/cable_coil))
+	else if(iscoil(W))
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 2)
 			if(C.use(5))
@@ -264,7 +264,7 @@
 			else
 				user << "<span class='notice'>You need at least three plastic sheets to complete this task.</span>"
 			return
-	else if(istype(W,/obj/item/weapon/screwdriver))
+	else if(isscrewdriver(W))
 		if(buildstate == 5)
 			user << "<span class='notice'>You secure the crossbow's various parts.</span>"
 			new /obj/item/weapon/gun/launcher/crossbow(get_turf(src))

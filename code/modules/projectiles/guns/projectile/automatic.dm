@@ -129,6 +129,7 @@
 	set src in usr
 
 	toggle_wield(usr)
+	usr.update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
@@ -137,6 +138,10 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "arifle" : "arifle-empty"
+	if(wielded)
+		item_state = (ammo_magazine)? "arifle-wielded" : "arifle-wielded-empty"
+	else
+		item_state = (ammo_magazine)? "arifle" : "arifle-empty"
 	update_held_icon()
 
 /datum/firemode/z8
@@ -170,8 +175,8 @@
 	var/use_launcher = 0
 	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
 
-/obj/item/weapon/gun/projectile/automatic/rifle/z8/New()
-	..()
+/obj/item/weapon/gun/projectile/automatic/rifle/z8/Initialize()
+	. = ..()
 	launcher = new(src)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
@@ -200,6 +205,11 @@
 		icon_state = "carbine-[round(ammo_magazine.stored_ammo.len,2)]"
 	else
 		icon_state = "carbine"
+	if(wielded)
+		item_state = "z8carbine-wielded"
+	else
+		item_state = "z8carbine"
+	update_held_icon()
 	return
 
 /obj/item/weapon/gun/projectile/automatic/rifle/z8/examine(mob/user)
@@ -295,7 +305,7 @@
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
 	icon_state = "railgun"
-	item_state = "arifle"
+	item_state = "railgun"
 	w_class = 4
 	force = 10
 	caliber = "trod"

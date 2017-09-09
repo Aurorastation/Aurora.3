@@ -9,6 +9,7 @@
  * 		Wirecutters
  * 		Welding Tool
  * 		Crowbar
+*		Pipe Wrench
  */
 
 /*
@@ -123,11 +124,6 @@
 	else
 		..()
 
-
-
-
-
-
 /*
  * Welding Tool
  */
@@ -179,7 +175,6 @@
 	base_iconstate = "adv_welder"
 	origin_tech = list(TECH_ENGINEERING = 3)
 
-
 //The Experimental Welding Tool!
 /obj/item/weapon/weldingtool/experimental
 	name = "experimental welding tool"
@@ -195,7 +190,6 @@
 	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
 	//800 = 1 unit per 1 minute and 20 seconds,
 	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
-
 
 //Welding tool functionality here
 /obj/item/weapon/weldingtool/Initialize()
@@ -225,9 +219,8 @@
 	if(..(user, 0))
 		user << text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel )
 
-
 /obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		if (isrobot(loc))
 			user << span("alert", "You cannot modify your own welder!")
 			return
@@ -265,7 +258,6 @@
 
 	..()
 	return
-
 
 /obj/item/weapon/weldingtool/process()
 	if(welding)
@@ -322,7 +314,6 @@
 	else
 		return ..()
 
-
 /obj/item/weapon/weldingtool/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!proximity) return
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && !src.welding)
@@ -364,7 +355,6 @@
 			location.hotspot_expose(700, 50, 1)
 	return
 
-
 /obj/item/weapon/weldingtool/attack_self(mob/user as mob)
 	setWelding(!welding, usr)
 	return
@@ -372,7 +362,6 @@
 //Returns the amount of fuel in the welder
 /obj/item/weapon/weldingtool/proc/get_fuel()
 	return reagents.get_reagent_amount("fuel")
-
 
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob. This should probably be renamed to use()
 /obj/item/weapon/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null)
@@ -391,8 +380,6 @@
 //Returns whether or not the welding tool is currently on.
 /obj/item/weapon/weldingtool/proc/isOn()
 	return src.welding
-
-
 
 //Sets the welding state of the welding tool. If you see W.welding = 1 anywhere, please change it to W.setWelding(1)
 //so that the welding tool updates accordingly
@@ -430,7 +417,6 @@
 		set_processing(0)
 		update_icon()
 
-
 //A wrapper function for the experimental tool to override
 /obj/item/weapon/weldingtool/proc/set_processing(var/state = 0)
 	if (state == 1)
@@ -438,14 +424,13 @@
 	else
 		STOP_PROCESSING(SSprocessing, src)
 
-
 //Decides whether or not to damage a player's eyes based on what they're wearing as protection
 //Note: This should probably be moved to mob
 /obj/item/weapon/weldingtool/proc/eyecheck(mob/user as mob)
 	if(!iscarbon(user))	return 1
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+		var/obj/item/organ/eyes/E = H.get_eyes()
 		if(!E)
 			return
 		var/safety = H.eyecheck()
@@ -478,16 +463,13 @@
 				user.disabilities |= NEARSIGHTED
 				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
 
-
 // This is on /mob instead of the welder so the timer is stopped when the mob is deleted.
 /mob/proc/reset_nearsighted()
 	disabilities &= ~NEARSIGHTED
 
-
 /obj/item/weapon/weldingtool/Destroy()
 	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
 	return ..()
-
 
 //Make sure the experimental tool only stops processing when its turned off AND full
 /obj/item/weapon/weldingtool/experimental/set_processing(var/state = 0)
@@ -497,11 +479,9 @@
 	else if (welding == 0 && get_fuel() >= max_fuel)
 		STOP_PROCESSING(SSprocessing, src)
 
-
 /obj/item/weapon/weldingtool/experimental/process()
 	..()
 	fuel_gen()
-
 
 /obj/item/weapon/weldingtool/experimental/proc/fuel_gen()//Proc to make the experimental welder generate fuel, optimized as fuck -Sieve
 
@@ -518,8 +498,6 @@
 	else
 		set_processing(0)
 	last_gen = world.time
-
-
 
 /*
  * Crowbar
@@ -545,62 +523,17 @@
 	icon_state = "red_crowbar"
 	item_state = "crowbar_red"
 
-
-
-/*/obj/item/weapon/combitool
-	name = "combi-tool"
-	desc = "It even has one of those nubbins for doing the thingy."
+// Pipe wrench
+/obj/item/weapon/pipewrench
+	name = "pipe wrench"
+	desc = "A big wrench that is made for working with pipes."
 	icon = 'icons/obj/items.dmi'
-	icon_state = "combitool"
-	w_class = 2
-
-	var/list/spawn_tools = list(
-		/obj/item/weapon/screwdriver,
-		/obj/item/weapon/wrench,
-		/obj/item/weapon/wirecutters,
-		/obj/item/weapon/material/kitchen/utensil/knife,
-		/obj/item/weapon/material/kitchen/utensil/fork,
-		/obj/item/weapon/material/hatchet
-		)
-	var/list/tools = list()
-	var/current_tool = 1
-
-/obj/item/weapon/combitool/examine()
-	..()
-	if(loc == usr && tools.len)
-		usr << "It has the following fittings:"
-		for(var/obj/item/tool in tools)
-			usr << "\icon[tool] - [tool.name][tools[current_tool]==tool?" (selected)":""]"
-
-/obj/item/weapon/combitool/New()
-	..()
-	for(var/type in spawn_tools)
-		tools |= new type(src)
-
-/obj/item/weapon/combitool/attack_self(mob/user as mob)
-	if(++current_tool > tools.len) current_tool = 1
-	var/obj/item/tool = tools[current_tool]
-	if(!tool)
-		user << "You can't seem to find any fittings in \the [src]."
-	else
-		user << "You switch \the [src] to the [tool.name] fitting."
-	return 1
-
-/obj/item/weapon/combitool/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	if(!M.Adjacent(user))
-		return 0
-	var/obj/item/tool = tools[current_tool]
-	if(!tool) return 0
-	return (tool ? tool.attack(M,user) : 0)
-
-/obj/item/weapon/combitool/afterattack(var/atom/target, var/mob/living/user, proximity, params)
-	if(!proximity)
-		return 0
-	var/obj/item/tool = tools[current_tool]
-	if(!tool) return 0
-	tool.loc = user
-	var/resolved = target.attackby(tool,user)
-	if(!resolved && tool && target)
-		tool.afterattack(target,user,1)
-	if(tool)
-		tool.loc = src*/
+	icon_state = "pipewrench"
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
+	force = 5.0
+	throwforce = 7.0
+	w_class = 2.0
+	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
+	matter = list(DEFAULT_WALL_MATERIAL = 150)
+	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")

@@ -16,8 +16,10 @@
 	use_power = 0
 	idle_power_usage = 5			// Power used when turned on, but not processing anything
 	active_power_usage = 1000		// Power used when turned on and actively cooking something
+	var/initalactive_power_usage = 1000
 
 	var/cooking_power  = 1
+	var/inital_cooking_power  = 1
 	var/max_contents = 1			// Maximum number of things this appliance can simultaneously cook
 	var/on_icon						// Icon state used when cooking.
 	var/off_icon					// Icon state used when not cooking.
@@ -39,11 +41,19 @@
 
 	var/combine_first = 0//If 1, this appliance will do combinaiton cooking before checking recipes
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/cooking,
+			/obj/item/weapon/stock_parts/capacitor = 3,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/matter_bin = 2
+		)
+
 /obj/machinery/appliance/Initialize()
 	. = ..()
 	if(output_options.len)
 		verbs += /obj/machinery/appliance/proc/choose_output
-
+	inital_cooking_power = cooking_power
+	initalactive_power_usage = active_power_usage
 /obj/machinery/appliance/Destroy()
 	for (var/a in cooking_objs)
 		var/datum/cooking_item/CI = a
@@ -225,10 +235,15 @@
 		return
 
 	var/result = can_insert(I, user)
-	if (!result)
-		return
+	if(!result)
+		if(default_deconstruction_screwdriver(user, I))
+			return
+		else if(default_part_replacement(user, I))
+			return
+		else
+			return
 
-	if (result == 2)
+	if(result == 2)
 		var/obj/item/weapon/grab/G = I
 		if (G && istype(G) && G.affecting)
 			cook_mob(G.affecting, user)
@@ -649,3 +664,26 @@
 	oil = 0
 	combine_target = null
 	//Container is not reset
+
+/obj/machinery/appliance/RefreshParts()
+	..()
+	var/scan_rating = 0
+	var/cap_rating = 0
+
+	for(var/obj/item/weapon/stock_parts/P in component_parts)
+		if(isscanner(P))
+			scan_rating += P.rating
+		else if(iscapacitor(P))
+			cap_rating += P.rating
+
+	active_power_usage = initalactive_power_usage - scan_rating*10
+	cooking_power = inital_cooking_power + (scan_rating+cap_rating)/10
+
+/obj/item/weapon/circuitboard/cooking
+	name = "kitchen appliance circuitry"
+	desc = "The circuitboard for many kitchen appliances. Not of much use."
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 3,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/matter_bin" = 2)

@@ -60,7 +60,7 @@
 
 /datum/malf_hardware/strong_turrets/install()
 	..()
-	for(var/obj/machinery/porta_turret/T in machines)
+	for(var/obj/machinery/porta_turret/T in SSmachinery.processing_machines)
 		T.maxhealth = round(initial(T.maxhealth) * 2)
 		T.shot_delay = round(initial(T.shot_delay) / 2)
 		T.auto_repair = 1

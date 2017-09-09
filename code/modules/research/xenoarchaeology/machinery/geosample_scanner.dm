@@ -45,8 +45,8 @@
 	var/t_left_radspike = 0
 	var/rad_shield = 0
 
-/obj/machinery/radiocarbon_spectrometer/New()
-	..()
+/obj/machinery/radiocarbon_spectrometer/Initialize()
+	. = ..()
 	create_reagents(500)
 	coolant_reagents_purity["water"] = 0.5
 	coolant_reagents_purity["icecoffee"] = 0.6
@@ -200,7 +200,7 @@
 					if(!rad_shield)
 						//irradiate nearby mobs
 						for(var/mob/living/M in view(7,src))
-							M.apply_effect(radiation / 25, IRRADIATE, 0)
+							M.apply_effect(radiation / 25, IRRADIATE, blocked = M.getarmor(null, "rad"))
 				else
 					t_left_radspike = pick(10,15,25)
 

@@ -42,7 +42,6 @@
 	new_player_panel()
 	spawn(40)
 		if(client)
-			handle_privacy_poll()
 			client.playtitlemusic()
 
 /mob/new_player/proc/show_title()

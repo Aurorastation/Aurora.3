@@ -184,7 +184,7 @@
 	interface_name = "mounted pulse rifle"
 	interface_desc = "A shoulder-mounted cell-powered pulse rifle."
 
-	gun_type = /obj/item/weapon/gun/energy/pulse
+	gun_type = /obj/item/weapon/gun/energy/pulse/mounted
 
 /obj/item/rig_module/mounted/smg
 

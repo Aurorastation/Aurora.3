@@ -184,7 +184,7 @@
 	var/response = alert(src, "Are you sure you want to split? This will break your gestalt into many smaller nymphs, but you will only control one.","Confirm Split","Split","Not now")
 	if(response != "Split") return
 
-	diona_split_into_nymphs(DS)
+	diona_split_into_nymphs()
 
 
 //This function allows a reformed gestalt to set its name, once only
@@ -212,7 +212,7 @@
 		verbs.Remove(/mob/living/carbon/human/proc/gestalt_set_name)
 
 
-/mob/living/carbon/human/proc/diona_split_into_nymphs(var/datum/dionastats/DS)
+/mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
 	var/bestHealth = 0

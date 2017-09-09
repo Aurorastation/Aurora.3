@@ -37,6 +37,7 @@
 		usr << span("notice","It is empty.")
 
 /obj/machinery/appliance/cooker/proc/get_efficiency()
+	RefreshParts()
 	. = (cooking_power / optimal_power) * 100
 
 /obj/machinery/appliance/cooker/Initialize()
@@ -89,6 +90,7 @@
 
 
 	cooking_power = optimal_power * temp_scale
+	RefreshParts()
 
 /obj/machinery/appliance/cooker/proc/heat_up()
 	if (temperature < optimal_temp)

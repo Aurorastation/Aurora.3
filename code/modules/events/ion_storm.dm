@@ -12,7 +12,7 @@
 			continue
 		players += player.real_name
 
-	for (var/mob/living/silicon/ai/target in world)
+	for (var/mob/living/silicon/ai/target in silicon_mob_list)
 		var/random_player = "The Captain"
 		if(players.len)
 			random_player = pick(players)		//Random player's name, to be used in laws.
@@ -88,7 +88,7 @@
 
 /datum/event/ionstorm/tick()
 	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in world)
+		for(var/obj/machinery/bot/bot in SSmachinery.all_machines)
 			if(prob(botEmagChance))
 				bot.emag_act(1)
 

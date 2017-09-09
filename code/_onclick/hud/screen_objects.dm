@@ -81,6 +81,8 @@
 
 /obj/screen/storage
 	name = "storage"
+	layer = 19
+	screen_loc = "7,7 to 10,8"
 
 /obj/screen/storage/Click()
 	if(!usr.canClick())
@@ -374,6 +376,7 @@
 
 							if(best)
 								C << "<span class='notice'>You are now running on internals from [tankcheck[best]] [from] your [nicename[best]].</span>"
+								playsound(usr, 'sound/effects/internals.ogg', 100, 1)
 								C.internal = tankcheck[best]
 
 

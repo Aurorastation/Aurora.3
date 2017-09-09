@@ -14,7 +14,7 @@ var/datum/antagonist/wizard/wizards
 	hard_cap_round = 3
 	initial_spawn_req = 1
 	initial_spawn_target = 1
-	
+
 	faction = "Space Wizard"
 
 /datum/antagonist/wizard/New()
@@ -84,6 +84,7 @@ var/datum/antagonist/wizard/wizards
 	if(wizard_mob.backbag == 3) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_wizard(wizard_mob), slot_back)
 	if(wizard_mob.backbag == 4) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(wizard_mob), slot_back)
 	if(wizard_mob.backbag == 5) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel/wizard(wizard_mob), slot_back)
+	if(wizard_mob.backbag == 6) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/messenger/wizard(wizard_mob), slot_back)
 	wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/box(wizard_mob), slot_in_backpack)
 	wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/teleportation_scroll(wizard_mob), slot_r_store)
 	var/obj/item/I = new /obj/item/weapon/spellbook(get_turf(wizard_mob))

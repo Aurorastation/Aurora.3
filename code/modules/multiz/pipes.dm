@@ -262,6 +262,16 @@
 /obj/machinery/atmospherics/pipe/zpipe/down/cyan
 	color = PIPE_COLOR_CYAN
 
+/obj/machinery/atmospherics/pipe/zpipe/up/black
+	color = PIPE_COLOR_BLACK
+/obj/machinery/atmospherics/pipe/zpipe/down/black
+	color = PIPE_COLOR_BLACK
+
+/obj/machinery/atmospherics/pipe/zpipe/up/green
+	color = PIPE_COLOR_GREEN
+/obj/machinery/atmospherics/pipe/zpipe/down/green
+	color = PIPE_COLOR_GREEN
+
 /obj/machinery/atmospherics/pipe/zpipe/up/red
 	color = PIPE_COLOR_RED
 /obj/machinery/atmospherics/pipe/zpipe/down/red

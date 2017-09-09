@@ -43,7 +43,7 @@
 	cell = new /obj/item/weapon/cell/high(src)
 	key = new(src)
 	var/image/I = new(icon = icon, icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
-	overlays += I
+	add_overlay(I)
 	turn_off()	//so engine verbs are correctly set
 
 /obj/vehicle/train/cargo/engine/Move(var/turf/destination)
@@ -63,7 +63,7 @@
 	return ..()
 
 /obj/vehicle/train/cargo/trolley/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(open && istype(W, /obj/item/weapon/wirecutters))
+	if(open && iswirecutter(W))
 		passenger_allowed = !passenger_allowed
 		user.visible_message("<span class='notice'>[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src].</span>","<span class='notice'>You [passenger_allowed ? "cut" : "mend"] the load limiter cable.</span>")
 	else
@@ -150,8 +150,9 @@
 	var/list/parts = list("head", "chest", "l_leg", "r_leg", "l_arm", "r_arm")
 
 	H.apply_effects(5, 5)
-	for(var/i = 0, i < rand(1,3), i++)
-		H.apply_damage(rand(1,5), BRUTE, pick(parts))
+	for(var/i = 0, i < rand(1,5), i++)
+		var/def_zone = pick(parts)
+		H.apply_damage(rand(5,10), BRUTE, def_zone, H.run_armor_check(def_zone, "melee"))
 
 /obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
 	..()
@@ -177,7 +178,7 @@
 	if(user != load)
 		return 0
 
-	if(user.restrained()) 
+	if(user.restrained())
 		return 0
 
 	if(is_train_head())

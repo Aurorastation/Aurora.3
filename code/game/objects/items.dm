@@ -167,10 +167,12 @@
 	if (src.loc == user)
 		if(!user.prepare_for_slotmove(src))
 			return
-	else
-		if(isliving(src.loc))
-			return
-	user.put_in_active_hand(src)
+	else if(isliving(src.loc))
+		return
+
+	// If equipping onto active hand fails, drop it on the floor.
+	if (!user.put_in_active_hand(src))
+		forceMove(user.loc)
 	return
 
 /obj/item/attack_ai(mob/user as mob)
@@ -189,23 +191,26 @@
 		var/obj/item/weapon/storage/S = W
 		if(S.use_to_pickup)
 			if(S.collection_mode) //Mode is set to collect all items on a tile and we clicked on a valid one.
-				if(isturf(src.loc))
+				if(isturf(loc))
 					var/list/rejections = list()
-					var/success = 0
-					var/failure = 0
+					var/success = FALSE
+					var/failure = FALSE
+					var/original_loc = user ? user.loc : null
 
-					for(var/obj/item/I in src.loc)
-						CHECK_TICK
+					for(var/obj/item/I in loc)
+						if (user && user.loc != original_loc)
+							break
 
-						if(I.type in rejections) // To limit bag spamming: any given type only complains once
+						if(rejections[I.type]) // To limit bag spamming: any given type only complains once
 							continue
 
 						if(!S.can_be_inserted(I))	// Note can_be_inserted still makes noise when the answer is no
-							rejections += I.type	// therefore full bags are still a little spammy
-							failure = 1
+							rejections[I.type] = TRUE	// therefore full bags are still a little spammy
+							failure = TRUE
+							CHECK_TICK
 							continue
 
-						success = 1
+						success = TRUE
 						S.handle_item_insertion(I, 1)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
 						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
 
@@ -218,8 +223,6 @@
 
 			else if(S.can_be_inserted(src))
 				S.handle_item_insertion(src)
-
-	return
 
 /obj/item/proc/talk_into(mob/M as mob, text)
 	return
@@ -289,7 +292,7 @@ var/list/global/slot_flags_enumeration = list(
 //If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
 //Set disable_warning to 1 if you wish it to not give you outputs.
 //Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
-/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = 0)
+/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
 	if(!slot) return 0
 	if(!M) return 0
 
@@ -315,7 +318,7 @@ var/list/global/slot_flags_enumeration = list(
 
 	//Next check if the slot is accessible.
 	var/mob/_user = disable_warning? null : H
-	if(!H.slot_is_accessible(slot, src, _user))
+	if(!bypass_blocked_check && !H.slot_is_accessible(slot, src, _user))
 		return 0
 
 	//Lastly, check special rules for the desired slot.
@@ -489,9 +492,7 @@ var/list/global/slot_flags_enumeration = list(
 		user << "<span class='warning'>You cannot locate any eyes on [M]!</span>"
 		return
 
-	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
-	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
-	msg_admin_attack("[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M)) //BS12 EDIT ALG
+	admin_attack_log(user, M, "attacked [key_name(M)] with [src]", "was attacked by [key_name(user)] using \a [src]", "used \a [src] to eyestab")
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
@@ -507,18 +508,17 @@ var/list/global/slot_flags_enumeration = list(
 		*/
 
 	if(istype(H))
-
-		var/obj/item/organ/eyes/eyes = H.internal_organs_by_name["eyes"]
+		var/obj/item/organ/eyes/eyes = H.get_eyes()
 
 		if(H != user)
-			for(var/mob/O in (viewers(M) - user - M))
-				O.show_message("<span class='danger'>[M] has been stabbed in the eye with [src] by [user].</span>", 1)
-			M << "<span class='danger'>[user] stabs you in the eye with [src]!</span>"
-			user << "<span class='danger'>You stab [M] in the eye with [src]!</span>"
+			M.visible_message(
+				"<span class='danger'>[user] stabs [M] in the [eyes.singular_name] with [src]!</span>",
+				"<span class='danger'>[user] stabs you in the [eyes.singular_name] with [src]!</span>"
+			)
 		else
 			user.visible_message( \
-				"<span class='danger'>[user] has stabbed themself with [src]!</span>", \
-				"<span class='danger'>You stab yourself in the eyes with [src]!</span>" \
+				"<span class='danger'>[user] stabs themself in the [eyes.singular_name] with [src]!</span>", \
+				"<span class='danger'>You stab yourself in the [eyes.singular_name] with [src]!</span>" \
 			)
 
 		eyes.damage += rand(3,4)

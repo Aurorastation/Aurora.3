@@ -9,11 +9,11 @@
 /mob/living/silicon/robot/Move()
 	var/oldLoc = src.loc
 	. = ..()
-	//if(.)
-	if(provides_camera_vision())
-		if(!updating)
-			updating = 1
-			addtimer(CALLBACK(src, .proc/camera_post_move, oldLoc), BORG_CAMERA_BUFFER)
+	if (.)
+		if(provides_camera_vision())
+			if(!updating)
+				updating = 1
+				addtimer(CALLBACK(src, .proc/camera_post_move, oldLoc), BORG_CAMERA_BUFFER)
 
 /mob/living/silicon/robot/proc/camera_post_move(oldLoc)
 	if (oldLoc != loc)
@@ -24,9 +24,9 @@
 /mob/living/silicon/ai/Move()
 	var/oldLoc = src.loc
 	. = ..()
-	//if(.)
-	if(provides_camera_vision())
-		addtimer(CALLBACK(src, .proc/camera_post_move, oldLoc), BORG_CAMERA_BUFFER, TIMER_UNIQUE)
+	if (.)
+		if(provides_camera_vision())
+			addtimer(CALLBACK(src, .proc/camera_post_move, oldLoc), BORG_CAMERA_BUFFER, TIMER_UNIQUE)
 
 /mob/living/silicon/ai/proc/camera_post_move(oldLoc)
 	if(oldLoc != src.loc)

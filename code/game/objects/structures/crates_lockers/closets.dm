@@ -15,8 +15,8 @@
 	var/storage_capacity = 40 //Tying this to mob sizes was dumb
 	//This is so that someone can't pack hundreds of items in a locker/crate
 							  //then open it in a populated area to crash clients.
-	var/open_sound = 'sound/machines/click.ogg'
-	var/close_sound = 'sound/machines/click.ogg'
+	var/open_sound = 'sound/effects/locker_open.ogg'
+	var/close_sound = 'sound/effects/locker_close.ogg'
 
 	var/store_misc = 1
 	var/store_items = 1
@@ -135,7 +135,7 @@
 	src.icon_state = src.icon_closed
 	src.opened = 0
 
-	playsound(src.loc, close_sound, 15, 1, -3)
+	playsound(src.loc, close_sound, 25, 0, -3)
 	density = 1
 	return 1
 
@@ -220,16 +220,26 @@
 			return 0
 		if(istype(W,/obj/item/tk_grab))
 			return 0
-		if(istype(W, /obj/item/weapon/weldingtool))
+		if(iswelder(W))
 			var/obj/item/weapon/weldingtool/WT = W
+			user.visible_message(
+				"<span class='warning'>[user] begins cutting [src] apart.</span>",
+				"<span class='notice'>You begin cutting [src] apart.</span>",
+				"You hear a welding torch on metal."
+			)
+			playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
+				return
 			if(!WT.remove_fuel(0,user))
 				if(WT.isOn())
 					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 					return
 			else
 				new /obj/item/stack/material/steel(src.loc)
-				for(var/mob/M in viewers(src))
-					M.show_message("<span class='notice'>\The [src] has been cut apart by [user] with \the [WT].</span>", 3, "You hear welding.", 2)
+				user.visible_message(
+					"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
+					"<span class='notice'>You cut apart [src] with [WT].</span>"
+				)
 				qdel(src)
 				return
 		if(istype(W, /obj/item/weapon/storage/laundry_basket) && W.contents.len)
@@ -237,9 +247,11 @@
 			var/turf/T = get_turf(src)
 			for(var/obj/item/I in LB.contents)
 				LB.remove_from_storage(I, T)
-			user.visible_message("<span class='notice'>[user] empties \the [LB] into \the [src].</span>", \
-								 "<span class='notice'>You empty \the [LB] into \the [src].</span>", \
-								 "<span class='notice'>You hear rustling of clothes.</span>")
+			user.visible_message(
+				"<span class='notice'>[user] empties \the [LB] into \the [src].</span>",
+				"<span class='notice'>You empty \the [LB] into \the [src].</span>",
+				"<span class='notice'>You hear rustling of clothes.</span>"
+			)
 			return
 		if(!dropsafety(W))
 			return
@@ -248,8 +260,16 @@
 			W.forceMove(src.loc)
 	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
-	else if(istype(W, /obj/item/weapon/weldingtool))
+	else if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
+		user.visible_message(
+			"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
+			"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
+			"You hear a welding torch on metal."
+		)
+		playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+		if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+			return
 		if(!WT.remove_fuel(0,user))
 			if(!WT.isOn())
 				return
@@ -258,11 +278,21 @@
 				return
 		src.welded = !src.welded
 		src.update_icon()
-		for(var/mob/M in viewers(src))
-			M.show_message("<span class='warning'>[src] has been [welded?"welded shut":"unwelded"] by [user.name].</span>", 3, "You hear welding.", 2)
+		user.visible_message(
+			"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
+			"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
+		)
 	else
 		src.attack_hand(user)
 	return
+
+
+// helper procs for callbacks
+/obj/structure/closet/proc/is_closed()
+	. = !opened
+
+/obj/structure/closet/proc/is_open()
+	. = opened
 
 /obj/structure/closet/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
 	if(istype(O, /obj/screen))	//fix for HUD elements making their way into the world	-Pete
@@ -369,22 +399,36 @@
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	escapee << "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>"
-	visible_message("<span class='danger'>The [src] begins to shake violently!</span>")
+	visible_message("<span class='danger'>\The [src] begins to shake violently!</span>")
+
+	var/time = 6 * breakout_time * 2
+
+	var/datum/progressbar/bar
+	if (escapee.client && escapee.client.prefs.parallax_togs & PROGRESS_BARS)
+		bar = new(escapee, time, src)
 
 	breakout = 1
-	for(var/i in 1 to (6*breakout_time * 2)) //minutes * 6 * 5seconds * 2
+	for(var/i in 1 to time) //minutes * 6 * 5seconds * 2
 		playsound(src.loc, 'sound/effects/grillehit.ogg', 100, 1)
 		animate_shake()
 
-		if(!do_after(escapee, 50)) //5 seconds
+		if (bar)
+			bar.update(i)
+
+		if(!do_after(escapee, 50, display_progress = FALSE)) //5 seconds
 			breakout = 0
+			qdel(bar)
 			return
+
 		if(!escapee || escapee.stat || escapee.loc != src)
 			breakout = 0
+			qdel(bar)
 			return //closet/user destroyed OR user dead/unconcious OR user no longer in closet OR closet opened
+
 		//Perform the same set of checks as above for weld and lock status to determine if there is even still a point in 'resisting'...
 		if(!req_breakout())
 			breakout = 0
+			qdel(bar)
 			return
 
 	//Well then break it!
@@ -394,6 +438,7 @@
 	playsound(src.loc, 'sound/effects/grillehit.ogg', 100, 1)
 	break_open()
 	animate_shake()
+	qdel(bar)
 
 /obj/structure/closet/proc/break_open()
 	welded = 0

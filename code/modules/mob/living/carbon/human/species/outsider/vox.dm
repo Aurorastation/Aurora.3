@@ -23,6 +23,8 @@
 	stamina_recovery = 1
 	sprint_cost_factor = 1
 
+	taste_sensitivity = TASTE_DULL
+
 	speech_sounds = list('sound/voice/shriek1.ogg')
 	speech_chance = 20
 
@@ -34,7 +36,7 @@
 	cold_level_3 = 0
 
 	eyes = "vox_eyes_s"
-	gluttonous = GLUT_SMALLER
+	gluttonous = TRUE
 	virus_immune = 1
 
 	breath_type = "nitrogen"

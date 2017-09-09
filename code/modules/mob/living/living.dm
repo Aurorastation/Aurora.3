@@ -296,7 +296,6 @@ default behaviour is:
 
 /mob/living/proc/adjustHalLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
-
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 
 /mob/living/carbon/adjustHalLoss(var/amount, var/ignoreImmunity = 0)//An inherited version so this doesnt affect cyborgs
@@ -413,7 +412,7 @@ default behaviour is:
 
 
 
-/mob/living/proc/revive()
+/mob/living/proc/revive(reset_to_roundstart = TRUE)	// this param is only used in human regen.
 	// Stop killing yourself. Please.
 //	if(suiciding)
 //		suiciding = 0

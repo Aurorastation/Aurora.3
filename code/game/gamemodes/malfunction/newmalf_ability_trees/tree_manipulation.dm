@@ -119,7 +119,7 @@
 		user << "Please pick a suitable camera."
 
 
-/datum/game_mode/malfunction/verb/emergency_forcefield(var/turf/T as turf in world)
+/datum/game_mode/malfunction/verb/emergency_forcefield(var/turf/T as turf in turfs)
 	set name = "Emergency Forcefield"
 	set desc = "275 CPU - Uses station's emergency shielding system to create temporary barrier which lasts for few minutes, but won't resist gunfire."
 	set category = "Software"
@@ -138,7 +138,7 @@
 	user.hacking = 0
 
 
-/datum/game_mode/malfunction/verb/machine_overload(obj/machinery/M in machines)
+/datum/game_mode/malfunction/verb/machine_overload(obj/machinery/M in SSmachinery.processing_machines)
 	set name = "Machine Overload"
 	set desc = "400 CPU - Causes cyclic short-circuit in machine, resulting in weak explosion after some time."
 	set category = "Software"

@@ -355,7 +355,7 @@
 	name = "teleporter"
 	desc = "An exosuit module that allows exosuits to teleport to any position in view."
 	icon_state = "mecha_teleport"
-	origin_tech = list(TECH_BLUESPACE = 10)
+	origin_tech = list(TECH_BLUESPACE = 5)
 	equip_cooldown = 150
 	energy_drain = 1000
 	range = RANGED
@@ -900,9 +900,7 @@
 	if(. != PROCESS_KILL)
 		for(var/mob/living/carbon/M in view(chassis))
 			if(istype(M,/mob/living/carbon/human))
-				M.apply_effect((rad_per_cycle*3),IRRADIATE,0)
-			else
-				M.apply_effect(rad_per_cycle, IRRADIATE)
+				M.apply_effect((rad_per_cycle*3),IRRADIATE, blocked = M.getarmor(null, "rad"))
 
 
 //This is pretty much just for the death-ripley so that it is harmless

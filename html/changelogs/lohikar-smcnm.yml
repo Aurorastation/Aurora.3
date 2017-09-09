@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - rscadd: "Added a new icon generation system for openturfs, allowing mobs & objects below to be drawn in real-time without a meaningful performance impact."
-  - tweak: "Added a safety check to prevent admin commands from starting the game before server initialization has completed."

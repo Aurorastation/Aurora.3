@@ -80,7 +80,7 @@
 	if(istype(W,/obj/item/device/pipe_painter))
 		return 0
 
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W) || !istype(W, /obj/item/weapon/pipewrench))
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())
@@ -89,12 +89,15 @@
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-		user << "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>"
-		add_fingerprint(user)
-		return 1
+		if(!istype(W, /obj/item/weapon/pipewrench))
+			user << "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>"
+			add_fingerprint(user)
+			return 1
+		else
+			user << "<span class='warning'>You struggle to unwrench \the [src] with your pipe wrench.</span>"
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"
-	if (do_after(user, 40, act_target = src))
+	if (do_after(user, istype(W, /obj/item/weapon/pipewrench) ? 80 : 40, act_target = src))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \

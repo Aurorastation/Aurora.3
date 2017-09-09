@@ -28,8 +28,8 @@ field_generator power level display
 	var/power = 30000  // Current amount of power
 	var/state = 0
 	var/warming_up = 0
-	var/list/obj/machinery/containment_field/fields
-	var/list/obj/machinery/field_generator/connected_gens
+	var/list/obj/machinery/containment_field/fields = list()
+	var/list/obj/machinery/field_generator/connected_gens = list()
 	var/clean_up = 0
 
 	//If keeping field generators powered is hard then increase the emitter active power usage.
@@ -51,12 +51,6 @@ field_generator power level display
 	level = between(0, level, num_power_levels)
 	if(level)
 		add_overlay("+p[level]")
-
-/obj/machinery/field_generator/New()
-	..()
-	fields = list()
-	connected_gens = list()
-	return
 
 /obj/machinery/field_generator/machinery_process()
 	if(Varedit_start == 1)
@@ -99,7 +93,7 @@ field_generator power level display
 	if(active)
 		user << "The [src] needs to be off."
 		return
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(iswrench(W))
 		switch(state)
 			if(0)
 				state = 1
@@ -118,7 +112,7 @@ field_generator power level display
 			if(2)
 				user << "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>"
 				return
-	else if(istype(W, /obj/item/weapon/weldingtool))
+	else if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		switch(state)
 			if(0)
@@ -318,7 +312,7 @@ field_generator power level display
 	//I want to avoid using global variables.
 	spawn(1)
 		var/temp = 1 //stops spam
-		for(var/obj/singularity/O in machines)
+		for(var/obj/singularity/O in SSmachinery.processing_machines)
 			if(O.last_warning && temp)
 				if((world.time - O.last_warning) > 50) //to stop message-spam
 					temp = 0

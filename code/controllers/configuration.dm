@@ -54,7 +54,8 @@ var/list/gamemode_cache = list()
 	var/list/mode_names = list()
 	var/list/modes = list()				// allowed modes
 	var/list/votable_modes = list()		// votable modes
-	var/list/probabilities = list()		// relative probability of each mode
+	var/list/probabilities_secret = list()			// relative probability of each mode in secret/random
+	var/list/probabilities_mixed_secret = list()	// relative probability of each mode in heavy secret mode
 	var/humans_need_surnames = 0
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 1					// allow ai job
@@ -159,6 +160,7 @@ var/list/gamemode_cache = list()
 	var/ban_legacy_system = 0	//Defines whether the server uses the legacy banning system with the files in /data or the SQL system. Config option in config.txt
 	var/use_age_restriction_for_jobs = 0 //Do jobs use account age restrictions? --requires database
 	var/use_age_restriction_for_antags = 0 //Do antags use account age restrictions? --requires database
+	var/age_restrictions_from_file = 0 // Are hardcoded values used or config ones?
 	var/sql_stats = 0			//Do we record round statistics on the database (deaths, round reports, population, etcetera) or not?
 	var/sql_whitelists = 0		//Defined whether the server uses an SQL based whitelist system, or the legacy one with two .txts. Config option in config.txt
 	var/sql_saves = 0			//Defines whether the server uses an SQL based character and preference saving system. Config option in config.txt
@@ -269,6 +271,10 @@ var/list/gamemode_cache = list()
 	var/sun_accuracy = 8
 	var/sun_target_z = 7
 
+	var/merchant_chance = 20 //Chance, in percentage, of the merchant job slot being open at round start
+
+	var/show_game_type_odd = 1 // If the check gamemode probability verb is enabled or not
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -281,10 +287,11 @@ var/list/gamemode_cache = list()
 				log_misc("Adding game mode [M.name] ([M.config_tag]) to configuration.")
 				src.modes += M.config_tag
 				src.mode_names[M.config_tag] = M.name
-				src.probabilities[M.config_tag] = M.probability
+				src.probabilities_secret[M.config_tag] = M.probability
 				if (M.votable)
 					src.votable_modes += M.config_tag
-	src.votable_modes += "secret"
+	src.votable_modes += ROUNDTYPE_STR_SECRET
+	votable_modes += ROUNDTYPE_STR_MIXED_SECRET
 
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 	var/list/Lines = file2list(filename)
@@ -327,6 +334,9 @@ var/list/gamemode_cache = list()
 
 				if ("use_age_restriction_for_antags")
 					config.use_age_restriction_for_antags = 1
+
+				if ("load_age_restrictions_from_file")
+					config.age_restrictions_from_file = 1
 
 				if ("jobs_have_minimal_access")
 					config.jobs_have_minimal_access = 1
@@ -522,15 +532,22 @@ var/list/gamemode_cache = list()
 					config.protect_roles_from_antagonist = 1
 
 				if ("probability")
-					var/prob_pos = findtext(value, " ")
-					var/prob_name = null
-					var/prob_value = null
+					var/list/chunks = splittext(value, " ")
+					var/prob_type
+					var/prob_name
+					var/prob_value
 
-					if (prob_pos)
-						prob_name = lowertext(copytext(value, 1, prob_pos))
-						prob_value = copytext(value, prob_pos + 1)
+					if (chunks.len == 3)
+						prob_type = lowertext(chunks[1])
+						prob_name = lowertext(chunks[2])
+						prob_value = text2num(chunks[3])
 						if (prob_name in config.modes)
-							config.probabilities[prob_name] = text2num(prob_value)
+							// S adds a mode to standard secret rotation
+							// MS adds a mode to mixed secret rotation
+							if (prob_type == "s")
+								config.probabilities_secret[prob_name] = prob_value
+							else if (prob_type == "ms")
+								config.probabilities_mixed_secret[prob_name] = prob_value
 						else
 							log_misc("Unknown game mode probability configuration definition: [prob_name].")
 					else
@@ -824,6 +841,11 @@ var/list/gamemode_cache = list()
 					fastboot = TRUE
 					world.log << "Fastboot is ENABLED."
 
+				if("merchant_chance")
+					config.merchant_chance = text2num(value)
+
+				if("show_game_type_odd")
+					config.show_game_type_odd = 1
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -932,11 +954,21 @@ var/list/gamemode_cache = list()
 			return M
 	return gamemode_cache["extended"]
 
-/datum/configuration/proc/get_runnable_modes()
+/datum/configuration/proc/get_runnable_modes(secret_type = ROUNDTYPE_STR_SECRET)
+	var/list/probabilities = config.probabilities_secret
+
+	if (secret_type == ROUNDTYPE_STR_MIXED_SECRET)
+		probabilities = config.probabilities_mixed_secret
+	else if (secret_type == ROUNDTYPE_STR_RANDOM)
+		// Random picks from EVERYTHING. Need to use Copy() as to not pollute the
+		// original list. PBRef is /great/.
+		probabilities = config.probabilities_secret.Copy()
+		probabilities |= config.probabilities_mixed_secret
+
 	var/list/runnable_modes = list()
 	for(var/game_mode in gamemode_cache)
 		var/datum/game_mode/M = gamemode_cache[game_mode]
-		if(M && M.can_start() && !isnull(config.probabilities[M.config_tag]) && config.probabilities[M.config_tag] > 0)
+		if(M && M.can_start() && probabilities[M.config_tag] && probabilities[M.config_tag] > 0)
 			runnable_modes |= M
 	return runnable_modes
 

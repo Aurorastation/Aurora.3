@@ -44,6 +44,7 @@
 	cognac		spawn_reagent = "cognac"
 	ale			spawn_reagent = "ale"
 	mead		spawn_reagent = "mead"
+	champagne	spawn_reagent = "champagne"
 
 	// Bar, soft
 	ice			spawn_reagent = "ice"

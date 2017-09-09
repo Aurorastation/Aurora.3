@@ -5,7 +5,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	sort_order = 3
 
 /datum/category_item/player_setup_item/general/body/load_character(var/savefile/S)
-	S["species"]			>> pref.species
 	S["hair_red"]			>> pref.r_hair
 	S["hair_green"]			>> pref.g_hair
 	S["hair_blue"]			>> pref.b_hair
@@ -29,7 +28,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.preview_icon = null
 
 /datum/category_item/player_setup_item/general/body/save_character(var/savefile/S)
-	S["species"]			<< pref.species
 	S["hair_red"]			<< pref.r_hair
 	S["hair_green"]			<< pref.g_hair
 	S["hair_blue"]			<< pref.b_hair
@@ -52,27 +50,25 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["body_markings"]		<< pref.body_markings
 
 /datum/category_item/player_setup_item/general/body/gather_load_query()
-	return list("ss13_characters" = list("vars" = list("species",
-														"hair_colour",
-														"facial_colour",
-														"skin_tone" = "s_tone",
-														"skin_colour",
-														"hair_style" = "h_style",
-														"facial_style" = "f_style",
-														"eyes_colour",
-														"b_type",
-														"disabilities",
-														"organs_data" = "organ_data",
-														"organs_robotic" = "rlimb_data",
-														"body_markings"),
+	return list("ss13_characters" = list("vars" = list("hair_colour",
+													   "facial_colour",
+													   "skin_tone" = "s_tone",
+													   "skin_colour",
+													   "hair_style" = "h_style",
+													   "facial_style" = "f_style",
+													   "eyes_colour",
+													   "b_type",
+													   "disabilities",
+													   "organs_data" = "organ_data",
+													   "organs_robotic" = "rlimb_data",
+													   "body_markings"),
 										"args" = list("id")))
 
 /datum/category_item/player_setup_item/general/body/gather_load_parameters()
 	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/general/body/gather_save_query()
-	return list("ss13_characters" = list("species",
-										 "hair_colour",
+	return list("ss13_characters" = list("hair_colour",
 										 "facial_colour",
 										 "skin_tone",
 										 "skin_colour",
@@ -88,8 +84,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 										 "ckey" = 1))
 
 /datum/category_item/player_setup_item/general/body/gather_save_parameters()
-	return list("species" = pref.species,
-				"hair_colour" = "#" + num2hex(pref.r_hair, 2) + num2hex(pref.g_hair, 2) + num2hex(pref.b_hair, 2),
+	return list("hair_colour" = "#" + num2hex(pref.r_hair, 2) + num2hex(pref.g_hair, 2) + num2hex(pref.b_hair, 2),
 				"facial_colour" = "#" + num2hex(pref.r_facial, 2) + num2hex(pref.g_facial, 2) + num2hex(pref.b_facial, 2),
 				"skin_tone" = pref.s_tone,
 				"skin_colour" = "#" + num2hex(pref.r_skin, 2) + num2hex(pref.g_skin, 2) + num2hex(pref.b_skin, 2),
@@ -105,9 +100,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				"ckey" = pref.client.ckey)
 
 /datum/category_item/player_setup_item/general/body/sanitize_character(var/sql_load = 0)
-	if(!pref.species || !(pref.species in playable_species))
-		pref.species = "Human"
-
 	if (sql_load)
 		pref.hair_colour = sanitize_hexcolor(pref.hair_colour)
 		pref.r_hair		= GetRedPart(pref.hair_colour)
@@ -133,12 +125,17 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 		pref.disabilities = text2num(pref.disabilities)
 
-		if (pref.organ_data)
+		if (istext(pref.organ_data))
 			pref.organ_data = params2list(pref.organ_data)
-		if (pref.rlimb_data)
+		if (istext(pref.rlimb_data))
 			pref.rlimb_data = params2list(pref.rlimb_data)
-		if (pref.body_markings)
-			pref.body_markings = json_decode(pref.body_markings)
+		if (istext(pref.body_markings))
+			var/before = pref.body_markings
+			try
+				pref.body_markings = json_decode(pref.body_markings)
+			catch (var/exception/e)
+				log_debug("BODY MARKINGS: Caught [e]. Initial value: [before]")
+				pref.body_markings = list()
 
 	pref.r_hair			= sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
 	pref.g_hair			= sanitize_integer(pref.g_hair, 0, 255, initial(pref.g_hair))
@@ -465,6 +462,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			else if(!(pref.species in S.species_allowed))
 				usable_markings -= M
 
+		if (!usable_markings.len)
+			alert(user, "This species does not have any body markings available.")
+			return TOPIC_NOACTION
+
 		var/new_marking = input(user, "Choose a body marking:", "Character Preference")  as null|anything in usable_markings
 		if(new_marking && CanUseTopic(user))
 			pref.body_markings[new_marking] = "#000000" //New markings start black
@@ -525,6 +526,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if("Head")
 				limb = "head"
 				carries_organs = 1
+			else
+				to_chat(user, "<span class='notice'>Cancelled.</span>")
+				return TOPIC_NOACTION
 
 		var/list/available_states = list("Normal","Amputated","Prosthesis")
 		if(carries_organs)
@@ -601,7 +605,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/disability_flag = text2num(href_list["disabilities"])
 		pref.disabilities ^= disability_flag
 		return TOPIC_REFRESH
-		
+
 	else if(href_list["toggle_clothing"])
 		pref.dress_mob = !pref.dress_mob
 		return TOPIC_REFRESH

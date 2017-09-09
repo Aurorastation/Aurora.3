@@ -1,6 +1,10 @@
 var/global/list/image/ghost_darkness_images = list() //this is a list of images for things ghosts should still be able to see when they toggle darkness
 var/global/list/image/ghost_sightless_images = list() //this is a list of images for things ghosts should still be able to see even without ghost sight
 
+/mob/dead
+	var/is_manifest = 0
+	var/ghost_cooldown = 0
+
 /mob/dead/observer
 	name = "ghost"
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
@@ -54,16 +58,14 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		T = get_turf(body)				//Where is the body located?
 		attack_log = body.attack_log	//preserve our attack logs by copying them to our ghost
 
-		if (ishuman(body))
-			var/mob/living/carbon/human/H = body
-			icon = H.stand_icon
-			overlays = H.overlays_standing
-		else
-			icon = body.icon
-			icon_state = body.icon_state
-			overlays = body.overlays
+		var/originaldesc = desc
+		var/o_transform = transform
+		appearance = body
+		desc = originaldesc
+		transform = o_transform
 
 		alpha = 127
+		invisibility = initial(invisibility)
 
 		gender = body.gender
 		if(body.mind && body.mind.name)
@@ -358,8 +360,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	stop_following()
 	following = target
-	moved_event.register(following, src, /atom/movable/proc/move_to_destination)
-	destroyed_event.register(following, src, /mob/dead/observer/proc/stop_following)
+	following.OnMove(CALLBACK(src, /atom/movable/.proc/move_to_destination))
+	following.OnDestroy(CALLBACK(src, .proc/stop_following))
 
 	src << "<span class='notice'>Now following \the [following]</span>"
 	move_to_destination(following, following.loc, following.loc)
@@ -367,8 +369,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/proc/stop_following()
 	if(following)
 		src << "<span class='notice'>No longer following \the [following]</span>"
-		moved_event.unregister(following, src)
-		destroyed_event.unregister(following, src)
+		following.UnregisterOnMove(src)
+		following.UnregisterOnDestroy(src)
 		following = null
 
 /mob/dead/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
@@ -505,7 +507,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	//If we hit the limit without finding a valid one, then the best one we found is selected
 
 	var/list/found_vents = list()
-	for(var/obj/machinery/atmospherics/unary/vent_pump/v in machines)
+	for(var/obj/machinery/atmospherics/unary/vent_pump/v in SSmachinery.processing_machines)
 		if(!v.welded && v.z == ZLevel)
 			found_vents.Add(v)
 
@@ -704,10 +706,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	return 1
 
 /mob/dead/proc/manifest(mob/user)
-	var/is_manifest = 0
+	is_manifest = 0
 	if(!is_manifest)
 		is_manifest = 1
 		verbs += /mob/dead/proc/toggle_visibility
+		verbs += /mob/dead/proc/ghost_whisper
+		verbs += /mob/dead/proc/move_item
 
 	if(src.invisibility != 0)
 		user.visible_message( \
@@ -720,6 +724,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			"<span class='warning'>\The [user] just tried to smash \his book into that ghost!  It's not very effective.</span>", \
 			"<span class='warning'>You get the feeling that the ghost can't become any more visible.</span>" \
 		)
+
 
 /mob/dead/proc/toggle_icon(var/icon)
 	if(!client)
@@ -755,6 +760,62 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	invisibility = invisibility == INVISIBILITY_OBSERVER ? 0 : INVISIBILITY_OBSERVER
 	// Give the ghost a cult icon which should be visible only to itself
 	toggle_icon("cult")
+
+/mob/dead/proc/ghost_whisper()
+	set category = "Ghost"
+	set name = "Spectral Whisper"
+
+	if(is_manifest)  //Only able to whisper if it's hit with a tome.
+		var/list/options = list()
+		for(var/mob/living/Ms in view(src))
+			options += Ms
+		var/mob/living/M = input(src, "Select who to whisper to:", "Whisper to?", null) as null|mob in options
+		if(!M)
+			return 0
+		var/msg = sanitize(input(src, "Message:", "Spectral Whisper") as text|null)
+		if(msg)
+			log_say("SpectralWhisper: [key_name(usr)]->[M.key] : [msg]")
+			M << "<span class='warning'> You hear a strange, unidentifiable voice in your head... <font color='purple'>[msg]</font></span>"
+			src << "<span class='warning'> You said: '[msg]' to [M].</span>"
+		else
+			return
+		return 1
+	else
+		src << "<span class='danger'>You have not been pulled past the veil!</span>"
+
+/mob/dead/proc/move_item()
+	set category = "Ghost"
+	set name = "Move item"
+	set desc = "Move a small item to where you are."
+
+	if(ghost_cooldown > world.time)
+		return
+
+	if(!is_manifest)
+		return
+
+	var/turf/T = get_turf(src)
+
+	var/list/obj/item/choices = list()
+	for(var/obj/item/I in range(1))
+		if(I.w_class <= 2)
+			choices += I
+
+	if(!choices.len)
+		to_chat(src, "<span class='warning'>There are no suitable items nearby.</span>")
+		return
+
+	var/obj/item/choice = input(src, "What item would you like to pull?") as null|anything in choices
+	if(!choice || !(choice in range(1)) || choice.w_class > 2)
+		return
+
+	if(!is_manifest)
+		return
+
+	if(step_to(choice, T))
+		choice.visible_message("<span class='warning'>\The [choice] suddenly moves!</span>")
+
+	ghost_cooldown = world.time + 500
 
 /mob/dead/observer/verb/toggle_anonsay()
 	set category = "Ghost"

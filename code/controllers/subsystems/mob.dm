@@ -40,7 +40,8 @@
 
 		var/time = world.time
 
-		M.Life()
+		if (!M.frozen)
+			M.Life()
 
 		if (time != world.time && !slept[M.type])
 			slept[M.type] = TRUE
@@ -55,3 +56,10 @@
 	if (!.)
 		. = new /mob/living/carbon/human/dummy/mannequin
 		mannequins[ckey] = .
+
+	addtimer(CALLBACK(src, .proc/del_mannequin, ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/datum/controller/subsystem/mobs/proc/del_mannequin(ckey)
+	var/mannequin = mannequins[ckey]
+	qdel(mannequin)
+	mannequins -= ckey

@@ -52,16 +52,20 @@
 	if (smooth)
 		queue_smooth(src)
 
-	if (light_power && light_range)
+	if (light_range && light_power)
 		update_light()
 
 	if (opacity)
 		has_opaque_atom = TRUE
 
-	if(!baseturf)
-		baseturf = get_base_turf_by_area(src)
+	var/area/A = loc
 
-	spawn_roof()
+	if(!baseturf)
+		// Hard-coding this for performance reasons.
+		baseturf = A.base_turf || base_turf_by_z["[z]"] || /turf/space
+
+	if (A.flags & SPAWN_ROOF)
+		spawn_roof()
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -77,9 +81,7 @@
 	..()
 	return QDEL_HINT_IWILLGC
 
-// This should be using mutable_appearance, but 510. Woe.
-// Update this & all overrides if/when we move to 511.
-/turf/proc/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)
+/turf/proc/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.icon = icon
 	underlay_appearance.icon_state = icon_state
 	underlay_appearance.dir = adjacency_dir
@@ -199,6 +201,19 @@ var/const/enterloopsanity = 100
 /turf/proc/is_plating()
 	return 0
 
+/turf/proc/can_have_cabling()
+	return FALSE
+
+/turf/proc/can_lay_cable()
+	return can_have_cabling()
+
+/turf/attackby(obj/item/C, mob/user)
+	if (can_lay_cable() && iscoil(C))
+		var/obj/item/stack/cable_coil/coil = C
+		coil.turf_place(src, user)
+	else
+		..()
+
 /turf/proc/inertial_drift(atom/movable/A as mob|obj)
 	if(!(A.last_move))	return
 	if((istype(A, /mob/) && src.x > 2 && src.x < (world.maxx - 1) && src.y > 2 && src.y < (world.maxy-1)))
@@ -293,13 +308,11 @@ var/const/enterloopsanity = 100
  * @return TRUE if a roof has been spawned, FALSE if not.
  */
 /turf/proc/spawn_roof(flags = 0)
-	if (!HasAbove(z))
+	var/turf/simulated/open/above = GetAbove(src)
+	if (!above)
 		return FALSE
 
-	var/turf/simulated/open/above = GetAbove(src)
-	var/area/A = loc
-
-	if (((istype(above) && !A.no_roof) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
+	if (((istype(above)) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
 		above.ChangeTurf(roof_type)
 		roof_flags |= flags
 		return TRUE
@@ -316,7 +329,7 @@ var/const/enterloopsanity = 100
 
 	if (roof_flags & ROOF_CLEANUP)
 		var/turf/above = GetAbove(src)
-		if (!above || istype(above, /turf/simulated/open))
+		if (!above || isopenturf(above))
 			return
 
 		above.ChangeTurf(/turf/simulated/open)

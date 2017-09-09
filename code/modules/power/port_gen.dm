@@ -110,16 +110,16 @@
 	var/temperature = 0		//The current temperature
 	var/overheating = 0		//if this gets high enough the generator explodes
 
+	component_types = list(
+		/obj/item/weapon/stock_parts/matter_bin,
+		/obj/item/weapon/stock_parts/micro_laser,
+		/obj/item/stack/cable_coil = 2,
+		/obj/item/weapon/stock_parts/capacitor
+	)
+
 /obj/machinery/power/port_gen/pacman/Initialize()
+	component_types += board_path
 	. = ..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
-	component_parts += new /obj/item/stack/cable_coil(src)
-	component_parts += new /obj/item/stack/cable_coil(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new board_path(src)
-	RefreshParts()
 
 	if(anchored)
 		connect_to_network()
@@ -130,6 +130,7 @@
 
 /obj/machinery/power/port_gen/pacman/RefreshParts()
 	var/temp_rating = 0
+
 	for(var/obj/item/weapon/stock_parts/SP in component_parts)
 		if(istype(SP, /obj/item/weapon/stock_parts/matter_bin))
 			max_sheets = SP.rating * SP.rating * 50
@@ -266,7 +267,7 @@
 		updateUsrDialog()
 		return
 	else if(!active)
-		if(istype(O, /obj/item/weapon/wrench))
+		if(iswrench(O))
 
 			if(!anchored)
 				connect_to_network()
@@ -278,14 +279,14 @@
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
 
-		else if(istype(O, /obj/item/weapon/screwdriver))
+		else if(isscrewdriver(O))
 			open = !open
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			if(open)
 				user << "<span class='notice'>You open the access panel.</span>"
 			else
 				user << "<span class='notice'>You close the access panel.</span>"
-		else if(istype(O, /obj/item/weapon/crowbar) && open)
+		else if(iscrowbar(O) && open)
 			var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 			for(var/obj/item/I in component_parts)
 				I.loc = src.loc
@@ -405,7 +406,7 @@
 	//produces a tiny amount of radiation when in use
 	if (prob(2*power_output))
 		for (var/mob/living/L in range(src, 5))
-			L.apply_effect(1, IRRADIATE) //should amount to ~5 rads per minute at max safe power
+			L.apply_effect(1, IRRADIATE, blocked = L.getarmor(null, "rad")) //should amount to ~5 rads per minute at max safe power
 	..()
 
 /obj/machinery/power/port_gen/pacman/super/explode()
@@ -414,7 +415,7 @@
 	for (var/mob/living/L in range(src, 10))
 		//should really fall with the square of the distance, but that makes the rads value drop too fast
 		//I dunno, maybe physics works different when you live in 2D -- SM radiation also works like this, apparently
-		L.apply_effect(max(20, round(rads/get_dist(L,src))), IRRADIATE)
+		L.apply_effect(max(20, round(rads/get_dist(L,src))), IRRADIATE, blocked = L.getarmor(null, "rad"))
 
 	explosion(src.loc, 3, 3, 5, 3)
 	qdel(src)

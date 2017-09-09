@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - rscdel: "Removed butanol from the chemistry dispenser as it wasn't actually used for anything."

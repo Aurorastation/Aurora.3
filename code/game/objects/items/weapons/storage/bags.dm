@@ -35,7 +35,7 @@
 
 	w_class = 4
 	max_w_class = 2
-	can_hold = list() // any
+	can_hold = null // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
 
 /obj/item/weapon/storage/bag/trash/update_icon()
@@ -81,7 +81,7 @@
 
 	w_class = 4
 	max_w_class = 2
-	can_hold = list() // any
+	can_hold = null // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
 
 // -----------------------------
@@ -100,7 +100,8 @@
 	can_hold = list(/obj/item/weapon/ore)
 
 /obj/item/weapon/storage/bag/ore/drone
-	max_storage_space = 400
+	// this used to be 400. The inventory system FUCKING DIED at this.
+	max_storage_space = 200
 
 
 // -----------------------------

@@ -59,7 +59,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|FACE|EYES
 	siemens_coefficient = 0
-
+	tint = TINT_HEAVY
 
 
 //Changes by Nanako
