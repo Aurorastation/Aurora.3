@@ -172,9 +172,9 @@
 /obj/effect/energy_net/teleport
 	countdown = 60
 
-/obj/effect/energy_net/New()
-	..()
-	processing_objects |= src
+/obj/effect/energy_net/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/energy_net/Destroy()
 
@@ -184,7 +184,7 @@
 		M.captured = 0
 		M << "You are free of the net!"
 
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/effect/energy_net/proc/healthcheck()

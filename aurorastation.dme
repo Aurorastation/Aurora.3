@@ -164,7 +164,6 @@
 #include "code\controllers\subsystems\machinery.dm"
 #include "code\controllers\subsystems\mob.dm"
 #include "code\controllers\subsystems\night_lighting.dm"
-#include "code\controllers\subsystems\object.dm"
 #include "code\controllers\subsystems\openturf.dm"
 #include "code\controllers\subsystems\orbit.dm"
 #include "code\controllers\subsystems\overlays.dm"
