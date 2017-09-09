@@ -18,6 +18,9 @@
 // Not handled by the lighting engine, but related. Controls the alpha of the ambient occlusion effect on walls.
 #define WALL_AO_ALPHA 100
 
+// Toggles wall ambient occlusion. Disabling this may speed things up a little, but at the cost of visual fluff.
+#define ENABLE_AO
+
 // If I were you I'd leave this alone.
 #define LIGHTING_BASE_MATRIX \
 	list            \

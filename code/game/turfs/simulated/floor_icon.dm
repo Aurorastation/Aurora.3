@@ -72,31 +72,7 @@
 		if(!isnull(burnt) && (flooring.flags & TURF_CAN_BURN))
 			to_add += get_flooring_overlay("[flooring.icon_base]-burned-[burnt]","[flooring.icon_base]_burned[burnt]")
 
-	var/list/shadow_edges = new(NORTH|SOUTH|EAST|WEST)
-	for(var/thing in RANGE_TURFS(1,src))
-		var/turf/neighbor = thing
-		if(neighbor && neighbor != src && !neighbor.density)
-			shadow_edges[get_dir(src, neighbor)] = TRUE
-
-	var/list/ao_ovr
-	for(var/i = 1 to 4)
-		var/cdir = cornerdirs[i]
-		var/corner = 0
-		if (shadow_edges[cdir])
-			corner |= 2
-		if (shadow_edges[turn(cdir, 45)])
-			corner |= 1
-		if (shadow_edges[turn(cdir, -45)])
-			corner |= 4
-
-		if (corner != 7)	// 7 is the 'no shadows' state, no reason to add overlays for it.
-			var/image/I = image('icons/turf/flooring/shadows.dmi', "[corner]", dir = 1 << (i-1))
-			I.alpha = WALL_AO_ALPHA
-			LAZYADD(ao_ovr, I)
-
 	add_overlay(to_add)
-	if (ao_ovr)
-		add_overlay(ao_ovr)
 
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in range(src, 1))

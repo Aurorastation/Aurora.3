@@ -33,7 +33,7 @@
 	var/tmp/roof_flags = 0
 
 // Parent code is duplicated in here instead of ..() for performance reasons.
-/turf/Initialize()
+/turf/Initialize(mapload, ...)
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 
@@ -57,6 +57,8 @@
 
 	if (opacity)
 		has_opaque_atom = TRUE
+		if (!mapload)
+			regenerate_ao()
 
 	var/area/A = loc
 

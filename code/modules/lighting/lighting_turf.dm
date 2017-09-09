@@ -9,6 +9,10 @@
 	var/tmp/list/datum/lighting_corner/corners
 	var/tmp/has_opaque_atom = FALSE // Not to be confused with opacity, this will be TRUE if there's any opaque atom on the tile.
 
+	var/permit_ao = TRUE
+	var/tmp/list/ao_overlays	// Current ambient occlusion overlays. Tracked so we can reverse them without dropping all priority overlays.
+	var/tmp/ao_neighbors = 0
+
 // Causes any affecting light sources to be queued for a visibility update, for example a door got opened.
 /turf/proc/reconsider_lights()
 	//L_PROF(src, "turf_reconsider")
@@ -123,15 +127,20 @@
 	for (var/atom/A in src.contents + src) // Loop through every movable atom on our tile PLUS ourselves (we matter too...)
 		if (A.opacity)
 			has_opaque_atom = TRUE
-			return 	// No need to continue if we find something opaque.
+			break 	// No need to continue if we find something opaque.
+
+	regenerate_ao()
 
 // If an opaque movable atom moves around we need to potentially update visibility.
 /turf/Entered(atom/movable/Obj, atom/OldLoc)
 	. = ..()
 
-	if (Obj && Obj.opacity)
+	if (Obj && Obj.opacity && !has_opaque_atom)
 		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
 		reconsider_lights()
+
+		if (ROUND_IS_STARTED)
+			regenerate_ao()
 
 /turf/Exited(atom/movable/Obj, atom/newloc)
 	. = ..()
@@ -187,8 +196,11 @@
 	var/list/old_affecting_lights = affecting_lights
 	var/old_lighting_overlay = lighting_overlay
 	var/list/old_corners = corners
+	var/old_ao_neighbors = ao_neighbors
 
 	. = ..()
+
+	ao_neighbors = old_ao_neighbors
 
 	recalc_atom_opacity()
 	lighting_overlay = old_lighting_overlay
@@ -210,3 +222,78 @@
 
 	for (var/turf/space/S in RANGE_TURFS(1, src))
 		S.update_starlight()
+
+// This converts a regular dir into a icon_smoothing dir (which can represent all dirs in a single bitfield)
+// Index is dir, the order of these matters.
+var/list/dir2bdir = list(
+	N_NORTH,     // NORTH
+	N_SOUTH,     // SOUTH
+	0,           // not a dir
+	N_EAST,	     // EAST
+	N_NORTHEAST, // NORTHEAST
+	N_SOUTHEAST, // SOUTHEAST
+	0,	         // not a dir
+	N_WEST,	     // WEST
+	N_NORTHWEST, // NORTHWEST
+	N_SOUTHWEST  // SOUTHWEST
+)
+
+/turf/proc/regenerate_ao()
+#ifdef ENABLE_AO
+	for (var/thing in RANGE_TURFS(1, src))
+		var/turf/T = thing
+		if (T.permit_ao)
+			var/oaoh = T.ao_neighbors
+			T.calculate_ao_neighbours()
+			if (oaoh != T.ao_neighbors)
+				T.update_ao()
+#endif 
+
+/turf/proc/calculate_ao_neighbours()
+	var/turf/T
+	for (var/tdir in alldirs)
+		T = get_step(src, tdir)
+		if (T)
+			if (T.has_opaque_atom)
+				ao_neighbors &= ~dir2bdir[tdir]
+			else
+				ao_neighbors |= dir2bdir[tdir]
+
+/turf/proc/update_ao()
+#ifdef ENABLE_AO
+	if (ao_overlays)
+		cut_overlay(ao_overlays, TRUE)
+		ao_overlays.Cut()
+
+	var/list/cache = SSicon_cache.ao_cache
+
+	if (!has_opaque_atom)
+		for(var/i = 1 to 4)
+			var/cdir = cornerdirs[i]
+			var/corner = 0
+
+			if (ao_neighbors & dir2bdir[cdir])
+				corner |= 2
+			if (ao_neighbors & dir2bdir[turn(cdir, 45)])
+				corner |= 1
+			if (ao_neighbors & dir2bdir[turn(cdir, -45)])
+				corner |= 4
+
+			if (corner != 7)	// 7 is the 'no shadows' state, no reason to add overlays for it.
+				var/image/I = cache[corner + 1] ? cache[corner + 1][i] : null
+				if (!I)
+					if (!cache[corner + 1])
+						cache[corner + 1] = list(null, null, null, null)
+
+					I = image('icons/turf/flooring/shadows.dmi', "[corner]", dir = 1 << (i-1))
+					I.alpha = WALL_AO_ALPHA
+
+					cache[corner + 1][i] = I
+
+				LAZYADD(ao_overlays, I)
+
+	UNSETEMPTY(ao_overlays)
+
+	if (ao_overlays)
+		add_overlay(ao_overlays, TRUE)
+#endif
