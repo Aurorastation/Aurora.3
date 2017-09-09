@@ -11,8 +11,6 @@
 	mob_size = 9//Based on average weight of a human
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
-	eat_types |= TYPE_ORGANIC//Any mobs that are given the devour verb, can eat nonhumanoid organics. Only applies to unathi for now
-
 	if(!dna)
 		dna = new /datum/dna(null)
 		// Species name is handled by set_species()

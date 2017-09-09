@@ -1,6 +1,6 @@
-/var/datum/controller/subsystem/processing/plants/SSplants
+/var/datum/controller/subsystem/plants/SSplants
 
-/datum/controller/subsystem/processing/plants
+/datum/controller/subsystem/plants
 	name = "Seeds & Plants"
 	flags = 0	// Override parent's flags.
 	wait = 75
@@ -14,10 +14,15 @@
 	var/list/plant_sprites = list()         // List of all harvested product sprites.
 	var/list/plant_product_sprites = list() // List of all growth sprites plus number of growth stages.
 
-/datum/controller/subsystem/processing/plants/New()
+	var/list/processing = list()
+
+/datum/controller/subsystem/plants/New()
 	NEW_SS_GLOBAL(SSplants)
 
-/datum/controller/subsystem/processing/plants/Initialize(timeofday)
+/datum/controller/subsystem/plants/stat_entry()
+	..("P:[processing.len]")
+
+/datum/controller/subsystem/plants/Initialize(timeofday)
 	// Build the icon lists.
 	for(var/icostate in icon_states('icons/obj/hydroponics_growing.dmi'))
 		var/split = findtext(icostate,"-")
@@ -63,7 +68,7 @@
 	
 	..()
 
-/datum/controller/subsystem/processing/plants/Recover()
+/datum/controller/subsystem/plants/Recover()
 	if (istype(SSplants))
 		src.product_descs = SSplants.product_descs
 		src.seeds = SSplants.seeds
@@ -72,8 +77,26 @@
 		src.plant_sprites = SSplants.plant_sprites
 		src.plant_product_sprites = SSplants.plant_product_sprites
 
+/datum/controller/subsystem/plants/fire(resumed = 0)
+	var/list/queue = processing
+	while (queue.len)
+		var/obj/effect/plant/P = queue[queue.len]
+		queue.len--
+
+		if (!QDELETED(P))
+			P.process()
+
+		if (MC_TICK_CHECK)
+			return
+
+/datum/controller/subsystem/plants/proc/add_plant(obj/effect/plant/plant)
+	processing[plant] = TRUE
+
+/datum/controller/subsystem/plants/proc/remove_plant(obj/effect/plant/plant)
+	processing -= plant
+
 // Proc for creating a random seed type.
-/datum/controller/subsystem/processing/plants/proc/create_random_seed(var/survive_on_station)
+/datum/controller/subsystem/plants/proc/create_random_seed(var/survive_on_station)
 	var/datum/seed/seed = new()
 	seed.randomize()
 	seed.uid = seeds.len + 1

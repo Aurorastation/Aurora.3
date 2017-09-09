@@ -29,12 +29,12 @@
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
 
-/obj/item/weapon/reagent_containers/glass/rag/New()
-	..()
+/obj/item/weapon/reagent_containers/glass/rag/Initialize()
+	. = ..()
 	update_name()
 
 /obj/item/weapon/reagent_containers/glass/rag/Destroy()
-	processing_objects -= src //so we don't continue turning to ash while gc'd
+	STOP_PROCESSING(SSprocessing, src) //so we don't continue turning to ash while gc'd
 	return ..()
 
 /obj/item/weapon/reagent_containers/glass/rag/attack_self(mob/user as mob)
@@ -111,7 +111,7 @@
 			user.do_attack_animation(src)
 			M.IgniteMob()
 		else if(reagents.total_volume)
-			if(user.zone_sel.selecting == "mouth")
+			if(user.zone_sel.selecting == "mouth" && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
 				user.do_attack_animation(src)
 				user.visible_message(
 					"<span class='danger'>\The [user] smothers [target] with [src]!</span>",
@@ -178,14 +178,14 @@
 		qdel(src)
 		return
 
-	processing_objects += src
+	START_PROCESSING(SSprocessing, src)
 	set_light(2, null, "#E38F46")
 	on_fire = 1
 	update_name()
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/rag/proc/extinguish()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	set_light(0)
 	on_fire = 0
 
@@ -212,7 +212,7 @@
 		location.hotspot_expose(700, 5)
 
 	if(burn_time <= 0)
-		processing_objects -= src
+		STOP_PROCESSING(SSprocessing, src)
 		new /obj/effect/decal/cleanable/ash(location)
 		qdel(src)
 		return

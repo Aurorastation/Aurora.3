@@ -20,8 +20,6 @@
 
 /obj/machinery/telepad/RefreshParts()
 	var/E
-	if(!component_parts)
-		populate_components()
 	for(var/obj/item/weapon/stock_parts/capacitor/C in component_parts)
 		E += C.rating
 	efficiency = E

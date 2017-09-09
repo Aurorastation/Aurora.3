@@ -15,8 +15,7 @@
 
 /obj/machinery/power/tesla_coil/RefreshParts()
 	var/power_multiplier = 0
-	if(!component_parts)
-		power_multiplier = 1
+
 	for(var/obj/item/weapon/stock_parts/capacitor/C in component_parts)
 		power_multiplier += C.rating
 	input_power_multiplier = power_multiplier

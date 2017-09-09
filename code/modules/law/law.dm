@@ -20,8 +20,8 @@ $PRISONER_NAME was found guilty of $CRIME on $DATE. Their sentence was $SENTENCE
 	var/desc = "Pay the court a fine or serve your sentence."
 	var/id = "i000"
 
-	var/min_fine = 0 // Minimum fine (in thalers)
-	var/max_fine = 0 // Maximum fine (in thalers)
+	var/min_fine = 0 // Minimum fine (in credits)
+	var/max_fine = 0 // Maximum fine (in credits)
 
 	var/min_brig_time = 0 // Used for low-medium severity crimes, brig sentence measured in minutes
 	var/max_brig_time = 0 // A sentence of 60 minutes or more is permabrig for the round

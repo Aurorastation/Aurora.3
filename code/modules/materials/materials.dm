@@ -170,6 +170,9 @@ var/list/name_to_material
 		if ("arust")
 			wall_icon = 'icons/turf/smooth/rusty_wall.dmi'
 			skip_blend = TRUE
+		if ("biomass")
+			wall_icon = 'icons/turf/smooth/diona_wall.dmi'
+			skip_blend = TRUE
 		else
 			world.log << "materials: [src] has unknown icon_base [icon_base]."
 
@@ -355,9 +358,8 @@ var/list/name_to_material
 	name = "biomass"
 	icon_colour = null
 	stack_type = null
+	icon_base = "biomass"
 	integrity = 600
-	icon_base = "diona"
-	icon_reinf = "noreinf"
 
 /material/diona/place_dismantled_product()
 	return

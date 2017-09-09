@@ -3,9 +3,8 @@
 	icon_state = "lawgiver"
 	item_state = "gun"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)
-	projectile_type=/obj/item/projectile/bullet/pistol
-	fire_sound='sound/weapons/Gunshot_smg.ogg'
 	sel_mode = 1
+	var/mode_check = 1
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
 	var/dna	= null//dna-locking the firearm
 	var/emagged = 0 //if the gun is emagged or not
@@ -18,56 +17,97 @@
 
 	firemodes = list(
 		list(
-			mode_name="singleshot",
-			charge_cost=50,
-			fire_delay=3,
-			recoil=1
+			mode_name = "singleshot",
+			charge_cost = 50,
+			fire_delay = 3,
+			recoil = 1,
+			burst = null,
+			move_delay = null,
+			accuracy = null,
+			dispersion = null,
+			projectile_type = /obj/item/projectile/bullet/pistol,
+			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 		),
 		list(
-			mode_name="rapidfire",
-			charge_cost=150,
-			fire_delay=3,
-			recoil=1,
-			burst=3,
-			move_delay=4,
+			mode_name = "rapidfire",
+			charge_cost = 150,
+			fire_delay = 3,
+			recoil = 1,
+			burst = 3,
+			move_delay = 4,
 			accuracy = list(0,-1,-1,-2,-2),
-			dispersion = list(0.0, 0.6, 1.0)
+			dispersion = list(0.0, 0.6, 1.0),
+			projectile_type = /obj/item/projectile/bullet/pistol,
+			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 		),
 		list(
-			mode_name="highex",
-			charge_cost=300,
-			fire_delay=6,
-			recoil=3
+			mode_name = "highex",
+			charge_cost = 400,
+			fire_delay = 6,
+			recoil = 3,
+			burst = null,
+			move_delay = null,
+			accuracy = null,
+			dispersion = null,
+			projectile_type = /obj/item/projectile/bullet/gyro/law,
+			fire_sound = 'sound/effects/Explosion1.ogg'
 		),
 		list(
-			mode_name="stun",
-			charge_cost=50,
-			fire_delay=4,
-			recoil=0
+			mode_name = "stun",
+			charge_cost = 50,
+			fire_delay = 4,
+			recoil = 0,
+			burst = null,
+			move_delay = null,
+			accuracy = null,
+			dispersion = null,
+			projectile_type = /obj/item/projectile/beam/stun,
+			fire_sound = 'sound/weapons/Taser.ogg'
 		),
 		list(
-			mode_name="hotshot",
-			charge_cost=200,
-			fire_delay=4,
-			recoil=3
+			mode_name = "hotshot",
+			charge_cost = 250,
+			fire_delay = 4,
+			recoil = 3,
+			burst = null,
+			move_delay = null,
+			accuracy = null,
+			dispersion = null,
+			projectile_type = /obj/item/projectile/bullet/shotgun/incendiary,
+			fire_sound = 'sound/weapons/Gunshot.ogg'
 		),
 		list(
-			mode_name="armorpiercing",
-			charge_cost=300,
-			fire_delay=6,
-			recoil=3
+			mode_name = "armorpiercing",
+			charge_cost = 130,
+			fire_delay = 6,
+			recoil = 3,
+			burst = null,
+			move_delay = null,
+			accuracy = null,
+			dispersion = null,
+			projectile_type = /obj/item/projectile/bullet/rifle/a556,
+			fire_sound = 'sound/weapons/Gunshot.ogg'
 		),
 		list(
-			mode_name="pellets",
-			charge_cost=300,
-			fire_delay=6,
-			recoil=3
+			mode_name = "pellets",
+			charge_cost = 250,
+			fire_delay = 6,
+			recoil = 3,
+			burst = null,
+			move_delay = null,
+			accuracy = null,
+			dispersion = null,
+			projectile_type = /obj/item/projectile/bullet/pellet/shotgun,
+			fire_sound = 'sound/weapons/Gunshot.ogg'
 		)
 	)
 
 /obj/item/weapon/gun/energy/lawgiver/Initialize()
 	. = ..()
 	listening_objects += src
+	power_supply = new /obj/item/weapon/cell/device/variable(src, 2000)
+	var/datum/firemode/new_mode = firemodes[sel_mode]
+	new_mode.apply_to(src)
 
 /obj/item/weapon/gun/energy/lawgiver/Destroy()
 	listening_objects -= src
@@ -138,38 +178,24 @@
 	/* Firing Modes*/
 	if(findtext(msg,"single"))
 		sel_mode = 1
-		projectile_type=/obj/item/projectile/bullet/pistol
-		fire_sound='sound/weapons/Gunshot_smg.ogg'
 		usr << "<span class='warning'>[src.name] is now set to single shot mode.</span>"
 	else if(findtext(msg,"rapidfire"))
 		sel_mode = 2
-		projectile_type=/obj/item/projectile/bullet/pistol
-		fire_sound='sound/weapons/Gunshot_smg.ogg'
 		usr << "<span class='warning'>[src.name] is now set to rapid fire mode.</span>"
 	else if(findtext(msg,"highex") || findtext(msg,"grenade"))
 		sel_mode = 3
-		projectile_type=/obj/item/projectile/bullet/gyro/law
-		fire_sound='sound/effects/Explosion1.ogg'
 		usr << "<span class='warning'>[src.name] is now set to high explosive mode.</span>"
 	else if(findtext(msg,"stun"))
 		sel_mode = 4
-		projectile_type=/obj/item/projectile/beam/stun
-		fire_sound='sound/weapons/Taser.ogg'
 		usr << "<span class='warning'>[src.name] is now set to stun mode.</span>"
 	else if(findtext(msg,"hotshot") || findtext(msg,"incendiary"))
 		sel_mode = 5
-		projectile_type=/obj/item/projectile/bullet/shotgun/incendiary
-		fire_sound='sound/weapons/Gunshot.ogg'
 		usr << "<span class='warning'>[src.name] is now set to incendiary mode.</span>"
 	else if(findtext(msg,"armorpiercing") || findtext(msg,"execution"))
 		sel_mode = 6
-		projectile_type=/obj/item/projectile/bullet/rifle/a556
-		fire_sound='sound/weapons/Gunshot.ogg'
 		usr << "<span class='warning'>[src.name] is now set to armorpiercing mode.</span>"
 	else if(findtext(msg,"pellets"))
 		sel_mode = 7
-		projectile_type=/obj/item/projectile/bullet/pellet/shotgun
-		fire_sound='sound/weapons/Gunshot.ogg'
 		usr << "<span class='warning'>[src.name] is now set to pellet mode.</span>"
 	/* Other Stuff */
 	else if(findtext(msg,"reset") && (findtext(msg,"user") || findtext(msg,"dna")))
@@ -188,5 +214,8 @@
 		message_enabled = 1
 		message_disable = 0
 		play_message()
-	else
-		return
+
+	if(mode_check != sel_mode)
+		var/datum/firemode/new_mode = firemodes[sel_mode]
+		new_mode.apply_to(src)
+		mode_check = sel_mode
