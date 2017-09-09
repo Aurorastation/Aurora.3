@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - rscadd: "Ported Europa's ambient occlusion shadowing effect for walls that should lead to INCREASED IMMERSION or something."
