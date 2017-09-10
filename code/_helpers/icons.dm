@@ -762,11 +762,15 @@ as a single icon. Useful for when you want to manipulate an icon via the above a
 					// Pull the default direction.
 					add = icon(I:icon, I:icon_state)
 		else // 'I' is an appearance object.
-			if(istype(A,/obj/machinery/atmospherics) && I in A.underlays)
-				var/image/Im = I
-				add = getFlatIcon(new/image(I), Im.dir, curicon, curstate, curblend, 1)
-			else if(istype(A,/mob) || istype(A,/obj/structure/bed)) // Special snowflakes...
-				add = getFlatIcon(new/image(I), curdir, curicon, curstate, curblend, TRUE)
+			if (istype(A,/atom))
+				var/atom/At = A
+				if (At.gfi_layer_rotation == GFI_ROTATION_DEFDIR)
+					add = getFlatIcon(new/image(I), curdir, curicon, curstate, curblend, TRUE)
+				else if (At.gfi_layer_rotation == GFI_ROTATION_OVERDIR)
+					var/image/Im = I
+					add = getFlatIcon(new/image(I), Im.dir, curicon, curstate, curblend, TRUE)
+				else
+					add = getFlatIcon(new/image(I), curdir, curicon, curstate, curblend, always_use_defdir)
 			else
 				add = getFlatIcon(new/image(I), curdir, curicon, curstate, curblend, always_use_defdir)
 

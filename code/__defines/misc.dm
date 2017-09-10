@@ -394,3 +394,8 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define ITEMSIZE_NORMAL 3
 #define ITEMSIZE_LARGE  4
 #define ITEMSIZE_HUGE   5
+
+// getFlatIcon function altering defines
+#define GFI_ROTATION_DEFAULT 0 //Don't do anything special
+#define GFI_ROTATION_DEFDIR 1 //Layers will have default direction of there object
+#define GFI_ROTATION_OVERDIR 2 //Layers will have overidden direction

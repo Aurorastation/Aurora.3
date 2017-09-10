@@ -15,6 +15,8 @@
 	buckle_require_restraints = 1
 	buckle_lying = -1
 
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+
 /obj/machinery/atmospherics/pipe/drain_power()
 	return -1
 
@@ -523,7 +525,7 @@
 		cut_overlays()
 		add_overlay(icon_manager.get_atmos_icon("manifold", , pipe_color, "core" + icon_connect_type))
 		add_overlay(icon_manager.get_atmos_icon("manifold", , , "clamps" + icon_connect_type))
-		
+
 		// Can't handle underlays with SSoverlay.
 		underlays.Cut()
 
@@ -1354,7 +1356,7 @@
 
 	cut_overlays()
 	add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "universal"))
-	
+
 	underlays.Cut()
 
 	if (node1)
