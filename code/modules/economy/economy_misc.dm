@@ -46,17 +46,6 @@
 
 #define GEAR_EVA 15
 
-
-/var/list/economic_species_modifier = list(
-												/datum/species/human	= 12,
-												/datum/species/skrell	= 10,
-												/datum/species/tajaran	= 7,
-												/datum/species/unathi	= 7,
-												/datum/species/diona	= 3,
-												/datum/species/machine	= 3,
-												/datum/species/bug		= 1
-											)
-
 //---- The following corporations are friendly with NanoTrasen and loosely enable trade and travel:
 //Corporation NanoTrasen - Generalised / high tech research and phoron exploitation.
 //Corporation Vessel Contracting - Ship and station construction, materials research.

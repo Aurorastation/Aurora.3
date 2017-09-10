@@ -154,7 +154,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Chemist", "Paramedic", "Nursing Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Chemist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()

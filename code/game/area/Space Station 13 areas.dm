@@ -429,17 +429,14 @@ area/space/atmosalert()
 /area/syndicate_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
-	station_area = 1
 
 /area/syndicate_station/under
 	name = "\improper Under the Station"
 	icon_state = "northeast"
-	station_area = 1
 
 /area/syndicate_station/caverns
 	name = "\improper Caverns"
 	icon_state = "southeast"
-	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
 
 /area/syndicate_station/arrivals_dock
@@ -488,17 +485,14 @@ area/space/atmosalert()
 /area/skipjack_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
-	station_area = 1
 
 /area/skipjack_station/under
 	name = "\improper Under the Station"
 	icon_state = "northeast"
-	station_area = 1
 
 /area/skipjack_station/cavern
 	name = "\improper Caverns"
 	icon_state = "southeast"
-	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
 
 ////////////////////

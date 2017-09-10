@@ -712,9 +712,13 @@
 	return stat == DEAD
 
 /mob/proc/is_mechanical()
-	if(mind && (mind.assigned_role == "Cyborg" || mind.assigned_role == "AI"))
-		return 1
-	return istype(src, /mob/living/silicon) || get_species() == "Baseline Frame" || get_species() == "Shell Frame" || get_species() == "Industrial Frame"
+	return FALSE
+
+/mob/living/silicon/is_mechanical()
+	return TRUE
+
+/mob/living/carbon/human/is_mechanical()
+	return !!global.mechanical_species[get_species()]
 
 /mob/proc/is_ready()
 	return client && !!mind
@@ -1186,6 +1190,14 @@ mob/proc/yank_out_object()
 		LAZYREMOVE(AM.contained_mobs, src)
 
 	. = ..()
+
+	if (!contained_mobs)	// If this is true, the parent will have already called the client hook.
+		update_client_hook(loc)
+
+/mob/Move()
+	. = ..()
+	if (. && !contained_mobs && client)
+		update_client_hook(loc)
 
 /mob/verb/northfaceperm()
 	set hidden = 1
