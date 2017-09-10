@@ -1,4 +1,3 @@
-#ifdef ENABLE_AO
 /var/datum/controller/subsystem/ao/SSocclusion
 
 /datum/controller/subsystem/ao
@@ -26,4 +25,3 @@
 	setup_complete = TRUE
 
 	..()
-#endif

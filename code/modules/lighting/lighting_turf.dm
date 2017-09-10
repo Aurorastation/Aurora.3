@@ -225,7 +225,6 @@
 		S.update_starlight()
 
 /turf/proc/regenerate_ao()
-#ifdef ENABLE_AO
 	for (var/thing in RANGE_TURFS(1, src))
 		var/turf/T = thing
 		if (T.permit_ao)
@@ -233,7 +232,6 @@
 			T.calculate_ao_neighbours()
 			if (oaoh != T.ao_neighbors)
 				T.update_ao()
-#endif 
 
 /turf/proc/calculate_ao_neighbours()
 	ao_neighbors = 0
@@ -281,7 +279,6 @@
 	. = cache[corner + 1][i] = I
 
 /turf/proc/update_ao()
-#ifdef ENABLE_AO
 	if (ao_overlays)
 		cut_overlay(ao_overlays, TRUE)
 		ao_overlays.Cut()
@@ -324,4 +321,3 @@
 
 	if (ao_overlays)
 		add_overlay(ao_overlays, TRUE)
-#endif
