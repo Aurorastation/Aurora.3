@@ -83,3 +83,6 @@
 
 // -- SSlistener --
 #define GET_LISTENERS(id) (id ? SSlistener.listeners["[id]"] : null)
+
+// -- SSocclusion --
+#define AO_READY (SSocclusion.setup_complete)

@@ -57,7 +57,7 @@
 
 	if (opacity)
 		has_opaque_atom = TRUE
-		if (!mapload)
+		if (AO_READY)
 			regenerate_ao()
 
 	var/area/A = loc

@@ -127,6 +127,7 @@
 		T.name = initial(T.name)
 		T.desc = "Below seems to be \a [T.below]."
 		T.opacity = FALSE
+		T.update_ao()	// No need to recalculate ajacencies, shouldn't have changed.
 
 		// Handle space parallax & starlight.
 		if (T.is_above_space())
@@ -147,11 +148,12 @@
 
 			if (istype(object, /atom/movable/lighting_overlay))	// Special case.
 				var/atom/movable/openspace/multiplier/shadower = T.shadower
-				// This is duplicated in lighting_overlay.dm for performance reasons.
 				shadower.appearance = object
 				shadower.plane = OPENTURF_CAP_PLANE
 				shadower.layer = SHADOWER_LAYER
 				shadower.invisibility = 0
+				if (T.ao_overlays)
+					shadower.add_overlay(T.ao_overlays)
 				if (shadower.icon_state == LIGHTING_BASE_ICON_STATE)
 					// We're using a color matrix, so just darken the colors.
 					var/list/c_list = shadower.color

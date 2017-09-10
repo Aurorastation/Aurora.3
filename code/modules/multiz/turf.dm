@@ -168,6 +168,7 @@
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
 	SSopenturf.openspace_turfs += src
+	shadower = new(src)
 	update()
 
 /**
@@ -238,3 +239,67 @@
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
 	return TRUE
+
+/turf/simulated/open/calculate_ao_neighbours()
+	ao_neighbors = 0
+	var/turf/T
+	for (var/tdir in cardinal)
+		T = get_step(src, tdir)
+		if (isopenturf(T))
+			ao_neighbors |= 1 << tdir
+
+	if (ao_neighbors & N_NORTH)
+		if (ao_neighbors & N_WEST)
+			T = get_step(src, NORTHWEST)
+			if (isopenturf(T))
+				ao_neighbors |= N_NORTHWEST
+
+		if (ao_neighbors & N_EAST)
+			T = get_step(src, NORTHEAST)
+			if (isopenturf(T))
+				ao_neighbors |= N_NORTHEAST
+
+	if (ao_neighbors & N_SOUTH)
+		if (ao_neighbors & N_WEST)
+			T = get_step(src, SOUTHWEST)
+			if (isopenturf(T))
+				ao_neighbors |= N_SOUTHWEST
+
+		if (ao_neighbors & N_EAST)
+			T = get_step(src, SOUTHEAST)
+			if (isopenturf(T))
+				ao_neighbors |= N_SOUTHEAST
+
+	/*if (below && below.ao_neighbors)
+		ao_neighbors |= below.ao_neighbors*/
+
+/turf/simulated/open/update_ao()
+	if (ao_overlays)
+		shadower.cut_overlay(ao_overlays)
+		ao_overlays.Cut()
+
+	var/list/cache = SSicon_cache.ao_cache
+
+	if (!has_opaque_atom)
+		for(var/i = 1 to 4)
+			var/cdir = cornerdirs[i]
+			var/corner = 0
+
+			if (ao_neighbors & (1 << cdir))
+				corner |= 2
+			if (ao_neighbors & (1 << turn(cdir, 45)))
+				corner |= 1
+			if (ao_neighbors & (1 << turn(cdir, -45)))
+				corner |= 4
+
+			if (corner != 7)	// 7 is the 'no shadows' state, no reason to add overlays for it.
+				var/image/I = cache[corner + 1] ? cache[corner + 1][i] : null
+				if (!I)
+					I = make_ao_image(corner, i)
+
+				LAZYADD(ao_overlays, I)
+
+	UNSETEMPTY(ao_overlays)
+
+	if (ao_overlays)
+		shadower.add_overlay(ao_overlays)

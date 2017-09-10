@@ -129,7 +129,8 @@
 			has_opaque_atom = TRUE
 			break 	// No need to continue if we find something opaque.
 
-	regenerate_ao()
+	if (AO_READY)
+		regenerate_ao()
 
 // If an opaque movable atom moves around we need to potentially update visibility.
 /turf/Entered(atom/movable/Obj, atom/OldLoc)
@@ -139,7 +140,7 @@
 		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
 		reconsider_lights()
 
-		if (ROUND_IS_STARTED)
+		if (AO_READY)
 			regenerate_ao()
 
 /turf/Exited(atom/movable/Obj, atom/newloc)
@@ -223,21 +224,6 @@
 	for (var/turf/space/S in RANGE_TURFS(1, src))
 		S.update_starlight()
 
-// This converts a regular dir into a icon_smoothing dir (which can represent all dirs in a single bitfield)
-// Index is dir, the order of these matters.
-var/list/dir2bdir = list(
-	N_NORTH,     // NORTH
-	N_SOUTH,     // SOUTH
-	0,           // not a dir
-	N_EAST,	     // EAST
-	N_NORTHEAST, // NORTHEAST
-	N_SOUTHEAST, // SOUTHEAST
-	0,           // not a dir
-	N_WEST,      // WEST
-	N_NORTHWEST, // NORTHWEST
-	N_SOUTHWEST  // SOUTHWEST
-)
-
 /turf/proc/regenerate_ao()
 #ifdef ENABLE_AO
 	for (var/thing in RANGE_TURFS(1, src))
@@ -250,20 +236,58 @@ var/list/dir2bdir = list(
 #endif 
 
 /turf/proc/calculate_ao_neighbours()
+	ao_neighbors = 0
+	if (!permit_ao)
+		return
+
 	var/turf/T
-	for (var/tdir in alldirs)
+	for (var/tdir in cardinal)
 		T = get_step(src, tdir)
-		if (T)
-			if (T.has_opaque_atom)
-				ao_neighbors &= ~dir2bdir[tdir]
-			else
-				ao_neighbors |= dir2bdir[tdir]
+		if (T && !T.has_opaque_atom)
+			ao_neighbors |= 1 << tdir
+
+	if (ao_neighbors & N_NORTH)
+		if (ao_neighbors & N_WEST)
+			T = get_step(src, NORTHWEST)
+			if (!T.has_opaque_atom)
+				ao_neighbors |= N_NORTHWEST
+
+		if (ao_neighbors & N_EAST)
+			T = get_step(src, NORTHEAST)
+			if (!T.has_opaque_atom)
+				ao_neighbors |= N_NORTHEAST
+
+	if (ao_neighbors & N_SOUTH)
+		if (ao_neighbors & N_WEST)
+			T = get_step(src, SOUTHWEST)
+			if (!T.has_opaque_atom)
+				ao_neighbors |= N_SOUTHWEST
+
+		if (ao_neighbors & N_EAST)
+			T = get_step(src, SOUTHEAST)
+			if (!T.has_opaque_atom)
+				ao_neighbors |= N_SOUTHEAST
+
+/proc/make_ao_image(corner, i)
+	var/list/cache = SSicon_cache.ao_cache
+	if (!cache[corner + 1])
+		cache[corner + 1] = list(null, null, null, null)
+
+	var/image/I = image('icons/turf/flooring/shadows.dmi', "[corner]", dir = 1 << (i-1))
+	I.alpha = WALL_AO_ALPHA
+	I.blend_mode = BLEND_OVERLAY
+	I.appearance_flags = RESET_ALPHA|RESET_COLOR|TILE_BOUND
+
+	. = cache[corner + 1][i] = I
 
 /turf/proc/update_ao()
 #ifdef ENABLE_AO
 	if (ao_overlays)
 		cut_overlay(ao_overlays, TRUE)
 		ao_overlays.Cut()
+
+	if (!permit_ao)
+		return
 
 	var/list/cache = SSicon_cache.ao_cache
 
@@ -272,40 +296,27 @@ var/list/dir2bdir = list(
 			var/cdir = cornerdirs[i]
 			var/corner = 0
 
-			if (ao_neighbors & dir2bdir[cdir])
+			if (ao_neighbors & (1 << cdir))
 				corner |= 2
-			if (ao_neighbors & dir2bdir[turn(cdir, 45)])
+			if (ao_neighbors & (1 << turn(cdir, 45)))
 				corner |= 1
-			if (ao_neighbors & dir2bdir[turn(cdir, -45)])
+			if (ao_neighbors & (1 << turn(cdir, -45)))
 				corner |= 4
 
 			if (corner != 7)	// 7 is the 'no shadows' state, no reason to add overlays for it.
 				var/image/I = cache[corner + 1] ? cache[corner + 1][i] : null
 				if (!I)
-					if (!cache[corner + 1])
-						cache[corner + 1] = list(null, null, null, null)
-
-					I = image('icons/turf/flooring/shadows.dmi', "[corner]", dir = 1 << (i-1))
-					I.alpha = WALL_AO_ALPHA
-
-					cache[corner + 1][i] = I
+					I = make_ao_image(corner, i)
 
 				if (!pixel_x && !pixel_y && !pixel_w && !pixel_z)	// We can only use the cache if we're not shifting.
 					LAZYADD(ao_overlays, I)
 				else
 					// There's a pixel var set, so we're going to need to make a new instance just for this type.
 					var/mutable_appearance/MA = new(I)
-					if (pixel_x)
-						MA.pixel_x = -(pixel_x)
-
-					if (pixel_y)
-						MA.pixel_y = -(pixel_y)
-
-					if (pixel_w)
-						MA.pixel_w = -(pixel_w)
-
-					if (pixel_z)
-						MA.pixel_z = -(pixel_z)
+					MA.pixel_x = -(pixel_x)
+					MA.pixel_y = -(pixel_y)
+					MA.pixel_w = -(pixel_w)
+					MA.pixel_z = -(pixel_z)
 
 					LAZYADD(ao_overlays, MA)
 
