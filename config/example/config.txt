@@ -495,4 +495,5 @@ LOG_GELF_PORT 12201
 # Enables fastboot - some features not essential to testing (like sunlight) will be disabled to speed up server boot. Should not be used on production servers.
 FASTBOOT
 
+# Where to load the cargo items from. json or sql
 CARGO_LOAD_ITEMS_FROM json

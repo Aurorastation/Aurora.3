@@ -1,7 +1,7 @@
 /datum/modular_computer_app_presets
 	var/name = "default_preset"
 	var/display_name = "default preset"
-	var/description = "Description of the preset"
+	var/description = "Description of the preset."
 	var/available = 0
 /datum/modular_computer_app_presets/proc/return_install_programs()
 	return list()
@@ -9,7 +9,7 @@
 /datum/modular_computer_app_presets/all
 	name = "all"
 	display_name = "All Programs"
-	description = "Contains all programs"
+	description = "Contains all programs."
 	available = 0
 /datum/modular_computer_app_presets/all/return_install_programs()
 	var/list/_prg_list = list()
@@ -21,7 +21,7 @@
 /datum/modular_computer_app_presets/engineering
 	name = "engineering"
 	display_name = "Engineering"
-	description = "Contains the most common engineering programs"
+	description = "Contains the most common engineering programs."
 	available = 1
 /datum/modular_computer_app_presets/engineering/return_install_programs()
 	var/list/_prg_list = list(
@@ -39,7 +39,7 @@
 /datum/modular_computer_app_presets/medical
 	name = "medical"
 	display_name = "Medical"
-	description = "Contains the most common medical programs"
+	description = "Contains the most common medical programs."
 	available = 1
 /datum/modular_computer_app_presets/medical/return_install_programs()
 	var/list/_prg_list = list(
@@ -52,7 +52,7 @@
 /datum/modular_computer_app_presets/research
 	name = "research"
 	display_name = "Research"
-	description = "Contains the most common research programs"
+	description = "Contains the most common research programs."
 	available = 1
 /datum/modular_computer_app_presets/research/return_install_programs()
 	var/list/_prg_list = list(
@@ -67,7 +67,7 @@
 /datum/modular_computer_app_presets/command
 	name = "command"
 	display_name = "Command"
-	description = "Contains the most common command programs"
+	description = "Contains the most common command programs."
 	available = 1
 /datum/modular_computer_app_presets/command/return_install_programs()
 	var/list/_prg_list = list(
@@ -81,7 +81,7 @@
 /datum/modular_computer_app_presets/security
 	name = "security"
 	display_name = "Security"
-	description = "Contains the most common security programs"
+	description = "Contains the most common security programs."
 	available = 1
 /datum/modular_computer_app_presets/security/return_install_programs()
 	var/list/_prg_list = list(
@@ -96,7 +96,7 @@
 /datum/modular_computer_app_presets/civilian
 	name = "civilian"
 	display_name = "Civilian"
-	description = "Contains the most common civilian programs"
+	description = "Contains the most common civilian programs."
 	available = 1
 /datum/modular_computer_app_presets/civilian/return_install_programs()
 	var/list/_prg_list = list(
@@ -111,7 +111,7 @@
 /datum/modular_computer_app_presets/supply
 	name = "supply"
 	display_name = "Supply"
-	description = "Contains the most common cargo programs"
+	description = "Contains the most common cargo programs."
 	available = 1
 /datum/modular_computer_app_presets/supply/return_install_programs()
 	var/list/_prg_list = list(
@@ -125,7 +125,7 @@
 /datum/modular_computer_app_presets/wall_generic
 	name = "wallgeneric"
 	display_name = "Wall - Generic"
-	description = "A generic preset for the wall console"
+	description = "A generic preset for the wall console."
 	available = 0
 /datum/modular_computer_app_presets/wall_generic/return_install_programs()
 	var/list/_prg_list = list(
@@ -139,7 +139,7 @@
 /datum/modular_computer_app_presets/merc
 	name = "merc"
 	display_name = "Mercenary"
-	description = "Preset for the Merc Console"
+	description = "Preset for the Merc Console."
 	available = 0
 /datum/modular_computer_app_presets/merc/return_install_programs()
 	var/list/_prg_list = list(
@@ -152,7 +152,7 @@
 /datum/modular_computer_app_presets/ert
 	name = "ert"
 	display_name = "EmergencyResposeTeam"
-	description = "Preset for the ERT Console"
+	description = "Preset for the ERT Console."
 	available = 0
 /datum/modular_computer_app_presets/ert/return_install_programs()
 	var/list/_prg_list = list(
@@ -170,7 +170,7 @@
 /datum/modular_computer_app_presets/trashcompactor
 	name = "trashcompactor"
 	display_name = "Trash Compactor"
-	description = "A preset for the Trash Compactor Wall Console"
+	description = "A preset for the Trash Compactor Wall Console."
 	available = 0
 /datum/modular_computer_app_presets/trashcompactor/return_install_programs()
 	var/list/_prg_list = list(
@@ -182,7 +182,7 @@
 /datum/modular_computer_app_presets/merchant
 	name = "merchant"
 	display_name = "Merchant"
-	description = "A preset for the merchant console"
+	description = "A preset for the merchant console."
 	available = 0
 /datum/modular_computer_app_presets/merchant/return_install_programs()
 	var/list/_prg_list = list(
