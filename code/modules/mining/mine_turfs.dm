@@ -11,7 +11,6 @@
 	icon = 'icons/turf/smooth/rock_wall.dmi'	// Until we get sprites.
 	icon_state = "rock"
 	layer = 2.01
-	permit_ao = FALSE
 	smooth = SMOOTH_MORE | SMOOTH_BORDER
 	canSmoothWith = list(
 		/turf/simulated/mineral,
@@ -39,9 +38,6 @@
 	var/datum/artifact_find/artifact_find
 
 	has_resources = 1
-
-/turf/simulated/mineral/update_ao()
-	return	// Looks bad.
 
 // Copypaste parent call for performance.
 /turf/simulated/mineral/Initialize()
@@ -521,11 +517,6 @@
 	footstep_sound = "gravelstep"
 
 	roof_type = null
-
-	permit_ao = FALSE
-
-/turf/simulated/floor/asteroid/update_ao()
-	return	// Looks bad.
 
 // Copypaste parent for performance.
 /turf/simulated/floor/asteroid/Initialize()

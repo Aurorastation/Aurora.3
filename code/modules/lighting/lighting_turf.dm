@@ -290,7 +290,24 @@ var/list/dir2bdir = list(
 
 					cache[corner + 1][i] = I
 
-				LAZYADD(ao_overlays, I)
+				if (!pixel_x && !pixel_y && !pixel_w && !pixel_z)	// We can only use the cache if we're not shifting.
+					LAZYADD(ao_overlays, I)
+				else
+					// There's a pixel var set, so we're going to need to make a new instance just for this type.
+					var/mutable_appearance/MA = new(I)
+					if (pixel_x)
+						MA.pixel_x = -(pixel_x)
+
+					if (pixel_y)
+						MA.pixel_y = -(pixel_y)
+
+					if (pixel_w)
+						MA.pixel_w = -(pixel_w)
+
+					if (pixel_z)
+						MA.pixel_z = -(pixel_z)
+
+					LAZYADD(ao_overlays, MA)
 
 	UNSETEMPTY(ao_overlays)
 
