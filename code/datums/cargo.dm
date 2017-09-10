@@ -393,14 +393,30 @@
 /datum/cargo_shipment
 	var/list/orders = list() //List of orders in that shipment
 	var/shipment_num //Number of the shipment
-	var/shipment_cost_sell //The amount of money cargo got for the shipment
-	var/shipment_cost_purchse //The amount of money cargo paid for the shipment
+	var/shipment_cost_sell = 0//The amount of money cargo got for the shipment
+	var/shipment_cost_purchase = 0//The amount of money cargo paid for the shipment
 	var/shipment_invoice = null//The invoice for the shipment (detailing the expenses ,credits received and charges)
-	var/shuttle_fee //The shuttle fee at the time of calling it
+	var/shuttle_fee//The shuttle fee at the time of calling it
 	var/shuttle_time //The time the shuttle took to get to the station
 	var/shuttle_called_by //The person that called the shuttle
 	var/shuttle_recalled_by //The person that recalled the shuttle
 	var/completed = 0
+
+/datum/cargo_shipment/proc/get_list(var/shipment_completion = 1)
+	if(shipment_completion != completed)
+		return null
+	else
+		var/list/data = list()
+		data["shipment_num"] = shipment_num
+		data["shipment_cost_sell"] = shipment_cost_sell
+		data["shipment_cost_purchase"] = shipment_cost_purchase
+		data["shipment_invoice"] = shipment_invoice
+		data["shuttle_fee"] = shuttle_fee
+		data["shuttle_time"] = shuttle_time
+		data["shuttle_called_by"] = shuttle_called_by
+		data["shuttle_recalled_by"] = shuttle_recalled_by
+		data["invoice"] = get_invoice()
+		return data
 
 // Generates the invoice at the time of shipping
 /datum/cargo_shipment/proc/generate_invoice()
@@ -410,7 +426,7 @@
 	invoice_data += "Right now its just a placeholder <br>"
 	invoice_data += "Shipment num: [shipment_num]<br>"
 	invoice_data += "shipment cost sell: [shipment_cost_sell]<br>"
-	invoice_data += "shipment cost purchse: [shipment_cost_purchse]<br>"
+	invoice_data += "shipment cost purchse: [shipment_cost_purchase]<br>"
 	invoice_data += "shuttle fee: [shuttle_fee]<br>"
 	invoice_data += "shuttle time: [shuttle_time]<br>"
 	invoice_data += "shuttle called by: [shuttle_called_by]<br>"

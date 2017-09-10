@@ -80,7 +80,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	Loading Data 
 */
 //Reset cargo to prep for loading in new items
-/datum/controller/subsystem/caregory/proc/reset_cargo()
+/datum/controller/subsystem/cargo/proc/reset_cargo()
 	cargo_shipments = list() //List of the shipments to the station
 	current_shipment = null // The current cargo shipment
 	cargo_items = list() //The list of items
@@ -148,7 +148,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			cc.icon = category_query.item[4]
 			cc.price_modifier = text2num(category_query.item[5])
 
-			//Add the caregory to the cargo_categories list
+			//Add the category to the cargo_categories list
 			cargo_categories[cc.name] = cc
 
 		//Load the suppliers
@@ -243,7 +243,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		cc.icon = cargoconfig["categories"][category]["icon"]
 		cc.price_modifier = cargoconfig["categories"][category]["price_modifier"]
 
-		//Add the caregory to the cargo_categories list
+		//Add the category to the cargo_categories list
 		cargo_categories[cc.name] = cc
 
 	//Load the suppliers
@@ -304,7 +304,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 
 /*
-	Getting items, categories and suppliers
+	Getting items, categories, suppliers and shipments
 */
 //Increments the orderid and returns it
 /datum/controller/subsystem/cargo/proc/get_next_order_id()
@@ -341,6 +341,21 @@ var/datum/controller/subsystem/cargo/SScargo
 //Gets a supplier by name
 /datum/controller/subsystem/cargo/proc/get_supplier_by_name(var/name)
 	return cargo_suppliers[name]
+
+//Gets all the shipments sent to / from the station
+/datum/controller/subsystem/cargo/proc/get_shipment_list()
+	var/list/shipment_list = list()
+	for(var/datum/cargo_shipment/cs in cargo_shipments)
+		if(cs.get_list() != null)
+			shipment_list.Add(list(cs.get_list()))
+	return shipment_list
+
+//Get a shipment by shipment id
+/datum/controller/subsystem/cargo/proc/get_shipment_by_id(var/id)
+	for(var/datum/cargo_shipment/cs in cargo_shipments)
+		if(cs.shipment_num == id)
+			return cs
+	return null
 
 /*
 	Submitting, Approving, Rejecting and Shipping Orders
@@ -430,7 +445,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	co.status = "shipped"
 	co.time_shipped = worldtime2text()
-	current_shipment.shipment_cost_purchse += item_price //Increase the price of the shipment
+	current_shipment.shipment_cost_purchase += item_price //Increase the price of the shipment
 	current_shipment.orders.Add(co) //Add the order to the order list
 	return 1
 //Generate a new cargo shipment
@@ -676,7 +691,7 @@ var/datum/controller/subsystem/cargo/SScargo
 						log_debug("Cargo: Bad variable name [var_name] for item [coi.ci.path] - [e]")
 
 	//Shuttle is loaded now - Charge cargo for it
-	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchse)
+	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchase)
 
 	//Now calculate the aliquot shipment cost for the orders and add it to each order
 	var/aliquot_shipment_cost = current_shipment.shuttle_fee / current_shipment.orders.len

@@ -56,17 +56,14 @@
 	if(page == "overview_shipped")
 		data["order_list"] = shipped_orders
 
-
 	if(page == "order_details")
 		data["order_details"] = order_details
 
-
 	if(page == "overview_shipments")
-		data["shipment_list"] = list() //TODO: Fetch completed shipments from SScargo
+		data["shipment_list"] = SScargo.get_shipment_list()
 	
 	if(page == "shipment_details")
 		data["shipment_details"] = shipment_details
-
 
 	data["cargo_money"] = SScargo.get_cargo_money()
 	data["handling_fee"] = SScargo.get_handlingfee()
@@ -124,7 +121,6 @@
 				page = "overview_shipments"
 			if("shipment_details") //Details of a Shipment to / from the station
 				page = "shipment_details"
-
 			if("settings")
 				page = "settings" //Settings page that allows to tweak various settings such as the cargo handling fee
 			else
