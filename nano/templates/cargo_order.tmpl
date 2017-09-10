@@ -90,7 +90,7 @@
 		<b>Suppliers:</b>
 		<br>
 		{{props data.item_details.suppliers}}
-			{{if value.available}}
+			{{if value.available && value.adjusted_price > 0}}
 				{{:helper.link(value.name + " " + value.adjusted_price, 'gear', {'add_item' : data.item_details.path, 'supplier': key}, null)}}
 			{{else}}
 				{{:helper.link(value.name + " /Unavailable/", 'gear', null, "disabled")}}
