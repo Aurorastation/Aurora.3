@@ -98,7 +98,7 @@
 	var/list/curr_turfs = queued_turfs
 	var/list/curr_ov = queued_overlays
 
-	while (curr_turfs.len && qt_idex <= curr_turfs.len)
+	while (qt_idex <= curr_turfs.len)
 		var/turf/simulated/open/T = curr_turfs[qt_idex]
 		curr_turfs[qt_idex] = null
 		qt_idex++
@@ -141,7 +141,7 @@
 		// Add everything below us to the update queue.
 		for (var/thing in T.below)
 			var/atom/movable/object = thing
-			if (QDELETED(object) || object.no_z_overlay)
+			if (QDELETED(object) || object.no_z_overlay || object.loc != T.below)
 				// Don't queue deleted stuff or stuff that doesn't need an overlay.
 				continue
 
@@ -203,7 +203,7 @@
 	if (!no_mc_tick)
 		MC_SPLIT_TICK
 
-	while (curr_ov.len && qo_idex <= curr_ov.len)
+	while (qo_idex <= curr_ov.len)
 		var/atom/movable/openspace/overlay/OO = curr_ov[qo_idex]
 		curr_ov[qo_idex] = null
 		qo_idex++
