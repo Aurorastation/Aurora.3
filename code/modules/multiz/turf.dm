@@ -270,9 +270,6 @@
 			if (isopenturf(T))
 				ao_neighbors |= N_SOUTHEAST
 
-	/*if (below && below.ao_neighbors)
-		ao_neighbors |= below.ao_neighbors*/
-
 /turf/simulated/open/update_ao()
 	if (ao_overlays)
 		shadower.cut_overlay(ao_overlays)
