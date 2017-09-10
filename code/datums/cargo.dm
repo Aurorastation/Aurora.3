@@ -240,17 +240,17 @@
 // Returns the type of the required container for the order
 /datum/cargo_order/proc/get_container_type()
 	switch(container_type)
-		if("create")
+		if(CARGO_CONTAINER_CRATE)
 			if(required_access.len > 0)
 				return /obj/structure/closet/crate/secure
 			else
 				return /obj/structure/closet/crate
-		if("box")
+		if(CARGO_CONTAINER_BOX)
 			if(required_access.len > 0)
 				return /obj/structure/closet/crate/secure/large
 			else
 				return /obj/structure/largecrate
-		if("freezer")
+		if(CARGO_CONTAINER_FREEZER)
 			return /obj/structure/closet/crate/freezer
 		else
 			log_debug("Cargo: Tried to get container type for invalid container [container_type]")
@@ -258,11 +258,11 @@
 // Returns the numer of items that can be stored in the container
 /datum/cargo_order/proc/get_container_storage()
 	switch(container_type)
-		if("crate")
+		if(CARGO_CONTAINER_CRATE)
 			return 40 //Thats the default storage capacity of a crate
-		if("freezer")
+		if(CARGO_CONTAINER_FREEZER)
 			return 40
-		if("box")
+		if(CARGO_CONTAINER_BOX)
 			return 5 //You can fit 5 larger items into a box
 		else
 			log_debug("Cargo: Tried to get storage size for invalid container [container_type]")

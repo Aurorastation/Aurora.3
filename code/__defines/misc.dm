@@ -382,3 +382,8 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 //If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.
 //Of course, this will affect code that checks for blocked < 100, as blocked will be less likely to actually be 100.
 #define ARMOR_BLOCK_CHANCE_MULT 1.0
+
+//Cargo Container Types
+#define CARGO_CONTAINER_CRATE "crate"
+#define CARGO_CONTAINER_FREEZER "freezer"
+#define CARGO_CONTAINER_BOX "box"

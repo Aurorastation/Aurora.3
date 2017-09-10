@@ -187,11 +187,17 @@ var/datum/controller/subsystem/cargo/SScargo
 				ci.categories = json_decode(item_query.item[4])
 				ci.suppliers = json_decode(item_query.item[5])
 				ci.amount = text2num(item_query.item[6])
-				ci.access = text2num(item_query.item[7]) //TODO: Maybe add the option to specify tha access as string instead of number
+				ci.access = text2num(item_query.item[7]) //TODO: Maybe add the option to specify access as string instead of number
 				ci.container_type = item_query.item[8]
 				ci.groupable = text2num(item_query.item[9])
 			catch(var/exception/e)
 				log_debug("SSCargo: Error when loading item: [e]")
+				qdel(ci)
+				continue
+
+			//Check if a valid container is specified
+			if(!(ci.container_type == CARGO_CONTAINER_CRATE || ci.container_type == CARGO_CONTAINER_FREEZER || ci.container_type == CARGO_CONTAINER_BOX))
+				log_debug("SScargo: Invalid container type specified for item - Aborting")
 				qdel(ci)
 				continue
 
@@ -204,7 +210,7 @@ var/datum/controller/subsystem/cargo/SScargo
 				
 				//Setting the supplier
 				ci.suppliers[sup]["supplier_datum"] = cs
-				
+
 			//Add the item to the cargo_items list
 			cargo_items[ci.path] = ci
 
