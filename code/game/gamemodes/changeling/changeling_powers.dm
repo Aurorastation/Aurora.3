@@ -806,7 +806,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		src << "<span class='warning'>Our sting appears ineffective against this creature.</span>"
 		return 0
 
-	if(!(T.stat == DEAD))
+	if(T.stat != DEAD)
 		src << "<span class='warning'>Our sting can only be used against dead targets.</span>"
 		return 0
 
