@@ -83,6 +83,10 @@
 
 	cleanup_roof()
 
+	if (ao_queued)
+		SSocclusion.queue -= src
+		ao_queued = 0
+
 	..()
 	return QDEL_HINT_IWILLGC
 

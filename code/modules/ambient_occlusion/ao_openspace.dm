@@ -38,24 +38,23 @@
 
 	var/list/cache = SSicon_cache.ao_cache
 
-	if (!has_opaque_atom)
-		for(var/i = 1 to 4)
-			var/cdir = cornerdirs[i]
-			var/corner = 0
+	for(var/i = 1 to 4)
+		var/cdir = cornerdirs[i]
+		var/corner = 0
 
-			if (ao_neighbors & (1 << cdir))
-				corner |= 2
-			if (ao_neighbors & (1 << turn(cdir, 45)))
-				corner |= 1
-			if (ao_neighbors & (1 << turn(cdir, -45)))
-				corner |= 4
+		if (ao_neighbors & (1 << cdir))
+			corner |= 2
+		if (ao_neighbors & (1 << turn(cdir, 45)))
+			corner |= 1
+		if (ao_neighbors & (1 << turn(cdir, -45)))
+			corner |= 4
 
-			if (corner != 7)	// 7 is the 'no shadows' state, no reason to add overlays for it.
-				var/image/I = cache["[corner]-[i]"]
-				if (!I)
-					I = make_ao_image(corner, i)
+		if (corner != 7)	// 7 is the 'no shadows' state, no reason to add overlays for it.
+			var/image/I = cache["[corner]-[i]"]
+			if (!I)
+				I = make_ao_image(corner, i)
 
-				LAZYADD(ao_overlays, I)
+			LAZYADD(ao_overlays, I)
 
 	UNSETEMPTY(ao_overlays)
 

@@ -18,13 +18,8 @@
 	..("P:[queue.len]")
 
 /datum/controller/subsystem/ao/Initialize()
-	var/thing
-	var/turf/T
-	
 	fire(FALSE, TRUE)
-
 	setup_complete = TRUE
-
 	..()
 
 /datum/controller/subsystem/ao/fire(resumed = 0, no_mc_tick = FALSE)

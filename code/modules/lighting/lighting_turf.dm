@@ -119,24 +119,21 @@
 
 // Can't think of a good name, this proc will recalculate the has_opaque_atom and has_opaque_atom_ao variables.
 /turf/proc/recalc_atom_opacity()
-	var/old_ao = has_opaque_atom_ao
 	has_opaque_atom = FALSE
-	has_opaque_atom_ao = FALSE
-	for (var/atom/A in src.contents + src) // Loop through every movable atom on our tile PLUS ourselves (we matter too...)
-		if (A.opacity)
-			has_opaque_atom = TRUE
-			if (has_opaque_atom_ao)
-				break
+	if (opacity)
+		has_opaque_atom = TRUE
+		if (!has_opaque_atom_ao)
+			queue_ao()
+		has_opaque_atom_ao = TRUE
+	else
+		for (var/thing in src) // Loop through every movable atom on our tile
+			var/atom/A = thing
+			if (A.opacity)
+				has_opaque_atom = TRUE
+				break 	// No need to continue if we find something opaque.
 
-			if (A.ao_opacity_type == AO_USE_OPACITY)
-				has_opaque_atom_ao = TRUE
-				break
-
-		else if (A.ao_opacity_type == AO_ALWAYS_OPAQUE)
-			has_opaque_atom_ao = TRUE
-
-	if (AO_READY && old_ao != has_opaque_atom_ao)
-		regenerate_ao()
+		if (has_opaque_atom)	// If there's something opaque, check AO too.
+			recalc_ao_opacity()
 
 // If an opaque movable atom moves around we need to potentially update visibility.
 /turf/Entered(atom/movable/Obj, atom/OldLoc)
@@ -145,6 +142,8 @@
 	if (Obj && Obj.opacity && !has_opaque_atom)
 		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
 		reconsider_lights()
+
+		// Hook for AO.
 		switch (Obj.ao_opacity_type)
 			if (AO_ALWAYS_OPAQUE, AO_USE_OPACITY)
 				has_opaque_atom_ao = TRUE

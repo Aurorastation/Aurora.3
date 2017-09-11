@@ -10,10 +10,7 @@
 	for (var/thing in RANGE_TURFS(1, src))
 		var/turf/T = thing
 		if (T.permit_ao)
-			var/oaoh = T.ao_neighbors
-			T.calculate_ao_neighbors()
-			if (oaoh != T.ao_neighbors)
-				T.queue_ao(FALSE)
+			T.queue_ao(TRUE)
 
 /turf/proc/calculate_ao_neighbors()
 	ao_neighbors = 0
@@ -23,29 +20,29 @@
 	var/turf/T
 	for (var/tdir in cardinal)
 		T = get_step(src, tdir)
-		if (T && !T.has_opaque_atom)
+		if (T && !T.has_opaque_atom_ao)
 			ao_neighbors |= 1 << tdir
 
 	if (ao_neighbors & N_NORTH)
 		if (ao_neighbors & N_WEST)
 			T = get_step(src, NORTHWEST)
-			if (!T.has_opaque_atom)
+			if (!T.has_opaque_atom_ao)
 				ao_neighbors |= N_NORTHWEST
 
 		if (ao_neighbors & N_EAST)
 			T = get_step(src, NORTHEAST)
-			if (!T.has_opaque_atom)
+			if (!T.has_opaque_atom_ao)
 				ao_neighbors |= N_NORTHEAST
 
 	if (ao_neighbors & N_SOUTH)
 		if (ao_neighbors & N_WEST)
 			T = get_step(src, SOUTHWEST)
-			if (!T.has_opaque_atom)
+			if (!T.has_opaque_atom_ao)
 				ao_neighbors |= N_SOUTHWEST
 
 		if (ao_neighbors & N_EAST)
 			T = get_step(src, SOUTHEAST)
-			if (!T.has_opaque_atom)
+			if (!T.has_opaque_atom_ao)
 				ao_neighbors |= N_SOUTHEAST
 
 /proc/make_ao_image(corner, i)
@@ -78,7 +75,7 @@
 
 	var/list/cache = SSicon_cache.ao_cache
 
-	if (!has_opaque_atom)
+	if (!has_opaque_atom_ao)
 		for(var/i = 1 to 4)
 			var/cdir = cornerdirs[i]
 			var/corner = 0
@@ -112,3 +109,29 @@
 
 	if (ao_overlays)
 		add_overlay(ao_overlays, TRUE)
+
+/atom
+	var/ao_opacity_type = AO_USE_OPACITY
+
+// Recalculates the special snowflake AO opacity var and regenerates AO if it's different.
+// Called by /turf/proc/recalc_atom_opacity() if the turf IS opaque.
+/turf/proc/recalc_ao_opacity()
+	var/old = has_opaque_atom_ao
+	has_opaque_atom_ao = FALSE
+	if (opacity)
+		has_opaque_atom_ao = TRUE
+	else
+		for (var/thing in contents)
+			var/atom/A = thing
+			switch (A.ao_opacity_type)
+				if (AO_USE_OPACITY)
+					if (A.opacity)
+						has_opaque_atom_ao = TRUE
+						break
+				
+				if (AO_ALWAYS_OPAQUE)
+					has_opaque_atom_ao = TRUE
+					braek
+
+	if (has_opaque_atom_ao != old)
+		regenerate_ao()
