@@ -12,6 +12,7 @@
 	var/listener/ringers
 	var/on = TRUE
 	var/department = "Somewhere" //whatever department/desk you put this thing
+	var/pinged = FALSE //for cooldown
 
 /obj/machinery/ringer/Initialize()
 	. = ..()
@@ -32,6 +33,8 @@
 		return
 	if (rings_pdas || rings_pdas.len)
 		icon_state = "bell_active"
+	if(pinged)
+		icon_state = "bell_alert"
 	if(!on)
 		icon_state = "bell_off"
 	else
@@ -77,10 +80,15 @@
 
 /obj/machinery/ringer/proc/ring_pda()
 
-	if (!on || !rings_pdas || !rings_pdas.len)
+	if (!on || pinged)
 		return
 
+	pinged = TRUE
+
 	playsound(src.loc, 'sound/machines/ringer.ogg', 50, 1)
+
+	if (!rings_pdas || !rings_pdas.len)
+		return
 
 	for (var/obj/item/device/pda/pda in rings_pdas)
 		if (pda.toff || pda.message_silent)
@@ -88,6 +96,12 @@
 
 		var/message = "Notification from \the [department]!"
 		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
+
+	addtimer(CALLBACK(src, .proc/unping), 3 MINUTES)
+
+/obj/machinery/ringer/proc/unping(var/obj/item/device/pda/pda)
+	pinged = FALSE
+	update_icon()
 
 /obj/machinery/ringer/proc/remove_pda(var/obj/item/device/pda/pda)
 	if (istype(pda))
