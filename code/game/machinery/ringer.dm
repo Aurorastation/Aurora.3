@@ -98,7 +98,7 @@
 		var/message = "Notification from \the [department]!"
 		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
 
-	addtimer(CALLBACK(src, .proc/unping), 3 MINUTES)
+	addtimer(CALLBACK(src, .proc/unping), 45 SECONDS)
 
 /obj/machinery/ringer/proc/unping(var/obj/item/device/pda/pda)
 	pinged = FALSE
