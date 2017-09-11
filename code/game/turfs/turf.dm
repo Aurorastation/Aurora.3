@@ -57,7 +57,7 @@
 
 	if (opacity)
 		has_opaque_atom = TRUE
-		if (AO_READY)
+		if (!mapload)
 			regenerate_ao()
 
 	if (mapload && permit_ao)

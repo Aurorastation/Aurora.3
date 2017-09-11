@@ -104,8 +104,7 @@
 	if (new_opacity == TRUE)
 		T.has_opaque_atom = TRUE
 		T.reconsider_lights()
-		if (AO_READY)
-			T.regenerate_ao()
+		T.regenerate_ao()
 	else
 		var/old_has_opaque_atom = T.has_opaque_atom
 		T.recalc_atom_opacity()

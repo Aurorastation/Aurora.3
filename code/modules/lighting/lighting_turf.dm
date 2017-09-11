@@ -142,8 +142,7 @@
 		reconsider_lights()
 
 		// Hook for AO.
-		if (AO_READY)
-			regenerate_ao()
+		regenerate_ao()
 
 /turf/Exited(atom/movable/Obj, atom/newloc)
 	. = ..()

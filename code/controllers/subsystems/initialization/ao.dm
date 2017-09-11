@@ -7,8 +7,6 @@
 	wait = 1
 	priority = SS_PRIORITY_LIGHTING
 
-	var/setup_complete = FALSE
-
 	var/list/queue = list()
 
 /datum/controller/subsystem/ao/New()
@@ -19,7 +17,6 @@
 
 /datum/controller/subsystem/ao/Initialize()
 	fire(FALSE, TRUE)
-	setup_complete = TRUE
 	..()
 
 /datum/controller/subsystem/ao/fire(resumed = 0, no_mc_tick = FALSE)
