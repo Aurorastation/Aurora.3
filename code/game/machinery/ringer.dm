@@ -93,36 +93,39 @@
 	if (istype(pda))
 		rings_pdas -= pda
 
-/obj/machinery/button/ringer
+/obj/machinery/ringer_button
 	name = "ringer button"
 	desc = "Use this to get someone's attention, or to annoy them."
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "ringer"
+	anchored = TRUE
+	var/id = ""
 
-/obj/machinery/button/ringer/Initialize()
+/obj/machinery/ringer_button/Initialize(mapload, newid)
 	. = ..()
-	if(_wifi_id)
-		wifi_sender = new/datum/wifi/receiver/button/ringer/wifi_receiver(_wifi_id, src)
+	if(!id)
+		id = newid
+	update_icon()
 
-/obj/machinery/button/update_icon()
-	if(active)
-		icon_state = "ringer"
-	else
+/obj/machinery/ringer_button/power_change()
+	..()
+	update_icon()
+
+/obj/machinery/ringer_button/update_icon()
+	if(stat & NOPOWER)
 		icon_state = "ringer_off"
+	else
+		icon_state = "ringer"
 
-/obj/machinery/button/ringer/activate(mob/living/user)
-	if(active)
-		return
-	active = 1
+/obj/machinery/ringer_button/attack_hand(mob/living/user)
+
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+
 	if(use_power)
 		use_power(active_power_usage)
-	update_icon()
 
 	for (var/thing in GET_LISTENERS(id))
 		var/listener/L = thing
 		var/obj/machinery/ringer/C = L.target
 		if (istype(C))
 			C.ring_pda()
-
-	active = 0
-	update_icon()
