@@ -49,7 +49,8 @@
 			user << "<span class='warning'>Access Denied.</span>"
 			return
 		else if (C in rings_pdas)
-			user << "<span class='notice'>\The [C] appears to be already linked.</span>"
+			user << "<span class='notice'>You unlink \the [C] from \the [src].</span>"
+			remove_pda(C)
 			return
 		user << "<span class='notice'>You link \the [C] to \the [src], it will now ring upon someone using \the [src].</span>"
 		rings_pdas += C
