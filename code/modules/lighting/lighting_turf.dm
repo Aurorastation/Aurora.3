@@ -119,16 +119,19 @@
 
 // Can't think of a good name, this proc will recalculate the has_opaque_atom variable.
 /turf/proc/recalc_atom_opacity()
+	var/old = has_opaque_atom
 	has_opaque_atom = FALSE
 	if (opacity)
 		has_opaque_atom = TRUE
-		queue_ao()
 	else
 		for (var/thing in src) // Loop through every movable atom on our tile
-			var/atom/A = thing
+			var/atom/movable/A = thing
 			if (A.opacity)
 				has_opaque_atom = TRUE
 				break 	// No need to continue if we find something opaque.
+
+	if (old != has_opaque_atom)
+		queue_ao()
 
 // If an opaque movable atom moves around we need to potentially update visibility.
 /turf/Entered(atom/movable/Obj, atom/OldLoc)
