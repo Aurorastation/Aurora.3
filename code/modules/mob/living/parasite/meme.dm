@@ -78,16 +78,16 @@ var/controlling
 
 	// if there are sleep toxins in the host's body, that's bad
 	if(host.reagents.has_reagent("stoxin"))
-		src << "<span class='warning'>Something in your host's blood makes you lose consciousness, you fade away...</span>"
+		src << "<span class='danger'>Something in your host's blood makes you lose consciousness, you fade away...</span>"
 		src.death()
 		return
 	// a host without brain is no good
 	if(!host.mind)
-		src << "<span class='warning'>Your host has no mind, you fade away...</span>"
+		src << "<span class='danger'>Your host has no mind, you fade away...</span>"
 		src.death()
 		return
 	if(host.stat == 2)
-		src << "<span class='warning'>Your host has died, you fade away...</span>"
+		src << "<span class='danger'>Your host has died, you fade away...</span>"
 		src.death()
 		return
 
@@ -107,7 +107,7 @@ var/controlling
 		src << "<span class='notice'>You are dormant! </span>"
 		return
 	if(!host)
-		usr << "<span class='notice'>You can't speak without host! </span>"
+		usr << "<span class='notice'>You can't speak without a host! </span>"
 		return
 
 	return host.say(message)
@@ -118,7 +118,7 @@ var/controlling
 		src << "<span class='notice'>You are dormant! </span>"
 		return
 	if(!host)
-		usr << "<span class='notice'>You can't speak without host! </span>"
+		usr << "<span class='notice'>You can't speak without a host! </span>"
 		return
 
 	return host.whisper(message)
@@ -132,7 +132,7 @@ var/controlling
 		return
 
 	if(!host)
-		usr << "<span class='notice'>You can't speak without host! </span>"
+		usr << "<span class='notice'>You can't speak without a host! </span>"
 		return
 
 	return host.me_verb(message)
