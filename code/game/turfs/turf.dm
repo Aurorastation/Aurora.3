@@ -60,6 +60,9 @@
 		if (AO_READY)
 			regenerate_ao()
 
+	if (mapload && permit_ao)
+		queue_ao()
+
 	var/area/A = loc
 
 	if(!baseturf)

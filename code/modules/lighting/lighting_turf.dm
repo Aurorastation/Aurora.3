@@ -9,10 +9,6 @@
 	var/tmp/list/datum/lighting_corner/corners
 	var/tmp/has_opaque_atom = FALSE // Not to be confused with opacity, this will be TRUE if there's any opaque atom on the tile.
 
-	var/permit_ao = TRUE
-	var/tmp/list/ao_overlays	// Current ambient occlusion overlays. Tracked so we can reverse them without dropping all priority overlays.
-	var/tmp/ao_neighbors = 0
-
 // Causes any affecting light sources to be queued for a visibility update, for example a door got opened.
 /turf/proc/reconsider_lights()
 	//L_PROF(src, "turf_reconsider")
@@ -121,15 +117,25 @@
 
 #undef SCALE
 
-// Can't think of a good name, this proc will recalculate the has_opaque_atom variable.
+// Can't think of a good name, this proc will recalculate the has_opaque_atom and has_opaque_atom_ao variables.
 /turf/proc/recalc_atom_opacity()
+	var/old_ao = has_opaque_atom_ao
 	has_opaque_atom = FALSE
+	has_opaque_atom_ao = FALSE
 	for (var/atom/A in src.contents + src) // Loop through every movable atom on our tile PLUS ourselves (we matter too...)
 		if (A.opacity)
 			has_opaque_atom = TRUE
-			break 	// No need to continue if we find something opaque.
+			if (has_opaque_atom_ao)
+				break
 
-	if (AO_READY)
+			if (A.ao_opacity_type == AO_USE_OPACITY)
+				has_opaque_atom_ao = TRUE
+				break
+
+		else if (A.ao_opacity_type == AO_ALWAYS_OPAQUE)
+			has_opaque_atom_ao = TRUE
+
+	if (AO_READY && old_ao != has_opaque_atom_ao)
 		regenerate_ao()
 
 // If an opaque movable atom moves around we need to potentially update visibility.
@@ -139,9 +145,11 @@
 	if (Obj && Obj.opacity && !has_opaque_atom)
 		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
 		reconsider_lights()
-
-		if (AO_READY)
-			regenerate_ao()
+		switch (Obj.ao_opacity_type)
+			if (AO_ALWAYS_OPAQUE, AO_USE_OPACITY)
+				has_opaque_atom_ao = TRUE
+				if (AO_READY)
+					regenerate_ao()
 
 /turf/Exited(atom/movable/Obj, atom/newloc)
 	. = ..()
@@ -223,101 +231,3 @@
 
 	for (var/turf/space/S in RANGE_TURFS(1, src))
 		S.update_starlight()
-
-/turf/proc/regenerate_ao()
-	for (var/thing in RANGE_TURFS(1, src))
-		var/turf/T = thing
-		if (T.permit_ao)
-			var/oaoh = T.ao_neighbors
-			T.calculate_ao_neighbours()
-			if (oaoh != T.ao_neighbors)
-				T.update_ao()
-
-/turf/proc/calculate_ao_neighbours()
-	ao_neighbors = 0
-	if (!permit_ao)
-		return
-
-	var/turf/T
-	for (var/tdir in cardinal)
-		T = get_step(src, tdir)
-		if (T && !T.has_opaque_atom)
-			ao_neighbors |= 1 << tdir
-
-	if (ao_neighbors & N_NORTH)
-		if (ao_neighbors & N_WEST)
-			T = get_step(src, NORTHWEST)
-			if (!T.has_opaque_atom)
-				ao_neighbors |= N_NORTHWEST
-
-		if (ao_neighbors & N_EAST)
-			T = get_step(src, NORTHEAST)
-			if (!T.has_opaque_atom)
-				ao_neighbors |= N_NORTHEAST
-
-	if (ao_neighbors & N_SOUTH)
-		if (ao_neighbors & N_WEST)
-			T = get_step(src, SOUTHWEST)
-			if (!T.has_opaque_atom)
-				ao_neighbors |= N_SOUTHWEST
-
-		if (ao_neighbors & N_EAST)
-			T = get_step(src, SOUTHEAST)
-			if (!T.has_opaque_atom)
-				ao_neighbors |= N_SOUTHEAST
-
-/proc/make_ao_image(corner, i)
-	var/list/cache = SSicon_cache.ao_cache
-	if (!cache[corner + 1])
-		cache[corner + 1] = list(null, null, null, null)
-
-	var/image/I = image('icons/turf/flooring/shadows.dmi', "[corner]", dir = 1 << (i-1))
-	I.alpha = WALL_AO_ALPHA
-	I.blend_mode = BLEND_OVERLAY
-	I.appearance_flags = RESET_ALPHA|RESET_COLOR|TILE_BOUND
-
-	. = cache[corner + 1][i] = I
-
-/turf/proc/update_ao()
-	if (ao_overlays)
-		cut_overlay(ao_overlays, TRUE)
-		ao_overlays.Cut()
-
-	if (!permit_ao)
-		return
-
-	var/list/cache = SSicon_cache.ao_cache
-
-	if (!has_opaque_atom)
-		for(var/i = 1 to 4)
-			var/cdir = cornerdirs[i]
-			var/corner = 0
-
-			if (ao_neighbors & (1 << cdir))
-				corner |= 2
-			if (ao_neighbors & (1 << turn(cdir, 45)))
-				corner |= 1
-			if (ao_neighbors & (1 << turn(cdir, -45)))
-				corner |= 4
-
-			if (corner != 7)	// 7 is the 'no shadows' state, no reason to add overlays for it.
-				var/image/I = cache[corner + 1] ? cache[corner + 1][i] : null
-				if (!I)
-					I = make_ao_image(corner, i)
-
-				if (!pixel_x && !pixel_y && !pixel_w && !pixel_z)	// We can only use the cache if we're not shifting.
-					LAZYADD(ao_overlays, I)
-				else
-					// There's a pixel var set, so we're going to need to make a new instance just for this type.
-					var/mutable_appearance/MA = new(I)
-					MA.pixel_x = -(pixel_x)
-					MA.pixel_y = -(pixel_y)
-					MA.pixel_w = -(pixel_w)
-					MA.pixel_z = -(pixel_z)
-
-					LAZYADD(ao_overlays, MA)
-
-	UNSETEMPTY(ao_overlays)
-
-	if (ao_overlays)
-		add_overlay(ao_overlays, TRUE)

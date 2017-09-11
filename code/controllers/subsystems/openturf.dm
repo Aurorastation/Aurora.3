@@ -127,7 +127,7 @@
 		T.name = initial(T.name)
 		T.desc = "Below seems to be \a [T.below]."
 		T.opacity = FALSE
-		T.update_ao()	// No need to recalculate ajacencies, shouldn't have changed.
+		T.queue_ao()	// No need to recalculate ajacencies, shouldn't have changed.
 
 		// Handle space parallax & starlight.
 		if (T.is_above_space())
