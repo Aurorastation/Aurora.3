@@ -116,11 +116,6 @@
 // Not handled by the lighting engine, but related. Controls the alpha of the ambient occlusion effect on opaque atoms and openturfs.
 #define WALL_AO_ALPHA 80
 
-// AO rules settings.
-#define AO_USE_OPACITY 1        // Default behavior - defer to the atom's opacity value.
-#define AO_ALWAYS_OPAQUE 2      // The atom is always opaque to AO.
-#define AO_ALWAYS_TRANSPARENT 3 // The atom is always transparent to AO.
-
 #define AO_UPDATE_NONE 0
 #define AO_UPDATE_OVERLAY 1
 #define AO_UPDATE_REBUILD 2

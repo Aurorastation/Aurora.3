@@ -103,9 +103,6 @@
 
 	if (new_opacity == TRUE)
 		T.has_opaque_atom = TRUE
-		if (ao_opacity_type == AO_USE_OPACITY)
-			T.has_opaque_atom_ao = TRUE
-
 		T.reconsider_lights()
 		if (AO_READY)
 			T.regenerate_ao()

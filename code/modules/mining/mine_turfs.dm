@@ -54,7 +54,6 @@
 		luminosity = 1
 
 	has_opaque_atom = TRUE
-	has_opaque_atom_ao = TRUE
 
 	if (smooth)
 		pixel_x = -4

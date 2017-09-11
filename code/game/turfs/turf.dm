@@ -57,7 +57,6 @@
 
 	if (opacity)
 		has_opaque_atom = TRUE
-		has_opaque_atom_ao = TRUE
 		if (AO_READY)
 			regenerate_ao()
 
