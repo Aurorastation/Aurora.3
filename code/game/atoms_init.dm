@@ -30,6 +30,7 @@
 	if (opacity && isturf(loc))
 		var/turf/T = loc
 		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
+		T.has_opaque_atom_ao = TRUE
 		if (!mapload)
 			T.regenerate_ao()
 
