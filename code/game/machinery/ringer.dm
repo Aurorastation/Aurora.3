@@ -112,22 +112,13 @@
 	else
 		icon_state = "ringer_off"
 
-/obj/machinery/button/ringer/attack_hand(mob/user as mob)
-
-	if(..())
+/obj/machinery/button/ringer/activate(mob/living/user)
+	if(active || !istype(wifi_sender))
 		return
-
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-
-	use_power(5)
 	active = 1
-
-	icon_state = "ringer_on"
-
+	if(use_power)
+		use_power(active_power_usage)
+	update_icon()
 	wifi_sender.activate()
-
-	sleep(50)
-
-	icon_state = "ringer"
-
 	active = 0
+	update_icon()
