@@ -78,10 +78,8 @@
 	update_icon()
 
 /obj/machinery/ringer/proc/ring_pda()
-	if(!on)
-		return
 
-	if (!rings_pdas)
+	if (!on || !rings_pdas || !rings_pdas.len)
 		return
 
 	playsound(src.loc, 'sound/machines/ringer.ogg', 50, 1)
