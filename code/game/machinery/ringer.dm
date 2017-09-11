@@ -9,23 +9,21 @@
 
 	var/id = null
 	var/list/obj/item/device/pda/rings_pdas = list() //A list of PDAs to alert upon someone touching the machine
-	var/_wifi_id
-	var/datum/wifi/receiver/button/ringer/wifi_receiver
+	var/listener/ringers
 	var/on = TRUE
 	var/department = "Somewhere" //whatever department/desk you put this thing
 
 /obj/machinery/ringer/Initialize()
 	. = ..()
-	if(_wifi_id)
-		wifi_receiver = new(_wifi_id, src)
+	if (id)
+		ringers = new(id, src)
 
 /obj/machinery/ringer/power_change()
 	..()
 	update_icon()
 
 /obj/machinery/ringer/Destroy()
-	qdel(wifi_receiver)
-	wifi_receiver = null
+	QDEL_NULL(ringers)
 	return ..()
 
 /obj/machinery/ringer/update_icon()
@@ -104,7 +102,7 @@
 /obj/machinery/button/ringer/Initialize()
 	. = ..()
 	if(_wifi_id)
-		wifi_sender = new/datum/wifi/receiver/button/ringer(_wifi_id, src)
+		wifi_sender = new/datum/wifi/receiver/button/ringer/wifi_receiver(_wifi_id, src)
 
 /obj/machinery/button/update_icon()
 	if(active)
@@ -113,12 +111,18 @@
 		icon_state = "ringer_off"
 
 /obj/machinery/button/ringer/activate(mob/living/user)
-	if(active || !istype(wifi_sender))
+	if(active)
 		return
 	active = 1
 	if(use_power)
 		use_power(active_power_usage)
 	update_icon()
-	wifi_sender.activate()
+
+	for (var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/obj/machinery/ringer/C = L.target
+		if (istype(C))
+			C.ring_pda()
+
 	active = 0
 	update_icon()
