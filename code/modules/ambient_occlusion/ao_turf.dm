@@ -131,7 +131,7 @@
 				
 				if (AO_ALWAYS_OPAQUE)
 					has_opaque_atom_ao = TRUE
-					braek
+					break
 
 	if (has_opaque_atom_ao != old)
 		regenerate_ao()
