@@ -1,3 +1,9 @@
+#ifdef AO_USE_LIGHTING_OPACITY
+#define AO_TURF_CHECK(T) (!T.has_opaque_atom)
+#else
+#define AO_TURF_CHECK(T) (!T.density || !T.opacity)
+#endif
+
 /turf
 	var/permit_ao = TRUE
 	var/tmp/list/ao_overlays	// Current ambient occlusion overlays. Tracked so we can reverse them without dropping all priority overlays.
@@ -18,29 +24,29 @@
 	var/turf/T
 	for (var/tdir in cardinal)
 		T = get_step(src, tdir)
-		if (T && !T.has_opaque_atom)
+		if (T && AO_TURF_CHECK(T))
 			ao_neighbors |= 1 << tdir
 
 	if (ao_neighbors & N_NORTH)
 		if (ao_neighbors & N_WEST)
 			T = get_step(src, NORTHWEST)
-			if (!T.has_opaque_atom)
+			if (AO_TURF_CHECK(T))
 				ao_neighbors |= N_NORTHWEST
 
 		if (ao_neighbors & N_EAST)
 			T = get_step(src, NORTHEAST)
-			if (!T.has_opaque_atom)
+			if (AO_TURF_CHECK(T))
 				ao_neighbors |= N_NORTHEAST
 
 	if (ao_neighbors & N_SOUTH)
 		if (ao_neighbors & N_WEST)
 			T = get_step(src, SOUTHWEST)
-			if (!T.has_opaque_atom)
+			if (AO_TURF_CHECK(T))
 				ao_neighbors |= N_SOUTHWEST
 
 		if (ao_neighbors & N_EAST)
 			T = get_step(src, SOUTHEAST)
-			if (!T.has_opaque_atom)
+			if (AO_TURF_CHECK(T))
 				ao_neighbors |= N_SOUTHEAST
 
 /proc/make_ao_image(corner, i)

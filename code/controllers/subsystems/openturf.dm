@@ -11,6 +11,7 @@
 	wait = 1
 	init_order = SS_INIT_OPENTURF
 	priority = SS_PRIORITY_OPENTURF
+	flags = SS_FIRE_IN_LOBBY
 
 	var/list/queued_turfs = list()
 	var/list/qt_idex = 1

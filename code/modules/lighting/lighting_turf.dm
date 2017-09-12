@@ -119,7 +119,10 @@
 
 // Can't think of a good name, this proc will recalculate the has_opaque_atom variable.
 /turf/proc/recalc_atom_opacity()
+#ifdef AO_USE_LIGHTING_OPACITY
 	var/old = has_opaque_atom
+#endif
+
 	has_opaque_atom = FALSE
 	if (opacity)
 		has_opaque_atom = TRUE
@@ -130,8 +133,10 @@
 				has_opaque_atom = TRUE
 				break 	// No need to continue if we find something opaque.
 
+#ifdef AO_USE_LIGHTING_OPACITY
 	if (old != has_opaque_atom)
 		queue_ao()
+#endif
 
 // If an opaque movable atom moves around we need to potentially update visibility.
 /turf/Entered(atom/movable/Obj, atom/OldLoc)
