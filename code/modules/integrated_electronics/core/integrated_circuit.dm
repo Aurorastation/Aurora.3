@@ -179,7 +179,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_per_use] W (Active)</span>" // Borgcode says that powercells' checked_use() takes joules as input.
 	HTML += "<br><span class='highlight'>[extended_desc]</span>"
 
-	var/datum/browser/B = new(user, assembly ? "assembly-\ref[assembly]" : "circuit-\ref[src]", name, window_width, window_height)
+	var/datum/browser/B = new(user, assembly ? "assembly-\ref[assembly]" : "circuit-\ref[src]", (displayed_name && displayed_name != name) ? "[displayed_name] ([name])" : name, window_width, window_height)
 	B.set_content(HTML.Join())
 	B.open()
 
