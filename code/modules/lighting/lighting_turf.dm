@@ -146,8 +146,10 @@
 		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
 		reconsider_lights()
 
+#ifdef AO_USE_LIGHTING_OPACITY
 		// Hook for AO.
 		regenerate_ao()
+#endif
 
 /turf/Exited(atom/movable/Obj, atom/newloc)
 	. = ..()
