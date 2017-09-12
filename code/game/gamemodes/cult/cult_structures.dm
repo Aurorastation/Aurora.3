@@ -409,12 +409,3 @@
 	if(istype(I, /obj/item/weapon/nullrod))
 		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
 		qdel(src)
-
-/obj/effect/testtrans
-	icon = 'icons/obj/cult.dmi'
-	icon_state = "tt"
-
-/obj/effect/testtrans/New()
-	..()
-	spawn(10)
-		qdel(src)
