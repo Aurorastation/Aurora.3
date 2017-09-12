@@ -151,7 +151,7 @@ list[](
 	var/new_data = null
 	switch(type_to_use)
 		if("string")
-			new_data = input("Now type in a string.","[src] string writing", istext(default) ? default : null) as null|text
+			new_data = sanitize(input("Now type in a string.","[src] string writing", istext(default) ? default : null) as null|text)
 			if(istext(new_data) && holder.check_interactivity(user) )
 				to_chat(user, "<span class='notice'>You input [new_data] into the pin.</span>")
 				return new_data

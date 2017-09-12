@@ -37,14 +37,9 @@
 	amount_to_move = 20000
 
 /obj/item/integrated_circuit/power/transmitter/do_work()
-	set_pin_data(IC_OUTPUT, 1, null)
-	set_pin_data(IC_OUTPUT, 2, null)
-	set_pin_data(IC_OUTPUT, 3, null)
-	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
-	if(AM)
-		if(!assembly)
-			return FALSE // Pointless to do everything else if there's no battery to draw from.
 
+	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
+	if(AM && assembly)
 		var/obj/item/weapon/cell/cell = null
 		if(istype(AM, /obj/item/weapon/cell)) // Is this already a cell?
 			cell = AM
@@ -62,6 +57,10 @@
 					transfer_amount *= 0.8 // Losses due to distance.
 
 				if(cell.fully_charged())
+					set_pin_data(IC_OUTPUT, 1, cell.charge)
+					set_pin_data(IC_OUTPUT, 2, cell.maxcharge)
+					set_pin_data(IC_OUTPUT, 3, cell.percent())
+					push_data()
 					return FALSE
 
 				if(transfer_amount && assembly.draw_power(amount_to_move)) // CELLRATE is already handled in draw_power()
@@ -71,8 +70,15 @@
 				set_pin_data(IC_OUTPUT, 1, cell.charge)
 				set_pin_data(IC_OUTPUT, 2, cell.maxcharge)
 				set_pin_data(IC_OUTPUT, 3, cell.percent())
+				push_data()
 				activate_pin(2)
 				return TRUE
+
+	set_pin_data(IC_OUTPUT, 1, null)
+	set_pin_data(IC_OUTPUT, 2, null)
+	set_pin_data(IC_OUTPUT, 3, null)
+	push_data()
+
 	return FALSE
 
 /obj/item/integrated_circuit/power/transmitter/large/do_work()
