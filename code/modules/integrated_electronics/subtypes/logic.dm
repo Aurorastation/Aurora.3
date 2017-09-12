@@ -24,6 +24,8 @@
 	var/data2 = get_pin_data(IC_INPUT, 2)
 	var/result = !!do_compare(data1, data2)
 	set_pin_data(IC_OUTPUT, 1, result)
+	push_data()
+
 	if (result)
 		activate_pin(2)
 	else
@@ -44,6 +46,7 @@
 /obj/item/integrated_circuit/logic/unary/do_work()
 	var/mydata = get_pin_data(IC_INPUT, 1)
 	set_pin_data(IC_OUTPUT, 1, !!do_check(mydata))
+	push_data()
 	activate_pin(2)
 
 /obj/item/integrated_circuit/logic/unary/proc/do_check(A)

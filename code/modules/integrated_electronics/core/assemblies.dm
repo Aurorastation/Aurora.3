@@ -45,9 +45,10 @@
 	max_complexity = IC_COMPLEXITY_BASE / 2
 	var/obj/item/weapon/implant/integrated_circuit/implant = null
 
-/obj/item/device/electronic_assembly/Initialize()
+/obj/item/device/electronic_assembly/Initialize(mapload, printed = FALSE)
 	..()
-	battery = new(src)
+	if (!printed)
+		battery = new(src)
 	START_PROCESSING(SSelectronics, src)
 
 /obj/item/device/electronic_assembly/Destroy()

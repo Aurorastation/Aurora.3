@@ -1,4 +1,3 @@
-
 /obj/item/device/integrated_circuit_printer
 	name = "integrated circuit printer"
 	desc = "A portable(ish) machine made to print tiny modular circuitry out of metal."
@@ -118,9 +117,11 @@
 			return 1
 
 		var/cost = 1
+		var/is_asm = FALSE
 		if(ispath(build_type, /obj/item/device/electronic_assembly))
 			var/obj/item/device/electronic_assembly/E = build_type
 			cost = round( (initial(E.max_complexity) + initial(E.max_components) ) / 4)
+			is_asm = TRUE
 		else if(ispath(build_type, /obj/item/integrated_circuit))
 			var/obj/item/integrated_circuit/IC = build_type
 			cost = initial(IC.w_class)
@@ -129,7 +130,10 @@
 			to_chat(usr, "<span class='warning'>You need [cost] metal to build that!.</span>")
 			return 1
 		metal -= cost
-		new build_type(get_turf(loc))
+		if (is_asm)
+			new build_type(get_turf(loc), TRUE)
+		else
+			new build_type(get_turf(loc))
 
 	interact(usr)
 
