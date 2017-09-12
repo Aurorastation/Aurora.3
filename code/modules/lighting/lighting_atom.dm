@@ -73,7 +73,7 @@
 		if (light) // Update the light or create it if it does not exist.
 			light.update(.)
 		else if (light_novis)
-			light = new/datum/light_source/novis(src, .)
+			light = new/datum/light_source/sunlight(src, .)
 		else
 			light = new/datum/light_source(src, .)
 
@@ -109,16 +109,6 @@
 		T.recalc_atom_opacity()
 		if (old_has_opaque_atom != T.has_opaque_atom)
 			T.reconsider_lights()
-
-/atom/movable/Move()
-	. = ..()
-
-	var/datum/light_source/L
-	var/thing
-	for (thing in light_sources)
-		L = thing
-		L.source_atom.update_light()
-
 
 /atom/movable/forceMove()
 	. = ..()

@@ -10,7 +10,7 @@
 	var/datum/disease2/disease/virus2 = null
 
 /obj/machinery/computer/centrifuge/attackby(var/obj/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(O))
 		return ..(O,user)
 
 	if(istype(O,/obj/item/weapon/reagent_containers/glass/beaker/vial))
@@ -29,8 +29,8 @@
 
 /obj/machinery/computer/centrifuge/update_icon()
 	..()
-	if(! (stat & (BROKEN|NOPOWER)) && (isolating || curing))
-		icon_state = "centrifuge_moving"
+	if(! (stat & (BROKEN|NOPOWER)))
+		icon_state = (isolating||curing ? "centrifuge_moving" : "centrifuge")
 
 /obj/machinery/computer/centrifuge/attack_hand(var/mob/user as mob)
 	if(..()) return

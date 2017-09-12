@@ -8,61 +8,7 @@
 	icon_state = "NAME OF ICON" 	(defaults to "unknown" (blank))
 	requires_power = 0 				(defaults to 1)
 
-NOTE: there are two lists of areas in the end of this file: centcom and station itself. Please maintain these lists valid. --rastaf0
-
 */
-
-
-
-/area
-	var/fire = null
-	var/atmos = 1
-	var/atmosalm = 0
-	var/poweralm = 1
-	var/party = null
-	level = null
-	name = "Unknown"
-	icon = 'icons/turf/areas.dmi'
-	icon_state = "unknown"
-	layer = 10
-	luminosity = 0
-	mouse_opacity = 0
-	var/lightswitch = 1
-
-	var/eject = null
-
-	var/debug = 0
-	var/requires_power = 1
-	var/always_unpowered = 0	//this gets overriden to 1 for space in area/New()
-
-	var/power_equip = 1
-	var/power_light = 1
-	var/power_environ = 1
-	var/used_equip = 0
-	var/used_light = 0
-	var/used_environ = 0
-
-	var/has_gravity = 1
-	var/obj/machinery/power/apc/apc = null
-	var/no_air = null
-//	var/list/lights				// list of all lights on this area
-	var/list/all_doors = list()		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
-	var/air_doors_activated = 0
-	var/list/ambience = list('sound/ambience/ambigen1.ogg','sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambigen12.ogg','sound/ambience/ambigen14.ogg')
-	var/list/forced_ambience = null
-	var/sound_env = STANDARD_STATION
-	var/turf/base_turf//The base turf type of the area, which can be used to override the z-level's base turf
-	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
-	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
-	var/station_area = 0
-	var/centcomm_area = 0
-
-/*Adding a wizard area teleport list because motherfucking lag -- Urist*/
-/*I am far too lazy to make it a proper list of areas so I'll just make it run the usual telepot routine at the start of the game*/
-
-// Setup moved to EMI.
-var/list/teleportlocs = list()
-var/list/ghostteleportlocs = list()
 
 /*-----------------------------------------------------------------------------*/
 
@@ -71,7 +17,7 @@ var/list/ghostteleportlocs = list()
 /////////
 
 /area/space
-	name = "\improper Space"
+	name = "Space"
 	icon_state = "space"
 	requires_power = 1
 	always_unpowered = 1
@@ -98,8 +44,6 @@ area/space/atmosalert()
 /area/space/partyalert()
 	return
 
-/area/turret_protected/
-
 /area/arrival
 	requires_power = 0
 	no_light_control = 1
@@ -113,17 +57,12 @@ area/space/atmosalert()
 	icon_state = "start"
 
 
-
 ////////////
 //SHUTTLES//
 ////////////
 //shuttle areas must contain at least two areas in a subgroup if you want to move a shuttle from one
 //place to another. Look at escape shuttle for example.
 //All shuttles should now be under shuttle since we have smooth-wall code.
-
-/area/shuttle/lifts/placeholder //placeholder until lift code is done.
-	name = "\improper Placeholder!1!!"
-	icon_state = "unknown"
 
 /area/shuttle
 	requires_power = 0
@@ -490,17 +429,14 @@ area/space/atmosalert()
 /area/syndicate_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
-	station_area = 1
 
 /area/syndicate_station/under
 	name = "\improper Under the Station"
 	icon_state = "northeast"
-	station_area = 1
 
 /area/syndicate_station/caverns
 	name = "\improper Caverns"
 	icon_state = "southeast"
-	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
 
 /area/syndicate_station/arrivals_dock
@@ -549,17 +485,14 @@ area/space/atmosalert()
 /area/skipjack_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
-	station_area = 1
 
 /area/skipjack_station/under
 	name = "\improper Under the Station"
 	icon_state = "northeast"
-	station_area = 1
 
 /area/skipjack_station/cavern
 	name = "\improper Caverns"
 	icon_state = "southeast"
-	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
 
 ////////////////////
@@ -570,7 +503,7 @@ area/space/atmosalert()
 
 
 /area/maintenance
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = list(
@@ -581,9 +514,6 @@ area/space/atmosalert()
 		'sound/ambience/ambimaint5.ogg'
 	)
 	station_area = 1
-
-/area/maintenance/holomapAlwaysDraw()
-	return FALSE
 
 /area/maintenance/civ
 	name = "\improper Civilian Maintenance"
@@ -1050,13 +980,14 @@ area/space/atmosalert()
 /area/holodeck
 	name = "\improper Holodeck"
 	icon_state = "Holodeck"
-	dynamic_lighting = 0
 	sound_env = LARGE_ENCLOSED
-	no_light_control = 1
-	station_area = 1
+	no_light_control = TRUE
+	station_area = TRUE
+	dynamic_lighting = FALSE
 
 /area/holodeck/alphadeck
 	name = "\improper Holodeck Alpha"
+	dynamic_lighting = TRUE
 
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
@@ -1221,6 +1152,9 @@ area/space/atmosalert()
 	name = "\improper Engineering Cooling Radiator"
 	icon_state = "engineering_monitoring"
 
+/area/engineering/gravity_gen
+	name = "\improper Gravity Generator"
+	icon_state = "engine"
 
 
 //Solars
@@ -1547,9 +1481,7 @@ area/space/atmosalert()
 	name = "\improper Vault"
 	icon_state = "nuke_storage"
 	holomap_color = null
-
-/area/security/nuke_storage/holomapAlwaysDraw()
-	return FALSE
+	flags = HIDE_FROM_HOLOMAP
 
 /area/security/checkpoint
 	name = "\improper Security Checkpoint"
@@ -1976,9 +1908,7 @@ area/space/atmosalert()
 
 /area/turret_protected
 	station_area = 1
-
-/area/turret_protected/holomapAlwaysDraw()
-	return FALSE
+	flags = HIDE_FROM_HOLOMAP
 
 /area/turret_protected/ai_upload
 	name = "\improper AI Upload Chamber"
@@ -2118,18 +2048,6 @@ area/space/atmosalert()
 	name = "\improper Telecommucations Main Level Relay"
 	icon_state = "tcomsatcham"
 
-/////////////////////////////////////////////////////////////////////
-/*
- Lists of areas to be used with is_type_in_list.
- Used in gamemodes code at the moment. --rastaf0
-*/
-
-// CENTCOM
-var/list/centcom_areas = list()
-
-//SPACE STATION 13
-var/list/the_station_areas = list()
-
 /area/beach
 	name = "Keelin's private beach"
 	icon_state = "null"
@@ -2187,3 +2105,38 @@ var/list/the_station_areas = list()
 
 	spawn(60) .()
 */
+
+
+//merchant station and shuttle
+
+/area/merchant_station
+	name = "\improper Merchant Station"
+	icon_state = "merchant"
+	requires_power = 0
+	dynamic_lighting = 1
+	no_light_control = 1
+	centcomm_area = 1
+
+/area/merchant_station/transit
+	name = "\improper Hyperspace"
+	icon_state = "shuttle"
+	centcomm_area = 1
+
+/area/merchant_ship
+	name = "\improper Merchant Ship"
+	icon_state = "yellow"
+	requires_power = 0
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	no_light_control = 1
+
+/area/merchant_ship/start
+	name = "\improper Merchant Ship Docked"
+	icon_state = "yellow"
+	centcomm_area = 1
+	base_turf = /turf/space
+
+/area/merchant_ship/docked
+	name = "\improper Docked with station"
+	icon_state = "southwest"
+	station_area = 1
+	base_turf = /turf/simulated/floor/asteroid

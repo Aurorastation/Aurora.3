@@ -223,6 +223,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	default_cartridge = /obj/item/weapon/cartridge/medical
 	icon_state = "pda-gene"
 
+/obj/item/device/pda/merchant
+	icon_state = "pda-chef"
+	hidden = 1
 
 // Special AI/pAI PDAs that cannot explode.
 /obj/item/device/pda/ai
@@ -807,7 +810,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 		if("Toggle Door")
 			if(cartridge && cartridge.access_remote_door)
-				for(var/obj/machinery/door/blast/M in world)
+				for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
 					if(M.id == cartridge.remote_door_id)
 						if(M.density)
 							M.open()
@@ -942,11 +945,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		message += "Large clouds of noxious smoke billow forth from your [P]!"
 	if(i>=65 && i<=75) //Weaken
 		if(M && isliving(M))
-			M.apply_effects(0,1)
+			M.apply_effects(weaken = 1)
 		message += "Your [P] flashes with a blinding white light! You feel weaker."
 	if(i>=75 && i<=85) //Stun and stutter
 		if(M && isliving(M))
-			M.apply_effects(1,0,0,0,1)
+			M.apply_effects(stun = 1, stutter = 1)
 		message += "Your [P] flashes with a blinding white light! You feel weaker."
 	if(i>=85) //Sparks
 		spark(P.loc, 2)
@@ -984,7 +987,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		user << "<span class='notice'>[src] does not have a pen slot.</span>"
 		return
 
-	switch (use_check(user, USE_DISALLOW_SILICONS))
+	switch (use_check(user, USE_DISALLOW_SILICONS, show_messages = FALSE))
 		if (USE_FAIL_NON_ADJACENT)
 			user << "<span class='notice'>You are too far away from [src].</span>"
 

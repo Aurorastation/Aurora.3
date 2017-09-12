@@ -22,7 +22,7 @@
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
 	T.lighting_overlay = src
 	T.luminosity       = 0
-	
+
 	needs_update = TRUE
 	SSlighting.overlay_queue += src
 
@@ -38,16 +38,13 @@
 	if (istype(T))
 		T.lighting_overlay = null
 		T.luminosity = 1
-	
+
 	return ..()
 
 // This is a macro PURELY so that the if below is actually readable.
 #define ALL_EQUAL ((rr == gr && gr == br && br == ar) && (rg == gg && gg == bg && bg == ag) && (rb == gb && gb == bb && bb == ab))
 
 /atom/movable/lighting_overlay/proc/update_overlay()
-	if (QDELING(src))	// This shouldn't happen.
-		return
-
 	var/turf/T = loc
 	if (!istype(T)) // Erm...
 		if (loc)
@@ -74,8 +71,6 @@
 	var/max = max(cr.cache_mx, cg.cache_mx, cb.cache_mx, ca.cache_mx)
 	luminosity = max > LIGHTING_SOFT_THRESHOLD
 
-// The RNG introduced by LIGHTING_USE_MEMORY_HACK makes this shortcut ineffective.
-#ifndef LIGHTING_USE_MEMORY_HACK
 	var/rr = cr.cache_r
 	var/rg = cr.cache_g
 	var/rb = cr.cache_b
@@ -103,25 +98,34 @@
 		color = null
 	else
 		icon_state = LIGHTING_BASE_ICON_STATE
-		color = list(
-			rr, rg, rb, 0,
-			gr, gg, gb, 0,
-			br, bg, bb, 0,
-			ar, ag, ab, 0,
-			0, 0, 0, 1
-		)
-#else 
-	color = list(
-		cr.cache_r, cr.cache_g, cr.cache_b, 0,
-		cg.cache_r, cg.cache_g, cg.cache_b, 0,
-		cb.cache_r, cb.cache_g, cb.cache_b, 0,
-		ca.cache_r, ca.cache_g, ca.cache_b, 0,
-		0, 0, 0, 1
-	)
-#endif 
+		if (islist(color))
+			var/list/c_list = color
+			c_list[CL_MATRIX_RR] = rr
+			c_list[CL_MATRIX_RG] = rg
+			c_list[CL_MATRIX_RB] = rb
+			c_list[CL_MATRIX_GR] = gr
+			c_list[CL_MATRIX_GG] = gg
+			c_list[CL_MATRIX_GB] = gb
+			c_list[CL_MATRIX_BR] = br
+			c_list[CL_MATRIX_BG] = bg
+			c_list[CL_MATRIX_BB] = bb
+			c_list[CL_MATRIX_AR] = ar
+			c_list[CL_MATRIX_AG] = ag
+			c_list[CL_MATRIX_AB] = ab
+			color = c_list
+		else
+			color = list(
+				rr, rg, rb, 0,
+				gr, gg, gb, 0,
+				br, bg, bb, 0,
+				ar, ag, ab, 0,
+				0, 0, 0, 1
+			)
 
-	if (bound_overlay)
-		update_above()
+	// If we're on an openturf, update the shadower object too.
+	var/turf/simulated/open/OT = loc:above
+	if (OT)
+		OT.update_icon()
 
 #undef ALL_EQUAL
 
@@ -149,4 +153,7 @@
 		. = ..()
 
 /atom/movable/lighting_overlay/shuttle_move(turf/loc)
+	return
+
+/atom/movable/lighting_overlay/conveyor_act()
 	return

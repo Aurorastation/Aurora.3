@@ -17,11 +17,15 @@
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/E = H.internal_organs_by_name["eyes"]
-			user << "<span class='warning'>You stare deep into the abyss. . . and the abyss stares back.</span>"
+			var/obj/item/organ/E = H.get_eyes(no_synthetic = TRUE)
+			if (!E)
+				user << "<span class='notice'>You stare deep into the abyss... and nothing happens. What a letdown.</span>"
+				return
+
+			user << "<span class='warning'>You stare deep into the abyss... and the abyss stares back.</span>"
 			sleep(10)
-			user << "<span class='warning'>Your eyes fill with painful light, and you feel a sharp burning sensation in your head!</span>"
-			user.show_message("<b>[user]</b> screams in horror!",2)
+			user << "<span class='warning'>Your [E.name] fill with painful light, and you feel a sharp burning sensation in your head!</span>"
+			user.custom_emote(2, "screams in horror!")
 			playsound(user, 'sound/hallucinations/far_noise.ogg', 40, 1)
 			user.drop_item()
 			user.visible_message("<span class='danger'>Ashes pour out of [user]'s eye sockets!</span>")

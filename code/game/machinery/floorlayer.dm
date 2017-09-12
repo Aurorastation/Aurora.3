@@ -9,9 +9,9 @@
 	var/obj/item/stack/tile/T
 	var/list/mode = list("dismantle"=0,"laying"=0,"collect"=0)
 
-/obj/machinery/floorlayer/New()
+/obj/machinery/floorlayer/Initialize()
+	. = ..()
 	T = new/obj/item/stack/tile/floor(src)
-	..()
 
 /obj/machinery/floorlayer/Move(new_turf,M_Dir)
 	..()
@@ -36,7 +36,7 @@
 
 /obj/machinery/floorlayer/attackby(var/obj/item/W as obj, var/mob/user as mob)
 
-	if (istype(W, /obj/item/weapon/wrench))
+	if (iswrench(W))
 		var/m = input("Choose work mode", "Mode") as null|anything in mode
 		mode[m] = !mode[m]
 		var/O = mode[m]
@@ -49,7 +49,7 @@
 		TakeTile(T)
 		return
 
-	if(istype(W, /obj/item/weapon/crowbar))
+	if(iscrowbar(W))
 		if(!length(contents))
 			user << "<span class='notice'>\The [src] is empty.</span>"
 		else
@@ -60,7 +60,7 @@
 				T = null
 		return
 
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		T = input("Choose tile type.", "Tiles") as null|anything in contents
 		return
 	..()

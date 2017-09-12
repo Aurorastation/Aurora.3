@@ -26,6 +26,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/gin = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/rum = 5,
@@ -52,6 +53,8 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreusegreen = 5,/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreuseyellow =5,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/bitters = 6,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/mintsyrup = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cremewhite = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/brandy = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes = 4,
@@ -188,6 +191,7 @@
 	product_slogans = "Carts to go!"
 	icon_state = "cart"
 	icon_deny = "cart-deny"
+	req_access = list(access_hop)
 	products = list(
 		/obj/item/weapon/cartridge/medical = 10,
 		/obj/item/weapon/cartridge/engineering = 10,
@@ -220,7 +224,7 @@
 		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5
 	)
 	prices = list(
-		/obj/item/weapon/storage/fancy/cigarettes = 510,
+		/obj/item/weapon/storage/fancy/cigarettes = 200,
 		/obj/item/weapon/storage/box/matches = 12,
 		/obj/item/weapon/flame/lighter/random = 12
 	)
@@ -317,7 +321,6 @@
 	req_access = list(access_security)
 	products = list(
 		/obj/item/weapon/handcuffs = 8,
-		/obj/item/weapon/grenade/flashbang = 4,
 		/obj/item/weapon/grenade/chem_grenade/teargas = 4,
 		/obj/item/device/flash = 5,
 		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 12,
@@ -376,7 +379,6 @@
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
-		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/peanutseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/watermelonseed = 3,
@@ -402,7 +404,8 @@
 		/obj/item/seeds/nettleseed = 2,
 		/obj/item/seeds/reishimycelium = 2,
 		/obj/item/seeds/reishimycelium = 2,
-		/obj/item/seeds/shandseed = 2
+		/obj/item/seeds/shandseed = 2,
+		/obj/item/seeds/ambrosiavulgarisseed = 3
 	)
 	premium = list(
 		/obj/item/toy/waterflower = 1
@@ -425,7 +428,6 @@
 		/obj/item/seeds/appleseed = 15,
 		/obj/item/seeds/poppyseed = 20,
 		/obj/item/seeds/sugarcaneseed = 12,
-		/obj/item/seeds/ambrosiavulgarisseed = 90,
 		/obj/item/seeds/peanutseed = 25,
 		/obj/item/seeds/whitebeetseed = 20,
 		/obj/item/seeds/watermelonseed = 15,

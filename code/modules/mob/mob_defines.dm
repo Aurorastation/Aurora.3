@@ -67,8 +67,8 @@
 	var/ear_deaf = null		//Carbon
 	var/ear_damage = null	//Carbon
 	var/stuttering = null
-	var/slurring = null		
-	var/brokejaw = null	    
+	var/slurring = null
+	var/brokejaw = null
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""
@@ -232,3 +232,7 @@
 
 	var/list/active_genes=list()
 	var/mob_size = MOB_MEDIUM
+
+	var/list/progressbars
+
+	var/frozen = FALSE //related to wizard statues, if set to true, life won't process

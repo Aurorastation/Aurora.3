@@ -73,7 +73,7 @@
 		else
 			user << "<span class='notice'>[src] already has a cell.</span>"
 
-	else if(istype(W, /obj/item/weapon/screwdriver))
+	else if(isscrewdriver(W))
 		if(bcell)
 			bcell.update_icon()
 			bcell.loc = get_turf(src.loc)
@@ -233,3 +233,48 @@
 		item_state = "[initial(name)]"
 
 	..()
+
+/obj/item/weapon/melee/baton/slime // sprites
+	name = "Slime Baton"
+	desc = "A special baton used to help deal with agressive slimes. It is effective in making them less pissed off... Or more pissed off."
+	icon = 'icons/obj/stunrod.dmi'
+	icon_state = "stunrod"
+	item_state = "stunrod"
+	force = 10
+	baton_color = "#75ACFF"
+	agonyforce = 1
+	stunforce = 1
+	origin_tech = list(TECH_COMBAT = 1)
+
+/obj/item/weapon/melee/baton/slime/Initialize()
+	. = ..()
+	bcell = new/obj/item/weapon/cell/high(src)
+	return
+
+/obj/item/weapon/melee/baton/slime/update_icon() // sprite
+
+/obj/item/weapon/melee/baton/slime/attack(mob/M, mob/user, var/hit_zone)
+	if(isrobot(M) || ishuman(M))
+		..()
+		return
+
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(M)
+
+	if(isslime(M))
+		var/mob/living/carbon/slime/L =  M
+		if(!status)
+			L.visible_message("<span class='warning'>[L] has been prodded with \the [src] by [user]. Too bad it was off.</span>")
+			return 1
+		else
+			L.visible_message("<span class='danger'>[L] has been prodded with \the [src] by [user]!</span>")
+
+		L.Discipline ++
+		if(prob(5))
+			L.Discipline = 0
+			L.rabid = 1 // heres that "or piss them off part"
+	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
+
+	if(status)
+		deductcharge(hitcost)
+	return 1

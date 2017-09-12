@@ -26,6 +26,6 @@
 	changer.voice = voice
 	usr << "<span class='notice'>You are now mimicking <B>[changer.voice]</B>.</span>"
 
-/obj/item/clothing/mask/gas/voice/New()
-	..()
+/obj/item/clothing/mask/gas/voice/Initialize()
+	. = ..()
 	changer = new(src)

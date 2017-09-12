@@ -167,7 +167,6 @@
 		src.m_flag = 1
 		if ((A != src.loc && A && A.z == src.z))
 			src.last_move = get_dir(A, src.loc)
-	return
 
 /client/proc/Move_object(direct)
 	if(mob && mob.control_object)
@@ -447,7 +446,7 @@
 
 	var/shoegrip = Check_Shoegrip()
 
-	for(var/turf/simulated/T in trange(1,src)) //we only care for non-space turfs
+	for(var/turf/simulated/T in RANGE_TURFS(1,src)) //we only care for non-space turfs
 		if(T.density)	//walls work
 			return 1
 		else
@@ -505,3 +504,12 @@
 	set name = ".moveleft"
 	set instant = 1
 	Move(get_step(mob, WEST), WEST)
+
+/mob/proc/update_gravity()
+	return
+
+/mob/proc/mob_has_gravity(turf/T)
+	return has_gravity(src, T)
+
+/mob/proc/mob_negates_gravity()
+	return 0

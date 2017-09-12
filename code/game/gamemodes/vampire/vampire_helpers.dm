@@ -68,7 +68,7 @@
 	return vampire
 
 // Checks whether or not the target can be affected by a vampire's abilities.
-/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0)
+/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0, var/ignore_thrall = FALSE)
 	if (!T || !istype(T))
 		return 0
 
@@ -84,7 +84,7 @@
 			if (notify)
 				to_chat(src, "<span class='warning'>Your connection with the Veil is not strong enough to affect a man as devout as them.</span>")
 			return 0
-		else if (T.mind.vampire)
+		else if (T.mind.vampire && (!(T.mind.vampire.status & VAMP_ISTHRALL) || ((T.mind.vampire.status & VAMP_ISTHRALL) && !ignore_thrall)))
 			if (notify)
 				to_chat(src, "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>")
 			return 0
@@ -92,6 +92,10 @@
 	if (isipc(T))
 		if (notify)
 			to_chat(src, "<span class='warning'>You lack the power interact with mechanical constructs.</span>")
+		return 0
+
+	if(is_special_character(T) && (!(T.mind.vampire.status & VAMP_ISTHRALL)))
+		user << "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>"
 		return 0
 
 	if (account_loyalty_implant)

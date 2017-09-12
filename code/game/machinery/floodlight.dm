@@ -13,11 +13,11 @@
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_wedge = LIGHT_WIDE
 
-/obj/machinery/floodlight/New()
-	src.cell = new(src)
+/obj/machinery/floodlight/Initialize()
+	. = ..()
+	cell = new(src)
 	cell.maxcharge = 1000
 	cell.charge = 1000 // 41minutes @ 200W
-	..()
 
 /obj/machinery/floodlight/update_icon()
 	overlays.Cut()
@@ -102,7 +102,7 @@
 
 
 /obj/machinery/floodlight/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/screwdriver))
+	if (isscrewdriver(W))
 		if (!open)
 			if(unlocked)
 				unlocked = 0
@@ -111,7 +111,7 @@
 				unlocked = 1
 				user << "You unscrew the battery panel."
 
-	if (istype(W, /obj/item/weapon/crowbar))
+	if (iscrowbar(W))
 		if(unlocked)
 			if(open)
 				open = 0

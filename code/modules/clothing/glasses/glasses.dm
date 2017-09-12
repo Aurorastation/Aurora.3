@@ -44,6 +44,7 @@
 	toggleable = 1
 	vision_flags = SEE_TURFS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	item_flags = AIRTIGHT
 
 /obj/item/clothing/glasses/meson/Initialize()
 	. = ..()
@@ -61,6 +62,7 @@
 	item_state = "glasses"
 	toggleable = 1
 	unacidable = 1
+	item_flags = AIRTIGHT
 
 /obj/item/clothing/glasses/science/Initialize()
 	. = ..()
@@ -82,12 +84,32 @@
 	. = ..()
 	overlay = global_hud.nvg
 
+/obj/item/clothing/glasses/goggles
+	name = "goggles"
+	desc = "A simple pair of plain goggles."
+	icon_state = "plaingoggles"
+	item_flags = AIRTIGHT
+
+
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"
 	desc = "Yarr."
 	icon_state = "eyepatch"
 	item_state = "eyepatch"
 	body_parts_covered = 0
+	var/flipped = 0
+
+/obj/item/clothing/glasses/eyepatch/attack_self(mob/user)
+	src.flipped = !src.flipped
+	if(src.flipped)
+		src.icon_state = "[icon_state]_1"
+		src.item_state = "[icon_state]_1"
+		to_chat(user, "You change \the [src] to cover the left eye.")
+	else
+		src.icon_state = initial(icon_state)
+		src.icon_state = initial(icon_state)
+		to_chat(user, "You change \the [src] to cover the right eye.")
+	user.update_inv_glasses()
 
 /obj/item/clothing/glasses/monocle
 	name = "monocle"
@@ -105,6 +127,7 @@
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 	toggleable = 1
 	vision_flags = SEE_OBJS
+	item_flags = AIRTIGHT
 
 /obj/item/clothing/glasses/regular
 	name = "prescription glasses"
@@ -250,15 +273,16 @@
 	desc = "Sunglasses with a HUD."
 	icon_state = "sunhud"
 
-	Initialize()
-		. = ..()
-		src.hud = new/obj/item/clothing/glasses/hud/security(src)
-		return
+/obj/item/clothing/glasses/sunglasses/sechud/Initialize()
+	. = ..()
+	src.hud = new/obj/item/clothing/glasses/hud/security(src)
+	return
 
 /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	name = "tactical HUD"
 	desc = "Flash-resistant goggles with inbuilt combat and security information."
 	icon_state = "swatgoggles"
+	item_flags = AIRTIGHT
 
 /obj/item/clothing/glasses/thermal
 	name = "optical thermal scanner"
@@ -271,19 +295,20 @@
 	vision_flags = SEE_MOBS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	flash_protection = FLASH_PROTECTION_REDUCED
+	item_flags = AIRTIGHT
 
-	emp_act(severity)
-		if(istype(src.loc, /mob/living/carbon/human))
-			var/mob/living/carbon/human/M = src.loc
-			M << "<span class='danger'>\The [src] overloads and blinds you!</span>"
-			if(M.glasses == src)
-				M.eye_blind = 3
-				M.eye_blurry = 5
-				// Don't cure being nearsighted
-				if(!(M.disabilities & NEARSIGHTED))
-					M.disabilities |= NEARSIGHTED
-					addtimer(CALLBACK(M, /mob/living/carbon/human/.proc/thermal_reset_blindness), 100)
-		..()
+/obj/item/clothing/glasses/thermal/emp_act(severity)
+	if(istype(src.loc, /mob/living/carbon/human))
+		var/mob/living/carbon/human/M = src.loc
+		M << "<span class='danger'>\The [src] overloads and blinds you!</span>"
+		if(M.glasses == src)
+			M.eye_blind = 3
+			M.eye_blurry = 5
+			// Don't cure being nearsighted
+			if(!(M.disabilities & NEARSIGHTED))
+				M.disabilities |= NEARSIGHTED
+				addtimer(CALLBACK(M, /mob/living/carbon/human/.proc/thermal_reset_blindness), 100)
+	..()
 
 /obj/item/clothing/glasses/thermal/Initialize()
 	. = ..()
@@ -302,12 +327,14 @@
 	toggleable = 0
 	activation_sound = null
 	action_button_name = null
+	item_flags = AIRTIGHT
 
 /obj/item/clothing/glasses/thermal/plain/monocle
 	name = "thermoncle"
 	desc = "A monocle thermal."
 	icon_state = "thermoncle"
 	flags = null //doesn't protect eyes because it's a monocle, duh
+	item_flags = null
 
 	body_parts_covered = 0
 
@@ -317,9 +344,11 @@
 	icon_state = "eyepatch"
 	item_state = "eyepatch"
 	body_parts_covered = 0
+	item_flags = null
 
 /obj/item/clothing/glasses/thermal/plain/jensen
 	name = "optical thermal implants"
 	desc = "A set of implantable lenses designed to augment your vision"
 	icon_state = "thermalimplants"
 	item_state = "syringe_kit"
+	item_flags = null

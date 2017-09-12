@@ -14,7 +14,7 @@
 	reagents.my_atom = src
 
 /obj/item/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
-	if(blocked < 2 && isliving(target))
+	if(blocked < 100 && isliving(target))
 		var/mob/living/L = target
 		if(L.can_inject(target_zone=def_zone))
 			reagents.trans_to_mob(L, reagent_amount, CHEM_BLOOD)
@@ -63,14 +63,13 @@
 	var/container_type = /obj/item/weapon/reagent_containers/glass/beaker
 	var/list/starting_chems = null
 
-/obj/item/weapon/gun/projectile/dartgun/dartgun/New()
-	..()
+/obj/item/weapon/gun/projectile/dartgun/dartgun/Initialize()
+	. = ..()
 	if(starting_chems)
 		for(var/chem in starting_chems)
 			var/obj/B = new container_type(src)
 			B.reagents.add_reagent(chem, 60)
 			beakers += B
-	update_icon()
 
 /obj/item/weapon/gun/projectile/dartgun/update_icon()
 	if(!ammo_magazine)

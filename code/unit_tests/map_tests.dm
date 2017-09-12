@@ -132,7 +132,7 @@ datum/unit_test/wire_test/start_test()
 
 			if (above && above.is_hole)
 				bad_tiles++
-				log_unit_test("[ascii_red]--------------- [T.name] \[[T.x] / [T.y] / [T.z]\] Has no roof.")
+				log_unit_test("[ascii_red]--------------- [T.name] \[[T.x] / [T.y] / [T.z]\] Has no roof.[ascii_reset]")
 
 	if (bad_tiles)
 		fail("\[[bad_tiles] / [tiles_total]\] station turfs had no roof.")
@@ -160,7 +160,7 @@ datum/unit_test/wire_test/start_test()
 
 		if (!ladder.target_up && !ladder.target_down)
 			ladders_incomplete++
-			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is incomplete.")
+			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is incomplete.[ascii_reset]")
 			continue
 
 		var/bad = 0
@@ -172,7 +172,7 @@ datum/unit_test/wire_test/start_test()
 
 		if (bad)
 			ladders_blocked++
-			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is blocked in dirs:[(bad & BLOCKED_UP) ? " UP" : ""][(bad & BLOCKED_DOWN) ? " DOWN" : ""].")
+			log_unit_test("[ascii_red]--------------- [ladder.name] \[[ladder.x] / [ladder.y] / [ladder.z]\] Is blocked in dirs:[(bad & BLOCKED_UP) ? " UP" : ""][(bad & BLOCKED_DOWN) ? " DOWN" : ""].[ascii_reset]")
 
 	if (ladders_blocked || ladders_incomplete)
 		fail("\[[ladders_blocked + ladders_incomplete] / [ladders_total]\] ladders were bad.[ladders_blocked ? " [ladders_blocked] blocked." : ""][ladders_incomplete ? " [ladders_incomplete] incomplete." : ""]")

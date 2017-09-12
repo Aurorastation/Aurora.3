@@ -41,22 +41,23 @@
 /obj/structure/bed/update_icon()
 	// Prep icon.
 	icon_state = ""
-	overlays.Cut()
+	cut_overlays()
+	var/list/stool_cache = SSicon_cache.stool_cache
 	// Base icon.
 	var/cache_key = "[base_icon]-[material.name]"
-	if(isnull(stool_cache[cache_key]))
+	if(!stool_cache[cache_key])
 		var/image/I = image('icons/obj/furniture.dmi', base_icon)
 		I.color = material.icon_colour
 		stool_cache[cache_key] = I
-	overlays |= stool_cache[cache_key]
+	add_overlay(stool_cache[cache_key])
 	// Padding overlay.
 	if(padding_material)
 		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]"
-		if(isnull(stool_cache[padding_cache_key]))
+		if(!stool_cache[padding_cache_key])
 			var/image/I =  image(icon, "[base_icon]_padding")
 			I.color = padding_material.icon_colour
 			stool_cache[padding_cache_key] = I
-		overlays |= stool_cache[padding_cache_key]
+		add_overlay(stool_cache[padding_cache_key])
 
 	// Strings.
 	desc = initial(desc)
@@ -88,7 +89,7 @@
 				return
 
 /obj/structure/bed/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(iswrench(W))
 		if(can_dismantle)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 			dismantle()
@@ -120,7 +121,7 @@
 		add_padding(padding_type)
 		return
 
-	else if (istype(W, /obj/item/weapon/wirecutters))
+	else if (iswirecutter(W))
 		if(!padding_material)
 			user << "\The [src] has no padding to remove."
 			return
@@ -191,7 +192,7 @@
 	return // Doesn't care about material or anything else.
 
 /obj/structure/bed/roller/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench) || istype(W,/obj/item/stack) || istype(W, /obj/item/weapon/wirecutters))
+	if(iswrench(W) || istype(W,/obj/item/stack) || iswirecutter(W))
 		return
 	else if(istype(W,/obj/item/roller_holder))
 		if(buckled_mob)

@@ -51,7 +51,7 @@
 					healpower = W.heal_damage(healpower,1)
 					if (healpower <= 0)
 						return
-		M.adjustBruteLoss(8) //but not without a price, of course
+		M.adjustBruteLoss(7) //but not without a price, of course
 
 /datum/reagent/kelotane
 	name = "Kelotane"
@@ -88,7 +88,7 @@
 
 /datum/reagent/dermaline/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustFireLoss(18)
+		M.adjustFireLoss(15)
 
 /datum/reagent/dylovene
 	name = "Dylovene"
@@ -97,7 +97,7 @@
 	reagent_state = LIQUID
 	color = "#00A000"
 	scannable = 1
-	overdose = REAGENTS_OVERDOSE * 0.7
+	overdose = REAGENTS_OVERDOSE
 	taste_description = "a roll of gauze"
 
 /datum/reagent/dylovene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -108,7 +108,7 @@
 
 /datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustToxLoss(8)
+		M.adjustToxLoss(6)
 
 /datum/reagent/dexalin
 	name = "Dexalin"
@@ -130,7 +130,7 @@
 
 /datum/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustOxyLoss(30)
+		M.adjustOxyLoss(20)
 
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
@@ -169,9 +169,7 @@
 /datum/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
 		M.adjustToxLoss(6)
-		M.adjustBruteLoss(6)
-		M.adjustFireLoss(6)
-		M.adjustOxyLoss(12)
+		M.adjustOxyLoss(8)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
@@ -321,6 +319,7 @@
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	taste_mult = 0.33 //Specifically to cut the dull toxin taste out of foods using carrot
 	taste_description = "dull toxin"
 
 /datum/reagent/imidazoline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -328,7 +327,7 @@
 	M.eye_blind = max(M.eye_blind - 5, 0)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+		var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
 		if(E && istype(E))
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)

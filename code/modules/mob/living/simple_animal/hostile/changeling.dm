@@ -13,6 +13,8 @@
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
+	tameable = FALSE
+
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
@@ -34,23 +36,23 @@
 	min_oxy = 0
 	max_co2 = 0
 	max_tox = 0
-	
+
 	var/is_devouring = FALSE
-	
+
 /mob/living/simple_animal/hostile/true_changeling/Initialize()
 	. = ..()
 	if(prob(25))
 		icon_state = "horror_alt"
 		icon_living = "horror_alt"
-	
+
 /mob/living/simple_animal/hostile/true_changeling/Life()
 	..()
 	adjustBruteLoss(-10) //it will slowly heal brute damage, making fire/laser a stronger option
-	
+
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
 	mind.assigned_role = "Changeling"
-	
+
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
 	..()
 	if(!gibbed)
@@ -110,7 +112,7 @@
 	last_special = world.time + 100
 	src.is_devouring = FALSE
 	return
-	
+
 /mob/living/simple_animal/hostile/true_changeling/verb/dart(mob/living/target as mob in oview())
 	set name = "Launch Bone Dart"
 	set desc = "Launches a Bone Dart at a target."

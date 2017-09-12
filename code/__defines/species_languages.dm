@@ -37,7 +37,7 @@
 #define LANGUAGE_RESOMI "Resomi"
 #define LANGUAGE_ROOTSONG "Rootsong"
 #define LANGUAGE_TRADEBAND "Tradeband"
-#define LANGUAGE_GUTTER "Gutter"
+#define LANGUAGE_GUTTER "Freespeak"
 #define LANGUAGE_VAURCA "Hivenet"
 #define LANGUAGE_AZAZIBA "Sinta'azaziba"
 #define LANGUAGE_SIGN "Sign Language"

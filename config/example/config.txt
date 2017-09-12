@@ -29,6 +29,9 @@ JOBS_HAVE_MINIMAL_ACCESS
 ## Non-automatic antagonist recruitment, such as being converted to cultism is not affected. Has the same database requirements and notes as USE_AGE_RESTRICTION_FOR_JOBS.
 #USE_AGE_RESTRICTION_FOR_ANTAGS
 
+## Unhash to enable loading of age restrictions from age_restrictions.txt.
+#LOAD_AGE_RESTRICTIONS_FROM_FILE
+
 ## Unhash this to use recursive explosions, keep it hashed to use circle explosions. Recursive explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU and are (as of january 2013) experimental
 #USE_RECURSIVE_EXPLOSIONS
 
@@ -114,13 +117,25 @@ PROBABILITY S MERCENARY 1
 PROBABILITY S WIZARD 1
 PROBABILITY S CHANGELING 1
 PROBABILITY S CULT 1
+PROBABILITY S NINJA 1
+PROBABILITY S HEIST 1
+PROBABILITY S VAMPIRE 1
 PROBABILITY S EXTEND-A-TRAITORMONGOUS 6
 PROBABILITY MS CONFLUX 1
 PROBABILITY MS CROSSFIRE 1
 PROBABILITY MS PARANOIA 1
 PROBABILITY MS UPRISING 1
 PROBABILITY MS VISITORS 1
+PROBABILITY MS INTRIGUE 1
+PROBABILITY MS SIEGE 1
 PROBABILITY MS EXTENDED 1
+PROBABILITY MS INFILTRATION 1
+PROBABILITY MS VEILPARTY 1
+PROBABILITY MS FEEDING 1
+PROBABILITY MS TRAITORLING 1
+
+## If the game type odds are showed in the check gamemode probability verb.
+SHOW_GAME_TYPE_ODD
 
 ## Hash out to disable random events during the round.
 ALLOW_RANDOM_EVENTS
@@ -369,6 +384,12 @@ EVENT_CUSTOM_START_MAJOR 80;100
 
 ## Strength of ambient star light. Set to 0 or less to turn off. A value of 1 is unlikely to have a noticeable effect in most lighting systems.
 STARLIGHT 0
+
+## If defined, starlight applies to open space turfs as well. Causes a significant number of lighting updates at round-start, may increase server's memory usage.
+#OPENTURF_STARLIGHT
+
+## Chance, in percentage, of the merchant job slot being open at round start
+MERCHANT_CHANCE 20
 
 ## Defines which races are allowed to join as ERT, in singular form. If unset, defaults to only human. Casing matters, separate using ;
 ## Example races include: Human, Tajara, Skrell, Unathi

@@ -46,8 +46,8 @@
 		/obj/item/weapon/storage/part_replacer
 		)
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		base_name = name
 
 	examine(var/mob/user)
@@ -121,8 +121,8 @@
 	item_state = "beaker"
 	matter = list("glass" = 500)
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		desc += " Can hold up to [volume] units."
 
 	on_reagent_change()
@@ -141,7 +141,7 @@
 		update_icon()
 
 	update_icon()
-		overlays.Cut()
+		cut_overlays()
 
 		if(reagents.total_volume)
 			var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
@@ -157,11 +157,10 @@
 				if(91 to INFINITY)	filling.icon_state = "[icon_state]100"
 
 			filling.color = reagents.get_color()
-			overlays += filling
+			add_overlay(filling)
 
 		if (!is_open_container())
-			var/image/lid = image(icon, src, "lid_[initial(icon_state)]")
-			overlays += lid
+			add_overlay("lid_[initial(icon_state)]")
 
 /obj/item/weapon/reagent_containers/glass/beaker/large
 	name = "large beaker"
@@ -203,14 +202,14 @@
 	flags = OPENCONTAINER
 
 /obj/item/weapon/reagent_containers/glass/beaker/cryoxadone
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("cryoxadone", 30)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/sulphuric
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("sacid", 60)
 		update_icon()
 
@@ -249,10 +248,9 @@
 		return ..()
 
 /obj/item/weapon/reagent_containers/glass/bucket/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	if (!is_open_container())
-		var/image/lid = image(icon, src, "lid_[initial(icon_state)]")
-		overlays += lid
+		add_overlay("lid_[initial(icon_state)]")
 
 /*
 /obj/item/weapon/reagent_containers/glass/blender_jug

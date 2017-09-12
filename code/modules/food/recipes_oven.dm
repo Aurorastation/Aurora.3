@@ -22,7 +22,7 @@
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/meat)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/ribplate
-	
+
 
 
 
@@ -314,7 +314,7 @@
 	reagents = list("browniemix" = 10, "egg" = 3)
 	reagent_mix = RECIPE_REAGENT_REPLACE //No egg or mix in final recipe
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/brownies
-	
+
 
 /datum/recipe/cosmicbrownies
 	appliance = OVEN
@@ -371,6 +371,8 @@
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
+
+	reagent_mix = RECIPE_REAGENT_REPLACE //No vomit taste in finished product from chanterelles
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/mushroompizza
 
 /datum/recipe/vegetablepizza

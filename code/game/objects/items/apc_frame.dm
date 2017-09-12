@@ -9,7 +9,7 @@
 
 /obj/item/frame/apc/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
-	if (istype(W, /obj/item/weapon/wrench))
+	if (iswrench(W))
 		new /obj/item/stack/material/steel( get_turf(src.loc), 2 )
 		qdel(src)
 
@@ -24,7 +24,7 @@
 	if (!istype(loc, /turf/simulated/floor))
 		usr << "<span class='warning'>APC cannot be placed on this spot.</span>"
 		return
-	if (A.requires_power == 0 || istype(A, /area/space))
+	if (A.requires_power == 0 || istype(A, /area/space) || istype(A, /area/mine/unexplored))
 		usr << "<span class='warning'>APC cannot be placed in this area.</span>"
 		return
 	if (A.get_apc())

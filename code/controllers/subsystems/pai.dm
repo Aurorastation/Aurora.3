@@ -11,6 +11,7 @@
 	var/inquirer = null
 	var/list/pai_candidates = list()
 	var/list/asked = list()
+	var/list/all_pai_devices = list()
 
 	var/askDelay = 1 MINUTE
 
@@ -107,7 +108,7 @@
 			if("submit")
 				if(candidate)
 					candidate.ready = 1
-					for(var/obj/item/device/paicard/p in world)
+					for(var/obj/item/device/paicard/p in all_pai_devices)
 						if(p.looking_for_personality == 1)
 							p.alertUpdate()
 				usr << browse(null, "window=paiRecruit")

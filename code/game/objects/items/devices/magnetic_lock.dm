@@ -285,7 +285,7 @@
 					user << "<span class='warning'>There is something in the way of \the [newtarget]!</span>"
 					return
 
-		if (is_type_in_oview(/obj/machinery/door/airlock, 1, newtarget))
+		if (locate(/obj/machinery/door/airlock) in oview(1, newtarget))
 			if (alert("Brace adjacent airlocks?",,"Yes", "No") == "Yes")
 				if (!check_target(newtarget, user)) return
 				for (var/obj/machinery/door/airlock/A in get_step(newtarget.loc, turn(direction, -90)))

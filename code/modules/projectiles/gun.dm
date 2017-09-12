@@ -86,13 +86,15 @@
 	var/tmp/told_cant_shoot = 0 //So that it doesn't spam them with the fact they cannot hit them.
 	var/tmp/lock_time = -100
 
-/obj/item/weapon/gun/New()
-	..()
+/obj/item/weapon/gun/Initialize()
+	. = ..()
 	for(var/i in 1 to firemodes.len)
 		firemodes[i] = new /datum/firemode(src, firemodes[i])
 
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
+
+	queue_icon_update()
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -466,6 +468,9 @@
 	if(accuracy_wielded)
 		accuracy = initial(accuracy)
 
+	update_icon()
+	update_held_icon()
+
 /obj/item/weapon/gun/proc/wield()
 	wielded = 1
 	if(fire_delay_wielded)
@@ -474,6 +479,9 @@
 		recoil = recoil_wielded
 	if(accuracy_wielded)
 		accuracy = accuracy_wielded
+
+	update_icon()
+	update_held_icon()
 
 /obj/item/weapon/gun/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
@@ -528,7 +536,7 @@
 				user << "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>"
 				O.unwield()
 				unwield()
-				
+
 		if (!QDELETED(src))
 			qdel(src)
 

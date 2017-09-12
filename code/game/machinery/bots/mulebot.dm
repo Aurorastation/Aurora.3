@@ -54,6 +54,7 @@
 	var/datum/wires/mulebot/wires = null
 
 	var/bloodiness = 0		// count of bloodiness
+	var/static/total_mules = 0
 
 /obj/machinery/bot/mulebot/Initialize()
 	. = ..()
@@ -67,11 +68,9 @@
 		SSradio.add_object(src, control_freq, filter = RADIO_MULEBOT)
 		SSradio.add_object(src, beacon_freq, filter = RADIO_NAVBEACONS)
 
-	var/count = 0
-	for(var/obj/machinery/bot/mulebot/other in world)
-		count++
+	total_mules++
 	if(!suffix)
-		suffix = "#[count]"
+		suffix = "#[total_mules]"
 	name = "Mulebot ([suffix])"
 
 /obj/machinery/bot/mulebot/Destroy()
@@ -95,7 +94,7 @@
 		C.loc = src
 		cell = C
 		updateDialog()
-	else if(istype(I,/obj/item/weapon/screwdriver))
+	else if(isscrewdriver(I))
 		if(locked)
 			user << "<span class='notice'>The maintenance hatch cannot be opened or closed while the controls are locked.</span>"
 			return
@@ -110,7 +109,7 @@
 			icon_state = "mulebot0"
 
 		updateDialog()
-	else if (istype(I, /obj/item/weapon/wrench))
+	else if (iswrench(I))
 		if (src.health < maxhealth)
 			src.health = min(maxhealth, src.health+25)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

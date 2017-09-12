@@ -69,59 +69,61 @@
 /turf/unsimulated/wall
 	smooth_underlays = TRUE
 
-/proc/calculate_adjacencies(atom/A)
-	if(!A.loc)
+/atom/proc/calculate_adjacencies()
+	if (!loc)
 		return 0
 
 	var/adjacencies = 0
 
 	var/atom/movable/AM
-	if(istype(A, /atom/movable))
-		AM = A
-		if(AM.can_be_unanchored && !AM.anchored)
-			return 0
 
 	for(var/direction in cardinal)
-		AM = find_type_in_direction(A, direction)
+		AM = find_type_in_direction(src, direction)
 		if(AM == NULLTURF_BORDER)
-			if((A.smooth & SMOOTH_BORDER))
+			if((smooth & SMOOTH_BORDER))
 				adjacencies |= 1 << direction
 		else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 			adjacencies |= 1 << direction
 
 	if(adjacencies & N_NORTH)
 		if(adjacencies & N_WEST)
-			AM = find_type_in_direction(A, NORTHWEST)
+			AM = find_type_in_direction(src, NORTHWEST)
 			if(AM == NULLTURF_BORDER)
-				if((A.smooth & SMOOTH_BORDER))
+				if((smooth & SMOOTH_BORDER))
 					adjacencies |= N_NORTHWEST
 			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 				adjacencies |= N_NORTHWEST
 		if(adjacencies & N_EAST)
-			AM = find_type_in_direction(A, NORTHEAST)
+			AM = find_type_in_direction(src, NORTHEAST)
 			if(AM == NULLTURF_BORDER)
-				if((A.smooth & SMOOTH_BORDER))
+				if((smooth & SMOOTH_BORDER))
 					adjacencies |= N_NORTHEAST
 			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 				adjacencies |= N_NORTHEAST
 
 	if(adjacencies & N_SOUTH)
 		if(adjacencies & N_WEST)
-			AM = find_type_in_direction(A, SOUTHWEST)
+			AM = find_type_in_direction(src, SOUTHWEST)
 			if(AM == NULLTURF_BORDER)
-				if((A.smooth & SMOOTH_BORDER))
+				if((smooth & SMOOTH_BORDER))
 					adjacencies |= N_SOUTHWEST
 			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 				adjacencies |= N_SOUTHWEST
 		if(adjacencies & N_EAST)
-			AM = find_type_in_direction(A, SOUTHEAST)
+			AM = find_type_in_direction(src, SOUTHEAST)
 			if(AM == NULLTURF_BORDER)
-				if((A.smooth & SMOOTH_BORDER))
+				if((smooth & SMOOTH_BORDER))
 					adjacencies |= N_SOUTHEAST
 			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 				adjacencies |= N_SOUTHEAST
 
 	return adjacencies
+
+/atom/movable/calculate_adjacencies()
+	if (can_be_unanchored && !anchored)
+		return 0
+
+	return ..()
 
 //do not use, use queue_smooth(atom)
 /proc/smooth_icon(atom/A)
@@ -133,7 +135,7 @@
 	if(QDELETED(A))
 		return
 	if((A.smooth & SMOOTH_TRUE) || (A.smooth & SMOOTH_MORE))
-		var/adjacencies = calculate_adjacencies(A)
+		var/adjacencies = A.calculate_adjacencies()
 
 		if(A.smooth & SMOOTH_DIAGONAL)
 			A.diagonal_smooth(adjacencies)
@@ -172,7 +174,7 @@
 	if (smooth_underlays && adjacencies)
 		// This should be a mutable_appearance, but we're still on 510.
 		// Alas.
-		var/image/underlay_appearance = image(layer = TURF_LAYER)
+		var/mutable_appearance/underlay_appearance = new(layer = TURF_LAYER)
 		var/list/U = list(underlay_appearance)
 		if(fixed_underlay)
 			if(fixed_underlay["space"])
@@ -257,32 +259,102 @@
 			se = "4-e"
 
 	var/list/New
+	var/list/Old
 
 	if(A.top_left_corner != nw)
-		A.cut_overlay(A.top_left_corner)
+		if (A.top_left_corner)
+			LAZYADD(Old, A.top_left_corner)
 		A.top_left_corner = nw
 		LAZYADD(New, nw)
 
 	if(A.top_right_corner != ne)
-		A.cut_overlay(A.top_right_corner)
+		if (A.top_right_corner)
+			LAZYADD(Old, A.top_right_corner)
 		A.top_right_corner = ne
 		LAZYADD(New, ne)
 
 	if(A.bottom_right_corner != sw)
-		A.cut_overlay(A.bottom_right_corner)
+		if (A.bottom_right_corner)
+			LAZYADD(Old, A.bottom_right_corner)
 		A.bottom_right_corner = sw
 		LAZYADD(New, sw)
 
 	if(A.bottom_left_corner != se)
-		A.cut_overlay(A.bottom_left_corner)
+		if (A.bottom_left_corner)
+			LAZYADD(Old, A.bottom_left_corner)
 		A.bottom_left_corner = se
 		LAZYADD(New, se)
+
+	if(Old)
+		A.cut_overlay(Old)
 
 	if(New)
 		A.add_overlay(New)
 
 	if (A.icon_state && !(A.smooth & SMOOTH_NO_CLEAR_ICON))
 		A.icon_state = null
+
+// A more stripped down version of the above, meant for using images to apply multiple smooth overlays
+//    at once.
+/proc/cardinal_smooth_fromicon(icon/I, adjacencies)
+	//NW CORNER
+	var/nw = "1-i"
+	if((adjacencies & N_NORTH) && (adjacencies & N_WEST))
+		if(adjacencies & N_NORTHWEST)
+			nw = "1-f"
+		else
+			nw = "1-nw"
+	else
+		if(adjacencies & N_NORTH)
+			nw = "1-n"
+		else if(adjacencies & N_WEST)
+			nw = "1-w"
+
+	//NE CORNER
+	var/ne = "2-i"
+	if((adjacencies & N_NORTH) && (adjacencies & N_EAST))
+		if(adjacencies & N_NORTHEAST)
+			ne = "2-f"
+		else
+			ne = "2-ne"
+	else
+		if(adjacencies & N_NORTH)
+			ne = "2-n"
+		else if(adjacencies & N_EAST)
+			ne = "2-e"
+
+	//SW CORNER
+	var/sw = "3-i"
+	if((adjacencies & N_SOUTH) && (adjacencies & N_WEST))
+		if(adjacencies & N_SOUTHWEST)
+			sw = "3-f"
+		else
+			sw = "3-sw"
+	else
+		if(adjacencies & N_SOUTH)
+			sw = "3-s"
+		else if(adjacencies & N_WEST)
+			sw = "3-w"
+
+	//SE CORNER
+	var/se = "4-i"
+	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST))
+		if(adjacencies & N_SOUTHEAST)
+			se = "4-f"
+		else
+			se = "4-se"
+	else
+		if(adjacencies & N_SOUTH)
+			se = "4-s"
+		else if(adjacencies & N_EAST)
+			se = "4-e"
+
+	var/image/nw_i = image(I, nw)
+	var/image/ne_i = image(I, ne)
+	var/image/sw_i = image(I, sw)
+	var/image/se_i = image(I, se)
+
+	return list(nw_i, ne_i, sw_i, se_i)
 
 /proc/find_type_in_direction(atom/source, direction)
 	var/turf/target_turf = get_step(source, direction)
@@ -332,13 +404,10 @@
 					queue_smooth(A)
 
 /atom/proc/clear_smooth_overlays()
-	cut_overlay(top_left_corner)
+	cut_overlay(list(top_left_corner, top_right_corner, bottom_left_corner, bottom_right_corner))
 	top_left_corner = null
-	cut_overlay(top_right_corner)
 	top_right_corner = null
-	cut_overlay(bottom_right_corner)
 	bottom_right_corner = null
-	cut_overlay(bottom_left_corner)
 	bottom_left_corner = null
 
 /atom/proc/replace_smooth_overlays(nw, ne, sw, se)

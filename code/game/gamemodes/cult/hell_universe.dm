@@ -41,7 +41,7 @@ In short:
 
 // Apply changes when entering state
 /datum/universal_state/hell/OnEnter()
-	set background = 1
+	SSgarbage.disable()	// Yeah, fuck it. No point hard-deleting stuff now.
 
 	escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
 
@@ -60,7 +60,7 @@ In short:
 		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
-		A.updateicon()
+		A.queue_icon_update()
 		CHECK_TICK
 
 /datum/universal_state/hell/OverlayAndAmbientSet()
@@ -86,13 +86,13 @@ In short:
 		CHECK_TICK
 
 /datum/universal_state/hell/proc/MiscSet()
-	for (var/obj/machinery/firealarm/alm in machines)
+	for (var/obj/machinery/firealarm/alm in SSmachinery.processing_machines)
 		if (!(alm.stat & BROKEN))
 			alm.ex_act(2)
 		CHECK_TICK
 
 /datum/universal_state/hell/proc/APCSet()
-	for (var/obj/machinery/power/apc/APC in machines)
+	for (var/obj/machinery/power/apc/APC in SSmachinery.processing_machines)
 		if (!(APC.stat & BROKEN) && !APC.is_critical)
 			APC.chargemode = 0
 			if(APC.cell)

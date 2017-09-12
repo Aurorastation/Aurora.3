@@ -92,8 +92,8 @@
 			user.client.images |= holomap_datum.station_map
 
 			watching_mob = user
-			moved_event.register(watching_mob, src, /obj/machinery/station_map/proc/checkPosition)
-			destroyed_event.register(watching_mob, src, /obj/machinery/station_map/proc/stopWatching)
+			watching_mob.OnMove(CALLBACK(src, .proc/checkPosition))
+			watching_mob.OnDestroy(CALLBACK(src, .proc/stopWatching))
 			update_use_power(2)
 
 			if(bogus)
@@ -119,8 +119,8 @@
 			animate(holomap_datum.station_map, alpha = 0, time = 5, easing = LINEAR_EASING)
 			var/mob/M = watching_mob
 			addtimer(CALLBACK(src, .proc/clear_image, M, holomap_datum.station_map), 5, TIMER_CLIENT_TIME)//we give it time to fade out
-		moved_event.unregister(watching_mob, src)
-		destroyed_event.unregister(watching_mob, src)
+		watching_mob.UnregisterOnMove(src)
+		watching_mob.UnregisterOnDestroy(src)
 	watching_mob = null
 	update_use_power(1)
 
@@ -213,12 +213,12 @@
 	legend.pixel_x = HOLOMAP_LEGEND_X(T.z)
 	legend.pixel_y = HOLOMAP_LEGEND_Y(T.z)
 
-	station_map.overlays |= cursor
-	station_map.overlays |= legend
+	station_map.add_overlay(cursor)
+	station_map.add_overlay(legend)
 
 /datum/station_holomap/proc/initialize_holomap_bogus()
 	station_map = image('icons/480x480.dmi', "stationmap")
 	legend = image('icons/effects/64x64.dmi', "notfound")
 	legend.pixel_x = 7 * WORLD_ICON_SIZE
 	legend.pixel_y = 7 * WORLD_ICON_SIZE
-	station_map.overlays |= legend
+	station_map.add_overlay(legend)

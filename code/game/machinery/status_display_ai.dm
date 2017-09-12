@@ -38,7 +38,7 @@ var/list/ai_status_emotions = list(
 
 /proc/set_ai_status_displays(mob/user as mob)
 	var/emote = get_ai_emotion(user)
-	for (var/obj/machinery/M in machines) //change status
+	for (var/obj/machinery/M in SSmachinery.all_status_displays) //change status
 		if(istype(M, /obj/machinery/ai_status_display))
 			var/obj/machinery/ai_status_display/AISD = M
 			AISD.emotion = emote
@@ -67,7 +67,15 @@ var/list/ai_status_emotions = list(
 
 	var/emotion = "Neutral"
 
-/obj/machinery/ai_status_display/attack_ai/(mob/user as mob)
+/obj/machinery/ai_status_display/Initialize()
+	. = ..()
+	SSmachinery.all_status_displays += src
+
+/obj/machinery/ai_status_display/Destroy()
+	SSmachinery.all_status_displays -= src
+	return ..()
+
+/obj/machinery/ai_status_display/attack_ai(mob/user as mob)
 	var/emote = get_ai_emotion(user)
 	src.emotion = emote
 	src.update()

@@ -20,10 +20,12 @@
 /obj/item/device/paicard/Initialize()
 	. = ..()
 	add_overlay("pai_off")
+	SSpai.all_pai_devices += src
 
 /obj/item/device/paicard/Destroy()
+	SSpai.all_pai_devices -= src
 	//Will stop people throwing friend pAIs into the singularity so they can respawn
-	if(!isnull(pai))
+	if(pai)
 		pai.death(0)
 	return ..()
 
