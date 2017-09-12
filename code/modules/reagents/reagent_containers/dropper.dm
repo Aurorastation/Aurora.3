@@ -38,6 +38,9 @@
 				if(istype(target, /mob/living/carbon/human))
 					var/mob/living/carbon/human/victim = target
 
+					if(victim.isSynthetic())
+						return
+
 					var/obj/item/safe_thing = null
 					if(victim.wear_mask)
 						if (victim.wear_mask.body_parts_covered & EYES)

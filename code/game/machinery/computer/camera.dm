@@ -142,7 +142,17 @@
 		jump_to = locate() in A
 	else if(isturf(A))
 		var/best_dist = INFINITY
-		for(var/obj/machinery/camera/camera in get_area(A))
+		var/check_area = get_area(A)
+
+		if (!check_area)
+			return
+
+		for(var/cc in SSmachinery.all_cameras)
+			var/obj/machinery/camera/camera = cc
+			if(!camera.loc)
+				continue
+			if (camera.loc.loc != check_area)
+				continue
 			if(!camera.can_use())
 				continue
 			if(!can_access_camera(camera))

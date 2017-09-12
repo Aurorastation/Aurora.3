@@ -55,7 +55,6 @@
 #define SS_PRIORITY_MODIFIER      18
 #define SS_PRIORITY_ARRIVALS      16	// Centcomm arrivals shuttle auto-launch. Usually asleep.
 #define SS_PRIORITY_PROCESSING    15	// Generic datum processor. Replaces objects processor.
-#define SS_PRIORITY_OBJECTS       15	// processing_objects processing.
 #define SS_PRIORITY_EXPLOSIVES    13	// Explosion processor. Doesn't have much effect on explosion tick-checking.
 #define SS_PRIORITY_DISPOSALS     12	// Disposal holder movement.
 #define SS_PRIORITY_WIRELESS      12	// Handles pairing of wireless devices. Usually will be asleep.

@@ -941,7 +941,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	over.layer = MOB_LAYER + 0.1
 
 /obj/structure/noose/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/structure/noose/post_buckle_mob(mob/living/M)
@@ -1040,7 +1040,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/structure/noose/process(mob/living/carbon/human/M, mob/user)
 	if(!buckled_mob)
-		processing_objects -= src
+		STOP_PROCESSING(SSprocessing, src)
 		buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
 		pixel_x = initial(pixel_x)
 		return

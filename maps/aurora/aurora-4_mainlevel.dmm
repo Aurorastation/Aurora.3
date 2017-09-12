@@ -41327,13 +41327,13 @@
 	dir = 10
 	},
 /obj/effect/landmark/start{
-	name = "Nursing Intern"
+	name = "Medical Resident"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btj" = (
 /obj/effect/landmark/start{
-	name = "Nursing Intern"
+	name = "Medical Resident"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)

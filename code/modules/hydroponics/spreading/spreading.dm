@@ -67,11 +67,10 @@
 	var/last_biolum = null
 
 /obj/effect/plant/Destroy()
-	if(SSplants)
-		STOP_PROCESSING(SSplants, src)
+	SSplants.remove_plant(src)
 	for(var/obj/effect/plant/neighbor in range(1,src))
 		if (!QDELETED(neighbor))
-			START_PROCESSING(SSplants, neighbor)
+			SSplants.add_plant(neighbor)
 	return ..()
 	
 /obj/effect/plant/single
@@ -129,7 +128,7 @@
 /obj/effect/plant/proc/post_initialize()
 	set_dir(calc_dir())
 	update_icon()
-	START_PROCESSING(SSplants, src)
+	SSplants.add_plant(src)
 	// Some plants eat through plating.
 	if(islist(seed.chems) && !isnull(seed.chems["pacid"]))
 		var/turf/T = get_turf(src)
@@ -239,7 +238,7 @@
 /obj/effect/plant/attackby(var/obj/item/weapon/W, var/mob/user)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	START_PROCESSING(SSplants, src)
+	SSplants.add_plant(src)
 
 	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if(sampled)
