@@ -12,7 +12,7 @@
 
 		spark(get_turf(user), 3)
 
-		user.Move(pick(trange(50, get_turf(holder))))
+		user.Move(pick(RANGE_TURFS(50, holder)))
 
 		spark(get_turf(user), 3)
 
@@ -28,7 +28,7 @@
 
 				spark(get_turf(M), 3)
 
-				M.Move(pick(trange(50, T)))
+				M.Move(pick(RANGE_TURFS(50, T)))
 				
 				spark(get_turf(M), 3)
 
@@ -44,6 +44,6 @@
 
 				spark(get_turf(M), 3)
 
-				M.Move(pick(trange(50, T)))
+				M.Move(pick(RANGE_TURFS(50, T)))
 				
 				spark(get_turf(M), 3)

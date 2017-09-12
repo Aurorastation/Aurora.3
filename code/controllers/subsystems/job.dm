@@ -66,6 +66,12 @@
 		if (J.title == rank)
 			return J
 
+/datum/controller/subsystem/jobs/proc/ShouldCreateRecords(var/rank)
+	if(!rank) return 0
+	var/datum/job/job = GetJob(rank)
+	if(!job) return 0
+	return job.create_record
+
 /datum/controller/subsystem/jobs/proc/GetPlayerAltTitle(mob/new_player/player, rank)
 	. = player.client.prefs.GetPlayerAltTitle(GetJob(rank))
 
@@ -313,7 +319,7 @@
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
-	
+
 	if(job)
 		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
 		var/list/custom_equip_leftovers = list()
@@ -676,7 +682,7 @@
 	Debug("LS/([H]): Entry; rank=[rank]")
 
 	var/datum/spawnpoint/spawnpos
-	
+
 	if(H.client.prefs.spawnpoint)
 		spawnpos = spawntypes[H.client.prefs.spawnpoint]
 
@@ -790,7 +796,7 @@
 			else if (storage)
 				storage += thing
 				Debug("EC/([H]): Unable to equip [thing]; sending to storage.")
-	
+
 	Debug("EC/([H]): Complete.")
 	return TRUE
 

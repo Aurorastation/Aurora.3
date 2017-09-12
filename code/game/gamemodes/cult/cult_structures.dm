@@ -146,7 +146,7 @@
 		return
 
 	var/types = victim.find_type()
-	if ((!(types & TYPE_ORGANIC)) || ((types & TYPE_WIERD)))
+	if ((!(types & TYPE_ORGANIC)) || ((types & TYPE_WEIRD)))
 		//Invalid sacrifice. Display a message and return
 		speak_to(user, "This soulless automaton cannot satisfy our hunger. We yearn for life essence, it must have a soul.")
 		return
@@ -259,6 +259,11 @@
 	var/ranged = 0
 	if (user)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if (istype(source, /obj/item))
+		var/obj/item/I = source
+		if(istype(I, /obj/item/weapon/nullrod))
+			shatter()
+			return
 
 	if (istype(source, /obj/item/projectile))
 		ranged = 1
@@ -399,6 +404,7 @@
 	new thing(src.loc)
 	qdel(src)
 
+<<<<<<< HEAD
 /obj/effect/gateway/active/Crossed(var/atom/A)
 	if(!istype(A, /mob/living))
 		return
@@ -441,3 +447,19 @@
 			new_mob.key = M.key
 
 		new_mob << "<B>Your form morphs into that of a corgi.</B>"	//Because we don't have cluwnes
+=======
+/obj/effect/gateway/attackby(var/obj/item/I, var/mob/user)
+	..()
+	if(istype(I, /obj/item/weapon/nullrod))
+		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
+		qdel(src)
+
+/obj/effect/testtrans
+	icon = 'icons/obj/cult.dmi'
+	icon_state = "tt"
+
+/obj/effect/testtrans/New()
+	..()
+	spawn(10)
+		qdel(src)
+>>>>>>> upstream/development

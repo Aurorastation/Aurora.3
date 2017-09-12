@@ -319,7 +319,11 @@
 /mob/proc/clear_point()
 	QDEL_NULL(pointing_effect)
 
-/mob/proc/ret_grab(obj/effect/list_container/mobl/L as obj, flag)
+/datum/mobl	// I have no idea what the fuck this is, but it's better for it to be a datum than an /obj/effect.
+	var/list/container = list()
+	var/master
+
+/mob/proc/ret_grab(datum/mobl/L, flag)
 	if ((!( istype(l_hand, /obj/item/weapon/grab) ) && !( istype(r_hand, /obj/item/weapon/grab) )))
 		if (!( L ))
 			return null
@@ -327,26 +331,24 @@
 			return L.container
 	else
 		if (!( L ))
-			L = new /obj/effect/list_container/mobl( null )
+			L = new /datum/mobl
 			L.container += src
 			L.master = src
 		if (istype(l_hand, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = l_hand
-			if (!( L.container.Find(G.affecting) ))
+			if (!(L.container.Find(G.affecting)))
 				L.container += G.affecting
 				if (G.affecting)
 					G.affecting.ret_grab(L, 1)
 		if (istype(r_hand, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = r_hand
-			if (!( L.container.Find(G.affecting) ))
+			if (!(L.container.Find(G.affecting)))
 				L.container += G.affecting
 				if (G.affecting)
 					G.affecting.ret_grab(L, 1)
 		if (!( flag ))
 			if (L.master == src)
-				var/list/temp = list(  )
-				temp += L.container
-				//L = null
+				var/list/temp = L.container.Copy()
 				qdel(L)
 				return temp
 			else
@@ -710,9 +712,13 @@
 	return stat == DEAD
 
 /mob/proc/is_mechanical()
-	if(mind && (mind.assigned_role == "Cyborg" || mind.assigned_role == "AI"))
-		return 1
-	return istype(src, /mob/living/silicon) || get_species() == "Baseline Frame" || get_species() == "Shell Frame" || get_species() == "Industrial Frame"
+	return FALSE
+
+/mob/living/silicon/is_mechanical()
+	return TRUE
+
+/mob/living/carbon/human/is_mechanical()
+	return !!global.mechanical_species[get_species()]
 
 /mob/proc/is_ready()
 	return client && !!mind
@@ -754,7 +760,7 @@
 			if(statpanel("MC"))
 				stat("CPU:", world.cpu)
 				stat("Tick Usage:", world.tick_usage)
-				stat("Instances:", world.contents.len)
+				stat("Instances:", num2text(world.contents.len, 7))
 				if (config.fastboot)
 					stat(null, "FASTBOOT ENABLED")
 				if(Master)
@@ -1184,6 +1190,14 @@ mob/proc/yank_out_object()
 		LAZYREMOVE(AM.contained_mobs, src)
 
 	. = ..()
+
+	if (!contained_mobs)	// If this is true, the parent will have already called the client hook.
+		update_client_hook(loc)
+
+/mob/Move()
+	. = ..()
+	if (. && !contained_mobs && client)
+		update_client_hook(loc)
 
 /mob/verb/northfaceperm()
 	set hidden = 1

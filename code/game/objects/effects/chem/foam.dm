@@ -28,7 +28,7 @@
 	checkReagents()
 
 /obj/effect/effect/foam/proc/post()
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 	sleep(30)
 	if(metal)
 		var/obj/structure/foamedmetal/M = new /obj/structure/foamedmetal(src.loc)

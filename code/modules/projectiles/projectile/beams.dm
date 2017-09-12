@@ -54,6 +54,7 @@
 	name = "pulse"
 	icon_state = "u_laser"
 	damage = 50
+	armor_penetration = 50
 
 	muzzle_type = /obj/effect/projectile/laser_pulse/muzzle
 	tracer_type = /obj/effect/projectile/laser_pulse/tracer

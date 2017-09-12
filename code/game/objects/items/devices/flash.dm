@@ -83,7 +83,7 @@
 				//Vaurca damage 15/01/16
 			var/mob/living/carbon/human/H = M
 			if(isvaurca(H))
-				var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+				var/obj/item/organ/eyes/E = H.get_eyes()
 				if(!E)
 					return
 				usr << span("alert", "Your eyes burn with the intense light of the flash!.")
@@ -96,8 +96,7 @@
 					M.eye_blind = 5
 					M.eye_blurry = 5
 					M.disabilities |= NEARSIGHTED
-					spawn(100)
-						M.disabilities &= ~NEARSIGHTED
+					addtimer(CALLBACK(M, /mob/.proc/reset_nearsighted), 100)
 
 /*			if(ishuman(M) && ishuman(user) && M.stat!=DEAD)	//why is this even a thing
 				if(user.mind && user.mind in revs.current_antagonists)

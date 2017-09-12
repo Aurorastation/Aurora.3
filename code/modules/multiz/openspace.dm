@@ -24,7 +24,8 @@
 
 /atom/movable/Destroy()
 	. = ..()
-	QDEL_NULL(bound_overlay)
+	if (bound_overlay)
+		QDEL_NULL(bound_overlay)
 
 /atom/movable/forceMove(atom/dest)
 	. = ..(dest)
@@ -32,17 +33,23 @@
 		// The overlay will handle cleaning itself up on non-openspace turfs.
 		if (isturf(dest))
 			bound_overlay.forceMove(get_step(src, UP))
+			bound_overlay.set_dir(dir)
 		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
 			qdel(bound_overlay)
+
+/atom/movable/set_dir(ndir)
+	. = ..()
+	if (. && bound_overlay)
+		bound_overlay.set_dir(dir)
 
 /atom/movable/update_above()
 	if (!bound_overlay)
 		return
 
-	// check_existence returns TRUE if the overlay is valid.
-	if (isopenturf(bound_overlay.loc) && !bound_overlay.queued)
-		SSopenturf.queued_overlays += bound_overlay
-		bound_overlay.queued = TRUE
+	if (isopenturf(bound_overlay.loc))
+		if (!bound_overlay.queued)
+			SSopenturf.queued_overlays += bound_overlay
+			bound_overlay.queued = TRUE
 	else
 		qdel(bound_overlay)
 

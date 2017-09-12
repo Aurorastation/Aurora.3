@@ -751,13 +751,13 @@
 
 	switch(buildstage)
 		if(2)
-			if(istype(W, /obj/item/weapon/screwdriver))  // Opening that Air Alarm up.
+			if(isscrewdriver(W))  // Opening that Air Alarm up.
 				wiresexposed = !wiresexposed
 				user << "<span class='notice'>You [wiresexposed ? "open" : "close"] the maintenance panel.</span>"
 				update_icon()
 				return
 
-			if (wiresexposed && istype(W, /obj/item/weapon/wirecutters))
+			if (wiresexposed && iswirecutter(W))
 				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
@@ -778,7 +778,7 @@
 			return
 
 		if(1)
-			if(istype(W, /obj/item/stack/cable_coil))
+			if(iscoil(W))
 				var/obj/item/stack/cable_coil/C = W
 				if (C.use(5))
 					user << "<span class='notice'>You wire \the [src].</span>"
@@ -790,7 +790,7 @@
 					user << "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>"
 					return
 
-			else if(istype(W, /obj/item/weapon/crowbar))
+			else if(iscrowbar(W))
 				user << "You start prying out the circuit."
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 				if(do_after(user,20))
@@ -808,7 +808,7 @@
 				update_icon()
 				return
 
-			else if(istype(W, /obj/item/weapon/wrench))
+			else if(iswrench(W))
 				user << "You remove the air alarm assembly from the wall!"
 				new /obj/item/frame/air_alarm(get_turf(user))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)

@@ -3,7 +3,7 @@
 	name = "NTNet Quantum Relay"
 	desc = "A very complex router and transmitter capable of connecting electronic devices together. Looks fragile."
 	use_power = 2
-	active_power_usage = 20000 //20kW, apropriate for machine that keeps massive cross-Zlevel wireless network operational.
+	active_power_usage = 20000 //20kW, appropriate for machine that keeps massive cross-Zlevel wireless network operational.
 	idle_power_usage = 100
 	icon_state = "ntnet"
 	icon = 'icons/obj/machines/telecomms.dmi'
@@ -18,6 +18,11 @@
 	var/dos_overload = 0		// Amount of DoS "packets" in this relay's buffer
 	var/dos_capacity = 500		// Amount of DoS "packets" in buffer required to crash the relay
 	var/dos_dissipate = 1		// Amount of DoS "packets" dissipated over time.
+
+	component_types = list(
+		/obj/item/stack/cable_coil{amount = 15},
+		/obj/item/weapon/circuitboard/ntnet_relay
+	)
 
 // TODO: Implement more logic here. For now it's only a placeholder.
 /obj/machinery/ntnet_relay/operable()
@@ -100,12 +105,10 @@
 		ntnet_global.add_log("Quantum relay manually [enabled ? "enabled" : "disabled"].")
 		update_icon()
 
-/obj/machinery/ntnet_relay/New()
+/obj/machinery/ntnet_relay/Initialize()
+	. = ..()
 	uid = gl_uid
 	gl_uid++
-	component_parts = list()
-	component_parts += new /obj/item/stack/cable_coil(src,15)
-	component_parts += new /obj/item/weapon/circuitboard/ntnet_relay(src)
 
 	update_icon()
 
@@ -113,7 +116,6 @@
 		ntnet_global.relays.Add(src)
 		NTNet = ntnet_global
 		ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
-	..()
 
 /obj/machinery/ntnet_relay/Destroy()
 	if(ntnet_global)
@@ -126,12 +128,12 @@
 	return ..()
 
 /obj/machinery/ntnet_relay/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		panel_open = !panel_open
 		user << "You [panel_open ? "open" : "close"] the maintenance hatch"
 		return
-	if(istype(W, /obj/item/weapon/crowbar))
+	if(iscrowbar(W))
 		if(!panel_open)
 			user << "Open the maintenance panel first."
 			return

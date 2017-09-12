@@ -44,7 +44,7 @@ var/bomb_set
 	return
 
 /obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
-	if (istype(O, /obj/item/weapon/screwdriver))
+	if (isscrewdriver(O))
 		src.add_fingerprint(user)
 		if (src.auth)
 			if (panel_open == 0)
@@ -68,7 +68,7 @@ var/bomb_set
 			flick("lock", src)
 		return
 
-	if (panel_open && (istype(O, /obj/item/device/multitool) || istype(O, /obj/item/weapon/wirecutters)))
+	if (panel_open && (ismultitool(O) || iswirecutter(O)))
 		return attack_hand(user)
 
 	if (src.extended)
@@ -82,7 +82,7 @@ var/bomb_set
 	if (src.anchored)
 		switch(removal_stage)
 			if(0)
-				if(istype(O,/obj/item/weapon/weldingtool))
+				if(iswelder(O))
 					var/obj/item/weapon/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
@@ -98,7 +98,7 @@ var/bomb_set
 				return
 
 			if(1)
-				if(istype(O,/obj/item/weapon/crowbar))
+				if(iscrowbar(O))
 					user.visible_message("[user] starts forcing open the bolt covers on [src].", "You start forcing open the anchoring bolt covers with [O]...")
 
 					if(do_after(user,15))
@@ -108,7 +108,7 @@ var/bomb_set
 				return
 
 			if(2)
-				if(istype(O,/obj/item/weapon/weldingtool))
+				if(iswelder(O))
 
 					var/obj/item/weapon/weldingtool/WT = O
 					if(!WT.isOn()) return
@@ -125,7 +125,7 @@ var/bomb_set
 				return
 
 			if(3)
-				if(istype(O,/obj/item/weapon/wrench))
+				if(iswrench(O))
 
 					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", "You begin unwrenching the anchoring bolts...")
 
@@ -136,7 +136,7 @@ var/bomb_set
 				return
 
 			if(4)
-				if(istype(O,/obj/item/weapon/crowbar))
+				if(iscrowbar(O))
 
 					user.visible_message("[user] begins lifting [src] off of the anchors.", "You begin lifting the device off the anchors...")
 
@@ -436,7 +436,7 @@ var/bomb_set
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/nuclearbomb/station/LateInitialize()
-	for(var/turf/simulated/floor/T in trange(1, src))
+	for(var/turf/simulated/floor/T in RANGE_TURFS(1, src))
 		T.set_flooring(get_flooring_data(/decl/flooring/reinforced/circuit/red))
 		flash_tiles += T
 	update_icon()

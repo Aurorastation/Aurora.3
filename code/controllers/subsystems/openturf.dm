@@ -8,7 +8,6 @@
 
 /datum/controller/subsystem/openturf
 	name = "Open Space"
-	flags = SS_BACKGROUND | SS_FIRE_IN_LOBBY
 	wait = 1
 	init_order = SS_INIT_OPENTURF
 	priority = SS_PRIORITY_OPENTURF
@@ -20,6 +19,8 @@
 
 	var/list/openspace_overlays = list()
 	var/list/openspace_turfs = list()
+
+	var/starlight_enabled = FALSE
 
 /datum/controller/subsystem/openturf/New()
 	NEW_SS_GLOBAL(SSopenturf)
@@ -68,8 +69,21 @@
 	..("Q:{T:[queued_turfs.len - (qt_idex - 1)]|O:[queued_overlays.len - (qo_idex - 1)]} T:{T:[openspace_turfs.len]|O:[openspace_overlays.len]}")
 
 /datum/controller/subsystem/openturf/Initialize(timeofday)
+	starlight_enabled = config.starlight && config.openturf_starlight_permitted
 	// Flush the queue.
 	fire(FALSE, TRUE)
+	if (starlight_enabled)
+		var/t = REALTIMEOFDAY
+		admin_notice("<span class='danger'>[src] setup completed in [(t - timeofday)/10] seconds!</span>", R_DEBUG)
+
+		SSlighting.fire(FALSE, TRUE)
+		admin_notice("<span class='danger'>Secondary [SSlighting] flush completed in [(REALTIMEOFDAY - t)/10] seconds!</span>", R_DEBUG)
+
+		t = REALTIMEOFDAY
+
+		fire(FALSE, TRUE)	// Fire /again/ to flush updates caused by the above.
+		admin_notice("<span class='danger'>Secondary [src] flush completed in [(REALTIMEOFDAY - t)/10] seconds!</span>", R_DEBUG)
+
 	..()
 
 /datum/controller/subsystem/openturf/fire(resumed = FALSE, no_mc_tick = FALSE)
@@ -84,7 +98,7 @@
 	var/list/curr_turfs = queued_turfs
 	var/list/curr_ov = queued_overlays
 
-	while (curr_turfs.len && qt_idex <= curr_turfs.len)
+	while (qt_idex <= curr_turfs.len)
 		var/turf/simulated/open/T = curr_turfs[qt_idex]
 		curr_turfs[qt_idex] = null
 		qt_idex++
@@ -100,7 +114,11 @@
 			T.shadower = new(T)
 
 		// Figure out how many z-levels down we are.
-		var/depth = calculate_depth(T)
+		var/depth = 0
+		var/turf/simulated/open/Td = T
+		while (Td && isopenturf(Td.below))
+			Td = Td.below
+			depth++
 		if (depth > OPENTURF_MAX_DEPTH)
 			depth = OPENTURF_MAX_DEPTH
 
@@ -113,17 +131,17 @@
 		// Handle space parallax & starlight.
 		if (T.is_above_space())
 			T.plane = PLANE_SPACE_BACKGROUND
-			/*if (config.starlight)	// Openturf starlight is broken. SSlighting and SSopenturf will fight if this is un-commented-out. Maybe someone will fix it someday.
-				T.set_light(config.starlight, 0.5)*/
+			if (starlight_enabled && !T.light_range)
+				T.set_light(config.starlight, 0.5)
 		else
 			T.plane = OPENTURF_MAX_PLANE - depth
-			/*if (config.starlight && T.light_range != 0)
-				T.set_light(0)*/
+			if (starlight_enabled && T.light_range)
+				T.set_light(0)
 
 		// Add everything below us to the update queue.
 		for (var/thing in T.below)
 			var/atom/movable/object = thing
-			if (QDELETED(object) || object.no_z_overlay)
+			if (QDELETED(object) || object.no_z_overlay || object.loc != T.below)
 				// Don't queue deleted stuff or stuff that doesn't need an overlay.
 				continue
 
@@ -178,14 +196,14 @@
 		else if (MC_TICK_CHECK)
 			break
 
-	if (qt_idex > 1 && qo_idex <= curr_turfs.len)
+	if (qt_idex > 1 && qt_idex <= curr_turfs.len)
 		curr_turfs.Cut(1, qt_idex)
 		qt_idex = 1
 
 	if (!no_mc_tick)
 		MC_SPLIT_TICK
 
-	while (curr_ov.len && qo_idex <= curr_ov.len)
+	while (qo_idex <= curr_ov.len)
 		var/atom/movable/openspace/overlay/OO = curr_ov[qo_idex]
 		curr_ov[qo_idex] = null
 		qo_idex++
@@ -227,9 +245,3 @@
 		if (qo_idex > 1 && qo_idex <= curr_ov.len)
 			curr_ov.Cut(1, qo_idex)
 			qo_idex = 1
-
-/datum/controller/subsystem/openturf/proc/calculate_depth(turf/simulated/open/T)
-	. = 0
-	while (T && isopenturf(T.below))
-		T = T.below
-		.++

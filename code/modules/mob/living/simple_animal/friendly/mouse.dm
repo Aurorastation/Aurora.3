@@ -1,7 +1,7 @@
 /mob/living/simple_animal/mouse
 	name = "mouse"
 	real_name = "mouse"
-	desc = "It's a small rodent, often seen hiding in maintenance areas and making a nuisance of itself."
+	desc = "It's a small, disgusting rodent, often found being annoying, and aiding in the spread of disease."
 
 	icon = 'icons/mob/mouse.dmi'
 	icon_state = "mouse_gray"
@@ -19,10 +19,10 @@
 	'sound/effects/creatures/mouse_squeaks_3.ogg',
 	'sound/effects/creatures/mouse_squeaks_4.ogg')
 	var/last_softsqueak = null//Used to prevent the same soft squeak twice in a row
-	var/squeals = 5//Spam control. You people are why we cant have nice things >:(
-	var/maxSqueals = 5//SPAM PROTECTION
+	var/squeals = 5//Spam control.
+	var/maxSqueals = 2//SPAM PROTECTION
 	var/last_squealgain = 0// #TODO-FUTURE: Remove from life() once something else is created
-
+	var/squeakcooldown = 0
 	pass_flags = PASSTABLE
 	speak_chance = 5
 	turns_per_move = 5
@@ -32,7 +32,7 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
-	response_harm   = "stamps on"
+	response_harm   = "stomps on"
 	density = 0
 	meat_amount = 1
 	var/body_color //brown, gray and white, leave blank for random
@@ -79,12 +79,12 @@
 	else
 		if ((world.time - timeofdeath) > decompose_time)
 			dust()
-			
+
 /mob/living/simple_animal/mouse/Destroy()
 	SSmob.all_mice -= src
-		
+
 	return ..()
-	
+
 //Pixel offsetting as they scamper around
 /mob/living/simple_animal/mouse/Move()
 	if(..())
@@ -152,6 +152,8 @@
 //This is triggered when a mob steps on an NPC mouse, or manually by a playermouse
 /mob/living/simple_animal/mouse/proc/squeak(var/manual = 1)
 	if (stat == CONSCIOUS)
+		if (squeakcooldown > world.time) return
+		squeakcooldown = world.time + 2 SECONDS
 		playsound(src, 'sound/effects/mousesqueek.ogg', 70, 1)
 		if (manual)
 			log_say("[key_name(src)] squeaks! ",ckey=key_name(src))
@@ -165,6 +167,9 @@
 		var/sound = pick(new_squeaks)
 
 		last_softsqueak = sound
+		if (squeakcooldown > world.time) return
+
+		squeakcooldown = world.time + 2 SECONDS
 		playsound(src, sound, 5, 1, -4.6)
 
 		if (manual)
@@ -175,6 +180,9 @@
 //Triggered manually, when a mouse dies, or rarely when its stepped on
 /mob/living/simple_animal/mouse/proc/squeak_loud(var/manual = 0)
 	if (stat == CONSCIOUS)
+		if (squeakcooldown > world.time) return
+		squeakcooldown = world.time + 4 SECONDS
+	
 		if (squeals > 0 || !manual)
 			playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
 			squeals --
@@ -231,7 +239,7 @@
 				squeak(0)
 			else
 				squeak_loud(0)//You trod on its tail
-				
+
 	if(!health)
 		return
 
@@ -283,7 +291,6 @@
 	icon_rest = "mouse_brown_sleep"
 	holder_type = /obj/item/weapon/holder/mouse/brown
 
-//TOM IS ALIVE! SQUEEEEEEEE~K :)
 /mob/living/simple_animal/mouse/brown/Tom
 	name = "Tom"
 	real_name = "Tom"

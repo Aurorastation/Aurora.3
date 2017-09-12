@@ -17,6 +17,7 @@
 	var/base_icon = "ladder"
 
 	var/const/climb_time = 2 SECONDS
+	var/static/list/climbsounds = list('sound/effects/ladder.ogg','sound/effects/ladder2.ogg','sound/effects/ladder3.ogg','sound/effects/ladder4.ogg')
 
 /obj/structure/ladder/Initialize()
 	. = ..()
@@ -54,15 +55,15 @@
 	var/obj/structure/ladder/target_ladder = getTargetLadder(M)
 	if(!target_ladder)
 		return
-	
+
 	var/obj/item/weapon/grab/G = M.l_hand
 	if (!istype(G))
 		G = M.r_hand
-	
+
 	if(!M.Move(get_turf(src)))
 		to_chat(M, "<span class='notice'>You fail to reach \the [src].</span>")
 		return
-	
+
 	if (istype(G))
 		G.affecting.forceMove(get_turf(src))
 
@@ -134,6 +135,8 @@
 		if(!A.CanPass(M, M.loc, 1.5, 0))
 			to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
 			return FALSE
+	playsound(src, pick(climbsounds), 50)
+	playsound(target_ladder, pick(climbsounds), 50)
 	var/obj/item/weapon/grab/G = M.l_hand
 	if (!istype(G))
 		G = M.r_hand
@@ -162,6 +165,7 @@
 	density = 0
 	opacity = 0
 	anchored = 1
+	layer = TURF_LAYER
 
 /obj/structure/stairs/Initialize()
 	. = ..()
@@ -174,18 +178,45 @@
 			above.ChangeTurf(/turf/simulated/open)
 
 /obj/structure/stairs/Uncross(atom/movable/A)
-	if(A.dir == dir)
+	if(A.dir == dir && A.loc == loc)
 		// This is hackish but whatever.
 		var/turf/target = get_step(GetAbove(A), dir)
-		var/turf/source = A.loc
-		if(target.Enter(A, source))
-			A.loc = target
-			target.Entered(A, source)
+		if (target.Enter(A, A.loc))
+			A.forceMove(target)
 		return FALSE
 	return TRUE
 
 /obj/structure/stairs/CanPass(obj/mover, turf/source, height, airflow)
-	return airflow || !density
+	if (airflow)
+		return TRUE
+
+	// Disallow stepping onto the elevated part of the stairs.
+	if (isliving(mover) && z == mover.z && mover.loc != loc && get_step(mover, get_dir(mover, src)) == loc)
+		return FALSE
+
+	return !density
+
+/obj/structure/stairs/CheckExit(mob/living/mover, turf/target)
+	if (!istype(mover) || target.z != z)
+		return ..()
+	
+	if (mover.loc == loc && get_dir(mover, target) != reverse_dir[dir])
+		addtimer(CALLBACK(src, .proc/mob_fall, mover), 0)
+
+	return ..()
+
+/obj/structure/stairs/proc/mob_fall(mob/living/L)
+	if (isopenturf(L.loc))
+		return
+
+	L.Weaken(2)
+	L.visible_message(
+		"<span class='alert'>\The [L] steps off of [src] and faceplants onto [L.loc].</span>",
+		"<span class='danger'>You step off [src] and faceplant onto [L.loc].</span>",
+		"<span class='alert'>You hear a thump.</span>"
+	)
+	var/snd = pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
+	playsound(L.loc, snd, 75, 1)
 
 // type paths to make mapping easier.
 /obj/structure/stairs/north

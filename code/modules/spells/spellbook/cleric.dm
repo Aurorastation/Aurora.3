@@ -15,6 +15,8 @@
 				/spell/targeted/heal_target/major = 				1,
 				/spell/targeted/heal_target/area = 				1,
 				/spell/targeted/heal_target/sacrifice = 			1,
+				/spell/targeted/resurrection =						2,
+				/spell/targeted/mend = 							1,
 				/spell/targeted/genetic/blind = 				1,
 				/spell/targeted/shapeshift/baleful_polymorph = 			1,
 				/spell/targeted/projectile/dumbfire/stuncuff = 			1,
@@ -24,6 +26,7 @@
 				/spell/aoe_turf/conjure/grove/sanctuary = 			1,
 				/spell/targeted/projectile/dumbfire/fireball = 			2,
 				/spell/aoe_turf/conjure/forcewall = 				1,
+				/spell/targeted/mindcontrol =                       2,
 				/obj/item/weapon/gun/energy/staff/focus = 			2,
 				/obj/item/weapon/storage/belt/wands/full = 			2,
 				/obj/item/weapon/contract/apprentice = 				1

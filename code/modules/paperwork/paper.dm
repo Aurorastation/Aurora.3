@@ -145,7 +145,7 @@
 		return
 
 	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
-		user.visible_message(span("notice", "the [src] unfolds \the [src]."), span("notice", "You unfold \the [src]."), "You hear paper rustling.")
+		user.visible_message(span("notice", "\The [user] unfolds \the [src]."), span("notice", "You unfold \the [src]."), "You hear paper rustling.")
 		icon_state = initial(icon_state)
 		throw_range = initial(throw_range)
 		name = old_name
@@ -180,7 +180,7 @@
 			else
 				user.visible_message("<span class='warning'>[user] begins to wipe [H]'s lipstick off with \the [src].</span>", \
 								 	 "<span class='notice'>You begin to wipe off [H]'s lipstick.</span>")
-				if(do_after(user, 10) && do_after(H, 10, 5, 0))	//user needs to keep their active hand, H does not.
+				if(do_after(user, 10) && do_after(H, 10, 0))	//user needs to keep their active hand, H does not.
 					user.visible_message("<span class='notice'>[user] wipes [H]'s lipstick off with \the [src].</span>", \
 										 "<span class='notice'>You wipe off [H]'s lipstick.</span>")
 					H.lip_style = null
@@ -301,7 +301,7 @@
 			var/obj/item/weapon/flame/F = P
 			if (!F.lit)
 				return
-		else if (istype(P, /obj/item/weapon/weldingtool))
+		else if (iswelder(P))
 			var/obj/item/weapon/weldingtool/F = P
 			if (!F.welding)//welding tools are 0 when off
 				return
@@ -505,7 +505,7 @@
 
 	else if(istype(P, /obj/item/weapon/flame))
 		burnpaper(P, user)
-	else if(istype(P, /obj/item/weapon/weldingtool))
+	else if(iswelder(P))
 		burnpaper(P, user)
 
 	add_fingerprint(user)
