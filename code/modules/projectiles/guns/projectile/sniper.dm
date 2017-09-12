@@ -135,3 +135,112 @@
 	else
 		item_state = "heavysniper"
 	update_held_icon()
+
+/obj/item/weapon/gun/projectile/dragunov
+	name = "antique sniper rifle"
+	desc = "An old Dragunov semi-automatic marksman rifle. Smells of vodka and Communism. Uses 7.62mm rounds."
+	icon = 'icons/obj/dragunov.dmi'
+	icon_state = "dragunov"
+	item_state = "dragunov"
+	contained_sprite = 1
+	w_class = 4
+	force = 10
+	slot_flags = SLOT_BACK
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
+	caliber = "a762"
+	recoil = 2
+	fire_sound = 'sound/weapons/svd_shot.ogg'
+	load_method = MAGAZINE
+	max_shells = 10
+	magazine_type = /obj/item/ammo_magazine/d762
+	allowed_magazines = list(/obj/item/ammo_magazine/d762)
+	accuracy = -4
+	scoped_accuracy = 2
+
+	recoil_wielded = 1
+	accuracy_wielded = 0
+
+	//action button for wielding
+	action_button_name = "Wield rifle"
+
+/obj/item/weapon/gun/projectile/dragunov/update_icon()
+
+	if(ammo_magazine)
+		icon_state = "dragunov"
+	else
+		icon_state = "dragunov-empty"
+
+/obj/item/weapon/gun/projectile/dragunov/can_wield()
+	return 1
+
+/obj/item/weapon/gun/projectile/dragunov/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/projectile/dragunov/verb/wield_rifle()
+	set name = "Wield rifle"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+
+/obj/item/weapon/gun/projectile/dragunov/special_check(mob/user)
+	if(!wielded)
+		user << "<span class='warning'>You can't fire without stabilizing the rifle!</span>"
+		return 0
+	return ..()
+
+/obj/item/weapon/gun/projectile/dragunov/verb/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set popup_menu = 1
+
+	if(wielded)
+		toggle_scope(2.0, usr)
+	else
+		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+
+/obj/item/weapon/gun/projectile/automatic/rifle/w556
+	name = "scout rifle"
+	desc = "A lightweight Neyland 556mi 'Ranger' used within the Sol Navy and Nanotrasen Emergency Response Teams. Equipped with a scope and designed for medium to long range combat, with moderate stopping power. Chambered in 5.56 rounds."
+	icon_state = "w556rifle"
+	item_state = "heavysniper"
+	w_class = 4
+	force = 10
+	slot_flags = SLOT_BACK
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)
+	caliber = "a556"
+	recoil = 4
+	load_method = MAGAZINE
+	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	max_shells = 10
+	ammo_type = /obj/item/ammo_casing/a556/ap
+	magazine_type = /obj/item/ammo_magazine/a556/ap
+	allowed_magazines = list(/obj/item/ammo_magazine/a556, /obj/item/ammo_magazine/a556/ap)
+	accuracy = -4
+	scoped_accuracy = 3
+	recoil_wielded = 2
+	accuracy_wielded = 0
+	multi_aim = 0 //Definitely a fuck no. Being able to target one person at this range is plenty.
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1), dispersion=list(0.0, 0.6, 1.0))
+		)
+
+/obj/item/weapon/gun/projectile/automatic/rifle/w556/verb/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set popup_menu = 1
+
+	if(wielded)
+		toggle_scope(2.0, usr)
+	else
+		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
+
+/obj/item/weapon/gun/projectile/automatic/rifle/w556/update_icon()
+	if(wielded)
+		item_state = "heavysniper-wielded"
+	else
+		item_state = "heavysniper"
+	update_held_icon()
