@@ -131,7 +131,7 @@
 		to_chat(user, "<span class='notice'>You cycle the loaded round into the chamber, allowing you to fire.</span>")
 
 	else
-		to_chat(user, "<span class='notice'>You cycle the boly back into position, leaving the gun empty.</span>")
+		to_chat(user, "<span class='notice'>You cycle the bolt back into position, leaving the gun empty.</span>")
 
 	icon_state = initial(icon_state)
 	retracted_bolt = 0
