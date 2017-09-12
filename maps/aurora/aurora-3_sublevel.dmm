@@ -27364,34 +27364,17 @@
 /area/medical/medbay4)
 "OVERFLOW" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLOX" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLOY" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/glass,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLOZ" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/glass,
 /obj/item/weapon/folder/white,
 /obj/item/weapon/pen,
@@ -27400,25 +27383,17 @@
 "OVERFLPa" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/glass,
+/obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPb" = (
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPc" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPe" = (
@@ -27426,10 +27401,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPf" = (
-/obj/machinery/newscaster{
-	pixel_x = 32;
-	pixel_y = 0
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPg" = (
@@ -27443,7 +27414,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPh" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/chair{
 	dir = 1
 	},
@@ -27454,16 +27424,14 @@
 /area/medical/medbay4)
 "OVERFLPi" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPj" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Psychiatrist"
+	name = "Phychiatrist"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -27474,11 +27442,6 @@
 	},
 /obj/effect/landmark/start{
 	name = "Virologist"
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Briefing Room";
-	dir = 8;
-	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -27495,7 +27458,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPo" = (
@@ -27503,9 +27465,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPp" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32;
-	pixel_y = 0
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -27520,7 +27483,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPr" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/chair{
 	dir = 1
 	},
@@ -27531,13 +27493,9 @@
 /area/medical/medbay4)
 "OVERFLPs" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPt" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/chair{
 	dir = 1
 	},
@@ -27577,6 +27535,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPz" = (
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPA" = (
@@ -27590,7 +27552,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPB" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/chair{
 	dir = 1
 	},
@@ -27605,7 +27566,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "OVERFLPD" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/chair{
 	dir = 1
 	},
