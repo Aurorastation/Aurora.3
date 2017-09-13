@@ -40,7 +40,7 @@
 	var/datum/controller/subsystem/queue_next
 	var/datum/controller/subsystem/queue_prev
 
-	var/static/failure_strikes = 0 //How many times we suspect this subsystem has crashed the MC, 3 strikes and you're out!
+	var/static/list/failure_strikes  //How many times we suspect a subsystem type has crashed the MC, 3 strikes and you're out!
 
 // Used to initialize the subsystem BEFORE the map has loaded
 /datum/controller/subsystem/New()

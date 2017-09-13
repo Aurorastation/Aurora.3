@@ -613,7 +613,7 @@ var/global/list/robot_modules = list(
 					"Kent" = "toiletbot",
 					"Bro" = "brobot",
 					"Rich" = "maximillion",
-					"Basic" = "robotserv",
+					"Basic" = "robotServ",
 					"Drone - Service" = "drone-service",
 					"Drone - Hydro" = "drone-hydro",
 					"Classic" = "service2",
@@ -687,7 +687,7 @@ var/global/list/robot_modules = list(
 	channels = list("Supply" = 1)
 	networks = list(NETWORK_MINE)
 	sprites = list(
-					"Basic" = "robotMine",
+					"Basic" = "robotmine",
 					"Advanced Droid" = "droid-miner",
 					"Sleek" = "sleekminer",
 					"Treadhead" = "miner",

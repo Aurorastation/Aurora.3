@@ -23,12 +23,17 @@ var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mob
 var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
 var/global/list/brig_closets = list()				//list of all brig secure_closets. Used by brig timers. Probably should be converted to use SSwireless eventually.
 
+var/global/list/teleportlocs = list()
+var/global/list/ghostteleportlocs = list()
+var/global/list/centcom_areas = list()
+var/global/list/the_station_areas = list()
+
 var/global/list/turfs = list()						//list of all turfs
 
 //Languages/species/whitelist.
-var/global/list/all_species[0]
-var/global/list/all_languages[0]
-var/global/list/language_keys[0]					// Table of say codes for all languages
+var/global/list/all_species = list()
+var/global/list/all_languages = list()
+var/global/list/language_keys = list()					// Table of say codes for all languages
 var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.
 var/global/list/playable_species = list("Human")    // A list of ALL playable species, whitelisted, latejoin or otherwise.
 
@@ -88,6 +93,25 @@ var/global/list/syndicate_access = list(access_maint_tunnels, access_syndicate, 
 
 //Cloaking devices
 var/global/list/cloaking_devices = list()
+
+// Devour types (these are typecaches). Only simple_animals check these, other types are handled specially.
+/var/list/mtl_synthetic = list(
+	/mob/living/simple_animal/hostile/hivebot
+)
+
+/var/list/mtl_weird = list(
+	/mob/living/simple_animal/construct,
+	/mob/living/simple_animal/shade,
+	/mob/living/simple_animal/slime,
+	/mob/living/simple_animal/hostile/faithless
+)
+
+// Actual human mobs are delibrately not in this list as they are handled elsewhere.
+/var/list/mtl_humanoid = list(
+	/mob/living/simple_animal/hostile/pirate,
+	/mob/living/simple_animal/hostile/russian,
+	/mob/living/simple_animal/hostile/syndicate
+)
 
 //////////////////////////
 /////Initial Building/////
@@ -186,6 +210,17 @@ var/global/list/cloaking_devices = list()
 	for(var/T in paths)
 		var/datum/poster/P = new T
 		poster_designs += P
+
+	// Some setup work for the eat-types lists.
+	mtl_synthetic = typecacheof(mtl_synthetic) + list(
+		/mob/living/simple_animal/hostile/retaliate/malf_drone,
+		/mob/living/simple_animal/hostile/viscerator,
+		/mob/living/simple_animal/spiderbot
+	)
+
+	mtl_weird = typecacheof(mtl_weird) + /mob/living/simple_animal/adultslime
+
+	mtl_humanoid = typecacheof(mtl_humanoid)
 
 	return 1
 

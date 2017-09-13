@@ -63,8 +63,8 @@
 
 	var/excavation_amount = 30
 	var/wielded = 0
-	var/force_unwielded = 10.0
-	var/force_wielded = 30.0
+	var/force_unwielded = 5.0
+	var/force_wielded = 15.0
 	var/digspeed_unwielded = 30
 	var/digspeed_wielded = 10
 	var/drilling = 0
@@ -233,7 +233,7 @@
 	drill_sound = 'sound/weapons/sonic_jackhammer.ogg'
 	digspeed = 15
 	digspeed_unwielded = 15
-	force_unwielded = 25.0
+	force_unwielded = 15.0
 	excavation_amount = 100
 
 	can_wield = 0
@@ -252,7 +252,6 @@
 
 	digspeed_unwielded = 30
 	digspeed_wielded = 5
-	force_wielded = 35.0
 
 /obj/item/weapon/pickaxe/diamond
 	name = "diamond pickaxe"
@@ -264,7 +263,7 @@
 
 	digspeed_unwielded = 20
 	digspeed_wielded = 1
-	force_wielded = 35.0
+	force_wielded = 25.0
 
 /obj/item/weapon/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
@@ -1083,7 +1082,6 @@ var/list/total_extraction_beacons = list()
 	force = 10
 	throwforce = 5
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
-	var/currently_pulling = FALSE
 
 /obj/item/weapon/oremagnet/attack_self(mob/user)
 	if (use_check(user))
@@ -1093,21 +1091,12 @@ var/list/total_extraction_beacons = list()
 	toggle_on(user)
 
 /obj/item/weapon/oremagnet/process()
-	set waitfor = FALSE
-
-	if (currently_pulling)
-		return
-
-	currently_pulling = TRUE
-
-	for(var/obj/item/weapon/ore/O in oview(7,src.loc))
+	for(var/obj/item/weapon/ore/O in oview(7, loc))
 		if(prob(80))
 			step_to(O, src.loc, 0)
 
-		if (TICK_CHECK && QDELING(src))
+		if (TICK_CHECK)
 			return
-
-	currently_pulling = FALSE
 
 /obj/item/weapon/oremagnet/proc/toggle_on(mob/user)
 	if (!isprocessing)
@@ -1141,6 +1130,8 @@ var/list/total_extraction_beacons = list()
 	for(var/obj/item/weapon/ore/O in orange(7,user))
 		single_spark(O.loc)
 		do_teleport(O, user, 0)
+
+		CHECK_TICK
 
 /******************************Sculpting*******************************/
 /obj/item/weapon/autochisel
@@ -1277,7 +1268,9 @@ var/list/total_extraction_beacons = list()
 	density = 1
 	anchored = 1
 
-/obj/structure/weightlifter/attack_hand(mob/user as mob)
+/obj/structure/weightlifter/attack_hand(var/mob/living/carbon/human/user)
+	if(!istype(user))
+		return
 	if(in_use)
 		user << "It's already in use - wait a bit."
 		return
@@ -1314,6 +1307,7 @@ var/list/total_extraction_beacons = list()
 		icon_state = "fitnessweight"
 		overlays -= W
 		user << "[finishmessage]"
+		user.nutrition = user.nutrition - 10
 
 /******************************Seismic Charge*******************************/
 

@@ -24,7 +24,7 @@
 		return 1
 
 /datum/job/intern_med
-	title = "Nursing Intern"
+	title = "Medical Resident"
 	flag = INTERN_MED
 	department_flag = MEDSCI
 	faction = "Station"

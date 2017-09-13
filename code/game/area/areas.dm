@@ -7,6 +7,57 @@
 	var/global/global_uid = 0
 	var/uid
 	var/holomap_color	// Color of this area on the holomap. Must be a hex color (as string) or null.
+	var/fire = null
+	var/atmosalm = 0
+	var/poweralm = 1
+	var/party = null
+	level = null
+	name = "Unknown"
+	icon = 'icons/turf/areas.dmi'
+	icon_state = "unknown"
+	layer = 10
+	luminosity = 0
+	mouse_opacity = 0
+	var/lightswitch = 1
+
+	var/eject = null
+
+	var/requires_power = 1
+	var/always_unpowered = 0	//this gets overriden to 1 for space in area/New()
+
+	var/power_equip = 1
+	var/power_light = 1
+	var/power_environ = 1
+	var/used_equip = 0
+	var/used_light = 0
+	var/used_environ = 0
+
+	var/has_gravity = 1
+	var/obj/machinery/power/apc/apc = null
+//	var/list/lights				// list of all lights on this area
+	var/list/all_doors = list()		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
+	var/air_doors_activated = 0
+	var/list/ambience = list(
+		'sound/ambience/ambigen1.ogg',
+		'sound/ambience/ambigen3.ogg',
+		'sound/ambience/ambigen4.ogg',
+		'sound/ambience/ambigen5.ogg',
+		'sound/ambience/ambigen6.ogg',
+		'sound/ambience/ambigen7.ogg',
+		'sound/ambience/ambigen8.ogg',
+		'sound/ambience/ambigen9.ogg',
+		'sound/ambience/ambigen10.ogg',
+		'sound/ambience/ambigen11.ogg',
+		'sound/ambience/ambigen12.ogg',
+		'sound/ambience/ambigen14.ogg'
+	)
+	var/list/forced_ambience = null
+	var/sound_env = STANDARD_STATION
+	var/turf/base_turf//The base turf type of the area, which can be used to override the z-level's base turf
+	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
+	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
+	var/station_area = 0
+	var/centcomm_area = 0
 
 /area/Initialize(mapload)
 	icon_state = "white"
@@ -39,9 +90,6 @@
 		power_change()		// all machines set to current power level
 
 	. = ..()
-
-/area/proc/get_contents()
-	return contents
 
 /area/proc/get_cameras()
 	. = list()
@@ -86,8 +134,7 @@
 				if(E.operating)
 					E.nextstate = FIREDOOR_CLOSED
 				else if(!E.density)
-					spawn(0)
-						E.close()
+					INVOKE_ASYNC(E, /obj/machinery/door/.proc/close)
 
 /area/proc/air_doors_open()
 	if(air_doors_activated)
@@ -97,72 +144,63 @@
 				if(E.operating)
 					E.nextstate = FIREDOOR_OPEN
 				else if(E.density)
-					spawn(0)
-						E.open()
-
+					INVOKE_ASYNC(E, /obj/machinery/door/.proc/open)
 
 /area/proc/fire_alert()
 	if(!fire)
 		fire = 1	//used for firedoor checks
-		updateicon()
+		update_icon()
 		mouse_opacity = 0
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_CLOSED
 				else if(!D.density)
-					spawn()
-						D.close()
+					INVOKE_ASYNC(D, /obj/machinery/door/.proc/close)
 
 /area/proc/fire_reset()
 	if (fire)
 		fire = 0	//used for firedoor checks
-		updateicon()
+		update_icon()
 		mouse_opacity = 0
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
-					spawn(0)
-					D.open()
+					INVOKE_ASYNC(D, /obj/machinery/door/.proc/open)
 
 /area/proc/readyalert()
 	if(!eject)
 		eject = 1
-		updateicon()
-	return
+		update_icon()
 
 /area/proc/readyreset()
 	if(eject)
 		eject = 0
-		updateicon()
-	return
+		update_icon()
 
 /area/proc/partyalert()
-	if (!( party ))
+	if (!party)
 		party = 1
-		updateicon()
+		update_icon()
 		mouse_opacity = 0
-	return
 
 /area/proc/partyreset()
 	if (party)
 		party = 0
 		mouse_opacity = 0
-		updateicon()
-		for(var/obj/machinery/door/firedoor/D in src)
+		update_icon()
+		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
-					spawn(0)
-					D.open()
-	return
+					INVOKE_ASYNC(D, /obj/machinery/door/.proc/open)
 
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
-/area/proc/updateicon()
+/area/update_icon()
 	if ((fire || eject || party) && (!requires_power||power_environ) && !istype(src, /area/space))//If it doesn't require power, can still activate this proc.
 		if(fire && !eject && !party)		// FIRE
 			color = "#ff9292"
@@ -223,7 +261,7 @@
 	for(var/obj/machinery/M in src)	// for each machine in the area
 		M.power_change()			// reverify power status (to update icons etc.)
 	if (fire || eject || party)
-		updateicon()
+		update_icon()
 
 /area/proc/usage(var/chan)
 	var/used = 0
@@ -255,10 +293,10 @@
 
 var/list/mob/living/forced_ambiance_list = new
 
-/area/Entered(A)
-	if(!istype(A,/mob/living))	return
+/area/Entered(mob/living/L)
+	if(!istype(L,/mob/living) || !ROUND_IS_STARTED)
+		return
 
-	var/mob/living/L = A
 	if(!L.ckey)	return
 
 	if(!L.lastarea)
@@ -350,32 +388,29 @@ var/list/mob/living/forced_ambiance_list = new
 
 //A useful proc for events.
 //This returns a random area of the station which is meaningful. Ie, a room somewhere
-
 /proc/random_station_area()
 	var/list/possible = list()
 	for(var/Y in the_station_areas)
-		for(var/areapath in typesof(Y))
-			var/area/A = locate(areapath)
-			if(!A)
-				continue
-			if(!(A.z in config.station_levels))
-				continue
-			if (istype(A, /area/shuttle))
-				continue
-			if (istype(A, /area/solar) || findtext(A.name, "solar"))
-				continue
-			if (istype(A, /area/constructionsite))
-				continue
+		if(!Y)
+			continue
+		var/area/A = Y
+		if(!(A.z in config.station_levels))
+			continue
+		if (istype(A, /area/shuttle))
+			continue
+		if (istype(A, /area/solar) || findtext(A.name, "solar"))
+			continue
+		if (istype(A, /area/constructionsite))
+			continue
 
-			//Although hostile mobs instadying to turrets is fun
-			//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
-			if (istype(A, /area/turret_protected))
-				continue
+		//Although hostile mobs instadying to turrets is fun
+		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
+		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+			continue
 
-			possible.Add(A)
+		possible += A
 
 	return pick(possible)
-
 
 /area/proc/random_space()
 	var/list/turfs = list()

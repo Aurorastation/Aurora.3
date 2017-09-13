@@ -71,9 +71,6 @@
 		//Random events (vomiting etc)
 		handle_random_events()
 
-		//stuff in the stomach
-		handle_stomach()//This function is in devour.dm
-
 		handle_shock()
 
 		handle_pain()

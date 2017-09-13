@@ -4353,7 +4353,7 @@
 	filling_color = "#A8A8A8"
 	center_of_mass = list("x"=16, "y"=15)
 	nutriment_desc = list("chalk" = 3)
-	nutriment_amt = 3
+	nutriment_amt = 10
 
 /obj/item/weapon/reagent_containers/food/snacks/liquidfood/New()
 	..()

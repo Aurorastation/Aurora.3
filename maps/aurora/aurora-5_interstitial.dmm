@@ -1648,6 +1648,19 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
 /area/maintenance/library)
+"da" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(50)
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
 
 (1,1,1) = {"
 aa
@@ -27020,7 +27033,7 @@ cw
 cw
 cw
 cK
-cN
+da
 cO
 cO
 cO

@@ -4269,6 +4269,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	frequency = 1380;
+	id_tag = "ai_core_sensor_exterior";
+	master_tag = null;
+	pixel_x = 35;
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -4304,7 +4311,9 @@
 	tag_airpump = "ai_core_pump";
 	tag_chamber_sensor = "ai_core_sensor";
 	tag_exterior_door = "ai_core_outer";
-	tag_interior_door = "ai_core_inner"
+	tag_exterior_sensor = "ai_core_sensor_exterior";
+	tag_interior_door = "ai_core_inner";
+	tag_interior_sensor = "ai_core_sensor_interior"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -4390,6 +4399,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/airlock_sensor/airlock_interior{
+	frequency = 1380;
+	id_tag = "ai_core_sensor_interior";
+	master_tag = null;
+	pixel_x = -35;
+	pixel_y = -25
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
@@ -9631,10 +9647,6 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Virology Starboard";
-	dir = 8
-	},
 /obj/structure/sign/deathsposal{
 	pixel_x = 32
 	},
@@ -10557,10 +10569,6 @@
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Virology Starboard";
-	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -13816,11 +13824,6 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Virology South";
-	dir = 8;
-	icon_state = "camera"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "xB" = (
@@ -16147,7 +16150,7 @@
 /area/medical/virology)
 "Bn" = (
 /obj/machinery/camera/network/medbay{
-	c_tag = "Virology Starboard";
+	c_tag = "Medical - Virology Starboard";
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
@@ -16987,18 +16990,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
@@ -17391,13 +17389,13 @@
 /area/medical/patient_wing)
 "Dv" = (
 /obj/structure/disposalpipe/junction,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medbay Equipment Storage";
-	dir = 1
-	},
 /obj/machinery/light,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Patient Wing Hallway South";
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
@@ -17462,18 +17460,13 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "DC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
@@ -19476,13 +19469,13 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Operating Theatre One"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "Ha" = (
 /obj/machinery/vending/cigarette,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Staff Smoking Lounge"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "Hb" = (
@@ -20753,7 +20746,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Virology Starboard";
+	c_tag = "Medical - Staff Dormitories";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -20781,7 +20774,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medbay Equipment Storage";
+	c_tag = "Medical - Staff Hygiene Facilities";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -22360,6 +22353,73 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
+"Mn" = (
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Patient Ward Entrance";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/patient_wing)
+"Mo" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/engineering_maintenance)
+"Mp" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/engineering_maintenance)
+"Mq" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/vault_sub)
+"Mr" = (
+/obj/machinery/light/small,
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/ai_sub)
+"Ms" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/turbolift/medical_sub)
+"Mt" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled,
+/area/turbolift/medical_sub)
+"Mu" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/research_maintenance)
+"Mv" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/research_maintenance)
 
 (1,1,1) = {"
 aa
@@ -40195,7 +40255,7 @@ fg
 dc
 fG
 fG
-fG
+Mo
 fG
 fG
 dc
@@ -40436,7 +40496,7 @@ aa
 aa
 ab
 ab
-bP
+gH
 ab
 ab
 ab
@@ -40966,7 +41026,7 @@ fj
 dc
 fG
 fG
-fG
+Mp
 fG
 fG
 dc
@@ -42307,7 +42367,7 @@ pL
 rq
 AW
 AW
-AW
+Mu
 AW
 AW
 rq
@@ -42568,10 +42628,10 @@ AW
 AW
 AW
 rq
-Et
-Fi
-FR
-Ec
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42821,14 +42881,14 @@ pL
 rq
 AW
 AW
-AW
+Mv
 AW
 AW
 rq
-Et
-Fj
-Et
-Ec
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43082,10 +43142,10 @@ AW
 AW
 AW
 rq
-Et
-Et
-Et
-Ec
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43339,12 +43399,12 @@ rq
 rq
 rq
 rq
-Eu
-Fk
-Eu
-Ec
-Ec
-Ec
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43595,13 +43655,13 @@ pl
 pl
 pl
 DB
-Ec
-Ev
-Fl
-Fl
-GJ
-Hw
-Ec
+rq
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43852,13 +43912,13 @@ BF
 pJ
 CQ
 DC
-Ed
-Ew
-Fm
-FS
-GK
-Hx
-Ec
+rq
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44109,13 +44169,13 @@ BG
 qe
 CR
 DD
-Ec
-Ex
-Fn
-FT
-GL
-Hy
-Ec
+rq
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44367,12 +44427,12 @@ xk
 CS
 xk
 xk
-Ey
-Fn
-FU
-GM
-Hz
-Ec
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44624,12 +44684,12 @@ Co
 CT
 DE
 xk
-Ez
-Fo
-FV
-GN
-HA
-Ec
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -61823,9 +61883,9 @@ eZ
 qw
 eZ
 rm
+Ms
 rm
-rm
-rm
+Mt
 rm
 uf
 uO
@@ -62086,7 +62146,7 @@ rm
 rm
 uf
 uP
-vQ
+Mn
 vQ
 xA
 ye
@@ -62817,7 +62877,7 @@ ab
 ab
 fa
 fZ
-fZ
+Mq
 fZ
 fZ
 fZ
@@ -70032,7 +70092,7 @@ lz
 lH
 lH
 lH
-lH
+Mr
 lH
 fa
 ab

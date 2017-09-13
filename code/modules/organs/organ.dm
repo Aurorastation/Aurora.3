@@ -27,6 +27,12 @@
 
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 
+/obj/item/organ/New(loc, ...)
+	..()
+	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
+		args[1] = TRUE
+		SSatoms.InitAtom(src, args)
+
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	if(!owner)
@@ -51,8 +57,9 @@
 /obj/item/organ/proc/update_health()
 	return
 
-/obj/item/organ/New(var/mob/living/carbon/holder, var/internal)
-	..(holder)
+/obj/item/organ/Initialize(mapload, internal)
+	. = ..()
+	var/mob/living/carbon/holder = loc
 	create_reagents(5)
 	if(!max_damage)
 		max_damage = min_broken_damage * 2

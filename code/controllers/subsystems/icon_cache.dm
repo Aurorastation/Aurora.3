@@ -24,6 +24,8 @@
 	var/list/floor_light_cache = list()
 	var/list/ashtray_cache = list()
 
+	var/list/uristrunes = list()
+
 /*
 	Global associative list for caching humanoid icons.
 	Index format m or f, followed by a string of 0 and 1 to represent bodyparts followed by husk fat hulk skeleton 1 or 0.
@@ -50,6 +52,9 @@
 	var/list/human_underwear_cache = list()
 	var/list/human_undershirt_cache = list()
 	var/list/human_socks_cache = list()
+
+	// This is for the kitty ears item.
+	var/list/kitty_ear_cache = list()
 
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)

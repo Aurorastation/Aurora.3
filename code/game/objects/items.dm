@@ -211,9 +211,10 @@
 							continue
 
 						success = TRUE
-						S.handle_item_insertion(I, 1)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
+						S.handle_item_insertion_deferred(I, user)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
 						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
 
+					S.handle_storage_deferred(user)
 					if(success && !failure)
 						user << "<span class='notice'>You put everything in [S].</span>"
 					else if(success)
@@ -292,7 +293,7 @@ var/list/global/slot_flags_enumeration = list(
 //If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
 //Set disable_warning to 1 if you wish it to not give you outputs.
 //Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
-/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = 0)
+/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
 	if(!slot) return 0
 	if(!M) return 0
 
@@ -318,7 +319,7 @@ var/list/global/slot_flags_enumeration = list(
 
 	//Next check if the slot is accessible.
 	var/mob/_user = disable_warning? null : H
-	if(!H.slot_is_accessible(slot, src, _user))
+	if(!bypass_blocked_check && !H.slot_is_accessible(slot, src, _user))
 		return 0
 
 	//Lastly, check special rules for the desired slot.
