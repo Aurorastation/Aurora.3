@@ -83,3 +83,6 @@
 
 // -- SSlistener --
 #define GET_LISTENERS(id) (id ? SSlistener.listeners["[id]"] : null)
+
+// Connection prefixes for player-editable fields
+#define WP_ELECTRONICS "elec_"
