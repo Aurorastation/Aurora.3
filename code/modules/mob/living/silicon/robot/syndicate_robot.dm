@@ -97,3 +97,28 @@
 		new /obj/item/weapon/grenade/frag(src),
 		new /obj/item/weapon/grenade/frag(src)
 	)
+
+/obj/item/weapon/robot_emag
+	desc = "It's a card with a magnetic strip attached to some circuitry, this one is modified to be used by a cyborg."
+	name = "cryptographic sequencer"
+	icon = 'icons/obj/card.dmi'
+	icon_state = "emag"
+
+/obj/item/weapon/robot_emag/afterattack(var/atom/target, var/mob/living/user, proximity) //possible spaghetti code, but should work
+	if(!target)
+		return
+	if(!proximity)
+		return
+
+	else if(istype(target,/obj/))
+		var/obj/O = target
+		O.add_fingerprint(user)
+		O.emag_act(1,user,src)
+		log_and_message_admins("emmaged \an [O].")
+		if(isrobot(user))
+			var/mob/living/silicon/robot/R = user
+			if(R.cell)
+				R.cell.use(350)
+		return 1
+
+	return 0
