@@ -170,29 +170,26 @@ Works together with spawning an observer, noted above.
 		C.images += target.hud_list[SPECIALROLE_HUD]
 	return 1
 
-/mob/proc/ghostize(var/can_reenter_corpse = 1)
+/mob/proc/ghostize(var/can_reenter_corpse = 1, var/should_set_timer = 1)
 	if(ckey)
 		var/mob/dead/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 		ghost.can_reenter_corpse = can_reenter_corpse
 		ghost.timeofdeath = src.stat == DEAD ? src.timeofdeath : world.time
 
-
-		//This is duplicated for robustness in cases where death might not be called.
-		//It is also set in the mob/death proc
-		if (isanimal(src))
-			set_death_time(ANIMAL, world.time)
-		else if (ispAI(src) || isDrone(src))
-			set_death_time(MINISYNTH, world.time)
-		else
-			set_death_time(CREW, world.time)//Crew is the fallback
-
+		if(should_set_timer)
+			//This is duplicated for robustness in cases where death might not be called.		
+			//It is also set in the mob/death proc		
+			if (isanimal(src))		
+				set_death_time(ANIMAL, world.time)		
+			else if (ispAI(src) || isDrone(src))		
+				set_death_time(MINISYNTH, world.time)		
+			else		
+				set_death_time(CREW, world.time)//Crew is the fallback
 
 		ghost.ckey = ckey
 		ghost.client = client
 		ghost.initialise_postkey()
 		if(ghost.client)
-
-
 			if(!ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
 				ghost.verbs -= /mob/dead/observer/verb/toggle_antagHUD	// Poor guys, don't know what they are missing!
 		return ghost
@@ -206,7 +203,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	if(stat == DEAD)
-		announce_ghost_joinleave(ghostize(1))
+		announce_ghost_joinleave(ghostize(1, 0))
 	else
 		var/response
 		if(check_rights((R_MOD|R_ADMIN), 0))

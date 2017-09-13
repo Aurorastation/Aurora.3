@@ -211,9 +211,10 @@
 							continue
 
 						success = TRUE
-						S.handle_item_insertion(I, 1)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
+						S.handle_item_insertion_deferred(I, user)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
 						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
 
+					S.handle_storage_deferred(user)
 					if(success && !failure)
 						user << "<span class='notice'>You put everything in [S].</span>"
 					else if(success)
