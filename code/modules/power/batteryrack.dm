@@ -20,6 +20,7 @@
 /obj/machinery/power/smes/batteryrack/RefreshParts()
 	capacitors_amount = 0
 	cells_amount = 0
+
 	var/max_level = 0 //for both input and output
 	for(var/obj/item/weapon/stock_parts/capacitor/CP in component_parts)
 		max_level += CP.rating

@@ -1,5 +1,4 @@
 var/global/datum/repository/crew/crew_repository = new()
-var/list/map_levels = list(3,4,6)
 
 /datum/repository/crew
 	var/list/cache_data

@@ -19,12 +19,12 @@
 	on = !on
 	if(on)
 		set_light(range, 2, "#7700dd")
-		processing_objects |= src
+		START_PROCESSING(SSprocessing, src)
 		icon_state = "uv_on"
 	else
 		set_light(0)
 		clear_last_scan()
-		processing_objects -= src
+		STOP_PROCESSING(SSprocessing, src)
 		icon_state = "uv_off"
 
 /obj/item/device/uv_light/proc/clear_last_scan()

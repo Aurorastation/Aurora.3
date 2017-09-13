@@ -58,6 +58,9 @@
 	var/list/collar_states
 	var/list/uniform_states
 
+	// This is for the kitty ears item.
+	var/list/kitty_ear_cache = list()
+
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)
 

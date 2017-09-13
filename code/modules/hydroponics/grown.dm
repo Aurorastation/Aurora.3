@@ -11,8 +11,8 @@
 	var/datum/seed/seed
 	var/potency = -1
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/New(loca, planttype)
-	..()
+/obj/item/weapon/reagent_containers/food/snacks/grown/Initialize(loca, planttype)
+	. = ..()
 	if(!dried_type)
 		dried_type = type
 	src.pixel_x = rand(-5.0, 5)

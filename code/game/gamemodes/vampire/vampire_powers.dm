@@ -657,6 +657,9 @@
 		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
 		return
 
+	if (!vampire_can_affect_target(T, 1, 1))
+		return
+
 	if (!T.client || !T.mind)
 		to_chat(src, "<span class='warning'>[T]'s mind is empty and useless. They cannot be forced into a blood bond.</span>")
 		return
@@ -688,10 +691,10 @@
 // Gives a lethal disease to the target.
 /mob/living/carbon/human/proc/vampire_diseasedtouch()
 	set category = "Vampire"
-	set name = "Diseased Touch (200)"
+	set name = "Diseased Touch (100)"
 	set desc = "Infects the victim with corruption from the Veil, causing their organs to fail."
 
-	var/datum/vampire/vampire = vampire_power(200, 0)
+	var/datum/vampire/vampire = vampire_power(100, 0)
 	if (!vampire)
 		return
 

@@ -23,6 +23,10 @@
 		if(!Adjacent(floor) || !floor.Enter(src))
 			continue
 		neighbors |= floor
+
+	if (neighbors.len)
+		SSplants.add_plant(src)
+
 	// Update all of our friends.
 	var/turf/T = get_turf(src)
 	for(var/obj/effect/plant/neighbor in range(1,src))
@@ -82,8 +86,8 @@
 
 	// We shouldn't have spawned if the controller doesn't exist.
 	check_health()
-	if(neighbors.len || health != max_health)
-		START_PROCESSING(SSplants, src)
+	if(neighbors.len || health != max_health || buckled_mob)
+		SSplants.add_plant(src)
 
 /obj/effect/plant/proc/do_spread(spread_chance, max_spread)
 	for(var/i in 1 to max_spread)
@@ -113,7 +117,7 @@
 			continue
 		for(var/obj/effect/plant/neighbor in check_turf.contents)
 			neighbor.neighbors |= check_turf
-			START_PROCESSING(SSplants, neighbor)
+			SSplants.add_plant(neighbor)
 
 	QDEL_IN(src, 1)
 

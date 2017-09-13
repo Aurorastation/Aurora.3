@@ -248,13 +248,13 @@
 
 /obj/machinery/biogenerator/RefreshParts()
 	..()
-	var/man_rating = 0
-	var/bin_rating = 0
+	var/man_rating = 1
+	var/bin_rating = 1
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/matter_bin))
+		if(ismatterbin(P))
 			bin_rating += P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/manipulator))
+		else if(ismanipulator(P))
 			man_rating += P.rating
 
 	build_eff = man_rating

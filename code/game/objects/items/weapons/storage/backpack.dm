@@ -82,10 +82,10 @@
 	max_w_class = 4
 	max_storage_space = 56
 	storage_cost = 29
-
-	New()
-		..()
-		return
+	item_state_slots = list(
+		slot_l_hand_str = "holdingpack",
+		slot_r_hand_str = "holdingpack"
+		)
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/storage/backpack/holding))
@@ -208,6 +208,10 @@
 	name = "leather satchel"
 	desc = "It's a very fancy satchel made with fine leather."
 	icon_state = "satchel"
+	item_state_slots = list(
+		slot_l_hand_str = "satchel",
+		slot_r_hand_str = "satchel"
+		)
 
 /obj/item/weapon/storage/backpack/satchel/withwallet
 	New()

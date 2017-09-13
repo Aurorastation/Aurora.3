@@ -57,11 +57,11 @@
 		if(applies_material_colour)
 			color = material.icon_colour
 		if(material.products_need_process())
-			processing_objects |= src
+			START_PROCESSING(SSprocessing, src)
 		update_force()
 
 /obj/item/weapon/material/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/weapon/material/apply_hit_effect()

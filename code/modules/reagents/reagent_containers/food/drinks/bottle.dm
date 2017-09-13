@@ -16,8 +16,8 @@
 	var/obj/item/weapon/reagent_containers/glass/rag/rag = null
 	var/rag_underlay = "rag"
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/New()
-	..()
+/obj/item/weapon/reagent_containers/food/drinks/bottle/Initialize()
+	. = ..()
 	if(isGlass) unacidable = 1
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/Destroy()
@@ -180,8 +180,8 @@
 	desc = "A bottle of high quality gin, produced in the New London Space Station."
 	icon_state = "ginbottle"
 	center_of_mass = list("x"=16, "y"=4)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("gin", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/victorygin
@@ -189,8 +189,8 @@
 	desc = "Pour one out for Al'mari. His gun was on stun, bless his heart."
 	icon_state = "victorygin"
 	center_of_mass = list("x"=16, "y"=4)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("victorygin", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey
@@ -198,8 +198,8 @@
 	desc = "A premium single-malt whiskey, gently matured inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES."
 	icon_state = "whiskeybottle"
 	center_of_mass = list("x"=16, "y"=3)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("whiskey", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/vodka
@@ -207,8 +207,8 @@
 	desc = "Aah, vodka. Prime choice of drink AND fuel by Russians worldwide."
 	icon_state = "vodkabottle"
 	center_of_mass = list("x"=17, "y"=3)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("vodka", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla
@@ -216,8 +216,8 @@
 	desc = "Made from premium petroleum distillates, pure thalidomide and other fine quality ingredients!"
 	icon_state = "tequillabottle"
 	center_of_mass = list("x"=16, "y"=3)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("tequilla", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing
@@ -225,8 +225,8 @@
 	desc = "A bottle filled with nothing"
 	icon_state = "bottleofnothing"
 	center_of_mass = list("x"=17, "y"=5)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("nothing", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/bitters
@@ -234,8 +234,8 @@
 	desc = "Only the finest and highest quality herbs find their way into our cocktail bitters."
 	icon_state = "bitters"
 	center_of_mass = list("x"=16, "y"=10)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("bitters",40)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/champagne
@@ -243,8 +243,8 @@
 	desc = "A rather fancy bottle of champagne, fit for collecting and storing in a cellar for decades."
 	icon_state = "champagnebottle"
 	center_of_mass = list("x"=16, "y"=4)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("champagne",100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/mintsyrup
@@ -252,8 +252,8 @@
 	desc = "Minty fresh. NOTE: Do not use as a replacement for breath fresheners."
 	icon_state = "mint_syrup"
 	center_of_mass = list("x"=16, "y"=6)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("mintsyrup", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/patron
@@ -261,8 +261,8 @@
 	desc = "Silver laced tequilla, served in space night clubs across the galaxy."
 	icon_state = "patronbottle"
 	center_of_mass = list("x"=16, "y"=6)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("patron", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/rum
@@ -270,8 +270,8 @@
 	desc = "This isn't just rum, oh no. It's practically GRIFF in a bottle."
 	icon_state = "rumbottle"
 	center_of_mass = list("x"=16, "y"=8)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("rum", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater
@@ -279,8 +279,8 @@
 	desc = "A flask of the chaplain's holy water."
 	icon_state = "holyflask"
 	center_of_mass = list("x"=17, "y"=10)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("holywater", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth
@@ -288,8 +288,8 @@
 	desc = "Sweet, sweet dryness~"
 	icon_state = "vermouthbottle"
 	center_of_mass = list("x"=17, "y"=3)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("vermouth", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/kahlua
@@ -297,8 +297,8 @@
 	desc = "A widely known, Mexican coffee-flavoured liqueur. In production since 1936, HONK"
 	icon_state = "kahluabottle"
 	center_of_mass = list("x"=17, "y"=3)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("kahlua", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/goldschlager
@@ -306,8 +306,8 @@
 	desc = "Because they are the only ones who will drink 100 proof cinnamon schnapps."
 	icon_state = "goldschlagerbottle"
 	center_of_mass = list("x"=15, "y"=3)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("goldschlager", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/cognac
@@ -315,8 +315,8 @@
 	desc = "A sweet and strongly alchoholic drink, made after numerous distillations and years of maturing. You might as well not scream 'SHITCURITY' this time."
 	icon_state = "cognacbottle"
 	center_of_mass = list("x"=16, "y"=6)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("cognac", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/wine
@@ -324,8 +324,8 @@
 	desc = "A faint aura of unease and asspainery surrounds the bottle."
 	icon_state = "winebottle"
 	center_of_mass = list("x"=16, "y"=4)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("wine", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe
@@ -333,8 +333,8 @@
 	desc = "One sip of this and you just know you're gonna have a good time."
 	icon_state = "absinthebottle"
 	center_of_mass = list("x"=16, "y"=6)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("absinthe", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/melonliquor
@@ -342,8 +342,8 @@
 	desc = "A bottle of 46 proof Emeraldine Melon Liquor. Sweet and light."
 	icon_state = "alco-green" //Placeholder.
 	center_of_mass = list("x"=16, "y"=6)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("melonliquor", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/bluecuracao
@@ -351,8 +351,8 @@
 	desc = "A fruity, exceptionally azure drink. Does not allow the imbiber to use the fifth magic."
 	icon_state = "alco-blue" //Placeholder.
 	center_of_mass = list("x"=16, "y"=6)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("bluecuracao", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine
@@ -360,8 +360,8 @@
 	desc = "Sweet and tangy, a bar syrup used to add color or flavor to drinks."
 	icon_state = "grenadinebottle"
 	center_of_mass = list("x"=16, "y"=6)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("grenadine", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/cola
@@ -369,8 +369,8 @@
 	desc = "Cola. in space"
 	icon_state = "colabottle"
 	center_of_mass = list("x"=16, "y"=6)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("cola", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/space_up
@@ -378,7 +378,7 @@
 	desc = "Tastes like a hull breach in your mouth."
 	icon_state = "space-up_bottle"
 	center_of_mass = list("x"=16, "y"=6)
-	New()
+	Initialize()
 		..()
 		reagents.add_reagent("space_up", 100)
 
@@ -387,8 +387,8 @@
 	desc = "Blows right through you like a space wind."
 	icon_state = "space_mountain_wind_bottle"
 	center_of_mass = list("x"=16, "y"=6)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("spacemountainwind", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/pwine
@@ -396,8 +396,8 @@
 	desc = "What a delightful packaging for a surely high quality wine! The vintage must be amazing!"
 	icon_state = "pwinebottle"
 	center_of_mass = list("x"=16, "y"=4)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("pwine", 100)
 
 //////////////////////////JUICES AND STUFF ///////////////////////
@@ -409,8 +409,8 @@
 	item_state = "carton"
 	center_of_mass = list("x"=16, "y"=7)
 	isGlass = 0
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("orangejuice", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/cream
@@ -420,8 +420,8 @@
 	item_state = "carton"
 	center_of_mass = list("x"=16, "y"=8)
 	isGlass = 0
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("cream", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice
@@ -431,8 +431,8 @@
 	item_state = "carton"
 	center_of_mass = list("x"=16, "y"=8)
 	isGlass = 0
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("tomatojuice", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice
@@ -442,8 +442,8 @@
 	item_state = "carton"
 	center_of_mass = list("x"=16, "y"=8)
 	isGlass = 0
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("limejuice", 100)
 
 //Small bottles
@@ -461,8 +461,8 @@
 	desc = "Contains only water, malt and hops."
 	icon_state = "beer"
 	center_of_mass = list("x"=16, "y"=12)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("beer", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale
@@ -471,8 +471,8 @@
 	icon_state = "alebottle"
 	item_state = "beer"
 	center_of_mass = list("x"=16, "y"=10)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("ale", 30)
 
 //aurora's drinks
@@ -481,64 +481,64 @@
 	name = "green chartreuse"
 	desc = "A green, strong liqueur."
 	icon_state = "chartreusegreenbottle"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("chartreusegreen", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/chartreuseyellow
 	name = "yellow chartreuse"
 	desc = "A yellow, strong liqueur."
 	icon_state = "chartreuseyellowbottle"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("chartreuseyellow", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/cremewhite
 	name = "white creme de menthe"
 	desc = "Mint-flavoured alcohol, in a bottle."
 	icon_state = "whitecremebottle"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("cremewhite", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/cremeyvette
 	name = "Creme de Yvette"
 	desc = "Berry-flavoured alcohol, in a bottle."
 	icon_state = "cremedeyvettebottle"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("cremeyvette", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/brandy
 	name = "brandy"
 	desc = "Cheap knock off for cognac."
 	icon_state = "brandybottle"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("brandy", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes
 	name = "Guinness"
 	desc = "A bottle of good old Guinness."
 	icon_state = "guinnes_bottle"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("guinnes", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie
 	name = "Drambuie"
 	desc = "A bottle of Drambuie."
 	icon_state = "drambuie_bottle"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("drambuie", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/sbiten
 	name = "sbiten"
 	desc = "A bottle full of sweet sbiten."
 	icon_state = "sbitenbottle"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("sbiten", 100)
 
 
@@ -551,14 +551,14 @@
 	desc = "Blended flower buds from the Xuizi cactus. It smells faintly of vanilla. Bottled by the Arizi Guild for over 200 years."
 	icon_state = "xuizibottle"
 	center_of_mass = list("x"=16, "y"=10)
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("xuizijuice", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine
 	name = "Sarezhi Wine"
 	desc = "A premium Moghean wine made from Sareszhi berries. Bottled by the Arizi Guild for over 200 years."
 	icon_state = "sarezhibottle"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("sarezhiwine", 100)

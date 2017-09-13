@@ -82,7 +82,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Nursing Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -138,11 +138,6 @@
 	display_name = "uniform, navyblue (Security)"
 	path = /obj/item/clothing/under/rank/security/navyblue
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet")
-
-/datum/gear/uniform/gearharness
-	display_name = "gear harness"
-	path = /obj/item/clothing/under/gearharness
-	cost = 2
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
