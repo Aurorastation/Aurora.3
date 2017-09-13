@@ -1,0 +1,4 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - bugfix: "Made eye color selection work in character setup."
