@@ -112,6 +112,10 @@
 		on = FALSE
 		update_icon()
 		addtimer(CALLBACK(src, .proc/rearm), 45 SECONDS)
+		if(isrobot(user))
+			var/mob/living/silicon/robot/R = user
+			if(R.cell)
+				R.cell.use(150)
 
 /obj/item/weapon/melee/hammer/powered/proc/rearm()
 	src.visible_message("<span class='notice'>\The [src] hisses lowly.</span>")
