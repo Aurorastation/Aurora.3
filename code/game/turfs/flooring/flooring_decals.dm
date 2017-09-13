@@ -254,13 +254,16 @@
 /obj/effect/floor_decal/industrial/hatch/yellow
 	color = "#CFCF55"
 
+/obj/effect/floor_decal/industrial/hatch/red
+	color = "#990C0C"
+
 /obj/effect/floor_decal/industrial/outline
 	name = "white outline"
 	icon_state = "outline"
 
 /obj/effect/floor_decal/industrial/outline/blue
-	name = "blue outline"
-	color = "#00B8B2"
+	name = "cyan outline"
+	color = "#b6efe1"
 
 /obj/effect/floor_decal/industrial/outline/yellow
 	name = "yellow outline"
@@ -269,6 +272,10 @@
 /obj/effect/floor_decal/industrial/outline/grey
 	name = "grey outline"
 	color = "#808080"
+
+/obj/effect/floor_decal/industrial/outline/red
+	name = "red outline"
+	color = "#990C0C"
 
 /obj/effect/floor_decal/industrial/loading
 	name = "loading area"
