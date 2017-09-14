@@ -383,6 +383,11 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 //Of course, this will affect code that checks for blocked < 100, as blocked will be less likely to actually be 100.
 #define ARMOR_BLOCK_CHANCE_MULT 1.0
 
+//Cargo Container Types
+#define CARGO_CONTAINER_CRATE "crate"
+#define CARGO_CONTAINER_FREEZER "freezer"
+#define CARGO_CONTAINER_BOX "box"
+
 // We should start using these.
 #define ITEMSIZE_TINY   1
 #define ITEMSIZE_SMALL  2

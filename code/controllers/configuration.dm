@@ -271,6 +271,7 @@ var/list/gamemode_cache = list()
 	var/sun_accuracy = 8
 	var/sun_target_z = 7
 
+	var/cargo_load_items_from = "json"
 	var/merchant_chance = 20 //Chance, in percentage, of the merchant job slot being open at round start
 
 	var/show_game_type_odd = 1 // If the check gamemode probability verb is enabled or not
@@ -841,6 +842,9 @@ var/list/gamemode_cache = list()
 					access_deny_vms = text2num(value)
 				if("access_warn_vms")
 					access_warn_vms = text2num(value)
+				
+				if("cargo_load_items_from")
+					cargo_load_items_from = value
 
 				if("fastboot")
 					fastboot = TRUE

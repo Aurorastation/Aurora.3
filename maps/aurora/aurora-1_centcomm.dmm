@@ -10007,7 +10007,7 @@
 	},
 /area/centcom/control)
 "wZ" = (
-/obj/machinery/computer/ordercomp,
+/obj/item/modular_computer/console/preset/supply,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
