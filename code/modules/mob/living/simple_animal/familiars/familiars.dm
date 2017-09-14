@@ -91,6 +91,8 @@
 	icon_living = "horror"
 	icon_dead = "horror_dead"
 
+/mob/living/simple_animal/familiar/horror/Initialize()
+	. = ..()
 	if(prob(25))
 		icon_state = "horror_alt"
 		icon_living = "horror_alt"
