@@ -387,3 +387,10 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define CARGO_CONTAINER_CRATE "crate"
 #define CARGO_CONTAINER_FREEZER "freezer"
 #define CARGO_CONTAINER_BOX "box"
+
+// We should start using these.
+#define ITEMSIZE_TINY   1
+#define ITEMSIZE_SMALL  2
+#define ITEMSIZE_NORMAL 3
+#define ITEMSIZE_LARGE  4
+#define ITEMSIZE_HUGE   5

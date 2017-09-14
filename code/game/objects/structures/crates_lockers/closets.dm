@@ -450,3 +450,5 @@
 		BD.unwrap()
 	open()
 
+/obj/structure/closet/onDropInto(var/atom/movable/AM)
+	return
