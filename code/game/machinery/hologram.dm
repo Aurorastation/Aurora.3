@@ -229,6 +229,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			A.holo = src
 			masters[A] = hologram
 
+		hologram.layer = FLY_LAYER//Above all the other objects/mobs. Or the vast majority of them.
 		hologram.mouse_opacity = 0//So you can't click on it.
 		hologram.anchored = 1//So space wind cannot drag it.
 		hologram.set_light(2)	//hologram lighting
