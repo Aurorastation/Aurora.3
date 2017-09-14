@@ -1042,7 +1042,7 @@ proc/is_blind(A)
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
 		if(B.id == "blood")
 			B.data = list(
-				"donor" = src,
+				"donor" = WEAKREF(src),
 				"viruses" = null,
 				"species" = name,
 				"blood_DNA" = md5("\ref[src]"), 
