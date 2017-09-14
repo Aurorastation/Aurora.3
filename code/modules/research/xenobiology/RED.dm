@@ -316,8 +316,6 @@ There is also a non-destrutive option, but... It's not as fun.
 		if(SCAN_CONVERT_ORIGIN)
 			if(human)
 				T.monkeyize() // this will make them into their origin species.
-			else
-				qdel(T)
 		if(SCAN_DESTROY)
 			if(human)
 				if(T.stat == DEAD)
