@@ -174,7 +174,7 @@
 		if (is_ventcrawling)
 			sight |= SEE_TURFS|BLIND
 
-		if (!stop_sight_update)
+		if (!stop_sight_update) //If true, it won't reset the mob vision flags to the initial ones
 			see_in_dark = initial(see_in_dark)
 			see_invisible = initial(see_invisible)
 
