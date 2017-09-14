@@ -27,7 +27,7 @@
 // The AI's "eye". Described on the top of the page.
 
 /mob/living/silicon/ai
-	var/obj/machinery/hologram/holopad/holo = null
+	holo = null
 
 /mob/living/silicon/ai/proc/destroy_eyeobj(var/atom/new_eye)
 	if(!eyeobj) return

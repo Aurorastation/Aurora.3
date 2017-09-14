@@ -56,9 +56,9 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 /obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
 	if(!istype(user))
 		return
-	if(incoming_connection&&caller_id)
+	if(incoming_connection && caller_id)
 		visible_message("The pad hums quietly as it establishes a connection.")
-		if(caller_id.loc!=sourcepad.loc)
+		if(caller_id.loc != sourcepad.loc)
 			visible_message("The pad flashes an error message. The caller has left their holopad.")
 			return
 		take_call(user)
@@ -91,7 +91,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 				holopadlist = sortAssoc(holopadlist)
 				var/temppad = input(user, "Which holopad would you like to contact?", "holopad list") as null|anything in holopadlist
 				targetpad = holopadlist["[temppad]"]
-				if(targetpad==src)
+				if(targetpad == src)
 					to_chat(user, "<span class='info'>Using such sophisticated technology, just to talk to yourself seems a bit silly.</span>")
 					return
 				if(targetpad)
@@ -109,13 +109,11 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 
 /obj/machinery/hologram/holopad/proc/take_call(mob/living/carbon/user)
 	incoming_connection = 0
-	caller_id.machine = sourcepad
 	caller_id.reset_view(src)
 	if(!masters[caller_id])//If there is no hologram, possibly make one.
 		activate_holocall(caller_id)
 
 /obj/machinery/hologram/holopad/proc/end_call(mob/user)
-	caller_id.unset_machine()
 	caller_id.reset_view() //Send the caller back to his body
 	clear_holo(caller_id) // destroy the hologram
 	caller_id = null //Reset caller_id
@@ -221,25 +219,24 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			for(var/datum/data/record/t in data_core.locked)
 				if(t.fields["name"]==caller_id.name)
 					tempicon = t.fields["image"]
-			hologram.overlays += getHologramIcon(icon(tempicon)) // Add the callers image as an overlay to keep coloration!
-		else
-			hologram.overlays += A.holo_icon // Add the AI's configured holo Icon
-		hologram.mouse_opacity = 0//So you can't click on it.
-		hologram.anchored = 1//So space wind cannot drag it.
-		if(caller_id)
 			hologram.name = "[caller_id.name] (Hologram)"
 			hologram.loc = get_step(src,1)
 			masters[caller_id] = hologram
+			hologram.overlays += getHologramIcon(icon(tempicon)) // Add the callers image as an overlay to keep coloration!
 		else
+			hologram.overlays += A.holo_icon // Add the AI's configured holo Icon
 			hologram.name = "[A.name] (Hologram)"//If someone decides to right click.
 			A.holo = src
 			masters[A] = hologram
+
+		hologram.mouse_opacity = 0//So you can't click on it.
+		hologram.anchored = 1//So space wind cannot drag it.
 		hologram.set_light(2)	//hologram lighting
 		hologram.color = color //painted holopad gives coloured holograms
 		set_light(2)			//pad lighting
 		icon_state = "holopad1"
 		return 1
-	if(hacked == 1)
+	else if(hacked == 1)
 		var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
 		hologram.mouse_opacity = 0//So you can't click on it.
 		hologram.anchored = 1//So space wind cannot drag it.
