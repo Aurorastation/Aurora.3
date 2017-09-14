@@ -54,14 +54,6 @@
 	firemodes = list()
 	modifystate = null
 
-/obj/item/weapon/gun/energy/rifle/laser/update_icon()
-	..()
-	if(wielded)
-		item_state = "laser-wielded"
-	else
-		item_state = "laser"
-	update_held_icon()
-
 /obj/item/weapon/gun/energy/rifle/laser/heavy
 	name = "laser cannon"
 	desc = "With the laser cannon, the lasing medium is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core. This incredible technology may help YOU achieve high excitation rates with small laser volumes!"
@@ -82,19 +74,11 @@
 	name = "xray laser rifle"
 	desc = "A high-power laser rifle capable of expelling concentrated xray blasts."
 	icon_state = "xrifle"
-	item_state = "xrifle"
+	item_state = "xray"
 	fire_sound = 'sound/weapons/laser3.ogg'
 	projectile_type = /obj/item/projectile/beam/xray
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 40
-
-/obj/item/weapon/gun/energy/rifle/laser/xray/update_icon()
-	..()
-	if(wielded)
-		item_state = "xrifle-wielded"
-	else
-		item_state = "xrifle"
-	update_held_icon()
 
 /obj/item/weapon/gun/energy/rifle/pulse
 	name = "pulse rifle"

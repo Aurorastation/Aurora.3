@@ -124,14 +124,6 @@ obj/item/weapon/gun/energy/retro
 	else
 		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 
-/obj/item/weapon/gun/energy/sniperrifle/update_icon()
-	..()
-	if(wielded)
-		item_state = "sniper-wielded"
-	else
-		item_state = "sniper"
-	update_held_icon()
-
 /obj/item/weapon/gun/energy/laser/shotgun
 	name = "quad-beam laser"
 	desc = "A modified laser weapon, designed to split a single beam four times."
