@@ -1596,7 +1596,7 @@ area/space/atmosalert()
 	no_light_control = TRUE
 
 /area/rnd/xenobiology/xenoflora
-	name = "\improper Research - Xenoflora Lab"
+	name = "\improper Research - Xenoflora Laboratory"
 	icon_state = "xeno_f_lab"
 	no_light_control = TRUE
 
