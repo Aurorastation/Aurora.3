@@ -176,6 +176,9 @@
 						0, 0, SHADOWER_DARKENING_FACTOR
 					)
 
+				if (shadower.our_overlays || shadower.priority_overlays)
+					shadower.compile_overlays()
+
 				if (shadower.bound_overlay)
 					shadower.update_above()
 			else
