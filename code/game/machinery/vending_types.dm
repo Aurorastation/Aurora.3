@@ -276,7 +276,7 @@
 
 /obj/machinery/vending/wallmed1
 	name = "NanoMed"
-	desc = "Wall-mounted Medical Equipment dispenser."
+	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
 	icon_deny = "wallmed-deny"
@@ -296,7 +296,7 @@
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
-	desc = "Wall-mounted Medical Equipment dispenser."
+	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
 	icon_deny = "wallmed-deny"
 	req_access = list(access_medical)
