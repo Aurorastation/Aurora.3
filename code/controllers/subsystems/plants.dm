@@ -15,6 +15,7 @@
 	var/list/plant_product_sprites = list() // List of all growth sprites plus number of growth stages.
 
 	var/list/processing = list()
+	var/list/current = list()
 
 /datum/controller/subsystem/plants/New()
 	NEW_SS_GLOBAL(SSplants)
@@ -78,7 +79,12 @@
 		src.plant_product_sprites = SSplants.plant_product_sprites
 
 /datum/controller/subsystem/plants/fire(resumed = 0)
-	var/list/queue = processing
+	if (!resumed)
+		var/list/old = current	// This should be empty, so might as well just reuse it.
+		current = processing
+		processing = old
+
+	var/list/queue = current
 	while (queue.len)
 		var/obj/effect/plant/P = queue[queue.len]
 		queue.len--
