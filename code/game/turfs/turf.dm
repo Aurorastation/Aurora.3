@@ -33,7 +33,7 @@
 	var/tmp/roof_flags = 0
 
 // Parent code is duplicated in here instead of ..() for performance reasons.
-/turf/Initialize()
+/turf/Initialize(mapload, ...)
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 
@@ -57,6 +57,11 @@
 
 	if (opacity)
 		has_opaque_atom = TRUE
+		if (!mapload)
+			regenerate_ao()
+
+	if (mapload && permit_ao)
+		queue_ao()
 
 	var/area/A = loc
 
@@ -77,6 +82,10 @@
 	turfs -= src
 
 	cleanup_roof()
+
+	if (ao_queued)
+		SSocclusion.queue -= src
+		ao_queued = 0
 
 	..()
 	return QDEL_HINT_IWILLGC

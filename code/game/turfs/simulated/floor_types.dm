@@ -27,6 +27,7 @@
 	density = 1
 	blocks_air = 1
 	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
+	permit_ao = FALSE
 	canSmoothWith = list(
 		/turf/simulated/shuttle/wall,
 		/obj/structure/window/shuttle,
@@ -40,11 +41,13 @@
 	icon_state = "wall3"
 	smooth = SMOOTH_FALSE
 	canSmoothWith = null
+	permit_ao = TRUE
 
 /turf/simulated/shuttle/floor
 	name = "floor"
 	icon_state = "floor"
 	footstep_sound = "concretestep"
+	permit_ao = FALSE
 
 /turf/simulated/shuttle/plating
 	name = "plating"
