@@ -1,4 +1,3 @@
-
 /turf/simulated/floor/beach
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'
@@ -36,12 +35,12 @@
 
 /turf/simulated/floor/beach/water/Initialize()
 	. = ..()
-	if(add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="[watertype]","layer"=MOB_LAYER+0.1)))
+	add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="[watertype]","layer"=MOB_LAYER+0.1))
 		icon_state = "pool1"
 
-/turf/simulated/floor/beach/water/return_air_for_internal_lifeform(var/mob/living/L)
+/turf/simulated/floor/beach/water/return_air_for_internal_lifeform(var/mob/living/carbon/L)
 	if(L && L.lying)
-		if(L.can_breathe_water()) // For squid.
+		if(L.can_breathe_water() || (istype(L.wear_mask, /obj/item/clothing/mask/snorkel)))
 			var/datum/gas_mixture/water_breath = new()
 			var/datum/gas_mixture/above_air = return_air()
 			var/amount = 300
