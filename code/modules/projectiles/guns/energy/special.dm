@@ -159,7 +159,7 @@
 			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
 			M.apply_effect(300, IRRADIATE)
 		//crit_fail = 1 //break the gun so it stops recharging
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 		update_icon()
 	return 0
 
@@ -514,6 +514,7 @@
 	name = "tesla gun"
 	desc = "A gun that shoots a projectile that bounces from living thing to living thing. Keep your distance from whatever you are shooting at."
 	icon_state = "tesla"
+	item_state = "tesla"
 	icon = 'icons/obj/gun.dmi'
 	charge_meter = 0
 	w_class = 4
@@ -532,6 +533,7 @@
 	name = "gravity gun"
 	desc = "This nifty gun disables the gravity in the area you shoot at. Use with caution."
 	icon_state = "gravity_gun"
+	item_state = "gravity_gun"
 	icon = 'icons/obj/gun.dmi'
 	charge_meter = 0
 	w_class = 4

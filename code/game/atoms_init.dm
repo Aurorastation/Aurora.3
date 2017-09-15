@@ -31,6 +31,11 @@
 		var/turf/T = loc
 		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
+#ifdef AO_USE_LIGHTING_OPACITY
+		if (!mapload)
+			T.regenerate_ao()
+#endif
+
 	return INITIALIZE_HINT_NORMAL
 
 //called if Initialize returns INITIALIZE_HINT_LATELOAD

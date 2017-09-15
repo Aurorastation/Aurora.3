@@ -77,7 +77,7 @@
 
 	if (timer <= 0)
 		dump_contents()
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 
 /obj/structure/closet/statue/dump_contents()

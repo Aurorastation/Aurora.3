@@ -306,12 +306,12 @@
 	active = 1
 	armor_penetration = 20
 
-/obj/item/weapon/melee/energy/blade/New()
-	processing_objects |= src
-	..()
+/obj/item/weapon/melee/energy/blade/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/weapon/melee/energy/blade/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/weapon/melee/energy/blade/deactivate(mob/living/user)

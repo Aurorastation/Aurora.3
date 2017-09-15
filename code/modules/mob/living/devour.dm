@@ -181,7 +181,7 @@
 			M.adjustBruteLoss(round(dmg_factor * 0.33, 0.1) || 0.1)
 			M.adjustFireLoss(round(dmg_factor * 0.66, 0.1) || 0.1)
 
-			ingested.add_reagent(M.composition_reagent, M.composition_reagent_quantity * 1/dmg_factor)
+			ingested.add_reagent(M.composition_reagent, M.composition_reagent_quantity * dmg_factor)
 
 			if (M.stat == DEAD && !stomach_contents[M])	// If the mob has died, poke the consuming mob about it.
 				src << "Your stomach feels a little more relaxed as \the [M] finally stops fighting."

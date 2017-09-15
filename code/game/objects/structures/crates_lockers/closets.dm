@@ -7,6 +7,7 @@
 	w_class = 5
 	var/icon_closed = "closed"
 	var/icon_opened = "open"
+	var/welded_overlay_state = "welded"
 	var/opened = 0
 	var/welded = 0
 	var/wall_mounted = 0 //never solid (You can always pass over it)
@@ -355,7 +356,7 @@
 	if(!opened)
 		icon_state = icon_closed
 		if(welded)
-			add_overlay("welded")
+			add_overlay(welded_overlay_state)
 	else
 		icon_state = icon_opened
 
@@ -449,3 +450,5 @@
 		BD.unwrap()
 	open()
 
+/obj/structure/closet/onDropInto(var/atom/movable/AM)
+	return

@@ -9518,6 +9518,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/item/weapon/storage/bag/circuits/basic,
+/obj/structure/table/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/storage)
 "asP" = (
@@ -25432,6 +25434,8 @@
 /obj/structure/closet/secure_closet/engineering_chief,
 /obj/item/weapon/tank/emergency_oxygen/engi,
 /obj/item/device/gps/engineering,
+/obj/item/device/integrated_electronics/debugger,
+/obj/item/device/integrated_electronics/wirer,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aSX" = (
@@ -29633,7 +29637,7 @@
 /obj/machinery/light_switch{
 	pixel_x = 32
 	},
-/obj/machinery/computer/supplycomp,
+/obj/item/modular_computer/console/preset/supply,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "bao" = (
@@ -41323,13 +41327,13 @@
 	dir = 10
 	},
 /obj/effect/landmark/start{
-	name = "Nursing Intern"
+	name = "Medical Resident"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btj" = (
 /obj/effect/landmark/start{
-	name = "Nursing Intern"
+	name = "Medical Resident"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -55979,7 +55983,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bTB" = (
-/obj/machinery/computer/ordercomp,
+/obj/item/modular_computer/console/preset/civilian,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 9
@@ -56397,7 +56401,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bUq" = (
-/obj/machinery/computer/supplycomp,
+/obj/item/modular_computer/console/preset/supply/,
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bUr" = (
@@ -62897,6 +62901,13 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/cargo_station)
+"cgm" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/bag/circuits/basic,
+/obj/item/device/integrated_electronics/debugger,
+/obj/item/device/integrated_electronics/wirer,
+/turf/simulated/floor/tiled,
+/area/assembly/robotics)
 
 (1,1,1) = {"
 aaa
@@ -88477,7 +88488,7 @@ bjw
 bkJ
 bin
 bnx
-boI
+cgm
 aZK
 brj
 bsC

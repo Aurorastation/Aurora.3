@@ -305,7 +305,7 @@
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
 	icon_state = "railgun"
-	item_state = "arifle"
+	item_state = "railgun"
 	w_class = 4
 	force = 10
 	caliber = "trod"
