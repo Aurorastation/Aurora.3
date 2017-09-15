@@ -23,20 +23,27 @@
 	movement_cost = 2
 	var/watertype = "water5"
 
-/turf/simulated/floor/beach/water/update_dirt()
-	return	// Water doesn't become dirty
-
-/turf/simulated/floor/beach/water/ocean
-	icon_state = "seadeep"
-
 /turf/simulated/floor/beach/water/pool
+	name = "pool"
 	icon_state = "pool"
 	watertype = "poolwater"
+
+/turf/simulated/floor/beach/water/ocean
+	name = "ocean"
+	icon_state = "seadeep"
+	movement_cost = 4
+
+/turf/simulated/floor/beach/water/ocean/abyss
+	name = "abyss"
+	icon_state = "abyss"
+	watertype = "seadeep"
+
+/turf/simulated/floor/beach/water/update_dirt()
+	return	// Water doesn't become dirty
 
 /turf/simulated/floor/beach/water/Initialize()
 	. = ..()
 	add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="[watertype]","layer"=MOB_LAYER+0.1))
-		icon_state = "pool1"
 
 /turf/simulated/floor/beach/water/return_air_for_internal_lifeform(var/mob/living/carbon/L)
 	if(L && L.lying)
