@@ -572,3 +572,8 @@
 		to_chat(user, "<span class='warning'>[src]'s trigger is locked. This weapon doesn't have a firing pin installed!</span>")
 	return 0
 	
+obj/item/weapon/gun/Destroy()
+	if (istype(pin))
+		QDEL_NULL(pin)
+	return ..()
+

@@ -27,7 +27,7 @@
 		if(istype(target, /obj/item/weapon/gun))
 			var/obj/item/weapon/gun/G = target
 			if(G.pin && (force_replace || G.pin.pin_removeable))
-				G.pin.loc = get_turf(G)
+				G.pin.forceMove(get_turf(G))
 				G.pin.gun_remove(user)
 				to_chat(user, "<span class ='notice'>You remove [G]'s old pin.</span>")
 
@@ -72,7 +72,7 @@
 	desc = "A small enchanted shard which allows magical weapons to fire."
 
 
-// Test pin, works only near firing range.
+// Test pin, works only near firing range. well it should but doesnt for some reason reee
 /obj/item/device/firing_pin/test_range
 	name = "test-range firing pin"
 	desc = "This safety firing pin allows weapons to be fired within proximity to a firing range."
@@ -82,7 +82,7 @@
 
 /obj/item/device/firing_pin/test_range/pin_auth(mob/living/user)
 	var/area/A = get_area(src)
-	if (A && A.flags & FIRING_RANGE)
+	if (A && (A.flags & FIRING_RANGE))
 		return 1
 	else
 		return 0
@@ -101,7 +101,7 @@
 				return 1
 	return 0
 
-/obj/item/device/firing_pin/implant/loyalty //Todo, make this a thing that can actuall be used. only loyalty implanted person is captian I I R C
+/obj/item/device/firing_pin/implant/loyalty
 	name = "mindshield firing pin"
 	desc = "This Security firing pin authorizes the weapon for only loyalty-implanted users."
 	icon_state = "firing_pin_loyalty"
@@ -189,9 +189,3 @@
 	if(gun)
 		gun.pin = null
 	return ..()
-
-obj/item/weapon/gun/Destroy()
-	if (istype(pin))
-		QDEL_NULL(pin)
-
-

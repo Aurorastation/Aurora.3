@@ -30,7 +30,7 @@ obj/item/weapon/gun/energy/retro
 	w_class = 3
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 10 //old technology
-	pin = null
+	
 /obj/item/weapon/gun/energy/captain
 	name = "antique laser gun"
 	icon_state = "caplaser"
@@ -57,6 +57,7 @@ obj/item/weapon/gun/energy/retro
 	charge_cost = 400
 	max_shots = 5
 	fire_delay = 20
+	pin = null
 
 /obj/item/weapon/gun/energy/lasercannon/mounted
 	name = "mounted laser cannon"
@@ -103,7 +104,6 @@ obj/item/weapon/gun/energy/retro
 
 	fire_delay_wielded = 35
 	accuracy_wielded = -3
-	pin = null
 
 	//action button for wielding
 	action_button_name = "Wield rifle"
@@ -171,7 +171,7 @@ obj/item/weapon/gun/energy/retro
 	item_state = "bluetag"
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
 	required_vest = /obj/item/clothing/suit/bluetag
-	pin = /obj/item/device/firing_pin/tag/red
+	pin = /obj/item/device/firing_pin/tag/blue
 
 /obj/item/weapon/gun/energy/lasertag/red
 	icon_state = "redtag"
