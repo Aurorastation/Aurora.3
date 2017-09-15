@@ -2,7 +2,7 @@
 	name = "\improper Lawgiver Mk II"
 	icon_state = "lawgiver"
 	item_state = "gun"
-	origin_tech = list(TECH_COMBAT = 14, TECH_MAGNET = 5)
+	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)
 	sel_mode = 1
 	var/mode_check = 1
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
