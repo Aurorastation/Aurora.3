@@ -50627,7 +50627,9 @@
 	dir = 8
 	},
 /obj/machinery/computer/telescience{
-	starting_crystals = 3
+	starting_crystals = 4;
+	z_co = 4;
+	max_crystals = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
