@@ -1,7 +1,7 @@
 /obj/item/device/firing_pin
 	name = "electronic firing pin"
 	desc = "A small authentication device, to be inserted into a firearm receiver to allow operation. NT safety regulations require all new designs to incorporate one."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/firingpins.dmi'
 	icon_state = "firing_pin"
 	item_state = "pen"
 	origin_tech = "materials=2;combat=4"
@@ -42,10 +42,11 @@
 		emagged = TRUE
 		to_chat(user, "<span class='notice'>You override the authentication mechanism.</span>")
 
-/obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/weapon/gun/G)
+/obj/item/device/firing_pin/proc/gun_insert(mob/living/user/U, obj/item/weapon/gun/G)
 	gun = G
 	forceMove(gun)
 	gun.pin = src
+	U.drop_from_inventory
 	return
 
 /obj/item/device/firing_pin/proc/gun_remove(mob/living/user)
