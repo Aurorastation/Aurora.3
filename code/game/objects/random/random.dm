@@ -497,7 +497,6 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/rum,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/kahlua,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac,
