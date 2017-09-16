@@ -722,7 +722,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/accessory/armband/fluff/karl_armband //Medizinercorps Armband - Karl Jonson - arrow768
+/obj/item/clothing/accessory/armband/fluff/karl_armband //Medizinercorps Armband - Karl Pollard - arrow768
 	name = "medizinercorps armband"
 	desc = "A plain black armband with the golden Medizinercorps logo on it."
 	icon = 'icons/obj/custom_items/karl_armband.dmi'
@@ -1239,3 +1239,182 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "hikmat_shoes"
 	species_restricted = null
 	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/fluff/vira_coat //Designer Military Coat - Vira Bolivar - scheveningen
+	name = "designer military coat"
+	desc = "A dark funnel neck designer military-style dress coat, specially fitted on commission, clearly designed for a woman's figure. \
+	A skillfully stitched 'NT' pattern is laden above a chest pocket, the phrase \"15 years of loyal service to the Corp\" below the insignia, followed by the personal signature of \"Vira Bolivar Taryk\"."
+	icon = 'icons/obj/custom_items/vira_coat.dmi'
+	icon_state = "vira_coat"
+	item_state = "vira_coat"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/storage/backpack/satchel/fluff/kresimir_bag //Worn Leather Bag - Kresimir Kostadinov - alberyk
+	name = "worn leather bag"
+	desc = "A sturdy and worn leather bag, designed to be worn on the back. The clasp has a faded blue and golden insigna."
+	icon = 'icons/obj/custom_items/kresimir_bag.dmi'
+	icon_state = "kresimir_bag"
+	item_state = "kresimir_bag"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/stamp/fluff/leland_stamp //Sol Alliance Government Foreign Relations Department Stamp - Leland Field - saudus
+	name = "\improper Sol Alliance foreign relations department stamp"
+	desc = "A stamp with the emblem of the Sol Alliance Foreign Relations Department. The text \"Diplomatic Observer, L. Field\" is inscribed on the handle."
+	icon = 'icons/obj/custom_items/leland_items.dmi'
+	icon_state = "leland_stamp"
+	item_state = "leland_stamp"
+
+/obj/item/clothing/accessory/badge/fluff/leland_badge //Sol Alliance Government Foreign Relations Department Badge - Leland Field - saudus
+	name = "\improper Sol Alliance foreign relations department badge"
+	desc = "A badge bearing the emblem of the Sol Alliance Foreign Relations Department. It has an inscription reading \"Leland Field, Diplomatic Observer\"."
+	icon = 'icons/obj/custom_items/leland_items.dmi'
+	icon_state = "leland_badge"
+	stored_name = "Leland Field"
+	badge_string = "Diplomatic Observer"
+
+/obj/item/clothing/accessory/badge/fluff/leland_badge/verb/flip()
+	set name = "Flip the Badge"
+	set desc = "Open or close the badge."
+	set category = "Object"
+	set src in usr
+
+	if(src.icon_state == "leland_badge")
+		src.icon_state = "leland_badge-info"
+		usr << "You open \the [src]."
+	else
+		src.icon_state = "leland_badge"
+		usr << "You close \the [src]."
+
+
+/obj/item/clothing/suit/storage/fluff/azala_coat //Azala's Gentleman's Coat - Azala Guwan - tomiixstarslasher
+	name = "gentleman's coat"
+	desc = "A blue gentleman's coat. It is very stylish, and appears to be very warm."
+	icon = 'icons/obj/custom_items/azala_items.dmi'
+	icon_state = "azala_coat"
+	item_state = "azala_coat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/fluff/azala_hat //Azala's Gentleman's Cap - Azala Guwan - tomiixstarslasher
+	name = "gentleman's cap"
+	desc = "A blue gentleman's cap. It is very stylish, and appears to be warped from being worn crooked."
+	icon = 'icons/obj/custom_items/azala_items.dmi'
+	icon_state = "azala_hat"
+	item_state = "azala_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/azala_jumpsuit //Azala's Roboticist Jumpsuit - Azala Guwan - tomiixstarslasher
+	name = "modified roboticist jumpsuit"
+	desc = "A variation of the roboticists jumpsuit, this one is in blue colors."
+	icon = 'icons/obj/custom_items/azala_items.dmi'
+	icon_state = "azala_jumpsuit"
+	item_state = "azala_jumpsuit"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/fluff/leo_scarf //Scarf - Leo Wyatt - keinto
+	name = "striped scarf"
+	desc = "A soft scarf striped in black and blue."
+	icon = 'icons/obj/custom_items/leo_scarf.dmi'
+	icon_state = "leo_scarf"
+	item_state = "leo_scarf"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/under/rank/medical/fluff/jurlkiitajr_scrubs //IAC Scrubs - Rajii'rkalahk Jurlkiitajr - jackboot
+	name = "\improper IAA scrubs"
+	desc = "A change of sterile medical scrubs worn by IAC workers. This one is specific for Tajara Aid workers."
+	icon = 'icons/obj/custom_items/jurlkiitajr_items.dmi'
+	icon_state = "jurlkiitajr_scrubs"
+	item_state = "jurlkiitajr_scrubs"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/apron/surgery/fluff/jurlkiitajr_vest //IAC Vest - Rajii'rkalahk Jurlkiitajr - jackboot
+	name = "\improper IAA vest"
+	desc = "A vest designed to distinguish medical workers in the Interstellar Aid Corps."
+	icon = 'icons/obj/custom_items/jurlkiitajr_items.dmi'
+	icon_state = "jurlkiitajr_vest"
+	item_state = "jurlkiitajr_vest"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/under/fluff/zilosnish_uniform //Exotic Purple Robe - Zilosnish Szu - sleepywolf
+	name = "exotic purple robe"
+	desc = "An extravagant display of wealth, hand-tailored with Unathi craftmanship. There are intricate designs of hammers, cactus flowers, and coins etched into the cloth."
+	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
+	icon_state = "zilosnish_uniform"
+	item_state = "zilosnish_uniform"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/unathi/mantle/fluff/zilosnish_mantle //Exotic Mantle - Zilosnish Szu - sleepywolf
+	name = "exotic mantle"
+	desc = "A red hide with a gold and jade insignia pin to keep it on a wearers shoulders. The hide is thick, like rhino skin."
+	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
+	icon_state = "zilosnish_mantle"
+	item_state = "zilosnish_mantle"
+	contained_sprite = TRUE
+
+/obj/item/weapon/pen/fluff/zilosnish_pen //Golden Pen - Zilosnish Szu - sleepywolf
+	name = "golden pen"
+	desc = "A pen plated in gold. It has black ink."
+	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
+	icon_state = "zilosnish_pen"
+
+
+/obj/item/clothing/head/fluff/qorja_headband //Rebellious Headband - Q'orja Sak'ha - fortport
+	name = "rebellious headband"
+	desc = "A comfortable headband made from a long, soft cloth that's tied into a knot in the back. It is a bright shade of red, slipped through a decorative brass plate. \
+	Upon the metal is an engraving of the People's Republic of Adhomai's insignia, as if straight from their flag."
+	icon = 'icons/obj/custom_items/qorja_headband.dmi'
+	icon_state = "qorja_headband"
+	item_state = "qorja_headband"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/glasses/regular/fluff/harley_glasses //Chic Sunglasses - Harley O'Ryan - ornias
+	name = "chic sunglasses"
+	desc = "A relatively expensive set of Phoenixport-manufactured sunglasses. They do not look like they would provide much protection."
+	icon = 'icons/obj/custom_items/harley_clothing.dmi'
+	icon_state = "harley_glasses"
+	item_state = "harley_glasses"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/harley_uniform //Phoenixport Shirt - Harley O'Ryan - ornias
+	name = "\improper Phoenixport shirt"
+	desc = "A white t-shirt with the writing \"Eiffel Tower Diner\" on it in a small font, below a recreation of the famous monument in question, the Eiffel Tower."
+	icon = 'icons/obj/custom_items/harley_clothing.dmi'
+	icon_state = "harley_uniform"
+	item_state = "harley_uniform"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/harley_uniform/verb/change_tshirt()
+	set name = "Change the shirt style"
+	set desc = "Change the style of your shirt."
+	set category = "Object"
+	set src in usr
+
+	if (use_check(usr)) return
+
+	var/style = input("You change the shirt to;","Change the shirt style") as null|anything in list("Eiffel Tower Diner","Pyramids of Giza Café","Phoenixport","New Parthenon")
+	switch(style)
+		if("Eiffel Tower Diner")
+			item_state = "harley_uniform"
+			desc = "A white t-shirt with the writing \"Eiffel Tower Diner\" on it in a small font, below a recreation of the famous monument in question, the Eiffel Tower."
+
+		if("Pyramids of Giza Café")
+			item_state = "harley_uniform_1"
+			desc = "A white t-shirt with \"GIZA CAFÉ\" written in large, retro font, with a small background. It looks slightly well-worn."
+
+		if("Phoenixport")
+			item_state = "harley_uniform_2"
+			desc = "A black vintage shirt with \"PHOENIXPORT\" written on it in a font. A small icon of an orange phoenix is perched on the \"O\"."
+
+		if("New Parthenon")
+			item_state = "harley_uniform_3"
+			desc = "A grey t-shirt with a stylistic white, faded depiction of the Parthenon on it. It has been cut in half, displaying the inside, with sections clearly labelled in small font."
+
+	usr.update_inv_w_uniform()
+	usr.visible_message("<span class='notice'>[user] fumbles with \the [src], changing the shirt..</span>",
+						"<span class='notice'>You change \the [src]'s style to be '[style]'.</span>")
