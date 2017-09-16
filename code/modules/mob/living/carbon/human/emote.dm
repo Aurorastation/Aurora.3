@@ -654,11 +654,6 @@
 				src << "<span class='warning'>You are unable to vomit.</span>"
 				return
 				//this isn't obsessive at all - it increases RP.
-			message = pick("Barfs!","Vomits!","Feeds the Fish!","does a Gale Force Burp!",\
-			"Flashes the Hash!","Jettisons their Cargo!","sings a Rainbow!",\
-			"Pukes!","Upchucks!","Turns on the Tap!",\
-			"Spews!","Hurls!","Hoarks!",\
-			"Cleans out their piping!","Blows a hole in their bowl!")
 			delayed_vomit()
 			return
 
