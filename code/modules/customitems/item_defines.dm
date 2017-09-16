@@ -1253,7 +1253,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/storage/backpack/satchel/fluff/kresimir_bag //Worn Leather Bag - Kresimir Kostadinov - alberyk
 	name = "worn leather bag"
-	desc = "A sturdy and worn leather bag, designed to be worn on the back. The clasp have a faded blue and golden insigna."
+	desc = "A sturdy and worn leather bag, designed to be worn on the back. The clasp has a faded blue and golden insigna."
 	icon = 'icons/obj/custom_items/kresimir_bag.dmi'
 	icon_state = "kresimir_bag"
 	item_state = "kresimir_bag"
@@ -1262,7 +1262,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/stamp/fluff/leland_stamp //Sol Alliance Government Foreign Relations Department Stamp - Leland Field - saudus
 	name = "\improper Sol Alliance foreign relations department stamp"
-	desc = "A stamp with the emblem of the Sol Alliance Foreign Relations Department. The text \"Diplomatic Observer, L. Field\" is Inscribed on the handle."
+	desc = "A stamp with the emblem of the Sol Alliance Foreign Relations Department. The text \"Diplomatic Observer, L. Field\" is inscribed on the handle."
 	icon = 'icons/obj/custom_items/leland_items.dmi'
 	icon_state = "leland_stamp"
 	item_state = "leland_stamp"
@@ -1395,6 +1395,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
+	if (use_check(usr)) return
+
 	var/style = input("You change the shirt to;","Change the shirt style") as null|anything in list("Eiffel Tower Diner","Pyramids of Giza Café","Phoenixport","New Parthenon")
 	switch(style)
 		if("Eiffel Tower Diner")
@@ -1414,3 +1416,5 @@ All custom items with worn sprites must follow the contained sprite system: http
 			desc = "A grey t-shirt with a stylistic white, faded depiction of the Parthenon on it. It has been cut in half, displaying the inside, with sections clearly labelled in small font."
 
 	usr.update_inv_w_uniform()
+	usr.visible_message("<span class='notice'>[user] fumbles with \the [src], changing the shirt..</span>",
+						"<span class='notice'>You change \the [src]'s style to be '[style]'.</span>")
