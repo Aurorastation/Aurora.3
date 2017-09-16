@@ -63,6 +63,8 @@
 	var/list/Tcorners
 	var/Sx = source_turf.x
 	var/Sy = source_turf.y
+	var/Sz = source_turf.z
+	var/corner_height = LIGHTING_HEIGHT
 	var/actual_range = light_range	// sunlight sources don't support directional lighting.
 
 	// We don't need no damn vis checks!
@@ -125,7 +127,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
+			APPLY_CORNER_BY_HEIGHT(FALSE)
 	else
 		L = corners - effect_str
 		for (thing in L)
@@ -135,7 +137,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
+			APPLY_CORNER_BY_HEIGHT(FALSE)
 
 		for (thing in corners - L)
 			C = thing
@@ -143,7 +145,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
+			APPLY_CORNER_BY_HEIGHT(FALSE)
 
 	L = effect_str - corners
 	for (thing in L)

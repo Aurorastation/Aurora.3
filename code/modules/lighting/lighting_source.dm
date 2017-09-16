@@ -248,7 +248,15 @@
 
 	var/actual_range = light_range
 
-	APPLY_CORNER(C,now)
+	var/Sx = source_turf.x
+	var/Sy = source_turf.y
+	var/Sz = source_turf.z
+	var/height = LIGHTING_HEIGHT
+
+	if (C.z != Sz)
+		height = CALCULATE_CORNER_HEIGHT(C.z, Sz)
+
+	APPLY_CORNER_XYH(C, now, Sx, Sy, height)
 	UNSETEMPTY(effect_str)
 
 // If you update this, update the equivalent proc in lighting_source_novis.dm.
@@ -324,15 +332,18 @@
 	var/list/Tcorners
 	var/Sx = source_turf.x
 	var/Sy = source_turf.y
+	var/Sz = source_turf.z
+	var/corner_height = LIGHTING_HEIGHT
 	var/actual_range = (light_angle && facing_opaque) ? light_range * LIGHTING_BLOCKED_FACTOR : light_range
 	var/test_x
 	var/test_y
 
 	var/zlights_going_up = FALSE
-	var/levels_traversed = 0
 	var/turf/originalT	// This is needed to reset our search point for bidirectional Z-lights.
 
-	FOR_DVIEW(T, Ceiling(actual_range), source_turf, 0)
+	FOR_DVIEW(originalT, Ceiling(actual_range), source_turf, 0)
+		T = originalT
+		zlights_going_up = FALSE
 		check_t:
 
 		if (light_angle && !facing_opaque)	// Directional lighting coordinate filter.
@@ -368,22 +379,19 @@
 
 		// Note: above is defined on ALL turfs, but below is only defined on OPEN TURFS.
 
+		zlight_check:
 		if (zlights_going_up)	// If we're searching upwards, check above.
-			if (istype(T.above))
+			if (istype(T.above))	// We escape the goto loop if this condition is false.
 				T = T.above
 				goto check_t
-
-		else if (isopenturf(T) && T:below)	// Not searching upwards and we have a below turf.
-			if (!levels_traversed++)
-				originalT = T
-
-			T = T:below	// Consider the turf below us as well. (Z-lights)
-		else	// Not searching upwards and we don't have a below turf.
-			zlights_going_up = TRUE
-			if (originalT)
+		else
+			if (isopenturf(T) && T:below)	// Not searching upwards and we have a below turf.
+				T = T:below	// Consider the turf below us as well. (Z-lights)
+				goto check_t
+			else // Not searching upwards and we don't have a below turf.
+				zlights_going_up = TRUE
 				T = originalT
-
-			goto check_t
+				goto zlight_check
 
 	END_FOR_DVIEW
 
@@ -410,7 +418,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, now, Sx, Sy)
+			APPLY_CORNER_BY_HEIGHT(now)
 	else
 		L = corners - effect_str
 		for (thing in L)
@@ -420,7 +428,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, now, Sx, Sy)
+			APPLY_CORNER_BY_HEIGHT(now)
 
 		for (thing in corners - L)
 			C = thing
@@ -428,7 +436,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, now, Sx, Sy)
+			APPLY_CORNER_BY_HEIGHT(now)
 
 	L = effect_str - corners
 	for (thing in L)
