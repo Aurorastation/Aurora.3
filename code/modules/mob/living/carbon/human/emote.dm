@@ -590,8 +590,8 @@
 			src.animate_tail_stop()
 
 		if("beep")
-			if (!check_has_mouth(src))
-				src << span("notice", "You don't have a mouth!")
+			if (!isipc(src))
+				src << span("notice", "You're not a Machine!")
 			else
 				var/M = null
 				if(param)
@@ -650,7 +650,7 @@
 				m_type = 1
 		
 		if("vomit")
-			if (isipc(src))
+			if (!check_has_mouth(src))
 				src << "<span class='warning'>You are unable to vomit.</span>"
 				return
 			delayed_vomit()
