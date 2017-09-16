@@ -15,7 +15,6 @@
 		var/cache_key = "[alpha]-[color]-[dir]-[icon_state]-[layer]"
 		if(!floor_decals[cache_key])
 			var/image/I = image(icon = src.icon, icon_state = src.icon_state, dir = src.dir)
-			I.layer = T.layer
 			I.color = src.color
 			I.alpha = src.alpha
 			floor_decals[cache_key] = I
