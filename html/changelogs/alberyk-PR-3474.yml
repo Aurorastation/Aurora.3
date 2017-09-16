@@ -3,4 +3,4 @@ author: Alberyk
 delete-after: True
 
 changes: 
-  - rsoundadd: "Added new sounds to certain items and actions."
+  - soundadd: "Added new sounds to certain items and actions."
