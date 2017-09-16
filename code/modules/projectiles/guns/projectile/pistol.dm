@@ -123,7 +123,7 @@
 	w_class = 3
 	caliber = ".45"
 	silenced = 1
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
@@ -158,7 +158,7 @@
 	max_shells = 8
 	caliber = "75"
 	fire_sound = 'sound/effects/Explosion1.ogg'
-	origin_tech = list(TECH_COMBAT = 3)
+	origin_tech = list(TECH_COMBAT = 7)
 	ammo_type = "/obj/item/ammo_casing/a75"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a75

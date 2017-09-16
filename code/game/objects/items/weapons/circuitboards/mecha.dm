@@ -50,7 +50,7 @@
 /obj/item/weapon/circuitboard/mecha/durand/targeting
 	name = T_BOARD_MECHA("Durand weapon control and targeting")
 	icon_state = "mcontroller"
-	origin_tech = list(TECH_DATA = 4, TECH_COMBAT = 4)
+	origin_tech = list(TECH_DATA = 4, TECH_COMBAT = 5)
 
 /obj/item/weapon/circuitboard/mecha/durand/main
 	name = T_BOARD_MECHA("Durand central control")

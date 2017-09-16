@@ -229,7 +229,7 @@
 	slot_flags = 0
 	max_shells = 50
 	caliber = "a762"
-	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 2)
+	origin_tech = list(TECH_COMBAT = 9, TECH_MATERIAL = 1, TECH_ILLEGAL = 2)
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
 	allowed_magazines = list(/obj/item/ammo_magazine/a762)
@@ -309,7 +309,7 @@
 	w_class = 4
 	force = 10
 	caliber = "trod"
-	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7)
+	origin_tech = list(TECH_COMBAT = 14, TECH_MATERIAL = 7)
 	slot_flags = SLOT_BELT|SLOT_BACK
 	fire_sound = 'sound/effects/Explosion2.ogg'
 	load_method = MAGAZINE
@@ -336,6 +336,7 @@
 	caliber = "flechette"
 	slot_flags = SLOT_BELT|SLOT_BACK
 	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	origin_tech = list(TECH_COMBAT = 19, TECH_MATERIAL = 7)
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/flechette
 	allowed_magazines = list(/obj/item/ammo_magazine/flechette,/obj/item/ammo_magazine/flechette/explosive)

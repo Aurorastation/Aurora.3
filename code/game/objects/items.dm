@@ -75,6 +75,8 @@
 
 	var/icon_override  //Used to override hardcoded clothing dmis in human clothing pr
 
+	var/reliability = 100
+
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
@@ -260,6 +262,10 @@
 // called when "found" in pockets and storage items. Returns 1 if the search should end.
 /obj/item/proc/on_found(mob/finder as mob)
 	return
+
+/obj/item/proc/reliability_fail()
+	return
+
 
 // called after an item is placed in an equipment slot
 // user is mob that equipped it
