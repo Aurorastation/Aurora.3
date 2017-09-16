@@ -506,6 +506,7 @@
 /obj/structure/sink/puddle	//splishy splashy ^_^
 	name = "puddle"
 	icon_state = "puddle"
+	desc = "A small pool of some liquid, ostensibly water."
 
 /obj/structure/sink/puddle/attack_hand(mob/M as mob)
 	icon_state = "puddle-splash"

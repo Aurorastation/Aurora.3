@@ -5,6 +5,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 /datum/controller/subsystem/lighting
 	name = "Lighting"
 	wait = LIGHTING_INTERVAL
+	flags = SS_FIRE_IN_LOBBY
 
 	priority = SS_PRIORITY_LIGHTING
 	init_order = SS_INIT_LIGHTING

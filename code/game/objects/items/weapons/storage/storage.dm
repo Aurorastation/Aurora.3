@@ -322,7 +322,7 @@
 				usr << "<span class='notice'>[src] cannot hold \the [W].</span>"
 			return 0
 		var/max_instances = can_hold[W.type]
-		if(max_instances && instances_of_type_in_list(W, contents) >= max_instances)
+		if(max_instances && instances_of_type_in_list(W, contents, TRUE) >= max_instances)
 			if(!stop_messages && !istype(W, /obj/item/weapon/hand_labeler))
 				usr << "<span class='notice'>[src] has no more space specifically for \the [W].</span>"
 			return 0

@@ -11,6 +11,7 @@
 	wait = 1
 	init_order = SS_INIT_OPENTURF
 	priority = SS_PRIORITY_OPENTURF
+	flags = SS_FIRE_IN_LOBBY
 
 	var/list/queued_turfs = list()
 	var/list/qt_idex = 1
@@ -127,6 +128,7 @@
 		T.name = initial(T.name)
 		T.desc = "Below seems to be \a [T.below]."
 		T.opacity = FALSE
+		T.queue_ao()	// No need to recalculate ajacencies, shouldn't have changed.
 
 		// Handle space parallax & starlight.
 		if (T.is_above_space())
@@ -147,7 +149,6 @@
 
 			if (istype(object, /atom/movable/lighting_overlay))	// Special case.
 				var/atom/movable/openspace/multiplier/shadower = T.shadower
-				// This is duplicated in lighting_overlay.dm for performance reasons.
 				shadower.appearance = object
 				shadower.plane = OPENTURF_CAP_PLANE
 				shadower.layer = SHADOWER_LAYER
@@ -174,6 +175,9 @@
 						0, SHADOWER_DARKENING_FACTOR, 0,
 						0, 0, SHADOWER_DARKENING_FACTOR
 					)
+
+				if (shadower.our_overlays || shadower.priority_overlays)
+					shadower.compile_overlays()
 
 				if (shadower.bound_overlay)
 					shadower.update_above()

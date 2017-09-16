@@ -431,7 +431,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(new_eyes && has_flag(mob_species, HAS_EYE_COLOR) && CanUseTopic(user))
 			pref.r_eyes = GetRedPart(new_eyes)
 			pref.g_eyes = GetGreenPart(new_eyes)
-			pref.b_eyes = GetRedPart(new_eyes)
+			pref.b_eyes = GetBluePart(new_eyes)
 			return TOPIC_REFRESH
 
 	else if(href_list["skin_tone"])

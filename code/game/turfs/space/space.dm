@@ -16,6 +16,8 @@
 //	heat_capacity = 700000 No.
 	is_hole = TRUE
 
+	permit_ao = FALSE
+
 /turf/space/proc/build_dust_cache()
 	LAZYINITLIST(dust_cache)
 	for (var/i in 0 to 25)
