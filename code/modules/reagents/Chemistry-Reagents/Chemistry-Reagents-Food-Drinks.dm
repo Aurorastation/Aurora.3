@@ -169,7 +169,7 @@
 
 /datum/reagent/nutriment/coating/vegemite/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.halloss += 1 //painful
+	M.halloss += 1 //vegemite hurts the soul.
 
 
 //==============================
