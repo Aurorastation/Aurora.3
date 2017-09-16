@@ -653,7 +653,6 @@
 			if (isipc(src))
 				src << "<span class='warning'>You are unable to vomit.</span>"
 				return
-				//this isn't obsessive at all - it increases RP.
 			delayed_vomit()
 			return
 
