@@ -13,8 +13,12 @@
 	var/charge = 0	// note %age conveted to actual charge in New
 	var/maxcharge = 1000
 	var/rigged = 0		// true if rigged to explode
-	var/minor_fault = 0 //If not 100% reliable, it will build up faults.
 	matter = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 50)
+
+/obj/item/weapon/cell/reliability_fail(var/severity)
+	if(!severity)
+		severity = 100 - reliability
+	charge = charge - rand(severity, severity * 2)
 
 //currently only used by energy-type guns, that may change in the future.
 /obj/item/weapon/cell/device
@@ -120,8 +124,6 @@
 	icon_state = "potato_cell" //"potato_battery"
 	charge = 100
 	maxcharge = 300
-	minor_fault = 1
-
 
 /obj/item/weapon/cell/slime
 	name = "charged slime core"

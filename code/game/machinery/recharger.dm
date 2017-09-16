@@ -92,7 +92,10 @@
 		update_use_power(1)
 		icon_state = icon_state_idle
 	else
-		var/cell = charging
+		var/obj/item/cell = charging
+		if(cell.reliability && (cell.reliability != 100) && prob(100 - cell.reliability))
+			cell.reliability_fail()
+			return
 		if(istype(charging, /obj/item/weapon/melee/baton))
 			var/obj/item/weapon/melee/baton/B = charging
 			cell = B.bcell
