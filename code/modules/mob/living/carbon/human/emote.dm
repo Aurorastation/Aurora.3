@@ -1,4 +1,3 @@
-/mob/living/carbon/human/var/emotecooldown = 0
 /mob/living/carbon/human/emote(var/act,var/m_type=1,var/message = null)
 	var/param = null
 	if (findtext(act, "-", 1, null))
@@ -591,8 +590,8 @@
 			src.animate_tail_stop()
 
 		if("beep")
-			if (!isipc(src))
-				src << span("notice", "You're not a machine!")
+			if (!check_has_mouth(src))
+				src << span("notice", "You don't have a mouth!")
 			else
 				var/M = null
 				if(param)
@@ -654,13 +653,13 @@
 			if (isipc(src))
 				src << "<span class='warning'>You are unable to vomit.</span>"
 				return
-			if (emotecooldown > world.time) 
-				src << "<span class='warning'>You are unable to vomit so soon.</span>"
-				emotecooldown = emotecooldown + 4 SECONDS
-				return
-			message = "vomits!"
-			vomit()
-			emotecooldown = world.time + 10 SECONDS
+				//this isn't obsessive at all - it increases RP.
+			message = pick("Barfs!","Vomits!","Feeds the Fish!","does a Gale Force Burp!",\
+			"Flashes the Hash!","Jettisons their Cargo!","sings a Rainbow!",\
+			"Pukes!","Upchucks!","Turns on the Tap!",\
+			"Spews!","Hurls!","Hoarks!",\
+			"Cleans out their piping!","Blows a hole in their bowl!")
+			delayed_vomit()
 			return
 
 
@@ -669,7 +668,7 @@
 cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,
 grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug,
 sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper,
-wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap"}
+wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, vomit"}
 
 		else
 			src << span("notice", "Unusable emote '[act]'. Say *help for a list.")
