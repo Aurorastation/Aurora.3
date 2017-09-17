@@ -15,8 +15,6 @@
 	buckle_require_restraints = 1
 	buckle_lying = -1
 
-	gfi_layer_rotation = GFI_ROTATION_DEFDIR
-
 /obj/machinery/atmospherics/pipe/drain_power()
 	return -1
 
@@ -168,6 +166,7 @@
 	alert_pressure = 55*ONE_ATMOSPHERE
 
 	level = 1
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 
 /obj/machinery/atmospherics/pipe/simple/New()
 	..()
@@ -433,6 +432,8 @@
 
 	level = 1
 	layer = 2.4 //under wires with their 2.44
+
+	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
 /obj/machinery/atmospherics/pipe/manifold/New()
 	..()
@@ -1312,6 +1313,7 @@
 	desc = "An adapter for regular, supply and scrubbers pipes"
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER
 	icon_state = "map_universal"
+	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
 /obj/machinery/atmospherics/pipe/simple/visible/universal/update_icon(var/safety = 0)
 	if(!check_icon_cache())
@@ -1347,6 +1349,7 @@
 	desc = "An adapter for regular, supply and scrubbers pipes"
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER
 	icon_state = "map_universal"
+	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
 /obj/machinery/atmospherics/pipe/simple/hidden/universal/update_icon(var/safety = 0)
 	if(!check_icon_cache())
