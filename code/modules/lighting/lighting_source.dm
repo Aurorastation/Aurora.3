@@ -46,6 +46,8 @@
 
 	var/needs_update = LIGHTING_NO_UPDATE
 
+	var/skip_falloff = FALSE	// ONLY for use with sunlight, behavior is undefined if TRUE on regular sources.
+
 /datum/light_source/New(atom/owner, atom/top)
 	source_atom = owner // Set our new owner.
 
@@ -256,7 +258,10 @@
 	if (C.z != Sz)
 		height = CALCULATE_CORNER_HEIGHT(C.z, Sz)
 
-	APPLY_CORNER_XYH(C, now, Sx, Sy, height)
+	if (skip_falloff)
+		APPLY_CORNER_SIMPLE(C, height)
+	else
+		APPLY_CORNER(C, now, Sx, Sy, height)
 	UNSETEMPTY(effect_str)
 
 // If you update this, update the equivalent proc in lighting_source_novis.dm.
