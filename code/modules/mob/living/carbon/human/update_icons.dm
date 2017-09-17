@@ -535,7 +535,7 @@ There are several things that need to be remembered:
 		//accessories
 		if (istype(w_uniform, /obj/item/clothing/under))//Prevent runtime errors with unusual objects
 			var/obj/item/clothing/under/under = w_uniform
-			if(under.accessories.len)
+			if(LAZYLEN(under.accessories))
 				if (!ovr)
 					ovr = list(standing)
 
@@ -871,9 +871,10 @@ There are several things that need to be remembered:
 
 		// Accessories - copied from uniform, BOILERPLATE because fuck this system.
 		var/obj/item/clothing/suit/suit = wear_suit
-		if(istype(suit) && suit.accessories.len)
+		if(istype(suit) && LAZYLEN(suit.accessories))
 			if (!ovr)
 				ovr = list(standing)
+
 			for(var/obj/item/clothing/accessory/A in suit.accessories)
 				ovr += A.get_mob_overlay()
 

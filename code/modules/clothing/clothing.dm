@@ -6,7 +6,7 @@
 	var/list/species_restricted = null 				//Only these species can wear this kit.
 	var/gunshot_residue //Used by forensics.
 
-	var/list/accessories = list()
+	var/list/accessories
 	var/list/valid_accessory_slots
 	var/list/restricted_accessory_slots
 
@@ -537,7 +537,7 @@ BLIND     // can't see anything
 
 
 /obj/item/clothing/under/attack_hand(var/mob/user)
-	if(accessories && accessories.len)
+	if(LAZYLEN(accessories))
 		..()
 	if ((ishuman(usr) || issmall(usr)) && src.loc == user)
 		return
