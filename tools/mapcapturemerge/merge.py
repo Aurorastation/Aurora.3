@@ -10,7 +10,7 @@ image_location = os.path.join(os.getcwd(), 'captures')
 print("Map capture merger by Karolis")
 
 capture_images = []
-capture_re = re.compile("map_capture_x[0-9]+_y[0-9]+_z[0-9]+_r32\.png")
+capture_re = re.compile("map_capture_x[0-9]+_y[0-9]+_z[0-9]+_r\d+\.png")
 for image_file in os.listdir(image_location):
     if os.path.isfile(os.path.join(image_location, image_file)) and capture_re.match(image_file):
         #print(image_file)

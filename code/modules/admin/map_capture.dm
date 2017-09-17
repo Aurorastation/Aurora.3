@@ -30,23 +30,25 @@
 
 /datum/admins/proc/capture_map_capture_next(currentz, currentx, currenty, ligths)
 	if(locate(currentx, currenty, currentz))
-		var/cap = generate_image(currentx ,currenty ,currentz ,32, CAPTURE_MODE_PARTIAL, null, ligths, 1)
-		var/file_name = "map_capture_x[currentx]_y[currenty]_z[currentz]_r32.png"
+		var/cap = generate_image(currentx ,currenty ,currentz ,16, CAPTURE_MODE_PARTIAL, null, ligths, 1)
+		var/file_name = "map_capture_x[currentx]_y[currenty]_z[currentz]_r16.png"
 		usr << "Saved capture in cache as [file_name]."
 		usr << browse_rsc(cap, file_name)
-		currentx = currentx + 32
-		spawn (10)
+		currentx = currentx + 16
+		spawn (6)
+			del(cap)
 			.(currentz, currentx, currenty, ligths)
 	else
-		currenty = currenty + 32
+		currenty = currenty + 16
 		currentx = 1
 		if(locate(currentx, currenty, currentz))
-			var/cap = generate_image(currentx ,currenty ,currentz ,32, CAPTURE_MODE_PARTIAL, null, ligths, 1)
-			var/file_name = "map_capture_x[currentx]_y[currenty]_z[currentz]_r32.png"
+			var/cap = generate_image(currentx ,currenty ,currentz ,16, CAPTURE_MODE_PARTIAL, null, ligths, 1)
+			var/file_name = "map_capture_x[currentx]_y[currenty]_z[currentz]_r16.png"
 			usr << "Saved capture in cache as [file_name]."
 			usr << browse_rsc(cap, file_name)
-			currentx = currentx + 32
-			spawn (10)
+			currentx = currentx + 16
+			spawn (6)
+				del(cap)
 				.(currentz, currentx, currenty, ligths)
 		else
 			usr << "End of map, capture is done."

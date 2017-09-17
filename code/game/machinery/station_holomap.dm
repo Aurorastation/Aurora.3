@@ -12,6 +12,7 @@
 	light_color = "#64C864"
 	light_power = 1
 	light_range = 2
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 
 	var/light_power_on = 1
 	var/light_range_on = 2
