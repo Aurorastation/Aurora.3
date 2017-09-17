@@ -36,7 +36,7 @@
 		now                          \
 	);
 
-#define CALCULATE_CORNER_HEIGHT(ZA,ZB) (((max(ZA,ZB) - min(ZA,ZB)) + 1) * LIGHTING_HEIGHT * 10)
+#define CALCULATE_CORNER_HEIGHT(ZA,ZB) (((max(ZA,ZB) - min(ZA,ZB)) + 1) * LIGHTING_HEIGHT * LIGHTING_Z_FACTOR)
 
 #define APPLY_CORNER_BY_HEIGHT(now)                       \
 	if (C.z != Sz) {                                      \
