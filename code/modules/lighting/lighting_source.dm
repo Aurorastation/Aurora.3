@@ -34,7 +34,6 @@
 	var/tmp/cached_origin_x // The last known X coord of the origin.
 	var/tmp/cached_origin_y // The last known Y coord of the origin.
 	var/tmp/old_direction   // The last known direction of the origin.
-	var/tmp/targ_sign       // The sign to test the point against.
 	var/tmp/test_x_offset   // How much the X coord should be offset due to direction.
 	var/tmp/test_y_offset   // How much the Y coord should be offset due to direction.
 	var/tmp/facing_opaque = FALSE
@@ -69,8 +68,6 @@
 	update()
 
 	//L_PROF(source_atom, "source_new([type])")
-
-	return ..()
 
 // Kill ourselves.
 /datum/light_source/Destroy(force)
@@ -161,31 +158,19 @@
 #define MINMAX(NUM) ((NUM) < 0 ? -round(-(NUM)) : round(NUM))
 #define ARBITRARY_NUMBER 10
 
-/datum/light_source/proc/update_angle()
-	var/turf/T = get_turf(top_atom)
-
-	var/ndir
-	if (istype(top_atom, /mob) && top_atom:facing_dir)
-		ndir = top_atom:facing_dir
-	else
-		ndir = top_atom.dir
-
-	// Don't do anything if nothing is different, trig ain't free.
-	if (T.x == cached_origin_x && T.y == cached_origin_y && old_direction == ndir)
-		return
-
+/datum/light_source/proc/regenerate_angle(ndir)
 	old_direction = ndir
 
-	var/turf/front = get_step(T, old_direction)
+	var/turf/front = get_step(source_turf, old_direction)
 	facing_opaque = (front && front.has_opaque_atom)
 
-	cached_origin_x = test_x_offset = T.x
-	cached_origin_y = test_y_offset = T.y
+	cached_origin_x = test_x_offset = source_turf.x
+	cached_origin_y = test_y_offset = source_turf.y
 
 	if (facing_opaque)
 		return
 
-	var/angle = light_angle / 2
+	var/angle = light_angle * 0.5
 	switch (old_direction)
 		if (NORTH)
 			limit_a_t = angle + 90
@@ -216,13 +201,10 @@
 	limit_b_x = MINMAX(limit_b_x)
 	limit_b_y = POLAR_TO_CART_Y(light_range + ARBITRARY_NUMBER, limit_b_t)
 	limit_b_y = MINMAX(limit_b_y)
-	// This won't change unless the origin or dir changes, might as well do it here.
-	targ_sign = PSEUDO_WEDGE(limit_a_x, limit_a_y, limit_b_x, limit_b_y) > 0
 
 #undef ARBITRARY_NUMBER
 #undef POLAR_TO_CART_X
 #undef POLAR_TO_CART_Y
-#undef MINMAX
 
 /datum/light_source/proc/remove_lum(now = FALSE)
 	applied = FALSE
@@ -318,11 +300,36 @@
 		light_angle = source_atom.light_wedge
 		update = TRUE
 
-	if (light_angle && top_atom.dir != old_direction)
-		update = TRUE
+	if (light_angle)
+		var/ndir
+		if (istype(top_atom, /mob) && top_atom:facing_dir)
+			ndir = top_atom:facing_dir
+		else
+			ndir = top_atom.dir
 
-	if (update && light_angle)
-		update_angle()
+		if (old_direction != ndir)	// If our direction has changed, we need to regenerate all the angle info.
+			regenerate_angle(ndir)
+			update = TRUE
+		else // Check if it was just a x/y translation, and update our vars without an regenerate_angle() call if it is.
+			var/co_updated = FALSE
+			if (source_turf.x != cached_origin_x)
+				test_x_offset += source_turf.x - cached_origin_x
+				cached_origin_x = source_turf.x
+
+				co_updated = TRUE
+
+			if (source_turf.y != cached_origin_y)
+				test_y_offset += source_turf.y - cached_origin_y
+				cached_origin_y = source_turf.y
+
+				co_updated = TRUE
+
+			if (co_updated)
+				// We might be facing a wall now.
+				var/turf/front = get_step(source_turf, old_direction)
+				facing_opaque = (front && front.has_opaque_atom)
+
+				update = TRUE
 
 	if (update)
 		needs_update = LIGHTING_CHECK_UPDATE
@@ -356,7 +363,7 @@
 			test_y = T.y - test_y_offset
 
 			// if the signs of both of these are NOT the same, the point is NOT within the cone.
-			if (((PSEUDO_WEDGE(limit_a_x, limit_a_y, test_x, test_y) > 0) != targ_sign) || ((PSEUDO_WEDGE(test_x, test_y, limit_b_x, limit_b_y) > 0) != targ_sign))
+			if ((PSEUDO_WEDGE(limit_a_x, limit_a_y, test_x, test_y) > 0) || (PSEUDO_WEDGE(test_x, test_y, limit_b_x, limit_b_y) > 0))
 				continue
 
 		if (T.dynamic_lighting || T.light_sources)
@@ -463,3 +470,4 @@
 #undef DO_UPDATE
 #undef INTELLIGENT_UPDATE
 #undef PSEUDO_WEDGE
+#undef MINMAX

@@ -162,7 +162,7 @@
 	UNSETEMPTY(effect_str)
 	UNSETEMPTY(affecting_turfs)
 
-/datum/light_source/sunlight/update_angle()
+/datum/light_source/sunlight/regenerate_angle()
 	return
 
 #define QUEUE_UPDATE(level)                 \
