@@ -48,6 +48,7 @@
 	icon_state = "laser"
 	item_state = "laser"
 	fire_sound = 'sound/weapons/Laser.ogg'
+	max_shots = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/beam
 
