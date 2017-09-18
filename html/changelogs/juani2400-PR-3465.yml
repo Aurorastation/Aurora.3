@@ -34,12 +34,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - maptweak: "Remapped: Atmospherics."
-  - maptweak: "Remapped: Captain's Office."
-  - maptweak: "Remapped: Heads of Staff Conference Room."
-  - maptweak: "Remapped: Chief Medical Officer's Office."
-  - maptweak: "Remapped: Medical Briefing Room."
-  - maptweak: "Remapped: Security Processing and Holding Cell."
+  - maptweak: "Remapped: Atmospherics, Captain's Office, Heads of Staff Conference Room, CMO's office, Medical Briefing Room, Security Processing and Holding Cell."
   - maptweak: "Modified: Robotics Laboratory."
   - maptweak: "Mapped in the desk ringers."
   - rscadd: "Added a new subtype of folder: Security."
