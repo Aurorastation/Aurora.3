@@ -37,3 +37,4 @@ changes:
  - balance: "Tentatively buffs laser damage types across the board. Makes them more useful."
  - balance: "Adds armor penetration to some of the more harder-hitting low-DPS beam weapons. This makes them more useful versus armored opponents."
  - tweak: "Also renames gatling laser beam projectiles into 'diffused lasers', from 'heavy lasers.' Trust me, it's science."
+ - balance: "Reduces laser rifle maximum capacity to 15 (down from 20.)"
