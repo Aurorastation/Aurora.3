@@ -73,7 +73,7 @@
 		tally = max(0, tally-3)
 
 	var/turf/T = get_turf(src)
-	if(T && T.movement_cost)
+	if(T)
 		tally += T.movement_cost
 
 	return (tally+config.human_delay)
