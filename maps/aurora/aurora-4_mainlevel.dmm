@@ -42215,6 +42215,7 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_y = -32
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bur" = (
