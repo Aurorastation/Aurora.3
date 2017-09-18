@@ -34,6 +34,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
- - tweak: "Tentatively buffs laser damage types across the board. Makes them more useful."
- - tweak: "Adds armor penetration to some of the more harder-hitting low-DPS beam weapons. This makes them more useful versus armored opponents."
+ - balance: "Tentatively buffs laser damage types across the board. Makes them more useful."
+ - balance: "Adds armor penetration to some of the more harder-hitting low-DPS beam weapons. This makes them more useful versus armored opponents."
  - tweak: "Also renames gatling laser beam projectiles into 'diffused lasers', from 'heavy lasers.' Trust me, it's science."
