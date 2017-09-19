@@ -2,3 +2,4 @@ author: Lohikar
 delete-after: True
 changes: 
   - imageadd: "Replaced our ancient wall sprites with a slightly tweaked fancy one from Europa."
+  - imageadd: "APCs' icons now have directional states."
