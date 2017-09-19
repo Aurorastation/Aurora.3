@@ -399,3 +399,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define GFI_ROTATION_DEFAULT 0 //Don't do anything special
 #define GFI_ROTATION_DEFDIR 1 //Layers will have default direction of there object
 #define GFI_ROTATION_OVERDIR 2 //Layers will have overidden direction
+
+// Defines for translating a dir into pixelshifts for wall items
+#define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 28 : -28))
+#define DIR2PIXEL_Y(dir) ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 28 : -28) : 0)

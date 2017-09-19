@@ -231,20 +231,20 @@
 		seclevel = newlevel
 		update_icon()
 
-/obj/machinery/firealarm/Initialize(mapload, dir, building)
-	. = ..()
-	if(dir)
-		src.set_dir(dir)
+/obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
+	. = ..(mapload, ndir)
 
 	if(building)
 		buildstage = 0
 		wiresexposed = 1
 		icon_state = "fire_b0"
-		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
-		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
+
+	// Overwrite the mapped in values.
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 	if(z in config.contact_levels)
-		set_security_level(security_level? get_security_level() : "green")
+		set_security_level(security_level ? get_security_level() : "green")
 
 /*
 FIRE ALARM CIRCUIT
