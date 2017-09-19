@@ -394,3 +394,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define ITEMSIZE_NORMAL 3
 #define ITEMSIZE_LARGE  4
 #define ITEMSIZE_HUGE   5
+
+// Defines for translating a dir into pixelshifts for wall items
+#define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 28 : -28))
+#define DIR2PIXEL_Y(dir) ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 28 : -28) : 0)
