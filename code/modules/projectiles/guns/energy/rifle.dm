@@ -79,7 +79,7 @@
 	projectile_type = /obj/item/projectile/beam/xray
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 40
-	
+
 /obj/item/weapon/gun/energy/rifle/pulse
 	name = "pulse rifle"
 	desc = "A weapon that uses advanced pulse-based beam generation technology to emit powerful laser blasts. Because of its complexity and cost, it is rarely seen in use except by specialists."
@@ -89,7 +89,7 @@
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
 	origin_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 6, TECH_MAGNET = 4)
-	
+
 	modifystate = null
 
 	firemodes = list(
