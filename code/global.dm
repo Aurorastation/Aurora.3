@@ -163,10 +163,5 @@ var/global/obj/item/device/radio/intercom/global_announcer = new(null)
 
 var/list/station_departments = list("Command", "Medical", "Engineering", "Science", "Security", "Cargo", "Civilian")
 
-var/global/const/TICKS_IN_DAY = 864000
-var/global/const/TICKS_IN_HOUR = 36000
-var/global/const/TICKS_IN_SECOND = 10
-
-
 //List of exosuit tracking beacons, to save performance
 var/global/list/exo_beacons = list()
