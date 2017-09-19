@@ -1253,7 +1253,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/storage/backpack/satchel/fluff/kresimir_bag //Worn Leather Bag - Kresimir Kostadinov - alberyk
 	name = "worn leather bag"
-	desc = "A sturdy and worn leather bag, designed to be worn on the back. The clasp has a faded blue and golden insigna."
+	desc = "A sturdy and worn leather bag. The clasp has a faded blue and golden insigna."
 	icon = 'icons/obj/custom_items/kresimir_bag.dmi'
 	icon_state = "kresimir_bag"
 	item_state = "kresimir_bag"
