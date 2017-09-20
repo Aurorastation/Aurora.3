@@ -246,6 +246,23 @@
 	if(z in config.contact_levels)
 		set_security_level(security_level ? get_security_level() : "green")
 
+// Convenience subtypes for mappers.
+/obj/machinery/firealarm/north
+	dir = NORTH
+	pixel_y = 28
+
+/obj/machinery/firealarm/east
+	dir = EAST
+	pixel_x = 28
+
+/obj/machinery/firealarm/west
+	dir = WEST
+	pixel_x = -28
+
+/obj/machinery/firealarm/south
+	dir = SOUTH
+	pixel_y = -28
+
 /*
 FIRE ALARM CIRCUIT
 Just a object used in constructing fire alarms
