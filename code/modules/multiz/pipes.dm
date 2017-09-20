@@ -2,6 +2,7 @@
 // parent class for pipes //
 ////////////////////////////
 /obj/machinery/atmospherics/pipe/zpipe
+	icon = 'icons/atmos/pipes.dmi'
 	icon_state = "up"
 	var/ptype	// What direction of pipe this is. Used for icons.
 
@@ -61,7 +62,7 @@
 		invisibility = i ? 101 : 0
 	update_icon()
 
-/obj/machinery/atmospherics/pipe/up/machinery_process()
+/obj/machinery/atmospherics/pipe/zpipe/machinery_process()
 	if(!parent) //This should cut back on the overhead calling build_network thousands of times per cycle
 		..()
 	else
@@ -276,3 +277,13 @@
 	color = PIPE_COLOR_RED
 /obj/machinery/atmospherics/pipe/zpipe/down/red
 	color = PIPE_COLOR_RED
+
+/obj/machinery/atmospherics/pipe/zpipe/up/yellow
+	color = PIPE_COLOR_YELLOW
+/obj/machinery/atmospherics/pipe/zpipe/down/yellow
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/zpipe/up/blue
+	color = PIPE_COLOR_BLUE
+/obj/machinery/atmospherics/pipe/zpipe/down/blue
+	color = PIPE_COLOR_BLUE
