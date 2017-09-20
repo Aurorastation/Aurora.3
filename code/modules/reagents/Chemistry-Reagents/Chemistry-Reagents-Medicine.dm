@@ -51,7 +51,6 @@
 					healpower = W.heal_damage(healpower,1)
 					if (healpower <= 0)
 						return
-		M.adjustBruteLoss(7) //but not without a price, of course
 
 /datum/reagent/kelotane
 	name = "Kelotane"
@@ -69,7 +68,7 @@
 
 /datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustFireLoss(8)
+		M.adjustToxLoss(4)
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -86,10 +85,6 @@
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(0, 12 * removed)
 
-/datum/reagent/dermaline/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustFireLoss(15)
-
 /datum/reagent/dylovene
 	name = "Dylovene"
 	id = "anti_toxin"
@@ -97,7 +92,6 @@
 	reagent_state = LIQUID
 	color = "#00A000"
 	scannable = 1
-	overdose = REAGENTS_OVERDOSE
 	taste_description = "a roll of gauze"
 
 /datum/reagent/dylovene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -105,10 +99,6 @@
 		M.drowsyness = max(0, M.drowsyness - 6 * removed)
 		M.hallucination = max(0, M.hallucination - 9 * removed)
 		M.adjustToxLoss(-4 * removed)
-
-/datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustToxLoss(6)
 
 /datum/reagent/dexalin
 	name = "Dexalin"
@@ -128,17 +118,13 @@
 
 	holder.remove_reagent("lexorin", 2 * removed)
 
-/datum/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustOxyLoss(20)
-
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
 	id = "dexalinp"
 	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective."
 	reagent_state = LIQUID
 	color = "#0040FF"
-	overdose = REAGENTS_OVERDOSE * 0.5
+	overdose = 5
 	scannable = 1
 	taste_description = "bitterness"
 
@@ -157,7 +143,6 @@
 	reagent_state = LIQUID
 	color = "#8040FF"
 	scannable = 1
-	overdose = REAGENTS_OVERDOSE
 	taste_description = "bitterness"
 
 /datum/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -165,11 +150,6 @@
 		M.adjustOxyLoss(-6 * removed)
 		M.heal_organ_damage(3 * removed, 3 * removed)
 		M.adjustToxLoss(-3 * removed)
-
-/datum/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustToxLoss(6)
-		M.adjustOxyLoss(8)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
