@@ -40,7 +40,8 @@
 		M.heal_organ_damage(5 * removed, 0)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA && ishuman(M)) //Bicard overdose heals internal wounds
+	..()//Bicard overdose heals internal wounds
+	if(alien != IS_DIONA && ishuman(M))
 		var/healpower = 1
 		var/mob/living/carbon/human/H = M
 		for (var/a in H.organs)
@@ -51,7 +52,6 @@
 					healpower = W.heal_damage(healpower,1)
 					if (healpower <= 0)
 						return
-		M.adjustBruteLoss(8) //but not without a price, of course
 
 /datum/reagent/kelotane
 	name = "Kelotane"
@@ -66,10 +66,6 @@
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(0, 6 * removed)
-
-/datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustFireLoss(8)
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -86,10 +82,6 @@
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(0, 12 * removed)
 
-/datum/reagent/dermaline/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustFireLoss(18)
-
 /datum/reagent/dylovene
 	name = "Dylovene"
 	id = "anti_toxin"
@@ -97,7 +89,7 @@
 	reagent_state = LIQUID
 	color = "#00A000"
 	scannable = 1
-	overdose = REAGENTS_OVERDOSE * 0.7
+
 	taste_description = "a roll of gauze"
 
 /datum/reagent/dylovene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -105,10 +97,6 @@
 		M.drowsyness = max(0, M.drowsyness - 6 * removed)
 		M.hallucination = max(0, M.hallucination - 9 * removed)
 		M.adjustToxLoss(-4 * removed)
-
-/datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustToxLoss(8)
 
 /datum/reagent/dexalin
 	name = "Dexalin"
@@ -127,10 +115,6 @@
 		M.adjustOxyLoss(-15 * removed)
 
 	holder.remove_reagent("lexorin", 2 * removed)
-
-/datum/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustOxyLoss(30)
 
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
@@ -157,7 +141,7 @@
 	reagent_state = LIQUID
 	color = "#8040FF"
 	scannable = 1
-	overdose = REAGENTS_OVERDOSE
+
 	taste_description = "bitterness"
 
 /datum/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -165,13 +149,6 @@
 		M.adjustOxyLoss(-6 * removed)
 		M.heal_organ_damage(3 * removed, 3 * removed)
 		M.adjustToxLoss(-3 * removed)
-
-/datum/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustToxLoss(6)
-		M.adjustBruteLoss(6)
-		M.adjustFireLoss(6)
-		M.adjustOxyLoss(12)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
