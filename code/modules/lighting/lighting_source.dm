@@ -205,6 +205,7 @@
 #undef ARBITRARY_NUMBER
 #undef POLAR_TO_CART_X
 #undef POLAR_TO_CART_Y
+#undef MINMAX
 
 /datum/light_source/proc/remove_lum(now = FALSE)
 	applied = FALSE
@@ -470,4 +471,3 @@
 #undef DO_UPDATE
 #undef INTELLIGENT_UPDATE
 #undef PSEUDO_WEDGE
-#undef MINMAX
