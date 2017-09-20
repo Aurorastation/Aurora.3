@@ -102,8 +102,6 @@
 					var/armor = T.run_armor_check(T, "melee")
 					if(armor < 100)
 						T.Weaken(5) //nerfed, because yes.
-				else
-					target.Weaken(5)
 			return
 	else
 		return ..()

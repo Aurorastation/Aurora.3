@@ -15,7 +15,7 @@ var/datum/antagonist/raider/raiders
 	hard_cap_round = 10
 	initial_spawn_req = 4
 	initial_spawn_target = 6
-	
+
 	faction = "syndicate"
 
 	id_type = /obj/item/weapon/card/id/syndicate
@@ -99,6 +99,8 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/revolver,
 		/obj/item/weapon/gun/projectile/revolver/deckard,
 		/obj/item/weapon/gun/projectile/revolver/derringer,
+		/obj/item/weapon/gun/projectile/revolver/lemat,
+		/obj/item/weapon/gun/projectile/contender,
 		/obj/item/weapon/gun/projectile/pirate,
 		/obj/item/weapon/gun/projectile/tanto
 		)

@@ -563,6 +563,7 @@
 		/obj/item/weapon/material/twohanded/spear/plasteel,
 		/obj/random/sword,
 		/obj/item/weapon/melee/hammer,
+		/obj/item/weapon/melee/hammer/powered,
 		/obj/item/weapon/material/twohanded/fireaxe,
 		/obj/item/weapon/melee/classic_baton
 	)

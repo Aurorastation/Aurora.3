@@ -27,6 +27,8 @@
 	//Detective Work, used for the duplicate data points kept in the scanners
 	var/list/original_atom
 
+	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
+
 /atom/proc/reveal_blood()
 	return
 
