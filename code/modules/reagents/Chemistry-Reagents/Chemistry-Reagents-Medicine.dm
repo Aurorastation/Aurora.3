@@ -51,7 +51,7 @@
 					healpower = W.heal_damage(healpower,1)
 					if (healpower <= 0)
 						return
-		M.adjustBruteLoss(7) //but not without a price, of course
+		M.adjustBruteLoss(8) //but not without a price, of course
 
 /datum/reagent/kelotane
 	name = "Kelotane"
@@ -88,7 +88,7 @@
 
 /datum/reagent/dermaline/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustFireLoss(15)
+		M.adjustFireLoss(18)
 
 /datum/reagent/dylovene
 	name = "Dylovene"
@@ -97,7 +97,7 @@
 	reagent_state = LIQUID
 	color = "#00A000"
 	scannable = 1
-	overdose = REAGENTS_OVERDOSE
+	overdose = REAGENTS_OVERDOSE * 0.7
 	taste_description = "a roll of gauze"
 
 /datum/reagent/dylovene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -108,7 +108,7 @@
 
 /datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustToxLoss(6)
+		M.adjustToxLoss(8)
 
 /datum/reagent/dexalin
 	name = "Dexalin"
@@ -130,7 +130,7 @@
 
 /datum/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
-		M.adjustOxyLoss(20)
+		M.adjustOxyLoss(30)
 
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
@@ -169,7 +169,9 @@
 /datum/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien)
 	if(alien != IS_DIONA)
 		M.adjustToxLoss(6)
-		M.adjustOxyLoss(8)
+		M.adjustBruteLoss(6)
+		M.adjustFireLoss(6)
+		M.adjustOxyLoss(12)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
