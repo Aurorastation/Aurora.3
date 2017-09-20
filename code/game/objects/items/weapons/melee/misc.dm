@@ -10,6 +10,7 @@
 	w_class = 3
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
+	hitsound = 'sound/weapons/chainhit.ogg'
 
 /obj/item/weapon/melee/chainsword
 	name = "chainsword"
