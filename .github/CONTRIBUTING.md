@@ -112,3 +112,14 @@ All tables for the database should be prefixed according to the following list:
 `usr` should never be defined as a name for a custom variable. It is the name for a specific variable which exists for every proc, though it may not always have a value.
 
 If at all possible, procs outside of verbs and `Topic()` should avoid reliance on `usr`, and instead use a custom argument to specify the user and its expected type. This makes it easier to reuse procs in chains where `usr` is not always defined.
+
+### ToDo Tags for the Test Server
+Should you wish that certain aspects of your pull request are tested on the dev server, add in the [TODO] Tags and write down the points that should be tested on the test server
+```
+[TODO]
+- First thing that should be tested
+- Second thing that should be tested
+- And so on
+[/TODO]
+```
+Feedback provided by the testers is available via the WI
