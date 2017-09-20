@@ -160,9 +160,9 @@
 /datum/reagent/nutriment/coating/vegemite
 	name = "Vegemite"
 	cooked_name = "burnt Vegemite"
-	id = "Vegemite"
+	id = "vegemite"
 	color = "#0c0901"
-	taste_description = "Concentrated industrial grade salt"
+	taste_description = "concentrated industrial grade salt"
 	icon_raw = "batter_raw"
 	icon_cooked = "batter_cooked"
 	coated_adj = "vegemite-coated"
