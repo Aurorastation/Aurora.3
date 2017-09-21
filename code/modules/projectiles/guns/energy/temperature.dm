@@ -11,6 +11,9 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 
 	projectile_type = /obj/item/projectile/temp
+	can_turret = 1
+	turret_sprite_set = "temperature"
+
 	cell_type = /obj/item/weapon/cell/crap //WAS High, but brought down to match energy use
 
 /*
