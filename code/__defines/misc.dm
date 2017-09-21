@@ -400,6 +400,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define GFI_ROTATION_DEFDIR 1 //Layers will have default direction of there object
 #define GFI_ROTATION_OVERDIR 2 //Layers will have overidden direction
 
+// The pixel_(x|y) offset that will be used by default by wall items, such as APCs or Fire Alarms.
 #define DEFAULT_WALL_OFFSET 24
 
 // Defines for translating a dir into pixelshifts for wall items
