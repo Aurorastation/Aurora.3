@@ -41,6 +41,7 @@
 			for(var/mob/O in (viewers(user)))
 				O.show_message("<B>[user]</B> broadcasts, <FONT size=3>\"[message]\"</FONT>",2) // 2 stands for hearable message
 
+		playsound(loc, 'sound/items/megaphone.ogg', 100, 0, 1)
 		spamcheck = 1
 		spawn(20)
 			spamcheck = 0
