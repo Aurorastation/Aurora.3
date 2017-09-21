@@ -16,8 +16,10 @@
 	anchored = 1	//  don't get pushed around
 	simulated = FALSE
 
-/mob/new_player/New()
-	..()
+INITIALIZE_IMMEDIATE(/mob/new_player)
+
+/mob/new_player/Initialize()
+	. = ..()
 	dead_mob_list -= src
 
 /mob/new_player/verb/new_player_panel()

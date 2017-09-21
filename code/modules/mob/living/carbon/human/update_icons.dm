@@ -233,8 +233,8 @@ There are several things that need to be remembered:
 		qdel(stand_icon)
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
-	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"]"
-	var/obj/item/organ/eyes/eyes = internal_organs_by_name["eyes"]
+	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"][!!husk][!!fat][!!hulk][!!skeleton]"
+	var/obj/item/organ/eyes/eyes = get_eyes()
 	if(eyes)
 		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
 	else
@@ -242,29 +242,11 @@ There are several things that need to be remembered:
 
 	for(var/organ_tag in species.has_limbs)
 		var/obj/item/organ/external/part = organs_by_name[organ_tag]
-		if(!part || part.is_stump())
-			icon_key += "0"
-		else if(part.status & ORGAN_ROBOT)
-			icon_key += "2[part.model ? "-[part.model]": ""]"
-		else if(part.status & ORGAN_DEAD)
-			icon_key += "3"
-		else
-			icon_key += "1"
-		if(part)
-			icon_key += "[part.species.race_key]"
-			icon_key += "[part.dna.GetUIState(DNA_UI_GENDER)]"
-			icon_key += "[part.dna.GetUIValue(DNA_UI_SKIN_TONE)]"
-			if(part.skin_color)
-				icon_key += "[part.skin_color]"
-			if(part.body_hair && part.hair_color)
-				icon_key += "[part.hair_color]"
-			else
-				icon_key += "#000000"
+		if (!part)
+			continue
 
-			for(var/M in part.markings)
-				icon_key += "[M][part.markings[M]["color"]]"
+		icon_key += SSicon_cache.get_organ_shortcode(part)
 
-	icon_key = "[icon_key][!!husk][!!fat][!!hulk][!!skeleton]"
 	var/icon/base_icon = SSicon_cache.human_icon_cache[icon_key]
 	if (!base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
@@ -397,7 +379,7 @@ There are several things that need to be remembered:
 	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR))
 
 	var/icon/hair_icon = generate_hair_icon(has_visible_hair)
-	
+
 	// Handle light emission.
 	if (species.light_range)
 		if (has_visible_hair)
@@ -416,7 +398,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_mutations(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	var/fat
 	if(FAT in mutations)
 		fat = "fat"
@@ -465,7 +447,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/regenerate_icons()
 	if (QDELING(src))
 		return
-		
+
 	..()
 	if(transforming)		return
 
@@ -502,7 +484,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_w_uniform(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_raw[UNIFORM_LAYER] = null
 	if(check_draw_underclothing())
 		w_uniform.screen_loc = ui_iclothing
@@ -553,7 +535,7 @@ There are several things that need to be remembered:
 		//accessories
 		if (istype(w_uniform, /obj/item/clothing/under))//Prevent runtime errors with unusual objects
 			var/obj/item/clothing/under/under = w_uniform
-			if(under.accessories.len)
+			if(LAZYLEN(under.accessories))
 				if (!ovr)
 					ovr = list(standing)
 
@@ -568,7 +550,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_wear_id(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_raw[ID_LAYER] = null
 	if(wear_id)
 
@@ -589,8 +571,8 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_gloves(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
-	
+
+
 	if(check_draw_gloves())
 		var/t_state = gloves.item_state || gloves.icon_state
 
@@ -700,7 +682,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_shoes(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_raw[SHOES_LAYER] = null
 	if(check_draw_shoes())
 		var/image/standing
@@ -739,7 +721,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_s_store(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	if(s_store)
 		//s_store.auto_adapt_species(src)
 		overlays_raw[SUIT_STORE_LAYER] = image('icons/mob/belt_mirror.dmi', s_store.item_state || s_store.icon_state)
@@ -752,7 +734,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_head(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	overlays_raw[HEAD_LAYER] = null
 	if(head)
 		head.screen_loc = ui_head		//TODO
@@ -857,7 +839,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	if (istype(wear_suit, /obj/item))
 		wear_suit.screen_loc = ui_oclothing
 
@@ -889,9 +871,10 @@ There are several things that need to be remembered:
 
 		// Accessories - copied from uniform, BOILERPLATE because fuck this system.
 		var/obj/item/clothing/suit/suit = wear_suit
-		if(istype(suit) && suit.accessories.len)
+		if(istype(suit) && LAZYLEN(suit.accessories))
 			if (!ovr)
 				ovr = list(standing)
+
 			for(var/obj/item/clothing/accessory/A in suit.accessories)
 				ovr += A.get_mob_overlay()
 
@@ -910,7 +893,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_pockets(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	if(l_store)
 		l_store.screen_loc = ui_storage1	//TODO
 	if(r_store)
@@ -1020,7 +1003,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	if(handcuffed)
 		drop_r_hand()
 		drop_l_hand()
@@ -1043,7 +1026,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_legcuffed(var/update_icons=1)
 	if (QDELING(src))
 		return
-		
+
 	if(legcuffed)
 		var/image/standing
 		if(legcuffed.icon_override)
@@ -1099,7 +1082,7 @@ There are several things that need to be remembered:
 
 			overlays_raw[R_HAND_LAYER] = image(t_icon, t_state)
 
-	if(update_icons) 
+	if(update_icons)
 		update_icons()
 
 

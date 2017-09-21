@@ -14,6 +14,7 @@
 	turret_sprite_set = "laser"
 
 /obj/item/weapon/gun/energy/laser/mounted
+	name = "mounted laser carbine"
 	self_recharge = 1
 	use_external_power = 1
 	can_turret = 0

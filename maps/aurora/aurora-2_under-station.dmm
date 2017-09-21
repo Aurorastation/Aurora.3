@@ -78,7 +78,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/space,
-/area/space)
+/area/engineering/cooling)
 "n" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -112,6 +112,7 @@
 	frequency = 1379;
 	id_tag = "cooling_sensor";
 	layer = 3.3;
+	master_tag = "cooling airlock";
 	pixel_x = 12;
 	pixel_y = -25
 	},
@@ -296,6 +297,18 @@
 /obj/random/loot,
 /turf/space,
 /area/space)
+"J" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
+	},
+/turf/space,
+/area/engineering/cooling)
+"K" = (
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/engineering/cooling)
 
 (1,1,1) = {"
 a
@@ -10696,9 +10709,9 @@ a
 e
 a
 a
-h
+J
 m
-h
+K
 h
 h
 A

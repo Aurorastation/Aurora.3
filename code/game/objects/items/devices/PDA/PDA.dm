@@ -987,7 +987,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		user << "<span class='notice'>[src] does not have a pen slot.</span>"
 		return
 
-	switch (use_check(user, USE_DISALLOW_SILICONS))
+	switch (use_check(user, USE_DISALLOW_SILICONS, show_messages = FALSE))
 		if (USE_FAIL_NON_ADJACENT)
 			user << "<span class='notice'>You are too far away from [src].</span>"
 

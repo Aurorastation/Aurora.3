@@ -722,7 +722,7 @@
 		W.lit = 1
 		W.damtype = "burn"
 		W.icon_state = "match_lit"
-		processing_objects.Add(W)
+		START_PROCESSING(SSprocessing, W)
 	W.update_icon()
 	return
 

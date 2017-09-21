@@ -24,6 +24,8 @@
 	permeability_coefficient = 0.1
 	unacidable = 1
 
+	var/has_sealed_state = FALSE
+
 	var/interface_path = "hardsuit.tmpl"
 	var/ai_interface_path = "hardsuit.tmpl"
 	var/interface_title = "Hardsuit Controller"
@@ -293,6 +295,8 @@
 	// Success!
 	canremove = seal_target
 	wearer << "<font color='blue'><b>Your entire suit [canremove ? "loosens as the components relax" : "tightens around you as the components lock into place"].</b></font>"
+	if (has_sealed_state)
+		icon_state = canremove ? initial(icon_state) : "[initial(icon_state)]_sealed"
 
 	if(wearer != initiator)
 		initiator << "<font color='blue'>Suit adjustment complete. Suit is now [canremove ? "unsealed" : "sealed"].</font>"

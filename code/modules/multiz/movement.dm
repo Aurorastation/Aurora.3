@@ -35,6 +35,9 @@
 	if (eyeobj)
 		return eyeobj.zMove(direction)
 
+	if (istype(src.loc,/obj/mecha))
+		return FALSE
+
 	// Check if we can actually travel a Z-level.
 	if (!can_ztravel(direction))
 		to_chat(src, "<span class='warning'>You lack means of travel in that direction.</span>")
@@ -124,7 +127,7 @@
 		return TRUE
 
 	if(Check_Shoegrip())	//scaling hull with magboots
-		for(var/turf/simulated/T in trange(1,src))
+		for(var/turf/simulated/T in RANGE_TURFS(1,src))
 			if(T.density)
 				return TRUE
 
@@ -135,7 +138,7 @@
 	if(Allow_Spacemove()) //Checks for active jetpack
 		return TRUE
 
-	for(var/turf/simulated/T in trange(1,src)) //Robots get "magboots"
+	for(var/turf/simulated/T in RANGE_TURFS(1,src)) //Robots get "magboots"
 		if(T.density)
 			return TRUE
 

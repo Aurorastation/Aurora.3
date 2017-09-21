@@ -78,7 +78,7 @@
 		map[TRANSLATE_COORD(x+isize,y)]   \
 		)/2)
 
-	map[get_map_cell(x,y+hsize)] = round((  \
+	map[TRANSLATE_COORD(x,y+hsize)] = round((  \
 		map[TRANSLATE_COORD(x,y+isize)] + \
 		map[TRANSLATE_COORD(x,y)]              \
 		)/2)

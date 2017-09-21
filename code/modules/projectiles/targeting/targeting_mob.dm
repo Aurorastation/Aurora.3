@@ -5,7 +5,6 @@
 	set name = "Toggle Gun Mode"
 	set desc = "Begin or stop aiming."
 	set category = "IC"
-
 	if(isliving(src))
 		var/mob/living/M = src
 		if(!M.aiming)
@@ -23,7 +22,8 @@
 	aiming.cancel_aiming(no_message)
 
 /mob/living/death(gibbed,deathmessage="seizes up and falls limp...")
-	if(..())
+	. = ..()
+	if (.)
 		stop_aiming(no_message=1)
 
 /mob/living/update_canmove()

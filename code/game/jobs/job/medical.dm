@@ -27,6 +27,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/medic
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_med
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/med
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/med
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -58,48 +59,59 @@
 	bag_type = /obj/item/weapon/storage/backpack/medic
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_med
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/med
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/med
 
-	equip(var/mob/living/carbon/human/H, var/alt_title)
-		if(!H)
-			return FALSE
-		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_med(H), slot_l_ear)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/adv(H), slot_l_hand)
 
-		if(has_alt_title(H, alt_title,"Emergency Physician"))
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/fr_jacket(H), slot_wear_suit)
-		else if(has_alt_title(H, alt_title,"Surgeon"))
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/blue(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
-			H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/blue(H), slot_head)
-		else if(has_alt_title(H, alt_title,"Virologist"))
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/virologist(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(H), slot_wear_suit)
-			H.equip_to_slot_or_del(new /obj/item/clothing/mask/surgical(H), slot_wear_mask)
-			switch(H.backbag)
-				if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/virology(H), slot_back)
-				if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_vir(H), slot_back)
-				if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-		else if(has_alt_title(H, alt_title,"Nurse"))
-			if(H.gender == FEMALE)
-				if(prob(50))
-					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/nursesuit(H), slot_w_uniform)
-				else
-					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/nurse(H), slot_w_uniform)
-				H.equip_to_slot_or_del(new /obj/item/clothing/head/nursehat(H), slot_head)
+/datum/job/doctor/equip_backpack(var/mob/living/carbon/human/H, var/alt_title)
+	if(has_alt_title(H, alt_title,"Virologist"))
+		bag_type = /obj/item/weapon/storage/backpack/virology
+		satchel_type = /obj/item/weapon/storage/backpack/satchel_vir
+		duffel_type = /obj/item/weapon/storage/backpack/duffel/med
+		messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/viro
+		..()
+		bag_type = initial(bag_type)
+		satchel_type = initial(satchel_type)
+		duffel_type = initial(duffel_type)
+		messenger_bag_type = initial(messenger_bag_type)
+	else
+		..()
+
+/datum/job/doctor/equip(var/mob/living/carbon/human/H, var/alt_title)
+	if(!H)
+		return FALSE
+	H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_med(H), slot_l_ear)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/adv(H), slot_l_hand)
+
+	if(has_alt_title(H, alt_title,"Emergency Physician"))
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/fr_jacket(H), slot_wear_suit)
+	else if(has_alt_title(H, alt_title,"Surgeon"))
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/blue(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/blue(H), slot_head)
+	else if(has_alt_title(H, alt_title,"Virologist"))
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/virologist(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/virologist(H), slot_wear_suit)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/surgical(H), slot_wear_mask)
+	else if(has_alt_title(H, alt_title,"Nurse"))
+		if(H.gender == FEMALE)
+			if(prob(50))
+				H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/nursesuit(H), slot_w_uniform)
 			else
-				H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/purple(H), slot_w_uniform)
-		else if(has_alt_title(H, alt_title,"Medical Doctor"))
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
+				H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/nurse(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/nursehat(H), slot_head)
 		else
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
-
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/purple(H), slot_w_uniform)
+	else if(has_alt_title(H, alt_title,"Medical Doctor"))
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/medical(H), slot_belt)
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/pen(H), slot_s_store)
-		return TRUE
+	H.equip_to_slot_or_del(new /obj/item/device/flashlight/pen(H), slot_s_store)
+	return TRUE
 
 
 
@@ -122,6 +134,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/chemistry
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_chem
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/chem
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/chem
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -181,6 +194,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/medic
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_med
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/med
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/med
 
 	equip(var/mob/living/carbon/human/H, var/alt_title)
 		if(!H)

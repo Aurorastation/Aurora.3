@@ -5610,8 +5610,8 @@
 	id_tag = "nuke_shuttle_dock_airlock";
 	pixel_x = 0;
 	pixel_y = 30;
-	req_access = list(0);
-	req_one_access = list(13);
+	req_access = list(13);
+	req_one_access = null;
 	tag_airpump = "nuke_shuttle_dock_pump";
 	tag_chamber_sensor = "nuke_shuttle_dock_sensor";
 	tag_exterior_door = "nuke_shuttle_dock_outer";
@@ -6053,7 +6053,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "kM" = (
 /obj/machinery/power/apc{
@@ -8654,7 +8654,7 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
-	master_tag = "solar_roof_airlock";
+	master_tag = "solar_aft_airlock";
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
@@ -8884,17 +8884,18 @@
 "pV" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1379;
-	id_tag = "solar_roof_airlock";
+	id_tag = "solar_aft_airlock";
 	pixel_x = 25;
 	req_access = list(13);
-	tag_airpump = "solar_roof_pump";
-	tag_chamber_sensor = "solar_roof_sensor";
-	tag_exterior_door = "solar_roof_outer";
-	tag_interior_door = "solar_roof_inner"
+	tag_airpump = "solar_aft_pump";
+	tag_chamber_sensor = "solar_aft_sensor";
+	tag_exterior_door = "solar_aft_outer";
+	tag_interior_door = "solar_aft_inner"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
-	id_tag = "solar_roof_sensor";
+	id_tag = "solar_aft_sensor";
+	master_tag = "solar_aft_airlock";
 	pixel_x = 25;
 	pixel_y = 12
 	},
@@ -9081,11 +9082,12 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1379;
-	master_tag = "solar_roof_airlock";
+	master_tag = "solar_aft_airlock";
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = 25;
-	req_access = list(11,13)
+	req_access = list(11,13);
+	req_one_access = null
 	},
 /turf/simulated/floor/airless,
 /area/solar/starboard)
@@ -15786,6 +15788,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/machinery/ringer{
+	department = "Cargo";
+	id = "cargo_ringer";
+	pixel_x = 0;
+	pixel_y = 30;
+	req_access = list(31)
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "Dl" = (
@@ -16997,11 +17006,11 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "Fs" = (
-/obj/machinery/computer/supplycomp,
+/obj/item/modular_computer/console/preset/supply,
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "Ft" = (
-/obj/machinery/computer/security/mining,
+/obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "Fu" = (
@@ -18101,6 +18110,13 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue,
+/obj/machinery/ringer{
+	department = "Cargo";
+	id = "cargo_ringer";
+	pixel_x = 30;
+	pixel_y = 0;
+	req_access = list(31)
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "Hj" = (
@@ -19179,6 +19195,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
+"Jn" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/port)
 
 (1,1,1) = {"
 aa
@@ -42154,9 +42184,9 @@ eR
 IF
 gp
 hm
-hY
-hY
-hY
+IF
+IF
+IF
 IK
 kg
 fz
@@ -43434,7 +43464,7 @@ aa
 aa
 aa
 aa
-ey
+Jn
 eT
 fE
 gq
@@ -43691,7 +43721,7 @@ aa
 aa
 aa
 aa
-ez
+ew
 eW
 fF
 fF
@@ -43968,8 +43998,8 @@ mw
 mI
 gs
 IT
-IY
-Jg
+IT
+IT
 gs
 nU
 oj
@@ -44992,7 +45022,7 @@ lH
 jR
 jT
 mx
-IP
+IO
 jz
 mK
 IW

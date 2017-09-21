@@ -33,7 +33,7 @@
 				S.icon_state = "shield0"
 
 		M << "<span class='danger'>BANG</span>"
-		playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 5)
+		playsound(src.loc, 'sound/weapons/flashbang.ogg', 50, 1, 5)
 
 //Checking for protections
 		var/eye_safety = 0
@@ -56,7 +56,7 @@
 				//Vaurca damage 15/01/16
 			var/mob/living/carbon/human/H = M
 			if(isvaurca(H))
-				var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+				var/obj/item/organ/eyes/E = H.get_eyes()
 				if(!E)
 					return
 				usr << span("alert", "Your eyes burn with the intense light of the flash!.")
@@ -90,6 +90,7 @@
 
 		else if(get_dist(M, T) <= 5)
 			if(!ear_safety)
+				M << sound('sound/weapons/flash_ring.ogg',0,1,0,100)
 				M.Stun(8)
 				M.ear_damage += rand(0, 3)
 				M.ear_deaf = max(M.ear_deaf,10)
@@ -102,7 +103,7 @@
 //This really should be in mob not every check
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+			var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
 			if (E && E.damage >= E.min_bruised_damage)
 				M << "<span class='danger'>Your eyes start to burn badly!</span>"
 				if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))

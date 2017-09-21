@@ -41,15 +41,11 @@
 
 /datum/controller/subsystem/sunlight/proc/set_overall_light(...)
 	. = 0
-	SSlighting.force_queued = TRUE
 	for (var/thing in light_points)
 		var/atom/movable/AM = thing
 		AM.set_light(arglist(args))
 		.++
 		CHECK_TICK
-
-	if (!SSlighting.force_override)
-		SSlighting.force_queued = FALSE
 
 /datum/controller/subsystem/sunlight/proc/apply_sun_state(datum/sun_state/S)
 	log_debug("sunlight: Applying preset [S].")

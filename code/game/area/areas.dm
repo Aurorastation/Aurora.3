@@ -60,6 +60,7 @@
 	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
 	var/station_area = 0
 	var/centcomm_area = 0
+	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
 
 /area/Initialize(mapload)
 	icon_state = "white"
@@ -390,7 +391,7 @@ var/list/mob/living/forced_ambiance_list = new
 	else if(A && A.has_gravity)
 		return 1
 	else
-		if(T && SSmachinery.gravity_generators["[T.z]"] && length(SSmachinery.gravity_generators["[T.z]"]))
+		if(T && length(SSmachinery.gravity_generators))
 			return 1
 	return 0
 

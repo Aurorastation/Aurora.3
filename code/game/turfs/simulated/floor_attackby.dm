@@ -88,3 +88,9 @@
 						broken = null
 					else
 						user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
+
+/turf/simulated/floor/can_lay_cable()
+	return !flooring
+
+/turf/simulated/can_have_cabling()
+	return TRUE

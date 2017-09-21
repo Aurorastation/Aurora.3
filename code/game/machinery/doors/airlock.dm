@@ -35,6 +35,7 @@
 	var/secured_wires = 0
 	var/datum/wires/airlock/wires = null
 	var/obj/item/device/magnetic_lock/bracer = null
+	var/panel_visible_while_open = FALSE
 
 	var/open_sound_powered = 'sound/machines/airlock.ogg'
 	var/close_sound_powered = 'sound/machines/AirlockClose.ogg'
@@ -138,6 +139,7 @@
 	explosion_resistance = 5
 	opacity = 0
 	glass = 1
+	panel_visible_while_open = TRUE
 	hatch_colour = "#eaeaea"
 
 /obj/machinery/door/airlock/centcom
@@ -174,9 +176,10 @@
 	explosion_resistance = 20
 	opacity = 1
 	secured_wires = 1
-	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity //Until somebody makes better sprites.
+	assembly_type = /obj/structure/door_assembly/door_assembly_vault
 	hashatch = 0
 	maxhealth = 800
+	panel_visible_while_open = TRUE
 
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"
@@ -227,7 +230,7 @@
 	hatch_colour = "#7d7d7d"
 
 /obj/machinery/door/airlock/glass_command
-	name = "Maintenance Hatch"
+	name = "Glass Airlock"
 	icon = 'icons/obj/doors/Doorcomglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -238,7 +241,7 @@
 	hatch_colour = "#3e638c"
 
 /obj/machinery/door/airlock/glass_engineering
-	name = "Maintenance Hatch"
+	name = "Glass Airlock"
 	icon = 'icons/obj/doors/Doorengglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -249,7 +252,7 @@
 	hatch_colour = "#caa638"
 
 /obj/machinery/door/airlock/glass_security
-	name = "Maintenance Hatch"
+	name = "Glass Airlock"
 	icon = 'icons/obj/doors/Doorsecglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -260,7 +263,7 @@
 	hatch_colour = "#677c97"
 
 /obj/machinery/door/airlock/glass_medical
-	name = "Maintenance Hatch"
+	name = "Glass Airlock"
 	icon = 'icons/obj/doors/Doormedglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -289,7 +292,7 @@
 	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/glass_research
-	name = "Maintenance Hatch"
+	name = "Glass Airlock"
 	icon = 'icons/obj/doors/Doorresearchglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -301,7 +304,7 @@
 	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/glass_mining
-	name = "Maintenance Hatch"
+	name = "Glass Airlock"
 	icon = 'icons/obj/doors/Doorminingglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -312,7 +315,7 @@
 	hatch_colour = "#c29142"
 
 /obj/machinery/door/airlock/glass_atmos
-	name = "Maintenance Hatch"
+	name = "Glass Airlock"
 	icon = 'icons/obj/doors/Dooratmoglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -530,10 +533,10 @@ About the new airlock wires panel:
 		src.electrified_until = 0
 	else if(duration)	//electrify door for the given duration seconds
 		if(usr)
-			shockedby += text("\[[time_stamp()]\] - [usr](ckey:[usr.ckey])")
+			LAZYADD(shockedby, "\[[time_stamp()]\] - [usr](ckey:[usr.ckey])")
 			usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Electrified the [name] at [x] [y] [z]</font>")
 		else
-			shockedby += text("\[[time_stamp()]\] - EMP)")
+			LAZYADD(shockedby, "\[[time_stamp()]\] - EMP)")
 		message = "The door is now electrified [duration == -1 ? "permanently" : "for [duration] second\s"]."
 		src.electrified_until = duration == -1 ? -1 : world.time + SecondsToTicks(duration)
 		if (electrified_until > 0)
@@ -590,6 +593,7 @@ About the new airlock wires panel:
 	if (QDELING(src))
 		return
 	cut_overlays()
+	var/list/new_overlays = list()
 	if(density)
 		if(locked && lights && src.arePowerSystemsOn())
 			icon_state = "door_locked"
@@ -603,32 +607,36 @@ About the new airlock wires panel:
 				has_set_boltlight = FALSE
 		if(p_open || welded)
 			if(p_open)
-				add_overlay("panel_open")
+				new_overlays += "panel_open"
 			if (!(stat & NOPOWER))
 				if(stat & BROKEN)
-					add_overlay("sparks_broken")
+					new_overlays += "sparks_broken"
 				else if (health < maxhealth * 3/4)
-					add_overlay("sparks_damaged")
+					new_overlays += "sparks_damaged"
 			if(welded)
-				add_overlay("welded")
+				new_overlays += "welded"
 		else if (health < maxhealth * 3/4 && !(stat & NOPOWER))
-			add_overlay("sparks_damaged")
+			new_overlays += "sparks_damaged"
 
 		if (hatch_image)
 			if (hatchstate)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else
 				hatch_image.icon_state = hatchstyle
-			add_overlay(hatch_image)
+			new_overlays += hatch_image
 	else
-		icon_state = "door_open"
+		if(p_open && panel_visible_while_open)
+			icon_state = "o_door_open"
+		else
+			icon_state = "door_open"
+
 		if((stat & BROKEN) && !(stat & NOPOWER))
 			add_overlay("sparks_open")
 		if (has_set_boltlight)
 			set_light(0)
 			has_set_boltlight = FALSE
 
-	update_above()
+	add_overlay(new_overlays)
 
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
@@ -639,7 +647,7 @@ About the new airlock wires panel:
 				flick("o_door_opening", src)
 				update_icon()
 			else
-				flick("door_opening", src)//[stat ? "_stat":]
+				flick(stat ? "door_opening_stat" : "door_opening", src)
 				update_icon()
 		if("closing")
 			if(overlays)
@@ -649,7 +657,7 @@ About the new airlock wires panel:
 				flick("o_door_closing", src)
 				update_icon()
 			else
-				flick("door_closing", src)
+				flick(stat ? "door_closing_stat" : "door_closing", src)
 				update_icon()
 		if("spark")
 			if(density)

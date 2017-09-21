@@ -31,8 +31,8 @@
 	New()
 		..()
 
-/obj/item/weapon/reagent_containers/food/snacks/honeycomb/New()
-	..()
+/obj/item/weapon/reagent_containers/food/snacks/honeycomb/Initialize()
+	. = ..()
 	reagents.add_reagent("honey",10)
 	reagents.add_reagent("nutriment", 0.5)
 	reagents.add_reagent("sugar", 2)
@@ -47,7 +47,7 @@
 /obj/item/weapon/book/manual/hydroponics_beekeeping
 	name = "The Ins and Outs of Apiculture - A Precise Art"
 	icon_state ="bookHydroponicsBees"
-	author = "Beekeeper Nanako"
+	author = "Beekeeper Dave"
 	title = "The Ins and Outs of Apiculture - A Precise Art"
 	dat = {"<html>
 				<head>

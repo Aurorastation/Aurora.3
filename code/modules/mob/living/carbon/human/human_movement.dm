@@ -6,10 +6,12 @@
 
 	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
 
+	if (isopenturf(loc) && !has_gravity(src, loc)) //open space checks
+		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
+			return -1
+
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
-
-
 
 	var/health_deficiency = (100 - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
@@ -70,9 +72,11 @@
 	if(tally > 0 && (CE_SPEEDBOOST in chem_effects))
 		tally = max(0, tally-3)
 
+	var/turf/T = get_turf(src)
+	if(T)
+		tally += T.movement_cost
+
 	return (tally+config.human_delay)
-
-
 
 
 /mob/living/carbon/human/Allow_Spacemove(var/check_drift = 0)

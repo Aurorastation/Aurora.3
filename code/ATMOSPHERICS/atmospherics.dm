@@ -33,6 +33,7 @@ Pipelines + Other Objects -> Pipe network
 	var/global/datum/pipe_icon_manager/icon_manager
 	var/obj/machinery/atmospherics/node1
 	var/obj/machinery/atmospherics/node2
+	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
 /obj/machinery/atmospherics/New()
 	if(!icon_manager)

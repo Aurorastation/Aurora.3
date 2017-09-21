@@ -380,6 +380,7 @@
 		admins -= src
 	directory -= ckey
 	clients -= src
+	SSassets.handle_disconnect(src)
 	return ..()
 
 
@@ -491,9 +492,7 @@
 
 //send resources to the client. It's here in its own proc so we can move it around easiliy if need be
 /client/proc/send_resources()
-	spawn (10) //removing this spawn causes all clients to not get verbs.
-		//Precache the client with all other assets slowly, so as to not block other browse() calls
-		getFilesSlow(src, SSassets.cache, register_asset = FALSE)
+	SSassets.handle_connect(src)
 
 /mob/proc/MayRespawn()
 	return 0

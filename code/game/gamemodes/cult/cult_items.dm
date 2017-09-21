@@ -42,7 +42,7 @@
 
 /obj/item/weapon/melee/cultblade/pickup(mob/living/user as mob)
 	if(!iscultist(user))
-		user << "<span class='warning'>An overwhelming feeling of dread comes over you as you pick up the cultist's sword. It would be wise to be rid of this blade quickly.</span>"
+		user << "<span class='warning'>An overwhelming feeling of dread comes over you as you pick up \the [src]. It would be wise to be rid of this blade quickly.</span>"
 		user.make_dizzy(120)
 
 /obj/item/weapon/melee/cultblade/attackby(var/obj/item/I, var/mob/user)

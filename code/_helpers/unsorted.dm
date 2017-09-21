@@ -929,45 +929,57 @@ proc/is_hot(obj/item/W as obj)
 /*
 Checks if that loc and dir has a item on the wall
 */
-var/list/WALLITEMS = list(
-	"/obj/machinery/power/apc", "/obj/machinery/alarm", "/obj/item/device/radio/intercom",
-	"/obj/structure/extinguisher_cabinet", "/obj/structure/reagent_dispensers/peppertank",
-	"/obj/machinery/status_display", "/obj/machinery/requests_console", "/obj/machinery/light_switch", "/obj/effect/sign",
-	"/obj/machinery/newscaster", "/obj/machinery/firealarm", "/obj/structure/noticeboard", "/obj/machinery/door_control",
-	"/obj/machinery/computer/security/telescreen", "/obj/machinery/embedded_controller/radio/simple_vent_controller",
-	"/obj/item/weapon/storage/secure/safe", "/obj/machinery/door_timer", "/obj/machinery/flasher", "/obj/machinery/keycard_auth",
-	"/obj/structure/mirror", "/obj/structure/closet/fireaxecabinet", "/obj/machinery/computer/security/telescreen/entertainment"
-	)
+var/list/wall_items = typecacheof(list(
+	/obj/machinery/power/apc,
+	/obj/machinery/alarm,
+	/obj/item/device/radio/intercom,
+	/obj/structure/extinguisher_cabinet, 
+	/obj/structure/reagent_dispensers/peppertank,
+	/obj/machinery/status_display, 
+	/obj/machinery/requests_console, 
+	/obj/machinery/light_switch,
+	/obj/machinery/newscaster,
+	/obj/machinery/firealarm,
+	/obj/structure/noticeboard,
+	/obj/machinery/computer/security/telescreen,
+	/obj/machinery/embedded_controller/radio/airlock,
+	/obj/item/weapon/storage/secure/safe,
+	/obj/machinery/door_timer,
+	/obj/machinery/flasher,
+	/obj/machinery/keycard_auth,
+	/obj/structure/mirror,
+	/obj/structure/fireaxecabinet,
+	/obj/machinery/computer/security/telescreen/entertainment,
+	/obj/machinery/station_map,
+	/obj/structure/sign
+))
+
 /proc/gotwallitem(loc, dir)
 	for(var/obj/O in loc)
-		for(var/item in WALLITEMS)
-			if(istype(O, text2path(item)))
-				//Direction works sometimes
-				if(O.dir == dir)
-					return 1
+		if (is_type_in_typecache(O, global.wall_items))
+			//Direction works sometimes
+			if(O.dir == dir)
+				return 1
 
-				//Some stuff doesn't use dir properly, so we need to check pixel instead
-				switch(dir)
-					if(SOUTH)
-						if(O.pixel_y > 10)
-							return 1
-					if(NORTH)
-						if(O.pixel_y < -10)
-							return 1
-					if(WEST)
-						if(O.pixel_x > 10)
-							return 1
-					if(EAST)
-						if(O.pixel_x < -10)
-							return 1
-
+			//Some stuff doesn't use dir properly, so we need to check pixel instead
+			switch(dir)
+				if(SOUTH)
+					if(O.pixel_y > 10)
+						return 1
+				if(NORTH)
+					if(O.pixel_y < -10)
+						return 1
+				if(WEST)
+					if(O.pixel_x > 10)
+						return 1
+				if(EAST)
+					if(O.pixel_x < -10)
+						return 1
 
 	//Some stuff is placed directly on the wallturf (signs)
 	for(var/obj/O in get_step(loc, dir))
-		for(var/item in WALLITEMS)
-			if(istype(O, text2path(item)))
-				if(O.pixel_x == 0 && O.pixel_y == 0)
-					return 1
+		if (is_type_in_typecache(O, global.wall_items) && O.pixel_x == 0 && O.pixel_y == 0)
+			return 1
 	return 0
 
 /proc/format_text(text)
@@ -1110,27 +1122,40 @@ var/list/WALLITEMS = list(
 // Checks if user can use this object. Set use_flags to customize what checks are done.
 // Returns 0 if they can use it, a value representing why they can't if not.
 // Flags are in `code/__defines/misc.dm`
-/atom/proc/use_check(mob/user, use_flags = 0)
+/atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
 	. = 0
 	if (NOT_FLAG(USE_ALLOW_NONLIVING) && !isliving(user))
+		// No message for ghosts.
 		return USE_FAIL_NONLIVING
 
 	if (NOT_FLAG(USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
+		if (show_messages)
+			user << "<span class='notice'>You're too far away from [src] to do that.</span>"
 		return USE_FAIL_NON_ADJACENT
 
 	if (NOT_FLAG(USE_ALLOW_DEAD) && user.stat == DEAD)
+		if (show_messages)
+			user << "<span class='notice'>How do you expect to do that when you're dead?</span>"
 		return USE_FAIL_DEAD
 
 	if (NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
+		if (show_messages)
+			user << "<span class='notice'>You cannot do that in your current state.</span>"
 		return USE_FAIL_INCAPACITATED
 
 	if (NOT_FLAG(USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
+		if (show_messages)
+			user << "<span class='notice'>You don't know how to operate [src].</span>"
 		return USE_FAIL_NON_ADV_TOOL_USR
 
 	if (HAS_FLAG(USE_DISALLOW_SILICONS) && issilicon(user))
+		if (show_messages)
+			user << "<span class='notice'>How do you propose doing that without hands?</span>"
 		return USE_FAIL_IS_SILICON
 
 	if (HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
+		if (show_messages)
+			user << "<span class='notice'>You need to be holding [src] to do that.</span>"
 		return USE_FAIL_NOT_IN_USER
 
 #undef NOT_FLAG

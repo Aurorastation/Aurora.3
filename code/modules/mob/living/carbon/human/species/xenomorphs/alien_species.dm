@@ -13,6 +13,7 @@
 	siemens_coefficient = 0
 	gluttonous = TRUE
 	mouth_size = 15	// Should be larger than any human-type.
+	allowed_eat_types = TYPE_ORGANIC | TYPE_SYNTHETIC | TYPE_HUMANOID
 	mob_size = 14
 	fall_mod = 0
 

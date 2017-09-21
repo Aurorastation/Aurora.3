@@ -197,16 +197,16 @@
 	return
 
 /datum/reagent/butanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(isvaurca(M))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
+	if (alien == IS_VAURCA)
 		M.adjustToxLoss(removed * (strength / 100))
 	else
 		M.nutrition += nutriment_factor * removed
 
-	if(alien == IS_DIONA)
-		return //Diona can gain nutrients, but don't get drunk or suffer other effects
-
-	if(isunathi(M))
-		ingest_met = initial(ingest_met)*3 //Unathi digest butanol much faster
+	switch (alien)
+		if (IS_DIONA)
+			return
+		if (IS_UNATHI)
+			ingest_met = initial(ingest_met)*3
 
 	var/quantity = (strength / 100) * removed
 	M.intoxication += quantity

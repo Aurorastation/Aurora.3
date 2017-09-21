@@ -9,12 +9,13 @@
 	var/input_power_multiplier = 1
 
 	component_types = list(
-		///obj/item/weapon/circuitboard/tesla_coil,
+		/obj/item/weapon/circuitboard/tesla_coil,
 		/obj/item/weapon/stock_parts/capacitor
 	)
 
 /obj/machinery/power/tesla_coil/RefreshParts()
 	var/power_multiplier = 0
+
 	for(var/obj/item/weapon/stock_parts/capacitor/C in component_parts)
 		power_multiplier += C.rating
 	input_power_multiplier = power_multiplier
@@ -82,3 +83,9 @@
 
 /obj/machinery/power/grounding_rod/tesla_act(var/power)
 	flick("coil_shock_1", src)
+
+/obj/item/weapon/circuitboard/tesla_coil
+	name = "tesla coil circuitry"
+	desc = "The circuitboard for a tesla coil."
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	req_components = list("/obj/item/weapon/stock_parts/capacitor" = 1)

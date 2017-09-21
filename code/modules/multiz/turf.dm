@@ -64,7 +64,6 @@
 /turf/simulated/open/Entered(atom/movable/mover)
 	..()
 	ADD_FALLING_ATOM(mover)
-	update_icon()
 
 // Override to deny a climber exit if they're set to adhere to CLIMBER_NO_EXIT
 /turf/simulated/open/Exit(atom/movable/mover, atom/newloc)
@@ -78,6 +77,7 @@
 
 // Remove from climbers just in case.
 /turf/simulated/open/Exited(atom/movable/mover, atom/newloc)
+	..()
 	LAZYREMOVE(climbers, mover)
 
 /turf/simulated/open/Destroy()
@@ -94,8 +94,7 @@
 
 	if (below)
 		below.above = null
-
-	below = null
+		below = null
 
 	LAZYCLEARLIST(climbers)
 	UNSETEMPTY(climbers)
@@ -107,7 +106,7 @@
 	return TRUE
 
 /**
- * Used to check wether or not the specific open turf eventually leads into spess.
+ * Used to check whether or not the specific open turf eventually leads into spess.
  *
  * @return	TRUE if the turfs/holes eventually lead into space. FALSE otherwise.
  */
@@ -169,6 +168,7 @@
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
 	SSopenturf.openspace_turfs += src
+	shadower = new(src)
 	update()
 
 /**

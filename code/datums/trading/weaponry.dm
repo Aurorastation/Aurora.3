@@ -97,7 +97,9 @@
 		/obj/item/weapon/gun/projectile/shotgun/improvised = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/energy/retro                  = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/revolver/derringer = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/pirate             = TRADER_THIS_TYPE
+		/obj/item/weapon/gun/projectile/pirate             = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/contender          = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/revolver/lemat     = TRADER_THIS_TYPE
 	)
 
 

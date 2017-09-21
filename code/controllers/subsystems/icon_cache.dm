@@ -52,8 +52,16 @@
 	var/list/human_underwear_cache = list()
 	var/list/human_undershirt_cache = list()
 	var/list/human_socks_cache = list()
+	var/list/organ_keymap = list()
+	var/current_organ_keymap_idex = 1
 	// This is an assoc list of all icon states in `icons/mob/collar.dmi`, used by human update-icons.
 	var/list/collar_states
+	var/list/uniform_states
+
+	// This is for the kitty ears item.
+	var/list/kitty_ear_cache = list()
+
+	var/list/ao_cache = list()
 
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)
@@ -62,3 +70,18 @@
 	collar_states = list()
 	for (var/i in icon_states('icons/mob/collar.dmi'))
 		collar_states[i] = TRUE
+
+/datum/controller/subsystem/icon_cache/proc/get_organ_shortcode(obj/item/organ/external/organ)
+	if (QDELETED(organ))
+		return null
+
+	var/key = organ.get_mob_cache_key(FALSE)
+	. = organ_keymap[key]
+	if (!.)
+		organ_keymap[key] = "organ[current_organ_keymap_idex++]"
+		. = organ_keymap[key]
+
+/datum/controller/subsystem/icon_cache/proc/setup_uniform_mappings()
+	uniform_states = list()
+	for (var/i in icon_states('icons/mob/uniform.dmi'))
+		uniform_states[i] = TRUE
