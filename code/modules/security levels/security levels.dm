@@ -23,7 +23,7 @@
 			level = SEC_LEVEL_DELTA
 
 	//Will not be announced if you try to set to the same level as it already is
-	if(level >= SEC_LEVEL_GREEN && level <= SEC_LEVEL_YELLOW && level != security_level)
+	if(level >= SEC_LEVEL_GREEN && level <= SEC_LEVEL_DELTA && level != security_level)
 		switch(level)
 			if(SEC_LEVEL_GREEN)
 				security_announcement_down.Announce("[config.alert_desc_green]", "Attention! Security level lowered to green.")
