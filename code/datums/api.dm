@@ -879,15 +879,15 @@ proc/api_update_command_database()
 	if(!reportannounce)
 		reportannounce = 1
 
-	//Send the message to the communications consoles
-	post_comm_message("[command_name()] Update", reportbody)
-
 	//Set the report footer for CCIA Announcements
 	if (reporttype == "ccia")
 		if (reportsender)
 			reportbody += "<br><br>- [reportsender], Central Command Internal Affairs Agent, [commstation_name()]"
 		else
 			reportbody += "<br><br>- CCIAAMS, [commstation_name()]"
+
+	//Send the message to the communications consoles
+	post_comm_message(reporttitle, reportbody)
 
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
