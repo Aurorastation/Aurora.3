@@ -98,12 +98,6 @@
 	if(pin)
 		pin = new pin(src)
 
-/obj/item/weapon/gun/examine(mob/user)
-	..()
-	if(pin)
-		user << "It has [pin] installed."
-	else
-		user << "It doesn't have a firing pin installed, and won't fire."
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
 //Otherwise, if you want handle_click_empty() to be called, check in consume_next_projectile() and return null there.
@@ -571,7 +565,14 @@
 	else
 		to_chat(user, "<span class='warning'>[src]'s trigger is locked. This weapon doesn't have a firing pin installed!</span>")
 	return 0
-	
+
+/obj/item/weapon/gun/examine(mob/user)
+	..()
+	if(pin)
+		user << "It has [pin] installed."
+	else
+		user << "It doesn't have a firing pin installed, and won't fire."
+
 obj/item/weapon/gun/Destroy()
 	if (istype(pin))
 		QDEL_NULL(pin)

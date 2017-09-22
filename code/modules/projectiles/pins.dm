@@ -1,3 +1,15 @@
+/*/////////////////////////
+Alright boys, Firing pins. hopefully with minimal shitcode.
+"pin_auth(mob/living/user)" is the check to see if it fires, put the snowflake code here. return one to fire, zero to flop. ezpz
+
+Firing pins as a rule can't be removed without replacing them, blame a really shitty mechanism for it by NT or something idk, this is to stop people from just taking pins from like a capgun or something.
+*/
+
+
+
+
+
+
 /obj/item/device/firing_pin
 	name = "electronic firing pin"
 	desc = "A small authentication device, to be inserted into a firearm receiver to allow operation. NT safety regulations require all new designs to incorporate one."
@@ -73,7 +85,7 @@
 	desc = "A small enchanted shard which allows magical weapons to fire."
 
 
-// Test pin, works only near firing range. well it should but doesnt for some reason reee
+// Test pin, works only near firing range.
 /obj/item/device/firing_pin/test_range
 	name = "test-range firing pin"
 	desc = "This safety firing pin allows weapons to be fired within proximity to a firing range."
@@ -109,7 +121,7 @@
 	req_implant = /obj/item/weapon/implant/loyalty
 
 // Honk pin, clown's joke item.
-// Can replace other pins. Replace a pin in cap's laser for extra fun!
+// Can replace other pins. Replace a pin in cap's laser for extra fun! This is generally adminbus only unless someone thinks of a use for it.
 /obj/item/device/firing_pin/clown
 	name = "hilarious firing pin"
 	desc = "Advanced clowntech that can convert any firearm into a far more useful object."
