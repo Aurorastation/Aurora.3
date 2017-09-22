@@ -66,16 +66,18 @@
 	action_button_name = "Toggle Visor"
 
 /obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
-	if(user.canmove && !user.stat)
-		if(src.icon_state == initial(icon_state))
-			src.icon_state = "[icon_state]-up"
-			user << "You raise the visor on \the [src]."
-			body_parts_covered = HEAD
-		else
-			src.icon_state = initial(icon_state)
-			user << "You lower the visor on \the [src]."
-			body_parts_covered = HEAD|FACE|EYES
-		update_clothing_icon()
+	if (use_check(user))
+		return
+
+	if(src.icon_state == initial(icon_state))
+		src.icon_state = "[icon_state]-up"
+		user << "You raise the visor on \the [src]."
+		body_parts_covered = HEAD
+	else
+		src.icon_state = initial(icon_state)
+		user << "You lower the visor on \the [src]."
+		body_parts_covered = HEAD|FACE|EYES
+	update_clothing_icon()
 
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"

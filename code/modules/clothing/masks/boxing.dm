@@ -9,19 +9,21 @@
 	action_button_name = "Toggle Face Concealing"
 
 /obj/item/clothing/mask/balaclava/attack_self(mob/user as mob)
-	if(user.canmove && !user.stat)
-		if(src.icon_state == initial(icon_state))
-			src.icon_state = "[icon_state]_r"
-			user << "You roll up \the [src]."
-			body_parts_covered = HEAD
-			flags_inv = BLOCKHAIR
-		else
-			src.icon_state = initial(icon_state)
-			user << "You lower \the [src]."
-			flags_inv = HIDEFACE|BLOCKHAIR
-			body_parts_covered = HEAD|FACE|EYES
+	if (use_check(user))
+		return
 
-		update_clothing_icon()
+	if(src.icon_state == initial(icon_state))
+		src.icon_state = "[icon_state]_r"
+		user << "You roll up \the [src]."
+		body_parts_covered = HEAD
+		flags_inv = BLOCKHAIR
+	else
+		src.icon_state = initial(icon_state)
+		user << "You lower \the [src]."
+		flags_inv = HIDEFACE|BLOCKHAIR
+		body_parts_covered = HEAD|FACE|EYES
+
+	update_clothing_icon()
 
 /obj/item/clothing/mask/balaclava/tactical
 	name = "green balaclava"
