@@ -2,8 +2,8 @@
 //0 = code green
 //1 = code blue
 //2 = code red
-//3 = code delta
-//4 = code yellow
+//3 = code yellow
+//4 = code delta
 
 //config.alert_desc_blue_downto
 /var/datum/announcement/priority/security/security_announcement_up = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/misc/notice1.ogg'))
@@ -17,10 +17,10 @@
 			level = SEC_LEVEL_BLUE
 		if("red")
 			level = SEC_LEVEL_RED
-		if("delta")
-			level = SEC_LEVEL_DELTA
 		if("yellow")
 			level = SEC_LEVEL_YELLOW
+		if("delta")
+			level = SEC_LEVEL_DELTA
 
 	//Will not be announced if you try to set to the same level as it already is
 	if(level >= SEC_LEVEL_GREEN && level <= SEC_LEVEL_YELLOW && level != security_level)
