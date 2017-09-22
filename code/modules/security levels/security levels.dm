@@ -3,6 +3,7 @@
 //1 = code blue
 //2 = code red
 //3 = code delta
+//4 = code yellow
 
 //config.alert_desc_blue_downto
 /var/datum/announcement/priority/security/security_announcement_up = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/misc/notice1.ogg'))
@@ -18,9 +19,11 @@
 			level = SEC_LEVEL_RED
 		if("delta")
 			level = SEC_LEVEL_DELTA
+		if("yellow")
+			level = SEC_LEVEL_YELLOW
 
 	//Will not be announced if you try to set to the same level as it already is
-	if(level >= SEC_LEVEL_GREEN && level <= SEC_LEVEL_DELTA && level != security_level)
+	if(level >= SEC_LEVEL_GREEN && level <= SEC_LEVEL_YELLOW && level != security_level)
 		switch(level)
 			if(SEC_LEVEL_GREEN)
 				security_announcement_down.Announce("[config.alert_desc_green]", "Attention! Security level lowered to green.")
@@ -32,6 +35,10 @@
 				else
 					security_announcement_down.Announce("[config.alert_desc_blue_downto]", "Attention! Security level lowered to blue.")
 				security_level = SEC_LEVEL_BLUE
+				SSnightlight.end_temp_disable()
+			if(SEC_LEVEL_YELLOW)
+				security_announcement_up.Announce("[config.alert_desc_yellow_to]", "Attention! Biohazard status declared!")
+				security_level = SEC_LEVEL_YELLOW
 				SSnightlight.end_temp_disable()
 			if(SEC_LEVEL_RED)
 				if(security_level < SEC_LEVEL_RED)
@@ -61,6 +68,8 @@
 			return "green"
 		if(SEC_LEVEL_BLUE)
 			return "blue"
+		if(SEC_LEVEL_YELLOW)
+			return "yellow"
 		if(SEC_LEVEL_RED)
 			return "red"
 		if(SEC_LEVEL_DELTA)
@@ -72,6 +81,8 @@
 			return "green"
 		if(SEC_LEVEL_BLUE)
 			return "blue"
+		if(SEC_LEVEL_YELLOW)
+			return "yellow"
 		if(SEC_LEVEL_RED)
 			return "red"
 		if(SEC_LEVEL_DELTA)
@@ -82,6 +93,8 @@
 		if("green")
 			return SEC_LEVEL_GREEN
 		if("blue")
+			return SEC_LEVEL_BLUE
+		if("yellow")
 			return SEC_LEVEL_BLUE
 		if("red")
 			return SEC_LEVEL_RED

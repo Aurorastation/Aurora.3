@@ -67,6 +67,7 @@
 	data["current_security_level_title"] = num2seclevel(security_level)
 
 	data["def_SEC_LEVEL_DELTA"] = SEC_LEVEL_DELTA
+	data["def_SEC_LEVEL_YELLOW"] = SEC_LEVEL_YELLOW
 	data["def_SEC_LEVEL_BLUE"] = SEC_LEVEL_BLUE
 	data["def_SEC_LEVEL_GREEN"] = SEC_LEVEL_GREEN
 
@@ -207,7 +208,7 @@
 					var/old_level = security_level
 					if(!current_level) current_level = SEC_LEVEL_GREEN
 					if(current_level < SEC_LEVEL_GREEN) current_level = SEC_LEVEL_GREEN
-					if(current_level > SEC_LEVEL_BLUE) current_level = SEC_LEVEL_BLUE //Cannot engage delta with this
+					if(current_level > SEC_LEVEL_YELLOW) current_level = SEC_LEVEL_BLUE //Cannot engage delta with this
 					set_security_level(current_level)
 					if(security_level != old_level)
 						log_game("[key_name(usr)] has changed the security level to [get_security_level()].",ckey=key_name(usr))
@@ -217,6 +218,8 @@
 								feedback_inc("alert_comms_green",1)
 							if(SEC_LEVEL_BLUE)
 								feedback_inc("alert_comms_blue",1)
+							if(SEC_LEVEL_YELLOW)
+								feedback_inc("alert_comms_yellow",1)
 			else
 				usr << "You press button, but red light flashes and nothing happens." //This should never happen
 			current_status = STATE_DEFAULT
