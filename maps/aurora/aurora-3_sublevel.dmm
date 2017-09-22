@@ -9872,7 +9872,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "sd" = (
-/obj/machinery/computer/communications,
+/obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "se" = (
