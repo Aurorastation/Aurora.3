@@ -236,6 +236,7 @@
 	burst_delay = 1
 	fire_delay = 10
 	dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
+	pin = null
 
 	firemodes = list(
 		list(mode_name="concentrated burst", burst=10, burst_delay = 1, fire_delay = 10, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
