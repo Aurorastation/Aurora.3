@@ -62,8 +62,6 @@
 	var/turf/T
 	var/Tthing
 	var/list/Tcorners
-	var/Sz = source_turf.z
-	var/corner_height = LIGHTING_HEIGHT
 
 	// We don't need no damn vis checks!
 	for (Tthing in RANGE_TURFS(Ceiling(light_range), source_turf))
@@ -126,7 +124,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_BY_HEIGHT_SIMPLE
+			APPLY_CORNER_SIMPLE(C)
 	else
 		L = corners - effect_str
 		for (thing in L)
@@ -136,7 +134,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_BY_HEIGHT_SIMPLE
+			APPLY_CORNER_SIMPLE(C)
 
 		for (thing in corners - L)
 			C = thing
@@ -144,7 +142,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_BY_HEIGHT_SIMPLE
+			APPLY_CORNER_SIMPLE(C)
 
 	L = effect_str - corners
 	for (thing in L)

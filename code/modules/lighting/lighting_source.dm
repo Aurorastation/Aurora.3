@@ -236,15 +236,13 @@
 	var/Sx = source_turf.x
 	var/Sy = source_turf.y
 	var/Sz = source_turf.z
-	var/height = LIGHTING_HEIGHT
-
-	if (C.z != Sz)
-		height = CALCULATE_CORNER_HEIGHT(C.z, Sz)
 
 	if (skip_falloff)
-		APPLY_CORNER_SIMPLE(C, height)
+		APPLY_CORNER_SIMPLE(C)
 	else
+		var/height = C.z == Sz ? LIGHTING_HEIGHT : CALCULATE_CORNER_HEIGHT(C.z, Sz)
 		APPLY_CORNER(C, now, Sx, Sy, height)
+
 	UNSETEMPTY(effect_str)
 
 // If you update this, update the equivalent proc in lighting_source_novis.dm.
