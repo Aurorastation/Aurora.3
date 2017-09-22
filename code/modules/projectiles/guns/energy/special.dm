@@ -12,7 +12,6 @@
 	charge_cost = 300
 	max_shots = 10
 	projectile_type = /obj/item/projectile/ion
-	pin = null
 	can_turret = 1
 	turret_sprite_set = "ion"
 
@@ -301,7 +300,6 @@
 	pin = null
 	can_turret = 1
 	turret_sprite_set = "laser"
-
 	firemodes = list(
 		list(mode_name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
 		list(mode_name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5)

@@ -5,18 +5,13 @@ Alright boys, Firing pins. hopefully with minimal shitcode.
 Firing pins as a rule can't be removed without replacing them, blame a really shitty mechanism for it by NT or something idk, this is to stop people from just taking pins from like a capgun or something.
 */
 
-
-
-
-
-
 /obj/item/device/firing_pin
 	name = "electronic firing pin"
 	desc = "A small authentication device, to be inserted into a firearm receiver to allow operation. NT safety regulations require all new designs to incorporate one."
 	icon = 'icons/obj/firingpins.dmi'
 	icon_state = "firing_pin"
 	item_state = "pen"
-	origin_tech = "materials=2;combat=4"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	flags = CONDUCT
 	w_class = 1
 	attack_verb = list("poked")
@@ -54,11 +49,11 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 		emagged = TRUE
 		to_chat(user, "<span class='notice'>You override the authentication mechanism.</span>")
 
-/obj/item/device/firing_pin/proc/gun_insert(mob/living/user/U, obj/item/weapon/gun/G)
+/obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/weapon/gun/G)
 	gun = G
 	forceMove(gun)
 	gun.pin = src
-	U.drop_from_inventory
+	user.drop_from_inventory(src)
 	return
 
 /obj/item/device/firing_pin/proc/gun_remove(mob/living/user)
@@ -79,11 +74,11 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 			qdel(gun)
 
 
-
+//only used in wizard staffs/wands. 
 /obj/item/device/firing_pin/magic
 	name = "magic crystal shard"
 	desc = "A small enchanted shard which allows magical weapons to fire."
-
+	icon_state = "firing_pin_wizwoz"
 
 // Test pin, works only near firing range.
 /obj/item/device/firing_pin/test_range
@@ -91,7 +86,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	desc = "This safety firing pin allows weapons to be fired within proximity to a firing range."
 	fail_message = "<span class='warning'>TEST RANGE CHECK FAILED.</span>"
 	pin_removeable = 1
-	origin_tech = "combat=2;materials=2"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 
 /obj/item/device/firing_pin/test_range/pin_auth(mob/living/user)
 	var/area/A = get_area(src)

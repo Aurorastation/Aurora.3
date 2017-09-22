@@ -42,7 +42,6 @@
 	var/reliability = 95
 	pin = null
 	turret_sprite_set = "nuclear"
-
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg')
@@ -95,9 +94,9 @@
 /obj/item/weapon/gun/energy/gun/nuclear/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	switch(current_mode.name)
-		if("stun") 
+		if("stun")
 			add_overlay("nucgun-stun")
-		if("lethal") 
+		if("lethal")
 			add_overlay("nucgun-kill")
 /*
 /obj/item/weapon/gun/energy/gun/nuclear/emp_act(severity)
