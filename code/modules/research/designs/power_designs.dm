@@ -57,7 +57,7 @@
 	sort_string = "DAAAD"
 
 /datum/design/item/powercell/device
-	name = "device-cell"
+	name = "device"
 	build_type = PROTOLATHE | MECHFAB
 	id = "device_cell"
 	req_tech = list(TECH_POWER = 1)
