@@ -17,7 +17,7 @@
 			flags_inv = BLOCKHAIR
 		else
 			src.icon_state = initial(icon_state)
-			user << "You lower the \the [src]."
+			user << "You lower \the [src]."
 			flags_inv = HIDEFACE|BLOCKHAIR
 			body_parts_covered = HEAD|FACE|EYES
 
