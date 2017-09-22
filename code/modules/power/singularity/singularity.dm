@@ -39,6 +39,7 @@
 
 	..()
 	START_PROCESSING(SScalamity, src)
+	SScalamity.singularities += src
 	for(var/obj/machinery/power/singularity_beacon/singubeacon in SSmachinery.processing_machines)
 		if(singubeacon.active)
 			target = singubeacon
@@ -46,6 +47,7 @@
 
 /obj/singularity/Destroy()
 	STOP_PROCESSING(SScalamity, src)
+	SScalamity.singularities -= src
 	return ..()
 
 /obj/singularity/attack_hand(mob/user as mob)

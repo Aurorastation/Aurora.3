@@ -29,6 +29,9 @@
 	supernatural = 1
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
+	tameable = FALSE
+
 	var/nullblock = 0
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
@@ -36,6 +39,7 @@
 	hunger_enabled = 0
 	var/list/construct_spells = list()
 	var/can_repair = 0
+
 
 /mob/living/simple_animal/construct/cultify()
 	return

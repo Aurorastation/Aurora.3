@@ -29,46 +29,46 @@ var/global/datum/robolimb/basic_robolimb
 	var/paintable = 0 //tired of istype exceptions. bullshirt to find, and by god do i know it after this project.
 
 /datum/robolimb/bishop
-	company = "Bishop Cybernetics"
-	desc = "This limb has a white polymer casing with blue holo-displays."
+	company = PROSTHETIC_BC
+	desc = "This limb is coated in a brilliant silver illuminated from the inside with blue status lights."
 	icon = 'icons/mob/human_races/cyberlimbs/bishop.dmi'
 
 /datum/robolimb/hesphaistos
-	company = "Hephaestus Industries"
-	desc = "This limb has a militaristic black and green casing with gold stripes."
+	company = PROSTHETIC_HI
+	desc = "This limb is covered in thick plating coated with a militaristic olive drab."
 	icon = 'icons/mob/human_races/cyberlimbs/hesphaistos.dmi'
 
 /datum/robolimb/zenghu
-	company = "Zeng-Hu Pharmaceuticals"
-	desc = "This limb has a rubbery fleshtone covering with visible seams."
+	company = PROSTHETIC_ZH
+	desc = "This limb has sleek white plating over a graphene-based nanofiber weave."
 	icon = 'icons/mob/human_races/cyberlimbs/zenghu.dmi'
 
 /datum/robolimb/xion
-	company = "Xion Manufacturing Group"
-	desc = "This limb has a minimalist black and red casing."
+	company = PROSTHETIC_XMG
+	desc = "This limb has a minimalist black and grey casing with exposed orange wiring channels."
 	icon = 'icons/mob/human_races/cyberlimbs/xion.dmi'
 
 /datum/robolimb/ipc
-	company = "Hephaestus Integrated Limb"
+	company = PROSTHETIC_IPC
 	desc = "This limb is simple and functional; no effort has been made to make it look human."
 	icon = 'icons/mob/human_races/r_machine.dmi'
 	unavailable_at_chargen = 1
 	paintable = 1
 
 /datum/robolimb/industrial
-	company = "Hephaestus Industrial Limb"
+	company = PROSTHETIC_IND
 	desc = "This limb is more robust than the standard Hephaestus Integrated Limb, and is better suited for industrial machinery."
 	icon = 'icons/mob/human_races/r_industrial.dmi'
 	unavailable_at_chargen = 1
 
 /datum/robolimb/terminator
-	company = "Hephaestus Vulcanite Limb"
+	company = PROSTHETIC_HK
 	desc = "A ludicrously expensive and EMP shielded component, these types of limbs are best suited for highly specialized cyborgs."
 	icon = 'icons/mob/human_races/r_terminator.dmi'
 	unavailable_at_chargen = 1
 
 /datum/robolimb/human
-	company = "Human Synthskin"
+	company = PROSTHETIC_SYNTHSKIN
 	desc = "This limb is designed to mimic the Human form. It does so with moderate success."
 	icon = 'icons/mob/human_races/r_human.dmi'
 	species_can_use = list("Human")

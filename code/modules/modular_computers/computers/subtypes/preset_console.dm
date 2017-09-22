@@ -59,7 +59,12 @@
 	_app_preset_name = "civilian"
 	enrolled = 1
 
-ERT
+// Supply
+/obj/item/modular_computer/console/preset/supply/
+	_app_preset_name = "supply"
+	enrolled = 1
+
+// ERT
 /obj/item/modular_computer/console/preset/ert/install_default_hardware()
 	..()
 	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
@@ -78,6 +83,18 @@ ERT
 	enrolled = 2
 
 /obj/item/modular_computer/console/preset/mercenary/install_default_hardware()
+	..()
+	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
+	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+
+
+// Merchant
+/obj/item/modular_computer/console/preset/merchant
+	_app_preset_name = "merchant"
+	enrolled = 2
+
+/obj/item/modular_computer/console/preset/merchant/install_default_hardware()
 	..()
 	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
 	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)

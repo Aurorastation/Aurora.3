@@ -33,9 +33,9 @@
 	path = /obj/item/weapon/plastique
 
 /datum/uplink_item/item/tools/heavy_vest
-	name = "Heavy Armor Vest"
+	name = "Heavy Armor Kit"
 	item_cost = 4
-	path = /obj/item/clothing/suit/storage/vest/merc
+	path = /obj/item/weapon/storage/box/syndie_kit/armor
 
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
@@ -93,7 +93,7 @@
 	name = "Hacked Supply Beacon (DANGER!)"
 	item_cost = 14
 	path = /obj/item/supply_beacon
-	
+
 /datum/uplink_item/item/tools/advancedpinpointer
 	name = "Advanced pinpointer"
 	item_cost = 15

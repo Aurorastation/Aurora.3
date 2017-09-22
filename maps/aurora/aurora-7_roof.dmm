@@ -2760,10 +2760,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "fC" = (
+/obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "fD" = (
@@ -3665,6 +3666,36 @@
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"im" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"in" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"io" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
@@ -28180,7 +28211,7 @@ aa
 aa
 aa
 aa
-ae
+io
 ah
 ah
 ah
@@ -28200,9 +28231,9 @@ aa
 aa
 ih
 ii
-ij
-ik
-il
+ii
+ii
+ii
 ag
 ag
 ag
@@ -28691,9 +28722,9 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
+im
+ii
+in
 fD
 aa
 aa

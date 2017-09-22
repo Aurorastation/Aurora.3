@@ -211,9 +211,10 @@
 							continue
 
 						success = TRUE
-						S.handle_item_insertion(I, 1)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
+						S.handle_item_insertion_deferred(I, user)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
 						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
 
+					S.handle_storage_deferred(user)
 					if(success && !failure)
 						user << "<span class='notice'>You put everything in [S].</span>"
 					else if(success)
@@ -292,7 +293,7 @@ var/list/global/slot_flags_enumeration = list(
 //If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
 //Set disable_warning to 1 if you wish it to not give you outputs.
 //Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
-/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = 0)
+/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
 	if(!slot) return 0
 	if(!M) return 0
 
@@ -318,7 +319,7 @@ var/list/global/slot_flags_enumeration = list(
 
 	//Next check if the slot is accessible.
 	var/mob/_user = disable_warning? null : H
-	if(!H.slot_is_accessible(slot, src, _user))
+	if(!bypass_blocked_check && !H.slot_is_accessible(slot, src, _user))
 		return 0
 
 	//Lastly, check special rules for the desired slot.
@@ -374,7 +375,7 @@ var/list/global/slot_flags_enumeration = list(
 					H << "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>"
 				return 0
 			var/obj/item/clothing/under/uniform = H.w_uniform
-			if(uniform.accessories.len && !uniform.can_attach_accessory(src))
+			if(LAZYLEN(uniform.accessories) && !uniform.can_attach_accessory(src))
 				if (!disable_warning)
 					H << "<span class='warning'>You already have an accessory of this type attached to your [uniform].</span>"
 				return 0
@@ -492,9 +493,7 @@ var/list/global/slot_flags_enumeration = list(
 		user << "<span class='warning'>You cannot locate any eyes on [M]!</span>"
 		return
 
-	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
-	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
-	msg_admin_attack("[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M)) //BS12 EDIT ALG
+	admin_attack_log(user, M, "attacked [key_name(M)] with [src]", "was attacked by [key_name(user)] using \a [src]", "used \a [src] to eyestab")
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
@@ -510,18 +509,17 @@ var/list/global/slot_flags_enumeration = list(
 		*/
 
 	if(istype(H))
-
-		var/obj/item/organ/eyes/eyes = H.internal_organs_by_name["eyes"]
+		var/obj/item/organ/eyes/eyes = H.get_eyes()
 
 		if(H != user)
-			for(var/mob/O in (viewers(M) - user - M))
-				O.show_message("<span class='danger'>[M] has been stabbed in the eye with [src] by [user].</span>", 1)
-			M << "<span class='danger'>[user] stabs you in the eye with [src]!</span>"
-			user << "<span class='danger'>You stab [M] in the eye with [src]!</span>"
+			M.visible_message(
+				"<span class='danger'>[user] stabs [M] in the [eyes.singular_name] with [src]!</span>",
+				"<span class='danger'>[user] stabs you in the [eyes.singular_name] with [src]!</span>"
+			)
 		else
 			user.visible_message( \
-				"<span class='danger'>[user] has stabbed themself with [src]!</span>", \
-				"<span class='danger'>You stab yourself in the eyes with [src]!</span>" \
+				"<span class='danger'>[user] stabs themself in the [eyes.singular_name] with [src]!</span>", \
+				"<span class='danger'>You stab yourself in the [eyes.singular_name] with [src]!</span>" \
 			)
 
 		eyes.damage += rand(3,4)

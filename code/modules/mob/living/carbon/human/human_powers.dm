@@ -459,7 +459,6 @@
 		src << "<span class='danger'>Your spine still aches!</span>"
 		return
 
-
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
 		src << "You cannot launch a quill in your current state."
 		return
@@ -473,3 +472,91 @@
 	var/obj/item/weapon/arrow/quill/A = new /obj/item/weapon/arrow/quill(usr.loc)
 	A.throw_at(target, 10, 30, user)
 	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
+
+
+/mob/living/carbon/human/proc/shatter_light()
+	set category = "Abilities"
+	set name = "Shatter Lights"
+	set desc = "Shatter all lights around yourself."
+
+	if(last_special > world.time)
+		src << "<span class='danger'>You're still regaining your strength!</span>"
+		return
+
+	last_special = world.time + 50
+
+	visible_message("<span class='danger'>\The [src] shrieks!</span>")
+	playsound(src.loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
+
+	for(var/obj/machinery/light/L in range(7))
+		L.broken()
+
+/mob/living/carbon/human/proc/create_darkness()
+	set category = "Abilities"
+	set name = "Create Darkness"
+	set desc = "Create a field of darkness around yourself."
+
+	if(last_special > world.time)
+		src << "<span class='danger'>You're still regaining your strength!</span>"
+		return
+
+	last_special = world.time + 100
+
+	playsound(src.loc, 'sound/species/shadow/grue_growl.ogg', 100, 1)
+
+	src.set_light(4,-20)
+
+	addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 30 SECONDS)
+
+/mob/living/carbon/human/proc/darkness_eyes()
+	set category = "Abilities"
+	set name = "Toggle Shadow Vision"
+	set desc = "Toggle between seeing shadows or not."
+
+	if (!stop_sight_update)
+		src << "<span class='notice'>Your eyes shift around, allowing you to see in the dark.</span>"
+		src.stop_sight_update = 1
+		src.see_invisible = SEE_INVISIBLE_NOLIGHTING
+
+	else
+		src << "<span class='notice'>You return your vision to normal.</span>"
+		src.stop_sight_update = 0
+
+/mob/living/carbon/human/proc/shadow_step(var/turf/T in turfs)
+	set category = "Abilities"
+	set name = "Shadow Step"
+	set desc = "Travel from place to place using the shadows."
+
+	if(last_special > world.time)
+		src << "<span class='danger'>You're still regaining your strength!</span>"
+		return
+
+	if (!T || T.density || T.contains_dense_objects())
+		src << "<span class='warning'>You cannot do that.</span>"
+		return
+
+	if(!isturf(loc))
+		to_chat(src, "<span class='warning'>You cannot teleport out of your current location.</span>")
+		return
+
+	if (T.z != src.z || get_dist(T, get_turf(src)) > world.view)
+		src << "<span class='warning'>Your powers are not capable of taking you that far.</span>"
+		return
+
+	if (!T.dynamic_lighting || T.get_lumcount() > 0.1)
+		src << "<span class='warning'>The destination is too bright.</span>"
+		return
+
+	last_special = world.time + 200
+
+	visible_message("<span class='danger'>\The [src] vanishes into the shadows!</span>")
+
+	anim(get_turf(loc), loc,'icons/mob/mob.dmi',,"shadow", null ,loc.dir)
+
+	forceMove(T)
+
+	for (var/obj/item/weapon/grab/G in contents)
+		if (G.affecting)
+			G.affecting.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
+		else
+			qdel(G)

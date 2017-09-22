@@ -3,15 +3,17 @@
 	desc = "A monstrous creature, made of twisted flesh and bone."
 	speak_emote = list("gibbers")
 	icon = 'icons/mob/animal.dmi'
-	icon_state = "horror"
-	icon_living = "horror"
-	icon_dead = "horror_dead"
+	icon_state = "abomination"
+	icon_living = "abomination"
+	icon_dead = "abomination_dead"
 	stop_automated_movement = 1
-	universal_speak =1
+	universal_speak = 1
 	universal_understand = 1
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
+
+	tameable = FALSE
 
 	response_help  = "pets"
 	response_disarm = "shoves"
@@ -34,23 +36,29 @@
 	min_oxy = 0
 	max_co2 = 0
 	max_tox = 0
-	
+
 	var/is_devouring = FALSE
-	
+
 /mob/living/simple_animal/hostile/true_changeling/Initialize()
 	. = ..()
 	if(prob(25))
+		icon_state = "horror"
+		icon_living = "horror"
+		icon_dead = "horror_dead"
+	else if(prob(25))
 		icon_state = "horror_alt"
 		icon_living = "horror_alt"
-	
+		icon_dead = "horror_alt_dead"
+
+
 /mob/living/simple_animal/hostile/true_changeling/Life()
 	..()
 	adjustBruteLoss(-10) //it will slowly heal brute damage, making fire/laser a stronger option
-	
+
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
 	mind.assigned_role = "Changeling"
-	
+
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
 	..()
 	if(!gibbed)
@@ -110,7 +118,7 @@
 	last_special = world.time + 100
 	src.is_devouring = FALSE
 	return
-	
+
 /mob/living/simple_animal/hostile/true_changeling/verb/dart(mob/living/target as mob in oview())
 	set name = "Launch Bone Dart"
 	set desc = "Launches a Bone Dart at a target."

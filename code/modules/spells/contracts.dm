@@ -154,3 +154,7 @@
 /obj/item/weapon/contract/boon/wizard/gestalt
 	path = /spell/aoe_turf/conjure/grove/gestalt
 	desc = "This contract is a druid's favorite."
+
+/obj/item/weapon/contract/boon/wizard/statue
+	path = /spell/targeted/flesh_to_stone
+	desc = "This contract is truly petrifying."

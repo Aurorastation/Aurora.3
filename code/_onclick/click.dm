@@ -16,8 +16,6 @@
 	Note that this proc can be overridden, and is in the case of screen objects.
 */
 
-
-
 /atom/Click(location,control,params)
 	if(src)
 		usr.ClickOn(src, params)
@@ -61,10 +59,7 @@
 		ShiftClickOn(A)
 		return 0
 	if(modifiers["alt"]) // alt and alt-gr (rightalt)
-		if (modifiers["right"])
-			AltRightClickOn(A)
-		else
-			AltClickOn(A)
+		AltClickOn(A)
 		return
 	if(modifiers["ctrl"])
 		CtrlClickOn(A)
@@ -239,6 +234,7 @@
 /mob/proc/ShiftClickOn(var/atom/A)
 	A.ShiftClick(src)
 	return
+
 /atom/proc/ShiftClick(var/mob/user)
 	if(user.client && user.client.eye == user)
 		user.examinate(src)
@@ -251,6 +247,7 @@
 /mob/proc/CtrlClickOn(var/atom/A)
 	A.CtrlClick(src)
 	return
+
 /atom/proc/CtrlClick(var/mob/user)
 	return
 
@@ -276,9 +273,6 @@
 			user.client.statpanel = "Turf"
 	return 1
 
-
-
-
 /mob/proc/TurfAdjacent(var/turf/T)
 	return T.AdjacentQuick(src)
 
@@ -294,31 +288,6 @@
 	return
 
 /*
-	Special Rightclick procs!
-	set_context_menu_enabled is called by a macro defined in skin.dmf.
-	It disables the menu when alt is pressed, and re-enables it when alt is released
-	This allows us to do alt+rightclick to achieve something without opening the menu.
-	These could also be duplicated/expanded as desired to suppress the menu with shift/ctrl as well
-
-*/
-client/verb/set_context_menu_enabled(Enable as num)
-	set hidden = TRUE, instant = TRUE
-	if(Enable) show_popup_menus = TRUE
-	else show_popup_menus = FALSE
-
-/mob/proc/AltRightClickOn(var/atom/A)
-	A.AltRightClick(src)
-	return
-
-/atom/proc/AltRightClick(var/mob/user)
-	user.pointed(src)
-
-
-
-
-
-
-/*
 	Misc helpers
 
 	Laser Eyes: as the name implies, handles this since nothing else does currently
@@ -330,7 +299,7 @@ client/verb/set_context_menu_enabled(Enable as num)
 /mob/living/LaserEyes(atom/A)
 	setClickCooldown(4)
 	var/turf/T = get_turf(src)
-
+	src.visible_message("<span class='danger'>\The [src]'s eyes flare with ruby light!</span>")
 	var/obj/item/projectile/beam/LE = new (T)
 	LE.muzzle_type = /obj/effect/projectile/eyelaser/muzzle
 	LE.tracer_type = /obj/effect/projectile/eyelaser/tracer

@@ -85,7 +85,6 @@
 	update_nearby_tiles(need_rebuild=1)
 	if (hashatch)
 		setup_hatch()
-	return
 
 /obj/machinery/door/proc/setup_hatch()
 	hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
@@ -94,7 +93,6 @@
 	hatch_image.pixel_y = hatch_offset_y
 	hatch_image.dir = dir
 
-	add_overlay(hatch_image)
 	update_icon()
 
 /obj/machinery/door/proc/open_hatch(var/atom/mover = null)
@@ -296,7 +294,7 @@
 
 		return
 
-	if(repairing && istype(I, /obj/item/weapon/weldingtool))
+	if(repairing && iswelder(I))
 		if(!density)
 			user << "<span class='warning'>\The [src] must be closed before you can repair it.</span>"
 			return
@@ -313,7 +311,7 @@
 				repairing = null
 		return
 
-	if(repairing && istype(I, /obj/item/weapon/crowbar))
+	if(repairing && iscrowbar(I))
 		user << "<span class='notice'>You remove \the [repairing].</span>"
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		repairing.loc = user.loc

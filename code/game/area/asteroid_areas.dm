@@ -65,22 +65,22 @@
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/outpost/engineering/hallway
-	name = "Engineering Sublevel Hallway"
+	name = "Engineering - Sublevel Hallway"
 
 /area/outpost/engineering/atmospherics
-	name = "Engineering Sublevel Atmospherics"
+	name = "Engineering - Sublevel Atmospherics"
 
 /area/outpost/engineering/power
-	name = "Engineering Sublevel Power Distribution"
+	name = "Engineering - Tesla Bay"
 
 /area/outpost/engineering/telecomms
-	name = "Engineering Sublevel Telecommunications"
+	name = "Engineering - Sublevel Telecommunications"
 
 /area/outpost/engineering/storage
-	name = "Engineering Sublevel Storage"
+	name = "Engineering - Sublevel Storage"
 
 /area/outpost/engineering/meeting
-	name = "Engineering Sublevel Meeting Room"
+	name = "Engineering - Break Room"
 
 
 
@@ -91,19 +91,19 @@
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/outpost/research/hallway
-	name = "Research Sublevel Hallway"
+	name = "Research - Sublevel Hallway"
 
 /area/outpost/research/dock
 	name = "Research Shuttle Dock"
 
 /area/outpost/research/eva
-	name = "Research Sublevel EVA"
+	name = "Research - Xenoarcheology"
 
 /area/outpost/research/analysis
-	name = "Research Sample Analysis"
+	name = "Research - Sample Analysis"
 
 /area/outpost/research/chemistry
-	name = "Research Chemistry"
+	name = "Research - Chemistry"
 
 /area/outpost/research/medical
 	name = "Research Medical"
@@ -112,31 +112,31 @@
 	name = "Research Maintenance"
 
 /area/outpost/research/isolation_a
-	name = "Research Isolation A"
+	name = "Research - Isolation A"
 
 /area/outpost/research/isolation_b
-	name = "Research Isolation B"
+	name = "Research - Isolation B"
 
 /area/outpost/research/isolation_c
-	name = "Research Isolation C"
+	name = "Research - Isolation C"
 
 /area/outpost/research/isolation_monitoring
-	name = "Research Isolation Monitoring"
+	name = "Research - Isolation Monitoring"
 
 /area/outpost/research/lab
-	name = "Research Sublevel Laboratory"
+	name = "Research - Sublevel Laboratory"
 
 /area/outpost/research/emergency_storage
-	name = "Research Emergency Storage"
+	name = "Research - Sublevel Emergency Storage"
 
 /area/outpost/research/anomaly_storage
-	name = "Research Anomalous Storage"
+	name = "Research - Anomalous Storage"
 
 /area/outpost/research/anomaly_analysis
-	name = "Research Anomaly Analysis"
+	name = "Research - Anomaly Analysis"
 
 /area/outpost/research/kitchen
-	name = "Research Kitchen"
+	name = "Research - Kitchen"
 
 /area/outpost/research/disposal
-	name = "Research Waste Disposal"
+	name = "Research - Waste Disposal"

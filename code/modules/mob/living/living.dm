@@ -412,7 +412,7 @@ default behaviour is:
 
 
 
-/mob/living/proc/revive()
+/mob/living/proc/revive(reset_to_roundstart = TRUE)	// this param is only used in human regen.
 	// Stop killing yourself. Please.
 //	if(suiciding)
 //		suiciding = 0

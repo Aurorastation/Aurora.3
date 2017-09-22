@@ -53,6 +53,7 @@
 	var/active = 1 //No sales pitches if off!
 	var/vend_ready = 1 //Are we ready to vend?? Is it time??
 	var/vend_delay = 10 //How long does it take to vend?
+
 	var/categories = CAT_NORMAL // Bitmask of cats we're currently showing
 	var/datum/data/vending_product/currently_vending = null // What we're requesting payment for right now
 	var/status_message = "" // Status screen messages like "insufficient funds", displayed in NanoUI
@@ -208,7 +209,7 @@
 	if (I || istype(W, /obj/item/weapon/spacecash))
 		attack_hand(user)
 		return
-	else if(istype(W, /obj/item/weapon/screwdriver))
+	else if(isscrewdriver(W))
 		src.panel_open = !src.panel_open
 		user << "You [src.panel_open ? "open" : "close"] the maintenance panel."
 		cut_overlays()
@@ -217,7 +218,7 @@
 
 		SSnanoui.update_uis(src)  // Speaker switch is on the main UI, not wires UI
 		return
-	else if(istype(W, /obj/item/device/multitool)||istype(W, /obj/item/weapon/wirecutters))
+	else if(ismultitool(W)||iswirecutter(W))
 		if(src.panel_open)
 			attack_hand(user)
 		return
@@ -229,7 +230,7 @@
 		user << "<span class='notice'>You insert \the [W] into \the [src].</span>"
 		SSnanoui.update_uis(src)
 		return
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(iswrench(W))
 		if(!can_move)
 			return
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -245,7 +246,7 @@
 			anchored = !anchored
 		return
 
-	else if (!is_borg_item(W))
+	else if(!is_borg_item(W))
 
 		for(var/datum/data/vending_product/R in product_records)
 			if(istype(W, R.product_path))
@@ -253,6 +254,7 @@
 				qdel(W)
 				return
 		..()
+
 	else
 		..()
 

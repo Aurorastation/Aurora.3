@@ -36,7 +36,7 @@ var/global/universe_has_ended = 0
 
 // Apply changes when entering state
 /datum/universal_state/supermatter_cascade/OnEnter()
-	set background = 1
+	SSgarbage.disable()
 
 	world << "<span class='sinister' style='font-size:22pt'>You are blinded by a brilliant flash of energy.</span>"
 
@@ -56,8 +56,6 @@ var/global/universe_has_ended = 0
 
 	// Disable Nar-Sie.
 	cult.allow_narsie = 0
-
-	SSgarbage.collection_timeout = 20 MINUTES	// Yeah, no point trying to hard-del stuff at this point.
 
 	PlayerSet()
 

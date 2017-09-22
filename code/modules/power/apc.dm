@@ -71,6 +71,7 @@
 	var/areastring = null
 	var/obj/item/weapon/cell/cell
 	var/chargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
+	var/initalchargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 	var/start_charge = 90				// initial cell charge %
 	var/cell_type = /obj/item/weapon/cell/apc
 	var/opened = 0 //0=closed, 1=opened, 2=cover removed
@@ -430,7 +431,7 @@
 	if (istype(user, /mob/living/silicon) && get_dist(src,user)>1)
 		return src.attack_hand(user)
 	src.add_fingerprint(user)
-	if (istype(W, /obj/item/weapon/crowbar) && opened)
+	if (iscrowbar(W) && opened)
 		if (has_electronics==1)
 			if (terminal)
 				user << "<span class='warning'>Disconnect wires first.</span>"
@@ -452,14 +453,16 @@
 							"<span class='notice'>You remove the power control board.</span>")
 						new /obj/item/weapon/module/power_control(loc)
 		else if (opened!=2) //cover isn't removed
+			panel_open = 0
 			opened = 0
 			update_icon()
-	else if (istype(W, /obj/item/weapon/crowbar) && !((stat & BROKEN) || hacker) )
+	else if (iscrowbar(W) && !((stat & BROKEN) || hacker) )
 		if(coverlocked && !(stat & MAINT))
 			user << "<span class='warning'>The cover is locked and cannot be opened.</span>"
 			return
 		else
 			opened = 1
+			panel_open = 1		
 			update_icon()
 	else if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/weapon/gripper/Gri = W
@@ -493,7 +496,7 @@
 			"<span class='notice'>You insert the power cell.</span>")
 		chargecount = 0
 		update_icon()
-	else if	(istype(W, /obj/item/weapon/screwdriver))	// haxing
+	else if	(isscrewdriver(W))	// haxing
 		if(opened)
 			if (cell)
 				user << "<span class='warning'>Close the APC first.</span>" //Less hints more mystery!
@@ -536,7 +539,7 @@
 				update_icon()
 			else
 				user << "<span class='warning'>Access denied.</span>"
-	else if (istype(W, /obj/item/stack/cable_coil) && !terminal && opened && has_electronics!=2)
+	else if (iscoil(W) && !terminal && opened && has_electronics!=2)
 		var/turf/T = loc
 		if(istype(T) && !T.is_plating())
 			user << "<span class='warning'>You must remove the floor plating in front of the APC first.</span>"
@@ -561,7 +564,7 @@
 					"You add cables to the APC frame.")
 				make_terminal()
 				terminal.connect_to_network()
-	else if (istype(W, /obj/item/weapon/wirecutters) && terminal && opened && has_electronics!=2)
+	else if (iswirecutter(W) && terminal && opened && has_electronics!=2)
 		var/turf/T = loc
 		if(istype(T) && !T.is_plating())
 			user << "<span class='warning'>You must remove the floor plating in front of the APC first.</span>"
@@ -590,7 +593,7 @@
 	else if (istype(W, /obj/item/weapon/module/power_control) && opened && has_electronics==0 && ((stat & BROKEN)))
 		user << "<span class='warning'>You cannot put the board inside, the frame is damaged.</span>"
 		return
-	else if (istype(W, /obj/item/weapon/weldingtool) && opened && has_electronics==0 && !terminal)
+	else if (iswelder(W) && opened && has_electronics==0 && !terminal)
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.isOn()) return
 		if (WT.get_fuel() < 3)
@@ -676,7 +679,7 @@
 	else
 		if ((stat & BROKEN) \
 				&& !opened \
-				&& istype(W, /obj/item/weapon/weldingtool) )
+				&& iswelder(W) )
 			var/obj/item/weapon/weldingtool/WT = W
 			if (!WT.isOn()) return
 			if (WT.get_fuel() <1)
@@ -708,8 +711,8 @@
 			if (istype(user, /mob/living/silicon))
 				return src.attack_hand(user)
 			if (!opened && wiresexposed && \
-				(istype(W, /obj/item/device/multitool) || \
-				istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/device/assembly/signaler)))
+				(ismultitool(W) || \
+				iswirecutter(W) || istype(W, /obj/item/device/assembly/signaler)))
 				return src.attack_hand(user)
 			user.visible_message("<span class='danger'>The [src.name] has been hit with the [W.name] by [user.name]!</span>", \
 				"<span class='danger'>You hit the [src.name] with your [W.name]!</span>", \

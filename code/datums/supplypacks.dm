@@ -53,10 +53,10 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/gun/projectile/revolver/derringer,
 					/obj/item/weapon/gun/projectile/dragunov,
 					/obj/item/weapon/gun/energy/retro)
-	cost = 60
+	cost = 120
 	containertype = /obj/structure/closet/crate
 	containername = "crate"
-	hidden = 1
+	contraband = 1
 	group = "Security"
 
 /datum/supply_packs/forensics

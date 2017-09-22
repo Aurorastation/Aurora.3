@@ -67,8 +67,8 @@
 	var/ear_deaf = null		//Carbon
 	var/ear_damage = null	//Carbon
 	var/stuttering = null
-	var/slurring = null		
-	var/brokejaw = null	    
+	var/slurring = null
+	var/brokejaw = null
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""
@@ -100,6 +100,8 @@
 	var/list/speak_emote = list("says") // Verbs used when speaking. Defaults to 'say' if speak_emote is null.
 	var/emote_type = 1		// Define emote default type, 1 for seen emotes, 2 for heard emotes
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
+	
+	var/obj/machinery/hologram/holopad/holo = null
 
 	var/name_archive //For admin things like possession
 
@@ -232,3 +234,9 @@
 
 	var/list/active_genes=list()
 	var/mob_size = MOB_MEDIUM
+
+	var/list/progressbars
+
+	var/frozen = FALSE //related to wizard statues, if set to true, life won't process
+
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR

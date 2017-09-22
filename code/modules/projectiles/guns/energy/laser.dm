@@ -10,10 +10,14 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/beam/midlaser
+	can_turret = 1
+	turret_sprite_set = "laser"
 
 /obj/item/weapon/gun/energy/laser/mounted
+	name = "mounted laser carbine"
 	self_recharge = 1
 	use_external_power = 1
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/laser/practice
 	name = "practice laser carbine"
@@ -30,7 +34,9 @@ obj/item/weapon/gun/energy/retro
 	w_class = 3
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 10 //old technology
-	
+	can_turret = 1
+	turret_sprite_set = "retro"
+
 /obj/item/weapon/gun/energy/captain
 	name = "antique laser gun"
 	icon_state = "caplaser"
@@ -44,6 +50,8 @@ obj/item/weapon/gun/energy/retro
 	origin_tech = null
 	max_shots = 5 //to compensate a bit for self-recharging
 	self_recharge = 1
+	can_turret = 1
+	turret_sprite_set = "captain"
 
 /obj/item/weapon/gun/energy/lasercannon
 	name = "laser cannon"
@@ -58,12 +66,15 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 5
 	fire_delay = 20
 	pin = null
+	can_turret = 1
+	turret_sprite_set = "cannon"
 
 /obj/item/weapon/gun/energy/lasercannon/mounted
 	name = "mounted laser cannon"
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 10
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/xray
 	name = "xray laser gun"
@@ -77,6 +88,8 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 20
 	fire_delay = 1
 	pin = null
+	can_turret = 1
+	turret_sprite_set = "xray"
 
 /obj/item/weapon/gun/energy/xray/mounted
 	name = "mounted xray laser gun"
@@ -84,6 +97,7 @@ obj/item/weapon/gun/energy/retro
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 5
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/sniperrifle
 	name = "marksman energy rifle"
@@ -101,6 +115,8 @@ obj/item/weapon/gun/energy/retro
 	w_class = 4
 	accuracy = -5 //shooting at the hip
 	scoped_accuracy = 0
+	can_turret = 1
+	turret_sprite_set = "sniper"
 
 	fire_delay_wielded = 35
 	accuracy_wielded = -3
@@ -145,6 +161,8 @@ obj/item/weapon/gun/energy/retro
 	fire_delay = 2
 	dispersion = list(1.0, -1.0, 2.0, -2.0)
 	pin = null
+	can_turret = 1
+	turret_sprite_set = "laser"
 
 ////////Laser Tag////////////////////
 
@@ -172,6 +190,9 @@ obj/item/weapon/gun/energy/retro
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
 	required_vest = /obj/item/clothing/suit/bluetag
 	pin = /obj/item/device/firing_pin/tag/blue
+	can_turret = 1
+	turret_is_lethal = 0
+	turret_sprite_set = "blue"
 
 /obj/item/weapon/gun/energy/lasertag/red
 	icon_state = "redtag"
@@ -179,3 +200,6 @@ obj/item/weapon/gun/energy/retro
 	projectile_type = /obj/item/projectile/beam/lastertag/red
 	required_vest = /obj/item/clothing/suit/redtag
 	pin = /obj/item/device/firing_pin/tag/red
+	can_turret = 1
+	turret_is_lethal = 0
+	turret_sprite_set = "red"

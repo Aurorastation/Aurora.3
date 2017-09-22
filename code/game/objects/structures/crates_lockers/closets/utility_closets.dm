@@ -185,6 +185,7 @@
 	icon_state = "hydrant"
 	icon_closed = "hydrant"
 	icon_opened = "hydrant_open"
+	welded_overlay_state = "welded_wallcloset"
 	anchored = 1
 	density = 0
 	wall_mounted = 1
@@ -209,6 +210,7 @@
 	icon_state = "medical_wall"
 	icon_closed = "medical_wall"
 	icon_opened = "medical_wall_open"
+	welded_overlay_state = "welded_wallcloset"
 	anchored = 1
 	density = 0
 	wall_mounted = 1
