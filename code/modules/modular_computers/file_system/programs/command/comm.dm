@@ -280,14 +280,11 @@ var/last_message_id = 0
 	for (var/datum/comm_message_listener/l in comm_message_listeners)
 		l.Add(message)
 
-	for (var/l in GET_LISTENERS("modular_computers"))
-		var/listener/L = l
-		if(istype(L.target, /obj/item/modular_computer/))
-			var/obj/item/modular_computer/computer = L.target
-			if(computer && computer.working && !!computer.nano_printer)
-				var/datum/computer_file/program/comm/C = locate(/datum/computer_file/program/comm) in computer.hard_drive.stored_files
-				if(C && C.intercept)
-					computer.nano_printer.print_text(message_text, message_title)
+	for (var/obj/item/modular_computer/computer in get_listeners_by_type("modular_computers", /obj/item/modular_computer))
+		if(computer && computer.working && !!computer.nano_printer)
+			var/datum/computer_file/program/comm/C = locate(/datum/computer_file/program/comm) in computer.hard_drive.stored_files
+			if(C && C.intercept)
+				computer.nano_printer.print_text(message_text, message_title)
 
 
 /datum/comm_message_listener
