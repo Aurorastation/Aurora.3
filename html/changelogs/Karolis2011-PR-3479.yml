@@ -1,0 +1,4 @@
+author: Karolis2011
+delete-after: True
+changes: 
+  - rscadd: "Replaced command and communications console with modular console"

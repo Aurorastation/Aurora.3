@@ -74,7 +74,7 @@
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/card_mod(),
-		new/datum/computer_file/program/comm()
+		new/datum/computer_file/program/comm(1)
 	)
 	return _prg_list
 
@@ -159,7 +159,7 @@
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/ntnetdownload(),
 		new/datum/computer_file/program/camera_monitor/hacked(),
-		new/datum/computer_file/program/comm(),
+		new/datum/computer_file/program/comm(1),
 		new/datum/computer_file/program/suit_sensors(),
 		new/datum/computer_file/program/alarm_monitor(),
 		new/datum/computer_file/program/lighting_control(),
