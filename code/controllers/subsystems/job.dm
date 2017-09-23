@@ -675,16 +675,16 @@
 	Debug("LS/([H]): Entry; rank=[rank]")
 
 	var/datum/job/job = GetJob(rank)
-	world<< "the job is [rank]"
 
 	H.job = rank
 
 	if(job.latejoin_at_spawnpoints)
-		var/obj/S = get_roundstart_spawnpoint(rank)
-		if(istype(S, /obj/effect/landmark/start))
-			var/turf/spawn_turf = get_turf(S)
-			H.forceMove(spawn_turf)
-		return
+		for (var/thing in landmarks_list)
+			var/obj/effect/landmark/L = thing
+			if(istype(L))
+				if(L.name == "LateJoin[rank]")
+					H.loc = L.loc
+					return
 
 	var/datum/spawnpoint/spawnpos
 
