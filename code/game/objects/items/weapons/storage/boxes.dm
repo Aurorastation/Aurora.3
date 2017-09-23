@@ -18,6 +18,7 @@
  *		Kitchen utensil box
  * 		Random preserved snack box
  *		For syndicate call-ins see uplink_kits.dm
+ *		Firing pin boxes - Testing and Normal. one for sec, one for science.
  */
 
 /obj/item/weapon/storage/box
@@ -350,7 +351,35 @@
 	new /obj/item/device/firing_pin(src)
 	new /obj/item/device/firing_pin(src)
 	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)/obj/item/weapon/storage/box/firingpins
+	name = "box of firing pins"
+	desc = "A box of NT brand Firearm authentication devices - Needed to operate most weapons."
+
+/obj/item/weapon/storage/box/firingpins/fill()
+	..()
 	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+	new /obj/item/device/firing_pin(src)
+
+/obj/item/weapon/storage/box/firingpins/test
+	name = "box of firing pins"
+	desc = "A box of NT brand Testing Authentication pins, allows guns to fire in designated areas."
+
+/obj/item/weapon/storage/box/firingpins/test/fill()
+	..()
+	new /obj/item/device/firing_pin/test(src)
+	new /obj/item/device/firing_pin/test(src)
+	new /obj/item/device/firing_pin/test(src)
+	new /obj/item/device/firing_pin/test(src)
+	new /obj/item/device/firing_pin/test(src)
+	new /obj/item/device/firing_pin/test(src)
+	new /obj/item/device/firing_pin/test(src)
+	new /obj/item/device/firing_pin/test(src)
+
 
 /obj/item/weapon/storage/box/teargas
 	name = "box of pepperspray grenades"
