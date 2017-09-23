@@ -4538,5 +4538,3 @@
 	reagents.add_reagent("protein", 10)
 	reagents.add_reagent("iron", 3)
 	bitesize = 4
-
-
