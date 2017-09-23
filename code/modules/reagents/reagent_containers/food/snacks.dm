@@ -2896,7 +2896,6 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/friedmushroom/New()
 	..()
-	reagents.add_reagent("protein", 2)
 	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/pisanggoreng
