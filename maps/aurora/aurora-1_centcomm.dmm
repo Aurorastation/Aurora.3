@@ -20599,7 +20599,7 @@
 "UV" = (
 /obj/structure/bed/chair/office/dark,
 /obj/effect/landmark{
-	name = "JoinLateMerchant"
+	name = "LateJoinMerchant"
 	},
 /obj/effect/landmark/start{
 	name = "Merchant"
