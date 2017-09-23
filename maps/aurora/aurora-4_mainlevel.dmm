@@ -10879,7 +10879,7 @@
 "auQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/computer/communications,
+/obj/item/modular_computer/console/preset/command,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
@@ -22958,7 +22958,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "aOx" = (
-/obj/machinery/computer/communications,
+/obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aOy" = (
@@ -27039,7 +27039,7 @@
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aVu" = (
-/obj/machinery/computer/communications,
+/obj/item/modular_computer/console/preset/command,
 /obj/item/weapon/card/id/captains_spare,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10

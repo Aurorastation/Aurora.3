@@ -32,6 +32,8 @@
 	var/roof_type = null // The turf type we spawn as a roof.
 	var/tmp/roof_flags = 0
 
+	var/movement_cost = 0 // How much the turf slows down movement, if any.
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 /turf/Initialize(mapload, ...)
 	if (initialized)

@@ -25,3 +25,16 @@ var/datum/controller/subsystem/listener/SSlistener
 	
 	if (!LAZYLEN(listeners[L.channel]))
 		listeners -= L.channel
+
+/proc/get_listeners_by_type(id, type)
+	if (!type)
+		CRASH("Cannot get listeners of type null.")
+
+	. = list()
+	var/listener/L
+	var/datum/D
+	for (var/thing in GET_LISTENERS(id))
+		L = thing
+		D = L.target
+		if (istype(D, type) && !QDELETED(D))
+			. += D
