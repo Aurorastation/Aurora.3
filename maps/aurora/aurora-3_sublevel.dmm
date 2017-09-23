@@ -17963,14 +17963,24 @@
 /turf/simulated/floor/plating,
 /area/medical/patient_wing)
 "FP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/mauve,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "FQ" = (
@@ -25107,6 +25117,560 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/rnd/test_area)
+"Sn" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"So" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Sp" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Sq" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Sr" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Ss" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"St" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/rnd/range)
+"Su" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Sv" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Sw" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Sx" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Sy" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Sz" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"SA" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SB" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SD" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"SE" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SF" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SH" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"SI" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SJ" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SK" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SL" = (
+/turf/simulated/floor/asteroid,
+/area/rnd/range)
+"SM" = (
+/turf/simulated/floor/asteroid,
+/area/rnd/range)
+"SN" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"SO" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SP" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SR" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"SS" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"ST" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"SU" = (
+/obj/machinery/door/window/southright{
+	heat_proof = 1;
+	name = "Test Chamber";
+	req_one_access = list(7,29)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SV" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/northright,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SW" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/door/window/northright,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"SX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/rnd/range)
+"SY" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"SZ" = (
+/obj/machinery/bodyscanner{
+	icon_state = "body_scanner_0";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/range)
+"Ta" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/body_scanconsole{
+	icon_state = "body_scannerconsole";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/range)
+"Tb" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Tc" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Td" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Te" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/rnd/range)
+"Tf" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Tg" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/range)
+"Th" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/range)
+"Ti" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Tj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Tk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Tl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_research{
+	name = "Testing Range";
+	req_access = list(7)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Tm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
+"Tn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
+"To" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Tp" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Tq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Tr" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Ts" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Tt" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Tu" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/rnd/range)
+"Tv" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"Tw" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/requests_console{
+	department = "Science";
+	departmentType = 2;
+	name = "Science Requests Console";
+	pixel_x = -30;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Tx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Ty" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"Tz" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"TA" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"TB" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/rnd/range)
+"TC" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"TD" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen/multi,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"TE" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"TF" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"TG" = (
+/obj/structure/closet/crate{
+	name = "Target Crate"
+	},
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/structure/target_stake,
+/obj/structure/target_stake,
+/obj/structure/target_stake,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"TH" = (
+/obj/machinery/firealarm{
+	dir = 4;
+	layer = 3.3;
+	pixel_x = 26
+	},
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/green,
+/obj/structure/closet/crate,
+/obj/item/device/firing_pin/test_range,
+/obj/item/device/firing_pin/test_range,
+/obj/item/device/firing_pin/test_range,
+/obj/item/weapon/storage/box/monkeycubes,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/range)
+"TI" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"TJ" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"TK" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"TL" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"TM" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"TN" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"TO" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"TP" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/range)
+"TQ" = (
+/obj/machinery/door/airlock/glass_research{
+	name = "Xenoarchaeology Department";
+	req_access = list(7)
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/turbolift/research_maintenance)
 
 (1,1,1) = {"
 aa
@@ -41963,14 +42527,14 @@ aa
 aa
 aa
 aa
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+SL
+SR
+SY
+Tf
+To
+Tv
+TC
+TJ
 ac
 ac
 aa
@@ -42220,14 +42784,14 @@ aa
 aa
 aa
 aa
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+SM
+SS
+SZ
+Tg
+Tp
+Tw
+TD
+TK
 ac
 ac
 aa
@@ -42471,20 +43035,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+Sn
+Sr
+Sv
+Sz
+SD
+SH
+SN
+ST
+Ta
+Th
+Tq
+Tx
+TE
+TL
 ac
 aa
 aa
@@ -42728,20 +43292,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+So
+Ss
+Sw
+SA
+SE
+SI
+SO
+SU
+Tb
+Ti
+Tr
+Ty
+TF
+TM
 ac
 aa
 aa
@@ -42984,21 +43548,21 @@ aa
 aa
 aa
 aa
-ac
-ac
 aa
-aa
-aa
-aa
-aa
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+Sp
+St
+Sx
+SB
+SF
+SJ
+SP
+SV
+Tc
+Tj
+Ts
+Tz
+TG
+TN
 aa
 aa
 aa
@@ -43240,22 +43804,22 @@ aa
 aa
 aa
 ac
-ac
-ac
-ac
-ac
 aa
 aa
-aa
-aa
-aa
-ac
-ac
-ac
-ac
-ac
-ac
-aa
+Sq
+Su
+Sy
+SC
+SG
+SK
+SQ
+SW
+Td
+Tk
+Tt
+TA
+TH
+TO
 aa
 aa
 aa
@@ -43506,13 +44070,13 @@ xv
 xv
 xv
 xv
-uZ
-vs
-vs
-vs
-vs
-xe
-xy
+SX
+Te
+Tl
+Tu
+TB
+TI
+TP
 xy
 xy
 xy
@@ -43765,7 +44329,7 @@ Db
 xv
 Ex
 Ff
-vt
+Tm
 Co
 Hp
 HY
@@ -44022,7 +44586,7 @@ Dc
 xv
 vb
 uD
-uD
+Tn
 GK
 Hq
 HZ
@@ -44797,7 +45361,7 @@ FQ
 xy
 Hs
 Hs
-Hs
+TQ
 Hs
 Ka
 xy
