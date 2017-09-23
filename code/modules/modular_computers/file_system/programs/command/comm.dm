@@ -325,17 +325,19 @@ Command action procs
 
 	frequency.post_signal(src, status_signal)
 
+//Returns 1 if recalled 0 if not
 /proc/cancel_call_proc(var/mob/user)
 	if (!(ROUND_IS_STARTED) || !emergency_shuttle.can_recall())
-		return
+		return 0
 	if((SSticker.mode.name == "blob")||(SSticker.mode.name == "Meteor"))
-		return
+		return 0
 
 	if(!emergency_shuttle.going_to_centcom()) //check that shuttle isn't already heading to centcomm
 		emergency_shuttle.recall()
 		log_game("[key_name(user)] has recalled the shuttle.",key_name(user))
 		message_admins("[key_name_admin(user)] has recalled the shuttle.", 1)
-	return
+		return 1
+	return 0
 
 
 /proc/is_relay_online()
@@ -344,44 +346,44 @@ Command action procs
             return 1
     return 0
 
+//Returns 1 if called 0 if not
 /proc/call_shuttle_proc(var/mob/user)
 	if ((!(ROUND_IS_STARTED) || !emergency_shuttle.location()))
-		return
+		return 0
 
 	if(!universe.OnShuttleCall(usr))
 		user << "<span class='notice'>Cannot establish a bluespace connection.</span>"
-		return
+		return 0
 
 	if(deathsquad.deployed)
 		user << "[boss_short] will not allow the shuttle to be called. Consider all contracts terminated."
-		return
+		return 0
 
 	if(emergency_shuttle.deny_shuttle)
 		user << "The emergency shuttle may not be sent at this time. Please try again later."
-		return
+		return 0
 
 	if(world.time < 6000) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE
 		user << "The emergency shuttle is refueling. Please wait another [round((6000-world.time)/600)] minute\s before trying again."
-		return
+		return 0
 
 	if(emergency_shuttle.going_to_centcom())
 		user << "The emergency shuttle may not be called while returning to [boss_short]."
-		return
+		return 0
 
 	if(emergency_shuttle.online())
 		user << "The emergency shuttle is already on its way."
-		return
+		return 0
 
 	if(SSticker.mode.name == "blob")
 		user << "Under directive 7-10, [station_name()] is quarantined until further notice."
-		return
+		return 0
 
 	emergency_shuttle.call_evac()
 	log_game("[key_name(user)] has called the shuttle.",ckey=key_name(user))
 	message_admins("[key_name_admin(user)] has called the shuttle.", 1)
 
-
-	return
+	return 1
 
 /proc/init_shift_change(var/mob/user, var/force = 0)
 	if ((!(ROUND_IS_STARTED) || !emergency_shuttle.location()))
