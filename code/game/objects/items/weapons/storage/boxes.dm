@@ -351,7 +351,7 @@
 	new /obj/item/device/firing_pin(src)
 	new /obj/item/device/firing_pin(src)
 	new /obj/item/device/firing_pin(src)
-	new /obj/item/device/firing_pin(src)/obj/item/weapon/storage/box/firingpins
+	new /obj/item/device/firing_pin(src)
 	name = "box of firing pins"
 	desc = "A box of NT brand Firearm authentication devices - Needed to operate most weapons."
 
@@ -371,14 +371,14 @@
 
 /obj/item/weapon/storage/box/firingpins/test/fill()
 	..()
-	new /obj/item/device/firing_pin/test(src)
-	new /obj/item/device/firing_pin/test(src)
-	new /obj/item/device/firing_pin/test(src)
-	new /obj/item/device/firing_pin/test(src)
-	new /obj/item/device/firing_pin/test(src)
-	new /obj/item/device/firing_pin/test(src)
-	new /obj/item/device/firing_pin/test(src)
-	new /obj/item/device/firing_pin/test(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
+	new /obj/item/device/firing_pin/test_range(src)
 
 
 /obj/item/weapon/storage/box/teargas

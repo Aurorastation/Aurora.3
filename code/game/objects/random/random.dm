@@ -804,7 +804,7 @@
 		/obj/random/hoodie = 0.5,
 		/obj/random/junk = 0.9,
 		/obj/item/weapon/spacecash/ewallet/lotto = 0.3,
-		/obj/random/spacecash = 0.3
+		/obj/random/spacecash = 0.3,
 		/obj/item/device/firing_pin = 0.3
 	)
 
