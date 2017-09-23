@@ -6,11 +6,15 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	max_shots = 5
 	projectile_type = /obj/item/projectile/energy/electrode
+	can_turret = 1
+	turret_sprite_set = "carbine"
+	turret_is_lethal = 0
 
 /obj/item/weapon/gun/energy/taser/mounted
 	name = "mounted taser gun"
 	self_recharge = 1
 	use_external_power = 1
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/taser/mounted/cyborg
 	name = "taser gun"
@@ -44,6 +48,8 @@
 	max_shots = 5
 	self_recharge = 1
 	charge_meter = 0
+	can_turret = 1
+	turret_sprite_set = "crossbow"
 
 /obj/item/weapon/gun/energy/crossbow/ninja
 	name = "energy dart thrower"

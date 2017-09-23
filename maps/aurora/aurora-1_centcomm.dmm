@@ -6790,7 +6790,7 @@
 	},
 /area/shuttle/administration/centcom)
 "qe" = (
-/obj/machinery/computer/communications,
+/obj/item/modular_computer/console/preset/command,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
 	},
@@ -10460,7 +10460,7 @@
 	},
 /area/centcom/control)
 "xQ" = (
-/obj/machinery/computer/communications,
+/obj/item/modular_computer/console/preset/command,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -11747,7 +11747,7 @@
 	},
 /area/shuttle/specops/centcom)
 "At" = (
-/obj/machinery/computer/communications,
+/obj/item/modular_computer/console/preset/command,
 /obj/item/device/radio/intercom{
 	broadcasting = 0;
 	dir = 1;
@@ -11831,7 +11831,7 @@
 	},
 /area/shuttle/escape/centcom)
 "AD" = (
-/obj/machinery/computer/communications,
+/obj/item/modular_computer/console/preset/command,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},

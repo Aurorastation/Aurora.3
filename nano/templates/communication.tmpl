@@ -21,6 +21,8 @@
 		{{empty}}
 			<div class=item>There are no messages.</div>
 		{{/for}}
+		<div class=item>{{if data.have_printer}}{{:helper.link( !data.message_printing_intercepts ? 'Enable report printing' : 'Disable report printing', null, {'action' : 'toggleintercept'})}}{{/if}}</div>
+		<hr>
 		<div class=item>{{:helper.link('Back', null, {'action' : 'sw_menu', 'target' : 1})}}</div>
 	{{else data.state === 3}}
 		<div class=item><b>Title:</b> {{:data.message_current.title}}</div>
