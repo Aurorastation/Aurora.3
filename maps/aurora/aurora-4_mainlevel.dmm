@@ -13417,6 +13417,7 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
+/obj/item/weapon/storage/box/firingpins,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "ayR" = (
@@ -15291,6 +15292,7 @@
 	pixel_y = -2
 	},
 /obj/item/weapon/storage/box/teargas,
+/obj/item/weapon/storage/box/firingpins,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "aBV" = (
@@ -82934,7 +82936,7 @@ aab
 adv
 cgv
 cgy
-cgC
+cgv
 adv
 apA
 apA
@@ -83190,8 +83192,8 @@ aab
 aab
 adv
 cgw
-cgz
-cgD
+cgy
+cgv
 adv
 apA
 apA
@@ -83447,8 +83449,8 @@ aab
 aab
 adv
 alY
-cgA
-cgE
+cgy
+cgv
 adv
 apA
 apA
@@ -83703,7 +83705,7 @@ aab
 aab
 aab
 alk
-cgx
+cgv
 amP
 anC
 adv
@@ -85249,8 +85251,8 @@ amb
 amU
 anH
 cgI
-cgK
-cgO
+cgI
+cgI
 cgP
 asU
 cgW
@@ -93996,7 +93998,7 @@ avO
 chi
 ayX
 avO
-aBY
+chi
 aaV
 chJ
 aGH
@@ -94766,8 +94768,8 @@ cgY
 avR
 aaV
 aza
-aAB
-chq
+cgS
+cgY
 aaV
 chL
 aGJ
@@ -95537,8 +95539,8 @@ chb
 chg
 aaV
 azc
-aAB
-chs
+cgS
+cgY
 aaV
 aEW
 aGH
@@ -96821,7 +96823,7 @@ atn
 aut
 avX
 chk
-aze
+chk
 axr
 aCf
 aDu
@@ -98912,8 +98914,8 @@ bqi
 brD
 bsU
 cjH
-cjL
-cjM
+cjH
+cjH
 bxr
 boW
 bzg
@@ -105332,7 +105334,7 @@ bae
 bls
 bmR
 bod
-bpr
+cjF
 bqz
 brZ
 btf
@@ -111989,7 +111991,7 @@ aBj
 aPQ
 chz
 chN
-chZ
+chz
 aPQ
 aKQ
 aMC
@@ -112502,7 +112504,7 @@ aab
 aab
 aPQ
 chB
-chP
+chO
 cib
 aPQ
 aKS
@@ -112759,7 +112761,7 @@ aab
 aab
 aPQ
 chC
-chQ
+chO
 cic
 aPQ
 aKT
@@ -113790,9 +113792,9 @@ chE
 chT
 cig
 cil
-cir
-cix
-aOy
+cil
+cil
+cil
 aQa
 ciV
 aPQ
@@ -114046,10 +114048,10 @@ chu
 chF
 chU
 cih
-cim
-cis
-ciy
-aOz
+cih
+cih
+cih
+cih
 aQb
 aRJ
 aPQ
@@ -114563,8 +114565,8 @@ cij
 aPQ
 aPQ
 aPQ
-ciE
-ciO
+chH
+chW
 ciX
 aPQ
 aUG
@@ -114821,7 +114823,7 @@ aaa
 aaa
 aaa
 aab
-ciP
+chX
 aab
 aMG
 aUH
