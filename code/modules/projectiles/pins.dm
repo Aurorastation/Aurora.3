@@ -1,4 +1,4 @@
-/*/////////////////////////
+/*
 Alright boys, Firing pins. hopefully with minimal shitcode.
 "pin_auth(mob/living/user)" is the check to see if it fires, put the snowflake code here. return one to fire, zero to flop. ezpz
 
@@ -51,9 +51,9 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 
 /obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/weapon/gun/G)
 	gun = G
-	forceMove(gun)
-	gun.pin = src
 	user.drop_from_inventory(src)
+	forceMove(gun)
+	gun.pin = src	
 	return
 
 /obj/item/device/firing_pin/proc/gun_remove(mob/living/user)
@@ -73,6 +73,9 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 		if(gun)
 			qdel(gun)
 
+/*
+Pins Below.
+*/
 
 //only used in wizard staffs/wands. 
 /obj/item/device/firing_pin/magic

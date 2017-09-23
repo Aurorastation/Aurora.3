@@ -400,6 +400,14 @@
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
 	if (istype(in_chamber))
 		user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
+		if (!pin)//Checks the pin of the gun.
+			user.visible_message("<span class = 'warning'>*click click*</span>")
+			mouthshoot = 0
+			return
+		if (!pin.pin_auth())
+			user.visible_message("<span class = 'warning'>*click click*</span>")
+			mouthshoot = 0
+			return
 		if(silenced)
 			playsound(user, fire_sound, 10, 1)
 		else
