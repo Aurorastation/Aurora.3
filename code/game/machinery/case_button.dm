@@ -6,9 +6,10 @@
     icon_state = "c1"
     anchored = 1
     use_power = 1
-    idle_power_usage = 2000 //2kW because of the forcefield
+    idle_power_usage = 50 //50W because the forcefield is disabled
     active_power_usage = 2000 //2kW because of the forcefield
     power_channel = EQUIP
+    var/cover_access = access_keycard_auth //Access required to unlock the cover
     //Style variables
     var/case = 1 //What case to use - c value
     var/cover = 1 //What cover to use - g value
@@ -20,21 +21,26 @@
     var/listener/listener //Listener for button updates
 
 /obj/machinery/case_button/Initialize()
+    . = ..()
     listener = new(button_type, src)
     update_icon()
 
 /obj/machinery/case_button/Destroy()
     QDEL_NULL(listener)
+    return ..()
 
 /obj/machinery/case_button/attackby(obj/item/weapon/W, mob/user)
     if(istype(W, /obj/item/weapon/card))
-        if(access_keycard_auth in W.GetAccess())
+        if(cover_access && cover_access in W.GetAccess())
             covered = !covered //Enable / Disable the forcefield
+        else if(!cover_access)
+            covered = !covered //Enable / Disable the forcefield
+        update_use_power(covered + 1) //Update the power usage
     else
         if(covered && (stat & NOPOWER)) //Only bounce off if its powered (i.e. shield active)
-            user.visible_message("<span class='danger'>[src] has been hit by [user] with [W], but it bounces off the forcefield</span>","<span class='danger'>You hit [src] with [W], but it bounces off the forcefield</span>","You hear something boucing off a forcefield")
-        else
             ..()
+        else
+            user.visible_message("<span class='danger'>[src] has been hit by [user] with [W], but it bounces off the forcefield</span>","<span class='danger'>You hit [src] with [W], but it bounces off the forcefield</span>","You hear something boucing off a forcefield")
     update_icon()
     return
 
