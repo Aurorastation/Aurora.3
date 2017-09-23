@@ -674,6 +674,16 @@
 	//spawn at one of the latespawn locations
 	Debug("LS/([H]): Entry; rank=[rank]")
 
+	var/datum/job/job = GetJob(rank)
+
+	H.job = rank
+
+	if(job.latejoin_at_spawnpoints)
+		var/obj/S = get_roundstart_spawnpoint(rank)
+		if(istype(S, /obj/effect/landmark/start))
+			H.forceMove(get_turf(S))
+		return
+
 	var/datum/spawnpoint/spawnpos
 
 	if(H.client.prefs.spawnpoint)
