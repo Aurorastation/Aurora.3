@@ -9,7 +9,7 @@
     idle_power_usage = 50 //50W because the forcefield is disabled
     active_power_usage = 2000 //2kW because of the forcefield
     power_channel = EQUIP
-    var/cover_access = access_keycard_auth //Access required to unlock the cover
+    req_access = list(access_keycard_auth) //Access required to unlock the cover
     //Style variables
     var/case = 1 //What case to use - c value
     var/cover = 1 //What cover to use - g value
@@ -17,7 +17,7 @@
     //Status variables
     var/covered = 1 //If the cover is active
     var/active = 0 //If the button is active
-    var/button_type = "button_case_generic" //Button type for the listener TODO: Add a listener to sync the button active state
+    var/button_type = "button_case_generic" //Button type for the listener
     var/listener/listener //Listener for button updates
 
 /obj/machinery/case_button/Initialize()
@@ -31,16 +31,14 @@
 
 /obj/machinery/case_button/attackby(obj/item/weapon/W, mob/user)
     if(istype(W, /obj/item/weapon/card))
-        if(cover_access && cover_access in W.GetAccess())
-            covered = !covered //Enable / Disable the forcefield
-        else if(!cover_access)
+        if(src.allowed(usr))
             covered = !covered //Enable / Disable the forcefield
         update_use_power(covered + 1) //Update the power usage
     else
         if(covered && (stat & NOPOWER)) //Only bounce off if its powered (i.e. shield active)
             ..()
         else
-            user.visible_message("<span class='danger'>[src] has been hit by [user] with [W], but it bounces off the forcefield</span>","<span class='danger'>You hit [src] with [W], but it bounces off the forcefield</span>","You hear something boucing off a forcefield")
+            user.visible_message("<span class='danger'>[src] has been hit by [user] with [W], but it bounces off the forcefield.</span>","<span class='danger'>You hit [src] with [W], but it bounces off the forcefield.</span>","You hear something boucing off a forcefield.")
     update_icon()
     return
 
@@ -70,7 +68,7 @@
     if(stat & NOPOWER)
         update_use_power(0)
         add_overlay("b[button]d") //Add the deactivated button overlay
-        add_overlay("g[cover]d") //add the deactivated cover overlay
+        add_overlay("g[cover]d") //Add the deactivated cover overlay
         return
     add_overlay("b[button][active]") //Add the button as overlay
     add_overlay("g[cover][covered]") //Add the glass/shield overlay
@@ -78,13 +76,16 @@
 
 //Activate the button - Needs to return 1 for the activation to be successful
 /obj/machinery/case_button/proc/activate(mob/user)
-    user.visible_message("<span class='notice'>\The [user] presses the button</span>","<span class='notice'>You press the button</span>","You hear something being pressed")
+    user.visible_message("<span class='notice'>\The [user] presses the button.</span>","<span class='notice'>You press the button.</span>","You hear something being pressed.")
     return 1
 
 //Deactivate Button - Needs ro return 1 for the activation to be successful
 /obj/machinery/case_button/proc/deactivate(mob/user)
-    user.visible_message("<span class='notice'>\The [user] resets the button</span>","<span class='notice'>You rests the button</span>","You hear something being pressed")
+    user.visible_message("<span class='notice'>\The [user] resets the button.</span>","<span class='notice'>You reset the button.</span>","You hear something being pressed.")
     return 1
+
+
+
 
 /obj/machinery/case_button/shuttle
     name = "Emergency Shuttle Button"
