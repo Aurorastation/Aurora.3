@@ -683,7 +683,7 @@
 			var/obj/effect/landmark/L = thing
 			if(istype(L))
 				if(L.name == "LateJoin[rank]")
-					H.loc = L.loc
+					H.forceMove(L.loc)
 					return
 
 	var/datum/spawnpoint/spawnpos
