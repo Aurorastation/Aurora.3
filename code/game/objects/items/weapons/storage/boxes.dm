@@ -365,7 +365,7 @@
 	new /obj/item/device/firing_pin(src)
 	new /obj/item/device/firing_pin(src)
 
-/obj/item/weapon/storage/box/firingpins/test
+/obj/item/weapon/storage/box/testpins
 	name = "box of firing pins"
 	desc = "A box of NT brand Testing Authentication pins, allows guns to fire in designated areas."
 
@@ -380,6 +380,20 @@
 	new /obj/item/device/firing_pin/test_range(src)
 	new /obj/item/device/firing_pin/test_range(src)
 
+/obj/item/weapon/storage/box/loyaltypins
+	name = "box of firing pins"
+	desc = "A box of Specialised ''Loyalty'' Authentication pins produced by Nanotrasen - these check to see if the user of the gun it's installed in has been implanted with a loyalty implant. often used in ERTs."
+
+/obj/item/weapon/storage/box/firingpins/test/fill()
+	..()
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
 
 /obj/item/weapon/storage/box/teargas
 	name = "box of pepperspray grenades"

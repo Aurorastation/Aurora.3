@@ -53,7 +53,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	gun = G
 	user.drop_from_inventory(src)
 	forceMove(gun)
-	gun.pin = src	
+	gun.pin = src
 	return
 
 /obj/item/device/firing_pin/proc/gun_remove(mob/living/user)
@@ -77,7 +77,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 Pins Below.
 */
 
-//only used in wizard staffs/wands. 
+//only used in wizard staffs/wands.
 /obj/item/device/firing_pin/magic
 	name = "magic crystal shard"
 	desc = "A small enchanted shard which allows magical weapons to fire."
@@ -106,18 +106,17 @@ Pins Below.
 	var/obj/item/weapon/implant/req_implant = null
 
 /obj/item/device/firing_pin/implant/pin_auth(mob/living/user)
-	if(istype(user))
-		for(var/obj/item/weapon/implant/I in user.embedded)
-			if(req_implant && I.type == req_implant)
-				return 1
-	return 0
+	if (locate(req_implant) in user)
+		return 1
+	else
+		return 0
 
 /obj/item/device/firing_pin/implant/loyalty
-	name = "mindshield firing pin"
+	name = "Loyalty firing pin"
 	desc = "This Security firing pin authorizes the weapon for only loyalty-implanted users."
 	icon_state = "firing_pin_loyalty"
 	req_implant = /obj/item/weapon/implant/loyalty
-
+	
 // Honk pin, clown's joke item.
 // Can replace other pins. Replace a pin in cap's laser for extra fun! This is generally adminbus only unless someone thinks of a use for it.
 /obj/item/device/firing_pin/clown
