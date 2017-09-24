@@ -25,16 +25,17 @@
 	eyeblur = 2
 
 /obj/item/projectile/beam/pistol
-	damage = 25
+	damage = 30
 
 /obj/item/projectile/beam/midlaser
-	damage = 30
+	damage = 35
 	armor_penetration = 10
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
 	damage = 60
+	armor_penetration = 30
 
 	muzzle_type = /obj/effect/projectile/laser_heavy/muzzle
 	tracer_type = /obj/effect/projectile/laser_heavy/tracer
@@ -44,7 +45,7 @@
 	name = "xray beam"
 	icon_state = "xray"
 	damage = 25
-	armor_penetration = 30
+	armor_penetration = 50
 
 	muzzle_type = /obj/effect/projectile/xray/muzzle
 	tracer_type = /obj/effect/projectile/xray/tracer
@@ -133,7 +134,7 @@
 	name = "sniper beam"
 	icon_state = "xray"
 	damage = 50
-	armor_penetration = 10
+	armor_penetration = 20
 	stun = 3
 	weaken = 3
 	stutter = 3
@@ -155,7 +156,7 @@
 	impact_type = /obj/effect/projectile/stun/impact
 
 /obj/item/projectile/beam/gatlinglaser
-	name = "heavy laser"
+	name = "diffused laser"
 	icon_state = "heavylaser"
 	damage = 10
 	no_attack_log = 1
