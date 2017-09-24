@@ -1,0 +1,5 @@
+author: Pacmandevil
+delete-after: True
+changes: 
+  - rscadd: "Firing pins. Guns now need an Authentication device to fire. there are several different types."
+  - rscadd: "Science now has a testing range to test guns in."
