@@ -19,6 +19,9 @@
     var/active = 0 //If the button is active
     var/button_type = "button_case_generic" //Button type for the listener
     var/listener/listener //Listener for button updates
+    //Spam Protection
+    var/last_toggle_time = 0
+    var/timeout = 10 //How long you have to wait between pressing the button
 
 /obj/machinery/case_button/Initialize()
     . = ..()
@@ -44,6 +47,11 @@
 
 /obj/machinery/case_button/attack_hand(mob/user as mob)
     if(covered == 0)
+        //Spam Check
+        if((last_toggle_time + timeout) > world.time)
+            user.visible_message("<span class='notice'>\The [user] presses the button, but nothing happens.</span>","<span class='notice'>You press the button, but it is not responding.</span>","You hear something being pressed.")
+            return ..()
+        last_toggle_time = world.time
         if(!active)
             if(activate(user))
                 for(var/obj/machinery/case_button/cb in get_listeners_by_type(button_type,/obj/machinery/case_button))
