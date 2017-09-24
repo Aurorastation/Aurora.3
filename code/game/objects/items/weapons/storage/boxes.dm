@@ -382,7 +382,7 @@
 
 /obj/item/weapon/storage/box/loyaltypins
 	name = "box of firing pins"
-	desc = "A box of Specialised ''Loyalty'' Authentication pins produced by Nanotrasen - these check to see if the user of the gun it's installed in has been implanted with a loyalty implant. often used in ERTs."
+	desc = "A box of Specialised \"Loyalty\" Authentication pins produced by Nanotrasen - these check to see if the user of the gun it's installed in has been implanted with a loyalty implant. often used in ERTs."
 
 /obj/item/weapon/storage/box/firingpins/test/fill()
 	..()
