@@ -179,16 +179,7 @@
 					centcomm_message_cooldown = 1
 					spawn(300) //30 second cooldown
 						centcomm_message_cooldown = 0
-		if("shuttle")
-			if(is_autenthicated(user) && ntn_cont)
-				if(href_list["target"] == "call")
-					var/confirm = alert("Are you sure you want to call the shuttle?", name, "No", "Yes")
-					if(confirm == "Yes" && can_still_topic())
-						call_shuttle_proc(usr)
-				if(href_list["target"] == "cancel" && !issilicon(usr))
-					var/confirm = alert("Are you sure you want to cancel the shuttle?", name, "No", "Yes")
-					if(confirm == "Yes" && can_still_topic())
-						cancel_call_proc(usr)
+
 		if("setstatus")
 			if(is_autenthicated(user) && ntn_cont)
 				switch(href_list["target"])
