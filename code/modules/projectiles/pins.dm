@@ -59,6 +59,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 /obj/item/device/firing_pin/proc/gun_remove(mob/living/user)
 	gun.pin = null
 	gun = null
+	qdel(src)
 	return
 
 /obj/item/device/firing_pin/proc/pin_auth(mob/living/user)
@@ -101,9 +102,9 @@ Pins Below.
 // Implant pin, checks for implant
 /obj/item/device/firing_pin/implant
 	name = "implant-keyed firing pin"
-	desc = "This is a security firing pin which only authorizes users who are implanted with a certain device."
+	desc = "This is a implant-locked firing pin which only authorizes users who are implanted with a certain device."
 	fail_message = "<span class='warning'>IMPLANT CHECK FAILED.</span>"
-	var/obj/item/weapon/implant/req_implant = null
+	var/req_implant
 
 /obj/item/device/firing_pin/implant/pin_auth(mob/living/user)
 	if (locate(req_implant) in user)
@@ -112,8 +113,8 @@ Pins Below.
 		return 0
 
 /obj/item/device/firing_pin/implant/loyalty
-	name = "Loyalty firing pin"
-	desc = "This Security firing pin authorizes the weapon for only loyalty-implanted users."
+	name = "loyalty firing pin"
+	desc = "This implant-locked firing pin authorizes the weapon for only loyalty-implanted users."
 	icon_state = "firing_pin_loyalty"
 	req_implant = /obj/item/weapon/implant/loyalty
 	

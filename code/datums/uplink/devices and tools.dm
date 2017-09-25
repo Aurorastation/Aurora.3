@@ -19,7 +19,7 @@
 	name = "Firing Pin"
 	item_cost = 2
 	path = /obj/item/device/firing_pin
-	desc = "A Syndicate-branded Firing pin - It should be compatatable with nearly every weapon onboard."
+	desc = "A Syndicate-branded Firing pin - It should be compatible with nearly every weapon onboard."
 
 
 /datum/uplink_item/item/tools/clerical

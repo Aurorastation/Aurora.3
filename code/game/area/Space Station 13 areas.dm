@@ -1618,7 +1618,7 @@ area/space/atmosalert()
 	icon_state = "toxmisc"
 
 /area/rnd/range
-	name = "\improper Science Test Range."
+	name = "\improper Science Test Range"
 	icon_state = "firingrange"
 	flags = FIRING_RANGE
 

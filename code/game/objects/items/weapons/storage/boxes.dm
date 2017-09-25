@@ -341,7 +341,7 @@
 
 /obj/item/weapon/storage/box/firingpins
 	name = "box of firing pins"
-	desc = "A box of NT brand Firearm authentication devices - Needed to operate most weapons."
+	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."
 
 /obj/item/weapon/storage/box/firingpins/fill()
 	..()
@@ -352,8 +352,6 @@
 	new /obj/item/device/firing_pin(src)
 	new /obj/item/device/firing_pin(src)
 	new /obj/item/device/firing_pin(src)
-	name = "box of firing pins"
-	desc = "A box of NT brand Firearm authentication devices - Needed to operate most weapons."
 
 /obj/item/weapon/storage/box/firingpins/fill()
 	..()
@@ -367,7 +365,7 @@
 
 /obj/item/weapon/storage/box/testpins
 	name = "box of firing pins"
-	desc = "A box of NT brand Testing Authentication pins, allows guns to fire in designated areas."
+	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
 
 /obj/item/weapon/storage/box/firingpins/test/fill()
 	..()
@@ -382,7 +380,7 @@
 
 /obj/item/weapon/storage/box/loyaltypins
 	name = "box of firing pins"
-	desc = "A box of Specialised \"Loyalty\" Authentication pins produced by Nanotrasen - these check to see if the user of the gun it's installed in has been implanted with a loyalty implant. often used in ERTs."
+	desc = "A box of specialised \"loyalty\" authentication pins produced by Nanotrasen; these check to see if the user of the gun it's installed in has been implanted with a loyalty implant. Often used in ERTs."
 
 /obj/item/weapon/storage/box/firingpins/test/fill()
 	..()
