@@ -342,12 +342,6 @@
 	build_path = /obj/item/weapon/circuitboard/biogenerator
 	sort_string = "KBAAA"
 
-/datum/design/circuit/comconsole
-	name = "communications console"
-	id = "comconsole"
-	build_path = /obj/item/weapon/circuitboard/communications
-	sort_string = "LAAAA"
-
 /datum/design/circuit/emp_data
 	name = "employment records console"
 	id = "emp_data"

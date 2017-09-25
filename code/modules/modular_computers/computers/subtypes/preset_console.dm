@@ -47,6 +47,8 @@
 /obj/item/modular_computer/console/preset/command/install_default_hardware()
 	..()
 	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer.max_paper = 25
+	nano_printer.stored_paper = 20
 	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
 
 // Security
@@ -69,6 +71,8 @@
 	..()
 	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
 	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer.max_paper = 25
+	nano_printer.stored_paper = 20
 	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
 
 /obj/item/modular_computer/console/preset/ert/

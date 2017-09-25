@@ -13,11 +13,10 @@
 	var/datum/modifier/modifier
 
 /datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien != IS_DIONA)
-		M.add_chemical_effect(CE_STABLE)
-		M.add_chemical_effect(CE_PAINKILLER, 25)
-		if (!modifier)
-			modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 0.6, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	M.add_chemical_effect(CE_STABLE)
+	M.add_chemical_effect(CE_PAINKILLER, 25)
+	if (!modifier)
+		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 0.6, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 /datum/reagent/inaprovaline/Destroy()
 	QDEL_NULL(modifier)
@@ -36,11 +35,11 @@
 	taste_mult = 3
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien != IS_DIONA)
-		M.heal_organ_damage(5 * removed, 0)
+	M.heal_organ_damage(5 * removed, 0)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA && ishuman(M)) //Bicard overdose heals internal wounds
+	..()//Bicard overdose heals internal wounds
+	if(ishuman(M))
 		var/healpower = 1
 		var/mob/living/carbon/human/H = M
 		for (var/a in H.organs)
@@ -51,7 +50,6 @@
 					healpower = W.heal_damage(healpower,1)
 					if (healpower <= 0)
 						return
-		M.adjustBruteLoss(7) //but not without a price, of course
 
 /datum/reagent/kelotane
 	name = "Kelotane"
@@ -64,12 +62,7 @@
 	taste_description = "bitterness"
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien != IS_DIONA)
-		M.heal_organ_damage(0, 6 * removed)
-
-/datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustFireLoss(8)
+	M.heal_organ_damage(0, 6 * removed)
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -83,12 +76,7 @@
 	taste_mult = 1.5
 
 /datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien != IS_DIONA)
-		M.heal_organ_damage(0, 12 * removed)
-
-/datum/reagent/dermaline/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustFireLoss(15)
+	M.heal_organ_damage(0, 12 * removed)
 
 /datum/reagent/dylovene
 	name = "Dylovene"
@@ -97,18 +85,13 @@
 	reagent_state = LIQUID
 	color = "#00A000"
 	scannable = 1
-	overdose = REAGENTS_OVERDOSE
+
 	taste_description = "a roll of gauze"
 
 /datum/reagent/dylovene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien != IS_DIONA)
-		M.drowsyness = max(0, M.drowsyness - 6 * removed)
-		M.hallucination = max(0, M.hallucination - 9 * removed)
-		M.adjustToxLoss(-4 * removed)
-
-/datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustToxLoss(6)
+	M.drowsyness = max(0, M.drowsyness - 6 * removed)
+	M.hallucination = max(0, M.hallucination - 9 * removed)
+	M.adjustToxLoss(-4 * removed)
 
 /datum/reagent/dexalin
 	name = "Dexalin"
@@ -123,14 +106,10 @@
 /datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
 		M.adjustToxLoss(removed * 6)
-	else if(alien != IS_DIONA)
+	else
 		M.adjustOxyLoss(-15 * removed)
 
 	holder.remove_reagent("lexorin", 2 * removed)
-
-/datum/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustOxyLoss(20)
 
 /datum/reagent/dexalinp
 	name = "Dexalin Plus"
@@ -145,7 +124,7 @@
 /datum/reagent/dexalinp/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
 		M.adjustToxLoss(removed * 9)
-	else if(alien != IS_DIONA)
+	else
 		M.adjustOxyLoss(-300 * removed)
 
 	holder.remove_reagent("lexorin", 3 * removed)
@@ -157,19 +136,13 @@
 	reagent_state = LIQUID
 	color = "#8040FF"
 	scannable = 1
-	overdose = REAGENTS_OVERDOSE
+
 	taste_description = "bitterness"
 
 /datum/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien != IS_DIONA)
-		M.adjustOxyLoss(-6 * removed)
-		M.heal_organ_damage(3 * removed, 3 * removed)
-		M.adjustToxLoss(-3 * removed)
-
-/datum/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien != IS_DIONA)
-		M.adjustToxLoss(6)
-		M.adjustOxyLoss(8)
+	M.adjustOxyLoss(-6 * removed)
+	M.heal_organ_damage(3 * removed, 3 * removed)
+	M.adjustToxLoss(-3 * removed)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
@@ -182,7 +155,7 @@
 	taste_description = "sludge"
 
 /datum/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.bodytemperature < 170 && alien != IS_DIONA)
+	if(M.bodytemperature < 170)
 		M.adjustCloneLoss(-10 * removed)
 		M.adjustOxyLoss(-10 * removed)
 		M.heal_organ_damage(10 * removed, 10 * removed)
@@ -199,7 +172,7 @@
 	taste_description = "slime"
 
 /datum/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.bodytemperature < 170 && alien != IS_DIONA)
+	if(M.bodytemperature < 170)
 		M.adjustCloneLoss(-30 * removed)
 		M.adjustOxyLoss(-30 * removed)
 		M.heal_organ_damage(30 * removed, 30 * removed)
@@ -276,8 +249,6 @@
 	taste_description = "bitterness"
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	M.drowsyness = max(M.drowsyness - 5, 0)
 	M.AdjustParalysis(-1)
 	M.AdjustStunned(-1)
@@ -306,8 +277,6 @@
 	taste_description = "bitterness"
 
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	M.adjustBrainLoss(-30 * removed)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 
@@ -383,8 +352,6 @@
 	taste_description = "acid"
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	if(prob(5))
 		M.emote(pick("twitch", "blink_r", "shiver"))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
@@ -412,9 +379,6 @@
 	taste_description = "bitterness"
 
 /datum/reagent/ethylredoxrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
-
 	var/P = removed * ETHYL_REAGENT_POWER
 	var/DP = dose * ETHYL_REAGENT_POWER//tiny optimisation
 
@@ -555,8 +519,6 @@
 	taste_description = "sourness"
 
 /datum/reagent/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	if(volume <= 0.1 && data != -1)
 		data = -1
 		M << "<span class='warning'>You lose focus...</span>"
@@ -575,8 +537,6 @@
 	data = 0
 
 /datum/reagent/citalopram/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	if(volume <= 0.1 && data != -1)
 		data = -1
 		M << "<span class='warning'>Your mind feels a little less stable...</span>"
@@ -596,8 +556,6 @@
 	taste_description = "bitterness"
 
 /datum/reagent/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	if(volume <= 0.1 && data != -1)
 		data = -1
 		M << "<span class='warning'>Your mind feels much less stable...</span>"

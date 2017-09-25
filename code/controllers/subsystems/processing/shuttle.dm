@@ -229,8 +229,8 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 
 	VS.destinations = list(
 		"Surface of the station" = locate(/area/skipjack_station/surface),
-		"Under the station" = locate(/area/skipjack_station/above),
-		"Above the station" = locate(/area/skipjack_station/under),
+		"Under the station" = locate(/area/skipjack_station/under),
+		"Above the station" = locate(/area/skipjack_station/above),
 		"Mining caverns" = locate(/area/skipjack_station/cavern)
 	)
 
