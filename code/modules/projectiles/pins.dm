@@ -24,10 +24,10 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 
 
 
-/obj/item/device/firing_pin/Initialize(newloc)
-	..()
-	if(istype(newloc, /obj/item/weapon/gun))
-		gun = newloc
+/obj/item/device/firing_pin/Initialize(mapload)
+	.=..()
+	if(istype(loc, /obj/item/weapon/gun))
+		gun = loc
 
 /obj/item/device/firing_pin/afterattack(atom/target, mob/user, proximity_flag)
 	if(proximity_flag)
