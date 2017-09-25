@@ -69,7 +69,6 @@
 	organ_tag = "eyes"
 	parent_organ = "head"
 	var/list/eye_colour = list(0,0,0)
-	var/singular_name = "eye"
 
 /obj/item/organ/eyes/proc/update_colour()
 	if(!owner)

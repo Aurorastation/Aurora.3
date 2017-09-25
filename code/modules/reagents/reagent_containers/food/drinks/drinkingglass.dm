@@ -48,13 +48,13 @@
 
 // for /obj/machinery/vending/sovietsoda
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass/soda
-	Initialize()
-		. = ..()
+	New()
+		..()
 		reagents.add_reagent("sodawater", 50)
 		on_reagent_change()
 
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass/cola
-	Initialize()
-		. = ..()
+	New()
+		..()
 		reagents.add_reagent("cola", 50)
 		on_reagent_change()

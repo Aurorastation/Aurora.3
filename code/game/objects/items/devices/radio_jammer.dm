@@ -103,7 +103,7 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 
 
 /obj/item/device/radiojammer/improvised/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (isscrewdriver(W))
+	if (istype(W, /obj/item/weapon/screwdriver))
 		user << "<span class='notice'>You disassemble the improvised signal jammer.</span>"
 		user.put_in_hands(assembly_holder)
 		user.put_in_hands(cell)

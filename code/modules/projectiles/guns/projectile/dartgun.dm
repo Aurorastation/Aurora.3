@@ -63,13 +63,14 @@
 	var/container_type = /obj/item/weapon/reagent_containers/glass/beaker
 	var/list/starting_chems = null
 
-/obj/item/weapon/gun/projectile/dartgun/dartgun/Initialize()
-	. = ..()
+/obj/item/weapon/gun/projectile/dartgun/dartgun/New()
+	..()
 	if(starting_chems)
 		for(var/chem in starting_chems)
 			var/obj/B = new container_type(src)
 			B.reagents.add_reagent(chem, 60)
 			beakers += B
+	update_icon()
 
 /obj/item/weapon/gun/projectile/dartgun/update_icon()
 	if(!ammo_magazine)

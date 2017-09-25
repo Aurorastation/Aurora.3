@@ -76,7 +76,7 @@
 			user << "<span class='notice'>[src] is full.</span>"
 		updateUsrDialog()
 		return
-	if(iswrench(I))
+	if(istype(I, /obj/item/weapon/wrench))
 		if(anchored)
 			user << "<span class='notice'>You lean down and unwrench [src].</span>"
 			anchored = 0

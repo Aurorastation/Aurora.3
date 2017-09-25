@@ -35,7 +35,6 @@
 	var/secured_wires = 0
 	var/datum/wires/airlock/wires = null
 	var/obj/item/device/magnetic_lock/bracer = null
-	var/panel_visible_while_open = FALSE
 
 	var/open_sound_powered = 'sound/machines/airlock.ogg'
 	var/close_sound_powered = 'sound/machines/AirlockClose.ogg'
@@ -139,7 +138,6 @@
 	explosion_resistance = 5
 	opacity = 0
 	glass = 1
-	panel_visible_while_open = TRUE
 	hatch_colour = "#eaeaea"
 
 /obj/machinery/door/airlock/centcom
@@ -147,7 +145,6 @@
 	icon = 'icons/obj/doors/Doorele.dmi'
 	opacity = 0
 	hatch_colour = "#606061"
-	hashatch = FALSE
 
 /obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
 	if (operating)
@@ -176,10 +173,9 @@
 	explosion_resistance = 20
 	opacity = 1
 	secured_wires = 1
-	assembly_type = /obj/structure/door_assembly/door_assembly_vault
+	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity //Until somebody makes better sprites.
 	hashatch = 0
 	maxhealth = 800
-	panel_visible_while_open = TRUE
 
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"
@@ -213,13 +209,12 @@
 	hatch_colour = "#5b5b5b"
 	var/hatch_colour_bolted = "#695a5a"
 
-/obj/machinery/door/airlock/hatch/update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
-	if (hashatch)
+	update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
 		if(density && locked && lights && src.arePowerSystemsOn())
 			hatch_image.color = hatch_colour_bolted
 		else
 			hatch_image.color = hatch_colour
-	..()
+		..()
 
 /obj/machinery/door/airlock/maintenance_hatch
 	name = "Maintenance Hatch"
@@ -230,7 +225,7 @@
 	hatch_colour = "#7d7d7d"
 
 /obj/machinery/door/airlock/glass_command
-	name = "Glass Airlock"
+	name = "Maintenance Hatch"
 	icon = 'icons/obj/doors/Doorcomglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -241,7 +236,7 @@
 	hatch_colour = "#3e638c"
 
 /obj/machinery/door/airlock/glass_engineering
-	name = "Glass Airlock"
+	name = "Maintenance Hatch"
 	icon = 'icons/obj/doors/Doorengglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -252,7 +247,7 @@
 	hatch_colour = "#caa638"
 
 /obj/machinery/door/airlock/glass_security
-	name = "Glass Airlock"
+	name = "Maintenance Hatch"
 	icon = 'icons/obj/doors/Doorsecglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -263,7 +258,7 @@
 	hatch_colour = "#677c97"
 
 /obj/machinery/door/airlock/glass_medical
-	name = "Glass Airlock"
+	name = "Maintenance Hatch"
 	icon = 'icons/obj/doors/Doormedglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -292,7 +287,7 @@
 	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/glass_research
-	name = "Glass Airlock"
+	name = "Maintenance Hatch"
 	icon = 'icons/obj/doors/Doorresearchglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -304,7 +299,7 @@
 	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/glass_mining
-	name = "Glass Airlock"
+	name = "Maintenance Hatch"
 	icon = 'icons/obj/doors/Doorminingglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -315,7 +310,7 @@
 	hatch_colour = "#c29142"
 
 /obj/machinery/door/airlock/glass_atmos
-	name = "Glass Airlock"
+	name = "Maintenance Hatch"
 	icon = 'icons/obj/doors/Dooratmoglass.dmi'
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 300
@@ -533,10 +528,10 @@ About the new airlock wires panel:
 		src.electrified_until = 0
 	else if(duration)	//electrify door for the given duration seconds
 		if(usr)
-			LAZYADD(shockedby, "\[[time_stamp()]\] - [usr](ckey:[usr.ckey])")
+			shockedby += text("\[[time_stamp()]\] - [usr](ckey:[usr.ckey])")
 			usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Electrified the [name] at [x] [y] [z]</font>")
 		else
-			LAZYADD(shockedby, "\[[time_stamp()]\] - EMP)")
+			shockedby += text("\[[time_stamp()]\] - EMP)")
 		message = "The door is now electrified [duration == -1 ? "permanently" : "for [duration] second\s"]."
 		src.electrified_until = duration == -1 ? -1 : world.time + SecondsToTicks(duration)
 		if (electrified_until > 0)
@@ -593,7 +588,6 @@ About the new airlock wires panel:
 	if (QDELING(src))
 		return
 	cut_overlays()
-	var/list/new_overlays = list()
 	if(density)
 		if(locked && lights && src.arePowerSystemsOn())
 			icon_state = "door_locked"
@@ -607,36 +601,32 @@ About the new airlock wires panel:
 				has_set_boltlight = FALSE
 		if(p_open || welded)
 			if(p_open)
-				new_overlays += "panel_open"
+				add_overlay("panel_open")
 			if (!(stat & NOPOWER))
 				if(stat & BROKEN)
-					new_overlays += "sparks_broken"
+					add_overlay("sparks_broken")
 				else if (health < maxhealth * 3/4)
-					new_overlays += "sparks_damaged"
+					add_overlay("sparks_damaged")
 			if(welded)
-				new_overlays += "welded"
+				add_overlay("welded")
 		else if (health < maxhealth * 3/4 && !(stat & NOPOWER))
-			new_overlays += "sparks_damaged"
+			add_overlay("sparks_damaged")
 
 		if (hatch_image)
 			if (hatchstate)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else
 				hatch_image.icon_state = hatchstyle
-			new_overlays += hatch_image
+			add_overlay(hatch_image)
 	else
-		if(p_open && panel_visible_while_open)
-			icon_state = "o_door_open"
-		else
-			icon_state = "door_open"
-
+		icon_state = "door_open"
 		if((stat & BROKEN) && !(stat & NOPOWER))
 			add_overlay("sparks_open")
 		if (has_set_boltlight)
 			set_light(0)
 			has_set_boltlight = FALSE
 
-	add_overlay(new_overlays)
+	update_above()
 
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
@@ -647,7 +637,7 @@ About the new airlock wires panel:
 				flick("o_door_opening", src)
 				update_icon()
 			else
-				flick(stat ? "door_opening_stat" : "door_opening", src)
+				flick("door_opening", src)//[stat ? "_stat":]
 				update_icon()
 		if("closing")
 			if(overlays)
@@ -657,7 +647,7 @@ About the new airlock wires panel:
 				flick("o_door_closing", src)
 				update_icon()
 			else
-				flick(stat ? "door_closing_stat" : "door_closing", src)
+				flick("door_closing", src)
 				update_icon()
 		if("spark")
 			if(density)
@@ -874,7 +864,7 @@ About the new airlock wires panel:
 		var/obj/item/device/magnetic_lock/newbracer = C
 		newbracer.attachto(src, user)
 		return
-	if(!repairing && (iswelder(C) && !( src.operating > 0 ) && src.density))
+	if(!repairing && (istype(C, /obj/item/weapon/weldingtool) && !( src.operating > 0 ) && src.density))
 		var/obj/item/weapon/weldingtool/W = C
 		if(W.remove_fuel(0,user))
 			if(!src.welded)
@@ -886,7 +876,7 @@ About the new airlock wires panel:
 			return
 		else
 			return
-	else if(isscrewdriver(C))
+	else if(istype(C, /obj/item/weapon/screwdriver))
 		if (src.p_open)
 			if (stat & BROKEN)
 				usr << "<span class='warning'>The panel is broken and cannot be closed.</span>"
@@ -895,16 +885,16 @@ About the new airlock wires panel:
 		else
 			src.p_open = 1
 		src.update_icon()
-	else if(iswirecutter(C))
+	else if(istype(C, /obj/item/weapon/wirecutters))
 		return src.attack_hand(user)
-	else if(ismultitool(C))
+	else if(istype(C, /obj/item/device/multitool))
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/weapon/pai_cable))	// -- TLE
 		var/obj/item/weapon/pai_cable/cable = C
 		cable.plugin(src, user)
-	else if(!repairing && iscrowbar(C))
+	else if(!repairing && istype(C, /obj/item/weapon/crowbar))
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && (!src.locked || (stat & BROKEN)))) )
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
@@ -1148,12 +1138,6 @@ About the new airlock wires panel:
 	return ..(M)
 
 /obj/machinery/door/airlock/Initialize(mapload, obj/structure/door_assembly/assembly = null)
-	var/on_admin_z = FALSE
-	//wires & hatch - this needs to be done up here so the hatch isn't generated by the parent Initialize().
-	if(loc && (z in config.admin_levels))
-		on_admin_z = TRUE
-		hashatch = FALSE
-
 	. = ..()
 
 	//if assembly is given, create the new door from the assembly
@@ -1181,8 +1165,9 @@ About the new airlock wires panel:
 		//get the dir from the assembly
 		set_dir(assembly.dir)
 
-	if (on_admin_z)
-		secured_wires = TRUE
+	//wires
+	if(loc && (z in config.admin_levels))
+		secured_wires = 1
 
 	if (secured_wires)
 		wires = new/datum/wires/airlock/secure(src)

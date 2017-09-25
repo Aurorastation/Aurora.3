@@ -71,7 +71,6 @@
 	var/areastring = null
 	var/obj/item/weapon/cell/cell
 	var/chargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
-	var/initalchargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 	var/start_charge = 90				// initial cell charge %
 	var/cell_type = /obj/item/weapon/cell/apc
 	var/opened = 0 //0=closed, 1=opened, 2=cover removed
@@ -88,6 +87,7 @@
 	var/locked = 1
 	var/coverlocked = 1
 	var/aidisabled = 0
+	var/tdir = null
 	var/obj/machinery/power/terminal/terminal = null
 	var/lastused_light = 0
 	var/lastused_equip = 0
@@ -117,6 +117,8 @@
 	var/global/list/status_overlays_equipment
 	var/global/list/status_overlays_lighting
 	var/global/list/status_overlays_environ
+
+	var/datum/effect_system/sparks/spark_system
 
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
@@ -152,18 +154,19 @@
 	return cell.drain_power(drain_check, surge, amount)
 
 /obj/machinery/power/apc/Initialize(mapload, var/ndir, var/building=0)
-	. = ..(mapload)
+	. = ..()
 	wires = new(src)
 
-	// offset 28 pixels in direction of dir
+	// offset 24 pixels in direction of dir
 	// this allows the APC to be embedded in a wall, yet still inside an area
 	if (building)
 		set_dir(ndir)
+	src.tdir = dir		// to fix Vars bug
+	set_dir(SOUTH)
 
-	pixel_x = DIR2PIXEL_X(dir)
-	pixel_y = DIR2PIXEL_Y(dir)
-
-	if (!building)
+	pixel_x = (src.tdir & 3)? 0 : (src.tdir == 4 ? 24 : -24)
+	pixel_y = (src.tdir & 3)? (src.tdir ==1 ? 24 : -24) : 0
+	if (building==0)
 		init(mapload)
 	else
 		area = get_area(src)
@@ -173,6 +176,8 @@
 		name = "[area.name] APC"
 		stat |= MAINT
 		src.update_icon()
+
+	spark_system = bind_spark(src, 5, alldirs)
 
 /obj/machinery/power/apc/Destroy()
 	src.update()
@@ -187,6 +192,8 @@
 		cell.forceMove(loc)
 		cell = null
 
+	QDEL_NULL(spark_system)
+
 	// Malf AI, removes the APC from AI's hacked APCs list.
 	if((hacker) && (hacker.hacked_apcs) && (src in hacker.hacked_apcs))
 		hacker.hacked_apcs -= src
@@ -200,7 +207,7 @@
 	// create a terminal object at the same position as original turf loc
 	// wires will attach to this
 	terminal = new/obj/machinery/power/terminal(src.loc)
-	terminal.set_dir(dir)
+	terminal.set_dir(tdir)
 	terminal.master = src
 
 /obj/machinery/power/apc/proc/init(mapload)
@@ -423,7 +430,7 @@
 	if (istype(user, /mob/living/silicon) && get_dist(src,user)>1)
 		return src.attack_hand(user)
 	src.add_fingerprint(user)
-	if (iscrowbar(W) && opened)
+	if (istype(W, /obj/item/weapon/crowbar) && opened)
 		if (has_electronics==1)
 			if (terminal)
 				user << "<span class='warning'>Disconnect wires first.</span>"
@@ -445,16 +452,14 @@
 							"<span class='notice'>You remove the power control board.</span>")
 						new /obj/item/weapon/module/power_control(loc)
 		else if (opened!=2) //cover isn't removed
-			panel_open = 0
 			opened = 0
 			update_icon()
-	else if (iscrowbar(W) && !((stat & BROKEN) || hacker) )
+	else if (istype(W, /obj/item/weapon/crowbar) && !((stat & BROKEN) || hacker) )
 		if(coverlocked && !(stat & MAINT))
 			user << "<span class='warning'>The cover is locked and cannot be opened.</span>"
 			return
 		else
 			opened = 1
-			panel_open = 1		
 			update_icon()
 	else if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/weapon/gripper/Gri = W
@@ -488,7 +493,7 @@
 			"<span class='notice'>You insert the power cell.</span>")
 		chargecount = 0
 		update_icon()
-	else if	(isscrewdriver(W))	// haxing
+	else if	(istype(W, /obj/item/weapon/screwdriver))	// haxing
 		if(opened)
 			if (cell)
 				user << "<span class='warning'>Close the APC first.</span>" //Less hints more mystery!
@@ -531,7 +536,7 @@
 				update_icon()
 			else
 				user << "<span class='warning'>Access denied.</span>"
-	else if (iscoil(W) && !terminal && opened && has_electronics!=2)
+	else if (istype(W, /obj/item/stack/cable_coil) && !terminal && opened && has_electronics!=2)
 		var/turf/T = loc
 		if(istype(T) && !T.is_plating())
 			user << "<span class='warning'>You must remove the floor plating in front of the APC first.</span>"
@@ -556,7 +561,7 @@
 					"You add cables to the APC frame.")
 				make_terminal()
 				terminal.connect_to_network()
-	else if (iswirecutter(W) && terminal && opened && has_electronics!=2)
+	else if (istype(W, /obj/item/weapon/wirecutters) && terminal && opened && has_electronics!=2)
 		var/turf/T = loc
 		if(istype(T) && !T.is_plating())
 			user << "<span class='warning'>You must remove the floor plating in front of the APC first.</span>"
@@ -567,7 +572,7 @@
 		if(do_after(user, 50))
 			if(terminal && opened && has_electronics!=2)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
-					spark(src, 5, alldirs)
+					spark_system.queue()
 					if(usr.stunned)
 						return
 				new /obj/item/stack/cable_coil(loc,10)
@@ -585,7 +590,7 @@
 	else if (istype(W, /obj/item/weapon/module/power_control) && opened && has_electronics==0 && ((stat & BROKEN)))
 		user << "<span class='warning'>You cannot put the board inside, the frame is damaged.</span>"
 		return
-	else if (iswelder(W) && opened && has_electronics==0 && !terminal)
+	else if (istype(W, /obj/item/weapon/weldingtool) && opened && has_electronics==0 && !terminal)
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.isOn()) return
 		if (WT.get_fuel() < 3)
@@ -671,7 +676,7 @@
 	else
 		if ((stat & BROKEN) \
 				&& !opened \
-				&& iswelder(W) )
+				&& istype(W, /obj/item/weapon/weldingtool) )
 			var/obj/item/weapon/weldingtool/WT = W
 			if (!WT.isOn()) return
 			if (WT.get_fuel() <1)
@@ -703,8 +708,8 @@
 			if (istype(user, /mob/living/silicon))
 				return src.attack_hand(user)
 			if (!opened && wiresexposed && \
-				(ismultitool(W) || \
-				iswirecutter(W) || istype(W, /obj/item/device/assembly/signaler)))
+				(istype(W, /obj/item/device/multitool) || \
+				istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/device/assembly/signaler)))
 				return src.attack_hand(user)
 			user.visible_message("<span class='danger'>The [src.name] has been hit with the [W.name] by [user.name]!</span>", \
 				"<span class='danger'>You hit the [src.name] with your [W.name]!</span>", \
@@ -745,7 +750,7 @@
 
 		if(isipc(H) && H.a_intent == I_GRAB)
 			if(emagged || stat & BROKEN)
-				spark(src, 5, alldirs)
+				spark_system.queue()
 				H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 				H.adjustFireLoss(10, 0)
 			if(infected)
@@ -771,7 +776,7 @@
 					if (H.nutrition > H.max_nutrition)
 						H.nutrition = H.max_nutrition
 					if (prob(0.5))
-						spark(src, 5, alldirs)
+						spark_system.queue()
 						H << "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>"
 						H.adjustFireLoss(10, 0)
 
@@ -1043,7 +1048,7 @@
 			smoke.set_up(3, 0, src.loc)
 			smoke.attach(src)
 			smoke.start()
-			spark(src, 5, alldirs)
+			spark_system.queue()
 			visible_message("<span class='danger'>The [src.name] suddenly lets out a blast of smoke and some sparks!</span>", \
 							"<span class='danger'>You hear sizzling electronics.</span>")
 

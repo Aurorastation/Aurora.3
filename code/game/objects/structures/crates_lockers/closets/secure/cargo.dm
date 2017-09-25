@@ -38,7 +38,3 @@
 		new /obj/item/clothing/mask/gas(src)
 		new /obj/item/clothing/glasses/meson(src)
 		new /obj/item/clothing/head/soft(src)
-
-/obj/structure/closet/secure_closet/merchant
-	name = "merchant locker"
-	req_access = list(access_merchant)

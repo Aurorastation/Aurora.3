@@ -82,7 +82,7 @@
 /obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
 
-	if (isscrewdriver(W) && buildstage == 2)
+	if (istype(W, /obj/item/weapon/screwdriver) && buildstage == 2)
 		if(!wiresexposed)
 			set_light(0)
 		wiresexposed = !wiresexposed
@@ -93,20 +93,20 @@
 		set_light(0)
 		switch(buildstage)
 			if(2)
-				if (ismultitool(W))
+				if (istype(W, /obj/item/device/multitool))
 					src.detecting = !( src.detecting )
 					if (src.detecting)
 						user.visible_message("<span class='notice'>\The [user] has reconnected [src]'s detecting unit!</span>", "<span class='notice'>You have reconnected [src]'s detecting unit.</span>")
 					else
 						user.visible_message("<span class='notice'>\The [user] has disconnected [src]'s detecting unit!</span>", "<span class='notice'>You have disconnected [src]'s detecting unit.</span>")
-				else if (iswirecutter(W))
+				else if (istype(W, /obj/item/weapon/wirecutters))
 					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
 					playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 					buildstage = 1
 					update_icon()
 			if(1)
-				if(iscoil(W))
+				if(istype(W, /obj/item/stack/cable_coil))
 					var/obj/item/stack/cable_coil/C = W
 					if (C.use(5))
 						user << "<span class='notice'>You wire \the [src].</span>"
@@ -115,7 +115,7 @@
 					else
 						user << "<span class='warning'>You need 5 pieces of cable to wire \the [src].</span>"
 						return
-				else if(iscrowbar(W))
+				else if(istype(W, /obj/item/weapon/crowbar))
 					user << "You pry out the circuit!"
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					spawn(20)
@@ -130,7 +130,7 @@
 					buildstage = 1
 					update_icon()
 
-				else if(iswrench(W))
+				else if(istype(W, /obj/item/weapon/wrench))
 					user << "You remove the fire alarm assembly from the wall!"
 					new /obj/item/frame/fire_alarm(get_turf(user))
 					playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -231,37 +231,20 @@
 		seclevel = newlevel
 		update_icon()
 
-/obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
-	. = ..(mapload, ndir)
+/obj/machinery/firealarm/Initialize(mapload, dir, building)
+	. = ..()
+	if(dir)
+		src.set_dir(dir)
 
 	if(building)
 		buildstage = 0
 		wiresexposed = 1
 		icon_state = "fire_b0"
-
-	// Overwrite the mapped in values.
-	pixel_x = DIR2PIXEL_X(dir)
-	pixel_y = DIR2PIXEL_Y(dir)
+		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
+		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
 
 	if(z in config.contact_levels)
-		set_security_level(security_level ? get_security_level() : "green")
-
-// Convenience subtypes for mappers.
-/obj/machinery/firealarm/north
-	dir = NORTH
-	pixel_y = 28
-
-/obj/machinery/firealarm/east
-	dir = EAST
-	pixel_x = 28
-
-/obj/machinery/firealarm/west
-	dir = WEST
-	pixel_x = -28
-
-/obj/machinery/firealarm/south
-	dir = SOUTH
-	pixel_y = -28
+		set_security_level(security_level? get_security_level() : "green")
 
 /*
 FIRE ALARM CIRCUIT

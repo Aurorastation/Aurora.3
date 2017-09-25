@@ -125,9 +125,8 @@
 	feedback_add_details("radio_usage","PDA-[pda_msg_amt]")
 	feedback_add_details("radio_usage","RC-[rc_msg_amt]")
 
-	for (var/key in simple_statistics)
-		var/datum/statistic/S = simple_statistics[key]
-		if (S.write_to_db && S.key)
+	for (var/datum/statistic/S in simple_statistics)
+		if (S.write_to_database && S.key)
 			S.write_to_database()
 
 	feedback_set_details("round_end","[time2text(world.realtime)]") //This one MUST be the last one that gets set.

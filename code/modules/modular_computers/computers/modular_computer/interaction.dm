@@ -148,7 +148,7 @@
 			try_install_component(user, C)
 		else
 			to_chat(user, "This component is too large for \the [src].")
-	if(iswrench(W))
+	if(istype(W, /obj/item/weapon/wrench))
 		var/list/components = get_all_components()
 		if(components.len)
 			to_chat(user, "Remove all components from \the [src] before disassembling it.")
@@ -162,7 +162,7 @@
 				"You hear a ratchet.")
 			qdel(src)
 		return
-	if(iswelder(W))
+	if(istype(W, /obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.isOn())
 			to_chat(user, "\The [W] is off.")
@@ -179,7 +179,7 @@
 			to_chat(user, "You repair \the [src].")
 		return
 
-	if(isscrewdriver(W))
+	if(istype(W, /obj/item/weapon/screwdriver))
 		var/list/all_components = get_all_components()
 		if(!all_components.len)
 			to_chat(user, "This device doesn't have any components installed.")

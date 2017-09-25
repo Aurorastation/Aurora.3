@@ -31,8 +31,6 @@
 	var/used_equip = 0
 	var/used_light = 0
 	var/used_environ = 0
-	var/alwaysgravity = 0
-	var/nevergravity = 0
 
 	var/has_gravity = 1
 	var/obj/machinery/power/apc/apc = null
@@ -60,7 +58,6 @@
 	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
 	var/station_area = 0
 	var/centcomm_area = 0
-	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
 
 /area/Initialize(mapload)
 	icon_state = "white"
@@ -80,7 +77,6 @@
 
 	if(centcomm_area)
 		centcom_areas[src] = TRUE
-		alwaysgravity = 1
 
 	if(station_area)
 		the_station_areas[src] = TRUE
@@ -386,13 +382,8 @@ var/list/mob/living/forced_ambiance_list = new
 	if(!T)
 		T = get_turf(AT)
 	var/area/A = get_area(T)
-	if(istype(T, /turf/space)) //because space
-		return 0
-	else if(A && A.has_gravity)
+	if(A && A.has_gravity())
 		return 1
-	else
-		if(T && length(SSmachinery.gravity_generators))
-			return 1
 	return 0
 
 //A useful proc for events.

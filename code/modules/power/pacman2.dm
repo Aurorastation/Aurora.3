@@ -30,15 +30,16 @@
 		P.air_contents.phoron -= 0.01
 		return
 
-	setup_components()
-		. = list(
-			new /obj/item/weapon/stock_parts/matter_bin(src),
-			new /obj/item/weapon/stock_parts/micro_laser(src),
-			new /obj/item/stack/cable_coil(src),
-			new /obj/item/stack/cable_coil(src),
-			new /obj/item/weapon/stock_parts/capacitor(src),
-			new board_path(src)
-		)
+	New()
+		..()
+		component_parts = list()
+		component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
+		component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
+		component_parts += new /obj/item/stack/cable_coil(src)
+		component_parts += new /obj/item/stack/cable_coil(src)
+		component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
+		component_parts += new board_path(src)
+		RefreshParts()
 
 	RefreshParts()
 		var/temp_rating = 0
@@ -76,7 +77,7 @@
 			O.loc = src
 			user << "<span class='notice'>You add the phoron tank to the generator.</span>"
 		else if(!active)
-			if(iswrench(O))
+			if(istype(O, /obj/item/weapon/wrench))
 				anchored = !anchored
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				if(anchored)
@@ -84,14 +85,14 @@
 				else
 					user << "<span class='notice'>You unsecure the generator from the floor.</span>"
 				SSmachinery.powernet_update_queued = TRUE
-			else if(isscrewdriver(O))
+			else if(istype(O, /obj/item/weapon/screwdriver))
 				open = !open
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				if(open)
 					user << "<span class='notice'>You open the access panel.</span>"
 				else
 					user << "<span class='notice'>You close the access panel.</span>"
-			else if(iscrowbar(O) && !open)
+			else if(istype(O, /obj/item/weapon/crowbar) && !open)
 				var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 				for(var/obj/item/I in component_parts)
 					I.loc = src.loc

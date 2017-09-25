@@ -17,7 +17,7 @@
 	var/lock_time = 0          // When -will- we lock on?
 	var/active =    0          // Is our owner intending to take hostages?
 	var/target_permissions = 0 // Permission bitflags.
-	var/aimcooldown			   // How long untill we can re-aim?
+
 /obj/aiming_overlay/New(var/newowner)
 	..()
 	owner = newowner
@@ -133,8 +133,6 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 			owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
 
 /obj/aiming_overlay/proc/aim_at(var/mob/target, var/obj/thing)
-	if (aimcooldown > world.time)
-		return
 
 	if(!owner)
 		return
@@ -166,19 +164,16 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 		playsound(get_turf(owner), 'sound/weapons/TargetOn.ogg', 50,1)
 
 	forceMove(get_turf(target))
-	START_PROCESSING(SSprocessing, src)
+	processing_objects |= src
 
 	aiming_at.aimed |= src
 	toggle_active(1)
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35
-	owner.OnMove(CALLBACK(src, .proc/update_aiming))
-	aiming_at.OnMove(CALLBACK(src, .proc/target_moved))
-	aiming_at.OnDestroy(CALLBACK(src, .proc/cancel_aiming))
-
-/obj/aiming_overlay/proc/aim_cooldown(var/seconds)
-	aimcooldown = world.time + seconds SECONDS
+	moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
+	moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
+	destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
 
 /obj/aiming_overlay/update_icon()
 	if(locked)
@@ -213,18 +208,17 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	if(!no_message)
 		owner.visible_message("<span class='notice'>\The [owner] lowers \the [aiming_with].</span>")
 
-	owner.UnregisterOnMove(src)
+	moved_event.unregister(owner, src)
 	if(aiming_at)
-		aiming_at.UnregisterOnMove(src)
-		aiming_at.UnregisterOnDestroy(src)
+		moved_event.unregister(aiming_at, src)
+		destroyed_event.unregister(aiming_at, src)
 		aiming_at.aimed -= src
 		aiming_at = null
 
 	aiming_with = null
 	loc = null
-	STOP_PROCESSING(SSprocessing, src)
+	processing_objects -= src
 
 /obj/aiming_overlay/proc/target_moved()
 	update_aiming()
 	trigger(TARGET_CAN_MOVE)
-

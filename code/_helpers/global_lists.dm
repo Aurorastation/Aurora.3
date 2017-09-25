@@ -28,8 +28,6 @@ var/global/list/ghostteleportlocs = list()
 var/global/list/centcom_areas = list()
 var/global/list/the_station_areas = list()
 
-var/global/list/implants = list()
-
 var/global/list/turfs = list()						//list of all turfs
 
 //Languages/species/whitelist.
@@ -38,12 +36,6 @@ var/global/list/all_languages = list()
 var/global/list/language_keys = list()					// Table of say codes for all languages
 var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.
 var/global/list/playable_species = list("Human")    // A list of ALL playable species, whitelisted, latejoin or otherwise.
-var/global/list/mechanical_species = list(
-	"Baseline Frame" = MECHANICAL_SPECIES_NORMAL,
-	"Shell Frame" = MECHANICAL_SPECIES_NORMAL,
-	"Industrial Frame" = MECHANICAL_SPECIES_INDUSTRIAL,
-	"Hunter-Killer" = MECHANICAL_SPECIES_SPECIAL
-)
 
 // Posters
 var/global/list/poster_designs = list()
@@ -83,8 +75,8 @@ var/global/list/socks_m = list(
 	"Rainbow normal" = "rainbow_norm", "Rainbow short" = "rainbow_short", "Rainbow knee" = "rainbow_knee", "None")
 
 	//Backpacks
-var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag", "Messenger Bag")
-var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
+var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag")
+var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
@@ -160,7 +152,7 @@ var/global/list/cloaking_devices = list()
 	sortTim(facial_hair_styles_male_list, /proc/cmp_text_asc)
 	sortTim(facial_hair_styles_female_list, /proc/cmp_text_asc)
 
-	//Body markings
+	//Body markings 
 	paths = subtypesof(/datum/sprite_accessory/marking)
 	for(var/path in paths)
 		var/datum/sprite_accessory/marking/M = new path()
@@ -207,7 +199,7 @@ var/global/list/cloaking_devices = list()
 	// The other lists are generated *after* we sort the main one so they don't need sorting too.
 	for (var/thing in all_species)
 		var/datum/species/S = all_species[thing]
-
+		
 		if (!(S.spawn_flags & IS_RESTRICTED))
 			playable_species += S.name
 		if(S.spawn_flags & IS_WHITELISTED)

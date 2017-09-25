@@ -30,11 +30,11 @@
 	toggle_secure()
 		secured = !secured
 		if(secured)
-			START_PROCESSING(SSprocessing, src)
+			processing_objects.Add(src)
 		else
 			scanning = 0
 			timing = 0
-			STOP_PROCESSING(SSprocessing, src)
+			processing_objects.Remove(src)
 		update_icon()
 		return secured
 

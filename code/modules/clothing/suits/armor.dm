@@ -13,9 +13,9 @@
 	var/pocket_size = 2
 	var/pocket_total = null//This will be calculated, unless specifically overidden
 
-/obj/item/clothing/suit/armor/Initialize()
-	. = ..()
-	pockets = new /obj/item/weapon/storage/internal(src)
+/obj/item/clothing/suit/armor/New()
+	..()
+	pockets = new/obj/item/weapon/storage/internal(src)
 	pockets.storage_slots = pocket_slots	//two slots
 	pockets.max_w_class = pocket_size		//fit only pocket sized items
 	if (pocket_total)
@@ -25,7 +25,8 @@
 
 /obj/item/clothing/suit/armor/Destroy()
 	if (pockets)
-		QDEL_NULL(pockets)
+		qdel(pockets)
+		pockets = null
 	return ..()
 
 /obj/item/clothing/suit/armor/attack_hand(mob/user as mob)
@@ -252,12 +253,12 @@
 	siemens_coefficient = 0.5
 	var/obj/item/clothing/accessory/holster/holster
 
-/obj/item/clothing/suit/armor/tactical/Initialize()
-	. = ..()
+/obj/item/clothing/suit/armor/tactical/New()
+	..()
 	holster = new()
 	holster.on_attached(src)	//its inside a suit, we set  this so it can be drawn from
 	QDEL_NULL(pockets)	//Tactical armour has internal holster instead of pockets, so we null this out
-	cut_overlays()	// Remove the holster's overlay.
+	overlays.Cut()	// Remove the holster's overlay.
 
 /obj/item/clothing/suit/armor/tactical/attackby(obj/item/W as obj, mob/user as mob)
 	..()
@@ -335,8 +336,8 @@
 	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
 	siemens_coefficient = 0.5
 
-/obj/item/clothing/suit/storage/vest/Initialize()
-	. = ..()
+/obj/item/clothing/suit/storage/vest/New()
+	..()
 	pockets.storage_slots = 2	//two slots
 
 /obj/item/clothing/suit/storage/vest/officer

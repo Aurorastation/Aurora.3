@@ -43,11 +43,8 @@
 	if(!damage_overlays[1]) //list hasn't been populated
 		generate_overlays()
 
-	if (LAZYLEN(reinforcement_images))
-		cut_overlay(reinforcement_images, TRUE)
-	if (damage_image)
-		cut_overlay(damage_image, TRUE)
-
+	var/list/cutlist = (reinforcement_images||list()) + damage_image
+	cut_overlay(cutlist, TRUE)
 	LAZYCLEARLIST(reinforcement_images)
 	damage_image = null
 

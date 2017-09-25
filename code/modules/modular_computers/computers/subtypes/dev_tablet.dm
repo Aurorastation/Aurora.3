@@ -8,7 +8,3 @@
 	max_hardware_size = 1
 	w_class = 2
 	light_strength = 2					// Same as PDAs
-
-/obj/item/modular_computer/tablet/Initialize()
-	. = ..()
-	icon_state += pick("", "-blue", "-green", "-red", "-brown")

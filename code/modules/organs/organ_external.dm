@@ -17,8 +17,6 @@
 	var/brute_mod = 1
 	var/burn_mod = 1
 
-	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
-
 	var/icon_name = null
 	var/body_part = null
 	var/icon_position = 0
@@ -168,9 +166,6 @@
 	return
 
 /obj/item/organ/external/Initialize(mapload)
-	if (robotize_type)
-		robotize(robotize_type)
-
 	. = ..(mapload, FALSE)
 	if(owner)
 		replaced(owner)
@@ -901,7 +896,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(owner.species && !(owner.species.flags & NO_PAIN))
 			owner.emote("scream")
 
-	playsound(src.loc, "fracture", 100, 1, -2)
 	status |= ORGAN_BROKEN
 	broken_description = pick("Broken","Fracture","Hairline fracture")
 	perma_injury = brute_dam

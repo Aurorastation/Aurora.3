@@ -9,10 +9,6 @@
 	desc = "A blue folder."
 	icon_state = "folder_blue"
 
-/obj/item/weapon/folder/sec
-	desc = "A gold and blue folder, specifically designed for the Internal Security Department."
-	icon_state = "folder_blue_gold"
-
 /obj/item/weapon/folder/red
 	desc = "A red folder."
 	icon_state = "folder_red"
@@ -90,20 +86,20 @@
 				onclose(usr, "[P.name]")
 		else if(href_list["rename"])
 			var/obj/item/weapon/O = locate(href_list["rename"])
-
+			
 			if(O && (O.loc == src))
 				if(istype(O, /obj/item/weapon/paper))
 					var/obj/item/weapon/paper/to_rename = O
 					to_rename.rename()
-
+					
 				else if(istype(O, /obj/item/weapon/photo))
 					var/obj/item/weapon/photo/to_rename = O
 					to_rename.rename()
-
+					
 				else if(istype(O, /obj/item/weapon/paper_bundle))
 					var/obj/item/weapon/paper_bundle/to_rename = O
 					to_rename.rename()
-
+					
 		//Update everything
 		attack_self(usr)
 		update_icon()

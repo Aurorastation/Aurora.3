@@ -8,14 +8,15 @@
 	var/power_loss = 2
 	var/input_power_multiplier = 1
 
-	component_types = list(
-		/obj/item/weapon/circuitboard/tesla_coil,
-		/obj/item/weapon/stock_parts/capacitor
-	)
+/obj/machinery/power/tesla_coil/Initialize()
+	. = ..()
+	component_parts = list()
+//	component_parts += new /obj/item/weapon/circuitboard/tesla_coil(null)
+	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
+	RefreshParts()
 
 /obj/machinery/power/tesla_coil/RefreshParts()
 	var/power_multiplier = 0
-
 	for(var/obj/item/weapon/stock_parts/capacitor/C in component_parts)
 		power_multiplier += C.rating
 	input_power_multiplier = power_multiplier
@@ -27,7 +28,7 @@
 	if(default_part_replacement(user, W))
 		return
 
-	if(iswrench(W))
+	if(istype(W, /obj/item/weapon/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
 		anchored = !anchored
@@ -61,10 +62,12 @@
 	anchored = 0
 	density = 1
 
-	component_types = list(
-		///obj/item/weapon/circuitboard/grounding_rod,
-		/obj/item/weapon/stock_parts/capacitor
-	)
+/obj/machinery/power/grounding_rod/Initialize()
+	. = ..()
+	component_parts = list()
+//	component_parts += new /obj/item/weapon/circuitboard/grounding_rod(null)
+	component_parts += new /obj/item/weapon/stock_parts/capacitor(null)
+	RefreshParts()
 
 /obj/machinery/power/grounding_rod/attackby(obj/item/W, mob/user)
 	if(default_deconstruction_screwdriver(user, W))
@@ -73,7 +76,7 @@
 	if(default_part_replacement(user, W))
 		return
 
-	if(iswrench(W))
+	if(istype(W, /obj/item/weapon/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
 		anchored = !anchored
@@ -83,9 +86,3 @@
 
 /obj/machinery/power/grounding_rod/tesla_act(var/power)
 	flick("coil_shock_1", src)
-
-/obj/item/weapon/circuitboard/tesla_coil
-	name = "tesla coil circuitry"
-	desc = "The circuitboard for a tesla coil."
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	req_components = list("/obj/item/weapon/stock_parts/capacitor" = 1)

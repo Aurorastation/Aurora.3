@@ -25,7 +25,6 @@ var/list/spawntypes = list()
 /datum/spawnpoint/arrivals
 	display_name = "Arrivals Shuttle"
 	msg = "is inbound from the NTCC Odin"
-	disallow_job = list("Merchant")
 
 
 /datum/spawnpoint/arrivals/New()
@@ -35,7 +34,7 @@ var/list/spawntypes = list()
 /datum/spawnpoint/cryo
 	display_name = "Cryogenic Storage"
 	msg = "has completed cryogenic revival"
-	disallow_job = list("Cyborg", "Merchant")
+	disallow_job = list("Cyborg")
 
 /datum/spawnpoint/cryo/New()
 	..()
@@ -49,11 +48,3 @@ var/list/spawntypes = list()
 /datum/spawnpoint/cyborg/New()
 	..()
 	turfs = latejoin_cyborg
-
-/datum/spawnpoint/merchant
-	display_name = "Merchant Station"
-	restrict_job = list("Merchant")
-
-/datum/spawnpoint/merchant/New()
-	..()
-	turfs = latejoin_merchant

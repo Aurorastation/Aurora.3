@@ -48,7 +48,7 @@
 
 	var/datum/gas_mixture/environment
 	if(loc)
-		environment = loc.return_air_for_internal_lifeform(src)
+		environment = loc.return_air_for_internal_lifeform()
 
 	if(environment)
 		breath = environment.remove_volume(volume_needed)

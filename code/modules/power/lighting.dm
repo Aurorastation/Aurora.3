@@ -45,7 +45,7 @@
 
 /obj/machinery/light_construct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
-	if (iswrench(W))
+	if (istype(W, /obj/item/weapon/wrench))
 		if (src.stage == 1)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			usr << "You begin deconstructing [src]."
@@ -64,7 +64,7 @@
 			usr << "You have to unscrew the case first."
 			return
 
-	if(iswirecutter(W))
+	if(istype(W, /obj/item/weapon/wirecutters))
 		if (src.stage != 2) return
 		src.stage = 1
 		switch(fixture_type)
@@ -78,7 +78,7 @@
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		return
 
-	if(iscoil(W))
+	if(istype(W, /obj/item/stack/cable_coil))
 		if (src.stage != 1) return
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.use(1))
@@ -92,7 +92,7 @@
 				"You add wires to [src].")
 		return
 
-	if(isscrewdriver(W))
+	if(istype(W, /obj/item/weapon/screwdriver))
 		if (src.stage == 2)
 			switch(fixture_type)
 				if ("tube")
@@ -385,7 +385,7 @@
 
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
-		if(isscrewdriver(W)) //If it's a screwdriver open it.
+		if(istype(W, /obj/item/weapon/screwdriver)) //If it's a screwdriver open it.
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
 			user.visible_message("[user.name] opens [src]'s casing.", \
 				"You open [src]'s casing.", "You hear a noise.")
@@ -424,7 +424,7 @@
 	set waitfor = FALSE
 	if (flickering || !on || status != LIGHT_OK)
 		return
-
+	
 	flickering = TRUE
 	var/offset = 1
 	var/thecallback = CALLBACK(src, .proc/handle_flicker)
@@ -539,11 +539,6 @@
 
 	status = LIGHT_EMPTY
 	update()
-
-/obj/machinery/light/attack_ghost(mob/user)
-	if(round_is_spooky())
-		flicker(rand(2,5))
-	else return ..()
 
 // break the light and make sparks if was on
 

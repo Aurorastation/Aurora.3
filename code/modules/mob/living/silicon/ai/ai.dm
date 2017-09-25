@@ -391,8 +391,11 @@ var/list/ai_verbs_default = list(
 	if(confirm == "Yes")
 		call_shuttle_proc(src)
 
+	// hack to display shuttle timer
 	if(emergency_shuttle.online())
-		post_display_status("shuttle")
+		var/obj/machinery/computer/communications/C = locate() in SSmachinery.processing_machines
+		if(C)
+			C.post_status("shuttle")
 
 /mob/living/silicon/ai/proc/ai_recall_shuttle()
 	set category = "AI Commands"
@@ -673,7 +676,7 @@ var/list/ai_verbs_default = list(
 		var/obj/item/weapon/aicard/card = W
 		card.grab_ai(src, user)
 
-	else if(iswrench(W))
+	else if(istype(W, /obj/item/weapon/wrench))
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
 			if(!do_after(user,40))

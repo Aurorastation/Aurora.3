@@ -40,8 +40,7 @@
 
 		var/time = world.time
 
-		if (!M.frozen)
-			M.Life()
+		M.Life()
 
 		if (time != world.time && !slept[M.type])
 			slept[M.type] = TRUE

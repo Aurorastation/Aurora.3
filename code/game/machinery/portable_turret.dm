@@ -10,7 +10,7 @@
 /obj/machinery/porta_turret
 	name = "turret"
 	icon = 'icons/obj/turrets.dmi'
-	icon_state = "cover"
+	icon_state = "turretCover"
 	anchored = 1
 
 	density = 0
@@ -29,10 +29,11 @@
 
 	var/installation = /obj/item/weapon/gun/energy/gun		//the type of weapon installed
 	var/gun_charge = 0		//the charge of the gun inserted
+	var/projectile = null	//holder for bullettype
+	var/eprojectile = null	//holder for the shot when emagged
 	var/reqpower = 500		//holder for power needed
-	var/lethal_icon = 0		//holder for the icon_state. 1 for lethal sprite, null for stun sprite.
-	var/egun = 1			//holder to handle certain guns switching modes
-	var/sprite_set = "carbine"	//set of sprites the turret will use
+	var/iconholder = null	//holder for the icon_state. 1 for orange sprite, null for blue.
+	var/egun = null			//holder to handle certain guns switching bullettypes
 
 	var/last_fired = 0		//1: if the turret is cooling down from a shot, 0: turret is ready to fire
 	var/shot_delay = 15		//1.5 seconds between each shot
@@ -50,17 +51,14 @@
 
 	var/attacked = 0		//if set to 1, the turret gets pissed off and shoots at people nearby (unless they have sec access!)
 
-	var/enabled = 1			//determines if the turret is on
+	var/enabled = 1				//determines if the turret is on
 	var/lethal = 0			//whether in lethal or stun mode
 	var/disabled = 0
 
-	var/projectile =/obj/item/projectile/beam/stun	//holder for stun (main) mode beam
-	var/eprojectile = /obj/item/projectile/beam		//holder for lethal (secondary) mode beam
+	var/shot_sound 			//what sound should play when the turret fires
+	var/eshot_sound			//what sound should play when the emagged turret fires
 
-	var/shot_sound = 'sound/weapons/Taser.ogg'		//what sound should play when the turret fires
-	var/eshot_sound	= 'sound/weapons/Laser.ogg'		//what sound should play when the lethal turret fires
-
-	var/datum/effect_system/sparks/spark_system		//the spark system, used for generating... sparks?
+	var/datum/effect_system/sparks/spark_system	//the spark system, used for generating... sparks?
 
 	var/wrenching = 0
 	var/last_target			//last target fired at, prevents turrets from erratically firing at all valid targets in range
@@ -98,6 +96,8 @@
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
 
+	setup()
+
 /obj/machinery/porta_turret/crescent/Initialize()
 	. = ..()
 	LAZYCLEARLIST(req_one_access)
@@ -108,25 +108,81 @@
 	spark_system = null
 	. = ..()
 
+/obj/machinery/porta_turret/proc/setup()
+	var/obj/item/weapon/gun/energy/E = installation	//All energy-based weapons are applicable
+	//var/obj/item/ammo_casing/shottype = E.projectile_type
+
+	projectile = initial(E.projectile_type)
+	eprojectile = projectile
+	shot_sound = initial(E.fire_sound)
+	eshot_sound = shot_sound
+
+	weapon_setup(installation)
+
+/obj/machinery/porta_turret/proc/weapon_setup(var/guntype)
+	switch(guntype)
+		if(/obj/item/weapon/gun/energy/laser/practice)
+			iconholder = 1
+			eprojectile = /obj/item/projectile/beam
+
+//			if(/obj/item/weapon/gun/energy/laser/practice/sc_laser)
+//				iconholder = 1
+//				eprojectile = /obj/item/projectile/beam
+
+		if(/obj/item/weapon/gun/energy/retro)
+			iconholder = 1
+
+//			if(/obj/item/weapon/gun/energy/retro/sc_retro)
+//				iconholder = 1
+
+		if(/obj/item/weapon/gun/energy/captain)
+			iconholder = 1
+
+		if(/obj/item/weapon/gun/energy/lasercannon)
+			iconholder = 1
+
+		if(/obj/item/weapon/gun/energy/taser)
+			eprojectile = /obj/item/projectile/beam
+			eshot_sound = 'sound/weapons/Laser.ogg'
+
+		if(/obj/item/weapon/gun/energy/stunrevolver)
+			eprojectile = /obj/item/projectile/beam
+			eshot_sound = 'sound/weapons/Laser.ogg'
+
+		if(/obj/item/weapon/gun/energy/gun)
+			eprojectile = /obj/item/projectile/beam	//If it has, going to kill mode
+			eshot_sound = 'sound/weapons/Laser.ogg'
+			egun = 1
+
+		if(/obj/item/weapon/gun/energy/gun/nuclear)
+			eprojectile = /obj/item/projectile/beam	//If it has, going to kill mode
+			eshot_sound = 'sound/weapons/Laser.ogg'
+			egun = 1
+
+var/list/turret_icons
+
 /obj/machinery/porta_turret/update_icon()
-	cut_overlays()
+	if(!turret_icons)
+		turret_icons = list()
+		turret_icons["open"] = image(icon, "openTurretCover")
+
 	underlays.Cut()
+	underlays += turret_icons["open"]
 
 	if(stat & BROKEN)
-		icon_state = "turret_[sprite_set]_broken"
-		underlays += "cover_open"
+		icon_state = "destroyed_target_prism"
 	else if(raised || raising)
 		if(powered() && enabled)
-			if(!lethal_icon)
-				icon_state = "turret_[sprite_set]_stun"
-				underlays += "cover_open"
+			if(iconholder)
+				//lasers have a orange icon
+				icon_state = "orange_target_prism"
 			else
-				icon_state = "turret_[sprite_set]_lethal"
-				underlays += "cover_open"
+				//almost everything has a blue icon
+				icon_state = "target_prism"
 		else
-			icon_state = "turret_[sprite_set]_off"
+			icon_state = "grey_target_prism"
 	else
-		icon_state = "cover"
+		icon_state = "turretCover"
 
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
@@ -158,7 +214,6 @@
 	data["enabled"] = enabled
 	data["is_lethal"] = 1
 	data["lethal"] = lethal
-	data["can_switch"] = egun
 
 	if(data["access"])
 		var/settings[0]
@@ -234,7 +289,7 @@
 
 /obj/machinery/porta_turret/attackby(obj/item/I, mob/user)
 	if(stat & BROKEN)
-		if(iscrowbar(I))
+		if(istype(I, /obj/item/weapon/crowbar))
 			//If the turret is destroyed, you can remove it with a crowbar to
 			//try and salvage its components
 			user << "<span class='notice'>You begin prying the metal coverings off.</span>"
@@ -253,7 +308,7 @@
 					user << "<span class='notice'>You remove the turret but did not manage to salvage anything.</span>"
 				qdel(src) // qdel
 
-	else if((iswrench(I)))
+	else if((istype(I, /obj/item/weapon/wrench)))
 		if (immobile)
 			user << "<span class='notice'>[src] is firmly attached to the ground with some form of epoxy.</span>"
 			return
@@ -317,7 +372,7 @@
 		user << "<span class='warning'>You short out [src]'s threat assessment circuits.</span>"
 		visible_message("[src] hums oddly...")
 		emagged = 1
-		lethal_icon = 1
+		iconholder = 1
 		controllock = 1
 		enabled = 0 //turns off the turret temporarily
 		sleep(60) //6 seconds for the traitor to gtfo of the area before the turret decides to ruin his shit
@@ -605,7 +660,7 @@
 		return
 	src.enabled = TC.enabled
 	src.lethal = TC.lethal
-	src.lethal_icon = TC.lethal
+	src.iconholder = TC.lethal
 
 	check_synth = TC.check_synth
 	check_access = TC.check_access
@@ -616,7 +671,6 @@
 	ailock = TC.ailock
 
 	src.power_change()
-	update_icon()
 
 /*
 		Portable turret constructions
@@ -626,27 +680,27 @@
 /obj/machinery/porta_turret_construct
 	name = "turret frame"
 	icon = 'icons/obj/turrets.dmi'
-	icon_state = "turret_frame_0"
-	density = 1
+	icon_state = "turret_frame"
+	density=1
 	var/target_type = /obj/machinery/porta_turret	// The type we intend to build
 	var/build_step = 0			//the current step in the building process
-	var/finish_name = "turret"	//the name applied to the product turret
+	var/finish_name="turret"	//the name applied to the product turret
 	var/installation = null		//the gun type installed
-	var/obj/item/weapon/gun/energy/E = null
+	var/gun_charge = 0			//the gun charge of the gun type installed
+
 
 /obj/machinery/porta_turret_construct/attackby(obj/item/I, mob/user)
 	//this is a bit unwieldy but self-explanatory
 	switch(build_step)
 		if(0)	//first step
-			if(iswrench(I) && !anchored)
+			if(istype(I, /obj/item/weapon/wrench) && !anchored)
 				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 				user << "<span class='notice'>You secure the external bolts.</span>"
 				anchored = 1
 				build_step = 1
-				icon_state = "turret_frame_1"
 				return
 
-			else if(iscrowbar(I) && !anchored)
+			else if(istype(I, /obj/item/weapon/crowbar) && !anchored)
 				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
 				user << "<span class='notice'>You dismantle the turret construction.</span>"
 				new /obj/item/stack/material/steel( loc, 5)
@@ -659,29 +713,27 @@
 				if(M.use(2))
 					user << "<span class='notice'>You add some metal armor to the interior frame.</span>"
 					build_step = 2
-					icon_state = "turret_frame_2"
+					icon_state = "turret_frame2"
 				else
 					user << "<span class='warning'>You need two sheets of metal to continue construction.</span>"
 				return
 
-			else if(iswrench(I))
+			else if(istype(I, /obj/item/weapon/wrench))
 				playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
 				user << "<span class='notice'>You unfasten the external bolts.</span>"
 				anchored = 0
 				build_step = 0
-				icon_state = "turret_frame_0"
 				return
 
 
 		if(2)
-			if(iswrench(I))
+			if(istype(I, /obj/item/weapon/wrench))
 				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 				user << "<span class='notice'>You bolt the metal armor into place.</span>"
 				build_step = 3
-				icon_state = "turret_frame_3"
 				return
 
-			else if(iswelder(I))
+			else if(istype(I, /obj/item/weapon/weldingtool))
 				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn())
 					return
@@ -695,34 +747,31 @@
 					build_step = 1
 					user << "You remove the turret's interior metal armor."
 					new /obj/item/stack/material/steel( loc, 2)
-					icon_state = "turret_frame_1"
 					return
 
 
 		if(3)
 			if(istype(I, /obj/item/weapon/gun/energy)) //the gun installation part
-				E = I //typecasts the item to a gun
-				if(E.can_turret)
-					if(isrobot(user))
-						return
-					if(!user.unEquip(I))
-						user << "<span class='notice'>\the [I] is stuck to your hand, you cannot put it in \the [src]</span>"
-						return
-					user << "<span class='notice'>You install [I] into the turret.</span>"
-					user.drop_item()
-					E.loc = src
-					target_type = /obj/machinery/porta_turret
-					installation = I.type //installation becomes I.type
-					build_step = 4
-					icon_state = "turret_frame_4"
-					add_overlay("turret_[E.turret_sprite_set]_off")
-					return
 
-			else if(iswrench(I))
+				if(isrobot(user))
+					return
+				var/obj/item/weapon/gun/energy/E = I //typecasts the item to an energy gun
+				if(!user.unEquip(I))
+					user << "<span class='notice'>\the [I] is stuck to your hand, you cannot put it in \the [src]</span>"
+					return
+				installation = I.type //installation becomes I.type
+				gun_charge = E.power_supply.charge //the gun's charge is stored in gun_charge
+				user << "<span class='notice'>You add [I] to the turret.</span>"
+				target_type = /obj/machinery/porta_turret
+
+				build_step = 4
+				qdel(I) //delete the gun :(
+				return
+
+			else if(istype(I, /obj/item/weapon/wrench))
 				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 				user << "<span class='notice'>You remove the turret's metal armor bolts.</span>"
 				build_step = 2
-				icon_state = "turret_frame_2"
 				return
 
 		if(4)
@@ -738,13 +787,10 @@
 			//attack_hand() removes the gun
 
 		if(5)
-			if(isscrewdriver(I))
+			if(istype(I, /obj/item/weapon/screwdriver))
 				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 				build_step = 6
-				user << "<span class='notice'>You close the access hatch.</span>"
-				icon_state = "turret_frame_5a"
-				add_overlay("turret_[E.turret_sprite_set]_off")
-				add_overlay("turret_frame_5b")
+				user << "<span class='notice'>You close the internal access hatch.</span>"
 				return
 
 			//attack_hand() removes the prox sensor
@@ -754,26 +800,19 @@
 				var/obj/item/stack/M = I
 				if(M.use(2))
 					user << "<span class='notice'>You add some metal armor to the exterior frame.</span>"
-					cut_overlays()
-					icon_state = "turret_frame_5a"
-					add_overlay("turret_[E.turret_sprite_set]_off")
-					add_overlay("turret_frame_5c")
 					build_step = 7
 				else
 					user << "<span class='warning'>You need two sheets of metal to continue construction.</span>"
 				return
 
-			else if(isscrewdriver(I))
+			else if(istype(I, /obj/item/weapon/screwdriver))
 				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 				build_step = 5
-				user << "<span class='notice'>You open the access hatch.</span>"
-				cut_overlays()
-				icon_state = "turret_frame_4"
-				add_overlay("turret_[E.turret_sprite_set]_off")
+				user << "<span class='notice'>You open the internal access hatch.</span>"
 				return
 
 		if(7)
-			if(iswelder(I))
+			if(istype(I, /obj/item/weapon/weldingtool))
 				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn()) return
 				if(WT.get_fuel() < 5)
@@ -790,35 +829,17 @@
 					var/obj/machinery/porta_turret/Turret = new target_type(loc)
 					Turret.name = finish_name
 					Turret.installation = installation
-					Turret.gun_charge = E.power_supply.charge
+					Turret.gun_charge = gun_charge
 					Turret.enabled = 0
-
-					Turret.projectile = initial(E.projectile_type)
-					if(E.secondary_projectile_type)
-						Turret.eprojectile = E.secondary_projectile_type
-					else
-						Turret.eprojectile = E.projectile_type
-
-					Turret.shot_sound = initial(E.fire_sound)
-					if(E.secondary_fire_sound)
-						Turret.eshot_sound = E.secondary_fire_sound
-					else
-						Turret.eshot_sound = E.fire_sound
-					Turret.egun = E.can_switch_modes
-					Turret.sprite_set = E.turret_sprite_set
-					Turret.lethal_icon = E.turret_is_lethal
+					Turret.setup()
 
 					qdel(src) // qdel
 
-			else if(iscrowbar(I))
+			else if(istype(I, /obj/item/weapon/crowbar))
 				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
 				user << "<span class='notice'>You pry off the turret's exterior armor.</span>"
 				new /obj/item/stack/material/steel(loc, 2)
 				build_step = 6
-				cut_overlays()
-				icon_state = "turret_frame_5a"
-				add_overlay("turret_[E.turret_sprite_set]_off")
-				add_overlay("turret_frame_5c")
 				return
 
 	if(istype(I, /obj/item/weapon/pen))	//you can rename turrets like bots!
@@ -840,11 +861,13 @@
 			if(!installation)
 				return
 			build_step = 3
-			E.loc = src.loc
+
+			var/obj/item/weapon/gun/energy/Gun = new installation(loc)
+			Gun.power_supply.charge = gun_charge
+			Gun.update_icon()
 			installation = null
-			cut_overlays()
-			icon_state = "turret_frame_3"
-			user << "<span class='notice'>You remove [E.name] from the turret frame.</span>"
+			gun_charge = 0
+			user << "<span class='notice'>You remove [Gun] from the turret frame.</span>"
 
 		if(5)
 			user << "<span class='notice'>You remove the prox sensor from the turret frame.</span>"

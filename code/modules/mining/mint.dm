@@ -28,7 +28,7 @@
 	for (var/dir in cardinal)
 		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(src.output) break
-	START_PROCESSING(SSprocessing, src)
+	processing_objects.Add(src)
 
 /obj/machinery/mineral/mint/machinery_process()
 	if ( src.input)

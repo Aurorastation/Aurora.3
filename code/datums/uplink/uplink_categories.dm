@@ -47,8 +47,3 @@
 
 /datum/uplink_category/telecrystals
 	name = "Telecrystals"
-
-/datum/uplink_category/specialty //snowflake antag items - a brave new frontier!
-	name = "Specialised Items"
-
-

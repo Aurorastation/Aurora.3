@@ -14,8 +14,8 @@
 	w_class = 2
 	var/prefix
 
-/obj/item/weapon/reagent_containers/food/snacks/variable/Initialize()
-	. = ..()
+/obj/item/weapon/reagent_containers/food/snacks/variable/New()
+	..()
 	if (reagents)
 		reagents.maximum_volume = size*8 + 10
 	else
@@ -148,8 +148,8 @@
 	size = 30
 	w_class = 3
 
-/obj/item/weapon/reagent_containers/food/snacks/variable/cereal/Initialize()
-	. =..()
+/obj/item/weapon/reagent_containers/food/snacks/variable/cereal/New()
+	..()
 	name = pick(list("flakes", "krispies", "crunch", "pops", "O's", "crisp", "loops", "jacks", "clusters"))
 
 /obj/item/weapon/reagent_containers/food/snacks/variable/mob

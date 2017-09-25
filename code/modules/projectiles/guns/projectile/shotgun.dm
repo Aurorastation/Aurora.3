@@ -60,14 +60,6 @@
 
 	update_icon()
 
-/obj/item/weapon/gun/projectile/shotgun/pump/update_icon()
-	..()
-	if(wielded)
-		item_state = "[icon_state]-wielded"
-	else
-		item_state = "[icon_state]"
-	update_held_icon()
-
 /obj/item/weapon/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."

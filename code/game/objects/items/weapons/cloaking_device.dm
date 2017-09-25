@@ -72,7 +72,7 @@
 		playsound(get_turf(src), 'sound/weapons/empty.ogg', 25, 1)
 		return
 
-	START_PROCESSING(SSprocessing, src)
+	processing_objects.Add(src)
 	active = 1
 	src.icon_state = "shield1"
 	stop_modifier()
@@ -91,7 +91,7 @@
 
 	playsound(src, 'sound/effects/phasein.ogg', 50, 1)
 	stop_modifier()
-	STOP_PROCESSING(SSprocessing, src)
+	processing_objects.Remove(src)
 
 /obj/item/weapon/cloaking_device/emp_act(severity)
 	deactivate()
@@ -133,7 +133,7 @@
 		else
 			user << "<span class='notice'>[src] already has a cell.</span>"
 
-	else if(isscrewdriver(W))
+	else if(istype(W, /obj/item/weapon/screwdriver))
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))

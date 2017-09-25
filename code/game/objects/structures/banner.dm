@@ -27,7 +27,7 @@
 	src.update_icon()
 
 /obj/structure/banner/attackby(obj/item/W, mob/user)
-	if(iswrench(W))
+	if(istype(W, /obj/item/weapon/wrench))
 		switch(anchored)
 			if(0)
 				anchored = 1

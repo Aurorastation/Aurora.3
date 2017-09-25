@@ -198,6 +198,8 @@
 	taste_description = "bitterness"
 
 /datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		return
 	M.SetParalysis(0)
 	M.SetWeakened(0)
 	M.adjustToxLoss(rand(3)*removed)

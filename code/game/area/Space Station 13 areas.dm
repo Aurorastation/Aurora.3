@@ -429,14 +429,17 @@ area/space/atmosalert()
 /area/syndicate_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
+	station_area = 1
 
 /area/syndicate_station/under
 	name = "\improper Under the Station"
 	icon_state = "northeast"
+	station_area = 1
 
 /area/syndicate_station/caverns
 	name = "\improper Caverns"
 	icon_state = "southeast"
+	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
 
 /area/syndicate_station/arrivals_dock
@@ -485,14 +488,17 @@ area/space/atmosalert()
 /area/skipjack_station/above
 	name = "\improper Above the Station"
 	icon_state = "northwest"
+	station_area = 1
 
 /area/skipjack_station/under
 	name = "\improper Under the Station"
 	icon_state = "northeast"
+	station_area = 1
 
 /area/skipjack_station/cavern
 	name = "\improper Caverns"
 	icon_state = "southeast"
+	station_area = 1
 	base_turf = /turf/simulated/floor/asteroid
 
 ////////////////////
@@ -580,7 +586,7 @@ area/space/atmosalert()
 	icon_state = "maintcentral"
 
 /area/maintenance/arrivals
-	name = "Surface Maintenance"
+	name = "Arrivals Maintenance"
 	icon_state = "maint_arrivals"
 
 /area/maintenance/bar
@@ -608,7 +614,7 @@ area/space/atmosalert()
 	icon_state = "maint_eva"
 
 /area/maintenance/solarmaint
-	name = "\improper Surface - Solar Maintenance"
+	name = "\improper Roof Solar Array Maintenance"
 	icon_state = "maint_eva"
 	base_turf = /turf/space
 
@@ -671,16 +677,16 @@ area/space/atmosalert()
 	name = "Medical Research Substation"
 
 /area/maintenance/substation/medical // Medbay
-	name = "Main Lvl. Medical Substation"
+	name = "Medical Substation"
 
 /area/maintenance/substation/research // Research
-	name = "Main Lvl. Research Substation"
+	name = "Research Substation"
 
 /area/maintenance/substation/civilian_east // Bar, kitchen, dorms, ...
-	name = "Surface Lvl. Civilian Substation"
+	name = "Civilian East Substation"
 
 /area/maintenance/substation/civilian_west // Cargo, PTS, locker room, probably arrivals, ...)
-	name = "Main Lvl. Civilian Substation"
+	name = "Civilian West Substation"
 
 /area/maintenance/substation/command // AI and central cluster. This one will be between HoP office and meeting room (probably).
 	name = "Command Substation"
@@ -728,7 +734,7 @@ area/space/atmosalert()
 	icon_state = "hallC3"
 
 /area/hallway/secondary/exit
-	name = "\improper Surface - Red Dock"
+	name = "\improper Escape Shuttle Hallway"
 	icon_state = "escape"
 	no_light_control = 1
 	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
@@ -739,11 +745,11 @@ area/space/atmosalert()
 	allow_nightmode = 0
 
 /area/hallway/secondary/entry/fore
-	name = "\improper Surface Lvl. Hallway Fore"
+	name = "\improper Arrival Shuttle Hallway - Fore"
 	icon_state = "entry_1"
 
 /area/hallway/secondary/entry/port
-	name = "\improper Surface - Yellow Dock"
+	name = "\improper Arrival Shuttle Hallway - Port"
 	icon_state = "entry_2"
 
 /area/hallway/secondary/entry/starboard
@@ -751,11 +757,11 @@ area/space/atmosalert()
 	icon_state = "entry_3"
 
 /area/hallway/secondary/entry/aft
-	name = "\improper Surface Lvl. Hallway Aft"
+	name = "\improper Arrival Shuttle Hallway - Aft"
 	icon_state = "entry_4"
 
 /area/hallway/secondary/entry/dock
-	name = "\improper Surface - Blue Dock"
+	name = "\improper Arrival Shuttle Dock"
 	icon_state = "arrivals_dock"
 	holomap_color = HOLOMAP_AREACOLOR_ARRIVALS
 
@@ -777,7 +783,7 @@ area/space/atmosalert()
     icon_state = "ai_foyer"
 
 /area/bridge/aibunker
-    name = "\improper Command - Bunker"
+    name = "\improper AI Maintainence Bunker"
     icon_state = "ai_foyer"
 
 /area/bridge/centcom_meetingroom
@@ -785,15 +791,15 @@ area/space/atmosalert()
     icon_state = "bridge"
 
 /area/bridge/levela
-    name = "\improper Surface - Bridge"
+    name = "\improper Level A Bridge"
     icon_state = "bridge"
 
 /area/crew_quarters/heads/cryo
-    name = "\improper Command - Dormitory"
+    name = "\improper Command Dormitory"
     icon_state = "head_quarters"
 
 /area/bridge/meeting_room
-	name = "\improper Command - Conference Room"
+	name = "\improper Heads of Staff Meeting Room"
 	icon_state = "bridge"
 	ambience = list()
 	sound_env = MEDIUM_SOFTFLOOR
@@ -863,7 +869,7 @@ area/space/atmosalert()
 	holomap_color = HOLOMAP_AREACOLOR_DORMS
 
 /area/crew_quarters/sleep/engi_wash
-	name = "\improper Engineering - Washroom"
+	name = "\improper Engineering Washroom"
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
@@ -1073,88 +1079,85 @@ area/space/atmosalert()
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/engineering/atmos
-	name = "\improper Engineering - Atmospherics"
+	name = "\improper Atmospherics"
 	icon_state = "atmos"
 	sound_env = LARGE_ENCLOSED
 	no_light_control = 1
 	ambience = list('sound/ambience/ambiatm1.ogg')
 
 /area/engineering/atmos/monitoring
-	name = "\improper Engineering - Atmospherics Monitoring Room"
+	name = "\improper Atmospherics Monitoring Room"
 	icon_state = "atmos_monitoring"
 	sound_env = STANDARD_STATION
 
 /area/engineering/atmos/storage
-	name = "\improper Engineering - Atmospherics Storage"
+	name = "\improper Atmospherics Storage"
 	icon_state = "atmos_storage"
 	sound_env = SMALL_ENCLOSED
 
 /area/engineering/drone_fabrication
-	name = "\improper Engineering - Drone Fabrication"
+	name = "\improper Engineering Drone Fabrication"
 	icon_state = "drone_fab"
 	sound_env = SMALL_ENCLOSED
 
 /area/engineering/engine_smes
-	name = "\improper Engineering - Main Lvl. SMES Room"
+	name = "\improper Engineering SMES"
 	icon_state = "engine_smes"
 	sound_env = SMALL_ENCLOSED
 
 /area/engineering/engine_room
-	name = "\improper Engineering - Engine Room"
+	name = "\improper Engine Room"
 	icon_state = "engine"
 	sound_env = LARGE_ENCLOSED
 	no_light_control = 1
 
 /area/engineering/engine_airlock
-	name = "\improper Engineering - Engine Room Airlock"
+	name = "\improper Engine Room Airlock"
 	icon_state = "engine"
 
 /area/engineering/engine_monitoring
-	name = "\improper Engineering - Monitoring Room"
+	name = "\improper Engine Monitoring Room"
 	icon_state = "engine_monitoring"
 
 /area/engineering/engine_waste
-	name = "\improper Engineering - Engine Waste Handling"
+	name = "\improper Engine Waste Handling"
 	icon_state = "engine_waste"
 	no_light_control = 1
 
 /area/engineering/engineering_monitoring
-	name = "\improper Engineering - Monitoring Room"
+	name = "\improper Engineering Monitoring Room"
 	icon_state = "engine_monitoring"
 
 /area/engineering/foyer
-	name = "\improper Engineering - Foyer"
+	name = "\improper Engineering Foyer"
 	icon_state = "engineering_foyer"
 	allow_nightmode = 1
 
 /area/engineering/storage
-	name = "\improper Engineering - Storage"
+	name = "\improper Engineering Storage"
 	icon_state = "engineering_storage"
 
 /area/engineering/break_room
-	name = "\improper Engineering - Break Room"
+	name = "\improper Engineering Break Room"
 	icon_state = "engineering_break"
 	sound_env = MEDIUM_SOFTFLOOR
 
 /area/engineering/engine_eva
-	name = "\improper Engineering - Engine EVA"
+	name = "\improper Engine EVA"
 	icon_state = "engine_eva"
 
 /area/engineering/locker_room
-	name = "\improper Engineering - Locker Room"
+	name = "\improper Engineering Locker Room"
 	icon_state = "engineering_locker"
 
 /area/engineering/workshop
-	name = "\improper Engineering - Workshop"
+	name = "\improper Engineering Workshop"
 	icon_state = "engineering_workshop"
 
 /area/engineering/cooling
-	name = "\improper Engineering - Engine Cooling Radiator"
+	name = "\improper Engineering Cooling Radiator"
 	icon_state = "engineering_monitoring"
 
-/area/engineering/gravity_gen
-	name = "\improper Engineering - Gravity Generator"
-	icon_state = "engine"
 
 
 //Solars
@@ -1175,7 +1178,7 @@ area/space/atmosalert()
 		icon_state = "panelsA"
 
 	fore
-		name = "\improper Surface - Fore TComms Solar Array"
+		name = "\improper Fore Solar Array"
 		icon_state = "yellow"
 
 	aft
@@ -1183,11 +1186,11 @@ area/space/atmosalert()
 		icon_state = "aft"
 
 	starboard
-		name = "\improper Surface - Aft TComms Solar Array"
+		name = "\improper Aft Starboard Solar Array"
 		icon_state = "panelsS"
 
 	port
-		name = "\improper Surface - Port TComms Solar Array"
+		name = "\improper Aft Port Solar Array"
 		icon_state = "panelsP"
 
 /area/maintenance/auxsolarport
@@ -1196,12 +1199,12 @@ area/space/atmosalert()
 	sound_env = SMALL_ENCLOSED
 
 /area/maintenance/starboardsolar
-	name = "Solar Maintenance - Aft"
+	name = "Solar Maintenance - Aft Starboard"
 	icon_state = "SolarcontrolS"
 	sound_env = SMALL_ENCLOSED
 
 /area/maintenance/portsolar
-	name = "Solar Maintenance - Port"
+	name = "Solar Maintenance - Aft Port"
 	icon_state = "SolarcontrolP"
 	sound_env = SMALL_ENCLOSED
 
@@ -1236,7 +1239,7 @@ area/space/atmosalert()
 //Teleporter
 
 /area/teleporter
-	name = "\improper Command - Teleporter"
+	name = "\improper Teleporter"
 	icon_state = "teleporter"
 	station_area = 1
 
@@ -1254,11 +1257,11 @@ area/space/atmosalert()
 //Medbay is a large area, these additional areas help level out APC load.
 
 /area/medical/emt
-	name = "\improper Medical - Emergency Technician Storage"
+	name = "\improper Emergency Technician Storage"
 	icon_state = "medbay"
 
 /area/medical/temp_morgue
-	name = "\improper Medical - Temporary Morgue"
+	name = "\improper Temporary Morgue"
 	icon_state = "morgue"
 
 /area/medical/medbay2
@@ -1272,52 +1275,52 @@ area/space/atmosalert()
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/medbay4
-	name = "\improper Medbay Hallway - Staff Wing"
+	name = "\improper Medbay Hallway - Aft"
 	icon_state = "medbay4"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/biostorage
-	name = "\improper Medical - Secondary Storage"
+	name = "\improper Secondary Storage"
 	icon_state = "medbay2"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/reception
-	name = "\improper Medical - Reception"
+	name = "\improper Medbay Reception"
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/psych
-	name = "\improper Medical - Psych Room"
+	name = "\improper Psych Room"
 	icon_state = "medbay3"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/crew_quarters/medbreak
-	name = "\improper Medical - Break Room"
+	name = "\improper Break Room"
 	icon_state = "medbay3"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/patients_rooms
-	name = "\improper Medical - Patient's Rooms"
+	name = "\improper Patient's Rooms"
 	icon_state = "patients"
 
 /area/medical/ward
-	name = "\improper Medical - Recovery Ward"
+	name = "\improper Recovery Ward"
 	icon_state = "patients"
 
 /area/medical/patient_a
-	name = "\improper Medical - Isolation A"
+	name = "\improper Isolation A"
 	icon_state = "patients"
 
 /area/medical/patient_b
-	name = "\improper Medical - Isolation B"
+	name = "\improper Isolation B"
 	icon_state = "patients"
 
 /area/medical/patient_c
-	name = "\improper Medical - Isolation C"
+	name = "\improper Isolation C"
 	icon_state = "patients"
 
 /area/medical/patient_wing
-	name = "\improper Medical - Patient Wing"
+	name = "\improper Patient Wing"
 	icon_state = "patients"
 
 /area/medical/cmostore
@@ -1329,37 +1332,37 @@ area/space/atmosalert()
 	icon_state = "medresearch"
 
 /area/medical/virology
-	name = "\improper Medical - Virology"
+	name = "\improper Virology"
 	icon_state = "virology"
 
 /area/medical/virologyaccess
-	name = "\improper Medical - Virology Access"
+	name = "\improper Virology Access"
 	icon_state = "virology"
 
 /area/medical/morgue
-	name = "\improper Medical - Long-term Morgue"
+	name = "\improper Morgue"
 	icon_state = "morgue"
 	ambience = list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/music/main.ogg')
 
 /area/medical/chemistry
-	name = "\improper Medical - Chemistry"
+	name = "\improper Chemistry"
 	icon_state = "chem"
 
 /area/medical/surgery
-	name = "\improper Medical - Operating Theatre"
+	name = "\improper Operating Theatre"
 	icon_state = "surgery"
 	no_light_control = 1
 
 /area/medical/surgeryobs
-	name = "\improper Medical - Operation Observation Room"
+	name = "\improper Operation Observation Room"
 	icon_state = "surgery"
 
 /area/medical/surgeryprep
-	name = "\improper Medical - Pre-Op Prep Room"
+	name = "\improper Pre-Op Prep Room"
 	icon_state = "surgery"
 
 /area/medical/surgerywing
-	name = "\improper Medical - Surgery Wing"
+	name = "\improper Surgery Wing"
 	icon_state = "surgery"
 
 /area/medical/cryo
@@ -1367,11 +1370,11 @@ area/space/atmosalert()
 	icon_state = "cryo"
 
 /area/medical/gen_treatment
-	name = "\improper Medical - General Treatment"
+	name = "\improper General Treatment"
 	icon_state = "cryo"
 
 /area/medical/exam_room
-	name = "\improper Medical - Exam Room"
+	name = "\improper Exam Room"
 	icon_state = "exam_room"
 
 /area/medical/genetics
@@ -1380,16 +1383,16 @@ area/space/atmosalert()
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/medical/genetics_cloning
-	name = "\improper Medical - Cloning Lab"
+	name = "\improper Cloning Lab"
 	icon_state = "cloning"
 
 /area/medical/sleeper
-	name = "\improper Medical - Emergency Treatment Centre"
+	name = "\improper Emergency Treatment Centre"
 	icon_state = "exam_room"
 	no_light_control = 1
 
 /area/medical/icu
-	name = "\improper Medical -  Intensive Care Unit"
+	name = "\improper Intensive Care Unit"
 	icon_state = "cryo"
 
 
@@ -1401,11 +1404,11 @@ area/space/atmosalert()
 	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 
 /area/security/main
-	name = "\improper Security - Equipment Room"
+	name = "\improper Security Office"
 	icon_state = "security"
 
 /area/security/lobby
-	name = "\improper Security - Lobby"
+	name = "\improper Security Lobby"
 	icon_state = "security"
 	allow_nightmode = 1
 	no_light_control = 0
@@ -1488,7 +1491,7 @@ area/space/atmosalert()
 	icon_state = "checkpoint1"
 
 /area/security/checkpoint2
-	name = "\improper Security - Arrivals Checkpoint"
+	name = "\improper Security - Arrival Checkpoint"
 	icon_state = "security"
 
 /area/security/checkpoint/supply
@@ -1512,7 +1515,7 @@ area/space/atmosalert()
 	icon_state = "security"
 
 /area/security/vacantoffice2
-	name = "\improper Security - Meeting Room"
+	name = "\improper Security Meeting Room"
 	icon_state = "security"
 
 /area/quartermaster
@@ -1567,7 +1570,7 @@ area/space/atmosalert()
 	icon_state = "research"
 
 /area/rnd/telesci
-	name = "\improper Research - Telescience Laboratory"
+	name = "\improper Telescience Lab"
 	icon_state = "research"
 
 /area/rnd/docking
@@ -1575,7 +1578,7 @@ area/space/atmosalert()
 	icon_state = "research_dock"
 
 /area/rnd/lab
-	name = "\improper Research - R&D Laboratory"
+	name = "\improper Research Lab"
 	icon_state = "toxlab"
 
 /area/rnd/rdoffice
@@ -1583,44 +1586,44 @@ area/space/atmosalert()
 	icon_state = "head_quarters"
 
 /area/rnd/supermatter
-	name = "\improper Research - Supermatter Lab"
+	name = "\improper Supermatter Lab"
 	icon_state = "toxlab"
 
 /area/rnd/xenobiology
-	name = "\improper Research - Xenobiology Lab"
+	name = "\improper Xenobiology Lab"
 	icon_state = "xeno_lab"
 
 /area/rnd/xenobiology/xenoflora_storage
-	name = "\improper Research - Xenoflora Storage"
+	name = "\improper Xenoflora Storage"
 	icon_state = "xeno_f_store"
 	no_light_control = TRUE
 
 /area/rnd/xenobiology/xenoflora
-	name = "\improper Research - Xenoflora Lab"
+	name = "\improper Xenoflora Lab"
 	icon_state = "xeno_f_lab"
 	no_light_control = TRUE
 
 /area/rnd/storage
-	name = "\improper Research - Toxins Storage"
+	name = "\improper Toxins Storage"
 	icon_state = "toxstorage"
 
 /area/rnd/test_area
-	name = "\improper Research - Toxins Test Area"
+	name = "\improper Toxins Test Area"
 	icon_state = "toxtest"
 
 /area/rnd/mixing
-	name = "\improper Research - Toxins Mixing Room"
+	name = "\improper Toxins Mixing Room"
 	icon_state = "toxmix"
 
 /area/rnd/misc_lab
-	name = "\improper Research - Miscellaneous Research"
+	name = "\improper Miscellaneous Research"
 	icon_state = "toxmisc"
 
 /area/toxins
 	station_area = 1
 
 /area/toxins/server
-	name = "\improper Research - Server Room"
+	name = "\improper Server Room"
 	icon_state = "server"
 	station_area = 1
 
@@ -2045,7 +2048,7 @@ area/space/atmosalert()
 	icon_state = "tcomsatwest"
 
 /area/tcommsat/mainlvl_tcomms__relay
-	name = "\improper Sublevel - Telecommunications Relay"
+	name = "\improper Telecommucations Main Level Relay"
 	icon_state = "tcomsatcham"
 
 /area/beach
@@ -2105,38 +2108,3 @@ area/space/atmosalert()
 
 	spawn(60) .()
 */
-
-
-//merchant station and shuttle
-
-/area/merchant_station
-	name = "\improper Merchant Station"
-	icon_state = "merchant"
-	requires_power = 0
-	dynamic_lighting = 1
-	no_light_control = 1
-	centcomm_area = 1
-
-/area/merchant_station/transit
-	name = "\improper Hyperspace"
-	icon_state = "shuttle"
-	centcomm_area = 1
-
-/area/merchant_ship
-	name = "\improper Merchant Ship"
-	icon_state = "yellow"
-	requires_power = 0
-	flags = RAD_SHIELDED | SPAWN_ROOF
-	no_light_control = 1
-
-/area/merchant_ship/start
-	name = "\improper Merchant Ship Docked"
-	icon_state = "yellow"
-	centcomm_area = 1
-	base_turf = /turf/space
-
-/area/merchant_ship/docked
-	name = "\improper Docked with station"
-	icon_state = "southwest"
-	station_area = 1
-	base_turf = /turf/simulated/floor/asteroid

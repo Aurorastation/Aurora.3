@@ -18,7 +18,6 @@
 	set name = "Devour Creature"
 	set desc = "Attempt to eat a nearby creature, swallowing it whole if small enough, or eating it piece by piece otherwise"
 	var/list/choices = list()
-
 	for(var/mob/living/C in view(1,src))
 
 		if((!(src.Adjacent(C)) || C == src)) continue//cant steal nymphs right out of other gestalts
@@ -27,11 +26,7 @@
 			var/mob/living/carbon/alien/diona/D = C
 			if (D.gestalt)
 				continue
-
-		if (C in src)	// Just no.
-			continue
-
-		choices += C
+		choices.Add(C)
 
 	var/mob/living/L = input(src,"Which creature do you wish to consume?") in null|choices
 

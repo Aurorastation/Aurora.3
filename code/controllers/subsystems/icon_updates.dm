@@ -28,14 +28,10 @@
 
 	while (curr.len)
 		var/atom/A = curr[curr.len]
-		var/list/argv = curr[A]
 		curr.len--
 
 		A.icon_update_queued = FALSE
-		if (islist(argv))
-			A.update_icon(arglist(argv))
-		else
-			A.update_icon()
+		A.update_icon()
 		A.update_above()
 		A.last_icon_update = world.time
 
@@ -51,9 +47,9 @@
 
 /atom/proc/update_icon()
 
-/atom/proc/queue_icon_update(...)
+/atom/proc/queue_icon_update()
 	if (!icon_update_queued && (!icon_update_delay || (last_icon_update + icon_update_delay < world.time)))
 		icon_update_queued = TRUE
-		SSicon_update.queue[src] = args.len ? args : TRUE
+		SSicon_update.queue += src
 		if (SSicon_update.suspended)
 			SSicon_update.wake()

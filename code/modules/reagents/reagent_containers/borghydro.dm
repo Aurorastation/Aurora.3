@@ -23,18 +23,18 @@
 /obj/item/weapon/reagent_containers/borghypo/rescue
 	reagent_ids = list("tricordrazine", "inaprovaline", "tramadol")
 
-/obj/item/weapon/reagent_containers/borghypo/Initialize()
-	. = ..()
+/obj/item/weapon/reagent_containers/borghypo/New()
+	..()
 
 	for(var/T in reagent_ids)
 		reagent_volumes[T] = volume
 		var/datum/reagent/R = chemical_reagents_list[T]
 		reagent_names += R.name
 
-	START_PROCESSING(SSprocessing, src)
+	processing_objects.Add(src)
 
 /obj/item/weapon/reagent_containers/borghypo/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	processing_objects.Remove(src)
 	return ..()
 
 /obj/item/weapon/reagent_containers/borghypo/process() //Every [recharge_time] seconds, recharge some reagents for the cyborg+

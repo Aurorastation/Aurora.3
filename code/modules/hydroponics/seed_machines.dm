@@ -94,13 +94,13 @@
 			user << "You load [W] into [src]."
 		return
 
-	if(isscrewdriver(W))
+	if(istype(W,/obj/item/weapon/screwdriver))
 		open = !open
 		user << "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>"
 		return
 
 	if(open)
-		if(iscrowbar(W))
+		if(istype(W, /obj/item/weapon/crowbar))
 			dismantle()
 			return
 

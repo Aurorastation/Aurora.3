@@ -12,6 +12,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 
 //Initializes blood vessels
 /mob/living/carbon/human/proc/make_blood()
+
 	if(vessel)
 		return
 
@@ -22,24 +23,14 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		return
 
 	vessel.add_reagent("blood",560)
-	fixblood()
+	addtimer(CALLBACK(src, .proc/fixblood), 1)
 
 //Resets blood data
 /mob/living/carbon/human/proc/fixblood()
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
 		if(B.id == "blood")
-			B.data = list(
-				"donor" = WEAKREF(src),
-				"viruses" = null,
-				"species" = species.name,
-				"blood_DNA" = dna.unique_enzymes,
-				"blood_colour" = species.blood_color,
-				"blood_type" = dna.b_type,
-				"resistances" = null,
-				"trace_chem" = null,
-				"virus2" = null,
-				"antibodies" = list()
-			)
+			B.data = list(	"donor"=src,"viruses"=null,"species"=species.name,"blood_DNA"=dna.unique_enzymes,"blood_colour"= species.blood_color,"blood_type"=dna.b_type,	\
+							"resistances"=null,"trace_chem"=null, "virus2" = null, "antibodies" = list())
 			B.color = B.data["blood_colour"]
 
 // Takes care blood loss and regeneration
@@ -51,15 +42,16 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		return
 
 	if(stat != DEAD && bodytemperature >= 170)	//Dead or cryosleep people do not pump the blood.
+
 		var/blood_volume = round(vessel.get_reagent_amount("blood"))
 
 		//Blood regeneration if there is some space
 		if(blood_volume < 560 && blood_volume)
 			var/datum/reagent/blood/B = locate() in vessel.reagent_list //Grab some blood
 			if(B) // Make sure there's some blood at all
-				if(weakref && B.data["donor"] != weakref) //If it's not theirs, then we look for theirs - donor is a weakref here, but it should be safe to just directly compare it.
+				if(B.data["donor"] != src) //If it's not theirs, then we look for theirs
 					for(var/datum/reagent/blood/D in vessel.reagent_list)
-						if(weakref && D.data["donor"] == weakref)
+						if(D.data["donor"] == src)
 							B = D
 							break
 
@@ -172,7 +164,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 	B.volume += amount
 
 	//set reagent data
-	B.data["donor"] = WEAKREF(src)
+	B.data["donor"] = src
 	if (!B.data["virus2"])
 		B.data["virus2"] = list()
 	B.data["virus2"] |= virus_copylist(src.virus2)
@@ -250,9 +242,9 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 /mob/living/carbon/proc/get_blood(datum/reagents/container)
 	var/datum/reagent/blood/res = locate() in container.reagent_list //Grab some blood
 	if(res) // Make sure there's some blood at all
-		if(weakref && res.data["donor"] != weakref) //If it's not theirs, then we look for theirs
+		if(res.data["donor"] != src) //If it's not theirs, then we look for theirs
 			for(var/datum/reagent/blood/D in container.reagent_list)
-				if(D.data["donor"] == weakref)
+				if(D.data["donor"] == src)
 					return D
 	return res
 

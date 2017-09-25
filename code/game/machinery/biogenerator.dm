@@ -15,11 +15,6 @@
 	var/eat_eff = 1
 	var/capacity = 50
 
-	component_types = list(
-		/obj/item/weapon/circuitboard/biogenerator,
-		/obj/item/weapon/stock_parts/matter_bin,
-		/obj/item/weapon/stock_parts/manipulator
-	)
 
 /obj/machinery/biogenerator/Initialize()
 	. = ..()
@@ -27,6 +22,13 @@
 	reagents = R
 	R.my_atom = src
 	beaker = new /obj/item/weapon/reagent_containers/glass/bottle(src)
+
+	component_parts = list()
+	component_parts += new /obj/item/weapon/circuitboard/biogenerator(src)
+	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
+	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
+
+	RefreshParts()
 
 /obj/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
 	update_icon()
@@ -248,13 +250,13 @@
 
 /obj/machinery/biogenerator/RefreshParts()
 	..()
-	var/man_rating = 1
-	var/bin_rating = 1
+	var/man_rating = 0
+	var/bin_rating = 0
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(ismatterbin(P))
+		if(istype(P, /obj/item/weapon/stock_parts/matter_bin))
 			bin_rating += P.rating
-		else if(ismanipulator(P))
+		if(istype(P, /obj/item/weapon/stock_parts/manipulator))
 			man_rating += P.rating
 
 	build_eff = man_rating

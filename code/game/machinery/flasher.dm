@@ -48,7 +48,7 @@
 
 //Don't want to render prison breaks impossible
 /obj/machinery/flasher/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (iswirecutter(W))
+	if (istype(W, /obj/item/weapon/wirecutters))
 		add_fingerprint(user)
 		src.disable = !src.disable
 		if (src.disable)
@@ -85,7 +85,7 @@
 			if(!H.eyecheck() <= 0)
 				continue
 			flash_time *= H.species.flash_mod
-			var/obj/item/organ/eyes/E = H.get_eyes()
+			var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
 			if(!E)
 				return
 			if(E.is_bruised() && prob(E.damage + 50))
@@ -112,7 +112,7 @@
 		src.flash()
 
 /obj/machinery/flasher/portable/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (iswrench(W))
+	if (istype(W, /obj/item/weapon/wrench))
 		add_fingerprint(user)
 		src.anchored = !src.anchored
 

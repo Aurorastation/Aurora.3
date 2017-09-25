@@ -43,16 +43,18 @@
 	var/eject_wait = 0 //Don't eject them as soon as they are created fuckkk
 	var/biomass = CLONE_BIOMASS * 3
 
-	component_types = list(
-		/obj/item/weapon/circuitboard/clonepod,
-		/obj/item/weapon/stock_parts/manipulator = 2,
-		/obj/item/weapon/stock_parts/scanning_module = 2,
-		/obj/item/weapon/stock_parts/console_screen,
-		/obj/item/stack/cable_coil{amount = 2}
-	)
-
 /obj/machinery/clonepod/Initialize()
 	. = ..()
+	component_parts = list()
+	component_parts += new /obj/item/weapon/circuitboard/clonepod(src)
+	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
+	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
+	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
+	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
+	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
+	component_parts += new /obj/item/stack/cable_coil(src, 2)
+
+	RefreshParts()
 	update_icon()
 	set_expansion(/datum/expansion/multitool, new/datum/expansion/multitool/store(src))
 
@@ -238,7 +240,7 @@
 		user.drop_item()
 		qdel(W)
 		return
-	else if(iswrench(W))
+	else if(istype(W, /obj/item/weapon/wrench))
 		if(locked && (anchored || occupant))
 			user << "<span class='warning'>Can not do that while [src] is in use.</span>"
 		else
@@ -278,9 +280,8 @@
 /obj/machinery/clonepod/RefreshParts()
 	..()
 	var/rating = 0
-
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(isscanner(P) || ismanipulator(P))
+		if(istype(P, /obj/item/weapon/stock_parts/scanning_module) || istype(P, /obj/item/weapon/stock_parts/manipulator))
 			rating += P.rating
 
 	heal_level = rating * 10 - 20

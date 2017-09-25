@@ -8,12 +8,12 @@
 	anchored = 1
 	var/progress = 0
 
-/obj/structure/alien/egg/Initialize()
-	. = ..()
-	START_PROCESSING(SSprocessing, src)
+/obj/structure/alien/egg/New()
+	..()
+	processing_objects += src
 
 /obj/structure/alien/egg/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	processing_objects -= src
 	return ..()
 
 /obj/structure/alien/egg/CanUseTopic(var/mob/user)
@@ -32,7 +32,7 @@
 		for(var/mob/M in dead_mob_list)
 			if(istype(M,/mob/dead) && M.client && M.client.prefs && (MODE_XENOMORPH in M.client.prefs.be_special_role))
 				M << "[ghost_follow_link(src, M)] <span class='notice'>An alien is ready to hatch! (<a href='byond://?src=\ref[src];spawn=1'>spawn</a>)</span>"
-		STOP_PROCESSING(SSprocessing, src)
+		processing_objects -= src
 		update_icon()
 
 /obj/structure/alien/egg/update_icon()

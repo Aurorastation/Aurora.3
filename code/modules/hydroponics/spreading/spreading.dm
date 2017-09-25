@@ -67,10 +67,11 @@
 	var/last_biolum = null
 
 /obj/effect/plant/Destroy()
-	SSplants.remove_plant(src)
+	if(SSplants)
+		STOP_PROCESSING(SSplants, src)
 	for(var/obj/effect/plant/neighbor in range(1,src))
 		if (!QDELETED(neighbor))
-			SSplants.add_plant(neighbor)
+			START_PROCESSING(SSplants, neighbor)
 	return ..()
 	
 /obj/effect/plant/single
@@ -128,7 +129,7 @@
 /obj/effect/plant/proc/post_initialize()
 	set_dir(calc_dir())
 	update_icon()
-	SSplants.add_plant(src)
+	START_PROCESSING(SSplants, src)
 	// Some plants eat through plating.
 	if(islist(seed.chems) && !isnull(seed.chems["pacid"]))
 		var/turf/T = get_turf(src)
@@ -238,9 +239,9 @@
 /obj/effect/plant/attackby(var/obj/item/weapon/W, var/mob/user)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	SSplants.add_plant(src)
+	START_PROCESSING(SSplants, src)
 
-	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
+	if(istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/weapon/scalpel))
 		if(sampled)
 			user << "<span class='warning'>\The [src] has already been sampled recently.</span>"
 			return

@@ -35,7 +35,6 @@
 	heat_damage_per_tick = 20
 	mob_size = 10
 
-	tameable = FALSE
 
 /mob/living/simple_animal/hostile/alien/drone
 	name = "alien drone"

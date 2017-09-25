@@ -89,7 +89,7 @@ var/list/possible_cable_coil_colours = list(
 	d2 = text2num( copytext( icon_state, dash+1 ) )
 
 	var/turf/T = src.loc			// hide if turf is not intact
-	if(level == 1 && !T.is_hole) 
+	if(level == 1) 
 		hide(!T.is_plating())
 
 	SSpower.all_cables += src //add it to the global cable list
@@ -133,10 +133,10 @@ var/list/possible_cable_coil_colours = list(
 /obj/structure/cable/attackby(obj/item/W, mob/user)
 
 	var/turf/T = src.loc
-	if(!T.can_have_cabling())
+	if(!T.is_plating())
 		return
 
-	if(iswirecutter(W))
+	if(istype(W, /obj/item/weapon/wirecutters))
 		if(d1 == 12 || d2 == 12)
 			user << "<span class='warning'>You must cut this cable from above.</span>"
 			return
@@ -169,14 +169,14 @@ var/list/possible_cable_coil_colours = list(
 		return
 
 
-	else if(iscoil(W))
+	else if(istype(W, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.get_amount() < 1)
 			user << "Not enough cable"
 			return
 		coil.cable_join(src, user)
 
-	else if(ismultitool(W))
+	else if(istype(W, /obj/item/device/multitool))
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
 			user << "<span class='warning'>[powernet.avail]W in power network.</span>"
@@ -487,12 +487,11 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	uses_charge = 1
 	charge_costs = list(1)
 
-/obj/item/stack/cable_coil/Initialize(mapload, amt, param_color = null)
-	. = ..(mapload, amt)
-
+/obj/item/stack/cable_coil/Initialize(mapload, length = MAXCOIL, var/param_color = null)
+	. = ..()
+	src.amount = length
 	if (param_color) // It should be red by default, so only recolor it if parameter was specified.
 		color = param_color
-
 	pixel_x = rand(-2,2)
 	pixel_y = rand(-2,2)
 	update_icon()
@@ -643,12 +642,15 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		user << "You can't lay cable at a place that far away."
 		return
 
-	if (!F.can_lay_cable())
-		if (istype(F, /turf/simulated/floor))
-			user << "You can't lay cable there unless the floor tiles are removed."
-		else
+	if(!istype(F,/turf/simulated/floor))
+		if(!locate(/obj/structure/lattice/catwalk) in F)
 			user << "You can't lay cable there unless there is plating or a catwalk."
-		return
+			return
+
+	if(!F.is_plating())		// Ff floor is intact, complain
+		if(!locate(/obj/structure/lattice/catwalk) in F)
+			user << "You can't lay cable there unless the floor tiles are removed."
+			return
 
 	else
 		var/dirn
@@ -740,7 +742,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	var/turf/T = C.loc
 
-	if(!isturf(T) || !T.can_have_cabling())		// sanity checks, also stop use interacting with T-scanner revealed cable
+	if(!isturf(T) || !T.is_plating())		// sanity checks, also stop use interacting with T-scanner revealed cable
 		return
 
 	if(get_dist(C, user) > 1)		// make sure it's close enough
@@ -756,7 +758,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	// one end of the clicked cable is pointing towards us
 	if(C.d1 == dirn || C.d2 == dirn)
-		if(!T.can_have_cabling())						// can't place a cable if the floor is complete
+		if(!U.is_plating())						// can't place a cable if the floor is complete
 			user << "You can't lay cable there unless the floor tiles are removed."
 			return
 		else
@@ -922,7 +924,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	var/ticks = 0
 
 /obj/structure/noose/attackby(obj/item/W, mob/user, params)
-	if(iswirecutter(W))
+	if(istype(W, /obj/item/weapon/wirecutters))
 		user.visible_message("[user] cuts the noose.", "<span class='notice'>You cut the noose.</span>")
 		if(buckled_mob)
 			buckled_mob.visible_message("<span class='danger'>[buckled_mob] falls over and hits the ground!</span>",\
@@ -941,7 +943,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	over.layer = MOB_LAYER + 0.1
 
 /obj/structure/noose/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	processing_objects -= src
 	return ..()
 
 /obj/structure/noose/post_buckle_mob(mob/living/M)
@@ -1040,7 +1042,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/structure/noose/process(mob/living/carbon/human/M, mob/user)
 	if(!buckled_mob)
-		STOP_PROCESSING(SSprocessing, src)
+		processing_objects -= src
 		buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
 		pixel_x = initial(pixel_x)
 		return

@@ -38,11 +38,11 @@ var/const/MAX_ACTIVE_TIME = 400
 	if(hit_zone == "head")
 		Attach(target)
 
-/obj/item/clothing/mask/facehugger/Initialize()
+/obj/item/clothing/mask/facehugger/New()
 	if(config.aliens_allowed)
-		. = ..()
+		..()
 	else
-		. = INITIALIZE_HINT_QDEL
+		qdel(src)
 
 /obj/item/clothing/mask/facehugger/examine(mob/user)
 	..(user)

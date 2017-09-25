@@ -22,7 +22,6 @@
 	var/scan_id = 1
 	var/is_secure = 0
 	var/datum/wires/smartfridge/wires = null
-	atmos_canpass = CANPASS_NEVER
 
 /obj/machinery/smartfridge/secure
 	is_secure = 1
@@ -178,7 +177,7 @@
 ********************/
 
 /obj/machinery/smartfridge/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(isscrewdriver(O))
+	if(istype(O, /obj/item/weapon/screwdriver))
 		panel_open = !panel_open
 		user.visible_message("[user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].", "You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
 		cut_overlays()
@@ -187,7 +186,7 @@
 		SSnanoui.update_uis(src)
 		return
 
-	if(ismultitool(O)||iswirecutter(O))
+	if(istype(O, /obj/item/device/multitool)||istype(O, /obj/item/weapon/wirecutters))
 		if(panel_open)
 			attack_hand(user)
 		return

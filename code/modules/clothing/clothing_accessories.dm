@@ -3,7 +3,7 @@
 		.=1
 	else
 		return 0
-	if(LAZYLEN(accessories) && restricted_accessory_slots && (A.slot in restricted_accessory_slots))
+	if(accessories.len && restricted_accessory_slots && (A.slot in restricted_accessory_slots))
 		for(var/obj/item/clothing/accessory/AC in accessories)
 			if (AC.slot == A.slot)
 				return 0
@@ -24,7 +24,7 @@
 			user << "<span class='warning'>You cannot attach more accessories of this type to [src].</span>"
 		return
 
-	if(LAZYLEN(accessories))
+	if(accessories.len)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.attackby(I, user)
 		return
@@ -33,7 +33,7 @@
 
 /obj/item/clothing/attack_hand(var/mob/user)
 	//only forward to the attached accessory if the clothing is equipped (not in a storage)
-	if(LAZYLEN(accessories) && src.loc == user)
+	if(accessories.len && src.loc == user)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.attack_hand(user)
 		return
@@ -60,12 +60,12 @@
 
 /obj/item/clothing/examine(var/mob/user)
 	..(user)
-	if(LAZYLEN(accessories))
+	if(accessories.len)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			user << "\A [A] is attached to it."
 
 /obj/item/clothing/proc/attach_accessory(mob/user, obj/item/clothing/accessory/A)
-	LAZYADD(accessories, A)
+	accessories += A
 	A.on_attached(src, user)
 	src.verbs |= /obj/item/clothing/proc/removetie_verb
 	update_clothing_icon()
@@ -75,7 +75,7 @@
 		return
 
 	A.on_removed(user)
-	LAZYREMOVE(accessories, A)
+	accessories -= A
 	update_clothing_icon()
 
 /obj/item/clothing/proc/removetie_verb()
@@ -84,18 +84,18 @@
 	set src in usr
 	if(!istype(usr, /mob/living)) return
 	if(usr.stat) return
-	if(!LAZYLEN(accessories)) return
+	if(!accessories.len) return
 	var/obj/item/clothing/accessory/A
-	if(LAZYLEN(accessories) > 1)
+	if(accessories.len > 1)
 		A = input("Select an accessory to remove from [src]") as null|anything in accessories
 	else
 		A = accessories[1]
 	src.remove_accessory(usr,A)
-	if(!LAZYLEN(accessories))
+	if(!accessories.len)
 		src.verbs -= /obj/item/clothing/proc/removetie_verb
 
 /obj/item/clothing/emp_act(severity)
-	if(LAZYLEN(accessories))
+	if(accessories.len)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.emp_act(severity)
 	..()

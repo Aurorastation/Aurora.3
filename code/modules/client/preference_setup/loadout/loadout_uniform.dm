@@ -139,6 +139,11 @@
 	path = /obj/item/clothing/under/rank/security/navyblue
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet")
 
+/datum/gear/uniform/gearharness
+	display_name = "gear harness"
+	path = /obj/item/clothing/under/gearharness
+	cost = 2
+
 /datum/gear/uniform/pants
 	display_name = "pants selection"
 	path = /obj/item/clothing/under/pants

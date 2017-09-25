@@ -44,6 +44,7 @@
 /obj/machinery/power/smes/buildable/outpost_substation/Initialize()
 	. = ..()
 	component_parts += new /obj/item/weapon/smes_coil/weak(src)
+	recalc_coils()
 
 // This one is pre-installed on engineering shuttle. Allows rapid charging/discharging for easier transport of power to outpost
 // 11M Charge, 2.5M I/O
@@ -52,6 +53,8 @@
 	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
 	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
 	component_parts += new /obj/item/weapon/smes_coil(src)
+	recalc_coils()
+
 
 // END SMES SUBTYPES
 
@@ -65,13 +68,8 @@
 	var/grounding = 1			// Cut to quickly discharge, at cost of "minor" electrical issues in output powernet.
 	var/RCon = 1				// Cut to disable AI and remote control.
 	var/RCon_tag = "NO_TAG"		// RCON tag, change to show it on SMES Remote control console.
-	var/install_coils = TRUE
 	charge = 0
 	should_be_mapped = 1
-	component_types = list(
-		/obj/item/stack/cable_coil,
-		/obj/item/weapon/circuitboard/smes
-	)
 
 /obj/machinery/power/smes/buildable/Destroy()
 	qdel(wires)
@@ -105,27 +103,24 @@
 	if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr) && open_hatch)
 		wires.Interact(usr)
 
-// Proc: Initialize()
-// Parameters: 2 (dir - direction machine should face, install_coils - if coils should be spawned)
+// Proc: New()
+// Parameters: None
 // Description: Adds standard components for this SMES, and forces recalculation of properties.
-/obj/machinery/power/smes/buildable/Initialize(mapload, dir, install_coils = 1)
-	wires = new /datum/wires/smes(src)
-	src.install_coils = install_coils
+/obj/machinery/power/smes/buildable/Initialize(mapload, install_coils = 1)
+	component_parts = list()
+	component_parts += new /obj/item/stack/cable_coil(src,30)
+	component_parts += new /obj/item/weapon/circuitboard/smes(src)
+	src.wires = new /datum/wires/smes(src)
+
+	// Allows for mapped-in SMESs with larger capacity/IO
+	if(install_coils)
+		for(var/i = 1, i <= cur_coils, i++)
+			component_parts += new /obj/item/weapon/smes_coil(src)
+		recalc_coils()
 
 	SSmachinery.queue_rcon_update()
 
-	..()
-
-	LAZYINITLIST(component_parts)	// Parent machinery call won't initialize this list if this is a newly constructed SMES.
-
-	if (install_coils)
-		for (var/i in 1 to cur_coils)
-			component_parts += new /obj/item/weapon/smes_coil(src)
-
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/machinery/power/smes/buildable/LateInitialize()
-	recalc_coils()
+	. = ..()
 
 // Proc: attack_hand()
 // Parameters: None
@@ -311,7 +306,7 @@
 	if (..())
 
 		// Multitool - change RCON tag
-		if(ismultitool(W))
+		if(istype(W, /obj/item/device/multitool))
 			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 			if(newtag)
 				RCon_tag = newtag
@@ -335,7 +330,7 @@
 			failure_probability = 0
 
 		// Crowbar - Disassemble the SMES.
-		if(iscrowbar(W))
+		if(istype(W, /obj/item/weapon/crowbar))
 			if (terminal)
 				user << "<span class='warning'>You have to disassemble the terminal first!</span>"
 				return

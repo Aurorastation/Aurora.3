@@ -192,7 +192,7 @@
 		to_chat(src, "<span class='warning'>You broke your gaze.</span>")
 
 // Targeted teleportation, must be to a low-light tile.
-/mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in turfs)
+/mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in world)
 	set category = "Vampire"
 	set name = "Veil Step (20)"
 	set desc = "For a moment, move through the Veil and emerge at a shadow of your choice."
@@ -657,9 +657,6 @@
 		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
 		return
 
-	if (!vampire_can_affect_target(T, 1, 1))
-		return
-
 	if (!T.client || !T.mind)
 		to_chat(src, "<span class='warning'>[T]'s mind is empty and useless. They cannot be forced into a blood bond.</span>")
 		return
@@ -691,10 +688,10 @@
 // Gives a lethal disease to the target.
 /mob/living/carbon/human/proc/vampire_diseasedtouch()
 	set category = "Vampire"
-	set name = "Diseased Touch (100)"
+	set name = "Diseased Touch (200)"
 	set desc = "Infects the victim with corruption from the Veil, causing their organs to fail."
 
-	var/datum/vampire/vampire = vampire_power(100, 0)
+	var/datum/vampire/vampire = vampire_power(200, 0)
 	if (!vampire)
 		return
 

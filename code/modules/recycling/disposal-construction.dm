@@ -227,7 +227,7 @@
 
 		var/obj/structure/disposalpipe/CP = locate() in T
 
-		if(iswrench(I))
+		if(istype(I, /obj/item/weapon/wrench))
 			if(anchored)
 				anchored = 0
 				if(ispipe)
@@ -265,7 +265,7 @@
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			update()
 
-		else if(iswelder(I))
+		else if(istype(I, /obj/item/weapon/weldingtool))
 			if(anchored)
 				var/obj/item/weapon/weldingtool/W = I
 				if(W.remove_fuel(0,user))

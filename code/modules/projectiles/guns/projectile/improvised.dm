@@ -121,7 +121,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(iscoil(W))
+	else if(istype(W,/obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 3)
 			if(C.use(10))
@@ -196,7 +196,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(iswelder(W))
+	else if(istype(W,/obj/item/weapon/weldingtool))
 		if(buildstate == 3)
 			var/obj/item/weapon/weldingtool/T = W
 			if(T.remove_fuel(0,user))

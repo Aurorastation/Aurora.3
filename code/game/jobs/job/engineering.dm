@@ -30,7 +30,6 @@
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_eng
 	alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/eng
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/engi
 
 
 	equip(var/mob/living/carbon/human/H)
@@ -41,12 +40,7 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/hardhat/white(H), slot_head)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/utility/full(H), slot_belt)
-		if(istajara(H))
-			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-		else if(isunathi(H))
-			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-		else
-			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 		return 1
 
 	equip_survival(var/mob/living/carbon/human/H)
@@ -75,7 +69,6 @@
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_eng
 	alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/eng
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/engi
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -118,7 +111,6 @@
 	bag_type = /obj/item/weapon/storage/backpack/industrial
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_eng
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/eng
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/engi
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0

@@ -1,6 +1,20 @@
 //conveyor2 is pretty much like the original, except it supports corners, but not diverters.
 //note that corner pieces transfer stuff clockwise when running forward, and anti-clockwise backwards.
 
+/datum/wifi/sender/conveyor/proc/set_dir(direction)
+	for (var/datum/wifi/receiver/conveyor/C in connected_devices)
+		C.direction_change(direction)
+
+/datum/wifi/receiver/conveyor/proc/direction_change(direction)
+	var/obj/machinery/conveyor/C = parent
+	C.operating = direction
+	C.setmove()
+
+/datum/wifi/receiver/conveyor/switch/direction_change(direction)
+	var/obj/machinery/conveyor_switch/S = parent
+	S.position = direction
+	S.update()
+
 /obj/machinery/conveyor
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "conveyor0"
@@ -16,8 +30,7 @@
 
 	var/list/affecting	// the list of all items that will be moved this ptick
 	var/id = ""			// the control ID	- must match controller ID
-	
-	var/listener/antenna
+	var/datum/wifi/receiver/conveyor/antenna
 
 /obj/machinery/conveyor/centcom_auto
 	id = "round_end_belt"
@@ -106,12 +119,9 @@
 	if (!anchored && simulated && has_gravity(src))
 		step(src, move_dir)
 
-/obj/effect/conveyor_act()
-	return
-
 // attack with item, place item on conveyor
 /obj/machinery/conveyor/attackby(var/obj/item/I, mob/user)
-	if(iscrowbar(I))
+	if(istype(I, /obj/item/weapon/crowbar))
 		if(!(stat & BROKEN))
 			var/obj/item/conveyor_construct/C = new/obj/item/conveyor_construct(src.loc)
 			C.id = id
@@ -200,11 +210,24 @@
 
 	anchored = 1
 
+	var/datum/wifi/receiver/conveyor/switch/receiver
+	var/datum/wifi/sender/conveyor/transmitter
+
+
 /obj/machinery/conveyor_switch/Initialize(mapload, newid)
 	. = ..()
 	if(!id)
 		id = newid
 	update()
+
+	if (id)
+		receiver = new(id, src)
+		transmitter = new(id, src)
+
+/obj/machinery/conveyor_switch/Destroy()
+	QDEL_NULL(receiver)
+	QDEL_NULL(transmitter)
+	return ..()
 
 // update the icon depending on the position
 
@@ -236,20 +259,10 @@
 	operated = 1
 	update()
 
-	for (var/thing in GET_LISTENERS(id))
-		var/listener/L = thing
-		var/obj/machinery/conveyor/C = L.target
-		if (istype(C))
-			C.operating = position
-			C.setmove()
-		else
-			var/obj/machinery/conveyor_switch/S = L.target
-			if (istype(S))
-				S.position = position
-				S.update()
+	transmitter.set_dir(position)
 
 /obj/machinery/conveyor_switch/attackby(obj/item/I, mob/user, params)
-	if(iscrowbar(I))
+	if(istype(I, /obj/item/weapon/crowbar))
 		var/obj/item/conveyor_switch_construct/C = new/obj/item/conveyor_switch_construct(src.loc)
 		C.id = id
 		transfer_fingerprints_to(C)
@@ -270,17 +283,7 @@
 	operated = 1
 	update()
 
-	for (var/thing in GET_LISTENERS(id))
-		var/listener/L = thing
-		var/obj/machinery/conveyor/C = L.target
-		if (istype(C))
-			C.operating = position
-			C.setmove()
-		else
-			var/obj/machinery/conveyor_switch/S = L.target
-			if (istype(S))
-				S.position = position
-				S.update()
+	transmitter.set_dir(position)
 
 //
 // CONVEYOR CONSTRUCTION STARTS HERE

@@ -241,7 +241,7 @@
 		tmr.time=5
 		tmr.secured = 1
 		tmr.holder = src
-		START_PROCESSING(SSprocessing, tmr)
+		processing_objects.Add(tmr)
 		a_left = tmr
 		a_right = ign
 		secured = 1

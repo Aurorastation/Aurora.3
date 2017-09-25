@@ -1,5 +1,5 @@
 /mob/living/carbon/human/proc/update_eyes()
-	var/obj/item/organ/eyes/eyes = internal_organs_by_name[species.vision_organ || "eyes"]
+	var/obj/item/organ/eyes/eyes = internal_organs_by_name["eyes"]
 	if(eyes)
 		eyes.update_colour()
 		regenerate_icons()

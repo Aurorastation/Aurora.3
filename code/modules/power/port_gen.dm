@@ -110,16 +110,16 @@
 	var/temperature = 0		//The current temperature
 	var/overheating = 0		//if this gets high enough the generator explodes
 
-	component_types = list(
-		/obj/item/weapon/stock_parts/matter_bin,
-		/obj/item/weapon/stock_parts/micro_laser,
-		/obj/item/stack/cable_coil = 2,
-		/obj/item/weapon/stock_parts/capacitor
-	)
-
 /obj/machinery/power/port_gen/pacman/Initialize()
-	component_types += board_path
 	. = ..()
+	component_parts = list()
+	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
+	component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
+	component_parts += new /obj/item/stack/cable_coil(src)
+	component_parts += new /obj/item/stack/cable_coil(src)
+	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
+	component_parts += new board_path(src)
+	RefreshParts()
 
 	if(anchored)
 		connect_to_network()
@@ -130,7 +130,6 @@
 
 /obj/machinery/power/port_gen/pacman/RefreshParts()
 	var/temp_rating = 0
-
 	for(var/obj/item/weapon/stock_parts/SP in component_parts)
 		if(istype(SP, /obj/item/weapon/stock_parts/matter_bin))
 			max_sheets = SP.rating * SP.rating * 50
@@ -267,7 +266,7 @@
 		updateUsrDialog()
 		return
 	else if(!active)
-		if(iswrench(O))
+		if(istype(O, /obj/item/weapon/wrench))
 
 			if(!anchored)
 				connect_to_network()
@@ -279,14 +278,14 @@
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
 
-		else if(isscrewdriver(O))
+		else if(istype(O, /obj/item/weapon/screwdriver))
 			open = !open
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			if(open)
 				user << "<span class='notice'>You open the access panel.</span>"
 			else
 				user << "<span class='notice'>You close the access panel.</span>"
-		else if(iscrowbar(O) && open)
+		else if(istype(O, /obj/item/weapon/crowbar) && open)
 			var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 			for(var/obj/item/I in component_parts)
 				I.loc = src.loc

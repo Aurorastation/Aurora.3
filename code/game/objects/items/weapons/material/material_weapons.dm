@@ -57,11 +57,11 @@
 		if(applies_material_colour)
 			color = material.icon_colour
 		if(material.products_need_process())
-			START_PROCESSING(SSprocessing, src)
+			processing_objects |= src
 		update_force()
 
 /obj/item/weapon/material/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	processing_objects -= src
 	return ..()
 
 /obj/item/weapon/material/apply_hit_effect()
@@ -106,7 +106,7 @@ Commenting this out pending rebalancing of radiation based on small objects.
 	check_health(1)
 
 /obj/item/weapon/material/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(iswelder(W))
+	if(istype(W,/obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(material.ignition_point && WT.remove_fuel(0, user))
 			TemperatureAct(150)

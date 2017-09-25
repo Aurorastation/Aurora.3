@@ -10,10 +10,11 @@
 	var/deploying
 	var/deployed
 
-/obj/structure/droppod_door/Initialize(mapload, var/autoopen)
-	. = ..(mapload)
+/obj/structure/droppod_door/New(var/newloc, var/autoopen)
+	..(newloc)
 	if(autoopen)
-		addtimer(CALLBACK(src, .proc/deploy), 100)
+		spawn(100)
+			deploy()
 
 /obj/structure/droppod_door/attack_ai(var/mob/user)
 	if(!user.Adjacent(src))
@@ -24,7 +25,7 @@
 	attack_hand(user)
 
 /obj/structure/droppod_door/attack_hand(var/mob/user)
-	if(deploying || deployed) return
+	if(deploying) return
 	user << "<span class='danger'>You prime the explosive bolts. Better get clear!</span>"
 	sleep(30)
 	deploy()

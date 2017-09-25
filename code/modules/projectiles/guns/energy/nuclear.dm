@@ -6,11 +6,6 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
 	max_shots = 10
-	can_turret = 1
-	secondary_projectile_type = /obj/item/projectile/beam
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
-	can_switch_modes = 1
-	turret_is_lethal = 0
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -27,7 +22,6 @@
 	name = "mounted energy gun"
 	self_recharge = 1
 	use_external_power = 1
-	can_turret = 0
 
 /obj/item/weapon/gun/energy/gun/nuclear
 	name = "advanced energy gun"
@@ -39,7 +33,6 @@
 	self_recharge = 1
 	modifystate = null
 	var/reliability = 95
-	turret_sprite_set = "nuclear"
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
@@ -117,12 +110,6 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 5
 	fire_delay = 4
-	can_turret = 1
-	secondary_projectile_type = /obj/item/projectile/beam/pistol
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
-	can_switch_modes = 1
-	turret_sprite_set = "carbine"
-	turret_is_lethal = 0
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)

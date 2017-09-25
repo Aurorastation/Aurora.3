@@ -26,7 +26,6 @@
 	bag_type = /obj/item/weapon/storage/backpack/toxins
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -61,7 +60,6 @@
 	bag_type = /obj/item/weapon/storage/backpack/toxins
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -93,7 +91,6 @@
 	bag_type = /obj/item/weapon/storage/backpack/toxins
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -151,7 +148,6 @@
 	bag_type = /obj/item/weapon/storage/backpack/genetics
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_gen
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/gen
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/gen
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)

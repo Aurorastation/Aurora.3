@@ -26,7 +26,6 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/gin = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla = 5,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/rum = 5,
@@ -53,8 +52,6 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreusegreen = 5,/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreuseyellow =5,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/bitters = 6,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/mintsyrup = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cremewhite = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/brandy = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes = 4,
@@ -276,7 +273,7 @@
 
 /obj/machinery/vending/wallmed1
 	name = "NanoMed"
-	desc = "A wall-mounted version of the NanoMed."
+	desc = "Wall-mounted Medical Equipment dispenser."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
 	icon_deny = "wallmed-deny"
@@ -296,7 +293,7 @@
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
-	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
+	desc = "Wall-mounted Medical Equipment dispenser."
 	icon_state = "wallmed"
 	icon_deny = "wallmed-deny"
 	req_access = list(access_medical)

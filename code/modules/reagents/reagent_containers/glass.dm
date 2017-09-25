@@ -46,8 +46,8 @@
 		/obj/item/weapon/storage/part_replacer
 		)
 
-	Initialize()
-		. = ..()
+	New()
+		..()
 		base_name = name
 
 	examine(var/mob/user)
@@ -121,8 +121,8 @@
 	item_state = "beaker"
 	matter = list("glass" = 500)
 
-	Initialize()
-		. = ..()
+	New()
+		..()
 		desc += " Can hold up to [volume] units."
 
 	on_reagent_change()
@@ -202,14 +202,14 @@
 	flags = OPENCONTAINER
 
 /obj/item/weapon/reagent_containers/glass/beaker/cryoxadone
-	Initialize()
-		. = ..()
+	New()
+		..()
 		reagents.add_reagent("cryoxadone", 30)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/sulphuric
-	Initialize()
-		. = ..()
+	New()
+		..()
 		reagents.add_reagent("sacid", 60)
 		update_icon()
 

@@ -167,13 +167,11 @@
 		new /obj/effect/decal/cleanable/blood/oil(src)
 
 /turf/simulated/Destroy()
+	//Yeah, we're just going to rebuild the whole thing.
+	//Despite this being called a bunch during explosions,
+	//the zone will only really do heavy lifting once.
 	if (zone)
-		// Try to remove it gracefully first.
-		if (can_safely_remove_from_zone())
-			c_copy_air()
-			zone.remove(src)
-		else	// Can't remove it safely, just rebuild the entire thing.
-			zone.rebuild()
+		zone.rebuild()
 
 	// Letting this timer continue to exist can cause runtimes, so we delete it.
 	if (unwet_timer)

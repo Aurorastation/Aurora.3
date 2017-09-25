@@ -11,19 +11,16 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 
 	projectile_type = /obj/item/projectile/temp
-	can_turret = 1
-	turret_sprite_set = "temperature"
-
 	cell_type = /obj/item/weapon/cell/crap //WAS High, but brought down to match energy use
 
 /*
 /obj/item/weapon/gun/energy/temperature/New()
 	..()
-	START_PROCESSING(SSprocessing, src)
+	processing_objects.Add(src)
 
 
 /obj/item/weapon/gun/energy/temperature/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	processing_objects.Remove(src)
 	..()
 
 

@@ -49,7 +49,7 @@
 /datum/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
 		M.adjustOxyLoss(-removed * 10)
-	else
+	else if(alien != IS_DIONA)
 		M.adjustToxLoss(removed * 1.5)
 
 /datum/reagent/carbon
@@ -63,6 +63,8 @@
 	taste_mult = 1.5
 
 /datum/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		return
 	if(M.ingested && M.ingested.reagent_list.len > 1) // Need to have at least 2 reagents - cabon and something to remove
 		var/effect = 1 / (M.ingested.reagent_list.len - 1)
 		for(var/datum/reagent/R in M.ingested.reagent_list)
@@ -103,18 +105,11 @@
 	var/datum/modifier/caffeine_mod
 	var/caffeine  = 0
 
-	unaffected_species = IS_MACHINE	// Can act on dionae.
-
 	taste_description = "pure alcohol"
 
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of ethanol"
 	glass_desc = "A well-known alcohol with a variety of applications."
-
-/datum/reagent/ethanol/Destroy()
-	if (caffeine_mod)
-		QDEL_NULL(caffeine_mod)
-	return ..()
 
 /datum/reagent/ethanol/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L) && strength > 40)
@@ -202,13 +197,16 @@
 	return
 
 /datum/reagent/butanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if (alien == IS_VAURCA)
+	if(isvaurca(M))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
 		M.adjustToxLoss(removed * (strength / 100))
 	else
 		M.nutrition += nutriment_factor * removed
 
-	if (alien == IS_UNATHI)
-		ingest_met = initial(ingest_met)*3
+	if(alien == IS_DIONA)
+		return //Diona can gain nutrients, but don't get drunk or suffer other effects
+
+	if(isunathi(M))
+		ingest_met = initial(ingest_met)*3 //Unathi digest butanol much faster
 
 	var/quantity = (strength / 100) * removed
 	M.intoxication += quantity
@@ -244,7 +242,8 @@
 	taste_description = "metal"
 
 /datum/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
+	if(alien != IS_DIONA)
+		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 
 /datum/reagent/lithium
 	name = "Lithium"
@@ -255,10 +254,11 @@
 	taste_description = "metal"
 
 /datum/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
-		step(M, pick(cardinal))
-	if(prob(5))
-		M.emote(pick("twitch", "drool", "moan"))
+	if(alien != IS_DIONA)
+		if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
+			step(M, pick(cardinal))
+		if(prob(5))
+			M.emote(pick("twitch", "drool", "moan"))
 
 /datum/reagent/mercury
 	name = "Mercury"
@@ -270,12 +270,13 @@
 	taste_mult = 0 //mercury apparently is tasteless
 
 /datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
-		step(M, pick(cardinal))
-	if(prob(5))
-		M.emote(pick("twitch", "drool", "moan"))
+	if(alien != IS_DIONA)
+		if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
+			step(M, pick(cardinal))
+		if(prob(5))
+			M.emote(pick("twitch", "drool", "moan"))
 
-	M.adjustBrainLoss(removed)
+		M.adjustBrainLoss(removed)
 
 /datum/reagent/phosphorus
 	name = "Phosphorus"

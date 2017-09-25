@@ -3,12 +3,8 @@
 	path = /obj/item/weapon/cane
 
 /datum/gear/dice
-	display_name = "pack of dice"
-	path = /obj/item/weapon/storage/pill_bottle/dice
-
-/datum/gear/dicegaming
-	display_name = "pack of gaming dice"
-	path = /obj/item/weapon/storage/pill_bottle/dice/gaming
+	display_name = "d20"
+	path = /obj/item/weapon/dice/d20
 
 /datum/gear/cards
 	display_name = "deck of cards"

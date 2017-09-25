@@ -100,9 +100,11 @@
 
 		wearer = user
 		wearer << "<span class='Notice'>You struggle into the [src]. It feels hot, heavy and uncomfortable</span>"
-		START_PROCESSING(SSprocessing, src)
+		if(!(src in processing_objects))
+			processing_objects.Add(src)
 	else
 		wearer = null
+
 
 	..(user, slot)
 
@@ -114,7 +116,7 @@
 		suit_temp -= 0.5
 		if (suit_temp < T20C)
 			suit_temp = T20C
-			STOP_PROCESSING(SSprocessing, src)
+			processing_objects.Remove(src)
 		return
 	else
 		var/amount = BOMBSUIT_THERMAL
@@ -148,7 +150,7 @@
 
 
 /obj/item/clothing/suit/bomb_suit/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	processing_objects.Remove(src)
 	return ..()
 
 
