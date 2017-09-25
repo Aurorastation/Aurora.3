@@ -1533,3 +1533,9 @@
 	pulling_punches = !pulling_punches
 	src << "<span class='notice'>You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"].</span>"
 	return
+
+/mob/living/carbon/human/Move()
+	. = ..()
+	if (. && h_style = "Floor Length Braid" && prob(1))
+		Weaken(1)
+		visible_message("[src] trips on their hair.", "You trip on your hair.", "You hear a thump.)
