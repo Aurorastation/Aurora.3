@@ -53,6 +53,8 @@
 						imp.part = affected
 
 						BITSET(H.hud_updateflag, IMPLOYAL_HUD)
+					if(istype(src.imp, /obj/item/weapon/implanter/loyalty))
+						M << "<span class ='notice'You feel a sudden surge of loyalty to [company_name]!</span>"
 
 				src.imp = null
 				update()
