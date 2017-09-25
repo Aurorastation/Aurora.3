@@ -157,6 +157,20 @@
 	..()
 	M.intoxication += removed*0.02 //Very slightly alcoholic
 
+/datum/reagent/nutriment/coating/vegemite
+	name = "Vegemite"
+	cooked_name = "burnt Vegemite"
+	id = "vegemite"
+	color = "#0c0901"
+	taste_description = "concentrated industrial grade salt"
+	icon_raw = "batter_raw"
+	icon_cooked = "batter_cooked"
+	coated_adj = "vegemite-coated"
+
+/datum/reagent/nutriment/coating/vegemite/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.halloss += 1 //vegemite hurts the soul.
+
 //==============================
 /datum/reagent/nutriment/protein // Bad for Skrell!
 	name = "animal protein"
