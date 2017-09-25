@@ -464,3 +464,6 @@
 
 /datum/species/proc/get_light_color(hair_style)
 	return
+
+/datum/species/proc/can_breathe_water()
+	return FALSE

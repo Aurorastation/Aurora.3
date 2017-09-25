@@ -12,6 +12,8 @@
 	charge_cost = 300
 	max_shots = 10
 	projectile_type = /obj/item/projectile/ion
+	can_turret = 1
+	turret_sprite_set = "ion"
 
 /obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
@@ -28,6 +30,7 @@
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 10
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/decloner
 	name = "biological demolecularisor"
@@ -77,6 +80,8 @@
 	self_recharge = 1
 	recharge_time = 5 //Time it takes for shots to recharge (in ticks)
 	charge_meter = 0
+	can_turret = 1
+	turret_sprite_set = "meteor"
 
 /obj/item/weapon/gun/energy/meteorgun/pen
 	name = "meteor pen"
@@ -86,6 +91,7 @@
 	item_state = "pen"
 	w_class = 1
 	slot_flags = SLOT_BELT
+	can_turret = 0
 
 
 /obj/item/weapon/gun/energy/mindflayer
@@ -94,6 +100,8 @@
 	icon_state = "xray"
 	projectile_type = /obj/item/projectile/beam/mindflayer
 	fire_sound = 'sound/weapons/Laser.ogg'
+	can_turret = 1
+	turret_sprite_set = "xray"
 
 /obj/item/weapon/gun/energy/toxgun
 	name = "phoron pistol"
@@ -173,12 +181,16 @@
 	w_class = 3
 	max_shots = 4
 	fire_delay = 25
+	can_turret = 1
+	turret_is_lethal = 0
+	turret_sprite_set = "net"
 
 /obj/item/weapon/gun/energy/net/mounted
 	max_shots = 1
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 40
+	can_turret = 0
 
 /* Vaurca Weapons */
 
@@ -283,6 +295,8 @@
 	burst = 1
 	burst_delay = 1
 	fire_delay = 0
+	can_turret = 1
+	turret_sprite_set = "laser"
 
 	firemodes = list(
 		list(mode_name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
@@ -406,6 +420,8 @@
 	recharge_time = 1
 	charge_meter = 1
 	charge_cost = 50
+	can_turret = 1
+	turret_sprite_set = "thermaldrill"
 
 	firemodes = list(
 		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),

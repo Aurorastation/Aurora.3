@@ -7,7 +7,7 @@
 /turf
 	var/permit_ao = TRUE
 	var/tmp/list/ao_overlays	// Current ambient occlusion overlays. Tracked so we can reverse them without dropping all priority overlays.
-	var/tmp/ao_neighbors = 0
+	var/tmp/ao_neighbors
 	var/ao_queued = AO_UPDATE_NONE
 
 /turf/proc/regenerate_ao()

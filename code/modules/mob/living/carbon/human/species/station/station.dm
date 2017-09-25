@@ -238,6 +238,9 @@
 	stamina = 90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
 
+/datum/species/skrell/can_breathe_water()
+	return TRUE
+
 /datum/species/diona
 	name = "Diona"
 	short_name = "dio"
