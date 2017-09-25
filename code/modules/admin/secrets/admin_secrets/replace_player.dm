@@ -24,4 +24,4 @@
 		G = ghost_traps["Special"]
 		if(player_to_replace.client)
 			player_to_replace.ghostize(0)
-		G.request_player(player_to_replace, "Would you like to play as a [player_to_replace.name]?", 60 SECONDS, 1)
+		G.request_player(player_to_replace, "Would you like to play as [player_to_replace.name]?", 60 SECONDS, 1)
