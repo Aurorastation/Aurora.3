@@ -14,6 +14,10 @@
 	var/allow_reagents = 0
 	var/malfunction = 0
 
+/obj/item/weapon/implant/Initialize()
+	. = ..()
+	implants += src
+
 /obj/item/weapon/implant/proc/trigger(emote, source as mob)
 	return
 
@@ -51,7 +55,20 @@
 	if(part)
 		part.implants.Remove(src)
 	STOP_PROCESSING(SSprocessing, src)
+	implants -= src
 	return ..()
+
+/obj/item/weapon/implant/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/weapon/implanter))
+		var/obj/item/weapon/implanter/implanter = I
+		if(implanter.imp)
+			return // It's full.
+		user.drop_from_inventory(src)
+		forceMove(implanter)
+		implanter.imp = src
+		implanter.update()
+	else
+		..()
 
 /obj/item/weapon/implant/tracking
 	name = "tracking implant"

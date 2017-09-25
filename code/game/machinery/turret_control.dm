@@ -16,6 +16,7 @@
 	var/enabled = 0
 	var/lethal = 0
 	var/locked = 1
+	var/egun = 1 //if the control panel can switch lethal and stun modes
 	var/area/control_area //can be area name, path or nothing.
 
 	var/check_arrest = 1	//checks if the perp is set to arrest
@@ -121,6 +122,7 @@
 	data["enabled"] = enabled
 	data["is_lethal"] = 1
 	data["lethal"] = lethal
+	data["can_switch"] = egun
 
 	if(data["access"])
 		var/settings[0]

@@ -3,7 +3,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 /datum/controller/subsystem/garbage_collector
 	name = "Garbage"
 	priority = SS_PRIORITY_GARBAGE
-	wait = 5
+	wait = 2 SECONDS
 	flags = SS_FIRE_IN_LOBBY|SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
 
 	var/collection_timeout = 3000// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
@@ -235,17 +235,22 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
-	weakref = null
-	destroyed_event.raise_event(src)
+	if (destroy_listeners)
+		RaiseOnDestroy()
+
 	SSnanoui.close_uis(src)
+	
+	weakref = null
 	tag = null
+
 	var/list/timers = active_timers
 	active_timers = null
-	for(var/thing in timers)
-		var/datum/timedevent/timer = thing
-		if (timer.spent)
-			continue
-		qdel(timer)
+	if (timers)
+		for(var/thing in timers)
+			var/datum/timedevent/timer = thing
+			if (timer.spent)
+				continue
+			qdel(timer)
 	return QDEL_HINT_QUEUE
 
 /datum/var/gcDestroyed //Time when this object was destroyed.

@@ -64,6 +64,10 @@
 	minimal_access = list(access_hydroponics)
 	alt_titles = list("Hydroponicist")
 
+	bag_type = /obj/item/weapon/storage/backpack/hydroponics
+	satchel_type = /obj/item/weapon/storage/backpack/satchel_hyd
+	duffel_type = /obj/item/weapon/storage/backpack/duffel/hyd
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/hyd
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -73,18 +77,13 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 		if(istajara(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/botanic_leather/tajara(H), slot_gloves)
-		if(isunathi(H))
+		else if(isunathi(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/botanic_leather/unathi(H), slot_gloves)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/botanic_leather(H), slot_gloves)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/apron(H), slot_wear_suit)
 		H.equip_to_slot_or_del(new /obj/item/device/analyzer/plant_analyzer(H), slot_s_store)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/botanist(H), slot_belt)
-		switch(H.backbag)
-			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/hydroponics(H), slot_back)
-			if(3) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_hyd(H), slot_back)
-			if(4) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(H), slot_back)
-			if(5) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel/hyd(H), slot_back)
 		return TRUE
 
 
@@ -168,6 +167,11 @@
 	economic_modifier = 5
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
+
+	bag_type = /obj/item/weapon/storage/backpack/industrial
+	satchel_type = /obj/item/weapon/storage/backpack/satchel_eng
+	duffel_type = /obj/item/weapon/storage/backpack/duffel/eng
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/engi
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)

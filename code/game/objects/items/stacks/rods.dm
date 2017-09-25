@@ -49,7 +49,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 
 /obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if (istype(W, /obj/item/weapon/weldingtool))
+	if (iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(get_amount() < 2)

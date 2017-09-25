@@ -21,6 +21,10 @@
 	display_name = "monocle"
 	path = /obj/item/clothing/glasses/monocle
 
+/datum/gear/eyes/glasses/goggles
+	display_name = "goggles"
+	path = /obj/item/clothing/glasses/goggles
+
 /datum/gear/eyes/scanning_goggles
 	display_name = "scanning goggles"
 	path = /obj/item/clothing/glasses/regular/scanners
@@ -28,7 +32,7 @@
 /datum/gear/eyes/sciencegoggles
 	display_name = "science Goggles"
 	path = /obj/item/clothing/glasses/science
-	
+
 /datum/gear/eyes/mesonprescription
 	display_name = "meson goggles, prescription"
 	path = /obj/item/clothing/glasses/meson/prescription
@@ -42,7 +46,7 @@
 /datum/gear/eyes/medical
 	display_name = "medical HUD"
 	path = /obj/item/clothing/glasses/hud/health
-	allowed_roles = list("Medical Doctor", "Chief Medical Officer", "Chemist", "Paramedic", "Geneticist", "Nursing Intern")
+	allowed_roles = list("Medical Doctor", "Chief Medical Officer", "Chemist", "Paramedic", "Geneticist", "Medical Resident")
 
 /datum/gear/eyes/shades
 	display_name = "sunglasses, fat"

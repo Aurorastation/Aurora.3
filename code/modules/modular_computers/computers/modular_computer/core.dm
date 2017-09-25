@@ -31,7 +31,7 @@
 		else
 			idle_threads.Remove(P)
 
-	
+	working = hard_drive && processor_unit && damage < broken_damage && (apc_power(0) || battery_power(0))
 	check_update_ui_need()
 
 /obj/item/modular_computer/proc/get_preset_programs(var/app_preset_name)
@@ -52,6 +52,7 @@
 
 /obj/item/modular_computer/Initialize()
 	. = ..()
+	listener = new("modular_computers", src)
 	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
@@ -64,6 +65,7 @@
 		uninstall_component(null, CH)
 		qdel(CH)
 	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL(listener)
 	return ..()
 
 /obj/item/modular_computer/emag_act(var/remaining_charges, var/mob/user)
@@ -80,14 +82,13 @@
 
 	cut_overlays()
 	if(!enabled)
-		var/probably_working = hard_drive && processor_unit && damage < broken_damage && (apc_power(0) || battery_power(0))
-		if(icon_state_screensaver && probably_working)
+		if(icon_state_screensaver && working)
 			if (is_holographic)
 				holographic_overlay(src, src.icon, icon_state_screensaver)
 			else
 				add_overlay(icon_state_screensaver)
 		
-		if (screensaver_light_range && probably_working)
+		if (screensaver_light_range && working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
 		else
 			set_light(0)

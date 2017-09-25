@@ -1,6 +1,7 @@
 #define LIGHTING_INTERVAL       1     // Frequency, in 1/10ths of a second, of the lighting process.
 
 #define LIGHTING_HEIGHT         1 // height off the ground of light sources on the pseudo-z-axis, you should probably leave this alone
+#define LIGHTING_Z_FACTOR       10 // Z diff is multiplied by this and LIGHTING_HEIGHT to get the final height of a light source. Affects how much darker A Z light gets with each level transitioned.
 #define LIGHTING_ROUND_VALUE    1 / 200 //Value used to round lumcounts, values smaller than 1/255 don't matter (if they do, thanks sinking points), greater values will make lighting less precise, but in turn increase performance, VERY SLIGHTLY.
 
 #define LIGHTING_ICON 'icons/effects/lighting_overlay.dmi' // icon used for lighting shading effects
@@ -11,6 +12,9 @@
 
 #define LIGHTING_SOFT_THRESHOLD 0.001 // If the max of the lighting lumcounts of each spectrum drops below this, disable luminosity on the lighting overlays.
 #define LIGHTING_BLOCKED_FACTOR 0.5	// How much the range of a directional light will be reduced while facing a wall.
+
+// If defined, instant updates will be used whenever server load permits. Otherwise queued updates are always used.
+#define USE_INTELLIGENT_LIGHTING_UPDATES
 
 // If I were you I'd leave this alone.
 #define LIGHTING_BASE_MATRIX \
@@ -107,3 +111,15 @@
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.
 #define L_PROF(O,T) if (lighting_profiling) {lprof_write(O,T);}
+
+// -- Ambient Occlusion --
+
+// Not handled by the lighting engine, but related. Controls the alpha of the ambient occlusion effect on opaque atoms and openturfs.
+#define WALL_AO_ALPHA 80
+
+#define AO_UPDATE_NONE 0
+#define AO_UPDATE_OVERLAY 1
+#define AO_UPDATE_REBUILD 2
+
+// If defined, integrate with the lighting engine and use its opacity value. Otherwise a simple turf opacity check is used. This may cause visual artifacts with opaque non-square movables.
+//#define AO_USE_LIGHTING_OPACITY

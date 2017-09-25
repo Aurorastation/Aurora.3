@@ -608,7 +608,6 @@
 	SearchVar(news_network)
 	SearchVar(allCasters)
 	SearchVar(bomb_set)
-	SearchVar(turret_icons)
 	SearchVar(req_console_assistance)
 	SearchVar(req_console_supplies)
 	SearchVar(req_console_information)

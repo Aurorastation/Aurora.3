@@ -431,7 +431,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(new_eyes && has_flag(mob_species, HAS_EYE_COLOR) && CanUseTopic(user))
 			pref.r_eyes = GetRedPart(new_eyes)
 			pref.g_eyes = GetGreenPart(new_eyes)
-			pref.b_eyes = GetRedPart(new_eyes)
+			pref.b_eyes = GetBluePart(new_eyes)
 			return TOPIC_REFRESH
 
 	else if(href_list["skin_tone"])
@@ -481,6 +481,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				continue
 			else if(!(pref.species in S.species_allowed))
 				usable_markings -= M
+
+		if (!usable_markings.len)
+			alert(user, "This species does not have any body markings available.")
+			return TOPIC_NOACTION
 
 		var/new_marking = input(user, "Choose a body marking:", "Character Preference")  as null|anything in usable_markings
 		if(new_marking && CanUseTopic(user))

@@ -1,4 +1,5 @@
 /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg
+	name = "mounted proto-kinetic accelerator"
 	self_recharge = 1
 	use_external_power = 1
 
@@ -40,7 +41,7 @@
 			user << "<span class='notice'>There is a [M.name] mod installed, using <b>[M.cost]%</b> capacity.</span>"
 
 /obj/item/weapon/gun/energy/kinetic_accelerator/attackby(obj/item/A, mob/user)
-	if(istype(A, /obj/item/weapon/crowbar))
+	if(iscrowbar(A))
 		if(modkits.len)
 			user << "<span class='notice'>You pry the modifications out.</span>"
 			playsound(loc, 100, 1)
@@ -284,6 +285,7 @@
 /*******************PLASMA CUTTER*******************/
 
 /obj/item/weapon/gun/energy/plasmacutter/mounted
+	name = "mounted plasma cutter"
 	self_recharge = 1
 	use_external_power = 1
 

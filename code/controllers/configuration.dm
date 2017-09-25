@@ -271,6 +271,13 @@ var/list/gamemode_cache = list()
 	var/sun_accuracy = 8
 	var/sun_target_z = 7
 
+	var/cargo_load_items_from = "json"
+	var/merchant_chance = 20 //Chance, in percentage, of the merchant job slot being open at round start
+
+	var/show_game_type_odd = 1 // If the check gamemode probability verb is enabled or not
+
+	var/openturf_starlight_permitted = FALSE
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -737,6 +744,9 @@ var/list/gamemode_cache = list()
 					value = text2num(value)
 					config.starlight = value >= 0 ? value : 0
 
+				if("openturf_starlight")
+					openturf_starlight_permitted = TRUE
+
 				if("ert_species")
 					config.ert_species = text2list(value, ";")
 					if(!config.ert_species.len)
@@ -832,11 +842,19 @@ var/list/gamemode_cache = list()
 					access_deny_vms = text2num(value)
 				if("access_warn_vms")
 					access_warn_vms = text2num(value)
+				
+				if("cargo_load_items_from")
+					cargo_load_items_from = value
 
 				if("fastboot")
 					fastboot = TRUE
 					world.log << "Fastboot is ENABLED."
 
+				if("merchant_chance")
+					config.merchant_chance = text2num(value)
+
+				if("show_game_type_odd")
+					config.show_game_type_odd = 1
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 

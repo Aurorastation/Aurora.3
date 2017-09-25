@@ -24,3 +24,7 @@
 	gloves["grey gloves"] = /obj/item/clothing/gloves/grey
 	gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow
 	gear_tweaks += new/datum/gear_tweak/path(gloves)
+
+/datum/gear/gloves/evening
+	display_name = "evening gloves"
+	path = /obj/item/clothing/gloves/evening

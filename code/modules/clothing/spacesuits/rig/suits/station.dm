@@ -108,9 +108,9 @@
 	req_one_access = list()
 
 /obj/item/weapon/rig/eva/equipped
-	
+
 	req_access = list(access_engine_equip)
-	
+
 	initial_modules = list(
 		/obj/item/rig_module/device/basicdrill,
 		/obj/item/rig_module/maneuvering_jets,
@@ -242,3 +242,31 @@
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/mounted/taser
 		)
+
+/obj/item/weapon/rig/diving
+	name = "diving suit control module"
+	suit_type = "diving suit"
+	desc = "A heavy rig designated for operations under the water, you are not sure what it is doing here however."
+	icon_state = "diving_rig"
+	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
+	slowdown = 4
+	offline_slowdown = 2
+	offline_vision_restriction = TINT_HEAVY
+
+	chest_type = /obj/item/clothing/suit/space/rig/diving
+	helm_type = /obj/item/clothing/head/helmet/space/rig/diving
+	boot_type = /obj/item/clothing/shoes/magboots/rig/diving
+
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rcd)
+
+	req_access = list()
+	req_one_access = list()
+
+/obj/item/clothing/head/helmet/space/rig/diving
+	species_restricted = list("Human")
+
+/obj/item/clothing/suit/space/rig/diving
+	species_restricted = list("Human")
+
+/obj/item/clothing/shoes/magboots/rig/diving
+	species_restricted = list("Human")

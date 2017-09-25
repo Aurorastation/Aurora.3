@@ -50,17 +50,6 @@
 	..()
 	return
 
-/atom/movable/proc/forceMove(atom/destination)
-	if(destination)
-		if(loc)
-			loc.Exited(src)
-		loc = destination
-		loc.Entered(src)
-		update_client_hook(loc)
-		return 1
-	update_client_hook(loc)
-	return 0
-
 //called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
 	if(istype(hit_atom,/mob/living))
@@ -282,26 +271,43 @@ var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
 	if (. && hud_used && client && get_turf(client.eye) == destination)
 		hud_used.update_parallax_values()
 
+// Core movement hooks & procs.
+/atom/movable/proc/forceMove(atom/destination)
+	if(destination)
+		if(loc)
+			loc.Exited(src)
+		loc = destination
+		loc.Entered(src)
+		if (contained_mobs)
+			update_client_hook(loc)
+		return 1
+	if (contained_mobs)
+		update_client_hook(loc)
+	return 0
 
-// Movement hooks.
 /atom/movable/Move()
 	var/old_loc = loc
 	. = ..()
 	if (.)
 		// Events.
-		moved_event.raise_event(src, old_loc, loc)
+		if (move_listeners)
+			RaiseOnMove(src, old_loc, loc)
 
 		// Parallax.
-		update_client_hook(loc)
+		if (contained_mobs)
+			update_client_hook(loc)
 
 		// Lighting.
-		var/datum/light_source/L
-		var/thing
-		for (thing in light_sources)
-			L = thing
-			L.source_atom.update_light()
+		if (light_sources)
+			var/datum/light_source/L
+			var/thing
+			for (thing in light_sources)
+				L = thing
+				L.source_atom.update_light()
 
 		// Openturf.
 		if (bound_overlay)
 			// The overlay will handle cleaning itself up on non-openspace turfs.
 			bound_overlay.forceMove(get_step(src, UP))
+			if (bound_overlay.dir != dir)
+				bound_overlay.set_dir(dir)

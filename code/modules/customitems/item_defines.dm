@@ -67,9 +67,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	var/obj/item/weapon/disk/chip
 
-/obj/item/clothing/glasses/fluff/nebula_glasses/New()
+/obj/item/clothing/glasses/fluff/nebula_glasses/Initialize()
+	. = ..()
 	chip = new /obj/item/weapon/disk/fluff/nebula_chip()
-	..()
+
+/obj/item/clothing/glasses/fluff/nebula_glasses/Destroy()
+	QDEL_NULL(chip)
+	return ..()
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/attack_self(mob/user as mob)
 	if(chip)
@@ -848,13 +852,16 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ikrad_beret"
 	item_state = "ikrad_beret"
 	contained_sprite = TRUE
-	var/letter
+	var/obj/item/fluff/ikrad_letter/letter
 
-/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/New()
-	..()
-	var/obj/item/fluff/ikrad_letter/hat_letter = new(src)
-	letter = hat_letter
-	hat_letter.attack_self()
+/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/Initialize()
+	. = ..()
+	letter = new(src)
+	letter.attack_self()
+
+/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/Destroy()
+	QDEL_NULL(letter)
+	return ..()
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attack_self(var/mob/user)
 	if(letter)
@@ -1162,7 +1169,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user)
 	if(..(user, 1))
 		user << "It is [active ? "on" : "off"]."
-
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/cognac/fluff/leonce_cognac //Old Earth Luxury Cognac - Francois Leonce - driecg36
 	name = "old earth luxury cognac"
