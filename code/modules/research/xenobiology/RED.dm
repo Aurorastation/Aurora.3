@@ -85,7 +85,9 @@ There is also a non-destrutive option, but... It's not as fun.
 
 /obj/machinery/red/proc/transfer_mob(var/mob/T, var/obj/machinery/red/A)
 	mobinside = null
+	status = 0
 	T.forceMove(A)
+	A.status = 1
 	A.mobinside = T
 
 /obj/machinery/red/proc/runevent()
@@ -182,11 +184,9 @@ There is also a non-destrutive option, but... It's not as fun.
 				processing_status = 80
 			if(2)
 				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
-					ping("\The [src] pings loudly, 'Analyzing internal structual...'")
+					ping("\The [src] pings loudly, 'Interal structure loaded. Preparing DNA for scanning procedures.'")
 				else if(mainpart.scan_type in list(SCAN_CLONE))
-					ping("\The [src] pings loudly, 'Reading specimen DNA...'")
-				else if(mainpart.scan_type in list(SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
-					ping("\The [src] pings loudly, 'Preparing specimen DNA for reading...'")
+					ping("\The [src] pings loudly, 'Loading CRISPR procedures...'")
 				else
 					ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(20,40)]%'")
 			if(3)
@@ -284,7 +284,7 @@ There is also a non-destrutive option, but... It's not as fun.
 
 	if(ishuman(mobinside))
 		human = 1
-
+	print_lore()
 	switch(mainpart.scan_type)
 		if(SCAN_ALIVE)
 			spitmob()
@@ -314,7 +314,7 @@ There is also a non-destrutive option, but... It's not as fun.
 			return
 		if(SAMPLE_TO_DISK)
 			return
-	print_lore()
+	mainpart.scan_type = SCAN_IDLE
 	return
 
 /obj/machinery/red/proc/print_lore(var/special) // ew
@@ -322,7 +322,9 @@ There is also a non-destrutive option, but... It's not as fun.
 	T.changeinfo(mobinside, mainpart.scan_type)
 
 /obj/machinery/red/proc/spitmob()
-	return
+	mobinside.loc = src.loc
+	mobinside = null
+	status = 0
 
 /obj/machinery/red/main
 	icon_state = "red_3_0"
@@ -408,4 +410,5 @@ There is also a non-destrutive option, but... It's not as fun.
 		return 0
 	transfer_mob(T, src)
 	processing_status = 0
+	status = 1
 	runevent()
