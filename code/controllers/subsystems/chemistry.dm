@@ -20,8 +20,8 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	chemical_reagents = chemical_reagents_list
 		
 /datum/controller/subsystem/chemistry/Initialize()
-	. = ..()
 	load_secret_chemicals()
+	. = ..()
 	
 /datum/controller/subsystem/chemistry/fire(resumed = FALSE)
 	if (!resumed)
@@ -62,21 +62,21 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	try
 		chemconfig = json_decode(return_file_text("config/secretchem.json"))
 	catch(var/exception/e)
-		log_debug("SSChemistry: Warning: Could not load config, as secretchem.json is missing - [e]")
+		log_debug("SSchemistry: Warning: Could not load config, as secretchem.json is missing - [e]")
 		return
 
-	for (var/chemical in chemconfig["chemicals"])
-		log_debug("SSChemistry: Loading chemical: [chemical]")
+	chemconfig = chemconfig["chemicals"]
+	for (var/chemical in chemconfig)
+		log_debug("SSchemistry: Loading chemical: [chemical]")
 		var/datum/chemical_reaction/cc = new()
-		cc.name = chemconfig["chemicals"][chemical]["name"]
-		cc.id = chemconfig["chemicals"][chemical]["id"]
-		cc.result = chemconfig["chemicals"][chemical]["result"]
-		cc.result_amount = chemconfig["chemicals"][chemical]["resultamount"]
-		cc.required_reagents = chemconfig["chemicals"][chemical]["required_reagents"]
-		if(cc.required_reagents && cc.required_reagents.len)
+		cc.name = chemconfig[chemical]["name"]
+		cc.id = chemconfig[chemical]["id"]
+		cc.result = chemconfig[chemical]["result"]
+		cc.result_amount = chemconfig[chemical]["resultamount"]
+		cc.required_reagents = chemconfig[chemical]["required_reagents"]
+		if(LAZYLEN(cc.required_reagents))
 			var/reagent_id = cc.required_reagents[1]
-			if(!chemical_reactions_list[reagent_id])
-				chemical_reactions_list[reagent_id] = list()
+			LAZYINITLIST(chemical_reactions_list[reagent_id])
 			chemical_reactions_list[reagent_id] += cc
 
 	chemical_reactions = chemical_reactions_list
