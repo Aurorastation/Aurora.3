@@ -20,6 +20,10 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	chemical_reactions = chemical_reactions_list
 	chemical_reagents = chemical_reagents_list
 
+/datum/controller/subsystem/chemistry/Initilaize()
+	. = ..()
+	load_secret_chemicals()
+
 /datum/controller/subsystem/chemistry/fire(resumed = FALSE)
 	if (!resumed)
 		processing_holders = active_holders.Copy()
@@ -53,3 +57,28 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	src.active_holders = SSchemistry.active_holders
 	src.chemical_reactions = SSchemistry.chemical_reactions
 	src.chemical_reagents = SSchemistry.chemical_reagents
+
+/datum/controller/subsystem/chemistry/proc/load_secret_chemicals()
+	var/list/chemconfig = list()
+	try
+		chemconfig = json_decode(return_file_text("config/secretchem.json"))
+	catch(var/exception/e)
+		log_debug("SSChemistry: Warning: Could not load config, as secretchem.json is missing - [e]")
+		return
+
+	for (var/chemical in chemconfig["chemicals"])
+		log_debug("SSChemistry: Loading chemical: [chemical]")
+		var/datum/chemical_reaction/cc = new()
+		cc.name = chemconfig["chemicals"][chemical]["name"]
+		cc.id = chemconfig["chemicals"][chemical]["id"]
+		cc.result = chemconfig["chemicals"][chemical]["result"]
+		cc.result_amount = chemconfig["chemicals"][chemical]["resultamount"]
+		cc.required_reagents = chemconfig["chemicals"][chemical]["required_reagents"]
+		if(cc.required_reagents && cc.required_reagents.len)
+			var/reagent_id = cc.required_reagents[1]
+			if(!chemical_reactions_list[reagent_id])
+				chemical_reactions_list[reagent_id] = list()
+			chemical_reactions_list[reagent_id] += cc
+
+	chemical_reactions = chemical_reactions_list
+
