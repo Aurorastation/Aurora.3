@@ -20,7 +20,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	chemical_reactions = chemical_reactions_list
 	chemical_reagents = chemical_reagents_list
 
-/datum/controller/subsystem/chemistry/Initilaize()
+/datum/controller/subsystem/chemistry/Initialize()
 	. = ..()
 	load_secret_chemicals()
 
