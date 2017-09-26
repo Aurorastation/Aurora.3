@@ -19,11 +19,9 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	active_holders = list()
 	chemical_reactions = chemical_reactions_list
 	chemical_reagents = chemical_reagents_list
-
-/datum/controller/subsystem/chemistry/Initialize()
-	. = ..()
-	load_secret_chemicals()
-
+	spawn(1)
+		load_secret_chemicals()
+	
 /datum/controller/subsystem/chemistry/fire(resumed = FALSE)
 	if (!resumed)
 		processing_holders = active_holders.Copy()
