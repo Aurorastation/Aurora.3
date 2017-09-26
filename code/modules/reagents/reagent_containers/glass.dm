@@ -58,7 +58,7 @@
 		user << "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of liquid.</span>"
 		for(var/datum/reagent/T in reagents.reagent_list)
 			if(T.reagent_state == SOLID)
-				user << "<span class='notice'>You see some solid floating around.</span>"
+				user << "<span class='notice'>You see something solid in the beaker.</span>"
 				break // to stop multiple messages of this
 	else
 		user << "<span class='notice'>It is empty.</span>"
