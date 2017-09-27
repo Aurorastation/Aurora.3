@@ -14,8 +14,7 @@
 	if(shattered)	return
 
 	if(user.mind && user.mind.vampire)
-		user << "<span class='notice'>You don't see anything.</span>"
-		return
+		user << "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>"
 
 	if(ishuman(user))
 		var/datum/nano_module/appearance_changer/AC = ui_users[user]
@@ -114,8 +113,7 @@
 /obj/item/weapon/mirror/attack_self(mob/user as mob)
 
 	if(user.mind && user.mind.vampire)
-		user << "<span class='notice'>You don't see anything.</span>"
-		return
+		user << "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>"
 
 	if(ishuman(user))
 		var/datum/nano_module/appearance_changer/AC = ui_users[user]
