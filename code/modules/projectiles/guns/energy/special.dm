@@ -185,8 +185,8 @@
 	max_shots = 4
 	fire_delay = 25
 	can_turret = 1
-	turret_is_lethal = 0		
-	turret_sprite_set = "net
+	turret_is_lethal = 0	
+	turret_sprite_set = "net"
 
 /obj/item/weapon/gun/energy/net/mounted
 	max_shots = 1
