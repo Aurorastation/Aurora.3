@@ -1,0 +1,5 @@
+author: Scheveningen
+ 
+ delete-after: True
+ changes:
+   - balance: "Adds dispersion effects to the thermal drill and mounted thermal drill."
