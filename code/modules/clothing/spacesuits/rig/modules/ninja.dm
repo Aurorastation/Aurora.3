@@ -254,10 +254,10 @@
 	if(!..())
 		return
 	var/mob/living/carbon/human/H = holder.wearer
-	if(cooldown == 1)
+	if(cooldown)
 		H << "<span class='danger'>There isn't enough power stored up yet!</span>"
 		return 0
-	else if(cooldown == 0)
+	else
 		H << "<span class='danger'>Your suit emits a loud sound as power is rapidly injected into your suits battery!</span>"
 		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 		holder.cell.give(generation_ammount)
