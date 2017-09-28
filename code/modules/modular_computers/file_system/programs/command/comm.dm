@@ -17,11 +17,13 @@
 	network_destination = "station long-range communication array"
 	var/datum/comm_message_listener/message_core = new
 	var/intercept = 0
+	var/can_call_shuttle = 0 //If calling the shuttle should be available from this console
 	color = LIGHT_COLOR_BLUE
 
-/datum/computer_file/program/comm/New(intercept_printing = 0)
+/datum/computer_file/program/comm/New(intercept_printing = 0, shuttle_call = 0)
 	. = ..()
 	intercept = intercept_printing
+	can_call_shuttle = shuttle_call
 
 /datum/computer_file/program/comm/clone()
 	var/datum/computer_file/program/comm/temp = ..()
@@ -65,6 +67,7 @@
 		data["have_printer"] = 0
 		data["message_printing_intercepts"] = 0
 
+	data["can_call_shuttle"] = can_call_shuttle()
 	data["message_line1"] = msg_line1
 	data["message_line2"] = msg_line2
 	data["state"] = current_status
@@ -111,6 +114,13 @@
 		var/datum/computer_file/program/comm/P = program
 		return P.message_core
 	return global_message_listener
+
+/datum/nano_module/program/comm/proc/can_call_shuttle()
+	if(program)
+		var/datum/computer_file/program/comm/P = program
+		return P.can_call_shuttle
+	else
+		return 0
 
 /datum/nano_module/program/comm/Topic(href, href_list)
 	if(..())
@@ -179,7 +189,16 @@
 					centcomm_message_cooldown = 1
 					spawn(300) //30 second cooldown
 						centcomm_message_cooldown = 0
-
+		if("shuttle")
+			if(is_autenthicated(user) && ntn_cont && can_call_shuttle())
+				if(href_list["target"] == "call")
+					var/confirm = alert("Are you sure you want to call the shuttle?", name, "No", "Yes")
+					if(confirm == "Yes" && can_still_topic())
+						call_shuttle_proc(usr)
+				if(href_list["target"] == "cancel" && !issilicon(usr))
+					var/confirm = alert("Are you sure you want to cancel the shuttle?", name, "No", "Yes")
+					if(confirm == "Yes" && can_still_topic())
+						cancel_call_proc(usr)
 		if("setstatus")
 			if(is_autenthicated(user) && ntn_cont)
 				switch(href_list["target"])

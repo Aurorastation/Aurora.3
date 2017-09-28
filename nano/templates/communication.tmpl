@@ -7,6 +7,13 @@
 			{{:helper.link('Send an emergency message to ' + data.boss_short, null, {'action' : 'message', 'target' : 'regular'}, data.isAI || !data.net_comms ? 'disabled' : null)}}
 		{{/if}} </div>
 		<div class=item>{{:helper.link('Change alert level', null, {'action' : 'sw_menu', 'target' : 5}, data.isAI || !data.net_syscont || !data.net_comms ? 'disabled' : null)}} </div>
+		{{if data.can_call_shuttle}}
+			<div class=item>{{if data.have_shuttle && data.have_shuttle_called}}
+				{{:helper.link('Cancel Shuttle Call', null, {'action' : 'shuttle', 'target' : 'cancel'}, data.isAI || !data.net_syscont ? 'disabled' : null)}}
+			{{else data.have_shuttle && !data.have_shuttle_called}}
+				{{:helper.link('Call Emergency Shuttle', null, {'action' : 'shuttle', 'target' : 'call'}, !data.net_syscont ? 'disabled' : null)}}
+			{{/if}} </div>
+		{{/if}}
 		<div class=item>{{:helper.link('Set Status Display', null, {'action' : 'sw_menu', 'target' : 4}, !data.net_syscont ? 'disabled' : null)}} </div>
 		<div class=item>{{:helper.link('Message List', null, {'action' : 'sw_menu', 'target' : 2}, !data.net_comms ? 'disabled' : null)}} </div>
 	{{else data.state === 2}}
