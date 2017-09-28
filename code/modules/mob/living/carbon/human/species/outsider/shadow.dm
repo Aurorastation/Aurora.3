@@ -98,6 +98,7 @@
 		H.mind.special_role = "Shadow"
 	H.real_name = "grue"
 	H.name = H.real_name
+	H.gender = NEUTER
 	..()
 
 /datum/species/shadow/get_random_name()
