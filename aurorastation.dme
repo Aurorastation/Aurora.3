@@ -292,6 +292,7 @@
 #include "code\datums\uplink\highly visible and dangerous weapons.dm"
 #include "code\datums\uplink\implants.dm"
 #include "code\datums\uplink\medical.dm"
+#include "code\datums\uplink\ninja_modules.dm"
 #include "code\datums\uplink\specialty.dm"
 #include "code\datums\uplink\stealth and camouflage items.dm"
 #include "code\datums\uplink\stealthy and inconspicuous weapons.dm"
