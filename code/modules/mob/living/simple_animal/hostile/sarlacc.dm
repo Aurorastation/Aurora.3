@@ -37,13 +37,12 @@
 				)
 			attack_mob(L)
 			originator.eating = 1
-			captive = L
-			captive << "<span class='danger'>\The [src] begins digesting your upper body</span>"
-			addtimer(CALLBACK(src, .proc/devour), 50 SECONDS)
+			L << "<span class='danger'>\The [src] begins digesting your upper body!</span>"
+			addtimer(CALLBACK(src, .proc/devour, L), 50 SECONDS)
 	..()
 
-/obj/item/weapon/beartrap/sarlacc/proc/devour()
-	if(!captive)
+/obj/item/weapon/beartrap/sarlacc/proc/devour(var/mob/living/C)
+	if(!C)
 		if(!deployed)
 			deployed = 1
 		return
@@ -51,7 +50,7 @@
 		return
 	if(!originator.eating)
 		return
-	var/mob/living/L = captive
+	var/mob/living/L = C
 	if(istype(L,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = L
 		H.visible_message(
@@ -212,8 +211,6 @@
 		for(var/turf/simulated/floor/F in orange(1,src))
 			new /obj/random/loot(F)
 			make_loot--
-			sleep(5)
-	new /obj/random/highvalue(src.loc)
 
 /mob/living/simple_animal/hostile/greatworm/FindTarget()
 	if(eating)
@@ -315,6 +312,56 @@
 ////////Really Quite Great Worm/////////
 ////////////////////////////////////////
 
+/mob/living/simple_animal/hostile/greatwormking
+	name = "great worm king"
+	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
+	icon = 'icons/mob/cavern.dmi'
+	icon_state = "sarlaccbrain"
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
+	universal_speak = 1
+	universal_understand = 1
+
+	health = 450
+	maxHealth = 450
+
+	gender = MALE
+	status_flags = 0
+	anchored = 1
+	density = 1
+	a_intent = I_HURT
+	stop_automated_movement = 1
+	wander = 0
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = 0
+	ranged = 1
+	projectilesound = 'sound/magic/WandODeath.ogg'
+	projectiletype = /obj/item/projectile/energy/thoughtbubble
+	speak_emote = list("gargles")
+	emote_hear = list("gargles")
+	emote_see = list("ooozes","pulses","drips","pumps")
+
+	faction = "worms"
+
+/mob/living/simple_animal/hostile/greatwormking/Destroy()
+	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, usepressure = 0)
+	for(var/mob/living/L in SSmob.greatworms)
+		L.death()
+	for(var/obj/structure/S in SSmob.greatasses)
+		qdel(S)
+	return ..()
+
+/mob/living/simple_animal/hostile/greatwormking/Move()
+	return
+
 /obj/item/projectile/energy/thoughtbubble
 	name = "psionic blast"
 	icon_state = "ion"
@@ -359,48 +406,6 @@
 			L.reagents.add_reagent("[madhouse]", 3)
 			L << "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>"
 
-/mob/living/simple_animal/hostile/greatwormking
-	name = "great worm king"
-	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
-	icon = 'icons/mob/cavern.dmi'
-	icon_state = "sarlaccbrain"
-	see_in_dark = 8
-	health = 300
-	maxHealth = 300
-	gender = MALE
-	status_flags = 0
-	anchored = 1
-	density = 1
-	a_intent = I_HURT
-	stop_automated_movement = 1
-	wander = 0
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
-	minbodytemp = 0
-	ranged = 1
-	projectilesound = 'sound/magic/WandODeath.ogg'
-	projectiletype = /obj/item/projectile/energy/thoughtbubble
-	emote_see = list("ooozes","pulses","drips","pumps")
-
-	faction = "worms"
-
-/mob/living/simple_animal/hostile/greatwormking/Destroy()
-	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, usepressure = 0)
-	for(var/mob/living/L in SSmob.greatworms)
-		L.death()
-	for(var/obj/structure/S in SSmob.greatasses)
-		qdel(S)
-	return ..()
-
-/mob/living/simple_animal/hostile/greatwormking/Move()
-	return
-
 /obj/structure/greatworm
 	name = "great worm rectum"
 	desc = "The intestinal length of the great worm this end belongs to travels for what looks like miles."
@@ -417,3 +422,4 @@
 /obj/structure/greatworm/Destroy()
 	SSmob.greatasses -= src
 	return ..()
+
