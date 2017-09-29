@@ -469,6 +469,7 @@ This function completely restores a damaged organ to perfect condition.
 		//Bone fractures
 		if(config.bones_can_break && !(status & ORGAN_ROBOT) && !(status & ORGAN_PLANT) && brute_dam > min_broken_damage * config.organ_health_multiplier)
 			src.fracture()
+			playsound(src.loc, "fracture", 100, 1, -2)
 
 		if(!(status & ORGAN_BROKEN))
 			perma_injury = 0
