@@ -1020,7 +1020,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			if(buckle_mob(M))
 				M.visible_message(\
 					"<span class='danger'>[user] ties \the [src] over [M]'s neck!</span>",\
-					"<span class='userdanger'>[user] ties \the [src] over your neck!</span>")
+					"<span class='danger'>[user] ties \the [src] over your neck!</span>")
 				playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
 				return 1
 			else
