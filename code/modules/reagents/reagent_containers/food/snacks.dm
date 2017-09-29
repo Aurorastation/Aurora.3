@@ -4424,7 +4424,6 @@
 		qdel(src)
 		qdel(W)
 
-
 /obj/item/weapon/reagent_containers/food/snacks/koiskebab2
 	name = "k'ois on a stick"
 	desc = "It's K'ois. On a stick. It looks like you could fit more."
@@ -4537,4 +4536,100 @@
 	reagents.add_reagent("iron", 3)
 	bitesize = 4
 
+
+/obj/item/weapon/reagent_containers/food/snacks/pancakes
+	name = "pancakes"
+	desc = "Pancakes with blueberries, delicious."
+	icon_state = "pancakes"
+	trash = /obj/item/trash/plate
+	center_of_mass = "x=15;y=11"
+	nutriment_desc = list("pancake" = 8)
+	nutriment_amt = 8
+
+/obj/item/weapon/reagent_containers/food/snacks/pancakes/Initialize()
+	. = ..()
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/classichotdog
+	name = "classic hotdog"
+	desc = "Going literal."
+	icon_state = "hotcorgi"
+	center_of_mass = "x=16;y=17"
+
+/obj/item/weapon/reagent_containers/food/snacks/classichotdog/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 16)
+	bitesize = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/lasagna
+	name = "lasagna"
+	desc = "Favorite of cats."
+	icon_state = "lasagna"
+	trash = /obj/item/trash/plate
+	center_of_mass = "x=16;y=17"
+	nutriment_amt = 5
+	nutriment_desc = list("pasta" = 4, "tomato" = 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/classichotdog/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+	bitesize = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/donerkebab
+	name = "doner kebab"
+	desc = "A delicious sandwich-like food from ancient Earth. The meat is typically cooked on a vertical rotisserie."
+	icon_state = "doner_kebab"
+	nutriment_amt = 5
+	nutriment_desc = list("dough" = 4, "cabbage" = 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/donerkebab/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 2)
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/sashimi
+	name = "carp sashimi"
+	desc = "A traditional human dish, recreated using space carp."
+	icon_state = "sashimi"
+	filling_color = "#FFDEFE"
+	center_of_mass = list("x"=17, "y"=13)
+
+/obj/item/weapon/reagent_containers/food/snacks/sashimi/Initialize()
+	. = ..()
+	reagents.add_reagent("seafood", 3)
+	reagents.add_reagent("carpotoxin", 3)
+	src.bitesize = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/nugget
+	name = "chicken nugget"
+	icon_state = "nugget_lump"
+
+/obj/item/weapon/reagent_containers/food/snacks/nugget/Initialize()
+	. = ..()
+	var/shape = pick("lump", "star", "lizard", "corgi")
+	desc = "A chicken nugget vaguely shaped like a [shape]."
+	icon_state = "nugget_[shape]"
+	reagents.add_reagent("protein", 4)
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/icecreamsandwich
+	name = "ice cream sandwich"
+	desc = "Portable ice cream in its own packaging."
+	icon_state = "4no_raisins"
+	filling_color = "#343834"
+	center_of_mass = list("x"=15, "y"=4)
+	nutriment_desc = list("ice cream" = 4)
+	nutriment_amt = 4
+
+/obj/item/weapon/reagent_containers/food/snacks/honeybun
+	name = "honey bun"
+	desc = "A sticky pastry bun glazed with honey."
+	icon_state = "honeybun"
+	nutriment_desc = list("pastry" = 1)
+	nutriment_amt = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/honeybun/Initialize()
+	. = ..()
+	reagents.add_reagent("honey", 3)
+	src.bitesize = 3
 
