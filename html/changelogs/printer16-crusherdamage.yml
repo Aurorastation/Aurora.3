@@ -1,4 +1,4 @@
 author: Printer16
 delete-after: True
 changes: 
-  - rscadd: "Ported holocalls."
+  - rscadd: "The crusher is no longer safe to use while operational."
