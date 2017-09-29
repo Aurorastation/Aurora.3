@@ -280,6 +280,10 @@
 				else if(prob(66))
 					M.emitter_blasts_taken += 2
 
+			if(iswall(A)) //It doesn't hurt walls too well without this, comparible to an E-gun in damage.
+				if(prob(45))
+					A.take_damage(40)
+
 	if(ismob(A))
 		var/mob/living/M = A
 		M.apply_effect(1, INCINERATE, 0)
