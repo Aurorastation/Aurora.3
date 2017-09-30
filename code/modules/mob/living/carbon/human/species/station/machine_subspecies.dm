@@ -251,7 +251,11 @@
 
 	death_sound = 'sound/effects/woodcutting.ogg'
 
-	has_organ = list()
+	has_organ = list(
+		"brain"   = /obj/item/organ/mmi_holder/posibrain,
+		"cell"    = /obj/item/organ/cell,
+		"optics"  = /obj/item/organ/eyes/optical_sensor
+	)
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/wood),
