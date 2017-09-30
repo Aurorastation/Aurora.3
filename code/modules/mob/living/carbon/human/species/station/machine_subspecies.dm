@@ -224,3 +224,57 @@
 	spawn(15)
 		explosion(H.loc, -1, 1, 5)
 		H.gib()
+
+
+/datum/species/machine/wood
+	name = "Wooden Frame"
+	short_name = "wood"
+	name_plural = "Wooden Frames"
+	bodytype = "Human"
+
+	burn_mod = 1.5
+
+	blurb = "You do not know why someone would build this, but they did."
+
+	icobase = 'icons/mob/human_races/cyberlimbs/morgan.dmi'
+	deform = 'icons/mob/human_races/cyberlimbs/morgan.dmi'
+
+	light_range = 0
+	light_power = 0
+
+	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON
+	spawn_flags = IS_RESTRICTED
+
+	show_ssd = "completely quiescent"
+	death_message = "collapses to the ground lifeless..."
+
+	death_sound = 'sound/effects/woodcutting.ogg'
+
+	has_organ = list()
+
+	has_limbs = list(
+		"chest" =  list("path" = /obj/item/organ/external/chest/wood),
+		"groin" =  list("path" = /obj/item/organ/external/groin/wood),
+		"head" =   list("path" = /obj/item/organ/external/head/wood),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/wood),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/wood),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/wood),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/wood),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/wood),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/wood),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/wood),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/wood)
+		)
+
+/datum/species/machine/wood/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.gender = NEUTER
+	return ..()
+
+/datum/species/machine/wood/get_light_color(hair_style)
+	return
+
+/datum/species/machine/wood/handle_death(var/mob/living/carbon/human/H)
+	return
+
+/datum/species/machine/wood/equip_survival_gear(var/mob/living/carbon/human/H)
+	H.gender = NEUTER
