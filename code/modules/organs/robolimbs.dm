@@ -19,7 +19,7 @@ var/global/datum/robolimb/basic_robolimb
 		"Human",
 		"Skrell",
 		"Tajara",
-		"Zhan-Khazan Tajara", 
+		"Zhan-Khazan Tajara",
 		"M'sai Tajara",
 		"Unathi",
 		"Vaurca Worker",
@@ -72,3 +72,8 @@ var/global/datum/robolimb/basic_robolimb
 	desc = "This limb is designed to mimic the Human form. It does so with moderate success."
 	icon = 'icons/mob/human_races/r_human.dmi'
 	species_can_use = list("Human")
+
+/datum/robolimb/wood
+	company = PROSTHETIC_WOOD
+	desc = "Most authenic faux-wood on the market. The actuators underneath are still metal though."
+	icon = 'icons/mob/human_races/cyberlimbs/morgan.dmi'

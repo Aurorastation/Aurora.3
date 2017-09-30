@@ -394,3 +394,74 @@
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
+
+//////////////
+//Wooden//
+//////////////
+
+/obj/item/organ/external/head/wood
+	dislocated = -1
+	can_intake_reagents = 0
+	encased = "support frame"
+	emp_coeff = 0
+	robotize_type = PROSTHETIC_WOOD
+
+/obj/item/organ/external/chest/wood
+	dislocated = -1
+	encased = "support frame"
+	emp_coeff = 0
+	robotize_type = PROSTHETIC_WOOD
+
+/obj/item/organ/external/groin/wood
+	dislocated = -1
+	encased = "support frame"
+	emp_coeff = 0
+	robotize_type = PROSTHETIC_WOOD
+
+/obj/item/organ/external/arm/wood
+	dislocated = -1
+	encased = "support frame"
+	emp_coeff = 0
+	robotize_type = PROSTHETIC_WOOD
+
+/obj/item/organ/external/arm/right/wood
+	dislocated = -1
+	encased = "support frame"
+	emp_coeff = 0
+	robotize_type = PROSTHETIC_WOOD
+
+/obj/item/organ/external/leg/wood
+	dislocated = -1
+	encased = "support frame"
+	emp_coeff = 0
+	robotize_type = PROSTHETIC_WOOD
+
+/obj/item/organ/external/leg/right/wood
+	dislocated = -1
+	encased = "support frame"
+	emp_coeff = 0
+	robotize_type = PROSTHETIC_WOOD
+
+/obj/item/organ/external/foot/wood
+	dislocated = -1
+	encased = "support frame"
+	emp_coeff = 0
+	robotize_type = PROSTHETIC_WOOD
+
+/obj/item/organ/external/foot/right/wood
+	dislocated = -1
+	encased = "support frame"
+	emp_coeff = 0
+	robotize_type = PROSTHETIC_WOOD
+
+/obj/item/organ/external/hand/wood
+	dislocated = -1
+	encased = "support frame"
+	emp_coeff = 0
+	robotize_type = PROSTHETIC_WOOD
+
+/obj/item/organ/external/hand/right/wood
+	dislocated = -1
+	encased = "support frame"
+	emp_coeff = 0
+	robotize_type = PROSTHETIC_WOOD

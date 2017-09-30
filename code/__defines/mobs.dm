@@ -204,6 +204,7 @@
 #define PROSTHETIC_ZH "Zeng-Hu Pharmaceuticals"
 #define PROSTHETIC_HI "Hephaestus Industries"
 #define PROSTHETIC_XMG "Xion Manufacturing Group"
+#define PROSTHETIC_WOOD "Faux-wood Robotic Limb"
 
 // Defines for mechanical_species list.
 #define MECHANICAL_SPECIES_NORMAL 1	// Baselines, shells

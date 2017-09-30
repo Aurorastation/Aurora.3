@@ -42,7 +42,8 @@ var/global/list/mechanical_species = list(
 	"Baseline Frame" = MECHANICAL_SPECIES_NORMAL,
 	"Shell Frame" = MECHANICAL_SPECIES_NORMAL,
 	"Industrial Frame" = MECHANICAL_SPECIES_INDUSTRIAL,
-	"Hunter-Killer" = MECHANICAL_SPECIES_SPECIAL
+	"Hunter-Killer" = MECHANICAL_SPECIES_SPECIAL,
+	"Wooden Frame" = MECHANICAL_SPECIES_SPECIAL
 )
 
 // Posters
