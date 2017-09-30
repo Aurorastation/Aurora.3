@@ -92,7 +92,7 @@
 
 /datum/language/yassa
 	name = LANGUAGE_YA_SSA
-	desc = "The traditional language of the tajaran nobility, "
+	desc = "The traditional language of the tajaran nobility."
 	speech_verb = "mrowls"
 	ask_verb = "mrowls"
 	exclaim_verb = "yowls"
