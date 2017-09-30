@@ -231,6 +231,7 @@
 	short_name = "wood"
 	name_plural = "Wooden Frames"
 	bodytype = "Human"
+	bald = 1
 
 	burn_mod = 1.5
 
@@ -271,9 +272,6 @@
 	return ..()
 
 /datum/species/machine/wood/get_light_color(hair_style)
-	return
-
-/datum/species/machine/wood/handle_death(var/mob/living/carbon/human/H)
 	return
 
 /datum/species/machine/wood/equip_survival_gear(var/mob/living/carbon/human/H)
