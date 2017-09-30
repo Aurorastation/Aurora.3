@@ -40,7 +40,6 @@
 		"a",  "a",  "e",  "e",  "i",  "i",  "o",  "o",  "u",  "u",  "s",  "s"
 	)
 
-// tajaran languages
 /datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
 	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajaran."
@@ -66,6 +65,7 @@
 	new_name += pick(list("Alfarsi","Alekseev","Al-Barik","Al-Hamdan","Al-Mansur","Al-Kandari","Al-Shahrani","Antonov","Bogdanov","El-Hasem","El-Amin","Rrhakaslav","Mrrazhughran","Jrruzhani","Rrhamrare","Mrakiizar","Hirron","Prruzhulkanich","El-Tusi","Nejem","Hanar","Karimi","Markov","Saif","Yakub","Zaman","Zaydan","Zidan","Zahawi"))
 	return new_name
 
+// tajaran sign language
 /datum/language/tajaran_sign
 	name = LANGUAGE_SIGN_TAJARA
 	desc = "A sign language developed by Adhomai hunters"
@@ -247,7 +247,6 @@
 /*
 	This list really long, mainly because I can't make up my mind about which mandarin syllables should be removed,
 	and the english syllables had to be duplicated so that there is roughly a 50-50 weighting.
-
 	Sources:
 	http://www.sttmedia.com/syllablefrequency-english
 	http://www.chinahighlights.com/travelguide/learning-chinese/pinyin-syllables.htm
