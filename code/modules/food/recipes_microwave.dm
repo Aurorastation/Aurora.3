@@ -134,7 +134,7 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/bun,
 		/obj/item/weapon/holder/corgi
 	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/hotdog
+	result = /obj/item/weapon/reagent_containers/food/snacks/classichotdog
 
 
 /datum/recipe/waffles
@@ -143,7 +143,7 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/dough,
 		/obj/item/weapon/reagent_containers/food/snacks/dough
 	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/classichotdog
+	result = /obj/item/weapon/reagent_containers/food/snacks/waffles
 
 /datum/recipe/donkpocket
 	items = list(

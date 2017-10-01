@@ -4598,7 +4598,7 @@
 	. = ..()
 	reagents.add_reagent("seafood", 3)
 	reagents.add_reagent("carpotoxin", 3)
-	src.bitesize = 4
+	bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/nugget
 	name = "chicken nugget"
@@ -4631,5 +4631,5 @@
 /obj/item/weapon/reagent_containers/food/snacks/honeybun/Initialize()
 	. = ..()
 	reagents.add_reagent("honey", 3)
-	src.bitesize = 3
+	bitesize = 3
 
