@@ -78,7 +78,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			if(!(A in chemical_reagents_list))
 				log_debug("SSchemistry: Warning: Invalid chemical [A] in [cc.name] required reagents list.")
 		if(!cc.result in chemical_reagents_list)
-			log_debug("SSchemistry: Warning: Invalid result [A] in [cc.name] reactions list.")
+			log_debug("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
 
 		if(LAZYLEN(cc.required_reagents))
 			var/reagent_id = cc.required_reagents[1]
