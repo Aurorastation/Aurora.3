@@ -16,12 +16,10 @@
 		return
 	var/mob/player_to_replace = targets[T]
 	var/datum/ghosttrap/G = get_ghost_trap("[player_to_replace.mind.special_role]")
+	if(player_to_replace.client)
+		player_to_replace.ghostize(0)
 	if(G)
-		if(player_to_replace.client)
-			player_to_replace.ghostize(0)
 		G.request_player(player_to_replace, "Would you like to play as a [player_to_replace.mind.special_role]?", 60 SECONDS)
 	else
 		G = ghost_traps["Special"]
-		if(player_to_replace.client)
-			player_to_replace.ghostize(0)
-		G.request_player(player_to_replace, "Would you like to play as [player_to_replace.name]?", 60 SECONDS, 1)
+		G.request_player(player_to_replace, "Would you like to play as [player_to_replace.name]?", 60 SECONDS)
