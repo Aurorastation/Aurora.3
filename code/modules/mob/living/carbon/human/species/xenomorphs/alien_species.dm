@@ -41,7 +41,7 @@
 	virus_immune = 1
 
 	brute_mod = 0.25 // Hardened carapace.
-	burn_mod = 1.25    // Weak to fire.
+	burn_mod = 1.75    // Weak to fire.
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
