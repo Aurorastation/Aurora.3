@@ -22958,7 +22958,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "aOx" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/item/modular_computer/console/preset/captain,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aOy" = (
