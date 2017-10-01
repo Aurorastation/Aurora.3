@@ -36,9 +36,6 @@
 	icon = 'icons/mob/screen_ai.dmi'
 	layer = 21
 
-/obj/screen/ai/proc/usr_valid()
-	return isAI(usr)
-
 /obj/screen/ai/core
 	name = "AI Core"
 	icon_state = "ai_core"
