@@ -76,7 +76,9 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		cc.required_reagents = chemconfig[chemical]["required_reagents"]
 		for(var/A in cc.required_reagents)
 			if(!(A in chemical_reagents_list))
-				log_debug("SSchemistry: Warning: Invalid chemical [A] in [cc.name] reactions list.")
+				log_debug("SSchemistry: Warning: Invalid chemical [A] in [cc.name] required reagents list.")
+		if(!cc.result in chemical_reagents_list)
+			log_debug("SSchemistry: Warning: Invalid result [A] in [cc.name] reactions list.")
 
 		if(LAZYLEN(cc.required_reagents))
 			var/reagent_id = cc.required_reagents[1]
