@@ -1,8 +1,8 @@
 /var/security_level = 0
 //0 = code green
-//1 = code blue
-//2 = code red
-//3 = code yellow
+//1 = code yellow
+//2 = code blue
+//3 = code red
 //4 = code delta
 
 //config.alert_desc_blue_downto

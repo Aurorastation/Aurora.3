@@ -5,8 +5,8 @@
 
 // Security levels.
 #define SEC_LEVEL_GREEN 0
-#define SEC_LEVEL_BLUE  1
-#define SEC_LEVEL_YELLOW 2
+#define SEC_LEVEL_YELLOW 1
+#define SEC_LEVEL_BLUE  2
 #define SEC_LEVEL_RED   3
 #define SEC_LEVEL_DELTA 4
 

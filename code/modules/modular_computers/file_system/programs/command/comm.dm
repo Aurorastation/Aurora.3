@@ -216,7 +216,7 @@
 					var/old_level = security_level
 					if(!current_level) current_level = SEC_LEVEL_GREEN
 					if(current_level < SEC_LEVEL_GREEN) current_level = SEC_LEVEL_GREEN
-					if(current_level > SEC_LEVEL_YELLOW) current_level = SEC_LEVEL_BLUE //Cannot engage delta with this
+					if(current_level > SEC_LEVEL_RED) current_level = SEC_LEVEL_BLUE
 					set_security_level(current_level)
 					if(security_level != old_level)
 						log_game("[key_name(usr)] has changed the security level to [get_security_level()].",ckey=key_name(usr))
