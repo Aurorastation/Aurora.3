@@ -37,7 +37,7 @@
 				security_level = SEC_LEVEL_BLUE
 				SSnightlight.end_temp_disable()
 			if(SEC_LEVEL_YELLOW)
-				security_announcement_up.Announce("[config.alert_desc_yellow_to]", "Attention! Biohazard status declared!")
+				security_announcement_up.Announce("[config.alert_desc_yellow_to]", "Attention! Biohazard alert declared!")
 				security_level = SEC_LEVEL_YELLOW
 				SSnightlight.end_temp_disable()
 			if(SEC_LEVEL_RED)
