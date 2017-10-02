@@ -78,26 +78,32 @@
 /datum/statistic/numeric/people_hung
 	name = "People Hung"
 	key = "hangings"
+	write_to_db = TRUE
 
 /datum/statistic/numeric/self_slaps
 	name = "Total Self-slaps"
 	key = "selfslap"
+	write_to_db = TRUE
 
 /datum/statistic/numeric/ai_doors
 	name = "Doors Opened by AI"
 	key = "AI_DOOR"
+	write_to_db = TRUE
 
 /datum/statistic/numeric/messes
-	name = "Janitor Tears"
+	name = "Total Janitor Tears"
 	key = "messes_made"
+	write_to_db = TRUE
 
 /datum/statistic/numeric/swirlies
 	name = "Swirlies Given"
 	key = "swirlies"
+	write_to_db = TRUE
 
 /datum/statistic/numeric/mule_victims
 	name = "MULE Victims"
 	key = "mule_victims"
+	write_to_db = TRUE
 
 /datum/statistic/grouped/most_deaths
 	name = "Most Overall Deaths (by ckey)"
