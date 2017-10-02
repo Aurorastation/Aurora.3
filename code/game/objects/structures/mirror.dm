@@ -13,7 +13,7 @@
 
 	if(shattered)	return
 
-	if(user.mind && user.mind.vampire && (!(T.mind.vampire.status & VAMP_ISTHRALL))
+	if(user.mind && user.mind.vampire && (!(user.mind.vampire.status & VAMP_ISTHRALL)))
 		user << "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>"
 
 	if(ishuman(user))
@@ -112,7 +112,7 @@
 
 /obj/item/weapon/mirror/attack_self(mob/user as mob)
 
-	if(user.mind && user.mind.vampire && (!(T.mind.vampire.status & VAMP_ISTHRALL))
+	if(user.mind && user.mind.vampire && (!(user.mind.vampire.status & VAMP_ISTHRALL)))
 		user << "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>"
 
 	if(ishuman(user))
