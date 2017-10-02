@@ -100,7 +100,10 @@
 /obj/machinery/case_button/shuttle
 	name = "\improper Emergency Shuttle Button"
 	desc = "A button in a case protected with a forcefield."
+	icon_state = "c2"
 	button_type = "button_case_emergencyshuttle"
+	case = 2
+	button = 4
 
 /obj/machinery/case_button/shuttle/activate(mob/user)
 	..()
