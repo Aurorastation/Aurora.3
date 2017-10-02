@@ -9831,6 +9831,9 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
+/obj/machinery/case_button/shuttle{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "sd" = (
