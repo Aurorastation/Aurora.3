@@ -18,7 +18,7 @@
 		return
 
 	if(iscultist(user))
-		user << "Your soul already belong to other powers!"
+		user << "Your soul already belongs to other powers!"
 		return
 
 	var/ans = alert(user,"The contract clearly states that signing this contract will bind your soul to \the [contract_master]. Are you sure you want to continue?","[src]","Yes","No")
