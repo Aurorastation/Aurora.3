@@ -2,7 +2,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 /datum/controller/subsystem/chemistry
 	name = "Chemistry"
-	priority = SS_PRIORITY_CHEMISTRY
+	priority = SS_INIT_MISC_FIRST
 
 	var/list/active_holders
 	var/list/chemical_reactions
@@ -81,7 +81,6 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		for(var/A in cc.required_reagents)
 			if(!(A in chemical_reagents_list))
 				log_debug("SSchemistry: Warning: Invalid chemical [A] in [cc.name] required reagents list.")
-				break
 				qdel(cc)
 
 		if(LAZYLEN(cc.required_reagents))
