@@ -75,6 +75,30 @@
 	key = "clones"
 	write_to_db = TRUE
 
+/datum/statistic/numeric/people_hung
+	name = "People Hung"
+	key = "hangings"
+
+/datum/statistic/numeric/self_slaps
+	name = "Total Self-slaps"
+	key = "selfslap"
+
+/datum/statistic/numeric/ai_doors
+	name = "Doors Opened by AI"
+	key = "AI_DOOR"
+
+/datum/statistic/numeric/messes
+	name = "Janitor Tears"
+	key = "messes_made"
+
+/datum/statistic/numeric/swirlies
+	name = "Swirlies Given"
+	key = "swirlies"
+
+/datum/statistic/numeric/mule_victims
+	name = "MULE Victims"
+	key = "mule_victims"
+
 /datum/statistic/grouped/most_deaths
 	name = "Most Overall Deaths (by ckey)"
 	key = "ckey_deaths"
