@@ -10,7 +10,7 @@
 /obj/machinery/porta_turret
 	name = "turret"
 	icon = 'icons/obj/turrets.dmi'
-	icon_state = "cover"
+	icon_state = "cover_0"
 	anchored = 1
 
 	density = 0
@@ -32,7 +32,8 @@
 	var/reqpower = 500		//holder for power needed
 	var/lethal_icon = 0		//holder for the icon_state. 1 for lethal sprite, null for stun sprite.
 	var/egun = 1			//holder to handle certain guns switching modes
-	var/sprite_set = "carbine"	//set of sprites the turret will use
+	var/sprite_set = "carbine"	//set of gun sprites the turret will use
+	var/cover_set = 0		//set of cover sprites the turret will use
 
 	var/last_fired = 0		//1: if the turret is cooling down from a shot, 0: turret is ready to fire
 	var/shot_delay = 15		//1.5 seconds between each shot
@@ -88,7 +89,10 @@
 /obj/machinery/porta_turret/stationary
 	ailock = 1
 	lethal = 1
+	lethal_icon = 1
+	egun = 0
 	installation = /obj/item/weapon/gun/energy/laser
+	sprite_set = "laser"
 
 /obj/machinery/porta_turret/Initialize()
 	. = ..()
@@ -114,19 +118,20 @@
 
 	if(stat & BROKEN)
 		icon_state = "turret_[sprite_set]_broken"
-		underlays += "cover_open"
+		underlays += "cover_open_[cover_set]"
 	else if(raised || raising)
 		if(powered() && enabled)
 			if(!lethal_icon)
 				icon_state = "turret_[sprite_set]_stun"
-				underlays += "cover_open"
+				underlays += "cover_open_[cover_set]"
 			else
 				icon_state = "turret_[sprite_set]_lethal"
-				underlays += "cover_open"
+				underlays += "cover_open_[cover_set]"
 		else
 			icon_state = "turret_[sprite_set]_off"
+			underlays += "cover_open_[cover_set]"
 	else
-		icon_state = "cover"
+		icon_state = "cover_[cover_set]"
 
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
@@ -506,7 +511,7 @@
 
 	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
-	flick("popup", flick_holder)
+	flick("popup_[cover_set]", flick_holder)
 	sleep(10)
 	qdel(flick_holder)
 
@@ -524,11 +529,10 @@
 	if(stat & BROKEN)
 		return
 	set_raised_raising(raised, 1)
-	update_icon()
 
 	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
-	flick("popdown", flick_holder)
+	flick("popdown_[cover_set]", flick_holder)
 	sleep(10)
 	qdel(flick_holder)
 
@@ -626,13 +630,18 @@
 /obj/machinery/porta_turret_construct
 	name = "turret frame"
 	icon = 'icons/obj/turrets.dmi'
-	icon_state = "turret_frame_0"
+	icon_state = "turret_frame_0_0"
 	density = 1
 	var/target_type = /obj/machinery/porta_turret	// The type we intend to build
 	var/build_step = 0			//the current step in the building process
 	var/finish_name = "turret"	//the name applied to the product turret
 	var/installation = null		//the gun type installed
+	var/case_sprite_set = 0		//sprite set the turret case will use
 	var/obj/item/weapon/gun/energy/E = null
+
+/obj/machinery/porta_turret_construct/dark
+	icon_state = "turret_frame_0_1"
+	case_sprite_set = 1
 
 /obj/machinery/porta_turret_construct/attackby(obj/item/I, mob/user)
 	//this is a bit unwieldy but self-explanatory
@@ -643,7 +652,7 @@
 				user << "<span class='notice'>You secure the external bolts.</span>"
 				anchored = 1
 				build_step = 1
-				icon_state = "turret_frame_1"
+				icon_state = "turret_frame_1_[case_sprite_set]"
 				return
 
 			else if(iscrowbar(I) && !anchored)
@@ -659,7 +668,7 @@
 				if(M.use(2))
 					user << "<span class='notice'>You add some metal armor to the interior frame.</span>"
 					build_step = 2
-					icon_state = "turret_frame_2"
+					icon_state = "turret_frame_2_[case_sprite_set]"
 				else
 					user << "<span class='warning'>You need two sheets of metal to continue construction.</span>"
 				return
@@ -669,7 +678,7 @@
 				user << "<span class='notice'>You unfasten the external bolts.</span>"
 				anchored = 0
 				build_step = 0
-				icon_state = "turret_frame_0"
+				icon_state = "turret_frame_0_[case_sprite_set]"
 				return
 
 
@@ -678,7 +687,7 @@
 				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 				user << "<span class='notice'>You bolt the metal armor into place.</span>"
 				build_step = 3
-				icon_state = "turret_frame_3"
+				icon_state = "turret_frame_3_[case_sprite_set]"
 				return
 
 			else if(iswelder(I))
@@ -695,7 +704,7 @@
 					build_step = 1
 					user << "You remove the turret's interior metal armor."
 					new /obj/item/stack/material/steel( loc, 2)
-					icon_state = "turret_frame_1"
+					icon_state = "turret_frame_1_[case_sprite_set]"
 					return
 
 
@@ -714,7 +723,7 @@
 					target_type = /obj/machinery/porta_turret
 					installation = I.type //installation becomes I.type
 					build_step = 4
-					icon_state = "turret_frame_4"
+					icon_state = "turret_frame_4_[case_sprite_set]"
 					add_overlay("turret_[E.turret_sprite_set]_off")
 					return
 
@@ -722,7 +731,7 @@
 				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 				user << "<span class='notice'>You remove the turret's metal armor bolts.</span>"
 				build_step = 2
-				icon_state = "turret_frame_2"
+				icon_state = "turret_frame_2_[case_sprite_set]"
 				return
 
 		if(4)
@@ -742,9 +751,9 @@
 				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 				build_step = 6
 				user << "<span class='notice'>You close the access hatch.</span>"
-				icon_state = "turret_frame_5a"
+				icon_state = "turret_frame_5a_[case_sprite_set]"
 				add_overlay("turret_[E.turret_sprite_set]_off")
-				add_overlay("turret_frame_5b")
+				add_overlay("turret_frame_5b_[case_sprite_set]")
 				return
 
 			//attack_hand() removes the prox sensor
@@ -755,9 +764,9 @@
 				if(M.use(2))
 					user << "<span class='notice'>You add some metal armor to the exterior frame.</span>"
 					cut_overlays()
-					icon_state = "turret_frame_5a"
+					icon_state = "turret_frame_5a_[case_sprite_set]"
 					add_overlay("turret_[E.turret_sprite_set]_off")
-					add_overlay("turret_frame_5c")
+					add_overlay("turret_frame_5c_[case_sprite_set]")
 					build_step = 7
 				else
 					user << "<span class='warning'>You need two sheets of metal to continue construction.</span>"
@@ -768,7 +777,7 @@
 				build_step = 5
 				user << "<span class='notice'>You open the access hatch.</span>"
 				cut_overlays()
-				icon_state = "turret_frame_4"
+				icon_state = "turret_frame_4_[case_sprite_set]"
 				add_overlay("turret_[E.turret_sprite_set]_off")
 				return
 
@@ -808,6 +817,9 @@
 					Turret.sprite_set = E.turret_sprite_set
 					Turret.lethal_icon = E.turret_is_lethal
 
+					Turret.cover_set = case_sprite_set
+					Turret.icon_state = "cover_[case_sprite_set]"
+
 					qdel(src) // qdel
 
 			else if(iscrowbar(I))
@@ -816,9 +828,9 @@
 				new /obj/item/stack/material/steel(loc, 2)
 				build_step = 6
 				cut_overlays()
-				icon_state = "turret_frame_5a"
+				icon_state = "turret_frame_5a_[case_sprite_set]"
 				add_overlay("turret_[E.turret_sprite_set]_off")
-				add_overlay("turret_frame_5c")
+				add_overlay("turret_frame_5c_[case_sprite_set]")
 				return
 
 	if(istype(I, /obj/item/weapon/pen))	//you can rename turrets like bots!
@@ -843,7 +855,7 @@
 			E.loc = src.loc
 			installation = null
 			cut_overlays()
-			icon_state = "turret_frame_3"
+			icon_state = "turret_frame_3_[case_sprite_set]"
 			user << "<span class='notice'>You remove [E.name] from the turret frame.</span>"
 
 		if(5)
