@@ -188,6 +188,17 @@
 /obj/item/weapon/melee/baton/robot/arm
 	name = "electrified arm"
 
+/obj/item/weapon/melee/baton/robot/arm/update_icon()
+	if(status)
+		icon_state = "[initial(icon_state)]_active"
+	else
+		icon_state = "[initial(icon_state)]"
+
+	if(icon_state == "[initial(icon_state)]_active")
+		set_light(1.3, 1, "[baton_color]")
+	else
+		set_light(0)
+
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/weapon/melee/baton/cattleprod
 	name = "stunprod"
