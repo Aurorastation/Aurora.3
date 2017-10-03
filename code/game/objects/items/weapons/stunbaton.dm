@@ -184,10 +184,9 @@
 
 /obj/item/weapon/melee/baton/robot/attackby(obj/item/weapon/W, mob/user)
 	return
-	
+
 /obj/item/weapon/melee/baton/robot/arm
 	name = "electrified arm"
-	icon_state = "stunrod"
 
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/weapon/melee/baton/cattleprod
