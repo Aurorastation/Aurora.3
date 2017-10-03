@@ -410,7 +410,13 @@ default behaviour is:
 /mob/living/proc/restore_all_organs()
 	return
 
-
+/mob/living/update_gravity(has_gravity)
+	if(!ROUND_IS_STARTED)
+		return
+	if(has_gravity)
+		stop_floating()
+	else
+		start_floating()
 
 /mob/living/proc/revive(reset_to_roundstart = TRUE)	// this param is only used in human regen.
 	// Stop killing yourself. Please.
