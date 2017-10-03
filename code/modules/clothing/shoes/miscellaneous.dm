@@ -74,12 +74,13 @@
 		playsound(src, "clownstep", 20, 1)
 
 /obj/item/clothing/shoes/cult
-	name = "boots"
+	name = "ragged boots"
 	desc = "A ragged, dusty pair of boots."
 	icon_state = "cult"
 	item_state = "cult"
 	force = 5
 	siemens_coefficient = 0
+	armor = list(melee = 50, bullet = 30, laser = 50,energy = 20, bomb = 25, bio = 10, rad = 0)
 
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
