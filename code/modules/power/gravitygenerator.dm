@@ -88,6 +88,8 @@
 /obj/machinery/gravity_generator/main/station/proc/round_startset()
 	if(round_start >= 1)
 		round_start--
+		set_light(8,1,LIGHT_COLOR_CYAN)
+
 //
 // Generator an admin can spawn
 //
@@ -95,6 +97,8 @@
 /obj/machinery/gravity_generator/main/station/admin/Initialize()
 	. = ..()
 	round_start = 1
+	set_light(8,1,LIGHT_COLOR_CYAN)
+
 
 //
 // Main Generator with the main code
@@ -119,9 +123,9 @@
 	var/list/localareas = list()
 	var/round_start = 2 //To help stop a bug with round start
 	var/backpanelopen = 0
-	var/eventon = 0 
+	var/eventon = 0
 
-/obj/machinery/gravity_generator/main/Destroy() 
+/obj/machinery/gravity_generator/main/Destroy()
 	log_debug("Gravity Generator Destroyed")
 	investigate_log("was destroyed!", "gravity")
 	on = 0
@@ -298,6 +302,11 @@
 			new /obj/singularity(src.loc)
 		if(prob(33)) //Releasing all that power at once is dangerous.
 			empulse(src.loc, 2, 4)
+		set_light(10,1,LIGHT_COLOR_FLARE)
+		sleep(5)
+		set_light(5,0.5,LIGHT_COLOR_FIRE)
+		sleep(5)
+		set_light(0,0,"#000000")
 
 /obj/machinery/gravity_generator/main/get_status()
 	if(stat & BROKEN)
@@ -375,14 +384,19 @@
 			switch(charge_count)
 				if(0 to 20)
 					overlay_state = null
+					set_light(0,0,"#000000")
 				if(21 to 40)
 					overlay_state = "startup"
+					set_light(4,0.2,LIGHT_COLOR_BLUE)
 				if(41 to 60)
 					overlay_state = "idle"
+					set_light(6,0.5,"#7D9BFF") //More of a washed out perywinkle than blue but shut up.
 				if(61 to 80)
 					overlay_state = "activating"
+					set_light(6,0.8,"#7DC3FF")
 				if(81 to 100)
 					overlay_state = "activated"
+					set_light(8,1,LIGHT_COLOR_CYAN)
 
 			if(overlay_state != current_overlay)
 				if(middle)
@@ -439,7 +453,7 @@
 
 /obj/machinery/gravity_generator/main/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, .proc/updateareas), 10)	
+	addtimer(CALLBACK(src, .proc/updateareas), 10)
 	return
 
 /obj/machinery/gravity_generator/main/proc/updateareas()
