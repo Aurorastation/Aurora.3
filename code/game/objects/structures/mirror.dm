@@ -130,3 +130,41 @@
 		qdel(AC)
 	ui_users.Cut()
 	return ..()
+
+
+//merchant mirror, turns you into a vox
+/obj/structure/mirror/merchant
+	name = "cracked mirror"
+	desc = "Something seems strange about this old, dirty mirror. Your reflection doesn't look like you remember it."
+	icon_state = "mirror_broke"
+	shattered = 1
+
+/obj/structure/mirror/merchant/attack_hand(var/mob/living/carbon/human/user)
+	if(istype(get_area(src),/area/merchant_station))
+		if(istype(user) && user.mind && user.mind.assigned_role == "Merchant" && user.species.name != "Vox")
+			var/choice = input("Do you wish to become a Vox? This is not reversible.") as null|anything in list("No","Yes")
+			if(choice && choice == "Yes")
+				var/mob/living/carbon/human/vox/vox = new(get_turf(src),"Vox")
+				if(user.mind)
+					user.mind.transfer_to(vox)
+				spawn(1)
+					var/newname = sanitizeSafe(input(vox,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
+					if(!newname || newname == "")
+						var/datum/language/L = all_languages[vox.species.default_language]
+						newname = L.get_random_name()
+					vox.real_name = newname
+					vox.name = vox.real_name
+					vox.species.equip_survival_gear(vox)
+					vox.equip_to_slot_or_del(new /obj/item/clothing/under/vox/vox_robes(vox), slot_w_uniform)
+					vox.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(vox), slot_shoes)
+					vox.equip_to_slot_or_del(new /obj/item/device/pda/merchant(vox), slot_belt)
+					vox.equip_to_slot_or_del(new /obj/item/device/price_scanner(vox), slot_r_store)
+					vox.equip_to_slot_or_del(new /obj/item/device/radio/headset(vox), slot_l_ear)
+					var/obj/item/weapon/card/id/merchant/W = new(vox)
+					W.name = "[vox.real_name]'s ID Card"
+					W.registered_name = vox.real_name
+					W.assignment = "Merchant"
+					vox.equip_to_slot_or_del(W, slot_wear_id)
+
+				qdel(user)
+	..()
