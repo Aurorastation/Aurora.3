@@ -135,6 +135,7 @@
 	breaker = 0
 	set_state(eventon)
 	sleep(20)
+	charge_count = 0
 	breaker = 1
 	charging_state = POWER_UP
 	set_power()
