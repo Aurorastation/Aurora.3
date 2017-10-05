@@ -44,6 +44,4 @@
 	if (discord_bot)
 		discord_bot.alert_server_visibility()
 
-	lobby_image = new/obj/effect/lobby_image()
-
 	..()
