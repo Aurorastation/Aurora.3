@@ -783,3 +783,8 @@
 				attackby(R.module_state_3,R)
 			else
 				return
+
+
+/turf/simulated/mineral/Destroy()
+	clear_ore_effects()
+	. = ..()
