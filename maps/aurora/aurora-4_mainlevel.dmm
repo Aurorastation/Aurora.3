@@ -5433,6 +5433,11 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/west,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "alm" = (
@@ -5443,6 +5448,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aln" = (
@@ -5451,6 +5461,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -5466,16 +5481,26 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "alp" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/red,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "alq" = (
@@ -5771,6 +5796,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "ama" = (
@@ -5785,6 +5815,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "amc" = (
@@ -6286,6 +6321,7 @@
 	icon_state = "intact-supply";
 	dir = 9
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "amS" = (
@@ -6323,14 +6359,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "amV" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 5
@@ -6341,6 +6377,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -8228,6 +8269,8 @@
 "aqD" = (
 /obj/structure/table/standard,
 /obj/item/device/pipe_painter,
+/obj/item/weapon/pipewrench,
+/obj/item/weapon/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aqE" = (
@@ -8278,8 +8321,6 @@
 	pixel_y = 22
 	},
 /obj/item/device/flashlight/heavy,
-/obj/item/weapon/pipewrench,
-/obj/item/weapon/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aqH" = (
@@ -35274,7 +35315,7 @@
 	},
 /obj/machinery/requests_console{
 	department = "Chemistry";
-	pixel_x = 30;
+	pixel_x = 32;
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,

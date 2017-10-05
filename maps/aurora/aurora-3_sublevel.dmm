@@ -4008,21 +4008,22 @@
 "io" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/meter{
 	id = "dloop_atm_meter"
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -4177,15 +4178,13 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "iF" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/critical{
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -5353,11 +5352,6 @@
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "kX" = (
-/obj/machinery/camera/network/engineering_outpost{
-	c_tag = "Engineering Sublevel - Gravity Chamber";
-	dir = 1;
-	icon_state = "camera"
-	},
 /obj/machinery/light,
 /turf/simulated/floor{
 	icon_state = "plating"
@@ -24985,6 +24979,121 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"So" = (
+/turf/simulated/wall,
+/area/engineering/atmos)
+"Sp" = (
+/turf/simulated/wall,
+/area/engineering/atmos)
+"Sq" = (
+/turf/simulated/wall,
+/area/engineering/atmos)
+"Sr" = (
+/turf/simulated/wall,
+/area/engineering/atmos)
+"Ss" = (
+/obj/machinery/camera/network/engineering_outpost{
+	c_tag = "Engineering Sublevel - Gravity Chamber";
+	dir = 1;
+	icon_state = "camera"
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/engineering/gravity_gen)
+"St" = (
+/turf/simulated/wall,
+/area/outpost/research/anomaly_analysis)
+"Su" = (
+/turf/simulated/wall,
+/area/outpost/research/anomaly_analysis)
+"Sv" = (
+/turf/simulated/wall,
+/area/outpost/research/analysis)
+"Sw" = (
+/turf/simulated/wall,
+/area/outpost/research/analysis)
+"Sx" = (
+/turf/simulated/wall,
+/area/outpost/research/anomaly_analysis)
+"Sy" = (
+/turf/simulated/wall,
+/area/outpost/research/emergency_storage)
+"Sz" = (
+/turf/simulated/wall,
+/area/outpost/research/anomaly_analysis)
+"SA" = (
+/turf/simulated/wall,
+/area/outpost/research/emergency_storage)
+"SB" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SC" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SD" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SE" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SF" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SG" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SH" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SI" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SJ" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SK" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SL" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SM" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SN" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SO" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SP" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SQ" = (
+/turf/simulated/wall,
+/area/outpost/research/hallway)
+"SR" = (
+/turf/simulated/wall,
+/area/outpost/research/hallway)
+"SS" = (
+/turf/simulated/wall,
+/area/outpost/research/hallway)
+"ST" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SU" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SV" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SW" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SX" = (
+/turf/simulated/wall,
+/area/maintenance/disposal)
 
 (1,1,1) = {"
 aa
@@ -37925,7 +38034,7 @@ cA
 dr
 eb
 eN
-fs
+fx
 fS
 gB
 ho
@@ -40748,9 +40857,9 @@ aC
 aC
 aC
 aC
-aC
-aC
-aC
+ba
+ba
+ba
 ba
 ba
 ga
@@ -41278,7 +41387,7 @@ jU
 kx
 kx
 kx
-kx
+Ss
 hW
 aa
 aa
@@ -42555,11 +42664,11 @@ fs
 gc
 gL
 fT
-fs
-fs
-fs
-fs
-fs
+fx
+fx
+fx
+fx
+fx
 fs
 kO
 kO
@@ -43640,7 +43749,7 @@ As
 Bf
 Cg
 Db
-xv
+SK
 Ex
 Ff
 vt
@@ -43897,7 +44006,7 @@ At
 Bg
 Ch
 Dc
-xv
+SL
 vb
 uD
 uD
@@ -44668,7 +44777,7 @@ Av
 Bj
 Ck
 De
-xv
+SM
 Ey
 vx
 FQ
@@ -44925,7 +45034,7 @@ Aw
 Bk
 Cl
 Df
-xv
+SN
 Ez
 vv
 vT
@@ -45182,7 +45291,7 @@ Ax
 Bl
 Cm
 Dg
-xv
+SO
 vb
 Fg
 vT
@@ -45435,11 +45544,11 @@ ac
 ac
 xv
 zP
-xv
+SF
 Bm
 Cn
 Dh
-xv
+SP
 EA
 Fh
 vT
@@ -45692,11 +45801,11 @@ xy
 xy
 xy
 zQ
-xv
-xv
-xv
-xv
-xy
+SG
+SH
+SI
+SJ
+SQ
 EB
 Fi
 vT
@@ -45953,7 +46062,7 @@ vt
 Bn
 Co
 Di
-xy
+SR
 EC
 Fh
 FR
@@ -46446,11 +46555,11 @@ aa
 aa
 ac
 rO
-rO
-rO
-rO
+St
+Su
+Sx
 tR
-rO
+Sz
 rO
 vc
 vv
@@ -46467,7 +46576,7 @@ uU
 uE
 wm
 Dk
-xy
+SS
 vb
 Fk
 FT
@@ -46667,8 +46776,8 @@ fD
 gi
 gU
 hD
-cg
-cg
+So
+Sq
 cg
 cg
 cg
@@ -46982,8 +47091,8 @@ Bo
 Cq
 Dl
 jB
-jB
-jB
+ST
+SV
 FV
 jB
 jB
@@ -48010,8 +48119,8 @@ Br
 Ct
 Do
 jB
-jB
-jB
+SU
+SW
 FZ
 jB
 Dw
@@ -48209,8 +48318,8 @@ fJ
 gn
 ha
 hH
-cg
-cg
+Sp
+Sr
 cg
 cg
 cg
@@ -48503,7 +48612,7 @@ ru
 rG
 rG
 rG
-rj
+Sv
 tr
 tZ
 uA
@@ -48760,7 +48869,7 @@ rv
 rH
 rP
 sp
-rj
+Sw
 ts
 ua
 uB
@@ -49789,9 +49898,9 @@ aa
 aa
 aa
 sS
-sS
+Sy
 ue
-sS
+SA
 uV
 uV
 vD
@@ -54475,7 +54584,7 @@ aa
 aa
 RO
 RQ
-RO
+SX
 RW
 Sd
 Sf
@@ -59825,7 +59934,7 @@ uW
 xO
 yv
 zb
-uW
+Ea
 Aj
 AR
 BR
@@ -60078,15 +60187,15 @@ vI
 wf
 wy
 wT
-uW
+Ea
 xP
 yw
 zc
-uW
+Ea
 Ak
 AS
 BS
-uW
+Ea
 Ak
 Ef
 EO
@@ -60335,7 +60444,7 @@ vI
 vI
 vI
 wU
-uW
+Ea
 xQ
 yx
 zd
@@ -60343,7 +60452,7 @@ zz
 Al
 AT
 BT
-uW
+Ea
 DF
 Eg
 AO
@@ -60849,7 +60958,7 @@ uW
 wh
 wA
 vI
-uW
+Ea
 xS
 yz
 zf
@@ -64955,10 +65064,10 @@ tc
 tc
 uk
 kz
-jB
-jB
-jB
-jB
+SB
+SC
+SD
+SE
 wF
 jB
 xu
