@@ -20,7 +20,6 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
-	stop_automated_movement_when_pulled = 0
 	maxHealth = 200
 	health = 200
 	melee_damage_lower = 15

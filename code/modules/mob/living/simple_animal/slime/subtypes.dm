@@ -301,11 +301,7 @@
 		to_chat(src, "<span class='warning'>There wasn't an unoccupied spot to teleport to.</span>")
 		return FALSE
 
-	var/datum/effect/effect/system/spark_spread/s1 = new /datum/effect/effect/system/spark_spread
-	s1.set_up(5, 1, T)
-	var/datum/effect/effect/system/spark_spread/s2 = new /datum/effect/effect/system/spark_spread
-	s2.set_up(5, 1, target_turf)
-
+	spark(T,5)
 
 	T.visible_message("<span class='notice'>\The [src] vanishes!</span>")
 	s1.start()

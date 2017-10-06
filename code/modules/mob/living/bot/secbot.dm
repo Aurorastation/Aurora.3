@@ -555,50 +555,66 @@
 	var/build_step = 0
 	var/created_name = "Securitron"
 
-/obj/item/weapon/secbot_assembly/attackby(var/obj/item/O, var/mob/user)
+//Secbot Construction
+
+/obj/item/clothing/head/helmet/attackby(var/obj/item/device/assembly/signaler/S, mob/user as mob)
 	..()
-	if(iswelder(O) && !build_step)
-		var/obj/item/weapon/weldingtool/WT = O
-		if(WT.remove_fuel(0, user))
-			build_step = 1
-			add_overlay("hs_hole")
-			user << "You weld a hole in \the [src]."
-			return 1
+	if(!issignaler(S))
+		..()
+		return
 
-	else if(isprox(O) && (build_step == 1))
-		user.drop_item()
-		build_step = 2
-		user << "You add \the [O] to [src]."
-		add_overlay("hs_eye")
-		name = "helmet/signaler/prox sensor assembly"
-		qdel(O)
-		return 1
+	if(src.type != /obj/item/clothing/head/helmet) //Eh, but we don't want people making secbots out of space helmets.
+		return
 
-	else if((istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm)) && build_step == 2)
-		user.drop_item()
-		build_step = 3
-		user << "You add \the [O] to [src]."
-		name = "helmet/signaler/prox sensor/robot arm assembly"
-		add_overlay("hs_arm")
-		qdel(O)
-		return 1
+	if(S.secured)
+		del(S)
+		var/obj/item/weapon/secbot_assembly/A = new /obj/item/weapon/secbot_assembly
+		user.put_in_hands(A)
+		user << "You add the signaler to the helmet."
+		user.drop_from_inventory(src)
+		del(src)
+	else
+		return
 
-	else if(istype(W, /obj/item/weapon/melee/baton) && build_step == 3)
+/obj/item/weapon/secbot_assembly/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+	if((istype(W, /obj/item/weapon/weldingtool)) && (!src.build_step))
+		var/obj/item/weapon/weldingtool/WT = W
+		if(WT.remove_fuel(0,user))
+			src.build_step++
+			src.overlays += image('icons/obj/aibots.dmi', "hs_hole")
+			user << "You weld a hole in [src]!"
+
+	else if(isprox(W) && (src.build_step == 1))
 		user.drop_item()
+		src.build_step++
+		user << "You add the prox sensor to [src]!"
+		src.overlays += image('icons/obj/aibots.dmi', "hs_eye")
+		src.name = "helmet/signaler/prox sensor assembly"
+		del(W)
+
+	else if(((istype(W, /obj/item/robot_parts/l_arm)) || (istype(W, /obj/item/robot_parts/r_arm))) && (src.build_step == 2))
+		user.drop_item()
+		src.build_step++
+		user << "You add the robot arm to [src]!"
+		src.name = "helmet/signaler/prox sensor/robot arm assembly"
+		src.overlays += image('icons/obj/aibots.dmi', "hs_arm")
+		del(W)
+
+	else if((istype(W, /obj/item/weapon/melee/baton)) && (src.build_step >= 3))
+		user.drop_item()
+		src.build_step++
 		user << "You complete the Securitron! Beep boop."
-		if(istype(W, /obj/item/weapon/melee/baton/slime))
-			var/mob/living/bot/secbot/slime/S = new /mob/living/bot/secbot/slime(get_turf(src))
-			S.name = created_name
-		else
-			var/mob/living/bot/secbot/S = new /mob/living/bot/secbot(get_turf(src))
-			S.name = created_name
-		qdel(W)
-		qdel(src)
+		var/obj/machinery/bot/secbot/S = new /obj/machinery/bot/secbot
+		S.loc = get_turf(src)
+		S.name = src.created_name
+		del(W)
+		del(src)
 
-	else if(istype(O, /obj/item/weapon/pen))
-		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
+	else if(istype(W, /obj/item/weapon/pen))
+		var/t = copytext(stripped_input(user, "Enter new robot name", src.name, src.created_name),1,MAX_NAME_LEN)
 		if(!t)
 			return
-		if(!in_range(src, usr) && loc != usr)
+		if(!in_range(src, usr) && src.loc != usr)
 			return
-		created_name = t
+src.created_name = t

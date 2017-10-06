@@ -146,9 +146,7 @@
 						L.buckled.unbuckle_mob() // To prevent an exploit where being buckled prevents slimes from jumping on you.
 					L.stuttering = max(L.stuttering, stun_power)
 
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(5, 1, L)
-					s.start()
+					spark(get_turf(L),5)
 
 					if(prob(stun_power * 10) && stun_power >= 8)
 						L.adjustFireLoss(power_charge * rand(1, 2))

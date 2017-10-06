@@ -31,13 +31,10 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	intelligence_level = SA_HUMANOID // Player controlled.
 
-	tameable = FALSE
-
 	var/nullblock = 0
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
-	hunger_enabled = 0
 	var/list/construct_spells = list()
 	var/can_repair = 0
 

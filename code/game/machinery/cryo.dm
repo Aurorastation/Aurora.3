@@ -195,8 +195,8 @@
 			if(!ismob(G:affecting))
 				return
 			for(var/mob/living/simple_mob/slime/M in range(1,G:affecting))
-				if(M.victim == grab:affecting)
-					usr << "[grab:affecting.name] will not fit into the cryo because they have a slime latched onto their head."
+				if(M.victim == grab.affecting)
+					usr << "[grab.affecting.name] will not fit into the cryo because they have a slime latched onto their head."
 					return
 			var/mob/M = grab.affecting
 			if(put_mob(M))

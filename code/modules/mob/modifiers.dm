@@ -41,9 +41,9 @@
 /datum/modifier/New(var/new_holder, var/new_origin)
 	holder = new_holder
 	if(new_origin)
-		origin = weakref(new_origin)
+		origin = WEAKREF(new_origin)
 	else // We assume the holder caused the modifier if not told otherwise.
-		origin = weakref(holder)
+		origin = WEAKREF(holder)
 	..()
 
 // Checks to see if this datum should continue existing.
