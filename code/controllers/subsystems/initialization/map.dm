@@ -97,6 +97,9 @@ var/datum/controller/subsystem/map/SSmap
 
 	admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply")
 
+	priority_announcement = new(do_log = 0)
+	command_announcement = new(do_log = 0, do_newscast = 1)
+
 	log_debug("SSmap: Copied names from current_map.")
 
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
