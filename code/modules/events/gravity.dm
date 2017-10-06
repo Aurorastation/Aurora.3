@@ -13,6 +13,3 @@
 	for(var/A in SSmachinery.gravity_generators)
 		var/obj/machinery/gravity_generator/main/B = A
 		B.eventshutofftoggle()
-
-/datum/event/gravity/end()
-	return
