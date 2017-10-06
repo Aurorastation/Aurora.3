@@ -23,6 +23,7 @@
 	melee_damage_upper = 10
 	attacktext = "attacked"
 	attack_sound = 'sound/items/bikehorn.ogg'
+	intelligence_level = SA_HUMANOID
 
 	min_oxy = 5
 	max_oxy = 0

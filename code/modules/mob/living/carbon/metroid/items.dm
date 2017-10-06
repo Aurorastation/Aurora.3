@@ -9,12 +9,12 @@
 	throw_speed = 3
 	throw_range = 6
 	origin_tech = list(TECH_BIO = 4)
-	var/Uses = 1 // uses before it goes inert
+	var/uses = 1 // uses before it goes inert
 	var/enhanced = 0 //has it been enhanced before?
 	flags = OPENCONTAINER
-
+/*
 	attackby(obj/item/O as obj, mob/user as mob)
-		if(istype(O, /obj/item/weapon/slimesteroid2))
+		if(istype(O, /obj/item/slimesteroid2))
 			if(enhanced == 1)
 				user << "<span class='warning'>This extract has already been enhanced!</span>"
 				return ..()
@@ -25,11 +25,11 @@
 			Uses = 3
 			enhanced = 1
 			qdel(O)
-
+*/
 /obj/item/slime_extract/New()
 	..()
-	create_reagents(100)
-	reagents.add_reagent("slimejelly", 30)
+	create_reagents(5)
+	reagents.add_reagent("slimejelly", 5)
 
 /obj/item/slime_extract/grey
 	name = "grey slime extract"
@@ -51,7 +51,7 @@
 	name = "purple slime extract"
 	icon_state = "purple slime extract"
 
-/obj/item/slime_extract/darkpurple
+/obj/item/slime_extract/dark_purple
 	name = "dark purple slime extract"
 	icon_state = "dark purple slime extract"
 
@@ -71,7 +71,7 @@
 	name = "blue slime extract"
 	icon_state = "blue slime extract"
 
-/obj/item/slime_extract/darkblue
+/obj/item/slime_extract/dark_blue
 	name = "dark blue slime extract"
 	icon_state = "dark blue slime extract"
 
@@ -120,15 +120,15 @@
 	icon_state = "rainbow slime extract"
 
 ////Pet Slime Creation///
-
+/*
 /obj/item/weapon/slimepotion
 	name = "docility potion"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle19"
 
-	attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-		if(!istype(M, /mob/living/carbon/slime))//If target is not a slime.
+	attack(mob/living/simple_mob/slime/M as mob, mob/user as mob)
+		if(!istype(M, /mob/living/simple_mob/slime))//If target is not a slime.
 			user << "<span class='warning'>The potion only works on baby slimes!</span>"
 			return ..()
 		if(M.is_adult) //Can't tame adults
@@ -161,8 +161,8 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle19"
 
-	attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-		if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
+	attack(mob/living/simple_mob/slime/M as mob, mob/user as mob)
+		if(!istype(M, /mob/living/simple_mob/slime/))//If target is not a slime.
 			user << "<span class='warning'>The potion only works on slimes!</span>"
 			return ..()
 		if(M.stat)
@@ -187,14 +187,14 @@
 		qdel(src)
 
 
-/obj/item/weapon/slimesteroid
+/obj/item/slimesteroid
 	name = "slime steroid"
 	desc = "A potent chemical mix that will cause a slime to generate more extract."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle16"
 
-	attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-		if(!istype(M, /mob/living/carbon/slime))//If target is not a slime.
+	attack(mob/living/simple_mob/slime/M as mob, mob/user as mob)
+		if(!istype(M, /mob/living/simple_mob/slime))//If target is not a slime.
 			user << "<span class='warning'>The steroid only works on baby slimes!</span>"
 			return ..()
 		if(M.is_adult) //Can't tame adults
@@ -209,15 +209,15 @@
 
 		user <<"You feed the slime the steroid. It now has triple the amount of extract."
 		M.cores = 3
-		qdel(src)
-
-/obj/item/weapon/slimesteroid2
+		qdel(src)*/
+/*
+/obj/item/slimesteroid2
 	name = "extract enhancer"
 	desc = "A potent chemical mix that will give a slime extract three uses."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle17"
 
-	/*afterattack(obj/target, mob/user , flag)
+	afterattack(obj/target, mob/user , flag)
 		if(istype(target, /obj/item/slime_extract))
 			if(target.enhanced == 1)
 				user << "<span class='warning'>This extract has already been enhanced!</span>"
@@ -283,6 +283,6 @@
 				if(A)
 					G << "Golem rune created in [A.name]."
 
-/mob/living/carbon/slime/has_eyes()
+/mob/living/simple_mob/slime/has_eyes()
 	return 0
 

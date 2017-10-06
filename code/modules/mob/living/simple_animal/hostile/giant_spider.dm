@@ -35,6 +35,7 @@
 	move_to_delay = 6
 	speed = 3
 	mob_size = 6
+	intelligence_level = SA_ANIMAL
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse

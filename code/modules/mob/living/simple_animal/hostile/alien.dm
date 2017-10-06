@@ -34,7 +34,7 @@
 	minbodytemp = 0
 	heat_damage_per_tick = 20
 	mob_size = 10
-
+	intelligence_level = SA_HUMANOID
 	tameable = FALSE
 
 /mob/living/simple_animal/hostile/alien/drone

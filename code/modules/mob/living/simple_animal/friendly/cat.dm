@@ -19,6 +19,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
+	intelligence_level = SA_ANIMAL
 	//var/mob/living/simple_animal/mouse/movement_target
 	var/mob/flee_target
 	min_oxy = 16 //Require atleast 16kPA oxygen

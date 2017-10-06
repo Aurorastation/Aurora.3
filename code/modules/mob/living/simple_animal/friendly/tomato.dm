@@ -17,3 +17,4 @@
 	melee_damage_lower = 10
 	attacktext = "mauled"
 	mob_size = 2
+	intelligence_level = SA_PLANT

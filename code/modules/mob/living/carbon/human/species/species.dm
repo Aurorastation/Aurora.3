@@ -54,7 +54,7 @@
 	var/list/speech_chance                   // The likelihood of a speech sound playing.
 	var/num_alternate_languages = 0          // How many secondary languages are available to select at character creation
 	var/name_language = "Ceti Basic"	    // The language to use when determining names for this species, or null to use the first name/last name generator
-
+	var/speech_bubble_appearance = "normal" // Part of icon_state to use for speech bubbles when talking.  See talk.dmi for available icons.
 	// Combat vars.
 	var/total_health = 100                   // Point at which the mob will enter crit.
 	var/list/unarmed_types = list(           // Possible unarmed attacks that the mob will use in combat,

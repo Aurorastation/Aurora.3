@@ -1074,8 +1074,8 @@
 			usr << "<span class='danger'>Kinda hard to climb in while handcuffed don't you think?</span>"
 			return
 
-	for(var/mob/living/carbon/slime/M in range(1,usr))
-		if(M.Victim == usr)
+	for(var/mob/living/simple_animal/slime/M in range(1,usr))
+		if(M.victim == usr)
 			usr << "<span class='danger'>You're too busy getting your life sucked out of you.</span>"
 			return
 

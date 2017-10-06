@@ -34,6 +34,7 @@
 	environment_smash = 1
 	faction = "syndicate"
 	status_flags = CANPUSH
+	intelligence_level = SA_HUMANOID
 
 	tameable = FALSE
 

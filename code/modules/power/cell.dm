@@ -6,6 +6,19 @@
 	. = ..()
 	charge = maxcharge
 	update_icon()
+	if(self_recharge)
+		processing_objects |= src
+
+/obj/item/weapon/cell/Destroy()
+	if(self_recharge)
+		processing_objects -= src
+	return ..()
+
+/obj/item/weapon/cell/process()
+	if(self_recharge)
+		give(charge_amount / CELLRATE)
+	else
+		return PROCESS_KILL
 
 /obj/item/weapon/cell/Created()
 	//Newly built cells spawn with no charge to prevent power exploits

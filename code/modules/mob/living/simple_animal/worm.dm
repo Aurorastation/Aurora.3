@@ -36,6 +36,8 @@
 
 	speed = -1
 
+	intelligence_level = SA_PLANT
+
 	var/mob/living/simple_animal/space_worm/previous //next/previous segments, correspondingly
 	var/mob/living/simple_animal/space_worm/next     //head is the nextest segment
 

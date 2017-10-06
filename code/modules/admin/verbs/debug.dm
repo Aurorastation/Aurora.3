@@ -91,21 +91,6 @@
 	else
 		alert("Invalid mob")
 
-/client/proc/cmd_admin_slimeize(var/mob/M in mob_list)
-	set category = "Fun"
-	set name = "Make slime"
-
-	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
-		return
-	if(ishuman(M))
-		log_and_message_admins("has slimeized [key_name(M)].", user = usr)
-		spawn(10)
-			M:slimeize()
-			feedback_add_details("admin_verb","MKMET") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	else
-		alert("Invalid mob")
-
 /*
 /client/proc/cmd_admin_monkeyize(var/mob/M in mob_list)
 	set category = "Fun"

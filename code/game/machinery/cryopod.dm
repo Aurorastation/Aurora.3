@@ -393,8 +393,8 @@
 	if(L.stat == DEAD)
 		user << "<span class='notice'>Dead people can not be put into stasis.</span>"
 		return
-	for(var/mob/living/carbon/slime/M in range(1,L))
-		if(M.Victim == L)
+	for(var/mob/living/simple_animal/slime/M in range(1,L))
+		if(M.victim == L)
 			usr << "[L.name] will not fit into the cryo pod because they have a slime latched onto their head."
 			return
 
@@ -478,8 +478,8 @@
 		usr << "<span class='notice'><B>\The [src] is in use.</B></span>"
 		return
 
-	for(var/mob/living/carbon/slime/M in range(1,usr))
-		if(M.Victim == usr)
+	for(var/mob/living/simple_animal/slime/M in range(1,usr))
+		if(M.victim == usr)
 			usr << "You're too busy getting your life sucked out of you."
 			return
 

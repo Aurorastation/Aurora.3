@@ -46,14 +46,37 @@
 	damage = 0
 	damage_type = BURN
 	nodamage = 1
-	check_armour = "energy"
-	//var/temperature = 300
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	check_armour = "energy" // It actually checks heat/cold protection.
+	var/temperature = 50
 
 
-/obj/item/projectile/temp/on_hit(var/atom/target, var/blocked = 0)//These two could likely check temp protection on the mob
-	if(istype(target, /mob/living))
-		var/mob/M = target
-		M.bodytemperature = -273
+/obj/item/projectile/temp/on_hit(atom/target, blocked = FALSE)
+	..()
+	if(isliving(target))
+		var/mob/living/L = target
+
+		var/protection = null
+		var/potential_temperature_delta = null
+		var/new_temperature = L.bodytemperature
+
+		if(target_temperature >= T20C) // Make it cold.
+			protection = L.get_cold_protection(target_temperature)
+			potential_temperature_delta = 75
+			new_temperature = max(new_temperature - potential_temperature_delta, target_temperature)
+		else // Make it hot.
+			protection = L.get_heat_protection(target_temperature)
+			potential_temperature_delta = 200 // Because spacemen temperature needs stupid numbers to actually hurt people.
+			new_temperature = min(new_temperature + potential_temperature_delta, target_temperature)
+
+		var/temp_factor = abs(protection - 1)
+
+		new_temperature = round(new_temperature * temp_factor)
+		L.bodytemperature = new_temperature
+
+//		L.bodytemperature = between(target_temperature,(L.bodytemperature - ((L.bodytemperature + potential_temperature_delta) * temp_factor) ), L.bodytemperature)
+		world << "Temperature of [L] is now [L.bodytemperature]."
+
 	return 1
 
 /obj/item/projectile/meteor

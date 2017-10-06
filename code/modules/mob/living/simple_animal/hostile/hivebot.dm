@@ -27,6 +27,7 @@
 	max_n2 = 0
 	minbodytemp = 0
 	speed = 4
+	intelligence_level = SA_ROBOTIC
 
 	tameable = FALSE
 

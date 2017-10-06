@@ -54,6 +54,8 @@
 /atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
 	if(istype(hit_atom,/mob/living))
 		var/mob/living/M = hit_atom
+		if(M.buckled == src)
+			return // Don't hit the thing we're buckled to.
 		M.hitby(src,speed)
 
 	else if(isobj(hit_atom))

@@ -15,7 +15,7 @@
 	var/arrest_type = 0 // If true, doesn't handcuff. You monster.
 	var/declare_arrests = 0 // If true, announces arrests over sechuds.
 	var/auto_patrol = 0 // If true, patrols on its own
-
+	var/default_icon_state = "secbot"
 	var/mode = 0
 #define SECBOT_IDLE 		0		// idle
 #define SECBOT_HUNT 		1		// found target, hunting
@@ -27,6 +27,12 @@
 	var/is_attacking = 0
 	var/is_ranged = 0
 	var/awaiting_surrender = 0
+
+	var/can_next_insult = 0			// Uses world.time
+	var/stun_strength = 60			// For humans.
+	var/xeno_stun_strength = 0		// For simple mobs.
+	var/xeno_harm_strength = 15 	// Ditto.
+	var/baton_glow = "#FF6A00"
 
 	var/obj/secbot_listener/listener = null
 	var/beacon_freq = 1445			// Navigation beacon frequency
@@ -70,12 +76,12 @@
 
 /mob/living/bot/secbot/update_icons()
 	if(on && is_attacking)
-		icon_state = "secbot-c"
+		icon_state = "[default_icon_state]-c"
 	else
-		icon_state = "secbot[on]"
+		icon_state = "[default_icon_state][on]"
 
 	if(on)
-		set_light(1.4, 1, "#FF6A00")
+		set_light(1.4, 1, baton_glow)
 	else
 		set_light(0)
 
@@ -282,7 +288,7 @@
 		if(!C.lying || C.handcuffed || arrest_type)
 			cuff = 0
 		if(!cuff)
-			C.stun_effect_act(0, 60, null)
+			C.stun_effect_act(0, stun_strength, null) //Used to be 60 before varablization ~Chaoko99
 			playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 			do_attack_animation(C)
 			is_attacking = 1
@@ -302,8 +308,8 @@
 					playsound(loc, pick(preparing_arrest_sounds), 50, 0)
 	else if(istype(M, /mob/living/simple_animal) && !istype(M, /mob/living/simple_animal/hostile/commanded))
 		var/mob/living/simple_animal/S = M
-		S.AdjustStunned(10)
-		S.adjustBruteLoss(15)
+		S.AdjustStunned(xeno_stun_strength)
+		S.adjustBruteLoss(xeno_harm_strength)
 		do_attack_animation(M)
 		playsound(loc, "swing_hit", 50, 1, -1)
 		is_attacking = 1
@@ -513,6 +519,33 @@
 	else
 		return
 
+//Xenobio secbot.
+/mob/living/bot/secbot/slime
+	name = "Slime Securitron"
+	desc = "A little security robot, with a slime baton subsituted for the regular one."
+	default_icon_state = "slimesecbot"
+	stun_strength = 10 // Slimebatons aren't meant for humans.
+	xeno_stun_strength = 5
+	xeno_harm_strength = 9
+	baton_glow = "#33CCFF"
+	req_one_access = list(access_research, access_robotics)
+	botcard_access = list(access_research, access_robotics, access_xenobiology, access_xenoarch, access_tox, access_tox_storage, access_maint_tunnels)
+
+//Xenobio secbot damage.
+/mob/living/bot/secbot/slime/UnarmedAttack(var/mob/living/L, var/proximity)
+	. = ..()
+
+	if(istype(L, /mob/living/simple_animal/slime))
+		var/mob/living/simple_animal/slime/S = L
+		.adjust_discipline(2)
+
+
+/mob/living/bot/secbot/slime/slimesky
+	name = "Doctor Slimesky"
+	desc = "An old friend of Officer Beep O'sky.  He prescribes beatings to rowdy slimes so that real doctors don't need to treat the xenobiologists."
+
+
+
 /obj/item/weapon/secbot_assembly
 	name = "helmet/signaler assembly"
 	desc = "Some sort of bizarre assembly."
@@ -550,14 +583,17 @@
 		qdel(O)
 		return 1
 
-	else if(istype(O, /obj/item/weapon/melee/baton) && build_step == 3)
+	else if(istype(W, /obj/item/weapon/melee/baton) && build_step == 3)
 		user.drop_item()
 		user << "You complete the Securitron! Beep boop."
-		var/mob/living/bot/secbot/S = new /mob/living/bot/secbot(get_turf(src))
-		S.name = created_name
-		qdel(O)
+		if(istype(W, /obj/item/weapon/melee/baton/slime))
+			var/mob/living/bot/secbot/slime/S = new /mob/living/bot/secbot/slime(get_turf(src))
+			S.name = created_name
+		else
+			var/mob/living/bot/secbot/S = new /mob/living/bot/secbot(get_turf(src))
+			S.name = created_name
+		qdel(W)
 		qdel(src)
-		return 1
 
 	else if(istype(O, /obj/item/weapon/pen))
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)

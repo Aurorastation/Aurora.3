@@ -199,7 +199,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(!message || message == "")
 		return 0
-	
+
 	//handle nonverbal and sign languages here
 	if (speaking)
 		if (speaking.flags & NONVERBAL)
@@ -260,6 +260,7 @@ proc/get_radio_key_from_channel(var/channel)
 			hear_clients += M.client
 
 	var/speech_bubble_test = say_test(message)
+	var/speech_type = speech_bubble_appearance()
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_bubble, hear_clients, 30)
 
@@ -283,3 +284,6 @@ proc/get_radio_key_from_channel(var/channel)
 
 /mob/living/proc/GetVoice()
 	return name
+
+/mob/proc/speech_bubble_appearance()
+	return "normal"

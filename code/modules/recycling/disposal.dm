@@ -476,7 +476,7 @@
 	if (istype(mover,/obj/item) && mover.throwing)
 		var/obj/item/I = mover
 		if(istype(I, /obj/item/projectile))
-			return
+			return 1
 		if(prob(75))
 			I.forceMove(src)
 			for(var/mob/M in viewers(src))

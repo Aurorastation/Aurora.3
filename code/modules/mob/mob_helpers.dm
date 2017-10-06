@@ -668,7 +668,7 @@ proc/is_blind(A)
 
 	return threatcount
 
-/mob/living/simple_animal/hostile/assess_perp(var/obj/access_obj, var/check_access, var/auth_weapons, var/check_records, var/check_arrest)
+/mob/living/simple_animal/assess_perp(var/obj/access_obj, var/check_access, var/auth_weapons, var/check_records, var/check_arrest)
 	var/threatcount = ..()
 	if(. == SAFE_PERP)
 		return SAFE_PERP
@@ -677,6 +677,28 @@ proc/is_blind(A)
 		threatcount += 4
 	return threatcount
 
+// Beepsky will (try to) only beat 'bad' slimes.
+/mob/living/simple_animal/slime/assess_perp(var/obj/access_obj, var/check_access, var/auth_weapons, var/check_records, var/check_arrest)
+	var/threatcount = 0
+
+	if(stat == DEAD)
+		return SAFE_PERP
+
+	if(is_justified_to_discipline())
+		threatcount += 4
+/*
+	if(discipline && !rabid)
+		if(!target_mob || istype(target_mob, /mob/living/carbon/human/monkey))
+			return SAFE_PERP
+	if(target_mob)
+		threatcount += 4
+	if(victim)
+		threatcount += 4
+*/
+	if(rabid)
+		threatcount = 10
+
+return threatcount
 
 /mob/living/proc/bucklecheck(var/mob/living/user)
 	if (buckled && istype(buckled, /obj/structure))
@@ -1045,7 +1067,7 @@ proc/is_blind(A)
 				"donor" = WEAKREF(src),
 				"viruses" = null,
 				"species" = name,
-				"blood_DNA" = md5("\ref[src]"), 
+				"blood_DNA" = md5("\ref[src]"),
 				"blood_colour" = "#a10808",
 				"blood_type" = null,
 				"resistances" = null,

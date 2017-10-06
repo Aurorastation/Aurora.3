@@ -1,4 +1,6 @@
-/obj
+
+
+/atom/movable
 	var/can_buckle = 0
 	var/buckle_movable = 0
 	var/buckle_dir = 0
@@ -6,28 +8,29 @@
 	var/buckle_require_restraints = 0 //require people to be handcuffed before being able to buckle. eg: pipes
 	var/mob/living/buckled_mob = null
 
-/obj/attack_hand(mob/living/user)
+/atom/movable/attack_hand(mob/living/user)
 	. = ..()
 	if(can_buckle && buckled_mob)
 		user_unbuckle_mob(user)
 
-/obj/MouseDrop_T(mob/living/M, mob/living/user)
+/atom/movable/MouseDrop_T(mob/living/M, mob/living/user)
 	. = ..()
 	if(can_buckle && istype(M))
 		user_buckle_mob(M, user)
 
 //Cleanup
 
-/obj/Destroy()
+/atom/movable/Destroy()
 	unbuckle_mob()
 	return ..()
 
 
-/obj/proc/buckle_mob(mob/living/M)
-	if(!can_buckle || !istype(M) || M.buckled || M.pinned.len || (buckle_require_restraints && !M.restrained()))
-		return 0
+/atom/movable/proc/buckle_mob(mob/living/M)
+	if((!can_buckle && !forced) || !istype(M) || M.buckled || M.pinned.len || (buckle_require_restraints && !M.restrained()))
 
 	if ((M.loc != loc) && !(density && get_dist(src, M) <= 1))
+		return 0
+	if(check_loc && M.loc != loc)
 		return 0
 
 	if (M.loc != loc)
@@ -40,9 +43,9 @@
 	post_buckle_mob(M)
 	return 1
 
-/obj/proc/unbuckle_mob()
+/atom/movable/proc/unbuckle_mob(mob/living/M, mob/user, var/forced = FALSE, var/silent = FALSE)
 	if(buckled_mob && buckled_mob.buckled == src)
-		. = buckled_mob
+		. = buckle_mob(M, forced)
 		buckled_mob.buckled = null
 		buckled_mob.anchored = initial(buckled_mob.anchored)
 		buckled_mob.update_canmove()
@@ -50,10 +53,23 @@
 
 		post_buckle_mob(.)
 
-/obj/proc/post_buckle_mob(mob/living/M)
+	if(.)
+		if(!silent)
+			if(M == user)
+				M.visible_message(\
+					"<span class='notice'>[M.name] buckles themselves to [src].</span>",\
+					"<span class='notice'>You buckle yourself to [src].</span>",\
+					"<span class='notice'>You hear metal clanking.</span>")
+			else
+				M.visible_message(\
+					"<span class='danger'>[M.name] is buckled to [src] by [user.name]!</span>",\
+					"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
+					"<span class='notice'>You hear metal clanking.</span>")
+
+/atom/movable/proc/post_buckle_mob(mob/living/M)
 	return
 
-/obj/proc/user_buckle_mob(mob/living/M, mob/user)
+/atom/movable/proc/user_buckle_mob(mob/living/M, mob/user)
 	if(!ROUND_IS_STARTED)
 		user << "<span class='warning'>You can't buckle anyone in before the game starts.</span>"
 	if(!user.Adjacent(M) || user.restrained() || user.lying || user.stat || istype(user, /mob/living/silicon/pai))
@@ -82,7 +98,7 @@
 				"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
 				"<span class='notice'>You hear metal clanking.</span>")
 
-/obj/proc/user_unbuckle_mob(mob/user)
+/atom/movable/proc/user_unbuckle_mob(mob/user)
 	var/mob/living/M = unbuckle_mob()
 	if(M)
 		if(M != user)
@@ -98,3 +114,19 @@
 		add_fingerprint(user)
 	return M
 
+/atom/movable/proc/handle_buckled_mob_movement(newloc,direct)
+	if(buckled_mob)
+//		if(!buckled_mob.Move(newloc, direct))
+		if(!buckled_mob.forceMove(newloc, direct))
+			loc = buckled_mob.loc
+			last_move = buckled_mob.last_move
+			buckled_mob.inertia_dir = last_move
+			return FALSE
+		else
+			buckled_mob.set_dir(dir)
+return TRUE
+
+/atom/movable/Move(atom/newloc, direct = 0)
+	. = ..()
+	if(. && buckled_mob && !handle_buckled_mob_movement(newloc, direct)) //movement failed due to buckled mob(s)
+. = 0

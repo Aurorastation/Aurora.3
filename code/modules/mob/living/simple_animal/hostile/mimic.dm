@@ -16,6 +16,7 @@
 	speed = 4
 	maxHealth = 250
 	health = 250
+	intelligence_level = SA_ANIMAL
 
 	harm_intent_damage = 5
 	melee_damage_lower = 8

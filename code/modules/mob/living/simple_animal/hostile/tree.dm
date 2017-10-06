@@ -23,6 +23,7 @@
 	melee_damage_upper = 12
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
+	intelligence_level = SA_PLANT
 
 	//Space carp aren't affected by atmos.
 	min_oxy = 0

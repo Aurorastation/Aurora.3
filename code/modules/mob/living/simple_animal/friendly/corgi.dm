@@ -23,6 +23,7 @@
 	stomach_size_mult = 30
 	seek_speed = 6
 	possession_candidate = 1
+	intelligence_level = SA_ANIMAL
 
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
