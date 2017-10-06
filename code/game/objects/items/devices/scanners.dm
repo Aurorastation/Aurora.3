@@ -330,6 +330,7 @@ REAGENT SCANNER
 	details = 1
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
+//Xenobio scanner.
 /obj/item/device/slime_scanner
 	name = "slime scanner"
 	icon_state = "adv_spectrometer"
@@ -343,35 +344,40 @@ REAGENT SCANNER
 	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
 
 /obj/item/device/slime_scanner/attack(mob/living/M as mob, mob/living/user as mob)
-	if (!isslime(M))
+	if(!isslime(M))
 		user << "<B>This device can only scan slimes!</B>"
 		return
-	var/mob/living/carbon/slime/T = M
+	var/mob/living/simple_animal/slime/S = M
 	user.show_message("Slime scan results:")
-	user.show_message(text("[T.colour] [] slime", T.is_adult ? "adult" : "baby"))
-	user.show_message(text("Nutrition: [T.nutrition]/[]", T.get_max_nutrition()))
-	if (T.nutrition < T.get_starve_nutrition())
-		user.show_message("<span class='alert'>Warning: slime is starving!</span>")
-	else if (T.nutrition < T.get_hunger_nutrition())
-		user.show_message("<span class='warning'>Warning: slime is hungry</span>")
-	user.show_message("Electric change strength: [T.powerlevel]")
-	user.show_message("Health: [T.health]")
-	if (T.slime_mutation[4] == T.colour)
-		user.show_message("This slime does not evolve any further")
-	else
-		if (T.slime_mutation[3] == T.slime_mutation[4])
-			if (T.slime_mutation[2] == T.slime_mutation[1])
-				user.show_message(text("Possible mutation: []", T.slime_mutation[3]))
-				user.show_message("Genetic destability: [T.mutation_chance/2]% chance of mutation on splitting")
-			else
-				user.show_message(text("Possible mutations: [], [], [] (x2)", T.slime_mutation[1], T.slime_mutation[2], T.slime_mutation[3]))
-				user.show_message("Genetic destability: [T.mutation_chance]% chance of mutation on splitting")
-		else
-			user.show_message(text("Possible mutations: [], [], [], []", T.slime_mutation[1], T.slime_mutation[2], T.slime_mutation[3], T.slime_mutation[4]))
-			user.show_message("Genetic destability: [T.mutation_chance]% chance of mutation on splitting")
-	if (T.cores > 1)
-		user.show_message("Anomalious slime core amount detected")
-	user.show_message("Growth progress: [T.amount_grown]/10")
+	user.show_message(text("[S.slime_color] [] slime", S.is_adult ? "adult" : "baby"))
+
+	user.show_message("Health: [S.health]")
+	user.show_message("Mutation Probability: [S.mutation_chance]")
+
+	var/list/mutations = list()
+	for(var/potential_color in S.slime_mutation)
+		var/mob/living/simple_animal/slime/slime = potential_color
+		mutations.Add(initial(slime.slime_color))
+
+	user.show_message("Potental to mutate into [english_list(mutations)] colors.")
+	user.show_message("Extract potential: [S.cores]")
+
+	user.show_message(text("Nutrition: [S.nutrition]/[]", S.get_max_nutrition()))
+	if (S.nutrition < S.get_starve_nutrition())
+		user.show_message("<span class='alert'>Warning: Subject is starving!</span>")
+	else if (S.nutrition < S.get_hunger_nutrition())
+		user.show_message("<span class='warning'>Warning: Subject is hungry.</span>")
+	user.show_message("Electric change strength: [S.power_charge]")
+
+	if(S.resentment)
+		user.show_message("<span class='warning'>Warning: Subject is harboring resentment.</span>")
+	if(S.docile)
+		user.show_message("Subject has been pacified.")
+	if(S.rabid)
+		user.show_message("<span class='danger'>Subject is enraged and extremely dangerous!</span>")
+	if(S.unity)
+		user.show_message("Subject is friendly to other slime colors.")
+	user.show_message("Growth progress: [S.amount_grown]/10")
 
 
 /obj/item/device/price_scanner
