@@ -2282,13 +2282,4 @@
 #include "code\ZAS\Zone.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\aurora\aurora-1_centcomm.dmm"
-#include "maps\aurora\aurora-2_under-station.dmm"
-#include "maps\aurora\aurora-3_sublevel.dmm"
-#include "maps\aurora\aurora-4_mainlevel.dmm"
-#include "maps\aurora\aurora-5_interstitial.dmm"
-#include "maps\aurora\aurora-6_surface.dmm"
-#include "maps\aurora\aurora-7_roof.dmm"
-#include "maps\aurora\aurora-8_derelict.dmm"
-#include "maps\aurora\aurora-9_space.dmm"
 // END_INCLUDE

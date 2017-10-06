@@ -162,6 +162,11 @@
 #define MOB_PULL_SAME 2
 #define MOB_PULL_LARGER 3
 
+
+#define MODIFIER_STACK_FORBID	1	// Disallows stacking entirely.
+#define MODIFIER_STACK_EXTEND	2	// Disallows a second instance, but will extend the first instance if possible.
+#define MODIFIER_STACK_ALLOWED	3	// Multiple instances are allowed.
+
 //Time of Death constants
 //Used with a list in preference datums to track times of death
 #define CREW "crew" //Used for crewmembers, AI, cyborgs, nymphs, antags
