@@ -1350,6 +1350,78 @@
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
+"dD" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dE" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dF" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dG" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dH" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dI" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dJ" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dK" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dL" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dM" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dN" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dO" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 
 (1,1,1) = {"
 aa
@@ -2248,8 +2320,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dD
+dJ
 dc
 dc
 dc
@@ -2302,8 +2374,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dE
+dK
 dc
 dc
 dc
@@ -2356,8 +2428,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dF
+dL
 dc
 dc
 dc
@@ -2410,8 +2482,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dG
+dM
 dc
 dc
 dc
@@ -2464,8 +2536,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dH
+dN
 dc
 dc
 dc
@@ -2518,8 +2590,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dI
+dO
 dc
 dc
 dc
@@ -3588,7 +3660,7 @@ ac
 ac
 ac
 bu
-dC
+dB
 bu
 ac
 ac
