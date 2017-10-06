@@ -19,6 +19,7 @@
 		,/area/supply/dock
 		,/area/turbolift
 		,/area/mine
+		,/area/merchant_ship
 	)
 	ut_apc_exempt_areas = list(/area/construction
 		,/area/medical/genetics
