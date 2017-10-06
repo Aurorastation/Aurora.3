@@ -309,6 +309,7 @@
 				else
 					message = "<span class='danger'>slaps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]!</span>"
 					playsound(loc, 'sound/effects/snap.ogg', 50, 1)
+					SSfeedback.IncrementSimpleStat("selfslap")
 
 		if("snap", "snaps")
 			m_type = 2
