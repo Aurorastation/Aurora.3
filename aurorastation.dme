@@ -2275,4 +2275,5 @@
 #include "maps\_mapsystem\map.dm"
 #include "maps\aurora\code\aurora.dm"
 #include "maps\aurora\code\aurora_holodeck.dm"
+#include "maps\runtime\code\runtime.dm"
 // END_INCLUDE
