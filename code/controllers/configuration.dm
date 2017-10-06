@@ -184,12 +184,6 @@ var/list/gamemode_cache = list()
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/use_overmap = 0
 
-	var/list/station_levels = list(3, 4, 5, 6, 7)				// Defines which Z-levels the station exists on.
-	var/list/admin_levels= list(1)					// Defines which Z-levels which are for admin functionality, for example including such areas as Central Command and the Syndicate Shuttle
-	var/list/contact_levels = list(3, 4, 5, 6)			// Defines which Z-levels which, for example, a Code Red announcement may affect
-	var/list/player_levels = list(2, 3, 4, 5, 6, 7, 8)	// Defines all Z-levels a character can typically reach
-	var/list/sealed_levels = list() 				// Defines levels that do not allow random transit at the edges.
-
 	// Event settings
 	var/expected_round_length = 3 * 60 * 60 * 10 // 3 hours
 	// If the first delay has a custom start time
@@ -695,21 +689,6 @@ var/list/gamemode_cache = list()
 
 				if("use_overmap")
 					config.use_overmap = 1
-
-				if("station_levels")
-					config.station_levels = text2numlist(value, ";")
-
-				if("admin_levels")
-					config.admin_levels = text2numlist(value, ";")
-
-				if("contact_levels")
-					config.contact_levels = text2numlist(value, ";")
-
-				if("player_levels")
-					config.player_levels = text2numlist(value, ";")
-
-				if("sealed_levels")
-					config.sealed_levels = text2numlist(value, ";")
 
 				if("expected_round_length")
 					config.expected_round_length = MinutesToTicks(text2num(value))

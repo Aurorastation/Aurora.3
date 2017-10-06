@@ -48,7 +48,7 @@ datum/unit_test/apc_area_test/start_test()
 	)
 
 	for(var/area/A in world)
-		if(A.z in config.station_levels && !(A.type in exempt_areas))
+		if(A.z in current_map.station_levels && !(A.type in exempt_areas))
 			area_test_count++
 			var/area_good = 1
 			var/bad_msg = "[ascii_red]--------------- [A.name]([A.type])"
@@ -91,7 +91,7 @@ datum/unit_test/wire_test/start_test()
 
 	for(C in world)
 		T = get_turf(C)
-		if(T && T.z in config.station_levels)
+		if(T && T.z in current_map.station_levels)
 			cable_turfs |= get_turf(C)
 
 	for(T in cable_turfs)
@@ -153,7 +153,7 @@ datum/unit_test/wire_test/start_test()
 	var/ladders_blocked = 0
 
 	for (var/obj/structure/ladder/ladder in world)
-		if (ladder.z in config.admin_levels)
+		if (ladder.z in current_map.admin_levels)
 			continue
 
 		ladders_total++

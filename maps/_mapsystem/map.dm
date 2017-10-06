@@ -35,8 +35,6 @@
 	var/company_short = "BM"
 	var/system_name = "Uncharted System"
 
-	var/map_admin_faxes = list()
-
 	var/shuttle_docked_message
 	var/shuttle_leaving_dock
 	var/shuttle_called_message
@@ -44,6 +42,7 @@
 	var/emergency_shuttle_docked_message
 	var/emergency_shuttle_leaving_dock
 	var/emergency_shuttle_recall_message
+	var/emergency_shuttle_called_message
 
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.
 
@@ -68,20 +67,10 @@
 	if(!allowed_jobs)
 		allowed_jobs = subtypesof(/datum/job)
 
-/datum/map/proc/setup_map()
-	/*var/list/lobby_music_tracks = subtypesof(/lobby_music)
-	var/lobby_music_type = /lobby_music
-	if(lobby_music_tracks.len)
-		lobby_music_type = pick(lobby_music_tracks)-
-	lobby_music = new lobby_music_type()
-	world.update_status()*/
-
-/datum/map/proc/send_welcome()
+/datum/map/proc/generate_asteroid()
 	return
 
-/datum/map/proc/perform_map_generation()
-	return
-
+// Override to set custom access requirements for camera networks.
 /datum/map/proc/get_network_access(var/network)
 	return 0
 
@@ -93,10 +82,3 @@
 	if(!candidates.len)
 		return current_z_level
 	return text2num(pickweight(candidates))
-/*
-/datum/map/proc/get_empty_zlevel()
-	if(empty_levels == null)
-		world.maxz++
-		empty_levels = list(world.maxz)
-	return pick(empty_levels)
-*/

@@ -84,8 +84,6 @@ var/global/datum/global_init/init = new ()
 	load_mods()
 	//end-emergency fix
 
-	src.update_status()
-
 	. = ..()
 
 #ifdef UNIT_TEST

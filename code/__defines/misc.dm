@@ -375,7 +375,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define DEFAULT_SIGHT (SEE_SELF|SEE_BLACKNESS)
 
-#define isStationLevel(Z) ((Z) in config.station_levels)
+#define isStationLevel(Z) ((Z) in current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
 
 //Affects the chance that armour will block an attack. Should be between 0 and 1.

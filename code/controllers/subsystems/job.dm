@@ -4,6 +4,8 @@
 #define BE_ASSISTANT 1
 #define RETURN_TO_LOBBY 2
 
+#define Debug(text) if (Debug2) {job_debug += text}
+
 /datum/controller/subsystem/jobs
 	// Subsystem stuff.
 	name = "Jobs"
@@ -32,26 +34,19 @@
 
 /datum/controller/subsystem/jobs/proc/SetupOccupations(faction = "Station")
 	occupations = list()
-	var/list/all_jobs = typesof(/datum/job)
+	var/list/all_jobs = current_map.allowed_jobs
 	if(!all_jobs.len)
 		world << "<span class='warning'>Error setting up jobs, no job datums found!</span>"
 		return FALSE
 
 	for(var/J in all_jobs)
 		var/datum/job/job = new J()
-		if(!job)	continue
-		if(job.faction != faction)	continue
+		if(!job || job.faction != faction)
+			continue
 		occupations += job
 		if (config && config.use_age_restriction_for_jobs)
 			job.fetch_age_restriction()
 
-	return TRUE
-
-/datum/controller/subsystem/jobs/proc/Debug(text)
-	if (!Debug2)
-		return FALSE
-
-	job_debug += text
 	return TRUE
 
 /datum/controller/subsystem/jobs/proc/GetJob(rank)
@@ -431,19 +426,19 @@
 	return H
 
 /mob/living/carbon/human
-	var/tmp/odin_despawn_timer
+	var/tmp/centcomm_despawn_timer
 
-/mob/living/proc/odin_timeout()
+/mob/living/proc/centcomm_timeout()
 	if (!istype(get_area(src), /area/centcom/spawning))
 		return FALSE
 
 	if (!client)
-		SSjobs.odin_despawn_mob(src)
+		SSjobs.centcomm_despawn_mob(src)
 		return FALSE
 
 	return TRUE
 
-/mob/living/carbon/human/odin_timeout()
+/mob/living/carbon/human/centcomm_timeout()
 	. = ..()
 
 	if (!.)
@@ -459,11 +454,11 @@
 			SSjobs.EquipRank(src, rank, 1)
 			src.megavend = TRUE
 	else
-		SSjobs.odin_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
+		SSjobs.centcomm_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
 
 	return TRUE
 
-/mob/living/silicon/robot/odin_timeout()
+/mob/living/silicon/robot/centcomm_timeout()
 	. = ..()
 
 	if (!.)
@@ -475,12 +470,12 @@
 		src.forceMove(pick(spawnpos.turfs))
 		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
 	else
-		SSjobs.odin_despawn_mob(src)
+		SSjobs.centcomm_despawn_mob(src)
 
 	return TRUE
 
 // Convenience wrapper.
-/datum/controller/subsystem/jobs/proc/odin_despawn_mob(mob/living/H)
+/datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
 		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "NTCC Odin Cryogenic Oversight")
 		H.visible_message("<span class='notice'>[H.name] makes their way to the Odin's cryostorage, and departs.</span>", 3)
@@ -495,7 +490,7 @@
 	if(!H)
 		Debug("EP/([H]): Abort, H is null.")
 		return null
-	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
+	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
 	switch(rank)
 		if("Cyborg")
 			Debug("EP/([H]): Abort, H is borg..")
@@ -739,7 +734,7 @@
 		if ((G.fields["name"] == H.real_name))
 			qdel(G)
 
-	log_and_message_admins("[key_name(H)] ([H.mind.role_alt_title]) entered cryostorage.")
+	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
 
 	//This should guarantee that ghosts don't spawn.
 	H.ckey = null
@@ -864,3 +859,4 @@
 	else
 		return locate("start*[rank]") // use old stype
 
+#undef Debug

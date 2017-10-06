@@ -403,7 +403,7 @@ var/list/mob/living/forced_ambiance_list = new
 		if(!Y)
 			continue
 		var/area/A = Y
-		if(!(A.z in config.station_levels))
+		if(!(A.z in current_map.station_levels))
 			continue
 		if (istype(A, /area/shuttle))
 			continue

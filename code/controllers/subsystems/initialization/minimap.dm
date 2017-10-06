@@ -37,7 +37,7 @@
 
 	log_debug("SSminimap: [holo_minimaps.len] maps.")
 
-	for (var/z in config.station_levels)
+	for (var/z in current_map.station_levels)
 		generateStationMinimap(z)
 
 	..()

@@ -319,21 +319,6 @@ CHARACTER_SLOTS 10
 ## Uncomment to use overmap system for zlevel travel
 #USE_OVERMAP
 
-## Defines which Z-levels the station exists on. Only set if you need to change the defaults.
-#STATION_LEVELS 3;4;5;6;7
-
-## Defines which Z-levels are used for admin functionality, such as Central Command and the Syndicate Shuttle. Only set if you need to change the defaults.
-#ADMIN_LEVELS 1
-
-## Defines which Z-levels which, for example, a Code Red announcement may affect. Only set if you need to change the defaults.
-#CONTACT_LEVELS 3;4;5;6
-
-## Defines all Z-levels a character can typically reach. Only set if you need to change the defaults.
-#PLAYER_LEVELS 2;3;4;5;6;7;8
-
-## Defines which levels cannot be left via touching map borders. Only set if you need to change the defaults.
-#SEALED_LEVELS
-
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 180
 

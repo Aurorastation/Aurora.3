@@ -1,11 +1,24 @@
+// This file controls round-start runtime maploading.
+
+// First, some globals.
+var/datum/map/current_map	// Whatever map is currently loaded. Null until SSmap Initialize() starts.
+var/map_override = "aurora"	// If set, SSmap will forcibly load this map. If the map does not exist, mapload will fail and SSmap will panic.
+
+// Legacy-ish map vars, mostly because I don't want to refactor the 100+ mentions to them. Overwritten by SSmap.Initialize()
+var/station_name  = "Someone fucked up and loaded this name before the map"
+var/station_short = "Someone fucked up and loaded this name before the map"
+var/dock_name     = "Someone fucked up and loaded this name before the map"
+var/boss_name     = "Someone fucked up and loaded this name before the map"
+var/boss_short    = "Someone fucked up and loaded this name before the map"
+var/company_name  = "Someone fucked up and loaded this name before the map"
+var/company_short = "Someone fucked up and loaded this name before the map"
+
 var/datum/controller/subsystem/map/SSmap
-var/datum/map/current_map
-var/map_override = "aurora"
 
 /datum/controller/subsystem/map
 	name = "Map"
 	flags = SS_NO_FIRE
-	init_order = 30
+	init_order = SS_INIT_MAPLOAD
 
 	var/list/known_maps
 	var/dmm_suite/maploader
@@ -25,7 +38,7 @@ var/map_override = "aurora"
 			log_debug("SSmap: Map [M.name] ([M.type]) has no path set, discarding.")
 			qdel(M)
 			continue
-		
+
 		known_maps[M.path] = M
 
 	if (!map_override)
@@ -34,6 +47,10 @@ var/map_override = "aurora"
 	current_map = known_maps[map_override]
 	if (!current_map)
 		world.map_panic()
+
+	copy_names()
+
+	world.update_status()
 
 	admin_notice("<span class='danger'>Loading map [current_map.name].</span>")
 	world.log << "current_map=[current_map]"
@@ -69,6 +86,19 @@ var/map_override = "aurora"
 /datum/controller/subsystem/map/proc/get_loaded_map()
 	. = "aurora"
 
+/datum/controller/subsystem/map/proc/copy_names()
+	station_name = current_map.station_name
+	station_short = current_map.station_short
+	dock_name = current_map.dock_name
+	boss_name = current_map.boss_name
+	boss_short = current_map.boss_short
+	company_name = current_map.company_name
+	company_short = current_map.company_short
+
+	admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply")
+
+	log_debug("SSmap: Copied names from current_map.")
+
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic()
 	to_chat(world, "<span class='danger'>Fatal error during map setup, unable to continue! Server will reboot in 60 seconds.</span>")
@@ -76,13 +106,23 @@ var/map_override = "aurora"
 	world.Reboot()
 
 /proc/station_name()
+	if (!current_map)
+		return
 	. = current_map.station_name
 
 	var/sname
 	if (config && config.server_name)
-		sname = "[config.server_name]: [name]"
+		sname = "[config.server_name]: [.]"
 	else
-		sname = station_name
+		sname = .
 
 	if (world.name != sname)
 		world.name = sname
+
+/proc/system_name()
+	ASSERT(current_map)
+	return current_map.system_name
+
+/proc/commstation_name()
+	ASSERT(current_map)
+	return current_map.dock_name
