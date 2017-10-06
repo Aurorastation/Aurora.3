@@ -188,7 +188,14 @@
 			cube.Expand()
 
 /datum/reagent/water/touch_mob(var/mob/living/L, var/amount)
+
 	if(istype(L))
+	//Kill slimes.
+		if(istype(L, /mob/living/simple_animal/slime))
+			var/mob/living/simple_animal/slime/S = L
+			S.adjustToxLoss(15 * amount)
+			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
+
 		var/needed = L.fire_stacks * 10
 		if(amount > needed)
 			L.fire_stacks = 0
@@ -197,17 +204,6 @@
 		else
 			L.adjust_fire_stacks(-(amount / 10))
 			remove_self(amount)
-
-/datum/reagent/water/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(istype(M, /mob/living/carbon/slime))
-		var/mob/living/carbon/slime/S = M
-		S.adjustToxLoss(8 * removed) // Babies have 150 health, adults have 200; So, 10 units and 13.5
-		if(!S.client)
-			if(S.Target) // Like cats
-				S.Target = null
-				++S.Discipline
-		if(dose == removed)
-			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
 
 /datum/reagent/fuel
 	name = "Welding fuel"

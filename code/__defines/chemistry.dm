@@ -14,6 +14,8 @@
 
 #define CHEM_SYNTH_ENERGY 500 // How much energy does it take to synthesize 1 unit of chemical, in Joules.
 
+#define REAGENTS_PER_SHEET 20 //How many reagents per sheet in a grinder?
+
 // Some on_mob_life() procs check for alien races.
 #define IS_DIONA   1
 #define IS_VOX     2

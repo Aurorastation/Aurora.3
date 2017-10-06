@@ -41,6 +41,7 @@
 	speed = -1                    //Spiderbots gotta go fast.
 	pass_flags = PASSTABLE | PASSDOORHATCH
 	speak_emote = list("beeps","clicks","chirps")
+	intelligence_level = SA_HUMANOID
 
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()

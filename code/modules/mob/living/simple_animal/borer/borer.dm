@@ -25,6 +25,8 @@
 	holder_type = /obj/item/weapon/holder/borer
 	mob_size = 1
 
+	intelligence_level = SA_HUMANOID // Player controlled.
+
 	var/used_dominate
 	var/chemicals = 10                      // Chemicals used for reproduction and spitting neurotoxin.
 	var/mob/living/carbon/human/host        // Human host for the brain worm.

@@ -36,3 +36,12 @@
 			if(R.radio)
 				spawn(0) R.radio.hear_talk(src, sanitize(message), verb, speaking)
 		..(trim(message), speaking, verb)
+
+/mob/living/carbon/human/speech_bubble_appearance()
+	if(isSynthetic())
+		var/datum/robolimb/robo = isSynthetic()
+		return robo.speech_bubble_appearance
+	else
+		if(species)
+			return species.speech_bubble_appearance
+return "normal"

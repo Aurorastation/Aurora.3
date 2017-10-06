@@ -19,6 +19,7 @@
 	holder_type = /obj/item/weapon/holder/lizard
 	density = 0
 	seek_speed = 0.75
+	intelligence_level = SA_ANIMAL
 
 	var/decompose_time = 18000
 

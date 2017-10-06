@@ -2,7 +2,7 @@
 	name = "Slime"
 	name_plural = "slimes"
 	mob_size = MOB_SMALL
-
+	speech_bubble_appearance = "slime"
 	icobase = 'icons/mob/human_races/r_slime.dmi'
 	deform = 'icons/mob/human_races/r_slime.dmi'
 

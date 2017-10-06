@@ -29,8 +29,8 @@ var/global/list/can_enter_vent_with = list(
 		remove_ventcrawl()
 		add_ventcrawl(loc)
 
-/mob/living/carbon/slime/can_ventcrawl()
-	if(Victim)
+/mob/living/simple_animal/slime/can_ventcrawl()
+	if(victim)
 		src << "<span class='warning'>You cannot ventcrawl while feeding.</span>"
 		return 0
 	return 1

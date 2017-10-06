@@ -51,6 +51,7 @@
 
 	can_pull_size = 1
 	can_pull_mobs = MOB_PULL_NONE
+	intelligence_level = SA_ANIMAL
 
 	var/decompose_time = 18000
 
@@ -182,7 +183,7 @@
 	if (stat == CONSCIOUS)
 		if (squeakcooldown > world.time) return
 		squeakcooldown = world.time + 4 SECONDS
-	
+
 		if (squeals > 0 || !manual)
 			playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
 			squeals --

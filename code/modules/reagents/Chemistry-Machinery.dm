@@ -229,7 +229,7 @@
 	if(inoperable())
 		return
 	user.set_machine(src)
-	
+
 	var/datum/asset/pill_icons = get_asset_datum(/datum/asset/chem_master)
 	pill_icons.send(user.client)
 
@@ -562,6 +562,7 @@
 		/obj/item/stack/material/phoron = "phoron",
 		/obj/item/stack/material/gold = "gold",
 		/obj/item/stack/material/silver = "silver",
+		/obj/item/stack/material/platinum = "platinum",
 		/obj/item/stack/material/mhydrogen = "hydrazine" //doesn't really make much sense but thank Bay
 		)
 

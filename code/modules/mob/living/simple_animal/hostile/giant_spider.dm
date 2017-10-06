@@ -20,7 +20,6 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
-	stop_automated_movement_when_pulled = 0
 	maxHealth = 200
 	health = 200
 	melee_damage_lower = 15
@@ -35,6 +34,7 @@
 	move_to_delay = 6
 	speed = 3
 	mob_size = 6
+	intelligence_level = SA_ANIMAL
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse

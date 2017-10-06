@@ -14,6 +14,9 @@
 			message_mode = null
 		return radio.talk_into(src,message,message_mode,verb,speaking)
 
+/mob/living/silicon/speech_bubble_appearance()
+	return "synthetic"
+
 /mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	..()
 	if(message_mode == "department")
@@ -81,7 +84,7 @@
 		//This is much faster.
 		var/list/listening = list()
 		var/list/listening_obj = list()
-		var/turf/T = get_turf(H)		
+		var/turf/T = get_turf(H)
 
 		if(T)
 			var/list/hear = hear(7, T)

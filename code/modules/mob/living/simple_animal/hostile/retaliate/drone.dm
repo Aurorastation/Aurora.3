@@ -23,6 +23,7 @@
 	projectiletype = /obj/item/projectile/beam/drone
 	projectilesound = 'sound/weapons/laser3.ogg'
 	destroy_surroundings = 0
+	intelligence_level = SA_ROBOTIC
 	var/datum/effect_system/ion_trail/ion_trail
 
 	//the drone randomly switches between these states because it's malfunctioning

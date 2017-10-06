@@ -39,7 +39,7 @@
 			return 1
 	else if (istype(other, /mob/living/carbon/human))
 		return 1
-	else if (istype(other, /mob/living/carbon/slime))
+	else if (istype(other, /mob/living/simple_mob/slime))
 		return 1
 
 	return ..()

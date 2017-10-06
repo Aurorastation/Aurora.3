@@ -60,10 +60,13 @@
 			playsound(loc, 'sound/effects/Glasshit.ogg', 100, 1)
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			visible_message("[src] looks like it's about to shatter!" )
+			update_icon()
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			visible_message("[src] looks seriously damaged!" )
+			update_icon()
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			visible_message("Cracks begin to appear in [src]!" )
+			update_icon()
 	return
 
 /obj/structure/window/proc/apply_silicate(var/amount)
@@ -205,6 +208,8 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage >= 10)
 		visible_message("<span class='danger'>[user] smashes into [src]!</span>")
+		if(reinf)
+			damage = damage / 2
 		take_damage(damage)
 	else
 		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
@@ -214,6 +219,24 @@
 
 /obj/structure/window/attackby(obj/item/W as obj, mob/user as mob)
 	if(!istype(W)) return//I really wish I did not need this
+
+		// Fixing.
+	if(istype(W, /obj/item/weapon/weldingtool) && user.a_intent == I_HELP)
+		var/obj/item/weapon/weldingtool/WT = W
+		if(health < maxhealth)
+			if(WT.remove_fuel(1 ,user))
+				to_chat(user, "<span class='notice'>You begin repairing [src]...</span>")
+				playsound(src, WT.usesound, 50, 1)
+				if(do_after(user, 40 * WT.toolspeed, target = src))
+					health = maxhealth
+			//		playsound(src, 'sound/items/Welder.ogg', 50, 1)
+					update_icon()
+					to_chat(user, "<span class='notice'>You repair [src].</span>")
+		else
+			to_chat(user, "<span class='warning'>[src] is already in good condition!</span>")
+		return
+
+
 	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
 		var/obj/item/weapon/grab/G = W
 		if(istype(G.affecting,/mob/living))
@@ -405,7 +428,17 @@
 		var/image/I = image(icon, "[basestate][connections[i]]", dir = 1<<(i-1))
 		overlays += I
 
-	return
+
+	// Damage overlays.
+	var/ratio = health / maxhealth
+	ratio = Ceiling(ratio * 4) * 25
+
+	if(ratio > 75)
+		return
+	var/image/I = image(icon, "damage[ratio]", layer + 0.1)
+	overlays += I
+
+return
 
 /obj/structure/window/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > maximal_heat)

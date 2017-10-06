@@ -16,8 +16,6 @@
 	speed = 4
 	mob_size = 14
 
-	tameable = FALSE
-
 /mob/living/simple_animal/hostile/creature/cult
 	faction = "cult"
 

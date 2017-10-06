@@ -194,14 +194,14 @@
 				LB.user_unbuckle_mob(user)
 			if(!ismob(G:affecting))
 				return
-			for(var/mob/living/carbon/slime/M in range(1,G:affecting))
-				if(M.Victim == G:affecting)
-					usr << "[G:affecting:name] will not fit into the cryo because they have a slime latched onto their head."
+			for(var/mob/living/simple_mob/slime/M in range(1,G:affecting))
+				if(M.victim == grab.affecting)
+					usr << "[grab.affecting.name] will not fit into the cryo because they have a slime latched onto their head."
 					return
-			var/mob/M = G:affecting
+			var/mob/M = grab.affecting
 			if(put_mob(M))
 				visible_message("[user] puts [M.name] into the cryo cell.", 3)
-				qdel(G)
+				qdel(grab)
 	return
 
 /obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
@@ -210,8 +210,8 @@
 	if(!ismob(O))
 		return
 	var/mob/living/L = O
-	for(var/mob/living/carbon/slime/M in range(1,L))
-		if(M.Victim == L)
+	for(var/mob/living/simple_animal/slime/M in range(1,L))
+		if(M.victim == L)
 			usr << "[L.name] will not fit into the cryo because they have a slime latched onto their head."
 			return
 
@@ -389,8 +389,8 @@
 	set name = "Move Inside"
 	set category = "Object"
 	set src in oview(1)
-	for(var/mob/living/carbon/slime/M in range(1,usr))
-		if(M.Victim == usr)
+	for(var/mob/living/simple_animal/slime/M in range(1,usr))
+		if(M.victim == usr)
 			usr << "You're too busy getting your life sucked out of you."
 			return
 	if (usr.stat != 0)

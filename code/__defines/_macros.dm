@@ -40,7 +40,7 @@
 
 #define issilicon(A) istype(A, /mob/living/silicon)
 
-#define isslime(A) istype(A, /mob/living/carbon/slime)
+#define isslime(A) istype(A, /mob/living/simple_animal/slime)
 
 #define isscrewdriver(A) istype(A, /obj/item/weapon/screwdriver)
 

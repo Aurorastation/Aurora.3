@@ -22,6 +22,7 @@
 	var/obj/item/inventory_head
 	var/obj/item/inventory_mask
 	possession_candidate = 1
+	intelligence_level = SA_ANIMAL
 
 /mob/living/simple_animal/crab/Life()
 	..()

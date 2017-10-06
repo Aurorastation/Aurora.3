@@ -167,6 +167,14 @@
 	color = "#D0D0D0"
 	taste_description = "expensive yet reasonable metal"
 
+/datum/reagent/platinum
+	name = "Platinum"
+	id = "platinum"
+	description = "Platinum is a dense, malleable, ductile, highly unreactive, precious, gray-white transition metal.  It is very resistant to corrosion."
+	taste_description = "metal"
+	reagent_state = SOLID
+	color = "#777777"
+
 /datum/reagent/uranium
 	name ="Uranium"
 	id = "uranium"

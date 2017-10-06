@@ -13,6 +13,7 @@
 	maxHealth = 80
 	health = 80
 	environment_smash = 2
+	intelligence_level = SA_HUMANOID
 
 	tameable = FALSE
 

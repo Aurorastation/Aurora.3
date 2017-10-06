@@ -14,6 +14,8 @@
 	var/maxcharge = 1000
 	var/rigged = 0		// true if rigged to explode
 	var/minor_fault = 0 //If not 100% reliable, it will build up faults.
+	var/self_recharge = FALSE // If true, the cell will recharge itself.
+	var/charge_amount = 25 // How much power to give, if self_recharge is true. The number is in absolute cell charge, as it gets divided by CELLRATE later.
 	matter = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 50)
 
 //currently only used by energy-type guns, that may change in the future.
@@ -126,8 +128,10 @@
 /obj/item/weapon/cell/slime
 	name = "charged slime core"
 	desc = "A yellow slime core infused with phoron, it crackles with power."
-	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
+	description_info = "This 'cell' holds a max charge of 10k and self recharges over time."
+	origin_tech = list(TECH_POWER = 4, TECH_BIO = 5)
 	icon = 'icons/mob/slimes.dmi' //'icons/obj/harvest.dmi'
 	icon_state = "yellow slime extract" //"potato_battery"
 	maxcharge = 10000
 	matter = null
+	self_recharge = TRUE

@@ -77,7 +77,7 @@
 /obj/item/projectile/proc/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	if(blocked >= 100)		return 0//Full block
 	if(!isliving(target))	return 0
-	if(isanimal(target))	return 0
+//	if(isanimal(target))	return 0
 	var/mob/living/L = target
 	if (agony && ishuman(target))
 		var/mob/living/carbon/human/H = target

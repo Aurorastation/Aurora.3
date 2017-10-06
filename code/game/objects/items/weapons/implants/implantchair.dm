@@ -76,13 +76,14 @@
 
 	attackby(var/obj/item/weapon/G as obj, var/mob/user as mob)
 		if(istype(G, /obj/item/weapon/grab))
-			if(!ismob(G:affecting))
+			var/obj/item/weapon/grab/grab = G
+			if(!ismob(grab.affecting))
 				return
-			for(var/mob/living/carbon/slime/M in range(1,G:affecting))
-				if(M.Victim == G:affecting)
-					usr << "[G:affecting:name] will not fit into the [src.name] because they have a slime latched onto their head."
+			for(var/mob/living/simple_animal/slime/M in range(1,grab.affecting))
+				if(M.victim == grab.affecting)
+					usr << "[grab.affecting.name] will not fit into the [src.name] because they have a slime latched onto their head."
 					return
-			var/mob/M = G:affecting
+			var/mob/M = grab.affecting
 			if(put_mob(M))
 				qdel(G)
 		src.updateUsrDialog()
