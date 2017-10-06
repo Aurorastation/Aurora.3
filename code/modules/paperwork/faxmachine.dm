@@ -20,8 +20,6 @@ var/list/admin_departments
 	var/static/const/broadcastfax_cooldown = 3000
 
 	var/static/const/broadcast_departments = "Stationwide broadcast (WARNING)"
-	var/static/list/admin_departments = list("Central Command", "Tau Ceti Government")
-
 	var/obj/item/weapon/card/id/scan = null // identification
 	var/authenticated = 0
 	var/sendtime = 0		// Time when fax was sent
@@ -32,8 +30,8 @@ var/list/admin_departments
 
 	var/list/obj/item/device/pda/alert_pdas = list() //A list of PDAs to alert upon arrival of the fax.
 
-/obj/machinery/photocopier/faxmachine/New()
-	..()
+/obj/machinery/photocopier/faxmachine/Initialize()
+	. = ..()
 	allfaxes += src
 	if(!destination) destination = "[boss_name]"
 	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )

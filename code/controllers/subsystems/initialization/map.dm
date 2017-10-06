@@ -20,7 +20,7 @@ var/datum/controller/subsystem/map/SSmap
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_MAPLOAD
 
-	var/list/known_maps
+	var/list/known_maps = list()
 	var/dmm_suite/maploader
 	var/list/height_markers = list()
 
@@ -28,9 +28,9 @@ var/datum/controller/subsystem/map/SSmap
 	NEW_SS_GLOBAL(SSmap)
 
 /datum/controller/subsystem/map/Initialize(timeofday)
+	lobby_image = new /obj/effect/lobby_image
 	maploader = new
-	lobby_image = new/obj/effect/lobby_image()
-	known_maps = list()
+
 	var/datum/map/M
 	for (var/type in subtypesof(/datum/map))
 		M = new type
@@ -42,7 +42,7 @@ var/datum/controller/subsystem/map/SSmap
 		known_maps[M.path] = M
 
 	if (!map_override)
-		map_override = get_loaded_map()
+		map_override = get_selected_map()
 
 	current_map = known_maps[map_override]
 	if (!current_map)
@@ -52,17 +52,15 @@ var/datum/controller/subsystem/map/SSmap
 
 	world.update_status()
 
-	admin_notice("<span class='danger'>Loading map [current_map.name].</span>")
-	world.log << "current_map=[current_map]"
+	admin_notice("<span class='danger'>Loading map [current_map.name].</span>", R_DEBUG)
+	world.log << "Loading [current_map]."
 	// Begin loading the maps.
 	var/regex/mapregex = new(".*\\.dmm$")
 	var/maps_loaded = 0
 	for (var/mfile in flist("maps/[current_map.path]/"))
 		if (!mapregex.Find(mfile))
-			world.log << "Skipping [mfile]."
 			continue
 
-		world.log << "Loading [mfile]."
 		mfile = "maps/[current_map.path]/[mfile]"
 
 		if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
@@ -79,11 +77,13 @@ var/datum/controller/subsystem/map/SSmap
 		var/obj/effect/landmark/map_data/marker = thing
 		marker.setup()
 
+	QDEL_NULL(maploader)
+
 	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
 
 	..()
 
-/datum/controller/subsystem/map/proc/get_loaded_map()
+/datum/controller/subsystem/map/proc/get_selected_map()
 	. = "aurora"
 
 /datum/controller/subsystem/map/proc/copy_names()
@@ -95,7 +95,11 @@ var/datum/controller/subsystem/map/SSmap
 	company_name = current_map.company_name
 	company_short = current_map.company_short
 
-	admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply")
+	admin_departments = list(
+		"[boss_name]",
+		"[current_map.system_name] Government", 
+		"Supply"
+	)
 
 	priority_announcement = new(do_log = 0)
 	command_announcement = new(do_log = 0, do_newscast = 1)
@@ -109,8 +113,7 @@ var/datum/controller/subsystem/map/SSmap
 	world.Reboot()
 
 /proc/station_name()
-	if (!current_map)
-		return
+	ASSERT(current_map)
 	. = current_map.station_name
 
 	var/sname
