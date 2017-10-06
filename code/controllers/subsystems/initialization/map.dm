@@ -41,7 +41,10 @@ var/datum/controller/subsystem/map/SSmap
 
 		known_maps[M.path] = M
 
-	map_override = world.get_default_map()	// Only should return anything if a compiled in map is specified.
+#ifdef DEFAULT_MAP
+	map_override = DEFAULT_MAP
+	log_ss("map", "Using compile-selected map.")
+#endif
 	if (!map_override)
 		map_override = get_selected_map()
 
@@ -127,9 +130,6 @@ var/datum/controller/subsystem/map/SSmap
 	log_ss("map", "-- FATAL ERROR DURING MAP SETUP: [uppertext(reason)] --")
 	sleep(1 MINUTE)
 	world.Reboot()
-
-/world/proc/get_default_map()
-	return
 
 /proc/station_name()
 	ASSERT(current_map)
