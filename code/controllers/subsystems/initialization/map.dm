@@ -44,44 +44,58 @@ var/datum/controller/subsystem/map/SSmap
 	if (!map_override)
 		map_override = get_selected_map()
 
+	admin_notice("<span class='danger'>Loading map [map_override].</span>", R_DEBUG)
+	log_ss("map", "Using map '[map_override]'.")
+
 	current_map = known_maps[map_override]
 	if (!current_map)
-		world.map_panic()
+		world.map_panic("Selected map does not exist!")
 
 	copy_names()
 
 	world.update_status()
 
-	admin_notice("<span class='danger'>Loading map [current_map.name].</span>", R_DEBUG)
-	world.log << "Loading [current_map]."
 	// Begin loading the maps.
-	var/regex/mapregex = new(".*\\.dmm$")
-	var/maps_loaded = 0
-	for (var/mfile in flist("maps/[current_map.path]/"))
-		if (!mapregex.Find(mfile))
-			continue
+	var/maps_loaded = load_map_directory("maps/[current_map.path]/")
 
-		mfile = "maps/[current_map.path]/[mfile]"
-
-		if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
-			world.log << "Map [mfile] failed to load!"
-
-		maps_loaded++
-		CHECK_TICK
+	log_ss("map", "Loaded [maps_loaded] maps.")
+	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
 
 	if (!maps_loaded)
-		log_debug("No maps loaded!")
-		world.map_panic()
+		world.map_panic("No maps loaded!")
 
-	for (var/thing in height_markers)
-		var/obj/effect/landmark/map_data/marker = thing
-		marker.setup()
+	setup_multiz()
 
 	QDEL_NULL(maploader)
 
-	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
-
 	..()
+
+/datum/controller/subsystem/map/proc/load_map_directory(directory)
+	. = 0
+	if (!directory)
+		CRASH("No directory supplied.")
+
+	var/static/regex/mapregex = new(".+\\.dmm$")
+	var/list/files = flist(directory)
+	sortTim(files, /proc/cmp_text_asc)
+	for (var/mfile in files)
+		if (!mapregex.Find(mfile))
+			continue
+
+		log_ss("map", "Loading '[mfile]'.")
+
+		mfile = "[directory][mfile]"
+
+		if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
+			log_ss("map", "Failed to load '[mfile]'!")
+
+		.++
+		CHECK_TICK
+
+/datum/controller/subsystem/map/proc/setup_multiz()
+	for (var/thing in height_markers)
+		var/obj/effect/landmark/map_data/marker = thing
+		marker.setup()
 
 /datum/controller/subsystem/map/proc/get_selected_map()
 	. = "aurora"
@@ -107,8 +121,9 @@ var/datum/controller/subsystem/map/SSmap
 	log_debug("SSmap: Copied names from current_map.")
 
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
-/world/proc/map_panic()
+/world/proc/map_panic(reason)
 	to_chat(world, "<span class='danger'>Fatal error during map setup, unable to continue! Server will reboot in 60 seconds.</span>")
+	log_ss("map", "-- FATAL ERROR DURING MAP SETUP: [uppertext(reason)] --")
 	sleep(1 MINUTE)
 	world.Reboot()
 
@@ -124,6 +139,7 @@ var/datum/controller/subsystem/map/SSmap
 
 	if (world.name != sname)
 		world.name = sname
+		world.log << "Set world.name to [sname]."
 
 /proc/system_name()
 	ASSERT(current_map)
