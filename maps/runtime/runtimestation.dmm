@@ -1352,7 +1352,7 @@
 /area/hallway/secondary/entry)
 "dD" = (
 /obj/effect/landmark{
-	name = "tdome"
+	name = "tdome1"
 	},
 /turf/simulated/floor/plating,
 /area/construction)
@@ -2321,7 +2321,7 @@ dc
 dc
 dc
 dD
-dJ
+dD
 dc
 dc
 dc
@@ -2374,8 +2374,8 @@ dc
 dc
 dc
 dc
-dE
-dK
+dD
+dD
 dc
 dc
 dc
@@ -2428,8 +2428,8 @@ dc
 dc
 dc
 dc
-dF
-dL
+dD
+dD
 dc
 dc
 dc
@@ -2482,8 +2482,8 @@ dc
 dc
 dc
 dc
-dG
-dM
+dD
+dD
 dc
 dc
 dc
@@ -2536,8 +2536,8 @@ dc
 dc
 dc
 dc
-dH
-dN
+dD
+dD
 dc
 dc
 dc
@@ -2590,8 +2590,8 @@ dc
 dc
 dc
 dc
-dI
-dO
+dD
+dD
 dc
 dc
 dc
