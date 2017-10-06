@@ -30,4 +30,9 @@
 		,/area/rnd/test_area
 		,/area/construction
 		,/area/server
+		,/area/security/nuke_storage
+		,/area/tcommsat/chamber
+		,/area/bridge/aibunker
+		,/area/engineering/cooling
+		,/area/outpost/research/emergency_storage
 	)
