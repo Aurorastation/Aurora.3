@@ -26,7 +26,7 @@ datum/unit_test/apc_area_test/start_test()
 	var/list/exempt_from_atmos = typecacheof(current_map.ut_atmos_exempt_areas)
 	var/list/exempt_from_apc = typecacheof(current_map.ut_apc_exempt_areas)
 
-	for(var/area/A in typecache_filter_list_reverse(world, exempt_areas))
+	for(var/area/A in typecache_filter_list_reverse(all_areas, exempt_areas))
 		if(A.z in current_map.station_levels)
 			area_test_count++
 			var/area_good = 1
