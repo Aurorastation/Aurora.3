@@ -2,7 +2,7 @@
 
 // First, some globals.
 var/datum/map/current_map	// Whatever map is currently loaded. Null until SSmap Initialize() starts.
-var/map_override = "aurora"	// If set, SSmap will forcibly load this map. If the map does not exist, mapload will fail and SSmap will panic.
+var/map_override	// If set, SSmap will forcibly load this map. If the map does not exist, mapload will fail and SSmap will panic.
 
 // Legacy-ish map vars, mostly because I don't want to refactor the 100+ mentions to them. Overwritten by SSmap.Initialize()
 var/station_name  = "Someone fucked up and loaded this name before the map"
@@ -41,6 +41,7 @@ var/datum/controller/subsystem/map/SSmap
 
 		known_maps[M.path] = M
 
+	map_override = world.get_default_map()	// Only should return anything if a compiled in map is specified.
 	if (!map_override)
 		map_override = get_selected_map()
 
@@ -126,6 +127,9 @@ var/datum/controller/subsystem/map/SSmap
 	log_ss("map", "-- FATAL ERROR DURING MAP SETUP: [uppertext(reason)] --")
 	sleep(1 MINUTE)
 	world.Reboot()
+
+/world/proc/get_default_map()
+	return
 
 /proc/station_name()
 	ASSERT(current_map)

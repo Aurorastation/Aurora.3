@@ -1,27 +1,19 @@
-// This is a hack around intolerant unit tests.
-#define HOLODECK HOLODECK
-
 /datum/map/aurora
 	holodeck_programs = list(
-		"emptycourt" = new /datum/holodeck_program(
-			HOLODECK/source_emptycourt,
+		"emptycourt" = new /datum/holodeck_program(/area/holodeck/source_emptycourt,
 			list('sound/music/THUNDERDOME.ogg')
 		),
-		"boxingcourt" = new /datum/holodeck_program(
-			HOLODECK/source_boxingcourt,
+		"boxingcourt" = new /datum/holodeck_program(/area/holodeck/source_boxingcourt,
 			list('sound/music/THUNDERDOME.ogg')
 		),
-		"basketball" = new /datum/holodeck_program(
-			HOLODECK/source_basketball,
+		"basketball" = new /datum/holodeck_program(/area/holodeck/source_basketball,
 			list('sound/music/THUNDERDOME.ogg')
 		),
-		"thunderdomecourt" = new /datum/holodeck_program(
-			HOLODECK/source_thunderdomecourt,
+		"thunderdomecourt" = new /datum/holodeck_program(/area/holodeck/source_thunderdomecourt,
 			list('sound/music/THUNDERDOME.ogg')
 		),
-		"beach" = new /datum/holodeck_program(HOLODECK/source_beach),
-		"desert" = new /datum/holodeck_program(
-			HOLODECK/source_desert,
+		"beach" = new /datum/holodeck_program(/area/holodeck/source_beach),
+		"desert" = new /datum/holodeck_program(/area/holodeck/source_desert,
 			list(
 				'sound/effects/wind/wind_2_1.ogg',
 				'sound/effects/wind/wind_2_2.ogg',
@@ -31,8 +23,7 @@
 				'sound/effects/wind/wind_5_1.ogg'
 			)
 		),
-		"snowfield" = new /datum/holodeck_program(
-			HOLODECK/source_snowfield,
+		"snowfield" = new /datum/holodeck_program(/area/holodeck/source_snowfield,
 			list(
 				'sound/effects/wind/wind_2_1.ogg',
 				'sound/effects/wind/wind_2_2.ogg',
@@ -42,8 +33,7 @@
 				'sound/effects/wind/wind_5_1.ogg'
 			)
 		),
-		"space" = new /datum/holodeck_program(
-			HOLODECK/source_space,
+		"space" = new /datum/holodeck_program(/area/holodeck/source_space,
 			list(
 				'sound/ambience/ambispace.ogg',
 				'sound/music/main.ogg',
@@ -51,26 +41,17 @@
 				'sound/music/traitor.ogg'
 			)
 		),
-		"picnicarea" = new /datum/holodeck_program(
-			HOLODECK/source_picnicarea,
+		"picnicarea" = new /datum/holodeck_program(/area/holodeck/source_picnicarea,
 			list('sound/music/title2.ogg')
 		),
-		"theatre" = new /datum/holodeck_program(HOLODECK/source_theatre),
-		"meetinghall" = new /datum/holodeck_program(HOLODECK/source_meetinghall),
-		"courtroom" = new /datum/holodeck_program(
-			HOLODECK/source_courtroom, 
+		"theatre" = new /datum/holodeck_program(/area/holodeck/source_theatre),
+		"meetinghall" = new /datum/holodeck_program(/area/holodeck/source_meetinghall),
+		"courtroom" = new /datum/holodeck_program(/area/holodeck/source_courtroom, 
 			list('sound/music/traitor.ogg')
 		),
-		"burntest" = new /datum/holodeck_program(
-			HOLODECK/source_burntest,
-			list()
-		),
-		"wildlifecarp" = new /datum/holodeck_program(
-			HOLODECK/source_wildlife,
-			list()
-		),
-		"chapel" = new /datum/holodeck_program(
-			HOLODECK/source_chapel,
+		"burntest" = new /datum/holodeck_program(/area/holodeck/source_burntest, list()),
+		"wildlifecarp" = new /datum/holodeck_program(/area/holodeck/source_wildlife, list()),
+		"chapel" = new /datum/holodeck_program(/area/holodeck/source_chapel,
 			list(
 				'sound/ambience/ambicha1.ogg',
 				'sound/ambience/ambicha2.ogg',
@@ -79,11 +60,8 @@
 				'sound/music/traitor.ogg'
 			)
 		),
-		"gym" = new /datum/holodeck_program(HOLODECK/source_gym),
-		"turnoff" = new /datum/holodeck_program(
-			HOLODECK/source_plating,
-			list()
-		)
+		"gym" = new /datum/holodeck_program(/area/holodeck/source_gym),
+		"turnoff" = new /datum/holodeck_program(/area/holodeck/source_plating, list())
 	)
 
 	holodeck_supported_programs = list(
@@ -106,5 +84,3 @@
 		"Atmospheric Burn Simulation" = "burntest",
 		"Wildlife Simulation" = "wildlifecarp"
 	)
-
-#undef HOLODECK
