@@ -102,7 +102,15 @@ var/datum/controller/subsystem/map/SSmap
 		marker.setup()
 
 /datum/controller/subsystem/map/proc/get_selected_map()
-	. = "aurora"
+	if (config.override_map)
+		if (known_maps[config.override_map])
+			. = config.override_map
+			log_ss("map", "Using configured map.")
+		else
+			log_ss("map", "-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
+			. = "aurora"
+	else
+		. = "aurora"
 
 /datum/controller/subsystem/map/proc/copy_names()
 	station_name = current_map.station_name

@@ -482,3 +482,7 @@ FASTBOOT
 
 # Where to load the cargo items from. json or sql
 CARGO_LOAD_ITEMS_FROM json
+
+
+# Forces the maploader to load the specified map path. Valid options: aurora, runtime
+FORCE_MAP aurora
