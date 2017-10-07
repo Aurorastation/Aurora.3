@@ -379,6 +379,30 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	return next_delimiter
 
+/dmm_suite/proc/readlistitem(text as text)
+	//Check for string
+	if(findtext(text,"\"",1,2))
+		. = copytext(text,2,findtext(text,"\"",3,0))
+
+	//Check for number
+	else if(isnum(text2num(text)))
+		. = text2num(text)
+
+	//Check for null
+	else if(text == "null")
+		. = null
+
+	//Check for list
+	else if(copytext(text,1,5) == "list")
+		. = readlist(copytext(text,6,length(text)))
+
+	//Check for file
+	else if(copytext(text,1,2) == "'")
+		. = file(copytext(text,2,length(text)))
+
+	//Check for path
+	else if(ispath(text2path(text)))
+		. = text2path(text)
 
 //build a list from variables in text form (e.g {var1="derp"; var2; var3=7} => list(var1="derp", var2, var3=7))
 //return the filled list
@@ -388,6 +412,7 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	var/position
 	var/old_position = 1
+	var/l_idex = 1
 
 	do
 		//find next delimiter that is not within  "..."
@@ -401,35 +426,12 @@ var/global/dmm_suite/preloader/_preloader = new
 
 		if(equal_position)//associative var, so do the association
 			var/trim_right = trim_text(copytext(text,equal_position+1,position))//the content of the variable
+			to_return[trim_left] = readlistitem(trim_right)
+		else	//simple var
+			to_return.len++
+			to_return[l_idex] = readlistitem(trim_left)
 
-			//Check for string
-			if(findtext(trim_right,"\"",1,2))
-				trim_right = copytext(trim_right,2,findtext(trim_right,"\"",3,0))
-
-			//Check for number
-			else if(isnum(text2num(trim_right)))
-				trim_right = text2num(trim_right)
-
-			//Check for null
-			else if(trim_right == "null")
-				trim_right = null
-
-			//Check for list
-			else if(copytext(trim_right,1,5) == "list")
-				trim_right = readlist(copytext(trim_right,6,length(trim_right)))
-
-			//Check for file
-			else if(copytext(trim_right,1,2) == "'")
-				trim_right = file(copytext(trim_right,2,length(trim_right)))
-
-			//Check for path
-			else if(ispath(text2path(trim_right)))
-				trim_right = text2path(trim_right)
-
-			to_return[trim_left] = trim_right
-
-		else//simple var
-			to_return[trim_left] = null
+		l_idex++
 
 	while(position != 0)
 
@@ -468,5 +470,4 @@ var/global/dmm_suite/preloader/_preloader = new
 
 /turf/template_noop
 	name = "Turf Passthrough"
-	icon = 'icons/turf/space.dmi'
-	icon_state = "0"
+	icon_state = "noop"
