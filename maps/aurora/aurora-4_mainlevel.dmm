@@ -4764,6 +4764,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk,
+/obj/machinery/firealarm/east,
 /turf/simulated/open,
 /area/engineering/atmos)
 "ajL" = (
@@ -5427,16 +5428,24 @@
 	pixel_y = 0
 	},
 /turf/simulated/wall/r_wall,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "all" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/firealarm/west,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/machinery/power/apc/super{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -5787,7 +5796,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "alZ" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Atmospherics Maintenance Access";
@@ -5802,7 +5811,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "ama" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos/storage)
@@ -6267,7 +6276,7 @@
 	pixel_x = 0
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "amP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6281,7 +6290,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "amQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6293,13 +6302,14 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/super{
+/obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
+	pixel_x = 0;
 	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "amR" = (
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Atmospherics Subgrid";
@@ -6323,7 +6333,7 @@
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "amS" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -6699,7 +6709,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "anD" = (
 /obj/machinery/power/terminal{
 	dir = 4
@@ -6709,7 +6719,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "anE" = (
 /obj/machinery/power/smes/buildable{
 	charge = 2e+006;
@@ -6719,7 +6729,7 @@
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "anF" = (
 /obj/structure/table/standard,
 /obj/item/device/multitool,
@@ -80081,7 +80091,7 @@ aab
 alj
 alV
 amL
-anA
+alj
 cgH
 aov
 aov
@@ -80595,7 +80605,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aox
 aox
 aox
@@ -80852,7 +80862,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aoy
 aoy
 aoy
@@ -81109,7 +81119,7 @@ aab
 alj
 alX
 amN
-anA
+alj
 aoz
 apx
 aqv
@@ -81366,7 +81376,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aoA
 apy
 aqw
@@ -81623,7 +81633,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aoB
 apy
 aqx
@@ -81880,7 +81890,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aoC
 apz
 aqy
@@ -82137,7 +82147,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aoD
 apz
 aqy
@@ -82391,11 +82401,11 @@ aab
 aab
 aab
 aab
-adv
-adv
+alj
+alj
 amO
-adv
-adv
+alj
+alj
 anA
 anA
 anA
@@ -82648,11 +82658,11 @@ aab
 aab
 aab
 aab
-adv
-cgv
-cgy
-cgv
-adv
+alj
+alV
+amN
+alV
+alj
 apA
 apA
 apA
@@ -82905,11 +82915,11 @@ aab
 aab
 aab
 aab
-adv
-cgw
-cgy
-cgv
-adv
+alj
+alW
+amN
+alV
+alj
 apA
 apA
 apA
@@ -83162,11 +83172,11 @@ aab
 aab
 aab
 aab
-adv
+alj
 alY
-cgy
-cgv
-adv
+amN
+alV
+alj
 apA
 apA
 apA
@@ -83420,10 +83430,10 @@ aab
 aab
 aab
 alk
-cgv
+alV
 amP
 anC
-adv
+alj
 apA
 apA
 apA
@@ -83676,11 +83686,11 @@ aab
 adv
 cgp
 cgt
-adv
-adv
+alj
+alj
 amQ
 anD
-adv
+alj
 apA
 apA
 apA
@@ -83937,7 +83947,7 @@ all
 alZ
 amR
 anE
-adv
+alj
 apA
 apA
 apA
@@ -84191,10 +84201,10 @@ aiZ
 ahb
 akv
 alm
-adv
-adv
-adv
-adv
+alj
+alj
+alj
+alj
 ama
 ama
 ama

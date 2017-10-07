@@ -9634,6 +9634,7 @@
 	pixel_y = 0
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "rM" = (
@@ -24980,8 +24981,23 @@
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "So" = (
-/turf/simulated/wall,
-/area/engineering/atmos)
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	name = "Firelock"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
 "Sp" = (
 /turf/simulated/wall,
 /area/engineering/atmos)
@@ -24992,6 +25008,19 @@
 /turf/simulated/wall,
 /area/engineering/atmos)
 "Ss" = (
+/turf/simulated/wall,
+/area/engineering/atmos)
+"St" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/engineering/gravity_gen)
+"Su" = (
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Sublevel - Gravity Chamber";
 	dir = 1;
@@ -25001,97 +25030,127 @@
 	icon_state = "plating"
 	},
 /area/engineering/gravity_gen)
-"St" = (
-/turf/simulated/wall,
-/area/outpost/research/anomaly_analysis)
-"Su" = (
-/turf/simulated/wall,
-/area/outpost/research/anomaly_analysis)
 "Sv" = (
 /turf/simulated/wall,
-/area/outpost/research/analysis)
+/area/maintenance/sublevel)
 "Sw" = (
 /turf/simulated/wall,
-/area/outpost/research/analysis)
+/area/maintenance/sublevel)
 "Sx" = (
 /turf/simulated/wall,
-/area/outpost/research/anomaly_analysis)
+/area/bridge/aibunker)
 "Sy" = (
 /turf/simulated/wall,
-/area/outpost/research/emergency_storage)
+/area/bridge/aibunker)
 "Sz" = (
 /turf/simulated/wall,
-/area/outpost/research/anomaly_analysis)
+/area/bridge/aibunker)
 "SA" = (
 /turf/simulated/wall,
-/area/outpost/research/emergency_storage)
+/area/bridge/aibunker)
 "SB" = (
 /turf/simulated/wall,
-/area/maintenance/sublevel)
+/area/bridge/aibunker)
 "SC" = (
 /turf/simulated/wall,
-/area/maintenance/sublevel)
+/area/outpost/research/anomaly_analysis)
 "SD" = (
 /turf/simulated/wall,
-/area/maintenance/sublevel)
+/area/bridge/aibunker)
 "SE" = (
 /turf/simulated/wall,
-/area/maintenance/sublevel)
+/area/outpost/research/anomaly_analysis)
 "SF" = (
 /turf/simulated/wall,
-/area/outpost/research/eva)
+/area/outpost/research/analysis)
 "SG" = (
 /turf/simulated/wall,
-/area/outpost/research/eva)
+/area/outpost/research/analysis)
 "SH" = (
 /turf/simulated/wall,
-/area/outpost/research/eva)
+/area/outpost/research/anomaly_analysis)
 "SI" = (
 /turf/simulated/wall,
-/area/outpost/research/eva)
+/area/outpost/research/emergency_storage)
 "SJ" = (
 /turf/simulated/wall,
-/area/outpost/research/eva)
+/area/bridge/aibunker)
 "SK" = (
 /turf/simulated/wall,
-/area/outpost/research/eva)
+/area/outpost/research/anomaly_analysis)
 "SL" = (
 /turf/simulated/wall,
-/area/outpost/research/eva)
+/area/outpost/research/emergency_storage)
 "SM" = (
 /turf/simulated/wall,
-/area/outpost/research/eva)
+/area/maintenance/sublevel)
 "SN" = (
 /turf/simulated/wall,
-/area/outpost/research/eva)
+/area/maintenance/sublevel)
 "SO" = (
 /turf/simulated/wall,
-/area/outpost/research/eva)
+/area/maintenance/sublevel)
 "SP" = (
 /turf/simulated/wall,
-/area/outpost/research/eva)
+/area/maintenance/sublevel)
 "SQ" = (
 /turf/simulated/wall,
-/area/outpost/research/hallway)
+/area/outpost/research/eva)
 "SR" = (
 /turf/simulated/wall,
-/area/outpost/research/hallway)
+/area/outpost/research/eva)
 "SS" = (
 /turf/simulated/wall,
-/area/outpost/research/hallway)
+/area/maintenance/sublevel)
 "ST" = (
 /turf/simulated/wall,
-/area/maintenance/sublevel)
+/area/outpost/research/eva)
 "SU" = (
 /turf/simulated/wall,
-/area/maintenance/sublevel)
+/area/outpost/research/eva)
 "SV" = (
 /turf/simulated/wall,
-/area/maintenance/sublevel)
+/area/outpost/research/eva)
 "SW" = (
 /turf/simulated/wall,
-/area/maintenance/sublevel)
+/area/outpost/research/eva)
 "SX" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SY" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SZ" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"Ta" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"Tb" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"Tc" = (
+/turf/simulated/wall,
+/area/outpost/research/hallway)
+"Td" = (
+/turf/simulated/wall,
+/area/outpost/research/hallway)
+"Te" = (
+/turf/simulated/wall,
+/area/outpost/research/hallway)
+"Tf" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"Tg" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"Th" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"Ti" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"Tj" = (
 /turf/simulated/wall,
 /area/maintenance/disposal)
 
@@ -38294,7 +38353,7 @@ eO
 ft
 fT
 gC
-hp
+fT
 fs
 iu
 ix
@@ -39577,9 +39636,9 @@ dv
 eg
 ba
 fx
-fW
-gF
-fW
+fT
+gE
+fT
 fs
 iy
 iY
@@ -40101,7 +40160,7 @@ ju
 jR
 kw
 kK
-kx
+St
 kx
 hY
 aa
@@ -41387,7 +41446,7 @@ jU
 kx
 kx
 kx
-Ss
+Su
 hW
 aa
 aa
@@ -41633,9 +41692,9 @@ ba
 em
 cJ
 ba
-fT
-gE
-fT
+fW
+So
+fW
 hY
 iF
 ja
@@ -42147,9 +42206,9 @@ aC
 aC
 aC
 aC
-fW
-gF
-fW
+fT
+gE
+fT
 hW
 iH
 iH
@@ -42922,7 +42981,7 @@ gd
 gE
 fT
 fU
-fW
+fT
 fT
 jy
 jW
@@ -43179,7 +43238,7 @@ ge
 gM
 hv
 hZ
-iI
+hv
 hv
 jz
 jX
@@ -43436,7 +43495,7 @@ gf
 gN
 hw
 ia
-fW
+fT
 je
 jA
 jY
@@ -43749,7 +43808,7 @@ As
 Bf
 Cg
 Db
-SK
+SW
 Ex
 Ff
 vt
@@ -44006,7 +44065,7 @@ At
 Bg
 Ch
 Dc
-SL
+SX
 vb
 uD
 uD
@@ -44777,7 +44836,7 @@ Av
 Bj
 Ck
 De
-SM
+SY
 Ey
 vx
 FQ
@@ -45034,7 +45093,7 @@ Aw
 Bk
 Cl
 Df
-SN
+SZ
 Ez
 vv
 vT
@@ -45291,7 +45350,7 @@ Ax
 Bl
 Cm
 Dg
-SO
+Ta
 vb
 Fg
 vT
@@ -45544,11 +45603,11 @@ ac
 ac
 xv
 zP
-SF
+SQ
 Bm
 Cn
 Dh
-SP
+Tb
 EA
 Fh
 vT
@@ -45801,11 +45860,11 @@ xy
 xy
 xy
 zQ
-SG
-SH
-SI
-SJ
-SQ
+SR
+ST
+SU
+SV
+Tc
 EB
 Fi
 vT
@@ -46062,7 +46121,7 @@ vt
 Bn
 Co
 Di
-SR
+Td
 EC
 Fh
 FR
@@ -46543,7 +46602,7 @@ ma
 ma
 pd
 pC
-jB
+Sv
 jB
 aa
 aa
@@ -46555,11 +46614,11 @@ aa
 aa
 ac
 rO
-St
-Su
-Sx
+SC
+SE
+SH
 tR
-Sz
+SK
 rO
 vc
 vv
@@ -46576,7 +46635,7 @@ uU
 uE
 wm
 Dk
-SS
+Te
 vb
 Fk
 FT
@@ -46776,8 +46835,8 @@ fD
 gi
 gU
 hD
-So
-Sq
+Sp
+Sr
 cg
 cg
 cg
@@ -46800,7 +46859,7 @@ jB
 jB
 jB
 pD
-jB
+Sw
 jB
 aa
 aa
@@ -47091,8 +47150,8 @@ Bo
 Cq
 Dl
 jB
-ST
-SV
+Tf
+Th
 FV
 jB
 jB
@@ -48119,8 +48178,8 @@ Br
 Ct
 Do
 jB
-SU
-SW
+Tg
+Ti
 FZ
 jB
 Dw
@@ -48318,8 +48377,8 @@ fJ
 gn
 ha
 hH
-Sp
-Sr
+Sq
+Ss
 cg
 cg
 cg
@@ -48612,7 +48671,7 @@ ru
 rG
 rG
 rG
-Sv
+SF
 tr
 tZ
 uA
@@ -48869,7 +48928,7 @@ rv
 rH
 rP
 sp
-Sw
+SG
 ts
 ua
 uB
@@ -49898,9 +49957,9 @@ aa
 aa
 aa
 sS
-Sy
+SI
 ue
-SA
+SL
 uV
 uV
 vD
@@ -51198,7 +51257,7 @@ aa
 jB
 zx
 Ac
-jB
+SS
 BA
 jB
 Du
@@ -54584,7 +54643,7 @@ aa
 aa
 RO
 RQ
-SX
+Tj
 RW
 Sd
 Sf
@@ -65064,10 +65123,10 @@ tc
 tc
 uk
 kz
-SB
-SC
-SD
-SE
+SM
+SN
+SO
+SP
 wF
 jB
 xu
@@ -76365,7 +76424,7 @@ rh
 rh
 rm
 ry
-rh
+Sz
 rW
 sB
 tg
@@ -76622,7 +76681,7 @@ ri
 ri
 rn
 rz
-rh
+SA
 rX
 rC
 rC
@@ -77134,14 +77193,14 @@ kj
 kj
 rh
 rh
-rh
-rh
-rh
+Sx
+Sy
+SB
 rZ
-rh
+SD
 ti
 tL
-rh
+SJ
 uO
 rh
 rh
