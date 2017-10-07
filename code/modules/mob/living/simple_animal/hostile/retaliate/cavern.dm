@@ -3,7 +3,7 @@
 	name = "cavern dweller"
 	desc = "An alien creature that dwells in the tunnels of the asteroid, commonly found in the Romanovich Cloud."
 	icon = 'icons/mob/cavern.dmi'
-	icon_state = "dweller"
+	icon_state = "dweller" //icons from europa station
 	icon_living = "dweller"
 	icon_dead = "dweller_dead"
 	ranged = 1
