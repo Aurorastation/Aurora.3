@@ -1010,6 +1010,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			"<span class='warning'>[M] ties \the [src] over their neck!</span>",\
 			"<span class='warning'>You tie \the [src] over your neck!</span>")
 		playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
+		SSfeedback.IncrementSimpleStat("hangings")
 		return 1
 	else
 		M.visible_message(\
@@ -1022,6 +1023,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 					"<span class='danger'>[user] ties \the [src] over [M]'s neck!</span>",\
 					"<span class='danger'>[user] ties \the [src] over your neck!</span>")
 				playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
+				SSfeedback.IncrementSimpleStat("hangings")
 				return 1
 			else
 				user.visible_message(\

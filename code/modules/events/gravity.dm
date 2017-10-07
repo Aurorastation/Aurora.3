@@ -13,13 +13,3 @@
 	for(var/A in SSmachinery.gravity_generators)
 		var/obj/machinery/gravity_generator/main/B = A
 		B.eventshutofftoggle()
-
-/datum/event/gravity/end()
-	if(!gravity_is_on)
-		gravity_is_on = 1
-
-		for(var/A in SSmachinery.gravity_generators)
-			var/obj/machinery/gravity_generator/main/B = A
-			B.eventshutofftoggle()
-
-		command_announcement.Announce("Gravity generators are again functioning within normal parameters. Sorry for any inconvenience.", "Gravity Restored")

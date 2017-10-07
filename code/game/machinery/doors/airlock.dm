@@ -832,6 +832,8 @@ About the new airlock wires panel:
 				usr << text("The door bolts are down!")
 			else if(activate && density)
 				open()
+				if (isAI(usr))
+					SSfeedback.IncrementSimpleStat("AI_DOOR")
 			else if(!activate && !density)
 				close()
 		if("safeties")
