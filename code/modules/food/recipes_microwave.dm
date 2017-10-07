@@ -122,13 +122,20 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/mouseburger
 
-
 /datum/recipe/hotdog
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/bun,
 		/obj/item/weapon/reagent_containers/food/snacks/sausage
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/hotdog
+
+/datum/recipe/classichotdog
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bun,
+		/obj/item/weapon/holder/corgi
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/classichotdog
+
 
 /datum/recipe/waffles
 	reagents = list("sugar" = 10)
@@ -201,8 +208,6 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/soylentgreen
 
-
-
 /datum/recipe/berryclafoutis
 	fruit = list("berries" = 1)
 	items = list(
@@ -216,7 +221,6 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/xenomeat
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/wingfangchu
-
 
 
 /datum/recipe/humankabob
@@ -355,22 +359,12 @@ I said no!
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/weapon/reagent_containers/food/snacks/bigbiteburger
 
-
-
-
-
-
-
-
-
 /datum/recipe/fishandchips
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/fries,
 		/obj/item/weapon/reagent_containers/food/snacks/carpmeat
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/fishandchips
-
-
 
 /datum/recipe/sandwich
 	items = list(
@@ -472,8 +466,6 @@ I said no!
 	reagents = list("water" = 5)
 	items = list(/obj/item/weapon/reagent_containers/food/snacks/spagetti)
 	result = /obj/item/weapon/reagent_containers/food/snacks/pastatomato
-
-
 
 /datum/recipe/meatballspagetti
 	reagents = list("water" = 5)
@@ -884,3 +876,30 @@ I said no!
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/weapon/reagent_containers/food/snacks/honeytoast
+
+
+/datum/recipe/donerkebab
+	fruit = list("tomato" = 1, "cabbage" = 1)
+	reagents = list("sodiumchloride" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/meatsteak,
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/donerkebab
+
+
+/datum/recipe/sashimi
+	reagents = list("soysauce" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sashimi
+
+
+/datum/recipe/nugget
+	reagents = list("flour" = 5)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/meat/chicken
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/weapon/reagent_containers/food/snacks/nugget
