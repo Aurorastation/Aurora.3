@@ -7,6 +7,17 @@
 	contact_levels = list(3, 4, 5, 6)
 	player_levels = list(2, 3, 4, 5, 6, 7, 8)
 	accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
+	base_turf_by_z = list(
+		"1" = /turf/space,
+		"2" = /turf/space,
+		"3" = /turf/simulated/floor/asteroid,
+		"4" = /turf/simulated/floor/asteroid,
+		"5" = /turf/simulated/floor/asteroid,
+		"6" = /turf/space,
+		"7" = /turf/space,
+		"8" = /turf/space,
+		"9" = /turf/space
+	)
 
 	station_name = "NSS Aurora"
 	station_short = "Aurora"

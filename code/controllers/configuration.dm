@@ -4,8 +4,6 @@ var/list/gamemode_cache = list()
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
-	var/list/lobby_screens = list("title") // Which lobby screens are available
-
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
 	var/log_say = 0						// log client say
@@ -776,9 +774,6 @@ var/list/gamemode_cache = list()
 					var/list/values = text2list(value, " ")
 					if(values.len > 0)
 						language_prefixes = values
-
-				if ("lobby_screens")
-					config.lobby_screens = text2list(value, ";")
 
 				if("delist_when_no_admins")
 					config.delist_when_no_admins = 1

@@ -12,8 +12,6 @@
 	var/list/map_levels              // Z-levels available to various consoles, such as the crew monitor. Defaults to station_levels if unset.
 
 	var/list/base_turf_by_z = list() // Custom base turf by Z-level. Defaults to world.turf for unlisted Z-levels
-	var/base_floor_type = /turf/simulated/floor/airless // The turf type used when generating floors between Z-levels at startup.
-	var/base_floor_area                                 // Replacement area, if a base_floor_type is generated. Leave blank to skip.
 
 	//This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
 	var/list/accessible_z_levels = list()
@@ -33,7 +31,7 @@
 	var/boss_short    = "Cap'"
 	var/company_name  = "BadMan"
 	var/company_short = "BM"
-	var/system_name = "Uncharted System"
+	var/system_name   = "Uncharted System"
 
 	var/shuttle_docked_message
 	var/shuttle_leaving_dock
@@ -56,10 +54,9 @@
 
 	var/allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage")
 	var/default_spawn = "Arrivals Shuttle"
-	var/flags = 0
 
-	var/lobby_icon									// The icon which contains the lobby image(s)
-	var/list/lobby_screens = list()                 // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
+	var/lobby_icon                         // The icon which contains the lobby image(s)
+	var/list/lobby_screens = list("title") // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
 
 /datum/map/New()
 	if(!map_levels)
@@ -82,3 +79,5 @@
 	if(!candidates.len)
 		return current_z_level
 	return text2num(pickweight(candidates))
+
+/datum/map/proc/setup_shuttles()
