@@ -261,7 +261,6 @@
 /*
 	This list really long, mainly because I can't make up my mind about which mandarin syllables should be removed,
 	and the english syllables had to be duplicated so that there is roughly a 50-50 weighting.
-
 	Sources:
 	http://www.sttmedia.com/syllablefrequency-english
 	http://www.chinahighlights.com/travelguide/learning-chinese/pinyin-syllables.htm
