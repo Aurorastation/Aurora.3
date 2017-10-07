@@ -28,7 +28,6 @@ var/datum/controller/subsystem/map/SSmap
 	NEW_SS_GLOBAL(SSmap)
 
 /datum/controller/subsystem/map/Initialize(timeofday)
-	lobby_image = new /obj/effect/lobby_image
 	maploader = new
 
 	var/datum/map/M
@@ -51,11 +50,12 @@ var/datum/controller/subsystem/map/SSmap
 	admin_notice("<span class='danger'>Loading map [map_override].</span>", R_DEBUG)
 	log_ss("map", "Using map '[map_override]'.")
 
+
 	current_map = known_maps[map_override]
 	if (!current_map)
 		world.map_panic("Selected map does not exist!")
 
-	copy_names()
+	load_map_meta()
 
 	world.update_status()
 
@@ -70,7 +70,7 @@ var/datum/controller/subsystem/map/SSmap
 
 	setup_multiz()
 
-	QDEL_NULL(maploader)
+	//QDEL_NULL(maploader)
 
 	..()
 
@@ -112,7 +112,10 @@ var/datum/controller/subsystem/map/SSmap
 	else
 		. = "aurora"
 
-/datum/controller/subsystem/map/proc/copy_names()
+/datum/controller/subsystem/map/proc/load_map_meta()
+	// This needs to be done after current_map is set, but before mapload.
+	lobby_image = new /obj/effect/lobby_image
+
 	station_name = current_map.station_name
 	station_short = current_map.station_short
 	dock_name = current_map.dock_name
