@@ -63,7 +63,10 @@
 	icon = 'icons/obj/smooth/catwalk.dmi'
 	icon_state = "catwalk"
 	smooth = SMOOTH_MORE
-	canSmoothWith = list(/obj/structure/lattice/catwalk)
+	canSmoothWith = list(
+		/obj/structure/lattice/catwalk,
+		/obj/structure/stairs/catwalk
+	)
 
 // Special catwalk that can be placed on regular flooring.
 /obj/structure/lattice/catwalk/indoor

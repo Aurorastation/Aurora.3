@@ -159,9 +159,10 @@
 	icon_state = "ladder11"
 
 /obj/structure/stairs
-	name = "Stairs"
-	desc = "Stairs leading to another deck.  Not too useful if the gravity goes out."
+	name = "stairs"
+	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
 	icon = 'icons/obj/stairs.dmi'
+	icon_state = "solid"
 	density = 0
 	opacity = 0
 	anchored = 1
@@ -236,5 +237,29 @@
 	pixel_x = -32
 
 /obj/structure/stairs/west
+	dir = WEST
+	bound_width = 64
+
+/obj/structure/stairs/catwalk
+	icon_state = "catwalk"
+	desc = "Stairs leading to another floor. Not too useful if the gravity goes out. These ones are made out of a strong metal mesh."
+
+/obj/structure/stairs/catwalk/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+	pixel_y = -32
+
+/obj/structure/stairs/catwalk/south
+	dir = SOUTH
+	bound_height = 64
+
+/obj/structure/stairs/catwalk/east
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
+	pixel_x = -32
+
+/obj/structure/stairs/catwalk/west
 	dir = WEST
 	bound_width = 64
