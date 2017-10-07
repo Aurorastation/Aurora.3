@@ -367,7 +367,7 @@
 	name = "box of firing pins"
 	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
 
-/obj/item/weapon/storage/box/firingpins/test/fill()
+/obj/item/weapon/storage/box/testpins/fill()
 	..()
 	new /obj/item/device/firing_pin/test_range(src)
 	new /obj/item/device/firing_pin/test_range(src)
@@ -382,7 +382,7 @@
 	name = "box of firing pins"
 	desc = "A box of specialised \"loyalty\" authentication pins produced by Nanotrasen; these check to see if the user of the gun it's installed in has been implanted with a loyalty implant. Often used in ERTs."
 
-/obj/item/weapon/storage/box/firingpins/test/fill()
+/obj/item/weapon/storage/box/loyaltypins/fill()
 	..()
 	new /obj/item/device/firing_pin/implant/loyalty(src)
 	new /obj/item/device/firing_pin/implant/loyalty(src)
