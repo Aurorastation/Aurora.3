@@ -7,8 +7,8 @@
 	contained_sprite = TRUE
 	throw_range = 3
 	force = 10
-	w_class = 4.0
-	slot_flags = SLOT_BACK
+	w_class = 3.0
+	slot_flags = SLOT_BELT | SLOT_BACK
 
 /obj/item/weapon/ladder_mobile/proc/place_ladder(atom/A, mob/user)
 
