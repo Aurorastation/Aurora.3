@@ -743,7 +743,7 @@
 	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
 	item_state = "syringe_kit"
 	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
-	
+
 /obj/item/weapon/storage/box/lights/Initialize()	// TODO-STORAGE: Initialize()?
 	. = ..()
 	make_exact_fit()
@@ -776,7 +776,7 @@
 /obj/item/weapon/storage/box/lights/coloredmixed
 	name = "box of colored lights"
 	icon_state = "lightmixed"
-		
+
 /obj/item/weapon/storage/box/lights/coloredmixed/fill()
 	..()
 	var/list/tube_colors = list(

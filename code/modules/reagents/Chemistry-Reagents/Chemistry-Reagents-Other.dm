@@ -64,7 +64,15 @@
 		T.color = color
 
 /datum/reagent/paint/touch_obj(var/obj/O)
-	if(istype(O))
+	if(istype(O, /obj/item/weapon/light))
+		var/obj/item/weapon/light/L = O
+		L.brightness_color = color
+		L.update()
+	else if(istype(O, /obj/machinery/light))
+		var/obj/machinery/light/L = O
+		L.brightness_color = color
+		L.update()
+	else if(istype(O))
 		O.color = color
 
 /datum/reagent/paint/touch_mob(var/mob/M)
