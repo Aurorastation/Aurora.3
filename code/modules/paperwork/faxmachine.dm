@@ -33,7 +33,7 @@ var/list/admin_departments
 /obj/machinery/photocopier/faxmachine/Initialize()
 	. = ..()
 	allfaxes += src
-	if(!destination) destination = "[boss_name]"
+	if(!destination) destination = "[current_map.boss_name]"
 	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )
 		alldepartments |= department
 
@@ -59,7 +59,7 @@ var/list/admin_departments
 	dat += "<hr>"
 
 	if(authenticated)
-		dat += "<b>Logged in to:</b> [boss_name] Quantum Entanglement Network<br><br>"
+		dat += "<b>Logged in to:</b> [current_map.boss_name] Quantum Entanglement Network<br><br>"
 
 		if(copyitem)
 			dat += "<a href='byond://?src=\ref[src];remove=1'>Remove Item</a><br><br>"
@@ -303,8 +303,8 @@ var/list/admin_departments
 	arrived_faxes += rcvdcopy
 
 	//message badmins that a fax has arrived
-	if (destination == boss_name)
-		message_admins(sender, "[uppertext(boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
+	if (destination == current_map.boss_name)
+		message_admins(sender, "[uppertext(current_map.boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
 	else if (destination == "[current_map.system_name] Government")
 		message_admins(sender, "[uppertext(current_map.system_name)] GOVERNMENT FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
 

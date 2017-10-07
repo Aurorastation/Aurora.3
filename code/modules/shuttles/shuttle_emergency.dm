@@ -29,7 +29,7 @@
 
 		var/list/replacements = list(
 			"%ETA%" = round(emergency_shuttle.estimate_arrival_time()/60,1),
-			"%dock%" = dock_name
+			"%dock%" = current_map.dock_name
 		)
 		if (emergency_shuttle.evac)
 			priority_announcement.Announce(replacemany(current_map.emergency_shuttle_leaving_dock, replacements))
@@ -187,9 +187,9 @@
 			if (shuttle.in_use)
 				shuttle_status = "Busy."
 			else if (!shuttle.location)
-				shuttle_status = "Standing-by at [station_name]."
+				shuttle_status = "Standing-by at [current_map.station_name]."
 			else
-				shuttle_status = "Standing-by at [dock_name]."
+				shuttle_status = "Standing-by at [current_map.dock_name]."
 		if(WAIT_LAUNCH, FORCE_LAUNCH)
 			shuttle_status = "Shuttle has recieved command and will depart shortly."
 		if(WAIT_ARRIVE)

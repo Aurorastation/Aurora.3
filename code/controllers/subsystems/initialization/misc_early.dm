@@ -7,6 +7,7 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_early/Initialize(timeofday)
+	uplink = new
 	// Create the data core, whatever that is.
 	data_core = new /datum/datacore()
 

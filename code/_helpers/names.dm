@@ -15,22 +15,6 @@ var/church_name = null
 
 	return name
 
-var/command_name = null
-/proc/command_name()
-	if (command_name)
-		return command_name
-
-	var/name = "[boss_name]"
-
-	command_name = name
-	return name
-
-/proc/change_command_name(var/name)
-
-	command_name = name
-
-	return name
-
 var/religion_name = null
 /proc/religion_name()
 	if (religion_name)

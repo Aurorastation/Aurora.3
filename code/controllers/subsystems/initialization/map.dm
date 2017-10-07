@@ -4,15 +4,6 @@
 var/datum/map/current_map	// Whatever map is currently loaded. Null until SSmap Initialize() starts.
 var/map_override	// If set, SSmap will forcibly load this map. If the map does not exist, mapload will fail and SSmap will panic.
 
-// Legacy-ish map vars, mostly because I don't want to refactor the 100+ mentions to them. Overwritten by SSmap.Initialize()
-var/station_name  = "Someone fucked up and loaded this name before the map"
-var/station_short = "Someone fucked up and loaded this name before the map"
-var/dock_name     = "Someone fucked up and loaded this name before the map"
-var/boss_name     = "Someone fucked up and loaded this name before the map"
-var/boss_short    = "Someone fucked up and loaded this name before the map"
-var/company_name  = "Someone fucked up and loaded this name before the map"
-var/company_short = "Someone fucked up and loaded this name before the map"
-
 var/datum/controller/subsystem/map/SSmap
 
 /datum/controller/subsystem/map
@@ -23,6 +14,8 @@ var/datum/controller/subsystem/map/SSmap
 	var/list/known_maps = list()
 	var/dmm_suite/maploader
 	var/list/height_markers = list()
+
+	var/list/mapload_callbacks = list()
 
 /datum/controller/subsystem/map/New()
 	NEW_SS_GLOBAL(SSmap)
@@ -116,16 +109,8 @@ var/datum/controller/subsystem/map/SSmap
 	// This needs to be done after current_map is set, but before mapload.
 	lobby_image = new /obj/effect/lobby_image
 
-	station_name = current_map.station_name
-	station_short = current_map.station_short
-	dock_name = current_map.dock_name
-	boss_name = current_map.boss_name
-	boss_short = current_map.boss_short
-	company_name = current_map.company_name
-	company_short = current_map.company_short
-
 	admin_departments = list(
-		"[boss_name]",
+		"[current_map.boss_name]",
 		"[current_map.system_name] Government", 
 		"Supply"
 	)
@@ -133,7 +118,19 @@ var/datum/controller/subsystem/map/SSmap
 	priority_announcement = new(do_log = 0)
 	command_announcement = new(do_log = 0, do_newscast = 1)
 
-	log_debug("SSmap: Copied names from current_map.")
+	for (var/thing in mapload_callbacks)
+		var/datum/callback/cb = thing
+		cb.InvokeAsync()
+		CHECK_TICK
+
+	mapload_callbacks.Cut()
+	mapload_callbacks = null
+
+/datum/controller/subsystem/map/proc/OnMapload(datum/callback/callback)
+	if (!istype(callback))
+		CRASH("Invalid callback.")
+	
+	mapload_callbacks += callback
 
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)

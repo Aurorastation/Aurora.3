@@ -58,7 +58,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 			else
 				var/list/fields = list(
 					"%ETA%" = round(emergency_shuttle.estimate_launch_time()/60,1),
-					"%dock%" = dock_name
+					"%dock%" = current_map.dock_name
 				)
 				priority_announcement.Announce(replacemany(current_map.shuttle_docked_message, fields), new_sound = 'sound/AI/shuttledock.ogg')
 
@@ -108,7 +108,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 	var/list/replacements = list(
 		"%ETA%" = round(estimate_arrival_time()/60),
-		"%dock%" = dock_name
+		"%dock%" = current_map.dock_name
 	)
 	priority_announcement.Announce(replacemany(current_map.shuttle_called_message, replacements), new_sound = 'sound/AI/shuttlecalled.ogg')
 

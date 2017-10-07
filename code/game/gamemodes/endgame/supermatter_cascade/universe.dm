@@ -74,7 +74,7 @@ There's been a galaxy-wide electromagnetic pulse.  All of our systems are heavil
 
 You have five minutes before the universe collapses. Good l\[\[###!!!-
 
-AUTOMATED ALERT: Link to [command_name()] lost.
+AUTOMATED ALERT: Link to [current_map.boss_name] lost.
 
 The access requirements on the Asteroid Shuttles' consoles have now been revoked.
 	"}

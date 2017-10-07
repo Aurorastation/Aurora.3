@@ -172,7 +172,7 @@
 				log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
 				return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
-			world << "<span class='alert'>New [company_name] Update available at all communication consoles.</span>"
+			world << "<span class='alert'>New [current_map.company_name] Update available at all communication consoles.</span>"
 			world << sound('sound/AI/commandreport.ogg')
 			post_comm_message(reporttitle, reportbody)
 
@@ -230,7 +230,7 @@
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("Caution, [station_name]. We have detected abnormal behaviour in your network. It seems someone is trying to hack your electronic systems. We will update you when we have more information.", "Network Monitoring")
+			command_announcement.Announce("Caution, [current_map.station_name]. We have detected abnormal behaviour in your network. It seems someone is trying to hack your electronic systems. We will update you when we have more information.", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
