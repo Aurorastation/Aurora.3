@@ -607,7 +607,8 @@
 		/obj/item/ammo_magazine/c45x = 6,
 		/obj/item/ammo_magazine/a556 = 12,
 		/obj/item/ammo_magazine/a556/ap = 4,
-		/obj/item/weapon/material/hatchet/tacknife = 4
+		/obj/item/weapon/material/hatchet/tacknife = 4,
+		/obj/item/device/firing_pin = 12
 	)
 
 //This one's from bay12

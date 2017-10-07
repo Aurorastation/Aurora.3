@@ -135,6 +135,7 @@
 	move_delay = 3
 	fire_delay = 0
 	dispersion = list(0.0, 0.2, -0.2)
+	pin = null
 
 /obj/item/weapon/gun/energy/mousegun
 	name = "\improper NT \"Arodentia\" Exterminator ray"
