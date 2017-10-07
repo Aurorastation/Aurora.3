@@ -5784,6 +5784,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "amc" = (
@@ -8277,6 +8278,8 @@
 	pixel_y = 22
 	},
 /obj/item/device/flashlight/heavy,
+/obj/item/weapon/pipewrench,
+/obj/item/weapon/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aqH" = (
@@ -22960,7 +22963,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "aOx" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/item/modular_computer/console/preset/captain,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aOy" = (
@@ -25564,6 +25567,7 @@
 /obj/structure/closet/secure_closet/engineering_chief,
 /obj/item/weapon/tank/emergency_oxygen/engi,
 /obj/item/device/gps/engineering,
+/obj/item/weapon/pipewrench,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aSX" = (
@@ -50582,7 +50586,7 @@
 	dir = 8
 	},
 /obj/machinery/computer/telescience{
-	starting_crystals = 3
+	starting_crystals = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
@@ -63937,6 +63941,10 @@
 /obj/structure/table/woodentable,
 /obj/item/weapon/pinpointer,
 /obj/item/weapon/disk/nuclear,
+/obj/machinery/newscaster/security_unit{
+	pixel_x = 0;
+	pixel_y = -32
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "cic" = (
@@ -64169,12 +64177,13 @@
 /area/crew_quarters/captain)
 "ciz" = (
 /obj/machinery/photocopier,
-/obj/machinery/newscaster/security_unit{
-	pixel_x = 32
-	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Captain's Office East";
 	dir = 8
+	},
+/obj/machinery/case_button/shuttle{
+	pixel_x = 32;
+	pixel_y = 0
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
@@ -65020,6 +65029,15 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/wood,
 /area/chapel/office)
+"cjU" = (
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/case_button/shuttle,
+/turf/simulated/floor/tiled,
+/area/bridge)
 
 (1,1,1) = {"
 aaa
@@ -110100,7 +110118,7 @@ ceV
 asw
 atI
 auP
-awo
+cjU
 axQ
 asw
 aBd

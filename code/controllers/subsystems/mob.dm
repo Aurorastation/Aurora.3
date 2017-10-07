@@ -10,6 +10,8 @@
 	var/list/currentrun = list()
 	var/list/all_mice = list()	// Contains all *living* mice.
 	var/list/mannequins = list()	//Contains all mannequins used by character preview
+	var/list/greatworms = list()
+	var/list/greatasses = list()
 
 /datum/controller/subsystem/mobs/New()
 	NEW_SS_GLOBAL(SSmob)

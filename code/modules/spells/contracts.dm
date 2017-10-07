@@ -17,6 +17,10 @@
 		user << "You can't contract with yourself!"
 		return
 
+	if(iscultist(user))
+		user << "Your soul already belongs to other powers!"
+		return
+
 	var/ans = alert(user,"The contract clearly states that signing this contract will bind your soul to \the [contract_master]. Are you sure you want to continue?","[src]","Yes","No")
 
 	if(ans == "Yes")
@@ -119,42 +123,52 @@
 	contract_master = "\improper Wizard Academy"
 
 /obj/item/weapon/contract/boon/wizard/artificer
+	name = "artificer contract"
 	path = /spell/aoe_turf/conjure/construct
 	desc = "This contract has a passage dedicated to an entity known as 'Nar-Sie'"
 
 /obj/item/weapon/contract/boon/wizard/fireball
+	name = "fireball contract"
 	path = /spell/targeted/projectile/dumbfire/fireball
 	desc = "This contract feels warm to the touch."
 
 /obj/item/weapon/contract/boon/wizard/smoke
+	name = "smoke contract"
 	path = /spell/aoe_turf/smoke
 	desc = "This contract smells as dank as they come."
 
 /obj/item/weapon/contract/boon/wizard/mindswap
+	name = "mindswap contract"
 	path = /spell/targeted/mind_transfer
 	desc = "This contract looks ragged and torn."
 
 /obj/item/weapon/contract/boon/wizard/forcewall
+	name = "forcewall contract"
 	path = /spell/aoe_turf/conjure/forcewall
 	contract_master = "\improper Mime Federation"
 	desc = "This contract has a dedication to mimes everywhere at the top."
 
 /obj/item/weapon/contract/boon/wizard/knock
+	name = "knock contract"
 	path = /spell/aoe_turf/knock
 	desc = "This contract is hard to hold still."
 
 /obj/item/weapon/contract/boon/wizard/horsemask
+	name = "horsemask contract"
 	path = /spell/targeted/equip_item/horsemask
 	desc = "This contract is more horse than your mind has room for."
 
 /obj/item/weapon/contract/boon/wizard/charge
+	name = "charge contract"
 	path = /spell/aoe_turf/charge
 	desc = "This contract is made of 100% post-consumer wizard."
 
 /obj/item/weapon/contract/boon/wizard/gestalt
+	name = "conjure gestalt contract"
 	path = /spell/aoe_turf/conjure/grove/gestalt
 	desc = "This contract is a druid's favorite."
 
 /obj/item/weapon/contract/boon/wizard/statue
+	name = "flesh to stone contract"
 	path = /spell/targeted/flesh_to_stone
 	desc = "This contract is truly petrifying."

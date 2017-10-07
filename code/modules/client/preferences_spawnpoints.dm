@@ -49,11 +49,3 @@ var/list/spawntypes = list()
 /datum/spawnpoint/cyborg/New()
 	..()
 	turfs = latejoin_cyborg
-
-/datum/spawnpoint/merchant
-	display_name = "Merchant Station"
-	restrict_job = list("Merchant")
-
-/datum/spawnpoint/merchant/New()
-	..()
-	turfs = latejoin_merchant

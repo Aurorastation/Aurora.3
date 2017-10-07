@@ -3164,6 +3164,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "gK" = (
@@ -3534,6 +3539,11 @@
 "hu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "hv" = (
@@ -9713,6 +9723,9 @@
 "sc" = (
 /obj/structure/bed/chair{
 	dir = 4
+	},
+/obj/machinery/case_button/shuttle{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
