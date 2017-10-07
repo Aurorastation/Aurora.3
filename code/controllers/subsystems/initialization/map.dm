@@ -70,7 +70,7 @@ var/datum/controller/subsystem/map/SSmap
 
 	setup_multiz()
 
-	//QDEL_NULL(maploader)
+	QDEL_NULL(maploader)
 
 	..()
 
