@@ -779,7 +779,7 @@
 
 /obj/item/weapon/storage/box/lights/coloredmixed/fill()
 	..()
-	var/list/tube_colors = list(
+	var/static/list/tube_colors = list(
 		/obj/item/weapon/light/tube/colored/red,
 		/obj/item/weapon/light/tube/colored/green,
 		/obj/item/weapon/light/tube/colored/blue,
@@ -787,7 +787,7 @@
 		/obj/item/weapon/light/tube/colored/yellow,
 		/obj/item/weapon/light/tube/colored/cyan
 	)
-	var/list/bulbs_colors = list(
+	var/static/list/bulbs_colors = list(
 		/obj/item/weapon/light/bulb/colored/red,
 		/obj/item/weapon/light/bulb/colored/green,
 		/obj/item/weapon/light/bulb/colored/blue,
