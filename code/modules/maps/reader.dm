@@ -100,7 +100,7 @@ var/global/dmm_suite/preloader/_preloader = new
 				else
 					world.maxz = zcrd //create a new z_level if needed
 				if(!no_changeturf)
-					WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/AfterChange is called")
+					WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/post_change is called.")
 
 			bounds[MAP_MINX] = min(bounds[MAP_MINX], Clamp(xcrdStart, x_lower, x_upper))
 			bounds[MAP_MINZ] = min(bounds[MAP_MINZ], zcrd)
@@ -213,7 +213,6 @@ var/global/dmm_suite/preloader/_preloader = new
 		members = cached[1]
 		members_attributes = cached[2]
 	else
-
 		/////////////////////////////////////////////////////////
 		//Constructing members and corresponding variables lists
 		////////////////////////////////////////////////////////
@@ -236,10 +235,11 @@ var/global/dmm_suite/preloader/_preloader = new
 
 			if(!atom_def) // Skip the item if the path does not exist.  Fix your crap, mappers!
 				continue
-			members.Add(atom_def)
+
+			members += atom_def
 
 			//transform the variables in text format into a list (e.g {var1="derp"; var2; var3=7} => list(var1="derp", var2, var3=7))
-			var/list/fields = list()
+			var/list/fields
 
 			if(variables_start)//if there's any variable
 				full_def = copytext(full_def,variables_start+1,length(full_def))//removing the last '}'
@@ -272,9 +272,7 @@ var/global/dmm_suite/preloader/_preloader = new
 			space_key = model_key
 			return
 
-
 		modelCache[model] = list(members, members_attributes)
-
 
 	////////////////
 	//Instanciation
@@ -286,17 +284,15 @@ var/global/dmm_suite/preloader/_preloader = new
 	//first instance the /area and remove it from the members list
 	index = members.len
 	if(members[index] != /area/template_noop)
-		var/atom/instance
-		_preloader.setup(members_attributes[index])//preloader for assigning  set variables on atom creation
 		var/atype = members[index]
-		for(var/area/A in world)
-			if(A.type == atype)
-				instance = A
-				break
+		var/atom/instance = areas_by_type[atype]
+		var/list/attr = members_attributes[index]
+		if (LAZYLEN(attr))
+			_preloader.setup(attr)//preloader for assigning  set variables on atom creation
 		if(!instance)
 			instance = new atype(null)
 		if(crds)
-			instance.contents.Add(crds)
+			instance.contents += crds
 
 		if(use_preloader && instance)
 			_preloader.load(instance)
@@ -335,7 +331,8 @@ var/global/dmm_suite/preloader/_preloader = new
 
 //Instance an atom at (x,y,z) and gives it the variables in attributes
 /dmm_suite/proc/instance_atom(path,list/attributes, turf/crds, no_changeturf)
-	_preloader.setup(attributes, path)
+	if (LAZYLEN(attributes))
+		_preloader.setup(attributes, path)
 
 	if(crds)
 		if(!no_changeturf && ispath(path, /turf))
@@ -407,7 +404,6 @@ var/global/dmm_suite/preloader/_preloader = new
 //build a list from variables in text form (e.g {var1="derp"; var2; var3=7} => list(var1="derp", var2, var3=7))
 //return the filled list
 /dmm_suite/proc/readlist(text as text, delimiter=",")
-
 	var/list/to_return = list()
 
 	var/position
@@ -451,7 +447,7 @@ var/global/dmm_suite/preloader/_preloader = new
 	var/target_path
 
 /dmm_suite/preloader/proc/setup(list/the_attributes, path)
-	if(the_attributes.len)
+	if(LAZYLEN(the_attributes))
 		use_preloader = TRUE
 		attributes = the_attributes
 		target_path = path
