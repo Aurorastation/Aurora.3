@@ -7,7 +7,9 @@
 		return
 	..()
 
-/obj/effect/decal/cleanable/Initialize()
+/obj/effect/decal/cleanable/Initialize(mapload)
 	if (LAZYLEN(random_icon_states))
 		icon_state = pick(src.random_icon_states)
 	. = ..()
+	if (!mapload && ROUND_IS_STARTED)
+		SSfeedback.IncrementSimpleStat("messes_made")

@@ -51,7 +51,7 @@ var/list/possible_cable_coil_colours = list(
 	if(drain_check)
 		return 1
 
-	var/datum/powernet/PN = get_powernet()
+	var/datum/powernet/PN = powernet
 	if(!PN) return 0
 
 	return PN.draw_power(amount)
@@ -116,10 +116,6 @@ var/list/possible_cable_coil_colours = list(
 /obj/structure/cable/proc/updateicon()
 	icon_state = "[d1]-[d2]"
 	alpha = invisibility ? 127 : 255
-
-// returns the powernet this cable belongs to
-/obj/structure/cable/proc/get_powernet()			//TODO: remove this as it is obsolete
-	return powernet
 
 //Telekinesis has no effect on a cable
 /obj/structure/cable/attack_tk(mob/user)
@@ -1014,6 +1010,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			"<span class='warning'>[M] ties \the [src] over their neck!</span>",\
 			"<span class='warning'>You tie \the [src] over your neck!</span>")
 		playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
+		SSfeedback.IncrementSimpleStat("hangings")
 		return 1
 	else
 		M.visible_message(\
@@ -1024,8 +1021,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			if(buckle_mob(M))
 				M.visible_message(\
 					"<span class='danger'>[user] ties \the [src] over [M]'s neck!</span>",\
-					"<span class='userdanger'>[user] ties \the [src] over your neck!</span>")
+					"<span class='danger'>[user] ties \the [src] over your neck!</span>")
 				playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
+				SSfeedback.IncrementSimpleStat("hangings")
 				return 1
 			else
 				user.visible_message(\

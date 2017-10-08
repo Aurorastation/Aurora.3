@@ -46,6 +46,7 @@
 
 /obj/item/clothing/head/helmet/space/rig/military
 	light_overlay = "helmet_light_dual_green"
+	light_color = "#3e7c3e"
 	species_restricted = list("Human")
 
 /obj/item/clothing/suit/space/rig/military

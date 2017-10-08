@@ -33,7 +33,7 @@
 				S.icon_state = "shield0"
 
 		M << "<span class='danger'>BANG</span>"
-		playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 5)
+		playsound(src.loc, 'sound/weapons/flashbang.ogg', 50, 1, 5)
 
 //Checking for protections
 		var/eye_safety = 0
@@ -90,6 +90,7 @@
 
 		else if(get_dist(M, T) <= 5)
 			if(!ear_safety)
+				M << sound('sound/weapons/flash_ring.ogg',0,1,0,100)
 				M.Stun(8)
 				M.ear_damage += rand(0, 3)
 				M.ear_deaf = max(M.ear_deaf,10)
@@ -120,7 +121,6 @@
 		M.update_icons()
 
 /obj/item/weapon/grenade/flashbang/clusterbang//Created by Polymorph, fixed by Sieve
-	desc = "Use of this weapon may constiute a war crime in your area, consult your local captain."
 	name = "clusterbang"
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "clusterbang"

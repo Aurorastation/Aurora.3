@@ -1,4 +1,5 @@
 /datum/light_source/sunlight
+	skip_falloff = TRUE
 
 /datum/light_source/sunlight/update_corners()
 	var/update = FALSE
@@ -61,9 +62,6 @@
 	var/turf/T
 	var/Tthing
 	var/list/Tcorners
-	var/Sx = source_turf.x
-	var/Sy = source_turf.y
-	var/actual_range = light_range	// sunlight sources don't support directional lighting.
 
 	// We don't need no damn vis checks!
 	for (Tthing in RANGE_TURFS(Ceiling(light_range), source_turf))
@@ -98,6 +96,7 @@
 
 		CHECK_TICK
 
+		// Sunlight only checks downwards as it has no need to shine upwards, really.
 		if (isopenturf(T) && T:below)
 			T = T:below
 			goto check_t
@@ -125,7 +124,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
+			APPLY_CORNER_SIMPLE(C)
 	else
 		L = corners - effect_str
 		for (thing in L)
@@ -135,7 +134,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
+			APPLY_CORNER_SIMPLE(C)
 
 		for (thing in corners - L)
 			C = thing
@@ -143,7 +142,7 @@
 				effect_str[C] = 0
 				continue
 
-			APPLY_CORNER_XY(C, FALSE, Sx, Sy)
+			APPLY_CORNER_SIMPLE(C)
 
 	L = effect_str - corners
 	for (thing in L)
@@ -161,7 +160,7 @@
 	UNSETEMPTY(effect_str)
 	UNSETEMPTY(affecting_turfs)
 
-/datum/light_source/sunlight/update_angle()
+/datum/light_source/sunlight/regenerate_angle()
 	return
 
 #define QUEUE_UPDATE(level)                 \

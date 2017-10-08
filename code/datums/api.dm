@@ -879,23 +879,15 @@ proc/api_update_command_database()
 	if(!reportannounce)
 		reportannounce = 1
 
-	//Send the message to the communications consoles
-	for (var/obj/machinery/computer/communications/C in SSmachinery.processing_machines)
-		if(! (C.stat & (BROKEN|NOPOWER) ) )
-			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( C.loc )
-			P.name = "[command_name()] Update"
-			P.info = reportbody
-			P.update_space(P.info)
-			P.update_icon()
-			C.messagetitle.Add("[command_name()] Update")
-			C.messagetext.Add(P.info)
-
 	//Set the report footer for CCIA Announcements
 	if (reporttype == "ccia")
 		if (reportsender)
 			reportbody += "<br><br>- [reportsender], Central Command Internal Affairs Agent, [commstation_name()]"
 		else
 			reportbody += "<br><br>- CCIAAMS, [commstation_name()]"
+
+	//Send the message to the communications consoles
+	post_comm_message(reporttitle, reportbody)
 
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);

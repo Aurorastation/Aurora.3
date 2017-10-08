@@ -49,16 +49,19 @@
 			switch(seclevel)
 				if("green")
 					previous_state = icon_state
-					set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = COLOR_LIME)
+					set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = LIGHT_COLOR_GREEN)
 				if("blue")
 					previous_state = icon_state
-					set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = "#1024A9")
+					set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = LIGHT_COLOR_BLUE)
+				if("yellow")
+					previous_state = icon_state
+					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_YELLOW)
 				if("red")
 					previous_state = icon_state
-					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = COLOR_RED)
+					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_RED)
 				if("delta")
 					previous_state = icon_state
-					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = "#FF6633")
+					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_ORANGE)
 
 		add_overlay("overlay_[seclevel]")
 
@@ -231,20 +234,37 @@
 		seclevel = newlevel
 		update_icon()
 
-/obj/machinery/firealarm/Initialize(mapload, dir, building)
-	. = ..()
-	if(dir)
-		src.set_dir(dir)
+/obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
+	. = ..(mapload, ndir)
 
 	if(building)
 		buildstage = 0
 		wiresexposed = 1
 		icon_state = "fire_b0"
-		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
-		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
+
+	// Overwrite the mapped in values.
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 	if(z in config.contact_levels)
-		set_security_level(security_level? get_security_level() : "green")
+		set_security_level(security_level ? get_security_level() : "green")
+
+// Convenience subtypes for mappers.
+/obj/machinery/firealarm/north
+	dir = NORTH
+	pixel_y = 28
+
+/obj/machinery/firealarm/east
+	dir = EAST
+	pixel_x = 28
+
+/obj/machinery/firealarm/west
+	dir = WEST
+	pixel_x = -28
+
+/obj/machinery/firealarm/south
+	dir = SOUTH
+	pixel_y = -28
 
 /*
 FIRE ALARM CIRCUIT

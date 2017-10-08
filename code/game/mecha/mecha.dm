@@ -152,7 +152,7 @@
 
 	if(wreckage)
 		var/obj/effect/decal/mecha_wreckage/WR = new wreckage(loc)
-		WR.icon_state = "[icon_state]-broken"
+		WR.icon_state = "[initial_icon]-broken"
 		for(var/obj/item/mecha_parts/mecha_equipment/E in equipment)
 			if(E.salvageable && prob(30))
 				WR.crowbar_salvage += E
@@ -625,7 +625,7 @@
 				src.occupant_message("<span class='notice'>\The [user]'s claws are stopped by the armor.</span>")
 				visible_message("<span class='warning'>\The [user] rebounds off [src.name]'s armor!</span>")
 		else
-			user.visible_message("<span class='danger'>\The [user] hits \the [src]. Nothing happensm</span>","<span class='danger'>You hit \the [src] with no visible effect.</span>")
+			user.visible_message("<span class='danger'>\The [user] hits \the [src]. Nothing happens.</span>","<span class='danger'>You hit \the [src] with no visible effect.</span>")
 			src.log_append_to_last("Armor saved.")
 		return
 	else if ((HULK in user.mutations) && !deflect_hit(is_melee=1))

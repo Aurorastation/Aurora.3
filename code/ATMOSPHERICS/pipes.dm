@@ -80,7 +80,7 @@
 	if(istype(W,/obj/item/device/pipe_painter))
 		return 0
 
-	if (!iswrench(W) || !istype(W, /obj/item/weapon/pipewrench))
+	if (!iswrench(W) && !istype(W, /obj/item/weapon/pipewrench))
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())
@@ -166,6 +166,7 @@
 	alert_pressure = 55*ONE_ATMOSPHERE
 
 	level = 1
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 
 /obj/machinery/atmospherics/pipe/simple/New()
 	..()
@@ -432,6 +433,8 @@
 	level = 1
 	layer = 2.4 //under wires with their 2.44
 
+	gfi_layer_rotation = GFI_ROTATION_OVERDIR
+
 /obj/machinery/atmospherics/pipe/manifold/New()
 	..()
 	alpha = 255
@@ -523,7 +526,7 @@
 		cut_overlays()
 		add_overlay(icon_manager.get_atmos_icon("manifold", , pipe_color, "core" + icon_connect_type))
 		add_overlay(icon_manager.get_atmos_icon("manifold", , , "clamps" + icon_connect_type))
-		
+
 		// Can't handle underlays with SSoverlay.
 		underlays.Cut()
 
@@ -1310,6 +1313,7 @@
 	desc = "An adapter for regular, supply and scrubbers pipes"
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER
 	icon_state = "map_universal"
+	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
 /obj/machinery/atmospherics/pipe/simple/visible/universal/update_icon(var/safety = 0)
 	if(!check_icon_cache())
@@ -1345,6 +1349,7 @@
 	desc = "An adapter for regular, supply and scrubbers pipes"
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER
 	icon_state = "map_universal"
+	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
 /obj/machinery/atmospherics/pipe/simple/hidden/universal/update_icon(var/safety = 0)
 	if(!check_icon_cache())
@@ -1354,7 +1359,7 @@
 
 	cut_overlays()
 	add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "universal"))
-	
+
 	underlays.Cut()
 
 	if (node1)

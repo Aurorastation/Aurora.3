@@ -20,6 +20,7 @@
 	var/material/padding_material
 	var/base_icon = "bed"
 	var/can_dismantle = 1
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 
 /obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
 	. = ..()

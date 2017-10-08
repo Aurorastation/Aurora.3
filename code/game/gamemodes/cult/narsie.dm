@@ -44,7 +44,7 @@ var/global/list/narsie_list = list()
 	..()
 	if(announce)
 		world << "<font size='15' color='red'><b>[uppertext(name)] HAS RISEN</b></font>"
-		world << sound('sound/effects/wind/wind_5_1.ogg')
+		world << sound('sound/effects/narsie.ogg')
 
 	narsie_spawn_animation()
 

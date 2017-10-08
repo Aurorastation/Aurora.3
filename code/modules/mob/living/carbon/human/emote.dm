@@ -1,6 +1,5 @@
 /mob/living/carbon/human/emote(var/act,var/m_type=1,var/message = null)
 	var/param = null
-
 	if (findtext(act, "-", 1, null))
 		var/t1 = findtext(act, "-", 1, null)
 		param = copytext(act, t1 + 1, length(act) + 1)
@@ -295,6 +294,43 @@
 					message = "makes a weak noise."
 					m_type = 2
 
+		if("slap", "slaps")
+			m_type = 1
+			if(!restrained())
+				var/M = null
+				if(param)
+					for(var/mob/A in view(1, null))
+						if(param == A.name)
+							M = A
+							break
+				if(M)
+					message = "<span class='danger'>slaps [M] across the face. Ouch!</span>"
+					playsound(loc, 'sound/effects/snap.ogg', 50, 1)
+				else
+					message = "<span class='danger'>slaps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]!</span>"
+					playsound(loc, 'sound/effects/snap.ogg', 50, 1)
+					SSfeedback.IncrementSimpleStat("selfslap")
+
+		if("snap", "snaps")
+			m_type = 2
+			var/mob/living/carbon/human/H = src
+			var/obj/item/organ/external/L = H.get_organ("l_hand")
+			var/obj/item/organ/external/R = H.get_organ("r_hand")
+			var/left_hand_good = 0
+			var/right_hand_good = 0
+			if(L && (!(L.status & ORGAN_DESTROYED)) && (!(L.status & ORGAN_BROKEN)))
+				left_hand_good = 1
+			if(R && (!(R.status & ORGAN_DESTROYED)) && (!(R.status & ORGAN_BROKEN)))
+				right_hand_good = 1
+
+			if(!left_hand_good && !right_hand_good)
+				to_chat(usr, "You need at least one hand in good working order to snap your fingers.")
+				return
+
+			message = "snaps [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] fingers."
+			playsound(loc, 'sound/effects/fingersnap.ogg', 50, 1, -3)
+
+
 		if ("laugh")
 			if(miming)
 				message = "acts out a laugh."
@@ -556,7 +592,7 @@
 
 		if("beep")
 			if (!isipc(src))
-				src << span("notice", "You're not a machine!")
+				src << span("notice", "You're not a Machine!")
 			else
 				var/M = null
 				if(param)
@@ -613,13 +649,21 @@
 					message = "buzzes."
 				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 				m_type = 1
+		
+		if("vomit")
+			if (!check_has_mouth(src))
+				src << "<span class='warning'>You are unable to vomit.</span>"
+				return
+			delayed_vomit()
+			return
+
 
 		if ("help")
 			src << {"blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, collapse, cough,
 cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,
 grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug,
 sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper,
-wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
+wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, vomit"}
 
 		else
 			src << span("notice", "Unusable emote '[act]'. Say *help for a list.")

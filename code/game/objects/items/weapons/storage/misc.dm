@@ -1,11 +1,26 @@
 /obj/item/weapon/storage/pill_bottle/dice
 	name = "pack of dice"
 	desc = "It's a small container with dice inside."
+	icon = 'icons/obj/dice.dmi'
+	icon_state = "dicebag"
 
-	New()
-		..()
-		new /obj/item/weapon/dice( src )
-		new /obj/item/weapon/dice/d20( src )
+/obj/item/weapon/storage/pill_bottle/dice/fill()
+	..()
+	new /obj/item/weapon/dice( src )
+	new /obj/item/weapon/dice/d20( src )
+
+/obj/item/weapon/storage/pill_bottle/dice/gaming
+	name = "pack of gaming dice"
+	desc = "It's a small container with gaming dice inside."
+	icon_state = "magicdicebag"
+
+/obj/item/weapon/storage/pill_bottle/dice/gaming/fill()
+	..()
+	new /obj/item/weapon/dice/d4(src)
+	new /obj/item/weapon/dice/d8(src)
+	new /obj/item/weapon/dice/d10(src)
+	new /obj/item/weapon/dice/d12(src)
+	new /obj/item/weapon/dice/d100(src)
 
 /*
  * Donut Box

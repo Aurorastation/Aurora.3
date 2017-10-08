@@ -375,7 +375,7 @@ var/list/global/slot_flags_enumeration = list(
 					H << "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>"
 				return 0
 			var/obj/item/clothing/under/uniform = H.w_uniform
-			if(uniform.accessories.len && !uniform.can_attach_accessory(src))
+			if(LAZYLEN(uniform.accessories) && !uniform.can_attach_accessory(src))
 				if (!disable_warning)
 					H << "<span class='warning'>You already have an accessory of this type attached to your [uniform].</span>"
 				return 0

@@ -472,3 +472,31 @@
 	appliance = OVEN
 	items = list(/obj/item/organ/brain)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/braincake
+
+/datum/recipe/pancakes
+	appliance = OVEN
+	fruit = list("blueberries" = 2)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/pancakes
+
+/datum/recipe/lasagna
+	appliance = OVEN
+	fruit = list("tomato" = 2, "eggplant" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/weapon/reagent_containers/food/snacks/meat,
+		/obj/item/weapon/reagent_containers/food/snacks/meat
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/lasagna
+
+/datum/recipe/honeybun
+	appliance = OVEN
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/dough
+	)
+	reagents = list("honey" = 5)
+	result = /obj/item/weapon/reagent_containers/food/snacks/honeybun

@@ -72,6 +72,7 @@
 						user.visible_message("<span class='danger'>[user] gives [GM.name] a swirlie!</span>", "<span class='notice'>You give [GM.name] a swirlie!</span>", "You hear a toilet flushing.")
 						if(!GM.internal)
 							GM.adjustOxyLoss(5)
+						SSfeedback.IncrementSimpleStat("swirlies")
 					swirlie = null
 				else
 					user.visible_message("<span class='danger'>[user] slams [GM.name] into the [src]!</span>", "<span class='notice'>You slam [GM.name] into the [src]!</span>")
@@ -506,6 +507,7 @@
 /obj/structure/sink/puddle	//splishy splashy ^_^
 	name = "puddle"
 	icon_state = "puddle"
+	desc = "A small pool of some liquid, ostensibly water."
 
 /obj/structure/sink/puddle/attack_hand(mob/M as mob)
 	icon_state = "puddle-splash"

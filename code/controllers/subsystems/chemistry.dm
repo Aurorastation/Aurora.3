@@ -2,8 +2,8 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 /datum/controller/subsystem/chemistry
 	name = "Chemistry"
-	flags = SS_NO_INIT
 	priority = SS_PRIORITY_CHEMISTRY
+	init_order = SS_INIT_MISC_FIRST
 
 	var/list/active_holders
 	var/list/chemical_reactions
@@ -19,7 +19,11 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	active_holders = list()
 	chemical_reactions = chemical_reactions_list
 	chemical_reagents = chemical_reagents_list
-
+		
+/datum/controller/subsystem/chemistry/Initialize()
+	load_secret_chemicals()
+	. = ..()
+	
 /datum/controller/subsystem/chemistry/fire(resumed = FALSE)
 	if (!resumed)
 		processing_holders = active_holders.Copy()
@@ -53,3 +57,38 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	src.active_holders = SSchemistry.active_holders
 	src.chemical_reactions = SSchemistry.chemical_reactions
 	src.chemical_reagents = SSchemistry.chemical_reagents
+
+/datum/controller/subsystem/chemistry/proc/load_secret_chemicals()
+	var/list/chemconfig = list()
+	try
+		chemconfig = json_decode(return_file_text("config/secretchem.json"))
+	catch(var/exception/e)
+		log_debug("SSchemistry: Warning: Could not load config, as secretchem.json is missing - [e]")
+		return
+
+	chemconfig = chemconfig["chemicals"]
+	for (var/chemical in chemconfig)
+		log_debug("SSchemistry: Loading chemical: [chemical]")
+		var/datum/chemical_reaction/cc = new()
+		cc.name = chemconfig[chemical]["name"]
+		cc.id = chemconfig[chemical]["id"]
+		cc.result = chemconfig[chemical]["result"]
+		cc.result_amount = chemconfig[chemical]["resultamount"]
+		cc.required_reagents = chemconfig[chemical]["required_reagents"]
+		if(!cc.result in chemical_reagents_list)
+			log_debug("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
+			qdel(cc)
+
+		for(var/A in cc.required_reagents)
+			if(!(A in chemical_reagents_list))
+				log_debug("SSchemistry: Warning: Invalid chemical [A] in [cc.name] required reagents list.")
+				qdel(cc)
+				break
+
+		if(LAZYLEN(cc.required_reagents))
+			var/reagent_id = cc.required_reagents[1]
+			LAZYINITLIST(chemical_reactions_list[reagent_id])
+			chemical_reactions_list[reagent_id] += cc
+
+	chemical_reactions = chemical_reactions_list
+
