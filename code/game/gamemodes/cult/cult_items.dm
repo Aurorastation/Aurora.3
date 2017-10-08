@@ -54,7 +54,7 @@
 		qdel(src)
 
 /obj/item/clothing/head/culthood
-	name = "hood"
+	name = "ragged hood"
 	icon_state = "culthood"
 	desc = "A torn, dust-caked hood."
 	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
@@ -78,7 +78,7 @@
 	icon_state = "cult_hoodalt"
 
 /obj/item/clothing/suit/cultrobes
-	name = "robes"
+	name = "ragged robes"
 	desc = "A ragged, dusty set of robes."
 	icon_state = "cultrobes"
 	item_state = "cultrobes"
@@ -104,7 +104,7 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
 /obj/item/clothing/head/helmet/space/cult
-	name = "cult helmet"
+	name = "eldritch helmet"
 	desc = "A bulky helmet, bristling with spikes. It looks space proof."
 	icon_state = "cult_helmet"
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
@@ -114,7 +114,7 @@
 	return
 
 /obj/item/clothing/suit/space/cult
-	name = "cult armour"
+	name = "eldritch armour"
 	icon_state = "cult_armour"
 	item_state = "cult_armour"
 	desc = "A bulky suit of armour, bristling with spikes. It looks space proof."

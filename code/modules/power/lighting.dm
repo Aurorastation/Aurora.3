@@ -440,6 +440,8 @@
 		addtimer(thecallback, offset)
 		offset += rand(5, 15)
 
+	playsound(src.loc, 'sound/effects/light_flicker.ogg', 75, 1)
+
 	addtimer(CALLBACK(src, .proc/end_flicker), offset)
 
 /obj/machinery/light/proc/handle_flicker()

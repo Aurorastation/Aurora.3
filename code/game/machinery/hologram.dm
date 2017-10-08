@@ -222,9 +222,9 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			hologram.name = "[caller_id.name] (Hologram)"
 			hologram.loc = get_step(src,1)
 			masters[caller_id] = hologram
-			hologram.overlays += getHologramIcon(icon(tempicon)) // Add the callers image as an overlay to keep coloration!
+			add_overlay(getHologramIcon(icon(tempicon))) // Add the callers image as an overlay to keep coloration!
 		else
-			hologram.overlays += A.holo_icon // Add the AI's configured holo Icon
+			add_overlay(A.holo_icon)  // Add the AI's configured holo Icon
 			hologram.name = "[A.name] (Hologram)"//If someone decides to right click.
 			A.holo = src
 			masters[A] = hologram

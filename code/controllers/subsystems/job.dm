@@ -347,15 +347,8 @@
 
 	H.job = rank
 
-	if(!joined_late)
-		var/obj/S = null
-		for(var/obj/effect/landmark/start/sloc in landmarks_list)
-			if(sloc.name != rank)	continue
-			if(locate(/mob/living) in sloc.loc)	continue
-			S = sloc
-			break
-		if(!S)
-			S = locate("start*[rank]") // use old stype
+	if(!joined_late || job.latejoin_at_spawnpoints)
+		var/obj/S = get_roundstart_spawnpoint(rank)
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
 			H.loc = S.loc
 		else
@@ -681,6 +674,18 @@
 	//spawn at one of the latespawn locations
 	Debug("LS/([H]): Entry; rank=[rank]")
 
+	var/datum/job/job = GetJob(rank)
+
+	H.job = rank
+
+	if(job.latejoin_at_spawnpoints)
+		for (var/thing in landmarks_list)
+			var/obj/effect/landmark/L = thing
+			if(istype(L))
+				if(L.name == "LateJoin[rank]")
+					H.forceMove(L.loc)
+					return
+
 	var/datum/spawnpoint/spawnpos
 
 	if(H.client.prefs.spawnpoint)
@@ -847,3 +852,15 @@
 			Debug("EIS/([H]): unable to equip; no storage.")
 
 	Debug("EIS/([H]): Complete.")
+
+/datum/controller/subsystem/jobs/proc/get_roundstart_spawnpoint(var/rank)
+	var/list/loc_list = list()
+	for(var/obj/effect/landmark/start/sloc in landmarks_list)
+		if(sloc.name != rank)	continue
+		if(locate(/mob/living) in sloc.loc)	continue
+		loc_list += sloc
+	if(loc_list.len)
+		return pick(loc_list)
+	else
+		return locate("start*[rank]") // use old stype
+

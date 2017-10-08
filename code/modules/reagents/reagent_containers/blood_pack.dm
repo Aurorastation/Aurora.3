@@ -2,18 +2,19 @@
 	name = "blood packs bags"
 	desc = "This box contains blood packs."
 	icon_state = "sterile"
-	New()
-		..()
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
-		new /obj/item/weapon/reagent_containers/blood/empty(src)
+
+/obj/item/weapon/storage/box/bloodpacks/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
+	new /obj/item/weapon/reagent_containers/blood/empty(src)
 
 /obj/item/weapon/reagent_containers/blood
-	name = "BloodPack"
+	name = "blood pack"
 	desc = "Contains blood used for transfusion."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "empty"
@@ -21,11 +22,12 @@
 
 	var/blood_type = null
 	var/vampire_marks = null
+	var/being_feed = FALSE
 
 /obj/item/weapon/reagent_containers/blood/Initialize()
 	. = ..()
 	if(blood_type != null)
-		name = "BloodPack [blood_type]"
+		name = "blood pack [blood_type]"
 		reagents.add_reagent("blood", 200, list("donor"=null,"viruses"=null,"blood_DNA"=null,"blood_type"=blood_type,"resistances"=null,"trace_chem"=null))
 		update_icon()
 
@@ -41,8 +43,12 @@
 
 /obj/item/weapon/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
 	if (user == M && (user.mind.vampire))
+		if (being_feed)
+			user << "<span class='notice'>You are already feeding on \the [src].</span>"
+			return
 		if (reagents.get_reagent_amount("blood"))
 			user.visible_message("<span class='warning'>[user] raises \the [src] up to their mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
+			being_feed = TRUE
 			vampire_marks = TRUE
 			if (!LAZYLEN(src.other_DNA))
 				LAZYADD(src.other_DNA, M.dna.unique_enzymes)
@@ -61,7 +67,7 @@
 				if (reagents.get_reagent_amount("blood") < 1)
 					break
 			user.visible_message("<span class='warning'>[user] licks \his fangs dry, lowering \the [src].</span>", "<span class='notice'>You lick your fangs clean of the tasteless blood.</span>")
-
+			being_feed = FALSE
 	else
 		..()
 
@@ -73,14 +79,14 @@
 /obj/item/weapon/reagent_containers/blood/attackby(obj/item/weapon/P as obj, mob/user as mob)
 	..()
 	if (istype(P, /obj/item/weapon/pen))
-		if (reagents.get_reagent_amount("blood") && name != "Empty BloodPack") //Stops people mucking with bloodpacks that are filled
+		if (reagents.get_reagent_amount("blood") && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
 			usr << "<span class='notice'>You can't relabel [name] until it is empty!</span>"
 			return
 		var/blood_name = input(usr, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Cancel")
 		if (blood_name == "Cancel") return
 		var/obj/item/i = usr.get_active_hand()
 		if (!istype(i, /obj/item/weapon/pen) || !in_range(user, src)) return //Checks to see if pen is still held or bloodback is in range
-		name = "BloodPack [blood_name]"
+		name = "blood pack [blood_name]"
 		desc = "Contains blood used for transfusion."
 		usr << "<span class='notice'>You label the blood pack as [blood_name].</span>"
 		return
@@ -167,12 +173,12 @@
 	blood_type = "O-"
 
 /obj/item/weapon/reagent_containers/blood/empty
-	name = "Empty BloodPack"
+	name = "empty blood pack"
 	desc = "Seems pretty useless... Maybe if there were a way to fill it?"
 	icon_state = "empty"
 
 /obj/item/weapon/reagent_containers/blood/ripped
-	name = "Ripped BloodPack"
+	name = "ripped blood pack"
 	desc = "It's torn up and useless."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "ripped"

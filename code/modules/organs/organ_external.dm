@@ -996,6 +996,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/embed(var/obj/item/weapon/W, var/silent = 0, var/supplied_message)
 	if(!owner || loc != owner)
 		return
+	if(species.flags & NO_EMBED)
+		return
 	if(!silent)
 		if(supplied_message)
 			owner.visible_message("<span class='danger'>[supplied_message]</span>")

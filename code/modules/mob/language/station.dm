@@ -40,6 +40,7 @@
 		"a",  "a",  "e",  "e",  "i",  "i",  "o",  "o",  "u",  "u",  "s",  "s"
 	)
 
+// tajaran languages
 /datum/language/tajaran
 	name = LANGUAGE_SIIK_MAAS
 	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajaran."
@@ -64,8 +65,7 @@
 	new_name += " "
 	new_name += pick(list("Alfarsi","Alekseev","Al-Barik","Al-Hamdan","Al-Mansur","Al-Kandari","Al-Shahrani","Antonov","Bogdanov","El-Hasem","El-Amin","Rrhakaslav","Mrrazhughran","Jrruzhani","Rrhamrare","Mrakiizar","Hirron","Prruzhulkanich","El-Tusi","Nejem","Hanar","Karimi","Markov","Saif","Yakub","Zaman","Zaydan","Zidan","Zahawi"))
 	return new_name
-	
-// tajaran sign language
+
 /datum/language/tajaran_sign
 	name = LANGUAGE_SIGN_TAJARA
 	desc = "A sign language developed by Adhomai hunters"
@@ -74,7 +74,7 @@
 	colour = "i"
 	key = "i"
 	flags = NO_STUTTER | SIGNLANG | WHITELISTED
-	
+
 /datum/language/siik_tajr
 	name = LANGUAGE_SIIK_TAJR
 	desc = "A language native to the tajaran, it employes both verbal and non-verbal elements."
@@ -89,6 +89,20 @@
 	"mi","jri","dynh","manq","rhe","zar","rrhaz","kal","chur","eech","thaa","dra","jurl","mah","sanu","dra","ii'r",
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
 	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
+
+/datum/language/yassa
+	name = LANGUAGE_YA_SSA
+	desc = "The traditional language of the tajaran nobility."
+	speech_verb = "mrowls"
+	ask_verb = "mrowls"
+	exclaim_verb = "yowls"
+	colour = "yassa"
+	key = "r"
+	flags = WHITELISTED
+	syllables = list("hrr","rhr","tarj","khir","rajh","kir","mier","kre","ahek","nlhal","veh","khaz","dri","rhan","darrer",
+	"mi","jhri","dynher","manqi","rhas","shar","drhaz","kalh","shur","echi","tha","draer","jurl","maher","sanii","dra","ii'r",
+	"kan","aesi","fare","we","bash","arha","quara","zhir","sem","make","hrer","nja","rir","can","jhun","dar","rik","kah",
+	"hal","kete","juril","mah","tul","cresh","azu","ragh","miro","mara","mrero","mrara")
 
 /datum/language/skrell
 	name = LANGUAGE_SKRELLIAN
@@ -230,7 +244,7 @@
 
 /datum/language/resomi/get_random_name(gender)
 	return ..(gender, 1, 4, 1.5)
-	
+
 /datum/language/unathi_azaziba
 	name = LANGUAGE_AZAZIBA
 	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the galactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
@@ -247,7 +261,6 @@
 /*
 	This list really long, mainly because I can't make up my mind about which mandarin syllables should be removed,
 	and the english syllables had to be duplicated so that there is roughly a 50-50 weighting.
-
 	Sources:
 	http://www.sttmedia.com/syllablefrequency-english
 	http://www.chinahighlights.com/travelguide/learning-chinese/pinyin-syllables.htm
