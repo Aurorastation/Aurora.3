@@ -145,6 +145,7 @@
 			var/choice = input("Do you wish to become a Vox? This is not reversible.") as null|anything in list("No","Yes")
 			if(choice == "Yes")
 				var/mob/living/carbon/human/vox/vox = new(get_turf(src),"Vox")
+				vox.species.equip_survival_gear(vox)
 				if(user.mind)
 					user.mind.transfer_to(vox)
 
@@ -154,7 +155,6 @@
 					newname = L.get_random_name()
 				vox.real_name = newname
 				vox.name = vox.real_name
-				vox.species.equip_survival_gear(vox)
 				vox.equip_to_slot_or_del(new /obj/item/clothing/under/vox/vox_robes(vox), slot_w_uniform)
 				vox.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(vox), slot_shoes)
 				vox.equip_to_slot_or_del(new /obj/item/device/pda/merchant(vox), slot_belt)
