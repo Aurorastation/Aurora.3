@@ -749,7 +749,7 @@
 	randomize_range = FALSE
 
 /obj/item/weapon/light/Initialize()
-	..()
+	. = ..()
 	if(randomize_range)
 		switch(lighttype)
 			if("tube")

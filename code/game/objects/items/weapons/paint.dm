@@ -18,7 +18,7 @@
 	var/paint_type = null //used for colouring detective technicolor coat and hat
 
 /obj/item/weapon/reagent_containers/glass/paint/Initialize()
-	..()
+	. = ..()
 	if(paint_type && lentext(paint_type) > 0)
 		name = paint_type + " " + name
 	reagents.add_reagent("water", volume*3/5)
