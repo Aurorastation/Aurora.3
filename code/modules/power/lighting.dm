@@ -772,7 +772,7 @@
 			I.color = brightness_color
 			add_overlay(I)
 			desc = "A burnt-out [name]."
-		if(LIGHT_BROKEN)//because this involves disappearing part of the icon, it also involves blending
+		if(LIGHT_BROKEN)
 			icon_state = "l[lighttype]_attachment_broken"
 			var/image/I = image(icon, "l[lighttype]_broken")
 			I.color = brightness_color
