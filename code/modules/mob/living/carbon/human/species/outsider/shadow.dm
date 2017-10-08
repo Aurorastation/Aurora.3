@@ -56,7 +56,7 @@
 	remains_type = /obj/effect/decal/cleanable/ash
 	death_message = "dissolves into ash..."
 
-	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_MINOR_CUT
+	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_EMBED
 	spawn_flags = IS_RESTRICTED
 
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
@@ -98,6 +98,7 @@
 		H.mind.special_role = "Shadow"
 	H.real_name = "grue"
 	H.name = H.real_name
+	H.gender = NEUTER
 	..()
 
 /datum/species/shadow/get_random_name()

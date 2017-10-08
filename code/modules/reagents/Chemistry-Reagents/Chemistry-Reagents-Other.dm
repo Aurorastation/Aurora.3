@@ -420,3 +420,32 @@
 
 /datum/reagent/luminol/touch_mob(var/mob/living/L)
 	L.reveal_blood()
+
+/datum/reagent/estus
+	name = "liquid light"
+	id = "estus"
+	description = "This impossible substance slowly converts from a liquid into actual light."
+	reagent_state = LIQUID
+	color = "#ffff40"
+	scannable = 1
+	metabolism = REM * 0.25
+	taste_description = "bolted fire"
+	var/datum/modifier/modifier
+
+/datum/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
+	if (!modifier)
+		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	if(isskeleton(M))
+		M.heal_organ_damage(10 * removed, 15 * removed)
+
+/datum/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed)
+	if (!modifier)
+		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	if(isskeleton(M))
+		M.heal_organ_damage(10 * removed, 15 * removed)
+
+/datum/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed)
+	if (!modifier)
+		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	if(isskeleton(M))
+		M.heal_organ_damage(10 * removed, 15 * removed)

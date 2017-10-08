@@ -55,3 +55,13 @@
 	build_path = /obj/item/weapon/cell/hyper
 	category = "Misc"
 	sort_string = "DAAAD"
+
+/datum/design/item/powercell/device
+	name = "device"
+	build_type = PROTOLATHE | MECHFAB
+	id = "device_cell"
+	req_tech = list(TECH_POWER = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 50)
+	build_path = /obj/item/weapon/cell/device
+	category = "Misc"
+	sort_string = "DAAAE"

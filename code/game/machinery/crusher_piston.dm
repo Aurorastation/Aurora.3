@@ -87,9 +87,15 @@
 	return ..()
 
 /obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	if(status != "idle" && prob(40) && ishuman(user))
+		var/mob/living/carbon/human/M = user
+		M.apply_damage(45, BRUTE, user.get_active_hand())
+		M.apply_damage(45, HALLOSS)
+		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
+		M.say("*scream")
+		return
 	if(default_deconstruction_screwdriver(user, O))
 		return
-	//TODO: Add a chance to catch their hand in the mechanic if they do something while the crusher is in operation
 	if(default_deconstruction_crowbar(user, O))
 		return
 	if(default_part_replacement(user, O))
