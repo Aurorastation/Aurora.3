@@ -36,6 +36,7 @@
 	var/turf/T   = loc
 	if (istype(T))
 		T.lighting_overlay = null
+		QDEL_NULL(T.adder)
 		T.luminosity = 1
 
 	return ..()
@@ -66,6 +67,11 @@
 		cg = corners[2] || dummy_lighting_corner
 		cb = corners[4] || dummy_lighting_corner
 		ca = corners[1] || dummy_lighting_corner
+
+	if (!T.adder && (cr.needs_add || cg.needs_add || cb.needs_add || ca.needs_add))
+		T.adder = new(loc)
+	else if (T.adder)
+		T.adder.update_overlay()
 
 	var/max = max(cr.cache_mx, cg.cache_mx, cb.cache_mx, ca.cache_mx)
 	luminosity = max > LIGHTING_SOFT_THRESHOLD
@@ -126,7 +132,6 @@
 	if (OT)
 		OT.update_icon()
 
-#undef ALL_EQUAL
 
 // Variety of overrides so the overlays don't get affected by weird things.
 
@@ -156,3 +161,84 @@
 
 /atom/movable/lighting_overlay/conveyor_act()
 	return
+
+/atom/movable/lighting_overlay/adder
+	blend_mode = BLEND_ADD
+
+/atom/movable/lighting_overlay/adder/New()
+	needs_update = TRUE
+	SSlighting.overlay_queue += src
+
+// min(max((RL_LumR - 1) * 0.5, 0), 0.3)
+
+/atom/movable/lighting_overlay/adder/update_overlay()
+	var/turf/T = loc
+	if (!istype(T)) // Erm...
+		if (loc)
+			warning("A lighting overlay realised its loc was NOT a turf (actual loc: [loc], [loc.type]) in update_overlay() and got deleted!")
+
+		else
+			warning("A lighting overlay realised it was in nullspace in update_overlay() and got deleted!")
+
+		qdel(src, TRUE)
+		return
+
+	// See LIGHTING_CORNER_DIAGONAL in lighting_corner.dm for why these values are what they are.
+	var/list/corners = T.corners
+	var/datum/lighting_corner/cr = dummy_lighting_corner
+	var/datum/lighting_corner/cg = dummy_lighting_corner
+	var/datum/lighting_corner/cb = dummy_lighting_corner
+	var/datum/lighting_corner/ca = dummy_lighting_corner
+	if (corners)
+		cr = corners[3] || dummy_lighting_corner
+		cg = corners[2] || dummy_lighting_corner
+		cb = corners[4] || dummy_lighting_corner
+		ca = corners[1] || dummy_lighting_corner
+
+	var/visible = cr.needs_add || cg.needs_add || cb.needs_add || ca.needs_add
+
+	if (visible)
+		invisibility = INVISIBILITY_LIGHTING
+		var/rr = cr.add_r
+		var/rg = cr.add_g
+		var/rb = cr.add_b
+
+		var/gr = cg.add_r
+		var/gg = cg.add_g
+		var/gb = cg.add_b
+
+		var/br = cb.add_r
+		var/bg = cb.add_g
+		var/bb = cb.add_b
+
+		var/ar = ca.add_r
+		var/ag = ca.add_g
+		var/ab = ca.add_b
+
+		if (islist(color))
+			var/list/c_list = color
+			c_list[CL_MATRIX_RR] = rr
+			c_list[CL_MATRIX_RG] = rg
+			c_list[CL_MATRIX_RB] = rb
+			c_list[CL_MATRIX_GR] = gr
+			c_list[CL_MATRIX_GG] = gg
+			c_list[CL_MATRIX_GB] = gb
+			c_list[CL_MATRIX_BR] = br
+			c_list[CL_MATRIX_BG] = bg
+			c_list[CL_MATRIX_BB] = bb
+			c_list[CL_MATRIX_AR] = ar
+			c_list[CL_MATRIX_AG] = ag
+			c_list[CL_MATRIX_AB] = ab
+			color = c_list
+		else
+			color = list(
+				rr, rg, rb, 0,
+				gr, gg, gb, 0,
+				br, bg, bb, 0,
+				ar, ag, ab, 0,
+				0, 0, 0, 1
+			)
+	else
+		invisibility = 101
+
+#undef ALL_EQUAL

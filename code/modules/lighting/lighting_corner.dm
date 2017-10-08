@@ -20,6 +20,11 @@
 	var/lum_b = 0
 	var/lum_u = 0	// UV Radiation, not visible.
 
+	var/add_r = 0
+	var/add_g = 0
+	var/add_b = 0
+	var/needs_add = FALSE
+
 	var/needs_update = FALSE
 
 	var/cache_r  = LIGHTING_SOFT_THRESHOLD
@@ -98,6 +103,8 @@
 	lum_b += delta_b
 	lum_u += delta_u
 
+
+
 	if (needs_update)
 		return
 
@@ -109,12 +116,14 @@
 		update_overlays(TRUE)
 
 /datum/lighting_corner/proc/update_overlays(var/now = FALSE)
-
 	// Cache these values a head of time so 4 individual lighting overlays don't all calculate them individually.
 	var/mx = max(lum_r, lum_g, lum_b) // Scale it so 1 is the strongest lum, if it is above 1.
 	. = 1 // factor
+	needs_add = FALSE
 	if (mx > 1)
 		. = 1 / mx
+		// Overbright, use adding.
+		needs_add = TRUE
 
 	else if (mx < LIGHTING_SOFT_THRESHOLD)
 		. = 0 // 0 means soft lighting.
@@ -123,6 +132,10 @@
 	cache_g  = round(lum_g * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
 	cache_b  = round(lum_b * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
 	cache_mx = round(mx, LIGHTING_ROUND_VALUE)
+	if (needs_add)
+		add_r = min(max((cache_r - 1) * 0.5, 0), 0.3)
+		add_g = min(max((cache_g - 1) * 0.5, 0), 0.3)
+		add_b = min(max((cache_b - 1) * 0.5, 0), 0.3)
 
 	for (var/TT in masters)
 		var/turf/T = TT
