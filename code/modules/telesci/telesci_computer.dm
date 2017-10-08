@@ -11,7 +11,7 @@
 	// VARIABLES //
 	var/teles_left	// How many teleports left until it becomes uncalibrated
 	var/datum/projectile_data/last_tele_data = null
-	var/z_co = 3
+	var/z_co = 4
 	var/power_off
 	var/rotation_off
 	//var/angle_off
@@ -26,7 +26,7 @@
 	var/list/power_options = list(5, 10, 20, 25, 30, 40, 50, 80, 100)
 	var/teleporting = 0
 	var/starting_crystals = 0	//Edit this on the map, seriously.
-	var/max_crystals = 4
+	var/max_crystals = 5
 	var/list/crystals = list()
 	var/obj/item/device/gps/inserted_gps
 

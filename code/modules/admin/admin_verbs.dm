@@ -375,7 +375,8 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/returntobody,
 	/client/proc/view_duty_log,
 	/datum/admins/proc/create_admin_fax,
-	/client/proc/check_fax_history
+	/client/proc/check_fax_history,
+	/client/proc/aooc
 )
 
 /client/proc/add_admin_verbs()
