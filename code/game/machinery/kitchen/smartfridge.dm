@@ -62,6 +62,10 @@
 	desc = "A refrigerated storage unit for slime extracts"
 	req_access = list(access_research)
 
+/obj/machinery/smartfridge/secure/extract/Initialize()
+	. = ..()
+	new/obj/item/weapon/storage/bag/slimes(src)
+
 /obj/machinery/smartfridge/secure/extract/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/slime_extract))
 		return 1
