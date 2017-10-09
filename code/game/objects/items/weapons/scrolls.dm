@@ -75,12 +75,12 @@
 	smoke.start()
 	var/list/L = list()
 	for(var/turf/T in get_area_turfs(thearea.type))
-		if(!T.density && !T.ishole)
+		if(!T.density && !T.is_hole)
 			var/clear = 1
 			for(var/obj/O in T)
 				if(O.density)
 					clear = 0
-					break
+					break.
 			if(clear)
 				L+=T
 
