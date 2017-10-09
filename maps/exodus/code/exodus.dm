@@ -39,3 +39,13 @@
 	emergency_shuttle_leaving_dock = "The Emergency Shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
+
+	station_levels = list(1)
+	admin_levels = list(2)
+	contact_levels = list(1, 5)
+	player_levels = list(1, 3, 4, 5, 6)
+	accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "5" = 10, "6" = 60)
+
+/datum/map/exodus/generate_asteroid()
+	new /datum/random_map/automata/cave_system(null, 13, 32, 5, 217, 223)
+	new /datum/random_map/noise/ore(null, 13, 32, 5, 217, 223)

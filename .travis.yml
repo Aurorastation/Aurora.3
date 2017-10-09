@@ -10,6 +10,7 @@ env:
   matrix:
     - USE_MAP=aurora
     - USE_MAP=runtime
+    - USE_MAP=exodus
 
 cache:
   directories:
