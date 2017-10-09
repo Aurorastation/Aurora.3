@@ -530,7 +530,7 @@
 	desc = "A large mining tool capable of expelling concentrated plasma bursts, useful for crushing rocks."
 	id = "mecha_plasmacutter"
 	req_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 4, TECH_ENGINEERING = 4)
-	mmterials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "gold" = 1000, "phoron" = 1000)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "gold" = 1000, "phoron" = 1000)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma
 
 /datum/design/item/mecha/weapon/incendiary
@@ -538,7 +538,7 @@
 	desc = "A weapon for combat exosuits. Shoots incendiary shells."
 	id = "mecha_incendiary"
 	req_tech = list(TECH_COMBAT= 4, TECH_MATERIAL = 4, TECH_PHORON = 3)
-	mterials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "phoron" = 1000)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "phoron" = 1000)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/incendiary
 
 // *** Nonweapon modules
