@@ -184,7 +184,7 @@
 
 /obj/item/weapon/melee/baton/robot/attackby(obj/item/weapon/W, mob/user)
 	return
-	
+
 /obj/item/weapon/melee/baton/robot/arm
 	name = "electrified arm"
 	icon_state = "stunrod"
@@ -252,6 +252,17 @@
 	return
 
 /obj/item/weapon/melee/baton/slime/update_icon() // sprite
+	if(status)
+		icon_state = "[initial(name)]_active"
+		item_state = "[initial(name)]_active"
+	else if(!bcell)
+		icon_state = "[initial(name)]_nocell"
+		item_state = "[initial(name)]"
+	else
+		icon_state = "[initial(name)]"
+		item_state = "[initial(name)]"
+
+	..()
 
 /obj/item/weapon/melee/baton/slime/attack(mob/M, mob/user, var/hit_zone)
 	if(isrobot(M) || ishuman(M))
