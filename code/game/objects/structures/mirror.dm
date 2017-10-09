@@ -144,27 +144,15 @@
 		if(istype(user) && user.mind && user.mind.assigned_role == "Merchant" && user.species.name != "Vox")
 			var/choice = input("Do you wish to become a Vox? This is not reversible.") as null|anything in list("No","Yes")
 			if(choice == "Yes")
-				var/mob/living/carbon/human/vox/vox = new(get_turf(src),"Vox")
-				vox.species.equip_survival_gear(vox)
-				if(user.mind)
-					user.mind.transfer_to(vox)
+				user.set_species("Vox")
+				user.species.equip_survival_gear(user)
 
-				var/newname = sanitizeSafe(input(vox,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
+				var/newname = sanitizeSafe(input(user,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname || newname == "")
-					var/datum/language/L = all_languages[vox.species.default_language]
+					var/datum/language/L = all_languages[user.species.default_language]
 					newname = L.get_random_name()
-				vox.real_name = newname
-				vox.name = vox.real_name
-				vox.equip_to_slot_or_del(new /obj/item/clothing/under/vox/vox_robes(vox), slot_w_uniform)
-				vox.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(vox), slot_shoes)
-				vox.equip_to_slot_or_del(new /obj/item/device/pda/merchant(vox), slot_belt)
-				vox.equip_to_slot_or_del(new /obj/item/device/price_scanner(vox), slot_r_store)
-				vox.equip_to_slot_or_del(new /obj/item/device/radio/headset(vox), slot_l_ear)
-				var/obj/item/weapon/card/id/merchant/W = new(vox)
-				W.name = "[vox.real_name]'s ID Card"
-				W.registered_name = vox.real_name
-				W.assignment = "Merchant"
-				vox.equip_to_slot_or_del(W, slot_wear_id)
+				user.real_name = newname
+				user.name = user.real_name
 
 			qdel(user)
 	..()
