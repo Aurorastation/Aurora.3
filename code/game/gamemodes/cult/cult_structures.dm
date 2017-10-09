@@ -74,7 +74,8 @@
 	anchored = FALSE
 
 	var/list/pain_messages = list(
-		"You feel the crushing weight of placeholder text upon your shoulders."
+		"The blood in your veins pulses and writhes with rage, your synapses being struck with vibrations of hate and anger. You feel weaker, and a chord is struck in your mind that whatever hope still remains is quickly slipping away into darkness.",
+		"You feel something clawing at the edges of your conscious."
 	)
 
 /obj/structure/cult/pylon/Destroy()
@@ -111,7 +112,7 @@
 					continue
 				
 				H.hallucination += 10
-				H.apply_damage(5, HALLOSS)
+				H.apply_damage(10, HALLOSS)
 				if (prob(50))
 					to_chat(H, "<span class='danger'>[pick(pain_messages)]</span>")
 
