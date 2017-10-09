@@ -48,7 +48,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("KA Range Increase",			/obj/item/borg/upgrade/modkit/range,	10,									750),
 	new /datum/data/mining_equipment("Jaunter",						/obj/item/device/wormhole_jaunter,		20,								750),
 	new /datum/data/mining_equipment("Kinetic Accelerator",			/obj/item/weapon/gun/energy/kinetic_accelerator,	10,					750),
-	new /datum/data/mining_equipment("1000 credits",				/obj/item/weapon/spacecash/c100,	-1,									1000),
+	new /datum/data/mining_equipment("100 credits",					/obj/item/weapon/spacecash/c100,	-1,									1000),
 	new /datum/data/mining_equipment("Mass Driver",					/obj/item/weapon/mass_driver_diy,	5,									800),
 	new /datum/data/mining_equipment("Mining Drone",				/mob/living/silicon/robot/drone/mining,		15,							800),
 	new /datum/data/mining_equipment("Minecart Engine",				/obj/vehicle/train/cargo/engine/mining,	-1,									800,	1),
