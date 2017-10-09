@@ -534,7 +534,7 @@
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma
 
 /datum/design/item/mecha/weapon/incendiary
-	name = "HP-13 incendiary carbine""
+	name = "HP-13 incendiary carbine"
 	desc = "A weapon for combat exosuits. Shoots incendiary shells."
 	id = "mecha_incendiary"
 	req_tech = list(TECH_COMBAT= 4, TECH_MATERIAL = 4, TECH_PHORON = 3)
