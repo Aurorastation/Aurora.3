@@ -538,7 +538,7 @@
 	desc = "A weapon for combat exosuits. Shoots incendiary shells."
 	id = "mecha_incendiary"
 	req_tech = list(TECH_COMBAT= 4, TECH_MATERIAL = 4, TECH_PHORON = 3)
-	mmterials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "phoron" = 1000)
+	mterials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "phoron" = 1000)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/incendiary
 
 // *** Nonweapon modules
