@@ -153,6 +153,6 @@
 					newname = L.get_random_name()
 				user.real_name = newname
 				user.name = user.real_name
-
-			qdel(user)
+				user.h_style = "Short Vox Quills"
+				user.f_style = "Shaved"
 	..()
