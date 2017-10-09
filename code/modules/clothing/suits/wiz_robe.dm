@@ -107,7 +107,7 @@
 
 /obj/item/clothing/suit/wizrobe/gentlecoat
 	name = "gentlemans coat"
-	desc = "A heavy threaded twead gray jacket. For a different sort of Gentleman."
+	desc = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
 	icon_state = "gentlecoat"
 	item_state = "gentlecoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS

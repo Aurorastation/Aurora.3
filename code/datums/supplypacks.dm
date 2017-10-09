@@ -53,10 +53,10 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/weapon/gun/projectile/revolver/derringer,
 					/obj/item/weapon/gun/projectile/dragunov,
 					/obj/item/weapon/gun/energy/retro)
-	cost = 60
+	cost = 120
 	containertype = /obj/structure/closet/crate
 	containername = "crate"
-	hidden = 1
+	contraband = 1
 	group = "Security"
 
 /datum/supply_packs/forensics
@@ -1787,3 +1787,15 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "antimatter fuel container"
 	group = "Engineering"
 	access = access_engine
+
+/datum/supply_packs/hoist
+	name = "Hoist Crate"
+	contains = list(
+		/obj/item/hoist_kit,
+		/obj/item/hoist_kit,
+		/obj/item/hoist_kit
+	)
+	cost = 50
+	containertype = /obj/structure/closet/crate
+	containername = "hoist crate"
+	group = "Engineering"

@@ -16,8 +16,10 @@
 	anchored = 1	//  don't get pushed around
 	simulated = FALSE
 
-/mob/new_player/New()
-	..()
+INITIALIZE_IMMEDIATE(/mob/new_player)
+
+/mob/new_player/Initialize()
+	. = ..()
 	dead_mob_list -= src
 
 /mob/new_player/verb/new_player_panel()
@@ -114,13 +116,13 @@
 		new_player_panel_proc()
 
 	if(href_list["observe"])
-		if (SSatoms.initialized < INITIALIZATION_INNEW_REGULAR)
+		if (!SSATOMS_IS_PROBABLY_DONE)
 			// Don't allow players to observe until initialization is more or less complete.
 			// Letting them join too early breaks things, they can wait.
-			src << span("alert", "The server is still initializing, try observing again in a minute or so.")
-			return
+			alert(src, "Please wait, the map is not initialized yet.")
+			return 0
 
-		if(alert(src,"Are you sure you wish to observe? You will have to wait 30 minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
+		if(alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
 			if(!client)	return 1
 			var/mob/dead/observer/observer = new /mob/dead/observer(src)
 			spawning = 1
@@ -329,16 +331,16 @@
 		character.buckled.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
-
-	if(character.mind.assigned_role != "Cyborg")
-		data_core.manifest_inject(character)
-		SSticker.minds += character.mind	//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
+	if(SSjobs.ShouldCreateRecords(rank))
+		if(character.mind.assigned_role != "Cyborg")
+			data_core.manifest_inject(character)
+			SSticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
 
 		//Grab some data from the character prefs for use in random news procs.
 
-		AnnounceArrival(character, rank, join_message)
-	else
-		AnnounceCyborg(character, rank, join_message)
+			AnnounceArrival(character, rank, join_message)
+		else
+			AnnounceCyborg(character, rank, join_message)
 
 	qdel(src)
 

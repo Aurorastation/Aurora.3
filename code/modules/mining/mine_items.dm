@@ -31,6 +31,7 @@
 /obj/item/device/flashlight/lantern
 	name = "lantern"
 	icon_state = "lantern"
+	item_state = "lantern"
 	desc = "A mining lantern."
 	light_power = 1
 	brightness_on = 6
@@ -63,8 +64,8 @@
 
 	var/excavation_amount = 30
 	var/wielded = 0
-	var/force_unwielded = 10.0
-	var/force_wielded = 30.0
+	var/force_unwielded = 5.0
+	var/force_wielded = 15.0
 	var/digspeed_unwielded = 30
 	var/digspeed_wielded = 10
 	var/drilling = 0
@@ -233,7 +234,7 @@
 	drill_sound = 'sound/weapons/sonic_jackhammer.ogg'
 	digspeed = 15
 	digspeed_unwielded = 15
-	force_unwielded = 25.0
+	force_unwielded = 15.0
 	excavation_amount = 100
 
 	can_wield = 0
@@ -252,7 +253,6 @@
 
 	digspeed_unwielded = 30
 	digspeed_wielded = 5
-	force_wielded = 35.0
 
 /obj/item/weapon/pickaxe/diamond
 	name = "diamond pickaxe"
@@ -264,7 +264,7 @@
 
 	digspeed_unwielded = 20
 	digspeed_wielded = 1
-	force_wielded = 35.0
+	force_wielded = 25.0
 
 /obj/item/weapon/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
@@ -407,7 +407,7 @@
 	var/obj/item/stack/flag/newflag = new src.type(T)
 	newflag.amount = 1
 	newflag.upright = 1
-	anchored = 1
+	newflag.anchored = 1
 	newflag.name = newflag.singular_name
 	newflag.icon_state = "[newflag.base_state]_open"
 	newflag.visible_message("<b>[user]</b> plants [newflag] firmly in the ground.")
@@ -547,7 +547,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(C, user)
 		return
-	if (istype(C, /obj/item/weapon/weldingtool))
+	if (iswelder(C))
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user << "<span class='notice'>Slicing apart connectors ...</span>"
@@ -1082,28 +1082,36 @@ var/list/total_extraction_beacons = list()
 	w_class = 3
 	force = 10
 	throwforce = 5
-	var/on = 0
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
 
 /obj/item/weapon/oremagnet/attack_self(mob/user)
-	if(!on)
-		user << "<span class='info'>You switch on the ore magnet.</span>"
-		on = 1
-	else
-		user << "<span class='warning'>You switch off the ore magnet,</span>"
-		on = 0
-	magneto()
-
-/obj/item/weapon/oremagnet/proc/magneto()
-	if(!src.loc)
-		on = 0
-	if(!on)
+	if (use_check(user))
 		return
-	for(var/obj/item/weapon/ore/O in oview(7,src.loc))
+
+	toggle_on(user)
+
+/obj/item/weapon/oremagnet/process()
+	for(var/obj/item/weapon/ore/O in oview(7, loc))
 		if(prob(80))
-			step_to(O,src.loc,0)
-	spawn(10)
-		.()
+			step_to(O, src.loc, 0)
+
+		if (TICK_CHECK)
+			return
+
+/obj/item/weapon/oremagnet/proc/toggle_on(mob/user)
+	if (!isprocessing)
+		START_PROCESSING(SSprocessing, src)
+	else
+		STOP_PROCESSING(SSprocessing, src)
+
+	if (user)
+		to_chat(user, "<span class='[isprocessing ? "notice" : "warning"]'>You switch [isprocessing ? "on" : "off"] [src].</span>")
+
+/obj/item/weapon/oremagnet/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/******************************Ore Summoner*******************************/
 
 /obj/item/weapon/oreportal
 	name = "ore summoner"
@@ -1122,6 +1130,8 @@ var/list/total_extraction_beacons = list()
 	for(var/obj/item/weapon/ore/O in orange(7,user))
 		single_spark(O.loc)
 		do_teleport(O, user, 0)
+
+		CHECK_TICK
 
 /******************************Sculpting*******************************/
 /obj/item/weapon/autochisel
@@ -1158,7 +1168,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 
-	if (istype(C, /obj/item/weapon/wrench))
+	if (iswrench(C))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>"
 		anchored = !anchored
@@ -1258,7 +1268,9 @@ var/list/total_extraction_beacons = list()
 	density = 1
 	anchored = 1
 
-/obj/structure/weightlifter/attack_hand(mob/user as mob)
+/obj/structure/weightlifter/attack_hand(var/mob/living/carbon/human/user)
+	if(!istype(user))
+		return
 	if(in_use)
 		user << "It's already in use - wait a bit."
 		return
@@ -1295,6 +1307,7 @@ var/list/total_extraction_beacons = list()
 		icon_state = "fitnessweight"
 		overlays -= W
 		user << "[finishmessage]"
+		user.nutrition = user.nutrition - 10
 
 /******************************Seismic Charge*******************************/
 

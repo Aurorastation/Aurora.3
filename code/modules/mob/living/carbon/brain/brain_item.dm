@@ -32,12 +32,15 @@
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "chitin"
 
-/obj/item/organ/brain/New()
-	..()
+/obj/item/organ/brain/Initialize(mapload)
+	. = ..()
 	health = config.default_brain_health
-	spawn(5)
-		if(brainmob && brainmob.client)
-			brainmob.client.screen.len = null //clear the hud
+	if (!mapload)
+		addtimer(CALLBACK(src, .proc/clear_screen), 5)
+
+/obj/item/organ/brain/proc/clear_screen()
+	if (brainmob && brainmob.client)
+		brainmob.client.screen.Cut()
 
 /obj/item/organ/brain/Destroy()
 	if(brainmob)
@@ -46,7 +49,6 @@
 	return ..()
 
 /obj/item/organ/brain/proc/transfer_identity(var/mob/living/carbon/H)
-	name = "\the [H]'s [initial(src.name)]"
 	brainmob = new(src)
 	brainmob.name = H.real_name
 	brainmob.real_name = H.real_name
@@ -66,8 +68,6 @@
 		user << "This one seems particularly lifeless. Perhaps it will regain some of its luster later.."
 
 /obj/item/organ/brain/removed(var/mob/living/user)
-
-	name = "[owner.real_name]'s brain"
 
 	var/mob/living/simple_animal/borer/borer = owner.has_brain_worms()
 

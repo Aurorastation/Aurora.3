@@ -64,9 +64,8 @@
 			default_slot = slot
 			S["default_slot"] << slot
 		S.cd = "/character[slot]"
-	else
-		if (slot)
-			current_character = slot
+	else if (slot)
+		current_character = slot
 
 	player_setup.load_character(S)
 
@@ -97,7 +96,7 @@
 	return S
 
 /datum/preferences/proc/sanitize_preferences()
-	player_setup.sanitize_setup()
+	player_setup.sanitize_setup(config.sql_saves)
 	return 1
 
 /datum/preferences/proc/update_setup(var/savefile/preferences, var/savefile/character)

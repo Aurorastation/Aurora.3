@@ -6,7 +6,7 @@
 	name = T_BOARD("crusher")
 	build_path = "/obj/machinery/crusher_base"
 	board_type = "machine"
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 1, TECH_MAGNET = 1, TECH_MATERIALS = 3)
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 1, TECH_MAGNET = 1, TECH_MATERIAL = 3)
 	req_components = list(
 							"/obj/item/weapon/stock_parts/matter_bin" = 4,
 							"/obj/item/weapon/stock_parts/manipulator" = 3,

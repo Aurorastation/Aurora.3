@@ -226,7 +226,7 @@
 	..()	//redirect to hsrc.()
 
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
-	if (config.automute_on && !holder)
+	if (config.automute_on && !holder && length(message))
 		if (last_message_time)
 			if (world.time - last_message_time < config.macro_trigger)
 				spam_alert++
@@ -243,7 +243,7 @@
 
 		last_message_time = world.time
 
-		if(!isnull(message) && last_message == message)
+		if(last_message == message)
 			last_message_count++
 			if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
 				src << "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>"
@@ -349,8 +349,6 @@
 
 	. = ..()	//calls mob.Login()
 
-	prefs.sanitize_preferences()
-
 	if(holder)
 		add_admin_verbs()
 
@@ -382,6 +380,7 @@
 		admins -= src
 	directory -= ckey
 	clients -= src
+	SSassets.handle_disconnect(src)
 	return ..()
 
 
@@ -493,9 +492,7 @@
 
 //send resources to the client. It's here in its own proc so we can move it around easiliy if need be
 /client/proc/send_resources()
-	spawn (10) //removing this spawn causes all clients to not get verbs.
-		//Precache the client with all other assets slowly, so as to not block other browse() calls
-		getFilesSlow(src, SSassets.cache, register_asset = FALSE)
+	SSassets.handle_connect(src)
 
 /mob/proc/MayRespawn()
 	return 0

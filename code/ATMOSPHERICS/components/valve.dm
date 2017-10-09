@@ -300,7 +300,7 @@
 				open()
 
 /obj/machinery/atmospherics/valve/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W))
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/valve/digital))
 		user << "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>"

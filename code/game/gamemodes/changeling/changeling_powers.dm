@@ -443,7 +443,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	var/mob/living/carbon/C = src
 	// restore us to health
-	C.revive()
+	C.revive(FALSE)
 	// remove our fake death flag
 	C.status_flags &= ~(FAKEDEATH)
 	// let us move again
@@ -800,6 +800,14 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(!T)	return 0
 	if((HUSK in T.mutations) || (!ishuman(T) && !issmall(T)))
 		src << "<span class='warning'>Our sting appears ineffective against its DNA.</span>"
+		return 0
+
+	if(islesserform(T))
+		src << "<span class='warning'>Our sting appears ineffective against this creature.</span>"
+		return 0
+
+	if(T.stat != DEAD)
+		src << "<span class='warning'>Our sting can only be used against dead targets.</span>"
 		return 0
 
 	T.handle_changeling_transform(chosen_dna)

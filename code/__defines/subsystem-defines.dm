@@ -25,7 +25,21 @@
 //number of byond ticks that are allowed to pass before the timer subsystem thinks it hung on something
 #define TIMER_NO_INVOKE_WARNING 600
 
+#define TIMER_ID_NULL -1
+
 // -- SSatoms stuff --
+// Technically this check will fail if someone loads a map mid-round, but that's not enabled right now.
+#define SSATOMS_IS_PROBABLY_DONE (SSatoms.initialized == INITIALIZATION_INNEW_REGULAR)
+
+//type and all subtypes should always call Initialize in New()
+#define INITIALIZE_IMMEDIATE(X) ##X/New(loc, ...){\
+    ..();\
+    if(!initialized) {\
+        args[1] = TRUE;\
+        SSatoms.InitAtom(src, args);\
+    }\
+}
+
 // 	SSatoms Initialization state.
 #define INITIALIZATION_INSSATOMS 0	//New should not call Initialize
 #define INITIALIZATION_INNEW_MAPLOAD 1	//New should call Initialize(TRUE)
@@ -66,3 +80,9 @@
 
 // -- SSmachinery --
 #define RECIPE_LIST(T) (SSmachinery.recipe_datums["[T]"])
+
+// -- SSlistener --
+#define GET_LISTENERS(id) (id ? SSlistener.listeners["[id]"] : null)
+
+// Connection prefixes for player-editable fields
+#define WP_ELECTRONICS "elec_"

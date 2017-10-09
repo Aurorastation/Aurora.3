@@ -11,7 +11,7 @@
 	var/bloodcolor //Used for gibbed humans.
 
 	Initialize(mapload, list/viruses, datum/dna/MobDNA, fleshcolor, bloodcolor)
-		..()
+		. = ..()
 
 		if(fleshcolor) src.fleshcolor = fleshcolor
 		if(bloodcolor) src.bloodcolor = bloodcolor

@@ -73,7 +73,7 @@
 		if (light) // Update the light or create it if it does not exist.
 			light.update(.)
 		else if (light_novis)
-			light = new/datum/light_source/novis(src, .)
+			light = new/datum/light_source/sunlight(src, .)
 		else
 			light = new/datum/light_source(src, .)
 
@@ -104,6 +104,9 @@
 	if (new_opacity == TRUE)
 		T.has_opaque_atom = TRUE
 		T.reconsider_lights()
+#ifdef AO_USE_LIGHTING_OPACITY
+		T.regenerate_ao()
+#endif
 	else
 		var/old_has_opaque_atom = T.has_opaque_atom
 		T.recalc_atom_opacity()

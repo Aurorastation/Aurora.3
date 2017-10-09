@@ -11,8 +11,6 @@
 	mob_size = 9//Based on average weight of a human
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
-	eat_types |= TYPE_ORGANIC//Any mobs that are given the devour verb, can eat nonhumanoid organics. Only applies to unathi for now
-
 	if(!dna)
 		dna = new /datum/dna(null)
 		// Species name is handled by set_species()
@@ -300,7 +298,7 @@
 	if(legcuffed)
 		dat += "<BR><A href='?src=\ref[src];item=[slot_legcuffed]'>Legcuffed</A>"
 
-	if(suit && suit.accessories.len)
+	if(suit && LAZYLEN(suit.accessories))
 		dat += "<BR><A href='?src=\ref[src];item=tie'>Remove accessory</A>"
 	dat += "<BR><A href='?src=\ref[src];item=splints'>Remove splints</A>"
 	dat += "<BR><A href='?src=\ref[src];item=pockets'>Empty pockets</A>"
@@ -765,15 +763,14 @@
 ///eyecheck()
 ///Returns a number between -1 to 2
 /mob/living/carbon/human/eyecheck()
-	if(!species.has_organ["eyes"]) //No eyes, can't hurt them.
+	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
-	if(internal_organs_by_name["eyes"]) // Eyes are fucked, not a 'weak point'.
-		var/obj/item/organ/I = internal_organs_by_name["eyes"]
-		if(I.status & ORGAN_CUT_AWAY)
-			return FLASH_PROTECTION_MAJOR
+	var/obj/item/organ/I = get_eyes()	// Eyes are fucked, not a 'weak point'.
+	if (I && I.status & ORGAN_CUT_AWAY)
+		return FLASH_PROTECTION_MAJOR
 
-	return flash_protection
+	return species.inherent_eye_protection ? max(species.inherent_eye_protection, flash_protection) : flash_protection
 
 //Used by various things that knock people out by applying blunt trauma to the head.
 //Checks that the species has a "head" (brain containing organ) and that hit_zone refers to it.
@@ -1009,15 +1006,24 @@
 	else
 		germ_level += n
 
-/mob/living/carbon/human/revive()
+/mob/living/carbon/human/revive(reset_to_roundstart = TRUE)
 
 	if(species && !(species.flags & NO_BLOOD))
 		vessel.add_reagent("blood",560-vessel.total_volume)
 		fixblood()
 
 	// Fix up all organs.
-	// This will ignore any prosthetics in the prefs currently.
 	species.create_organs(src)
+
+	var/datum/preferences/prefs
+	if (client)
+		prefs = client.prefs
+	else if (ckey)	// Mob might be logged out.
+		prefs = preferences_datums[ckey(ckey)]	// run the ckey through ckey() here so that aghosted mobs can be rejuv'd too. (Their ckeys are prefixed with @)
+
+	if (prefs && real_name == prefs.real_name)
+		// Re-apply the mob's markings and prosthetics if their pref is their current char.
+		sync_organ_prefs_to_mob(prefs, reset_to_roundstart)	// Don't apply prosthetics if we're a ling rejuving.
 
 	if(!client || !key) //Don't boot out anyone already in the mob.
 		for (var/obj/item/organ/brain/H in world)
@@ -1035,6 +1041,7 @@
 		V.cure(src)
 
 	losebreath = 0
+	shock_stage = 0
 
 	..()
 
@@ -1182,7 +1189,7 @@
 		usr << "<span class='warning'>You failed to check the pulse. Try again.</span>"
 
 /mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0)
-
+	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
 			new_species = "Human"
@@ -1411,10 +1418,9 @@
 	return 0
 
 /mob/living/carbon/human/has_eyes()
-	if(internal_organs_by_name["eyes"])
-		var/obj/item/organ/eyes = internal_organs_by_name["eyes"]
-		if(eyes && istype(eyes) && !(eyes.status & ORGAN_CUT_AWAY))
-			return 1
+	var/obj/item/organ/eyes = get_eyes()
+	if(istype(eyes) && !(eyes.status & ORGAN_CUT_AWAY))
+		return 1
 	return 0
 
 /mob/living/carbon/human/slip(var/slipped_on, stun_duration=8)

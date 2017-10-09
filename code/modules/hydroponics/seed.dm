@@ -24,8 +24,9 @@
 	var/has_mob_product
 	var/force_layer
 
-/datum/seed/New()
+/datum/seed/proc/setup_traits()
 
+/datum/seed/New()
 	set_trait(TRAIT_IMMUTABLE,            0)            // If set, plant will never mutate. If -1, plant is highly mutable.
 	set_trait(TRAIT_HARVEST_REPEAT,       0)            // If 1, this plant will fruit repeatedly.
 	set_trait(TRAIT_PRODUCES_POWER,       0)            // Can be used to make a battery.
@@ -62,7 +63,9 @@
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)         // Plant eats this much per tick.
 	set_trait(TRAIT_PLANT_COLOUR,         "#46B543")    // Colour of the plant icon.
 
-	addtimer(CALLBACK(src, .proc/update_growth_stages), 5)
+	setup_traits()
+
+	update_growth_stages()
 
 /datum/seed/proc/get_trait(var/trait)
 	return traits["[trait]"]

@@ -145,7 +145,7 @@ var/list/admin_verbs_spawn = list(
 	/client/proc/spawn_chemdisp_cartridge
 	)
 var/list/admin_verbs_server = list(
-	/datum/admins/proc/capture_map,
+	/datum/admins/proc/capture_map_part,
 	/client/proc/Set_Holiday,
 	/datum/admins/proc/startnow,
 	/datum/admins/proc/restart,
@@ -213,7 +213,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_ss_panic,
-	/client/proc/reset_openturf
+	/client/proc/reset_openturf,
+	/datum/admins/proc/capture_map
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -374,7 +375,8 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/returntobody,
 	/client/proc/view_duty_log,
 	/datum/admins/proc/create_admin_fax,
-	/client/proc/check_fax_history
+	/client/proc/check_fax_history,
+	/client/proc/aooc
 )
 
 /client/proc/add_admin_verbs()
@@ -824,7 +826,7 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))	return
-	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red","delta")-get_security_level())
+	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red", "yellow", "delta")-get_security_level())
 	if(alert("Switch from code [get_security_level()] to code [sec_level]?","Change security level?","Yes","No") == "Yes")
 		set_security_level(sec_level)
 		log_admin("[key_name(usr)] changed the security level to code [sec_level].",admin_key=key_name(usr))

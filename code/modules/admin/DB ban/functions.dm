@@ -401,13 +401,13 @@
 					adminsearch = "AND a_ckey = '[adminckey]' "
 				if(playerckey)
 					playersearch = "AND ckey = '[playerckey]' "
-					mirror_player = "AND mirrors.player_ckey = '[playerckey]' "
+					mirror_player = "AND mirrors.ckey = '[playerckey]' "
 				if(playerip)
 					ipsearch  = "AND ip = '[playerip]' "
-					mirror_ip = "AND mirrors.ban_mirror_ip = '[playerip]' "
+					mirror_ip = "AND mirrors.ip = '[playerip]' "
 				if(playercid)
 					cidsearch  = "AND computerid = '[playercid]' "
-					mirror_cid = "AND mirrors.ban_mirror_computerid = '[playercid]'"
+					mirror_cid = "AND mirrors.computerid = '[playercid]'"
 			else
 				if(adminckey && lentext(adminckey) >= 3)
 					adminsearch = "AND a_ckey LIKE '[adminckey]%' "
@@ -548,7 +548,7 @@
 					output += "</tr>"
 				if (bantype in list("PERMABAN", "TEMPBAN"))
 					var/mirror_count = 0
-					var/DBQuery/get_mirrors = dbcon.NewQuery("SELECT ban_mirror_id FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
+					var/DBQuery/get_mirrors = dbcon.NewQuery("SELECT id FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
 					get_mirrors.Execute(list("ban_id" = text2num(banid)))
 
 					while (get_mirrors.NextRow())

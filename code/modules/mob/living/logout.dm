@@ -1,4 +1,6 @@
 /mob/living/Logout()
+	if (stamina_bar)
+		QDEL_NULL(stamina_bar)
 	..()
 	if (mind)	
 		//Per BYOND docs key remains set if the player DCs, becomes null if switching bodies.

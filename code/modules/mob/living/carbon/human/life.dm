@@ -71,9 +71,6 @@
 		//Random events (vomiting etc)
 		handle_random_events()
 
-		//stuff in the stomach
-		handle_stomach()//This function is in devour.dm
-
 		handle_shock()
 
 		handle_pain()
@@ -117,6 +114,8 @@
 // Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
 /mob/living/carbon/human/proc/get_pressure_weakness()
+	if (global.mechanical_species[get_species()] == MECHANICAL_SPECIES_INDUSTRIAL)
+		return 0	 // woo, back-mounted cooling!
 
 	var/pressure_adjustment_coefficient = 1 // Assume no protection at first.
 
@@ -130,9 +129,6 @@
 				pressure_adjustment_coefficient += S.damage * 0.1
 
 	pressure_adjustment_coefficient = min(1,max(pressure_adjustment_coefficient,0)) // So it isn't less than 0 or larger than 1.
-
-	if(src.get_species() == "Industrial Frame")
-		pressure_adjustment_coefficient = 0 // woo, back-mounted cooling!
 
 	return pressure_adjustment_coefficient
 
@@ -242,18 +238,19 @@
 
 	if(stat != DEAD)
 		var/rn = rand(0, 200)
-		if(getBrainLoss() >= 5)
+		var/bloss = getBrainLoss()
+		if(bloss >= 5)
 			if(0 <= rn && rn <= 3)
 				custom_pain("Your head feels numb and painful.")
-		if(getBrainLoss() >= 15)
+		if(bloss >= 15)
 			if(4 <= rn && rn <= 6) if(eye_blurry <= 0)
 				src << "<span class='warning'>It becomes hard to see for some reason.</span>"
 				eye_blurry = 10
-		if(getBrainLoss() >= 35)
+		if(bloss >= 35)
 			if(7 <= rn && rn <= 9) if(get_active_hand())
 				src << "<span class='danger'>Your hand won't respond properly, you drop what you're holding!</span>"
 				drop_item()
-		if(getBrainLoss() >= 45)
+		if(bloss >= 45)
 			if(10 <= rn && rn <= 12)
 				if(prob(50))
 					src << "<span class='danger'>You suddenly black out!</span>"
@@ -291,7 +288,6 @@
 
 	total_radiation = Clamp(total_radiation,0,100)
 
-	// #TODO-MERGE: Check vaurca and IPC radiation management
 	if (total_radiation)
 		//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
 		if(src.is_diona())
@@ -410,15 +406,12 @@
 	// Lung damage increases the minimum safe pressure.
 	var/handle_lungs = 0
 	var/obj/item/organ/L = null
-	if(species.has_organ["lungs"] || species.has_organ["breathing apparatus"])
-		L = internal_organs_by_name["lungs"]
-		handle_lungs = 1
-	else if(species.has_organ["breathing apparatus"])
-		L = internal_organs_by_name["breathing apparatus"]
-		handle_lungs = 1
+	if (species.breathing_organ)
+		L = internal_organs_by_name[species.breathing_organ]
+		handle_lungs = TRUE
 
 	if (handle_lungs)
-		if(isnull(L))
+		if(!L)
 			safe_pressure_min = INFINITY //No lungs, how are you breathing?
 		else if(L.is_broken())
 			safe_pressure_min *= 1.5
@@ -927,6 +920,15 @@
 
 	if(status_flags & GODMODE)	return 0	//godmode
 
+	if(species.light_dam)
+		var/light_amount = 0
+		if(isturf(loc))
+			var/turf/T = loc
+			light_amount = T.get_lumcount() * 10
+		if(light_amount > species.light_dam) //if there's enough light, start dying
+			take_overall_damage(5,5)
+		else //heal in the dark
+			heal_overall_damage(5,5)
 
 	// nutrition decrease
 	if (nutrition > 0 && stat != 2)

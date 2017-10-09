@@ -27,6 +27,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/security
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_sec
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/sec
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/sec
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -37,7 +38,7 @@
 		H.equip_to_slot_or_del(new /obj/item/device/pda/heads/hos(H), slot_belt)
 		if(istajara(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-		if(isunathi(H))
+		else if(isunathi(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
@@ -68,6 +69,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/security
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_sec
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/sec
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/sec
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -78,7 +80,7 @@
 		H.equip_to_slot_or_del(new /obj/item/device/pda/warden(H), slot_belt)
 		if(istajara(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-		if(isunathi(H))
+		else if(isunathi(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
@@ -119,7 +121,7 @@
 		H.equip_to_slot_or_del(new /obj/item/device/pda/detective(H), slot_belt)
 		if(istajara(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-		if(isunathi(H))
+		else if(isunathi(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
@@ -155,7 +157,7 @@
 		H.equip_to_slot_or_del(new /obj/item/device/pda/detective(H), slot_belt)
 		if(istajara(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-		if(isunathi(H))
+		else if(isunathi(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
@@ -165,10 +167,8 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
 
 		if(H.backbag == 1)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H), slot_r_hand)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/evidence(H), slot_l_hand)
 		else
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(H.back), slot_in_backpack)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/evidence(H), slot_in_backpack)
 
 		return TRUE
@@ -192,6 +192,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/security
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_sec
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/sec
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/sec
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)

@@ -79,12 +79,12 @@
 	target.update_inv_handcuffed()
 	return 1
 
-var/last_chew = 0
 /mob/living/carbon/human/RestrainedClickOn(var/atom/A)
 	if (A != src) return ..()
-	if (last_chew + 26 > world.time) return
+
 
 	var/mob/living/carbon/human/H = A
+	if (H.last_chew + 26 > world.time) return
 	if (!H.handcuffed) return
 	if (H.a_intent != I_HURT) return
 	if (H.zone_sel.selecting != "mouth") return

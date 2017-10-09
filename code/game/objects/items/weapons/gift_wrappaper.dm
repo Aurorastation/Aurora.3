@@ -47,7 +47,7 @@
 /obj/effect/spresent/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 
-	if (!istype(W, /obj/item/weapon/wirecutters))
+	if (!iswirecutter(W))
 		user << "<span class='warning'>I need wirecutters for that.</span>"
 		return
 

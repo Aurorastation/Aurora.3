@@ -249,7 +249,7 @@
 /obj/machinery/cryopod/machinery_process()
 	if(occupant)
 		//Allow a ten minute gap between entering the pod and actually despawning.
-		if(world.time - time_entered < time_till_despawn)
+		if((world.time - time_entered < time_till_despawn) && occupant.ckey)
 			return
 
 		if(!occupant.client && occupant.stat<2) //Occupant is living and has no client.
@@ -345,8 +345,9 @@
 		var/mob/M = G:affecting
 
 		if(M.client)
+			var/originalloc = M.loc
 			if(alert(M,"Would you like to enter long-term storage?",,"Yes","No") == "Yes")
-				if(!M || !G || !G:affecting) return
+				if(!M || !G || !G:affecting || M.loc != originalloc) return
 				willing = 1
 		else
 			willing = 1
@@ -400,8 +401,9 @@
 	var/willing = null //We don't want to allow people to be forced into despawning.
 
 	if(L.client)
+		var/originalloc = L.loc
 		if(alert(L,"Would you like to enter stasis?",,"Yes","No") == "Yes")
-			if(!L) return
+			if(!L || L.loc != originalloc) return
 			willing = 1
 	else
 		willing = 1

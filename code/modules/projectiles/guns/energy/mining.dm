@@ -1,4 +1,5 @@
 /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg
+	name = "mounted proto-kinetic accelerator"
 	self_recharge = 1
 	use_external_power = 1
 
@@ -21,6 +22,7 @@
 
 /obj/item/weapon/gun/energy/kinetic_accelerator/attack_self(mob/living/user as mob)
 	if(power_supply.charge < power_supply.maxcharge)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user << "<span class='notice'>You begin charging \the [src]...</span>"
 		if(do_after(user,20))
 			playsound(src.loc, 'sound/weapons/kenetic_reload.ogg', 60, 1)
@@ -39,7 +41,7 @@
 			user << "<span class='notice'>There is a [M.name] mod installed, using <b>[M.cost]%</b> capacity.</span>"
 
 /obj/item/weapon/gun/energy/kinetic_accelerator/attackby(obj/item/A, mob/user)
-	if(istype(A, /obj/item/weapon/crowbar))
+	if(iscrowbar(A))
 		if(modkits.len)
 			user << "<span class='notice'>You pry the modifications out.</span>"
 			playsound(loc, 100, 1)
@@ -69,7 +71,7 @@
 /obj/item/projectile/kinetic
 	name = "kinetic force"
 	icon_state = null
-	damage = 30
+	damage = 15
 	damage_type = BRUTE
 	check_armour = "bomb"
 	kill_count = 5
@@ -115,7 +117,7 @@
 	if(mob_aoe)
 		for(var/mob/living/L in range(1, target_turf) - firer - target)
 			L.apply_damage(damage*mob_aoe, damage_type, def_zone, armor)
-			L << "<span class='userdanger'>You're struck by a [name]!</span>"
+			L << "<span class='danger'>You're struck by a [name]!</span>"
 
 
 //Modkits
@@ -283,6 +285,7 @@
 /*******************PLASMA CUTTER*******************/
 
 /obj/item/weapon/gun/energy/plasmacutter/mounted
+	name = "mounted plasma cutter"
 	self_recharge = 1
 	use_external_power = 1
 

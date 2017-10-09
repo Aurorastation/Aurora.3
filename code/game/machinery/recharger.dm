@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-obj/machinery/recharger
+/obj/machinery/recharger
 	name = "recharger"
 	desc = "Useful for recharging electronic devices."
 	icon = 'icons/obj/stationobjs.dmi'
@@ -19,8 +19,8 @@ obj/machinery/recharger
 	var/icon_state_idle = "recharger0" //also when unpowered
 	var/portable = 1
 
-obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
-	if(portable && istype(G, /obj/item/weapon/wrench))
+/obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
+	if(portable && iswrench(G))
 		if(charging)
 			user << "<span class='alert'>Remove [charging] first!</span>"
 			return
@@ -28,8 +28,6 @@ obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 		user << "You have [anchored ? "attached" : "detached"] the recharger."
 		playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
 		return
-
-
 
 	if (istype(G, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/weapon/gripper/Gri = G
@@ -72,7 +70,7 @@ obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 		charging = G
 		update_icon()
 
-obj/machinery/recharger/attack_hand(mob/user as mob)
+/obj/machinery/recharger/attack_hand(mob/user as mob)
 	if(istype(user,/mob/living/silicon))
 		return
 
@@ -84,7 +82,7 @@ obj/machinery/recharger/attack_hand(mob/user as mob)
 		charging = null
 		update_icon()
 
-obj/machinery/recharger/process()
+/obj/machinery/recharger/process()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		update_use_power(0)
 		icon_state = icon_state_idle
@@ -118,7 +116,7 @@ obj/machinery/recharger/process()
 				update_use_power(1)
 			return
 
-obj/machinery/recharger/emp_act(severity)
+/obj/machinery/recharger/emp_act(severity)
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		..(severity)
 		return
@@ -134,12 +132,11 @@ obj/machinery/recharger/emp_act(severity)
 			B.bcell.charge = 0
 	..(severity)
 
-obj/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
+/obj/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
 	if(charging)
 		icon_state = icon_state_charging
 	else
 		icon_state = icon_state_idle
-
 
 obj/machinery/recharger/wallcharger
 	name = "wall recharger"

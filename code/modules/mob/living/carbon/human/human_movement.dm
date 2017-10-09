@@ -6,10 +6,12 @@
 
 	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
 
+	if (isopenturf(loc) && !has_gravity(src, loc)) //open space checks
+		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
+			return -1
+
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
-
-
 
 	var/health_deficiency = (100 - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
@@ -70,9 +72,11 @@
 	if(tally > 0 && (CE_SPEEDBOOST in chem_effects))
 		tally = max(0, tally-3)
 
+	var/turf/T = get_turf(src)
+	if(T)
+		tally += T.movement_cost
+
 	return (tally+config.human_delay)
-
-
 
 
 /mob/living/carbon/human/Allow_Spacemove(var/check_drift = 0)
@@ -112,15 +116,23 @@
 
 /mob/living/carbon/human/Move()
 	. = ..()
-	if (is_noisy)
-		var/turf/T = get_turf(src)
-		if ((T.x == last_x && T.y == last_y) || !T.footstep_sound)
+	if (is_noisy && !stat && !lying)
+		var/turf/T = loc
+		if ((x == last_x && y == last_y) || !T.footstep_sound)
 			return
-		last_x = T.x
-		last_y = T.y
+		last_x = x
+		last_y = y
 		if (m_intent == "run")
 			playsound(src, T.footstep_sound, 70, 1)
 		else
 			footstep++
 			if (footstep % 2)
 				playsound(src, T.footstep_sound, 40, 1)
+
+/mob/living/carbon/human/mob_has_gravity()
+	. = ..()
+	if(!. && mob_negates_gravity())
+		. = 1
+
+/mob/living/carbon/human/mob_negates_gravity()
+	return (shoes && shoes.negates_gravity())

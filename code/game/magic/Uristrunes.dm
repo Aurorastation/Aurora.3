@@ -56,21 +56,18 @@ var/list/word_to_uristrune_table = null
 
 	return get_uristrune(bits, animated)
 
-
-var/list/uristrune_cache = list()
-
 /proc/get_uristrune(symbol_bits, animated = 0)
 	var/lookup = "[symbol_bits]-[animated]"
 
-	if(lookup in uristrune_cache)
-		return uristrune_cache[lookup]
+	var/icon/result = SSicon_cache.uristrunes[lookup]
+	if (result)
+		return result
 
 	var/icon/I = icon('icons/effects/uristrunes.dmi', "blank")
 
 	for(var/i = 0, i < 10, i++)
 		if(BITTEST(symbol_bits, i))
 			I.Blend(icon('icons/effects/uristrunes.dmi', "rune-[1 << i]"), ICON_OVERLAY)
-
 
 	I.SwapColor(rgb(0, 0, 0, 100), rgb(100, 0, 0, 200))
 	I.SwapColor(rgb(0, 0, 0, 50), rgb(150, 0, 0, 200))
@@ -97,7 +94,7 @@ var/list/uristrune_cache = list()
 					if(ne == "#000000" || se == "#000000" || nw == "#000000" || sw == "#000000")
 						I.DrawBox(rgb(200, 0, 0, 100), x, y)
 
-	var/icon/result = icon(I, "")
+	result = icon(I, "")
 
 	result.Insert(I,  "", frame = 1, delay = 10)
 
@@ -126,6 +123,6 @@ var/list/uristrune_cache = list()
 		result.Insert(I3, "", frame = 7, delay = 2)
 		result.Insert(I2, "", frame = 8, delay = 2)
 
-	uristrune_cache[lookup] = result
+	SSicon_cache.uristrunes[lookup] = result
 
 	return result

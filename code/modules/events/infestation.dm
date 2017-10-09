@@ -68,8 +68,8 @@
 			spawn_area_type = /area/engineering/atmos
 			locstrings[numlocs] = "atmospherics"
 		if(LOC_INCIN)
-			spawn_area_type = /area/maintenance/incinerator
-			locstrings[numlocs] = "the incinerator"
+			spawn_area_type = /area/maintenance/disposal
+			locstrings[numlocs] = "waste disposal"
 		if(LOC_CHAPEL)
 			spawn_area_type = /area/chapel/main
 			locstrings[numlocs] = "the chapel"
