@@ -820,7 +820,7 @@
 			/obj/item/weapon/reagent_containers/food/snacks/sosjerky,
 			/obj/item/weapon/reagent_containers/food/snacks/no_raisin,
 			/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie,
-			/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers,
+			/obj/item/weapon/reagent_containers/food/snacks/cheesepuffs,
 			/obj/item/weapon/reagent_containers/food/snacks/syndicake,
 			/obj/item/weapon/reagent_containers/food/snacks/fortunecookie,
 			/obj/item/weapon/reagent_containers/food/snacks/poppypretzel,
