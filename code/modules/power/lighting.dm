@@ -192,35 +192,28 @@
 	supports_nightmode = FALSE
 
 /obj/machinery/light/built/Initialize()
-	. = ..()
 	status = LIGHT_EMPTY
-	update(0)
+	. = ..()
 
 /obj/machinery/light/small/built/Initialize()
-	. = ..()
 	status = LIGHT_EMPTY
-	update(0)
+	. = ..()
 
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
 	on = has_power()
 
-	switch(fitting)
-		if("tube")
-			if(mapload && prob(2))
-				broken(1)
-		if("bulb")
-			if(mapload && prob(5))
-				broken(1)
+	if (mapload && loc && !(z in current_map.admin_levels))
+		switch(fitting)
+			if("tube")
+				if(prob(2))
+					broken(1)
+			if("bulb")
+				if(prob(5))
+					broken(1)
 
 	update(0)
-
-/obj/machinery/light/Destroy()
-	var/area/A = get_area(src)
-	if(A)
-		on = 0
-	return ..()
 
 /obj/machinery/light/update_icon()
 	switch(status)		// set icon_states
