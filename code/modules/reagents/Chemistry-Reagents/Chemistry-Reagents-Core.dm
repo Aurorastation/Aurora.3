@@ -161,6 +161,7 @@
 	if(!istype(T))
 		return
 
+	T.color = initial(T.color)
 	var/datum/gas_mixture/environment = T.return_air()
 	var/min_temperature = T0C + 100 // 100C, the boiling point of water
 
@@ -182,13 +183,24 @@
 		T.wet_floor(1)
 
 /datum/reagent/water/touch_obj(var/obj/O)
-	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))
-		var/obj/item/weapon/reagent_containers/food/snacks/monkeycube/cube = O
-		if(!cube.wrapped)
-			cube.Expand()
+	if(istype(O))
+		O.color = initial(O.color)
+		if(istype(O, /obj/item/weapon/light))
+			var/obj/item/weapon/light/L = O
+			L.brightness_color = initial(L.brightness_color)
+			L.update()
+		else if(istype(O, /obj/machinery/light))
+			var/obj/machinery/light/L = O
+			L.brightness_color = initial(L.brightness_color)
+			L.update()
+		else if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))
+			var/obj/item/weapon/reagent_containers/food/snacks/monkeycube/cube = O
+			if(!cube.wrapped)
+				cube.Expand()
 
-/datum/reagent/water/touch_mob(var/mob/living/L, var/amount)
-	if(istype(L))
+/datum/reagent/water/touch_mob(var/mob/M, var/amount)
+	if(istype(M) && isliving(M))
+		var/mob/living/L = M
 		var/needed = L.fire_stacks * 10
 		if(amount > needed)
 			L.fire_stacks = 0
@@ -197,6 +209,9 @@
 		else
 			L.adjust_fire_stacks(-(amount / 10))
 			remove_self(amount)
+
+	if(istype(M) && !istype(M, /mob/dead))
+		M.color = initial(M.color)
 
 /datum/reagent/water/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(istype(M, /mob/living/carbon/slime))

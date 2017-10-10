@@ -303,6 +303,17 @@
 	else
 		O.clean_blood()
 
+	if(istype(O, /obj/item/weapon/light))
+		var/obj/item/weapon/light/L = O
+		L.brightness_color = initial(L.brightness_color)
+		L.update()
+	else if(istype(O, /obj/machinery/light))
+		var/obj/machinery/light/L = O
+		L.brightness_color = initial(L.brightness_color)
+		L.update()
+
+	O.color = initial(O.color)
+
 	if(isturf(loc))
 		var/turf/tile = loc
 		loc.clean_blood()

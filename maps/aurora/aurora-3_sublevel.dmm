@@ -4008,21 +4008,22 @@
 "io" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/meter{
 	id = "dloop_atm_meter"
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 4
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -4177,15 +4178,13 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "iF" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/critical{
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -5353,11 +5352,6 @@
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "kX" = (
-/obj/machinery/camera/network/engineering_outpost{
-	c_tag = "Engineering Sublevel - Gravity Chamber";
-	dir = 1;
-	icon_state = "camera"
-	},
 /obj/machinery/light,
 /turf/simulated/floor{
 	icon_state = "plating"
@@ -9640,6 +9634,7 @@
 	pixel_y = 0
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "rM" = (
@@ -18165,7 +18160,6 @@
 	name = "Containment Blast Doors";
 	opacity = 0
 	},
-/obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
@@ -19047,7 +19041,6 @@
 	name = "Containment Blast Doors";
 	opacity = 0
 	},
-/obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -19778,7 +19771,6 @@
 	name = "Containment Blast Doors";
 	opacity = 0
 	},
-/obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
@@ -20630,7 +20622,6 @@
 	name = "Containment Blast Doors";
 	opacity = 0
 	},
-/obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -20972,9 +20963,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -21684,9 +21672,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -21998,9 +21983,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -22039,9 +22021,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -22063,9 +22042,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -22105,9 +22081,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -22129,9 +22102,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -22170,9 +22140,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -24986,6 +24953,179 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"So" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	name = "Firelock"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
+"Sp" = (
+/turf/simulated/wall,
+/area/engineering/atmos)
+"Sq" = (
+/turf/simulated/wall,
+/area/engineering/atmos)
+"Sr" = (
+/turf/simulated/wall,
+/area/engineering/atmos)
+"Ss" = (
+/turf/simulated/wall,
+/area/engineering/atmos)
+"St" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/engineering/gravity_gen)
+"Su" = (
+/obj/machinery/camera/network/engineering_outpost{
+	c_tag = "Engineering Sublevel - Gravity Chamber";
+	dir = 1;
+	icon_state = "camera"
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/engineering/gravity_gen)
+"Sv" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"Sw" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"Sx" = (
+/turf/simulated/wall,
+/area/bridge/aibunker)
+"Sy" = (
+/turf/simulated/wall,
+/area/bridge/aibunker)
+"Sz" = (
+/turf/simulated/wall,
+/area/bridge/aibunker)
+"SA" = (
+/turf/simulated/wall,
+/area/bridge/aibunker)
+"SB" = (
+/turf/simulated/wall,
+/area/bridge/aibunker)
+"SC" = (
+/turf/simulated/wall,
+/area/outpost/research/anomaly_analysis)
+"SD" = (
+/turf/simulated/wall,
+/area/bridge/aibunker)
+"SE" = (
+/turf/simulated/wall,
+/area/outpost/research/anomaly_analysis)
+"SF" = (
+/turf/simulated/wall,
+/area/outpost/research/analysis)
+"SG" = (
+/turf/simulated/wall,
+/area/outpost/research/analysis)
+"SH" = (
+/turf/simulated/wall,
+/area/outpost/research/anomaly_analysis)
+"SI" = (
+/turf/simulated/wall,
+/area/outpost/research/emergency_storage)
+"SJ" = (
+/turf/simulated/wall,
+/area/bridge/aibunker)
+"SK" = (
+/turf/simulated/wall,
+/area/outpost/research/anomaly_analysis)
+"SL" = (
+/turf/simulated/wall,
+/area/outpost/research/emergency_storage)
+"SM" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SN" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SO" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SP" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"SQ" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SR" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SS" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"ST" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SU" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SV" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SW" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SX" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SY" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"SZ" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"Ta" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"Tb" = (
+/turf/simulated/wall,
+/area/outpost/research/eva)
+"Tc" = (
+/turf/simulated/wall,
+/area/outpost/research/hallway)
+"Td" = (
+/turf/simulated/wall,
+/area/outpost/research/hallway)
+"Te" = (
+/turf/simulated/wall,
+/area/outpost/research/hallway)
+"Tf" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"Tg" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"Th" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"Ti" = (
+/turf/simulated/wall,
+/area/maintenance/sublevel)
+"Tj" = (
+/turf/simulated/wall,
+/area/maintenance/disposal)
 
 (1,1,1) = {"
 aa
@@ -37926,7 +38066,7 @@ cA
 dr
 eb
 eN
-fs
+fx
 fS
 gB
 ho
@@ -38186,7 +38326,7 @@ eO
 ft
 fT
 gC
-hp
+fT
 fs
 iu
 ix
@@ -39469,9 +39609,9 @@ dv
 eg
 ba
 fx
-fW
-gF
-fW
+fT
+gE
+fT
 fs
 iy
 iY
@@ -39993,7 +40133,7 @@ ju
 jR
 kw
 kK
-kx
+St
 kx
 hY
 aa
@@ -40749,9 +40889,9 @@ aC
 aC
 aC
 aC
-aC
-aC
-aC
+ba
+ba
+ba
 ba
 ba
 ga
@@ -41279,7 +41419,7 @@ jU
 kx
 kx
 kx
-kx
+Su
 hW
 aa
 aa
@@ -41525,9 +41665,9 @@ ba
 em
 cJ
 ba
-fT
-gE
-fT
+fW
+So
+fW
 hY
 iF
 ja
@@ -42039,9 +42179,9 @@ aC
 aC
 aC
 aC
-fW
-gF
-fW
+fT
+gE
+fT
 hW
 iH
 iH
@@ -42556,11 +42696,11 @@ fs
 gc
 gL
 fT
-fs
-fs
-fs
-fs
-fs
+fx
+fx
+fx
+fx
+fx
 fs
 kO
 kO
@@ -42814,7 +42954,7 @@ gd
 gE
 fT
 fU
-fW
+fT
 fT
 jy
 jW
@@ -43071,7 +43211,7 @@ ge
 gM
 hv
 hZ
-iI
+hv
 hv
 jz
 jX
@@ -43328,7 +43468,7 @@ gf
 gN
 hw
 ia
-fW
+fT
 je
 jA
 jY
@@ -43641,7 +43781,7 @@ As
 Bf
 Cg
 Db
-xv
+SW
 Ex
 Ff
 vt
@@ -43898,7 +44038,7 @@ At
 Bg
 Ch
 Dc
-xv
+SX
 vb
 uD
 uD
@@ -44669,7 +44809,7 @@ Av
 Bj
 Ck
 De
-xv
+SY
 Ey
 vx
 FQ
@@ -44926,7 +45066,7 @@ Aw
 Bk
 Cl
 Df
-xv
+SZ
 Ez
 vv
 vT
@@ -45183,7 +45323,7 @@ Ax
 Bl
 Cm
 Dg
-xv
+Ta
 vb
 Fg
 vT
@@ -45436,11 +45576,11 @@ ac
 ac
 xv
 zP
-xv
+SQ
 Bm
 Cn
 Dh
-xv
+Tb
 EA
 Fh
 vT
@@ -45693,11 +45833,11 @@ xy
 xy
 xy
 zQ
-xv
-xv
-xv
-xv
-xy
+SR
+ST
+SU
+SV
+Tc
 EB
 Fi
 vT
@@ -45954,7 +46094,7 @@ vt
 Bn
 Co
 Di
-xy
+Td
 EC
 Fh
 FR
@@ -46435,7 +46575,7 @@ ma
 ma
 pd
 pC
-jB
+Sv
 jB
 aa
 aa
@@ -46447,11 +46587,11 @@ aa
 aa
 ac
 rO
-rO
-rO
-rO
+SC
+SE
+SH
 tR
-rO
+SK
 rO
 vc
 vv
@@ -46468,7 +46608,7 @@ uU
 uE
 wm
 Dk
-xy
+Te
 vb
 Fk
 FT
@@ -46668,8 +46808,8 @@ fD
 gi
 gU
 hD
-cg
-cg
+Sp
+Sr
 cg
 cg
 cg
@@ -46692,7 +46832,7 @@ jB
 jB
 jB
 pD
-jB
+Sw
 jB
 aa
 aa
@@ -46983,8 +47123,8 @@ Bo
 Cq
 Dl
 jB
-jB
-jB
+Tf
+Th
 FV
 jB
 jB
@@ -48011,8 +48151,8 @@ Br
 Ct
 Do
 jB
-jB
-jB
+Tg
+Ti
 FZ
 jB
 Dw
@@ -48210,8 +48350,8 @@ fJ
 gn
 ha
 hH
-cg
-cg
+Sq
+Ss
 cg
 cg
 cg
@@ -48504,7 +48644,7 @@ ru
 rG
 rG
 rG
-rj
+SF
 tr
 tZ
 uA
@@ -48761,7 +48901,7 @@ rv
 rH
 rP
 sp
-rj
+SG
 ts
 ua
 uB
@@ -49790,9 +49930,9 @@ aa
 aa
 aa
 sS
-sS
+SI
 ue
-sS
+SL
 uV
 uV
 vD
@@ -51090,7 +51230,7 @@ aa
 jB
 zx
 Ac
-jB
+SS
 BA
 jB
 Du
@@ -54476,7 +54616,7 @@ aa
 aa
 RO
 RQ
-RO
+Tj
 RW
 Sd
 Sf
@@ -59826,7 +59966,7 @@ uW
 xO
 yv
 zb
-uW
+Ea
 Aj
 AR
 BR
@@ -60079,15 +60219,15 @@ vI
 wf
 wy
 wT
-uW
+Ea
 xP
 yw
 zc
-uW
+Ea
 Ak
 AS
 BS
-uW
+Ea
 Ak
 Ef
 EO
@@ -60336,7 +60476,7 @@ vI
 vI
 vI
 wU
-uW
+Ea
 xQ
 yx
 zd
@@ -60344,7 +60484,7 @@ zz
 Al
 AT
 BT
-uW
+Ea
 DF
 Eg
 AO
@@ -60850,7 +60990,7 @@ uW
 wh
 wA
 vI
-uW
+Ea
 xS
 yz
 zf
@@ -64956,10 +65096,10 @@ tc
 tc
 uk
 kz
-jB
-jB
-jB
-jB
+SM
+SN
+SO
+SP
 wF
 jB
 xu
@@ -76257,7 +76397,7 @@ rh
 rh
 rm
 ry
-rh
+Sz
 rW
 sB
 tg
@@ -76514,7 +76654,7 @@ ri
 ri
 rn
 rz
-rh
+SA
 rX
 rC
 rC
@@ -77026,14 +77166,14 @@ kj
 kj
 rh
 rh
-rh
-rh
-rh
+Sx
+Sy
+SB
 rZ
-rh
+SD
 ti
 tL
-rh
+SJ
 uO
 rh
 rh

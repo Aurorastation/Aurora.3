@@ -543,7 +543,17 @@ var/list/global/random_stock_large = list(
 			if (prob(50))
 				new /obj/item/weapon/storage/box/lights/mixed(L)
 			if (prob(25))
-				new /obj/item/weapon/storage/box/lights/mixed(L)
+				new /obj/item/weapon/storage/box/lights/coloredmixed(L)
+			if (prob(15))
+				var/type = pick(list(
+					/obj/item/weapon/storage/box/lights/colored/red, 
+					/obj/item/weapon/storage/box/lights/colored/green, 
+					/obj/item/weapon/storage/box/lights/colored/blue, 
+					/obj/item/weapon/storage/box/lights/colored/cyan,
+					/obj/item/weapon/storage/box/lights/colored/yellow,
+					/obj/item/weapon/storage/box/lights/colored/magenta
+					))
+				new type(L)
 		if("aid")
 			new /obj/random/firstaid(L)
 		if("flame")

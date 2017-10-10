@@ -646,7 +646,7 @@
 	SearchVar(default_medbay_channels)
 	SearchVar(rod_recipes)
 	SearchVar(NO_EMAG_ACT)
-	SearchVar(cached_icons)
+	SearchVar(last_chew)
 	SearchVar(hazard_overlays)
 	SearchVar(tape_roll_applications)
 	SearchVar(malftransformermade)
