@@ -80,7 +80,7 @@
 			for(var/obj/O in T)
 				if(O.density)
 					clear = 0
-					break.
+					break
 			if(clear)
 				L+=T
 
