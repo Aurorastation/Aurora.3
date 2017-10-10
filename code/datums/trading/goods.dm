@@ -78,6 +78,7 @@
 		/obj/item/weapon/circuitboard/mecha/ripley        = TRADER_BLACKLIST,
 		/obj/item/weapon/circuitboard/mecha/phazon        = TRADER_BLACKLIST,
 		/obj/item/weapon/circuitboard/broken              = TRADER_BLACKLIST,
+		/obj/item/weapon/storage/box/lights/colored       = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil                        = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil/cyborg                 = TRADER_BLACKLIST,
 		/obj/item/stack/cable_coil/random                 = TRADER_BLACKLIST,
