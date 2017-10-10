@@ -2889,6 +2889,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "afS" = (
@@ -4764,6 +4768,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk,
+/obj/machinery/firealarm/east,
 /turf/simulated/open,
 /area/engineering/atmos)
 "ajL" = (
@@ -5427,12 +5432,25 @@
 	pixel_y = 0
 	},
 /turf/simulated/wall/r_wall,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "all" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/firealarm/west,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/power/apc/super{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "alm" = (
@@ -5443,6 +5461,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aln" = (
@@ -5451,6 +5474,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -5466,16 +5494,26 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "alp" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/red,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "alq" = (
@@ -5762,7 +5800,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "alZ" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Atmospherics Maintenance Access";
@@ -5771,8 +5809,13 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "ama" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos/storage)
@@ -5785,6 +5828,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "amc" = (
@@ -6232,7 +6280,7 @@
 	pixel_x = 0
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "amP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6246,7 +6294,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "amQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6258,13 +6306,14 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/super{
+/obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
+	pixel_x = 0;
 	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "amR" = (
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Atmospherics Subgrid";
@@ -6286,8 +6335,9 @@
 	icon_state = "intact-supply";
 	dir = 9
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "amS" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -6323,14 +6373,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "amV" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 5
@@ -6341,6 +6391,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -6658,7 +6713,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "anD" = (
 /obj/machinery/power/terminal{
 	dir = 4
@@ -6668,7 +6723,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "anE" = (
 /obj/machinery/power/smes/buildable{
 	charge = 2e+006;
@@ -6678,7 +6733,7 @@
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
-/area/engineering/atmos)
+/area/maintenance/atmos_control)
 "anF" = (
 /obj/structure/table/standard,
 /obj/item/device/multitool,
@@ -8228,6 +8283,8 @@
 "aqD" = (
 /obj/structure/table/standard,
 /obj/item/device/pipe_painter,
+/obj/item/weapon/pipewrench,
+/obj/item/weapon/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aqE" = (
@@ -8278,8 +8335,6 @@
 	pixel_y = 22
 	},
 /obj/item/device/flashlight/heavy,
-/obj/item/weapon/pipewrench,
-/obj/item/weapon/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aqH" = (
@@ -35274,7 +35329,7 @@
 	},
 /obj/machinery/requests_console{
 	department = "Chemistry";
-	pixel_x = 30;
+	pixel_x = 32;
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
@@ -48074,6 +48129,11 @@
 	c_tag = "Central Corridor - Camera 2";
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bEl" = (
@@ -52196,7 +52256,6 @@
 /obj/item/device/flashlight/lamp{
 	pixel_y = 10
 	},
-/obj/structure/disposalpipe/segment,
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
@@ -53023,6 +53082,10 @@
 /obj/effect/floor_decal/corner/white{
 	icon_state = "corner_white";
 	dir = 4
+	},
+/obj/machinery/atm{
+	pixel_x = 0;
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -55993,21 +56056,15 @@
 "bTI" = (
 /obj/structure/table/reinforced,
 /obj/machinery/chemical_dispenser/bar_alc/full,
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bTJ" = (
 /obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
 /obj/structure/shotgun_rack/double{
 	pixel_x = 0;
 	pixel_y = 30
 	},
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bTK" = (
@@ -56227,7 +56284,8 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
@@ -56499,7 +56557,6 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bUD" = (
-/obj/structure/disposalpipe/segment,
 /obj/effect/landmark/start{
 	name = "Bartender"
 	},
@@ -56902,7 +56959,6 @@
 /obj/structure/window/reinforced/polarized{
 	id = "finedining"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bVt" = (
@@ -57139,11 +57195,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
@@ -57278,6 +57337,10 @@
 	icon_state = "1-2"
 	},
 /obj/random/junk,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "bWd" = (
@@ -57481,6 +57544,10 @@
 "bWv" = (
 /obj/machinery/atm{
 	pixel_y = -32
+	},
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -65036,6 +65103,90 @@
 /obj/machinery/case_button/shuttle,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"cjV" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"cjW" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
+"cjX" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
+"cjY" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
+"cjZ" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
+"cka" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
+"ckb" = (
+/obj/structure/disposalpipe/junction{
+	icon_state = "pipe-j1";
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
+"ckc" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	name = "Bar Maintenance";
+	req_access = list();
+	req_one_access = list(12,25,28)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/bar)
 
 (1,1,1) = {"
 aaa
@@ -80040,7 +80191,7 @@ aab
 alj
 alV
 amL
-anA
+alj
 cgH
 aov
 aov
@@ -80554,7 +80705,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aox
 aox
 aox
@@ -80811,7 +80962,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aoy
 aoy
 aoy
@@ -81068,7 +81219,7 @@ aab
 alj
 alX
 amN
-anA
+alj
 aoz
 apx
 aqv
@@ -81325,7 +81476,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aoA
 apy
 aqw
@@ -81582,7 +81733,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aoB
 apy
 aqx
@@ -81839,7 +81990,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aoC
 apz
 aqy
@@ -82096,7 +82247,7 @@ aab
 alj
 alV
 amN
-anA
+alj
 aoD
 apz
 aqy
@@ -82350,11 +82501,11 @@ aab
 aab
 aab
 aab
-adv
-adv
+alj
+alj
 amO
-adv
-adv
+alj
+alj
 anA
 anA
 anA
@@ -82607,11 +82758,11 @@ aab
 aab
 aab
 aab
-adv
-cgv
-cgy
-cgv
-adv
+alj
+alV
+amN
+alV
+alj
 apA
 apA
 apA
@@ -82864,11 +83015,11 @@ aab
 aab
 aab
 aab
-adv
-cgw
-cgy
-cgv
-adv
+alj
+alW
+amN
+alV
+alj
 apA
 apA
 apA
@@ -83121,11 +83272,11 @@ aab
 aab
 aab
 aab
-adv
+alj
 alY
-cgy
-cgv
-adv
+amN
+alV
+alj
 apA
 apA
 apA
@@ -83379,10 +83530,10 @@ aab
 aab
 aab
 alk
-cgv
+alV
 amP
 anC
-adv
+alj
 apA
 apA
 apA
@@ -83635,11 +83786,11 @@ aab
 adv
 cgp
 cgt
-adv
-adv
+alj
+alj
 amQ
 anD
-adv
+alj
 apA
 apA
 apA
@@ -83896,7 +84047,7 @@ all
 alZ
 amR
 anE
-adv
+alj
 apA
 apA
 apA
@@ -84150,10 +84301,10 @@ aiZ
 ahb
 akv
 alm
-adv
-adv
-adv
-adv
+alj
+alj
+alj
+alj
 ama
 ama
 ama
@@ -92953,13 +93104,13 @@ bIl
 ceE
 bJR
 bKz
-bKZ
+bOd
 bLD
 bJa
 bMG
 bJa
 bNC
-bOd
+bKZ
 bOH
 bPg
 bPO
@@ -93470,8 +93621,8 @@ bJa
 bLb
 bLF
 bMf
-bMI
-bNd
+cjV
+bJa
 bJa
 bJa
 bJa
@@ -93484,7 +93635,7 @@ bMI
 bJa
 bOf
 bSG
-bSV
+bOf
 bOf
 bOf
 bTY
@@ -95001,7 +95152,7 @@ aXD
 bCD
 aWn
 bEk
-bdE
+aWn
 aWn
 bGK
 bHA
@@ -95459,9 +95610,9 @@ aaV
 akF
 aly
 amf
-aaV
+ajT
 aah
-aaV
+ajT
 akF
 aqV
 amf
@@ -95716,9 +95867,9 @@ aaV
 akG
 alz
 amg
-aaV
+ajT
 abL
-aaV
+ajT
 akG
 alz
 amg
@@ -95973,9 +96124,9 @@ aaV
 aaV
 alA
 aaV
-aaV
+ajT
 abJ
-aaV
+ajT
 aaV
 aqW
 aaV
@@ -96576,7 +96727,7 @@ bRk
 bRk
 bVr
 bRH
-bWa
+ckb
 bWv
 bRi
 bVN
@@ -96735,7 +96886,7 @@ adI
 aeo
 aeQ
 afJ
-cfm
+agH
 aiN
 aic
 aiK
@@ -96828,12 +96979,12 @@ bRi
 bTb
 bTq
 bTI
-bUf
+bUe
 bUD
-bUX
+bRk
 bVs
-bVK
-bUl
+bVL
+bWa
 bWw
 bRi
 bVO
@@ -97090,7 +97241,7 @@ bUE
 bUY
 bVt
 bVL
-bRH
+bWa
 bWx
 bRi
 bVO
@@ -97347,7 +97498,7 @@ bRi
 bUZ
 bRi
 bVM
-bRH
+bWa
 bWy
 bRi
 bVO
@@ -97506,7 +97657,7 @@ aca
 aep
 aeT
 afM
-agH
+aiN
 ahv
 aif
 agH
@@ -97604,7 +97755,7 @@ bUF
 bVa
 bRi
 bRi
-bWb
+ckc
 bRi
 bRi
 bVO
@@ -97860,7 +98011,7 @@ bUj
 bUG
 bVb
 bRi
-bVN
+cjW
 bWc
 bWz
 bWz
@@ -98020,7 +98171,7 @@ aad
 aaV
 aeV
 afO
-agH
+aiN
 ahx
 aig
 aiN
@@ -98117,7 +98268,7 @@ bUk
 bUH
 bVc
 bRi
-bVO
+cjX
 bJp
 bML
 bJp
@@ -98374,7 +98525,7 @@ bUl
 bRH
 bRH
 bRi
-bVO
+cjY
 bJp
 bNO
 bML
@@ -98533,8 +98684,8 @@ aah
 aah
 aaV
 cgn
-afQ
-agH
+afM
+aiN
 ahy
 aig
 aiN
@@ -98631,7 +98782,7 @@ bUm
 bUI
 bVd
 bRi
-bVO
+cjZ
 bWd
 bML
 bML
@@ -98888,7 +99039,7 @@ bRi
 bRi
 bRi
 bRi
-bVO
+cka
 bML
 bJp
 bNo
