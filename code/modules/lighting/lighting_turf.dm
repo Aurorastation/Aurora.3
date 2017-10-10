@@ -5,8 +5,8 @@
 	var/tmp/lighting_corners_initialised = FALSE
 
 	var/tmp/list/datum/light_source/affecting_lights       // List of light sources affecting this turf.
-	var/tmp/atom/movable/lighting_overlay/lighting_overlay // Our lighting overlay.
-	var/tmp/atom/movable/lighting_overlay/adder/adder
+	var/tmp/atom/movable/lighting/multiplier/lighting_overlay // Our lighting overlay.
+	var/tmp/atom/movable/lighting/adder/lighting_adder
 	var/tmp/list/datum/lighting_corner/corners
 	var/tmp/has_opaque_atom = FALSE // Not to be confused with opacity, this will be TRUE if there's any opaque atom on the tile.
 
@@ -52,7 +52,7 @@
 		if (!lighting_corners_initialised || !corners)
 			generate_missing_corners()
 
-		new /atom/movable/lighting_overlay(src)
+		new /atom/movable/lighting/multiplier(src)
 
 		for (var/datum/lighting_corner/C in corners)
 			if (!C.active) // We would activate the corner, calculate the lighting for it.

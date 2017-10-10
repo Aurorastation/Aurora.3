@@ -147,7 +147,7 @@
 				// Don't queue deleted stuff or stuff that doesn't need an overlay.
 				continue
 
-			if (istype(object, /atom/movable/lighting_overlay))	// Special case.
+			if (istype(object, /atom/movable/lighting/multiplier))	// Special case.
 				var/atom/movable/openspace/multiplier/shadower = T.shadower
 				shadower.appearance = object
 				shadower.plane = OPENTURF_CAP_PLANE

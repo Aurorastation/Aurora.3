@@ -1,4 +1,4 @@
-/atom/movable/lighting_overlay
+/atom/movable/lighting
 	name          = ""
 	anchored      = TRUE
 	icon          = LIGHTING_ICON
@@ -8,7 +8,6 @@
 	layer         = LIGHTING_LAYER
 	invisibility  = INVISIBILITY_LIGHTING
 	simulated     = 0
-	blend_mode    = BLEND_MULTIPLY
 
 	var/needs_update = FALSE
 
@@ -16,8 +15,12 @@
 	transform = matrix(WORLD_ICON_SIZE / 32, 0, (WORLD_ICON_SIZE - 32) / 2, 0, WORLD_ICON_SIZE / 32, (WORLD_ICON_SIZE - 32) / 2)
 	#endif
 
-/atom/movable/lighting_overlay/New()
+/atom/movable/lighting/multiplier
+	blend_mode = BLEND_MULTIPLY
+
+/atom/movable/lighting/New()
 	SSlighting.total_lighting_overlays++
+
 
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
 	T.lighting_overlay = src
@@ -26,25 +29,31 @@
 	needs_update = TRUE
 	SSlighting.overlay_queue += src
 
-/atom/movable/lighting_overlay/Destroy(force = FALSE)
+/atom/movable/lighting/Destroy()
+	SSlighting.lighting_overlays -= src
+	
+	return ..()
+
+/atom/movable/lighting/multiplier/Destroy(force = FALSE)
 	if (!force)
 		return QDEL_HINT_LETMELIVE	// STOP DELETING ME
 
 	//L_PROF(loc, "overlay_destroy")
 	SSlighting.total_lighting_overlays--
 
-	var/turf/T   = loc
+	var/turf/T = loc
 	if (istype(T))
 		T.lighting_overlay = null
-		QDEL_NULL(T.adder)
 		T.luminosity = 1
 
 	return ..()
 
+/atom/movable/lighting/proc/update_overlay()
+
 // This is a macro PURELY so that the if below is actually readable.
 #define ALL_EQUAL ((rr == gr && gr == br && br == ar) && (rg == gg && gg == bg && bg == ag) && (rb == gb && gb == bb && bb == ab))
 
-/atom/movable/lighting_overlay/proc/update_overlay()
+/atom/movable/lighting/multiplier/update_overlay()
 	var/turf/T = loc
 	if (!istype(T)) // Erm...
 		if (loc)
@@ -68,10 +77,10 @@
 		cb = corners[4] || dummy_lighting_corner
 		ca = corners[1] || dummy_lighting_corner
 
-	if (!T.adder && (cr.needs_add || cg.needs_add || cb.needs_add || ca.needs_add))
-		T.adder = new(loc)
-	else if (T.adder)
-		T.adder.update_overlay()
+	if (!T.lighting_adder && (cr.needs_add || cg.needs_add || cb.needs_add || ca.needs_add))
+		new /atom/movable/lighting/adder(loc)
+	else if (T.lighting_adder)
+		T.lighting_adder.update_overlay()
 
 	var/max = max(cr.cache_mx, cg.cache_mx, cb.cache_mx, ca.cache_mx)
 	luminosity = max > LIGHTING_SOFT_THRESHOLD
@@ -132,46 +141,58 @@
 	if (OT)
 		OT.update_icon()
 
-
 // Variety of overrides so the overlays don't get affected by weird things.
 
-/atom/movable/lighting_overlay/ex_act(severity)
+/atom/movable/lighting/ex_act(severity)
 	return 0
 
-/atom/movable/lighting_overlay/singularity_act()
+/atom/movable/lighting/singularity_act()
 	return
 
-/atom/movable/lighting_overlay/singularity_pull()
+/atom/movable/lighting/singularity_pull()
 	return
 
-/atom/movable/lighting_overlay/singuloCanEat()
+/atom/movable/lighting/singuloCanEat()
 	return FALSE
 
-/atom/movable/lighting_overlay/can_fall()
+/atom/movable/lighting/can_fall()
 	return FALSE
 
 // Override here to prevent things accidentally moving around overlays.
-/atom/movable/lighting_overlay/forceMove(atom/destination, no_tp = FALSE, harderforce = FALSE)
+/atom/movable/lighting/forceMove(atom/destination, no_tp = FALSE, harderforce = FALSE)
 	if(harderforce)
 		//L_PROF(loc, "overlay_forcemove")
 		. = ..()
 
-/atom/movable/lighting_overlay/shuttle_move(turf/loc)
+/atom/movable/lighting/shuttle_move(turf/loc)
 	return
 
-/atom/movable/lighting_overlay/conveyor_act()
+/atom/movable/lighting/conveyor_act()
 	return
 
-/atom/movable/lighting_overlay/adder
+/atom/movable/lighting/adder
 	blend_mode = BLEND_ADD
 
-/atom/movable/lighting_overlay/adder/New()
+/atom/movable/lighting/adder/New()
 	needs_update = TRUE
 	SSlighting.overlay_queue += src
 
+	var/turf/T = loc
+	T.lighting_adder = src
+
+/atom/movable/lighting/adder/Destroy(force)
+	if (!force)
+		return QDEL_HINT_LETMELIVE	// feck off
+
+	if (isturf(loc))
+		var/turf/T = loc
+		T.lighting_adder = null
+
+	return ..()
+
 // min(max((RL_LumR - 1) * 0.5, 0), 0.3)
 
-/atom/movable/lighting_overlay/adder/update_overlay()
+/atom/movable/lighting/adder/update_overlay()
 	var/turf/T = loc
 	if (!istype(T)) // Erm...
 		if (loc)
@@ -239,6 +260,6 @@
 				0, 0, 0, 1
 			)
 	else
-		invisibility = 101
+		qdel(src, TRUE)
 
 #undef ALL_EQUAL
