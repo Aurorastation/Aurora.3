@@ -7,3 +7,12 @@
 	required_enemies = 1
 	end_on_antag_death = 1
 	antag_tags = list(MODE_WIZARD)
+
+/datum/game_mode/wizard/mages
+	name = "Ragin' Mages"
+	round_description = "Many fledgeling magi have snuck aboard! Do not allow them to achieve their goals!"
+	config_tag = "wizard"
+	required_players = 8
+	required_enemies = 4
+	end_on_antag_death = 0
+	antag_tags = list(MODE_MAGES)
