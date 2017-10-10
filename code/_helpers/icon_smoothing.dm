@@ -208,7 +208,7 @@
 /proc/cardinal_smooth(atom/A, adjacencies)
 	//NW CORNER
 	var/nw = "1-i"
-	if(adjacencies & (N_NORTH|N_WEST) == (N_NORTH|N_WEST))
+	if((adjacencies & N_NORTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_NORTHWEST)
 			nw = "1-f"
 		else
@@ -221,7 +221,7 @@
 
 	//NE CORNER
 	var/ne = "2-i"
-	if(adjacencies & (N_NORTH|N_EAST) == (N_NORTH|N_EAST))
+	if((adjacencies & N_NORTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_NORTHEAST)
 			ne = "2-f"
 		else
@@ -234,7 +234,7 @@
 
 	//SW CORNER
 	var/sw = "3-i"
-	if(adjacencies & (N_SOUTH|N_WEST) == (N_SOUTH|N_WEST))
+	if((adjacencies & N_SOUTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_SOUTHWEST)
 			sw = "3-f"
 		else
@@ -247,7 +247,7 @@
 
 	//SE CORNER
 	var/se = "4-i"
-	if(adjacencies & (N_SOUTH|N_EAST) == (N_SOUTH|N_EAST))
+	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_SOUTHEAST)
 			se = "4-f"
 		else
@@ -299,7 +299,7 @@
 /proc/cardinal_smooth_fromicon(icon/I, adjacencies)
 	//NW CORNER
 	var/nw = "1-i"
-	if(adjacencies & (N_NORTH|N_WEST) == (N_NORTH|N_WEST))
+	if((adjacencies & N_NORTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_NORTHWEST)
 			nw = "1-f"
 		else
@@ -312,7 +312,7 @@
 
 	//NE CORNER
 	var/ne = "2-i"
-	if(adjacencies & (N_NORTH|N_EAST) == (N_NORTH|N_EAST))
+	if((adjacencies & N_NORTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_NORTHEAST)
 			ne = "2-f"
 		else
@@ -325,7 +325,7 @@
 
 	//SW CORNER
 	var/sw = "3-i"
-	if(adjacencies & (N_SOUTH|N_WEST) == (N_SOUTH|N_WEST))
+	if((adjacencies & N_SOUTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_SOUTHWEST)
 			sw = "3-f"
 		else
@@ -338,7 +338,7 @@
 
 	//SE CORNER
 	var/se = "4-i"
-	if(adjacencies & (N_SOUTH|N_EAST) == (N_SOUTH|N_EAST))
+	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_SOUTHEAST)
 			se = "4-f"
 		else
