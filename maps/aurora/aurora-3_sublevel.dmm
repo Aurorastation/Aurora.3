@@ -18160,7 +18160,6 @@
 	name = "Containment Blast Doors";
 	opacity = 0
 	},
-/obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
@@ -19042,7 +19041,6 @@
 	name = "Containment Blast Doors";
 	opacity = 0
 	},
-/obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -19773,7 +19771,6 @@
 	name = "Containment Blast Doors";
 	opacity = 0
 	},
-/obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
@@ -20624,7 +20621,6 @@
 	name = "Containment Blast Doors";
 	opacity = 0
 	},
-/obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -20966,9 +20962,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -21678,9 +21671,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -21992,9 +21982,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -22033,9 +22020,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -22057,9 +22041,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -22099,9 +22080,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -22123,9 +22101,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -22164,9 +22139,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;

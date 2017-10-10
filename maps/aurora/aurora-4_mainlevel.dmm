@@ -2889,6 +2889,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "afS" = (
@@ -48125,6 +48129,11 @@
 	c_tag = "Central Corridor - Camera 2";
 	dir = 8
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bEl" = (
@@ -52247,7 +52256,6 @@
 /obj/item/device/flashlight/lamp{
 	pixel_y = 10
 	},
-/obj/structure/disposalpipe/segment,
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
@@ -53074,6 +53082,10 @@
 /obj/effect/floor_decal/corner/white{
 	icon_state = "corner_white";
 	dir = 4
+	},
+/obj/machinery/atm{
+	pixel_x = 0;
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -56044,21 +56056,15 @@
 "bTI" = (
 /obj/structure/table/reinforced,
 /obj/machinery/chemical_dispenser/bar_alc/full,
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bTJ" = (
 /obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
 /obj/structure/shotgun_rack/double{
 	pixel_x = 0;
 	pixel_y = 30
 	},
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bTK" = (
@@ -56278,7 +56284,8 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
@@ -56550,7 +56557,6 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bUD" = (
-/obj/structure/disposalpipe/segment,
 /obj/effect/landmark/start{
 	name = "Bartender"
 	},
@@ -56953,7 +56959,6 @@
 /obj/structure/window/reinforced/polarized{
 	id = "finedining"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bVt" = (
@@ -57190,11 +57195,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
@@ -57329,6 +57337,10 @@
 	icon_state = "1-2"
 	},
 /obj/random/junk,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "bWd" = (
@@ -57532,6 +57544,10 @@
 "bWv" = (
 /obj/machinery/atm{
 	pixel_y = -32
+	},
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -65087,6 +65103,90 @@
 /obj/machinery/case_button/shuttle,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"cjV" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"cjW" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
+"cjX" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
+"cjY" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
+"cjZ" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
+"cka" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/library)
+"ckb" = (
+/obj/structure/disposalpipe/junction{
+	icon_state = "pipe-j1";
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
+"ckc" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	name = "Bar Maintenance";
+	req_access = list();
+	req_one_access = list(12,25,28)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/bar)
 
 (1,1,1) = {"
 aaa
@@ -93004,13 +93104,13 @@ bIl
 ceE
 bJR
 bKz
-bKZ
+bOd
 bLD
 bJa
 bMG
 bJa
 bNC
-bOd
+bKZ
 bOH
 bPg
 bPO
@@ -93521,8 +93621,8 @@ bJa
 bLb
 bLF
 bMf
-bMI
-bNd
+cjV
+bJa
 bJa
 bJa
 bJa
@@ -93535,7 +93635,7 @@ bMI
 bJa
 bOf
 bSG
-bSV
+bOf
 bOf
 bOf
 bTY
@@ -95052,7 +95152,7 @@ aXD
 bCD
 aWn
 bEk
-bdE
+aWn
 aWn
 bGK
 bHA
@@ -95510,9 +95610,9 @@ aaV
 akF
 aly
 amf
-aaV
+ajT
 aah
-aaV
+ajT
 akF
 aqV
 amf
@@ -95767,9 +95867,9 @@ aaV
 akG
 alz
 amg
-aaV
+ajT
 abL
-aaV
+ajT
 akG
 alz
 amg
@@ -96024,9 +96124,9 @@ aaV
 aaV
 alA
 aaV
-aaV
+ajT
 abJ
-aaV
+ajT
 aaV
 aqW
 aaV
@@ -96627,7 +96727,7 @@ bRk
 bRk
 bVr
 bRH
-bWa
+ckb
 bWv
 bRi
 bVN
@@ -96786,7 +96886,7 @@ adI
 aeo
 aeQ
 afJ
-cfm
+agH
 aiN
 aic
 aiK
@@ -96879,12 +96979,12 @@ bRi
 bTb
 bTq
 bTI
-bUf
+bUe
 bUD
-bUX
+bRk
 bVs
-bVK
-bUl
+bVL
+bWa
 bWw
 bRi
 bVO
@@ -97141,7 +97241,7 @@ bUE
 bUY
 bVt
 bVL
-bRH
+bWa
 bWx
 bRi
 bVO
@@ -97398,7 +97498,7 @@ bRi
 bUZ
 bRi
 bVM
-bRH
+bWa
 bWy
 bRi
 bVO
@@ -97557,7 +97657,7 @@ aca
 aep
 aeT
 afM
-agH
+aiN
 ahv
 aif
 agH
@@ -97655,7 +97755,7 @@ bUF
 bVa
 bRi
 bRi
-bWb
+ckc
 bRi
 bRi
 bVO
@@ -97911,7 +98011,7 @@ bUj
 bUG
 bVb
 bRi
-bVN
+cjW
 bWc
 bWz
 bWz
@@ -98071,7 +98171,7 @@ aad
 aaV
 aeV
 afO
-agH
+aiN
 ahx
 aig
 aiN
@@ -98168,7 +98268,7 @@ bUk
 bUH
 bVc
 bRi
-bVO
+cjX
 bJp
 bML
 bJp
@@ -98425,7 +98525,7 @@ bUl
 bRH
 bRH
 bRi
-bVO
+cjY
 bJp
 bNO
 bML
@@ -98584,8 +98684,8 @@ aah
 aah
 aaV
 cgn
-afQ
-agH
+afM
+aiN
 ahy
 aig
 aiN
@@ -98682,7 +98782,7 @@ bUm
 bUI
 bVd
 bRi
-bVO
+cjZ
 bWd
 bML
 bML
@@ -98939,7 +99039,7 @@ bRi
 bRi
 bRi
 bRi
-bVO
+cka
 bML
 bJp
 bNo
