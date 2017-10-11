@@ -133,9 +133,13 @@
 	cache_b  = round(lum_b * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
 	cache_mx = round(mx, LIGHTING_ROUND_VALUE)
 	if (needs_add)
-		add_r = min(max((cache_r - 1) * 0.5, 0), 0.3)
-		add_g = min(max((cache_g - 1) * 0.5, 0), 0.3)
-		add_b = min(max((cache_b - 1) * 0.5, 0), 0.3)
+		add_r = min(max((lum_r - 1) * 0.5, 0), 0.3)
+		add_g = min(max((lum_g - 1) * 0.5, 0), 0.3)
+		add_b = min(max((lum_b - 1) * 0.5, 0), 0.3)
+	else
+		add_r = initial(add_r)
+		add_g = initial(add_g)
+		add_b = initial(add_b)
 
 	for (var/TT in masters)
 		var/turf/T = TT
