@@ -37,7 +37,6 @@
 	if (working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
 		playsound(loc, "computerbeep", 30, 1, 10)
 		ambience_last_played = world.time
-		log_debug("[DEBUG_REF(src)] increased local immersion.")
 
 /obj/item/modular_computer/proc/get_preset_programs(var/app_preset_name)
 	for (var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
