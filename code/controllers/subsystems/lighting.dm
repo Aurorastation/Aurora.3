@@ -25,6 +25,9 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/tmp/processed_corners = 0
 	var/tmp/processed_overlays = 0
 
+	var/total_ss_updates = 0
+	var/total_instant_updates = 0
+
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 	var/force_queued = TRUE
 	var/force_override = FALSE	// For admins.
@@ -35,7 +38,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 /datum/controller/subsystem/lighting/stat_entry()
 	var/list/out = list(
-		"T:{L:[total_lighting_sources] O:[total_lighting_overlays] C:[lighting_corners.len]}\n",
+#ifdef USE_INTELLIGENT_LIGHTING_UPDATES
+		"IUR: [total_ss_updates ? round(total_instant_updates/(total_instant_updates+total_ss_updates)*100, 0.1) : "NaN"]%\n",
+#endif
+		"\tT:{L:[total_lighting_sources] C:[lighting_corners.len] O:[total_lighting_overlays]}\n",
 		"\tP:{L:[light_queue.len - (lq_idex - 1)]|C:[corner_queue.len - (cq_idex - 1)]|O:[overlay_queue.len - (oq_idex - 1)]}\n",
 		"\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}\n"
 	)
@@ -53,6 +59,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 /datum/controller/subsystem/lighting/proc/handle_roundstart()
 	force_queued = FALSE
+	total_ss_updates = 0
+	total_instant_updates = 0
 
 #endif
 
@@ -114,6 +122,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 		var/datum/light_source/L = curr_lights[lq_idex++]
 
 		if (L.needs_update != LIGHTING_NO_UPDATE)
+			total_ss_updates += 1
 			L.update_corners()
 
 			L.needs_update = LIGHTING_NO_UPDATE

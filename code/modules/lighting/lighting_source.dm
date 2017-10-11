@@ -98,6 +98,7 @@
 			SSlighting.light_queue += src;              \
 		}                                               \
 		else {                                          \
+			SSlighting.total_instant_updates += 1;      \
 			update_corners(TRUE);                       \
 			needs_update = LIGHTING_NO_UPDATE;          \
 		}                                               \
