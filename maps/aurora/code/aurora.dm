@@ -22,11 +22,15 @@
 	station_name = "NSS Aurora"
 	station_short = "Aurora"
 	dock_name = "NTCC Odin"
+	dock_short = "Odin"
 	boss_name = "Central Command"
 	boss_short = "Centcom"
 	company_name = "NanoTrasen"
 	company_short = "NT"
 	system_name = "Tau Ceti"
+
+	command_spawn_enabled = TRUE
+	command_spawn_message = "Welcome to the Odin! Simply proceed down and to the right to board the shuttle to your workplace!"
 
 	station_networks = list(
 		NETWORK_CIVILIAN_EAST,

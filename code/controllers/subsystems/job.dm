@@ -444,7 +444,7 @@
 	if (!.)
 		return FALSE
 
-	var/datum/spawnpoint/spawnpos = spawntypes["Cryogenic Storage"]
+	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cryogenic Storage"]
 	if(spawnpos && istype(spawnpos))
 		src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!</span>"
 		src.forceMove(pick(spawnpos.turfs))
@@ -464,7 +464,7 @@
 	if (!.)
 		return FALSE
 
-	var/datum/spawnpoint/spawnpos = spawntypes["Cyborg Storage"]
+	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cyborg Storage"]
 	if(spawnpos && istype(spawnpos))
 		src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in robotic storage the whole time!</span>"
 		src.forceMove(pick(spawnpos.turfs))
@@ -477,12 +477,12 @@
 // Convenience wrapper.
 /datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
-		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "NTCC Odin Cryogenic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the Odin's cryostorage, and departs.</span>", 3)
+		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[current_map.dock_name] Cryogenic Oversight")
+		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", 3)
 		DespawnMob(H)
 	else
-		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered roboticstorage.", "NTCC Odin Robotic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the Odin's robotic storage, and departs.</span>", 3)
+		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
+		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", 3)
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/EquipPersonal(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
@@ -490,7 +490,7 @@
 	if(!H)
 		Debug("EP/([H]): Abort, H is null.")
 		return null
-	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
+
 	switch(rank)
 		if("Cyborg")
 			Debug("EP/([H]): Abort, H is borg..")
@@ -498,8 +498,11 @@
 		if("AI")
 			Debug("EP/([H]): Abort, H is AI.")
 			return EquipRank(H, rank, 1)
-	if(spawning_at != "Arrivals Shuttle")
+
+	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle")
 		return EquipRank(H, rank, 1)
+
+	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
@@ -521,7 +524,6 @@
 		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 
 		job.apply_fingerprints(H)
-
 	else
 		H << "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator."
 
@@ -556,7 +558,7 @@
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 
-	H << "<b>Welcome to the Odin! Simply proceed down and to the right to board the shuttle to your workplace!</b>."
+	to_chat(H, "<b>[current_map.command_spawn_message]</b>")
 
 	Debug("EP/([H]): Completed.")
 
@@ -684,7 +686,7 @@
 	var/datum/spawnpoint/spawnpos
 
 	if(H.client.prefs.spawnpoint)
-		spawnpos = spawntypes[H.client.prefs.spawnpoint]
+		spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
 
 	if(spawnpos && istype(spawnpos))
 		if(spawnpos.check_job_spawning(rank))
@@ -693,10 +695,10 @@
 		else
 			H << "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead."
 			H.loc = pick(latejoin)
-			. = "is inbound from the NTCC Odin"
+			. = "is inbound from the [current_map.dock_name]"
 	else
 		H.loc = pick(latejoin)
-		. = "is inbound from the NTCC Odin"
+		. = "is inbound from the [current_map.dock_name]"
 
 	Debug("LS/([H]): Completed, spawning at area [H.loc.loc].")
 

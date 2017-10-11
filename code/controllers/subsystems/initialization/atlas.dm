@@ -15,6 +15,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/list/mapload_callbacks = list()
 	var/map_override	// If set, SSatlas will forcibly load this map. If the map does not exist, mapload will fail and SSatlas will panic.
+	var/list/spawn_locations = list()
 
 /datum/controller/subsystem/atlas/New()
 	NEW_SS_GLOBAL(SSatlas)
@@ -47,6 +48,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 		world.map_panic("Selected map does not exist!")
 
 	load_map_meta()
+	setup_spawnpoints()
 
 	world.update_status()
 
@@ -136,6 +138,11 @@ var/datum/controller/subsystem/atlas/SSatlas
 		CRASH("Invalid callback.")
 	
 	mapload_callbacks += callback
+
+/datum/controller/subsystem/atlas/proc/setup_spawnpoints()
+	for (var/type in current_map.spawn_types)
+		var/datum/spawnpoint/S = new type
+		spawn_locations[S.display_name] = S
 
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)

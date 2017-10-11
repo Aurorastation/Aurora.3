@@ -37,9 +37,6 @@
 	// Set up antags.
 	populate_antag_type_list()
 
-	// Populate spawnpoints for char creation.
-	populate_spawn_points()
-
 	// Get BOREALIS to warn staff about a lazy admin forgetting visibility to 0
 	// before anyone has a chance to change it!
 	if (discord_bot)

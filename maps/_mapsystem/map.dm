@@ -27,11 +27,17 @@
 	var/station_name  = "BAD Station"
 	var/station_short = "Baddy"
 	var/dock_name     = "THE PirateBay"
+	var/dock_short    = "Piratebay"
 	var/boss_name     = "Captain Roger"
 	var/boss_short    = "Cap'"
 	var/company_name  = "BadMan"
 	var/company_short = "BM"
 	var/system_name   = "Uncharted System"
+
+	var/command_spawn_enabled = FALSE
+	var/command_spawn_message = "Someone didn't fill this in."
+
+	var/list/spawn_types
 
 	var/shuttle_docked_message
 	var/shuttle_leaving_dock
@@ -63,6 +69,8 @@
 		map_levels = station_levels.Copy()
 	if(!allowed_jobs)
 		allowed_jobs = subtypesof(/datum/job)
+	if (!spawn_types)
+		spawn_types = subtypesof(/datum/spawnpoint)
 
 /datum/map/proc/generate_asteroid()
 	return

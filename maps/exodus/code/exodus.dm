@@ -8,6 +8,7 @@
 	station_name = "NSS Exodus"
 	station_short = "Exodus"
 	dock_name = "NTCC Odin"
+	dock_short = "Odin"
 	boss_name = "Central Command"
 	boss_short = "Centcom"
 	company_name = "NanoTrasen"
