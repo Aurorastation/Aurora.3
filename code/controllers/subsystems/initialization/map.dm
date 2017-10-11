@@ -53,7 +53,7 @@ var/datum/controller/subsystem/map/SSmap
 	world.update_status()
 
 	// Begin loading the maps.
-	var/maps_loaded = load_map_directory("maps/[current_map.path]/")
+	var/maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
 
 	log_ss("map", "Loaded [maps_loaded] maps.")
 	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
@@ -67,7 +67,7 @@ var/datum/controller/subsystem/map/SSmap
 
 	..()
 
-/datum/controller/subsystem/map/proc/load_map_directory(directory)
+/datum/controller/subsystem/map/proc/load_map_directory(directory, overwrite_default_z = FALSE)
 	. = 0
 	if (!directory)
 		CRASH("No directory supplied.")
@@ -75,7 +75,9 @@ var/datum/controller/subsystem/map/SSmap
 	var/static/regex/mapregex = new(".+\\.dmm$")
 	var/list/files = flist(directory)
 	sortTim(files, /proc/cmp_text_asc)
-	for (var/mfile in files)
+	var/mfile
+	for (var/i in 1 to files.len)
+		mfile = files[i]
 		if (!mapregex.Find(mfile))
 			continue
 
@@ -83,7 +85,12 @@ var/datum/controller/subsystem/map/SSmap
 
 		mfile = "[directory][mfile]"
 
-		if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
+		var/target_z = 0
+		if (overwrite_default_z && i == 1)
+			target_z = 1
+			log_ss("map", "Overwriting Z[i].")
+
+		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
 			log_ss("map", "Failed to load '[mfile]'!")
 
 		.++
