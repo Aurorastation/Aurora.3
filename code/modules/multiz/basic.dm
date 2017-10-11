@@ -4,7 +4,7 @@ var/z_levels = 0 // Each bit represents a connection between adjacent levels.  S
 
 // If the height is more than 1, we mark all contained levels as connected.
 /obj/effect/landmark/map_data/New()
-	SSmap.height_markers += src
+	SSatlas.height_markers += src
 
 /obj/effect/landmark/map_data/proc/setup()
 	ASSERT(height <= z)
@@ -14,7 +14,7 @@ var/z_levels = 0 // Each bit represents a connection between adjacent levels.  S
 	qdel(src)
 
 /obj/effect/landmark/map_data/Destroy()
-	SSmap.height_markers -= src
+	SSatlas.height_markers -= src
 	return ..()
 
 // The storage of connections between adjacent levels means some bitwise magic is needed.

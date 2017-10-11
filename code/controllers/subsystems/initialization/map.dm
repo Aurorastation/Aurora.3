@@ -1,13 +1,11 @@
 // This file controls round-start runtime maploading.
 
-// First, some globals.
-var/datum/map/current_map	// Whatever map is currently loaded. Null until SSmap Initialize() starts.
-var/map_override	// If set, SSmap will forcibly load this map. If the map does not exist, mapload will fail and SSmap will panic.
+var/datum/map/current_map	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
 
-var/datum/controller/subsystem/map/SSmap
+var/datum/controller/subsystem/atlas/SSatlas
 
-/datum/controller/subsystem/map
-	name = "Map"
+/datum/controller/subsystem/atlas
+	name = "Atlas"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_MAPLOAD
 
@@ -16,18 +14,19 @@ var/datum/controller/subsystem/map/SSmap
 	var/list/height_markers = list()
 
 	var/list/mapload_callbacks = list()
+	var/map_override	// If set, SSatlas will forcibly load this map. If the map does not exist, mapload will fail and SSatlas will panic.
 
-/datum/controller/subsystem/map/New()
-	NEW_SS_GLOBAL(SSmap)
+/datum/controller/subsystem/atlas/New()
+	NEW_SS_GLOBAL(SSatlas)
 
-/datum/controller/subsystem/map/Initialize(timeofday)
+/datum/controller/subsystem/atlas/Initialize(timeofday)
 	maploader = new
 
 	var/datum/map/M
 	for (var/type in subtypesof(/datum/map))
 		M = new type
 		if (!M.path)
-			log_debug("SSmap: Map [M.name] ([M.type]) has no path set, discarding.")
+			log_debug("SSatlas: Map [M.name] ([M.type]) has no path set, discarding.")
 			qdel(M)
 			continue
 
@@ -35,14 +34,13 @@ var/datum/controller/subsystem/map/SSmap
 
 #ifdef DEFAULT_MAP
 	map_override = DEFAULT_MAP
-	log_ss("map", "Using compile-selected map.")
+	log_ss("atlas", "Using compile-selected map.")
 #endif
 	if (!map_override)
 		map_override = get_selected_map()
 
 	admin_notice("<span class='danger'>Loading map [map_override].</span>", R_DEBUG)
-	log_ss("map", "Using map '[map_override]'.")
-
+	log_ss("atlas", "Using map '[map_override]'.")
 
 	current_map = known_maps[map_override]
 	if (!current_map)
@@ -55,7 +53,7 @@ var/datum/controller/subsystem/map/SSmap
 	// Begin loading the maps.
 	var/maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
 
-	log_ss("map", "Loaded [maps_loaded] maps.")
+	log_ss("atlas", "Loaded [maps_loaded] maps.")
 	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
 
 	if (!maps_loaded)
@@ -67,7 +65,7 @@ var/datum/controller/subsystem/map/SSmap
 
 	..()
 
-/datum/controller/subsystem/map/proc/load_map_directory(directory, overwrite_default_z = FALSE)
+/datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
 	. = 0
 	if (!directory)
 		CRASH("No directory supplied.")
@@ -81,38 +79,38 @@ var/datum/controller/subsystem/map/SSmap
 		if (!mapregex.Find(mfile))
 			continue
 
-		log_ss("map", "Loading '[mfile]'.")
+		log_ss("atlas", "Loading '[mfile]'.")
 
 		mfile = "[directory][mfile]"
 
 		var/target_z = 0
 		if (overwrite_default_z && i == 1)
 			target_z = 1
-			log_ss("map", "Overwriting Z[i].")
+			log_ss("atlas", "Overwriting Z[i].")
 
 		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
-			log_ss("map", "Failed to load '[mfile]'!")
+			log_ss("atlas", "Failed to load '[mfile]'!")
 
 		.++
 		CHECK_TICK
 
-/datum/controller/subsystem/map/proc/setup_multiz()
+/datum/controller/subsystem/atlas/proc/setup_multiz()
 	for (var/thing in height_markers)
 		var/obj/effect/landmark/map_data/marker = thing
 		marker.setup()
 
-/datum/controller/subsystem/map/proc/get_selected_map()
+/datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (config.override_map)
 		if (known_maps[config.override_map])
 			. = config.override_map
-			log_ss("map", "Using configured map.")
+			log_ss("atlas", "Using configured map.")
 		else
-			log_ss("map", "-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
+			log_ss("atlas", "-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
 			. = "aurora"
 	else
 		. = "aurora"
 
-/datum/controller/subsystem/map/proc/load_map_meta()
+/datum/controller/subsystem/atlas/proc/load_map_meta()
 	// This needs to be done after current_map is set, but before mapload.
 	lobby_image = new /obj/effect/lobby_image
 
@@ -133,7 +131,7 @@ var/datum/controller/subsystem/map/SSmap
 	mapload_callbacks.Cut()
 	mapload_callbacks = null
 
-/datum/controller/subsystem/map/proc/OnMapload(datum/callback/callback)
+/datum/controller/subsystem/atlas/proc/OnMapload(datum/callback/callback)
 	if (!istype(callback))
 		CRASH("Invalid callback.")
 	
@@ -142,7 +140,7 @@ var/datum/controller/subsystem/map/SSmap
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)
 	to_chat(world, "<span class='danger'>Fatal error during map setup, unable to continue! Server will reboot in 60 seconds.</span>")
-	log_ss("map", "-- FATAL ERROR DURING MAP SETUP: [uppertext(reason)] --")
+	log_ss("atlas", "-- FATAL ERROR DURING MAP SETUP: [uppertext(reason)] --")
 	sleep(1 MINUTE)
 	world.Reboot()
 
