@@ -10,8 +10,9 @@ var/datum/controller/subsystem/lighting/SSlighting
 	priority = SS_PRIORITY_LIGHTING
 	init_order = SS_INIT_LIGHTING
 
-	var/list/lighting_overlays	// List of all lighting overlays in the world.
-	var/list/lighting_corners	// List of all lighting corners in the world.
+	var/total_lighting_overlays = 0
+	var/total_lighting_sources = 0
+	var/list/lighting_corners = list()	// List of all lighting corners in the world.
 
 	var/list/light_queue   = list() // lighting sources  queued for update.
 	var/lq_idex = 1
@@ -31,12 +32,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 /datum/controller/subsystem/lighting/New()
 	NEW_SS_GLOBAL(SSlighting)
-	LAZYINITLIST(lighting_corners)
-	LAZYINITLIST(lighting_overlays)
 
 /datum/controller/subsystem/lighting/stat_entry()
 	var/list/out = list(
-		"O:[lighting_overlays.len] C:[lighting_corners.len]\n",
+		"T:{L:[total_lighting_sources] O:[total_lighting_overlays] C:[lighting_corners.len]}\n",
 		"\tP:{L:[light_queue.len - (lq_idex - 1)]|C:[corner_queue.len - (cq_idex - 1)]|O:[overlay_queue.len - (oq_idex - 1)]}\n",
 		"\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}\n"
 	)
@@ -158,7 +157,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	while (oq_idex <= curr_overlays.len)
 		var/atom/movable/lighting_overlay/O = curr_overlays[oq_idex++]
 
-		if (O.needs_update)
+		if (!QDELETED(O) && O.needs_update)
 			O.update_overlay()
 			O.needs_update = FALSE
 
@@ -175,11 +174,12 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 /datum/controller/subsystem/lighting/Recover()
 	lighting_corners = SSlighting.lighting_corners
-	lighting_overlays = SSlighting.lighting_overlays
+	total_lighting_overlays = SSlighting.total_lighting_overlays
+	total_lighting_sources = SSlighting.total_lighting_sources
 
-	src.light_queue = SSlighting.light_queue
-	src.corner_queue = SSlighting.corner_queue
-	src.overlay_queue = SSlighting.overlay_queue
+	light_queue = SSlighting.light_queue
+	corner_queue = SSlighting.corner_queue
+	overlay_queue = SSlighting.overlay_queue
 
 	lq_idex = SSlighting.lq_idex
 	cq_idex = SSlighting.cq_idex

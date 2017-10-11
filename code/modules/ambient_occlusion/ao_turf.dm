@@ -11,6 +11,8 @@
 	var/ao_queued = AO_UPDATE_NONE
 
 /turf/proc/regenerate_ao()
+	if (config.fastboot)
+		return
 	for (var/thing in RANGE_TURFS(1, src))
 		var/turf/T = thing
 		if (T.permit_ao)
@@ -62,6 +64,8 @@
 	. = cache[key] = I
 
 /turf/proc/queue_ao(rebuild = TRUE)
+	if (config.fastboot)
+		return
 	if (!ao_queued)
 		SSocclusion.queue += src
 
