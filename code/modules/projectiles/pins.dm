@@ -19,7 +19,8 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	var/fail_message = "<span class='warning'>INVALID USER.</span>"
 	var/selfdestruct = 0 // Explode when user check is failed.
 	var/force_replace = 0 // Can forcefully replace other pins.
-	var/pin_removeable = 0 // Can be replaced by any pin.
+	var/pin_replaceable = 0 // Can be replaced by any pin.
+	var/pin_fragile = TRUE // is destroyed on removal by anything BUT a pin.
 	var/obj/item/weapon/gun/gun
 
 
@@ -33,7 +34,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	if(proximity_flag)
 		if(istype(target, /obj/item/weapon/gun))
 			var/obj/item/weapon/gun/G = target
-			if(G.pin && (force_replace || G.pin.pin_removeable))
+			if(G.pin && (force_replace || G.pin.pin_replaceable))
 				G.pin.forceMove(get_turf(G))
 				G.pin.gun_remove(user)
 				to_chat(user, "<span class ='notice'>You remove [G]'s old pin.</span>")
@@ -65,11 +66,15 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 /obj/item/device/firing_pin/proc/pin_auth(mob/living/user)
 	return 1
 
-/obj/item/device/firing_pin/proc/auth_fail(mob/living/user)
+/obj/item/device/firing_pin/proc/auth_fail(mob/living/carbon/human/user)
 	user.show_message(fail_message, 1)
-	if(selfdestruct)
+	if(selfdestruct)//sound stolen from the lawgiver. todo, remove this from the lawgiver. there can only be one.
 		user.show_message("<span class='danger'>SELF-DESTRUCTING...</span><br>", 1)
-		to_chat(user, "<span class='userdanger'>[gun] explodes!</span>")
+		visible_message("<span class='danger'>[gun] explodes!</span>")
+		playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
+		var/mob/living/carbon/C = user
+		var/obj/item/organ/external/E = user.organs_by_name[C.hand ? "l_hand" : "r_hand"]
+		E.droplimb(0,DROPLIMB_BLUNT)
 		explosion(get_turf(gun), -1, 0, 2, 3)
 		if(gun)
 			qdel(gun)
@@ -84,12 +89,12 @@ Pins Below.
 	desc = "A small enchanted shard which allows magical weapons to fire."
 	icon_state = "firing_pin_wizwoz"
 
-// Test pin, works only near firing range.
+// Test pin, works only near firing ranges.
 /obj/item/device/firing_pin/test_range
 	name = "test-range firing pin"
 	desc = "This safety firing pin allows weapons to be fired within proximity to a firing range."
 	fail_message = "<span class='warning'>TEST RANGE CHECK FAILED.</span>"
-	pin_removeable = 1
+	pin_replaceable = 1
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 
 /obj/item/device/firing_pin/test_range/pin_auth(mob/living/user)
@@ -118,7 +123,7 @@ Pins Below.
 	icon_state = "firing_pin_loyalty"
 	req_implant = /obj/item/weapon/implant/loyalty
 	
-// Honk pin, clown's joke item.
+// Honk pin, clown joke item.
 // Can replace other pins. Replace a pin in cap's laser for extra fun! This is generally adminbus only unless someone thinks of a use for it.
 /obj/item/device/firing_pin/clown
 	name = "hilarious firing pin"

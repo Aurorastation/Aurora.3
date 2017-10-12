@@ -145,7 +145,7 @@
 			user << "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>"
 			user << "<span class='danger'>You feel a tiny prick in your hand!</span>"
 			user.drop_item()
-			//Blow up Unauthorized Users Hand
+			//Blow up Unauthorized Users Hand//todo, delet this, as it's duplicate behaviour from Firing pins.
 			sleep(60)
 			if(active_hand)
 				LA.droplimb(0,DROPLIMB_BLUNT)

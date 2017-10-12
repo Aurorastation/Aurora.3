@@ -633,3 +633,4 @@ obj/item/weapon/gun/Destroy()
 	if (istype(pin))
 		QDEL_NULL(pin)
 	return ..()
+
