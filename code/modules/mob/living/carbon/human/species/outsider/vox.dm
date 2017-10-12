@@ -4,7 +4,7 @@
 	name_plural = "Vox"
 	icobase = 'icons/mob/human_races/r_vox.dmi'
 	deform = 'icons/mob/human_races/r_def_vox.dmi'
-	default_language = "Vox-pidgin"
+	default_language = LANGUAGE_VOX
 	language = "Ceti Basic"
 	num_alternate_languages = 1
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
@@ -45,7 +45,7 @@
 
 	flags = NO_SCAN
 	spawn_flags = IS_RESTRICTED
-	appearance_flags = HAS_EYE_COLOR
+	appearance_flags = HAS_EYE_COLOR | HAS_HAIR_COLOR
 
 	blood_color = "#2299FC"
 	flesh_color = "#808D11"
@@ -57,10 +57,10 @@
 		)
 
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart,
-		"lungs" =    /obj/item/organ/lungs,
-		"liver" =    /obj/item/organ/liver,
-		"kidneys" =  /obj/item/organ/kidneys,
+		"heart" =    /obj/item/organ/heart/vox,
+		"lungs" =    /obj/item/organ/lungs/vox,
+		"liver" =    /obj/item/organ/liver/vox,
+		"kidneys" =  /obj/item/organ/kidneys/vox,
 		"brain" =    /obj/item/organ/brain,
 		"eyes" =     /obj/item/organ/eyes,
 		"stack" =    /obj/item/organ/stack/vox
@@ -81,7 +81,11 @@
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H.back), slot_in_backpack)
 		H.internal = H.r_hand
 	H.internals.icon_state = "internal1"
+	H.gender = NEUTER
 
+/datum/species/vox/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.gender = NEUTER
+	return ..()
 
 /datum/species/vox/get_station_variant()
 	return "Vox Pariah"
@@ -93,28 +97,27 @@
 	speech_chance = 60        // No volume control.
 	siemens_coefficient = 0.5 // Ragged scaleless patches.
 
-	warning_low_pressure = (WARNING_LOW_PRESSURE-20)
-	hazard_low_pressure =  (HAZARD_LOW_PRESSURE-10)
 	total_health = 80
 
-	cold_level_1 = 130
-	cold_level_2 = 100
-	cold_level_3 = 60
 	fall_mod = 0.8
 
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws, /datum/unarmed_attack/bite)
 
 	// Pariahs have no stack.
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart,
-		"lungs" =    /obj/item/organ/lungs,
-		"liver" =    /obj/item/organ/liver,
-		"kidneys" =  /obj/item/organ/kidneys,
+		"heart" =    /obj/item/organ/heart/vox,
+		"lungs" =    /obj/item/organ/lungs/vox,
+		"liver" =    /obj/item/organ/liver/vox,
+		"kidneys" =  /obj/item/organ/kidneys/vox,
 		"brain" =    /obj/item/organ/pariah_brain,
 		"eyes" =     /obj/item/organ/eyes
 		)
-	flags = NO_SCAN | HAS_EYE_COLOR
 	spawn_flags = IS_RESTRICTED
+
+	stamina	=	60
+	sprint_speed_factor = 2
+	stamina_recovery = 0.5
+	sprint_cost_factor = 0.5
 
 // No combat skills for you.
 /datum/species/vox/pariah/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
@@ -123,17 +126,23 @@
 // Pariahs are really gross.
 /datum/species/vox/pariah/handle_environment_special(var/mob/living/carbon/human/H)
 	if(prob(5))
+		var/datum/gas_mixture/vox = H.loc.return_air()
 		var/stink_range = rand(3,5)
 		for(var/mob/living/M in range(H,stink_range))
-			if(M.stat || M == H)
+			if(M.stat || M == H || issilicon(M) || isbrain(M))
+				continue
+			var/datum/gas_mixture/mob_air = M.loc.return_air()
+			if(!vox || !mob_air || vox != mob_air)
 				continue
 			var/mob/living/carbon/human/target = M
 			if(istype(target))
-				if(target.internals)
+				if(target.internal)
 					continue
 				if(target.head && (target.head.body_parts_covered & FACE) && (target.head.flags & AIRTIGHT))
 					continue
 				if(target.wear_mask && (target.wear_mask.body_parts_covered & FACE) && (target.wear_mask.flags & BLOCK_GAS_SMOKE_EFFECT))
+					continue
+				if(target.species.flags & NO_BREATHE)
 					continue
 			M << "<span class='danger'>A terrible stench emanates from \the [H].</span>"
 
@@ -155,7 +164,6 @@
 	sprint_speed_factor = 3
 	stamina_recovery = 1
 	sprint_cost_factor = 0.7
-
 
 	cold_level_1 = 80
 	cold_level_2 = 50

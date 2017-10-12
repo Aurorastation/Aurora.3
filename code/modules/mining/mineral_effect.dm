@@ -24,3 +24,9 @@
 		else
 			world << "No ore data for [src]!"
 	return scanner_image
+
+/obj/effect/mineral/singularity_pull()
+    return
+
+/obj/effect/mineral/singuloCanEat()
+    return FALSE

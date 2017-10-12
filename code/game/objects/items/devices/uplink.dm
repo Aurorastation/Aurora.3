@@ -362,3 +362,27 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 /obj/item/device/contract_uplink/attack_self(mob/user as mob)
 	if (hidden_uplink)
 		hidden_uplink.trigger(user)
+
+
+//for revs to create their own central command reports
+/obj/item/device/announcer
+	name = "relay positioning device"
+	icon = 'icons/obj/device.dmi'
+	icon_state = "locator"
+	description_antag = "This device allows you to create a single central command report. It has only one use."
+	w_class = 2
+
+/obj/item/device/announcer/attack_self(mob/user as mob)
+	if(!player_is_antag(user.mind))
+		return
+
+	var/title = sanitize(input("Enter your announcement title.", "Announcement Title") as null|text)
+	if(!title)
+		return
+
+	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|text)
+	if(!message)
+		return
+
+	command_announcement.Announce("[message]", title, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+	qdel(src)
