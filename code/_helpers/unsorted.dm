@@ -933,10 +933,10 @@ var/list/wall_items = typecacheof(list(
 	/obj/machinery/power/apc,
 	/obj/machinery/alarm,
 	/obj/item/device/radio/intercom,
-	/obj/structure/extinguisher_cabinet, 
+	/obj/structure/extinguisher_cabinet,
 	/obj/structure/reagent_dispensers/peppertank,
-	/obj/machinery/status_display, 
-	/obj/machinery/requests_console, 
+	/obj/machinery/status_display,
+	/obj/machinery/requests_console,
 	/obj/machinery/light_switch,
 	/obj/machinery/newscaster,
 	/obj/machinery/firealarm,
@@ -1000,7 +1000,7 @@ var/list/wall_items = typecacheof(list(
 			if(length(temp_col )<2)
 				temp_col  = "0[temp_col]"
 			colour += temp_col
-	return colour
+	return "#[colour]"
 
 
 
@@ -1093,7 +1093,7 @@ var/list/wall_items = typecacheof(list(
 /proc/stoplag()
 	// If we're initializing, our tick limit might be over 100 (testing config), but stoplag() penalizes procs that go over.
 	// 	Unfortunately, this penalty slows down init a *lot*. So, we disable it during boot and lobby, when relatively few things should be calling this.
-	if (!Master || Master.initializing || !Master.round_started)	
+	if (!Master || Master.initializing || !Master.round_started)
 		sleep(world.tick_lag)
 		return 1
 
@@ -1116,7 +1116,7 @@ var/list/wall_items = typecacheof(list(
 
 
 
-#define NOT_FLAG(flag) (!(flag & use_flags)) 
+#define NOT_FLAG(flag) (!(flag & use_flags))
 #define HAS_FLAG(flag) (flag & use_flags)
 
 // Checks if user can use this object. Set use_flags to customize what checks are done.
