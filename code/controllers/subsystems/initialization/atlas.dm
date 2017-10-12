@@ -86,7 +86,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 		mfile = "[directory][mfile]"
 
 		var/target_z = 0
-		if (overwrite_default_z && i == 1)
+		if (overwrite_default_z && world.maxz == 1)
 			target_z = 1
 			log_ss("atlas", "Overwriting Z[i].")
 
