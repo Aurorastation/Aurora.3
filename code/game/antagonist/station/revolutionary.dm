@@ -54,3 +54,11 @@ var/datum/antagonist/revolutionary/revs
 		if(L && (L.imp_in == player.current))
 			return 0
 	return 1
+
+/datum/antagonist/revolutionary/equip(var/mob/living/carbon/human/player)
+
+	if(!..())
+		return 0
+
+	player.equip_to_slot_or_del(new /obj/item/device/announcer(player), slot_in_backpack)
+	return 1
