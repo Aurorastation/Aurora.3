@@ -76,6 +76,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	var/list/files = flist(directory)
 	sortTim(files, /proc/cmp_text_asc)
 	var/mfile
+	var/first_dmm = TRUE
 	for (var/i in 1 to files.len)
 		mfile = files[i]
 		if (!mapregex.Find(mfile))
@@ -86,8 +87,9 @@ var/datum/controller/subsystem/atlas/SSatlas
 		mfile = "[directory][mfile]"
 
 		var/target_z = 0
-		if (overwrite_default_z && world.maxz == 1)
+		if (overwrite_default_z && first_dmm)
 			target_z = 1
+			first_dmm = FALSE
 			log_ss("atlas", "Overwriting Z[i].")
 
 		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
