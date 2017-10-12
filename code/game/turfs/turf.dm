@@ -35,6 +35,7 @@
 	var/movement_cost = 0 // How much the turf slows down movement, if any.
 
 // Parent code is duplicated in here instead of ..() for performance reasons.
+// There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
