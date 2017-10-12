@@ -9,3 +9,4 @@
 	require_all_templates = 1
 	votable = 1
 	antag_tags = list(MODE_MALFUNCTION, MODE_TRAITOR, MODE_CHANGELING)
+	disabled_jobs = list("AI")
