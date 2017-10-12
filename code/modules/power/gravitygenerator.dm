@@ -24,7 +24,9 @@
 	use_power = 0
 	unacidable = 1
 	var/sprite_number = 0
-
+	light_color = LIGHT_COLOR_CYAN
+	light_power = 1
+	light_range = 8
 /obj/machinery/gravity_generator/ex_act(severity)
 	if(severity == 1) // Very sturdy.
 		set_broken()
@@ -97,7 +99,7 @@
 /obj/machinery/gravity_generator/main/station/admin/Initialize()
 	. = ..()
 	round_start = 1
-	set_light(8,1,LIGHT_COLOR_CYAN)
+
 
 
 //
