@@ -353,16 +353,6 @@
 	new /obj/item/device/firing_pin(src)
 	new /obj/item/device/firing_pin(src)
 
-/obj/item/weapon/storage/box/firingpins/fill()
-	..()
-	new /obj/item/device/firing_pin(src)
-	new /obj/item/device/firing_pin(src)
-	new /obj/item/device/firing_pin(src)
-	new /obj/item/device/firing_pin(src)
-	new /obj/item/device/firing_pin(src)
-	new /obj/item/device/firing_pin(src)
-	new /obj/item/device/firing_pin(src)
-
 /obj/item/weapon/storage/box/testpins
 	name = "box of firing pins"
 	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
@@ -384,10 +374,6 @@
 
 /obj/item/weapon/storage/box/loyaltypins/fill()
 	..()
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
 	new /obj/item/device/firing_pin/implant/loyalty(src)
 	new /obj/item/device/firing_pin/implant/loyalty(src)
 	new /obj/item/device/firing_pin/implant/loyalty(src)
