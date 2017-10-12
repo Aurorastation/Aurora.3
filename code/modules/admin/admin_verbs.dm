@@ -1108,6 +1108,7 @@ var/list/admin_verbs_cciaa = list(
 
 	SSopenturf.hard_reset()
 
+#ifdef ENABLE_SUNLIGHT
 /client/proc/apply_sunstate()
 	set category = "Fun"
 	set name = "Apply Sun Preset"
@@ -1122,3 +1123,9 @@ var/list/admin_verbs_cciaa = list(
 
 	SSsunlight.apply_sun_state(S)
 	log_and_message_admins("has set the sun state to '[S]'.")
+#else 
+/client/proc/apply_sunstate()
+	set hidden = TRUE
+
+	usr << "The sunlight system is disabled."
+#endif
