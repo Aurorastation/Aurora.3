@@ -1044,11 +1044,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/kitchen)
 "cp" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	icon_state = "pwall";
-	dir = 9
-	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/alien/mine)
 "cq" = (
 /turf/simulated/shuttle/wall{
@@ -1308,15 +1304,15 @@
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "cO" = (
-/obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion";
-	dir = 4
-	},
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
 	icon_state = "twindow"
 	},
-/turf/template_noop,
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion";
+	dir = 8
+	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/alien/mine)
 "cP" = (
 /turf/simulated/shuttle/floor{
@@ -5977,7 +5973,7 @@
 "lK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
@@ -6237,7 +6233,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
@@ -7760,7 +7756,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_north)
@@ -7873,7 +7869,7 @@
 /obj/structure/closet/walllocker/emerglocker/south,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8041,7 +8037,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_north)
@@ -9271,7 +9267,7 @@
 /obj/structure/grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /obj/machinery/door/firedoor{
 	dir = 4;
@@ -9550,7 +9546,7 @@
 /obj/structure/grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /obj/machinery/door/firedoor{
 	dir = 4;
@@ -9579,7 +9575,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -9602,7 +9598,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/hallway)
@@ -10231,7 +10227,7 @@
 "tq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 6;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -10242,7 +10238,7 @@
 "tr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 1;
-	icon_state = "map";
+	icon_state = "map"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
@@ -10255,7 +10251,7 @@
 "ts" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -11328,7 +11324,7 @@
 "uQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -11336,7 +11332,7 @@
 "uR" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -11432,7 +11428,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 8;
-	icon_state = "map";
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/hallway)
@@ -11533,7 +11529,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 5;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/hallway)
@@ -11564,7 +11560,7 @@
 "vn" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/atmospherics)
@@ -13172,7 +13168,7 @@
 "yq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
+	icon_state = "map"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -14113,7 +14109,7 @@
 "zW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
@@ -14287,7 +14283,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/west_hall)
@@ -14445,7 +14441,7 @@
 "AE" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -14610,7 +14606,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/west_hall)
@@ -14632,7 +14628,7 @@
 "AR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -15257,7 +15253,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
+	icon_state = "map"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
@@ -15553,7 +15549,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/east_hall)
@@ -16069,7 +16065,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/east_hall)
 "Di" = (
-/obj/structure/closet/crate,
 /obj/structure/noticeboard{
 	pixel_y = 27
 	},
@@ -16079,16 +16074,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/east_hall)
 "Dj" = (
-/obj/structure/closet/crate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/mineral/equipment_vendor,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/east_hall)
 "Dk" = (
@@ -16237,7 +16233,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10;
-	icon_state = "intact";
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/outpost/mining_main/east_hall)
@@ -37213,7 +37209,7 @@ aa
 aa
 cp
 cO
-dn
+cp
 aa
 ae
 eL
@@ -37468,9 +37464,9 @@ aa
 aa
 aa
 aa
-cq
+cp
 cP
-cq
+cp
 ae
 ae
 eM
@@ -37725,9 +37721,9 @@ aa
 aa
 aa
 aa
-cq
+cp
 cP
-cq
+cp
 ae
 em
 eN
@@ -37982,9 +37978,9 @@ aa
 be
 bC
 ca
-cr
+cp
 cQ
-do
+cp
 dM
 en
 dq

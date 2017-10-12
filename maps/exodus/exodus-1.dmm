@@ -2947,21 +2947,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "afr" = (
-/turf/simulated/floor/plating,
 /obj/structure/shuttle/engine/propulsion/burst{
-	dir = 4
+	dir = 8
 	},
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_f6";
-	dir = 2
-	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/escape_pod3/station)
 "afs" = (
-/turf/simulated/shuttle/wall{
-	tag = "icon-swall_straight (EAST)";
-	icon_state = "swall_straight";
-	dir = 4
-	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/escape_pod3/station)
 "aft" = (
 /turf/template_noop,
@@ -11272,12 +11264,7 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness)
 "atu" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (EAST)";
-	icon_state = "swall_c";
-	dir = 4
-	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/escape_pod1/station)
 "atv" = (
 /obj/structure/window/shuttle,
@@ -11292,12 +11279,7 @@
 	},
 /area/shuttle/escape_pod1/station)
 "atx" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (EAST)";
-	icon_state = "swall_c";
-	dir = 4
-	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/escape_pod2/station)
 "aty" = (
 /obj/structure/window/shuttle,
@@ -12282,12 +12264,8 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness)
 "avI" = (
-/turf/simulated/floor/plating,
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_f5";
-	dir = 2
-	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/escape_pod1/station)
 "avJ" = (
 /obj/machinery/door/airlock/external{
@@ -12309,12 +12287,8 @@
 	},
 /area/shuttle/escape_pod1/station)
 "avL" = (
-/turf/simulated/floor/plating,
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_f5";
-	dir = 2
-	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/escape_pod2/station)
 "avM" = (
 /obj/machinery/door/airlock/external{
@@ -16547,12 +16521,7 @@
 /turf/template_noop,
 /area/syndicate_station/arrivals_dock)
 "aDq" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (EAST)";
-	icon_state = "swall_c";
-	dir = 4
-	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/arrival/station)
 "aDr" = (
 /turf/simulated/shuttle/wall{
@@ -16566,10 +16535,7 @@
 /turf/simulated/shuttle/floor,
 /area/shuttle/arrival/station)
 "aDt" = (
-/obj/structure/window/shuttle{
-	icon_state = "window4"
-	},
-/obj/structure/grille,
+/obj/structure/window/shuttle,
 /turf/simulated/shuttle/plating,
 /area/shuttle/arrival/station)
 "aDu" = (
@@ -22114,7 +22080,7 @@
 "aNw" = (
 /obj/machinery/firealarm{
 	dir = 2;
-	pixel_x = -12;
+	pixel_x = -8;
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
@@ -42367,12 +42333,7 @@
 /turf/simulated/floor/plating,
 /area/storage/emergency)
 "bwJ" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (EAST)";
-	icon_state = "swall_c";
-	dir = 4
-	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/research/station)
 "bwK" = (
 /turf/simulated/shuttle/wall{
@@ -44202,7 +44163,7 @@
 /area/rnd/docking)
 "bzR" = (
 /obj/structure/shuttle/engine/propulsion/burst{
-	dir = 4
+	dir = 8
 	},
 /turf/template_noop,
 /area/shuttle/research/station)
@@ -50927,12 +50888,7 @@
 /turf/simulated/wall/r_wall,
 /area/rnd/test_area)
 "bKQ" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (EAST)";
-	icon_state = "swall_c";
-	dir = 4
-	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/mining/station)
 "bKR" = (
 /turf/simulated/shuttle/wall{
@@ -57503,12 +57459,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/rnd/test_area)
 "bWm" = (
-/turf/template_noop,
-/turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (EAST)";
-	icon_state = "swall_c";
-	dir = 4
-	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/escape_pod5/station)
 "bWn" = (
 /turf/simulated/shuttle/wall{
@@ -57519,9 +57470,9 @@
 /area/shuttle/escape_pod5/station)
 "bWo" = (
 /obj/structure/shuttle/engine/propulsion/burst{
-	dir = 8
+	dir = 4
 	},
-/turf/simulated/wall,
+/turf/simulated/shuttle/wall,
 /area/shuttle/escape_pod5/station)
 "bWp" = (
 /obj/structure/closet/emcloset,
@@ -78600,11 +78551,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_airlock)
 "cHo" = (
-/turf/simulated/shuttle/wall{
-	tag = "icon-propulsion (EAST)";
-	icon_state = "propulsion";
-	dir = 4
+/obj/structure/shuttle/engine/propulsion/burst{
+	dir = 8
 	},
+/turf/simulated/shuttle/wall,
 /area/shuttle/constructionsite/station)
 "cHp" = (
 /turf/simulated/shuttle/wall,
@@ -89335,10 +89285,10 @@ aaa
 aaa
 aaa
 aDq
-aEW
+aDq
 aHV
-aEW
-aLa
+aDq
+aDq
 aaa
 aaa
 aaf
@@ -89591,11 +89541,11 @@ aaf
 aaf
 aaa
 aaa
-aDv
-aGj
+aDq
+aDq
 aEP
-aJx
-aLb
+aDq
+aDq
 aaa
 aaa
 aBs
@@ -89848,11 +89798,11 @@ aaf
 aBj
 aaa
 aaa
-aDr
+aDq
 aGk
 aEP
 aGk
-aDr
+aDq
 aaa
 aaa
 aPQ
@@ -90105,12 +90055,12 @@ auW
 aua
 aaa
 aDq
-aEN
-aGl
+aDq
+aDq
 aDs
-aGl
-aEN
-aLa
+aDq
+aDq
+aDq
 aaa
 aBs
 aRu
@@ -90351,8 +90301,8 @@ aaa
 aaa
 aaa
 atu
-aub
-aub
+atu
+atu
 avI
 awJ
 auW
@@ -90361,13 +90311,13 @@ azi
 aAi
 aBk
 azh
-aDr
+aDq
 aEO
 aEP
 aEP
 aEP
 aEO
-aDr
+aDq
 aOq
 aPR
 aRv
@@ -90864,10 +90814,10 @@ aaa
 aaa
 aaa
 aaa
-atw
-aub
-aub
-avK
+atu
+atu
+atu
+avI
 awL
 axs
 ayi
@@ -90875,13 +90825,13 @@ azk
 aAi
 aBl
 aCh
-aDr
+aDq
 aEQ
 aEP
 aEP
 aEP
 aEP
-aDr
+aDq
 aOs
 aGp
 aLf
@@ -91132,13 +91082,13 @@ azl
 aAk
 aBm
 aCi
-aDr
+aDq
 aER
 aGm
 aGm
 aGm
 aLc
-aDr
+aDq
 aOt
 aPT
 aDx
@@ -91379,8 +91329,8 @@ aaa
 aaa
 aaa
 atx
-aud
-aud
+atx
+atx
 avL
 awJ
 auW
@@ -91646,13 +91596,13 @@ azn
 azj
 aBo
 aCi
-aDu
+aDt
 aET
 aGm
 aGm
 aGm
 aEP
-aDu
+aDt
 aOt
 aPV
 aRw
@@ -91892,10 +91842,10 @@ aaa
 aaa
 aaa
 aaa
-atz
-aud
-aud
-avN
+atx
+atx
+atx
+avL
 awL
 axs
 ayi
@@ -91903,13 +91853,13 @@ azo
 aAl
 aBp
 aCi
-aDr
+aDq
 aEU
 aEP
 aHX
 aEP
 aLd
-aDr
+aDq
 aOt
 aPW
 aRx
@@ -92160,13 +92110,13 @@ azp
 aAi
 aBl
 aCj
-aDr
+aDq
 aEP
 aGm
 aGm
 aGm
 aEP
-aDr
+aDq
 aOu
 aGp
 aLf
@@ -92674,13 +92624,13 @@ azq
 aAi
 aBq
 azh
-aDv
-aEW
+aDq
+aDq
 aGn
 aGn
 aGn
-aEW
-aLb
+aDq
+aDq
 aOq
 aPX
 aLf
@@ -92931,13 +92881,13 @@ azr
 aAm
 aBr
 aaa
-aDw
+aDq
 aEX
 aGo
 aGo
 aGo
 aLe
-aMG
+aDq
 aaa
 aPY
 aRy
@@ -100422,12 +100372,12 @@ bwP
 aaa
 aaa
 bKQ
-bMq
+bKQ
 bKS
-bMq
+bKQ
 bKS
-bMq
-bTv
+bKQ
+bKQ
 aaf
 aaa
 aaa
@@ -100678,13 +100628,13 @@ bEI
 bwP
 aaa
 aaa
-bKR
+bKQ
 bMr
 bNy
 bNy
 bNz
 bSd
-bKR
+bKQ
 aaf
 aaa
 aaa
@@ -101192,13 +101142,13 @@ bEJ
 boi
 bHF
 aaa
-bKR
+bKQ
 bMt
 bNy
 bNy
 bNz
 bSf
-bKR
+bKQ
 aaf
 aaa
 aaa
@@ -101449,13 +101399,13 @@ bEK
 boi
 aaf
 aaa
-bKT
-bMq
+bKQ
+bKQ
 bKS
 bPf
 bKS
-bMq
-bTx
+bKQ
+bKQ
 aaf
 aaa
 aaa
@@ -104029,7 +103979,7 @@ aaa
 aaf
 bWm
 bXG
-bZg
+bWm
 aaa
 aaf
 aaf
@@ -104284,9 +104234,9 @@ bQJ
 bNP
 bNP
 bUP
-bWn
+bWm
 bXH
-bWn
+bWm
 cav
 cbN
 cdk
@@ -104541,9 +104491,9 @@ bQJ
 bSi
 bTC
 bNP
-bWn
+bWm
 bXI
-bWn
+bWm
 caw
 cbO
 cdk
@@ -112283,11 +112233,11 @@ cAD
 aaf
 aaa
 aaa
-cGJ
+cHp
 cHo
 cHo
 cHo
-cIJ
+cHp
 cHB
 cJu
 cJS
@@ -112540,11 +112490,11 @@ cAI
 cAI
 cAI
 cGe
-cGK
 cHp
 cHp
 cHp
-cGK
+cHp
+cHp
 cHB
 cJv
 cJT
@@ -112801,7 +112751,7 @@ cGL
 cHq
 cHI
 cIk
-cGK
+cHp
 cJb
 cJw
 cJw
@@ -113058,7 +113008,7 @@ cGM
 cHr
 cHJ
 cIl
-cGK
+cHp
 aaa
 cJx
 cJU
@@ -113311,11 +113261,11 @@ cDW
 cEJ
 cFr
 cAI
-cGK
+cHp
 cHs
 cHK
 cIm
-cGK
+cHp
 aaa
 cJx
 cJV
@@ -113568,11 +113518,11 @@ cDX
 aaf
 aaa
 cGh
-cGK
+cHp
 cHt
 cHL
 cIn
-cGK
+cHp
 aaa
 cJx
 cJU
@@ -113825,11 +113775,11 @@ cAI
 aaa
 aaa
 aaa
-cGN
-cHu
+cHp
+cHp
 cHM
-cHu
-cIK
+cHp
+cHp
 aaa
 cJx
 cJV
@@ -115002,7 +114952,7 @@ aaf
 aeW
 afr
 afP
-agB
+afr
 aeW
 ahD
 aim
@@ -115771,9 +115721,9 @@ aai
 aai
 aaa
 aeW
-aft
+afs
 afS
-agC
+afs
 aeW
 aaa
 aaa
@@ -132023,10 +131973,10 @@ aaa
 aaa
 aaf
 bwJ
-byo
+bwJ
 bzR
-byo
-bCW
+bwJ
+bwJ
 bzN
 bGm
 bBG
@@ -132279,11 +132229,11 @@ aHT
 aaa
 aaa
 aaf
-bwK
+bwJ
 byp
 bzS
 bys
-bwK
+bwJ
 bzO
 bGn
 bHC
@@ -132793,7 +132743,7 @@ aHT
 aHT
 aHT
 aaf
-bwK
+bwJ
 byr
 bys
 bys
@@ -133307,11 +133257,11 @@ aHT
 aHT
 aHT
 aaf
-bwK
+bwJ
 byt
 bzT
 bBJ
-bwK
+bwJ
 bED
 aaa
 aaa
@@ -133564,11 +133514,11 @@ aHT
 aHT
 aHT
 aaf
-bwM
-byo
+bwJ
+bwJ
 bwL
-byo
-bCY
+bwJ
+bwJ
 aaf
 aaa
 aaa

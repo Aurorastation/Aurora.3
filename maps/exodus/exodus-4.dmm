@@ -908,6 +908,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
 	icon_state = "intact";
+	
 	},
 /turf/simulated/wall,
 /area/constructionsite/atmospherics)
