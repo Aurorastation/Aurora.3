@@ -28,9 +28,7 @@
 
 	level = 1
 
-/obj/machinery/atmospherics/pipe/zpipe/New()
-	..()
-
+/obj/machinery/atmospherics/pipe/zpipe/Initialize()
 	icon = null
 
 	switch(dir)
@@ -50,6 +48,8 @@
 			initialize_directions = EAST
 		if(SOUTHWEST)
 			initialize_directions = SOUTH
+
+	. = ..()
 	
 
 /obj/machinery/atmospherics/pipe/zpipe/Entered(mob/living/M)
