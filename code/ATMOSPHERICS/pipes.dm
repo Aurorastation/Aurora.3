@@ -18,10 +18,10 @@
 /obj/machinery/atmospherics/pipe/drain_power()
 	return -1
 
-/obj/machinery/atmospherics/pipe/New()
+/obj/machinery/atmospherics/pipe/Initialize()
 	if(istype(get_turf(src), /turf/simulated/wall) || istype(get_turf(src), /turf/simulated/shuttle/wall) || istype(get_turf(src), /turf/unsimulated/wall))
 		level = 1
-	..()
+	. = ..()
 
 /obj/machinery/atmospherics/pipe/hides_under_flooring()
 	return level != 2
@@ -168,8 +168,7 @@
 	level = 1
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 
-/obj/machinery/atmospherics/pipe/simple/New()
-	..()
+/obj/machinery/atmospherics/pipe/simple/Initialize()
 
 	// Pipe colors and icon states are handled by an image cache - so color and icon should
 	//  be null. For mapping purposes color is defined in the object definitions.
@@ -189,11 +188,12 @@
 			initialize_directions = SOUTH|EAST
 		if(SOUTHWEST)
 			initialize_directions = SOUTH|WEST
+	. = ..()
 
 /obj/machinery/atmospherics/pipe/simple/hide(var/i)
 	if(istype(loc, /turf/simulated))
 		invisibility = i ? 101 : 0
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/simple/machinery_process()
 	if(!parent) //This should cut back on the overhead calling build_network thousands of times per cycle
@@ -305,7 +305,7 @@
 
 	var/turf/T = loc
 	if(level == 1 && !T.is_plating()) hide(1)
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/simple/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)
@@ -435,8 +435,7 @@
 
 	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
-/obj/machinery/atmospherics/pipe/manifold/New()
-	..()
+/obj/machinery/atmospherics/pipe/manifold/Initialize()
 	alpha = 255
 	icon = null
 
@@ -449,11 +448,12 @@
 			initialize_directions = SOUTH|WEST|NORTH
 		if(WEST)
 			initialize_directions = NORTH|EAST|SOUTH
+	. = ..()
 
 /obj/machinery/atmospherics/pipe/manifold/hide(var/i)
 	if(istype(loc, /turf/simulated))
 		invisibility = i ? 101 : 0
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/manifold/pipeline_expansion()
 	return list(node1, node2, node3)
@@ -548,7 +548,7 @@
 
 /obj/machinery/atmospherics/pipe/manifold/update_underlays()
 	..()
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/manifold/atmos_init()
 	var/connect_directions = (NORTH|SOUTH|EAST|WEST)&(~dir)
@@ -594,7 +594,7 @@
 
 	var/turf/T = get_turf(src)
 	if(level == 1 && !T.is_plating()) hide(1)
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/manifold/visible
 	icon_state = "map"
@@ -695,8 +695,8 @@
 	level = 1
 	layer = 2.4 //under wires with their 2.44
 
-/obj/machinery/atmospherics/pipe/manifold4w/New()
-	..()
+/obj/machinery/atmospherics/pipe/manifold4w/Initialize()
+	. = ..()
 	alpha = 255
 	icon = null
 
@@ -817,12 +817,12 @@
 
 /obj/machinery/atmospherics/pipe/manifold4w/update_underlays()
 	..()
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/manifold4w/hide(var/i)
 	if(istype(loc, /turf/simulated))
 		invisibility = i ? 101 : 0
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/manifold4w/atmos_init()
 
@@ -856,7 +856,7 @@
 
 	var/turf/T = get_turf(src)
 	if(level == 1 && !T.is_plating()) hide(1)
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/manifold4w/visible
 	icon_state = "map_4way"
@@ -954,14 +954,14 @@
 
 	var/obj/machinery/atmospherics/node
 
-/obj/machinery/atmospherics/pipe/cap/New()
-	..()
+/obj/machinery/atmospherics/pipe/cap/Initialize()
 	initialize_directions = dir
+	. = ..()
 
 /obj/machinery/atmospherics/pipe/cap/hide(var/i)
 	if(istype(loc, /turf/simulated))
 		invisibility = i ? 101 : 0
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/cap/pipeline_expansion()
 	return list(node)
@@ -1013,7 +1013,7 @@
 
 	var/turf/T = src.loc			// hide if turf is not intact
 	if(level == 1 && !T.is_plating()) hide(1)
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/cap/visible
 	level = 2
@@ -1076,10 +1076,10 @@
 	initialize_directions = SOUTH
 	density = 1
 
-/obj/machinery/atmospherics/pipe/tank/New()
+/obj/machinery/atmospherics/pipe/tank/Initialize()
 	icon_state = "air"
 	initialize_directions = dir
-	..()
+	. = ..()
 
 /obj/machinery/atmospherics/pipe/tank/machinery_process()
 	if(!parent)
@@ -1142,7 +1142,7 @@
 	name = "Pressure Tank (Air)"
 	icon_state = "air_map"
 
-/obj/machinery/atmospherics/pipe/tank/air/New()
+/obj/machinery/atmospherics/pipe/tank/air/Initialize()
 	air_temporary = new
 	air_temporary.volume = volume
 	air_temporary.temperature = T20C
@@ -1151,77 +1151,77 @@
 	                           "nitrogen",(start_pressure*N2STANDARD)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
 
-	..()
+	. = ..()
 	icon_state = "air"
 
 /obj/machinery/atmospherics/pipe/tank/oxygen
 	name = "Pressure Tank (Oxygen)"
 	icon_state = "o2_map"
 
-/obj/machinery/atmospherics/pipe/tank/oxygen/New()
+/obj/machinery/atmospherics/pipe/tank/oxygen/Initialize()
 	air_temporary = new
 	air_temporary.volume = volume
 	air_temporary.temperature = T20C
 
 	air_temporary.adjust_gas("oxygen", (start_pressure)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
-	..()
+	. = ..()
 	icon_state = "o2"
 
 /obj/machinery/atmospherics/pipe/tank/nitrogen
 	name = "Pressure Tank (Nitrogen)"
 	icon_state = "n2_map"
 
-/obj/machinery/atmospherics/pipe/tank/nitrogen/New()
+/obj/machinery/atmospherics/pipe/tank/nitrogen/Initialize()
 	air_temporary = new
 	air_temporary.volume = volume
 	air_temporary.temperature = T20C
 
 	air_temporary.adjust_gas("nitrogen", (start_pressure)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
-	..()
+	. = ..()
 	icon_state = "n2"
 
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide
 	name = "Pressure Tank (Carbon Dioxide)"
 	icon_state = "co2_map"
 
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide/New()
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide/Initialize()
 	air_temporary = new
 	air_temporary.volume = volume
 	air_temporary.temperature = T20C
 
 	air_temporary.adjust_gas("carbon_dioxide", (start_pressure)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
-	..()
+	. = ..()
 	icon_state = "co2"
 
 /obj/machinery/atmospherics/pipe/tank/phoron
 	name = "Pressure Tank (Phoron)"
 	icon_state = "phoron_map"
 
-/obj/machinery/atmospherics/pipe/tank/phoron/New()
+/obj/machinery/atmospherics/pipe/tank/phoron/Initialize()
 	air_temporary = new
 	air_temporary.volume = volume
 	air_temporary.temperature = T20C
 
 	air_temporary.adjust_gas("phoron", (start_pressure)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
-	..()
+	. = ..()
 	icon_state = "phoron"
 
 /obj/machinery/atmospherics/pipe/tank/nitrous_oxide
 	name = "Pressure Tank (Nitrous Oxide)"
 	icon_state = "n2o_map"
 
-/obj/machinery/atmospherics/pipe/tank/nitrous_oxide/New()
+/obj/machinery/atmospherics/pipe/tank/nitrous_oxide/Initialize()
 	air_temporary = new
 	air_temporary.volume = volume
 	air_temporary.temperature = T0C
 
 	air_temporary.adjust_gas("sleeping_agent", (start_pressure)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
-	..()
+	. = ..()
 	icon_state = "n2o"
 
 /obj/machinery/atmospherics/pipe/vent
@@ -1240,9 +1240,9 @@
 
 	var/build_killswitch = 1
 
-/obj/machinery/atmospherics/pipe/vent/New()
+/obj/machinery/atmospherics/pipe/vent/Initialize()
 	initialize_directions = dir
-	..()
+	. = ..()
 
 /obj/machinery/atmospherics/pipe/vent/high_volume
 	name = "Larger vent"
@@ -1288,7 +1288,7 @@
 				node1 = target
 				break
 
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/vent/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)
@@ -1340,7 +1340,7 @@
 
 /obj/machinery/atmospherics/pipe/simple/visible/universal/update_underlays()
 	..()
-	update_icon()
+	queue_icon_update()
 
 
 
@@ -1379,7 +1379,7 @@
 
 /obj/machinery/atmospherics/pipe/simple/hidden/universal/update_underlays()
 	..()
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/proc/universal_underlays(var/obj/machinery/atmospherics/node, var/direction)
 	var/turf/T = loc
