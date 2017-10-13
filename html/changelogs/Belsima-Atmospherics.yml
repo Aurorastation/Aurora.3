@@ -1,0 +1,4 @@
+author: Belsima
+delete-after: True
+changes: 
+  - imageadd: "Replaced atmospheric sprites with an entirely new set."

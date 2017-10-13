@@ -51,8 +51,8 @@
 
 /obj/machinery/portable_atmospherics/canister/phoron
 	name = "Canister \[Phoron\]"
-	icon_state = "orange"
-	canister_color = "orange"
+	icon_state = "purple"
+	canister_color = "purple"
 	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide
@@ -80,8 +80,8 @@
 	canister_color = "blue"
 /obj/machinery/portable_atmospherics/canister/empty/phoron
 	name = "Canister \[Phoron\]"
-	icon_state = "orange"
-	canister_color = "orange"
+	icon_state = "purple"
+	canister_color = "purple"
 /obj/machinery/portable_atmospherics/canister/empty/nitrogen
 	name = "Canister \[N2\]"
 	icon_state = "red"
@@ -370,9 +370,11 @@ update_flag
 				"\[N2O\]" = "redws",
 				"\[N2\]" = "red",
 				"\[O2\]" = "blue",
-				"\[Phoron\]" = "orange",
+				"\[Phoron\]" = "purple",
 				"\[CO2\]" = "black",
 				"\[Air\]" = "grey",
+				"\[HOT\]" = "hot",
+				"\[COLD\]" = "cold",
 				"\[CAUTION\]" = "yellow"
 			)
 			var/label = input("Choose canister label", "Gas canister") as null|anything in colors
