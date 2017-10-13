@@ -90,7 +90,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 		if (overwrite_default_z && first_dmm)
 			target_z = 1
 			first_dmm = FALSE
-			log_ss("atlas", "Overwriting Z[i].")
+			log_ss("atlas", "Overwriting Z[target_z].")
 
 		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
 			log_ss("atlas", "Failed to load '[mfile]'!")
