@@ -255,13 +255,12 @@
 	agonyforce = 1
 	stunforce = 1
 	origin_tech = list(TECH_COMBAT = 1)
+	contained_sprite = 1
 
 /obj/item/weapon/melee/baton/slime/Initialize()
 	. = ..()
 	bcell = new/obj/item/weapon/cell/high(src)
 	return
-
-/obj/item/weapon/melee/baton/slime/update_icon() // sprite
 
 /obj/item/weapon/melee/baton/slime/attack(mob/M, mob/user, var/hit_zone)
 	if(isrobot(M) || ishuman(M))
