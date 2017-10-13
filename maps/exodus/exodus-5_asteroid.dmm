@@ -427,12 +427,9 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/chemistry)
 "bb" = (
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/outpost/research/hallway)
 "bc" = (
@@ -1036,11 +1033,8 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24
-	},
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/outpost/research/kitchen)
 "cp" = (
@@ -1460,10 +1454,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/lab)
 "de" = (
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
@@ -1477,6 +1467,7 @@
 	icon_state = "corner_white_diagonal";
 	dir = 1
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/outpost/research/hallway)
 "df" = (
@@ -1560,10 +1551,6 @@
 /turf/template_noop,
 /area/shuttle/research/outpost)
 "ds" = (
-/obj/machinery/firealarm{
-	dir = 2;
-	pixel_y = 24
-	},
 /obj/machinery/requests_console{
 	department = "Science";
 	departmentType = 2;
@@ -1577,6 +1564,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "dt" = (
@@ -1673,16 +1661,13 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "dz" = (
-/obj/machinery/firealarm{
-	dir = 2;
-	pixel_y = 24
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "dA" = (
@@ -2269,9 +2254,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/lab)
 "eA" = (
-/obj/machinery/firealarm{
-	pixel_y = -24
-	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/lab)
 "eB" = (
@@ -2625,10 +2608,6 @@
 /turf/simulated/floor/wood,
 /area/outpost/research/hallway)
 "fq" = (
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
@@ -2641,6 +2620,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "fr" = (
@@ -3867,11 +3847,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/medical)
 "hP" = (
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24;
-	pixel_y = -32
-	},
 /obj/structure/cable/blue,
 /obj/machinery/power/apc{
 	dir = 4;
@@ -4252,9 +4227,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/firealarm{
-	pixel_y = -24
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -4266,6 +4238,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "ij" = (
@@ -4558,6 +4531,7 @@
 /area/outpost/research/medical)
 "iH" = (
 /obj/machinery/light/small,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/outpost/research/medical)
 "iI" = (
@@ -4721,14 +4695,10 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_analysis)
 "iX" = (
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -24
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_analysis)
 "iY" = (
@@ -5797,14 +5767,11 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
 /obj/machinery/camera/network/research_outpost{
 	c_tag = "Research Outpost Isolation Port";
 	dir = 4
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/outpost/research/isolation_monitoring)
 "lp" = (
@@ -8764,10 +8731,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/firealarm{
-	dir = 2;
-	pixel_y = 24
-	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/wood,
 /area/outpost/engineering/meeting)
 "qK" = (
@@ -9792,16 +9756,12 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/gloves/yellow,
-/obj/machinery/firealarm{
-	dir = 4;
-	layer = 3.3;
-	pixel_x = 26
-	},
 /obj/item/weapon/storage/briefcase/inflatable,
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Outpost Storage";
 	dir = 1
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/storage)
 "sD" = (
@@ -10302,13 +10262,10 @@
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "tx" = (
-/obj/machinery/firealarm{
-	dir = 2;
-	pixel_y = 24
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "ty" = (
@@ -10984,11 +10941,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -24
-	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "uq" = (
@@ -11616,11 +11569,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/obj/machinery/firealarm{
-	dir = 4;
-	layer = 3.3;
-	pixel_x = 26
-	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/atmospherics)
 "vu" = (
