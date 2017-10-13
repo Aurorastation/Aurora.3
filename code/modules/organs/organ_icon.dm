@@ -84,7 +84,7 @@
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
 
 	if (!cached_markings)
-		cached_markings = genetic_markings + temporary_markings
+		update_marking_cache()
 
 	for(var/M in cached_markings)
 		var/datum/sprite_accessory/marking/mark_style = cached_markings[M]["datum"]
@@ -152,7 +152,8 @@
 
 			//Body markings, does not include head, duplicated (sadly) above.
 			if (!cached_markings)
-				cached_markings = genetic_markings + temporary_markings
+				update_marking_cache()
+
 			for(var/M in cached_markings)
 				var/datum/sprite_accessory/marking/mark_style = cached_markings[M]["datum"]
 				var/m_color = cached_markings[M]["color"]
@@ -211,8 +212,15 @@
 		keyparts += "[hair_color]"
 
 	if (!cached_markings)
-		cached_markings = genetic_markings + temporary_markings
+		update_marking_cache()
+
 	for (var/marking in cached_markings)
 		keyparts += "[marking][cached_markings[marking]["color"]]"
 
 	. = keyparts.Join("_")
+
+/obj/item/organ/external/proc/update_marking_cache()
+	if (LAZYLEN(genetic_markings))
+		LAZYADD(cached_markings, genetic_markings)
+	if (LAZYLEN(temporary_markings))
+		LAZYADD(cached_markings, temporary_markings)
