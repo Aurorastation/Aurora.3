@@ -1,6 +1,0 @@
-author: MoondancerPony
-delete-after: True
-changes: 
-  - tweak: "Telescience now starts with 3 crystals again."
-  - balance: "Telescience can now go up to 5 crystals instead of just 4."
-  - bugfix: "The default Z-level for the telescience console is now the level it's actually on."
