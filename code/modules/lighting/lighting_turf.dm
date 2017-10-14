@@ -135,7 +135,7 @@
 
 #ifdef AO_USE_LIGHTING_OPACITY
 	if (old != has_opaque_atom)
-		queue_ao()
+		regenerate_ao()
 #endif
 
 // If an opaque movable atom moves around we need to potentially update visibility.
