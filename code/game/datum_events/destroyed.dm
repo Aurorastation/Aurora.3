@@ -1,8 +1,14 @@
 /datum
 	var/list/destroy_listeners
 
-/datum/proc/OnDestroy(datum/callback/callback)
+/**
+ * @param second_link should only ever be passed as TRUE from this proc. It's a
+ * recursion guard. The reverse registration is necessary to clean up hard refs.
+ */
+/datum/proc/OnDestroy(datum/callback/callback, second_link = FALSE)
 	LAZYSET(destroy_listeners, callback.object, callback)
+	if (!second_link && callback.object && callback.object != GLOBAL_PROC)
+		callback.object.OnDestroy(CALLBACK(src, .proc/UnregisterOnDestroy, callback.object), TRUE)
 
 /datum/proc/UnregisterOnDestroy(object)
 	if (!destroy_listeners)
