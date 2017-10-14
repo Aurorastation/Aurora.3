@@ -84,7 +84,8 @@
 	/mob/living/carbon/human/proc/shatter_light,
 	/mob/living/carbon/human/proc/create_darkness,
 	/mob/living/carbon/human/proc/darkness_eyes,
-	/mob/living/carbon/human/proc/shadow_step
+	/mob/living/carbon/human/proc/shadow_step,
+	/mob/living/carbon/human/proc/pry_open
 	)
 
 /datum/species/shadow/handle_death(var/mob/living/carbon/human/H)

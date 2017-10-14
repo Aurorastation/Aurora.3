@@ -240,7 +240,8 @@
 		/mob/living/carbon/human/proc/psychic_whisper,
 		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
-		/mob/living/carbon/human/proc/darkness_eyes
+		/mob/living/carbon/human/proc/darkness_eyes,
+		/mob/living/carbon/human/proc/pry_open
 		)
 
 /datum/species/xenos/sentinel
@@ -311,7 +312,8 @@
 		/mob/living/carbon/human/proc/neurotoxin,
 		/mob/living/carbon/human/proc/resin,
 		/mob/living/carbon/human/proc/xeno_infest,
-		/mob/living/carbon/human/proc/darkness_eyes
+		/mob/living/carbon/human/proc/darkness_eyes,
+		/mob/living/carbon/human/proc/pry_open
 		)
 
 /datum/species/xenos/queen/handle_login_special(var/mob/living/carbon/human/H)
