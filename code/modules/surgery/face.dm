@@ -200,8 +200,8 @@
 /datum/surgery_step/robotics/face/fix_face
 	allowed_tools = list(
 	/obj/item/weapon/retractor = 100, 	\
-	/obj/item/weapon/crowbar = 55,	\
-	/obj/item/weapon/material/kitchen/utensil/fork = 75)
+	/obj/item/weapon/wirecutters = 85,	\
+	/obj/item/weapon/material/kitchen/utensil/fork = 55)
 
 	min_duration = 80
 	max_duration = 100
