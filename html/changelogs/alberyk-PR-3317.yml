@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscadd: "Ported the baystation12 merchant jobs, with additions and proper modifications."

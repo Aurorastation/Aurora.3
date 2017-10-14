@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Changed the default occupation's preference to return to lobby if you do not get the job you want."

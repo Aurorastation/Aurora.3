@@ -1,9 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscdel: "Removed cult word research, cultists can use their runes without having to find out the meanings."
-  - rscadd: "Ghosts have more influence upon the material plane during cult rounds."
-  - tweak: "Manifested ghosts can't be used to summon Nar'sie anymore."
-  - tweak: "The null is more powerful against the forces of the paranormal now."
