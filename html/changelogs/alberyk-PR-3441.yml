@@ -1,8 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Replaced the combat module plasma cutter with a new melee weapon."
-  - bugfix: "Fixed traitor cyborgs not being emmaged whens selected as traitors."
-  - bugfix: "Fixed the syndicate borg's emag not working as it should."

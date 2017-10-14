@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added new cleric wizard spells."
-  - tweak: "Summon bear and summon bats should be a bit more powerful."

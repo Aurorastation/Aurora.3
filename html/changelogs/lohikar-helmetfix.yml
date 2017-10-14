@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Removed some extra pixels in some voidsuit helmets' item light overlay."

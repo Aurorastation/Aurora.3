@@ -1,6 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Stairs now actually work. Not that there is any."
-  - rscadd: "Walking off the side of (real) stairs will now cause you to faceplant on the ground."
-  - bugfix: "Multi-tile doors' icons should now work properly with open spaces."
