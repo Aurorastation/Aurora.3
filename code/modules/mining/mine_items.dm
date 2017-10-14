@@ -31,6 +31,7 @@
 /obj/item/device/flashlight/lantern
 	name = "lantern"
 	icon_state = "lantern"
+	item_state = "lantern"
 	desc = "A mining lantern."
 	light_power = 1
 	brightness_on = 6
@@ -546,7 +547,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(C, user)
 		return
-	if (istype(C, /obj/item/weapon/weldingtool))
+	if (iswelder(C))
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user << "<span class='notice'>Slicing apart connectors ...</span>"
@@ -1085,7 +1086,6 @@ var/list/total_extraction_beacons = list()
 
 /obj/item/weapon/oremagnet/attack_self(mob/user)
 	if (use_check(user))
-		to_chat(user, "<span class='warning'>You cannot do that right now.</span>")
 		return
 
 	toggle_on(user)
@@ -1168,7 +1168,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 
-	if (istype(C, /obj/item/weapon/wrench))
+	if (iswrench(C))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>"
 		anchored = !anchored

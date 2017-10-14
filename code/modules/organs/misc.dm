@@ -45,6 +45,8 @@
 //VOX ORGANS.
 /obj/item/organ/stack
 	name = "cortical stack"
+	icon_state = "brain-prosthetic"
+	organ_tag = "stack"
 	parent_organ = "head"
 	robotic = 2
 	vital = 1
@@ -57,14 +59,16 @@
 		if(owner.mind) backup = owner.mind
 
 /obj/item/organ/stack/vox
-
-/obj/item/organ/stack/vox/stack
-
-/obj/item/organ/stack
-	name = "cortical stack"
-	icon_state = "brain-prosthetic"
-	organ_tag = "stack"
-	robotic = 2
-
-/obj/item/organ/stack/vox
 	name = "vox cortical stack"
+	vital = 0
+
+/obj/item/organ/stack/vox/removed(var/mob/living/user)
+	if(owner && ishuman(owner))
+		if(!isvox(owner))
+			return
+		if(prob(80))
+			owner.death()
+		else
+			owner << "<span class='warning'> Your mind breaks apart when your cortical stack is removed! Your memories and personality are nothing but echoes lost in the numbness of your thoughts...</span>"
+			owner.set_species("Vox Pariah")
+	..()

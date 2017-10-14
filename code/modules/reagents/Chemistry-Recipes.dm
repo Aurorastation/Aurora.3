@@ -1090,7 +1090,16 @@
 	/mob/living/simple_animal/hostile/alien/sentinel,
 	/mob/living/simple_animal/hostile/alien/queen,
 	/mob/living/simple_animal/hostile/alien/queen/large,
-	/mob/living/simple_animal/hostile/true_changeling
+	/mob/living/simple_animal/hostile/true_changeling,
+	/mob/living/simple_animal/hostile/commanded,
+	/mob/living/simple_animal/hostile/commanded/dog,
+	/mob/living/simple_animal/hostile/commanded/dog/amaskan,
+	/mob/living/simple_animal/hostile/commanded/dog/columbo,
+	/mob/living/simple_animal/hostile/commanded/dog/pug,
+	/mob/living/simple_animal/hostile/commanded/bear,
+	/mob/living/simple_animal/hostile/greatworm,
+	/mob/living/simple_animal/hostile/lesserworm,
+	/mob/living/simple_animal/hostile/greatwormking
 	)//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
@@ -1568,8 +1577,6 @@
 	result = "icetea"
 	required_reagents = list("ice" = 1, "tea" = 2)
 	result_amount = 3
-
-
 
 /datum/chemical_reaction/icecoffee
 	name = "Iced Coffee"
@@ -2128,6 +2135,83 @@
 	result = "milkshake"
 	required_reagents = list("cream" = 1, "ice" = 2, "milk" = 2)
 	result_amount = 5
+
+/datum/chemical_reaction/cmojito
+	name = "Champagne Mojito"
+	id = "cmojito"
+	result = "cmojito"
+	required_reagents = list("mintsyrup" = 1, "champagne" = 1, "rum" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/classic
+	name = "The Classic"
+	id = "classic"
+	result = "classic"
+	required_reagents = list("champagne" = 2, "bitters" = 1, "lemonjuice" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/corkpopper
+	name = "Cork Popper"
+	id = "corkpopper"
+	result = "corkpopper"
+	required_reagents = list("whiskey" = 1, "champagne" = 1, "lemonjuice" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/french75
+	name = "French 75"
+	id = "french75"
+	result = "french75"
+	required_reagents = list("champagne" = 2, "gin" = 1, "lemonjuice" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/muscmule
+	name = "Muscovite Mule"
+	id = "muscmule"
+	result = "muscmule"
+	required_reagents = list("vodka" = 1, "limejuice" = 1, "mintsyrup" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/omimosa
+	name = "Orange Mimosa"
+	id = "omimosa"
+	result = "omimosa"
+	required_reagents = list("orangejuice" = 1, "champagne" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/pinkgin
+	name = "Pink Gin"
+	id = "pinkgin"
+	result = "pinkgin"
+	required_reagents = list("gin" = 2, "bitters" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/pinkgintonic
+	name = "Pink Gin and Tonic"
+	id = "pinkgintonic"
+	result = "pinkgintonic"
+	required_reagents = list("pinkgin" = 2, "tonic" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/piratepunch
+	name = "Pirate's Punch"
+	id = "piratepunch"
+	result = "piratepunch"
+	required_reagents = list("rum" = 1, "lemonjuice" = 1, "mintsyrup" = 1, "grenadine" = 1, "bitters" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/planterpunch
+	name = "Planter's Punch"
+	id = "planterpunch"
+	result = "planterpunch"
+	required_reagents = list("rum" = 2, "orangejuice" = 1, "grenadine" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/ssroyale
+	name = "Southside Royale"
+	id = "ssroyale"
+	result = "ssroyale"
+	required_reagents = list("mintsyrup" = 1, "gin" = 1, "limejuice" = 1, "champagne" = 1)
+	result_amount = 4
 
 /datum/chemical_reaction/rewriter
 	name = "Rewriter"

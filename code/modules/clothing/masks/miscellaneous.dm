@@ -16,10 +16,10 @@
 	item_state = null
 	w_class = 1
 
-/obj/item/clothing/mask/muzzle/New()
-    ..()
-    say_messages = list("Mmfph!", "Mmmf mrrfff!", "Mmmf mnnf!")
-    say_verbs = list("mumbles", "says")
+/obj/item/clothing/mask/muzzle/Initialize()
+	. = ..()
+	say_messages = list("Mmfph!", "Mmmf mrrfff!", "Mmmf mnnf!")
+	say_verbs = list("mumbles", "says")
 
 // Clumsy folks can't take the mask off themselves.
 /obj/item/clothing/mask/muzzle/attack_hand(mob/user as mob)
@@ -116,11 +116,11 @@
 	w_class = 2
 	siemens_coefficient = 0.9
 
-/obj/item/clothing/mask/horsehead/New()
-    ..()
-    // The horse mask doesn't cause voice changes by default, the wizard spell changes the flag as necessary
-    say_messages = list("NEEIIGGGHHHH!", "NEEEIIIIGHH!", "NEIIIGGHH!", "HAAWWWWW!", "HAAAWWW!")
-    say_verbs = list("whinnies", "neighs", "says")
+/obj/item/clothing/mask/horsehead/Initialize()
+	. = ..()
+	// The horse mask doesn't cause voice changes by default, the wizard spell changes the flag as necessary
+	say_messages = list("NEEIIGGGHHHH!", "NEEEIIIIGHH!", "NEIIIGGHH!", "HAAWWWWW!", "HAAAWWW!")
+	say_verbs = list("whinnies", "neighs", "says")
 
 /obj/item/clothing/mask/ai
 	name = "camera MIU"
@@ -131,7 +131,8 @@
 	body_parts_covered = 0
 	var/mob/eye/aiEye/eye
 
-/obj/item/clothing/mask/ai/New()
+/obj/item/clothing/mask/ai/Initialize()
+	. = ..()
 	eye = new(src)
 
 /obj/item/clothing/mask/ai/equipped(var/mob/user, var/slot)

@@ -68,7 +68,7 @@
 	stamina_recovery = 3
 
 	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | NO_SLIP | NO_MINOR_CUT
+	flags = NO_SCAN | NO_SLIP
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite,

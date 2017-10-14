@@ -61,6 +61,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser
 	equip_cooldown = 8
 	name = "\improper CH-PS \"Immolator\" laser"
+	desc = "A weapon for combat exosuits. Shoots basic lasers."
 	icon_state = "mecha_laser"
 	energy_drain = 30
 	projectile = /obj/item/projectile/beam
@@ -79,6 +80,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy
 	equip_cooldown = 15
 	name = "\improper CH-LC \"Solaris\" laser cannon"
+	desc = "A weapon for combat exosuits. Shoots heavy lasers."
 	icon_state = "mecha_laser"
 	energy_drain = 60
 	projectile = /obj/item/projectile/beam/heavylaser
@@ -87,6 +89,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/ion
 	equip_cooldown = 40
 	name = "mkIV ion heavy cannon"
+	desc = "A weapon for combat exosuits. Shoots ion bolts designated to disable mechanical threats."
 	icon_state = "mecha_ion"
 	energy_drain = 120
 	projectile = /obj/item/projectile/ion
@@ -96,6 +99,7 @@
 	equip_cooldown = 30
 	name = "eZ-13 mk2 heavy pulse rifle"
 	icon_state = "mecha_pulse"
+	desc = "A weapon for combat exosuits. Shoots powerful pulse-based beams, capable of destroying structures."
 	energy_drain = 120
 	origin_tech = list(TECH_MATERIAL = 3, TECH_COMBAT = 6, TECH_POWER = 4)
 	projectile = /obj/item/projectile/beam/pulse/heavy
@@ -106,106 +110,71 @@
 	icon_state = "pulse1_bl"
 	var/life = 20
 
-	Bump(atom/A)
-		A.bullet_act(src, def_zone)
-		src.life -= 10
-		if(life <= 0)
-			qdel(src)
-		return
+/obj/item/projectile/beam/pulse/heavy/Bump(atom/A)
+	A.bullet_act(src, def_zone)
+	src.life -= 10
+	if(life <= 0)
+		qdel(src)
+	return
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/taser
 	name = "\improper PBT \"Pacifier\" mounted taser"
+	desc = "A weapon for combat exosuits. Shoots non-lethal stunning beams."
 	icon_state = "mecha_taser"
 	energy_drain = 20
 	equip_cooldown = 8
 	projectile = /obj/item/projectile/beam/stun
 	fire_sound = 'sound/weapons/Taser.ogg'
 
-/* Commenting this out rather than removing it because it may be useful for reference.
-/obj/item/mecha_parts/mecha_equipment/weapon/honker
-	name = "\improper HoNkER BlAsT 5000"
-	icon_state = "mecha_honker"
-	energy_drain = 200
-	equip_cooldown = 150
-	range = MELEE|RANGED
-	construction_time = 500
-	construction_cost = list("metal"=20000,"bananium"=10000)
-
-	can_attach(obj/mecha/combat/honker/M as obj)
-		if(!istype(M))
-			return 0
-		return ..()
-
-	action(target)
-		if(!chassis)
-			return 0
-		if(energy_drain && chassis.get_charge() < energy_drain)
-			return 0
-		if(!equip_ready)
-			return 0
-
-		playsound(chassis, 'sound/items/AirHorn.ogg', 100, 1)
-		chassis.occupant_message("<font color='red' size='5'>HONK</font>")
-		for(var/mob/living/carbon/M in ohearers(6, chassis))
-			if(istype(M, /mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
-				if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
-					continue
-			M << "<font color='red' size='7'>HONK</font>"
-			M.sleeping = 0
-			M.stuttering += 20
-			M.ear_deaf += 30
-			M.Weaken(3)
-			if(prob(30))
-				M.Stun(10)
-				M.Paralyse(4)
-			else
-				M.make_jittery(500)
-		chassis.use_power(energy_drain)
-		log_message("Honked from [src.name]. HONK!")
-		do_after_cooldown()
-		return
-*/
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma
+	name = "mkII heavy plasma cutter"
+	desc = "A large mining tool capable of expelling concentrated plasma bursts, useful for crushing rocks."
+	icon_state = "mecha_plasmacutter"
+	energy_drain = 60
+	equip_cooldown = 25
+	projectile = /obj/item/projectile/beam/plasmacutter
+	fire_sound = 'sound/weapons/plasma_cutter.ogg'
+	required_type = list(/obj/mecha/combat, /obj/mecha/working)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic
 	name = "general ballisic weapon"
 	var/projectile_energy_cost
 
-	get_equip_info()
-		return "[..()]\[[src.projectiles]\][(src.projectiles < initial(src.projectiles))?" - <a href='?src=\ref[src];rearm=1'>Rearm</a>":null]"
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/get_equip_info()
+	return "[..()]\[[src.projectiles]\][(src.projectiles < initial(src.projectiles))?" - <a href='?src=\ref[src];rearm=1'>Rearm</a>":null]"
 
-	proc/rearm()
-		if(projectiles < initial(projectiles))
-			var/projectiles_to_add = initial(projectiles) - projectiles
-			while(chassis.get_charge() >= projectile_energy_cost && projectiles_to_add)
-				projectiles++
-				projectiles_to_add--
-				chassis.use_power(projectile_energy_cost)
-		send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",src.get_equip_info())
-		log_message("Rearmed [src.name].")
-		return
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/proc/rearm()
+	if(projectiles < initial(projectiles))
+		var/projectiles_to_add = initial(projectiles) - projectiles
+		while(chassis.get_charge() >= projectile_energy_cost && projectiles_to_add)
+			projectiles++
+			projectiles_to_add--
+			chassis.use_power(projectile_energy_cost)
+	send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",src.get_equip_info())
+	log_message("Rearmed [src.name].")
+	return
 
-	Topic(href, href_list)
-		..()
-		if (href_list["rearm"])
-			src.rearm()
-		return
-
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/Topic(href, href_list)
+	..()
+	if (href_list["rearm"])
+		src.rearm()
+	return
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
 	name = "\improper LBX AC 10 \"Scattershot\""
+	desc = "A weapon for combat exosuits. Shoots a spread of pellets."
 	icon_state = "mecha_scatter"
 	equip_cooldown = 20
-	projectile = /obj/item/projectile/bullet/pistol/medium
+	projectile = /obj/item/projectile/bullet/pellet
 	fire_sound = 'sound/weapons/Gunshot.ogg'
 	fire_volume = 80
 	projectiles = 40
-	projectiles_per_shot = 4
 	deviation = 0.7
 	projectile_energy_cost = 25
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg
 	name = "\improper Ultra AC 2"
+	desc = "A weapon for combat exosuits. Shoots a rapid, three shot burst."
 	icon_state = "mecha_uac2"
 	equip_cooldown = 10
 	projectile = /obj/item/projectile/bullet/pistol/medium
@@ -216,6 +185,17 @@
 	projectile_energy_cost = 20
 	fire_cooldown = 2
 
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/incendiary
+	name = "\improper HP-13 incendiary carbine"
+	desc = "A weapon for combat exosuits. Shoots incendiary shells."
+	icon_state = "mecha_carbine"
+	equip_cooldown = 10
+	projectile = /obj/item/projectile/bullet/shotgun/incendiary
+	fire_sound = 'sound/weapons/Gunshot.ogg'
+	projectiles = 50
+	projectile_energy_cost = 40
+	deviation = 0.7
+
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack
 	var/missile_speed = 2
 	var/missile_range = 30
@@ -225,6 +205,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/explosive
 	name = "\improper SRM-8 missile rack"
+	desc = "A weapon for combat exosuits. Shoots explosive missiles."
 	icon_state = "mecha_missilerack"
 	projectile = /obj/item/missile
 	fire_sound = 'sound/effects/bang.ogg'
@@ -243,16 +224,17 @@
 	var/primed = null
 	throwforce = 15
 
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 0, 1, 2, 4)
-			qdel(src)
-		else
-			..()
-		return
+/obj/item/missile/throw_impact(atom/hit_atom)
+	if(primed)
+		explosion(hit_atom, 0, 1, 2, 4)
+		qdel(src)
+	else
+		..()
+	return
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang
 	name = "\improper SGL-6 grenade launcher"
+	desc = "A weapon for combat exosuits. Launches primed flashbangs."
 	icon_state = "mecha_grenadelnchr"
 	projectile = /obj/item/weapon/grenade/flashbang
 	fire_sound = 'sound/effects/bang.ogg'
@@ -270,6 +252,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang//Because I am a heartless bastard -Sieve
 	name = "\improper SOP-6 grenade launcher"
+	desc = "A weapon for combat exosuits. Launches primed clusterbangs."
 	projectile = /obj/item/weapon/grenade/flashbang/clusterbang
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang/limited/get_equip_info()//Limited version of the clusterbang launcher that can't reload

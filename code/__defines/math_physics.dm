@@ -1,5 +1,5 @@
 // Math constants.
-#define M_PI    3.14159265
+#define M_PI 3.14159
 
 #define R_IDEAL_GAS_EQUATION       8.31    // kPa*L/(K*mol).
 #define ONE_ATMOSPHERE             101.325 // kPa.
@@ -24,9 +24,6 @@
 
 #define INFINITY	1.#INF
 
-#define TICKS_IN_DAY 		24*60*60*10
-#define TICKS_IN_SECOND 	10
-
 // A neat little helper to convert the value X, that's between imin and imax, into a value
 // that's proportionally scaled and in range of omin and omax.
 #define MAP(x, imin, imax, omin, omax) ((x - imin) * (omax - omin) / (imax - imin) + omin)
@@ -43,3 +40,6 @@
 //for when you need a reliable time number that doesn't depend on byond time.
 #define REALTIMEOFDAY (world.timeofday + (MIDNIGHT_ROLLOVER * MIDNIGHT_ROLLOVER_CHECK))
 #define MIDNIGHT_ROLLOVER_CHECK ( rollovercheck_last_timeofday != world.timeofday ? update_midnight_rollover() : midnight_rollovers )
+
+#define round_duration_in_ticks (round_start_time ? world.time - round_start_time : 0)
+#define station_time_in_ticks (roundstart_hour HOURS + round_duration_in_ticks)

@@ -160,6 +160,14 @@
 	idle_power_usage = 15
 	active_power_usage = 50
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/refiner,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/micro_laser = 2,
+			/obj/item/weapon/stock_parts/matter_bin
+		)
+
 /obj/machinery/mineral/processing_unit/Initialize()
 	. = ..()
 
@@ -298,3 +306,25 @@
 			continue
 
 	console.updateUsrDialog()
+
+/obj/machinery/mineral/processing_unit/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(default_deconstruction_screwdriver(user, W))
+		return
+	else if(default_part_replacement(user, W))
+		return
+	
+/obj/machinery/mineral/processing_unit/RefreshParts()
+	..()
+	var/scan_rating = 0
+	var/cap_rating = 0
+	var/laser_rating = 0
+
+	for(var/obj/item/weapon/stock_parts/P in component_parts)
+		if(isscanner(P))
+			scan_rating += P.rating
+		else if(iscapacitor(P))
+			cap_rating += P.rating
+		else if(ismicrolaser(P))
+			laser_rating += P.rating
+
+	sheets_per_tick += scan_rating + cap_rating + laser_rating

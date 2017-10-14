@@ -194,3 +194,18 @@
 
 //helper for inverting armor blocked values into a multiplier
 #define BLOCKED_MULT(blocked) max(1 - (blocked/100), 0)
+
+// Prosthetic organ defines.
+#define PROSTHETIC_IPC "Hephaestus Integrated Limb"
+#define PROSTHETIC_HK "Hephaestus Vulcanite Limb"
+#define PROSTHETIC_IND "Hephaestus Industrial Limb"
+#define PROSTHETIC_SYNTHSKIN "Human Synthskin"
+#define PROSTHETIC_BC "Bishop Cybernetics"
+#define PROSTHETIC_ZH "Zeng-Hu Pharmaceuticals"
+#define PROSTHETIC_HI "Hephaestus Industries"
+#define PROSTHETIC_XMG "Xion Manufacturing Group"
+
+// Defines for mechanical_species list.
+#define MECHANICAL_SPECIES_NORMAL 1	// Baselines, shells
+#define MECHANICAL_SPECIES_INDUSTRIAL 2	// Industrials, incl. branded.
+#define MECHANICAL_SPECIES_SPECIAL 3	// HKs

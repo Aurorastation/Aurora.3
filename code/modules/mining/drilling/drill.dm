@@ -40,19 +40,17 @@
 
 	var/datum/effect_system/sparks/spark_system
 
+	component_types = list(
+		/obj/item/weapon/circuitboard/miningdrill,
+		/obj/item/weapon/stock_parts/matter_bin,
+		/obj/item/weapon/stock_parts/capacitor,
+		/obj/item/weapon/stock_parts/micro_laser,
+		/obj/item/weapon/cell/high
+	)
+
 /obj/machinery/mining/drill/Initialize()
 	. = ..()
-
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/miningdrill(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor(src)
-	component_parts += new /obj/item/weapon/stock_parts/micro_laser(src)
-	component_parts += new /obj/item/weapon/cell/high(src)
-
 	spark_system = bind_spark(src, 3)
-
-	RefreshParts()
 
 /obj/machinery/mining/drill/Destroy()
 	QDEL_NULL(spark_system)
@@ -158,7 +156,7 @@
 				return
 	if(active) return ..()
 
-	if(istype(O, /obj/item/weapon/crowbar))
+	if(iscrowbar(O))
 		if (panel_open && cell)
 			user << "You wrench out \the [cell]."
 			cell.forceMove(get_turf(user))
@@ -255,11 +253,11 @@
 	charge_use = 50
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
-		if(istype(P, /obj/item/weapon/stock_parts/micro_laser))
+		if(ismicrolaser(P))
 			harvest_speed = P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/matter_bin))
+		else if(ismatterbin(P))
 			capacity = 200 * P.rating
-		if(istype(P, /obj/item/weapon/stock_parts/capacitor))
+		else if(iscapacitor(P))
 			charge_use -= 10 * P.rating
 	cell = locate(/obj/item/weapon/cell) in component_parts
 
@@ -339,11 +337,9 @@
 	icon_state = "mining_brace"
 	var/obj/machinery/mining/drill/connected
 
-/obj/machinery/mining/brace/Initialize()
-	. = ..()
-
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/miningdrillbrace(src)
+	component_types = list(
+		/obj/item/weapon/circuitboard/miningdrillbrace
+	)
 
 /obj/machinery/mining/brace/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(connected && connected.active)
@@ -375,7 +371,7 @@
 	if(default_deconstruction_crowbar(user, W))
 		return
 
-	if(istype(W,/obj/item/weapon/wrench))
+	if(iswrench(W))
 
 		if(istype(get_turf(src), /turf/space))
 			user << "<span class='notice'>You send the [src] careening into space. Idiot.</span>"

@@ -107,6 +107,7 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/wine,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/vodka,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/gin,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/champagne,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/rum,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tequila,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/vermouth,

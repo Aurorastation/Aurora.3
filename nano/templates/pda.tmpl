@@ -806,18 +806,18 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                     {{if data.records.supply.approved_count == 0}}
                         <span class="average"> No current approved orders </span><br><br>
                     {{else}}
-                        {{for data.records.supply.approved}}
-                            <span class="average">#{{:value.Number}} - {{:value.Name}} approved by {{:value.OrderedBy}}<br>{{if value.Comment != ""}} {{:value.Comment}} <br>{{/if}}<br></span>
-                        {{/for}}
+                        {{props data.records.supply.approved}}
+                            <span class="average">#{{:value.order_id}} - {{:value.customer}} - {{:value.price_cargo}} Credits </span>
+                        {{/props}}
                     {{/if}}
                     <br><br>
                     <span class="good"><B>Current Requested Orders</B></span><br>
                     {{if data.records.supply.requests_count == 0}}
                             <span class="average">No current requested orders</span><br><br>
                     {{else}}
-                        {{for data.records.supply.requests}}
-                            <span class="average">#{{:value.Number}} - {{:value.Name}} requested by {{:value.OrderedBy}}<br>{{if value.Comment != ""}} {{:value.Comment}} <br>{{/if}}<br></span>
-                        {{/for}}
+                        {{props data.records.supply.requests}}
+                            <span class="average">#{{:value.order_id}} - {{:value.customer}} - {{:value.price_cargo}} Credits </span>
+                        {{/props}}
                     {{/if}}
 				</div>
 			</div>

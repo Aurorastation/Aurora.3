@@ -258,7 +258,7 @@
 			W.loc = src
 			src.cell = W
 			user << "<span class='notice'>You insert the cell!</span>"
-	if(istype(W, /obj/item/stack/cable_coil))
+	if(iscoil(W))
 		if(src.wires)
 			user << "<span class='warning'>You have already inserted wire!</span>"
 			return

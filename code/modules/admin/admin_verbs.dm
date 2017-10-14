@@ -145,7 +145,7 @@ var/list/admin_verbs_spawn = list(
 	/client/proc/spawn_chemdisp_cartridge
 	)
 var/list/admin_verbs_server = list(
-	/datum/admins/proc/capture_map,
+	/datum/admins/proc/capture_map_part,
 	/client/proc/Set_Holiday,
 	/datum/admins/proc/startnow,
 	/datum/admins/proc/restart,
@@ -213,7 +213,9 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_ss_panic,
-	/client/proc/reset_openturf
+	/client/proc/reset_openturf,
+	/datum/admins/proc/capture_map,
+	/client/proc/global_ao_regenerate
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -825,7 +827,7 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))	return
-	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red","delta")-get_security_level())
+	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red", "yellow", "delta")-get_security_level())
 	if(alert("Switch from code [get_security_level()] to code [sec_level]?","Change security level?","Yes","No") == "Yes")
 		set_security_level(sec_level)
 		log_admin("[key_name(usr)] changed the security level to code [sec_level].",admin_key=key_name(usr))
@@ -1106,6 +1108,7 @@ var/list/admin_verbs_cciaa = list(
 
 	SSopenturf.hard_reset()
 
+#ifdef ENABLE_SUNLIGHT
 /client/proc/apply_sunstate()
 	set category = "Fun"
 	set name = "Apply Sun Preset"
@@ -1120,3 +1123,9 @@ var/list/admin_verbs_cciaa = list(
 
 	SSsunlight.apply_sun_state(S)
 	log_and_message_admins("has set the sun state to '[S]'.")
+#else 
+/client/proc/apply_sunstate()
+	set hidden = TRUE
+
+	usr << "The sunlight system is disabled."
+#endif

@@ -95,7 +95,8 @@
 	if(surplus() < 1500)
 		if(user) user << "<span class='notice'>The connected wire doesn't have enough current.</span>"
 		return
-	for(var/obj/singularity/singulo in world)
+	for(var/A in SScalamity.singularities)
+		var/obj/singularity/singulo = A
 		if(singulo.z == z)
 			singulo.target = src
 	icon_state = "[icontype]1"
@@ -106,7 +107,8 @@
 
 
 /obj/machinery/power/singularity_beacon/proc/Deactivate(mob/user = null)
-	for(var/obj/singularity/singulo in world)
+	for(var/A in SScalamity.singularities)
+		var/obj/singularity/singulo = A
 		if(singulo.target == src)
 			singulo.target = null
 	icon_state = "[icontype]0"
@@ -128,7 +130,7 @@
 
 
 /obj/machinery/power/singularity_beacon/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		if(active)
 			user << "<span class='danger'>You need to deactivate the beacon first!</span>"
 			return
