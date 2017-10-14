@@ -154,6 +154,9 @@
 	if(!user || !target) return
 
 	add_fingerprint(user)
+	if(user.a_intent != I_HURT)
+		user << "You refrain from shooting, as you aren't on harm intent."
+		return
 
 	if(!special_check(user))
 		return

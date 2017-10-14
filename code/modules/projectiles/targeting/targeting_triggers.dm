@@ -9,7 +9,7 @@
 				AO.update_aiming_deferred()
 
 /obj/aiming_overlay/proc/trigger(var/perm)
-	if(!owner || !aiming_with || !aiming_at || !locked)
+	if(!owner || !aiming_with || !aiming_at || !locked || user.a_intent != I_HURT)
 		return
 	if(perm && (target_permissions & perm))
 		return
@@ -25,7 +25,7 @@
 	toggle_active()
 	if (owner.client)
 		owner.client.remove_gun_icons()
-	
+
 /mob/living/ClickOn(var/atom/A, var/params)
 	. = ..()
 	trigger_aiming(TARGET_CAN_CLICK)
