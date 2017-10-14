@@ -9,15 +9,11 @@ There is also a non-destrutive option, but... It's not as fun.
 #define SCAN_DESTROY 1
 #define SCAN_CONVERT_ORIGIN 2
 #define SCAN_NODESTROY 3
-#define SCAN_ANALYZEONLY 4
-#define SCAN_DNA_SAMPLE 5
-#define SCAN_ALIVE 6
-#define SCAN_CLONE 7
+#define SCAN_DNA_SAMPLE 4
+#define SCAN_CLONE 5
 //Sample Things
-#define SAMPLE_CLONE 8
-#define SAMPLE_DEEPANALYZE 9
-#define SAMPLE_TO_DISK 10
-
+#define SAMPLE_CLONE 6
+#define SAMPLE_DEEPANALYZE 7
 
 /obj/machinery/red
 	name = "reverse engineering device"
@@ -286,10 +282,6 @@ There is also a non-destrutive option, but... It's not as fun.
 		human = 1
 	print_lore()
 	switch(mainpart.scan_type)
-		if(SCAN_ALIVE)
-			spitmob()
-		if(SCAN_ANALYZEONLY)
-			spitmob()
 		if(SCAN_CLONE)
 			var/mob/B
 			B = new T
@@ -297,7 +289,11 @@ There is also a non-destrutive option, but... It's not as fun.
 		if(SCAN_CONVERT_ORIGIN)
 			if(human)
 				T.monkeyize() // this will make them into their origin species.
+			else
+				spitmob()
+				ping("\The [src] pings loudly, 'Subject is at its simplest form.'")
 		if(SCAN_DESTROY)
+			produce_sample(T, SCAN_DESTROY)
 			if(human)
 				if(T.stat == DEAD)
 					T.gib()
@@ -305,14 +301,13 @@ There is also a non-destrutive option, but... It's not as fun.
 					T << "<span class ='danger'>You feel a horrible pain as the machine rips you apart!</span>"
 			else
 				qdel(T)
-
 		if(SCAN_NODESTROY)
+			produce_sample(T, SCAN_NODESTROY)
 			spitmob()
 		if(SAMPLE_CLONE)
 			return
 		if(SAMPLE_DEEPANALYZE)
-			return
-		if(SAMPLE_TO_DISK)
+			produce_sample(T, SCAN_DEEPANALYZE)
 			return
 	mainpart.scan_type = SCAN_IDLE
 	return
@@ -325,6 +320,11 @@ There is also a non-destrutive option, but... It's not as fun.
 	mobinside.loc = src.loc
 	mobinside = null
 	status = 0
+
+/obj/machinery/red/proc/produce_sample(var/mob/T, var/details)
+	var/obj/item/red_sample/T = new /obj/item/red_sample
+	T.mobDNA = T
+	T.set_origin()
 
 /obj/machinery/red/main
 	icon_state = "red_3_0"

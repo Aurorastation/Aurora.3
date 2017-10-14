@@ -2092,6 +2092,7 @@
 #include "code\modules\research\xenoarchaeology\tools\tools_pickaxe.dm"
 #include "code\modules\research\xenobiology\slime_extracts.dm"
 #include "code\modules\research\xenobiology\RED.dm"
+#include "code\modules\research\xenobiology\RED_fab.dm"
 #include "code\modules\research\xenobiology\RED_samples.dm"
 #include "code\modules\research\xenobiology\lore_papers.dm"
 #include "code\modules\scripting\Errors.dm"
