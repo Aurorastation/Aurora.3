@@ -1261,7 +1261,6 @@
 #include "code\modules\effects\sparks\spawner.dm"
 #include "code\modules\effects\sparks\visuals.dm"
 #include "code\modules\events\apc_damage.dm"
-#include "code\modules\events\bear_attack.dm"
 #include "code\modules\events\blob.dm"
 #include "code\modules\events\brand_intelligence.dm"
 #include "code\modules\events\camera_damage.dm"
