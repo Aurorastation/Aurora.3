@@ -17,7 +17,7 @@
 	#endif
 
 /atom/movable/lighting_overlay/New()
-	SSlighting.lighting_overlays += src
+	SSlighting.total_lighting_overlays++
 
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
 	T.lighting_overlay = src
@@ -31,8 +31,7 @@
 		return QDEL_HINT_LETMELIVE	// STOP DELETING ME
 
 	//L_PROF(loc, "overlay_destroy")
-	SSlighting.lighting_overlays -= src
-	SSlighting.overlay_queue     -= src
+	SSlighting.total_lighting_overlays--
 
 	var/turf/T   = loc
 	if (istype(T))
