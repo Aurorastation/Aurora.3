@@ -114,9 +114,11 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		activate_holocall(caller_id)
 
 /obj/machinery/hologram/holopad/proc/end_call(mob/user)
-	caller_id.reset_view() //Send the caller back to his body
-	clear_holo(caller_id) // destroy the hologram
-	caller_id = null //Reset caller_id
+	user.reset_view() //Send the caller back to his body
+	clear_holo(user) // destroy the hologram
+	if(caller_id)
+		caller_id = null //Reset caller_id
+		clear_holo(caller_id)
 	sourcepad.targetpad = null
 	sourcepad = null //Reset source
 
@@ -269,7 +271,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		use_power(power_per_hologram)
 	if(last_request + 200 < world.time&&incoming_connection==1)
 		incoming_connection = 0
-		end_call()
+		end_call(caller_id)
 		if(sourcepad)
 			sourcepad.audible_message("<i><span class='game say'>The holopad connection timed out</span></i>")
 			sourcepad = 0
@@ -277,7 +279,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(caller_id.loc!=sourcepad.loc)
 			sourcepad.visible_message("Severing connection to distant holopad.")
 			visible_message("The connection has been terminated by [caller_id].")
-			end_call()
+			end_call(caller_id)
 	return 1
 
 /obj/machinery/hologram/holopad/proc/move_hologram(mob/living/silicon/ai/user)
