@@ -954,6 +954,8 @@
 			if(prob(80))	T.break_tile_to_plating()
 			else			T.break_tile()
 
+		playsound(T, 'sound/effects/yamato_fire.ogg', 75, 1)
+
 		if(M.health == 1)
 			M.gib()
 		else

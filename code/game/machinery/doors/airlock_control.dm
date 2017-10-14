@@ -4,7 +4,7 @@
 /obj/machinery/door/airlock
 	var/id_tag
 	var/frequency
-	var/tmp/shockedby = list()
+	var/tmp/shockedby
 	var/tmp/datum/radio_frequency/radio_connection
 	var/tmp/cur_command = null	//the command the door is currently attempting to complete
 	var/tmp/waiting_for_roundstart

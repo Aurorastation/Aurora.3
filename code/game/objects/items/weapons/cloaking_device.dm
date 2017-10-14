@@ -72,7 +72,7 @@
 		playsound(get_turf(src), 'sound/weapons/empty.ogg', 25, 1)
 		return
 
-	processing_objects.Add(src)
+	START_PROCESSING(SSprocessing, src)
 	active = 1
 	src.icon_state = "shield1"
 	stop_modifier()
@@ -91,7 +91,7 @@
 
 	playsound(src, 'sound/effects/phasein.ogg', 50, 1)
 	stop_modifier()
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/weapon/cloaking_device/emp_act(severity)
 	deactivate()

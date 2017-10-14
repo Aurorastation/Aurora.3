@@ -85,7 +85,7 @@
 			if(prob(1))
 				L << "<span class='cult'><b>Reality feels less stable...</b></span>"
 				src.visible_message("<span class='warning'>\The [src] screeches loudly!</span>")
-				playsound(src, 'sound/magic/Summon_Karp.ogg', 40, 1)
+				playsound(src, 'sound/magic/dimensional_rend.ogg', 100, 1)
 				new /obj/effect/gateway/active/rift(src.loc)
 
 

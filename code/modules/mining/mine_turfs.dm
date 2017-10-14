@@ -40,7 +40,7 @@
 	has_resources = 1
 
 // Copypaste parent call for performance.
-/turf/simulated/mineral/Initialize()
+/turf/simulated/mineral/Initialize(mapload)
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 
@@ -54,6 +54,8 @@
 		luminosity = 1
 
 	has_opaque_atom = TRUE
+	if (!mapload)
+		regenerate_ao()
 
 	if (smooth)
 		pixel_x = -4
@@ -519,7 +521,7 @@
 	roof_type = null
 
 // Copypaste parent for performance.
-/turf/simulated/floor/asteroid/Initialize()
+/turf/simulated/floor/asteroid/Initialize(mapload)
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
@@ -533,6 +535,9 @@
 
 	if(prob(20))
 		overlay_detail = rand(0,9)
+
+	if (mapload && permit_ao)
+		queue_ao()
 
 	if (smooth)
 		pixel_x = -4
@@ -783,3 +788,8 @@
 				attackby(R.module_state_3,R)
 			else
 				return
+
+
+/turf/simulated/mineral/Destroy()
+	clear_ore_effects()
+	. = ..()

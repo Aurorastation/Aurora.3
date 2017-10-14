@@ -10,6 +10,12 @@
 	max_shots = 20
 	fire_delay = 6
 	accuracy = -2
+	can_turret = 1
+	secondary_projectile_type = /obj/item/projectile/beam
+	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	can_switch_modes = 1
+	turret_sprite_set = "carbine"
+	turret_is_lethal = 0
 
 	fire_delay_wielded = 1
 	accuracy_wielded = 0
@@ -48,8 +54,14 @@
 	icon_state = "laser"
 	item_state = "laser"
 	fire_sound = 'sound/weapons/Laser.ogg'
+	max_shots = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/beam
+	secondary_projectile_type = null
+	secondary_fire_sound = null
+	can_switch_modes = 0
+	turret_sprite_set = "laser"
+	turret_is_lethal = 1
 
 	firemodes = list()
 	modifystate = null
@@ -67,6 +79,11 @@
 	max_shots = 5
 	fire_delay = 40
 	accuracy = -2
+	secondary_projectile_type = null
+	secondary_fire_sound = null
+	can_switch_modes = 0
+	turret_sprite_set = "cannon"
+	turret_is_lethal = 1
 
 	fire_delay_wielded = 20
 
@@ -79,6 +96,11 @@
 	projectile_type = /obj/item/projectile/beam/xray
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 40
+	secondary_projectile_type = null
+	secondary_fire_sound = null
+	can_switch_modes = 0
+	turret_sprite_set = "xray"
+	turret_is_lethal = 1
 	
 /obj/item/weapon/gun/energy/rifle/pulse
 	name = "pulse rifle"
@@ -89,6 +111,11 @@
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
 	origin_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 6, TECH_MAGNET = 4)
+	secondary_projectile_type = /obj/item/projectile/beam/pulse
+	secondary_fire_sound = 'sound/weapons/pulse.ogg'
+	can_switch_modes = 0
+	turret_sprite_set = "pulse"
+	turret_is_lethal = 1
 	
 	modifystate = null
 
@@ -106,6 +133,8 @@
 	burst_delay = 5
 	burst = 3
 	max_shots = 30
+	secondary_projectile_type = null
+	secondary_fire_sound = null
 
 /obj/item/weapon/gun/energy/rifle/pulse/destroyer/attack_self(mob/living/user as mob)
 	user << "<span class='warning'>[src.name] has three settings, and they are all DESTROY.</span>"

@@ -664,7 +664,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	. = 1
 
 	while (world.time < endtime)
-		stoplag()
+		stoplag(1)
 		if (progbar)
 			progbar.update(world.time - starttime)
 
@@ -704,7 +704,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	. = 1
 
 	while (world.time < endtime)
-		stoplag()
+		stoplag(1)
 		if (progbar)
 			progbar.update(world.time - starttime)
 
@@ -1088,19 +1088,22 @@ var/list/wall_items = typecacheof(list(
 
 //Increases delay as the server gets more overloaded,
 //as sleeps aren't cheap and sleeping only to wake up and sleep again is wasteful
-#define DELTA_CALC max(((max(world.tick_usage, world.cpu) / 100) * max(Master.sleep_delta,1)), 1)
+#define DELTA_CALC max(((max(world.tick_usage, world.cpu) / 100) * max(Master.sleep_delta-1,1)), 1)
 
-/proc/stoplag()
+/proc/stoplag(initial_delay)
 	// If we're initializing, our tick limit might be over 100 (testing config), but stoplag() penalizes procs that go over.
 	// 	Unfortunately, this penalty slows down init a *lot*. So, we disable it during boot and lobby, when relatively few things should be calling this.
 	if (!Master || Master.initializing || !Master.round_started)	
 		sleep(world.tick_lag)
 		return 1
 
+	if (!initial_delay)
+		initial_delay = world.tick_lag
+
 	. = 0
-	var/i = 1
+	var/i = DS2TICKS(initial_delay)
 	do
-		. += round(i*DELTA_CALC)
+		. += Ceiling(i*DELTA_CALC)
 		sleep(i*world.tick_lag*DELTA_CALC)
 		i *= 2
 	while (world.tick_usage > min(TICK_LIMIT_TO_RUN, CURRENT_TICKLIMIT))
@@ -1122,27 +1125,40 @@ var/list/wall_items = typecacheof(list(
 // Checks if user can use this object. Set use_flags to customize what checks are done.
 // Returns 0 if they can use it, a value representing why they can't if not.
 // Flags are in `code/__defines/misc.dm`
-/atom/proc/use_check(mob/user, use_flags = 0)
+/atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
 	. = 0
 	if (NOT_FLAG(USE_ALLOW_NONLIVING) && !isliving(user))
+		// No message for ghosts.
 		return USE_FAIL_NONLIVING
 
 	if (NOT_FLAG(USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
+		if (show_messages)
+			user << "<span class='notice'>You're too far away from [src] to do that.</span>"
 		return USE_FAIL_NON_ADJACENT
 
 	if (NOT_FLAG(USE_ALLOW_DEAD) && user.stat == DEAD)
+		if (show_messages)
+			user << "<span class='notice'>How do you expect to do that when you're dead?</span>"
 		return USE_FAIL_DEAD
 
 	if (NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
+		if (show_messages)
+			user << "<span class='notice'>You cannot do that in your current state.</span>"
 		return USE_FAIL_INCAPACITATED
 
 	if (NOT_FLAG(USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
+		if (show_messages)
+			user << "<span class='notice'>You don't know how to operate [src].</span>"
 		return USE_FAIL_NON_ADV_TOOL_USR
 
 	if (HAS_FLAG(USE_DISALLOW_SILICONS) && issilicon(user))
+		if (show_messages)
+			user << "<span class='notice'>How do you propose doing that without hands?</span>"
 		return USE_FAIL_IS_SILICON
 
 	if (HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
+		if (show_messages)
+			user << "<span class='notice'>You need to be holding [src] to do that.</span>"
 		return USE_FAIL_NOT_IN_USER
 
 #undef NOT_FLAG

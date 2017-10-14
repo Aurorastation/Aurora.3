@@ -134,7 +134,7 @@ Class Procs:
 	if(d)
 		set_dir(d)
 
-	if (component_types && populate_components)
+	if (populate_components && component_types)
 		component_parts = list()
 		for (var/type in component_types)
 			var/count = component_types[type]
@@ -144,7 +144,7 @@ Class Procs:
 			else
 				component_parts += new type(src)
 
-		if (component_parts.len)
+		if(component_parts.len)
 			RefreshParts()
 
 	add_machine(src)
@@ -160,10 +160,7 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/proc/machinery_process()
-	. = process()
-
-/obj/machinery/process()//If you dont use process or power why are you here
+/obj/machinery/proc/machinery_process()	//If you dont use process or power why are you here
 	if(!(use_power || idle_power_usage || active_power_usage))
 		return PROCESS_KILL
 
@@ -275,8 +272,7 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/proc/RefreshParts() //Placeholder proc for machines that are built using frames.
-	return
+/obj/machinery/proc/RefreshParts()
 
 /obj/machinery/proc/assign_uid()
 	uid = gl_uid
@@ -336,8 +332,9 @@ Class Procs:
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/weapon/storage/part_replacer/R)
 	if(!istype(R))
 		return 0
-	if(!component_parts)
+	if(!LAZYLEN(component_parts))
 		return 0
+
 	if(panel_open)
 		var/obj/item/weapon/circuitboard/CB = locate(/obj/item/weapon/circuitboard) in component_parts
 		var/P
@@ -375,7 +372,6 @@ Class Procs:
 						user << "<span class='notice'>[A.name] replaced with [B.name].</span>"
 						break
 		update_icon()
-		RefreshParts()
 	else
 		user << "<span class='notice'>Following parts detected in the machine:</span>"
 		for(var/var/obj/item/C in component_parts)

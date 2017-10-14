@@ -18,6 +18,8 @@
 	access = list(access_merchant)
 	minimal_access = list(access_merchant)
 
+	latejoin_at_spawnpoints = TRUE
+
 /datum/job/merchant/equip(var/mob/living/carbon/human/H)
 	if(!H)
 		return FALSE
@@ -34,3 +36,4 @@
 	..()
 	if(prob(config.merchant_chance))
 		spawn_positions = 1
+		total_positions = 1

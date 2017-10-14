@@ -137,7 +137,7 @@
 		if(prob(reflectchance))
 			adjustBruteLoss(P.damage * 0.3)
 			visible_message("<span class='danger'>The [P.name] gets reflected by [src]'s shell!</span>", \
-							"<span class='userdanger'>The [P.name] gets reflected by [src]'s shell!</span>")
+							"<span class='danger'>The [P.name] gets reflected by [src]'s shell!</span>")
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)

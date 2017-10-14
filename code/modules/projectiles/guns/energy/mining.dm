@@ -1,4 +1,5 @@
 /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg
+	name = "mounted proto-kinetic accelerator"
 	self_recharge = 1
 	use_external_power = 1
 
@@ -116,7 +117,7 @@
 	if(mob_aoe)
 		for(var/mob/living/L in range(1, target_turf) - firer - target)
 			L.apply_damage(damage*mob_aoe, damage_type, def_zone, armor)
-			L << "<span class='userdanger'>You're struck by a [name]!</span>"
+			L << "<span class='danger'>You're struck by a [name]!</span>"
 
 
 //Modkits
@@ -284,6 +285,7 @@
 /*******************PLASMA CUTTER*******************/
 
 /obj/item/weapon/gun/energy/plasmacutter/mounted
+	name = "mounted plasma cutter"
 	self_recharge = 1
 	use_external_power = 1
 

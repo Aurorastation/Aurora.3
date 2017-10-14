@@ -227,6 +227,7 @@ var/list/global/random_stock_rare = list(
 	"xenohide" = 0.5,
 	"humanhide" = 0.5,
 	"modkit" = 1,
+	"contraband" = 0.8,
 	"nothing" = 0)
 
 var/list/global/random_stock_large = list(
@@ -242,7 +243,6 @@ var/list/global/random_stock_large = list(
 	"oxycanister" = 6,//Cargo should almost always have an oxycanister
 	"oxydispenser" = 5,
 	"bubbleshield" = 2,
-	"chassis" = 2,
 	"watertank" = 2,
 	"fueltank" = 2,
 	"airpump" = 1,
@@ -543,7 +543,17 @@ var/list/global/random_stock_large = list(
 			if (prob(50))
 				new /obj/item/weapon/storage/box/lights/mixed(L)
 			if (prob(25))
-				new /obj/item/weapon/storage/box/lights/mixed(L)
+				new /obj/item/weapon/storage/box/lights/coloredmixed(L)
+			if (prob(15))
+				var/type = pick(list(
+					/obj/item/weapon/storage/box/lights/colored/red, 
+					/obj/item/weapon/storage/box/lights/colored/green, 
+					/obj/item/weapon/storage/box/lights/colored/blue, 
+					/obj/item/weapon/storage/box/lights/colored/cyan,
+					/obj/item/weapon/storage/box/lights/colored/yellow,
+					/obj/item/weapon/storage/box/lights/colored/magenta
+					))
+				new type(L)
 		if("aid")
 			new /obj/random/firstaid(L)
 		if("flame")
@@ -1440,7 +1450,8 @@ var/list/global/random_stock_large = list(
 			/obj/item/weapon/rig/ce = 2,
 			/obj/item/weapon/rig/hazmat = 4,
 			/obj/item/weapon/rig/medical = 4,
-			/obj/item/weapon/rig/hazard = 3
+			/obj/item/weapon/rig/hazard = 3,
+			/obj/item/weapon/rig/diving = 1
 			)
 
 			var/type = pickweight(rigs)
@@ -1516,6 +1527,8 @@ var/list/global/random_stock_large = list(
 			var/type = pick(modkits)
 			new type(L)
 
+		if ("contraband")
+			new /obj/random/contraband(L)
 
 //Large items go below here
 //=============================================================
@@ -1567,21 +1580,6 @@ var/list/global/random_stock_large = list(
 			var/obj/machinery/portable_atmospherics/powered/M = new /obj/machinery/portable_atmospherics/powered/scrubber(L)
 			if (prob(60))
 				M.cell = null
-		//Spawns a complete, but brainless robot chassis. Ready for MMI insertion
-		//It may be missing limbs, and if so cargo can probably scrounge some up in the warehouse.
-		if ("chassis")
-			var/obj/item/robot_parts/robot_suit/RS = new /obj/item/robot_parts/robot_suit(L)
-			if (prob(90))
-				RS.r_arm = new
-			if (prob(90))
-				RS.r_leg = new
-			if (prob(90))
-				RS.l_arm = new
-			if (prob(90))
-				RS.l_leg = new
-			RS.chest = new
-			RS.head = new
-			RS.updateicon()
 
 		if ("suspension")//Xenoarch suspension field generator, they need a spare
 			new /obj/machinery/suspension_gen(L)
@@ -1690,7 +1688,8 @@ var/list/global/random_stock_large = list(
 			/obj/mecha/combat/marauder = 0.6,
 			/obj/mecha/combat/marauder/seraph = 0.3,
 			/obj/mecha/combat/marauder/mauler = 0.4,
-			/obj/mecha/combat/phazon = 0.1
+			/obj/mecha/combat/phazon = 0.1,
+			/obj/mecha/combat/honker = 0.01
 			)
 			var/type = pickweight(randsuits)
 			var/obj/mecha/exosuit = new type(get_turf(L))

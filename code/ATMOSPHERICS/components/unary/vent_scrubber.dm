@@ -28,7 +28,6 @@
 	var/radio_filter_in
 
 	var/welded = 0
-	//no_special_init = TRUE
 
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = 1

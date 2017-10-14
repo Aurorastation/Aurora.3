@@ -5,7 +5,7 @@
 	desc = "Used to view, edit and maintain security records"
 
 	icon_screen = "security"
-	light_color = "#a91515"
+	light_color = LIGHT_COLOR_ORANGE
 	req_one_access = list(access_security, access_forensics_lockers, access_lawyer)
 	circuit = /obj/item/weapon/circuitboard/secure_data
 	var/obj/item/weapon/card/id/scan = null

@@ -258,8 +258,6 @@ var/global/list/additional_antag_types = list()
 		"killer bugs that lay eggs in the husks of the living",
 		"a deserted transport carrying xenomorph specimens",
 		"an emissary for the gestalt requesting a security detail",
-		"a Tajaran slave rebellion",
-		"radical Skrellian transevolutionaries",
 		"classified security operations"
 		)
 	command_announcement.Announce("The presence of [pick(reasons)] in the region is tying up all available local emergency resources; emergency response teams cannot be called at this time, and post-evacuation recovery efforts will be substantially delayed.","Emergency Transmission")

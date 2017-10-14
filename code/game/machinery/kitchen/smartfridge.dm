@@ -22,6 +22,7 @@
 	var/scan_id = 1
 	var/is_secure = 0
 	var/datum/wires/smartfridge/wires = null
+	atmos_canpass = CANPASS_NEVER
 
 /obj/machinery/smartfridge/secure
 	is_secure = 1
@@ -60,6 +61,10 @@
 	name = "\improper Slime Extract Storage"
 	desc = "A refrigerated storage unit for slime extracts"
 	req_access = list(access_research)
+
+/obj/machinery/smartfridge/secure/extract/Initialize()
+	. = ..()
+	new/obj/item/weapon/storage/bag/slimes(src)
 
 /obj/machinery/smartfridge/secure/extract/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/slime_extract))

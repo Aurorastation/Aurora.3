@@ -24,7 +24,9 @@
 	use_power = 0
 	unacidable = 1
 	var/sprite_number = 0
-
+	light_color = LIGHT_COLOR_CYAN
+	light_power = 1
+	light_range = 8
 /obj/machinery/gravity_generator/ex_act(severity)
 	if(severity == 1) // Very sturdy.
 		set_broken()
@@ -81,13 +83,15 @@
 /obj/machinery/gravity_generator/main/station/Initialize()
 	. = ..()
 	setup_parts()
-	middle.overlays += "activated"
+	middle.add_overlay("activated")
 	update_list()
 	addtimer(CALLBACK(src, .proc/round_startset), 100)
 
 /obj/machinery/gravity_generator/main/station/proc/round_startset()
 	if(round_start >= 1)
 		round_start--
+		set_light(8,1,LIGHT_COLOR_CYAN)
+
 //
 // Generator an admin can spawn
 //
@@ -95,6 +99,8 @@
 /obj/machinery/gravity_generator/main/station/admin/Initialize()
 	. = ..()
 	round_start = 1
+
+
 
 //
 // Main Generator with the main code
@@ -119,9 +125,9 @@
 	var/list/localareas = list()
 	var/round_start = 2 //To help stop a bug with round start
 	var/backpanelopen = 0
-	var/eventon = 0 
+	var/eventon = 0
 
-/obj/machinery/gravity_generator/main/Destroy() 
+/obj/machinery/gravity_generator/main/Destroy()
 	log_debug("Gravity Generator Destroyed")
 	investigate_log("was destroyed!", "gravity")
 	on = 0
@@ -132,7 +138,13 @@
 	return ..()
 
 /obj/machinery/gravity_generator/main/proc/eventshutofftoggle() // Used by the gravity event. Bypasses charging and all of that stuff.
+	breaker = 0
 	set_state(eventon)
+	sleep(20)
+	charge_count = 0
+	breaker = 1
+	charging_state = POWER_UP
+	set_power()
 	eventon = !eventon
 
 /obj/machinery/gravity_generator/main/proc/setup_parts()
@@ -163,7 +175,7 @@
 	for(var/obj/machinery/gravity_generator/M in parts)
 		if(!(M.stat & BROKEN))
 			M.set_broken()
-	middle.overlays.Cut()
+	middle.cut_overlays()
 	charge_count = 0
 	breaker = 0
 	set_power()
@@ -287,11 +299,16 @@
 		pulse_radiation(100)
 		set_state(0)
 		if(middle)
-			middle.overlays.Cut()
+			middle.cut_overlays()
 		if(prob(1)) //It will spawn a small one and eat the generator. Won't cause any other issues considering it's a 1x1 and will go away on it's own.
 			new /obj/singularity(src.loc)
 		if(prob(33)) //Releasing all that power at once is dangerous.
 			empulse(src.loc, 2, 4)
+		set_light(10,1,LIGHT_COLOR_FLARE)
+		sleep(5)
+		set_light(5,0.5,LIGHT_COLOR_FIRE)
+		sleep(5)
+		set_light(0,0,"#000000")
 
 /obj/machinery/gravity_generator/main/get_status()
 	if(stat & BROKEN)
@@ -344,7 +361,7 @@
 
 // Charge/Discharge and turn on/off gravity when you reach 0/100 percent.
 // Also emit radiation and handle the overlays.
-/obj/machinery/gravity_generator/main/process()
+/obj/machinery/gravity_generator/main/machinery_process()
 	if(stat & BROKEN)
 		return
 	if(charging_state != POWER_IDLE)
@@ -369,20 +386,25 @@
 			switch(charge_count)
 				if(0 to 20)
 					overlay_state = null
+					set_light(0,0,"#000000")
 				if(21 to 40)
 					overlay_state = "startup"
+					set_light(4,0.2,LIGHT_COLOR_BLUE)
 				if(41 to 60)
 					overlay_state = "idle"
+					set_light(6,0.5,"#7D9BFF") //More of a washed out perywinkle than blue but shut up.
 				if(61 to 80)
 					overlay_state = "activating"
+					set_light(6,0.8,"#7DC3FF")
 				if(81 to 100)
 					overlay_state = "activated"
+					set_light(8,1,LIGHT_COLOR_CYAN)
 
 			if(overlay_state != current_overlay)
 				if(middle)
-					middle.overlays.Cut()
+					middle.cut_overlays()
 					if(overlay_state)
-						middle.overlays += overlay_state
+						middle.add_overlay(overlay_state)
 					current_overlay = overlay_state
 
 /obj/machinery/gravity_generator/main/proc/pulse_radiation(var/amount = 20)
@@ -433,7 +455,7 @@
 
 /obj/machinery/gravity_generator/main/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, .proc/updateareas), 10)	
+	addtimer(CALLBACK(src, .proc/updateareas), 10)
 	return
 
 /obj/machinery/gravity_generator/main/proc/updateareas()

@@ -275,20 +275,20 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/O = H.internal_organs_by_name[pick("eyes","appendix","kidneys","liver", "heart", "lungs", "brain")]
+			var/obj/item/organ/O = H.internal_organs_by_name[pick(H.species.vision_organ || "eyes","appendix","kidneys","liver", "heart", "lungs", "brain")]
 			if(O == null)
-				user << "<span class='notice'>You can't make any sense of the arcane glyphs. . . maybe you should try again.</span>"
+				user << "<span class='notice'>You can't make any sense of the arcane glyphs... maybe you should try again.</span>"
 			else
-				user <<"<span class='danger'>As you stumble over the arcane glyphs, you feel a twisting sensation in [O]!</span>"
+				user << "<span class='danger'>As you stumble over the arcane glyphs, you feel a twisting sensation in your [O.name]!</span>"
 				user.visible_message("<span class='danger'>\A flash of smoke pours out of [user]'s orifices!</span>")
 				playsound(user, 'sound/magic/lightningshock.ogg', 40, 1)
 				var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 				smoke.set_up(5, 0, user.loc)
 				smoke.attach(user)
 				smoke.start()
-				user.show_message("<b>[user]</b> screams!",2)
+				user.emote("scream")
 				user.drop_item()
-				if(O && istype(O))
+				if(istype(O))
 					O.removed(user)
 			qdel(src)
 		return 0

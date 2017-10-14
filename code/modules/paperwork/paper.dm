@@ -145,7 +145,7 @@
 		return
 
 	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
-		user.visible_message(span("notice", "the [src] unfolds \the [src]."), span("notice", "You unfold \the [src]."), "You hear paper rustling.")
+		user.visible_message(span("notice", "\The [user] unfolds \the [src]."), span("notice", "You unfold \the [src]."), "You hear paper rustling.")
 		icon_state = initial(icon_state)
 		throw_range = initial(throw_range)
 		name = old_name

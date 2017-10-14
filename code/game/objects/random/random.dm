@@ -563,6 +563,7 @@
 		/obj/item/weapon/material/twohanded/spear/plasteel,
 		/obj/random/sword,
 		/obj/item/weapon/melee/hammer,
+		/obj/item/weapon/melee/hammer/powered,
 		/obj/item/weapon/material/twohanded/fireaxe,
 		/obj/item/weapon/melee/classic_baton
 	)
@@ -794,6 +795,13 @@
 		/obj/item/weapon/storage/box/condimentbottles = 0.2,
 		/obj/item/weapon/storage/box/mousetraps = 0.3,
 		/obj/item/weapon/storage/box/lights = 0.5,
+		/obj/item/weapon/storage/box/lights/coloredmixed = 0.2,
+		/obj/item/weapon/storage/box/lights/colored/red = 0.1,
+		/obj/item/weapon/storage/box/lights/colored/green = 0.1,
+		/obj/item/weapon/storage/box/lights/colored/blue = 0.1,
+		/obj/item/weapon/storage/box/lights/colored/cyan = 0.1,
+		/obj/item/weapon/storage/box/lights/colored/yellow = 0.1,
+		/obj/item/weapon/storage/box/lights/colored/magenta = 0.1,
 		/obj/item/weapon/contraband/poster = 1.3,
 		/obj/item/device/magnetic_lock/security = 0.3,
 		/obj/item/device/magnetic_lock/engineering = 0.3,

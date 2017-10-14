@@ -94,6 +94,10 @@
 			to_chat(src, "<span class='warning'>You lack the power interact with mechanical constructs.</span>")
 		return 0
 
+	if(is_special_character(T) && (!(T.mind.vampire.status & VAMP_ISTHRALL)))
+		user << "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>"
+		return 0
+
 	if (account_loyalty_implant)
 		for (var/obj/item/weapon/implant/loyalty/I in T)
 			if (I.implanted)
@@ -218,6 +222,7 @@
 		visible_message("<span class='danger'>[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal human's.</span>", "<span class='danger'>The beast within you retreats. You gain control over your body once more.</span>")
 
 		verbs -= /mob/living/carbon/human/proc/grapple
+		regenerate_icons()
 
 // Removes all vampire powers.
 /mob/proc/remove_vampire_powers()

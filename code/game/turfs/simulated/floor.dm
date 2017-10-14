@@ -37,7 +37,10 @@
 	if (!mapload)
 		make_plating(defer_icon_update = 1)
 	flooring = newflooring
-	update_icon(1)
+	if (mapload)
+		queue_icon_update()
+	else
+		queue_icon_update(1)
 	levelupdate()
 
 //This proc will set floor_type to null and the update_icon() proc will then change the icon_state of the turf

@@ -47,6 +47,19 @@
 /obj/item/modular_computer/console/preset/command/install_default_hardware()
 	..()
 	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer.max_paper = 25
+	nano_printer.stored_paper = 20
+	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+
+/obj/item/modular_computer/console/preset/captain/
+	_app_preset_name = "captain"
+	enrolled = 1
+
+/obj/item/modular_computer/console/preset/captain/install_default_hardware()
+	..()
+	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer.max_paper = 25
+	nano_printer.stored_paper = 20
 	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
 
 // Security
@@ -59,11 +72,18 @@
 	_app_preset_name = "civilian"
 	enrolled = 1
 
-ERT
+// Supply
+/obj/item/modular_computer/console/preset/supply/
+	_app_preset_name = "supply"
+	enrolled = 1
+
+// ERT
 /obj/item/modular_computer/console/preset/ert/install_default_hardware()
 	..()
 	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
 	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer.max_paper = 25
+	nano_printer.stored_paper = 20
 	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
 
 /obj/item/modular_computer/console/preset/ert/

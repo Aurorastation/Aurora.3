@@ -1,0 +1,5 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - bugfix: "Damage overlays now update on their own. You can stop punching IPCs and shells to fix their faces, now, Lualyrr."
+  - rscadd: "Shells now have their own face repair surgery. Use it when they're showing up as Unknown. The steps are: Scalpel, Multitool/Cable Coil, Retractor/Wirecutters, Cautery."
