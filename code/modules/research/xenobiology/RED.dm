@@ -76,7 +76,7 @@ There is also a non-destrutive option, but... It's not as fun.
 					runevent()
 	else
 		processing_status = 0
-	
+		mobinside = null
 	return
 
 /obj/machinery/red/proc/transfer_mob(var/mob/T, var/obj/machinery/red/A)
@@ -100,27 +100,27 @@ There is also a non-destrutive option, but... It's not as fun.
 				ping("\The [src] pings loudly, 'Biological subject loaded. Current operational parameters: [scantype2text()]. Initating scan.'")
 				processing_status = 40
 			if(2)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					ping("\The [src] pings loudly, 'Initating safe scan. Biological sample will be preserved. Initating scanning procedures.'")
 				else if(mainpart.scan_type in list(SCAN_CLONE))
 					ping("\The [src] pings loudly, 'Initating pre-clone procedures, preparing sample...'")
-				else if(mainpart.scan_type in list(SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SAMPLE_DEEPANALYZE))
 					ping("\The [src] pings loudly, 'Initating deep scan procedures, preparing sample...'")
 				else
 					ping("\The [src] pings loudly, 'Initiating full scan. Biological sample will be destroyed. Initating scanning procedures.'")
 			if(3)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
 				else if(mainpart.scan_type in list(SCAN_CLONE))
 					src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
-				else if(mainpart.scan_type in list(SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SAMPLE_DEEPANALYZE))
 					src.visible_message("<span class='notice'>The [src] emits a heavy dronning sound as the sample is scanned...</span>")
 				else
 					src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
 			if(4)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
-				else if(mainpart.scan_type in list(SCAN_CLONE, SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SCAN_CLONE, SAMPLE_DEEPANALYZE))
 					src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
 				else
 					src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
@@ -138,27 +138,27 @@ There is also a non-destrutive option, but... It's not as fun.
 		sleep(300)
 		switch(part_number)
 			if(2)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					ping("\The [src] pings loudly, 'Analyzing internal structual...'")
 				else if(mainpart.scan_type in list(SCAN_CLONE))
 					ping("\The [src] pings loudly, 'Reading specimen DNA...'")
-				else if(mainpart.scan_type in list(SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SAMPLE_DEEPANALYZE))
 					ping("\The [src] pings loudly, 'Preparing specimen DNA for reading...'")
 				else
 					ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(0,20)]%'")
 			if(3)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
 				else if(mainpart.scan_type in list(SCAN_CLONE))
 					src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
-				else if(mainpart.scan_type in list(SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SAMPLE_DEEPANALYZE))
 					src.visible_message("<span class='notice'>The [src] emits a heavy dronning sound as the sample is scanned...</span>")
 				else
 					src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
 			if(4)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
-				else if(mainpart.scan_type in list(SCAN_CLONE, SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SCAN_CLONE, SAMPLE_DEEPANALYZE))
 					src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
 				else
 					src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
@@ -179,25 +179,25 @@ There is also a non-destrutive option, but... It's not as fun.
 				ping("\The [src] pings loudly, 'Scan type: [scantype2text()] prepartions loaded. Loading maintenance procedures.'")
 				processing_status = 80
 			if(2)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					ping("\The [src] pings loudly, 'Interal structure loaded. Preparing DNA for scanning procedures.'")
 				else if(mainpart.scan_type in list(SCAN_CLONE))
 					ping("\The [src] pings loudly, 'Loading CRISPR procedures...'")
 				else
 					ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(20,40)]%'")
 			if(3)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
 				else if(mainpart.scan_type in list(SCAN_CLONE))
 					src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
-				else if(mainpart.scan_type in list(SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SAMPLE_DEEPANALYZE))
 					src.visible_message("<span class='notice'>The [src] emits a heavy dronning sound as the sample is scanned...</span>")
 				else
 					src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
 			if(4)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
-				else if(mainpart.scan_type in list(SCAN_CLONE, SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SCAN_CLONE, SAMPLE_DEEPANALYZE))
 					src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
 				else
 					src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
@@ -215,27 +215,27 @@ There is also a non-destrutive option, but... It's not as fun.
 		sleep(300)
 		switch(part_number)
 			if(2)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list( SCAN_NODESTROY))
 					ping("\The [src] pings loudly, 'Analyzing internal structual...'")
 				else if(mainpart.scan_type in list(SCAN_CLONE))
 					ping("\The [src] pings loudly, 'Preparing structual DNA for CRISPR adjustments...'")
-				else if(mainpart.scan_type in list(SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SAMPLE_DEEPANALYZE))
 					ping("\The [src] pings loudly, 'Preparing specimen DNA for reading...'")
 				else
 					ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(40,80)]%'")
 			if(3)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
 				else if(mainpart.scan_type in list(SCAN_CLONE))
 					src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
-				else if(mainpart.scan_type in list(SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SAMPLE_DEEPANALYZE))
 					src.visible_message("<span class='notice'>The [src] emits a heavy dronning sound as the sample is scanned...</span>")
 				else
 					src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
 			if(4)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
-				else if(mainpart.scan_type in list(SCAN_CLONE, SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SCAN_CLONE, SAMPLE_DEEPANALYZE))
 					src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
 				else
 					src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
@@ -252,11 +252,11 @@ There is also a non-destrutive option, but... It's not as fun.
 			if(1)
 				ping("\The [src] pings loudly, 'Scan type: [scantype2text()] preparations finished. Offloading sample to next sequence. Shutting down...'")
 			if(2)
-				if(mainpart.scan_type in list(SCAN_ANALYZEONLY, SCAN_NODESTROY, SAMPLE_DEEPANALYZE))
+				if(mainpart.scan_type in list(SCAN_NODESTROY))
 					ping("\The [src] pings loudly, 'Internal structure analyzation complete. Offloading sample to begin next sequence. Shutting down... '")
 				else if(mainpart.scan_type in list(SCAN_CLONE))
 					ping("\The [src] pings loudly, 'CRISPR module loaded. Offloading DNA and CRISPR procedures. Shutting down...'")
-				else if(mainpart.scan_type in list(SAMPLE_TO_DISK, SAMPLE_DEEPANALYZE))
+				else if(mainpart.scan_type in list(SAMPLE_DEEPANALYZE))
 					ping("\The [src] pings loudly, 'Preparing specimen DNA for reading...'")
 				else
 					ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(80,100)]%'")
@@ -289,13 +289,12 @@ There is also a non-destrutive option, but... It's not as fun.
 		if(SCAN_CONVERT_ORIGIN)
 			if(human)
 				T.monkeyize() // this will make them into their origin species.
-			else
 				spitmob()
-				ping("\The [src] pings loudly, 'Subject is at its simplest form.'")
 		if(SCAN_DESTROY)
 			produce_sample(T, SCAN_DESTROY)
 			if(human)
 				if(T.stat == DEAD)
+					spitmob()
 					T.gib()
 				else
 					T << "<span class ='danger'>You feel a horrible pain as the machine rips you apart!</span>"
@@ -307,7 +306,7 @@ There is also a non-destrutive option, but... It's not as fun.
 		if(SAMPLE_CLONE)
 			return
 		if(SAMPLE_DEEPANALYZE)
-			produce_sample(T, SCAN_DEEPANALYZE)
+			produce_sample(T, SAMPLE_DEEPANALYZE)
 			return
 	mainpart.scan_type = SCAN_IDLE
 	return
@@ -322,9 +321,9 @@ There is also a non-destrutive option, but... It's not as fun.
 	status = 0
 
 /obj/machinery/red/proc/produce_sample(var/mob/T, var/details)
-	var/obj/item/red_sample/T = new /obj/item/red_sample
-	T.mobDNA = T
-	T.set_origin()
+	var/obj/item/red_sample/B = new /obj/item/red_sample
+	B.mobDNA = T
+	B.set_origin()
 
 /obj/machinery/red/main
 	icon_state = "red_3_0"
