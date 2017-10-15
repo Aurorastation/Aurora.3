@@ -65,7 +65,6 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		return
 	else if(caller_id && !incoming_connection)
 		visible_message("Severing connection to distant holopad.")
-		world<<"[user]"
 		end_call(user)
 		return
 	switch(alert(user,"Would you like to request an AI's presence or establish communications with another pad?", "Holopad","AI","Holocomms","Cancel"))
@@ -220,11 +219,9 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 				if(t.fields["name"] == caller_id.name)
 					tempicon = t.fields["image"]
 			hologram.name = "[caller_id.name] (Hologram)"
-			world<<"[tempicon]"
 			hologram.loc = get_step(src,1)
 			masters[caller_id] = hologram
 			add_overlay(getHologramIcon(icon(tempicon))) // Add the callers image as an overlay to keep coloration!
-			world<<"[getHologramIcon(icon(tempicon))]"
 		else
 			add_overlay(A.holo_icon)  // Add the AI's configured holo Icon
 			hologram.name = "[A.name] (Hologram)"//If someone decides to right click.
@@ -269,19 +266,16 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		for (var/mob/living/silicon/ai/master in masters)
 			var/active_ai = (master && !master.incapacitated() && master.client && master.eyeobj)//If there is an AI with an eye attached, it's not incapacitated, and it has a client
 			if((stat & NOPOWER) || !active_ai)
-				world << "[master]"
 				clear_holo(master)
 				continue
 
 			if(!(masters[master] in view(src)))
-				world << "[master]-2"
 				clear_holo(master)
 				continue
 
 		use_power(power_per_hologram)
 	if(last_request + 200 < world.time && incoming_connection==1)
 		incoming_connection = 0
-		world<<"[caller_id]"
 		end_call()
 		if(sourcepad)
 			sourcepad.audible_message("<i><span class='game say'>The holopad connection timed out</span></i>")
@@ -290,7 +284,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(caller_id.loc!=sourcepad.loc)
 			sourcepad.visible_message("Severing connection to distant holopad.")
 			visible_message("The connection has been terminated by [caller_id].")
-			world<<"[caller_id]"
 			end_call()
 	return 1
 
@@ -302,19 +295,16 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		masters[user] = H
 
 		if(!(H in view(src)))
-			world << "[user]-mover_holo"
 			clear_holo(user)
 			return 0
 
 		if((HOLOPAD_MODE == RANGE_BASED && (get_dist(user.eyeobj, src) > holo_range)))
-			world << "[user]-mover_holo-2"
 			clear_holo(user)
 
 		if(HOLOPAD_MODE == AREA_BASED)
 			var/area/holo_area = get_area(src)
 			var/area/hologram_area = get_area(H)
 			if(hologram_area != holo_area)
-				world << "[user]-mover_holo-4"
 				clear_holo(user)
 	return 1
 
@@ -343,7 +333,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 /obj/machinery/hologram/holopad/Destroy()
 	for (var/mob/living/master in masters)
-		world << "[master]-des_holo-5"
 		clear_holo(master)
 	return ..()
 
