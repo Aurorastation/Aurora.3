@@ -116,14 +116,15 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 
 /obj/machinery/hologram/holopad/proc/end_call(mob/user)
 	user.reset_view() //Send the caller back to his body
+	world << "[user]-end_call_1"
 	clear_holo(user) // destroy the hologram
-	world<<"[caller_id]"
+	world<<"[caller_id]_end_call-1"
 	if(caller_id)
 		caller_id = null //Reset caller_id
 		clear_holo(caller_id)
 	sourcepad.targetpad = null
 	sourcepad = null //Reset source
-	world<<"[user]"
+	world<<"[user]-end-call-1"
 
 /obj/machinery/hologram/holopad/proc/activate_holocall(mob/living/carbon/caller_id)
 	if(caller_id)
@@ -222,7 +223,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(caller_id)
 			var/tempicon = 0
 			for(var/datum/data/record/t in data_core.locked)
-				if(t.fields["name"]==caller_id.name)
+				if(t.fields["name"] == caller_id.name)
 					tempicon = t.fields["image"]
 			hologram.name = "[caller_id.name] (Hologram)"
 			world<<"[tempicon]"
@@ -252,7 +253,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		A.holo = src
 		return 1
 
-/obj/machinery/hologram/holopad/proc/clear_holo(mob/living/silicon/ai/user)
+/obj/machinery/hologram/holopad/proc/clear_holo(mob/living/user)
+	world << "[user]-clear_holo"
 	if(user.holo == src)
 		user.holo = null
 	qdel(masters[user])//Get rid of user's hologram
@@ -263,25 +265,28 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	return 1
 
 /obj/machinery/hologram/holopad/machinery_process()
-	for (var/mob/living/silicon/ai/master in masters)
-		var/active_ai = (master && !master.incapacitated() && master.client && master.eyeobj)//If there is an AI with an eye attached, it's not incapacitated, and it has a client
-		if((stat & NOPOWER) || !active_ai)
-			clear_holo(master)
-			continue
+	if(masters.len)
+		for (var/mob/living/silicon/ai/master in masters)
+			var/active_ai = (master && !master.incapacitated() && master.client && master.eyeobj)//If there is an AI with an eye attached, it's not incapacitated, and it has a client
+			if((stat & NOPOWER) || !active_ai)
+				world << "[master]"
+				clear_holo(master)
+				continue
 
-		if(!(masters[master] in view(src)))
-			clear_holo(master)
-			continue
+			if(!(masters[master] in view(src)))
+				world << "[master]-2"
+				clear_holo(master)
+				continue
 
 		use_power(power_per_hologram)
-	if(last_request + 200 < world.time&&incoming_connection==1)
+	if(last_request + 200 < world.time && incoming_connection==1)
 		incoming_connection = 0
 		world<<"[caller_id]"
 		end_call(caller_id)
 		if(sourcepad)
 			sourcepad.audible_message("<i><span class='game say'>The holopad connection timed out</span></i>")
 			sourcepad = 0
-	if (caller_id&&sourcepad)
+	if (caller_id && sourcepad)
 		if(caller_id.loc!=sourcepad.loc)
 			sourcepad.visible_message("Severing connection to distant holopad.")
 			visible_message("The connection has been terminated by [caller_id].")
@@ -297,16 +302,19 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		masters[user] = H
 
 		if(!(H in view(src)))
+			world << "[user]-mover_holo"
 			clear_holo(user)
 			return 0
 
 		if((HOLOPAD_MODE == RANGE_BASED && (get_dist(user.eyeobj, src) > holo_range)))
+			world << "[user]-mover_holo-2"
 			clear_holo(user)
 
 		if(HOLOPAD_MODE == AREA_BASED)
 			var/area/holo_area = get_area(src)
 			var/area/hologram_area = get_area(H)
 			if(hologram_area != holo_area)
+				world << "[user]-mover_holo-4"
 				clear_holo(user)
 	return 1
 
@@ -335,6 +343,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 /obj/machinery/hologram/holopad/Destroy()
 	for (var/mob/living/master in masters)
+		world << "[master]-des_holo-5"
 		clear_holo(master)
 	return ..()
 
