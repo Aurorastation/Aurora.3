@@ -100,7 +100,7 @@
 
 	addtimer(CALLBACK(src, .proc/unping), 45 SECONDS)
 
-/obj/machinery/ringer/proc/unping(var/obj/item/device/pda/pda)
+/obj/machinery/ringer/proc/unping()
 	pinged = FALSE
 	update_icon()
 
