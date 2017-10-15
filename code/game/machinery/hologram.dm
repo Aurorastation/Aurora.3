@@ -222,9 +222,11 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 				if(t.fields["name"]==caller_id.name)
 					tempicon = t.fields["image"]
 			hologram.name = "[caller_id.name] (Hologram)"
+			world<<"[tempicon]"
 			hologram.loc = get_step(src,1)
 			masters[caller_id] = hologram
 			add_overlay(getHologramIcon(icon(tempicon))) // Add the callers image as an overlay to keep coloration!
+			world<<"[getHologramIcon(icon(tempicon))]"
 		else
 			add_overlay(A.holo_icon)  // Add the AI's configured holo Icon
 			hologram.name = "[A.name] (Hologram)"//If someone decides to right click.
