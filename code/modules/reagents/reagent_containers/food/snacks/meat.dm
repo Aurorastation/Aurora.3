@@ -67,7 +67,7 @@
 	//Chicken is low fat. Less total calories than other meats
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/undead
-	name = "meat"
+	name = "rotten meat"
 	desc = "A slab of rotten meat."
 	icon_state = "shadowmeat"
 	health = 180
@@ -76,4 +76,4 @@
 /obj/item/weapon/reagent_containers/food/snacks/meat/undead/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 6)
-	reagents.add_reagent("triglyceride", 2)
+	reagents.add_reagent("undead_ichor", 5)

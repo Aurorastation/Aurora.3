@@ -494,14 +494,14 @@
 		M << "<span class='warning'>You feel unstable...</span>"
 
 	if(prob(10))
-		do_teleport(M, get_turf(M), removed, asoundin = 'sound/effects/phasein.ogg')
+		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
 
 /datum/reagent/bluespace_dust/touch_mob(var/mob/living/L, var/amount)
-	do_teleport(L, get_turf(L), 5, asoundin = 'sound/effects/phasein.ogg')
+	do_teleport(L, get_turf(L), amount, asoundin = 'sound/effects/phasein.ogg')
 
 /datum/reagent/philosopher_stone
 	name = "Philosopher's Stone"
 	id = "philosopher_stone"
 	description = "A mythical compound, rumored to be the catalyst of fantastic reactions."
 	color = "#1f8999"
-	taste_description = "fizzling blue"
+	taste_description = "heavenly knowledge"
