@@ -200,6 +200,11 @@
 	armor_penetration = 80
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 
+/obj/item/projectile/bullet/rifle/vintage
+	name = "vintage bullet"
+	damage = 50
+	weaken = 1
+
 /obj/item/projectile/bullet/rifle/tranq
 	name = "dart"
 	icon_state = "dart"
@@ -314,3 +319,5 @@
 	shrapnel_type = /obj/item/weapon/material/shard/shrapnel/flechette
 	penetrating = 0
 	damage = 10
+
+
