@@ -170,14 +170,14 @@
 // These procs do not relocate the grenade, that's the callers responsibility
 /obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(var/obj/item/weapon/grenade/G)
 	attached_grenade = G
-	attached_grenade.OnDestroy(CALLBACK(src, .proc/detach_grenade))
+	destroyed_event.register(attached_grenade, src, .proc/detach_grenade)
 	size += G.w_class
 	desc += " \An [attached_grenade] is attached to it!"
 
 /obj/item/integrated_circuit/manipulation/grenade/proc/detach_grenade()
 	if(!attached_grenade)
 		return
-	attached_grenade.UnregisterOnDestroy(src)
+	destroyed_event.unregister(attached_grenade, src)
 	attached_grenade = null
 	size = initial(size)
 	desc = initial(desc)
