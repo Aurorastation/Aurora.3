@@ -120,18 +120,7 @@
 		/obj/item/clothing/mask/gas/monkeymask                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/monkeysuit                      = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/luchador                        = TRADER_ALL,
-		/obj/item/weapon/gun/bang/colt                          = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/bang/sec                           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/bang/sec/flash                     = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/bang/sec/wood                      = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/bang/x9                            = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/bang/tanto                         = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/bang/silenced                      = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/bang/deagle                        = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/bang/deagle/gold                   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/bang/deagle/camo                   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/bang/pistol                        = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/bang/pirate                        = TRADER_THIS_TYPE
+		/obj/item/weapon/gun/bang                               = TRADER_SUBTYPES_ONLY
 	)
 
 /datum/trader/ship/replica_shop
