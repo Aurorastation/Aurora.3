@@ -115,16 +115,10 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		activate_holocall(caller_id)
 
 /obj/machinery/hologram/holopad/proc/end_call(mob/user)
-	user.reset_view() //Send the caller back to his body
-	world << "[user]-end_call_1"
-	clear_holo(user) // destroy the hologram
-	world<<"[caller_id]_end_call-1"
-	if(caller_id)
-		caller_id = null //Reset caller_id
-		clear_holo(caller_id)
-	sourcepad.targetpad = null
-	sourcepad = null //Reset source
-	world<<"[user]-end-call-1"
+	caller_id.unset_machine()
+	caller_id.reset_view() //Send the caller back to his body
+	clear_holo(0, caller_id) // destroy the hologram
+	caller_id = null
 
 /obj/machinery/hologram/holopad/proc/activate_holocall(mob/living/carbon/caller_id)
 	if(caller_id)
@@ -253,15 +247,21 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		A.holo = src
 		return 1
 
-/obj/machinery/hologram/holopad/proc/clear_holo(mob/living/user)
-	world << "[user]-clear_holo"
-	if(user.holo == src)
+/obj/machinery/hologram/holopad/proc/clear_holo(mob/living/silicon/ai/user, mob/living/carbon/caller_id)
+	if(user)
+		qdel(masters[user])//Get rid of user's hologram
 		user.holo = null
-	qdel(masters[user])//Get rid of user's hologram
-	masters -= user //Discard AI from the list of those who use holopad
+		masters -= user //Discard AI from the list of those who use holopad
+	if(caller_id)
+		qdel(masters[caller_id])//Get rid of user's hologram
+		masters -= caller_id //Discard the caller from the list of those who use holopad
 	if (!masters.len)//If no users left
 		set_light(0)			//pad lighting (hologram lighting will be handled automatically since its owner was deleted)
 		icon_state = "holopad0"
+		if(sourcepad)
+			sourcepad.targetpad = null
+			sourcepad = null
+			caller_id = null
 	return 1
 
 /obj/machinery/hologram/holopad/machinery_process()
@@ -282,7 +282,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(last_request + 200 < world.time && incoming_connection==1)
 		incoming_connection = 0
 		world<<"[caller_id]"
-		end_call(caller_id)
+		end_call()
 		if(sourcepad)
 			sourcepad.audible_message("<i><span class='game say'>The holopad connection timed out</span></i>")
 			sourcepad = 0
@@ -291,7 +291,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			sourcepad.visible_message("Severing connection to distant holopad.")
 			visible_message("The connection has been terminated by [caller_id].")
 			world<<"[caller_id]"
-			end_call(caller_id)
+			end_call()
 	return 1
 
 /obj/machinery/hologram/holopad/proc/move_hologram(mob/living/silicon/ai/user)
