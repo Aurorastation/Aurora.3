@@ -9,11 +9,7 @@
 				AO.update_aiming_deferred()
 
 /obj/aiming_overlay/proc/trigger(var/perm)
-	if(!owner || !aiming_with || !aiming_at || !locked)
-		return
-	if(perm && (target_permissions & perm))
-		return
-	if(!owner.canClick())
+	if(!owner || !aiming_with || !aiming_at || !locked || (perm && (target_permissions & perm)) || !owner.canClick())
 		return
 	owner.setClickCooldown(5) // Spam prevention, essentially.
 	owner.visible_message("<span class='danger'>\The [owner] pulls the trigger reflexively!</span>")
@@ -25,7 +21,7 @@
 	toggle_active()
 	if (owner.client)
 		owner.client.remove_gun_icons()
-	
+
 /mob/living/ClickOn(var/atom/A, var/params)
 	. = ..()
 	trigger_aiming(TARGET_CAN_CLICK)
