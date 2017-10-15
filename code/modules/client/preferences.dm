@@ -28,6 +28,7 @@ datum/preferences
 	var/UI_style_alpha = 255
 	var/motd_hash = ""					//Hashes for the new server greeting window.
 	var/memo_hash = ""
+	var/safety_check = FALSE //Checks if you are on non-harm when firing. Defaults off.
 
 	//character preferences
 	var/real_name						//our character's name
@@ -141,6 +142,8 @@ datum/preferences
 	var/datum/category_collection/player_setup_collection/player_setup
 
 	var/dress_mob = TRUE
+
+
 
 /datum/preferences/New(client/C)
 	new_setup()

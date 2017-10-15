@@ -1,4 +1,5 @@
 //toggles
+
 /client/verb/toggle_ghost_ears()
 	set name = "Show/Hide GhostEars"
 	set category = "Preferences"
@@ -156,7 +157,7 @@
 		src << "You will now see space parallax effects."
 	else
 		src << "You will no longer see space parallax effects."
-	
+
 	if (mob.hud_used)
 		mob.hud_used.update_parallax()
 
@@ -171,7 +172,7 @@
 		src << "You will now see space parallax dust effects."
 	else
 		src << "You will no longer see space parallax dust effects."
-	
+
 	if (mob.hud_used)
 		mob.hud_used.update_parallax()
 
@@ -214,3 +215,13 @@
 		src << "Space will no longer move."
 	else
 		src << "Space will now move."
+
+/client/verb/toggle_safety_check()
+
+	set name = "Toggle Gun Safety Check"
+	set category = "Preferences"
+	set desc = "Toggles checking for harm intent when firing."
+
+	prefs.parallax_togs ^= SAFETY_CHECK //Held in Parallax because we don't want to deal with an SQL migration right now.
+	prefs.save_preferences()
+	src << "Your guns will [(prefs.parallax_togs & SAFETY_CHECK) ? "no longer" : "now"] fire on non-help intents."
