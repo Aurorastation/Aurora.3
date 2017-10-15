@@ -1,5 +1,5 @@
 /proc/is_listening_to_movement(var/atom/movable/listening_to, var/listener)
-	return !!(listening_to.move_listeners && listening_to.move_listeners[listener])
+	return moved_event.is_listening(listening_to, listener)
 
 datum/unit_test/observation
 	name = "OBSERVATION template"
@@ -19,8 +19,8 @@ datum/unit_test/observation/moved_observer_shall_register_on_follow/start_test()
 	else
 		fail("The observer is not following the mob.")
 
-	qdel(H)
-	qdel(O)
+	QDEL_IN(H, 10 SECONDS)
+	QDEL_IN(O, 10 SECONDS)
 	return 1
 
 datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow
@@ -38,8 +38,8 @@ datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow/start_te
 	else
 		fail("The observer is still following the mob.")
 
-	qdel(H)
-	qdel(O)
+	QDEL_IN(H, 10 SECONDS)
+	QDEL_IN(O, 10 SECONDS)
 	return 1
 
 datum/unit_test/observation/moved_shall_not_register_on_enter_without_listeners
@@ -56,8 +56,8 @@ datum/unit_test/observation/moved_shall_not_register_on_enter_without_listeners/
 	else
 		fail("The mob has registered to the closet's moved event.")
 
-	qdel(C)
-	qdel(H)
+	QDEL_IN(C, 10 SECONDS)
+	QDEL_IN(H, 10 SECONDS)
 	return 1
 
 datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener
@@ -78,9 +78,9 @@ datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener/st
 	else
 		fail("Recursive moved registration failed. Human listening to closet: [listening_to_closet] - Observer listening to human: [listening_to_human]")
 
-	qdel(C)
-	qdel(H)
-	qdel(O)
+	QDEL_IN(C, 10 SECONDS)
+	QDEL_IN(H, 10 SECONDS)
+	QDEL_IN(O, 10 SECONDS)
 	return 1
 
 datum/unit_test/observation/moved_shall_registers_recursively_with_existing_listener
@@ -101,8 +101,8 @@ datum/unit_test/observation/moved_shall_registers_recursively_with_existing_list
 	else
 		fail("Recursive moved registration failed. Human listening to closet: [listening_to_closet] - Observer listening to human: [listening_to_human]")
 
-	qdel(C)
-	qdel(H)
-	qdel(O)
+	QDEL_IN(C, 10 SECONDS)
+	QDEL_IN(H, 10 SECONDS)
+	QDEL_IN(O, 10 SECONDS)
 
 	return 1
