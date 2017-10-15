@@ -19,7 +19,7 @@ var/list/sacrificed = list()
 	allrunesloc = new/list()
 	var/index = 0
 //	var/tempnum = 0
-	for(var/obj/effect/rune/R in world)
+	for(var/obj/effect/rune/R in rune_list)
 		if(R == src)
 			continue
 		if(R.word1 == cultwords["travel"] && R.word2 == cultwords["self"] && R.word3 == key && isPlayerLevel(R.z))
