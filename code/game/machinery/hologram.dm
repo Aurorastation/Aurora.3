@@ -116,7 +116,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 /obj/machinery/hologram/holopad/proc/end_call(mob/user)
 	caller_id.unset_machine()
 	caller_id.reset_view() //Send the caller back to his body
-	clear_holo(0, caller_id) // destroy the hologram
+	clear_holo(null, caller_id) // destroy the hologram
 	caller_id = null
 
 /obj/machinery/hologram/holopad/proc/activate_holocall(mob/living/carbon/caller_id)
