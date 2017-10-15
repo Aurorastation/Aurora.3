@@ -262,16 +262,15 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	return 1
 
 /obj/machinery/hologram/holopad/machinery_process()
-	if(masters.len)
-		for (var/mob/living/silicon/ai/master in masters)
-			var/active_ai = (master && !master.incapacitated() && master.client && master.eyeobj)//If there is an AI with an eye attached, it's not incapacitated, and it has a client
-			if((stat & NOPOWER) || !active_ai)
-				clear_holo(master)
-				continue
+	for (var/mob/living/silicon/ai/master in masters)
+		var/active_ai = (master && !master.incapacitated() && master.client && master.eyeobj)//If there is an AI with an eye attached, it's not incapacitated, and it has a client
+		if((stat & NOPOWER) || !active_ai)
+			clear_holo(master)
+			continue
 
-			if(!(masters[master] in view(src)))
-				clear_holo(master)
-				continue
+		if(!(masters[master] in view(src)))
+			clear_holo(master)
+			continue
 
 		use_power(power_per_hologram)
 	if(last_request + 200 < world.time && incoming_connection==1)
