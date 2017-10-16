@@ -493,20 +493,13 @@
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
-	name = "sand"
-	icon = 'icons/turf/smooth/ash.dmi'
-	icon_state = "ash"
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	canSmoothWith = list(
-		/turf/simulated/floor/asteroid,
-		/turf/simulated/mineral,
-		/turf/simulated/wall,
-		/turf/simulated/shuttle
-	)
-	base_name = "sand"
-	base_desc = "Gritty and unpleasant."
-	base_icon = 'icons/turf/smooth/ash.dmi'
-	base_icon_state = "ash"
+	name = "\proper basalt"
+	icon = 'icons/turf/basalt.dmi'
+	icon_state = "basalt"
+	base_name = "basalt"
+	base_desc = "Dark volcanic rock."
+	base_icon = 'icons/turf/basalt.dmi'
+	base_icon_state = "basalt"
 
 	initial_flooring = null
 	oxygen = 0
@@ -539,9 +532,10 @@
 	if (mapload && permit_ao)
 		queue_ao()
 
+	if (prob(20))
+		icon_state = "basalt[rand(0,12)]"
+
 	if (smooth)
-		pixel_x = -4
-		pixel_y = -4
 		queue_smooth(src)
 
 	return INITIALIZE_HINT_NORMAL
@@ -793,3 +787,17 @@
 /turf/simulated/mineral/Destroy()
 	clear_ore_effects()
 	. = ..()
+
+// These are pricey, but damm do they look nice.
+/turf/simulated/lava
+	icon = 'icons/turf/smooth/lava.dmi'
+	icon_state = "smooth"
+	smooth = SMOOTH_TRUE | SMOOTH_BORDER
+	light_color = LIGHT_COLOR_FIRE
+	light_range = 2
+	name = "lava"
+	desc = "Toasty."
+	canSmoothWith = list(
+		/turf/simulated/lava,
+		/turf/simulated/mineral
+	)
