@@ -1538,4 +1538,4 @@
 	. = ..()
 	if (. && h_style == "Floor Length Braid" && prob(1))
 		Weaken(1)
-		visible_message("[src] trips on their hair.", "You trip on your hair.", "You hear a thump.)
+		visible_message("[src] trips on their hair.", "You trip on your hair.", "You hear a thump.")
