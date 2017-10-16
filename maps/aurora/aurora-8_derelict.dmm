@@ -3262,11 +3262,6 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "kr" = (
-/obj/machinery/light/small{
-	icon_state = "bulb-broken";
-	dir = 8;
-	base_state = "bulb-broken"
-	},
 /obj/structure/table/standard,
 /obj/item/weapon/scalpel,
 /obj/item/device/mass_spectrometer,
@@ -5147,7 +5142,7 @@
 "pB" = (
 /obj/structure/table/glass,
 /obj/item/device/radio{
-	anchored = 1;
+	anchored = 0;
 	broadcasting = 0;
 	canhear_range = 4;
 	desc = "Are you going to make the call?";
@@ -37130,7 +37125,7 @@ aa
 ac
 df
 iu
-up
+ac
 iX
 uR
 ir
@@ -38897,7 +38892,7 @@ ac
 aa
 aa
 aa
-nB
+aa
 aA
 ac
 ac
@@ -46596,7 +46591,7 @@ aa
 ac
 ir
 iq
-jB
+jz
 jz
 jz
 jz
