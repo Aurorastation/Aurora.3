@@ -6,6 +6,9 @@
 // This list is what the code that assigns corners listens to, the order in this list is the order in which corners are added to the /turf/corners list.
 /var/list/LIGHTING_CORNER_DIAGONAL = list(NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST)
 
+// This is the reverse of the above - the position in the array is a dir. Update this if the above changes.
+var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 1, 2, 0, 0, 4, 3)
+
 /datum/lighting_corner
 	var/list/turf/masters
 	var/list/datum/light_source/affecting // Light sources affecting us.
@@ -27,9 +30,7 @@
 	var/cache_b  = LIGHTING_SOFT_THRESHOLD
 	var/cache_mx = 0
 
-/datum/lighting_corner/New(var/turf/new_turf, var/diagonal)
-	. = ..()
-
+/datum/lighting_corner/New(turf/new_turf, diagonal)
 	SSlighting.lighting_corners += src
 
 	masters = list()
@@ -56,7 +57,7 @@
 			T.corners = list(null, null, null, null)
 
 		masters[T]   = diagonal
-		i            = LIGHTING_CORNER_DIAGONAL.Find(turn(diagonal, 180))
+		i = REVERSE_LIGHTING_CORNER_DIAGONAL[reverse_dir[diagonal]]
 		T.corners[i] = src
 
 	// Now the horizontal one.
@@ -66,7 +67,7 @@
 			T.corners = list(null, null, null, null)
 
 		masters[T]   = ((T.x > x) ? EAST : WEST) | ((T.y > y) ? NORTH : SOUTH) // Get the dir based on coordinates.
-		i            = LIGHTING_CORNER_DIAGONAL.Find(turn(masters[T], 180))
+		i = REVERSE_LIGHTING_CORNER_DIAGONAL[reverse_dir[masters[T]]]
 		T.corners[i] = src
 
 	// And finally the vertical one.
@@ -76,7 +77,7 @@
 			T.corners = list(null, null, null, null)
 
 		masters[T]   = ((T.x > x) ? EAST : WEST) | ((T.y > y) ? NORTH : SOUTH) // Get the dir based on coordinates.
-		i            = LIGHTING_CORNER_DIAGONAL.Find(turn(masters[T], 180))
+		i = REVERSE_LIGHTING_CORNER_DIAGONAL[reverse_dir[masters[T]]]
 		T.corners[i] = src
 
 	update_active()
@@ -92,13 +93,13 @@
 			break
 
 // God that was a mess, now to do the rest of the corner code! Hooray!
-/datum/lighting_corner/proc/update_lumcount(var/delta_r, var/delta_g, var/delta_b, var/delta_u, var/now = FALSE)
+/datum/lighting_corner/proc/update_lumcount(delta_r, delta_g, delta_b, delta_u, now = FALSE)
 	lum_r += delta_r
 	lum_g += delta_g
 	lum_b += delta_b
 	lum_u += delta_u
 
-	if (needs_update)
+	if (needs_update || !(delta_r + delta_g + delta_b))	// Don't check u since the overlay doesn't care about it.
 		return
 
 	if (!now)
@@ -108,7 +109,7 @@
 	else
 		update_overlays(TRUE)
 
-/datum/lighting_corner/proc/update_overlays(var/now = FALSE)
+/datum/lighting_corner/proc/update_overlays(now = FALSE)
 
 	// Cache these values a head of time so 4 individual lighting overlays don't all calculate them individually.
 	var/mx = max(lum_r, lum_g, lum_b) // Scale it so 1 is the strongest lum, if it is above 1.
