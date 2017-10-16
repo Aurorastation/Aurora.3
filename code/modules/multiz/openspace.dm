@@ -3,7 +3,7 @@
 /turf
 	// Reference to any open turf that might be above us to speed up atom Entered() updates.
 	var/tmp/turf/simulated/open/above
-	//var/tmp/oo_light_set	// If the turf has had a light set by starlight.
+	var/tmp/atom/movable/openspace/turf_overlay/bound_overlay
 
 /turf/Entered(atom/movable/thing, atom/oldLoc)
 	. = ..()
@@ -12,6 +12,8 @@
 
 /turf/Destroy()
 	above = null
+	if (bound_overlay)
+		QDEL_NULL(bound_overlay)
 	return ..()
 
 /turf/update_above()
@@ -158,3 +160,19 @@
 /atom/movable/openspace/overlay/proc/owning_turf_changed()
 	if (!destruction_timer)
 		destruction_timer = addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, src), 10 SECONDS, TIMER_STOPPABLE)
+
+// This one's a little different because it's mimicing a turf. These should (hopefully) be uncommon.
+/atom/movable/openspace/turf_overlay
+	plane = OPENTURF_MAX_PLANE
+
+/atom/movable/openspace/turf_overlay/attackby(obj/item/W, mob/user)
+	loc.attackby(W, user)
+
+/atom/movable/openspace/turf_overlay/attack_hand(mob/user as mob)
+	loc.attack_hand(user)
+
+/atom/movable/openspace/turf_overlay/attack_generic(mob/user as mob)
+	loc.attack_generic(user)
+
+/atom/movable/openspace/turf_overlay/examine(mob/examiner)
+	loc.examine(examiner)

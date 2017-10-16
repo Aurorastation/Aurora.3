@@ -123,22 +123,50 @@
 		if (depth > OPENTURF_MAX_DEPTH)
 			depth = OPENTURF_MAX_DEPTH
 
-		// Update the openturf itself.
-		T.appearance = T.below
-		T.name = initial(T.name)
-		T.desc = "Below seems to be \a [T.below]."
-		T.opacity = FALSE
-		T.queue_ao()	// No need to recalculate ajacencies, shouldn't have changed.
+		var/target_plane
 
 		// Handle space parallax & starlight.
 		if (T.is_above_space())
-			T.plane = PLANE_SPACE_BACKGROUND
+			target_plane = PLANE_SPACE_BACKGROUND
 			if (starlight_enabled && !T.light_range)
 				T.set_light(config.starlight, 0.5)
 		else
-			T.plane = OPENTURF_MAX_PLANE - depth
+			target_plane = OPENTURF_MAX_PLANE - depth
 			if (starlight_enabled && T.light_range)
 				T.set_light(0)
+
+		if (T.use_underlay)
+			// Some openturfs have icons, so we can't overwrite their appearance.
+			T.underlays.Cut()
+			if (T.below.pixel_x || T.below.pixel_y)
+				// Can't use pixel_* on an underlay, so we need a movable.
+				if (!T.below.bound_overlay)
+					T.below.bound_overlay = new(T)
+				var/atom/movable/openspace/turf_overlay/TO = T.below.bound_overlay
+				TO.appearance = T.below
+				TO.name = T.name
+				TO.desc = "Below seems to be \a [T.below]."
+				TO.plane = target_plane
+			else
+				if (T.below.bound_overlay)
+					QDEL_NULL(T.below.bound_overlay)
+				var/mutable_appearance/MA = new(T.below)
+				MA.plane = target_plane
+				MA.layer -= 10
+				T.underlays += MA
+			T.plane = 0
+			T.layer = TURF_LAYER
+		else
+			// This openturf doesn't care about its icon, so we can just overwrite it.
+			if (T.below.bound_overlay)
+				QDEL_NULL(T.below.bound_overlay)
+			T.appearance = T.below
+			T.name = initial(T.name)
+			T.opacity = FALSE
+			T.plane = target_plane
+
+		T.desc = "Below seems to be \a [T.below]."
+		T.queue_ao()	// No need to recalculate ajacencies, shouldn't have changed.
 
 		// Add everything below us to the update queue.
 		for (var/thing in T.below)

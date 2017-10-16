@@ -47,6 +47,8 @@
 	var/tmp/list/climbers									// A lazy list to contain a list of mobs who are currently scaling
 															// up this turf. Used in human/can_fall.
 
+	var/use_underlay = FALSE
+
 // An override of turf/Enter() to make it so that magboots allow you to stop
 // falling off the damned rock.
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
@@ -159,6 +161,16 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
+
+/turf/simulated/open/airless/chasm
+	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
+	icon_state = "smooth"
+	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	use_underlay = TRUE
+
+/turf/simulated/open/airless/chasm/Initialize()
+	. = ..()
+	icon_state = "Fill"
 
 /turf/simulated/open/post_change()
 	..()
