@@ -477,7 +477,7 @@
 	taste_description = "emptyness"
 
 /datum/reagent/black_matter/touch_turf(var/turf/T)
-	new /obj/effect/bhole(T, volume)
+	new /obj/effect/portal/wormhole/jaunt_tunnel(T, volume)
 	remove_self(volume)
 	return
 
