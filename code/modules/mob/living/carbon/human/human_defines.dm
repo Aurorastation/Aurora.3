@@ -106,3 +106,6 @@
 	var/last_y = 0
 
 	var/cached_bodytype
+
+	var/list/movement_triggers
+	var/datum/callback/hair_trip_callback

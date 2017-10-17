@@ -392,6 +392,14 @@ There are several things that need to be remembered:
 
 	overlays_raw[HAIR_LAYER] = hair_icon
 
+	if (h_style == "Floorlength Braid" && has_visible_hair)
+		if (!hair_trip_callback)
+			hair_trip_callback = CALLBACK(src, .proc/trip, "hair")
+			LAZYSET(movement_triggers, hair_trip_callback, 0.05)	// 0.05% chance
+	else if (hair_trip_callback)
+		LAZYREMOVE(movement_triggers, hair_trip_callback)
+		hair_trip_callback = null
+
 	if(update_icons)
 		update_icons()
 
