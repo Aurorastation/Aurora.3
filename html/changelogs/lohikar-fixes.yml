@@ -1,0 +1,5 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - bugfix: "Parallax preferences now actually get loaded, because apparently that's important or something."
+  - bugfix: "Shuttles should now longer get mysterious square shadows."
