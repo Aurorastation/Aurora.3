@@ -503,10 +503,12 @@
 		if("AI")
 			Debug("EP/([H]): Abort, H is AI.")
 			return EquipRank(H, rank, 1)
-	if(spawning_at != "Arrivals Shuttle")
-		return EquipRank(H, rank, 1)
 
 	var/datum/job/job = GetJob(rank)
+
+	if(spawning_at != "Arrivals Shuttle" || job.latejoin_at_spawnpoints)
+		return EquipRank(H, rank, 1)
+
 	var/list/spawn_in_storage = list()
 	H <<"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>"
 
