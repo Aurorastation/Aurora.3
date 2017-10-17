@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - tweak: "(Most) reactions are no longer instant, instead converting half the reagents instantly and the rest a moment later."
