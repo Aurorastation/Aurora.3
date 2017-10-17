@@ -503,5 +503,5 @@
 	name = "Philosopher's Stone"
 	id = "philosopher_stone"
 	description = "A mythical compound, rumored to be the catalyst of fantastic reactions."
-	color = "#1f8999"
+	color = "#f4c430"
 	taste_description = "heavenly knowledge"

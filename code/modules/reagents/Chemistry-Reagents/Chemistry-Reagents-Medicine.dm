@@ -615,17 +615,17 @@
 	description = "Azoth is a miraculous medicine, capable of healing internal injuries."
 	reagent_state = LIQUID
 	color = "#BF0000"
-	metabolism = REM * 1.5
-	taste_description = "metal"
+	taste_description = "bitter metal"
+	overdose = 5
 
 /datum/reagent/azoth/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		for (var/a in H.organs)
-			var/obj/item/organ/external/E = a
-			for (var/w in E.wounds)
-				var/datum/wound/W = w
+		for (var/A in H.organs)
+			var/obj/item/organ/external/E = A
+			for (var/X in E.wounds)
+				var/datum/wound/W = X
 				if (W && W.internal)
 					E.wounds -= W
 					return 1
@@ -634,3 +634,21 @@
 				E.status &= ~ORGAN_BROKEN
 				E.stage = 0
 				return 1
+
+/datum/reagent/azoth/overdose(var/mob/living/carbon/M, var/alien)
+	M.adjustBruteLoss(5)
+
+/datum/reagent/elixir
+	name = "Elixir of Life"
+	id = "elixir_life"
+	description = "A mythical substance, the cure for the ultimate illness."
+	color = "#ffd700"
+	affects_dead = 1
+	taste_description = "eternal blissfulness"
+
+/datum/reagent/elixir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(ishuman(M))
+		if(M && M.stat == DEAD)
+			M.stat = 0
+			M.visible_message("<span class='danger'>\The [M] shudders violently!!</span>")
