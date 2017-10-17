@@ -7,7 +7,7 @@
 /var/list/LIGHTING_CORNER_DIAGONAL = list(NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST)
 
 // This is the reverse of the above - the position in the array is a dir. Update this if the above changes.
-var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 1, 2, 0, 0, 4, 3)
+var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 
 /datum/lighting_corner
 	var/turf/t1	// These are in no particular order.
@@ -37,10 +37,7 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 1, 2, 0, 0, 4, 3)
 /datum/lighting_corner/New(var/turf/new_turf, var/diagonal)
 	SSlighting.lighting_corners += src
 
-	var/list/masters = list()
-
 	t1 = new_turf
-	masters[new_turf] = turn(diagonal, 180)
 	z = new_turf.z
 
 	var/vertical   = diagonal & ~(diagonal - 1) // The horizontal directions (4 and 8) are bigger than the vertical ones (1 and 2), so we can reliably say the lsb is the horizontal direction.
@@ -62,8 +59,7 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 1, 2, 0, 0, 4, 3)
 			T.corners = list(null, null, null, null)
 
 		t2 = T
-		masters[T]   = diagonal
-		i = REVERSE_LIGHTING_CORNER_DIAGONAL[reverse_dir[diagonal]]
+		i = REVERSE_LIGHTING_CORNER_DIAGONAL[diagonal]
 		T.corners[i] = src
 
 	// Now the horizontal one.
@@ -73,8 +69,7 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 1, 2, 0, 0, 4, 3)
 			T.corners = list(null, null, null, null)
 
 		t3 = T
-		masters[T]   = ((T.x > x) ? EAST : WEST) | ((T.y > y) ? NORTH : SOUTH) // Get the dir based on coordinates.
-		i = REVERSE_LIGHTING_CORNER_DIAGONAL[reverse_dir[masters[T]]]
+		i = REVERSE_LIGHTING_CORNER_DIAGONAL[((T.x > x) ? EAST : WEST) | ((T.y > y) ? NORTH : SOUTH)] // Get the dir based on coordinates.
 		T.corners[i] = src
 
 	// And finally the vertical one.
@@ -84,8 +79,7 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 1, 2, 0, 0, 4, 3)
 			T.corners = list(null, null, null, null)
 
 		t4 = T
-		masters[T]   = ((T.x > x) ? EAST : WEST) | ((T.y > y) ? NORTH : SOUTH) // Get the dir based on coordinates.
-		i = REVERSE_LIGHTING_CORNER_DIAGONAL[reverse_dir[masters[T]]]
+		i = REVERSE_LIGHTING_CORNER_DIAGONAL[((T.x > x) ? EAST : WEST) | ((T.y > y) ? NORTH : SOUTH)] // Get the dir based on coordinates.
 		T.corners[i] = src
 
 	update_active()
