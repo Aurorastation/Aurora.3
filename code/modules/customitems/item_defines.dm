@@ -1403,15 +1403,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	if (use_check(usr)) return
 
-	var/style = input("You change the shirt to;","Change the shirt style") as null|anything in list("Eiffel Tower Diner","Pyramids of Giza Café","Phoenixport","New Parthenon")
+	var/style = input("You change the shirt to;","Change the shirt style") as null|anything in list("Eiffel Tower Diner","Pyramids of Giza CafÃ©","Phoenixport","New Parthenon")
 	switch(style)
 		if("Eiffel Tower Diner")
 			item_state = "harley_uniform"
 			desc = "A white t-shirt with the writing \"Eiffel Tower Diner\" on it in a small font, below a recreation of the famous monument in question, the Eiffel Tower."
 
-		if("Pyramids of Giza Café")
+		if("Pyramids of Giza CafÃ©")
 			item_state = "harley_uniform_1"
-			desc = "A white t-shirt with \"GIZA CAFÉ\" written in large, retro font, with a small background. It looks slightly well-worn."
+			desc = "A white t-shirt with \"GIZA CAFÃ‰\" written in large, retro font, with a small background. It looks slightly well-worn."
 
 		if("Phoenixport")
 			item_state = "harley_uniform_2"
@@ -1435,7 +1435,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/device/camera/fluff/hadley_camera //Hadley's Camera - Hadley Dawson - fekkor
 	name = "customized camera"
-	desc = "A early 2450's Sunny camera with an adjustable lens, this one has a sticker with \"Hadley's\" on the back."
+	desc = "A early 2450's Sunny camera with an adjustable lens, this one has a sticker with the name \"Hadley\" on the back."
 	icon = 'icons/obj/custom_items/hadley_camera.dmi'
 	icon_state = "hadley_camera"
 	icon_on = "hadley_camera"
