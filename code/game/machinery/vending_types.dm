@@ -506,11 +506,13 @@
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,
-		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4
+		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4,
+		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6
 	)
 	contraband = list(
 		/obj/item/weapon/material/kitchen/rollingpin = 2,
-		/obj/item/weapon/material/knife/butch = 2
+		/obj/item/weapon/material/knife/butch = 2,
+		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
 
 /obj/machinery/vending/sovietsoda
