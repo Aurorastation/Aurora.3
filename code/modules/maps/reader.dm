@@ -408,7 +408,7 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	var/position
 	var/old_position = 1
-	var/l_idex = 1
+	var/list_index = 1
 
 	do
 		//find next delimiter that is not within  "..."
@@ -423,11 +423,10 @@ var/global/dmm_suite/preloader/_preloader = new
 		if(equal_position)//associative var, so do the association
 			var/trim_right = trim_text(copytext(text,equal_position+1,position))//the content of the variable
 			to_return[trim_left] = readlistitem(trim_right)
-		else	//simple var
+			list_index++
+		else if (length(trim_left))	//simple var
 			to_return.len++
-			to_return[l_idex] = readlistitem(trim_left)
-
-		l_idex++
+			to_return[list_index++] = readlistitem(trim_left)
 
 	while(position != 0)
 
