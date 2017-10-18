@@ -354,20 +354,11 @@
 
 	//Add some rubble,  you did just clear out a big chunk of rock.
 
-	var/turf/simulated/floor/asteroid/N = ChangeTurf(mined_turf)
-
-	// Kill and update the space overlays around us.
-	for(var/direction in cardinal)
-		var/turf/simulated/open/O = get_step(src, direction)
-		if(istype(O))
-			O.update()
+	ChangeTurf(mined_turf)
 
 	if(rand(1,500) == 1)
 		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
 		new /obj/structure/closet/crate/secure/loot(src)
-
-	if(istype(N))
-		N.overlay_detail = rand(0,9)
 
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
 	//with skill and luck, players can cleanly extract finds
@@ -506,12 +497,18 @@
 	nitrogen = 0
 	temperature = TCMB
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
-	var/overlay_detail
 	var/digging
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
 	roof_type = null
+
+/turf/simulated/floor/asteroid/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.icon = icon
+	underlay_appearance.icon_state = "basalt"
+	if (prob(20))
+		underlay_appearance.icon_state += "[rand(0,12)]"
+	return TRUE
 
 // Copypaste parent for performance.
 /turf/simulated/floor/asteroid/Initialize(mapload)
@@ -526,9 +523,6 @@
 	else
 		luminosity = 1
 
-	if(prob(20))
-		overlay_detail = rand(0,9)
-
 	if (mapload && permit_ao)
 		queue_ao()
 
@@ -539,11 +533,6 @@
 		queue_smooth(src)
 
 	return INITIALIZE_HINT_NORMAL
-
-/turf/simulated/floor/asteroid/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	. = ..()
-	underlay_appearance.pixel_x = pixel_x
-	underlay_appearance.pixel_y = pixel_y
 
 /turf/simulated/floor/asteroid/ex_act(severity)
 	switch(severity)
@@ -801,3 +790,10 @@
 		/turf/simulated/lava,
 		/turf/simulated/mineral
 	)
+
+/turf/simulated/lava/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.icon = 'icons/turf/basalt.dmi'
+	underlay_appearance.icon_state = "basalt"
+	if (prob(20))
+		underlay_appearance.icon_state += "[rand(0,12)]"
+	return TRUE
