@@ -62,6 +62,12 @@
 	var/centcomm_area = 0
 	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
 
+// Don't move this to Initialize(). DMMS needs this, and it runs before SSatoms does.
+/area/New()
+	if (!areas_by_type[type])
+		areas_by_type[type] = src
+	. = ..()
+
 /area/Initialize(mapload)
 	icon_state = "white"
 	layer = 10
@@ -403,7 +409,7 @@ var/list/mob/living/forced_ambiance_list = new
 		if(!Y)
 			continue
 		var/area/A = Y
-		if(!(A.z in config.station_levels))
+		if(!(A.z in current_map.station_levels))
 			continue
 		if (istype(A, /area/shuttle))
 			continue

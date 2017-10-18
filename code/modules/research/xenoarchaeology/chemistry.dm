@@ -26,7 +26,7 @@ obj/item/weapon/reagent_containers/glass/solution_tray/attackby(obj/item/weapon/
 	name = "solution tray box"
 	icon_state = "solution_trays"
 
-	New()
+	fill()
 		..()
 		new /obj/item/weapon/reagent_containers/glass/solution_tray( src )
 		new /obj/item/weapon/reagent_containers/glass/solution_tray( src )
@@ -38,53 +38,45 @@ obj/item/weapon/reagent_containers/glass/solution_tray/attackby(obj/item/weapon/
 
 /obj/item/weapon/reagent_containers/glass/beaker/tungsten
 	name = "beaker 'tungsten'"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("tungsten",50)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/oxygen
 	name = "beaker 'oxygen'"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("acetone",50)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/sodium
 	name = "beaker 'sodium'"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("sodium",50)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/lithium
 	name = "beaker 'lithium'"
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("lithium",50)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/water
 	name = "beaker 'water'"
 
-	New()
-		..()
-		reagents.add_reagent("water",50)
-		update_icon()
-
-/obj/item/weapon/reagent_containers/glass/beaker/water
-	name = "beaker 'water'"
-
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("water",50)
 		update_icon()
 
 /obj/item/weapon/reagent_containers/glass/beaker/fuel
 	name = "beaker 'fuel'"
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("fuel",50)
 		update_icon()

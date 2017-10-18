@@ -459,11 +459,11 @@
 	glasstype = /obj/item/stack/material/glass/reinforced
 
 
-/obj/structure/window/New(Loc, constructed=0)
-	..()
+/obj/structure/window/Initialize(mapload, constructed = 0)
+	. = ..()
 
 	//player-constructed windows
-	if (constructed)
+	if (!mapload && constructed)
 		state = 0
 
 /obj/structure/window/reinforced/full

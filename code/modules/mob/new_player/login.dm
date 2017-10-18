@@ -8,14 +8,16 @@
 
 /obj/effect/lobby_image/New()
 	..()
+	if (current_map.lobby_icon)
+		icon = current_map.lobby_icon
 	var/list/known_icon_states = icon_states(icon)
-	for(var/lobby_screen in config.lobby_screens)
+	for(var/lobby_screen in current_map.lobby_screens)
 		if(!(lobby_screen in known_icon_states))
 			error("Lobby screen '[lobby_screen]' did not exist in the icon set [icon].")
-			config.lobby_screens -= lobby_screen
+			current_map.lobby_screens -= lobby_screen
 
-	if(config.lobby_screens.len)
-		icon_state = pick(config.lobby_screens)
+	if(current_map.lobby_screens.len)
+		icon_state = pick(current_map.lobby_screens)
 	else
 		icon_state = known_icon_states[1]
 
