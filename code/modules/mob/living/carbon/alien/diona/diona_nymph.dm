@@ -4,34 +4,43 @@
 
 //Diona time variables, these differ slightly between a gestalt and a nymph. All values are times in seconds
 /mob/living/carbon/alien/diona
-	var/datum/reagents/vessel
-	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
 	max_nutrition = 6000
 	language = null
-	var/energy_duration = 144//The time in seconds that this diona can exist in total darkness before its energy runs out
-	var/dark_consciousness = 144//How long this diona can stay on its feet and keep moving in darkness after energy is gone.
-	var/dark_survival = 216//How long this diona can survive in darkness after energy is gone, before it dies
-	var/datum/dionastats/DS
 	mob_size = 4
 	density = 0
 	mouth_size = 2//how large of a creature it can swallow at once, and how big of a bite it can take out of larger things
 	eat_types = 0//This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
 	composition_reagent = "nutriment"//Dionae are plants, so eating them doesn't give animal protein
-	var/mob/living/carbon/gestalt = null//If set, then this nymph is inside a gestalt
 	name = "diona nymph"
 	voice_name = "diona nymph"
 	adult_form = /mob/living/carbon/human
 	speak_emote = list("chirrups")
+	icon = 'icons/mob/diona.dmi'
 	icon_state = "nymph"
 	death_msg = "expires with a pitiful chirrup..."
 	universal_understand = 0
 	universal_speak = 0
 	holder_type = /obj/item/weapon/holder/diona
+	maxHealth = 85
+	pass_flags = PASSTABLE
+
+	// Decorative head flower.
+	var/flower_color
+	var/image/flower_image
+
 	var/list/sampled_DNA
 	var/list/language_progress
 	var/obj/item/clothing/head/hat
-	maxHealth = 85
-	pass_flags = PASSTABLE
+	var/datum/reagents/vessel
+	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
+	var/energy_duration = 144                 // The time in seconds that this diona can exist in total darkness before its energy runs out
+	var/dark_consciousness = 144              // How long this diona can stay on its feet and keep moving in darkness after energy is gone.
+	var/dark_survival = 216                   // How long this diona can survive in darkness after energy is gone, before it dies
+	var/datum/dionastats/DS
+	var/mob/living/carbon/gestalt = null      // If set, then this nymph is inside a gestalt
+
+/mob/living/carbon/alien/diona/flowery/Initialize(var/mapload)
+	. = ..(mapload, 100)
 
 /mob/living/carbon/alien/diona/movement_delay()
 	. = ..()
@@ -49,8 +58,10 @@
 	else
 		..()
 
-/mob/living/carbon/alien/diona/Initialize()
-	. = ..()
+/mob/living/carbon/alien/diona/Initialize(var/mapload, var/flower_chance = 5)
+	if(prob(flower_chance))
+		flower_color = get_random_colour(1)
+	. = ..(mapload)
 	//species = all_species[]
 	set_species("Diona")
 	setup_dionastats()

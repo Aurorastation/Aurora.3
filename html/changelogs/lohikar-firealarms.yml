@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - imageadd: "APCs now have west/east icon states."
-  - maptweak: "Fire alarms should no longer have inconsistent offsets on walls."
