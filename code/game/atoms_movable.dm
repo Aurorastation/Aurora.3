@@ -290,8 +290,8 @@ var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
 	. = ..()
 	if (.)
 		// Events.
-		if (move_listeners)
-			RaiseOnMove(src, old_loc, loc)
+		if (moved_event.listeners_assoc[src])
+			moved_event.raise_event(src, old_loc, loc)
 
 		// Parallax.
 		if (contained_mobs)
