@@ -108,7 +108,7 @@
 				A.state = 3
 				A.icon_state = "3"
 			else
-				user << "<span class='notice'>You disconnect the monitor.</span>"
+				user << "<span class='notice'>You disconnect the glass keyboard panel.</span>"
 				A.state = 4
 				A.icon_state = "4"
 			M.deconstruct(src)

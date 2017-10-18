@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "IPCs, dionae and other races that could not suffer oxygen damage, should be able to succumb now."

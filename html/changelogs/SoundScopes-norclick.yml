@@ -1,4 +1,0 @@
-author: SoundScopes
-delete-after: True
-changes: 
-  - rscdel: "Can no longer point at things using alt+rightclick due to hacky code"
