@@ -560,3 +560,32 @@
 			G.affecting.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
 		else
 			qdel(G)
+
+/mob/living/carbon/human/proc/pry_open(obj/machinery/door/A in filter_list(oview(1), /obj/machinery/door))
+	set name = "Pry Open Airlock"
+	set desc = "Pry open an airlock with your claws."
+	set category = "Abilities"
+
+	if(!istype(A) || incapacitated())
+		return
+
+	if(!A.Adjacent(src))
+		to_chat(src, "<span class='warning'>\The [A] is too far away.</span>")
+		return
+
+	if(!A.density)
+		return
+
+	src.visible_message("\The [src] begins to pry open \the [A]!")
+
+	if(!do_after(src,120,A))
+		return
+
+	if(!A.density)
+		return
+
+	A.do_animate("spark")
+	sleep(6)
+	A.stat |= BROKEN
+	var/check = A.open(1)
+	src.visible_message("\The [src] slices \the [A]'s controls[check ? ", ripping it open!" : ", breaking it!"]")
