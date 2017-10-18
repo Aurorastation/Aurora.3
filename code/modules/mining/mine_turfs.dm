@@ -491,6 +491,7 @@
 	base_desc = "Dark volcanic rock."
 	base_icon = 'icons/turf/basalt.dmi'
 	base_icon_state = "basalt"
+	light_color = LIGHT_COLOR_FIRE
 
 	initial_flooring = null
 	oxygen = 0
@@ -527,10 +528,21 @@
 		queue_ao()
 
 	if (prob(20))
-		icon_state = "basalt[rand(0,12)]"
+		var/variant = rand(0,12)
+		icon_state = "basalt[variant]"
+		switch (variant)
+			if (1, 2, 3)	// fair bit of lava visible, less weak light
+				light_power = 0.75
+				light_range = 2
+			if (5, 9)	// Not much lava visible, weak light
+				light_power = 0.5
+				light_range = 2
 
 	if (smooth)
 		queue_smooth(src)
+
+	if (light_range && light_power)
+		update_light()
 
 	return INITIALIZE_HINT_NORMAL
 
