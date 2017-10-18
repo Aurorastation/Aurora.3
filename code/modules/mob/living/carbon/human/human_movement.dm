@@ -116,18 +116,26 @@
 
 /mob/living/carbon/human/Move()
 	. = ..()
-	if (is_noisy && !stat && !lying)
-		var/turf/T = loc
-		if ((x == last_x && y == last_y) || !T.footstep_sound)
-			return
-		last_x = x
-		last_y = y
-		if (m_intent == "run")
-			playsound(src, T.footstep_sound, 70, 1)
-		else
-			footstep++
-			if (footstep % 2)
-				playsound(src, T.footstep_sound, 40, 1)
+	if (. && !stat && !lying && !buckled)
+		if (is_noisy)
+			var/turf/T = loc
+			if ((x == last_x && y == last_y) || !T.footstep_sound)
+				return
+			last_x = x
+			last_y = y
+			if (m_intent == "run")
+				playsound(src, T.footstep_sound, 70, 1)
+			else
+				footstep++
+				if (footstep % 2)
+					playsound(src, T.footstep_sound, 40, 1)
+
+		if (movement_triggers)
+			for (var/thing in movement_triggers)
+				if (prob(movement_triggers[thing]))
+					var/datum/callback/cb = thing
+					cb.InvokeAsync()
+					break
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

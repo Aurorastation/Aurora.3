@@ -77,6 +77,8 @@
 	pixel_y = species.icon_y_offset
 
 /mob/living/carbon/human/Destroy()
+	hair_trip_callback = null
+	movement_triggers = null
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
@@ -1533,3 +1535,11 @@
 	pulling_punches = !pulling_punches
 	src << "<span class='notice'>You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"].</span>"
 	return
+
+/mob/living/carbon/human/proc/trip(source)
+	Weaken(1)
+	visible_message(
+		"<span class='alert'>[src] trips on their [source].</span>", 
+		"<span class='danger'>You trip on your [source].</span>",
+		"You hear a thump."
+	)
