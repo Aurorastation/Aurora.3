@@ -15,7 +15,6 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "stdafx.h"
 #include <curl\curl.h>
 
 #define EXTERN_DLL_EXPORT extern "C" __declspec(dllexport)
