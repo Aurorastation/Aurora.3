@@ -8,3 +8,4 @@
 	unacidable = 1
 	var/obj/sample // the sample inside
 
+.
