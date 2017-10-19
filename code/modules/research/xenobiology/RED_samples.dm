@@ -6,6 +6,7 @@
 	w_class = 2
 	var/mob/mobDNA
 	var/long_desc
+	var/extended_desc
 	var/mob_name
 
 /obj/item/red_sample/proc/set_origin()
@@ -13,6 +14,7 @@
 		return 0
 	calculate_origin(mobDNA)
 	long_desc = mobDNA.long_desc
+	extended_desc = mobDNA.extended_desc
 	mob_name = mobDNA.name
 	mobDNA = null
 

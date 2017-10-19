@@ -2094,7 +2094,6 @@
 #include "code\modules\research\xenobiology\RED.dm"
 #include "code\modules\research\xenobiology\RED_fab.dm"
 #include "code\modules\research\xenobiology\RED_samples.dm"
-#include "code\modules\research\xenobiology\lore_papers.dm"
 #include "code\modules\scripting\Errors.dm"
 #include "code\modules\scripting\IDE.dm"
 #include "code\modules\scripting\Options.dm"
