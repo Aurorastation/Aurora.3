@@ -1,5 +1,0 @@
-author: Printer16
-delete-after: True
-changes: 
-  - rscadd: "Beakers now show a message if they have solids inside."
-  - rscadd: "Added an accuracy rating to containers. Containers will only tell you how many units of chemicals there are according to how accurate they are."

@@ -12249,8 +12249,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Locker Room";
-	req_access = list(11);
-	req_one_access = list()
+	req_access = list(11)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -19930,8 +19929,7 @@
 /area/engineering/engine_airlock)
 "aJo" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(11);
-	req_one_access = list()
+	req_access = list(11)
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -34655,8 +34653,7 @@
 "biz" = (
 /obj/machinery/smartfridge/secure/medbay{
 	name = "Dangerous Materials Storage";
-	req_access = list(33);
-	req_one_access = list()
+	req_access = list(33)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -57325,7 +57322,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Bar Maintenance";
-	req_access = list();
 	req_one_access = list(12,25,28)
 	},
 /turf/simulated/floor/plating,
@@ -65179,7 +65175,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Bar Maintenance";
-	req_access = list();
 	req_one_access = list(12,25,28)
 	},
 /obj/structure/disposalpipe/segment{

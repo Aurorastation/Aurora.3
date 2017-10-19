@@ -2,7 +2,7 @@ var/list/obj/machinery/photocopier/faxmachine/allfaxes = list()
 var/list/arrived_faxes = list()	//cache for faxes that have been sent to the admins
 var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
 var/list/alldepartments = list()
-var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply")
+var/list/admin_departments
 
 /obj/machinery/photocopier/faxmachine
 	name = "fax machine"
@@ -20,8 +20,6 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 	var/static/const/broadcastfax_cooldown = 3000
 
 	var/static/const/broadcast_departments = "Stationwide broadcast (WARNING)"
-	var/static/list/admin_departments = list("Central Command", "Tau Ceti Government")
-
 	var/obj/item/weapon/card/id/scan = null // identification
 	var/authenticated = 0
 	var/sendtime = 0		// Time when fax was sent
@@ -32,10 +30,10 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 
 	var/list/obj/item/device/pda/alert_pdas = list() //A list of PDAs to alert upon arrival of the fax.
 
-/obj/machinery/photocopier/faxmachine/New()
-	..()
+/obj/machinery/photocopier/faxmachine/Initialize()
+	. = ..()
 	allfaxes += src
-	if(!destination) destination = "[boss_name]"
+	if(!destination) destination = "[current_map.boss_name]"
 	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )
 		alldepartments |= department
 
@@ -61,7 +59,7 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 	dat += "<hr>"
 
 	if(authenticated)
-		dat += "<b>Logged in to:</b> [boss_name] Quantum Entanglement Network<br><br>"
+		dat += "<b>Logged in to:</b> [current_map.boss_name] Quantum Entanglement Network<br><br>"
 
 		if(copyitem)
 			dat += "<a href='byond://?src=\ref[src];remove=1'>Remove Item</a><br><br>"
@@ -301,16 +299,14 @@ var/list/admin_departments = list("[boss_name]", "Tau Ceti Government", "Supply"
 		visible_message("[src] beeps, \"Error transmitting message.\"")
 		return
 
-	rcvdcopy.loc = null //hopefully this shouldn't cause trouble
+	rcvdcopy.forceMove(null)  //hopefully this shouldn't cause trouble
 	arrived_faxes += rcvdcopy
 
 	//message badmins that a fax has arrived
-	switch(destination)
-		if (boss_name)
-			message_admins(sender, "[uppertext(boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
-		if ("Tau Ceti Government")
-			message_admins(sender, "TAU CETI GOVERNMENT FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
-			//message_admins(sender, "TAU CETi GOVERNMENT FAX", rcvdcopy, "TauCetiGovFaxReply", "#1F66A0")
+	if (destination == current_map.boss_name)
+		message_admins(sender, "[uppertext(current_map.boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
+	else if (destination == "[current_map.system_name] Government")
+		message_admins(sender, "[uppertext(current_map.system_name)] GOVERNMENT FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
 
 	set_cooldown(adminfax_cooldown)
 	spawn(50)

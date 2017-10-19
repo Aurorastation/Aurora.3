@@ -1,6 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - rscadd: "NT is proud to announce general availability of modular electronics kits for Research and Engineering departments galaxy-wide, batteries not included. (Ported from Polaris)"
-  - tweak: "Implants now actually fit back in the implanter that they were removed from."
-  - tweak: "Round duration is now actually the duration of the round, instead of time passed since last server reboot."

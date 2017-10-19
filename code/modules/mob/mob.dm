@@ -743,6 +743,7 @@
 	if(.)
 		if(statpanel("Status") && SSticker.current_state != GAME_STATE_PREGAME)
 			stat("Game ID", game_id)
+			stat("Map", current_map.full_name)
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", round_duration())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")

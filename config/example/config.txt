@@ -319,21 +319,6 @@ CHARACTER_SLOTS 10
 ## Uncomment to use overmap system for zlevel travel
 #USE_OVERMAP
 
-## Defines which Z-levels the station exists on. Only set if you need to change the defaults.
-#STATION_LEVELS 3;4;5;6;7
-
-## Defines which Z-levels are used for admin functionality, such as Central Command and the Syndicate Shuttle. Only set if you need to change the defaults.
-#ADMIN_LEVELS 1
-
-## Defines which Z-levels which, for example, a Code Red announcement may affect. Only set if you need to change the defaults.
-#CONTACT_LEVELS 3;4;5;6
-
-## Defines all Z-levels a character can typically reach. Only set if you need to change the defaults.
-#PLAYER_LEVELS 2;3;4;5;6;7;8
-
-## Defines which levels cannot be left via touching map borders. Only set if you need to change the defaults.
-#SEALED_LEVELS
-
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 180
 
@@ -439,10 +424,6 @@ MERCHANT_CHANCE 20
 ## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and -
 # DEFAULT_LANGUAGE_PREFIXES , # -
 
-## A ; separated list of lobby screens to randomly pick from. The listed screens must exist as icon states in '/icons/misc/title.dmi'.
-## Defaults to 'title' if left unset.
-# LOBBY_SCREENS title
-
 ## Uncomment to enable the antag contest!
 #ANTAG_CONTEST_ENABLED
 
@@ -501,3 +482,7 @@ FASTBOOT
 
 # Where to load the cargo items from. json or sql
 CARGO_LOAD_ITEMS_FROM json
+
+
+# Forces the maploader to load the specified map path. Valid options: aurora, runtime
+FORCE_MAP aurora
