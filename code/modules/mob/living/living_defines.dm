@@ -75,3 +75,5 @@
 	var/tesla_ignore = 0	// If true, mob is not affected by tesla bolts.
 
 	var/stop_sight_update = 0 //If true, it won't reset the mob vision flags
+
+	var/captured = 0 //Functionally, should give the same effect as being buckled into a chair when true.
