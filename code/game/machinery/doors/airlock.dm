@@ -761,22 +761,37 @@ About the new airlock wires panel:
 		if(src.isElectrified())
 			if(src.shock(user, 100))
 				return
-
-	if(ishuman(user) && prob(40) && src.density)
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.getBrainLoss() >= 50)
-			playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
-			if(!istype(H.head, /obj/item/clothing/head/helmet))
-				user.visible_message("<span class='warning'>[user] headbutts the airlock.</span>")
-				var/obj/item/organ/external/affecting = H.get_organ("head")
-				H.Stun(8)
-				H.Weaken(5)
-				if(affecting.take_damage(10, 0))
-					H.UpdateDamageIcon()
-			else
-				user.visible_message("<span class='warning'>[user] headbutts the airlock. Good thing they're wearing a helmet.</span>")
+		if(H.species.can_shred(H))
+
+			if(!src.density)
+				return
+
+			H.visible_message("\The [H] begins to pry open \the [src]!")
+
+			if(!do_after(H,120,src))
+				return
+
+			src.do_animate("spark")
+			src.stat |= BROKEN
+			var/check = src.open(1)
+			src.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]")
 			return
 
+		if(prob(40) && src.density)
+			if(H.getBrainLoss() >= 50)
+				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
+				if(!istype(H.head, /obj/item/clothing/head/helmet))
+					user.visible_message("<span class='warning'>[user] headbutts the airlock.</span>")
+					var/obj/item/organ/external/affecting = H.get_organ("head")
+					H.Stun(8)
+					H.Weaken(5)
+					if(affecting.take_damage(10, 0))
+						H.UpdateDamageIcon()
+				else
+					user.visible_message("<span class='warning'>[user] headbutts the airlock. Good thing they're wearing a helmet.</span>")
+				return
 	if(src.p_open)
 		user.set_machine(src)
 		wires.Interact(user)
