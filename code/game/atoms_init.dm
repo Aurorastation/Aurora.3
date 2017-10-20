@@ -3,7 +3,7 @@
 
 /atom/New(loc, ...)
 	// For the (currently unused) DMM Suite.
-	if(_preloader && (src.type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
+	if(use_preloader && (src.type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
 		_preloader.load(src)
 
 	//. = ..() //uncomment if you are dumb enough to add a /datum/New() proc
@@ -30,6 +30,11 @@
 	if (opacity && isturf(loc))
 		var/turf/T = loc
 		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
+
+#ifdef AO_USE_LIGHTING_OPACITY
+		if (!mapload)
+			T.regenerate_ao()
+#endif
 
 	return INITIALIZE_HINT_NORMAL
 

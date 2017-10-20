@@ -175,8 +175,8 @@
 	var/use_launcher = 0
 	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
 
-/obj/item/weapon/gun/projectile/automatic/rifle/z8/New()
-	..()
+/obj/item/weapon/gun/projectile/automatic/rifle/z8/Initialize()
+	. = ..()
 	launcher = new(src)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
@@ -253,6 +253,10 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/proc/toggle_cover(mob/user)
 	cover_open = !cover_open
 	user << "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>"
+	if(cover_open)
+		playsound(user, 'sound/weapons/sawopen.ogg', 60, 1)
+	else
+		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
 	update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/attack_self(mob/user as mob)
@@ -305,7 +309,7 @@
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
 	icon_state = "railgun"
-	item_state = "arifle"
+	item_state = "railgun"
 	w_class = 4
 	force = 10
 	caliber = "trod"

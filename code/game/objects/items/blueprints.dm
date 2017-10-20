@@ -20,8 +20,7 @@
 	var/const/ROOM_ERR_TOOLARGE = -2
 
 /obj/item/blueprints/attack_self(mob/user as mob)
-	if (use_check(user))
-		user << "This stack of blue paper means nothing to you."
+	if (use_check(user, USE_DISALLOW_SILICONS))
 		return
 	add_fingerprint(user)
 	interact()

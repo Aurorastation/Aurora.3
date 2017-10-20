@@ -6,7 +6,7 @@
 #define NO_SLIP           0x10   // Cannot fall over.
 #define NO_POISON         0x20   // Cannot not suffer toxloss.
 #define IS_PLANT          0x40   // Is a treeperson.
-#define NO_MINOR_CUT      0x80   // Can step on broken glass with no ill-effects. Either thick skin (diona/vox), cut resistant (slimes) or incorporeal (shadows)
+#define NO_EMBED          0x80   // Can not have shrapnel or any object embedded into its body
 // unused: 0x8000 - higher than this will overflow
 
 // Species spawn flags
@@ -33,6 +33,7 @@
 #define LANGUAGE_SIIK_MAAS "Siik'maas"
 #define LANGUAGE_SIIK_TAJR "Siik'tajr"
 #define LANGUAGE_SIGN_TAJARA "Nal'rasan"
+#define LANGUAGE_YA_SSA "Ya'ssa"
 #define LANGUAGE_SKRELLIAN "Nral'Malic"
 #define LANGUAGE_RESOMI "Resomi"
 #define LANGUAGE_ROOTSONG "Rootsong"

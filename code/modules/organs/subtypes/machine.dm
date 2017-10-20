@@ -5,89 +5,55 @@
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
-
-/obj/item/organ/external/head/ipc/Initialize()
-	robotize("Hephaestus Integrated Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/external/chest/ipc
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/chest/ipc/Initialize()
-	robotize("Hephaestus Integrated Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/external/groin/ipc
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/groin/ipc/Initialize()
-	robotize("Hephaestus Integrated Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/external/arm/ipc
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/arm/ipc/Initialize()
-	robotize("Hephaestus Integrated Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/external/arm/right/ipc
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/arm/right/ipc/Initialize()
-	robotize("Hephaestus Integrated Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/external/leg/ipc
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/leg/ipc/Initialize()
-	robotize("Hephaestus Integrated Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/external/leg/right/ipc
 	dislocated = -1
 
-/obj/item/organ/external/leg/right/ipc/Initialize()
-	robotize("Hephaestus Integrated Limb")
-	. = ..()
-
 /obj/item/organ/external/foot/ipc
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/foot/ipc/Initialize()
-	robotize("Hephaestus Integrated Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/external/foot/right/ipc
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/foot/right/ipc/Initialize()
-	robotize("Hephaestus Integrated Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/external/hand/ipc
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/hand/ipc/Initialize()
-	robotize("Hephaestus Integrated Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/external/hand/right/ipc
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/hand/right/ipc/Initialize()
-	robotize("Hephaestus Integrated Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/cell
 	name = "microbattery"
@@ -111,6 +77,7 @@
 
 /obj/item/organ/eyes/optical_sensor
 	name = "optical sensor"
+	singular_name = "optical sensor"
 	organ_tag = "optics"
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "camera"
@@ -232,103 +199,70 @@
 	can_intake_reagents = 0
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
+	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/eyes/optical_sensor/terminator
 	emp_coeff = 0.5
-
-/obj/item/organ/external/head/terminator/Initialize()
-	robotize("Hephaestus Vulcanite Limb")
-	. = ..()
 
 /obj/item/organ/external/chest/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
-
-/obj/item/organ/external/chest/terminator/Initialize()
-	robotize("Hephaestus Vulcanite Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/groin/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
-
-/obj/item/organ/external/groin/terminator/Initialize()
-	robotize("Hephaestus Vulcanite Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/arm/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
-
-/obj/item/organ/external/arm/terminator/Initialize()
-	robotize("Hephaestus Vulcanite Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/arm/right/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
-
-/obj/item/organ/external/arm/right/terminator/Initialize()
-	robotize("Hephaestus Vulcanite Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/leg/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
-
-/obj/item/organ/external/leg/terminator/Initialize()
-	robotize("Hephaestus Vulcanite Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/leg/right/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
-
-/obj/item/organ/external/leg/right/terminator/Initialize()
-	robotize("Hephaestus Vulcanite Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/foot/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
-
-/obj/item/organ/external/foot/terminator/Initialize()
-	robotize("Hephaestus Vulcanite Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/foot/right/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
-
-/obj/item/organ/external/foot/right/terminator/Initialize()
-	robotize("Hephaestus Vulcanite Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/hand/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
-
-/obj/item/organ/external/hand/terminator/Initialize()
-	robotize("Hephaestus Vulcanite Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_HK
 
 /obj/item/organ/external/hand/right/terminator
 	dislocated = -1
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
-
-/obj/item/organ/external/hand/right/terminator/Initialize()
-	robotize("Hephaestus Vulcanite Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_HK
 
 //////////////
 //Industrial//
@@ -338,90 +272,57 @@
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
-
-/obj/item/organ/external/head/industrial/Initialize()
-	robotize("Hephaestus Industrial Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IND
 
 /obj/item/organ/external/chest/industrial
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/chest/industrial/Initialize()
-	robotize("Hephaestus Industrial Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IND
 
 /obj/item/organ/external/groin/industrial
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/groin/industrial/Initialize()
-	robotize("Hephaestus Industrial Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IND
 
 /obj/item/organ/external/arm/industrial
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/arm/industrial/Initialize()
-	robotize("Hephaestus Industrial Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IND
 
 /obj/item/organ/external/arm/right/industrial
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/arm/right/industrial/Initialize()
-	robotize("Hephaestus Industrial Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IND
 
 /obj/item/organ/external/leg/industrial
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/leg/industrial/Initialize()
-	robotize("Hephaestus Industrial Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IND
 
 /obj/item/organ/external/leg/right/industrial
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/leg/right/industrial/Initialize()
-	robotize("Hephaestus Industrial Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IND
 
 /obj/item/organ/external/foot/industrial
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/foot/industrial/Initialize()
-	robotize("Hephaestus Industrial Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IND
 
 /obj/item/organ/external/foot/right/industrial
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/foot/right/industrial/Initialize()
-	robotize("Hephaestus Industrial Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IND
 
 /obj/item/organ/external/hand/industrial
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/hand/industrial/Initialize()
-	robotize("Hephaestus Industrial Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IND
 
 /obj/item/organ/external/hand/right/industrial
 	dislocated = -1
 	encased = "support frame"
-
-/obj/item/organ/external/hand/right/industrial/Initialize()
-	robotize("Hephaestus Industrial Limb")
-	. = ..()
+	robotize_type = PROSTHETIC_IND
 
 ///////////////
 //Shell limbs//
@@ -432,98 +333,64 @@
 	can_intake_reagents = 0
 	encased = "support frame"
 	force_skintone = TRUE
-
-/obj/item/organ/external/head/shell/Initialize()
-	robotize("Human Synthskin")
-	. = ..()
+	robotize_type = PROSTHETIC_SYNTHSKIN
 
 /obj/item/organ/external/chest/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
-
-
-/obj/item/organ/external/chest/shell/Initialize()
-	robotize("Human Synthskin")
-	. = ..()
+	robotize_type = PROSTHETIC_SYNTHSKIN
 
 /obj/item/organ/external/groin/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
-
-/obj/item/organ/external/groin/shell/Initialize()
-	robotize("Human Synthskin")
-	. = ..()
+	robotize_type = PROSTHETIC_SYNTHSKIN
 
 /obj/item/organ/external/arm/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
-
-/obj/item/organ/external/arm/shell/Initialize()
-	robotize("Human Synthskin")
-	. = ..()
+	robotize_type = PROSTHETIC_SYNTHSKIN
 
 /obj/item/organ/external/arm/right/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
-
-/obj/item/organ/external/arm/right/shell/Initialize()
-	robotize("Human Synthskin")
-	. = ..()
+	robotize_type = PROSTHETIC_SYNTHSKIN
 
 /obj/item/organ/external/leg/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
-
-/obj/item/organ/external/leg/shell/Initialize()
-	robotize("Human Synthskin")
-	. = ..()
+	robotize_type = PROSTHETIC_SYNTHSKIN
 
 /obj/item/organ/external/leg/right/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
-
-/obj/item/organ/external/leg/right/shell/Initialize()
-	robotize("Human Synthskin")
-	. = ..()
+	robotize_type = PROSTHETIC_SYNTHSKIN
 
 /obj/item/organ/external/foot/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
-
-/obj/item/organ/external/foot/shell/Initialize()
-	robotize("Human Synthskin")
-	. = ..()
+	robotize_type = PROSTHETIC_SYNTHSKIN
 
 /obj/item/organ/external/foot/right/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
-
-/obj/item/organ/external/foot/right/shell/Initialize()
-	robotize("Human Synthskin")
-	. = ..()
+	robotize_type = PROSTHETIC_SYNTHSKIN
 
 /obj/item/organ/external/hand/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
-
-/obj/item/organ/external/hand/shell/Initialize()
-	robotize("Human Synthskin")
-	. = ..()
+	robotize_type = PROSTHETIC_SYNTHSKIN
 
 /obj/item/organ/external/hand/right/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
-
-/obj/item/organ/external/hand/right/shell/Initialize()
-	robotize("Human Synthskin")
-	. = ..()
+	robotize_type = PROSTHETIC_SYNTHSKIN

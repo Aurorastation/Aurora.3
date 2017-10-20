@@ -45,7 +45,7 @@
 		if(is_component_functioning("camera"))
 			aiCamera.captureimage(A, usr)
 		else
-			src << "<span class='userdanger'>Your camera isn't functional.</span>"
+			src << "<span class='danger'>Your camera isn't functional.</span>"
 		return
 
 	/*

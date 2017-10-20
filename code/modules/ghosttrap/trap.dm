@@ -223,15 +223,16 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 /datum/ghosttrap/syndicateborg
 	object = "syndicate cyborg"
 	ban_checks = list("Antagonist","AI","Cyborg")
-	pref_check = "BE_SYNTH"
+	pref_check = BE_SYNTH
 	ghost_trap_message = "They are occupying a syndicate cyborg now."
 	ghost_trap_role = "Syndicate Cyborg"
 	can_set_own_name = TRUE
+	list_as_special_role = FALSE
 
 /datum/ghosttrap/syndicateborg/welcome_candidate(var/mob/target)
 	target << "<span class='notice'><B>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you. Remember to speak to the other mercenaries to know more about their plans</B></span>"
 	mercs.add_antagonist_mind(target.mind,1)
-	
+
 /**************
 * pAI *
 **************/
@@ -257,6 +258,7 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 	ghost_trap_message = "They are occupying a familiar now."
 	ghost_trap_role = "Wizard Familiar"
 	ban_checks = list(MODE_WIZARD)
+	list_as_special_role = FALSE
 
 /datum/ghosttrap/familiar/welcome_candidate(var/mob/target)
 	return 0
@@ -272,6 +274,142 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 	ghost_trap_role = "Skeleton Minion"
 	ban_checks = list(MODE_WIZARD)
 	can_set_own_name = FALSE
+	list_as_special_role = FALSE
 
 /datum/ghosttrap/skeleton/welcome_candidate(var/mob/target)
+	return 0
+
+//Gamemodes
+
+/datum/ghosttrap/merc
+	object = "Mercenary"
+	pref_check = MODE_MERCENARY
+	ghost_trap_message = "They are occupying a mercenary."
+	ghost_trap_role = "Mercenary"
+	ban_checks = list(MODE_MERCENARY)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/merc/welcome_candidate(var/mob/target)
+	return 0
+
+/datum/ghosttrap/raider
+	object = "Raider"
+	pref_check = MODE_RAIDER
+	ghost_trap_message = "They are occupying a raider."
+	ghost_trap_role = "Raider"
+	ban_checks = list(MODE_RAIDER)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/raider/welcome_candidate(var/mob/target)
+	return 0
+
+/datum/ghosttrap/ninja
+	object = "Ninja"
+	pref_check = MODE_NINJA
+	ghost_trap_message = "They are occupying a ninja."
+	ghost_trap_role = "Ninja"
+	ban_checks = list(MODE_NINJA)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/ninja/welcome_candidate(var/mob/target)
+	return 0
+
+/datum/ghosttrap/wizard
+	object = "Wizard"
+	pref_check = MODE_WIZARD
+	ghost_trap_message = "They are occupying a wizard."
+	ghost_trap_role = "Wizard"
+	ban_checks = list(MODE_WIZARD)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/wizard/welcome_candidate(var/mob/target)
+	return 0
+
+/datum/ghosttrap/malf
+	object = "AI Malfunction"
+	pref_check = MODE_MALFUNCTION
+	ghost_trap_message = "They are occupying a malfunctioning AI."
+	ghost_trap_role = "Malfuntioning AI"
+	ban_checks = list(MODE_MALFUNCTION)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/malf/welcome_candidate(var/mob/target)
+	return 0
+
+/datum/ghosttrap/ert
+	object = "Emergency Responder"
+	pref_check = MODE_ERT
+	ghost_trap_message = "They are occupying an ERT member."
+	ghost_trap_role = "ERT member"
+	ban_checks = list(MODE_ERT)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/ert/welcome_candidate(var/mob/target)
+	return 0
+
+/datum/ghosttrap/changeling
+	object = "Changeling"
+	pref_check = MODE_CHANGELING
+	ghost_trap_message = "They are occupying a changeling."
+	ghost_trap_role = "Changeling"
+	ban_checks = list(MODE_CHANGELING)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/changeling/welcome_candidate(var/mob/target)
+	return 0
+
+/datum/ghosttrap/cultist
+	object = "Cult"
+	pref_check = MODE_CULTIST
+	ghost_trap_message = "They are occupying a cultist."
+	ghost_trap_role = "Cultist"
+	ban_checks = list(MODE_CULTIST)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/cultist/welcome_candidate(var/mob/target)
+	return 0
+
+/datum/ghosttrap/traitor
+	object = "Traitor"
+	pref_check = MODE_TRAITOR
+	ghost_trap_message = "They are occupying a traitor."
+	ghost_trap_role = "Traitor"
+	ban_checks = list(MODE_TRAITOR)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/traitor/welcome_candidate(var/mob/target)
+	target << "<span class ='notice'> Check your notes for your PDA code!</span>"
+	return 1
+
+/datum/ghosttrap/vampire
+	object = "Vampire"
+	pref_check = MODE_VAMPIRE
+	ghost_trap_message = "They are occupying a vampire."
+	ghost_trap_role = "vampire"
+	ban_checks = list(MODE_VAMPIRE)
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/vampire/welcome_candidate(var/mob/target)
+	return 0
+
+/datum/ghosttrap/special
+	object = "Special"
+	pref_check = null
+	ghost_trap_message = "They are occupying a person."
+	ghost_trap_role = "person"
+	ban_checks = list()
+	can_set_own_name = FALSE
+	list_as_special_role = FALSE
+
+/datum/ghosttrap/special/welcome_candidate(var/mob/target)
 	return 0

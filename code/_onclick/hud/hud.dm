@@ -132,7 +132,7 @@ var/list/global_huds
 	var/obj/screen/r_hand_hud_object
 	var/obj/screen/l_hand_hud_object
 	var/obj/screen/action_intent
-	var/obj/screen/move_intent
+	var/obj/screen/movement_intent/move_intent
 
 	var/list/adding
 	var/list/other

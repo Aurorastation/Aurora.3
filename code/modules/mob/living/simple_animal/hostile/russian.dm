@@ -33,6 +33,8 @@
 	faction = "russian"
 	status_flags = CANPUSH
 
+	tameable = FALSE
+
 
 /mob/living/simple_animal/hostile/russian/ranged
 	icon_state = "russianranged"

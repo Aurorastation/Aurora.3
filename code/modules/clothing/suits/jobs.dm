@@ -131,13 +131,13 @@
 	var/suit_color
 	contained_sprite = 1
 
-/obj/item/clothing/suit/storage/det_trench/technicolor/New()
+/obj/item/clothing/suit/storage/det_trench/technicolor/Initialize()
 	if(prob(5))
 		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
 		var/color = pickweight(colors)
 		icon_state = "suit_detective_[color]"
 		item_state = "suit_detective_[color]"
-	..()
+	. = ..()
 
 /obj/item/clothing/suit/storage/det_trench/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))

@@ -68,6 +68,18 @@
 		L.sprint_cost_factor -= cost_added
 		L.sprint_speed_factor -= speed_added
 
+/datum/modifier/luminous
+	var/lightrange = 0
 
+/datum/modifier/luminous/activate()
+	..()
+	if (isliving(target))
+		var/mob/living/L = target
+		lightrange = strength
+		L.set_light(lightrange, 1, LIGHT_COLOR_FIRE)
 
-
+/datum/modifier/luminous/deactivate()
+	..()
+	if (isliving(target))
+		var/mob/living/L = target
+		L.set_light(0)

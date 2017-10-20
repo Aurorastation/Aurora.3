@@ -65,6 +65,10 @@
 		return 1
 	if(istype(A,/obj/item/device/radio/beacon))
 		return 1
+	if(istype(A,/obj/item/phylactery))
+		return 1
+	if(istype(A,/obj/effect/decal/wizard_mark))
+		return 1
 
 	for(var/i=1, i<=A.contents.len, i++)
 		var/atom/B = A.contents[i]

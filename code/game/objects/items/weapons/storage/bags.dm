@@ -11,6 +11,7 @@
  *		Sheet Snatcher
  *		Cash Bag
  *		Book Bag (New thing)
+ *		Slime Bag (New thing) ~Chaoko99
   *
  *	-Sayu
  */
@@ -36,7 +37,7 @@
 
 	w_class = 4
 	max_w_class = 2
-	can_hold = list() // any
+	can_hold = null // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
 
 /obj/item/weapon/storage/bag/trash/update_icon()
@@ -88,7 +89,7 @@
 
 	w_class = 4
 	max_w_class = 2
-	can_hold = list() // any
+	can_hold = null // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
 
 // -----------------------------
@@ -124,6 +125,19 @@
 	w_class = 2
 	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/weapon/grown)
 
+// -----------------------------
+//        Slime core bag
+// -----------------------------
+
+/obj/item/weapon/storage/bag/slimes
+	name = "slime core bag"
+	icon = 'icons/mob/slimes.dmi'
+	icon_state = "slimebag"
+	desc = "A pressurized and thermoregulated bag for the storage and transport of slime cores."
+	max_storage_space = 100
+	max_w_class = 3
+	w_class = 2
+	can_hold = list(/obj/item/slime_extract)
 
 // -----------------------------
 //        Sheet Snatcher

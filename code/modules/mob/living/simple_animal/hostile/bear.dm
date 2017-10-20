@@ -14,7 +14,7 @@
 	emote_hear = list("grumbles","grawls")
 	emote_see = list("stares ferociously", "stomps")
 	speak_chance = 10
-	turns_per_move = 7
+	turns_per_move = 10
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/bearmeat
 	response_help  = "pets"
@@ -22,8 +22,8 @@
 	response_harm   = "hits"
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 80
-	melee_damage_lower = 16
-	melee_damage_upper = 24
+	melee_damage_lower = 10
+	melee_damage_upper = 18
 	break_stuff_probability = 80
 	mob_size = 17
 	var/safety //used to prevent infinite loops
@@ -64,7 +64,7 @@
 	var/stance_step = 0
 
 	faction = "russian"
-	
+
 	var/always_space_mode = FALSE	// If true, bear will always be in BEARMODE_SPACE, regardless of surroundings.
 
 
@@ -204,7 +204,7 @@
 
 				if(!L.client)
 					continue
-					
+
 				if(L.stat == CONSCIOUS)
 					if (dist < nearest_dist)
 						nearest_target = L

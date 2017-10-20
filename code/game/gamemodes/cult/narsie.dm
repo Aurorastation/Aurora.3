@@ -44,7 +44,7 @@ var/global/list/narsie_list = list()
 	..()
 	if(announce)
 		world << "<font size='15' color='red'><b>[uppertext(name)] HAS RISEN</b></font>"
-		world << sound('sound/effects/wind/wind_5_1.ogg')
+		world << sound('sound/effects/narsie.ogg')
 
 	narsie_spawn_animation()
 
@@ -379,7 +379,7 @@ var/global/list/narsie_list = list()
 	grav_pull = 0
 
 /obj/singularity/narsie/wizard/eat()
-	for (var/turf/T in trange(consume_range, src))
+	for (var/turf/T in RANGE_TURFS(consume_range, src))
 		consume(T)
 
 /obj/singularity/narsie/proc/narsie_spawn_animation()

@@ -15,10 +15,15 @@
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 200 //builtin health analyzer, dialysis machine, injectors.
-
+	component_types = list(
+			/obj/item/weapon/circuitboard/sleeper,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/weapon/stock_parts/console_screen,
+			/obj/item/weapon/reagent_containers/glass/beaker/large
+		)
 /obj/machinery/sleeper/Initialize()
 	. = ..()
-	beaker = new /obj/item/weapon/reagent_containers/glass/beaker/large(src)
 	update_icon()
 
 /obj/machinery/sleeper/machinery_process()
@@ -39,6 +44,21 @@
 
 /obj/machinery/sleeper/update_icon()
 	icon_state = "sleeper_[occupant ? "1" : "0"]"
+
+/obj/machinery/sleeper/RefreshParts()
+	..()
+	var/scan_rating = 0
+	var/cap_rating = 0
+
+	for(var/obj/item/weapon/stock_parts/P in component_parts)
+		if(isscanner(P))
+			scan_rating += P.rating
+		else if(iscapacitor(P))
+			cap_rating += P.rating
+
+	beaker = locate(/obj/item/weapon/reagent_containers/glass/beaker) in component_parts
+
+	active_power_usage = 200 - (cap_rating + scan_rating)*2
 
 /obj/machinery/sleeper/attack_hand(var/mob/user)
 	if(..())
@@ -161,7 +181,12 @@
 			update_icon()
 			qdel(G)
 			return
+	else if(isscrewdriver(I))
+		user << "You [panel_open ? "open" : "close"] the maintenance panel."
+		panel_open = !panel_open
 
+	else if(default_part_replacement(user, I))
+		return
 /obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
 	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))
 		return

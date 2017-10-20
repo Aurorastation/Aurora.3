@@ -15,13 +15,8 @@
 
 	var/list/areas_to_use = list()
 
-/obj/turbolift_map_holder/Destroy()
-	global.turbolifts -= src
-	return ..()
-
 /obj/turbolift_map_holder/Initialize()
 	..()
-	global.turbolifts += src
 
 	// Create our system controller.
 	var/datum/turbolift/lift = new()
