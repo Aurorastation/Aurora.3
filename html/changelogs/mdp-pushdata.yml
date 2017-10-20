@@ -1,6 +1,0 @@
-author: MoondancerPony
-delete-after: True
-changes: 
-  - bugfix: "Memory chips will no longer automatically overwrite themselves to whatever their outputs are connected to, and will now output properly. An engineer seems to have installed the chip backwards inside the casing. NanoTrasen apologises for this lapse in service."
-  - bugfix: "Locators and other scanning devices now properly push data to other devices."
-  - bugfix: "Basic pathfinders will now stop moving if they cannot see their target, instead of jamming."
