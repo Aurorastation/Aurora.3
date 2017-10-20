@@ -41,7 +41,7 @@
 	for(var/i = 1 to inputs.len)
 		var/data = get_pin_data(IC_INPUT, i)
 		set_pin_data(IC_OUTPUT, i, data)
-
+	push_data()
 	activate_pin(2)
 
 /obj/item/integrated_circuit/memory/storage/medium
@@ -85,6 +85,7 @@
 
 /obj/item/integrated_circuit/memory/constant/do_work()
 	set_pin_data(IC_OUTPUT, 1, data)
+	push_data()
 	activate_pin(2)
 
 /obj/item/integrated_circuit/memory/constant/attack_self(mob/user)

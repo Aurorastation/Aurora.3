@@ -54,7 +54,8 @@
 			return
 		user << "<span class='notice'>You link \the [C] to \the [src], it will now ring upon someone using \the [src].</span>"
 		rings_pdas += C
-		C.OnDestroy(CALLBACK(src, .proc/remove_pda, C))
+		// WONT FIX: This requires callbacks fuck my dick.
+		destroyed_event.register(C, src, .proc/remove_pda)
 		update_icon()
 
 	else
@@ -100,7 +101,7 @@
 
 	addtimer(CALLBACK(src, .proc/unping), 45 SECONDS)
 
-/obj/machinery/ringer/proc/unping(var/obj/item/device/pda/pda)
+/obj/machinery/ringer/proc/unping()
 	pinged = FALSE
 	update_icon()
 

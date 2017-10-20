@@ -52495,7 +52495,7 @@
 /obj/item/weapon/pen,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/holywater,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/weapon/nullrod,
+/obj/item/weapon/nullrod/itembox,
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "bMC" = (
@@ -57540,10 +57540,6 @@
 "bWv" = (
 /obj/machinery/atm{
 	pixel_y = -32
-	},
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -96722,7 +96718,7 @@ bRk
 bRk
 bVr
 bRH
-ckb
+bWa
 bWv
 bRi
 bVN
@@ -98520,7 +98516,7 @@ bUl
 bRH
 bRH
 bRi
-cjY
+cjX
 bJp
 bNO
 bML
@@ -98777,7 +98773,7 @@ bUm
 bUI
 bVd
 bRi
-cjZ
+cjX
 bWd
 bML
 bML
@@ -99034,7 +99030,7 @@ bRi
 bRi
 bRi
 bRi
-cka
+cjX
 bML
 bJp
 bNo

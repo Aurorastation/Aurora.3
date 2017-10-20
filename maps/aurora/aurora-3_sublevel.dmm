@@ -6456,16 +6456,14 @@
 	},
 /area/turret_protected/ai)
 "mM" = (
-/obj/machinery/light/small{
-	base_state = "bulb-broken";
-	dir = 4;
-	icon_state = "bulb-broken"
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 4
 	},
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
@@ -7252,11 +7250,6 @@
 	c_tag = "AI Core - Alpha Core";
 	dir = 8
 	},
-/obj/machinery/light/small{
-	base_state = "bulb-broken";
-	dir = 4;
-	icon_state = "bulb-broken"
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -7264,6 +7257,9 @@
 /obj/structure/cable/cyan{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/light/small{
+	dir = 4
 	},
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
@@ -8909,8 +8905,7 @@
 	},
 /obj/machinery/light/small/emergency,
 /obj/machinery/camera/network/command{
-	c_tag = "Command - Telecomms Main Level Relay";
-	dir = 1
+	c_tag = "Command - Vault Access"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
@@ -18684,13 +18679,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "GS" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "xenobio3";
-	name = "Containment Blast Doors";
-	opacity = 0
-	},
 /obj/machinery/door/window/westright{
 	name = "Containment Pen";
 	req_access = list(47)
@@ -43774,7 +43762,7 @@ As
 Bf
 Cg
 Db
-SW
+SQ
 Ex
 Ff
 vt
@@ -44031,7 +44019,7 @@ At
 Bg
 Ch
 Dc
-SX
+SQ
 vb
 uD
 uD
@@ -44802,7 +44790,7 @@ Av
 Bj
 Ck
 De
-SY
+SQ
 Ey
 vx
 FQ
@@ -45059,7 +45047,7 @@ Aw
 Bk
 Cl
 Df
-SZ
+SQ
 Ez
 vv
 vT
@@ -45316,7 +45304,7 @@ Ax
 Bl
 Cm
 Dg
-Ta
+SQ
 vb
 Fg
 vT
@@ -45573,7 +45561,7 @@ SQ
 Bm
 Cn
 Dh
-Tb
+SQ
 EA
 Fh
 vT
@@ -45826,10 +45814,10 @@ xy
 xy
 xy
 zQ
-SR
-ST
-SU
-SV
+SQ
+SQ
+SQ
+SQ
 Tc
 EB
 Fi
@@ -46087,7 +46075,7 @@ vt
 Bn
 Co
 Di
-Td
+Tc
 EC
 Fh
 FR
@@ -46581,10 +46569,10 @@ aa
 ac
 rO
 SC
-SE
-SH
+SC
+SC
 tR
-SK
+SC
 rO
 vc
 vv
@@ -46601,7 +46589,7 @@ uU
 uE
 wm
 Dk
-Te
+Tc
 vb
 Fk
 FT
@@ -46802,7 +46790,7 @@ gi
 gU
 hD
 Sp
-Sr
+Sp
 cg
 cg
 cg
@@ -46825,7 +46813,7 @@ jB
 jB
 jB
 pD
-Sw
+Sv
 jB
 aa
 aa
@@ -47116,8 +47104,8 @@ Bo
 Cq
 Dl
 jB
-Tf
-Th
+Sv
+Sv
 FV
 jB
 jB
@@ -48144,8 +48132,8 @@ Br
 Ct
 Do
 jB
-Tg
-Ti
+Sv
+Sv
 FZ
 jB
 Dw
@@ -48343,8 +48331,8 @@ fJ
 gn
 ha
 hH
-Sq
-Ss
+Sp
+Sp
 cg
 cg
 cg
@@ -48894,7 +48882,7 @@ rv
 rH
 rP
 sp
-SG
+SF
 ts
 ua
 uB
@@ -49925,7 +49913,7 @@ aa
 sS
 SI
 ue
-SL
+SI
 uV
 uV
 vD
@@ -51223,7 +51211,7 @@ aa
 jB
 zx
 Ac
-SS
+Sv
 BA
 jB
 Du
@@ -65089,10 +65077,10 @@ tc
 tc
 uk
 kz
-SM
-SN
-SO
-SP
+Sv
+Sv
+Sv
+Sv
 wF
 jB
 xu
@@ -76390,7 +76378,7 @@ rh
 rh
 rm
 ry
-Sz
+Sx
 rW
 sB
 tg
@@ -76647,7 +76635,7 @@ ri
 ri
 rn
 rz
-SA
+Sx
 rX
 rC
 rC
@@ -77160,13 +77148,13 @@ kj
 rh
 rh
 Sx
-Sy
-SB
+Sx
+Sx
 rZ
-SD
+Sx
 ti
 tL
-SJ
+Sx
 uO
 rh
 rh

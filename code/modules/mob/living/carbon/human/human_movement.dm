@@ -123,11 +123,11 @@
 		last_x = x
 		last_y = y
 		if (m_intent == "run")
-			playsound(src, T.footstep_sound, 70, 1)
+			playsound(src, T.footstep_sound, 70, 1, is_footstep = TRUE)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, T.footstep_sound, 40, 1)
+				playsound(src, T.footstep_sound, 40, 1, is_footstep = TRUE)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

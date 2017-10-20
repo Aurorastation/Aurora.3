@@ -91,7 +91,8 @@
 
 	for(var/i = 1 to outputs.len)
 		set_pin_data(IC_OUTPUT, i, i == output_index ? output : null)
-
+	
+	push_data()
 	activate_pin(2)
 
 /obj/item/integrated_circuit/transfer/demultiplexer/medium
