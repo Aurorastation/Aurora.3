@@ -770,7 +770,7 @@ About the new airlock wires panel:
 
 			H.visible_message("\The [H] begins to pry open \the [src]!")
 
-			if(!do_after(H,120,src))
+			if(!do_after(H, 120, 1, src))
 				return
 
 			src.do_animate("spark")
