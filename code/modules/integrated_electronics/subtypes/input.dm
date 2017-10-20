@@ -166,6 +166,7 @@
 	else
 		set_pin_data(IC_OUTPUT, 1, null)
 
+	push_data()
 	activate_pin(2)
 
 /obj/item/integrated_circuit/input/adjacent_locator
@@ -185,6 +186,7 @@
 	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
 	if(!A)
 		set_pin_data(IC_OUTPUT, 1, null)
+		push_data()
 		return
 	var/desired_type = A.type
 
@@ -197,6 +199,7 @@
 
 	if(valid_things.len)
 		set_pin_data(IC_OUTPUT, 1, pick(valid_things))
+		push_data()
 
 /obj/item/integrated_circuit/input/signaler
 	name = "integrated signaler"

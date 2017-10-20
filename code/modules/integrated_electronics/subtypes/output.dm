@@ -272,6 +272,7 @@
 	if(camera)
 		set_camera_status(0)
 		set_pin_data(IC_INPUT, 2, FALSE)
+		push_data()
 
 /obj/item/integrated_circuit/output/led
 	name = "light-emitting diode"
@@ -292,6 +293,7 @@
 
 /obj/item/integrated_circuit/output/led/power_fail()
 	set_pin_data(IC_INPUT, 1, FALSE)
+	push_data()
 
 /obj/item/integrated_circuit/output/led/any_examine(mob/user)
 	var/text_output = list()
