@@ -18686,13 +18686,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "GS" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "xenobio3";
-	name = "Containment Blast Doors";
-	opacity = 0
-	},
 /obj/machinery/door/window/westright{
 	name = "Containment Pen";
 	req_access = list(47)

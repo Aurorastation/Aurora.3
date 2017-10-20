@@ -57545,10 +57545,6 @@
 /obj/machinery/atm{
 	pixel_y = -32
 	},
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bWw" = (
@@ -96727,7 +96723,7 @@ bRk
 bRk
 bVr
 bRH
-ckb
+bWa
 bWv
 bRi
 bVN
@@ -98525,7 +98521,7 @@ bUl
 bRH
 bRH
 bRi
-cjY
+cjX
 bJp
 bNO
 bML
@@ -98782,7 +98778,7 @@ bUm
 bUI
 bVd
 bRi
-cjZ
+cjX
 bWd
 bML
 bML
@@ -99039,7 +99035,7 @@ bRi
 bRi
 bRi
 bRi
-cka
+cjX
 bML
 bJp
 bNo
