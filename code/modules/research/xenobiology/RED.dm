@@ -85,172 +85,173 @@ There is also a non-destrutive option, but... It's not as fun.
 	A.mobinside = T
 
 /obj/machinery/red/proc/runevent()
-	if(processing_status == 0)
-		src.visible_message("<span class='notice'>The [src] makes some loud humming noises, and starts to visibly shake very slightly...</span>")
-		if(prob(50))
-			playsound(src.loc, 'sound/machines/red_powerup.ogg', 75, 1)
-		else
-			playsound(src.loc, 'sound/machines/red_powerup_alt.ogg', 75, 1)
-		processing_status = 20
-		sleep(300)
-		switch(part_number)
-			if(1)
-				ping("\The [src] pings loudly, 'Biological subject loaded. Current operational parameters: [scantype2text()]. Initating scan.'")
-				processing_status = 40
-			if(2) // switch soon
-				//switch(mainpart.scan_type)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					ping("\The [src] pings loudly, 'Initating safe scan. Biological sample will be preserved. Initating scanning procedures.'")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					ping("\The [src] pings loudly, 'Initating pre-clone procedures, preparing sample...'")
-				else
-					ping("\The [src] pings loudly, 'Initiating full scan. Biological sample will be destroyed. Initating scanning procedures.'")
-			if(3)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
-				else
-					src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
-			if(4)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
-				else
-					src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
-			if(5)
-				ping("\The [src] pings loudly, 'Finilazing processes... 0 Percent.'")
-		sleep(100)
-		machinery_processing = TRUE
-		return
-	else if(processing_status == 20)
-		if(prob(50))
-			playsound(src.loc, 'sound/machines/red_powerup.ogg', 75, 1) // SOUND
-		else
-			playsound(src.loc, 'sound/machines/red_powerup_alt.ogg', 75, 1) // SOUND
-		processing_status = 40
-		sleep(300)
-		switch(part_number)
-			if(2)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					ping("\The [src] pings loudly, 'Analyzing internal structual...'")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					ping("\The [src] pings loudly, 'Reading specimen DNA...'")
-				else
-					ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(0,20)]%'")
-			if(3)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
-				else
-					src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
-			if(4)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
-				else
-					src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
-			if(5)
-				ping("\The [src] pings loudly, 'Finalizing processes... 20 Percent.'")
-		sleep(100)
-		machinery_processing = TRUE
-		return
-	else if(processing_status == 40)
-		if(prob(50))
-			playsound(src.loc, 'sound/machines/red_powerup.ogg', 75, 1) // SOUND
-		else
-			playsound(src.loc, 'sound/machines/red_powerup_alt.ogg', 75, 1) // SOUND
-		processing_status = 60
-		sleep(300)
-		switch(part_number)
-			if(1)
-				ping("\The [src] pings loudly, 'Scan type: [scantype2text()] prepartions loaded. Loading maintenance procedures.'")
-				processing_status = 80
-			if(2)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					ping("\The [src] pings loudly, 'Interal structure loaded. Preparing DNA for scanning procedures.'")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					ping("\The [src] pings loudly, 'Loading CRISPR procedures...'")
-				else
-					ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(20,40)]%'")
-			if(3)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
-				else
-					src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
-			if(4)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
-				else
-					src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
-			if(5)
-				ping("\The [src] pings loudly, 'Finalizing processes... 40 Percent.'")
-		sleep(100)
-		machinery_processing = TRUE
-		return
-	else if(processing_status == 60)
-		if(prob(50))
-			playsound(src.loc, 'sound/machines/red_powerup.ogg', 75, 1) // SOUND
-		else
-			playsound(src.loc, 'sound/machines/red_powerup_alt.ogg', 75, 1) // SOUND
-		processing_status = 80
-		sleep(300)
-		switch(part_number)
-			if(2)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					ping("\The [src] pings loudly, 'Analyzing internal structual...'")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					ping("\The [src] pings loudly, 'Preparing structual DNA for CRISPR adjustments...'")
-				else
-					ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(40,80)]%'")
-			if(3)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
-				else
-					src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
-			if(4)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
-				else
-					src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
-			if(5)
-				ping("\The [src] pings loudly, 'Finalizing processes... 40 Percent.'")
-		sleep(100)
-		machinery_processing = TRUE
-		return
-	else if(processing_status == 80)
-		playsound(src.loc, 'sound/machines/signal.ogg', 75, 1)
-		processing_status = 100
-		sleep(300)
-		switch(part_number)
-			if(1)
-				ping("\The [src] pings loudly, 'Scan type: [scantype2text()] preparations finished. Offloading sample to next sequence. Shutting down...'")
-			if(2)
-				if(mainpart.scan_type == SCAN_NODESTROY)
-					ping("\The [src] pings loudly, 'Internal structure analyzation complete. Offloading sample to begin next sequence. Shutting down... '")
-				else if(mainpart.scan_type == SAMPLE_CLONE)
-					ping("\The [src] pings loudly, 'CRISPR module loaded. Offloading DNA and CRISPR procedures. Shutting down...'")
-				else
-					ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(80,100)]%'")
-			if(3 to 4)
-				src.visible_message("<span class='notice'>The [src] emits a heavy droning sound as it transfers the specimen. </span>")	
-			if(5)
-				ping("\The [src] pings loudly, 'Processing finialized. Ejecting final product. Exercise caution.'")
-				playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 75, 1)
-		sleep(100)
-		machinery_processing = TRUE
-		return
+	switch(processing_status)
+		if(0)
+			src.visible_message("<span class='notice'>The [src] makes some loud humming noises, and starts to visibly shake very slightly...</span>")
+			if(prob(50))
+				playsound(src.loc, 'sound/machines/red_powerup.ogg', 75, 1)
+			else
+				playsound(src.loc, 'sound/machines/red_powerup_alt.ogg', 75, 1)
+			processing_status = 20
+			sleep(300)
+			switch(part_number)
+				if(1)
+					ping("\The [src] pings loudly, 'Biological subject loaded. Current operational parameters: [scantype2text()]. Initating scan.'")
+					processing_status = 40
+				if(2)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							ping("\The [src] pings loudly, 'Initating safe scan. Biological sample will be preserved. Initating scanning procedures.'")
+						if(SAMPLE_CLONE)
+							ping("\The [src] pings loudly, 'Initating pre-clone procedures, preparing sample...'")
+						else
+							ping("\The [src] pings loudly, 'Initiating full scan. Biological sample will be destroyed. Initating scanning procedures.'")
+				if(3)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
+						if(SAMPLE_CLONE)
+							src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
+						else
+							src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
+				if(4)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
+						if(SAMPLE_CLONE)
+							src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
+						else
+							src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
+				if(5)
+					ping("\The [src] pings loudly, 'Finilazing processes... 0 Percent.'")
+		if(20)
+			if(prob(50))
+				playsound(src.loc, 'sound/machines/red_powerup.ogg', 75, 1) // SOUND
+			else
+				playsound(src.loc, 'sound/machines/red_powerup_alt.ogg', 75, 1) // SOUND
+			processing_status = 40
+			sleep(300)
+			switch(part_number)
+				if(2)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							ping("\The [src] pings loudly, 'Analyzing internal structual...'")
+						if(SAMPLE_CLONE)
+							ping("\The [src] pings loudly, 'Reading specimen DNA...'")
+						else
+							ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(0,20)]%'")
+				if(3)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
+						if(SAMPLE_CLONE)
+							src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
+						else
+							src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
+				if(4)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
+						if(SAMPLE_CLONE)
+							src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
+						else
+							src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
+				if(5)
+					ping("\The [src] pings loudly, 'Finalizing processes... 20 Percent.'")
+		if(40)
+			if(prob(50))
+				playsound(src.loc, 'sound/machines/red_powerup.ogg', 75, 1) // SOUND
+			else
+				playsound(src.loc, 'sound/machines/red_powerup_alt.ogg', 75, 1) // SOUND
+			processing_status = 60
+			sleep(300)
+			switch(part_number)
+				if(1)
+					ping("\The [src] pings loudly, 'Scan type: [scantype2text()] prepartions loaded. Loading maintenance procedures.'")
+					processing_status = 80
+				if(2)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							ping("\The [src] pings loudly, 'Interal structure loaded. Preparing DNA for scanning procedures.'")
+						if(SAMPLE_CLONE)
+							ping("\The [src] pings loudly, 'Loading CRISPR procedures...'")
+						else
+							ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(20,40)]%'")
+				if(3)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
+						if(SAMPLE_CLONE)
+							src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
+						else
+							src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
+				if(4)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
+						if(SAMPLE_CLONE)
+							src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
+						else
+							src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
+				if(5)
+					ping("\The [src] pings loudly, 'Finalizing processes... 40 Percent.'")
+		if(60)
+			if(prob(50))
+				playsound(src.loc, 'sound/machines/red_powerup.ogg', 75, 1) // SOUND
+			else
+				playsound(src.loc, 'sound/machines/red_powerup_alt.ogg', 75, 1) // SOUND
+			processing_status = 80
+			sleep(300)
+			switch(part_number)
+				if(2)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							ping("\The [src] pings loudly, 'Analyzing internal structual...'")
+						else if(SAMPLE_CLONE)
+							ping("\The [src] pings loudly, 'Preparing structual DNA for CRISPR adjustments...'")
+						else
+							ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(40,80)]%'")
+				if(3)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							src.visible_message("<span class='notice'>The [src] makes a few beeping sounds, as parts inside the machine move around...</span>")
+						if(SAMPLE_CLONE)
+							src.visible_message("<span class='notice'>The [src] makes a spraying sound...</span>")
+						else
+							src.visible_message("<span class='notice'>The [src] emits a loud crushing sound.</span>")
+				if(4)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							src.visible_message("<span class='notice'>The [src] whirrs loudly and makes a few beeping sounds.</span>")
+						if(SAMPLE_CLONE)
+							src.visible_message("<span class='notice'>The [src] makes a scanning sound.</span>")
+						else
+							src.visible_message("<span class='notice'>The [src] emits a heavy droning sound. </span>")
+				if(5)
+					ping("\The [src] pings loudly, 'Finalizing processes... 40 Percent.'")
+		if(80)
+			playsound(src.loc, 'sound/machines/signal.ogg', 75, 1)
+			processing_status = 100
+			sleep(300)
+			switch(part_number)
+				if(1)
+					ping("\The [src] pings loudly, 'Scan type: [scantype2text()] preparations finished. Offloading sample to next sequence. Shutting down...'")
+				if(2)
+					switch(mainpart.scan_type)
+						if(SCAN_NODESTROY)
+							ping("\The [src] pings loudly, 'Internal structure analyzation complete. Offloading sample to begin next sequence. Shutting down... '")
+						if(SAMPLE_CLONE)
+							ping("\The [src] pings loudly, 'CRISPR module loaded. Offloading DNA and CRISPR procedures. Shutting down...'")
+						else
+							ping("\The [src] pings loudly, 'Decontaminating biological specimen to ensure purity. Current purity: [rand(80,100)]%'")
+				if(3 to 4)
+					src.visible_message("<span class='notice'>The [src] emits a heavy droning sound as it transfers the specimen. </span>")	
+				if(5)
+					ping("\The [src] pings loudly, 'Processing finialized. Ejecting final product. Exercise caution.'")
+					playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 75, 1)
+	sleep(100)
+	machinery_processing = TRUE
+	return
 
 /obj/machinery/red/proc/scantype2text()
 	return
