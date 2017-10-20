@@ -1,7 +1,7 @@
 #ifdef AO_USE_LIGHTING_OPACITY
-#define AO_TURF_CHECK(T) (!T.has_opaque_atom)
+#define AO_TURF_CHECK(T) (!T.has_opaque_atom || !T.permit_ao)
 #else
-#define AO_TURF_CHECK(T) (!T.density || !T.opacity)
+#define AO_TURF_CHECK(T) (!T.density || !T.opacity || !T.permit_ao)
 #endif
 
 /turf

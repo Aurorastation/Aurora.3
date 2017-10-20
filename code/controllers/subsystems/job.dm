@@ -505,6 +505,10 @@
 	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
 
 	var/datum/job/job = GetJob(rank)
+
+	if(spawning_at != "Arrivals Shuttle" || job.latejoin_at_spawnpoints)
+		return EquipRank(H, rank, 1)
+
 	var/list/spawn_in_storage = list()
 	H <<"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>"
 
@@ -771,8 +775,14 @@
 			else
 				permitted = TRUE
 
-			if(G.whitelisted && !is_alien_whitelisted(H, all_species[G.whitelisted]))
-				permitted = FALSE
+			if (G.whitelisted)
+				var/found = FALSE
+				for (var/species in G.whitelisted)
+					if (is_alien_whitelisted(H, global.all_species[species]))
+						found = TRUE
+						break
+				 if (!found)
+				 	permitted = FALSE
 
 			if(!permitted)
 				H << "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>"

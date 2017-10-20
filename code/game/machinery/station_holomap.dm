@@ -93,8 +93,8 @@
 			user.client.images |= holomap_datum.station_map
 
 			watching_mob = user
-			watching_mob.OnMove(CALLBACK(src, .proc/checkPosition))
-			watching_mob.OnDestroy(CALLBACK(src, .proc/stopWatching))
+			moved_event.register(watching_mob, src, /obj/machinery/station_map/proc/checkPosition)
+			destroyed_event.register(watching_mob, src, /obj/machinery/station_map/proc/stopWatching)
 			update_use_power(2)
 
 			if(bogus)
@@ -120,8 +120,8 @@
 			animate(holomap_datum.station_map, alpha = 0, time = 5, easing = LINEAR_EASING)
 			var/mob/M = watching_mob
 			addtimer(CALLBACK(src, .proc/clear_image, M, holomap_datum.station_map), 5, TIMER_CLIENT_TIME)//we give it time to fade out
-		watching_mob.UnregisterOnMove(src)
-		watching_mob.UnregisterOnDestroy(src)
+		moved_event.unregister(watching_mob, src)
+		destroyed_event.unregister(watching_mob, src)
 	watching_mob = null
 	update_use_power(1)
 

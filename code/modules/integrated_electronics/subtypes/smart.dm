@@ -20,11 +20,14 @@
 	set_pin_data(IC_OUTPUT, 1, null)
 
 	if(!isweakref(I.data))
+		push_data()
 		return
 	var/atom/A = I.data.resolve()
 	if(!A)
+		push_data()
 		return
 	if(!(A in view(get_turf(src))))
+		push_data()
 		return // Can't see the target.
 	var/desired_dir = get_dir(get_turf(src), A)
 

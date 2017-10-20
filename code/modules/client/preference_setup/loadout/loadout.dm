@@ -64,7 +64,7 @@ var/list/gear_datums = list()
 			continue
 		if(G.whitelisted && preference_mob)
 			for(var/species in G.whitelisted)
-				if(is_alien_whitelisted(preference_mob, species))
+				if(is_alien_whitelisted(preference_mob, global.all_species[species]))
 					. += gear_name
 					break
 		else
