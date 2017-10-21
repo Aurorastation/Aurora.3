@@ -3676,11 +3676,11 @@
 	command = "cycle_interior";
 	frequency = 1379;
 	layer = 3.3;
-	master_tag = "brig_solar_inner";
+	master_tag = "brig_solar_airlock";
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list(11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -8511,7 +8511,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "solar_roof_inner";
+	id_tag = "solar_aft_inner";
 	locked = 1;
 	name = "Engineering External Access";
 	req_access = list(11,13)
@@ -8606,7 +8606,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	frequency = 1379;
-	id_tag = "solar_roof_pump"
+	id_tag = "solar_aft_pump"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -8691,7 +8691,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "solar_roof_outer";
+	id_tag = "solar_aft_outer";
 	locked = 1;
 	name = "Engineering External Access";
 	req_access = list(11,13)
