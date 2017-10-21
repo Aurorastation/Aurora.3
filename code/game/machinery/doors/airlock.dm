@@ -768,7 +768,7 @@ About the new airlock wires panel:
 			if(!src.density)
 				return
 
-			H.visible_message("\The [H] begins to pry open \the [src]!")
+			H.visible_message("\The [H] begins to pry open \the [src]!", "You being to pry open \the [src]!", "You hear the sound of an airlock being forced open.")
 
 			if(!do_after(H, 120, 1, act_target = src))
 				return
@@ -776,11 +776,11 @@ About the new airlock wires panel:
 			src.do_animate("spark")
 			src.stat |= BROKEN
 			var/check = src.open(1)
-			src.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]")
+			src.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
 			return
 
-		if(prob(40) && src.density)
-			if(H.getBrainLoss() >= 50)
+		if(H.getBrainLoss() >= 50)
+			if(prob(40) && src.density)
 				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
 				if(!istype(H.head, /obj/item/clothing/head/helmet))
 					user.visible_message("<span class='warning'>[user] headbutts the airlock.</span>")
