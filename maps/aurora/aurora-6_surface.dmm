@@ -2886,6 +2886,7 @@
 	name = "KEEP CLEAR: DOCKING AREA";
 	pixel_y = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "fx" = (
@@ -3300,7 +3301,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "admin_shuttle_bay_outer";
+	id_tag = "admin_shuttle_dock_airlock_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13)
@@ -3320,8 +3321,8 @@
 /obj/machinery/light/small,
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
-	id_tag = "admin_shuttle_dock_sensor";
-	master_tag = "admin_shuttle_bay";
+	id_tag = "admin_shuttle_dock_airlock_sensor";
+	master_tag = "admin_shuttle_dock_airlock";
 	pixel_x = 0;
 	pixel_y = 26
 	},
@@ -3331,19 +3332,19 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1380;
-	id_tag = "admin_shuttle_bay_pump"
+	id_tag = "admin_shuttle_dock_airlock_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1380;
-	id_tag = "admin_shuttle_bay";
-	master_tag = "admin_shuttle_bay";
+	id_tag = "admin_shuttle_dock_airlock";
+	master_tag = "admin_shuttle_dock_airlock";
 	pixel_y = 30;
 	req_one_access = list(13);
 	tag_airlock_mech_sensor = null;
-	tag_airpump = "admin_shuttle_bay_sensor";
-	tag_chamber_sensor = "admin_shuttle_bay_sensor";
-	tag_exterior_door = "admin_shuttle_bay_outer";
-	tag_interior_door = "admin_shuttle_bay_inner";
+	tag_airpump = "admin_shuttle_dock_airlock_pump";
+	tag_chamber_sensor = "admin_shuttle_dock_airlock_sensor";
+	tag_exterior_door = "admin_shuttle_dock_airlock_outer";
+	tag_interior_door = "admin_shuttle_dock_airlock_inner";
 	tag_shuttle_mech_sensor = null
 	},
 /turf/simulated/floor/plating,
@@ -3356,7 +3357,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "admin_shuttle_bay_inner";
+	id_tag = "admin_shuttle_dock_airlock_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13)
@@ -3675,11 +3676,11 @@
 	command = "cycle_interior";
 	frequency = 1379;
 	layer = 3.3;
-	master_tag = "brig_solar_inner";
+	master_tag = "brig_solar_airlock";
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list(11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -3945,6 +3946,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "hl" = (
@@ -3956,6 +3958,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "hm" = (
@@ -4073,6 +4076,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "hA" = (
@@ -5342,6 +5346,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "ka" = (
@@ -5392,8 +5397,8 @@
 	id_tag = "nuke_shuttle_dock_airlock";
 	pixel_x = 0;
 	pixel_y = 30;
-	req_access = list(13);
-	req_one_access = null;
+	req_access = null;
+	req_one_access = list(13);
 	tag_airpump = "nuke_shuttle_dock_pump";
 	tag_chamber_sensor = "nuke_shuttle_dock_sensor";
 	tag_exterior_door = "nuke_shuttle_dock_outer";
@@ -5835,6 +5840,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "kM" = (
@@ -6632,7 +6638,9 @@
 	req_access = list(61)
 	},
 /turf/simulated/floor/tiled,
-/area/turret_protected/tcomfoyer)
+/area/turret_protected/tcomfoyer{
+	name = "Telecoms Foyer"
+	})
 "md" = (
 /obj/structure/sign/electricshock,
 /turf/simulated/wall/r_wall,
@@ -8503,7 +8511,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "solar_roof_inner";
+	id_tag = "solar_aft_inner";
 	locked = 1;
 	name = "Engineering External Access";
 	req_access = list(11,13)
@@ -8598,7 +8606,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	frequency = 1379;
-	id_tag = "solar_roof_pump"
+	id_tag = "solar_aft_pump"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -8683,7 +8691,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "solar_roof_outer";
+	id_tag = "solar_aft_outer";
 	locked = 1;
 	name = "Engineering External Access";
 	req_access = list(11,13)
@@ -41364,7 +41372,7 @@ aw
 aw
 fw
 gl
-hj
+ex
 aw
 aw
 aw
@@ -41619,9 +41627,9 @@ aa
 aw
 aa
 aa
-fx
+jI
 gm
-fx
+jI
 aw
 aw
 aw
@@ -41876,12 +41884,12 @@ aa
 aa
 aa
 aa
-fx
+jI
 gn
 hk
-hW
-hW
-hW
+fG
+fG
+fG
 jJ
 ke
 jI
