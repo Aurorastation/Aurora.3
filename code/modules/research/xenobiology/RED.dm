@@ -254,8 +254,16 @@ There is also a non-destrutive option, but... It's not as fun.
 	return
 
 /obj/machinery/red/proc/scantype2text()
-	return
-		
+	switch(mainpart.scan_type)
+		if(SCAN_IDLE)
+			return "Idle"
+		if(SCAN_DESTROY)
+			return "Destructive Analysis"
+		if(SCAN_CONVERT_ORIGIN)
+		if(SCAN_NODESTROY)
+		if(SCAN_DNA_SAMPLE)
+		if(SAMPLE_CLONE)
+			return
 /obj/machinery/red/proc/complete_mob_analysis()
 	if(part_number != 5 && processing_status != 100)
 		return
