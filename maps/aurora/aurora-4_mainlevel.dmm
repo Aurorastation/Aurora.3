@@ -26680,7 +26680,7 @@
 "aUH" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/chasm_mask,
+/turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
 "aUI" = (
 /obj/structure/cable/green{
