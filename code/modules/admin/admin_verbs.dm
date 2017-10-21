@@ -1046,7 +1046,7 @@ var/list/admin_verbs_cciaa = list(
 
 	var/mob/living/silicon/ai/target = input("Choose the AI to force-wipe:", "AI Termination") as null|anything in ai_list
 
-	if (alert("Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", "No", "No", "Yes") != "Yes")
+	if (!target || alert("Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", "No", "No", "Yes") != "Yes")
 		return
 
 	log_and_message_admins("admin-wiped [key_name_admin(target)]'s core.")
