@@ -26,7 +26,7 @@
 	dat += "Locked on<BR>"
 	dat += "<B>Charge progress: [reload]/180:</B><BR>"
 	dat += "<A href='byond://?src=\ref[src];fire=1'>Open Fire</A><BR>"
-	dat += "Deployment of weapon authorized by <br>[company_name] Naval Command<br><br>Remember, friendly fire is grounds for termination of your contract and life.<HR>"
+	dat += "Deployment of weapon authorized by <br>[company_name] Chief Naval Director<br><br>Remember, friendly fire is grounds for termination of your contract and life.<HR>"
 	user << browse(dat, "window=scroll")
 	onclose(user, "scroll")
 	return
@@ -43,6 +43,7 @@
 		if(src.reload < 180) return
 		if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
 			command_announcement.Announce("Bluespace artillery fire detected. Brace for impact.")
+			world << sound('sound/effects/yamato_fire.ogg')
 			message_admins("[key_name_admin(usr)] has launched an artillery strike.", 1)
 			var/list/L = list()
 			for(var/turf/T in get_area_turfs(thearea.type))

@@ -17,7 +17,7 @@
 	var/lock_time = 0          // When -will- we lock on?
 	var/active =    0          // Is our owner intending to take hostages?
 	var/target_permissions = 0 // Permission bitflags.
-
+	var/aimcooldown			   // How long untill we can re-aim?
 /obj/aiming_overlay/New(var/newowner)
 	..()
 	owner = newowner
@@ -133,6 +133,8 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 			owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
 
 /obj/aiming_overlay/proc/aim_at(var/mob/target, var/obj/thing)
+	if (aimcooldown > world.time)
+		return
 
 	if(!owner)
 		return
@@ -164,7 +166,7 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 		playsound(get_turf(owner), 'sound/weapons/TargetOn.ogg', 50,1)
 
 	forceMove(get_turf(target))
-	processing_objects |= src
+	START_PROCESSING(SSprocessing, src)
 
 	aiming_at.aimed |= src
 	toggle_active(1)
@@ -174,6 +176,9 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
 	moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
 	destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
+
+/obj/aiming_overlay/proc/aim_cooldown(var/seconds)
+	aimcooldown = world.time + seconds SECONDS
 
 /obj/aiming_overlay/update_icon()
 	if(locked)
@@ -217,8 +222,9 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 
 	aiming_with = null
 	loc = null
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/aiming_overlay/proc/target_moved()
 	update_aiming()
 	trigger(TARGET_CAN_MOVE)
+

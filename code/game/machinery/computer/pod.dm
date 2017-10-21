@@ -53,7 +53,7 @@
 
 /*
 /obj/machinery/computer/pod/attackby(I as obj, user as mob)
-	if(istype(I, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(I))
 		playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			if(stat & BROKEN)

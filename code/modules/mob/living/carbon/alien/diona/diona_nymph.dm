@@ -157,25 +157,31 @@
 
 
 /mob/living/carbon/alien/diona/proc/make_blood()
-
 	if(vessel)
 		return
 
 	vessel = new/datum/reagents(600)
 	vessel.my_atom = src
 
-	vessel.add_reagent("blood",560)
-	spawn(1)
-		fixblood()
+	vessel.add_reagent("blood", 560)
+	fixblood()
 
 /mob/living/carbon/alien/diona/proc/fixblood()
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
 		if(B.id == "blood")
-			B.data = list(	"donor"=src,"viruses"=null,"species"=species.name,"blood_DNA"=name,"blood_colour"= species.blood_color,"blood_type"=null,	\
-							"resistances"=null,"trace_chem"=null, "virus2" = null, "antibodies" = list())
-			var/color = B.data["blood_colour"]
-			B.color = color
-
+			B.data = list(
+				"donor" = WEAKREF(src),
+				"viruses" = null,
+				"species" = species.name,
+				"blood_DNA" = name,
+				"blood_colour" = species.blood_color,
+				"blood_type" = null,
+				"resistances" = null,
+				"trace_chem" = null,
+				"virus2" = null,
+				"antibodies" = list()
+			)
+			B.color = B.data["blood_colour"]
 
 /mob/living/carbon/alien/diona/proc/setup_dionastats()
 	var/MLS = (1.5 / 2.1)//Maximum energy lost per second, in total darkness

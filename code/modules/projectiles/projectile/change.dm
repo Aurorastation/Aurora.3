@@ -16,6 +16,10 @@
 		if(M.has_brain_worms())
 			return //Borer stuff - RR
 
+		if(istype(M, /mob/living/carbon/human/apparition))
+			visible_message("<span class='caution'>\The [src] doesn't seem to affect [M] in any way.</span>")
+			return
+
 		if(istype(M, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/Robot = M
 			if(Robot.mmi)

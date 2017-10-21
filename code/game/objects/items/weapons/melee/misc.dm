@@ -10,6 +10,7 @@
 	w_class = 3
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
+	hitsound = 'sound/weapons/chainhit.ogg'
 
 /obj/item/weapon/melee/chainsword
 	name = "chainsword"
@@ -61,7 +62,7 @@
 	item_state = "kneehammer"
 	contained_sprite = 1
 	slot_flags = SLOT_BELT
-	force = 22
+	force = 20
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 7
@@ -69,3 +70,55 @@
 	w_class = 3
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
 	hitsound = 'sound/weapons/genhit3.ogg'
+
+
+/obj/item/weapon/melee/hammer/powered
+	name = "powered hammer"
+	desc = "A heavily modified plasteel hammer, it seems to be powered by a robust hydraulic system."
+	icon = 'icons/obj/kneehammer.dmi'
+	icon_state = "hammeron"
+	item_state = "hammeron"
+	origin_tech = list(TECH_MATERIAL = 5, TECH_ILLEGAL = 2, TECH_COMBAT = 3)
+	var/on = TRUE
+
+/obj/item/weapon/melee/hammer/powered/update_icon()
+	if(on)
+		icon_state = "hammeron"
+		item_state = "hammeron"
+	else
+		icon_state = "hammeroff"
+		item_state = "hammeroff"
+
+/obj/item/weapon/melee/hammer/powered/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+	..()
+	if(prob(25))
+		if(!on)
+			user << "<span class='warning'>\The [src] buzzes!</span>"
+			return
+		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
+		user.visible_message("<span class='danger'>\The [user] slams \the [target] away with \the [src]!</span>")
+		var/T = get_turf(user)
+		spark(T, 3, alldirs)
+		step_away(target,user,15)
+		sleep(1)
+		step_away(target,user,15)
+		sleep(1)
+		step_away(target,user,15)
+		sleep(1)
+		step_away(target,user,15)
+		sleep(1)
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			H.apply_effect(2, WEAKEN)
+		on = FALSE
+		update_icon()
+		addtimer(CALLBACK(src, .proc/rearm), 45 SECONDS)
+		if(isrobot(user))
+			var/mob/living/silicon/robot/R = user
+			if(R.cell)
+				R.cell.use(150)
+
+/obj/item/weapon/melee/hammer/powered/proc/rearm()
+	src.visible_message("<span class='notice'>\The [src] hisses lowly.</span>")
+	on = TRUE
+	update_icon()

@@ -10,11 +10,6 @@ Pipelines + Other Objects -> Pipe network
 
 */
 /obj/machinery/atmospherics
-
-	var/auto_init = 0
-
-	var/no_special_init = FALSE
-
 	anchored = 1
 	idle_power_usage = 0
 	active_power_usage = 0
@@ -33,6 +28,7 @@ Pipelines + Other Objects -> Pipe network
 	var/global/datum/pipe_icon_manager/icon_manager
 	var/obj/machinery/atmospherics/node1
 	var/obj/machinery/atmospherics/node2
+	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
 /obj/machinery/atmospherics/New()
 	if(!icon_manager)
@@ -52,9 +48,6 @@ Pipelines + Other Objects -> Pipe network
 // atmos_init() and Initialize() must be separate, as atmos_init() can be called multiple times after the machine has been initialized.
 
 /obj/machinery/atmospherics/Initialize(mapload, ...)
-	if (no_special_init)
-		return ..()
-
 	. = ..()
 	if (mapload)
 		atmos_init()

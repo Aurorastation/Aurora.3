@@ -188,6 +188,10 @@
 /obj/item/projectile/bullet/rifle/a556
 	damage = 30
 
+/obj/item/projectile/bullet/rifle/a556/ap
+	damage = 25
+	armor_penetration = 25
+
 /obj/item/projectile/bullet/rifle/a145
 	damage = 80
 	stun = 3
@@ -214,22 +218,18 @@
 			if(!isrobot(target))
 				L.apply_effect(5, DROWSY, 0)
 				if(def_zone == "torso")
-					if(blocked < 2 && !(blocked < 1))
-						target.visible_message("<b>[target]</b> yawns.")
-					if(blocked < 1)
-						spawn(120)
-							L.apply_effect(10, PARALYZE, 0)
-							target.visible_message("<b>[target]</b> moans.")
-				if(def_zone == "head" && blocked < 2)
-					spawn(35)
-						L.apply_effect(20, PARALYZE, 0)
+					if(blocked < 100 && !(blocked < 20))
+						L.emote("yawns")
+					if(blocked < 20)
+						addtimer(CALLBACK(src, .proc/apply_sedative, target, 10), 120)
+				if(def_zone == "head" && blocked < 100)
+					addtimer(CALLBACK(src, .proc/apply_sedative, target, 20), 35)
 				if(def_zone != "torso" && def_zone != "head")
-					if(blocked < 2 && !(blocked < 1))
-						target.visible_message("<b>[target]</b> yawns.")
-					if(blocked < 1)
-						spawn(45)
-							L.apply_effect(15, PARALYZE, 0)
-							target.visible_message("<b>[target]</b> moans.")
+					if(blocked < 100 && !(blocked < 20))
+						L.emote("yawns")
+					if(blocked < 20)
+						addtimer(CALLBACK(src, .proc/apply_sedative, target, 15), 45)
+
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
 		L.apply_damage(35, TOX) //temporary until simple_mob paralysis actually works.
@@ -239,16 +239,15 @@
 			M.Sleeping(1200)*/ //commented out until simple_mob paralysis actually works.
 	..()
 
+/obj/item/projectile/bullet/rifle/tranq/proc/apply_sedative(var/mob/living/L, var/severity)
+	L.apply_effect(severity, PARALYZE, 0)
+	L.emote("moans")
 /* Miscellaneous */
 
 /obj/item/projectile/bullet/suffocationbullet//How does this even work?
 	name = "co bullet"
 	damage = 20
 	damage_type = OXY
-
-/obj/item/projectile/bullet/rifle/a556/ap
-	damage = 25
-	armor_penetration = 25
 
 /obj/item/projectile/bullet/cyanideround
 	name = "poison bullet"
@@ -262,8 +261,8 @@
 	edge = 1
 
 /obj/item/projectile/bullet/burstbullet/on_impact(var/atom/A)
-		explosion(A, -1, 0, 2)
-		..()
+	explosion(A, -1, 0, 2)
+	..()
 
 /obj/item/projectile/bullet/blank
 	invisibility = 101

@@ -3,7 +3,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 /datum/controller/subsystem/garbage_collector
 	name = "Garbage"
 	priority = SS_PRIORITY_GARBAGE
-	wait = 5
+	wait = 2 SECONDS
 	flags = SS_FIRE_IN_LOBBY|SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
 
 	var/collection_timeout = 3000// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
@@ -241,11 +241,13 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	tag = null
 	var/list/timers = active_timers
 	active_timers = null
-	for(var/thing in timers)
-		var/datum/timedevent/timer = thing
-		if (timer.spent)
-			continue
-		qdel(timer)
+	if (timers)
+		for (var/thing in timers)
+			var/datum/timedevent/timer = thing
+			if (timer.spent)
+				continue
+			qdel(timer)
+
 	return QDEL_HINT_QUEUE
 
 /datum/var/gcDestroyed //Time when this object was destroyed.

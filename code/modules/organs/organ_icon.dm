@@ -39,12 +39,7 @@
 
 /obj/item/organ/external/head/sync_colour_to_human(var/mob/living/carbon/human/human)
 	..()
-	var/obj/item/organ/eyes/eyes
-	if (species.vision_organ)
-		eyes = owner.internal_organs_by_name[species.vision_organ]
-	else
-		eyes = owner.internal_organs_by_name["eyes"]
-
+	var/obj/item/organ/eyes/eyes = owner.get_eyes()
 	if(eyes)
 		eyes.update_colour()
 
@@ -57,8 +52,8 @@
 	cut_overlays()
 	if(!owner || !owner.species)
 		return
-	if(owner.species.has_organ["eyes"] || (owner.species.vision_organ && owner.species.has_organ[species.vision_organ]))
-		var/obj/item/organ/eyes/eyes = owner.internal_organs_by_name["eyes"] || owner.internal_organs_by_name[species.vision_organ]
+	if(owner.species.has_organ[owner.species.vision_organ])
+		var/obj/item/organ/eyes/eyes = owner.get_eyes()
 		if(eyes && species.eyes)
 			var/eyecolor
 			if (eyes.eye_colour)
@@ -189,3 +184,28 @@
 		damage_state = n_is
 		return 1
 	return 0
+
+// This is NOT safe for caching the organ's own icon, it's only meant to be used for the mob icon cache.
+/obj/item/organ/external/proc/get_mob_cache_key()
+	var/list/keyparts = list()
+	if (is_stump())
+		keyparts += "stump"
+	else if (status & ORGAN_ROBOT)
+		keyparts += "robot:[model || "nomodel"]"
+	else if (status & ORGAN_DEAD)
+		keyparts += "dead"
+	else
+		keyparts += "norm"
+
+	keyparts += "[species.race_key]"
+	keyparts += "[dna.GetUIState(DNA_UI_GENDER)]"
+	keyparts += "[dna.GetUIValue(DNA_UI_SKIN_TONE)]"
+	if (skin_color)
+		keyparts += "[skin_color]"
+	if (body_hair && hair_color)
+		keyparts += "[hair_color]"
+
+	for (var/marking in markings)
+		keyparts += "[marking][markings[marking]["color"]]"
+
+	. = keyparts.Join("_")

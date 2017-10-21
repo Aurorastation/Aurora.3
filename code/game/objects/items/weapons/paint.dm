@@ -1,13 +1,11 @@
 //NEVER USE THIS IT SUX	-PETETHEGOAT
 //THE GOAT WAS RIGHT - RKF
 
-var/global/list/cached_icons = list()
-
 /obj/item/weapon/reagent_containers/glass/paint
 	desc = "It's a paint bucket."
 	name = "paint bucket"
 	icon = 'icons/obj/items.dmi'
-	icon_state = "paint_neutral"
+	icon_state = "paint_empty"
 	item_state = "paintcan"
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	w_class = 3.0
@@ -16,61 +14,68 @@ var/global/list/cached_icons = list()
 	volume = 60
 	unacidable = 0
 	flags = OPENCONTAINER
-	var/paint_type = "red"
+	var/paint_reagent = null //name of the reagent responsible for colouring the paint
+	var/paint_type = null //used for colouring detective technicolor coat and hat
 
-	attack(mob/M as mob, mob/user as mob, def_zone)
-		if(istype(M, /mob/living/))
-			user.visible_message("<span class='warning'>\The [M] has been splashed with something by [user] to no effect!</span>")
-			reagents.trans_to_turf(M.loc, 5)
-			return
+/obj/item/weapon/reagent_containers/glass/paint/Initialize()
+	. = ..()
+	if(paint_type && lentext(paint_type) > 0)
+		name = paint_type + " " + name
+	reagents.add_reagent("water", volume*3/5)
+	reagents.add_reagent("plasticide", volume/5)
+	if(paint_reagent)
+		reagents.add_reagent(paint_reagent, volume/5)
+	reagents.handle_reactions()
+	update_icon()
 
-	afterattack(turf/simulated/target, mob/user, proximity)
-		if(!proximity)
-			return
-		if(istype(target) && reagents.total_volume > 5)
-			user.visible_message("<span class='warning'>\The [target] has been splashed with something by [user]!</span>")
-			reagents.trans_to_turf(target, 5)
-		return
+/obj/item/weapon/reagent_containers/glass/paint/update_icon()
+	cut_overlays()
+	if(!is_open_container())
+		add_overlay("paint_lid")
+	else if(reagents.total_volume)
+		var/image/I = image(icon, "paint_full")
+		I.color = reagents.get_color()
+		add_overlay(I)
 
-	New()
-		if(paint_type && lentext(paint_type) > 0)
-			name = paint_type + " " + name
-		..()
-		reagents.add_reagent("water", volume*3/5)
-		reagents.add_reagent("plasticide", volume/5)
-		if(paint_type == "white") //why don't white crayons exist
-			reagents.add_reagent("aluminum", volume/5)
-		else if (paint_type == "black")
-			reagents.add_reagent("carbon", volume/5)
-		else
-			reagents.add_reagent("crayon_dust_[paint_type]", volume/5)
-		reagents.handle_reactions()
+/obj/item/weapon/reagent_containers/glass/paint/on_reagent_change()
+	update_icon()
 
-	red
-		icon_state = "paint_red"
-		paint_type = "red"
+/obj/item/weapon/reagent_containers/glass/paint/pickup(mob/user)
+	..()
+	update_icon()
 
-	yellow
-		icon_state = "paint_yellow"
-		paint_type = "yellow"
+/obj/item/weapon/reagent_containers/glass/paint/dropped(mob/user)
+	..()
+	update_icon()
 
-	green
-		icon_state = "paint_green"
-		paint_type = "green"
+/obj/item/weapon/reagent_containers/glass/paint/attack_hand()
+	..()
+	update_icon()
 
-	blue
-		icon_state = "paint_blue"
-		paint_type = "blue"
+/obj/item/weapon/reagent_containers/glass/paint/red
+	paint_reagent = "crayon_dust_red"
+	paint_type = "red"
 
-	purple
-		icon_state = "paint_violet"
-		paint_type = "purple"
+/obj/item/weapon/reagent_containers/glass/paint/yellow
+	paint_reagent = "crayon_dust_yellow"
+	paint_type = "yellow"
 
-	black
-		icon_state = "paint_black"
-		paint_type = "black"
+/obj/item/weapon/reagent_containers/glass/paint/green
+	paint_reagent = "crayon_dust_green"
+	paint_type = "green"
 
-	white
-		icon_state = "paint_white"
-		paint_type = "white"
+/obj/item/weapon/reagent_containers/glass/paint/blue
+	paint_reagent = "crayon_dust_blue"
+	paint_type = "blue"
 
+/obj/item/weapon/reagent_containers/glass/paint/purple
+	paint_reagent = "crayon_dust_purple"
+	paint_type = "purple"
+
+/obj/item/weapon/reagent_containers/glass/paint/black
+	paint_reagent = "carbon"
+	paint_type = "black"
+
+/obj/item/weapon/reagent_containers/glass/paint/white
+	paint_reagent = "aluminum"
+	paint_type = "white"

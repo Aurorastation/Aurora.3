@@ -89,6 +89,18 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "horror"
 	icon_living = "horror"
+	icon_dead = "horror_dead"
+
+/mob/living/simple_animal/familiar/horror/Initialize()
+	. = ..()
+	if(prob(25))
+		icon_state = "horror_alt"
+		icon_living = "horror_alt"
+		icon_dead = "horror_alt_dead"
+	else if(prob(25))
+		icon_state = "abomination"
+		icon_living = "abomination"
+		icon_dead = "abomination_dead"
 
 	speak_emote = list("moans", "groans")
 

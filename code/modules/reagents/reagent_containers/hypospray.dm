@@ -15,8 +15,8 @@
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 
-///obj/item/weapon/reagent_containers/hypospray/New() //comment this to make hypos start off empty
-//	..()
+///obj/item/weapon/reagent_containers/hypospray/Initialize() //comment this to make hypos start off empty
+//	. = ..()
 //	reagents.add_reagent("tricordrazine", 30)
 //	return
 
@@ -58,8 +58,8 @@
 	amount_per_transfer_from_this = 5
 	volume = 5
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/New()
-	..()
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/Initialize()
+	. =..()
 	reagents.add_reagent("inaprovaline", 5)
 	update_icon()
 	return
@@ -90,8 +90,8 @@
 	volume = 20
 	amount_per_transfer_from_this = 20
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack/New()
-		..()
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack/Initialize()
+		. = ..()
 		reagents.add_reagent("hyperzine", 12)
 		reagents.add_reagent("tramadol", 8)
 		update_icon()
@@ -102,8 +102,8 @@
 	volume = 35
 	amount_per_transfer_from_this = 35
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/survival/New()
-		..()
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/survival/Initialize()
+		. = ..()
 		reagents.add_reagent("tricordrazine", 15)
 		reagents.add_reagent("inaprovaline", 5)
 		reagents.add_reagent("dexalinp", 5)
@@ -118,8 +118,8 @@
 	icon_state = "combat_hypo"
 	volume = 20
 
-/obj/item/weapon/reagent_containers/hypospray/combat/New()
-	..()
+/obj/item/weapon/reagent_containers/hypospray/combat/Initialize()
+	. = ..()
 	reagents.add_reagent("oxycodone", 5)
 	reagents.add_reagent("synaptizine", 5)
 	reagents.add_reagent("hyperzine", 5)

@@ -1,0 +1,63 @@
+--
+-- Create the Cargo Database
+--
+
+CREATE TABLE `ss13_cargo_categories` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(100) NOT NULL COLLATE 'utf8_bin',
+	`display_name` VARCHAR(100) NOT NULL COLLATE 'utf8_bin',
+	`description` VARCHAR(300) NOT NULL COLLATE 'utf8_bin',
+	`icon` VARCHAR(50) NOT NULL COLLATE 'utf8_bin',
+	`price_modifier` FLOAT UNSIGNED NOT NULL DEFAULT '1',
+	`order_by` VARCHAR(5) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`deleted_at` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `name` (`name`)
+)
+COLLATE='utf8_bin'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `ss13_cargo_items` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`path` VARCHAR(150) NOT NULL COLLATE 'utf8_bin',
+	`name` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`description` VARCHAR(300) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`categories` VARCHAR(300) NOT NULL COMMENT 'JSON list of categories' COLLATE 'utf8_bin',
+	`suppliers` TEXT NULL COMMENT 'JSTON list of suppliers' COLLATE 'utf8_bin',
+	`amount` INT(10) UNSIGNED NOT NULL DEFAULT '1',
+	`access` INT(10) UNSIGNED NULL DEFAULT NULL,
+	`container_type` VARCHAR(50) NOT NULL DEFAULT 'crate' COLLATE 'utf8_bin',
+	`groupable` TINYINT(3) UNSIGNED NOT NULL DEFAULT '1',
+	`order_by` VARCHAR(5) NULL DEFAULT NULL COLLATE 'utf8_bin',
+	`created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`deleted_at` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `path` (`path`)
+)
+COLLATE='utf8_bin'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `ss13_cargo_suppliers` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`short_name` VARCHAR(50) NOT NULL COLLATE 'utf8_bin',
+	`name` VARCHAR(100) NOT NULL COLLATE 'utf8_bin',
+	`description` VARCHAR(300) NOT NULL COLLATE 'utf8_bin',
+	`tag_line` VARCHAR(300) NOT NULL COLLATE 'utf8_bin',
+	`shuttle_time` INT(11) UNSIGNED NOT NULL,
+	`shuttle_price` INT(11) UNSIGNED NOT NULL,
+	`available` TINYINT(4) UNSIGNED NOT NULL DEFAULT '1',
+	`price_modifier` FLOAT UNSIGNED NOT NULL DEFAULT '1',
+	`created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`deleted_at` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `Schlüssel 2` (`short_name`)
+)
+COLLATE='utf8_bin'
+ENGINE=InnoDB
+;

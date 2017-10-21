@@ -19,9 +19,10 @@
 	icon_state = "mixer0"
 	use_power = 1
 	idle_power_usage = 20
+	layer = 2.9
 	var/beaker = null
 	var/obj/item/weapon/storage/pill_bottle/loaded_pill_bottle = null
-	var/mode = 0
+	var/mode = TRUE
 	var/condi = 0
 	var/useramount = 30 // Last used amount
 	var/pillamount = 10
@@ -32,9 +33,7 @@
 
 /obj/machinery/chem_master/Initialize()
 	. = ..()
-	var/datum/reagents/R = new/datum/reagents(120)
-	reagents = R
-	R.my_atom = src
+	create_reagents(120)
 
 /obj/machinery/chem_master/ex_act(severity)
 	switch(severity)
@@ -71,7 +70,7 @@
 		B.loc = src
 		user << "You add the pill bottle into the dispenser slot!"
 		src.updateUsrDialog()
-	else if(istype(B, /obj/item/weapon/wrench))
+	else if(iswrench(B))
 		anchored = !anchored
 		user << "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground"
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
