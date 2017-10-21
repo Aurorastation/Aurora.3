@@ -85,21 +85,21 @@
 	display_name = "vaurca blindfold (Vaurca)"
 	path = /obj/item/clothing/glasses/sunglasses/blinders
 	cost = 2
-	whitelisted = list("Vaurca Worker")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear"
 
 /datum/gear/mask/vaurca
 	display_name = "mandible garment (Vaurca)"
 	path = /obj/item/clothing/mask/breath/vaurca
 	cost = 1
-	whitelisted = list("Vaurca Worker")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
 	sort_category = "Xenowear"
 
 /datum/gear/cape
 	display_name = "tunnel cloak (Vaurca)"
 	path = /obj/item/weapon/storage/backpack/cloak
 	cost = 1
-	whitelisted = list("Vaurca Worker")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior",)
 	sort_category = "Xenowear"
 
 //tajara items
@@ -107,7 +107,7 @@
 /datum/gear/gloves/tajara
 	display_name = "gloves selection (Tajara)"
 	path = /obj/item/clothing/gloves/black/tajara
-	whitelisted = list("Tajara")
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear"
 
 /datum/gear/gloves/tajara/New()
@@ -126,13 +126,13 @@
 /datum/gear/suit/tajara_coat
 	display_name = "tajaran naval coat (Tajara)"
 	path = /obj/item/clothing/suit/storage/tajaran
-	whitelisted = list("Tajara")
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear"
 
 /datum/gear/suit/tajaran_labcoat
 	display_name = "PRA medical coat (Tajara)"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
-	whitelisted = list("Tajara")
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident")
 	sort_category = "Xenowear"
 
@@ -142,22 +142,22 @@
 	display_name = "gear harness"
 	path = /obj/item/clothing/under/gearharness
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Diona", "Baseline Frame")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame", "Industrial Frame")
 
 /datum/gear/shoes/footwraps
 	display_name = "cloth footwraps"
 	path = /obj/item/clothing/shoes/footwraps
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Unathi", "Tajara")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 /datum/gear/shoes/toeless
 	display_name = "toe-less jackboots"
 	path = /obj/item/clothing/shoes/jackboots/unathi
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Unathi", "Tajara")
+	whitelisted = list("Vaurca Worker", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 /datum/gear/shoes/workboots_toeless
 	display_name = "toeless workboots"
 	path = /obj/item/clothing/shoes/workboots/toeless
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Unathi", "Tajara")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
