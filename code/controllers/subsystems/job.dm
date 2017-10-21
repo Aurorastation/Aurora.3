@@ -776,14 +776,8 @@
 			else
 				permitted = TRUE
 
-			if (G.whitelisted)
-				var/found = FALSE
-				for (var/species in G.whitelisted)
-					if (is_alien_whitelisted(H, global.all_species[species]))
-						found = TRUE
-						break
-				 if (!found)
-				 	permitted = FALSE
+			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
+				permitted = 0
 
 			if(!permitted)
 				H << "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>"
