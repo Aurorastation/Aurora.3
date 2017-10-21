@@ -149,3 +149,21 @@ Made a proc so this is not repeated 14 (or more) times.*/
 		src << "<span class='warning'>I don't feel strong enough without my hat.</span>"
 		return 0
 	return 1
+
+datum/antagonist/wizard/mages
+
+	id = MODE_MAGES //Todo: make them different in some concievable way.
+	role_text = "Space Mage"
+	role_text_plural = "Space Magi"
+	bantype = "wizard"
+	landmark_id = "wizard"
+	welcome_text = "You will find a list of available spells in your spell book. Choose your magic arsenal carefully.<br>In your pockets you will find a teleport scroll. Use it as needed."
+	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
+	antaghud_indicator = "hudwizard"
+
+	hard_cap = 8
+	hard_cap_round = 10
+	initial_spawn_req = 4
+	initial_spawn_target = 6
+
+	faction = "Space Wizard"
