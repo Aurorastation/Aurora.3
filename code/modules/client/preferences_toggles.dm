@@ -151,9 +151,9 @@
 	set name = "Show/Hide Space Parallax"
 	set category = "Preferences"
 	set desc = "Toggles space parallax effects."
-	prefs.parallax_togs ^= PARALLAX_SPACE
+	prefs.toggles_secondary ^= PARALLAX_SPACE
 	prefs.save_preferences()
-	if (prefs.parallax_togs & PARALLAX_SPACE)
+	if (prefs.toggles_secondary & PARALLAX_SPACE)
 		src << "You will now see space parallax effects."
 	else
 		src << "You will no longer see space parallax effects."
@@ -166,9 +166,9 @@
 	set name = "Show/Hide Space Dust"
 	set category = "Preferences"
 	set desc = "Toggles space parallax dust."
-	prefs.parallax_togs ^= PARALLAX_DUST
+	prefs.toggles_secondary ^= PARALLAX_DUST
 	prefs.save_preferences()
-	if (prefs.parallax_togs & PARALLAX_DUST)
+	if (prefs.toggles_secondary & PARALLAX_DUST)
 		src << "You will now see space parallax dust effects."
 	else
 		src << "You will no longer see space parallax dust effects."
@@ -220,8 +220,8 @@
 
 	set name = "Toggle Gun Safety Check"
 	set category = "Preferences"
-	set desc = "Toggles checking for harm intent when firing."
+	set desc = "Toggles firing guns on intents other than help."
 
 	prefs.toggles_secondary ^= SAFETY_CHECK //Held in Parallax because we don't want to deal with an SQL migration right now.
 	prefs.save_preferences()
-	src << "You will [(prefs.parallax_togs & SAFETY_CHECK) ? "no longer" : "now"] fire your weapon on intents other than help."
+	src << "You will [(prefs.toggles_secondary & SAFETY_CHECK) ? "no longer" : "now"] fire your weapon on intents other than help."

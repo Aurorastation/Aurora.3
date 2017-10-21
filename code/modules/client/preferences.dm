@@ -126,7 +126,7 @@ datum/preferences
 
 	// SPAAAACE
 	var/parallax_speed = 2
-	var/parallax_togs = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS
+	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS
 
 	var/list/pai = list()	// A list for holding pAI related data.
 

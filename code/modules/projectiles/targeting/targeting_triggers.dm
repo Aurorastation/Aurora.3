@@ -10,7 +10,7 @@
 
 /obj/aiming_overlay/proc/trigger(var/perm)
 
-	if((user.client.prefs.parallax_togs & SAFETY_CHECK) && user.a_intent != I_HURT) //Check this first to save time.
+	if((user.client.prefs.toggles_secondary & SAFETY_CHECK) && user.a_intent != I_HURT) //Check this first to save time.
 		user << "You refrain from firing, as you aren't on harm intent."
 		return
 	if(!owner || !aiming_with || !aiming_at || !locked)

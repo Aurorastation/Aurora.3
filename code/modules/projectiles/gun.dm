@@ -156,7 +156,7 @@
 	if(!user || !target) return
 
 	add_fingerprint(user)
-	if((user.client.prefs.parallax_togs & SAFETY_CHECK) && user.a_intent != I_HURT) //Check this first to save time.
+	if((client.prefs.toggles_secondary & SAFETY_CHECK) && user.a_intent != I_HURT) //Check this first to save time.
 		user << "You refrain from firing, as you aren't on harm intent."
 
 	if(!special_check(user))
