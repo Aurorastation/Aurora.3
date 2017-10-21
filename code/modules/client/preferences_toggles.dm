@@ -196,9 +196,9 @@
 	set category = "Preferences"
 	set desc = "Toggles progress bars on slow actions."
 
-	prefs.parallax_togs ^= PROGRESS_BARS
+	prefs.toggles_secondary ^= PROGRESS_BARS
 	prefs.save_preferences()
-	if (prefs.parallax_togs & PROGRESS_BARS)
+	if (prefs.toggles_secondary & PROGRESS_BARS)
 		src << "You will now see progress bars on delayed actions."
 	else
 		src << "You will no longer see progress bars on delayed actions."
@@ -208,10 +208,10 @@
 	set category = "Preferences"
 	set desc = "Toggles movement of parallax space."
 
-	prefs.parallax_togs ^= PARALLAX_IS_STATIC
+	prefs.toggles_secondary ^= PARALLAX_IS_STATIC
 	prefs.save_preferences()
 
-	if (prefs.parallax_togs & PARALLAX_IS_STATIC)
+	if (prefs.toggles_secondary & PARALLAX_IS_STATIC)
 		src << "Space will no longer move."
 	else
 		src << "Space will now move."
@@ -222,6 +222,6 @@
 	set category = "Preferences"
 	set desc = "Toggles checking for harm intent when firing."
 
-	prefs.parallax_togs ^= SAFETY_CHECK //Held in Parallax because we don't want to deal with an SQL migration right now.
+	prefs.toggles_secondary ^= SAFETY_CHECK //Held in Parallax because we don't want to deal with an SQL migration right now.
 	prefs.save_preferences()
-	src << "Your guns will [(prefs.parallax_togs & SAFETY_CHECK) ? "no longer" : "now"] fire on non-help intents."
+	src << "You will [(prefs.parallax_togs & SAFETY_CHECK) ? "no longer" : "now"] fire your weapon on intents other than help."
