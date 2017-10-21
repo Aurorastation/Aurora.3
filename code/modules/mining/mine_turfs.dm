@@ -795,8 +795,7 @@
 	icon_state = "smooth"
 	smooth = SMOOTH_TRUE | SMOOTH_BORDER
 	light_color = LIGHT_COLOR_FIRE
-	light_range = 4
-	light_power = 0.5
+	light_range = 2
 	name = "lava"
 	desc = "Toasty."
 	canSmoothWith = list(
