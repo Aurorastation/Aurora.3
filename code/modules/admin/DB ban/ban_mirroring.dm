@@ -238,9 +238,9 @@
 	var/list/data_object
 
 	try
-		json_decode(data)
+		data_object = json_decode(data)
 
-	catch()
+	catch(var/exception/E)
 		data_object = list()
 
 	if (!data_object || !data_object.len)

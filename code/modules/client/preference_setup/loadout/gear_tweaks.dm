@@ -112,8 +112,6 @@ Content adjustment
 			path = 	contents[metadata[i]]
 		if(path)
 			new path(I)
-		else
-			log_debug("Contents Tweak: Tried to spawn invalid [path] in [I]!")
 
 /*
 Reagents adjustment
