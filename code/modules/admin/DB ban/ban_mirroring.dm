@@ -242,6 +242,7 @@
 
 	catch(var/exception/E)
 		data_object = list()
+		log_debug("CONN DATA: [E] encountered when laoding data for [C.ckey].")
 
 	if (!data_object || !data_object.len)
 		log_debug("CONN DATA: [C.ckey] has no connection data to showcase.")
