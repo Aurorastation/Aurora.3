@@ -93,7 +93,7 @@
 	if(standard_pour_into(user, target))
 		return
 
-	if(reagents.total_volume)
+	if(reagents && reagents.total_volume)
 		user << "<span class='notice'>You splash the solution onto [target].</span>"
 		reagents.splash(target, reagents.total_volume)
 		return

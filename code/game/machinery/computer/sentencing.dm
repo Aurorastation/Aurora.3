@@ -626,6 +626,8 @@
 			if( incident_notes != null )
 				incident.notes = incident_notes
 		if( "render_guilty" )
+			if( !incident )
+				return
 			if( !incident.notes )
 				if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
 					return

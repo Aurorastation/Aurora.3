@@ -235,7 +235,13 @@
 		update_connection_data(C)
 		return
 
-	var/list/data_object = json_decode(data)
+	var/list/data_object
+
+	try
+		json_decode(data)
+
+	catch()
+		data_object = list()
 
 	if (!data_object || !data_object.len)
 		log_debug("CONN DATA: [C.ckey] has no connection data to showcase.")
