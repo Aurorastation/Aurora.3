@@ -45,6 +45,8 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	START_PROCESSING(shuttle_controller, shuttle)
 	if(!shuttle)
 		log_debug("Escape shuttle does not exist!")
+	else
+		emergency_shuttle.shuttle = shuttle
 
 	// Supply shuttle
 	shuttle = new/datum/shuttle/ferry/supply()
