@@ -7,7 +7,7 @@
 	var/list/concepts
 	var/points = 0
 	var/daysuntilreset = 30
-	var/list/rdconsoles = list()
+	var/list/rdconsoles
 	
 /datum/controller/subsystem/research/New()
 	NEW_SS_GLOBAL(SSresearch)
@@ -30,10 +30,12 @@
 	//load the concepts
 	var/DBQuery/loadconcepts = dbcon.NewQuery("SELECT id, level, progress FROM ss13_research_concepts WHERE deleted_at IS NULL ORDER BY order_by")
 	init_subtypes(/datum/research_concepts, concepts)
-	for(var/datum/research_concepts/A in concepts)
-		if(A.id == loadconcepts.item[1])
-			A.level = loadpoints.item[2]
-			A.progress = loadpoints.item[3]
+	loadconcepts.Execute()
+	while(loadconcepts.NextRow())
+		for(var/datum/research_concepts/A in concepts)
+			if(A.id == loadconcepts.item[1])
+				A.level = loadpoints.item[2]
+				A.progress = loadpoints.item[3]
 	
 /datum/controller/subsystem/research/fire()
 	var/DBQuery/update_points = dbcon.NewQuery("INSERT INTO ss13_research_data (round_id, points, daysuntilreset, created_at, updated_at) VALUES(:g:, :p:, :d:,NOW(), NOW()) ON DUPLICATE KEY UPDATE points=:p:, age=:d:, updated_at=NOW()")

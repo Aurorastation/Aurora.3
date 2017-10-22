@@ -13,12 +13,20 @@
 /datum/research_concepts/proc/update_progress(var/amt)
 	progress += amt
 	if(progress > max_progress)
-		progress_level()
-
+		if(progress_level() == 0)
+			//SSresearch.adjustpoints(amt/2)
+			return 2
+		else
+			return 1
 /datum/research_concepts/proc/progress_level()
 	if(level == maxlevel)
-		return
+		return 0
 	level++
 	//for(var/A in SSresearch.rdconsoles)
 	//	var/obj/machinery/computer/rdconsole = A
 		//rdconsole.updatetechs()
+	return 1
+
+/datum/research_concepts/proc/get_tech_desc(var/long = 0, var/level = 1)
+	if(level > maxlevel)
+		return 0

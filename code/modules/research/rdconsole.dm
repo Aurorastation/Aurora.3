@@ -113,6 +113,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			S.setup()
 			break
 	SyncRDevices()
+	SSresearch.rdconsoles += src 
 
 /obj/machinery/computer/rdconsole/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
 	//Loading a disk into it.
