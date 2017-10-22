@@ -60,8 +60,6 @@
 
 	if (opacity)
 		has_opaque_atom = TRUE
-		if (!mapload)
-			regenerate_ao()
 
 	if (mapload && permit_ao)
 		queue_ao()
