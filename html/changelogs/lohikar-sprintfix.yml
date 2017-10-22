@@ -1,0 +1,4 @@
+author: Lohikar 
+delete-after: True
+changes:
+  - bugfix: "The sprint indicator now actually works for IPCs, as well as updating immediately when toggled by a species with stamina."
