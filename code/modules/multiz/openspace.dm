@@ -111,6 +111,41 @@
 
 	return ..()
 
+/atom/movable/openspace/multiplier/proc/copy_lighting(atom/movable/lighting_overlay/LO)
+	appearance = LO
+	plane = OPENTURF_CAP_PLANE
+	layer = SHADOWER_LAYER
+	invisibility = 0
+	if (icon_state == LIGHTING_BASE_ICON_STATE)
+		// We're using a color matrix, so just darken the colors across the board.
+		var/list/c_list = color
+		c_list[CL_MATRIX_RR] *= SHADOWER_DARKENING_FACTOR
+		c_list[CL_MATRIX_RG] *= SHADOWER_DARKENING_FACTOR
+		c_list[CL_MATRIX_RB] *= SHADOWER_DARKENING_FACTOR
+		c_list[CL_MATRIX_GR] *= SHADOWER_DARKENING_FACTOR
+		c_list[CL_MATRIX_GG] *= SHADOWER_DARKENING_FACTOR
+		c_list[CL_MATRIX_GB] *= SHADOWER_DARKENING_FACTOR
+		c_list[CL_MATRIX_BR] *= SHADOWER_DARKENING_FACTOR
+		c_list[CL_MATRIX_BG] *= SHADOWER_DARKENING_FACTOR
+		c_list[CL_MATRIX_BB] *= SHADOWER_DARKENING_FACTOR
+		c_list[CL_MATRIX_AR] *= SHADOWER_DARKENING_FACTOR
+		c_list[CL_MATRIX_AG] *= SHADOWER_DARKENING_FACTOR
+		c_list[CL_MATRIX_AB] *= SHADOWER_DARKENING_FACTOR
+		color = c_list
+	else
+		// Not a color matrix, so we can just use the color var ourselves.
+		color = list(
+			SHADOWER_DARKENING_FACTOR, 0, 0,
+			0, SHADOWER_DARKENING_FACTOR, 0,
+			0, 0, SHADOWER_DARKENING_FACTOR
+		)
+
+	if (our_overlays || priority_overlays)
+		compile_overlays()
+	else
+		// compile_overlays() calls update_above().
+		update_above()
+
 // The visual representation of an atom under an openspace turf.
 /atom/movable/openspace/overlay
 	plane = OPENTURF_MAX_PLANE

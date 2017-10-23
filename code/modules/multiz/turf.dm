@@ -47,7 +47,7 @@
 	var/tmp/list/climbers									// A lazy list to contain a list of mobs who are currently scaling
 															// up this turf. Used in human/can_fall.
 
-	var/use_underlay = FALSE
+	var/no_mutate = FALSE	// If TRUE, SSopenturf will not modify the appearance of this turf.
 
 // An override of turf/Enter() to make it so that magboots allow you to stop
 // falling off the damned rock.
@@ -166,7 +166,8 @@
 	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
 	icon_state = "smooth"
 	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	use_underlay = TRUE
+	no_mutate = TRUE
+	name = "hole"
 
 /turf/simulated/open/airless/chasm/Initialize()
 	. = ..()
