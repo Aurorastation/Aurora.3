@@ -1,0 +1,4 @@
+author: Lohikar 
+delete-after: True
+changes: 
+  - bugfix: "IPCs no longer have organic (right) legs. We're not really sure how they got them, and we don't want to know."

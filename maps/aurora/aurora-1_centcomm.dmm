@@ -18594,6 +18594,7 @@
 /area/centcom/spawning)
 "aPf" = (
 /obj/machinery/door/blast/regular/open{
+	dir = 4;
 	id = "odinaslockdown"
 	},
 /obj/structure/sign/directions/dock{
@@ -18620,6 +18621,7 @@
 /area/centcom/spawning)
 "aPh" = (
 /obj/machinery/door/blast/regular/open{
+	dir = 4;
 	id = "odinaslockdown"
 	},
 /turf/unsimulated/floor{
@@ -18710,6 +18712,7 @@
 /area/centcom/holding)
 "aPs" = (
 /obj/machinery/door/blast/regular/open{
+	dir = 4;
 	id = "odinaslockdown"
 	},
 /turf/unsimulated/floor{
@@ -19491,6 +19494,7 @@
 /area/centcom/spawning)
 "aQV" = (
 /obj/machinery/door/blast/regular/open{
+	dir = 4;
 	id = "odinaslockdown"
 	},
 /obj/structure/sign/directions/dock{
@@ -19513,6 +19517,7 @@
 /area/centcom/spawning)
 "aQX" = (
 /obj/machinery/door/blast/regular/open{
+	dir = 4;
 	id = "odinaslockdown"
 	},
 /turf/unsimulated/floor{
@@ -29701,7 +29706,7 @@ aaS
 aaZ
 aaV
 aaU
-adD
+ahg
 adK
 acN
 aeo

@@ -421,7 +421,6 @@ var/list/sacrificed = list()
 
 /obj/effect/rune/proc/manifest(var/mob/living/user)
 	var/obj/effect/rune/this_rune = src
-	src = null
 	if(user.loc!=this_rune.loc)
 		return this_rune.fizzle(user)
 	var/mob/dead/observer/ghost
@@ -441,7 +440,7 @@ var/list/sacrificed = list()
 	user.visible_message("<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
 	"<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
 	"<span class='warning'>You hear liquid flowing.</span>")
-	D.real_name = "Unknown"
+
 	var/chose_name = 0
 	for(var/obj/item/weapon/paper/P in this_rune.loc)
 		if(P.info)

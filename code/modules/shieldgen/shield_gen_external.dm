@@ -28,7 +28,7 @@
 					continue
 
 				if (the_station_areas[U.loc])
-					out += U
+					out += T
 					break
 
 	return out

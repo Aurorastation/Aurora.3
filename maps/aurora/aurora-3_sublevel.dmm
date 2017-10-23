@@ -2308,8 +2308,8 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/item/weapon/pickaxe,
-/obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/yellow/full,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/meeting)
 "eT" = (

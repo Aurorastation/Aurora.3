@@ -54,8 +54,6 @@
 		luminosity = 1
 
 	has_opaque_atom = TRUE
-	if (!mapload)
-		regenerate_ao()
 
 	if (smooth)
 		pixel_x = -4

@@ -34,6 +34,8 @@
 
 /obj/item/organ/external/leg/right/ipc
 	dislocated = -1
+	encased = "support frame"
+	robotize_type = PROSTHETIC_IPC
 
 /obj/item/organ/external/foot/ipc
 	dislocated = -1
