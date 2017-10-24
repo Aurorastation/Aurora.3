@@ -1,10 +1,6 @@
 /*
-   ____
-  / __ \____  ___  ____  _________  ____ _________
- / / / / __ \/ _ \/ __ \/ ___/ __ \/ __ `/ ___/ _ \
-/ /_/ / /_/ /  __/ / / (__  ) /_/ / /_/ / /__/  __/
-\____/ .___/\___/_/ /_/____/ .___/\__,_/\___/\___/
-    /_/                   /_/
+
+== Openspace ==
 
 This file contains the openspace movable types, including interactrion code and openspace helpers.
 Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
