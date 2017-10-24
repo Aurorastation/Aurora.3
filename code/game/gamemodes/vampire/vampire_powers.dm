@@ -546,19 +546,24 @@
 			heal_organ_damage(50, 50)
 			blood_used += 12
 
-		for (var/A in src.organs)
+		for (var/A in organs)
+			var/healed = FALSE
 			var/obj/item/organ/external/E = A
 			for (var/X in E.wounds)
 				var/datum/wound/W = X
 				if (W && W.internal)
 					E.wounds -= W
 					blood_used += 12
+					healed = TRUE
 					break
 
 			if(E.status & ORGAN_BROKEN)
 				E.status &= ~ORGAN_BROKEN
 				E.stage = 0
 				blood_used += 12
+				healed = TRUE
+
+			if (healed)
 				break
 
 		var/list/emotes_lookers = list("[src]'s skin appears to liquefy for a moment, sealing up their wounds.",
