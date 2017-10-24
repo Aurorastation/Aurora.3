@@ -75,6 +75,14 @@
 	if (A.flags & SPAWN_ROOF)
 		spawn_roof()
 
+	if (z_mimic_flags & Z_MIMIC)
+		z_shadower = new(src)
+		SSopenturf.openspace_turfs += src
+		var/turf/under = GetBelow(src)
+		if (under)
+			below = under
+			below.above = src
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
@@ -89,6 +97,26 @@
 	if (ao_queued)
 		SSocclusion.queue -= src
 		ao_queued = 0
+
+	if (z_mimic_flags & Z_MIMIC)
+		SSopenturf.openspace_turfs -= src
+		if (z_mimic_flags & Z_QUEUED)
+			SSopenturf.queued_turfs -= src
+
+		QDEL_NULL(z_shadower)
+
+		for (var/atom/movable/openspace/overlay/OwO in src)	// wats this~?
+			OwO.owning_turf_changed()
+
+		if (above)
+			above.update_z_mimic()
+
+		if (below)
+			below.above = null
+			below = null
+
+	if (bound_overlay)
+		QDEL_NULL(bound_overlay)
 
 	..()
 	return QDEL_HINT_IWILLGC

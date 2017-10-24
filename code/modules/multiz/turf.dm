@@ -35,19 +35,12 @@
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
+	z_mimic_flags = Z_MIMIC | Z_MIMIC_CAN_MUTATE
 
 	roof_type = null
 
-	var/tmp/turf/below
-	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
-	var/tmp/updating = FALSE								// If this turf is queued for openturf update.
-
-	var/tmp/depth
-
 	var/tmp/list/climbers									// A lazy list to contain a list of mobs who are currently scaling
 															// up this turf. Used in human/can_fall.
-
-	var/no_mutate = FALSE	// If TRUE, SSopenturf will not modify the appearance of this turf.
 
 // An override of turf/Enter() to make it so that magboots allow you to stop
 // falling off the damned rock.
@@ -65,16 +58,14 @@
 // centralizes control to SSfalling.
 /turf/simulated/open/Entered(atom/movable/mover)
 	..()
-	if (is_hole)
-		ADD_FALLING_ATOM(mover)
+	ADD_FALLING_ATOM(mover)
 
 // Override to deny a climber exit if they're set to adhere to CLIMBER_NO_EXIT
 /turf/simulated/open/Exit(atom/movable/mover, atom/newloc)
 	var/flags = remove_climber(mover)
 
 	if (flags & CLIMBER_NO_EXIT)
-		if (is_hole)
-			ADD_FALLING_ATOM(mover)
+		ADD_FALLING_ATOM(mover)
 		return FALSE
 
 	return ..()
@@ -85,41 +76,13 @@
 	LAZYREMOVE(climbers, mover)
 
 /turf/simulated/open/Destroy()
-	SSopenturf.openspace_turfs -= src
-	SSopenturf.queued_turfs -= src
-	QDEL_NULL(shadower)
-
-	for (var/atom/movable/openspace/overlay/OwO in src)	// wats this~?
-		OwO.owning_turf_changed()
-
-	if (istype(above))
-		addtimer(CALLBACK(above, /turf/simulated/open/.proc/update), 0)
-		above = null
-
-	if (below)
-		below.above = null
-		below = null
-
 	LAZYCLEARLIST(climbers)
 	UNSETEMPTY(climbers)
-
 	return ..()
 
 /turf/simulated/open/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.appearance = src
 	return TRUE
-
-/**
- * Used to check whether or not the specific open turf eventually leads into spess.
- *
- * @return	TRUE if the turfs/holes eventually lead into space. FALSE otherwise.
- */
-/turf/simulated/open/proc/is_above_space()
-	var/turf/T = GetBelow(src)
-	while (isopenturf(T))
-		T = GetBelow(T)
-
-	return istype(T, /turf/space)
 
 /**
  * Used to add a climber to the climbers list. Climbers do not fall down this specific tile.
@@ -169,27 +132,15 @@
 /turf/simulated/open/Initialize()
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
-	SSopenturf.openspace_turfs += src
-	shadower = new(src)
-	if (no_mutate && plane == PLANE_SPACE_BACKGROUND)
-		// If the plane is default and we're a no_mutate turf, force it to 0 so the icon works properly.
-		plane = 0
 	update()
 
 /**
  * Updates the turf with open turf's variables and basically resets it properly.
  */
 /turf/simulated/open/proc/update()
-	below = GetBelow(src)
-
-	// Edge case for when an open turf is above space on the lowest level.
-	if (below)
-		below.above = src
-
 	levelupdate()
-	if (is_hole)
-		for (var/atom/movable/A in src)
-			ADD_FALLING_ATOM(A)
+	for (var/atom/movable/A in src)
+		ADD_FALLING_ATOM(A)
 	update_icon()
 
 /turf/simulated/open/update_dirt()
@@ -201,13 +152,7 @@
 		O.hide(0)
 
 /turf/simulated/open/update_icon()
-	if(!updating && below)
-		updating = TRUE
-		SSopenturf.queued_turfs += src
-
-	if (above)	// Even if we're already updating, the turf above us might not be.
-		// Cascade updates until we hit the top openturf.
-		above.update_icon()
+	update_z_mimic()
 
 /turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/stack/rods))

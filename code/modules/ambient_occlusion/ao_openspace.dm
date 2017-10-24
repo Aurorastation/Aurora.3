@@ -9,7 +9,7 @@
 
 /turf/simulated/open/update_ao()
 	if (ao_overlays)
-		shadower.cut_overlay(ao_overlays)
+		z_shadower.cut_overlay(ao_overlays)
 		ao_overlays.Cut()
 
 	var/list/cache = SSicon_cache.ao_cache
@@ -35,4 +35,4 @@
 	UNSETEMPTY(ao_overlays)
 
 	if (ao_overlays)
-		shadower.add_overlay(ao_overlays)
+		z_shadower.add_overlay(ao_overlays)

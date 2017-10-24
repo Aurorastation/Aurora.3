@@ -30,17 +30,17 @@
 	for (var/thing in openspace_overlays)
 		var/atom/movable/AM = thing
 
-		var/turf/simulated/open/T = get_turf(AM)
-		if (istype(T))
-			T.update_icon()
+		var/turf/T = get_turf(AM)
+		if (istype(T) && (T.z_mimic_flags & Z_MIMIC) && !(T.z_mimic_flags & Z_QUEUED))
+			T.update_z_mimic()
 		else
 			qdel(AM)
 
 		CHECK_TICK
 
 	for (var/thing in openspace_turfs)
-		var/turf/simulated/open/T = thing
-		T.update_icon()
+		var/turf/T = thing
+		T.update_z_mimic()
 
 	enable()
 
@@ -48,7 +48,8 @@
 	disable()
 	log_debug("SSopenturf: hard_reset() invoked.")
 	var/num_deleted = 0
-	for (var/thing in openspace_overlays)
+	var/thing
+	for (thing in openspace_overlays)
 		qdel(thing)
 		num_deleted++
 		CHECK_TICK
@@ -56,13 +57,15 @@
 	log_debug("SSopenturf: deleted [num_deleted] overlays.")
 
 	var/num_turfs = 0
-	for (var/turf/simulated/open/T in turfs)
-		T.update_icon()
-		num_turfs++
+	for (thing in turfs)
+		var/turf/T = thing
+		if (T.z_mimic_flags & Z_MIMIC)
+			T.update_z_mimic()
+			num_turfs++
 
 		CHECK_TICK
 
-	log_debug("SSopenturf: queued [num_turfs] openturfs for update. hard_reset() complete.")
+	log_debug("SSopenturf: queued [num_turfs] turfs for update. hard_reset() complete.")
 	enable()
 
 /datum/controller/subsystem/openturf/stat_entry()
@@ -99,7 +102,7 @@
 	var/list/curr_ov = queued_overlays
 
 	while (qt_idex <= curr_turfs.len)
-		var/turf/simulated/open/T = curr_turfs[qt_idex]
+		var/turf/T = curr_turfs[qt_idex]
 		curr_turfs[qt_idex] = null
 		qt_idex++
 
@@ -110,13 +113,13 @@
 				break
 			continue
 
-		if (!T.shadower)	// If we don't have our shadower yet, create it.
-			T.shadower = new(T)
+		if (!T.z_shadower)	// If we don't have our shadower yet, create it.
+			T.z_shadower = new(T)
 
 		// Figure out how many z-levels down we are.
 		var/depth = 0
 		var/turf/simulated/open/Td = T
-		while (Td && isopenturf(Td.below))
+		while (Td && Td.below && (Td.below.z_mimic_flags & Z_MIMIC))
 			Td = Td.below
 			depth++
 		if (depth > OPENTURF_MAX_DEPTH)
@@ -134,7 +137,7 @@
 			if (starlight_enabled && T.light_range)
 				T.set_light(0)
 
-		if (T.no_mutate)
+		if (!(T.z_mimic_flags & Z_MIMIC_CAN_MUTATE))
 			// Some openturfs have icons, so we can't overwrite their appearance.
 			if (!T.below.bound_overlay)
 				T.below.bound_overlay = new(T)
@@ -163,7 +166,7 @@
 				continue
 
 			if (istype(object, /atom/movable/lighting_overlay))	// Special case.
-				T.shadower.copy_lighting(object)
+				T.z_shadower.copy_lighting(object)
 			else
 				if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
 					object.bound_overlay = new(T)
@@ -176,7 +179,7 @@
 
 				queued_overlays += OO
 
-		T.updating = FALSE
+		T.z_mimic_flags &= ~Z_QUEUED
 
 		if (no_mc_tick)
 			CHECK_TICK
@@ -231,7 +234,7 @@
 			qo_idex = 1
 
 
-/client/proc/analyze_openturf(turf/simulated/open/T)
+/client/proc/analyze_openturf(turf/T)
 	set name = "Analyze Openturf"
 	set desc = "Show the layering of an openturf and everything it's mimicking."
 	set category = "Debug"
@@ -239,19 +242,14 @@
 	if (!check_rights(R_DEBUG|R_DEV))
 		return
 
-	if (!istype(T))
-		usr << "Invalid Selection."
-		return
-
 	var/list/out = list(
 		"<h1>Analysis of [T] at [T.x],[T.y],[T.z]</h1>",
-		"<b>Queued for update:</b> [T.updating ? "Yes" : "No"]",
-		"<b>Appearance Type:</b> [T.no_mutate ? "Movable Copy" : "Turf Overwrite"]",
-		"<b>Has Shadower:</b> [T.shadower ? "Yes" : "No"]",
+		"<b>Z Flags</b>: [english_list(bitfield2list(T.z_mimic_flags, list("QUEUED", "CAN_MIMIC", "CAN_MUTATE")))]",
+		"<b>Has Shadower:</b> [T.z_shadower ? "Yes" : "No"]",
 		"<b>Below:</b> [!T.below ? "(nothing)" : "[T.below] at [T.below.x],[T.below.y],[T.below.z]"]",
 		"<ul>"
 	)
-	
+
 	var/list/found_oo = list(T)
 	for (var/thing in T)
 		if (istype(thing, /atom/movable/openspace))

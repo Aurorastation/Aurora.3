@@ -1,36 +1,3 @@
-/*
-
-== Openspace ==
-
-This file contains the openspace movable types, including interactrion code and openspace helpers.
-Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
-*/
-
-
-// Updates whatever openspace components may be mimicing us. On turfs this queues an openturf update on the above openturf, on movables this updates their bound movable (if present). Meaningless on any type other than `/turf` or `/atom/movable` (incl. children).
-/atom/proc/update_above()
-	return
-
-/turf
-	// Reference to any open turf that might be above us to speed up atom Entered() updates.
-	var/tmp/turf/simulated/open/above
-	var/tmp/atom/movable/openspace/turf_overlay/bound_overlay
-
-/turf/Entered(atom/movable/thing, atom/oldLoc)
-	. = ..()
-	if (above && !thing.no_z_overlay && !thing.bound_overlay && !isopenturf(oldLoc))
-		above.update_icon()
-
-/turf/Destroy()
-	above = null
-	if (bound_overlay)
-		QDEL_NULL(bound_overlay)
-	return ..()
-
-/turf/update_above()
-	if (istype(above))
-		above.update_icon()
-
 /atom/movable
 	var/tmp/atom/movable/openspace/overlay/bound_overlay	// The overlay that is directly mirroring us that we proxy movement to.
 	var/no_z_overlay	// If TRUE, this atom will not be drawn on open turfs.
@@ -59,7 +26,8 @@ Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
 	if (!bound_overlay)
 		return
 
-	if (isopenturf(bound_overlay.loc))
+	var/turf/Tloc = loc
+	if (istype(Tloc) && (Tloc.z_mimic_flags & Z_MIMIC))
 		if (!bound_overlay.queued)
 			SSopenturf.queued_overlays += bound_overlay
 			bound_overlay.queued = TRUE
@@ -117,9 +85,9 @@ Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
 	)
 
 /atom/movable/openspace/multiplier/Destroy()
-	var/turf/simulated/open/myturf = loc
+	var/turf/myturf = loc
 	if (istype(myturf))
-		myturf.shadower = null
+		myturf.z_shadower = null
 
 	return ..()
 
@@ -206,19 +174,3 @@ Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
 /atom/movable/openspace/overlay/proc/owning_turf_changed()
 	if (!destruction_timer)
 		destruction_timer = addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, src), 10 SECONDS, TIMER_STOPPABLE)
-
-// This one's a little different because it's mimicing a turf. 
-/atom/movable/openspace/turf_overlay
-	plane = OPENTURF_MAX_PLANE
-
-/atom/movable/openspace/turf_overlay/attackby(obj/item/W, mob/user)
-	loc.attackby(W, user)
-
-/atom/movable/openspace/turf_overlay/attack_hand(mob/user as mob)
-	loc.attack_hand(user)
-
-/atom/movable/openspace/turf_overlay/attack_generic(mob/user as mob)
-	loc.attack_generic(user)
-
-/atom/movable/openspace/turf_overlay/examine(mob/examiner)
-	loc.examine(examiner)
