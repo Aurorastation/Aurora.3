@@ -553,13 +553,11 @@
 				if (W && W.internal)
 					E.wounds -= W
 					blood_used += 12
-					continue
 
 			if(E.status & ORGAN_BROKEN)
 				E.status &= ~ORGAN_BROKEN
 				E.stage = 0
 				blood_used += 12
-				continue
 
 		var/list/emotes_lookers = list("[src]'s skin appears to liquefy for a moment, sealing up their wounds.",
 									"[src]'s veins turn black as their damaged flesh regenerates before your eyes!",
