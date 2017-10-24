@@ -546,26 +546,27 @@
 			heal_organ_damage(50, 50)
 			blood_used += 12
 
-		var/mob/living/carbon/human/H = src
-
-		for (var/A in H.organs)
+		for (var/A in src.organs)
 			var/obj/item/organ/external/E = A
 			for (var/X in E.wounds)
 				var/datum/wound/W = X
 				if (W && W.internal)
 					E.wounds -= W
+					blood_used += 12
+					continue
 
 			if(E.status & ORGAN_BROKEN)
 				E.status &= ~ORGAN_BROKEN
 				E.stage = 0
+				blood_used += 12
+				continue
 
-
-		var/list/emotes_lookers = list("[H]'s skin appears to liquefy for a moment, sealing up their wounds.",
-									"[H]'s veins turn black as their damaged flesh regenerates before your eyes!",
-									"[H]'s skin begins to split open. It turns to ash and falls away, revealing the wound to be fully healed.",
-									"Whispering arcane things, [H]'s damaged flesh appears to regenerate.",
-									"Thick globs of blood cover a wound on [H]'s body, eventually melding to be one with \his flesh.",
-									"[H]'s body crackles, skin and bone shifting back into place.")
+		var/list/emotes_lookers = list("[src]'s skin appears to liquefy for a moment, sealing up their wounds.",
+									"[src]'s veins turn black as their damaged flesh regenerates before your eyes!",
+									"[src]'s skin begins to split open. It turns to ash and falls away, revealing the wound to be fully healed.",
+									"Whispering arcane things, [src]'s damaged flesh appears to regenerate.",
+									"Thick globs of blood cover a wound on [src]'s body, eventually melding to be one with \his flesh.",
+									"[src]'s body crackles, skin and bone shifting back into place.")
 		var/list/emotes_self = list("Your skin appears to liquefy for a moment, sealing up your wounds.",
 									"Your veins turn black as their damaged flesh regenerates before your eyes!",
 									"Your skin begins to split open. It turns to ash and falls away, revealing the wound to be fully healed.",
