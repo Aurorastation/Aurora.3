@@ -165,6 +165,7 @@ var/list/debug_verbs = list (
 		,/client/proc/spawn_tanktransferbomb
 		,/client/proc/get_bad_fdoors
 		,/client/proc/get_bad_doors
+		,/client/proc/analyze_openturf
 	)
 
 

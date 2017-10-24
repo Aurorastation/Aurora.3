@@ -2,7 +2,6 @@
 #define OPENTURF_CAP_PLANE -70      // The multiplier goes here so it'll be on top of every other overlay.
 #define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
 #define SHADOWER_DARKENING_FACTOR 0.4	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
-#define SHADOWER_LAYER 0
 
 /var/datum/controller/subsystem/openturf/SSopenturf
 
@@ -142,11 +141,11 @@
 			var/atom/movable/openspace/turf_overlay/TO = T.below.bound_overlay
 			TO.appearance = T.below
 			TO.name = T.name
-			TO.desc = "Below seems to be \a [T.below]."
+			T.desc = TO.desc = "Below seems to be \a [T.below]."
 			TO.plane = target_plane
 			TO.layer -= 10
 			T.plane = OPENTURF_CAP_PLANE
-			T.layer = SHADOWER_LAYER + 1
+			T.layer = LIGHTING_LAYER + 1
 		else
 			// This openturf doesn't care about its icon, so we can just overwrite it.
 			if (T.below.bound_overlay)
@@ -221,9 +220,6 @@
 		OO.plane = OO.depth
 		OO.opacity = FALSE
 		OO.queued = FALSE
-
-		if (istype(OO.associated_atom, /atom/movable/openspace/multiplier) && OO.plane < OPENTURF_MAX_PLANE)	// Special case for multipliers.
-			OO.layer += 100
 
 		if (OO.bound_overlay)	// If we have a bound overlay, queue it too.
 			OO.update_above()
