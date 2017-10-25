@@ -143,9 +143,6 @@
 			TO.name = T.name
 			T.desc = TO.desc = "Below seems to be \a [T.below]."
 			TO.plane = target_plane
-			TO.layer -= 10
-			T.plane = OPENTURF_CAP_PLANE
-			T.layer = LIGHTING_LAYER + 1
 		else
 			// This openturf doesn't care about its icon, so we can just overwrite it.
 			if (T.below.bound_overlay)
@@ -175,7 +172,7 @@
 				var/atom/movable/openspace/overlay/OO = object.bound_overlay
 
 				// Cache our already-calculated depth so we don't need to re-calculate it a bunch of times.
-				OO.depth = target_plane 
+				OO.depth = target_plane
 
 				queued_overlays += OO
 
