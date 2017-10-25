@@ -75,15 +75,15 @@
 	if (A.flags & SPAWN_ROOF)
 		spawn_roof()
 
-	if (z_mimic_flags & Z_MIMIC)
-		z_shadower = new(src)
+	if (flags & MIMIC_BELOW)
+		shadower = new(src)
 		SSopenturf.openspace_turfs += src
 		var/turf/under = GetBelow(src)
 		if (under)
 			below = under
 			below.above = src
 
-		update_z_mimic(!mapload)	// Only recursively update if the map isn't updating.
+		update_mimic(!mapload)	// Only recursively update if the map isn't updating.
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -100,18 +100,18 @@
 		SSocclusion.queue -= src
 		ao_queued = 0
 
-	if (z_mimic_flags & Z_MIMIC)
+	if (flags & MIMIC_BELOW)
 		SSopenturf.openspace_turfs -= src
-		if (z_mimic_flags & Z_QUEUED)
+		if (flags & MIMIC_QUEUED)
 			SSopenturf.queued_turfs -= src
 
-		QDEL_NULL(z_shadower)
+		QDEL_NULL(shadower)
 
 		for (var/atom/movable/openspace/overlay/OwO in src)	// wats this~?
 			OwO.owning_turf_changed()
 
 		if (above)
-			above.update_z_mimic()
+			above.update_mimic()
 
 		if (below)
 			below.above = null

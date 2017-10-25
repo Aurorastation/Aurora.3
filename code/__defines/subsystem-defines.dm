@@ -74,7 +74,6 @@
 // -- SSopenturf --
 #define CHECK_OO_EXISTENCE(OO) if (OO && !isopenturf(OO.loc)) { qdel(OO); }
 #define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_above(); }
-#define TURF_IS_ZMIMICING(TURF) (isturf(TURF) && (TURF:z_mimic_flags & Z_MIMIC))
 
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }

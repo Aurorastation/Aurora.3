@@ -3,24 +3,23 @@
 	var/tmp/turf/above
 	var/tmp/turf/below
 	var/tmp/atom/movable/openspace/turf_overlay/bound_overlay
-	var/z_mimic_flags = Z_NO_MIMIC
-	var/tmp/atom/movable/openspace/multiplier/z_shadower		// Overlay used to multiply color of all OO overlays at once.
+	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
 
-/turf/Entered(atom/movable/thing, atom/oldLoc)
+/turf/Entered(atom/movable/thing, turf/oldLoc)
 	. = ..()
-	if (!thing.bound_overlay && TURF_IS_ZMIMICING(above) && !TURF_IS_ZMIMICING(oldLoc) && !thing.no_z_overlay)
-		above.update_z_mimic()
+	if (!thing.bound_overlay && istype(oldLoc) && !(oldLoc.flags & MIMIC_BELOW) && (flags & MIMIC_BELOW) && !thing.no_z_overlay)
+		above.update_mimic()
 
 /turf/update_above()
-	if (above && (above.z_mimic_flags & Z_MIMIC))
-		above.update_z_mimic()
+	if (above && (above.flags & MIMIC_BELOW))
+		above.update_mimic()
 
-/turf/proc/update_z_mimic(recurse = TRUE)
-	if (!(z_mimic_flags & Z_MIMIC))
+/turf/proc/update_mimic(recurse = TRUE)
+	if (!(flags & MIMIC_BELOW))
 		return
 
-	if (below && !(z_mimic_flags & Z_QUEUED))	
-		z_mimic_flags |= Z_QUEUED
+	if (below && !(flags & MIMIC_QUEUED))	
+		flags |= MIMIC_QUEUED
 		SSopenturf.queued_turfs += src
 
 	if (recurse)

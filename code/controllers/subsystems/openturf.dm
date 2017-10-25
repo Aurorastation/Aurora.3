@@ -31,8 +31,9 @@
 		var/atom/movable/AM = thing
 
 		var/turf/T = get_turf(AM)
-		if (istype(T) && (T.z_mimic_flags & Z_MIMIC) && !(T.z_mimic_flags & Z_QUEUED))
-			T.update_z_mimic()
+		if (istype(T) && (T.flags & MIMIC_BELOW))
+			if (!(T.flags & MIMIC_QUEUED))
+				T.update_mimic()
 		else
 			qdel(AM)
 
@@ -40,7 +41,7 @@
 
 	for (var/thing in openspace_turfs)
 		var/turf/T = thing
-		T.update_z_mimic()
+		T.update_mimic()
 
 	enable()
 
@@ -59,8 +60,8 @@
 	var/num_turfs = 0
 	for (thing in turfs)
 		var/turf/T = thing
-		if (T.z_mimic_flags & Z_MIMIC)
-			T.update_z_mimic()
+		if (T.flags & MIMIC_BELOW)
+			T.update_mimic()
 			num_turfs++
 
 		CHECK_TICK
@@ -113,13 +114,13 @@
 				break
 			continue
 
-		if (!T.z_shadower)	// If we don't have our shadower yet, create it.
-			T.z_shadower = new(T)
+		if (!T.shadower)	// If we don't have our shadower yet, create it.
+			T.shadower = new(T)
 
 		// Figure out how many z-levels down we are.
 		var/depth = 0
 		var/turf/simulated/open/Td = T
-		while (Td && Td.below && (Td.below.z_mimic_flags & Z_MIMIC))
+		while (Td && Td.below && (Td.below.flags & MIMIC_BELOW))
 			Td = Td.below
 			depth++
 		if (depth > OPENTURF_MAX_DEPTH)
@@ -137,7 +138,7 @@
 			if (starlight_enabled && T.light_range)
 				T.set_light(0)
 
-		if (!(T.z_mimic_flags & Z_MIMIC_CAN_MUTATE))
+		if (!(T.flags & MIMIC_OVERWRITE))
 			// Some openturfs have icons, so we can't overwrite their appearance.
 			if (!T.below.bound_overlay)
 				T.below.bound_overlay = new(T)
@@ -166,7 +167,7 @@
 				continue
 
 			if (istype(object, /atom/movable/lighting_overlay))	// Special case.
-				T.z_shadower.copy_lighting(object)
+				T.shadower.copy_lighting(object)
 			else
 				if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
 					object.bound_overlay = new(T)
@@ -179,7 +180,7 @@
 
 				queued_overlays += OO
 
-		T.z_mimic_flags &= ~Z_QUEUED
+		T.flags &= ~MIMIC_QUEUED
 
 		if (no_mc_tick)
 			CHECK_TICK
@@ -244,8 +245,8 @@
 
 	var/list/out = list(
 		"<h1>Analysis of [T] at [T.x],[T.y],[T.z]</h1>",
-		"<b>Z Flags</b>: [english_list(bitfield2list(T.z_mimic_flags, list("QUEUED", "CAN_MIMIC", "CAN_MUTATE")))]",
-		"<b>Has Shadower:</b> [T.z_shadower ? "Yes" : "No"]",
+		"<b>Z Flags</b>: [english_list(bitfield2list(T.flags, list("NOJAUNT", "MIMIC_BELOW", "MIMIC_OVERWRITE", "MIMIC_QUEUED")))]",
+		"<b>Has Shadower:</b> [T.shadower ? "Yes" : "No"]",
 		"<b>Below:</b> [!T.below ? "(nothing)" : "[T.below] at [T.below.x],[T.below.y],[T.below.z]"]",
 		"<ul>"
 	)

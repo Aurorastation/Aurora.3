@@ -11,7 +11,7 @@
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
-	z_mimic_flags = Z_MIMIC | Z_MIMIC_CAN_MUTATE
+	flags = MIMIC_BELOW | MIMIC_OVERWRITE
 
 	roof_type = null
 
@@ -131,7 +131,7 @@
 		O.hide(0)
 
 /turf/simulated/open/update_icon()
-	update_z_mimic()
+	update_mimic()
 
 /turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/stack/rods))

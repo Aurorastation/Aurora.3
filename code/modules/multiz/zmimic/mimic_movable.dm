@@ -27,7 +27,7 @@
 		return
 
 	var/turf/Tloc = loc
-	if (istype(Tloc) && (Tloc.z_mimic_flags & Z_MIMIC))
+	if (istype(Tloc) && (Tloc.flags & MIMIC_BELOW))
 		if (!bound_overlay.queued)
 			SSopenturf.queued_overlays += bound_overlay
 			bound_overlay.queued = TRUE
@@ -87,7 +87,7 @@
 /atom/movable/openspace/multiplier/Destroy()
 	var/turf/myturf = loc
 	if (istype(myturf))
-		myturf.z_shadower = null
+		myturf.shadower = null
 
 	return ..()
 

@@ -17,6 +17,9 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 // Turf-only flags.
 #define NOJAUNT 1 // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define MIMIC_BELOW 2
+#define MIMIC_OVERWRITE 4
+#define MIMIC_QUEUED 8
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 

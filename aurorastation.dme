@@ -37,7 +37,6 @@
 #include "code\__defines\mining.dm"
 #include "code\__defines\misc.dm"
 #include "code\__defines\mobs.dm"
-#include "code\__defines\openspace.dm"
 #include "code\__defines\qdel.dm"
 #include "code\__defines\radio.dm"
 #include "code\__defines\regex.dm"

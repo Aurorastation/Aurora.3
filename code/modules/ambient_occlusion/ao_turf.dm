@@ -24,8 +24,8 @@
 		return
 
 	var/turf/T
-	if (z_mimic_flags & Z_MIMIC)
-		CALCULATE_NEIGHBORS(src, ao_neighbors, T, (T.z_mimic_flags & Z_MIMIC))
+	if (flags & MIMIC_BELOW)
+		CALCULATE_NEIGHBORS(src, ao_neighbors, T, (T.flags & MIMIC_BELOW))
 	else
 		CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
 
@@ -52,7 +52,7 @@
 		ao_queued = new_level
 
 /turf/proc/update_ao()
-	var/atom/target = ((z_mimic_flags & Z_MIMIC) ? z_shadower : src) || src
+	var/atom/target = ((flags & MIMIC_BELOW) ? shadower : src) || src
 	if (ao_overlays)
 		target.cut_overlay(ao_overlays, TRUE)
 		ao_overlays.Cut()

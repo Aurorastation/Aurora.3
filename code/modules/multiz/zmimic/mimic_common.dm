@@ -27,7 +27,7 @@
  */
 /turf/proc/is_above_space()
 	var/turf/T = GetBelow(src)
-	while (T && (T.z_mimic_flags & Z_MIMIC))
+	while (T && (T.flags & MIMIC_BELOW))
 		T = GetBelow(T)
 
 	return istype(T, /turf/space)
