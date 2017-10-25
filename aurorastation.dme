@@ -220,6 +220,7 @@
 #include "code\datums\server_greeting.dm"
 #include "code\datums\statistic.dm"
 #include "code\datums\weakref.dm"
+#include "code\datums\webhook.dm"
 #include "code\datums\diseases\appendicitis.dm"
 #include "code\datums\diseases\beesease.dm"
 #include "code\datums\diseases\brainrot.dm"

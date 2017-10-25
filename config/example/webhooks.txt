@@ -1,0 +1,4 @@
+#Webhook configuration file
+#Each line specifys a hook where specific type of events will be pushed. Types are seperated using semicolons
+# Ex. https://example.com/webhookendpoint - type1;type2;type3
+#https://discordapp.com/api/webhooks/<webhookid>/<token> - roundend;g_admin
