@@ -83,6 +83,8 @@
 			below = under
 			below.above = src
 
+		update_z_mimic(!mapload)	// Only recursively update if the map isn't updating.
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()

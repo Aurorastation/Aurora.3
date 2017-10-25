@@ -24,7 +24,10 @@
 		return
 
 	var/turf/T
-	CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
+	if (z_mimic_flags & Z_MIMIC)
+		CALCULATE_NEIGHBORS(src, ao_neighbors, T, (T.z_mimic_flags & Z_MIMIC))
+	else
+		CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
 
 /proc/make_ao_image(corner, i)
 	var/list/cache = SSicon_cache.ao_cache
@@ -49,11 +52,12 @@
 		ao_queued = new_level
 
 /turf/proc/update_ao()
+	var/atom/target = ((z_mimic_flags & Z_MIMIC) ? z_shadower : src) || src
 	if (ao_overlays)
-		cut_overlay(ao_overlays, TRUE)
+		target.cut_overlay(ao_overlays, TRUE)
 		ao_overlays.Cut()
 
-	if (!permit_ao)
+	if (!permit_ao || ao_neighbors == AO_ALL_NEIGHBORS)
 		return
 
 	var/list/cache = SSicon_cache.ao_cache
@@ -91,4 +95,4 @@
 	UNSETEMPTY(ao_overlays)
 
 	if (ao_overlays)
-		add_overlay(ao_overlays, TRUE)
+		target.add_overlay(ao_overlays, TRUE)

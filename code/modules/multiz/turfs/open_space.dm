@@ -1,28 +1,4 @@
 /**
- * Used to check wether or not an atom can pass through a turf.
- *
- * @param	A The atom that's moving either up or down from this turf or to it.
- * @param	direction The direction of the atom's movement in relation to its
- * current position.
- *
- * @return	TRUE if A can pass in the movement direction, FALSE if not.
- */
-/turf/proc/CanZPass(atom/A, direction)
-	if(z == A.z) //moving FROM this turf
-		return direction == UP //can't go below
-	else
-		if(direction == UP) //on a turf below, trying to enter
-			return FALSE
-		if(direction == DOWN) //on a turf above, trying to enter
-			return !density
-
-/turf/simulated/open/CanZPass(atom, direction)
-	return TRUE
-
-/turf/space/CanZPass(atom, direction)
-	return TRUE
-
-/**
  * Open turf class.
  *
  * All atoms are able to pass through this, and also to see under it.
@@ -39,8 +15,11 @@
 
 	roof_type = null
 
-	var/tmp/list/climbers									// A lazy list to contain a list of mobs who are currently scaling
-															// up this turf. Used in human/can_fall.
+	// A lazy list to contain a list of mobs who are currently scaling
+	// up this turf. Used in human/can_fall.
+
+	var/tmp/list/climbers
+
 
 // An override of turf/Enter() to make it so that magboots allow you to stop
 // falling off the damned rock.

@@ -123,5 +123,7 @@
 #define AO_UPDATE_OVERLAY 1
 #define AO_UPDATE_REBUILD 2
 
+#define AO_ALL_NEIGHBORS 1910
+
 // If defined, integrate with the lighting engine and use its opacity value. Otherwise a simple turf opacity check is used. This may cause visual artifacts with opaque non-square movables.
 //#define AO_USE_LIGHTING_OPACITY

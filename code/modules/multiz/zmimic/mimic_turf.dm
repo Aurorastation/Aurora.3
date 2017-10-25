@@ -15,7 +15,7 @@
 	if (above && (above.z_mimic_flags & Z_MIMIC))
 		above.update_z_mimic()
 
-/turf/proc/update_z_mimic()
+/turf/proc/update_z_mimic(recurse = TRUE)
 	if (!(z_mimic_flags & Z_MIMIC))
 		return
 
@@ -23,19 +23,8 @@
 		z_mimic_flags |= Z_QUEUED
 		SSopenturf.queued_turfs += src
 
-	update_above()	// Even if we're already updating, the turf above us might not be.
-
-/**
- * Used to check whether or not the specific open turf eventually leads into spess.
- *
- * @return	TRUE if the turf eventually leads into space. FALSE otherwise.
- */
-/turf/proc/is_above_space()
-	var/turf/T = GetBelow(src)
-	while (T && (T.z_mimic_flags & Z_MIMIC))
-		T = GetBelow(T)
-
-	return istype(T, /turf/space)
+	if (recurse)
+		update_above()	// Even if we're already updating, the turf above us might not be.
 
 // Movable for mimicing turfs that don't allow appearance mutation.
 /atom/movable/openspace/turf_overlay
