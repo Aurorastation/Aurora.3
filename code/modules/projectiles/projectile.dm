@@ -103,8 +103,8 @@
 			agony = max(0, agony - armor)
 
 	//Delimb check. Currently only used for the plasma cutter as of yet, but is currently built to allow application to any projectile firing weapon.
-		if(maiming && prob(maim_rate*H.damage))
-			H.droplimb(clean_cut,maim_type)
+		if(maiming && prob(maim_rate*organ.damage))
+			organ.droplimb(clean_cut,maim_type)
 
 	L.apply_effects(stun, weaken, paralyze, 0, stutter, eyeblur, drowsy, agony, incinerate, blocked)
 	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armour types.

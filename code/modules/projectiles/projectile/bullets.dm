@@ -136,7 +136,7 @@
 /obj/item/projectile/bullet/pistol/strong //revolvers and matebas
 	damage = 60
 	maiming = 1
-	maim_chance = 25
+	maim_rate = 25
 	maim_type = DROPLIMB_BLUNT
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
@@ -206,7 +206,7 @@
 	armor_penetration = 80
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 	maiming = 1
-	maim_chance = 60
+	maim_rate = 60
 	maim_type = DROPLIMB_BLUNT
 
 /obj/item/projectile/bullet/rifle/vintage
