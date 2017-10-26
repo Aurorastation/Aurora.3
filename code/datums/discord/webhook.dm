@@ -34,7 +34,6 @@ var/list/global_webhooks = list()
 			Data["content"] = "[mention]: " + Data["content"]
 		else
 			Data["content"] = "[mention]"
-	world.log << "Webhooks: Sent to [url] : [json_encode(Data)]"
 	var/res = send_post_request(url, json_encode(Data), "Content-Type: application/json")
 	switch (res)
 		if (-1)
