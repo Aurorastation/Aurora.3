@@ -1,0 +1,11 @@
+// Example configuration (Also make sure to get rid of all commentss)
+// Avavible tags: roundend, cciaa_emergincy
+/*
+[
+    {
+        "url": "https://example.com/webhookendpoint",
+        "tags": ["roundend", "cciaa_emergincy"],
+        "mention": "@here" //Optional mention property
+    }
+]
+*/

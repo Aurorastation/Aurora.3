@@ -42,4 +42,6 @@
 	if (discord_bot)
 		discord_bot.alert_server_visibility()
 
+	global_initialize_webhooks()
+
 	..()
