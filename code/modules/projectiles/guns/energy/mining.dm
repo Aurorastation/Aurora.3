@@ -323,10 +323,6 @@
 	maiming = 1
 	maim_rate = 3
 /obj/item/projectile/beam/plasmacutter/on_impact(var/atom/A)
-	strike_thing(A)
-	. = ..()
-
-/obj/item/projectile/beam/plasmacutter/proc/strike_thing(var/atom/A)
 	if(istype(A, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = A
 		if(prob(33))
@@ -335,3 +331,4 @@
 		else if(prob(88))
 			M.emitter_blasts_taken += 2
 		M.emitter_blasts_taken += 1
+	. = ..()

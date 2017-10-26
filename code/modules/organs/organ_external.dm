@@ -63,6 +63,8 @@
 	var/list/genetic_markings         // Markings (body_markings) to apply to the icon
 	var/list/temporary_markings	// Same as above, but not preserved when cloning
 	var/list/cached_markings	// The two above lists cached for perf. reasons.
+	var/maim_bonus = 0.75 //For special projectile gibbing calculation, dubbed "maiming"
+	var/can_be_maimed = TRUE //Can this limb be 'maimed'?
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
@@ -301,21 +303,29 @@
 
 			//Check edge eligibility
 			var/edge_eligible = 0
+			var/gibs_traditionally = TRUE
 			if(edge)
 				if(istype(used_weapon,/obj/item))
 					var/obj/item/W = used_weapon
-					if(W.w_class >= w_class)
-						edge_eligible = 1
+
+					if(isprojectile(W)) //Maiming projectiles use a different method to calcualate gibbing.
+						var/obj/item/projectile/P = used_weapon
+						if(P.maiming)
+							gibs_traditionally = FALSE
+
+					else
+						if(W.w_class >= w_class)
+							edge_eligible = 1
 				else
 					edge_eligible = 1
 
-			if(edge_eligible && brute >= max_damage / DROPLIMB_THRESHOLD_EDGE && prob(brute))
+			if(gibs_traditionally && edge_eligible && brute >= max_damage / DROPLIMB_THRESHOLD_EDGE && prob(brute))
 				droplimb(0, DROPLIMB_EDGE)
-			else if(burn >= max_damage / DROPLIMB_THRESHOLD_DESTROY && prob(burn/3))
+			else if(gibs_traditionally && burn >= max_damage / DROPLIMB_THRESHOLD_DESTROY && prob(burn/3))
 				droplimb(0, DROPLIMB_BURN)
-			else if(brute >= max_damage / DROPLIMB_THRESHOLD_DESTROY && prob(brute))
+			else if(gibs_traditionally && brute >= max_damage / DROPLIMB_THRESHOLD_DESTROY && prob(brute))
 				droplimb(0, DROPLIMB_BLUNT)
-			else if(brute >= max_damage / DROPLIMB_THRESHOLD_TEAROFF && prob(brute/3))
+			else if(gibs_traditionally && brute >= max_damage / DROPLIMB_THRESHOLD_TEAROFF && prob(brute/3))
 				droplimb(0, DROPLIMB_EDGE)
 
 	return update_icon()

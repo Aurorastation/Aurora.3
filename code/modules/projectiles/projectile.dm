@@ -63,10 +63,10 @@
 	var/hitscan = 0		// whether the projectile should be hitscan
 	var/step_delay = 1	// the delay between iterations if not a hitscan projectile
 
-	//For dismemberment.
-	var/maiming = 0
-	var/maim_rate = 0 //Odds that the projectile will delimb. Calculated as maim_rate * organ damage
-	var/clean_cut = 0 //Is the delimbning painful and unclean? Probably.
+	//For Maim / Maiming.
+	var/maiming = 0 //Enables special limb dismemberment calculation; used primarily for ranged weapons that can maim, but do not do brute damage.
+	var/maim_rate = 0 //Factor that the recipiant will be maimed by the projectile (NOT OUT OF 100%.)
+	var/clean_cut = 0 //Is the delimbning painful and unclean? Probably. Can be a function or proc, if you're doing something odd.
 	var/maim_type = DROPLIMB_EDGE
 	/*Does the projectile simply lop/tear the limb off, or does it vaporize it?
 	Set maim_type to DROPLIMB_EDGE to chop off the limb
@@ -102,10 +102,14 @@
 		if(agony)
 			agony = max(0, agony - armor)
 
-	//Delimb check. Currently only used for the plasma cutter as of yet, but is currently built to allow application to any projectile firing weapon.
-		if(maiming && prob(maim_rate*organ.damage))
-			organ.droplimb(clean_cut,maim_type)
+	/*
+	Maim / Maiming check. Disembody a limb depending on several factors.
 
+	can_be_maimed and maim_bonus are defined on 'obj/item/organ/external'.
+	*/
+		if(organ.can_be_maimed && maiming)
+			if(prob(maim_rate * (organ.get_damage() * organ.maim_bonus)))
+				organ.droplimb(clean_cut,maim_type)
 	L.apply_effects(stun, weaken, paralyze, 0, stutter, eyeblur, drowsy, agony, incinerate, blocked)
 	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armour types.
 	return 1
