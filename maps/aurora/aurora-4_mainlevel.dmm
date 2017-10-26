@@ -697,7 +697,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -719,7 +719,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -890,7 +890,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -909,7 +909,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -1449,7 +1449,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -1469,7 +1469,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -7141,7 +7141,7 @@
 "aos" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/door/blast/regular{
-	dir = 1;
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "EngineEmitterPortWest";
 	layer = 3.3;
@@ -7151,7 +7151,7 @@
 /area/engineering/engine_waste)
 "aot" = (
 /obj/machinery/door/blast/regular{
-	dir = 1;
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "EngineEmitterPortWest";
 	layer = 3.3;
@@ -7955,6 +7955,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -7980,6 +7981,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -8008,6 +8010,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -8031,6 +8034,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -8051,6 +8055,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -8079,6 +8084,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -9332,7 +9338,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -9407,7 +9413,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -10096,6 +10102,7 @@
 "atD" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -10127,7 +10134,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -10224,7 +10231,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -10881,7 +10888,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -11034,7 +11041,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -11061,6 +11068,7 @@
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
 	layer = 2.7;
@@ -11078,6 +11086,7 @@
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
 	layer = 2.7;
@@ -11099,6 +11108,7 @@
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
 	layer = 2.7;
@@ -11150,7 +11160,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
 	name = "Engine Monitoring Room Blast Doors";
@@ -11966,7 +11976,7 @@
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
 	name = "Engine Monitoring Room Blast Doors";
@@ -12521,25 +12531,19 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
-/obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/security/prison)
 "axx" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Brig Lockdown";
-	name = "Brig Lockdown Door";
-	opacity = 0
-	},
 /obj/machinery/door/window/brigdoor/northright{
 	id = "Cell 1";
 	name = "Cell 1";
@@ -12548,17 +12552,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/security/prison)
-"axy" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
+/turf/simulated/floor/tiled,
+/area/security/prison)
+"axy" = (
+/obj/machinery/door/firedoor,
 /obj/machinery/door/window/brigdoor/northright{
 	id = "Cell 2";
 	name = "Cell 2";
@@ -12567,6 +12572,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Door";
+	opacity = 0
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "axz" = (
@@ -12791,7 +12804,7 @@
 /area/engineering/engine_waste)
 "axX" = (
 /obj/machinery/door/blast/regular{
-	dir = 1;
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "EngineVent";
 	name = "Reactor Vent";
@@ -12841,7 +12854,7 @@
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
 	layer = 2.7;
@@ -12926,7 +12939,7 @@
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
 	name = "Engine Monitoring Room Blast Doors";
@@ -13899,7 +13912,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -14903,7 +14916,7 @@
 /obj/structure/window/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
 	name = "Engine Monitoring Room Blast Doors";
@@ -15513,7 +15526,7 @@
 /area/security/prison)
 "aCl" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
+	dir = 1;
 	id = "Cell 1";
 	name = "Cell Door"
 	},
@@ -15523,7 +15536,7 @@
 /area/security/prison)
 "aCm" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
+	dir = 1;
 	id = "Cell 2";
 	name = "Cell Door"
 	},
@@ -16102,6 +16115,7 @@
 /area/security/armoury)
 "aDm" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "armoury";
 	name = "Emergency Access"
 	},
@@ -16113,6 +16127,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "armoury";
 	name = "Emergency Access"
 	},
@@ -16420,6 +16435,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Door";
@@ -17290,7 +17306,7 @@
 /area/security/prison)
 "aFm" = (
 /obj/machinery/door/blast/regular{
-	dir = 1;
+	dir = 4;
 	id = "Cell 3";
 	name = "Cell Door"
 	},
@@ -17312,6 +17328,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Door";
@@ -19324,20 +19341,20 @@
 /obj/machinery/door/firedoor{
 	layer = 2.4
 	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	layer = 2.7;
-	name = "Security Blast Door";
-	opacity = 0
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass_security{
 	id_tag = "BrigFoyer";
 	layer = 2.7;
 	name = "Security Wing";
 	req_access = list(63)
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0
 	},
 /turf/simulated/floor/tiled,
 /area/security/lobby)
@@ -19355,6 +19372,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -19366,13 +19384,6 @@
 /area/security/lobby)
 "aIv" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -19385,6 +19396,14 @@
 	layer = 2.7;
 	name = "Security Wing";
 	req_access = list(63)
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0
 	},
 /turf/simulated/floor/tiled,
 /area/security/lobby)
@@ -19674,13 +19693,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aIV" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
 	name = "Teleport Access";
@@ -19692,6 +19704,14 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor/tiled,
 /area/teleporter)
@@ -20331,7 +20351,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -20592,7 +20612,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -20671,7 +20691,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -21277,7 +21297,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -21372,7 +21392,7 @@
 /area/security/prison)
 "aLU" = (
 /obj/machinery/door/blast/regular{
-	dir = 1;
+	dir = 4;
 	id = "Cell 4";
 	name = "Cell Door"
 	},
@@ -21384,6 +21404,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Door";
@@ -21422,7 +21443,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -21684,7 +21705,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -22426,7 +22447,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -22626,7 +22647,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -22793,7 +22814,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -24604,7 +24625,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -25300,7 +25321,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -25337,7 +25358,7 @@
 /area/security/prison)
 "aSr" = (
 /obj/machinery/door/blast/regular{
-	dir = 1;
+	dir = 4;
 	id = "Cell 5";
 	name = "Cell Door"
 	},
@@ -25349,6 +25370,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Door";
@@ -25534,7 +25556,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -26092,7 +26114,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -26123,13 +26145,6 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aTJ" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Brig Lockdown";
-	name = "Brig Lockdown Door";
-	opacity = 0
-	},
 /obj/machinery/door/airlock{
 	name = "Visitation Area"
 	},
@@ -26140,6 +26155,14 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Brig Lockdown";
+	name = "Brig Lockdown Door";
+	opacity = 0
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aTK" = (
@@ -26384,7 +26407,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -27009,6 +27032,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -27792,7 +27816,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -28525,13 +28549,6 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/substation/command)
 "aXR" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
 	id_tag = "hopdoor";
@@ -28542,6 +28559,14 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
@@ -32084,15 +32109,16 @@
 /area/maintenance/maintcentral)
 "beb" = (
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(57)
+	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
 	opacity = 0
-	},
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(57)
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hop)
@@ -32996,6 +33022,7 @@
 "bfz" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -33015,6 +33042,7 @@
 "bfA" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -33027,6 +33055,7 @@
 "bfB" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -33037,15 +33066,16 @@
 /area/bridge)
 "bfC" = (
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(19)
+	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
 	opacity = 0
-	},
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(19)
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/cryo)
@@ -34429,6 +34459,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -35106,6 +35137,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -35116,6 +35148,7 @@
 "bjh" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -35164,6 +35197,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -39288,6 +39322,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -39304,6 +39339,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -39323,6 +39359,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -39342,6 +39379,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -39934,6 +39972,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -39944,6 +39983,7 @@
 "bqL" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -39990,6 +40030,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -43198,7 +43239,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -43817,7 +43858,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -44522,7 +44563,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -46671,7 +46712,7 @@
 /obj/structure/window/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -49477,17 +49518,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
-	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Research Division Maintenance";
 	req_access = list(47);
 	req_one_access = newlist()
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleep/research)
@@ -51448,15 +51490,15 @@
 /turf/simulated/floor/plating,
 /area/rnd/misc_lab)
 "bKt" = (
+/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "MiscBlast";
 	name = "Misc Science Blast Doors";
 	opacity = 0
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
 /area/rnd/misc_lab)
 "bKu" = (
@@ -51672,6 +51714,7 @@
 "bKQ" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "telescience";
 	name = "Containment Blast Doors";
@@ -53019,6 +53062,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -53044,6 +53088,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -53073,6 +53118,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -62843,6 +62889,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "telescience";
 	name = "Containment Blast Doors";
@@ -62851,6 +62898,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Biohazard";
 	name = "Biohazard Shutter";
@@ -63594,6 +63642,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -63615,6 +63664,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -63640,6 +63690,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -63798,7 +63849,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -64007,7 +64058,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -64131,7 +64182,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -64656,7 +64707,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -64929,15 +64980,16 @@
 /turf/simulated/floor/wood,
 /area/bridge)
 "cjy" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(19)
+	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
 	opacity = 0
-	},
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(19)
 	},
 /turf/simulated/floor/plating,
 /area/bridge)

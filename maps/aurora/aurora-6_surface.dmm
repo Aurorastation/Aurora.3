@@ -5245,6 +5245,7 @@
 /obj/structure/window/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpointoffice";
 	name = "Checkpoint Lockdown";
@@ -5264,6 +5265,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpointoffice";
 	name = "Checkpoint Lockdown";
@@ -5294,6 +5296,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpointoffice";
 	name = "Checkpoint Lockdown";
@@ -5313,6 +5316,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpointoffice";
 	name = "Checkpoint Lockdown";
@@ -5479,6 +5483,7 @@
 "kj" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint1";
 	name = "Checkpoint Lockdown";
@@ -5491,6 +5496,7 @@
 "kk" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint1";
 	name = "Checkpoint Lockdown";
@@ -5575,6 +5581,7 @@
 "kq" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint3";
 	name = "Checkpoint Lockdown";
@@ -6450,6 +6457,7 @@
 "lP" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint2";
 	name = "Checkpoint Lockdown";
@@ -6462,6 +6470,7 @@
 "lQ" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint2";
 	name = "Checkpoint Lockdown";
@@ -6545,6 +6554,7 @@
 "lW" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint4";
 	name = "Checkpoint Lockdown";
@@ -6731,6 +6741,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpointoffice";
 	name = "Checkpoint Lockdown";
@@ -10635,13 +10646,6 @@
 /area/crew_quarters/fitness)
 "tW" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -10654,6 +10658,14 @@
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -11432,6 +11444,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -11449,6 +11462,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -11470,6 +11484,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -11741,13 +11756,6 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "wf" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
@@ -11758,6 +11766,14 @@
 	locked = 1;
 	name = "Command Docking Exterior Access";
 	req_access = list(13)
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -13701,6 +13717,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -13718,6 +13735,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -13739,6 +13757,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
