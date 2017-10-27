@@ -47,6 +47,7 @@
 #include "code\__defines\targeting.dm"
 #include "code\__defines\time.dm"
 #include "code\__defines\turfs.dm"
+#include "code\__defines\webhook.dm"
 #include "code\__defines\ZAS.dm"
 #include "code\_helpers\area_movement.dm"
 #include "code\_helpers\areas.dm"

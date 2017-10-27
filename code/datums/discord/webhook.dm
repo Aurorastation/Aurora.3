@@ -68,35 +68,35 @@ var/list/global_webhooks = list()
 		return
 	var/OutData = list()
 	switch (tag)
-		if ("g_apms")
+		if (WEBHOOK_ADMIN_PM)
 			var/emb = list(
 				"title" = data["title"],
 				"description" = data["message"],
 				"color" = HEX_COLOR_BLUE
 			)
 			OutData["embeds"] = list(emb)
-		if ("g_apms_a")
+		if (WEBHOOK_ADMIN_PM_IMPORTANT)
 			var/emb = list(
 				"title" = data["title"],
 				"description" = data["message"],
 				"color" = HEX_COLOR_BLUE
 			)
 			OutData["embeds"] = list(emb)
-		if ("g_admin")
+		if (WEBHOOK_ADMIN)
 			var/emb = list(
 				"title" = data["title"],
 				"description" = data["message"],
 				"color" = HEX_COLOR_BLUE
 			)
 			OutData["embeds"] = list(emb)
-		if ("g_admin_a") // Another tag for getting attetion to more important stuff
+		if (WEBHOOK_ADMIN_IMPORTANT)
 			var/emb = list(
 				"title" = data["title"],
 				"description" = data["message"],
 				"color" = HEX_COLOR_BLUE
 			)
 			OutData["embeds"] = list(emb)
-		if ("roundend")
+		if (WEBHOOK_ROUNDEND)
 			var/emb = list(
 				"title" = "Round has ended",
 				"color" = HEX_COLOR_RED,
@@ -109,7 +109,7 @@ var/list/global_webhooks = list()
 			else
 				emb["description"] += "There were **no survivors** ([data["ghosts"]] ghosts)."
 			OutData["embeds"] = list(emb)
-		if ("cciaa_emergincy")
+		if (WEBHOOK_CCIAA_EMERGENCY_MESSAGE)
 			var/emb = list(
 				"title" = "Emergency message from station",
 				"description" = "[data["sender"]] sent message `[data["message"]]`",
@@ -129,9 +129,9 @@ var/list/global_webhooks = list()
 				emb["fields"] += list(f)
 				emb["color"] = HEX_COLOR_RED
 			OutData["embeds"] = list(emb)
-		if ("alert_noadmins")
+		if (WEBHOOK_ALERT_NO_ADMINS)
 			OutData["content"] = "Round has started with no admins or mods online."
-		if ("roundstart")
+		if (WEBHOOK_ROUNDSTART)
 			var/emb = list(
 				"title" = "Round has started",
 				"description" = "Round started with [data["playercount"]] [data["playercount"]>1 ? "players" :]",

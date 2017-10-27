@@ -29,17 +29,15 @@ var/datum/discord_bot/discord_bot = null
 
 /hook/roundstart/proc/alert_no_admins()
 	var/admins_number = 0
-	var/player_number = 0
 
 	for (var/C in clients)
 		var/client/cc = C
-		player_number++
 		if (cc.holder && (cc.holder.rights & (R_MOD|R_ADMIN)))
 			admins_number++
 	
-	post_webhook_event("roundstart", list("playercount"=player_number))
+	post_webhook_event(WEBHOOK_ROUNDSTART, list("playercount"=clients.len))
 	if (!admins_number)
-		post_webhook_event("alert_noadmins", list())
+		post_webhook_event(WEBHOOK_ALERT_NO_ADMINS, list())
 		if (!discord_bot)
 			return 1
 		discord_bot.send_to_admins("@here Round has started with no admins or mods online.")

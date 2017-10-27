@@ -751,7 +751,7 @@ proc/admin_notice(var/message, var/rights)
 	world.visibility = !(world.visibility)
 	var/long_message = " toggled hub visibility. The server is now [world.visibility ? "visible" : "invisible"] ([world.visibility])."
 
-	post_webhook_event("g_admin", list("title"="Hub visibility has been toggled", "message"="**[key_name(src)]**" + long_message))
+	post_webhook_event(WEBHOOK_ADMIN, list("title"="Hub visibility has been toggled", "message"="**[key_name(src)]**" + long_message))
 	discord_bot.send_to_admins("[key_name(src)]" + long_message)
 	message_admins("[key_name_admin(usr)]" + long_message, 1)
 	log_admin("[key_name(usr)] toggled hub visibility.")

@@ -361,7 +361,7 @@ var/global/list/additional_antag_types = list()
 	world << text
 
 	discord_bot.send_to_announce(discord_text)
-	post_webhook_event("roundend", list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=game_id, "antags"=antag_text))
+	post_webhook_event(WEBHOOK_ROUNDEND, list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=game_id, "antags"=antag_text))
 
 	if(clients > 0)
 		feedback_set("round_end_clients",clients)
