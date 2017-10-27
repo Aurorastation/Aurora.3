@@ -112,21 +112,22 @@ var/list/global_webhooks = list()
 		if (WEBHOOK_CCIAA_EMERGENCY_MESSAGE)
 			var/emb = list(
 				"title" = "Emergency message from station",
-				"description" = "[data["sender"]] sent message `[data["message"]]`",
 				"fields" = list()
 			)
+			var/f1 = list("name"="[data["sender"]] wrote:", "value"="[data["message"]]")
+			emb["fields"] += list(f1)
 			if (data["cciaa_present"])
-				var/f = list("name"="[data["cciaa_present"]] CCIA agents online.")
+				var/f2 = list("name"="[data["cciaa_present"]] CCIA agents online.")
 				if (data["cciaa_present"] - data["cciaa_afk"] <= 0)
-					f["value"] = "***All of them are AFK!***"
+					f2["value"] = "***All of them are AFK!***"
 					emb["color"] = HEX_COLOR_YELLOW
 				else
-					f["value"] = "[data["cciaa_afk"]] AFK."
+					f2["value"] = "[data["cciaa_afk"]] AFK."
 					emb["color"] = HEX_COLOR_GREEN
-				emb["fields"] += list(f)
+				emb["fields"] += list(f2)
 			else
-				var/f = list("name"="No CCIA agents online.","value"="_Someone should join._")
-				emb["fields"] += list(f)
+				var/f2 = list("name"="No CCIA agents online.","value"="_Someone should join._")
+				emb["fields"] += list(f2)
 				emb["color"] = HEX_COLOR_RED
 			OutData["embeds"] = list(emb)
 		if (WEBHOOK_ALERT_NO_ADMINS)
