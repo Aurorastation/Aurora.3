@@ -319,14 +319,15 @@
 				else
 					edge_eligible = 1
 
-			if(gibs_traditionally && edge_eligible && brute >= max_damage / DROPLIMB_THRESHOLD_EDGE && prob(brute))
-				droplimb(0, DROPLIMB_EDGE)
-			else if(gibs_traditionally && burn >= max_damage / DROPLIMB_THRESHOLD_DESTROY && prob(burn/3))
-				droplimb(0, DROPLIMB_BURN)
-			else if(gibs_traditionally && brute >= max_damage / DROPLIMB_THRESHOLD_DESTROY && prob(brute))
-				droplimb(0, DROPLIMB_BLUNT)
-			else if(gibs_traditionally && brute >= max_damage / DROPLIMB_THRESHOLD_TEAROFF && prob(brute/3))
-				droplimb(0, DROPLIMB_EDGE)
+			if(gibs_traditionally)
+				if(edge_eligible && brute >= max_damage / DROPLIMB_THRESHOLD_EDGE && prob(brute))
+					droplimb(0, DROPLIMB_EDGE)
+				else if(burn >= max_damage / DROPLIMB_THRESHOLD_DESTROY && prob(burn/3))
+					droplimb(0, DROPLIMB_BURN)
+				else if(brute >= max_damage / DROPLIMB_THRESHOLD_DESTROY && prob(brute))
+					droplimb(0, DROPLIMB_BLUNT)
+				else if(brute >= max_damage / DROPLIMB_THRESHOLD_TEAROFF && prob(brute/3))
+					droplimb(0, DROPLIMB_EDGE)
 
 	return update_icon()
 
