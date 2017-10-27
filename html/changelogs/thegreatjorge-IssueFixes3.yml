@@ -1,0 +1,6 @@
+author: TheGreatJorge
+delete-after: True
+changes: 
+  - maptweak: "Blast doors should now be properly oriented."
+  - bugfix: "Fixes APC overlays."
+  - rscadd: "Xenoarcheology now has one portable ladder and hoist kit available at the excavation site rack."

@@ -4175,6 +4175,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "syndicate_elite";
 	name = "Side Hull Door";
@@ -4233,6 +4234,7 @@
 	req_access = list(150)
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "syndicate_elite_mech_room";
 	name = "Mech Room Door"
 	},
@@ -4326,6 +4328,7 @@
 	req_access = list(150)
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	icon_state = "pdoor1";
 	id = "syndicate_elite";
 	name = "Front Hull Door";
@@ -5541,6 +5544,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "smindicate";
 	name = "Outer Airlock";
@@ -6577,6 +6581,7 @@
 /area/syndicate_station/start)
 "apy" = (
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "syndieshutters_telebay";
 	name = "Outer Airlock"
 	},
@@ -6942,6 +6947,7 @@
 /area/centcom)
 "aqz" = (
 /turf/unsimulated/wall/fakepdoor{
+	dir = 4;
 	name = "shuttle bay blast door"
 	},
 /area/centcom)
@@ -8372,6 +8378,7 @@
 /area/centcom/suppy)
 "atN" = (
 /turf/unsimulated/wall/fakepdoor{
+	dir = 1;
 	name = "shuttle bay blast door"
 	},
 /area/centcom/suppy)
@@ -9382,6 +9389,7 @@
 /area/centcom/specops)
 "avX" = (
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "ert_synth_equipment";
 	name = "Synthetics Modification Equipment"
 	},
@@ -9495,6 +9503,7 @@
 /area/centcom/control)
 "awm" = (
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	icon_state = "pdoor1";
 	id = "ASSAULT";
 	name = "Assault Weapon Storage";
@@ -9670,6 +9679,7 @@
 /area/centcom/specops)
 "awD" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "ASSAULT";
 	name = "Assault Armor Storage";
@@ -9726,6 +9736,7 @@
 	req_access = list(108,109)
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	icon_state = "pdoor1";
 	id = "CREED";
 	name = "Ready Room";
@@ -9900,6 +9911,7 @@
 /area/centcom/control)
 "axd" = (
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "battery3";
 	name = "Battery 3 Firing Door"
 	},
@@ -9923,6 +9935,7 @@
 /area/centcom/specops)
 "axg" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "ASSAULT3";
 	name = "Launch Bay #3";
@@ -10290,6 +10303,7 @@
 	req_access = list(108,109)
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	icon_state = "pdoor1";
 	id = "CREED";
 	name = "Ready Room";
@@ -10826,6 +10840,7 @@
 /area/centcom/control)
 "ayT" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "ASSAULT2";
 	name = "Launch Bay #2";
@@ -11174,6 +11189,7 @@
 /area/centcom/control)
 "azC" = (
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "battery2";
 	name = "Battery 2 Firing Door"
 	},
@@ -11184,6 +11200,7 @@
 /area/centcom/control)
 "azD" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "ASSAULT1";
 	name = "Launch Bay #1";
@@ -11413,6 +11430,7 @@
 	opacity = 1
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "centcomm_bsa";
 	name = "Bluespace Artillery Deck"
 	},
@@ -11516,6 +11534,7 @@
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "CREED";
 	name = "Ready Room";
@@ -11548,6 +11567,7 @@
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "CREED";
 	name = "Ready Room";
@@ -11582,6 +11602,7 @@
 	opacity = 1
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "centcomm_bsa";
 	name = "Bluespace Artillery Deck"
 	},
@@ -11619,6 +11640,7 @@
 /area/centcom/control)
 "aAt" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	icon_state = "pdoor1";
 	id = "ASSAULT0";
 	name = "Launch Bay #0";
@@ -12039,6 +12061,7 @@
 /area/centcom/control)
 "aBm" = (
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "battery1";
 	name = "Battery 1 Firing Door"
 	},
@@ -12825,6 +12848,7 @@
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "crescent_checkpoint_access";
 	name = "NMSS Odin Checkpoint"
 	},
@@ -12834,6 +12858,7 @@
 /area/centcom/control)
 "aCz" = (
 /turf/unsimulated/wall/fakepdoor{
+	dir = 1;
 	name = "shuttle bay blast door"
 	},
 /area/centcom/specops)
@@ -12953,6 +12978,7 @@
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "crescent_checkpoint_access";
 	name = "NMSS Odin Checkpoint"
 	},
@@ -13155,6 +13181,7 @@
 /area/shuttle/escape/centcom)
 "aDo" = (
 /turf/unsimulated/wall/fakepdoor{
+	dir = 1;
 	name = "shuttle bay blast door"
 	},
 /area/centcom/holding)
@@ -13243,6 +13270,7 @@
 /area/centcom/holding)
 "aDy" = (
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "CentComPort";
 	name = "Security Doors"
 	},
@@ -13486,6 +13514,7 @@
 "aEe" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 1;
 	icon_state = "pdoor0";
 	id = "CentComPort";
 	name = "Security Doors";
@@ -13811,6 +13840,7 @@
 /area/shuttle/escape/centcom)
 "aEP" = (
 /turf/unsimulated/wall/fakepdoor{
+	dir = 1;
 	name = "shuttle bay blast door"
 	},
 /area/centcom/ferry)
@@ -13952,6 +13982,7 @@
 	name = "Arrivals Bar Airlock"
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "crescent_vip_shuttle";
 	name = "NMSS Odin VIP Shuttle"
 	},
@@ -15453,8 +15484,8 @@
 /area/centcom/holding)
 "aIq" = (
 /turf/unsimulated/floor{
-	icon_state = "rampbottom";
-	dir = 6
+	icon_state = "ramptop";
+	dir = 2
 	},
 /area/centcom/holding)
 "aIr" = (
@@ -16916,6 +16947,7 @@
 /area/shuttle/arrival/centcom)
 "aLv" = (
 /turf/unsimulated/wall/fakepdoor{
+	dir = 1;
 	name = "shuttle bay blast door"
 	},
 /area/centcom/spawning)
@@ -18232,6 +18264,7 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
@@ -18244,6 +18277,7 @@
 	dir = 1
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
@@ -18259,6 +18293,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
@@ -18596,7 +18631,7 @@
 /area/centcom/spawning)
 "aPf" = (
 /obj/machinery/door/blast/regular/open{
-	dir = 4;
+	dir = 1;
 	id = "odinaslockdown"
 	},
 /obj/structure/sign/directions/dock{
@@ -18623,7 +18658,7 @@
 /area/centcom/spawning)
 "aPh" = (
 /obj/machinery/door/blast/regular/open{
-	dir = 4;
+	dir = 1;
 	id = "odinaslockdown"
 	},
 /turf/unsimulated/floor{
@@ -18714,7 +18749,7 @@
 /area/centcom/holding)
 "aPs" = (
 /obj/machinery/door/blast/regular/open{
-	dir = 4;
+	dir = 1;
 	id = "odinaslockdown"
 	},
 /turf/unsimulated/floor{
@@ -18911,6 +18946,7 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
@@ -18925,6 +18961,7 @@
 	dir = 1
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
@@ -18942,6 +18979,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
@@ -19183,6 +19221,7 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
@@ -19220,6 +19259,7 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
@@ -19416,6 +19456,7 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
@@ -19496,7 +19537,7 @@
 /area/centcom/spawning)
 "aQV" = (
 /obj/machinery/door/blast/regular/open{
-	dir = 4;
+	dir = 1;
 	id = "odinaslockdown"
 	},
 /obj/structure/sign/directions/dock{
@@ -19519,7 +19560,7 @@
 /area/centcom/spawning)
 "aQX" = (
 /obj/machinery/door/blast/regular/open{
-	dir = 4;
+	dir = 1;
 	id = "odinaslockdown"
 	},
 /turf/unsimulated/floor{
@@ -20760,6 +20801,7 @@
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "crescent_thunderdome";
 	name = "Thunderdome"
 	},
@@ -21022,6 +21064,7 @@
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "crescent_thunderdome";
 	name = "Thunderdome"
 	},
@@ -21098,6 +21141,7 @@
 	name = "Thunderdome"
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "crescent_thunderdome";
 	name = "Thunderdome"
 	},
@@ -21413,6 +21457,7 @@
 /area/wizard_station)
 "aVg" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "thunderdomeaxe";
 	name = "Axe Supply"
 	},
@@ -21434,6 +21479,7 @@
 /area/tdome)
 "aVk" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "thunderdomeaxe";
 	name = "Axe Supply"
 	},
@@ -21465,6 +21511,7 @@
 /area/tdome)
 "aVn" = (
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "thunderdomegen";
 	name = "General Supply"
 	},
@@ -21482,6 +21529,7 @@
 /area/tdome/tdome2)
 "aVp" = (
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "thunderdome";
 	name = "Thunderdome Blast Door"
 	},
@@ -21646,6 +21694,7 @@
 /area/tdome)
 "aVJ" = (
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "thunderdomegen";
 	name = "General Supply"
 	},
@@ -21668,6 +21717,7 @@
 /area/tdome)
 "aVM" = (
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "thunderdomehea";
 	name = "Heavy Supply"
 	},
@@ -24302,6 +24352,19 @@
 	opacity = 1
 	},
 /area/beach)
+"biR" = (
+/obj/machinery/door/blast/regular{
+	dir = 1;
+	icon_state = "pdoor1";
+	id = "ASSAULT";
+	name = "Assault Armor Storage";
+	p_open = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 8
+	},
+/area/centcom/specops)
 
 (1,1,1) = {"
 aaa
@@ -50932,7 +50995,7 @@ aaN
 avK
 awA
 awA
-awD
+biR
 awA
 awA
 awA
