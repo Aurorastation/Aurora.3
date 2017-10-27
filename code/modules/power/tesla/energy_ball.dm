@@ -58,6 +58,8 @@
 			tesla_zap(ball, range, TESLA_MINI_POWER/7*range, TRUE)
 	else
 		energy = 0 // ensure we dont have miniballs of miniballs
+	if(energy == 0)
+		qdel(src)
 
 /obj/singularity/energy_ball/examine(mob/user)
 	..()
