@@ -1,4 +1,0 @@
-author: Alberyk
-delete-after: True
-changes:
-  - bugfix: "Blood heal should now fix broken bones and internal bleeding."
