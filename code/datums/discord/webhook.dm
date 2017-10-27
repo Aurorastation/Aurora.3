@@ -7,15 +7,34 @@ var/list/global_webhooks = list()
 
 /proc/global_initialize_webhooks()
 	var/file = return_file_text("config/webhooks.json")
-	var/jsonData = json_decode(file)
-	for(var/hook in jsonData)
-		if(!hook["url"] || !hook["tags"])
-			continue
-		var/datum/webhook/W = new(hook["url"], hook["tags"])
-		global_webhooks += W
-		if(hook["mention"])
-			W.mention = hook["mention"]
+	if (file)
+		var/jsonData = json_decode(file)
+		for(var/hook in jsonData)
+			if(!hook["url"] || !hook["tags"])
+				continue
+			var/datum/webhook/W = new(hook["url"], hook["tags"])
+			global_webhooks += W
+			if(hook["mention"])
+				W.mention = hook["mention"]
+		return 1
+	else
+		if (!establish_db_connection(dbcon))
+			return 0
 		
+		var/DBQuery/query = dbcon.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
+		query.Execute()
+
+		if (query.ErrorMsg())
+			return 0
+
+		while (query.NextRow())
+			var/url = query.item[1]
+			var/list/tags = splittext(query.item[2], ";")
+			var/mention = query.item[3]
+			var/datum/webhook/W = new(url, tags)
+			global_webhooks += W
+			if(mention)
+				W.mention = mention
 	return 1
 
 /datum/webhook
