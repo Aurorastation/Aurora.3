@@ -179,12 +179,8 @@
 
 		if (next_alert && message)
 			if (!vampire.last_frenzy_message || vampire.last_frenzy_message + next_alert < world.time)
-				to_chat(usr, message)
+				to_chat(src, message)
 				vampire.last_frenzy_message = world.time
-
-	// Remove one point per every life() tick.
-	if (vampire.frenzy > 0)
-		vampire.frenzy--
 
 /mob/proc/vampire_start_frenzy(var/force_frenzy = 0)
 	var/datum/vampire/vampire = mind.vampire
@@ -243,6 +239,10 @@
 
 	if (mind.vampire.blood_usable < 10)
 		mind.vampire.frenzy += 2
+	else if (vampire.frenzy > 0)
+		vampire.frenzy = max(0, vampire.frenzy -= CLAMP(vampire.blood_usable * 0.1, 1, 13))
+
+	vampire.frenzy = min(vampire.frenzy, 350)
 
 	vampire_check_frenzy()
 
