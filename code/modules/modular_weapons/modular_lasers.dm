@@ -20,6 +20,7 @@
 	var/damage = 10
 	armor_penetration = 0
 	var/fire_delay = 0
+	var/condintion = 100
 
 /obj/item/laser_components/modifier
 	name = "modifier"
@@ -67,7 +68,7 @@
 	else
 		return ..()
 	user << "<span class='notice'>You insert the [A] into the assembly.</span>"
-	qdel(A)
+	A.loc = src
 	check_completion()
 
 /obj/item/device/laser_assembly/proc/check_completion()
@@ -78,8 +79,15 @@
 	var/obj/item/weapon/gun/energy/laser/prototype/A = new /obj/item/weapon/gun/energy/laser/prototype
 	A.origin_chassis = size
 	A.capacitor = capacitor
+	capacitor.loc = A
 	A.focusing_lens = focusing_lens
-	A.modifier = modifier
+	focusing_lens.loc = A
+	if(modifier)
+		A.modifier = modifier
+		modifier.loc = A
 	A.loc = src.loc
 	A.updatetype()
+	modifier = null
+	focusing_lens = null
+	capacitor = null
 	qdel(src)

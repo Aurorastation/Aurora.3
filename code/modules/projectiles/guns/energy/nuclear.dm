@@ -38,7 +38,7 @@
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
 	modifystate = null
-	var/reliability = 95
+	reliability = 95
 	turret_sprite_set = "nuclear"
 
 	firemodes = list(
@@ -46,30 +46,6 @@
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg')
 		)
 
-	var/lightfail = 0
-
-
-/obj/item/weapon/gun/energy/gun/nuclear/proc/failcheck()
-	lightfail = 0
-	if (prob(src.reliability)) return 1 //No failure
-	if (prob(src.reliability))
-		for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
-			if (src in M.contents)
-				M << "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>"
-			else
-				M << "<span class='warning'>You feel a warm sensation.</span>"
-			M.apply_effect(rand(3,120), IRRADIATE)
-		lightfail = 1
-	else
-		for (var/mob/living/M in range(rand(1,4),src)) //Big failure, TIME FOR RADIATION BITCHES
-			if (src in M.contents)
-				M << "<span class='danger'>Your gun's reactor overloads!</span>"
-			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
-			M.apply_effect(300, IRRADIATE)
-		crit_fail = 1 //break the gun so it stops recharging
-		self_recharge = FALSE
-		update_icon()
-	return 0
 
 /obj/item/weapon/gun/energy/gun/nuclear/proc/update_charge()
 	if (crit_fail)
@@ -83,8 +59,6 @@
 	if(crit_fail)
 		add_overlay("nucgun-crit")
 		return
-	if(lightfail)
-		add_overlay("nucgun-medium")
 	else if ((power_supply.charge/power_supply.maxcharge) <= 0.5)
 		add_overlay("nucgun-light")
 	else
@@ -97,11 +71,38 @@
 			add_overlay("nucgun-stun")
 		if("lethal") 
 			add_overlay("nucgun-kill")
-/*
+	
+/obj/item/weapon/gun/energy/gun/nuclear/small_fail()
+	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
+		if (src in M.contents)
+			M << "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>"
+		else
+			M << "<span class='warning'>You feel a warm sensation.</span>"
+		M.apply_effect(rand(3,120), IRRADIATE)
+	return
+
+/obj/item/weapon/gun/energy/gun/nuclear/medium_fail()
+	if(prob(50))
+		critical_fail()
+	else
+		small_fail()
+	return
+
+/obj/item/weapon/gun/energy/gun/nuclear/critical_fail()
+	for (var/mob/living/M in range(rand(1,4),src))
+		if (src in M.contents)
+			M << "<span class='danger'>Your gun's reactor overloads!</span>"
+		M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
+		M.apply_effect(300, IRRADIATE)
+	crit_fail = 1 //break the gun so it stops recharging
+	self_recharge = FALSE
+	update_icon()
+	return
+
 /obj/item/weapon/gun/energy/gun/nuclear/emp_act(severity)
 	..()
 	reliability -= round(15/severity)
-*/
+
 /obj/item/weapon/gun/energy/gun/nuclear/update_icon()
 	cut_overlays()
 	update_charge()

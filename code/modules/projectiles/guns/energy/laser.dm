@@ -229,9 +229,9 @@ obj/item/weapon/gun/energy/retro
 	if(!isscrewdriver(D))
 		return ..()
 	user << "You disassemble the [src]."
-	new modifier(src.loc)
-	new capacitor(src.loc)
-	new focusing_lens(src.loc)
+	modifier.loc = src.loc
+	capacitor = src.loc
+	focusing_lens = src.loc
 	new /obj/item/device/laser_assembly(src.loc)
 	qdel(src)
 
@@ -261,7 +261,7 @@ obj/item/weapon/gun/energy/retro
 		handle_mod()
 	projectile_type = /obj/item/projectile/beam/prototype
 	w_class = gun_type
-	//reliability = capacitor.reliability + focusing_lens.reliability + modifier.reliability
+	reliability = capacitor.reliability + focusing_lens.reliability
 	fire_delay = capacitor.fire_delay
 	max_shots = capacitor.shots
 
@@ -272,7 +272,7 @@ obj/item/weapon/gun/energy/retro
 		if(MOD_NUCLEAR_CHARGE)
 			self_recharge = 1
 	fire_delay += modifier.fire_delay
-	//reliability += modifier.reliability
+	reliability += modifier.reliability
 
 /obj/item/weapon/gun/energy/laser/prototype/consume_next_projectile()
 	if(!power_supply) return null
@@ -285,3 +285,15 @@ obj/item/weapon/gun/energy/retro
 	A.damage = capacitor.damage + modifier.damage
 	A.armor_penetration = capacitor.armor_penetration + modifier.armor_penetration
 	return A
+
+/obj/item/weapon/gun/energy/laser/prototype/small_fail()
+	
+	return
+
+/obj/item/weapon/gun/energy/laser/prototype/medium_fail()
+
+	return
+
+/obj/item/weapon/gun/energy/laser/prototype/critical_fail()
+
+	return
