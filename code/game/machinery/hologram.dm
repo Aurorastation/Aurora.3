@@ -55,7 +55,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 
 /obj/machinery/hologram/holopad/check_eye(mob/user)
 	if (user && user == caller_id)
-		return SEE_BLACKNESS
+		return 0
 
 	return -1
 
