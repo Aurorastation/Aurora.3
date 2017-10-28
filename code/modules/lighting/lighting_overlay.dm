@@ -30,16 +30,13 @@
 	SSlighting.overlay_queue += src
 
 /atom/movable/lighting/Destroy()
-	SSlighting.lighting_overlays -= src
+	SSlighting.total_lighting_overlays--
 	
 	return ..()
 
 /atom/movable/lighting/multiplier/Destroy(force = FALSE)
 	if (!force)
 		return QDEL_HINT_LETMELIVE	// STOP DELETING ME
-
-	//L_PROF(loc, "overlay_destroy")
-	SSlighting.total_lighting_overlays--
 
 	var/turf/T = loc
 	if (istype(T))
