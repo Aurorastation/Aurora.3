@@ -567,8 +567,8 @@
 			no_pain = 1 //TODO: living-level can_feel_pain() proc
 
 		// Robo-eyes are immune to pepperspray now. Wee.
-		var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
-		if (E && (E.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)))
+		var/obj/item/organ/eyes/E = H.get_eyes()
+		if (istype(E) && (E.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)))
 			eyes_covered |= EYES_MECH
 	else
 		protection = list(M.wear_mask)
