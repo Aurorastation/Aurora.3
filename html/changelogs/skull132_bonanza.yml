@@ -10,3 +10,4 @@ changes:
   - balance: "Robotic eyes (not assisted ones!) are now partially immune to pepperspray effects. Because robots."
   - bugfix: "Death timers no longer reset if you re-enter your corpse."
   - bugfix: "Holocall fixes: icons are generated properly, caller view is moved properly, icons are cleaned up properly, AI interaction is now fine."
+  - imageadd: "Added a second lobby screen, courtesy of NursieKitty and Zelm."
