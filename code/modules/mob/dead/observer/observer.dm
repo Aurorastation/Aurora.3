@@ -114,13 +114,15 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 			if(istype(target))
 				ManualFollow(target)
 
-/mob/dead/observer/proc/initialise_postkey()
+/mob/dead/observer/proc/initialise_postkey(set_timers = TRUE)
 	//This function should be run after a ghost has been created and had a ckey assigned
+	if (!set_timers)
+		return
 
 	//Death times are initialised if they were unset
 	//get/set death_time functions are in mob_helpers.dm
 	if (!get_death_time(ANIMAL))
-		set_death_time(ANIMAL, world.time - RESPAWN_ANIMAL)//allow instant mouse spawning
+		set_death_time(ANIMAL, world.time - RESPAWN_ANIMAL) //allow instant mouse spawning
 	if (!get_death_time(MINISYNTH))
 		set_death_time(MINISYNTH, world.time - RESPAWN_MINISYNTH) //allow instant drone spawning
 	if (!get_death_time(CREW))
@@ -174,25 +176,15 @@ Works together with spawning an observer, noted above.
 		C.images += target.hud_list[SPECIALROLE_HUD]
 	return 1
 
-/mob/proc/ghostize(var/can_reenter_corpse = 1, var/should_set_timer = 1)
+/mob/proc/ghostize(var/can_reenter_corpse = TRUE, var/should_set_timer = TRUE)
 	if(ckey)
 		var/mob/dead/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 		ghost.can_reenter_corpse = can_reenter_corpse
 		ghost.timeofdeath = src.stat == DEAD ? src.timeofdeath : world.time
 
-		if(should_set_timer)
-			//This is duplicated for robustness in cases where death might not be called.		
-			//It is also set in the mob/death proc		
-			if (isanimal(src))		
-				set_death_time(ANIMAL, world.time)		
-			else if (ispAI(src) || isDrone(src))		
-				set_death_time(MINISYNTH, world.time)		
-			else		
-				set_death_time(CREW, world.time)//Crew is the fallback
-
 		ghost.ckey = ckey
 		ghost.client = client
-		ghost.initialise_postkey()
+		ghost.initialise_postkey(should_set_timer)
 		if(ghost.client)
 			if(!ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
 				ghost.verbs -= /mob/dead/observer/verb/toggle_antagHUD	// Poor guys, don't know what they are missing!

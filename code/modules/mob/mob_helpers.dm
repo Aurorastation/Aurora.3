@@ -991,6 +991,26 @@ proc/is_blind(A)
 	P.time_of_death[which] = value
 	return 1
 
+/**
+ * Resets death timers for a mob. Should only be called during new player creation.
+ */
+/mob/proc/reset_death_timers()
+	var/datum/preferences/P
+	if (client)
+		P = client.prefs
+	else if (ckey)
+		// To avoid runtimes during adminghost.
+		if (copytext(ckey, 1, 2) == "@")
+			P = preferences_datums[copytext(ckey, 2)]
+		else
+			P = preferences_datums[ckey]
+	else
+		return
+
+	if (!P)
+		return
+
+	P.time_of_death.Cut()
 
 //Below here is stuff related to devouring, but which is generally helpful and thus placed here
 //See Devour.dm for more info in how these are used
@@ -1045,7 +1065,7 @@ proc/is_blind(A)
 				"donor" = WEAKREF(src),
 				"viruses" = null,
 				"species" = name,
-				"blood_DNA" = md5("\ref[src]"), 
+				"blood_DNA" = md5("\ref[src]"),
 				"blood_colour" = "#a10808",
 				"blood_type" = null,
 				"resistances" = null,
