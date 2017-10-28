@@ -115,7 +115,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 
 /obj/machinery/hologram/holopad/proc/take_call(mob/living/carbon/user)
 	incoming_connection = 0
-	caller_id.set_machine(sourcepad)
+	caller_id.set_machine(src)
 	caller_id.reset_view(src)
 	if(!masters[caller_id]) //If there is no hologram, possibly make one.
 		activate_holocall(caller_id)
