@@ -11,6 +11,82 @@
 	src.pixel_x = rand(-5.0, 5)
 	src.pixel_y = rand(-5.0, 5)
 
+//GENERAL
+/obj/item/weapon/stock_parts/device/device_screen
+	name = "device screen"
+	desc = "Used in the construction of handheld devices."
+	icon_state = "screen" //sprite
+	origin_tech = list(TECH_MATERIAL = 1)
+	matter = list("glass" = 200)
+
+/obj/item/weapon/stock_parts/device/hud_screen
+	name = "HUD screen"
+	desc = "Used in the construction of HUDs."
+	icon_state = "screen" //sprite
+	origin_tech = list(TECH_MATERIAL = 1)
+	matter = list("glass" = 200)
+
+/obj/item/weapon/stock_parts/motor
+	name = "motor"
+	desc = "A small motor used in some tools."
+	icon_state = "screen" //sprite
+	origin_tech = list(TECH_MATERIAL = 1)
+	matter = list("glass" = 200)
+
+//MEDICAL
+/obj/item/weapon/stock_parts/device/basic_lifescan
+	name = "basic organic scanner"
+	desc = "A basic organic scanner used to scan organic lifeforms for injuries."
+	icon_state = "screen" //sprite
+	origin_tech = list(TECH_MATERIAL = 1)
+	matter = list("glass" = 200)
+
+/obj/item/weapon/stock_parts/device/advanced_lifescan
+	name = "advanced organic scanner"
+	desc = "An advanced organic scanner used to scan organic lifeforms for a detailed injury report and illnesses."
+	icon_state = "screen" //sprite
+	origin_tech = list(TECH_MATERIAL = 1)
+	matter = list("glass" = 200)
+
+//MINING
+/obj/item/weapon/stock_parts/diamond_bit
+	name = "diamond drill bit"
+	desc = "A diamond drill head used for heavy industrial working."
+	icon_state = "screen" //sprite
+	origin_tech = list(TECH_MATERIAL = 1)
+	matter = list("glass" = 200)
+
+/obj/item/weapon/stock_parts/industrial_bit
+	name = "industrial drill bit"
+	desc = "A diamond drill head used for industrial working."
+	icon_state = "screen" //sprite
+	origin_tech = list(TECH_MATERIAL = 1)
+	matter = list("glass" = 200)
+
+//WEAPONS
+//lasers
+/obj/item/weapon/stock_parts/weapon/laser
+	name = "ruby crystal"
+	desc = "A bright red ruby crystal used in the making of lethal lasers."
+	icon_state = "screen" //sprite
+	origin_tech = list(TECH_MATERIAL = 1)
+	matter = list("glass" = 200)
+
+/obj/item/weapon/stock_parts/weapon/laser
+	name = "electrode emitter"
+	desc = "A device that emits electrodes. Used in the making of non-lethal lasers and tasers."
+	icon_state = "screen" //sprite
+	origin_tech = list(TECH_MATERIAL = 1)
+	matter = list("glass" = 200)
+
+/obj/item/weapon/stock_parts/weapon/laser
+	name = "electrode emitter"
+	desc = "A strong light emitter that is used in the making of lasers."
+	icon_state = "screen" //sprite
+	origin_tech = list(TECH_MATERIAL = 1)
+	matter = list("glass" = 200)
+
+
 //Rank 1
 
 /obj/item/weapon/stock_parts/console_screen

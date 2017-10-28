@@ -8,6 +8,7 @@
 	var/points = 0
 	var/daysuntilreset = 30
 	var/list/rdconsoles
+	var/list/assembly_fabs
 	
 /datum/controller/subsystem/research/New()
 	NEW_SS_GLOBAL(SSresearch)
@@ -40,3 +41,15 @@
 /datum/controller/subsystem/research/fire()
 	var/DBQuery/update_points = dbcon.NewQuery("INSERT INTO ss13_research_data (round_id, points, daysuntilreset, created_at, updated_at) VALUES(:g:, :p:, :d:,NOW(), NOW()) ON DUPLICATE KEY UPDATE points=:p:, age=:d:, updated_at=NOW()")
 	update_points.Execute(list("p" = points, "d" = daysuntilreset, "g" = game_id))
+
+/datum/controller/subsystem/research/proc/adjust_points(var/amt, var/source)
+	points += amt
+	if(source)
+		return
+
+/datum/controller/subsystem/research/proc/get_cases()
+	if(!LAZYLEN(concepts))
+		return 0
+	for(var/datum/research_concepts/A in concepts)
+		if(A.id == "materials")
+			return A.level
