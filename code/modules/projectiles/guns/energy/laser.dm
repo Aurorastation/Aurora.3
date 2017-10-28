@@ -229,6 +229,11 @@ obj/item/weapon/gun/energy/retro
 	if(!isscrewdriver(D))
 		return ..()
 	user << "You disassemble the [src]."
+	new modifier(src.loc)
+	new capacitor(src.loc)
+	new focusing_lens(src.loc)
+	new /obj/item/device/laser_assembly(src.loc)
+	qdel(src)
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/updatetype()
 	switch(origin_chassis)
