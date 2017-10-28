@@ -76,7 +76,7 @@
 	if (!mind.vampire)
 		return 0
 
-	if ((mind.vampire.status & VAMP_FULLPOWER) && !(T.mind.vampire && (T.mind.vampire.status & VAMP_FULLPOWER)))
+	if ((mind.vampire.status & VAMP_FULLPOWER) && !(T.mind && T.mind.vampire && (T.mind.vampire.status & VAMP_FULLPOWER)))
 		return 1
 
 	if (T.mind)
