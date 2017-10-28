@@ -249,7 +249,7 @@
 		occupant.client.perspective = MOB_PERSPECTIVE
 	occupant.forceMove(loc)
 	occupant = null
-	for(var/atom/movable/A in (src - component_parts)) // In case an object was dropped inside or something
+	for(var/atom/movable/A in (contents - component_parts)) // In case an object was dropped inside or something
 		if(A == beaker)
 			continue
 		A.forceMove(loc)
