@@ -119,7 +119,6 @@
 
 	if (client)
 		up_hint.icon_state = "uphint[!!isopenturf(GetAbove(src))]"
-		testing("Uphint set to: uphint[!!isopenturf(GetAbove(src))]")
 
 	if (is_noisy && !stat && !lying)
 		var/turf/T = loc
