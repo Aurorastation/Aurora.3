@@ -5,6 +5,7 @@
 	size = 10
 	requires_ntnet = 1
 	available_on_ntnet = 1
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	nanomodule_path = /datum/nano_module/program/civilian/cargoorder/
 
 /datum/nano_module/program/civilian/cargoorder/
