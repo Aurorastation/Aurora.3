@@ -198,3 +198,102 @@ obj/item/weapon/gun/energy/retro
 	can_turret = 1
 	turret_is_lethal = 0
 	turret_sprite_set = "red"
+
+/obj/item/weapon/gun/energy/laser/prototype
+	name = "laser prototype"
+	desc = "A custom prototype laser weapon."
+	icon_state = "laser"
+	item_state = "laser"
+	fire_sound = 'sound/weapons/Laser.ogg'
+	slot_flags = SLOT_BELT|SLOT_BACK
+	w_class = 3
+	force = 10
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	projectile_type = /obj/item/projectile/beam/prototype
+	can_turret = 0
+	var/origin_chassis
+	var/gun_type
+	var/obj/item/laser_components/modifier/modifier
+	var/obj/item/laser_components/capacitor/capacitor
+	var/obj/item/laser_components/focusing_lens/focusing_lens
+
+/obj/item/weapon/gun/energy/laser/prototype/examine()
+	..()
+	if(modifier)
+		usr << "You can see a [capacitor], a [focusing_lens], and a [modifier] attached."
+	else
+		usr << "You can see a [capacitor] and a [focusing_lens]"
+
+/obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
+	if(!isscrewdriver(D))
+		return ..()
+	user << "You disassemble the [src]."
+	modifier.loc = src.loc
+	capacitor = src.loc
+	focusing_lens = src.loc
+	new /obj/item/device/laser_assembly(src.loc)
+	qdel(src)
+
+/obj/item/weapon/gun/energy/laser/prototype/proc/updatetype()
+	switch(origin_chassis)
+		if(CHASSIS_SMALL)
+			gun_type =  TYPE_PISTOL
+			slot_flags = SLOT_BELT
+			//item_state = sprite
+			name = "A custom laser pistol."
+		if(CHASSIS_MEDIUM)
+			gun_type = TYPE_CARBINE
+			slot_flags = SLOT_BELT
+			//item_state = sprite
+			name = "A custom laser carbine."
+		if(CHASSIS_LARGE)
+			gun_type = TYPE_RIFLE
+			slot_flags = SLOT_BELT|SLOT_BACK
+			//item_state = sprite
+			name = "A custom laser rifle."
+		if(CHASSIS_GATLING)
+			gun_type = TYPE_GATLING
+			slot_flags = SLOT_BACK
+			//item_state = sprite
+			name = "A custom gatling gun."
+	if(modifier)
+		handle_mod()
+	projectile_type = /obj/item/projectile/beam/prototype
+	w_class = gun_type
+	reliability = capacitor.reliability + focusing_lens.reliability
+	fire_delay = capacitor.fire_delay
+	max_shots = capacitor.shots
+
+/obj/item/weapon/gun/energy/laser/prototype/proc/handle_mod()
+	switch(modifier.mod_type)
+		if(MOD_SILENCE)
+			silenced = 1
+		if(MOD_NUCLEAR_CHARGE)
+			self_recharge = 1
+	fire_delay += modifier.fire_delay
+	reliability += modifier.reliability
+
+/obj/item/weapon/gun/energy/laser/prototype/consume_next_projectile()
+	if(!power_supply) return null
+	if(!ispath(projectile_type)) return null
+	if(!power_supply.checked_use(charge_cost)) return null
+	if (self_recharge) addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
+	var/obj/item/projectile/beam/prototype/A = new projectile_type(src)
+	if(!istype(A))
+		return ..()
+	A.damage = capacitor.damage + modifier.damage
+	A.armor_penetration = capacitor.armor_penetration + modifier.armor_penetration
+	return A
+
+/obj/item/weapon/gun/energy/laser/prototype/small_fail()
+	
+	return
+
+/obj/item/weapon/gun/energy/laser/prototype/medium_fail()
+
+	return
+
+/obj/item/weapon/gun/energy/laser/prototype/critical_fail()
+
+	return

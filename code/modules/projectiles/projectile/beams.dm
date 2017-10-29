@@ -31,6 +31,9 @@
 	damage = 35
 	armor_penetration = 10
 
+/obj/item/projectile/beam/prototype
+	damage = 10
+
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
