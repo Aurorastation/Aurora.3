@@ -17,7 +17,7 @@
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	power_usage = 50 					// Hybrid, medium capacity and medium power storage
 	icon_state = "hdd_advanced"
-	hardware_size = 3
+	hardware_size = 2
 
 /obj/item/weapon/computer_hardware/hard_drive/super
 	name = "super hard drive"
