@@ -3,7 +3,7 @@
 /datum/controller/subsystem/item_worths
 	name = "Item Worths"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_ITEMVALUES
+	init_order = SS_INIT_MISC_FIRST
 
 	var/list/worths = list()
 
