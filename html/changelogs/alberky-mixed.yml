@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscdel: "Removed mixed secret from the voting options, all mixed gamemodes should be added to the regular secret rotation."
