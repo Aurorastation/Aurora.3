@@ -1194,6 +1194,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "seccheckpointup"
 	},
 /turf/simulated/floor/plating,
@@ -1212,6 +1213,7 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "seccheckpointup"
 	},
 /turf/simulated/floor/plating,
@@ -1230,6 +1232,7 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "seccheckpointup"
 	},
 /turf/simulated/floor/plating,
@@ -1283,6 +1286,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "seccheckpointup"
 	},
 /turf/simulated/floor/plating,
@@ -1361,6 +1365,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "seccheckpointup"
 	},
 /turf/simulated/floor/plating,
@@ -1456,6 +1461,7 @@
 	dir = 1
 	},
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "seccheckpointup"
 	},
 /turf/simulated/floor/plating,
@@ -1490,6 +1496,7 @@
 /obj/structure/window/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
+	dir = 1;
 	id = "seccheckpointup"
 	},
 /turf/simulated/floor/plating,
@@ -1544,6 +1551,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "seccheckpointup"
 	},
 /turf/simulated/floor/plating,
@@ -1559,6 +1567,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "seccheckpointup"
 	},
 /turf/simulated/floor/plating,
@@ -1574,6 +1583,7 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "seccheckpointup"
 	},
 /turf/simulated/floor/plating,
@@ -1589,6 +1599,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
+	dir = 4;
 	id = "seccheckpointup"
 	},
 /turf/simulated/floor/plating,

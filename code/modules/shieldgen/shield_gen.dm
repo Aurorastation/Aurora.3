@@ -238,8 +238,27 @@
 //grab the border tiles in a circle around this machine
 /obj/machinery/shield_gen/proc/get_shielded_turfs()
 	var/turf/gen_turf = get_turf(src)
+	. = list()
 
 	if (!gen_turf)
 		return
 
-	. = RANGE_TURFS(field_radius, gen_turf)
+	var/turf/T
+
+	for (var/x_offset = -field_radius; x_offset <= field_radius; x_offset++)
+		T = locate(gen_turf.x + x_offset, gen_turf.y - field_radius, gen_turf.z)
+		if (T)
+			. += T
+
+		T = locate(gen_turf.x + x_offset, gen_turf.y + field_radius, gen_turf.z)
+		if (T)
+			. += T
+
+	for (var/y_offset = -field_radius+1; y_offset < field_radius; y_offset++)
+		T = locate(gen_turf.x - field_radius, gen_turf.y + y_offset, gen_turf.z)
+		if (T)
+			. += T
+
+		T = locate(gen_turf.x + field_radius, gen_turf.y + y_offset, gen_turf.z)
+		if (T)
+			. += T
