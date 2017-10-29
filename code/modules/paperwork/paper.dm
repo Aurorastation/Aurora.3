@@ -105,7 +105,7 @@
 		can_read = get_dist(src, AI.camera) < 2
 
 	// Into the span sub classes here should go language colour keys.
-	var/static/header = {"<head>
+	var/header = {"<head>
 	<title>[name]</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<style>
