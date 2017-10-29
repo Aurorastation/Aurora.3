@@ -45,7 +45,7 @@
 		)
 
 	var/obj/item/weapon/pai_cable/cable		// The cable we produce and use when door or camera jacking
-	var/obj/item/weapon/card/id/ID = null	//Internal ID used to store copied owner access, and to check access for airlocks
+	idcard_type = /obj/item/weapon/card/id	//Internal ID used to store copied owner access, and to check access for airlocks
 
 	var/master				// Name of the one who commands us
 	var/master_dna			// DNA string for owner verification
@@ -111,18 +111,16 @@
 			M.do_attack_animation(src)
 			updatehealth()
 
-/mob/living/silicon/pai/New(var/obj/item/device/paicard/newlocation)
-	var/obj/item/device/paicard/paicard
-	if (istype(newlocation))
-		paicard = newlocation
-	else
+/mob/living/silicon/pai/Initialize(mapload)
+	var/obj/item/device/paicard/paicard = loc
+	if (!istype(paicard))
 		//If we get here, then we must have been created by adminspawning.
 		//so lets assist with debugging by creating our own card and adding ourself to it
-		paicard = new/obj/item/device/paicard(newlocation)
+		paicard = new/obj/item/device/paicard(loc)
 		paicard.pai = src
 
 	canmove = 0
-	src.loc = paicard
+	loc = paicard
 	card = paicard
 	sradio = new(src)
 	if(card)
@@ -131,23 +129,30 @@
 		radio = card.radio
 
 	//Default languages without universal translator software
-	add_language("Sol Common", 1)
-	add_language("Tradeband", 1)
-	add_language("Gutter", 1)
+
+	add_language(LANGUAGE_SOL_COMMON, 1)
+	add_language(LANGUAGE_TRADEBAND, 1)
+	add_language(LANGUAGE_GUTTER, 1)
+	add_language(LANGUAGE_EAL, 1)
 
 	verbs += /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/silicon/pai/proc/choose_verbs
 
 	//PDA
 	pda = new(src)
-	ID = new(src)
-	ID.registered_name = ""
-	spawn(5)
-		pda.ownjob = "Personal Assistant"
-		pda.owner = text("[]", src)
-		pda.name = pda.owner + " (" + pda.ownjob + ")"
-		pda.toff = 1
-	..()
+	addtimer(CALLBACK(src, .proc/set_pda), 5)
+	. = ..()
+
+/mob/living/silicon/pai/proc/set_pda()
+	pda.ownjob = "Personal Assistant"
+	pda.owner = "[src]"
+	pda.name = "[pda.owner] ([pda.ownjob])"
+	pda.toff = TRUE
+
+/mob/living/silicon/pai/init_id()
+	. = ..()
+	idcard.registered_name = ""
+
 
 /mob/living/silicon/pai/Login()
 	greet()

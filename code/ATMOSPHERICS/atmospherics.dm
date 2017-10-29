@@ -10,11 +10,6 @@ Pipelines + Other Objects -> Pipe network
 
 */
 /obj/machinery/atmospherics
-
-	var/auto_init = 0
-
-	var/no_special_init = FALSE
-
 	anchored = 1
 	idle_power_usage = 0
 	active_power_usage = 0
@@ -33,8 +28,10 @@ Pipelines + Other Objects -> Pipe network
 	var/global/datum/pipe_icon_manager/icon_manager
 	var/obj/machinery/atmospherics/node1
 	var/obj/machinery/atmospherics/node2
+	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
-/obj/machinery/atmospherics/New()
+/obj/machinery/atmospherics/Initialize(mapload)
+	. = ..()
 	if(!icon_manager)
 		icon_manager = new()
 
@@ -44,19 +41,16 @@ Pipelines + Other Objects -> Pipe network
 
 	if(!pipe_color_check(pipe_color))
 		pipe_color = null
-	..()
 
-/obj/machinery/atmospherics/proc/initialize()
-
-// Atmos machines are snowflakes and call initialize on themselves.
-// Do not refactor initialize() to Initialize() unless you know what you are doing.
-/obj/machinery/atmospherics/Initialize(mapload, ...)
-	if (no_special_init)
-		return ..()
-
-	. = ..()
 	if (mapload)
-		initialize()
+		return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/atmospherics/proc/atmos_init()
+
+// atmos_init() and Initialize() must be separate, as atmos_init() can be called multiple times after the machine has been initialized.
+
+/obj/machinery/atmospherics/LateInitialize()
+	atmos_init()
 
 /obj/machinery/atmospherics/attackby(atom/A, mob/user as mob)
 	if(istype(A, /obj/item/device/pipe_painter))
@@ -103,7 +97,7 @@ obj/machinery/atmospherics/proc/check_connect_types(obj/machinery/atmospherics/a
 
 	return node.pipe_color
 
-/obj/machinery/atmospherics/process()
+/obj/machinery/atmospherics/machinery_process()
 	last_flow_rate = 0
 	last_power_draw = 0
 

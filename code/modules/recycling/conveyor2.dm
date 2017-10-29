@@ -1,20 +1,6 @@
 //conveyor2 is pretty much like the original, except it supports corners, but not diverters.
 //note that corner pieces transfer stuff clockwise when running forward, and anti-clockwise backwards.
 
-/datum/wifi/sender/conveyor/proc/set_dir(direction)
-	for (var/datum/wifi/receiver/conveyor/C in connected_devices)
-		C.direction_change(direction)
-
-/datum/wifi/receiver/conveyor/proc/direction_change(direction)
-	var/obj/machinery/conveyor/C = parent
-	C.operating = direction
-	C.setmove()
-
-/datum/wifi/receiver/conveyor/switch/direction_change(direction)
-	var/obj/machinery/conveyor_switch/S = parent
-	S.position = direction
-	S.update()
-
 /obj/machinery/conveyor
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "conveyor0"
@@ -30,7 +16,8 @@
 
 	var/list/affecting	// the list of all items that will be moved this ptick
 	var/id = ""			// the control ID	- must match controller ID
-	var/datum/wifi/receiver/conveyor/antenna
+	
+	var/listener/antenna
 
 /obj/machinery/conveyor/centcom_auto
 	id = "round_end_belt"
@@ -81,27 +68,50 @@
 
 	// machine process
 	// move items to the target location
-/obj/machinery/conveyor/process()
+/obj/machinery/conveyor/machinery_process()
 	if(stat & (BROKEN | NOPOWER))
 		return
 	if(!operating)
 		return
+
+	if (!loc)
+		PROCLOG_WEIRD("loc is null, breaking self.")
+		stat |= BROKEN
+		return
+
 	use_power(100)
 
-	affecting = loc.contents - src		// moved items will be all in loc
-	spawn(1)	// slight delay to prevent infinite propagation due to map order	//TODO: please no spawn() in process(). It's a very bad idea
-		var/items_moved = 0
-		for(var/atom/movable/A in affecting)
-			if(!A.anchored)
-				if(A.loc == src.loc) // prevents the object from being affected if it's not currently here.
-					step(A,movedir)
-					items_moved++
-			if(items_moved >= 10)
-				break
+	var/list/affecting = loc.contents.Copy() - src
+	if (affecting.len)
+		addtimer(CALLBACK(src, .proc/post_process, affecting), 1)	// slight delay to prevent infinite propagation due to map order
+
+/obj/machinery/conveyor/proc/post_process(list/affecting)
+	var/items_moved = 0
+	for (var/thing in affecting)
+		var/atom/movable/AM = thing
+		if (AM.anchored || !AM.simulated)
+			continue
+
+		if (AM.loc != loc)	// prevents the object from being affected if it's not currently here.
+			continue
+
+		if (items_moved >= 10 || TICK_CHECK)
+			break
+
+		AM.conveyor_act(movedir)
+		items_moved++
+
+/atom/movable/proc/conveyor_act(move_dir)
+	set waitfor = FALSE
+	if (!anchored && simulated && has_gravity(src))
+		step(src, move_dir)
+
+/obj/effect/conveyor_act()
+	return
 
 // attack with item, place item on conveyor
 /obj/machinery/conveyor/attackby(var/obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/crowbar))
+	if(iscrowbar(I))
 		if(!(stat & BROKEN))
 			var/obj/item/conveyor_construct/C = new/obj/item/conveyor_construct(src.loc)
 			C.id = id
@@ -190,24 +200,11 @@
 
 	anchored = 1
 
-	var/datum/wifi/receiver/conveyor/switch/receiver
-	var/datum/wifi/sender/conveyor/transmitter
-
-
 /obj/machinery/conveyor_switch/Initialize(mapload, newid)
 	. = ..()
 	if(!id)
 		id = newid
 	update()
-
-	if (id)
-		receiver = new(id, src)
-		transmitter = new(id, src)
-
-/obj/machinery/conveyor_switch/Destroy()
-	QDEL_NULL(receiver)
-	QDEL_NULL(transmitter)
-	return ..()
 
 // update the icon depending on the position
 
@@ -239,10 +236,20 @@
 	operated = 1
 	update()
 
-	transmitter.set_dir(position)
+	for (var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/obj/machinery/conveyor/C = L.target
+		if (istype(C))
+			C.operating = position
+			C.setmove()
+		else
+			var/obj/machinery/conveyor_switch/S = L.target
+			if (istype(S))
+				S.position = position
+				S.update()
 
 /obj/machinery/conveyor_switch/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/weapon/crowbar))
+	if(iscrowbar(I))
 		var/obj/item/conveyor_switch_construct/C = new/obj/item/conveyor_switch_construct(src.loc)
 		C.id = id
 		transfer_fingerprints_to(C)
@@ -263,7 +270,17 @@
 	operated = 1
 	update()
 
-	transmitter.set_dir(position)
+	for (var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/obj/machinery/conveyor/C = L.target
+		if (istype(C))
+			C.operating = position
+			C.setmove()
+		else
+			var/obj/machinery/conveyor_switch/S = L.target
+			if (istype(S))
+				S.position = position
+				S.update()
 
 //
 // CONVEYOR CONSTRUCTION STARTS HERE

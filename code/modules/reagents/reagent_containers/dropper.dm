@@ -38,6 +38,9 @@
 				if(istype(target, /mob/living/carbon/human))
 					var/mob/living/carbon/human/victim = target
 
+					if(victim.isSynthetic())
+						return
+
 					var/obj/item/safe_thing = null
 					if(victim.wear_mask)
 						if (victim.wear_mask.body_parts_covered & EYES)
@@ -54,7 +57,7 @@
 						user.visible_message("<span class='warning'>[user] tries to squirt something into [target]'s eyes, but fails!</span>", "<span class='notice'>You transfer [trans] units of the solution.</span>")
 						return
 
-				trans = reagents.trans_to_mob(target, reagents.total_volume, CHEM_INGEST)
+				trans = reagents.trans_to_mob(target, reagents.total_volume, CHEM_BLOOD)
 				user.visible_message("<span class='warning'>[user] squirts something into [target]'s eyes!</span>", "<span class='notice'>You transfer [trans] units of the solution.</span>")
 
 				var/mob/living/M = target

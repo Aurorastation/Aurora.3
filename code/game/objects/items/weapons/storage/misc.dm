@@ -1,11 +1,26 @@
 /obj/item/weapon/storage/pill_bottle/dice
 	name = "pack of dice"
 	desc = "It's a small container with dice inside."
+	icon = 'icons/obj/dice.dmi'
+	icon_state = "dicebag"
 
-	New()
-		..()
-		new /obj/item/weapon/dice( src )
-		new /obj/item/weapon/dice/d20( src )
+/obj/item/weapon/storage/pill_bottle/dice/fill()
+	..()
+	new /obj/item/weapon/dice( src )
+	new /obj/item/weapon/dice/d20( src )
+
+/obj/item/weapon/storage/pill_bottle/dice/gaming
+	name = "pack of gaming dice"
+	desc = "It's a small container with gaming dice inside."
+	icon_state = "magicdicebag"
+
+/obj/item/weapon/storage/pill_bottle/dice/gaming/fill()
+	..()
+	new /obj/item/weapon/dice/d4(src)
+	new /obj/item/weapon/dice/d8(src)
+	new /obj/item/weapon/dice/d10(src)
+	new /obj/item/weapon/dice/d12(src)
+	new /obj/item/weapon/dice/d100(src)
 
 /*
  * Donut Box
@@ -19,12 +34,11 @@
 	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/donut)
 	foldable = /obj/item/stack/material/cardboard
 
-/obj/item/weapon/storage/box/donut/New()
+/obj/item/weapon/storage/box/donut/fill()
 	..()
 	for(var/i=1; i <= startswith; i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/donut/normal(src)
 	update_icon()
-	return
 
 /obj/item/weapon/storage/box/donut/update_icon()
 	cut_overlays()

@@ -24,7 +24,7 @@
 	suit_type = "augmented suit"
 	desc = "Prepare for paperwork."
 	icon_state = "internalaffairs_rig"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = null
 	siemens_coefficient = 0.9
 	slowdown = 0
 	offline_slowdown = 0
@@ -109,8 +109,10 @@
 
 /obj/item/weapon/rig/eva/equipped
 
+	req_access = list(access_engine_equip)
+
 	initial_modules = list(
-		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/device/basicdrill,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/vision/meson
@@ -146,7 +148,7 @@
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/rcd,
 		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/actuators
@@ -202,11 +204,14 @@
 
 /obj/item/weapon/rig/medical/equipped
 
+	req_access = list(access_paramedic)
+
 	initial_modules = list(
-		/obj/item/rig_module/chem_dispenser/injector,
+		/obj/item/rig_module/chem_dispenser/injector/paramedic,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/healthscanner,
-		/obj/item/rig_module/vision/medhud
+		/obj/item/rig_module/vision/medhud,
+		/obj/item/rig_module/actuators
 		)
 
 /obj/item/weapon/rig/hazard
@@ -229,9 +234,39 @@
 
 /obj/item/weapon/rig/hazard/equipped
 
+	req_access = list(access_brig)
+
 	initial_modules = list(
 		/obj/item/rig_module/vision/sechud,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/mounted/taser
 		)
+
+/obj/item/weapon/rig/diving
+	name = "diving suit control module"
+	suit_type = "diving suit"
+	desc = "A heavy rig designated for operations under the water, you are not sure what it is doing here however."
+	icon_state = "diving_rig"
+	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
+	slowdown = 4
+	offline_slowdown = 2
+	offline_vision_restriction = TINT_HEAVY
+
+	chest_type = /obj/item/clothing/suit/space/rig/diving
+	helm_type = /obj/item/clothing/head/helmet/space/rig/diving
+	boot_type = /obj/item/clothing/shoes/magboots/rig/diving
+
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rcd)
+
+	req_access = list()
+	req_one_access = list()
+
+/obj/item/clothing/head/helmet/space/rig/diving
+	species_restricted = list("Human")
+
+/obj/item/clothing/suit/space/rig/diving
+	species_restricted = list("Human")
+
+/obj/item/clothing/shoes/magboots/rig/diving
+	species_restricted = list("Human")

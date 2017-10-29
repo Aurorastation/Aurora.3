@@ -46,6 +46,7 @@
 
 /obj/item/clothing/head/helmet/space/rig/military
 	light_overlay = "helmet_light_dual_green"
+	light_color = "#3e7c3e"
 	species_restricted = list("Human")
 
 /obj/item/clothing/suit/space/rig/military
@@ -67,5 +68,6 @@
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/chem_dispenser/injector,
-		/obj/item/rig_module/mounted/plasmacutter
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/actuators/combat
 		)

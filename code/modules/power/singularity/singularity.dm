@@ -8,7 +8,7 @@
 	anchored = 1
 	density = 1
 	layer = 6
-	light_range = 6
+	light_power = -100 //eats all light
 	unacidable = 1 //Don't comment this out.
 
 	var/current_size = 1
@@ -23,7 +23,7 @@
 	var/grav_pull = 4 //How many tiles out do we pull?
 	var/consume_range = 0 //How many tiles out do we eat.
 	var/event_chance = 15 //Prob for event each tick.
-	var/target = null //Its target. Moves towards the target if it has one.
+	var/atom/target = null //Its target. Moves towards the target if it has one.
 	var/last_failed_movement = 0 //Will not move in the same dir if it couldnt before, will help with the getting stuck on fields thing.
 	var/last_warning
 
@@ -39,13 +39,15 @@
 
 	..()
 	START_PROCESSING(SScalamity, src)
-	for(var/obj/machinery/power/singularity_beacon/singubeacon in machines)
+	SScalamity.singularities += src
+	for(var/obj/machinery/power/singularity_beacon/singubeacon in SSmachinery.processing_machines)
 		if(singubeacon.active)
 			target = singubeacon
 			break
 
 /obj/singularity/Destroy()
 	STOP_PROCESSING(SScalamity, src)
+	SScalamity.singularities -= src
 	return ..()
 
 /obj/singularity/attack_hand(mob/user as mob)
@@ -80,6 +82,9 @@
 	eat()
 	dissipate()
 	check_energy()
+	light_range = current_size-2
+	if(light_range < 0)
+		light_range = 0
 
 	if (current_size >= STAGE_THREE)
 		move()
@@ -231,7 +236,7 @@
 			event_chance = 25 //Events will fire off more often.
 			if(chained)
 				overlays = "chain_s9"
-			visible_message("<span class='sinister'><font size='3'>You witness the creation of a destructive force that cannot possibly be stopped by human hands.</font></span>")
+			visible_message("<span class='danger'><font size='3'>You witness the creation of a destructive force that cannot possibly be stopped by human hands.</font></span>")
 
 	if (current_size == allowed_size)
 		investigate_log("<font color='red'>grew to size [current_size].</font>", I_SINGULO)
@@ -299,6 +304,14 @@
 
 	if(target && prob(60))
 		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
+		if(target.z < z)
+			visible_message("<span class='danger'>\The [src] gravitates downwards.</span>")
+			zMove(DOWN)
+			visible_message("<span class='danger'>\The [src] appears from above.</span>")
+		else if(target.z > z)
+			visible_message("<span class='danger'>\The [src] gravitates upwards.</span>")
+			zMove(UP)
+			visible_message("<span class='danger'>\The [src] appears from below.</span>")
 
 	if(current_size >= 9)//The superlarge one does not care about things in its way
 		spawn(0)
@@ -312,7 +325,12 @@
 			step(src, movement_dir)
 		return 1
 	else
-		last_failed_movement = movement_dir
+		if(current_size >= STAGE_FIVE)
+			var/z_dir = pick(UP,DOWN)
+			if(!zMove(z_dir))
+				last_failed_movement = movement_dir
+		else
+			last_failed_movement = movement_dir
 	return 0
 
 /obj/singularity/proc/check_turfs_in(var/direction = 0, var/step = 0)
@@ -373,7 +391,7 @@
 	if (!isturf(T))
 		return 0
 
-	if ((locate(/obj/machinery/containment_field) in T) || (locate(/obj/machinery/shieldwall) in T))
+	if ((locate(/obj/machinery/containment_field) in T) || (locate(/obj/shieldwall) in T))
 		return 0
 	else if (locate(/obj/machinery/field_generator) in T)
 		var/obj/machinery/field_generator/G = locate(/obj/machinery/field_generator) in T
@@ -416,7 +434,7 @@
 	for(var/mob/living/M in view(toxrange, src.loc))
 		if(M.status_flags & GODMODE)
 			continue
-		M.apply_effect(rand(radiationmin,radiation), IRRADIATE)
+		M.apply_effect(rand(radiationmin,radiation), IRRADIATE, blocked = M.getarmor(null, "rad"))
 		toxdamage = (toxdamage - (toxdamage*M.getarmor(null, "rad")))
 		M.apply_effect(toxdamage, TOX)
 	return
@@ -450,7 +468,7 @@
 /obj/singularity/proc/smwave()
 	for(var/mob/living/M in view(10, src.loc))
 		if(prob(67))
-			M.apply_effect(rand(energy), IRRADIATE)
+			M.apply_effect(rand(energy), IRRADIATE, blocked = M.getarmor(null, "rad"))
 			M << "<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>"
 			M << "<span class=\"notice\">Miraculously, it fails to kill you.</span>"
 		else
@@ -493,3 +511,11 @@
         spawn(0)
             qdel(src)
         return gain
+
+/obj/singularity/can_fall()
+	return FALSE
+
+/obj/singularity/proc/zMove(direction)
+	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	if(destination)
+		forceMove(destination)

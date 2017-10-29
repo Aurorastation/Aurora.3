@@ -47,7 +47,8 @@ var/const/LAWYER			=(1<<9)
 var/const/CHAPLAIN			=(1<<10)
 var/const/CLOWN				=(1<<11)
 var/const/MIME				=(1<<12)
-var/const/ASSISTANT			=(1<<13)
+var/const/MERCHANT			=(1<<13)
+var/const/ASSISTANT			=(1<<14)
 
 
 var/list/assistant_occupations = list() //Leaving this on one line stops Travis complaining ~Scopes
@@ -74,11 +75,10 @@ var/list/engineering_positions = list(
 var/list/medical_positions = list(
 	"Chief Medical Officer",
 	"Medical Doctor",
-	"Geneticist",
 	"Psychiatrist",
 	"Chemist",
 	"Paramedic",
-	"Nursing Intern"
+	"Medical Resident"
 )
 
 
@@ -120,11 +120,11 @@ var/list/security_positions = list(
 	"Security Cadet"
 )
 
-
 var/list/nonhuman_positions = list(
 	"AI",
 	"Cyborg",
-	"pAI"
+	"pAI",
+	"Merchant"
 )
 
 /proc/guest_jobbans(var/job)

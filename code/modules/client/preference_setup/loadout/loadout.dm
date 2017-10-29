@@ -60,17 +60,20 @@ var/list/gear_datums = list()
 	var/mob/preference_mob = preference_mob()
 	for(var/gear_name in gear_datums)
 		var/datum/gear/G = gear_datums[gear_name]
-
-		if(G.whitelisted && !is_alien_whitelisted(preference_mob, all_species[G.whitelisted]))
-			continue
 		if(max_cost && G.cost > max_cost)
 			continue
-		. += gear_name
+		if(G.whitelisted && preference_mob)
+			for(var/species in G.whitelisted)
+				if(is_alien_whitelisted(preference_mob, global.all_species[species]))
+					. += gear_name
+					break
+		else
+			.+= gear_name
 
 /datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
 	if (sql_load)
 		gear_reset = FALSE
-		if (pref.gear && istext(pref.gear))
+		if (istext(pref.gear))
 			try
 				pref.gear = json_decode(pref.gear)
 			catch
@@ -78,9 +81,6 @@ var/list/gear_datums = list()
 
 				pref.gear = list()
 				gear_reset = TRUE
-		else
-			pref.gear = list()
-			gear_reset = TRUE
 
 	var/mob/preference_mob = preference_mob()
 	if(!islist(pref.gear))

@@ -10,6 +10,7 @@
  * /obj/item/rig_module/device/broadcaster
  * /obj/item/rig_module/chem_dispenser
  * /obj/item/rig_module/chem_dispenser/injector
+ * /obj/item/rig_module/chem_dispenser/injector/paramedic
  * /obj/item/rig_module/voice
  * /obj/item/rig_module/device/paperdispenser
  * /obj/item/rig_module/device/pen
@@ -281,6 +282,15 @@
 	interface_name = "mounted chem injector"
 	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
 
+/obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
+
+	charges = list(
+		list("tricordrazine",	"tricordrazine", 0, 40),
+		list("tramadol",	"tramadol",      0, 40),
+		list("dexalin",		"dexalin",      0, 40),
+		list("inaprovaline",	"inaprovaline",     0, 40)
+		)
+
 /obj/item/rig_module/voice
 
 	name = "hardsuit voice synthesiser"
@@ -397,12 +407,12 @@
 /obj/item/rig_module/maneuvering_jets/installed()
 	..()
 	jets.holder = holder
-	jets.ion_trail.set_up(holder)
+	jets.ion_trail.bind(holder)
 
 /obj/item/rig_module/maneuvering_jets/removed()
 	..()
 	jets.holder = null
-	jets.ion_trail.set_up(jets)
+	jets.ion_trail.bind(jets)
 
 /obj/item/rig_module/foam_sprayer
 
@@ -477,10 +487,13 @@
 
 /obj/item/rig_module/actuators
 	name = "leg actuators"
-	desc = "A set of electromechanical actuators, for safe travesal of multilevelled areas."
-	icon_state = "generic"
+	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
+	icon_state = "actuators"
 	interface_name = "leg actuators"
 	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
+
+	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, "glass"= 1250, "silver"=5250)
+	construction_time = 300
 
 	disruptive = 1
 
@@ -553,7 +566,7 @@
 
 	// Handle leaping at targets with a combat capable version here.
 	if (combatType && dist && (ismob(target) || (locate(/mob/living) in T)))
-		H.leap(target, leapDistance)
+		H.do_leap(target, leapDistance, FALSE)
 		return 1
 
 	// If dist -> horizontal leap. Otherwise, the user clicked the turf that they're
@@ -577,7 +590,7 @@
 				return 0
 
 		var/turf/leapEnd = get_step(TA, H.dir)
-		if (!leapEnd || istype(leapEnd, /turf/simulated/open) || istype(leapEnd, /turf/space)\
+		if (!leapEnd || isopenturf(leapEnd) || istype(leapEnd, /turf/space)\
 			|| leapEnd.density || leapEnd.contains_dense_objects())
 			to_chat(H, "<span class='warning'>There is no valid ledge to scale ahead of you!</span>")
 			return 0
@@ -587,7 +600,7 @@
 
 		// This setting is necessary even for combat type, to stop you from moving onto
 		// the turf, falling back down, and then getting forcemoved to the final destination.
-		LAZYADD(TA.climbers, H)
+		TA.add_climber(H, CLIMBER_NO_EXIT)
 
 		H.forceMove(TA)
 
@@ -599,9 +612,13 @@
 			if (!do_after(H, 4 SECONDS, use_user_turf = TRUE))
 				H.visible_message("<span class='warning'>\The [H] is interrupted and falls!</span>",
 					"<span class='danger'>You are interrupted and fall back down!</span>")
-				LAZYREMOVE(TA.climbers, H)
 
-				ADD_FALLING_ATOM(H)
+				// Climbers will auto-fall if they exit the turf. This is for in case
+				// something else interrupts them.
+				if (H.loc == TA)
+					TA.remove_climber(H)
+					ADD_FALLING_ATOM(H)
+
 				return 1
 
 			H.visible_message("<span class='notice'>\The [H] finishes climbing onto \the [leapEnd].</span>",
@@ -610,7 +627,7 @@
 			H.visible_message("<span class='warning'>\The [H] lands on \the [leapEnd] with a heavy slam!</span>",
 				"<span class='warning'>You land on \the [leapEnd] with a heavy thud!</span>")
 
-		LAZYREMOVE(TA.climbers, H)
+		// open/Exited() removes from climbers.
 		H.forceMove(leapEnd)
 
 		return 1

@@ -59,7 +59,7 @@
 			user.visible_message("[user] inserts a cell into the charger.", "You insert a cell into the charger.")
 			chargelevel = -1
 		update_icon()
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(iswrench(W))
 		if(charging)
 			user << "<span class='warning'>Remove the cell first!</span>"
 			return
@@ -98,7 +98,7 @@
 	..(severity)
 
 
-/obj/machinery/cell_charger/process()
+/obj/machinery/cell_charger/machinery_process()
 	//world << "ccpt [charging] [stat]"
 	if((stat & (BROKEN|NOPOWER)) || !anchored)
 		update_use_power(0)

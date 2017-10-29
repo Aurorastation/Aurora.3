@@ -8,7 +8,7 @@
 	active_power_usage = 10
 	layer = 5
 
-	var/list/network = list(NETWORK_EXODUS)
+	var/list/network = list(NETWORK_STATION)
 	var/c_tag = null
 	var/c_tag_order = 999
 	var/status = 1
@@ -66,7 +66,7 @@
 	wires = null
 	return ..()
 
-/obj/machinery/camera/process()
+/obj/machinery/camera/machinery_process()
 	if((stat & EMPED) && world.time >= affected_by_emp_until)
 		stat &= ~EMPED
 		cancelCameraAlarm()
@@ -147,7 +147,7 @@
 				assembly.loc = src.loc
 				assembly.anchored = 1
 				assembly.camera_name = c_tag
-				assembly.camera_network = english_list(network, "Exodus", ",", ",")
+				assembly.camera_network = english_list(network, "Station", ",", ",")
 				assembly.update_icon()
 				assembly.dir = src.dir
 				if(stat & BROKEN)
@@ -156,7 +156,7 @@
 				else
 					assembly.state = 1
 					user << "<span class='notice'>You cut \the [src] free from the wall.</span>"
-					new /obj/item/stack/cable_coil(src.loc, length=2)
+					new /obj/item/stack/cable_coil(loc, 2)
 				assembly = null //so qdel doesn't eat it.
 			qdel(src)
 
@@ -207,7 +207,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if (W.force >= src.toughness)
 			user.do_attack_animation(src)
-			visible_message("<span class='warning'><b>[src] has been [pick(W.attack_verb)] with [W] by [user]!</b></span>")
+			user.visible_message("<span class='danger'>[user] has [LAZYPICK(W.attack_verb,"attacked")] [src] with [W]!</span>")
 			if (istype(W, /obj/item)) //is it even possible to get into attackby() with non-items?
 				var/obj/item/I = W
 				if (I.hitsound)

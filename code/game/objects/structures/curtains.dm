@@ -22,7 +22,7 @@
 		..(P, def_zone)
 
 /obj/structure/curtain/attack_hand(mob/user)
-	playsound(get_turf(loc), "rustle", 15, 1, -5)
+	playsound(get_turf(loc), 'sound/effects/curtain.ogg', 15, 1, -5)
 	toggle()
 	..()
 
@@ -40,6 +40,11 @@
 	color = "#222222"
 
 /obj/structure/curtain/medical
+	name = "plastic curtain"
+	color = "#B8F5E3"
+	alpha = 200
+
+/obj/structure/curtain/open/medical
 	name = "plastic curtain"
 	color = "#B8F5E3"
 	alpha = 200

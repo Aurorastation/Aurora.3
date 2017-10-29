@@ -49,7 +49,7 @@
 
 /obj/item/weapon/pinpointer/examine(mob/user)
 	..(user)
-	for(var/obj/machinery/nuclearbomb/bomb in world)
+	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.all_machines)
 		if(bomb.timing)
 			user << "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]"
 

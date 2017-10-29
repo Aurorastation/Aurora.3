@@ -78,3 +78,14 @@ var/cmp_field = "name"
 
 /proc/cmp_surgery(datum/surgery_step/a, datum/surgery_step/b)
 	return b.priority - a.priority
+
+/proc/cmp_recipe_complexity_dsc(datum/recipe/A, datum/recipe/B)
+	var/a_score = LAZYLEN(A.items) + LAZYLEN(A.reagents) + LAZYLEN(A.fruit)
+	var/b_score = LAZYLEN(B.items) + LAZYLEN(B.reagents) + LAZYLEN(B.fruit)
+	return b_score - a_score
+
+/proc/cmp_pda(obj/item/device/pda/A, obj/item/device/pda/B)
+	return sorttext(B.owner, A.owner)
+
+/proc/cmp_planelayer(atom/A, atom/B)
+	return (B.plane - A.plane) || (B.layer - A.layer)

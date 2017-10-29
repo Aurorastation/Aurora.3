@@ -25,6 +25,10 @@
 			latejoin += loc
 			delete_me = 1
 			return
+		if("KickoffLocation")
+			kickoffsloc += loc
+			delete_me = 1
+			return
 		if("JoinLateGateway")
 			latejoin_gateway += loc
 			delete_me = 1
@@ -35,6 +39,10 @@
 			return
 		if("JoinLateCyborg")
 			latejoin_cyborg += loc
+			delete_me = 1
+			return
+		if("JoinLateMerchant")
+			latejoin_merchant += loc
 			delete_me = 1
 			return
 		if("prisonwarp")

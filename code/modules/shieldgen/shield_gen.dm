@@ -43,7 +43,7 @@
 		field.Remove(D)
 		D.loc = null
 	return ..()
-	
+
 /obj/machinery/shield_gen/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
 		src.locked = !src.locked
@@ -62,7 +62,7 @@
 			updateDialog()
 		else
 			user << span("alert", "Access denied.")
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(iswrench(W))
 		src.anchored = !src.anchored
 		src.visible_message(span("notice", "\The [src] has been [anchored ? "bolted to the floor":"unbolted from the floor"] by \the [user]."))
 
@@ -134,7 +134,7 @@
 	user << browse(t, "window=shield_generator;size=500x400")
 	user.set_machine(src)
 
-/obj/machinery/shield_gen/process()
+/obj/machinery/shield_gen/machinery_process()
 	if (!anchored && active)
 		toggle()
 
@@ -237,25 +237,28 @@
 //TODO MAKE THIS MULTIZ COMPATIBLE
 //grab the border tiles in a circle around this machine
 /obj/machinery/shield_gen/proc/get_shielded_turfs()
-	var/list/out = list()
-
 	var/turf/gen_turf = get_turf(src)
+	. = list()
+
 	if (!gen_turf)
 		return
 
 	var/turf/T
+
 	for (var/x_offset = -field_radius; x_offset <= field_radius; x_offset++)
 		T = locate(gen_turf.x + x_offset, gen_turf.y - field_radius, gen_turf.z)
-		if (T) out += T
+		if (T)
+			. += T
 
 		T = locate(gen_turf.x + x_offset, gen_turf.y + field_radius, gen_turf.z)
-		if (T) out += T
+		if (T)
+			. += T
 
 	for (var/y_offset = -field_radius+1; y_offset < field_radius; y_offset++)
 		T = locate(gen_turf.x - field_radius, gen_turf.y + y_offset, gen_turf.z)
-		if (T) out += T
+		if (T)
+			. += T
 
 		T = locate(gen_turf.x + field_radius, gen_turf.y + y_offset, gen_turf.z)
-		if (T) out += T
-
-	return out
+		if (T)
+			. += T

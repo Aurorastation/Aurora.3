@@ -103,9 +103,8 @@
 	holder_type = /obj/item/weapon/holder/drone/heavy
 	range_limit = 0
 
-/mob/living/silicon/robot/drone/New()
-
-	..()
+/mob/living/silicon/robot/drone/Initialize()
+	. = ..()
 
 	verbs += /mob/living/proc/hide
 	remove_language("Robot Talk")
@@ -134,7 +133,7 @@
 	if(!laws) laws = new law_type
 	if(!module) module = new module_type(src)
 
-	flavor_text = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
+	flavor_text = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
 
 //Redefining some robot procs...
@@ -183,7 +182,7 @@
 		user << "<span class='danger'>\The [src] is not compatible with \the [W].</span>"
 		return
 
-	else if (istype(W, /obj/item/weapon/crowbar))
+	else if (iscrowbar(W))
 		user << "<span class='danger'>\The [src] is hermetically sealed. You can't open the case.</span>"
 		return
 
@@ -350,13 +349,13 @@
 
 /mob/living/silicon/robot/drone/construction/welcome_drone()
 	src << "<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."
-	src << "You are assigned to a Sol Central construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."
+	src << "You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."
 	src << "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."
 	src << "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."
 
 /mob/living/silicon/robot/drone/construction/init()
 	..()
-	flavor_text = "It's a bulky construction drone stamped with a Sol Central glyph."
+	flavor_text = "It's a bulky construction drone stamped with a NanoTrasen glyph."
 
 /mob/living/silicon/robot/drone/construction/updatename()
 	real_name = "construction drone ([rand(100,999)])"

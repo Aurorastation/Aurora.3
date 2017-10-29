@@ -63,7 +63,6 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/toggledsay,		//toggles dsay on/off for everyone,
 	/client/proc/game_panel,			//game panel, allows to change game-mode etc,
 	/client/proc/cmd_admin_say,			//admin-only ooc chat,
-	/datum/admins/proc/togglehubvisibility, //toggles visibility on the BYOND Hub,
 	/datum/admins/proc/PlayerNotes,
 	/client/proc/cmd_mod_say,
 	/datum/admins/proc/show_player_info,
@@ -146,9 +145,8 @@ var/list/admin_verbs_spawn = list(
 	/client/proc/spawn_chemdisp_cartridge
 	)
 var/list/admin_verbs_server = list(
-	/datum/admins/proc/capture_map,
+	/datum/admins/proc/capture_map_part,
 	/client/proc/Set_Holiday,
-	/client/proc/ToRban,
 	/datum/admins/proc/startnow,
 	/datum/admins/proc/restart,
 	/datum/admins/proc/delay,
@@ -171,7 +169,8 @@ var/list/admin_verbs_server = list(
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_controller,
 	/client/proc/cmd_ss_panic,
-	/client/proc/configure_access_control
+	/client/proc/configure_access_control,
+	/datum/admins/proc/togglehubvisibility //toggles visibility on the BYOND Hub
 	)
 var/list/admin_verbs_debug = list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
@@ -208,14 +207,15 @@ var/list/admin_verbs_debug = list(
 	/client/proc/dsay,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
-	/client/proc/debug_pooling,
 	/client/proc/fix_player_list,
 	/client/proc/lighting_show_verbs,
 	/client/proc/restart_controller,
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_ss_panic,
-	/client/proc/reset_openturf
+	/client/proc/reset_openturf,
+	/datum/admins/proc/capture_map,
+	/client/proc/global_ao_regenerate
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -275,7 +275,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/toggle_random_events,
 	/client/proc/cmd_admin_add_random_ai_law,
 	/client/proc/Set_Holiday,
-	/client/proc/ToRban,
 	/datum/admins/proc/startnow,
 	/datum/admins/proc/restart,
 	/datum/admins/proc/delay,
@@ -305,8 +304,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/roll_dices,
 	/proc/possess,
 	/proc/release,
-	/client/proc/toggle_recursive_explosions,
-	/client/proc/debug_pooling
+	/client/proc/toggle_recursive_explosions
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -378,7 +376,8 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/returntobody,
 	/client/proc/view_duty_log,
 	/datum/admins/proc/create_admin_fax,
-	/client/proc/check_fax_history
+	/client/proc/check_fax_history,
+	/client/proc/aooc
 )
 
 /client/proc/add_admin_verbs()
@@ -828,7 +827,7 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))	return
-	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red","delta")-get_security_level())
+	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red", "yellow", "delta")-get_security_level())
 	if(alert("Switch from code [get_security_level()] to code [sec_level]?","Change security level?","Yes","No") == "Yes")
 		set_security_level(sec_level)
 		log_admin("[key_name(usr)] changed the security level to code [sec_level].",admin_key=key_name(usr))
@@ -1047,7 +1046,7 @@ var/list/admin_verbs_cciaa = list(
 
 	var/mob/living/silicon/ai/target = input("Choose the AI to force-wipe:", "AI Termination") as null|anything in ai_list
 
-	if (alert("Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", "No", "No", "Yes") != "Yes")
+	if (!target || alert("Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", "No", "No", "Yes") != "Yes")
 		return
 
 	log_and_message_admins("admin-wiped [key_name_admin(target)]'s core.")
@@ -1109,6 +1108,7 @@ var/list/admin_verbs_cciaa = list(
 
 	SSopenturf.hard_reset()
 
+#ifdef ENABLE_SUNLIGHT
 /client/proc/apply_sunstate()
 	set category = "Fun"
 	set name = "Apply Sun Preset"
@@ -1123,3 +1123,9 @@ var/list/admin_verbs_cciaa = list(
 
 	SSsunlight.apply_sun_state(S)
 	log_and_message_admins("has set the sun state to '[S]'.")
+#else 
+/client/proc/apply_sunstate()
+	set hidden = TRUE
+
+	usr << "The sunlight system is disabled."
+#endif

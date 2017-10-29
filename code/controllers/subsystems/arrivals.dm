@@ -9,6 +9,7 @@
 
 	var/launch_time			//the time at which the shuttle will be launched
 	var/wait_for_launch = 0	//if the shuttle is waiting to launch
+	var/failreturnnumber = 0 // the number of times the shuttle failed to leave the station
 	var/list/current_mobs = list()
 
 /datum/controller/subsystem/arrivals/New()
@@ -23,9 +24,9 @@
 			shuttle.launch(src)
 			for (var/thing in current_mobs)
 				var/mob/living/carbon/human/M = locate(thing)
-				if (istype(M) && M.odin_despawn_timer)
-					deltimer(M.odin_despawn_timer)
-					M.odin_despawn_timer = null
+				if (istype(M) && M.centcomm_despawn_timer)
+					deltimer(M.centcomm_despawn_timer)
+					M.centcomm_despawn_timer = null
 
 			current_mobs.Cut()
 	else
@@ -37,10 +38,9 @@
 	if (!shuttle.location)
 		return
 
-	log_debug("SSarrivals: [M] has entered arrival shuttle hotzone.")
 
 	if (istype(M))
-		current_mobs += "\ref[M]"
+		current_mobs += SOFTREF(M)
 
 	wake()	// Wake the process.
 
@@ -48,8 +48,7 @@
 		set_launch_countdown(30)
 
 /datum/controller/subsystem/arrivals/proc/on_hotzone_exit(mob/living/M)
-	current_mobs -= "\ref[M]"
-	log_debug("SSarrivals: [M] has exited arrival shuttle hotzone.")
+	current_mobs -= SOFTREF(M)
 
 //called when the shuttle has arrived.
 
@@ -65,6 +64,10 @@
 	if(istype(A,/obj/machinery/nuclearbomb))
 		return 1
 	if(istype(A,/obj/item/device/radio/beacon))
+		return 1
+	if(istype(A,/obj/item/phylactery))
+		return 1
+	if(istype(A,/obj/effect/decal/wizard_mark))
 		return 1
 
 	for(var/i=1, i<=A.contents.len, i++)

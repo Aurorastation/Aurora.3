@@ -285,6 +285,6 @@
 	.=..()
 	desc = "Bones is dead"
 
-/mob/living/simple_animal/cat/kitten/New()
+/mob/living/simple_animal/cat/kitten/Initialize()
+	. = ..()
 	gender = pick(MALE, FEMALE)
-	..()

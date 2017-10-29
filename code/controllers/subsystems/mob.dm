@@ -9,6 +9,9 @@
 
 	var/list/currentrun = list()
 	var/list/all_mice = list()	// Contains all *living* mice.
+	var/list/mannequins = list()	//Contains all mannequins used by character preview
+	var/list/greatworms = list()
+	var/list/greatasses = list()
 
 /datum/controller/subsystem/mobs/New()
 	NEW_SS_GLOBAL(SSmob)
@@ -39,7 +42,8 @@
 
 		var/time = world.time
 
-		M.Life()
+		if (!M.frozen)
+			M.Life()
 
 		if (time != world.time && !slept[M.type])
 			slept[M.type] = TRUE
@@ -48,3 +52,16 @@
 
 		if (MC_TICK_CHECK)
 			return
+
+/datum/controller/subsystem/mobs/proc/get_mannequin(ckey)
+	. = mannequins[ckey]
+	if (!.)
+		. = new /mob/living/carbon/human/dummy/mannequin
+		mannequins[ckey] = .
+
+	addtimer(CALLBACK(src, .proc/del_mannequin, ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/datum/controller/subsystem/mobs/proc/del_mannequin(ckey)
+	var/mannequin = mannequins[ckey]
+	qdel(mannequin)
+	mannequins -= ckey

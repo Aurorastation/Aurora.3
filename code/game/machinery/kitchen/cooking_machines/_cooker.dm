@@ -1,11 +1,11 @@
 /obj/machinery/appliance/cooker
 	var/temperature = T20C
-	var/min_temp = 353//Minimum temperature to do any cooking
-	var/optimal_temp = 472//Temperature at which we have 100% efficiency. efficiency is lowered on either side of this
+	var/min_temp = 80 + T0C	//Minimum temperature to do any cooking
+	var/optimal_temp = 200 + T0C	//Temperature at which we have 100% efficiency. efficiency is lowered on either side of this
 	var/optimal_power = 0.1//cooking power at 100%
 
-	var/loss = 1//Temp lost per proc when equalising
-	var/resistance = 320000//Resistance to heating. combines with active power usage to determine how long heating takes
+	var/loss = 1	//Temp lost per proc when equalising
+	var/resistance = 320000	//Resistance to heating. combines with active power usage to determine how long heating takes
 
 	var/light_x = 0
 	var/light_y = 0
@@ -13,7 +13,7 @@
 
 /obj/machinery/appliance/cooker/examine(var/mob/user)
 	. = ..()
-	if (.)//no need to duplicate adjacency check
+	if (.)	//no need to duplicate adjacency check
 		if (!stat)
 			if (temperature < min_temp)
 				user << span("warning", "The [src] is still heating up and is too cold to cook anything yet.")
@@ -37,8 +37,8 @@
 		usr << span("notice","It is empty.")
 
 /obj/machinery/appliance/cooker/proc/get_efficiency()
-	. = cooking_power / optimal_power
-	. *= 100
+	RefreshParts()
+	. = (cooking_power / optimal_power) * 100
 
 /obj/machinery/appliance/cooker/Initialize()
 	. = ..()
@@ -61,7 +61,7 @@
 	light.pixel_y = light_y
 	add_overlay(light)
 
-/obj/machinery/appliance/cooker/process()
+/obj/machinery/appliance/cooker/machinery_process()
 	if (!stat)
 		heat_up()
 	else
@@ -90,6 +90,7 @@
 
 
 	cooking_power = optimal_power * temp_scale
+	RefreshParts()
 
 /obj/machinery/appliance/cooker/proc/heat_up()
 	if (temperature < optimal_temp)

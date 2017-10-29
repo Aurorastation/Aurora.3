@@ -525,6 +525,22 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, "gold" = 6000, "uranium" = 6000)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang/limited
 
+/datum/design/item/mecha/weapon/plasma_cutter
+	name = "mkII heavy plasma cutter"
+	desc = "A large mining tool capable of expelling concentrated plasma bursts, useful for crushing rocks."
+	id = "mecha_plasmacutter"
+	req_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 4, TECH_ENGINEERING = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "gold" = 1000, "phoron" = 1000)
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma
+
+/datum/design/item/mecha/weapon/incendiary
+	name = "HP-13 incendiary carbine"
+	desc = "A weapon for combat exosuits. Shoots incendiary shells."
+	id = "mecha_incendiary"
+	req_tech = list(TECH_COMBAT= 4, TECH_MATERIAL = 4, TECH_PHORON = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "phoron" = 1000)
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/incendiary
+
 // *** Nonweapon modules
 /datum/design/item/mecha/wormhole_gen
 	name = "Wormhole generator"
@@ -537,7 +553,7 @@
 	name = "Teleporter"
 	desc = "An exosuit module that allows teleportation to any position in view."
 	id = "mech_teleporter"
-	req_tech = list(TECH_BLUESPACE = 10, TECH_MAGNET = 5)
+	req_tech = list(TECH_BLUESPACE = 6, TECH_MAGNET = 5)
 	build_path = /obj/item/mecha_parts/mecha_equipment/teleporter
 
 /datum/design/item/mecha/rcd
@@ -720,6 +736,14 @@
 	req_tech = list(TECH_ENGINEERING = 6, TECH_MATERIAL = 5, TECH_POWER = 5, TECH_BLUESPACE = 4)
 	materials = list(DEFAULT_WALL_MATERIAL= 30000, "phoron" = 12500, "silver" = 10000, "gold" = 10000)
 	build_path = /obj/item/rig_module/device/rcd
+
+/datum/design/hardsuitmodules/actuators_module
+	name = "leg actuators"
+	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
+	id = "actuators_module"
+	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 85000, "glass" = 1250, "silver" = 5250, "gold" = 2750)
+	build_path = /obj/item/rig_module/actuators
 
 /datum/design/hardsuitmodules/taser_module
 	name = "mounted taser"

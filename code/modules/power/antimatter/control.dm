@@ -52,7 +52,7 @@
 	return ..()
 
 
-/obj/machinery/power/am_control_unit/process()
+/obj/machinery/power/am_control_unit/machinery_process()
 	if(exploding && !exploded)
 		message_admins("AME explosion at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>) - Last touched by [fingerprintslast]",0,1)
 		exploded=1

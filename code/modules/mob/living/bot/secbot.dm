@@ -300,7 +300,7 @@
 					C.update_inv_handcuffed()
 				if(preparing_arrest_sounds.len)
 					playsound(loc, pick(preparing_arrest_sounds), 50, 0)
-	else if(istype(M, /mob/living/simple_animal))
+	else if(istype(M, /mob/living/simple_animal) && !istype(M, /mob/living/simple_animal/hostile/commanded))
 		var/mob/living/simple_animal/S = M
 		S.AdjustStunned(10)
 		S.adjustBruteLoss(15)
@@ -524,7 +524,7 @@
 
 /obj/item/weapon/secbot_assembly/attackby(var/obj/item/O, var/mob/user)
 	..()
-	if(istype(O, /obj/item/weapon/weldingtool) && !build_step)
+	if(iswelder(O) && !build_step)
 		var/obj/item/weapon/weldingtool/WT = O
 		if(WT.remove_fuel(0, user))
 			build_step = 1

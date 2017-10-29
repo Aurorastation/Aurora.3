@@ -36,6 +36,8 @@
 	faction = "mimic"
 	move_to_delay = 8
 
+	tameable = FALSE
+
 /mob/living/simple_animal/hostile/mimic/FindTarget()
 	. = ..()
 	if(.)
@@ -134,8 +136,8 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 	var/destroy_objects = 0
 	var/knockdown_people = 0
 
-/mob/living/simple_animal/hostile/mimic/copy/New(loc, var/obj/copy, var/mob/living/creator)
-	..(loc)
+/mob/living/simple_animal/hostile/mimic/copy/Initialize(mapload, obj/copy, mob/living/creator)
+	. = ..(mapload)
 	CopyObject(copy, creator)
 
 /mob/living/simple_animal/hostile/mimic/copy/death()

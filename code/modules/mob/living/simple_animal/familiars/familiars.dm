@@ -19,8 +19,8 @@
 
 	var/list/wizardy_spells = list()
 
-/mob/living/simple_animal/familiar/New()
-	..()
+/mob/living/simple_animal/familiar/Initialize()
+	. = ..()
 	add_language(LANGUAGE_TCB)
 	for(var/spell in wizardy_spells)
 		src.add_spell(new spell, "const_spell_ready")
@@ -89,6 +89,18 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "horror"
 	icon_living = "horror"
+	icon_dead = "horror_dead"
+
+/mob/living/simple_animal/familiar/horror/Initialize()
+	. = ..()
+	if(prob(25))
+		icon_state = "horror_alt"
+		icon_living = "horror_alt"
+		icon_dead = "horror_alt_dead"
+	else if(prob(25))
+		icon_state = "abomination"
+		icon_living = "abomination"
+		icon_dead = "abomination_dead"
 
 	speak_emote = list("moans", "groans")
 
@@ -198,8 +210,8 @@
 
 	supernatural = 1
 
-/mob/living/simple_animal/mouse/familiar/New()
-	..()
+/mob/living/simple_animal/mouse/familiar/Initialize()
+	. = ..()
 	add_spell(new /spell/targeted/heal_target, "const_spell_ready")
 	add_spell(new /spell/targeted/heal_target/area, "const_spell_ready")
 	add_language(LANGUAGE_TCB)

@@ -81,6 +81,10 @@
 			src << "\The [H] does not seem to have an ear canal to breach."
 			return
 
+		if(H.isSynthetic())
+			src << "<span class='warning'>You can't affect synthetics.</span>"
+			return
+
 		if(H.check_head_coverage())
 			src << "You cannot get through that host's protective gear."
 			return
@@ -256,6 +260,10 @@
 	var/mob/living/carbon/M = input(src,"Who do you wish to dominate?") in null|choices
 
 	if(!M || !src) return
+
+	if(M.isSynthetic())
+		src << "<span class='warning'>You can't affect synthetics.</span>"
+		return
 
 	if(M.has_brain_worms())
 		src << "You cannot infest someone who is already infested!"

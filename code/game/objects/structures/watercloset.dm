@@ -45,7 +45,7 @@
 	icon_state = "toilet[open][cistern]"
 
 /obj/structure/toilet/attackby(obj/item/I as obj, mob/living/user as mob)
-	if(istype(I, /obj/item/weapon/crowbar))
+	if(iscrowbar(I))
 		user << "<span class='notice'>You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"].</span>"
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		if(do_after(user, 30))
@@ -72,6 +72,7 @@
 						user.visible_message("<span class='danger'>[user] gives [GM.name] a swirlie!</span>", "<span class='notice'>You give [GM.name] a swirlie!</span>", "You hear a toilet flushing.")
 						if(!GM.internal)
 							GM.adjustOxyLoss(5)
+						SSfeedback.IncrementSimpleStat("swirlies")
 					swirlie = null
 				else
 					user.visible_message("<span class='danger'>[user] slams [GM.name] into the [src]!</span>", "<span class='notice'>You slam [GM.name] into the [src]!</span>")
@@ -141,8 +142,8 @@
 	var/is_washing = 0
 	var/list/temperature_settings = list("normal" = 310, "boiling" = T0C+100, "freezing" = T0C)
 
-/obj/machinery/shower/New()
-	..()
+/obj/machinery/shower/Initialize()
+	. = ..()
 	create_reagents(2)
 
 //add heat controls? when emagged, you can freeze to death in it?
@@ -168,7 +169,7 @@
 /obj/machinery/shower/attackby(obj/item/I as obj, mob/user as mob)
 	if(I.type == /obj/item/device/analyzer)
 		user << "<span class='notice'>The water temperature seems to be [watertemp].</span>"
-	if(istype(I, /obj/item/weapon/wrench))
+	if(iswrench(I))
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
 		user << "<span class='notice'>You begin to adjust the temperature valve with \the [I].</span>"
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -302,6 +303,17 @@
 	else
 		O.clean_blood()
 
+	if(istype(O, /obj/item/weapon/light))
+		var/obj/item/weapon/light/L = O
+		L.brightness_color = initial(L.brightness_color)
+		L.update()
+	else if(istype(O, /obj/machinery/light))
+		var/obj/machinery/light/L = O
+		L.brightness_color = initial(L.brightness_color)
+		L.update()
+
+	O.color = initial(O.color)
+
 	if(isturf(loc))
 		var/turf/tile = loc
 		loc.clean_blood()
@@ -309,7 +321,7 @@
 			if(istype(E,/obj/effect/rune) || istype(E,/obj/effect/decal/cleanable) || istype(E,/obj/effect/overlay))
 				qdel(E)
 
-/obj/machinery/shower/process()
+/obj/machinery/shower/machinery_process()
 	if(!on) return
 	wash_floor()
 	if(!mobpresent)	return
@@ -506,6 +518,7 @@
 /obj/structure/sink/puddle	//splishy splashy ^_^
 	name = "puddle"
 	icon_state = "puddle"
+	desc = "A small pool of some liquid, ostensibly water."
 
 /obj/structure/sink/puddle/attack_hand(mob/M as mob)
 	icon_state = "puddle-splash"

@@ -11,7 +11,7 @@
 	// VARIABLES //
 	var/teles_left	// How many teleports left until it becomes uncalibrated
 	var/datum/projectile_data/last_tele_data = null
-	var/z_co = 3
+	var/z_co = 4
 	var/power_off
 	var/rotation_off
 	//var/angle_off
@@ -26,7 +26,7 @@
 	var/list/power_options = list(5, 10, 20, 25, 30, 40, 50, 80, 100)
 	var/teleporting = 0
 	var/starting_crystals = 0	//Edit this on the map, seriously.
-	var/max_crystals = 4
+	var/max_crystals = 5
 	var/list/crystals = list()
 	var/obj/item/device/gps/inserted_gps
 
@@ -63,7 +63,7 @@
 			user.unEquip(W)
 			W.loc = src
 			user.visible_message("[user] inserts [W] into \the [src]'s GPS device slot.", "<span class='notice'>You insert [W] into \the [src]'s GPS device slot.</span>")
-	else if(istype(W, /obj/item/device/multitool))
+	else if(ismultitool(W))
 		var/obj/item/device/multitool/M = W
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
 			telepad = M.buffer
@@ -267,9 +267,9 @@
 		telefail()
 		temp_msg = "ERROR!<BR>Elevation is less than 1 or greater than 90."
 		return
-	if(z_co in config.admin_levels)
+	if(z_co in current_map.admin_levels)
 		telefail()
-		temp_msg = "ERROR! Sector is invalid! Valid sectors are [english_list(config.player_levels)]."
+		temp_msg = "ERROR! Sector is invalid! Valid sectors are [english_list(current_map.player_levels)]."
 		return
 	if(teles_left > 0)
 		doteleport(user)

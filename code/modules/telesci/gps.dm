@@ -17,14 +17,14 @@ var/global/list/gps_by_type = list()
 
 /obj/item/device/gps/Initialize()
 	. = ..()
-	GPS_list.Add(src)
+	GPS_list += src
 	LAZYADD(gps_by_type["[type]"], src)
 	gpstag = "[gps_prefix][LAZYLEN(gps_by_type["[type]"])]"
 	name = "global positioning system ([gpstag])"
 	add_overlay("working")
 
 /obj/item/device/gps/Destroy()
-	GPS_list.Remove(src)
+	GPS_list -= src
 	var/list/typelist = gps_by_type["[type]"]
 	LAZYREMOVE(typelist, src)
 	return ..()
@@ -57,7 +57,7 @@ var/global/list/gps_by_type = list()
 			var/turf/pos = get_turf(G)
 			var/area/gps_area = get_area(G)
 			var/tracked_gpstag = G.gpstag
-			if(G.emped == 1)
+			if(G.emped == 1 || !pos)
 				t += "<BR>[tracked_gpstag]: ERROR"
 			else
 				t += "<BR>[tracked_gpstag]: [format_text(gps_area.name)] ([pos.x], [pos.y], [pos.z])"

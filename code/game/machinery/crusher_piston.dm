@@ -51,28 +51,19 @@
 
 	var/process_lock = 0 //If the call to process is locked because it is still running
 
+	component_types = list(
+		/obj/item/weapon/circuitboard/crusher,
+		/obj/item/weapon/stock_parts/matter_bin = 4,
+		/obj/item/weapon/stock_parts/manipulator = 3,
+		/obj/item/weapon/reagent_containers/glass/beaker = 3
+	)
+
 /obj/machinery/crusher_base/Initialize()
 	. = ..()
-
-	//Create parts for crusher.
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/crusher(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	RefreshParts()
 
 	action_start_time = world.time
 
 	//Spawn the stage 1 pistons south of it with a density of 0
-	log_debug("Spawning Crusher Piston Stage")
 	pstn = new(get_step(src, SOUTH))
 	pstn.crs_base = src
 
@@ -96,9 +87,15 @@
 	return ..()
 
 /obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	if(status != "idle" && prob(40) && ishuman(user))
+		var/mob/living/carbon/human/M = user
+		M.apply_damage(45, BRUTE, user.get_active_hand())
+		M.apply_damage(45, HALLOSS)
+		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
+		M.say("*scream")
+		return
 	if(default_deconstruction_screwdriver(user, O))
 		return
-	//TODO: Add a chance to catch their hand in the mechanic if they do something while the crusher is in operation
 	if(default_deconstruction_crowbar(user, O))
 		return
 	if(default_part_replacement(user, O))
@@ -167,13 +164,13 @@
 			holographic_overlay(src, icon, "[asmtype]-overlay-green")
 	if(panel_open)
 		add_overlay("[asmtype]-hatch")
-	update_oo()	
+	update_above()	
 
 /obj/machinery/crusher_base/power_change()
 	..()
 	queue_icon_update()
 
-/obj/machinery/crusher_base/process()
+/obj/machinery/crusher_base/machinery_process()
 	set waitfor = FALSE
 	if(!pstn) //We dont process if theres no piston
 		return
@@ -213,7 +210,6 @@
 						action = "idle"
 						initial = 1
 						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.","You hear a pump spinning faster and then shutting down.")
-						log_debug("Cant extend piston 0-1 - Continue idling")
 				if(timediff > time_stage_1)
 					status = "stage1"
 					action_start_time = world.time
@@ -231,7 +227,6 @@
 						action = "idle"
 						blocked = 1
 						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.","You hear a pump spinning faster and then shutting down.")
-						log_debug("cant extend piston 1-2 - Blocked")
 				if(timediff > time_stage_2)
 					status = "stage2"
 					action_start_time = world.time
@@ -249,7 +244,6 @@
 						action = "idle"
 						blocked = 1
 						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.","You hear a pump spinning faster and then shutting down.")
-						log_debug("cant extend piston 2-3 - Blocked")
 				if(timediff > time_stage_3)
 					status = "stage3"
 					action_start_time = world.time
@@ -412,7 +406,6 @@
 	use_power(5 KILOWATTS)
 	var/turf/T = get_turf(src)
 	if(!can_extend_into(T))
-		log_debug("cant extend 0-1 - Abort")
 		return 0
 	icon_state="piston_0_1"
 	stage = 1
@@ -426,7 +419,6 @@
 	var/turf/T = get_turf(pb1)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
-		log_debug("cant extend 1-2 - Abort")
 		return 0
 	icon_state="piston_1_2"
 	stage = 2
@@ -440,7 +432,6 @@
 	var/turf/T = get_turf(pb2)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
-		log_debug("cant extend 2-3 - Abort")
 		return 0
 	icon_state="piston_2_3"
 	stage = 3

@@ -15,11 +15,11 @@
 	var/obj/effect/suspension_field/suspension_field
 	var/list/secured_mobs = list()
 
-/obj/machinery/suspension_gen/New()
-	src.cell = new/obj/item/weapon/cell/high(src)
-	..()
+/obj/machinery/suspension_gen/Initialize()
+	. = ..()
+	cell = new/obj/item/weapon/cell/high(src)
 
-/obj/machinery/suspension_gen/process()
+/obj/machinery/suspension_gen/machinery_process()
 	set background = 1
 
 	if (suspension_field)
@@ -43,7 +43,7 @@
 		for(var/obj/item/I in T)
 			if(!suspension_field.contents.len)
 				suspension_field.icon_state = "energynet"
-				suspension_field.overlays += "shield2"
+				suspension_field.add_overlay("shield2")
 			I.loc = suspension_field
 
 		for(var/mob/living/simple_animal/M in T)
@@ -166,14 +166,14 @@
 		user << "<span class='info'>You remove the power cell</span>"
 
 /obj/machinery/suspension_gen/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/screwdriver))
+	if (isscrewdriver(W))
 		if(!open)
 			if(screwed)
 				screwed = 0
 			else
 				screwed = 1
 			user << "<span class='info'>You [screwed ? "screw" : "unscrew"] the battery panel.</span>"
-	else if (istype(W, /obj/item/weapon/crowbar))
+	else if (iscrowbar(W))
 		if(!locked)
 			if(!screwed)
 				if(!suspension_field)
@@ -189,7 +189,7 @@
 				user << "<span class='warning'>Unscrew [src]'s battery panel first.</span>"
 		else
 			user << "<span class='warning'>[src]'s security locks are engaged.</span>"
-	else if (istype(W, /obj/item/weapon/wrench))
+	else if (iswrench(W))
 		if(!suspension_field)
 			if(anchored)
 				anchored = 0
@@ -291,7 +291,7 @@
 
 	if(collected)
 		suspension_field.icon_state = "energynet"
-		suspension_field.overlays += "shield2"
+		suspension_field.add_overlay("shield2")
 		src.visible_message("<span class='notice'>\icon[suspension_field] [suspension_field] gently absconds [collected > 1 ? "something" : "several things"].</span>")
 	else
 		if(istype(T,/turf/simulated/mineral) || istype(T,/turf/simulated/wall))

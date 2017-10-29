@@ -17,7 +17,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/lit = 0
 
 /proc/isflamesource(A)
-	if(istype(A, /obj/item/weapon/weldingtool))
+	if(iswelder(A))
 		var/obj/item/weapon/weldingtool/WT = A
 		return (WT.isOn())
 	else if(istype(A, /obj/item/weapon/flame))
@@ -74,7 +74,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "cigoff"
 	name = "burnt match"
 	desc = "A match. This one has seen better days."
-	processing_objects.Remove(src)
+	STOP_PROCESSING(SSprocessing, src)
 
 //////////////////
 //FINE SMOKABLES//
@@ -144,7 +144,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/turf/T = get_turf(src)
 		T.visible_message(flavor_text)
 		set_light(2, 0.25, "#E38F46")
-		processing_objects.Add(src)
+		START_PROCESSING(SSprocessing, src)
 
 /obj/item/clothing/mask/smokable/proc/die(var/nomessage = 0)
 	var/turf/T = get_turf(src)
@@ -160,7 +160,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			M.update_inv_wear_mask(0)
 			M.update_inv_l_hand(0)
 			M.update_inv_r_hand(1)
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 	else
 		new /obj/effect/decal/cleanable/ash(T)
@@ -174,7 +174,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			M.update_inv_wear_mask(0)
 			M.update_inv_l_hand(0)
 			M.update_inv_r_hand(1)
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/clothing/mask/smokable/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
@@ -186,7 +186,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			text = zippomes
 		else if(istype(W, /obj/item/weapon/flame/lighter))
 			text = lightermes
-		else if(istype(W, /obj/item/weapon/weldingtool))
+		else if(iswelder(W))
 			text = weldermes
 		else if(istype(W, /obj/item/device/assembly/igniter))
 			text = ignitermes
@@ -339,7 +339,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		item_state = icon_on
 		var/turf/T = get_turf(src)
 		T.visible_message(flavor_text)
-		processing_objects.Add(src)
+		START_PROCESSING(SSprocessing, src)
 		if(ismob(loc))
 			var/mob/living/M = loc
 			M.update_inv_wear_mask(0)
@@ -352,7 +352,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		lit = 0
 		icon_state = icon_off
 		item_state = icon_off
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 	else if (smoketime)
 		var/turf/location = get_turf(user)
 		user.visible_message("<span class='notice'>[user] empties out [src].</span>", "<span class='notice'>You empty out [src].</span>")
@@ -422,12 +422,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	slot_flags = SLOT_BELT
 	attack_verb = list("burnt", "singed")
 	var/base_state
+	var/activation_sound = 'sound/items/lighter_on.ogg'
+	var/desactivation_sound = 'sound/items/lighter_off.ogg'
 
 /obj/item/weapon/flame/lighter/zippo
 	name = "\improper Zippo lighter"
 	desc = "The zippo."
 	icon_state = "zippo"
 	item_state = "zippo"
+	activation_sound = 'sound/items/zippo_on.ogg'
+	desactivation_sound = 'sound/items/zippo_off.ogg'
 
 /obj/item/weapon/flame/lighter/random
 	New()
@@ -443,6 +447,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			lit = 1
 			icon_state = "[base_state]on"
 			item_state = "[base_state]on"
+			playsound(src.loc, activation_sound, 75, 1)
 			if(istype(src, /obj/item/weapon/flame/lighter/zippo) )
 				user.visible_message("<span class='rose'>Without even breaking stride, [user] flips open and lights [src] in one smooth movement.</span>")
 			else
@@ -457,18 +462,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 					user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src], they however burn their finger in the process.</span>")
 
 			set_light(2)
-			processing_objects.Add(src)
+			START_PROCESSING(SSprocessing, src)
 		else
 			lit = 0
 			icon_state = "[base_state]"
 			item_state = "[base_state]"
+			playsound(src.loc, desactivation_sound, 75, 1)
 			if(istype(src, /obj/item/weapon/flame/lighter/zippo) )
 				user.visible_message("<span class='rose'>You hear a quiet click, as [user] shuts off [src] without even looking at what they're doing.</span>")
 			else
 				user.visible_message("<span class='notice'>[user] quietly shuts off the [src].</span>")
 
 			set_light(0)
-			processing_objects.Remove(src)
+			STOP_PROCESSING(SSprocessing, src)
 	else
 		return ..()
 	return
@@ -501,5 +507,5 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		icon_state = "[base_state]"
 		item_state = "[base_state]"
 		set_light(0)
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 	return

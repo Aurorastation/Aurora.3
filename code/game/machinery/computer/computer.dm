@@ -93,7 +93,7 @@
 	return text
 
 /obj/machinery/computer/attackby(I as obj, user as mob)
-	if(istype(I, /obj/item/weapon/screwdriver) && circuit)
+	if(isscrewdriver(I) && circuit)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
@@ -108,7 +108,7 @@
 				A.state = 3
 				A.icon_state = "3"
 			else
-				user << "<span class='notice'>You disconnect the monitor.</span>"
+				user << "<span class='notice'>You disconnect the glass keyboard panel.</span>"
 				A.state = 4
 				A.icon_state = "4"
 			M.deconstruct(src)

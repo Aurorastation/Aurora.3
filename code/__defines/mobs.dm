@@ -125,11 +125,6 @@
 #define MOB_TINY 		4
 #define MOB_MINISCULE	1
 
-// Gluttony levels.
-#define GLUT_TINY 1       // Eat anything tiny and smaller
-#define GLUT_SMALLER 2    // Eat anything smaller than we are
-#define GLUT_ANYTHING 3   // Eat anything, ever
-
 #define BASE_MAX_NUTRITION	400
 #define HUNGER_FACTOR		0.05 // Factor of how fast mob nutrition decreases. Moved here from chemistry define
 
@@ -181,12 +176,36 @@
 #define TYPE_ORGANIC	1//Almost any creature under /mob/living/carbon and most simple animals
 #define	TYPE_SYNTHETIC	2//Everything under /mob/living/silicon, plus IPCs, viscerators
 #define TYPE_HUMANOID	4//Humans, skrell, unathi, tajara, vaurca, diona, IPC, vox
-#define TYPE_WIERD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
+#define TYPE_WEIRD		8//Slimes, constructs, demons, and other creatures of a magical or bluespace nature.
 
 // Maximum number of chickens allowed at once.
 // If the number of chickens on the map exceeds this, laid eggs will not hatch.
 #define MAX_CHICKENS 50
 
-
 #define CREW_MINIMUM_NUTRITION 50	// The minimum amount of nutrition a crewmember will spawn with.
 #define CREW_MAXIMUM_NUTRITION 100	// Same as above, but maximum.
+
+//carbon taste sensitivity defines, used in mob/living/carbon/proc/ingest
+#define TASTE_HYPERSENSITIVE 3 //anything below 5%
+#define TASTE_SENSITIVE 2 //anything below 7%
+#define TASTE_NORMAL 1 //anything below 15%
+#define TASTE_DULL 0.5 //anything below 30%
+#define TASTE_NUMB 0.1 //anything below 150%
+
+//helper for inverting armor blocked values into a multiplier
+#define BLOCKED_MULT(blocked) max(1 - (blocked/100), 0)
+
+// Prosthetic organ defines.
+#define PROSTHETIC_IPC "Hephaestus Integrated Limb"
+#define PROSTHETIC_HK "Hephaestus Vulcanite Limb"
+#define PROSTHETIC_IND "Hephaestus Industrial Limb"
+#define PROSTHETIC_SYNTHSKIN "Human Synthskin"
+#define PROSTHETIC_BC "Bishop Cybernetics"
+#define PROSTHETIC_ZH "Zeng-Hu Pharmaceuticals"
+#define PROSTHETIC_HI "Hephaestus Industries"
+#define PROSTHETIC_XMG "Xion Manufacturing Group"
+
+// Defines for mechanical_species list.
+#define MECHANICAL_SPECIES_NORMAL 1	// Baselines, shells
+#define MECHANICAL_SPECIES_INDUSTRIAL 2	// Industrials, incl. branded.
+#define MECHANICAL_SPECIES_SPECIAL 3	// HKs

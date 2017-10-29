@@ -55,11 +55,11 @@
 	return
 
 /obj/machinery/bot/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		if(!locked)
 			open = !open
 			user << "<span class='notice'>Maintenance panel is now [src.open ? "opened" : "closed"].</span>"
-	else if(istype(W, /obj/item/weapon/weldingtool))
+	else if(iswelder(W))
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)

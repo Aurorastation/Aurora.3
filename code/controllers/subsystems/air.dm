@@ -161,9 +161,9 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 
 		admin_notice(span("danger", "Air settling completed in [(REALTIMEOFDAY - starttime)/10] seconds!"), R_DEBUG)
 
-	..()
+	..(timeofday)
 
-/datum/controller/subsystem/air/fire(resumed = FALSE, no_mc_tick = FALSE)	
+/datum/controller/subsystem/air/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)
 		processing_edges = active_edges.Copy()
 		processing_fires = active_fire_zones.Copy()
@@ -180,7 +180,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		var/turf/T = curr_tiles[curr_tiles.len]
 		curr_tiles.len--
 
-		if (QDELETED(T))
+		if (!T)
 			if (no_mc_tick)
 				CHECK_TICK
 			else if (MC_TICK_CHECK)
@@ -303,12 +303,6 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		return BLOCKED
 	ATMOS_CANPASS_TURF(., B, A)
 	return ablock | .
-
-/datum/controller/subsystem/air/proc/has_valid_zone(turf/simulated/T)
-	#ifdef ZASDBG
-	ASSERT(istype(T))
-	#endif
-	return istype(T) && T.zone && !T.zone.invalid
 
 /datum/controller/subsystem/air/proc/merge(zone/A, zone/B)
 	#ifdef ZASDBG

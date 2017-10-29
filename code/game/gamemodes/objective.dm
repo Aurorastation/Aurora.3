@@ -137,7 +137,7 @@ datum/objective/anti_revolution/demote
 	find_target()
 		..()
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [company_name]'s goals. Demote \him[target.current] to assistant."
+			explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [current_map.company_name]'s goals. Demote \him[target.current] to assistant."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -145,7 +145,7 @@ datum/objective/anti_revolution/demote
 	find_target_by_role(role, role_type=0)
 		..(role, role_type)
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to [company_name]'s goals. Demote \him[target.current] to assistant."
+			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to [current_map.company_name]'s goals. Demote \him[target.current] to assistant."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -530,7 +530,7 @@ datum/objective/steal
 						if(istype(M, /mob/living/silicon/ai) && M.stat != 2) //See if any AI's are alive inside that card.
 							return 1
 
-				for(var/mob/living/silicon/ai/ai in world)
+				for(var/mob/living/silicon/ai/ai in silicon_mob_list)
 					var/turf/T = get_turf(ai)
 					if(istype(T))
 						var/area/check_area = get_area(ai)
@@ -863,7 +863,7 @@ datum/objective/heist/salvage
 	explanation_text = "Summon Nar-Sie via the use of the appropriate rune (Hell join self). It will only work if nine cultists stand on and around it. The convert rune is join blood self."
 
 /datum/objective/cult/eldergod/check_completion()
-	return (locate(/obj/singularity/narsie/large) in machines)
+	return (locate(/obj/singularity/narsie/large) in SSmachinery.all_machines)
 
 /datum/objective/cult/sacrifice
 	explanation_text = "Conduct a ritual sacrifice for the glory of Nar-Sie."

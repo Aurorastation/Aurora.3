@@ -9,7 +9,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	priority = SS_PRIORITY_EXPLOSIVES
 
 	suspended = TRUE	// Start disabled, explosions will wake us if need be.
-	
+
 	var/list/work_queue
 	var/ticks_without_work = 0
 	var/list/explosion_turfs
@@ -71,7 +71,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/z_transfer = data.z_transfer
 	var/power = data.rec_pow
 
-	if(config.use_recursive_explosions)
+	if(data.is_rec)
 		explosion_rec(epicenter, power)
 		return
 
@@ -82,9 +82,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	// Handles recursive propagation of explosions.
 	if(devastation_range > 2 || heavy_impact_range > 2)
 		if(HasAbove(epicenter.z) && z_transfer & UP)
-			explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, UP)
+			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, UP, is_rec = FALSE)
 		if(HasBelow(epicenter.z) && z_transfer & DOWN)
-			explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN)
+			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN, is_rec = FALSE)
 
 	var/max_range = max(devastation_range, heavy_impact_range, light_impact_range, flash_range)
 
@@ -157,8 +157,8 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 					//Deaf people will feel vibrations though
 					if (volume > 0)//Only shake camera if someone was close enough to hear it
-						shake_camera(M, min(60,max(2,(power*18) / dist)), min(3.5,((power*3) / dist)),0.05)
-						//Maximum duration is 6 seconds, and max strength is 3.5
+						shake_camera(M, min(30,max(2,(power*2) / dist)), min(3.5,((power/3) / dist)),0.05)
+						//Maximum duration is 3 seconds, and max strength is 3.5
 						//Becuse values higher than those just get really silly
 
 	if(adminlog)
@@ -174,16 +174,22 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/y0 = epicenter.y
 	var/z0 = epicenter.z
 
-	for(var/turf/T in trange(max_range, epicenter))
+	for(var/thing in RANGE_TURFS(max_range, epicenter))
+		var/turf/T = thing
+		if (!T)
+			CHECK_TICK
+			continue
+
 		var/dist = sqrt((T.x - x0)**2 + (T.y - y0)**2)
 
-		if (dist < devastation_range)		
+		if (dist < devastation_range)
 			dist = 1
-		else if (dist < heavy_impact_range)	
+		else if (dist < heavy_impact_range)
 			dist = 2
-		else if (dist < light_impact_range)	
+		else if (dist < light_impact_range)
 			dist = 3
 		else
+			CHECK_TICK
 			continue
 
 		T.ex_act(dist)
@@ -191,7 +197,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		if(T)
 			for(var/atom_movable in T.contents)	//bypass type checking since only atom/movable can be contained by turfs anyway
 				var/atom/movable/AM = atom_movable
-				if(AM && AM.simulated)	
+				if(AM && AM.simulated)
 					AM.ex_act(dist)
 
 				CHECK_TICK
@@ -226,14 +232,14 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	//This steap handles the gathering of turfs which will be ex_act() -ed in the next step. It also ensures each turf gets the maximum possible amount of power dealt to it.
 	for(var/direction in cardinal)
 		var/turf/T = get_step(epicenter, direction)
-		explosion_spread(T, power - epicenter.explosion_resistance, direction)
-		CHECK_TICK
+		if (T)
+			explosion_spread(T, power - epicenter.explosion_resistance, direction)
+			CHECK_TICK
 
 	//This step applies the ex_act effects for the explosion, as planned in the previous step.
 	for(var/turf/T in explosion_turfs)
-		if(explosion_turfs[T] <= 0) 
-			continue
-		if(!T) 
+		if(!T || explosion_turfs[T] <= 0)
+			CHECK_TICK
 			continue
 
 		//Wow severity looks confusing to calculate... Fret not, I didn't leave you with any additional instructions or help. (just kidding, see the line under the calculation)
@@ -270,11 +276,14 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			spread_power -= O.explosion_resistance
 
 	var/turf/T = get_step(s, direction)
-	explosion_spread(T, spread_power, direction)
+	if (T)
+		explosion_spread(T, spread_power, direction)
 	T = get_step(s, turn(direction,90))
-	explosion_spread(T, spread_power, turn(direction,90))
+	if (T)
+		explosion_spread(T, spread_power, turn(direction,90))
 	T = get_step(s, turn(direction,-90))
-	explosion_spread(T, spread_power, turn(direction,90))
+	if (T)
+		explosion_spread(T, spread_power, turn(direction,90))
 
 // Add an explosion to the queue for processing.
 /datum/controller/subsystem/explosives/proc/queue(var/datum/explosiondata/data)

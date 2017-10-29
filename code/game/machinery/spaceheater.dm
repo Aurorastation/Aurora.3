@@ -9,6 +9,7 @@
 	var/on = 0
 	var/set_temperature = T0C + 50	//K
 	var/heating_power = 40000
+	has_special_power_checks = TRUE
 
 
 /obj/machinery/space_heater/Initialize()
@@ -65,7 +66,7 @@
 		else
 			user << "The hatch must be open to insert a power cell."
 			return
-	else if(istype(I, /obj/item/weapon/screwdriver))
+	else if(isscrewdriver(I))
 		panel_open = !panel_open
 		user.visible_message("<span class='notice'>[user] [panel_open ? "opens" : "closes"] the hatch on the [src].</span>", "<span class='notice'>You [panel_open ? "open" : "close"] the hatch on the [src].</span>")
 		update_icon()
@@ -153,7 +154,7 @@
 
 
 
-/obj/machinery/space_heater/process()
+/obj/machinery/space_heater/machinery_process()
 	if(on)
 		if(cell && cell.charge)
 			var/datum/gas_mixture/env = loc.return_air()

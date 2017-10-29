@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Improvised firearms failure chances should be more unpredictable now."
-  - imageadd: "Added some new guns sprites."

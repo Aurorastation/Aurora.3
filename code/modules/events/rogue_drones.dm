@@ -25,13 +25,13 @@
 		msg = "Contact has been lost with a combat drone wing operating out of the NDV Icarus. If any are sighted in the area, approach with caution."
 	else
 		msg = "Unidentified hackers have targetted a combat drone wing deployed from the NDV Icarus. If any are sighted in the area, approach with caution."
-	command_announcement.Announce(msg, "Rogue drone alert")
+	command_announcement.Announce(msg, "Rogue drone alert", new_sound = 'sound/AI/combatdrones.ogg')
 
 /datum/event/rogue_drone/end()
 	var/num_recovered = 0
 	for(var/mob/living/simple_animal/hostile/retaliate/malf_drone/D in drones_list)
 		spark(D.loc, 3)
-		D.z = config.admin_levels[1]
+		D.z = current_map.admin_levels[1]
 		D.has_loot = 0
 
 		qdel(D)

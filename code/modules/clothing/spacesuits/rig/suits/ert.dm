@@ -23,7 +23,8 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/nvg,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/datajack
+		/obj/item/rig_module/datajack,
+		/obj/item/rig_module/actuators/combat
 		)
 
 /obj/item/weapon/rig/ert/engineer
@@ -32,15 +33,17 @@
 	suit_type = "ERT engineer"
 	icon_state = "ert_engineer_rig"
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 100, rad = 100)
-	siemens_coefficient = 0
 	emp_protection = 30
+
+	glove_type = /obj/item/clothing/gloves/rig/eva
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/mounted/plasmacutter,
-		/obj/item/rig_module/device/rcd
+		/obj/item/rig_module/device/rcd,
+		/obj/item/rig_module/actuators
 		)
 
 /obj/item/weapon/rig/ert/medical
@@ -55,7 +58,8 @@
 		/obj/item/rig_module/vision/medhud,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/healthscanner,
-		/obj/item/rig_module/chem_dispenser/injector
+		/obj/item/rig_module/chem_dispenser/injector,
+		/obj/item/rig_module/actuators
 		)
 
 /obj/item/weapon/rig/ert/security
@@ -70,7 +74,8 @@
 		/obj/item/rig_module/vision/sechud,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
-		/obj/item/rig_module/mounted/egun
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/actuators
 		)
 
 /obj/item/weapon/rig/ert/janitor
@@ -84,7 +89,8 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/fabricator/sign,
 		/obj/item/rig_module/grenade_launcher/cleaner,
-		/obj/item/rig_module/device/decompiler
+		/obj/item/rig_module/device/decompiler,
+		/obj/item/rig_module/actuators
 		)
 
 /obj/item/weapon/rig/ert/assetprotection
@@ -104,7 +110,8 @@
 		/obj/item/rig_module/mounted/pulse,
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/chem_dispenser/injector,
-		/obj/item/rig_module/mounted/plasmacutter,
+		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/rcd,
-		/obj/item/rig_module/datajack
+		/obj/item/rig_module/datajack,
+		/obj/item/rig_module/actuators/combat
 		)

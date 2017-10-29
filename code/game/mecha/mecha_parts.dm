@@ -243,6 +243,11 @@
 	//construction_cost = list(DEFAULT_WALL_MATERIAL=20000,"phoron"=10000)
 	origin_tech = list(TECH_MATERIAL = 5, TECH_BLUESPACE = 3, TECH_MAGNET = 3)
 
+/obj/item/mecha_parts/part/phazon_armour
+	name="Phazon Armour Plates"
+	icon_state = "phazon_armor"
+	origin_tech = list(TECH_MATERIAL = 5, TECH_BLUESPACE = 5, TECH_MAGNET = 5)
+
 ///////// Odysseus
 
 

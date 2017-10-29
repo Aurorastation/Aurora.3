@@ -22,6 +22,7 @@
 	//TODO: fix husking
 	if( ((maxHealth - total_burn) < config.health_threshold_dead) && stat == DEAD)
 		ChangeToHusk()
+	UpdateDamageIcon() // to fix that darn overlay bug
 	return
 
 /mob/living/carbon/human/adjustBrainLoss(var/amount)
@@ -361,8 +362,8 @@ This function restores all organs.
 			src.invisibility = 0
 
 	//Handle other types of damage
-	if(!stat && damagetype != BRUTE && damagetype != BURN)
-		if(damagetype == HALLOSS && !(species && (species.flags & NO_PAIN)))
+	if(damagetype != BRUTE && damagetype != BURN)
+		if(!stat && damagetype == HALLOSS && !(species && (species.flags & NO_PAIN)))
 			if ((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
 				emote("scream")
 
@@ -372,7 +373,7 @@ This function restores all organs.
 	//Handle BRUTE and BURN damage
 	handle_suit_punctures(damagetype, damage, def_zone)
 
-	if(blocked >= 2)	return 0
+	if(blocked >= 100)	return 0
 
 	var/obj/item/organ/external/organ = null
 	if(isorgan(def_zone))
@@ -383,7 +384,7 @@ This function restores all organs.
 	if(!organ)	return 0
 
 	if(blocked)
-		damage = (damage/(blocked+1))
+		damage *= BLOCKED_MULT(blocked)
 
 	switch(damagetype)
 		if(BRUTE)

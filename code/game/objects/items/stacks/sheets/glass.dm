@@ -18,6 +18,7 @@
 	var/is_reinforced = 0
 	var/list/construction_options = list("One Direction", "Full Window")
 	default_type = "glass"
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/glass/attack_self(mob/user as mob)
 	construct_window(user)
@@ -25,7 +26,7 @@
 /obj/item/stack/material/glass/attackby(obj/item/W, mob/user)
 	..()
 	if(!is_reinforced)
-		if(istype(W,/obj/item/stack/cable_coil))
+		if(iscoil(W))
 			var/obj/item/stack/cable_coil/CC = W
 			if (get_amount() < 1 || CC.get_amount() < 5)
 				user << "<span class='warning'>You need five lengths of coil and one sheet of glass to make wired glass.</span>"
@@ -144,6 +145,7 @@
 	icon_state = "sheet-phoronglass"
 	created_window = /obj/structure/window/phoronbasic
 	default_type = "phoron glass"
+	icon_has_variants = FALSE
 
 /obj/item/stack/material/glass/phoronglass/attackby(obj/item/W, mob/user)
 	..()
@@ -172,3 +174,4 @@
 	default_type = "reinforced phoron glass"
 	created_window = /obj/structure/window/phoronreinforced
 	is_reinforced = 1
+	icon_has_variants = FALSE

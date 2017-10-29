@@ -32,22 +32,15 @@ The more complicated and easier to update method is using git.  You'll need to d
 
 This will take a while to download, but it provides an easier method for updating.
 
-Once the repository is in place, run this command:
-```bash
-cd Aurora.3
-git update-index --assume-unchanged baystation12.int
-```
-Now git will ignore changes to the file baystation12.int.
-
 ### INSTALLATION
 
 First-time installation should be fairly straightforward.  First, you'll need BYOND installed.  You can get it from [here](http://www.byond.com/).
 
-This is a sourcecode-only release, so the next step is to compile the server files.  Open baystation12.dme by double-clicking it, open the Build menu, and click compile.  This'll take a little while, and if everything's done right you'll get a message like this:
+This is a sourcecode-only release, so the next step is to compile the server files.  Open aurorastation.dme by double-clicking it, open the Build menu, and click compile.  This'll take a little while, and if everything's done right you'll get a message like this:
 
-    saving baystation12.dmb (DEBUG mode)
+    saving aurorastation.dmb (DEBUG mode)
 
-    baystation12.dmb - 0 errors, 0 warnings
+    aurorastation.dmb - 0 errors, 0 warnings
 
 If you see any errors or warnings, something has gone wrong - possibly a corrupt download or the files extracted wrong, or a code issue on the main repo. Ask on the server Discord if you're completely lost.
 
@@ -59,7 +52,7 @@ You'll also want to edit admins.txt to remove the default admins and add your ow
 
 where the BYOND key must be in lowercase and the admin rank must be properly capitalised.  There are a bunch more admin ranks, but these two should be enough for most servers, assuming you have trustworthy admins.
 
-Finally, to start the server, run Dream Daemon and enter the path to your compiled baystation12.dmb file.  Make sure to set the port to the one you  specified in the config.txt, and set the Security box to 'Trusted'.  Then press GO and the server should start up and be ready to join.
+Finally, to start the server, run Dream Daemon and enter the path to your compiled aurorastation.dmb file.  Make sure to set the port to the one you  specified in the config.txt, and set the Security box to 'Trusted'.  Then press GO and the server should start up and be ready to join.
 
 ---
 
@@ -91,3 +84,11 @@ For more advanced setups, setting the server `tick_lag` in the config as well as
 ### SQL Setup
 
 The SQL backend for the library and stats tracking requires a MySQL server, as does the optional SQL saves system. Your server details go in config/dbconfig.txt, and initial database setup is done with [flyway](https://flywaydb.org/). Detailed instructions can be found [here](https://github.com/Aurorastation/Aurora.3/tree/master/SQL).
+
+---
+
+### Discord Bot
+
+The Aurorastation codebase uses a built-in Discord bot to interface with Discord. Some of its features rely on the MySQL database, specifically, channel storage and configuration. So a database is required for its operation. If that is present, then setup is relatively easy: simply set up the `config/discord.txt` file according to the example located in the `config/example/` folder, and populate the database with appropriate channel and server information.
+
+At present, there is no built in GUI for doing the latter. So direct database modification is required unless you set up the python companion bot. The python companion bot is BOREALIS II, and can be located [here](https://github.com/Aurorastation/BOREALISbot2). Though not required, it makes database modification easier. See commands that start with `channel_`.

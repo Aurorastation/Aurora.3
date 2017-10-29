@@ -53,7 +53,7 @@
 		user << "<span class='notice'>You swallow some of contents of \the [src].</span>"
 
 	on_reagent_change()
-		if(icon_state == "saltshakersmall" || icon_state == "peppermillsmall" || icon_state == "flour")
+		if(icon_state == "saltshakersmall" || icon_state == "peppermillsmall" || icon_state == "flour" || icon_state == "spacespicebottle")
 			return
 		if(reagents.reagent_list.len > 0)
 			switch(reagents.get_master_reagent_id())
@@ -101,6 +101,11 @@
 					name = "sugar"
 					desc = "Tastey space sugar!"
 					center_of_mass = list("x"=16, "y"=6)
+				if("spacespice")
+					name = "bottle of space spice"
+					desc = "An exotic blend of spices for cooking. It must flow."
+					icon_state = "spacespicebottle"
+					center_of_mass = list("x"=16, "y"=6)
 				else
 					name = "misc condiment bottle"
 					if (reagents.reagent_list.len==1)
@@ -120,13 +125,13 @@
 	name = "universal enzyme"
 	desc = "Used in cooking various dishes."
 	icon_state = "enzyme"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("enzyme", 50)
 
 /obj/item/weapon/reagent_containers/food/condiment/sugar
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("sugar", 50)
 
 /obj/item/weapon/reagent_containers/food/condiment/saltshaker		//Seperate from above since it's a small shaker rather then
@@ -136,8 +141,8 @@
 	possible_transfer_amounts = list(1,20) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
 	volume = 20
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("sodiumchloride", 20)
 
 /obj/item/weapon/reagent_containers/food/condiment/peppermill
@@ -147,8 +152,8 @@
 	possible_transfer_amounts = list(1,20) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
 	volume = 20
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("blackpepper", 20)
 
 /obj/item/weapon/reagent_containers/food/condiment/flour
@@ -158,8 +163,19 @@
 	icon_state = "flour"
 	item_state = "flour"
 	volume = 220
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("flour", 200)
 		src.pixel_x = rand(-10.0, 10)
 		src.pixel_y = rand(-10.0, 10)
+
+/obj/item/weapon/reagent_containers/food/condiment/spacespice
+	name = "space spices"
+	desc = "An exotic blend of spices for cooking. It must flow."
+	icon_state = "spacespicebottle"
+	possible_transfer_amounts = list(1,40) //for clown turning the lid off
+	amount_per_transfer_from_this = 1
+	volume = 40
+	Initialize()
+		. = ..()
+		reagents.add_reagent("spacespice", 40)

@@ -3,19 +3,18 @@
 	icon = 'icons/obj/items.dmi'
 	w_class = 3.0
 
-	var/image/blood_overlay = null //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
+	var/image/blood_overlay //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/abstract = 0
 	var/r_speed = 1.0
-	var/health = null
-	var/burn_point = null
-	var/burning = null
-	var/hitsound = null
-	var/storage_cost = null
+	var/health
+	var/burn_point
+	var/burning
+	var/hitsound
+	var/storage_cost
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
 	pass_flags = PASSTABLE
-//	causeerrorheresoifixthis
-	var/obj/item/master = null
+	var/obj/item/master
 	var/autodrobe_no_remove = 0
 
 	var/heat_protection = 0 //flags which determine which body parts are protected from heat. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
@@ -23,7 +22,7 @@
 	var/max_heat_protection_temperature //Set this variable to determine up to which temperature (IN KELVIN) the item protects against heat damage. Keep at null to disable protection. Only protects areas set by heat_protection flags
 	var/min_cold_protection_temperature //Set this variable to determine down to which temperature (IN KELVIN) the item protects against cold damage. 0 is NOT an acceptable number due to if(varname) tests!! Keep at null to disable protection. Only protects areas set by cold_protection flags
 
-	var/datum/action/item_action/action = null
+	var/datum/action/item_action/action
 	var/action_button_name //It is also the text which gets displayed on the action button. If not set it defaults to 'Use [name]'. If it's not set, there'll be no button.
 	var/action_button_is_hands_free = 0 //If 1, bypass the restrained, lying, and stunned checks action buttons normally test for
 
@@ -41,23 +40,23 @@
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
 	var/canremove = 1 //Mostly for Ninja code at this point but basically will not allow the item to be removed if set to 0. /N
 	var/can_embed = 1//If zero, this item/weapon cannot become embedded in people when you hit them with it
-	var/list/armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	var/list/armor //= list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)	If null, object has 0 armor.
 	var/list/allowed = null //suit storage stuff.
-	var/obj/item/device/uplink/hidden/hidden_uplink = null // All items can have an uplink hidden inside, just remember to add the triggers.
-	var/zoomdevicename = null //name used for message when binoculars/scope is used
+	var/obj/item/device/uplink/hidden/hidden_uplink // All items can have an uplink hidden inside, just remember to add the triggers.
+	var/zoomdevicename //name used for message when binoculars/scope is used
 	var/zoom = 0 //1 if item is actively being used to zoom. For scoped guns and binoculars.
 	var/contained_sprite = 0 //1 if item_state, lefthand, righthand, and worn sprite are all in one dmi
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
-	var/item_state_slots = null //overrides the default item_state for particular slots.
+	var/item_state_slots //overrides the default item_state for particular slots.
 
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
 	// If icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
 	// Only slot_l_hand/slot_r_hand are implemented at the moment. Others to be implemented as needed.
-	var/list/item_icons = list()
+	var/list/item_icons
 
 	//** These specify item/icon overrides for _species_
 
@@ -68,13 +67,13 @@
 		)
 	If index term exists and icon_override is not set, this sprite sheet will be used.
 	*/
-	var/list/sprite_sheets = list()
+	var/list/sprite_sheets
 
 	// Species-specific sprite sheets for inventory sprites
 	// Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
-	var/list/sprite_sheets_obj = list()
+	var/list/sprite_sheets_obj
 
-	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing pr
+	var/icon_override  //Used to override hardcoded clothing dmis in human clothing pr
 
 /obj/item/Destroy()
 	if(ismob(loc))
@@ -168,10 +167,12 @@
 	if (src.loc == user)
 		if(!user.prepare_for_slotmove(src))
 			return
-	else
-		if(isliving(src.loc))
-			return
-	user.put_in_active_hand(src)
+	else if(isliving(src.loc))
+		return
+
+	// If equipping onto active hand fails, drop it on the floor.
+	if (!user.put_in_active_hand(src))
+		forceMove(user.loc)
 	return
 
 /obj/item/attack_ai(mob/user as mob)
@@ -190,26 +191,30 @@
 		var/obj/item/weapon/storage/S = W
 		if(S.use_to_pickup)
 			if(S.collection_mode) //Mode is set to collect all items on a tile and we clicked on a valid one.
-				if(isturf(src.loc))
+				if(isturf(loc))
 					var/list/rejections = list()
-					var/success = 0
-					var/failure = 0
+					var/success = FALSE
+					var/failure = FALSE
+					var/original_loc = user ? user.loc : null
 
-					for(var/obj/item/I in src.loc)
-						CHECK_TICK
+					for(var/obj/item/I in loc)
+						if (user && user.loc != original_loc)
+							break
 
-						if(I.type in rejections) // To limit bag spamming: any given type only complains once
+						if(rejections[I.type]) // To limit bag spamming: any given type only complains once
 							continue
 
 						if(!S.can_be_inserted(I))	// Note can_be_inserted still makes noise when the answer is no
-							rejections += I.type	// therefore full bags are still a little spammy
-							failure = 1
+							rejections[I.type] = TRUE	// therefore full bags are still a little spammy
+							failure = TRUE
+							CHECK_TICK
 							continue
 
-						success = 1
-						S.handle_item_insertion(I, 1)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
+						success = TRUE
+						S.handle_item_insertion_deferred(I, user)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
 						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
 
+					S.handle_storage_deferred(user)
 					if(success && !failure)
 						user << "<span class='notice'>You put everything in [S].</span>"
 					else if(success)
@@ -219,8 +224,6 @@
 
 			else if(S.can_be_inserted(src))
 				S.handle_item_insertion(src)
-
-	return
 
 /obj/item/proc/talk_into(mob/M as mob, text)
 	return
@@ -290,7 +293,7 @@ var/list/global/slot_flags_enumeration = list(
 //If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
 //Set disable_warning to 1 if you wish it to not give you outputs.
 //Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
-/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = 0)
+/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
 	if(!slot) return 0
 	if(!M) return 0
 
@@ -316,7 +319,7 @@ var/list/global/slot_flags_enumeration = list(
 
 	//Next check if the slot is accessible.
 	var/mob/_user = disable_warning? null : H
-	if(!H.slot_is_accessible(slot, src, _user))
+	if(!bypass_blocked_check && !H.slot_is_accessible(slot, src, _user))
 		return 0
 
 	//Lastly, check special rules for the desired slot.
@@ -372,7 +375,7 @@ var/list/global/slot_flags_enumeration = list(
 					H << "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>"
 				return 0
 			var/obj/item/clothing/under/uniform = H.w_uniform
-			if(uniform.accessories.len && !uniform.can_attach_accessory(src))
+			if(LAZYLEN(uniform.accessories) && !uniform.can_attach_accessory(src))
 				if (!disable_warning)
 					H << "<span class='warning'>You already have an accessory of this type attached to your [uniform].</span>"
 				return 0
@@ -490,9 +493,7 @@ var/list/global/slot_flags_enumeration = list(
 		user << "<span class='warning'>You cannot locate any eyes on [M]!</span>"
 		return
 
-	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
-	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>"
-	msg_admin_attack("[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M)) //BS12 EDIT ALG
+	admin_attack_log(user, M, "attacked [key_name(M)] with [src]", "was attacked by [key_name(user)] using \a [src]", "used \a [src] to eyestab")
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
@@ -508,18 +509,17 @@ var/list/global/slot_flags_enumeration = list(
 		*/
 
 	if(istype(H))
-
-		var/obj/item/organ/eyes/eyes = H.internal_organs_by_name["eyes"]
+		var/obj/item/organ/eyes/eyes = H.get_eyes()
 
 		if(H != user)
-			for(var/mob/O in (viewers(M) - user - M))
-				O.show_message("<span class='danger'>[M] has been stabbed in the eye with [src] by [user].</span>", 1)
-			M << "<span class='danger'>[user] stabs you in the eye with [src]!</span>"
-			user << "<span class='danger'>You stab [M] in the eye with [src]!</span>"
+			M.visible_message(
+				"<span class='danger'>[user] stabs [M] in the [eyes.singular_name] with [src]!</span>",
+				"<span class='danger'>[user] stabs you in the [eyes.singular_name] with [src]!</span>"
+			)
 		else
 			user.visible_message( \
-				"<span class='danger'>[user] has stabbed themself with [src]!</span>", \
-				"<span class='danger'>You stab yourself in the eyes with [src]!</span>" \
+				"<span class='danger'>[user] stabs themself in the [eyes.singular_name] with [src]!</span>", \
+				"<span class='danger'>You stab yourself in the [eyes.singular_name] with [src]!</span>" \
 			)
 
 		eyes.damage += rand(3,4)

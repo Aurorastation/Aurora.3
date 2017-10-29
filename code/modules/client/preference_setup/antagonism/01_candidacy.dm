@@ -1,3 +1,7 @@
+#define NOBAN  0
+#define AGEBAN 1
+#define RANBAN 2
+
 /datum/category_item/player_setup_item/antagonism/candidacy
 	name = "Candidacy"
 	sort_order = 1
@@ -22,7 +26,7 @@
 
 /datum/category_item/player_setup_item/antagonism/candidacy/sanitize_character(var/sql_load = 0)
 	if (sql_load)
-		if (pref.be_special_role)
+		if (istext(pref.be_special_role))
 			pref.be_special_role = params2list(pref.be_special_role)
 
 	if (!istype(pref.be_special_role))
@@ -33,19 +37,24 @@
 			pref.be_special_role -= role
 
 /datum/category_item/player_setup_item/antagonism/candidacy/content(var/mob/user)
-	. += "<b>Special Role Availability:</b><br>"
-	. += "<table>"
+	var/list/dat = list(
+		"<b>Special Role Availability:</b><br>",
+		"<table>"
+	)
 	var/is_global_banned = jobban_isbanned(preference_mob(), "Antagonist")
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
-		. += "<tr><td>[antag.role_text]: </td><td>"
-		if(is_global_banned || jobban_isbanned(preference_mob(), antag.bantype))
-			. += "<span class='danger'>\[BANNED\]</span><br>"
+		dat += "<tr><td>[antag.role_text]: </td><td>"
+		var/ban_reason = jobban_isbanned(preference_mob(), antag.bantype)
+		if(ban_reason == "AGE WHITELISTED")
+			dat += "<span class='danger'>\[IN [player_old_enough_for_role(preference_mob(), antag.bantype)] DAYS\]</span><br>"
+		else if(is_global_banned || ban_reason)
+			dat += "<span class='danger'>\[<a href='?src=\ref[user.client];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"];'>BANNED</a>\]</span><br>"
 		else if(antag.role_type in pref.be_special_role)
-			. += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[antag.role_type]'>No</a></br>"
+			dat += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[antag.role_type]'>No</a></br>"
 		else
-			. += "<a href='?src=\ref[src];add_special=[antag.role_type]'>Yes</a> / <b>No</b></br>"
-		. += "</td></tr>"
+			dat += "<a href='?src=\ref[src];add_special=[antag.role_type]'>Yes</a> / <b>No</b></br>"
+		dat += "</td></tr>"
 
 	var/list/ghost_traps = get_ghost_traps()
 	for(var/ghost_trap_key in ghost_traps)
@@ -53,21 +62,34 @@
 		if(!ghost_trap.list_as_special_role)
 			continue
 
-		. += "<tr><td>[(ghost_trap.ghost_trap_role)]: </td><td>"
-		if(banned_from_ghost_role(preference_mob(), ghost_trap))
-			. += "<span class='danger'>\[BANNED\]</span><br>"
+		dat += "<tr><td>[(ghost_trap.ghost_trap_role)]: </td><td>"
+		var/ban_state = banned_from_ghost_role(preference_mob(), ghost_trap)
+		if(ban_state == AGEBAN)
+			var/age_to_beat = 0
+			for (var/A in ghost_trap.ban_checks)
+				age_to_beat = player_old_enough_for_role(preference_mob(), A)
+				if (age_to_beat)
+					break
+			dat += "<span class='danger'>\[IN [age_to_beat] DAYS\]</span><br>"
+		else if (ban_state == RANBAN)
+			dat += "<span class='danger'>\[<a href='?src=\ref[user.client];view_jobban=[ghost_trap];'>BANNED</a>\]</span><br>"
 		else if(ghost_trap.pref_check in pref.be_special_role)
-			. += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[ghost_trap.pref_check]'>No</a></br>"
+			dat += "<b>Yes</b> / <a href='?src=\ref[src];del_special=[ghost_trap.pref_check]'>No</a></br>"
 		else
-			. += "<a href='?src=\ref[src];add_special=[ghost_trap.pref_check]'>Yes</a> / <b>No</b></br>"
-		. += "</td></tr>"
-	. += "</table>"
+			dat += "<a href='?src=\ref[src];add_special=[ghost_trap.pref_check]'>Yes</a> / <b>No</b></br>"
+		dat += "</td></tr>"
+	dat += "</table>"
+
+	. = dat.Join()
 
 /datum/category_item/player_setup_item/proc/banned_from_ghost_role(var/mob, var/datum/ghosttrap/ghost_trap)
 	for(var/ban_type in ghost_trap.ban_checks)
-		if(jobban_isbanned(mob, ban_type))
-			return 1
-	return 0
+		. = jobban_isbanned(mob, ban_type)
+		if(. == "AGE WHITELISTED")
+			return AGEBAN
+		else if (.)
+			return RANBAN
+	return NOBAN
 
 /datum/category_item/player_setup_item/antagonism/candidacy/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["add_special"])
@@ -96,3 +118,7 @@
 		private_valid_special_roles += ghost_trap.pref_check
 
 	return private_valid_special_roles
+
+#undef AGEBAN
+#undef RANBAN
+#undef NOBAN

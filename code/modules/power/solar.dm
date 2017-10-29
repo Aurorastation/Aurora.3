@@ -59,7 +59,7 @@
 
 /obj/machinery/power/solar/attackby(obj/item/weapon/W, mob/user)
 
-	if(istype(W, /obj/item/weapon/crowbar))
+	if(iscrowbar(W))
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		user.visible_message("<span class='notice'>[user] begins to take the glass off the solar panel.</span>")
 		if(do_after(user, 50))
@@ -118,7 +118,7 @@
 	sunfrac = cos(p_angle) ** 2
 	//isn't the power recieved from the incoming light proportionnal to cos(p_angle) (Lambert's cosine law) rather than cos(p_angle)^2 ?
 
-/obj/machinery/power/solar/process()//TODO: remove/add this from machines to save on processing as needed ~Carn PRIORITY
+/obj/machinery/power/solar/machinery_process()//TODO: remove/add this from machines to save on processing as needed ~Carn PRIORITY
 	if(stat & BROKEN)
 		return
 	if(!sun || !control) //if there's no sun or the panel is not linked to a solar control computer, no need to proceed
@@ -167,9 +167,8 @@
 /obj/machinery/power/solar/fake/Initialize(mapload, var/obj/item/solar_assembly/S)
 	. = ..(mapload, S, 0)
 
-/obj/machinery/power/solar/fake/process()
-	. = PROCESS_KILL
-	return
+/obj/machinery/power/solar/fake/machinery_process()
+	return PROCESS_KILL
 
 //trace towards sun to see if we're in shadow
 /obj/machinery/power/solar/proc/occlusion()
@@ -225,13 +224,13 @@
 /obj/item/solar_assembly/attackby(var/obj/item/weapon/W, var/mob/user)
 
 	if(!anchored && isturf(loc))
-		if(istype(W, /obj/item/weapon/wrench))
+		if(iswrench(W))
 			anchored = 1
 			user.visible_message("<span class='notice'>[user] wrenches the solar assembly into place.</span>")
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			return 1
 	else
-		if(istype(W, /obj/item/weapon/wrench))
+		if(iswrench(W))
 			anchored = 0
 			user.visible_message("<span class='notice'>[user] unwrenches the solar assembly from it's place.</span>")
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
@@ -260,7 +259,7 @@
 			user.visible_message("<span class='notice'>[user] inserts the electronics into the solar assembly.</span>")
 			return 1
 	else
-		if(istype(W, /obj/item/weapon/crowbar))
+		if(iscrowbar(W))
 			new /obj/item/weapon/tracker_electronics(src.loc)
 			tracker = 0
 			user.visible_message("<span class='notice'>[user] takes out the electronics from the solar assembly.</span>")
@@ -399,7 +398,7 @@
 	return
 
 /obj/machinery/power/solar_control/attackby(I as obj, user as mob)
-	if(istype(I, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(I))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)
@@ -429,7 +428,7 @@
 		src.attack_hand(user)
 	return
 
-/obj/machinery/power/solar_control/process()
+/obj/machinery/power/solar_control/machinery_process()
 	lastgen = gen
 	gen = 0
 

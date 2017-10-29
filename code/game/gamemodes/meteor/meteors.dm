@@ -42,8 +42,8 @@
 			endy = rand(TRANSITIONEDGE,world.maxy-TRANSITIONEDGE)
 			endx = world.maxx-TRANSITIONEDGE
 
-	pickedstart = locate(startx, starty, 2)
-	pickedgoal = locate(endx, endy, 2)
+	pickedstart = locate(startx, starty, 6)
+	pickedgoal = locate(endx, endy, 6)
 	max_i--
 	if(max_i<=0) return
 
@@ -256,7 +256,9 @@
 	meteordrop = /obj/item/weapon/ore/uranium
 
 /obj/effect/meteor/irradiated/meteor_effect()
-	new /obj/effect/decal/cleanable/greenglow(get_turf(src)) //todo: make this irradiate the place it lands
+	new /obj/effect/decal/cleanable/greenglow(get_turf(src))
+	for(var/mob/living/L in view(5, src))
+		L.apply_effect(40, IRRADIATE, blocked = L.getarmor(null, "rad"))
 
 /obj/effect/meteor/golden
 	name = "golden meteor"
@@ -284,7 +286,7 @@
 
 /obj/effect/meteor/artifact
 	icon_state = "sharp"
-	meteordrop = /obj/machinery/artifact
+	meteordrop = /obj/item/weapon/archaeological_find
 	dropamt = 1
 
 /obj/effect/meteor/supermatter

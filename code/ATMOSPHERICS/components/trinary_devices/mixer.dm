@@ -63,8 +63,8 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/trinary/mixer/New()
-	..()
+/obj/machinery/atmospherics/trinary/mixer/Initialize()
+	. = ..()
 	air1.volume = ATMOS_DEFAULT_VOLUME_MIXER
 	air2.volume = ATMOS_DEFAULT_VOLUME_MIXER
 	air3.volume = ATMOS_DEFAULT_VOLUME_MIXER * 1.5
@@ -72,7 +72,7 @@
 	if (!mixing_inputs)
 		mixing_inputs = list(src.air1 = node1_concentration, src.air2 = node2_concentration)
 
-/obj/machinery/atmospherics/trinary/mixer/process()
+/obj/machinery/atmospherics/trinary/mixer/machinery_process()
 	..()
 
 	last_power_draw = 0
@@ -104,7 +104,7 @@
 	return 1
 
 /obj/machinery/atmospherics/trinary/mixer/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W))
 		return ..()
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
@@ -183,8 +183,7 @@ obj/machinery/atmospherics/trinary/mixer/t_mixer
 
 	//node 3 is the outlet, nodes 1 & 2 are intakes
 
-obj/machinery/atmospherics/trinary/mixer/t_mixer/New()
-	..()
+obj/machinery/atmospherics/trinary/mixer/t_mixer/Initialize()
 	switch(dir)
 		if(NORTH)
 			initialize_directions = EAST|NORTH|WEST
@@ -194,8 +193,9 @@ obj/machinery/atmospherics/trinary/mixer/t_mixer/New()
 			initialize_directions = EAST|NORTH|SOUTH
 		if(WEST)
 			initialize_directions = WEST|NORTH|SOUTH
+	. = ..()
 
-obj/machinery/atmospherics/trinary/mixer/t_mixer/initialize()
+obj/machinery/atmospherics/trinary/mixer/t_mixer/atmos_init()
 	..()
 	if(node1 && node2 && node3) return
 
@@ -229,8 +229,7 @@ obj/machinery/atmospherics/trinary/mixer/m_mixer
 
 	//node 3 is the outlet, nodes 1 & 2 are intakes
 
-obj/machinery/atmospherics/trinary/mixer/m_mixer/New()
-	..()
+obj/machinery/atmospherics/trinary/mixer/m_mixer/Initialize()
 	switch(dir)
 		if(NORTH)
 			initialize_directions = WEST|NORTH|SOUTH
@@ -240,8 +239,9 @@ obj/machinery/atmospherics/trinary/mixer/m_mixer/New()
 			initialize_directions = EAST|WEST|NORTH
 		if(WEST)
 			initialize_directions = WEST|SOUTH|EAST
+	. = ..()
 
-obj/machinery/atmospherics/trinary/mixer/m_mixer/initialize()
+obj/machinery/atmospherics/trinary/mixer/m_mixer/atmos_init()
 	..()
 	if(node1 && node2 && node3) return
 

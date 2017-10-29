@@ -7,6 +7,7 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_early/Initialize(timeofday)
+	uplink = new
 	// Create the data core, whatever that is.
 	data_core = new /datum/datacore()
 
@@ -20,7 +21,8 @@
 		global_hud.nvg,
 		global_hud.thermal,
 		global_hud.meson,
-		global_hud.science
+		global_hud.science,
+		global_hud.holomap
 	)
 
 	// This is kinda important. Set up details of what the hell things are made of.
@@ -32,15 +34,12 @@
 	// Create robolimbs for chargen.
 	populate_robolimb_list()
 
-	if(config.ToRban)
-		ToRban_autoupdate()
-
 	// Set up antags.
 	populate_antag_type_list()
 
-	// Populate spawnpoints for char creation.
-	populate_spawn_points()
-
-	lobby_image = new/obj/effect/lobby_image()
+	// Get BOREALIS to warn staff about a lazy admin forgetting visibility to 0
+	// before anyone has a chance to change it!
+	if (discord_bot)
+		discord_bot.alert_server_visibility()
 
 	..()

@@ -15,17 +15,18 @@
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue,
 			            access_tox_storage, access_teleporter, access_sec_doors,
 			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
-			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network)
+			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network, access_maint_tunnels)
 	minimal_access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue,
 			            access_tox_storage, access_teleporter, access_sec_doors,
 			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
-			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network)
+			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network, access_maint_tunnels)
 	minimal_player_age = 14
 	ideal_character_age = 50
 
 	bag_type = /obj/item/weapon/storage/backpack/toxins
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -60,6 +61,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/toxins
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -91,6 +93,7 @@
 	bag_type = /obj/item/weapon/storage/backpack/toxins
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -137,17 +140,18 @@
 	department = "Science"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "the research director"
 	selection_color = "#ffeeff"
 	economic_modifier = 7
 	access = list(access_genetics, access_tox, access_tox_storage, access_morgue, access_research)
-	minimal_access = list(access_medical, access_morgue, access_genetics, access_research)
+	minimal_access = list(access_morgue, access_genetics, access_research)
 
 	bag_type = /obj/item/weapon/storage/backpack/genetics
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_gen
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/gen
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/gen
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)

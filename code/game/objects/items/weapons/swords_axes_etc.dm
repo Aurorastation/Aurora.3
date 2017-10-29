@@ -4,13 +4,6 @@
  *		Classic Baton
  */
 
-/*
- * Banhammer
- */
-/obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
-	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>"
-	user << "<font color='red'> You have <b>BANNED</b> [M]</font>"
-	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
 
 /*
  * Classic Baton
@@ -103,8 +96,12 @@
 			return
 		if(..() == 1)
 			playsound(src.loc, "swing_hit", 50, 1, -1)
-			if(target_zone == "r_leg" || target_zone == "l_leg")
-				target.Weaken(5) //nerfed, because yes.
+			if (target_zone == "r_leg" || target_zone == "l_leg")
+				if(ishuman(target))
+					var/mob/living/carbon/human/T = target
+					var/armor = T.run_armor_check(T, "melee")
+					if(armor < 100)
+						T.Weaken(5) //nerfed, because yes.
 			return
 	else
 		return ..()

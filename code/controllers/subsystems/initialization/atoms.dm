@@ -119,6 +119,17 @@ var/datum/controller/subsystem/atoms/SSatoms
 	
 	return QDELETED(A)
 
+/datum/controller/subsystem/atoms/proc/ForceInitializeContents(atom/A)
+	var/list/mload_args = list(TRUE)
+	var/loaded = 0
+	for (var/thing in A)
+		var/atom/movable/AM = thing
+		if (!AM.initialized)
+			InitAtom(AM, mload_args)
+			++loaded
+
+	log_debug("atoms: force-loaded [loaded] out of [A.contents.len] atoms in [A].")
+
 /datum/controller/subsystem/atoms/proc/InitLog()
 	. = ""
 	for(var/path in BadInitializeCalls)
@@ -143,6 +154,13 @@ var/datum/controller/subsystem/atoms/SSatoms
 	if(initialized == INITIALIZATION_INNEW_MAPLOAD)
 		InitializeAtoms()
 	old_initialized = SSatoms.old_initialized
+
+/datum/controller/subsystem/atoms/proc/map_loader_begin()
+	old_initialized = initialized
+	initialized = INITIALIZATION_INSSATOMS
+
+/datum/controller/subsystem/atoms/proc/map_loader_stop()
+	initialized = old_initialized
 
 #undef BAD_INIT_QDEL_BEFORE
 #undef BAD_INIT_DIDNT_INIT

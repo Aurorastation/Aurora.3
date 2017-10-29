@@ -13,10 +13,10 @@
 
 /datum/event/vent_clog/setup()
 	endWhen = rand(25, 100)
-	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in machines)
+	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in SSmachinery.processing_machines)
 		if(!temp_vent)
 			continue
-		if(temp_vent.z in config.station_levels)//STATION ZLEVEL
+		if(temp_vent.z in current_map.station_levels)//STATION ZLEVEL
 			if(temp_vent.network && temp_vent.network.normal_members.len > 20)
 				vents += temp_vent
 	if(!vents.len)
@@ -43,5 +43,5 @@
 
 
 /datum/event/vent_clog/announce()
-	command_announcement.Announce("The scrubbers network is experiencing a backpressure surge. Some ejection of contents may occur.", "Atmospherics alert")
+	command_announcement.Announce("The scrubbers network is experiencing a backpressure surge. Some ejection of contents may occur.", "Atmospherics alert", new_sound = 'sound/AI/scrubbers.ogg')
 

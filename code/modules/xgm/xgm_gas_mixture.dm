@@ -1,7 +1,7 @@
 /datum/gas_mixture
 	//Associative list of gas moles.
 	//Gases with 0 moles are not tracked and are pruned by update_values()
-	var/list/gas = list()
+	var/list/gas
 	//Temperature in Kelvin of this gas mix.
 	var/temperature = 0
 
@@ -19,6 +19,7 @@
 	volume = _volume
 	temperature = _temperature
 	group_multiplier = _group_multiplier
+	gas = list()
 
 /datum/gas_mixture/proc/get_gas(gasid)
 	if(!gas.len)
@@ -294,14 +295,16 @@
 			. += gas[g]
 
 //Copies gas and temperature from another gas_mixture.
-/datum/gas_mixture/proc/copy_from(const/datum/gas_mixture/sample)
+// If fast is TRUE, use a less accurate method that doesn't involve list iteraton.
+/datum/gas_mixture/proc/copy_from(const/datum/gas_mixture/sample, fast = FALSE)
 	gas = sample.gas.Copy()
 	temperature = sample.temperature
-
-	update_values()
+	if (fast)
+		total_moles = sample.total_moles
+	else
+		update_values()
 
 	return 1
-
 
 //Checks if we are within acceptable range of another gas_mixture to suspend processing or merge.
 /datum/gas_mixture/proc/compare(const/datum/gas_mixture/sample, var/vacuum_exception = 0)

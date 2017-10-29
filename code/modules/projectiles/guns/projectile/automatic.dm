@@ -95,6 +95,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
+	fire_sound = 'sound/weapons/rifleshot.ogg'
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
@@ -128,6 +129,7 @@
 	set src in usr
 
 	toggle_wield(usr)
+	usr.update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
@@ -136,6 +138,10 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "arifle" : "arifle-empty"
+	if(wielded)
+		item_state = (ammo_magazine)? "arifle-wielded" : "arifle-wielded-empty"
+	else
+		item_state = (ammo_magazine)? "arifle" : "arifle-empty"
 	update_held_icon()
 
 /datum/firemode/z8
@@ -169,8 +175,8 @@
 	var/use_launcher = 0
 	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
 
-/obj/item/weapon/gun/projectile/automatic/rifle/z8/New()
-	..()
+/obj/item/weapon/gun/projectile/automatic/rifle/z8/Initialize()
+	. = ..()
 	launcher = new(src)
 
 /obj/item/weapon/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
@@ -199,6 +205,11 @@
 		icon_state = "carbine-[round(ammo_magazine.stored_ammo.len,2)]"
 	else
 		icon_state = "carbine"
+	if(wielded)
+		item_state = "z8carbine-wielded"
+	else
+		item_state = "z8carbine"
+	update_held_icon()
 	return
 
 /obj/item/weapon/gun/projectile/automatic/rifle/z8/examine(mob/user)
@@ -222,7 +233,7 @@
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
 	allowed_magazines = list(/obj/item/ammo_magazine/a762)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot_saw.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762
 
@@ -242,6 +253,10 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/proc/toggle_cover(mob/user)
 	cover_open = !cover_open
 	user << "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>"
+	if(cover_open)
+		playsound(user, 'sound/weapons/sawopen.ogg', 60, 1)
+	else
+		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
 	update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/attack_self(mob/user as mob)
@@ -284,6 +299,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/tommymag
 	allowed_magazines = list(/obj/item/ammo_magazine/tommymag, /obj/item/ammo_magazine/tommydrum)
+	fire_sound = 'sound/weapons/tommygun_shoot.ogg'
 
 /obj/item/weapon/gun/projectile/automatic/tommygun/update_icon()
 	..()
@@ -293,7 +309,7 @@
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
 	icon_state = "railgun"
-	item_state = "arifle"
+	item_state = "railgun"
 	w_class = 4
 	force = 10
 	caliber = "trod"
@@ -387,6 +403,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	recoil = 3
+	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
 
 	accuracy = -2
 	fire_delay = 10

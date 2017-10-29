@@ -24,11 +24,13 @@
 	seek_speed = 6
 	possession_candidate = 1
 
+	holder_type = /obj/item/weapon/holder/corgi
+
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
 
-/mob/living/simple_animal/corgi/New()
-	..()
+/mob/living/simple_animal/corgi/Initialize()
+	. = ..()
 	nutrition = max_nutrition * 0.3	//Ian doesn't start with a full belly so will be hungry at roundstart
 	nutrition_step = mob_size * 0.12
 
@@ -49,15 +51,15 @@
 	if(!stat && !resting && !buckled)
 		if(prob(1))
 			visible_emote(pick("dances around","chases their tail"),0)
-			spawn(0)
-				for(var/i in list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
-					set_dir(i)
-					sleep(1)
+			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
 
+/mob/living/simple_animal/corgi/proc/do_dance(list/directions = list())
+	for(var/i in directions)
+		set_dir(i)
+		sleep(1)
 
 /mob/living/simple_animal/corgi/beg(var/atom/thing, var/atom/holder)
 	visible_emote("stares at the [thing] that [holder] has with sad puppy eyes.",0)
-
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/corgi
 	name = "Corgi meat"
@@ -74,15 +76,12 @@
 					foodtarget = 0
 					stop_automated_movement = 0
 					turns_since_scan = 0
-			spawn(0)
-				for(var/i in list(1,2,4,8,4,2,1,2))
-					set_dir(i)
-					sleep(1)
+			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2))
 	else
 		..()
 
 /mob/living/simple_animal/corgi/regenerate_icons()
-	overlays = list()
+	cut_overlays()
 
 	if(inventory_head)
 		var/head_icon_state = inventory_head.icon_state
@@ -91,7 +90,7 @@
 
 		var/icon/head_icon = image('icons/mob/corgi_head.dmi',head_icon_state)
 		if(head_icon)
-			overlays += head_icon
+			add_overlay(head_icon)
 
 	if(inventory_back)
 		var/back_icon_state = inventory_back.icon_state
@@ -100,12 +99,10 @@
 
 		var/icon/back_icon = image('icons/mob/corgi_back.dmi',back_icon_state)
 		if(back_icon)
-			overlays += back_icon
-	return
-
+			add_overlay(back_icon)
 
 /mob/living/simple_animal/corgi/puppy
-	name = "\improper corgi puppy"
+	name = "corgi puppy"
 	real_name = "corgi"
 	desc = "It's a corgi puppy."
 	icon_state = "puppy"
@@ -168,7 +165,4 @@
 
 		if(prob(1))
 			visible_emote(pick("dances around","chases her tail"),0)
-			spawn(0)
-				for(var/i in list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
-					set_dir(i)
-					sleep(1)
+			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))

@@ -4,7 +4,7 @@
 /obj/machinery/door/airlock
 	var/id_tag
 	var/frequency
-	var/tmp/shockedby = list()
+	var/tmp/shockedby
 	var/tmp/datum/radio_frequency/radio_connection
 	var/tmp/cur_command = null	//the command the door is currently attempting to complete
 	var/tmp/waiting_for_roundstart
@@ -199,7 +199,7 @@
 	radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
 	flick("airlock_sensor_cycle", src)
 
-/obj/machinery/airlock_sensor/process()
+/obj/machinery/airlock_sensor/machinery_process()
 	if(on)
 		var/datum/gas_mixture/air_sample = return_air()
 		var/pressure = round(air_sample.return_pressure(),0.1)

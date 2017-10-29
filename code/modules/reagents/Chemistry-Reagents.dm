@@ -14,6 +14,8 @@
 	var/name = "Reagent"
 	var/id = "reagent"
 	var/description = "A non-descript chemical."
+	var/taste_description = "old rotten bandaids"
+	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
 	var/datum/reagents/holder = null
 	var/reagent_state = SOLID
 	var/list/data = null
@@ -32,8 +34,13 @@
 	var/glass_center_of_mass = null
 	var/color = "#000000"
 	var/color_weight = 1
+	var/unaffected_species = IS_DIONA | IS_MACHINE	// Species that aren't affected by this reagent. Does not prevent affect_touch.
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
+	if (!holder)
+		//PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
+		return
+
 	holder.remove_reagent(id, amount)
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
@@ -50,6 +57,8 @@
 	if(!istype(M))
 		return
 	if(!affects_dead && M.stat == DEAD)
+		return
+	if(alien & unaffected_species && location != CHEM_TOUCH)
 		return
 
 	if(!dose && volume)//If dose is currently zero, we do the first effect
@@ -75,8 +84,6 @@
 			if(CHEM_TOUCH)
 				affect_touch(M, alien, removed)
 	remove_self(removed)
-	return
-
 
 //Initial effect is called once when the reagent first starts affecting a mob.
 /datum/reagent/proc/initial_effect(var/mob/living/carbon/M, var/alien)
@@ -87,29 +94,25 @@
 
 /datum/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_blood(M, alien, removed * 0.5)
-	return
 
 /datum/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	return
 
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
-	return
 
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))
 		data = newdata
-	return
 
 /datum/reagent/proc/mix_data(var/newdata, var/newamount) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return
 
 /datum/reagent/proc/get_data() // Just in case you have a reagent that handles data differently.
-	if(data && istype(data, /list))
+	if(islist(data))
 		return data.Copy()
 	else if(data)
 		return data
-	return null
 
 /datum/reagent/Destroy() // This should only be called by the holder, so it's already handled clearing its references
 	. = ..()

@@ -24,10 +24,10 @@ var/list/floor_light_cache = list()
 	anchored = 1
 
 /obj/machinery/floor_light/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		anchored = !anchored
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
-	else if(istype(W, /obj/item/weapon/weldingtool) && (damaged || (stat & BROKEN)))
+	else if(iswelder(W) && (damaged || (stat & BROKEN)))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.remove_fuel(0, user))
 			user << "<span class='warning'>\The [src] must be on to complete this task.</span>"
@@ -78,7 +78,7 @@ var/list/floor_light_cache = list()
 		update_brightness()
 		return
 
-/obj/machinery/floor_light/process()
+/obj/machinery/floor_light/machinery_process()
 	..()
 	var/need_update
 	if((!anchored || broken()) && on)
@@ -104,16 +104,17 @@ var/list/floor_light_cache = list()
 	update_icon()
 
 /obj/machinery/floor_light/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	var/list/floor_light_cache = SSicon_cache.floor_light_cache
 	if(use_power && !broken())
-		if(isnull(damaged))
+		if(damaged == null)
 			var/cache_key = "floorlight-[default_light_colour]"
 			if(!floor_light_cache[cache_key])
 				var/image/I = image("[on_state]")
 				I.color = default_light_colour
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
-			overlays |= floor_light_cache[cache_key]
+			add_overlay(floor_light_cache[cache_key])
 		else
 			if(damaged == 0) //Needs init.
 				damaged = rand(1,4)
@@ -123,7 +124,7 @@ var/list/floor_light_cache = list()
 				I.color = default_light_colour
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
-			overlays |= floor_light_cache[cache_key]
+			add_overlay(floor_light_cache[cache_key])
 
 /obj/machinery/floor_light/proc/broken()
 	return (stat & (BROKEN|NOPOWER))

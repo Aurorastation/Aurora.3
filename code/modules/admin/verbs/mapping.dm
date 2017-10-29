@@ -125,46 +125,47 @@ var/intercom_range_display_status = 0
 	feedback_add_details("admin_verb","mIRD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 var/list/debug_verbs = list (
-        /client/proc/do_not_use_these
-        ,/client/proc/camera_view
-        ,/client/proc/sec_camera_report
-        ,/client/proc/intercom_view
-        ,/client/proc/Cell
-        ,/client/proc/atmosscan
-        ,/client/proc/powerdebug
-        ,/client/proc/count_objects_on_z_level
-        ,/client/proc/count_objects_all
-        ,/client/proc/cmd_assume_direct_control
-        ,/client/proc/jump_to_dead_group
-        ,/client/proc/startSinglo
-        ,/client/proc/ticklag
-        ,/client/proc/cmd_admin_grantfullaccess
-        ,/client/proc/kaboom
-        ,/client/proc/splash
-        ,/client/proc/cmd_admin_areatest
-        ,/client/proc/cmd_admin_rejuvenate
-        ,/datum/admins/proc/show_traitor_panel
-        ,/client/proc/print_jobban_old
-        ,/client/proc/print_jobban_old_filter
-        ,/client/proc/forceEvent
-        ,/client/proc/break_all_air_groups
-        ,/client/proc/regroup_all_air_groups
-        ,/client/proc/kill_pipe_processing
-        ,/client/proc/kill_air_processing
-        ,/client/proc/disable_communication
-        ,/client/proc/disable_movement
-        ,/client/proc/Zone_Info
-        ,/client/proc/Test_ZAS_Connection
-        //,/client/proc/ZoneTick
-        ,/client/proc/rebootAirMaster
-        ,/client/proc/hide_debug_verbs
-        ,/client/proc/testZAScolors
-        ,/client/proc/testZAScolors_remove
-        ,/datum/admins/proc/setup_supermatter
-		,/client/proc/atmos_toggle_debug
-		,/client/proc/spawn_tanktransferbomb
-		,/client/proc/get_bad_fdoors
-		,/client/proc/get_bad_doors
+	/client/proc/do_not_use_these
+	,/client/proc/camera_view
+	,/client/proc/sec_camera_report
+	,/client/proc/intercom_view
+	,/client/proc/Cell
+	,/client/proc/atmosscan
+	,/client/proc/powerdebug
+	,/client/proc/count_objects_on_z_level
+	,/client/proc/count_objects_all
+	,/client/proc/cmd_assume_direct_control
+	,/client/proc/jump_to_dead_group
+	,/client/proc/startSinglo
+	,/client/proc/ticklag
+	,/client/proc/cmd_admin_grantfullaccess
+	,/client/proc/kaboom
+	,/client/proc/splash
+	,/client/proc/cmd_admin_areatest
+	,/client/proc/cmd_admin_rejuvenate
+	,/datum/admins/proc/show_traitor_panel
+	,/client/proc/print_jobban_old
+	,/client/proc/print_jobban_old_filter
+	,/client/proc/forceEvent
+	,/client/proc/break_all_air_groups
+	,/client/proc/regroup_all_air_groups
+	,/client/proc/kill_pipe_processing
+	,/client/proc/kill_air_processing
+	,/client/proc/disable_communication
+	,/client/proc/disable_movement
+	,/client/proc/Zone_Info
+	,/client/proc/Test_ZAS_Connection
+	//,/client/proc/ZoneTick
+	,/client/proc/rebootAirMaster
+	,/client/proc/hide_debug_verbs
+	,/client/proc/testZAScolors
+	,/client/proc/testZAScolors_remove
+	,/datum/admins/proc/setup_supermatter
+	,/client/proc/atmos_toggle_debug
+	,/client/proc/spawn_tanktransferbomb
+	,/client/proc/get_bad_fdoors
+	,/client/proc/get_bad_doors
+	,/client/proc/analyze_openturf
 	)
 
 
@@ -423,16 +424,16 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 	set category = "Mapping"
 	set name = "Find Bad Doors"
 
-	for(var/obj/machinery/door/airlock/A in machines)
+	for(var/obj/machinery/door/airlock/A in world)
 		var/turf/T = get_turf(A)
-		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || istype(T, /turf/simulated/open) || T.density)
+		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
 			usr << "Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc]."
 
 /client/proc/get_bad_fdoors()
 	set category = "Mapping"
 	set name = "Find Bad Fire Doors"
 
-	for(var/obj/machinery/door/firedoor/F in machines)
+	for(var/obj/machinery/door/firedoor/F in world)
 		var/turf/T = get_turf(F)
 		var/firelock_increment = 0
 		for(var/obj/machinery/door/firedoor/FD in T)

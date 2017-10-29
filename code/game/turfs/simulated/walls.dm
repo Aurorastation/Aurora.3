@@ -19,7 +19,12 @@
 	var/last_state
 	var/construction_stage
 
-	var/list/wall_connections = list("0", "0", "0", "0")
+	var/tmp/list/image/reinforcement_images
+	var/tmp/image/damage_image
+	var/tmp/image/fake_wall_image
+	var/tmp/cached_adjacency
+
+	smooth = SMOOTH_TRUE | SMOOTH_NO_CLEAR_ICON
 
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
@@ -160,7 +165,7 @@
 /turf/simulated/wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product, var/no_change = FALSE)
 	if (!no_change)	// No change is TRUE when this is called by destroy.
 		playsound(src, 'sound/items/Welder.ogg', 100, 1)
-		
+
 	if(!no_product)
 		if(reinf_material)
 			reinf_material.place_dismantled_girder(src, reinf_material)
@@ -178,7 +183,6 @@
 	clear_plants()
 	material = get_material_by_name("placeholder")
 	reinf_material = null
-	update_connections(1)
 
 	if (!no_change)
 		ChangeTurf(/turf/simulated/floor/plating)
@@ -186,7 +190,7 @@
 /turf/simulated/wall/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			src.ChangeTurf(get_base_turf(src.z))
+			src.ChangeTurf(baseturf)
 			return
 		if(2.0)
 			if(prob(75))
@@ -238,7 +242,7 @@
 		return
 
 	for(var/mob/living/L in range(3,src))
-		L.apply_effect(total_radiation, IRRADIATE,0)
+		L.apply_effect(total_radiation, IRRADIATE, blocked = L.getarmor(null, "rad"))
 	return total_radiation
 
 /turf/simulated/wall/proc/burn(temperature)

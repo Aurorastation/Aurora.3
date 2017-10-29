@@ -35,7 +35,7 @@
 
 	if (!(vampire.status & VAMP_FULLPOWER) && vampire.blood_total >= 650)
 		vampire.status |= VAMP_FULLPOWER
-		src << "<span class='notice'>You've gained full power. Some abilities now have bonus functionality, or work faster.</span>"
+		to_chat(src, "<span class='notice'>You've gained full power. Some abilities now have bonus functionality, or work faster.</span>")
 
 // Runs the checks for whether or not we can use a power.
 /mob/proc/vampire_power(var/required_blood = 0, var/max_stat = 0, var/ignore_holder = 0, var/disrupt_healing = 1, var/required_vampire_blood = 0)
@@ -51,15 +51,15 @@
 		return
 
 	if (vampire.holder && !ignore_holder)
-		src << "<span class='warning'>You cannot use this power while walking through the Veil.</span>"
+		to_chat(src, "<span class='warning'>You cannot use this power while walking through the Veil.</span>")
 		return
 
 	if (stat > max_stat)
-		src << "<span class='warning'>You are incapacitated.</span>"
+		to_chat(src, "<span class='warning'>You are incapacitated.</span>")
 		return
 
 	if (required_blood > vampire.blood_usable)
-		src << "<span class='warning'>You do not have enough usable blood. [required_blood] needed.</span>"
+		to_chat(src, "<span class='warning'>You do not have enough usable blood. [required_blood] needed.</span>")
 		return
 
 	if ((vampire.status & VAMP_HEALING) && disrupt_healing)
@@ -68,7 +68,7 @@
 	return vampire
 
 // Checks whether or not the target can be affected by a vampire's abilities.
-/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0)
+/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0, var/ignore_thrall = FALSE)
 	if (!T || !istype(T))
 		return 0
 
@@ -82,23 +82,27 @@
 	if (T.mind)
 		if (T.mind.assigned_role == "Chaplain")
 			if (notify)
-				src << "<span class='warning'>Your connection with the Veil is not strong enough to effect a man as devout as them.</span>"
+				to_chat(src, "<span class='warning'>Your connection with the Veil is not strong enough to affect a man as devout as them.</span>")
 			return 0
-		else if (T.mind.vampire)
+		else if (T.mind.vampire && (!(T.mind.vampire.status & VAMP_ISTHRALL) || ((T.mind.vampire.status & VAMP_ISTHRALL) && !ignore_thrall)))
 			if (notify)
-				src << "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>"
+				to_chat(src, "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>")
 			return 0
 
 	if (isipc(T))
 		if (notify)
-			src << "<span class='warning'>You lack the power interact with mechanical constructs.</span>"
+			to_chat(src, "<span class='warning'>You lack the power interact with mechanical constructs.</span>")
+		return 0
+
+	if(is_special_character(T) && (!(T.mind.vampire.status & VAMP_ISTHRALL)))
+		user << "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>"
 		return 0
 
 	if (account_loyalty_implant)
 		for (var/obj/item/weapon/implant/loyalty/I in T)
 			if (I.implanted)
 				if (notify)
-					src << "<span class='warning'>You feel [T.name]'s mind unreachable due to forced loyalty.</span>"
+					to_chat(src, "<span class='warning'>You feel that [T]'s mind is unreachable due to forced loyalty.</span>")
 				return 0
 
 	return 1
@@ -175,7 +179,7 @@
 
 		if (next_alert && message)
 			if (!vampire.last_frenzy_message || vampire.last_frenzy_message + next_alert < world.time)
-				usr << message
+				to_chat(usr, message)
 				vampire.last_frenzy_message = world.time
 
 	// Remove one point per every life() tick.
@@ -218,6 +222,7 @@
 		visible_message("<span class='danger'>[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal human's.</span>", "<span class='danger'>The beast within you retreats. You gain control over your body once more.</span>")
 
 		verbs -= /mob/living/carbon/human/proc/grapple
+		regenerate_icons()
 
 // Removes all vampire powers.
 /mob/proc/remove_vampire_powers()
@@ -242,3 +247,12 @@
 	vampire_check_frenzy()
 
 	return
+
+/mob/living/carbon/human/proc/finish_vamp_timeout(vamp_flags = 0)
+	if (!mind || !mind.vampire)
+		return FALSE
+
+	if (vamp_flags && !(mind.vampire.status & vamp_flags))
+		return FALSE
+
+	return TRUE

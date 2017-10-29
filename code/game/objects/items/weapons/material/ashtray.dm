@@ -1,5 +1,3 @@
-var/global/list/ashtray_cache = list()
-
 /obj/item/weapon/material/ashtray
 	name = "ashtray"
 	icon = 'icons/obj/objects.dmi'
@@ -22,23 +20,20 @@ var/global/list/ashtray_cache = list()
 
 /obj/item/weapon/material/ashtray/update_icon()
 	color = null
-	overlays.Cut()
+	cut_overlays()
+	var/list/ashtray_cache = SSicon_cache.ashtray_cache
 	var/cache_key = "base-[material.name]"
 	if(!ashtray_cache[cache_key])
 		var/image/I = image('icons/obj/objects.dmi',"ashtray")
 		I.color = material.icon_colour
 		ashtray_cache[cache_key] = I
-	overlays |= ashtray_cache[cache_key]
+	add_overlay(ashtray_cache[cache_key])
 
 	if (contents.len == max_butts)
-		if(!ashtray_cache["full"])
-			ashtray_cache["full"] = image('icons/obj/objects.dmi',"ashtray_full")
-		overlays |= ashtray_cache["full"]
+		add_overlay("ashtray_full")
 		desc = "It's stuffed full."
 	else if (contents.len > max_butts/2)
-		if(!ashtray_cache["half"])
-			ashtray_cache["half"] = image('icons/obj/objects.dmi',"ashtray_half")
-		overlays |= ashtray_cache["half"]
+		add_overlay("ashtray_half")
 		desc = "It's half-filled."
 	else
 		desc = "An ashtray made of [material.display_name]."
@@ -57,7 +52,7 @@ var/global/list/ashtray_cache = list()
 			var/obj/item/clothing/mask/smokable/cigarette/cig = W
 			if (cig.lit == 1)
 				src.visible_message("[user] crushes [cig] in \the [src], putting it out.")
-				processing_objects.Remove(cig)
+				STOP_PROCESSING(SSprocessing, cig)
 				var/obj/item/butt = new cig.type_butt(src)
 				cig.transfer_fingerprints_to(butt)
 				qdel(cig)

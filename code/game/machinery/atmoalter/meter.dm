@@ -17,7 +17,7 @@
 	if (!target)
 		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
 
-/obj/machinery/meter/process()
+/obj/machinery/meter/machinery_process()
 	if(!target)
 		icon_state = "meterX"
 		return 0
@@ -91,7 +91,7 @@
 	return ..()
 
 /obj/machinery/meter/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W))
 		return ..()
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 	user << "<span class='notice'>You begin to unfasten \the [src]...</span>"

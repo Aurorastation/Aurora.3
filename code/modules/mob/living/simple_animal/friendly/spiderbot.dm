@@ -42,8 +42,8 @@
 	pass_flags = PASSTABLE | PASSDOORHATCH
 	speak_emote = list("beeps","clicks","chirps")
 
-/mob/living/simple_animal/spiderbot/New()
-	..()
+/mob/living/simple_animal/spiderbot/Initialize()
+	. = ..()
 	add_language("Ceti Basic")
 	default_language = all_languages["Ceti Basic"]
 	verbs |= /mob/living/proc/ventcrawl
@@ -92,7 +92,7 @@
 		src.update_icon()
 		return 1
 
-	if (istype(O, /obj/item/weapon/weldingtool))
+	if (iswelder(O))
 		var/obj/item/weapon/weldingtool/WT = O
 		if (WT.remove_fuel(0))
 			if(health < maxHealth)
@@ -185,14 +185,14 @@
 	eject_brain()
 	return ..()
 
-/mob/living/simple_animal/spiderbot/New()
+/mob/living/simple_animal/spiderbot/Initialize()
+	. = ..()
 
 	radio = new /obj/item/device/radio/borg(src)
 	camera = new /obj/machinery/camera(src)
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
 
-	..()
 
 /mob/living/simple_animal/spiderbot/death()
 

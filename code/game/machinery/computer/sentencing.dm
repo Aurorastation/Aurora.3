@@ -1,8 +1,8 @@
 /obj/machinery/computer/sentencing
 	name = "criminal sentencing console"
 	desc = "Used to generate a criminal sentence."
-	icon_state = "securityw"
-	icon_screen = null
+	icon_state = "computerw"
+	icon_screen = "securityw"
 	light_color = LIGHT_COLOR_ORANGE
 	req_one_access = list( access_brig, access_heads )
 	circuit = "/obj/item/weapon/circuitboard/sentencing"
@@ -626,6 +626,8 @@
 			if( incident_notes != null )
 				incident.notes = incident_notes
 		if( "render_guilty" )
+			if( !incident )
+				return
 			if( !incident.notes )
 				if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
 					return

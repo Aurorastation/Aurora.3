@@ -39,8 +39,8 @@
 	faction = "scarybat"
 	var/mob/living/owner
 
-/mob/living/simple_animal/hostile/scarybat/New(loc, mob/living/L as mob)
-	..()
+/mob/living/simple_animal/hostile/scarybat/Initialize(mapload, mob/living/L as mob)
+	. = ..()
 	if(istype(L))
 		owner = L
 
@@ -81,6 +81,7 @@
 /mob/living/simple_animal/hostile/scarybat/cult
 	faction = "cult"
 	supernatural = 1
+	tameable = FALSE
 
 /mob/living/simple_animal/hostile/scarybat/cult/cultify()
 	return
@@ -88,3 +89,12 @@
 /mob/living/simple_animal/hostile/scarybat/cult/Life()
 	..()
 	check_horde()
+
+/mob/living/simple_animal/hostile/scarybat/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/scarybat/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/scarybat/CanAvoidGravity()
+	return TRUE

@@ -115,6 +115,12 @@ default behaviour is:
 				now_pushing = 1
 
 				if (!AM.anchored)
+					if(isobj(AM))
+						var/obj/O = AM
+						if ((can_pull_size == 0) || (can_pull_size < O.w_class))
+							now_pushing = 0
+							return
+
 					var/t = get_dir(src, AM)
 					if (istype(AM, /obj/structure/window))
 						for(var/obj/structure/window/win in get_step(AM,t))
@@ -159,8 +165,7 @@ default behaviour is:
 /mob/living/verb/succumb()
 	set hidden = 1
 	if ((src.health < 0 && src.health > -95.0))
-		src.adjustOxyLoss(src.health + 200)
-		src.health = 100 - src.getOxyLoss() - src.getToxLoss() - src.getFireLoss() - src.getBruteLoss()
+		src.death()
 		src << "<span class='notice'>You have given up life and succumbed to death.</span>"
 	else
 		src << "<span class='warning'>You are not injured enough to succumb to death!</span>"
@@ -290,7 +295,6 @@ default behaviour is:
 
 /mob/living/proc/adjustHalLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
-
 	halloss = min(max(halloss + amount, 0),(maxHealth*2))
 
 /mob/living/carbon/adjustHalLoss(var/amount, var/ignoreImmunity = 0)//An inherited version so this doesnt affect cyborgs
@@ -405,9 +409,15 @@ default behaviour is:
 /mob/living/proc/restore_all_organs()
 	return
 
+/mob/living/update_gravity(has_gravity)
+	if(!ROUND_IS_STARTED)
+		return
+	if(has_gravity)
+		stop_floating()
+	else
+		start_floating()
 
-
-/mob/living/proc/revive()
+/mob/living/proc/revive(reset_to_roundstart = TRUE)	// this param is only used in human regen.
 	// Stop killing yourself. Please.
 //	if(suiciding)
 //		suiciding = 0

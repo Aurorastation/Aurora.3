@@ -231,7 +231,7 @@
 	switch(W.damtype)
 		if("fire")
 			damage = (W.force / fire_resist)
-			if(istype(W, /obj/item/weapon/weldingtool))
+			if(iswelder(W))
 				playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 		if("brute")
 			if(prob(30) && !issilicon(user))

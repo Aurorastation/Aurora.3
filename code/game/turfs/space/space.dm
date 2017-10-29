@@ -16,6 +16,8 @@
 //	heat_capacity = 700000 No.
 	is_hole = TRUE
 
+	permit_ao = FALSE
+
 /turf/space/proc/build_dust_cache()
 	LAZYINITLIST(dust_cache)
 	for (var/i in 0 to 25)
@@ -59,6 +61,12 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
+/turf/space/can_have_cabling()
+	if (locate(/obj/structure/lattice/catwalk) in src)
+		return 1
+
+	return 0
+
 /turf/space/proc/update_starlight()
 	if(config.starlight)
 		for (var/T in RANGE_TURFS(1, src))
@@ -96,8 +104,8 @@
 			return
 		else
 			user << "<span class='warning'>The plating is going to need some support.</span>"
-	return
-
+	
+	..(C, user)
 
 // Ported from unstable r355
 

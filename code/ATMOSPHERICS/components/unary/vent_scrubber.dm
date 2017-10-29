@@ -28,14 +28,13 @@
 	var/radio_filter_in
 
 	var/welded = 0
-	//no_special_init = TRUE
 
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = 1
 	icon_state = "map_scrubber_on"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/New()
-	..()
+/obj/machinery/atmospherics/unary/vent_scrubber/Initialize()
+	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_FILTER
 
 
@@ -53,9 +52,9 @@
 	if (frequency)
 		set_frequency(frequency)
 	
-	initialize()
+	atmos_init()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/initialize()
+/obj/machinery/atmospherics/unary/vent_scrubber/atmos_init()
 	..()
 	broadcast_status()
 
@@ -131,7 +130,7 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_scrubber/process()
+/obj/machinery/atmospherics/unary/vent_scrubber/machinery_process()
 	..()
 
 	if (hibernate > world.time)
@@ -260,7 +259,7 @@
 		update_icon()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (istype(W, /obj/item/weapon/wrench))
+	if (iswrench(W))
 		if (!(stat & NOPOWER) && use_power)
 			user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"
 			return 1
@@ -285,7 +284,7 @@
 			qdel(src)
 		return 1
 
-	if(istype(W, /obj/item/weapon/weldingtool))
+	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.welding)
 			user << "<span class='danger'>\The [WT] must be turned on!</span>"

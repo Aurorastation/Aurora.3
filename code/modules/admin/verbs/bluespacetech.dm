@@ -70,7 +70,7 @@
 		bst.equip_to_slot_or_del(new /obj/item/device/pda/captain/bst(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/device/multitool(bst.back), slot_in_backpack)
 
-		var/obj/item/weapon/storage/box/pills = new /obj/item/weapon/storage/box
+		var/obj/item/weapon/storage/box/pills = new /obj/item/weapon/storage/box(null, TRUE)
 		pills.name = "adminordrazine"
 		for(var/i = 1, i < 12, i++)
 			new /obj/item/weapon/reagent_containers/pill/adminordrazine(pills)
@@ -134,6 +134,7 @@
 /mob/living/carbon/human/bst
 	universal_understand = 1
 	status_flags = GODMODE
+	var/fall_override = TRUE
 
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
 	user << span("alert", "The [src] disarms you before you can inject them.")
@@ -156,7 +157,7 @@
 				bsu()
 			if("Skrell")
 				bss()
-			if("Vaurca")
+			if("Vaurca Worker")
 				bsv()
 		return
 
@@ -290,9 +291,17 @@
 		key = null
 		suicide()
 
-/mob/living/carbon/human/bst/say(var/message)
-	var/verb = "says in a subdued tone"
-	..(message, verb)
+/mob/living/carbon/human/bst/verb/antigrav()
+	set name = "Toggle Gravity"
+	set desc = "Toggles on/off falling for you."
+	set category = "BST"
+
+	if (fall_override)
+		fall_override = FALSE
+		to_chat(usr, "<span class='notice'>You will now fall normally.</span>")
+	else
+		fall_override = TRUE
+		to_chat(usr, "<span class='notice'>You will no longer fall.</span>")
 
 /mob/living/carbon/human/bst/verb/bstwalk()
 	set name = "Ruin Everything"
@@ -436,6 +445,26 @@
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	canremove = 0
+
+/obj/item/clothing/glasses/sunglasses/bst/verb/toggle_xray(mode in list("X-Ray without Lighting", "X-Ray with Lighting", "Normal"))
+	set name = "Change Vision Mode"
+	set desc = "Changes your glasses' vision mode."
+	set category = "BST"
+	set src in usr
+
+	switch (mode)
+		if ("X-Ray without Lighting")
+			vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
+			see_invisible = SEE_INVISIBLE_NOLIGHTING
+		if ("X-Ray with Lighting")
+			vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
+			see_invisible = -1
+		if ("Normal")
+			vision_flags = 0
+			see_invisible = -1
+
+	usr << "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>.</span>"
+
 /*	New()
 		..()
 		src.hud += new/obj/item/clothing/glasses/hud/security(src)

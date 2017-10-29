@@ -28,7 +28,7 @@
 		connect(port)
 		update_icon()
 
-/obj/machinery/portable_atmospherics/process()
+/obj/machinery/portable_atmospherics/machinery_process()
 	if(!connected_port) //only react when pipe_network will ont it do it for you
 		//Allow for reactions
 		air_contents.react()
@@ -109,7 +109,7 @@
 		update_icon()
 		return
 
-	else if (istype(W, /obj/item/weapon/wrench))
+	else if (iswrench(W))
 		if(connected_port)
 			disconnect()
 			user << "<span class='notice'>You disconnect \the [src] from the port.</span>"
@@ -143,6 +143,7 @@
 	var/power_losses
 	var/last_power_draw = 0
 	var/obj/item/weapon/cell/cell
+	has_special_power_checks = TRUE
 
 /obj/machinery/portable_atmospherics/powered/powered()
 	if(use_power) //using area power
@@ -167,7 +168,7 @@
 		power_change()
 		return
 
-	if(istype(I, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(I))
 		if(!cell)
 			user << "<span class='warning'>There is no power cell installed.</span>"
 			return

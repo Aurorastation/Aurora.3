@@ -235,8 +235,8 @@
 			query.Execute()
 
 			if (query.NextRow())
-				arg_list[":id"] = text2num(query.item[1])
-				arg_list[":char_id"] = text2num(query.item[1])
+				arg_list["id"] = text2num(query.item[1])
+				arg_list["char_id"] = text2num(query.item[1])
 				cc.preferences.current_character = text2num(query.item[1])
 
 #ifdef SQL_PREF_DEBUG

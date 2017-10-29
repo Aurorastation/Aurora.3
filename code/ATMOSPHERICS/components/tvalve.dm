@@ -46,9 +46,9 @@
 /obj/machinery/atmospherics/tvalve/hide(var/i)
 	update_underlays()
 
-/obj/machinery/atmospherics/tvalve/New()
+/obj/machinery/atmospherics/tvalve/Initialize()
 	initialize_directions()
-	..()
+	. = ..()
 
 /obj/machinery/atmospherics/tvalve/proc/initialize_directions()
 	switch(dir)
@@ -179,14 +179,11 @@
 	else
 		src.go_to_side()
 
-/obj/machinery/atmospherics/tvalve/process()
+/obj/machinery/atmospherics/tvalve/machinery_process()
 	..()
 	. = PROCESS_KILL
-	//machines.Remove(src)
 
-	return
-
-/obj/machinery/atmospherics/tvalve/initialize()
+/obj/machinery/atmospherics/tvalve/atmos_init()
 	var/node1_dir
 	var/node2_dir
 	var/node3_dir
@@ -320,7 +317,7 @@
 
 
 
-/obj/machinery/atmospherics/tvalve/digital/initialize()
+/obj/machinery/atmospherics/tvalve/digital/atmos_init()
 	..()
 	if(frequency)
 		set_frequency(frequency)
@@ -345,7 +342,7 @@
 				go_to_side()
 
 /obj/machinery/atmospherics/tvalve/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W))
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/tvalve/digital))
 		user << "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>"
@@ -384,7 +381,7 @@
 		if(WEST)
 			initialize_directions = EAST|WEST|SOUTH
 
-/obj/machinery/atmospherics/tvalve/mirrored/initialize()
+/obj/machinery/atmospherics/tvalve/mirrored/atmos_init()
 	var/node1_dir
 	var/node2_dir
 	var/node3_dir
@@ -458,7 +455,7 @@
 	if(frequency)
 		radio_connection = SSradio.add_object(src, frequency, RADIO_ATMOSIA)
 
-/obj/machinery/atmospherics/tvalve/mirrored/digital/initialize()
+/obj/machinery/atmospherics/tvalve/mirrored/digital/atmos_init()
 	..()
 	if(frequency)
 		set_frequency(frequency)

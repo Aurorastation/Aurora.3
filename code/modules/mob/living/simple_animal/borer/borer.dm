@@ -18,6 +18,8 @@
 	attacktext = "nipped"
 	friendly = "prods"
 	wander = 0
+	maxHealth = 40
+	health = 40
 	pass_flags = PASSTABLE
 	universal_understand = 1
 	holder_type = /obj/item/weapon/holder/borer
@@ -41,8 +43,8 @@
 	if(mind)
 		borers.add_antagonist(mind)
 
-/mob/living/simple_animal/borer/New()
-	..()
+/mob/living/simple_animal/borer/Initialize()
+	. = ..()
 
 	add_language("Cortical Link")
 	verbs += /mob/living/proc/ventcrawl

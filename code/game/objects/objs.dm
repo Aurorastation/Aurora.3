@@ -6,7 +6,7 @@
 	var/unacidable = 0 //universal "unacidabliness" var, here so you can use it in any obj.
 	animate_movement = 2
 	var/throwforce = 1
-	var/list/attack_verb = list() //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
+	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
 	var/sharp = 0		// whether this object cuts
 	var/edge = 0		// whether this object is more likely to dismember
 	var/in_use = 0 // If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
@@ -23,8 +23,8 @@
 	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
 
 	var/equip_slot = 0
+
 /obj/Destroy()
-	processing_objects -= src
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 

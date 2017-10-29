@@ -52,6 +52,8 @@
 	oxygen = 0
 	nitrogen = 0
 
+	roof_type = null
+
 /turf/simulated/floor/reinforced/airmix
 	oxygen = MOLES_O2ATMOS
 	nitrogen = MOLES_N2ATMOS
@@ -80,7 +82,7 @@
 
 /turf/simulated/floor/reinforced/n20/Initialize()
 	. = ..()
-	if(!air) 
+	if(!air)
 		make_air()
 	air.adjust_gas("sleeping_agent", ATMOSTANK_NITROUSOXIDE)
 
@@ -113,6 +115,7 @@
 /turf/simulated/floor/tiled/steel/airless
 	oxygen = 0
 	nitrogen = 0
+	roof_type = null
 
 /turf/simulated/floor/tiled/white
 	name = "white floor"
@@ -154,6 +157,7 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
+	roof_type = null
 
 /turf/simulated/floor/airless
 	name = "airless plating"
@@ -161,6 +165,8 @@
 	nitrogen = 0
 	temperature = TCMB
 	footstep_sound = "concretestep"
+
+	roof_type = null
 
 /turf/simulated/floor/tiled/airless
 	name = "airless floor"
@@ -190,43 +196,34 @@
 	temperature = TCMB
 
 // Placeholders
+
 /turf/simulated/floor/airless/lava
-/turf/simulated/floor/light
+	name = "lava"
+	icon = 'icons/turf/flooring/lava.dmi'
+	icon_state = "lava"
+
+/turf/simulated/floor/ice
+	name = "ice"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "ice"
+
 /turf/simulated/floor/snow
+	name = "snow"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snow"
 	footstep_sound = "gravelstep"
-/turf/simulated/floor/plating/snow
-	footstep_sound = "gravelstep"
-/turf/simulated/floor/airless/ceiling
 
-/turf/simulated/floor/beach
-	name = "beach"
-	icon = 'icons/misc/beach.dmi'
-	footstep_sound = "sandstep"
-
-/turf/simulated/floor/beach/sand
-	name = "sand"
-	icon_state = "sand"
-
-/turf/simulated/floor/beach/sand/desert
-	icon_state = "desert"
-
-/turf/simulated/floor/beach/coastline
-	name = "coastline"
-	icon = 'icons/misc/beach2.dmi'
-	icon_state = "sandwater"
-	footstep_sound = "waterstep"
-
-/turf/simulated/floor/beach/water
-	name = "water"
-	icon_state = "water"
-	footstep_sound = "waterstep"
-
-/turf/simulated/floor/beach/water/update_dirt()
-	return	// Water doesn't become dirty
-
-/turf/simulated/floor/beach/water/ocean
-	icon_state = "seadeep"
-
-/turf/simulated/floor/beach/water/Initialize()
+/turf/simulated/floor/snow/Initialize()
 	. = ..()
-	add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1))
+	icon_state = pick("snow[rand(1,12)]","snow0")
+
+/turf/simulated/floor/plating/snow
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snowplating"
+	footstep_sound = "gravelstep"
+
+/turf/simulated/floor/airless/ceiling
+	icon_state = "asteroidplating"
+	baseturf = /turf/space
+
+/turf/simulated/floor/light

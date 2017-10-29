@@ -17,6 +17,7 @@
 	//Also used on holdable mobs for the same info related to their held version
 
 	var/can_hold_mob = FALSE
+	var/list/contained_mobs
 
 // We don't really need this, and apparently defining it slows down GC.
 /*/atom/movable/Del()
@@ -48,17 +49,6 @@
 		return
 	..()
 	return
-
-/atom/movable/proc/forceMove(atom/destination)
-	if(destination)
-		if(loc)
-			loc.Exited(src)
-		loc = destination
-		loc.Entered(src)
-		update_client_hook(loc)
-		return 1
-	update_client_hook(loc)
-	return 0
 
 //called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
@@ -203,8 +193,7 @@
 	anchored = 1
 
 /atom/movable/overlay/New()
-	for(var/x in src.verbs)
-		src.verbs -= x
+	verbs.Cut()
 	..()
 
 /atom/movable/overlay/attackby(a, b)
@@ -218,7 +207,7 @@
 	return
 
 /atom/movable/proc/touch_map_edge()
-	if(z in config.sealed_levels)
+	if(z in current_map.sealed_levels)
 		return
 
 	if(config.use_overmap)
@@ -252,30 +241,65 @@
 		spawn(0)
 			if(loc) loc.Entered(src)
 
-//This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
-var/list/accessible_z_levels = list("8" = 5, "9" = 10, "7" = 15, "2" = 60)
-
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
-	var/list/candidates = accessible_z_levels.Copy()
-	candidates.Remove("[src.z]")
-
-	if(!candidates.len)
-		return null
-	return text2num(pickweight(candidates))
+	return current_map.get_transit_zlevel()
 
 // Parallax stuff.
 
 /atom/movable/proc/update_client_hook(atom/destination)
-	if(locate(/mob) in src)
-		for(var/client/C in SSparallax.parallax_on_clients)
-			if((get_turf(C.eye) == destination) && (C.mob.hud_used))
-				C.mob.hud_used.update_parallax_values()
+	. = isturf(destination)
+	if (.)
+		for (var/thing in contained_mobs)
+			var/mob/M = thing
+			if (!M.client || !M.hud_used)
+				continue
+
+			if (get_turf(M.client.eye) == destination)
+				M.hud_used.update_parallax_values()
 
 /mob/update_client_hook(atom/destination)
-	if(locate(/mob) in src)
-		for(var/client/C in SSparallax.parallax_on_clients)
-			if((get_turf(C.eye) == destination) && (C.mob.hud_used))
-				C.mob.hud_used.update_parallax_values()
-	else if(client && hud_used)
+	. = ..()
+	if (. && hud_used && client && get_turf(client.eye) == destination)
 		hud_used.update_parallax_values()
+
+// Core movement hooks & procs.
+/atom/movable/proc/forceMove(atom/destination)
+	if(destination)
+		if(loc)
+			loc.Exited(src)
+		loc = destination
+		loc.Entered(src)
+		if (contained_mobs)
+			update_client_hook(loc)
+		return 1
+	if (contained_mobs)
+		update_client_hook(loc)
+	return 0
+
+/atom/movable/Move()
+	var/old_loc = loc
+	. = ..()
+	if (.)
+		// Events.
+		if (moved_event.listeners_assoc[src])
+			moved_event.raise_event(src, old_loc, loc)
+
+		// Parallax.
+		if (contained_mobs)
+			update_client_hook(loc)
+
+		// Lighting.
+		if (light_sources)
+			var/datum/light_source/L
+			var/thing
+			for (thing in light_sources)
+				L = thing
+				L.source_atom.update_light()
+
+		// Openturf.
+		if (bound_overlay)
+			// The overlay will handle cleaning itself up on non-openspace turfs.
+			bound_overlay.forceMove(get_step(src, UP))
+			if (bound_overlay.dir != dir)
+				bound_overlay.set_dir(dir)

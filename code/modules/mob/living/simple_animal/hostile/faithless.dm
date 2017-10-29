@@ -14,6 +14,8 @@
 	health = 80
 	environment_smash = 2
 
+	tameable = FALSE
+
 	harm_intent_damage = 10
 	melee_damage_lower = 15
 	melee_damage_upper = 15
@@ -82,10 +84,18 @@
 	harm_intent_damage = 0
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	var/list/darkform_spells = list(/spell/targeted/ethereal_jaunt/shift,
-									/spell/aoe_turf/conjure/forcewall/lesser)
+	var/list/darkform_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
 
-/mob/living/simple_animal/hostile/faithless/wizard/New()
-	..()
+/mob/living/simple_animal/hostile/faithless/wizard/Initialize()
+	. = ..()
 	for(var/spell in darkform_spells)
 		src.add_spell(new spell, "const_spell_ready")
+
+/mob/living/simple_animal/hostile/faithless/can_fall()
+	return FALSE
+
+/mob/living/simple_animal/hostile/faithless/can_ztravel()
+	return TRUE
+
+/mob/living/simple_animal/hostile/faithless/CanAvoidGravity()
+	return TRUE

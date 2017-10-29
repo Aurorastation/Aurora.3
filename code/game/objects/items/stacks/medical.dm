@@ -64,6 +64,7 @@
 	icon_state = "brutepack"
 	origin_tech = list(TECH_BIO = 1)
 	heal_brute = 4
+	icon_has_variants = TRUE
 
 /obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -126,6 +127,7 @@
 	icon_state = "ointment"
 	heal_burn = 4
 	origin_tech = list(TECH_BIO = 1)
+	icon_has_variants = TRUE
 
 /obj/item/stack/medical/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -169,7 +171,7 @@
 	if(..())
 		return 1
 
-	if (istype(M, /mob/living/carbon/human))
+	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 

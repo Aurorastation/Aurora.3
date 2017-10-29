@@ -2,14 +2,14 @@
 	luminosity           = TRUE
 	var/dynamic_lighting = TRUE
 
-/area/New()
+/area/Initialize()
 	. = ..()
 
 	if (dynamic_lighting)
 		luminosity = FALSE
 
 /area/proc/set_dynamic_lighting(var/new_dynamic_lighting = TRUE)
-	L_PROF(src, "area_sdl")
+	//L_PROF(src, "area_sdl")
 
 	if (new_dynamic_lighting == dynamic_lighting)
 		return FALSE

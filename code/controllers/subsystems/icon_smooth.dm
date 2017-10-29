@@ -17,6 +17,9 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 /datum/controller/subsystem/icon_smooth/Recover()
 	smooth_queue = SSicon_smooth.smooth_queue
 
+/datum/controller/subsystem/icon_smooth/stat_entry()
+	..("Q:[smooth_queue.len]")
+
 /datum/controller/subsystem/icon_smooth/fire()
 	if (explosion_in_progress)
 		return
@@ -39,6 +42,11 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 /datum/controller/subsystem/icon_smooth/Initialize()
 	for (var/zlevel = 1 to world.maxz)
 		smooth_zlevel(zlevel, FALSE)
+
+	if (config.fastboot)
+		log_debug("icon_smoothing: Skipping prebake, fastboot enabled.")
+		..()
+		return
 
 	var/queue = smooth_queue
 	smooth_queue = list()

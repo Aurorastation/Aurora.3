@@ -57,15 +57,15 @@
 		if(applies_material_colour)
 			color = material.icon_colour
 		if(material.products_need_process())
-			processing_objects |= src
+			START_PROCESSING(SSprocessing, src)
 		update_force()
 
 /obj/item/weapon/material/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/weapon/material/apply_hit_effect()
-	..()
+	. = ..()
 	if(!unbreakable)
 		if(material.is_brittle())
 			health = 0
@@ -92,7 +92,7 @@ Commenting this out pending rebalancing of radiation based on small objects.
 	if(!material.radioactivity)
 		return
 	for(var/mob/living/L in range(1,src))
-		L.apply_effect(round(material.radioactivity/30),IRRADIATE,0)
+		L.apply_effect(round(material.radioactivity/30),IRRADIATE, blocked = L.getarmor(null, "rad"))
 */
 
 /*
@@ -106,7 +106,7 @@ Commenting this out pending rebalancing of radiation based on small objects.
 	check_health(1)
 
 /obj/item/weapon/material/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/weldingtool))
+	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(material.ignition_point && WT.remove_fuel(0, user))
 			TemperatureAct(150)

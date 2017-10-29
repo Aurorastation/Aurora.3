@@ -1,11 +1,11 @@
-/mob/living/carbon/New()
+/mob/living/carbon/Initialize()
 	//setup reagent holders
 	bloodstr = new/datum/reagents/metabolism(1000, src, CHEM_BLOOD)
 	ingested = new/datum/reagents/metabolism(1000, src, CHEM_INGEST)
 	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
 	reagents = bloodstr
 
-	..()
+	. = ..()
 
 /mob/living/carbon/Life()
 	..()
@@ -133,7 +133,7 @@
 /mob/living/carbon/swap_hand()
 	var/obj/item/item_in_hand = src.get_active_hand()
 	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
-		if(istype(item_in_hand,/obj/item/weapon/material/twohanded))
+		if(istype(item_in_hand,/obj/item/weapon/material/twohanded) || istype(item_in_hand,/obj/item/weapon/gun) || istype(item_in_hand,/obj/item/weapon/pickaxe))
 			if(item_in_hand:wielded == 1)
 				usr << "<span class='warning'>Your other hand is too busy holding the [item_in_hand.name]</span>"
 				return
@@ -303,8 +303,8 @@
 				H.update_inv_gloves(0)
 			H.gloves.germ_level = 0
 		else
-			if(H.bloody_hands)
-				H.bloody_hands = 0
+			if(!isnull(H.bloody_hands))
+				H.bloody_hands = null
 				H.update_inv_gloves(0)
 			H.germ_level = 0
 	update_icons()	//apply the now updated overlays to the mob

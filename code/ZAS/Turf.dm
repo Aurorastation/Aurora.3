@@ -43,9 +43,26 @@
 		if(istype(unsim, /turf/simulated))
 
 			var/turf/simulated/sim = unsim
-			if(SSair.has_valid_zone(sim))
+			if(TURF_HAS_VALID_ZONE(sim))
 
 				SSair.connect(sim, src)
+
+
+// Helper for can_safely_remove_from_zone().
+#define GET_ZONE_NEIGHBOURS(T, ret) \
+	ret = 0; \
+	if (T.zone) { \
+		for (var/_gzn_dir in gzn_check) { \
+			var/turf/simulated/other = get_step(T, _gzn_dir); \
+			if (istype(other) && other.zone == T.zone) { \
+				var/block; \
+				ATMOS_CANPASS_TURF(block, other, T); \
+				if (!(block & AIR_BLOCKED)) { \
+					ret |= _gzn_dir; \
+				} \
+			} \
+		} \
+	} \
 
 /*
 	Simple heuristic for determining if removing the turf from it's zone will not partition the zone (A very bad thing).
@@ -54,41 +71,27 @@
 */
 
 /turf/simulated/proc/can_safely_remove_from_zone()
-	if(!zone) return 1
+	if(!zone)
+		return 1
 
-	var/check_dirs = get_zone_neighbours(src)
-	var/unconnected_dirs = check_dirs
-	var/to_check = list(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
-	#ifdef MULTIZAS
-	to_check += list(NORTHUP, EASTUP, WESTUP, SOUTHUP, NORTHDOWN, EASTDOWN, WESTDOWN, SOUTHDOWN)
-	#endif
-	for(var/dir in to_check)
+	var/check_dirs
+	GET_ZONE_NEIGHBOURS(src, check_dirs)
+	. = check_dirs
+	for(var/dir in csrfz_check)
 
 		//for each pair of "adjacent" cardinals (e.g. NORTH and WEST, but not NORTH and SOUTH)
 		if((dir & check_dirs) == dir)
 			//check that they are connected by the corner turf
-			var/connected_dirs = get_zone_neighbours(get_step(src, dir))
+			var/turf/simulated/T = get_step(src, dir)
+			var/connected_dirs
+			GET_ZONE_NEIGHBOURS(T, connected_dirs)
 			if(connected_dirs && (dir & reverse_dir[connected_dirs]) == dir)
-				unconnected_dirs &= ~dir //they are, so unflag the cardinals in question
+				. &= ~dir //they are, so unflag the cardinals in question
 
 	//it is safe to remove src from the zone if all cardinals are connected by corner turfs
-	return !unconnected_dirs
+	. = !.
 
-//helper for can_safely_remove_from_zone()
-/turf/simulated/proc/get_zone_neighbours(turf/simulated/T)
-	. = 0
-	if(istype(T) && T.zone)
-		var/to_check = cardinal.Copy()
-		#ifdef MULTIZAS
-		to_check += list(UP, DOWN)
-		#endif
-		for(var/dir in to_check)
-			var/turf/simulated/other = get_step(T, dir)
-			if (istype(other) && other.zone == T.zone)
-				var/block
-				ATMOS_CANPASS_TURF(block, other, T)
-				if (!(block & AIR_BLOCKED) && get_dist(src, other) <= 1)
-					. |= dir
+#undef GET_ZONE_NEIGHBOURS
 
 /turf/simulated/update_air_properties()
 
@@ -150,11 +153,15 @@
 			#endif
 
 			//Check that our zone hasn't been cut off recently.
-			//This happens when windows move or are constructed. We need to rebuild.
+			//This happens when windows move or are constructed. Try to remove first, otherwise we need to rebuild.
 			if((previously_open & d) && istype(unsim, /turf/simulated))
 				var/turf/simulated/sim = unsim
 				if(zone && sim.zone == zone)
-					zone.rebuild()
+					if (can_safely_remove_from_zone())
+						c_copy_air()
+						zone.remove(src)
+					else
+						zone.rebuild()
 					return
 
 			continue
@@ -166,8 +173,7 @@
 			var/turf/simulated/sim = unsim
 			sim.open_directions |= reverse_dir[d]
 
-			if(SSair.has_valid_zone(sim))
-
+			if(TURF_HAS_VALID_ZONE(sim))
 				//Might have assigned a zone, since this happens for each direction.
 				if(!zone)
 
@@ -182,11 +188,8 @@
 						#endif
 
 						//Postpone this tile rather than exit, since a connection can still be made.
-						if(!postponed) postponed = list()
-						postponed.Add(sim)
-
+						LAZYADD(postponed, sim)
 					else
-
 						sim.zone.add(src)
 
 						#ifdef ZASDBG
@@ -202,21 +205,17 @@
 
 					SSair.connect(src, sim)
 
-
 			#ifdef ZASDBG
 				else if(verbose) log_debug("[d] has same zone.")
 
 			else if(verbose) log_debug("[d] has invalid zone.")
 			#endif
-
 		else
-
 			//Postponing connections to tiles until a zone is assured.
-			if(!postponed) postponed = list()
-			postponed.Add(unsim)
+			LAZYADD(postponed, unsim)
 
-	if(!SSair.has_valid_zone(src)) //Still no zone, make a new one.
-		var/zone/newzone = new/zone()
+	if(!TURF_HAS_VALID_ZONE(src)) //Still no zone, make a new one.
+		var/zone/newzone = new
 		newzone.add(src)
 
 	#ifdef ZASDBG
@@ -227,7 +226,8 @@
 
 	//At this point, a zone should have happened. If it hasn't, don't add more checks, fix the bug.
 
-	for(var/turf/T in postponed)
+	for(var/thing in postponed)
+		var/turf/T = thing
 		SSair.connect(src, T)
 
 /turf/proc/post_update_air_properties()
@@ -304,6 +304,7 @@
 	air.volume = CELL_VOLUME
 
 /turf/simulated/proc/c_copy_air()
-	if(!air) air = new/datum/gas_mixture
-	air.copy_from(zone.air)
+	if(!air)
+		air = new /datum/gas_mixture
 	air.group_multiplier = 1
+	air.copy_from(zone.air, TRUE)

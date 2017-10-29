@@ -159,6 +159,10 @@
 		return -1 //Transciever Disabled.
 	return ..(freq, level, 1)
 
+/obj/item/device/radio/headset/heads/ai_integrated/Destroy()
+	myAi = null
+	return ..()
+
 /obj/item/device/radio/headset/heads/rd
 	name = "research director's headset"
 	desc = "Headset of the researching God."
@@ -232,10 +236,10 @@
 /obj/item/device/radio/headset/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
-	if (!( istype(W, /obj/item/weapon/screwdriver) || (istype(W, /obj/item/device/encryptionkey/ ))))
+	if (!( isscrewdriver(W) || (istype(W, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		if(keyslot1 || keyslot2)
 
 

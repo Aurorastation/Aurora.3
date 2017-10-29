@@ -13,6 +13,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	handle_casings = HOLD_CASINGS
+	fire_sound = 'sound/weapons/shotgun.ogg'
 	var/recentpump = 0 // to prevent spammage
 
 	action_button_name = "Wield rifle"
@@ -59,6 +60,14 @@
 
 	update_icon()
 
+/obj/item/weapon/gun/projectile/shotgun/pump/update_icon()
+	..()
+	if(wielded)
+		item_state = "[icon_state]-wielded"
+	else
+		item_state = "[icon_state]"
+	update_held_icon()
+
 /obj/item/weapon/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
@@ -67,6 +76,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
+	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
 
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
@@ -85,6 +95,7 @@
 	caliber = "shotgun"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	fire_sound = 'sound/weapons/shotgun.ogg'
 
 	burst_delay = 0
 	firemodes = list(

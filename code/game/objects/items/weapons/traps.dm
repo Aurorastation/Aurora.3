@@ -11,6 +11,7 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 18750)
 	var/deployed = 0
+	var/time_to_escape = 60
 
 /obj/item/weapon/beartrap/proc/can_use(mob/user)
 	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
@@ -36,13 +37,25 @@
 			update_icon()
 			anchored = 1
 
+/obj/item/weapon/beartrap/user_unbuckle_mob(mob/user as mob)
+	if(buckled_mob && can_use(user))
+		user.visible_message(
+			"<span class='notice'>\The [user] begins freeing \the [buckled_mob] from \the [src].</span>",
+			"<span class='notice'>You carefully begin to free \the [buckled_mob] from \the [src].</span>",
+			"<span class='notice'>You hear metal creaking.</span>"
+			)
+		if(do_after(user, time_to_escape))
+			user.visible_message("<span class='notice'>\The [buckled_mob] has been freed from \the [src] by \the [user].</span>")
+			unbuckle_mob()
+			anchored = 0
+
 /obj/item/weapon/beartrap/attack_hand(mob/user as mob)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
 			"<span class='notice'>[user] begins freeing [buckled_mob] from \the [src].</span>",
 			"<span class='notice'>You carefully begin to free [buckled_mob] from \the [src].</span>"
 			)
-		if(do_after(user, 60))
+		if(do_after(user, time_to_escape))
 			user.visible_message("<span class='notice'>[buckled_mob] has been freed from \the [src] by [user].</span>")
 			unbuckle_mob()
 			anchored = 0
@@ -73,7 +86,7 @@
 
 	//armour
 	var/blocked = L.run_armor_check(target_zone, "melee")
-	if(blocked >= 2)
+	if(blocked >= 100)
 		return
 
 	var/success = L.apply_damage(30, BRUTE, target_zone, blocked, src)
@@ -81,19 +94,18 @@
 		return 0
 
 	//trap the victim in place
-	if(!blocked)
-		set_dir(L.dir)
-		can_buckle = 1
-		buckle_mob(L)
-		L << "<span class='danger'>The steel jaws of \the [src] bite into you, trapping you in place!</span>"
-		deployed = 0
-		can_buckle = initial(can_buckle)
-		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)//Really loud snapping sound
+	set_dir(L.dir)
+	can_buckle = 1
+	buckle_mob(L)
+	L << "<span class='danger'>The steel jaws of \the [src] bite into you, trapping you in place!</span>"
+	deployed = 0
+	can_buckle = initial(can_buckle)
+	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)//Really loud snapping sound
 
-		if (istype(L, /mob/living/simple_animal/hostile/bear))
-			var/mob/living/simple_animal/hostile/bear/bear = L
-			bear.anger += 15//Beartraps make bears really angry
-			bear.instant_aggro()
+	if (istype(L, /mob/living/simple_animal/hostile/bear))
+		var/mob/living/simple_animal/hostile/bear/bear = L
+		bear.anger += 15//Beartraps make bears really angry
+		bear.instant_aggro()
 
 /obj/item/weapon/beartrap/Crossed(AM as mob|obj)
 	if(deployed && isliving(AM))

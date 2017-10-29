@@ -18,7 +18,7 @@
 
 		return
 
-	initialize()
+	atmos_init()
 		if(!partner)
 			var/partner_connect = turn(dir,180)
 
@@ -30,7 +30,7 @@
 
 		..()
 
-	process()
+	machinery_process()
 		..()
 		if(QDELETED(partner))
 			return 0
@@ -66,7 +66,7 @@
 		return 1
 
 	attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-		if (!istype(W, /obj/item/weapon/wrench))
+		if (!iswrench(W))
 			return ..()
 		var/turf/T = src.loc
 		if (level==1 && isturf(T) && !T.is_plating())

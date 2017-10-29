@@ -59,7 +59,7 @@
 #define COMPFRICTION 5e5
 #define COMPSTARTERLOAD 2800
 
-/obj/machinery/compressor/process()
+/obj/machinery/compressor/machinery_process()
 	if(!starter)
 		return
 	overlays.Cut()
@@ -117,7 +117,7 @@
 #define TURBGENQ 20000
 #define TURBGENG 0.8
 
-/obj/machinery/power/turbine/process()
+/obj/machinery/power/turbine/machinery_process()
 	if(!compressor.starter)
 		return
 	overlays.Cut()
@@ -219,17 +219,17 @@
 /obj/machinery/computer/turbine_computer/New()
 	..()
 	spawn(5)
-		for(var/obj/machinery/compressor/C in machines)
+		for(var/obj/machinery/compressor/C in SSmachinery.all_machines)
 			if(id == C.comp_id)
 				compressor = C
 		doors = new /list()
-		for(var/obj/machinery/door/blast/P in machines)
+		for(var/obj/machinery/door/blast/P in SSmachinery.all_machines)
 			if(P.id == id)
 				doors += P
 
 /*
 /obj/machinery/computer/turbine_computer/attackby(I as obj, user as mob)
-	if(istype(I, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(I))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)
@@ -315,6 +315,6 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/turbine_computer/process()
+/obj/machinery/computer/turbine_computer/machinery_process()
 	src.updateDialog()
 	return

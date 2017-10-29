@@ -37,13 +37,13 @@
 /obj/machinery/atmospherics/valve/hide(var/i)
 	update_underlays()
 
-/obj/machinery/atmospherics/valve/New()
+/obj/machinery/atmospherics/valve/Initialize()
 	switch(dir)
 		if(NORTH || SOUTH)
 			initialize_directions = NORTH|SOUTH
 		if(EAST || WEST)
 			initialize_directions = EAST|WEST
-	..()
+	. = ..()
 
 /obj/machinery/atmospherics/valve/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	if(reference == node1)
@@ -136,13 +136,11 @@
 	else
 		src.open()
 
-/obj/machinery/atmospherics/valve/process()
+/obj/machinery/atmospherics/valve/machinery_process()
 	..()
-	. = PROCESS_KILL
+	return PROCESS_KILL
 
-	return
-
-/obj/machinery/atmospherics/valve/initialize()
+/obj/machinery/atmospherics/valve/atmos_init()
 	normalize_dir()
 
 	var/node1_dir
@@ -168,7 +166,7 @@
 
 	build_network()
 
-	update_icon()
+	queue_icon_update()
 	update_underlays()
 
 	if(openDuringInit)
@@ -264,7 +262,7 @@
 	var/old_stat = stat
 	..()
 	if(old_stat != stat)
-		update_icon()
+		queue_icon_update()
 
 /obj/machinery/atmospherics/valve/digital/update_icon()
 	..()
@@ -277,7 +275,7 @@
 	if(frequency)
 		radio_connection = SSradio.add_object(src, frequency, RADIO_ATMOSIA)
 
-/obj/machinery/atmospherics/valve/digital/initialize()
+/obj/machinery/atmospherics/valve/digital/atmos_init()
 	..()
 	if(frequency)
 		set_frequency(frequency)
@@ -302,7 +300,7 @@
 				open()
 
 /obj/machinery/atmospherics/valve/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W))
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/valve/digital))
 		user << "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>"

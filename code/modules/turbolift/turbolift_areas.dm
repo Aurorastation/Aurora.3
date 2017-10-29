@@ -10,3 +10,6 @@
 	var/lift_floor_name = null
 	var/lift_announce_str = "Ding!"
 	var/arrival_sound = 'sound/machines/ding.ogg'
+
+	holomap_color = HOLOMAP_AREACOLOR_LIFTS
+	forced_ambience = list('sound/music/elevatormusic.ogg')

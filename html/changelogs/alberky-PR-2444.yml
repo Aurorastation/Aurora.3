@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Dylovene and tricordrazine now have an overdose threshold."
-  - tweak: "Kelotane, dermaline, bicaridine and dexalin overdoses are more dangerous now."

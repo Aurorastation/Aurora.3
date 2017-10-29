@@ -25,10 +25,10 @@
 	melee_damage_upper = 5
 	var/datum/reagents/udder = null
 
-/mob/living/simple_animal/hostile/retaliate/goat/New()
+/mob/living/simple_animal/hostile/retaliate/goat/Initialize()
+	. = ..()
 	udder = new(50)
 	udder.my_atom = src
-	..()
 
 /mob/living/simple_animal/hostile/retaliate/goat/beg(var/atom/thing, var/atom/holder)
 	visible_emote("butts insistently at [holder]'s legs and reaches towards their [thing].",0)
@@ -113,10 +113,10 @@
 	var/datum/reagents/udder = null
 	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
 
-/mob/living/simple_animal/cow/New()
+/mob/living/simple_animal/cow/Initialize()
+	. = ..()
 	udder = new(50)
 	udder.my_atom = src
-	..()
 
 /mob/living/simple_animal/cow/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	var/obj/item/weapon/reagent_containers/glass/G = O
@@ -181,8 +181,8 @@
 	mob_size = 0.75//just a rough estimate, the real value should be way lower
 	hunger_enabled = FALSE
 
-/mob/living/simple_animal/chick/New()
-	..()
+/mob/living/simple_animal/chick/Initialize()
+	. = ..()
 	pixel_x = rand(-6, 6)
 	pixel_y = rand(0, 10)
 
@@ -229,8 +229,8 @@
 
 	var/static/chicken_count = 0
 
-/mob/living/simple_animal/chicken/New()
-	..()
+/mob/living/simple_animal/chicken/Initialize()
+	. = ..()
 	if(!body_color)
 		body_color = pick( list("brown","black","white") )
 	icon_state = "chicken_[body_color]"
@@ -297,4 +297,3 @@
 			qdel(src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
-		processing_objects.Remove(src)

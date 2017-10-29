@@ -11,14 +11,18 @@
 
 // Causes any affecting light sources to be queued for a visibility update, for example a door got opened.
 /turf/proc/reconsider_lights()
-	L_PROF(src, "turf_reconsider")
-	for (var/datum/light_source/L in affecting_lights)
+	//L_PROF(src, "turf_reconsider")
+	var/datum/light_source/L
+	for (var/thing in affecting_lights)
+		L = thing
 		L.vis_update()
 
 // Forces a lighting update. Reconsider lights is preferred when possible.
 /turf/proc/force_update_lights()
-	L_PROF(src, "turf_forceupdate")
-	for (var/datum/light_source/L in affecting_lights)
+	//L_PROF(src, "turf_forceupdate")
+	var/datum/light_source/L
+	for (var/thing in affecting_lights)
+		L = thing
 		L.force_update()
 
 /turf/proc/lighting_clear_overlay()
@@ -30,7 +34,7 @@
 		qdel(lighting_overlay, TRUE)
 		lighting_overlay = null
 
-	L_PROF(src, "turf_clear_overlay")
+	//L_PROF(src, "turf_clear_overlay")
 
 	for (var/datum/lighting_corner/C in corners)
 		C.update_active()
@@ -40,7 +44,7 @@
 	if (lighting_overlay)
 		return
 
-	L_PROF(src, "turf_build_overlay")
+	//L_PROF(src, "turf_build_overlay")
 
 	var/area/A = loc
 	if (A.dynamic_lighting && dynamic_lighting)
@@ -115,19 +119,37 @@
 
 // Can't think of a good name, this proc will recalculate the has_opaque_atom variable.
 /turf/proc/recalc_atom_opacity()
+#ifdef AO_USE_LIGHTING_OPACITY
+	var/old = has_opaque_atom
+#endif
+
 	has_opaque_atom = FALSE
-	for (var/atom/A in src.contents + src) // Loop through every movable atom on our tile PLUS ourselves (we matter too...)
-		if (A.opacity)
-			has_opaque_atom = TRUE
-			return 	// No need to continue if we find something opaque.
+	if (opacity)
+		has_opaque_atom = TRUE
+	else
+		for (var/thing in src) // Loop through every movable atom on our tile
+			var/atom/movable/A = thing
+			if (A.opacity)
+				has_opaque_atom = TRUE
+				break 	// No need to continue if we find something opaque.
+
+#ifdef AO_USE_LIGHTING_OPACITY
+	if (old != has_opaque_atom)
+		regenerate_ao()
+#endif
 
 // If an opaque movable atom moves around we need to potentially update visibility.
 /turf/Entered(atom/movable/Obj, atom/OldLoc)
 	. = ..()
 
-	if (Obj && Obj.opacity)
+	if (Obj && Obj.opacity && !has_opaque_atom)
 		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
 		reconsider_lights()
+
+#ifdef AO_USE_LIGHTING_OPACITY
+		// Hook for AO.
+		regenerate_ao()
+#endif
 
 /turf/Exited(atom/movable/Obj, atom/newloc)
 	. = ..()
@@ -144,6 +166,8 @@
 		else
 			lighting_clear_overlay()
 
+// This is inlined in lighting_source.dm and lighting_source_novis.dm.
+// Update them too if you change this.
 /turf/proc/get_corners()
 	if (!dynamic_lighting && !light_sources)
 		return null
@@ -156,6 +180,8 @@
 
 	return corners
 
+// This is inlined in lighting_source.dm and lighting_source_novis.dm.
+// Update them too if you change this.
 /turf/proc/generate_missing_corners()
 	if (!dynamic_lighting && !light_sources)
 		return
@@ -181,6 +207,11 @@
 	var/list/old_corners = corners
 
 	. = ..()
+
+#ifndef AO_USE_LIGHTING_OPACITY
+	if (permit_ao)
+		regenerate_ao()
+#endif
 
 	recalc_atom_opacity()
 	lighting_overlay = old_lighting_overlay

@@ -9,6 +9,13 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 
+/obj/item/weapon/gun/projectile/colt/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "colt"
+	else
+		icon_state = "colt-e"
+
 /obj/item/weapon/gun/projectile/colt/detective
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 
@@ -41,6 +48,13 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 
+/obj/item/weapon/gun/projectile/sec/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "secguncomp"
+	else
+		icon_state = "secguncomp-e"
+
 /obj/item/weapon/gun/projectile/sec/lethal
 	magazine_type = /obj/item/ammo_magazine/c45m
 
@@ -52,6 +66,13 @@
 	desc = "A Nanotrasen designed sidearm, this one has a sweet wooden grip. Uses .45 rounds."
 	name = "custom .45 Pistol"
 	icon_state = "secgundark"
+
+/obj/item/weapon/gun/projectile/sec/wood/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "secgundark"
+	else
+		icon_state = "secgundark-e"
 
 /obj/item/weapon/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
@@ -111,13 +132,20 @@
 	name = ".50 magnum pistol"
 	desc = "A robust handgun that uses .50 AE ammo."
 	icon_state = "deagle"
-	item_state = "deagle"
 	force = 14.0
 	caliber = ".50"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a50
 	allowed_magazines = list(/obj/item/ammo_magazine/a50)
 	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+/obj/item/weapon/gun/projectile/deagle/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "[initial(icon_state)]"
+	else
+		icon_state = "[initial(icon_state)]-e"
 
 /obj/item/weapon/gun/projectile/deagle/gold
 	desc = "A gold plated gun folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."
@@ -127,8 +155,6 @@
 /obj/item/weapon/gun/projectile/deagle/camo
 	desc = "A Deagle brand Deagle for operators operating operationally. Uses .50 AE ammo."
 	icon_state = "deaglecamo"
-	item_state = "deagleg"
-	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 /obj/item/weapon/gun/projectile/gyropistol
 	name = "gyrojet pistol"
@@ -205,9 +231,18 @@
 	else
 		icon_state = "pistol"
 
+/obj/item/weapon/gun/projectile/pistol/update_icon()
+	..()
+	if(silenced)
+		icon_state = "pistol-silencer"
+	else
+		icon_state = "pistol"
+	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
+		icon_state = "[icon_state]-e"
+
 /obj/item/weapon/silencer
 	name = "silencer"
-	desc = "a silencer"
+	desc = "A silencer"
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "silencer"
 	w_class = 2
@@ -233,10 +268,10 @@
 		/obj/item/ammo_casing/a556              = "5.56mm"
 		)
 
-/obj/item/weapon/gun/projectile/pirate/New()
+/obj/item/weapon/gun/projectile/pirate/Initialize()
 	ammo_type = pick(ammo_types)
 	desc += " Uses [ammo_types[ammo_type]] rounds."
 
 	var/obj/item/ammo_casing/ammo = ammo_type
 	caliber = initial(ammo.caliber)
-	..()
+	. = ..()

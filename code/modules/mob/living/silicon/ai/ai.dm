@@ -49,7 +49,7 @@ var/list/ai_verbs_default = list(
 	density = 1
 	status_flags = CANSTUN|CANPARALYSE|CANPUSH
 	//shouldnt_see - set in New()
-	var/list/network = list("Exodus")
+	var/list/network = list("Station")
 	var/obj/machinery/camera/camera = null
 	var/list/connected_robots = list()
 	var/aiRestorePowerRoutine = 0
@@ -99,7 +99,7 @@ var/list/ai_verbs_default = list(
 	src.verbs -= ai_verbs_default
 	src.verbs -= silicon_subsystems
 
-/mob/living/silicon/ai/New(loc, var/datum/ai_laws/L, var/obj/item/device/mmi/B, var/safety = 0)
+/mob/living/silicon/ai/Initialize(mapload, datum/ai_laws/L, obj/item/device/mmi/B, safety = 0)
 	shouldnt_see = typecacheof(/obj/effect/rune)
 	announcement = new()
 	announcement.title = "A.I. Announcement"
@@ -152,7 +152,7 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_SIIK_MAAS, 0)
 	add_language(LANGUAGE_SKRELLIAN, 0)
 	add_language("Tradeband", 1)
-	add_language("Gutter", 0)
+	add_language(LANGUAGE_GUTTER, 0)
 	add_language(LANGUAGE_VAURCA, 0)
 	add_language("Rootsong", 0)
 	add_language(LANGUAGE_EAL, 1)
@@ -183,7 +183,7 @@ var/list/ai_verbs_default = list(
 	hud_list[SPECIALROLE_HUD] = image('icons/mob/hud.dmi', src, "hudblank")
 
 	ai_list += src
-	..()
+	return ..()
 
 /mob/living/silicon/ai/proc/init_powersupply()
 	new /obj/machinery/ai_powersupply(src)
@@ -304,7 +304,7 @@ var/list/ai_verbs_default = list(
 	. = ..()
 	powered_ai = null
 
-/obj/machinery/ai_powersupply/process()
+/obj/machinery/ai_powersupply/machinery_process()
 	if(!powered_ai || powered_ai.stat == DEAD)
 		qdel(src)
 		return
@@ -391,11 +391,8 @@ var/list/ai_verbs_default = list(
 	if(confirm == "Yes")
 		call_shuttle_proc(src)
 
-	// hack to display shuttle timer
 	if(emergency_shuttle.online())
-		var/obj/machinery/computer/communications/C = locate() in machines
-		if(C)
-			C.post_status("shuttle")
+		post_display_status("shuttle")
 
 /mob/living/silicon/ai/proc/ai_recall_shuttle()
 	set category = "AI Commands"
@@ -424,12 +421,12 @@ var/list/ai_verbs_default = list(
 	if(emergency_message_cooldown)
 		usr << "<span class='warning'>Arrays recycling. Please stand by.</span>"
 		return
-	var/input = sanitize(input(usr, "Please choose a message to transmit to [boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
+	var/input = sanitize(input(usr, "Please choose a message to transmit to [current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
 	if(!input)
 		return
 	Centcomm_announce(input, usr)
 	usr << "<span class='notice'>Message transmitted.</span>"
-	log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]",ckey=key_name(usr))
+	log_say("[key_name(usr)] has made an AI [current_map.boss_short] announcement: [input]",ckey=key_name(usr))
 	emergency_message_cooldown = 1
 	spawn(300)
 		emergency_message_cooldown = 0
@@ -676,7 +673,7 @@ var/list/ai_verbs_default = list(
 		var/obj/item/weapon/aicard/card = W
 		card.grab_ai(src, user)
 
-	else if(istype(W, /obj/item/weapon/wrench))
+	else if(iswrench(W))
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
 			if(!do_after(user,40))

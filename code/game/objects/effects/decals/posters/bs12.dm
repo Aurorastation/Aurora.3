@@ -316,8 +316,8 @@
 
 /datum/poster/bay_64
 	icon_state = "bsposter64"
-	name = "Maintenance Drones"
-	desc = "This particular one depicts a maintenance drone. It reminds the crew to don't disturb them when they are doing repairs."
+	name = "N.S.S. Exodus"
+	desc = "This poster is a picture of the famous N.S.S. Exodus."
 
 /datum/poster/bay_65
 	icon_state = "bsposter65"

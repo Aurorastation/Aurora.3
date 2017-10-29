@@ -30,8 +30,8 @@
 	var/datum/artifact_effect/secondary_effect
 	var/being_used = 0
 
-/obj/machinery/artifact/New()
-	..()
+/obj/machinery/artifact/Initialize()
+	. = ..()
 
 	//setup primary effect - these are the main ones (mixed)
 	var/effecttype = pick(typesof(/datum/artifact_effect) - /datum/artifact_effect)
@@ -72,7 +72,7 @@
 		if(prob(75))
 			my_effect.trigger = rand(1,4)
 
-/obj/machinery/artifact/process()
+/obj/machinery/artifact/machinery_process()
 
 	var/turf/L = loc
 	if(isnull(L) || !istype(L)) 	// We're inside a container or on null turf, either way stop processing effects
@@ -235,14 +235,14 @@
 			istype(W,/obj/item/weapon/melee/energy) ||\
 			istype(W,/obj/item/weapon/melee/cultblade) ||\
 			istype(W,/obj/item/weapon/card/emag) ||\
-			istype(W,/obj/item/device/multitool))
+			ismultitool(W))
 		if (my_effect.trigger == TRIGGER_ENERGY)
 			my_effect.ToggleActivate()
 		if(secondary_effect && secondary_effect.trigger == TRIGGER_ENERGY && prob(25))
 			secondary_effect.ToggleActivate(0)
 
 	else if (istype(W,/obj/item/weapon/flame) && W:lit ||\
-			istype(W,/obj/item/weapon/weldingtool) && W:welding)
+			iswelder(W) && W:welding)
 		if(my_effect.trigger == TRIGGER_HEAT)
 			my_effect.ToggleActivate()
 		if(secondary_effect && secondary_effect.trigger == TRIGGER_HEAT && prob(25))

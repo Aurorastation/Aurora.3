@@ -1,3 +1,5 @@
+#ifdef ENABLE_SUNLIGHT
+
 /var/datum/controller/subsystem/sunlight/SSsunlight
 
 /datum/controller/subsystem/sunlight
@@ -17,9 +19,15 @@
 	..("A:[config.sun_accuracy] LP:[light_points.len] Z:[config.sun_target_z]")
 
 /datum/controller/subsystem/sunlight/Initialize()
+
 	presets = list()
 	for (var/thing in subtypesof(/datum/sun_state))
 		presets += new thing
+
+	if (config.fastboot)
+		log_debug("sunlight: fastboot detected, skipping setup.")
+		..()
+		return
 
 	var/thing
 	var/turf/T
@@ -35,15 +43,11 @@
 
 /datum/controller/subsystem/sunlight/proc/set_overall_light(...)
 	. = 0
-	SSlighting.force_queued = TRUE
 	for (var/thing in light_points)
 		var/atom/movable/AM = thing
 		AM.set_light(arglist(args))
 		.++
 		CHECK_TICK
-
-	if (!SSlighting.force_override)
-		SSlighting.force_queued = FALSE
 
 /datum/controller/subsystem/sunlight/proc/apply_sun_state(datum/sun_state/S)
 	log_debug("sunlight: Applying preset [S].")
@@ -69,6 +73,9 @@
 	light_range = Ceiling(config.sun_accuracy * 1.2)
 	return ..()
 
+/atom/movable/sunobj/can_fall()
+	. = FALSE
+
 /datum/sun_state
 	var/color = "#FFFFFF"
 	var/name = "INVALID"
@@ -91,3 +98,5 @@
 /datum/sun_state/blue
 	name = "Blue"
 	color = LIGHT_COLOR_BLUE
+
+#endif

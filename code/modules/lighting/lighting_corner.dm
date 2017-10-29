@@ -6,8 +6,15 @@
 // This list is what the code that assigns corners listens to, the order in this list is the order in which corners are added to the /turf/corners list.
 /var/list/LIGHTING_CORNER_DIAGONAL = list(NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST)
 
+// This is the reverse of the above - the position in the array is a dir. Update this if the above changes.
+var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
+
 /datum/lighting_corner
-	var/list/turf/masters
+	var/turf/t1	// These are in no particular order.
+	var/turf/t2
+	var/turf/t3
+	var/turf/t4
+
 	var/list/datum/light_source/affecting // Light sources affecting us.
 	var/active                            = FALSE  // TRUE if one of our masters has dynamic lighting.
 
@@ -22,20 +29,15 @@
 
 	var/needs_update = FALSE
 
-	var/cache_r  = 0
-	var/cache_g  = 0
-	var/cache_b  = 0
-	var/cache_u  = 0
+	var/cache_r  = LIGHTING_SOFT_THRESHOLD
+	var/cache_g  = LIGHTING_SOFT_THRESHOLD
+	var/cache_b  = LIGHTING_SOFT_THRESHOLD
 	var/cache_mx = 0
 
 /datum/lighting_corner/New(var/turf/new_turf, var/diagonal)
-	. = ..()
-
 	SSlighting.lighting_corners += src
 
-	masters = list()
-
-	masters[new_turf] = turn(diagonal, 180)
+	t1 = new_turf
 	z = new_turf.z
 
 	var/vertical   = diagonal & ~(diagonal - 1) // The horizontal directions (4 and 8) are bigger than the vertical ones (1 and 2), so we can reliably say the lsb is the horizontal direction.
@@ -56,8 +58,8 @@
 		if (!T.corners)
 			T.corners = list(null, null, null, null)
 
-		masters[T]   = diagonal
-		i            = LIGHTING_CORNER_DIAGONAL.Find(turn(diagonal, 180))
+		t2 = T
+		i = REVERSE_LIGHTING_CORNER_DIAGONAL[diagonal]
 		T.corners[i] = src
 
 	// Now the horizontal one.
@@ -66,8 +68,8 @@
 		if (!T.corners)
 			T.corners = list(null, null, null, null)
 
-		masters[T]   = ((T.x > x) ? EAST : WEST) | ((T.y > y) ? NORTH : SOUTH) // Get the dir based on coordinates.
-		i            = LIGHTING_CORNER_DIAGONAL.Find(turn(masters[T], 180))
+		t3 = T
+		i = REVERSE_LIGHTING_CORNER_DIAGONAL[((T.x > x) ? EAST : WEST) | ((T.y > y) ? NORTH : SOUTH)] // Get the dir based on coordinates.
 		T.corners[i] = src
 
 	// And finally the vertical one.
@@ -76,17 +78,21 @@
 		if (!T.corners)
 			T.corners = list(null, null, null, null)
 
-		masters[T]   = ((T.x > x) ? EAST : WEST) | ((T.y > y) ? NORTH : SOUTH) // Get the dir based on coordinates.
-		i            = LIGHTING_CORNER_DIAGONAL.Find(turn(masters[T], 180))
+		t4 = T
+		i = REVERSE_LIGHTING_CORNER_DIAGONAL[((T.x > x) ? EAST : WEST) | ((T.y > y) ? NORTH : SOUTH)] // Get the dir based on coordinates.
 		T.corners[i] = src
 
 	update_active()
 
+#define OVERLAY_PRESENT(T) (T && T.lighting_overlay)
+
 /datum/lighting_corner/proc/update_active()
 	active = FALSE
-	for (var/turf/T in masters)
-		if (T.lighting_overlay)
-			active = TRUE
+
+	if (OVERLAY_PRESENT(t1) || OVERLAY_PRESENT(t2) || OVERLAY_PRESENT(t3) || OVERLAY_PRESENT(t4))
+		active = TRUE
+
+#undef OVERLAY_PRESENT
 
 // God that was a mess, now to do the rest of the corner code! Hooray!
 /datum/lighting_corner/proc/update_lumcount(var/delta_r, var/delta_g, var/delta_b, var/delta_u, var/now = FALSE)
@@ -95,18 +101,28 @@
 	lum_b += delta_b
 	lum_u += delta_u
 
-	if (needs_update)
+	if (needs_update || !(delta_r + delta_g + delta_b))	// Don't check u since the overlay doesn't care about it.
 		return
 
 	if (!now)
 		needs_update = TRUE
 		update_overlays(FALSE)
 		SSlighting.corner_queue += src
-	else 
+	else
 		update_overlays(TRUE)
 
-/datum/lighting_corner/proc/update_overlays(var/now = FALSE)
+#define UPDATE_MASTER(T) \
+	if (T && T.lighting_overlay) { \
+		if (now) { \
+			T.lighting_overlay.update_overlay(); \
+		} \
+		else if (!T.lighting_overlay.needs_update) { \
+			T.lighting_overlay.needs_update = TRUE; \
+			SSlighting.overlay_queue += T.lighting_overlay; \
+		} \
+	}
 
+/datum/lighting_corner/proc/update_overlays(var/now = FALSE)
 	// Cache these values a head of time so 4 individual lighting overlays don't all calculate them individually.
 	var/mx = max(lum_r, lum_g, lum_b) // Scale it so 1 is the strongest lum, if it is above 1.
 	. = 1 // factor
@@ -116,34 +132,23 @@
 	else if (mx < LIGHTING_SOFT_THRESHOLD)
 		. = 0 // 0 means soft lighting.
 
-#ifdef LIGHTING_USE_MEMORY_HACK
-	cache_r  = lum_r * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
-	cache_g  = lum_g * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
-	cache_b  = lum_b * . + (rand(1,999)/100000) || LIGHTING_SOFT_THRESHOLD
-	cache_u  = lum_u * . || LIGHTING_SOFT_THRESHOLD
-	cache_mx = mx
-#else
 	cache_r  = round(lum_r * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
 	cache_g  = round(lum_g * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
 	cache_b  = round(lum_b * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
-	cache_u  = lum_u * . || LIGHTING_SOFT_THRESHOLD
 	cache_mx = round(mx, LIGHTING_ROUND_VALUE)
-#endif
 
-	for (var/TT in masters)
-		var/turf/T = TT
-		if (T.lighting_overlay)
-			if (now)
-				T.lighting_overlay.update_overlay()
-			else if (!T.lighting_overlay.needs_update)
-				T.lighting_overlay.needs_update = TRUE
-				SSlighting.overlay_queue += T.lighting_overlay
+	UPDATE_MASTER(t1)
+	UPDATE_MASTER(t2)
+	UPDATE_MASTER(t3)
+	UPDATE_MASTER(t4)
+
+#undef UPDATE_MASTER
 
 /datum/lighting_corner/Destroy(force = FALSE)
 	crash_with("Some fuck [force ? "force-" : ""]deleted a lighting corner.")
 	if (!force)
 		return QDEL_HINT_LETMELIVE
-		
+
 	SSlighting.lighting_corners -= src
 	return ..()
 

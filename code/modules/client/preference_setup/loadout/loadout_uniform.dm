@@ -82,7 +82,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Nursing Intern", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -108,6 +108,10 @@
 	dress["dress, pink"] = /obj/item/clothing/under/dress/dress_pink
 	dress["dress, yellow"] = /obj/item/clothing/under/dress/dress_yellow
 	dress["cheongsam, white"] = /obj/item/clothing/under/cheongsam
+	dress["cheongsam, red"] = /obj/item/clothing/under/cheongsam/red
+	dress["cheongsam, blue"] = /obj/item/clothing/under/cheongsam/blue
+	dress["cheongsam, green"] = /obj/item/clothing/under/cheongsam/green
+	dress["cheongsam, purple"] = /obj/item/clothing/under/cheongsam/purple
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/uniform_captain
@@ -135,15 +139,10 @@
 	path = /obj/item/clothing/under/rank/security/navyblue
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet")
 
-/datum/gear/uniform/gearharness
-	display_name = "gear harness"
-	path = /obj/item/clothing/under/gearharness
-	cost = 2
-
 /datum/gear/uniform/pants
 	display_name = "pants selection"
 	path = /obj/item/clothing/under/pants
-	
+
 /datum/gear/uniform/pants/New()
 	..()
 	var/pants = list()
@@ -158,9 +157,10 @@
 	pants["tan pants"] = /obj/item/clothing/under/pants/tan
 	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
 	pants["track pants"] = /obj/item/clothing/under/pants/track
+	pants["camo pants"] = /obj/item/clothing/under/pants/camo
 	gear_tweaks += new/datum/gear_tweak/path(pants)
-	
+
 /datum/gear/uniform/turtleneck
-	display_name = "tacticool turtleneck"	
+	display_name = "tacticool turtleneck"
 	path = /obj/item/clothing/under/syndicate/tacticool
-	
+

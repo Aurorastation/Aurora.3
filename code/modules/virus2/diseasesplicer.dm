@@ -13,7 +13,7 @@
 	var/scanning = 0
 
 /obj/machinery/computer/diseasesplicer/attackby(var/obj/I as obj, var/mob/user as mob)
-	if(istype(I, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(I))
 		return ..(I,user)
 
 	if(istype(I,/obj/item/weapon/virusdish))
@@ -85,7 +85,7 @@
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/machinery/computer/diseasesplicer/process()
+/obj/machinery/computer/diseasesplicer/machinery_process()
 	if (inoperable())
 		return
 

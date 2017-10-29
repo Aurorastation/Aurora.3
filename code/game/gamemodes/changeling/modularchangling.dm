@@ -95,7 +95,7 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/transformation_sting
 	name = "Transformation Sting"
-	desc = "We silently sting a human, injecting a retrovirus that forces them to transform into another."
+	desc = "We silently sting a dead human, injecting a retrovirus that forces them to transform into another."
 	helptext = "Does not provide a warning to others. The victim will transform much like a changeling would."
 	genomecost = 3
 	verbpath = /mob/proc/changeling_transformation_sting
@@ -191,6 +191,12 @@ var/list/datum/power/changeling/powerinstances = list()
 	desc = "Permits us to bloat our hands into a robust shield."
 	genomecost = 3
 	verbpath = /mob/proc/changeling_shield
+
+/datum/power/changeling/horror_form
+	name = "Horror Form"
+	desc = "We tear apart our human disguise, revealing our true form."
+	genomecost = 15
+	verbpath = /mob/proc/horror_form
 
 // Modularchangling, totally stolen from the new player panel.  YAYY
 /datum/changeling/proc/EvolutionMenu()//The new one

@@ -69,8 +69,8 @@
 	pressure_checks = 2
 	pressure_checks_default = 2
 
-/obj/machinery/atmospherics/unary/vent_pump/New()
-	..()
+/obj/machinery/atmospherics/unary/vent_pump/Initialize()
+	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP
 	
 
@@ -89,10 +89,10 @@
 	if(frequency)
 		radio_connection = register_radio(src, frequency, frequency, radio_filter_in)
 
-	initialize()
+	atmos_init()
 
 // Different from the above.
-/obj/machinery/atmospherics/unary/vent_pump/initialize()
+/obj/machinery/atmospherics/unary/vent_pump/atmos_init()
 	..()
 	broadcast_status()
 
@@ -105,8 +105,8 @@
 	power_channel = EQUIP
 	power_rating = 15000	//15 kW ~ 20 HP
 
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/New()
-	..()
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/Initialize()
+	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 800
 
 /obj/machinery/atmospherics/unary/vent_pump/engine
@@ -114,8 +114,8 @@
 	power_channel = ENVIRON
 	power_rating = 30000	//15 kW ~ 20 HP
 
-/obj/machinery/atmospherics/unary/vent_pump/engine/New()
-	..()
+/obj/machinery/atmospherics/unary/vent_pump/engine/Initialize()
+	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500 //meant to match air injector
 
 /obj/machinery/atmospherics/unary/vent_pump/update_icon(var/safety = 0)
@@ -167,7 +167,7 @@
 		return 0
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_pump/process()
+/obj/machinery/atmospherics/unary/vent_pump/machinery_process()
 	..()
 
 	if (hibernate > world.time)
@@ -350,7 +350,7 @@
 	return
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/weapon/weldingtool))
+	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.welding)
 			user << "<span class='danger'>\The [WT] must be turned on!</span>"
@@ -390,7 +390,7 @@
 		update_icon()
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W))
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
 		user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"

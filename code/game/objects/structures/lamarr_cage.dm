@@ -99,9 +99,6 @@ var/const/MAX_ACTIVE_TIME = 400
 	var/attached = 0
 	var/sterile = 1
 
-/obj/item/clothing/mask/lamarr/New()//to prevent deleting it if aliums are disabled
-	return
-
 /obj/item/clothing/mask/lamarr/attack_hand(user as mob)
 
 	if((stat == CONSCIOUS))

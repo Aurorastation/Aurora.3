@@ -201,3 +201,16 @@
 		src << "You will now see progress bars on delayed actions."
 	else
 		src << "You will no longer see progress bars on delayed actions."
+
+/client/verb/toggle_static_spess()
+	set name = "Toggle Parallax Movement"
+	set category = "Preferences"
+	set desc = "Toggles movement of parallax space."
+
+	prefs.parallax_togs ^= PARALLAX_IS_STATIC
+	prefs.save_preferences()
+
+	if (prefs.parallax_togs & PARALLAX_IS_STATIC)
+		src << "Space will no longer move."
+	else
+		src << "Space will now move."

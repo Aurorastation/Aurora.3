@@ -36,17 +36,22 @@ proc/cardinalrange(var/center)
 /obj/machinery/am_shielding/map
 	mapped = 1
 
-/obj/machinery/am_shielding/New(loc, var/obj/machinery/power/am_control_unit/AMC)
-	..()
+/obj/machinery/am_shielding/Initialize(mapload, var/obj/machinery/power/am_control_unit/AMC)
+	. = ..()
 	if(!AMC)
 		if (!mapped)
 			WARNING("AME sector somehow created without a parent control unit!")
 		controllerscan()
 		return
 	link_control(AMC)
-	remove_machine(src)
-	spawn (10)
-		update_icon()
+	remove_machine(src, FALSE)
+	if (mapload)
+		. = INITIALIZE_HINT_LATELOAD
+	else
+		addtimer(CALLBACK(src, /atom/.proc/update_icon), 1 SECOND)
+
+/obj/machinery/am_shielding/LateInitialize()
+	update_icon()
 
 /obj/machinery/am_shielding/proc/link_control(var/obj/machinery/power/am_control_unit/AMC)
 	if(!istype(AMC))
@@ -107,7 +112,7 @@ proc/cardinalrange(var/center)
 	return 0
 
 
-/obj/machinery/am_shielding/process()
+/obj/machinery/am_shielding/machinery_process()
 	if(!processing)
 		. = PROCESS_KILL
 	//TODO: core functions and stability
