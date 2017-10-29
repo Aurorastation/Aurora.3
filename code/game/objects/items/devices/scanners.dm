@@ -389,6 +389,6 @@ REAGENT SCANNER
 	if(!proximity)
 		return
 
-	var/value = get_value(target)
+	var/value = get_item_value(target)
 	user.visible_message("\The [user] scans \the [target] with \the [src]")
 	user.show_message("Price estimation of \the [target]: [value ? value : "N/A"] Credits")

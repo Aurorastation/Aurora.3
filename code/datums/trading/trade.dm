@@ -121,7 +121,7 @@
 /datum/trader/proc/get_item_value(var/trading_num)
 	if(!trading_items[trading_items[trading_num]])
 		var/type = trading_items[trading_num]
-		var/value = get_value(type)
+		var/value = get_item_value(type)
 		value = round(rand(90,110)/100 * value) //For some reason rand doesn't like decimals.
 		trading_items[type] = value
 	return trading_items[trading_items[trading_num]]
@@ -157,7 +157,7 @@
 			else if((trade_flags & TRADER_WANTED_ONLY) && !is_wanted)
 				return TRADER_FOUND_UNWANTED
 
-		offer_worth += get_value(offer) * (is_wanted ? want_multiplier : 1)
+		offer_worth += get_item_value(offer) * (is_wanted ? want_multiplier : 1)
 	if(!offer_worth)
 		return TRADER_NOT_ENOUGH
 	var/trading_worth = get_item_value(num)
@@ -252,7 +252,7 @@
 	playsound(get_turf(offers[1]), 'sound/effects/teleport.ogg', 50, 1)
 	. = 0
 	for(var/offer in offers)
-		. += get_value(offer) * want_multiplier
+		. += get_item_value(offer) * want_multiplier
 		qdel(offer)
 
 /datum/trader/proc/bribe_to_stay_longer(var/amt)

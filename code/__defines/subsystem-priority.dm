@@ -1,14 +1,15 @@
-#define SS_INIT_MAPLOAD            22	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
-#define SS_INIT_JOBS               21
-#define SS_INIT_MISC_FIRST         20
-#define SS_INIT_SEEDS              19	// Plant controller setup.
-#define SS_INIT_ASTEROID           18	// Asteroid generation.
-#define SS_INIT_SHUTTLE            17	// Shuttle setup.
-#define SS_INIT_PARALLAX           16	// Parallax image cache generation. Must run before ghosts are able to join.
-#define SS_INIT_HOLOMAP            15
-#define SS_INIT_ATOMS              14	// World initialization. Will trigger lighting updates. Observers can join after this loads.
-#define SS_INIT_POWER              13	// Initial powernet build.
-#define SS_INIT_CARGO              12	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
+#define SS_INIT_MAPLOAD            23	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
+#define SS_INIT_JOBS               22
+#define SS_INIT_MISC_FIRST         21
+#define SS_INIT_SEEDS              20	// Plant controller setup.
+#define SS_INIT_ASTEROID           19	// Asteroid generation.
+#define SS_INIT_SHUTTLE            18	// Shuttle setup.
+#define SS_INIT_PARALLAX           17	// Parallax image cache generation. Must run before ghosts are able to join.
+#define SS_INIT_HOLOMAP            16
+#define SS_INIT_ATOMS              15	// World initialization. Will trigger lighting updates. Observers can join after this loads.
+#define SS_INIT_POWER              14	// Initial powernet build.
+#define SS_INIT_ITEMVALUES         13   // Loads the values of the items from the code / db. Required for Supply
+#define SS_INIT_SUPPLY             12	// Random warehouse generation, item based cargo. Runs after SSatoms because it assumes objects are initialized when it runs.
 #define SS_INIT_PIPENET            11	// Initial pipenet build.
 #define SS_INIT_MACHINERY          10	// Machinery prune and powernet build.
 #define SS_INIT_AIR                 9	// Air setup and pre-bake.

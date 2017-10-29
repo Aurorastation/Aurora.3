@@ -160,6 +160,7 @@
 #include "code\controllers\subsystems\icon_smooth.dm"
 #include "code\controllers\subsystems\icon_updates.dm"
 #include "code\controllers\subsystems\ipintel.dm"
+#include "code\controllers\subsystems\item_worths.dm"
 #include "code\controllers\subsystems\job.dm"
 #include "code\controllers\subsystems\law.dm"
 #include "code\controllers\subsystems\lighting.dm"

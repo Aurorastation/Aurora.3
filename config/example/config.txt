@@ -483,6 +483,8 @@ FASTBOOT
 # Where to load the cargo items from. json or sql
 CARGO_LOAD_ITEMS_FROM json
 
+# Where to load the item worths from. code or sql
+ITEM_WORTHS_LOAD_FROM code
 
 # Forces the maploader to load the specified map path. Valid options: aurora, runtime
 FORCE_MAP aurora
