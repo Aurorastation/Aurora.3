@@ -393,7 +393,13 @@
 				usr.client.drop_item()
 
 		if("up hint")
-			testing("memes were had")
+			var/turf/T = GetAbove(usr)
+			if (!T)
+				to_chat(usr, "<span class='notice'>There is nothing above you!</span>")
+			else if (T.is_hole)
+				to_chat(usr, "<span class='notice'>There's no roof above your head! You can see up!</span>")
+			else
+				to_chat(usr, "<span class='notice'>You see a ceiling staring back at you.</span>")
 
 		if("module")
 			if(isrobot(usr))
