@@ -397,7 +397,7 @@
 		"nitrogen"          = IC_PINTYPE_NUMBER,
 		"carbon dioxide"           = IC_PINTYPE_NUMBER,
 		"phoron"           = IC_PINTYPE_NUMBER,
-		"other"           = IC_PINTYPE_NUMBER,
+		"other"           = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -444,7 +444,7 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"pressure"       = IC_PINTYPE_NUMBER,
+		"pressure"       = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -474,7 +474,7 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"temperature"       = IC_PINTYPE_NUMBER,
+		"temperature"       = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -503,7 +503,7 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"oxygen"       = IC_PINTYPE_NUMBER,
+		"oxygen"       = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -533,7 +533,7 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"co2"       = IC_PINTYPE_NUMBER,
+		"co2"       = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -563,7 +563,7 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"nitrogen"       = IC_PINTYPE_NUMBER,
+		"nitrogen"       = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -593,7 +593,7 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"phoron"       = IC_PINTYPE_NUMBER,
+		"phoron"       = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
