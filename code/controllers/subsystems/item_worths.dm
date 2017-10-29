@@ -21,11 +21,41 @@
 
 /datum/controller/subsystem/item_worths/proc/load_from_sql()
 	worths = list()
+	if(!establish_db_connection(dbcon))
+		log_debug("SSItemWorths: SQL ERROR: Failed to connect ! - Falling back to Code")
+		return load_from_code()
+	else
+		//Get the item values from the DB
+		var/DBQuery/item_worth_query = dbcon.NewQuery("SELECT path, value FROM ss13_item_worths WHERE deleted_at IS NULL ORDER BY path DESC")
+		item_worth_query.Execute()
+		while(item_worth_query.NextRow())
+			var/text_path = item_worth_query.item[1]
+			var/path = text2path(text_path)
+			var/value = item_worth_query.item[2]
+			if(path)
+				worths[path] = value
+			else
+				log_debug("SSItemWorths: Loading Error: [text_path] is not a valid path")
+
+/datum/controller/subsystem/item_worths/proc/seed_database()
+	if(config.item_worths_load_from == "sql")
+		log_debug("SSItemWorths: SEED ERROR: You need to load from code, if you wish to seed the SQL DB.")
+		return 1
+	if(!establish_db_connection(dbcon))
+		log_debug("SSItemWorths: SQL ERROR: Failed to connect ! - Unable to seed DB.")
+		return 1
+	
+	for(var/path in worths)
+		var/DBQuery/item_worth_query = dbcon.NewQuery("INSERT INTO ss13_item_worths (path, value) VALUES (:path:, :value:) ON DUPLICATE KEY UPDATE value=:value:")
+		item_worth_query.Execute(list("path" = "[path]", "value" = worths[path] ))
 
 /datum/controller/subsystem/item_worths/proc/load_from_code()
 	//Negative values indicate that instances of these types should use the Value proc
 	//Mainly used so that stuff inside them can also add to their value, and other things like material,
 	//stuff like that.
+
+	// !!! IMPORTANT !!!
+	// If you update this list, then notify the DB Admin(s) of your server to effect the same changes in the DB
 
 	worths = list(
 	//ROBOT ASSEMBLIES,
