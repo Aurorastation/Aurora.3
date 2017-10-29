@@ -104,7 +104,8 @@
 		var/mob/living/silicon/ai/AI
 		can_read = get_dist(src, AI.camera) < 2
 
-	var/header = {"<head>
+	// Into the span sub classes here should go language colour keys.
+	var/static/header = {"<head>
 	<title>[name]</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<style>
@@ -386,6 +387,7 @@
 		if (!user.say_understands(null, L))
 			content = L.scramble(content)
 
+		// Refer to paper/proc/show_content to edit the spans here.
 		. = L.written_regex.Replace(., "<span class='[L.colour]'>[content]</span>", 1, 0)
 
 /obj/item/weapon/paper/Topic(href, href_list)
