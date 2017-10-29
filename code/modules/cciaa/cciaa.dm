@@ -234,7 +234,7 @@
 
 	// Create the reply message
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
-	P.name = "[command_name()] - [customname]"
+	P.name = "[current_map.boss_name] - [customname]"
 	P.info = input
 	P.update_icon()
 

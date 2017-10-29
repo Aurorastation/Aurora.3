@@ -24,8 +24,8 @@
 
 	density = 1
 
-/obj/machinery/atmospherics/binary/circulator/New()
-	..()
+/obj/machinery/atmospherics/binary/circulator/Initialize()
+	. = ..()
 	desc = initial(desc) + " Its outlet port is to the [dir2text(dir)]."
 	air1.volume = 400
 
@@ -88,7 +88,7 @@
 	return 1
 
 /obj/machinery/atmospherics/binary/circulator/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(iswrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \

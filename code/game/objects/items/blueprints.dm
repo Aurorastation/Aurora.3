@@ -20,8 +20,7 @@
 	var/const/ROOM_ERR_TOOLARGE = -2
 
 /obj/item/blueprints/attack_self(mob/user as mob)
-	if (use_check(user))
-		user << "This stack of blue paper means nothing to you."
+	if (use_check(user, USE_DISALLOW_SILICONS))
 		return
 	add_fingerprint(user)
 	interact()
@@ -49,7 +48,7 @@
 	var/area/A = get_area()
 	var/text = {"<HTML><head><title>[src]</title></head><BODY>
 <h2>[station_name()] blueprints</h2>
-<small>Property of [company_name]. For heads of staff only. Store in high-secure storage.</small><hr>
+<small>Property of [current_map.company_name]. For heads of staff only. Store in high-secure storage.</small><hr>
 "}
 	switch (get_area_type())
 		if (AREA_SPACE)

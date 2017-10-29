@@ -78,10 +78,21 @@
 		// Invokes fall_through() after the atom is moved to
 		// its new destination this cycle. Immediately invokes fall_impact and
 		// fall_collateral if the next turf is not open space.
-		if (isopenturf(victim.loc))
+		if (isopenturf(victim.loc) && victim.loc:is_hole)
 			victim.forceMove(below)
 
-			if (isopenturf(victim.loc))
+			if (locate(/obj/structure/stairs) in victim.loc)	// If there's stairs, we're probably going down them.
+				if (falling[victim] <= 1)	// Just moving down a flight, skip damage.
+					victim.multiz_falling = 0
+					falling -= victim
+				else
+					// Falling more than a level, fuck 'em up.
+					victim.fall_impact(falling[victim], FALSE)
+					victim.fall_collateral(falling[victim], FALSE)
+					victim.multiz_falling = 0
+					falling -= victim
+
+			else if (isopenturf(victim.loc))
 				victim.fall_through()
 			else
 				// This is a lookahead. It removes any lag from being moved onto

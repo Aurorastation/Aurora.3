@@ -58,7 +58,7 @@
 		dry()
 
 /obj/effect/decal/cleanable/blood/update_icon()
-	if(basecolor == "rainbow") basecolor = "#[get_random_colour(1)]"
+	if(basecolor == "rainbow") basecolor = get_random_colour(1)
 	color = basecolor
 
 /obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/human/perp)
@@ -121,7 +121,7 @@
 		amount -= taken
 		user << "<span class='notice'>You get some of \the [src] on your hands.</span>"
 		LAZYINITLIST(user.blood_DNA)
-		
+
 		if (blood_DNA)
 			user.blood_DNA |= blood_DNA.Copy()
 
@@ -142,11 +142,11 @@
 	icon_state = "1"
 	random_icon_states = list("1","2","3","4","5")
 	amount = 0
-	var/list/drips = list()
+	var/list/drips
 
 /obj/effect/decal/cleanable/blood/drip/Initialize()
 	. = ..()
-	drips |= icon_state
+	drips = list(icon_state)
 
 /obj/effect/decal/cleanable/blood/writing
 	icon_state = "tracks"
@@ -158,9 +158,9 @@
 
 /obj/effect/decal/cleanable/blood/writing/Initialize()
 	. = ..()
-	if(random_icon_states.len)
+	if(LAZYLEN(random_icon_states))
 		for(var/obj/effect/decal/cleanable/blood/writing/W in loc)
-			random_icon_states.Remove(W.icon_state)
+			random_icon_states -= W.icon_state
 		icon_state = pick(random_icon_states)
 	else
 		icon_state = "writing1"
@@ -185,16 +185,16 @@
 
 	var/image/giblets = new(base_icon, "[icon_state]_flesh", dir)
 	if(!fleshcolor || fleshcolor == "rainbow")
-		fleshcolor = "#[get_random_colour(1)]"
+		fleshcolor = get_random_colour(1)
 	giblets.color = fleshcolor
 
 	var/icon/blood = new(base_icon,"[icon_state]",dir)
-	if(basecolor == "rainbow") basecolor = "#[get_random_colour(1)]"
+	if(basecolor == "rainbow") basecolor = get_random_colour(1)
 	blood.Blend(basecolor,ICON_MULTIPLY)
 
 	icon = blood
-	overlays.Cut()
-	overlays += giblets
+	cut_overlays()
+	add_overlay(giblets)
 
 /obj/effect/decal/cleanable/blood/gibs/up
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6","gibup1","gibup1","gibup1")
@@ -238,7 +238,7 @@
 	layer = 2
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mucus"
-	random_icon_states = list("mucus")
+	random_icon_states = null
 
 	var/list/datum/disease2/disease/virus2 = list()
 	var/dry = 0 // Keeps the lag down

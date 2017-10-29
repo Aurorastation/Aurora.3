@@ -35,6 +35,9 @@
 	if (eyeobj)
 		return eyeobj.zMove(direction)
 
+	if (istype(src.loc,/obj/mecha))
+		return FALSE
+
 	// Check if we can actually travel a Z-level.
 	if (!can_ztravel(direction))
 		to_chat(src, "<span class='warning'>You lack means of travel in that direction.</span>")
@@ -124,7 +127,7 @@
 		return TRUE
 
 	if(Check_Shoegrip())	//scaling hull with magboots
-		for(var/turf/simulated/T in trange(1,src))
+		for(var/turf/simulated/T in RANGE_TURFS(1,src))
 			if(T.density)
 				return TRUE
 
@@ -135,7 +138,7 @@
 	if(Allow_Spacemove()) //Checks for active jetpack
 		return TRUE
 
-	for(var/turf/simulated/T in trange(1,src)) //Robots get "magboots"
+	for(var/turf/simulated/T in RANGE_TURFS(1,src)) //Robots get "magboots"
 		if(T.density)
 			return TRUE
 
@@ -189,7 +192,7 @@
  * this cycle.
  */
 /atom/movable/proc/can_fall(turf/below, turf/simulated/open/dest = src.loc)
-	if (!istype(dest))
+	if (!istype(dest) || !dest.is_hole)
 		return FALSE
 
 	// Anchored things don't fall.
@@ -199,10 +202,10 @@
 	// Lattices, ladders, and stairs stop things from falling.
 	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest) || locate(/obj/structure/ladder, dest))
 		return FALSE
+
 	//Ladders too
 	if(below && locate(/obj/structure/ladder) in below)
 		return FALSE
-
 
 	// The var/climbers API is implemented here.
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
@@ -235,6 +238,9 @@
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
 		return FALSE
 
+	if (!dest.is_hole)
+		return FALSE
+
 	// See if something prevents us from falling.
 	for(var/atom/A in below)
 		if(!A.CanPass(src, dest))
@@ -255,7 +261,7 @@
 	return ..()
 
 /mob/living/carbon/human/bst/can_fall()
-	return FALSE
+	return fall_override ? FALSE : ..()
 
 /mob/eye/can_fall()
 	return FALSE

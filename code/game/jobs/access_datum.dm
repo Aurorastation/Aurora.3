@@ -386,7 +386,7 @@
 	id = access_paramedic
 	desc = "Paramedic Equipment"
 	region = ACCESS_REGION_MEDBAY
-	
+
 /var/const/access_detective = 68
 /datum/access/access_detective
 	id = access_detective
@@ -448,6 +448,12 @@
 /datum/access/cent_captain
 	id = access_cent_captain
 	desc = "Code Gold"
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_merchant = 110//merchant access
+/datum/access/merchant
+	id = access_merchant
+	desc = "Merchant Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
 /***************

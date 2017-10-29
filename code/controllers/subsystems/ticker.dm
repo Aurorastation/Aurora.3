@@ -398,6 +398,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	data_core.manifest()
 
 	Master.RoundStart()
+	round_start_time = world.time
 
 	callHook("roundstart")
 
@@ -433,7 +434,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		CHECK_TICK
 
-/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = config.station_levels)
+/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = current_map.station_levels)
 	if (cinematic)
 		return	//already a cinematic in progress!
 

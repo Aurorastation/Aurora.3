@@ -6,8 +6,8 @@
 	filling_color = "#FF1C1C"
 	center_of_mass = list("x"=16, "y"=14)
 	cooked_icon = "meatstake"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("protein", 6)
 		reagents.add_reagent("triglyceride", 2)
 		src.bitesize = 1.5
@@ -41,8 +41,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/bug
 	filling_color = "#E6E600"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.add_reagent("protein", 6)
 		reagents.add_reagent("phoron", 27)
 		src.bitesize = 1.5
@@ -60,7 +60,7 @@
 	icon_state = "chickenbreast"
 	cooked_icon = "chickenbreast_cooked"
 	filling_color = "#BBBBAA"
-	New()
-		..()
+	Initialize()
+		. = ..()
 		reagents.remove_reagent("triglyceride", INFINITY)
 		//Chicken is low fat. Less total calories than other meats

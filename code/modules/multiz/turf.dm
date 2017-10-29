@@ -47,6 +47,8 @@
 	var/tmp/list/climbers									// A lazy list to contain a list of mobs who are currently scaling
 															// up this turf. Used in human/can_fall.
 
+	var/no_mutate = FALSE	// If TRUE, SSopenturf will not modify the appearance of this turf.
+
 // An override of turf/Enter() to make it so that magboots allow you to stop
 // falling off the damned rock.
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
@@ -63,21 +65,23 @@
 // centralizes control to SSfalling.
 /turf/simulated/open/Entered(atom/movable/mover)
 	..()
-	ADD_FALLING_ATOM(mover)
-	update_icon()
+	if (is_hole)
+		ADD_FALLING_ATOM(mover)
 
 // Override to deny a climber exit if they're set to adhere to CLIMBER_NO_EXIT
 /turf/simulated/open/Exit(atom/movable/mover, atom/newloc)
 	var/flags = remove_climber(mover)
 
 	if (flags & CLIMBER_NO_EXIT)
-		ADD_FALLING_ATOM(mover)
+		if (is_hole)
+			ADD_FALLING_ATOM(mover)
 		return FALSE
 
 	return ..()
 
 // Remove from climbers just in case.
 /turf/simulated/open/Exited(atom/movable/mover, atom/newloc)
+	..()
 	LAZYREMOVE(climbers, mover)
 
 /turf/simulated/open/Destroy()
@@ -94,8 +98,7 @@
 
 	if (below)
 		below.above = null
-
-	below = null
+		below = null
 
 	LAZYCLEARLIST(climbers)
 	UNSETEMPTY(climbers)
@@ -107,18 +110,16 @@
 	return TRUE
 
 /**
- * Used to check wether or not the specific open turf eventually leads into spess.
+ * Used to check whether or not the specific open turf eventually leads into spess.
  *
  * @return	TRUE if the turfs/holes eventually lead into space. FALSE otherwise.
  */
 /turf/simulated/open/proc/is_above_space()
 	var/turf/T = GetBelow(src)
-	while (T && T.is_hole)
-		if (istype(T, /turf/space))
-			return TRUE
+	while (isopenturf(T))
 		T = GetBelow(T)
 
-	return FALSE
+	return istype(T, /turf/space)
 
 /**
  * Used to add a climber to the climbers list. Climbers do not fall down this specific tile.
@@ -169,6 +170,10 @@
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
 	SSopenturf.openspace_turfs += src
+	shadower = new(src)
+	if (no_mutate && plane == PLANE_SPACE_BACKGROUND)
+		// If the plane is default and we're a no_mutate turf, force it to 0 so the icon works properly.
+		plane = 0
 	update()
 
 /**
@@ -182,8 +187,9 @@
 		below.above = src
 
 	levelupdate()
-	for (var/atom/movable/A in src)
-		ADD_FALLING_ATOM(A)
+	if (is_hole)
+		for (var/atom/movable/A in src)
+			ADD_FALLING_ATOM(A)
 	update_icon()
 
 /turf/simulated/open/update_dirt()
@@ -230,7 +236,7 @@
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 
 	//To lay cable.
-	if(istype(C, /obj/item/stack/cable_coil))
+	if(iscoil(C))
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
 		return

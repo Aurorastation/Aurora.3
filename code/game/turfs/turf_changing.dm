@@ -26,12 +26,12 @@
 /turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE)
 	if (!N)
 		return
+	if(!use_preloader && N == type) // Don't no-op if the map loader requires it to be reconstructed
+		return src
 
-	// This makes sure that turfs are not changed to space when one side is part of a zone
-	if(N == /turf/space)
-		var/turf/below = GetBelow(src)
-		if(istype(below) && !istype(below,/turf/space))
-			N = /turf/simulated/open
+	// This makes sure that turfs are not changed to space when there's a multi-z turf below
+	if(N == /turf/space && HasBelow(z))
+		N = /turf/simulated/open
 
 	var/obj/fire/old_fire = fire
 	var/old_baseturf = baseturf

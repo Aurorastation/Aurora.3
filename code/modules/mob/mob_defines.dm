@@ -8,9 +8,6 @@
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
 
-	//Not in use yet
-	var/obj/effect/organstructure/organStructure = null
-
 	var/obj/screen/flash = null
 	var/obj/screen/blind = null
 	var/obj/screen/hands = null
@@ -51,11 +48,9 @@
 	var/damageoverlaytemp = 0
 	var/computer_id = null
 	var/character_id = 0
-	var/already_placed = 0.0
 	var/obj/machinery/machine = null
 	var/other_mobs = null
 	var/memory = ""
-	var/poll_answer = 0.0
 	var/sdisabilities = 0	//Carbon
 	var/disabilities = 0	//Carbon
 	var/atom/movable/pulling = null
@@ -101,6 +96,8 @@
 	var/list/speak_emote = list("says") // Verbs used when speaking. Defaults to 'say' if speak_emote is null.
 	var/emote_type = 1		// Define emote default type, 1 for seen emotes, 2 for heard emotes
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
+	
+	var/obj/machinery/hologram/holopad/holo = null
 
 	var/name_archive //For admin things like possession
 
@@ -146,11 +143,7 @@
 
 	var/in_throw_mode = 0
 
-	var/coughedtime = null
-
 	var/inertia_dir = 0
-
-	var/music_lastplayed = "null"
 
 	var/job = null//Living
 	var/megavend = 0		//determines if this ID has claimed their megavend stache
@@ -191,9 +184,6 @@
 //Wizard mode, but can be used in other modes thanks to the brand new "Give Spell" badmin button
 	var/spell/list/spell_list
 
-//Changlings, but can be used in other modes
-//	var/obj/effect/proc_holder/changpower/list/power_list = list()
-
 //List of active diseases
 
 	var/list/viruses = list() // replaces var/datum/disease/virus
@@ -212,17 +202,11 @@
 
 	var/digitalcamo = 0 // Can they be tracked by the AI?
 
-	var/list/radar_blips = list() // list of screen objects, radar blips
-	var/radar_open = 0 	// nonzero is radar is open
-
-
 	var/obj/control_object //Used by admins to possess objects. All mobs should have this var
 
 	//Whether or not mobs can understand other mobtypes. These stay in /mob so that ghosts can hear everything.
 	var/universal_speak = 0 // Set to 1 to enable the mob to speak to everyone -- TLE
 	var/universal_understand = 0 // Set to 1 to enable the mob to understand everyone, not necessarily speak
-
-	var/stance_damage = 0 //Whether this mob's ability to stand has been affected
 
 	//If set, indicates that the client "belonging" to this (clientless) mob is currently controlling some other mob
 	//so don't treat them as being SSD even though their client var is null.
@@ -235,3 +219,7 @@
 	var/mob_size = MOB_MEDIUM
 
 	var/list/progressbars
+
+	var/frozen = FALSE //related to wizard statues, if set to true, life won't process
+
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR

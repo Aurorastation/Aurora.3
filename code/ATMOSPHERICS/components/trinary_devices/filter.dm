@@ -36,8 +36,8 @@
 	if(frequency)
 		radio_connection = SSradio.add_object(src, frequency, RADIO_ATMOSIA)
 
-/obj/machinery/atmospherics/trinary/filter/New()
-	..()
+/obj/machinery/atmospherics/trinary/filter/Initialize()
+	. = ..()
 	switch(filter_type)
 		if(0) //removing hydrocarbons
 			filtered_out = list("phoron")
@@ -129,7 +129,7 @@
 	..()
 
 /obj/machinery/atmospherics/trinary/filter/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W))
 		return ..()
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
@@ -237,8 +237,7 @@
 	dir = SOUTH
 	initialize_directions = SOUTH|NORTH|EAST
 
-obj/machinery/atmospherics/trinary/filter/m_filter/New()
-	..()
+obj/machinery/atmospherics/trinary/filter/m_filter/Initialize()
 	switch(dir)
 		if(NORTH)
 			initialize_directions = WEST|NORTH|SOUTH
@@ -248,6 +247,7 @@ obj/machinery/atmospherics/trinary/filter/m_filter/New()
 			initialize_directions = EAST|WEST|NORTH
 		if(WEST)
 			initialize_directions = WEST|SOUTH|EAST
+	. = ..()
 
 /obj/machinery/atmospherics/trinary/filter/m_filter/atmos_init()
 	set_frequency(frequency)

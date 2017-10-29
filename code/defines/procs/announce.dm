@@ -1,5 +1,5 @@
-/var/datum/announcement/priority/priority_announcement = new(do_log = 0)
-/var/datum/announcement/priority/command/command_announcement = new(do_log = 0, do_newscast = 1)
+/var/datum/announcement/priority/priority_announcement
+/var/datum/announcement/priority/command/command_announcement
 
 /datum/announcement
 	var/title = "Attention"
@@ -22,8 +22,8 @@
 
 /datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0)
 	..(do_log, new_sound, do_newscast)
-	title = "[command_name()] Update"
-	announcement_type = "[command_name()] Update"
+	title = "[current_map.boss_name] Update"
+	announcement_type = "[current_map.boss_name] Update"
 
 /datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0)
 	..(do_log, new_sound, do_newscast)
@@ -66,7 +66,7 @@ datum/announcement/priority/Message(message as text, message_title as text)
 
 datum/announcement/priority/command/Message(message as text, message_title as text)
 	var/command
-	command += "<h1 class='alert'>[command_name()] Update</h1>"
+	command += "<h1 class='alert'>[current_map.boss_name] Update</h1>"
 	if (message_title)
 		command += "<br><h2 class='alert'>[message_title]</h2>"
 

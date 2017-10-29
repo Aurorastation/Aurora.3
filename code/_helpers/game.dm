@@ -12,17 +12,17 @@
 /proc/is_on_same_plane_or_station(var/z1, var/z2)
 	if(z1 == z2)
 		return 1
-	if((z1 in config.station_levels) &&	(z2 in config.station_levels))
+	if((z1 in current_map.station_levels) &&	(z2 in current_map.station_levels))
 		return 1
 	return 0
 
 /proc/max_default_z_level()
 	var/max_z = 0
-	for(var/z in config.station_levels)
+	for(var/z in current_map.station_levels)
 		max_z = max(z, max_z)
-	for(var/z in config.admin_levels)
+	for(var/z in current_map.admin_levels)
 		max_z = max(z, max_z)
-	for(var/z in config.player_levels)
+	for(var/z in current_map.player_levels)
 		max_z = max(z, max_z)
 	return max_z
 
@@ -61,10 +61,10 @@
 	return heard
 
 /proc/isPlayerLevel(var/level)
-	return level in config.player_levels
+	return level in current_map.player_levels
 
 /proc/isAdminLevel(var/level)
-	return level in config.admin_levels
+	return level in current_map.admin_levels
 
 /proc/isNotAdminLevel(var/level)
 	return !isAdminLevel(level)
@@ -98,14 +98,6 @@
 
 	//turfs += centerturf
 	return atoms
-
-/proc/trange(rad = 0, turf/centre = null) //alternative to range (ONLY processes turfs and thus less intensive)
-	if(!centre)
-		return
-
-	var/turf/x1y1 = locate(((centre.x-rad)<1 ? 1 : centre.x-rad),((centre.y-rad)<1 ? 1 : centre.y-rad),centre.z)
-	var/turf/x2y2 = locate(((centre.x+rad)>world.maxx ? world.maxx : centre.x+rad),((centre.y+rad)>world.maxy ? world.maxy : centre.y+rad),centre.z)
-	return block(x1y1,x2y2)
 
 /proc/get_dist_euclidian(atom/Loc1 as turf|mob|obj,atom/Loc2 as turf|mob|obj)
 	var/dx = Loc1.x - Loc2.x

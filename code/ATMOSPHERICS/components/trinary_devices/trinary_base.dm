@@ -13,8 +13,7 @@ obj/machinery/atmospherics/trinary
 	var/datum/pipe_network/network2
 	var/datum/pipe_network/network3
 
-	New()
-		..()
+	Initialize()
 		switch(dir)
 			if(NORTH)
 				initialize_directions = EAST|NORTH|SOUTH
@@ -31,6 +30,7 @@ obj/machinery/atmospherics/trinary
 		air1.volume = 200
 		air2.volume = 200
 		air3.volume = 200
+		. = ..()
 
 // Housekeeping and pipe network stuff below
 	network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)

@@ -31,6 +31,7 @@
 /obj/item/device/flashlight/lantern
 	name = "lantern"
 	icon_state = "lantern"
+	item_state = "lantern"
 	desc = "A mining lantern."
 	light_power = 1
 	brightness_on = 6
@@ -546,7 +547,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(C, user)
 		return
-	if (istype(C, /obj/item/weapon/weldingtool))
+	if (iswelder(C))
 		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user << "<span class='notice'>Slicing apart connectors ...</span>"
@@ -739,7 +740,7 @@
 
 	for(var/obj/item/device/radio/beacon/B in teleportbeacons)
 		var/turf/T = get_turf(B)
-		if(T.z in config.station_levels)
+		if(T.z in current_map.station_levels)
 			destinations += B
 
 	return destinations
@@ -1082,31 +1083,20 @@ var/list/total_extraction_beacons = list()
 	force = 10
 	throwforce = 5
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
-	var/currently_pulling = FALSE
 
 /obj/item/weapon/oremagnet/attack_self(mob/user)
 	if (use_check(user))
-		to_chat(user, "<span class='warning'>You cannot do that right now.</span>")
 		return
 
 	toggle_on(user)
 
 /obj/item/weapon/oremagnet/process()
-	set waitfor = FALSE
-
-	if (currently_pulling)
-		return
-
-	currently_pulling = TRUE
-
-	for(var/obj/item/weapon/ore/O in oview(7,src.loc))
+	for(var/obj/item/weapon/ore/O in oview(7, loc))
 		if(prob(80))
 			step_to(O, src.loc, 0)
 
-		if (TICK_CHECK && QDELING(src))
+		if (TICK_CHECK)
 			return
-
-	currently_pulling = FALSE
 
 /obj/item/weapon/oremagnet/proc/toggle_on(mob/user)
 	if (!isprocessing)
@@ -1140,6 +1130,8 @@ var/list/total_extraction_beacons = list()
 	for(var/obj/item/weapon/ore/O in orange(7,user))
 		single_spark(O.loc)
 		do_teleport(O, user, 0)
+
+		CHECK_TICK
 
 /******************************Sculpting*******************************/
 /obj/item/weapon/autochisel
@@ -1176,7 +1168,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 
-	if (istype(C, /obj/item/weapon/wrench))
+	if (iswrench(C))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		user << "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>"
 		anchored = !anchored

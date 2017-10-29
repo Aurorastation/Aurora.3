@@ -158,22 +158,22 @@
 	desc = "A box full of syringes."
 	icon_state = "syringe"
 
-	New()
-		..()
-		new /obj/item/weapon/reagent_containers/syringe( src )
-		new /obj/item/weapon/reagent_containers/syringe( src )
-		new /obj/item/weapon/reagent_containers/syringe( src )
-		new /obj/item/weapon/reagent_containers/syringe( src )
-		new /obj/item/weapon/reagent_containers/syringe( src )
-		new /obj/item/weapon/reagent_containers/syringe( src )
-		new /obj/item/weapon/reagent_containers/syringe( src )
+/obj/item/weapon/storage/box/syringes/fill()
+	..()
+	new /obj/item/weapon/reagent_containers/syringe( src )
+	new /obj/item/weapon/reagent_containers/syringe( src )
+	new /obj/item/weapon/reagent_containers/syringe( src )
+	new /obj/item/weapon/reagent_containers/syringe( src )
+	new /obj/item/weapon/reagent_containers/syringe( src )
+	new /obj/item/weapon/reagent_containers/syringe( src )
+	new /obj/item/weapon/reagent_containers/syringe( src )
 
 /obj/item/weapon/storage/box/syringegun
 	name = "box of syringe gun cartridges"
 	desc = "A box full of compressed gas cartridges."
 	icon_state = "syringe"
 
-/obj/item/weapon/storage/box/syringes/fill()
+/obj/item/weapon/storage/box/syringegun/fill()
 	..()
 	new /obj/item/weapon/syringe_cartridge( src )
 	new /obj/item/weapon/syringe_cartridge( src )
@@ -509,7 +509,7 @@
 /obj/item/weapon/storage/box/cups
 	name = "box of paper cups"
 	desc = "It has pictures of paper cups on the front."
-	
+
 /obj/item/weapon/storage/box/cups/fill()
 	..()
 	new /obj/item/weapon/reagent_containers/food/drinks/sillycup( src )
@@ -554,7 +554,7 @@
 	icon = 'icons/obj/food.dmi'
 	icon_state = "monkeycubebox"
 	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/monkeycube)
-	
+
 /obj/item/weapon/storage/box/monkeycubes/fill()
 	..()
 	if(src.type == /obj/item/weapon/storage/box/monkeycubes)
@@ -564,7 +564,7 @@
 /obj/item/weapon/storage/box/monkeycubes/farwacubes
 	name = "farwa cube box"
 	desc = "Drymate brand farwa cubes, shipped from Adhomai. Just add water!"
-	
+
 /obj/item/weapon/storage/box/monkeycubes/farwacubes/fill()
 	..()
 	for(var/i = 1; i <= 5; i++)
@@ -573,7 +573,7 @@
 /obj/item/weapon/storage/box/monkeycubes/stokcubes
 	name = "stok cube box"
 	desc = "Drymate brand stok cubes, shipped from Moghes. Just add water!"
-	
+
 /obj/item/weapon/storage/box/monkeycubes/stokcubes/fill()
 	..()
 	for(var/i = 1; i <= 5; i++)
@@ -582,7 +582,7 @@
 /obj/item/weapon/storage/box/monkeycubes/neaeracubes
 	name = "neaera cube box"
 	desc = "Drymate brand neaera cubes, shipped from Jargon 4. Just add water!"
-	
+
 /obj/item/weapon/storage/box/monkeycubes/neaeracubes/fill()
 	..()
 	for(var/i = 1; i <= 5; i++)
@@ -632,13 +632,13 @@
 	new /obj/item/weapon/handcuffs(src)
 	new /obj/item/weapon/handcuffs(src)
 	new /obj/item/weapon/handcuffs(src)
-	
+
 /obj/item/weapon/storage/box/zipties
 	name = "box of zipties"
 	desc = "A box full of zipties."
 	icon_state = "handcuff"
 
-/obj/item/weapon/storage/box/handcuffs/fill()
+/obj/item/weapon/storage/box/zipties/fill()
 	..()
 	new /obj/item/weapon/handcuffs/ziptie(src)
 	new /obj/item/weapon/handcuffs/ziptie(src)
@@ -679,7 +679,7 @@
 /obj/item/weapon/storage/box/spraybottles
 	name = "box of spray bottles"
 	desc = "It has pictures of spray bottles on its front."
-	
+
 /obj/item/weapon/storage/box/spraybottles/fill()
 	..()
 	new /obj/item/weapon/reagent_containers/spray( src )
@@ -696,12 +696,12 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "spbox"
 	can_hold = list(/obj/item/toy/snappop)
-	
+
 /obj/item/weapon/storage/box/snappops/fill()
 	..()
 	for(var/i=1; i <= 8; i++)
 		new /obj/item/toy/snappop(src)
-		
+
 /obj/item/weapon/storage/box/matches
 	name = "matchbox"
 	desc = "A small box of 'Space-Proof' premium matches."
@@ -722,7 +722,7 @@
 		W.lit = 1
 		W.damtype = "burn"
 		W.icon_state = "match_lit"
-		processing_objects.Add(W)
+		START_PROCESSING(SSprocessing, W)
 	W.update_icon()
 	return
 
@@ -730,7 +730,7 @@
 	name = "box of injectors"
 	desc = "Contains autoinjectors."
 	icon_state = "syringe"
-	
+
 /obj/item/weapon/storage/box/autoinjectors/fill()
 	..()
 	for (var/i; i < 7; i++)
@@ -772,6 +772,101 @@
 		new /obj/item/weapon/light/tube(src)
 	for(var/i = 0; i < 7; i++)
 		new /obj/item/weapon/light/bulb(src)
+
+/obj/item/weapon/storage/box/lights/coloredmixed
+	name = "box of colored lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/coloredmixed/fill()
+	..()
+	var/static/list/tube_colors = list(
+		/obj/item/weapon/light/tube/colored/red,
+		/obj/item/weapon/light/tube/colored/green,
+		/obj/item/weapon/light/tube/colored/blue,
+		/obj/item/weapon/light/tube/colored/magenta,
+		/obj/item/weapon/light/tube/colored/yellow,
+		/obj/item/weapon/light/tube/colored/cyan
+	)
+	var/static/list/bulbs_colors = list(
+		/obj/item/weapon/light/bulb/colored/red,
+		/obj/item/weapon/light/bulb/colored/green,
+		/obj/item/weapon/light/bulb/colored/blue,
+		/obj/item/weapon/light/bulb/colored/magenta,
+		/obj/item/weapon/light/bulb/colored/yellow,
+		/obj/item/weapon/light/bulb/colored/cyan
+	)
+	for(var/i = 0, i < 14, i++)
+		var/type = pick(tube_colors)
+		new type(src)
+	for(var/i = 0, i < 7, i++)
+		var/type = pick(bulbs_colors)
+		new type(src)
+
+/obj/item/weapon/storage/box/lights/colored/red
+	name = "box of red lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/red/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/red(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/red(src)
+
+/obj/item/weapon/storage/box/lights/colored/green
+	name = "box of green lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/green/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/green(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/green(src)
+
+/obj/item/weapon/storage/box/lights/colored/blue
+	name = "box of blue lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/blue/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/blue(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/blue(src)
+
+/obj/item/weapon/storage/box/lights/colored/cyan
+	name = "box of cyan lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/cyan/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/cyan(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/cyan(src)
+
+/obj/item/weapon/storage/box/lights/colored/yellow
+	name = "box of yellow lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/yellow/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/yellow(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/yellow(src)
+
+/obj/item/weapon/storage/box/lights/colored/magenta
+	name = "box of magenta lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/magenta/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/magenta(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/magenta(src)
 
 /obj/item/weapon/storage/box/freezer
 	name = "portable freezer"

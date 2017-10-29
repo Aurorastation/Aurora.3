@@ -10,9 +10,9 @@
 	var/locked = 1
 	var/emagged = 0
 
-/obj/item/weapon/circuitboard/security/New()
-	..()
-	network = station_networks
+/obj/item/weapon/circuitboard/security/Initialize()
+	. = ..()
+	network = current_map.station_networks
 
 /obj/item/weapon/circuitboard/security/engineering
 	name = T_BOARD("engineering camera monitor")
@@ -56,7 +56,7 @@
 			user << "<span class='notice'>You [locked ? "" : "un"]lock the circuit controls.</span>"
 		else
 			user << "<span class='warning'>Access denied.</span>"
-	else if(istype(I,/obj/item/device/multitool))
+	else if(ismultitool(I))
 		if(locked)
 			user << "<span class='warning'>Circuit controls are locked.</span>"
 			return

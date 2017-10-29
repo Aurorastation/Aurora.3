@@ -93,7 +93,7 @@
 		var/turf/T = get_turf(R)
 		if (!T)
 			continue
-		if(!(T.z in config.player_levels))
+		if(!(T.z in current_map.player_levels))
 			continue
 		var/tmpname = T.loc.name
 		if(areaindex[tmpname])

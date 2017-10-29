@@ -43,8 +43,11 @@
 	if(!damage_overlays[1]) //list hasn't been populated
 		generate_overlays()
 
-	var/list/cutlist = (reinforcement_images||list()) + damage_image
-	cut_overlay(cutlist, TRUE)
+	if (LAZYLEN(reinforcement_images))
+		cut_overlay(reinforcement_images, TRUE)
+	if (damage_image)
+		cut_overlay(damage_image, TRUE)
+
 	LAZYCLEARLIST(reinforcement_images)
 	damage_image = null
 
@@ -112,44 +115,8 @@
 		return
 
 	var/turf/simulated/wall/W
-	var/material/M
 	var/our_icon_base = material.icon_base
 
-	for (var/dir in cardinal)
-		W = get_step(src, dir)
-		if (istype(W) && (W.smooth || !W.density))
-			M = W.material
-			if (M && M.icon_base == our_icon_base)
-				. |= 1 << dir
-
-	if (. & N_NORTH)
-		if (. & N_WEST)
-			W = get_step(src, NORTHWEST)
-			if (istype(W) && (W.smooth || !W.density))
-				M = W.material
-				if (M && M.icon_base == our_icon_base)
-					. |= N_NORTHWEST
-
-		if (. & N_EAST)
-			W = get_step(src, NORTHEAST)
-			if (istype(W) && (W.smooth || !W.density))
-				M = W.material
-				if (M && M.icon_base == our_icon_base)
-					. |= N_NORTHEAST
-
-	if (. & N_SOUTH)
-		if (. & N_WEST)
-			W = get_step(src, SOUTHWEST)
-			if (istype(W) && (W.smooth || !W.density))
-				M = W.material
-				if (M && M.icon_base == our_icon_base)
-					. |= N_SOUTHWEST
-
-		if (. & N_EAST)
-			W = get_step(src, SOUTHEAST)
-			if (istype(W) && (W.smooth || !W.density))
-				M = W.material
-				if (M && M.icon_base == our_icon_base)
-					. |= N_SOUTHEAST
+	CALCULATE_NEIGHBORS(src, ., W, istype(W) && (W.smooth || !W.density) && W.material && W.material.icon_base == our_icon_base)
 
 	cached_adjacency = .

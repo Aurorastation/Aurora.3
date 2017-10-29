@@ -286,8 +286,8 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define LAYER_ABOVE_TABLE	2.81
 
 // Stoplag.
-#define TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? stoplag() : 0 )
-#define CHECK_TICK if (world.tick_usage > CURRENT_TICKLIMIT)  stoplag()
+#define TICK_CHECK (world.tick_usage > CURRENT_TICKLIMIT)
+#define CHECK_TICK if (TICK_CHECK) stoplag()
 
 // Performance bullshit.
 
@@ -337,7 +337,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define SOFTREF(A) "\ref[A]"
 
 // This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
-#define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref ? D:weakref : (D:weakref = new(D))) : null)
+#define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref || (D:weakref = new(D))) : null)
 
 #define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 #define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
@@ -375,10 +375,80 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define DEFAULT_SIGHT (SEE_SELF|SEE_BLACKNESS)
 
-#define isStationLevel(Z) ((Z) in config.station_levels)
+#define isStationLevel(Z) ((Z) in current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
 
 //Affects the chance that armour will block an attack. Should be between 0 and 1.
 //If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.
 //Of course, this will affect code that checks for blocked < 100, as blocked will be less likely to actually be 100.
 #define ARMOR_BLOCK_CHANCE_MULT 1.0
+
+//Cargo Container Types
+#define CARGO_CONTAINER_CRATE "crate"
+#define CARGO_CONTAINER_FREEZER "freezer"
+#define CARGO_CONTAINER_BOX "box"
+
+// We should start using these.
+#define ITEMSIZE_TINY   1
+#define ITEMSIZE_SMALL  2
+#define ITEMSIZE_NORMAL 3
+#define ITEMSIZE_LARGE  4
+#define ITEMSIZE_HUGE   5
+
+// getFlatIcon function altering defines
+#define GFI_ROTATION_DEFAULT 0 //Don't do anything special
+#define GFI_ROTATION_DEFDIR 1 //Layers will have default direction of there object
+#define GFI_ROTATION_OVERDIR 2 //Layers will have overidden direction
+
+// The pixel_(x|y) offset that will be used by default by wall items, such as APCs or Fire Alarms.
+#define DEFAULT_WALL_OFFSET 28
+
+// Defines for translating a dir into pixelshifts for wall items
+#define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)))
+#define DIR2PIXEL_Y(dir) ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)) : 0)
+
+/* 
+Define for getting a bitfield of adjacent turfs that meet a condition.
+ ORIGIN is the object to step from, VAR is the var to write the bitfield to
+ TVAR is the temporary turf variable to use, FUNC is the condition to check.
+ FUNC generally should reference TVAR.
+ example:
+	var/turf/T
+	var/result = 0
+	CALCULATE_NEIGHBORS(src, result, T, isopenturf(T))
+*/
+#define CALCULATE_NEIGHBORS(ORIGIN, VAR, TVAR, FUNC) \
+	for (var/_tdir in cardinal) {                    \
+		TVAR = get_step(ORIGIN, _tdir);              \
+		if ((TVAR) && (FUNC)) {                      \
+			VAR |= 1 << _tdir;                       \
+		}                                            \
+	}                                                \
+	if (VAR & N_NORTH) {                             \
+		if (VAR & N_WEST) {                          \
+			TVAR = get_step(ORIGIN, NORTHWEST);      \
+			if (FUNC) {                              \
+				VAR |= N_NORTHWEST;                  \
+			}                                        \
+		}                                            \
+		if (VAR & N_EAST) {                          \
+			TVAR = get_step(ORIGIN, NORTHEAST);      \
+			if (FUNC) {                              \
+				VAR |= N_NORTHEAST;                  \
+			}                                        \
+		}                                            \
+	}                                                \
+	if (VAR & N_SOUTH) {                             \
+		if (VAR & N_WEST) {                          \
+			TVAR = get_step(ORIGIN, SOUTHWEST);      \
+			if (FUNC) {                              \
+				VAR |= N_SOUTHWEST;                  \
+			}                                        \
+		}                                            \
+		if (VAR & N_EAST) {                          \
+			TVAR = get_step(ORIGIN, SOUTHEAST);      \
+			if (FUNC) {                              \
+				VAR |= N_SOUTHEAST;                  \
+			}                                        \
+		}                                            \
+	}

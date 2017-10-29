@@ -224,7 +224,7 @@
 		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5
 	)
 	prices = list(
-		/obj/item/weapon/storage/fancy/cigarettes = 510,
+		/obj/item/weapon/storage/fancy/cigarettes = 200,
 		/obj/item/weapon/storage/box/matches = 12,
 		/obj/item/weapon/flame/lighter/random = 12
 	)
@@ -276,7 +276,7 @@
 
 /obj/machinery/vending/wallmed1
 	name = "NanoMed"
-	desc = "Wall-mounted Medical Equipment dispenser."
+	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
 	icon_deny = "wallmed-deny"
@@ -296,7 +296,7 @@
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
-	desc = "Wall-mounted Medical Equipment dispenser."
+	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
 	icon_deny = "wallmed-deny"
 	req_access = list(access_medical)
@@ -506,11 +506,13 @@
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,
-		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4
+		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4,
+		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6
 	)
 	contraband = list(
 		/obj/item/weapon/material/kitchen/rollingpin = 2,
-		/obj/item/weapon/material/knife/butch = 2
+		/obj/item/weapon/material/knife/butch = 2,
+		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
 
 /obj/machinery/vending/sovietsoda

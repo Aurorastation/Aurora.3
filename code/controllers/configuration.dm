@@ -4,8 +4,6 @@ var/list/gamemode_cache = list()
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
-	var/list/lobby_screens = list("title") // Which lobby screens are available
-
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
 	var/log_say = 0						// log client say
@@ -75,6 +73,7 @@ var/list/gamemode_cache = list()
 	var/automute_on = 0					//enables automuting/spam prevention
 	var/macro_trigger = 5				// The grace period between messages before it's counted as abusing a macro.
 	var/jobs_have_minimal_access = 0	//determines whether jobs use minimal access or expanded access.
+	var/override_map
 
 	var/cult_ghostwriter = 1               //Allows ghosts to write in blood in cult rounds...
 	var/cult_ghostwriter_req_cultists = 10 //...so long as this many cultists are active.
@@ -106,6 +105,7 @@ var/list/gamemode_cache = list()
 	var/alert_desc_green = "All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
 	var/alert_desc_blue_upto = "The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible, random searches are permitted."
 	var/alert_desc_blue_downto = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
+	var/alert_desc_yellow_to = "The station is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations."
 	var/alert_desc_red_upto = "There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised."
 	var/alert_desc_red_downto = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised."
 	var/alert_desc_delta = "The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill."
@@ -160,6 +160,7 @@ var/list/gamemode_cache = list()
 	var/ban_legacy_system = 0	//Defines whether the server uses the legacy banning system with the files in /data or the SQL system. Config option in config.txt
 	var/use_age_restriction_for_jobs = 0 //Do jobs use account age restrictions? --requires database
 	var/use_age_restriction_for_antags = 0 //Do antags use account age restrictions? --requires database
+	var/age_restrictions_from_file = 0 // Are hardcoded values used or config ones?
 	var/sql_stats = 0			//Do we record round statistics on the database (deaths, round reports, population, etcetera) or not?
 	var/sql_whitelists = 0		//Defined whether the server uses an SQL based whitelist system, or the legacy one with two .txts. Config option in config.txt
 	var/sql_saves = 0			//Defines whether the server uses an SQL based character and preference saving system. Config option in config.txt
@@ -181,12 +182,6 @@ var/list/gamemode_cache = list()
 	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
 	var/use_overmap = 0
-
-	var/list/station_levels = list(3, 4, 5, 6, 7)				// Defines which Z-levels the station exists on.
-	var/list/admin_levels= list(1)					// Defines which Z-levels which are for admin functionality, for example including such areas as Central Command and the Syndicate Shuttle
-	var/list/contact_levels = list(3, 4, 5, 6)			// Defines which Z-levels which, for example, a Code Red announcement may affect
-	var/list/player_levels = list(2, 3, 4, 5, 6, 7, 8)	// Defines all Z-levels a character can typically reach
-	var/list/sealed_levels = list() 				// Defines levels that do not allow random transit at the edges.
 
 	// Event settings
 	var/expected_round_length = 3 * 60 * 60 * 10 // 3 hours
@@ -270,6 +265,13 @@ var/list/gamemode_cache = list()
 	var/sun_accuracy = 8
 	var/sun_target_z = 7
 
+	var/cargo_load_items_from = "json"
+	var/merchant_chance = 20 //Chance, in percentage, of the merchant job slot being open at round start
+
+	var/show_game_type_odd = 1 // If the check gamemode probability verb is enabled or not
+
+	var/openturf_starlight_permitted = FALSE
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -329,6 +331,9 @@ var/list/gamemode_cache = list()
 
 				if ("use_age_restriction_for_antags")
 					config.use_age_restriction_for_antags = 1
+
+				if ("load_age_restrictions_from_file")
+					config.age_restrictions_from_file = 1
 
 				if ("jobs_have_minimal_access")
 					config.jobs_have_minimal_access = 1
@@ -587,6 +592,9 @@ var/list/gamemode_cache = list()
 				if("alert_green")
 					config.alert_desc_green = value
 
+				if("alert_yellow")
+					config.alert_desc_yellow_to = value
+		
 				if("alert_delta")
 					config.alert_desc_delta = value
 
@@ -681,21 +689,6 @@ var/list/gamemode_cache = list()
 				if("use_overmap")
 					config.use_overmap = 1
 
-				if("station_levels")
-					config.station_levels = text2numlist(value, ";")
-
-				if("admin_levels")
-					config.admin_levels = text2numlist(value, ";")
-
-				if("contact_levels")
-					config.contact_levels = text2numlist(value, ";")
-
-				if("player_levels")
-					config.player_levels = text2numlist(value, ";")
-
-				if("sealed_levels")
-					config.sealed_levels = text2numlist(value, ";")
-
 				if("expected_round_length")
 					config.expected_round_length = MinutesToTicks(text2num(value))
 
@@ -732,6 +725,9 @@ var/list/gamemode_cache = list()
 				if("starlight")
 					value = text2num(value)
 					config.starlight = value >= 0 ? value : 0
+
+				if("openturf_starlight")
+					openturf_starlight_permitted = TRUE
 
 				if("ert_species")
 					config.ert_species = text2list(value, ";")
@@ -780,9 +776,6 @@ var/list/gamemode_cache = list()
 					if(values.len > 0)
 						language_prefixes = values
 
-				if ("lobby_screens")
-					config.lobby_screens = text2list(value, ";")
-
 				if("delist_when_no_admins")
 					config.delist_when_no_admins = 1
 
@@ -828,11 +821,22 @@ var/list/gamemode_cache = list()
 					access_deny_vms = text2num(value)
 				if("access_warn_vms")
 					access_warn_vms = text2num(value)
+				
+				if("cargo_load_items_from")
+					cargo_load_items_from = value
 
 				if("fastboot")
 					fastboot = TRUE
 					world.log << "Fastboot is ENABLED."
 
+				if("merchant_chance")
+					config.merchant_chance = text2num(value)
+
+				if("force_map")
+					override_map = value
+
+				if("show_game_type_odd")
+					config.show_game_type_odd = 1
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 

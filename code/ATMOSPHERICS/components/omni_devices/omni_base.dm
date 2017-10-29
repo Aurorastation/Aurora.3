@@ -26,8 +26,8 @@
 
 	var/list/ports = new()
 
-/obj/machinery/atmospherics/omni/New()
-	..()
+/obj/machinery/atmospherics/omni/Initialize()
+	. = ..()
 	icon_state = "base"
 
 	ports = new()
@@ -84,7 +84,7 @@
 		update_icon()
 
 /obj/machinery/atmospherics/omni/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(!istype(W, /obj/item/weapon/wrench))
+	if(!iswrench(W))
 		return ..()
 
 	var/int_pressure = 0

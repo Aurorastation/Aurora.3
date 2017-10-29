@@ -24,6 +24,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_cap
 	alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
 	duffel_type = /obj/item/weapon/storage/backpack/duffel/cap
+	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/com
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)

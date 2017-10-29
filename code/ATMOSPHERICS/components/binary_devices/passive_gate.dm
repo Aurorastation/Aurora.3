@@ -24,8 +24,8 @@
 	var/id = null
 	var/datum/radio_frequency/radio_connection
 
-/obj/machinery/atmospherics/binary/passive_gate/New()
-	..()
+/obj/machinery/atmospherics/binary/passive_gate/Initialize()
+	. = ..()
 	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 	air2.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 
@@ -235,7 +235,7 @@
 	return
 
 /obj/machinery/atmospherics/binary/passive_gate/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W))
 		return ..()
 	if (unlocked)
 		user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"

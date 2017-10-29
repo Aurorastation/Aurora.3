@@ -268,7 +268,7 @@
 
 
 /obj/machinery/power/smes/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		if(!open_hatch)
 			open_hatch = 1
 			user << "<span class='notice'>You open the maintenance hatch of [src].</span>"
@@ -282,7 +282,7 @@
 		user << "<span class='warning'>You need to open access hatch on [src] first!</span>"
 		return 0
 
-	if(istype(W, /obj/item/stack/cable_coil) && !terminal && !building_terminal)
+	if(iscoil(W) && !terminal && !building_terminal)
 		building_terminal = 1
 		var/obj/item/stack/cable_coil/CC = W
 		if (CC.get_amount() <= 10)
@@ -301,7 +301,7 @@
 		stat = 0
 		return 0
 
-	else if(istype(W, /obj/item/weapon/wirecutters) && terminal && !building_terminal)
+	else if(iswirecutter(W) && terminal && !building_terminal)
 		building_terminal = 1
 		var/turf/tempTDir = terminal.loc
 		if (istype(tempTDir))
@@ -404,7 +404,7 @@
 	failure_timer = max(failure_timer, duration)
 
 /obj/machinery/power/smes/proc/ion_act()
-	if(src.z in config.station_levels)
+	if(src.z in current_map.station_levels)
 		if(prob(1)) //explosion
 			for(var/mob/M in viewers(src))
 				M.show_message("<span class='warning'>The [src.name] is making strange noises!</span>", 3, "<span class='warning'>You hear sizzling electronics.</span>", 2)

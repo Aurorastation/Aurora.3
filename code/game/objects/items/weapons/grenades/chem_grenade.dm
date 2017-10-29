@@ -15,7 +15,8 @@
 	var/list/allowed_containers = list(/obj/item/weapon/reagent_containers/glass/beaker, /obj/item/weapon/reagent_containers/glass/bottle)
 	var/affected_area = 3
 
-	New()
+	Initialize()
+		. = ..()
 		var/datum/reagents/R = new/datum/reagents(1000)
 		reagents = R
 		R.my_atom = src
@@ -72,7 +73,7 @@
 			icon_state = initial(icon_state) +"_ass"
 			name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 			stage = 1
-		else if(istype(W,/obj/item/weapon/screwdriver) && path != 2)
+		else if(isscrewdriver(W) && path != 2)
 			if(stage == 1)
 				path = 1
 				if(beakers.len)
@@ -199,8 +200,8 @@
 	path = 1
 	stage = 2
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
 
@@ -220,8 +221,8 @@
 	path = 1
 	stage = 2
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
 
@@ -243,8 +244,8 @@
 	path = 1
 	stage = 2
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
 
@@ -265,8 +266,8 @@
 	path = 1
 	stage = 2
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
 
@@ -288,8 +289,8 @@
 	stage = 2
 	path = 1
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
 
@@ -309,8 +310,8 @@
 	stage = 2
 	path = 1
 
-	New()
-		..()
+	Initialize()
+		. = ..()
 		var/obj/item/weapon/reagent_containers/glass/beaker/large/B1 = new(src)
 		var/obj/item/weapon/reagent_containers/glass/beaker/large/B2 = new(src)
 

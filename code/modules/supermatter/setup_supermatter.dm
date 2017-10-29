@@ -233,7 +233,7 @@
 				P.mode = ATM_CO2
 				break
 			else
-				log_and_message_admins("## WARNING: Inapropriate filter coolant type set at [x] [y] [z]!")
+				log_and_message_admins("## WARNING: Inappropriate filter coolant type set at [x] [y] [z]!")
 				return SETUP_WARNING
 		F.rebuild_filtering_list()
 

@@ -74,12 +74,13 @@
 		playsound(src, "clownstep", 20, 1)
 
 /obj/item/clothing/shoes/cult
-	name = "boots"
-	desc = "A pair of boots worn by the followers of Nar-Sie."
+	name = "ragged boots"
+	desc = "A ragged, dusty pair of boots."
 	icon_state = "cult"
 	item_state = "cult"
 	force = 5
 	siemens_coefficient = 0
+	armor = list(melee = 50, bullet = 30, laser = 50,energy = 20, bomb = 25, bio = 10, rad = 0)
 
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
@@ -123,3 +124,20 @@
 	icon_state = "flippers"
 	item_flags = NOSLIP
 	slowdown = SHOES_SLOWDOWN+1
+
+/obj/item/clothing/shoes/footwraps
+	name = "cloth footwraps"
+	desc = "A roll of treated canvas used for wrapping clawed feet."
+	icon_state = "clothwrap"
+	item_state = "clothwrap"
+	w_class = 2
+	species_restricted = null
+
+/obj/item/clothing/shoes/winter
+	name = "winter boots"
+	desc = "Boots lined with 'synthetic' animal fur."
+	icon_state = "winterboots"
+	cold_protection = FEET|LEGS
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = FEET|LEGS
+	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE

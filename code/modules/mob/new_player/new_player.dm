@@ -16,8 +16,10 @@
 	anchored = 1	//  don't get pushed around
 	simulated = FALSE
 
-/mob/new_player/New()
-	..()
+INITIALIZE_IMMEDIATE(/mob/new_player)
+
+/mob/new_player/Initialize()
+	. = ..()
 	dead_mob_list -= src
 
 /mob/new_player/verb/new_player_panel()
@@ -329,16 +331,16 @@
 		character.buckled.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
-
-	if(character.mind.assigned_role != "Cyborg")
-		data_core.manifest_inject(character)
-		SSticker.minds += character.mind	//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
+	if(SSjobs.ShouldCreateRecords(rank))
+		if(character.mind.assigned_role != "Cyborg")
+			data_core.manifest_inject(character)
+			SSticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
 
 		//Grab some data from the character prefs for use in random news procs.
 
-		AnnounceArrival(character, rank, join_message)
-	else
-		AnnounceCyborg(character, rank, join_message)
+			AnnounceArrival(character, rank, join_message)
+		else
+			AnnounceCyborg(character, rank, join_message)
 
 	qdel(src)
 

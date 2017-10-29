@@ -198,9 +198,6 @@
 	return 0
 
 /mob/proc/Life()
-//	if(organStructure)
-//		organStructure.ProcessOrgans()
-	//handle_typing_indicator() //You said the typing indicator would be fine. The test determined that was a lie.
 	return
 
 #define UNBUCKLED 0
@@ -319,7 +316,11 @@
 /mob/proc/clear_point()
 	QDEL_NULL(pointing_effect)
 
-/mob/proc/ret_grab(obj/effect/list_container/mobl/L as obj, flag)
+/datum/mobl	// I have no idea what the fuck this is, but it's better for it to be a datum than an /obj/effect.
+	var/list/container = list()
+	var/master
+
+/mob/proc/ret_grab(datum/mobl/L, flag)
 	if ((!( istype(l_hand, /obj/item/weapon/grab) ) && !( istype(r_hand, /obj/item/weapon/grab) )))
 		if (!( L ))
 			return null
@@ -327,26 +328,24 @@
 			return L.container
 	else
 		if (!( L ))
-			L = new /obj/effect/list_container/mobl( null )
+			L = new /datum/mobl
 			L.container += src
 			L.master = src
 		if (istype(l_hand, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = l_hand
-			if (!( L.container.Find(G.affecting) ))
+			if (!(L.container.Find(G.affecting)))
 				L.container += G.affecting
 				if (G.affecting)
 					G.affecting.ret_grab(L, 1)
 		if (istype(r_hand, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = r_hand
-			if (!( L.container.Find(G.affecting) ))
+			if (!(L.container.Find(G.affecting)))
 				L.container += G.affecting
 				if (G.affecting)
 					G.affecting.ret_grab(L, 1)
 		if (!( flag ))
 			if (L.master == src)
-				var/list/temp = list(  )
-				temp += L.container
-				//L = null
+				var/list/temp = L.container.Copy()
 				qdel(L)
 				return temp
 			else
@@ -710,9 +709,13 @@
 	return stat == DEAD
 
 /mob/proc/is_mechanical()
-	if(mind && (mind.assigned_role == "Cyborg" || mind.assigned_role == "AI"))
-		return 1
-	return istype(src, /mob/living/silicon) || get_species() == "Baseline Frame" || get_species() == "Shell Frame" || get_species() == "Industrial Frame"
+	return FALSE
+
+/mob/living/silicon/is_mechanical()
+	return TRUE
+
+/mob/living/carbon/human/is_mechanical()
+	return !!global.mechanical_species[get_species()]
 
 /mob/proc/is_ready()
 	return client && !!mind
@@ -737,6 +740,7 @@
 	if(.)
 		if(statpanel("Status") && SSticker.current_state != GAME_STATE_PREGAME)
 			stat("Game ID", game_id)
+			stat("Map", current_map.full_name)
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", round_duration())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
@@ -1185,6 +1189,14 @@ mob/proc/yank_out_object()
 
 	. = ..()
 
+	if (!contained_mobs)	// If this is true, the parent will have already called the client hook.
+		update_client_hook(loc)
+
+/mob/Move()
+	. = ..()
+	if (. && !contained_mobs && client)
+		update_client_hook(loc)
+
 /mob/verb/northfaceperm()
 	set hidden = 1
 	set_face_dir(client.client_dir(NORTH))
@@ -1264,3 +1276,47 @@ mob/proc/yank_out_object()
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()
 	return 1
+
+/client/proc/check_has_body_select()
+	return mob && mob.hud_used && istype(mob.zone_sel, /obj/screen/zone_sel)
+ 
+/client/verb/body_toggle_head()
+	set name = "body-toggle-head"
+	set hidden = 1
+	toggle_zone_sel(list("head","eyes","mouth"))
+
+/client/verb/body_r_arm()
+	set name = "body-r-arm"
+	set hidden = 1
+	toggle_zone_sel(list("r_arm","r_hand"))
+
+/client/verb/body_l_arm()
+ 	set name = "body-l-arm"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("l_arm","l_hand"))
+ 
+/client/verb/body_chest()
+ 	set name = "body-chest"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("chest"))
+ 
+/client/verb/body_groin()
+ 	set name = "body-groin"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("groin"))
+ 
+/client/verb/body_r_leg()
+ 	set name = "body-r-leg"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("r_leg","r_foot"))
+ 
+/client/verb/body_l_leg()
+ 	set name = "body-l-leg"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("l_leg","l_foot"))
+
+/client/proc/toggle_zone_sel(list/zones)
+	if(!check_has_body_select())
+		return
+	var/obj/screen/zone_sel/selector = mob.zone_sel
+	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
