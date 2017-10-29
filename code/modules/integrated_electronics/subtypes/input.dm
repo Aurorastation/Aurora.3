@@ -439,7 +439,7 @@
 
 /obj/item/integrated_circuit/input/pressure_sensor
 	name = "integrated pressure sensor"
-	desc = "A tiny pressure sensor module similar to that found in a PDA atmosphere analyser"
+	desc = "A tiny pressure sensor module similar to that found in a PDA atmosphere analyser."
 	icon_state = "medscan_adv"
 	complexity = 3
 	inputs = list()
@@ -469,7 +469,7 @@
 
 /obj/item/integrated_circuit/input/temperature_sensor
 	name = "integrated temperature sensor"
-	desc = "A tiny temperature sensor module similar to that found in a PDA atmosphere analyser"
+	desc = "A tiny temperature sensor module similar to that found in a PDA atmosphere analyser."
 	icon_state = "medscan_adv"
 	complexity = 3
 	inputs = list()
@@ -498,7 +498,7 @@
 
 /obj/item/integrated_circuit/input/oxygen_sensor
 	name = "integrated oxygen sensor"
-	desc = "A tiny oxygen sensor module similar to that found in a PDA atmosphere analyser"
+	desc = "A tiny oxygen sensor module similar to that found in a PDA atmosphere analyser."
 	icon_state = "medscan_adv"
 	complexity = 3
 	inputs = list()
@@ -528,7 +528,7 @@
 
 /obj/item/integrated_circuit/input/co2_sensor
 	name = "integrated co2 sensor"
-	desc = "A tiny carbon dioxide sensor module similar to that found in a PDA atmosphere analyser"
+	desc = "A tiny carbon dioxide sensor module similar to that found in a PDA atmosphere analyser."
 	icon_state = "medscan_adv"
 	complexity = 3
 	inputs = list()
@@ -558,7 +558,7 @@
 
 /obj/item/integrated_circuit/input/nitrogen_sensor
 	name = "integrated nitrogen sensor"
-	desc = "A tiny nitrogen sensor module similar to that found in a PDA atmosphere analyser"
+	desc = "A tiny nitrogen sensor module similar to that found in a PDA atmosphere analyser."
 	icon_state = "medscan_adv"
 	complexity = 3
 	inputs = list()
@@ -588,7 +588,7 @@
 
 /obj/item/integrated_circuit/input/phoron_sensor
 	name = "integrated phoron sensor"
-	desc = "A tiny phoron gas sensor module similar to that found in a PDA atmosphere analyser"
+	desc = "A tiny phoron gas sensor module similar to that found in a PDA atmosphere analyser."
 	icon_state = "medscan_adv"
 	complexity = 3
 	inputs = list()
