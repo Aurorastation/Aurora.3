@@ -385,7 +385,7 @@
 
 /obj/item/integrated_circuit/input/atmo_scanner
 	name = "integrated atmospheric analyser"
-	desc = "The same atmospheric analysis module that is integrate into every pda.  \
+	desc = "The same atmospheric analysis module that is integrated into every PDA.  \
 	This allows the machine to know the composition, temperature and pressure of the surrounding atmosphere."
 	icon_state = "medscan_adv"
 	complexity = 9
