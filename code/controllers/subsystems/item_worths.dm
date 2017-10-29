@@ -37,7 +37,7 @@
 			else
 				log_debug("SSItemWorths: Loading Error: [text_path] is not a valid path")
 
-/datum/controller/subsystem/item_worths/proc/seed_database()
+/datum/controller/subsystem/item_worths/proc/seed_database(overwrite = 0)
 	if(config.item_worths_load_from == "sql")
 		log_debug("SSItemWorths: SEED ERROR: You need to load from code, if you wish to seed the SQL DB.")
 		return 1
@@ -45,9 +45,14 @@
 		log_debug("SSItemWorths: SQL ERROR: Failed to connect ! - Unable to seed DB.")
 		return 1
 	
+	var/query_string = "INSERT INTO ss13_item_worths (path, value) VALUES (:path:, :value:) ON DUPLICATE KEY UPDATE value=value"
+
+	if(overwrite)
+		query_string = "INSERT INTO ss13_item_worths (path, value) VALUES (:path:, :value:) ON DUPLICATE KEY UPDATE value=:value:"
+
 	for(var/path in worths)
-		var/DBQuery/item_worth_query = dbcon.NewQuery("INSERT INTO ss13_item_worths (path, value) VALUES (:path:, :value:) ON DUPLICATE KEY UPDATE value=:value:")
-		item_worth_query.Execute(list("path" = "[path]", "value" = worths[path] ))
+		var/DBQuery/item_worth_query = dbcon.NewQuery(query_string)
+		item_worth_query.Execute(list("path" = "[path]", "value" = worths[path]))
 
 /datum/controller/subsystem/item_worths/proc/load_from_code()
 	//Negative values indicate that instances of these types should use the Value proc
