@@ -549,6 +549,8 @@
 	slime_temp_adj = 15
 
 /datum/reagent/capsaicin/condensed/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+#define EYES_PROTECTED 1
+#define EYES_MECH 2
 	var/eyes_covered = 0
 	var/mouth_covered = 0
 	var/no_pain = 0
@@ -563,13 +565,18 @@
 		protection = list(H.head, H.glasses, H.wear_mask)
 		if(H.species && (H.species.flags & NO_PAIN))
 			no_pain = 1 //TODO: living-level can_feel_pain() proc
+
+		// Robo-eyes are immune to pepperspray now. Wee.
+		var/obj/item/organ/eyes/E = H.get_eyes()
+		if (istype(E) && (E.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)))
+			eyes_covered |= EYES_MECH
 	else
 		protection = list(M.wear_mask)
 
 	for(var/obj/item/I in protection)
 		if(I)
 			if(I.body_parts_covered & EYES)
-				eyes_covered = 1
+				eyes_covered |= EYES_PROTECTED
 				eye_protection = I.name
 			if((I.body_parts_covered & FACE) && !(I.item_flags & FLEXIBLEMATERIAL))
 				mouth_covered = 1
@@ -577,8 +584,10 @@
 
 	var/message = null
 	if(eyes_covered)
-		if(!mouth_covered)
+		if (!mouth_covered && (eyes_covered & EYES_PROTECTED))
 			message = "<span class='warning'>Your [eye_protection] protects your eyes from the pepperspray!</span>"
+		else if (eyes_covered & EYES_MECH)
+			message = "<span class='warning'>Your mechanical eyes are invulnurable pepperspray!</span>"
 	else
 		message = "<span class='warning'>The pepperspray gets in your eyes!</span>"
 		if(mouth_covered)
@@ -597,6 +606,8 @@
 			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
 		M.Stun(5)
 		M.Weaken(5)
+#undef EYES_PROTECTED
+#undef EYES_MECH
 
 /datum/reagent/condensedcapsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
