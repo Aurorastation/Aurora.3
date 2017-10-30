@@ -2863,14 +2863,14 @@
 /datum/reagent/ethanol/oldfashioned
 	name = "Old Fashioned"
 	id = "oldfashioned"
-	description = "That looks like from sixties."
+	description = "That looks like it's from the sixties."
 	color = "#2E6671"
-	strength = 20
+	strength = 30
 	taste_description = "bitterness"
 
 	glass_icon_state = "oldfashioned"
 	glass_name = "glass of Old Fashioned"
-	glass_desc = "That looks like from sixties."
+	glass_desc = "That looks like it's from the sixties."
 
 /datum/reagent/ethanol/blindrussian
 	name = "Blind Russian"
@@ -2975,7 +2975,7 @@
 /datum/reagent/ethanol/cobaltvelvet
 	name = "Cobalt Velvet"
 	id = "cobaltvelvet"
-	description = "Blue, bubbly, and easy to drink."
+	description = "Bright, bubbly, and easy-drinking. Sweet almost like cola."
 	color = "#a3ecf7"
 	strength = 25
 	taste_description = "neon champagne"	
@@ -3077,6 +3077,40 @@
 	glass_icon_state = "olympusmons"
 	glass_name = "glass of Olympus Mons"
 	glass_desc = "Another, stronger version of the Black Russian. It's popular in some Martian arcologies."
+
+/datum/reagent/ethanol/europanail
+	name = "Europa Nail"
+	id = "europanail"
+	description = "Named for Jupiter's moon. It looks about as crusty."
+	color = "#785327"
+	strength = 30
+	taste_description = "a coffee-flavored moon"	
+
+	glass_icon_state = "europanail"
+	glass_name = "glass of Europa Nail"
+	glass_desc = "Named for Jupiter's moon. It looks about as crusty."
+
+/datum/reagent/drink/portsvilleminttea
+	name = "Portsville Mint Tea"
+	id = "portsvilleminttea"
+	description = "A popular iced pick-me-up originating from a city in Eos, on Biesel."
+	color = "#b6f442"
+	taste_description = "cool minty tea"	
+
+	glass_icon_state = "portsvilleminttea"
+	glass_name = "glass of Portsville Mint Tea"
+	glass_desc = "A popular iced pick-me-up originating from a city in Eos, on Biesel."
+
+/datum/reagent/drink/shirleytemple
+	name = "Shirley Temple"
+	id = "shirleytemple"
+	description = "Straight from the good ship Lollipop."
+	color = "#ce2727"
+	taste_description = "innocence"	
+
+	glass_icon_state = "shirleytemple"
+	glass_name = "glass of Shirley Temple"
+	glass_desc = "Straight from the good ship Lollipop."
 
 // Butanol-based alcoholic drinks
 //=====================================

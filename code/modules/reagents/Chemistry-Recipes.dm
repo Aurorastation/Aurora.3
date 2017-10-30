@@ -2347,8 +2347,8 @@
 	name = "Old Fashioned"
 	id = "oldfashioned"
 	result = "oldfashioned"
-	required_reagents = list("bluecuracao" = 1, "gin" = 1, "ice" = 1)
-	result_amount = 3
+	required_reagents = list("whiskeysoda" = 3, "bitters" = 1, "sugar" = 1)
+	result_amount = 5
 
 /datum/chemical_reaction/blindrussian
 	name = "Blind Russian"
@@ -2444,3 +2444,24 @@
 	result = "olympusmons"
 	required_reagents = list("blackrussian" = 1, "whiskey" = 1, "rum" = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/europanail
+	name = "Europa Nail"
+	id = "europanail"
+	result = "europanail"
+	required_reagents = list("rustynail" = 2, "kahlua" = 2, "cream" = 2)
+	result_amount = 6
+
+/datum/chemical_reaction/portsvilleminttea
+	name = "Portsville Mint Tea"
+	id = "portsvilleminttea"
+	result = "portsvilleminttea"
+	required_reagents = list("icedtea" = 3, "berryjuice" = 1, "mintsyrup" = 1, "sugar" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/shirleytemple
+	name = "Shirley Temple"
+	id = "shirleytemple"
+	result = "shirleytemple"
+	required_reagents = list("space_up" = 4, "grenadine" = 2)
+	result_amount = 6
