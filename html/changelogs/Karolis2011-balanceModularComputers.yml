@@ -1,0 +1,6 @@
+author: Karolis2011
+delete-after: True
+
+changes: 
+  - balance: "Laptops now will accept a bit bigger variety of programs and hardware."
+  - bugfix: "Modular computers can no longer download programs that can't actually run on them."
