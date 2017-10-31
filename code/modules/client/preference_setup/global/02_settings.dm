@@ -20,7 +20,7 @@
 	S["motd_hash"]        << pref.motd_hash
 	S["memo_hash"]        << pref.memo_hash
 	S["parallax_speed"]   << pref.parallax_speed
-	S["parallax_toggles"] << pref.toggles_secondary
+	S["toggles_secondary"] << pref.toggles_secondary
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
 	return list(
@@ -32,7 +32,7 @@
 				"asfx_togs",
 				"lastmotd" = "motd_hash",
 				"lastmemo" = "memo_hash",
-				"parallax_toggles" = "toggles_secondary",
+				"toggles_secondary" = "toggles_secondary",
 				"parallax_speed"
 			),
 			"args" = list("ckey")
@@ -66,7 +66,7 @@
 		"asfx_togs" = pref.asfx_togs,
 		"lastmotd" = pref.motd_hash,
 		"lastmemo" = pref.memo_hash,
-		"parallax_toggles" = pref.toggles_secondary,
+		"toggles_secondary" = pref.toggles_secondary,
 		"parallax_speed" = pref.parallax_speed
 	)
 
