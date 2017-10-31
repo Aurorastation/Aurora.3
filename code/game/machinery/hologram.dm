@@ -114,11 +114,16 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		activate_holocall(caller_id)
 
 /obj/machinery/hologram/holopad/proc/end_call(mob/user)
-	caller_id.unset_machine()
-	caller_id.reset_view() //Send the caller back to his body
-	clear_holo(null, caller_id) // destroy the hologram
-	caller_id = null
-
+	if(caller_id)
+		caller_id.unset_machine()
+		caller_id.reset_view() //Send the caller back to his body
+		clear_holo(null, caller_id) // destroy the hologram
+		caller_id = null
+	if(user)
+		user.unset_machine()
+		user.reset_view() //Send the caller back to his body
+		clear_holo(null, user) // destroy the hologram
+		user = null
 /obj/machinery/hologram/holopad/proc/activate_holocall(mob/living/carbon/caller_id)
 	if(caller_id)
 		create_holo(0,caller_id)//Create one.
@@ -173,9 +178,13 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			master.show_message(rendered, 2)
 	var/name_used = M.GetVoice()
 	if(targetpad) //If this is the pad you're making the call from
-		var/message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
-		targetpad.audible_message(message)
-		targetpad.last_message = message
+		var/message
+		if(speaking)
+			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
+			targetpad.audible_message(message)
+			targetpad.last_message = message
+		else
+			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
 	if(sourcepad) //If this is a pad receiving a call
 		if(name_used==caller_id||text==last_message||findtext(text, "Holopad received")) //prevent echoes
 			return
