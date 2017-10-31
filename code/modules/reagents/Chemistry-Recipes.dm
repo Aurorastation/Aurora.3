@@ -2465,3 +2465,10 @@
 	result = "shirleytemple"
 	required_reagents = list("space_up" = 4, "grenadine" = 2)
 	result_amount = 6
+
+/datum/chemical_reaction/sugarrush
+	name = "Sugar Rush"
+	id = "sugarrush"
+	result = "sugarrush"
+	required_reagents = list("brownstar" = 4, "grenadine" = 1, "vodka" = 1)
+	result_amount = 6

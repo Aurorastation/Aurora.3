@@ -2942,7 +2942,7 @@
 	description = "A distillation of figs, popular in the Serene Republic of Elyra."
 	color = "#efd0d0"
 	strength = 40
-	taste_description = "figs and spices"
+	taste_description = "spiced figs"
 
 	glass_icon_state = "boukhaglass"
 	glass_name = "glass of boukha"
@@ -3111,6 +3111,18 @@
 	glass_icon_state = "shirleytemple"
 	glass_name = "glass of Shirley Temple"
 	glass_desc = "Straight from the good ship Lollipop."
+
+/datum/reagent/ethanol/sugarrush
+	name = "Sugar Rush"
+	id = "sugarrush"
+	description = "Sweet, light and fruity. As girly as it gets."
+	color = "#d51d5d"
+	strength = 15
+	taste_description = "sweet soda"	
+
+	glass_icon_state = "sugarrush"
+	glass_name = "glass of Sugar Rush"
+	glass_desc = "Sweet, light and fruity. As girly as it gets."
 
 // Butanol-based alcoholic drinks
 //=====================================
