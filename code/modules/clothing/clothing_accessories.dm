@@ -45,6 +45,9 @@
 		if (!(src.loc == usr))
 			return
 
+		if(!over_object)
+			return
+
 		if (( usr.restrained() ) || ( usr.stat ))
 			return
 

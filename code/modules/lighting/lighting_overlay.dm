@@ -9,7 +9,7 @@
 	invisibility  = INVISIBILITY_LIGHTING
 	simulated     = 0
 
-	var/needs_update = FALSE
+	var/needs_update = TRUE
 
 	#if WORLD_ICON_SIZE != 32
 	transform = matrix(WORLD_ICON_SIZE / 32, 0, (WORLD_ICON_SIZE - 32) / 2, 0, WORLD_ICON_SIZE / 32, (WORLD_ICON_SIZE - 32) / 2)
@@ -20,14 +20,13 @@
 
 /atom/movable/lighting/New()
 	SSlighting.total_lighting_overlays++
+	SSlighting.overlay_queue += src
 
-
+/atom/movable/lighting/multiplier/New()
+	..()
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
 	T.lighting_overlay = src
 	T.luminosity       = 0
-
-	needs_update = TRUE
-	SSlighting.overlay_queue += src
 
 /atom/movable/lighting/Destroy()
 	SSlighting.total_lighting_overlays--
@@ -171,9 +170,7 @@
 	blend_mode = BLEND_ADD
 
 /atom/movable/lighting/adder/New()
-	needs_update = TRUE
-	SSlighting.overlay_queue += src
-
+	..()
 	var/turf/T = loc
 	T.lighting_adder = src
 

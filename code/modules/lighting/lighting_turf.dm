@@ -207,11 +207,13 @@
 	var/old_lighting_overlay = lighting_overlay
 	var/old_lighting_adder = lighting_adder
 	var/list/old_corners = corners
-	var/old_ao_neighbors = ao_neighbors
 
 	. = ..()
 
-	ao_neighbors = old_ao_neighbors
+#ifndef AO_USE_LIGHTING_OPACITY
+	if (permit_ao)
+		regenerate_ao()
+#endif
 
 	recalc_atom_opacity()
 	lighting_overlay = old_lighting_overlay
