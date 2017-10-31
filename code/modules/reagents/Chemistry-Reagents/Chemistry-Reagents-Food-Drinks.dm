@@ -2964,7 +2964,7 @@
 	name = "Cherry Tree Fireball"
 	id = "cherrytreefireball"
 	description = "An iced fruit cocktail shaken with cinnamon whiskey. Hot, cold and sweet all at once."
-	color = "#773404"
+	color = "#e87727"
 	strength = 15
 	taste_description = "firey fruit"	
 
@@ -2975,26 +2975,26 @@
 /datum/reagent/ethanol/cobaltvelvet
 	name = "Cobalt Velvet"
 	id = "cobaltvelvet"
-	description = "Bright, bubbly, and easy-drinking. Sweet almost like cola."
+	description = "An electric blue champagne cocktail that's popular on the club scene."
 	color = "#a3ecf7"
 	strength = 25
 	taste_description = "neon champagne"	
 
 	glass_icon_state = "cobaltvelvet"
 	glass_name = "glass of Cobalt Velvet"
-	glass_desc = "Blue and sweet. The neon kind of bubbly."
+	glass_desc = "An electric blue champagne cocktail that's popular on the club scene."
 
 /datum/reagent/ethanol/fringeweaver
 	name = "Fringe Weaver"
 	id = "fringeweaver"
-	description = "Effectively booze with a spoonful of sugar. As simple as it is strong."
+	description = "Effectively alcohol with a spoonful of sugar. It's as simple as it is strong."
 	color = "#f78888"
 	strength = 65
 	taste_description = "fire and regret"	
 
 	glass_icon_state = "fringeweaver"
 	glass_name = "glass of Fringe Weaver"
-	glass_desc = "Effectively booze with a spoonful of sugar. As simple as it is strong."
+	glass_desc = "Effectively alcohol with a spoonful of sugar. It's as simple as it is strong."
 
 /datum/reagent/ethanol/junglejuice
 	name = "Jungle Juice" 
@@ -3009,18 +3009,6 @@
 	glass_desc = "You're in the jungle now, baby."
 
 /datum/reagent/ethanol/marsarita
-	name = "Marsarita"
-	id = "marsarita"
-	description = "The margarita with a Martian twist. They call it something less embarrassing there."
-	color = "#3eb7c9"
-	strength = 30
-	taste_description = "hot tequila and salty lime"	
-
-	glass_icon_state = "marsarita"
-	glass_name = "glass of Marsarita"
-	glass_desc = "The margarita with a Martian twist. They call it something less embarrassing there."
-
-/datum/reagent/ethanol/Melon
 	name = "Marsarita"
 	id = "marsarita"
 	description = "The margarita with a Martian twist. They call it something less embarrassing there."
@@ -3123,6 +3111,42 @@
 	glass_icon_state = "sugarrush"
 	glass_name = "glass of Sugar Rush"
 	glass_desc = "Sweet, light and fruity. As girly as it gets."
+
+/datum/reagent/ethanol/sangria
+	name = "Sangria"
+	id = "sangria"
+	description = "Red wine, splashed with brandy and infused with fruit."
+	color = "#960707"
+	strength = 30
+	taste_description = "sweet wine"	
+
+	glass_icon_state = "sangria"
+	glass_name = "glass of Sangria"
+	glass_desc = "Red wine, splashed with brandy and infused with fruit."
+
+/datum/reagent/ethanol/bassline
+	name = "Bassline"
+	id = "bassline"
+	description = "A vodka cocktail from Vega De Rosa, Mendell City's entertainment district. Purple and deep."
+	color = "#6807b2"
+	strength = 25
+	taste_description = "the groove"	
+
+	glass_icon_state = "bassline"
+	glass_name = "glass of Bassline"
+	glass_desc = "A vodka cocktail from Vega De Rosa, Mendell City's entertainment district. Purple and deep."
+
+/datum/reagent/ethanol/bluebird
+	name = "Bluebird"
+	id = "bluebird"
+	description = "A gin drink popularized by a spy thriller in 2452."
+	color = "#4286f4"
+	strength = 30
+	taste_description = "a blue christmas tree"	
+
+	glass_icon_state = "bluebird"
+	glass_name = "glass of Bluebird"
+	glass_desc = "A gin drink popularized by a spy thriller in 2452."
 
 // Butanol-based alcoholic drinks
 //=====================================

@@ -2384,7 +2384,7 @@
 
 /datum/chemical_reaction/cherrytreefireball
 	name = "Cherry Tree Fireball"
-	id = "cherrytreefireball"
+	id = "cherrytreefirebal		l"
 	result = "cherrytreefireball"
 	required_reagents = list("lemonade" = 3, "fireball" = 1, "cherryjelly" = 1, "ice" = 1)
 	result_amount = 6
@@ -2400,8 +2400,8 @@
 	name = "Fringe Weaver"
 	id = "fringeweaver"
 	result = "fringeweaver"
-	required_reagents = list("ethanol" = 5, "sugar" = 1)
-	result_amount = 6
+	required_reagents = list("ethanol" = 3, "sugar" = 1)
+	result_amount = 4
 
 /datum/chemical_reaction/junglejuice
 	name = "Jungle Juice"
@@ -2456,7 +2456,7 @@
 	name = "Portsville Mint Tea"
 	id = "portsvilleminttea"
 	result = "portsvilleminttea"
-	required_reagents = list("icedtea" = 3, "berryjuice" = 1, "mintsyrup" = 1, "sugar" = 1)
+	required_reagents = list("icetea" = 3, "berryjuice" = 1, "mintsyrup" = 1, "sugar" = 1)
 	result_amount = 6
 
 /datum/chemical_reaction/shirleytemple
@@ -2472,3 +2472,24 @@
 	result = "sugarrush"
 	required_reagents = list("brownstar" = 4, "grenadine" = 1, "vodka" = 1)
 	result_amount = 6
+
+/datum/chemical_reaction/sangria
+	name = "Sangria"
+	id = "sangria"
+	result = "sangria"
+	required_reagents = list("wine" = 3, "orangejuice" = 1, "lemonjuice" = 1, "brandy" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/bassline
+	name = "Bassline"
+	id = "bassline"
+	result = "bassline"
+	required_reagents = list("vodka" = 2, "bluecuracao" = 1, "limejuice" = 1, "grapejuice" = 2)
+	result_amount = 6
+
+/datum/chemical_reaction/bluebird
+	name = "Bluebird"
+	id = "bluebird"
+	result = "bluebird"
+	required_reagents = list("gintonic" = 3, "bluecuracao" = 1)
+	result_amount = 4
