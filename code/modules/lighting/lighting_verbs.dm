@@ -106,7 +106,6 @@ var/list/admin_verbs_lighting = list(
 	set name = "Change Bloom Threshold"
 	set desc = "Changes the threshhold at which the lighting adder becomes visible."
 
-
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	if (alert("Change bloom threshhold?", "Threshhold change confirmation", "No", "No", "Yes") != "Yes")
