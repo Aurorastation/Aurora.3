@@ -65285,6 +65285,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/gen_treatment)
+"cke" = (
+/obj/structure/sign/greencross,
+/turf/simulated/wall/r_wall,
+/area/medical/reception)
+"ckf" = (
+/obj/structure/sign/greencross{
+	pixel_y = 16
+	},
+/turf/simulated/wall,
+/area/medical/reception)
+"ckg" = (
+/obj/structure/sign/greencross,
+/turf/simulated/wall,
+/area/medical/reception)
 
 (1,1,1) = {"
 aaa
@@ -93940,13 +93954,13 @@ ceu
 aZN
 baS
 bck
-bdC
+baS
 baS
 baS
 aZN
 bix
 bix
-bkM
+bix
 bmn
 bix
 aZN
@@ -95490,18 +95504,18 @@ bdF
 bfW
 bhr
 bdF
-bnA
+cke
 boM
-bpX
+buK
 brq
 bsK
-boM
-buK
+btQ
+ckf
 brq
 bxh
-byi
+boM
 buK
-btQ
+ckg
 aWc
 aXA
 bCE
