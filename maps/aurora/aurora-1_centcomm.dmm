@@ -17345,7 +17345,7 @@
 "aMq" = (
 /obj/structure/mainframe{
 	density = 0;
-	desc = "The automated mainframe computer for the NSS Aurora II autoshuttle.";
+	desc = "The automated mainframe computer for the NSS Aurora autoshuttle.";
 	dir = 4;
 	icon_state = "left";
 	name = "Arrivals Shuttle Oversight";
@@ -17576,7 +17576,7 @@
 "aMM" = (
 /obj/structure/mainframe{
 	density = 0;
-	desc = "The automated mainframe computer for the NSS Aurora II autoshuttle.";
+	desc = "The automated mainframe computer for the NSS Aurora autoshuttle.";
 	dir = 4;
 	icon_state = "aimainframe";
 	name = "Arrivals Shuttle Oversight";
@@ -17626,7 +17626,7 @@
 	},
 /obj/structure/mainframe{
 	density = 0;
-	desc = "The automated mainframe computer for the NSS Aurora II autoshuttle.";
+	desc = "The automated mainframe computer for the NSS Aurora autoshuttle.";
 	dir = 5;
 	icon_state = "left";
 	name = "Arrivals Shuttle Oversight";

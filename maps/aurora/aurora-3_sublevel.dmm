@@ -9868,9 +9868,6 @@
 /turf/simulated/floor/plating,
 /area/outpost/research/anomaly_analysis)
 "sg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/washing_machine,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -10226,9 +10223,6 @@
 /obj/structure/table/standard,
 /obj/item/weapon/flame/lighter/random,
 /obj/item/weapon/crowbar,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/anomaly_analysis)
 "sN" = (
@@ -10272,7 +10266,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/blue{
+/obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
@@ -10596,8 +10590,6 @@
 /obj/item/weapon/reagent_containers/dropper{
 	pixel_y = -4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -11339,9 +11331,6 @@
 /obj/structure/table/rack,
 /obj/item/clothing/head/welding,
 /obj/item/weapon/weldingtool,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 0;
 	pixel_y = -32
@@ -11518,17 +11507,16 @@
 	dir = 4;
 	name = "Firelock"
 	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/research{
-	name = "Anomalous Materials Locker Room";
-	req_access = list(65)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/research{
+	name = "Anomalous Materials";
+	req_access = list(65)
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/anomaly_analysis)
@@ -18666,9 +18654,6 @@
 /obj/item/weapon/scalpel{
 	pixel_y = 12
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/item/device/radio/intercom{
 	frequency = 1459;
 	name = "Station Intercom (General)";
@@ -23679,12 +23664,18 @@
 "PO" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/glass,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "PP" = (
 /obj/structure/table/glass,
 /obj/item/weapon/folder/white,
 /obj/item/weapon/pen,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "PQ" = (
@@ -23874,6 +23865,7 @@
 /obj/effect/landmark/start{
 	name = "Chemist"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "Qj" = (
@@ -23882,6 +23874,10 @@
 	},
 /obj/effect/landmark/start{
 	name = "Phychiatrist"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -25170,6 +25166,69 @@
 /obj/item/hoist_kit,
 /turf/simulated/floor/asteroid,
 /area/mine/unexplored)
+"Tl" = (
+/obj/machinery/door/firedoor{
+	dir = 4;
+	name = "Firelock"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/research{
+	name = "Anomalous Materials Locker Room";
+	req_access = list(65)
+	},
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/anomaly_analysis)
+"Tm" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
+"Tn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
+"To" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
+"Tp" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
+"Tq" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
+"Tr" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 
 (1,1,1) = {"
 aa
@@ -46121,7 +46180,7 @@ sh
 sJ
 sJ
 tP
-us
+ur
 rO
 va
 vt
@@ -46634,7 +46693,7 @@ rO
 SC
 SC
 SC
-tR
+Tl
 SC
 rO
 vc
@@ -48433,7 +48492,7 @@ rO
 rO
 rO
 rO
-tY
+tR
 rO
 rO
 vb
@@ -52044,7 +52103,7 @@ aa
 aa
 aa
 aa
-jL
+jB
 AL
 BC
 jB
@@ -52301,7 +52360,7 @@ aa
 aa
 aa
 aa
-jL
+jB
 AL
 BD
 jB
@@ -52558,7 +52617,7 @@ aa
 aa
 aa
 aa
-jL
+jB
 jB
 BE
 jB
@@ -65432,7 +65491,7 @@ NL
 On
 Hd
 Pq
-Pr
+Tm
 PN
 Qh
 Qw
@@ -65689,10 +65748,10 @@ NM
 Oo
 OP
 Pr
-PN
-Pr
+Tn
+To
 Qi
-Pr
+Tq
 QI
 Pr
 Rn
@@ -66204,9 +66263,9 @@ Op
 OP
 Pt
 PP
-Pr
+Tp
 Qj
-Pr
+Tr
 QI
 Pr
 Rp
@@ -75146,7 +75205,7 @@ ow
 oW
 lb
 lb
-jL
+lb
 kj
 kj
 kj
