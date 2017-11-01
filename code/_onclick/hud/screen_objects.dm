@@ -164,6 +164,12 @@
 		update_icon()
 	return 1
 
+/obj/screen/zone_sel/proc/set_selected_zone(bodypart)
+	var/old_selecting = selecting
+	selecting = bodypart
+	if(old_selecting != selecting)
+		update_icon()
+
 /obj/screen/zone_sel/update_icon()
 	overlays.Cut()
 	overlays += image('icons/mob/zone_sel.dmi', "[selecting]")
@@ -552,12 +558,12 @@
 	if (user.max_stamina == -1 || user.stamina == user.max_stamina)
 		if (user.stamina_bar)
 			QDEL_NULL(user.stamina_bar)
-		return
+	else
+		if (!user.stamina_bar)
+			user.stamina_bar = new(user, user.max_stamina, src)
 
-	if (!user.stamina_bar)
-		user.stamina_bar = new(user, user.max_stamina, src)
+		user.stamina_bar.update(user.stamina)
 
-	user.stamina_bar.update(user.stamina)
 	if (user.m_intent == "run")
 		icon_state = "running"
 	else

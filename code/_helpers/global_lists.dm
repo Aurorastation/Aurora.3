@@ -31,6 +31,8 @@ var/global/list/the_station_areas = list()
 var/global/list/implants = list()
 
 var/global/list/turfs = list()						//list of all turfs
+var/global/list/areas_by_type = list()
+var/global/list/all_areas = list()
 
 //Languages/species/whitelist.
 var/global/list/all_species = list()

@@ -172,7 +172,7 @@
 				log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
 				return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
-			world << "<span class='alert'>New [company_name] Update available at all communication consoles.</span>"
+			world << "<span class='alert'>New [current_map.company_name] Update available at all communication consoles.</span>"
 			world << sound('sound/AI/commandreport.ogg')
 			post_comm_message(reporttitle, reportbody)
 
@@ -218,7 +218,7 @@
 	log_ability_use(user, "system override (STARTED)")
 	var/list/remaining_apcs = list()
 	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
-		if(!(A.z in config.station_levels)) 		// Only station APCs
+		if(!(A.z in current_map.station_levels)) 		// Only station APCs
 			continue
 		if(A.hacker == user || A.aidisabled) 		// This one is already hacked, or AI control is disabled on it.
 			continue
@@ -230,7 +230,7 @@
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
-			command_announcement.Announce("Caution, [station_name]. We have detected abnormal behaviour in your network. It seems someone is trying to hack your electronic systems. We will update you when we have more information.", "Network Monitoring")
+			command_announcement.Announce("Caution, [current_map.station_name]. We have detected abnormal behaviour in your network. It seems someone is trying to hack your electronic systems. We will update you when we have more information.", "Network Monitoring")
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
 				return
@@ -264,7 +264,7 @@
 	sleep(300)
 	// Hack all APCs, including those built during hack sequence.
 	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
-		if((!A.hacker || A.hacker != src) && !A.aidisabled && A.z in config.station_levels)
+		if((!A.hacker || A.hacker != src) && !A.aidisabled && A.z in current_map.station_levels)
 			A.ai_hack(src)
 
 	log_ability_use(user, "system override (FINISHED)")

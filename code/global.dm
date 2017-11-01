@@ -6,7 +6,6 @@
 
 // Items that ask to be called every cycle.
 var/global/datum/datacore/data_core = null
-var/global/list/all_areas                = list()
 var/global/list/processing_power_items   = list()
 var/global/list/med_hud_users            = list() // List of all entities using a medical HUD.
 var/global/list/sec_hud_users            = list() // List of all entities using a security HUD.
@@ -25,21 +24,10 @@ var/global/list/global_map = null
 // Noises made when hit while typing.
 var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
 
-//Map levels for the crew suit sensors. Make sure you update this for different maps.
-var/list/map_levels = list(3,4,6)
-
-
 var/diary               = null
 var/diary_runtime  = null
 var/diary_date_string = null
 var/href_logfile        = null
-var/station_name        = "NSS Aurora"
-var/station_short       = "Aurora"
-var/const/dock_name     = "NTCC Odin"
-var/const/boss_name     = "Central Command"
-var/const/boss_short    = "Centcom"
-var/const/company_name  = "NanoTrasen"
-var/const/company_short = "NT"
 var/game_version        = "Aurorastation"
 var/changelog_hash      = ""
 var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 442)

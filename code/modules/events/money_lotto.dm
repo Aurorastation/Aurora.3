@@ -23,7 +23,7 @@
 			deposit_success = 1
 
 /datum/event/money_lotto/announce()
-	var/author = "[company_name] Editor"
+	var/author = "[current_map.company_name] Editor"
 	var/channel = "Tau Ceti Daily"
 
 	var/body = "Tau Ceti Daily wishes to congratulate <b>[winner_name]</b> for recieving the Tau Ceti Stellar Slam Lottery, and receiving the out of this world sum of [winner_sum] credits!"

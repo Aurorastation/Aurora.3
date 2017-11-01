@@ -1,17 +1,17 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ab" = (
 /turf/simulated/mineral,
-/area/space)
+/area/template_noop)
 "ac" = (
 /obj/structure/lattice,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ad" = (
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/template_noop)
 "ae" = (
 /turf/simulated/wall/r_wall,
 /area/derelict/hallway/northwest)
@@ -24,7 +24,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "ag" = (
 /obj/structure/grille,
@@ -32,7 +32,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "ah" = (
 /obj/structure/grille,
@@ -43,7 +43,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "ai" = (
 /obj/structure/grille,
@@ -56,7 +56,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "aj" = (
 /obj/structure/table/woodentable,
@@ -101,7 +101,7 @@
 /area/derelict/hallway/northwest)
 "ar" = (
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "as" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -110,7 +110,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "at" = (
 /obj/effect/decal/cleanable/dirt,
@@ -144,10 +144,10 @@
 /area/derelict/hallway/northwest)
 "az" = (
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "aA" = (
 /turf/simulated/wall,
-/area/space)
+/area/template_noop)
 "aB" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -157,7 +157,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "aC" = (
 /turf/simulated/floor/wood,
@@ -195,11 +195,11 @@
 "aI" = (
 /obj/machinery/artifact,
 /turf/simulated/floor/asteroid,
-/area/space)
+/area/template_noop)
 "aJ" = (
 /obj/item/weapon/gun/energy/stunrevolver,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "aK" = (
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters";
@@ -233,7 +233,7 @@
 	dir = 4
 	},
 /obj/structure/grille,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "aO" = (
 /obj/machinery/door/airlock/command{
@@ -245,8 +245,8 @@
 /area/derelict/hallway/northwest)
 "aP" = (
 /obj/item/weapon/material/shard,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "aQ" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/hand_tele,
@@ -272,11 +272,11 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "aT" = (
 /obj/structure/lattice,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "aU" = (
 /obj/structure/grille,
@@ -347,8 +347,8 @@
 /obj/item/weapon/material/shard{
 	icon_state = "medium"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bg" = (
 /turf/simulated/wall,
 /area/derelict/hallway/northwest)
@@ -396,8 +396,8 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bq" = (
 /turf/simulated/wall/r_wall,
 /area/derelict/hallway/northeast)
@@ -429,22 +429,22 @@
 "bw" = (
 /obj/structure/target_stake,
 /obj/structure/grille/broken,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bx" = (
 /obj/structure/grille/broken,
 /obj/item/weapon/material/shard{
 	icon_state = "small"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "by" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bz" = (
 /obj/item/tape/engineering{
 	icon_state = "engineering_h"
@@ -452,21 +452,21 @@
 /obj/item/tape/engineering{
 	icon_state = "engineering_v"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bA" = (
 /obj/item/tape/engineering{
 	icon_state = "engineering_h"
 	},
 /obj/structure/lattice,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bB" = (
 /obj/item/tape/engineering{
 	icon_state = "engineering_h"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bC" = (
 /obj/structure/bed/chair/comfy/brown,
 /turf/simulated/floor/airless,
@@ -489,26 +489,26 @@
 /area/derelict/hallway/northeast)
 "bH" = (
 /obj/item/ammo_casing/a145,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bI" = (
 /obj/item/weapon/melee/baton,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bJ" = (
 /turf/simulated/floor/asteroid,
-/area/space)
+/area/template_noop)
 "bK" = (
 /obj/item/tape/engineering{
 	icon_state = "engineering_v"
 	},
 /obj/structure/lattice,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bL" = (
 /obj/item/stack/material/cyborg/glass,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bM" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/bluegrid,
@@ -576,8 +576,8 @@
 /area/derelict/hallway/northeast)
 "bY" = (
 /obj/item/ammo_casing/a762,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "bZ" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -644,12 +644,12 @@
 "cj" = (
 /obj/structure/lattice,
 /obj/item/ammo_casing/a145,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ck" = (
 /obj/structure/lattice,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "cl" = (
 /obj/item/ammo_casing/c45,
 /turf/simulated/floor/tiled/airless,
@@ -690,13 +690,13 @@
 /area/derelict/hallway/northeast)
 "cs" = (
 /obj/structure/grille,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ct" = (
 /obj/structure/grille,
 /obj/structure/lattice,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "cu" = (
 /obj/machinery/door/blast/regular,
 /obj/item/tape/engineering{
@@ -752,13 +752,13 @@
 /area/derelict/hallway/northeast)
 "cC" = (
 /obj/item/ammo_casing/c45,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "cD" = (
 /obj/structure/grille/broken,
 /obj/structure/lattice,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "cE" = (
 /obj/structure/closet/crate{
 	name = "Camera Assembly Crate"
@@ -772,8 +772,8 @@
 /area/derelict/hallway/northwest)
 "cF" = (
 /obj/structure/girder/reinforced,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "cG" = (
 /obj/structure/closet/secure_closet/hop2,
 /turf/simulated/floor/tiled/airless,
@@ -808,8 +808,8 @@
 /obj/item/weapon/material/shard{
 	icon_state = "small"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "cO" = (
 /obj/item/ammo_casing/a762,
 /turf/simulated/floor/tiled/airless,
@@ -864,8 +864,8 @@
 /area/derelict/hallway/northwest)
 "cX" = (
 /obj/item/weapon/storage/toolbox/electrical,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "cY" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/bluegrid,
@@ -879,7 +879,7 @@
 "da" = (
 /obj/item/weapon/material/shard,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "db" = (
 /obj/machinery/door/airlock/highsecurity{
 	autoclose = 0;
@@ -900,16 +900,16 @@
 /obj/item/tape/engineering{
 	icon_state = "engineering_h"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "de" = (
 /obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/northwest)
 "df" = (
 /obj/item/stack/rods,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "dg" = (
 /obj/structure/bed,
 /turf/simulated/floor/plating,
@@ -941,16 +941,16 @@
 "dl" = (
 /obj/structure/lattice,
 /obj/item/weapon/circuitboard/aiupload,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "dm" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/northwest)
 "dn" = (
 /obj/structure/grille/broken,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "do" = (
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/plating,
@@ -1069,8 +1069,8 @@
 /area/derelict/hallway/northwest)
 "dC" = (
 /obj/structure/door_assembly/door_assembly_sec,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "dD" = (
 /obj/item/weapon/folder/blue,
 /obj/effect/decal/cleanable/dirt,
@@ -1087,7 +1087,7 @@
 "dF" = (
 /obj/structure/grille/broken,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "dG" = (
 /obj/structure/table/standard,
 /obj/item/weapon/paper_bin,
@@ -1102,7 +1102,7 @@
 "dI" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "dJ" = (
 /obj/item/weapon/material/shard{
 	icon_state = "medium"
@@ -1155,14 +1155,14 @@
 	dir = 8;
 	icon_state = "twindow"
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "dR" = (
 /obj/structure/grille/broken,
 /obj/item/weapon/material/shard{
 	icon_state = "medium"
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "dS" = (
 /obj/structure/grille,
@@ -1174,7 +1174,7 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "dT" = (
 /obj/structure/closet/secure_closet/security,
@@ -1200,8 +1200,8 @@
 /obj/item/weapon/material/shard{
 	icon_state = "small"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "dY" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -1211,13 +1211,13 @@
 "dZ" = (
 /obj/structure/lattice,
 /obj/item/clothing/shoes/magboots,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ea" = (
 /obj/structure/lattice,
 /obj/item/stack/rods,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "eb" = (
 /obj/item/weapon/bedsheet/mime,
 /turf/simulated/floor/tiled/airless,
@@ -1228,8 +1228,8 @@
 /area/derelict/hallway/northeast)
 "ed" = (
 /obj/machinery/constructable_frame/machine_frame,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ee" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -1264,12 +1264,12 @@
 "ek" = (
 /obj/structure/bed,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "el" = (
 /obj/structure/lattice,
 /obj/structure/cryofeed,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "em" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/tiled/airless,
@@ -1321,17 +1321,17 @@
 /area/derelict/hallway/northeast)
 "ev" = (
 /obj/structure/bed,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ew" = (
 /obj/item/weapon/bedsheet/mime,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ex" = (
 /obj/structure/lattice,
 /obj/item/device/megaphone,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ey" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -1343,7 +1343,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "ez" = (
 /obj/structure/cable/yellow{
@@ -1371,8 +1371,8 @@
 /area/derelict/hallway/northeast)
 "eD" = (
 /obj/structure/computerframe,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "eE" = (
 /obj/structure/table/woodentable,
 /obj/item/device/radio,
@@ -1381,7 +1381,7 @@
 "eF" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "eG" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -1390,7 +1390,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "eH" = (
 /obj/structure/cable/yellow{
@@ -1419,13 +1419,13 @@
 /area/derelict/hallway/northeast)
 "eM" = (
 /obj/item/weapon/book/manual/nuclear,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "eN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "eO" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -1435,7 +1435,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "eP" = (
 /obj/structure/grille,
@@ -1443,7 +1443,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "eQ" = (
 /obj/structure/grille,
@@ -1451,7 +1451,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "eR" = (
 /obj/structure/grille,
@@ -1462,7 +1462,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "eS" = (
 /obj/structure/door_assembly,
@@ -1495,7 +1495,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "eX" = (
 /obj/item/weapon/material/shard{
@@ -1519,7 +1519,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "fb" = (
 /obj/structure/grille,
@@ -1530,7 +1530,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "fc" = (
 /obj/machinery/power/solar_control{
@@ -1575,7 +1575,7 @@
 "ff" = (
 /obj/item/weapon/moneybag,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "fg" = (
 /obj/machinery/suit_cycler/medical,
 /turf/simulated/floor/tiled/airless,
@@ -1622,12 +1622,12 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "fn" = (
 /obj/structure/closet/coffin,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "fo" = (
 /mob/living/simple_animal/mouse,
 /turf/simulated/floor/airless,
@@ -1728,20 +1728,20 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "fC" = (
 /obj/structure/closet/coffin,
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "fD" = (
 /obj/item/stack/material/cyborg/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "fE" = (
 /obj/item/stack/material/cyborg/wood,
 /obj/item/weapon/material/shard{
@@ -1749,7 +1749,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "fF" = (
 /obj/machinery/meter,
 /turf/simulated/floor/airless,
@@ -1811,7 +1811,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "fO" = (
 /obj/structure/table/standard,
@@ -1847,7 +1847,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "fT" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/tiled/airless,
@@ -1941,7 +1941,7 @@
 "gf" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "gg" = (
 /obj/structure/grille/broken,
@@ -1952,14 +1952,14 @@
 /obj/item/weapon/material/shard{
 	icon_state = "small"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "gh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "gi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -1998,8 +1998,8 @@
 /area/derelict/hallway/northwest)
 "go" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "gp" = (
 /obj/structure/toilet,
 /turf/simulated/floor/airless,
@@ -2014,7 +2014,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "gs" = (
 /obj/item/weapon/gun/energy/taser,
@@ -2071,8 +2071,8 @@
 /area/derelict/hallway/northwest)
 "gz" = (
 /obj/item/weapon/moneybag,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "gA" = (
 /obj/structure/door_assembly/door_assembly_eng{
 	icon_state = "door_as_eng0"
@@ -2110,7 +2110,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "gF" = (
 /obj/structure/table/standard,
@@ -2123,7 +2123,7 @@
 /area/derelict/hallway/northwest)
 "gH" = (
 /obj/structure/door_assembly,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "gI" = (
 /obj/structure/closet/secure_closet/brig,
@@ -2137,16 +2137,16 @@
 "gK" = (
 /obj/item/stack/rods,
 /obj/structure/bed,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "gL" = (
 /obj/item/weapon/storage/box/flashbangs,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "gM" = (
 /obj/structure/girder,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "gN" = (
 /obj/item/weapon/stool{
 	pixel_y = 8
@@ -2195,7 +2195,7 @@
 /obj/structure/door_assembly/door_assembly_com{
 	icon_state = "door_as_gcom0"
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "gV" = (
 /obj/structure/toilet{
@@ -2213,12 +2213,12 @@
 /obj/item/weapon/material/shard{
 	icon_state = "small"
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "gX" = (
 /obj/item/weapon/book/manual/chef_recipes,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "gY" = (
 /obj/structure/table/standard,
 /obj/random/tech_supply,
@@ -2266,7 +2266,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "hg" = (
 /obj/machinery/door/firedoor,
@@ -2282,7 +2282,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "hi" = (
 /obj/structure/grille,
@@ -2293,7 +2293,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "hj" = (
 /obj/structure/grille,
@@ -2307,7 +2307,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northeast)
 "hk" = (
 /obj/structure/grille/broken,
@@ -2319,11 +2319,11 @@
 "hl" = (
 /obj/item/weapon/book/manual/atmospipes,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "hm" = (
 /obj/item/weapon/book/manual/barman_recipes,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "hn" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -2336,7 +2336,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "ho" = (
 /obj/machinery/door/airlock/glass,
@@ -2345,12 +2345,12 @@
 "hp" = (
 /obj/structure/grille/broken,
 /obj/item/weapon/material/shard,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "hq" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "hr" = (
 /obj/structure/grille/broken,
@@ -2361,7 +2361,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "ht" = (
 /obj/structure/door_assembly/door_assembly_com{
@@ -2375,7 +2375,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "hv" = (
 /obj/effect/decal/remains/robot,
@@ -2394,15 +2394,15 @@
 /area/derelict/hallway/northeast)
 "hx" = (
 /obj/item/device/flash,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "hy" = (
 /obj/item/clothing/head/soft/grey,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "hz" = (
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/northwest)
 "hA" = (
 /obj/structure/table,
@@ -2419,8 +2419,8 @@
 /area/derelict/hallway/northeast)
 "hC" = (
 /obj/item/weapon/book/manual/evaguide,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "hD" = (
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
@@ -2451,7 +2451,7 @@
 "hI" = (
 /obj/item/weapon/book/tome,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "hJ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -2461,19 +2461,19 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "hK" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "hL" = (
 /obj/item/stack/rods,
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "hM" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/airless,
@@ -2483,7 +2483,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "hO" = (
 /obj/item/clothing/head/soft/grey,
 /turf/simulated/floor/airless,
@@ -2495,8 +2495,8 @@
 "hQ" = (
 /obj/structure/lattice,
 /obj/item/clothing/gloves/black,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "hR" = (
 /obj/structure/door_assembly/door_assembly_sec,
 /obj/effect/decal/cleanable/dirt,
@@ -2506,7 +2506,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "hT" = (
 /obj/structure/toilet,
 /turf/simulated/floor/tiled/airless,
@@ -2520,23 +2520,23 @@
 /area/derelict/hallway/northeast)
 "hV" = (
 /obj/item/weapon/book/manual/medical_cloning,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "hW" = (
 /obj/structure/bed/chair,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "hX" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "hY" = (
 /obj/structure/grille/broken,
 /obj/structure/window/reinforced,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "hZ" = (
 /obj/item/clothing/gloves/black,
 /obj/effect/decal/cleanable/dirt,
@@ -2561,14 +2561,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "ie" = (
 /obj/machinery/door/airlock/external{
 	autoclose = 0;
 	icon_state = "door_open"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "if" = (
 /obj/item/clothing/gloves/chameleon,
 /obj/effect/decal/cleanable/dirt,
@@ -2582,48 +2582,48 @@
 /area/derelict/hallway/northeast)
 "ih" = (
 /obj/structure/bed/chair/comfy/brown,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ii" = (
 /obj/structure/bed/chair,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ij" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "ik" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "il" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "im" = (
 /obj/structure/table/woodentable,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "in" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "io" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "ip" = (
 /obj/item/clothing/head/soft/grey,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "iq" = (
 /turf/simulated/wall,
 /area/derelict/hallway/southeast)
@@ -2646,12 +2646,12 @@
 "iv" = (
 /obj/structure/lattice,
 /obj/item/weapon/material/shard,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "iw" = (
 /obj/item/stack/material/wood,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ix" = (
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
@@ -2700,8 +2700,8 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "iG" = (
 /obj/machinery/door/airlock{
 	autoclose = 0;
@@ -2806,8 +2806,8 @@
 /obj/item/weapon/material/shard{
 	icon_state = "small"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "iY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -2846,11 +2846,11 @@
 /area/derelict/hallway/southwest)
 "jc" = (
 /obj/structure/grille,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "jd" = (
 /obj/item/weapon/banhammer,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "je" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2878,7 +2878,7 @@
 /area/derelict/hallway/southeast)
 "ji" = (
 /obj/structure/girder,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "jj" = (
 /obj/machinery/door/airlock/research,
@@ -2896,7 +2896,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "jl" = (
 /obj/structure/table/reinforced,
@@ -2925,13 +2925,13 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "jr" = (
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "js" = (
 /obj/structure/lattice,
 /obj/item/weapon/reagent_containers/spray/cleaner,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "jt" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -2990,8 +2990,8 @@
 /area/derelict/hallway/southeast)
 "jC" = (
 /obj/item/weapon/extinguisher,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "jD" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -3003,7 +3003,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "jE" = (
 /obj/structure/filingcabinet{
@@ -3047,7 +3047,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "jK" = (
 /obj/structure/window/reinforced,
@@ -3100,15 +3100,15 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "jT" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
 /obj/random/loot,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "jU" = (
 /obj/machinery/door/firedoor{
 	dir = 8;
@@ -3125,8 +3125,8 @@
 /area/derelict/hallway/southwest)
 "jV" = (
 /obj/item/stack/material/cyborg/wood,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "jW" = (
 /obj/structure/bed/chair/wood/wings,
 /turf/simulated/floor/airless,
@@ -3143,8 +3143,8 @@
 /obj/item/stack/material/phoron{
 	amount = 5
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "jZ" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -3166,7 +3166,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "kd" = (
 /obj/item/weapon/storage/belt,
@@ -3210,8 +3210,8 @@
 /area/derelict/hallway/southwest)
 "kk" = (
 /obj/item/weapon/cigbutt,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "kl" = (
 /obj/structure/disposaloutlet{
 	dir = 1
@@ -3242,7 +3242,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "ko" = (
 /obj/structure/bed/chair/wood/wings{
@@ -3262,11 +3262,6 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "kr" = (
-/obj/machinery/light/small{
-	icon_state = "bulb-broken";
-	dir = 8;
-	base_state = "bulb-broken"
-	},
 /obj/structure/table/standard,
 /obj/item/weapon/scalpel,
 /obj/item/device/mass_spectrometer,
@@ -3282,11 +3277,11 @@
 /area/derelict/hallway/southeast)
 "kt" = (
 /obj/machinery/space_heater,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ku" = (
 /obj/structure/computerframe,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "kv" = (
 /obj/item/device/mmi,
@@ -3329,8 +3324,8 @@
 /area/derelict/hallway/southeast)
 "kB" = (
 /obj/item/weapon/gun/energy/temperature,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "kC" = (
 /obj/structure/table/standard,
 /obj/item/clothing/head/soft,
@@ -3351,7 +3346,7 @@
 	},
 /obj/item/weapon/hand_labeler,
 /obj/effect/decal/cleanable/dirt,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "kE" = (
 /obj/structure/table/standard,
@@ -3428,8 +3423,8 @@
 /area/derelict/hallway/southeast)
 "kR" = (
 /obj/item/clothing/mask/breath,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "kS" = (
 /obj/machinery/r_n_d/circuit_imprinter,
 /turf/simulated/floor/tiled/white,
@@ -3539,23 +3534,23 @@
 	icon_state = "wooden_chair_wings";
 	dir = 1
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "lk" = (
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "ll" = (
 /obj/item/weapon/stool/padded,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "lm" = (
 /obj/item/weapon/material/shard,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ln" = (
 /obj/item/weapon/material/shard{
 	icon_state = "small"
@@ -3566,8 +3561,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "lp" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/white,
@@ -3629,7 +3624,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "lx" = (
 /obj/machinery/status_display{
@@ -3654,8 +3649,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "lA" = (
 /obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/tiled/airless,
@@ -3695,7 +3690,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "lF" = (
 /obj/machinery/door/firedoor,
@@ -3728,14 +3723,14 @@
 /area/derelict/hallway/southwest)
 "lK" = (
 /obj/structure/reagent_dispensers/beerkeg,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "lL" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "lM" = (
 /obj/structure/grille,
@@ -3743,7 +3738,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "lN" = (
 /obj/structure/grille,
@@ -3754,7 +3749,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "lO" = (
 /obj/structure/door_assembly/door_assembly_med{
@@ -3787,12 +3782,12 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "lT" = (
 /obj/vehicle/train/cargo/trolley,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "lU" = (
 /obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/airless,
@@ -3847,7 +3842,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "ma" = (
 /obj/structure/table/reinforced,
@@ -3867,7 +3862,7 @@
 /area/derelict/hallway/southeast)
 "md" = (
 /obj/structure/girder/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "me" = (
 /obj/random/firstaid,
@@ -3894,8 +3889,8 @@
 "mi" = (
 /obj/item/weapon/material/shard,
 /obj/structure/grille/broken,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "mj" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -3905,7 +3900,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "mk" = (
 /obj/machinery/conveyor_switch/oneway{
@@ -3955,7 +3950,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "mq" = (
 /obj/machinery/constructable_frame/machine_frame,
@@ -3977,7 +3972,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "mu" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -3992,8 +3987,8 @@
 /area/derelict/hallway/southeast)
 "mw" = (
 /obj/item/weapon/hemostat,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "mx" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -4001,13 +3996,13 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "my" = (
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/dirt,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "mz" = (
 /obj/machinery/door/airlock/glass_research{
 	name = "Research and Development";
@@ -4027,15 +4022,15 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "mB" = (
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "QMLoad2"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "mC" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -4044,8 +4039,8 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "mD" = (
 /obj/machinery/light_switch{
 	pixel_x = 27
@@ -4075,7 +4070,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "mH" = (
 /obj/machinery/door/firedoor{
@@ -4090,10 +4085,10 @@
 /area/derelict/hallway/southwest)
 "mJ" = (
 /turf/simulated/floor/wood,
-/area/space)
+/area/template_noop)
 "mK" = (
 /obj/random/medical,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "mL" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4105,7 +4100,7 @@
 /obj/structure/door_assembly/door_assembly_science{
 	icon_state = "door_as_res0"
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "mN" = (
 /turf/simulated/shuttle/plating,
@@ -4115,7 +4110,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "mP" = (
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=8";
@@ -4153,7 +4148,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "mT" = (
 /obj/machinery/door/airlock/freezer{
@@ -4208,18 +4203,18 @@
 /obj/structure/door_assembly/door_assembly_mai{
 	icon_state = "door_as_mai0"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "nd" = (
 /obj/structure/lattice,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "ne" = (
 /obj/structure/door_assembly/door_assembly_ext{
 	icon_state = "door_as_ext0"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "nf" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4240,7 +4235,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "ng" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4253,8 +4248,8 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "nh" = (
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=8";
@@ -4299,8 +4294,8 @@
 /area/derelict/hallway/southwest)
 "nn" = (
 /obj/item/clothing/head/collectable/tophat,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "no" = (
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel,
 /turf/space,
@@ -4331,7 +4326,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "ns" = (
 /obj/machinery/dna_scannernew,
@@ -4360,14 +4355,14 @@
 	req_access = list(13)
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "nw" = (
 /obj/machinery/conveyor_switch/oneway{
 	convdir = -1;
 	id = "QMLoad"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "nx" = (
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=8";
@@ -4396,15 +4391,15 @@
 "nA" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "nB" = (
 /obj/machinery/light/small{
 	icon_state = "bulb-broken";
 	dir = 2;
 	base_state = "bulb-broken"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "nC" = (
 /obj/item/bodybag/cryobag,
 /obj/effect/decal/cleanable/dirt,
@@ -4419,7 +4414,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "nE" = (
 /obj/effect/decal/cleanable/generic,
@@ -4470,7 +4465,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "nL" = (
 /obj/structure/noticeboard{
 	pixel_y = -27
@@ -4486,7 +4481,7 @@
 /obj/structure/window/reinforced/polarized{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "nN" = (
 /obj/structure/grille,
@@ -4494,7 +4489,7 @@
 /obj/structure/window/reinforced/polarized{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "nO" = (
 /obj/structure/grille,
@@ -4505,7 +4500,7 @@
 /obj/structure/window/reinforced/polarized{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "nP" = (
 /obj/structure/kitchenspike,
@@ -4533,8 +4528,8 @@
 "nS" = (
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "nT" = (
 /obj/machinery/door/airlock/glass_research{
 	name = "Genetics Lab";
@@ -4595,7 +4590,7 @@
 /area/derelict/hallway/southwest)
 "oc" = (
 /obj/structure/girder,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "od" = (
 /obj/structure/table/standard,
@@ -4635,7 +4630,7 @@
 /obj/structure/window/reinforced/polarized{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "oh" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4661,8 +4656,8 @@
 	icon_state = "medium"
 	},
 /obj/item/weapon/material/shard,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ol" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -4708,12 +4703,12 @@
 /obj/item/weapon/material/shard{
 	icon_state = "medium"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ou" = (
 /obj/item/device/paicard,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ov" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -4722,16 +4717,16 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ow" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ox" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -4741,8 +4736,8 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "oy" = (
 /obj/structure/table/standard,
 /obj/item/weapon/folder/yellow,
@@ -4769,7 +4764,7 @@
 /obj/structure/window/reinforced/polarized{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "oB" = (
 /obj/item/weapon/paper_bin{
@@ -4855,15 +4850,15 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "oL" = (
 /obj/structure/window/reinforced{
 	dir = 5;
 	health = 1e+007
 	},
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "oM" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
@@ -4873,7 +4868,7 @@
 /obj/structure/window/reinforced/polarized{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "oN" = (
 /obj/structure/mopbucket,
@@ -4885,7 +4880,7 @@
 "oO" = (
 /obj/structure/door_assembly/door_assembly_com,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "oP" = (
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
 /turf/simulated/floor/tiled/white,
@@ -4920,7 +4915,7 @@
 "oU" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "oV" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -4933,7 +4928,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "oW" = (
 /obj/machinery/door/firedoor,
@@ -4956,19 +4951,19 @@
 "oY" = (
 /obj/item/weapon/mop,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "oZ" = (
 /obj/structure/lattice,
 /obj/item/weapon/storage/box/cups,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "pa" = (
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 4
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "pb" = (
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -4988,8 +4983,8 @@
 /obj/item/weapon/material/shard{
 	icon_state = "medium"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "pf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
@@ -5106,8 +5101,8 @@
 /area/derelict/hallway/southeast)
 "pv" = (
 /obj/item/weapon/cane,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "pw" = (
 /obj/item/clothing/glasses/regular,
 /obj/effect/decal/cleanable/dirt,
@@ -5147,7 +5142,7 @@
 "pB" = (
 /obj/structure/table/glass,
 /obj/item/device/radio{
-	anchored = 1;
+	anchored = 0;
 	broadcasting = 0;
 	canhear_range = 4;
 	desc = "Are you going to make the call?";
@@ -5188,8 +5183,8 @@
 /area/derelict/hallway/southeast)
 "pH" = (
 /obj/item/clothing/glasses/regular,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "pI" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medical Equipment";
@@ -5240,8 +5235,8 @@
 /obj/item/weapon/ore/silver,
 /obj/item/weapon/ore/iron,
 /obj/structure/closet/crate,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "pQ" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/airless,
@@ -5268,8 +5263,8 @@
 /area/derelict/hallway/southwest)
 "pT" = (
 /obj/item/weapon/reagent_containers/glass/bucket,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "pU" = (
 /obj/machinery/recharge_station,
 /obj/effect/decal/cleanable/dirt,
@@ -5313,12 +5308,12 @@
 /obj/item/weapon/material/shard{
 	icon_state = "medium"
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "qb" = (
 /obj/item/weapon/surgicaldrill,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "qc" = (
 /obj/structure/closet/secure_closet/miner,
 /turf/simulated/floor/tiled/airless,
@@ -5337,8 +5332,8 @@
 /obj/item/weapon/material/shard/phoron{
 	icon_state = "phoronmedium"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "qg" = (
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronwindow0"
@@ -5362,7 +5357,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "qi" = (
 /obj/structure/grille,
@@ -5373,7 +5368,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "qj" = (
 /obj/structure/grille,
@@ -5387,13 +5382,13 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "qk" = (
 /obj/item/weapon/material/shard/phoron{
 	icon_state = "phoronlarge"
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "ql" = (
 /obj/item/weapon/material/shard/phoron{
@@ -5402,16 +5397,16 @@
 /obj/item/weapon/material/shard/phoron{
 	icon_state = "phoronmedium"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "qm" = (
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "qn" = (
 /obj/effect/spawner/newbomb/proximity,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "qo" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -5420,13 +5415,13 @@
 	name = "KEEP CLEAR: DOCKING AREA";
 	pixel_y = 0
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "qp" = (
 /obj/structure/door_assembly/door_assembly_mai{
 	icon_state = "door_as_mai0"
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "qq" = (
 /obj/structure/window/phoronreinforced{
@@ -5437,7 +5432,7 @@
 	icon_state = "phoronwindow0"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "qr" = (
 /obj/machinery/light{
 	dir = 1
@@ -5490,7 +5485,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "qy" = (
 /obj/item/weapon/material/shard,
 /obj/effect/decal/cleanable/dirt,
@@ -5513,8 +5508,8 @@
 /area/derelict/hallway/southeast)
 "qB" = (
 /obj/item/weapon/circular_saw,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "qC" = (
 /obj/structure/table/woodentable,
 /obj/random/loot,
@@ -5551,13 +5546,13 @@
 	},
 /obj/structure/window/phoronreinforced,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "qI" = (
 /obj/item/weapon/material/shard/phoron{
 	icon_state = "phoronlarge"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "qJ" = (
 /obj/machinery/portable_atmospherics/canister,
 /turf/simulated/floor/airless,
@@ -5656,7 +5651,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "rb" = (
 /obj/structure/grille,
@@ -5689,7 +5684,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "rg" = (
 /obj/structure/grille,
@@ -5700,7 +5695,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "rh" = (
 /obj/item/stack/rods,
@@ -5711,8 +5706,8 @@
 /area/derelict/hallway/southeast)
 "ri" = (
 /obj/item/clothing/glasses/meson,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "rj" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/airless,
@@ -5741,7 +5736,7 @@
 "rn" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "ro" = (
 /obj/structure/window/reinforced{
@@ -5775,7 +5770,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "ru" = (
 /obj/structure/closet/wardrobe/grey,
@@ -5800,8 +5795,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ry" = (
 /obj/structure/table/rack,
 /obj/item/weapon/flamethrower/full,
@@ -5846,8 +5841,8 @@
 /obj/item/weapon/material/shard/phoron{
 	icon_state = "phoronsmall"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "rH" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Aft Starboard Solar Access";
@@ -5871,8 +5866,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "rK" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -5882,8 +5877,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "rL" = (
 /obj/structure/door_assembly/door_assembly_eng{
 	icon_state = "door_as_atmo0"
@@ -6006,7 +6001,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "sc" = (
 /obj/structure/grille,
@@ -6014,13 +6009,13 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "sd" = (
 /obj/structure/door_assembly/door_assembly_eng{
 	icon_state = "door_as_gatmo0"
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "se" = (
 /obj/machinery/light,
@@ -6074,8 +6069,8 @@
 	icon_state = "conveyor-broken";
 	dir = 8
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "sk" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -6091,15 +6086,15 @@
 	dir = 4;
 	id = "packageSort2"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "sm" = (
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "packageSort2"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "sn" = (
 /obj/machinery/conveyor{
 	icon_state = "conveyor-broken";
@@ -6113,7 +6108,7 @@
 	dir = 4;
 	id = "packageSort2"
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "sp" = (
 /obj/machinery/door/airlock/glass_command{
@@ -6138,7 +6133,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "sr" = (
 /obj/structure/cable/yellow{
@@ -6157,7 +6152,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "st" = (
 /obj/structure/grille,
@@ -6168,7 +6163,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "su" = (
 /obj/structure/grille,
@@ -6176,12 +6171,12 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "sv" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "sw" = (
 /obj/structure/grille,
@@ -6189,7 +6184,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "sx" = (
 /obj/structure/grille,
@@ -6200,7 +6195,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "sy" = (
 /obj/structure/grille,
@@ -6211,7 +6206,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "sz" = (
 /obj/structure/grille,
@@ -6221,7 +6216,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "sA" = (
 /obj/structure/grille,
@@ -6229,7 +6224,7 @@
 	dir = 8
 	},
 /obj/item/weapon/material/shard,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "sB" = (
 /obj/structure/grille,
@@ -6239,7 +6234,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "sC" = (
 /obj/structure/table/standard,
@@ -6266,7 +6261,7 @@
 "sG" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "sH" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -6385,7 +6380,7 @@
 	dir = 1
 	},
 /obj/machinery/door/blast/regular,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "sX" = (
 /obj/structure/window/reinforced,
@@ -6400,7 +6395,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "sZ" = (
 /obj/machinery/recharge_station,
@@ -6414,8 +6409,8 @@
 "tb" = (
 /obj/structure/lattice,
 /obj/structure/closet/wardrobe/engineering_yellow,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "tc" = (
 /obj/item/weapon/bedsheet/orange,
 /obj/effect/decal/cleanable/dirt,
@@ -6445,7 +6440,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "th" = (
 /obj/structure/closet/secure_closet/personal/patient,
@@ -6491,8 +6486,8 @@
 	dir = 1
 	},
 /obj/structure/grille/broken,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "to" = (
 /obj/item/weapon/reagent_containers/food/snacks/birthdaycakeslice,
 /obj/effect/decal/cleanable/dirt,
@@ -6510,13 +6505,13 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "tq" = (
 /obj/structure/lattice,
 /obj/structure/bed,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "tr" = (
 /obj/structure/door_assembly/door_assembly_eng{
 	icon_state = "door_as_gatmo0"
@@ -6537,7 +6532,7 @@
 	icon_state = "medium"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "tu" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/tiled/white,
@@ -6579,7 +6574,7 @@
 /obj/structure/grille,
 /obj/item/weapon/material/shard,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "tA" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -6589,7 +6584,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "tB" = (
 /obj/structure/closet/toolcloset,
@@ -6598,8 +6593,8 @@
 /area/derelict/hallway/southwest)
 "tC" = (
 /obj/item/weapon/bedsheet/orange,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "tD" = (
 /obj/item/clothing/glasses/hud/health,
 /obj/effect/decal/cleanable/dirt,
@@ -6617,7 +6612,7 @@
 	dir = 1
 	},
 /obj/structure/grille/broken,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "tG" = (
 /obj/machinery/door/airlock/medical{
@@ -6634,13 +6629,13 @@
 "tI" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "tJ" = (
 /obj/structure/lattice,
 /obj/structure/grille/broken,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "tK" = (
 /obj/structure/cable/yellow,
 /turf/simulated/floor/airless,
@@ -6687,8 +6682,8 @@
 /obj/item/weapon/material/shard{
 	icon_state = "small"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "tP" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Drone Fabrication";
@@ -6707,8 +6702,8 @@
 "tR" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/hypospray,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "tS" = (
 /obj/structure/table/standard,
 /obj/machinery/computer/skills,
@@ -6758,7 +6753,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "tX" = (
 /obj/structure/bed,
@@ -6797,8 +6792,8 @@
 /area/derelict/hallway/southeast)
 "ub" = (
 /obj/item/slime_extract/cerulean,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "uc" = (
 /obj/machinery/power/solar{
 	id = "starboardsolar";
@@ -6926,8 +6921,8 @@
 	dir = 1;
 	base_state = "bulb-broken"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "uq" = (
 /obj/machinery/shower{
 	pixel_y = 15
@@ -6938,8 +6933,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "us" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -6955,8 +6950,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "uu" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/tiled/airless,
@@ -6974,7 +6969,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "ux" = (
 /obj/structure/grille/broken,
@@ -7022,7 +7017,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "uD" = (
 /obj/structure/window/reinforced{
@@ -7031,8 +7026,8 @@
 /obj/item/weapon/material/shard{
 	icon_state = "medium"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "uE" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -7052,7 +7047,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "uG" = (
 /obj/structure/grille,
@@ -7063,7 +7058,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "uH" = (
 /obj/structure/table/standard,
@@ -7083,7 +7078,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "uK" = (
 /obj/structure/grille,
@@ -7091,7 +7086,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "uL" = (
 /obj/structure/grille,
@@ -7099,7 +7094,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "uM" = (
 /obj/structure/sign/securearea{
@@ -7145,12 +7140,12 @@
 "uQ" = (
 /obj/structure/lattice,
 /obj/item/weapon/bedsheet/orange,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "uR" = (
 /obj/item/weapon/soap/nanotrasen,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "uS" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -7420,8 +7415,8 @@
 /area/derelict/hallway/southeast)
 "vt" = (
 /obj/item/slime_extract/bluespace,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "vu" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Firefighting equipment";
@@ -7452,8 +7447,8 @@
 /area/derelict/hallway/southeast)
 "vy" = (
 /obj/item/slime_extract/adamantine,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "vz" = (
 /obj/structure/grille/broken,
 /obj/structure/window/reinforced{
@@ -7463,7 +7458,7 @@
 	icon_state = "medium"
 	},
 /obj/item/stack/rods,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "vA" = (
 /obj/structure/window/reinforced{
@@ -7560,7 +7555,7 @@
 /area/derelict/hallway/southeast)
 "vM" = (
 /obj/machinery/door/blast/regular,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "vN" = (
 /obj/structure/table/standard,
@@ -7579,7 +7574,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "vP" = (
 /obj/machinery/door/airlock/glass_medical{
@@ -7593,7 +7588,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "vR" = (
 /obj/structure/table/standard,
@@ -7638,7 +7633,7 @@
 	anchored = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "vY" = (
 /obj/item/weapon/material/shard{
 	icon_state = "medium"
@@ -7690,7 +7685,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "wg" = (
-/turf/space,
+/turf/template_noop,
 /turf/simulated/shuttle/wall/dark{
 	dir = 8;
 	icon_state = "diagonalWall3"
@@ -7724,7 +7719,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "wl" = (
 /turf/simulated/shuttle/floor{
@@ -7815,7 +7810,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "wy" = (
-/turf/space,
+/turf/template_noop,
 /turf/simulated/shuttle/wall/dark{
 	dir = 5;
 	icon_state = "diagonalWall3"
@@ -7866,7 +7861,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "wH" = (
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "wI" = (
 /obj/machinery/particle_accelerator/control_box,
@@ -7925,7 +7920,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "wS" = (
 /obj/structure/grille/broken,
@@ -7935,24 +7930,24 @@
 /obj/item/weapon/material/shard{
 	icon_state = "small"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "wT" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southwest)
 "wU" = (
 /obj/structure/grille,
-/turf/space,
+/turf/template_noop,
 /area/derelict/hallway/southeast)
 "wV" = (
 /obj/structure/lattice,
 /obj/item/weapon/wrench,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "wW" = (
 /obj/machinery/power/emitter{
 	anchored = 1;
@@ -7960,20 +7955,20 @@
 	state = 2
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "wX" = (
 /obj/machinery/field_generator,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "wY" = (
 /obj/structure/grille/broken,
 /obj/item/stack/rods,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "wZ" = (
 /obj/machinery/the_singularitygen,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "xa" = (
 /turf/simulated/floor/airless,
 /area)
@@ -8020,7 +8015,7 @@
 "xj" = (
 /obj/random/loot,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "xk" = (
 /obj/random/loot,
 /turf/simulated/floor/airless,
@@ -8035,11 +8030,11 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "xn" = (
 /obj/random/loot,
 /turf/simulated/floor/tiled/airless,
-/area/space)
+/area/template_noop)
 "xo" = (
 /obj/structure/table/standard,
 /obj/random/loot,
@@ -8089,7 +8084,7 @@
 "xx" = (
 /obj/item/weapon/gun/projectile/shotgun/improvised,
 /turf/simulated/floor/wood,
-/area/space)
+/area/template_noop)
 "xy" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
@@ -37130,7 +37125,7 @@ aa
 ac
 df
 iu
-up
+ac
 iX
 uR
 ir
@@ -38897,7 +38892,7 @@ ac
 aa
 aa
 aa
-nB
+aa
 aA
 ac
 ac
@@ -46596,7 +46591,7 @@ aa
 ac
 ir
 iq
-jB
+jz
 jz
 jz
 jz

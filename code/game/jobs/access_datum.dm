@@ -454,7 +454,7 @@
 /datum/access/merchant
 	id = access_merchant
 	desc = "Merchant Access"
-	access_type = ACCESS_TYPE_NONE
+	access_type = ACCESS_TYPE_CENTCOM
 
 /***************
 * Antag access *

@@ -7,6 +7,7 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_early/Initialize(timeofday)
+	uplink = new
 	// Create the data core, whatever that is.
 	data_core = new /datum/datacore()
 
@@ -36,14 +37,9 @@
 	// Set up antags.
 	populate_antag_type_list()
 
-	// Populate spawnpoints for char creation.
-	populate_spawn_points()
-
 	// Get BOREALIS to warn staff about a lazy admin forgetting visibility to 0
 	// before anyone has a chance to change it!
 	if (discord_bot)
 		discord_bot.alert_server_visibility()
-
-	lobby_image = new/obj/effect/lobby_image()
 
 	..()

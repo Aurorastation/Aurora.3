@@ -36,7 +36,7 @@
 
 /mob/living/death(gibbed, deathmessage="seizes up and falls limp...")
 	. = ..()
-	if (.)
+	if(.)
 		// If true, the mob went from living to dead (assuming everyone has been overriding as they should...)
 		cultnet.updateVisibility(src)
 

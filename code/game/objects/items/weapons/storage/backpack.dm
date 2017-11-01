@@ -444,7 +444,7 @@
 /obj/item/weapon/storage/backpack/messenger/tox
 	name = "research messenger bag"
 	desc = "A backpack worn over one shoulder.  Useful for holding science materials."
-	icon_state = "courierbagnt"
+	icon_state = "courierbagtox"
 
 /obj/item/weapon/storage/backpack/messenger/gen
 	name = "geneticist messenger bag"

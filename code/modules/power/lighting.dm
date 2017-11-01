@@ -135,6 +135,7 @@
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/on = 0					// 1 if on, 0 if off
 	var/on_gs = 0
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
@@ -201,7 +202,7 @@
 	. = ..()
 	on = has_power()
 
-	if (mapload && loc && !(z in config.admin_levels))
+	if (mapload && loc && !(z in current_map.admin_levels))
 		switch(fitting)
 			if("tube")
 				if(prob(2))

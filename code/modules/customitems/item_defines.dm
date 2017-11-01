@@ -206,7 +206,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	gender = NEUTER
 	body_parts_covered = null
-
+	fingerprint_chance = 50
 
 /obj/structure/bed/chair/wheelchair/fluff/nomak_scooter //Mobility Scooter - Dubaku Nomak - demonofthefall
 	name = "mobility scooter"
@@ -491,7 +491,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	species_restricted = null
 	gender = NEUTER
 	body_parts_covered = null
-
+	fingerprint_chance = 100
 
 /obj/item/clothing/under/dress/fluff/sayyidah_dress //Traditional Jumper Dress - Sayyidah Al-Kateb - alberyk
 	name = "traditional jumper dress"
@@ -1403,15 +1403,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	if (use_check(usr)) return
 
-	var/style = input("You change the shirt to;","Change the shirt style") as null|anything in list("Eiffel Tower Diner","Pyramids of Giza Café","Phoenixport","New Parthenon")
+	var/style = input("You change the shirt to;","Change the shirt style") as null|anything in list("Eiffel Tower Diner","Pyramids of Giza CafÃ©","Phoenixport","New Parthenon")
 	switch(style)
 		if("Eiffel Tower Diner")
 			item_state = "harley_uniform"
 			desc = "A white t-shirt with the writing \"Eiffel Tower Diner\" on it in a small font, below a recreation of the famous monument in question, the Eiffel Tower."
 
-		if("Pyramids of Giza Café")
+		if("Pyramids of Giza CafÃ©")
 			item_state = "harley_uniform_1"
-			desc = "A white t-shirt with \"GIZA CAFÉ\" written in large, retro font, with a small background. It looks slightly well-worn."
+			desc = "A white t-shirt with \"GIZA CAFÃ‰\" written in large, retro font, with a small background. It looks slightly well-worn."
 
 		if("Phoenixport")
 			item_state = "harley_uniform_2"
@@ -1424,3 +1424,25 @@ All custom items with worn sprites must follow the contained sprite system: http
 	usr.update_inv_w_uniform()
 	usr.visible_message("<span class='notice'>[user] fumbles with \the [src], changing the shirt..</span>",
 						"<span class='notice'>You change \the [src]'s style to be '[style]'.</span>")
+
+
+/obj/item/clothing/gloves/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
+	name = "engraved wristwatch"
+	desc = " A fine gold watch. On the inside is an engraving that reads \"Happy birthday dad, thinking of you always\"."
+	icon = 'icons/obj/custom_items/rex_watch.dmi'
+	icon_state = "rex_watch"
+
+
+/obj/item/device/camera/fluff/hadley_camera //Hadley's Camera - Hadley Dawson - fekkor
+	name = "customized camera"
+	desc = "A early 2450's Sunny camera with an adjustable lens, this one has a sticker with the name \"Hadley\" on the back."
+	icon = 'icons/obj/custom_items/hadley_camera.dmi'
+	icon_state = "hadley_camera"
+	icon_on = "hadley_camera"
+	icon_off = "hadley_camera_off"
+
+
+/obj/item/clothing/accessory/medal/silver/fluff/kalren_medal //Silver Star of Merit - Kalren Halstere - brutishcrab51
+	name = "silver star of merit"
+	desc = "The Biesel Silver Star of Merit, rewarded for bravery and professionalism in the line of duty."
+	icon_state = "silver_sword"

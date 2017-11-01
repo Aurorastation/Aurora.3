@@ -1,19 +1,19 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ab" = (
 /obj/structure/lattice,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ac" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/maintcentral)
 "ad" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "ae" = (
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -27,7 +27,7 @@
 	d2 = 2
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "ah" = (
 /turf/simulated/wall/r_wall,
 /area/engineering)
@@ -54,8 +54,8 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "am" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -68,8 +68,8 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "an" = (
 /obj/machinery/alarm{
 	frequency = 1439;
@@ -175,7 +175,7 @@
 	d2 = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "az" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -193,8 +193,8 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "aA" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -202,8 +202,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "aB" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -292,8 +292,8 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "aM" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -304,8 +304,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "aN" = (
 /obj/item/device/flashlight{
 	pixel_y = 5
@@ -398,7 +398,7 @@
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
 /turf/simulated/floor/airless,
-/area/space)
+/area/template_noop)
 "aZ" = (
 /obj/item/weapon/weldingtool/experimental,
 /obj/structure/table/standard,
@@ -1350,6 +1350,78 @@
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
+"dD" = (
+/obj/effect/landmark{
+	name = "tdome1"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dE" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dF" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dG" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dH" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dI" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dJ" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dK" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dL" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dM" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dN" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dO" = (
+/obj/effect/landmark{
+	name = "tdome"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 
 (1,1,1) = {"
 aa
@@ -2248,8 +2320,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dD
+dD
 dc
 dc
 dc
@@ -2302,8 +2374,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dD
+dD
 dc
 dc
 dc
@@ -2356,8 +2428,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dD
+dD
 dc
 dc
 dc
@@ -2410,8 +2482,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dD
+dD
 dc
 dc
 dc
@@ -2464,8 +2536,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dD
+dD
 dc
 dc
 dc
@@ -2518,8 +2590,8 @@ dc
 dc
 dc
 dc
-dc
-dc
+dD
+dD
 dc
 dc
 dc
@@ -3588,7 +3660,7 @@ ac
 ac
 ac
 bu
-dC
+dB
 bu
 ac
 ac
