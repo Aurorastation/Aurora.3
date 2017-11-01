@@ -18,6 +18,21 @@
 	var/icon_state_charging = "recharger1"
 	var/icon_state_idle = "recharger0" //also when unpowered
 	var/portable = 1
+	var/list/chargebars
+
+/obj/machinery/recharger/examine(mob/user)
+	. = ..(user, 3)
+	if (charging && .)
+		var/obj/item/weapon/cell/C = get_charging_cell()
+		if (istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))
+			var/datum/progressbar/progbar = new(user, C.maxcharge, src)
+			progbar.update(C.charge)
+			LAZYADD(chargebars, progbar)
+			addtimer(CALLBACK(src, .proc/remove_bar, progbar), 3 SECONDS, TIMER_UNIQUE)
+
+/obj/machinery/recharger/proc/remove_bar(datum/progressbar/bar)
+	LAZYREMOVE(chargebars, bar)
+	qdel(bar)
 
 /obj/machinery/recharger/attackby(obj/item/weapon/G as obj, mob/user as mob)
 	if(portable && iswrench(G))
@@ -80,7 +95,29 @@
 		charging.update_icon()
 		user.put_in_hands(charging)
 		charging = null
+		for (var/thing in chargebars)
+			remove_bar(thing)
 		update_icon()
+
+/obj/machinery/recharger/proc/get_charging_cell()
+	var/cell = charging
+	if(istype(charging, /obj/item/weapon/melee/baton))
+		var/obj/item/weapon/melee/baton/B = charging
+		cell = B.bcell
+
+	else if(istype(charging, /obj/item/modular_computer))
+		var/obj/item/modular_computer/C = charging
+		cell = C.battery_module.battery
+
+	else if(istype(charging, /obj/item/weapon/gun/energy))
+		var/obj/item/weapon/gun/energy/E = charging
+		cell = E.power_supply
+
+	else if(istype(charging, /obj/item/weapon/computer_hardware/battery_module))
+		var/obj/item/weapon/computer_hardware/battery_module/BM = charging
+		cell = BM.battery
+
+	return cell
 
 /obj/machinery/recharger/machinery_process()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
@@ -92,19 +129,7 @@
 		update_use_power(1)
 		icon_state = icon_state_idle
 	else
-		var/cell = charging
-		if(istype(charging, /obj/item/weapon/melee/baton))
-			var/obj/item/weapon/melee/baton/B = charging
-			cell = B.bcell
-		else if(istype(charging, /obj/item/modular_computer))
-			var/obj/item/modular_computer/C = charging
-			cell = C.battery_module.battery
-		else if(istype(charging, /obj/item/weapon/gun/energy))
-			var/obj/item/weapon/gun/energy/E = charging
-			cell = E.power_supply
-		else if(istype(charging, /obj/item/weapon/computer_hardware/battery_module))
-			var/obj/item/weapon/computer_hardware/battery_module/BM = charging
-			cell = BM.battery
+		var/cell = get_charging_cell()
 		if(istype(cell, /obj/item/weapon/cell))
 			var/obj/item/weapon/cell/C = cell
 			if(!C.fully_charged())
@@ -114,7 +139,11 @@
 			else
 				icon_state = icon_state_charged
 				update_use_power(1)
-			return
+
+			if (chargebars)
+				for (var/thing in chargebars)
+					var/datum/progressbar/bar = thing
+					bar.update(C.charge)
 
 /obj/machinery/recharger/emp_act(severity)
 	if(stat & (NOPOWER|BROKEN) || !anchored)
