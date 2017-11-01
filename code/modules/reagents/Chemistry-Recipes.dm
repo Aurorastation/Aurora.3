@@ -2301,12 +2301,12 @@
 	required_reagents = list("cream" = 1, "cremeyvette" = 1, "grenadine" = 1)
 	result_amount = 3
 
-/* /datum/chemical_reaction/metropolitan //NO SPRITES
+/datum/chemical_reaction/metropolitan
 	name = "Metropolitan"
 	id = "metropolitan"
 	result = "metropolitan"
 	required_reagents = list("brandy" = 1, "vermouth" = 1, "grenadine" = 1)
-	result_amount = 3 */
+	result_amount = 3
 
 /datum/chemical_reaction/caruso
 	name = "Caruso"
@@ -2400,8 +2400,8 @@
 	name = "Fringe Weaver"
 	id = "fringeweaver"
 	result = "fringeweaver"
-	required_reagents = list("ethanol" = 3, "sugar" = 1)
-	result_amount = 4
+	required_reagents = list("ethanol" = 2, "sugar" = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/junglejuice
 	name = "Jungle Juice"

@@ -203,8 +203,8 @@
 		reagents.add_reagent("whiskey", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/fireball
-	name = "Uncle Git's Fireball Whiskey"
-	desc = "A premium single-malt whiskey, infused with cinnamon and pepper oil inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES."
+	name = "Uncle Git's Cinnamon Fireball"
+	desc = "A premium single-malt whiskey, infused with cinnamon and hot pepper inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES."
 	icon_state = "fireballbottle"
 	center_of_mass = list("x"=16, "y"=3)
 	Initialize()

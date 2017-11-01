@@ -2951,14 +2951,39 @@
 /datum/reagent/ethanol/fireball
 	name = "Fireball"
 	id = "fireball"
-	description = "Whiskey that's been infused with cinnamon and hot pepper oil. Turn up the heat!"
+	description = "Whiskey that's been infused with cinnamon and hot pepper. Turn up the heat!"
 	color = "#773404"
 	strength = 35
 	taste_description = "whiskey and cinnamon"
 
 	glass_icon_state = "fireballglass"
 	glass_name = "glass of fireball"
-	glass_desc = "Whiskey that's been infused with cinnamon and hot pepper oil. Turn up the heat!"
+	glass_desc = "Whiskey that's been infused with cinnamon and hot pepper. Turn up the heat!"
+	taste_mult = 1.2
+	var/agony_dose = 5
+	var/agony_amount = 1
+	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
+	var/slime_temp_adj = 3
+
+/datum/reagent/ethanol/fireball/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustToxLoss(0.1 * removed)
+
+/datum/reagent/ethanol/fireball/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.species && (H.species.flags & (NO_PAIN)))
+			return
+	if(dose < agony_dose)
+		if(prob(5) || dose == metabolism)
+			M << discomfort_message
+	else
+		M.apply_effect(agony_amount, AGONY, 0)
+		if(prob(5))
+			M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
+			M << "<span class='danger'>You feel like your insides are burning!</span>"
+	if(istype(M, /mob/living/carbon/slime))
+		M.bodytemperature += rand(0, 15) + slime_temp_adj
+	holder.remove_reagent("frostoil", 2)
 
 /datum/reagent/ethanol/cherrytreefireball
 	name = "Cherry Tree Fireball"
@@ -2966,7 +2991,7 @@
 	description = "An iced fruit cocktail shaken with cinnamon whiskey. Hot, cold and sweet all at once."
 	color = "#e87727"
 	strength = 15
-	taste_description = "firey fruit"	
+	taste_description = "sweet spiced cherries"	
 
 	glass_icon_state = "cherrytreefireball"
 	glass_name = "glass of Cherry Tree Fireball"
@@ -2987,14 +3012,14 @@
 /datum/reagent/ethanol/fringeweaver
 	name = "Fringe Weaver"
 	id = "fringeweaver"
-	description = "Effectively alcohol with a spoonful of sugar. It's as simple as it is strong."
+	description = "Effectively pure alcohol with a dose of sugar. It's as simple as it is strong."
 	color = "#f78888"
 	strength = 65
 	taste_description = "fire and regret"	
 
 	glass_icon_state = "fringeweaver"
 	glass_name = "glass of Fringe Weaver"
-	glass_desc = "Effectively alcohol with a spoonful of sugar. It's as simple as it is strong."
+	glass_desc = "Effectively pure alcohol with a dose of sugar. It's as simple as it is strong."
 
 /datum/reagent/ethanol/junglejuice
 	name = "Jungle Juice" 
@@ -3023,13 +3048,13 @@
 /datum/reagent/drink/meloncooler
 	name = "Melon Cooler"
 	id = "meloncooler"
-	description = "A non-alcoholic melon drink to cool down with."
+	description = "An easy, iced, warm-weather beverage."
 	color = "#d8457b"
-	taste_description = "melon and mint"
+	taste_description = "minty melon"
 
 	glass_icon_state = "meloncooler"
 	glass_name = "glass of Melon Cooler"
-	glass_desc = "A non-alcoholic melon drink to cool down with."
+	glass_desc = "An easy, iced, warm-weather beverage."
 
 /datum/reagent/ethanol/midnightkiss
 	name = "Midnight Kiss"
