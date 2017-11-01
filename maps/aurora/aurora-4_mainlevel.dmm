@@ -32506,9 +32506,6 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 5
@@ -46629,7 +46626,6 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/lab)
 "bBH" = (
@@ -92697,7 +92693,7 @@ bQi
 bQJ
 bRg
 bQi
-cfN
+bQi
 bQi
 bQi
 bSS
@@ -98307,7 +98303,7 @@ bcs
 aZU
 beQ
 bgg
-bhA
+bgg
 biH
 bjE
 bkX

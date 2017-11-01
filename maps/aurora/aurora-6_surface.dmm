@@ -10177,9 +10177,6 @@
 /area/hydroponics/garden)
 "sY" = (
 /obj/machinery/smartfridge/drying_rack,
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Public Garden"
 	},
@@ -12596,7 +12593,6 @@
 /area/hydroponics/garden)
 "xH" = (
 /obj/structure/flora/grass/green,
-/obj/machinery/light,
 /obj/machinery/power/apc{
 	dir = 2;
 	name = "south bump";

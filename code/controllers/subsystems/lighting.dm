@@ -28,6 +28,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/total_ss_updates = 0
 	var/total_instant_updates = 0
 
+	var/adder_threshold = 2 //Debug var. Generally set to 2.
+
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 	var/force_queued = TRUE
 	var/force_override = FALSE	// For admins.
@@ -171,7 +173,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 			O.needs_update = FALSE
 
 			processed_overlays++
-		
+
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)

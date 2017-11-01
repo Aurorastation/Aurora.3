@@ -145,9 +145,9 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 	cache_b  = round(lum_b * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
 	cache_mx = round(mx, LIGHTING_ROUND_VALUE)
 	if (needs_add)
-		add_r = min(max((lum_r - 1) * 0.5, 0), 0.3)
-		add_g = min(max((lum_g - 1) * 0.5, 0), 0.3)
-		add_b = min(max((lum_b - 1) * 0.5, 0), 0.3)
+		add_r = min(max((lum_b - SSlighting.adder_threshold) * 0.5, 0), 0.3) //Adder threshhold declared in subsystems/lighting.dm
+		add_g = min(max((lum_b - SSlighting.adder_threshold) * 0.5, 0), 0.3)
+		add_b = min(max((lum_b - SSlighting.adder_threshold) * 0.5, 0), 0.3)
 	else
 		add_r = initial(add_r)
 		add_g = initial(add_g)
