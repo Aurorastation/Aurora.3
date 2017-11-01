@@ -111,5 +111,5 @@ var/list/admin_verbs_lighting = list(
 	if (alert("Change bloom threshhold?", "Threshhold change confirmation", "No", "No", "Yes") != "Yes")
 		return
 	else
-		input("What would you like to change the threshhold to?","Change bloom layer threshhold",SSlighting.adder_threshold_factor) as num
+		input("What would you like to change the threshhold to?","Change bloom layer threshhold",SSlighting.adder_threshold) as num
 	log_and_message_admins("has changed the bloom thershhold to [SSlighting.adder_threshold].")
