@@ -39461,7 +39461,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
-/obj/structure/sign/redcross,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "bpY" = (
@@ -44603,7 +44603,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
-/obj/structure/sign/redcross,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "byj" = (

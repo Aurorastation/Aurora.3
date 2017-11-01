@@ -11806,7 +11806,7 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/control)
 "aAL" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	pixel_y = -32
 	},
 /turf/unsimulated/floor{
@@ -14881,7 +14881,7 @@
 	},
 /area/centcom/holding)
 "aHd" = (
-/obj/structure/sign/redcross,
+/obj/structure/sign/greencross,
 /turf/unsimulated/wall/riveted,
 /area/centcom/holding)
 "aHe" = (
@@ -18157,7 +18157,7 @@
 	},
 /area/centcom/holding)
 "aOa" = (
-/obj/structure/sign/redcross,
+/obj/structure/sign/greencross,
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
 "aOb" = (
