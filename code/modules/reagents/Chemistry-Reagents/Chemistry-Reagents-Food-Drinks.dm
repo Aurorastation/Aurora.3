@@ -3048,13 +3048,13 @@
 /datum/reagent/drink/meloncooler
 	name = "Melon Cooler"
 	id = "meloncooler"
-	description = "Summertime on the beach, in glass form."
+	description = "Summertime on the beach, in liquid form."
 	color = "#d8457b"
 	taste_description = "minty melon"
 
 	glass_icon_state = "meloncooler"
 	glass_name = "glass of Melon Cooler"
-	glass_desc = "Summertime on the beach, in glass form."
+	glass_desc = "Summertime on the beach, in liquid form."
 
 /datum/reagent/ethanol/midnightkiss
 	name = "Midnight Kiss"
