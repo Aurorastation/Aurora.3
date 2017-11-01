@@ -1656,7 +1656,7 @@
 	strength = 20
 	adj_temp = 20
 	targ_temp = 330
-	taste_description = "cold beer"
+	taste_description = "cold cream"
 
 	glass_icon_state = "antifreeze"
 	glass_name = "glass of Anti-freeze"
@@ -2683,10 +2683,10 @@
 /datum/reagent/ethanol/johncollins
 	name = "John Collins"
 	id = "johncollins"
-	description = "Crystal clear, yellow, and smells of gin. How could this go wrong?"
+	description = "Crystal clear, yellow, and smells of whiskey. How could this go wrong?"
 	color = "#664300"
 	strength = 25
-	taste_description = "gin"
+	taste_description = "whiskey"
 
 	glass_icon_state = "johnscollins"
 	glass_name = "glass of John Collins"
@@ -2697,7 +2697,7 @@
 	id = "gimlet"
 	description = "Small, elegant, and kicks."
 	color = "#664300"
-	strength = 13
+	strength = 20
 	taste_description = "gin and class"
 
 	glass_icon_state = "gimlet"
@@ -2951,14 +2951,14 @@
 /datum/reagent/ethanol/fireball
 	name = "Fireball"
 	id = "fireball"
-	description = "Whiskey that's been infused with cinnamon and hot pepper. Turn up the heat!"
+	description = "Whiskey that's been infused with cinnamon and hot pepper. Meant for mixing."
 	color = "#773404"
 	strength = 35
-	taste_description = "whiskey and cinnamon"
+	taste_description = "cinnamon whiskey"
 
 	glass_icon_state = "fireballglass"
 	glass_name = "glass of fireball"
-	glass_desc = "Whiskey that's been infused with cinnamon and hot pepper. Turn up the heat!"
+	glass_desc = "Whiskey that's been infused with cinnamon and hot pepper. Is this safe to drink?"
 	taste_mult = 1.2
 	var/agony_dose = 5
 	var/agony_amount = 1
@@ -3015,7 +3015,7 @@
 	description = "Effectively pure alcohol with a dose of sugar. It's as simple as it is strong."
 	color = "#f78888"
 	strength = 65
-	taste_description = "fire and regret"	
+	taste_description = "liquid regret"	
 
 	glass_icon_state = "fringeweaver"
 	glass_name = "glass of Fringe Weaver"
@@ -3039,7 +3039,7 @@
 	description = "The margarita with a Martian twist. They call it something less embarrassing there."
 	color = "#3eb7c9"
 	strength = 30
-	taste_description = "hot tequila and salty lime"	
+	taste_description = "spicy, salty lime"	
 
 	glass_icon_state = "marsarita"
 	glass_name = "glass of Marsarita"
@@ -3048,30 +3048,30 @@
 /datum/reagent/drink/meloncooler
 	name = "Melon Cooler"
 	id = "meloncooler"
-	description = "An easy, iced, warm-weather beverage."
+	description = "Summertime on the beach, in glass form."
 	color = "#d8457b"
 	taste_description = "minty melon"
 
 	glass_icon_state = "meloncooler"
 	glass_name = "glass of Melon Cooler"
-	glass_desc = "An easy, iced, warm-weather beverage."
+	glass_desc = "Summertime on the beach, in glass form."
 
 /datum/reagent/ethanol/midnightkiss
 	name = "Midnight Kiss"
 	id = "midnightkiss"
-	description = "A quietly bubbling cocktail in a slender glass."
+	description = "A champagne cocktail, quietly bubbling in a slender glass."
 	color = "#13144c"
 	strength = 25
 	taste_description = "a late-night promise"	
 
 	glass_icon_state = "midnightkiss"
 	glass_name = "glass of Midnight Kiss"
-	glass_desc = "A quietly bubbling cocktail in a slender glass."
+	glass_desc = "A champagne cocktail, quietly bubbling in a slender glass."
 
 /datum/reagent/drink/millionairesour
 	name = "Millionaire Sour"
 	id = "millionairesour"
-	description = "It's a good mix, a great mix. Best mix in known space. It's terrific, you're gonna love it."
+	description = "It's a good mix, a great mix. The best mix in known space. It's terrific, you're gonna love it."
 	color = "#13144c"
 	taste_description = "tart fruit"	
 
