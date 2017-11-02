@@ -86,3 +86,6 @@
 
 // Connection prefixes for player-editable fields
 #define WP_ELECTRONICS "elec_"
+
+// Channels.
+#define GLC_COMMS_INTERCEPT "modular_intercept"		// Comms programs that are listening to intercepts (have comms program installed)
