@@ -200,7 +200,7 @@
 			slab_type = critter.meat_type
 	else if(istype(src.occupant,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = occupant
-		slab_type = H.isSynthetic() ? /obj/item/stack/material/steel : H.species.meat_type
+		slab_type = H.species.meat_type
 
 	// Small mobs don't give as much nutrition.
 	if(issmall(src.occupant))
