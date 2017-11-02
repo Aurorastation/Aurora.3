@@ -205,12 +205,8 @@
 		asleep = 1
 	icon_state = "sarlacc_asleep"
 	sarlacc.deployed = 0
-	var/make_loot = loot_count
 	visible_message("<span class='danger'>With a contented heave, \the [src] slides into the earth and begins regurgitating several treasures before shutting tight.</span>")
-	while(make_loot)
-		for(var/turf/simulated/floor/F in orange(1,src))
-			new /obj/random/loot(F)
-			make_loot--
+	new/obj/random/loot(get_turf(src))
 
 /mob/living/simple_animal/hostile/greatworm/FindTarget()
 	if(eating)

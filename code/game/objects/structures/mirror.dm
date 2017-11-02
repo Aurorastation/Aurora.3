@@ -151,8 +151,8 @@
 				if(!newname || newname == "")
 					var/datum/language/L = all_languages[user.species.default_language]
 					newname = L.get_random_name()
-				user.real_name = newname
-				user.name = user.real_name
+				user.fully_replace_character_name(user.real_name,newname)
 				user.h_style = "Short Vox Quills"
 				user.f_style = "Shaved"
+				user.update_hair(0)
 	..()

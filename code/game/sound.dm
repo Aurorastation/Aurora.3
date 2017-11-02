@@ -36,33 +36,119 @@
 #define ASTEROID CAVE
 #define SPACE UNDERWATER
 
-var/list/shatter_sound = list('sound/effects/Glassbr1.ogg','sound/effects/Glassbr2.ogg','sound/effects/Glassbr3.ogg')
-var/list/explosion_sound = list('sound/effects/Explosion1.ogg','sound/effects/Explosion2.ogg')
-var/list/spark_sound = list('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg','sound/effects/sparks4.ogg')
-var/list/rustle_sound = list('sound/effects/rustle1.ogg','sound/effects/rustle2.ogg','sound/effects/rustle3.ogg','sound/effects/rustle4.ogg','sound/effects/rustle5.ogg')
-var/list/punch_sound = list('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg')
-var/list/clown_sound = list('sound/effects/clownstep1.ogg','sound/effects/clownstep2.ogg')
-var/list/swing_hit_sound = list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
-var/list/hiss_sound = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
-var/list/page_sound = list('sound/effects/pageturn1.ogg', 'sound/effects/pageturn2.ogg','sound/effects/pageturn3.ogg')
-var/list/fracture_sound = list('sound/effects/bonebreak1.ogg','sound/effects/bonebreak2.ogg','sound/effects/bonebreak3.ogg','sound/effects/bonebreak4.ogg')
+var/list/shatter_sound = list(
+	'sound/effects/Glassbr1.ogg',
+	'sound/effects/Glassbr2.ogg',
+	'sound/effects/Glassbr3.ogg'
+)
+var/list/explosion_sound = list(
+	'sound/effects/Explosion1.ogg',
+	'sound/effects/Explosion2.ogg'
+)
+var/list/spark_sound = list(
+	'sound/effects/sparks1.ogg',
+	'sound/effects/sparks2.ogg',
+	'sound/effects/sparks3.ogg',
+	'sound/effects/sparks4.ogg'
+)
+var/list/rustle_sound = list(
+	'sound/effects/rustle1.ogg',
+	'sound/effects/rustle2.ogg',
+	'sound/effects/rustle3.ogg',
+	'sound/effects/rustle4.ogg',
+	'sound/effects/rustle5.ogg'
+)
+var/list/punch_sound = list(
+	'sound/weapons/punch1.ogg',
+	'sound/weapons/punch2.ogg',
+	'sound/weapons/punch3.ogg',
+	'sound/weapons/punch4.ogg'
+)
+var/list/clown_sound = list(
+	'sound/effects/clownstep1.ogg',
+	'sound/effects/clownstep2.ogg'
+)
+var/list/swing_hit_sound = list(
+	'sound/weapons/genhit1.ogg',
+	'sound/weapons/genhit2.ogg',
+	'sound/weapons/genhit3.ogg'
+)
+var/list/hiss_sound = list(
+	'sound/voice/hiss1.ogg',
+	'sound/voice/hiss2.ogg',
+	'sound/voice/hiss3.ogg',
+	'sound/voice/hiss4.ogg'
+)
+var/list/page_sound = list(
+	'sound/effects/pageturn1.ogg',
+	'sound/effects/pageturn2.ogg',
+	'sound/effects/pageturn3.ogg'
+)
+var/list/fracture_sound = list(
+	'sound/effects/bonebreak1.ogg',
+	'sound/effects/bonebreak2.ogg',
+	'sound/effects/bonebreak3.ogg',
+	'sound/effects/bonebreak4.ogg'
+)
 
 //FOOTSTEPS
-var/list/defaultfootsteps = list('sound/effects/footsteps/tile1.wav','sound/effects/footsteps/tile2.wav','sound/effects/footsteps/tile3.wav','sound/effects/footsteps/tile4.wav')
-var/list/concretefootsteps = list('sound/effects/footsteps/concrete1.wav','sound/effects/footsteps/concrete2.wav','sound/effects/footsteps/concrete3.wav','sound/effects/footsteps/concrete4.wav')
-var/list/grassfootsteps = list('sound/effects/footsteps/grass1.wav','sound/effects/footsteps/grass2.wav','sound/effects/footsteps/grass3.wav','sound/effects/footsteps/grass4.wav')
-var/list/dirtfootsteps = list('sound/effects/footsteps/dirt1.wav','sound/effects/footsteps/dirt2.wav','sound/effects/footsteps/dirt3.wav','sound/effects/footsteps/dirt4.wav')
-var/list/waterfootsteps = list('sound/effects/footsteps/slosh1.wav','sound/effects/footsteps/slosh2.wav','sound/effects/footsteps/slosh3.wav','sound/effects/footsteps/slosh4.wav')
-var/list/sandfootsteps = list('sound/effects/footsteps/sand1.wav','sound/effects/footsteps/sand2.wav','sound/effects/footsteps/sand3.wav','sound/effects/footsteps/sand4.wav')
-var/list/gravelfootsteps = list('sound/effects/footsteps/gravel1.wav','sound/effects/footsteps/gravel2.wav','sound/effects/footsteps/gravel3.wav','sound/effects/footsteps/gravel4.wav')
+var/list/defaultfootsteps = list(
+	'sound/effects/footsteps/tile1.wav',
+	'sound/effects/footsteps/tile2.wav',
+	'sound/effects/footsteps/tile3.wav',
+	'sound/effects/footsteps/tile4.wav'
+)
+var/list/concretefootsteps = list(
+	'sound/effects/footsteps/concrete1.wav',
+	'sound/effects/footsteps/concrete2.wav',
+	'sound/effects/footsteps/concrete3.wav',
+	'sound/effects/footsteps/concrete4.wav'
+)
+var/list/grassfootsteps = list(
+	'sound/effects/footsteps/grass1.wav',
+	'sound/effects/footsteps/grass2.wav',
+	'sound/effects/footsteps/grass3.wav',
+	'sound/effects/footsteps/grass4.wav'
+)
+var/list/dirtfootsteps = list(
+	'sound/effects/footsteps/dirt1.wav',
+	'sound/effects/footsteps/dirt2.wav',
+	'sound/effects/footsteps/dirt3.wav',
+	'sound/effects/footsteps/dirt4.wav'
+)
+var/list/waterfootsteps = list(
+	'sound/effects/footsteps/slosh1.wav',
+	'sound/effects/footsteps/slosh2.wav',
+	'sound/effects/footsteps/slosh3.wav',
+	'sound/effects/footsteps/slosh4.wav'
+)
+var/list/sandfootsteps = list(
+	'sound/effects/footsteps/sand1.wav',
+	'sound/effects/footsteps/sand2.wav',
+	'sound/effects/footsteps/sand3.wav',
+	'sound/effects/footsteps/sand4.wav'
+)
+var/list/gravelfootsteps = list(
+	'sound/effects/footsteps/gravel1.wav',
+	'sound/effects/footsteps/gravel2.wav',
+	'sound/effects/footsteps/gravel3.wav',
+	'sound/effects/footsteps/gravel4.wav'
+)
+var/list/computerbeeps = list(
+	'sound/machines/compbeep1.ogg',
+	'sound/machines/compbeep2.ogg',
+	'sound/machines/compbeep3.ogg',
+	'sound/machines/compbeep4.ogg',
+	'sound/machines/compbeep5.ogg'
+)
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
 //var/list/gun_sound = list('sound/weapons/Gunshot.ogg', 'sound/weapons/Gunshot2.ogg','sound/weapons/Gunshot3.ogg','sound/weapons/Gunshot4.ogg')
 
-/proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num, falloff, var/is_global, var/usepressure = 1, var/environment = -1)
-
-	soundin = get_sfx(soundin) // same sound for everyone
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, is_ambience = FALSE, is_footstep = FALSE)
+	if (istext(soundin))
+		soundin = get_sfx(soundin) // same sound for everyone
 
 	if(isarea(source))
 		error("[source] is an area and is trying to make the sound: [soundin]")
@@ -70,7 +156,8 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 
 	var/frequency = get_rand_frequency() // Same frequency for everybody
 	var/turf/turf_source = get_turf(source)
-
+	// cache this so we don't create a new one for everybody
+	var/sound/S = sound(get_sfx(soundin))
  	// Looping through the player list has the added bonus of working for mobs inside containers
 	for (var/P in player_list)
 		var/mob/M = P
@@ -80,26 +167,22 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 		var/distance = get_dist(M, turf_source)
 		if(distance <= (world.view + extrarange) * 3)
 			var/turf/T = get_turf(M)
-
-			if(T && T.z == turf_source.z)
-				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global,usepressure, environment)
+			if(T && T.z == turf_source.z && (!is_ambience || M.client.prefs.toggles & SOUND_AMBIENCE) && (!is_footstep || M.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
+				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment, S)
 
 var/const/FALLOFF_SOUNDS = 0.5
 
-/mob/proc/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, var/usepressure = 1, var/environment = -1)
+/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, usepressure = 1, environment = -1, sound/S)
+	if(!client || ear_deaf > 0)
+		return 0
 
-	if(!src.client || ear_deaf > 0)	return 0
-	if(soundin in footstepfx)
-		if(!(src.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
-			return 0
+	if (!S)
+		S = sound(get_sfx(soundin))
 
-	soundin = get_sfx(soundin)
-
-	var/sound/S = sound(soundin)
 	S.wait = 0 //No queue
 	S.channel = 0 //Any channel
-
 	S.environment = environment
+
 	if (vary)
 		if(frequency)
 			S.frequency = frequency
@@ -153,7 +236,6 @@ var/const/FALLOFF_SOUNDS = 0.5
 		S.falloff = (falloff ? falloff : FALLOFF_SOUNDS)
 
 	if(!is_global && environment != 0)
-
 		if(istype(src,/mob/living/))
 			var/mob/living/M = src
 			if (M.hallucination)
@@ -180,8 +262,6 @@ var/const/FALLOFF_SOUNDS = 0.5
 
 	src << S
 	return S.volume
-
-
 
 /client/proc/playtitlemusic()
 	if(!SSticker.login_music)	return
@@ -212,4 +292,5 @@ var/const/FALLOFF_SOUNDS = 0.5
 			if ("waterstep") soundin = pick(waterfootsteps)
 			if ("sandstep") soundin = pick(sandfootsteps)
 			if ("gravelstep") soundin = pick(gravelfootsteps)
+			if ("computerbeep") soundin = pick(computerbeeps)
 	return soundin

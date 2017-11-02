@@ -114,12 +114,16 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		activate_holocall(caller_id)
 
 /obj/machinery/hologram/holopad/proc/end_call(mob/user)
-	caller_id.reset_view() //Send the caller back to his body
-	clear_holo(caller_id) // destroy the hologram
-	caller_id = null //Reset caller_id
-	sourcepad.targetpad = null
-	sourcepad = null //Reset source
-
+	if(caller_id)
+		caller_id.unset_machine()
+		caller_id.reset_view() //Send the caller back to his body
+		clear_holo(null, caller_id) // destroy the hologram
+		caller_id = null
+	if(user)
+		user.unset_machine()
+		user.reset_view() //Send the caller back to his body
+		clear_holo(null, user) // destroy the hologram
+		user = null
 /obj/machinery/hologram/holopad/proc/activate_holocall(mob/living/carbon/caller_id)
 	if(caller_id)
 		create_holo(0,caller_id)//Create one.
@@ -174,9 +178,13 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			master.show_message(rendered, 2)
 	var/name_used = M.GetVoice()
 	if(targetpad) //If this is the pad you're making the call from
-		var/message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
-		targetpad.audible_message(message)
-		targetpad.last_message = message
+		var/message
+		if(speaking)
+			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
+			targetpad.audible_message(message)
+			targetpad.last_message = message
+		else
+			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
 	if(sourcepad) //If this is a pad receiving a call
 		if(name_used==caller_id||text==last_message||findtext(text, "Holopad received")) //prevent echoes
 			return
@@ -217,7 +225,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(caller_id)
 			var/tempicon = 0
 			for(var/datum/data/record/t in data_core.locked)
-				if(t.fields["name"]==caller_id.name)
+				if(t.fields["name"] == caller_id.name)
 					tempicon = t.fields["image"]
 			hologram.name = "[caller_id.name] (Hologram)"
 			hologram.loc = get_step(src,1)
@@ -245,14 +253,21 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		A.holo = src
 		return 1
 
-/obj/machinery/hologram/holopad/proc/clear_holo(mob/living/silicon/ai/user)
-	if(user.holo == src)
+/obj/machinery/hologram/holopad/proc/clear_holo(mob/living/silicon/ai/user, mob/living/carbon/caller_id)
+	if(user)
+		qdel(masters[user])//Get rid of user's hologram
 		user.holo = null
-	qdel(masters[user])//Get rid of user's hologram
-	masters -= user //Discard AI from the list of those who use holopad
+		masters -= user //Discard AI from the list of those who use holopad
+	if(caller_id)
+		qdel(masters[caller_id])//Get rid of user's hologram
+		masters -= caller_id //Discard the caller from the list of those who use holopad
 	if (!masters.len)//If no users left
 		set_light(0)			//pad lighting (hologram lighting will be handled automatically since its owner was deleted)
 		icon_state = "holopad0"
+		if(sourcepad)
+			sourcepad.targetpad = null
+			sourcepad = null
+			caller_id = null
 	return 1
 
 /obj/machinery/hologram/holopad/machinery_process()
@@ -267,13 +282,13 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			continue
 
 		use_power(power_per_hologram)
-	if(last_request + 200 < world.time&&incoming_connection==1)
+	if(last_request + 200 < world.time && incoming_connection==1)
 		incoming_connection = 0
 		end_call()
 		if(sourcepad)
 			sourcepad.audible_message("<i><span class='game say'>The holopad connection timed out</span></i>")
 			sourcepad = 0
-	if (caller_id&&sourcepad)
+	if (caller_id && sourcepad)
 		if(caller_id.loc!=sourcepad.loc)
 			sourcepad.visible_message("Severing connection to distant holopad.")
 			visible_message("The connection has been terminated by [caller_id].")
