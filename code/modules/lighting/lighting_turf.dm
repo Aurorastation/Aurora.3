@@ -119,19 +119,37 @@
 
 // Can't think of a good name, this proc will recalculate the has_opaque_atom variable.
 /turf/proc/recalc_atom_opacity()
+#ifdef AO_USE_LIGHTING_OPACITY
+	var/old = has_opaque_atom
+#endif
+
 	has_opaque_atom = FALSE
-	for (var/atom/A in src.contents + src) // Loop through every movable atom on our tile PLUS ourselves (we matter too...)
-		if (A.opacity)
-			has_opaque_atom = TRUE
-			return 	// No need to continue if we find something opaque.
+	if (opacity)
+		has_opaque_atom = TRUE
+	else
+		for (var/thing in src) // Loop through every movable atom on our tile
+			var/atom/movable/A = thing
+			if (A.opacity)
+				has_opaque_atom = TRUE
+				break 	// No need to continue if we find something opaque.
+
+#ifdef AO_USE_LIGHTING_OPACITY
+	if (old != has_opaque_atom)
+		regenerate_ao()
+#endif
 
 // If an opaque movable atom moves around we need to potentially update visibility.
 /turf/Entered(atom/movable/Obj, atom/OldLoc)
 	. = ..()
 
-	if (Obj && Obj.opacity)
+	if (Obj && Obj.opacity && !has_opaque_atom)
 		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
 		reconsider_lights()
+
+#ifdef AO_USE_LIGHTING_OPACITY
+		// Hook for AO.
+		regenerate_ao()
+#endif
 
 /turf/Exited(atom/movable/Obj, atom/newloc)
 	. = ..()
@@ -189,6 +207,11 @@
 	var/list/old_corners = corners
 
 	. = ..()
+
+#ifndef AO_USE_LIGHTING_OPACITY
+	if (permit_ao)
+		regenerate_ao()
+#endif
 
 	recalc_atom_opacity()
 	lighting_overlay = old_lighting_overlay

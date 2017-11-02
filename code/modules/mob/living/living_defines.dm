@@ -65,6 +65,7 @@
 	var/stamina_recovery = 1
 	var/min_walk_delay = 0//When move intent is walk, movedelay is clamped to this value as a lower bound
 	var/exhaust_threshold = 50
+	var/datum/progressbar/stamina_bar	// Progress bar shown when stamina is not at full, and the mob supports stamina. Deleted on Logout or when stamina is full.
 
 	var/move_delay_mod = 0//Added to move delay, used for calculating movement speeds. Provides a centralised value for modifiers to alter
 
@@ -72,3 +73,5 @@
 	var/cloaked = 0//Set to 1 by cloaking devices, optimises update_icons
 
 	var/tesla_ignore = 0	// If true, mob is not affected by tesla bolts.
+
+	var/stop_sight_update = 0 //If true, it won't reset the mob vision flags

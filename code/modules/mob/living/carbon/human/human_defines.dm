@@ -37,6 +37,8 @@
 	var/socks = 0		//Which socks the player wants.
 	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
 
+	var/last_chew = 0 // Used for hand chewing
+
 	// General information
 	var/home_system = ""
 	var/citizenship = ""
@@ -102,3 +104,5 @@
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
 	var/last_x = 0
 	var/last_y = 0
+
+	var/cached_bodytype

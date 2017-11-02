@@ -432,8 +432,50 @@ Buildable meters
 /obj/item/pipe/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	..()
 	//*
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W) && !istype(W, /obj/item/weapon/pipewrench))
 		return ..()
+	if(istype(W, /obj/item/weapon/pipewrench))
+		var/action = alert(user, "Change pipe?", "Change pipe", "Yes", "No")
+		if(action == "Yes")
+			action = alert(user, "Change pipe type?", "Change pipe", "Yes", "No")
+			if(action == "No")
+				if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SIMPLE_BENT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SCRUBBERS_BENT, PIPE_SUPPLY_BENT, PIPE_SUPPLY_STRAIGHT))
+					if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SUPPLY_STRAIGHT))
+						if(pipe_type == PIPE_SIMPLE_STRAIGHT)
+							pipe_type = PIPE_SIMPLE_BENT
+						else if(pipe_type == PIPE_SCRUBBERS_STRAIGHT)
+							pipe_type = PIPE_SCRUBBERS_BENT
+						else
+							pipe_type = PIPE_SUPPLY_BENT
+					else
+						if(pipe_type == PIPE_SIMPLE_BENT)
+							pipe_type = PIPE_SIMPLE_STRAIGHT
+						else if(pipe_type == PIPE_SCRUBBERS_BENT)
+							pipe_type = PIPE_SCRUBBERS_STRAIGHT
+						else
+							pipe_type = PIPE_SUPPLY_STRAIGHT
+				else
+					user << "<span class='warning'>You can not change this pipe!</span>"
+					return
+		
+			else if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SIMPLE_BENT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SCRUBBERS_BENT, PIPE_SUPPLY_BENT, PIPE_SUPPLY_STRAIGHT))
+				if(pipe_type in list(PIPE_SIMPLE_BENT, PIPE_SIMPLE_STRAIGHT))
+					if(PIPE_SIMPLE_BENT)
+						pipe_type = PIPE_SCRUBBERS_BENT
+					else
+						pipe_type =PIPE_SCRUBBERS_STRAIGHT
+				else if(pipe_type in list(PIPE_SCRUBBERS_BENT, PIPE_SCRUBBERS_STRAIGHT))
+					if(PIPE_SCRUBBERS_BENT)
+						pipe_type = PIPE_SUPPLY_BENT
+					else
+						pipe_type = PIPE_SUPPLY_STRAIGHT
+				else if(pipe_type in list(PIPE_SUPPLY_BENT, PIPE_SUPPLY_STRAIGHT))
+					if(PIPE_SUPPLY_BENT)
+						pipe_type = PIPE_SIMPLE_BENT
+					else
+						pipe_type = PIPE_SIMPLE_STRAIGHT
+			update()
+	
 	if (!isturf(src.loc))
 		return 1
 	if (pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_HE_STRAIGHT, PIPE_INSULATED_STRAIGHT, PIPE_MVALVE))
@@ -1165,7 +1207,7 @@ Buildable meters
 /obj/item/pipe_meter/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	..()
 
-	if (!istype(W, /obj/item/weapon/wrench))
+	if (!iswrench(W))
 		return ..()
 	if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
 		user << "<span class='warning'>You need to fasten it to a pipe</span>"

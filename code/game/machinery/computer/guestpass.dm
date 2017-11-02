@@ -5,7 +5,6 @@
 	name = "guest pass"
 	desc = "Allows temporary access to station areas."
 	icon_state = "guest"
-	light_color = "#0099ff"
 
 	var/temp_access = list() //to prevent agent cards stealing access as permanent
 	var/expiration_time = 0
@@ -35,6 +34,14 @@
 		usr << "<span class='notice'>[get_access_desc(A)].</span>"
 	usr << "<span class='notice'>Issuing reason: [reason].</span>"
 	return
+
+/obj/item/weapon/card/id/guest/Initialize(mapload, duration)
+	. = ..(mapload)
+	expiration_time = duration + world.time
+	addtimer(CALLBACK(src, .proc/expire), duration)
+
+/obj/item/weapon/card/id/guest/proc/expire()
+	icon_state += "_invalid"
 
 /////////////////////////////////////////////
 //Guest pass terminal////////////////////////
@@ -181,10 +188,9 @@
 					entry += ". Expires at [worldtime2text(world.time + duration*10*60)]."
 					internal_log.Add(entry)
 
-					var/obj/item/weapon/card/id/guest/pass = new(src.loc)
+					var/obj/item/weapon/card/id/guest/pass = new(loc, duration MINUTES)
 					pass.temp_access = accesses.Copy()
 					pass.registered_name = giv_name
-					pass.expiration_time = world.time + duration*10*60
 					pass.reason = reason
 					pass.name = "guest pass #[number]"
 				else

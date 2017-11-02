@@ -1,4 +1,4 @@
-// Attempts to install the hardware into apropriate slot.
+// Attempts to install the hardware into appropriate slot.
 /obj/item/modular_computer/proc/try_install_component(var/mob/living/user, var/obj/item/weapon/computer_hardware/H, var/found = 0)
 	// "USB" flash drive.
 	if(istype(H, /obj/item/weapon/computer_hardware/hard_drive/portable))

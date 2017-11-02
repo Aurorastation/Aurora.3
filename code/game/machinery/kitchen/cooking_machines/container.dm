@@ -14,8 +14,8 @@
 		/obj/item/weapon/paper
 	)
 
-/obj/item/weapon/reagent_containers/cooking_container/New()
-	..()
+/obj/item/weapon/reagent_containers/cooking_container/Initialize()
+	. = ..()
 	create_reagents(max_reagents)
 	flags |= OPENCONTAINER
 

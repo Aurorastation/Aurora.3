@@ -52,7 +52,7 @@
 
 	// add an extra law to the AI to make sure it cooperates with the heads
 	var/extra_law = "Crew authorized to know of pathogen [virus_name]'s existence are: Heads of command. Do not allow unauthorized personnel to gain knowledge of [virus_name]. Aid authorized personnel in quarantining and neutrlizing the outbreak. This law overrides all other laws."
-	for(var/mob/living/silicon/ai/M in world)
+	for(var/mob/living/silicon/ai/M in silicon_mob_list)
 		M.add_ion_law(extra_law)
 		M << "<span class='danger'>[extra_law]</span>"
 
@@ -72,7 +72,7 @@
 
 	// scan the crew for possible infectees
 	var/list/crew = list()
-	for(var/mob/living/carbon/human/H in world) if(H.client)
+	for(var/mob/living/carbon/human/H in human_mob_list) if(H.client)
 		// heads should not be infected
 		if(H.mind.assigned_role in command_positions) continue
 		crew += H
@@ -140,7 +140,7 @@
 /datum/game_mode/epidemic/check_win()
 	var/alive = 0
 	var/sick = 0
-	for(var/mob/living/carbon/human/H in world)
+	for(var/mob/living/carbon/human/H in human_mob_list)
 		if(H.key && H.stat != 2) alive++
 		if(H.virus2.len && H.stat != 2) sick++
 
@@ -164,7 +164,7 @@
 ///////////////////////////////////////////
 /datum/game_mode/epidemic/proc/crew_lose()
 	SSticker.mode:explosion_in_progress = 1
-	for(var/mob/M in world)
+	for(var/mob/M in mob_list)
 		if(M.client)
 			M << 'sound/machines/Alarm.ogg'
 	world << "<span class='notice'><b>Incoming missile detected.. Impact in 10..</b></span>"

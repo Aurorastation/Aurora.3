@@ -354,6 +354,9 @@
 
 /datum/reagent/nutriment/flour/touch_turf(var/turf/simulated/T)
 	if(!istype(T, /turf/space))
+		if(locate(/obj/effect/decal/cleanable/flour) in T)
+			return
+
 		new /obj/effect/decal/cleanable/flour(T)
 
 /datum/reagent/nutriment/coco
@@ -492,8 +495,6 @@
 	taste_mult = 1.5
 
 /datum/reagent/frostoil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 	if(prob(1))
 		M.emote("shiver")
@@ -515,13 +516,9 @@
 	var/slime_temp_adj = 10
 
 /datum/reagent/capsaicin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	M.adjustToxLoss(0.5 * removed)
 
 /datum/reagent/capsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA || alien == IS_MACHINE)
-		return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species && (H.species.flags & (NO_PAIN)))
@@ -552,6 +549,8 @@
 	slime_temp_adj = 15
 
 /datum/reagent/capsaicin/condensed/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+#define EYES_PROTECTED 1
+#define EYES_MECH 2
 	var/eyes_covered = 0
 	var/mouth_covered = 0
 	var/no_pain = 0
@@ -566,13 +565,18 @@
 		protection = list(H.head, H.glasses, H.wear_mask)
 		if(H.species && (H.species.flags & NO_PAIN))
 			no_pain = 1 //TODO: living-level can_feel_pain() proc
+
+		// Robo-eyes are immune to pepperspray now. Wee.
+		var/obj/item/organ/eyes/E = H.get_eyes()
+		if (istype(E) && (E.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)))
+			eyes_covered |= EYES_MECH
 	else
 		protection = list(M.wear_mask)
 
 	for(var/obj/item/I in protection)
 		if(I)
 			if(I.body_parts_covered & EYES)
-				eyes_covered = 1
+				eyes_covered |= EYES_PROTECTED
 				eye_protection = I.name
 			if((I.body_parts_covered & FACE) && !(I.item_flags & FLEXIBLEMATERIAL))
 				mouth_covered = 1
@@ -580,8 +584,10 @@
 
 	var/message = null
 	if(eyes_covered)
-		if(!mouth_covered)
+		if (!mouth_covered && (eyes_covered & EYES_PROTECTED))
 			message = "<span class='warning'>Your [eye_protection] protects your eyes from the pepperspray!</span>"
+		else if (eyes_covered & EYES_MECH)
+			message = "<span class='warning'>Your mechanical eyes are invulnurable pepperspray!</span>"
 	else
 		message = "<span class='warning'>The pepperspray gets in your eyes!</span>"
 		if(mouth_covered)
@@ -600,6 +606,8 @@
 			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
 		M.Stun(5)
 		M.Weaken(5)
+#undef EYES_PROTECTED
+#undef EYES_MECH
 
 /datum/reagent/condensedcapsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
@@ -648,6 +656,11 @@
 	var/adj_temp = 0
 	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
 	var/datum/modifier/modifier = null
+
+/datum/reagent/drink/Destroy()
+	if (modifier)
+		QDEL_NULL(modifier)
+	return ..()
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed) // Probably not a good idea; not very deadly though
@@ -741,8 +754,6 @@
 
 /datum/reagent/drink/limejuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.adjustToxLoss(-0.5 * removed)
 
 /datum/reagent/drink/orangejuice
@@ -758,8 +769,6 @@
 
 /datum/reagent/drink/orangejuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.adjustOxyLoss(-2 * removed)
 
 /datum/reagent/toxin/poisonberryjuice // It has more in common with toxins than drinks... but it's a juice
@@ -799,8 +808,6 @@
 
 /datum/reagent/drink/tomatojuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.heal_organ_damage(0, 0.5 * removed)
 
 /datum/reagent/drink/watermelonjuice
@@ -829,8 +836,6 @@
 
 /datum/reagent/drink/milk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.heal_organ_damage(0.5 * removed, 0)
 	holder.remove_reagent("capsaicin", 10 * removed)
 
@@ -873,8 +878,6 @@
 
 /datum/reagent/drink/tea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.adjustToxLoss(-0.5 * removed)
 
 /datum/reagent/drink/tea/icetea
@@ -911,8 +914,6 @@
 
 /datum/reagent/drink/coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	if(adj_temp > 0)
 		holder.remove_reagent("frostoil", 10 * removed)
 
@@ -924,8 +925,6 @@
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 /datum/reagent/drink/coffee/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien == IS_DIONA)
-		return
 	M.make_jittery(5)
 
 /datum/reagent/drink/coffee/icecoffee
@@ -1064,6 +1063,18 @@
 	glass_icon_state = "brownstar"
 	glass_name = "glass of Brown Star"
 	glass_desc = "It's not what it sounds like..."
+
+/datum/reagent/drink/mintsyrup
+	name = "Mint Syrup"
+	description = "A simple syrup that tastes strongly of mint."
+	id = "mintsyrup"
+	color = "#539830"
+	taste_description = "mint"
+
+	glass_icon_state = "mint_syrupglass"
+	glass_name = "glass of mint syrup"
+	glass_desc = "Pure mint syrup. Prepare your tastebuds."
+	glass_center_of_mass = list("x"=17, "y"=6)
 
 /datum/reagent/drink/milkshake
 	name = "Milkshake"
@@ -1213,8 +1224,6 @@
 
 /datum/reagent/drink/doctor_delight/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.adjustOxyLoss(-4 * removed)
 	M.heal_organ_damage(2 * removed, 2 * removed)
 	M.adjustToxLoss(-2 * removed)
@@ -1253,8 +1262,6 @@
 
 /datum/reagent/drink/hell_ramen/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.bodytemperature += 10 * TEMPERATURE_DAMAGE_COEFFICIENT
 
 /datum/reagent/drink/ice
@@ -1327,9 +1334,20 @@
 
 /datum/reagent/ethanol/beer/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.jitteriness = max(M.jitteriness - 3, 0)
+
+/datum/reagent/ethanol/bitters
+	name = "Aromatic Bitters"
+	id = "bitters"
+	description = "A very, very concentrated and bitter herbal alcohol."
+	color = "#223319"
+	strength = 40
+	taste_description = "bitter"
+
+	glass_icon_state = "bittersglass"
+	glass_name = "glass of bitters"
+	glass_desc = "A pungent glass of bitters."
+	glass_center_of_mass = list ("x"=17, "y"=8)
 
 /datum/reagent/ethanol/bluecuracao
 	name = "Blue Curacao"
@@ -1342,6 +1360,19 @@
 	glass_icon_state = "curacaoglass"
 	glass_name = "glass of blue curacao"
 	glass_desc = "Exotically blue, fruity drink, distilled from oranges."
+	glass_center_of_mass = list("x"=16, "y"=5)
+
+/datum/reagent/ethanol/champagne
+	name = "Champagne"
+	id = "champagne"
+	description = "A classy sparkling wine, usually found in meeting rooms and basements."
+	color = "#EBECC0"
+	strength = 15
+	taste_description = "bubbly bitter-sweetness"
+
+	glass_icon_state = "champagneglass"
+	glass_name = "glass of champagne"
+	glass_desc = "Off-white and bubbly. So passe."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
 /datum/reagent/ethanol/cognac
@@ -1372,8 +1403,6 @@
 
 /datum/reagent/ethanol/deadrum/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.dizziness +=5
 
 /datum/reagent/ethanol/gin
@@ -1407,31 +1436,14 @@
 	overdose = 45
 
 /datum/reagent/ethanol/coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	..()
 	M.dizziness = max(0, M.dizziness - 5)
 	M.drowsyness = max(0, M.drowsyness - 3)
 	M.sleeping = max(0, M.sleeping - 2)
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
-	if(alien == IS_TAJARA)
-		M.adjustToxLoss(0.5 * removed)
-		M.make_jittery(4) //extra sensitive to caffine
-
-/datum/reagent/ethanol/coffee/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_TAJARA)
-		M.adjustToxLoss(2 * removed)
-		M.make_jittery(4)
-		return
-	..()
 
 /datum/reagent/ethanol/coffee/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien == IS_DIONA)
-		return
-	if(alien == IS_TAJARA)
-		M.adjustToxLoss(4 * REM)
-		M.apply_effect(3, STUTTER)
 	M.make_jittery(5)
 
 /datum/reagent/ethanol/coffee/kahlua
@@ -1516,8 +1528,6 @@
 
 /datum/reagent/ethanol/thirteenloko/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.drowsyness = max(0, M.drowsyness - 7)
 	if (M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
@@ -1813,6 +1823,18 @@
 	glass_desc = "Tequilla and coffee liquor, brought together in a mouthwatering mixture. Drink up."
 	glass_center_of_mass = list("x"=15, "y"=8)
 
+/datum/reagent/ethanol/cmojito
+	name = "Champagne Mojito"
+	id = "cmojito"
+	description = "A fizzy, minty and sweet drink."
+	color = "#5DBA40"
+	strength = 15
+	taste_description = "sweet mint alcohol"
+
+	glass_icon_state = "cmojito"
+	glass_name = "glass of champagne mojito"
+	glass_desc = "Looks fun!"
+
 /datum/reagent/ethanol/changelingsting
 	name = "Changeling Sting"
 	id = "changelingsting"
@@ -1824,6 +1846,19 @@
 	glass_icon_state = "changelingsting"
 	glass_name = "glass of Changeling Sting"
 	glass_desc = "A stingy drink."
+
+/datum/reagent/ethanol/classic
+	name = "The Classic"
+	id = "classic"
+	description = "The classic bitter lemon cocktail."
+	color = "#9a8922"
+	strength = 20
+	taste_description = "sour and bitter"
+
+	glass_icon_state = "classic"
+	glass_name = "glass of the classic"
+	glass_desc = "Just classic. Wow."
+	glass_center_of_mass = list("x"=17, "y"=8)
 
 /datum/reagent/ethanol/martini
 	name = "Classic Martini"
@@ -1837,6 +1872,19 @@
 	glass_name = "glass of classic martini"
 	glass_desc = "Damn, the bartender even stirred it, not shook it."
 	glass_center_of_mass = list("x"=17, "y"=8)
+
+/datum/reagent/ethanol/corkpopper
+	name = "Cork Popper"
+	id = "corkpopper"
+	description = "A fancy cocktail with a hint of lemon."
+	color = "#766818"
+	strength = "30"
+	taste_description = "sour and smokey"
+
+	glass_icon_state = "corkpopper"
+	glass_name = "glass of cork popper"
+	glass_desc = "The confusing scent only proves all the more alluring."
+	glass_center_of_mass = list("x"=16, "y"=9)
 
 /datum/reagent/ethanol/cuba_libre
 	name = "Cuba Libre"
@@ -1890,6 +1938,19 @@
 	glass_name = "glass of Driest Martini"
 	glass_desc = "Only for the experienced. You think you see sand floating in the glass."
 	glass_center_of_mass = list("x"=17, "y"=8)
+
+/datum/reagent/ethanol/french75
+	name = "French 75"
+	id = "french75"
+	description = "A sharp and classy cocktail."
+	color = "#F4E68D"
+	strength = 25
+	taste_description = "sour and classy"
+
+	glass_icon_state = "french75"
+	glass_name = "glass of french 75"
+	glass_desc = "It looks like a lemon shaved into your cocktail."
+	glass_center_of_mass = list("x"=16, "y"=5)
 
 /datum/reagent/ethanol/ginfizz
 	name = "Gin Fizz"
@@ -2089,7 +2150,7 @@
 
 	glass_icon_state = "proj_manhattanglass"
 	glass_name = "glass of Manhattan Project"
-	glass_desc = "A scienitst drink of choice, for thinking how to blow up the station."
+	glass_desc = "A scientist's drink of choice, for thinking how to blow up the station."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
 /datum/reagent/ethanol/manly_dorf
@@ -2144,6 +2205,19 @@
 	glass_name = "glass of moonshine"
 	glass_desc = "You've really hit rock bottom now... your liver packed its bags and left last night."
 
+/datum/reagent/ethanol/muscmule
+	name = "Muscovite Mule"
+	id = "muscmule"
+	description = "A surprisingly gentle cocktail, with a hidden punch."
+	color = "#8EEC5F"
+	strength = 40
+	taste_description = "mint and a mule's kick"
+
+	glass_icon_state = "muscmule"
+	glass_name = "glass of muscovite mule"
+	glass_desc = "Such a pretty green, this couldn't possible go wrong!"
+	glass_center_of_mass = list("x"=17, "y"=10)
+
 /datum/reagent/ethanol/neurotoxin
 	name = "Neurotoxin"
 	id = "neurotoxin"
@@ -2162,6 +2236,18 @@
 	..()
 	M.Weaken(3)
 
+/datum/reagent/ethanol/omimosa
+	name = "Orange Mimosa"
+	id = "omimosa"
+	description = "Wonderful start to any day."
+	color = "#F4A121"
+	strength = 15
+	taste_description = "fizzy orange"
+
+	glass_icon_state = "omimosa"
+	glass_name = "glass of orange mimosa"
+	glass_desc = "Smells like a fresh start."
+
 /datum/reagent/ethanol/patron
 	name = "Patron"
 	id = "patron"
@@ -2174,6 +2260,57 @@
 	glass_name = "glass of Patron"
 	glass_desc = "Drinking patron in the bar, with all the subpar ladies."
 	glass_center_of_mass = list("x"=7, "y"=8)
+
+/datum/reagent/ethanol/pinkgin
+	name = "Pink Gin"
+	id = "pinkgin"
+	description = "Bitters and Gin."
+	color = "#DB80B2"
+	strength = 25
+	taste_description = "bitter christmas tree"
+
+	glass_icon_state = "pinkgin"
+	glass_name = "glass of pink gin"
+	glass_desc = "What an eccentric cocktail."
+	glass_center_of_mass = list("x"=16, "y"=9)
+
+/datum/reagent/ethanol/pinkgintonic
+	name = "Pink Gin and Tonic."
+	id = "pinkgintonic"
+	description = "Bitterer gin and tonic."
+	color = "#F4BDDB"
+	strength = 25
+	taste_description = "very bitter christmas tree"
+
+	glass_icon_state = "pinkgintonic"
+	glass_name = "glass of pink gin and tonic"
+	glass_desc = "You made gin and tonic more bitter... you madman!"
+
+/datum/reagent/ethanol/piratepunch
+	name = "Pirate's Punch"
+	id = "piratepunch"
+	description = "Nautical punch!"
+	color = "#ECE1A0"
+	strength = 25
+	taste_description = "spiced fruit cocktail"
+
+	glass_icon_state = "piratepunch"
+	glass_name = "glass of pirate's punch"
+	glass_desc = "Yarr harr fiddly dee, drink whatcha want 'cause a pirate is ye!"
+	glass_center_of_mass = list("x"=17, "y"=10)
+
+/datum/reagent/ethanol/planterpunch
+	name = "Planter's Punch"
+	id = "planterpunch"
+	description = "A popular beach cocktail."
+	color = "#FFA700"
+	strength = 25
+	taste_description = "jamaica"
+
+	glass_icon_state = "planterpunch"
+	glass_name = "glass of planter's punch"
+	glass_desc = "This takes you back, back to those endless white beaches of yore."
+	glass_center_of_mass = list("x"=16, "y"=8)
 
 /datum/reagent/ethanol/pwine
 	name = "Poison Wine"
@@ -2283,6 +2420,19 @@
 	glass_name = "glass of Snow White"
 	glass_desc = "A cold refreshment."
 	glass_center_of_mass = list("x"=16, "y"=8)
+
+/datum/reagent/ethanol/ssroyale
+	name = "Southside Royale"
+	id = "ssroyale"
+	description = "Classy cocktail containing citrus."
+	color = "#66F446"
+	strength = 20
+	taste_description = "lime christmas tree"
+
+	glass_icon_state = "ssroyale"
+	glass_name = "glass of southside royale"
+	glass_desc = "This cocktail is better than you. Maybe it's the crossed arms that give it away. Or the rich parents."
+	glass_center_of_mass = list("x"=17, "y"=8)
 
 /datum/reagent/ethanol/suidream
 	name = "Sui Dream"

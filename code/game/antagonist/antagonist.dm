@@ -218,6 +218,8 @@
 		if(flags & ANTAG_OVERRIDE_JOB)
 			player.assigned_role = null
 		player.special_role = null
-		player.current.client.verbs -= /client/proc/aooc
+
+		if (!check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, player.current))
+			player.current.client.verbs -= /client/proc/aooc
 	pending_antagonists.Cut()
 	candidates.Cut()

@@ -51,23 +51,15 @@
 
 	var/process_lock = 0 //If the call to process is locked because it is still running
 
+	component_types = list(
+		/obj/item/weapon/circuitboard/crusher,
+		/obj/item/weapon/stock_parts/matter_bin = 4,
+		/obj/item/weapon/stock_parts/manipulator = 3,
+		/obj/item/weapon/reagent_containers/glass/beaker = 3
+	)
+
 /obj/machinery/crusher_base/Initialize()
 	. = ..()
-
-	//Create parts for crusher.
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/crusher(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	component_parts += new /obj/item/weapon/reagent_containers/glass/beaker(src)
-	RefreshParts()
 
 	action_start_time = world.time
 
@@ -95,9 +87,15 @@
 	return ..()
 
 /obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	if(status != "idle" && prob(40) && ishuman(user))
+		var/mob/living/carbon/human/M = user
+		M.apply_damage(45, BRUTE, user.get_active_hand())
+		M.apply_damage(45, HALLOSS)
+		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
+		M.say("*scream")
+		return
 	if(default_deconstruction_screwdriver(user, O))
 		return
-	//TODO: Add a chance to catch their hand in the mechanic if they do something while the crusher is in operation
 	if(default_deconstruction_crowbar(user, O))
 		return
 	if(default_part_replacement(user, O))

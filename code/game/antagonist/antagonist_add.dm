@@ -14,9 +14,9 @@
 		create_antagonist(player, move_to_spawn, do_not_announce, preserve_appearance)
 		if(!do_not_equip)
 			equip(player.current)
-			
+
 	player.current.faction = faction
-	
+
 	return 1
 
 /datum/antagonist/proc/add_antagonist_mind(var/datum/mind/player, var/ignore_role, var/nonstandard_role_type, var/nonstandard_role_msg)
@@ -61,7 +61,7 @@
 		update_icons_removed(player)
 		BITSET(player.current.hud_updateflag, SPECIALROLE_HUD)
 
-		if (!is_special_character(player) && !player.current.client.holder)
+		if (!is_special_character(player) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, player.current))
 			player.current.client.verbs -= /client/proc/aooc
 
 		return 1

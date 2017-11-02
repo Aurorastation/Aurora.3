@@ -25,6 +25,7 @@ var/list/spawntypes = list()
 /datum/spawnpoint/arrivals
 	display_name = "Arrivals Shuttle"
 	msg = "is inbound from the NTCC Odin"
+	disallow_job = list("Merchant")
 
 
 /datum/spawnpoint/arrivals/New()
@@ -34,7 +35,7 @@ var/list/spawntypes = list()
 /datum/spawnpoint/cryo
 	display_name = "Cryogenic Storage"
 	msg = "has completed cryogenic revival"
-	disallow_job = list("Cyborg")
+	disallow_job = list("Cyborg", "Merchant")
 
 /datum/spawnpoint/cryo/New()
 	..()

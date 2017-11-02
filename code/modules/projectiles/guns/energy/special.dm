@@ -12,6 +12,8 @@
 	charge_cost = 300
 	max_shots = 10
 	projectile_type = /obj/item/projectile/ion
+	can_turret = 1
+	turret_sprite_set = "ion"
 
 /obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
@@ -28,6 +30,7 @@
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 10
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/decloner
 	name = "biological demolecularisor"
@@ -77,6 +80,8 @@
 	self_recharge = 1
 	recharge_time = 5 //Time it takes for shots to recharge (in ticks)
 	charge_meter = 0
+	can_turret = 1
+	turret_sprite_set = "meteor"
 
 /obj/item/weapon/gun/energy/meteorgun/pen
 	name = "meteor pen"
@@ -86,6 +91,7 @@
 	item_state = "pen"
 	w_class = 1
 	slot_flags = SLOT_BELT
+	can_turret = 0
 
 
 /obj/item/weapon/gun/energy/mindflayer
@@ -94,6 +100,8 @@
 	icon_state = "xray"
 	projectile_type = /obj/item/projectile/beam/mindflayer
 	fire_sound = 'sound/weapons/Laser.ogg'
+	can_turret = 1
+	turret_sprite_set = "xray"
 
 /obj/item/weapon/gun/energy/toxgun
 	name = "phoron pistol"
@@ -103,6 +111,9 @@
 	w_class = 3.0
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/item/projectile/energy/phoron
+	can_turret = 1		
+	turret_is_lethal = 0		
+	turret_sprite_set = "net"
 
 /obj/item/weapon/gun/energy/beegun
 	name = "\improper NanoTrasen Portable Apiary"
@@ -159,7 +170,7 @@
 			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
 			M.apply_effect(300, IRRADIATE)
 		//crit_fail = 1 //break the gun so it stops recharging
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 		update_icon()
 	return 0
 
@@ -173,12 +184,16 @@
 	w_class = 3
 	max_shots = 4
 	fire_delay = 25
+	can_turret = 1
+	turret_is_lethal = 0
+	turret_sprite_set = "net"
 
 /obj/item/weapon/gun/energy/net/mounted
 	max_shots = 1
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 40
+	can_turret = 0
 
 /* Vaurca Weapons */
 
@@ -283,6 +298,8 @@
 	burst = 1
 	burst_delay = 1
 	fire_delay = 0
+	can_turret = 1
+	turret_sprite_set = "laser"
 
 	firemodes = list(
 		list(mode_name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
@@ -406,11 +423,14 @@
 	recharge_time = 1
 	charge_meter = 1
 	charge_cost = 50
+	dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
+	can_turret = 1		 
+	turret_sprite_set = "thermaldrill"
 
 	firemodes = list(
-		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
-		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40),
-		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60)
+		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, dispersion = list(0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 0.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8)),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, dispersion = list(0.0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 5.7, 6.0, 6.3, 6.6, 6.9, 7.2, 7.5, 7.8, 8.1, 8.4, 8.7))
 		)
 
 	action_button_name = "Wield thermal drill"
@@ -473,6 +493,7 @@
 	charge_meter = 1
 	use_external_power = 1
 	charge_cost = 25
+	dispersion = list(0.0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 5.7, 6.0, 6.3, 6.6, 6.9, 7.2, 7.5, 7.8, 8.1, 8.4, 8.7)
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	..()
@@ -507,3 +528,39 @@
 	firemodes = list(
 		list(mode_name="spray", burst = 20, burst_delay = -1, fire_delay = 10, dispersion = list(0.5, 0.5, 1.0, 1.0, 1.5, 1.5, 2.0, 2.0, 2.5, 2.5, 3.0, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.0, 6.0)),
 		)*/
+
+/obj/item/weapon/gun/energy/tesla
+	name = "tesla gun"
+	desc = "A gun that shoots a projectile that bounces from living thing to living thing. Keep your distance from whatever you are shooting at."
+	icon_state = "tesla"
+	item_state = "tesla"
+	icon = 'icons/obj/gun.dmi'
+	charge_meter = 0
+	w_class = 4
+	fire_sound = 'sound/magic/LightningShock.ogg'
+	force = 30
+	projectile_type = /obj/item/projectile/energy/tesla
+	slot_flags = SLOT_BACK
+	max_shots = 3
+	sel_mode = 1
+	fire_delay = 10
+	accuracy = 80
+	muzzle_flash = 15
+
+/obj/item/weapon/gun/energy/gravity_gun
+	name = "gravity gun"
+	desc = "This nifty gun disables the gravity in the area you shoot at. Use with caution."
+	icon_state = "gravity_gun"
+	item_state = "gravity_gun"
+	icon = 'icons/obj/gun.dmi'
+	charge_meter = 0
+	w_class = 4
+	fire_sound = 'sound/magic/Repulse.ogg'
+	force = 30
+	projectile_type = /obj/item/projectile/energy/gravitydisabler
+	slot_flags = SLOT_BACK
+	max_shots = 2
+	sel_mode = 1
+	fire_delay = 20
+	accuracy = 40
+	muzzle_flash = 10

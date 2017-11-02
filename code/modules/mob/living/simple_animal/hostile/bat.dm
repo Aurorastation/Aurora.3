@@ -81,6 +81,7 @@
 /mob/living/simple_animal/hostile/scarybat/cult
 	faction = "cult"
 	supernatural = 1
+	tameable = FALSE
 
 /mob/living/simple_animal/hostile/scarybat/cult/cultify()
 	return

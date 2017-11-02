@@ -137,7 +137,6 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Lotto",			/datum/event/money_lotto, 			0, 			list(ASSIGNMENT_ANY = 1), 1, 5, 15),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane News", 			/datum/event/mundane_news, 			300),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "PDA Spam",				/datum/event/pda_spam, 				0, 		list(ASSIGNMENT_ANY = 4), 0, 25, 50),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Shipping Error",		/datum/event/shipping_error	, 		30, 	list(ASSIGNMENT_ANY = 2), 0),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Trivial News",			/datum/event/trivial_news, 			400),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Vermin Infestation",	/datum/event/infestation, 			60,	list(ASSIGNMENT_JANITOR = 20, ASSIGNMENT_SECURITY = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",				/datum/event/wallrot, 				75,		list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_GARDENER = 20)),
@@ -177,7 +176,6 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",		/datum/event/meteor_wave,		40,	list(ASSIGNMENT_ENGINEER =  10),1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",		/datum/event/spacevine, 		75,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection",	/datum/event/viral_infection,	20,	list(ASSIGNMENT_MEDICAL =  15), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Bluespace Bears",	/datum/event/bear_attack,		25,	list(ASSIGNMENT_SECURITY =  10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",/datum/event/spider_infestation, 25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), 1)
 	)
 
