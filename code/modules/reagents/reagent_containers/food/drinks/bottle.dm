@@ -583,6 +583,10 @@
 		. = ..()
 		reagents.add_reagent("sarezhiwine", 100)
 
+// Synnono Meme (Bottled) Drinks
+//======================================
+//
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/boukha
 	name = "Boukha Boboksa Classic"
 	desc = "A distillation of figs, imported from the Serene Republic of Elyra. Makes an excellent apertif or digestif."
@@ -591,3 +595,12 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("boukha", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/wwine
+	name = "Doublebeard Bearded Special White Wine"
+	desc = "A faint aura of unease and asspainery surrounds the bottle."
+	icon_state = "wwinebottle"
+	center_of_mass = list("x"=16, "y"=4)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("wwine", 100)

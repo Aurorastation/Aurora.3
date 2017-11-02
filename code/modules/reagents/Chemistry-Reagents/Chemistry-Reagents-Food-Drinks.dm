@@ -3173,6 +3173,19 @@
 	glass_name = "glass of Bluebird"
 	glass_desc = "A gin drink popularized by a spy thriller in 2452."
 
+/datum/reagent/ethanol/wwine
+	name = "White Wine"
+	id = "wwine"
+	description = "An premium alchoholic beverage made from distilled grape juice."
+	color = "#e5d272"
+	strength = 15
+	taste_description = "dry sweetness"
+
+	glass_icon_state = "wwineglass"
+	glass_name = "glass of white wine"
+	glass_desc = "A very classy looking drink."
+	glass_center_of_mass = list("x"=15, "y"=7)
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
