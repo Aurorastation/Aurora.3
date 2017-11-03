@@ -3,11 +3,12 @@ author: Printer16
 delete-after: True
 
 changes: 
-  - bugfix: "You can now reboot maintenance drones."
-  - bugfix: "Universal recorder transcripts are now printed into your hand."
-  - rscadd: "Added a stop all sounds verb located in the OOC tab."
-  - bugfix: "Shredding ID cards no longer generates paper."
-  - bugfix: "Borgs can now fill up buckets/beakers/other containers by using the sink."
-  - tweak: "The AI help menu has been updated."
-  - bugfix: "Medbots no longer try to heal IPCs."
+	- bugfix: "You can now reboot maintenance drones."
+	- bugfix: "Universal recorder transcripts are now printed into your hand."
+	- rscadd: "Added a stop all sounds verb located in the OOC tab."
+	- bugfix: "Shredding ID cards no longer generates paper."
+	- bugfix: "Borgs can now fill up buckets/beakers/other containers by using the sink."
+	- tweak: "The AI help menu has been updated."
+	- tweak: "Updated the NanoUI map."
+	- bugfix: "Medbots no longer try to heal IPCs."
 
