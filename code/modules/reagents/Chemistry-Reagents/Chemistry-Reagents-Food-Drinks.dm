@@ -1569,7 +1569,7 @@
 /datum/reagent/ethanol/wine
 	name = "Wine"
 	id = "wine"
-	description = "An premium alchoholic beverage made from distilled grape juice."
+	description = "A premium alchoholic beverage made from distilled grape juice."
 	color = "#7E4043" // rgb: 126, 64, 67
 	strength = 15
 	taste_description = "bitter sweetness"
@@ -3176,7 +3176,7 @@
 /datum/reagent/ethanol/whitewine
 	name = "White Wine"
 	id = "whitewine"
-	description = "An premium alchoholic beverage made from distilled grape juice."
+	description = "A premium alchoholic beverage made from distilled grape juice."
 	color = "#e5d272"
 	strength = 15
 	taste_description = "dry sweetness"
