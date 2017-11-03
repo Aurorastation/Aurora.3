@@ -21476,7 +21476,7 @@
 	frequency = 1441;
 	icon_state = "map_injector";
 	id = null;
-	pixel_y = 1;
+	pixel_y = 0;
 	use_power = 1
 	},
 /turf/simulated/floor/tiled/dark,
