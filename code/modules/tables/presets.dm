@@ -36,9 +36,7 @@
 
 /obj/structure/table/wood/gamblingtable
 	icon_state = "gamble_preview"
-/obj/structure/table/gamblingtable/Initialize()
-	. = ..()
-	carpeted = 1 //unsure why this is on init but I am content in not breaking things.
+	carpeted = 1
 
 /obj/structure/table/glass
 	icon_state = "plain_preview"
@@ -47,7 +45,7 @@
 
 /obj/structure/table/holotable
 	icon_state = "holo_preview"
-	table_mat = "holo[DEFAULT_TABLE_MATERIAL]"
+	table_mat = "holo" + DEFAULT_TABLE_MATERIAL
 
 /obj/structure/table/holotable/holowood
 	table_mat = "holowood"
