@@ -168,7 +168,6 @@ var/list/debug_verbs = list (
 	,/client/proc/analyze_openturf
 )
 
-
 /client/proc/enable_debug_verbs()
 	set category = "Debug"
 	set name = "Debug verbs"

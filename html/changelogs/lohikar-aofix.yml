@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes:
-  - bugfix: "Shadows no longer mysteriously hang around after building or destroying walls."
