@@ -278,6 +278,9 @@
 	if(H.stat == DEAD) // He's dead, Jim
 		return null
 
+	if(isipc(H))
+		return null
+
 	if(H in ignored)
 		return null
 
