@@ -3173,15 +3173,15 @@
 	glass_name = "glass of Bluebird"
 	glass_desc = "A gin drink popularized by a spy thriller in 2452."
 
-/datum/reagent/ethanol/wwine
+/datum/reagent/ethanol/whitewine
 	name = "White Wine"
-	id = "wwine"
+	id = "whitewine"
 	description = "An premium alchoholic beverage made from distilled grape juice."
 	color = "#e5d272"
 	strength = 15
 	taste_description = "dry sweetness"
 
-	glass_icon_state = "wwineglass"
+	glass_icon_state = "whitewineglass"
 	glass_name = "glass of white wine"
 	glass_desc = "A very classy looking drink."
 	glass_center_of_mass = list("x"=15, "y"=7)

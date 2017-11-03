@@ -596,11 +596,11 @@
 		. = ..()
 		reagents.add_reagent("boukha", 100)
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/wwine
+/obj/item/weapon/reagent_containers/food/drinks/bottle/whitewine
 	name = "Doublebeard Bearded White Wine"
 	desc = "A faint aura of unease and asspainery surrounds the bottle."
-	icon_state = "wwinebottle"
+	icon_state = "whitewinebottle"
 	center_of_mass = list("x"=16, "y"=4)
 	Initialize()
 		. = ..()
-		reagents.add_reagent("wwine", 100)
+		reagents.add_reagent("whitewine", 100)
