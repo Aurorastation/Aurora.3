@@ -20848,6 +20848,9 @@
 /area/crew_quarters/captain)
 "aKQ" = (
 /obj/structure/bed/chair/comfy/brown,
+/obj/structure/sign/nosmoking_2{
+	pixel_y = 32
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aKR" = (
@@ -20864,14 +20867,14 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aKS" = (
-/obj/structure/sign/nosmoking_2{
-	pixel_y = 32
-	},
 /obj/structure/table/woodentable,
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Captain's Office West"
 	},
 /obj/item/weapon/storage/secure/briefcase,
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aKT" = (
