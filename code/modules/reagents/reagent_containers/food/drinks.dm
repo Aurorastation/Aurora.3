@@ -15,11 +15,11 @@
 		return
 
 	attack_self(mob/user as mob)
-		if(user.a_intent == I_HURT && !shaken)
-			shaken = 1
-			user << "<span class='notice'>You shake the [src]!</span>"
-			return
 		if(!is_open_container())
+			if(user.a_intent == I_HURT && !shaken)
+				shaken = 1
+				user << "<span class='notice'>You shake the [src]!</span>"
+				return
 			if(shaken)
 				boom(user)
 			else
@@ -34,6 +34,7 @@
 		user << "<span class='damger'>The [src] explodes all over you as you open it!</span>"
 		reagents = null
 		flags |= OPENCONTAINER
+		shaken = 0
 
 	attack(mob/M as mob, mob/user as mob, def_zone)
 		if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)
