@@ -32,7 +32,6 @@
 		update_lighting()
 
 /datum/nano_module/lighting_ctrl/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	user.add_hiddenprint(src)
 	var/list/data = host.initial_data()
 
 	data["context"] = context
