@@ -763,22 +763,7 @@ About the new airlock wires panel:
 				return
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.species.can_shred(H))
-
-			if(!src.density)
-				return
-
-			H.visible_message("\The [H] begins to pry open \the [src]!", "You being to pry open \the [src]!", "You hear the sound of an airlock being forced open.")
-
-			if(!do_after(H, 120, 1, act_target = src))
-				return
-
-			src.do_animate("spark")
-			src.stat |= BROKEN
-			var/check = src.open(1)
-			src.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
-			return
-
+		
 		if(H.getBrainLoss() >= 50)
 			if(prob(40) && src.density)
 				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
@@ -792,6 +777,22 @@ About the new airlock wires panel:
 				else
 					user.visible_message("<span class='warning'>[user] headbutts the airlock. Good thing they're wearing a helmet.</span>")
 				return
+		
+		if(H.species.can_shred(H))
+
+			if(!src.density)
+				return
+
+			H.visible_message("\The [H] begins to pry open \the [src]!", "You begin to pry open \the [src]!", "You hear the sound of an airlock being forced open.")
+
+			if(!do_after(H, 120, 1, act_target = src))
+				return
+
+			src.do_animate("spark")
+			src.stat |= BROKEN
+			var/check = src.open(1)
+			src.visible_message("\The [H] slices \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You slice \the [src]'s controls[check ? ", ripping it open!" : ", breaking it!"]", "You hear something sparking.")
+			return
 	if(src.p_open)
 		user.set_machine(src)
 		wires.Interact(user)
