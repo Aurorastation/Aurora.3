@@ -2,6 +2,7 @@
 	name = "Lighting Control"
 	var/context = "pub"
 	var/lstate = "full"
+	var/mob/lusr = null 	// for admin logs
 
 /datum/nano_module/lighting_ctrl/New()
 	..()
@@ -17,8 +18,10 @@
 	SSnightlight.suspend()
 
 	if (lstate == "dark")
+		log_and_message_admins("enabled night-mode [wl_only ? "in public areas" : "globally"].", lusr)
 		SSnightlight.activate(wl_only)
 	else if (lstate == "full")
+		log_and_message_admins("disabled night-mode [wl_only ? "in public areas" : "globally"].", lusr)
 		SSnightlight.deactivate(wl_only)
 
 /datum/nano_module/lighting_ctrl/Topic(href, href_list)
@@ -32,6 +35,7 @@
 		update_lighting()
 
 /datum/nano_module/lighting_ctrl/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+	lusr = user
 	var/list/data = host.initial_data()
 
 	data["context"] = context
