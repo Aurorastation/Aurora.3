@@ -14,7 +14,7 @@
 
 /datum/law/low_severity/petty_theft
 	name = "i102 - Petty Theft"
-	desc = "To take mundane items from areas one does not have access to, or to take items belonging to others or the station as a whole."
+	desc = "To take mundane items from areas one does not have access to, or to take items belonging to others or the station as a whole. Includes theft of credits up to 500cr. For higher amounts see i220 - Fraud "
 	id = "i102"
 
 	min_brig_time = 3
