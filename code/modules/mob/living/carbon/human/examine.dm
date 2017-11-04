@@ -289,7 +289,7 @@
 	for(var/obj/item/organ/external/organ in src.organs)
 		for(var/obj/item/weapon/O in organ.implants)
 			if(!istype(O,/obj/item/weapon/implant) && !istype(O,/obj/item/weapon/material/shard/shrapnel))
-				msg += "<span class='danger'>[src] [T.has] \a [O] sticking out of [organ]!</span>\n"
+				msg += "<span class='danger'>[src] [T.has] \a [O] sticking out of [T.his] [organ.name]!</span>\n"
 	if(digitalcamo)
 		msg += "[T.He] [T.is] repulsively uncanny!\n"
 
