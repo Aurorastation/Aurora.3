@@ -531,7 +531,8 @@
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/soda = 30
 	)
-	premium = list( //would a soviet vending machine really have a premium item? hmmm.
+	//would a soviet vending machine really have a premium item? hmmm.
+	premium = list( 
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka = 5
 	)
 	contraband = list(
