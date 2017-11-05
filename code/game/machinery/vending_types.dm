@@ -355,6 +355,10 @@
 		/obj/item/weapon/reagent_containers/glass/bottle/ammonia = 10,
 		/obj/item/weapon/reagent_containers/glass/bottle/diethylamine = 5
 	)
+	contraband = list(
+		/obj/item/weapon/reagent_containers/glass/bottle/mutagen = 2
+	)
+
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
 /obj/machinery/vending/hydroseeds
@@ -508,12 +512,12 @@
 		/obj/item/weapon/material/knife = 3,
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
 		/obj/item/clothing/suit/chef/classic = 2,
+		/obj/item/weapon/material/kitchen/rollingpin = 2,
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,
 		/obj/item/weapon/reagent_containers/cooking_container/fryer = 4,
 		/obj/item/weapon/storage/toolbox/lunchbox/nt = 6
 	)
 	contraband = list(
-		/obj/item/weapon/material/kitchen/rollingpin = 2,
 		/obj/item/weapon/material/knife/butch = 2,
 		/obj/item/weapon/storage/toolbox/lunchbox/syndicate = 2
 	)
@@ -525,6 +529,9 @@
 	product_ads = "For Tsar and Country.;Have you fulfilled your nutrition quota today?;Very nice!;We are simple people, for this is all we eat.;If there is a person, there is a problem. If there is no person, then there is no problem."
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/soda = 30
+	)
+	premium = list( //would a soviet vending machine really have a premium item? hmmm.
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka = 5
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/cola = 20
@@ -591,6 +598,9 @@
 		/obj/item/ammo_magazine/mc9mmt = 2,
 		/obj/item/clothing/mask/gas/tactical = 4,
 		/obj/item/weapon/handcuffs/ziptie = 3
+	)
+	contraband = list(
+		/obj/item/weapon/grenade/flashbang/clusterbang = 1 //this can only go well.
 	)
 
 /obj/machinery/vending/tacticool/ert //Slightly more !FUN!
