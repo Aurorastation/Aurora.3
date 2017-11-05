@@ -32,7 +32,7 @@
 		flags |= OPENCONTAINER
 
 	proc/boom(user)
-		user << "<span class='damger'>The [src] explodes all over you as you open it!</span>"
+		user << "<span class='danger'>The [src] explodes all over you as you open it!</span>"
 		playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
 		qdel(reagents)
 		flags |= OPENCONTAINER
