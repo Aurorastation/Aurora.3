@@ -579,3 +579,12 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/weapon/holder/pai/rabbit
 	icon_state = "rabbit_rest"
 	item_state = "rabbit"
+
+//corgi
+
+/obj/item/weapon/holder/corgi
+	name = "corgi"
+	icon_state = "corgi"
+	item_state = "corgi"
+	contained_sprite = 1
+	w_class = 3

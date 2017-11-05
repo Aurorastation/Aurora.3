@@ -24,6 +24,8 @@
 	seek_speed = 6
 	possession_candidate = 1
 
+	holder_type = /obj/item/weapon/holder/corgi
+
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
 

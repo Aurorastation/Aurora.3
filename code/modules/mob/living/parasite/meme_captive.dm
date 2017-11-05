@@ -31,3 +31,6 @@
 
 /mob/living/parasite/captive_brain/emote(var/message)
 	return
+
+/mob/living/parasite/captive_brain/send_emote()
+	return

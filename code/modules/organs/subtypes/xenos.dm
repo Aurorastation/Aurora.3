@@ -104,3 +104,24 @@
 	name = "skull"
 	dislocated = -1
 	vital = 0
+
+//vox organs
+
+/obj/item/organ/heart/vox
+	icon_state = "vox_heart"
+	dead_icon = "vox_heart"
+
+/obj/item/organ/lungs/vox
+	name = "air capillary sack"
+	icon_state = "vox_lung"
+
+/obj/item/organ/kidneys/vox
+	name = "filtration bladder"
+	icon_state = "lungs"
+	color = "#99ccff"
+	parent_organ = "chest"
+
+/obj/item/organ/liver/vox
+	name = "waste tract"
+	parent_organ = "chest"
+	color = "#0033cc"

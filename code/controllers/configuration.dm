@@ -106,6 +106,7 @@ var/list/gamemode_cache = list()
 	var/alert_desc_green = "All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
 	var/alert_desc_blue_upto = "The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible, random searches are permitted."
 	var/alert_desc_blue_downto = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
+	var/alert_desc_yellow_to = "The station is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations."
 	var/alert_desc_red_upto = "There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised."
 	var/alert_desc_red_downto = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised."
 	var/alert_desc_delta = "The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill."
@@ -271,6 +272,13 @@ var/list/gamemode_cache = list()
 	var/sun_accuracy = 8
 	var/sun_target_z = 7
 
+	var/cargo_load_items_from = "json"
+	var/merchant_chance = 20 //Chance, in percentage, of the merchant job slot being open at round start
+
+	var/show_game_type_odd = 1 // If the check gamemode probability verb is enabled or not
+
+	var/openturf_starlight_permitted = FALSE
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -287,7 +295,7 @@ var/list/gamemode_cache = list()
 				if (M.votable)
 					src.votable_modes += M.config_tag
 	src.votable_modes += ROUNDTYPE_STR_SECRET
-	votable_modes += ROUNDTYPE_STR_MIXED_SECRET
+//	votable_modes += ROUNDTYPE_STR_MIXED_SECRET
 
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 	var/list/Lines = file2list(filename)
@@ -591,6 +599,9 @@ var/list/gamemode_cache = list()
 				if("alert_green")
 					config.alert_desc_green = value
 
+				if("alert_yellow")
+					config.alert_desc_yellow_to = value
+
 				if("alert_delta")
 					config.alert_desc_delta = value
 
@@ -737,6 +748,9 @@ var/list/gamemode_cache = list()
 					value = text2num(value)
 					config.starlight = value >= 0 ? value : 0
 
+				if("openturf_starlight")
+					openturf_starlight_permitted = TRUE
+
 				if("ert_species")
 					config.ert_species = text2list(value, ";")
 					if(!config.ert_species.len)
@@ -833,10 +847,18 @@ var/list/gamemode_cache = list()
 				if("access_warn_vms")
 					access_warn_vms = text2num(value)
 
+				if("cargo_load_items_from")
+					cargo_load_items_from = value
+
 				if("fastboot")
 					fastboot = TRUE
 					world.log << "Fastboot is ENABLED."
 
+				if("merchant_chance")
+					config.merchant_chance = text2num(value)
+
+				if("show_game_type_odd")
+					config.show_game_type_odd = 1
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 

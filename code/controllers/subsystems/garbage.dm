@@ -241,11 +241,13 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	tag = null
 	var/list/timers = active_timers
 	active_timers = null
-	for(var/thing in timers)
-		var/datum/timedevent/timer = thing
-		if (timer.spent)
-			continue
-		qdel(timer)
+	if (timers)
+		for (var/thing in timers)
+			var/datum/timedevent/timer = thing
+			if (timer.spent)
+				continue
+			qdel(timer)
+
 	return QDEL_HINT_QUEUE
 
 /datum/var/gcDestroyed //Time when this object was destroyed.

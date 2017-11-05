@@ -9,7 +9,7 @@
 	var/charge_cost = 200 //How much energy is needed to fire.
 	var/max_shots = 10 //Determines the capacity of the weapon's power cell. Specifying a cell_type overrides this value.
 	var/cell_type = null
-	var/projectile_type = /obj/item/projectile/beam/practice
+	var/projectile_type = /obj/item/projectile/beam/practice //also passed to turrets
 	var/modifystate
 	var/charge_meter = 1	//if set, the icon state will be chosen based on the current charge
 
@@ -18,6 +18,14 @@
 	var/use_external_power = 0 //if set, the weapon will look for an external power source to draw from, otherwise it recharges magically
 	var/recharge_time = 4
 	var/charge_tick = 0
+
+	//vars passed to turrets
+	var/can_turret = 0						//1 allows you to attach the gun on a turret
+	var/secondary_projectile_type = null	//if null, turret defaults to projectile_type
+	var/secondary_fire_sound = null			//if null, turret defaults to fire_sound
+	var/can_switch_modes = 0				//1 allows switching lethal and stun modes
+	var/turret_sprite_set = "carbine"		//set of sprites to use for the turret gun
+	var/turret_is_lethal = 1				//is the gun in lethal (secondary) mode by default
 
 /obj/item/weapon/gun/energy/switch_firemodes()
 	. = ..()
@@ -83,7 +91,7 @@
 	return
 
 /obj/item/weapon/gun/energy/update_icon()
-	if(charge_meter)
+	if(charge_meter && power_supply)
 		var/ratio = power_supply.charge / power_supply.maxcharge
 
 		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.

@@ -482,6 +482,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			else if(!(pref.species in S.species_allowed))
 				usable_markings -= M
 
+		if (!usable_markings.len)
+			alert(user, "This species does not have any body markings available.")
+			return TOPIC_NOACTION
+
 		var/new_marking = input(user, "Choose a body marking:", "Character Preference")  as null|anything in usable_markings
 		if(new_marking && CanUseTopic(user))
 			pref.body_markings[new_marking] = "#000000" //New markings start black

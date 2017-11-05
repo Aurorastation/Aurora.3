@@ -23,7 +23,7 @@
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 	icon_state = "r-casing"
 	spent_icon = "r-casing-spent"
-	
+
 /obj/item/ammo_casing/c38/emp
 	name = ".38 haywire round"
 	desc = "A .38 bullet casing fitted with a single-use ion pulse generator."
@@ -51,7 +51,7 @@
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 	icon_state = "r-casing"
 	spent_icon = "r-casing-spent"
-	
+
 /obj/item/ammo_casing/c9mm/practice
 	desc = "A 9mm practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/practice

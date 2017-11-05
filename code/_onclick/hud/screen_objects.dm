@@ -194,29 +194,6 @@
 				var/mob/living/L = usr
 				L.resist()
 
-		if("mov_intent")
-
-			var/list/modifiers = params2list(params)
-			//This is here instead of outside the switch to save adding overhead. its not used for any other UI icons right now
-			//If its needed in future for other UI icons, then move it up to above the switch
-
-			if(iscarbon(usr))
-				var/mob/living/carbon/C = usr
-				if (modifiers["alt"])
-					C.set_walk_speed()
-					return
-
-				if(C.legcuffed)
-					C << "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>"
-					C.m_intent = "walk"	//Just incase
-					C.hud_used.move_intent.icon_state = "walking"
-					return 1
-				switch(usr.m_intent)
-					if("run")
-						usr.m_intent = "walk"
-					if("walk")
-						usr.m_intent = "run"
-			update_move_icon(usr)
 		if("m_intent")
 			if(!usr.m_int)
 				switch(usr.m_intent)
@@ -376,6 +353,7 @@
 
 							if(best)
 								C << "<span class='notice'>You are now running on internals from [tankcheck[best]] [from] your [nicename[best]].</span>"
+								playsound(usr, 'sound/effects/internals.ogg', 100, 1)
 								C.internal = tankcheck[best]
 
 
@@ -561,23 +539,50 @@
 	return 1
 
 
-
-
+/obj/screen/movement_intent
+	name = "mov_intent"
+	screen_loc = ui_movi
+	layer = 20
 
 //This updates the run/walk button on the hud
-/obj/screen/proc/update_move_icon(var/mob/living/user)
-	switch(name)
-		if("mov_intent")
-			overlays.Cut()
-			switch(user.m_intent)
-				if("run")//When in run mode, the button will have a flashing coloured overlay which gives a visual indicator of stamina
-					icon_state = "running"
-					if (user.max_stamina != -1)//If max stamina is -1, this species doesnt use stamina. no overlay for them
-						var/image/holder = image('icons/mob/screen1.dmi', src, "run_overlay")
-						var/staminaportion = user.stamina / user.max_stamina
-						holder.color = percentage_to_colour(staminaportion)
-						holder.blend_mode = BLEND_MULTIPLY
-						overlays += holder
+/obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
+	if (!user.client)
+		return
 
-				if("walk")
-					icon_state = "walking"
+	if (user.max_stamina == -1 || user.stamina == user.max_stamina)
+		if (user.stamina_bar)
+			QDEL_NULL(user.stamina_bar)
+	else
+		if (!user.stamina_bar)
+			user.stamina_bar = new(user, user.max_stamina, src)
+
+		user.stamina_bar.update(user.stamina)
+
+	if (user.m_intent == "run")
+		icon_state = "running"
+	else
+		icon_state = "walking"
+
+/obj/screen/movement_intent/Click(location, control, params)
+	if(!usr)
+		return 1
+	var/list/modifiers = params2list(params)
+
+	if(iscarbon(usr))
+		var/mob/living/carbon/C = usr
+		if (modifiers["alt"])
+			C.set_walk_speed()
+			return
+
+		if(C.legcuffed)
+			C << "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>"
+			C.m_intent = "walk"	//Just incase
+			C.hud_used.move_intent.icon_state = "walking"
+			return 1
+		switch(usr.m_intent)
+			if("run")
+				usr.m_intent = "walk"
+			if("walk")
+				usr.m_intent = "run"
+
+		update_move_icon(usr)

@@ -111,7 +111,7 @@
 
 
 	process()
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 		return
 
 

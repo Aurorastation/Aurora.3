@@ -1,19 +1,15 @@
-#define SECOND *10
-#define SECONDS *10
-
-#define MINUTE *600
-#define MINUTES *600
-
 var/roundstart_hour = 0
+var/round_start_time
+
 //Returns the world time in english
 /proc/worldtime2text(time = world.time, timeshift = 1)
 	if(!roundstart_hour) roundstart_hour = rand(0, 23)
-	return timeshift ? time2text(time+(36000*roundstart_hour), "hh:mm") : time2text(time, "hh:mm")
+	return timeshift ? time2text(time+(roundstart_hour HOURS), "hh:mm") : time2text(time, "hh:mm")
 
 /proc/worldtime2hours()
 	if (!roundstart_hour)
 		worldtime2text()
-	. = text2num(time2text(world.time + (36000 * roundstart_hour), "hh"))
+	. = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
 
 /proc/worlddate2text()
 	return num2text(game_year) + "-" + time2text(world.timeofday, "MM-DD")
@@ -39,8 +35,13 @@ var/last_round_duration = 0
 	if(last_round_duration && world.time < next_duration_update)
 		return last_round_duration
 
-	var/mills = world.time // 1/10 of a second, not real milliseconds but whatever
+	var/mills = round_duration_in_ticks // 1/10 of a second, not real milliseconds but whatever
 	//var/secs = ((mills % 36000) % 600) / 10 //Not really needed, but I'll leave it here for refrence.. or something
+	if (!mills)
+		last_round_duration = "00:00"
+		next_duration_update = world.time + 1 MINUTE
+		return last_round_duration
+
 	var/mins = round((mills % 36000) / 600)
 	var/hours = round(mills / 36000)
 

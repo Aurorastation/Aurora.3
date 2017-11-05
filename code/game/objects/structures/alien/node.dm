@@ -5,12 +5,12 @@
 	health = 100
 	layer = 3.1
 
-/obj/structure/alien/node/New()
-	..()
-	processing_objects += src
+/obj/structure/alien/node/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
 
 /obj/structure/alien/node/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/structure/alien/node/process()

@@ -36,11 +36,11 @@
 	else
 		opacity = 1
 	if(material.products_need_process())
-		processing_objects |= src
+		START_PROCESSING(SSprocessing, src)
 	update_nearby_tiles(need_rebuild=1)
 
 /obj/structure/simple_door/Destroy()
-	processing_objects -= src
+	STOP_PROCESSING(SSprocessing, src)
 	update_nearby_tiles()
 	return ..()
 
@@ -134,7 +134,7 @@
 		hardness -= W.force/100
 		user << "You hit the [name] with your [W.name]!"
 		CheckHardness()
-	else if(istype(W,/obj/item/weapon/weldingtool))
+	else if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(material.ignition_point && WT.remove_fuel(0, user))
 			TemperatureAct(150)

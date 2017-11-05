@@ -16,25 +16,25 @@
 	name = "storage"
 	icon = 'icons/obj/storage.dmi'
 	w_class = 3
-	var/list/can_hold = list() //List of objects which this item can store (if set, it can't store anything else)
-	var/list/cant_hold = list() //List of objects which this item can't store (in effect only if can_hold isn't set)
+	var/list/can_hold  //List of objects which this item can store (if set, it can't store anything else)
+	var/list/cant_hold //List of objects which this item can't store (in effect only if can_hold isn't set)
 	var/list/is_seeing //List of mobs which are currently seeing the contents of this item's storage
 	var/max_w_class = 3 //Max size of objects that this object can store (in effect only if can_hold isn't set)
 	var/max_storage_space = 8 //The sum of the storage costs of all the items in this storage item.
-	var/storage_slots = null //The number of storage slots in this container.
-	var/obj/screen/storage/boxes = null
-	var/obj/screen/storage/storage_start = null //storage UI
-	var/obj/screen/storage/storage_continue = null
-	var/obj/screen/storage/storage_end = null
-	var/obj/screen/storage/stored_start = null
-	var/obj/screen/storage/stored_continue = null
-	var/obj/screen/storage/stored_end = null
-	var/obj/screen/close/closer = null
+	var/storage_slots //The number of storage slots in this container.
+	var/obj/screen/storage/boxes
+	var/obj/screen/storage/storage_start //storage UI
+	var/obj/screen/storage/storage_continue
+	var/obj/screen/storage/storage_end
+	var/obj/screen/storage/stored_start
+	var/obj/screen/storage/stored_continue
+	var/obj/screen/storage/stored_end
+	var/obj/screen/close/closer
 	var/use_to_pickup	//Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
 	var/display_contents_with_number	//Set this to make the storage item group contents of the same type and display them as a number.
 	var/allow_quick_empty	//Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
 	var/allow_quick_gather	//Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
-	var/collection_mode = 1;  //0 = pick one at a time, 1 = pick all on tile
+	var/collection_mode = 1  //0 = pick one at a time, 1 = pick all on tile
 	var/use_sound = "rustle"	//sound played when used. null for no sound.
 
 /obj/item/weapon/storage/Destroy()
@@ -88,18 +88,14 @@
 
 
 /obj/item/weapon/storage/proc/return_inv()
-
-	var/list/L = list(  )
-
-	L += src.contents
+	. = contents.Copy()
 
 	for(var/obj/item/weapon/storage/S in src)
-		L += S.return_inv()
+		. += S.return_inv()
 	for(var/obj/item/weapon/gift/G in src)
-		L += G.gift
+		. += G.gift
 		if (istype(G.gift, /obj/item/weapon/storage))
-			L += G.gift:return_inv()
-	return L
+			. += G.gift:return_inv()
 
 /obj/item/weapon/storage/proc/show_to(mob/user as mob)
 	if(user.s_active != src)
@@ -320,18 +316,18 @@
 	if(W.anchored)
 		return 0
 
-	if(can_hold.len)
+	if(LAZYLEN(can_hold))
 		if(!is_type_in_list(W, can_hold))
 			if(!stop_messages && ! istype(W, /obj/item/weapon/hand_labeler))
 				usr << "<span class='notice'>[src] cannot hold \the [W].</span>"
 			return 0
 		var/max_instances = can_hold[W.type]
-		if(max_instances && instances_of_type_in_list(W, contents) >= max_instances)
+		if(max_instances && instances_of_type_in_list(W, contents, TRUE) >= max_instances)
 			if(!stop_messages && !istype(W, /obj/item/weapon/hand_labeler))
 				usr << "<span class='notice'>[src] has no more space specifically for \the [W].</span>"
 			return 0
 
-	if(cant_hold.len && is_type_in_list(W, cant_hold))
+	if(LAZYLEN(cant_hold) && is_type_in_list(W, cant_hold))
 		if(!stop_messages)
 			usr << "<span class='notice'>[src] cannot hold [W].</span>"
 		return 0
@@ -648,7 +644,7 @@
 /obj/item/weapon/storage/proc/make_exact_fit()
 	storage_slots = contents.len
 
-	can_hold.Cut()
+	can_hold = list()
 	max_w_class = 0
 	max_storage_space = 0
 	for(var/obj/item/I in src)

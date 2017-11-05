@@ -3,12 +3,6 @@
 // consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/weapon/light)
 
 #define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
-
-// status values shared between lighting fixtures and items
-#define LIGHT_OK 0
-#define LIGHT_EMPTY 1
-#define LIGHT_BROKEN 2
-#define LIGHT_BURNED 3
 #define LIGHT_BULB_TEMPERATURE 400 //K - used value for a 60W bulb
 
 /obj/machinery/light_construct
@@ -45,7 +39,7 @@
 
 /obj/machinery/light_construct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
-	if (istype(W, /obj/item/weapon/wrench))
+	if (iswrench(W))
 		if (src.stage == 1)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			usr << "You begin deconstructing [src]."
@@ -64,7 +58,7 @@
 			usr << "You have to unscrew the case first."
 			return
 
-	if(istype(W, /obj/item/weapon/wirecutters))
+	if(iswirecutter(W))
 		if (src.stage != 2) return
 		src.stage = 1
 		switch(fixture_type)
@@ -78,7 +72,7 @@
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		return
 
-	if(istype(W, /obj/item/stack/cable_coil))
+	if(iscoil(W))
 		if (src.stage != 1) return
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.use(1))
@@ -92,13 +86,13 @@
 				"You add wires to [src].")
 		return
 
-	if(istype(W, /obj/item/weapon/screwdriver))
+	if(isscrewdriver(W))
 		if (src.stage == 2)
 			switch(fixture_type)
-				if ("tube")
-					src.icon_state = "tube-empty"
+				if("tube")
+					src.icon_state = "tube_empty"
 				if("bulb")
-					src.icon_state = "bulb-empty"
+					src.icon_state = "bulb_empty"
 			src.stage = 3
 			user.visible_message("[user.name] closes [src]'s casing.", \
 				"You close [src]'s casing.", "You hear a noise.")
@@ -108,7 +102,7 @@
 
 				if("tube")
 					newlight = new /obj/machinery/light/built(src.loc)
-				if ("bulb")
+				if("bulb")
 					newlight = new /obj/machinery/light/small/built(src.loc)
 
 			newlight.dir = src.dir
@@ -133,7 +127,7 @@
 	name = "light fixture"
 	icon = 'icons/obj/lighting.dmi'
 	var/base_state = "tube"		// base description and icon_state
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	desc = "A lighting fixture."
 	anchored = 1
 	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
@@ -141,6 +135,7 @@
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/on = 0					// 1 if on, 0 if off
 	var/on_gs = 0
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
@@ -154,6 +149,7 @@
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/weapon/light/tube		// the type of light item
+	var/obj/item/weapon/light/inserted_light = /obj/item/weapon/light/tube
 	var/fitting = "tube"
 	var/switchcount = 0			// count of number of times switched on/off
 								// this is used to calc the probability the light burns out
@@ -171,6 +167,7 @@
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
 	light_type = /obj/item/weapon/light/bulb
+	inserted_light = /obj/item/weapon/light/bulb
 	supports_nightmode = FALSE
 
 /obj/machinery/light/small/emergency
@@ -187,58 +184,59 @@
 	name = "spotlight"
 	fitting = "large tube"
 	light_type = /obj/item/weapon/light/tube/large
+	inserted_light = /obj/item/weapon/light/tube/large
 	brightness_range = 12
 	brightness_power = 4
 	supports_nightmode = FALSE
 
 /obj/machinery/light/built/Initialize()
-	. = ..()
 	status = LIGHT_EMPTY
-	update(0)
+	. = ..()
 
 /obj/machinery/light/small/built/Initialize()
-	. = ..()
 	status = LIGHT_EMPTY
-	update(0)
+	. = ..()
 
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
 	on = has_power()
 
-	switch(fitting)
-		if("tube")
-			if(mapload && prob(2))
-				broken(1)
-		if("bulb")
-			if(mapload && prob(5))
-				broken(1)
+	if (mapload && loc && !(z in config.admin_levels))
+		switch(fitting)
+			if("tube")
+				if(prob(2))
+					broken(1)
+			if("bulb")
+				if(prob(5))
+					broken(1)
 
 	update(0)
 
-/obj/machinery/light/Destroy()
-	var/area/A = get_area(src)
-	if(A)
-		on = 0
-	return ..()
-
 /obj/machinery/light/update_icon()
+	cut_overlays()
+	icon_state = "[base_state]_empty"
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
-			icon_state = "[base_state][on]"
+			var/image/I = image(icon, "[base_state][on]")
+			I.color = brightness_color
+			add_overlay(I)
 			if (supports_nightmode && nightmode && on)
 				color = "#d2d2d2"
 			else
 				color = null
 
 		if(LIGHT_EMPTY)
-			icon_state = "[base_state]-empty"
 			on = 0
 		if(LIGHT_BURNED)
-			icon_state = "[base_state]-burned"
+			var/image/I = image(icon, "[base_state]_burned")
+			I.color = brightness_color
+			add_overlay(I)
 			on = 0
 		if(LIGHT_BROKEN)
-			icon_state = "[base_state]-broken"
+			var/image/I = image(icon, "[base_state]_broken")
+			I.color = brightness_color
+			add_overlay(I)
 			on = 0
 
 	if (!on)
@@ -260,7 +258,10 @@
 			else if( prob( min(60, switchcount*switchcount*0.01) ) )
 				if(status == LIGHT_OK && trigger)
 					status = LIGHT_BURNED
-					icon_state = "[base_state]-burned"
+					cut_overlays()
+					var/image/I = image(icon, "[base_state]_burned")
+					I.color = brightness_color
+					add_overlay(I)
 					on = 0
 					set_light(0)
 			else
@@ -345,9 +346,10 @@
 				brightness_range = L.brightness_range
 				brightness_power = L.brightness_power
 				brightness_color = L.brightness_color
+				inserted_light = L.type
 				on = has_power()
 				update()
-
+				
 				user.drop_item()	//drop the item to update overlays and such
 				qdel(L)
 
@@ -385,7 +387,7 @@
 
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
-		if(istype(W, /obj/item/weapon/screwdriver)) //If it's a screwdriver open it.
+		if(isscrewdriver(W)) //If it's a screwdriver open it.
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
 			user.visible_message("[user.name] opens [src]'s casing.", \
 				"You open [src]'s casing.", "You hear a noise.")
@@ -424,13 +426,15 @@
 	set waitfor = FALSE
 	if (flickering || !on || status != LIGHT_OK)
 		return
-	
+
 	flickering = TRUE
 	var/offset = 1
 	var/thecallback = CALLBACK(src, .proc/handle_flicker)
 	for (var/i = 0; i < amount; i++)
 		addtimer(thecallback, offset)
 		offset += rand(5, 15)
+
+	playsound(src.loc, 'sound/effects/light_flicker.ogg', 75, 1)
 
 	addtimer(CALLBACK(src, .proc/end_flicker), offset)
 
@@ -495,7 +499,7 @@
 		user << "You remove the light [fitting]."
 
 	// create a light tube/bulb item and put it in the user's hand
-	var/obj/item/weapon/light/L = new light_type()
+	var/obj/item/weapon/light/L = new inserted_light()
 	L.status = status
 	L.rigged = rigged
 	L.brightness_range = brightness_range
@@ -511,6 +515,8 @@
 
 	user.put_in_active_hand(L)	//puts it in our active hand
 
+	inserted_light = null
+
 	status = LIGHT_EMPTY
 	update()
 
@@ -522,7 +528,7 @@
 
 	user << "You telekinetically remove the light [fitting]."
 	// create a light tube/bulb item and put it in the user's hand
-	var/obj/item/weapon/light/L = new light_type()
+	var/obj/item/weapon/light/L = new inserted_light()
 	L.status = status
 	L.rigged = rigged
 	L.brightness_range = brightness_range
@@ -537,8 +543,15 @@
 	L.add_fingerprint(user)
 	L.loc = loc
 
+	inserted_light = null
+
 	status = LIGHT_EMPTY
 	update()
+
+/obj/machinery/light/attack_ghost(mob/user)
+	if(round_is_spooky())
+		flicker(rand(2,5))
+	else return ..()
 
 // break the light and make sparks if was on
 
@@ -630,41 +643,91 @@
 	force = 2
 	throwforce = 5
 	w_class = 1
-	var/status = 0		// LIGHT_OK, LIGHT_BURNED or LIGHT_BROKEN
-	var/base_state
-	var/switchcount = 0	// number of times switched
 	matter = list(DEFAULT_WALL_MATERIAL = 60)
+	var/status = 0		// LIGHT_OK, LIGHT_BURNED or LIGHT_BROKEN
+	var/switchcount = 0	// number of times switched
 	var/rigged = 0		// true if rigged to explode
 	var/brightness_range = 2 //how much light it gives off
 	var/brightness_power = 1
-	var/brightness_color = null
+	var/brightness_color = LIGHT_COLOR_HALOGEN
+	var/lighttype = null
+	var/randomize_range = TRUE
 
 /obj/item/weapon/light/tube
 	name = "light tube"
 	desc = "A replacement light tube."
-	icon_state = "ltube"
-	base_state = "ltube"
+	icon_state = "ltube_preset"//preset state for mapping
 	item_state = "c_tube"
 	matter = list("glass" = 100)
 	brightness_range = 8
 	brightness_power = 0.8
+	lighttype = "tube"
+
+/obj/item/weapon/light/tube/colored/red
+	name = "red light tube"
+	brightness_color = LIGHT_COLOR_SCARLET
+
+/obj/item/weapon/light/tube/colored/green
+	name = "green light tube"
+	brightness_color = LIGHT_COLOR_GREEN
+
+/obj/item/weapon/light/tube/colored/blue
+	name = "blue light tube"
+	brightness_color = LIGHT_COLOR_BLUE
+
+/obj/item/weapon/light/tube/colored/magenta
+	name = "magenta light tube"
+	brightness_color = LIGHT_COLOR_VIOLET
+
+/obj/item/weapon/light/tube/colored/yellow
+	name = "yellow light tube"
+	brightness_color = LIGHT_COLOR_YELLOW
+
+/obj/item/weapon/light/tube/colored/cyan
+	name = "cyan light tube"
+	brightness_color = LIGHT_COLOR_CYAN
 
 /obj/item/weapon/light/tube/large
 	w_class = 2
 	name = "large light tube"
 	brightness_range = 15
 	brightness_power = 6
+	randomize_range = FALSE
 
 /obj/item/weapon/light/bulb
 	name = "light bulb"
 	desc = "A replacement light bulb."
-	icon_state = "lbulb"
-	base_state = "lbulb"
+	icon_state = "lbulb_preset"//preset state for mapping
 	item_state = "contvapour"
 	matter = list("glass" = 100)
 	brightness_range = 5
 	brightness_power = 0.75
-	brightness_color = "#a0a080"
+	brightness_color = LIGHT_COLOR_TUNGSTEN
+	lighttype = "bulb"
+
+/obj/item/weapon/light/bulb/colored/red
+	name = "red light bulb"
+	brightness_color = LIGHT_COLOR_SCARLET
+
+/obj/item/weapon/light/bulb/colored/green
+	name = "green light bulb"
+	brightness_color = LIGHT_COLOR_GREEN
+
+/obj/item/weapon/light/bulb/colored/blue
+	name = "blue light bulb"
+	brightness_color = LIGHT_COLOR_BLUE
+
+/obj/item/weapon/light/bulb/colored/magenta
+	name = "magenta light bulb"
+	brightness_color = LIGHT_COLOR_VIOLET
+
+/obj/item/weapon/light/bulb/colored/yellow
+	name = "yellow light bulb"
+	brightness_color = LIGHT_COLOR_YELLOW
+
+/obj/item/weapon/light/bulb/colored/cyan
+	name = "cyan light bulb"
+	brightness_color = LIGHT_COLOR_CYAN
 
 /obj/item/weapon/light/throw_impact(atom/hit_atom)
 	..()
@@ -673,37 +736,45 @@
 /obj/item/weapon/light/bulb/fire
 	name = "fire bulb"
 	desc = "A replacement fire bulb."
-	icon_state = "fbulb"
-	base_state = "fbulb"
+	icon_state = "flight"
 	item_state = "egg4"
 	matter = list("glass" = 100)
 	brightness_range = 8
 	brightness_power = 0.8
+	randomize_range = FALSE
 
-// update the icon state and description of the light
-
-/obj/item/weapon/light/proc/update()
-	switch(status)
-		if(LIGHT_OK)
-			icon_state = base_state
-			desc = "A replacement [name]."
-		if(LIGHT_BURNED)
-			icon_state = "[base_state]-burned"
-			desc = "A burnt-out [name]."
-		if(LIGHT_BROKEN)
-			icon_state = "[base_state]-broken"
-			desc = "A broken [name]."
-
-
-/obj/item/weapon/light/New()
-	..()
-	switch(name)
-		if("light tube")
-			brightness_range = rand(6,9)
-		if("light bulb")
-			brightness_range = rand(4,6)
+/obj/item/weapon/light/Initialize()
+	. = ..()
+	if(randomize_range)
+		switch(lighttype)
+			if("tube")
+				brightness_range = rand(6,9)
+			if("bulb")
+				brightness_range = rand(4,6)
 	update()
 
+// update the icon state and description of the light
+/obj/item/weapon/light/proc/update()
+	cut_overlays()
+	switch(status)
+		if(LIGHT_OK)
+			icon_state = "l[lighttype]_attachment"
+			var/image/I = image(icon, "l[lighttype]")
+			I.color = brightness_color
+			add_overlay(I)
+			desc = "A replacement [name]."
+		if(LIGHT_BURNED)
+			icon_state = "l[lighttype]_attachment"
+			var/image/I = image(icon, "l[lighttype]_burned")
+			I.color = brightness_color
+			add_overlay(I)
+			desc = "A burnt-out [name]."
+		if(LIGHT_BROKEN)
+			icon_state = "l[lighttype]_attachment_broken"
+			var/image/I = image(icon, "l[lighttype]_broken")
+			I.color = brightness_color
+			add_overlay(I)
+			desc = "A broken [name]."
 
 // attack bulb/tube with object
 // if a syringe, can inject phoron to make it explode

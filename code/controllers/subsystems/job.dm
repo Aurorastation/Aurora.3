@@ -66,6 +66,12 @@
 		if (J.title == rank)
 			return J
 
+/datum/controller/subsystem/jobs/proc/ShouldCreateRecords(var/rank)
+	if(!rank) return 0
+	var/datum/job/job = GetJob(rank)
+	if(!job) return 0
+	return job.create_record
+
 /datum/controller/subsystem/jobs/proc/GetPlayerAltTitle(mob/new_player/player, rank)
 	. = player.client.prefs.GetPlayerAltTitle(GetJob(rank))
 
@@ -313,7 +319,7 @@
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
-	
+
 	if(job)
 		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
 		var/list/custom_equip_leftovers = list()
@@ -341,15 +347,8 @@
 
 	H.job = rank
 
-	if(!joined_late)
-		var/obj/S = null
-		for(var/obj/effect/landmark/start/sloc in landmarks_list)
-			if(sloc.name != rank)	continue
-			if(locate(/mob/living) in sloc.loc)	continue
-			S = sloc
-			break
-		if(!S)
-			S = locate("start*[rank]") // use old stype
+	if(!joined_late || job.latejoin_at_spawnpoints)
+		var/obj/S = get_roundstart_spawnpoint(rank)
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
 			H.loc = S.loc
 		else
@@ -504,10 +503,12 @@
 		if("AI")
 			Debug("EP/([H]): Abort, H is AI.")
 			return EquipRank(H, rank, 1)
-	if(spawning_at != "Arrivals Shuttle")
-		return EquipRank(H, rank, 1)
 
 	var/datum/job/job = GetJob(rank)
+
+	if(spawning_at != "Arrivals Shuttle" || job.latejoin_at_spawnpoints)
+		return EquipRank(H, rank, 1)
+
 	var/list/spawn_in_storage = list()
 	H <<"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>"
 
@@ -675,8 +676,20 @@
 	//spawn at one of the latespawn locations
 	Debug("LS/([H]): Entry; rank=[rank]")
 
+	var/datum/job/job = GetJob(rank)
+
+	H.job = rank
+
+	if(job.latejoin_at_spawnpoints)
+		for (var/thing in landmarks_list)
+			var/obj/effect/landmark/L = thing
+			if(istype(L))
+				if(L.name == "LateJoin[rank]")
+					H.forceMove(L.loc)
+					return
+
 	var/datum/spawnpoint/spawnpos
-	
+
 	if(H.client.prefs.spawnpoint)
 		spawnpos = spawntypes[H.client.prefs.spawnpoint]
 
@@ -763,8 +776,8 @@
 			else
 				permitted = TRUE
 
-			if(G.whitelisted && !is_alien_whitelisted(H, all_species[G.whitelisted]))
-				permitted = FALSE
+			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
+				permitted = 0
 
 			if(!permitted)
 				H << "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>"
@@ -790,7 +803,7 @@
 			else if (storage)
 				storage += thing
 				Debug("EC/([H]): Unable to equip [thing]; sending to storage.")
-	
+
 	Debug("EC/([H]): Complete.")
 	return TRUE
 
@@ -841,3 +854,15 @@
 			Debug("EIS/([H]): unable to equip; no storage.")
 
 	Debug("EIS/([H]): Complete.")
+
+/datum/controller/subsystem/jobs/proc/get_roundstart_spawnpoint(var/rank)
+	var/list/loc_list = list()
+	for(var/obj/effect/landmark/start/sloc in landmarks_list)
+		if(sloc.name != rank)	continue
+		if(locate(/mob/living) in sloc.loc)	continue
+		loc_list += sloc
+	if(loc_list.len)
+		return pick(loc_list)
+	else
+		return locate("start*[rank]") // use old stype
+

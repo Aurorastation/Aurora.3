@@ -118,7 +118,7 @@
 				var/obj/structure/LB = L.buckled
 				LB.user_unbuckle_mob(user)
 			var/mob/M = G.affecting
-			if (M.client)
+			if (istype(M) && M.client)
 				M.client.perspective = EYE_PERSPECTIVE
 				M.client.eye = src
 			M.loc = src

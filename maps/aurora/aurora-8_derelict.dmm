@@ -1757,7 +1757,7 @@
 "fG" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "Solar - Fore Port"
+	RCon_tag = "NO_TAG"
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
@@ -3262,11 +3262,6 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "kr" = (
-/obj/machinery/light/small{
-	icon_state = "bulb-broken";
-	dir = 8;
-	base_state = "bulb-broken"
-	},
 /obj/structure/table/standard,
 /obj/item/weapon/scalpel,
 /obj/item/device/mass_spectrometer,
@@ -5147,7 +5142,7 @@
 "pB" = (
 /obj/structure/table/glass,
 /obj/item/device/radio{
-	anchored = 1;
+	anchored = 0;
 	broadcasting = 0;
 	canhear_range = 4;
 	desc = "Are you going to make the call?";
@@ -5934,7 +5929,7 @@
 "rS" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "Solar - Aft Starboard"
+	RCon_tag = "NO_TAG"
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
@@ -7129,7 +7124,7 @@
 "uO" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
-	RCon_tag = "Solar - Aft Starboard"
+	RCon_tag = "NO_TAG"
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
@@ -23769,7 +23764,7 @@ tN
 tN
 tN
 ac
-xG
+xF
 ac
 tN
 tN
@@ -26291,7 +26286,7 @@ ac
 aa
 aa
 aa
-xs
+xj
 ac
 aa
 aa
@@ -28653,7 +28648,7 @@ aa
 kZ
 uO
 ix
-xH
+xF
 kZ
 aa
 ac
@@ -29668,7 +29663,7 @@ aa
 aa
 aa
 ad
-xC
+xj
 aa
 aa
 aa
@@ -32010,7 +32005,7 @@ ix
 ix
 wu
 ix
-xL
+xF
 kZ
 aa
 ac
@@ -32201,7 +32196,7 @@ aa
 aa
 aa
 ar
-xr
+xn
 az
 aa
 aa
@@ -32533,7 +32528,7 @@ aa
 ar
 ac
 ar
-xO
+xj
 aa
 ac
 ac
@@ -32742,7 +32737,7 @@ aa
 aa
 aa
 aa
-xA
+xj
 it
 qJ
 ix
@@ -37130,7 +37125,7 @@ aa
 ac
 df
 iu
-up
+ac
 iX
 uR
 ir
@@ -38181,7 +38176,7 @@ wE
 wE
 iq
 wO
-xM
+xI
 iu
 wU
 wU
@@ -38897,7 +38892,7 @@ ac
 aa
 aa
 aa
-nB
+aa
 aA
 ac
 ac
@@ -45623,7 +45618,7 @@ iq
 jt
 jt
 jt
-xK
+xt
 vR
 vZ
 wd
@@ -46596,7 +46591,7 @@ aa
 ac
 ir
 iq
-jB
+jz
 jz
 jz
 jz
@@ -47162,7 +47157,7 @@ aa
 iu
 jv
 jv
-xJ
+xt
 kq
 kq
 vP
@@ -48151,7 +48146,7 @@ mX
 kq
 jt
 nV
-xy
+xt
 ir
 ac
 ac
@@ -50222,7 +50217,7 @@ qw
 kf
 iu
 aa
-qQ
+xB
 rf
 aa
 aa
@@ -51505,7 +51500,7 @@ aa
 aa
 ac
 iu
-qQ
+xB
 aa
 iq
 aa
@@ -53573,7 +53568,7 @@ iu
 iu
 iu
 iu
-xD
+xz
 jt
 kq
 kq
@@ -57931,7 +57926,7 @@ iq
 iq
 iq
 iq
-qQ
+xB
 aa
 rw
 rI

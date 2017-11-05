@@ -31,6 +31,8 @@
 	var/used_equip = 0
 	var/used_light = 0
 	var/used_environ = 0
+	var/alwaysgravity = 0
+	var/nevergravity = 0
 
 	var/has_gravity = 1
 	var/obj/machinery/power/apc/apc = null
@@ -53,11 +55,12 @@
 	)
 	var/list/forced_ambience = null
 	var/sound_env = STANDARD_STATION
-	var/turf/base_turf//The base turf type of the area, which can be used to override the z-level's base turf
+	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
 	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
 	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
 	var/station_area = 0
 	var/centcomm_area = 0
+	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
 
 /area/Initialize(mapload)
 	icon_state = "white"
@@ -77,6 +80,7 @@
 
 	if(centcomm_area)
 		centcom_areas[src] = TRUE
+		alwaysgravity = 1
 
 	if(station_area)
 		the_station_areas[src] = TRUE
@@ -201,7 +205,7 @@
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
 /area/update_icon()
-	if ((fire || eject || party) && (!requires_power||power_environ) && !istype(src, /area/space))//If it doesn't require power, can still activate this proc.
+	if ((fire || eject || party) && (!requires_power||power_environ) && !istype(src, /area/space)) //If it doesn't require power, can still activate this proc.
 		if(fire && !eject && !party)		// FIRE
 			color = "#ff9292"
 			animate(src)	// stop any current animations.
@@ -382,8 +386,13 @@ var/list/mob/living/forced_ambiance_list = new
 	if(!T)
 		T = get_turf(AT)
 	var/area/A = get_area(T)
-	if(A && A.has_gravity())
+	if(istype(T, /turf/space)) //because space
+		return 0
+	else if(A && A.has_gravity)
 		return 1
+	else
+		if(T && length(SSmachinery.gravity_generators))
+			return 1
 	return 0
 
 //A useful proc for events.

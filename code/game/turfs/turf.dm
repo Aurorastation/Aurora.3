@@ -32,8 +32,11 @@
 	var/roof_type = null // The turf type we spawn as a roof.
 	var/tmp/roof_flags = 0
 
+	var/movement_cost = 0 // How much the turf slows down movement, if any.
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
-/turf/Initialize()
+// There's ALSO a copy of this in mine_turfs.dm!
+/turf/Initialize(mapload, ...)
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 
@@ -58,6 +61,9 @@
 	if (opacity)
 		has_opaque_atom = TRUE
 
+	if (mapload && permit_ao)
+		queue_ao()
+
 	var/area/A = loc
 
 	if(!baseturf)
@@ -77,6 +83,10 @@
 	turfs -= src
 
 	cleanup_roof()
+
+	if (ao_queued)
+		SSocclusion.queue -= src
+		ao_queued = 0
 
 	..()
 	return QDEL_HINT_IWILLGC
@@ -200,6 +210,19 @@ var/const/enterloopsanity = 100
 
 /turf/proc/is_plating()
 	return 0
+
+/turf/proc/can_have_cabling()
+	return FALSE
+
+/turf/proc/can_lay_cable()
+	return can_have_cabling()
+
+/turf/attackby(obj/item/C, mob/user)
+	if (can_lay_cable() && iscoil(C))
+		var/obj/item/stack/cable_coil/coil = C
+		coil.turf_place(src, user)
+	else
+		..()
 
 /turf/proc/inertial_drift(atom/movable/A as mob|obj)
 	if(!(A.last_move))	return

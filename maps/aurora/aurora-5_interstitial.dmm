@@ -258,14 +258,14 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/arrivals)
 "aD" = (
-/obj/machinery/door/airlock/centcom{
-	icon_state = "door_locked";
-	locked = 1;
-	name = "IT Department"
-	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
 	layer = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	icon_state = "door_locked";
+	locked = 1;
+	name = "IT Department"
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/arrivals)

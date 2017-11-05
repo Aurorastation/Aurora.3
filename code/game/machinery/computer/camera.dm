@@ -205,8 +205,9 @@
 	if(istype(usr.machine,/obj/machinery/computer/security))
 		var/obj/machinery/computer/security/console = usr.machine
 		console.jump_on_click(usr,src)
+
 //Camera control: arrow keys.
-/mob/Move(n,direct)
+/mob/living/Move(n,direct)
 	if(istype(machine,/obj/machinery/computer/security))
 		var/obj/machinery/computer/security/console = machine
 		var/turf/T = get_turf(console.current_camera)
