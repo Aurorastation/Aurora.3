@@ -1,0 +1,4 @@
+author: TheGreatJorge
+delete-after: True
+changes: 
+  - bugfix: "Turret controls should now work with turrets correctly once again."
