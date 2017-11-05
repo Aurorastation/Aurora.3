@@ -310,6 +310,7 @@
 
 /mob/living/silicon/robot/drone/proc/transfer_personality(var/client/player)
 	if(!player) return
+	stat = 0
 	src.ckey = player.ckey
 
 	if(player.mob && player.mob.mind)
