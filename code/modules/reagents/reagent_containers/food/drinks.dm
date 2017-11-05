@@ -19,6 +19,7 @@
 			if(user.a_intent == I_HURT && !shaken)
 				shaken = 1
 				user << "<span class='notice'>You shake the [src]!</span>"
+				playsound(loc,'sound/items/Shaking_Soda_Can.ogg', rand(10,50), 1)
 				return
 			if(shaken)
 				boom(user)
@@ -32,7 +33,8 @@
 
 	proc/boom(user)
 		user << "<span class='damger'>The [src] explodes all over you as you open it!</span>"
-		reagents = null
+		playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
+		qdel(reagents)
 		flags |= OPENCONTAINER
 		shaken = 0
 
