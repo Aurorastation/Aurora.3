@@ -52,7 +52,8 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/bluecuracao = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine = 5,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreusegreen = 5,/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreuseyellow =5,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreusegreen = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreuseyellow =5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/bitters = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/mintsyrup = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cremewhite = 4,
@@ -249,12 +250,12 @@
 		/obj/item/weapon/reagent_containers/dropper = 2,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 3,
-		/obj/item/stack/medical/splint = 2
+		/obj/item/stack/medical/splint = 2,
+		/obj/item/weapon/reagent_containers/pill/antitox = 6
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/pill/tox = 3,
-		/obj/item/weapon/reagent_containers/pill/stox = 4,
-		/obj/item/weapon/reagent_containers/pill/antitox = 6
+		/obj/item/weapon/reagent_containers/pill/stox = 4
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
