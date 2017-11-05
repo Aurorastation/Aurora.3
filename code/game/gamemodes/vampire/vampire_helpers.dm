@@ -95,7 +95,8 @@
 		return 0
 
 	if(is_special_character(T) && (!(T.mind.vampire.status & VAMP_ISTHRALL)))
-		user << "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>"
+		if (notify)
+			to_chat(src, "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>")
 		return 0
 
 	if (account_loyalty_implant)
