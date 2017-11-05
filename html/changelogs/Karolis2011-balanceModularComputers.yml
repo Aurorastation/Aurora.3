@@ -1,5 +1,0 @@
-author: Karolis2011
-delete-after: True
-
-changes: 
-  - bugfix: "Modular computers can no longer download programs that can't actually run on them."
