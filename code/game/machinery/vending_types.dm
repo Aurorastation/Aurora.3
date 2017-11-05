@@ -327,9 +327,12 @@
 		/obj/item/weapon/storage/box/evidence = 6,
 		/obj/item/device/holowarrant = 5
 	)
+	premium = list(
+		/obj/item/weapon/storage/box/donut = 2,
+		/obj/item/weapon/handcuffs/fuzzy = 2
+	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
-		/obj/item/weapon/storage/box/donut = 2,
 		/obj/item/weapon/grenade/flashbang = 4
 	)
 

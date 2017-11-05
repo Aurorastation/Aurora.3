@@ -170,3 +170,9 @@
 	breakouttime = 600
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	elastic = 1
+
+obj/item/weapon/handcuffs/fuzzy
+	name = "Fuzzy Cuffs"
+	desc = "Used for keeping \"Prisoners\" in line."
+	icon_state = "fuzzycuffy"
+	
