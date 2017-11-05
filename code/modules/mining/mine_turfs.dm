@@ -491,7 +491,7 @@
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
-	name = "sand"
+	name = "volcanic ash"
 	icon = 'icons/turf/smooth/ash.dmi'
 	icon_state = "ash"
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
@@ -501,7 +501,7 @@
 		/turf/simulated/wall,
 		/turf/simulated/shuttle
 	)
-	base_name = "sand"
+	base_name = "ash"
 	base_desc = "Gritty and unpleasant."
 	base_icon = 'icons/turf/smooth/ash.dmi'
 	base_icon_state = "ash"
@@ -787,7 +787,28 @@
 			else
 				return
 
+/turf/simulated/floor/asteroid/basalt
+	name = "basalt"
+	icon = 'icons/turf/flooring/asteroid.dmi'
+	icon_state = "basalt"
+
+	base_name = "basalt"
+	base_desc = "Warm to the touch."
+	base_icon = 'icons/turf/flooring/asteroid.dmi'
+	base_icon_state = "basalt"
+
+/turf/simulated/floor/asteroid/basalt/dirt
+	name = "basaltic dirt"
+	icon = 'icons/turf/flooring/asteroid.dmi'
+	icon_state = "volcanic_dirt"
+
+	base_name = "basaltic dirt"
+	base_desc = "Gritty and hot."
+	base_icon = 'icons/turf/flooring/asteroid.dmi'
+	base_icon_state = "volcanic_dirt"
+
 
 /turf/simulated/mineral/Destroy()
 	clear_ore_effects()
 	. = ..()
+
