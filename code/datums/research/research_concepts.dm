@@ -6,7 +6,6 @@
 	var/level = 1
 	var/maxlevel = 1
 	var/progress = 1
-	var/pre_req = list() // concepts that have to be researched first in order to get this.
 	var/max_progress = 1
 	var/relatedtechs = list(
 					  TECH_BIO  = 2

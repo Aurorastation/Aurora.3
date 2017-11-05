@@ -1,4 +1,4 @@
-//explains cloning the RED, and animal cubes. Improves cloning, the RED, and animal cubes.
+//explains cloning and the RED. Improves cloning, the RED, and animal cubes.
 /datum/research_concepts/crispr
 	name = "CRISPR"
 	id = "crispr"

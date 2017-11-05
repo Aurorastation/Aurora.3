@@ -1,1 +1,0 @@
-#define TECH_BASIC 1

@@ -1,5 +1,0 @@
-#define CASE_SMALL 1
-#define CASE_MEDIUM 2
-#define CASE_LARGE 4
-#define CASE_WEAPON 8
-#define CASE_BLUESPACE 16
