@@ -352,20 +352,11 @@
 
 	//Add some rubble,  you did just clear out a big chunk of rock.
 
-	var/turf/simulated/floor/asteroid/N = ChangeTurf(mined_turf)
-
-	// Kill and update the space overlays around us.
-	for(var/direction in cardinal)
-		var/turf/simulated/open/O = get_step(src, direction)
-		if(istype(O))
-			O.update()
+	ChangeTurf(mined_turf)
 
 	if(rand(1,500) == 1)
 		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
 		new /obj/structure/closet/crate/secure/loot(src)
-
-	if(istype(N))
-		N.overlay_detail = rand(0,9)
 
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
 	//with skill and luck, players can cleanly extract finds
@@ -511,12 +502,18 @@
 	nitrogen = 0
 	temperature = TCMB
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
-	var/overlay_detail
 	var/digging
 	has_resources = 1
 	footstep_sound = "gravelstep"
 
 	roof_type = null
+
+/turf/simulated/floor/asteroid/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.icon = icon
+	underlay_appearance.icon_state = "basalt"
+	if (prob(20))
+		underlay_appearance.icon_state += "[rand(0,12)]"
+	return TRUE
 
 // Copypaste parent for performance.
 /turf/simulated/floor/asteroid/Initialize(mapload)
@@ -531,23 +528,27 @@
 	else
 		luminosity = 1
 
-	if(prob(20))
-		overlay_detail = rand(0,9)
-
 	if (mapload && permit_ao)
 		queue_ao()
 
+	if (prob(20))
+		var/variant = rand(0,12)
+		icon_state = "basalt[variant]"
+		switch (variant)
+			if (1, 2, 3)	// fair bit of lava visible, less weak light
+				light_power = 0.75
+				light_range = 2
+			if (5, 9)	// Not much lava visible, weak light
+				light_power = 0.5
+				light_range = 2
+
 	if (smooth)
-		pixel_x = -4
-		pixel_y = -4
 		queue_smooth(src)
 
-	return INITIALIZE_HINT_NORMAL
+	if (light_range && light_power)
+		update_light()
 
-/turf/simulated/floor/asteroid/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	. = ..()
-	underlay_appearance.pixel_x = pixel_x
-	underlay_appearance.pixel_y = pixel_y
+	return INITIALIZE_HINT_NORMAL
 
 /turf/simulated/floor/asteroid/ex_act(severity)
 	switch(severity)
@@ -796,6 +797,7 @@
 	base_desc = "Warm to the touch."
 	base_icon = 'icons/turf/flooring/asteroid.dmi'
 	base_icon_state = "basalt"
+	light_color = LIGHT_COLOR_FIRE
 
 /turf/simulated/floor/asteroid/basalt/dirt
 	name = "basaltic dirt"
@@ -812,3 +814,23 @@
 	clear_ore_effects()
 	. = ..()
 
+// These are pricey, but damm do they look nice.
+/turf/simulated/lava
+	icon = 'icons/turf/smooth/lava.dmi'
+	icon_state = "smooth"
+	smooth = SMOOTH_TRUE | SMOOTH_BORDER
+	light_color = LIGHT_COLOR_FIRE
+	light_range = 2
+	name = "lava"
+	desc = "Toasty."
+	canSmoothWith = list(
+		/turf/simulated/lava,
+		/turf/simulated/mineral
+	)
+
+/turf/simulated/lava/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.icon = 'icons/turf/basalt.dmi'
+	underlay_appearance.icon_state = "basalt"
+	if (prob(20))
+		underlay_appearance.icon_state += "[rand(0,12)]"
+	return TRUE

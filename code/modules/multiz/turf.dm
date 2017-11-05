@@ -162,6 +162,24 @@
 	nitrogen = 0
 	temperature = TCMB
 
+/turf/simulated/open/airless/chasm
+	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
+	icon_state = "smooth"
+	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	no_mutate = TRUE
+	name = "hole"
+
+/turf/simulated/open/airless/chasm/Initialize()
+	. = ..()
+	icon_state = "Fill"
+
+/turf/simulated/open/airless/chasm/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.icon = 'icons/turf/basalt.dmi'
+	underlay_appearance.icon_state = "basalt"
+	if (prob(20))
+		underlay_appearance.icon_state += "[rand(0,12)]"
+	return TRUE
+
 /turf/simulated/open/post_change()
 	..()
 	update()
