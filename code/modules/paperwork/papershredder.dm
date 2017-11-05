@@ -43,7 +43,8 @@
 			if(paperamount == max_paper)
 				user << "<span class='warning'>\The [src] is full; please empty it before you continue.</span>"
 				return
-			paperamount += paper_result
+			if (paper_result > 0)
+				paperamount += paper_result
 			user.drop_from_inventory(W)
 			qdel(W)
 			playsound(src.loc, 'sound/items/pshred.ogg', 75, 1)
@@ -56,11 +57,6 @@
 				paperamount = max_paper
 			update_icon()
 			return
-		else if(paper_result == -1)
-			user.drop_from_inventory(W)
-			qdel(W)
-			playsound(src.loc, 'sound/items/pshred.ogg', 75, 1)
-			user <<"<span class='danger'>\The [src] takes several seconds to shred the [W]!</span>"
 	return ..()
 
 /obj/machinery/papershredder/verb/empty_contents()
