@@ -781,7 +781,7 @@
 			W.icon_state = "centcom"
 			W.access = get_all_accesses()
 			W.access += get_all_centcom_access()
-			W.assignment = "NTCC Odin Security Specialist"
+			W.assignment = "[current_map.dock_name] Security Specialist"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
 

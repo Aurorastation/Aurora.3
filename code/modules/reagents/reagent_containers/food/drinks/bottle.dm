@@ -202,6 +202,15 @@
 		. = ..()
 		reagents.add_reagent("whiskey", 100)
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/fireball
+	name = "Uncle Git's Cinnamon Fireball"
+	desc = "A premium single-malt whiskey, infused with cinnamon and hot pepper inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES."
+	icon_state = "fireballbottle"
+	center_of_mass = list("x"=16, "y"=3)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("fireball", 100)
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/vodka
 	name = "Tunguska Triple Distilled"
 	desc = "Aah, vodka. Prime choice of drink AND fuel by Russians worldwide."
@@ -320,7 +329,7 @@
 		reagents.add_reagent("cognac", 100)
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/wine
-	name = "Doublebeard Bearded Special wine"
+	name = "Doublebeard Bearded Red Wine"
 	desc = "A faint aura of unease and asspainery surrounds the bottle."
 	icon_state = "winebottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -446,6 +455,17 @@
 		. = ..()
 		reagents.add_reagent("limejuice", 100)
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice
+	name = "lemon juice"
+	desc = "This juice is VERY sour."
+	icon_state = "lemoncarton"
+	item_state = "carton"
+	center_of_mass = list("x"=16, "y"=8)
+	isGlass = 0
+	Initialize()
+		. = ..()
+		reagents.add_reagent("lemonjuice", 100)
+
 //Small bottles
 /obj/item/weapon/reagent_containers/food/drinks/bottle/small
 	name = "empty small bottle"
@@ -562,3 +582,25 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("sarezhiwine", 100)
+
+// Synnono Meme (Bottled) Drinks
+//======================================
+//
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/boukha
+	name = "Boukha Boboksa Classic"
+	desc = "A distillation of figs, imported from the Serene Republic of Elyra. Makes an excellent apertif or digestif."
+	icon_state = "boukhabottle"
+	center_of_mass = list("x"=16, "y"=6)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("boukha", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/whitewine
+	name = "Doublebeard Bearded White Wine"
+	desc = "A faint aura of unease and asspainery surrounds the bottle."
+	icon_state = "whitewinebottle"
+	center_of_mass = list("x"=16, "y"=4)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("whitewine", 100)

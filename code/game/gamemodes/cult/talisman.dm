@@ -47,7 +47,7 @@
 	if(iscultist(user))
 		if(imbue == "runestun")
 			user.take_organ_damage(5, 0)
-			call(/obj/effect/rune/proc/runestun)(T)
+			call(/obj/effect/rune/proc/runestun)(user, T)
 			qdel(src)
 		else
 			..()   ///If its some other talisman, use the generic attack code, is this supposed to work this way?

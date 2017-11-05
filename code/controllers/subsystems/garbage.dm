@@ -235,22 +235,19 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
-	if (destroy_listeners)
-		RaiseOnDestroy()
-
-	SSnanoui.close_uis(src)
-	
 	weakref = null
+	destroyed_event.raise_event(src)
+	SSnanoui.close_uis(src)
 	tag = null
-
 	var/list/timers = active_timers
 	active_timers = null
 	if (timers)
-		for(var/thing in timers)
+		for (var/thing in timers)
 			var/datum/timedevent/timer = thing
 			if (timer.spent)
 				continue
 			qdel(timer)
+
 	return QDEL_HINT_QUEUE
 
 /datum/var/gcDestroyed //Time when this object was destroyed.

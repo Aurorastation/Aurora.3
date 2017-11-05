@@ -60,8 +60,6 @@
 
 	if (opacity)
 		has_opaque_atom = TRUE
-		if (!mapload)
-			regenerate_ao()
 
 	if (mapload && permit_ao)
 		queue_ao()
@@ -70,7 +68,7 @@
 
 	if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || base_turf_by_z["[z]"] || /turf/space
+		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
 
 	if (A.flags & SPAWN_ROOF)
 		spawn_roof()

@@ -85,6 +85,9 @@
 			user << "Access Denied."
 			return
 
+		if(target.emagged)
+			return
+
 		var/choice = input("Really [target.lockcharge ? "unlock" : "lockdown"] [target.name] ?") in list ("Yes", "No")
 		if(choice != "Yes")
 			return

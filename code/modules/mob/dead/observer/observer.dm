@@ -357,8 +357,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	stop_following()
 	following = target
-	following.OnMove(CALLBACK(src, /atom/movable/.proc/move_to_destination))
-	following.OnDestroy(CALLBACK(src, .proc/stop_following))
+	moved_event.register(following, src, /atom/movable/proc/move_to_destination)
+	destroyed_event.register(following, src, /mob/dead/observer/proc/stop_following)
 
 	src << "<span class='notice'>Now following \the [following]</span>"
 	move_to_destination(following, following.loc, following.loc)
@@ -366,8 +366,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/proc/stop_following()
 	if(following)
 		src << "<span class='notice'>No longer following \the [following]</span>"
-		following.UnregisterOnMove(src)
-		following.UnregisterOnDestroy(src)
+		moved_event.unregister(following, src)
+		destroyed_event.unregister(following, src)
 		following = null
 
 /mob/dead/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
@@ -473,7 +473,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 
 	var/turf/T = get_turf(src)
-	if(!T || (T.z in config.admin_levels))
+	if(!T || (T.z in current_map.admin_levels))
 		src << "<span class='warning'>You may not spawn as a mouse on this Z-level.</span>"
 		return
 
