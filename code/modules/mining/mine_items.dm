@@ -569,6 +569,19 @@
 	icon_state = "track[dir_sum]"
 	return
 
+/obj/structure/track/train
+	name = "magnetic track"
+	desc = "A tungsten-plasteel track designed to magnetically propel cargo at astounding rates."
+	icon = 'icons/obj/smoothtrack.dmi'
+	icon_state = "track3"
+	density = 0
+	anchored = 1.0
+	w_class = 3
+	layer = 2.44
+
+/obj/structure/track/train/updateOverlays()
+	return
+
 /obj/vehicle/train/cargo/engine/mining
 	name = "mine cart engine"
 	desc = "A ridable electric minecart designed for pulling other mine carts."

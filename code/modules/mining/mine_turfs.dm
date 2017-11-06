@@ -789,17 +789,16 @@
 				return
 
 /turf/simulated/floor/asteroid/basalt
-	name = "basalt"
-	icon = 'icons/turf/flooring/asteroid.dmi'
+	name = "\proper basalt"
+	icon = 'icons/turf/basalt.dmi'
 	icon_state = "basalt"
-
 	base_name = "basalt"
-	base_desc = "Warm to the touch."
-	base_icon = 'icons/turf/flooring/asteroid.dmi'
+	base_desc = "Dark volcanic rock."
+	base_icon = 'icons/turf/basalt.dmi'
 	base_icon_state = "basalt"
 	light_color = LIGHT_COLOR_FIRE
 
-/turf/simulated/floor/asteroid/basalt/dirt
+/turf/simulated/floor/asteroid/dirt
 	name = "basaltic dirt"
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	icon_state = "volcanic_dirt"
@@ -817,7 +816,7 @@
 // These are pricey, but damm do they look nice.
 /turf/simulated/lava
 	icon = 'icons/turf/smooth/lava.dmi'
-	icon_state = "smooth"
+	icon_state = "unsmooth"
 	smooth = SMOOTH_TRUE | SMOOTH_BORDER
 	light_color = LIGHT_COLOR_FIRE
 	light_range = 2
