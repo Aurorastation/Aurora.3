@@ -352,3 +352,55 @@
 	name = "pink LED"
 	led_color = COLOR_PINK
 	color_name = "pink"
+
+/obj/item/integrated_circuit/output/printer
+	name = "printer"
+	desc = "This printer can print text to a sheet of paper. If the eject pin is set or the paper is full of text it will eject the paper after printing"
+	icon_state = "screen"
+	inputs = list("printed data" = IC_PINTYPE_ANY, "paper source" = IC_PINTYPE_REF, "eject sheet" = IC_PINTYPE_BOOLEAN)
+	outputs = list()
+	activators = list("print page" = IC_PINTYPE_PULSE_IN)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 20
+	w_class = ITEMSIZE_NORMAL
+	size = 5
+	var/stuff_to_print = null
+
+/obj/item/integrated_circuit/output/printer/disconnect_all()
+	..()
+	stuff_to_print = null
+
+/obj/item/integrated_circuit/output/printer/do_work()
+	var/datum/integrated_io/info = inputs[1]
+	var/datum/integrated_io/paper_input = inputs[2]
+	var/obj/item/weapon/paper/paper_sheet = null
+	var/obj/item/paper_source = null
+	var/eject = get_pin_data(IC_INPUT, 3)
+
+	if(isweakref(paper_input.data))
+		paper_source = paper_input.data_as_type(/obj/item/)
+	var/obj/item/integrated_circuit/insert_slot/paper_tray/tray = paper_source
+
+	if(isweakref(info.data))
+		var/datum/d = info.data_as_type(/datum)
+		if(d)
+			stuff_to_print = "[d]"
+	else
+		stuff_to_print = info.data
+
+	if(istype(tray))
+		paper_sheet = tray.get_item(FALSE)
+	if(istype(paper_source, /obj/item/weapon/paper))
+		paper_sheet = paper_source
+	if(paper_sheet)
+		stuff_to_print = paper_sheet.info + stuff_to_print
+		while(stuff_to_print)
+			paper_sheet.set_content(null, copytext(stuff_to_print, 1, MAX_PAPER_MESSAGE_LEN))
+			stuff_to_print = copytext(stuff_to_print, MAX_PAPER_MESSAGE_LEN)
+			if(stuff_to_print || eject)
+				paper_sheet = tray.get_item(TRUE)
+				audible_message("<span class='notice'>\The [src] buzzes and spits out a sheet of paper.</span>")
+				paper_sheet.forceMove(get_turf(src))
+				paper_sheet = tray.get_item(FALSE)
+	else
+		audible_message("<span class='notice'>\The [src] beeps, out of paper.</span>")
