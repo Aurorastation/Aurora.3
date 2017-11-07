@@ -64,6 +64,11 @@
 	if(!dropsafety(G))
 		return
 
+	if (G.get_cell() == DEVICE_NO_CELL)
+		if (G.charge_failure_message)
+			user << "<span class='warning'>\The [G][G.charge_failure_message]</span>"
+		return
+
 	if(is_type_in_list(G, allowed_devices))
 		if(charging)
 			user << "<span class='warning'>\A [charging] is already charging here.</span>"
@@ -72,18 +77,7 @@
 		if(!powered())
 			user << "<span class='warning'>\The [name] blinks red as you try to insert the item!</span>"
 			return
-		if (istype(G, /obj/item/weapon/gun/energy/gun/nuclear) || istype(G, /obj/item/weapon/gun/energy/crossbow))
-			user << "<span class='notice'>Your gun's recharge port was removed to make room for a miniaturized reactor.</span>"
-			return
-		if (istype(G, /obj/item/weapon/gun/energy/staff))
-			return
-		if (istype(G, /obj/item/weapon/gun/energy/wand))
-			return
-		if(istype(G, /obj/item/modular_computer))
-			var/obj/item/modular_computer/C = G
-			if(!C.battery_module)
-				user << "This device does not have a battery installed."
-				return
+
 		user.drop_item()
 		G.forceMove(src)
 		charging = G
@@ -103,9 +97,6 @@
 			for (var/thing in chargebars)
 				remove_bar(thing, chargebars[thing])
 		update_icon()
-
-/obj/item/proc/get_cell()
-	return DEVICE_NO_CELL
 
 /obj/machinery/recharger/machinery_process()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
