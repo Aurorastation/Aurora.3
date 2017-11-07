@@ -38,9 +38,28 @@
 	var/dark_survival = 216                   // How long this diona can survive in darkness after energy is gone, before it dies
 	var/datum/dionastats/DS
 	var/mob/living/carbon/gestalt = null      // If set, then this nymph is inside a gestalt
+	var/kept_clean = 0
 
 	var/mob/living/carbon/alien/diona/master_nymph //nymph who owns this nymph if split. AI diona nymphs will follow this nymph, and these nymphs can be controlled by the master.
 	var/list/mob/living/carbon/alien/diona/birds_of_feather = list() //list of all related nymphs
+
+/mob/living/carbon/alien/diona/proc/cleanupTransfer()
+	if(!kept_clean)
+		for(var/mob/living/carbon/alien/diona/D in birds_of_feather)
+			if(master_nymph == src)
+				master_nymph = null
+			if(!master_nymph && D != src)
+				master_nymph = D
+			D.master_nymph = master_nymph
+			D.birds_of_feather -= src
+			if(master_nymph && mind && !master_nymph.mind)
+				mind.transfer_to(master_nymph)
+				master_nymph.stunned = 0//Switching mind seems to temporarily stun mobs
+				message_admins("\The [src] has died with nymphs remaining; player now controls [key_name_admin(master_nymph)]")
+				log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]", ckey=key_name(master_nymph))
+		master_nymph = null
+		kept_clean = 1
+
 
 /mob/living/carbon/alien/diona/flowery/Initialize(var/mapload)
 	. = ..(mapload, 100)
@@ -268,6 +287,9 @@
 			stat(null, text("You have enough biomass to grow!"))
 
 //Overriding this function from /mob/living/carbon/alien/life.dm
+/mob/living/carbon/alien/diona/Destroy()
+	..()
+
 /mob/living/carbon/alien/diona/handle_regular_status_updates()
 
 	if(status_flags & GODMODE)	return 0
@@ -280,19 +302,7 @@
 		handle_stunned()
 		handle_weakened()
 		if(health <= 0)
-			for(var/mob/living/carbon/alien/diona/D in birds_of_feather)
-				if(master_nymph == src)
-					master_nymph = null
-				if(!master_nymph && D != src)
-					master_nymph = D
-				D.master_nymph = master_nymph
-				D.birds_of_feather -= src
-			if(master_nymph && mind)
-				mind.transfer_to(master_nymph)
-				master_nymph.stunned = 0//Switching mind seems to temporarily stun mobs
-				message_admins("\The [src] has died with nymphs remaining; player now controls [key_name_admin(master_nymph)]")
-				log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]", ckey=key_name(master_nymph))
-			master_nymph = null
+			cleanupTransfer()
 			death()
 			blinded = 1
 			silent = 0
@@ -340,6 +350,9 @@
 
 	return 1
 
+/mob/living/carbon/alien/diona/Destroy()
+	cleanupTransfer()
+	..()
 
 /mob/living/carbon/alien/diona/proc/wear_hat(var/obj/item/new_hat)
 	if(hat)
