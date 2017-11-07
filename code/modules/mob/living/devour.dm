@@ -136,7 +136,7 @@
 		if(do_mob(src, victim, bite_delay*10, extra_checks = CALLBACK(src, .proc/devouring_equals, victim)))
 			face_atom(victim)
 			victim.apply_damage(victim_maxhealth*PEPB,HALLOSS)
-			victim.apply_damage(victim_maxhealth*PEPB,CLONE)
+			victim.apply_damage(victim_maxhealth*PEPB*5,CLONE)
 			ingested.add_reagent(victim.composition_reagent, victim.composition_reagent_quantity*PEPB)
 			visible_message("<span class='danger'>[src] bites a chunk out of [victim]</span>","<span class='danger'>[bitemessage(victim)]</span>")
 			if (messes < victim.mob_size - 1 && prob(50))
