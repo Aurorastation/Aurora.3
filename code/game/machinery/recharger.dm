@@ -64,12 +64,11 @@
 	if(!dropsafety(G))
 		return
 
-	if (G.get_cell() == DEVICE_NO_CELL)
-		if (G.charge_failure_message)
-			user << "<span class='warning'>\The [G][G.charge_failure_message]</span>"
-		return
-
 	if(is_type_in_list(G, allowed_devices))
+		if (G.get_cell() == DEVICE_NO_CELL)
+			if (G.charge_failure_message)
+				user << "<span class='warning'>\The [G][G.charge_failure_message]</span>"
+			return
 		if(charging)
 			user << "<span class='warning'>\A [charging] is already charging here.</span>"
 			return
