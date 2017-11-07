@@ -56,6 +56,7 @@
 	smw			spawn_reagent = "spacemountainwind"
 	dr_gibb		spawn_reagent = "dr_gibb"
 	spaceup		spawn_reagent = "space_up"
+	brownstar	spawn_reagent = "brownstar"
 	tonic		spawn_reagent = "tonic"
 	sodawater	spawn_reagent = "sodawater"
 	lemon_lime	spawn_reagent = "lemon_lime"
