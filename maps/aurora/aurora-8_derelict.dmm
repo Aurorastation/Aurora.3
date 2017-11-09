@@ -59,13 +59,13 @@
 /turf/template_noop,
 /area/derelict/hallway/northwest)
 "aj" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "ak" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/clothing/mask/smokable/cigarette/cigar,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -127,7 +127,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "aw" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
@@ -168,7 +168,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "aE" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -181,7 +181,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "aG" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine,
 /obj/machinery/light{
 	dir = 8
@@ -308,11 +308,11 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "aY" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "aZ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -1374,7 +1374,7 @@
 /turf/template_noop,
 /area/template_noop)
 "eE" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/device/radio,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
@@ -1406,7 +1406,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "eJ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/random/loot,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
@@ -1510,7 +1510,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "eZ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "fa" = (
@@ -2605,7 +2605,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "im" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/template_noop,
 /area/template_noop)
 "in" = (
@@ -3252,7 +3252,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "kp" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
@@ -3384,7 +3384,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "kL" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -5511,7 +5511,7 @@
 /turf/template_noop,
 /area/template_noop)
 "qC" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/random/loot,
 /turf/simulated/floor/carpet/blue,
 /area/derelict/hallway/southeast)
@@ -5750,7 +5750,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southeast)
 "rq" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -5812,13 +5812,13 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southeast)
 "rB" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southeast)
 "rC" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/computer/med_data/laptop,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -7979,13 +7979,13 @@
 /turf/space,
 /area)
 "xd" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "xe" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/gun/projectile/pistol{
 	jam_chance = 50
 	},
