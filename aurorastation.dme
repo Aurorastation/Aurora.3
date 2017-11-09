@@ -147,6 +147,7 @@
 #include "code\controllers\subsystems\ao.dm"
 #include "code\controllers\subsystems\arrivals.dm"
 #include "code\controllers\subsystems\assets.dm"
+#include "code\controllers\subsystems\away.dm"
 #include "code\controllers\subsystems\chemistry.dm"
 #include "code\controllers\subsystems\effects.dm"
 #include "code\controllers\subsystems\emergency_shuttle.dm"
