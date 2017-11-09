@@ -16,6 +16,7 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
+	gender = PLURAL
 	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = "rock"
 	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
