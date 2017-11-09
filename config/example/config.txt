@@ -33,8 +33,14 @@ JOBS_HAVE_MINIMAL_ACCESS
 ## Unhash to enable loading of age restrictions from age_restrictions.txt.
 #LOAD_AGE_RESTRICTIONS_FROM_FILE
 
-## Unhash this to use recursive explosions, keep it hashed to use circle explosions. Recursive explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU and are (as of january 2013) experimental
-#USE_RECURSIVE_EXPLOSIONS
+## Unhash this to use iterative explosions, keep it hashed to use circle explosions. Iterative explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU, but are generally better to use.
+#USE_COMPLEX_EXPLOSIONS
+
+# The power of explosion required for it to cross Z-levels.
+#EXPLOSION_Z_THRESHOLD 10
+
+# What to multiply power by when crossing Z-levels.
+#EXPLOSION_Z_MULT 0.75
 
 ## log OOC channel
 LOG_OOC
