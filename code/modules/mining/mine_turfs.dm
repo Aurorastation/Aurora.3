@@ -6,6 +6,14 @@
 	blocks_air = 1
 	density = 1
 
+// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
+var/list/mineral_can_smooth_with = list(
+	/turf/simulated/mineral,
+	/turf/simulated/wall,
+	/turf/unsimulated/wall,
+	/turf/simulated/shuttle
+)
+
 /turf/simulated/mineral //wall piece
 	name = "rock"
 	icon = 'icons/turf/map_placeholders.dmi'
@@ -13,12 +21,7 @@
 	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
 	layer = 2.01
 	smooth = SMOOTH_MORE | SMOOTH_BORDER
-	canSmoothWith = list(
-		/turf/simulated/mineral,
-		/turf/simulated/wall,
-		/turf/unsimulated/wall,
-		/turf/simulated/shuttle
-	)
+	// canSmoothWith is set in Initialize().
 	oxygen = 0
 	nitrogen = 0
 	opacity = 1
@@ -38,6 +41,8 @@
 	var/obj/item/weapon/last_find
 	var/datum/artifact_find/artifact_find
 
+	var/obj/effect/mineral/my_mineral
+
 	has_resources = 1
 
 // Copypaste parent call for performance.
@@ -45,7 +50,8 @@
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 
-	icon = actual_icon
+	if (icon != actual_icon)
+		icon = actual_icon
 
 	initialized = TRUE
 
@@ -59,9 +65,13 @@
 	has_opaque_atom = TRUE
 
 	if (smooth)
+		canSmoothWith = mineral_can_smooth_with
 		pixel_x = -4
 		pixel_y = -4
 		queue_smooth(src)
+
+	if (!mapload)
+		queue_smooth_neighbors(src)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -311,8 +321,8 @@
 		return attack_hand(user)
 
 /turf/simulated/mineral/proc/clear_ore_effects()
-	for(var/obj/effect/mineral/M in contents)
-		qdel(M)
+	if (my_mineral)
+		qdel(my_mineral)
 
 /turf/simulated/mineral/proc/DropMineral()
 	if(!mineral)
@@ -485,14 +495,17 @@
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
-	name = "\proper basalt"
-	icon = 'icons/turf/basalt.dmi'
-	icon_state = "basalt"
-	base_name = "basalt"
-	base_desc = "Dark volcanic rock."
-	base_icon = 'icons/turf/basalt.dmi'
-	base_icon_state = "basalt"
-	light_color = LIGHT_COLOR_FIRE
+	name = "sand"
+	gender = PLURAL
+	icon = 'icons/turf/map_placeholders.dmi'
+	icon_state = "ash"
+	desc = "Gritty and unpleasant."
+	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	// canSmoothWith is set in Initialize().
+	base_name = "sand"
+	base_desc = "Gritty and unpleasant."
+	base_icon = 'icons/turf/smooth/ash.dmi'
+	base_icon_state = "ash"
 
 	initial_flooring = null
 	oxygen = 0
@@ -505,12 +518,14 @@
 
 	roof_type = null
 
-/turf/simulated/floor/asteroid/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	underlay_appearance.icon = icon
-	underlay_appearance.icon_state = "basalt"
-	if (prob(20))
-		underlay_appearance.icon_state += "[rand(0,12)]"
-	return TRUE
+// Same as the other, this is a global so we don't have a lot of pointless lists floating around.
+// Basalt is explicitly removed so ash will spill onto basalt turfs.
+var/list/asteroid_floor_smooth = typecacheof(list(
+	/turf/simulated/floor/asteroid,
+	/turf/simulated/mineral,
+	/turf/simulated/wall,
+	/turf/simulated/shuttle
+)) - /turf/simulated/floor/asteroid/basalt
 
 // Copypaste parent for performance.
 /turf/simulated/floor/asteroid/Initialize(mapload)
@@ -531,19 +546,14 @@
 	if (mapload && permit_ao)
 		queue_ao()
 
-	if (prob(20))
-		var/variant = rand(0,12)
-		icon_state = "basalt[variant]"
-		switch (variant)
-			if (1, 2, 3)	// fair bit of lava visible, less weak light
-				light_power = 0.75
-				light_range = 2
-			if (5, 9)	// Not much lava visible, weak light
-				light_power = 0.5
-				light_range = 2
-
 	if (smooth)
+		canSmoothWith = asteroid_floor_smooth
+		pixel_x = -4
+		pixel_y = -4
 		queue_smooth(src)
+
+	if (!mapload)
+		queue_smooth_neighbors(src)
 
 	if (light_range && light_power)
 		update_light()
@@ -604,20 +614,14 @@
 			user << "<span class='warning'>The plating is going to need some support.</span>"
 			return
 
-	var/list/usable_tools = list(
+	var/static/list/usable_tools = typecacheof(
 		/obj/item/weapon/shovel,
 		/obj/item/weapon/pickaxe/diamonddrill,
 		/obj/item/weapon/pickaxe/drill,
 		/obj/item/weapon/pickaxe/borgdrill
-		)
+	)
 
-	var/valid_tool
-	for(var/valid_type in usable_tools)
-		if(istype(W,valid_type))
-			valid_tool = 1
-			break
-
-	if(valid_tool)
+	if(is_type_in_typecache(W, usable_tools))
 		var/turf/T = user.loc
 		if (!(istype(T)))
 			return
@@ -792,24 +796,3 @@
 /turf/simulated/mineral/Destroy()
 	clear_ore_effects()
 	. = ..()
-
-// These are pricey, but damm do they look nice.
-/turf/simulated/lava
-	icon = 'icons/turf/smooth/lava.dmi'
-	icon_state = "smooth"
-	smooth = SMOOTH_TRUE | SMOOTH_BORDER
-	light_color = LIGHT_COLOR_FIRE
-	light_range = 2
-	name = "lava"
-	desc = "Toasty."
-	canSmoothWith = list(
-		/turf/simulated/lava,
-		/turf/simulated/mineral
-	)
-
-/turf/simulated/lava/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	underlay_appearance.icon = 'icons/turf/basalt.dmi'
-	underlay_appearance.icon_state = "basalt"
-	if (prob(20))
-		underlay_appearance.icon_state += "[rand(0,12)]"
-	return TRUE
