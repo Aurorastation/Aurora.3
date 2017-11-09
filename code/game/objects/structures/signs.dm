@@ -249,3 +249,51 @@
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "doorwreath"
 	layer = 5
+
+/obj/structure/sign/double/solgovflag
+	name = "Sol Alliance Flag"
+	desc = "The flag of the Alliance of Sovereign Solarian Nations."
+
+/obj/structure/sign/double/solgovflag/left
+	icon_state = "solgovflag-left"
+
+/obj/structure/sign/double/solgovflag/right
+	icon_state = "solgovflag-right"
+
+/obj/structure/sign/number/one
+	name = "\improper Platform 1"
+	icon_state = "one"
+
+/obj/structure/sign/number/two
+	name = "\improper Platform 2"
+	icon_state = "two"
+
+/obj/structure/sign/number/three
+	name = "\improper Platform 3"
+	icon_state = "three"
+
+/obj/structure/sign/number/four
+	name = "\improper Platform 4"
+	icon_state = "four"
+
+/obj/structure/sign/guild
+	name = "Dagon Commerce Guild seal"
+	desc = "Seal of the Dagon Commerce Guild, signifying this as property of Dagon."
+	icon_state = "guild"
+
+/obj/structure/sign/guild/background
+	icon_state = "guild-bg"
+
+/obj/structure/sign/guild/background2
+	icon_state = "guild-bgb"
+
+/obj/structure/sign/guild/text
+	name = "\improper Dagon Commerce Guild"
+	desc = "Dagon Commerce Guild - Proprietor of Mining, Production, and Trade within the system of Dagon and its colonies."
+	icon_state = "guild-t"
+
+/obj/structure/sign/guild/text/alternate
+	icon_state = "guild-t2"
+
+/obj/structure/sign/guild/text/alternate2
+	icon_state = "guild-t3"

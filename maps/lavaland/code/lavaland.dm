@@ -1,6 +1,8 @@
+//lavaland mining colony.
+
 /datum/map/lavaland
-	name = "Tartarus"
-	full_name = "Tartarus Labs"
+	name = "Arcturus"
+	full_name = "Arcturus Mining Colony"
 	path = "lavaland"
 	station_levels = list(2, 3, 4, 5, 6, 7, 8)
 	admin_levels = list(1)
@@ -8,8 +10,8 @@
 	player_levels = list(2, 3, 4, 5, 6, 7, 8)
 	sealed_levels = list(1, 2, 3, 4, 5, 6, 7, 8)
 	base_turf_by_z = list(
-		"1" = /turf/simulated/open/airless/chasm,
-		"2" = /turf/simulated/open/airless/chasm,
+		"1" = /turf/simulated/lava,
+		"2" = /turf/simulated/lava,
 		"3" = /turf/simulated/open/airless/chasm,
 		"4" = /turf/simulated/open/airless/chasm,
 		"5" = /turf/simulated/open/airless/chasm,
@@ -18,18 +20,18 @@
 		"8" = /turf/simulated/open/airless/chasm,
 	)
 
-	station_name = "Tartarus Robotics Laboratories
-	station_short = "Tartarus Labs"
-	dock_name = "HIHQ"
-	dock_short = "Elysium"
-	boss_name = "Elysium Command"
-	boss_short = "Elysium"
-	company_name = "Hephaestus Industries"
-	company_short = "HI"
-	system_name = "Dominia"
+	station_name = "Arcturus Mining Colony"
+	station_short = "Arcturus"
+	dock_name = "Ploutos Station"
+	dock_short = "Ploutos"
+	boss_name = "Ishtar Colonial Administration Authority"
+	boss_short = "Colonial Command"
+	company_name = "Dagon Commerce Guild"
+	company_short = "The Guild"
+	system_name = "Dagon"
 
 	command_spawn_enabled = TRUE
-	command_spawn_message = "Welcom to HIHQ Elysium. Proceed towards the magtrain to your work destination."
+	command_spawn_message = "Welcome to Ploutos Station. Please take platform two to depart for Arcturus."
 
 	station_networks = list(
 		NETWORK_CIVILIAN_EAST,
@@ -48,10 +50,10 @@
 		NETWORK_SECURITY
 	)
 
-	shuttle_docked_message = "The scheduled transfer train to %dock% has pulled into the station. It will depart in approximately %ETA% minutes."
-	shuttle_leaving_dock = "The transfer train has left the station. Estimate %ETA% minutes until the train arrives at %dock%."
-	shuttle_called_message = "A crew transfer to %dock% has been scheduled. The train has been called. It will arrive in approximately %ETA% minutes."
-	shuttle_recall_message = "The scheduled crew transfer has been cancelled."
+	shuttle_docked_message = "The scheduled outbound train to %dock% has pulled into the station. It will depart in approximately %ETA% minutes."
+	shuttle_leaving_dock = "The outbound train has left the station. Estimate %ETA% minutes until the train arrives at %dock%."
+	shuttle_called_message = "Outbound train to Baal is en route. It will arrive in approximately %ETA% minutes. All individuals interested in departure please purchase a ticket at the station."
+	shuttle_recall_message = "The scheduled outbound train has been delayed indefinitely due to a track obstruction."
 	emergency_shuttle_docked_message = "The Emergency Shuttle has docked with the station. You have approximately %ETD% minutes to board the Emergency Shuttle."
 	emergency_shuttle_leaving_dock = "The Emergency Shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."

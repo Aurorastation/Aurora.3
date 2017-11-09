@@ -139,6 +139,35 @@ for reference:
 	else
 		return 0
 
+/obj/item/stack/sandbags
+	name = "sandbags"
+	desc = "Bags of sand. Self explanatory."
+	icon = 'icons/obj/smooth/sandbags.dmi'
+	icon_state = "sandbags"
+	singular_name = "sandbag"
+	origin_tech = list(TECH_MATERIAL = 2)
+	max_amount = 10
+	recipes = list(
+		new /datum/stack_recipe("sandbag emplacement", /obj/structure/barricade/sandbags, 1, time = 5, one_per_turf = TRUE, on_floor = TRUE),
+		new /datum/stack_recipe("sand", /obj/item/stack/material/sandstone, 5, time = 0),
+	)
+/obj/structure/barricade/sandbags
+	name = "sandbags"
+	desc = "Defensive emplacement formed from sandbags stacked atop each other."
+	icon = 'icons/obj/smooth/sandbags.dmi'
+	icon_state = "preview"
+	health = 80
+	maxhealth = 80
+	material = "sand"
+	climbable = TRUE
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(
+	/obj/structure/barricade,
+	/turf/simulated/wall,
+	/turf/simulated/mineral,
+	/obj/structure/shuttle
+	)
+
 //Actual Deployable machinery stuff
 /obj/machinery/deployable
 	name = "deployable"

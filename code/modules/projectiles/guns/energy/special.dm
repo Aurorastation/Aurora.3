@@ -111,8 +111,8 @@
 	w_class = 3.0
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/item/projectile/energy/phoron
-	can_turret = 1		
-	turret_is_lethal = 0		
+	can_turret = 1
+	turret_is_lethal = 0
 	turret_sprite_set = "net"
 
 /obj/item/weapon/gun/energy/beegun
@@ -326,8 +326,8 @@
 	max_shots = 36
 	sel_mode = 1
 	burst = 10
-	burst_delay = 1
-	fire_delay = 30
+	burst_delay = 0
+	fire_delay = 10
 	sharp = 1
 	edge = 1
 	anchored = 0
@@ -424,13 +424,12 @@
 	charge_meter = 1
 	charge_cost = 50
 	dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
-	can_turret = 1		 
+	can_turret = 1
 	turret_sprite_set = "thermaldrill"
 
 	firemodes = list(
-		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
-		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, dispersion = list(0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 0.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8)),
-		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, dispersion = list(0.0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 5.7, 6.0, 6.3, 6.6, 6.9, 7.2, 7.5, 7.8, 8.1, 8.4, 8.7))
+		list(mode_name="wide lens", burst=20, burst_delay = 0, fire_delay = 10, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
+		list(mode_name="narrow lens", burst=20, burst_delay = 1, fire_delay = 10, dispersion = list(0.0, 0.0, 0.0, 0.1, 0.1, 0.1, 0.2, 0.2, 0.2, 0.3, 0.3, 0.3, 0.4, 0.4, 0.4, 0.5, 0.5, 0.5, 0.6, 0.8))
 		)
 
 	action_button_name = "Wield thermal drill"

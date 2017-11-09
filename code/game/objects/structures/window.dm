@@ -227,7 +227,7 @@
 			state = 3 - state
 			update_nearby_icons()
 			playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
-			user << (state == 1 ? "<span class='notice'>You have unfastened the window from the frame.</span>" : "<span class='notice'>You have fastened the window to the frame.</span>")
+			user << (state == 1 ? "<span class='notice'>You have unfastened \the [src] from the frame.</span>" : "<span class='notice'>You have fastened \the [src] to the frame.</span>")
 		else if(reinf && state == 0)
 			anchored = !anchored
 			update_nearby_icons()
@@ -237,11 +237,11 @@
 			anchored = !anchored
 			update_nearby_icons()
 			playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
-			user << (anchored ? "<span class='notice'>You have fastened the window to the floor.</span>" : "<span class='notice'>You have unfastened the window.</span>")
+			user << (anchored ? "<span class='notice'>You have fastened \the [src] to the floor.</span>" : "<span class='notice'>You have unfastened \the [src].</span>")
 	else if(iscrowbar(W) && reinf && state <= 1)
 		state = 1 - state
 		playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
-		user << (state ? "<span class='notice'>You have pried the window into the frame.</span>" : "<span class='notice'>You have pried the window out of the frame.</span>")
+		user << (state ? "<span class='notice'>You have pried \the [src] into the frame.</span>" : "<span class='notice'>You have pried \the [src] out of the frame.</span>")
 	else if(iswrench(W) && !anchored && (!state || !reinf))
 		if(!glasstype)
 			user << "<span class='notice'>You're not sure how to dismantle \the [src] properly.</span>"
@@ -572,3 +572,25 @@
 
 /obj/machinery/button/windowtint/update_icon()
 	icon_state = "light[active]"
+
+/obj/structure/window/fence
+	name = "military fencing"
+	desc = "A high fence. No trespassing."
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "fencing"
+	basestate = "fencing"
+	flags = CONDUCT
+
+	maxhealth = 60.0
+	reinf = 1
+	shardtype = /obj/item/stack/rods
+	glasstype = /obj/item/stack/rods
+
+/obj/structure/window/fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(air_group || (height==0)) return 1
+	if(istype(mover) && mover.checkpass(PASSGRILLE))
+		return 1
+	if(istype(mover, /obj/item/projectile))
+		return prob(30)
+	..()
+
