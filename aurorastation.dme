@@ -2286,7 +2286,6 @@
 #include "maps\aurora\code\aurora_unittest.dm"
 #include "maps\away\awaymaps.dm"
 #include "maps\away\iceland\iceland.dm"
-#include "maps\away\iceland\iceland_buildings\hut1.dmm"
 #include "maps\exodus\code\exodus.dm"
 #include "maps\exodus\code\exodus_areas.dm"
 #include "maps\exodus\code\exodus_shuttles.dm"
