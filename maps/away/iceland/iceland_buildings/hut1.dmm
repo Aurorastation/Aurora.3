@@ -11,7 +11,7 @@
 /turf/simulated/floor/wood,
 /area/away_mission/iceland/iceland_inside)
 "d" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/flame/candle,
 /turf/simulated/floor/wood,
 /area/away_mission/iceland/iceland_inside)
