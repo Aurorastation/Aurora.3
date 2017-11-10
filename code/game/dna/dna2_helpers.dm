@@ -168,8 +168,7 @@
 			var/obj/item/organ/external/E = H.organs_by_name[tag]
 			if(E)
 				var/list/marklist = dna.body_markings[tag]
-				E.genetic_markings = marklist.Copy()
-				E.invalidate_marking_cache()
+				E.markings = marklist.Copy()
 
 		//Hair
 		var/hair = dna.GetUIValueRange(DNA_UI_HAIR_STYLE,hair_styles_list.len)

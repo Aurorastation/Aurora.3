@@ -11484,7 +11484,7 @@
 	},
 /area/maintenance/sublevel)
 "uL" = (
-/obj/structure/table/reinforced/steel,
+/obj/structure/table/steel_reinforced,
 /obj/machinery/cell_charger,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 0;
@@ -11493,7 +11493,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "uM" = (
-/obj/structure/table/reinforced/steel,
+/obj/structure/table/steel_reinforced,
 /obj/item/weapon/storage/firstaid/regular,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)

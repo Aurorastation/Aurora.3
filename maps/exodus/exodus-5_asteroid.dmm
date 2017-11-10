@@ -12394,7 +12394,7 @@
 /obj/item/weapon/wrench,
 /obj/item/weapon/screwdriver,
 /obj/item/weapon/crowbar,
-/obj/structure/table/reinforced/steel,
+/obj/structure/table/steel_reinforced,
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
 	dir = 9
@@ -12573,7 +12573,7 @@
 	charge = 100;
 	maxcharge = 15000
 	},
-/obj/structure/table/reinforced/steel,
+/obj/structure/table/steel_reinforced,
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
 	dir = 8
@@ -12886,7 +12886,7 @@
 /area/outpost/mining_main/west_hall)
 "xX" = (
 /obj/machinery/cell_charger,
-/obj/structure/table/reinforced/steel,
+/obj/structure/table/steel_reinforced,
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
 	dir = 10

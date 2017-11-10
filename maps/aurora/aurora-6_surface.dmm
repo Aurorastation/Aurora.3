@@ -8205,7 +8205,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
 "pd" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/random/single{
 	icon = 'icons/obj/items.dmi';
 	icon_state = "lighter-g";
@@ -8216,11 +8216,11 @@
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
 "pe" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
 "pf" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/random/single{
 	icon = 'icons/obj/playing_cards.dmi';
 	icon_state = "deck";
@@ -8231,7 +8231,7 @@
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
 "pg" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/item/weapon/reagent_containers/food/snacks/chips,
 /obj/random/single{
 	icon = 'icons/obj/drinks.dmi';
@@ -8329,7 +8329,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
 "pr" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/item/weapon/reagent_containers/food/snacks/chips,
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
@@ -8338,7 +8338,7 @@
 /turf/simulated/floor/lino,
 /area/hallway/secondary/entry/fore)
 "pt" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/item/weapon/storage/fancy/cigarettes{
 	pixel_y = 2
 	},
@@ -11916,7 +11916,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "ws" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/machinery/photocopier,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
@@ -12292,12 +12292,12 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "wW" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/item/clothing/glasses/threedglasses,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "wX" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -12308,7 +12308,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "wY" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/random/coin,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
@@ -12457,7 +12457,7 @@
 /turf/simulated/floor/carpet,
 /area/bridge/levela)
 "xt" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/machinery/photocopier/faxmachine,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
@@ -12620,11 +12620,11 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
 "xJ" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "xK" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/item/device/paicard,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -12640,7 +12640,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "xL" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -12856,7 +12856,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "xZ" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Surface Meeting Room";
 	dir = 4
@@ -12866,7 +12866,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "ya" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/pen,
@@ -12877,7 +12877,7 @@
 /turf/simulated/floor/carpet,
 /area/bridge/levela)
 "yb" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/pen{
@@ -13393,7 +13393,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "ze" = (
-/obj/structure/table/wood,
+/obj/structure/table/woodentable,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /turf/simulated/floor/wood,

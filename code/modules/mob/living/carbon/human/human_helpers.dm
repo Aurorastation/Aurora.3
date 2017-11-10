@@ -115,9 +115,7 @@
 		for(var/N in organs_by_name)
 			var/obj/item/organ/external/O = organs_by_name[N]
 			if (O)
-				O.genetic_markings = null
-				O.temporary_markings = null
-				O.invalidate_marking_cache()
+				O.markings.Cut()
 
 		var/list/body_markings = prefs.body_markings
 		for(var/M in body_markings)
@@ -127,13 +125,7 @@
 			for(var/BP in mark_datum.body_parts)
 				var/obj/item/organ/external/O = organs_by_name[BP]
 				if(O)
-					var/list/attr = list("color" = mark_color, "datum" = mark_datum)
-					if (mark_datum.is_genetic)
-						LAZYINITLIST(O.genetic_markings)
-						O.genetic_markings[M] = attr
-					else
-						LAZYINITLIST(O.temporary_markings)
-						O.temporary_markings[M] = attr
+					O.markings[M] = list("color" = mark_color, "datum" = mark_datum)
 
 // Helper proc that grabs whatever organ this humantype uses to see.
 // Usually eyes, but can be something else.

@@ -1,4 +1,4 @@
-// This is one of the first subsystems initialized by the MC.
+// This is the first subsystem initialized by the MC.
 // Stuff that should be loaded before everything else that isn't significant enough to get its own SS goes here.
 
 /datum/controller/subsystem/misc_early
