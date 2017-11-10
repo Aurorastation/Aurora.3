@@ -5,7 +5,7 @@
 	weathertypes = list("ice", "hail")
 
 /datum/away_map/iceland/handle_random_gen()
-	new /datum/random_map/noise/tundra(64321, 2, 2, zloc, 44, 44)
+	new /datum/random_map/noise/tundra(rand(2,99999), 2, 2, zloc, 44, 44)
 	var/huts = 1
 	var/dmm_suite/loader = new
 	while(huts)
