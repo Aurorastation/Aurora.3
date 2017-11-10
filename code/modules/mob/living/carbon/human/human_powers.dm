@@ -571,11 +571,11 @@
 	if (modifier)
 		modifier.stop(1)
 		modifier = null
-		anim(get_turf(H), H,'icons/mob/species/psy_worm/effects.dmi',,"uncloak",,H.dir)
+		anim(get_turf(src), src,'icons/mob/species/psy_worm/effects.dmi',,"uncloak",,src.dir)
 		visible_message("<span class='danger'>\The [src] fades out of invisibility with a hiss.</span>")
 	else
 		if(!moved)
-			anim(get_turf(H), H,'icons/mob/species/psy_worm/effects.dmi',,"cloak",,H.dir)
+			anim(get_turf(src), src,'icons/mob/species/psy_worm/effects.dmi',,"cloak",,src.dir)
 			modifier = src.add_modifier(/datum/modifier/cloaking_device, MODIFIER_ITEM, src, override = MODIFIER_OVERRIDE_NEIGHBOR, _check_interval = 30)
 			visible_message("<span class='danger'>\The [src]'s flesh flashes a number of vibrant colors before fading to match the background perfectly!</span>")
 			apply_effect(2, STUN, 0)
@@ -587,5 +587,5 @@
 
 	var/new_skin = input(usr, "Choose your new skin colour: ", "Change Colour", rgb(r_skin, g_skin, b_skin)) as color|null
 	change_skin_color(hex2num(copytext(new_skin, 2, 4)), hex2num(copytext(new_skin, 4, 6)), hex2num(copytext(new_skin, 6, 8)))
-	anim(get_turf(H), H,'icons/mob/species/psy_worm/effects.dmi',,"rainbow",,H.dir)
+	anim(get_turf(src), src,'icons/mob/species/psy_worm/effects.dmi',,"rainbow",,src.dir)
 	visible_message("<span class='danger'>\The [src]'s flesh flashes a number of vibrant colors before settling on a new hue!</span>")

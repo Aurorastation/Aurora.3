@@ -85,8 +85,8 @@
 		"appendix" = /obj/item/organ/appendix,
 		"eyes" =     /obj/item/organ/eyes
 		)
-	vision_organ =
-	breathing_organ =
+	//vision_organ =
+	//breathing_organ =
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest),

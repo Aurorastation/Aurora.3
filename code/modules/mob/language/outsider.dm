@@ -148,12 +148,12 @@
 	"Magnificent","Handsome","Unsightly","Cunning","Clever","Faithful","Zealous","Obedient","Proud","Repulsive","Covetous","Crooked","Mammoth","Ancient","Young",\
 	"Bitter","Aberrant","Abhorrent","Abiding","Calculating","Callous","Condemnded","Defiant","Didactic","Devilish","Discreet","Disillusioned","Dispensable","Draconian",\
 	"Fearful","Glib","Imminent","Industrious","Invincible","Judicious","Knowing","Lame","Maddening","Quixotic","Responsible","Robust","Sordid","Toothsome","Unbecoming",\
-	"Volatile","Wandering","Mendicant","Wrathful","Wroth","
-
+	"Volatile","Wandering","Mendicant","Wrathful","Wroth"
 	)
 
-	var/list/psy_worm_sousname = list(
+	var/list/psy_worm_surname = list(
 	"Bal","Bor","Bur","Kah","Kor","Kur","Mal","Mor","Mur","Pah","Por","Pur","Rah","Tah","Tal","Tor","Tur","Vah","Val","Vor","Vur","Zal","Zor","Zur","Zulu"
+	)
 
 	var/list/psy_worm_sousname = list(
 	"Amon","Apollyon","Abraxas","Adramelech","Agrat bat Mahlet","Ahriman","Allu","Asmodeus","Astaroth","Asura","Azazel","Baal","Baphomet","Beelzebub","Behemoth",\
