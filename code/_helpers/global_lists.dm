@@ -210,6 +210,9 @@ var/global/list/cloaking_devices = list()
 	for (var/thing in all_species)
 		var/datum/species/S = all_species[thing]
 
+		if (!current_map.allowed_species[S.type])
+			continue
+
 		if (!(S.spawn_flags & IS_RESTRICTED))
 			playable_species += S.name
 		if(S.spawn_flags & IS_WHITELISTED)

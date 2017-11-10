@@ -24,6 +24,20 @@
 		//Also including them lets us override already created jobs, letting us keep the datums to a minimum mostly.
 		//This is probably a lot longer explanation than it needs to be.
 
+	var/list/allowed_species = list(
+    	/datum/species/human,
+    	/datum/species/skrell,
+    	/datum/species/unathi,
+    	/datum/species/tajaran,
+    	/datum/species/tajaran/zhan_khazan,
+    	/datum/species/tajaran/m_sai,
+    	/datum/species/machine,
+    	/datum/species/machine/shell,
+    	/datum/species/machine/industrial,
+    	/datum/species/bug,
+    	/datum/species/bug/type_b
+	)
+
 	var/station_name  = "BAD Station"
 	var/station_short = "Baddy"
 	var/dock_name     = "THE PirateBay"
@@ -51,7 +65,7 @@
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.
 
 	var/list/holodeck_programs = list() // map of string ids to /datum/holodeck_program instances
-	var/list/holodeck_supported_programs = list() 
+	var/list/holodeck_supported_programs = list()
 		// map of maps - first level maps from list-of-programs string id (e.g. "BarPrograms") to another map
 		// this is in order to support multiple holodeck program listings for different holodecks
 		// second level maps from program friendly display names ("Picnic Area") to program string ids ("picnicarea")
@@ -71,6 +85,8 @@
 		allowed_jobs = subtypesof(/datum/job)
 	if (!spawn_types)
 		spawn_types = subtypesof(/datum/spawnpoint)
+	for(var/thing in allowed_species)
+		allowed_species[thing] = TRUE
 
 /datum/map/proc/generate_asteroid()
 	return

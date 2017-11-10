@@ -59,6 +59,18 @@
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
 
+	allowed_species = list(
+    	/datum/species/human,
+    	/datum/species/skrell,
+    	/datum/species/unathi,
+    	/datum/species/tajaran,
+    	/datum/species/tajaran/zhan_khazan,
+    	/datum/species/tajaran/m_sai,
+    	/datum/species/machine,
+    	/datum/species/machine/shell,
+    	/datum/species/machine/industrial,
+	)
+
 /*/datum/map/aurora/generate_asteroid()
 	// Create the chasms.
 	new /datum/random_map/automata/cave_system/chasms(null,0,0,3,255,255)

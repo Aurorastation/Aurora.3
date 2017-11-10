@@ -467,3 +467,6 @@
 
 /datum/species/proc/can_breathe_water()
 	return FALSE
+
+/datum/species/proc/handle_movement_delay_special(var/mob/living/carbon/human/H)
+	return 0
