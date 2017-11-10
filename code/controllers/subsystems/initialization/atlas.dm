@@ -63,9 +63,11 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	setup_multiz()
 
-	QDEL_NULL(maploader)
 	if(config.awaymissions && prob(config.awaymissionsprob))
 		find_away_mission()
+
+	QDEL_NULL(maploader)
+
 	..()
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
@@ -189,15 +191,13 @@ var/datum/controller/subsystem/atlas/SSatlas
 		away_maps[M] = M
 	var/datum/away_map/X = pick(away_maps)
 	var/datum/away_map/map_used = X.path
-	var/dmm_suite/loader = new
-	loader.load_map(file("maps/away/[map_used]/[map_used].dmm"), no_changeturf = TRUE)
-	qdel(loader)
+	maploader.load_map(file("maps/away/[map_used]/[map_used].dmm"), no_changeturf = TRUE)
 	X.zloc = world.maxz
 	X.handle_random_gen()
-	world << "loaded [map_used]"
+	message_admins("Away mission [map_used] has been loaded!")
 	for(var/V in SSweather.existing_weather)
 		var/datum/weather/WE = V
-		if(WE.area_type_s != "/area/away_mission/[map_used]/[map_used]_outside") 
+		if(WE.area_type != text2path("/area/away_mission/[map_used]/[map_used]_outside"))
 			continue
 		WE.target_z = world.maxz
 		if(!(world.maxz in SSweather.eligible_zlevels))

@@ -212,7 +212,7 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
 	footstep_sound = "gravelstep"
-	temperature = T0C // cold
+	temperature = T0C-32
 
 /turf/simulated/floor/snow/Initialize()
 	. = ..()

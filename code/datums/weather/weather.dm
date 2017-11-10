@@ -1,11 +1,3 @@
-////wrapper macros for easier grepping todo: put this somewhere where it makes sense
-#define DIRECT_OUTPUT(A, B) A << B
-#define SEND_IMAGE(target, image) DIRECT_OUTPUT(target, image)
-#define SEND_SOUND(target, sound) DIRECT_OUTPUT(target, sound)
-#define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
-#define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
-
-//
 /proc/get_areas(areatype, subtypes=TRUE)
 	if(istext(areatype))
 		areatype = text2path(areatype)
@@ -59,7 +51,6 @@
 	var/end_sound
 	var/end_overlay
 
-	var/area_type_s = "/area/admin" // area in string
 	var/area_type = /area/admin //Types of area to affect
 	var/list/impacted_areas = list() //Areas to be affected by the weather, calculated when the weather begins
 	var/list/protected_areas = list()//Areas that are protected and excluded from the affected areas.
@@ -102,7 +93,7 @@
 			if(telegraph_message)
 				to_chat(M, telegraph_message)
 			if(telegraph_sound)
-				SEND_SOUND(M, sound(telegraph_sound))
+				sound_to(M, sound(telegraph_sound))
 	addtimer(CALLBACK(src, .proc/start), telegraph_duration)
 
 /datum/weather/proc/start()
@@ -116,7 +107,7 @@
 			if(weather_message)
 				to_chat(M, weather_message)
 			if(weather_sound)
-				SEND_SOUND(M, sound(weather_sound))
+				sound_to(M, sound(weather_sound))
 	START_PROCESSING(SSweather, src)
 	addtimer(CALLBACK(src, .proc/wind_down), weather_duration)
 
@@ -131,7 +122,7 @@
 			if(end_message)
 				to_chat(M, end_message)
 			if(end_sound)
-				SEND_SOUND(M, sound(end_sound))
+				sound_to(M, sound(end_sound))
 	STOP_PROCESSING(SSweather, src)
 	addtimer(CALLBACK(src, .proc/end), end_duration)
 

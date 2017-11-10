@@ -19,7 +19,6 @@
 	end_sound = "sound/effects/wind/wind_4_1.ogg" 
 	end_overlay = "snowfall_light"
 
-	area_type_s = "/area/away_mission/iceland/iceland_outside"
 	area_type = /area/away_mission/iceland/iceland_outside
 	target_z = 10
 
@@ -31,5 +30,5 @@
 	if(prob(30))
 		L.bodytemperature -= rand(10,50)
 		if(prob(5)) // cold protect (jackets) soon
-			L <<"<span class = 'danger'>You feel extremely cold unprotected from the harsh snowfall!</span>"
+			L <<"<span class = 'danger'>You feel chills as you remain unprotected in the snow!</span>"
 	return
