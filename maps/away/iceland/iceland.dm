@@ -10,6 +10,7 @@
 	var/dmm_suite/loader = new
 	while(huts)
 		loader.load_map(file("maps/away/iceland/iceland_buildings/hut1.dmm"), z_offset = zloc, x_offset = rand(10,40), y_offset = rand(10, 40), no_changeturf = TRUE)
+		huts--
 	qdel(loader)
 
 /area/away_mission/iceland/iceland_outside
