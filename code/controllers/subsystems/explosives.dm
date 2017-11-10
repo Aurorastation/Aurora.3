@@ -375,12 +375,14 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		//															want each one to take up a third of the crater
 
 
-		T.ex_act(severity)
+		if (T.simulated)
+			T.ex_act(severity)
 		if (T.contents.len > !!T.lighting_overlay)
 			for (var/subthing in T)
 				var/atom/movable/AM = subthing
-				AM.ex_act(severity)
-				movable_tally++
+				if (AM.simulated)
+					AM.ex_act(severity)
+					movable_tally++
 				CHECK_TICK
 		else
 			CHECK_TICK
