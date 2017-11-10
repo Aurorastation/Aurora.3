@@ -167,7 +167,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 		var/distance = get_dist(M, turf_source)
 		if(distance <= (world.view + extrarange) * 3)
 			var/turf/T = get_turf(M)
-			if(T && T.z == turf_source.z && (!is_ambience || M.client.prefs.toggles & SOUND_AMBIENCE) && (!is_footstep || M.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
+			if(T && AreConnectedZLevels(T.z, turf_source.z) && (!is_ambience || M.client.prefs.toggles & SOUND_AMBIENCE) && (!is_footstep || M.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
 				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment, S)
 
 var/const/FALLOFF_SOUNDS = 0.5
@@ -231,8 +231,8 @@ var/const/FALLOFF_SOUNDS = 0.5
 		S.x = dx
 		var/dz = turf_source.y - T.y // Hearing from infront/behind
 		S.z = dz
-		// The y value is for above your head, but there is no ceiling in 2d spessmens.
-		S.y = 1
+		// 3D sound, truly this is the future.
+		S.y = turf_source.z - T.z
 		S.falloff = (falloff ? falloff : FALLOFF_SOUNDS)
 
 	if(!is_global && environment != 0)
