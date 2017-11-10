@@ -36,19 +36,16 @@
 	return TRUE
 
 /obj/item/integrated_circuit/insert_slot/proc/insert(var/obj/item/O, var/mob/user)
-	for(var/next_type in allowed_types)
-		if(istype(O, next_type))
-			if(items_contained.len >= capacity)
-				to_chat(user, "<span class='warning'>\The [src] is too full to add [O].</span>")
-				return FALSE
-			items_contained += O
-			user.drop_item(O)
-			O.forceMove(src)
-			to_chat(user, "<span class='notice'>You add [O] to \the [src].</span>")
-			set_pin_data(IC_OUTPUT, 1, TRUE)
-			return TRUE
-		else
-			to_chat(user, "<span class='notice'>You can not add [O.type] to \the [src] because it is not \a [allowed_types[1]]</span>")
+	if(is_type_in_list(O, allowed_types))
+		if(items_contained.len >= capacity)
+			to_chat(user, "<span class='warning'>\The [src] is too full to add [O].</span>")
+			return FALSE
+		items_contained += O
+		user.drop_item(O)
+		O.forceMove(src)
+		to_chat(user, "<span class='notice'>You add [O] to \the [src].</span>")
+		set_pin_data(IC_OUTPUT, 1, TRUE)
+		return TRUE
 
 /obj/item/integrated_circuit/insert_slot/paper_tray
 	name = "paper tray"

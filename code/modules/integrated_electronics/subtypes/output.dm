@@ -371,25 +371,17 @@
 	stuff_to_print = null
 
 /obj/item/integrated_circuit/output/printer/do_work()
-	var/datum/integrated_io/info = inputs[1]
-	var/datum/integrated_io/paper_input = inputs[2]
+	var/obj/item/integrated_circuit/insert_slot/paper_tray/paper_source = get_pin_data_as_type(IC_INPUT, 2, /obj/item/)
 	var/obj/item/weapon/paper/paper_sheet = null
-	var/obj/item/paper_source = null
 	var/eject = get_pin_data(IC_INPUT, 3)
-
-	if(isweakref(paper_input.data))
-		paper_source = paper_input.data_as_type(/obj/item/)
-	var/obj/item/integrated_circuit/insert_slot/paper_tray/tray = paper_source
-
+	var/datum/integrated_io/info = inputs[1]
+	var/using_tray = istype(paper_source)
 	if(isweakref(info.data))
-		var/datum/d = info.data_as_type(/datum)
-		if(d)
-			stuff_to_print = "[d]"
+		stuff_to_print = "[get_pin_data_as_type(IC_INPUT, 1, /datum/)]"
 	else
 		stuff_to_print = info.data
-
-	if(istype(tray))
-		paper_sheet = tray.get_item(FALSE)
+	if(using_tray)
+		paper_sheet = paper_source.get_item(FALSE)
 	if(istype(paper_source, /obj/item/weapon/paper))
 		paper_sheet = paper_source
 	if(paper_sheet)
@@ -398,9 +390,13 @@
 			paper_sheet.set_content(null, copytext(stuff_to_print, 1, MAX_PAPER_MESSAGE_LEN))
 			stuff_to_print = copytext(stuff_to_print, MAX_PAPER_MESSAGE_LEN)
 			if(stuff_to_print || eject)
-				paper_sheet = tray.get_item(TRUE)
+				paper_sheet = paper_source.get_item(TRUE)
 				audible_message("<span class='notice'>\The [src] buzzes and spits out a sheet of paper.</span>")
 				paper_sheet.forceMove(get_turf(src))
-				paper_sheet = tray.get_item(FALSE)
+				if(using_tray)
+					paper_sheet = paper_source.get_item(FALSE)
+					if(!paper_sheet)
+						audible_message("<span class='notice'>\The [src] beeps, out of paper.</span>")
+						return
 	else
 		audible_message("<span class='notice'>\The [src] beeps, out of paper.</span>")
