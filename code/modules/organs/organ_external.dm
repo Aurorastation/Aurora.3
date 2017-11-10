@@ -60,7 +60,12 @@
 	var/can_stand
 	var/body_hair
 	var/painted = 0
-	var/list/markings = list()         // Markings (body_markings) to apply to the icon
+	var/list/genetic_markings         // Markings (body_markings) to apply to the icon
+	var/list/temporary_markings	// Same as above, but not preserved when cloning
+	var/list/cached_markings	// The two above lists cached for perf. reasons.
+
+/obj/item/organ/external/proc/invalidate_marking_cache()
+	cached_markings = null
 
 /obj/item/organ/external/Destroy()
 	if(parent && parent.children)
