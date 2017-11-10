@@ -65,8 +65,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	QDEL_NULL(maploader)
 	if(config.awaymissions && prob(config.awaymissionsprob))
-		spawn(0)
-			find_away_mission()
+		find_away_mission()
 	..()
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
