@@ -64,7 +64,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 	setup_multiz()
 
 	QDEL_NULL(maploader)
-
+	if(config.awaymissions && prob(config.awaymissionsprob))
+		find_away_mission()
 	..()
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
@@ -174,3 +175,31 @@ var/datum/controller/subsystem/atlas/SSatlas
 /proc/commstation_name()
 	ASSERT(current_map)
 	return current_map.dock_name
+
+/datum/controller/subsystem/atlas/proc/find_away_mission()
+	var/list/away_maps = list()
+	var/datum/away_map/M
+	for (var/type in subtypesof(/datum/away_map))
+		M = new type
+		if (!M.path)
+			log_debug("SSaway: Map [M.name] ([M.type]) has no path set, discarding.")
+			qdel(M)
+			continue
+
+		away_maps[M] = M
+	var/datum/away_map/X = pick(away_maps)
+	var/datum/away_map/map_used = X.path
+	var/dmm_suite/loader = new
+	loader.load_map(file("maps/away/[map_used]/[map_used].dmm"), no_changeturf = TRUE)
+	qdel(loader)
+	X.zloc = world.maxz
+	X.handle_random_gen()
+	world << "loaded [map_used]"
+	for(var/V in SSweather.existing_weather)
+		var/datum/weather/WE = V
+		if(WE.area_type_s != "/area/away_mission/[map_used]/[map_used]_outside") 
+			continue
+		WE.target_z = world.maxz
+		if(!(world.maxz in SSweather.eligible_zlevels))
+			SSweather.make_z_eligible(world.maxz)
+	return 1

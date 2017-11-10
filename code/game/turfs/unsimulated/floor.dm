@@ -8,7 +8,6 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
 	footstep_sound = "grassstep"
-	temperature = T0C
 
 /turf/unsimulated/mask
 	name = "mask"

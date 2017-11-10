@@ -212,10 +212,14 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
 	footstep_sound = "gravelstep"
+	temperature = T0C // cold
 
 /turf/simulated/floor/snow/Initialize()
 	. = ..()
 	icon_state = pick("snow[rand(1,12)]","snow0")
+
+/turf/simulated/floor/snow/attackby() // no snow platings...
+	return
 
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/snow.dmi'

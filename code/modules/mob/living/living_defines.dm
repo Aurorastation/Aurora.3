@@ -56,6 +56,8 @@
 	var/underdoor //Used for mobs that can walk through maintenance hatches - drones, pais, and spiderbots
 	var/life_tick = 0      // The amount of life ticks that have processed on this mob.
 
+	var/list/weather_immunities = list()
+
 
 	//These values are duplicated from the species datum so we can handle things on a per-mob basis, allows for chemicals to affect them
 	var/stamina = 0

@@ -1,4 +1,5 @@
-#define SS_INIT_MAPLOAD            22	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
+#define SS_INIT_BEFORE_MAPLOAD     23	// Loads weather. Proper away mission loading requires weather to be set up before atlas.
+#define SS_INIT_MAPLOAD            22	// DMM parsing and load. Unless you know what you're doing, make sure this remains first/close to first.
 #define SS_INIT_JOBS               21
 #define SS_INIT_MISC_FIRST         20
 #define SS_INIT_SEEDS              19	// Plant controller setup.

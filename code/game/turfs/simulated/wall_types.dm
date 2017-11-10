@@ -24,6 +24,17 @@
 	smooth = SMOOTH_TRUE
 	icon_state = "cult"
 
+/turf/simulated/wall/thickice
+	name = "ice wall"
+	desc = "An extremely thick ice wall. No way through this one."
+	icon = 'icons/turf/wall_masks.dmi'
+	icon_state = "thickice"
+
+/turf/simulated/wall/thickice/attackby()
+	return
+/turf/simulated/wall/thickice/ex_act()
+	return
+
 /turf/simulated/wall/rusty
 	icon_state = "arust"
 
