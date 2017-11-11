@@ -25,19 +25,24 @@
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/gin = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/fireball = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/rum = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/wine = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/whitewine = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/kahlua = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/victorygin = 2,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/boukha = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/orangejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cream = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/tonic = 8,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cola = 5,
@@ -52,7 +57,8 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/bluecuracao = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe = 2,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine = 5,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreusegreen = 5,/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreuseyellow =5,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreusegreen = 5,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreuseyellow =5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/bitters = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/mintsyrup = 5,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cremewhite = 4,
@@ -61,8 +67,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cremeyvette = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/xuizijuice = 8,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine = 2,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/victorygin = 2
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine = 2
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 10
