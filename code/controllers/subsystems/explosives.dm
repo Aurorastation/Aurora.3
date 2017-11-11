@@ -9,7 +9,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 // nothing could go wrong -- Lohikar
 /datum/controller/subsystem/explosives
 	name = "Explosives"
-	wait = 5
+	wait = 1
 	flags = SS_NO_INIT | SS_BACKGROUND | SS_POST_FIRE_TIMING
 	priority = SS_PRIORITY_EXPLOSIVES
 
@@ -216,6 +216,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		if(Array)
 			Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range,took)
 
+// All the vars used on the turf should be on unsimulated turfs too, we just don't care about those generally.
 #define SEARCH_DIR(dir) \
 	search_direction = dir;\
 	search_turf = get_step(current_turf, search_direction);\
@@ -282,7 +283,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		current_turf = turf_queue[index]
 		origin_direction = dir_queue[index]
 		current_power = power_queue[index]
-		index++
+		++index
 
 		if (!istype(current_turf) || current_power <= 0)
 			CHECK_TICK
@@ -295,9 +296,12 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		explosion_turfs[current_turf] = current_power
 		current_power -= current_turf.explosion_resistance
 
-		for (var/obj/O in current_turf)
-			if (O.explosion_resistance)
-				current_power -= O.explosion_resistance
+		// Attempt to shortcut on empty tiles: if a turf only has a LO on it, we don't need to check object resistance. Some turfs might not have LOs, so we need to check it actually has one.
+		if (current_turf.contents.len > !!current_turf.lighting_overlay)
+			for (var/thing in current_turf)
+				var/atom/movable/AM = thing
+				if (AM.simulated && AM.explosion_resistance)
+					current_power -= AM.explosion_resistance
 
 		if (current_power <= 0)
 			CHECK_TICK
@@ -327,6 +331,10 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		var/turf/T = isturf(M.loc) ? M.loc : get_turf(M)
 
 		if (!T)
+			CHECK_TICK
+			continue
+
+		if (!ARE_Z_CONNECTED(T.z, epicenter.z))
 			CHECK_TICK
 			continue
 
@@ -374,14 +382,14 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		//															One third because there are three power levels and I
 		//															want each one to take up a third of the crater
 
-
 		if (T.simulated)
+			INVOKE_ASYNC(T, /atom/.proc/ex_act, severity)
 			T.ex_act(severity)
 		if (T.contents.len > !!T.lighting_overlay)
 			for (var/subthing in T)
 				var/atom/movable/AM = subthing
 				if (AM.simulated)
-					AM.ex_act(severity)
+					INVOKE_ASYNC(AM, /atom/.proc/ex_act, severity)
 					movable_tally++
 				CHECK_TICK
 		else

@@ -86,3 +86,6 @@
 
 // Connection prefixes for player-editable fields
 #define WP_ELECTRONICS "elec_"
+
+// -- SSatlas --
+#define ARE_Z_CONNECTED(ZA, ZB) ((ZA == ZB) || ((SSatlas.connected_z_cache.len >= ZA && SSatlas.connected_z_cache[ZA]) ? SSatlas.connected_z_cache[ZA][ZB] : AreConnectedZLevels(ZA, ZB)))

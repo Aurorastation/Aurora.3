@@ -27,11 +27,8 @@
 	d.rec_pow = power
 	SSexplosives.queue(d)
 
-/obj
-	var/explosion_resistance
-
-/turf
-	var/explosion_resistance
+/atom
+	var/explosion_resistance 
 
 /turf/space
 	explosion_resistance = 3

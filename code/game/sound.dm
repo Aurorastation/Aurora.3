@@ -167,7 +167,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 		var/distance = get_dist(M, turf_source)
 		if(distance <= (world.view + extrarange) * 3)
 			var/turf/T = get_turf(M)
-			if(T && AreConnectedZLevels(T.z, turf_source.z) && (!is_ambience || M.client.prefs.toggles & SOUND_AMBIENCE) && (!is_footstep || M.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
+			if(T && ARE_Z_CONNECTED(T.z, turf_source.z) && (!is_ambience || M.client.prefs.toggles & SOUND_AMBIENCE) && (!is_footstep || M.client.prefs.asfx_togs & ASFX_FOOTSTEPS))
 				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment, S)
 
 var/const/FALLOFF_SOUNDS = 0.5
