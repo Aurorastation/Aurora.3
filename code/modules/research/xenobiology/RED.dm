@@ -282,7 +282,6 @@ There is also a non-destrutive option, but... It's not as fun.
 			var/mob/B
 			B = new T
 			B.loc = src
-			//B.apple_damage()
 		if(SCAN_CONVERT_ORIGIN)
 			T.monkeyize()
 			spitmob()
@@ -308,6 +307,7 @@ There is also a non-destrutive option, but... It's not as fun.
 
 /obj/machinery/red/proc/produce_sample(var/mob/T, var/details)
 	var/obj/item/red_sample/B = new /obj/item/red_sample
+	B.scan_completed = details
 	B.mobDNA = T
 	B.set_origin()
 	B.loc = src.loc

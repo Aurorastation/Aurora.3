@@ -20,3 +20,20 @@
 	user << "You insert the [W] into the sample slot."
 	W.forceMove(src)
 	sample = W
+
+/obj/machinery/red_fab/topic(href, href_list)
+	if(!sample)
+		return
+	if(href_list["eject_sample"])
+		eject_sample()
+	if(href_list["convert_to_sample"])
+		convert_to_sample()
+	if(href_list["generate_item"])
+		generate_item()
+
+/obj/machinery/red_fab/proc/eject_sample()
+	sample.loc = src.loc
+	sample = null
+
+/obj/machinery/red_fab/proc/generate_item()
+

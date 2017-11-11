@@ -8,6 +8,7 @@
 	var/long_desc
 	var/extended_desc
 	var/mob_name
+	var/scan_completed
 
 /obj/item/red_sample/proc/set_origin()
 	if(!mobDNA)
