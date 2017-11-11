@@ -53,6 +53,12 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	var/obj/machinery/hologram/holopad/targetpad
 	var/last_message
 
+/obj/machinery/hologram/holopad/check_eye(mob/user)
+	if (user && user == caller_id)
+		return 0
+
+	return -1
+
 /obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
 	if(!istype(user))
 		return
@@ -109,8 +115,9 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 
 /obj/machinery/hologram/holopad/proc/take_call(mob/living/carbon/user)
 	incoming_connection = 0
+	caller_id.set_machine(src)
 	caller_id.reset_view(src)
-	if(!masters[caller_id])//If there is no hologram, possibly make one.
+	if(!masters[caller_id]) //If there is no hologram, possibly make one.
 		activate_holocall(caller_id)
 
 /obj/machinery/hologram/holopad/proc/end_call(mob/user)
@@ -119,19 +126,21 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		caller_id.reset_view() //Send the caller back to his body
 		clear_holo(null, caller_id) // destroy the hologram
 		caller_id = null
+
 	if(user)
 		user.unset_machine()
 		user.reset_view() //Send the caller back to his body
 		clear_holo(null, user) // destroy the hologram
 		user = null
+
 /obj/machinery/hologram/holopad/proc/activate_holocall(mob/living/carbon/caller_id)
 	if(caller_id)
-		create_holo(0,caller_id)//Create one.
-		src.visible_message("A holographic image of [caller_id] flicks to life right before your eyes!")
+		create_holo(0, caller_id)//Create one.
+		visible_message("A holographic image of [caller_id] flicks to life right before your eyes!")
 	else
 		to_chat(caller_id, "<span class='danger'>ERROR:</span> Unable to project hologram.")
 	return
-	
+
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/ai/user)
 	if (!istype(user))
 		return
@@ -223,16 +232,14 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(hacked == 0)
 		var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
 		if(caller_id)
-			var/tempicon = 0
-			for(var/datum/data/record/t in data_core.locked)
-				if(t.fields["name"] == caller_id.name)
-					tempicon = t.fields["image"]
+			var/tempicon = getFlatIcon(caller_id)
+
 			hologram.name = "[caller_id.name] (Hologram)"
 			hologram.loc = get_step(src,1)
 			masters[caller_id] = hologram
-			add_overlay(getHologramIcon(icon(tempicon))) // Add the callers image as an overlay to keep coloration!
+			hologram.icon = getHologramIcon(icon(tempicon)) // Add the callers image as an overlay to keep coloration!
 		else
-			add_overlay(A.holo_icon)  // Add the AI's configured holo Icon
+			hologram.icon = A.holo_icon // Add the AI's configured holo Icon
 			hologram.name = "[A.name] (Hologram)"//If someone decides to right click.
 			A.holo = src
 			masters[A] = hologram
@@ -253,14 +260,14 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		A.holo = src
 		return 1
 
-/obj/machinery/hologram/holopad/proc/clear_holo(mob/living/silicon/ai/user, mob/living/carbon/caller_id)
+/obj/machinery/hologram/holopad/proc/clear_holo(mob/living/silicon/ai/user, mob/living/carbon/call_user)
 	if(user)
 		qdel(masters[user])//Get rid of user's hologram
 		user.holo = null
 		masters -= user //Discard AI from the list of those who use holopad
-	if(caller_id)
-		qdel(masters[caller_id])//Get rid of user's hologram
-		masters -= caller_id //Discard the caller from the list of those who use holopad
+	if(call_user)
+		qdel(masters[call_user]) //Get rid of user's hologram
+		masters -= call_user //Discard the caller from the list of those who use holopad
 	if (!masters.len)//If no users left
 		set_light(0)			//pad lighting (hologram lighting will be handled automatically since its owner was deleted)
 		icon_state = "holopad0"
@@ -289,7 +296,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			sourcepad.audible_message("<i><span class='game say'>The holopad connection timed out</span></i>")
 			sourcepad = 0
 	if (caller_id && sourcepad)
-		if(caller_id.loc!=sourcepad.loc)
+		if(caller_id.loc != sourcepad.loc)
 			sourcepad.visible_message("Severing connection to distant holopad.")
 			visible_message("The connection has been terminated by [caller_id].")
 			end_call()
