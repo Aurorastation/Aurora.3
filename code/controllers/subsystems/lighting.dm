@@ -28,6 +28,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/total_ss_updates = 0
 	var/total_instant_updates = 0
 
+	var/adder_threshold = 2 //Debug var. Generally set to 2.
+
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 	var/force_queued = TRUE
 	var/force_override = FALSE	// For admins.
@@ -80,7 +82,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 			if (!A.dynamic_lighting)
 				continue
 
-			new /atom/movable/lighting_overlay(T)
+			new /atom/movable/lighting/multiplier(T)
 			overlaycount++
 
 			CHECK_TICK
@@ -164,14 +166,14 @@ var/datum/controller/subsystem/lighting/SSlighting
 		MC_SPLIT_TICK
 
 	while (oq_idex <= curr_overlays.len)
-		var/atom/movable/lighting_overlay/O = curr_overlays[oq_idex++]
+		var/atom/movable/lighting/O = curr_overlays[oq_idex++]
 
 		if (!QDELETED(O) && O.needs_update)
 			O.update_overlay()
 			O.needs_update = FALSE
 
 			processed_overlays++
-		
+
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)

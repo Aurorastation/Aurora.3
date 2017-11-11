@@ -5,7 +5,8 @@
 	var/tmp/lighting_corners_initialised = FALSE
 
 	var/tmp/list/datum/light_source/affecting_lights       // List of light sources affecting this turf.
-	var/tmp/atom/movable/lighting_overlay/lighting_overlay // Our lighting overlay.
+	var/tmp/atom/movable/lighting/multiplier/lighting_overlay // Our lighting overlay.
+	var/tmp/atom/movable/lighting/adder/lighting_adder
 	var/tmp/list/datum/lighting_corner/corners
 	var/tmp/has_opaque_atom = FALSE // Not to be confused with opacity, this will be TRUE if there's any opaque atom on the tile.
 
@@ -51,7 +52,7 @@
 		if (!lighting_corners_initialised || !corners)
 			generate_missing_corners()
 
-		new /atom/movable/lighting_overlay(src)
+		new /atom/movable/lighting/multiplier(src)
 
 		for (var/datum/lighting_corner/C in corners)
 			if (!C.active) // We would activate the corner, calculate the lighting for it.
@@ -185,7 +186,7 @@
 /turf/proc/generate_missing_corners()
 	if (!dynamic_lighting && !light_sources)
 		return
-		
+
 	lighting_corners_initialised = TRUE
 	if (!corners)
 		corners = list(null, null, null, null)
@@ -204,6 +205,7 @@
 	var/old_dynamic_lighting = dynamic_lighting
 	var/list/old_affecting_lights = affecting_lights
 	var/old_lighting_overlay = lighting_overlay
+	var/old_lighting_adder = lighting_adder
 	var/list/old_corners = corners
 
 	. = ..()
@@ -218,7 +220,11 @@
 	if (lighting_overlay && lighting_overlay.loc != src)
 		// This is a hack, but I can't figure out why the fuck they're not on the correct turf in the first place.
 		lighting_overlay.forceMove(src, harderforce = TRUE)
-		
+
+	lighting_adder = old_lighting_adder
+	if (lighting_adder && lighting_adder.loc != src)
+		lighting_adder.forceMove(src, harderforce = TRUE)
+
 	affecting_lights = old_affecting_lights
 	corners = old_corners
 

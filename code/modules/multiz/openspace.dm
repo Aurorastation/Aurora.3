@@ -123,7 +123,7 @@ Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
 
 	return ..()
 
-/atom/movable/openspace/multiplier/proc/copy_lighting(atom/movable/lighting_overlay/LO)
+/atom/movable/openspace/multiplier/proc/copy_lighting(atom/movable/lighting/LO)
 	appearance = LO
 	plane = OPENTURF_CAP_PLANE
 	invisibility = 0
@@ -157,7 +157,7 @@ Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
 		// compile_overlays() calls update_above().
 		update_above()
 
-// Object used to hold a mimiced atom's appearance. 
+// Object used to hold a mimiced atom's appearance.
 /atom/movable/openspace/overlay
 	plane = OPENTURF_MAX_PLANE
 	var/atom/movable/associated_atom
@@ -207,7 +207,7 @@ Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
 	if (!destruction_timer)
 		destruction_timer = addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, src), 10 SECONDS, TIMER_STOPPABLE)
 
-// This one's a little different because it's mimicing a turf. 
+// This one's a little different because it's mimicing a turf.
 /atom/movable/openspace/turf_overlay
 	plane = OPENTURF_MAX_PLANE
 

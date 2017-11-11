@@ -162,7 +162,7 @@
 				// Don't queue deleted stuff or stuff that doesn't need an overlay.
 				continue
 
-			if (istype(object, /atom/movable/lighting_overlay))	// Special case.
+			if (istype(object, /atom/movable/lighting/multiplier))	// Special case.
 				T.shadower.copy_lighting(object)
 			else
 				if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.

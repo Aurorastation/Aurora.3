@@ -907,7 +907,7 @@ proc/generate_image(var/tx as num, var/ty as num, var/tz as num, var/range as nu
 	for(var/turf/T in turfstocapture)
 		atoms += T
 		for(var/atom/A in T)
-			if(istype(A, /atom/movable/lighting_overlay)) //Special case for lighting
+			if(istype(A, /atom/movable/lighting)) //Special case for lighting
 				continue
 
 			if(A.invisibility)

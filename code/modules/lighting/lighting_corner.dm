@@ -27,6 +27,11 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 	var/lum_b = 0
 	var/lum_u = 0	// UV Radiation, not visible.
 
+	var/add_r = 0
+	var/add_g = 0
+	var/add_b = 0
+	var/needs_add = FALSE
+
 	var/needs_update = FALSE
 
 	var/cache_r  = LIGHTING_SOFT_THRESHOLD
@@ -126,8 +131,11 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 	// Cache these values a head of time so 4 individual lighting overlays don't all calculate them individually.
 	var/mx = max(lum_r, lum_g, lum_b) // Scale it so 1 is the strongest lum, if it is above 1.
 	. = 1 // factor
+	needs_add = FALSE
 	if (mx > 1)
 		. = 1 / mx
+		// Overbright, use adding.
+		needs_add = TRUE
 
 	else if (mx < LIGHTING_SOFT_THRESHOLD)
 		. = 0 // 0 means soft lighting.
@@ -136,6 +144,14 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 	cache_g  = round(lum_g * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
 	cache_b  = round(lum_b * ., LIGHTING_ROUND_VALUE) || LIGHTING_SOFT_THRESHOLD
 	cache_mx = round(mx, LIGHTING_ROUND_VALUE)
+	if (needs_add)
+		add_r = min(max((lum_b - SSlighting.adder_threshold) * 0.5, 0), 0.3) //Adder threshhold declared in subsystems/lighting.dm
+		add_g = min(max((lum_b - SSlighting.adder_threshold) * 0.5, 0), 0.3)
+		add_b = min(max((lum_b - SSlighting.adder_threshold) * 0.5, 0), 0.3)
+	else
+		add_r = initial(add_r)
+		add_g = initial(add_g)
+		add_b = initial(add_b)
 
 	UPDATE_MASTER(t1)
 	UPDATE_MASTER(t2)

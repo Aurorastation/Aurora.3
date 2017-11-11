@@ -4,8 +4,8 @@ var/list/admin_verbs_lighting = list(
 	/client/proc/lighting_reconsider_target,
 	/client/proc/lighting_build_overlay,
 	/client/proc/lighting_clear_overlay,
-	/client/proc/lighting_toggle_profiling
-)
+	/client/proc/lighting_toggle_profiling,
+	/client/proc/lighting_adder_threshhold)
 
 /client/proc/lighting_show_verbs()
 	set category = "Debug"
@@ -78,7 +78,7 @@ var/list/admin_verbs_lighting = list(
 	set desc = "Clears a lighting overlay for a turf if it has one."
 
 	if (!check_rights(R_DEBUG|R_DEV)) return
-		
+
 	if (!T.lighting_overlay)
 		src << "That turf doesn't have a lighting overlay."
 		return
@@ -100,3 +100,16 @@ var/list/admin_verbs_lighting = list(
 
 	lighting_profiling = !lighting_profiling
 	log_and_message_admins("has [lighting_profiling ? "enabled" : "disabled"] lighting profiling.")
+
+/client/proc/lighting_adder_threshhold()
+	set category = "Lighting"
+	set name = "Change Bloom Threshold"
+	set desc = "Changes the threshhold at which the lighting adder becomes visible."
+
+	if (!check_rights(R_DEBUG|R_DEV)) return
+
+	if (alert("Change bloom threshhold?", "Threshhold change confirmation", "No", "No", "Yes") != "Yes")
+		return
+	else
+		input("What would you like to change the threshhold to?","Change bloom layer threshhold",SSlighting.adder_threshold) as num
+	log_and_message_admins("has changed the bloom thershhold to [SSlighting.adder_threshold].")

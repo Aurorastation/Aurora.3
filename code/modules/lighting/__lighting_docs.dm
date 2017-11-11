@@ -54,3 +54,8 @@
     minlum -> the low-bound of the scalar.
     maxlum -> the high-bound of the scalar.
 */
+
+/*
+Important note for future contributers: Bloom and "adder" are used interchangably. adder is used codewise,
+but "bloom" is used for user-oriented interactions. Please keep it that way.
+*/
