@@ -260,10 +260,15 @@ There is also a non-destrutive option, but... It's not as fun.
 		if(SCAN_DESTROY)
 			return "Destructive Analysis"
 		if(SCAN_CONVERT_ORIGIN)
+			return "Specimen Origin Conversion"
 		if(SCAN_NODESTROY)
+			return "Passive Scan"
 		if(SCAN_DNA_SAMPLE)
+			return "DNA Scan"
 		if(SAMPLE_CLONE)
-			return
+			return "Sample Clone"
+	return "Invalid scan type!"
+
 /obj/machinery/red/proc/complete_mob_analysis()
 	if(part_number != 5 && processing_status != 100)
 		return
@@ -277,6 +282,7 @@ There is also a non-destrutive option, but... It's not as fun.
 			var/mob/B
 			B = new T
 			B.loc = src
+			//B.apple_damage()
 		if(SCAN_CONVERT_ORIGIN)
 			T.monkeyize()
 			spitmob()
@@ -292,8 +298,6 @@ There is also a non-destrutive option, but... It's not as fun.
 		if(SCAN_NODESTROY)
 			produce_sample(T, SCAN_NODESTROY)
 			spitmob()
-		if(SAMPLE_CLONE)
-			return
 	mainpart.scan_type = SCAN_IDLE
 	return
 
@@ -370,7 +374,7 @@ There is also a non-destrutive option, but... It's not as fun.
 	if(!ismob(O))
 		user << "The machine smartly refuses to accept the non-living item."
 		return
-	if(ishuman(O) && !emagged  && !islesserform(user))
+	if(ishuman(O) && !emagged && !islesserform(user))
 		user << "The machines saftey mechanisms refuse to accept the [O]"
 		return
 	if(!mobinside)
