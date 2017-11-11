@@ -33,6 +33,9 @@
 /turf/space
 	explosion_resistance = 3
 
+/turf/simulated/open
+	explosion_resistance = 3
+
 /turf/simulated/floor
 	explosion_resistance = 1
 
