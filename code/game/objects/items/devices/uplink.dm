@@ -396,12 +396,12 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	flags = CONDUCT
 	w_class = 2
 
-/obj/item/device/contract_uplink/New()
+/obj/item/device/ninja_uplink/New()
 	..()
 	hidden_uplink = new(src)
 	hidden_uplink.uses = DEFAULT_TELECRYSTAL_AMOUNT
 	hidden_uplink.nanoui_menu = 1
 
-/obj/item/device/contract_uplink/attack_self(mob/user as mob)
+/obj/item/device/ninja_uplink/attack_self(mob/user as mob)
 	if (hidden_uplink)
 		hidden_uplink.trigger(user)
