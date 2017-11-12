@@ -74,42 +74,18 @@
 /obj/item/weapon/rig/light/ninja
 	name = "ominous suit control module"
 	suit_type = "ominous"
-	desc = "A unique, vaccum-proof suit of nano-enhanced armor designed specifically for infiltration missions."
+	desc = "A unique, vaccum-proof suit of nano-enhanced armor designed specifically for Spider Clan assassins."
 	icon_state = "ninja_rig"
-	armor = list(melee = 50, bullet = 30, laser = 30, energy = 10, bomb = 25, bio = 100, rad = 30)
-	emp_protection = 40
+	armor = list(melee = 50, bullet = 15, laser = 30, energy = 10, bomb = 25, bio = 100, rad = 30)
+	emp_protection = 40 //change this to 30 if too high.
 	slowdown = 0
 
 	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
 	glove_type = /obj/item/clothing/gloves/rig/light/ninja
-	boot_type = /obj/item/clothing/shoes/light/ninja
+	helm_type =  /obj/item/clothing/head/helmet/space/light/ninja
 
 	req_access = list(access_syndicate)
 
-	initial_modules = list(
-		/obj/item/rig_module/teleporter,
-		/obj/item/rig_module/vision,
-		/obj/item/rig_module/voice,
-		/obj/item/rig_module/ai_container,
-		/obj/item/rig_module/datajack,
-		/obj/item/rig_module/actuators/combat
-		)
-
-	..()
-
-/obj/item/clothing/shoes/light/ninja
-	name = "ominous boots"
-	silent = 1
-
-/obj/item/clothing/gloves/rig/light/ninja
-	name = "insulated gloves"
-	siemens_coefficient = 0
-
-/obj/item/clothing/suit/space/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph")
-	breach_threshold = 38 //comparable to regular hardsuits
-
-/obj/item/weapon/rig/light/ninja/equipped
 	initial_modules = list(
 		/obj/item/rig_module/teleporter,
 		/obj/item/rig_module/stealth_field,
@@ -125,7 +101,19 @@
 		/obj/item/rig_module/self_destruct,
 		/obj/item/rig_module/actuators/combat
 		)
+
 	..()
+
+/obj/item/clothing/gloves/rig/light/ninja
+	name = "insulated gloves"
+	siemens_coefficient = 0
+
+/obj/item/clothing/suit/space/rig/light/ninja
+	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
+	breach_threshold = 38 //comparable to regular hardsuits
+
+/obj/item/clothing/head/helmet/space/light/ninja
+	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 
 /obj/item/weapon/rig/light/stealth
 	name = "stealth suit control module"
