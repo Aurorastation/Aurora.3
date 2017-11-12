@@ -60,12 +60,12 @@
 
 /datum/uplink_item/item/ninja_modules/EMP_Shield
 	name = "Active EMP Shielding"
-	desc = "A very complicated module for a hardsuit that protect it to some degree from EMP's."
+	desc = "A very complicated module for a hardsuit that protects it to some degree from EMPs."
 	item_cost = 4
 	path = /obj/item/rig_module/emp_shielding
 
 /datum/uplink_item/item/ninja_modules/combat_injector
 	name = "Combat Injector"
-	desc = "A chemical injector that allows the user to inject themsleves with combat chemicals.."
+	desc = "A chemical injector that allows the user to inject themsleves with combat chemicals."
 	item_cost = 4
 	path = /obj/item/rig_module/chem_dispenser/combat
