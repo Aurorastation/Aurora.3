@@ -16,6 +16,7 @@
 	allowed_eat_types = TYPE_ORGANIC | TYPE_SYNTHETIC | TYPE_HUMANOID
 	mob_size = 14
 	fall_mod = 0
+	willpower = 80
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/unbreakable),
@@ -174,6 +175,7 @@
 	slowdown = 1
 	tail = "xenos_drone_tail"
 	rarity_value = 5
+	willpower = 60
 
 	icobase = 'icons/mob/human_races/xenos/r_xenos_drone.dmi'
 	deform =  'icons/mob/human_races/xenos/r_xenos_drone.dmi'
@@ -284,6 +286,7 @@
 	slowdown = 4
 	tail = "xenos_queen_tail"
 	rarity_value = 10
+	willpower = 220
 
 	icobase = 'icons/mob/human_races/xenos/r_xenos_queen.dmi'
 	deform =  'icons/mob/human_races/xenos/r_xenos_queen.dmi'

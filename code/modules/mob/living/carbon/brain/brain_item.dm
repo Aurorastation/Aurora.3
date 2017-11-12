@@ -16,6 +16,14 @@
 	var/mob/living/carbon/brain/brainmob = null
 	var/lobotomized = 0
 	var/can_lobotomize = 1
+	var/max_willpower = 20
+	var/willpower //willpower is related to psionics and psionic resistance. psions use it for powers, nonpsions use it to resist powers.
+	var/awoken = 0 //if they are awoken psions or not. the potential lurks in us all.
+	var/can_awake = 1//if they can ever awake, such as for robits and golems 'n shit
+	var/psy_rank = RANK_0
+	var/power_points //discipline points available left
+	var/discipline //what psionic discipline they follow
+	var/power_level = 1
 
 /obj/item/organ/pariah_brain
 	name = "brain remnants"
@@ -35,6 +43,13 @@
 /obj/item/organ/brain/Initialize(mapload)
 	. = ..()
 	health = config.default_brain_health
+	if(owner && owner.species)
+		max_willpower = owner.species.willpower
+		awoken = owner.species.awoken
+	if(max_willpower < 0)
+		awoken = 0
+		can_awake = 0
+	willpower = max_willpower
 	if (!mapload)
 		addtimer(CALLBACK(src, .proc/clear_screen), 5)
 
@@ -94,6 +109,8 @@
 
 /obj/item/organ/brain/proc/lobotomize(mob/user as mob)
 	lobotomized = 1
+	max_willpower = -1 //you can't use psionic powers but hey at least you're immune to most of them too.
+	willpower = 0
 
 	if(owner)
 		owner << "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>"
@@ -122,6 +139,73 @@
 
 	if(lobotomized && (owner.getBrainLoss() < 50)) //lobotomized brains cannot be healed with chemistry. Part of the brain is irrevocably missing. Can be fixed magically with cloning, ofc.
 		owner.setBrainLoss(50)
+
+	if(awoken)
+		check_on_psy()
+
+/obj/item/organ/brain/proc/check_on_psy()
+	switch(psy_rank)
+		if(RANK_0)
+			if(max_willpower >= RANK_1_WILL)
+				psy_level(2)
+		if(RANK_1)
+			if(max_willpower >= RANK_2_WILL)
+				power_level = 2
+				psy_level(4)
+		if(RANK_2)
+			if(max_willpower >= RANK_3_WILL)
+				power_level = 3
+				psy_level(6)
+		if(RANK_3)
+			if(max_willpower >= RANK_4_WILL)
+				power_level = 4
+				psy_level(8)
+		if(RANK_4)
+			if(max_willpower >= RANK_5_WILL)
+				power_level = 5
+				psy_level(10)
+
+/obj/item/organ/brain/proc/psy_level(var/rank)
+	var/list/discipline_list = list(COE,PSY,ENE,SUB)
+	if(!discipline)
+		discipline = input(owner,"Select a discipline. This choice is permanent.") as null|anything in discipline_list
+		to_chat(owner, "<span class='info'><b>[COE]:</b> The discipline of manipulating intelligent beings and their component organs. Its opposing discipline is [SUB].</span>")
+		to_chat(owner, "<span class='info'><b>[PSY]:</b> The discipline of manipulating material elements through physical force. Its opposing discipline is [ENE].</span>")
+		to_chat(owner, "<span class='info'><b>[ENE]:</b> The discipline of manipulating immaterial elements or material elements through non-physical force. Its opposing discipline is [PSY].</span>")
+		to_chat(owner, "<span class='info'><b>[SUB]:</b> The discipline of manipulating the world in ways to allow the user to go undetected. Its opposing discipline is [COE].</span>")
+	power_points += rank
+	var/list/spell/Powers = list()
+	for(var/spell/P in typesof(/spell))
+		if(P.school in discipline_list)
+			switch(discipline)
+				if(COE)
+					if(P.school == SUB)
+						continue
+				if(PSY)
+					if(P.school == ENE)
+						continue
+				if(ENE)
+					if(P.school == PSY)
+						continue
+				if(SUB)
+					if(P.school == COE)
+						continue
+			if(P.power_level > rank)
+				continue
+			if(P.power_level > 3 && P.school != discipline)
+				continue
+			if(P in owner.mind.learned_spells)
+				continue
+			if(P.school == discipline && P.power_level == 0)
+				owner.add_spell(P)
+				continue
+			Powers += P
+	for(var/i = 1 to power_points)
+		var/spell/P = input(owner,"Select a new psychic power to learn.") as null|anything in Powers
+		owner.add_spell(P)
+		power_points -= P.power_level
+		to_chat(owner, "<span class='info'><b>[P.name]:</b> [P.desc].</span>")
+
 
 /obj/item/organ/brain/slime
 	name = "slime core"

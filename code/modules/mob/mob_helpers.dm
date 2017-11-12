@@ -41,6 +41,11 @@
 		return 1
 	return 0
 
+/proc/ispsyworm(A)
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Urlamia"))
+		return 1
+	return 0
+
 /proc/istajara(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
@@ -1045,7 +1050,7 @@ proc/is_blind(A)
 				"donor" = WEAKREF(src),
 				"viruses" = null,
 				"species" = name,
-				"blood_DNA" = md5("\ref[src]"), 
+				"blood_DNA" = md5("\ref[src]"),
 				"blood_colour" = "#a10808",
 				"blood_type" = null,
 				"resistances" = null,

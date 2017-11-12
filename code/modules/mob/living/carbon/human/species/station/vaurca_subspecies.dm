@@ -66,6 +66,7 @@
 	sprint_speed_factor = 1
 	sprint_cost_factor = 0.80
 	stamina_recovery = 3
+	willpower = 80
 
 	spawn_flags = IS_RESTRICTED
 	flags = NO_SCAN | NO_SLIP

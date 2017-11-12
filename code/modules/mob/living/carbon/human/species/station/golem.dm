@@ -19,6 +19,7 @@
 	brute_mod = 0.5
 	slowdown = 1
 	virus_immune = 1
+	willpower = -1
 
 	warning_low_pressure = 50 //golems can into space now
 	hazard_low_pressure = 0

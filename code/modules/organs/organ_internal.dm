@@ -38,6 +38,9 @@
 			spawn owner.emote("me", 1, "gasps for air!")
 			owner.losebreath += 15
 
+/obj/item/organ/lungs/proc/handle_failed_breath()
+	return
+
 /obj/item/organ/kidneys
 	name = "kidneys"
 	icon_state = "kidneys"

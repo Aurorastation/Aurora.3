@@ -75,6 +75,8 @@
 					return
 				else
 					P.air_contents.adjust_gas("phoron", (0.5*removed))
+		if(ispsyworm(M))
+			return
 		else
 			..()
 	else

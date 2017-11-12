@@ -19,6 +19,7 @@
 	ethanol_resistance = -1 //no drunk skeletons
 	taste_sensitivity = TASTE_NUMB
 	breakcuffs = list(MALE,FEMALE,NEUTER)
+	willpower = -1
 
 	virus_immune = 1
 

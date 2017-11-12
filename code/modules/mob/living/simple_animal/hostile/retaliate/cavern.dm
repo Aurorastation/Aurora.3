@@ -61,6 +61,8 @@
 	damage_type = BURN
 	check_armour = "energy"
 	damage = 5
+	var/shock_damage_low = 10
+	var/shock_damage_high = 20
 
 	muzzle_type = /obj/effect/projectile/stun/muzzle
 	tracer_type = /obj/effect/projectile/stun/tracer
@@ -69,5 +71,5 @@
 /obj/item/projectile/beam/cavern/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target))
 		var/mob/living/carbon/human/M = target
-		var/shock_damage = rand(10,20)
+		var/shock_damage = rand(shock_damage_low,shock_damage_high)
 		M.electrocute_act(shock_damage)

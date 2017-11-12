@@ -560,32 +560,3 @@
 			G.affecting.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
 		else
 			qdel(G)
-
-/mob/living/carbon/human/proc/active_camo(var/moved = 0)
-	set category = "Abilities"
-	set name = "Active Camo"
-	set desc = "Camouflage yourself"
-
-	var/datum/modifier/cloaking_device/modifier = null
-
-	if (modifier)
-		modifier.stop(1)
-		modifier = null
-		anim(get_turf(src), src,'icons/mob/species/psy_worm/effects.dmi',,"uncloak",,src.dir)
-		visible_message("<span class='danger'>\The [src] fades out of invisibility with a hiss.</span>")
-	else
-		if(!moved)
-			anim(get_turf(src), src,'icons/mob/species/psy_worm/effects.dmi',,"cloak",,src.dir)
-			modifier = src.add_modifier(/datum/modifier/cloaking_device, MODIFIER_ITEM, src, override = MODIFIER_OVERRIDE_NEIGHBOR, _check_interval = 30)
-			visible_message("<span class='danger'>\The [src]'s flesh flashes a number of vibrant colors before fading to match the background perfectly!</span>")
-			apply_effect(2, STUN, 0)
-
-/mob/living/carbon/human/proc/change_colour()
-	set category = "Abilities"
-	set name = "Change Colour"
-	set desc = "Choose the colour of your skin."
-
-	var/new_skin = input(usr, "Choose your new skin colour: ", "Change Colour", rgb(r_skin, g_skin, b_skin)) as color|null
-	change_skin_color(hex2num(copytext(new_skin, 2, 4)), hex2num(copytext(new_skin, 4, 6)), hex2num(copytext(new_skin, 6, 8)))
-	anim(get_turf(src), src,'icons/mob/species/psy_worm/effects.dmi',,"rainbow",,src.dir)
-	visible_message("<span class='danger'>\The [src]'s flesh flashes a number of vibrant colors before settling on a new hue!</span>")

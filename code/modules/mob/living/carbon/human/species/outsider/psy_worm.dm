@@ -1,12 +1,12 @@
 /datum/species/psy_worm
 
 	name = "Urlamia"
-	name_plural = "Urlamian"
+	name_plural = "Urlamians"
 	short_name = "url"
 	blurb = "The Urlamian brood is a species of large serpentine sentients native and found almost exclusively within the Dagon system. They are extremely long-lived \
 	thanks to both their natural physiology and their tendency to enter into hibernative sleep for sustained periods of time - lasting from decades to centuries. Their minds \
 	develop extraordinarily throughout their lifespan - unlike other species the Urlamian brain never stops growing and expanding, and as a result they are often rumoured \
-	to have legendary psionic powers by the end of their life. Their society is a solitary one, and their species is low in numbers despite their \
+	to have legendary mental powers by the end of their life. Their society is a solitary one, and their species is low in numbers despite their \
 	long life due to their tendency against breeding except once or twice in their lifetime. Almost by a rule they are haughty, imperious, covetous, and more than a \
 	little suspicious of their fellow broodmates. They are loathe to travel and tend to keep to their own little worlds within Dagon, feuding between themselves and \
 	ignoring the rest of the galaxy at large. The number one cause of death amongst Urlamians is not old age or accidental death, but instead political assassination \
@@ -23,6 +23,7 @@
 	blood_color = "#525252"
 	flesh_color = "#525252"
 	mob_size	= MOB_LARGE
+	reagent_tag = IS_UNATHI //effectively IS_CARNIVORE
 
 	default_language = "Ceti Basic"
 	language = "Cambion"
@@ -31,17 +32,16 @@
 	name_language = "Cambion"
 
 	brute_mod = 0.85
-	burn_mod = 1.1
-	oxy_mod = 1
 	toxins_mod = 0.85
 	radiation_mod = 0.2
 	darksight = 8
 	breakcuffs = list(MALE,FEMALE,NEUTER)
+	willpower = 100
+	awoken = 1
 
 	heat_level_1 = 560 //Default 360 - Higher is better
 	heat_level_2 = 600 //Default 400
 	heat_level_3 = 1200 //Default 1000
-	passive_temp_gain = 0		                  // Species will gain this much temperature every second
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 
@@ -63,8 +63,6 @@
 	inherent_verbs = list(
 		/mob/living/proc/devour,
 		/mob/living/carbon/human/proc/regurgitate,
-		/mob/living/carbon/human/proc/change_colour,
-		/mob/living/carbon/human/proc/active_camo
 	)
 
 	flags = NO_SLIP
@@ -78,40 +76,48 @@
 
 	has_organ = list(
 		"heart" =    /obj/item/organ/heart,
-		"lungs" =    /obj/item/organ/lungs,
-		"liver" =    /obj/item/organ/liver,
 		"kidneys" =  /obj/item/organ/kidneys,
-		"brain" =    /obj/item/organ/brain,
 		"appendix" = /obj/item/organ/appendix,
-		"eyes" =     /obj/item/organ/eyes
+		"eyes" =     /obj/item/organ/eyes,
+		"tracheae" = /obj/item/organ/lungs/psy_worm,
+		"phoron sac" = /obj/item/organ/psy_chem,
+		"chemical reactor" = /obj/item/organ/liver/psy_worm,
+		"photoreceptor cluster" = /obj/item/organ/psy_camo,
+		"illuminated cortex" = /obj/item/organ/brain/psy_worm
 		)
-	//vision_organ =
-	//breathing_organ =
+	breathing_organ = "tracheae"
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest),
-		"groin" =  list("path" = /obj/item/organ/external/groin),
-		"head" =   list("path" = /obj/item/organ/external/head),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right),
-		"l_hand" = list("path" = /obj/item/organ/external/hand),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right),
-		"l_foot" = list("path" = /obj/item/organ/external/foot),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right)
+		"chest" =  list("path" = /obj/item/organ/external/chest/psy_worm),
+		"groin" =  list("path" = /obj/item/organ/external/groin/psy_worm),
+		"head" =   list("path" = /obj/item/organ/external/head/psy_worm),
+		"l_arm" =  list("path" = /obj/item/organ/external/arm/psy_worm),
+		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/psy_worm),
+		"l_leg" =  list("path" = /obj/item/organ/external/leg/psy_worm),
+		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/psy_worm),
+		"l_hand" = list("path" = /obj/item/organ/external/hand/psy_worm),
+		"r_hand" = list("path" = /obj/item/organ/external/hand/right/psy_worm),
+		"l_foot" = list("path" = /obj/item/organ/external/foot/psy_worm),
+		"r_foot" = list("path" = /obj/item/organ/external/foot/right/psy_worm)
 		)
+
+	bump_flag = HEAVY
+	push_flags = ALLMOBS
+	swap_flags = ALLMOBS
 
 /datum/species/psy_worm/handle_movement_delay_special(var/mob/living/carbon/human/H)
 	var/tally = 0
 
-	H.active_camo(1)
+	var/obj/item/organ/C = H.internal_organs_by_name["photoreceptor cluster"]
+	if(istype(C,/obj/item/organ/psy_camo))
+		var/obj/item/organ/psy_camo/PW = C
+		PW.active_camo(1)
 
-	var/obj/item/organ/internal/B = H.internal_organs_by_name["illuminated cortex"]
-	if(istype(B,/obj/item/organ/internal/brain/psy_worm))
-		var/obj/item/organ/internal/brain/psy_worm/PW = B
+	var/obj/item/organ/B = H.internal_organs_by_name["brain"]
+	if(istype(B,/obj/item/organ/brain/psy_worm))
+		var/obj/item/organ/brain/psy_worm/PW = B
 
 		tally += PW.lowblood_tally
-		tally += PW.psi_feedback
+		//tally += PW.psi_feedback
 
 	return tally

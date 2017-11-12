@@ -22,7 +22,10 @@ Basically: I can use it to target things where I click. I can then pass these ta
 /obj/item/magic_hand/attack() //can't be used to actually bludgeon things
 	return 1
 
-/obj/item/magic_hand/afterattack(atom/A, mob/living/user)
+/obj/item/magic_hand/afterattack(atom/A, mob/living/user, proximity)
+	if(hand_spell.touch && !proximity)
+		user << "<span class='warning'>This spell functions only via touch!</span>"
+		return
 	if(!hand_spell) //no spell? Die.
 		user.drop_from_inventory(src)
 

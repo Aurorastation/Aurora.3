@@ -1161,5 +1161,55 @@ var/list/wall_items = typecacheof(list(
 			user << "<span class='notice'>You need to be holding [src] to do that.</span>"
 		return USE_FAIL_NOT_IN_USER
 
+/proc/iswrench(var/atom/A)
+	if(istype(A, /obj/item/weapon/wrench))
+		return 1
+	return 0
+
+/proc/isscrewdriver(var/atom/A)
+	if(istype(A, /obj/item/weapon/screwdriver))
+		return 1
+	return 0
+
+/proc/iswirecutter(var/atom/A)
+	if(istype(A, /obj/item/weapon/wirecutters))
+		return 1
+	return 0
+
+/proc/ismultitool(var/atom/A)
+	if(istype(A, /obj/item/device/multitool))
+		return 1
+	return 0
+
+/proc/iscrowbar(var/atom/A)
+	if(istype(A, /obj/item/weapon/crowbar))
+		return 1
+	return 0
+
+/obj/item/proc/iswrench(var/atom/A)
+	if(istype(A, /obj/item/weapon/wrench))
+		return 1
+	return 0
+
+/obj/item/proc/isscrewdriver(var/atom/A)
+	if(istype(A, /obj/item/weapon/screwdriver))
+		return 1
+	return 0
+
+/obj/item/proc/iswirecutter(var/atom/A)
+	if(istype(A, /obj/item/weapon/wirecutters))
+		return 1
+	return 0
+
+/obj/item/proc/ismultitool(var/atom/A)
+	if(istype(A, /obj/item/device/multitool))
+		return 1
+	return 0
+
+/obj/item/proc/iscrowbar(var/atom/A)
+	if(istype(A, /obj/item/weapon/crowbar))
+		return 1
+	return 0
+
 #undef NOT_FLAG
 #undef HAS_FLAG

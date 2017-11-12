@@ -69,6 +69,7 @@
 	rarity_value = 3
 	breakcuffs = list(MALE)
 	mob_size = 10
+	willpower = 10
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
 	system, which roughly translates to 'burning mother'. A relatively recent addition to the galactic stage, they \
@@ -200,6 +201,7 @@
 	eyes = "skrell_eyes_s"
 	primitive_form = "Neaera"
 	unarmed_types = list(/datum/unarmed_attack/punch)
+	willpower = 40
 
 	blurb = "An amphibious species, Skrell come from the star system known as Nralakk, coined 'Jargon' by \
 	humanity.<br><br>Skrell are a highly advanced, ancient race who place knowledge as the highest ideal. \

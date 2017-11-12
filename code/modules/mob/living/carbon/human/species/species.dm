@@ -73,6 +73,8 @@
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
 	var/eyes_are_impermeable = FALSE         // If TRUE, this species' eyes are not damaged by phoron.
 	var/list/breakcuffs = list()                      //used in resist.dm to check if they can break hand/leg cuffs
+	var/willpower = 20                       // The amount of psionic willpower they start out with. -1 if they are immune to psionic powers.
+	var/awoken = 0                           //Boolean for whether they start with psionic powers or not.
 
 	// Death vars.
 	var/meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/human

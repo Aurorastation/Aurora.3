@@ -6,6 +6,7 @@
 	var/move_delay
 	var/click_delay
 	var/hand_state = "magic"
+	var/touch = 0 //if touch, spell can only be cast in melee range.
 
 /spell/hand/choose_targets(mob/user = usr)
 	return list(user)

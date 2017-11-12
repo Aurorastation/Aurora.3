@@ -378,7 +378,6 @@
 		if(check_pressure < ONE_ATMOSPHERE / 5 || check_pressure > ONE_ATMOSPHERE * 5)
 			if(!is_lung_ruptured() && prob(5))
 				rupture_lung()
-
 	return breath
 
 /mob/living/carbon/human/handle_breath(datum/gas_mixture/breath)
@@ -391,6 +390,7 @@
 			rupture_lung()
 
 	//check if we actually need to process breath
+	var/obj/item/organ/lungs/L = null
 	if(!breath || (breath.total_moles == 0))
 		failed_last_breath = 1
 		if(health > config.health_threshold_crit)
@@ -399,13 +399,16 @@
 			adjustOxyLoss(HUMAN_CRIT_MAX_OXYLOSS)
 
 		oxygen_alert = max(oxygen_alert, 1)
+		if (species.breathing_organ)
+			L = internal_organs_by_name["lungs"]
+			if(L)
+				L.handle_failed_breath()
 		return 0
 
 	var/safe_pressure_min = species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
 
 	// Lung damage increases the minimum safe pressure.
 	var/handle_lungs = 0
-	var/obj/item/organ/L = null
 	if (species.breathing_organ)
 		L = internal_organs_by_name[species.breathing_organ]
 		handle_lungs = TRUE
