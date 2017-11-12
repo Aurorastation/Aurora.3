@@ -6641,16 +6641,14 @@
 /obj/machinery/turretid/stun{
 	ailock = 1;
 	check_synth = 1;
-	control_area = "\improper Telecoms Foyer";
+	control_area = null;
 	desc = "A firewall prevents AIs from interacting with this device.";
 	name = "Telecoms Foyer turret control";
 	pixel_y = 29;
 	req_access = list(61)
 	},
 /turf/simulated/floor/tiled,
-/area/turret_protected/tcomfoyer{
-	name = "Telecoms Foyer"
-	})
+/area/turret_protected/tcomfoyer)
 "md" = (
 /obj/structure/sign/electricshock,
 /turf/simulated/wall/r_wall,
@@ -6690,7 +6688,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/tcomsat)
+/area/turret_protected/tcomfoyer)
 "mg" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -31890,10 +31888,10 @@ dT
 cM
 de
 dA
-bg
+kA
 mf
-bg
-bg
+kA
+kA
 kA
 bc
 mE
@@ -45315,7 +45313,7 @@ ag
 ag
 Df
 Du
-DM
+Ec
 Ec
 Ev
 EO
