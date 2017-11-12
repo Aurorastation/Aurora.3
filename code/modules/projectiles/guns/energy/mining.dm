@@ -117,7 +117,7 @@
 	if(mob_aoe)
 		for(var/mob/living/L in range(1, target_turf) - firer - target)
 			L.apply_damage(damage*mob_aoe, damage_type, def_zone, armor)
-			L << "<span class='userdanger'>You're struck by a [name]!</span>"
+			L << "<span class='danger'>You're struck by a [name]!</span>"
 
 
 //Modkits

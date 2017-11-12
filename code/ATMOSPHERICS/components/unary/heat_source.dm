@@ -27,8 +27,8 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
-/obj/machinery/atmospherics/unary/heater/New()
-	..()
+/obj/machinery/atmospherics/unary/heater/Initialize()
+	. = ..()
 	initialize_directions = dir
 
 /obj/machinery/atmospherics/unary/heater/atmos_init()

@@ -24,7 +24,7 @@
 	charge_max = 300
 	invocation = "Bla'yo daya!"
 	invocation_type = SpI_SHOUT
-	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 3, Sp_POWER = 3)
+	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 4, Sp_POWER = 3)
 
 	range = 1
 
@@ -78,7 +78,11 @@
 						"health" = 120,
 						"melee_damage_lower" = 30,
 						"melee_damage_upper" = 30,
-						"resistance" = 2
+						"resistance" = 2,
+						"icon_state" = "bearfloor",
+						"icon_living" = "bearfloor",
+						"icon_dead" = "bearfloor_dead",
+						"desc" = "A large black bear."
 						)
 			return "Your bear has been upgraded from a cub to a whelp."
 		if(2)
@@ -87,7 +91,10 @@
 						"melee_damage_lower" = 35,
 						"melee_damage_upper" = 35,
 						"resistance" = 3,
-						"color" = "#d9d9d9" //basically we want them to look different enough that people can recognize it.
+						"icon_state" = "bear",
+						"icon_living" = "bear",
+						"icon_dead" = "bear_dead",
+						"desc" = "A large black bear."
 						)
 			return "Your bear has been upgraded from a whelp to an adult."
 		if(3)
@@ -96,7 +103,10 @@
 						"melee_damage_lower" = 40,
 						"melee_damage_upper" = 40,
 						"resistance" = 4,
-						"color" = "#8c8c8c"
+						"icon_state" = "snowbear",
+						"icon_living" = "snowbear",
+						"icon_dead" = "snowbear_dead",
+						"desc" = "A large polar bear."
 						)
 			return "Your bear has been upgraded from an adult to an alpha."
 		if(4)
@@ -105,6 +115,9 @@
 						"melee_damage_lower" = 45,
 						"melee_damage_upper" = 45,
 						"resistance" = 5,
-						"color" = "#0099ff"
+						"icon_state" = "combatbear",
+						"icon_living" = "combatbear",
+						"icon_dead" = "combatbear_dead",
+						"desc" = "A large brown armored bear."
 						)
 			return "Your bear is now worshiped as a god amongst bears."

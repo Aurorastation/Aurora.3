@@ -92,7 +92,7 @@ datum/preferences
 	var/unsanitized_jobs = ""
 
 	//Keeps track of preferrence for not getting any wanted jobs
-	var/alternate_option = 0
+	var/alternate_option = 2
 
 	var/used_skillpoints = 0
 	var/skill_specialization = null
@@ -126,7 +126,7 @@ datum/preferences
 
 	// SPAAAACE
 	var/parallax_speed = 2
-	var/parallax_togs = PARALLAX_SPACE | PROGRESS_BARS
+	var/parallax_togs = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS
 
 	var/list/pai = list()	// A list for holding pAI related data.
 

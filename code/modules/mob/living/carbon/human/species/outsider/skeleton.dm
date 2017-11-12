@@ -41,13 +41,13 @@
 
 	remains_type = /obj/effect/decal/cleanable/ash
 
-	death_message = "collapses, their bones clattering in a symphony of demise."
+	death_message = "collapses, their bones clattering in a symphony of demise..."
 	death_sound = 'sound/effects/falling_bones.ogg'
 
 	breath_type = null
 	poison_type = null
 
-	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_MINOR_CUT
+	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_EMBED
 	spawn_flags = IS_RESTRICTED
 
 	has_limbs = list(
@@ -94,7 +94,7 @@
 
 	flesh_color = "#551A8B"
 
-	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_MINOR_CUT
+	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_EMBED
 	spawn_flags = IS_RESTRICTED
 
 	stamina	=	500			  //Tireless automatons

@@ -134,11 +134,7 @@ var/global/Holiday = null
 	if(!check_rights(R_SERVER))	return
 
 	Holiday = T
-	//get a new station name
-	station_name = null
-	station_name()
-	//update our hub status
-	world.update_status()
+
 	Holiday_Game_Start()
 
 	message_admins("<span class='notice'>ADMIN: Event: [key_name(src)] force-set Holiday to \"[Holiday]\"</span>")

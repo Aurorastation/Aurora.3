@@ -116,7 +116,7 @@ var/list/sacrificed = list()
 
 	if(!target) //didn't find any new targets
 		if(!converting.len)
-			fizzle()
+			fizzle(user)
 		else
 			user << "<span class='danger'>You sense that the power of the dark one is already working away at them.</span>"
 		return
@@ -179,6 +179,7 @@ var/list/sacrificed = list()
 					cult.add_antagonist(target.mind)
 					converting -= target
 					target.hallucination = 0 //sudden clarity
+					playsound(target, 'sound/effects/bloodcult.ogg', 100, 1)
 
 		sleep(100) //proc once every 10 seconds
 	return 1
@@ -187,7 +188,7 @@ var/list/sacrificed = list()
 
 /obj/effect/rune/proc/tearreality(var/mob/living/user)
 	if(!cult.allow_narsie)
-		return fizzle()
+		return fizzle(user)
 
 	var/list/cultists = new()
 	for(var/mob/M in range(1,src))
@@ -214,7 +215,7 @@ var/list/sacrificed = list()
 		user.say("Ta'gh fara[pick("'","`")]qha fel d'amar det!")
 	else
 		user.whisper("Ta'gh fara[pick("'","`")]qha fel d'amar det!")
-	playsound(U, 'sound/items/Welder2.ogg', 25, 1)
+	playsound(U, 'sound/magic/Disable_Tech.ogg', 25, 1)
 	var/turf/T = get_turf(U)
 	if(T)
 		T.hotspot_expose(700,125)
@@ -242,6 +243,7 @@ var/list/sacrificed = list()
 	user.visible_message("<span class='danger'>Blood flows from the rune into [user]!</span>", \
 	"<span class='danger'>The blood starts flowing from the rune and into your frail mortal body. You feel... empowered.</span>", \
 	"<span class='warning'>You hear a liquid flowing.</span>")
+	playsound(user, 'sound/magic/enter_blood.ogg', 100, 1)
 
 	if(user.bhunger)
 		user.bhunger = max(user.bhunger-2*drain,0)
@@ -325,7 +327,7 @@ var/list/sacrificed = list()
 			user << "<span class='warning'>The Geometer of Blood wants that corpse for himself.</span>"
 		else
 			user << "<span class='warning'>The sacrifical corpse is not dead. You must free it from this world of illusions before it may be used.</span>"
-		return fizzle()
+		return fizzle(user)
 
 	var/mob/dead/observer/ghost
 	for(var/mob/dead/observer/O in loc)
@@ -419,9 +421,8 @@ var/list/sacrificed = list()
 
 /obj/effect/rune/proc/manifest(var/mob/living/user)
 	var/obj/effect/rune/this_rune = src
-	src = null
 	if(user.loc!=this_rune.loc)
-		return this_rune.fizzle()
+		return this_rune.fizzle(user)
 	var/mob/dead/observer/ghost
 	for(var/mob/dead/observer/O in this_rune.loc)
 		if(!O.client)	continue
@@ -430,16 +431,16 @@ var/list/sacrificed = list()
 		ghost = O
 		break
 	if(!ghost)
-		return this_rune.fizzle()
+		return this_rune.fizzle(user)
 	if(jobban_isbanned(ghost, "cultist"))
-		return this_rune.fizzle()
+		return this_rune.fizzle(user)
 
 	user.say("Gal'h'rfikk harfrandid mud[pick("'","`")]gib!")
 	var/mob/living/carbon/human/apparition/D = new(this_rune.loc)
 	user.visible_message("<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
 	"<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
 	"<span class='warning'>You hear liquid flowing.</span>")
-	D.real_name = "Unknown"
+
 	var/chose_name = 0
 	for(var/obj/item/weapon/paper/P in this_rune.loc)
 		if(P.info)
@@ -450,6 +451,7 @@ var/list/sacrificed = list()
 	D.underwear = 0
 	D.key = ghost.key
 	cult.add_antagonist(D.mind)
+	playsound(loc, 'sound/magic/exit_blood.ogg', 100, 1)
 
 	if(!chose_name)
 		D.real_name = pick("Anguished", "Blasphemous", "Corrupt", "Cruel", "Depraved", "Despicable", "Disturbed", "Exacerbated", "Foul", "Hateful", "Inexorable", "Implacable", "Impure", "Malevolent", "Malignant", "Malicious", "Pained", "Profane", "Profligate", "Relentless", "Resentful", "Restless", "Spiteful", "Tormented", "Unclean", "Unforgiving", "Vengeful", "Vindictive", "Wicked", "Wronged")
@@ -484,7 +486,7 @@ var/list/sacrificed = list()
 	if (!newtalisman)
 		if (unsuitable_newtalisman)
 			user << "<span class='warning'>The blank is tainted. It is unsuitable.</span>"
-		return fizzle()
+		return fizzle(user)
 
 	var/obj/effect/rune/imbued_from
 	var/obj/item/weapon/paper/talisman/T
@@ -577,7 +579,7 @@ var/list/sacrificed = list()
 	var/input = input(user, "Please choose a message to tell to the other acolytes.", "Voice of Blood", "")//sanitize() below, say() and whisper() have their own
 	if(!input)
 		if (istype(src))
-			fizzle()
+			fizzle(user)
 			return 0
 		else
 			return 0
@@ -783,7 +785,7 @@ var/list/sacrificed = list()
 	if(users.len>=3)
 		var/mob/living/carbon/cultist = input("Choose the one who you want to free", "Followers of Geometer") as null|anything in (cultists - users)
 		if(!cultist)
-			return fizzle()
+			return fizzle(user)
 		if (cultist == user) //just to be sure.
 			return
 		if(!(cultist.buckled || \
@@ -828,12 +830,12 @@ var/list/sacrificed = list()
 	if(users.len>=3)
 		var/mob/living/carbon/cultist = input("Choose the one who you want to summon", "Followers of Geometer") as null|anything in (cultists - user)
 		if(!cultist)
-			return fizzle()
+			return fizzle(user)
 		if (cultist == user) //just to be sure.
 			return
 		if(cultist.buckled || cultist.handcuffed || (!isturf(cultist.loc) && !istype(cultist.loc, /obj/structure/closet)))
 			user << "<span class='warning'>You cannot summon \the [cultist], for \his shackles of blood are strong.</span>"
-			return fizzle()
+			return fizzle(user)
 		cultist.loc = src.loc
 		cultist.lying = 1
 		cultist.regenerate_icons()
@@ -875,7 +877,7 @@ var/list/sacrificed = list()
 			admin_attacker_log_many_victims(user, affected, "Used a deafen rune.", "Was victim of a deafen rune.", "used a deafen rune on")
 			qdel(src)
 		else
-			return fizzle()
+			return fizzle(user)
 	else
 		var/list/affected = new()
 		for(var/mob/living/carbon/C in range(7,user))

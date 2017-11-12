@@ -2,8 +2,8 @@
 	var/initialized = FALSE
 
 /atom/New(loc, ...)
-	// For the (currently unused) DMM Suite.
-	if(_preloader && (src.type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
+	// For the DMM Suite.
+	if(use_preloader && (src.type == _preloader.target_path))//in case the instanciated atom is creating other atoms in New()
 		_preloader.load(src)
 
 	//. = ..() //uncomment if you are dumb enough to add a /datum/New() proc
@@ -48,7 +48,6 @@
 	Initialize(FALSE)
 
 /atom/Destroy(force = FALSE)
-	. = ..()
 	if (reagents)
 		QDEL_NULL(reagents)
 
@@ -62,3 +61,5 @@
 			var/datum/orbit/O = thing
 			if (O.orbiter)
 				O.orbiter.stop_orbit()
+
+	return ..()

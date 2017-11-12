@@ -2886,6 +2886,7 @@
 	name = "KEEP CLEAR: DOCKING AREA";
 	pixel_y = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "fx" = (
@@ -3300,7 +3301,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "admin_shuttle_bay_outer";
+	id_tag = "admin_shuttle_dock_airlock_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13)
@@ -3320,8 +3321,8 @@
 /obj/machinery/light/small,
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
-	id_tag = "admin_shuttle_dock_sensor";
-	master_tag = "admin_shuttle_bay";
+	id_tag = "admin_shuttle_dock_airlock_sensor";
+	master_tag = "admin_shuttle_dock_airlock";
 	pixel_x = 0;
 	pixel_y = 26
 	},
@@ -3331,19 +3332,19 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1380;
-	id_tag = "admin_shuttle_bay_pump"
+	id_tag = "admin_shuttle_dock_airlock_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1380;
-	id_tag = "admin_shuttle_bay";
-	master_tag = "admin_shuttle_bay";
+	id_tag = "admin_shuttle_dock_airlock";
+	master_tag = "admin_shuttle_dock_airlock";
 	pixel_y = 30;
 	req_one_access = list(13);
 	tag_airlock_mech_sensor = null;
-	tag_airpump = "admin_shuttle_bay_sensor";
-	tag_chamber_sensor = "admin_shuttle_bay_sensor";
-	tag_exterior_door = "admin_shuttle_bay_outer";
-	tag_interior_door = "admin_shuttle_bay_inner";
+	tag_airpump = "admin_shuttle_dock_airlock_pump";
+	tag_chamber_sensor = "admin_shuttle_dock_airlock_sensor";
+	tag_exterior_door = "admin_shuttle_dock_airlock_outer";
+	tag_interior_door = "admin_shuttle_dock_airlock_inner";
 	tag_shuttle_mech_sensor = null
 	},
 /turf/simulated/floor/plating,
@@ -3356,7 +3357,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "admin_shuttle_bay_inner";
+	id_tag = "admin_shuttle_dock_airlock_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13)
@@ -3675,11 +3676,11 @@
 	command = "cycle_interior";
 	frequency = 1379;
 	layer = 3.3;
-	master_tag = "brig_solar_inner";
+	master_tag = "brig_solar_airlock";
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list(11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -3945,6 +3946,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "hl" = (
@@ -3956,6 +3958,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "hm" = (
@@ -4073,6 +4076,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "hA" = (
@@ -5241,6 +5245,7 @@
 /obj/structure/window/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpointoffice";
 	name = "Checkpoint Lockdown";
@@ -5260,6 +5265,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpointoffice";
 	name = "Checkpoint Lockdown";
@@ -5290,6 +5296,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpointoffice";
 	name = "Checkpoint Lockdown";
@@ -5309,6 +5316,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpointoffice";
 	name = "Checkpoint Lockdown";
@@ -5342,6 +5350,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "ka" = (
@@ -5392,8 +5401,8 @@
 	id_tag = "nuke_shuttle_dock_airlock";
 	pixel_x = 0;
 	pixel_y = 30;
-	req_access = list(13);
-	req_one_access = null;
+	req_access = null;
+	req_one_access = list(13);
 	tag_airpump = "nuke_shuttle_dock_pump";
 	tag_chamber_sensor = "nuke_shuttle_dock_sensor";
 	tag_exterior_door = "nuke_shuttle_dock_outer";
@@ -5474,6 +5483,7 @@
 "kj" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint1";
 	name = "Checkpoint Lockdown";
@@ -5486,6 +5496,7 @@
 "kk" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint1";
 	name = "Checkpoint Lockdown";
@@ -5570,6 +5581,7 @@
 "kq" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint3";
 	name = "Checkpoint Lockdown";
@@ -5835,6 +5847,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "kM" = (
@@ -6444,6 +6457,7 @@
 "lP" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint2";
 	name = "Checkpoint Lockdown";
@@ -6456,6 +6470,7 @@
 "lQ" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint2";
 	name = "Checkpoint Lockdown";
@@ -6539,6 +6554,7 @@
 "lW" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpoint4";
 	name = "Checkpoint Lockdown";
@@ -6625,7 +6641,7 @@
 /obj/machinery/turretid/stun{
 	ailock = 1;
 	check_synth = 1;
-	control_area = "\improper Telecoms Foyer";
+	control_area = null;
 	desc = "A firewall prevents AIs from interacting with this device.";
 	name = "Telecoms Foyer turret control";
 	pixel_y = 29;
@@ -6672,7 +6688,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/tcomsat)
+/area/turret_protected/tcomfoyer)
 "mg" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -6723,6 +6739,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "seccheckpointoffice";
 	name = "Checkpoint Lockdown";
@@ -7255,7 +7272,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list();
 	req_one_access = list(12,61)
 	},
 /turf/simulated/floor/plating,
@@ -8187,7 +8203,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
 "pd" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/random/single{
 	icon = 'icons/obj/items.dmi';
 	icon_state = "lighter-g";
@@ -8198,11 +8214,11 @@
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
 "pe" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
 "pf" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/random/single{
 	icon = 'icons/obj/playing_cards.dmi';
 	icon_state = "deck";
@@ -8213,7 +8229,7 @@
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
 "pg" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/snacks/chips,
 /obj/random/single{
 	icon = 'icons/obj/drinks.dmi';
@@ -8311,7 +8327,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
 "pr" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/snacks/chips,
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
@@ -8320,7 +8336,7 @@
 /turf/simulated/floor/lino,
 /area/hallway/secondary/entry/fore)
 "pt" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/storage/fancy/cigarettes{
 	pixel_y = 2
 	},
@@ -8503,7 +8519,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "solar_roof_inner";
+	id_tag = "solar_aft_inner";
 	locked = 1;
 	name = "Engineering External Access";
 	req_access = list(11,13)
@@ -8598,7 +8614,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	frequency = 1379;
-	id_tag = "solar_roof_pump"
+	id_tag = "solar_aft_pump"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -8683,7 +8699,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "solar_roof_outer";
+	id_tag = "solar_aft_outer";
 	locked = 1;
 	name = "Engineering External Access";
 	req_access = list(11,13)
@@ -10627,13 +10643,6 @@
 /area/crew_quarters/fitness)
 "tW" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -10646,6 +10655,14 @@
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -11424,6 +11441,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -11441,6 +11459,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -11462,6 +11481,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -11733,13 +11753,6 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "wf" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
@@ -11750,6 +11763,14 @@
 	locked = 1;
 	name = "Command Docking Exterior Access";
 	req_access = list(13)
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -11893,7 +11914,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "ws" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/photocopier,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
@@ -12269,12 +12290,12 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "wW" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/clothing/glasses/threedglasses,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "wX" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -12285,7 +12306,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "wY" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/random/coin,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
@@ -12434,7 +12455,7 @@
 /turf/simulated/floor/carpet,
 /area/bridge/levela)
 "xt" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
@@ -12597,11 +12618,11 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
 "xJ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "xK" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/device/paicard,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -12617,7 +12638,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "xL" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -12833,7 +12854,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "xZ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Surface Meeting Room";
 	dir = 4
@@ -12843,7 +12864,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "ya" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/pen,
@@ -12854,7 +12875,7 @@
 /turf/simulated/floor/carpet,
 /area/bridge/levela)
 "yb" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/pen{
@@ -13370,7 +13391,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "ze" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /turf/simulated/floor/wood,
@@ -13693,6 +13714,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -13710,6 +13732,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -13731,6 +13754,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
@@ -14089,7 +14113,7 @@
 /area/storage/tools)
 "Aq" = (
 /obj/machinery/door/airlock/glass{
-	name = "Holodeck Control"
+	name = "Sport Clothes Storage"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -31864,10 +31888,10 @@ dT
 cM
 de
 dA
-bg
+kA
 mf
-bg
-bg
+kA
+kA
 kA
 bc
 mE
@@ -41364,7 +41388,7 @@ aw
 aw
 fw
 gl
-hj
+ex
 aw
 aw
 aw
@@ -41619,9 +41643,9 @@ aa
 aw
 aa
 aa
-fx
+jI
 gm
-fx
+jI
 aw
 aw
 aw
@@ -41876,12 +41900,12 @@ aa
 aa
 aa
 aa
-fx
+jI
 gn
 hk
-hW
-hW
-hW
+fG
+fG
+fG
 jJ
 ke
 jI
@@ -45289,7 +45313,7 @@ ag
 ag
 Df
 Du
-DM
+Ec
 Ec
 Ev
 EO
@@ -49146,7 +49170,7 @@ aa
 aa
 Ku
 KU
-Lu
+Ku
 aa
 ag
 ag
@@ -49401,9 +49425,9 @@ aa
 aa
 aa
 aa
-Kv
+Ku
 KV
-Lv
+Ku
 aa
 aa
 aa
@@ -49660,7 +49684,7 @@ aa
 aa
 Kw
 KW
-Lw
+Kw
 aa
 aa
 aa
@@ -49915,9 +49939,9 @@ aa
 aa
 aa
 aa
-Kx
-KX
-Lx
+JF
+JF
+JF
 aa
 aa
 aa
@@ -50171,11 +50195,11 @@ aa
 aa
 aa
 aa
-JZ
-Ky
-KY
-Ly
-LU
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -50427,13 +50451,13 @@ ag
 aa
 aa
 aa
-JL
-Ka
-Kz
-KZ
-Lz
-LV
-Mo
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -50684,13 +50708,13 @@ ag
 ag
 aa
 aa
-JM
-Kb
-KA
-La
-LA
-LW
-Mp
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -50941,13 +50965,13 @@ ag
 ag
 aa
 aa
-JN
-Kc
-KB
-Lb
-LB
-LX
-Mq
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -51198,13 +51222,13 @@ ag
 ag
 aa
 aa
-JO
-Kd
-KC
-Lc
-LC
-LY
-Mr
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -51455,13 +51479,13 @@ ag
 ag
 aa
 aa
-JP
-Ke
-KD
-Ld
-LD
-LZ
-Ms
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -51712,14 +51736,14 @@ ag
 ag
 aa
 JF
-JQ
-Kf
-KE
-Le
-LE
-Ma
-Mt
-MB
+JF
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -51968,15 +51992,15 @@ ag
 ag
 ag
 aa
-JG
-JR
-Kg
-KF
-Lf
-LF
-Mb
-Mu
-MC
+JF
+JF
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -52225,15 +52249,15 @@ ag
 ag
 ag
 aa
-JH
-JS
-Kh
-KG
-Lg
-LG
-Mc
-Mv
-MD
+JF
+JF
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -52483,13 +52507,13 @@ ag
 ag
 aa
 aa
-JT
-Ki
-KH
-Lh
-LH
-Md
-Mw
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -52740,13 +52764,13 @@ ag
 ag
 aa
 aa
-JU
-Kj
-KI
-Li
-LI
-Me
-Mx
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -52996,15 +53020,15 @@ ag
 aa
 aa
 aa
-JI
-JV
-Kk
-KJ
-Lj
-LJ
-Mf
-My
-ME
+JF
+JF
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -53253,15 +53277,15 @@ ag
 aa
 aa
 aa
-JJ
-JW
-Kl
-KK
-Lk
-LK
-Mg
-Mz
-MF
+JF
+JF
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -53511,13 +53535,13 @@ aa
 aa
 aa
 aa
-JX
-Km
-KL
-Ll
-LL
-Mh
-MA
+JF
+JF
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -53769,11 +53793,11 @@ aa
 aa
 aa
 aa
-Kn
-KM
-Lm
-LM
-Mi
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -54026,11 +54050,11 @@ aa
 aa
 aa
 aa
-Ko
-KN
-Ln
-LN
-Mj
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -54283,11 +54307,11 @@ aa
 aa
 aa
 aa
-Kp
-KO
-Lo
-LO
-Mk
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -54540,11 +54564,11 @@ aa
 aa
 aa
 aa
-Kq
-KP
-Lp
-LP
-Ml
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -54797,11 +54821,11 @@ aa
 aa
 aa
 aa
-Kr
-KQ
-Lq
-LQ
-Mm
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa
@@ -55054,11 +55078,11 @@ aa
 aa
 aa
 aa
-Ks
-KR
-Lr
-LR
-Mn
+JF
+JF
+JF
+JF
+JF
 aa
 aa
 aa

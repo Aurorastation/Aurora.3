@@ -19,7 +19,6 @@
 				/spell/targeted/torment = 						        1,
 				/spell/targeted/heal_target = 						    2,
 				/spell/targeted/genetic/mutate = 					    1,
-				/spell/targeted/mind_transfer = 				     	2,
 				/spell/targeted/projectile/dumbfire/stuncuff = 			2,
 				/spell/aoe_turf/conjure/mirage = 		    			1,
 				/spell/targeted/shapeshift/corrupt_form = 				1,

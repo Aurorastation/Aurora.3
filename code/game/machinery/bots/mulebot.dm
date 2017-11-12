@@ -725,6 +725,8 @@
 	blood_splatter(src,H,1)
 	bloodiness += 4
 
+	SSfeedback.IncrementSimpleStat("mule_victims")
+
 // player on mulebot attempted to move
 /obj/machinery/bot/mulebot/relaymove(var/mob/user)
 	if(user.stat)

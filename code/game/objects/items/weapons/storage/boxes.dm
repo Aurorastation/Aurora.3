@@ -773,6 +773,101 @@
 	for(var/i = 0; i < 7; i++)
 		new /obj/item/weapon/light/bulb(src)
 
+/obj/item/weapon/storage/box/lights/coloredmixed
+	name = "box of colored lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/coloredmixed/fill()
+	..()
+	var/static/list/tube_colors = list(
+		/obj/item/weapon/light/tube/colored/red,
+		/obj/item/weapon/light/tube/colored/green,
+		/obj/item/weapon/light/tube/colored/blue,
+		/obj/item/weapon/light/tube/colored/magenta,
+		/obj/item/weapon/light/tube/colored/yellow,
+		/obj/item/weapon/light/tube/colored/cyan
+	)
+	var/static/list/bulbs_colors = list(
+		/obj/item/weapon/light/bulb/colored/red,
+		/obj/item/weapon/light/bulb/colored/green,
+		/obj/item/weapon/light/bulb/colored/blue,
+		/obj/item/weapon/light/bulb/colored/magenta,
+		/obj/item/weapon/light/bulb/colored/yellow,
+		/obj/item/weapon/light/bulb/colored/cyan
+	)
+	for(var/i = 0, i < 14, i++)
+		var/type = pick(tube_colors)
+		new type(src)
+	for(var/i = 0, i < 7, i++)
+		var/type = pick(bulbs_colors)
+		new type(src)
+
+/obj/item/weapon/storage/box/lights/colored/red
+	name = "box of red lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/red/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/red(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/red(src)
+
+/obj/item/weapon/storage/box/lights/colored/green
+	name = "box of green lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/green/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/green(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/green(src)
+
+/obj/item/weapon/storage/box/lights/colored/blue
+	name = "box of blue lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/blue/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/blue(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/blue(src)
+
+/obj/item/weapon/storage/box/lights/colored/cyan
+	name = "box of cyan lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/cyan/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/cyan(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/cyan(src)
+
+/obj/item/weapon/storage/box/lights/colored/yellow
+	name = "box of yellow lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/yellow/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/yellow(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/yellow(src)
+
+/obj/item/weapon/storage/box/lights/colored/magenta
+	name = "box of magenta lights"
+	icon_state = "lightmixed"
+
+/obj/item/weapon/storage/box/lights/colored/magenta/fill()
+	..()
+	for(var/i = 0, i < 14, i++)
+		new /obj/item/weapon/light/tube/colored/magenta(src)
+	for(var/i = 0, i < 7, i++)
+		new /obj/item/weapon/light/bulb/colored/magenta(src)
+
 /obj/item/weapon/storage/box/freezer
 	name = "portable freezer"
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."

@@ -437,7 +437,7 @@
 
 /obj/item/weapon/anomaly_core
 	name = "anomaly core"
-	desc = "An advanced bluespace device, little is know about its applications."
+	desc = "An advanced bluespace device, little is known about its applications, meriting research into its purpose."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "anomaly_core"
 	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)

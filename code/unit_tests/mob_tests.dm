@@ -137,6 +137,7 @@ datum/unit_test/mob_damage/start_test()
 
 	if(isnull(test))
 		fail("Check Runtimed in Mob creation")
+		return 0
 
 	if(test["result"] == FAILURE)
 		fail(test["msg"])

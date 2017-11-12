@@ -60,7 +60,12 @@
 	var/can_stand
 	var/body_hair
 	var/painted = 0
-	var/list/markings = list()         // Markings (body_markings) to apply to the icon
+	var/list/genetic_markings         // Markings (body_markings) to apply to the icon
+	var/list/temporary_markings	// Same as above, but not preserved when cloning
+	var/list/cached_markings	// The two above lists cached for perf. reasons.
+
+/obj/item/organ/external/proc/invalidate_marking_cache()
+	cached_markings = null
 
 /obj/item/organ/external/Destroy()
 	if(parent && parent.children)
@@ -995,6 +1000,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/proc/embed(var/obj/item/weapon/W, var/silent = 0, var/supplied_message)
 	if(!owner || loc != owner)
+		return
+	if(species.flags & NO_EMBED)
 		return
 	if(!silent)
 		if(supplied_message)

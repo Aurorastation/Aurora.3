@@ -26,7 +26,7 @@ emp_act
 			return 100
 
 	//Shrapnel
-	if(P.can_embed())
+	if(!(species.flags & NO_EMBED) && P.can_embed())
 		var/armor = getarmor_organ(organ, "bullet")
 		if(prob(20 + max(P.damage - armor, -10)))
 			var/obj/item/weapon/SP = new P.shrapnel_type()

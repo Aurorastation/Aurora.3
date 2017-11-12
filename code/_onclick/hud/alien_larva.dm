@@ -8,13 +8,10 @@
 
 	var/obj/screen/using
 
-	using = new /obj/screen()
-	using.name = "mov_intent"
+	using = new /obj/screen/movement_intent()
 	using.set_dir(SOUTHWEST)
 	using.icon = 'icons/mob/screen1_alien.dmi'
 	using.icon_state = (mymob.m_intent == "run" ? "running" : "walking")
-	using.screen_loc = ui_acti
-	using.layer = 20
 	src.adding += using
 	move_intent = using
 

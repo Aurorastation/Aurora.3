@@ -102,7 +102,8 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/revolver/lemat,
 		/obj/item/weapon/gun/projectile/contender,
 		/obj/item/weapon/gun/projectile/pirate,
-		/obj/item/weapon/gun/projectile/tanto
+		/obj/item/weapon/gun/projectile/tanto,
+		/obj/item/weapon/gun/projectile/boltaction/vintage
 		)
 
 

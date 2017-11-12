@@ -192,7 +192,7 @@
  * this cycle.
  */
 /atom/movable/proc/can_fall(turf/below, turf/simulated/open/dest = src.loc)
-	if (!istype(dest))
+	if (!istype(dest) || !dest.is_hole)
 		return FALSE
 
 	// Anchored things don't fall.
@@ -202,10 +202,10 @@
 	// Lattices, ladders, and stairs stop things from falling.
 	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest) || locate(/obj/structure/ladder, dest))
 		return FALSE
+
 	//Ladders too
 	if(below && locate(/obj/structure/ladder) in below)
 		return FALSE
-
 
 	// The var/climbers API is implemented here.
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
@@ -238,6 +238,9 @@
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
 		return FALSE
 
+	if (!dest.is_hole)
+		return FALSE
+
 	// See if something prevents us from falling.
 	for(var/atom/A in below)
 		if(!A.CanPass(src, dest))
@@ -258,7 +261,7 @@
 	return ..()
 
 /mob/living/carbon/human/bst/can_fall()
-	return FALSE
+	return fall_override ? FALSE : ..()
 
 /mob/eye/can_fall()
 	return FALSE

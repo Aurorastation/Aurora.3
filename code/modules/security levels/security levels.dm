@@ -1,8 +1,9 @@
 /var/security_level = 0
 //0 = code green
-//1 = code blue
-//2 = code red
-//3 = code delta
+//1 = code yellow
+//2 = code blue
+//3 = code red
+//4 = code delta
 
 //config.alert_desc_blue_downto
 /var/datum/announcement/priority/security/security_announcement_up = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/misc/notice1.ogg'))
@@ -16,6 +17,8 @@
 			level = SEC_LEVEL_BLUE
 		if("red")
 			level = SEC_LEVEL_RED
+		if("yellow")
+			level = SEC_LEVEL_YELLOW
 		if("delta")
 			level = SEC_LEVEL_DELTA
 
@@ -33,6 +36,10 @@
 					security_announcement_down.Announce("[config.alert_desc_blue_downto]", "Attention! Security level lowered to blue.")
 				security_level = SEC_LEVEL_BLUE
 				SSnightlight.end_temp_disable()
+			if(SEC_LEVEL_YELLOW)
+				security_announcement_up.Announce("[config.alert_desc_yellow_to]", "Attention! Biohazard alert declared!")
+				security_level = SEC_LEVEL_YELLOW
+				SSnightlight.end_temp_disable()
 			if(SEC_LEVEL_RED)
 				if(security_level < SEC_LEVEL_RED)
 					security_announcement_up.Announce("[config.alert_desc_red_upto]", "Attention! Security level elevated to red!")
@@ -48,7 +55,7 @@
 
 		var/newlevel = get_security_level()
 		for(var/obj/machinery/firealarm/FA in SSmachinery.processing_machines)
-			if(FA.z in config.contact_levels)
+			if(FA.z in current_map.contact_levels)
 				FA.set_security_level(newlevel)
 
 
@@ -58,6 +65,8 @@
 			return "green"
 		if(SEC_LEVEL_BLUE)
 			return "blue"
+		if(SEC_LEVEL_YELLOW)
+			return "yellow"
 		if(SEC_LEVEL_RED)
 			return "red"
 		if(SEC_LEVEL_DELTA)
@@ -69,6 +78,8 @@
 			return "green"
 		if(SEC_LEVEL_BLUE)
 			return "blue"
+		if(SEC_LEVEL_YELLOW)
+			return "yellow"
 		if(SEC_LEVEL_RED)
 			return "red"
 		if(SEC_LEVEL_DELTA)
@@ -79,6 +90,8 @@
 		if("green")
 			return SEC_LEVEL_GREEN
 		if("blue")
+			return SEC_LEVEL_BLUE
+		if("yellow")
 			return SEC_LEVEL_BLUE
 		if("red")
 			return SEC_LEVEL_RED
