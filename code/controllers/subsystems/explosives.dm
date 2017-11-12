@@ -238,13 +238,13 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	message_admins("Explosion with size ([power]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z])")
 	log_game("Explosion with size ([power]) in area [epicenter.loc.name] ")
 
-	if (Debug2)
-		log_debug("iexpl: Beginning discovery phase.")
+	log_debug("iexpl: Beginning discovery phase.")
 	var/time = world.time
 
 	explosion_in_progress = TRUE
-	explosion_turfs = list()
-	explosion_turfs[epicenter] = power
+	var/list/act_turfs = list(
+		epicenter = power
+	)
 
 	power -= epicenter.explosion_resistance
 	for (var/obj/O in epicenter)
@@ -289,11 +289,11 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			CHECK_TICK
 			continue
 
-		if (explosion_turfs[current_turf] >= current_power && current_turf != epicenter)
+		if (act_turfs[current_turf] >= current_power && current_turf != epicenter)
 			CHECK_TICK
 			continue
 
-		explosion_turfs[current_turf] = current_power
+		act_turfs[current_turf] = current_power
 		current_power -= current_turf.explosion_resistance
 
 		// Attempt to shortcut on empty tiles: if a turf only has a LO on it, we don't need to check object resistance. Some turfs might not have LOs, so we need to check it actually has one.
@@ -370,14 +370,14 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 	var/turf_tally = 0
 	var/movable_tally = 0
-	for (var/thing in explosion_turfs)
+	for (var/thing in act_turfs)
 		var/turf/T = thing
-		if (explosion_turfs[T] <= 0)
+		if (act_turfs[T] <= 0)
 			CHECK_TICK
 			continue
 
 		//Wow severity looks confusing to calculate... Fret not, I didn't leave you with any additional instructions or help. (just kidding, see the line under the calculation)
-		var/severity = 4 - round(max(min( 3, ((explosion_turfs[T] - T.explosion_resistance) / (max(3,(power/3)))) ) ,1), 1)
+		var/severity = 4 - round(max(min( 3, ((act_turfs[T] - T.explosion_resistance) / (max(3,(power/3)))) ) ,1), 1)
 		//sanity			effective power on tile				divided by either 3 or one third the total explosion power
 		//															One third because there are three power levels and I
 		//															want each one to take up a third of the crater
