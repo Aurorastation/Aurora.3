@@ -4,12 +4,6 @@
 /datum/uplink_item/item/ninja_modules
 	category = /datum/uplink_category/ninja_modules
 
-/datum/uplink_item/item/ninja_modules/self_destruct
-	name = "Self-Destruct Module"
-	desc = "A last resort module that packs enough explosives to kill the user and blow up anything around them."
-	item_cost = 4
-	path = /obj/item/rig_module/self_destruct
-
 /datum/uplink_item/item/ninja_modules/energency_generator
 	name = "Emergency Power Generator"
 	desc = "An emergency use power generator that gives 1000 power to the suits battery. Has a long cooldown."
@@ -33,12 +27,6 @@
 	desc = "A shoulder mounted grenade launcher with 3 EMP, Smoke, and flashbang grenades.It can be refilled with more grenades."
 	item_cost = 6
 	path = /obj/item/rig_module/grenade_launcher
-
-/datum/uplink_item/item/ninja_modules/lethal_grenade_launcher
-	name = "Lethal Grenade Launcher"
-	desc = "A shoulder mounted grenade launcher with 3 frag grenades. It can refilled with more grenades."
-	item_cost = 14
-	path = /obj/item/rig_module/grenade_launcher/frag
 
 /datum/uplink_item/item/ninja_modules/enery_blade
 	name = "Energy Blade and dart launcher."
@@ -75,3 +63,9 @@
 	desc = "A very complicated module for a hardsuit that protect it to some degree from EMP's."
 	item_cost = 4
 	path = /obj/item/rig_module/emp_shielding
+
+/datum/uplink_item/item/ninja_modules/combat_injector
+	name = "Combat Injector"
+	desc = "A chemical injector that allows the user to inject themsleves with combat chemicals.."
+	item_cost = 4
+	path = /obj/item/rig_module/chem_dispenser/combat

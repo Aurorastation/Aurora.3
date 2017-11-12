@@ -386,3 +386,22 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
 	command_announcement.Announce("[message]", title, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 	qdel(src)
+
+//ninja
+/obj/item/device/ninja_uplink
+	name = "infiltrator uplink"
+	desc = "A small device used for access to a restricted cache of specialized items."
+	icon = 'icons/obj/radio.dmi'
+	icon_state = "radio"
+	flags = CONDUCT
+	w_class = 2
+
+/obj/item/device/contract_uplink/New()
+	..()
+	hidden_uplink = new(src)
+	hidden_uplink.uses = DEFAULT_TELECRYSTAL_AMOUNT
+	hidden_uplink.nanoui_menu = 1
+
+/obj/item/device/contract_uplink/attack_self(mob/user as mob)
+	if (hidden_uplink)
+		hidden_uplink.trigger(user)
