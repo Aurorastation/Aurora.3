@@ -76,7 +76,7 @@
 	m_chains["blue-jeweled bands"] = /obj/item/clothing/ears/skrell/bluejeweled_band
 	m_chains["silver bands"] = /obj/item/clothing/ears/skrell/silver_band
 	m_chains["blue cloth"] = /obj/item/clothing/ears/skrell/blue_skrell_cloth_band_male
-	m_chains["blue cloth"] = /obj/item/clothing/ears/skrell/purple_skrell_cloth_male
+	m_chains["purple cloth"] = /obj/item/clothing/ears/skrell/purple_skrell_cloth_male
 	gear_tweaks += new/datum/gear_tweak/path(m_chains)
 
 //vaurca items

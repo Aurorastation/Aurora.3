@@ -72,12 +72,12 @@
 	requires_ntnet = 1
 	network_destination = "atmospheric control system"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	size = 17
 	color = LIGHT_COLOR_CYAN
 
 /datum/computer_file/program/rcon_console
-	filename = "rconconsole"
+	filename = "rcon"
 	filedesc = "RCON Remote Control"
 	nanomodule_path = /datum/nano_module/rcon
 	program_icon_state = "generic"

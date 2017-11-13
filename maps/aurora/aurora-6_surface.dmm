@@ -6641,16 +6641,14 @@
 /obj/machinery/turretid/stun{
 	ailock = 1;
 	check_synth = 1;
-	control_area = "\improper Telecoms Foyer";
+	control_area = null;
 	desc = "A firewall prevents AIs from interacting with this device.";
 	name = "Telecoms Foyer turret control";
 	pixel_y = 29;
 	req_access = list(61)
 	},
 /turf/simulated/floor/tiled,
-/area/turret_protected/tcomfoyer{
-	name = "Telecoms Foyer"
-	})
+/area/turret_protected/tcomfoyer)
 "md" = (
 /obj/structure/sign/electricshock,
 /turf/simulated/wall/r_wall,
@@ -6690,7 +6688,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/tcomsat)
+/area/turret_protected/tcomfoyer)
 "mg" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -8205,7 +8203,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
 "pd" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/random/single{
 	icon = 'icons/obj/items.dmi';
 	icon_state = "lighter-g";
@@ -8216,11 +8214,11 @@
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
 "pe" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
 "pf" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/random/single{
 	icon = 'icons/obj/playing_cards.dmi';
 	icon_state = "deck";
@@ -8231,7 +8229,7 @@
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
 "pg" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/snacks/chips,
 /obj/random/single{
 	icon = 'icons/obj/drinks.dmi';
@@ -8329,7 +8327,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
 "pr" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/reagent_containers/food/snacks/chips,
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
@@ -8338,7 +8336,7 @@
 /turf/simulated/floor/lino,
 /area/hallway/secondary/entry/fore)
 "pt" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/storage/fancy/cigarettes{
 	pixel_y = 2
 	},
@@ -11916,7 +11914,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "ws" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/photocopier,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
@@ -12292,12 +12290,12 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "wW" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/clothing/glasses/threedglasses,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "wX" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -12308,7 +12306,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "wY" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/random/coin,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
@@ -12457,7 +12455,7 @@
 /turf/simulated/floor/carpet,
 /area/bridge/levela)
 "xt" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
@@ -12620,11 +12618,11 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
 "xJ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "xK" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/device/paicard,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -12640,7 +12638,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/cryo)
 "xL" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -12856,7 +12854,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "xZ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Surface Meeting Room";
 	dir = 4
@@ -12866,7 +12864,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "ya" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/pen,
@@ -12877,7 +12875,7 @@
 /turf/simulated/floor/carpet,
 /area/bridge/levela)
 "yb" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/folder/blue,
 /obj/item/weapon/pen{
@@ -13393,7 +13391,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "ze" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /turf/simulated/floor/wood,
@@ -31890,10 +31888,10 @@ dT
 cM
 de
 dA
-bg
+kA
 mf
-bg
-bg
+kA
+kA
 kA
 bc
 mE
@@ -45315,7 +45313,7 @@ ag
 ag
 Df
 Du
-DM
+Ec
 Ec
 Ev
 EO
