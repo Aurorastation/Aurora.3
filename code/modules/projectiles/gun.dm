@@ -77,6 +77,7 @@
 	var/recoil_wielded = 0
 	var/accuracy_wielded = 0
 	var/wielded = 0
+	var/needspin = TRUE
 
 
 	//aiming system stuff
@@ -96,10 +97,10 @@
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
 	
-	if (mapload && !pin)
+	if (mapload && !pin && needspin)
 		pin = /obj/item/device/firing_pin
 	
-	if(pin)
+	if(pin && needspin)
 		pin = new pin(src)
 
 	queue_icon_update()
@@ -113,15 +114,18 @@
 		return 0
 	if(!user.IsAdvancedToolUser())
 		return 0
-	if(pin)
+	if(pin && needspin)
 		if(pin.pin_auth(user) || pin.emagged)
 			return 1
 		else
 			pin.auth_fail(user)
 			return 0
 	else
-		to_chat(user, "<span class='warning'>[src]'s trigger is locked. This weapon doesn't have a firing pin installed!</span>")
-	return 0
+		if(needspin)
+			to_chat(user, "<span class='warning'>[src]'s trigger is locked. This weapon doesn't have a firing pin installed!</span>")
+			return 0
+		else
+			return 1
 
 	var/mob/living/M = user
 
@@ -404,11 +408,11 @@
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
 	if (istype(in_chamber))
 		user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
-		if (!pin)//Checks the pin of the gun.
+		if (!pin && needspin)//Checks the pin of the gun.
 			user.visible_message("<span class = 'warning'>*click click*</span>")
 			mouthshoot = 0
 			return
-		if (!pin.pin_auth())
+		if (!pin.pin_auth() && needspin)
 			user.visible_message("<span class = 'warning'>*click click*</span>")
 			mouthshoot = 0
 			return
@@ -624,10 +628,11 @@
 		
 /obj/item/weapon/gun/examine(mob/user)
 	..()
-	if(pin)
-		user << "It has [pin] installed."
-	else
-		user << "It doesn't have a firing pin installed, and won't fire."
+	if(needspin)
+		if(pin)
+			user << "It has [pin] installed."
+		else
+			user << "It doesn't have a firing pin installed, and won't fire."
 
 obj/item/weapon/gun/Destroy()
 	if (istype(pin))
