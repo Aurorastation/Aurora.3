@@ -189,7 +189,8 @@
 			info += "<hr>"
 
 			for(var/datum/reagent/blood/B in sample.reagents.reagent_list)
-				var/mob/living/carbon/human/D = B.data["donor"]
+				var/datum/weakref/A = B.data["donor"]
+				var/mob/living/carbon/human/D = A.resolve()
 				info += "<large><u>[D.get_species()] [B.name]:</u></large><br>[B.data["blood_DNA"]]<br>"
 
 				var/list/virus = B.data["virus2"]
