@@ -71,8 +71,9 @@
 						var/datum/data/record/R = null
 						if (ID in virusDB)
 							R = virusDB[ID]
-
-						var/mob/living/carbon/human/D = B.data["donor"]
+		
+						var/datum/weakref/A = B.data["donor"]
+						var/mob/living/carbon/human/D = A.resolve()
 						pathogen_pool.Add(list(list(\
 							"name" = "[D.get_species()] [B.name]", \
 							"dna" = B.data["blood_DNA"], \
