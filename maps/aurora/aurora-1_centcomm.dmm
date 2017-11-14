@@ -11806,7 +11806,7 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/control)
 "aAL" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	pixel_y = -32
 	},
 /turf/unsimulated/floor{
@@ -14881,7 +14881,7 @@
 	},
 /area/centcom/holding)
 "aHd" = (
-/obj/structure/sign/redcross,
+/obj/structure/sign/greencross,
 /turf/unsimulated/wall/riveted,
 /area/centcom/holding)
 "aHe" = (
@@ -17345,7 +17345,7 @@
 "aMq" = (
 /obj/structure/mainframe{
 	density = 0;
-	desc = "The automated mainframe computer for the NSS Aurora II autoshuttle.";
+	desc = "The automated mainframe computer for the NSS Aurora autoshuttle.";
 	dir = 4;
 	icon_state = "left";
 	name = "Arrivals Shuttle Oversight";
@@ -17576,7 +17576,7 @@
 "aMM" = (
 /obj/structure/mainframe{
 	density = 0;
-	desc = "The automated mainframe computer for the NSS Aurora II autoshuttle.";
+	desc = "The automated mainframe computer for the NSS Aurora autoshuttle.";
 	dir = 4;
 	icon_state = "aimainframe";
 	name = "Arrivals Shuttle Oversight";
@@ -17626,7 +17626,7 @@
 	},
 /obj/structure/mainframe{
 	density = 0;
-	desc = "The automated mainframe computer for the NSS Aurora II autoshuttle.";
+	desc = "The automated mainframe computer for the NSS Aurora autoshuttle.";
 	dir = 5;
 	icon_state = "left";
 	name = "Arrivals Shuttle Oversight";
@@ -18157,7 +18157,7 @@
 	},
 /area/centcom/holding)
 "aOa" = (
-/obj/structure/sign/redcross,
+/obj/structure/sign/greencross,
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
 "aOb" = (

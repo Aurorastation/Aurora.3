@@ -6,7 +6,7 @@
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
 	required_access_run = access_change_ids
 	required_access_download = access_change_ids
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	requires_ntnet = 0
 	size = 8
 	color = LIGHT_COLOR_BLUE
