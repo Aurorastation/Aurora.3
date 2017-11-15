@@ -606,3 +606,18 @@
 
 /datum/reagent/xenomicrobes/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.contract_disease(new /datum/disease/xeno_transformation(0), 1)
+
+/datum/reagent/toxin/undead
+	name = "Undead Ichor"
+	id = "undead_ichor"
+	description = "A wicked liquid with unknown origins and uses."
+	color = "#b2beb5"
+	strength = 25
+	taste_description = "ashes"
+
+/datum/reagent/toxin/undead/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_UNDEAD)
+		M.heal_organ_damage(10 * removed, 15 * removed)
+		return
+	..()
+
