@@ -36,7 +36,7 @@
 			tint = initial(tint)
 			usr << "You activate the optical matrix on the [src]."
 			if(activated_color)
-				set_light(l_range = 1.8, l_power = 0.4, l_color = activated_color)
+				set_light(2, 0.4, activated_color)
 		user.update_action_buttons()
 
 /obj/item/clothing/glasses/meson
