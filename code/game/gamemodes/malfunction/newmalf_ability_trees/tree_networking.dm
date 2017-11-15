@@ -153,7 +153,7 @@
 				log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
 				return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
-			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1, do_newscast=1, do_print=1)
 
 		if("No")
 			if(!reporttitle || !reportbody || !ability_pay(user, price))

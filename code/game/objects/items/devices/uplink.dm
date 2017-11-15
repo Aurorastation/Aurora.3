@@ -384,5 +384,5 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	if(!message)
 		return
 
-	command_announcement.Announce("[message]", title, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+	command_announcement.Announce("[message]", title, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1, do_newscast=1, do_print=1);
 	qdel(src)
