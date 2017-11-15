@@ -602,7 +602,7 @@
 // Dominate a victim, imbed a thought into their mind.
 /mob/living/carbon/human/proc/vampire_dominate()
 	set category = "Vampire"
-	set name = "Dominate (25)"
+	set name = "Dominate (150)"
 	set desc = "Dominate the mind of a victim, make them obey your will."
 
 	var/datum/vampire/vampire = vampire_power(25, 0)
