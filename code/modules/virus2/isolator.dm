@@ -74,11 +74,8 @@
 		
 						var/datum/weakref/A = B.data["donor"]
 						var/mob/living/carbon/human/D = A.resolve()
-						var/Z
-						if(D)
-							Z = 1
 						pathogen_pool.Add(list(list(\
-							"name" = "[Z ? D.get_species() : "unknown"] [B.name]", \
+							"name" = "[D ? D.get_species() : "unknown"] [B.name]", \
 							"dna" = B.data["blood_DNA"], \
 							"unique_id" = V.uniqueID, \
 							"reference" = "\ref[V]", \
@@ -194,10 +191,7 @@
 			for(var/datum/reagent/blood/B in sample.reagents.reagent_list)
 				var/datum/weakref/A = B.data["donor"]
 				var/mob/living/carbon/human/D = A.resolve()
-				var/Z
-				if(D)
-					Z = 1
-				info += "<large><u>[Z ? D.get_species() : "unknown"] [B.name]:</u></large><br>[B.data["blood_DNA"]]<br>"
+				info += "<large><u>[D ? D.get_species() : "unknown"] [B.name]:</u></large><br>[B.data["blood_DNA"]]<br>"
 
 				var/list/virus = B.data["virus2"]
 				info += "<u>Pathogens:</u> <br>"
