@@ -9144,11 +9144,11 @@
 /turf/simulated/open,
 /area/maintenance/sublevel)
 "qK" = (
-/obj/item/rig_module/vision/thermal,
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/rig_module/vision/nvg,
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "qL" = (
@@ -9185,11 +9185,11 @@
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "qN" = (
-/obj/item/rig_module/chem_dispenser/combat,
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/rig_module/chem_dispenser/injector,
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "qO" = (
