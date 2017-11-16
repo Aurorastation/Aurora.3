@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Fixed telecomms being able to identify the speaker's species with precision."
