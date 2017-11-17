@@ -3,4 +3,4 @@ author: Alberyk
 delete-after: True
 
 changes: 
-  - rscdel: "Fixed telecomms being able to identify the speaker's species with precision."
+  - rscdel: "Removed telecomms being able to identify the speaker's species with precision."
