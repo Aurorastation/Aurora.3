@@ -57,19 +57,19 @@
 
 	//Create list of X offsets
 	var/list/screen_loc_X = text2list(screen_loc_xy[1],":")
-	var/x_position = decode_screen_X(screen_loc_X[1])
+	var/x_position = decode_screen_X(screen_loc_X[1], spell_holder.client)
 	var/x_pix = screen_loc_X[2]
 
 	//Create list of Y offsets
 	var/list/screen_loc_Y = text2list(screen_loc_xy[2],":")
-	var/y_position = decode_screen_Y(screen_loc_Y[1])
+	var/y_position = decode_screen_Y(screen_loc_Y[1], spell_holder.client)
 	var/y_pix = screen_loc_Y[2]
 
 	for(var/i = 1; i <= spell_objects.len; i++)
 		var/obj/screen/spell/S = spell_objects[i]
 		var/xpos = x_position + (x_position < 8 ? 1 : -1)*(i%7)
 		var/ypos = y_position + (y_position < 8 ? round(i/7) : -round(i/7))
-		S.screen_loc = "[encode_screen_X(xpos)]:[x_pix],[encode_screen_Y(ypos)]:[y_pix]"
+		S.screen_loc = "[encode_screen_X(xpos, spell_holder.client)]:[x_pix],[encode_screen_Y(ypos, spell_holder.client)]:[y_pix]"
 		if(spell_holder && spell_holder.client)
 			spell_holder.client.screen += S
 			S.handle_icon_updates = 1
@@ -140,6 +140,15 @@
 	closed_state = "genetics_closed"
 
 	screen_loc = ui_genetic_master
+
+/obj/screen/movable/spell_master/psy
+	name = "Psionic Powers"
+
+	open_state = "wiz_psy"
+	closed_state = "wiz_psy_closed"
+	icon_state = "const_spell_ready"
+
+	screen_loc = ui_psy_master
 
 //////////////ACTUAL SPELLS//////////////
 //This is what you click to cast things//

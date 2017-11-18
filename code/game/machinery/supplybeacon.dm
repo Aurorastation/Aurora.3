@@ -45,7 +45,7 @@
 	drop_type = "supermatter"
 
 /obj/machinery/power/supply_beacon/attackby(var/obj/item/weapon/W, var/mob/user)
-	if(!use_power && iswrench(W))
+	if(!use_power && W.iswrench())
 		if(!anchored && !connect_to_network())
 			user << "<span class='warning'>This device must be placed over an exposed cable.</span>"
 			return

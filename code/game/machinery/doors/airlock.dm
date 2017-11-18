@@ -763,7 +763,7 @@ About the new airlock wires panel:
 				return
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		
+
 		if(H.getBrainLoss() >= 50)
 			if(prob(40) && src.density)
 				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
@@ -777,7 +777,7 @@ About the new airlock wires panel:
 				else
 					user.visible_message("<span class='warning'>[user] headbutts the airlock. Good thing they're wearing a helmet.</span>")
 				return
-		
+
 		if(H.species.can_shred(H))
 
 			if(!src.density)
@@ -876,7 +876,7 @@ About the new airlock wires panel:
 	return 1
 
 
-/obj/machinery/door/airlock/attackby(C as obj, mob/user as mob)
+/obj/machinery/door/airlock/attackby(obj/item/C as obj, mob/user as mob)
 	//world << text("airlock attackby src [] obj [] mob []", src, C, user)
 	if(!istype(usr, /mob/living/silicon))
 		if(src.isElectrified())
@@ -892,7 +892,7 @@ About the new airlock wires panel:
 		var/obj/item/device/magnetic_lock/newbracer = C
 		newbracer.attachto(src, user)
 		return
-	if(!repairing && (iswelder(C) && !( src.operating > 0 ) && src.density))
+	if(!repairing && (C.iswelder() && !( src.operating > 0 ) && src.density))
 		var/obj/item/weapon/weldingtool/W = C
 		if(W.remove_fuel(0,user))
 			if(!src.welded)
@@ -904,7 +904,7 @@ About the new airlock wires panel:
 			return
 		else
 			return
-	else if(isscrewdriver(C))
+	else if(C.isscrewdriver())
 		if (src.p_open)
 			if (stat & BROKEN)
 				usr << "<span class='warning'>The panel is broken and cannot be closed.</span>"
@@ -913,16 +913,16 @@ About the new airlock wires panel:
 		else
 			src.p_open = 1
 		src.update_icon()
-	else if(iswirecutter(C))
+	else if(C.iswirecutter())
 		return src.attack_hand(user)
-	else if(ismultitool(C))
+	else if(C.ismultitool())
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/weapon/pai_cable))	// -- TLE
 		var/obj/item/weapon/pai_cable/cable = C
 		cable.plugin(src, user)
-	else if(!repairing && iscrowbar(C))
+	else if(!repairing && C.iscrowbar())
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && (!src.locked || (stat & BROKEN)))) )
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")

@@ -32,7 +32,9 @@
 		if(contract_spells.len && istype(contract_master,/mob/living)) //if it aint text its probably a mob or another user
 			var/mob/living/M = contract_master
 			for(var/spell_type in contract_spells)
-				M.add_spell(new spell_type(user), "const_spell_ready")
+				var/spell/contract/C = spell_type
+				M.add_spell(new C(), "const_spell_ready")
+				C.subject = user
 		log_and_message_admins("signed their soul over to \the [contract_master] using \the [src].", user)
 		user.drop_from_inventory(src)
 		qdel(src)

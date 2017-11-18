@@ -111,3 +111,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/terminator
 	mob_size = 30
+
+/mob/living/carbon/human/sectoid/Initialize(mapload)
+	..(mapload, "Pectoid")

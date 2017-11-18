@@ -132,9 +132,9 @@
 /datum/language/terminator/get_random_name()
 	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"
 
-/datum/language/psy_worm
-	name = "Cambion"
-	desc = "A grotesque, halting language of chirps and barks exclusive to the Urlamia of the Dagon system."
+/datum/language/sectoid
+	name = "High Dagon"
+	desc = "The native tongue of the natural residents of the decadent Dagon Hierarchy."
 	speech_verb = "barks"
 	ask_verb = "chirps"
 	exclaim_verb = "rasps"
@@ -144,25 +144,25 @@
 	key = "q"
 	flags = WHITELISTED
 
-	var/list/psy_worm_epithet = list(
+	var/list/sectoid_epithet = list(
 	"Magnificent","Handsome","Unsightly","Cunning","Clever","Faithful","Zealous","Obedient","Proud","Repulsive","Covetous","Crooked","Mammoth","Ancient","Young",\
-	"Bitter","Aberrant","Abhorrent","Abiding","Calculating","Callous","Condemnded","Defiant","Didactic","Devilish","Discreet","Disillusioned","Dispensable","Draconian",\
+	"Bitter","Aberrant","Abhorrent","Abiding","Calculating","Callous","Condemned","Defiant","Didactic","Devilish","Discreet","Disillusioned","Dispensable","Draconian",\
 	"Fearful","Glib","Imminent","Industrious","Invincible","Judicious","Knowing","Lame","Maddening","Quixotic","Responsible","Robust","Sordid","Toothsome","Unbecoming",\
 	"Volatile","Wandering","Mendicant","Wrathful","Wroth"
 	)
 
-	var/list/psy_worm_surname = list(
+	var/list/sectoid_surname = list(
 	"Bal","Bor","Bur","Kah","Kor","Kur","Mal","Mor","Mur","Pah","Por","Pur","Rah","Tah","Tal","Tor","Tur","Vah","Val","Vor","Vur","Zal","Zor","Zur","Zulu"
 	)
 
-	var/list/psy_worm_sousname = list(
+	var/list/sectoid_sousname = list(
 	"Amon","Apollyon","Abraxas","Adramelech","Agrat bat Mahlet","Ahriman","Allu","Asmodeus","Astaroth","Asura","Azazel","Baal","Baphomet","Beelzebub","Behemoth",\
 	"Belphegor","Czchernobog","Daeva","Demogorgon","Gorgon","Lilith","Malphas","Mammon","Mephistopheles","Moloch","Orcus","Puloman","Rakshasha","Samael","Surgat",\
 	"Ulkobach","Zagan","Dagon","Shamash","Abu","Endursaga","Gatumdag","Hendursaga","Mushdamma","Nammu","Pazuzu","Sarpanit","Shullat","Abzu","Anshar",\
 	"Mummu","Tiamat","Adapa","Enkidu","Alu","Asag","Asakku","Lamashtu","Basmu","Lahmu","Ugalla","Kulullu"
 	)
 
-/datum/language/psy_worm/get_random_name(var/gender)
+/datum/language/sectoid/get_random_name(var/gender)
 	var/title = pick("Ur-","Archon ","Dagan ","Didact ","","","")
-	return "[title][(pick(psy_worm_sousname))]-[(pick(psy_worm_surname))] the [(pick(psy_worm_epithet))]"
+	return "[title][(pick(sectoid_sousname))]-[(pick(sectoid_surname))] the [(pick(sectoid_epithet))]"
 

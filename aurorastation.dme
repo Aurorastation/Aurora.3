@@ -10,7 +10,7 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
-#include "_maps\lavaland.dm"
+#include "_maps\aurora.dm"
 #include "code\global.dm"
 #include "code\hub.dm"
 #include "code\names.dm"
@@ -1584,7 +1584,7 @@
 #include "code\modules\mob\living\carbon\human\species\species.dm"
 #include "code\modules\mob\living\carbon\human\species\species_attack.dm"
 #include "code\modules\mob\living\carbon\human\species\species_hud.dm"
-#include "code\modules\mob\living\carbon\human\species\outsider\psy_worm.dm"
+#include "code\modules\mob\living\carbon\human\species\outsider\sectoid.dm"
 #include "code\modules\mob\living\carbon\human\species\outsider\shadow.dm"
 #include "code\modules\mob\living\carbon\human\species\outsider\skeleton.dm"
 #include "code\modules\mob\living\carbon\human\species\outsider\vox.dm"
@@ -1836,7 +1836,6 @@
 #include "code\modules\organs\wound.dm"
 #include "code\modules\organs\subtypes\diona.dm"
 #include "code\modules\organs\subtypes\machine.dm"
-#include "code\modules\organs\subtypes\psy_worm.dm"
 #include "code\modules\organs\subtypes\resomi.dm"
 #include "code\modules\organs\subtypes\skrell.dm"
 #include "code\modules\organs\subtypes\standard.dm"
@@ -1918,8 +1917,6 @@
 #include "code\modules\projectiles\guns\energy.dm"
 #include "code\modules\projectiles\guns\launcher.dm"
 #include "code\modules\projectiles\guns\projectile.dm"
-#include "code\modules\projectiles\guns\bang\pistol.dm"
-#include "code\modules\projectiles\guns\bang\revolver.dm"
 #include "code\modules\projectiles\guns\energy\laser.dm"
 #include "code\modules\projectiles\guns\energy\lawgiver.dm"
 #include "code\modules\projectiles\guns\energy\magic.dm"

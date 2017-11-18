@@ -42,10 +42,6 @@
 
 #define isslime(A) istype(A, /mob/living/carbon/slime)
 
-#define iswelder(A) istype(A, /obj/item/weapon/weldingtool)
-
-#define iscoil(A) istype(A, /obj/item/stack/cable_coil)
-
 
 #define iscapacitor(A) istype(A, /obj/item/weapon/stock_parts/capacitor)
 

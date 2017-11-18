@@ -294,7 +294,7 @@
 
 		return
 
-	if(repairing && iswelder(I))
+	if(repairing && I.iswelder())
 		if(!density)
 			user << "<span class='warning'>\The [src] must be closed before you can repair it.</span>"
 			return
@@ -311,7 +311,7 @@
 				repairing = null
 		return
 
-	if(repairing && iscrowbar(I))
+	if(repairing && I.iscrowbar())
 		user << "<span class='notice'>You remove \the [repairing].</span>"
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		repairing.loc = user.loc

@@ -72,7 +72,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/Initialize()
 	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP
-	
+
 
 /obj/machinery/atmospherics/unary/vent_pump/Initialize()
 	. = ..()
@@ -82,7 +82,7 @@
 	if (!id_tag)
 		assign_uid()
 		id_tag = num2text(uid)
-		
+
 	//some vents work his own special way
 	radio_filter_in = frequency==1439?(RADIO_FROM_AIRALARM):null
 	radio_filter_out = frequency==1439?(RADIO_TO_AIRALARM):null
@@ -350,7 +350,7 @@
 	return
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
-	if(iswelder(W))
+	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.welding)
 			user << "<span class='danger'>\The [WT] must be turned on!</span>"
@@ -390,7 +390,7 @@
 		update_icon()
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!iswrench(W))
+	if (!W.iswrench())
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
 		user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"

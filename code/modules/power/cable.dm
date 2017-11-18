@@ -89,7 +89,7 @@ var/list/possible_cable_coil_colours = list(
 	d2 = text2num( copytext( icon_state, dash+1 ) )
 
 	var/turf/T = src.loc			// hide if turf is not intact
-	if(level == 1 && !T.is_hole) 
+	if(level == 1 && !T.is_hole)
 		hide(!T.is_plating())
 
 	SSpower.all_cables += src //add it to the global cable list
@@ -474,6 +474,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	item_state = "coil"
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
+
+/obj/item/stack/cable_coil/iscoil()
+	return 1
 
 /obj/item/stack/cable_coil/cyborg
 	name = "cable coil synthesizer"

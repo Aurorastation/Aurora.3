@@ -140,71 +140,101 @@
 	if(lobotomized && (owner.getBrainLoss() < 50)) //lobotomized brains cannot be healed with chemistry. Part of the brain is irrevocably missing. Can be fixed magically with cloning, ofc.
 		owner.setBrainLoss(50)
 
-	if(awoken)
+	if(awoken && owner.client)
 		check_on_psy()
 
 /obj/item/organ/brain/proc/check_on_psy()
 	switch(psy_rank)
 		if(RANK_0)
 			if(max_willpower >= RANK_1_WILL)
-				psy_level(2)
+				psy_rank = RANK_1
+				power_level = 1
+				psy_level(power_level)
 		if(RANK_1)
 			if(max_willpower >= RANK_2_WILL)
+				psy_rank = RANK_2
 				power_level = 2
-				psy_level(4)
+				psy_level(power_level)
 		if(RANK_2)
 			if(max_willpower >= RANK_3_WILL)
+				psy_rank = RANK_3
 				power_level = 3
-				psy_level(6)
+				psy_level(power_level)
 		if(RANK_3)
 			if(max_willpower >= RANK_4_WILL)
+				psy_rank = RANK_4
 				power_level = 4
-				psy_level(8)
+				psy_level(power_level)
 		if(RANK_4)
 			if(max_willpower >= RANK_5_WILL)
+				psy_rank = RANK_5
 				power_level = 5
-				psy_level(10)
+				psy_level(power_level)
 
 /obj/item/organ/brain/proc/psy_level(var/rank)
-	var/list/discipline_list = list(COE,PSY,ENE,SUB)
+	var/list/discipline_list = list(
+		COE = TRUE,
+		PSY = TRUE,
+		ENE = TRUE,
+		SUB = TRUE
+	)
 	if(!discipline)
-		discipline = input(owner,"Select a discipline. This choice is permanent.") as null|anything in discipline_list
 		to_chat(owner, "<span class='info'><b>[COE]:</b> The discipline of manipulating intelligent beings and their component organs. Its opposing discipline is [SUB].</span>")
 		to_chat(owner, "<span class='info'><b>[PSY]:</b> The discipline of manipulating material elements through physical force. Its opposing discipline is [ENE].</span>")
 		to_chat(owner, "<span class='info'><b>[ENE]:</b> The discipline of manipulating immaterial elements or material elements through non-physical force. Its opposing discipline is [PSY].</span>")
 		to_chat(owner, "<span class='info'><b>[SUB]:</b> The discipline of manipulating the world in ways to allow the user to go undetected. Its opposing discipline is [COE].</span>")
+		discipline = input(owner,"Select a discipline. This choice is permanent.") as anything in discipline_list
 	power_points += rank
 	var/list/spell/Powers = list()
-	for(var/spell/P in typesof(/spell))
-		if(P.school in discipline_list)
+	for(var/spell in spells)
+		var/spell/P = new spell
+		if(discipline_list[P.school])
 			switch(discipline)
 				if(COE)
 					if(P.school == SUB)
+						qdel(P)
 						continue
 				if(PSY)
 					if(P.school == ENE)
+						qdel(P)
 						continue
 				if(ENE)
 					if(P.school == PSY)
+						qdel(P)
 						continue
 				if(SUB)
 					if(P.school == COE)
+						qdel(P)
 						continue
 			if(P.power_level > rank)
+				qdel(P)
 				continue
 			if(P.power_level > 3 && P.school != discipline)
+				qdel(P)
 				continue
 			if(P in owner.mind.learned_spells)
+				qdel(P)
 				continue
-			if(P.school == discipline && P.power_level == 0)
-				owner.add_spell(P)
-				continue
+			if(P.power_level == 0)
+				if(P.school == discipline)
+					owner.add_spell(P, master_type=/obj/screen/movable/spell_master/psy)
+					continue
+				else
+					qdel(P)
+					continue
 			Powers += P
-	for(var/i = 1 to power_points)
-		var/spell/P = input(owner,"Select a new psychic power to learn.") as null|anything in Powers
-		owner.add_spell(P)
-		power_points -= P.power_level
-		to_chat(owner, "<span class='info'><b>[P.name]:</b> [P.desc].</span>")
+	if(Powers.len)
+		for(var/i = 1 to power_points)
+			for(var/spell in Powers)
+				var/spell/P = spell
+				to_chat(owner, "<span class='info'><b>[P.name]:</b> [P.desc] <b>(POWER LEVEL: [P.power_level])</b>.</span>")
+			var/spell/P = input(owner,"Select a new psychic power to learn.") as anything in Powers
+			if(P)
+				owner.add_spell(P, master_type=/obj/screen/movable/spell_master/psy)
+				Powers -= P
+				power_points -= P.power_level
+		for(var/spell/P in Powers)
+			qdel(P)
 
 
 /obj/item/organ/brain/slime

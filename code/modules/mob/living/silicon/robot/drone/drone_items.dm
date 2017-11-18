@@ -172,8 +172,8 @@
 			module_string += text("[O]: <B>Activated</B><BR>")
 		else
 			module_string += text("[O]: <A HREF=?src=\ref[src];act=\ref[O]>Activate</A><BR>")
-
-		if((istype(O,/obj/item/weapon) || istype(O,/obj/item/device)) && !(iscoil(O)))
+		var/obj/item/I = O
+		if((istype(I,/obj/item/weapon) || istype(I,/obj/item/device)) && !(I.iscoil()))
 			tools += module_string
 		else
 			resources += module_string

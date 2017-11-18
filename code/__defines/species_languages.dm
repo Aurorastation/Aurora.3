@@ -42,6 +42,7 @@
 #define LANGUAGE_VAURCA "Hivenet"
 #define LANGUAGE_AZAZIBA "Sinta'azaziba"
 #define LANGUAGE_SIGN "Sign Language"
+#define LANGUAGE_SECTOID "High Dagon"
 
 // Antag Languages
 #define LANGUAGE_XENOMORPH "Xenomorph"

@@ -210,7 +210,7 @@
 		return
 
 	return
-	
+
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
 /obj/machinery/clonepod/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isnull(occupant))
@@ -238,7 +238,7 @@
 		user.drop_item()
 		qdel(W)
 		return
-	else if(iswrench(W))
+	else if(W.iswrench())
 		if(locked && (anchored || occupant))
 			user << "<span class='warning'>Can not do that while [src] is in use.</span>"
 		else

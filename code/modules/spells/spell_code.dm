@@ -63,11 +63,11 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 ///SETUP AND PROCESS///
 ///////////////////////
 
-/spell/New()
-	..()
+	/spell/New()
+		..()
 
-	//still_recharging_msg = "<span class='notice'>[name] is still recharging.</span>"
-	charge_counter = charge_max
+		//still_recharging_msg = "<span class='notice'>[name] is still recharging.</span>"
+		charge_counter = charge_max
 
 /spell/process()
 	if(processing)

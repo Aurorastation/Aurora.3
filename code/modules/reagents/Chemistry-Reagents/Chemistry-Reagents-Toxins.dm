@@ -58,6 +58,8 @@
 	taste_mult = 1.5
 
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(ispsyworm(M))
+		return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species.has_organ["filtration bit"] && isvaurca(H))
@@ -75,8 +77,7 @@
 					return
 				else
 					P.air_contents.adjust_gas("phoron", (0.5*removed))
-		if(ispsyworm(M))
-			return
+
 		else
 			..()
 	else

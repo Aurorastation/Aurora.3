@@ -27,7 +27,7 @@
 	if(default_part_replacement(user, W))
 		return
 
-	if(iswrench(W))
+	if(W.iswrench())
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
 		anchored = !anchored
@@ -73,7 +73,7 @@
 	if(default_part_replacement(user, W))
 		return
 
-	if(iswrench(W))
+	if(W.iswrench())
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
 		anchored = !anchored

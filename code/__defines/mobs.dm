@@ -221,11 +221,11 @@
 #define RANK_5 "Grandmasterclass"
 
 //Willpower threshold for advancement
-#define RANK_1_WILL "40"
-#define RANK_2_WILL "80"
-#define RANK_3_WILL "140"
-#define RANK_4_WILL "220"
-#define RANK_5_WILL "320"
+#define RANK_1_WILL 40
+#define RANK_2_WILL 80
+#define RANK_3_WILL 160
+#define RANK_4_WILL 320
+#define RANK_5_WILL 640
 
 //Disciplines
 #define COE "Coercion"

@@ -29,6 +29,9 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
+/obj/item/weapon/wrench/iswrench()
+	return 1
+
 
 /*
  * Screwdriver
@@ -76,6 +79,9 @@
 		src.pixel_y = rand(0, 16)
 	..()
 
+/obj/item/weapon/screwdriver/isscrewdriver()
+	return 1
+
 /obj/item/weapon/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
@@ -110,6 +116,9 @@
 		icon_state = "cutters-y"
 		item_state = "cutters_yellow"
 	..()
+
+/obj/item/weapon/wirecutters/iswirecutter()
+	return 1
 
 /obj/item/weapon/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob, var/target_zone)
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/weapon/handcuffs/cable)))
@@ -156,6 +165,8 @@
 	var/status = 1 		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
 
+/obj/item/weapon/weldingtool/iswelder()
+	return 1
 
 /obj/item/weapon/weldingtool/largetank
 	name = "industrial welding tool"
@@ -519,6 +530,9 @@
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
+
+/obj/item/weapon/crowbar/iscrowbar()
+	return 1
 
 /obj/item/weapon/crowbar/red
 	icon = 'icons/obj/items.dmi'

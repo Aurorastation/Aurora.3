@@ -134,7 +134,7 @@
 
 	if(panel_open)
 		//Don't eat multitools or wirecutters used on an open lathe.
-		if(ismultitool(O) || iswirecutter(O))
+		if(O.ismultitool() || O.iswirecutter())
 			attack_hand(user)
 			return
 

@@ -102,7 +102,7 @@
 
 
 /obj/machinery/floodlight/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (isscrewdriver(W))
+	if (W.isscrewdriver())
 		if (!open)
 			if(unlocked)
 				unlocked = 0
@@ -111,7 +111,7 @@
 				unlocked = 1
 				user << "You unscrew the battery panel."
 
-	if (iscrowbar(W))
+	if (W.iscrowbar())
 		if(unlocked)
 			if(open)
 				open = 0

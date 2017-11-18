@@ -121,7 +121,8 @@
 #define ui_iarrowright "SOUTH-1,EAST-2"
 
 #define ui_spell_master "EAST-1:16,NORTH-1:16"
-#define ui_genetic_master "EAST-1:16,NORTH-3:16"
+#define ui_psy_master "EAST-1:16,NORTH-2:16"
+#define ui_genetic_master "EAST-1:16,NORTH-11:16"
 
 // AI
 

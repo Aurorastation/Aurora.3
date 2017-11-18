@@ -2,8 +2,8 @@
 Basically: I can use it to target things where I click. I can then pass these targets to a spell and target things not using a list.
 */
 
-/obj/item/magic_hand
-	name = "Magic Hand"
+/obj/item/weapon/magic_hand
+	name = "power fist"
 	icon = 'icons/mob/screen1.dmi'
 	flags = 0
 	abstract = 1
@@ -12,20 +12,29 @@ Basically: I can use it to target things where I click. I can then pass these ta
 	var/next_spell_time = 0
 	var/spell/hand/hand_spell
 	var/casts = 0
+	var/duration
+	force = 0
 
-/obj/item/magic_hand/New(var/spell/hand/S)
+/obj/item/weapon/magic_hand/New(var/turf/location, var/spell/hand/S, mob/living/user)
 	hand_spell = S
-	name = "[name] ([S.name])"
-	casts = S.casts
-	icon_state = S.hand_state
+	name = "[name] ([hand_spell.name])"
+	casts = hand_spell.casts
+	icon = hand_spell.hand_icon
+	icon_state = hand_spell.hand_state
+	duration = hand_spell.duration
+	if(hand_spell.casts == 0) //if casts is predefined, use that instead
+		if(hand_spell.power_level > 0 && hand_spell.psybrain)
+			casts = round(hand_spell.psybrain.power_level/hand_spell.power_level) //Ex: at power level 5 you gain 5 casts of a 1st level spell, but only 1 cast of a 5th level spell
+		else
+			casts = -1 //You can cast a cantrip infinitely within its duration.
+	if(hand_spell.lightful)
+		set_light(2,1,hand_spell.lightful_c)
+	addtimer(CALLBACK(user, /mob/.proc/drop_from_inventory, src), duration SECONDS)
 
-/obj/item/magic_hand/attack() //can't be used to actually bludgeon things
-	return 1
+/obj/item/weapon/magic_hand/attack()
+	..()
 
-/obj/item/magic_hand/afterattack(atom/A, mob/living/user, proximity)
-	if(hand_spell.touch && !proximity)
-		user << "<span class='warning'>This spell functions only via touch!</span>"
-		return
+/obj/item/weapon/magic_hand/afterattack(atom/A, mob/living/user)
 	if(!hand_spell) //no spell? Die.
 		user.drop_from_inventory(src)
 
@@ -45,15 +54,16 @@ Basically: I can use it to target things where I click. I can then pass these ta
 		if(!casts)
 			user.drop_from_inventory(src)
 			return
-		user << "[casts]/[hand_spell.casts] charges left."
+		if(casts > 0)
+			user << "[casts]/[hand_spell.casts] charges left."
 
-/obj/item/magic_hand/throw_at() //no throwing pls
+/obj/item/weapon/magic_hand/throw_at() //no throwing pls
 	usr.drop_from_inventory(src)
 
-/obj/item/magic_hand/dropped() //gets deleted on drop
+/obj/item/weapon/magic_hand/dropped() //gets deleted on drop
 	loc = null
 	qdel(src)
 
-/obj/item/magic_hand/Destroy() //better save than sorry.
+/obj/item/weapon/magic_hand/Destroy() //better save than sorry.
 	hand_spell = null
 	return ..()

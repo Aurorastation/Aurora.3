@@ -8,7 +8,8 @@
 	taste_description = "acid"
 
 /datum/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed * 3)
+	if(!ispsyworm(M))
+		M.adjustToxLoss(removed * 3)
 
 /datum/reagent/acetone/touch_obj(var/obj/O)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
 	if(istype(O, /obj/item/weapon/paper))
