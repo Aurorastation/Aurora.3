@@ -46,18 +46,20 @@
 /mob/living/carbon/alien/diona/proc/cleanupTransfer()
 	if(!kept_clean)
 		for(var/mob/living/carbon/alien/diona/D in birds_of_feather)
-			if(master_nymph == src)
-				master_nymph = null
+			if(D.master_nymph == src)
+				D.master_nymph = null
 			if(!master_nymph && D != src)
 				master_nymph = D
 			D.master_nymph = master_nymph
 			D.birds_of_feather -= src
-			if(master_nymph && mind && !master_nymph.mind)
-				mind.transfer_to(master_nymph)
-				master_nymph.stunned = 0//Switching mind seems to temporarily stun mobs
-				message_admins("\The [src] has died with nymphs remaining; player now controls [key_name_admin(master_nymph)]")
-				log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]", ckey=key_name(master_nymph))
+		if(master_nymph && mind && !master_nymph.mind)
+			mind.transfer_to(master_nymph)
+			master_nymph.stunned = 0//Switching mind seems to temporarily stun mobs
+			message_admins("\The [src] has died with nymphs remaining; player now controls [key_name_admin(master_nymph)]")
+			log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]", ckey=key_name(master_nymph))
 		master_nymph = null
+		birds_of_feather.Cut()
+
 		kept_clean = 1
 
 
@@ -287,9 +289,6 @@
 			stat(null, text("You have enough biomass to grow!"))
 
 //Overriding this function from /mob/living/carbon/alien/life.dm
-/mob/living/carbon/alien/diona/Destroy()
-	..()
-
 /mob/living/carbon/alien/diona/handle_regular_status_updates()
 
 	if(status_flags & GODMODE)	return 0
@@ -351,8 +350,9 @@
 	return 1
 
 /mob/living/carbon/alien/diona/Destroy()
+	walk_to(src,0)
 	cleanupTransfer()
-	..()
+	. = ..()
 
 /mob/living/carbon/alien/diona/proc/wear_hat(var/obj/item/new_hat)
 	if(hat)
@@ -370,4 +370,4 @@
 			for(var/mob/living/carbon/alien/diona/DIO in src.birds_of_feather) //its me!
 				DIO.master_nymph = D
 		return 1
-	..()
+	. = ..()
