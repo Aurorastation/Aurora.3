@@ -445,12 +445,18 @@
 			if(isAI(usr))
 				var/mob/living/silicon/ai/AI = usr
 				var/camera = input(AI) as null|anything in AI.get_camera_list()
+				if(!camera)
+					usr << "<span class='notice'>You cancel the search.</span>"
+					return 0
 				AI.ai_camera_list(camera)
 
 		if("Track With Camera")
 			if(isAI(usr))
 				var/mob/living/silicon/ai/AI = usr
 				var/target_name = input(AI) as null|anything in AI.trackable_mobs()
+				if(!target_name)
+					usr << "<span class='notice'>You cancel the search.</span>"
+					return 0
 				AI.ai_camera_track(target_name)
 
 		if("Toggle Camera Light")
