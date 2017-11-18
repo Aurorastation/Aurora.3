@@ -215,6 +215,8 @@
 	active_power_cost = 10
 	toggleable = 1
 	usable = 0
+	use_power_cost = 70
+	module_cooldown = 30
 
 	activate_string = "Enable Active EMP Shielding"
 	deactivate_string = "Disable Active EMP Shielding"

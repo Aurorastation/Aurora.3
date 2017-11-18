@@ -30,7 +30,7 @@
 
 /datum/uplink_item/item/ninja_modules/enery_blade
 	name = "Energy Blade and dart launcher."
-	desc = "A module that can produce a powerful energy blade in the users hand. It can also shoot non-lethal darts which stun from the users shoulder. "
+	desc = "A module that can produce a powerful energy blade in the users hand. It can also shoot stun-darts."
 	item_cost = 8
 	path = /obj/item/rig_module/mounted/energy_blade
 
