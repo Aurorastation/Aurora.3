@@ -170,3 +170,4 @@
 	breakouttime = 600
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	elastic = 1
+	
