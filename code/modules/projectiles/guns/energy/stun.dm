@@ -50,6 +50,10 @@
 	charge_meter = 0
 	can_turret = 1
 	turret_sprite_set = "crossbow"
+	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
+
+/obj/item/weapon/gun/energy/crossbow/get_cell()
+	return DEVICE_NO_CELL
 
 /obj/item/weapon/gun/energy/crossbow/ninja
 	name = "energy dart thrower"

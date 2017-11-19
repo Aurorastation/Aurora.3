@@ -702,6 +702,7 @@
 	matter = list("glass" = 100)
 	brightness_range = 5
 	brightness_power = 0.75
+	brightness_color = LIGHT_COLOR_TUNGSTEN
 	lighttype = "bulb"
 
 /obj/item/weapon/light/bulb/colored/red

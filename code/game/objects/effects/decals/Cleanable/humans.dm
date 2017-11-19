@@ -104,6 +104,8 @@
 
 	perp.update_inv_shoes(1)
 	amount--
+	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == "run" ? 20 : 5)))
+		perp.slip(src, 4)
 
 /obj/effect/decal/cleanable/blood/proc/dry()
 	name = dryname
