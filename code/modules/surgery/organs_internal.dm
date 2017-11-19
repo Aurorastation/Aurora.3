@@ -403,3 +403,44 @@
 
 //	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 //		return ..() && target.op_stage.ribcage == 2
+
+
+//////////////////////////////////////////////////////////////////
+//					ALIEN EMBRYO SURGERY						//
+//////////////////////////////////////////////////////////////////
+/datum/surgery_step/internal/remove_embryo
+	allowed_tools = list(
+	/obj/item/weapon/hemostat = 100,	\
+	/obj/item/weapon/wirecutters = 75,	\
+	/obj/item/weapon/material/kitchen/utensil/fork = 20
+	)
+	blood_level = 2
+
+	min_duration = 80
+	max_duration = 100
+
+/datum/surgery_step/internal/remove_embryo/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/embryo = 0
+	for(var/obj/item/alien_embryo/A in target)
+		embryo = 1
+		break
+
+	if (!hasorgans(target))
+		return
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return ..() && affected && embryo && affected.open == 3 && target_zone == "chest"
+
+/datum/surgery_step/internal/remove_embryo/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/msg = "[user] starts to pull something out from [target]'s ribcage with \the [tool]."
+	var/self_msg = "You start to pull something out from [target]'s ribcage with \the [tool]."
+	user.visible_message(msg, self_msg)
+	target.custom_pain("Something hurts horribly in your chest!",1)
+	..()
+
+/datum/surgery_step/internal/remove_embryo/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	user.visible_message("\red [user] rips the larva out of [target]'s ribcage!",
+						 "You rip the larva out of [target]'s ribcage!")
+
+	for(var/obj/item/alien_embryo/A in target)
+		A.forceMove(get_turf(target))
+		A.infected = FALSE

@@ -38,12 +38,6 @@ var/const/MAX_ACTIVE_TIME = 400
 	if(hit_zone == "head")
 		Attach(target)
 
-/obj/item/clothing/mask/facehugger/Initialize()
-	if(config.aliens_allowed)
-		. = ..()
-	else
-		. = INITIALIZE_HINT_QDEL
-
 /obj/item/clothing/mask/facehugger/examine(mob/user)
 	..(user)
 	switch(stat)
@@ -103,19 +97,24 @@ var/const/MAX_ACTIVE_TIME = 400
 		throwing = 0
 	GoIdle(30,100) //stunned for a few seconds - allows throwing them to be useful for positioning but not as an offensive action (unless you're setting up a trap)
 
-/obj/item/clothing/mask/facehugger/proc/Attach(M as mob)
+/obj/item/clothing/mask/facehugger/proc/Attach(mob/living/M as mob)
 
-	if((!iscorgi(M) && !iscarbon(M)))
+	if((!iscarbon(M)))
 		return
 
 	if(attached)
+		return
+
+	if(M.isSynthetic())
 		return
 
 	var/mob/living/carbon/C = M
 	if(istype(C) && locate(/obj/item/organ/xenos/hivenode) in C.internal_organs)
 		return
 
-
+	for (var/obj/item/alien_embryo/I in M)
+		if (I.infected)
+			return
 	attached++
 	spawn(MAX_IMPREGNATION_TIME)
 		attached = 0
@@ -131,7 +130,7 @@ var/const/MAX_ACTIVE_TIME = 400
 
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		if(H.head && H.head.flags & HEADCOVERSMOUTH)
+		if(H.head && H.head.body_parts_covered & FACE)
 			H.visible_message("<span class='danger'>[src] smashes against [H]'s [H.head]!</span>")
 			Die()
 			return
@@ -152,12 +151,6 @@ var/const/MAX_ACTIVE_TIME = 400
 		target.contents += src // Monkey sanity check - Snapshot
 
 		if(!sterile) L.Paralyse(MAX_IMPREGNATION_TIME/6) //something like 25 ticks = 20 seconds with the default settings
-	else if (iscorgi(M))
-		var/mob/living/simple_animal/corgi/corgi = M
-		src.loc = corgi
-		corgi.facehugger = src
-		corgi.wear_mask = src
-		//C.regenerate_icons()
 
 	GoIdle() //so it doesn't jump the people that tear it off
 
@@ -172,7 +165,8 @@ var/const/MAX_ACTIVE_TIME = 400
 
 	if(!sterile)
 		//target.contract_disease(new /datum/disease/alien_embryo(0)) //so infection chance is same as virus infection chance
-		new /obj/item/alien_embryo(target)
+		var/obj/item/alien_embryo/kid = new (target)
+		kid.infected = TRUE
 		target.status_flags |= XENO_HOST
 
 		target.visible_message("<span class='danger'>[src] falls limp after violating [target]'s face!</span>")
@@ -180,10 +174,6 @@ var/const/MAX_ACTIVE_TIME = 400
 		Die()
 		icon_state = "[initial(icon_state)]_impregnated"
 
-		if(iscorgi(target))
-			var/mob/living/simple_animal/corgi/C = target
-			src.loc = get_turf(C)
-			C.facehugger = null
 	else
 		target.visible_message("<span class='danger'>[src] violates [target]'s face!</span>")
 	return
@@ -222,6 +212,13 @@ var/const/MAX_ACTIVE_TIME = 400
 	src.visible_message("<span class='danger'>[src] curls up into a ball!</span>")
 
 	return
+
+
+/obj/item/clothing/mask/facehugger/lamarr
+	name = "Lamarr"
+	desc = "The worst she might do is attempt to... couple with your head."//hope we don't get sued over a harmless reference, rite?
+	gender = FEMALE
+	sterile = 1
 
 /proc/CanHug(var/mob/M)
 
