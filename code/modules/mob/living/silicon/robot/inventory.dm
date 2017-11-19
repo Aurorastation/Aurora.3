@@ -253,11 +253,11 @@
 		G = module_state_1
 		if (!G.wrapped && G.grip_item(W, src, 1))
 			return 1
-	if (istype(module_state_2, /obj/item/weapon/gripper))
+	else if (istype(module_state_2, /obj/item/weapon/gripper))
 		G = module_state_2
 		if (!G.wrapped && G.grip_item(W, src, 0))
 			return 1
-	if (istype(module_state_2, /obj/item/weapon/gripper))
+	else if (istype(module_state_3, /obj/item/weapon/gripper))
 		G = module_state_3
 		if (!G.wrapped && G.grip_item(W, src, 0))
 			return 1
