@@ -82,8 +82,44 @@
 		)
 	autohiss_exempt = list(LANGUAGE_VAURCA)
 
+/datum/species/diona
+	autohiss_basic_map = list(
+			"s" = list("ss","sss"),
+			"z" = list("zz","zzz"),
+			"e" = list("ee", "eee")
+		)
+	autohiss_extra_map = list(
+			"a" = list("aa", "aaa"),
+			"i" = list("ii", "iii"),
+			"o" = list("oo", "ooo"),
+			"u" = list("uu", "uuu")
+		)
+	autohiss_exempt = list(
+			LANGUAGE_ROOTSONG
+		)
+
+/datum/species/proc/handle_autoslow(message)
+
+	var/returning = ""
+	var/longwords = list(
+		"who","what","when","where","why","how",
+		"i'm","i","am","this",
+		"they","are","they're","their","his","her","their","the","he","she",
+		)
+
+	for(var/word in text2list(message," ")) // For each word in a message
+		var/addum = word + " "
+		if (lowertext(word) in longwords)
+			addum = word + "... "
+		returning += addum
+
+	return trim(returning)
 
 /datum/species/proc/handle_autohiss(message, datum/language/lang, mode)
+
+	if ( (mode && mode > 0) && (name && name == "Diona") && (lang && lang.name && lang.name != LANGUAGE_ROOTSONG) )
+		message =  handle_autoslow(message)
+
 	if(!autohiss_basic_map)
 		return message
 	if(autohiss_exempt && (lang.name in autohiss_exempt))
