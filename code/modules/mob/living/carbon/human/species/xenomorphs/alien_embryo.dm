@@ -20,7 +20,7 @@
 	if(affected_mob)
 		affected_mob.status_flags &= ~(XENO_HOST)
 		RemoveInfectionImages(affected_mob)
-	..()
+	return ..()
 
 /obj/item/alien_embryo/process()
 	if(!affected_mob)	return
