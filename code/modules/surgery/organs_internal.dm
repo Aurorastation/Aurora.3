@@ -438,8 +438,8 @@
 	..()
 
 /datum/surgery_step/internal/remove_embryo/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("\red [user] rips the larva out of [target]'s ribcage!",
-						 "You rip the larva out of [target]'s ribcage!")
+	user.visible_message("<span class='warning'>[user] rips the larva out of [target]'s ribcage!!</span>", \
+		"<span class='warning'>You rip the larva out of [target]'s ribcage!!</span>")
 
 	for(var/obj/item/alien_embryo/A in target)
 		A.forceMove(get_turf(target))
