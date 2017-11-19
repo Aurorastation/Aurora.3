@@ -83,6 +83,7 @@
 		sleep(200)
 		if(prob(30))
 			user <<"Reset attempt failed!"
+			user.hacking = 0
 			return
 		if(target)
 			user << "Successfully sent reset signal to cyborg.."

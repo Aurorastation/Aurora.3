@@ -6,11 +6,12 @@
 	filling_color = "#FF1C1C"
 	center_of_mass = list("x"=16, "y"=14)
 	cooked_icon = "meatstake"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("protein", 6)
-		reagents.add_reagent("triglyceride", 2)
-		src.bitesize = 1.5
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 6)
+	reagents.add_reagent("triglyceride", 2)
+	src.bitesize = 1.5
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/material/knife))
@@ -41,11 +42,11 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/bug
 	filling_color = "#E6E600"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("protein", 6)
-		reagents.add_reagent("phoron", 27)
-		src.bitesize = 1.5
+/obj/item/weapon/reagent_containers/food/snacks/meat/bug/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 6)
+	reagents.add_reagent("phoron", 27)
+	src.bitesize = 1.5
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/monkey
 	//same as plain meat
@@ -54,13 +55,25 @@
 	name = "corgi meat"
 	desc = "Tastes like... well, you know."
 
-
 /obj/item/weapon/reagent_containers/food/snacks/meat/chicken
 	name = "chicken"
 	icon_state = "chickenbreast"
 	cooked_icon = "chickenbreast_cooked"
 	filling_color = "#BBBBAA"
-	Initialize()
-		. = ..()
-		reagents.remove_reagent("triglyceride", INFINITY)
-		//Chicken is low fat. Less total calories than other meats
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/chicken/Initialize()
+	. = ..()
+	reagents.remove_reagent("triglyceride", INFINITY)
+	//Chicken is low fat. Less total calories than other meats
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/undead
+	name = "rotten meat"
+	desc = "A slab of rotten meat."
+	icon_state = "shadowmeat"
+	health = 180
+	filling_color = "#FF1C1C"
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/undead/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 6)
+	reagents.add_reagent("undead_ichor", 5)
