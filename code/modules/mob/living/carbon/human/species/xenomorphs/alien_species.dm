@@ -309,6 +309,7 @@
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
 		/mob/living/carbon/human/proc/neurotoxin,
+		/mob/living/carbon/human/proc/gut,
 		/mob/living/carbon/human/proc/resin,
 		/mob/living/carbon/human/proc/darkness_eyes
 		)
