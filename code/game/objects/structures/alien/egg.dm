@@ -59,22 +59,23 @@
 
 /obj/structure/alien/egg/proc/Burst(var/kill = 1) //drops and kills the hugger if any is remaining
 	if(status == GROWN || status == GROWING)
-		var/obj/item/clothing/mask/facehugger/child = GetFacehugger()
 		icon_state = "egg_hatched"
 		flick("egg_opening", src)
 		status = BURSTING
+		addtimer(CALLBACK(src, .proc/givefacehugger, kill), 15)
 
-		spawn(15)
-			status = BURST
-			child.loc = get_turf(src)
+/obj/structure/alien/egg/proc/givefacehugger(var/kill = 1)
+	var/obj/item/clothing/mask/facehugger/child = GetFacehugger()
+	status = BURST
+	child.loc = get_turf(src)
 
-			if(kill && istype(child))
-				child.Die()
-			else
-				for(var/mob/M in range(1,src))
-					if(CanHug(M))
-						child.Attach(M)
-						break
+	if(kill && istype(child))
+		child.Die()
+	else
+		for(var/mob/M in range(1,src))
+			if(CanHug(M))
+				child.Attach(M)
+				break
 
 /obj/structure/alien/egg/HasProximity(atom/movable/AM as mob|obj)
 	if(status == GROWN)
