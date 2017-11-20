@@ -162,6 +162,8 @@
 					"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
 					"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
 				)
+			else
+				togglelock(user)
 	else
 		togglelock(user)//Attempt to lock locker if closed
 
