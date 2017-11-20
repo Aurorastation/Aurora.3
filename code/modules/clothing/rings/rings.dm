@@ -4,8 +4,11 @@
 	desc = "An engagement ring. It certainly looks expensive."
 	icon_state = "diamond"
 
-/obj/item/clothing/ring/engagement/attack_self(mob/user)
-	user.visible_message("<span class='warning'>\The [user] gets down on one knee, presenting \the [src].</span>","<span class='warning'>You get down on one knee, presenting \the [src].</span>")
+/obj/item/clothing/ring/engagement/afterattack(atom/A, mob/user as mob, proximity)
+	if(!proximity)
+		return
+	if(ishuman(A) && user != A)
+		user.visible_message("<span class='warning'>\The [user] gets down on one knee, presenting \the [src] to [A].</span>","<span class='warning'>You get down on one knee, presenting \the [src] to [A].</span>")
 
 //Reagent Rings
 
