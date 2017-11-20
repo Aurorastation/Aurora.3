@@ -223,26 +223,26 @@
 			return 0
 		if(iswelder(W))
 			var/obj/item/weapon/weldingtool/WT = W
-			user.visible_message(
-				"<span class='warning'>[user] begins cutting [src] apart.</span>",
-				"<span class='notice'>You begin cutting [src] apart.</span>",
-				"You hear a welding torch on metal."
-			)
-			playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
-			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
-				return
-			if(!WT.remove_fuel(0,user))
-				if(WT.isOn())
+			if(WT.isOn())
+				user.visible_message(
+					"<span class='warning'>[user] begins cutting [src] apart.</span>",
+					"<span class='notice'>You begin cutting [src] apart.</span>",
+					"You hear a welding torch on metal."
+				)
+				playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
+					return
+				if(!WT.remove_fuel(0,user))
 					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 					return
-			else
-				new /obj/item/stack/material/steel(src.loc)
-				user.visible_message(
-					"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
-					"<span class='notice'>You cut apart [src] with [WT].</span>"
-				)
-				qdel(src)
-				return
+				else
+					new /obj/item/stack/material/steel(src.loc)
+					user.visible_message(
+						"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
+						"<span class='notice'>You cut apart [src] with [WT].</span>"
+					)
+					qdel(src)
+					return
 		if(istype(W, /obj/item/weapon/storage/laundry_basket) && W.contents.len)
 			var/obj/item/weapon/storage/laundry_basket/LB = W
 			var/turf/T = get_turf(src)
@@ -263,26 +263,26 @@
 		return
 	else if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
-		user.visible_message(
-			"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
-			"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
-			"You hear a welding torch on metal."
-		)
-		playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
-		if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
-			return
-		if(!WT.remove_fuel(0,user))
-			if(!WT.isOn())
+		if(WT.isOn())
+			user.visible_message(
+				"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
+				"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
+				"You hear a welding torch on metal."
+			)
+			playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
-			else
+			if(!WT.remove_fuel(0,user))
 				user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 				return
-		src.welded = !src.welded
-		src.update_icon()
-		user.visible_message(
-			"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
-			"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
-		)
+			src.welded = !src.welded
+			src.update_icon()
+			user.visible_message(
+				"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
+				"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
+			)
+		else
+			src.attack_hand(user)
 	else
 		src.attack_hand(user)
 	return
