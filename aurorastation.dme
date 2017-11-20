@@ -1174,6 +1174,8 @@
 #include "code\modules\clothing\masks\gasmask.dm"
 #include "code\modules\clothing\masks\miscellaneous.dm"
 #include "code\modules\clothing\masks\voice.dm"
+#include "code\modules\clothing\rings\material.dm"
+#include "code\modules\clothing\rings\rings.dm"
 #include "code\modules\clothing\shoes\colour.dm"
 #include "code\modules\clothing\shoes\jobs.dm"
 #include "code\modules\clothing\shoes\magboots.dm"

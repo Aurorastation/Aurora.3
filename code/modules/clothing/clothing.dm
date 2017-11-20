@@ -215,6 +215,8 @@ BLIND     // can't see anything
 	var/obj/item/weapon/cell/cell = 0
 	var/clipped = 0
 	var/fingerprint_chance = 0
+	var/obj/item/clothing/ring/ring = null		//Covered ring
+	var/mob/living/carbon/human/wearer = null	//Used for covered rings when dropping
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
@@ -235,6 +237,8 @@ BLIND     // can't see anything
 		cell.charge -= 1000 / severity
 		if (cell.charge < 0)
 			cell.charge = 0
+	if(ring)
+		ring.emp_act(severity)
 	..()
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
@@ -259,6 +263,48 @@ BLIND     // can't see anything
 			species_restricted -= "Tajara"
 			species_restricted -= "Vaurca"
 		return
+
+/obj/item/clothing/gloves/mob_can_equip(mob/user, slot)
+	var/mob/living/carbon/human/H = user
+	if(slot && slot == slot_gloves)
+		if(H.gloves)
+			ring = H.gloves
+			if(!ring.undergloves)
+				to_chat(user, "You are unable to wear \the [src] as \the [H.gloves] are in the way.")
+				ring = null
+				return 0
+			H.drop_from_inventory(ring)	//Remove the ring (or other under-glove item in the hand slot?) so you can put on the gloves.
+			ring.forceMove(src)
+
+	if(!..())
+		if(ring) //Put the ring back on if the check fails.
+			if(H.equip_to_slot_if_possible(ring, slot_gloves))
+				src.ring = null
+		return 0
+
+	if (ring)
+		to_chat(user, "You slip \the [src] on over \the [ring].")
+	wearer = H
+	return 1
+
+/obj/item/clothing/gloves/proc/update_wearer()
+	if(!wearer)
+		return
+
+	var/mob/living/carbon/human/H = wearer
+	if(ring && istype(H))
+		if(!H.equip_to_slot_if_possible(ring, slot_gloves))
+			ring.forceMove(get_turf(src))
+		src.ring = null
+	wearer = null
+
+/obj/item/clothing/gloves/dropped()
+	..()
+	update_wearer()
+
+/obj/item/clothing/gloves/on_slotmove()
+	..()
+	update_wearer()
 
 ///////////////////////////////////////////////////////////////////////
 //Head
@@ -726,3 +772,14 @@ BLIND     // can't see anything
 /obj/item/clothing/under/rank/Initialize()
 	sensor_mode = pick(0,1,2,3)
 	. = ..()
+
+
+//Rings
+
+/obj/item/clothing/ring
+	name = "ring"
+	w_class = 1
+	icon = 'icons/obj/clothing/rings.dmi'
+	slot_flags = SLOT_GLOVES
+	gender = NEUTER
+	var/undergloves = 1
