@@ -951,7 +951,9 @@ var/list/wall_items = typecacheof(list(
 	/obj/structure/fireaxecabinet,
 	/obj/machinery/computer/security/telescreen/entertainment,
 	/obj/machinery/station_map,
-	/obj/structure/sign
+	/obj/structure/sign,
+	/obj/machinery/glove_dispenser,
+	/obj/machinery/glove_dispenser/nitrile
 ))
 
 /proc/gotwallitem(loc, dir)
