@@ -75,18 +75,35 @@
 				src.MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
 			else
 				user << "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>"
-		if(isrobot(user))
+		if(iswelder(W))
+			var/obj/item/weapon/weldingtool/WT = W
+			if(WT.isOn())
+				user.visible_message(
+					"<span class='warning'>[user] begins cutting [src] apart.</span>",
+					"<span class='notice'>You begin cutting [src] apart.</span>",
+					"You hear a welding torch on metal."
+				)
+				playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
+					return
+				if(!WT.remove_fuel(0,user))
+					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+					return
+				else
+					new /obj/item/stack/material/steel(src.loc)
+					user.visible_message(
+						"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
+						"<span class='notice'>You cut apart [src] with [WT].</span>"
+					)
+					qdel(src)
+					return
+		else if(isrobot(user))
 			return
-		if(W.loc != user) // This should stop mounted modules ending up outside the module.
+		else if(W.loc != user) // This should stop mounted modules ending up outside the module.
 			return
 		user.drop_item()
 		if(W)
 			W.forceMove(src.loc)
-	else if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
-		if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
-			W:spark_system.queue()
-			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
-			playsound(src.loc, "sparks", 50, 1)
 	else if(isscrewdriver(W) && canbemoved)
 		if(screwed)
 			user << "<span class='notice'>You start to unscrew the locker from the floor...</span>"
@@ -120,6 +137,32 @@
 				wrenched = 1
 				anchored = 1
 	else if(!src.opened)
+		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
+			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
+				W:spark_system.queue()
+				playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
+				playsound(src.loc, "sparks", 50, 1)
+		else if(iswelder(W))
+			var/obj/item/weapon/weldingtool/WT = W
+			if(WT.isOn())
+				user.visible_message(
+					"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
+					"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
+					"You hear a welding torch on metal."
+				)
+				playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+					return
+				if(!WT.remove_fuel(0,user))
+					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
+					return
+				src.welded = !src.welded
+				src.update_icon()
+				user.visible_message(
+					"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
+					"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
+				)
+	else
 		togglelock(user)//Attempt to lock locker if closed
 
 /obj/structure/closet/secure_closet/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/visual_feedback = "", var/audible_feedback = "")
@@ -169,7 +212,7 @@
 		else
 			icon_state = icon_closed
 		if(welded)
-			add_overlay("welded")
+			add_overlay(welded_overlay_state)
 	else
 		icon_state = icon_opened
 
