@@ -5,7 +5,6 @@
 
 #define AUTOHISS_NUM 3
 
-
 /mob/living/proc/handle_autohiss(message, datum/language/L)
 	return message // no autohiss at this level
 
@@ -40,6 +39,8 @@
 	var/list/autohiss_extra_map = null
 	var/list/autohiss_exempt = null
 	var/list/autohiss_basic_extend = null
+	var/list/autohiss_extra_extend = null
+	var/autohiss_extender = "..."
 
 /datum/species/unathi
 	autohiss_basic_map = list(
@@ -85,7 +86,9 @@
 
 /datum/species/diona
 
-	autohiss_basic_extend = list("who","what","when","where","why","how","i'm","i","am","this","they","are","they're","their","his","her","their","the","he","she")
+	autohiss_basic_extend = list("who","what","when","where","why","how")
+	autohiss_extra_extend = list("i'm","i","am","this","they","are","they're","their","his","her","their","the","he","she")
+	autohiss_extender = "..."
 
 	autohiss_basic_map = list(
 			"s" = list("ss","sss"),
@@ -104,52 +107,55 @@
 
 /datum/species/proc/handle_autohiss(message, datum/language/lang, mode)
 
-	if(!autohiss_basic_map)
-		return message
 	if(autohiss_exempt && (lang.name in autohiss_exempt))
 		return message
 	// No reason to auto-hiss in sign-language.
 	if (lang.flags && (lang.flags & SIGNLANG))
 		return message
 
-	if(autohiss_basic_extend)
+	if(autohiss_extender && autohiss_basic_extend)
 		var/longwords = autohiss_basic_extend.Copy()
+		if(mode == AUTOHISS_FULL && autohiss_extra_extend)
+			longwords |= autohiss_extra_extend
+
 		var/list/returninglist = list()
+
 		for(var/word in text2list(message," ")) // For each word in a message
 			if (lowertext(word) in longwords)
-				word += "..."
+				word += autohiss_extender
 			returninglist += word
 		message = returninglist.Join(" ")
 
-	var/map = autohiss_basic_map.Copy()
-	if(mode == AUTOHISS_FULL && autohiss_extra_map)
-		map |= autohiss_extra_map
+	if (autohiss_basic_map)
+		var/map = autohiss_basic_map.Copy()
+		if(mode == AUTOHISS_FULL && autohiss_extra_map)
+			map |= autohiss_extra_map
 
-	. = list()
+		. = list()
 
-	while(length(message))
-		var/min_index = 10000 // if the message is longer than this, the autohiss is the least of your problems
-		var/min_char = null
-		for(var/char in map)
-			var/i = findtext(message, char)
-			if(!i) // no more of this character anywhere in the string, don't even bother searching next time
-				map -= char
-			else if(i < min_index)
-				min_index = i
-				min_char = char
-		if(!min_char) // we didn't find any of the mapping characters
-			. += message
-			break
-		. += copytext(message, 1, min_index)
-		if(copytext(message, min_index, min_index+1) == uppertext(min_char))
-			switch(text2ascii(message, min_index+1))
-				if(65 to 90) // A-Z, uppercase; uppercase R/S followed by another uppercase letter, uppercase the entire replacement string
-					. += uppertext(pick(map[min_char]))
-				else
-					. += capitalize(pick(map[min_char]))
-		else
-			. += pick(map[min_char])
-		message = copytext(message, min_index + 1)
+		while(length(message))
+			var/min_index = 10000 // if the message is longer than this, the autohiss is the least of your problems
+			var/min_char = null
+			for(var/char in map)
+				var/i = findtext(message, char)
+				if(!i) // no more of this character anywhere in the string, don't even bother searching next time
+					map -= char
+				else if(i < min_index)
+					min_index = i
+					min_char = char
+			if(!min_char) // we didn't find any of the mapping characters
+				. += message
+				break
+			. += copytext(message, 1, min_index)
+			if(copytext(message, min_index, min_index+1) == uppertext(min_char))
+				switch(text2ascii(message, min_index+1))
+					if(65 to 90) // A-Z, uppercase; uppercase R/S followed by another uppercase letter, uppercase the entire replacement string
+						. += uppertext(pick(map[min_char]))
+					else
+						. += capitalize(pick(map[min_char]))
+			else
+				. += pick(map[min_char])
+			message = copytext(message, min_index + 1)
 
 	return list2text(.)
 
