@@ -94,4 +94,5 @@
 			else
 				user.take_organ_damage(2*force)
 			return
+	else
 		return ..()
