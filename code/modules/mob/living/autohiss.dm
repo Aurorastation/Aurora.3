@@ -39,6 +39,7 @@
 	var/list/autohiss_basic_map = null
 	var/list/autohiss_extra_map = null
 	var/list/autohiss_exempt = null
+	var/list/autohiss_basic_extend = null
 
 /datum/species/unathi
 	autohiss_basic_map = list(
@@ -83,6 +84,9 @@
 	autohiss_exempt = list(LANGUAGE_VAURCA)
 
 /datum/species/diona
+
+	autohiss_basic_extend = list("who","what","when","where","why","how","i'm","i","am","this","they","are","they're","their","his","her","their","the","he","she")
+
 	autohiss_basic_map = list(
 			"s" = list("ss","sss"),
 			"z" = list("zz","zzz"),
@@ -98,27 +102,7 @@
 			LANGUAGE_ROOTSONG
 		)
 
-/datum/species/proc/handle_autoslow(message)
-
-	var/returning = ""
-	var/longwords = list(
-		"who","what","when","where","why","how",
-		"i'm","i","am","this",
-		"they","are","they're","their","his","her","their","the","he","she",
-		)
-
-	for(var/word in text2list(message," ")) // For each word in a message
-		var/addum = word + " "
-		if (lowertext(word) in longwords)
-			addum = word + "... "
-		returning += addum
-
-	return trim(returning)
-
 /datum/species/proc/handle_autohiss(message, datum/language/lang, mode)
-
-	if ( (mode && mode > 0) && (name && name == "Diona") && (lang && lang.name && lang.name != LANGUAGE_ROOTSONG) )
-		message =  handle_autoslow(message)
 
 	if(!autohiss_basic_map)
 		return message
@@ -127,6 +111,15 @@
 	// No reason to auto-hiss in sign-language.
 	if (lang.flags && (lang.flags & SIGNLANG))
 		return message
+
+	if(autohiss_basic_extend)
+		var/longwords = autohiss_basic_extend.Copy()
+		var/list/returninglist = list()
+		for(var/word in text2list(message," ")) // For each word in a message
+			if (lowertext(word) in longwords)
+				word += "..."
+			returninglist += word
+		message = returninglist.Join(" ")
 
 	var/map = autohiss_basic_map.Copy()
 	if(mode == AUTOHISS_FULL && autohiss_extra_map)
