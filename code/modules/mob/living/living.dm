@@ -20,6 +20,9 @@
 	usr.visible_message("<b>[src]</b> points to [A]")
 	return 1
 
+/mob/living/proc/monkeyize()
+	return
+
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
 default behaviour is:
