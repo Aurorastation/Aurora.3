@@ -10146,7 +10146,7 @@
 	},
 /area/centcom/test)
 "axG" = (
-/obj/machinery/computer/scan_consolenew,
+///obj/machinery/computer/scan_consolenew,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
