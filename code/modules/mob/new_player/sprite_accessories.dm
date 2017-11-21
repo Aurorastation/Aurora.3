@@ -34,6 +34,9 @@
 	// Whether or not the accessory can be affected by colouration
 	var/do_colouration = 1
 
+	// The blend mode to use when blending this icon with its color. May not apply to all sprite_accessory types, and must be a ICON_* blend mode, not BLEND_*!
+	var/icon_blend_mode = ICON_ADD
+
 
 /*
 ////////////////////////////
@@ -659,6 +662,85 @@
 		icon_state = "hair_manbun"
 		gender = MALE
 
+	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
+	uniter
+		icon = 'icons/mob/human_face/hair_tg.dmi'
+		icon_blend_mode = ICON_MULTIPLY
+		name = "Uniter"
+		icon_state = "hair_uniter"
+
+		balding
+			name = "Balding"
+			icon_state = "hair_balding"
+
+		bun
+			name = "Bun"
+			icon_state = "hair_bun"
+
+		fade
+			name = "Fade"
+			icon_state = "hair_fade"
+
+		floof
+			name = "Floof"
+			icon_state = "hair_floof"
+
+		krewcut
+			name = "Krewcut"
+			icon_state = "hair_krewcut"
+
+		pomp
+			name = "Pomp III"
+			icon_state = "hair_pomp_iii"
+
+		shortchoppy
+			name = "Choppy (Short)"
+			icon_state = "hair_shortchoppy"
+
+		shortfloof
+			name = "Floof (Short)"
+			icon_state = "hair_shortfloof"
+
+		sideshave
+			name = "Sideshave"
+			icon_state = "hair_sideshaved"
+
+		superb_owl
+			name = "Superbowl"
+			icon_state = "hair_superbowl"
+
+		waxed
+			name = "Waxed"
+			icon_state = "hair_waxed"
+
+		cactus
+			name = "Cactus"
+			icon_state = "hair_whatdoinamethiscactus"
+
+		wavyshoulder
+			name = "Wavy Shoulder (Down)"
+			icon_state = "wavyshoulder_down"
+
+		wavyshoulder_pt
+			name = "Wavy Shoulder (Ponytail)"
+			icon_state = "wavyshoulder_up"
+
+		jenjen
+			name = "Jenjen"
+			icon_state = "hair_jenjen"
+
+		fade_grown
+			name = "Fade (Grown)"
+			icon_state = "hair_fade_grown"
+
+		swept
+			name = "Swept"
+			icon_state = "hair_shortswept"
+
+		spiked
+			name = "Spiked"
+			icon_state = "hair_short_spike"
+
 
 /*
 ///////////////////////////////////
@@ -790,6 +872,20 @@
 	chinless
 		name = "Chinless Beard"
 		icon_state = "facial_chinlessbeard"
+
+	stark
+		icon = 'icons/mob/human_face/facial_hair_tg.dmi'
+		name = "Stark"
+		icon_state = "beard_stark"
+		icon_blend_mode = ICON_MULTIPLY
+
+		chinstrap2
+			name = "Chinstrap (Alt)"
+			icon_state = "beard_chinstrap"
+
+		swire
+			name = "Swire"
+			icon_state = "beard_swire"
 
 /*
 ///////////////////////////////////
