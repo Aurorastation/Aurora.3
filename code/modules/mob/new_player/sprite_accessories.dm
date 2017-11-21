@@ -670,7 +670,7 @@
 			icon_state = "hair_balding"
 
 		bun
-			name = "Bun"
+			name = "Librarian Bun"
 			icon_state = "hair_bun"
 
 		fade
