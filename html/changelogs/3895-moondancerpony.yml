@@ -1,0 +1,4 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - bugfix: "Removed diona nymph mind control. (Players will no longer aggressively grab themselves when trying to grab a diona nymph.)"
