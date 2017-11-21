@@ -951,11 +951,11 @@
 			icon_state = "skrell_hair_f"
 			gender = FEMALE
 
-//tajaran hair
+//tajara hair
 
 	taj_ears
 		icon = 'icons/mob/human_face/tajara_hair.dmi'
-		name = "Tajaran Ears"
+		name = "Tajara Ears"
 		icon_state = "ears_plain"
 		species_allowed = list("Tajara")
 
@@ -976,7 +976,7 @@
 			icon_state = "hair_shaggy"
 
 		taj_ears_mohawk
-			name = "Tajaran Mohawk"
+			name = "Tajara Mohawk"
 			icon_state = "hair_mohawk"
 
 		taj_ears_plait

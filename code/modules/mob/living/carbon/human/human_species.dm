@@ -21,7 +21,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	. = ..(mapload, "Skrell")
 
 /mob/living/carbon/human/tajaran/Initialize(mapload)
-	h_style = "Tajaran Ears"
+	h_style = "Tajara Ears"
 	. = ..(mapload, "Tajara")
 
 /mob/living/carbon/human/unathi/Initialize(mapload)

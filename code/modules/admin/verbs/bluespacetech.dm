@@ -178,7 +178,7 @@
 
 /mob/living/carbon/human/bst/proc/bsc() //because we all have our unrealistic snowflakes right?
 	if(set_species("Tajara"))
-		h_style = "Tajaran Ears"
+		h_style = "Tajara Ears"
 		name = "Bluespace Cat"
 		voice_name = "Bluespace Cat"
 		real_name = "Bluespace Cat"
