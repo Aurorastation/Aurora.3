@@ -881,7 +881,7 @@
 
 		chinstrap2
 			name = "Chinstrap (Alt)"
-			icon_state = "beard_chinstrap"
+			icon_state = "beard_chinstrap_ii"
 
 		swire
 			name = "Swire"
