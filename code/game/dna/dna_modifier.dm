@@ -205,7 +205,7 @@
 		else
 	return
 
-/*/obj/machinery/computer/scan_consolenew
+/obj/machinery/computer/scan_consolenew
 	name = "DNA Modifier Access Console"
 	desc = "Scand DNA."
 	icon = 'icons/obj/computer.dmi'
@@ -794,5 +794,5 @@
 			src.disk.name = "data disk - '[buf.dna.real_name]'"
 			//src.temphtml = "Data saved."
 			return 1
-*/
+
 /////////////////////////// DNA MACHINES
