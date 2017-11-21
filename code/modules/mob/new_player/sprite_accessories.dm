@@ -11,10 +11,6 @@
 	have to define any UI values for sprite accessories manually for hair and facial
 	hair. Just add in new hair types and the game will naturally adapt.
 
-	!!WARNING!!: changing existing hair information can be VERY hazardous to savefiles,
-	to the point where you may completely corrupt a server's savefiles. Please refrain
-	from doing this unless you absolutely know what you are doing, and have defined a
-	conversion in savefile.dm
 */
 
 /datum/sprite_accessory
