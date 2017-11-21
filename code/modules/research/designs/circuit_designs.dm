@@ -79,11 +79,11 @@
 	build_path = /obj/item/weapon/circuitboard/pandemic
 	sort_string = "FAEAA"
 
-/datum/design/circuit/scan_console
+/*/datum/design/circuit/scan_console
 	name = "DNA machine"
 	id = "scan_console"
 	build_path = /obj/item/weapon/circuitboard/scan_consolenew
-	sort_string = "FAGAA"
+	sort_string = "FAGAA"*/
 
 /datum/design/circuit/clonecontrol
 	name = "cloning control console"
