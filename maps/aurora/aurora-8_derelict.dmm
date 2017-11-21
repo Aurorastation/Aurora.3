@@ -4334,7 +4334,6 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "nt" = (
-///obj/machinery/computer/scan_consolenew,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
