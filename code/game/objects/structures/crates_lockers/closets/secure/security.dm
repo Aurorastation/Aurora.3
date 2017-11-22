@@ -326,6 +326,30 @@
 		new /obj/item/weapon/gun/projectile/revolver/detective(src)
 		new /obj/item/clothing/accessory/holster/armpit(src)
 
+/obj/structure/closet/secure_closet/detective/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(src.opened)
+		if(istype(W, /obj/item/weapon/grab))
+			var/obj/item/weapon/grab/G = W
+			if(src.large)
+				src.MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
+			else
+				user << "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>"
+		else if(isrobot(user))
+			return
+		else if(W.loc != user) // This should stop mounted modules ending up outside the module.
+			return
+		user.drop_item()
+		if(W)
+			W.forceMove(src.loc)
+	else if(!src.opened)
+		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
+			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
+				W:spark_system.queue()
+				playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
+				playsound(src.loc, "sparks", 50, 1)
+	else
+		togglelock(user)//Attempt to lock locker if closed
+
 
 /obj/structure/closet/secure_closet/csi
 	name = "forensic technician's locker"
