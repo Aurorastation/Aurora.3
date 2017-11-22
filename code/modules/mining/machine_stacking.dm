@@ -22,24 +22,30 @@
 
 /obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
-	interact(user)
+	ui_interact(user)
 
-/obj/machinery/mineral/stacking_unit_console/interact(mob/user)
-	user.set_machine(src)
+/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = default_state)
+	var/list/data = list(
+		"stack_amt" = machine.stack_amt,
+		"contents" = list(),
+		"no_contents" = TRUE
+	)
+	for (var/stacktype in machine.stack_storage)
+		if (machine.stack_storage[stacktype] > 0)
+			data["contents"] += list(list(
+				"path" = stacktype,
+				"name" = machine.stack_paths[stacktype],
+				"amount" = machine.stack_storage[stacktype]
+			))
+			if (data["no_contents"])
+				data["no_contents"] = FALSE
 
-	var/dat
-
-	dat += text("<h1>Stacking unit console</h1><hr><table>")
-
-	for(var/stacktype in machine.stack_storage)
-		if(machine.stack_storage[stacktype] > 0)
-			dat += "<tr><td width = 150><b>[capitalize(stacktype)]:</b></td><td width = 30>[machine.stack_storage[stacktype]]</td><td width = 50><A href='?src=\ref[src];release_stack=[stacktype]'>\[release\]</a></td></tr>"
-	dat += "</table><hr>"
-	dat += text("<br>Stacking: [machine.stack_amt] <A href='?src=\ref[src];change_stack=1'>\[change\]</a><br><br>")
-
-	user << browse("[dat]", "window=console_stacking_machine")
-	onclose(user, "console_stacking_machine")
-
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if (!ui)
+		ui = new(user, src, ui_key, "stacking_machine.tmpl", "Stacking Machine", 800, 500, state = state)
+		ui.set_initial_data(data)
+		ui.open()
+		ui.set_auto_update(1)
 
 /obj/machinery/mineral/stacking_unit_console/Topic(href, href_list)
 	if(..())
@@ -51,16 +57,17 @@
 		machine.stack_amt = choice
 
 	if(href_list["release_stack"])
-		if(machine.stack_storage[href_list["release_stack"]] > 0)
-			var/stacktype = machine.stack_paths[href_list["release_stack"]]
-			var/obj/item/stack/material/S = new stacktype (get_turf(machine.output))
-			S.amount = machine.stack_storage[href_list["release_stack"]]
-			machine.stack_storage[href_list["release_stack"]] = 0
+		var/stacktype = text2path(href_list["release_stack"])
+		if (!stacktype || !machine.stack_paths[stacktype])
+			return
 
-	src.add_fingerprint(usr)
-	src.updateUsrDialog()
+		if(machine.stack_storage[stacktype] > 0)
+			var/obj/item/stack/material/S = new stacktype(get_turf(machine.output))
+			S.amount = machine.stack_storage[stacktype]
+			machine.stack_storage[stacktype] = 0
 
-	return
+	add_fingerprint(usr)
+	//src.updateUsrDialog()
 
 /**********************Mineral stacking unit**************************/
 
@@ -74,8 +81,8 @@
 	var/obj/machinery/mineral/stacking_unit_console/console
 	var/obj/machinery/mineral/input = null
 	var/obj/machinery/mineral/output = null
-	var/list/stack_storage[0]
-	var/list/stack_paths[0]
+	var/list/stack_storage = list()
+	var/list/stack_paths = list()
 	var/stack_amt = 50; // Amount to stack before releassing
 	use_power = 1
 	idle_power_usage = 15
@@ -84,25 +91,17 @@
 /obj/machinery/mineral/stacking_machine/Initialize()
 	. = ..()
 
-	for(var/stacktype in typesof(/obj/item/stack/material)-/obj/item/stack/material)
-		var/obj/item/stack/S = new stacktype(src)
-		stack_storage[S.name] = 0
-		stack_paths[S.name] = stacktype
-		qdel(S)
-
-	stack_storage["glass"] = 0
-	stack_paths["glass"] = /obj/item/stack/material/glass
-	stack_storage[DEFAULT_WALL_MATERIAL] = 0
-	stack_paths[DEFAULT_WALL_MATERIAL] = /obj/item/stack/material/steel
-	stack_storage["plasteel"] = 0
-	stack_paths["plasteel"] = /obj/item/stack/material/plasteel
+	for(var/stacktype in subtypesof(/obj/item/stack/material) - typesof(/obj/item/stack/material/cyborg))
+		var/obj/item/stack/S = stacktype
+		stack_storage[stacktype] = 0
+		stack_paths[stacktype] = initial(S.name)
 
 	for (var/dir in cardinal)
-		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(src.input) break
+		input = locate(/obj/machinery/mineral/input, get_step(src, dir))
+		if(input) break
 	for (var/dir in cardinal)
-		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(src.output) break
+		output = locate(/obj/machinery/mineral/output, get_step(src, dir))
+		if(output) break
 
 /obj/machinery/mineral/stacking_machine/machinery_process()
 	..()
@@ -110,27 +109,24 @@
 		log_debug("Stacking machine tried to process, but no console has linked itself to it.")
 		qdel(src)
 		return
-	if (src.output && src.input)
+
+	if (output && input)
 		var/turf/T = get_turf(input)
-		for(var/obj/item/O in T.contents)
+		for(var/obj/item/O in T)
 			if(!O) return
-			if(istype(O,/obj/item/stack))
-				if(!isnull(stack_storage[O.name]))
-					stack_storage[O.name]++
-					O.loc = null
+			if(istype(O, /obj/item/stack))
+				if(!isnull(stack_storage[O.type]))
+					stack_storage[O.type]++
+					qdel(O)
 				else
-					O.loc = output.loc
+					O.forceMove(output.loc)
 			else
-				O.loc = output.loc
+				O.forceMove(output.loc)
 
 	//Output amounts that are past stack_amt.
 	for(var/sheet in stack_storage)
 		if(stack_storage[sheet] >= stack_amt)
-			var/stacktype = stack_paths[sheet]
-			var/obj/item/stack/material/S = new stacktype (get_turf(output))
+			var/stacktype = sheet
+			var/obj/item/stack/material/S = new stacktype(get_turf(output))
 			S.amount = stack_amt
 			stack_storage[sheet] -= stack_amt
-
-	console.updateUsrDialog()
-	return
-
