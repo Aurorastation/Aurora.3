@@ -23,7 +23,8 @@
 /obj/machinery/power/tesla_coil/attackby(obj/item/W, mob/user)
 	if(default_deconstruction_screwdriver(user, W))
 		return
-
+	if(default_deconstruction_crowbar(user, O))
+		return
 	if(default_part_replacement(user, W))
 		return
 
@@ -89,3 +90,4 @@
 	desc = "The circuitboard for a tesla coil."
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	req_components = list("/obj/item/weapon/stock_parts/capacitor" = 1)
+	board_type = "machine"
