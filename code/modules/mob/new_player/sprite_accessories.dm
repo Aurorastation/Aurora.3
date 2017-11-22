@@ -660,7 +660,7 @@
 
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	uniter
-		icon = 'icons/mob/human_face/hair_tg.dmi'
+		icon = 'icons/mob/human_face/hair_multiply.dmi'
 		icon_blend_mode = ICON_MULTIPLY
 		name = "Uniter"
 		icon_state = "hair_uniter"
@@ -870,7 +870,7 @@
 		icon_state = "facial_chinlessbeard"
 
 	stark
-		icon = 'icons/mob/human_face/facial_hair_tg.dmi'
+		icon = 'icons/mob/human_face/facial_hair_multiply.dmi'
 		name = "Stark"
 		icon_state = "beard_stark"
 		icon_blend_mode = ICON_MULTIPLY
