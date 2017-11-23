@@ -126,6 +126,5 @@
 	for(var/sheet in stack_storage)
 		if(stack_storage[sheet] >= stack_amt)
 			var/stacktype = sheet
-			var/obj/item/stack/material/S = new stacktype(get_turf(output))
-			S.amount = stack_amt
+			var/obj/item/stack/material/S = new stacktype(get_turf(output), stack_amt)
 			stack_storage[sheet] -= stack_amt
