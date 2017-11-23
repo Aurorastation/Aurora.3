@@ -27,8 +27,7 @@
 /obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = default_state)
 	var/list/data = list(
 		"stack_amt" = machine.stack_amt,
-		"contents" = list(),
-		"no_contents" = TRUE
+		"contents" = list()
 	)
 	for (var/stacktype in machine.stack_storage)
 		if (machine.stack_storage[stacktype] > 0)
@@ -37,24 +36,24 @@
 				"name" = machine.stack_paths[stacktype],
 				"amount" = machine.stack_storage[stacktype]
 			))
-			if (data["no_contents"])
-				data["no_contents"] = FALSE
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "stacking_machine.tmpl", "Stacking Machine", 800, 500, state = state)
+		ui = new(user, src, ui_key, "stacking_machine.tmpl", "Stacking Machine", 500, 400, state = state)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
 
 /obj/machinery/mineral/stacking_unit_console/Topic(href, href_list)
 	if(..())
-		return 1
+		return
 
 	if(href_list["change_stack"])
 		var/choice = input("What would you like to set the stack amount to?") as null|anything in list(1,5,10,20,50)
-		if(!choice) return
+		if(!choice)
+			return TRUE
 		machine.stack_amt = choice
+		return TRUE
 
 	if(href_list["release_stack"])
 		var/stacktype = text2path(href_list["release_stack"])
@@ -65,9 +64,9 @@
 			var/obj/item/stack/material/S = new stacktype(get_turf(machine.output))
 			S.amount = machine.stack_storage[stacktype]
 			machine.stack_storage[stacktype] = 0
+			return TRUE
 
 	add_fingerprint(usr)
-	//src.updateUsrDialog()
 
 /**********************Mineral stacking unit**************************/
 
@@ -94,14 +93,17 @@
 	for(var/stacktype in subtypesof(/obj/item/stack/material) - typesof(/obj/item/stack/material/cyborg))
 		var/obj/item/stack/S = stacktype
 		stack_storage[stacktype] = 0
-		stack_paths[stacktype] = initial(S.name)
+		stack_paths[stacktype] = capitalize(initial(S.name))
 
 	for (var/dir in cardinal)
 		input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(input) break
+		if(input)
+			break
+
 	for (var/dir in cardinal)
 		output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(output) break
+		if(output)
+			break
 
 /obj/machinery/mineral/stacking_machine/machinery_process()
 	..()
@@ -114,12 +116,9 @@
 		var/turf/T = get_turf(input)
 		for(var/obj/item/O in T)
 			if(!O) return
-			if(istype(O, /obj/item/stack))
-				if(!isnull(stack_storage[O.type]))
-					stack_storage[O.type]++
-					qdel(O)
-				else
-					O.forceMove(output.loc)
+			if(istype(O, /obj/item/stack) && stack_storage[O.type] != null)
+				stack_storage[O.type]++
+				qdel(O)
 			else
 				O.forceMove(output.loc)
 

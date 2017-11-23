@@ -1,20 +1,18 @@
-<div class='statusDisplay'>
-	{{if data.no_contents}}
-		<div class='notice'>No materials loaded.</div>
-	{{else}}
-		{{for data.contents}}
-			<div class='line'>
-				<div class='statusLabel'>{{:value.name}}</div>
-				<div class='statusValue'>{{:value.amount}}</div>
-				{{:helper.link('Release', 'eject', {'release_stack' : value.path})}}
-			</div>
-		{{/for}}
-	{{/if}}
+<div class='itemGroup'>
+	{{for data.contents}}
+		<div class='item'>
+			<div class='itemLabelNarrow'>{{:value.name}}</div>
+			<div class='itemContentSmall'>{{:value.amount}}</div>
+			<div class='floatRight'>{{:helper.link('Eject', 'eject', {'release_stack' : value.path})}}</div>
+		</div>
+	{{empty}}
+		No materials loaded.
+	{{/for}}
 </div>
-<div>
+<div class='statusDisplay'>
 	<div class='line'>
 		<div class='statusLabel'>Stacking:</div>
 		<div class='statusValue'>{{:data.stack_amt}}</div>
-		{{:helper.link('Change', 'wrench', {'change_stack' : 1})}}
+		<div class='floatRight'>{{:helper.link('Change', 'wrench', {'change_stack' : 1})}}</div>
 	</div>
 </div>
