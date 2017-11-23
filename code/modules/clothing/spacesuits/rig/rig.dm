@@ -591,7 +591,7 @@
 
 /obj/item/weapon/rig/proc/toggle_piece(var/piece, var/mob/initiator, var/deploy_mode)
 
-	if(sealing || !cell || !cell.charge)
+	if(!usr || sealing || !cell || !cell.charge)
 		return
 
 	if(!istype(wearer) || !wearer.back == src)

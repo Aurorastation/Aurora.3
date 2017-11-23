@@ -187,6 +187,10 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	projectile_type = /obj/item/projectile/magic
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5, TECH_BLUESPACE = 6)
 	charge_meter = 0
+	charge_failure_message = null
+
+/obj/item/weapon/gun/energy/wand/get_cell()
+	return DEVICE_NO_CELL
 
 /obj/item/weapon/gun/energy/wand/handle_click_empty(mob/user = null)
 	if (user)

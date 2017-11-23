@@ -1146,6 +1146,7 @@
 	species_allowed = list()
 
 	var/body_parts = list() //A list of bodyparts this covers, TODO: port defines for organs someday
+	var/is_genetic = TRUE	// If TRUE, the marking is considered genetic and is embedded into DNA.
 
 	tiger_stripes
 		name = "Tiger Stripes (Tajara)"

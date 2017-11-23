@@ -21,6 +21,8 @@
 	var/tmp/list/climbers
 
 
+	var/no_mutate = FALSE	// If TRUE, SSopenturf will not modify the appearance of this turf.
+
 // An override of turf/Enter() to make it so that magboots allow you to stop
 // falling off the damned rock.
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
@@ -37,14 +39,16 @@
 // centralizes control to SSfalling.
 /turf/simulated/open/Entered(atom/movable/mover)
 	..()
-	ADD_FALLING_ATOM(mover)
+	if (is_hole)
+		ADD_FALLING_ATOM(mover)
 
 // Override to deny a climber exit if they're set to adhere to CLIMBER_NO_EXIT
 /turf/simulated/open/Exit(atom/movable/mover, atom/newloc)
 	var/flags = remove_climber(mover)
 
 	if (flags & CLIMBER_NO_EXIT)
-		ADD_FALLING_ATOM(mover)
+		if (is_hole)
+			ADD_FALLING_ATOM(mover)
 		return FALSE
 
 	return ..()
@@ -118,8 +122,9 @@
  */
 /turf/simulated/open/proc/update()
 	levelupdate()
-	for (var/atom/movable/A in src)
-		ADD_FALLING_ATOM(A)
+	if (is_hole)
+		for (var/atom/movable/A in src)
+			ADD_FALLING_ATOM(A)
 	update_icon()
 
 /turf/simulated/open/update_dirt()

@@ -110,7 +110,8 @@ Content adjustment
 			continue
 		else
 			path = 	contents[metadata[i]]
-		new path(I)
+		if(path)
+			new path(I)
 
 /*
 Reagents adjustment

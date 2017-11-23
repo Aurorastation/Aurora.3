@@ -135,6 +135,7 @@
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/on = 0					// 1 if on, 0 if off
 	var/on_gs = 0
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
@@ -701,6 +702,7 @@
 	matter = list("glass" = 100)
 	brightness_range = 5
 	brightness_power = 0.75
+	brightness_color = LIGHT_COLOR_TUNGSTEN
 	lighttype = "bulb"
 
 /obj/item/weapon/light/bulb/colored/red

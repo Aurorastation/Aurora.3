@@ -119,7 +119,7 @@
 
 		// Figure out how many z-levels down we are.
 		var/depth = 0
-		var/turf/simulated/open/Td = T
+		var/turf/Td = T
 		while (Td && Td.below && (Td.below.flags & MIMIC_BELOW))
 			Td = Td.below
 			depth++
