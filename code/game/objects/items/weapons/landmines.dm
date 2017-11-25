@@ -26,12 +26,10 @@
 	layer = TURF_LAYER+0.2
 	usr << "<span class='notice'>You hide \the [src].</span>"
 
-/obj/item/weapon/landmine/proc/can_use(mob/user)
-	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
 
 /obj/item/weapon/landmine/attack_self(mob/user as mob)
 	..()
-	if(!deployed && can_use(user))
+	if(!deployed && use_check(user, USE_DISALLOW_SILICONS))
 		user.visible_message(
 			"<span class='danger'>[user] starts to deploy \the [src].</span>",
 			"<span class='danger'>You begin deploying \the [src]!</span>"
@@ -59,15 +57,16 @@
 /obj/item/weapon/landmine/Crossed(AM as mob|obj)
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
-		L.visible_message(
-			"<span class='danger'>[L] steps on \the [src].</span>",
-			"<span class='danger'>You step on \the [src]!</span>"
-			)
-		trigger(L)
+		if(L.mob_size >= 5)
+			L.visible_message(
+				"<span class='danger'>[L] steps on \the [src].</span>",
+				"<span class='danger'>You step on \the [src]!</span>"
+				)
+			trigger(L)
 	..()
 
 /obj/item/weapon/landmine/attack_hand(mob/user as mob)
-	if(deployed && can_use(user))
+	if(deployed && use_check(user, USE_DISALLOW_SILICONS))
 		user.visible_message(
 				"<span class='danger'>[user] triggers \the [src].</span>",
 				"<span class='danger'>You trigger \the [src]!</span>"
