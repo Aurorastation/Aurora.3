@@ -20,7 +20,7 @@
 	set name = "Hide"
 	set category = "Object"
 
-	if(use_check(user, USE_DISALLOW_SILICONS))
+	if(!use_check(user, USE_DISALLOW_SILICONS))
 		return
 
 	layer = TURF_LAYER+0.2
@@ -29,7 +29,7 @@
 
 /obj/item/weapon/landmine/attack_self(mob/user as mob)
 	..()
-	if(!deployed && use_check(user, USE_DISALLOW_SILICONS))
+	if(!deployed && !use_check(user, USE_DISALLOW_SILICONS))
 		user.visible_message(
 			"<span class='danger'>[user] starts to deploy \the [src].</span>",
 			"<span class='danger'>You begin deploying \the [src]!</span>"
@@ -66,7 +66,7 @@
 	..()
 
 /obj/item/weapon/landmine/attack_hand(mob/user as mob)
-	if(deployed && use_check(user, USE_DISALLOW_SILICONS))
+	if(deployed && !use_check(user, USE_DISALLOW_SILICONS))
 		user.visible_message(
 				"<span class='danger'>[user] triggers \the [src].</span>",
 				"<span class='danger'>You trigger \the [src]!</span>"
