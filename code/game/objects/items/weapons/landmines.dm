@@ -20,7 +20,7 @@
 	set name = "Hide"
 	set category = "Object"
 
-	if(usr.stat)
+	if(use_check(user, USE_DISALLOW_SILICONS))
 		return
 
 	layer = TURF_LAYER+0.2
