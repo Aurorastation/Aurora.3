@@ -38,7 +38,7 @@
 	name = "Kneebreaker Hammer"
 	item_cost = 10
 	path = /obj/item/weapon/melee/hammer
-	
+
 /datum/uplink_item/item/visible_weapons/revolver
 	name = "Revolver"
 	item_cost = 12
@@ -48,6 +48,11 @@
 	name = "Tommy Gun"
 	item_cost = 14
 	path = /obj/item/weapon/gun/projectile/automatic/tommygun
+
+/datum/uplink_item/item/visible_weapons/landmine
+	name = "Land Mine"
+	item_cost = 3
+	path = /obj/item/weapon/landmine
 
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"
