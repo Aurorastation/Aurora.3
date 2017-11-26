@@ -181,10 +181,19 @@
 	icon_opened = "medical_wall_open"
 	icon_broken = "medical_wall_spark"
 	icon_off = "medical_wall_off"
-	welded_overlay_state = "welded_wallcloset"
 	anchored = 1
 	density = 0
 	wall_mounted = 1
 	req_access = list(access_medical_equip)
 
-
+/obj/structure/closet/secure_closet/medical_wall/update_icon()
+	if(broken)
+		icon_state = icon_broken
+	else
+		if(!opened)
+			if(locked)
+				icon_state = icon_locked
+			else
+				icon_state = icon_closed
+		else
+			icon_state = icon_opened

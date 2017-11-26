@@ -211,3 +211,8 @@
 	density = 0
 	wall_mounted = 1
 
+/obj/structure/closet/medical_wall/update_icon()
+	if(!opened)
+		icon_state = icon_closed
+	else
+		icon_state = icon_opened
