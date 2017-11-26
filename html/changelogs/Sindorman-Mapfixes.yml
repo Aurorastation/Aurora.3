@@ -1,4 +1,5 @@
 author: PoZe
 delete-after: True
+changes:
   - bugfix: "Fixed crates, and lockers interaction with shut welder"
   - tweak: "Added ability to weld and cut apart any secure or wall lockers or secure wall lockers."
