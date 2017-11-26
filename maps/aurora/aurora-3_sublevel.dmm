@@ -2511,6 +2511,7 @@
 	},
 /obj/machinery/power/apc{
 	dir = 1;
+	is_critical = 1;
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24
