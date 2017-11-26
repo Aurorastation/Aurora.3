@@ -1,9 +1,69 @@
-//Negative values indicate that instances of these types should use the Value proc
-//Mainly used so that stuff inside them can also add to their value, and other things like material,
-//stuff like that.
+/var/global/datum/controller/subsystem/item_worths/SSItemWorths
 
-var/list/worths = list(
-//ROBOT ASSEMBLIES,
+/datum/controller/subsystem/item_worths
+	name = "Item Worths"
+	flags = SS_NO_FIRE
+	init_order = SS_INIT_MISC_FIRST
+
+	var/list/worths = list()
+
+/datum/controller/subsystem/item_worths/New()
+	NEW_SS_GLOBAL(SSItemWorths)
+
+/datum/controller/subsystem/item_worths/Initialize(timeofday)
+	//Load in the items value config
+	if(config.item_worths_load_from == "sql")
+		log_debug("SSItemWorths: Attempting to Load from SQL")
+		load_from_sql()
+	else
+		log_debug("SSItemWorths: Loading From Code")
+		load_from_code()
+
+/datum/controller/subsystem/item_worths/proc/load_from_sql()
+	worths = list()
+	if(!establish_db_connection(dbcon))
+		log_debug("SSItemWorths: SQL ERROR: Failed to connect ! - Falling back to Code")
+		return load_from_code()
+	else
+		//Get the item values from the DB
+		var/DBQuery/item_worth_query = dbcon.NewQuery("SELECT path, value FROM ss13_item_worths WHERE deleted_at IS NULL ORDER BY path DESC")
+		item_worth_query.Execute()
+		while(item_worth_query.NextRow())
+			var/text_path = item_worth_query.item[1]
+			var/path = text2path(text_path)
+			var/value = item_worth_query.item[2]
+			if(path)
+				worths[path] = value
+			else
+				log_debug("SSItemWorths: Loading Error: [text_path] is not a valid path")
+
+/datum/controller/subsystem/item_worths/proc/seed_database(overwrite = 0)
+	if(config.item_worths_load_from == "sql")
+		log_debug("SSItemWorths: SEED ERROR: You need to load from code, if you wish to seed the SQL DB.")
+		return 1
+	if(!establish_db_connection(dbcon))
+		log_debug("SSItemWorths: SQL ERROR: Failed to connect ! - Unable to seed DB.")
+		return 1
+	
+	var/query_string = "INSERT INTO ss13_item_worths (path, value) VALUES (:path:, :value:) ON DUPLICATE KEY UPDATE value=value"
+
+	if(overwrite)
+		query_string = "INSERT INTO ss13_item_worths (path, value) VALUES (:path:, :value:) ON DUPLICATE KEY UPDATE value=:value:"
+
+	for(var/path in worths)
+		var/DBQuery/item_worth_query = dbcon.NewQuery(query_string)
+		item_worth_query.Execute(list("path" = "[path]", "value" = worths[path]))
+
+/datum/controller/subsystem/item_worths/proc/load_from_code()
+	//Negative values indicate that instances of these types should use the Value proc
+	//Mainly used so that stuff inside them can also add to their value, and other things like material,
+	//stuff like that.
+
+	// !!! IMPORTANT !!!
+	// If you update this list, then notify the DB Admin(s) of your server to effect the same changes in the DB
+
+	worths = list(
+	//ROBOT ASSEMBLIES,
 					/obj/item/weapon/secbot_assembly = 180,
 					/obj/item/weapon/secbot_assembly/ed209_assembly = 280,
 					/obj/item/weapon/farmbot_arm_assembly = 130,
@@ -11,7 +71,7 @@ var/list/worths = list(
 					/obj/item/weapon/toolbox_tiles_sensor = 180,
 					/obj/item/weapon/firstaid_arm_assembly = 150,
 					/obj/item/weapon/bucket_sensor = 40,
-//REAGENT CONTAINERS,
+	//REAGENT CONTAINERS,
 					/obj/item/weapon/reagent_containers/hypospray/combat = -200,
 					/obj/item/weapon/reagent_containers/hypospray = -90,
 					/obj/item/weapon/reagent_containers/spray = -23,
@@ -25,7 +85,7 @@ var/list/worths = list(
 					/obj/item/weapon/reagent_containers/glass/rag = -5,
 					/obj/item/weapon/reagent_containers/glass = -60,
 					/obj/item/weapon/reagent_containers = -1,
-//ENERGY GUNS,
+	//ENERGY GUNS,
 					/obj/item/weapon/gun/energy/rifle/pulse/destroyer = 9000,
 					/obj/item/weapon/gun/energy/rifle/pulse = 7000,
 					/obj/item/weapon/gun/energy/rifle/laser/heavy = 6500,
@@ -68,14 +128,14 @@ var/list/worths = list(
 					/obj/item/weapon/gun/energy/tesla = 7000,
 					/obj/item/weapon/gun/energy/gravity_gun = 4500,
 					/obj/item/weapon/gun/energy = 2100,
-//LAUNCHERS,
+	//LAUNCHERS,
 					/obj/item/weapon/gun/launcher/spikethrower = 3500,
 					/obj/item/weapon/gun/launcher/rocket = 8000,
 					/obj/item/weapon/gun/launcher/crossbow = 120,
 					/obj/item/weapon/gun/launcher/pneumatic = 200,
 					/obj/item/weapon/gun/launcher/syringe = 150,
 					/obj/item/weapon/gun/launcher = 300,
-//AUTOMATICS,
+	//AUTOMATICS,
 					/obj/item/weapon/gun/projectile/automatic/rifle/sts35 = 3800,
 					/obj/item/weapon/gun/projectile/automatic/rifle/z8 = 3100,
 					/obj/item/weapon/gun/projectile/automatic/rifle/l6_saw = 13400,
@@ -89,7 +149,7 @@ var/list/worths = list(
 					/obj/item/weapon/gun/projectile/automatic/x9 = 2500,
 					/obj/item/weapon/gun/projectile/automatic/terminator = 15000,
 					/obj/item/weapon/gun/projectile/automatic = 2000,
-//PROJECTILE,
+	//PROJECTILE,
 					/obj/item/weapon/gun/projectile/shotgun/pump/combat = 5500,
 					/obj/item/weapon/gun/projectile/shotgun/pump = 3500,
 					/obj/item/weapon/gun/projectile/shotgun/doublebarrel = 2500,
@@ -111,9 +171,9 @@ var/list/worths = list(
 					/obj/item/weapon/gun/projectile/dragunov = 4500,
 					/obj/item/weapon/gun/projectile/contender = 1300,
 					/obj/item/weapon/gun/projectile = 1500,
-//GUN,
+	//GUN,
 					/obj/item/weapon/gun = 500,
-//MATERIAL STACKS,
+	//MATERIAL STACKS,
 					/obj/item/stack/material/marble = -20,
 					/obj/item/stack/material/diamond = -60,
 					/obj/item/stack/material/uranium = -120,
@@ -133,7 +193,7 @@ var/list/worths = list(
 					/obj/item/stack/material/glass/phoronglass = -35,
 					/obj/item/stack/material/glass/phoronrglass = -65,
 					/obj/item/stack/material = -5,
-//STACKS,
+	//STACKS,
 					/obj/item/stack/medical/advanced/bruise_pack = -30,
 					/obj/item/stack/medical/advanced/ointment = -40,
 					/obj/item/stack/medical/splint = -25,
@@ -143,7 +203,7 @@ var/list/worths = list(
 					/obj/item/stack/telecrystal = -1000,
 					/obj/item/stack/wax = -5,
 					/obj/item/stack = -5,
-//STORAGE,
+	//STORAGE,
 					/obj/item/weapon/storage/briefcase/crimekit = -50,
 					/obj/item/weapon/storage/belt/wands = 800,
 					/obj/item/weapon/storage/belt/military = 700,
@@ -152,7 +212,7 @@ var/list/worths = list(
 					/obj/item/weapon/storage/belt = -50,
 					/obj/item/weapon/storage/backpack/holding = -3000,
 					/obj/item/weapon/storage = -30,
-//WEAPONS,
+	//WEAPONS,
 					/obj/item/weapon/spacecash = -1,
 					/obj/item/weapon/ore = 10,
 					/obj/item/weapon/mining_scanner =  130,
@@ -168,7 +228,7 @@ var/list/worths = list(
 					/obj/item/weapon/coin/silver = 25,
 					/obj/item/weapon/coin/iron = 5,
 					/obj/item/weapon/coin = 3,
-//MINING GEAR,
+	//MINING GEAR,
 					/obj/item/weapon/pickaxe/silver = 300,
 					/obj/item/weapon/pickaxe/drill = 100,
 					/obj/item/weapon/pickaxe/jackhammer = 90,
@@ -193,7 +253,7 @@ var/list/worths = list(
 					/obj/item/weapon/portable_destructive_analyzer = 780,
 					/obj/item/weapon/inflatable_dispenser = 300,
 					/obj/item/weapon/matter_decompiler = 400,
-//COMPUTER HARDWARE,
+	//COMPUTER HARDWARE,
 					/obj/item/weapon/computer_hardware/battery_module/advanced = 110,
 					/obj/item/weapon/computer_hardware/battery_module/super = 150,
 					/obj/item/weapon/computer_hardware/battery_module/ultra = 190,
@@ -218,7 +278,7 @@ var/list/worths = list(
 					/obj/item/weapon/computer_hardware = 80,
 					/obj/item/weapon/computer_hardware/hard_drive = 125,
 					/obj/item/weapon/clipboard = 15,
-//POWER CELLS,
+	//POWER CELLS,
 					/obj/item/weapon/cell/device = 100,
 					/obj/item/weapon/cell/crap = 30,
 					/obj/item/weapon/cell/apc = 130,
@@ -230,7 +290,7 @@ var/list/worths = list(
 					/obj/item/weapon/cell/potato = 1,
 					/obj/item/weapon/cell/slime = 160,
 					/obj/item/weapon/cell = 60,
-//SMES COILS,
+	//SMES COILS,
 					/obj/item/weapon/smes_coil/weak = 1000,
 					/obj/item/weapon/smes_coil/super_capacity = 5000,
 					/obj/item/weapon/smes_coil/super_io = 4500,
@@ -253,7 +313,7 @@ var/list/worths = list(
 					/obj/item/weapon/disk = 90,
 					/obj/item/weapon/caution = 15,
 					/obj/item/weapon/module = 100,
-//STOCK PARTS,
+	//STOCK PARTS,
 					/obj/item/weapon/stock_parts/capacitor/adv = 160,
 					/obj/item/weapon/stock_parts/scanning_module/adv = 160,
 					/obj/item/weapon/stock_parts/manipulator/nano = 160,
@@ -285,7 +345,7 @@ var/list/worths = list(
 					/obj/item/weapon/cartridge = 50,
 					/obj/item/weapon/aiModule = 3000,
 					/obj/item/weapon/autopsy_scanner = 180,
-//CARDS,
+	//CARDS,
 					/obj/item/weapon/card/data/clown = 6000,
 					/obj/item/weapon/card/data = 300,
 					/obj/item/weapon/card/emag = 600,
@@ -312,7 +372,7 @@ var/list/worths = list(
 					/obj/item/weapon/shield/riot = 150,
 					/obj/item/weapon/shield/buckler = 200,
 					/obj/item/weapon/shield/energy = 1200,
-//SURGERY,
+	//SURGERY,
 					/obj/item/weapon/retractor = 80,
 					/obj/item/weapon/hemostat = 90,
 					/obj/item/weapon/cautery = 110,
@@ -330,7 +390,7 @@ var/list/worths = list(
 					/obj/item/weapon/wrench = 30,
 					/obj/item/weapon/screwdriver = 15,
 					/obj/item/weapon/wirecutters = 25,
-//WELDINGTOOLS,
+	//WELDINGTOOLS,
 					/obj/item/weapon/weldingtool/largetank = 150,
 					/obj/item/weapon/weldingtool/hugetank = 300,
 					/obj/item/weapon/weldingtool/experimental = 600,
@@ -341,7 +401,7 @@ var/list/worths = list(
 					/obj/item/weapon/weldpack = 300,
 					/obj/item/weapon/circuitboard/aicore = 6000,
 					/obj/item/weapon/circuitboard = 1000,
-//GRENADES,
+	//GRENADES,
 					/obj/item/weapon/grenade/anti_photon = 200,
 					/obj/item/weapon/grenade/empgrenade = 180,
 					/obj/item/weapon/grenade/frag = 300,
@@ -352,7 +412,7 @@ var/list/worths = list(
 					/obj/item/weapon/grenade = 150,
 					/obj/item/weapon/implant = 100,
 					/obj/item/weapon/implanter = 80,
-//MELEE,
+	//MELEE,
 					/obj/item/weapon/melee/cultblade = 1500,
 					/obj/item/weapon/melee/energy/wizard = 15000,
 					/obj/item/weapon/melee/energy/glaive = 5400,
@@ -376,13 +436,13 @@ var/list/worths = list(
 					/obj/item/weapon/contract = 20000,
 					/obj/item/weapon/ladder_mobile = 250,
 					/obj/item/weapon/contraband/poster = 25,
-//MATERIAL,
+	//MATERIAL,
 					/obj/item/weapon/material/sword = -120,
 					/obj/item/weapon/material/scythe = -100,
 					/obj/item/weapon/material/twohanded/fireaxe = -150,
 					/obj/item/weapon/material/harpoon = -70,
 					/obj/item/weapon/material = -5,
-//RIGS,
+	//RIGS,
 					/obj/item/weapon/rig/unathi/fancy = 30000,
 					/obj/item/weapon/rig/unathi = 17000,
 					/obj/item/weapon/rig/combat = 25000,
@@ -407,11 +467,11 @@ var/list/worths = list(
 					/obj/item/weapon/book/tome = 350,
 					/obj/item/weapon/book = 15,
 					/obj/item/weapon/barcodescanner = 130,
-//CLOTHING,
-//EARS,
+	//CLOTHING,
+	//EARS,
 					/obj/item/clothing/ears/skrell = 100,
 					/obj/item/clothing/ears/bandanna = 20,
-//GLASSES,
+	//GLASSES,
 					/obj/item/clothing/glasses/meson/prescription = 880,
 					/obj/item/clothing/glasses/meson = 800,
 					/obj/item/clothing/glasses/science = 400,
@@ -426,7 +486,7 @@ var/list/worths = list(
 					/obj/item/clothing/glasses/thermal = 1990,
 					/obj/item/clothing/glasses/night = 1200,
 					/obj/item/clothing/glasses = 150,
-//GLOVES,
+	//GLOVES,
 					/obj/item/clothing/gloves/boxing = 60,
 					/obj/item/clothing/gloves/yellow = 300,
 					/obj/item/clothing/gloves/fyellow = 25, //cheap cheap cheap,
@@ -438,7 +498,7 @@ var/list/worths = list(
 					/obj/item/clothing/gloves/force = 1000,
 					/obj/item/clothing/gloves = 5,
 
-//MASKS,
+	//MASKS,
 					/obj/item/clothing/mask/luchador = 60,
 					/obj/item/clothing/mask/breath/medical = 180,
 					/obj/item/clothing/mask/breath = 80,
@@ -458,7 +518,7 @@ var/list/worths = list(
 					/obj/item/clothing/mask/greenscarf = 15,
 					/obj/item/clothing/mask/ninjascarf = 15,
 					/obj/item/clothing/mask/ai = 3000,
-//SHOES,
+	//SHOES,
 					/obj/item/clothing/shoes/galoshes = 50,
 					/obj/item/clothing/shoes/syndigaloshes = 250,
 					/obj/item/clothing/shoes/clown_shoes = 100,
@@ -467,7 +527,7 @@ var/list/worths = list(
 					/obj/item/clothing/shoes/swat = 200,
 					/obj/item/clothing/shoes/combat = 450,
 					/obj/item/clothing/shoes = 25,
-//SUITS,
+	//SUITS,
 					/obj/item/clothing/suit/space/void/wizard = 5000,
 					/obj/item/clothing/suit/space/void/captain = 4000,
 					/obj/item/clothing/suit/space/void/merc = 3000,
@@ -506,7 +566,7 @@ var/list/worths = list(
 					/obj/item/clothing/suit/fire = 500,
 					/obj/item/clothing/suit/radiation = 450,
 					/obj/item/clothing/suit/bomb_suit = 300,
-//HEADS,
+	//HEADS,
 					/obj/item/clothing/head/collectable/petehat = 350,
 					/obj/item/clothing/head/collectable = 80,
 					/obj/item/clothing/head/hardhat = 180,
@@ -550,7 +610,7 @@ var/list/worths = list(
 					/obj/item/clothing/head/helmet/space/cult = 1300,
 					/obj/item/clothing/head/helmet/space/emergency = 250,
 					/obj/item/clothing/head/helmet/space = 450,
-//ACCESSORIES,
+	//ACCESSORIES,
 					/obj/item/clothing/accessory/storage = 55,
 					/obj/item/clothing/accessory/stethoscope = 70,
 					/obj/item/clothing/accessory/medal/gold/heroism = 1000,
@@ -562,7 +622,7 @@ var/list/worths = list(
 					/obj/item/clothing/accessory/armband = 30,
 					/obj/item/clothing/accessory/badge = 60,
 					/obj/item/clothing/accessory = 15,
-//UNDERS,
+	//UNDERS,
 					/obj/item/clothing/under/rank/captain = 100,
 					/obj/item/clothing/under/rank/head_of_personnel = 60,
 					/obj/item/clothing/under/rank/head_of_personnel_whimsy = 80,
@@ -583,7 +643,7 @@ var/list/worths = list(
 					/obj/item/clothing/under/ccpolice = 250,
 					/obj/item/clothing/under/space = 400,
 					/obj/item/clothing = 50,
-//DEVICES,
+	//DEVICES,
 					/obj/item/device/magnetic_lock = 700,
 					/obj/item/device/wormhole_jaunter = 500,
 					/obj/item/device/soulstone = 10000,
@@ -612,7 +672,7 @@ var/list/worths = list(
 					/obj/item/device/uv_light = 150,
 					/obj/item/device/eftpos = 30,
 					/obj/item/device = 90,
-//ORGANS,
+	//ORGANS,
 					/obj/item/organ/heart = 1200,
 					/obj/item/organ/brain/golem = 3000,
 					/obj/item/organ/brain = 1200,
@@ -620,7 +680,7 @@ var/list/worths = list(
 					/obj/item/organ/vaurca/neuralsocket = 1500,
 					/obj/item/organ/stack/vox = 5000,
 					/obj/item/organ = 400,
-//ITEMS,
+	//ITEMS,
 					/obj/item/slime_extract = 200,
 					/obj/item/robot_parts/robot_component = 250,
 					/obj/item/robot_parts = 30,
@@ -701,7 +761,7 @@ var/list/worths = list(
 					/obj/item/vaurca/box = 250,
 					/obj/item/hoist_kit = 150,
 					/obj/item = 5,
-//STRUCTURES,
+	//STRUCTURES,
 					/obj/structure/ore_box = 12,
 					/obj/structure/constructshell = 5000,
 					/obj/structure/cable = 1,
@@ -751,7 +811,7 @@ var/list/worths = list(
 					/obj/structure/bookcase = 50,
 					/obj/structure/barricade = -1,
 					/obj/structure = 30,
-//BOTS,
+	//BOTS,
 					/mob/living/bot/cleanbot = 260,
 					/mob/living/bot/farmbot = 500,
 					/mob/living/bot/floorbot = 190,
@@ -759,7 +819,7 @@ var/list/worths = list(
 					/mob/living/bot/secbot/ed209 = 1200,
 					/mob/living/bot/secbot = 800,
 					/mob/living/bot = 300,
-//MOBS,
+	//MOBS,
 					/mob/living/carbon/human = -10000,
 					/mob/living/carbon/slime = 5000,
 					/mob/living/silicon/robot = 10000,
@@ -780,7 +840,7 @@ var/list/worths = list(
 					/mob/living/simple_animal/cow = 2000, //Cow expensive,
 					/mob/living/simple_animal = 500,
 					/mob/living = 100,
-//MECHAS,
+	//MECHAS,
 					/obj/mecha/combat/phazon = -100000,
 					/obj/mecha/combat/marauder/mauler = -80000,
 					/obj/mecha/combat/marauder/seraph = -70000,
@@ -791,7 +851,7 @@ var/list/worths = list(
 					/obj/mecha/combat/durand = -40000,
 					/obj/mecha/combat = -30000,
 					/obj/mecha = -20000,
-//MACHINERY,
+	//MACHINERY,
 					/obj/machinery/from_beyond = -30000,
 					/obj/machinery/mineral/unloading_machine = -500,
 					/obj/machinery/mining/brace = -300,
@@ -910,7 +970,7 @@ var/list/worths = list(
 					/obj/machinery/librarycomp = -1000,
 					/obj/machinery/libraryscanner = -1000,
 					/obj/machinery/bookbinder = -1200,
-					/obj/machinery/wish_granter = - 1000000,
+					/obj/machinery/wish_granter = -1000000,
 					/obj/machinery = -1000
 					) //Must be in descending order. Child before parents, otherwise it doesn't work.,
 

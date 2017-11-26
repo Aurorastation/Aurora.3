@@ -8,7 +8,7 @@
 #define SS_INIT_HOLOMAP            15
 #define SS_INIT_ATOMS              14	// World initialization. Will trigger lighting updates. Observers can join after this loads.
 #define SS_INIT_POWER              13	// Initial powernet build.
-#define SS_INIT_CARGO              12	// Random warehouse generation. Runs after SSatoms because it assumes objects are initialized when it runs.
+#define SS_INIT_SUPPLY             12	// Random warehouse generation, item based cargo. Runs after SSatoms because it assumes objects are initialized when it runs.
 #define SS_INIT_PIPENET            11	// Initial pipenet build.
 #define SS_INIT_MACHINERY          10	// Machinery prune and powernet build.
 #define SS_INIT_AIR                 9	// Air setup and pre-bake.

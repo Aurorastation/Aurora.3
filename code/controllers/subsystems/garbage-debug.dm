@@ -740,7 +740,6 @@
 	SearchVar(fruit_icon_cache)
 	SearchVar(plant_seed_sprites)
 	SearchVar(wax_recipes)
-	SearchVar(worths)
 	SearchVar(admin_verbs_lighting)
 	SearchVar(liquid_delay)
 	SearchVar(puddles)

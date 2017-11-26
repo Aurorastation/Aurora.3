@@ -13,7 +13,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	name = "Cargo"
 	wait = 30 SECONDS
 	flags = SS_NO_TICK_CHECK | SS_NO_FIRE
-	init_order = SS_INIT_CARGO
+	init_order = SS_INIT_SUPPLY
 
 	//Shipment stuff
 	var/shipmentnum
@@ -128,7 +128,7 @@ var/datum/controller/subsystem/cargo/SScargo
 						item_update_desc_query.Execute(list("desc" = cargoitem.desc, "item_id" = item_id ))
 					//Set NT as default supplier with a price 1.5 times of the item value
 					if(!oldsuppliers)
-						var/price = get_value(cargoitem) * 1.5
+						var/price = get_item_value(cargoitem) * 1.5
 						var/list/sups = list()
 						sups["nt"] = list()
 						sups["nt"]["base_purchase_price"] = price
