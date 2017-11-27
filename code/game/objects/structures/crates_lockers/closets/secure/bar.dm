@@ -43,8 +43,8 @@
 				W:spark_system.queue()
 				playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 				playsound(src.loc, "sparks", 50, 1)
-	else
-		togglelock(user)//Attempt to lock locker if closed
+		else
+			togglelock(user)//Attempt to lock locker if closed
 
 /obj/structure/closet/secure_closet/bar/update_icon()
 	if(broken)
