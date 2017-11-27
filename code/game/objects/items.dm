@@ -75,6 +75,8 @@
 
 	var/icon_override  //Used to override hardcoded clothing dmis in human clothing pr
 
+	var/charge_failure_message = " cannot be recharged."
+
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
@@ -84,8 +86,12 @@
 		src.loc = null
 	return ..()
 
+
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
+
+/obj/item/proc/get_cell()
+	return DEVICE_NO_CELL
 
 //Checks if the item is being held by a mob, and if so, updates the held icons
 /obj/item/proc/update_held_icon()

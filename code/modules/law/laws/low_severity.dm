@@ -14,7 +14,7 @@
 
 /datum/law/low_severity/petty_theft
 	name = "i102 - Petty Theft"
-	desc = "To take mundane items from areas one does not have access to, or to take items belonging to others or the station as a whole."
+	desc = "To take mundane items from areas one does not have access to, or to take items belonging to others or the station as a whole. Includes theft of credits up to 500cr. For higher amounts see i220 - Fraud."
 	id = "i102"
 
 	min_brig_time = 3
@@ -47,7 +47,7 @@
 
 /datum/law/low_severity/hooliganism
 	name = "i105 - Hooliganism"
-	desc = "To present an unnecessary nuisance to members of the crew including excessive departmental radio usage for private affairs, being intentionally unclothed, or otherwise disturbing the crew.."
+	desc = "To present an unnecessary nuisance to members of the crew including excessive departmental radio usage for private affairs, being intentionally unclothed, or otherwise disturbing the crew."
 	id = "i105"
 
 	min_brig_time = 5
@@ -58,7 +58,7 @@
 
 /datum/law/low_severity/suspicious_conduct
 	name = "i106 - Suspicious Conduct"
-	desc = " To possess a suspiciously wide skill set not indicated in employee record, wielding dangerous weapons near other staff, extensive inquiring about critical areas, or stalking other employees. "
+	desc = " To possess a suspiciously wide skill set not indicated in employee record, wielding dangerous weapons near other staff, extensive inquiring about critical areas, or stalking other employees."
 	id = "i106"
 
 	min_brig_time = 2
@@ -179,7 +179,7 @@
 
 /datum/law/low_severity/excessive_detainment
 	name = "i117 - Excessive Use of Force in Detainment"
-	desc = "To use more than the required force to subdue a suspect.	"
+	desc = "To use more than the required force to subdue a suspect."
 	id = "i117"
 
 	min_brig_time = 5

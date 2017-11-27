@@ -135,6 +135,9 @@
 
 /obj/item/projectile/bullet/pistol/strong //revolvers and matebas
 	damage = 60
+	maiming = 1
+	maim_rate = 25
+	maim_type = DROPLIMB_BLUNT
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -149,6 +152,8 @@
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
 	damage = 60
+	maiming = 1 //To prevent rando headgibbing, it uses the special headgib damage model. Don't get me wrong, it'll still kill the man, but could be cloned.
+	maim_rate = 25
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
@@ -175,6 +180,9 @@
 	pellets = 6
 	range_step = 1
 	spread_step = 10
+	maiming = 1
+	maim_rate = 1 //6% base chance of gib if all pellets hit. Likely to blow limbs at point blank. (As it should be.)
+	maim_type = DROPLIMB_BLUNT
 
 /* "Rifle" rounds */
 
@@ -199,6 +207,14 @@
 	penetrating = 5
 	armor_penetration = 80
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
+	maiming = 1
+	maim_rate = 60
+	maim_type = DROPLIMB_BLUNT
+
+/obj/item/projectile/bullet/rifle/vintage
+	name = "vintage bullet"
+	damage = 50
+	weaken = 1
 
 /obj/item/projectile/bullet/rifle/tranq
 	name = "dart"
@@ -314,3 +330,5 @@
 	shrapnel_type = /obj/item/weapon/material/shard/shrapnel/flechette
 	penetrating = 0
 	damage = 10
+
+

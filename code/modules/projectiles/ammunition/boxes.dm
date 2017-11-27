@@ -22,7 +22,7 @@
 /obj/item/ammo_magazine/c38/rubber
 	name = "speed loader (.38 rubber)"
 	ammo_type = /obj/item/ammo_casing/c38/rubber
-	
+
 /obj/item/ammo_magazine/c38/emp
 	name = "speed loader (.38 haywire)"
 	ammo_type = /obj/item/ammo_casing/c38/emp
@@ -72,7 +72,7 @@
 /obj/item/ammo_magazine/c45m/flash
 	name = "magazine (.45 flash)"
 	ammo_type = /obj/item/ammo_casing/c45/flash
-	
+
 /obj/item/ammo_magazine/t40
 	name = "magazine (10mm)"
 	icon_state = "5.56"
@@ -118,7 +118,7 @@
 
 /obj/item/ammo_magazine/c9mm/empty
 	initial_ammo = 0
-	
+
 /obj/item/ammo_magazine/mc9mmt
 	name = "top mounted magazine (9mm)"
 	icon_state = "9mmt"
@@ -273,6 +273,11 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	max_ammo = 5
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/boltaction/vintage
+	name = "vintage stripper clip"
+	ammo_type = /obj/item/ammo_casing/vintage
+	caliber = "vintage"
 
 /obj/item/ammo_magazine/c45uzi
 	name = "stick magazine (.45)"

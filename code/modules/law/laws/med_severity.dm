@@ -156,3 +156,11 @@
 
 	min_brig_time = 10
 	max_brig_time = 25
+
+/datum/law/med_severity/fraud
+	name = "i220 - Fraud"
+	desc = "To steal or use deliberate deception in order to obtain credits from someone. Applies to amounts greater than 500 credits. For lesser amounts, see i102 - Petty Theft. For items of equivalent value, see i215 - Grand Theft."
+	id = "i220"
+
+	min_brig_time = 15
+	max_brig_time = 20
