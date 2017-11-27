@@ -34,5 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - balance: "Changes Baseline + Industrial burn modifiers. Baselines are more susceptible, Industrials are better heat sinks now."
-  - tweak: "Also changes default damage modifiers for synthetic limbs. Resist brute easier, melt easier by burns."
+  - balance: "Changes Baseline + Industrial burn modifiers. Baselines are more susceptible to burn, Industrials handle heat better and survive for longer."
+  - tweak: "Also changes default damage modifiers for synthetic limbs. Retains its brute resistance, but takes more damage from burn-based sources."
