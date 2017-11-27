@@ -53,7 +53,7 @@
 		cut_overlay(ao_overlays, TRUE)
 		ao_overlays.Cut()
 
-	if (!permit_ao)
+	if (!permit_ao || ao_neighbors == AO_ALL_NEIGHBORS)	// If all corners are going to be transparent anyways, bail early.
 		return
 
 	var/list/cache = SSicon_cache.ao_cache
