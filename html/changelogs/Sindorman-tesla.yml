@@ -1,0 +1,5 @@
+author: PoZe
+delete-after: True
+changes:
+  - bugfix: "Tesla's Engine APC is no longer affected by power down even"
+  - tweak: "Tesla coils and grounding rods can now be fully constructed from machine assembly"
