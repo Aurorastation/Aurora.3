@@ -256,7 +256,6 @@
 					R.hud_used.update_robot_modules_display()
 				else
 					R << "You haven't selected a module yet."
-
 		else
 			return 0
 	return 1
