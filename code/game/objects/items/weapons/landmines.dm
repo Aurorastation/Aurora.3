@@ -48,9 +48,8 @@
 
 /obj/item/weapon/landmine/proc/trigger(mob/living/L)
 	spark(src, 3, alldirs)
-	if(L)
-		if(ishuman(L))
-			L.Weaken(2)
+	if(ishuman(L))
+		L.Weaken(2)
 	explosion(loc, 0, 1, 2, 3)
 	qdel(src)
 
@@ -60,7 +59,8 @@
 		if(L.mob_size >= 5)
 			L.visible_message(
 				"<span class='danger'>[L] steps on \the [src].</span>",
-				"<span class='danger'>You step on \the [src]!</span>"
+				"<span class='danger'>You step on \the [src]!</span>",
+				"<span class='danger'>You hear a mechanical click!</span>"
 				)
 			trigger(L)
 	..()
@@ -69,7 +69,8 @@
 	if(deployed && !use_check(user, USE_DISALLOW_SILICONS))
 		user.visible_message(
 				"<span class='danger'>[user] triggers \the [src].</span>",
-				"<span class='danger'>You trigger \the [src]!</span>"
+				"<span class='danger'>You trigger \the [src]!</span>",
+				"<span class='danger'>You hear a mechanical click!</span>"
 				)
 		trigger(user)
 	else

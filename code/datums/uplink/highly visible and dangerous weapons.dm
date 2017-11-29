@@ -60,7 +60,7 @@
 	path = /obj/item/weapon/landmine/emp
 
 /datum/uplink_item/item/visible_weapons/sleepylandmine
-	name = "N2o Land Mine"
+	name = "N2O Land Mine"
 	item_cost = 7
 	path = /obj/item/weapon/landmine/n2o
 
