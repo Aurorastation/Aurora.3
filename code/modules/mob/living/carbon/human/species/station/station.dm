@@ -299,9 +299,7 @@
 		"r_hand" = list("path" = /obj/item/organ/external/hand/right/diona),
 		"l_foot" = list("path" = /obj/item/organ/external/foot/diona),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/diona)
-	)
-
-	//inherent_verbs = list()
+		)
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
