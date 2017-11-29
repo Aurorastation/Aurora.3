@@ -242,9 +242,8 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/time = world.time
 
 	explosion_in_progress = TRUE
-	var/list/act_turfs = list(
-		epicenter = power
-	)
+	var/list/act_turfs = list()
+	act_turfs[epicenter] = power
 
 	power -= epicenter.explosion_resistance
 	for (var/obj/O in epicenter)
