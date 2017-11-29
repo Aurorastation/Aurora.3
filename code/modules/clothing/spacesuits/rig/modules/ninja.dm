@@ -284,6 +284,7 @@
 	interface_name = "enable EMAG"
 	interface_desc = "A complex uprade that allows the user to touch things with their hand and apply an EMAG effect. High power cost."
 	var/atom/interfaced_with
+	module_cooldown = 4800
 
 /obj/item/rig_module/emag_hand/activate()
 	if(!..())
