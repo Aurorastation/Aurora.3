@@ -13,7 +13,7 @@
 	var/obj/screen/hands = null
 	var/obj/screen/pullin = null
 	var/obj/screen/purged = null
-	var/obj/screen/internals = null
+	var/obj/screen/internals/internals = null
 	var/obj/screen/oxygen = null
 	var/obj/screen/i_select = null
 	var/obj/screen/m_select = null
@@ -120,7 +120,6 @@
 	var/intent = null//Living
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
-	var/m_int = null//Living
 	var/m_intent = "walk"//Living
 	var/lastKnownIP = null
 	var/obj/buckled = null//Living
