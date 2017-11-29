@@ -1,5 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-//Model dictionary trimmed on: 18-11-2017 20:57 (UTC)
 "aa" = (
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
@@ -9108,11 +9107,11 @@
 /turf/simulated/open,
 /area/maintenance/sublevel)
 "qI" = (
-/obj/item/rig_module/vision/thermal,
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/rig_module/vision/nvg,
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "qJ" = (
@@ -9149,11 +9148,11 @@
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "qL" = (
-/obj/item/rig_module/chem_dispenser/combat,
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/rig_module/chem_dispenser/injector,
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "qM" = (

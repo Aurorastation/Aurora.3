@@ -1,0 +1,12 @@
+ 
+author: Lord Fowl
+
+delete-after: True
+
+changes: 
+  - rscadd: "Diona nymphs produced from a gestalt's death will now follow the player diona nymph."
+  - rscadd: "The player can freely control any of their constituent nymphs after they split at will by middle-clicking on them, and will switch to any living nymph should their active nymph die."
+  - rscadd: "Diona gestalts can now devour mobs as well as their constituent nymphs can."
+  - bugfix: "Diona will once again regrow severed limbs."
+  - bugfix: "Diona and nymphs will once again gain biomass from eating food."
+  - bugfix: "Devouring will now actually devour the target."

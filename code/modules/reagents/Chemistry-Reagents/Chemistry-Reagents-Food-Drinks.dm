@@ -31,6 +31,7 @@
 	var/regen_factor = 0.8
 	var/injectable = 0
 	color = "#664330"
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
