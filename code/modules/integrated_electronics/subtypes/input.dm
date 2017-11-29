@@ -70,7 +70,7 @@
 	power_draw_per_use = 4
 
 /obj/item/integrated_circuit/input/textpad/ask_for_input(mob/user)
-	var/new_input = sanitize(input(user, "Enter some words, please.","Number pad") as null|text)
+	var/new_input = sanitize(input(user, "Enter some words, please.","Number pad") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
 	if(istext(new_input) && CanInteract(user, physical_state))
 		set_pin_data(IC_OUTPUT, 1, new_input)
 		push_data()

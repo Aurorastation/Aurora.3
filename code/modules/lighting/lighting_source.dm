@@ -329,7 +329,10 @@
 			if (co_updated)
 				// We might be facing a wall now.
 				var/turf/front = get_step(source_turf, old_direction)
-				facing_opaque = (front && front.has_opaque_atom)
+				var/new_fo = (front && front.has_opaque_atom)
+				if (new_fo != facing_opaque)
+					facing_opaque = new_fo
+					regenerate_angle(ndir)
 
 				update = TRUE
 

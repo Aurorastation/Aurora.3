@@ -154,11 +154,11 @@
 /datum/trader/ship/unique/vaurca
 	origin = "The Hive Shop"
 	name_language = LANGUAGE_VAURCA
+	want_multiplier = 1
 
 	possible_wanted_items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/grown/kois       = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
 		/obj/item/stack/material/phoron                                  = TRADER_THIS_TYPE
 	)
 
@@ -194,7 +194,6 @@
 /datum/trader/ship/unique/bluespace
 	name = "Maximus Crane"
 	origin = "Bluespace Emporium"
-	trade_flags = TRADER_WANTED_ONLY|TRADER_GOODS|TRADER_MONEY
 
 	possible_wanted_items = list(
 		/obj/item/bluespace_crystal                   = TRADER_ALL,

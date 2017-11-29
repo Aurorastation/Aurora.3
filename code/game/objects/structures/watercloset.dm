@@ -415,7 +415,7 @@
 		var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
 
 		if(!usr.Adjacent(src)) return
-		if(RG.loc != usr || (usr.l_hand != RG && usr.r_hand != RG)) return
+		if(RG.loc != usr) return
 		if(busy)
 			usr << "<span class='warning'>Someone's already using \the [src].</span>"
 			return

@@ -299,9 +299,7 @@
 		"r_hand" = list("path" = /obj/item/organ/external/hand/right/diona),
 		"l_foot" = list("path" = /obj/item/organ/external/foot/diona),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/diona)
-	)
-
-	//inherent_verbs = list()
+		)
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
@@ -412,7 +410,7 @@
 
 	light_range = 2
 	light_power = 0.5
-
+	meat_type = /obj/item/stack/material/steel
 	unarmed_types = list(/datum/unarmed_attack/punch)
 	rarity_value = 2
 
@@ -428,7 +426,7 @@
 
 
 	brute_mod = 1.0
-	burn_mod = 1.0
+	burn_mod = 1.2 
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
 	knockout_message = "encounters a hardware fault and suddenly reboots!"

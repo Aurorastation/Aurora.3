@@ -276,3 +276,6 @@
 		return active_program.check_eye(user)
 	else
 		return ..()
+
+/obj/item/modular_computer/get_cell()
+	return battery_module ? battery_module.get_cell() : DEVICE_NO_CELL

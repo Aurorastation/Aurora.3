@@ -288,7 +288,7 @@ var/list/gamemode_cache = list()
 				if (M.votable)
 					src.votable_modes += M.config_tag
 	src.votable_modes += ROUNDTYPE_STR_SECRET
-	votable_modes += ROUNDTYPE_STR_MIXED_SECRET
+//	votable_modes += ROUNDTYPE_STR_MIXED_SECRET
 
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 	var/list/Lines = file2list(filename)
@@ -594,7 +594,7 @@ var/list/gamemode_cache = list()
 
 				if("alert_yellow")
 					config.alert_desc_yellow_to = value
-		
+
 				if("alert_delta")
 					config.alert_desc_delta = value
 
@@ -821,7 +821,7 @@ var/list/gamemode_cache = list()
 					access_deny_vms = text2num(value)
 				if("access_warn_vms")
 					access_warn_vms = text2num(value)
-				
+
 				if("cargo_load_items_from")
 					cargo_load_items_from = value
 

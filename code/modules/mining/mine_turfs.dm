@@ -8,8 +8,9 @@
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
-	icon = 'icons/turf/smooth/rock_wall.dmi'	// Until we get sprites.
+	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = "rock"
+	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
 	layer = 2.01
 	smooth = SMOOTH_MORE | SMOOTH_BORDER
 	canSmoothWith = list(
@@ -43,6 +44,8 @@
 /turf/simulated/mineral/Initialize(mapload)
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
+
+	icon = actual_icon
 
 	initialized = TRUE
 
@@ -492,7 +495,7 @@
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
 	name = "sand"
-	icon = 'icons/turf/smooth/ash.dmi'
+	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = "ash"
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	canSmoothWith = list(
@@ -523,6 +526,8 @@
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
+
+	icon = base_icon
 
 	turfs += src
 

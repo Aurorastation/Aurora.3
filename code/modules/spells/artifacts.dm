@@ -139,9 +139,11 @@
 	
 	var/lich = null
 
-/obj/item/phylactery/New()
-	..()
+/obj/item/phylactery/Initialize()
+	. = ..()
 	world_phylactery += src
+	create_reagents(30)
+	reagents.add_reagent("undead_ichor", 30)
 
 /obj/item/phylactery/Destroy()
 	lich << "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>"
