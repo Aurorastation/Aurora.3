@@ -160,7 +160,7 @@
 /datum/random_map/automata/cave_system/chasms/surface
 	descriptor = "chasm surface"
 	wall_type =  /turf/simulated/lava
-	floor_type = /turf/simulated/open/airless/chasm
+	floor_type = /turf/simulated/open/chasm
 	target_turf_type = /turf/unsimulated/chasm_mask
 	mineral_sparse =  /turf/simulated/lava
 	mineral_rich = /turf/simulated/lava

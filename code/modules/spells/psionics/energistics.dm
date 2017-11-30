@@ -95,9 +95,7 @@
 	for(var/atom/movable/M in view(2, target))
 		for(var/obj/item/weapon/cell/C in M.contents)
 			if(C.charge != C.maxcharge)
-				var/datum/effect/effect/system/spark_spread/spark_system = PoolOrNew(/datum/effect/effect/system/spark_spread)
-				spark_system.set_up(5, 0, M.loc)
-				spark_system.start()
+				single_spark(C)
 				if(C.maxcharge <= 0)
 					C.maxcharge = 1
 				C.charge += C.maxcharge/2
@@ -106,9 +104,7 @@
 
 	for(var/obj/item/weapon/cell/C in view(2, target))
 		if(C.charge != C.maxcharge)
-			var/datum/effect/effect/system/spark_spread/spark_system = PoolOrNew(/datum/effect/effect/system/spark_spread)
-			spark_system.set_up(5, 0, C.loc)
-			spark_system.start()
+			spark(C,3)
 			if(C.maxcharge <= 0)
 				C.maxcharge = 1
 			C.charge += C.maxcharge/2

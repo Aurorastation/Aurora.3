@@ -408,25 +408,6 @@
 /obj/item/weapon/flag/nanotrasen/l
 	flag_size = 1
 
-/obj/structure/sign/flag/ishtar
-	name = "Ishtar Colonial Administration Flag"
-	desc = "The flag of the Ishtar Colonial Administration, a department of the Dagon Colonial Command."
-	icon_state = "ishtar"
-
-/obj/structure/sign/flag/ishtar/left
-	icon_state = "ishtar_l"
-
-/obj/structure/sign/flag/ishtar/right
-	icon_state = "ishtar_r"
-
-/obj/item/weapon/flag/ishtar
-	name = "Ishtar Colonial Administration"
-	desc = "The flag of the Ishtar Colonial Administration, department of the Dagon Colonial Command."
-	flag_path = "ishtar"
-
-/obj/item/weapon/flag/ishtar/l
-	flag_size = 1
-
 /obj/item/weapon/flag
 	name = "boxed flag"
 	desc = "A flag neatly folded into a wooden container."
