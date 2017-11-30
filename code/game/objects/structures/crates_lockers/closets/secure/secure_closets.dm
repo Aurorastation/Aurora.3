@@ -21,14 +21,14 @@
 	health = 200
 
 /obj/structure/closet/secure_closet/can_open()
-	if(src.locked)
+	if(locked)
 		return 0
 	return ..()
 
 /obj/structure/closet/secure_closet/close()
 	if(..())
 		if(broken)
-			icon_state = src.icon_off
+			icon_state = icon_off
 		return 1
 	else
 		return 0
@@ -38,28 +38,28 @@
 		O.emp_act(severity)
 	if(!broken)
 		if(prob(50/severity))
-			src.locked = !src.locked
-			src.update_icon()
+			locked = !locked
+			update_icon()
 		if(prob(20/severity) && !opened)
 			if(!locked)
 				open()
 			else
-				src.req_access = list()
-				src.req_access += pick(get_all_station_access())
+				req_access = list()
+				req_access += pick(get_all_station_access())
 	..()
 
 /obj/structure/closet/secure_closet/proc/togglelock(mob/user as mob)
-	if(src.opened)
+	if(opened)
 		user << "<span class='notice'>Close the locker first.</span>"
 		return
-	if(src.broken)
+	if(broken)
 		user << "<span class='warning'>The locker appears to be broken.</span>"
 		return
 	if(user.loc == src)
 		user << "<span class='notice'>You can't reach the lock from inside.</span>"
 		return
-	if(src.allowed(user))
-		src.locked = !src.locked
+	if(allowed(user))
+		locked = !locked
 		for(var/mob/O in viewers(user, 3))
 			if((O.client && !( O.blinded )))
 				O << "<span class='notice'>The locker has been [locked ? null : "un"]locked by [user].</span>"
@@ -68,11 +68,11 @@
 		user << "<span class='notice'>Access Denied</span>"
 
 /obj/structure/closet/secure_closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(src.opened)
+	if(opened)
 		if(istype(W, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = W
-			if(src.large)
-				src.MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
+			if(large)
+				MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
 			else
 				user << "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>"
 		if(iswelder(W))
@@ -90,7 +90,7 @@
 					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 					return
 				else
-					new /obj/item/stack/material/steel(src.loc)
+					new /obj/item/stack/material/steel(loc)
 					user.visible_message(
 						"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
 						"<span class='notice'>You cut apart [src] with [WT].</span>"
@@ -103,7 +103,7 @@
 			return
 		user.drop_item()
 		if(W)
-			W.forceMove(src.loc)
+			W.forceMove(loc)
 	else if(isscrewdriver(W) && canbemoved)
 		if(screwed)
 			user << "<span class='notice'>You start to unscrew the locker from the floor...</span>"
@@ -122,26 +122,26 @@
 	else if(iswrench(W) && canbemoved)
 		if(wrenched && !screwed)
 			user << "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>"
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 			if (do_after(user, 15 SECONDS, act_target = src))
 				user << "<span class='notice'>You unfasten the locker's bolts!</span>"
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 				wrenched = 0
 				anchored = 0
 		else if(!wrenched)
 			user << "<span class='notice'>You start to fasten the bolts holding the locker in place...</span>"
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 			if (do_after(user, 15, act_target = src))
 				user << "<span class='notice'>You fasten the locker's bolts!</span>"
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+				playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 				wrenched = 1
 				anchored = 1
-	else if(!src.opened)
+	else if(!opened)
 		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
 				spark(src, 5)
-				playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
-				playsound(src.loc, "sparks", 50, 1)
+				playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
+				playsound(loc, "sparks", 50, 1)
 		else if(iswelder(W))
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.isOn())
@@ -156,8 +156,8 @@
 				if(!WT.remove_fuel(0,user))
 					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 					return
-				src.welded = !src.welded
-				src.update_icon()
+				welded = !welded
+				update_icon()
 				user.visible_message(
 					"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
 					"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
@@ -184,11 +184,11 @@
 		return 1
 
 /obj/structure/closet/secure_closet/attack_hand(mob/user as mob)
-	src.add_fingerprint(user)
-	if(src.locked)
-		src.togglelock(user)
+	add_fingerprint(user)
+	if(locked)
+		togglelock(user)
 	else
-		src.toggle(user)
+		toggle(user)
 
 /obj/structure/closet/secure_closet/verb/verb_togglelock()
 	set src in oview(1) // One square distance
@@ -199,10 +199,10 @@
 		return
 
 	if(ishuman(usr))
-		src.add_fingerprint(usr)
-		src.togglelock(usr)
+		add_fingerprint(usr)
+		togglelock(usr)
 	else if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr))
-		src.togglelock(usr)
+		togglelock(usr)
 	else
 		usr << "<span class='warning'>This mob type can't use this verb.</span>"
 

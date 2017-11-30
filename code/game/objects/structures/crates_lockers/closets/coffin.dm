@@ -17,7 +17,7 @@
 			return
 		user.drop_item()
 		if(W)
-			W.forceMove(src.loc)
+			W.forceMove(loc)
 	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
 	else

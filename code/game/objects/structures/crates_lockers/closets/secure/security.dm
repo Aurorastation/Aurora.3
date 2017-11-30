@@ -340,7 +340,7 @@
 			return
 		user.drop_item()
 		if(W)
-			W.forceMove(src.loc)
+			W.forceMove(loc)
 	else if(!opened)
 		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
