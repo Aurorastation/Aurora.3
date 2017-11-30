@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - bugfix: "Stacking units no longer illegally produce unlicenced cyborg glass synthesizers."
-  - rscadd: "The stacking machine's UI has been made prettier for no particular reason."

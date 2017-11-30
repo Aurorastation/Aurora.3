@@ -1,6 +1,0 @@
-author: Alberyk
-delete-after: True
-changes: 
-  - bugfix: "Fix warrior vaurca being unable to spawn with toeless jackboots."
-  - bugfix: "Lowered the Nar'sie's summoning sound."
-  - bugfix: "Fixed autohiss applying while speaking Ya'ssa."
