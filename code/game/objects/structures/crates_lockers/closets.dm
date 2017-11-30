@@ -217,7 +217,7 @@
 	if(src.opened)
 		if(istype(W, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = W
-			src.MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
+			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
 		if(istype(W,/obj/item/tk_grab))
 			return 0
@@ -236,7 +236,7 @@
 					user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 					return
 				else
-					new /obj/item/stack/material/steel(src.loc)
+					new /obj/item/stack/material/steel(loc)
 					user.visible_message(
 						"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
 						"<span class='notice'>You cut apart [src] with [WT].</span>"
@@ -275,16 +275,16 @@
 			if(!WT.remove_fuel(0,user))
 				user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 				return
-			src.welded = !src.welded
-			src.update_icon()
+			welded = !welded
+			update_icon()
 			user.visible_message(
 				"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
 				"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
 			)
 		else
-			src.attack_hand(user)
+			attack_hand(user)
 	else
-		src.attack_hand(user)
+		attack_hand(user)
 	return
 
 
