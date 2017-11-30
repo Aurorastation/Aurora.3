@@ -454,3 +454,7 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 	}
 
 #define DEVICE_NO_CELL "no_cell"
+
+#define FALLOFF_SOUNDS 0.5
+// Maximum number of Zs away you can be from a sound before it stops being audible.
+#define MAX_SOUND_Z_TRAVERSAL 2
