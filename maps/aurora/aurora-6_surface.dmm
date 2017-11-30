@@ -2558,7 +2558,6 @@
 	dir = 1
 	},
 /obj/machinery/door/window/eastright{
-	tag = "icon-right (WEST)";
 	icon_state = "right";
 	dir = 8
 	},
@@ -3374,7 +3373,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
 	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
@@ -3475,7 +3473,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
 	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -18253,7 +18250,6 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -18318,7 +18314,6 @@
 /area/hallway/secondary/exit)
 "HE" = (
 /obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (EAST)";
 	icon_state = "warningcee";
 	dir = 4
 	},
@@ -18355,7 +18350,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
 	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
@@ -18572,7 +18566,6 @@
 "Ic" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHEAST)";
 	icon_state = "intact";
 	dir = 5
 	},
