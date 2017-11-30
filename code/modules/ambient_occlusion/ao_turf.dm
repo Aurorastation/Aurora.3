@@ -104,7 +104,8 @@
 					LAZYADD(ao_overlays, I)
 				else
 					// There's a pixel var set, so we're going to need to make a new instance just for this type.
-					var/mutable_appearance/MA = new(I)
+					var/image/MA = new()
+					MA.appearance = I
 					// We invert the offsets here to counteract the pixel shifting of the parent turf.
 					MA.pixel_x = -(pixel_x)
 					MA.pixel_y = -(pixel_y)

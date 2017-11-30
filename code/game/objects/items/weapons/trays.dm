@@ -240,7 +240,8 @@
 	I.forceMove(src)
 	current_weight += I.w_class
 	carrying += I
-	var/mutable_appearance/MA = new(I)
+	var/image/MA = new()
+	MA.appearance = I
 	MA.layer = FLOAT_LAYER
 	add_overlay(MA)
 	//rand(0, (max_offset_y*2)-3)-(max_offset_y)-3
