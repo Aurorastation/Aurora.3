@@ -4444,7 +4444,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible/red,
+/obj/machinery/atmospherics/pipe/manifold4w/visible/red,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aiV" = (
@@ -8915,9 +8915,22 @@
 /area/security/armoury)
 "arh" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (Less-than-lethal)"
+	name = "Ammunition (45. less-than-lethal)"
 	},
 /obj/effect/decal/warning_stripes,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
+"ari" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Ammunition (shotgun less-than-lethal)"
+	},
+/obj/effect/decal/warning_stripes,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/weapon/storage/box/stunshells,
 /obj/item/weapon/storage/box/flashshells{
 	pixel_x = -2;
@@ -8930,35 +8943,6 @@
 /obj/item/weapon/storage/box/beanbags{
 	pixel_x = -4;
 	pixel_y = 4
-	},
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
-"ari" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (Shotgun lethal)"
-	},
-/obj/effect/decal/warning_stripes,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/weapon/storage/box/shotgunshells{
-	pixel_x = 4;
-	pixel_y = -4
-	},
-/obj/item/weapon/storage/box/shotgunshells{
-	pixel_x = 4;
-	pixel_y = -4
-	},
-/obj/item/weapon/storage/box/shotgunammo{
-	pixel_x = 2;
-	pixel_y = -2
-	},
-/obj/item/weapon/storage/box/shotgunammo{
-	pixel_x = 2;
-	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
@@ -53314,7 +53298,7 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
-	req_access = list(9)
+	req_access = list(47)
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/research_port)
@@ -85193,7 +85177,7 @@ bKf
 bHJ
 bHJ
 bHJ
-bMr
+bKg
 bMP
 bal
 aKm

@@ -287,7 +287,7 @@
 			if(density)
 				open(1, user)
 			else
-				open(0, user)
+				close()
 			return
 
 	return ..()

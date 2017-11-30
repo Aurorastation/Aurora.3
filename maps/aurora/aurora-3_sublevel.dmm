@@ -1,5 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-//Model dictionary trimmed on: 18-11-2017 20:57 (UTC)
 "aa" = (
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
@@ -2344,10 +2343,6 @@
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/visible/red{
-	icon_state = "map";
-	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	icon_state = "intact";
@@ -9112,11 +9107,11 @@
 /turf/simulated/open,
 /area/maintenance/sublevel)
 "qI" = (
-/obj/item/rig_module/vision/thermal,
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/rig_module/vision/nvg,
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "qJ" = (
@@ -9153,11 +9148,11 @@
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "qL" = (
-/obj/item/rig_module/chem_dispenser/combat,
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/rig_module/chem_dispenser/injector,
 /turf/simulated/floor/plating,
 /area/security/nuke_storage)
 "qM" = (
@@ -11523,7 +11518,7 @@
 "uT" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Medbay Substation";
-	req_one_access = list(11,24,5)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -12224,7 +12219,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
 	name = "Medbay Substation";
-	req_one_access = list(11,24,5)
+	req_one_access = list(11,24)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -14843,7 +14838,7 @@
 "AF" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Science Substation";
-	req_one_access = list(11,24,7)
+	req_one_access = list(11,24)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -14861,7 +14856,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Science Substation";
-	req_one_access = list(11,24,7)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,

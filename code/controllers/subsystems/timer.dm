@@ -1,4 +1,4 @@
-#define BUCKET_LEN (world.fps*1*60) //how many ticks should we keep in the bucket. (1 minutes worth)
+#define BUCKET_LEN (round(10*(60/world.tick_lag), 1)) //how many ticks should we keep in the bucket. (1 minutes worth)
 #define BUCKET_POS(timer) (round((timer.timeToRun - SStimer.head_offset) / world.tick_lag) + 1)
 #define TIMER_ID_MAX (2**24) //max float with integer precision
 
@@ -30,12 +30,13 @@ var/datum/controller/subsystem/timer/SStimer
 	var/static/bucket_auto_reset = TRUE
 
 	var/static/times_flushed = 0
+	var/static/times_crashed = 0
 
 /datum/controller/subsystem/timer/New()
 	NEW_SS_GLOBAL(SStimer)
 
 /datum/controller/subsystem/timer/stat_entry(msg)
-	..("B:[bucket_count] P:[length(processing)] H:[length(hashes)] C:[length(clienttime_timers)]")
+	..("B:[bucket_count] P:[length(processing)] H:[length(hashes)] C:[length(clienttime_timers)][times_crashed ? " F:[times_crashed]" : ""]")
 
 /datum/controller/subsystem/timer/fire(resumed = FALSE)
 	var/lit = last_invoke_tick
@@ -49,6 +50,7 @@ var/datum/controller/subsystem/timer/SStimer
 	if(lit && lit < last_check && last_invoke_warning < last_check)
 		last_invoke_warning = world.time
 		var/msg = "No regular timers processed in the last [TIMER_NO_INVOKE_WARNING] ticks[bucket_auto_reset ? ", resetting buckets" : ""]!"
+		times_crashed++
 		message_admins(msg)
 		WARNING(msg)
 		if(bucket_auto_reset)

@@ -320,12 +320,9 @@
 	muzzle_type = /obj/effect/projectile/trilaser/muzzle
 	tracer_type = /obj/effect/projectile/trilaser/tracer
 	impact_type = /obj/effect/projectile/trilaser/impact
-
+	maiming = 1
+	maim_rate = 3
 /obj/item/projectile/beam/plasmacutter/on_impact(var/atom/A)
-	strike_thing(A)
-	. = ..()
-
-/obj/item/projectile/beam/plasmacutter/proc/strike_thing(var/atom/A)
 	if(istype(A, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = A
 		if(prob(33))
@@ -334,14 +331,4 @@
 		else if(prob(88))
 			M.emitter_blasts_taken += 2
 		M.emitter_blasts_taken += 1
-
-	else if(istype(A, /mob/living))
-		var/mob/living/L = A
-		L.apply_damage(damage, BRUTE, def_zone)
-		if(istype(A, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = L
-			var/ultimate_def_zone = check_zone(def_zone)
-			if(H.has_organ(ultimate_def_zone))
-				var/obj/item/organ/external/E = H.get_organ(ultimate_def_zone)
-				if(E.damage > 15 && prob((3*E.damage)))
-					E.droplimb(0,DROPLIMB_EDGE)
+	. = ..()
