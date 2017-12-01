@@ -1,72 +1,71 @@
-/obj/item/alien_embryo
+/obj/item/organ/xenos/alien_embryo
 	name = "alien embryo"
 	desc = "All slimy and yuck."
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "larva0_dead"
-	var/mob/living/affected_mob
 	var/stage = 0
-	var/infected = FALSE
 
-/obj/item/alien_embryo/Initialize()
-	. = ..()
-	if(istype(loc, /mob/living))
-		affected_mob = loc
-		START_PROCESSING(SSprocessing, src)
-		AddInfectionImages(affected_mob)
-	else
-		qdel(src)
 
-/obj/item/alien_embryo/Destroy()
-	if(affected_mob)
-		affected_mob.status_flags &= ~(XENO_HOST)
-		RemoveInfectionImages(affected_mob)
+/obj/item/organ/xenos/alien_embryo/Destroy()
+	if(owner)
+		owner.status_flags &= ~(XENO_HOST)
+		RemoveInfectionImages(owner)
 	return ..()
 
-/obj/item/alien_embryo/process()
-	if(!affected_mob)	return
-	if(loc != affected_mob)
-		affected_mob.status_flags &= ~(XENO_HOST)
+
+/obj/item/organ/xenos/alien_embryo/replaced(var/mob/living/carbon/human/target,var/obj/item/organ/external/affected)
+	..(target, affected)
+	if(owner && ishuman(owner))
+		START_PROCESSING(SSprocessing, src)
+		AddInfectionImages(owner)
+
+/obj/item/organ/xenos/alien_embryo/process()
+
+	..()
+
+	if(!owner)
+		owner.status_flags &= ~(XENO_HOST)
 		STOP_PROCESSING(SSprocessing, src)
-		RemoveInfectionImages(affected_mob)
-		affected_mob = null
+		RemoveInfectionImages(owner)
+		owner = null
 		return
 
 	if(stage < 5 && prob(3))
 		stage++
-		RefreshInfectionImage(affected_mob)
+		RefreshInfectionImage(owner)
 
 	switch(stage)
 		if(2, 3)
 			if(prob(1))
-				affected_mob.emote("sneeze")
+				owner.emote("sneeze")
 			if(prob(1))
-				affected_mob.emote("cough")
+				owner.emote("cough")
 			if(prob(1))
-				affected_mob  << "<span class='danger'>Your throat feels sore.</span>"
+				owner  << "<span class='danger'>Your throat feels sore.</span>"
 			if(prob(1))
-				affected_mob  << "<span class='danger'>Mucous runs down the back of your throat.</span>"
+				owner  << "<span class='danger'>Mucous runs down the back of your throat.</span>"
 		if(4)
 			if(prob(1))
-				affected_mob.emote("sneeze")
+				owner.emote("sneeze")
 			if(prob(1))
-				affected_mob.emote("cough")
+				owner.emote("cough")
 			if(prob(2))
-				affected_mob  << "<span class='danger'>Your muscles ache.</span>"
+				owner  << "<span class='danger'>Your muscles ache.</span>"
 				if(prob(20))
-					affected_mob.take_organ_damage(1)
+					owner.take_organ_damage(1)
 			if(prob(2))
-				affected_mob  << "<span class='danger'>Your stomach hurts.</span>"
+				owner  << "<span class='danger'>Your stomach hurts.</span>"
 				if(prob(20))
-					affected_mob.adjustToxLoss(1)
-					affected_mob.updatehealth()
+					owner.adjustToxLoss(1)
+					owner.updatehealth()
 		if(5)
-			affected_mob  << "<span class='danger'>You feel something tearing its way out of your stomach!</span>"
-			affected_mob.adjustToxLoss(10)
-			affected_mob.updatehealth()
+			owner  << "<span class='danger'>You feel something tearing its way out of your stomach!</span>"
+			owner.adjustToxLoss(10)
+			owner.updatehealth()
 			if(prob(50))
 				AttemptGrow()
 
-/obj/item/alien_embryo/proc/AttemptGrow()
+/obj/item/organ/xenos/alien_embryo/proc/AttemptGrow()
 	var/list/candidates = get_alien_candidates()
 	var/picked = null
 
@@ -77,23 +76,23 @@
 
 	if(candidates.len)
 		picked = pick(candidates)
-	else if(affected_mob.client)
-		picked = affected_mob.key
+	else if(owner.client)
+		picked = owner.key
 	else
 		stage = 4 // Let's try again later.
 		return
 
-	var/mob/living/carbon/alien/larva/new_xeno = new(affected_mob.loc)
+	var/mob/living/carbon/alien/larva/new_xeno = new(owner.loc)
 	new_xeno.key = picked
 	new_xeno << sound('sound/voice/hiss5.ogg',0,0,0,100)	//To get the player's attention
-	affected_mob.apply_damage(500, BRUTE, "chest")
+	owner.apply_damage(500, BRUTE, "chest")
 	qdel(src)
 
 /*----------------------------------------
 Proc: RefreshInfectionImage()
 Des: Removes all infection images from aliens and places an infection image on all infected mobs for aliens.
 ----------------------------------------*/
-/obj/item/alien_embryo/proc/RefreshInfectionImage()
+/obj/item/organ/xenos/alien_embryo/proc/RefreshInfectionImage()
 
 	for(var/mob/living/carbon/alien in player_list)
 
@@ -114,7 +113,7 @@ Des: Removes all infection images from aliens and places an infection image on a
 Proc: AddInfectionImages(C)
 Des: Checks if the passed mob (C) is infected with the alien egg, then gives each alien client an infected image at C.
 ----------------------------------------*/
-/obj/item/alien_embryo/proc/AddInfectionImages(var/mob/living/C)
+/obj/item/organ/xenos/alien_embryo/proc/AddInfectionImages(var/mob/living/C)
 	if(C)
 
 		for(var/mob/living/carbon/alien in player_list)
@@ -132,7 +131,7 @@ Proc: RemoveInfectionImage(C)
 Des: Removes the alien infection image from all aliens in the world located in passed mob (C).
 ----------------------------------------*/
 
-/obj/item/alien_embryo/proc/RemoveInfectionImages(var/mob/living/C)
+/obj/item/organ/xenos/alien_embryo/proc/RemoveInfectionImages(var/mob/living/C)
 
 	if(C)
 

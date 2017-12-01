@@ -116,12 +116,12 @@ var/const/MAX_ACTIVE_TIME = 400
 		return
 
 	var/mob/living/carbon/C = M
-	if(istype(C) && locate(/obj/item/organ/xenos/hivenode) in C.internal_organs)
+	if(istype(C) && locate(/obj/item/organ/xenos/alien_embryo) in C.internal_organs)
 		return
 
-	for (var/obj/item/alien_embryo/I in M)
-		if (I.infected)
-			return
+	if(locate(/obj/item/organ/xenos/hivenode) in C.internal_organs)
+		return
+
 	attached++
 	spawn(MAX_IMPREGNATION_TIME)
 		attached = 0
@@ -166,14 +166,15 @@ var/const/MAX_ACTIVE_TIME = 400
 
 	return
 
-/obj/item/clothing/mask/facehugger/proc/Impregnate(mob/living/target as mob)
+/obj/item/clothing/mask/facehugger/proc/Impregnate(mob/living/carbon/human/target as mob)
 	if(!target || target.wear_mask != src || target.stat == DEAD) //was taken off or something
 		return
 
 	if(!sterile)
 		//target.contract_disease(new /datum/disease/alien_embryo(0)) //so infection chance is same as virus infection chance
-		var/obj/item/alien_embryo/kid = new (target)
-		kid.infected = TRUE
+		var/obj/item/organ/affecting = target.get_organ("chest")
+		var/obj/item/organ/xenos/alien_embryo/kid = new(affecting)
+		kid.replaced(target,affecting)
 		target.status_flags |= XENO_HOST
 
 		target.visible_message("<span class='danger'>[src] falls limp after violating [target]'s face!</span>")
