@@ -48,3 +48,6 @@
 
 /obj/item/clothing/ring/material/glass/Initialize(var/mapload)
 	. = ..(mapload, "glass")
+
+/obj/item/clothing/ring/material/uranium/Initialize(var/mapload)
+	. = ..(mapload, "uranium")

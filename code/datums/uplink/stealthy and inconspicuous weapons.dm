@@ -34,7 +34,7 @@
 	item_cost = 9
 	path = /obj/item/weapon/cane/concealed
 
-/datum/uplink_item/item/stealthy_weapons/sleey_ring
+/datum/uplink_item/item/stealthy_weapons/sleepy_ring
 	name = "Sleepy Ring"
 	item_cost = 7
 	path = /obj/item/clothing/ring/reagent/sleepy
