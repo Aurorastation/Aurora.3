@@ -287,8 +287,7 @@
 		/obj/item/weapon/ore/coal,
 		/obj/item/weapon/stamp/clown,
 		/obj/item/organ/heart/skrell,
-		/obj/item/latexballon
-		)
+		/obj/item/latexballon)
 
 	var/atom/movable/I = new gift_type(M)
 	M.remove_from_mob(src)
@@ -356,8 +355,7 @@
 		/obj/item/device/dociler,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/megaphone,
-		/obj/item/device/violin
-		)
+		/obj/item/device/violin)
 
 	var/atom/movable/I = new gift_type(M)
 	M.remove_from_mob(src)
