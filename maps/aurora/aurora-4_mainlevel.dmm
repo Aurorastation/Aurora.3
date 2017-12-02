@@ -4769,7 +4769,6 @@
 /area/engineering/atmos)
 "ajK" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/cyan{
-	tag = "icon-down (WEST)";
 	icon_state = "down";
 	dir = 8
 	},
@@ -5544,7 +5543,6 @@
 /area/engineering/atmos)
 "als" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/red{
-	tag = "icon-down (WEST)";
 	icon_state = "down";
 	dir = 8
 	},
@@ -5897,12 +5895,10 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -5918,7 +5914,6 @@
 /obj/item/weapon/crowbar,
 /obj/item/weapon/crowbar,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -5931,7 +5926,6 @@
 /obj/item/device/flashlight/maglight,
 /obj/item/device/flashlight/maglight,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -6443,7 +6437,6 @@
 /area/security/main)
 "anc" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -6898,7 +6891,6 @@
 /area/security/brig)
 "anX" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -7391,7 +7383,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -7743,7 +7734,6 @@
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -8519,7 +8509,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -8929,7 +8918,6 @@
 	icon_state = "left";
 	name = "Atmospheric Hardsuits";
 	req_access = list(24);
-	tag = "icon-left (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -9145,7 +9133,6 @@
 "asf" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -9170,7 +9157,6 @@
 /area/security/main)
 "asi" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -9188,7 +9174,6 @@
 "asj" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -9596,7 +9581,6 @@
 	icon_state = "left";
 	name = "Atmospheric Hardsuits";
 	req_access = list(24);
-	tag = "icon-left (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -12181,7 +12165,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -12342,7 +12325,6 @@
 	icon_state = "leftsecure";
 	name = "Secure Holding Cell";
 	req_access = list(2);
-	tag = "icon-leftsecure"
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -12652,7 +12634,6 @@
 "axJ" = (
 /obj/structure/closet/emcloset,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -12898,7 +12879,6 @@
 	c_tag = "Engineering - Engine Starboard";
 	dir = 8;
 	icon_state = "camera";
-	tag = "icon-camera (WEST)"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -13232,7 +13212,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (NORTHEAST)";
 	icon_state = "intact";
 	dir = 5
 	},
@@ -13246,7 +13225,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -13267,7 +13245,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -13557,7 +13534,6 @@
 /area/security/brig)
 "aza" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -13575,7 +13551,6 @@
 /area/security/brig)
 "azb" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -13595,7 +13570,6 @@
 /area/security/brig)
 "azc" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -13831,7 +13805,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -14402,7 +14375,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -15288,7 +15260,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -15872,7 +15843,6 @@
 	pixel_y = 0
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -15912,7 +15882,6 @@
 	},
 /obj/item/modular_computer/console/preset/engineering,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -15921,7 +15890,6 @@
 "aCX" = (
 /obj/machinery/papershredder,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -16316,7 +16284,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -20332,7 +20299,6 @@
 	pixel_y = 32
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -21392,7 +21358,6 @@
 	pixel_x = -32
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -22403,7 +22368,6 @@
 	dir = 9
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -23023,7 +22987,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -23397,7 +23360,6 @@
 	dir = 9
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -23597,7 +23559,6 @@
 	pixel_x = 27
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24121,7 +24082,6 @@
 	dir = 9
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24358,7 +24318,6 @@
 	},
 /obj/machinery/firealarm/west,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24761,7 +24720,6 @@
 /area/bridge/meeting_room)
 "aRu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -25566,7 +25524,6 @@
 	pixel_y = 0
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25592,7 +25549,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25805,7 +25761,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -26438,7 +26393,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -26457,7 +26411,6 @@
 "aUg" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -26538,7 +26491,6 @@
 /obj/structure/table/woodentable,
 /obj/item/weapon/folder/blue,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -26938,7 +26890,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -26957,7 +26908,6 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -27190,7 +27140,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -27244,7 +27193,6 @@
 	},
 /obj/item/weapon/pen,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -27368,7 +27316,6 @@
 "aVJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -27394,7 +27341,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -27429,7 +27375,6 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -27631,7 +27576,6 @@
 	pixel_y = 24
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -27894,7 +27838,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -27987,7 +27930,6 @@
 "aWT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/orange{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -31045,7 +30987,6 @@
 	dir = 6
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -31087,7 +31028,6 @@
 "bcj" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -32575,7 +32515,6 @@
 	dir = 6
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -36003,7 +35942,6 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -36869,7 +36807,6 @@
 /obj/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -38493,7 +38430,6 @@
 	pixel_y = 23
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -38653,7 +38589,6 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -38966,7 +38901,6 @@
 	id = "medbay_ringer"
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -38984,12 +38918,10 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -39470,7 +39402,6 @@
 /obj/machinery/smartfridge/drinks,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -40078,7 +40009,6 @@
 	icon_state = "comfychair_preview"
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -40949,13 +40879,11 @@
 /area/medical/medbay2)
 "bsc" = (
 /obj/effect/floor_decal/corner/grey{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/structure/table/standard,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -40984,7 +40912,6 @@
 /area/crew_quarters/heads/cmo)
 "bsf" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -41563,7 +41490,6 @@
 /obj/structure/bed/chair/comfy/teal{
 	dir = 8;
 	icon_state = "comfychair_preview";
-	tag = "icon-comfychair (WEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -41986,7 +41912,6 @@
 /obj/item/weapon/storage/box/cups,
 /obj/item/weapon/storage/box/cups,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -42541,7 +42466,6 @@
 "buL" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -43948,7 +43872,6 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -45119,7 +45042,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -45275,7 +45197,6 @@
 	},
 /obj/machinery/firealarm/south,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -47200,7 +47121,6 @@
 "bCi" = (
 /obj/effect/floor_decal/corner/mauve,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -51198,7 +51118,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -55247,7 +55166,6 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -55993,7 +55911,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -56013,7 +55930,6 @@
 "bSW" = (
 /obj/machinery/firealarm/west,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -56347,7 +56263,6 @@
 	},
 /obj/machinery/firealarm/north,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -56753,7 +56668,6 @@
 "bUs" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -56881,7 +56795,6 @@
 	},
 /obj/item/weapon/material/kitchen/utensil/fork,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -57060,7 +56973,6 @@
 	},
 /obj/item/weapon/material/kitchen/utensil/knife/plastic,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -57255,7 +57167,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -57287,7 +57198,6 @@
 	},
 /obj/item/weapon/material/kitchen/utensil/spoon,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -57460,7 +57370,6 @@
 	pixel_y = -28
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -57526,7 +57435,6 @@
 "bVL" = (
 /obj/structure/bed/chair/comfy/black,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -57538,12 +57446,10 @@
 	c_tag = "Bar - Smoking Lounge"
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -57955,7 +57861,6 @@
 	},
 /obj/structure/sign/christmas/lights,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -62423,7 +62328,6 @@
 	pixel_y = -32
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -62637,7 +62541,6 @@
 "cfd" = (
 /obj/structure/table/woodentable,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -62667,7 +62570,6 @@
 /area/bridge/meeting_room)
 "cfh" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -62938,7 +62840,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -63093,7 +62994,6 @@
 /area/hydroponics)
 "cfO" = (
 /obj/structure/sign/double/barsign{
-	tag = "icon-empty (WEST)";
 	icon_state = "empty";
 	dir = 8
 	},
@@ -63882,7 +63782,6 @@
 /area/security/brig)
 "chm" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -63906,7 +63805,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -64557,7 +64455,6 @@
 	pixel_y = 32
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -64930,7 +64827,6 @@
 "ciR" = (
 /obj/structure/flora/pottedplant/random,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65303,7 +65199,6 @@
 /area/bridge)
 "cjv" = (
 /obj/structure/toilet{
-	tag = "icon-toilet00 (WEST)";
 	icon_state = "toilet00";
 	dir = 8
 	},
@@ -65476,7 +65371,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65647,7 +65541,6 @@
 	icon_state = "4-8"
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -65701,7 +65594,6 @@
 	dir = 6
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65709,7 +65601,6 @@
 /area/security/brig)
 "ckl" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -65733,7 +65624,6 @@
 /area/hallway/primary/starboard)
 "ckq" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -65741,7 +65631,6 @@
 /area/engineering/foyer)
 "ckr" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65749,7 +65638,6 @@
 /area/security/lobby)
 "cks" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65757,7 +65645,6 @@
 /area/hallway/primary/starboard)
 "ckt" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65765,7 +65652,6 @@
 /area/hallway/primary/starboard)
 "cku" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65777,7 +65663,6 @@
 	dir = 5
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -65789,7 +65674,6 @@
 	dir = 5
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -65798,7 +65682,6 @@
 "ckx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -65806,7 +65689,6 @@
 /area/hallway/primary/starboard)
 "cky" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -65814,7 +65696,6 @@
 /area/engineering/foyer)
 "ckz" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -65822,7 +65703,6 @@
 /area/engineering/foyer)
 "ckA" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -65830,7 +65710,6 @@
 /area/hallway/primary/port)
 "ckB" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -65838,7 +65717,6 @@
 /area/hallway/primary/port)
 "ckC" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65846,7 +65724,6 @@
 /area/hallway/primary/starboard)
 "ckD" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -65854,7 +65731,6 @@
 /area/hallway/primary/central_one)
 "ckE" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -65862,7 +65738,6 @@
 /area/hallway/primary/central_one)
 "ckF" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -65870,7 +65745,6 @@
 /area/hallway/primary/central_one)
 "ckG" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65878,7 +65752,6 @@
 /area/hallway/primary/central_one)
 "ckH" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65886,7 +65759,6 @@
 /area/hallway/primary/central_one)
 "ckI" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65894,7 +65766,6 @@
 /area/hallway/primary/central_one)
 "ckJ" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65902,7 +65773,6 @@
 /area/hallway/primary/central_one)
 "ckK" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65911,7 +65781,6 @@
 "ckL" = (
 /obj/effect/floor_decal/corner/lime,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65929,7 +65798,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65940,7 +65808,6 @@
 	dir = 6
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65948,7 +65815,6 @@
 /area/medical/reception)
 "ckQ" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65956,7 +65822,6 @@
 /area/hallway/primary/central_one)
 "ckR" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -65964,7 +65829,6 @@
 /area/hallway/primary/central_one)
 "ckS" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -65976,7 +65840,6 @@
 	dir = 9
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -65984,7 +65847,6 @@
 /area/hallway/primary/central_one)
 "ckU" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -65992,7 +65854,6 @@
 /area/hallway/primary/central_one)
 "ckV" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66004,7 +65865,6 @@
 	dir = 9
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66012,7 +65872,6 @@
 /area/hallway/primary/central_one)
 "ckX" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -66020,7 +65879,6 @@
 /area/hallway/primary/central_one)
 "ckY" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66028,7 +65886,6 @@
 /area/hallway/primary/central_one)
 "ckZ" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -66036,7 +65893,6 @@
 /area/hallway/primary/central_one)
 "cla" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66048,7 +65904,6 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66056,7 +65911,6 @@
 /area/hallway/primary/central_one)
 "clc" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66064,7 +65918,6 @@
 /area/rnd/research)
 "cld" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66072,7 +65925,6 @@
 /area/hallway/primary/central_one)
 "cle" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -66098,7 +65950,6 @@
 /area/hallway/primary/central_one)
 "clh" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -66106,7 +65957,6 @@
 /area/hallway/primary/central_one)
 "cli" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -66114,7 +65964,6 @@
 /area/hallway/primary/central_one)
 "clj" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -66122,7 +65971,6 @@
 /area/hallway/primary/central_one)
 "clk" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -66130,7 +65978,6 @@
 /area/library)
 "cll" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -66138,7 +65985,6 @@
 /area/library)
 "clm" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -66146,7 +65992,6 @@
 /area/library)
 "cln" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -66154,7 +65999,6 @@
 /area/library)
 "clo" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -66165,7 +66009,6 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -66174,7 +66017,6 @@
 "clq" = (
 /obj/structure/bed/chair/comfy/black,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -66187,7 +66029,6 @@
 	pixel_y = 5
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -66195,7 +66036,6 @@
 /area/library)
 "cls" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66203,7 +66043,6 @@
 /area/hallway/primary/aft)
 "clt" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66211,7 +66050,6 @@
 /area/hallway/primary/aft)
 "clu" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66219,7 +66057,6 @@
 /area/hallway/primary/aft)
 "clv" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -66227,7 +66064,6 @@
 /area/crew_quarters/bar)
 "clw" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -66236,7 +66072,6 @@
 "clx" = (
 /obj/structure/table/marble,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -66244,7 +66079,6 @@
 /area/crew_quarters/bar)
 "cly" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66252,7 +66086,6 @@
 /area/hallway/primary/aft)
 "clz" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66260,7 +66093,6 @@
 /area/hallway/primary/aft)
 "clA" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -66273,7 +66105,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -66306,7 +66137,6 @@
 /area/crew_quarters/bar)
 "clI" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -66354,7 +66184,6 @@
 "clM" = (
 /obj/structure/sign/christmas/lights,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},

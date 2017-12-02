@@ -772,7 +772,6 @@
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -1102,7 +1101,6 @@
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/blue/full,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -1308,7 +1306,6 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -2572,7 +2569,6 @@
 	dir = 1
 	},
 /obj/machinery/door/window/eastright{
-	tag = "icon-right (WEST)";
 	icon_state = "right";
 	dir = 8
 	},
@@ -2616,7 +2612,6 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -2689,7 +2684,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -3029,7 +3023,6 @@
 "fI" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -3411,7 +3404,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
 	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
@@ -3512,7 +3504,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
 	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -4021,7 +4012,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -4310,7 +4300,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/emcloset,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -4441,7 +4430,6 @@
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -5277,7 +5265,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -5378,7 +5365,6 @@
 "jV" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -5947,7 +5933,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -6005,7 +5990,6 @@
 "kV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -6776,7 +6760,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -6801,7 +6784,6 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -6845,7 +6827,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -6864,7 +6845,6 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -6966,7 +6946,6 @@
 	dir = 5
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -7091,7 +7070,6 @@
 	pixel_y = -22
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -7142,7 +7120,6 @@
 	pixel_y = -32
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -8011,7 +7988,6 @@
 /area/maintenance/solarmaint)
 "oA" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -8324,7 +8300,6 @@
 	spawn_object = /obj/item/weapon/flame/lighter
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -8447,7 +8422,6 @@
 /obj/structure/table/woodentable,
 /obj/item/weapon/reagent_containers/food/snacks/chips,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -8945,7 +8919,6 @@
 "qp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -9000,7 +8973,6 @@
 	icon_state = "comfychair_preview"
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -9059,7 +9031,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -9089,7 +9060,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -9139,7 +9109,6 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -9276,7 +9245,6 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -9312,7 +9280,6 @@
 	icon_state = "comfychair_preview"
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -9421,7 +9388,6 @@
 	pixel_y = 0
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -9527,7 +9493,6 @@
 "rm" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -10535,7 +10500,6 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -11063,7 +11027,6 @@
 "uw" = (
 /obj/structure/closet/emcloset,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -11233,7 +11196,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -11455,7 +11417,6 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -11843,7 +11804,6 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -13408,7 +13368,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -13466,7 +13425,6 @@
 /obj/structure/flora/pottedplant/random,
 /obj/structure/sign/christmas/lights,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -13491,7 +13449,6 @@
 	pixel_y = -32
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -15756,7 +15713,6 @@
 "Dz" = (
 /obj/machinery/vending/coffee,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -15906,7 +15862,6 @@
 "DQ" = (
 /obj/machinery/vending/cola,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -16024,7 +15979,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -16562,7 +16516,6 @@
 "ET" = (
 /obj/structure/closet/crate/trashcart,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -17209,7 +17162,6 @@
 /area/quartermaster/loading)
 "Gh" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -18535,7 +18487,6 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -18600,7 +18551,6 @@
 /area/hallway/secondary/exit)
 "II" = (
 /obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (EAST)";
 	icon_state = "warningcee";
 	dir = 4
 	},
@@ -18637,7 +18587,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
 	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
@@ -18854,7 +18803,6 @@
 "Jj" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHEAST)";
 	icon_state = "intact";
 	dir = 5
 	},
@@ -18931,7 +18879,6 @@
 	},
 /obj/machinery/firealarm/east,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -19696,7 +19643,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -19712,7 +19658,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -19730,7 +19675,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -19742,7 +19686,6 @@
 	dir = 9
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -19754,7 +19697,6 @@
 	dir = 6
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -19772,7 +19714,6 @@
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -19784,7 +19725,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -19796,7 +19736,6 @@
 	dir = 5
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -19808,7 +19747,6 @@
 	dir = 5
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -19856,7 +19794,6 @@
 "MW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -19882,7 +19819,6 @@
 	dir = 9
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -19893,7 +19829,6 @@
 	dir = 6
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -19905,7 +19840,6 @@
 	dir = 9
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -19916,7 +19850,6 @@
 	dir = 6
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -19927,7 +19860,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -19936,7 +19868,6 @@
 "Nd" = (
 /obj/structure/bed/chair/comfy/beige,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -19944,7 +19875,6 @@
 /area/hallway/secondary/entry/fore)
 "Ne" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -19957,7 +19887,6 @@
 	},
 /obj/machinery/light,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -19976,7 +19905,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -19991,7 +19919,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -19999,7 +19926,6 @@
 /area/hallway/secondary/entry/fore)
 "Nj" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -20007,7 +19933,6 @@
 /area/hallway/secondary/entry/fore)
 "Nk" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -20016,7 +19941,6 @@
 "Nl" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -20025,7 +19949,6 @@
 "Nm" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -20034,7 +19957,6 @@
 "Nn" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -20042,7 +19964,6 @@
 /area/hallway/secondary/entry/fore)
 "No" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -20050,7 +19971,6 @@
 /area/crew_quarters/sleep/cryo)
 "Np" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -20058,7 +19978,6 @@
 /area/crew_quarters/sleep/cryo)
 "Nq" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -20066,7 +19985,6 @@
 /area/crew_quarters/sleep/cryo)
 "Nr" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -20074,7 +19992,6 @@
 /area/hallway/secondary/entry/fore)
 "Ns" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -20082,7 +19999,6 @@
 /area/hallway/secondary/entry/fore)
 "Nt" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -20090,7 +20006,6 @@
 /area/hallway/secondary/entry/fore)
 "Nu" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -20098,7 +20013,6 @@
 /area/hallway/secondary/entry/fore)
 "Nv" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -20106,7 +20020,6 @@
 /area/hallway/secondary/entry/fore)
 "Nw" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -20114,7 +20027,6 @@
 /area/hallway/secondary/entry/fore)
 "Nx" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -20125,7 +20037,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -20133,7 +20044,6 @@
 /area/hallway/secondary/entry/aft)
 "Nz" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -20141,7 +20051,6 @@
 /area/hallway/secondary/entry/aft)
 "NA" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -20150,7 +20059,6 @@
 "NB" = (
 /obj/machinery/door/firedoor,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -20161,7 +20069,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -20169,7 +20076,6 @@
 /area/hallway/secondary/entry/aft)
 "ND" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},

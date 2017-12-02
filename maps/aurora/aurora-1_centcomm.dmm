@@ -7407,12 +7407,10 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -7584,7 +7582,6 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -7670,7 +7667,6 @@
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/wallet,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -7886,7 +7882,6 @@
 "asJ" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -8006,7 +8001,6 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -8034,7 +8028,6 @@
 "ata" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -13383,12 +13376,10 @@
 "aDM" = (
 /obj/item/modular_computer/console/preset/command,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -13465,7 +13456,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -13637,7 +13627,6 @@
 "aEr" = (
 /obj/structure/banner,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -14075,12 +14064,10 @@
 /area/centcom/ferry)
 "aFs" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -14091,7 +14078,6 @@
 /area/centcom/holding)
 "aFt" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -14102,7 +14088,6 @@
 /area/centcom/holding)
 "aFu" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -14130,7 +14115,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -14235,7 +14219,6 @@
 	pixel_y = -5
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -14339,7 +14322,6 @@
 	pixel_y = 0
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -14381,7 +14363,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -14437,7 +14418,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -14479,7 +14459,6 @@
 /area/centcom/holding)
 "aGe" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -14520,7 +14499,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -14660,7 +14638,6 @@
 "aGx" = (
 /obj/machinery/vending/coffee,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -14805,7 +14782,6 @@
 "aGL" = (
 /obj/machinery/vending/cigarette,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -16541,7 +16517,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -17196,7 +17171,6 @@
 "aLN" = (
 /obj/structure/closet/emcloset,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -17208,7 +17182,6 @@
 	c_tag = "Surface - Arrivals Shuttle"
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -18879,7 +18852,6 @@
 	anchored = 1
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -19317,7 +19289,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24501,7 +24472,6 @@
 /area/centcom/holding)
 "biU" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -24514,7 +24484,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24528,7 +24497,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24542,7 +24510,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24556,7 +24523,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24578,7 +24544,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24591,7 +24556,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24604,7 +24568,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24617,7 +24580,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24627,7 +24589,6 @@
 /area/shuttle/escape/centcom)
 "bjf" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24640,7 +24601,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24653,7 +24613,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24666,7 +24625,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24679,7 +24637,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24692,7 +24649,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24703,7 +24659,6 @@
 /area/centcom/holding)
 "bjl" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24716,7 +24671,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24729,7 +24683,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24742,7 +24695,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24755,7 +24707,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24768,7 +24719,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24779,7 +24729,6 @@
 /area/centcom/holding)
 "bjr" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24792,7 +24741,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24805,7 +24753,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24818,7 +24765,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24831,7 +24777,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24845,7 +24790,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24858,7 +24802,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24871,7 +24814,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24884,7 +24826,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -24897,7 +24838,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24911,7 +24851,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24921,7 +24860,6 @@
 /area/centcom/holding)
 "bjC" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -24929,7 +24867,6 @@
 /area/shuttle/escape/centcom)
 "bjD" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -24937,7 +24874,6 @@
 /area/shuttle/escape/centcom)
 "bjE" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24951,7 +24887,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -24965,7 +24900,6 @@
 	dir = 4
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25023,7 +24957,6 @@
 /area/centcom/holding)
 "bjN" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25034,7 +24967,6 @@
 /area/centcom/spawning)
 "bjO" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25045,7 +24977,6 @@
 /area/centcom/spawning)
 "bjP" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25059,7 +24990,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25070,7 +25000,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25081,7 +25010,6 @@
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25101,7 +25029,6 @@
 /area/shuttle/arrival/centcom)
 "bjW" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25112,7 +25039,6 @@
 /area/centcom/holding)
 "bjX" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25122,7 +25048,6 @@
 /area/centcom/holding)
 "bjY" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25133,7 +25058,6 @@
 /area/centcom/holding)
 "bjZ" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25144,7 +25068,6 @@
 /area/centcom/holding)
 "bka" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25155,7 +25078,6 @@
 /area/centcom/holding)
 "bkb" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25166,7 +25088,6 @@
 /area/centcom/holding)
 "bkc" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25177,7 +25098,6 @@
 /area/centcom/holding)
 "bkd" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25190,7 +25110,6 @@
 /obj/machinery/porta_turret/crescent,
 /obj/effect/decal/warning_stripes,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25200,7 +25119,6 @@
 /area/centcom/spawning)
 "bkf" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25211,7 +25129,6 @@
 /area/centcom/spawning)
 "bkg" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25222,7 +25139,6 @@
 /area/centcom/spawning)
 "bkh" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25233,7 +25149,6 @@
 /area/centcom/spawning)
 "bki" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25244,7 +25159,6 @@
 /area/centcom/spawning)
 "bkj" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25255,7 +25169,6 @@
 /area/centcom/spawning)
 "bkk" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25266,7 +25179,6 @@
 /area/centcom/spawning)
 "bkl" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25277,7 +25189,6 @@
 /area/centcom/spawning)
 "bkm" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25288,7 +25199,6 @@
 /area/centcom/spawning)
 "bkn" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25299,7 +25209,6 @@
 /area/centcom/spawning)
 "bko" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25310,7 +25219,6 @@
 /area/centcom/spawning)
 "bkp" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25323,7 +25231,6 @@
 /obj/machinery/porta_turret/crescent,
 /obj/effect/decal/warning_stripes,
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25333,7 +25240,6 @@
 /area/centcom/spawning)
 "bkr" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25344,7 +25250,6 @@
 /area/centcom/holding)
 "bks" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25355,7 +25260,6 @@
 /area/centcom/holding)
 "bkt" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25366,7 +25270,6 @@
 /area/centcom/holding)
 "bku" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25377,7 +25280,6 @@
 /area/centcom/holding)
 "bkv" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25388,7 +25290,6 @@
 /area/centcom/spawning)
 "bkw" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25433,7 +25334,6 @@
 /area/centcom/spawning)
 "bkC" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25444,7 +25344,6 @@
 /area/centcom/spawning)
 "bkD" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25455,7 +25354,6 @@
 /area/centcom/spawning)
 "bkE" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25466,7 +25364,6 @@
 /area/centcom/spawning)
 "bkF" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25477,7 +25374,6 @@
 /area/centcom/spawning)
 "bkG" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25488,7 +25384,6 @@
 /area/centcom/spawning)
 "bkH" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25499,7 +25394,6 @@
 /area/centcom/spawning)
 "bkI" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25510,7 +25404,6 @@
 /area/centcom/spawning)
 "bkJ" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (NORTH)";
 	icon_state = "xmaslights";
 	dir = 1
 	},
@@ -25521,7 +25414,6 @@
 /area/centcom/spawning)
 "bkK" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25532,7 +25424,6 @@
 /area/centcom/spawning)
 "bkL" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25543,7 +25434,6 @@
 /area/centcom/spawning)
 "bkM" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25554,7 +25444,6 @@
 /area/centcom/holding)
 "bkN" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25564,7 +25453,6 @@
 /area/centcom/holding)
 "bkO" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25575,7 +25463,6 @@
 /area/centcom/holding)
 "bkP" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25586,7 +25473,6 @@
 /area/centcom/holding)
 "bkQ" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25597,7 +25483,6 @@
 /area/centcom/holding)
 "bkR" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25608,7 +25493,6 @@
 /area/centcom/holding)
 "bkS" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25619,7 +25503,6 @@
 /area/centcom/holding)
 "bkT" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25630,7 +25513,6 @@
 /area/centcom/holding)
 "bkU" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25641,7 +25523,6 @@
 /area/centcom/holding)
 "bkV" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
@@ -25652,7 +25533,6 @@
 /area/centcom/holding)
 "bkW" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (WEST)";
 	icon_state = "xmaslights";
 	dir = 8
 	},
@@ -25663,7 +25543,6 @@
 /area/centcom/holding)
 "bkX" = (
 /obj/structure/sign/christmas/lights{
-	tag = "icon-xmaslights (EAST)";
 	icon_state = "xmaslights";
 	dir = 4
 	},
