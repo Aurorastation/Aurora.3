@@ -409,26 +409,3 @@
 	M << "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>"
 	qdel(src)
 	return
-
-
-/obj/item/weapon/paper/santa/New()
-	var/list/possible_targets = list()
-	var/datum/mind/santee
-	for(var/datum/mind/possible_target in SSticker.minds)
-		if(ishuman(possible_target.current) && (possible_target.current.stat != 2))
-			possible_targets += possible_target
-	if(possible_targets.len > 0)
-		santee = pick(possible_targets)
-	if(santee)
-		src.name = "FOR YOUR EYES ONLY"
-		src.info = {"<center><img src = ntlogo.png></center>
-		<center><b><i>Operation: Naughty or Nice</b></i><br>
-		<font size = \"1\">FOR YOUR EYES ONLY</font><hr><br>
-		<font size = \"1\"><font face='Courier New'>The NanoTrasen Department of Christmas Affairs have selected you for the top secret operation Naughty or Nice.\
-		Your mission, should you choose to accept it, is to identify the tastes and desires of [santee.current.real_name] the [santee.assigned_role], and provide for them the perfect Secret Santa gift. Should your identity be compromised\
-		before final delivery of the package your mission will be considered a failure and the NDCA will deny any knowledge of your activities. Good luck, agent.</font></font><hr>
-		<font size = \"1\">Destroy this message as soon as it has been read.</font><br>
-		<center><img src = barcode[rand(0, 3)].png></center></center>"}
-		src.update_icon()
-	else
-		qdel(src)
