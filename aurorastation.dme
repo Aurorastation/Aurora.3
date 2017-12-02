@@ -2295,6 +2295,13 @@
 #include "maps\exodus\code\exodus_areas.dm"
 #include "maps\exodus\code\exodus_shuttles.dm"
 #include "maps\exodus\code\exodus_unittest.dm"
+#include "maps\lavaland\code\lavaland.dm"
+#include "maps\lavaland\code\lavaland_areas.dm"
+#include "maps\lavaland\code\lavaland_flavor.dm"
+#include "maps\lavaland\code\lavaland_holodeck.dm"
+#include "maps\lavaland\code\lavaland_lockers.dm"
+#include "maps\lavaland\code\lavaland_shuttles.dm"
+#include "maps\lavaland\code\lavaland_unittest.dm"
 #include "maps\runtime\code\runtime.dm"
 #include "maps\runtime\code\runtime_unittest.dm"
 // END_INCLUDE

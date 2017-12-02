@@ -25,7 +25,7 @@
 /obj/item/clothing/under/rank/fatigues //regular sol navy combat fatigues
 	name = "sol navy fatigues"
 	desc = "Military looking uniform issued to Sol Alliance navy, to be used while in the field."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "sol_uniform"
 	item_state = "sol_uniform"
 	contained_sprite = 1
@@ -34,7 +34,7 @@
 /obj/item/clothing/under/rank/fatigues/marine //regular sol navy marine fatigues
 	name = "sol marine fatigues"
 	desc = "Military looking uniform issued to Sol Alliance marines, to be used while in the field."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "marine_fatigue"
 	item_state = "marine_fatigue"
 	contained_sprite = 1
@@ -42,7 +42,7 @@
 /obj/item/clothing/under/rank/service //navy personnel service unniform
 	name = "sol navy service uniform"
 	desc = "Military looking service uniform issued to Sol Alliance navy members."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "whiteservice"
 	item_state = "whiteservice"
 	contained_sprite = 1
@@ -50,7 +50,7 @@
 /obj/item/clothing/under/rank/service/marine //sol marine service unniform
 	name = "sol marine service uniform"
 	desc = "Military looking service uniform issued to Sol Alliance marines."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "tanutility"
 	item_state = "tanutility"
 	contained_sprite = 1
@@ -58,7 +58,7 @@
 /obj/item/clothing/under/rank/dress //navy personnel dress unniform
 	name = "sol navy dress uniform"
 	desc = "A fancy military looking dress uniform issued to Sol Alliance navy members."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "sailor"
 	item_state = "sailor"
 	contained_sprite = 1
@@ -66,7 +66,7 @@
 /obj/item/clothing/under/rank/dress/marine //sol marine dress unniform
 	name = "sol marine dress uniform"
 	desc = "A fancy military looking dress uniform issued to Sol Alliance marine."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "mahreendress"
 	item_state = "mahreendress"
 	contained_sprite = 1
@@ -74,7 +74,7 @@
 /obj/item/clothing/under/rank/dress/officer //sol marine officer dress unniform
 	name = "sol navy commander dress uniform"
 	desc = "A fancy military looking dress uniform issued to high ranking Sol Alliance navy officers. This one wears the rank of Commander"
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "dress"
 	item_state = "dress"
 	contained_sprite = 1
@@ -82,7 +82,7 @@
 /obj/item/clothing/under/rank/dress/subofficer //sol marine officer dress unniform
 	name = "sol navy lieutenant dress uniform"
 	desc = "A fancy military looking dress uniform issued to lower ranking Sol Alliance navy officers. This one wears the rank of Lieutenant"
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "subdress"
 	item_state = "subdress"
 	contained_sprite = 1
@@ -90,7 +90,7 @@
 /obj/item/clothing/under/rank/dress/admiral //admiral uniform
 	name = "sol navy admiral uniform"
 	desc = "A fancy military dress uniform issued to a higher member of the Sol Alliance navy."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "admiral_uniform"
 	item_state = "admiral_uniform"
 	contained_sprite = 1
@@ -100,7 +100,7 @@
 /obj/item/clothing/head/navy
 	name = "sol navy utility cover"
 	desc = "An eight pointed cover issued to Sol Alliance navy members as part of their field uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "greyutility"
 	item_state = "greyutility"
 	contained_sprite = 1
@@ -109,7 +109,7 @@
 /obj/item/clothing/head/navy/marine
 	name = "sol marine utility cover"
 	desc = "An eight pointed cover issued to Sol Alliance marines as part of their field uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "greenutility"
 	item_state = "greenutility"
 	contained_sprite = 1
@@ -117,7 +117,7 @@
 /obj/item/clothing/head/navy/garrison
 	name = "sol marine garrison cap"
 	desc = "A green garrison cap issued to Sol Alliance marines."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "greengarrisoncap"
 	item_state = "greengarrisoncap"
 	contained_sprite = 1
@@ -125,7 +125,7 @@
 /obj/item/clothing/head/dress
 	name = "sol navy dress cap"
 	desc = "A white cap issued as part of the Sol Alliance navy dress uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "whitepeakcap"
 	item_state = "whitepeakcap"
 	contained_sprite = 1
@@ -133,7 +133,7 @@
 /obj/item/clothing/head/dress/marine
 	name = "sol marine dress cap"
 	desc = "A green cap issued as part of the Sol Alliance marine dress uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "whitepeakcap"
 	item_state = "whitepeakcap"
 	contained_sprite = 1
@@ -141,7 +141,7 @@
 /obj/item/clothing/head/dress/officer
 	name = "sol navy officer dress cap"
 	desc = "A white cap issued as part of the Sol Alliance navy officers dress uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "whitewheelcap"
 	item_state = "whitewheelcap"
 	contained_sprite = 1
@@ -149,7 +149,7 @@
 /obj/item/clothing/head/dress/admiral
 	name = "sol navy admiral dress cap"
 	desc = "A fancy looking cap issued to a higher member of the Sol Alliance navy."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "admiral_cap"
 	item_state = "admiral_cap"
 	contained_sprite = 1
@@ -159,7 +159,7 @@
 /obj/item/weapon/melee/ceremonial_sword
 	name = "sol officer ceremonial sword"
 	desc = "A ceremonial sword issued to Sol navy officers as part of their dress uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "officersword"
 	item_state = "officersword"
 	contained_sprite = 1
@@ -178,7 +178,7 @@
 /obj/item/weapon/melee/ceremonial_sword/marine
 	name = "sol marine ceremonial sword"
 	desc = "A ceremonial sword issued to Sol marine officers as part of their dress uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/obj/milrp_uniforms.dmi'
 	icon_state = "marineofficersword"
 	item_state = "marineofficersword"
 	contained_sprite = 1

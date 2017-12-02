@@ -29,7 +29,7 @@
 "C" = (/obj/item/modular_computer/console/preset/security,/turf/simulated/floor/holofloor/wood,/area/space)
 "D" = (/obj/structure/table/wood,/obj/machinery/computer/skills,/turf/simulated/floor/carpet,/area/space)
 "E" = (/turf/simulated/open,/area/space)
-"F" = (/obj/structure/closet/secure_closet/hos,/obj/item/device/multitool,/obj/item/weapon/reagent_containers/spray/pepper,/obj/structure/sign/flag/dominia{pixel_x = -32},/turf/simulated/floor/holofloor/wood,/area/space)
+"F" = (/obj/structure/sign/flag/dominia{pixel_x = -32},/turf/simulated/floor/holofloor/wood,/area/space)
 "G" = (/obj/structure/table/wood,/obj/machinery/photocopier/faxmachine{department = "Head of Security's Office"},/turf/simulated/floor/holofloor/wood,/area/space)
 "H" = (/obj/structure/table/wood,/obj/item/weapon/paper_bin,/obj/item/weapon/pen,/obj/item/device/flashlight/lamp/green{pixel_x = -6; pixel_y = 10},/obj/item/weapon/storage/secure/safe{pixel_x = 5; pixel_y = -30},/turf/simulated/floor/holofloor/wood,/area/space)
 
