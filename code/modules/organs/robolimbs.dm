@@ -32,21 +32,25 @@ var/global/datum/robolimb/basic_robolimb
 	company = PROSTHETIC_BC
 	desc = "This limb is coated in a brilliant silver illuminated from the inside with blue status lights."
 	icon = 'icons/mob/human_races/cyberlimbs/bishop.dmi'
+	paintable = 1 // all of these are paintable now, because IPCs. may have issues with nonhuman organics, though?
 
 /datum/robolimb/hesphaistos
 	company = PROSTHETIC_HI
 	desc = "This limb is covered in thick plating coated with a militaristic olive drab."
 	icon = 'icons/mob/human_races/cyberlimbs/hesphaistos.dmi'
+	paintable = 1
 
 /datum/robolimb/zenghu
 	company = PROSTHETIC_ZH
 	desc = "This limb has sleek white plating over a graphene-based nanofiber weave."
 	icon = 'icons/mob/human_races/cyberlimbs/zenghu.dmi'
+	paintable = 1
 
 /datum/robolimb/xion
 	company = PROSTHETIC_XMG
 	desc = "This limb has a minimalist black and grey casing with exposed orange wiring channels."
 	icon = 'icons/mob/human_races/cyberlimbs/xion.dmi'
+	paintable = 1
 
 /datum/robolimb/ipc
 	company = PROSTHETIC_IPC
