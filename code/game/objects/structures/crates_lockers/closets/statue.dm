@@ -83,14 +83,14 @@
 /obj/structure/closet/statue/dump_contents()
 
 	for(var/obj/O in src)
-		O.forceMove(src.loc)
+		O.forceMove(loc)
 
 	for(var/mob/living/M in src)
 		if(imprisoned)
 			if(imprisoned.key)
 				M.key = imprisoned.key
 
-		M.forceMove(src.loc)
+		M.forceMove(loc)
 		M.sdisabilities &= ~MUTE
 		M.frozen = FALSE
 		M.take_overall_damage((M.health - health - 100),0) //any new damage the statue incurred is transfered to the mob
