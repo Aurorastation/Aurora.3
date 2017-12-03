@@ -223,15 +223,14 @@
 	icon_state = "janibelt"
 	item_state = "janibelt"
 	storage_slots = 6
-	w_class = 4
-	max_w_class = 4
+	w_class = 3
+	max_w_class = 3
 	can_hold = list(
 		/obj/item/weapon/grenade/chem_grenade/cleaner,
 		/obj/item/device/lightreplacer,
 		/obj/item/device/flashlight,
 		/obj/item/weapon/reagent_containers/spray,
-		/obj/item/weapon/soap,
-		/obj/item/weapon/storage/bag/trash
+		/obj/item/weapon/soap
 		)
 
 /obj/item/weapon/storage/belt/wands
