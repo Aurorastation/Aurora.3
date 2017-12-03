@@ -68,6 +68,7 @@
 	. = ..()
 	battery = new/obj/item/weapon/cell/device/variable(src, battery_rating)
 	battery.charge = 0
+	log_debug("I have been called")
 
 /obj/item/weapon/computer_hardware/battery_module/proc/charge_to_full()
 	if(battery)
