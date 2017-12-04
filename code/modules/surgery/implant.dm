@@ -10,7 +10,7 @@
 		if(!hasorgans(target))
 			return 0
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		if((affected.status & ORGAN_ROBOTIC)) // robots have their own
+		if((affected.status & ORGAN_ROBOT)) // robots have their own
 			return 0
 		return affected && affected.open == (affected.encased ? 3 : 2) && !(affected.status & ORGAN_BLEEDING)
 
