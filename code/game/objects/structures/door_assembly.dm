@@ -219,7 +219,7 @@
 
 		if(do_after(user, 40))
 			if(!src) return
-			user << "<span class='notice'>You cut the airlock wires.!</span>"
+			user << "<span class='notice'>You cut the airlock wires.</span>"
 			new/obj/item/stack/cable_coil(src.loc, 1)
 			src.state = 0
 
