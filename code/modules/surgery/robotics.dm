@@ -6,7 +6,7 @@
 /datum/surgery_step/robotics/
 	can_infect = 0
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if (isIPC(target) && isIPC(user) && user == target)
+		if (isipc(target) && isipc(user) && user == target)
 			to_chat(user, span("warning","You can't repair damage to your own body - it's against OH&S."))
 			return 0		//self-surgery isn't allowed!
 		if (isslime(target))
@@ -197,7 +197,7 @@
 		"<span class='warning'>You cause a short circuit in [target]'s [affected.name]!</span>")
 		target.apply_damage(rand(5,10), BURN, affected)
 
-/datum/surgery_step/robotics/fix_organ_robotic //For artificial organs
+/datum/surgery_step/robotics/fix_ORGAN_ROBOT //For artificial organs
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
 	/obj/item/weapon/bonegel = 30,
@@ -265,7 +265,7 @@
 			if(I)
 				I.take_damage(rand(3,5),0)
 
-/datum/surgery_step/robotics/detatch_organ_robotic
+/datum/surgery_step/robotics/detatch_ORGAN_ROBOT
 
 	allowed_tools = list(
 	/obj/item/device/multitool = 100
@@ -315,7 +315,7 @@
 		user.visible_message("<span class='warning'>[user]'s hand slips, disconnecting \the [tool].</span>", \
 		"<span class='warning'>Your hand slips, disconnecting \the [tool].</span>")
 
-/datum/surgery_step/robotics/attach_organ_robotic
+/datum/surgery_step/robotics/attach_ORGAN_ROBOT
 	allowed_tools = list(
 		/obj/item/weapon/screwdriver = 100
 	)
