@@ -44,7 +44,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define AGE_MIN 17
 #define AGE_MAX 85
 
-#define MAX_GEAR_COST 5 // Used in chargen for accessory loadout limit.
+#define MAX_GEAR_COST 10 // Used in chargen for accessory loadout limit.
 
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
@@ -407,7 +407,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)))
 #define DIR2PIXEL_Y(dir) ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)) : 0)
 
-/* 
+/*
 Define for getting a bitfield of adjacent turfs that meet a condition.
  ORIGIN is the object to step from, VAR is the var to write the bitfield to
  TVAR is the temporary turf variable to use, FUNC is the condition to check.
