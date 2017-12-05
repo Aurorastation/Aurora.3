@@ -164,3 +164,11 @@
 	display_name = "tacticool turtleneck"
 	path = /obj/item/clothing/under/syndicate/tacticool
 
+
+/datum/gear/uniform/sweater
+	display_name = "sweater"
+	path = /obj/item/clothing/under/sweater
+
+/datum/gear/uniform/sweater/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
