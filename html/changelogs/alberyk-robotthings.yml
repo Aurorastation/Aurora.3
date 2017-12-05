@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "You should now be able to interact with airlock's buttons and controllers while inside a mecha.."
