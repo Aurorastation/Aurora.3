@@ -101,12 +101,11 @@ Des: Removes all infection images from aliens and places an infection image on a
 		if(alien.client)
 			for(var/image/I in alien.client.images)
 				if(dd_hasprefix_case(I.icon_state, "infected"))
-					qdel(I)
+					alien.client.images -= I
 			for(var/mob/living/L in mob_list)
 				if(iscarbon(L))
 					if(L.status_flags & XENO_HOST)
-						var/I = image('icons/mob/alien.dmi', loc = L, icon_state = "infected[stage]")
-						LAZYADD(alien.client.images, I)
+						var/image/I = image('icons/mob/alien.dmi', loc = L, icon_state = "infected[stage]")
 						alien.client.images += I
 
 /*----------------------------------------
@@ -124,7 +123,6 @@ Des: Checks if the passed mob (C) is infected with the alien egg, then gives eac
 			if(alien.client)
 				if(C.status_flags & XENO_HOST)
 					var/image/I = image('icons/mob/alien.dmi', loc = C, icon_state = "infected[stage]")
-					LAZYADD(alien.client.images, I)
 					alien.client.images += I
 
 /*----------------------------------------
@@ -145,5 +143,4 @@ Des: Removes the alien infection image from all aliens in the world located in p
 				for(var/image/I in alien.client.images)
 					if(I.loc == C)
 						if(dd_hasprefix_case(I.icon_state, "infected"))
-							LAZYREMOVE(alien.client.images, I)
 							alien.client.images -= I
