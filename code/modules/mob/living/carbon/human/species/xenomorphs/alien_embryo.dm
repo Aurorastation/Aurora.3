@@ -84,6 +84,7 @@
 	new_xeno.key = picked
 	new_xeno << sound('sound/voice/hiss5.ogg',0,0,0,100)	//To get the player's attention
 	owner.apply_damage(500, BRUTE, "chest")
+	STOP_PROCESSING(SSprocessing, src)
 	qdel(src)
 
 /*----------------------------------------
