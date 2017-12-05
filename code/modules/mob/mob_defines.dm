@@ -100,7 +100,7 @@
 	var/list/speak_emote = list("says") // Verbs used when speaking. Defaults to 'say' if speak_emote is null.
 	var/emote_type = 1		// Define emote default type, 1 for seen emotes, 2 for heard emotes
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
-
+	
 	var/obj/machinery/hologram/holopad/holo = null
 
 	var/name_archive //For admin things like possession
@@ -240,5 +240,3 @@
 	var/frozen = FALSE //related to wizard statues, if set to true, life won't process
 
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
-
-	var/disconnect_time = null//Time of client loss, set by Logout(), for timekeeping
