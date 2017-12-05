@@ -31,6 +31,7 @@
 	var/regen_factor = 0.8
 	var/injectable = 0
 	color = "#664330"
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
@@ -511,7 +512,7 @@
 	taste_description = "hot peppers"
 	taste_mult = 1.5
 	var/agony_dose = 5
-	var/agony_amount = 2
+	var/agony_amount = 1
 	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
 	var/slime_temp_adj = 10
 
@@ -1580,7 +1581,7 @@
 /datum/reagent/ethanol/wine
 	name = "Wine"
 	id = "wine"
-	description = "An premium alchoholic beverage made from distilled grape juice."
+	description = "A premium alchoholic beverage made from distilled grape juice."
 	color = "#7E4043" // rgb: 126, 64, 67
 	strength = 15
 	taste_description = "bitter sweetness"
@@ -1667,7 +1668,7 @@
 	strength = 20
 	adj_temp = 20
 	targ_temp = 330
-	taste_description = "cold beer"
+	taste_description = "cold cream"
 
 	glass_icon_state = "antifreeze"
 	glass_name = "glass of Anti-freeze"
@@ -2694,10 +2695,10 @@
 /datum/reagent/ethanol/johncollins
 	name = "John Collins"
 	id = "johncollins"
-	description = "Crystal clear, yellow, and smells of gin. How could this go wrong?"
+	description = "Crystal clear, yellow, and smells of whiskey. How could this go wrong?"
 	color = "#664300"
 	strength = 25
-	taste_description = "gin"
+	taste_description = "whiskey"
 
 	glass_icon_state = "johnscollins"
 	glass_name = "glass of John Collins"
@@ -2708,7 +2709,7 @@
 	id = "gimlet"
 	description = "Small, elegant, and kicks."
 	color = "#664300"
-	strength = 13
+	strength = 20
 	taste_description = "gin and class"
 
 	glass_icon_state = "gimlet"
@@ -2874,14 +2875,14 @@
 /datum/reagent/ethanol/oldfashioned
 	name = "Old Fashioned"
 	id = "oldfashioned"
-	description = "That looks like from sixties."
+	description = "That looks like it's from the sixties."
 	color = "#2E6671"
-	strength = 20
+	strength = 30
 	taste_description = "bitterness"
 
 	glass_icon_state = "oldfashioned"
 	glass_name = "glass of Old Fashioned"
-	glass_desc = "That looks like from sixties."
+	glass_desc = "That looks like it's from the sixties."
 
 /datum/reagent/ethanol/blindrussian
 	name = "Blind Russian"
@@ -2919,6 +2920,283 @@
 	glass_name = "glass of Tall Black Russian"
 	glass_desc = "Just like black russian but taller."
 
+//Synnono Meme Drinks
+//=====================================
+// Organized here because why not.
+
+/datum/reagent/ethanol/badtouch
+	name = "Bad Touch"
+	id = "badtouch"
+	description = "We're nothing but mammals, after all."
+	color = "#42f456"
+	strength = 50
+	taste_description = "naughtiness"
+
+	glass_icon_state = "badtouch"
+	glass_name = "glass of Bad Touch"
+	glass_desc = "We're nothing but mammals, after all."
+
+/datum/reagent/ethanol/bluelagoon
+	name = "Blue Lagoon"
+	id = "bluelagoon"
+	description = "Because lagoons shouldn't come in other colors."
+	color = "#51b8ef"
+	strength = 25
+	taste_description = "electric lemonade"
+
+	glass_icon_state = "bluelagoon"
+	glass_name = "glass of Blue Lagoon"
+	glass_desc = "Because lagoons shouldn't come in other colors."
+
+/datum/reagent/ethanol/boukha
+	name = "Boukha"
+	id = "boukha"
+	description = "A distillation of figs, popular in the Serene Republic of Elyra."
+	color = "#efd0d0"
+	strength = 40
+	taste_description = "spiced figs"
+
+	glass_icon_state = "boukhaglass"
+	glass_name = "glass of boukha"
+	glass_desc = "A distillation of figs, popular in the Serene Republic of Elyra."
+
+/datum/reagent/ethanol/fireball
+	name = "Fireball"
+	id = "fireball"
+	description = "Whiskey that's been infused with cinnamon and hot pepper. Meant for mixing."
+	color = "#773404"
+	strength = 35
+	taste_description = "cinnamon whiskey"
+
+	glass_icon_state = "fireballglass"
+	glass_name = "glass of fireball"
+	glass_desc = "Whiskey that's been infused with cinnamon and hot pepper. Is this safe to drink?"
+	taste_mult = 1.2
+	var/agony_dose = 5
+	var/agony_amount = 1
+	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
+	var/slime_temp_adj = 3
+
+/datum/reagent/ethanol/fireball/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustToxLoss(0.1 * removed)
+
+/datum/reagent/ethanol/fireball/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.species && (H.species.flags & (NO_PAIN)))
+			return
+	if(dose < agony_dose)
+		if(prob(5) || dose == metabolism)
+			M << discomfort_message
+	else
+		M.apply_effect(agony_amount, AGONY, 0)
+		if(prob(5))
+			M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
+			M << "<span class='danger'>You feel like your insides are burning!</span>"
+	if(istype(M, /mob/living/carbon/slime))
+		M.bodytemperature += rand(0, 15) + slime_temp_adj
+	holder.remove_reagent("frostoil", 2)
+
+/datum/reagent/ethanol/cherrytreefireball
+	name = "Cherry Tree Fireball"
+	id = "cherrytreefireball"
+	description = "An iced fruit cocktail shaken with cinnamon whiskey. Hot, cold and sweet all at once."
+	color = "#e87727"
+	strength = 15
+	taste_description = "sweet spiced cherries"	
+
+	glass_icon_state = "cherrytreefireball"
+	glass_name = "glass of Cherry Tree Fireball"
+	glass_desc = "An iced fruit cocktail shaken with cinnamon whiskey. Hot, cold and sweet all at once."
+
+/datum/reagent/ethanol/cobaltvelvet
+	name = "Cobalt Velvet"
+	id = "cobaltvelvet"
+	description = "An electric blue champagne cocktail that's popular on the club scene."
+	color = "#a3ecf7"
+	strength = 25
+	taste_description = "neon champagne"	
+
+	glass_icon_state = "cobaltvelvet"
+	glass_name = "glass of Cobalt Velvet"
+	glass_desc = "An electric blue champagne cocktail that's popular on the club scene."
+
+/datum/reagent/ethanol/fringeweaver
+	name = "Fringe Weaver"
+	id = "fringeweaver"
+	description = "Effectively pure alcohol with a dose of sugar. It's as simple as it is strong."
+	color = "#f78888"
+	strength = 65
+	taste_description = "liquid regret"	
+
+	glass_icon_state = "fringeweaver"
+	glass_name = "glass of Fringe Weaver"
+	glass_desc = "Effectively pure alcohol with a dose of sugar. It's as simple as it is strong."
+
+/datum/reagent/ethanol/junglejuice
+	name = "Jungle Juice" 
+	id = "junglejuice"
+	description = "You're in the jungle now, baby."
+	color = "#773404"
+	strength = 35
+	taste_description = "a fraternity house party"	
+
+	glass_icon_state = "junglejuice"
+	glass_name = "glass of Jungle Juice"
+	glass_desc = "You're in the jungle now, baby."
+
+/datum/reagent/ethanol/marsarita
+	name = "Marsarita"
+	id = "marsarita"
+	description = "The margarita with a Martian twist. They call it something less embarrassing there."
+	color = "#3eb7c9"
+	strength = 30
+	taste_description = "spicy, salty lime"	
+
+	glass_icon_state = "marsarita"
+	glass_name = "glass of Marsarita"
+	glass_desc = "The margarita with a Martian twist. They call it something less embarrassing there."
+
+/datum/reagent/drink/meloncooler
+	name = "Melon Cooler"
+	id = "meloncooler"
+	description = "Summertime on the beach, in liquid form."
+	color = "#d8457b"
+	taste_description = "minty melon"
+
+	glass_icon_state = "meloncooler"
+	glass_name = "glass of Melon Cooler"
+	glass_desc = "Summertime on the beach, in liquid form."
+
+/datum/reagent/ethanol/midnightkiss
+	name = "Midnight Kiss"
+	id = "midnightkiss"
+	description = "A champagne cocktail, quietly bubbling in a slender glass."
+	color = "#13144c"
+	strength = 25
+	taste_description = "a late-night promise"	
+
+	glass_icon_state = "midnightkiss"
+	glass_name = "glass of Midnight Kiss"
+	glass_desc = "A champagne cocktail, quietly bubbling in a slender glass."
+
+/datum/reagent/drink/millionairesour
+	name = "Millionaire Sour"
+	id = "millionairesour"
+	description = "It's a good mix, a great mix. The best mix in known space. It's terrific, you're gonna love it."
+	color = "#13144c"
+	taste_description = "tart fruit"	
+
+	glass_icon_state = "millionairesour"
+	glass_name = "glass of Millionaire Sour"
+	glass_desc = "It's a good mix, a great mix. Best mix in the galaxy. It's terrific, you're gonna love it."
+
+/datum/reagent/ethanol/olympusmons
+	name = "Olympus Mons"
+	id = "olympusmons"
+	description = "Another, stronger version of the Black Russian. It's popular in some Martian arcologies."
+	color = "#020407"
+	strength = 30
+	taste_description = "bittersweet independence"	
+
+	glass_icon_state = "olympusmons"
+	glass_name = "glass of Olympus Mons"
+	glass_desc = "Another, stronger version of the Black Russian. It's popular in some Martian arcologies."
+
+/datum/reagent/ethanol/europanail
+	name = "Europa Nail"
+	id = "europanail"
+	description = "Named for Jupiter's moon. It looks about as crusty."
+	color = "#785327"
+	strength = 30
+	taste_description = "a coffee-flavored moon"	
+
+	glass_icon_state = "europanail"
+	glass_name = "glass of Europa Nail"
+	glass_desc = "Named for Jupiter's moon. It looks about as crusty."
+
+/datum/reagent/drink/portsvilleminttea
+	name = "Portsville Mint Tea"
+	id = "portsvilleminttea"
+	description = "A popular iced pick-me-up originating from a city in Eos, on Biesel."
+	color = "#b6f442"
+	taste_description = "cool minty tea"	
+
+	glass_icon_state = "portsvilleminttea"
+	glass_name = "glass of Portsville Mint Tea"
+	glass_desc = "A popular iced pick-me-up originating from a city in Eos, on Biesel."
+
+/datum/reagent/drink/shirleytemple
+	name = "Shirley Temple"
+	id = "shirleytemple"
+	description = "Straight from the good ship Lollipop."
+	color = "#ce2727"
+	taste_description = "innocence"	
+
+	glass_icon_state = "shirleytemple"
+	glass_name = "glass of Shirley Temple"
+	glass_desc = "Straight from the good ship Lollipop."
+
+/datum/reagent/ethanol/sugarrush
+	name = "Sugar Rush"
+	id = "sugarrush"
+	description = "Sweet, light and fruity. As girly as it gets."
+	color = "#d51d5d"
+	strength = 15
+	taste_description = "sweet soda"	
+
+	glass_icon_state = "sugarrush"
+	glass_name = "glass of Sugar Rush"
+	glass_desc = "Sweet, light and fruity. As girly as it gets."
+
+/datum/reagent/ethanol/sangria
+	name = "Sangria"
+	id = "sangria"
+	description = "Red wine, splashed with brandy and infused with fruit."
+	color = "#960707"
+	strength = 30
+	taste_description = "sweet wine"	
+
+	glass_icon_state = "sangria"
+	glass_name = "glass of Sangria"
+	glass_desc = "Red wine, splashed with brandy and infused with fruit."
+
+/datum/reagent/ethanol/bassline
+	name = "Bassline"
+	id = "bassline"
+	description = "A vodka cocktail from Vega De Rosa, Mendell City's entertainment district. Purple and deep."
+	color = "#6807b2"
+	strength = 25
+	taste_description = "the groove"	
+
+	glass_icon_state = "bassline"
+	glass_name = "glass of Bassline"
+	glass_desc = "A vodka cocktail from Vega De Rosa, Mendell City's entertainment district. Purple and deep."
+
+/datum/reagent/ethanol/bluebird
+	name = "Bluebird"
+	id = "bluebird"
+	description = "A gin drink popularized by a spy thriller in 2452."
+	color = "#4286f4"
+	strength = 30
+	taste_description = "a blue christmas tree"	
+
+	glass_icon_state = "bluebird"
+	glass_name = "glass of Bluebird"
+	glass_desc = "A gin drink popularized by a spy thriller in 2452."
+
+/datum/reagent/ethanol/whitewine
+	name = "White Wine"
+	id = "whitewine"
+	description = "A premium alchoholic beverage made from distilled grape juice."
+	color = "#e5d272"
+	strength = 15
+	taste_description = "dry sweetness"
+
+	glass_icon_state = "whitewineglass"
+	glass_name = "glass of white wine"
+	glass_desc = "A very classy looking drink."
+	glass_center_of_mass = list("x"=15, "y"=7)
 
 // Butanol-based alcoholic drinks
 //=====================================
@@ -2947,4 +3225,3 @@
 	glass_icon_state = "sarezhiglass"
 	glass_name = "glass of Sarezhi Wine"
 	glass_desc = "It tastes like flat grape soda. Is this supposed to be alcoholic?"
-

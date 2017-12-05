@@ -23,9 +23,8 @@
 		data["isAI"] = isAI(user)
 		data["crewmembers"] = list()
 		data["signal"] = 1
-		for(var/z_level in map_levels)
+		for(var/z_level in current_map.map_levels)
 			data["crewmembers"] += crew_repository.health_data(z_level)
-
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)

@@ -202,7 +202,7 @@
 	. = ..()
 	on = has_power()
 
-	if (mapload && loc && !(z in config.admin_levels))
+	if (mapload && loc && !(z in current_map.admin_levels))
 		switch(fitting)
 			if("tube")
 				if(prob(2))

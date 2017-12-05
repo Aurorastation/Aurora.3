@@ -11,9 +11,9 @@
 
 /datum/uplink_item/abstract/announcements/fake_centcom/New()
 	..()
-	name = "[command_name()] Update Announcement"
+	name = "[current_map.boss_name] Update Announcement"
 	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 2)
-	desc = "Causes a falsified [command_name()] Update. Triggers immediately after supplying additional data."
+	desc = "Causes a falsified [current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
 	var/title = sanitize(input("Enter your announcement title.", "Announcement Title") as null|text)

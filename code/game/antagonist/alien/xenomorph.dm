@@ -40,7 +40,7 @@ var/datum/antagonist/xenos/xenomorphs
 /datum/antagonist/xenos/proc/get_vents()
 	var/list/vents = list()
 	for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in SSmachinery.processing_machines)
-		if(!temp_vent.welded && temp_vent.network && temp_vent.loc.z in config.station_levels)
+		if(!temp_vent.welded && temp_vent.network && temp_vent.loc.z in current_map.station_levels)
 			if(temp_vent.network.normal_members.len > 50)
 				vents += temp_vent
 	return vents

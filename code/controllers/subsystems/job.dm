@@ -4,6 +4,8 @@
 #define BE_ASSISTANT 1
 #define RETURN_TO_LOBBY 2
 
+#define Debug(text) if (Debug2) {job_debug += text}
+
 /datum/controller/subsystem/jobs
 	// Subsystem stuff.
 	name = "Jobs"
@@ -32,26 +34,19 @@
 
 /datum/controller/subsystem/jobs/proc/SetupOccupations(faction = "Station")
 	occupations = list()
-	var/list/all_jobs = typesof(/datum/job)
+	var/list/all_jobs = current_map.allowed_jobs
 	if(!all_jobs.len)
 		world << "<span class='warning'>Error setting up jobs, no job datums found!</span>"
 		return FALSE
 
 	for(var/J in all_jobs)
 		var/datum/job/job = new J()
-		if(!job)	continue
-		if(job.faction != faction)	continue
+		if(!job || job.faction != faction)
+			continue
 		occupations += job
 		if (config && config.use_age_restriction_for_jobs)
 			job.fetch_age_restriction()
 
-	return TRUE
-
-/datum/controller/subsystem/jobs/proc/Debug(text)
-	if (!Debug2)
-		return FALSE
-
-	job_debug += text
 	return TRUE
 
 /datum/controller/subsystem/jobs/proc/GetJob(rank)
@@ -431,25 +426,25 @@
 	return H
 
 /mob/living/carbon/human
-	var/tmp/odin_despawn_timer
+	var/tmp/centcomm_despawn_timer
 
-/mob/living/proc/odin_timeout()
+/mob/living/proc/centcomm_timeout()
 	if (!istype(get_area(src), /area/centcom/spawning))
 		return FALSE
 
 	if (!client)
-		SSjobs.odin_despawn_mob(src)
+		SSjobs.centcomm_despawn_mob(src)
 		return FALSE
 
 	return TRUE
 
-/mob/living/carbon/human/odin_timeout()
+/mob/living/carbon/human/centcomm_timeout()
 	. = ..()
 
 	if (!.)
 		return FALSE
 
-	var/datum/spawnpoint/spawnpos = spawntypes["Cryogenic Storage"]
+	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cryogenic Storage"]
 	if(spawnpos && istype(spawnpos))
 		src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!</span>"
 		src.forceMove(pick(spawnpos.turfs))
@@ -459,35 +454,35 @@
 			SSjobs.EquipRank(src, rank, 1)
 			src.megavend = TRUE
 	else
-		SSjobs.odin_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
+		SSjobs.centcomm_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
 
 	return TRUE
 
-/mob/living/silicon/robot/odin_timeout()
+/mob/living/silicon/robot/centcomm_timeout()
 	. = ..()
 
 	if (!.)
 		return FALSE
 
-	var/datum/spawnpoint/spawnpos = spawntypes["Cyborg Storage"]
+	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cyborg Storage"]
 	if(spawnpos && istype(spawnpos))
 		src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in robotic storage the whole time!</span>"
 		src.forceMove(pick(spawnpos.turfs))
 		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
 	else
-		SSjobs.odin_despawn_mob(src)
+		SSjobs.centcomm_despawn_mob(src)
 
 	return TRUE
 
 // Convenience wrapper.
-/datum/controller/subsystem/jobs/proc/odin_despawn_mob(mob/living/H)
+/datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
-		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "NTCC Odin Cryogenic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the Odin's cryostorage, and departs.</span>", 3)
+		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[current_map.dock_name] Cryogenic Oversight")
+		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", 3)
 		DespawnMob(H)
 	else
-		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered roboticstorage.", "NTCC Odin Robotic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the Odin's robotic storage, and departs.</span>", 3)
+		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
+		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", 3)
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/EquipPersonal(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
@@ -495,7 +490,7 @@
 	if(!H)
 		Debug("EP/([H]): Abort, H is null.")
 		return null
-	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
+
 	switch(rank)
 		if("Cyborg")
 			Debug("EP/([H]): Abort, H is borg..")
@@ -503,6 +498,11 @@
 		if("AI")
 			Debug("EP/([H]): Abort, H is AI.")
 			return EquipRank(H, rank, 1)
+
+	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle")
+		return EquipRank(H, rank, 1)
+
+	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
 
 	var/datum/job/job = GetJob(rank)
 
@@ -528,7 +528,6 @@
 		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 
 		job.apply_fingerprints(H)
-
 	else
 		H << "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator."
 
@@ -563,7 +562,7 @@
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 
-	H << "<b>Welcome to the Odin! Simply proceed down and to the right to board the shuttle to your workplace!</b>."
+	to_chat(H, "<b>[current_map.command_spawn_message]</b>")
 
 	Debug("EP/([H]): Completed.")
 
@@ -691,7 +690,7 @@
 	var/datum/spawnpoint/spawnpos
 
 	if(H.client.prefs.spawnpoint)
-		spawnpos = spawntypes[H.client.prefs.spawnpoint]
+		spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
 
 	if(spawnpos && istype(spawnpos))
 		if(spawnpos.check_job_spawning(rank))
@@ -700,10 +699,10 @@
 		else
 			H << "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead."
 			H.loc = pick(latejoin)
-			. = "is inbound from the NTCC Odin"
+			. = "is inbound from the [current_map.dock_name]"
 	else
 		H.loc = pick(latejoin)
-		. = "is inbound from the NTCC Odin"
+		. = "is inbound from the [current_map.dock_name]"
 
 	Debug("LS/([H]): Completed, spawning at area [H.loc.loc].")
 
@@ -741,7 +740,7 @@
 		if ((G.fields["name"] == H.real_name))
 			qdel(G)
 
-	log_and_message_admins("[key_name(H)] ([H.mind.role_alt_title]) entered cryostorage.")
+	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
 
 	//This should guarantee that ghosts don't spawn.
 	H.ckey = null
@@ -866,3 +865,4 @@
 	else
 		return locate("start*[rank]") // use old stype
 
+#undef Debug

@@ -198,9 +198,6 @@
 	return 0
 
 /mob/proc/Life()
-//	if(organStructure)
-//		organStructure.ProcessOrgans()
-	//handle_typing_indicator() //You said the typing indicator would be fine. The test determined that was a lie.
 	return
 
 #define UNBUCKLED 0
@@ -748,6 +745,7 @@
 	if(.)
 		if(statpanel("Status") && SSticker.current_state != GAME_STATE_PREGAME)
 			stat("Game ID", game_id)
+			stat("Map", current_map.full_name)
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", round_duration())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
@@ -1283,3 +1281,47 @@ mob/proc/yank_out_object()
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()
 	return 1
+
+/client/proc/check_has_body_select()
+	return mob && mob.hud_used && istype(mob.zone_sel, /obj/screen/zone_sel)
+ 
+/client/verb/body_toggle_head()
+	set name = "body-toggle-head"
+	set hidden = 1
+	toggle_zone_sel(list("head","eyes","mouth"))
+
+/client/verb/body_r_arm()
+	set name = "body-r-arm"
+	set hidden = 1
+	toggle_zone_sel(list("r_arm","r_hand"))
+
+/client/verb/body_l_arm()
+ 	set name = "body-l-arm"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("l_arm","l_hand"))
+ 
+/client/verb/body_chest()
+ 	set name = "body-chest"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("chest"))
+ 
+/client/verb/body_groin()
+ 	set name = "body-groin"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("groin"))
+ 
+/client/verb/body_r_leg()
+ 	set name = "body-r-leg"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("r_leg","r_foot"))
+ 
+/client/verb/body_l_leg()
+ 	set name = "body-l-leg"
+ 	set hidden = 1
+ 	toggle_zone_sel(list("l_leg","l_foot"))
+
+/client/proc/toggle_zone_sel(list/zones)
+	if(!check_has_body_select())
+		return
+	var/obj/screen/zone_sel/selector = mob.zone_sel
+	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))

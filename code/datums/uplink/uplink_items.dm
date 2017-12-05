@@ -1,4 +1,4 @@
-var/datum/uplink/uplink = new()
+var/datum/uplink/uplink
 
 /datum/uplink
 	var/list/items_assoc

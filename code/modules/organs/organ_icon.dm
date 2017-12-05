@@ -2,14 +2,14 @@
 	return
 
 /obj/item/organ/external/proc/compile_icon()
-	overlays.Cut()
+	cut_overlays()
 	 // This is a kludge, only one icon has more than one generation of children though.
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
 				add_overlay(child.mob_icon)
 
-		overlays |= organ.mob_icon
+		add_overlay(organ.mob_icon)
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	s_tone = null
@@ -63,7 +63,7 @@
 
 			var/icon/eyes_icon = SSicon_cache.human_eye_cache[cache_key]
 			if (!eyes_icon)
-				eyes_icon = new/icon('icons/mob/human_face.dmi', species.eyes)
+				eyes_icon = new/icon('icons/mob/human_face/eyes.dmi', species.eyes)
 				if(eyecolor)
 					eyes_icon.Blend(eyecolor, ICON_ADD)
 				else
@@ -77,15 +77,18 @@
 	if(owner.lip_style && (species && (species.appearance_flags & HAS_LIPS)))
 		var/icon/lip_icon = SSicon_cache.human_lip_cache["[owner.lip_style]"]
 		if (!lip_icon)
-			lip_icon = new/icon('icons/mob/human_face.dmi', "lips_[owner.lip_style]_s")
+			lip_icon = new/icon('icons/mob/human_face/lips.dmi', "[owner.lip_style]")
 			SSicon_cache.human_lip_cache["[owner.lip_style]"] = lip_icon
 
 		add_overlay(lip_icon)
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
 
-	for(var/M in markings)
-		var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-		var/m_color = markings[M]["color"]
+	if (!cached_markings)
+		update_marking_cache()
+
+	for(var/M in cached_markings)
+		var/datum/sprite_accessory/marking/mark_style = cached_markings[M]["datum"]
+		var/m_color = cached_markings[M]["color"]
 		var/cache_key = "[mark_style.icon]-[mark_style.icon_state]-[limb_name]-[m_color]"
 
 		var/icon/finished_icon = SSicon_cache.markings_cache[cache_key]
@@ -148,9 +151,12 @@
 					mob_icon.Blend(skin_color, ICON_ADD)
 
 			//Body markings, does not include head, duplicated (sadly) above.
-			for(var/M in markings)
-				var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
-				var/m_color = markings[M]["color"]
+			if (!cached_markings)
+				update_marking_cache()
+
+			for(var/M in cached_markings)
+				var/datum/sprite_accessory/marking/mark_style = cached_markings[M]["datum"]
+				var/m_color = cached_markings[M]["color"]
 				var/cache_key = "[mark_style.icon]-[mark_style.icon_state]-[limb_name]-[m_color]"
 
 				var/icon/finished_icon = SSicon_cache.markings_cache[cache_key]
@@ -205,7 +211,16 @@
 	if (body_hair && hair_color)
 		keyparts += "[hair_color]"
 
-	for (var/marking in markings)
-		keyparts += "[marking][markings[marking]["color"]]"
+	if (!cached_markings)
+		update_marking_cache()
+
+	for (var/marking in cached_markings)
+		keyparts += "[marking][cached_markings[marking]["color"]]"
 
 	. = keyparts.Join("_")
+
+/obj/item/organ/external/proc/update_marking_cache()
+	if (LAZYLEN(genetic_markings))
+		LAZYADD(cached_markings, genetic_markings)
+	if (LAZYLEN(temporary_markings))
+		LAZYADD(cached_markings, temporary_markings)

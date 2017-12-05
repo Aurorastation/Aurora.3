@@ -119,7 +119,8 @@
 		/obj/item/weapon/gun/launcher/pneumatic/small           = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/monkeymask                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/monkeysuit                      = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/luchador                        = TRADER_ALL
+		/obj/item/clothing/mask/luchador                        = TRADER_ALL,
+		/obj/item/weapon/gun/bang                               = TRADER_SUBTYPES_ONLY
 	)
 
 /datum/trader/ship/replica_shop

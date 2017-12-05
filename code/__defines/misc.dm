@@ -286,8 +286,8 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define LAYER_ABOVE_TABLE	2.81
 
 // Stoplag.
-#define TICK_CHECK ( world.tick_usage > CURRENT_TICKLIMIT ? stoplag() : 0 )
-#define CHECK_TICK if (world.tick_usage > CURRENT_TICKLIMIT)  stoplag()
+#define TICK_CHECK (world.tick_usage > CURRENT_TICKLIMIT)
+#define CHECK_TICK if (TICK_CHECK) stoplag()
 
 // Performance bullshit.
 
@@ -375,7 +375,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define DEFAULT_SIGHT (SEE_SELF|SEE_BLACKNESS)
 
-#define isStationLevel(Z) ((Z) in config.station_levels)
+#define isStationLevel(Z) ((Z) in current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
 
 //Affects the chance that armour will block an attack. Should be between 0 and 1.
@@ -406,3 +406,51 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 // Defines for translating a dir into pixelshifts for wall items
 #define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)))
 #define DIR2PIXEL_Y(dir) ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)) : 0)
+
+/* 
+Define for getting a bitfield of adjacent turfs that meet a condition.
+ ORIGIN is the object to step from, VAR is the var to write the bitfield to
+ TVAR is the temporary turf variable to use, FUNC is the condition to check.
+ FUNC generally should reference TVAR.
+ example:
+	var/turf/T
+	var/result = 0
+	CALCULATE_NEIGHBORS(src, result, T, isopenturf(T))
+*/
+#define CALCULATE_NEIGHBORS(ORIGIN, VAR, TVAR, FUNC) \
+	for (var/_tdir in cardinal) {                    \
+		TVAR = get_step(ORIGIN, _tdir);              \
+		if ((TVAR) && (FUNC)) {                      \
+			VAR |= 1 << _tdir;                       \
+		}                                            \
+	}                                                \
+	if (VAR & N_NORTH) {                             \
+		if (VAR & N_WEST) {                          \
+			TVAR = get_step(ORIGIN, NORTHWEST);      \
+			if (FUNC) {                              \
+				VAR |= N_NORTHWEST;                  \
+			}                                        \
+		}                                            \
+		if (VAR & N_EAST) {                          \
+			TVAR = get_step(ORIGIN, NORTHEAST);      \
+			if (FUNC) {                              \
+				VAR |= N_NORTHEAST;                  \
+			}                                        \
+		}                                            \
+	}                                                \
+	if (VAR & N_SOUTH) {                             \
+		if (VAR & N_WEST) {                          \
+			TVAR = get_step(ORIGIN, SOUTHWEST);      \
+			if (FUNC) {                              \
+				VAR |= N_SOUTHWEST;                  \
+			}                                        \
+		}                                            \
+		if (VAR & N_EAST) {                          \
+			TVAR = get_step(ORIGIN, SOUTHEAST);      \
+			if (FUNC) {                              \
+				VAR |= N_SOUTHEAST;                  \
+			}                                        \
+		}                                            \
+	}
+
+#define DEVICE_NO_CELL "no_cell"

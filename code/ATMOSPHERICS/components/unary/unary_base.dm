@@ -9,12 +9,11 @@
 
 	var/datum/pipe_network/network
 
-	New()
-		..()
+	Initialize()
 		initialize_directions = dir
 		air_contents = new
-
 		air_contents.volume = 200
+		. = ..()
 
 // Housekeeping and pipe network stuff below
 	network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)

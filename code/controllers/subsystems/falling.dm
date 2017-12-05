@@ -78,7 +78,7 @@
 		// Invokes fall_through() after the atom is moved to
 		// its new destination this cycle. Immediately invokes fall_impact and
 		// fall_collateral if the next turf is not open space.
-		if (isopenturf(victim.loc))
+		if (isopenturf(victim.loc) && victim.loc:is_hole)
 			victim.forceMove(below)
 
 			if (locate(/obj/structure/stairs) in victim.loc)	// If there's stairs, we're probably going down them.

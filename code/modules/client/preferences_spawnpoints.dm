@@ -1,11 +1,3 @@
-var/list/spawntypes = list()
-
-/proc/populate_spawn_points()
-	spawntypes = list()
-	for(var/type in typesof(/datum/spawnpoint)-/datum/spawnpoint)
-		var/datum/spawnpoint/S = new type()
-		spawntypes[S.display_name] = S
-
 /datum/spawnpoint
 	var/msg          //Message to display on the arrivals computer.
 	var/list/turfs   //List of turfs to spawn on.
@@ -27,9 +19,9 @@ var/list/spawntypes = list()
 	msg = "is inbound from the NTCC Odin"
 	disallow_job = list("Merchant")
 
-
 /datum/spawnpoint/arrivals/New()
 	..()
+	msg = "is inbound from the [current_map.dock_name]"
 	turfs = latejoin
 
 /datum/spawnpoint/cryo

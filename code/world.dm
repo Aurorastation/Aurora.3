@@ -56,6 +56,8 @@ var/global/datum/global_init/init = new ()
 	area = /area/space
 	view = "15x15"
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
+	maxx = 32	// So that we don't get map-window-popin at boot. DMMS will expand this.
+	maxy = 32
 
 
 #define RECOMMENDED_VERSION 510
@@ -83,8 +85,6 @@ var/global/datum/global_init/init = new ()
 	//Emergency Fix
 	load_mods()
 	//end-emergency fix
-
-	src.update_status()
 
 	. = ..()
 

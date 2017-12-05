@@ -23,7 +23,7 @@
 
 	world.save_mode("extended")
 
-	for (var/thing in subtypesof(/datum/unit_test))
+	for (var/thing in subtypesof(/datum/unit_test) - typecacheof(current_map.excluded_test_types))
 		var/datum/unit_test/D = new thing
 		if(findtext(D.name, "template"))
 			qdel(D)
