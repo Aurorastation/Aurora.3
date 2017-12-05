@@ -37,8 +37,8 @@
 			L.client.perspective = EYE_PERSPECTIVE
 			L.client.eye = src
 
-		for(var/obj/item/I in L.held_items)
-			L.drop_item(I)
+		L.drop_r_hand()
+		L.drop_l_hand()
 
 		L.forceMove(src)
 		L.sdisabilities |= MUTE
