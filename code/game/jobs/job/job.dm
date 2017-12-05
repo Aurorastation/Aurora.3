@@ -60,7 +60,6 @@
 /datum/job/proc/equip_survival(var/mob/living/carbon/human/H)
 	if(!H)	return 0
 	H.species.equip_survival_gear(H,0)
-	H.equip_to_slot_or_del(new /obj/item/weapon/paper/santa(H), slot_in_backpack)
 	return 1
 
 /datum/job/proc/setup_account(var/mob/living/carbon/human/H)
