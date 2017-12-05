@@ -25,6 +25,9 @@
 
 	..()
 
+	if(!owner)
+		return
+
 	if(stage < 5 && prob(3))
 		stage++
 		RefreshInfectionImage(owner)
@@ -141,4 +144,5 @@ Des: Removes the alien infection image from all aliens in the world located in p
 				for(var/image/I in alien.client.images)
 					if(I.loc == C)
 						if(dd_hasprefix_case(I.icon_state, "infected"))
+							LAZYREMOVE(alien.client.images, I)
 							alien.client.images -= I
