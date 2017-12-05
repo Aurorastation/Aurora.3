@@ -3,6 +3,8 @@
 	desc = "All slimy and yuck."
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "larva0_dead"
+	parent_organ = "chest"
+	organ_tag = "alien embryo"
 	var/stage = 0
 
 
@@ -22,13 +24,6 @@
 /obj/item/organ/xenos/alien_embryo/process()
 
 	..()
-
-	if(!owner)
-		owner.status_flags &= ~(XENO_HOST)
-		STOP_PROCESSING(SSprocessing, src)
-		RemoveInfectionImages(owner)
-		owner = null
-		return
 
 	if(stage < 5 && prob(3))
 		stage++
@@ -104,9 +99,10 @@ Des: Removes all infection images from aliens and places an infection image on a
 				if(dd_hasprefix_case(I.icon_state, "infected"))
 					qdel(I)
 			for(var/mob/living/L in mob_list)
-				if(iscorgi(L) || iscarbon(L))
+				if(iscarbon(L))
 					if(L.status_flags & XENO_HOST)
 						var/I = image('icons/mob/alien.dmi', loc = L, icon_state = "infected[stage]")
+						LAZYADD(alien.client.images, I)
 						alien.client.images += I
 
 /*----------------------------------------
@@ -123,7 +119,8 @@ Des: Checks if the passed mob (C) is infected with the alien egg, then gives eac
 
 			if(alien.client)
 				if(C.status_flags & XENO_HOST)
-					var/I = image('icons/mob/alien.dmi', loc = C, icon_state = "infected[stage]")
+					var/image/I = image('icons/mob/alien.dmi', loc = C, icon_state = "infected[stage]")
+					LAZYADD(alien.client.images, I)
 					alien.client.images += I
 
 /*----------------------------------------
@@ -144,4 +141,4 @@ Des: Removes the alien infection image from all aliens in the world located in p
 				for(var/image/I in alien.client.images)
 					if(I.loc == C)
 						if(dd_hasprefix_case(I.icon_state, "infected"))
-							qdel(I)
+							alien.client.images -= I
