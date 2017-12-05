@@ -58,6 +58,7 @@ var/const/MAX_ACTIVE_TIME = 400
 
 /obj/item/clothing/mask/facehugger/attackby(obj/item/I, mob/user)
 	if(I.force)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(src)
 		Die()
 	return
@@ -141,7 +142,7 @@ var/const/MAX_ACTIVE_TIME = 400
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		if(H.head && H.head.body_parts_covered & FACE)
-			H.visible_message("<span class='danger'>\The [src] smashes against \the [H]'s \the [H.head]!</span>")
+			H.visible_message("<span class='danger'>\The [src] smashes against the [H]'s \the [H.head]!</span>")
 			Die()
 			return
 
