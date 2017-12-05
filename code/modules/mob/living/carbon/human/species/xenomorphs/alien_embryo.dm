@@ -5,6 +5,7 @@
 	icon_state = "larva0_dead"
 	parent_organ = "chest"
 	organ_tag = "alien embryo"
+	origin_tech = list(TECH_BIO = 5)
 	var/stage = 0
 
 
@@ -20,6 +21,13 @@
 	if(owner && ishuman(owner))
 		START_PROCESSING(SSprocessing, src)
 		AddInfectionImages(owner)
+
+/obj/item/organ/xenos/alien_embryo/removed(var/mob/living/user)
+	if(owner)
+		owner.status_flags &= ~(XENO_HOST)
+		RemoveInfectionImages(owner)
+	..(user)
+
 
 /obj/item/organ/xenos/alien_embryo/process()
 
