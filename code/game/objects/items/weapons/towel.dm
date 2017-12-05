@@ -4,6 +4,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "towel"
 	slot_flags = SLOT_HEAD | SLOT_BELT | SLOT_OCLOTHING
+	force = 1
 	w_class = 3
 	attack_verb = list("whipped")
 	hitsound = 'sound/weapons/towelwhip.ogg'
@@ -16,6 +17,6 @@
 	else if(user.fire_stacks < 0)
 		user.fire_stacks = (min(0, user.fire_stacks + 1.5))
 
-/obj/item/weapon/towel/random/New()
-	..()
-	color = get_random_colour()
+/obj/item/weapon/towel/random/Initialize()
+	. = ..()
+	color = get_random_colour(1)
