@@ -37,6 +37,9 @@
 			L.client.perspective = EYE_PERSPECTIVE
 			L.client.eye = src
 
+		for(var/obj/item/I in L.held_items)
+			L.drop_item(I)
+
 		L.forceMove(src)
 		L.sdisabilities |= MUTE
 		health = L.health + 300 //stoning damaged mobs will result in easier to shatter statues
