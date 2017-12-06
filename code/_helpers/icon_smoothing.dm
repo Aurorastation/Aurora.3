@@ -367,6 +367,8 @@
 			for(var/a_type in source.canSmoothWith)
 				if( istype(target_turf, a_type) )
 					return target_turf
+				if (ispath(a_type, /turf))
+					continue
 				A = locate(a_type) in target_turf
 				if(A)
 					return A
@@ -375,6 +377,8 @@
 		for(var/a_type in source.canSmoothWith)
 			if(a_type == target_turf.type)
 				return target_turf
+			if (ispath(a_type, /turf))
+				continue
 			A = locate(a_type) in target_turf
 			if(A && A.type == a_type)
 				return A
