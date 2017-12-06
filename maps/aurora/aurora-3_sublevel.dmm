@@ -2072,7 +2072,6 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
-	tag = "icon-map (WEST)";
 	icon_state = "map";
 	dir = 8
 	},
@@ -2185,7 +2184,6 @@
 /area/engineering/atmos)
 "eG" = (
 /obj/effect/floor_decal/corner/black{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2196,7 +2194,6 @@
 /area/engineering/atmos)
 "eH" = (
 /obj/effect/floor_decal/corner/black{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2937,7 +2934,6 @@
 	dir = 4;
 	icon_state = "map_valve0";
 	name = "Air Bypass valve";
-	tag = "icon-map_valve0 (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -3587,7 +3583,6 @@
 /area/outpost/engineering/hallway)
 "hy" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/cyan{
-	tag = "icon-up (EAST)";
 	icon_state = "up";
 	dir = 4
 	},
@@ -3873,7 +3868,6 @@
 /area/mine/unexplored)
 "ib" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/yellow{
-	tag = "icon-up (EAST)";
 	icon_state = "up";
 	dir = 4
 	},
@@ -9684,7 +9678,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -9708,7 +9701,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -9729,7 +9721,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -9756,7 +9747,6 @@
 	req_access = list(19)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -9769,7 +9759,6 @@
 	pixel_y = -22
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -23763,7 +23752,6 @@
 /area/rnd/mixing)
 "Qc" = (
 /obj/structure/toilet{
-	tag = "icon-toilet00 (NORTH)";
 	icon_state = "toilet00";
 	dir = 1
 	},
