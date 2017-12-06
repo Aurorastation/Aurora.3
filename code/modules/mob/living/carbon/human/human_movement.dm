@@ -64,11 +64,7 @@
 			else if(E.status & ORGAN_BROKEN)
 				tally += 1.5
 
-	if(shock_stage >= 10)
-		tally += 3
-		if(prob(messagechance*5)) //Higher chance because it's important
-			messagechance = messagechance*0.5
-			src << "<span class='warning'>Your leg muscle spasms from your recent shock!</span>"
+	if(shock_stage >= 10) tally += 3
 
 	//No message required. See message below.
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
