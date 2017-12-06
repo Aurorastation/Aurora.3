@@ -4602,7 +4602,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/nugget
 	name = "chicken nugget"
-	icon_state = "nugget_lump"/
+	icon_state = "nugget_lump"
 
 /obj/item/weapon/reagent_containers/food/snacks/nugget/Initialize()
 	. = ..()
