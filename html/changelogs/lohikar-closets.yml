@@ -1,6 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - balance: "Welding and disassembling lockers now takes 2 seconds instead of being instantaneous."
-  - rscadd: "Escaping welded lockers now shows a progress bar to the escapee if Progress Bars are enabled in your global preferences."
-  - spellcheck: "Made some sanity check messages more clear as to why an object cannot be interacted with."

@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added new food recipes."
-  - rscadd: "You can now pick up corgis."

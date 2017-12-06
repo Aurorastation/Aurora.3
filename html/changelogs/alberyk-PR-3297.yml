@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - balance: "The telebaton stun should not longer ignore the target's armor."

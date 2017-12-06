@@ -2,10 +2,15 @@ language: generic
 sudo: false
 
 env:
-  BYOND_MAJOR="511"
-  BYOND_MINOR="1385"
-  MACRO_COUNT=120
-  FLYWAY_BUILD="4.2.0"
+  global:
+    BYOND_MAJOR="511"
+    BYOND_MINOR="1385"
+    MACRO_COUNT=77
+    FLYWAY_BUILD="4.2.0"
+  matrix:
+    - USE_MAP=aurora
+    - USE_MAP=runtime
+    - USE_MAP=exodus
 
 cache:
   directories:
@@ -44,7 +49,7 @@ script:
   - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
   - source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
   - cp config/example/* config/
-  - scripts/dm.sh -DUNIT_TEST aurorastation.dme
+  - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
   - grep "0 warnings" build_log.txt
   - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
   - grep "All Unit Tests Passed" log.txt

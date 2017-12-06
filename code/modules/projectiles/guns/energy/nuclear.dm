@@ -42,6 +42,8 @@
 	var/reliability = 95
 	pin = null
 	turret_sprite_set = "nuclear"
+	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
+
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg')
@@ -49,6 +51,8 @@
 
 	var/lightfail = 0
 
+/obj/item/weapon/gun/energy/gun/nuclear/get_cell()
+	return DEVICE_NO_CELL
 
 /obj/item/weapon/gun/energy/gun/nuclear/proc/failcheck()
 	lightfail = 0

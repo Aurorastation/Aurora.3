@@ -22,6 +22,7 @@
 	//TODO: fix husking
 	if( ((maxHealth - total_burn) < config.health_threshold_dead) && stat == DEAD)
 		ChangeToHusk()
+	UpdateDamageIcon() // to fix that darn overlay bug
 	return
 
 /mob/living/carbon/human/adjustBrainLoss(var/amount)

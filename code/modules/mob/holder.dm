@@ -367,6 +367,7 @@ var/list/holder_mob_icon_cache = list()
 	name = "diona nymph"
 	desc = "It's a little plant critter."
 	desc_dead = "It used to be a little plant critter."
+	icon = 'icons/mob/diona.dmi'
 	icon_state = "nymph"
 	icon_state_dead = "nymph_dead"
 	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)

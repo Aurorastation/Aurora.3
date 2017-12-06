@@ -1,7 +1,7 @@
 #ifdef AO_USE_LIGHTING_OPACITY
-#define AO_TURF_CHECK(T) (!T.has_opaque_atom)
+#define AO_TURF_CHECK(T) (!T.has_opaque_atom || !T.permit_ao)
 #else
-#define AO_TURF_CHECK(T) (!T.density || !T.opacity)
+#define AO_TURF_CHECK(T) (!T.density || !T.opacity || !T.permit_ao)
 #endif
 
 /turf
@@ -11,6 +11,8 @@
 	var/ao_queued = AO_UPDATE_NONE
 
 /turf/proc/regenerate_ao()
+	if (config.fastboot)
+		return
 	for (var/thing in RANGE_TURFS(1, src))
 		var/turf/T = thing
 		if (T.permit_ao)
@@ -22,32 +24,7 @@
 		return
 
 	var/turf/T
-	for (var/tdir in cardinal)
-		T = get_step(src, tdir)
-		if (T && AO_TURF_CHECK(T))
-			ao_neighbors |= 1 << tdir
-
-	if (ao_neighbors & N_NORTH)
-		if (ao_neighbors & N_WEST)
-			T = get_step(src, NORTHWEST)
-			if (AO_TURF_CHECK(T))
-				ao_neighbors |= N_NORTHWEST
-
-		if (ao_neighbors & N_EAST)
-			T = get_step(src, NORTHEAST)
-			if (AO_TURF_CHECK(T))
-				ao_neighbors |= N_NORTHEAST
-
-	if (ao_neighbors & N_SOUTH)
-		if (ao_neighbors & N_WEST)
-			T = get_step(src, SOUTHWEST)
-			if (AO_TURF_CHECK(T))
-				ao_neighbors |= N_SOUTHWEST
-
-		if (ao_neighbors & N_EAST)
-			T = get_step(src, SOUTHEAST)
-			if (AO_TURF_CHECK(T))
-				ao_neighbors |= N_SOUTHEAST
+	CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
 
 /proc/make_ao_image(corner, i)
 	var/list/cache = SSicon_cache.ao_cache
@@ -62,6 +39,8 @@
 	. = cache[key] = I
 
 /turf/proc/queue_ao(rebuild = TRUE)
+	if (config.fastboot)
+		return
 	if (!ao_queued)
 		SSocclusion.queue += src
 

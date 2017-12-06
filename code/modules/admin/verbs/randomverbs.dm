@@ -488,7 +488,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		else
 			M.add_ion_law(input)
 			for(var/mob/living/silicon/ai/O in mob_list)
-				O << "\red " + input + "\red...LAWS UPDATED"
+				O << "<span class='danger'>" + input + "...LAWS UPDATED</span>"
 				O.show_laws()
 
 	log_admin("Admin [key_name(usr)] has added a new AI law - [input]",admin_key=key_name(usr))
@@ -574,7 +574,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if("Yes")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
-			world << "<span class='warning'>New [company_name] Update available at all communication consoles.</span>"
+			world << "<span class='warning'>New [current_map.company_name] Update available at all communication consoles.</span>"
 			world << sound('sound/AI/commandreport.ogg')
 
 	log_admin("[key_name(src)] has created a command report: [reportbody]",admin_key=key_name(usr))

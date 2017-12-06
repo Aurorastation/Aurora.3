@@ -229,8 +229,8 @@
 	var/msg = sanitize(input("Message:", "Psychic Whisper") as text|null)
 	if(msg)
 		log_say("PsychicWhisper: [key_name(src)]->[M.key] : [msg]",ckey=key_name(src))
-		M << "\green You hear a strange, alien voice in your head... \italic [msg]"
-		src << "\green You said: \"[msg]\" to [M]"
+		M << "<span class ='alium'>You hear a strange, alien voice in your head... \italic [msg]</span>"
+		src << "<span class ='alium'>You said: \"[msg]\" to [M]</span>"
 	return
 
 /mob/living/carbon/human/proc/bugbite()

@@ -76,6 +76,7 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/smw,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/dr_gibb,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/spaceup,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/brownstar,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tonic,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sodawater,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/lemon_lime,

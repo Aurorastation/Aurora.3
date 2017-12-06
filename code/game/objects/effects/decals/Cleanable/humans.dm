@@ -58,7 +58,7 @@
 		dry()
 
 /obj/effect/decal/cleanable/blood/update_icon()
-	if(basecolor == "rainbow") basecolor = "#[get_random_colour(1)]"
+	if(basecolor == "rainbow") basecolor = get_random_colour(1)
 	color = basecolor
 
 /obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/human/perp)
@@ -104,6 +104,8 @@
 
 	perp.update_inv_shoes(1)
 	amount--
+	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == "run" ? 20 : 5)))
+		perp.slip(src, 4)
 
 /obj/effect/decal/cleanable/blood/proc/dry()
 	name = dryname
@@ -121,7 +123,7 @@
 		amount -= taken
 		user << "<span class='notice'>You get some of \the [src] on your hands.</span>"
 		LAZYINITLIST(user.blood_DNA)
-		
+
 		if (blood_DNA)
 			user.blood_DNA |= blood_DNA.Copy()
 
@@ -185,11 +187,11 @@
 
 	var/image/giblets = new(base_icon, "[icon_state]_flesh", dir)
 	if(!fleshcolor || fleshcolor == "rainbow")
-		fleshcolor = "#[get_random_colour(1)]"
+		fleshcolor = get_random_colour(1)
 	giblets.color = fleshcolor
 
 	var/icon/blood = new(base_icon,"[icon_state]",dir)
-	if(basecolor == "rainbow") basecolor = "#[get_random_colour(1)]"
+	if(basecolor == "rainbow") basecolor = get_random_colour(1)
 	blood.Blend(basecolor,ICON_MULTIPLY)
 
 	icon = blood

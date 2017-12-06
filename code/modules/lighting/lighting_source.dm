@@ -48,6 +48,7 @@
 	var/skip_falloff = FALSE	// ONLY for use with sunlight, behavior is undefined if TRUE on regular sources.
 
 /datum/light_source/New(atom/owner, atom/top)
+	SSlighting.total_lighting_sources++
 	source_atom = owner // Set our new owner.
 
 	LAZYADD(source_atom.light_sources, src)
@@ -72,6 +73,7 @@
 // Kill ourselves.
 /datum/light_source/Destroy(force)
 	//L_PROF(source_atom, "source_destroy")
+	SSlighting.total_lighting_sources--
 
 	remove_lum()
 	if (source_atom)
@@ -96,6 +98,7 @@
 			SSlighting.light_queue += src;              \
 		}                                               \
 		else {                                          \
+			SSlighting.total_instant_updates += 1;      \
 			update_corners(TRUE);                       \
 			needs_update = LIGHTING_NO_UPDATE;          \
 		}                                               \
@@ -326,7 +329,10 @@
 			if (co_updated)
 				// We might be facing a wall now.
 				var/turf/front = get_step(source_turf, old_direction)
-				facing_opaque = (front && front.has_opaque_atom)
+				var/new_fo = (front && front.has_opaque_atom)
+				if (new_fo != facing_opaque)
+					facing_opaque = new_fo
+					regenerate_angle(ndir)
 
 				update = TRUE
 

@@ -2,7 +2,6 @@
 #define OPENTURF_CAP_PLANE -70      // The multiplier goes here so it'll be on top of every other overlay.
 #define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
 #define SHADOWER_DARKENING_FACTOR 0.4	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
-#define SHADOWER_LAYER 0
 
 /var/datum/controller/subsystem/openturf/SSopenturf
 
@@ -123,22 +122,38 @@
 		if (depth > OPENTURF_MAX_DEPTH)
 			depth = OPENTURF_MAX_DEPTH
 
-		// Update the openturf itself.
-		T.appearance = T.below
-		T.name = initial(T.name)
-		T.desc = "Below seems to be \a [T.below]."
-		T.opacity = FALSE
-		T.queue_ao()	// No need to recalculate ajacencies, shouldn't have changed.
+		var/target_plane
 
 		// Handle space parallax & starlight.
 		if (T.is_above_space())
-			T.plane = PLANE_SPACE_BACKGROUND
+			target_plane = PLANE_SPACE_BACKGROUND
 			if (starlight_enabled && !T.light_range)
 				T.set_light(config.starlight, 0.5)
 		else
-			T.plane = OPENTURF_MAX_PLANE - depth
+			target_plane = OPENTURF_MAX_PLANE - depth
 			if (starlight_enabled && T.light_range)
 				T.set_light(0)
+
+		if (T.no_mutate)
+			// Some openturfs have icons, so we can't overwrite their appearance.
+			if (!T.below.bound_overlay)
+				T.below.bound_overlay = new(T)
+			var/atom/movable/openspace/turf_overlay/TO = T.below.bound_overlay
+			TO.appearance = T.below
+			TO.name = T.name
+			T.desc = TO.desc = "Below seems to be \a [T.below]."
+			TO.plane = target_plane
+		else
+			// This openturf doesn't care about its icon, so we can just overwrite it.
+			if (T.below.bound_overlay)
+				QDEL_NULL(T.below.bound_overlay)
+			T.appearance = T.below
+			T.name = initial(T.name)
+			T.opacity = FALSE
+			T.plane = target_plane
+
+		T.desc = "Below seems to be \a [T.below]."
+		T.queue_ao()	// No need to recalculate ajacencies, shouldn't have changed.
 
 		// Add everything below us to the update queue.
 		for (var/thing in T.below)
@@ -148,39 +163,7 @@
 				continue
 
 			if (istype(object, /atom/movable/lighting_overlay))	// Special case.
-				var/atom/movable/openspace/multiplier/shadower = T.shadower
-				shadower.appearance = object
-				shadower.plane = OPENTURF_CAP_PLANE
-				shadower.layer = SHADOWER_LAYER
-				shadower.invisibility = 0
-				if (shadower.icon_state == LIGHTING_BASE_ICON_STATE)
-					// We're using a color matrix, so just darken the colors.
-					var/list/c_list = shadower.color
-					c_list[CL_MATRIX_RR] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_RG] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_RB] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_GR] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_GG] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_GB] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_BR] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_BG] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_BB] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_AR] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_AG] *= SHADOWER_DARKENING_FACTOR
-					c_list[CL_MATRIX_AB] *= SHADOWER_DARKENING_FACTOR
-					shadower.color = c_list
-				else
-					shadower.color = list(
-						SHADOWER_DARKENING_FACTOR, 0, 0,
-						0, SHADOWER_DARKENING_FACTOR, 0,
-						0, 0, SHADOWER_DARKENING_FACTOR
-					)
-
-				if (shadower.our_overlays || shadower.priority_overlays)
-					shadower.compile_overlays()
-
-				if (shadower.bound_overlay)
-					shadower.update_above()
+				T.shadower.copy_lighting(object)
 			else
 				if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
 					object.bound_overlay = new(T)
@@ -189,7 +172,7 @@
 				var/atom/movable/openspace/overlay/OO = object.bound_overlay
 
 				// Cache our already-calculated depth so we don't need to re-calculate it a bunch of times.
-				OO.depth = depth
+				OO.depth = target_plane
 
 				queued_overlays += OO
 
@@ -231,12 +214,9 @@
 		// Actually update the overlay.
 		OO.dir = OO.associated_atom.dir
 		OO.appearance = OO.associated_atom
-		OO.plane = OPENTURF_MAX_PLANE - OO.depth
+		OO.plane = OO.depth
 		OO.opacity = FALSE
 		OO.queued = FALSE
-
-		if (istype(OO.associated_atom, /atom/movable/openspace/multiplier) && OO.plane < OPENTURF_MAX_PLANE)	// Special case for multipliers.
-			OO.plane++
 
 		if (OO.bound_overlay)	// If we have a bound overlay, queue it too.
 			OO.update_above()
@@ -249,3 +229,39 @@
 		if (qo_idex > 1 && qo_idex <= curr_ov.len)
 			curr_ov.Cut(1, qo_idex)
 			qo_idex = 1
+
+
+/client/proc/analyze_openturf(turf/simulated/open/T)
+	set name = "Analyze Openturf"
+	set desc = "Show the layering of an openturf and everything it's mimicking."
+	set category = "Debug"
+
+	if (!check_rights(R_DEBUG|R_DEV))
+		return
+
+	if (!istype(T))
+		usr << "Invalid Selection."
+		return
+
+	var/list/out = list(
+		"<h1>Analysis of [T] at [T.x],[T.y],[T.z]</h1>",
+		"<b>Queued for update:</b> [T.updating ? "Yes" : "No"]",
+		"<b>Appearance Type:</b> [T.no_mutate ? "Movable Copy" : "Turf Overwrite"]",
+		"<b>Has Shadower:</b> [T.shadower ? "Yes" : "No"]",
+		"<b>Below:</b> [!T.below ? "(nothing)" : "[T.below] at [T.below.x],[T.below.y],[T.below.z]"]",
+		"<ul>"
+	)
+	
+	var/list/found_oo = list(T)
+	for (var/thing in T)
+		if (istype(thing, /atom/movable/openspace))
+			found_oo += thing
+
+	sortTim(found_oo, /proc/cmp_planelayer)
+	for (var/thing in found_oo)
+		var/atom/A = thing
+		out += "<li>[A] ([A.type]) at plane [A.plane], layer [A.layer][istype(A, /atom/movable/openspace/overlay) ? ", Z-level [A:associated_atom.z]." : "."]</li>"
+
+	out += "</ul>"
+
+	usr << browse(out.Join("<br>"), "window=openturfanalysis-\ref[T]")

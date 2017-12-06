@@ -332,14 +332,14 @@ There are several things that need to be remembered:
 
 	var/icon/face_standing = SSicon_cache.human_hair_cache[cache_key]
 	if (!face_standing)	// Not cached, generate it from scratch.
-		face_standing = new /icon('icons/mob/human_face.dmi',"bald_s")
+		face_standing = new /icon('icons/mob/human_face/hair.dmi',"bald")
 		// Beard.
 		if(f_style)
 			var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]
 			if(facial_hair_style && facial_hair_style.species_allowed && (GET_BODY_TYPE in facial_hair_style.species_allowed))
-				var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
+				var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = facial_hair_style.icon_state)
 				if(facial_hair_style.do_colouration)
-					facial_s.Blend(rgb(r_facial, g_facial, b_facial), ICON_ADD)
+					facial_s.Blend(rgb(r_facial, g_facial, b_facial), facial_hair_style.icon_blend_mode)
 
 				face_standing.Blend(facial_s, ICON_OVERLAY)
 
@@ -347,9 +347,9 @@ There are several things that need to be remembered:
 		if(hair_is_visible)
 			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
 			if(hair_style && (GET_BODY_TYPE in hair_style.species_allowed))
-				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
+				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)
 				if(hair_style.do_colouration)
-					hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
+					hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.icon_blend_mode)
 
 				face_standing.Blend(hair_s, ICON_OVERLAY)
 

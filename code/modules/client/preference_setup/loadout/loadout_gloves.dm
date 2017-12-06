@@ -28,3 +28,23 @@
 /datum/gear/gloves/evening
 	display_name = "evening gloves"
 	path = /obj/item/clothing/gloves/evening
+
+/datum/gear/gloves/ring
+	display_name = "ring"
+	path = /obj/item/clothing/ring/engagement
+
+/datum/gear/gloves/ring/New()
+	..()
+	var/ringtype = list()
+	ringtype["engagement ring"] = /obj/item/clothing/ring/engagement
+	ringtype["signet ring"] = /obj/item/clothing/ring/seal/signet
+	ringtype["ring, steel"] = /obj/item/clothing/ring/material/steel
+	ringtype["ring, iron"] = /obj/item/clothing/ring/material/iron
+	ringtype["ring, bronze"] = /obj/item/clothing/ring/material/bronze
+	ringtype["ring, silver"] = /obj/item/clothing/ring/material/silver
+	ringtype["ring, gold"] = /obj/item/clothing/ring/material/gold
+	ringtype["ring, platinum"] = /obj/item/clothing/ring/material/platinum
+	ringtype["ring, glass"] = /obj/item/clothing/ring/material/glass
+	ringtype["ring, wood"] = /obj/item/clothing/ring/material/wood
+	ringtype["ring, plastic"] = /obj/item/clothing/ring/material/plastic
+	gear_tweaks += new/datum/gear_tweak/path(ringtype)

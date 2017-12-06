@@ -280,7 +280,6 @@ area/space/atmosalert()
 	name = "\improper Centcom"
 	icon_state = "centcom"
 	requires_power = 0
-	dynamic_lighting = 0
 	no_light_control = 1
 	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1

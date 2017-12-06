@@ -28,9 +28,7 @@
 
 	level = 1
 
-/obj/machinery/atmospherics/pipe/zpipe/New()
-	..()
-
+/obj/machinery/atmospherics/pipe/zpipe/Initialize()
 	icon = null
 
 	switch(dir)
@@ -50,6 +48,8 @@
 			initialize_directions = EAST
 		if(SOUTHWEST)
 			initialize_directions = SOUTH
+
+	. = ..()
 	
 
 /obj/machinery/atmospherics/pipe/zpipe/Entered(mob/living/M)
@@ -60,7 +60,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/hide(var/i)
 	if(istype(loc, /turf/simulated))
 		invisibility = i ? 101 : 0
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/zpipe/machinery_process()
 	if(!parent) //This should cut back on the overhead calling build_network thousands of times per cycle

@@ -1,3 +1,5 @@
+#ifdef ENABLE_SUNLIGHT
+
 /var/datum/controller/subsystem/sunlight/SSsunlight
 
 /datum/controller/subsystem/sunlight
@@ -96,3 +98,5 @@
 /datum/sun_state/blue
 	name = "Blue"
 	color = LIGHT_COLOR_BLUE
+
+#endif

@@ -135,6 +135,7 @@
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/on = 0					// 1 if on, 0 if off
 	var/on_gs = 0
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
@@ -189,35 +190,28 @@
 	supports_nightmode = FALSE
 
 /obj/machinery/light/built/Initialize()
-	. = ..()
 	status = LIGHT_EMPTY
-	update(0)
+	. = ..()
 
 /obj/machinery/light/small/built/Initialize()
-	. = ..()
 	status = LIGHT_EMPTY
-	update(0)
+	. = ..()
 
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
 	on = has_power()
 
-	switch(fitting)
-		if("tube")
-			if(mapload && prob(2))
-				broken(1)
-		if("bulb")
-			if(mapload && prob(5))
-				broken(1)
+	if (mapload && loc && !(z in current_map.admin_levels))
+		switch(fitting)
+			if("tube")
+				if(prob(2))
+					broken(1)
+			if("bulb")
+				if(prob(5))
+					broken(1)
 
 	update(0)
-
-/obj/machinery/light/Destroy()
-	var/area/A = get_area(src)
-	if(A)
-		on = 0
-	return ..()
 
 /obj/machinery/light/update_icon()
 	cut_overlays()
@@ -708,6 +702,7 @@
 	matter = list("glass" = 100)
 	brightness_range = 5
 	brightness_power = 0.75
+	brightness_color = LIGHT_COLOR_TUNGSTEN
 	lighttype = "bulb"
 
 /obj/item/weapon/light/bulb/colored/red

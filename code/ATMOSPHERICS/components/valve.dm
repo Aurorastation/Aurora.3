@@ -37,13 +37,13 @@
 /obj/machinery/atmospherics/valve/hide(var/i)
 	update_underlays()
 
-/obj/machinery/atmospherics/valve/New()
+/obj/machinery/atmospherics/valve/Initialize()
 	switch(dir)
 		if(NORTH || SOUTH)
 			initialize_directions = NORTH|SOUTH
 		if(EAST || WEST)
 			initialize_directions = EAST|WEST
-	..()
+	. = ..()
 
 /obj/machinery/atmospherics/valve/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	if(reference == node1)
@@ -166,7 +166,7 @@
 
 	build_network()
 
-	update_icon()
+	queue_icon_update()
 	update_underlays()
 
 	if(openDuringInit)
@@ -262,7 +262,7 @@
 	var/old_stat = stat
 	..()
 	if(old_stat != stat)
-		update_icon()
+		queue_icon_update()
 
 /obj/machinery/atmospherics/valve/digital/update_icon()
 	..()

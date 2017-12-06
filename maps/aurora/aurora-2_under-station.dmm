@@ -1,36 +1,31 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+//Model dictionary trimmed on: 18-11-2017 20:57 (UTC)
 "a" = (
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "b" = (
-/turf/space,
+/turf/template_noop,
 /area/syndicate_station/under)
 "c" = (
-/turf/space,
+/turf/template_noop,
 /area/skipjack_station/under)
 "d" = (
 /obj/structure/lattice,
-/obj/structure/lattice,
 /obj/structure/grille,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "e" = (
 /obj/structure/lattice,
-/obj/structure/grille,
-/turf/space,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "f" = (
-/obj/structure/lattice,
-/turf/space,
-/area/space)
-"g" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/cooling)
-"h" = (
+"g" = (
 /obj/structure/lattice/catwalk,
-/turf/space,
-/area/space)
-"i" = (
+/turf/template_noop,
+/area/template_noop)
+"h" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/camera/motion{
@@ -40,13 +35,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"j" = (
+"i" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/black,
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
 /area/engineering/cooling)
-"k" = (
+"j" = (
 /obj/structure/cable{
 	icon_state = "12-0"
 	},
@@ -60,13 +55,13 @@
 	roof_type = null
 	},
 /area/engineering/cooling)
-"l" = (
+"k" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
 /area/engineering/cooling)
-"m" = (
+"l" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1379;
@@ -77,9 +72,9 @@
 	req_one_access = list(11)
 	},
 /obj/structure/lattice/catwalk,
-/turf/space,
+/turf/template_noop,
 /area/engineering/cooling)
-"n" = (
+"m" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
@@ -90,7 +85,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"o" = (
+"n" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1379;
@@ -125,7 +120,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"p" = (
+"o" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
@@ -139,7 +134,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"q" = (
+"p" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
@@ -159,7 +154,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"r" = (
+"q" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
@@ -168,11 +163,11 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"s" = (
+"r" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"t" = (
+"s" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
@@ -183,7 +178,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"u" = (
+"t" = (
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "east bump";
@@ -195,7 +190,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"v" = (
+"u" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -208,7 +203,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"w" = (
+"v" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -218,7 +213,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"x" = (
+"w" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -230,84 +225,79 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
-"y" = (
+"x" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
 /obj/structure/lattice/catwalk/indoor,
-/turf/space,
-/area/space)
-"z" = (
+/turf/template_noop,
+/area/template_noop)
+"y" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice/catwalk/indoor,
-/turf/space,
-/area/space)
-"A" = (
+/turf/template_noop,
+/area/template_noop)
+"z" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 6
 	},
 /obj/structure/lattice,
-/turf/space,
-/area/space)
-"B" = (
+/turf/template_noop,
+/area/template_noop)
+"A" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/space,
-/area/space)
-"C" = (
+/turf/template_noop,
+/area/template_noop)
+"B" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	icon_state = "intact";
 	dir = 9
 	},
 /obj/structure/lattice,
-/turf/space,
-/area/space)
-"D" = (
+/turf/template_noop,
+/area/template_noop)
+"C" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
-/turf/space,
-/area/space)
-"E" = (
+/turf/template_noop,
+/area/template_noop)
+"D" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	icon_state = "intact";
 	dir = 10
 	},
 /obj/structure/lattice,
-/turf/space,
-/area/space)
-"F" = (
+/turf/template_noop,
+/area/template_noop)
+"E" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 5
 	},
 /obj/structure/lattice,
-/turf/space,
-/area/space)
-"G" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/space,
-/area/space)
-"H" = (
+/turf/template_noop,
+/area/template_noop)
+"F" = (
 /obj/structure/lattice,
 /obj/random/loot,
-/turf/space,
-/area/space)
-"I" = (
+/turf/template_noop,
+/area/template_noop)
+"G" = (
 /obj/structure/lattice/catwalk,
 /obj/random/loot,
-/turf/space,
-/area/space)
-"J" = (
+/turf/template_noop,
+/area/template_noop)
+"H" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
 	dir = 4
 	},
-/turf/space,
+/turf/template_noop,
 /area/engineering/cooling)
-"K" = (
+"I" = (
 /obj/structure/lattice/catwalk,
-/turf/space,
+/turf/template_noop,
 /area/engineering/cooling)
 
 (1,1,1) = {"
@@ -9935,29 +9925,29 @@ a
 a
 a
 a
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
 a
 a
 a
@@ -10192,15 +10182,15 @@ a
 a
 a
 a
+d
+a
+a
+a
 e
 a
 a
 a
-f
-a
-a
-a
-H
+F
 a
 a
 a
@@ -10209,12 +10199,12 @@ a
 a
 a
 a
-a
-a
-f
 a
 a
 e
+a
+a
+d
 a
 a
 a
@@ -10449,29 +10439,29 @@ a
 a
 a
 a
+d
+a
+a
+a
 e
 a
 a
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
 a
-f
-a
-a
-h
-h
-h
-h
-h
-h
-h
-h
-h
-h
-h
-h
-h
-h
-a
-e
+d
 a
 a
 a
@@ -10706,29 +10696,29 @@ a
 a
 a
 a
-e
+d
 a
 a
-J
-m
-K
-h
-h
-A
-F
-A
-F
-A
-F
-A
-F
-A
-F
-A
-F
-h
-f
+H
+l
+I
+g
+g
+z
+E
+z
+E
+z
+E
+z
+E
+z
+E
+z
+E
+g
 e
+d
 a
 a
 a
@@ -10963,29 +10953,29 @@ a
 a
 a
 a
-e
+d
 a
+a
+f
+m
+f
 a
 g
-n
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
 g
 a
-h
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-h
-a
-e
+d
 a
 a
 a
@@ -11220,29 +11210,29 @@ a
 a
 a
 a
-e
+d
 a
+a
+f
+n
+f
 a
 g
-o
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
 g
 a
-h
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-h
-a
-e
+d
 a
 a
 a
@@ -11477,29 +11467,29 @@ a
 a
 a
 a
+d
+e
 e
 f
+o
 f
+a
 g
-p
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
 g
 a
-h
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-h
-a
-e
+d
 a
 a
 a
@@ -11734,29 +11724,29 @@ a
 a
 a
 a
-e
+d
+a
+f
+f
+p
+f
 a
 g
-g
-q
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
 g
 a
-h
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-h
-a
-e
+d
 a
 a
 a
@@ -11991,29 +11981,29 @@ a
 a
 a
 a
-e
+d
 a
-g
-i
-r
-g
 f
 h
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-h
-a
+q
+f
 e
+g
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+g
+a
+d
 a
 a
 a
@@ -12248,29 +12238,29 @@ a
 a
 a
 a
-e
+d
 a
-g
-j
-s
-v
+f
+i
+r
+u
+x
 y
-z
-C
-E
-C
-E
-C
-E
-C
-E
-C
-E
-C
 B
-h
+D
+B
+D
+B
+D
+B
+D
+B
+D
+B
+A
+g
 a
-e
+d
 a
 a
 a
@@ -12505,29 +12495,29 @@ a
 a
 a
 a
+d
 e
 f
-g
-k
-t
-w
+j
+s
+v
+x
 y
-z
-D
-D
-D
-D
-D
-D
-D
-D
-D
-D
-F
-B
-h
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+E
+A
+g
 a
-e
+d
 a
 a
 a
@@ -12762,29 +12752,29 @@ a
 a
 a
 a
-e
+d
+a
+f
+k
+t
+w
 a
 g
-l
-u
-x
-a
-h
-A
-D
-D
-D
-D
-D
-D
-D
-D
-D
+z
+C
+C
+C
+C
+C
+C
+C
+C
 C
 B
-h
+A
+g
 a
-e
+d
 a
 a
 a
@@ -13019,29 +13009,29 @@ a
 a
 a
 a
-e
+d
 a
-g
-g
-g
-g
 f
-h
-E
-D
-D
-D
-D
-D
-D
-D
-D
-D
-F
-B
-h
-a
+f
+f
+f
 e
+g
+D
+C
+C
+C
+C
+C
+C
+C
+C
+C
+E
+A
+g
+a
+d
 a
 a
 a
@@ -13276,29 +13266,29 @@ a
 a
 a
 a
+d
+a
+a
+a
 e
 a
 a
-a
-f
-a
-a
-h
-A
-D
-D
-D
-D
-D
-D
-D
-D
-D
+g
+z
+C
+C
+C
+C
+C
+C
+C
+C
 C
 B
-h
+A
+g
 a
-e
+d
 a
 a
 a
@@ -13533,29 +13523,29 @@ a
 a
 a
 a
+d
+a
+a
+a
 e
 a
 a
-a
-f
-a
-a
-h
-E
-D
-D
-D
-D
-D
-D
-D
-D
-D
+g
 D
 C
-h
-f
+C
+C
+C
+C
+C
+C
+C
+C
+C
+B
+g
 e
+d
 a
 a
 a
@@ -13790,29 +13780,29 @@ a
 a
 a
 a
+d
+a
+a
+a
 e
 a
 a
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+G
+g
+g
+g
 a
-f
-a
-a
-h
-h
-h
-h
-h
-h
-h
-h
-h
-h
-I
-h
-h
-h
-a
-e
+d
 a
 a
 a
@@ -14047,15 +14037,15 @@ a
 a
 a
 a
+d
+a
+a
+a
 e
 a
 a
 a
-f
-a
-a
-a
-f
+e
 a
 a
 a
@@ -14064,12 +14054,12 @@ a
 a
 a
 a
-a
-a
-f
 a
 a
 e
+a
+a
+d
 a
 a
 a
@@ -14304,29 +14294,29 @@ a
 a
 a
 a
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
-e
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
+d
 a
 a
 a

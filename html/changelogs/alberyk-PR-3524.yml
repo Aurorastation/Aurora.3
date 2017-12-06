@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - soundadd: "Added new sounds to some cult runes."
-  - tweak: "Cultists can not accept wizard contracts anymore."
