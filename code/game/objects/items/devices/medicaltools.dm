@@ -29,7 +29,7 @@ Contains:
 // SPACE KLOT. This stops bleeding and has a small chance to stop some internal bleeding, but it will be locked behind a tech tree + does not disinfect like a normal bruise pack.
 /obj/item/stack/medical/advanced/bruise_pack/spaceklot
 	name = "space klot"
-	singular_name = "Space Klot"
+	singular_name = "space klot"
 	desc = "A powder that, when poured on an open wound, quickly stops the bleeding. Combine with bandages for the best effect."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "powderbag"
