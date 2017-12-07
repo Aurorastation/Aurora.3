@@ -18,7 +18,6 @@
 		if (R.getBruteLoss() || R.getFireLoss() )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			if(do_mob(user, M, 7))
-			if(do_after(user, 7))
 				R.adjustBruteLoss(-15)
 				R.adjustFireLoss(-15)
 				R.updatehealth()
