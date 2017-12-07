@@ -17,7 +17,7 @@
 		var/mob/living/silicon/robot/R = M
 		if (R.getBruteLoss() || R.getFireLoss() )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			if(do_after(user, 5))
+			if(do_after(user, 7))
 				R.adjustBruteLoss(-15)
 				R.adjustFireLoss(-15)
 				R.updatehealth()
@@ -35,7 +35,7 @@
 			if(S.get_damage())
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-				if(S.name == "head")
+				if(S.limb_name == "head")
 					if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
 						user << "<span class='warning'>You can't apply [src] through [H.head]!</span>"
 						return
@@ -44,7 +44,7 @@
 						user << "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>"
 						return
 
-				if(do_after(user, 5))
+				if(do_after(user, 7))
 					S.heal_damage(15, 15, robo_repair = 1)
 					H.updatehealth()
 					use(1)
