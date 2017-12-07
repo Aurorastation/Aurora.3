@@ -111,8 +111,8 @@
 	w_class = 3.0
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/item/projectile/energy/phoron
-	can_turret = 1		
-	turret_is_lethal = 0		
+	can_turret = 1
+	turret_is_lethal = 0
 	turret_sprite_set = "net"
 
 /obj/item/weapon/gun/energy/beegun
@@ -158,21 +158,7 @@
 /obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
 	spark(T, 3, alldirs)
-	failcheck()
 	..()
-
-/obj/item/weapon/gun/energy/mousegun/proc/failcheck()
-	lightfail = 0
-	if (prob(5))
-		for (var/mob/living/M in range(rand(1,4),src)) //Big failure, TIME FOR RADIATION BITCHES
-			if (src in M.contents)
-				M << "<span class='danger'>[src]'s reactor overloads!</span>"
-			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
-			M.apply_effect(300, IRRADIATE)
-		//crit_fail = 1 //break the gun so it stops recharging
-		STOP_PROCESSING(SSprocessing, src)
-		update_icon()
-	return 0
 
 /obj/item/weapon/gun/energy/net
 	name = "net gun"
@@ -424,7 +410,7 @@
 	charge_meter = 1
 	charge_cost = 50
 	dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
-	can_turret = 1		 
+	can_turret = 1
 	turret_sprite_set = "thermaldrill"
 
 	firemodes = list(
