@@ -17,6 +17,7 @@
 		var/mob/living/silicon/robot/R = M
 		if (R.getBruteLoss() || R.getFireLoss() )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			if(do_mob(user, M, 7))
 			if(do_after(user, 7))
 				R.adjustBruteLoss(-15)
 				R.adjustFireLoss(-15)
@@ -44,7 +45,7 @@
 						user << "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>"
 						return
 
-				if(do_after(user, 7))
+				if(do_mob(user, M, 7))
 					S.heal_damage(15, 15, robo_repair = 1)
 					H.updatehealth()
 					use(1)
