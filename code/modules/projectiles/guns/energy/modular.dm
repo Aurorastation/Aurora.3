@@ -24,13 +24,14 @@
 
 /obj/item/weapon/gun/energy/laser/prototype/examine()
 	..()
-	if(gun_mods.len)
-		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			usr << "You can see a [modifier] attached."
-	if(capacitor)
-		usr << "You can see a [capacitor] attached."
-	if(focusing_lens)
-		usr << "You can see a [focusing_lens] attached."
+	if(usr.Adjacent(src))
+		if(gun_mods.len)
+			for(var/obj/item/laser_components/modifier/modifier in gun_mods)
+				usr << "You can see a [modifier] attached."
+		if(capacitor)
+			usr << "You can see a [capacitor] attached."
+		if(focusing_lens)
+			usr << "You can see a [focusing_lens] attached."
 
 /obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
 	if(!isscrewdriver(D))
