@@ -64,7 +64,7 @@
 			M << "<span class='danger'>Your gun's reactor overloads!</span>"
 		M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
 		M.apply_effect(300*prototype.criticality, IRRADIATE)
-	return
+	..()
 
 /obj/item/laser_components/capacitor/teranium
 	name = "teranium-enriched capacitor"
@@ -84,7 +84,7 @@
 /obj/item/laser_components/capacitor/teranium/critical_fail(var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/i = 0 to round(prototype.criticality))
 		tesla_zap(pick(src), round(prototype.criticality*2,1), 4000*prototype.criticality)
-	return
+	..()
 
 /obj/item/laser_components/capacitor/phoron
 	name = "phoron-enriched capacitor"
@@ -105,7 +105,7 @@
 /obj/item/laser_components/capacitor/phoron/critical_fail(var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	empulse(get_turf(src), round(prototype.criticality,1), round(prototype.criticality*4,1))
 	explosion(get_turf(src), 0, round(prototype.criticality,1), round(prototype.criticality*3,1))
-	return
+	..()
 
 /obj/item/laser_components/capacitor/bluespace
 	name = "bluespace-enriched capacitor"
@@ -129,7 +129,7 @@
 	for (var/mob/living/M in range(round(6*prototype.criticality,1),src))
 		empulse(get_turf(M), 0, round(prototype.criticality*4,1))
 		do_teleport(M, get_turf(M), rand(6,18)*round(prototype.criticality,1), asoundin = 'sound/effects/phasein.ogg')
-	return
+	..()
 
 //Lenses
 /obj/item/laser_components/focusing_lens/shotgun
