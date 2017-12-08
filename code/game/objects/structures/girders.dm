@@ -69,15 +69,15 @@
 				user << "<span class='notice'>You secured the girder!</span>"
 				reset_girder()
 
-	else if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
+	else if(istype(W, /obj/item/gun/energy/plasmacutter))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
 		if(do_after(user,30))
 			if(!src) return
 			user << "<span class='notice'>You slice apart the girder!</span>"
 			dismantle()
 
-	else if(istype(W, /obj/item/weapon/melee/energy))
-		var/obj/item/weapon/melee/energy/WT = W
+	else if(istype(W, /obj/item/melee/energy))
+		var/obj/item/melee/energy/WT = W
 		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
 			if(do_after(user,30))
@@ -88,15 +88,15 @@
 			user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 			return
 
-	else if(istype(W, /obj/item/weapon/melee/energy/blade))
+	else if(istype(W, /obj/item/melee/energy/blade))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
 		if(do_after(user,30))
 			if(!src) return
 			user << "<span class='notice'>You slice apart the girder!</span>"
 			dismantle()
 
-	else if(istype(W, /obj/item/weapon/melee/chainsword))
-		var/obj/item/weapon/melee/chainsword/WT = W
+	else if(istype(W, /obj/item/melee/chainsword))
+		var/obj/item/melee/chainsword/WT = W
 		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
 			if(do_after(user,60))
@@ -107,7 +107,7 @@
 			user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 			return
 
-	else if(istype(W, /obj/item/weapon/pickaxe/diamonddrill))
+	else if(istype(W, /obj/item/pickaxe/diamonddrill))
 		user << "<span class='notice'>You drill through the girder!</span>"
 		dismantle()
 
@@ -278,19 +278,19 @@
 			user << "<span class='notice'>You dissasembled the girder!</span>"
 			dismantle()
 
-	else if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
+	else if(istype(W, /obj/item/gun/energy/plasmacutter))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
 		if(do_after(user,30))
 			user << "<span class='notice'>You slice apart the girder!</span>"
 		dismantle()
 
-	else if(istype(W, /obj/item/weapon/pickaxe/diamonddrill))
+	else if(istype(W, /obj/item/pickaxe/diamonddrill))
 		user << "<span class='notice'>You drill through the girder!</span>"
 		new /obj/effect/decal/remains/human(get_turf(src))
 		dismantle()
 
-	else if(istype(W, /obj/item/weapon/melee/energy))
-		var/obj/item/weapon/melee/energy/WT = W
+	else if(istype(W, /obj/item/melee/energy))
+		var/obj/item/melee/energy/WT = W
 		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
 			if(do_after(user,30))
@@ -300,14 +300,14 @@
 			user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 			return
 
-	else if(istype(W, /obj/item/weapon/melee/energy/blade))
+	else if(istype(W, /obj/item/melee/energy/blade))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
 		if(do_after(user,30))
 			user << "<span class='notice'>You slice apart the girder!</span>"
 		dismantle()
 
-	else if(istype(W, /obj/item/weapon/melee/chainsword))
-		var/obj/item/weapon/melee/chainsword/WT = W
+	else if(istype(W, /obj/item/melee/chainsword))
+		var/obj/item/melee/chainsword/WT = W
 		if(WT.active)
 			user << "<span class='notice'>Now slicing apart the girder...</span>"
 			if(do_after(user,60))

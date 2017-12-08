@@ -65,7 +65,7 @@
 /mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone)
 
 	//Being hit while using a cloaking device
-	var/obj/item/weapon/cloaking_device/C = locate((/obj/item/weapon/cloaking_device) in src)
+	var/obj/item/cloaking_device/C = locate((/obj/item/cloaking_device) in src)
 	if(C && C.active)
 		C.attack_self(src)//Should shut it off
 		update_icons()

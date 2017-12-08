@@ -34,7 +34,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 		// add beacon to MULE bot beacon list
 		if(freq == 1400)
 			LAZYADD(navbeacons, src)
-		
+
 		if(SSradio)
 			SSradio.add_object(src, freq, RADIO_NAVBEACONS)
 
@@ -116,7 +116,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 			updateicon()
 
-		else if (istype(I, /obj/item/weapon/card/id)||istype(I, /obj/item/device/pda))
+		else if (istype(I, /obj/item/card/id)||istype(I, /obj/item/device/pda))
 			if(open)
 				if (src.allowed(user))
 					src.locked = !src.locked

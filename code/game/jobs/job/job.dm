@@ -13,7 +13,7 @@
 	var/current_positions = 0             // How many players have this job
 	var/supervisors = null                // Supervisors, who this person answers to directly
 	var/selection_color = "#ffffff"       // Selection screen color
-	var/idtype = /obj/item/weapon/card/id // The type of the ID the player will have
+	var/idtype = /obj/item/card/id // The type of the ID the player will have
 	var/list/alt_titles                   // List of alternate titles, if any
 	var/req_admin_notify                  // If this is set to 1, a text is printed to the player when jobs are assigned, telling him that he should let admins know that he has to disconnect.
 	var/minimal_player_age = 0            // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
@@ -28,11 +28,11 @@
 	var/economic_modifier = 2			  // With how much does this job modify the initial account amount?
 	var/create_record = 1                 // Do we announce/make records for people who spawn on this job?
 
-	var/bag_type = /obj/item/weapon/storage/backpack
-	var/satchel_type = /obj/item/weapon/storage/backpack/satchel_norm
-	var/alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
-	var/duffel_type = /obj/item/weapon/storage/backpack/duffel
-	var/messenger_bag_type = /obj/item/weapon/storage/backpack/messenger
+	var/bag_type = /obj/item/storage/backpack
+	var/satchel_type = /obj/item/storage/backpack/satchel_norm
+	var/alt_satchel_type = /obj/item/storage/backpack/satchel
+	var/duffel_type = /obj/item/storage/backpack/duffel
+	var/messenger_bag_type = /obj/item/storage/backpack/messenger
 
 /datum/job/proc/equip(var/mob/living/carbon/human/H)
 	return 1
@@ -167,7 +167,7 @@
 		if(10 to 14)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/really_black(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(H), slot_l_hand)
+			H.equip_to_slot_or_del(new /obj/item/storage/briefcase(H), slot_l_hand)
 		if(15 to INFINITY)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)

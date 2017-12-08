@@ -31,7 +31,7 @@ var/datum/antagonist/deathsquad/deathsquad
 		return
 
 	var/obj/item/clothing/accessory/holster/armpit/hold = new(player)
-	var/obj/item/weapon/gun/projectile/revolver/mateba/weapon = new(player)
+	var/obj/item/gun/projectile/revolver/mateba/weapon = new(player)
 	hold.contents += weapon
 	hold.holstered = weapon
 
@@ -43,26 +43,26 @@ var/datum/antagonist/deathsquad/deathsquad
 	player.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat(player), slot_wear_mask)
 	player.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(player), slot_l_ear)
 	if (player.mind == leader)
-		player.equip_to_slot_or_del(new /obj/item/weapon/pinpointer(player), slot_l_store)
-		player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
+		player.equip_to_slot_or_del(new /obj/item/pinpointer(player), slot_l_store)
+		player.equip_to_slot_or_del(new /obj/item/melee/energy/sword(player), slot_r_store)
 	else
-		player.equip_to_slot_or_del(new /obj/item/weapon/plastique(player), slot_l_store)
-		player.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(player), slot_r_store)
-	player.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/rifle/pulse(player), slot_l_hand)
-	
-	var/obj/item/weapon/storage/belt/security/tactical/commando_belt = new(player)
+		player.equip_to_slot_or_del(new /obj/item/plastique(player), slot_l_store)
+		player.equip_to_slot_or_del(new /obj/item/melee/energy/sword(player), slot_r_store)
+	player.equip_to_slot_or_del(new /obj/item/gun/energy/rifle/pulse(player), slot_l_hand)
+
+	var/obj/item/storage/belt/security/tactical/commando_belt = new(player)
 	commando_belt.contents += new /obj/item/ammo_magazine/a357
 	commando_belt.contents += new /obj/item/ammo_magazine/a357
-	commando_belt.contents += new /obj/item/weapon/melee/baton/loaded
-	commando_belt.contents += new /obj/item/weapon/shield/energy
-	commando_belt.contents += new /obj/item/weapon/grenade/flashbang
-	commando_belt.contents += new /obj/item/weapon/grenade/flashbang
-	commando_belt.contents += new /obj/item/weapon/handcuffs
-	commando_belt.contents += new /obj/item/weapon/handcuffs
-	commando_belt.contents += new /obj/item/weapon/grenade/frag
+	commando_belt.contents += new /obj/item/melee/baton/loaded
+	commando_belt.contents += new /obj/item/shield/energy
+	commando_belt.contents += new /obj/item/grenade/flashbang
+	commando_belt.contents += new /obj/item/grenade/flashbang
+	commando_belt.contents += new /obj/item/handcuffs
+	commando_belt.contents += new /obj/item/handcuffs
+	commando_belt.contents += new /obj/item/grenade/frag
 	player.equip_to_slot_or_del(commando_belt, slot_belt)
-	
-	var/obj/item/weapon/rig/ert/assetprotection/mercrig = new(get_turf(player))
+
+	var/obj/item/rig/ert/assetprotection/mercrig = new(get_turf(player))
 	mercrig.seal_delay = 0
 	player.put_in_hands(mercrig)
 	player.equip_to_slot_or_del(mercrig,slot_back)
@@ -70,8 +70,8 @@ var/datum/antagonist/deathsquad/deathsquad
 		mercrig.toggle_seals(src,1)
 		mercrig.seal_delay = initial(mercrig.seal_delay)
 
-	if(istype(player.back,/obj/item/weapon/rig))
-		var/obj/item/weapon/rig/rig = player.back
+	if(istype(player.back,/obj/item/rig))
+		var/obj/item/rig/rig = player.back
 		if(rig.air_supply)
 			player.internal = rig.air_supply
 
@@ -79,9 +79,9 @@ var/datum/antagonist/deathsquad/deathsquad
 		if(player.internal)
 			player.internals.icon_state = "internal1"
 		else
-			player << "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>"	
-	
-	var/obj/item/weapon/card/id/id = create_id("Asset Protection", player)
+			player << "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>"
+
+	var/obj/item/card/id/id = create_id("Asset Protection", player)
 	if(id)
 		id.access |= get_all_station_access()
 		id.icon_state = "centcom"

@@ -429,8 +429,8 @@ proc/api_update_command_database()
 		return 1
 
 	var/output = list()
-	if (istype(faxes[fax_id], /obj/item/weapon/paper))
-		var/obj/item/weapon/paper/a = faxes[fax_id]
+	if (istype(faxes[fax_id], /obj/item/paper))
+		var/obj/item/paper/a = faxes[fax_id]
 		output["title"] = a.name ? a.name : "Untitled Fax"
 
 		var/content = replacetext(a.info, "<br>", "\n")
@@ -441,13 +441,13 @@ proc/api_update_command_database()
 		response = "Fax (Paper) with id [fax_id] retrieved"
 		data = output
 		return 1
-	else if (istype(faxes[fax_id], /obj/item/weapon/photo))
+	else if (istype(faxes[fax_id], /obj/item/photo))
 		statuscode = 501
 		response = "Fax is a Photo - Unable to send"
 		data = null
 		return 1
-	else if (istype(faxes[fax_id], /obj/item/weapon/paper_bundle))
-		var/obj/item/weapon/paper_bundle/b = faxes[fax_id]
+	else if (istype(faxes[fax_id], /obj/item/paper_bundle))
+		var/obj/item/paper_bundle/b = faxes[fax_id]
 		output["title"] = b.name ? b.name : "Untitled Paper Bundle"
 
 		if (!b.pages || !b.pages.len)
@@ -457,7 +457,7 @@ proc/api_update_command_database()
 			return 1
 
 		var/i = 0
-		for (var/obj/item/weapon/paper/c in b.pages)
+		for (var/obj/item/paper/c in b.pages)
 			i++
 			var/content = replacetext(c.info, "<br>", "\n")
 			content = strip_html_properly(content, 0)
@@ -958,7 +958,7 @@ proc/api_update_command_database()
 
 /datum/topic_command/send_fax/proc/send_fax(var/obj/machinery/photocopier/faxmachine/F, title, body, senderkey)
 	// Create the reply message
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
+	var/obj/item/paper/P = new /obj/item/paper( null ) //hopefully the null loc won't cause trouble for us
 	P.name = "[current_map.boss_name] - [title]"
 	P.info = body
 	P.update_icon()
@@ -968,7 +968,7 @@ proc/api_update_command_database()
 	stampoverlay.icon_state = "paper_stamp-cent"
 	if(!P.stamped)
 		P.stamped = new
-	P.stamped += /obj/item/weapon/stamp
+	P.stamped += /obj/item/stamp
 	P.overlays += stampoverlay
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 

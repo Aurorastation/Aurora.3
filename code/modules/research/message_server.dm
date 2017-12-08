@@ -77,7 +77,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 
 /obj/machinery/message_server/Destroy()
 	message_servers -= src
-	
+
 	return ..()
 
 /obj/machinery/message_server/proc/GenerateKey()
@@ -143,9 +143,9 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 
 	return
 
-/obj/machinery/message_server/attackby(obj/item/weapon/O as obj, mob/living/user as mob)
+/obj/machinery/message_server/attackby(obj/item/O as obj, mob/living/user as mob)
 	if (active && !(stat & (BROKEN|NOPOWER)) && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
-		istype(O,/obj/item/weapon/circuitboard/message_monitor))
+		istype(O,/obj/item/circuitboard/message_monitor))
 		spamfilter_limit += round(MESSAGE_SERVER_DEFAULT_SPAM_LIMIT / 2)
 		user.drop_item()
 		qdel(O)
@@ -172,7 +172,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 100
-	
+
 	// Note: actual logging has been moved to SSfeedback.
 
 	//Only one can exist in the world!

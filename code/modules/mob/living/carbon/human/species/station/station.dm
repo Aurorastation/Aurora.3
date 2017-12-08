@@ -426,7 +426,7 @@
 
 
 	brute_mod = 1.0
-	burn_mod = 1.2 
+	burn_mod = 1.2
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 	death_message = "gives one shrill beep before falling lifeless."
 	knockout_message = "encounters a hardware fault and suddenly reboots!"
@@ -638,7 +638,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		/datum/unarmed_attack/claws,
 		/datum/unarmed_attack/bite/sharp
 	)
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/bug
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
 	rarity_value = 4
 	slowdown = 1
 	darksight = 8 //USELESS

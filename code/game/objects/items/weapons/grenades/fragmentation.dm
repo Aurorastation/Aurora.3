@@ -38,7 +38,7 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 	no_attack_log = 1
 	muzzle_type = null
 
-/obj/item/weapon/grenade/frag
+/obj/item/grenade/frag
 	name = "fragmentation grenade"
 	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments."
 	icon_state = "frag"
@@ -51,7 +51,7 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
 	var/spread_range = 7
 
-/obj/item/weapon/grenade/frag/prime()
+/obj/item/grenade/frag/prime()
 	set waitfor = 0
 	..()
 

@@ -1,4 +1,4 @@
-/obj/item/weapon/plastique
+/obj/item/plastique
 	name = "plastic explosives"
 	desc = "Used to put holes in specific areas without too much extra hole."
 	gender = PLURAL
@@ -14,17 +14,17 @@
 	var/open_panel = 0
 	var/image_overlay = null
 
-/obj/item/weapon/plastique/Initialize()
+/obj/item/plastique/Initialize()
 	. = ..()
 	wires = new(src)
 	image_overlay = image('icons/obj/assemblies.dmi', "plastic-explosive2")
 
-/obj/item/weapon/plastique/Destroy()
+/obj/item/plastique/Destroy()
 	qdel(wires)
 	wires = null
 	return ..()
 
-/obj/item/weapon/plastique/attackby(var/obj/item/I, var/mob/user)
+/obj/item/plastique/attackby(var/obj/item/I, var/mob/user)
 	if(isscrewdriver(I))
 		open_panel = !open_panel
 		user << "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>"
@@ -33,17 +33,17 @@
 	else
 		..()
 
-/obj/item/weapon/plastique/attack_self(mob/user as mob)
+/obj/item/plastique/attack_self(mob/user as mob)
 	var/newtime = input(usr, "Please set the timer.", "Timer", 10) as num
 	if(user.get_active_hand() == src)
 		newtime = Clamp(newtime, 10, 60000)
 		timer = newtime
 		user << "Timer set for [timer] seconds."
 
-/obj/item/weapon/plastique/afterattack(atom/movable/target, mob/user, flag)
+/obj/item/plastique/afterattack(atom/movable/target, mob/user, flag)
 	if (!flag)
 		return
-	if (ismob(target) || istype(target, /turf/unsimulated) || istype(target, /turf/simulated/shuttle)|| isopenturf(target) || istype(target, /obj/item/weapon/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
+	if (ismob(target) || istype(target, /turf/unsimulated) || istype(target, /turf/simulated/shuttle)|| isopenturf(target) || istype(target, /obj/item/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
 		return
 	user << "Planting explosives..."
 	user.do_attack_animation(target)
@@ -62,13 +62,13 @@
 		else
 			message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted [src.name] on [target.name] at ([target.x],[target.y],[target.z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>) with [timer] second fuse",0,1)
 			log_game("[key_name(user)] planted [src.name] on [target.name] at ([target.x],[target.y],[target.z]) with [timer] second fuse",ckey=key_name(user))
-		
+
 		target.add_overlay(image_overlay, TRUE)
 		user << "Bomb has been planted. Timer counting down from [timer]."
 
 		addtimer(CALLBACK(src, .proc/explode, get_turf(target)), timer * 10)
 
-/obj/item/weapon/plastique/proc/explode(turf/location)
+/obj/item/plastique/proc/explode(turf/location)
 	target.cut_overlay(image_overlay, TRUE)
 
 	if(!target)
@@ -90,5 +90,5 @@
 		target.overlays -= image_overlay
 	qdel(src)
 
-/obj/item/weapon/plastique/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/plastique/attack(mob/M as mob, mob/user as mob, def_zone)
 	return

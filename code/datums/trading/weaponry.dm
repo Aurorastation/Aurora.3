@@ -18,23 +18,23 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/gun/projectile/pistol               = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/colt                 = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/sec                  = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/shotgun/pump         = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/shotgun/doublebarrel = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/tanto                = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/deckard     = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/pistol               = TRADER_ALL,
+		/obj/item/gun/projectile/colt                 = TRADER_ALL,
+		/obj/item/gun/projectile/sec                  = TRADER_ALL,
+		/obj/item/gun/projectile/shotgun/pump         = TRADER_ALL,
+		/obj/item/gun/projectile/shotgun/doublebarrel = TRADER_ALL,
+		/obj/item/gun/projectile/tanto                = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/revolver/deckard     = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c45m                         = TRADER_ALL,
 		/obj/item/ammo_magazine/c45m/empty                   = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/shotgun                      = TRADER_ALL,
 		/obj/item/ammo_magazine/t40                          = TRADER_ALL,
 		/obj/item/ammo_magazine/t40/empty                    = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/c38                          = TRADER_ALL,
-		/obj/item/weapon/storage/box/beanbags                = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/box/shotgunammo             = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/box/shotgunshells           = TRADER_THIS_TYPE,
+		/obj/item/storage/box/beanbags                = TRADER_THIS_TYPE,
+		/obj/item/storage/box/shotgunammo             = TRADER_THIS_TYPE,
+		/obj/item/storage/box/shotgunshells           = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster                 = TRADER_ALL
 	)
 
@@ -58,15 +58,15 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/gun/energy/taser         = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/stunrevolver  = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/xray          = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/rifle         = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/rifle/laser   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/gun           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/pistol        = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/gun/nuclear   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/laser/shotgun = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/taser         = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/stunrevolver  = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/xray          = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/rifle         = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/rifle/laser   = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/gun           = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/pistol        = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/gun/nuclear   = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/laser/shotgun = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster      = TRADER_ALL
 	)
 
@@ -88,19 +88,19 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/gun/projectile/boltaction         = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/dragunov           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/silenced           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/automatic/tommygun = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/automatic/mini_uzi = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/improvised_handgun = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/shotgun/improvised = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/retro                  = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/derringer = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/pirate             = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/contender          = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/lemat     = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/boltaction/vintage = TRADER_THIS_TYPE
+		/obj/item/gun/projectile/boltaction         = TRADER_ALL,
+		/obj/item/gun/projectile/dragunov           = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/silenced           = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/automatic/tommygun = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/automatic/mini_uzi = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/improvised_handgun = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/shotgun/improvised = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/retro                  = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/revolver/derringer = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/pirate             = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/contender          = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/revolver/lemat     = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/boltaction/vintage = TRADER_THIS_TYPE
 	)
 
 
@@ -140,6 +140,6 @@
 		/obj/item/clothing/shoes/swat                             = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/tactical                         = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/tactical                      = TRADER_THIS_TYPE,
-		/obj/item/weapon/shield/riot/tact                         = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/belt/security/tactical           = TRADER_THIS_TYPE
+		/obj/item/shield/riot/tact                         = TRADER_THIS_TYPE,
+		/obj/item/storage/belt/security/tactical           = TRADER_THIS_TYPE
 	)

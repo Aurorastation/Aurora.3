@@ -1,4 +1,4 @@
-/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans
+/obj/item/reagent_containers/chem_disp_cartridge/coffee_beans
 	name = "A jar of Coffee Beans "
 	desc = "This goes into a coffee maker!"
 	label = "Spesscafe Dark Blend"

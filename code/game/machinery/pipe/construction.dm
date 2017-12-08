@@ -208,101 +208,101 @@ Buildable meters
 /obj/item/pipe/proc/update()
 	var/list/nlist = list(
 		"pipe",
-		"bent pipe", 
+		"bent pipe",
 		"h/e pipe",
 		"bent h/e pipe",
 		"connector",
-		"manifold", 
-		"junction", 
-		"uvent", 
-		"mvalve", 
-		"pump", 
-		"scrubber", 
-		"insulated pipe", 
-		"bent insulated pipe", 
-		"gas filter", 
-		"gas mixer", 
-		"pressure regulator", 
-		"high power pump", 
-		"heat exchanger", 
-		"t-valve", 
-		"4-way manifold", 
-		"pipe cap", 
+		"manifold",
+		"junction",
+		"uvent",
+		"mvalve",
+		"pump",
+		"scrubber",
+		"insulated pipe",
+		"bent insulated pipe",
+		"gas filter",
+		"gas mixer",
+		"pressure regulator",
+		"high power pump",
+		"heat exchanger",
+		"t-valve",
+		"4-way manifold",
+		"pipe cap",
 ///// Z-Level stuff
-		"pipe up", 
-		"pipe down", 
+		"pipe up",
+		"pipe down",
 ///// Z-Level stuff
-		"gas filter m", 
-		"gas mixer t", 
-		"gas mixer m", 
-		"omni mixer", 
-		"omni filter", 
+		"gas filter m",
+		"gas mixer t",
+		"gas mixer m",
+		"omni mixer",
+		"omni filter",
 ///// Supply and scrubbers pipes
-		"universal pipe adapter", 
-		"supply pipe", 
-		"bent supply pipe", 
-		"scrubbers pipe", 
-		"bent scrubbers pipe", 
-		"supply manifold", 
-		"scrubbers manifold", 
-		"supply 4-way manifold", 
-		"scrubbers 4-way manifold", 
-		"supply pipe up", 
-		"scrubbers pipe up", 
-		"supply pipe down", 
-		"scrubbers pipe down", 
-		"supply pipe cap", 
-		"scrubbers pipe cap", 
+		"universal pipe adapter",
+		"supply pipe",
+		"bent supply pipe",
+		"scrubbers pipe",
+		"bent scrubbers pipe",
+		"supply manifold",
+		"scrubbers manifold",
+		"supply 4-way manifold",
+		"scrubbers 4-way manifold",
+		"supply pipe up",
+		"scrubbers pipe up",
+		"supply pipe down",
+		"scrubbers pipe down",
+		"supply pipe cap",
+		"scrubbers pipe cap",
 		"t-valve m"
 	)
 	name = nlist[pipe_type+1] + " fitting"
-	var/list/islist = list( 
-		"simple", 
-		"simple", 
-		"he", 
-		"he", 
-		"connector", 
-		"manifold", 
-		"junction", 
-		"uvent", 
-		"mvalve", 
-		"pump", 
-		"scrubber", 
-		"insulated", 
-		"insulated", 
-		"filter", 
-		"mixer", 
-		"passivegate", 
-		"volumepump", 
-		"heunary", 
-		"mtvalve", 
-		"manifold4w", 
-		"cap", 
+	var/list/islist = list(
+		"simple",
+		"simple",
+		"he",
+		"he",
+		"connector",
+		"manifold",
+		"junction",
+		"uvent",
+		"mvalve",
+		"pump",
+		"scrubber",
+		"insulated",
+		"insulated",
+		"filter",
+		"mixer",
+		"passivegate",
+		"volumepump",
+		"heunary",
+		"mtvalve",
+		"manifold4w",
+		"cap",
 ///// Z-Level stuff
-		"cap", 
-		"cap", 
+		"cap",
+		"cap",
 ///// Z-Level stuff
-		"m_filter", 
-		"t_mixer", 
-		"m_mixer", 
-		"omni_mixer", 
-		"omni_filter", 
+		"m_filter",
+		"t_mixer",
+		"m_mixer",
+		"omni_mixer",
+		"omni_filter",
 ///// Supply and scrubbers pipes
-		"universal", 
-		"simple", 
-		"simple", 
-		"simple", 
-		"simple", 
-		"manifold", 
-		"manifold", 
-		"manifold4w", 
-		"manifold4w", 
-		"cap", 
-		"cap", 
-		"cap", 
-		"cap", 
-		"cap", 
-		"cap", 
+		"universal",
+		"simple",
+		"simple",
+		"simple",
+		"simple",
+		"manifold",
+		"manifold",
+		"manifold4w",
+		"manifold4w",
+		"cap",
+		"cap",
+		"cap",
+		"cap",
+		"cap",
+		"cap",
 		"mtvalvem"
 	)
 	icon_state = islist[pipe_type + 1]
@@ -359,16 +359,16 @@ Buildable meters
 	var/acw = turn(dir, 90)
 
 	switch(pipe_type)
-		if(	PIPE_SIMPLE_STRAIGHT, 
+		if(	PIPE_SIMPLE_STRAIGHT,
 			PIPE_INSULATED_STRAIGHT,
-			PIPE_HE_STRAIGHT, 
+			PIPE_HE_STRAIGHT,
 			PIPE_JUNCTION ,
 			PIPE_PUMP ,
 			PIPE_VOLUME_PUMP ,
 			PIPE_PASSIVE_GATE ,
-			PIPE_MVALVE, 
-			PIPE_SUPPLY_STRAIGHT, 
-			PIPE_SCRUBBERS_STRAIGHT, 
+			PIPE_MVALVE,
+			PIPE_SUPPLY_STRAIGHT,
+			PIPE_SCRUBBERS_STRAIGHT,
 			PIPE_UNIVERSAL
 		)
 			return dir|flip
@@ -429,12 +429,12 @@ Buildable meters
 /obj/item/pipe/attack_self(mob/user as mob)
 	return rotate()
 
-/obj/item/pipe/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/item/pipe/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	..()
 	//*
-	if (!iswrench(W) && !istype(W, /obj/item/weapon/pipewrench))
+	if (!iswrench(W) && !istype(W, /obj/item/pipewrench))
 		return ..()
-	if(istype(W, /obj/item/weapon/pipewrench))
+	if(istype(W, /obj/item/pipewrench))
 		var/action = alert(user, "Change pipe?", "Change pipe", "Yes", "No")
 		if(action == "Yes")
 			action = alert(user, "Change pipe type?", "Change pipe", "Yes", "No")
@@ -457,7 +457,7 @@ Buildable meters
 				else
 					user << "<span class='warning'>You can not change this pipe!</span>"
 					return
-		
+
 			else if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SIMPLE_BENT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SCRUBBERS_BENT, PIPE_SUPPLY_BENT, PIPE_SUPPLY_STRAIGHT))
 				if(pipe_type in list(PIPE_SIMPLE_BENT, PIPE_SIMPLE_STRAIGHT))
 					if(PIPE_SIMPLE_BENT)
@@ -475,7 +475,7 @@ Buildable meters
 					else
 						pipe_type = PIPE_SIMPLE_STRAIGHT
 			update()
-	
+
 	if (!isturf(src.loc))
 		return 1
 	if (pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_HE_STRAIGHT, PIPE_INSULATED_STRAIGHT, PIPE_MVALVE))
@@ -1204,7 +1204,7 @@ Buildable meters
 	item_state = "buildpipe"
 	w_class = 4
 
-/obj/item/pipe_meter/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/item/pipe_meter/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	..()
 
 	if (!iswrench(W))

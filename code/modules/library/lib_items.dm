@@ -22,16 +22,16 @@
 /obj/structure/bookcase/Initialize()
 	. = ..()
 	for(var/obj/item/I in loc)
-		if(istype(I, /obj/item/weapon/book))
+		if(istype(I, /obj/item/book))
 			I.loc = src
 	update_icon()
 
 /obj/structure/bookcase/attackby(obj/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/weapon/book))
+	if(istype(O, /obj/item/book))
 		user.drop_item()
 		O.loc = src
 		update_icon()
-	else if(istype(O, /obj/item/weapon/pen))
+	else if(istype(O, /obj/item/pen))
 		var/newname = sanitizeSafe(input("What would you like to title this bookshelf?"), MAX_NAME_LEN)
 		if(!newname)
 			return
@@ -47,7 +47,7 @@
 		if(do_after(user,25))
 			user << "<span class='notice'>You dismantle \the [src].</span>"
 			new /obj/item/stack/material/wood(get_turf(src), 3)
-			for(var/obj/item/weapon/book/b in contents)
+			for(var/obj/item/book/b in contents)
 				b.loc = (get_turf(src))
 			qdel(src)
 
@@ -56,7 +56,7 @@
 
 /obj/structure/bookcase/attack_hand(var/mob/user as mob)
 	if(contents.len)
-		var/obj/item/weapon/book/choice = input("Which book would you like to remove from the shelf?") as null|obj in contents
+		var/obj/item/book/choice = input("Which book would you like to remove from the shelf?") as null|obj in contents
 		if(choice)
 			if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
 				return
@@ -70,19 +70,19 @@
 /obj/structure/bookcase/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			for(var/obj/item/weapon/book/b in contents)
+			for(var/obj/item/book/b in contents)
 				qdel(b)
 			qdel(src)
 			return
 		if(2.0)
-			for(var/obj/item/weapon/book/b in contents)
+			for(var/obj/item/book/b in contents)
 				if (prob(50)) b.loc = (get_turf(src))
 				else qdel(b)
 			qdel(src)
 			return
 		if(3.0)
 			if (prob(50))
-				for(var/obj/item/weapon/book/b in contents)
+				for(var/obj/item/book/b in contents)
 					b.loc = (get_turf(src))
 				qdel(src)
 			return
@@ -102,10 +102,10 @@
 
 	New()
 		..()
-		new /obj/item/weapon/book/manual/medical_cloning(src)
-		new /obj/item/weapon/book/manual/medical_diagnostics_manual(src)
-		new /obj/item/weapon/book/manual/medical_diagnostics_manual(src)
-		new /obj/item/weapon/book/manual/medical_diagnostics_manual(src)
+		new /obj/item/book/manual/medical_cloning(src)
+		new /obj/item/book/manual/medical_diagnostics_manual(src)
+		new /obj/item/book/manual/medical_diagnostics_manual(src)
+		new /obj/item/book/manual/medical_diagnostics_manual(src)
 		update_icon()
 
 
@@ -114,13 +114,13 @@
 
 	New()
 		..()
-		new /obj/item/weapon/book/manual/engineering_construction(src)
-		new /obj/item/weapon/book/manual/engineering_particle_accelerator(src)
-		new /obj/item/weapon/book/manual/engineering_hacking(src)
-		new /obj/item/weapon/book/manual/engineering_guide(src)
-		new /obj/item/weapon/book/manual/atmospipes(src)
-		new /obj/item/weapon/book/manual/engineering_singularity_safety(src)
-		new /obj/item/weapon/book/manual/evaguide(src)
+		new /obj/item/book/manual/engineering_construction(src)
+		new /obj/item/book/manual/engineering_particle_accelerator(src)
+		new /obj/item/book/manual/engineering_hacking(src)
+		new /obj/item/book/manual/engineering_guide(src)
+		new /obj/item/book/manual/atmospipes(src)
+		new /obj/item/book/manual/engineering_singularity_safety(src)
+		new /obj/item/book/manual/evaguide(src)
 		update_icon()
 
 /obj/structure/bookcase/manuals/research_and_development
@@ -128,14 +128,14 @@
 
 	New()
 		..()
-		new /obj/item/weapon/book/manual/research_and_development(src)
+		new /obj/item/book/manual/research_and_development(src)
 		update_icon()
 
 
 /*
  * Book
  */
-/obj/item/weapon/book
+/obj/item/book
 	name = "book"
 	icon = 'icons/obj/library.dmi'
 	icon_state ="book"
@@ -151,7 +151,7 @@
 	var/carved = 0	 // Has the book been hollowed out for use as a secret storage item?
 	var/obj/item/store	//What's in the book?
 
-/obj/item/weapon/book/attack_self(var/mob/user as mob)
+/obj/item/book/attack_self(var/mob/user as mob)
 	if(carved)
 		if(store)
 			user << "<span class='notice'>[store] falls out of [title]!</span>"
@@ -168,7 +168,7 @@
 	else
 		user << "This book is completely blank!"
 
-/obj/item/weapon/book/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/book/attackby(obj/item/W as obj, mob/user as mob)
 	if(carved)
 		if(!store)
 			if(W.w_class < 3)
@@ -183,7 +183,7 @@
 		else
 			user << "<span class='notice'>There's already something in [title]!</span>"
 			return
-	if(istype(W, /obj/item/weapon/pen))
+	if(istype(W, /obj/item/pen))
 		if(unique)
 			user << "These pages don't seem to take the ink well. Looks like you can't modify it."
 			return
@@ -213,8 +213,8 @@
 					src.author = newauthor
 			else
 				return
-	else if(istype(W, /obj/item/weapon/barcodescanner))
-		var/obj/item/weapon/barcodescanner/scanner = W
+	else if(istype(W, /obj/item/barcodescanner))
+		var/obj/item/barcodescanner/scanner = W
 		if(!scanner.computer)
 			user << "[W]'s screen flashes: 'No associated computer found!'"
 		else
@@ -236,13 +236,13 @@
 					user << "[W]'s screen flashes: 'Book stored in buffer. No active check-out record found for current title.'"
 				if(3)
 					scanner.book = src
-					for(var/obj/item/weapon/book in scanner.computer.inventory)
+					for(var/obj/item/book in scanner.computer.inventory)
 						if(book == src)
 							user << "[W]'s screen flashes: 'Book stored in buffer. Title already present in inventory, aborting to avoid duplicate entry.'"
 							return
 					scanner.computer.inventory.Add(src)
 					user << "[W]'s screen flashes: 'Book stored in buffer. Title added to general inventory.'"
-	else if(istype(W, /obj/item/weapon/material/knife) || iswirecutter(W))
+	else if(istype(W, /obj/item/material/knife) || iswirecutter(W))
 		if(carved)	return
 		user << "<span class='notice'>You begin to carve out [title].</span>"
 		if(do_after(user, 30))
@@ -252,7 +252,7 @@
 	else
 		..()
 
-/obj/item/weapon/book/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+/obj/item/book/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(target_zone == "eyes")
 		user.visible_message("<span class='notice'>You open up the book and show it to [M]. </span>", \
 			"<span class='notice'> [user] opens up a book and shows it to [M]. </span>")
@@ -263,7 +263,7 @@
 /*
  * Barcode Scanner
  */
-/obj/item/weapon/barcodescanner
+/obj/item/barcodescanner
 	name = "barcode scanner"
 	icon = 'icons/obj/library.dmi'
 	icon_state ="scanner"
@@ -271,7 +271,7 @@
 	throw_range = 5
 	w_class = 2.0
 	var/obj/machinery/librarycomp/computer // Associated computer - Modes 1 to 3 use this
-	var/obj/item/weapon/book/book	 //  Currently scanned book
+	var/obj/item/book/book	 //  Currently scanned book
 	var/mode = 0 					// 0 - Scan only, 1 - Scan and Set Buffer, 2 - Scan and Attempt to Check In, 3 - Scan and Attempt to Add to Inventory
 
 	attack_self(mob/user as mob)

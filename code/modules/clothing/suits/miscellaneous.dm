@@ -15,7 +15,7 @@
 	item_state = "bluetag"
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/weapon/gun/energy/lasertag/blue)
+	allowed = list (/obj/item/gun/energy/lasertag/blue)
 	siemens_coefficient = 3.0
 
 /obj/item/clothing/suit/redtag
@@ -25,7 +25,7 @@
 	item_state = "redtag"
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/weapon/gun/energy/lasertag/red)
+	allowed = list (/obj/item/gun/energy/lasertag/red)
 	siemens_coefficient = 3.0
 
 /*
@@ -86,7 +86,7 @@
 	icon_state = "judge"
 	item_state = "judge"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/spacecash)
+	allowed = list(/obj/item/storage/fancy/cigarettes,/obj/item/spacecash)
 	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/wcoat
@@ -103,7 +103,7 @@
 	item_state = "space_suit_syndicate"
 	desc = "A plastic replica of the syndicate space suit, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
 	w_class = 3
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/toy)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
@@ -305,7 +305,7 @@
 	item_state = "black_hoodie"
 	icon_open = "black_hoodie_open"
 	icon_closed = "black_hoodie"
-	
+
 /obj/item/clothing/suit/storage/toggle/tracksuit
 	name = "track jacket"
 	desc = "An athletic black and white track jacket."
@@ -345,14 +345,14 @@
 	item_state = "flannel_gray"
 	icon_open = "flannel_gray_open"
 	icon_closed = "flannel_gray"
-	
+
 /obj/item/clothing/suit/storage/toggle/flannel/purple
 	name = "purple flannel shirt"
 	icon_state = "flannel_purple"
 	item_state = "flannel_purple"
 	icon_open = "flannel_purple_open"
 	icon_closed = "flannel_purple"
-	
+
 /obj/item/clothing/suit/storage/toggle/flannel/yellow
 	name = "yellow flannel shirt"
 	icon_state = "flannel_yellow"
@@ -367,7 +367,7 @@
 	item_state = "trench"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
-	
+
 /obj/item/clothing/suit/storage/trench/grey
 	name = "grey trenchcoat"
 	icon_state = "trench2"

@@ -17,7 +17,7 @@
 		return
 	owner.setClickCooldown(5) // Spam prevention, essentially.
 	owner.visible_message("<span class='danger'>\The [owner] pulls the trigger reflexively!</span>")
-	var/obj/item/weapon/gun/G = aiming_with
+	var/obj/item/gun/G = aiming_with
 	if(istype(G))
 		G.Fire(aiming_at, owner)
 	cancel_aiming()//if you can't remove it, nerf it
@@ -25,7 +25,7 @@
 	toggle_active()
 	if (owner.client)
 		owner.client.remove_gun_icons()
-	
+
 /mob/living/ClickOn(var/atom/A, var/params)
 	. = ..()
 	trigger_aiming(TARGET_CAN_CLICK)

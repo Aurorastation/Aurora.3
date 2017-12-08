@@ -11,7 +11,7 @@
 	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
 	//var/m_type = 1
 
-	for (var/obj/item/weapon/implant/I in src)
+	for (var/obj/item/implant/I in src)
 		if (I.implanted)
 			I.trigger(act, src)
 
@@ -649,7 +649,7 @@
 					message = "buzzes."
 				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 				m_type = 1
-		
+
 		if("vomit")
 			if (!check_has_mouth(src))
 				src << "<span class='warning'>You are unable to vomit.</span>"

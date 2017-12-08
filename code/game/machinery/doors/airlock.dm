@@ -30,7 +30,7 @@
 	var/justzap = 0
 	var/safe = 1
 	normalspeed = 1
-	var/obj/item/weapon/airlock_electronics/electronics = null
+	var/obj/item/airlock_electronics/electronics = null
 	var/hasShocked = 0 //Prevents multiple shocks from happening
 	var/secured_wires = 0
 	var/datum/wires/airlock/wires = null
@@ -763,7 +763,7 @@ About the new airlock wires panel:
 				return
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		
+
 		if(H.getBrainLoss() >= 50)
 			if(prob(40) && src.density)
 				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
@@ -777,7 +777,7 @@ About the new airlock wires panel:
 				else
 					user.visible_message("<span class='warning'>[user] headbutts the airlock. Good thing they're wearing a helmet.</span>")
 				return
-		
+
 		if(H.species.can_shred(H))
 
 			if(!src.density)
@@ -893,7 +893,7 @@ About the new airlock wires panel:
 		newbracer.attachto(src, user)
 		return
 	if(!repairing && (iswelder(C) && !( src.operating > 0 ) && src.density))
-		var/obj/item/weapon/weldingtool/W = C
+		var/obj/item/weldingtool/W = C
 		if(W.remove_fuel(0,user))
 			if(!src.welded)
 				src.welded = 1
@@ -919,8 +919,8 @@ About the new airlock wires panel:
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
-	else if(istype(C, /obj/item/weapon/pai_cable))	// -- TLE
-		var/obj/item/weapon/pai_cable/cable = C
+	else if(istype(C, /obj/item/pai_cable))	// -- TLE
+		var/obj/item/pai_cable/cable = C
 		cable.plugin(src, user)
 	else if(!repairing && iscrowbar(C))
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && (!src.locked || (stat & BROKEN)))) )
@@ -943,7 +943,7 @@ About the new airlock wires panel:
 				da.created_name = src.name
 				da.update_state()
 				if(operating == -1 || (stat & BROKEN))
-					new /obj/item/weapon/circuitboard/broken(src.loc)
+					new /obj/item/circuitboard/broken(src.loc)
 					operating = 0
 				else
 					if (!electronics) create_electronics()
@@ -961,25 +961,25 @@ About the new airlock wires panel:
 			else
 				close(1)
 
-	else if(istype(C, /obj/item/weapon/material/twohanded/fireaxe) && !arePowerSystemsOn())
+	else if(istype(C, /obj/item/material/twohanded/fireaxe) && !arePowerSystemsOn())
 		if(locked)
 			user << "<span class='notice'>The airlock's bolts prevent it from being forced.</span>"
 		else if( !welded && !operating )
 			if(density)
 
-				var/obj/item/weapon/material/twohanded/fireaxe/F = C
+				var/obj/item/material/twohanded/fireaxe/F = C
 				if(F.wielded)
 					open(1)
 				else
 					user << "<span class='warning'>You need to be wielding \the [C] to do that.</span>"
 			else
-				var/obj/item/weapon/material/twohanded/fireaxe/F = C
+				var/obj/item/material/twohanded/fireaxe/F = C
 				if(F.wielded)
 					close(1)
 				else
 					user << "<span class='warning'>You need to be wielding \the [C] to do that.</span>"
 
-	else if(istype(C, /obj/item/weapon/melee/hammer) && !arePowerSystemsOn())
+	else if(istype(C, /obj/item/melee/hammer) && !arePowerSystemsOn())
 		if(locked)
 			user << "<span class='notice'>The airlock's bolts prevent it from being forced.</span>"
 		else if( !welded && !operating )
@@ -1226,9 +1226,9 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/create_electronics()
 	//create new electronics
 	if (secured_wires)
-		src.electronics = new/obj/item/weapon/airlock_electronics/secure( src.loc )
+		src.electronics = new/obj/item/airlock_electronics/secure( src.loc )
 	else
-		src.electronics = new/obj/item/weapon/airlock_electronics( src.loc )
+		src.electronics = new/obj/item/airlock_electronics( src.loc )
 
 	//update the electronics to match the door's access
 	if(!src.req_access)

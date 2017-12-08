@@ -8,12 +8,12 @@
 	icon_state = "syndie_bloodhound"
 	lawchannel = "State"
 	lawpreset = /datum/ai_laws/syndicate_override
-	idcard_type = /obj/item/weapon/card/id/syndicate
-	spawn_module = /obj/item/weapon/robot_module/syndicate
+	idcard_type = /obj/item/card/id/syndicate
+	spawn_module = /obj/item/robot_module/syndicate
 	key_type = /obj/item/device/encryptionkey/syndicate
 	spawn_sound = 'sound/mecha/nominalsyndi.ogg'
 	pitch_toggle = 0
-	cell_type = /obj/item/weapon/cell/super
+	cell_type = /obj/item/cell/super
 	req_access = list(access_syndicate)
 	faction = "syndicate"
 	braintype = "Cyborg"
@@ -21,7 +21,7 @@
 /mob/living/silicon/robot/syndicate/init()
 	..()
 	if(!jetpack)
-		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
+		jetpack = new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 
 /mob/living/silicon/robot/syndicate/Initialize()
 	. = ..()
@@ -59,7 +59,7 @@
 
 //syndicate borg gear
 
-/obj/item/weapon/gun/energy/mountedsmg
+/obj/item/gun/energy/mountedsmg
 	name = "mounted SMG"
 	desc = "A cyborg mounted sub machine gun, it can print more bullets over time."
 	icon_state = "lawgiver" //placeholder for now
@@ -78,33 +78,33 @@
 		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(0.6, 1.0, 1.0, 1.0, 1.2))
 		)
 
-/obj/item/weapon/gun/energy/crossbow/cyborg
+/obj/item/gun/energy/crossbow/cyborg
 	name = "mounted energy-crossbow"
 	desc = "A weapon favored by mercenary infiltration teams, this one is suited to be used by cyborgs."
 	max_shots = 4
 	charge_cost = 200
 	use_external_power = 1
 
-/obj/item/weapon/gun/launcher/grenade/cyborg
+/obj/item/gun/launcher/grenade/cyborg
 	name = "grenade launcher"
 	desc = "A bulky pump-action grenade launcher. Loaded with 3 frag grenades."
 
-/obj/item/weapon/gun/launcher/grenade/cyborg/Initialize()
+/obj/item/gun/launcher/grenade/cyborg/Initialize()
 	. = ..()
 
 	grenades = list(
-		new /obj/item/weapon/grenade/frag(src),
-		new /obj/item/weapon/grenade/frag(src),
-		new /obj/item/weapon/grenade/frag(src)
+		new /obj/item/grenade/frag(src),
+		new /obj/item/grenade/frag(src),
+		new /obj/item/grenade/frag(src)
 	)
 
-/obj/item/weapon/robot_emag
+/obj/item/robot_emag
 	desc = "It's a card with a magnetic strip attached to some circuitry, this one is modified to be used by a cyborg."
 	name = "cryptographic sequencer"
 	icon = 'icons/obj/card.dmi'
 	icon_state = "emag"
 
-/obj/item/weapon/robot_emag/afterattack(var/atom/target, var/mob/living/user, proximity) //possible spaghetti code, but should work
+/obj/item/robot_emag/afterattack(var/atom/target, var/mob/living/user, proximity) //possible spaghetti code, but should work
 	if(!target)
 		return
 	if(!proximity)

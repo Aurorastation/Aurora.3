@@ -9,7 +9,7 @@
 	idle_power_usage = 50
 	has_special_power_checks = TRUE
 	var/mob/occupant = null
-	var/obj/item/weapon/cell/cell = null
+	var/obj/item/cell/cell = null
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks
 	var/charging = 0
 	var/charging_efficiency = 0.85//Multiplier applied to all operations of giving power to cells, represents entropy. Efficiency increases with upgrades
@@ -23,10 +23,10 @@
 	var/wire_power_use = 500	// power used per point of burn damage repaired.
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/recharge_station,
-		/obj/item/weapon/stock_parts/manipulator = 2,
-		/obj/item/weapon/stock_parts/capacitor = 2,
-		/obj/item/weapon/cell/high,
+		/obj/item/circuitboard/recharge_station,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stock_parts/capacitor = 2,
+		/obj/item/cell/high,
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
@@ -146,12 +146,12 @@
 	var/man_rating = 0
 	var/cap_rating = 0
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts)
 		if(iscapacitor(P))
 			cap_rating += P.rating
 		else if(ismanipulator(P))
 			man_rating += P.rating
-	cell = locate(/obj/item/weapon/cell) in component_parts
+	cell = locate(/obj/item/cell) in component_parts
 
 	charging_efficiency = 0.85 + 0.015 * cap_rating
 	charging_power = 30000 + 12000 * cap_rating

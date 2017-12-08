@@ -65,7 +65,7 @@
 
 /obj/item/modular_computer/Destroy()
 	kill_program(1)
-	for(var/obj/item/weapon/computer_hardware/CH in src.get_all_components())
+	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
 	STOP_PROCESSING(SSprocessing, src)
@@ -91,7 +91,7 @@
 				holographic_overlay(src, src.icon, icon_state_screensaver)
 			else
 				add_overlay(icon_state_screensaver)
-		
+
 		if (screensaver_light_range && working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
 		else

@@ -7,12 +7,12 @@
 /datum/uplink_item/item/visible_weapons/dartgun
 	name = "Dart Gun"
 	item_cost = 5
-	path = /obj/item/weapon/gun/projectile/dartgun
+	path = /obj/item/gun/projectile/dartgun
 
 /datum/uplink_item/item/visible_weapons/crossbow
 	name = "Energy Crossbow"
 	item_cost = 6
-	path = /obj/item/weapon/gun/energy/crossbow
+	path = /obj/item/gun/energy/crossbow
 
 /datum/uplink_item/item/visible_weapons/forcegloves
 	name = "Force Gloves"
@@ -22,12 +22,12 @@
 /datum/uplink_item/item/visible_weapons/energy_sword
 	name = "Energy Sword"
 	item_cost = 8
-	path = /obj/item/weapon/melee/energy/sword
+	path = /obj/item/melee/energy/sword
 
 /datum/uplink_item/item/visible_weapons/g9mm
 	name = "Silenced 9mm"
 	item_cost = 8
-	path = /obj/item/weapon/storage/box/syndie_kit/g9mm
+	path = /obj/item/storage/box/syndie_kit/g9mm
 
 /datum/uplink_item/item/visible_weapons/riggedlaser
 	name = "Exosuit (APLU) Rigged Laser"
@@ -37,19 +37,19 @@
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"
 	item_cost = 10
-	path = /obj/item/weapon/melee/hammer
-	
+	path = /obj/item/melee/hammer
+
 /datum/uplink_item/item/visible_weapons/revolver
 	name = "Revolver"
 	item_cost = 12
-	path = /obj/item/weapon/gun/projectile/revolver
+	path = /obj/item/gun/projectile/revolver
 
 /datum/uplink_item/item/visible_weapons/submachinegun
 	name = "Tommy Gun"
 	item_cost = 14
-	path = /obj/item/weapon/gun/projectile/automatic/tommygun
+	path = /obj/item/gun/projectile/automatic/tommygun
 
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
-	path = /obj/item/weapon/gun/projectile/heavysniper
+	path = /obj/item/gun/projectile/heavysniper

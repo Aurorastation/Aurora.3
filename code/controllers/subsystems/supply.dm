@@ -79,7 +79,7 @@ var/datum/controller/subsystem/cargo/SScargo
 
 
 /*
-	Loading Data 
+	Loading Data
 */
 //Reset cargo to prep for loading in new items
 /datum/controller/subsystem/cargo/proc/reset_cargo()
@@ -207,7 +207,7 @@ var/datum/controller/subsystem/cargo/SScargo
 				var/datum/cargo_supplier/cs = get_supplier_by_name(sup)
 				if(!cs)
 					log_debug("SSCargo: [sup] is not a valid supplier")
-				
+
 				//Setting the supplier
 				ci.suppliers[sup]["supplier_datum"] = cs
 
@@ -225,11 +225,11 @@ var/datum/controller/subsystem/cargo/SScargo
 					cc.items.Add(ci)
 				else
 					log_debug("SSCargo: Warning - Attempted to add item to category [category] that does not exist")
-			
+
 			log_debug("SSCargo: Loaded Item: [ci.name]")
 		return 1
 
-//Loads the cargo data from JSON	
+//Loads the cargo data from JSON
 /datum/controller/subsystem/cargo/proc/load_from_json()
 	var/list/cargoconfig = list()
 	try
@@ -294,10 +294,10 @@ var/datum/controller/subsystem/cargo/SScargo
 			var/datum/cargo_supplier/cs = get_supplier_by_name(sup)
 			if(!cs)
 				log_debug("SSCargo: [sup] is not a valid supplier")
-			
+
 			//Setting the supplier
 			ci.suppliers[sup]["supplier_datum"] = cs
-			
+
 		//Add the item to the cargo_items list
 		cargo_items[ci.path] = ci
 
@@ -423,7 +423,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		co.time_approved = worldtime2text()
 		co.authorized_by = approved_by
 		return "The order has been approved"
-	else 
+	else
 		return "The order could not be approved - Invalid Status"
 
 //Reject a order - Returns a status message
@@ -539,7 +539,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			//Create a new shipment if one does not exist already
 			if(!current_shipment)
 				new_shipment()
-			
+
 			//Set the shuttle movement time
 			current_shipment.shuttle_time = get_pending_shipment_time()
 			current_shipment.shuttle_fee = shipment_cost
@@ -567,7 +567,7 @@ var/datum/controller/subsystem/cargo/SScargo
 /datum/controller/subsystem/cargo/proc/forbidden_atoms_check(atom/A)
 	if(istype(A,/mob/living))
 		return 1
-	if(istype(A,/obj/item/weapon/disk/nuclear))
+	if(istype(A,/obj/item/disk/nuclear))
 		return 1
 	if(istype(A,/obj/machinery/nuclearbomb))
 		return 1

@@ -30,7 +30,7 @@
 		// radio
 		if (0)
 			var/obj/item/assembly/r_i_ptank/R = new /obj/item/assembly/r_i_ptank(src.loc)
-			var/obj/item/weapon/tank/phoron/p3 = new /obj/item/weapon/tank/phoron(R)
+			var/obj/item/tank/phoron/p3 = new /obj/item/tank/phoron(R)
 			var/obj/item/device/radio/signaler/p1 = new /obj/item/device/radio/signaler(R)
 			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
 			R.part1 = p1
@@ -47,7 +47,7 @@
 		// proximity
 		if (1)
 			var/obj/item/assembly/m_i_ptank/R = new /obj/item/assembly/m_i_ptank(src.loc)
-			var/obj/item/weapon/tank/phoron/p3 = new /obj/item/weapon/tank/phoron(R)
+			var/obj/item/tank/phoron/p3 = new /obj/item/tank/phoron(R)
 			var/obj/item/device/prox_sensor/p1 = new /obj/item/device/prox_sensor(R)
 			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
 			R.part1 = p1
@@ -69,7 +69,7 @@
 		// timer
 		if (2)
 			var/obj/item/assembly/t_i_ptank/R = new /obj/item/assembly/t_i_ptank(src.loc)
-			var/obj/item/weapon/tank/phoron/p3 = new /obj/item/weapon/tank/phoron(R)
+			var/obj/item/tank/phoron/p3 = new /obj/item/tank/phoron(R)
 			var/obj/item/device/timer/p1 = new /obj/item/device/timer(R)
 			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
 			R.part1 = p1
@@ -85,7 +85,7 @@
 		//bombvest
 		if(3)
 			var/obj/item/clothing/suit/armor/a_i_a_ptank/R = new /obj/item/clothing/suit/armor/a_i_a_ptank(src.loc)
-			var/obj/item/weapon/tank/phoron/p4 = new /obj/item/weapon/tank/phoron(R)
+			var/obj/item/tank/phoron/p4 = new /obj/item/tank/phoron(R)
 			var/obj/item/device/healthanalyzer/p1 = new /obj/item/device/healthanalyzer(R)
 			var/obj/item/device/igniter/p2 = new /obj/item/device/igniter(R)
 			var/obj/item/clothing/suit/armor/vest/p3 = new /obj/item/clothing/suit/armor/vest(R)
@@ -111,15 +111,15 @@
 	set name = "Instant TTV"
 
 	if(!check_rights(R_SPAWN)) return
-	
+
 	var/obj/effect/spawner/newbomb/proto = /obj/effect/spawner/newbomb/radio/custom
-	
+
 	var/p = input("Enter phoron amount (mol):","Phoron", initial(proto.phoron_amt)) as num|null
 	if(p == null) return
-	
+
 	var/o = input("Enter oxygen amount (mol):","Oxygen", initial(proto.oxygen_amt)) as num|null
 	if(o == null) return
-	
+
 	var/c = input("Enter carbon dioxide amount (mol):","Carbon Dioxide", initial(proto.carbon_amt)) as num|null
 	if(c == null) return
 
@@ -129,9 +129,9 @@
 	name = "TTV bomb"
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "x"
-	
+
 	var/assembly_type = /obj/item/device/assembly/signaler
-	
+
 	//Note that the maximum amount of gas you can put in a 70L air tank at 1013.25 kPa and 519K is 16.44 mol.
 	var/phoron_amt = 10.96
 	var/oxygen_amt = 16.44
@@ -161,8 +161,8 @@
 	. = ..()
 
 	var/obj/item/device/transfer_valve/V = new(src.loc)
-	var/obj/item/weapon/tank/phoron/PT = new(V)
-	var/obj/item/weapon/tank/oxygen/OT = new(V)
+	var/obj/item/tank/phoron/PT = new(V)
+	var/obj/item/tank/oxygen/OT = new(V)
 
 	V.tank_one = PT
 	V.tank_two = OT

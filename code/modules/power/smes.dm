@@ -123,7 +123,7 @@
 
 /obj/machinery/power/smes/update_icon()
 	cut_overlays()
-	if(stat & BROKEN)	
+	if(stat & BROKEN)
 		return
 
 	if(inputting == 2)
@@ -267,7 +267,7 @@
 	ui_interact(user)
 
 
-/obj/machinery/power/smes/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/power/smes/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if(isscrewdriver(W))
 		if(!open_hatch)
 			open_hatch = 1

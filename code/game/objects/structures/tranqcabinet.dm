@@ -5,17 +5,17 @@
 	icon_state = "tranq_closed"
 	anchored = 1
 	density = 0
-	var/obj/item/weapon/gun/projectile/heavysniper/tranq/has_tranq
+	var/obj/item/gun/projectile/heavysniper/tranq/has_tranq
 	var/opened = 0
 
 /obj/structure/tranqcabinet/New()
 	..()
-	has_tranq = new/obj/item/weapon/gun/projectile/heavysniper/tranq(src)
+	has_tranq = new/obj/item/gun/projectile/heavysniper/tranq(src)
 
 /obj/structure/tranqcabinet/attackby(obj/item/O, mob/user)
 	if(isrobot(user))
 		return
-	if(istype(O, /obj/item/weapon/gun/projectile/heavysniper/tranq))
+	if(istype(O, /obj/item/gun/projectile/heavysniper/tranq))
 		if(!has_tranq && opened)
 			user.remove_from_mob(O)
 			contents += O

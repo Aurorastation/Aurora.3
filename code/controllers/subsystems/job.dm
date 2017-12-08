@@ -574,7 +574,7 @@
 
 	Debug("SI/([H]): Entry; rank=[rank],title=[title].")
 
-	var/obj/item/weapon/card/id/C = null
+	var/obj/item/card/id/C = null
 
 	var/datum/job/job = GetJob(rank)
 
@@ -586,7 +586,7 @@
 			C = new job.idtype(H)
 			C.access = job.get_access()
 	else
-		C = new /obj/item/weapon/card/id(H)
+		C = new /obj/item/card/id(H)
 	if(C)
 		C.rank = rank
 		C.assignment = title ? title : rank
@@ -839,7 +839,7 @@
 	Debug("EIS/([H]): Entry.")
 	if (LAZYLEN(items))
 		Debug("EIS/([H]): [items.len] items.")
-		var/obj/item/weapon/storage/B = locate() in H
+		var/obj/item/storage/B = locate() in H
 		if (B)
 			for (var/thing in items)
 				to_chat(H, "<span class='notice'>Placing \the [thing] in your [B.name]!</span>")
