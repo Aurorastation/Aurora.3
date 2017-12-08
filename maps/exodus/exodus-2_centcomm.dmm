@@ -5407,7 +5407,6 @@
 /obj/structure/sign/poster{
 	icon_state = "bsposter50";
 	pixel_x = -32;
-	tag = "icon-bsposter50"
 	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
