@@ -5,6 +5,7 @@
 	icon_state = "coil"
 	anchored = 0
 	density = 1
+	use_power = 0
 	var/power_loss = 2
 	var/input_power_multiplier = 1
 
@@ -59,6 +60,7 @@
 	icon_state = "grounding_rod"
 	anchored = 0
 	density = 1
+	use_power = 0
 
 	component_types = list(
 		/obj/item/weapon/circuitboard/grounding_rod,
