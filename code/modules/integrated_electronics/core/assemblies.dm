@@ -10,7 +10,7 @@
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
 	var/opened = 0
-	var/obj/item/weapon/cell/device/battery // Internal cell which most circuits need to work.
+	var/obj/item/cell/device/battery // Internal cell which most circuits need to work.
 
 /obj/item/device/electronic_assembly/medium
 	name = "electronic mechanism"
@@ -43,7 +43,7 @@
 	w_class = ITEMSIZE_TINY
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
-	var/obj/item/weapon/implant/integrated_circuit/implant = null
+	var/obj/item/implant/integrated_circuit/implant = null
 
 /obj/item/device/electronic_assembly/Initialize(mapload, printed = FALSE)
 	..()
@@ -254,21 +254,21 @@
 			interact(user)
 			return TRUE
 
-	else if(istype(I, /obj/item/weapon/crowbar))
+	else if(istype(I, /obj/item/crowbar))
 		playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
 		opened = !opened
 		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] \the [src].</span>")
 		update_icon()
 		return TRUE
 
-	else if(istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger) || istype(I, /obj/item/weapon/screwdriver))
+	else if(istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger) || istype(I, /obj/item/screwdriver))
 		if(opened)
 			interact(user)
 		else
 			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't fiddle with the internal components.  \
 			Try using a crowbar.</span>")
 
-	else if(istype(I, /obj/item/weapon/cell/device))
+	else if(istype(I, /obj/item/cell/device))
 		if(!opened)
 			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't put anything inside.  Try using a crowbar.</span>")
 			return FALSE
@@ -277,7 +277,7 @@
 			to_chat(user, "<span class='warning'>\The [src] already has \a [battery] inside.  Remove it first if you want to replace it.</span>")
 			return FALSE
 
-		var/obj/item/weapon/cell/device/cell = I
+		var/obj/item/cell/device/cell = I
 		user.drop_item(cell)
 		cell.forceMove(src)
 		battery = cell

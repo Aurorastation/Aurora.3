@@ -1,5 +1,4 @@
 //begon, /weapon/
-
 /obj/item/Bump(mob/M as mob)
 	spawn(0)
 		..()
