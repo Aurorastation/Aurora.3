@@ -2,7 +2,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Excavation pickaxes - sorted in order of delicacy. Players will have to choose the right one for each part of excavation.
 
-/obj/item/weapon/pickaxe/brush
 	name = "brush"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick_brush"
@@ -13,14 +12,12 @@
 	force = 2.0
 	desc = "Thick metallic wires for clearing away dust and loose scree (1 centimetre excavation depth)."
 	excavation_amount = 0.5
-	drill_sound = 'sound/weapons/thudswoosh.ogg'
 	drill_verb = "brushing"
 	w_class = 2
 	can_wield = 0
 
 	action_button_name = null
 
-/obj/item/weapon/pickaxe/one_pick
 	name = "1/6 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick1"
@@ -38,7 +35,6 @@
 
 	action_button_name = null
 
-/obj/item/weapon/pickaxe/two_pick
 	name = "1/3 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick2"
@@ -56,7 +52,6 @@
 
 	action_button_name = null
 
-/obj/item/weapon/pickaxe/three_pick
 	name = "1/2 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick3"
@@ -74,7 +69,6 @@
 
 	action_button_name = null
 
-/obj/item/weapon/pickaxe/four_pick
 	name = "2/3 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick4"
@@ -92,7 +86,6 @@
 
 	action_button_name = null
 
-/obj/item/weapon/pickaxe/five_pick
 	name = "5/6 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick5"
@@ -110,7 +103,6 @@
 
 	action_button_name = null
 
-/obj/item/weapon/pickaxe/six_pick
 	name = "1/1 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick6"
@@ -128,7 +120,6 @@
 
 	action_button_name = null
 
-/obj/item/weapon/pickaxe/hand
 	name = "hand pickaxe"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick_hand"
@@ -149,7 +140,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Pack for holding pickaxes
 
-/obj/item/weapon/storage/box/excavation
 	name = "excavation pick set"
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "excavation"
@@ -158,23 +148,8 @@
 	foldable = /obj/item/stack/material/cardboard //BubbleWrap
 	storage_slots = 7
 	w_class = 2
-	can_hold = list(/obj/item/weapon/pickaxe/brush,\
-	/obj/item/weapon/pickaxe/one_pick,\
-	/obj/item/weapon/pickaxe/two_pick,\
-	/obj/item/weapon/pickaxe/three_pick,\
-	/obj/item/weapon/pickaxe/four_pick,\
-	/obj/item/weapon/pickaxe/five_pick,\
-	/obj/item/weapon/pickaxe/six_pick)
 	max_storage_space = 18
 	max_w_class = 3
 	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
 
-/obj/item/weapon/storage/box/excavation/fill()
 	..()
-	new /obj/item/weapon/pickaxe/brush(src)
-	new /obj/item/weapon/pickaxe/one_pick(src)
-	new /obj/item/weapon/pickaxe/two_pick(src)
-	new /obj/item/weapon/pickaxe/three_pick(src)
-	new /obj/item/weapon/pickaxe/four_pick(src)
-	new /obj/item/weapon/pickaxe/five_pick(src)
-	new /obj/item/weapon/pickaxe/six_pick(src)

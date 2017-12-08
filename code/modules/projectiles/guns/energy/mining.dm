@@ -1,9 +1,7 @@
-/obj/item/weapon/gun/energy/kinetic_accelerator/cyborg
 	name = "mounted proto-kinetic accelerator"
 	self_recharge = 1
 	use_external_power = 1
 
-/obj/item/weapon/gun/energy/kinetic_accelerator
 	name = "proto-kinetic accelerator"
 	desc = "A reloadable, ranged mining tool that does increased damage in low pressure. Capable of holding up to six slots worth of mod kits."
 	icon = 'icons/obj/mining_contained.dmi'
@@ -15,24 +13,20 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4, TECH_POWER = 4)
 	projectile_type = /obj/item/projectile/kinetic
-	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
 
 	var/max_mod_capacity = 100
 	var/list/modkits = list()
 
-/obj/item/weapon/gun/energy/kinetic_accelerator/attack_self(mob/living/user as mob)
 	if(power_supply.charge < power_supply.maxcharge)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user << "<span class='notice'>You begin charging \the [src]...</span>"
 		if(do_after(user,20))
-			playsound(src.loc, 'sound/weapons/kenetic_reload.ogg', 60, 1)
 			user.visible_message(
 				"<span class='warning'>\The [user] pumps \the [src]!</span>",
 				"<span class='warning'>You pump \the [src]!</span>"
 				)
 			power_supply.charge = power_supply.maxcharge
 
-/obj/item/weapon/gun/energy/kinetic_accelerator/examine(mob/user)
 	..()
 	if(max_mod_capacity)
 		user << "<b>[get_remaining_mod_capacity()]%</b> mod capacity remaining."
@@ -40,7 +34,6 @@
 			var/obj/item/borg/upgrade/modkit/M = A
 			user << "<span class='notice'>There is a [M.name] mod installed, using <b>[M.cost]%</b> capacity.</span>"
 
-/obj/item/weapon/gun/energy/kinetic_accelerator/attackby(obj/item/A, mob/user)
 	if(iscrowbar(A))
 		if(modkits.len)
 			user << "<span class='notice'>You pry the modifications out.</span>"
@@ -55,14 +48,12 @@
 	else
 		..()
 
-/obj/item/weapon/gun/energy/kinetic_accelerator/proc/get_remaining_mod_capacity()
 	var/current_capacity_used = 0
 	for(var/A in get_modkits())
 		var/obj/item/borg/upgrade/modkit/M = A
 		current_capacity_used += M.cost
 	return max_mod_capacity - current_capacity_used
 
-/obj/item/weapon/gun/energy/kinetic_accelerator/proc/get_modkits()
 	. = list()
 	for(var/A in modkits)
 		. += A
@@ -81,9 +72,6 @@
 	var/mob_aoe = 0
 	var/list/hit_overlays = list()
 
-/obj/item/projectile/kinetic/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
-	if(istype(launcher, /obj/item/weapon/gun/energy/kinetic_accelerator))
-		var/obj/item/weapon/gun/energy/kinetic_accelerator/KA = launcher
 		for(var/A in KA.get_modkits())
 			var/obj/item/borg/upgrade/modkit/M = A
 			M.modify_projectile(src)
@@ -137,7 +125,6 @@
 	user << "<span class='notice'>Occupies <b>[cost]%</b> of mod capacity.</span>"
 
 /obj/item/borg/upgrade/modkit/attackby(obj/item/A, mob/user)
-	if(istype(A, /obj/item/weapon/gun/energy/kinetic_accelerator) && !issilicon(user))
 		install(A, user)
 	else
 		..()
@@ -146,10 +133,8 @@
 	if(..())
 		return
 
-	for(var/obj/item/weapon/gun/energy/kinetic_accelerator/cyborg/H in R.module.modules)
 		return install(H, usr)
 
-/obj/item/borg/upgrade/modkit/proc/install(obj/item/weapon/gun/energy/kinetic_accelerator/KA, mob/user)
 	. = TRUE
 	if(denied_type)
 		var/number_of_denied = 0
@@ -175,7 +160,6 @@
 
 
 
-/obj/item/borg/upgrade/modkit/proc/uninstall(obj/item/weapon/gun/energy/kinetic_accelerator/KA)
 	forceMove(get_turf(KA))
 	KA.modkits -= src
 
@@ -209,13 +193,11 @@
 	desc = "Decreases the cooldown of a kinetic accelerator and increases the recharge rate."
 	modifier = 2
 
-/obj/item/borg/upgrade/modkit/cooldown/install(obj/item/weapon/gun/energy/kinetic_accelerator/KA, mob/user)
 	. = ..()
 	if(.)
 		KA.fire_delay -= modifier
 		KA.recharge_time -= modifier
 
-/obj/item/borg/upgrade/modkit/cooldown/uninstall(obj/item/weapon/gun/energy/kinetic_accelerator/KA)
 	KA.fire_delay += modifier
 	KA.recharge_time += modifier
 	..()
@@ -284,12 +266,10 @@
 
 /*******************PLASMA CUTTER*******************/
 
-/obj/item/weapon/gun/energy/plasmacutter/mounted
 	name = "mounted plasma cutter"
 	self_recharge = 1
 	use_external_power = 1
 
-/obj/item/weapon/gun/energy/plasmacutter
 	name = "plasma cutter"
 	desc = "A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
 	contained_sprite = 1
@@ -297,7 +277,6 @@
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "plasma"
 	item_state = "plasma"
-	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
 	force = 15

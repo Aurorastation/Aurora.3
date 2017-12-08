@@ -6,14 +6,12 @@
 	var/curing
 	var/isolating
 
-	var/obj/item/weapon/reagent_containers/glass/beaker/vial/sample = null
 	var/datum/disease2/disease/virus2 = null
 
 /obj/machinery/computer/centrifuge/attackby(var/obj/O as obj, var/mob/user as mob)
 	if(isscrewdriver(O))
 		return ..(O,user)
 
-	if(istype(O,/obj/item/weapon/reagent_containers/glass/beaker/vial))
 		if(sample)
 			user << "\The [src] is already loaded."
 			return
@@ -162,7 +160,6 @@
 
 /obj/machinery/computer/centrifuge/proc/isolate()
 	if (!sample) return
-	var/obj/item/weapon/virusdish/dish = new/obj/item/weapon/virusdish(loc)
 	dish.virus2 = virus2
 	virus2 = null
 
@@ -171,7 +168,6 @@
 	ping("\The [src] pings, \"Pathogen isolated.\"")
 
 /obj/machinery/computer/centrifuge/proc/do_print(var/mob/user)
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(loc)
 	var/pname = "paper - Pathology Report"
 	var/info = {"
 		[virology_letterhead("Pathology Report")]

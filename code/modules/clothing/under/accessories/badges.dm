@@ -68,11 +68,8 @@
 		return 1
 
 /obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/device/pda))
 
-		var/obj/item/weapon/card/id/id_card = null
 
-		if(istype(O, /obj/item/weapon/card/id))
 			id_card = O
 		else
 			var/obj/item/device/pda/pda = O
@@ -86,7 +83,6 @@
 		return
 	..()
 
-/obj/item/weapon/storage/box/holobadge
 	name = "holobadge box"
 	desc = "A box claiming to contain holobadges."
 	New()

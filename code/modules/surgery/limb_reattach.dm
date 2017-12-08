@@ -44,7 +44,6 @@
 
 /datum/surgery_step/limb/connect
 	allowed_tools = list(
-	/obj/item/weapon/hemostat = 100,	\
 	/obj/item/stack/cable_coil = 75, 	\
 	/obj/item/device/assembly/mousetrap = 20
 	)

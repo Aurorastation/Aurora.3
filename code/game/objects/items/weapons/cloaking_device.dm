@@ -1,4 +1,3 @@
-/obj/item/weapon/cloaking_device
 	name = "cloaking device"
 	desc = "Use this to become invisible to the human eye. Contains a removable power cell behind a screwed compartment"
 	description_info = "The default power cell will last for five minutes of continuous usage. It can be removed and recharged or replaced with a better one using a screwdriver.\
@@ -20,28 +19,22 @@
 	var/power_usage = 35000//A high powered cell allows 5 minutes of continuous usage
 	//Note it can be toggled on and off easily. You can make it last an hour if you only use it when
 	//people are nearby to see. Carry spare/better cells for extended cloaking.
-	var/obj/item/weapon/cell/cell = null
 	var/mob/living/owner = null
 	var/datum/modifier/cloaking_device/modifier = null
 
-/obj/item/weapon/cloaking_device/New()
 	..()
 	cloaking_devices += src
-	cell = new /obj/item/weapon/cell/high(src)
 
-/obj/item/weapon/cloaking_device/Destroy()
 	. = ..()
 	cloaking_devices -= src
 
 
-/obj/item/weapon/cloaking_device/equipped(var/mob/user, var/slot)
 	..()
 	//Picked up or switched hands or worn
 	register_owner(user)
 
 
 //Handles dropped or thrown cloakers
-/obj/item/weapon/cloaking_device/dropped(var/mob/user)
 	..()
 	var/mob/M = get_holding_mob()
 	if(!M)
@@ -52,7 +45,6 @@
 
 	//If M contains the owner then the item hasn't actually been dropped, its just the quirk mentioned above
 
-/obj/item/weapon/cloaking_device/attack_self(mob/user as mob)
 	if (istype(loc, /mob) && loc == user)//safety check incase of shenanigans
 		register_owner(user)
 		if (active)
@@ -62,14 +54,12 @@
 		src.add_fingerprint(user)
 		return
 
-/obj/item/weapon/cloaking_device/proc/activate()
 	if (active)
 		return
 
 	if (!cell || !cell.checked_use(power_usage*5*CELLRATE))//Costs a small burst to enter cloak
 		if (owner)
 			owner << "The [src] clicks uselessly, it has no power left."
-		playsound(get_turf(src), 'sound/weapons/empty.ogg', 25, 1)
 		return
 
 	START_PROCESSING(SSprocessing, src)
@@ -81,7 +71,6 @@
 		owner << "<span class='notice'>\The [src] is now active.</span>"
 		start_modifier()
 
-/obj/item/weapon/cloaking_device/proc/deactivate()
 	if (!active)
 		return
 	active = 0
@@ -93,14 +82,12 @@
 	stop_modifier()
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/cloaking_device/emp_act(severity)
 	deactivate()
 	if (cell)
 		cell.emp_act(severity)
 	..()
 
 
-/obj/item/weapon/cloaking_device/proc/register_owner(var/mob/user)
 	if (!owner || owner != user)
 		stop_modifier()
 		owner = user
@@ -109,21 +96,17 @@
 		start_modifier()
 
 
-/obj/item/weapon/cloaking_device/proc/start_modifier()
 	if (!owner)
 		owner = get_holding_mob()
 
 	if (owner)
 		modifier = owner.add_modifier(/datum/modifier/cloaking_device, MODIFIER_ITEM, src, override = MODIFIER_OVERRIDE_NEIGHBOR, _check_interval = 30)
 
-/obj/item/weapon/cloaking_device/proc/stop_modifier()
 	if (modifier)
 		modifier.stop(1)
 		modifier = null
 
 
-/obj/item/weapon/cloaking_device/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/cell))
 		if(!cell)
 			user.drop_item()
 			W.forceMove(src)
@@ -144,14 +127,12 @@
 	..()
 
 
-/obj/item/weapon/cloaking_device/examine(mob/user)
 	..()
 	if (!cell)
 		user << "It needs a power cell to function."
 	else
 		user << "It has [cell.percent()]% power remaining"
 
-/obj/item/weapon/cloaking_device/process()
 	if (!cell || !cell.checked_use(power_usage*CELLRATE))
 		deactivate()
 		return
@@ -174,7 +155,6 @@
 	..()
 	for (var/a in cloaking_devices)//Check for any other cloaks
 		if (a != source)
-			var/obj/item/weapon/cloaking_device/CD = a
 			if (CD.get_holding_mob() == target)
 				if (CD.active)//If target is holding another active cloak then we wont remove their stealth
 					return
@@ -187,6 +167,5 @@
 /datum/modifier/cloaking_device/check_validity()
 	.=..()
 	if (. == 1)
-		var/obj/item/weapon/cloaking_device/C = source
 		if (!C.active)
 			return validity_fail("Cloak is inactive!")

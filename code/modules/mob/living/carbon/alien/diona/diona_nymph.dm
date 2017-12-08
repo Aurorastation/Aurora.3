@@ -20,7 +20,6 @@
 	death_msg = "expires with a pitiful chirrup..."
 	universal_understand = 0
 	universal_speak = 0
-	holder_type = /obj/item/weapon/holder/diona
 	maxHealth = 85
 	pass_flags = PASSTABLE
 

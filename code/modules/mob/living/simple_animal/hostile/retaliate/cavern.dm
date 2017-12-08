@@ -13,7 +13,6 @@
 	response_harm = "hits"
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = 0
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/dwellermeat
 	mob_size = 12
 
 	health = 60
@@ -21,7 +20,6 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	attacktext = "chomped"
-	attack_sound = 'sound/weapons/bite.ogg'
 	speed = 4
 	projectiletype = /obj/item/projectile/beam/cavern
 	projectilesound = 'sound/magic/lightningbolt.ogg'

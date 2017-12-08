@@ -36,7 +36,6 @@
 	if(H.megavend)
 		return
 
-	var/obj/item/weapon/storage/box/gearbox = new(null, TRUE)
 	gearbox.name = "personal possessions box"
 	gearbox.desc = "All of the personal effects of [H.real_name], packaged neatly by the AutoDrobe."
 	for(var/obj/item/W in H.contents)

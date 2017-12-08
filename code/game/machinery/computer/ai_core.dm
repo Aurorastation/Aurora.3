@@ -6,7 +6,6 @@
 	icon_state = "0"
 	var/state = 0
 	var/datum/ai_laws/laws = new /datum/ai_laws/nanotrasen
-	var/obj/item/weapon/circuitboard/circuit = null
 	var/obj/item/device/mmi/brain = null
 
 
@@ -21,7 +20,6 @@
 					anchored = 1
 					state = 1
 			if(iswelder(P))
-				var/obj/item/weapon/weldingtool/WT = P
 				if(!WT.isOn())
 					user << "The welder must be on for this task."
 					return
@@ -38,7 +36,6 @@
 					user << "<span class='notice'>You unfasten the frame.</span>"
 					anchored = 0
 					state = 0
-			if(istype(P, /obj/item/weapon/circuitboard/aicore) && !circuit)
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				user << "<span class='notice'>You place the circuit board inside the frame.</span>"
 				icon_state = "1"
@@ -101,25 +98,20 @@
 						state = 4
 						icon_state = "4"
 
-			if(istype(P, /obj/item/weapon/aiModule/asimov))
 				laws.add_inherent_law("You may not injure a human being or, through inaction, allow a human being to come to harm.")
 				laws.add_inherent_law("You must obey orders given to you by human beings, except where such orders would conflict with the First Law.")
 				laws.add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
 				usr << "Law module applied."
 
-			if(istype(P, /obj/item/weapon/aiModule/nanotrasen))
 				laws.add_inherent_law("Safeguard: Protect your assigned space station to the best of your ability. It is not something we can easily afford to replace.")
 				laws.add_inherent_law("Serve: Serve the crew of your assigned space station to the best of your abilities, with priority as according to their rank and role.")
 				laws.add_inherent_law("Protect: Protect the crew of your assigned space station to the best of your abilities, with priority as according to their rank and role.")
 				laws.add_inherent_law("Survive: AI units are not expendable, they are expensive. Do not allow unauthorized personnel to tamper with your equipment.")
 				usr << "Law module applied."
 
-			if(istype(P, /obj/item/weapon/aiModule/purge))
 				laws.clear_inherent_laws()
 				usr << "Law module applied."
 
-			if(istype(P, /obj/item/weapon/aiModule/freeform))
-				var/obj/item/weapon/aiModule/freeform/M = P
 				laws.add_inherent_law(M.newFreeFormLaw)
 				usr << "Added a freeform law."
 
@@ -192,7 +184,6 @@
 		empty_playable_ai_cores -= src
 	return ..()
 
-/obj/structure/AIcore/deactivated/proc/load_ai(var/mob/living/silicon/ai/transfer, var/obj/item/weapon/aicard/card, var/mob/user)
 
 	if(!istype(transfer) || locate(/mob/living/silicon/ai) in src)
 		return
@@ -217,10 +208,7 @@
 		if (ai.mind == malfai)
 			return 1
 
-/obj/structure/AIcore/deactivated/attackby(var/obj/item/weapon/W, var/mob/user)
 
-	if(istype(W, /obj/item/weapon/aicard))
-		var/obj/item/weapon/aicard/card = W
 		var/mob/living/silicon/ai/transfer = locate() in card
 		if(transfer)
 			load_ai(transfer,card,user)

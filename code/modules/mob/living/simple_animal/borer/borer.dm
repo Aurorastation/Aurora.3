@@ -22,7 +22,6 @@
 	health = 40
 	pass_flags = PASSTABLE
 	universal_understand = 1
-	holder_type = /obj/item/weapon/holder/borer
 	mob_size = 1
 
 	var/used_dominate

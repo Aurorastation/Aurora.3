@@ -1,4 +1,3 @@
-/obj/item/weapon/material/ashtray
 	name = "ashtray"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "blank"
@@ -7,7 +6,6 @@
 	var/image/base_image
 	var/max_butts = 10
 
-/obj/item/weapon/material/ashtray/New(var/newloc, var/material_name)
 	..(newloc, material_name)
 	if(!material)
 		qdel(src)
@@ -18,7 +16,6 @@
 	update_icon()
 	return
 
-/obj/item/weapon/material/ashtray/update_icon()
 	color = null
 	cut_overlays()
 	var/list/ashtray_cache = SSicon_cache.ashtray_cache
@@ -38,10 +35,8 @@
 	else
 		desc = "An ashtray made of [material.display_name]."
 
-/obj/item/weapon/material/ashtray/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (health <= 0)
 		return
-	if (istype(W,/obj/item/weapon/cigbutt) || istype(W,/obj/item/clothing/mask/smokable/cigarette) || istype(W, /obj/item/weapon/flame/match))
 		if (contents.len >= max_butts)
 			user << "\The [src] is full."
 			return
@@ -74,7 +69,6 @@
 			shatter()
 	return
 
-/obj/item/weapon/material/ashtray/throw_impact(atom/hit_atom)
 	if (health > 0)
 		health = max(0,health - 3)
 		if (contents.len)
@@ -87,11 +81,8 @@
 		update_icon()
 	return ..()
 
-/obj/item/weapon/material/ashtray/plastic/New(var/newloc)
 	..(newloc, "plastic")
 
-/obj/item/weapon/material/ashtray/bronze/New(var/newloc)
 	..(newloc, "bronze")
 
-/obj/item/weapon/material/ashtray/glass/New(var/newloc)
 	..(newloc, "glass")

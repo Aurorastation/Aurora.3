@@ -1,6 +1,5 @@
 // The lighting system
 //
-// consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/weapon/light)
 
 #define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
 #define LIGHT_BULB_TEMPERATURE 400 //K - used value for a 60W bulb
@@ -37,7 +36,6 @@
 			user << "The casing is closed."
 			return
 
-/obj/machinery/light_construct/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
 	if (iswrench(W))
 		if (src.stage == 1)
@@ -148,8 +146,6 @@
 	uv_intensity = 255
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
-	var/light_type = /obj/item/weapon/light/tube		// the type of light item
-	var/obj/item/weapon/light/inserted_light = /obj/item/weapon/light/tube
 	var/fitting = "tube"
 	var/switchcount = 0			// count of number of times switched on/off
 								// this is used to calc the probability the light burns out
@@ -166,8 +162,6 @@
 	brightness_power = 0.75
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
-	light_type = /obj/item/weapon/light/bulb
-	inserted_light = /obj/item/weapon/light/bulb
 	supports_nightmode = FALSE
 
 /obj/machinery/light/small/emergency
@@ -183,8 +177,6 @@
 /obj/machinery/light/spot
 	name = "spotlight"
 	fitting = "large tube"
-	light_type = /obj/item/weapon/light/tube/large
-	inserted_light = /obj/item/weapon/light/tube/large
 	brightness_range = 12
 	brightness_power = 4
 	supports_nightmode = FALSE
@@ -331,13 +323,11 @@
 			return
 
 	// attempt to insert light
-	if(istype(W, /obj/item/weapon/light))
 		if(status != LIGHT_EMPTY)
 			user << "There is a [fitting] already inserted."
 			return
 		else
 			src.add_fingerprint(user)
-			var/obj/item/weapon/light/L = W
 			if(istype(L, light_type))
 				status = L.status
 				user << "You insert the [L.name]."
@@ -385,7 +375,6 @@
 		else
 			user << "You hit the light!"
 
-	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
 		if(isscrewdriver(W)) //If it's a screwdriver open it.
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
@@ -499,7 +488,6 @@
 		user << "You remove the light [fitting]."
 
 	// create a light tube/bulb item and put it in the user's hand
-	var/obj/item/weapon/light/L = new inserted_light()
 	L.status = status
 	L.rigged = rigged
 	L.brightness_range = brightness_range
@@ -528,7 +516,6 @@
 
 	user << "You telekinetically remove the light [fitting]."
 	// create a light tube/bulb item and put it in the user's hand
-	var/obj/item/weapon/light/L = new inserted_light()
 	L.status = status
 	L.rigged = rigged
 	L.brightness_range = brightness_range
@@ -638,7 +625,6 @@
 // can be tube or bulb subtypes
 // will fit into empty /obj/machinery/light of the corresponding type
 
-/obj/item/weapon/light
 	icon = 'icons/obj/lighting.dmi'
 	force = 2
 	throwforce = 5
@@ -653,7 +639,6 @@
 	var/lighttype = null
 	var/randomize_range = TRUE
 
-/obj/item/weapon/light/tube
 	name = "light tube"
 	desc = "A replacement light tube."
 	icon_state = "ltube_preset"//preset state for mapping
@@ -663,38 +648,30 @@
 	brightness_power = 0.8
 	lighttype = "tube"
 
-/obj/item/weapon/light/tube/colored/red
 	name = "red light tube"
 	brightness_color = LIGHT_COLOR_SCARLET
 
-/obj/item/weapon/light/tube/colored/green
 	name = "green light tube"
 	brightness_color = LIGHT_COLOR_GREEN
 
-/obj/item/weapon/light/tube/colored/blue
 	name = "blue light tube"
 	brightness_color = LIGHT_COLOR_BLUE
 
-/obj/item/weapon/light/tube/colored/magenta
 	name = "magenta light tube"
 	brightness_color = LIGHT_COLOR_VIOLET
 
-/obj/item/weapon/light/tube/colored/yellow
 	name = "yellow light tube"
 	brightness_color = LIGHT_COLOR_YELLOW
 
-/obj/item/weapon/light/tube/colored/cyan
 	name = "cyan light tube"
 	brightness_color = LIGHT_COLOR_CYAN
 
-/obj/item/weapon/light/tube/large
 	w_class = 2
 	name = "large light tube"
 	brightness_range = 15
 	brightness_power = 6
 	randomize_range = FALSE
 
-/obj/item/weapon/light/bulb
 	name = "light bulb"
 	desc = "A replacement light bulb."
 	icon_state = "lbulb_preset"//preset state for mapping
@@ -705,35 +682,27 @@
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	lighttype = "bulb"
 
-/obj/item/weapon/light/bulb/colored/red
 	name = "red light bulb"
 	brightness_color = LIGHT_COLOR_SCARLET
 
-/obj/item/weapon/light/bulb/colored/green
 	name = "green light bulb"
 	brightness_color = LIGHT_COLOR_GREEN
 
-/obj/item/weapon/light/bulb/colored/blue
 	name = "blue light bulb"
 	brightness_color = LIGHT_COLOR_BLUE
 
-/obj/item/weapon/light/bulb/colored/magenta
 	name = "magenta light bulb"
 	brightness_color = LIGHT_COLOR_VIOLET
 
-/obj/item/weapon/light/bulb/colored/yellow
 	name = "yellow light bulb"
 	brightness_color = LIGHT_COLOR_YELLOW
 
-/obj/item/weapon/light/bulb/colored/cyan
 	name = "cyan light bulb"
 	brightness_color = LIGHT_COLOR_CYAN
 
-/obj/item/weapon/light/throw_impact(atom/hit_atom)
 	..()
 	shatter()
 
-/obj/item/weapon/light/bulb/fire
 	name = "fire bulb"
 	desc = "A replacement fire bulb."
 	icon_state = "flight"
@@ -743,7 +712,6 @@
 	brightness_power = 0.8
 	randomize_range = FALSE
 
-/obj/item/weapon/light/Initialize()
 	. = ..()
 	if(randomize_range)
 		switch(lighttype)
@@ -754,7 +722,6 @@
 	update()
 
 // update the icon state and description of the light
-/obj/item/weapon/light/proc/update()
 	cut_overlays()
 	switch(status)
 		if(LIGHT_OK)
@@ -778,10 +745,7 @@
 
 // attack bulb/tube with object
 // if a syringe, can inject phoron to make it explode
-/obj/item/weapon/light/attackby(var/obj/item/I, var/mob/user)
 	..()
-	if(istype(I, /obj/item/weapon/reagent_containers/syringe))
-		var/obj/item/weapon/reagent_containers/syringe/S = I
 
 		user << "You inject the solution into the [src]."
 
@@ -801,7 +765,6 @@
 // shatter light, unless it was an attempt to put it in a light socket
 // now only shatter if the intent was harm
 
-/obj/item/weapon/light/afterattack(atom/target, mob/user, proximity)
 	if(!proximity) return
 	if(istype(target, /obj/machinery/light))
 		return
@@ -810,7 +773,6 @@
 
 	shatter()
 
-/obj/item/weapon/light/proc/shatter()
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
 		src.visible_message("<span class='warning'>[name] shatters.</span>","<span class='warning'>You hear a small glass object shatter.</span>")
 		status = LIGHT_BROKEN

@@ -1,6 +1,5 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-//Circuit boards are in /code/game/objects/items/weapons/circuitboards/machinery/
 
 /obj/machinery/constructable_frame //Made into a seperate type to make future revisions easier.
 	name = "machine frame"
@@ -10,7 +9,6 @@
 	density = 1
 	anchored = 1
 	use_power = 0
-	var/obj/item/weapon/circuitboard/circuit = null
 	var/list/components = null
 	var/list/req_components = null
 	var/list/req_component_names = null
@@ -49,8 +47,6 @@
 						new /obj/item/stack/material/steel(src.loc, 5)
 						qdel(src)
 			if(2)
-				if(istype(P, /obj/item/weapon/circuitboard))
-					var/obj/item/weapon/circuitboard/B = P
 					if(B.board_type == "machine")
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 						user << "<span class='notice'>You add the circuit board to the frame.</span>"
@@ -91,7 +87,6 @@
 						user << "<span class='notice'>You remove the circuit board.</span>"
 					else
 						user << "<span class='notice'>You remove the circuit board and other components.</span>"
-						for(var/obj/item/weapon/W in components)
 							W.loc = src.loc
 					desc = initial(desc)
 					req_components = null

@@ -113,7 +113,6 @@ field_generator power level display
 				user << "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>"
 				return
 	else if(iswelder(W))
-		var/obj/item/weapon/weldingtool/WT = W
 		switch(state)
 			if(0)
 				user << "<span class='warning'>The [src.name] needs to be wrenched to the floor.</span>"

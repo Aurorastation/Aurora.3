@@ -205,12 +205,10 @@
 		nextstate = FIREDOOR_CLOSED
 		close()
 
-/obj/machinery/door/firedoor/attackby(obj/item/weapon/C as obj, mob/user as mob)
 	add_fingerprint(user)
 	if(operating)
 		return//Already doing something.
 	if(iswelder(C) && !repairing)
-		var/obj/item/weapon/weldingtool/W = C
 		if(W.remove_fuel(0, user))
 			blocked = !blocked
 			user.visible_message("<span class='danger'>\The [user] [blocked ? "welds" : "unwelds"] \the [src] with \a [W].</span>",\
@@ -240,9 +238,7 @@
 										"You have removed the electronics from [src].")
 
 					if (stat & BROKEN)
-						new /obj/item/weapon/circuitboard/broken(src.loc)
 					else
-						new/obj/item/weapon/airalarm_electronics(src.loc)
 
 					var/obj/structure/firedoor_assembly/FA = new/obj/structure/firedoor_assembly(src.loc)
 					FA.anchored = 1
@@ -256,7 +252,6 @@
 		user << "<span class='danger'>\The [src] is welded shut!</span>"
 		return
 
-	if(iscrowbar(C) || istype(C,/obj/item/weapon/material/twohanded/fireaxe) || (istype(C, /obj/item/weapon/melee/hammer)))
 		if(operating)
 			return
 
@@ -266,8 +261,6 @@
 			"You hear someone struggle and metal straining.")
 			return
 
-		if(istype(C,/obj/item/weapon/material/twohanded/fireaxe))
-			var/obj/item/weapon/material/twohanded/fireaxe/F = C
 			if(!F.wielded)
 				return
 
@@ -275,7 +268,6 @@
 				"You start forcing \the [src] [density ? "open" : "closed"] with \the [C]!",\
 				"You hear metal strain.")
 		if(do_after(user,30))
-			if(iscrowbar(C) || (istype(C, /obj/item/weapon/melee/hammer)))
 				if(stat & (BROKEN|NOPOWER) || !density)
 					user.visible_message("<span class='danger'>\The [user] forces \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\
 					"You force \the [src] [density ? "open" : "closed"] with \the [C]!",\

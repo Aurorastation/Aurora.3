@@ -19,7 +19,6 @@
 	if(!user.cell || !user.cell.checked_use(1250)) //Slightly more than a baton.
 		return 0
 
-	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 
 	M.apply_effect(5, STUTTER)
 	M.stun_effect_act(0, 70, check_zone(hit_zone), src)

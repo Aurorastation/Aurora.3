@@ -188,15 +188,12 @@
 		updateUsrDialog()
 		return
 
-	attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
 		if(isscrewdriver(D))
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			if(do_after(user, 20))
 				if (src.stat & BROKEN)
 					user << "<span class='notice'>The broken glass falls out.</span>"
 					var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
-					new /obj/item/weapon/material/shard( src.loc )
-					var/obj/item/weapon/circuitboard/comm_server/M = new /obj/item/weapon/circuitboard/comm_server( A )
 					for (var/obj/C in src)
 						C.loc = src.loc
 					A.circuit = M
@@ -207,7 +204,6 @@
 				else
 					user << "<span class='notice'>You disconnect the monitor.</span>"
 					var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
-					var/obj/item/weapon/circuitboard/comm_server/M = new /obj/item/weapon/circuitboard/comm_server( A )
 					for (var/obj/C in src)
 						C.loc = src.loc
 					A.circuit = M

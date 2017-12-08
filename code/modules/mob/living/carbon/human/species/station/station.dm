@@ -638,7 +638,6 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		/datum/unarmed_attack/claws,
 		/datum/unarmed_attack/bite/sharp
 	)
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/bug
 	rarity_value = 4
 	slowdown = 1
 	darksight = 8 //USELESS

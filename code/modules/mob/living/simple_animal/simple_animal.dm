@@ -277,15 +277,12 @@
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
 		fire_alert = 2
-		apply_damage(cold_damage_per_tick, BURN, used_weapon = "Cold Temperature")
 	else if(bodytemperature > maxbodytemp)
 		fire_alert = 1
-		apply_damage(heat_damage_per_tick, BURN, used_weapon = "High Temperature")
 	else
 		fire_alert = 0
 
 	if(!atmos_suitable)
-		apply_damage(unsuitable_atoms_damage, OXY, used_weapon = "Atmosphere")
 	return 1
 
 /mob/living/simple_animal/proc/handle_supernatural()
@@ -386,7 +383,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			if (!attempt_grab(M))
 				return
 
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
 
 			M.put_in_active_hand(G)
 
@@ -399,7 +395,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			poke(1)
 
 		if(I_HURT)
-			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
 			M.visible_message("<span class='warning'>[M] [response_harm] \the [src]</span>")
 			M.do_attack_animation(src)
 			poke(1)
@@ -407,12 +402,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/weapon/gripper/))
 		..()
 		poke()
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/kitchen/utensil/knife ))
 			harvest(user)
 	else
 		attacked_with_item(O, user)
@@ -429,14 +422,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		var/damage = O.force
 		if (O.damtype == HALLOSS)
 			damage = 0
-		if(supernatural && istype(O,/obj/item/weapon/nullrod))
 			damage *= 2
 			purge = 3
 
-		apply_damage(damage, O.damtype, used_weapon = "[O.name]")
 		poke(1)
 	else
-		usr << "<span class='danger'>This weapon is ineffective, it does no damage.</span>"
 		poke()
 
 	visible_message("<span class='danger'>\The [src] has been attacked with the [O] by [user].</span>")
@@ -564,7 +554,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				foodtarget = 0
 				stop_automated_movement = 0
 				if (can_eat())
-					for(var/obj/item/weapon/reagent_containers/food/snacks/S in oview(src,7))
 						if(isturf(S.loc) || ishuman(S.loc))
 							movement_target = S
 							foodtarget = 1
@@ -572,12 +561,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 					//Look for food in people's hand
 					if (!movement_target && beg_for_food)
-						var/obj/item/weapon/reagent_containers/food/snacks/F = null
 						for(var/mob/living/carbon/human/H in oview(src,scan_range))
-							if(istype(H.l_hand, /obj/item/weapon/reagent_containers/food/snacks))
 								F = H.l_hand
 
-							if(istype(H.r_hand, /obj/item/weapon/reagent_containers/food/snacks))
 								F = H.r_hand
 
 							if (F)

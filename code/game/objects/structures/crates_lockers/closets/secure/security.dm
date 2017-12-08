@@ -10,22 +10,17 @@
 
 	fill()
 		if(prob(50))
-			new /obj/item/weapon/storage/backpack/captain(src)
 		else
-			new /obj/item/weapon/storage/backpack/satchel_cap(src)
 		new /obj/item/clothing/suit/captunic(src)
 		new /obj/item/clothing/suit/captunic/capjacket(src)
 		new /obj/item/clothing/head/caphat/cap(src)
 		new /obj/item/clothing/under/rank/captain(src)
 		new /obj/item/clothing/suit/storage/vest(src)
-		new /obj/item/weapon/cartridge/captain(src)
 		new /obj/item/clothing/head/helmet(src)
 		new /obj/item/clothing/shoes/brown(src)
 		new /obj/item/device/radio/headset/heads/captain(src)
 		new /obj/item/clothing/gloves/captain(src)
-		new /obj/item/weapon/gun/energy/pistol(src)
 		new /obj/item/device/flash(src)
-		new /obj/item/weapon/melee/telebaton(src)
 		new /obj/item/clothing/under/dress/dress_cap(src)
 		new /obj/item/clothing/head/caphat/formal(src)
 		new /obj/item/clothing/under/captainformal(src)
@@ -41,8 +36,6 @@
 	icon_off = "capsecureoff"
 
 	fill()
-		new /obj/item/weapon/storage/backpack/captain(src)
-		new /obj/item/weapon/storage/backpack/satchel_cap(src)
 		new /obj/item/clothing/suit/captunic(src)
 		new /obj/item/clothing/suit/captunic/capjacket(src)
 		new /obj/item/clothing/head/caphat(src)
@@ -71,12 +64,7 @@
 		new /obj/item/clothing/glasses/sunglasses(src)
 		new /obj/item/clothing/suit/storage/vest(src)
 		new /obj/item/clothing/head/helmet(src)
-		new /obj/item/weapon/cartridge/hop(src)
 		new /obj/item/device/radio/headset/heads/hop(src)
-		new /obj/item/weapon/storage/box/ids(src)
-		new /obj/item/weapon/storage/box/ids( src )
-		new /obj/item/weapon/gun/energy/pistol(src)
-		new /obj/item/weapon/gun/projectile/sec/flash(src)
 		new /obj/item/device/flash(src)
 
 /obj/structure/closet/secure_closet/hop2
@@ -117,8 +105,6 @@
 
 	fill()
 		..()
-		new /obj/item/weapon/storage/backpack/security(src)
-		new /obj/item/weapon/storage/backpack/satchel_sec(src)
 
 		new /obj/item/clothing/head/helmet/HoS(src)
 		new /obj/item/clothing/suit/storage/vest/hos(src)
@@ -127,18 +113,11 @@
 		new /obj/item/clothing/suit/armor/hos/jensen(src)
 		new /obj/item/clothing/suit/armor/hos(src)
 		new /obj/item/clothing/head/helmet/HoS/dermal(src)
-		new /obj/item/weapon/cartridge/hos(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/taperoll/police(src)
-		new /obj/item/weapon/shield/riot/tact(src)
-		new /obj/item/weapon/storage/box/flashbangs(src)
-		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/device/flash(src)
-		new /obj/item/weapon/melee/baton/loaded(src)
-		new /obj/item/weapon/gun/energy/pistol(src)
 		new /obj/item/clothing/accessory/holster/waist(src)
-		new /obj/item/weapon/melee/telebaton(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/accessory/badge/hos(src)
 		new /obj/item/ammo_magazine/tranq(src)
@@ -155,15 +134,12 @@
 	icon_off = "hossecureoff"
 
 	fill()
-		new /obj/item/weapon/storage/backpack/security(src)
-		new /obj/item/weapon/storage/backpack/satchel_sec(src)
 		new /obj/item/clothing/head/helmet/HoS(src)
 		new /obj/item/clothing/suit/storage/vest/hos(src)
 		new /obj/item/clothing/under/rank/head_of_security/jensen(src)
 		new /obj/item/clothing/under/rank/head_of_security/corp(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
-		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/clothing/accessory/holster/waist(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 
@@ -180,9 +156,7 @@
 
 	fill()
 		if(prob(50))
-			new /obj/item/weapon/storage/backpack/security(src)
 		else
-			new /obj/item/weapon/storage/backpack/satchel_sec(src)
 		new /obj/item/clothing/suit/storage/vest/warden(src)
 		new /obj/item/clothing/under/rank/warden(src)
 		new /obj/item/clothing/under/rank/warden/corp(src)
@@ -191,20 +165,11 @@
 		new /obj/item/clothing/head/helmet/warden(src)
 		new /obj/item/clothing/head/helmet/warden/commissar(src)
 		new /obj/item/clothing/head/helmet(src)
-		new /obj/item/weapon/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/taperoll/police(src)
-		new /obj/item/weapon/storage/box/flashbangs(src)
-		new /obj/item/weapon/storage/box/teargas(src)
-		new /obj/item/weapon/storage/belt/security(src)
-		new /obj/item/weapon/reagent_containers/spray/pepper(src)
-		new /obj/item/weapon/melee/baton/loaded(src)
-		new /obj/item/weapon/gun/energy/pistol(src)
-		new /obj/item/weapon/storage/box/holobadge(src)
 		new /obj/item/clothing/head/beret/sec/warden(src)
 		new /obj/item/clothing/accessory/badge/warden(src)
-		new /obj/item/weapon/storage/box/ids(src)
 
 
 /obj/structure/closet/secure_closet/security_cadet
@@ -219,13 +184,9 @@
 
 	fill()
 		if(prob(50))
-			new /obj/item/weapon/storage/backpack/security(src)
 		else
-			new /obj/item/weapon/storage/backpack/satchel_sec(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
-		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/device/flash(src)
-		new /obj/item/weapon/reagent_containers/spray/pepper(src)
 		new /obj/item/taperoll/police(src)
 		new /obj/item/device/hailer(src)
 		new /obj/item/clothing/accessory/storage/black_vest(src)
@@ -246,24 +207,18 @@
 
 	fill()
 		if(prob(50))
-			new /obj/item/weapon/storage/backpack/security(src)
 		else
-			new /obj/item/weapon/storage/backpack/satchel_sec(src)
 		new /obj/random/handgun(src)
 		new /obj/item/clothing/suit/storage/vest/officer(src)
 		new /obj/item/clothing/head/helmet(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
-		new /obj/item/weapon/storage/belt/security(src)
 		new /obj/item/device/flash(src)
-		new /obj/item/weapon/reagent_containers/spray/pepper(src)
-		new /obj/item/weapon/melee/baton/loaded(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/taperoll/police(src)
 		new /obj/item/device/hailer(src)
 		new /obj/item/clothing/accessory/storage/black_vest(src)
 		new /obj/item/clothing/head/soft/sec/corp(src)
 		new /obj/item/clothing/under/rank/security/corp(src)
-		new /obj/item/weapon/gun/energy/taser(src)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
 		new /obj/item/device/holowarrant(src)
 		new /obj/item/device/flashlight/flare(src)
@@ -323,7 +278,6 @@
 		new /obj/item/ammo_magazine/c38(src)
 		new /obj/item/ammo_magazine/c38(src)
 		new /obj/item/taperoll/police(src)
-		new /obj/item/weapon/gun/projectile/revolver/detective(src)
 		new /obj/item/clothing/accessory/holster/armpit(src)
 
 /obj/structure/closet/secure_closet/detective/update_icon()
@@ -358,7 +312,6 @@
 		new /obj/item/clothing/suit/storage/vest/csi(src)
 		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/shoes/brown(src)
-		new /obj/item/weapon/storage/box/evidence(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/taperoll/police(src)
@@ -368,8 +321,6 @@
 	req_access = list(access_captain)
 
 	fill()
-		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral(src)
-		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral(src)
 
 
 // These are special snowflakes that need to be in a global list.
@@ -398,13 +349,8 @@
 	fill()
 		..()
 		new /obj/item/clothing/shoes/brown(src)
-		new /obj/item/weapon/paper/Court (src)
-		new /obj/item/weapon/paper/Court (src)
-		new /obj/item/weapon/paper/Court (src)
-		new /obj/item/weapon/pen (src)
 		new /obj/item/clothing/suit/judgerobe (src)
 		new /obj/item/clothing/head/powdered_wig (src)
-		new /obj/item/weapon/storage/briefcase(src)
 
 /obj/structure/closet/secure_closet/wall
 	name = "wall locker"

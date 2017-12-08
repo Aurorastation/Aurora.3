@@ -33,7 +33,6 @@
 
 /datum/antagonist/proc/create_id(var/assignment, var/mob/living/carbon/human/player, var/equip = 1)
 
-	var/obj/item/weapon/card/id/W = new id_type(player)
 	if(!W) return
 	W.access |= default_access
 	W.assignment = "[assignment]"
@@ -77,7 +76,6 @@
 
 		if(paper_spawn_loc)
 			// Create and pass on the bomb code paper.
-			var/obj/item/weapon/paper/P = new(paper_spawn_loc)
 			P.set_content_unsafe("nuclear bomb code", "The nuclear authorization code is: <b>[code]</b>")
 			if(leader && leader.current)
 				if(get_turf(P) == get_turf(leader.current) && !(leader.current.l_hand && leader.current.r_hand))
@@ -112,7 +110,6 @@
 	// Clown clumsiness check, I guess downstream might use it.
 	if (player.current.mind)
 		if (player.current.mind.assigned_role == "Clown")
-			player.current << "You have evolved beyond your clownish nature, allowing you to wield weapons without harming yourself."
 			player.current.mutations.Remove(CLUMSY)
 	return 1
 

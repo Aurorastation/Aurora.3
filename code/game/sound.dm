@@ -59,19 +59,12 @@ var/list/rustle_sound = list(
 	'sound/effects/rustle5.ogg'
 )
 var/list/punch_sound = list(
-	'sound/weapons/punch1.ogg',
-	'sound/weapons/punch2.ogg',
-	'sound/weapons/punch3.ogg',
-	'sound/weapons/punch4.ogg'
 )
 var/list/clown_sound = list(
 	'sound/effects/clownstep1.ogg',
 	'sound/effects/clownstep2.ogg'
 )
 var/list/swing_hit_sound = list(
-	'sound/weapons/genhit1.ogg',
-	'sound/weapons/genhit2.ogg',
-	'sound/weapons/genhit3.ogg'
 )
 var/list/hiss_sound = list(
 	'sound/voice/hiss1.ogg',
@@ -144,7 +137,6 @@ var/list/computerbeeps = list(
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
-//var/list/gun_sound = list('sound/weapons/Gunshot.ogg', 'sound/weapons/Gunshot2.ogg','sound/weapons/Gunshot3.ogg','sound/weapons/Gunshot4.ogg')
 
 /proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, usepressure = 1, environment = -1, is_ambience = FALSE, is_footstep = FALSE)
 	if (istext(soundin))

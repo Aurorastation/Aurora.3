@@ -94,7 +94,6 @@
 	death()
 	return ..()
 
-/obj/structure/flora/pottedplant/attackby(obj/item/weapon/W, mob/user)
 	if (W.edge)
 		user.visible_message(span("warning", "[user] cuts down the [src]"))
 		death()

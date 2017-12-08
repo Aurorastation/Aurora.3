@@ -6,7 +6,6 @@
 		Their purpose is unknown. Their mission is unknown. How they arrived to this secure and isolated \
 		section of the galaxy, you don't know. What you do know is that there is a silent shadow-stalker piercing \
 		through the defenses of the station with technological capabilities eons ahead of your time. They can avoid \
-		the omniscience of the AI and rival the most hardened weapons your station is capable of. Tread lightly and \
 		only hope this unknown assassin isn't here for you."
 	config_tag = "ninja"
 	required_players = 1

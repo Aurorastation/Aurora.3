@@ -2,7 +2,6 @@
 #define TANK_DEFAULT_RELEASE_PRESSURE 24
 #define TANK_IDEAL_PRESSURE 1015 //Arbitrary.
 
-/obj/item/weapon/tank
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
 
@@ -29,7 +28,6 @@
 	var/volume = 70
 	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
 						//If they have and we haven't scanned it with the PDA or gas analyzer then we might just breath whatever they put in it.
-/obj/item/weapon/tank/Initialize()
 	. = ..()
 
 	air_contents = new /datum/gas_mixture()
@@ -39,7 +37,6 @@
 	START_PROCESSING(SSprocessing, src)
 	update_gauge()
 
-/obj/item/weapon/tank/Destroy()
 	QDEL_NULL(air_contents)
 
 	STOP_PROCESSING(SSprocessing, src)
@@ -50,7 +47,6 @@
 
 	return ..()
 
-/obj/item/weapon/tank/examine(mob/user)
 	. = ..(user, 0)
 	if(.)
 		var/celsius_temperature = air_contents.temperature - T0C
@@ -70,7 +66,6 @@
 				descriptive = "cold"
 		user << "<span class='notice'>\The [src] feels [descriptive].</span>"
 
-/obj/item/weapon/tank/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	if (istype(src.loc, /obj/item/assembly))
 		icon = src.loc
@@ -86,16 +81,13 @@
 	if(istype(W, /obj/item/device/assembly_holder))
 		bomb_assemble(W,user)
 
-/obj/item/weapon/tank/attack_self(mob/user as mob)
 	if (!(src.air_contents))
 		return
 
 	ui_interact(user)
 
-/obj/item/weapon/tank/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/mob/living/carbon/location = null
 
-	if(istype(loc, /obj/item/weapon/rig))		// check for tanks in rigs
 		if(istype(loc.loc, /mob/living/carbon))
 			location = loc.loc
 	else if(istype(loc, /mob/living/carbon))
@@ -124,7 +116,6 @@
 		else if(src in location)		// or if tank is in the mobs possession
 			if(!location.internal)		// and they do not have any active internals
 				mask_check = 1
-		else if(istype(src.loc, /obj/item/weapon/rig) && src.loc in location)	// or the rig is in the mobs possession
 			if(!location.internal)		// and they do not have any active internals
 				mask_check = 1
 
@@ -149,7 +140,6 @@
 		// auto update every Master Controller tick
 		ui.set_auto_update(1)
 
-/obj/item/weapon/tank/Topic(href, href_list)
 	..()
 	if (usr.stat|| usr.restrained())
 		return 0
@@ -196,19 +186,15 @@
 	return 1
 
 
-/obj/item/weapon/tank/remove_air(amount)
 	return air_contents.remove(amount)
 
-/obj/item/weapon/tank/return_air()
 	return air_contents
 
-/obj/item/weapon/tank/assume_air(datum/gas_mixture/giver)
 	air_contents.merge(giver)
 
 	check_status()
 	return 1
 
-/obj/item/weapon/tank/proc/remove_air_volume(volume_to_return)
 	if(!air_contents)
 		return null
 
@@ -220,14 +206,12 @@
 
 	return remove_air(moles_needed)
 
-/obj/item/weapon/tank/process()
 	//Allow for reactions
 	air_contents.react() //cooking up air tanks - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
 	if(gauge_icon)
 		update_gauge()
 	check_status()
 
-/obj/item/weapon/tank/proc/update_gauge()
 	var/gauge_pressure = 0
 	if(air_contents)
 		gauge_pressure = air_contents.return_pressure()
@@ -244,7 +228,6 @@
 	// SSoverlay will handle icon caching.
 	add_overlay("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
 
-/obj/item/weapon/tank/proc/check_status()
 	//Handle exploding, leaking, and rupturing of the tank
 
 	if(!air_contents)

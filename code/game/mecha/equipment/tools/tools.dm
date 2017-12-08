@@ -106,7 +106,6 @@
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
 					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
 			else if(istype(target, /turf/simulated/floor/asteroid))
@@ -117,7 +116,6 @@
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
 					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
 			else if(target.loc == C)
@@ -158,7 +156,6 @@
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
 					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
 			else if(istype(target,/turf/simulated/floor/asteroid))
@@ -168,7 +165,6 @@
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
 					var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in chassis:cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(target,1))
 							ore.Move(ore_box)
 			else if(target.loc == C)
 				log_message("Drilled through \the [target]")
@@ -570,7 +566,6 @@
 
 /obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster
 	name = "\improper RW armor booster"
-	desc = "Ranged-weaponry armor booster. Boosts exosuit armor against ranged attacks. Completely blocks taser shots, but requires energy to operate."
 	icon_state = "mecha_abooster_proj"
 	origin_tech = list(TECH_MATERIAL = 4)
 	deflect_coeff = 1.15
@@ -824,10 +819,7 @@
 			return 0
 	return
 
-/obj/item/mecha_parts/mecha_equipment/generator/attackby(weapon,mob/user)
-	var/result = load_fuel(weapon)
 	if(isnull(result))
-		user.visible_message("[user] tries to shove [weapon] into [src]. What a dumb-ass.","<span class='warning'>[fuel] traces minimal. [weapon] cannot be used as fuel.</span>")
 	else if(!result)
 		user << "Unit is full."
 	else

@@ -60,11 +60,9 @@ mob/living/carbon/proc/handle_hallucinations()
 								if(prob(25))
 									halitem.icon_state = "c4small_1"
 							if(3) //sword
-								halitem.icon = 'icons/obj/weapons.dmi'
 								halitem.icon_state = "sword1"
 								halitem.name = "Sword"
 							if(4) //stun baton
-								halitem.icon = 'icons/obj/weapons.dmi'
 								halitem.icon_state = "stunbaton"
 								halitem.name = "Stun Baton"
 							if(5) //emag
@@ -124,15 +122,10 @@ mob/living/carbon/proc/handle_hallucinations()
 					if(8) src << 'sound/machines/windowdoor.ogg'
 					if(9)
 						//To make it more realistic, I added two gunshots (enough to kill)
-						src << 'sound/weapons/Gunshot.ogg'
 						spawn(rand(10,30))
-							src << 'sound/weapons/Gunshot.ogg'
-					if(10) src << 'sound/weapons/smash.ogg'
 					if(11)
 						//Same as above, but with tasers.
-						src << 'sound/weapons/Taser.ogg'
 						spawn(rand(10,30))
-							src << 'sound/weapons/Taser.ogg'
 				//Rare audio
 					if(12)
 //These sounds are (mostly) taken from Hidden: Source
@@ -226,7 +219,6 @@ proc/check_panel(mob/M)
 	anchored = 1
 	opacity = 0
 	var/mob/living/carbon/human/my_target = null
-	var/weapon_name = null
 	var/obj/item/weap = null
 	var/image/stand_icon = null
 	var/image/currentimage = null
@@ -241,7 +233,6 @@ proc/check_panel(mob/M)
 
 	var/health = 100
 
-	attackby(var/obj/item/weapon/P as obj, mob/user as mob)
 		step_away(src,my_target,2)
 		for(var/mob/M in oviewers(world.view,my_target))
 			M << "<span class='danger'>[my_target] flails around wildly.</span>"
@@ -299,16 +290,12 @@ proc/check_panel(mob/M)
 				updateimage()
 			else
 				if(prob(15))
-					if(weapon_name)
-						my_target << sound(pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg'))
-						my_target.show_message("<span class='danger'>[my_target] has been attacked with [weapon_name] by [src.name] </span>", 1)
 						my_target.halloss += 8
 						if(prob(20)) my_target.eye_blurry += 3
 						if(prob(33))
 							if(!locate(/obj/effect/overlay) in my_target.loc)
 								fake_blood(my_target)
 					else
-						my_target << sound(pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg'))
 						my_target.show_message("<span class='danger'>[src.name] has punched [my_target]!</span>", 1)
 						my_target.halloss += 4
 						if(prob(33))
@@ -329,26 +316,11 @@ proc/check_panel(mob/M)
 	target << I
 	QDEL_IN(O, 300)
 
-var/list/non_fakeattack_weapons = list(/obj/item/weapon/gun/projectile, /obj/item/ammo_magazine/a357,\
-	/obj/item/weapon/gun/energy/crossbow, /obj/item/weapon/melee/energy/sword,\
-	/obj/item/weapon/storage/box/syndicate, /obj/item/weapon/storage/box/emps,\
-	/obj/item/weapon/cartridge/syndicate, /obj/item/clothing/under/chameleon,\
-	/obj/item/clothing/shoes/syndigaloshes, /obj/item/weapon/card/id/syndicate,\
 	/obj/item/clothing/mask/gas/voice, /obj/item/clothing/glasses/thermal,\
-	/obj/item/device/chameleon, /obj/item/weapon/card/emag,\
-	/obj/item/weapon/storage/toolbox/syndicate, /obj/item/weapon/aiModule,\
-	/obj/item/device/radio/headset/syndicate,	/obj/item/weapon/plastique,\
-	/obj/item/device/powersink, /obj/item/weapon/storage/box/syndie_kit,\
-	/obj/item/toy/syndicateballoon, /obj/item/weapon/gun/energy/captain,\
-	/obj/item/weapon/hand_tele, /obj/item/weapon/rcd, /obj/item/weapon/tank/jetpack,\
-	/obj/item/clothing/under/rank/captain, /obj/item/weapon/aicard,\
-	/obj/item/clothing/shoes/magboots, /obj/item/blueprints, /obj/item/weapon/disk/nuclear,\
-	/obj/item/clothing/suit/space/void, /obj/item/weapon/tank)
 
 /proc/fake_attack(var/mob/living/target)
 //	var/list/possible_clones = new/list()
 	var/mob/living/carbon/human/clone = null
-	var/clone_weapon = null
 
 	for(var/mob/living/carbon/human/H in living_mob_list)
 		if(H.stat || H.lying) continue
@@ -363,17 +335,12 @@ var/list/non_fakeattack_weapons = list(/obj/item/weapon/gun/projectile, /obj/ite
 	//var/obj/effect/fake_attacker/F = new/obj/effect/fake_attacker(outside_range(target))
 	var/obj/effect/fake_attacker/F = new/obj/effect/fake_attacker(target.loc)
 	if(clone.l_hand)
-		if(!(locate(clone.l_hand) in non_fakeattack_weapons))
-			clone_weapon = clone.l_hand.name
 			F.weap = clone.l_hand
 	else if (clone.r_hand)
-		if(!(locate(clone.r_hand) in non_fakeattack_weapons))
-			clone_weapon = clone.r_hand.name
 			F.weap = clone.r_hand
 
 	F.name = clone.name
 	F.my_target = target
-	F.weapon_name = clone_weapon
 	target.hallucinations += F
 
 

@@ -1,4 +1,3 @@
-/obj/item/weapon/rig/unathi
 	name = "NT breacher chassis control module"
 	desc = "A cheap NT knock-off of an Unathi battle-rig. Looks like a fish, moves like a fish, steers like a cow."
 	suit_type = "NT breacher"
@@ -14,9 +13,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/unathi
 	boot_type = /obj/item/clothing/shoes/magboots/rig/unathi
 
-	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
 
-/obj/item/weapon/rig/unathi/fancy
 	name = "breacher chassis control module"
 	desc = "An authentic Unathi breacher chassis. Huge, bulky and absurdly heavy. It must be like wearing a tank."
 	suit_type = "breacher chassis"

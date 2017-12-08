@@ -17,19 +17,12 @@
 /obj/item/stack/material/wood/cultify()
 	return
 
-/obj/item/weapon/book/cultify()
-	new /obj/item/weapon/book/tome(loc)
 	..()
 
-/obj/item/weapon/material/sword/cultify()
-	new /obj/item/weapon/melee/cultblade(loc)
 	..()
 
-/obj/item/weapon/storage/backpack/cultify()
-	new /obj/item/weapon/storage/backpack/cultpack(loc)
 	..()
 
-/obj/item/weapon/storage/backpack/cultpack/cultify()
 	return
 
 /obj/machinery/cultify()

@@ -5,7 +5,6 @@
  //To unload, place on a table, then rightclic > Unload tray. Alternatively, alt+click on the tray to unload it
  //Tray will spill if thrown, dropped on the floor, or used to hit someone with. Spilling scatters contents
 
-/obj/item/weapon/tray
 	name = "tray"
 	icon = 'icons/obj/food.dmi'
 	icon_state = "tray"
@@ -24,16 +23,9 @@
 	var/safedrop = 0//Used to tell when we should or shouldn't spill if the tray is dropped.
 	//Safedrop is set true when throwing, because it will spill on impact. And when placing on a table
 	var/list/valid = list(
-		/obj/item/weapon/reagent_containers,
-		/obj/item/weapon/material/kitchen/utensil,
-		/obj/item/weapon/storage/fancy/cigarettes,
 		/obj/item/clothing/mask/smokable,
-		/obj/item/weapon/storage/box/matches,
-		/obj/item/weapon/flame/match,
-		/obj/item/weapon/material/ashtray
 	)
 
-/obj/item/weapon/tray/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
@@ -148,16 +140,12 @@
 				return
 			return
 
-/obj/item/weapon/tray/var/cooldown = 0	//shield bash cooldown. based on world.time
 
-/obj/item/weapon/tray/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(user,/mob/living/silicon/robot))//safety to stop robots losing their items
 		return
 
-	if (istype(W, /obj/item/weapon/tray))//safety to prevent tray stacking
 		return
 
-	if(istype(W, /obj/item/weapon/material/kitchen/rollingpin))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
@@ -177,7 +165,6 @@
 */
 
 //Clicking an item individually loads it. clicking a table places the tray on it safely
-/obj/item/weapon/tray/afterattack(atom/target, mob/user as mob, proximity)
 	if (proximity)
 		if (istype(target, /obj/item))
 			var/obj/item/I = target
@@ -188,7 +175,6 @@
 
 
 //Alt+click with the tray in hand attempts to grab everything on the tile
-/obj/item/weapon/tray/alt_attack(var/atom/A, var/mob/user)
 	var/dist
 	var/tile
 	if (istype(A,/turf))
@@ -213,11 +199,9 @@
 		return 0//This prevents the alt-click from doing any farther actions
 	return 1
 
-/obj/item/weapon/tray/AltClick(var/mob/user)
 	unload(user)
 
 
-/obj/item/weapon/tray/proc/attempt_load_item(var/obj/item/I, var/mob/user, var/messages = 1)
 	if( I != src && !I.anchored && !istype(I, /obj/item/projectile) )
 		var/match = 0
 		for (var/T in valid)
@@ -235,7 +219,6 @@
 	return 0
 
 
-/obj/item/weapon/tray/proc/load_item(var/obj/item/I, var/mob/user)
 	user.remove_from_mob(I)
 	I.forceMove(src)
 	current_weight += I.w_class
@@ -245,7 +228,6 @@
 	add_overlay(MA)
 	//rand(0, (max_offset_y*2)-3)-(max_offset_y)-3
 
-/obj/item/weapon/tray/verb/unload()
 	set name = "Unload Tray"
 	set category = "Object"
 	set src in view(1)
@@ -264,7 +246,6 @@
 		current_weight = 0
 		usr.visible_message("[usr] unloads the tray.", "You unload the tray.")
 
-/obj/item/weapon/tray/proc/unload_at_loc(var/turf/dropspot = null, var/mob/user)
 	if (!istype(loc,/turf) && !dropspot)//check that we're not being held by a mob
 		usr << "Place the tray down first!"
 		return
@@ -282,7 +263,6 @@
 		usr.visible_message("[usr] unloads the tray.", "You unload the tray.")
 
 
-/obj/item/weapon/tray/proc/spill(var/mob/user = null, var/turf/dropspot = null)
 	//This proc is called when a tray is thrown or dropped on the floor
 	//its also called when a cyborg uses its tray on the floor
 	if (current_weight > 0)//can't spill a tray with nothing on it
@@ -315,14 +295,11 @@
 		else
 			playsound(dropspot, 'sound/items/trayhit2.ogg', 50, 1)
 
-/obj/item/weapon/tray/throw_impact(atom/hit_atom)
 	spill(null, src.loc)
 
-/obj/item/weapon/tray/throw_at(/var/atom/target, var/throw_range, var/throw_speed, /var/mob/user)
 	safedrop = 1//we dont want the tray to spill when thrown, it will spill on impact instead
 	..()
 
-/obj/item/weapon/tray/dropped(mob/user)
 	spawn(1)//A hack to avoid race conditions. Dropped procs too quickly
 		if (istype(src.loc, /mob))
 			//If this is true, then the tray has just switched hands and is still held by a mob

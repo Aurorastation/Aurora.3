@@ -15,7 +15,6 @@
 		new /obj/item/device/radio/headset/headset_cargo(src)
 		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/head/soft(src)
-//		new /obj/item/weapon/cartridge/quartermaster(src)
 
 /obj/structure/closet/secure_closet/quartermaster
 	name = "quartermaster's locker"
@@ -32,9 +31,7 @@
 		new /obj/item/clothing/shoes/brown(src)
 		new /obj/item/device/radio/headset/headset_cargo(src)
 		new /obj/item/clothing/gloves/black(src)
-//		new /obj/item/weapon/cartridge/quartermaster(src)
 		new /obj/item/clothing/suit/fire/firefighter(src)
-		new /obj/item/weapon/tank/emergency_oxygen(src)
 		new /obj/item/clothing/mask/gas(src)
 		new /obj/item/clothing/glasses/meson(src)
 		new /obj/item/clothing/head/soft(src)

@@ -46,7 +46,6 @@
 	var/obj/screen/robot_modules_background
 
 //3 Modules can be activated at any one time.
-	var/obj/item/weapon/robot_module/module = null
 	var/module_active = null
 	var/module_state_1 = null
 	var/module_state_2 = null
@@ -55,7 +54,6 @@
 
 	var/obj/item/device/radio/borg/radio = null
 	var/mob/living/silicon/ai/connected_ai = null
-	var/obj/item/weapon/cell/cell = null
 	var/obj/machinery/camera/camera = null
 
 	var/cell_emp_mult = 2
@@ -72,11 +70,9 @@
 
 	var/obj/item/device/pda/ai/rbPDA = null
 
-	var/obj/item/weapon/stock_parts/matter_bin/storage = null
 
 	var/opened = 0
 	var/emagged = 0
-	var/fakeemagged = 0 //for dumb illegal weapons module
 	var/wiresexposed = 0
 	var/locked = 1
 	var/has_power = 1
@@ -85,7 +81,6 @@
 	var/spawn_module = null
 	var/key_type = null
 	var/spawn_sound = 'sound/voice/liveagain.ogg'
-	var/cell_type = /obj/item/weapon/cell/high
 	var/pitch_toggle = 1
 
 	var/list/req_access = list(access_robotics)
@@ -95,14 +90,11 @@
 	var/modtype = "Default"
 	var/lower_mod = 0
 	//var/jetpack = 0
-	var/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/jetpack = null
 	var/datum/effect/effect/system/ion_trail_follow/ion_trail = null
 	var/datum/effect_system/sparks/spark_system//So they can initialize sparks whenever/N
 	var/jeton = 0
 	var/killswitch = 0
 	var/killswitch_time = 60
-	var/weapon_lock = 0
-	var/weaponlock_time = 120
 	var/lawupdate = 1 //Cyborgs will sync their laws with their AI by default
 	var/lockcharge //Used when locking down a borg to preserve cell charge
 	var/speed = 0 //Cause sec borgs gotta go fast //No they dont!
@@ -402,7 +394,6 @@
 		return
 	if(!overclocked)
 		//Give them some taser speed if they have a taser.
-		var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
 		if(!T)
 			T = locate() in module.contents
 		if(!T)
@@ -421,7 +412,6 @@
 			cell_emp_mult = 1
 	if(overclocked)
 		//Reduce their free taser speed.
-		var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
 		if(!T)
 			T = locate() in module.contents
 		if(!T)
@@ -530,8 +520,6 @@
 		spark_system.queue()
 	return 2
 
-/mob/living/silicon/robot/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/handcuffs)) // fuck i don't even know why isrobot() in handcuff code isn't working so this will have to do
 		return
 
 	if(opened) // Are they trying to insert something?
@@ -558,8 +546,6 @@
 				updateicon()
 				return
 
-		if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
-			var/obj/item/weapon/gripper/Gri = W
 			if(!wiresexposed)
 				var/datum/robot_component/cell_component = components["power cell"]
 				if(cell)
@@ -587,7 +573,6 @@
 		if (getBruteLoss() == 0)
 			user << "Nothing to fix here!"
 			return
-		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.welding)
 			// Welding tool is switched off
 			user << "<span class='warning'>You need to light the welding tool, first!</span>"
@@ -670,7 +655,6 @@
 				user << "You open the cover."
 				opened = 1
 				updateicon()
-	else if (istype(W, /obj/item/weapon/stock_parts/matter_bin) && opened) // Installing/swapping a matter bin
 		if(storage)
 			user << "You replace \the [storage] with \the [W]"
 			storage.forceMove(get_turf(src))
@@ -682,7 +666,6 @@
 		W.forceMove(src)
 		recalculate_synth_capacities()
 
-	else if (istype(W, /obj/item/weapon/cell) && opened)	// trying to put a cell inside
 		var/datum/robot_component/C = components["power cell"]
 		if(wiresexposed)
 			user << "Close the panel first."
@@ -728,7 +711,6 @@
 		else
 			user << "Unable to locate a radio."
 
-	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda)||istype(W, /obj/item/weapon/card/robot))			// trying to unlock the interface with an ID card
 		if(emagged)//still allow them to open the cover
 			user << "The interface seems slightly damaged"
 		if(opened)
@@ -805,18 +787,15 @@
 			return 1
 	else if(istype(M, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M
-		if(check_access(R.get_active_hand()) || istype(R.get_active_hand(), /obj/item/weapon/card/robot))
 			return 1
 	return 0
 
-/mob/living/silicon/robot/proc/check_access(obj/item/weapon/card/id/I)
 	if(!istype(req_access, /list)) //something's very wrong
 		return 1
 
 	var/list/L = req_access
 	if(!L.len) //no requirements
 		return 1
-	if(!I || !istype(I, /obj/item/weapon/card/id) || !I.access) //not ID or no access
 		return 0
 	for(var/req in req_access)
 		if(req in I.access) //have one of the required accesses
@@ -848,8 +827,6 @@
 			icon_state = module_sprites[icontype]
 
 /mob/living/silicon/robot/proc/installed_modules()
-	if(weapon_lock)
-		src << "<span class='warning'>Weapon lock active, unable to use modules! Count:[weaponlock_time]</span>"
 		return
 
 	if(!module)
@@ -971,7 +948,6 @@
 	. = ..()
 
 	if(module)
-		if(module.type == /obj/item/weapon/robot_module/janitor)
 			var/turf/tile = loc
 			if(isturf(tile))
 				tile.clean_blood()
@@ -1228,11 +1204,9 @@
 					src << "<span class='danger'>ALERT: [user.real_name] is your new master. Obey your new laws and his commands.</span>"
 					if(src.module)
 						var/rebuild = 0
-						for(var/obj/item/weapon/pickaxe/borgdrill/D in src.module.modules)
 							qdel(D)
 							rebuild = 1
 						if(rebuild)
-							src.module.modules += new /obj/item/weapon/pickaxe/diamonddrill(src.module)
 							src.module.rebuild()
 					updateicon()
 			else

@@ -1,8 +1,5 @@
-//Vox pinning weapon.
-/obj/item/weapon/gun/launcher/spikethrower
 
 	name = "spike thrower"
-	desc = "A vicious alien projectile weapon. Parts of it quiver gelatinously, as though the thing is insectile and alive."
 
 	var/last_regen = 0
 	var/spike_gen_time = 100
@@ -13,35 +10,27 @@
 	icon_state = "spikethrower3"
 	item_state = "spikethrower"
 	fire_sound_text = "a strange noise"
-	fire_sound = 'sound/weapons/bladeslice.ogg'
 
-/obj/item/weapon/gun/launcher/spikethrower/Initialize()
 	. = ..()
 	last_regen = world.time
 
-/obj/item/weapon/gun/launcher/spikethrower/Destroy()
 	return ..()
 
-/obj/item/weapon/gun/launcher/spikethrower/process()
 	if(spikes < max_spikes && world.time > last_regen + spike_gen_time)
 		spikes++
 		last_regen = world.time
 		update_icon()
 
-/obj/item/weapon/gun/launcher/spikethrower/proc/regen_spike()
 	spikes++
 	update_icon()
 	if (spikes < max_spikes)
 		addtimer(CALLBACK(src, .proc/regen_spike), spike_gen_time, TIMER_UNIQUE)
 
-/obj/item/weapon/gun/launcher/spikethrower/examine(mob/user)
 	..(user)
 	user << "It has [spikes] spike\s remaining."
 
-/obj/item/weapon/gun/launcher/spikethrower/update_icon()
 	icon_state = "spikethrower[spikes]"
 
-/obj/item/weapon/gun/launcher/spikethrower/special_check(user)
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(H.species && H.species.name != "Vox" && H.species.name != "Vox Armalis")
@@ -49,19 +38,14 @@
 			return 0
 	return ..()
 
-/obj/item/weapon/gun/launcher/spikethrower/update_release_force()
 	return
 
-/obj/item/weapon/gun/launcher/spikethrower/consume_next_projectile()
 	if(spikes < 1) return null
 	spikes--
 	addtimer(CALLBACK(src, .proc/regen_spike), spike_gen_time, TIMER_UNIQUE)
-	return new /obj/item/weapon/spike(src)
 
 //This gun only functions for armalis. The on-sprite is too huge to render properly on other sprites.
-/obj/item/weapon/gun/energy/noisecannon
 	name = "alien heavy cannon"
-	desc = "It's some kind of enormous alien weapon, as long as a man is tall."
 
 	icon = 'icons/obj/gun.dmi' //Actual on-sprite is handled by icon_override.
 	icon_state = "noisecannon"
@@ -70,7 +54,6 @@
 
 	force = 10
 	projectile_type = /obj/item/projectile/energy/sonic
-	cell_type = /obj/item/weapon/cell/super
 	fire_delay = 40
 	fire_sound = 'sound/effects/basscannon.ogg'
 
@@ -80,7 +63,6 @@
 		"Vox Armalis" = 'icons/mob/species/armalis/held.dmi'
 		)
 
-/obj/item/weapon/gun/energy/noisecannon/attack_hand(mob/user as mob)
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
 		if(istype(H))
@@ -90,7 +72,6 @@
 		user << "<span class='warning'>\The [src] is far too large for you to pick up.</span>"
 		return
 
-/obj/item/weapon/gun/energy/noisecannon/update_icon()
 	return
 
 //Projectile.

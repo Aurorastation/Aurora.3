@@ -1,6 +1,5 @@
 /datum/wires/rig
 	random = 1
-	holder_type = /obj/item/weapon/rig
 	wire_count = 5
 
 #define RIG_SECURITY 1
@@ -17,7 +16,6 @@
 
 /datum/wires/rig/UpdateCut(var/index, var/mended)
 
-	var/obj/item/weapon/rig/rig = holder
 	switch(index)
 		if(RIG_SECURITY)
 			if(mended)
@@ -36,7 +34,6 @@
 
 /datum/wires/rig/UpdatePulsed(var/index)
 
-	var/obj/item/weapon/rig/rig = holder
 	switch(index)
 		if(RIG_SECURITY)
 			rig.security_check_enabled = !rig.security_check_enabled
@@ -58,7 +55,6 @@
 			rig.shock(usr,100)
 
 /datum/wires/rig/CanUse(var/mob/living/L)
-	var/obj/item/weapon/rig/rig = holder
 	if(rig.open)
 		return 1
 	return 0

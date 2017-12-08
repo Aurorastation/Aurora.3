@@ -7,8 +7,6 @@
 	icon_screen = "security"
 	light_color = LIGHT_COLOR_ORANGE
 	req_one_access = list(access_security, access_forensics_lockers, access_lawyer)
-	circuit = /obj/item/weapon/circuitboard/secure_data
-	var/obj/item/weapon/card/id/scan = null
 	var/authenticated = null
 	var/rank = null
 	var/screen = null
@@ -46,7 +44,6 @@
 	return
 
 /obj/machinery/computer/secure_data/attackby(obj/item/O as obj, user as mob)
-	if(istype(O, /obj/item/weapon/card/id) && !scan)
 		usr.drop_item()
 		O.loc = src
 		scan = O
@@ -271,7 +268,6 @@ What a mess.*/
 					scan = null
 				else
 					var/obj/item/I = usr.get_active_hand()
-					if (istype(I, /obj/item/weapon/card/id) && usr.unEquip(I))
 						I.loc = src
 						scan = I
 
@@ -295,7 +291,6 @@ What a mess.*/
 					var/mob/living/silicon/robot/R = usr
 					src.rank = "[R.modtype] [R.braintype]"
 					src.screen = 1
-				else if (istype(scan, /obj/item/weapon/card/id))
 					active1 = null
 					active2 = null
 					if(check_access(scan))
@@ -370,7 +365,6 @@ What a mess.*/
 					record1 = active1
 				if ((istype(active2, /datum/data/record) && data_core.security.Find(active2)))
 					record2 = active2
-				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()
 				var/info = ""
 				var/pname
 				P.info = "<CENTER><B>Security Record</B></CENTER><BR>"
@@ -596,12 +590,9 @@ What a mess.*/
 	return !src.authenticated || user.stat || user.restrained() || (!in_range(src, user) && (!istype(user, /mob/living/silicon)))
 
 /obj/machinery/computer/secure_data/proc/get_photo(var/mob/user)
-	if(istype(user.get_active_hand(), /obj/item/weapon/photo))
-		var/obj/item/weapon/photo/photo = user.get_active_hand()
 		return photo.img
 	if(istype(user, /mob/living/silicon))
 		var/mob/living/silicon/tempAI = usr
-		var/obj/item/weapon/photo/selection = tempAI.GetPicture()
 		if (selection)
 			return selection.img
 

@@ -78,7 +78,6 @@
 				heat_limit = H.species.heat_level_3
 
 			if(pipe_air.temperature > heat_limit + 1)
-				buckled_mob.apply_damage(4 * log(pipe_air.temperature - heat_limit), BURN, "chest", used_weapon = "Excessive Heat")
 
 		//fancy radiation glowing
 		if(pipe_air.temperature && (icon_temperature > 500 || pipe_air.temperature > 500)) //start glowing at 500K

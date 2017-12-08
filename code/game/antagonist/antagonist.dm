@@ -68,7 +68,6 @@
 
 	// ID card stuff.
 	var/default_access = list()
-	var/id_type = /obj/item/weapon/card/id
 
 
 /datum/antagonist/New()

@@ -14,7 +14,6 @@
 	var/machinedir = NORTHEAST
 	var/show_all_ores = 0
 	var/points = 0
-	var/obj/item/weapon/card/id/inserted_id
 
 /obj/machinery/mineral/processing_unit_console/Initialize()
 	. = ..()
@@ -103,7 +102,6 @@
 				else
 					usr << "<span class='warning'>Required access not found.</span>"
 		else if(href_list["choice"] == "insert")
-			var/obj/item/weapon/card/id/I = usr.get_active_hand()
 			if(istype(I))
 				usr.drop_item()
 				I.loc = src
@@ -161,11 +159,6 @@
 	active_power_usage = 50
 
 	component_types = list(
-			/obj/item/weapon/circuitboard/refiner,
-			/obj/item/weapon/stock_parts/capacitor = 2,
-			/obj/item/weapon/stock_parts/scanning_module,
-			/obj/item/weapon/stock_parts/micro_laser = 2,
-			/obj/item/weapon/stock_parts/matter_bin
 		)
 
 /obj/machinery/mineral/processing_unit/Initialize()
@@ -201,7 +194,6 @@
 
 	//Grab some more ore to process this tick.
 	for(var/i = 0,i<sheets_per_tick,i++)
-		var/obj/item/weapon/ore/O = locate() in input.loc
 		if(!O) break
 		if(!isnull(ores_stored[O.material]))
 			ores_stored[O.material]++
@@ -301,13 +293,11 @@
 				use_power(500)
 				ores_stored[metal]--
 				sheets++
-				new /obj/item/weapon/ore/slag(output.loc)
 		else
 			continue
 
 	console.updateUsrDialog()
 
-/obj/machinery/mineral/processing_unit/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(default_deconstruction_screwdriver(user, W))
 		return
 	else if(default_part_replacement(user, W))
@@ -319,7 +309,6 @@
 	var/cap_rating = 0
 	var/laser_rating = 0
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(isscanner(P))
 			scan_rating += P.rating
 		else if(iscapacitor(P))

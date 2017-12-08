@@ -1,4 +1,3 @@
-/obj/item/weapon/beartrap
 	name = "mechanical trap"
 	throw_speed = 2
 	throw_range = 1
@@ -13,10 +12,8 @@
 	var/deployed = 0
 	var/time_to_escape = 60
 
-/obj/item/weapon/beartrap/proc/can_use(mob/user)
 	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
 
-/obj/item/weapon/beartrap/attack_self(mob/user as mob)
 	..()
 	if(!deployed && can_use(user))
 		user.visible_message(
@@ -37,7 +34,6 @@
 			update_icon()
 			anchored = 1
 
-/obj/item/weapon/beartrap/user_unbuckle_mob(mob/user as mob)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
 			"<span class='notice'>\The [user] begins freeing \the [buckled_mob] from \the [src].</span>",
@@ -49,7 +45,6 @@
 			unbuckle_mob()
 			anchored = 0
 
-/obj/item/weapon/beartrap/attack_hand(mob/user as mob)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
 			"<span class='notice'>[user] begins freeing [buckled_mob] from \the [src].</span>",
@@ -76,7 +71,6 @@
 	else
 		..()
 
-/obj/item/weapon/beartrap/proc/attack_mob(mob/living/L)
 
 	var/target_zone
 	if(L.lying)
@@ -100,14 +94,12 @@
 	L << "<span class='danger'>The steel jaws of \the [src] bite into you, trapping you in place!</span>"
 	deployed = 0
 	can_buckle = initial(can_buckle)
-	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)//Really loud snapping sound
 
 	if (istype(L, /mob/living/simple_animal/hostile/bear))
 		var/mob/living/simple_animal/hostile/bear/bear = L
 		bear.anger += 15//Beartraps make bears really angry
 		bear.instant_aggro()
 
-/obj/item/weapon/beartrap/Crossed(AM as mob|obj)
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
 		L.visible_message(
@@ -123,7 +115,6 @@
 	..()
 
 
-/obj/item/weapon/beartrap/update_icon()
 	..()
 
 	if(!deployed)

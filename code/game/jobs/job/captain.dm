@@ -11,7 +11,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	spawn_positions = 1
 	supervisors = "company officials and Corporate Regulations"
 	selection_color = "#ccccff"
-	idtype = /obj/item/weapon/card/id/gold
 	req_admin_notify = 1
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
@@ -20,11 +19,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	ideal_character_age = 70 // Old geezer captains ftw
 
-	bag_type = /obj/item/weapon/storage/backpack/captain
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_cap
-	alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/cap
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/com
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -45,9 +39,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/caphat(H), slot_head)
 		H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(H), slot_glasses)
 		if(H.backbag == 1)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/ids(H), slot_l_hand)
 		else
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/ids(H.back), slot_in_backpack)
 
 
 		H.implant_loyalty(H)
@@ -68,7 +60,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#ddddff"
-	idtype = /obj/item/weapon/card/id/silver
 	req_admin_notify = 1
 	minimal_player_age = 10
 	economic_modifier = 10
@@ -96,7 +87,5 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/heads/hop(H), slot_belt)
 		if(H.backbag == 1)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/ids(H), slot_l_hand)
 		else
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/ids(H.back), slot_in_backpack)
 		return TRUE

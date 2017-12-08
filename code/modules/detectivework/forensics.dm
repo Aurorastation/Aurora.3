@@ -1,4 +1,3 @@
-/obj/item/weapon/forensics
 	icon = 'icons/obj/forensics.dmi'
 	w_class = 1
 

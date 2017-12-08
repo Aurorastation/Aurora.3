@@ -55,32 +55,24 @@
 	var/obj/item/clothing/under/U = new /obj/item/clothing/under/rank/centcom_officer/bst(bst)
 	bst.equip_to_slot_or_del(U, slot_w_uniform)
 	bst.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert/bst(bst), slot_l_ear)
-	bst.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/holding/bst(bst), slot_back)
-	bst.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(bst.back), slot_in_backpack)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/shoes/black/bst(bst), slot_shoes)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/head/beret(bst), slot_head)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/bst(bst), slot_glasses)
-	bst.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/utility/full(bst), slot_belt)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat/bst(bst), slot_gloves)
 	if(bst.backbag == 1)
-		bst.equip_to_slot_or_del(new /obj/item/weapon/storage/box/ids(bst), slot_r_hand)
 	else
-		bst.equip_to_slot_or_del(new /obj/item/weapon/storage/box/ids(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/device/t_scanner(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/device/pda/captain/bst(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/device/multitool(bst.back), slot_in_backpack)
 
-		var/obj/item/weapon/storage/box/pills = new /obj/item/weapon/storage/box(null, TRUE)
 		pills.name = "adminordrazine"
 		for(var/i = 1, i < 12, i++)
-			new /obj/item/weapon/reagent_containers/pill/adminordrazine(pills)
 		bst.equip_to_slot_or_del(pills, slot_in_backpack)
 
 	//Implant because access
 	bst.implant_loyalty(bst,TRUE)
 
 	//Sort out ID
-	var/obj/item/weapon/card/id/bst/id = new/obj/item/weapon/card/id/bst(bst)
 	id.registered_name = bst.real_name
 	id.assignment = "Bluespace Technician"
 	id.name = "[id.assignment]"
@@ -184,7 +176,6 @@
 		real_name = "Bluespace Cat"
 		mind.name = "Bluespace Cat"
 		if(wear_id)
-			var/obj/item/weapon/card/id/id = wear_id
 			if(istype(wear_id, /obj/item/device/pda))
 				var/obj/item/device/pda/pda = wear_id
 				id = pda.id
@@ -204,7 +195,6 @@
 		real_name = "Bluespace Bot"
 		mind.name = "Bluespace Bot"
 		if(wear_id)
-			var/obj/item/weapon/card/id/id = wear_id
 			if(istype(wear_id, /obj/item/device/pda))
 				var/obj/item/device/pda/pda = wear_id
 				id = pda.id
@@ -222,7 +212,6 @@
 		real_name = "Bluespace Tree"
 		mind.name = "Bluespace Tree"
 		if(wear_id)
-			var/obj/item/weapon/card/id/id = wear_id
 			if(istype(wear_id, /obj/item/device/pda))
 				var/obj/item/device/pda/pda = wear_id
 				id = pda.id
@@ -241,7 +230,6 @@
 		real_name = "Bluespace Lizard"
 		mind.name = "Bluespace Lizard"
 		if(wear_id)
-			var/obj/item/weapon/card/id/id = wear_id
 			if(istype(wear_id, /obj/item/device/pda))
 				var/obj/item/device/pda/pda = wear_id
 				id = pda.id
@@ -260,7 +248,6 @@
 		real_name = "Bluespace Squid"
 		mind.name = "Bluespace Squid"
 		if(wear_id)
-			var/obj/item/weapon/card/id/id = wear_id
 			if(istype(wear_id, /obj/item/device/pda))
 				var/obj/item/device/pda/pda = wear_id
 				id = pda.id
@@ -280,7 +267,6 @@
 		real_name = "Bluespace Bug"
 		mind.name = "Bluespace Bug"
 		if(wear_id)
-			var/obj/item/weapon/card/id/id = wear_id
 			if(istype(wear_id, /obj/item/device/pda))
 				var/obj/item/device/pda/pda = wear_id
 				id = pda.id
@@ -360,7 +346,6 @@
 //All items with a /bst need the attack_hand() proc overrided to stop people getting overpowered items.
 
 //Bag o Holding
-/obj/item/weapon/storage/backpack/holding/bst
 	canremove = 0
 	storage_slots = 56
 	max_w_class = 400
@@ -500,14 +485,12 @@
 	return 1 //Because Bluespace
 
 //ID
-/obj/item/weapon/card/id/bst
 	icon_state = "centcom"
 	desc = "An ID straight from Central Command. This one looks highly classified."
 //	canremove = 0
 	New()
 		access = get_all_accesses()+get_all_centcom_access()+get_all_syndicate_access()
 
-/obj/item/weapon/card/id/bst/attack_hand()
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))

@@ -4,8 +4,6 @@
 	anchored = 1
 	icon = 'icons/obj/virology.dmi'
 	icon_state = "incubator"
-	var/obj/item/weapon/virusdish/dish
-	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/radiation = 0
 
 	var/on = 0
@@ -15,7 +13,6 @@
 	var/toxins = 0
 
 /obj/machinery/disease2/incubator/attackby(var/obj/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/weapon/reagent_containers/glass) || istype(O,/obj/item/weapon/reagent_containers/syringe))
 
 		if(beaker)
 			user << "\The [src] is already loaded."
@@ -31,7 +28,6 @@
 		src.attack_hand(user)
 		return
 
-	if(istype(O, /obj/item/weapon/virusdish))
 
 		if(dish)
 			user << "The dish tray is aleady full!"

@@ -18,10 +18,8 @@
 /datum/uplink_category/grenades
 	name = "Grenades and Thrown Objects"
 
-/datum/uplink_category/visible_weapons
 	name = "Highly Visible and Dangerous Weapons"
 
-/datum/uplink_category/stealthy_weapons
 	name = "Stealthy and Inconspicuous Weapons"
 
 /datum/uplink_category/stealth_items

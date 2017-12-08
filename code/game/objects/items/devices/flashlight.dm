@@ -135,7 +135,6 @@
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	matter = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 100)
-	hitsound = 'sound/weapons/smash.ogg'
 	contained_sprite = 1
 	light_wedge = LIGHT_NARROW
 

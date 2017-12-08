@@ -41,7 +41,6 @@
 
 	var/name_changed = 0
 
-/mob/living/simple_animal/hostile/commanded/dog/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	. = ..()
 	if(!.)
 		src.emote("barks!")

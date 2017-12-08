@@ -1,6 +1,5 @@
 /* Staves */
 
-/obj/item/weapon/gun/energy/staff
 	name = "staff of change"
 	desc = "An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself."
 	icon = 'icons/obj/gun.dmi'
@@ -17,7 +16,6 @@
 	self_recharge = 1
 	charge_meter = 0
 
-obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
 		return 0
@@ -27,11 +25,9 @@ obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 			var/mob/living/new_mob
 			var/mob/living/carbon/human/H = user
 			for(var/obj/item/W in H)
-				if(istype(W, /obj/item/weapon/implant))
 					qdel(W)
 					continue
 				H.drop_from_inventory(W)
-			playsound(user, 'sound/weapons/emitter.ogg', 40, 1)
 			var/obj/item/organ/external/LA = H.get_organ("l_arm")
 			var/obj/item/organ/external/RA = H.get_organ("r_arm")
 			var/obj/item/organ/external/LL = H.get_organ("l_leg")
@@ -53,21 +49,18 @@ obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 		return 0
 	return 1
 
-/obj/item/weapon/gun/energy/staff/handle_click_empty(mob/user = null)
 	if (user)
 		user.visible_message("*fizzle*", "<span class='danger'>*fizzle*</span>")
 	else
 		src.visible_message("*fizzle*")
 	playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 1)
 
-/obj/item/weapon/gun/energy/staff/animate
 	name = "staff of animation"
 	desc = "An artefact that spits bolts of life-force which causes objects which are hit by it to animate and come to life! This magic doesn't affect machines."
 	projectile_type = /obj/item/projectile/animate
 	fire_sound = 'sound/magic/wand.ogg'
 	max_shots = 10
 
-obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
 		return 0
@@ -93,7 +86,6 @@ obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/living/user)
 		return 0
 	return 1
 
-obj/item/weapon/gun/energy/staff/focus
 	name = "mental focus"
 	desc = "An artefact that channels the will of the user into destructive bolts of force. If you aren't careful with it, you might poke someone's brain out."
 	icon = 'icons/obj/wizard.dmi'
@@ -103,7 +95,6 @@ obj/item/weapon/gun/energy/staff/focus
 	slot_flags = SLOT_BACK
 	projectile_type = /obj/item/projectile/forcebolt
 
-obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
 		return 0
@@ -126,7 +117,6 @@ obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/living/user)
 	return 1
 
 
-obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	if(projectile_type == /obj/item/projectile/forcebolt)
 		charge_cost = 400
 		user << "<span class='warning'>The [src.name] will now strike a small area.</span>"
@@ -137,7 +127,6 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		projectile_type = /obj/item/projectile/forcebolt
 
 
-/obj/item/weapon/gun/energy/staff/chaos
 	name = "staff of chaos"
 	desc = "An artefact that spits bolts of chaotic energy, expect anything."
 	icon = 'icons/obj/wands.dmi'
@@ -150,11 +139,9 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 5
 	projectile_type = /obj/item/projectile/magic
 	var/list/possible_projectiles = list(/obj/item/projectile/magic, /obj/item/projectile/change, /obj/item/projectile/forcebolt,
-										/obj/item/weapon/gun/energy/staff/animate, /obj/item/projectile/magic/fireball, /obj/item/projectile/magic/teleport,
 										/obj/item/projectile/temp, /obj/item/projectile/ion, /obj/item/projectile/energy/declone, /obj/item/projectile/meteor,
 										/obj/item/projectile/beam/thermaldrill, /obj/item/projectile/beam/energy_net, /obj/item/projectile/energy/bee)
 										
-/obj/item/weapon/gun/energy/staff/chaos/special_check(var/mob/living/user)
 	projectile_type = pick(possible_projectiles)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>"
@@ -172,7 +159,6 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 
 //wands
 
-/obj/item/weapon/gun/energy/wand
 	name = "wand of nothing"
 	desc = "A magic stick, this one don't do much however."
 	icon = 'icons/obj/wands.dmi'
@@ -189,26 +175,21 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	charge_meter = 0
 	charge_failure_message = null
 
-/obj/item/weapon/gun/energy/wand/get_cell()
 	return DEVICE_NO_CELL
 
-/obj/item/weapon/gun/energy/wand/handle_click_empty(mob/user = null)
 	if (user)
 		user.visible_message("*fizzle*", "<span class='danger'>*fizzle*</span>")
 	else
 		src.visible_message("*fizzle*")
 	playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 1)
 	
-/obj/item/weapon/gun/energy/wand/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
 	return 1
 	
-/obj/item/weapon/gun/energy/wand/toy
 	origin_tech = null
 
-/obj/item/weapon/gun/energy/wand/fire
 	name = "wand of fire"
 	desc = "A wand that can fire destructive flames."
 	icon = 'icons/obj/wands.dmi'
@@ -219,7 +200,6 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 5
 	projectile_type = /obj/item/projectile/magic/fireball
 
-/obj/item/weapon/gun/energy/wand/fire/special_check(var/mob/living/user)	
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
@@ -235,7 +215,6 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	return 1
 
 
-/obj/item/weapon/gun/energy/wand/polymorph
 	name = "wand of polymorph"
 	desc = "A wand that will change the shape of the its victims."
 	icon = 'icons/obj/wands.dmi'
@@ -246,7 +225,6 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/change
 	
-/obj/item/weapon/gun/energy/wand/polymorph/special_check(var/mob/living/user)	
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
@@ -256,12 +234,10 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 			H.drop_item()
 			H.visible_message("<span class='danger'>\The [H] collapses on the floor, their body shrinking and growing hair!</span>")
 			H.monkeyize()
-			H.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/food/snacks/grown/banana(H), slot_l_hand)
 			qdel(src)
 		return 0
 	return 1
 
-/obj/item/weapon/gun/energy/wand/teleport
 	name = "wand of teleportation"
 	desc = "This wand will send your targets away, or closer, to yourself."
 	icon = 'icons/obj/wands.dmi'
@@ -272,7 +248,6 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/magic/teleport
 	
-/obj/item/weapon/gun/energy/wand/teleport/special_check(var/mob/living/user) //todo: think of something else for this	
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
@@ -298,7 +273,6 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		return 0
 	return 1
 
-/obj/item/weapon/gun/energy/wand/force
 	name = "wand of force"
 	desc = "A more portable version of the mental focus, still deadly."
 	icon = 'icons/obj/wands.dmi'
@@ -308,7 +282,6 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/forcebolt
 
-/obj/item/weapon/gun/energy/wand/force/special_check(var/mob/living/user)	
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0
@@ -324,7 +297,6 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		return 0
 	return 1
 
-/obj/item/weapon/gun/energy/wand/animation
 	name = "wand of animation"
 	desc = "This wand will create a legion of murderous toilets, for your own leisure."
 	icon = 'icons/obj/wands.dmi'
@@ -334,7 +306,6 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/animate
 	
-/obj/item/weapon/gun/energy/wand/animation/special_check(var/mob/living/user)	
 	if(HULK in user.mutations)
 		user << "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>"
 		return 0

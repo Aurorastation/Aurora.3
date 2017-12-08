@@ -23,9 +23,6 @@
 
 /datum/surgery_step/generic/cut_with_laser
 	allowed_tools = list(
-	/obj/item/weapon/scalpel/laser3 = 95, \
-	/obj/item/weapon/scalpel/laser2 = 85, \
-	/obj/item/weapon/scalpel/laser1 = 75, \
 	//Removed energy sword from here. with a 5% chance of success, it's a feature nobody ever used anyway
 	//Energy swords amputate instead now
 	)
@@ -54,7 +51,6 @@
 
 		if(istype(target) && !(target.species.flags & NO_BLOOD))
 			affected.status |= ORGAN_BLEEDING
-		playsound(target.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 
 		affected.createwound(CUT, 1)
 		affected.clamp()
@@ -69,7 +65,6 @@
 
 /datum/surgery_step/generic/incision_manager
 	allowed_tools = list(
-	/obj/item/weapon/scalpel/manager = 100
 	)
 	priority = 2
 	min_duration = 80
@@ -109,9 +104,6 @@
 
 /datum/surgery_step/generic/cut_open
 	allowed_tools = list(
-	/obj/item/weapon/scalpel = 100,
-	/obj/item/weapon/material/knife = 75,
-	/obj/item/weapon/material/shard = 50
 	)
 
 	min_duration = 90
@@ -152,8 +144,6 @@
 
 /datum/surgery_step/generic/cut_openvaurca
 	allowed_tools = list(
-	/obj/item/weapon/surgicaldrill = 85,
-	/obj/item/weapon/pickaxe/ = 15
 	)
 
 	min_duration = 110
@@ -193,7 +183,6 @@
 
 /datum/surgery_step/generic/clamp_bleeders
 	allowed_tools = list(
-	/obj/item/weapon/hemostat = 100,	\
 	/obj/item/stack/cable_coil = 75, 	\
 	/obj/item/device/assembly/mousetrap = 20
 	)
@@ -228,9 +217,6 @@
 
 /datum/surgery_step/generic/retract_skin
 	allowed_tools = list(
-	/obj/item/weapon/retractor = 100, 	\
-	/obj/item/weapon/crowbar = 75,	\
-	/obj/item/weapon/material/kitchen/utensil/fork = 50
 	)
 
 	min_duration = 30
@@ -284,10 +270,7 @@
 /datum/surgery_step/generic/cauterize
 	//Fixed these tool probabilities because they were dumb
 	allowed_tools = list(
-	/obj/item/weapon/cautery = 100,
 	/obj/item/clothing/mask/smokable/cigarette = 25,
-	/obj/item/weapon/flame/lighter = 50,
-	/obj/item/weapon/weldingtool = 75
 	)
 
 	min_duration = 70
@@ -321,10 +304,6 @@
 
 /datum/surgery_step/generic/amputate
 	allowed_tools = list(
-	/obj/item/weapon/circular_saw = 100,
-	/obj/item/weapon/melee/energy = 100,
-	/obj/item/weapon/melee/chainsword = 100,
-	/obj/item/weapon/material/hatchet = 55
 	)
 
 	min_duration = 110
@@ -339,14 +318,10 @@
 		if (affected == null)
 			return 0
 
-		if (istype(tool, /obj/item/weapon/melee/energy))
-			var/obj/item/weapon/melee/energy/E = tool
 			if (!E.active)
 				user << "<span class='warning'>The energy blade is not turned on!</span>"
 				return 0
 
-		if (istype(tool, /obj/item/weapon/melee/chainsword))
-			var/obj/item/weapon/melee/chainsword/E = tool
 			if (!E.active)
 				user << "<span class='warning'>The blades aren't spinning, you can't cut anything!</span>"
 				return 0
@@ -367,13 +342,11 @@
 		"<span class='danger'>You amputate [target]'s [affected.name] with \the [tool].</span>")
 
 		var/clean = 1
-		if (istype(tool, /obj/item/weapon/melee/chainsword))//Chainswords rip and tear, so the limb removal is not clean
 			clean = 0
 
 		var/var/obj/item/organ/external/parent = affected.parent//Cache the parent organ of the limb before we sever it
 		affected.droplimb(clean,DROPLIMB_EDGE)
 
-		if (istype(tool, /obj/item/weapon/melee/energy))//Code for energy weapons cauterising the cut
 			spawn(1)
 				affected = parent
 				affected.open = 0//Close open wounds

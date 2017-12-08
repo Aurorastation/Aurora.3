@@ -1,4 +1,3 @@
-/obj/item/weapon/mop
 	desc = "The world of janitalia wouldn't be complete without a mop."
 	name = "mop"
 	icon = 'icons/obj/janitor.dmi'
@@ -12,16 +11,13 @@
 	var/mopping = 0
 	var/mopcount = 0
 
-/obj/item/weapon/mop/New()
 	..()
 	create_reagents(30)
 	janitorial_supplies |= src
 
-/obj/item/weapon/mop/Destroy()
 	janitorial_supplies -= src
 	return ..()
 
-/obj/item/weapon/mop/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
 	if(istype(A, /turf) || istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay) || istype(A, /obj/effect/rune))
 		if(reagents.total_volume < 1)
@@ -38,6 +34,5 @@
 
 
 /obj/effect/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/mop) || istype(I, /obj/item/weapon/soap))
 		return
 	..()

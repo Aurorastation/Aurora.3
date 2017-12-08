@@ -99,7 +99,6 @@
 	if(possible.len)
 		var/picked = pick(possible)
 		var/atom/A = picked
-		if(initial(A.name) in list("object", "item","weapon", "structure", "machinery", "Mecha", "organ", "snack")) //weed out a few of the common bad types. Reason we don't check types specifically is that (hopefully) further bad subtypes don't set their name up and are similar.
 			return
 		return picked
 
@@ -148,7 +147,6 @@
 		if(blacklisted_trade_items && blacklisted_trade_items.len && is_type_in_list(offer,blacklisted_trade_items))
 			return 0
 
-		if(istype(offer,/obj/item/weapon/spacecash))
 			if(!(trade_flags & TRADER_MONEY))
 				return TRADER_NO_MONEY
 		else

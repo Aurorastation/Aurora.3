@@ -20,13 +20,11 @@
 				qdel(src)
 	return
 
-/obj/effect/spider/attackby(var/obj/item/weapon/W, var/mob/user)
 	visible_message("<span class='warning'>[src] has been [LAZYPICK(W.attack_verb, "attacked")] with [W][(user ? " by [user]." : ".")]</span>")
 
 	var/damage = W.force / 4.0
 
 	if(iswelder(W))
-		var/obj/item/weapon/weldingtool/WT = W
 
 		if(WT.remove_fuel(0, user))
 			damage = 15

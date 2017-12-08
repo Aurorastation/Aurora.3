@@ -1,4 +1,3 @@
-/obj/item/weapon/melee/chainofcommand
 	name = "chain of command"
 	desc = "A tool used by great men to placate the frothing masses."
 	icon_state = "chain"
@@ -10,12 +9,9 @@
 	w_class = 3
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
-	hitsound = 'sound/weapons/chainhit.ogg'
 
-/obj/item/weapon/melee/chainsword
 	name = "chainsword"
 	desc = "A deadly chainsaw in the shape of a sword."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "chainswordoff"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -26,17 +22,13 @@
 	edge = 1
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
-	hitsound = 'sound/weapons/bladeslice.ogg'
 	var/active = 0
 	can_embed = 0//A chainsword can slice through flesh and bone, and the direction can be reversed if it ever did get stuck
 
-/obj/item/weapon/melee/chainsword/attack_self(mob/user)
 	active= !active
 	if(active)
-		playsound(user, 'sound/weapons/chainsawstart.ogg', 50, 1)
 		user << span("notice", "\The [src] rumbles to life.")
 		force = 35
-		hitsound = 'sound/weapons/chainsword.ogg'
 		icon_state = "chainswordon"
 		slot_flags = null
 	else
@@ -48,13 +40,11 @@
 	user.regenerate_icons()
 
 /*
-/obj/item/weapon/melee/chainsword/suicide_act(mob/user)
 	viewers(user) << "<span class='danger'>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</span>"
 	return (BRUTELOSS|OXYLOSS)
 */
 
 //This is essentially a crowbar and a baseball bat in one.
-/obj/item/weapon/melee/hammer
 	name = "kneebreaker hammer"
 	desc = "A heavy hammer made of plasteel, the other end could be used to pry open doors."
 	icon = 'icons/obj/kneehammer.dmi'
@@ -69,10 +59,8 @@
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
 	w_class = 3
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
-	hitsound = 'sound/weapons/genhit3.ogg'
 
 
-/obj/item/weapon/melee/hammer/powered
 	name = "powered hammer"
 	desc = "A heavily modified plasteel hammer, it seems to be powered by a robust hydraulic system."
 	icon = 'icons/obj/kneehammer.dmi'
@@ -81,7 +69,6 @@
 	origin_tech = list(TECH_MATERIAL = 5, TECH_ILLEGAL = 2, TECH_COMBAT = 3)
 	var/on = TRUE
 
-/obj/item/weapon/melee/hammer/powered/update_icon()
 	if(on)
 		icon_state = "hammeron"
 		item_state = "hammeron"
@@ -89,13 +76,11 @@
 		icon_state = "hammeroff"
 		item_state = "hammeroff"
 
-/obj/item/weapon/melee/hammer/powered/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
 	..()
 	if(prob(25))
 		if(!on)
 			user << "<span class='warning'>\The [src] buzzes!</span>"
 			return
-		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [target] away with \the [src]!</span>")
 		var/T = get_turf(user)
 		spark(T, 3, alldirs)
@@ -118,7 +103,6 @@
 			if(R.cell)
 				R.cell.use(150)
 
-/obj/item/weapon/melee/hammer/powered/proc/rearm()
 	src.visible_message("<span class='notice'>\The [src] hisses lowly.</span>")
 	on = TRUE
 	update_icon()

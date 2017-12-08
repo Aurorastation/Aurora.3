@@ -267,12 +267,10 @@
 /obj/structure/sign/flag/sol/right
 	icon_state = "solgov_r"
 
-/obj/item/weapon/flag/sol
 	name = "Sol Alliance Flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
 	flag_path = "solgov"
 
-/obj/item/weapon/flag/sol/l
 	flag_size = 1
 
 /obj/structure/sign/flag/dominia
@@ -286,12 +284,10 @@
 /obj/structure/sign/flag/dominia/right
 	icon_state = "dominia_r"
 
-/obj/item/weapon/flag/dominia
 	name = "Dominian Empire Flag"
 	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia"
 	flag_path = "dominia"
 
-/obj/item/weapon/flag/dominia/l
 	flag_size = 1
 
 /obj/structure/sign/flag/elyra
@@ -305,12 +301,10 @@
 /obj/structure/sign/flag/elyra/right
 	icon_state = "elyra_r"
 
-/obj/item/weapon/flag/elyra
 	name = "Elyran Flag"
 	desc = "The hopeful colors of the Serene Republic of Elyra."
 	flag_path = "elyra"
 
-/obj/item/weapon/flag/elyra/l
 	flag_size = 1
 
 /obj/structure/sign/flag/hegemony
@@ -324,12 +318,10 @@
 /obj/structure/sign/flag/hegemony/right
 	icon_state = "izweski_r"
 
-/obj/item/weapon/flag/hegemony
 	name = "Hegemony Flag"
 	desc = "The feudal standard of the Izweski Hegemony."
 	flag_path = "izweski"
 
-/obj/item/weapon/flag/hegemony/l
 	flag_size = 1
 
 /obj/structure/sign/flag/jargon
@@ -343,12 +335,10 @@
 /obj/structure/sign/flag/jargon/right
 	icon_state = "jargon_r"
 
-/obj/item/weapon/flag/jargon
 	name = "Jargon Federation Flag"
 	desc = "The insignia of the Jargon Federation"
 	flag_path = "jargon"
 
-/obj/item/weapon/flag/jargon/l
 	flag_size = 1
 
 /obj/structure/sign/flag/nanotrasen
@@ -362,15 +352,12 @@
 /obj/structure/sign/flag/nanotrasen/right
 	icon_state = "nanotrasen_r"
 
-/obj/item/weapon/flag/nanotrasen
 	name = "NanoTrasen Corporation Flag"
 	desc = "The logo of NanoTrasen on a flag"
 	flag_path = "nanotrasen"
 
-/obj/item/weapon/flag/nanotrasen/l
 	flag_size = 1
 
-/obj/item/weapon/flag
 	name = "boxed flag"
 	desc = "A flag neatly folded into a wooden container."
 	icon = 'icons/obj/decals.dmi'
@@ -378,7 +365,6 @@
 	var/flag_path
 	var/flag_size = 0
 
-/obj/item/weapon/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
 	if (!adjacent)
 		return
 

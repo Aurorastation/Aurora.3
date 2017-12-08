@@ -13,9 +13,6 @@
 	flags = OPENCONTAINER
 	//copypaste sorry
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
-	var/obj/item/weapon/storage/bag/trash/mybag	= null
-	var/obj/item/weapon/mop/mymop = null
-	var/obj/item/weapon/reagent_containers/spray/myspray = null
 	var/obj/item/device/lightreplacer/myreplacer = null
 	var/obj/structure/mopbucket/mybucket = null
 	var/signs = 0	//maximum capacity hardcoded below
@@ -63,7 +60,6 @@
 /obj/structure/janitorialcart/AltClick()
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	var/obj/I = usr.get_active_hand()
-	if(istype(I, /obj/item/weapon/mop))
 		if(!mymop)
 			usr.drop_item()
 			mymop = I
@@ -74,8 +70,6 @@
 		else
 			usr << "<span class='notice'>The cart already has a mop attached</span>"
 		return
-	else if(istype(I, /obj/item/weapon/reagent_containers) && mybucket)
-		var/obj/item/weapon/reagent_containers/C = I
 		C.afterattack(mybucket, usr, 1)
 	else if(istype (I, /obj/item/device/lightreplacer))
 		var/obj/item/device/lightreplacer/LR = I
@@ -84,7 +78,6 @@
 
 
 /obj/structure/janitorialcart/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/mop) || istype(I, /obj/item/weapon/reagent_containers/glass/rag) || istype(I, /obj/item/weapon/soap))
 		if (mybucket)
 			if(I.reagents.total_volume < I.reagents.maximum_volume)
 				if(mybucket.reagents.total_volume < 1)
@@ -99,7 +92,6 @@
 			user << "<span class='notice'>There is no bucket mounted here to dip [I] into!</span>"
 		return 1
 
-	else if(istype(I, /obj/item/weapon/reagent_containers/spray) && !myspray)
 		user.drop_item()
 		myspray = I
 		I.forceMove(src)
@@ -117,7 +109,6 @@
 		user << "<span class='notice'>You put [I] into [src].</span>"
 		return 1
 
-	else if(istype(I, /obj/item/weapon/storage/bag/trash) && !mybag)
 		user.drop_item()
 		mybag = I
 		I.forceMove(src)
@@ -126,7 +117,6 @@
 		user << "<span class='notice'>You put [I] into [src].</span>"
 		return 1
 
-	else if(istype(I, /obj/item/weapon/caution))
 		if(signs < 4)
 			user.drop_item()
 			I.forceMove(src)
@@ -143,7 +133,6 @@
 		//This return will prevent afterattack from executing if the object goes into the trashbag,
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
-	else if (!has_items && (iswrench(I) || iswelder(I) || istype(I, /obj/item/weapon/gun/energy/plasmacutter)))
 		dismantle(user)
 		return
 	..()
@@ -167,7 +156,6 @@
 	spill(100 / severity)
 	..()
 
-//This is called if the cart is caught in an explosion, or destroyed by weapon fire
 /obj/structure/janitorialcart/proc/spill(var/chance = 100)
 	var/turf/dropspot = get_turf(src)
 	if (mymop && prob(chance))
@@ -191,7 +179,6 @@
 		mybucket = null
 
 	if (signs)
-		for (var/obj/item/weapon/caution/Sign in src)
 			if (prob(min((chance*2),100)))
 				signs--
 				Sign.forceMove(dropspot)
@@ -261,7 +248,6 @@
 					myreplacer = null
 			if("sign")
 				if(signs)
-					var/obj/item/weapon/caution/Sign = locate() in src
 					if(Sign)
 						user.put_in_hands(Sign)
 						user << "<span class='notice'>You take \a [Sign] from [src].</span>"
@@ -315,7 +301,6 @@
 	flags = OPENCONTAINER
 	//copypaste sorry
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
-	var/obj/item/weapon/storage/bag/trash/mybag	= null
 	var/callme = "pimpin' ride"	//how do people refer to it?
 
 
@@ -333,7 +318,6 @@
 
 
 /obj/structure/bed/chair/janicart/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/mop))
 		if(reagents.total_volume > 1)
 			reagents.trans_to_obj(I, 2)
 			user << "<span class='notice'>You wet [I] in the [callme].</span>"
@@ -342,7 +326,6 @@
 			user << "<span class='notice'>This [callme] is out of water!</span>"
 	else if(istype(I, /obj/item/key))
 		user << "Hold [I] in one of your hands while you drive this [callme]."
-	else if(istype(I, /obj/item/weapon/storage/bag/trash))
 		user << "<span class='notice'>You hook the trashbag onto the [callme].</span>"
 		user.drop_item()
 		I.loc = src

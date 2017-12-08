@@ -178,7 +178,6 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 7
 	verbpath = /mob/proc/changeling_rapidregen
 
-//weapon and armor like powers
 
 /datum/power/changeling/armblades
 	name = "Mutate Armblades"

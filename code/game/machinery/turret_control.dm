@@ -21,7 +21,6 @@
 
 	var/check_arrest = 1	//checks if the perp is set to arrest
 	var/check_records = 1	//checks if a security record exists at all
-	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
 	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
 	var/check_anomalies = 1	//checks if it can shoot at unidentified lifeforms (ie xenos)
 	var/check_synth = 0 	//if active, will shoot at anything not an AI or cyborg
@@ -81,11 +80,9 @@
 
 	return ..()
 
-/obj/machinery/turretid/attackby(obj/item/weapon/W, mob/user)
 	if(stat & BROKEN)
 		return
 
-	if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
 		if(src.allowed(usr))
 			if(emagged)
 				user << "<span class='notice'>The turret control is unresponsive.</span>"
@@ -127,7 +124,6 @@
 	if(data["access"])
 		var/settings[0]
 		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
-		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
 		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
 		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
 		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
@@ -153,8 +149,6 @@
 			lethal = value
 		else if(href_list["command"] == "check_synth")
 			check_synth = value
-		else if(href_list["command"] == "check_weapons")
-			check_weapons = value
 		else if(href_list["command"] == "check_records")
 			check_records = value
 		else if(href_list["command"] == "check_arrest")
@@ -175,7 +169,6 @@
 	TC.check_access = check_access
 	TC.check_records = check_records
 	TC.check_arrest = check_arrest
-	TC.check_weapons = check_weapons
 	TC.check_anomalies = check_anomalies
 	TC.ailock = ailock
 
@@ -213,7 +206,6 @@
 
 		check_arrest = pick(0, 1)
 		check_records = pick(0, 1)
-		check_weapons = pick(0, 1)
 		check_access = pick(0, 0, 0, 0, 1)	// check_access is a pretty big deal, so it's least likely to get turned on
 		check_anomalies = pick(0, 1)
 

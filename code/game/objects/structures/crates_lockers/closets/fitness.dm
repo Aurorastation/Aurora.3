@@ -50,8 +50,6 @@
 	icon_closed = "red"
 
 /obj/structure/closet/lasertag/red/fill()
-	new /obj/item/weapon/gun/energy/lasertag/red(src)
-	new /obj/item/weapon/gun/energy/lasertag/red(src)
 	new /obj/item/clothing/suit/redtag(src)
 	new /obj/item/clothing/suit/redtag(src)
 
@@ -63,7 +61,5 @@
 	icon_closed = "blue"
 
 /obj/structure/closet/lasertag/blue/fill()
-	new /obj/item/weapon/gun/energy/lasertag/blue(src)
-	new /obj/item/weapon/gun/energy/lasertag/blue(src)
 	new /obj/item/clothing/suit/bluetag(src)
 	new /obj/item/clothing/suit/bluetag(src)

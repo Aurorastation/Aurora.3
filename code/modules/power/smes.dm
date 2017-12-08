@@ -267,7 +267,6 @@
 	ui_interact(user)
 
 
-/obj/machinery/power/smes/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if(isscrewdriver(W))
 		if(!open_hatch)
 			open_hatch = 1

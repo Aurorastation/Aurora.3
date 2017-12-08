@@ -1,4 +1,3 @@
-/obj/item/weapon/melee/energy
 	var/active = 0
 	var/active_force
 	var/active_throwforce
@@ -13,7 +12,6 @@
 	var/shield_power = 100
 	var/can_block_bullets = 0
 
-/obj/item/weapon/melee/energy/proc/activate(mob/living/user)
 	anchored = 1
 	if(active)
 		return
@@ -23,13 +21,10 @@
 	sharp = 1
 	edge = 1
 	w_class = active_w_class
-	playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 
-/obj/item/weapon/melee/energy/proc/deactivate(mob/living/user)
 	anchored = 0
 	if(!active)
 		return
-	playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 	active = 0
 	force = initial(force)
 	throwforce = initial(throwforce)
@@ -37,7 +32,6 @@
 	edge = initial(edge)
 	w_class = initial(w_class)
 
-/obj/item/weapon/melee/energy/attack_self(mob/living/user as mob)
 	if (active)
 		if ((CLUMSY in user.mutations) && prob(50))
 			user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
@@ -55,12 +49,10 @@
 	add_fingerprint(user)
 	return
 
-/obj/item/weapon/melee/energy/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
 		spark(src, 5)
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 		return 1
 	else
 
@@ -76,7 +68,6 @@
 
 			if(prob(base_block_chance))
 				spark(src, 5)
-				playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 				shield_power -= round(damage/4)
 
 				if(shield_power <= 0)
@@ -115,7 +106,6 @@
 						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
 						return 1
 
-/obj/item/weapon/melee/energy/glaive
 	name = "energy glaive"
 	desc = "An energized glaive."
 	icon_state = "eglaive0"
@@ -139,12 +129,10 @@
 	can_block_bullets = 0
 	armor_penetration = 20
 
-/obj/item/weapon/melee/energy/glaive/activate(mob/living/user)
 	..()
 	icon_state = "eglaive1"
 	user << "<span class='notice'>\The [src] is now energised.</span>"
 
-/obj/item/weapon/melee/energy/glaive/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
 	user << "<span class='notice'>\The [src] is de-energised.</span>"
@@ -152,7 +140,6 @@
 /*
  * Energy Axe
  */
-/obj/item/weapon/melee/energy/axe
 	name = "energy axe"
 	desc = "An energised battle axe."
 	icon_state = "axe0"
@@ -178,12 +165,10 @@
 	can_block_bullets = 0
 	armor_penetration = 35
 
-/obj/item/weapon/melee/energy/axe/activate(mob/living/user)
 	..()
 	icon_state = "axe1"
 	user << "<span class='notice'>\The [src] is now energised.</span>"
 
-/obj/item/weapon/melee/energy/axe/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
 	user << "<span class='notice'>\The [src] is de-energised. It's just a regular axe now.</span>"
@@ -191,7 +176,6 @@
 /*
  * Energy Sword
  */
-/obj/item/weapon/melee/energy/sword
 	color
 	name = "energy sword"
 	desc = "May the force be within you."
@@ -211,55 +195,44 @@
 	var/blade_color
 	shield_power = 75
 
-/obj/item/weapon/melee/energy/sword/dropped(var/mob/user)
 	..()
 	if(!istype(loc,/mob))
 		deactivate(user)
 
-/obj/item/weapon/melee/energy/sword/New()
 	blade_color = pick("red","blue","green","purple")
 
-/obj/item/weapon/melee/energy/sword/green/New()
 	blade_color = "green"
 
-/obj/item/weapon/melee/energy/sword/red/New()
 	blade_color = "red"
 
-/obj/item/weapon/melee/energy/sword/blue/New()
 	blade_color = "blue"
 
-/obj/item/weapon/melee/energy/sword/purple/New()
 	blade_color = "purple"
 
-/obj/item/weapon/melee/energy/sword/activate(mob/living/user)
 	if(!active)
 		user << "<span class='notice'>\The [src] is now energised.</span>"
 	..()
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	icon_state = "sword[blade_color]"
 
-/obj/item/weapon/melee/energy/sword/deactivate(mob/living/user)
 	if(active)
 		user << "<span class='notice'>\The [src] deactivates!</span>"
 	..()
 	attack_verb = list()
 	icon_state = initial(icon_state)
 
-/obj/item/weapon/melee/energy/sword/pirate
 	name = "energy cutlass"
 	desc = "Arrrr matey."
 	icon_state = "cutlass0"
 	base_reflectchance = 60
 	base_block_chance = 60
 
-/obj/item/weapon/melee/energy/sword/pirate/activate(mob/living/user)
 	..()
 	icon_state = "cutlass1"
 /*
 *Power Sword
 */
 
-/obj/item/weapon/melee/energy/sword/powersword
 	name = "power sword"
 	desc = "For when you really want to ruin someone's day. It is extremely heavy."
 	icon_state = "powerswordoff"
@@ -269,11 +242,9 @@
 	active_w_class = 3
 	w_class = 3
 
-/obj/item/weapon/melee/energy/sword/powersword/activate(mob/living/user)
 	..()
 	icon_state = "powerswordon"
 
-/obj/item/weapon/melee/energy/sword/powersword/attack_self(mob/living/user as mob)
 	..()
 	if(prob(30))
 		user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
@@ -282,7 +253,6 @@
 /*
  *Energy Blade
  */
-/obj/item/weapon/melee/energy/blade
 	name = "energy blade"
 	desc = "A concentrated beam of energy in the shape of a blade. Very stylish... and lethal."
 	icon_state = "blade"
@@ -306,26 +276,20 @@
 	active = 1
 	armor_penetration = 20
 
-/obj/item/weapon/melee/energy/blade/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/melee/energy/blade/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weapon/melee/energy/blade/deactivate(mob/living/user)
 	if(!active)
 		return
-	playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 	user.drop_from_inventory(src)
 	QDEL_IN(src, 1)
 
 
-/obj/item/weapon/melee/energy/blade/dropped()
 	QDEL_IN(src, 1)
 
-/obj/item/weapon/melee/energy/blade/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))

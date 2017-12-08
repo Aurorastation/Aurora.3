@@ -6,7 +6,6 @@
  * Defines the behavior of hardsuits/rigs/power armour.
  */
 
-/obj/item/weapon/rig
 
 	name = "hardsuit control module"
 	icon = 'icons/obj/rig_modules.dmi'
@@ -39,16 +38,12 @@
 	var/helm_type =  /obj/item/clothing/head/helmet/space/rig
 	var/boot_type =  /obj/item/clothing/shoes/magboots/rig
 	var/glove_type = /obj/item/clothing/gloves/rig
-	var/cell_type =  /obj/item/weapon/cell/high
-	var/air_type =   /obj/item/weapon/tank/oxygen
 
 	//Component/device holders.
-	var/obj/item/weapon/tank/air_supply                       // Air tank, if any.
 	var/obj/item/clothing/shoes/boots = null                  // Deployable boots, if any.
 	var/obj/item/clothing/suit/space/rig/chest                // Deployable chestpiece, if any.
 	var/obj/item/clothing/head/helmet/space/rig/helmet = null // Deployable helmet, if any.
 	var/obj/item/clothing/gloves/rig/gloves = null            // Deployable gauntlets, if any.
-	var/obj/item/weapon/cell/cell                             // Power supply, if any.
 	var/obj/item/rig_module/selected_module = null            // Primary system (used with middle-click)
 	var/obj/item/rig_module/vision/visor                      // Kinda shitty to have a var for a module, but saves time.
 	var/obj/item/rig_module/voice/speech                      // As above.
@@ -83,7 +78,6 @@
 	var/datum/wires/rig/wires
 	var/datum/effect_system/sparks/spark_system
 
-/obj/item/weapon/rig/examine()
 	usr << "This is \icon[src][src.name]."
 	usr << "[src.desc]"
 	if(wearer)
@@ -96,7 +90,6 @@
 		usr << "The maintenance panel is [open ? "open" : "closed"]."
 		usr << "Hardsuit systems are [offline ? "<font color='red'>offline</font>" : "<font color='green'>online</font>"]."
 
-/obj/item/weapon/rig/Initialize()
 	. = ..()
 
 	item_state = icon_state
@@ -122,19 +115,15 @@
 		air_supply = new air_type(src)
 	if(glove_type)
 		gloves = new glove_type(src)
-		verbs |= /obj/item/weapon/rig/proc/toggle_gauntlets
 	if(helm_type)
 		helmet = new helm_type(src)
-		verbs |= /obj/item/weapon/rig/proc/toggle_helmet
 	if(boot_type)
 		boots = new boot_type(src)
-		verbs |= /obj/item/weapon/rig/proc/toggle_boots
 	if(chest_type)
 		chest = new chest_type(src)
 		if(allowed)
 			chest.allowed = allowed
 		chest.slowdown = offline_slowdown
-		verbs |= /obj/item/weapon/rig/proc/toggle_chest
 
 	for(var/obj/item/piece in list(gloves,helmet,boots,chest))
 		if(!istype(piece))
@@ -154,7 +143,6 @@
 	set_vision(!offline)
 	update_icon(1)
 
-/obj/item/weapon/rig/Destroy()
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
 		var/mob/living/M = piece.loc
 		if(istype(M))
@@ -167,11 +155,9 @@
 	spark_system = null
 	return ..()
 
-/obj/item/weapon/rig/proc/set_vision(var/active)
 	if(helmet)
 		helmet.tint = (active? vision_restriction : offline_vision_restriction)
 
-/obj/item/weapon/rig/proc/suit_is_deployed()
 	if(!istype(wearer) || src.loc != wearer || wearer.back != src)
 		return 0
 	if(helm_type && !(helmet && wearer.head == helmet))
@@ -184,7 +170,6 @@
 		return 0
 	return 1
 
-/obj/item/weapon/rig/proc/reset()
 	offline = 2
 	canremove = 1
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
@@ -194,7 +179,6 @@
 			piece.item_flags &= ~(STOPPRESSUREDAMAGE|AIRTIGHT)
 	update_icon(1)
 
-/obj/item/weapon/rig/proc/toggle_seals(var/mob/initiator,var/instant)
 
 	if(sealing) return
 
@@ -308,7 +292,6 @@
 		update_component_sealed()
 	update_icon(1)
 
-/obj/item/weapon/rig/proc/update_component_sealed()
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
 		if(canremove)
 			piece.item_flags &= ~(STOPPRESSUREDAMAGE|AIRTIGHT)
@@ -316,7 +299,6 @@
 			piece.item_flags |=  (STOPPRESSUREDAMAGE|AIRTIGHT)
 	update_icon(1)
 
-/obj/item/weapon/rig/process()
 
 	// If we've lost any parts, grab them back.
 	var/mob/living/M
@@ -372,7 +354,6 @@
 	for(var/obj/item/rig_module/module in installed_modules)
 		cell.use(module.process()*10)
 
-/obj/item/weapon/rig/proc/check_power_cost(var/mob/living/user, var/cost, var/use_unconcious, var/obj/item/rig_module/mod, var/user_is_ai)
 
 	if(!istype(user))
 		return 0
@@ -407,7 +388,6 @@
 	cell.use(cost*10)
 	return 1
 
-/obj/item/weapon/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/nano_state = inventory_state)
 	if(!user)
 		return
 
@@ -482,7 +462,6 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/item/weapon/rig/update_icon(var/update_mob_icon)
 
 	//TODO: Maybe consider a cache for this (use mob_icon as blank canvas, use suit icon overlay).
 	overlays.Cut()
@@ -507,7 +486,6 @@
 		wearer.update_inv_back()
 	return
 
-/obj/item/weapon/rig/proc/check_suit_access(var/mob/living/carbon/human/user)
 
 	if(!security_check_enabled)
 		return 1
@@ -528,7 +506,6 @@
 	return 1
 
 //TODO: Fix Topic vulnerabilities for malfunction and AI override.
-/obj/item/weapon/rig/Topic(href,href_list)
 	if(!check_suit_access(usr))
 		return 0
 
@@ -565,13 +542,11 @@
 	src.add_fingerprint(usr)
 	return 0
 
-/obj/item/weapon/rig/proc/notify_ai(var/message)
 	for(var/obj/item/rig_module/ai_container/module in installed_modules)
 		if(module.integrated_ai && module.integrated_ai.client && !module.integrated_ai.stat)
 			module.integrated_ai << "[message]"
 			. = 1
 
-/obj/item/weapon/rig/equipped(mob/living/carbon/human/M)
 	..()
 
 	if(seal_delay > 0 && istype(M) && M.back == src)
@@ -589,7 +564,6 @@
 		wearer.wearing_rig = src
 		update_icon()
 
-/obj/item/weapon/rig/proc/toggle_piece(var/piece, var/mob/initiator, var/deploy_mode)
 
 	if(!usr || sealing || !cell || !cell.charge)
 		return
@@ -657,7 +631,6 @@
 	if(piece == "helmet" && helmet)
 		helmet.update_light(wearer)
 
-/obj/item/weapon/rig/proc/deploy(mob/M,var/sealed)
 
 	var/mob/living/carbon/human/H = M
 
@@ -694,27 +667,22 @@
 	for(var/piece in list("helmet","gauntlets","chest","boots"))
 		toggle_piece(piece, H, ONLY_DEPLOY)
 
-/obj/item/weapon/rig/proc/null_wearer(var/mob/user)
 	for(var/piece in list("helmet","gauntlets","chest","boots"))
 		toggle_piece(piece, user, ONLY_RETRACT)
 	if(wearer)
 		wearer.wearing_rig = null
 		wearer = null
 
-/obj/item/weapon/rig/on_slotmove(var/mob/user)
 	..()
 	null_wearer(user)
 
-/obj/item/weapon/rig/dropped(var/mob/user)
 	..()
 	null_wearer(user)
 
 
 //Todo
-/obj/item/weapon/rig/proc/malfunction()
 	return 0
 
-/obj/item/weapon/rig/emp_act(severity_class)
 	//set malfunctioning
 	if(emp_protection < 30) //for ninjas, really.
 		malfunctioning += 10
@@ -727,14 +695,12 @@
 	//possibly damage some modules
 	take_hit((100/severity_class), "electrical pulse", 1)
 
-/obj/item/weapon/rig/proc/shock(mob/user)
 	if (electrocute_mob(user, cell, src)) //electrocute_mob() handles removing charge from the cell, no need to do that here.
 		spark_system.queue()
 		if(user.stunned)
 			return 1
 	return 0
 
-/obj/item/weapon/rig/proc/take_hit(damage, source, is_emp=0)
 
 	if(!installed_modules.len)
 		return
@@ -780,7 +746,6 @@
 			wearer << "<span class='warning'>The [source] has damaged your [dam_module.interface_name]!</span>"
 	dam_module.deactivate()
 
-/obj/item/weapon/rig/proc/malfunction_check(var/mob/living/carbon/human/user)
 	if(malfunction_delay)
 		if(offline)
 			user << "<span class='danger'>The suit is completely unresponsive.</span>"
@@ -789,7 +754,6 @@
 		return 1
 	return 0
 
-/obj/item/weapon/rig/proc/ai_can_move_suit(var/mob/user, var/check_user_module = 0, var/check_for_ai = 0)
 
 	if(check_for_ai)
 		if(!(locate(/obj/item/rig_module/ai_container) in contents))
@@ -823,13 +787,11 @@
 		return 0
 	return 1
 
-/obj/item/weapon/rig/proc/force_rest(var/mob/user)
 	if(!ai_can_move_suit(user, check_user_module = 1))
 		return
 	wearer.lay_down()
 	user << "<span class='notice'>\The [wearer] is now [wearer.resting ? "resting" : "getting up"].</span>"
 
-/obj/item/weapon/rig/proc/forced_move(var/direction, var/mob/user)
 
 	// Why is all this shit in client/Move()? Who knows?
 	if(world.time < wearer_move_delay)
@@ -917,7 +879,6 @@
 		return loc.get_rig()
 	return null
 
-/obj/item/weapon/rig/get_rig()
 	return src
 
 /mob/living/carbon/human/get_rig()
@@ -925,7 +886,6 @@
 
 //Used in random rig spawning for cargo
 //Randomly deletes modules
-/obj/item/weapon/rig/proc/lose_modules(var/probability)
 	for(var/obj/item/rig_module/module in installed_modules)
 		if (probability)
 			qdel(module)
@@ -934,7 +894,6 @@
 //Fiddles with some wires to possibly make the suit malfunction a little
 //Had to use numeric literals here, the wire defines in rig_wiring.dm weren't working
 //Possibly due to being defined in a later file, or undef'd somewhere
-/obj/item/weapon/rig/proc/misconfigure(var/probability)
 	if (prob(probability))
 		wires.UpdatePulsed(1)//Fiddle with access
 	if (prob(probability))
@@ -949,7 +908,6 @@
 		subverted = 1
 
 //Drains, rigs or removes the cell
-/obj/item/weapon/rig/proc/sabotage_cell()
 	if (!cell)
 		return
 
@@ -961,7 +919,6 @@
 		cell = null
 
 //Depletes or removes the airtank
-/obj/item/weapon/rig/proc/sabotage_tank()
 	if (!air_supply)
 		return
 

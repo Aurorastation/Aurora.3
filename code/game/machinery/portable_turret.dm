@@ -27,7 +27,6 @@
 	var/locked = 1			//if the turret's behaviour control access is locked
 	var/controllock = 0		//if the turret responds to control panels
 
-	var/installation = /obj/item/weapon/gun/energy/gun		//the type of weapon installed
 	var/gun_charge = 0		//the charge of the gun inserted
 	var/reqpower = 500		//holder for power needed
 	var/lethal_icon = 0		//holder for the icon_state. 1 for lethal sprite, null for stun sprite.
@@ -40,7 +39,6 @@
 
 	var/check_arrest = 1	//checks if the perp is set to arrest
 	var/check_records = 1	//checks if a security record exists at all
-	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
 	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
 	var/check_anomalies = 1	//checks if it can shoot at unidentified lifeforms (ie xenos)
 	var/check_synth	 = 0 	//if active, will shoot at anything not an AI or cyborg
@@ -58,8 +56,6 @@
 	var/projectile =/obj/item/projectile/beam/stun	//holder for stun (main) mode beam
 	var/eprojectile = /obj/item/projectile/beam		//holder for lethal (secondary) mode beam
 
-	var/shot_sound = 'sound/weapons/Taser.ogg'		//what sound should play when the turret fires
-	var/eshot_sound	= 'sound/weapons/Laser.ogg'		//what sound should play when the lethal turret fires
 
 	var/datum/effect_system/sparks/spark_system		//the spark system, used for generating... sparks?
 
@@ -73,7 +69,6 @@
 	check_access = TRUE
 	check_arrest = TRUE
 	check_records = TRUE
-	check_weapons = TRUE
 	check_anomalies = TRUE
 	immobile = TRUE
 	no_salvage = TRUE
@@ -91,7 +86,6 @@
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
-	installation = /obj/item/weapon/gun/energy/laser
 	sprite_set = "laser"
 
 /obj/machinery/porta_turret/Initialize()
@@ -168,7 +162,6 @@
 	if(data["access"])
 		var/settings[0]
 		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
-		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
 		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
 		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
 		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
@@ -213,8 +206,6 @@
 			lethal = value
 		else if(href_list["command"] == "check_synth")
 			check_synth = value
-		else if(href_list["command"] == "check_weapons")
-			check_weapons = value
 		else if(href_list["command"] == "check_records")
 			check_records = value
 		else if(href_list["command"] == "check_arrest")
@@ -247,7 +238,6 @@
 				if(prob(70) && !no_salvage)
 					user << "<span class='notice'>You remove the turret and salvage some components.</span>"
 					if(installation)
-						var/obj/item/weapon/gun/energy/Gun = new installation(loc)
 						Gun.power_supply.charge = gun_charge
 						Gun.update_icon()
 					if(prob(50))
@@ -293,7 +283,6 @@
 				update_icon()
 		wrenching = 0
 
-	else if(istype(I, /obj/item/weapon/card/id) || istype(I, /obj/item/device/pda))
 		//Behavior lock/unlock mangement
 		if(allowed(user))
 			locked = !locked
@@ -361,7 +350,6 @@
 		//and scrambles its settings, with a slight chance of having an emag effect
 		check_arrest = prob(50)
 		check_records = prob(50)
-		check_weapons = prob(50)
 		check_access = prob(20)	// check_access is a pretty big deal, so it's least likely to get turned on
 		check_anomalies = prob(50)
 		if(prob(5))
@@ -485,7 +473,6 @@
 	if(emagged)
 		return 10
 
-	return H.assess_perp(src, check_access, check_weapons, check_records, check_arrest)
 
 /obj/machinery/porta_turret/proc/tryToShootAt(var/list/mob/living/targets)
 	if(targets.len && last_target && (last_target in targets) && target(last_target))
@@ -600,7 +587,6 @@
 	var/check_access
 	var/check_records
 	var/check_arrest
-	var/check_weapons
 	var/check_anomalies
 	var/ailock
 
@@ -615,7 +601,6 @@
 	check_access = TC.check_access
 	check_records = TC.check_records
 	check_arrest = TC.check_arrest
-	check_weapons = TC.check_weapons
 	check_anomalies = TC.check_anomalies
 	ailock = TC.ailock
 
@@ -637,7 +622,6 @@
 	var/finish_name = "turret"	//the name applied to the product turret
 	var/installation = null		//the gun type installed
 	var/case_sprite_set = 0		//sprite set the turret case will use
-	var/obj/item/weapon/gun/energy/E = null
 
 /obj/machinery/porta_turret_construct/dark
 	icon_state = "turret_frame_0_1"
@@ -691,7 +675,6 @@
 				return
 
 			else if(iswelder(I))
-				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn())
 					return
 				if(WT.get_fuel() < 5) //uses up 5 fuel.
@@ -709,7 +692,6 @@
 
 
 		if(3)
-			if(istype(I, /obj/item/weapon/gun/energy)) //the gun installation part
 				E = I //typecasts the item to a gun
 				if(E.can_turret)
 					if(isrobot(user))
@@ -783,7 +765,6 @@
 
 		if(7)
 			if(iswelder(I))
-				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn()) return
 				if(WT.get_fuel() < 5)
 					user << "<span class='notice'>You need more fuel to complete this task.</span>"
@@ -833,7 +814,6 @@
 				add_overlay("turret_frame_5c_[case_sprite_set]")
 				return
 
-	if(istype(I, /obj/item/weapon/pen))	//you can rename turrets like bots!
 		var/t = sanitizeSafe(input(user, "Enter new turret name", name, finish_name) as text, MAX_NAME_LEN)
 		if(!t)
 			return
@@ -873,77 +853,62 @@
 //preset turrets
 
 /obj/machinery/porta_turret/xray
-	installation = /obj/item/weapon/gun/energy/xray
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
 	sprite_set = "xray"
 
 	eprojectile = /obj/item/projectile/beam/xray
-	eshot_sound	= 'sound/weapons/laser3.ogg'
 
 /obj/machinery/porta_turret/ion
-	installation = /obj/item/weapon/gun/energy/ionrifle
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
 	sprite_set = "ion"
 
 	eprojectile = /obj/item/projectile/ion
-	eshot_sound	= 'sound/weapons/Laser.ogg'
 
 /obj/machinery/porta_turret/crossbow
-	installation = /obj/item/weapon/gun/energy/crossbow
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
 	sprite_set = "crossbow"
 
 	eprojectile = /obj/item/projectile/energy/bolt/large
-	eshot_sound	= 'sound/weapons/Genhit.ogg'
 
 /obj/machinery/porta_turret/cannon
-	installation = /obj/item/weapon/gun/energy/rifle/laser/heavy
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
 	sprite_set = "cannon"
 
 	eprojectile = /obj/item/projectile/beam/heavylaser
-	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
 
 /obj/machinery/porta_turret/pulse
-	installation = /obj/item/weapon/gun/energy/pulse
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
 	sprite_set = "pulse"
 
 	eprojectile = /obj/item/projectile/beam/pulse
-	eshot_sound	= 'sound/weapons/pulse.ogg'
 
 /obj/machinery/porta_turret/sniper
-	installation = /obj/item/weapon/gun/energy/sniperrifle
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
 	sprite_set = "sniper"
 
 	eprojectile = /obj/item/projectile/beam/sniper
-	eshot_sound	= 'sound/weapons/marauder.ogg'
 
 /obj/machinery/porta_turret/net
-	installation = /obj/item/weapon/gun/energy/net
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
 	sprite_set = "net"
 
 	eprojectile = /obj/item/projectile/beam/energy_net
-	eshot_sound	= 'sound/weapons/plasma_cutter.ogg'
 
 /obj/machinery/porta_turret/thermal
-	installation = /obj/item/weapon/gun/energy/vaurca/thermaldrill
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
@@ -953,17 +918,14 @@
 	eshot_sound	= 'sound/magic/lightningbolt.ogg'
 
 /obj/machinery/porta_turret/meteor
-	installation = /obj/item/weapon/gun/energy/meteorgun
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
 	sprite_set = "meteor"
 
 	eprojectile = /obj/item/projectile/meteor
-	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
 
 /obj/machinery/porta_turret/ballistic
-	installation = /obj/item/weapon/gun/energy/mountedsmg
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
@@ -971,7 +933,6 @@
 	no_salvage = TRUE
 
 	eprojectile = /obj/item/projectile/bullet/rifle/a762
-	eshot_sound	= 'sound/weapons/gunshot_saw.ogg'
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET

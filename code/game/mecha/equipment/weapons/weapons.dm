@@ -1,5 +1,3 @@
-/obj/item/mecha_parts/mecha_equipment/weapon
-	name = "mecha weapon"
 	range = RANGED
 	origin_tech = list(TECH_MATERIAL = 3, TECH_COMBAT = 3)
 	var/projectile //Type of projectile fired.
@@ -9,15 +7,12 @@
 	var/fire_cooldown = 0 //Duration of sleep between firing projectiles in single shot.
 	var/fire_sound //Sound played while firing.
 	var/fire_volume = 50 //How loud it is played.
-	var/auto_rearm = 0 //Does the weapon reload itself after each shot?
 	required_type = list(/obj/mecha/combat, /obj/mecha/working/hoverpod/combatpod)
 
-/obj/item/mecha_parts/mecha_equipment/weapon/action_checks(atom/target)
 	if(projectiles <= 0)
 		return 0
 	return ..()
 
-/obj/item/mecha_parts/mecha_equipment/weapon/action(atom/target)
 	if(!action_checks(target))
 		return
 	var/turf/curloc = chassis.loc
@@ -46,7 +41,6 @@
 	do_after_cooldown()
 	return
 
-/obj/item/mecha_parts/mecha_equipment/weapon/proc/Fire(atom/A, atom/target)
 	var/obj/item/projectile/P = A
 	var/def_zone
 	if(chassis && istype(chassis.occupant,/mob/living/carbon/human))
@@ -54,56 +48,39 @@
 		def_zone = H.zone_sel.selecting
 	P.launch(target, def_zone)
 
-/obj/item/mecha_parts/mecha_equipment/weapon/energy
-	name = "general energy weapon"
 	auto_rearm = 1
 
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser
 	equip_cooldown = 8
 	name = "\improper CH-PS \"Immolator\" laser"
-	desc = "A weapon for combat exosuits. Shoots basic lasers."
 	icon_state = "mecha_laser"
 	energy_drain = 30
 	projectile = /obj/item/projectile/beam
-	fire_sound = 'sound/weapons/Laser.ogg'
 
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser
 	equip_cooldown = 30
 	name = "jury-rigged welder-laser"
-	desc = "While not regulation, this inefficient weapon can be attached to working exo-suits in desperate, or malicious, times."
 	icon_state = "mecha_laser"
 	energy_drain = 80
 	projectile = /obj/item/projectile/beam
-	fire_sound = 'sound/weapons/Laser.ogg'
 	required_type = list(/obj/mecha/combat, /obj/mecha/working)
 
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy
 	equip_cooldown = 15
 	name = "\improper CH-LC \"Solaris\" laser cannon"
-	desc = "A weapon for combat exosuits. Shoots heavy lasers."
 	icon_state = "mecha_laser"
 	energy_drain = 60
 	projectile = /obj/item/projectile/beam/heavylaser
-	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/ion
 	equip_cooldown = 40
 	name = "mkIV ion heavy cannon"
-	desc = "A weapon for combat exosuits. Shoots ion bolts designated to disable mechanical threats."
 	icon_state = "mecha_ion"
 	energy_drain = 120
 	projectile = /obj/item/projectile/ion
-	fire_sound = 'sound/weapons/Laser.ogg'
 
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/pulse
 	equip_cooldown = 30
 	name = "eZ-13 mk2 heavy pulse rifle"
 	icon_state = "mecha_pulse"
-	desc = "A weapon for combat exosuits. Shoots powerful pulse-based beams, capable of destroying structures."
 	energy_drain = 120
 	origin_tech = list(TECH_MATERIAL = 3, TECH_COMBAT = 6, TECH_POWER = 4)
 	projectile = /obj/item/projectile/beam/pulse/heavy
-	fire_sound = 'sound/weapons/marauder.ogg'
 
 /obj/item/projectile/beam/pulse/heavy
 	name = "heavy pulse laser"
@@ -117,33 +94,24 @@
 		qdel(src)
 	return
 
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/taser
 	name = "\improper PBT \"Pacifier\" mounted taser"
-	desc = "A weapon for combat exosuits. Shoots non-lethal stunning beams."
 	icon_state = "mecha_taser"
 	energy_drain = 20
 	equip_cooldown = 8
 	projectile = /obj/item/projectile/beam/stun
-	fire_sound = 'sound/weapons/Taser.ogg'
 
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma
 	name = "mkII heavy plasma cutter"
 	desc = "A large mining tool capable of expelling concentrated plasma bursts, useful for crushing rocks."
 	icon_state = "mecha_plasmacutter"
 	energy_drain = 60
 	equip_cooldown = 25
 	projectile = /obj/item/projectile/beam/plasmacutter
-	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	required_type = list(/obj/mecha/combat, /obj/mecha/working)
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic
-	name = "general ballisic weapon"
 	var/projectile_energy_cost
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/get_equip_info()
 	return "[..()]\[[src.projectiles]\][(src.projectiles < initial(src.projectiles))?" - <a href='?src=\ref[src];rearm=1'>Rearm</a>":null]"
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/proc/rearm()
 	if(projectiles < initial(projectiles))
 		var/projectiles_to_add = initial(projectiles) - projectiles
 		while(chassis.get_charge() >= projectile_energy_cost && projectiles_to_add)
@@ -154,58 +122,44 @@
 	log_message("Rearmed [src.name].")
 	return
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/Topic(href, href_list)
 	..()
 	if (href_list["rearm"])
 		src.rearm()
 	return
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
 	name = "\improper LBX AC 10 \"Scattershot\""
-	desc = "A weapon for combat exosuits. Shoots a spread of pellets."
 	icon_state = "mecha_scatter"
 	equip_cooldown = 20
 	projectile = /obj/item/projectile/bullet/pellet
-	fire_sound = 'sound/weapons/Gunshot.ogg'
 	fire_volume = 80
 	projectiles = 40
 	deviation = 0.7
 	projectile_energy_cost = 25
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg
 	name = "\improper Ultra AC 2"
-	desc = "A weapon for combat exosuits. Shoots a rapid, three shot burst."
 	icon_state = "mecha_uac2"
 	equip_cooldown = 10
 	projectile = /obj/item/projectile/bullet/pistol/medium
-	fire_sound = 'sound/weapons/Gunshot.ogg'
 	projectiles = 300
 	projectiles_per_shot = 3
 	deviation = 0.3
 	projectile_energy_cost = 20
 	fire_cooldown = 2
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/incendiary
 	name = "\improper HP-13 incendiary carbine"
-	desc = "A weapon for combat exosuits. Shoots incendiary shells."
 	icon_state = "mecha_carbine"
 	equip_cooldown = 10
 	projectile = /obj/item/projectile/bullet/shotgun/incendiary
-	fire_sound = 'sound/weapons/Gunshot.ogg'
 	projectiles = 50
 	projectile_energy_cost = 40
 	deviation = 0.7
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack
 	var/missile_speed = 2
 	var/missile_range = 30
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/Fire(atom/movable/AM, atom/target)
 	AM.throw_at(target,missile_range, missile_speed, chassis)
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/explosive
 	name = "\improper SRM-8 missile rack"
-	desc = "A weapon for combat exosuits. Shoots explosive missiles."
 	icon_state = "mecha_missilerack"
 	projectile = /obj/item/missile
 	fire_sound = 'sound/effects/bang.ogg'
@@ -213,7 +167,6 @@
 	projectile_energy_cost = 1000
 	equip_cooldown = 60
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/explosive/Fire(atom/movable/AM, atom/target)
 	var/obj/item/missile/M = AM
 	M.primed = 1
 	..()
@@ -232,11 +185,8 @@
 		..()
 	return
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang
 	name = "\improper SGL-6 grenade launcher"
-	desc = "A weapon for combat exosuits. Launches primed flashbangs."
 	icon_state = "mecha_grenadelnchr"
-	projectile = /obj/item/weapon/grenade/flashbang
 	fire_sound = 'sound/effects/bang.ogg'
 	projectiles = 6
 	missile_speed = 1.5
@@ -244,19 +194,12 @@
 	equip_cooldown = 60
 	var/det_time = 20
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/Fire(atom/movable/AM, atom/target)
 	..()
-	var/obj/item/weapon/grenade/flashbang/F = AM
 	spawn(det_time)
 		F.prime()
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang//Because I am a heartless bastard -Sieve
 	name = "\improper SOP-6 grenade launcher"
-	desc = "A weapon for combat exosuits. Launches primed clusterbangs."
-	projectile = /obj/item/weapon/grenade/flashbang/clusterbang
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang/limited/get_equip_info()//Limited version of the clusterbang launcher that can't reload
 	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp;[chassis.selected==src?"<b>":"<a href='?src=\ref[chassis];select_equip=\ref[src]'>"][src.name][chassis.selected==src?"</b>":"</a>"]\[[src.projectiles]\]"
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang/limited/rearm()
 	return//Extra bit of security

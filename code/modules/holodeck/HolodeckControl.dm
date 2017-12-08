@@ -9,7 +9,6 @@
 	use_power = 1
 	active_power_usage = 8000 //8kW for the scenery + 500W per holoitem
 
-	circuit = /obj/item/weapon/circuitboard/holodeckcontrol
 
 	var/item_power_usage = 500
 
@@ -59,7 +58,6 @@
 	dat += "<A href='?src=\ref[src];program=turnoff'>(Turn Off)</A><BR>"
 
 	dat += "<BR>"
-	dat += "Please ensure that only holographic weapons are used in the holodeck if a combat simulation has been loaded.<BR>"
 
 	if(issilicon(user))
 		dat += "<BR>"
@@ -143,11 +141,9 @@
 /obj/machinery/computer/HolodeckControl/proc/update_projections()
 	if (safety_disabled)
 		item_power_usage = 2500
-		for(var/obj/item/weapon/holo/esword/H in linkedholodeck)
 			H.damtype = BRUTE
 	else
 		item_power_usage = initial(item_power_usage)
-		for(var/obj/item/weapon/holo/esword/H in linkedholodeck)
 			H.damtype = initial(H.damtype)
 
 	for(var/mob/living/simple_animal/hostile/carp/holodeck/C in holographic_mobs)

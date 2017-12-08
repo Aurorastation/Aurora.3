@@ -1,21 +1,18 @@
 
 //########################## CONTRABAND ;3333333333333333333 -Agouri ###################################################
 
-/obj/item/weapon/contraband
 	name = "contraband item"
 	desc = "You probably shouldn't be holding this."
 	icon = 'icons/obj/contraband.dmi'
 	force = 0
 
 
-/obj/item/weapon/contraband/poster
 	name = "rolled-up poster"
 	desc = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
 	icon_state = "rolled_poster"
 	var/serial_number = 0
 
 
-/obj/item/weapon/contraband/poster/Initialize(mapload, given_serial = 0)
 	. = ..()
 	if(given_serial == 0)
 		serial_number = rand(1, poster_designs.len)
@@ -24,7 +21,6 @@
 	name += " - No. [serial_number]"
 
 //Places the poster on a wall
-/obj/item/weapon/contraband/poster/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
 	if (!adjacent)
 		return
 
@@ -64,7 +60,6 @@
 
 	addtimer(CALLBACK(src, .proc/place_on_wall, P, user, W), 28, TIMER_CLIENT_TIME)
 
-/obj/item/weapon/contraband/poster/proc/place_on_wall(obj/structure/sign/poster/P, mob/user, turf/W)
 	if (QDELETED(P))
 		return
 
@@ -123,7 +118,6 @@
 	desc = "[initial(desc)] [design.desc]"
 	icon_state = design.icon_state // poster[serial_number]
 
-/obj/structure/sign/poster/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(iswirecutter(W))
 		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
@@ -154,7 +148,6 @@
 		add_fingerprint(user)
 
 /obj/structure/sign/poster/proc/roll_and_drop(turf/newloc)
-	var/obj/item/weapon/contraband/poster/P = new(src, serial_number)
 	P.loc = newloc
 	src.loc = P
 	qdel(src)

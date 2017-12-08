@@ -7,7 +7,6 @@
 	check_armour = "bullet"
 	embed = 1
 	sharp = 1
-	shrapnel_type = /obj/item/weapon/material/shard/shrapnel
 	var/mob_passthrough_check = 0
 
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
@@ -206,7 +205,6 @@
 	weaken = 3
 	penetrating = 5
 	armor_penetration = 80
-	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 	maiming = 1
 	maim_rate = 60
 	maim_type = DROPLIMB_BLUNT
@@ -327,7 +325,6 @@
 	muzzle_type = /obj/effect/projectile/pulse_bullet/muzzle
 
 /obj/item/projectile/bullet/flechette/explosive
-	shrapnel_type = /obj/item/weapon/material/shard/shrapnel/flechette
 	penetrating = 0
 	damage = 10
 

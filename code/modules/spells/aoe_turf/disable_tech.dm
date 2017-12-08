@@ -1,6 +1,5 @@
 /spell/aoe_turf/disable_tech
 	name = "Disable Tech"
-	desc = "This spell disables all weapons, cameras and most other technology in range."
 	feedback = "DT"
 	charge_max = 400
 	spell_flags = NEEDSCLOTHES

@@ -304,7 +304,6 @@
 	LE.muzzle_type = /obj/effect/projectile/eyelaser/muzzle
 	LE.tracer_type = /obj/effect/projectile/eyelaser/tracer
 	LE.impact_type = /obj/effect/projectile/eyelaser/impact
-	playsound(usr.loc, 'sound/weapons/wave.ogg', 75, 1)
 	LE.launch(A)
 
 /mob/living/carbon/human/LaserEyes()

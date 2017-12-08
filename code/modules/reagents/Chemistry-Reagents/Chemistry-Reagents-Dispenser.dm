@@ -11,18 +11,13 @@
 	M.adjustToxLoss(removed * 3)
 
 /datum/reagent/acetone/touch_obj(var/obj/O)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
-	if(istype(O, /obj/item/weapon/paper))
-		var/obj/item/weapon/paper/paperaffected = O
 		paperaffected.clearpaper()
 		usr << "The solution dissolves the ink on the paper."
 		return
-	if(istype(O, /obj/item/weapon/book))
 		if(volume < 5)
 			return
-		if(istype(O, /obj/item/weapon/book/tome))
 			usr << "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>"
 			return
-		var/obj/item/weapon/book/affectedbook = O
 		affectedbook.dat = null
 		usr << "<span class='notice'>The solution dissolves the ink on the book.</span>"
 	return
@@ -157,18 +152,13 @@
 
 
 /datum/reagent/ethanol/touch_obj(var/obj/O)
-	if(istype(O, /obj/item/weapon/paper))
-		var/obj/item/weapon/paper/paperaffected = O
 		paperaffected.clearpaper()
 		usr << "The solution dissolves the ink on the paper."
 		return
-	if(istype(O, /obj/item/weapon/book))
 		if(volume < 5)
 			return
-		if(istype(O, /obj/item/weapon/book/tome))
 			usr << "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>"
 			return
-		var/obj/item/weapon/book/affectedbook = O
 		affectedbook.dat = null
 		usr << "<span class='notice'>The solution dissolves the ink on the book.</span>"
 	return
@@ -398,7 +388,6 @@
 						H.emote("scream")
 					H.status_flags |= DISFIGURED
 		else
-			M.take_organ_damage(0, removed * power * 0.1) // Balance. The damage is instant, so it's weaker. 10 units -> 5 damage, double for pacid. 120 units beaker could deal 60, but a) it's burn, which is not as dangerous, b) it's a one-use weapon, c) missing with it will splash it over the ground and d) clothes give some protection, so not everything will hit
 
 /datum/reagent/acid/touch_obj(var/obj/O)
 	if(O.unacidable)

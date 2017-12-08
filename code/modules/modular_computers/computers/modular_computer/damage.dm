@@ -9,7 +9,6 @@
 	visible_message("\The [src] breaks apart!")
 	var/turf/newloc = get_turf(src)
 	new /obj/item/stack/material/steel(newloc, round(steel_sheet_cost/2))
-	for(var/obj/item/weapon/computer_hardware/H in get_all_components())
 		uninstall_component(null, H)
 		H.forceMove(newloc)
 		if(prob(25))
@@ -27,7 +26,6 @@
 		damage = between(0, damage, max_damage)
 
 	if(component_probability)
-		for(var/obj/item/weapon/computer_hardware/H in get_all_components())
 			if(prob(component_probability))
 				H.take_damage(round(amount / 2))
 
@@ -43,7 +41,6 @@
 /obj/item/modular_computer/emp_act(var/severity)
 	take_damage(rand(100,200) / severity, 50 / severity, 0)
 
-// "Stun" weapons can cause minor damage to components (short-circuits?)
 // "Burn" damage is equally strong against internal components and exterior casing
 // "Brute" damage mostly damages the casing.
 /obj/item/modular_computer/bullet_act(var/obj/item/projectile/Proj)

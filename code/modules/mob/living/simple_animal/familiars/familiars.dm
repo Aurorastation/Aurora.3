@@ -57,7 +57,6 @@
 
 	speak_emote = list("gnashes")
 	attacktext = "bitten"
-	attack_sound = 'sound/weapons/bite.ogg'
 
 	environment_smash = 2
 	health = 100
@@ -65,7 +64,6 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
 
 	min_oxy = 0
 
@@ -173,7 +171,6 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	speak_emote = list("meows", "purrs")
-	holder_type = /obj/item/weapon/holder/cat
 	mob_size = MOB_SMALL
 
 	health = 45

@@ -7,16 +7,13 @@
 	anchored = 1
 	density = 1
 
-	var/obj/item/weapon/sample = null
 	var/report_num = 0
 
-/obj/machinery/microscope/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 	if(sample)
 		user << "<span class='warning'>There is already a slide in the microscope.</span>"
 		return
 
-	if(istype(W, /obj/item/weapon/forensics/slide) || istype(W, /obj/item/weapon/sample/print))
 		user << "<span class='notice'>You insert \the [W] into the microscope.</span>"
 		user.unEquip(W)
 		W.forceMove(src)
@@ -36,17 +33,12 @@
 		return
 
 	user << "<span class='notice'>Printing findings now...</span>"
-	var/obj/item/weapon/paper/report = new()
 	var/pname
 	var/info
-	report.stamped = list(/obj/item/weapon/stamp)
 	report.overlays = list("paper_stamped")
 	report_num++
 
-	if(istype(sample, /obj/item/weapon/forensics/slide))
-		var/obj/item/weapon/forensics/slide/slide = sample
 		if(slide.has_swab)
-			var/obj/item/weapon/forensics/swab/swab = slide.has_swab
 
 			pname = "GSR report #[++report_num]: [swab.name]"
 			info = "<b>Scanned item:</b><br>[swab.name]<br><br>"
@@ -57,7 +49,6 @@
 				info += "No gunpowder residue found."
 
 		else if(slide.has_sample)
-			var/obj/item/weapon/sample/fibers/fibers = slide.has_sample
 			pname = "Fiber report #[++report_num]: [fibers.name]"
 			info = "<b>Scanned item:</b><br>[fibers.name]<br><br>"
 			if(fibers.evidence)
@@ -69,10 +60,8 @@
 		else
 			pname = "Empty slide report #[report_num]"
 			info = "Evidence suggests that there's nothing in this slide."
-	else if(istype(sample, /obj/item/weapon/sample/print))
 		pname = "Fingerprint report #[report_num]: [sample.name]"
 		info = "<b>Fingerprint analysis report #[report_num]</b>: [sample.name]<br>"
-		var/obj/item/weapon/sample/print/card = sample
 		if(card.evidence && card.evidence.len)
 			info += "Surface analysis has determined unique fingerprint strings:<br><br>"
 			for(var/prints in card.evidence)

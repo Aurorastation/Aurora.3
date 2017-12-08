@@ -1,5 +1,4 @@
 
-/obj/item/weapon/book/manual/excavation
 	name = "Out on the Dig"
 	icon_state = "excavation"
 	author = "Professor Patrick Mason, Curator of the Antiquities Museum on Ichar VII"
@@ -59,7 +58,6 @@
 						could save your life.</li>
 					<li><b>Anomaly safety gear</b> - A biosealed and catalysis-resistant suit along with eye shielding, tinted hood, and non-reactive disposable gloves are
 					the best kind of protection you can hope for from the errors our forebears may have unleashed.</li>
-					<li><b>Personal defence weapon</b> - Never know what you'll find on the dig: pirates, natives, ancient guardians, carnivorous wildlife...
 						it pays in blood to be prepared.</li>
 				</ul><br>
 				<a href="#Contents">Contents</a>
@@ -112,7 +110,6 @@
 				</html>
 			"}
 
-/obj/item/weapon/book/manual/mass_spectrometry
 	name = "High Power Mass Spectrometry: A Comprehensive Guide"
 	icon_state = "analysis"
 	author = "Winton Rice, Chief Mass Spectrometry Technician at the Institute of Applied Sciences on Arcadia"
@@ -183,7 +180,6 @@
 				</html>
 			"}
 
-/obj/item/weapon/book/manual/anomaly_spectroscopy
 	name = "Spectroscopy: Analysing the Anomalies of the Cosmos"
 	icon_state = "anomaly"
 	author = "Doctor Martin Boyle, Director Research at the Lower Hydrolian Sector Listening Array"
@@ -208,7 +204,6 @@
 				</body>
 			</html>"}
 
-/obj/item/weapon/book/manual/materials_chemistry_analysis
 	name = "Materials Analysis and the Chemical Implications"
 	icon_state = "chemistry"
 	author = "Jasper Pascal, Senior Lecturer in Materials Analysis at the University of Jol'Nar"
@@ -235,7 +230,6 @@
 				a new element that defies classification. I defy you to classify it without reviving this once great field!
 			"}
 
-/obj/item/weapon/book/manual/anomaly_testing
 	name = "Anomalous Materials and Energies"
 	icon_state = "triangulate"
 	author = "Norman York, formerly of the Tyrolion Institute on Titan"
@@ -313,7 +307,6 @@
 				</html>
 			"}
 
-/obj/item/weapon/book/manual/stasis
 	name = "Cellular Suspension, the New Cryogenics?"
 	icon_state = "stasis"
 	author = "Elvin Schmidt"

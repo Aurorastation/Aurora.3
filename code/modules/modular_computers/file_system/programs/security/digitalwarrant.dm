@@ -72,7 +72,6 @@ var/warrant_uid = 0
 	var/mob/user = usr
 	if(!istype(user))
 		return
-	var/obj/item/weapon/card/id/I = user.GetIdCard()
 	if(!istype(I) || !I.registered_name || !(access_armory in I.access) || issilicon(user))
 		to_chat(user, "Authentication error: Unable to locate ID with appropriate access to allow this operation.")
 		return

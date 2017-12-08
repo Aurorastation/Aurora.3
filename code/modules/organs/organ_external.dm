@@ -113,20 +113,16 @@
 			usr << "<span class='danger'>There is \a [I] sticking out of it.</span>"
 	return
 
-/obj/item/organ/external/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	switch(stage)
 		if(0)
-			if(istype(W,/obj/item/weapon/scalpel))
 				user.visible_message("<span class='danger'><b>[user]</b> cuts [src] open with [W]!</span>")
 				stage++
 				return
 		if(1)
-			if(istype(W,/obj/item/weapon/retractor))
 				user.visible_message("<span class='danger'><b>[user]</b> cracks [src] open like an egg with [W]!</span>")
 				stage++
 				return
 		if(2)
-			if(istype(W,/obj/item/weapon/hemostat))
 				if(contents.len)
 					var/obj/item/removing = pick(contents)
 					removing.loc = get_turf(user.loc)
@@ -224,7 +220,6 @@
 /obj/item/organ/external/proc/is_damageable(var/additional_damage = 0)
 	return (vital || brute_dam + burn_dam + additional_damage < max_damage)
 
-/obj/item/organ/external/take_damage(brute, burn, sharp, edge, used_weapon = null, list/forbidden_limbs = list())
 	if((brute <= 0) && (burn <= 0))
 		return 0
 
@@ -242,8 +237,6 @@
 	if(status & ORGAN_BROKEN && prob(40) && brute)
 		if (owner && !(owner.species && (owner.species.flags & NO_PAIN)))
 			owner.emote("scream")	//getting hit on broken hand hurts
-	if(used_weapon)
-		add_autopsy_data("[used_weapon]", brute + burn)
 
 	var/can_cut = (prob(brute*2) || sharp) && !(status & ORGAN_ROBOT)
 
@@ -305,11 +298,8 @@
 			var/edge_eligible = 0
 			var/gibs_traditionally = TRUE
 			if(edge)
-				if(istype(used_weapon,/obj/item))
-					var/obj/item/W = used_weapon
 
 					if(isprojectile(W)) //Maiming projectiles use a different method to calcualate gibbing.
-						var/obj/item/projectile/P = used_weapon
 						if(P.maiming)
 							gibs_traditionally = FALSE
 
@@ -388,7 +378,6 @@ This function completely restores a damaged organ to perfect condition.
 
 	// remove embedded objects and drop them on the floor
 	for(var/obj/implanted_object in implants)
-		if(!istype(implanted_object,/obj/item/weapon/implant))	// We don't want to remove REAL implants. Just shrapnel etc.
 			implanted_object.loc = owner.loc
 			implants -= implanted_object
 
@@ -1009,7 +998,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/is_malfunctioning()
 	return ((status & ORGAN_ROBOT) && (brute_dam + burn_dam) >= 10 && prob(brute_dam + burn_dam))
 
-/obj/item/organ/external/proc/embed(var/obj/item/weapon/W, var/silent = 0, var/supplied_message)
 	if(!owner || loc != owner)
 		return
 	if(species.flags & NO_EMBED)

@@ -24,29 +24,21 @@
 		if(istype(W, /obj/item/clothing/glasses/material))
 			outcome_path = /obj/item/rig_module/vision/meson
 
-		if(istype(W, /obj/item/weapon/tank/jetpack))
 			outcome_path = /obj/item/rig_module/maneuvering_jets
 
-		if(istype(W, /obj/item/weapon/mining_scanner))
 			outcome_path = /obj/item/rig_module/device/orescanner
 
-		if(istype(W, /obj/item/weapon/pickaxe/drill))
 			outcome_path = /obj/item/rig_module/device/basicdrill
 
-		if(istype(W, /obj/item/weapon/gun/energy/kinetic_accelerator))
 			outcome_path = /obj/item/rig_module/mounted/kinetic_accelerator
-			var/obj/item/weapon/gun/energy/kinetic_accelerator/KA = W
 			kineticaccelerator = 1
 			for(var/obj/item/borg/upgrade/modkit/kmod in KA.modkits)
 				kinetic_mods += kmod
 
-		if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
 			outcome_path = /obj/item/rig_module/mounted/plasmacutter
 
-		if(istype(W, /obj/item/weapon/pickaxe/diamond))
 			outcome_path = /obj/item/rig_module/device/drill
 
-		if(istype(W, /obj/item/weapon/gun/energy/vaurca/thermaldrill))
 			outcome_path = /obj/item/rig_module/mounted/thermalldrill
 
 		if(!outcome_path)
@@ -63,7 +55,6 @@
 				ping( "\The [src] pings, \"Module successfuly produced!\"" )
 				if(kineticaccelerator)
 					var/obj/item/rig_module/mounted/kinetic_accelerator/KA = new /obj/item/rig_module/mounted/kinetic_accelerator(src.loc)
-					var/obj/item/weapon/gun/energy/kinetic_accelerator/cyborg/KGUN = KA.gun
 					for(var/obj/item/borg/upgrade/modkit/kmod in kinetic_mods)
 						KGUN.modkits += kmod
 				else

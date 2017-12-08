@@ -1,4 +1,3 @@
-/obj/item/weapon/board
 	name = "board"
 	desc = "A standard 12' checkerboard. Well used."
 	icon = 'icons/obj/pieces.dmi'
@@ -9,31 +8,24 @@
 	var/board = list()
 	var/selected = -1
 
-/obj/item/weapon/board/New()
 	..()
 	var i
 	for(i = 0; i < 12; i++)
-		new /obj/item/weapon/checker(src.loc)
-		new /obj/item/weapon/checker/red(src.loc)
 
-/obj/item/weapon/board/examine(mob/user, var/distance = -1)
 	if(in_range(user,src))
 		user.set_machine(src)
 		interact(user)
 		return
 	..()
 
-/obj/item/weapon/board/attack_hand(mob/living/carbon/human/M as mob)
 	if(M.machine == src)
 		..()
 	else
 		src.examine(M)
 
-obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 	if(!addPiece(I,user))
 		..()
 
-/obj/item/weapon/board/proc/addPiece(obj/item/I as obj, mob/user as mob, var/tile = 0)
 	if(I.w_class != 1) //only small stuff
 		user.show_message("<span class='warning'>\The [I] is too big to be used as a board piece.</span>")
 		return 0
@@ -68,7 +60,6 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 	return 1
 
 
-/obj/item/weapon/board/interact(mob/user as mob)
 	if(user.is_physically_disabled() || (!isAI(user) && !user.Adjacent(src))) //can't see if you arent conscious. If you are not an AI you can't see it unless you are next to it, either.
 		user << browse(null, "window=boardgame")
 		user.unset_machine()
@@ -109,7 +100,6 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 	user << browse(dat,"window=boardgame;size=500x500")
 	onclose(usr, "boardgame")
 
-/obj/item/weapon/board/Topic(href, href_list)
 	if(!usr.Adjacent(src))
 		usr.unset_machine()
 		usr << browse(null, "window=boardgame")
@@ -167,13 +157,11 @@ obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 			board_icons -= null
 	src.updateDialog()
 
-/obj/item/weapon/checker/
 	name = "black checker"
 	desc = "It is plastic and shiny."
 	icon = 'icons/obj/pieces.dmi'
 	icon_state = "checker_black"
 	w_class = 1
 
-/obj/item/weapon/checker/red
 	name = "red checker"
 	icon_state = "checker_red"

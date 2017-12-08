@@ -11,16 +11,6 @@
 
 
 	fill()
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
 
 /obj/structure/closet/secure_closet/bar/update_icon()
 	if(broken)

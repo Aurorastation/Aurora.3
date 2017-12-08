@@ -158,7 +158,6 @@
 // they can have them. So we override and check.
 /mob/living/carbon/human/CanAvoidGravity()
 	if (!restrained())
-		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
 
 		if (thrust && !lying && thrust.allow_thrust(0.01, src))
 			return TRUE
@@ -166,7 +165,6 @@
 	return ..()
 
 /mob/living/silicon/robot/CanAvoidGravity()
-	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
 
 	if (thrust && thrust.allow_thrust(0.02, src))
 		return TRUE
@@ -252,7 +250,6 @@
 /mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Special condition for jetpack mounted folk!
 	if (!restrained())
-		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
 
 		if (thrust && thrust.stabilization_on &&\
 			!lying && thrust.allow_thrust(0.01, src))
@@ -267,7 +264,6 @@
 	return FALSE
 
 /mob/living/silicon/robot/can_fall(turf/below, turf/simulated/open/dest = src.loc)
-	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
 
 	if (thrust && thrust.stabilization_on && thrust.allow_thrust(0.02, src))
 		return FALSE
@@ -340,15 +336,10 @@
 	if(!isSynthetic())
 		switch(damage)
 			if(-INFINITY to 10)
-				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
 			if(11 to 50)
-				playsound(src.loc, "sound/weapons/punch[rand(1, 4)].ogg", 75, 1)
 			if(51 to INFINITY)
-				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, "sound/weapons/genhit1.ogg", 75, 1)
 	else
-		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
 	return TRUE
 
@@ -358,7 +349,6 @@
 	if (istype(loc, /turf/space) || (area && !area.has_gravity))
 		return FALSE
 
-	var/obj/item/weapon/rig/rig = get_rig()
 	if (istype(rig))
 		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
 			if (A.active && rig.check_power_cost(src, 10, A, 0))
@@ -441,15 +431,10 @@
 	if(!isSynthetic())
 		switch(damage)
 			if(-INFINITY to 10)
-				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
 			if(11 to 50)
-				playsound(src.loc, "sound/weapons/punch[rand(1, 4)].ogg", 75, 1)
 			if(51 to INFINITY)
-				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, "sound/weapons/genhit1.ogg", 75, 1)
 	else
-		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
 	// Stats.
 	SSfeedback.IncrementSimpleStat("openturf_human_falls")

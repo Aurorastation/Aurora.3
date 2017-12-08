@@ -83,7 +83,6 @@ datum/hSB
 						P.back.loc = P.loc
 						P.back.layer = initial(P.back.layer)
 						P.back = null
-					P.back = new/obj/item/weapon/tank/jetpack(P)
 					P.back.layer = 20
 					P.internal = P.back
 				if("hsbmetal")
@@ -118,13 +117,10 @@ datum/hSB
 					//var/obj/hsb = new/obj/watertank
 					//hsb.loc = usr.loc
 				if("hsbtoolbox")
-					var/obj/item/weapon/storage/hsb = new/obj/item/weapon/storage/toolbox/mechanical
 					for(var/obj/item/device/radio/T in hsb)
 						qdel(T)
-					new/obj/item/weapon/crowbar (hsb)
 					hsb.loc = usr.loc
 				if("hsbmedkit")
-					var/obj/item/weapon/storage/firstaid/hsb = new/obj/item/weapon/storage/firstaid/regular
 					hsb.loc = usr.loc
 				if("hsbobj")
 					if(!hsboxspawn) return
@@ -132,17 +128,13 @@ datum/hSB
 					var/list/selectable = list()
 					for(var/O in typesof(/obj/item/))
 					//Note, these istypes don't work
-						if(istype(O, /obj/item/weapon/gun))
 							continue
 						if(istype(O, /obj/item/assembly))
 							continue
 						if(istype(O, /obj/item/device/camera))
 							continue
-						if(istype(O, /obj/item/weapon/cloaking_device))
 							continue
-						if(istype(O, /obj/item/weapon/dummy))
 							continue
-						if(istype(O, /obj/item/weapon/melee/energy/sword))
 							continue
 						if(istype(O, /obj/structure))
 							continue

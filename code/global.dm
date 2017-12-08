@@ -124,9 +124,6 @@ var/list/robot_module_types = list(
 
 // Some scary sounds.
 var/static/list/scarySounds = list(
-	'sound/weapons/thudswoosh.ogg',
-	'sound/weapons/Taser.ogg',
-	'sound/weapons/armbomb.ogg',
 	'sound/voice/hiss1.ogg',
 	'sound/voice/hiss2.ogg',
 	'sound/voice/hiss3.ogg',

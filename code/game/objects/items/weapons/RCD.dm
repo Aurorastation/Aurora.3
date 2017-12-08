@@ -1,5 +1,4 @@
 //Contains the rapid construction device.
-/obj/item/weapon/rcd
 	name = "rapid construction device"
 	desc = "A device used to rapidly build walls and floors."
 	icon = 'icons/obj/items.dmi'
@@ -23,29 +22,21 @@
 	var/canRwall = 0
 	var/disabled = 0
 
-/obj/item/weapon/rcd/attack()
 	return 0
 
-/obj/item/weapon/rcd/proc/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.stat && !user.restrained())
 
-/obj/item/weapon/rcd/examine()
 	..()
-	if(src.type == /obj/item/weapon/rcd && loc == usr)
 		usr << "It currently holds [stored_matter]/30 matter-units."
 
-/obj/item/weapon/rcd/New()
 	..()
 	src.spark_system = bind_spark(src, 5)
 
-/obj/item/weapon/rcd/Destroy()
 	qdel(spark_system)
 	spark_system = null
 	return ..()
 
-/obj/item/weapon/rcd/attackby(obj/item/weapon/W, mob/user)
 
-	if(istype(W, /obj/item/weapon/rcd_ammo))
 		if((stored_matter + 10) > 30)
 			user << "<span class='notice'>The RCD can't hold any more matter-units.</span>"
 			return
@@ -57,14 +48,12 @@
 		return
 	..()
 
-/obj/item/weapon/rcd/attack_self(mob/user)
 	//Change the mode
 	if(++mode > 3) mode = 1
 	user << "<span class='notice'>Changed mode to '[modes[mode]]'</span>"
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 	if(prob(20)) src.spark_system.queue()
 
-/obj/item/weapon/rcd/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
 	if(disabled && !isrobot(user))
 		return 0
@@ -72,13 +61,11 @@
 		return 0
 	return alter_turf(A,user,(mode == 3))
 
-/obj/item/weapon/rcd/proc/useResource(var/amount, var/mob/user)
 	if(stored_matter < amount)
 		return 0
 	stored_matter -= amount
 	return 1
 
-/obj/item/weapon/rcd/proc/alter_turf(var/turf/T,var/mob/user,var/deconstruct)
 
 	var/build_cost = 0
 	var/build_type
@@ -147,7 +134,6 @@
 	playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 	return 1
 
-/obj/item/weapon/rcd_ammo
 	name = "compressed matter cartridge"
 	desc = "Highly compressed matter for the RCD."
 	icon = 'icons/obj/ammo.dmi'
@@ -157,10 +143,8 @@
 	origin_tech = list(TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 30000,"glass" = 15000)
 
-/obj/item/weapon/rcd/borg
 	canRwall = 1
 
-/obj/item/weapon/rcd/borg/useResource(var/amount, var/mob/user)
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
@@ -170,14 +154,11 @@
 				return 1
 	return 0
 
-/obj/item/weapon/rcd/borg/attackby()
 	return
 
-/obj/item/weapon/rcd/borg/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.stat)
 
 
-/obj/item/weapon/rcd/mounted/useResource(var/amount, var/mob/user)
 	var/cost = amount*130 //so that a rig with default powercell can build ~2.5x the stuff a fully-loaded RCD can.
 	if(istype(loc,/obj/item/rig_module))
 		var/obj/item/rig_module/module = loc
@@ -187,8 +168,6 @@
 				return 1
 	return 0
 
-/obj/item/weapon/rcd/mounted/attackby()
 	return
 
-/obj/item/weapon/rcd/mounted/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.stat && !user.restrained())

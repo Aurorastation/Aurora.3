@@ -31,7 +31,6 @@
 	last_used = world.time
 	times_used = max(0,round(times_used)) //sanity
 
-//attack_as_weapon
 /obj/item/device/flash/attack(mob/living/M, mob/living/user, var/target_zone)
 	if(!user || !M)	return	//sanity
 
@@ -63,7 +62,6 @@
 		else	//can only use it  5 times a minute
 			user << "<span class='warning'>*click* *click*</span>"
 			return
-	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 	var/flashfail = 0
 
 	if(iscarbon(M))
@@ -101,7 +99,6 @@
 /*			if(ishuman(M) && ishuman(user) && M.stat!=DEAD)	//why is this even a thing
 				if(user.mind && user.mind in revs.current_antagonists)
 					var/revsafe = 0
-					for(var/obj/item/weapon/implant/loyalty/L in M)
 						if(L && L.implanted)
 							revsafe = 1
 							break
@@ -175,7 +172,6 @@
 		else	//can only use it  5 times a minute
 			user.show_message("<span class='warning'>*click* *click*</span>", 2)
 			return
-	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 	flick("flash2", src)
 	if(user && isrobot(user))
 		spawn(0)
@@ -190,8 +186,6 @@
 
 	for(var/mob/living/carbon/M in oviewers(3, null))
 		if(prob(50))
-			if (locate(/obj/item/weapon/cloaking_device, M))
-				for(var/obj/item/weapon/cloaking_device/S in M)
 					S.active = 0
 					S.icon_state = "shield0"
 		var/safety = M.eyecheck()
@@ -227,7 +221,6 @@
 	icon_state = "sflash"
 	origin_tech = list(TECH_MAGNET = 2, TECH_COMBAT = 1)
 
-//attack_as_weapon
 /obj/item/device/flash/synthetic/attack(mob/living/M, mob/living/user, var/target_zone)
 	..()
 	if(!broken)

@@ -348,7 +348,6 @@
 	return
 */
 
-/obj/machinery/power/supermatter/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")
@@ -380,8 +379,6 @@
 		user.dust()
 		power += 200
 	else
-		if (istype(user, /obj/item/weapon/holder))
-			var/obj/item/weapon/holder/H = user
 			Consume(H.contained)//If its a holder, eat the thing inside
 			qdel(H)
 			return

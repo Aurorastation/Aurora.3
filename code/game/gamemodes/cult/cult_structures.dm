@@ -14,7 +14,6 @@
 
 /obj/structure/cult/forge
 	name = "Daemon forge"
-	desc = "A forge used in crafting the unholy weapons used by the armies of Nar-Sie"
 	icon_state = "forge"
 
 /*
@@ -25,8 +24,6 @@
 
 	Once empowered, pylons will fire rapid, weak magical beams at non cult mobs.
 
-	As crystals, pylons are immune to energy weaponry. More than immune, they will absorb lasers and become
-	supercharged for some time, boosting their damage. Pylons can only be harmed by ballistics and physical weapons
 	Building reinforced windows around them is highly recommended.
 
 	Pylons are fairly fragile and will quickly break under direct hits.
@@ -247,8 +244,6 @@
 	speak_to(user, "Your sacrifice has been deemed worthy, and accepted. End its life now, and liberate its soul, to seal our contract...")
 	sacrifice << span("danger", "You feel an invisible force grip your soul, as you're drawn inexorably towards the pylon. Every part of you screams to flee from here!")
 
-	if (istype(sacrifice.loc,/obj/item/weapon/holder))
-		var/obj/item/weapon/holder/H = sacrifice.loc
 		H.release_to_floor()
 	else
 		sacrifice.forceMove(get_turf(sacrifice))
@@ -294,8 +289,6 @@
 
 /obj/structure/cult/pylon/proc/finalize_sacrifice()
 	sacrifice.visible_message(span("danger","\The [sacrifice]'s physical form unwinds as its soul is extracted from the remains, and drawn into the pylon!"))
-	if (istype(sacrifice.loc,/obj/item/weapon/holder))
-		var/obj/item/weapon/holder/H = sacrifice.loc
 		H.release_to_floor()
 	else
 		sacrifice.forceMove(get_turf(sacrifice)) //Make sure its on the floor before we gib it
@@ -384,12 +377,10 @@
 	if (empowered > 0)
 		A = new /obj/item/projectile/beam/cult/heavy(loc)
 		empowered = max(0, empowered-1)
-		playsound(loc, 'sound/weapons/laserdeep.ogg', 100, 1)
 		if (empowered <= 0)
 			update_icon()
 	else
 		A = new /obj/item/projectile/beam/cult(loc)
-		playsound(loc, 'sound/weapons/laserdeep.ogg', 65, 1)
 	A.ignore = sacrificer
 	A.launch(target)
 	next_shot = world.time + shot_delay
@@ -417,8 +408,6 @@
 	attackpylon(user, damage, user)
 
 /obj/structure/cult/pylon/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/holder))
-		var/obj/item/weapon/holder/H = W
 		if (H.contained)
 			present_sacrifice(user, H.contained)
 		return
@@ -448,7 +437,6 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if (istype(source, /obj/item))
 		var/obj/item/I = source
-		if(istype(I, /obj/item/weapon/nullrod))
 			shatter()
 			return
 		if (I.damtype != BRUTE)
@@ -641,7 +629,6 @@
 
 /obj/effect/gateway/attackby(var/obj/item/I, var/mob/user)
 	..()
-	if(istype(I, /obj/item/weapon/nullrod))
 		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
 		qdel(src)
 

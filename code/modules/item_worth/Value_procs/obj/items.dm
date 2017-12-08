@@ -6,7 +6,6 @@
 		return 1
 	return ..()
 
-/obj/item/weapon/reagent_containers/Value()
 	. = ..()
 	if(reagents)
 		for(var/a in reagents.reagent_list)
@@ -22,14 +21,11 @@
 		return ..()
 	return material.value * amount
 
-/obj/item/weapon/ore/Value()
 	var/material/mat = get_material_by_name(material)
 	if(mat)
 		return mat.value
 	return 0
 
-/obj/item/weapon/material/Value()
 	return material.value * worth_multiplier
 
-/obj/item/weapon/spacecash/Value()
 	return worth

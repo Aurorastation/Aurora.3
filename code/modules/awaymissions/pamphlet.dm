@@ -1,4 +1,3 @@
-/obj/item/weapon/paper/pamphlet
 	name = "pamphlet"
 	icon_state = "pamphlet"
 	info = "<b>Welcome to the Gateway project...</b><br>\
@@ -34,5 +33,4 @@
 			environs."
 
 //we don't want the silly text overlay!
-/obj/item/weapon/paper/pamphlet/update_icon()
 	return

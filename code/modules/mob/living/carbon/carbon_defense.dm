@@ -5,7 +5,6 @@
 		return null
 	return ..()
 
-/mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/blocked, var/hit_zone)
 	if(!effective_force || blocked >= 100)
 		return 0
 
@@ -13,46 +12,30 @@
 	if(HULK in user.mutations)
 		effective_force *= 2
 
-	//Apply weapon damage
-	var/weapon_sharp = is_sharp(I)
-	var/weapon_edge = has_edge(I)
-	if(prob(blocked)) //armour provides a chance to turn sharp/edge weapon attacks into blunt ones
-		weapon_sharp = 0
-		weapon_edge = 0
 
-	apply_damage(effective_force, I.damtype, hit_zone, blocked, sharp=weapon_sharp, edge=weapon_edge, used_weapon=I)
 
-	//Melee weapon embedded object code.
 	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I))
 		var/damage = effective_force //just the effective damage used for sorting out embedding, no further damage is applied here
 		if (blocked)
 			damage *= BLOCKED_MULT(blocked)
 
-		if (I.can_embed)//If this weapon is allowed to embed in people
 			//blunt objects should really not be embedding in things unless a huge amount of force is involved
-			var/embed_chance = weapon_sharp? damage/I.w_class : damage/(I.w_class*3)
-			var/embed_threshold = weapon_sharp? 5*I.w_class : 15*I.w_class
 
 			//Sharp objects will always embed if they do enough damage.
-			if((weapon_sharp && damage > (10*I.w_class)) || (damage > embed_threshold && prob(embed_chance)))
 				src.embed(I, hit_zone)
 
 	return 1
 
-// Attacking someone with a weapon while they are neck-grabbed
 /mob/living/carbon/proc/check_attack_throat(obj/item/W, mob/user)
 	if(user.a_intent == I_HURT)
-		for(var/obj/item/weapon/grab/G in src.grabbed_by)
 			if(G.assailant == user && G.state >= GRAB_NECK)
 				if(attack_throat(W, G, user))
 					return 1
 	return 0
 
 // Knifing
-/mob/living/carbon/proc/attack_throat(obj/item/W, obj/item/weapon/grab/G, mob/user)
 
 	if(!W.edge || !W.force || W.damtype != BRUTE)
-		return 0 //unsuitable weapon
 
 	user.visible_message("<span class='danger'>\The [user] begins to slit [src]'s throat with \the [W]!</span>")
 
@@ -66,7 +49,6 @@
 	//presumably, if they are wearing a helmet that stops pressure effects, then it probably covers the throat as well
 	var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
 	if(istype(helmet) && (helmet.body_parts_covered & HEAD) && (helmet.flags & STOPPRESSUREDAMAGE))
-		//we don't do an armor_check here because this is not an impact effect like a weapon swung with momentum, that either penetrates or glances off.
 		damage_mod = 1.0 - (LAZYACCESS(helmet.armor, "melee")/100)
 
 	var/total_damage = 0

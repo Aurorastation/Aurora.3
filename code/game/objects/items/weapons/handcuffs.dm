@@ -1,4 +1,3 @@
-/obj/item/weapon/handcuffs
 	name = "handcuffs"
 	desc = "Use this to keep prisoners in line."
 	gender = PLURAL
@@ -15,11 +14,9 @@
 	var/elastic
 	var/dispenser = 0
 	var/breakouttime = 1200 //Deciseconds = 120s = 2 minutes
-	var/cuff_sound = 'sound/weapons/handcuffs.ogg'
 	var/cuff_type = "handcuffs"
 	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/handcuffs.dmi')
 
-/obj/item/weapon/handcuffs/attack(var/mob/living/carbon/C, var/mob/living/user)
 
 	if(!user.IsAdvancedToolUser())
 		return
@@ -37,7 +34,6 @@
 		//Or just. You know. Don't check for it and place the handcuffs anyways!
 		place_handcuffs(C, user)
 
-/obj/item/weapon/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
 
 	var/mob/living/carbon/human/H = target
@@ -69,7 +65,6 @@
 	target.drop_r_hand()
 	target.drop_l_hand()
 	// Apply cuffs.
-	var/obj/item/weapon/handcuffs/cuffs = src
 	if(dispenser)
 		cuffs = new(get_turf(user))
 	else
@@ -106,54 +101,40 @@
 
 	last_chew = world.time
 
-/obj/item/weapon/handcuffs/cable
 	name = "cable restraints"
 	desc = "Looks like some cables tied together. Could be used to tie something up."
 	icon_state = "cuff_white"
 	breakouttime = 300 //Deciseconds = 30s
-	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	cuff_type = "cable restraints"
 	elastic = 1
 
-/obj/item/weapon/handcuffs/cable/red
 	color = "#DD0000"
 
-/obj/item/weapon/handcuffs/cable/yellow
 	color = "#DDDD00"
 
-/obj/item/weapon/handcuffs/cable/blue
 	color = "#0000DD"
 
-/obj/item/weapon/handcuffs/cable/green
 	color = "#00DD00"
 
-/obj/item/weapon/handcuffs/cable/pink
 	color = "#DD00DD"
 
-/obj/item/weapon/handcuffs/cable/orange
 	color = "#DD8800"
 
-/obj/item/weapon/handcuffs/cable/cyan
 	color = "#00DDDD"
 
-/obj/item/weapon/handcuffs/cable/white
 	color = "#FFFFFF"
 
-/obj/item/weapon/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I
 		if (R.use(1))
-			var/obj/item/weapon/material/wirerod/W = new(get_turf(user))
 			user.put_in_hands(W)
 			user << "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>"
 			qdel(src)
 			update_icon(user)
 
-/obj/item/weapon/handcuffs/cyborg
 	dispenser = 1
 
-/obj/item/weapon/handcuffs/cable/tape
 	name = "tape restraints"
 	desc = "DIY!"
 	icon_state = "tape_cross"
@@ -162,12 +143,10 @@
 	breakouttime = 200
 	cuff_type = "duct tape"
 
-/obj/item/weapon/handcuffs/ziptie
 	name = "ziptie"
 	desc = " A sturdy and reliable plastic ziptie for binding the wrists."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "ziptie"
 	breakouttime = 600
-	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	elastic = 1
 	

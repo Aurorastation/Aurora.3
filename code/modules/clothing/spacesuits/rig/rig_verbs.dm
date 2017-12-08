@@ -1,5 +1,4 @@
 // Interface for humans.
-/obj/item/weapon/rig/verb/hardsuit_interface()
 
 	set name = "Open Hardsuit Interface"
 	set desc = "Open the hardsuit system interface."
@@ -9,7 +8,6 @@
 	if(wearer && wearer.back == src)
 		ui_interact(usr)
 
-/obj/item/weapon/rig/verb/toggle_vision()
 
 	set name = "Toggle Visor"
 	set desc = "Turns your rig visor off or on."
@@ -39,7 +37,6 @@
 	else
 		visor.deactivate()
 
-/obj/item/weapon/rig/proc/toggle_helmet()
 
 	set name = "Toggle Helmet"
 	set desc = "Deploys or retracts your helmet."
@@ -55,7 +52,6 @@
 
 	toggle_piece("helmet",wearer)
 
-/obj/item/weapon/rig/proc/toggle_chest()
 
 	set name = "Toggle Chestpiece"
 	set desc = "Deploys or retracts your chestpiece."
@@ -67,7 +63,6 @@
 
 	toggle_piece("chest",wearer)
 
-/obj/item/weapon/rig/proc/toggle_gauntlets()
 
 	set name = "Toggle Gauntlets"
 	set desc = "Deploys or retracts your gauntlets."
@@ -83,7 +78,6 @@
 
 	toggle_piece("gauntlets",wearer)
 
-/obj/item/weapon/rig/proc/toggle_boots()
 
 	set name = "Toggle Boots"
 	set desc = "Deploys or retracts your boots."
@@ -99,7 +93,6 @@
 
 	toggle_piece("boots",wearer)
 
-/obj/item/weapon/rig/verb/deploy_suit()
 
 	set name = "Deploy Hardsuit"
 	set desc = "Deploys helmet, gloves and boots."
@@ -118,7 +111,6 @@
 
 	deploy(wearer)
 
-/obj/item/weapon/rig/verb/toggle_seals_verb()
 
 	set name = "Toggle Hardsuit"
 	set desc = "Activates or deactivates your rig."
@@ -134,7 +126,6 @@
 
 	toggle_seals(wearer)
 
-/obj/item/weapon/rig/verb/switch_vision_mode()
 
 	set name = "Switch Vision Mode"
 	set desc = "Switches between available vision modes."
@@ -164,7 +155,6 @@
 
 	visor.engage()
 
-/obj/item/weapon/rig/verb/alter_voice()
 
 	set name = "Configure Voice Synthesiser"
 	set desc = "Toggles or configures your voice synthesizer."
@@ -188,7 +178,6 @@
 
 	speech.engage()
 
-/obj/item/weapon/rig/verb/select_module()
 
 	set name = "Select Module"
 	set desc = "Selects a module as your primary system."
@@ -224,7 +213,6 @@
 	selected_module = module
 	usr << "<font color='blue'><b>Primary system is now: [selected_module.interface_name].</b></font>"
 
-/obj/item/weapon/rig/verb/toggle_module()
 
 	set name = "Toggle Module"
 	set desc = "Toggle a system module."
@@ -262,7 +250,6 @@
 		usr << "<font color='blue'><b>You attempt to activate \the [module.interface_name].</b></font>"
 		module.activate()
 
-/obj/item/weapon/rig/verb/engage_module()
 
 	set name = "Engage Module"
 	set desc = "Engages a system module."

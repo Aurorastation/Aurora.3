@@ -1,6 +1,5 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
 
-/obj/item/weapon/implantpad
 	name = "implantpad"
 	desc = "Used to modify implants."
 	icon = 'icons/obj/items.dmi'
@@ -9,7 +8,6 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = 2.0
-	var/obj/item/weapon/implantcase/case = null
 	var/broadcasting = null
 	var/listening = 1.0
 	proc
@@ -38,9 +36,7 @@
 		return
 
 
-	attackby(obj/item/weapon/implantcase/C as obj, mob/user as mob)
 		..()
-		if(istype(C, /obj/item/weapon/implantcase))
 			if(!( src.case ))
 				user.drop_item()
 				C.loc = src
@@ -56,9 +52,7 @@
 		var/dat = "<B>Implant Mini-Computer:</B><HR>"
 		if (src.case)
 			if(src.case.imp)
-				if(istype(src.case.imp, /obj/item/weapon/implant))
 					dat += src.case.imp.get_data()
-					if(istype(src.case.imp, /obj/item/weapon/implant/tracking))
 						dat += {"ID (1-100):
 						<A href='byond://?src=\ref[src];tracking_id=-10'>-</A>
 						<A href='byond://?src=\ref[src];tracking_id=-1'>-</A> [case.imp:id]
@@ -80,7 +74,6 @@
 		if ((usr.contents.Find(src)) || ((in_range(src, usr) && istype(src.loc, /turf))))
 			usr.set_machine(src)
 			if (href_list["tracking_id"])
-				var/obj/item/weapon/implant/tracking/T = src.case.imp
 				T.id += text2num(href_list["tracking_id"])
 				T.id = min(100, T.id)
 				T.id = max(1, T.id)

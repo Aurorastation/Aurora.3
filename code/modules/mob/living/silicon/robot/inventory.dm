@@ -247,17 +247,13 @@
 		src << "<span class='notice'>You need to disable a module first!</span>"
 
 /mob/living/silicon/robot/put_in_hands(var/obj/item/W) // Maybe hands.
-	var/obj/item/weapon/gripper/G = null
-	if (istype(module_state_1, /obj/item/weapon/gripper))
 
 		G = module_state_1
 		if (!G.wrapped && G.grip_item(W, src, 1))
 			return 1
-	else if (istype(module_state_2, /obj/item/weapon/gripper))
 		G = module_state_2
 		if (!G.wrapped && G.grip_item(W, src, 0))
 			return 1
-	else if (istype(module_state_3, /obj/item/weapon/gripper))
 		G = module_state_3
 		if (!G.wrapped && G.grip_item(W, src, 0))
 			return 1
@@ -270,8 +266,6 @@
 //If our active module is a gripper, drop the thing in it.
 //Otherwise do nothing. We don't drop our modules
 /mob/living/silicon/robot/drop_item(var/atom/Target)
-	if (istype(module_active, /obj/item/weapon/gripper))
-		var/obj/item/weapon/gripper/G = module_active
 		G.drop(Target)
 
 
@@ -280,8 +274,6 @@
 	if(W)
 		if(!Target)
 			Target = loc
-		if (istype(W.loc, /obj/item/weapon/gripper))
-			var/obj/item/weapon/gripper/G = W.loc
 			G.drop(Target)
 			return 1
 	return 0

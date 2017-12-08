@@ -16,7 +16,6 @@ var/bomb_set
 	var/code = ""
 	var/yes_code = 0
 	var/safety = 1
-	var/obj/item/weapon/disk/nuclear/auth = null
 	var/removal_stage = 0 // 0 is no removal, 1 is covers removed, 2 is covers open, 3 is sealant open, 4 is unwrenched, 5 is removed from bolts.
 	var/lastentered
 	use_power = 0
@@ -43,7 +42,6 @@ var/bomb_set
 		SSnanoui.update_uis(src)
 	return
 
-/obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
 	if (isscrewdriver(O))
 		src.add_fingerprint(user)
 		if (src.auth)
@@ -72,7 +70,6 @@ var/bomb_set
 		return attack_hand(user)
 
 	if (src.extended)
-		if (istype(O, /obj/item/weapon/disk/nuclear))
 			usr.drop_item()
 			O.loc = src
 			src.auth = O
@@ -83,7 +80,6 @@ var/bomb_set
 		switch(removal_stage)
 			if(0)
 				if(iswelder(O))
-					var/obj/item/weapon/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
 						user << "<span class='warning'>You need more fuel to complete this task.</span>"
@@ -110,7 +106,6 @@ var/bomb_set
 			if(2)
 				if(iswelder(O))
 
-					var/obj/item/weapon/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
 						user << "<span class='warning'>You need more fuel to complete this task.</span>"
@@ -236,7 +231,6 @@ var/bomb_set
 			auth = null
 		else
 			var/obj/item/I = usr.get_active_hand()
-			if (istype(I, /obj/item/weapon/disk/nuclear))
 				usr.drop_item()
 				I.loc = src
 				auth = I
@@ -393,7 +387,6 @@ var/bomb_set
 		icon_state = "idle"
 
 //====The nuclear authentication disc====
-/obj/item/weapon/disk/nuclear
 	name = "authentication disk"
 	desc = "Better keep this safe."
 	icon = 'icons/obj/items.dmi'
@@ -401,22 +394,18 @@ var/bomb_set
 	item_state = "card-id"
 	w_class = 1.0
 
-/obj/item/weapon/disk/nuclear/Initialize()
 	. = ..()
 	nuke_disks |= src
 
-/obj/item/weapon/disk/nuclear/Destroy()
 	nuke_disks -= src
 	if(!nuke_disks.len)
 		var/turf/T = pick_area_turf(/area/maintenance, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 		if(T)
-			var/obj/D = new /obj/item/weapon/disk/nuclear(T)
 			log_and_message_admins("[src], the last authentication disk, has been destroyed. Spawning [D] at ([D.x], [D.y], [D.z]).", location = T)
 		else
 			log_and_message_admins("[src], the last authentication disk, has been destroyed. Failed to respawn disc!")
 	return ..()
 
-/obj/item/weapon/disk/nuclear/touch_map_edge()
 	qdel(src)
 
 /obj/machinery/nuclearbomb/station

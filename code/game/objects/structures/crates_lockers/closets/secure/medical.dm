@@ -11,16 +11,6 @@
 
 	fill()
 		..()
-		new /obj/item/weapon/storage/box/autoinjectors(src)
-		new /obj/item/weapon/storage/box/syringes(src)
-		new /obj/item/weapon/reagent_containers/dropper(src)
-		new /obj/item/weapon/reagent_containers/dropper(src)
-		new /obj/item/weapon/reagent_containers/glass/beaker(src)
-		new /obj/item/weapon/reagent_containers/glass/beaker(src)
-		new /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline(src)
-		new /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline(src)
-		new /obj/item/weapon/reagent_containers/glass/bottle/antitoxin(src)
-		new /obj/item/weapon/reagent_containers/glass/bottle/antitoxin(src)
 
 /obj/structure/closet/secure_closet/medical2
 	name = "anesthetics closet"
@@ -34,9 +24,6 @@
 	req_access = list(access_surgery)
 
 	fill()
-		new /obj/item/weapon/tank/anesthetic(src)
-		new /obj/item/weapon/tank/anesthetic(src)
-		new /obj/item/weapon/tank/anesthetic(src)
 		new /obj/item/clothing/mask/breath/medical(src)
 		new /obj/item/clothing/mask/breath/medical(src)
 		new /obj/item/clothing/mask/breath/medical(src)
@@ -53,9 +40,7 @@
 
 	fill()
 		if(prob(50))
-			new /obj/item/weapon/storage/backpack/medic(src)
 		else
-			new /obj/item/weapon/storage/backpack/satchel_med(src)
 		new /obj/item/clothing/under/rank/nursesuit (src)
 		new /obj/item/clothing/head/nursehat (src)
 		switch(pick("blue", "green", "purple"))
@@ -84,7 +69,6 @@
 		new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 		new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
 		new /obj/item/clothing/shoes/white(src)
-//		new /obj/item/weapon/cartridge/medical(src)
 		new /obj/item/device/radio/headset/headset_med(src)
 
 
@@ -100,17 +84,13 @@
 
 	fill()
 		if(prob(50))
-			new /obj/item/weapon/storage/backpack/medic(src)
 		else
-			new /obj/item/weapon/storage/backpack/satchel_med(src)
 		new /obj/item/clothing/suit/bio_suit/cmo(src)
 		new /obj/item/clothing/head/bio_hood/cmo(src)
 		new /obj/item/clothing/shoes/white(src)
-		new /obj/item/weapon/cartridge/cmo(src)
 		new /obj/item/clothing/gloves/latex(src)
 		new /obj/item/device/radio/headset/heads/cmo(src)
 		new /obj/item/device/flash(src)
-		new /obj/item/weapon/reagent_containers/hypospray(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
 
@@ -125,8 +105,6 @@
 	icon_off = "cmosecureoff"
 
 	fill()
-		new /obj/item/weapon/storage/backpack/medic(src)
-		new /obj/item/weapon/storage/backpack/satchel_med(src)
 		new /obj/item/clothing/under/rank/medical/blue(src)
 		new /obj/item/clothing/head/surgery/blue(src)
 		new /obj/item/clothing/under/rank/medical/green(src)
@@ -166,10 +144,6 @@
 
 	fill()
 		..()
-		new /obj/item/weapon/storage/box/pillbottles(src)
-		new /obj/item/weapon/storage/box/pillbottles(src)
-		new /obj/item/weapon/storage/box/spraybottles(src)
-		new /obj/item/weapon/storage/box/spraybottles(src)
 
 
 /obj/structure/closet/secure_closet/medical_wall

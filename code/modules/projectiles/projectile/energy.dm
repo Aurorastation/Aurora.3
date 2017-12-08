@@ -181,7 +181,6 @@
 					M.apply_damage(60, BRUTE, "head")
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 75, 1)
 		if(!hitscan)
-			sleep(step_delay)	//add delay between movement iterations if it's not a hitscan weapon
 
 /obj/item/projectile/energy/tesla
 	name = "tesla bolt"

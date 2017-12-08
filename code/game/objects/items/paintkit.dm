@@ -80,7 +80,6 @@
 	for(var/exotype in allowed_types)
 		usr << "- [capitalize(exotype)]"
 
-/obj/mecha/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(istype(W, /obj/item/device/kit/paint))
 		if(occupant)
 			user << "You can't customize an exosuit while someone is piloting it - that would be unsafe!"

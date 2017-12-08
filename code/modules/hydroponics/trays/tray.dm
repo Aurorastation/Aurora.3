@@ -437,8 +437,6 @@
 /obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
 
 	//A special case for if the container has only water, for manual watering with buckets
-	if (istype(O,/obj/item/weapon/reagent_containers))
-		var/obj/item/weapon/reagent_containers/RC = O
 		if (RC.reagents.reagent_list.len == 1)
 			if (RC.reagents.has_reagent("water", 1))
 				if (waterlevel < maxWaterLevel)
@@ -453,7 +451,6 @@
 	if (O.is_open_container())
 		return 0
 
-	if(iswirecutter(O) || istype(O, /obj/item/weapon/scalpel))
 
 		if(!seed)
 			user << "There is nothing to take a sample from in \the [src]."
@@ -481,9 +478,7 @@
 
 		return
 
-	else if(istype(O, /obj/item/weapon/reagent_containers/syringe))
 
-		var/obj/item/weapon/reagent_containers/syringe/S = O
 
 		if (S.mode == 1)
 			if(seed)
@@ -527,7 +522,6 @@
 		else
 			user << "<span class='danger'>\The [src] already has seeds in it!</span>"
 
-	else if (istype(O, /obj/item/weapon/material/minihoe))  // The minihoe
 
 		if(weedlevel > 0)
 			user.visible_message("<span class='danger'>[user] starts uprooting the weeds.</span>", "<span class='danger'>You remove the weeds from the [src].</span>")
@@ -536,19 +530,14 @@
 		else
 			user << "<span class='danger'>This plot is completely devoid of weeds. It doesn't need uprooting.</span>"
 
-	else if (istype(O, /obj/item/weapon/storage/bag/plants))
 
 		attack_hand(user)
 
-		var/obj/item/weapon/storage/bag/plants/S = O
-		for (var/obj/item/weapon/reagent_containers/food/snacks/grown/G in locate(user.x,user.y,user.z))
 			if(!S.can_be_inserted(G))
 				return
 			S.handle_item_insertion(G, 1)
 
-	else if ( istype(O, /obj/item/weapon/plantspray) )
 
-		var/obj/item/weapon/plantspray/spray = O
 		user.remove_from_mob(O)
 		toxins += spray.toxicity
 		pestlevel -= spray.pest_kill_str

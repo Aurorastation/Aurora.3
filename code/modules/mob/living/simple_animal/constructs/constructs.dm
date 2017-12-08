@@ -14,7 +14,6 @@
 	status_flags = CANPUSH
 	universal_speak = 1
 	universal_understand = 1
-	attack_sound = 'sound/weapons/spiderlunge.ogg'
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
@@ -56,7 +55,6 @@
 	add_glow()
 
 /mob/living/simple_animal/construct/death()
-	new /obj/item/weapon/ectoplasm (src.loc)
 	..(null,"collapses in a shattered heap.")
 	ghostize()
 	qdel(src)
@@ -122,7 +120,6 @@
 	mob_size = MOB_LARGE
 	speed = 3
 	environment_smash = 2
-	attack_sound = 'sound/weapons/heavysmash.ogg'
 	status_flags = 0
 	resistance = 10
 	construct_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
@@ -171,7 +168,6 @@
 	speed = -1
 	environment_smash = 1
 	see_in_dark = 7
-	attack_sound = 'sound/weapons/rapidslice.ogg'
 	construct_spells = list(/spell/targeted/ethereal_jaunt/shift)
 
 /mob/living/simple_animal/construct/wraith/can_fall()
@@ -203,7 +199,6 @@
 	attacktext = "rammed"
 	speed = 0
 	environment_smash = 1
-	attack_sound = 'sound/weapons/rapidslice.ogg'
 	can_repair = 1
 	construct_spells = list(/spell/aoe_turf/conjure/construct/lesser,
 							/spell/aoe_turf/conjure/wall,
@@ -219,7 +214,6 @@
 /mob/living/simple_animal/construct/behemoth
 	name = "Behemoth"
 	real_name = "Behemoth"
-	desc = "The pinnacle of occult technology, Behemoths are the ultimate weapon in the Cult of Nar-Sie's arsenal."
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "behemoth"
 	icon_living = "behemoth"
@@ -233,7 +227,6 @@
 	attacktext = "brutally crushed"
 	speed = 5
 	environment_smash = 2
-	attack_sound = 'sound/weapons/heavysmash.ogg'
 	resistance = 10
 	var/energy = 0
 	var/max_energy = 1000
@@ -258,7 +251,6 @@
 	speed = -1
 	environment_smash = 1
 	see_in_dark = 7
-	attack_sound = 'sound/weapons/pierce.ogg'
 	can_repair = 1
 	construct_spells = list(
 			/spell/targeted/harvest,

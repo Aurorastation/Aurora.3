@@ -1,6 +1,5 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Formerly talking crystals - these procs are now modular so that you can make any /obj/item/weapon 'parrot' player speech back to them
 // This could be extended to atoms, but it's bad enough as is
 // I genuinely tried to Add and Remove them from var and proc lists, but just couldn't get it working
 
@@ -67,7 +66,6 @@
 		spawn(2)
 			SaySomething(pick(seperate))
 
-/*/obj/item/weapon/talkingcrystal/proc/debug()
 	//set src in view()
 	for(var/v in heard_words)
 		world << "[uppertext(v)]"

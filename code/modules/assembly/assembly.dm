@@ -94,7 +94,6 @@
 		return 0
 
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(isassembly(W))
 			var/obj/item/device/assembly/A = W
 			if((!A.secured) && (!secured))

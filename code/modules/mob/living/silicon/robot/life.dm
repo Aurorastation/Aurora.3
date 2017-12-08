@@ -304,7 +304,6 @@
 	if (src.client)
 		src.client.screen -= src.contents
 		for(var/obj/I in src.contents)
-			if(I && !(istype(I,/obj/item/weapon/cell) || istype(I,/obj/item/device/radio)  || istype(I,/obj/machinery/camera) || istype(I,/obj/item/device/mmi)))
 				src.client.screen += I
 	if(src.module_state_1)
 		src.module_state_1:screen_loc = ui_inv1
@@ -325,14 +324,9 @@
 				gib()
 
 /mob/living/silicon/robot/proc/process_locks()
-	if(weapon_lock)
 		uneq_all()
-		weaponlock_time --
-		if(weaponlock_time <= 0)
 			if(src.client)
 				src << "<span class='danger'>Weapon Lock Timed Out!</span>"
-			weapon_lock = 0
-			weaponlock_time = 120
 
 /mob/living/silicon/robot/update_canmove()
 	if(paralysis || stunned || weakened || buckled || lockcharge || !is_component_functioning("actuator")) canmove = 0

@@ -226,7 +226,6 @@
 		usr << "<span class='notice'>You can't print the transcript while playing or recording!</span>"
 		return
 	usr << "<span class='notice'>Transcript printed.</span>"
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(src))
 	var/t1 = "<B>Transcript:</B><BR><BR>"
 	for(var/i=1,storedinfo.len >= i,i++)
 		var/printedmessage = storedinfo[i]

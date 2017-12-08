@@ -11,14 +11,11 @@
 	. = ..()
 	for(var/obj/item/I in loc)
 		if(notices > 4) break
-		if(istype(I, /obj/item/weapon/paper))
 			I.loc = src
 			notices++
 	icon_state = "nboard0[notices]"
 
 //attaching papers!!
-/obj/structure/noticeboard/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/weapon/paper))
 		if(notices < 5)
 			O.add_fingerprint(user)
 			add_fingerprint(user)
@@ -40,7 +37,6 @@
 		user = usr
 	if(user.Adjacent(src))
 		var/dat = "<B>Noticeboard</B><BR>"
-		for(var/obj/item/weapon/paper/P in src)
 			dat += "<A href='?src=\ref[src];read=\ref[P]'>[P.name]</A> <A href='?src=\ref[src];write=\ref[P]'>Write</A> <A href='?src=\ref[src];remove=\ref[P]'>Remove</A><BR>"
 		user << browse("<HEAD><TITLE>Notices</TITLE></HEAD>[dat]","window=noticeboard")
 		onclose(user, "noticeboard")
@@ -65,17 +61,14 @@
 			return
 		var/obj/item/P = locate(href_list["write"])
 		if((P && P.loc == src)) //ifthe paper's on the board
-			if(istype(usr.r_hand, /obj/item/weapon/pen)) //and you're holding a pen
 				add_fingerprint(usr)
 				P.attackby(usr.r_hand, usr) //then do ittttt
 			else
-				if(istype(usr.l_hand, /obj/item/weapon/pen)) //check other hand for pen
 					add_fingerprint(usr)
 					P.attackby(usr.l_hand, usr)
 				else
 					usr << "<span class='notice'>You'll need something to write with!</span>"
 	if(href_list["read"])
-		var/obj/item/weapon/paper/P = locate(href_list["read"])
 		if((P && P.loc == src))
 			usr << browse("<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY><TT>[P.info]</TT></BODY></HTML>", "window=[P.name]")
 			onclose(usr, "[P.name]")

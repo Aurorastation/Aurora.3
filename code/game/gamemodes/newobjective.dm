@@ -563,7 +563,6 @@ datum
 
 
 			captainslaser
-				steal_target = /obj/item/weapon/gun/energy/captain
 				explanation_text = "Steal the captain's antique laser gun."
 				weight = 20
 
@@ -588,7 +587,6 @@ datum
 
 
 			plasmatank
-				steal_target = /obj/item/weapon/tank/plasma
 				explanation_text = "Steal a small plasma tank."
 				weight = 20
 
@@ -630,7 +628,6 @@ datum
 
 
 			handtele
-				steal_target = /obj/item/weapon/hand_tele
 				explanation_text = "Steal a hand teleporter."
 				weight = 20
 
@@ -655,7 +652,6 @@ datum
 
 
 			RCD
-				steal_target = /obj/item/weapon/rcd
 				explanation_text = "Steal a rapid construction device."
 				weight = 20
 
@@ -680,7 +676,6 @@ datum
 
 
 			/*burger
-				steal_target = /obj/item/weapon/reagent_containers/food/snacks/human/burger
 				explanation_text = "Steal a burger made out of human organs, this will be presented as proof of NanoTrasen's chronic lack of standards."
 				weight = 60
 
@@ -699,7 +694,6 @@ datum
 
 
 			jetpack
-				steal_target = /obj/item/weapon/tank/jetpack/oxygen
 				explanation_text = "Steal a blue oxygen jetpack."
 				weight = 20
 
@@ -796,7 +790,6 @@ datum
 
 
 			nuke_disk
-				steal_target = /obj/item/weapon/disk/nuclear
 				explanation_text = "Steal the station's nuclear authentication disk."
 				weight = 20
 
@@ -820,7 +813,6 @@ datum
 						return 20
 
 			nuke_gun
-				steal_target = /obj/item/weapon/gun/energy/gun/nuclear
 				explanation_text = "Steal a nuclear powered gun."
 				weight = 20
 
@@ -841,7 +833,6 @@ datum
 					return 2
 
 			diamond_drill
-				steal_target = /obj/item/weapon/pickaxe/diamonddrill
 				explanation_text = "Steal a diamond drill."
 				weight = 20
 
@@ -862,7 +853,6 @@ datum
 					return 2
 
 			boh
-				steal_target = /obj/item/weapon/storage/backpack/holding
 				explanation_text = "Steal a \"bag of holding.\""
 				weight = 20
 
@@ -883,7 +873,6 @@ datum
 					return 2
 
 			hyper_cell
-				steal_target = /obj/item/weapon/cell/hyper
 				explanation_text = "Steal a hyper capacity power cell."
 				weight = 20
 
@@ -999,7 +988,6 @@ datum
 
 			/*Needs some work before it can be put in the game to differentiate ship implanters from syndicate implanters.
 			steal/implanter
-				steal_target = /obj/item/weapon/implanter
 				explanation_text = "Steal an implanter"
 				weight = 50
 
@@ -1209,7 +1197,6 @@ datum
 
 				check_completion()
 					var/held_credits = 0
-					for(var/obj/item/weapon/spacecash/M in owner.current.get_contents())
 						held_credits += M.worth
 					if(held_credits >= steal_amount)
 						return 1
@@ -1272,7 +1259,6 @@ datum
 					if(!owner.current||owner.current.stat==2)//If you're otherwise dead.
 						return 0
 					var/list/all_items = owner.current.get_contents()
-					for(var/obj/item/weapon/organ/head/mmi in all_items)
 						if(mmi.brainmob&&mmi.brainmob.mind==target)
 							return 1
 					return 0
@@ -1333,7 +1319,6 @@ datum
 					return 0
 
 				var/current_amount
-				var/obj/item/weapon/rig/S
 				if(istype(owner.current,/mob/living/carbon/human))
 					var/mob/living/carbon/human/H = owner.current
 					S = H.back

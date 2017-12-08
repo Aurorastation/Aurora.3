@@ -1,6 +1,5 @@
 //////////////////////Scrying orb//////////////////////
 
-/obj/item/weapon/scrying
 	name = "scrying orb"
 	desc = "An incandescent orb of otherworldly energy, staring into it gives you vision beyond mortal means."
 	icon = 'icons/obj/projectiles.dmi'
@@ -12,7 +11,6 @@
 	force = 10
 	hitsound = 'sound/items/welder2.ogg'
 
-/obj/item/weapon/scrying/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
@@ -43,7 +41,6 @@
 		announce_ghost_joinleave(user.teleop, 1, "You feel that they used a powerful artifact to [pick("invade","disturb","disrupt","infest","taint","spoil","blight")] this place with their presence.")
 		return
 
-/obj/item/weapon/melee/energy/wizard
 	name = "rune sword"
 	desc = "A large sword engraved with arcane markings, it seems to reverberate with unearthly powers."
 	icon = 'icons/obj/sword.dmi'
@@ -61,7 +58,6 @@
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 8)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharp = 1
 	edge = 1
 	base_reflectchance = 60
@@ -69,19 +65,16 @@
 	can_block_bullets = 1
 	shield_power = 150
 
-/obj/item/weapon/melee/energy/wizard/activate(mob/living/user)
 	..()
 	icon_state = "runesword1"
 	item_state = "runesword1"
 	user << "<span class='notice'>\The [src] surges to life!.</span>"
 
-/obj/item/weapon/melee/energy/wizard/deactivate(mob/living/user)
 	..()
 	icon_state = "runesword0"
 	item_state = "runesword0"
 	user << "<span class='notice'>\The [src] slowly dies out.</span>"
 
-/obj/item/weapon/melee/energy/wizard/attack(mob/living/M, mob/living/user, var/target_zone)
 	if(user.is_wizard())
 		return ..()
 
@@ -97,7 +90,6 @@
 
 	return 1
 
-//skeleton weapons and armor
 
 /obj/item/clothing/suit/armor/bone
 	name = "bone armor"
@@ -120,7 +112,6 @@
 	species_restricted = list("Skeleton")
 	armor = list(melee = 50, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
 
-/obj/item/weapon/material/twohanded/spear/bone
 	desc = "A spear crafted with bones of some long forgotten creature."
 	default_material = "cursed bone"
 
@@ -160,7 +151,6 @@
 	
 /obj/item/phylactery/attackby(var/obj/item/I, var/mob/user)
 	..()
-	if(istype(I, /obj/item/weapon/nullrod))
 		src.visible_message("\The [src] twists violently and explodes!")
 		gibs(src.loc)
 		qdel(src)

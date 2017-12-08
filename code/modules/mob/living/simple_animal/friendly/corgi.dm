@@ -12,7 +12,6 @@
 	emote_see = list("shakes its head", "shivers")
 	speak_chance = 1
 	turns_per_move = 10
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi
 	meat_amount = 3
 	response_help  = "pets"
 	response_disarm = "bops"
@@ -24,7 +23,6 @@
 	seek_speed = 6
 	possession_candidate = 1
 
-	holder_type = /obj/item/weapon/holder/corgi
 
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
@@ -61,12 +59,10 @@
 /mob/living/simple_animal/corgi/beg(var/atom/thing, var/atom/holder)
 	visible_emote("stares at the [thing] that [holder] has with sad puppy eyes.",0)
 
-/obj/item/weapon/reagent_containers/food/snacks/meat/corgi
 	name = "Corgi meat"
 	desc = "Tastes like... well you know..."
 
 /mob/living/simple_animal/corgi/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
-	if(istype(O, /obj/item/weapon/newspaper))
 		if(!stat)
 			for(var/mob/M in viewers(user, null))
 				if ((M.client && !( M.blinded )))

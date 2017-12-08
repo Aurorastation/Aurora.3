@@ -341,7 +341,6 @@
 			else
 				go_to_side()
 
-/obj/machinery/atmospherics/tvalve/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (!iswrench(W))
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/tvalve/digital))

@@ -1,12 +1,8 @@
 /obj/item/integrated_circuit/manipulation
 	category_text = "Manipulation"
 
-/obj/item/integrated_circuit/manipulation/weapon_firing
-	name = "weapon firing mechanism"
 	desc = "This somewhat complicated system allows one to slot in a gun, direct it towards a position, and remotely fire it."
-	extended_desc = "The firing mechanism can slot in most ranged weapons, ballistic and energy.  \
 	The first and second inputs need to be numbers.  They are coordinates for the gun to fire at, relative to the machine itself.  \
-	The 'fire' activator will cause the mechanism to attempt to fire the weapon at the coordinates, if possible.  Note that the \
 	normal limitations to firearms, such as ammunition requirements and firing delays, still hold true if fired by the mechanism."
 	complexity = 20
 	w_class = ITEMSIZE_NORMAL
@@ -19,20 +15,13 @@
 	activators = list(
 		"fire" = IC_PINTYPE_PULSE_IN
 	)
-	var/obj/item/weapon/gun/installed_gun
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 4)
-	power_draw_per_use = 50 // The targeting mechanism uses this.  The actual gun uses its own cell for firing if it's an energy weapon.
 
-/obj/item/integrated_circuit/manipulation/weapon_firing/Destroy()
 	QDEL_NULL(installed_gun)
 	. = ..()
 
-/obj/item/integrated_circuit/manipulation/weapon_firing/attackby(var/obj/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/gun))
-		var/obj/item/weapon/gun/gun = O
 		if(installed_gun)
-			user << "<span class='warning'>There's already a weapon installed.</span>"
 			return
 		user.drop_from_inventory(gun)
 		installed_gun = gun
@@ -43,7 +32,6 @@
 	else
 		..()
 
-/obj/item/integrated_circuit/manipulation/weapon_firing/attack_self(var/mob/user)
 	if(installed_gun)
 		installed_gun.forceMove(get_turf(src))
 		user << "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>"
@@ -51,9 +39,7 @@
 		playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 		installed_gun = null
 	else
-		user << "<span class='notice'>There's no weapon to remove from the mechanism.</span>"
 
-/obj/item/integrated_circuit/manipulation/weapon_firing/do_work()
 	if(!installed_gun)
 		return
 
@@ -124,7 +110,6 @@
 	activators = list("prime grenade" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 4)
-	var/obj/item/weapon/grenade/attached_grenade
 	var/pre_attached_grenade_type
 
 /obj/item/integrated_circuit/manipulation/grenade/Initialize()
@@ -139,7 +124,6 @@
 	detach_grenade()
 	. = ..()
 
-/obj/item/integrated_circuit/manipulation/grenade/attackby(var/obj/item/weapon/grenade/G, var/mob/user)
 	if(istype(G))
 		if(attached_grenade)
 			to_chat(user, "<span class='warning'>There is already a grenade attached!</span>")
@@ -168,7 +152,6 @@
 		log_and_message_admins("activated a grenade assembly. Last touches: Assembly: [holder.fingerprintslast] Circuit: [fingerprintslast] Grenade: [attached_grenade.fingerprintslast]")
 
 // These procs do not relocate the grenade, that's the callers responsibility
-/obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(var/obj/item/weapon/grenade/G)
 	attached_grenade = G
 	destroyed_event.register(attached_grenade, src, .proc/detach_grenade)
 	size += G.w_class
@@ -183,6 +166,5 @@
 	desc = initial(desc)
 
 /obj/item/integrated_circuit/manipulation/grenade/frag
-	pre_attached_grenade_type = /obj/item/weapon/grenade/frag
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 10)
 	spawn_flags = null			// Used for world initializing, see the #defines above.

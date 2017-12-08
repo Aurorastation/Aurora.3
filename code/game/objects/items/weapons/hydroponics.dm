@@ -3,7 +3,6 @@
  */
 //uncomment when this is updated to match storage update
 /*
-/obj/item/weapon/seedbag
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "seedbag"
 	name = "Seed Bag"
@@ -14,11 +13,9 @@
 	w_class = 1
 	var/list/item_quants = list()
 
-/obj/item/weapon/seedbag/attack_self(mob/user as mob)
 	user.machine = src
 	interact(user)
 
-/obj/item/weapon/seedbag/verb/toggle_mode()
 	set name = "Switch Bagging Method"
 	set category = "Object"
 
@@ -31,8 +28,6 @@
 
 /obj/item/seeds/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	..()
-	if (istype(O, /obj/item/weapon/seedbag))
-		var/obj/item/weapon/seedbag/S = O
 		if (S.mode == 1)
 			for (var/obj/item/seeds/G in locate(src.x,src.y,src.z))
 				if (S.contents.len < S.capacity)
@@ -58,7 +53,6 @@
 		S.updateUsrDialog()
 	return
 
-/obj/item/weapon/seedbag/interact(mob/user as mob)
 
 	var/dat = "<TT><b>Select an item:</b><br>"
 
@@ -79,7 +73,6 @@
 	onclose(user, "seedbag")
 	return
 
-/obj/item/weapon/seedbag/Topic(href, href_list)
 	if(..())
 		return
 
@@ -105,7 +98,6 @@
 	src.updateUsrDialog()
 	return
 
-/obj/item/weapon/seedbag/updateUsrDialog()
 	var/list/nearby = range(1, src)
 	for(var/mob/M in nearby)
 		if ((M.client && M.machine == src))

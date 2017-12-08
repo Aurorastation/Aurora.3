@@ -5,7 +5,6 @@
 	icon_screen = "securityw"
 	light_color = LIGHT_COLOR_ORANGE
 	req_one_access = list( access_brig, access_heads )
-	circuit = "/obj/item/weapon/circuitboard/sentencing"
 	density = 0
 
 	var/datum/crime_incident/incident
@@ -28,7 +27,6 @@
 	ui_interact(user)
 
 /obj/machinery/computer/sentencing/attackby(obj/item/O as obj, user as mob)
-	if( istype( O, /obj/item/weapon/paper/incident ) && menu_screen == "import_incident" )
 		usr.drop_item()
 		O.loc = src
 
@@ -39,12 +37,10 @@
 			user << "<span class='alert'>Could not import incident report.</span>"
 
 		qdel( O )
-	else if( istype( O, /obj/item/weapon/paper ) && menu_screen == "import_incident" )
 		user << "<span class='alert'>This console only accepts authentic incident reports. Copies are invalid.</span>"
 
 	..()
 
-/obj/machinery/computer/sentencing/proc/import( var/obj/item/weapon/paper/incident/I )
 	incident = null
 
 	if( istype( I ) && I.incident )
@@ -465,7 +461,6 @@
 	incident = null
 	menu_screen = "main_menu"
 
-// /obj/machinery/computer/sentencing/proc/render_guilty_fine( var/mob/living/user, var/obj/item/weapon/card/id/C )
 // 	if( !incident )
 // 		user << "<span class='alert'>There is no active case!</span>"
 // 		return
@@ -497,7 +492,6 @@
 	if( printing )
 		return "The machine is already printing something!"
 
-	var/obj/item/weapon/paper/incident/I = new /obj/item/weapon/paper/incident
 	I.incident = incident
 	I.sentence = sentence
 	I.name = "Encoded Incident Report"
@@ -524,7 +518,6 @@
 		if( "change_menu" )
 			menu_screen = href_list["choice"]
 		if( "change_criminal" )
-			var/obj/item/weapon/card/id/C = usr.get_active_hand()
 			if( istype( C ))
 				if( incident && C.mob )
 					incident.criminal = C.mob
@@ -565,7 +558,6 @@
 
 		if( "add_arbiter" )
 			var/title = href_list["title"]
-			var/obj/item/weapon/card/id/C = usr.get_active_hand()
 			if( istype( C ))
 				if( incident && C.mob )
 					var/error = incident.addArbiter( C, title )
@@ -638,7 +630,6 @@
 		// 		if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
 		// 			return
 		// 	//Get the ID Card
-		// 	var/obj/item/weapon/card/id/C = usr.get_active_hand()
 		// 	if( istype( C ))
 		// 		if( incident && C.mob )
 		// 			render_guilty_fine( usr, C)

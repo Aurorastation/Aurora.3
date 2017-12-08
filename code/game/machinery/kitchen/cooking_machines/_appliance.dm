@@ -1,7 +1,6 @@
 // This folder contains code that was originally ported from Apollo Station and then refactored/optimized/changed.
 
 // Tracks precooked food to stop deep fried baked grilled grilled grilled diona nymph cereal.
-/obj/item/weapon/reagent_containers/food/snacks
 	var/tmp/list/cooked = list()
 
 // Root type for cooking machines. See following files for specific implementations.
@@ -42,10 +41,6 @@
 	var/combine_first = 0//If 1, this appliance will do combinaiton cooking before checking recipes
 
 	component_types = list(
-			/obj/item/weapon/circuitboard/cooking,
-			/obj/item/weapon/stock_parts/capacitor = 3,
-			/obj/item/weapon/stock_parts/scanning_module,
-			/obj/item/weapon/stock_parts/matter_bin = 2
 		)
 
 /obj/machinery/appliance/Initialize()
@@ -182,7 +177,6 @@
 		return 0
 
 	// We are trying to cook a grabbed mob.
-	var/obj/item/weapon/grab/G = I
 	if(istype(G))
 
 		if(!can_cook_mobs)
@@ -205,17 +199,13 @@
 		return 1
 
 	// We're trying to cook something else. Check if it's valid.
-	var/obj/item/weapon/reagent_containers/food/snacks/check = I
 	if(istype(check) && islist(check.cooked) && (cook_type in check.cooked))
 		user << "<span class='warning'>\The [check] has already been [cook_type].</span>"
 		return 0
-	else if(istype(check, /obj/item/weapon/reagent_containers/glass))
 		user << "<span class='warning'>That would probably break [src].</span>"
 		return 0
-	else if(istype(check, /obj/item/weapon/disk/nuclear))
 		user << "<span class='warning'>You can't cook that.</span>"
 		return 0
-	else if(!istype(check) && !istype(check, /obj/item/weapon/holder))
 		user << "<span class='warning'>That's not edible.</span>"
 		return 0
 
@@ -244,7 +234,6 @@
 			return
 
 	if(result == 2)
-		var/obj/item/weapon/grab/G = I
 		if (G && istype(G) && G.affecting)
 			cook_mob(G.affecting, user)
 			return
@@ -259,8 +248,6 @@
 		return
 
 	var/datum/cooking_item/CI = has_space(I)
-	if (istype(I, /obj/item/weapon/reagent_containers/cooking_container) && CI == 1)
-		var/obj/item/weapon/reagent_containers/cooking_container/CC = I
 		CI = new /datum/cooking_item/(CC)
 		I.forceMove(src)
 		cooking_objs.Add(CI)
@@ -314,7 +301,6 @@
 
 //Just a helper to save code duplication in the above
 /obj/machinery/appliance/proc/oilwork(var/obj/item/I, var/datum/cooking_item/CI)
-	var/obj/item/weapon/reagent_containers/food/snacks/S = I
 	var/work = 0
 	if (istype(S))
 		if (S.reagents)
@@ -331,8 +317,6 @@
 					CI.max_oil += R.volume * 0.15
 
 
-	else if(istype(I, /obj/item/weapon/holder))
-		var/obj/item/weapon/holder/H = I
 		if (H.contained)
 			work += (H.contained.mob_size * H.contained.mob_size * 2)+2
 
@@ -357,7 +341,6 @@
 		burn_food(CI)
 
 	// Gotta hurt.
-	for(var/obj/item/weapon/holder/H in CI.container.contents)
 		var/mob/living/M = H.contained
 		if (M)
 			M.apply_damage(rand(1,3), mobdamagetype, "chest")
@@ -403,7 +386,6 @@
 
 
 		for (var/r in results)
-			var/obj/item/weapon/reagent_containers/food/snacks/R = r
 			R.loc = C //Move everything from the buffer back to the container
 			R.cooked |= cook_type
 
@@ -421,7 +403,6 @@
 			modify_cook(i, CI)
 
 	//Final step. Cook function just cooks batter for now.
-	for (var/obj/item/weapon/reagent_containers/food/snacks/S in CI.container)
 		S.cook()
 
 
@@ -436,10 +417,7 @@
 	var/totalcolour
 
 	for (var/obj/item/I in CI.container)
-		var/obj/item/weapon/reagent_containers/food/snacks/S
-		if (istype(I, /obj/item/weapon/holder))
 			S = create_mob_food(I, CI)
-		else if (istype(I, /obj/item/weapon/reagent_containers/food/snacks))
 			S = I
 
 		if (!S)
@@ -468,7 +446,6 @@
 
 	CI.container.reagents.trans_to_holder(buffer, CI.container.reagents.total_volume)
 
-	var/obj/item/weapon/reagent_containers/food/snacks/result = new cook_path(CI.container)
 	buffer.trans_to(result, buffer.total_volume)
 
 	//Filling overlay
@@ -497,10 +474,7 @@
 
 //Helper proc for standard modification cooking
 /obj/machinery/appliance/proc/modify_cook(var/obj/item/input, var/datum/cooking_item/CI)
-	var/obj/item/weapon/reagent_containers/food/snacks/result
-	if (istype(input, /obj/item/weapon/holder))
 		result = create_mob_food(input, CI)
-	else if (istype(input, /obj/item/weapon/reagent_containers/food/snacks))
 		result = input
 	else
 		//Nonviable item
@@ -521,7 +495,6 @@
 	// You dun goofed.
 	CI.burned = 1
 	CI.container.clear()
-	new /obj/item/weapon/reagent_containers/food/snacks/badrecipe(CI.container)
 
 	// Produce nasty smoke.
 	visible_message("<span class='danger'>\The [src] vomits a gout of rancid smoke!</span>")
@@ -583,18 +556,15 @@
 /obj/machinery/appliance/proc/cook_mob(var/mob/living/victim, var/mob/user)
 	return
 
-/obj/machinery/appliance/proc/change_product_strings(var/obj/item/weapon/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
 	product.name = "[cook_type] [product.name]"
 	product.desc = "[product.desc]\nIt has been [cook_type]."
 
 
-/obj/machinery/appliance/proc/change_product_appearance(var/obj/item/weapon/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
 	if (!product.coating) //Coatings change colour through a new sprite
 		product.color = food_color
 	product.filling_color = food_color
 
 //This function creates a food item which represents a dead mob
-/obj/machinery/appliance/proc/create_mob_food(var/obj/item/weapon/holder/H, var/datum/cooking_item/CI)
 	if (!istype(H) || !H.contained)
 		qdel(H)
 		return null
@@ -604,7 +574,6 @@
 
 	victim.calculate_composition()
 
-	var/obj/item/weapon/reagent_containers/food/snacks/variable/mob/result = new /obj/item/weapon/reagent_containers/food/snacks/variable/mob(CI.container)
 	result.w_class = victim.mob_size
 	result.reagents.add_reagent(victim.composition_reagent, victim.composition_reagent_quantity)
 
@@ -636,7 +605,6 @@
 	var/cookwork
 	var/overcook_mult = 3
 	var/result_type = 0
-	var/obj/item/weapon/reagent_containers/cooking_container/container = null
 	var/combine_target = null
 
 	//Result type is one of the following:
@@ -670,7 +638,6 @@
 	var/scan_rating = 0
 	var/cap_rating = 0
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(isscanner(P))
 			scan_rating += P.rating
 		else if(iscapacitor(P))
@@ -679,11 +646,7 @@
 	active_power_usage = initalactive_power_usage - scan_rating*10
 	cooking_power = inital_cooking_power + (scan_rating+cap_rating)/10
 
-/obj/item/weapon/circuitboard/cooking
 	name = "kitchen appliance circuitry"
 	desc = "The circuitboard for many kitchen appliances. Not of much use."
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	req_components = list(
-							"/obj/item/weapon/stock_parts/capacitor" = 3,
-							"/obj/item/weapon/stock_parts/scanning_module" = 1,
-							"/obj/item/weapon/stock_parts/matter_bin" = 2)

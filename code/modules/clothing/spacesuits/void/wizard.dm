@@ -46,7 +46,6 @@
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
 	siemens_coefficient = 0.3
 	wizard_garb = 1
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/teleportation_scroll,/obj/item/weapon/scrying,/obj/item/weapon/spellbook,/obj/item/device/soulstone,/obj/item/weapon/material/knife/ritual)
 	species_restricted = list("Human", "Skrell", "Machine", "Skeleton")
 
 /obj/item/clothing/suit/space/void/wizard/equipped(var/mob/living/user)

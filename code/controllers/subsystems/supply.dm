@@ -524,7 +524,6 @@ var/datum/controller/subsystem/cargo/SScargo
 /datum/controller/subsystem/cargo/proc/shuttle_call(var/caller_name)
 	if(shuttle.at_station())
 		if (shuttle.forbidden_atoms_check())
-			. = "For safety reasons the automated supply shuttle cannot transport live organisms, classified nuclear weaponry or homing beacons."
 		else
 			movetime = 1200 //It always takes two minutes to get to centcom
 			shuttle.launch(src)
@@ -567,7 +566,6 @@ var/datum/controller/subsystem/cargo/SScargo
 /datum/controller/subsystem/cargo/proc/forbidden_atoms_check(atom/A)
 	if(istype(A,/mob/living))
 		return 1
-	if(istype(A,/obj/item/weapon/disk/nuclear))
 		return 1
 	if(istype(A,/obj/machinery/nuclearbomb))
 		return 1

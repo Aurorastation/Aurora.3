@@ -30,7 +30,6 @@
 
 	tameable = FALSE
 
-/mob/living/simple_animal/hostile/commanded/bear/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	. = ..()
 	if(!.)
 		src.emote("roars in rage!")

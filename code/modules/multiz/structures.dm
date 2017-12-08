@@ -56,7 +56,6 @@
 	if(!target_ladder)
 		return
 
-	var/obj/item/weapon/grab/G = M.l_hand
 	if (!istype(G))
 		G = M.r_hand
 
@@ -137,7 +136,6 @@
 			return FALSE
 	playsound(src, pick(climbsounds), 50)
 	playsound(target_ladder, pick(climbsounds), 50)
-	var/obj/item/weapon/grab/G = M.l_hand
 	if (!istype(G))
 		G = M.r_hand
 	if (istype(G))
@@ -215,7 +213,6 @@
 		"<span class='danger'>You step off [src] and faceplant onto [L.loc].</span>",
 		"<span class='alert'>You hear a thump.</span>"
 	)
-	var/snd = pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
 	playsound(L.loc, snd, 75, 1)
 
 // type paths to make mapping easier.

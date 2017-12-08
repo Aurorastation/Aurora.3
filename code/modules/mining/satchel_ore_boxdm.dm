@@ -10,14 +10,9 @@
 	var/last_update = 0
 	var/list/stored_ore = list()
 
-/obj/structure/ore_box/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/ore))
 		user.remove_from_mob(W)
 		src.contents += W
-	if (istype(W, /obj/item/weapon/storage))
-		var/obj/item/weapon/storage/S = W
 		S.hide_from(user)
-		for(var/obj/item/weapon/ore/O in S.contents)
 			S.remove_from_storage_deferred(O, src, user) //This will move the item to this item's contents
 
 			CHECK_TICK
@@ -34,7 +29,6 @@
 
 	stored_ore = list()
 
-	for(var/obj/item/weapon/ore/O in contents)
 
 		if(stored_ore[O.name])
 			stored_ore[O.name]++
@@ -90,7 +84,6 @@
 		usr << "<span class='warning'>The ore box is empty</span>"
 		return
 
-	for (var/obj/item/weapon/ore/O in contents)
 		contents -= O
 		O.loc = src.loc
 	usr << "<span class='notice'>You empty the ore box</span>"
@@ -99,7 +92,6 @@
 
 /obj/structure/ore_box/ex_act(severity)
 	if(severity == 1.0 || (severity < 3.0 && prob(50)))
-		for (var/obj/item/weapon/ore/O in contents)
 			O.loc = src.loc
 			O.ex_act(severity++)
 
