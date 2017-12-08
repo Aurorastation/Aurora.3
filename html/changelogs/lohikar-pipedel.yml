@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - experiment: "Made some changes to how the server deletes pipes; explosions will probably be laggier, but there should no longer be crushing lag 5 minutes later."
