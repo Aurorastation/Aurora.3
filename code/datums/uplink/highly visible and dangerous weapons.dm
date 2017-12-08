@@ -52,17 +52,17 @@
 /datum/uplink_item/item/visible_weapons/landmine
 	name = "Land Mine"
 	item_cost = 5
-	path = /obj/item/weapon/landmine
+	path = /obj/item/landmine
 
 /datum/uplink_item/item/visible_weapons/emplandmine
 	name = "EMP Land Mine"
 	item_cost = 4
-	path = /obj/item/weapon/landmine/emp
+	path = /obj/item/landmine/emp
 
 /datum/uplink_item/item/visible_weapons/sleepylandmine
 	name = "N2O Land Mine"
 	item_cost = 7
-	path = /obj/item/weapon/landmine/n2o
+	path = /obj/item/landmine/n2o
 
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"
