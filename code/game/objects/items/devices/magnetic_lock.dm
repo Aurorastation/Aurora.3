@@ -107,7 +107,7 @@
 			user << "<span class='danger'>You cannot swipe your [I] through [src] with it partially dismantled!</span>"
 		return
 
-	if (istype(I, /obj/item/weapon) && user.a_intent == "harm")
+	if (istype(I, /obj/item) && user.a_intent == "harm")
 		if (I.force >= 18)
 			user.visible_message("<span class='danger'>[user] bashes [src] with [I]!</span>", "<span class='danger'>You strike [src] with [I], damaging it!</span>")
 			takedamage(I.force)

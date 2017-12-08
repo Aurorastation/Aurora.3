@@ -1517,7 +1517,7 @@
 
 /mob/living/carbon/human/AltClickOn(var/atom/A)
 	var/doClickAction = 1
-	if (istype(get_active_hand(), /obj/item/weapon))
+	if (istype(get_active_hand(), /obj/item))
 		var/obj/item/W = get_active_hand()
 		doClickAction = W.alt_attack(A,src)
 
