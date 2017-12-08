@@ -1,4 +1,6 @@
 /obj/item/laser_components
+	icon = 'icons/obj/electronic_assemblies.dmi'
+	icon_state = "dmux8"
 	var/reliability = 0
 	var/damage = 1
 	var/fire_delay = 0
@@ -6,12 +8,29 @@
 	var/shots = 0
 	var/burst = 0
 	var/accuracy = 0
+	var/obj/item/weapon/repair_item
+
+/obj/item/laser_components/proc/degrade(var/increment = 1)
+	if(increment)
+		condition += increment
+		if(condition > reliability)
+			condition = reliability
+
+/obj/item/laser_components/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
+	if(!istype(D,repair_item))
+		return ..()
+	user << "<span class='warning'>You begin repairing \the [src].</span>"
+	if(do_after(user,20) && repair(D))
+		user << "<span class='notice'>You repair \the [src].</span>")
+	else
+		"<span class='warning'>You fail to repair \the [src].</span>"
+
+/obj/item/laser_components/proc/repair(var/obj/item/weapon/D)
+	return 1
 
 /obj/item/laser_components/modifier
 	name = "modifier"
 	desc = "A basic laser weapon modifier."
-	icon_state = "laser" // sprite
-	item_state = "laser" // sprite
 	reliability = -5
 	var/mod_type
 	var/base_malus = 2 //when modifiers get damaged they do not break, but make other components break faster
@@ -22,15 +41,51 @@
 	var/burst_delay = 0
 	var/scope_name
 	var/criticality
+	repair_item = /obj/item/weapon/weldingtool
+
+/obj/item/weapon/gun/energy/laser/prototype/examine()
+	..()
+	if(usr.Adjacent(src))
+		if(gun_mods.len)
+			for(var/obj/item/laser_components/modifier/modifier in gun_mods)
+				usr << "You can see a [modifier] attached."
+		if(capacitor)
+			usr << "You can see a [capacitor] attached."
+		if(focusing_lens)
+			usr << "You can see a [focusing_lens] attached."
+
+/obj/item/laser_components/modifier/degrade(var/increment = 1)
+	if(increment)
+		malus += increment
+		if(malus > abs(base_malus*2))
+			malus = abs(base_malus*2)
+
+/obj/item/laser_components/modifier/repair(var/obj/item/weapon/D)
+	var/obj/item/weapon/weldingtool/W = D
+	if(W.remove_fuel(5))
+		malus -= 5
+		if(malus < base_malus)
+			malus = base_malus
+		return 1
+	return 0
 
 /obj/item/laser_components/capacitor
 	name = "capacitor"
 	desc = "A basic laser weapon capacitor."
-	icon_state = "laser" // sprite
-	item_state = "laser" // sprite
 	shots = 5
 	damage = 10
 	reliability = 50
+	repair_item = /obj/item/stack/cable_coil
+
+/obj/item/laser_components/capacitor/repair(var/obj/item/weapon/D)
+	var/obj/item/stack/cable_coil/C = D
+	if(C.amount)
+		C.amount -= 5
+		condition -= reliability/5
+		if(condition < 0)
+			condition = 0
+		return 1
+	return 0
 
 /obj/item/laser_components/capacitor/proc/small_fail(var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	return
@@ -39,15 +94,25 @@
 	return
 
 /obj/item/laser_components/capacitor/proc/critical_fail(var/obj/item/weapon/gun/energy/laser/prototype/prototype)
+	qdel(src)
 	return
 
 /obj/item/laser_components/focusing_lens
 	name = "focusing lens"
 	desc = "A basic laser weapon focusing lens."
-	icon_state = "laser" // sprite
-	item_state = "laser" // sprite
 	var/dispersion = 0
 	reliability = 25
+	repair_item = /obj/item/stack/nanopaste
+
+/obj/item/laser_components/focusing_lens/repair(var/obj/item/weapon/D)
+	var/obj/item/stack/nanopaste/N = D
+	if(N.amount)
+		N.amount -= 5
+		condition -= reliability/5
+		if(condition < 0)
+			condition = 0
+		return 1
+	return 0
 
 /obj/item/device/laser_assembly
 	name = "laser assembly (small)"

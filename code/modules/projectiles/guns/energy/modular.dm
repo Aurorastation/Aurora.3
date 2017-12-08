@@ -1,8 +1,8 @@
 /obj/item/weapon/gun/energy/laser/prototype
 	name = "laser prototype"
 	desc = "A custom prototype laser weapon."
-	icon_state = "laser"
-	item_state = "laser"
+	icon_state = "xrifle"
+	item_state = "xrifle"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
@@ -40,6 +40,8 @@
 	disassemble()
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/updatetype()
+	if(!focusing_lens || !capacitor)
+		disassemble()
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
 			gun_type =  CHASSIS_SMALL
@@ -59,8 +61,6 @@
 	if(focusing_lens.reliability - focusing_lens.condition <= 0)
 		qdel(focusing_lens)
 		focusing_lens = null
-	if(!focusing_lens || !capacitor)
-		disassemble()
 	reliability = (capacitor.reliability - capacitor.condition) + (focusing_lens.reliability - focusing_lens.condition)
 	if(reliability < 0)
 		reliability = 0
@@ -116,10 +116,13 @@
 		A.damage *= modifier.damage
 	A.damage = A.damage/(burst - 1)
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-		if(prob(66))
-			capacitor.condition += modifier.malus
-		else
-			focusing_lens.condition += modifier.malus
+		if(prob(33))
+			capacitor.degrade(modifier.malus)
+			if(prob(33)
+				focusing_lens.degrade(modifier.malus)
+				if(prob(33)
+					modifier.degrade(1)
+
 	updatetype()
 	return A
 
