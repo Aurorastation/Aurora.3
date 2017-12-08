@@ -29,7 +29,7 @@
 	see_in_dark = 6
 	maxHealth = 5
 	health = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps on"
@@ -43,7 +43,7 @@
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	universal_speak = 0
 	universal_understand = 1
-	holder_type = /obj/item/weapon/holder/mouse
+	holder_type = /obj/item/holder/mouse
 	digest_factor = 0.05
 	min_scan_interval = 2
 	max_scan_interval = 20
@@ -114,11 +114,11 @@
 	icon_rest = "mouse_[body_color]_sleep"
 	icon_dead = "mouse_[body_color]_dead"
 	if (body_color == "brown")
-		holder_type = /obj/item/weapon/holder/mouse/brown
+		holder_type = /obj/item/holder/mouse/brown
 	if (body_color == "gray")
-		holder_type = /obj/item/weapon/holder/mouse/gray
+		holder_type = /obj/item/holder/mouse/gray
 	if (body_color == "white")
-		holder_type = /obj/item/weapon/holder/mouse/white
+		holder_type = /obj/item/holder/mouse/white
 
 	//verbs += /mob/living/simple_animal/mouse/proc/squeak
 	//verbs += /mob/living/simple_animal/mouse/proc/squeak_soft
@@ -182,7 +182,7 @@
 	if (stat == CONSCIOUS)
 		if (squeakcooldown > world.time) return
 		squeakcooldown = world.time + 4 SECONDS
-	
+
 		if (squeals > 0 || !manual)
 			playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
 			squeals --
@@ -277,19 +277,19 @@
 	body_color = "white"
 	icon_state = "mouse_white"
 	icon_rest = "mouse_white_sleep"
-	holder_type = /obj/item/weapon/holder/mouse/white
+	holder_type = /obj/item/holder/mouse/white
 
 /mob/living/simple_animal/mouse/gray
 	body_color = "gray"
 	icon_state = "mouse_gray"
 	icon_rest = "mouse_gray_sleep"
-	holder_type = /obj/item/weapon/holder/mouse/gray
+	holder_type = /obj/item/holder/mouse/gray
 
 /mob/living/simple_animal/mouse/brown
 	body_color = "brown"
 	icon_state = "mouse_brown"
 	icon_rest = "mouse_brown_sleep"
-	holder_type = /obj/item/weapon/holder/mouse/brown
+	holder_type = /obj/item/holder/mouse/brown
 
 /mob/living/simple_animal/mouse/brown/Tom
 	name = "Tom"

@@ -24,14 +24,14 @@
 /obj/structure/dispenser/update_icon()
 	cut_overlays()
 	switch(oxygentanks)
-		if(1 to 3)	
+		if(1 to 3)
 			add_overlay("oxygen-[oxygentanks]")
-		if(4 to INFINITY) 
+		if(4 to INFINITY)
 			add_overlay("oxygen-4")
 	switch(phorontanks)
 		if(1 to 4)
 			add_overlay("phoron-[phorontanks]")
-		if(5 to INFINITY) 
+		if(5 to INFINITY)
 			add_overlay("phoron-5")
 
 /obj/structure/dispenser/attack_ai(mob/user as mob)
@@ -50,7 +50,7 @@
 
 
 /obj/structure/dispenser/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/tank/oxygen) || istype(I, /obj/item/weapon/tank/air) || istype(I, /obj/item/weapon/tank/anesthetic))
+	if(istype(I, /obj/item/tank/oxygen) || istype(I, /obj/item/tank/air) || istype(I, /obj/item/tank/anesthetic))
 		if(oxygentanks < 10)
 			user.drop_item()
 			I.loc = src
@@ -63,7 +63,7 @@
 			user << "<span class='notice'>[src] is full.</span>"
 		updateUsrDialog()
 		return
-	if(istype(I, /obj/item/weapon/tank/phoron))
+	if(istype(I, /obj/item/tank/phoron))
 		if(phorontanks < 10)
 			user.drop_item()
 			I.loc = src
@@ -92,24 +92,24 @@
 		usr.set_machine(src)
 		if(href_list["oxygen"])
 			if(oxygentanks > 0)
-				var/obj/item/weapon/tank/oxygen/O
+				var/obj/item/tank/oxygen/O
 				if(oxytanks.len == oxygentanks)
 					O = oxytanks[1]
 					oxytanks.Remove(O)
 				else
-					O = new /obj/item/weapon/tank/oxygen(loc)
+					O = new /obj/item/tank/oxygen(loc)
 				O.loc = loc
 				usr << "<span class='notice'>You take [O] out of [src].</span>"
 				oxygentanks--
 				update_icon()
 		if(href_list["phoron"])
 			if(phorontanks > 0)
-				var/obj/item/weapon/tank/phoron/P
+				var/obj/item/tank/phoron/P
 				if(platanks.len == phorontanks)
 					P = platanks[1]
 					platanks.Remove(P)
 				else
-					P = new /obj/item/weapon/tank/phoron(loc)
+					P = new /obj/item/tank/phoron(loc)
 				P.loc = loc
 				usr << "<span class='notice'>You take [P] out of [src].</span>"
 				phorontanks--

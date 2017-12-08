@@ -17,7 +17,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	//Main variables
 	var/owner = null
 	var/default_cartridge = 0 // Access level defined by cartridge
-	var/obj/item/weapon/cartridge/cartridge = null //current cartridge
+	var/obj/item/cartridge/cartridge = null //current cartridge
 	var/mode = 0 //Controls what menu the PDA will display. 0 is hub; the rest are either built in or based on cartridge.
 
 	var/lastmode = 0
@@ -60,13 +60,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/list/no_auto_update = list(1, 40, 43, 44, 441, 45, 451)		     // These modes we turn off autoupdate
 	var/list/update_every_five = list(3, 41, 433, 46, 47, 48, 49)			     // These we update every 5 ticks
 
-	var/obj/item/weapon/card/id/id = null //Making it possible to slot an ID card into the PDA so it can function as both.
+	var/obj/item/card/id/id = null //Making it possible to slot an ID card into the PDA so it can function as both.
 	var/ownjob = null //related to above - this is assignment (potentially alt title)
 	var/ownrank = null // this one is rank, never alt title
 
 	var/obj/item/device/paicard/pai = null	// A slot for a personal AI device
 
-	var/obj/item/weapon/pen/pen
+	var/obj/item/pen/pen
 
 /obj/item/device/pda/examine(mob/user)
 	if(..(user, 1))
@@ -75,47 +75,47 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			user << "There is \a [pen] in the pen slot."
 
 /obj/item/device/pda/medical
-	default_cartridge = /obj/item/weapon/cartridge/medical
+	default_cartridge = /obj/item/cartridge/medical
 	icon_state = "pda-m"
 
 /obj/item/device/pda/viro
-	default_cartridge = /obj/item/weapon/cartridge/medical
+	default_cartridge = /obj/item/cartridge/medical
 	icon_state = "pda-v"
 
 /obj/item/device/pda/engineering
-	default_cartridge = /obj/item/weapon/cartridge/engineering
+	default_cartridge = /obj/item/cartridge/engineering
 	icon_state = "pda-e"
 
 /obj/item/device/pda/security
-	default_cartridge = /obj/item/weapon/cartridge/security
+	default_cartridge = /obj/item/cartridge/security
 	icon_state = "pda-s"
 
 /obj/item/device/pda/detective
-	default_cartridge = /obj/item/weapon/cartridge/detective
+	default_cartridge = /obj/item/cartridge/detective
 	icon_state = "pda-det"
 
 /obj/item/device/pda/warden
-	default_cartridge = /obj/item/weapon/cartridge/security
+	default_cartridge = /obj/item/cartridge/security
 	icon_state = "pda-warden"
 
 /obj/item/device/pda/janitor
-	default_cartridge = /obj/item/weapon/cartridge/janitor
+	default_cartridge = /obj/item/cartridge/janitor
 	icon_state = "pda-j"
 	ttone = "slip"
 
 /obj/item/device/pda/science
-	default_cartridge = /obj/item/weapon/cartridge/signal/science
+	default_cartridge = /obj/item/cartridge/signal/science
 	icon_state = "pda-tox"
 	ttone = "boom"
 
 /obj/item/device/pda/clown
-	default_cartridge = /obj/item/weapon/cartridge/clown
+	default_cartridge = /obj/item/cartridge/clown
 	icon_state = "pda-clown"
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. The surface is coated with polytetrafluoroethylene and banana drippings."
 	ttone = "honk"
 
 /obj/item/device/pda/mime
-	default_cartridge = /obj/item/weapon/cartridge/mime
+	default_cartridge = /obj/item/cartridge/mime
 	icon_state = "pda-mime"
 	message_silent = 1
 	news_silent = 1
@@ -123,55 +123,55 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	newstone = "silence"
 
 /obj/item/device/pda/heads
-	default_cartridge = /obj/item/weapon/cartridge/head
+	default_cartridge = /obj/item/cartridge/head
 	icon_state = "pda-h"
 	news_silent = 1
 
 /obj/item/device/pda/heads/hop
-	default_cartridge = /obj/item/weapon/cartridge/hop
+	default_cartridge = /obj/item/cartridge/hop
 	icon_state = "pda-hop"
 
 /obj/item/device/pda/heads/hos
-	default_cartridge = /obj/item/weapon/cartridge/hos
+	default_cartridge = /obj/item/cartridge/hos
 	icon_state = "pda-hos"
 
 /obj/item/device/pda/heads/ce
-	default_cartridge = /obj/item/weapon/cartridge/ce
+	default_cartridge = /obj/item/cartridge/ce
 	icon_state = "pda-ce"
 
 /obj/item/device/pda/heads/cmo
-	default_cartridge = /obj/item/weapon/cartridge/cmo
+	default_cartridge = /obj/item/cartridge/cmo
 	icon_state = "pda-cmo"
 
 /obj/item/device/pda/heads/rd
-	default_cartridge = /obj/item/weapon/cartridge/rd
+	default_cartridge = /obj/item/cartridge/rd
 	icon_state = "pda-rd"
 
 /obj/item/device/pda/captain
-	default_cartridge = /obj/item/weapon/cartridge/captain
+	default_cartridge = /obj/item/cartridge/captain
 	icon_state = "pda-c"
 	detonate = 0
 	//toff = 1
 
 /obj/item/device/pda/ert
-	default_cartridge = /obj/item/weapon/cartridge/captain
+	default_cartridge = /obj/item/cartridge/captain
 	icon_state = "pda-h"
 	detonate = 0
 	hidden = 1
 
 /obj/item/device/pda/cargo
-	default_cartridge = /obj/item/weapon/cartridge/quartermaster
+	default_cartridge = /obj/item/cartridge/quartermaster
 	icon_state = "pda-cargo"
 
 /obj/item/device/pda/quartermaster
-	default_cartridge = /obj/item/weapon/cartridge/quartermaster
+	default_cartridge = /obj/item/cartridge/quartermaster
 	icon_state = "pda-q"
 
 /obj/item/device/pda/shaftminer
 	icon_state = "pda-miner"
 
 /obj/item/device/pda/syndicate
-	default_cartridge = /obj/item/weapon/cartridge/syndicate
+	default_cartridge = /obj/item/cartridge/syndicate
 	icon_state = "pda-syn"
 	name = "Military PDA"
 	owner = "John Doe"
@@ -182,12 +182,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	ttone = "holy"
 
 /obj/item/device/pda/lawyer
-	default_cartridge = /obj/item/weapon/cartridge/lawyer
+	default_cartridge = /obj/item/cartridge/lawyer
 	icon_state = "pda-lawyer"
 	ttone = "..."
 
 /obj/item/device/pda/botanist
-	//default_cartridge = /obj/item/weapon/cartridge/botanist
+	//default_cartridge = /obj/item/cartridge/botanist
 	icon_state = "pda-hydro"
 
 /obj/item/device/pda/roboticist
@@ -212,15 +212,15 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	icon_state = "pda-bar"
 
 /obj/item/device/pda/atmos
-	default_cartridge = /obj/item/weapon/cartridge/atmos
+	default_cartridge = /obj/item/cartridge/atmos
 	icon_state = "pda-atmo"
 
 /obj/item/device/pda/chemist
-	default_cartridge = /obj/item/weapon/cartridge/chemistry
+	default_cartridge = /obj/item/cartridge/chemistry
 	icon_state = "pda-chem"
 
 /obj/item/device/pda/geneticist
-	default_cartridge = /obj/item/weapon/cartridge/medical
+	default_cartridge = /obj/item/cartridge/medical
 	icon_state = "pda-gene"
 
 /obj/item/device/pda/merchant
@@ -325,7 +325,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		cartridge = new default_cartridge(src)
 
 	if (has_pen)
-		pen = new /obj/item/weapon/pen(src)
+		pen = new /obj/item/pen(src)
 
 /obj/item/device/pda/proc/try_sort_pda_list()
 	addtimer(CALLBACK(GLOBAL_PROC, /proc/sortTim, PDAs, /proc/cmp_pda), 1 SECOND, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
@@ -1211,13 +1211,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			return 1
 		else
 			var/obj/item/I = user.get_active_hand()
-			if (istype(I, /obj/item/weapon/card/id) && user.unEquip(I))
+			if (istype(I, /obj/item/card/id) && user.unEquip(I))
 				I.loc = src
 				id = I
 			return 1
 	else
-		var/obj/item/weapon/card/I = user.get_active_hand()
-		if (istype(I, /obj/item/weapon/card/id) && I:registered_name && user.unEquip(I))
+		var/obj/item/card/I = user.get_active_hand()
+		if (istype(I, /obj/item/card/id) && I:registered_name && user.unEquip(I))
 			var/obj/old_id = id
 			I.loc = src
 			id = I
@@ -1228,7 +1228,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 // access to status display signals
 /obj/item/device/pda/attackby(obj/item/C as obj, mob/user as mob)
 	..()
-	if(istype(C, /obj/item/weapon/cartridge) && !cartridge)
+	if(istype(C, /obj/item/cartridge) && !cartridge)
 		cartridge = C
 		user.drop_item()
 		cartridge.loc = src
@@ -1237,8 +1237,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if(cartridge.radio)
 			cartridge.radio.hostpda = src
 
-	else if(istype(C, /obj/item/weapon/card/id))
-		var/obj/item/weapon/card/id/idcard = C
+	else if(istype(C, /obj/item/card/id))
+		var/obj/item/card/id/idcard = C
 		if(!idcard.registered_name)
 			user << "<span class='notice'>\The [src] rejects the ID.</span>"
 			return
@@ -1264,7 +1264,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		pai.update_location()//This notifies the pAI that they've been slotted into a PDA
 		user << "<span class='notice'>You slot \the [C] into [src].</span>"
 		SSnanoui.update_uis(src) // update all UIs attached to src
-	else if(istype(C, /obj/item/weapon/pen))
+	else if(istype(C, /obj/item/pen))
 		if(pen)
 			user << "<span class='notice'>There is already a pen in \the [src].</span>"
 		else
@@ -1355,7 +1355,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if(5)
 			analyze_gases(A, user)
 
-	if (!scanmode && istype(A, /obj/item/weapon/paper) && owner)
+	if (!scanmode && istype(A, /obj/item/paper) && owner)
 		// JMO 20140705: Makes scanned document show up properly in the notes. Not pretty for formatted documents,
 		// as this will clobber the HTML, but at least it lets you scan a document. You can restore the original
 		// notes by editing the note again. (Was going to allow you to edit, but scanned documents are too long.)
@@ -1425,7 +1425,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (istype(AM, /mob/living))
 		var/mob/living/M = AM
 
-		if(M.slip("the PDA",8) && M.real_name != src.owner && istype(src.cartridge, /obj/item/weapon/cartridge/clown))
+		if(M.slip("the PDA",8) && M.real_name != src.owner && istype(src.cartridge, /obj/item/cartridge/clown))
 			if(src.cartridge.charges < 5)
 				src.cartridge.charges++
 
@@ -1461,7 +1461,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 
 //Some spare PDAs in a box
-/obj/item/weapon/storage/box/PDAs
+/obj/item/storage/box/PDAs
 	name = "box of spare PDAs"
 	desc = "A box of spare PDA microcomputers."
 	icon = 'icons/obj/pda.dmi'
@@ -1473,13 +1473,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		new /obj/item/device/pda(src)
 		new /obj/item/device/pda(src)
 		new /obj/item/device/pda(src)
-		new /obj/item/weapon/cartridge/head(src)
+		new /obj/item/cartridge/head(src)
 
-		var/newcart = pick(	/obj/item/weapon/cartridge/engineering,
-							/obj/item/weapon/cartridge/security,
-							/obj/item/weapon/cartridge/medical,
-							/obj/item/weapon/cartridge/signal/science,
-							/obj/item/weapon/cartridge/quartermaster)
+		var/newcart = pick(	/obj/item/cartridge/engineering,
+							/obj/item/cartridge/security,
+							/obj/item/cartridge/medical,
+							/obj/item/cartridge/signal/science,
+							/obj/item/cartridge/quartermaster)
 		new newcart(src)
 
 // Pass along the pulse to atoms in contents, largely added so pAIs are vulnerable to EMP

@@ -17,7 +17,7 @@
  */
 
 //  Generic non-item
-/obj/item/weapon/storage/bag
+/obj/item/storage/bag
 	allow_quick_gather = 1
 	allow_quick_empty = 1
 	display_contents_with_number = 0 // UNStABLE AS FuCK, turn on when it stops crashing clients
@@ -28,7 +28,7 @@
 // -----------------------------
 //          Trash bag
 // -----------------------------
-/obj/item/weapon/storage/bag/trash
+/obj/item/storage/bag/trash
 	name = "trash bag"
 	desc = "It's the heavy-duty black polymer kind. Time to take out the trash!"
 	icon = 'icons/obj/janitor.dmi'
@@ -38,9 +38,9 @@
 	w_class = 4
 	max_w_class = 2
 	can_hold = null // any
-	cant_hold = list(/obj/item/weapon/disk/nuclear)
+	cant_hold = list(/obj/item/disk/nuclear)
 
-/obj/item/weapon/storage/bag/trash/update_icon()
+/obj/item/storage/bag/trash/update_icon()
 	if(contents.len == 0)
 		icon_state = "trashbag0"
 	else if(contents.len < 12)
@@ -49,13 +49,13 @@
 		icon_state = "trashbag2"
 	else icon_state = "trashbag3"
 
-/obj/item/weapon/storage/bag/trash/attackby(var/obj/item/I, var/mob/user)
+/obj/item/storage/bag/trash/attackby(var/obj/item/I, var/mob/user)
 	if (istype (I, /obj/item/device/lightreplacer))
 		var/count = 0
 		var/obj/item/device/lightreplacer/R = I
 		var/bagfull = 0
 		if (R.store_broken)
-			for(var/obj/item/weapon/light/L in R.contents)
+			for(var/obj/item/light/L in R.contents)
 				if(!can_be_inserted(L))//This displays its own error message if the bag is full
 					bagfull = 1
 					break
@@ -80,7 +80,7 @@
 //        Plastic Bag
 // -----------------------------
 
-/obj/item/weapon/storage/bag/plasticbag
+/obj/item/storage/bag/plasticbag
 	name = "plastic bag"
 	desc = "It's a very flimsy, very noisy alternative to a bag."
 	icon = 'icons/obj/trash.dmi'
@@ -90,13 +90,13 @@
 	w_class = 4
 	max_w_class = 2
 	can_hold = null // any
-	cant_hold = list(/obj/item/weapon/disk/nuclear)
+	cant_hold = list(/obj/item/disk/nuclear)
 
 // -----------------------------
 //        Mining Satchel
 // -----------------------------
 
-/obj/item/weapon/storage/bag/ore
+/obj/item/storage/bag/ore
 	name = "mining satchel"
 	desc = "This little bugger can be used to store and transport ores."
 	icon = 'icons/obj/mining.dmi'
@@ -105,9 +105,9 @@
 	w_class = 3
 	max_storage_space = 100
 	max_w_class = 3
-	can_hold = list(/obj/item/weapon/ore)
+	can_hold = list(/obj/item/ore)
 
-/obj/item/weapon/storage/bag/ore/drone
+/obj/item/storage/bag/ore/drone
 	// this used to be 400. The inventory system FUCKING DIED at this.
 	max_storage_space = 200
 
@@ -116,20 +116,20 @@
 //          Plant bag
 // -----------------------------
 
-/obj/item/weapon/storage/bag/plants
+/obj/item/storage/bag/plants
 	name = "plant bag"
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "plantbag"
 	max_storage_space = 100
 	max_w_class = 3
 	w_class = 2
-	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/weapon/grown)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/grown)
 
 // -----------------------------
 //        Slime core bag
 // -----------------------------
 
-/obj/item/weapon/storage/bag/slimes
+/obj/item/storage/bag/slimes
 	name = "slime core bag"
 	icon = 'icons/mob/slimes.dmi'
 	icon_state = "slimebag"
@@ -145,7 +145,7 @@
 // Because it stacks stacks, this doesn't operate normally.
 // However, making it a storage/bag allows us to reuse existing code in some places. -Sayu
 
-/obj/item/weapon/storage/bag/sheetsnatcher
+/obj/item/storage/bag/sheetsnatcher
 	name = "sheet snatcher"
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "sheetsnatcher"
@@ -158,7 +158,7 @@
 	allow_quick_empty = 1 // this function is superceded
 	use_deferred = FALSE
 
-/obj/item/weapon/storage/bag/sheetsnatcher/can_be_inserted(obj/item/W as obj, stop_messages = 0)
+/obj/item/storage/bag/sheetsnatcher/can_be_inserted(obj/item/W as obj, stop_messages = 0)
 	if(!istype(W,/obj/item/stack/material))
 		if(!stop_messages)
 			usr << "The snatcher does not accept [W]."
@@ -174,7 +174,7 @@
 
 
 // Modified handle_item_insertion.  Would prefer not to, but...
-/obj/item/weapon/storage/bag/sheetsnatcher/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
+/obj/item/storage/bag/sheetsnatcher/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
 	var/obj/item/stack/material/S = W
 	if(!istype(S)) return 0
 
@@ -215,7 +215,7 @@
 
 // Sets up numbered display to show the stack size of each stored mineral
 // NOTE: numbered display is turned off currently because it's broken
-/obj/item/weapon/storage/bag/sheetsnatcher/orient2hud(mob/user as mob)
+/obj/item/storage/bag/sheetsnatcher/orient2hud(mob/user as mob)
 	var/adjusted_contents = contents.len
 
 	//Numbered contents display
@@ -238,7 +238,7 @@
 
 
 // Modified quick_empty verb drops appropriate sized stacks
-/obj/item/weapon/storage/bag/sheetsnatcher/quick_empty()
+/obj/item/storage/bag/sheetsnatcher/quick_empty()
 	var/location = get_turf(src)
 	for(var/obj/item/stack/material/S in contents)
 		while(S.amount)
@@ -254,7 +254,7 @@
 	update_icon()
 
 // Instead of removing
-/obj/item/weapon/storage/bag/sheetsnatcher/remove_from_storage(obj/item/W as obj, atom/new_location)
+/obj/item/storage/bag/sheetsnatcher/remove_from_storage(obj/item/W as obj, atom/new_location)
 	var/obj/item/stack/material/S = W
 	if(!istype(S)) return 0
 
@@ -274,7 +274,7 @@
 //    Sheet Snatcher (Cyborg)
 // -----------------------------
 
-/obj/item/weapon/storage/bag/sheetsnatcher/borg
+/obj/item/storage/bag/sheetsnatcher/borg
 	name = "sheet snatcher 9000"
 	desc = ""
 	capacity = 500//Borgs get more because >specialization
@@ -283,7 +283,7 @@
 //           Cash Bag
 // -----------------------------
 
-/obj/item/weapon/storage/bag/cash
+/obj/item/storage/bag/cash
 	name = "cash bag"
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "cashbag"
@@ -291,14 +291,14 @@
 	max_storage_space = 100
 	max_w_class = 3
 	w_class = 2
-	can_hold = list(/obj/item/weapon/coin,/obj/item/weapon/spacecash)
+	can_hold = list(/obj/item/coin,/obj/item/spacecash)
 
 // -----------------------------
 //           Book bag
 // -----------------------------
 
 
-/obj/item/weapon/storage/bag/books
+/obj/item/storage/bag/books
 	name = "book bag"
 	desc = "A bag for books."
 	icon = 'icons/obj/library.dmi'
@@ -307,5 +307,5 @@
 	max_storage_space = 200
 	max_w_class = 3
 	w_class = 3
-	can_hold = list(/obj/item/weapon/book, /obj/item/weapon/spellbook)
+	can_hold = list(/obj/item/book, /obj/item/spellbook)
 

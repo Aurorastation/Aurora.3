@@ -16,9 +16,9 @@
 
 /datum/surgery_step/generic/cut_face
 	allowed_tools = list(
-	/obj/item/weapon/scalpel = 100,
-	/obj/item/weapon/material/knife = 75,
-	/obj/item/weapon/material/shard = 50
+	/obj/item/scalpel = 100,
+	/obj/item/material/knife = 75,
+	/obj/item/material/shard = 50
 	)
 
 	min_duration = 90
@@ -46,7 +46,7 @@
 
 /datum/surgery_step/face/mend_vocal
 	allowed_tools = list(
-	/obj/item/weapon/hemostat = 100, 	\
+	/obj/item/hemostat = 100, 	\
 	/obj/item/stack/cable_coil = 75, 	\
 	/obj/item/device/assembly/mousetrap = 10	//I don't know. Don't ask me. But I'm leaving it because hilarity.
 	)
@@ -74,9 +74,9 @@
 
 /datum/surgery_step/face/fix_face
 	allowed_tools = list(
-	/obj/item/weapon/retractor = 100, 	\
-	/obj/item/weapon/crowbar = 55,	\
-	/obj/item/weapon/material/kitchen/utensil/fork = 75)
+	/obj/item/retractor = 100, 	\
+	/obj/item/crowbar = 55,	\
+	/obj/item/material/kitchen/utensil/fork = 75)
 
 	min_duration = 80
 	max_duration = 100
@@ -102,10 +102,10 @@
 
 /datum/surgery_step/face/cauterize
 	allowed_tools = list(
-	/obj/item/weapon/cautery = 100,			\
+	/obj/item/cautery = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
-	/obj/item/weapon/flame/lighter = 50,			\
-	/obj/item/weapon/weldingtool = 25
+	/obj/item/flame/lighter = 50,			\
+	/obj/item/weldingtool = 25
 	)
 
 	min_duration = 70
@@ -144,9 +144,9 @@
 
 /datum/surgery_step/robotics/face/synthskin
 	allowed_tools = list(
-	/obj/item/weapon/scalpel = 100,
-	/obj/item/weapon/material/knife = 75,
-	/obj/item/weapon/material/shard = 50
+	/obj/item/scalpel = 100,
+	/obj/item/material/knife = 75,
+	/obj/item/material/shard = 50
 	)
 
 	min_duration = 90
@@ -199,9 +199,9 @@
 
 /datum/surgery_step/robotics/face/fix_face
 	allowed_tools = list(
-	/obj/item/weapon/retractor = 100, 	\
-	/obj/item/weapon/wirecutters = 85,	\
-	/obj/item/weapon/material/kitchen/utensil/fork = 55)
+	/obj/item/retractor = 100, 	\
+	/obj/item/wirecutters = 85,	\
+	/obj/item/material/kitchen/utensil/fork = 55)
 
 	min_duration = 80
 	max_duration = 100
@@ -227,10 +227,10 @@
 
 /datum/surgery_step/robotics/face/seal_face
 	allowed_tools = list(
-	/obj/item/weapon/cautery = 100,			\
+	/obj/item/cautery = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
-	/obj/item/weapon/flame/lighter = 50,			\
-	/obj/item/weapon/weldingtool = 25
+	/obj/item/flame/lighter = 50,			\
+	/obj/item/weldingtool = 25
 	)
 
 	min_duration = 70

@@ -48,16 +48,16 @@
 					tankcheck = list(C.r_hand, C.l_hand, C.back)
 
 				// Rigs are a fucking pain since they keep an air tank in nullspace.
-				if(istype(C.back,/obj/item/weapon/rig))
-					var/obj/item/weapon/rig/rig = C.back
+				if(istype(C.back,/obj/item/rig))
+					var/obj/item/rig/rig = C.back
 					if(rig.air_supply)
 						from = "in"
 						nicename |= "hardsuit"
 						tankcheck |= rig.air_supply
 
 				for(var/i in 1 to tankcheck.len + 1)
-					if(istype(tankcheck[i], /obj/item/weapon/tank))
-						var/obj/item/weapon/tank/t = tankcheck[i]
+					if(istype(tankcheck[i], /obj/item/tank))
+						var/obj/item/tank/t = tankcheck[i]
 						if (!isnull(t.manipulated_by) && t.manipulated_by != C.real_name && findtext(t.desc,breathes))
 							contents.Add(t.air_contents.total_moles)	//Someone messed with the tank and put unknown gasses
 							continue					//in it, so we're going to believe the tank is what it says it is
@@ -122,7 +122,7 @@
 								else
 									contents.Add(0)
 
-					if(!(istype(tankcheck[i], /obj/item/organ/vaurca/preserve)) & !(istype(tankcheck[i], /obj/item/weapon/tank)))
+					if(!(istype(tankcheck[i], /obj/item/organ/vaurca/preserve)) & !(istype(tankcheck[i], /obj/item/tank)))
 						//no tank so we set contents to 0
 						contents.Add(0)
 

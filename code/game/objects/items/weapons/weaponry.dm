@@ -1,5 +1,5 @@
 
-/obj/item/weapon/nullrod
+/obj/item/nullrod
 	name = "null rod"
 	desc = "A rod of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullrod"
@@ -11,7 +11,7 @@
 	throwforce = 10
 	w_class = 2
 
-/obj/item/weapon/nullrod/nullstaff
+/obj/item/nullrod/nullstaff
 	name = "null staff"
 	desc = "A staff of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullstaff"
@@ -19,46 +19,46 @@
 	slot_flags = SLOT_BACK
 	w_class = 4
 
-/obj/item/weapon/nullrod/nullorb
+/obj/item/nullrod/nullorb
 	name = "null sphere"
 	desc = "An orb of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullorb"
 	item_state = "nullorb"
 
-/obj/item/weapon/nullrod/nullathame
+/obj/item/nullrod/nullathame
 	name = "null athame"
 	desc = "An athame of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullathame"
 	item_state = "nullathame"
 
-/obj/item/weapon/nullrod/itembox
+/obj/item/nullrod/itembox
 	name = "null item box"
 	desc = "A box to safe keep your religious items. What item did you bring to work today?"
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "box"
 	item_state = "box"
 
-/obj/item/weapon/nullrod/itembox/attack_self(mob/user as mob)
+/obj/item/nullrod/itembox/attack_self(mob/user as mob)
 	if(..()) return
 
 	var/selection = input("Pick a null item type.") in list("Rod","Staff", /*"Orb",*/ "Athame")
 	switch(selection)
 		if ("Rod")
-			new /obj/item/weapon/nullrod(user.loc)
+			new /obj/item/nullrod(user.loc)
 			user << "<span class='notice'>A simple obsidian rod, a classic. Rods like these are seen in the hands of religious folks all across the galaxy.</span>"
 		if ("Staff")
-			new /obj/item/weapon/nullrod/nullstaff(user.loc)
+			new /obj/item/nullrod/nullstaff(user.loc)
 			user << "<span class='notice'>A simple staff, a popular choice amongst shamans and wise men. You doubt this will fit in your bag, but you can put it on your back.</span>"
 		if ("Orb")
-			new /obj/item/weapon/nullrod/nullorb(user.loc)
+			new /obj/item/nullrod/nullorb(user.loc)
 		if ("Athame")
-			new /obj/item/weapon/nullrod/nullathame(user.loc)
+			new /obj/item/nullrod/nullathame(user.loc)
 			user << "<span class='notice'>An athame, a ritualistic dagger. It's blade is curved and ornate, yet it is rather blunt.</span>"
 	user << "<span class='notice'>You take your [selection] from the box, and throw the empty box away.</span>"
 	qdel(src)
 	return
 
-/obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
+/obj/item/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
@@ -111,14 +111,14 @@
 	else
 		return ..()
 
-/obj/item/weapon/nullrod/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/nullrod/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity)
 		return
 	if (istype(A, /turf/simulated/floor))
 		user << "<span class='notice'>You hit the floor with the [src].</span>"
 		call(/obj/effect/rune/proc/revealrunes)(src)
 
-/obj/item/weapon/energy_net
+/obj/item/energy_net
 	name = "energy net"
 	desc = "It's a net made of green energy."
 	icon = 'icons/effects/effects.dmi'
@@ -127,11 +127,11 @@
 	force = 0
 	var/net_type = /obj/effect/energy_net
 
-/obj/item/weapon/energy_net/dropped()
+/obj/item/energy_net/dropped()
 	spawn(10)
 		if(src) qdel(src)
 
-/obj/item/weapon/energy_net/throw_impact(atom/hit_atom)
+/obj/item/energy_net/throw_impact(atom/hit_atom)
 	..()
 
 	var/mob/living/M = hit_atom
@@ -263,12 +263,12 @@
 	healthcheck()
 	return
 
-/obj/effect/energy_net/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/effect/energy_net/attackby(obj/item/W as obj, mob/user as mob)
 	health -= W.force
 	healthcheck()
 	..()
 
-/obj/item/weapon/canesword
+/obj/item/canesword
 	name = "thin sword"
 	desc = "A thin, sharp blade with an elegant handle."
 	icon = 'icons/obj/sword.dmi'
@@ -283,7 +283,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = 1
 
-/obj/item/weapon/sord
+/obj/item/sord
 	name = "\improper SORD"
 	desc = "This thing is so unspeakably shitty you are having a hard time even holding it."
 	icon_state = "sord"
@@ -297,7 +297,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
-/obj/item/weapon/banhammer
+/obj/item/banhammer
 	desc = "banhammer"
 	name = "banhammer"
 	icon = 'icons/obj/items.dmi'
@@ -309,7 +309,7 @@
 	throw_range = 15
 	attack_verb = list("banned")
 
-/obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
+/obj/item/banhammer/attack(mob/M as mob, mob/user as mob)
 	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>"
 	user << "<font color='red'> You have <b>BANNED</b> [M]</font>"
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)

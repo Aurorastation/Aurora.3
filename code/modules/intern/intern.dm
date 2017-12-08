@@ -10,10 +10,10 @@
 	access = list(access_security, access_sec_doors, access_maint_tunnels)
 	minimal_access = list(access_security, access_sec_doors, access_maint_tunnels)
 
-	bag_type = /obj/item/weapon/storage/backpack/security
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_sec
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/sec
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/sec
+	bag_type = /obj/item/storage/backpack/security
+	satchel_type = /obj/item/storage/backpack/satchel_sec
+	duffel_type = /obj/item/storage/backpack/duffel/sec
+	messenger_bag_type = /obj/item/storage/backpack/messenger/sec
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -35,10 +35,10 @@
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
 
-	bag_type = /obj/item/weapon/storage/backpack/medic
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_med
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/med
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/med
+	bag_type = /obj/item/storage/backpack/medic
+	satchel_type = /obj/item/storage/backpack/satchel_med
+	duffel_type = /obj/item/storage/backpack/duffel/med
+	messenger_bag_type = /obj/item/storage/backpack/messenger/med
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -59,10 +59,10 @@
 	access = list(access_research, access_tox)
 	minimal_access = list(access_research, access_tox)
 
-	bag_type = /obj/item/weapon/storage/backpack/toxins
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
+	bag_type = /obj/item/storage/backpack/toxins
+	satchel_type = /obj/item/storage/backpack/satchel_tox
+	duffel_type = /obj/item/storage/backpack/duffel/tox
+	messenger_bag_type = /obj/item/storage/backpack/messenger/tox
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
@@ -83,10 +83,10 @@
 	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 
-	bag_type = /obj/item/weapon/storage/backpack/industrial
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_eng
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/eng
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/engi
+	bag_type = /obj/item/storage/backpack/industrial
+	satchel_type = /obj/item/storage/backpack/satchel_eng
+	duffel_type = /obj/item/storage/backpack/duffel/eng
+	messenger_bag_type = /obj/item/storage/backpack/messenger/engi
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0

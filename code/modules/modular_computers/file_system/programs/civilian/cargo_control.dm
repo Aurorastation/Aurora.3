@@ -20,7 +20,7 @@
 
 /datum/nano_module/program/civilian/cargocontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
-	
+
 	post_signal("supply")
 
 	//Send the page to display
@@ -29,7 +29,7 @@
 	data["status_message"] = status_message
 
 	//Pass the ID Data
-	var/obj/item/weapon/card/id/user_id_card = user.GetIdCard()
+	var/obj/item/card/id/user_id_card = user.GetIdCard()
 	last_user_name = GetNameAndAssignmentFromId(user_id_card)
 	data["username"] = last_user_name
 
@@ -62,7 +62,7 @@
 
 	if(page == "overview_shipments")
 		data["shipment_list"] = SScargo.get_shipment_list()
-	
+
 	if(page == "shipment_details")
 		data["shipment_details"] = shipment_details
 
@@ -110,7 +110,7 @@
 			if("overview_submitted")
 				page = "overview_submitted" //Overview page listing the orders that have been submitted with options to view them, approve them and reject them
 			if("overview_approved")
-				page = "overview_approved" //Overview page listing the current shuttle price and time as well as orders that have been approved, with options to view the details 
+				page = "overview_approved" //Overview page listing the current shuttle price and time as well as orders that have been approved, with options to view the details
 			if("overview_shipped")
 				page = "overview_shipped" //Overview page listing the orders that have been shipped to the station but not delivered, with the option to mark them as delivered as well as to specify a person it has been delivered to
 			if("order_details")
@@ -153,7 +153,7 @@
 			status_message = message
 		return 1
 
-	//Cancel shuttle 
+	//Cancel shuttle
 	if(href_list["shuttle_cancel"])
 		var/message = SScargo.shuttle_cancel()
 		if(message)

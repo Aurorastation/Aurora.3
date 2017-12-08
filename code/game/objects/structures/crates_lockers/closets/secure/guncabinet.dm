@@ -10,7 +10,7 @@
 	icon_opened = "base"
 	anchored = 1
 	canbemoved = 1
-	
+
 
 /obj/structure/closet/secure_closet/guncabinet/Initialize()
 	..()
@@ -31,10 +31,10 @@
 	else
 		var/lazors = 0
 		var/shottas = 0
-		for (var/obj/item/weapon/gun/G in contents)
-			if (istype(G, /obj/item/weapon/gun/energy))
+		for (var/obj/item/gun/G in contents)
+			if (istype(G, /obj/item/gun/energy))
 				lazors++
-			if (istype(G, /obj/item/weapon/gun/projectile/))
+			if (istype(G, /obj/item/gun/projectile/))
 				shottas++
 		if (lazors || shottas)
 			for (var/i = 0 to 2)
@@ -44,7 +44,7 @@
 				else if (shottas > 0)
 					shottas--
 					add_overlay("projectile[i]")
-			
+
 		add_overlay("door")
 
 		if(broken)

@@ -1,7 +1,7 @@
 
-//Not to be confused with /obj/item/weapon/reagent_containers/food/drinks/bottle
+//Not to be confused with /obj/item/reagent_containers/food/drinks/bottle
 
-/obj/item/weapon/reagent_containers/glass/bottle
+/obj/item/reagent_containers/glass/bottle
 	name = "bottle"
 	desc = "A small bottle."
 	icon = 'icons/obj/chemical.dmi'
@@ -54,7 +54,7 @@
 		if (!is_open_container())
 			add_overlay("lid_bottle")
 
-/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline
+/obj/item/reagent_containers/glass/bottle/inaprovaline
 	name = "inaprovaline bottle"
 	desc = "A small bottle. Contains inaprovaline - used to stabilize patients."
 	icon = 'icons/obj/chemical.dmi'
@@ -65,7 +65,7 @@
 		reagents.add_reagent("inaprovaline", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/toxin
+/obj/item/reagent_containers/glass/bottle/toxin
 	name = "toxin bottle"
 	desc = "A small bottle of toxins. Do not drink, it is poisonous."
 	icon = 'icons/obj/chemical.dmi'
@@ -76,7 +76,7 @@
 		reagents.add_reagent("toxin", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/cyanide
+/obj/item/reagent_containers/glass/bottle/cyanide
 	name = "cyanide bottle"
 	desc = "A small bottle of cyanide. Bitter almonds?"
 	icon = 'icons/obj/chemical.dmi'
@@ -87,7 +87,7 @@
 		reagents.add_reagent("cyanide", 30) //volume changed to match chloral
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/stoxin
+/obj/item/reagent_containers/glass/bottle/stoxin
 	name = "soporific bottle"
 	desc = "A small bottle of soporific. Just the fumes make you sleepy."
 	icon = 'icons/obj/chemical.dmi'
@@ -98,7 +98,7 @@
 		reagents.add_reagent("stoxin", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/chloralhydrate
+/obj/item/reagent_containers/glass/bottle/chloralhydrate
 	name = "chloral hydrate bottle"
 	desc = "A small bottle of Choral Hydrate. Mickey's Favorite!"
 	icon = 'icons/obj/chemical.dmi'
@@ -109,7 +109,7 @@
 		reagents.add_reagent("chloralhydrate", 30)		//Intentionally low since it is so strong. Still enough to knock someone out.
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/antitoxin
+/obj/item/reagent_containers/glass/bottle/antitoxin
 	name = "dylovene bottle"
 	desc = "A small bottle of dylovene. Counters poisons, and repairs damage. A wonder drug."
 	icon = 'icons/obj/chemical.dmi'
@@ -120,7 +120,7 @@
 		reagents.add_reagent("anti_toxin", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/mutagen
+/obj/item/reagent_containers/glass/bottle/mutagen
 	name = "unstable mutagen bottle"
 	desc = "A small bottle of unstable mutagen. Randomly changes the DNA structure of whoever comes in contact."
 	icon = 'icons/obj/chemical.dmi'
@@ -131,7 +131,7 @@
 		reagents.add_reagent("mutagen", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/ammonia
+/obj/item/reagent_containers/glass/bottle/ammonia
 	name = "ammonia bottle"
 	desc = "A small bottle."
 	icon = 'icons/obj/chemical.dmi'
@@ -142,7 +142,7 @@
 		reagents.add_reagent("ammonia", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/diethylamine
+/obj/item/reagent_containers/glass/bottle/diethylamine
 	name = "diethylamine bottle"
 	desc = "A small bottle."
 	icon = 'icons/obj/chemical.dmi'
@@ -153,7 +153,7 @@
 		reagents.add_reagent("diethylamine", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/flu_virion
+/obj/item/reagent_containers/glass/bottle/flu_virion
 	name = "Flu virion culture bottle"
 	desc = "A small bottle. Contains H13N1 flu virion culture in synthblood medium."
 	icon = 'icons/obj/chemical.dmi'
@@ -165,7 +165,7 @@
 		reagents.add_reagent("blood", 20, data)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/epiglottis_virion
+/obj/item/reagent_containers/glass/bottle/epiglottis_virion
 	name = "Epiglottis virion culture bottle"
 	desc = "A small bottle. Contains Epiglottis virion culture in synthblood medium."
 	icon = 'icons/obj/chemical.dmi'
@@ -177,7 +177,7 @@
 		reagents.add_reagent("blood", 20, data)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/liver_enhance_virion
+/obj/item/reagent_containers/glass/bottle/liver_enhance_virion
 	name = "Liver enhancement virion culture bottle"
 	desc = "A small bottle. Contains liver enhancement virion culture in synthblood medium."
 	icon = 'icons/obj/chemical.dmi'
@@ -189,7 +189,7 @@
 		reagents.add_reagent("blood", 20, data)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/hullucigen_virion
+/obj/item/reagent_containers/glass/bottle/hullucigen_virion
 	name = "Hullucigen virion culture bottle"
 	desc = "A small bottle. Contains hullucigen virion culture in synthblood medium."
 	icon = 'icons/obj/chemical.dmi'
@@ -201,7 +201,7 @@
 		reagents.add_reagent("blood", 20, data)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/pierrot_throat
+/obj/item/reagent_containers/glass/bottle/pierrot_throat
 	name = "Pierrot's Throat culture bottle"
 	desc = "A small bottle. Contains H0NI<42 virion culture in synthblood medium."
 	icon = 'icons/obj/chemical.dmi'
@@ -213,7 +213,7 @@
 		reagents.add_reagent("blood", 20, data)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/cold
+/obj/item/reagent_containers/glass/bottle/cold
 	name = "Rhinovirus culture bottle"
 	desc = "A small bottle. Contains XY-rhinovirus culture in synthblood medium."
 	icon = 'icons/obj/chemical.dmi'
@@ -225,7 +225,7 @@
 		reagents.add_reagent("blood", 20, data)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/random
+/obj/item/reagent_containers/glass/bottle/random
 	name = "Random culture bottle"
 	desc = "A small bottle. Contains a random disease."
 	icon = 'icons/obj/chemical.dmi'
@@ -237,7 +237,7 @@
 		reagents.add_reagent("blood", 20, data)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/retrovirus
+/obj/item/reagent_containers/glass/bottle/retrovirus
 	name = "Retrovirus culture bottle"
 	desc = "A small bottle. Contains a retrovirus culture in a synthblood medium."
 	icon = 'icons/obj/chemical.dmi'
@@ -250,7 +250,7 @@
 		update_icon()
 
 
-/obj/item/weapon/reagent_containers/glass/bottle/gbs
+/obj/item/reagent_containers/glass/bottle/gbs
 	name = "GBS culture bottle"
 	desc = "A small bottle. Contains Gravitokinetic Bipotential SADS+ culture in synthblood medium."//Or simply - General BullShit
 	icon = 'icons/obj/chemical.dmi'
@@ -267,7 +267,7 @@
 		R.add_reagent("blood", 20, data)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/fake_gbs
+/obj/item/reagent_containers/glass/bottle/fake_gbs
 	name = "GBS culture bottle"
 	desc = "A small bottle. Contains Gravitokinetic Bipotential SADS- culture in synthblood medium."//Or simply - General BullShit
 	icon = 'icons/obj/chemical.dmi'
@@ -279,7 +279,7 @@
 		reagents.add_reagent("blood", 20, data)
 		update_icon()
 /*
-/obj/item/weapon/reagent_containers/glass/bottle/rhumba_beat
+/obj/item/reagent_containers/glass/bottle/rhumba_beat
 	name = "Rhumba Beat culture bottle"
 	desc = "A small bottle. Contains The Rhumba Beat culture in synthblood medium."//Or simply - General BullShit
 	icon = 'icons/obj/chemical.dmi'
@@ -296,7 +296,7 @@
 		R.add_reagent("blood", 20, data)
 */
 
-/obj/item/weapon/reagent_containers/glass/bottle/brainrot
+/obj/item/reagent_containers/glass/bottle/brainrot
 	name = "Brainrot culture bottle"
 	desc = "A small bottle. Contains Cryptococcus Cosmosis culture in synthblood medium."
 	icon = 'icons/obj/chemical.dmi'
@@ -308,7 +308,7 @@
 		reagents.add_reagent("blood", 20, data)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/magnitis
+/obj/item/reagent_containers/glass/bottle/magnitis
 	name = "Magnitis culture bottle"
 	desc = "A small bottle. Contains a small dosage of Fukkos Miracos."
 	icon = 'icons/obj/chemical.dmi'
@@ -321,7 +321,7 @@
 		update_icon()
 
 
-/obj/item/weapon/reagent_containers/glass/bottle/wizarditis
+/obj/item/reagent_containers/glass/bottle/wizarditis
 	name = "Wizarditis culture bottle"
 	desc = "A small bottle. Contains a sample of Rincewindus Vulgaris."
 	icon = 'icons/obj/chemical.dmi'
@@ -333,7 +333,7 @@
 		reagents.add_reagent("blood", 20, data)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/pacid
+/obj/item/reagent_containers/glass/bottle/pacid
 	name = "Polytrinic Acid Bottle"
 	desc = "A small bottle. Contains a small amount of Polytrinic Acid"
 	icon = 'icons/obj/chemical.dmi'
@@ -343,7 +343,7 @@
 		reagents.add_reagent("pacid", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/adminordrazine
+/obj/item/reagent_containers/glass/bottle/adminordrazine
 	name = "Adminordrazine Bottle"
 	desc = "A small bottle. Contains the liquid essence of the gods."
 	icon = 'icons/obj/drinks.dmi'
@@ -353,7 +353,7 @@
 		reagents.add_reagent("adminordrazine", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/capsaicin
+/obj/item/reagent_containers/glass/bottle/capsaicin
 	name = "capsaicin bottle"
 	desc = "A small bottle. Contains hot sauce."
 	icon = 'icons/obj/chemical.dmi'
@@ -363,7 +363,7 @@
 		reagents.add_reagent("capsaicin", 60)
 		update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bottle/frostoil
+/obj/item/reagent_containers/glass/bottle/frostoil
 	name = "frost oil bottle"
 	desc = "A small bottle. Contains cold sauce."
 	icon = 'icons/obj/chemical.dmi'

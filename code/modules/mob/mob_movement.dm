@@ -183,14 +183,14 @@
 	if(!mob)
 		return // Moved here to avoid nullrefs below
 
-	if(mob.control_object)	
+	if(mob.control_object)
 		Move_object(direct)
 
 	if(mob.incorporeal_move && isobserver(mob))
 		Process_Incorpmove(direct)
 		return
 
-	if(moving || world.time < move_delay) 
+	if(moving || world.time < move_delay)
 		return 0
 
 	//This compensates for the inaccuracy of move ticks
@@ -210,7 +210,7 @@
 	if(mob.eyeobj)
 		return mob.EyeMove(n,direct)
 
-	if(mob.transforming)	
+	if(mob.transforming)
 		return	//This is sota the goto stop mobs from moving var
 
 	if(isliving(mob))
@@ -224,9 +224,9 @@
 				if(item.zoom)
 					item.zoom(mob)
 					break
-		
+
 		// Only meaningful for living mobs.
-		if(Process_Grab())	
+		if(Process_Grab())
 			return
 
 	if(!mob.canmove)
@@ -326,7 +326,7 @@
 		//We are now going to move
 		moving = 1
 		//Something with pulling things
-		if (mob_is_human && (istype(mob:l_hand, /obj/item/weapon/grab) || istype(mob:r_hand, /obj/item/weapon/grab)))
+		if (mob_is_human && (istype(mob:l_hand, /obj/item/grab) || istype(mob:r_hand, /obj/item/grab)))
 			move_delay = max(move_delay, world.time + 7)
 			var/list/L = mob.ret_grab()
 			if(istype(L, /list))
@@ -363,12 +363,12 @@
 		else
 			. = mob.SelfMove(n, direct)
 
-		for (var/obj/item/weapon/grab/G in list(mob:l_hand, mob:r_hand))
+		for (var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
 			if (G.state == GRAB_NECK)
 				mob.set_dir(reverse_dir[direct])
 			G.adjust_position()
 
-		for (var/obj/item/weapon/grab/G in mob.grabbed_by)
+		for (var/obj/item/grab/G in mob.grabbed_by)
 			G.adjust_position()
 
 		moving = 0

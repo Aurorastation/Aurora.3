@@ -10,7 +10,7 @@
 	if (!vampire)
 		return
 
-	var/obj/item/weapon/grab/G = get_active_hand()
+	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
 		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to drain their blood.</span>")
 		return
@@ -224,7 +224,7 @@
 
 	vampire_phase_in(T)
 
-	for (var/obj/item/weapon/grab/G in contents)
+	for (var/obj/item/grab/G in contents)
 		if (G.affecting && (vampire.status & VAMP_FULLPOWER))
 			G.affecting.vampire_phase_out(get_turf(G.affecting.loc))
 			G.affecting.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
@@ -663,7 +663,7 @@
 	if (!vampire)
 		return
 
-	var/obj/item/weapon/grab/G = get_active_hand()
+	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
 		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to enthrall them.</span>")
 		return
@@ -828,7 +828,7 @@
 		return
 
 	// Re-using blood drain code.
-	var/obj/item/weapon/grab/G = get_active_hand()
+	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
 		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to drain their blood.</span>")
 		return
@@ -972,7 +972,7 @@
 
 	src.visible_message("<span class='warning'><b>\The [src]</b> seizes [T] aggressively!</span>")
 
-	var/obj/item/weapon/grab/G = new(src, T)
+	var/obj/item/grab/G = new(src, T)
 	if (use_hand == "left")
 		l_hand = G
 	else

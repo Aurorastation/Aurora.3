@@ -1,35 +1,35 @@
-/obj/item/weapon/material
+/obj/item/material
 	var/worth_multiplier = 1
 
 //Rule of thumb is: worth more than the parts put in
 //Finished good is worth more than its individual parts
 
-/obj/item/weapon/material/kitchen
+/obj/item/material/kitchen
 	worth_multiplier = 1.1
 
-/obj/item/weapon/material/butterfly
+/obj/item/material/butterfly
 	worth_multiplier = 8
 
-/obj/item/weapon/material/harpoon
+/obj/item/material/harpoon
 	worth_multiplier = 15
 
-/obj/item/weapon/material/hatchet
+/obj/item/material/hatchet
 	worth_multiplier = 6
 
-/obj/item/weapon/material/minihoe
+/obj/item/material/minihoe
 	worth_multiplier = 6
 
-/obj/item/weapon/material/scythe
+/obj/item/material/scythe
 	worth_multiplier = 20
 
-/obj/item/weapon/material/sword
+/obj/item/material/sword
 	worth_multiplier = 30
 
-/obj/item/weapon/material/twohanded/fireaxe
+/obj/item/material/twohanded/fireaxe
 	worth_multiplier = 31
 
-/obj/item/weapon/material/twohanded/spear
+/obj/item/material/twohanded/spear
 	worth_multiplier = 7 //blade + stuff
 
-/obj/item/weapon/material/star
+/obj/item/material/star
 	worth_multiplier = 25

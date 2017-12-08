@@ -7,7 +7,7 @@ var/datum/antagonist/actor/actor
 	role_text_plural = "NanoTrasen Actors"
 	welcome_text = "You've been hired to entertain people through the power of television!"
 	landmark_id = "ActorSpawn"
-	id_type = /obj/item/weapon/card/id/syndicate
+	id_type = /obj/item/card/id/syndicate
 
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_SET_APPEARANCE | ANTAG_CHOOSE_NAME
 
@@ -31,7 +31,7 @@ var/datum/antagonist/actor/actor
 	player.equip_to_slot_or_del(new /obj/item/clothing/under/chameleon(src), slot_w_uniform)
 	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/chameleon(src), slot_shoes)
 	player.equip_to_slot_or_del(new /obj/item/device/radio/headset/entertainment(src), slot_l_ear)
-	var/obj/item/weapon/card/id/centcom/ERT/C = new(player.loc)
+	var/obj/item/card/id/centcom/ERT/C = new(player.loc)
 	C.assignment = "Actor"
 	player.set_id_info(C)
 	player.equip_to_slot_or_del(C,slot_wear_id)

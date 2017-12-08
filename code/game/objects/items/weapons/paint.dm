@@ -1,7 +1,7 @@
 //NEVER USE THIS IT SUX	-PETETHEGOAT
 //THE GOAT WAS RIGHT - RKF
 
-/obj/item/weapon/reagent_containers/glass/paint
+/obj/item/reagent_containers/glass/paint
 	desc = "It's a paint bucket."
 	name = "paint bucket"
 	icon = 'icons/obj/items.dmi'
@@ -17,7 +17,7 @@
 	var/paint_reagent = null //name of the reagent responsible for colouring the paint
 	var/paint_type = null //used for colouring detective technicolor coat and hat
 
-/obj/item/weapon/reagent_containers/glass/paint/Initialize()
+/obj/item/reagent_containers/glass/paint/Initialize()
 	. = ..()
 	if(paint_type && lentext(paint_type) > 0)
 		name = paint_type + " " + name
@@ -28,7 +28,7 @@
 	reagents.handle_reactions()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/paint/update_icon()
+/obj/item/reagent_containers/glass/paint/update_icon()
 	cut_overlays()
 	if(!is_open_container())
 		add_overlay("paint_lid")
@@ -37,45 +37,45 @@
 		I.color = reagents.get_color()
 		add_overlay(I)
 
-/obj/item/weapon/reagent_containers/glass/paint/on_reagent_change()
+/obj/item/reagent_containers/glass/paint/on_reagent_change()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/paint/pickup(mob/user)
+/obj/item/reagent_containers/glass/paint/pickup(mob/user)
 	..()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/paint/dropped(mob/user)
+/obj/item/reagent_containers/glass/paint/dropped(mob/user)
 	..()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/paint/attack_hand()
+/obj/item/reagent_containers/glass/paint/attack_hand()
 	..()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/paint/red
+/obj/item/reagent_containers/glass/paint/red
 	paint_reagent = "crayon_dust_red"
 	paint_type = "red"
 
-/obj/item/weapon/reagent_containers/glass/paint/yellow
+/obj/item/reagent_containers/glass/paint/yellow
 	paint_reagent = "crayon_dust_yellow"
 	paint_type = "yellow"
 
-/obj/item/weapon/reagent_containers/glass/paint/green
+/obj/item/reagent_containers/glass/paint/green
 	paint_reagent = "crayon_dust_green"
 	paint_type = "green"
 
-/obj/item/weapon/reagent_containers/glass/paint/blue
+/obj/item/reagent_containers/glass/paint/blue
 	paint_reagent = "crayon_dust_blue"
 	paint_type = "blue"
 
-/obj/item/weapon/reagent_containers/glass/paint/purple
+/obj/item/reagent_containers/glass/paint/purple
 	paint_reagent = "crayon_dust_purple"
 	paint_type = "purple"
 
-/obj/item/weapon/reagent_containers/glass/paint/black
+/obj/item/reagent_containers/glass/paint/black
 	paint_reagent = "carbon"
 	paint_type = "black"
 
-/obj/item/weapon/reagent_containers/glass/paint/white
+/obj/item/reagent_containers/glass/paint/white
 	paint_reagent = "aluminum"
 	paint_type = "white"

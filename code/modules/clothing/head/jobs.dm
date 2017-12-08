@@ -96,7 +96,7 @@
 	name = "captains beret"
 	desc = "A white beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
 	icon_state = "centcomcaptain"
-  
+
 /obj/item/clothing/head/beret/centcom/commander
 	name = "commanders beret"
 	desc = "A white beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
@@ -135,7 +135,7 @@
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat"
 		)
-	allowed = list(/obj/item/weapon/reagent_containers/food/snacks/candy_corn, /obj/item/weapon/pen)
+	allowed = list(/obj/item/reagent_containers/food/snacks/candy_corn, /obj/item/pen)
 	armor = list(melee = 50, bullet = 5, laser = 25,energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 	body_parts_covered = 0
@@ -160,9 +160,9 @@
 		item_state = "hat_detective_[color]"
 	. = ..()
 
-/obj/item/clothing/head/det/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
-		var/obj/item/weapon/reagent_containers/glass/paint/P = O
+/obj/item/clothing/head/det/technicolor/attackby(obj/item/O as obj, mob/user as mob)
+	if(istype(O, /obj/item/reagent_containers/glass/paint))
+		var/obj/item/reagent_containers/glass/paint/P = O
 		hat_color = P.paint_type
 		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
 		icon_state = "hat_detective_[hat_color]"

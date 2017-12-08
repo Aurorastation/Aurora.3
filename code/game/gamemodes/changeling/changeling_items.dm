@@ -1,4 +1,4 @@
-/obj/item/weapon/melee/arm_blade
+/obj/item/melee/arm_blade
 	name = "arm blade"
 	desc = "A grotesque blade made out of bone and flesh that cleaves through people as a hot knife through butter."
 	icon = 'icons/obj/changeling.dmi'
@@ -17,21 +17,21 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator
 
-/obj/item/weapon/melee/arm_blade/New()
+/obj/item/melee/arm_blade/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/melee/arm_blade/Destroy()
+/obj/item/melee/arm_blade/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weapon/melee/arm_blade/dropped(var/mob/living/user)
+/obj/item/melee/arm_blade/dropped(var/mob/living/user)
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
-/obj/item/weapon/melee/arm_blade/process()
+/obj/item/melee/arm_blade/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))
@@ -46,7 +46,7 @@
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
 
-/obj/item/weapon/shield/riot/changeling
+/obj/item/shield/riot/changeling
 	name = "shield-like mass"
 	desc = "A mass of tough, boney tissue. You can still see the fingers as a twisted pattern in the shield."
 	icon = 'icons/obj/changeling.dmi'
@@ -61,21 +61,21 @@
 	can_embed = 0
 	var/mob/living/creator
 
-/obj/item/weapon/shield/riot/changeling/New()
+/obj/item/shield/riot/changeling/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/shield/riot/changeling/Destroy()
+/obj/item/shield/riot/changeling/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weapon/shield/riot/changeling/dropped(var/mob/living/user)
+/obj/item/shield/riot/changeling/dropped(var/mob/living/user)
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their shield into an arm!</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
-/obj/item/weapon/shield/riot/changeling/process()
+/obj/item/shield/riot/changeling/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))
@@ -90,7 +90,7 @@
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
 
-/obj/item/weapon/bone_dart
+/obj/item/bone_dart
 	name = "bone dart"
 	desc = "A sharp piece of bone shapped as small dart."
 	icon = 'icons/obj/changeling.dmi'

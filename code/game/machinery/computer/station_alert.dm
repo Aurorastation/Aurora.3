@@ -5,7 +5,7 @@
 
 	icon_screen = "alert:0"
 	light_color = LIGHT_COLOR_CYAN
-	circuit = /obj/item/weapon/circuitboard/stationalert
+	circuit = /obj/item/circuitboard/stationalert
 	var/datum/nano_module/alarm_monitor/alarm_monitor
 	var/monitor_type = /datum/nano_module/alarm_monitor
 

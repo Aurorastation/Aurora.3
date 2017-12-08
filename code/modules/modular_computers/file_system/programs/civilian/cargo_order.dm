@@ -24,11 +24,11 @@
 	if(!co)
 		var/datum/cargo_order/crord = new
 		co = crord
-	
+
 	var/list/data = host.initial_data()
 
 	//Pass the ID Data
-	var/obj/item/weapon/card/id/user_id_card = user.GetIdCard()
+	var/obj/item/card/id/user_id_card = user.GetIdCard()
 	if(!user_id_card)
 		last_user_name = "Unknown"
 	else
@@ -116,7 +116,7 @@
 		co.customer = last_user_name
 		co.reason = reason
 		SScargo.submit_order(co)
-		status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking code: [co.get_tracking_code()]" 
+		status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking code: [co.get_tracking_code()]"
 		//TODO: Print a list with the order data
 		co = null
 		return 1
@@ -146,7 +146,7 @@
 		page = "main"
 		selected_item = ""
 		return 1
-	
+
 	//Remove item from the order list
 	if(href_list["remove_item"])
 		status_message = co.remove_item(text2num(href_list["remove_item"]))
@@ -182,7 +182,7 @@
 	if(href_list["select_category"])
 		selected_category = href_list["select_category"]
 		return 1
-	
+
 	if(href_list["clear_message"])
 		status_message = null
 		return 1

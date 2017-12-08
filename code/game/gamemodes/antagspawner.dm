@@ -6,31 +6,31 @@
 
 	return 1
 
-/obj/item/weapon/antag_spawner
+/obj/item/antag_spawner
 	throw_speed = 1
 	throw_range = 5
 	w_class = 1.0
 	var/uses = 1
 
-/obj/item/weapon/antag_spawner/proc/equip_antag(mob/target as mob)
+/obj/item/antag_spawner/proc/equip_antag(mob/target as mob)
 	return
 
-/obj/item/weapon/antag_spawner/borg_tele
+/obj/item/antag_spawner/borg_tele
 	name = "syndicate cyborg teleporter"
 	desc = "A single-use teleporter used to deploy a Syndicate Cyborg on the field. Due to budget restrictions, it is only possible to deploy a single cyborg at time."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
 
-/obj/item/weapon/antag_spawner/borg_tele/attack_self(mob/user)
+/obj/item/antag_spawner/borg_tele/attack_self(mob/user)
 
 	if(uses == 0)
 		usr << "This teleporter is out of uses."
 		return
-		
+
 	user << "<span class='notice'>The syndicate robot teleporter is attempting to locate an available cyborg.</span>"
 	var/datum/ghosttrap/ghost = get_ghost_trap("syndicate cyborg")
 	uses--
-	
+
 	var/mob/living/silicon/robot/syndicate/F = new(get_turf(usr))
 	spark(F, 4, alldirs)
 	ghost.request_player(F,"An operative is requesting a syndicate cyborg.", 60 SECONDS)

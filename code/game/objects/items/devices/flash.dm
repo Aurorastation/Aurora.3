@@ -101,7 +101,7 @@
 /*			if(ishuman(M) && ishuman(user) && M.stat!=DEAD)	//why is this even a thing
 				if(user.mind && user.mind in revs.current_antagonists)
 					var/revsafe = 0
-					for(var/obj/item/weapon/implant/loyalty/L in M)
+					for(var/obj/item/implant/loyalty/L in M)
 						if(L && L.implanted)
 							revsafe = 1
 							break
@@ -190,8 +190,8 @@
 
 	for(var/mob/living/carbon/M in oviewers(3, null))
 		if(prob(50))
-			if (locate(/obj/item/weapon/cloaking_device, M))
-				for(var/obj/item/weapon/cloaking_device/S in M)
+			if (locate(/obj/item/cloaking_device, M))
+				for(var/obj/item/cloaking_device/S in M)
 					S.active = 0
 					S.icon_state = "shield0"
 		var/safety = M.eyecheck()

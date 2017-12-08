@@ -95,8 +95,8 @@
 	src.icon_state = "body_scanner_0"
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/weapon/grab/G as obj, user as mob)
-	if ((!( istype(G, /obj/item/weapon/grab) ) || !( ismob(G.affecting) )))
+/obj/machinery/bodyscanner/attackby(obj/item/grab/G as obj, user as mob)
+	if ((!( istype(G, /obj/item/grab) ) || !( ismob(G.affecting) )))
 		return
 	if (src.occupant)
 		user << "<span class='warning'>The scanner is already occupied!</span>"
@@ -105,7 +105,7 @@
 		user << "<span class='warning'>Subject cannot have abiotic items on.</span>"
 		return
 
-	if(istype(G, /obj/item/weapon/grab))
+	if(istype(G, /obj/item/grab))
 
 		var/mob/living/L = G:affecting
 		visible_message("[user] starts putting [G:affecting] into the scanner bed.", 3)
@@ -231,7 +231,7 @@
 
 /obj/machinery/body_scanconsole
 	var/obj/machinery/bodyscanner/connected
-	var/known_implants = list(/obj/item/weapon/implant/chem, /obj/item/weapon/implant/death_alarm, /obj/item/weapon/implant/loyalty, /obj/item/weapon/implant/tracking)
+	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/loyalty, /obj/item/implant/tracking)
 	var/collapse_desc = ""
 	name = "Body Scanner Console"
 	desc = "A control panel for some kind of medical device."
@@ -286,7 +286,7 @@
 
 	// shouldn't be reachable if occupant is invalid
 	if (href_list["print"])
-		var/obj/item/weapon/paper/R = new(src.loc)
+		var/obj/item/paper/R = new(src.loc)
 		R.set_content_unsafe("Scan ([src.connected.occupant])", format_occupant_data(src.connected.get_occupant_data()))
 
 		print(R, "[src] beeps, printing [R.name] after a moment.")

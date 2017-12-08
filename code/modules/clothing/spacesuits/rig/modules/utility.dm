@@ -53,7 +53,7 @@
 	construction_cost = list("glass"=2250,DEFAULT_WALL_MATERIAL=55000,"silver"=5250,"diamond"=3750)
 	construction_time = 350
 
-	device_type = /obj/item/weapon/pickaxe/diamonddrill
+	device_type = /obj/item/pickaxe/diamonddrill
 
 /obj/item/rig_module/device/basicdrill
 	name = "hardsuit drill mount"
@@ -65,7 +65,7 @@
 	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.1
 
-	device_type = /obj/item/weapon/pickaxe/drill
+	device_type = /obj/item/pickaxe/drill
 
 /obj/item/rig_module/device/anomaly_scanner
 	name = "hardsuit anomaly scanner"
@@ -87,7 +87,7 @@
 	engage_string = "Begin Scan"
 	usable = 1
 	selectable = 0
-	device_type = /obj/item/weapon/mining_scanner
+	device_type = /obj/item/mining_scanner
 
 /obj/item/rig_module/device/rcd
 	name = "RCD mount"
@@ -100,7 +100,7 @@
 	construction_cost = list(DEFAULT_WALL_MATERIAL=30000,"phoron"=12500,"silver"=10000,"gold"=10000)
 	construction_time = 1000
 
-	device_type = /obj/item/weapon/rcd/mounted
+	device_type = /obj/item/rcd/mounted
 
 /obj/item/rig_module/device/New()
 	..()
@@ -367,7 +367,7 @@
 	interface_name = "maneuvering jets"
 	interface_desc = "An inbuilt EVA maneuvering system that runs off the rig air supply."
 
-	var/obj/item/weapon/tank/jetpack/rig/jets
+	var/obj/item/tank/jetpack/rig/jets
 
 /obj/item/rig_module/maneuvering_jets/engage()
 	if(!..())
@@ -425,7 +425,7 @@
 	engage_string = "Dispense"
 	usable = 1
 	selectable = 0
-	device_type = /obj/item/weapon/paper_bin
+	device_type = /obj/item/paper_bin
 
 /obj/item/rig_module/device/paperdispenser/engage(atom/target)
 
@@ -444,7 +444,7 @@
 	interface_desc = "Signatures with style(tm)."
 	engage_string = "Change color"
 	usable = 1
-	device_type = /obj/item/weapon/pen/multi
+	device_type = /obj/item/pen/multi
 
 /obj/item/rig_module/device/stamp
 	name = "mounted internal affairs stamp"
@@ -459,8 +459,8 @@
 
 /obj/item/rig_module/device/stamp/New()
 	..()
-	iastamp = new /obj/item/weapon/stamp/internalaffairs(src)
-	deniedstamp = new /obj/item/weapon/stamp/denied(src)
+	iastamp = new /obj/item/stamp/internalaffairs(src)
+	deniedstamp = new /obj/item/stamp/denied(src)
 	device = iastamp
 
 /obj/item/rig_module/device/stamp/engage(atom/target)
@@ -483,7 +483,7 @@
 	interface_name = "mounted matter decompiler"
 	interface_desc = "Eats trash like no one's business."
 
-	device_type = /obj/item/weapon/matter_decompiler
+	device_type = /obj/item/matter_decompiler
 
 /obj/item/rig_module/actuators
 	name = "leg actuators"

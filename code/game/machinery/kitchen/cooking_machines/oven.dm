@@ -17,22 +17,22 @@
 
 	light_x = 2
 	max_contents = 5
-	container_type = /obj/item/weapon/reagent_containers/cooking_container/oven
+	container_type = /obj/item/reagent_containers/cooking_container/oven
 
 	stat = POWEROFF	//Starts turned off
 
 	var/open = 1
 
 	output_options = list(
-		"Pizza" = /obj/item/weapon/reagent_containers/food/snacks/variable/pizza,
-		"Bread" = /obj/item/weapon/reagent_containers/food/snacks/variable/bread,
-		"Pie" = /obj/item/weapon/reagent_containers/food/snacks/variable/pie,
-		"Cake" = /obj/item/weapon/reagent_containers/food/snacks/variable/cake,
-		"Hot Pocket" = /obj/item/weapon/reagent_containers/food/snacks/variable/pocket,
-		"Kebab" = /obj/item/weapon/reagent_containers/food/snacks/variable/kebab,
-		"Waffles" = /obj/item/weapon/reagent_containers/food/snacks/variable/waffles,
-		"Cookie" = /obj/item/weapon/reagent_containers/food/snacks/variable/cookie,
-		"Donut" = /obj/item/weapon/reagent_containers/food/snacks/variable/donut
+		"Pizza" = /obj/item/reagent_containers/food/snacks/variable/pizza,
+		"Bread" = /obj/item/reagent_containers/food/snacks/variable/bread,
+		"Pie" = /obj/item/reagent_containers/food/snacks/variable/pie,
+		"Cake" = /obj/item/reagent_containers/food/snacks/variable/cake,
+		"Hot Pocket" = /obj/item/reagent_containers/food/snacks/variable/pocket,
+		"Kebab" = /obj/item/reagent_containers/food/snacks/variable/kebab,
+		"Waffles" = /obj/item/reagent_containers/food/snacks/variable/waffles,
+		"Cookie" = /obj/item/reagent_containers/food/snacks/variable/cookie,
+		"Donut" = /obj/item/reagent_containers/food/snacks/variable/donut
 	)
 
 

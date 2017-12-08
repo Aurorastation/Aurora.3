@@ -35,7 +35,7 @@
 	// Enabled on server startup. Used in substations to keep them in bypass mode.
 /obj/machinery/power/breakerbox/activated/Initialize()
 	. = ..()
-	set_state(1)	
+	set_state(1)
 
 /obj/machinery/power/breakerbox/examine(mob/user)
 	..()
@@ -88,7 +88,7 @@
 		addtimer(CALLBACK(src, .proc/reset_locked), 600)
 	busy = 0
 
-/obj/machinery/power/breakerbox/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/power/breakerbox/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if(ismultitool(W))
 		var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 		if(newtag)

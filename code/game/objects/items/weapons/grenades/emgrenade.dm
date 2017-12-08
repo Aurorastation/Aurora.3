@@ -1,4 +1,4 @@
-/obj/item/weapon/grenade/empgrenade
+/obj/item/grenade/empgrenade
 	name = "classic emp grenade"
 	icon_state = "emp"
 	item_state = "empgrenade"

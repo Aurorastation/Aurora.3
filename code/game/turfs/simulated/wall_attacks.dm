@@ -92,7 +92,7 @@
 		return success_smash(user)
 	return fail_smash(user, wallbreaker)
 
-/turf/simulated/wall/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/turf/simulated/wall/attackby(obj/item/W as obj, mob/user as mob)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if (!user.)
@@ -109,7 +109,7 @@
 
 	if(locate(/obj/effect/overlay/wallrot) in src)
 		if(iswelder(W) )
-			var/obj/item/weapon/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = W
 			if( WT.remove_fuel(0,user) )
 				user << "<span class='notice'>You burn away the fungi with \the [WT].</span>"
 				playsound(src, 'sound/items/Welder.ogg', 10, 1)
@@ -124,17 +124,17 @@
 	//THERMITE related stuff. Calls src.thermitemelt() which handles melting simulated walls and the relevant effects
 	if(thermite)
 		if( iswelder(W) )
-			var/obj/item/weapon/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = W
 			if( WT.remove_fuel(0,user) )
 				thermitemelt(user)
 				return
 
-		else if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
+		else if(istype(W, /obj/item/gun/energy/plasmacutter))
 			thermitemelt(user)
 			return
 
-		else if( istype(W, /obj/item/weapon/melee/energy/blade) )
-			var/obj/item/weapon/melee/energy/blade/EB = W
+		else if( istype(W, /obj/item/melee/energy/blade) )
+			var/obj/item/melee/energy/blade/EB = W
 
 			spark(EB, 5)
 			user << "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>"
@@ -148,7 +148,7 @@
 
 	if(damage && iswelder(W))
 
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 
 		if(!WT.isOn())
 			return
@@ -172,7 +172,7 @@
 		var/dismantle_sound
 
 		if(iswelder(W))
-			var/obj/item/weapon/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = W
 			if(!WT.isOn())
 				return
 			if(!WT.remove_fuel(0,user))
@@ -181,8 +181,8 @@
 			dismantle_verb = "cutting"
 			dismantle_sound = 'sound/items/Welder.ogg'
 			cut_delay *= 0.7
-		else if(istype(W,/obj/item/weapon/melee/energy))
-			var/obj/item/weapon/melee/energy/WT = W
+		else if(istype(W,/obj/item/melee/energy))
+			var/obj/item/melee/energy/WT = W
 			if(WT.active)
 				dismantle_sound = "sparks"
 				dismantle_verb = "slicing"
@@ -190,12 +190,12 @@
 			else
 				user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 				return
-		else if(istype(W,/obj/item/weapon/melee/energy/blade))
+		else if(istype(W,/obj/item/melee/energy/blade))
 			dismantle_sound = "sparks"
 			dismantle_verb = "slicing"
 			cut_delay *= 0.5
-		else if(istype(W,/obj/item/weapon/melee/chainsword))
-			var/obj/item/weapon/melee/chainsword/WT = W
+		else if(istype(W,/obj/item/melee/chainsword))
+			var/obj/item/melee/chainsword/WT = W
 			if(WT.active)
 				dismantle_sound = "sound/weapons/chainsawhit.ogg"
 				dismantle_verb = "slicing"
@@ -203,8 +203,8 @@
 			else
 				user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 				return
-		else if(istype(W,/obj/item/weapon/pickaxe))
-			var/obj/item/weapon/pickaxe/P = W
+		else if(istype(W,/obj/item/pickaxe))
+			var/obj/item/pickaxe/P = W
 			dismantle_verb = P.drill_verb
 			dismantle_sound = P.drill_sound
 			cut_delay -= P.digspeed
@@ -263,7 +263,7 @@
 			if(4)
 				var/cut_cover
 				if(iswelder(W))
-					var/obj/item/weapon/weldingtool/WT = W
+					var/obj/item/weldingtool/WT = W
 					if(!WT.isOn())
 						return
 					if(WT.remove_fuel(0,user))
@@ -271,7 +271,7 @@
 					else
 						user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 						return
-				else if (istype(W, /obj/item/weapon/gun/energy/plasmacutter))
+				else if (istype(W, /obj/item/gun/energy/plasmacutter))
 					cut_cover = 1
 				if(cut_cover)
 					user << "<span class='notice'>You begin slicing through the metal cover.</span>"
@@ -305,13 +305,13 @@
 			if(1)
 				var/cut_cover
 				if(iswelder(W))
-					var/obj/item/weapon/weldingtool/WT = W
+					var/obj/item/weldingtool/WT = W
 					if( WT.remove_fuel(0,user) )
 						cut_cover=1
 					else
 						user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
 						return
-				else if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
+				else if(istype(W, /obj/item/gun/energy/plasmacutter))
 					cut_cover = 1
 				if(cut_cover)
 					user << "<span class='notice'>You begin slicing through the support rods.</span>"
@@ -339,6 +339,6 @@
 		F.try_build(src)
 		return
 
-	else if(!istype(W,/obj/item/weapon/rcd) && !istype(W, /obj/item/weapon/reagent_containers))
+	else if(!istype(W,/obj/item/rcd) && !istype(W, /obj/item/reagent_containers))
 		return attack_hand(user)
 

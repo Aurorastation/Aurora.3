@@ -45,7 +45,7 @@
 	icon_state = "boulder[rand(1,4)]"
 	excavation_level = rand(5,50)
 
-/obj/structure/boulder/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/boulder/attackby(obj/item/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/device/core_sampler))
 		src.geological_data.artifact_distance = rand(-100,100) / 100
 		src.geological_data.artifact_id = artifact_find.artifact_id
@@ -66,8 +66,8 @@
 			user << "<span class='notice'>\icon[P] [src] has been excavated to a depth of [2*src.excavation_level]cm.</span>"
 		return
 
-	if (istype(W, /obj/item/weapon/pickaxe))
-		var/obj/item/weapon/pickaxe/P = W
+	if (istype(W, /obj/item/pickaxe))
+		var/obj/item/pickaxe/P = W
 
 		if(last_act + P.digspeed > world.time)//prevents message spam
 			return
@@ -110,18 +110,18 @@
 
 	if(istype(AM,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = AM
-		if((istype(H.l_hand,/obj/item/weapon/pickaxe)) && (!H.hand))
-			var/obj/item/weapon/pickaxe/P = H.l_hand
+		if((istype(H.l_hand,/obj/item/pickaxe)) && (!H.hand))
+			var/obj/item/pickaxe/P = H.l_hand
 			if(P.autodrill)
 				attackby(H.l_hand,H)
-		else if((istype(H.r_hand,/obj/item/weapon/pickaxe)) && H.hand)
-			var/obj/item/weapon/pickaxe/P = H.r_hand
+		else if((istype(H.r_hand,/obj/item/pickaxe)) && H.hand)
+			var/obj/item/pickaxe/P = H.r_hand
 			if(P.autodrill)
 				attackby(H.r_hand,H)
 
 	else if(istype(AM,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = AM
-		if(istype(R.module_active,/obj/item/weapon/pickaxe))
+		if(istype(R.module_active,/obj/item/pickaxe))
 			attackby(R.module_active,R)
 
 	else if(istype(AM,/obj/mecha))

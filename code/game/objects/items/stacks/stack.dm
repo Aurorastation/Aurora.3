@@ -43,7 +43,7 @@
 /obj/item/stack/update_icon()
 	if (!icon_has_variants)
 		return ..()
-	
+
 	if (amount <= (max_amount * (1/3)))
 		icon_state = initial(icon_state)
 	else if (amount <= (max_amount * (2/3)))
@@ -154,7 +154,7 @@
 			S.amount = produced
 			S.add_to_stacks(user)
 
-		if (istype(O, /obj/item/weapon/storage)) //BubbleWrap - so newly formed boxes are empty
+		if (istype(O, /obj/item/storage)) //BubbleWrap - so newly formed boxes are empty
 			for (var/obj/item/I in O)
 				qdel(I)
 

@@ -19,7 +19,7 @@
 /mob/living/carbon/alien/larva/handle_chemicals_in_body()
 	if(!loc)
 		return
-	if(!istype(loc, /obj/item/weapon/holder))
+	if(!istype(loc, /obj/item/holder))
 		return
 	var/mob/living/carbon/human/M = loc.loc //ergh, replace with a flag sometime
 	if(!istype(M))

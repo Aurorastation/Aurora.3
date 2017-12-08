@@ -145,7 +145,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/changeling/changeling = changeling_power(0,0,100)
 	if(!changeling)	return
 
-	var/obj/item/weapon/grab/G = src.get_active_hand()
+	var/obj/item/grab/G = src.get_active_hand()
 	if(!istype(G))
 		src << "<span class='warning'>We must be grabbing a creature in our active hand to absorb them.</span>"
 		return
@@ -353,7 +353,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	C.dna = chosen_dna.Clone()
 
 	var/list/implants = list()
-	for (var/obj/item/weapon/implant/I in C) //Still preserving implants
+	for (var/obj/item/implant/I in C) //Still preserving implants
 		implants += I
 
 	C.transforming = 1
@@ -393,7 +393,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	O.setOxyLoss(C.getOxyLoss())
 	O.adjustFireLoss(C.getFireLoss())
 	O.stat = C.stat
-	for (var/obj/item/weapon/implant/I in implants)
+	for (var/obj/item/implant/I in implants)
 		I.loc = O
 		I.implanted = O
 
@@ -877,7 +877,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		M << "<span class='danger'>Your hands are full.</span>"
 		return
 
-	var/obj/item/weapon/melee/arm_blade/blade = new(M)
+	var/obj/item/melee/arm_blade/blade = new(M)
 	blade.creator = M
 	M.put_in_hands(blade)
 	playsound(loc, 'sound/weapons/bloodyslice.ogg', 30, 1)
@@ -901,7 +901,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		M << "<span class='danger'>Your hands are full.</span>"
 		return
 
-	var/obj/item/weapon/shield/riot/changeling/shield = new(M)
+	var/obj/item/shield/riot/changeling/shield = new(M)
 	shield.creator = M
 	M.put_in_hands(shield)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)

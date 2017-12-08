@@ -13,7 +13,7 @@
 	response_harm = "hits"
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = 0
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/dwellermeat
+	meat_type = /obj/item/reagent_containers/food/snacks/dwellermeat
 	mob_size = 12
 
 	health = 60
