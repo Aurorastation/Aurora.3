@@ -26,7 +26,6 @@
 	mob_size = 25
 	environment_smash = 2
 	attacktext = "mangled"
-	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
@@ -135,7 +134,5 @@
 
 	visible_message("<span class='warning'>\The [src]'s skin bulges and tears, launching a bone-dart at [target]!</span>")
 
-	playsound(src.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
-	var/obj/item/weapon/bone_dart/A = new /obj/item/weapon/bone_dart(usr.loc)
 	A.throw_at(target, 10, 20, user)
 	add_logs(src, target, "launched a bone dart at")

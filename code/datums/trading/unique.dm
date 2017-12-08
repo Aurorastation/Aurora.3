@@ -30,17 +30,12 @@
 	origin = "SGS Severance"
 
 	possible_wanted_items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/human      = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/human = TRADER_THIS_TYPE,
 		/mob/living/carbon/human                                   = TRADER_ALL
 	)
 
 	possible_trading_items = list(
 		/obj/mecha/combat                               = TRADER_SUBTYPES_ONLY,
 		/obj/mecha/combat/phazon                        = TRADER_BLACKLIST_ALL,
-		/obj/item/weapon/gun/projectile/automatic/rifle = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/gun/energy/pulse               = TRADER_ALL,
-		/obj/item/weapon/gun/energy/rifle/pulse         = TRADER_THIS_TYPE
 	)
 
 	blacklisted_trade_items = null
@@ -68,11 +63,9 @@
 	origin = "Floating Rock"
 
 	possible_wanted_items = list(
-		/obj/item/weapon/ore = TRADER_ALL
 	)
 	possible_trading_items = list(
 		/obj/machinery/power/supermatter = TRADER_ALL,
-		/obj/item/weapon/aiModule        = TRADER_SUBTYPES_ONLY
 	)
 	want_multiplier = 5000
 
@@ -99,7 +92,6 @@
 
 	possible_wanted_items = list(
 		/mob/living/simple_animal/construct              = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/melee/cultblade                 = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/culthood                 = TRADER_ALL,
 		/obj/item/clothing/suit/space/cult               = TRADER_ALL,
 		/obj/item/clothing/suit/cultrobes                = TRADER_ALL,
@@ -112,25 +104,12 @@
 		/obj/item/clothing/head/helmet/space/void/wizard = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/wizard                   = TRADER_ALL,
 		/obj/item/clothing/suit/space/void/wizard        = TRADER_THIS_TYPE,
-		/obj/item/weapon/scrying                         = TRADER_THIS_TYPE,
-		/obj/item/weapon/melee/energy/wizard             = TRADER_THIS_TYPE,
 		/obj/item/phylactery                             = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/staff                = TRADER_ALL,
-		/obj/item/weapon/gun/energy/wand                 = TRADER_ALL,
-		/obj/item/weapon/gun/energy/wand/toy             = TRADER_BLACKLIST,
 		/obj/item/device/soulstone                       = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/contract/wizard/tk              = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/smoke      = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/horsemask  = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/gestalt    = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/fireball   = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/forcewall  = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/charge     = TRADER_THIS_TYPE,
 		/obj/item/toy/figure/wizard                      = TRADER_THIS_TYPE,
-		/obj/item/weapon/staff                           = TRADER_ALL,
 		/obj/machinery/from_beyond                       = TRADER_ALL
 	)
 
@@ -157,22 +136,15 @@
 	want_multiplier = 1
 
 	possible_wanted_items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/grown/kois       = TRADER_THIS_TYPE,
 		/obj/item/stack/material/phoron                                  = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
 		/obj/item/clothing/mask/breath/vaurca            = TRADER_THIS_TYPE,
-		/obj/item/weapon/melee/energy/vaurca             = TRADER_THIS_TYPE,
 		/obj/item/vaurca/box                             = TRADER_THIS_TYPE,
-		/obj/item/weapon/melee/vaurca/rock               = TRADER_THIS_TYPE,
-		/obj/item/weapon/grenade/spawnergrenade/vaurca   = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/vaurca        = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
 		/obj/item/clothing/shoes/magboots/vox/vaurca     = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/vaurca/gatlinglaser  = TRADER_THIS_TYPE
 	)
 
 	speech = list(
@@ -201,12 +173,8 @@
 		/obj/item/stack/telecrystal                   = TRADER_THIS_TYPE,
 		/obj/item/organ/brain/golem                   = TRADER_THIS_TYPE,
 		/obj/item/device/soulstone                    = TRADER_THIS_TYPE,
-		/obj/item/weapon/circuitboard/telesci_console = TRADER_THIS_TYPE,
-		/obj/item/weapon/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
 		/obj/item/phylactery                          = TRADER_THIS_TYPE,
 		/obj/item/blueprints                          = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/backpack/holding     = TRADER_THIS_TYPE,
-		/obj/item/weapon/teleportation_scroll         = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(

@@ -36,10 +36,6 @@
 		/obj/item/toy/katana                  = TRADER_THIS_TYPE,
 		/obj/item/toy/sword                   = TRADER_THIS_TYPE,
 		/obj/item/toy/bosunwhistle            = TRADER_THIS_TYPE,
-		/obj/item/weapon/board                = TRADER_THIS_TYPE,
-		/obj/item/weapon/deck                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/pack                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/dice                 = TRADER_ALL
 	)
 
 /datum/trader/ship/electronics
@@ -65,33 +61,10 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/computer_hardware/battery_module = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/circuitboard                     = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/circuitboard/telecomms           = TRADER_BLACKLIST,
-		/obj/item/weapon/circuitboard/unary_atmos         = TRADER_BLACKLIST,
-		/obj/item/weapon/circuitboard/arcade              = TRADER_BLACKLIST,
-		/obj/item/weapon/circuitboard/mecha               = TRADER_BLACKLIST,
-		/obj/item/weapon/circuitboard/mecha/odysseus      = TRADER_BLACKLIST,
-		/obj/item/weapon/circuitboard/mecha/honker        = TRADER_BLACKLIST,
-		/obj/item/weapon/circuitboard/mecha/durand        = TRADER_BLACKLIST,
-		/obj/item/weapon/circuitboard/mecha/gygax         = TRADER_BLACKLIST,
-		/obj/item/weapon/circuitboard/mecha/ripley        = TRADER_BLACKLIST,
-		/obj/item/weapon/circuitboard/mecha/phazon        = TRADER_BLACKLIST,
-		/obj/item/weapon/circuitboard/broken              = TRADER_BLACKLIST,
-		/obj/item/weapon/storage/box/lights/colored       = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil                        = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil/cyborg                 = TRADER_BLACKLIST,
 		/obj/item/stack/cable_coil/random                 = TRADER_BLACKLIST,
 		/obj/item/stack/cable_coil/cut                    = TRADER_BLACKLIST,
-		/obj/item/weapon/airalarm_electronics             = TRADER_THIS_TYPE,
-		/obj/item/weapon/airlock_electronics              = TRADER_ALL,
-		/obj/item/weapon/cell                             = TRADER_THIS_TYPE,
-		/obj/item/weapon/cell/crap                        = TRADER_THIS_TYPE,
-		/obj/item/weapon/cell/high                        = TRADER_THIS_TYPE,
-		/obj/item/weapon/cell/super                       = TRADER_THIS_TYPE,
-		/obj/item/weapon/cell/hyper                       = TRADER_THIS_TYPE,
-		/obj/item/weapon/module                           = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/tracker_electronics              = TRADER_THIS_TYPE
 	)
 
 
@@ -214,7 +187,6 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/device/flashlight                = TRADER_ALL,
 		/obj/item/device/kit/paint                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/device/kit/paint/ripley/fluff    = TRADER_BLACKLIST_ALL,
-		/obj/item/weapon/aicard                    = TRADER_THIS_TYPE,
 		/obj/item/device/binoculars                = TRADER_THIS_TYPE,
 		/obj/item/device/flash                     = TRADER_THIS_TYPE,
 		/obj/item/device/floor_painter             = TRADER_THIS_TYPE,
@@ -273,15 +245,7 @@ Sells devices, odds and ends, and medical stuff
 	origin = "Robot Store"
 	possible_origins = list("AI for the Straight Guy", "Mechanical Buddies", "Bot Chop Shop", "Omni Consumer Projects")
 	possible_trading_items = list(
-		/obj/item/weapon/secbot_assembly/ed209_assembly = TRADER_THIS_TYPE,
-		/obj/item/weapon/toolbox_tiles                  = TRADER_THIS_TYPE,
-		/obj/item/weapon/toolbox_tiles_sensor           = TRADER_THIS_TYPE,
-		/obj/item/weapon/secbot_assembly                = TRADER_ALL,
-		/obj/item/weapon/farmbot_arm_assembly           = TRADER_THIS_TYPE,
-		/obj/item/weapon/firstaid_arm_assembly          = TRADER_THIS_TYPE,
-		/obj/item/weapon/bucket_sensor                  = TRADER_THIS_TYPE,
 		/obj/item/device/paicard                        = TRADER_THIS_TYPE,
-		/obj/item/weapon/aicard                         = TRADER_THIS_TYPE,
 		/mob/living/bot                                 = TRADER_SUBTYPES_ONLY
 	)
 
@@ -310,7 +274,6 @@ Sells devices, odds and ends, and medical stuff
 	possible_origins = list("Astrodia", "Slag. Co.", "Explosive Drills S.A.", "The Shaft Shop")
 
 	possible_wanted_items  = list(
-		/obj/item/weapon/ore                      = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/material/glass            = TRADER_ALL,
 		/obj/item/stack/material/iron             = TRADER_THIS_TYPE,
 		/obj/item/stack/material/sandstone        = TRADER_THIS_TYPE,
@@ -327,26 +290,13 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/stack/material/osmium           = TRADER_THIS_TYPE,
 		/obj/item/stack/material/steel            = TRADER_THIS_TYPE,
 		/obj/item/stack/material/plasteel         = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/coin                     = TRADER_SUBTYPES_ONLY
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/pickaxe                         = TRADER_ALL,
-		/obj/item/weapon/pickaxe/offhand                 = TRADER_BLACKLIST,
-		/obj/item/weapon/pickaxe/borgdrill               = TRADER_BLACKLIST,
-		/obj/item/weapon/shovel                          = TRADER_THIS_TYPE,
 		/obj/item/stack/flag                             = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/rrf_ammo                        = TRADER_THIS_TYPE,
-		/obj/item/weapon/rrf                             = TRADER_THIS_TYPE,
-		/obj/item/weapon/ore_radar                       = TRADER_THIS_TYPE,
 		/obj/item/device/wormhole_jaunter                = TRADER_THIS_TYPE,
-		/obj/item/weapon/resonator                       = TRADER_ALL,
-		/obj/item/weapon/autochisel                      = TRADER_ALL,
 		/obj/structure/sculpting_block                   = TRADER_ALL,
-		/obj/item/weapon/plastique/seismic               = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/kinetic_accelerator  = TRADER_THIS_TYPE,
 		/obj/item/borg/upgrade/modkit                    = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/gun/energy/plasmacutter         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/mining = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/mining        = TRADER_THIS_TYPE,
 		/obj/machinery/mining/drill                      = TRADER_THIS_TYPE,

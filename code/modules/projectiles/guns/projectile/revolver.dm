@@ -1,4 +1,3 @@
-/obj/item/weapon/gun/projectile/revolver
 	name = "revolver"
 	desc = "The classic Necropolis Industries .357 revolver, for when you only want to shoot once."
 	icon_state = "revolver"
@@ -8,47 +7,38 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/a357
-	fire_sound = 'sound/weapons/revolver_shoot.ogg'
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
-/obj/item/weapon/gun/projectile/revolver/verb/spin_cylinder()
 	set name = "Spin cylinder"
 	set desc = "Fun when you're bored out of your skull."
 	set category = "Object"
 
 	chamber_offset = 0
 	usr.visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", "<span class='warning'>You spin the cylinder of \the [src]!</span>", "<span class='notice'>You hear something metallic spin and click.</span>")
-	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 	loaded = shuffle(loaded)
 	if(rand(1,max_shells) > loaded.len)
 		chamber_offset = rand(0,max_shells - loaded.len)
 
-/obj/item/weapon/gun/projectile/revolver/consume_next_projectile()
 	if(chamber_offset)
 		chamber_offset--
 		return
 	return ..()
 
-/obj/item/weapon/gun/projectile/revolver/load_ammo(var/obj/item/A, mob/user)
 	chamber_offset = 0
 	return ..()
 
-/obj/item/weapon/gun/projectile/revolver/mateba
 	name = "mateba"
 	icon_state = "mateba"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 
-/obj/item/weapon/gun/projectile/revolver/detective
 	name = "revolver"
 	desc = "A cheap Martian knock-off of a Smith & Wesson Model 10. Uses .38-Special rounds."
 	icon_state = "detective"
 	max_shells = 6
 	caliber = "38"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 
-/obj/item/weapon/gun/projectile/revolver/detective/verb/rename_gun()
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Click to rename your gun. If you're the detective."
@@ -67,31 +57,25 @@
 		return 1
 
 // Blade Runner pistol.
-/obj/item/weapon/gun/projectile/revolver/deckard
 	name = "\improper Deckard .44"
 	desc = "A custom-built revolver, based off the semi-popular Detective Special model."
 	max_shells = 6
 	icon_state = "deckard-empty"
 	caliber = "38"
 	ammo_type = /obj/item/ammo_casing/c38
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 
-/obj/item/weapon/gun/projectile/revolver/deckard/update_icon()
 	..()
 	if(loaded.len)
 		icon_state = "deckard-loaded"
 	else
 		icon_state = "deckard-empty"
 
-/obj/item/weapon/gun/projectile/revolver/deckard/load_ammo(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
 		flick("deckard-reload",src)
 	..()
 
-/obj/item/weapon/gun/projectile/revolver/deckard/emp
 	ammo_type = /obj/item/ammo_casing/c38/emp
 
-/obj/item/weapon/gun/projectile/revolver/derringer
 	name = "derringer"
 	desc = "A small pocket pistol, easily concealed. Uses .357 rounds."
 	icon_state = "derringer"
@@ -103,7 +87,6 @@
 	max_shells = 2
 	ammo_type = /obj/item/ammo_casing/a357
 
-/obj/item/weapon/gun/projectile/revolver/capgun
 	name = "cap gun"
 	desc = "Looks almost like the real thing! Ages 8 and up."
 	icon_state = "capgun"
@@ -114,7 +97,6 @@
 	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/cap
 
-/obj/item/weapon/gun/projectile/revolver/capgun/attackby(obj/item/W, mob/user)
 	if(!iswirecutter(W) || icon_state == "revolver")
 		return ..()
 	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
@@ -123,7 +105,6 @@
 	desc += " Someone snipped off the barrel's toy mark. How dastardly."
 	return 1
 
-/obj/item/weapon/gun/projectile/revolver/lemat
 	name = "grapeshot revolver"
 	desc = "The LeMat revolver is a 6 shot revolver with a secondary firing barrel loading shotgun shells. Uses .38-Special and 12g rounds depending on the barrel."
 	icon_state = "lemat"
@@ -132,7 +113,6 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	caliber = "38"
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	var/secondary_max_shells = 1
 	var/secondary_caliber = "shotgun"
@@ -142,12 +122,10 @@
 	var/list/tertiary_loaded = list()
 
 
-/obj/item/weapon/gun/projectile/revolver/lemat/Initialize()
 	. = ..()
 	for(var/i in 1 to secondary_max_shells)
 		secondary_loaded += new secondary_ammo_type(src)
 
-/obj/item/weapon/gun/projectile/revolver/lemat/verb/swap_firingmode()
 	set name = "Swap Firing Mode"
 	set category = "Object"
 	set desc = "Click to swap from one method of firing to another."
@@ -163,7 +141,6 @@
 
 		if(caliber && secondary_caliber)
 			caliber = secondary_caliber
-			fire_sound = 'sound/weapons/shotgun.ogg'
 
 		if(ammo_type && secondary_ammo_type)
 			ammo_type = secondary_ammo_type
@@ -191,7 +168,6 @@
 
 		flipped_firing = 0
 
-/obj/item/weapon/gun/projectile/revolver/lemat/spin_cylinder()
 	set name = "Spin cylinder"
 	set desc = "Fun when you're bored out of your skull."
 	set category = "Object"
@@ -199,13 +175,11 @@
 	chamber_offset = 0
 	visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \
 	"<span class='notice'>You hear something metallic spin and click.</span>")
-	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 	if(!flipped_firing)
 		loaded = shuffle(loaded)
 		if(rand(1,max_shells) > loaded.len)
 			chamber_offset = rand(0,max_shells - loaded.len)
 
-/obj/item/weapon/gun/projectile/revolver/lemat/examine(mob/user)
 	..()
 	if(secondary_loaded)
 		var/to_print

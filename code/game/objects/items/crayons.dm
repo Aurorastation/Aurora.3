@@ -1,40 +1,33 @@
-/obj/item/weapon/pen/crayon/red
 	icon_state = "crayonred"
 	colour = "#DA0000"
 	shadeColour = "#810C0C"
 	colourName = "red"
 
-/obj/item/weapon/pen/crayon/orange
 	icon_state = "crayonorange"
 	colour = "#FF9300"
 	shadeColour = "#A55403"
 	colourName = "orange"
 
-/obj/item/weapon/pen/crayon/yellow
 	icon_state = "crayonyellow"
 	colour = "#FFF200"
 	shadeColour = "#886422"
 	colourName = "yellow"
 
-/obj/item/weapon/pen/crayon/green
 	icon_state = "crayongreen"
 	colour = "#A8E61D"
 	shadeColour = "#61840F"
 	colourName = "green"
 
-/obj/item/weapon/pen/crayon/blue
 	icon_state = "crayonblue"
 	colour = "#00B7EF"
 	shadeColour = "#0082A8"
 	colourName = "blue"
 
-/obj/item/weapon/pen/crayon/purple
 	icon_state = "crayonpurple"
 	colour = "#DA00FF"
 	shadeColour = "#810CFF"
 	colourName = "purple"
 
-/obj/item/weapon/pen/crayon/mime
 	icon_state = "crayonmime"
 	desc = "A very sad-looking crayon."
 	colour = "#FFFFFF"
@@ -42,7 +35,6 @@
 	colourName = "mime"
 	uses = 0
 
-/obj/item/weapon/pen/crayon/mime/attack_self(mob/living/user as mob) //inversion
 	if(colour != "#FFFFFF" && shadeColour != "#000000")
 		colour = "#FFFFFF"
 		shadeColour = "#000000"
@@ -53,19 +45,16 @@
 		user << "You will now draw in black and white with this crayon."
 	return
 
-/obj/item/weapon/pen/crayon/rainbow
 	icon_state = "crayonrainbow"
 	colour = "#FFF000"
 	shadeColour = "#000FFF"
 	colourName = "rainbow"
 	uses = 0
 
-/obj/item/weapon/pen/crayon/rainbow/attack_self(mob/living/user as mob)
 	colour = input(user, "Please select the main colour.", "Crayon colour") as color
 	shadeColour = input(user, "Please select the shade colour.", "Crayon colour") as color
 	return
 
-/obj/item/weapon/pen/crayon/afterattack(atom/target, mob/user as mob, proximity)
 	if(!proximity) return
 	if(istype(target,/turf/simulated/floor))
 		var/originaloc = user.loc
@@ -96,7 +85,6 @@
 					qdel(src)
 	return
 
-/obj/item/weapon/pen/crayon/attack(mob/M as mob, mob/user as mob, var/target_zone)
 	if(M == user)
 		user << "You take a bite of the crayon and swallow it."
 		user.nutrition += 1

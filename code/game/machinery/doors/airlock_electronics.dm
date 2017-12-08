@@ -1,7 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 // Please do not use relative paths.
 
-/obj/item/weapon/airlock_electronics
 	name = "airlock electronics"
 	icon = 'icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
@@ -18,7 +17,6 @@
 	var/locked = 1
 	var/inuse = 0 // no double-spending
 
-/obj/item/weapon/airlock_electronics/attack_self(mob/user as mob)
 	if (!ishuman(user) && !istype(user,/mob/living/silicon/robot))
 		return ..(user)
 
@@ -60,7 +58,6 @@
 	user << browse(t1, "window=airlock_electronics")
 	onclose(user, "airlock")
 
-/obj/item/weapon/airlock_electronics/Topic(href, href_list)
 	..()
 	if (usr.stat || usr.restrained() || (!ishuman(usr) && !istype(usr,/mob/living/silicon)))
 		return
@@ -95,7 +92,6 @@
 
 	attack_self(usr)
 
-/obj/item/weapon/airlock_electronics/proc/toggle_access(var/acc)
 	if (acc == "all")
 		conf_access = null
 	else
@@ -112,7 +108,6 @@
 				conf_access = null
 
 
-/obj/item/weapon/airlock_electronics/secure
 	name = "secure airlock electronics"
 	desc = "designed to be somewhat more resistant to hacking than standard electronics."
 	origin_tech = list(TECH_DATA = 2)

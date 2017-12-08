@@ -11,7 +11,6 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 50
 	attacktext = "chomped"
-	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "creature"
 	speed = 4
 	mob_size = 14

@@ -1,4 +1,3 @@
-/obj/item/weapon/am_containment
 	name = "antimatter containment jar"
 	desc = "Holds antimatter. Warranty void if exposed to matter."
 	description_antag = "Antimatter is extremely volatile, and containment jars are not particularly strong. Weak explosions will reduce the container's integrity, and larger ones will cause it to explode immediately."
@@ -16,7 +15,6 @@
 	var/stability = 100//TODO: add all the stability things to this so its not very safe if you keep hitting in on things
 	var/exploded = 0
 
-/obj/item/weapon/am_containment/proc/boom()
 	var/percent = 0
 	if(fuel)
 		percent = (fuel / fuel_max) * 100
@@ -26,7 +24,6 @@
 	if(src)
 		qdel(src)
 
-/obj/item/weapon/am_containment/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			boom()
@@ -39,7 +36,6 @@
 	//check_stability()
 	return
 
-/obj/item/weapon/am_containment/proc/usefuel(var/wanted)
 	if(fuel < wanted)
 		wanted = fuel
 	fuel -= wanted

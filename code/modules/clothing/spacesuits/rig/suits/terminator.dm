@@ -1,4 +1,3 @@
-/obj/item/weapon/rig/terminator
 	name = "\improper Hunter-Killer exoskeleton"
 	desc = "A robust synth exoskeleton outfitted with state of the art infiltration tools. Creepy."
 	icon_state = "terminator_rig"
@@ -11,14 +10,9 @@
 
 	allowed = list(
 		/obj/item/device/flashlight,
-		/obj/item/weapon/tank,
 		/obj/item/device/suit_cooling_unit,
-		/obj/item/weapon/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
-		/obj/item/weapon/melee/baton,
-		/obj/item/weapon/melee/energy/sword,
-		/obj/item/weapon/handcuffs
 	)
 
 	chest_type = /obj/item/clothing/suit/space/rig/terminator
@@ -55,7 +49,6 @@
 /obj/item/clothing/gloves/rig/terminator
 	species_restricted = list("Machine")
 
-/obj/item/weapon/rig/terminator/equipped
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher/frag,

@@ -45,7 +45,6 @@
 		new /obj/item/device/electronic_assembly/medium,
 		new /obj/item/device/electronic_assembly/large,
 		new /obj/item/device/electronic_assembly/drone,
-		new /obj/item/weapon/implant/integrated_circuit,
 		new /obj/item/device/assembly/electronic_assembly
 	)
 

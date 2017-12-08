@@ -23,7 +23,6 @@
 ********/
 var/global/photo_count = 0
 
-/obj/item/weapon/photo
 	name = "photo"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "photo"
@@ -35,27 +34,21 @@ var/global/photo_count = 0
 	var/icon/tiny
 	var/photo_size = 3
 
-/obj/item/weapon/photo/New()
 	id = photo_count++
 
-/obj/item/weapon/photo/attack_self(mob/user as mob)
 	user.examinate(src)
 
-/obj/item/weapon/photo/attackby(obj/item/weapon/P as obj, mob/user as mob)
-	if(istype(P, /obj/item/weapon/pen))
 		var/txt = sanitize(input(user, "What would you like to write on the back?", "Photo Writing", null)  as text, 128)
 		if(loc == user && user.stat == 0)
 			scribble = txt
 	..()
 
-/obj/item/weapon/photo/examine(mob/user)
 	if(in_range(user, src))
 		show(user)
 		user << desc
 	else
 		user << "<span class='notice'>It is too far away.</span>"
 
-/obj/item/weapon/photo/proc/show(mob/user as mob)
 	user << browse_rsc(img, "tmp_photo_[id].png")
 	user << browse("<html><head><title>[name]</title></head>" \
 		+ "<body style='overflow:hidden;margin:0;text-align:center'>" \
@@ -65,7 +58,6 @@ var/global/photo_count = 0
 	onclose(user, "[name]")
 	return
 
-/obj/item/weapon/photo/verb/rename()
 	set name = "Rename photo"
 	set category = "Object"
 	set src in usr
@@ -81,14 +73,11 @@ var/global/photo_count = 0
 /**************
 * photo album *
 **************/
-/obj/item/weapon/storage/photo_album
 	name = "Photo album"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "album"
 	item_state = "briefcase"
-	can_hold = list(/obj/item/weapon/photo)
 
-/obj/item/weapon/storage/photo_album/MouseDrop(obj/over_object as obj)
 
 	if((istype(usr, /mob/living/carbon/human)))
 		var/mob/M = usr
@@ -204,7 +193,6 @@ var/global/photo_count = 0
 	return TRUE	// DVIEW will do sanity checks, we've got no special checks.
 
 /obj/item/device/camera/proc/captureimage(atom/target, mob/living/user, flag)
-	var/obj/item/weapon/photo/p = createpicture(get_turf(target), user, flag)
 	printpicture(user, p)
 
 /obj/item/device/camera/proc/createpicture(atom/target, mob/living/user, flag)
@@ -237,7 +225,6 @@ var/global/photo_count = 0
 	ic.Blend(small_img,ICON_OVERLAY, 10, 13)
 	pc.Blend(tiny_img,ICON_OVERLAY, 12, 19)
 
-	var/obj/item/weapon/photo/p = new()
 	p.name = "photo"
 	p.icon = ic
 	p.tiny = pc
@@ -249,13 +236,10 @@ var/global/photo_count = 0
 
 	return p
 
-/obj/item/device/camera/proc/printpicture(mob/user, obj/item/weapon/photo/p)
 	p.loc = user.loc
 	if(!user.get_inactive_hand())
 		user.put_in_inactive_hand(p)
 
-/obj/item/weapon/photo/proc/copy(var/copy_id = 0)
-	var/obj/item/weapon/photo/p = new/obj/item/weapon/photo()
 
 	p.name = name
 	p.icon = icon(icon, icon_state)

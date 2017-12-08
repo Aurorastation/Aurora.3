@@ -489,7 +489,6 @@ var/controlling
 
 	if(!host) return
 
-	for (var/obj/item/weapon/implant/loyalty/I in host)
 		if (I.implanted)
 			src << "<span class='warning'>Your host's mind is shielded!</span>"
 			return
@@ -542,7 +541,6 @@ var/controlling
 		src << "<span class='warning'>You cannot do that in your current state.</span>"
 		return
 
-	for (var/obj/item/weapon/implant/loyalty/I in host)
 		if (I.implanted)
 			src << "<span class='warning'>Your host's mind is shielded!</span>"
 			return

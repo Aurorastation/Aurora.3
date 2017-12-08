@@ -1,4 +1,3 @@
-/obj/item/weapon/disk/botany
 	name = "flora data disk"
 	desc = "A small disk used for carrying data on plant genetics."
 	icon = 'icons/obj/hydroponics_machines.dmi'
@@ -8,12 +7,10 @@
 	var/list/genes = list()
 	var/genesource = "unknown"
 
-/obj/item/weapon/disk/botany/New()
 	..()
 	pixel_x = rand(-5,5)
 	pixel_y = rand(-5,5)
 
-/obj/item/weapon/disk/botany/attack_self(var/mob/user as mob)
 	if(genes.len)
 		var/choice = alert(user, "Are you sure you want to wipe the disk?", "Xenobotany Data", "No", "Yes")
 		if(src && user && genes && choice && choice == "Yes" && user.Adjacent(get_turf(src)))
@@ -23,14 +20,11 @@
 			genes = list()
 			genesource = "unknown"
 
-/obj/item/weapon/storage/box/botanydisk
 	name = "flora disk box"
 	desc = "A box of flora data disks, apparently."
 
-/obj/item/weapon/storage/box/botanydisk/fill()
 	..()
 	for(var/i = 0;i<7;i++)
-		new /obj/item/weapon/disk/botany(src)
 
 /obj/machinery/botany
 	icon = 'icons/obj/hydroponics_machines.dmi'
@@ -40,7 +34,6 @@
 	use_power = 1
 
 	var/obj/item/seeds/seed // Currently loaded seed packet.
-	var/obj/item/weapon/disk/botany/loaded_disk //Currently loaded data disk.
 
 	var/open = 0
 	var/active = 0
@@ -79,7 +72,6 @@
 			visible_message("\icon[src] [src] beeps and spits out [loaded_disk].")
 			loaded_disk = null
 
-/obj/machinery/botany/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/seeds))
 		if(seed)
 			user << "There is already a seed loaded."
@@ -104,12 +96,10 @@
 			dismantle()
 			return
 
-	if(istype(W,/obj/item/weapon/disk/botany))
 		if(loaded_disk)
 			user << "There is already a data disk loaded."
 			return
 		else
-			var/obj/item/weapon/disk/botany/B = W
 
 			if(B.genes && B.genes.len)
 				if(!disk_needs_genes)

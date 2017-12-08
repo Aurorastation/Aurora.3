@@ -9,7 +9,6 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#ffddff"
-	idtype = /obj/item/weapon/card/id/silver
 	req_admin_notify = 1
 	economic_modifier = 15
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue,
@@ -23,10 +22,6 @@
 	minimal_player_age = 14
 	ideal_character_age = 50
 
-	bag_type = /obj/item/weapon/storage/backpack/toxins
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -35,7 +30,6 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/research_director(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/heads/rd(H), slot_belt)
-		H.equip_to_slot_or_del(new /obj/item/weapon/clipboard(H), slot_l_hand)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
 		return TRUE
 
@@ -58,10 +52,6 @@
 
 	minimal_player_age = 14
 
-	bag_type = /obj/item/weapon/storage/backpack/toxins
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -90,10 +80,6 @@
 
 	minimal_player_age = 14
 
-	bag_type = /obj/item/weapon/storage/backpack/toxins
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_tox
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/tox
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/tox
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)
@@ -130,7 +116,6 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/roboticist(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/device/pda/roboticist(H), slot_l_store)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/utility/full(H), slot_belt)
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat(H), slot_wear_suit)
 		return TRUE
 
@@ -148,10 +133,6 @@
 	access = list(access_genetics, access_tox, access_tox_storage, access_morgue, access_research)
 	minimal_access = list(access_morgue, access_genetics, access_research)
 
-	bag_type = /obj/item/weapon/storage/backpack/genetics
-	satchel_type = /obj/item/weapon/storage/backpack/satchel_gen
-	duffel_type = /obj/item/weapon/storage/backpack/duffel/gen
-	messenger_bag_type = /obj/item/weapon/storage/backpack/messenger/gen
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)

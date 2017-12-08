@@ -1,6 +1,5 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
 
-/obj/item/weapon/storage/lockbox
 	name = "lockbox"
 	desc = "A locked box."
 	icon_state = "lockbox+l"
@@ -16,8 +15,6 @@
 	var/icon_broken = "lockbox+b"
 
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if (istype(W, /obj/item/weapon/card/id))
 			if(src.broken)
 				user << "<span class='warning'>It appears to be broken.</span>"
 				return
@@ -33,10 +30,8 @@
 					return
 			else
 				user << "<span class='warning'>Access Denied</span>"
-		else if(istype(W, /obj/item/weapon/melee/energy/blade))
 			if(emag_act(INFINITY, user, W, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
 				W:spark_system.queue()
-				playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 				playsound(src.loc, "sparks", 50, 1)
 		if(!locked)
 			..()
@@ -52,7 +47,6 @@
 			..()
 		return
 
-/obj/item/weapon/storage/lockbox/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/visual_feedback = "", var/audible_feedback = "")
 	if(!broken)
 		if(visual_feedback)
 			visual_feedback = "<span class='warning'>[visual_feedback]</span>"
@@ -70,37 +64,26 @@
 		visible_message(visual_feedback, audible_feedback)
 		return 1
 
-/obj/item/weapon/storage/lockbox/loyalty
 	name = "lockbox of loyalty implants"
 	req_access = list(access_security)
 
 	New()
 		..()
-		new /obj/item/weapon/implantcase/loyalty(src)
-		new /obj/item/weapon/implantcase/loyalty(src)
-		new /obj/item/weapon/implantcase/loyalty(src)
-		new /obj/item/weapon/implanter/loyalty(src)
 
 
-/obj/item/weapon/storage/lockbox/clusterbang
 	name = "lockbox of clusterbangs"
 	desc = "You have a bad feeling about opening this."
 	req_access = list(access_security)
 
 	New()
 		..()
-		new /obj/item/weapon/grenade/flashbang/clusterbang(src)
 
-/obj/item/weapon/storage/lockbox/lawgiver
 	name = "Weapons lockbox"
-	desc = "A high security weapons lockbox"
 	req_access = list(access_armory)
 
 	New()
 		..()
-		new /obj/item/weapon/gun/energy/lawgiver(src)
 
-/obj/item/weapon/storage/lockbox/medal
 	name = "medal box"
 	desc = "A locked box used to store medals."
 	icon_state = "medalbox+l"
@@ -112,7 +95,6 @@
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
 
-/obj/item/weapon/storage/lockbox/medal/fill()
 	..()
 	new /obj/item/clothing/accessory/medal/conduct(src)
 	new /obj/item/clothing/accessory/medal/conduct(src)

@@ -2,7 +2,6 @@
 #define EJECT_CASINGS	1 //drop spent casings on the ground after firing
 #define CYCLE_CASINGS 	2 //experimental: cycle casings, like a revolver. Also works for multibarrelled guns
 
-/obj/item/weapon/gun/projectile
 	name = "gun"
 	desc = "A gun that fires bullets."
 	icon_state = "revolver"
@@ -36,7 +35,6 @@
 	//var/list/icon_keys = list()		//keys
 	//var/list/ammo_states = list()	//values
 
-/obj/item/weapon/gun/projectile/Initialize()
 	. = ..()
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 		for(var/i in 1 to max_shells)
@@ -45,7 +43,6 @@
 		ammo_magazine = new magazine_type(src)
 	update_icon()
 
-/obj/item/weapon/gun/projectile/consume_next_projectile()
 	if(is_jammed)
 		return 0
 	//get the next casing
@@ -62,17 +59,14 @@
 		return chambered.BB
 	return null
 
-/obj/item/weapon/gun/projectile/handle_post_fire()
 	..()
 	if(chambered)
 		chambered.expend()
 		process_chambered()
 
-/obj/item/weapon/gun/projectile/handle_click_empty()
 	..()
 	process_chambered()
 
-/obj/item/weapon/gun/projectile/special_check(var/mob/user)
 	if(!..())
 		return 0
 	if(!is_jammed && jam_chance)
@@ -81,7 +75,6 @@
 			is_jammed = 1
 	return 1
 
-/obj/item/weapon/gun/projectile/proc/process_chambered()
 	if (!chambered) return
 
 	// Aurora forensics port, gunpowder residue.
@@ -109,7 +102,6 @@
 
 //Attempts to load A into src, depending on the type of thing being loaded and the load_method
 //Maybe this should be broken up into separate procs for each load method?
-/obj/item/weapon/gun/projectile/proc/load_ammo(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/AM = A
 		if(!(load_method & AM.mag_type) || caliber != AM.caliber || (allowed_magazines && !is_type_in_list(A, allowed_magazines)))
@@ -124,7 +116,6 @@
 				AM.loc = src
 				ammo_magazine = AM
 				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
-				playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
 			if(SPEEDLOADER)
 				if(loaded.len >= max_shells)
 					user << "<span class='warning'>[src] is full!</span>"
@@ -140,7 +131,6 @@
 						count++
 				if(count)
 					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src].</span>")
-					playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
@@ -154,16 +144,13 @@
 		C.loc = src
 		loaded.Insert(1, C) //add to the head of the list
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
-		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 
 	update_icon()
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
-/obj/item/weapon/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump=1)
 	if(ammo_magazine)
 		user.put_in_hands(ammo_magazine)
 		user.visible_message("[user] removes [ammo_magazine] from [src].", "<span class='notice'>You remove [ammo_magazine] from [src].</span>")
-		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 		ammo_magazine.update_icon()
 		ammo_magazine = null
 	else if(loaded.len)
@@ -187,28 +174,23 @@
 		user << "<span class='warning'>[src] is empty.</span>"
 	update_icon()
 
-/obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user as mob)
 	load_ammo(A, user)
 
-/obj/item/weapon/gun/projectile/attack_self(mob/user as mob)
 	if(is_jammed)
 		user << "<span class='notice'>\The [user] unjams \the [src]!</span>"
 		if(do_after(user, 5))
-			playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
 			is_jammed = 0
 	else if(firemodes.len > 1)
 		..()
 	else
 		unload_ammo(user)
 
-/obj/item/weapon/gun/projectile/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src)
 		unload_ammo(user, allow_dump=0)
 	else
 		return ..()
 
 
-/obj/item/weapon/gun/projectile/afterattack(atom/A, mob/living/user)
 	..()
 	if(auto_eject && ammo_magazine && ammo_magazine.stored_ammo && !ammo_magazine.stored_ammo.len)
 		ammo_magazine.loc = get_turf(src.loc)
@@ -222,7 +204,6 @@
 		ammo_magazine = null
 		update_icon() //make sure to do this after unsetting ammo_magazine
 
-/obj/item/weapon/gun/projectile/examine(mob/user)
 	..(user)
 	if(is_jammed)
 		user << "<span class='warning'>It looks jammed.</span>"
@@ -231,7 +212,6 @@
 	user << "Has [getAmmo()] round\s remaining."
 	return
 
-/obj/item/weapon/gun/projectile/proc/getAmmo()
 	var/bullets = 0
 	if(loaded)
 		bullets += loaded.len
@@ -242,8 +222,6 @@
 	return bullets
 
 /* Unneeded -- so far.
-//in case the weapon has firemodes and can't unload using attack_hand()
-/obj/item/weapon/gun/projectile/verb/unload_gun()
 	set name = "Unload Ammo"
 	set category = "Object"
 	set src in usr

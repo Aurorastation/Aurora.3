@@ -18,7 +18,6 @@ var/datum/antagonist/raider/raiders
 
 	faction = "syndicate"
 
-	id_type = /obj/item/weapon/card/id/syndicate
 
 	// Heist overrides check_victory() and doesn't need victory or loss strings/tags.
 	var/list/raider_uniforms = list(
@@ -66,44 +65,6 @@ var/datum/antagonist/raider/raiders
 		)
 
 	var/list/raider_guns = list(
-		/obj/item/weapon/gun/energy/rifle/laser,
-		/obj/item/weapon/gun/energy/rifle/laser/xray,
-		/obj/item/weapon/gun/energy/retro,
-		/obj/item/weapon/gun/energy/xray,
-		/obj/item/weapon/gun/energy/mindflayer,
-		/obj/item/weapon/gun/energy/toxgun,
-		/obj/item/weapon/gun/energy/stunrevolver,
-		/obj/item/weapon/gun/energy/ionrifle,
-		/obj/item/weapon/gun/energy/taser,
-		/obj/item/weapon/gun/energy/crossbow/largecrossbow,
-		/obj/item/weapon/gun/launcher/crossbow,
-		/obj/item/weapon/gun/launcher/grenade,
-		/obj/item/weapon/gun/launcher/pneumatic,
-		/obj/item/weapon/gun/projectile/automatic/mini_uzi,
-		/obj/item/weapon/gun/projectile/automatic/c20r,
-		/obj/item/weapon/gun/projectile/automatic/wt550,
-		/obj/item/weapon/gun/projectile/automatic/rifle/sts35,
-		/obj/item/weapon/gun/projectile/automatic/tommygun,
-		/obj/item/weapon/gun/projectile/automatic/x9,
-		/obj/item/weapon/gun/projectile/silenced,
-		/obj/item/weapon/gun/projectile/shotgun/pump,
-		/obj/item/weapon/gun/projectile/shotgun/pump/combat,
-		/obj/item/weapon/gun/projectile/shotgun/doublebarrel,
-		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet,
-		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,
-		/obj/item/weapon/gun/projectile/boltaction,
-		/obj/item/weapon/gun/projectile/colt,
-		/obj/item/weapon/gun/projectile/sec,
-		/obj/item/weapon/gun/projectile/pistol,
-		/obj/item/weapon/gun/projectile/deagle,
-		/obj/item/weapon/gun/projectile/revolver,
-		/obj/item/weapon/gun/projectile/revolver/deckard,
-		/obj/item/weapon/gun/projectile/revolver/derringer,
-		/obj/item/weapon/gun/projectile/revolver/lemat,
-		/obj/item/weapon/gun/projectile/contender,
-		/obj/item/weapon/gun/projectile/pirate,
-		/obj/item/weapon/gun/projectile/tanto,
-		/obj/item/weapon/gun/projectile/boltaction/vintage
 		)
 
 
@@ -118,8 +79,6 @@ var/datum/antagonist/raider/raiders
 	raiders = src
 
 /datum/antagonist/raider/update_access(var/mob/living/player)
-	for(var/obj/item/weapon/storage/wallet/W in player.contents)
-		for(var/obj/item/weapon/card/id/id in W.contents)
 			id.name = "[player.real_name]'s Passport"
 			id.registered_name = player.real_name
 			W.name = "[initial(W.name)] ([id.name])"
@@ -232,17 +191,14 @@ var/datum/antagonist/raider/raiders
 		player.equip_to_slot_or_del(new new_glasses(player),slot_glasses)
 		player.equip_to_slot_or_del(new new_helmet(player),slot_head)
 		player.equip_to_slot_or_del(new new_suit(player),slot_wear_suit)
-		equip_weapons(player)
 
 	//Try to equip it, del if we fail.
 	var/obj/item/device/contract_uplink/new_uplink = new()
 	if (!player.equip_to_appropriate_slot(new_uplink))
 		qdel(new_uplink)
 
-	var/obj/item/weapon/card/id/id = create_id("Visitor", player, equip = 0)
 	id.name = "[player.real_name]'s Passport"
 	id.assignment = "Visitor"
-	var/obj/item/weapon/storage/wallet/W = new(player)
 	W.handle_item_insertion(id)
 	player.equip_to_slot_or_del(W, slot_wear_id)
 	spawn_money(rand(50,150)*10,W)
@@ -250,7 +206,6 @@ var/datum/antagonist/raider/raiders
 
 	return 1
 
-/datum/antagonist/raider/proc/equip_weapons(var/mob/living/carbon/human/player)
 	var/new_gun = pick(raider_guns)
 	var/new_holster = pick(raider_holster) //raiders don't start with any backpacks, so let's be nice and give them a holster if they can use it.
 	var/turf/T = get_turf(player)
@@ -260,7 +215,6 @@ var/datum/antagonist/raider/raiders
 
 	//Give some of the raiders a pirate gun as a secondary
 	if(prob(60))
-		var/obj/item/secondary = new /obj/item/weapon/gun/projectile/pirate(T)
 		if(!(primary.slot_flags & SLOT_HOLSTER))
 			holster = new new_holster(T)
 			holster.holstered = secondary
@@ -289,26 +243,17 @@ var/datum/antagonist/raider/raiders
 		else
 			player.put_in_any_hand_if_possible(holster)
 
-/datum/antagonist/raider/proc/equip_ammo(var/mob/living/carbon/human/player, var/obj/item/weapon/gun/gun)
-	if(istype(gun, /obj/item/weapon/gun/projectile))
-		var/obj/item/weapon/gun/projectile/bullet_thrower = gun
 		if(bullet_thrower.magazine_type)
 			player.equip_to_slot_or_del(new bullet_thrower.magazine_type(player), slot_l_store)
 			if(prob(20)) //don't want to give them too much
 				player.equip_to_slot_or_del(new bullet_thrower.magazine_type(player), slot_r_store)
 		else if(bullet_thrower.ammo_type)
-			var/obj/item/weapon/storage/box/ammobox = new(get_turf(player.loc))
 			for(var/i in 1 to rand(3,5) + rand(0,2))
 				new bullet_thrower.ammo_type(ammobox)
 			player.put_in_any_hand_if_possible(ammobox)
 		return
-	if(istype(gun, /obj/item/weapon/gun/launcher/grenade))
 		var/list/grenades = list(
-			/obj/item/weapon/grenade/empgrenade,
-			/obj/item/weapon/grenade/smokebomb,
-			/obj/item/weapon/grenade/flashbang
 			)
-		var/obj/item/weapon/storage/box/ammobox = new(get_turf(player.loc))
 		for(var/i in 1 to 7)
 			var/grenade_type = pick(grenades)
 			new grenade_type(ammobox)
@@ -322,11 +267,8 @@ var/datum/antagonist/raider/raiders
 	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/vox(player), slot_shoes) // REPLACE THESE WITH CODED VOX ALTERNATIVES.
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow/vox(player), slot_gloves) // AS ABOVE.
 	player.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat/vox(player), slot_wear_mask)
-	player.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(player), slot_back)
 	player.equip_to_slot_or_del(new /obj/item/device/flashlight(player), slot_r_store)
 
-	player.internal = locate(/obj/item/weapon/tank) in player.contents
-	if(istype(player.internal,/obj/item/weapon/tank) && player.internals)
 		player.internals.icon_state = "internal1"
 
 	return 1

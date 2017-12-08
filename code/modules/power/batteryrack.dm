@@ -13,8 +13,6 @@
 	var/capacitors_amount = 0
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/batteryrack,
-		/obj/item/weapon/cell/high = 3
 	)
 
 /obj/machinery/power/smes/batteryrack/RefreshParts()
@@ -22,14 +20,12 @@
 	cells_amount = 0
 
 	var/max_level = 0 //for both input and output
-	for(var/obj/item/weapon/stock_parts/capacitor/CP in component_parts)
 		max_level += CP.rating
 		capacitors_amount++
 	input_level_max = 50000 + max_level * 20000
 	output_level_max = 50000 + max_level * 20000
 
 	var/C = 0
-	for(var/obj/item/weapon/cell/PC in component_parts)
 		C += PC.maxcharge
 		cells_amount++
 	capacity = C * 40   //Basic cells are such crap. Hyper cells needed to get on normal SMES levels.
@@ -52,7 +48,6 @@
 	return round(4 * charge/(capacity ? capacity : 5e6))
 
 
-/obj/machinery/power/smes/batteryrack/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob) //these can only be moved by being reconstructed, solves having to remake the powernet.
 	..() //SMES attackby for now handles screwdriver, cable coils and wirecutters, no need to repeat that here
 	if(open_hatch)
 		if(iscrowbar(W))
@@ -70,7 +65,6 @@
 					user << "<span class='warning'>Turn off the [src] before dismantling it.</span>"
 			else
 				user << "<span class='warning'>Better let [src] discharge before dismantling it.</span>"
-		else if ((istype(W, /obj/item/weapon/stock_parts/capacitor) && (capacitors_amount < 5)) || (istype(W, /obj/item/weapon/cell) && (cells_amount < 5)))
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
 					user.drop_item()
@@ -96,8 +90,6 @@
 	var/overcharge_percent = 0
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/ghettosmes,
-		/obj/item/weapon/cell/high = 3
 	)
 
 /obj/machinery/power/smes/batteryrack/makeshift/update_icon()

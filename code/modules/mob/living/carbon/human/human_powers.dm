@@ -41,7 +41,6 @@
 		src.Weaken(rand(2,4))
 		failed = 1
 
-	playsound(loc, 'sound/weapons/pierce.ogg', 25, 1, -1)
 	if(failed)
 		src.Weaken(rand(2,4))
 
@@ -123,7 +122,6 @@
 
 	visible_message("<span class='warning'><b>[src]</b> seizes [T] aggressively!</span>", "<span class='warning'>You aggressively seize [T]!</span>")
 
-	var/obj/item/weapon/grab/G = new(src,T)
 	if(use_hand == "left")
 		l_hand = G
 	else
@@ -147,7 +145,6 @@
 		src << "<span class='warning'>You cannot do that in your current state.</span>"
 		return
 
-	var/obj/item/weapon/grab/G = locate() in src
 	if(!G || !istype(G))
 		src << "<span class='warning'>You are not grabbing anyone.</span>"
 		return
@@ -246,7 +243,6 @@
 		src << "<span class='warning'>You cannot do that in your current state.</span>"
 		return
 
-	var/obj/item/weapon/grab/G = locate() in src
 	if(!G || !istype(G))
 		src << "<span class='warning'>You are not grabbing anyone.</span>"
 		return
@@ -269,7 +265,6 @@
 			return
 		M.apply_damage(25,BRUTE, sharp=1, edge=1)
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
-	playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1)
 
 /mob/living/carbon/human/proc/detonate_flechettes()
 	set category = "Hunter-Killer"
@@ -282,7 +277,6 @@
 
 	for(var/mob/living/M in range(7, src))
 		M << 'sound/effects/EMPulse.ogg'
-		for(var/obj/item/weapon/material/shard/shrapnel/flechette/F in M.contents)
 			playsound(F, 'sound/items/countdown.ogg', 125, 1)
 			spawn(20)
 				explosion(F.loc, -1, -1, 2)
@@ -290,7 +284,6 @@
 				M.apply_damage(15,BURN)
 				qdel(F)
 
-	for(var/obj/item/weapon/material/shard/shrapnel/flechette/F in range(7, src))
 		playsound(F, 'sound/items/countdown.ogg', 125, 1)
 		spawn(20)
 			explosion(F.loc, -1, -1, 2)
@@ -320,7 +313,6 @@
 
 /mob/living/carbon/human/proc/get_aggressive_grab()
 
-	var/obj/item/weapon/grab/G = locate() in src
 	if(!G || !istype(G))
 		src << "<span class='warning'>You are not grabbing anyone.</span>"
 		return
@@ -345,7 +337,6 @@
 		return
 
 
-	var/obj/item/weapon/grab/G = src.get_active_hand()
 	if(!istype(G))
 		src << "<span class='warning'>We must be grabbing a creature in our active hand to devour their head.</span>"
 		return
@@ -468,8 +459,6 @@
 	visible_message("<span class='warning'><b>\The [src]</b> launches a spine-quill at [target]!</span>")
 
 	src.apply_damage(10,BRUTE)
-	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
-	var/obj/item/weapon/arrow/quill/A = new /obj/item/weapon/arrow/quill(usr.loc)
 	A.throw_at(target, 10, 30, user)
 	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
 
@@ -555,7 +544,6 @@
 
 	forceMove(T)
 
-	for (var/obj/item/weapon/grab/G in contents)
 		if (G.affecting)
 			G.affecting.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
 		else

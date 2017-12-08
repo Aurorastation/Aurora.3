@@ -261,7 +261,6 @@
 	return .
 
 /obj/machinery/door_timer/attackby(obj/item/O as obj, user as mob)
-	if( istype( O, /obj/item/weapon/paper/incident ))
 		if( !incident )
 			if( import( O, user ))
 				usr.drop_item()
@@ -273,13 +272,11 @@
 		else
 			user <<  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>"
 		return
-	else if( istype( O, /obj/item/weapon/paper ))
 		user <<  "<span class='alert'>\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"</span>"
 		return
 
 	..()
 
-/obj/machinery/door_timer/proc/import( var/obj/item/weapon/paper/incident/I, var/user )
 	if( !istype( I ))
 		user <<  "<span class='alert'>\The [src] buzzes, \"Could not import the incident report.\"</span>"
 		return 0

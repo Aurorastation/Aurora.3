@@ -9,7 +9,6 @@
 	active_power_usage = 90000	//90 kW. (this the power drawn when charging)
 	power_channel = EQUIP
 	var/charging_efficiency = 0.92
-	var/obj/item/weapon/cell/charging = null
 	var/chargelevel = -1
 
 /obj/machinery/cell_charger/update_icon()
@@ -37,11 +36,9 @@
 	if(charging)
 		user << "Current charge: [charging.charge]"
 
-/obj/machinery/cell_charger/attackby(obj/item/weapon/W, mob/user)
 	if(stat & BROKEN)
 		return
 
-	if(istype(W, /obj/item/weapon/cell) && anchored)
 		if(charging)
 			user << "<span class='warning'>There is already a cell in the charger.</span>"
 			return

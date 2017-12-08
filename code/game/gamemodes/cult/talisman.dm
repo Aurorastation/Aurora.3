@@ -1,10 +1,8 @@
-/obj/item/weapon/paper/talisman
 	icon_state = "paper_talisman"
 	var/imbue = null
 	var/uses = 0
 	info = "<center><img src='talisman.png'></center><br/><br/>"
 
-/obj/item/weapon/paper/talisman/attack_self(mob/living/user as mob)
 	if(iscultist(user))
 		var/delete = 1
 		// who the hell thought this was a good idea :(
@@ -43,7 +41,6 @@
 		return
 
 
-/obj/item/weapon/paper/talisman/attack(mob/living/carbon/T as mob, mob/living/user as mob)
 	if(iscultist(user))
 		if(imbue == "runestun")
 			user.take_organ_damage(5, 0)
@@ -55,7 +52,6 @@
 		..()
 
 
-/obj/item/weapon/paper/talisman/proc/supply(var/key)
 	if (!src.uses)
 		qdel(src)
 		return
@@ -76,33 +72,25 @@
 	return
 
 
-/obj/item/weapon/paper/talisman/Topic(href, href_list)
 	if(!src)	return
 	if (usr.stat || usr.restrained() || !in_range(src, usr))	return
 
 	if (href_list["rune"])
 		switch(href_list["rune"])
 			if("newtome")
-				var/obj/item/weapon/paper/talisman/T = new /obj/item/weapon/paper/talisman(get_turf(usr))
 				T.imbue = "newtome"
 			if("teleport")
-				var/obj/item/weapon/paper/talisman/T = new /obj/item/weapon/paper/talisman(get_turf(usr))
 				T.imbue = "[pick("ire", "ego", "nahlizet", "certum", "veri", "jatkaa", "balaq", "mgar", "karazet", "geeri", "orkan", "allaq")]"
 				T.info = "[T.imbue]"
 			if("emp")
-				var/obj/item/weapon/paper/talisman/T = new /obj/item/weapon/paper/talisman(get_turf(usr))
 				T.imbue = "emp"
 			if("conceal")
-				var/obj/item/weapon/paper/talisman/T = new /obj/item/weapon/paper/talisman(get_turf(usr))
 				T.imbue = "conceal"
 			if("communicate")
-				var/obj/item/weapon/paper/talisman/T = new /obj/item/weapon/paper/talisman(get_turf(usr))
 				T.imbue = "communicate"
 			if("runestun")
-				var/obj/item/weapon/paper/talisman/T = new /obj/item/weapon/paper/talisman(get_turf(usr))
 				T.imbue = "runestun"
 			if("armor")
-				var/obj/item/weapon/paper/talisman/T = new /obj/item/weapon/paper/talisman(get_turf(usr))
 				T.imbue = "armor"
 			if("soulstone")
 				new /obj/item/device/soulstone(get_turf(usr))
@@ -113,6 +101,5 @@
 	return
 
 
-/obj/item/weapon/paper/talisman/supply
 	imbue = "supply"
 	uses = 5

@@ -347,10 +347,6 @@
 		if(target.cell_emp_mult)
 			target.cell_emp_mult = 1
 			target << "EMP resistance improved."
-		//Remove weapon lock and set the time for it back to default
-		if(target.weapon_lock)
-			target.weapon_lock = 0
-			target.weaponlock_time = 120
 			target << "Weapon lock removed."
 		sleep(1200) // 120 second balance sleep
 	user <<"All slaved borgs have been upgraded, now hacking NTNet."

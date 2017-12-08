@@ -1,4 +1,3 @@
-/obj/item/weapon/spellbook/necromancer
 	spellbook_type = /datum/spellbook/necromancer
 
 
@@ -27,5 +26,4 @@
 				/obj/structure/closet/wizard/armor = 				1,
 				/obj/structure/closet/wizard/scrying = 				2,
 				/obj/structure/closet/wizard/souls = 				1,
-				/obj/item/weapon/contract/apprentice = 				1
 				)

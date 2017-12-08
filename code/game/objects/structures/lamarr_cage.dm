@@ -13,7 +13,6 @@
 /obj/structure/lamarr/ex_act(severity)
 	switch(severity)
 		if (1)
-			new /obj/item/weapon/material/shard( src.loc )
 			Break()
 			qdel(src)
 		if (2)
@@ -37,7 +36,6 @@
 		if (!( src.destroyed ))
 			src.density = 0
 			src.destroyed = 1
-			new /obj/item/weapon/material/shard( src.loc )
 			playsound(src, "shatter", 70, 1)
 			Break()
 	else
@@ -52,7 +50,6 @@
 	return
 
 
-/obj/structure/lamarr/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	src.health -= W.force
 	src.healthcheck()

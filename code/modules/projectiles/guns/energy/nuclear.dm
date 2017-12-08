@@ -1,14 +1,11 @@
-/obj/item/weapon/gun/energy/gun
 	name = "energy carbine"
 	desc = "An energy-based carbine with two settings: Stun and kill."
 	icon_state = "energystun100"
 	item_state = null	//so the human update icon uses the icon_state instead.
-	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
 	max_shots = 10
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
 	can_switch_modes = 1
 	turret_is_lethal = 0
 
@@ -17,19 +14,15 @@
 	modifystate = "energystun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="energystun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="energykill", fire_sound='sound/weapons/Laser.ogg')
 		)
 
 	var/crit_fail = 0 //Added crit_fail as a local variable
 
-/obj/item/weapon/gun/energy/gun/mounted
 	name = "mounted energy gun"
 	self_recharge = 1
 	use_external_power = 1
 	can_turret = 0
 
-/obj/item/weapon/gun/energy/gun/nuclear
 	name = "advanced energy gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
 	icon_state = "nucgun"
@@ -43,16 +36,12 @@
 	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg')
 		)
 
 	var/lightfail = 0
 
-/obj/item/weapon/gun/energy/gun/nuclear/get_cell()
 	return DEVICE_NO_CELL
 
-/obj/item/weapon/gun/energy/gun/nuclear/proc/failcheck()
 	lightfail = 0
 	if (prob(src.reliability)) return 1 //No failure
 	if (prob(src.reliability))
@@ -74,7 +63,6 @@
 		update_icon()
 	return 0
 
-/obj/item/weapon/gun/energy/gun/nuclear/proc/update_charge()
 	if (crit_fail)
 		add_overlay("nucgun-whee")
 		return
@@ -82,7 +70,6 @@
 	ratio = round(ratio, 0.25) * 100
 	add_overlay("nucgun-[ratio]")
 
-/obj/item/weapon/gun/energy/gun/nuclear/proc/update_reactor()
 	if(crit_fail)
 		add_overlay("nucgun-crit")
 		return
@@ -93,7 +80,6 @@
 	else
 		add_overlay("nucgun-clean")
 
-/obj/item/weapon/gun/energy/gun/nuclear/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	switch(current_mode.name)
 		if("stun") 
@@ -101,28 +87,23 @@
 		if("lethal") 
 			add_overlay("nucgun-kill")
 /*
-/obj/item/weapon/gun/energy/gun/nuclear/emp_act(severity)
 	..()
 	reliability -= round(15/severity)
 */
-/obj/item/weapon/gun/energy/gun/nuclear/update_icon()
 	cut_overlays()
 	update_charge()
 	update_reactor()
 	update_mode()
 
-/obj/item/weapon/gun/energy/pistol
 	name = "energy pistol"
 	desc = "A basic energy-based pistol gun with two settings: Stun and kill."
 	icon_state = "epistolstun100"
 	item_state = null	//so the human update icon uses the icon_state instead.
-	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 5
 	fire_delay = 4
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam/pistol
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
 	can_switch_modes = 1
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
@@ -132,6 +113,4 @@
 	modifystate = "epistolstun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg')
 		)

@@ -1,5 +1,4 @@
 
-// Phoron shards have been moved to code/game/objects/items/weapons/shards.dm
 
 //legacy crystal
 /obj/machinery/crystal

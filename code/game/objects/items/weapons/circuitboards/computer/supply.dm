@@ -2,21 +2,17 @@
 #error T_BOARD macro is not defined but we need it! 
 #endif
 
-/obj/item/weapon/circuitboard/supplycomp
 	name = T_BOARD("supply control console")
 	build_path = /obj/machinery/computer/supplycomp
 	origin_tech = list(TECH_DATA = 3)
 	var/contraband_enabled = 0
 
-/obj/item/weapon/circuitboard/supplycomp/construct(var/obj/machinery/computer/supplycomp/SC)
 	if (..(SC))
 		SC.can_order_contraband = contraband_enabled
 
-/obj/item/weapon/circuitboard/supplycomp/deconstruct(var/obj/machinery/computer/supplycomp/SC)
 	if (..(SC))
 		contraband_enabled = SC.can_order_contraband
 
-/obj/item/weapon/circuitboard/supplycomp/attackby(obj/item/I as obj, mob/user as mob)
 	if(ismultitool(I))
 		var/catastasis = src.contraband_enabled
 		var/opposite_catastasis

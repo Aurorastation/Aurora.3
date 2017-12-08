@@ -2,7 +2,6 @@
 ////// Mecha Parts //////
 /////////////////////////
 
-// Mecha circuitboards can be found in /code/game/objects/items/weapons/circuitboards/mecha.dm
 
 /obj/item/mecha_parts
 	name = "mecha part"
@@ -89,13 +88,11 @@
 
 /obj/item/mecha_parts/part/gygax_left_arm
 	name="Gygax Left Arm"
-	desc="A Gygax left arm. Data and power sockets are compatible with most exosuit tools and weapons."
 	icon_state = "gygax_l_arm"
 	origin_tech = list(TECH_DATA = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
 
 /obj/item/mecha_parts/part/gygax_right_arm
 	name="Gygax Right Arm"
-	desc="A Gygax right arm. Data and power sockets are compatible with most exosuit tools and weapons."
 	icon_state = "gygax_r_arm"
 	origin_tech = list(TECH_DATA = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
 

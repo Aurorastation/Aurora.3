@@ -258,7 +258,6 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (iswrench(W))
 		if (!(stat & NOPOWER) && use_power)
 			user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"
@@ -285,7 +284,6 @@
 		return 1
 
 	if(iswelder(W))
-		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.welding)
 			user << "<span class='danger'>\The [WT] must be turned on!</span>"
 		else if (WT.remove_fuel(0,user))

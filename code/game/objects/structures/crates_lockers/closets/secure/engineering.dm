@@ -11,9 +11,7 @@
 
 	fill()
 		if(prob(50))
-			new /obj/item/weapon/storage/backpack/industrial(src)
 		else
-			new /obj/item/weapon/storage/backpack/satchel_eng(src)
 		if (prob(70))
 			new /obj/item/clothing/accessory/storage/brown_vest(src)
 		else
@@ -24,9 +22,7 @@
 		new /obj/item/clothing/head/welding(src)
 		new /obj/item/clothing/gloves/yellow(src)
 		new /obj/item/clothing/shoes/brown(src)
-		new /obj/item/weapon/cartridge/ce(src)
 		new /obj/item/device/radio/headset/heads/ce(src)
-		new /obj/item/weapon/storage/toolbox/mechanical(src)
 		new /obj/item/clothing/suit/storage/hazardvest(src)
 		new /obj/item/clothing/mask/gas(src)
 		new /obj/item/device/multitool(src)
@@ -45,8 +41,6 @@
 
 
 	fill()
-		new /obj/item/weapon/storage/backpack/industrial(src)
-		new /obj/item/weapon/storage/backpack/satchel_eng(src)
 		new /obj/item/clothing/accessory/storage/brown_vest(src)
 		new /obj/item/clothing/accessory/storage/webbing(src)
 		new /obj/item/clothing/under/rank/chief_engineer(src)
@@ -68,12 +62,6 @@
 	fill()
 		new /obj/item/clothing/gloves/yellow(src)
 		new /obj/item/clothing/gloves/yellow(src)
-		new /obj/item/weapon/storage/toolbox/electrical(src)
-		new /obj/item/weapon/storage/toolbox/electrical(src)
-		new /obj/item/weapon/storage/toolbox/electrical(src)
-		new /obj/item/weapon/module/power_control(src)
-		new /obj/item/weapon/module/power_control(src)
-		new /obj/item/weapon/module/power_control(src)
 		new /obj/item/device/multitool(src)
 		new /obj/item/device/multitool(src)
 		new /obj/item/device/multitool(src)
@@ -92,12 +80,6 @@
 		new /obj/item/clothing/head/welding(src)
 		new /obj/item/clothing/head/welding(src)
 		new /obj/item/clothing/head/welding(src)
-		new /obj/item/weapon/weldingtool/largetank(src)
-		new /obj/item/weapon/weldingtool/largetank(src)
-		new /obj/item/weapon/weldingtool/largetank(src)
-		new /obj/item/weapon/weldpack(src)
-		new /obj/item/weapon/weldpack(src)
-		new /obj/item/weapon/weldpack(src)
 
 /obj/structure/closet/secure_closet/engineering_personal
 	name = "engineer's locker"
@@ -111,19 +93,15 @@
 
 	fill()
 		if(prob(50))
-			new /obj/item/weapon/storage/backpack/industrial(src)
 		else
-			new /obj/item/weapon/storage/backpack/satchel_eng(src)
 		if (prob(70))
 			new /obj/item/clothing/accessory/storage/brown_vest(src)
 		else
 			new /obj/item/clothing/accessory/storage/webbing(src)
-		new /obj/item/weapon/storage/toolbox/mechanical(src)
 		new /obj/item/device/radio/headset/headset_eng(src)
 		new /obj/item/clothing/suit/storage/hazardvest(src)
 		new /obj/item/clothing/mask/gas(src)
 		new /obj/item/clothing/glasses/meson(src)
-		new /obj/item/weapon/cartridge/engineering(src)
 		new /obj/item/taperoll/engineering(src)
 
 /obj/structure/closet/secure_closet/atmos_personal
@@ -139,9 +117,7 @@
 
 	fill()
 		if(prob(50))
-			new /obj/item/weapon/storage/backpack/industrial(src)
 		else
-			new /obj/item/weapon/storage/backpack/satchel_eng(src)
 		if (prob(70))
 			new /obj/item/clothing/accessory/storage/brown_vest(src)
 		else
@@ -149,9 +125,7 @@
 		new /obj/item/clothing/suit/fire/atmos(src)
 		new /obj/item/clothing/head/hardhat/red/atmos(src)
 		new /obj/item/device/flashlight(src)
-		new /obj/item/weapon/extinguisher(src)
 		new /obj/item/device/radio/headset/headset_eng(src)
 		new /obj/item/clothing/suit/storage/hazardvest(src)
 		new /obj/item/clothing/mask/gas(src)
-		new /obj/item/weapon/cartridge/atmos(src)
 		new /obj/item/taperoll/engineering(src)

@@ -8,8 +8,6 @@
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	//A special case for if the container has only water, for manual watering with buckets
-	if (istype(O,/obj/item/weapon/reagent_containers))
-		var/obj/item/weapon/reagent_containers/RC = O
 		if (RC.reagents.reagent_list.len == 1)
 			if (RC.reagents.has_reagent("water", 1))
 				if (waterlevel < maxWaterLevel)
@@ -21,7 +19,6 @@
 					user << "The soil is saturated with water already."
 				return 1
 
-	if(istype(O,/obj/item/weapon/tank))
 		return
 	else
 		..()

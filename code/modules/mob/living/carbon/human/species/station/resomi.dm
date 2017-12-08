@@ -29,7 +29,6 @@
 	burn_mod =  1.35
 	fall_mod = 0.25
 	mob_size = MOB_SMALL
-	holder_type = /obj/item/weapon/holder/human
 	short_sighted = 1
 	gluttonous = TRUE
 

@@ -90,12 +90,10 @@
 	max_damage = 60
 	installed = 0
 
-	var/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/tank = null
 
 
 /datum/robot_component/jetpack/install()
 	..()
-	tank = new/obj/item/weapon/tank/jetpack/carbondioxide/synthetic
 	owner.internals = tank
 	tank.loc = owner
 	owner.jetpack = tank

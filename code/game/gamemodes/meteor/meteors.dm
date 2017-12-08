@@ -95,7 +95,6 @@
 	var/shieldsoundrange = 260 // The maximum number of tiles away the sound can be heard, falls off over distance, so it will be quiet near the limit
 	pass_flags = PASSTABLE
 	var/done = 0//This is set to 1 when the meteor is done colliding, and is used to ignore additional bumps while waiting for deletion
-	var/meteordrop = /obj/item/weapon/ore/iron //the thing that the meteors will drop when it explodes
 	var/dropamt = 3 //amount of said thing
 
 /obj/effect/meteor/small
@@ -158,8 +157,6 @@
 		qdel(src)
 	return
 
-/obj/effect/meteor/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/pickaxe))
 		qdel(src)
 		return
 	..()
@@ -241,19 +238,16 @@
 	icon_state = "dust"
 	pass_flags = PASSTABLE | PASSGRILLE
 	hits = 1
-	meteordrop = /obj/item/weapon/ore/glass
 	dropamt = 1
 
 /obj/effect/meteor/flaming
 	name = "flaming meteor"
 	icon_state = "flaming"
 	hits = 3
-	meteordrop = /obj/item/weapon/ore/phoron
 
 /obj/effect/meteor/irradiated
 	name = "glowing meteor"
 	icon_state = "glowing"
-	meteordrop = /obj/item/weapon/ore/uranium
 
 /obj/effect/meteor/irradiated/meteor_effect()
 	new /obj/effect/decal/cleanable/greenglow(get_turf(src))
@@ -263,22 +257,18 @@
 /obj/effect/meteor/golden
 	name = "golden meteor"
 	icon_state = "sharp"
-	meteordrop = /obj/item/weapon/ore/gold
 
 /obj/effect/meteor/silver
 	name = "silver meteor"
 	icon_state = "glowing_blue"
-	meteordrop = /obj/item/weapon/ore/silver
 
 /obj/effect/meteor/diamond
 	name = "diamond meteor"
 	icon_state = "glowing_blue"
-	meteordrop = /obj/item/weapon/ore/diamond
 
 /obj/effect/meteor/emp
 	name = "conducting meteor"
 	icon_state = "glowing_blue"
-	meteordrop = /obj/item/weapon/ore/osmium
 	dropamt = 2
 
 /obj/effect/meteor/emp/meteor_effect()
@@ -286,7 +276,6 @@
 
 /obj/effect/meteor/artifact
 	icon_state = "sharp"
-	meteordrop = /obj/item/weapon/archaeological_find
 	dropamt = 1
 
 /obj/effect/meteor/supermatter
@@ -308,7 +297,6 @@
 /obj/effect/meteor/meaty
 	name = "meaty ore"
 	icon_state = "meateor"
-	meteordrop = /obj/item/weapon/reagent_containers/food/snacks/meat/monkey
 	dropamt = 10
 
 /obj/effect/meteor/meaty/meteor_effect()

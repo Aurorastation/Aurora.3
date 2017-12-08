@@ -204,7 +204,6 @@
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
 			if(iswelder(I))
-				var/obj/item/weapon/weldingtool/WT = I
 				if(WT.remove_fuel(1, user))
 					user << "<span class='notice'>You mend the damaged framework.</span>"
 					playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)

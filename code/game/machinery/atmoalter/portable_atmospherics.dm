@@ -4,7 +4,6 @@
 	var/datum/gas_mixture/air_contents = new
 
 	var/obj/machinery/atmospherics/portables_connector/connected_port
-	var/obj/item/weapon/tank/holding
 
 	var/volume = 0
 	var/destroyed = 0
@@ -98,11 +97,8 @@
 	if (network)
 		network.update = 1
 
-/obj/machinery/portable_atmospherics/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if ((istype(W, /obj/item/weapon/tank) && !( src.destroyed )))
 		if (src.holding)
 			return
-		var/obj/item/weapon/tank/T = W
 		user.drop_item()
 		T.loc = src
 		src.holding = T
@@ -142,7 +138,6 @@
 	var/power_rating
 	var/power_losses
 	var/last_power_draw = 0
-	var/obj/item/weapon/cell/cell
 	has_special_power_checks = TRUE
 
 /obj/machinery/portable_atmospherics/powered/powered()
@@ -153,12 +148,10 @@
 	return 0
 
 /obj/machinery/portable_atmospherics/powered/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/cell))
 		if(cell)
 			user << "There is already a power cell installed."
 			return
 
-		var/obj/item/weapon/cell/C = I
 
 		user.drop_item()
 		C.add_fingerprint(user)

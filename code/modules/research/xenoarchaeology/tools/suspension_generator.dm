@@ -5,8 +5,6 @@
 	icon_state = "suspension2"
 	density = 1
 	req_access = list(access_research)
-	var/obj/item/weapon/cell/cell
-	var/obj/item/weapon/card/id/auth_card
 	var/locked = 1
 	var/open = 0
 	var/screwed = 1
@@ -17,7 +15,6 @@
 
 /obj/machinery/suspension_gen/Initialize()
 	. = ..()
-	cell = new/obj/item/weapon/cell/high(src)
 
 /obj/machinery/suspension_gen/machinery_process()
 	set background = 1
@@ -127,7 +124,6 @@
 		field_type = href_list["select_field"]
 	else if(href_list["insertcard"])
 		var/obj/item/I = usr.get_active_hand()
-		if (istype(I, /obj/item/weapon/card))
 			usr.drop_item()
 			I.loc = src
 			auth_card = I
@@ -165,7 +161,6 @@
 		cell = null
 		user << "<span class='info'>You remove the power cell</span>"
 
-/obj/machinery/suspension_gen/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (isscrewdriver(W))
 		if(!open)
 			if(screwed)
@@ -202,7 +197,6 @@
 				desc = "It has stubby legs bolted up against it's body for stabilising."
 		else
 			user << "<span class='warning'>You are unable to secure [src] while it is active!</span>"
-	else if (istype(W, /obj/item/weapon/cell))
 		if(open)
 			if(cell)
 				user << "<span class='warning'>There is a power cell already installed.</span>"
@@ -212,8 +206,6 @@
 				cell = W
 				user << "<span class='info'>You insert the power cell.</span>"
 				icon_state = "suspension1"
-	else if(istype(W, /obj/item/weapon/card))
-		var/obj/item/weapon/card/I = W
 		if(!auth_card)
 			if(attempt_unlock(I, user))
 				user << "<span class='info'>You swipe [I], the console flashes \'<i>Access granted.</i>\'</span>"
@@ -222,11 +214,8 @@
 		else
 			user << "<span class='warning'>Remove [auth_card] first.</span>"
 
-/obj/machinery/suspension_gen/proc/attempt_unlock(var/obj/item/weapon/card/C, var/mob/user)
 	if(!open)
-		if(istype(C, /obj/item/weapon/card/emag))
 			C.resolve_attackby(src, user)
-		else if(istype(C, /obj/item/weapon/card/id) && check_access(C))
 			locked = 0
 		if(!locked)
 			return 1

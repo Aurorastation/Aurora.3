@@ -3,11 +3,9 @@
  */
 
 
-/obj/item/weapon/implant/loyalty/sol
 	name = "loyalty implant"
 	desc = "Makes you loyal to the Sol Alliance, or to a certain individual."
 
-/obj/item/weapon/implant/loyalty/sol/implanted(mob/M)
 	if(!istype(M, /mob/living/carbon/human))	return 0
 	var/mob/living/carbon/human/H = M
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
@@ -156,7 +154,6 @@
 
 //ceremonial swords
 
-/obj/item/weapon/melee/ceremonial_sword
 	name = "sol officer ceremonial sword"
 	desc = "A ceremonial sword issued to Sol navy officers as part of their dress uniform."
 	icon = 'icons/obj/sol_uniform.dmi'
@@ -173,9 +170,7 @@
 	can_embed = 0
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	hitsound = 'sound/weapons/bladeslice.ogg'
 
-/obj/item/weapon/melee/ceremonial_sword/marine
 	name = "sol marine ceremonial sword"
 	desc = "A ceremonial sword issued to Sol marine officers as part of their dress uniform."
 	icon = 'icons/obj/sol_uniform.dmi'
@@ -277,21 +272,15 @@
 /obj/structure/closet/secure_closet/soll_officer/fill()
 	..()
 	if(prob(50))
-		new /obj/item/weapon/storage/backpack/captain(src)
 	else
-		new /obj/item/weapon/storage/backpack/satchel_cap(src)
 	new /obj/item/clothing/under/rank/dress/officer(src)
 	new /obj/item/clothing/head/dress/officer(src)
 	new /obj/item/clothing/suit/storage/vest(src)
-	new /obj/item/weapon/cartridge/captain(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/clothing/gloves/white(src)
-	new /obj/item/weapon/gun/energy/pistol(src)
 	new /obj/item/device/flash(src)
-	new /obj/item/weapon/melee/telebaton(src)
-	new /obj/item/weapon/melee/ceremonial_sword(src)
 	new /obj/item/clothing/under/rank/fatigues(src)
 	new /obj/item/clothing/under/rank/service(src)
 	new /obj/item/clothing/shoes/jackboots(src)

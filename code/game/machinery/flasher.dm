@@ -47,7 +47,6 @@
 //		src.sd_SetLuminosity(0)
 
 //Don't want to render prison breaks impossible
-/obj/machinery/flasher/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (iswirecutter(W))
 		add_fingerprint(user)
 		src.disable = !src.disable
@@ -70,7 +69,6 @@
 	if ((src.disable) || (src.last_flash && world.time < src.last_flash + 150))
 		return
 
-	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 	flick("[base_state]_flash", src)
 	src.last_flash = world.time
 	use_power(1500)
@@ -111,7 +109,6 @@
 	if (src.anchored)
 		src.flash()
 
-/obj/machinery/flasher/portable/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (iswrench(W))
 		add_fingerprint(user)
 		src.anchored = !src.anchored

@@ -19,9 +19,6 @@
 /*
 /obj/mecha/combat/durand/New()
 	..()
-	weapons += new /datum/mecha_weapon/ballistic/lmg(src)
-	weapons += new /datum/mecha_weapon/ballistic/scattershot(src)
-	selected_weapon = weapons[1]
 	return
 */
 

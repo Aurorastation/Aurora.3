@@ -9,7 +9,6 @@
 	icon_state = "crate"
 	icon_living = "crate"
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
 	response_help = "touches"
 	response_disarm = "pushes"
 	response_harm = "hits"
@@ -21,7 +20,6 @@
 	melee_damage_lower = 8
 	melee_damage_upper = 12
 	attacktext = "attacked"
-	attack_sound = 'sound/weapons/bite.ogg'
 
 	min_oxy = 0
 	max_oxy = 0

@@ -261,10 +261,7 @@
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/action(atom/movable/target)
 	if(!action_checks(target))
 		return
-	if(istype(target,/obj/item/weapon/reagent_containers/syringe))
 		return load_syringe(target)
-	if(istype(target,/obj/item/weapon/storage))//Loads syringes from boxes
-		for(var/obj/item/weapon/reagent_containers/syringe/S in target.contents)
 			load_syringe(S)
 		return
 	if(mode)
@@ -278,7 +275,6 @@
 	set_ready_state(0)
 	chassis.use_power(energy_drain)
 	var/turf/trg = get_turf(target)
-	var/obj/item/weapon/reagent_containers/syringe/S = syringes[1]
 	S.forceMove(get_turf(chassis))
 	reagents.trans_to_obj(S, min(S.volume, reagents.total_volume))
 	syringes -= S
@@ -292,7 +288,6 @@
 	do_after_cooldown()
 	return 1
 
-/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/proc/action_callback(obj/item/weapon/reagent_containers/syringe/S, turf/trg)
 	for(var/i=0, i<6, i++)
 		if(!S || !trg)
 			return
@@ -417,7 +412,6 @@
 		output += "Total: [round(reagents.total_volume,0.001)]/[reagents.maximum_volume] - <a href=\"?src=\ref[src];purge_all=1\">Purge All</a>"
 	return output || "None"
 
-/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun/proc/load_syringe(obj/item/weapon/reagent_containers/syringe/S)
 	if(syringes.len<max_syringes)
 		if(get_dist(src,S) >= 2)
 			occupant_message("The syringe is too far away.")

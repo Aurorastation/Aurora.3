@@ -1,4 +1,3 @@
-/obj/item/weapon/gun/projectile/shotgun/pump
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
 	icon_state = "shotgun"
@@ -13,41 +12,33 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	handle_casings = HOLD_CASINGS
-	fire_sound = 'sound/weapons/shotgun.ogg'
 	var/recentpump = 0 // to prevent spammage
 
 	action_button_name = "Wield rifle"
 
-/obj/item/weapon/gun/projectile/shotgun/pump/can_wield()
 	return 1
 
-/obj/item/weapon/gun/projectile/shotgun/pump/ui_action_click()
 	if(src in usr)
 		toggle_wield(usr)
 
-/obj/item/weapon/gun/projectile/shotgun/pump/verb/wield_shotgun()
 	set name = "Wield shotgun"
 	set category = "Object"
 	set src in usr
 
 	toggle_wield(usr)
 
-/obj/item/weapon/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
 		return chambered.BB
 	return null
 
-/obj/item/weapon/gun/projectile/shotgun/pump/attack_self(mob/living/user as mob)
 	if(world.time >= recentpump + 10)
 		pump(user)
 		recentpump = world.time
 
-/obj/item/weapon/gun/projectile/shotgun/pump/proc/pump(mob/M as mob)
 	if(!wielded)
 		M << "<span class='warning'>You cannot rack the shotgun without gripping it with both hands!</span>"
 		return
 
-	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
 
 	if(chambered)//We have a shell in the chamber
 		chambered.loc = get_turf(src)//Eject casing
@@ -60,7 +51,6 @@
 
 	update_icon()
 
-/obj/item/weapon/gun/projectile/shotgun/pump/update_icon()
 	..()
 	if(wielded)
 		item_state = "[icon_state]-wielded"
@@ -68,17 +58,13 @@
 		item_state = "[icon_state]"
 	update_held_icon()
 
-/obj/item/weapon/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
-	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
-	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
 	icon_state = "dshotgun"
@@ -95,7 +81,6 @@
 	caliber = "shotgun"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	fire_sound = 'sound/weapons/shotgun.ogg'
 
 	burst_delay = 0
 	firemodes = list(
@@ -103,20 +88,15 @@
 		list(mode_name="fire both barrels at once", burst=2)
 		)
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/flare
 	name = "signal shotgun"
 	desc = "A double-barreled shotgun meant to fire signal flash shells."
 	ammo_type = /obj/item/ammo_casing/shotgun/flash
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/unload_ammo(user, allow_dump)
 	..(user, allow_dump=1)
 
 //this is largely hacky and bad :(	-Pete
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/weapon/circular_saw) || istype(A, /obj/item/weapon/melee/energy) || istype(A, /obj/item/weapon/gun/energy/plasmacutter) && w_class != 3)
 		user << "<span class='notice'>You begin to shorten the barrel of \the [src].</span>"
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
@@ -137,7 +117,6 @@
 		..()
 
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn
 	name = "sawn-off shotgun"
 	desc = "Omar's coming!"
 	icon_state = "sawnshotgun"

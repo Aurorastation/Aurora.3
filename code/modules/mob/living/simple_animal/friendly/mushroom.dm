@@ -11,7 +11,6 @@
 	turns_per_move = 1
 	maxHealth = 5
 	health = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/hugemushroomslice
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "whacks"
@@ -20,7 +19,6 @@
 	var/harvest_time
 	var/min_explode_time = 1200
 	density = 0
-	holder_type = /obj/item/weapon/holder/mushroom
 	mob_size = 2
 
 /mob/living/simple_animal/mushroom/Initialize()

@@ -6,7 +6,6 @@
 	light_color = LIGHT_COLOR_GREEN
 
 	icon_screen = "command"
-	circuit = /obj/item/weapon/circuitboard/aiupload
 	var/mob/living/silicon/ai/current = null
 	var/opened = 0
 
@@ -26,12 +25,9 @@
 		return
 
 
-	attackby(obj/item/weapon/O as obj, mob/user as mob)
 		if (user.z > 6)
 			user << "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!"
 			return
-		if(istype(O, /obj/item/weapon/aiModule))
-			var/obj/item/weapon/aiModule/M = O
 			M.install(src)
 		else
 			..()
@@ -63,12 +59,9 @@
 	light_color = LIGHT_COLOR_GREEN
 
 	icon_screen = "command"
-	circuit = /obj/item/weapon/circuitboard/borgupload
 	var/mob/living/silicon/robot/current = null
 
 
-	attackby(obj/item/weapon/aiModule/module as obj, mob/user as mob)
-		if(istype(module, /obj/item/weapon/aiModule))
 			module.install(src)
 		else
 			return ..()

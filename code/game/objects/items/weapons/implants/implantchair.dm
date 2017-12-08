@@ -11,7 +11,6 @@
 
 	var/ready = 1
 	var/malfunction = 0
-	var/list/obj/item/weapon/implant/loyalty/implant_list = list()
 	var/max_implants = 5
 	var/injection_cooldown = 600
 	var/replenish_cooldown = 6000
@@ -74,8 +73,6 @@
 			return
 
 
-	attackby(var/obj/item/weapon/G as obj, var/mob/user as mob)
-		if(istype(G, /obj/item/weapon/grab))
 			if(!ismob(G:affecting))
 				return
 			for(var/mob/living/carbon/slime/M in range(1,G:affecting))
@@ -128,9 +125,7 @@
 		if (!istype(M, /mob/living/carbon))
 			return
 		if(!implant_list.len)	return
-		for(var/obj/item/weapon/implant/loyalty/imp in implant_list)
 			if(!imp)	continue
-			if(istype(imp, /obj/item/weapon/implant/loyalty))
 				for (var/mob/O in viewers(M, null))
 					O.show_message("<span class='warning'>\The [M] has been implanted by \the [src].</span>", 1)
 
@@ -145,7 +140,6 @@
 
 	add_implants()
 		for(var/i=0, i<src.max_implants, i++)
-			var/obj/item/weapon/implant/loyalty/I = new /obj/item/weapon/implant/loyalty(src)
 			implant_list += I
 		return
 

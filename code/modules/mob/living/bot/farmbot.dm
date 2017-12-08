@@ -259,8 +259,6 @@
 	visible_message("<span class='danger'>[src] blows apart!</span>")
 	var/turf/Tsec = get_turf(src)
 
-	new /obj/item/weapon/material/minihoe(Tsec)
-	new /obj/item/weapon/reagent_containers/glass/bucket(Tsec)
 	new /obj/item/device/assembly/prox_sensor(Tsec)
 	new /obj/item/device/analyzer/plant_analyzer(Tsec)
 
@@ -297,7 +295,6 @@
 
 // Assembly
 
-/obj/item/weapon/farmbot_arm_assembly
 	name = "water tank/robot arm assembly"
 	desc = "A water tank with a robot arm permanently grafted to it."
 	icon = 'icons/obj/aibots.dmi'
@@ -319,14 +316,12 @@
 		..()
 		return
 
-	var/obj/item/weapon/farmbot_arm_assembly/A = new /obj/item/weapon/farmbot_arm_assembly(loc)
 
 	user << "You add the robot arm to [src]."
 	loc = A //Place the water tank into the assembly, it will be needed for the finished bot
 	user.drop_from_inventory(S)
 	qdel(S)
 
-/obj/item/weapon/farmbot_arm_assembly/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	if((istype(W, /obj/item/device/analyzer/plant_analyzer)) && (build_step == 0))
 		build_step++
@@ -336,7 +331,6 @@
 		qdel(W)
 		return 1
 
-	else if((istype(W, /obj/item/weapon/reagent_containers/glass/bucket)) && (build_step == 1))
 		build_step++
 		user << "You add a bucket to [src]."
 		name = "farmbot assembly with bucket"
@@ -344,7 +338,6 @@
 		qdel(W)
 		return 1//Prevents the object's afterattack from executing and causing runtime errors
 
-	else if((istype(W, /obj/item/weapon/material/minihoe)) && (build_step == 2))
 		build_step++
 		user << "You add a minihoe to [src]."
 		name = "farmbot assembly with bucket and minihoe"
@@ -365,7 +358,6 @@
 		qdel(src)
 		return 1
 
-	else if(istype(W, /obj/item/weapon/pen))
 		var/t = input(user, "Enter new robot name", name, created_name) as text
 		t = sanitize(t, MAX_NAME_LEN)
 		if(!t)
@@ -375,5 +367,4 @@
 
 		created_name = t
 
-/obj/item/weapon/farmbot_arm_assembly/attack_hand(mob/user as mob)
 	return //it's a converted watertank, no you cannot pick it up and put it in your backpack

@@ -2,7 +2,6 @@
 //malfunctioning combat drones
 /mob/living/simple_animal/hostile/retaliate/malf_drone
 	name = "combat drone"
-	desc = "An automated combat drone armed with state of the art weaponry and shielding."
 	icon_state = "drone3"
 	icon_living = "drone3"
 	icon_dead = "drone_dead"
@@ -21,7 +20,6 @@
 	maxHealth = 300
 	speed = 8
 	projectiletype = /obj/item/projectile/beam/drone
-	projectilesound = 'sound/weapons/laser3.ogg'
 	destroy_surroundings = 0
 	var/datum/effect_system/ion_trail/ion_trail
 
@@ -55,7 +53,6 @@
 	. = ..()
 	if(prob(5))
 		projectiletype = /obj/item/projectile/beam/pulse/drone
-		projectilesound = 'sound/weapons/pulse2.ogg'
 	ion_trail = new(src)
 	ion_trail.start()
 
@@ -165,16 +162,12 @@
 		var/obj/O
 
 		//shards
-		O = new /obj/item/weapon/material/shard(src.loc)
 		step_to(O, get_turf(pick(view(7, src))))
 		if(prob(75))
-			O = new /obj/item/weapon/material/shard(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 		if(prob(50))
-			O = new /obj/item/weapon/material/shard(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 		if(prob(25))
-			O = new /obj/item/weapon/material/shard(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 
 		//rods
@@ -204,7 +197,6 @@
 			step_to(O, get_turf(pick(view(7, src))))
 
 		//also drop dummy circuit boards deconstructable for research (loot)
-		var/obj/item/weapon/circuitboard/C
 
 		//spawn 1-4 boards of a random type
 		var/spawnees = 0

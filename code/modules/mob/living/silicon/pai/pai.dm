@@ -2,7 +2,6 @@
 	name = "pAI"
 	icon = 'icons/mob/pai.dmi'
 	icon_state = "repairbot"
-	holder_type = /obj/item/weapon/holder/pai/drone
 
 	emote_type = 2		// pAIs emotes are heard, not seen, so they can be seen through a container (eg. person)
 	pass_flags = PASSTABLE | PASSDOORHATCH
@@ -28,11 +27,6 @@
 		)
 
 	var/global/list/pai_holder_types = list(
-		"Drone" = /obj/item/weapon/holder/pai/drone,
-		"Cat" = /obj/item/weapon/holder/pai/cat,
-		"Mouse" = /obj/item/weapon/holder/pai/mouse,
-		"Monkey" = /obj/item/weapon/holder/pai/monkey,
-		"Rabbit" = /obj/item/weapon/holder/pai/rabbit
 		)
 
 	var/global/list/possible_say_verbs = list(
@@ -44,8 +38,6 @@
 		"Rodent" = list("squeaks","squeals","squeeks")
 		)
 
-	var/obj/item/weapon/pai_cable/cable		// The cable we produce and use when door or camera jacking
-	idcard_type = /obj/item/weapon/card/id	//Internal ID used to store copied owner access, and to check access for airlocks
 
 	var/master				// Name of the one who commands us
 	var/master_dna			// DNA string for owner verification
@@ -106,7 +98,6 @@
 
 
 		if(I_HURT)
-			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
 			M.visible_message(span("danger","[M] [response_harm] \the [src]"))
 			M.do_attack_animation(src)
 			updatehealth()
@@ -411,7 +402,6 @@
 	// Pass lying down or getting up to our pet human, if we're in a rig.
 	if(istype(src.loc,/obj/item/device/paicard))
 		resting = 0
-		var/obj/item/weapon/rig/rig = src.get_rig()
 		if(istype(rig))
 			rig.force_rest(src)
 	else
@@ -422,7 +412,6 @@
 	canmove = !resting
 
 //Overriding this will stop a number of headaches down the track.
-/mob/living/silicon/pai/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(W.force)
 		visible_message("<span class='danger'>[user.name] attacks [src] with [W]!</span>")
 		src.adjustBruteLoss(W.force)
@@ -458,7 +447,6 @@
 	resting = 0
 
 	// If we are being held, handle removing our holder from their inv.
-	var/obj/item/weapon/holder/H = loc
 	if(istype(H))
 		var/mob/living/M = H.loc
 		if(istype(M))
@@ -481,7 +469,6 @@
 
 // Handle being picked up.
 /mob/living/silicon/pai/get_scooped(var/mob/living/carbon/grabber, var/self_drop)
-	var/obj/item/weapon/holder/H = ..(grabber, self_drop)
 	if(!istype(H))
 		return
 	H.icon_state = "pai-[icon_state]"

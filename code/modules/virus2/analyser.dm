@@ -8,10 +8,8 @@
 	var/scanning = 0
 	var/pause = 0
 
-	var/obj/item/weapon/virusdish/dish = null
 
 /obj/machinery/disease2/diseaseanalyser/attackby(var/obj/O as obj, var/mob/user as mob)
-	if(!istype(O,/obj/item/weapon/virusdish)) return
 
 	if(dish)
 		user << "\The [src] is already loaded."
@@ -33,7 +31,6 @@
 			if (dish.virus2.addToDB())
 				ping("\The [src] pings, \"New pathogen added to data bank.\"")
 
-			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
 			var/pname = "paper - [dish.virus2.name()]"
 			var/info
 

@@ -7,8 +7,6 @@
 	icon_screen = "medcomp"
 	light_color = "#315ab4"
 	req_one_access = list(access_medical_equip, access_forensics_lockers, access_detective)
-	circuit = /obj/item/weapon/circuitboard/med_data
-	var/obj/item/weapon/card/id/scan = null
 	var/authenticated = null
 	var/rank = null
 	var/screen = null
@@ -38,7 +36,6 @@
 	return
 
 /obj/machinery/computer/med_data/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/card/id) && !scan && user.unEquip(O))
 		O.loc = src
 		scan = O
 		user << "You insert \the [O]."
@@ -186,7 +183,6 @@
 
 			else
 				var/obj/item/I = usr.get_active_hand()
-				if (istype(I, /obj/item/weapon/card/id))
 					usr.drop_item()
 					I.loc = src
 					src.scan = I
@@ -214,7 +210,6 @@
 				src.rank = "[R.modtype] [R.braintype]"
 				src.screen = 1
 
-			else if (istype(src.scan, /obj/item/weapon/card/id))
 				src.active1 = null
 				src.active2 = null
 
@@ -501,7 +496,6 @@
 				if ((istype(src.active2, /datum/data/record) && data_core.medical.Find(src.active2)))
 					record2 = active2
 
-				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()
 				var/info = "<CENTER><B>Medical Record</B></CENTER><BR>"
 				var/rname
 				if (record1)

@@ -141,7 +141,6 @@
 		var/burst_time = (min_burst_delay + max_burst_delay)/2 + 2*(burst_shots-1)
 		var/power_per_shot = active_power_usage * (burst_time/10) / burst_shots
 
-		playsound(src.loc, 'sound/weapons/emitter.ogg', 25, 1)
 		if(prob(35))
 			spark_system.queue()
 
@@ -175,7 +174,6 @@
 		return
 
 	if(iswelder(W))
-		var/obj/item/weapon/weldingtool/WT = W
 		if(active)
 			user << "Turn off [src] first."
 			return
@@ -210,7 +208,6 @@
 					user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
 		return
 
-	if(istype(W, /obj/item/weapon/card/id) || istype(W, /obj/item/device/pda))
 		if(emagged)
 			user << "<span class='warning'>The lock seems to be broken.</span>"
 			return

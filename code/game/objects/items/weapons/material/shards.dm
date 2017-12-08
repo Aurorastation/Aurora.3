@@ -1,6 +1,5 @@
 // Glass shards
 
-/obj/item/weapon/material/shard
 	name = "shard"
 	icon = 'icons/obj/shards.dmi'
 	desc = "Made of nothing. How does this even exist?" // set based on material, if this desc is visible it's a bug (shards default to being made of glass)
@@ -16,7 +15,6 @@
 	unbreakable = 1 //It's already broken.
 	drops_debris = 0
 
-/obj/item/weapon/material/shard/set_material(var/new_material)
 	..(new_material)
 	if(!istype(material))
 		return
@@ -28,7 +26,6 @@
 
 	if(material.shard_type)
 		name = "[material.display_name] [material.shard_type]"
-		desc = "A small piece of [material.display_name]. It looks sharp, you wouldn't want to step on it barefoot. Could probably be used as ... a throwing weapon?"
 		switch(material.shard_type)
 			if(SHARD_SPLINTER, SHARD_SHRAPNEL)
 				gender = PLURAL
@@ -37,7 +34,6 @@
 	else
 		qdel(src)
 
-/obj/item/weapon/material/shard/update_icon()
 	if(material)
 		color = material.icon_colour
 		// 1-(1-x)^2, so that glass shards with 0.3 opacity end up somewhat visible at 0.51 opacity
@@ -46,16 +42,13 @@
 		color = "#ffffff"
 		alpha = 255
 
-/obj/item/weapon/material/shard/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(iswelder(W) && material.shard_can_repair)
-		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
 			material.place_sheet(loc)
 			qdel(src)
 			return
 	return ..()
 
-/obj/item/weapon/material/shard/Crossed(AM as mob|obj)
 	..()
 	if(isliving(AM))
 		var/mob/M = AM
@@ -91,14 +84,10 @@
 			return
 
 // Preset types - left here for the code that uses them
-/obj/item/weapon/material/shard/shrapnel/New(loc)
 	..(loc, "steel")
 
-/obj/item/weapon/material/shard/shrapnel/flechette/New(loc)
 	..(loc, "titanium")
 
-/obj/item/weapon/material/shard/phoron/New(loc)
 	..(loc, "phglass")
 
-/obj/item/weapon/material/shard/wood/New(loc)
 	..(loc, "wood")

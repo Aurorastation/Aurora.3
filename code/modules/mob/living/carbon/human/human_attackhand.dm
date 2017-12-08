@@ -15,7 +15,6 @@
 		return
 
 	..()
-	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/weapon/rig)))
 		H << "<span class='danger'>You are now visible.</span>"
 		H.invisibility = 0
 
@@ -49,7 +48,6 @@
 						apply_damage(rand(5,25), BURN, M.zone_sel.selecting,armorblock)
 
 						if(prob(15))
-							playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 							M.visible_message("<span class='warning'>The power source on [M]'s stun gloves overloads in a terrific fashion!</span>", "<span class='warning'>Your jury rigged stun gloves malfunction!</span>", "<span class='warning'>You hear a loud sparking.</span>")
 
 							if(prob(50))
@@ -72,7 +70,6 @@
 			H.do_attack_animation(src)
 			var/damage = rand(0, 9)
 			if(!damage)
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 				visible_message("<span class='danger'>[H] has attempted to punch [src]!</span>")
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
@@ -136,7 +133,6 @@
 		if(I_GRAB)
 			if(M == src || anchored)
 				return 0
-			for(var/obj/item/weapon/grab/G in src.grabbed_by)
 				if(G.assailant == M)
 					M << "<span class='notice'>You already grabbed [src].</span>"
 					return
@@ -148,7 +144,6 @@
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
 
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
 			if(buckled)
 				M << "<span class='notice'>You cannot grab [src], \he is buckled in!</span>"
 			if(!G)	//the grab will delete itself in New if affecting is anchored
@@ -158,7 +153,6 @@
 			LAssailant = M
 
 			H.do_attack_animation(src)
-			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force/syndicate)) //only antag gloves can do this for now
 				G.state = GRAB_AGGRESSIVE
 				G.icon_state = "grabbed1"
@@ -253,7 +247,6 @@
 			else
 				H.visible_message("<span class='danger'>[attack_message]</span>")
 
-			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 			H.attack_log += text("\[[time_stamp()]\] <font color='red'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [H.name] ([H.ckey])</font>")
 			msg_admin_attack("[key_name(H)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(src)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(src))
@@ -294,7 +287,6 @@
 			var/list/holding = list(get_active_hand() = 40, get_inactive_hand = 20)
 
 			//See if they have any guns that might go off
-			for(var/obj/item/weapon/gun/W in holding)
 				if(W && prob(holding[W]))
 					var/list/turfs = list()
 					for(var/turf/T in view())
@@ -308,7 +300,6 @@
 			if(randn <= 25)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					apply_effect(6, WEAKEN, run_armor_check(affecting, "melee"))
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					visible_message("<span class='danger'>[M] hurls [src] to the floor!</span>")
 					step_away(src,M,15)
 					sleep(3)
@@ -318,7 +309,6 @@
 				else
 					var/armor_check = run_armor_check(affecting, "melee")
 					apply_effect(3, WEAKEN, armor_check)
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					if(armor_check < 100)
 						visible_message("<span class='danger'>[M] has pushed [src]!</span>")
 					else
@@ -327,7 +317,6 @@
 
 			if(randn <= 60)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					visible_message("<span class='danger'>[M] shoves, sending [src] flying!</span>")
 					step_away(src,M,15)
 					sleep(1)
@@ -342,7 +331,6 @@
 
 				//See about breaking grips or pulls
 				if(break_all_grabs(M))
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					return
 
 				//Actually disarm them
@@ -350,10 +338,8 @@
 					if(I)
 						drop_from_inventory(I)
 						visible_message("<span class='danger'>[M] has disarmed [src]!</span>")
-						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 						return
 
-			playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")
 	return
 
@@ -380,7 +366,6 @@
 //Used to attack a joint through grabbing
 /mob/living/carbon/human/proc/grab_joint(var/mob/living/user, var/def_zone)
 	var/has_grab = 0
-	for(var/obj/item/weapon/grab/G in list(user.l_hand, user.r_hand))
 		if(G.affecting == src && G.state == GRAB_NECK)
 			has_grab = 1
 			break
@@ -413,15 +398,11 @@
 		success = 1
 		stop_pulling()
 
-	if(istype(l_hand, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/lgrab = l_hand
 		if(lgrab.affecting)
 			visible_message("<span class='danger'>[user] has broken [src]'s grip on [lgrab.affecting]!</span>")
 			success = 1
 		spawn(1)
 			qdel(lgrab)
-	if(istype(r_hand, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/rgrab = r_hand
 		if(rgrab.affecting)
 			visible_message("<span class='danger'>[user] has broken [src]'s grip on [rgrab.affecting]!</span>")
 			success = 1

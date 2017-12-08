@@ -2,19 +2,15 @@
 
 
 //endless reagents!
-/obj/item/weapon/reagent_containers/glass/replenishing
 	var/spawning_id
 
-/obj/item/weapon/reagent_containers/glass/replenishing/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	spawning_id = pick("blood","holywater","lube","stoxin","ethanol","ice","glycerol","fuel","cleaner")
 
 
-/obj/item/weapon/reagent_containers/glass/replenishing/process()
 	reagents.add_reagent(spawning_id, 0.3)
 
-/obj/item/weapon/reagent_containers/glass/replenishing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
@@ -51,7 +47,6 @@
 
 //a vampiric statuette
 //todo: cult integration
-/obj/item/weapon/vampiric
 	name = "statuette"
 	icon_state = "statuette"
 	icon = 'icons/obj/xenoarchaeology.dmi'
@@ -64,17 +59,14 @@
 	var/wight_check_index = 1
 	var/list/shadow_wights = list()
 
-/obj/item/weapon/vampiric/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
 	listening_objects += src
 
-/obj/item/weapon/vampiric/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	listening_objects -= src
 	return ..()
 
-/obj/item/weapon/vampiric/process()
 	//see if we've identified anyone nearby
 	if(world.time - last_bloodcall > bloodcall_interval && nearby_mobs.len)
 		var/mob/living/carbon/human/M = pop(nearby_mobs)
@@ -132,12 +124,10 @@
 		else if(get_dist(W, src) > 10)
 			shadow_wights.Remove(wight_check_index)
 
-/obj/item/weapon/vampiric/hear_talk(mob/M as mob, text)
 	..()
 	if(world.time - last_bloodcall >= bloodcall_interval && M in view(7, src))
 		bloodcall(M)
 
-/obj/item/weapon/vampiric/proc/bloodcall(var/mob/living/carbon/human/M)
 	last_bloodcall = world.time
 	if(istype(M))
 		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 50, 1, -3)

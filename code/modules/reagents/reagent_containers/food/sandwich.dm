@@ -1,12 +1,8 @@
-/obj/item/weapon/reagent_containers/food/snacks/breadslice/attackby(obj/item/W as obj, mob/user as mob)
 
-	if(istype(W,/obj/item/weapon/material/shard) || istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		var/obj/item/weapon/reagent_containers/food/snacks/csandwich/S = new(get_turf(src))
 		S.attackby(W,user)
 		qdel(src)
 	..()
 
-/obj/item/weapon/reagent_containers/food/snacks/csandwich
 	name = "sandwich"
 	desc = "The best thing since sliced bread."
 	icon_state = "breadslice"
@@ -15,25 +11,20 @@
 
 	var/list/ingredients = list()
 
-/obj/item/weapon/reagent_containers/food/snacks/csandwich/attackby(obj/item/W as obj, mob/user as mob)
 
 	var/sandwich_limit = 4
 	for(var/obj/item/O in ingredients)
-		if(istype(O,/obj/item/weapon/reagent_containers/food/snacks/breadslice))
 			sandwich_limit += 4
 
 	if(src.contents.len > sandwich_limit)
 		user << "<span class='warning'>If you put anything else on \the [src] it's going to collapse.</span>"
 		return
-	else if(istype(W,/obj/item/weapon/material/shard))
 		user << "<span class='notice'>You hide [W] in \the [src].</span>"
 		user.drop_item()
 		W.loc = src
 		update()
 		return
-	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
 		user << "<span class='notice'>You layer [W] over \the [src].</span>"
-		var/obj/item/weapon/reagent_containers/F = W
 		F.reagents.trans_to_obj(src, F.reagents.total_volume)
 		user.drop_item()
 		W.loc = src
@@ -42,14 +33,12 @@
 		return
 	..()
 
-/obj/item/weapon/reagent_containers/food/snacks/csandwich/proc/update()
 	var/fullname = "" //We need to build this from the contents of the var.
 	var/i = 0
 
 	cut_overlays()
 	var/list/ovr = list()
 
-	for(var/obj/item/weapon/reagent_containers/food/snacks/O in ingredients)
 
 		i++
 		if(i == 1)
@@ -76,21 +65,17 @@
 	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous"))] sandwich"
 	w_class = n_ceil(Clamp((ingredients.len/2),2,4))
 
-/obj/item/weapon/reagent_containers/food/snacks/csandwich/Destroy()
 	for(var/obj/item/O in ingredients)
 		qdel(O)
 	return ..()
 
-/obj/item/weapon/reagent_containers/food/snacks/csandwich/examine(mob/user)
 	..(user)
 	var/obj/item/O = pick(contents)
 	user << "<span class='notice'>You think you can see [O.name] in there.</span>"
 
-/obj/item/weapon/reagent_containers/food/snacks/csandwich/attack(mob/M as mob, mob/user as mob, def_zone)
 
 	var/obj/item/shard
 	for(var/obj/item/O in contents)
-		if(istype(O,/obj/item/weapon/material/shard))
 			shard = O
 			break
 

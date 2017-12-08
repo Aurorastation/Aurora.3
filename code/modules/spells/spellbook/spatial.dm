@@ -1,4 +1,3 @@
-/obj/item/weapon/spellbook/spatial
 	spellbook_type = /datum/spellbook/spatial
 
 /datum/spellbook/spatial
@@ -22,9 +21,5 @@
 				/spell/aoe_turf/conjure/forcewall = 			1,
 				/spell/aoe_turf/smoke = 				1,
 				/spell/aoe_turf/conjure/summon/bats = 			3,
-				/obj/item/weapon/contract/wizard/tk = 			5,
 				/obj/structure/closet/wizard/scrying = 			2,
-				/obj/item/weapon/storage/belt/wands/full = 		4,
-				/obj/item/weapon/teleportation_scroll = 		1,
-				/obj/item/weapon/contract/apprentice = 			1
 				)

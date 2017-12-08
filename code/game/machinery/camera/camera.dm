@@ -15,7 +15,6 @@
 	anchored = 1.0
 	var/invuln = null
 	var/bugged = 0
-	var/obj/item/weapon/camera_assembly/assembly = null
 
 	var/toughness = 5 //sorta fragile
 
@@ -123,7 +122,6 @@
 		set_status(0)
 		user.do_attack_animation(src)
 		visible_message("<span class='warning'>\The [user] slashes at [src]!</span>")
-		playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
 		add_hiddenprint(user)
 		destroy()
 
@@ -161,14 +159,11 @@
 			qdel(src)
 
 	// OTHER
-	else if (can_use() && (istype(W, /obj/item/weapon/paper) || istype(W, /obj/item/device/pda)) && isliving(user))
 		var/info = null
 		var/mob/living/U = user
-		var/obj/item/weapon/paper/X = null
 		var/obj/item/device/pda/P = null
 
 		var/itemname = ""
-		if(istype(W, /obj/item/weapon/paper))
 			X = W
 			itemname = X.name
 			info = X.info
@@ -192,7 +187,6 @@
 					O << "[U] holds \a [itemname] up to one of the cameras ..."
 					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname)) //Force people watching to open the page so they can't see it again
 
-	else if (istype(W, /obj/item/weapon/camera_bug))
 		if (!src.can_use())
 			user << "<span class='warning'>Camera non-functional.</span>"
 			return
@@ -362,7 +356,6 @@
 
 	return null
 
-/obj/machinery/camera/proc/weld(var/obj/item/weapon/weldingtool/WT, var/mob/user)
 
 	if(busy)
 		return 0

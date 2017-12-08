@@ -43,7 +43,6 @@
 		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
 	if (iswelder(C))
-		var/obj/item/weapon/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			user << "<span class='notice'>Slicing lattice joints ...</span>"
 		new /obj/item/stack/rods(src.loc)
@@ -52,7 +51,6 @@
 		var/obj/item/stack/rods/R = C
 		if (R.use(2))
 			user << "<span class='notice'>Constructing catwalk ...</span>"
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
 		return
@@ -74,7 +72,6 @@
 
 /obj/structure/lattice/catwalk/attackby(obj/item/C, mob/user)
 	if (iswelder(C))
-		var/obj/item/weapon/weldingtool/WT = C
 		if (do_after(user, 5, act_target = src) && WT.remove_fuel(1, user))
 			user << "<span class='notice'>You slice apart [src].</span>"
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)

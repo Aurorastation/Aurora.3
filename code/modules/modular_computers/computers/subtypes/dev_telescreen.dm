@@ -18,7 +18,6 @@
 	w_class = 5
 	is_holographic = TRUE
 
-/obj/item/modular_computer/telescreen/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if(iscrowbar(W))
 		if(anchored)
 			shutdown_computer()

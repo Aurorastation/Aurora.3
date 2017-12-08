@@ -12,6 +12,4 @@
     Floorlist = null
     var/obj/structure/closet/C = locate(/obj/structure/closet) in F
     if (C)
-        new /obj/item/weapon/reagent_containers/food/snacks/goldenegg(C)
     else
-        new /obj/item/weapon/reagent_containers/food/snacks/goldenegg(F)

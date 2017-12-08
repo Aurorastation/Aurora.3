@@ -1,6 +1,5 @@
 
 //TODO: Matter decompiler.
-/obj/item/weapon/matter_decompiler
 
 	name = "matter decompiler"
 	desc = "Eating trash, bits of glass, or other debris will replenish your stores."
@@ -13,10 +12,8 @@
 	var/datum/matter_synth/wood = null
 	var/datum/matter_synth/plastic = null
 
-/obj/item/weapon/matter_decompiler/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	return
 
-/obj/item/weapon/matter_decompiler/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, proximity, params)
 
 	if(!proximity) return //Not adjacent.
 
@@ -72,10 +69,8 @@
 
 	for(var/obj/W in T)
 		//Different classes of items give different commodities.
-		if(istype(W,/obj/item/weapon/cigbutt))
 			if(plastic)
 				plastic.add_charge(500)
-		else if (istype(W, /obj/item/weapon/flame/match))
 			if (wood)
 				wood.add_charge(100)
 		else if(istype(W,/obj/effect/spider/spiderling))
@@ -83,8 +78,6 @@
 				wood.add_charge(2000)
 			if(plastic)
 				plastic.add_charge(2000)
-		else if(istype(W,/obj/item/weapon/light))
-			var/obj/item/weapon/light/L = W
 			if(L.status >= 2) //In before someone changes the inexplicably local defines. ~ Z
 				if(metal)
 					metal.add_charge(250)
@@ -112,13 +105,10 @@
 		else if(istype(W,/obj/item/ammo_casing))
 			if(metal)
 				metal.add_charge(1000)
-		else if(istype(W,/obj/item/weapon/material/shard/shrapnel))
 			if(metal)
 				metal.add_charge(1000)
-		else if(istype(W,/obj/item/weapon/material/shard))
 			if(glass)
 				glass.add_charge(1000)
-		else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/grown))
 			if(wood)
 				wood.add_charge(4000)
 		else if(istype(W,/obj/item/pipe))
@@ -141,12 +131,9 @@
 //PRETTIER TOOL LIST.
 /mob/living/silicon/robot/drone/installed_modules()
 
-	if(weapon_lock)
-		src << "<span class='danger'>Weapon lock active, unable to use modules! Count:[weaponlock_time]</span>"
 		return
 
 	if(!module)
-		module = new /obj/item/weapon/robot_module/drone(src)
 
 	var/dat = "<HEAD><TITLE>Drone modules</TITLE></HEAD><BODY>\n"
 	dat += {"
@@ -173,7 +160,6 @@
 		else
 			module_string += text("[O]: <A HREF=?src=\ref[src];act=\ref[O]>Activate</A><BR>")
 
-		if((istype(O,/obj/item/weapon) || istype(O,/obj/item/device)) && !(iscoil(O)))
 			tools += module_string
 		else
 			resources += module_string

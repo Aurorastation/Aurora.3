@@ -106,7 +106,6 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 				if (ishuman(M))
 					var/mob/living/carbon/human/H = M
 					H.update_surgery()
-				return	1	  												//don't want to do weapony things after surgery
 
 	if (user.a_intent == I_HELP)
 		user << "<span class='warning'>You can't see any useful way to use [tool] on [M].</span>"

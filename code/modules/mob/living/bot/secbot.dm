@@ -9,7 +9,6 @@
 
 	var/mob/target
 
-	var/idcheck = 0 // If true, arrests for having weapons without authorization.
 	var/check_records = 0 // If true, arrests people without a record.
 	var/check_arrest = 1 // If true, arrests people who are set to arrest.
 	var/arrest_type = 0 // If true, doesn't handcuff. You monster.
@@ -173,7 +172,6 @@
 				return
 			if(target)
 				var/threat = check_threat(target)
-				if(threat < 4) // Re-evaluate in case they dropped the weapon or something
 					target = null
 					frustration = 0
 					awaiting_surrender = 0
@@ -277,13 +275,11 @@
 		var/cuff = 1
 		if(istype(C, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = C
-			if(istype(H.back, /obj/item/weapon/rig) && istype(H.gloves,/obj/item/clothing/gloves/rig))
 				cuff = 0
 		if(!C.lying || C.handcuffed || arrest_type)
 			cuff = 0
 		if(!cuff)
 			C.stun_effect_act(0, 60, null)
-			playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 			do_attack_animation(C)
 			is_attacking = 1
 			update_icons()
@@ -292,11 +288,9 @@
 				update_icons()
 			visible_message("<span class='warning'>[C] was prodded by [src] with a stun baton!</span>")
 		else
-			playsound(loc, 'sound/weapons/handcuffs.ogg', 30, 1, -2)
 			visible_message("<span class='warning'>[src] is trying to put handcuffs on [C]!</span>")
 			if(do_mob(src, C, 60))
 				if(!C.handcuffed)
-					C.handcuffed = new /obj/item/weapon/handcuffs(C)
 					C.update_inv_handcuffed()
 				if(preparing_arrest_sounds.len)
 					playsound(loc, pick(preparing_arrest_sounds), 50, 0)
@@ -317,12 +311,10 @@
 	visible_message("<span class='warning'>[src] blows apart!</span>")
 	var/turf/Tsec = get_turf(src)
 
-	var/obj/item/weapon/secbot_assembly/Sa = new /obj/item/weapon/secbot_assembly(Tsec)
 	Sa.build_step = 1
 	Sa.add_overlay("hs_hole")
 	Sa.created_name = name
 	new /obj/item/device/assembly/prox_sensor(Tsec)
-	new /obj/item/weapon/melee/baton(Tsec)
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 
@@ -504,7 +496,6 @@
 
 	if(S.secured)
 		qdel(S)
-		var/obj/item/weapon/secbot_assembly/A = new /obj/item/weapon/secbot_assembly
 		user.put_in_hands(A)
 		user << "You add the signaler to the helmet."
 		user.drop_from_inventory(src)
@@ -513,7 +504,6 @@
 	else
 		return
 
-/obj/item/weapon/secbot_assembly
 	name = "helmet/signaler assembly"
 	desc = "Some sort of bizarre assembly."
 	icon = 'icons/obj/aibots.dmi'
@@ -522,10 +512,8 @@
 	var/build_step = 0
 	var/created_name = "Securitron"
 
-/obj/item/weapon/secbot_assembly/attackby(var/obj/item/O, var/mob/user)
 	..()
 	if(iswelder(O) && !build_step)
-		var/obj/item/weapon/weldingtool/WT = O
 		if(WT.remove_fuel(0, user))
 			build_step = 1
 			add_overlay("hs_hole")
@@ -550,7 +538,6 @@
 		qdel(O)
 		return 1
 
-	else if(istype(O, /obj/item/weapon/melee/baton) && build_step == 3)
 		user.drop_item()
 		user << "You complete the Securitron! Beep boop."
 		var/mob/living/bot/secbot/S = new /mob/living/bot/secbot(get_turf(src))
@@ -559,7 +546,6 @@
 		qdel(src)
 		return 1
 
-	else if(istype(O, /obj/item/weapon/pen))
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
 		if(!t)
 			return

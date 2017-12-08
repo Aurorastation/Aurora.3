@@ -8,7 +8,6 @@
 	use_power = 1
 	idle_power_usage = 40
 	var/processing = 0
-	var/obj/item/weapon/reagent_containers/glass/beaker = null
 	var/points = 0
 	var/menustat = "menu"
 	var/build_eff = 1
@@ -16,9 +15,6 @@
 	var/capacity = 50
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/biogenerator,
-		/obj/item/weapon/stock_parts/matter_bin,
-		/obj/item/weapon/stock_parts/manipulator
 	)
 
 /obj/machinery/biogenerator/Initialize()
@@ -26,7 +22,6 @@
 	var/datum/reagents/R = new/datum/reagents(1000)
 	reagents = R
 	R.my_atom = src
-	beaker = new /obj/item/weapon/reagent_containers/glass/bottle(src)
 
 /obj/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
 	update_icon()
@@ -47,7 +42,6 @@
 		return
 	if(default_part_replacement(user, O))
 		return
-	if(istype(O, /obj/item/weapon/reagent_containers/glass))
 		if(beaker)
 			user << "<span class='notice'>]The [src] is already loaded.</span>"
 		else
@@ -57,15 +51,11 @@
 			updateUsrDialog()
 	else if(processing)
 		user << "<span class='notice'>\The [src] is currently processing.</span>"
-	else if(istype(O, /obj/item/weapon/storage/bag/plants))
 		var/i = 0
-		var/obj/item/weapon/storage/bag/P = O
-		for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in contents)
 			i++
 		if(i >= capacity)
 			user << "<span class='notice'>\The [src] is already full! Activate it.</span>"
 		else
-			for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in P.contents)
 				P.remove_from_storage(G,src)
 				i++
 				if(i >= capacity)
@@ -78,11 +68,9 @@
 				user << "<span class='notice'>You empty \the [O] into \the [src].</span>"
 
 
-	else if(!istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown))
 		user << "<span class='notice'>You cannot put this in \the [src].</span>"
 	else
 		var/i = 0
-		for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in contents)
 			i++
 		if(i >= capacity)
 			user << "<span class='notice'>\The [src] is full! Activate it.</span>"
@@ -149,7 +137,6 @@
 		usr << "<span class='notice'>The biogenerator is in the process of working.</span>"
 		return
 	var/S = 0
-	for(var/obj/item/weapon/reagent_containers/food/snacks/grown/I in contents)
 		S += 5
 		if(I.reagents.get_reagent_amount("nutriment") < 0.1)
 			points += 1
@@ -183,41 +170,18 @@
 		if("milk")
 			beaker.reagents.add_reagent("milk", 10)
 		if("meat")
-			new/obj/item/weapon/reagent_containers/food/snacks/meat(loc)
 		if("ez")
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/ez(loc)
 		if("l4z")
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/l4z(loc)
 		if("rh")
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/rh(loc)
 		if("ez5") //It's not an elegant method, but it's safe and easy. -Cheridan
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/ez(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/ez(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/ez(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/ez(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/ez(loc)
 		if("l4z5")
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/l4z(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/l4z(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/l4z(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/l4z(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/l4z(loc)
 		if("rh5")
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/rh(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/rh(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/rh(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/rh(loc)
-			new/obj/item/weapon/reagent_containers/glass/fertilizer/rh(loc)
 		if("wallet")
-			new/obj/item/weapon/storage/wallet(loc)
 		if("gloves")
 			new/obj/item/clothing/gloves/botanic_leather(loc)
 		if("tbelt")
-			new/obj/item/weapon/storage/belt/utility(loc)
 		if("satchel")
-			new/obj/item/weapon/storage/backpack/satchel(loc)
 		if("cashbag")
-			new/obj/item/weapon/storage/bag/cash(loc)
 		if("monkey")
 			new/mob/living/carbon/human/monkey(loc)
 	processing = 0
@@ -251,7 +215,6 @@
 	var/man_rating = 1
 	var/bin_rating = 1
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(ismatterbin(P))
 			bin_rating += P.rating
 		else if(ismanipulator(P))

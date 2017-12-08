@@ -1,4 +1,3 @@
-/obj/item/weapon/bee_net
 	name = "bee net"
 	desc = "For catching rogue bees."
 	icon = 'icons/obj/apiary_bees_etc.dmi'
@@ -8,14 +7,12 @@
 	var/caught_bees = 0
 	var/feralbees
 
-/obj/item/weapon/bee_net/examine(var/mob/user)
 	..()
 	if (caught_bees)
 		user << span("notice", "It contains [caught_bees] bees")
 	else
 		user << span("notice", "It is empty")
 
-/obj/item/weapon/bee_net/attack_self(mob/user as mob)
 	var/turf/T = get_step(get_turf(user), user.dir)
 	for(var/mob/living/simple_animal/bee/B in T)
 		capture_bees(B, user)
@@ -24,7 +21,6 @@
 
 
 
-/obj/item/weapon/bee_net/resolve_attackby(atom/A, mob/user)
 	if (istype(A, /turf))
 		var/turf/T = A
 		for(var/mob/living/simple_animal/bee/B in T)
@@ -39,7 +35,6 @@
 	..()
 
 
-/obj/item/weapon/bee_net/proc/capture_bees(var/mob/living/simple_animal/bee/target, var/mob/living/user)
 
 	if (user)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2)//make it harder to spamclick bees into submission
@@ -95,7 +90,6 @@
 
 
 
-/obj/item/weapon/bee_net/proc/deposit_bees(var/obj/machinery/beehive/newhome, var/mob/user)
 	if (!newhome.closed)
 		var/delta = min(100 - newhome.bee_count, caught_bees)
 
@@ -109,7 +103,6 @@
 	else
 		user << span("warning", "You'll have to open the lid before you can place bees inside")
 
-/obj/item/weapon/bee_net/verb/empty_bees()
 	set src in usr
 	set name = "Empty bee net"
 	set category = "Object"

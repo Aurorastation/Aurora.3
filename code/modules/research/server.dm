@@ -15,8 +15,6 @@
 	req_access = list(access_rd) //Only the R&D can change server settings.
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/rdserver,
-		/obj/item/weapon/stock_parts/scanning_module,
 		/obj/item/stack/cable_coil = 2
 	)
 
@@ -27,7 +25,6 @@
 /obj/machinery/r_n_d/server/RefreshParts()
 	var/tot_rating = 0
 
-	for(var/obj/item/weapon/stock_parts/SP in component_parts)
 		tot_rating += SP.rating
 	idle_power_usage /= max(1, tot_rating)
 
@@ -155,7 +152,6 @@
 
 	icon_screen = "rdcomp"
 	light_color = "#a97faa"
-	circuit = /obj/item/weapon/circuitboard/rdservercontrol
 	var/screen = 0
 	var/obj/machinery/r_n_d/server/temp_server
 	var/list/servers = list()

@@ -213,16 +213,12 @@
 	..()
 	damage(proj_damage)
 
-/obj/structure/closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(src.opened)
-		if(istype(W, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = W
 			src.MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
 		if(istype(W,/obj/item/tk_grab))
 			return 0
 		if(iswelder(W))
-			var/obj/item/weapon/weldingtool/WT = W
 			user.visible_message(
 				"<span class='warning'>[user] begins cutting [src] apart.</span>",
 				"<span class='notice'>You begin cutting [src] apart.</span>",
@@ -243,8 +239,6 @@
 				)
 				qdel(src)
 				return
-		if(istype(W, /obj/item/weapon/storage/laundry_basket) && W.contents.len)
-			var/obj/item/weapon/storage/laundry_basket/LB = W
 			var/turf/T = get_turf(src)
 			for(var/obj/item/I in LB.contents)
 				LB.remove_from_storage(I, T)
@@ -259,10 +253,8 @@
 		usr.drop_item()
 		if(W)
 			W.forceMove(src.loc)
-	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
 	else if(iswelder(W))
-		var/obj/item/weapon/weldingtool/WT = W
 		user.visible_message(
 			"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
 			"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",

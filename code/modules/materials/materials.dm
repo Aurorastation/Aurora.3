@@ -6,7 +6,6 @@
 
 	PATHS THAT USE DATUMS
 		turf/simulated/wall
-		obj/item/weapon/material
 		obj/structure/barricade
 		obj/item/stack/material
 		obj/structure/table
@@ -104,11 +103,8 @@ var/list/name_to_material
 	var/list/window_options = list()
 
 	// Damage values.
-	var/hardness = 60            // Prob of wall destruction by hulk, used for edge damage in weapons.
-	var/weight = 20              // Determines blunt damage/throwforce for weapons.
 
 	// Noise when someone is faceplanted onto a table made of this material.
-	var/tableslam_noise = 'sound/weapons/tablehit1.ogg'
 	// Noise made when a simple door made of this material opens or closes.
 	var/dooropen_noise = 'sound/effects/stonedoor_openclose.ogg'
 	// Path to resulting stacktype. Todo remove need for this.
@@ -209,7 +205,6 @@ var/list/name_to_material
 /material/proc/can_open_material_door(var/mob/living/user)
 	return 1
 
-// Currently used for weapons and objects made of uranium to irradiate things.
 /material/proc/products_need_process()
 	return (radioactivity>0) //todo
 
@@ -238,9 +233,7 @@ var/list/name_to_material
 // As above.
 /material/proc/place_shard(var/turf/target)
 	if(shard_type)
-		return new /obj/item/weapon/material/shard(target, src.name)
 
-// Used by walls and weapons to determine if they break or not.
 /material/proc/is_brittle()
 	return !!(flags & MATERIAL_BRITTLE)
 

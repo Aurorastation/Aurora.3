@@ -196,7 +196,6 @@
 				M.gib()
 				spark(M, 3, alldirs)
 			else if (iscarbon(M) && M.contents.len)
-				for (var/obj/item/weapon/holder/H in M.contents)
 					if (!H.contained)
 						continue
 
@@ -332,5 +331,4 @@
 	..()
 
 /obj/item/projectile/beam/energy_net/proc/do_net(var/mob/M)
-	var/obj/item/weapon/energy_net/net = new (get_turf(M))
 	net.throw_impact(M)

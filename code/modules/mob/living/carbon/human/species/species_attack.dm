@@ -1,6 +1,5 @@
 /datum/unarmed_attack/bite/sharp //eye teeth
 	attack_verb = list("bit", "chomped on")
-	attack_sound = 'sound/weapons/bite.ogg'
 	shredding = 0
 	sharp = 1
 	edge = 1
@@ -17,8 +16,6 @@
 	attack_noun = list("claws")
 	eye_attack_text = "claws"
 	eye_attack_text_victim = "sharp claws"
-	attack_sound = 'sound/weapons/slice.ogg'
-	miss_sound = 'sound/weapons/slashmiss.ogg'
 	sharp = 1
 	edge = 1
 	damage = 5
@@ -88,12 +85,10 @@
 	attack_verb = list("pulverized", "crushed", "pounded")
 	attack_noun = list("power fist")
 	damage = 12
-	attack_sound = 'sound/weapons/beartrap_shut.ogg'
 
 /datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
 	..()
 	if(prob(25) && target.mob_size <= 30)
-		playsound(user, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>[user] shoves hard, sending [target] flying!</span>")
 		var/T = get_turf(user)
 		spark(T, 3, alldirs)

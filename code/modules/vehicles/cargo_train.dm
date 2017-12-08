@@ -13,9 +13,7 @@
 
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
 	active_engines = 1
-	var/obj/item/weapon/key/cargo_train/key
 
-/obj/item/weapon/key/cargo_train
 	name = "key"
 	desc = "A keyring with a small steel key, and a yellow fob reading \"Choo Choo!\"."
 	icon = 'icons/obj/vehicles.dmi'
@@ -40,7 +38,6 @@
 //-------------------------------------------
 /obj/vehicle/train/cargo/engine/Initialize()
 	. = ..()
-	cell = new /obj/item/weapon/cell/high(src)
 	key = new(src)
 	var/image/I = new(icon = icon, icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
@@ -62,15 +59,12 @@
 
 	return ..()
 
-/obj/vehicle/train/cargo/trolley/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(open && iswirecutter(W))
 		passenger_allowed = !passenger_allowed
 		user.visible_message("<span class='notice'>[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src].</span>","<span class='notice'>You [passenger_allowed ? "cut" : "mend"] the load limiter cable.</span>")
 	else
 		..()
 
-/obj/vehicle/train/cargo/engine/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/key/cargo_train))
 		if(!key)
 			user.drop_item()
 			W.forceMove(src)
@@ -93,10 +87,8 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/vehicle/train/cargo/trolley/insert_cell(var/obj/item/weapon/cell/C, var/mob/living/carbon/human/H)
 	return
 
-/obj/vehicle/train/cargo/engine/insert_cell(var/obj/item/weapon/cell/C, var/mob/living/carbon/human/H)
 	..()
 	update_stats()
 

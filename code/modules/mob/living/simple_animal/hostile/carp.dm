@@ -9,7 +9,6 @@
 	icon_gib = "carp_gib"
 	speak_chance = 0
 	turns_per_move = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
@@ -22,7 +21,6 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "bitten"
-	attack_sound = 'sound/weapons/bite.ogg'
 
 	//Space carp aren't affected by atmos.
 	min_oxy = 0

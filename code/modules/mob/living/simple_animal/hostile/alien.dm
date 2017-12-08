@@ -10,7 +10,6 @@
 	response_disarm = "shoves"
 	response_harm = "hits"
 	speed = -1
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/xenomeat
 	maxHealth = 100
 	health = 100
 	harm_intent_damage = 5
@@ -18,7 +17,6 @@
 	melee_damage_upper = 25
 	attacktext = "slashed"
 	a_intent = I_HURT
-	attack_sound = 'sound/weapons/bladeslice.ogg'
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
@@ -56,7 +54,6 @@
 	melee_damage_upper = 15
 	ranged = 1
 	projectiletype = /obj/item/projectile/neurotox
-	projectilesound = 'sound/weapons/pierce.ogg'
 
 
 /mob/living/simple_animal/hostile/alien/queen
@@ -71,7 +68,6 @@
 	ranged = 1
 	move_to_delay = 3
 	projectiletype = /obj/item/projectile/neurotox
-	projectilesound = 'sound/weapons/pierce.ogg'
 	rapid = 1
 	status_flags = 0
 	mob_size = 12

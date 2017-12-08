@@ -26,8 +26,6 @@
 
 	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
 	var/list/access_rights
-	var/obj/item/weapon/card/id/idcard
-	var/idcard_type = /obj/item/weapon/card/id/synthetic
 
 	#define SEC_HUD 1 //Security HUD mode
 	#define MED_HUD 2 //Medical HUD mode

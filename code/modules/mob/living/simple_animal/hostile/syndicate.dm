@@ -20,8 +20,6 @@
 	attacktext = "punched"
 	a_intent = I_HURT
 	var/corpse = /obj/effect/landmark/mobcorpse/syndicatesoldier
-	var/weapon1
-	var/weapon2
 	min_oxy = 5
 	max_oxy = 0
 	min_tox = 0
@@ -41,10 +39,6 @@
 	..()
 	if(corpse)
 		new corpse (src.loc)
-	if(weapon1)
-		new weapon1 (src.loc)
-	if(weapon2)
-		new weapon2 (src.loc)
 	qdel(src)
 	return
 
@@ -55,8 +49,6 @@
 	melee_damage_upper = 25
 	icon_state = "syndicatemelee"
 	icon_living = "syndicatemelee"
-	weapon1 = /obj/item/weapon/melee/energy/sword/red
-	weapon2 = /obj/item/weapon/shield/energy
 	attacktext = "slashed"
 	status_flags = 0
 
@@ -72,7 +64,6 @@
 			visible_message("<span class='danger'>[src] blocks the [O] with its shield!</span>")
 		//user.do_attack_animation(src)
 	else
-		usr << "<span class='warning'>This weapon is ineffective, it does no damage.</span>"
 		visible_message("<span class='warning'>[user] gently taps [src] with the [O].</span>")
 
 
@@ -110,10 +101,8 @@
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
 	casingtype = /obj/item/ammo_casing/t40
-	projectilesound = 'sound/weapons/Gunshot_light.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium
 
-	weapon1 = /obj/item/weapon/gun/projectile/automatic/c20r
 
 /mob/living/simple_animal/hostile/syndicate/ranged/space
 	icon_state = "syndicaterangedpsace"
@@ -149,7 +138,6 @@
 	melee_damage_upper = 15
 	density = 0
 	attacktext = "cut"
-	attack_sound = 'sound/weapons/bladeslice.ogg'
 	faction = "syndicate"
 	min_oxy = 0
 	max_oxy = 0

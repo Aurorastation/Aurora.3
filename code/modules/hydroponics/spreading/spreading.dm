@@ -237,12 +237,10 @@
 	floor = 1
 	return 1
 
-/obj/effect/plant/attackby(var/obj/item/weapon/W, var/mob/user)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	SSplants.add_plant(src)
 
-	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if(sampled)
 			user << "<span class='warning'>\The [src] has already been sampled recently.</span>"
 			return

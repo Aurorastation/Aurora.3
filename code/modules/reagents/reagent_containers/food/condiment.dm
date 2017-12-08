@@ -5,7 +5,6 @@
 //	to mixed-drinks code. If you want an object that starts pre-loaded, you need to make it in addition to the other code.
 
 //Food items that aren't eaten normally and leave an empty container behind.
-/obj/item/weapon/reagent_containers/food/condiment
 	name = "condiment container"
 	desc = "Just your average condiment container."
 	icon = 'icons/obj/food.dmi'
@@ -15,7 +14,6 @@
 	center_of_mass = list("x"=16, "y"=6)
 	volume = 50
 
-	attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 		return
 
 	attack_self(var/mob/user as mob)
@@ -34,7 +32,6 @@
 		if(standard_pour_into(user, target))
 			return
 
-		if(istype(target, /obj/item/weapon/reagent_containers/food/snacks)) // These are not opencontainers but we can transfer to them
 			if(!reagents || !reagents.total_volume)
 				user << "<span class='notice'>There is no condiment left in \the [src].</span>"
 				return
@@ -121,7 +118,6 @@
 			center_of_mass = list("x"=16, "y"=6)
 			return
 
-/obj/item/weapon/reagent_containers/food/condiment/enzyme
 	name = "universal enzyme"
 	desc = "Used in cooking various dishes."
 	icon_state = "enzyme"
@@ -129,12 +125,10 @@
 		. = ..()
 		reagents.add_reagent("enzyme", 50)
 
-/obj/item/weapon/reagent_containers/food/condiment/sugar
 	Initialize()
 		. = ..()
 		reagents.add_reagent("sugar", 50)
 
-/obj/item/weapon/reagent_containers/food/condiment/saltshaker		//Seperate from above since it's a small shaker rather then
 	name = "salt shaker"											//	a large one.
 	desc = "Salt. From space oceans, presumably."
 	icon_state = "saltshakersmall"
@@ -145,7 +139,6 @@
 		. = ..()
 		reagents.add_reagent("sodiumchloride", 20)
 
-/obj/item/weapon/reagent_containers/food/condiment/peppermill
 	name = "pepper mill"
 	desc = "Often used to flavor food or make people sneeze."
 	icon_state = "peppermillsmall"
@@ -156,7 +149,6 @@
 		. = ..()
 		reagents.add_reagent("blackpepper", 20)
 
-/obj/item/weapon/reagent_containers/food/condiment/flour
 	name = "flour sack"
 	desc = "A big bag of flour. Good for baking!"
 	icon = 'icons/obj/food.dmi'
@@ -169,7 +161,6 @@
 		src.pixel_x = rand(-10.0, 10)
 		src.pixel_y = rand(-10.0, 10)
 
-/obj/item/weapon/reagent_containers/food/condiment/spacespice
 	name = "space spices"
 	desc = "An exotic blend of spices for cooking. It must flow."
 	icon_state = "spacespicebottle"

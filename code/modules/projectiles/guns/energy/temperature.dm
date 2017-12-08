@@ -1,8 +1,6 @@
-/obj/item/weapon/gun/energy/temperature
 	name = "freeze ray"
 	icon_state = "freezegun"
 	item_state = "freezegun"
-	fire_sound = 'sound/weapons/pulse3.ogg'
 	desc = "A gun that changes temperatures. It has a small label on the side, 'More extreme temperatures will cost more charge!'"
 	var/temperature = T20C
 	var/current_temperature = T20C
@@ -14,20 +12,16 @@
 	can_turret = 1
 	turret_sprite_set = "temperature"
 
-	cell_type = /obj/item/weapon/cell/crap //WAS High, but brought down to match energy use
 
 /*
-/obj/item/weapon/gun/energy/temperature/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
 
 
-/obj/item/weapon/gun/energy/temperature/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	..()
 
 
-/obj/item/weapon/gun/energy/temperature/attack_self(mob/living/user as mob)
 	user.set_machine(src)
 	var/temp_text = ""
 	if(temperature > (T0C - 50))
@@ -44,7 +38,6 @@
 	onclose(user, "window=freezegun", src)
 */
 
-/obj/item/weapon/gun/energy/temperature/Topic(href, href_list)
 	if (..())
 		return 1
 	usr.set_machine(src)
@@ -64,7 +57,6 @@
 	return
 
 
-/obj/item/weapon/gun/energy/temperature/process()
 	switch(temperature)
 		if(0 to 100) charge_cost = 1000
 		if(100 to 250) charge_cost = 500

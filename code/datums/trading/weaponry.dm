@@ -18,23 +18,12 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/gun/projectile/pistol               = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/colt                 = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/sec                  = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/shotgun/pump         = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/shotgun/doublebarrel = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/tanto                = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/deckard     = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c45m                         = TRADER_ALL,
 		/obj/item/ammo_magazine/c45m/empty                   = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/shotgun                      = TRADER_ALL,
 		/obj/item/ammo_magazine/t40                          = TRADER_ALL,
 		/obj/item/ammo_magazine/t40/empty                    = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/c38                          = TRADER_ALL,
-		/obj/item/weapon/storage/box/beanbags                = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/box/shotgunammo             = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/box/shotgunshells           = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster                 = TRADER_ALL
 	)
 
@@ -44,29 +33,16 @@
 	origin = "EGun Shop"
 	possible_origins = list("The Emperor's Lasgun Shop", "Hypireon", "Milawan", "Future-Guns", "Solar-Army")
 	speech = list(
-		"hail_generic"      = "Welcome to the future of warfare! ORIGIN, your one-stop-shop for energy weaponry.",
 		"hail_deny"         = "I'm sorry, your communication channel has been blacklisted.",
 		"trade_complete"    = "Thank you, your purchase has been logged and you have automatically liked our Spacebook page.",
 		"trade_blacklist"   = "I'm sorry, is that a joke?",
 		"trade_no_goods"    = "We deal in cash.",
-		"trade_not_enough"  = "State of the art weaponry costs more than that.",
-		"how_much"          = "All our quality weapons are priceless, but I'd give that to you for VALUE.",
 		"compliment_deny"   = "If I was dumber I probably would have believed you.",
 		"compliment_accept" = "Yes, I am very smart.",
-		"insult_good"       = "Energy weapons are TWICE the gun bullet-based guns are!",
 		"insult_bad"        = "Thats... very mean. I won't think twice about blacklisting your channel, so stop."
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/gun/energy/taser         = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/stunrevolver  = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/xray          = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/rifle         = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/rifle/laser   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/gun           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/pistol        = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/gun/nuclear   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/laser/shotgun = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster      = TRADER_ALL
 	)
 
@@ -88,19 +64,6 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/weapon/gun/projectile/boltaction         = TRADER_ALL,
-		/obj/item/weapon/gun/projectile/dragunov           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/silenced           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/automatic/tommygun = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/automatic/mini_uzi = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/improvised_handgun = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/shotgun/improvised = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/retro                  = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/derringer = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/pirate             = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/contender          = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/lemat     = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/boltaction/vintage = TRADER_THIS_TYPE
 	)
 
 
@@ -140,6 +103,4 @@
 		/obj/item/clothing/shoes/swat                             = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/tactical                         = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/tactical                      = TRADER_THIS_TYPE,
-		/obj/item/weapon/shield/riot/tact                         = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/belt/security/tactical           = TRADER_THIS_TYPE
 	)

@@ -326,7 +326,6 @@
 		//We are now going to move
 		moving = 1
 		//Something with pulling things
-		if (mob_is_human && (istype(mob:l_hand, /obj/item/weapon/grab) || istype(mob:r_hand, /obj/item/weapon/grab)))
 			move_delay = max(move_delay, world.time + 7)
 			var/list/L = mob.ret_grab()
 			if(istype(L, /list))
@@ -363,12 +362,10 @@
 		else
 			. = mob.SelfMove(n, direct)
 
-		for (var/obj/item/weapon/grab/G in list(mob:l_hand, mob:r_hand))
 			if (G.state == GRAB_NECK)
 				mob.set_dir(reverse_dir[direct])
 			G.adjust_position()
 
-		for (var/obj/item/weapon/grab/G in mob.grabbed_by)
 			G.adjust_position()
 
 		moving = 0

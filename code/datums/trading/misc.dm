@@ -103,24 +103,10 @@
 		/obj/item/clothing/shoes/clown_shoes                    = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/rank/clown                     = TRADER_THIS_TYPE,
 		/obj/item/device/pda/clown                              = TRADER_THIS_TYPE,
-		/obj/item/weapon/cartridge/clown                        = TRADER_THIS_TYPE,
-		/obj/item/weapon/stamp/clown                            = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/backpack/clown                 = TRADER_THIS_TYPE,
-		/obj/item/weapon/bananapeel                             = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/pie     = TRADER_THIS_TYPE,
-		/obj/item/weapon/bikehorn                               = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/spray/waterflower   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/capgun         = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/fakemoustache                   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/wand/toy                    = TRADER_THIS_TYPE,
-		/obj/item/weapon/grenade/spawnergrenade/fake_carp       = TRADER_THIS_TYPE,
-		/obj/item/weapon/grenade/spawnergrenade/singularity/toy = TRADER_THIS_TYPE,
-		/obj/item/weapon/grenade/fake                           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/launcher/pneumatic/small           = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/monkeymask                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/monkeysuit                      = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/luchador                        = TRADER_ALL,
-		/obj/item/weapon/gun/bang                               = TRADER_SUBTYPES_ONLY
 	)
 
 /datum/trader/ship/replica_shop
@@ -147,7 +133,6 @@
 
 	possible_trading_items = list(
 		/obj/item/clothing/head/wizard/magus            = TRADER_THIS_TYPE,
-		/obj/item/weapon/shield/buckler                 = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/redcoat                 = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/powdered_wig            = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/hasturhood              = TRADER_THIS_TYPE,
@@ -165,11 +150,6 @@
 		/obj/item/clothing/under/kilt                   = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/redcoat                = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/soviet                 = TRADER_THIS_TYPE,
-		/obj/item/weapon/material/harpoon               = TRADER_THIS_TYPE,
-		/obj/item/weapon/material/sword                 = TRADER_ALL,
-		/obj/item/weapon/material/scythe                = TRADER_THIS_TYPE,
-		/obj/item/weapon/material/star                  = TRADER_THIS_TYPE,
-		/obj/item/weapon/material/twohanded/baseballbat = TRADER_THIS_TYPE
 	)
 
 
@@ -178,15 +158,6 @@
 	name_language = LANGUAGE_UNATHI
 	origin = "Azazi Bulk Supply Guild"
 	possible_trading_items = list(
-		/obj/item/weapon/rig/unathi                    = TRADER_ALL,
-		/obj/item/weapon/rig/internalaffairs           = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/industrial                = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/eva                       = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/ce                        = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/hazmat                    = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/medical                   = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/hazard                    = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/combat                    = TRADER_THIS_TYPE,
 		/obj/item/rig_module/device/healthscanner      = TRADER_THIS_TYPE,
 		/obj/item/rig_module/device/drill              = TRADER_THIS_TYPE,
 		/obj/item/rig_module/device/rcd                = TRADER_THIS_TYPE,

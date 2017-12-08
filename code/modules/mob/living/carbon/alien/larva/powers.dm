@@ -51,7 +51,6 @@
 
 	var/obj/item/organ/external/E = pick(H.organs)
 	src << "<span class='danger'>You burrow deeply into \the [H]'s [E.name]!</span>"
-	var/obj/item/weapon/holder/holder = new (loc)
 	src.loc = holder
 	holder.name = src.name
 	E.embed(holder,0,"\The [src] burrows deeply into \the [H]'s [E.name]!")
@@ -93,7 +92,6 @@
 	if(!istype(H))
 		src << "You are not inside a host."
 		return
-	var/obj/item/weapon/holder/holder = loc
 	var/obj/item/organ/external/affected
 	if(istype(holder))
 		for(var/obj/item/organ/external/organ in H.organs) //Grab the organ holding the implant.

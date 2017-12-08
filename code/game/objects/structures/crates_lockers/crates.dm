@@ -83,10 +83,8 @@
 
 
 
-/obj/structure/closet/crate/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(opened)
 		return ..()
-	else if(istype(W, /obj/item/weapon/packageWrap))
 		return
 	else if(iscoil(W))
 		var/obj/item/stack/cable_coil/C = W
@@ -329,10 +327,7 @@
 	else
 		return src.toggle(user)
 
-/obj/structure/closet/crate/secure/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(is_type_in_list(W, list(/obj/item/weapon/packageWrap, /obj/item/stack/cable_coil, /obj/item/device/radio/electropack, /obj/item/weapon/wirecutters)))
 		return ..()
-	if(istype(W, /obj/item/weapon/melee/energy/blade))
 		emag_act(INFINITY, user)
 	if(!opened)
 		src.togglelock(user)
@@ -426,10 +421,6 @@
 	icon_closed = "crate"
 
 /obj/structure/closet/crate/rcd/fill()
-	new /obj/item/weapon/rcd_ammo(src)
-	new /obj/item/weapon/rcd_ammo(src)
-	new /obj/item/weapon/rcd_ammo(src)
-	new /obj/item/weapon/rcd(src)
 
 /obj/structure/closet/crate/solar
 	name = "solar pack crate"
@@ -456,9 +447,6 @@
 	new /obj/item/solar_assembly(src)
 	new /obj/item/solar_assembly(src)
 	new /obj/item/solar_assembly(src)
-	new /obj/item/weapon/circuitboard/solar_control(src)
-	new /obj/item/weapon/tracker_electronics(src)
-	new /obj/item/weapon/paper/solar(src)
 
 /obj/structure/closet/crate/freezer
 	name = "freezer"
@@ -488,10 +476,6 @@
 
 
 /obj/structure/closet/crate/freezer/rations/fill()
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
 
 /obj/structure/closet/crate/bin
 	name = "large bin"
@@ -517,12 +501,6 @@
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
 
-/obj/structure/closet/crate/secure/weapon
-	name = "weapons crate"
-	desc = "A secure weapons crate."
-	icon_state = "weaponcrate"
-	icon_opened = "weaponcrateopen"
-	icon_closed = "weaponcrate"
 
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"
@@ -630,14 +608,6 @@
 	//This exists so the prespawned hydro crates spawn with their contents.
 
 	fill()
-		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
-		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
-		new /obj/item/weapon/material/minihoe(src)
-//		new /obj/item/weapon/weedspray(src)
-//		new /obj/item/weapon/weedspray(src)
-//		new /obj/item/weapon/pestspray(src)
-//		new /obj/item/weapon/pestspray(src)
-//		new /obj/item/weapon/pestspray(src)
 
 
 
@@ -659,7 +629,6 @@
 		"radiation" = "radiationopen",
 		"o2crate" = "o2crateopen",
 		"freezer" = "freezeropen",
-		"weaponcrate" = "weaponcrateopen",
 		"largebins" = "largebinsopen",
 		"phoroncrate" = "phoroncrateopen",
 		"trashcart" = "trashcartopen",

@@ -145,11 +145,8 @@
 		if(!(istype(wear_mask, /obj/item/clothing/mask) || istype(head, /obj/item/clothing/head/helmet/space)))
 			return
 		// Find an internal source.
-		if(istype(back, /obj/item/weapon/tank))
 			internal = back
-		else if(istype(s_store, /obj/item/weapon/tank))
 			internal = s_store
-		else if(istype(belt, /obj/item/weapon/tank))
 			internal = belt
 
 	if(internal)

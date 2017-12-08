@@ -14,8 +14,6 @@
 /obj/mecha/combat/range_action(target as obj|mob|turf)
 	if(internal_damage&MECHA_INT_CONTROL_LOST)
 		target = pick(view(3,target))
-	if(selected_weapon)
-		selected_weapon.fire(target)
 	return
 */
 
@@ -26,7 +24,6 @@
 	if(istype(target, /mob/living))
 		var/mob/living/M = target
 		if(src.occupant.a_intent == I_HURT)
-			playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
 			if(damtype == "brute")
 				step_away(M,src,15)
 			/*
@@ -101,7 +98,6 @@
 						target:dismantle_wall(1)
 						src.occupant_message("<span class='notice'>You smash through the wall.</span>")
 						src.visible_message("<b>[src.name] smashes through the wall</b>")
-						playsound(src, 'sound/weapons/smash.ogg', 50, 1)
 					melee_can_hit = 0
 					if(do_after_mecha(melee_cooldown))
 						melee_can_hit = 1

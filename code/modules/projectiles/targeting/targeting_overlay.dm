@@ -110,7 +110,6 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	var/cancel_aim = 1
 
 	if(!(aiming_with in owner) || (istype(owner, /mob/living/carbon/human) && (owner.l_hand != aiming_with && owner.r_hand != aiming_with)))
-		owner << "<span class='warning'>You must keep hold of your weapon!</span>"
 	else if(!aiming_at || !istype(aiming_at.loc, /turf))
 		owner << "<span class='warning'>You have lost sight of your target!</span>"
 	else if(owner.incapacitated() || owner.lying || owner.restrained())
@@ -162,8 +161,6 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	target << "<span class='danger'>You now have a gun pointed at you. No sudden moves!</span>"
 	aiming_with = thing
 	aiming_at = target
-	if(istype(aiming_with, /obj/item/weapon/gun))
-		playsound(get_turf(owner), 'sound/weapons/TargetOn.ogg', 50,1)
 
 	forceMove(get_turf(target))
 	START_PROCESSING(SSprocessing, src)
@@ -208,8 +205,6 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 /obj/aiming_overlay/proc/cancel_aiming(var/no_message = 0)
 	if(!aiming_with || !aiming_at)
 		return
-	if(istype(aiming_with, /obj/item/weapon/gun))
-		playsound(get_turf(owner), 'sound/weapons/TargetOff.ogg', 50,1)
 	if(!no_message)
 		owner.visible_message("<span class='notice'>\The [owner] lowers \the [aiming_with].</span>")
 

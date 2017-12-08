@@ -13,7 +13,6 @@
 	user << "This mask is too tight to adjust."
 	return
 
-/obj/item/weapon/melee/energy/vaurca
 	name = "thermal knife"
 	desc = "A Vaurcae-designed combat knife with a thermal energy blade designed for close-quarter encounters."
 	icon = 'icons/obj/vaurca_items.dmi'
@@ -34,7 +33,6 @@
 	contained_sprite = 1
 
 
-/obj/item/weapon/melee/energy/vaurca/activate(mob/living/user)
 	..()
 	icon_state = "eknife1"
 	item_state = icon_state
@@ -42,7 +40,6 @@
 	user.regenerate_icons()
 	user << "<span class='notice'>\The [src] is now energised.</span>"
 
-/obj/item/weapon/melee/energy/vaurca/deactivate(mob/living/user)
 	..()
 	icon_state = "eknife0"
 	item_state = icon_state
@@ -61,7 +58,6 @@
 
 	if(isvaurca(user))
 		user << "<span class='notice'>You are familiar with the box's solution, and open it to reveal an ancient thing. How tedious.</span>"
-		var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
 		user.remove_from_mob(src)
 		user.put_in_hands(X)
 		qdel(src)
@@ -72,7 +68,6 @@
 			user << "<span class='notice'>Calculations complete. You begin to brute-force the box with a mechanical determination.</span>"
 			if(do_after(user, 600))
 				user << "<span class='notice'>After a minute of brute-force puzzle solving, the box finally opens to reveal an ancient thing.</span>"
-				var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
 				user.remove_from_mob(src)
 				user.put_in_hands(X)
 				qdel(src)
@@ -81,7 +76,6 @@
 		user << "<span class='notice'>You are surprised to recognize the markings of the Apex, the Masters! You know this thing... (You must stand still to complete the puzzle box.)</span>"
 		if(do_after(user, 100))
 			user << "<span class='notice'>After a few seconds of remembering, you input the solution to the riddle - a lovely riddle indeed - and open the box to reveal an ancient thing.</span>"
-			var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
 			user.remove_from_mob(src)
 			user.put_in_hands(X)
 			qdel(src)
@@ -101,7 +95,6 @@
 							if(do_after(user,600))
 								user << "<span class='notice'>A minute goes by, and with one final turn the box looks just like it did when you started. Fucking bugs.</span>"
 
-/obj/item/weapon/melee/vaurca/navcomp
 	name = "navcomp coordinate archive"
 	desc = "A rather heavy data disk for a Vaurcae Arkship navigation drive."
 	icon = 'icons/obj/vaurca_items.dmi'
@@ -111,7 +104,6 @@
 	w_class = 3
 	contained_sprite = 1
 
-/obj/item/weapon/melee/vaurca/rock
 	name = "Sedantis rock"
 	desc = "A large chunk of alien earth from the distant Vaurcae world of Sedantis I. Just looking at it makes you feel funny."
 	icon_state = "glowing"
@@ -121,7 +113,6 @@
 	w_class = 4
 	contained_sprite = 1
 
-/obj/item/weapon/grenade/spawnergrenade/vaurca
 	name = "K'ois delivery pod"
 	desc = "A sophisticated K'ois delivery pod, for seeding a planet from the comfort of space."
 	spawner_type = /obj/machinery/portable_atmospherics/hydroponics/soil/invisible
@@ -133,7 +124,6 @@
 	throwforce = 30
 	w_class = 4
 
-/obj/item/weapon/grenade/spawnergrenade/vaurca/prime()
 
 	if(spawner_type && deliveryamt)
 		var/turf/T = get_turf(src)

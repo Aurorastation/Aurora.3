@@ -17,12 +17,10 @@
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2)
 
-	var/celltype = /obj/item/weapon/cell	//comes with the crappy default power cell - high-capacity ones shouldn't be hard to find
 
 	matter = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 3500)
 	var/on = 0				//is it turned on?
 	var/cover_open = 0		//is the cover open?
-	var/obj/item/weapon/cell/cell
 	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
 	var/charge_consumption = 16.6		//charge per second at max_cooling
 	var/thermostat = T20C
@@ -145,7 +143,6 @@
 		if (on)
 			user << "You switch on the [src]."
 
-/obj/item/device/suit_cooling_unit/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (isscrewdriver(W))
 		if(cover_open)
 			cover_open = 0
@@ -156,7 +153,6 @@
 		update_icon()
 		return
 
-	if (istype(W, /obj/item/weapon/cell))
 		if(cover_open)
 			if(cell)
 				user << "There is a [cell] already installed here."
@@ -226,4 +222,3 @@
 		user << "It doesn't have a power cell installed."
 
 /obj/item/device/suit_cooling_unit/improved //those should come with a better powercell
-	celltype = /obj/item/weapon/cell/high

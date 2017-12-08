@@ -16,7 +16,6 @@
 	response_harm   = "stomps on"
 	mob_size = MOB_MINISCULE
 	possession_candidate = 1
-	holder_type = /obj/item/weapon/holder/lizard
 	density = 0
 	seek_speed = 0.75
 

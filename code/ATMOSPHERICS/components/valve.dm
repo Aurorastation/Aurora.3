@@ -299,7 +299,6 @@
 			else
 				open()
 
-/obj/machinery/atmospherics/valve/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	if (!iswrench(W))
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/valve/digital))

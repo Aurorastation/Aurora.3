@@ -106,7 +106,6 @@
 	if (shock_damage<1)
 		return 0
 
-	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
 	playsound(loc, "sparks", 50, 1, -1)
 	if (shock_damage > 15 || tesla_shock)
 		src.visible_message(
@@ -133,7 +132,6 @@
 /mob/living/carbon/swap_hand()
 	var/obj/item/item_in_hand = src.get_active_hand()
 	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
-		if(istype(item_in_hand,/obj/item/weapon/material/twohanded) || istype(item_in_hand,/obj/item/weapon/gun) || istype(item_in_hand,/obj/item/weapon/pickaxe))
 			if(item_in_hand:wielded == 1)
 				usr << "<span class='warning'>Your other hand is too busy holding the [item_in_hand.name]</span>"
 				return
@@ -218,7 +216,6 @@
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
 		else if (on_fire)
-			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			if (M.on_fire)
 				M.visible_message("<span class='warning'>[M] tries to pat out [src]'s flames, but to no avail!</span>",
 				"<span class='warning'>You try to pat out [src]'s flames, but to no avail! Put yourself out first!</span>")
@@ -278,7 +275,6 @@
 			AdjustStunned(-3)
 			AdjustWeakened(-3)
 
-			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 /mob/living/carbon/proc/eyecheck()
 	return 0

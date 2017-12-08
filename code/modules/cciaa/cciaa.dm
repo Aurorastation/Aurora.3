@@ -76,21 +76,17 @@
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert/ccia(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud(M), slot_glasses)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/officer(M), slot_head)
-			M.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/spray/pepper(M), slot_l_store)
 			M.equip_to_slot_or_del(new /obj/item/device/taperecorder/cciaa(M), slot_r_store)
 
 			var/obj/item/clothing/suit/storage/toggle/internalaffairs/suit = new(M)
 			suit.name = "central command internal affairs jacket"
 			M.equip_to_slot_or_del(suit, slot_wear_suit)
 
-			var/obj/item/weapon/storage/backpack/satchel/bag = new(M)
 			bag.name = "officer's leather satchel"
 			bag.desc = "A well cared for leather satchel for Nanotrasen officers."
 			M.equip_to_slot_or_del(bag, slot_back)
 			if(M.backbag == 1)
-				M.equip_to_slot_or_del(new /obj/item/weapon/stamp/centcomm(M), slot_in_backpack)
 
-			var /obj/item/weapon/storage/lockbox/lockbox = new(M)
 			lockbox.req_access = list(access_cent_captain)
 			lockbox.name = "CCIA agent briefcase"
 			lockbox.desc = "A smart looking briefcase with a NT logo on the side"
@@ -107,7 +103,6 @@
 
 			M.implant_loyalty(M, 1)
 
-			var/obj/item/weapon/card/id/centcom/W = new(M)
 			W.name = "[M.real_name]'s ID Card"
 			W.item_state = "id_inv"
 			W.access = get_all_accesses() + get_centcom_access("CCIA Agent")
@@ -233,7 +228,6 @@
 		announce = 1
 
 	// Create the reply message
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
 	P.name = "[current_map.boss_name] - [customname]"
 	P.info = input
 	P.update_icon()
@@ -243,7 +237,6 @@
 	stampoverlay.icon_state = "paper_stamp-cent"
 	if(!P.stamped)
 		P.stamped = new
-	P.stamped += /obj/item/weapon/stamp
 	P.overlays += stampoverlay
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
