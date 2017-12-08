@@ -221,3 +221,4 @@
 	var/frozen = FALSE //related to wizard statues, if set to true, life won't process
 
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	var/disconnect_time = null//Time of client loss, set by Logout(), for timekeeping
