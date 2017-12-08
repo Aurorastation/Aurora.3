@@ -89,7 +89,7 @@
 				qdel(src)
 				return
 
-/obj/structure/bed/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/attackby(obj/item/W as obj, mob/user as mob)
 	if(iswrench(W))
 		if(can_dismantle)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -130,8 +130,8 @@
 		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 		remove_padding()
 
-	else if(istype(W, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = W
+	else if(istype(W, /obj/item/grab))
+		var/obj/item/grab/G = W
 		var/mob/living/affecting = G.affecting
 		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
 		if(do_after(user, 20))
@@ -192,7 +192,7 @@
 /obj/structure/bed/roller/update_icon()
 	return // Doesn't care about material or anything else.
 
-/obj/structure/bed/roller/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/roller/attackby(obj/item/W as obj, mob/user as mob)
 	if(iswrench(W) || istype(W,/obj/item/stack) || iswirecutter(W))
 		return
 	else if(istype(W,/obj/item/roller_holder))
@@ -218,7 +218,7 @@
 		R.add_fingerprint(user)
 		qdel(src)
 
-/obj/item/roller/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/roller/attackby(obj/item/W as obj, mob/user as mob)
 
 	if(istype(W,/obj/item/roller_holder))
 		var/obj/item/roller_holder/RH = W

@@ -123,9 +123,9 @@
 	else
 		icon_state = material.door_icon_base
 
-/obj/structure/simple_door/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/pickaxe))
-		var/obj/item/weapon/pickaxe/digTool = W
+/obj/structure/simple_door/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/pickaxe))
+		var/obj/item/pickaxe/digTool = W
 		user << "You start digging the [name]."
 		if(do_after(user,digTool.digspeed*hardness) && src)
 			user << "You finished digging."
@@ -135,7 +135,7 @@
 		user << "You hit the [name] with your [W.name]!"
 		CheckHardness()
 	else if(iswelder(W))
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if(material.ignition_point && WT.remove_fuel(0, user))
 			TemperatureAct(150)
 	else
