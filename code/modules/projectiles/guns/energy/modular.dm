@@ -22,7 +22,7 @@
 	var/named = 0
 	var/described = 0
 
-/obj/item/weapon/gun/energy/laser/prototype/examine()
+/obj/item/weapon/gun/energy/laser/prototype/examine(mob/user)
 	. = ..(user, 1)
 	if(.)
 		if(gun_mods.len)
