@@ -1,7 +1,7 @@
 /obj/item/clothing/head/helmet/space/rig/combat
 	light_overlay = "helmet_light_dual_green"
 
-/obj/item/weapon/rig/combat
+/obj/item/rig/combat
 	name = "combat hardsuit control module"
 	desc = "A sleek and dangerous hardsuit for active combat."
 	icon_state = "security_rig"
@@ -12,10 +12,10 @@
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/combat
-	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton)
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 
 
-/obj/item/weapon/rig/combat/equipped
+/obj/item/rig/combat/equipped
 
 
 	initial_modules = list(
@@ -28,7 +28,7 @@
 		/obj/item/rig_module/chem_dispenser/combat
 		)
 
-/obj/item/weapon/rig/military
+/obj/item/rig/military
 	name = "military hardsuit control module"
 	desc = "A powerfull hardsuit designed for military operations."
 	icon_state = "military_rig"
@@ -37,7 +37,7 @@
 	slowdown = 1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	chest_type = /obj/item/clothing/suit/space/rig/military
 	helm_type = /obj/item/clothing/head/helmet/space/rig/military
@@ -58,7 +58,7 @@
 /obj/item/clothing/gloves/rig/military
 	species_restricted = list("Human")
 
-/obj/item/weapon/rig/military/equipped
+/obj/item/rig/military/equipped
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/mounted/pulse,
