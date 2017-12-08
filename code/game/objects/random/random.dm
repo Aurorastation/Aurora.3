@@ -48,8 +48,9 @@
 	desc = "This item type is used to randomly spawn a given object at round-start"
 	icon_state = "x3"
 	var/spawn_object = null
-	item_to_spawn()
-		return ispath(spawn_object) ? spawn_object : text2path(spawn_object)
+
+/obj/random/single/item_to_spawn()
+	return ispath(spawn_object) ? spawn_object : text2path(spawn_object)
 
 /obj/random/tool
 	name = "random tool"
