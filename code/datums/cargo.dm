@@ -106,6 +106,7 @@
 	var/list/items = list() //List of cargo_order_items in the order
 	var/order_id = 0 //ID of the order
 	var/price = 0 //Total price of the order
+	var/payment_status = 0 //0-Not paid //1-Paid
 	var/item_id = 1 //Current id of the item in the order
 	var/item_num = 0 //Numer of items in the container - Used to limit the items in the crate
 	var/status = "basket" //Status of the order: basket - Adding items, submitted - Submitted to cargo, approved - Order sent to suppliers, rejected - Order has been denied, shipped - Has been shipped to the station, delivered - Order has been delivered
@@ -114,7 +115,7 @@
 	var/can_add_items = 1 //If new items can be added to the order 
 	var/customer = null //Person that ordered the items
 	var/authorized_by = null //Person that authorized the order
-	var/received_by = null //Person the order has been delivered to by cargo
+	var/received_by = null //Person the order has been delivered to by cargo / paid for the order
 	var/time_submitted = null //Time the order has been sent to cargo
 	var/time_approved = null //Time the order has been approved by cargo
 	var/time_shipped = null //Time the order has been shipped to the station
@@ -144,6 +145,7 @@
 	data["price"] = get_value(2)
 	data["price_customer"] = get_value(0)
 	data["price_cargo"] = get_value(1)
+	data["payment_status"] = payment_status
 	data["status"] = get_order_status(0)
 	data["status_pretty"] = get_order_status(1)
 	data["customer"] = customer
@@ -255,6 +257,7 @@
 		else
 			log_debug("Cargo: Tried to get container type for invalid container [container_type]")
 			return /obj/structure/largecrate
+
 // Returns the numer of items that can be stored in the container
 /datum/cargo_order/proc/get_container_storage()
 	switch(container_type)

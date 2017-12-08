@@ -1173,14 +1173,14 @@ mob/proc/yank_out_object()
 		set_dir(dir)
 		facing_dir = dir
 
-/mob/set_dir()
+/mob/set_dir(ndir)
 	if(facing_dir)
 		if(!canface() || lying || buckled || restrained())
 			facing_dir = null
 		else if(dir != facing_dir)
 			return ..(facing_dir)
 	else
-		return ..()
+		return ..(ndir)
 
 /mob/forceMove(atom/dest)
 	var/atom/movable/AM
