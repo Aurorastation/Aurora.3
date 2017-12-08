@@ -1,10 +1,11 @@
 /obj/item/laser_components
-	var/max_reliability
 	var/reliability = 0
-	var/damage = 0
+	var/damage = 1
 	var/fire_delay = 0
-	var/condition = 0
+	var/condition = 0 //inverse health of the component. subtracted from reliability.
 	var/shots = 0
+	var/burst = 0
+	var/accuracy = 0
 
 /obj/item/laser_components/modifier
 	name = "modifier"
@@ -13,14 +14,14 @@
 	item_state = "laser" // sprite
 	reliability = -5
 	var/mod_type
-	var/malus = 0
+	var/base_malus = 2 //when modifiers get damaged they do not break, but make other components break faster
+	var/malus = 2 //subtracted from weapon's overall reliability everytime it's fired
 	var/obj/item/projectile/beam/projectile
-	var/gun_force = 0
-	var/burst = 0
-	var/accuracy = 0
+	var/gun_force = 0 //melee damage of the gun
 	var/chargetime = 0
 	var/burst_delay = 0
 	var/scope_name
+	var/criticality
 
 /obj/item/laser_components/capacitor
 	name = "capacitor"
@@ -28,14 +29,16 @@
 	icon_state = "laser" // sprite
 	item_state = "laser" // sprite
 	shots = 5
+	damage = 10
+	reliability = 50
 
-/obj/item/laser_components/capacitor/proc/small_fail(var/obj/item/weapon/gun/energy/laser/prototype)
+/obj/item/laser_components/capacitor/proc/small_fail(var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	return
 
-/obj/item/laser_components/capacitor/proc/medium_fail(var/obj/item/weapon/gun/energy/laser/prototype)
+/obj/item/laser_components/capacitor/proc/medium_fail(var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	return
 
-/obj/item/laser_components/capacitor/proc/critical_fail(var/obj/item/weapon/gun/energy/laser/prototype)
+/obj/item/laser_components/capacitor/proc/critical_fail(var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	return
 
 /obj/item/laser_components/focusing_lens
@@ -43,7 +46,8 @@
 	desc = "A basic laser weapon focusing lens."
 	icon_state = "laser" // sprite
 	item_state = "laser" // sprite
-	var/dispersion = 1
+	var/dispersion = 0
+	reliability = 25
 
 /obj/item/device/laser_assembly
 	name = "laser assembly (small)"

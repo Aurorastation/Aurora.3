@@ -18,6 +18,9 @@
 	var/obj/item/laser_components/focusing_lens/focusing_lens
 	var/chargetime
 	var/is_charging
+	var/criticality = 1 //multiplier for the negative effects of capacitor failures. Not just limited to critical failures.
+	var/named = 0
+	var/described = 0
 
 /obj/item/weapon/gun/energy/laser/prototype/examine()
 	..()
@@ -49,28 +52,29 @@
 			gun_type = CHASSIS_LARGE
 			slot_flags = SLOT_BACK
 			//item_state = sprite
-	if(gun_mods.len)
-		handle_mod()
-	w_class = gun_type
-	if(!capacitor.reliability)
+	if((capacitor.reliability - capacitor.condition <= 0))
 		qdel(capacitor)
 		capacitor = null
-	if(!focusing_lens.reliability)
+	if(focusing_lens.reliability - focusing_lens.condition <= 0)
 		qdel(focusing_lens)
 		focusing_lens = null
 	if(!focusing_lens || !capacitor)
 		disassemble()
-	reliability = capacitor.reliability + focusing_lens.reliability
-	if(reliability > 100)
-		reliability = 100
+	reliability = (capacitor.reliability - capacitor.condition) + (focusing_lens.reliability - focusing_lens.condition)
 	if(reliability < 0)
 		reliability = 0
 	fire_delay = capacitor.fire_delay
 	max_shots = capacitor.shots
 	dispersion = focusing_lens.dispersion
+	accuracy = focusing_lens.accuracy
+	burst += focusing_lens.burst
+	if(gun_mods.len)
+		handle_mod()
 	fire_delay_wielded = min(0,(fire_delay - fire_delay*3))
 	accuracy_wielded = accuracy + accuracy/4
 	scoped_accuracy = accuracy_wielded + accuracy/4
+	max_shots = max_shots * burst
+	w_class = gun_type
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/handle_mod()
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
@@ -79,16 +83,18 @@
 				silenced = 1
 			if(MOD_NUCLEAR_CHARGE)
 				self_recharge = 1
-		fire_delay += modifier.fire_delay
+				criticality *= 2
+		fire_delay *= modifier.fire_delay
 		reliability += modifier.reliability
 		if(modifier.projectile)
 			projectile_type = modifier.projectile
 		burst += modifier.burst
 		burst_delay += modifier.burst_delay
-		max_shots += modifier.shots
+		max_shots *= modifier.shots
 		force += modifier.gun_force
-		accuracy += modifier.accuracy
 		chargetime += modifier.chargetime
+		accuracy += modifier.accuracy
+		criticality *= modifier.criticality
 		if(modifier.scope_name)
 			zoomdevicename = modifier.scope_name
 
@@ -106,12 +112,13 @@
 		return ..()
 	A.damage = capacitor.damage
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-		A.damage += modifier.damage
+		A.damage *= modifier.damage
+	A.damage = A.damage/(burst - 1)
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-		if(prob(50))
-			capacitor.reliability -= modifier.malus
+		if(prob(66))
+			capacitor.condition += modifier.malus
 		else
-			focusing_lens.reliability -= modifier.malus
+			focusing_lens.condition += modifier.malus
 	updatetype()
 	return A
 
@@ -182,7 +189,7 @@
 	if(is_charging && chargetime)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
-	if(!wielded && origin_chassis == CHASSIS_LARGE)
+	if(!wielded && (origin_chassis == CHASSIS_LARGE || chargetime))
 		user << "<span class='danger'>You require both hands to fire this weapon!</span>"
 		return 0
 	if(chargetime)
@@ -197,3 +204,37 @@
 	if(!istype(user.get_active_hand(), src))
 		return
 	return 1
+
+/obj/item/weapon/gun/energy/laser/prototype/verb/rename_gun()
+	set name = "Name Prototype"
+	set category = "Object"
+	set desc = "Name your invention so that its glory might be eternal"
+
+	var/mob/M = usr
+	if(!M.mind)
+		return 0
+
+	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
+
+	if(src && input && !M.stat && in_range(M,src))
+		name = input
+		M << "You name the gun [input]. Say hello to your new friend."
+		named = 1
+		return 1
+
+/obj/item/weapon/gun/energy/laser/prototype/verb/describe_gun()
+	set name = "Describe Prototype"
+	set category = "Object"
+	set desc = "Describe your invention so that its glory might be eternal"
+
+	var/mob/M = usr
+	if(!M.mind)
+		return 0
+
+	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""))
+
+	if(src && input && !M.stat && in_range(M,src))
+		desc = input
+		M << "You describe the gun as [input]. Say hello to your new friend."
+		described = 1
+		return 1
