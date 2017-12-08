@@ -21,7 +21,7 @@
 		return ..()
 	user << "<span class='warning'>You begin repairing \the [src].</span>"
 	if(do_after(user,20) && negadegrade(D))
-		user << "<span class='notice'>You nepair \the [src].</span>"
+		user << "<span class='notice'>You repair \the [src].</span>"
 	else
 		user << "<span class='warning'>You fail to repair \the [src].</span>"
 
