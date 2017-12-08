@@ -20,12 +20,12 @@
 	if(!istype(D,repair_item))
 		return ..()
 	user << "<span class='warning'>You begin repairing \the [src].</span>"
-	if(do_after(user,20) && repair(D))
-		user << "<span class='notice'>You repair \the [src].</span>")
+	if(do_after(user,20) && negadegrade(D))
+		user << "<span class='notice'>You nepair \the [src].</span>"
 	else
-		"<span class='warning'>You fail to repair \the [src].</span>"
+		user << "<span class='warning'>You fail to repair \the [src].</span>"
 
-/obj/item/laser_components/proc/repair(var/obj/item/weapon/D)
+/obj/item/laser_components/proc/negadegrade(var/obj/item/weapon/D)
 	return 1
 
 /obj/item/laser_components/modifier
@@ -43,16 +43,11 @@
 	var/criticality
 	repair_item = /obj/item/weapon/weldingtool
 
-/obj/item/weapon/gun/energy/laser/prototype/examine()
-	..()
-	if(usr.Adjacent(src))
-		if(gun_mods.len)
-			for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-				usr << "You can see a [modifier] attached."
-		if(capacitor)
-			usr << "You can see a [capacitor] attached."
-		if(focusing_lens)
-			usr << "You can see a [focusing_lens] attached."
+/obj/item/laser_components/modifier/examine(mob/user)
+	. = ..(user, 1)
+	if(.)
+		if(malus > base_malus)
+			user << "<span class='warning'>\The [src] appears damaged.</span>"
 
 /obj/item/laser_components/modifier/degrade(var/increment = 1)
 	if(increment)
@@ -60,7 +55,7 @@
 		if(malus > abs(base_malus*2))
 			malus = abs(base_malus*2)
 
-/obj/item/laser_components/modifier/repair(var/obj/item/weapon/D)
+/obj/item/laser_components/modifier/negadegrade(var/obj/item/weapon/D)
 	var/obj/item/weapon/weldingtool/W = D
 	if(W.remove_fuel(5))
 		malus -= 5
@@ -77,7 +72,7 @@
 	reliability = 50
 	repair_item = /obj/item/stack/cable_coil
 
-/obj/item/laser_components/capacitor/repair(var/obj/item/weapon/D)
+/obj/item/laser_components/capacitor/negadegrade(var/obj/item/weapon/D)
 	var/obj/item/stack/cable_coil/C = D
 	if(C.amount)
 		C.amount -= 5
@@ -86,6 +81,12 @@
 			condition = 0
 		return 1
 	return 0
+
+/obj/item/laser_components/capacitor/examine(mob/user)
+	. = ..(user, 1)
+	if(.)
+		if(condition > 0)
+			user << "<span class='warning'>\The [src] appears damaged.</span>"
 
 /obj/item/laser_components/capacitor/proc/small_fail(var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	return
@@ -104,7 +105,7 @@
 	reliability = 25
 	repair_item = /obj/item/stack/nanopaste
 
-/obj/item/laser_components/focusing_lens/repair(var/obj/item/weapon/D)
+/obj/item/laser_components/focusing_lens/negadegrade(var/obj/item/weapon/D)
 	var/obj/item/stack/nanopaste/N = D
 	if(N.amount)
 		N.amount -= 5
@@ -113,6 +114,12 @@
 			condition = 0
 		return 1
 	return 0
+
+/obj/item/laser_components/focusing_lens/examine(mob/user)
+	. = ..(user, 1)
+	if(.)
+		if(condition > 0)
+			user << "<span class='warning'>\The [src] appears damaged.</span>"
 
 /obj/item/device/laser_assembly
 	name = "laser assembly (small)"

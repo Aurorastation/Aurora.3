@@ -118,9 +118,9 @@
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 		if(prob(33))
 			capacitor.degrade(modifier.malus)
-			if(prob(33)
+			if(prob(33))
 				focusing_lens.degrade(modifier.malus)
-				if(prob(33)
+				if(prob(33))
 					modifier.degrade(1)
 
 	updatetype()
