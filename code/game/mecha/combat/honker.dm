@@ -19,11 +19,11 @@
 
 /obj/mecha/combat/honker/New()
 	..()
-	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/honker
+	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/honker
 	ME.attach(src)
-	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar
+	ME = new /obj/item/mecha_parts/mecha_equipment/ballistic/missile_rack/banana_mortar
 	ME.attach(src)
-	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar/mousetrap_mortar
+	ME = new /obj/item/mecha_parts/mecha_equipment/ballistic/missile_rack/banana_mortar/mousetrap_mortar
 	ME.attach(src)
 	return
 
@@ -45,7 +45,7 @@
 
 //honk weapons
 
-/obj/item/mecha_parts/mecha_equipment/weapon/honker
+/obj/item/mecha_parts/mecha_equipment/honker
 	name = "\improper HoNkER BlAsT 5000"
 	desc = "Equipment for clown exosuits. Spreads fun and joy to everyone around. Honk!"
 	icon_state = "mecha_honker"
@@ -54,7 +54,7 @@
 	range = MELEE|RANGED
 	required_type = list(/obj/mecha/combat/honker)
 
-/obj/item/mecha_parts/mecha_equipment/weapon/honker/action(target)
+/obj/item/mecha_parts/mecha_equipment/honker/action(target)
 	if(!chassis)
 		return 0
 	if(energy_drain && chassis.get_charge() < energy_drain)
@@ -83,11 +83,11 @@
 	do_after_cooldown()
 	return
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar
+/obj/item/mecha_parts/mecha_equipment/ballistic/missile_rack/banana_mortar
 	name = "banana mortar"
 	desc = "Equipment for clown exosuits. Launches banana peels."
 	icon_state = "mecha_bananamrtr"
-	projectile = /obj/item/weapon/bananapeel
+	projectile = /obj/item/bananapeel
 	fire_sound = 'sound/items/bikehorn.ogg'
 	projectiles = 15
 	missile_speed = 1.5
@@ -95,7 +95,7 @@
 	equip_cooldown = 20
 	required_type = list(/obj/mecha/combat/honker)
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar/mousetrap_mortar
+/obj/item/mecha_parts/mecha_equipment/ballistic/missile_rack/banana_mortar/mousetrap_mortar
 	name = "mousetrap mortar"
 	desc = "Equipment for clown exosuits. Launches armed mousetraps."
 	icon_state = "mecha_mousetrapmrtr"
@@ -103,7 +103,7 @@
 	equip_cooldown = 10
 	required_type = list(/obj/mecha/combat/honker)
 
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar/mousetrap_mortar/Fire(atom/movable/AM, atom/target, turf/aimloc)
+/obj/item/mecha_parts/mecha_equipment/ballistic/missile_rack/banana_mortar/mousetrap_mortar/Fire(atom/movable/AM, atom/target, turf/aimloc)
 	var/obj/item/device/assembly/mousetrap/M = AM
 	M.secured = 1
 	..()

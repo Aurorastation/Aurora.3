@@ -28,7 +28,7 @@ var/list/floor_light_cache = list()
 		anchored = !anchored
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
 	else if(iswelder(W) && (damaged || (stat & BROKEN)))
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if(!WT.remove_fuel(0, user))
 			user << "<span class='warning'>\The [src] must be on to complete this task.</span>"
 			return

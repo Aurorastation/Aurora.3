@@ -116,7 +116,7 @@
 /obj/effect/landmark/costume/chicken/New()
 	new /obj/item/clothing/suit/chickensuit(src.loc)
 	new /obj/item/clothing/head/chicken(src.loc)
-	new /obj/item/weapon/reagent_containers/food/snacks/egg(src.loc)
+	new /obj/item/reagent_containers/food/snacks/egg(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/gladiator/New()
@@ -175,7 +175,7 @@
 	var/CHOICE= pick( /obj/item/clothing/head/bowler, /obj/item/clothing/head/that)
 	new CHOICE(src.loc)
 	new /obj/item/clothing/shoes/black(src.loc)
-	new /obj/item/weapon/cane(src.loc)
+	new /obj/item/cane(src.loc)
 	new /obj/item/clothing/under/sl_suit(src.loc)
 	new /obj/item/clothing/mask/fakemoustache(src.loc)
 	delete_me = 1
@@ -228,13 +228,13 @@
 /obj/effect/landmark/costume/cutewitch/New()
 	new /obj/item/clothing/under/sundress(src.loc)
 	new /obj/item/clothing/head/witchwig(src.loc)
-	new /obj/item/weapon/staff/broom(src.loc)
+	new /obj/item/staff/broom(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/fakewizard/New()
 	new /obj/item/clothing/suit/wizrobe/fake(src.loc)
 	new /obj/item/clothing/head/wizard/fake(src.loc)
-	new /obj/item/weapon/staff/(src.loc)
+	new /obj/item/staff/(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/sexyclown/New()

@@ -153,7 +153,7 @@ var/global/list/default_medbay_channels = list(
 	return user.has_internal_radio_channel_access(internal_channels[freq])
 
 /mob/proc/has_internal_radio_channel_access(var/list/req_one_accesses)
-	var/obj/item/weapon/card/id/I = GetIdCard()
+	var/obj/item/card/id/I = GetIdCard()
 	return has_access(list(), req_one_accesses, I ? I.GetAccess() : list())
 
 /mob/dead/observer/has_internal_radio_channel_access(var/list/req_one_accesses)
@@ -543,7 +543,7 @@ var/global/list/default_medbay_channels = list(
 			user.show_message("<span class='notice'>\The [src] can not be modified or attached!</span>")
 	return
 
-/obj/item/device/radio/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/device/radio/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	user.set_machine(src)
 	if (!( isscrewdriver(W) ))
@@ -596,7 +596,7 @@ var/global/list/default_medbay_channels = list(
 		var/datum/robot_component/C = R.components["radio"]
 		R.cell_use_power(C.active_usage)
 
-/obj/item/device/radio/borg/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/device/radio/borg/attackby(obj/item/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
 	if (!( isscrewdriver(W) || (istype(W, /obj/item/device/encryptionkey/ ))))

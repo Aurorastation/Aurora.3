@@ -1,6 +1,6 @@
 //CCIAA's PDA.
 /obj/item/device/pda/central
-	default_cartridge = /obj/item/weapon/cartridge/captain
+	default_cartridge = /obj/item/cartridge/captain
 	icon_state = "pda-h"
 	detonate = 0
 
@@ -38,9 +38,9 @@
 	return "[round(world.time / 36000)+12]:[(world.time / 600 % 60) < 10 ? add_zero(world.time / 600 % 60, 1) : world.time / 600 % 60]:[(world.time / 60 % 60) < 10 ? add_zero(world.time / 60 % 60, 1) : world.time / 60 % 60]"
 
 
-/obj/item/device/taperecorder/cciaa/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/card/id))
-		var/obj/item/weapon/card/id/ID = W
+/obj/item/device/taperecorder/cciaa/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/card/id))
+		var/obj/item/card/id/ID = W
 		if(ID.GetAccess(access_cent_captain))
 			if(!user in assignedUsers)
 				assignedUsers += user
@@ -50,12 +50,12 @@
 		else
 			user << "<span class='notice'>The device beeps and appears to shutdown.</span>"
 			return
-	if(istype(W, /obj/item/weapon/paper))
-		var/obj/item/weapon/paper/P = W
+	if(istype(W, /obj/item/paper))
+		var/obj/item/paper/P = W
 		logPaper(user, P)
 	..()
 
-/obj/item/device/taperecorder/cciaa/proc/logPaper(var/mob/M, var/obj/item/weapon/paper/P)
+/obj/item/device/taperecorder/cciaa/proc/logPaper(var/mob/M, var/obj/item/paper/P)
 	if(!P)
 		return
 	var/case = input(usr, "Enter case name","Case Name") as null|text
@@ -200,7 +200,7 @@
 
 		dat += "[line]<br>"
 
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src)
+	var/obj/item/paper/P = new /obj/item/paper(src)
 	var/pname = "[firstLine]"
 	var/info = "[dat]"
 	P.set_content_unsafe(pname, info)

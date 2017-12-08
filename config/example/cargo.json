@@ -45,7 +45,7 @@
         }
     },
 	"items": {
-        "/obj/item/weapon/gun/projectile/sec": {
+        "/obj/item/gun/projectile/sec": {
             "name": ".45 Pistol",
             "description": "A standard sidearm, found pretty much everywhere humans are. Uses .45 rounds.",
             "categories": ["medical", "security", "engineering", "civilian"],

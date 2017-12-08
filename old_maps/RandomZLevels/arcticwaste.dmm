@@ -18,7 +18,7 @@
 "r" = (/obj/machinery/light{icon_state = "tube1"; dir = 4},/turf/simulated/floor/plating,/area/awaymission)
 "s" = (/obj/machinery/vending/robotics,/turf/simulated/floor/plating{tag = "icon-warnplate (EAST)"; icon_state = "warnplate"; dir = 4},/area/awaymission)
 "t" = (/turf/simulated/floor/plating{tag = "icon-warnplate (WEST)"; icon_state = "warnplate"; dir = 8},/area/awaymission)
-"u" = (/obj/item/weapon/paper/pamphlet,/turf/simulated/floor/plating,/area/awaymission)
+"u" = (/obj/item/paper/pamphlet,/turf/simulated/floor/plating,/area/awaymission)
 "v" = (/turf/simulated/floor/plating{tag = "icon-warnplate (EAST)"; icon_state = "warnplate"; dir = 4},/area/awaymission)
 "w" = (/obj/machinery/vending/engineering,/turf/simulated/floor/plating{tag = "icon-warnplate (WEST)"; icon_state = "warnplate"; dir = 8},/area/awaymission)
 "x" = (/obj/machinery/vending/tool,/turf/simulated/floor/plating{tag = "icon-warnplate (EAST)"; icon_state = "warnplate"; dir = 4},/area/awaymission)

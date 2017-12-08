@@ -1,6 +1,6 @@
 // Malf AI RTF.
 var/malftransformermade = 0
-/obj/item/weapon/rtf
+/obj/item/rtf
 	name = "\improper Rapid-Transformer-Fabricator"
 	desc = "A device used to deploy a transformer. It can only be used once and there can not be more than one made."
 	icon = 'icons/obj/items.dmi'
@@ -10,7 +10,7 @@ var/malftransformermade = 0
 	anchored = 0.0
 	w_class = 3.0
 
-/obj/item/weapon/rtf/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/rtf/afterattack(atom/A, mob/user as mob, proximity)
 
 	if(!proximity) return
 

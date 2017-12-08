@@ -213,7 +213,7 @@ Thus, the two variables affect pump operation are set in New():
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/binary/pump/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/binary/pump/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if (!iswrench(W))
 		return ..()
 	if (!(stat & NOPOWER) && use_power)

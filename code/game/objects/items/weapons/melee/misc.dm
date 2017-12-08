@@ -1,4 +1,4 @@
-/obj/item/weapon/melee/chainofcommand
+/obj/item/melee/chainofcommand
 	name = "chain of command"
 	desc = "A tool used by great men to placate the frothing masses."
 	icon_state = "chain"
@@ -12,7 +12,7 @@
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/chainhit.ogg'
 
-/obj/item/weapon/melee/chainsword
+/obj/item/melee/chainsword
 	name = "chainsword"
 	desc = "A deadly chainsaw in the shape of a sword."
 	icon = 'icons/obj/weapons.dmi'
@@ -30,7 +30,7 @@
 	var/active = 0
 	can_embed = 0//A chainsword can slice through flesh and bone, and the direction can be reversed if it ever did get stuck
 
-/obj/item/weapon/melee/chainsword/attack_self(mob/user)
+/obj/item/melee/chainsword/attack_self(mob/user)
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/chainsawstart.ogg', 50, 1)
@@ -48,13 +48,13 @@
 	user.regenerate_icons()
 
 /*
-/obj/item/weapon/melee/chainsword/suicide_act(mob/user)
+/obj/item/melee/chainsword/suicide_act(mob/user)
 	viewers(user) << "<span class='danger'>[user] is slicing \himself apart with the [src.name]! It looks like \he's trying to commit suicide.</span>"
 	return (BRUTELOSS|OXYLOSS)
 */
 
 //This is essentially a crowbar and a baseball bat in one.
-/obj/item/weapon/melee/hammer
+/obj/item/melee/hammer
 	name = "kneebreaker hammer"
 	desc = "A heavy hammer made of plasteel, the other end could be used to pry open doors."
 	icon = 'icons/obj/kneehammer.dmi'
@@ -72,7 +72,7 @@
 	hitsound = 'sound/weapons/genhit3.ogg'
 
 
-/obj/item/weapon/melee/hammer/powered
+/obj/item/melee/hammer/powered
 	name = "powered hammer"
 	desc = "A heavily modified plasteel hammer, it seems to be powered by a robust hydraulic system."
 	icon = 'icons/obj/kneehammer.dmi'
@@ -81,7 +81,7 @@
 	origin_tech = list(TECH_MATERIAL = 5, TECH_ILLEGAL = 2, TECH_COMBAT = 3)
 	var/on = TRUE
 
-/obj/item/weapon/melee/hammer/powered/update_icon()
+/obj/item/melee/hammer/powered/update_icon()
 	if(on)
 		icon_state = "hammeron"
 		item_state = "hammeron"
@@ -89,7 +89,7 @@
 		icon_state = "hammeroff"
 		item_state = "hammeroff"
 
-/obj/item/weapon/melee/hammer/powered/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+/obj/item/melee/hammer/powered/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
 	..()
 	if(prob(25))
 		if(!on)
@@ -118,7 +118,7 @@
 			if(R.cell)
 				R.cell.use(150)
 
-/obj/item/weapon/melee/hammer/powered/proc/rearm()
+/obj/item/melee/hammer/powered/proc/rearm()
 	src.visible_message("<span class='notice'>\The [src] hisses lowly.</span>")
 	on = TRUE
 	update_icon()

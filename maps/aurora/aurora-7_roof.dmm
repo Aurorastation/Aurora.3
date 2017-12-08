@@ -90,7 +90,7 @@
 /area/mine/explored)
 "ar" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /obj/random/toolbox,
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
@@ -572,7 +572,7 @@
 /area/mine/explored)
 "bo" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/green,
+/obj/item/bedsheet/green,
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/carpet,
 /area/tcommsat/lounge)
@@ -581,7 +581,7 @@
 /area/tcommsat/lounge)
 "bq" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/blue,
+/obj/item/bedsheet/blue,
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/carpet,
 /area/tcommsat/lounge)
@@ -754,7 +754,7 @@
 /area/syndicate_station/above)
 "bI" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/purple,
+/obj/item/bedsheet/purple,
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/carpet,
 /area/tcommsat/lounge)
@@ -764,7 +764,7 @@
 /area/tcommsat/lounge)
 "bK" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/yellow,
+/obj/item/bedsheet/yellow,
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/carpet,
 /area/tcommsat/lounge)
@@ -788,8 +788,8 @@
 	pixel_y = 32
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/material/ashtray/plastic,
-/obj/item/weapon/cigbutt/cigarbutt,
+/obj/item/material/ashtray/plastic,
+/obj/item/cigbutt/cigarbutt,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -886,20 +886,20 @@
 /area/mine/explored)
 "bY" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/red,
+/obj/item/bedsheet/red,
 /obj/structure/curtain/open/bed,
 /obj/structure/window/reinforced/tinted,
 /turf/simulated/floor/carpet,
 /area/tcommsat/lounge)
 "bZ" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/orange,
+/obj/item/bedsheet/orange,
 /obj/structure/curtain/open/bed,
 /obj/structure/window/reinforced/tinted,
 /turf/simulated/floor/carpet,
 /area/tcommsat/lounge)
 "ca" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "cb" = (
@@ -955,10 +955,10 @@
 /area/tcommsat/lounge)
 "cj" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/food/condiment/peppermill{
 	pixel_x = 2
 	},
-/obj/item/weapon/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/food/condiment/saltshaker{
 	pixel_x = -4;
 	pixel_y = 0
 	},
@@ -1034,7 +1034,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "co" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1085,7 +1085,7 @@
 /area/tcommsat/lounge)
 "cr" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/lino,
 /area/tcommsat/lounge)
 "cs" = (
@@ -1104,7 +1104,7 @@
 /area/tcommsat/lounge)
 "ct" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/deck/tarot,
+/obj/item/deck/tarot,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 8;
@@ -1508,8 +1508,8 @@
 	dir = 10
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/dice,
-/obj/item/weapon/deck/cards,
+/obj/item/dice,
+/obj/item/deck/cards,
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
 	dir = 5
@@ -2168,7 +2168,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "eu" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
