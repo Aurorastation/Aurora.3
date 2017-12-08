@@ -34,6 +34,7 @@
 	if(hud_used)	qdel(hud_used)		//remove the hud objects
 	hud_used = new /datum/hud(src)
 
+	disconnect_time = null
 	next_move = 1
 	sight |= SEE_SELF
 	..()
