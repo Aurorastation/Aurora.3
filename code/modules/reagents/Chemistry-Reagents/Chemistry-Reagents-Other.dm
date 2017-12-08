@@ -65,10 +65,10 @@
 
 /datum/reagent/paint/touch_obj(var/obj/O)
 	//special checks for special items
-	if(istype(O, /obj/item/weapon/reagent_containers))
+	if(istype(O, /obj/item/reagent_containers))
 		return
-	else if(istype(O, /obj/item/weapon/light))
-		var/obj/item/weapon/light/L = O
+	else if(istype(O, /obj/item/light))
+		var/obj/item/light/L = O
 		L.brightness_color = color
 		L.update()
 	else if(istype(O, /obj/machinery/light))

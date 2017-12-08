@@ -56,7 +56,7 @@
 	add_glow()
 
 /mob/living/simple_animal/construct/death()
-	new /obj/item/weapon/ectoplasm (src.loc)
+	new /obj/item/ectoplasm (src.loc)
 	..(null,"collapses in a shattered heap.")
 	ghostize()
 	qdel(src)
