@@ -42,6 +42,10 @@ Pipelines + Other Objects -> Pipe network
 		pipe_color = null
 	..()
 
+/obj/machinery/atmospherics/Destroy()
+	..()
+	return QDEL_HINT_HARDDEL	// fuck it
+
 /obj/machinery/atmospherics/proc/atmos_init()
 
 
