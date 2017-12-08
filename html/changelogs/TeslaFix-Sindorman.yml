@@ -1,0 +1,4 @@
+author: PoZe
+delete-after: True
+changes: 
+  - bugfix: "Tesla coils no longer use power of APC, thus work without power"
