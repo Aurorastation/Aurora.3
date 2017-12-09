@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes:
+  - bugfix: "Engineering crews have corrected a fault in station wiring that caused station lighting to be instead connected to the Equipment power pool. Officials suspect a prank from misbehaving maintenance drones."
