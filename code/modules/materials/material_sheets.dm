@@ -226,7 +226,6 @@
 	default_type = "bronze"
 	icon_has_variants = TRUE
 
-
 /obj/item/stack/material/titanium
 	name = "titanium"
 	icon_state = "sheet-titanium"
