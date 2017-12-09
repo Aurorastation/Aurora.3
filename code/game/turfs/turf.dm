@@ -374,9 +374,8 @@ var/const/enterloopsanity = 100
 					add = 0
 					break
 				if(is_type_in_typecache(O, allowed))
-					if (istype(O, type))
-						add = 1
-						break
+					add = 1
+					break
 				if(!add)
 					break
 		if(add)
