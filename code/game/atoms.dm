@@ -29,6 +29,8 @@
 
 	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
+	var/atom/movable/walking_actor = null
+
 /atom/proc/reveal_blood()
 	return
 
@@ -150,7 +152,7 @@
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
 	dir = new_dir
-	
+
 	// Lighting
 	if (.)
 		var/datum/light_source/L

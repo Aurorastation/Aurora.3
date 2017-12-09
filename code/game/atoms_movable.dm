@@ -20,8 +20,7 @@
 	var/list/contained_mobs
 
 	var/walking = FALSE // For the walk wrapper.
-	var/atom/movable/walking_tgt = null
-	var/atom/movable/walking_actor = null
+	var/atom/walking_tgt = null
 
 /atom/movable/Destroy()
 	. = ..()
@@ -37,9 +36,6 @@
 	// Clean up walking refs.
 	if (walking)
 		s_walk_stop()
-
-	if (walking_actor)
-		walking_actor.s_walk_stop()
 
 /atom/movable/Bump(var/atom/A, yes)
 	if(src.throwing)
@@ -329,7 +325,7 @@
 
 	walk_rand(src, lag, speed)
 
-/atom/movable/proc/s_walk_away(atom/movable/tgt, max = 5, lag = 0, speed = 0)
+/atom/movable/proc/s_walk_away(atom/tgt, max = 5, lag = 0, speed = 0)
 	RESET_VARS
 
 	ASSERT(tgt)
@@ -339,7 +335,7 @@
 
 	walk_away(src, walking_tgt, max, lag, speed)
 
-/atom/movable/proc/s_walk_to(atom/movable/tgt, min = 0, lag = 0, speed = 0)
+/atom/movable/proc/s_walk_to(atom/tgt, min = 0, lag = 0, speed = 0)
 	RESET_VARS
 
 	ASSERT(tgt)
@@ -349,7 +345,7 @@
 
 	walk_to(src, walking_tgt, min, lag, speed)
 
-/atom/movable/proc/s_walk_towards(atom/movable/tgt, lag = 0, speed = 0)
+/atom/movable/proc/s_walk_towards(atom/tgt, lag = 0, speed = 0)
 	RESET_VARS
 
 	ASSERT(tgt)
