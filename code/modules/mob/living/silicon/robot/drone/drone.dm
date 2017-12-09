@@ -198,7 +198,7 @@
 				user << "<span class='danger'>Access denied.</span>"
 				return
 
-			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to reboot it.</span>", "<span class='danger'>>You swipe your ID card through \the [src], attempting to reboot it.</span>")
+			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to reboot it.</span>", "<span class='danger'>You swipe your ID card through \the [src], attempting to reboot it.</span>")
 			request_player()
 			return
 
