@@ -27,11 +27,7 @@
 	//float over to our destination, if we have one
 	destination = dest_turf
 	if(destination)
-		walk_to(src, destination)
-
-/obj/effect/effect/smoke/chem/Destroy()
-	walk(src, 0)
-	return ..()
+		s_walk_to(destination)
 
 /obj/effect/effect/smoke/chem/Move()
 	var/list/oldlocs = view(1, src)

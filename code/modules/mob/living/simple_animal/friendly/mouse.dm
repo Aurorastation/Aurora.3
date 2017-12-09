@@ -60,7 +60,7 @@
 	if(..())
 
 		if(client)
-			walk_to(src,0)
+			s_walk_stop()
 
 			//Player-animals don't do random speech normally, so this is here
 			//Player-controlled mice will still squeak, but less often than NPC mice
@@ -182,7 +182,7 @@
 	if (stat == CONSCIOUS)
 		if (squeakcooldown > world.time) return
 		squeakcooldown = world.time + 4 SECONDS
-	
+
 		if (squeals > 0 || !manual)
 			playsound(src, 'sound/effects/creatures/mouse_squeak_loud.ogg', 50, 1)
 			squeals --

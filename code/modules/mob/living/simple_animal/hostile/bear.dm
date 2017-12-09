@@ -262,7 +262,7 @@
 	set_stance(HOSTILE_STANCE_TIRED)
 	speak_audio()
 	stance_step = 0
-	walk(src, 0) //This stops the bear's walking
+	s_walk_stop() //This stops the bear's walking
 
 /mob/living/simple_animal/hostile/bear/spatial/tire_out()
 	..()
@@ -335,7 +335,7 @@
 		if (stance > HOSTILE_STANCE_ALERT)//If we're currently above alert
 			set_stance(HOSTILE_STANCE_ALERT)//Drop to alert and cease attacking
 		target_mob = null
-		walk(src, 0)
+		s_walk_stop()
 
 /mob/living/simple_animal/hostile/bear/AttackingTarget()
 	var/targetname = target_mob.name

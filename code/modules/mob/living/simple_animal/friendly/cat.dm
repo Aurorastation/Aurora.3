@@ -52,7 +52,7 @@
 
 		if(!buckled)
 			if (turns_since_move > 5 || (flee_target || mousetarget))
-				walk_to(src,0)
+				s_walk_stop()
 				turns_since_move = 0
 
 				if (flee_target) //fleeing takes precendence
@@ -61,7 +61,7 @@
 					handle_movement_target()
 
 		if (!movement_target)
-			walk_to(src,0)
+			s_walk_stop()
 
 		addtimer(CALLBACK(src, .proc/attack_mice), 2)
 
@@ -89,7 +89,7 @@
 
 	if(movement_target)
 		stop_automated_movement = 1
-		walk_to(src,movement_target,0,seek_move_delay)
+		s_walk_to(movement_target, 0, seek_move_delay)
 
 /mob/living/simple_animal/cat/proc/attack_mice()
 	if((src.loc) && isturf(src.loc))
@@ -126,7 +126,7 @@
 	if (flee_target)
 		if(prob(25)) say("HSSSSS")
 		stop_automated_movement = 1
-		walk_away(src, flee_target, 7, 2)
+		s_walk_away(flee_target, 7, 2)
 
 /mob/living/simple_animal/cat/proc/set_flee_target(atom/A)
 	if(A)
@@ -177,17 +177,17 @@
 		if (movement_target != friend)
 			if (current_dist > follow_dist && !istype(movement_target, /mob/living/simple_animal/mouse) && (friend in oview(src)))
 				//stop existing movement
-				walk_to(src,0)
+				s_walk_stop()
 				turns_since_scan = 0
 
 				//walk to friend
 				stop_automated_movement = 1
 				movement_target = friend
-				walk_to(src, movement_target, near_dist, seek_move_delay)
+				s_walk_to(movement_target, near_dist, seek_move_delay)
 
 		//already following and close enough, stop
 		else if (current_dist <= near_dist)
-			walk_to(src,0)
+			s_walk_stop()
 			movement_target = null
 			stop_automated_movement = 0
 			if (prob(10))

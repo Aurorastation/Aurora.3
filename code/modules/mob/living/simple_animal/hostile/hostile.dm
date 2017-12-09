@@ -89,10 +89,10 @@
 			if(get_dist(src, target_mob) <= 6)
 				OpenFire(target_mob)
 			else
-				walk_to(src, target_mob, 1, move_to_delay)
+				s_walk_to(target_mob, 1, move_to_delay)
 		else
 			stance = HOSTILE_STANCE_ATTACKING
-			walk_to(src, target_mob, 1, move_to_delay)
+			s_walk_to(target_mob, 1, move_to_delay)
 
 /mob/living/simple_animal/hostile/proc/AttackTarget()
 
@@ -129,7 +129,7 @@
 /mob/living/simple_animal/hostile/proc/LoseTarget()
 	stance = HOSTILE_STANCE_IDLE
 	target_mob = null
-	walk(src, 0)
+	s_walk_stop()
 	LostTarget()
 
 /mob/living/simple_animal/hostile/proc/LostTarget()
@@ -147,13 +147,12 @@
 
 /mob/living/simple_animal/hostile/death()
 	..()
-	walk(src, 0)
 
 /mob/living/simple_animal/hostile/Life()
 
 	. = ..()
 	if(!.)
-		walk(src, 0)
+		s_walk_stop()
 		return 0
 	if(client)
 		return 0

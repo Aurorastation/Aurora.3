@@ -158,7 +158,7 @@
 	banglet = 1
 	var/stepdist = rand(1,4)//How far to step
 	var/temploc = src.loc//Saves the current location to know where to step away from
-	walk_away(src,temploc,stepdist)//I must go, my people need me
+	s_walk_away(temploc, stepdist)//I must go, my people need me
 	var/dettime = rand(15,60)
 	addtimer(CALLBACK(src, .proc/prime), dettime)
 	..()
@@ -183,7 +183,7 @@
 	banglet = 1
 	var/stepdist = rand(1,3)
 	var/temploc = src.loc
-	walk_away(src,temploc,stepdist)
+	s_walk_away(temploc, stepdist)
 	var/dettime = rand(15,60)
 	addtimer(CALLBACK(src, .proc/prime), dettime)
 	..()

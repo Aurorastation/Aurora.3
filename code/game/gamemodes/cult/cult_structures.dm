@@ -284,13 +284,13 @@
 			pylonmode = 0
 			update_icon()
 			if (sacrifice)
-				walk_to(sacrifice,0)
+				sacrifice.s_walk_stop()
 		else
 			if (istype(sacrifice.loc, /turf) && !(sacrifice.is_ventcrawling) && !(sacrifice.buckled))
 				//Suck the creature towards the pylon if possible
-				walk_towards(sacrifice,src, 10)
+				sacrifice.s_walk_towards(src, 10)
 			else
-				walk_to(sacrifice,0) //If we're not in a valid situation, cancel walking to prevent bugginess
+				sacrifice.s_walk_stop() //If we're not in a valid situation, cancel walking to prevent bugginess
 
 /obj/structure/cult/pylon/proc/finalize_sacrifice()
 	sacrifice.visible_message(span("danger","\The [sacrifice]'s physical form unwinds as its soul is extracted from the remains, and drawn into the pylon!"))

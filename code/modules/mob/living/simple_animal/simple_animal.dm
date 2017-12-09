@@ -470,7 +470,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
-	walk_to(src,0)
 	movement_target = null
 	icon_state = icon_dead
 	density = 0
@@ -559,7 +558,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				foodtarget = 0
 				stop_automated_movement = 0
 			if( !movement_target || !(movement_target.loc in oview(src, 7)) )
-				walk_to(src,0)
+				s_walk_stop()
 				movement_target = null
 				foodtarget = 0
 				stop_automated_movement = 0
@@ -590,9 +589,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				stop_automated_movement = 1
 
 				if (istype(movement_target.loc, /turf))
-					walk_to(src,movement_target,0, seek_move_delay)//Stand ontop of food
+					s_walk_to(movement_target, 0, seek_move_delay) //Stand ontop of food
 				else
-					walk_to(src,movement_target.loc,1, seek_move_delay)//Don't stand ontop of people
+					s_walk_to(movement_target.loc, 1, seek_move_delay) //Don't stand ontop of people
 
 
 
@@ -656,7 +655,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		stat = UNCONSCIOUS
 		canmove = 0
 		wander = 0
-		walk_to(src,0)
+		s_walk_stop()
 		movement_target = null
 		foodtarget = 0
 		update_icons()

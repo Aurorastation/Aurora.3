@@ -77,7 +77,7 @@
 
 	M.dest = pickedgoal
 	spawn(1)
-		walk_towards(M, M.dest, 2)
+		M.s_walk_towards(M.dest, 2)
 
 	return
 
@@ -108,10 +108,6 @@
 	detonation_chance = 30
 	shieldsoundrange = 160
 	dropamt = 1
-
-/obj/effect/meteor/Destroy()
-	walk(src,0) //this cancels the walk_towards() proc
-	return ..()
 
 /obj/effect/meteor/Bump(atom/A)
 	if (!done)

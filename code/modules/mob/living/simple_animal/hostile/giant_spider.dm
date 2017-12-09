@@ -99,12 +99,12 @@
 				for(var/turf/T in orange(20, src))
 					move_targets.Add(T)*/
 				stop_automated_movement = 1
-				walk_to(src, pick(orange(20, src)), 1, move_to_delay)
+				s_walk_to(pick(orange(20, src)), 1, move_to_delay)
 				addtimer(CALLBACK(src, .proc/stop_walking), 50, TIMER_UNIQUE)
 
 /mob/living/simple_animal/hostile/giant_spider/proc/stop_walking()
 	stop_automated_movement = 0
-	walk(src, 0)
+	s_walk_stop()
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/Life()
 	..()
@@ -118,7 +118,7 @@
 					if(C.stat)
 						cocoon_target = C
 						busy = MOVING_TO_TARGET
-						walk_to(src, C, 1, move_to_delay)
+						s_walk_to(C, 1, move_to_delay)
 						//give up if we can't reach them after 10 seconds
 						addtimer(CALLBACK(src, .proc/GiveUp, C), 100, TIMER_UNIQUE)
 						return
@@ -149,7 +149,7 @@
 								cocoon_target = O
 								busy = MOVING_TO_TARGET
 								stop_automated_movement = 1
-								walk_to(src, O, 1, move_to_delay)
+								s_walk_to(O, 1, move_to_delay)
 								//give up if we can't reach them after 10 seconds
 								GiveUp(O)
 
@@ -158,7 +158,7 @@
 					busy = SPINNING_COCOON
 					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance around \the [cocoon_target].</span>")
 					stop_automated_movement = 1
-					walk(src,0)
+					s_walk_stop()
 					addtimer(CALLBACK(src, .proc/finalize_cocoon), 50, TIMER_UNIQUE)
 
 		else
