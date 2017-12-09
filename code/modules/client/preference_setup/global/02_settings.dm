@@ -10,7 +10,7 @@
 	S["motd_hash"]        >> pref.motd_hash
 	S["memo_hash"]        >> pref.memo_hash
 	S["parallax_speed"]   >> pref.parallax_speed
-	S["parallax_toggles"] >> pref.toggles_secondary
+	S["toggles_secondary"] >> pref.toggles_secondary
 
 /datum/category_item/player_setup_item/player_global/settings/save_preferences(var/savefile/S)
 	S["lastchangelog"]    << pref.lastchangelog
