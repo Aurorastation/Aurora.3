@@ -345,7 +345,7 @@ var/const/enterloopsanity = 100
 		above.ChangeTurf(/turf/simulated/open)
 
 /turf/proc/AdjacentTurfsRanged()
-	var/list/allowed = list(
+	var/static/list/allowed = typecacheof(
 		/obj/structure/table,
 		/obj/structure/closet,
 		/obj/machinery/constructable_frame,
@@ -373,7 +373,7 @@ var/const/enterloopsanity = 100
 					//not sure why this doesn't fire on LinkBlocked()
 					add = 0
 					break
-				for(var/type in allowed)
+				if(is_type_in_typecache(O, allowed))
 					if (istype(O, type))
 						add = 1
 						break
