@@ -154,7 +154,7 @@
 	display_name = "toe-less jackboots"
 	path = /obj/item/clothing/shoes/jackboots/unathi
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 /datum/gear/shoes/workboots_toeless
 	display_name = "toeless workboots"

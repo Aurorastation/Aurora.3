@@ -3,10 +3,10 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "aab" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "aac" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/syndicate_station/caverns)
 "aad" = (
 /turf/simulated/wall,
@@ -71,7 +71,7 @@
 	pixel_y = -25;
 	req_one_access = list(13)
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "aam" = (
 /obj/effect/decal/cleanable/dirt,
@@ -237,7 +237,7 @@
 /area/maintenance/security_starboard)
 "aaz" = (
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "aaA" = (
 /obj/structure/closet,
@@ -286,7 +286,7 @@
 "aaG" = (
 /obj/structure/grille/broken,
 /obj/structure/lattice,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "aaH" = (
 /obj/structure/cable{
@@ -1160,7 +1160,7 @@
 /obj/effect/landmark{
 	name = "cavernspawn"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "act" = (
 /obj/structure/grille,
@@ -2559,7 +2559,7 @@
 /obj/effect/landmark{
 	name = "carpspawn"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "aeX" = (
 /obj/structure/grille/broken,
@@ -3639,7 +3639,6 @@
 /area/engineering/atmos)
 "ahn" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/cyan{
-	tag = "icon-down (WEST)";
 	icon_state = "down";
 	dir = 8
 	},
@@ -4469,7 +4468,6 @@
 /area/engineering/atmos)
 "aiX" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/red{
-	tag = "icon-down (WEST)";
 	icon_state = "down";
 	dir = 8
 	},
@@ -4835,12 +4833,10 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -4856,7 +4852,6 @@
 /obj/item/weapon/crowbar,
 /obj/item/weapon/crowbar,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -4869,7 +4864,6 @@
 /obj/item/device/flashlight/maglight,
 /obj/item/device/flashlight/maglight,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -5384,7 +5378,6 @@
 /area/security/main)
 "akI" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -5885,7 +5878,6 @@
 /area/security/main)
 "alH" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -6374,7 +6366,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -6534,7 +6525,7 @@
 /area/maintenance/civ)
 "amY" = (
 /obj/machinery/light/spot,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/bridge)
 "amZ" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
@@ -6780,7 +6771,6 @@
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -7564,7 +7554,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -8025,7 +8014,6 @@
 	icon_state = "left";
 	name = "Atmospheric Hardsuits";
 	req_access = list(24);
-	tag = "icon-left (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -8249,7 +8237,6 @@
 "apZ" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -8291,7 +8278,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -8303,7 +8289,6 @@
 /area/security/main)
 "aqf" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -8321,7 +8306,6 @@
 "aqg" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -8743,7 +8727,6 @@
 	icon_state = "left";
 	name = "Atmospheric Hardsuits";
 	req_access = list(24);
-	tag = "icon-left (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -11145,7 +11128,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/bridge)
 "auF" = (
 /turf/simulated/wall,
@@ -11246,7 +11229,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/bridge)
 "auM" = (
 /turf/simulated/open,
@@ -11587,7 +11570,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -11747,7 +11729,6 @@
 	icon_state = "leftsecure";
 	name = "Secure Holding Cell";
 	req_access = list(2);
-	tag = "icon-leftsecure"
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -12092,7 +12073,7 @@
 /area/hallway/primary/starboard)
 "awh" = (
 /obj/structure/window/reinforced,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "awi" = (
 /obj/effect/floor_decal/corner/blue{
@@ -12197,7 +12178,7 @@
 	name = "Reactor Vent";
 	p_open = 0
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/engineering/engine_room)
 "awt" = (
 /turf/simulated/floor/greengrid/nitrogen,
@@ -12312,7 +12293,6 @@
 	c_tag = "Engineering - Engine Starboard";
 	dir = 8;
 	icon_state = "camera";
-	tag = "icon-camera (WEST)"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -12646,7 +12626,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (NORTHEAST)";
 	icon_state = "intact";
 	dir = 5
 	},
@@ -12660,7 +12639,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -12681,7 +12659,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -12971,7 +12948,6 @@
 /area/security/brig)
 "axv" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -12989,7 +12965,6 @@
 /area/security/brig)
 "axw" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -13009,7 +12984,6 @@
 /area/security/brig)
 "axx" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -13023,7 +12997,6 @@
 /area/security/brig)
 "axy" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -13262,7 +13235,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "axV" = (
 /turf/simulated/open,
@@ -13271,7 +13244,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "axX" = (
 /obj/structure/grille,
@@ -13805,7 +13778,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -14682,7 +14654,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -17315,7 +17286,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/crew_quarters/captain)
 "aEF" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
@@ -24611,7 +24582,6 @@
 /area/bridge/meeting_room)
 "aQF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -24945,7 +24915,7 @@
 /area/crew_quarters/captain)
 "aRb" = (
 /turf/space,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "aRc" = (
 /obj/machinery/keycard_auth{
@@ -25624,7 +25594,6 @@
 "aSi" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -26524,7 +26493,6 @@
 /obj/structure/table/wood,
 /obj/item/weapon/folder/blue,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -27201,7 +27169,6 @@
 	},
 /obj/item/weapon/pen,
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -27943,7 +27910,6 @@
 /area/bridge/meeting_room)
 "aWr" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
 	icon_state = "spline_fancy";
 	dir = 4
 	},
@@ -27973,7 +27939,6 @@
 "aWu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/orange{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -33245,7 +33210,6 @@
 /area/bridge/meeting_room)
 "bfm" = (
 /obj/structure/toilet{
-	tag = "icon-toilet00 (WEST)";
 	icon_state = "toilet00";
 	dir = 8
 	},
@@ -41127,7 +41091,6 @@
 /area/medical/medbay2)
 "bsg" = (
 /obj/effect/floor_decal/corner/grey{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -41157,7 +41120,6 @@
 /area/crew_quarters/heads/cmo)
 "bsj" = (
 /obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -41738,7 +41700,6 @@
 /obj/structure/bed/chair/comfy/teal{
 	dir = 8;
 	icon_state = "comfychair_preview";
-	tag = "icon-comfychair (WEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -43846,7 +43807,7 @@
 	pixel_y = 25;
 	req_one_access = list(11)
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "bwI" = (
 /obj/machinery/door/airlock/external{
@@ -55819,7 +55780,6 @@
 /area/hallway/primary/aft)
 "bSx" = (
 /obj/structure/sign/double/barsign{
-	tag = "icon-empty (WEST)";
 	icon_state = "empty";
 	dir = 8
 	},
@@ -59027,11 +58987,11 @@
 /obj/structure/boulder{
 	icon_state = "boulder2"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "bYv" = (
 /obj/structure/boulder,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "bYw" = (
 /obj/effect/decal/cleanable/dirt,
@@ -59186,7 +59146,7 @@
 /obj/structure/boulder{
 	icon_state = "boulder4"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "bYQ" = (
 /obj/structure/cable{
@@ -59360,7 +59320,7 @@
 /area/maintenance/disposal)
 "bZm" = (
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "bZn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -59635,7 +59595,7 @@
 /area/maintenance/library)
 "bZJ" = (
 /obj/effect/decal/cleanable/vomit,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "bZK" = (
 /obj/structure/cable{
@@ -59832,11 +59792,11 @@
 /area/maintenance/library)
 "cac" = (
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "cad" = (
 /obj/effect/decal/cleanable/blood/tracks/footprints,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "cae" = (
 /obj/structure/table/rack,
@@ -60113,7 +60073,7 @@
 /area/quartermaster/office)
 "caG" = (
 /obj/random/junk,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "caH" = (
 /obj/structure/window/reinforced{
@@ -60607,13 +60567,13 @@
 /obj/structure/track{
 	icon_state = "track3"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "cbr" = (
 /obj/structure/track{
 	icon_state = "track6"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "cbs" = (
 /obj/structure/track{
@@ -60623,7 +60583,7 @@
 	icon_state = "orebox1";
 	name = "minecart ore box"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "cbt" = (
 /obj/structure/track{
@@ -60633,7 +60593,7 @@
 	icon_state = "orebox1";
 	name = "minecart ore box"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "cbu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -60748,11 +60708,11 @@
 /obj/structure/track{
 	icon_state = "track12"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "cbF" = (
 /obj/structure/track,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "cbG" = (
 /obj/vehicle/train/cargo/engine/mining{
@@ -60762,14 +60722,14 @@
 /obj/structure/track{
 	icon_state = "track13"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "cbH" = (
 /obj/vehicle/train/cargo/trolley/mining,
 /obj/structure/track{
 	icon_state = "track13"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "cbI" = (
 /obj/structure/window/reinforced{
@@ -60957,7 +60917,7 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/mine/unexplored)
 "ccb" = (
 /obj/structure/grille,
@@ -61882,7 +61842,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "cdI" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/rocky,
 /area/skipjack_station/cavern)
 
 (1,1,1) = {"

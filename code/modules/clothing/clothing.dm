@@ -267,7 +267,7 @@ BLIND     // can't see anything
 /obj/item/clothing/gloves/mob_can_equip(mob/user, slot)
 	var/mob/living/carbon/human/H = user
 	if(slot && slot == slot_gloves)
-		if(H.gloves)
+		if(istype(H.gloves, /obj/item/clothing/ring))
 			ring = H.gloves
 			if(!ring.undergloves)
 				to_chat(user, "You are unable to wear \the [src] as \the [H.gloves] are in the way.")

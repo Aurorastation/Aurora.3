@@ -14,7 +14,7 @@
 	add_overlay(image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", layer = FLY_LAYER))
 
 /obj/structure/bed/chair/wheelchair/set_dir()
-	..()
+	. = ..()
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
 

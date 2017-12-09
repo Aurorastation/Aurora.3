@@ -435,8 +435,16 @@ var/datum/controller/subsystem/cargo/SScargo
 	else
 		return "The order could not be rejected - Invalid Status"
 
-
-
+//Deliver a order
+/datum/controller/subsystem/cargo/proc/deliver_order(var/datum/cargo_order/co, var/received_by, var/payment_status = 1)
+	if(co.status == "shipped")
+		co.status = "delivered"
+		co.time_delivered = worldtime2text()
+		co.received_by = received_by
+		co.payment_status = payment_status
+		return "The order has been delivered"
+	else 
+		return "The order could not be delivered - Invalid Status"
 
 //Checks if theorder can be shipped and marks it as shipped if possible
 /datum/controller/subsystem/cargo/proc/ship_order(var/datum/cargo_order/co)

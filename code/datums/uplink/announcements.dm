@@ -25,7 +25,7 @@
 	return list("title" = title, "message" = message)
 
 /datum/uplink_item/abstract/announcements/fake_centcom/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/user, var/list/args)
-	command_announcement.Announce(args["message"], args["title"])
+	command_announcement.Announce(args["message"], args["title"], do_newscast=1, do_print=1)
 	return 1
 
 /datum/uplink_item/abstract/announcements/fake_crew_arrival
