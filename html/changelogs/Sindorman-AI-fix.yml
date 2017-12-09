@@ -1,0 +1,4 @@
+author: PoZe
+delete-after: True
+changes:
+  - bugfix: "Fixed AI seeing mobs who use stealth suits. That is both ninja and raider's stealth suit or anyone else with same technology."
