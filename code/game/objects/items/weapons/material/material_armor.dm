@@ -44,7 +44,6 @@ Protectiveness | Armor %
 /obj/item/clothing/get_material()
 	return material
 
-// Debating if this should be made an /obj/item/ proc.
 /obj/item/clothing/proc/set_material(var/new_material)
 	material = get_material_by_name(new_material)
 	if(!material)
@@ -158,17 +157,18 @@ Protectiveness | Armor %
 			siemens_coefficient = between(0, material.conductivity / 10, 10)
 		slowdown = between(0, round(material.weight / 10, 0.1), 6)
 
-/obj/item/clothing/suit/armor/material
+/obj/item/clothing/suit/material
 	name = "armor"
 	default_material = DEFAULT_WALL_MATERIAL
 
-/obj/item/clothing/suit/armor/material/makeshift
+/obj/item/clothing/suit/armor/makeshift
 	name = "sheet armor"
 	desc = "This appears to be two 'sheets' of a material held together by cable."
 	icon = 'icons/obj/clothing/material_armor.dmi'
 	icon_state = "material_armor"
 	item_state = "material_armor"
 	contained_sprite = 1
+	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/armor/material/makeshift/plasteel
 	default_material = "plasteel"
@@ -211,7 +211,7 @@ Protectiveness | Armor %
 			return
 		user.drop_from_inventory(src)
 		user.drop_from_inventory(second_plate)
-		var/obj/item/clothing/suit/armor/material/makeshift/new_armor = new(user.loc, src.material.name)
+		var/obj/item/clothing/suit/armor/material/makeshift/new_armor = new(src.material.name)
 		user.put_in_hands(new_armor)
 		qdel(second_plate)
 		qdel(src)
@@ -242,7 +242,7 @@ Protectiveness | Armor %
 		var/obj/item/stack/material/S = O
 		if(S.use(2))
 			to_chat(user, "<span class='notice'>You apply some [S.material.use_name] to \the [src]. </span>")
-			var/obj/item/clothing/head/helmet/material/makeshift/helmet = new(user.loc, S.material.name)
+			var/obj/item/clothing/head/helmet/material/makeshift/helmet = new(S.material.name)
 			user.put_in_hands(helmet)
 			user.drop_from_inventory(src)
 			qdel(src)
