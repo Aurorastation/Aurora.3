@@ -153,7 +153,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 30
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 60
 	)
 
 
@@ -187,7 +187,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 13,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 16,
-		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 20
+		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
