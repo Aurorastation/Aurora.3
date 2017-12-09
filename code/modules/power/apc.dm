@@ -983,7 +983,6 @@
 		return 1
 
 	else if (href_list["emergency_lights"])
-		log_debug("emerg: [href_list["emergency_lights"]]")
 		emergency_lights = href_list["emergency_lights"] != "off"
 		for (var/obj/machinery/light/L in area)
 			if (!initial(L.no_emergency))
