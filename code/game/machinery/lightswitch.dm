@@ -5,7 +5,7 @@
 	name = "light switch"
 	desc = "It turns lights on and off. What are you, simple?"
 	icon = 'icons/obj/power.dmi'
-	icon_state = "light1"
+	icon_state = "light-p"
 	anchored = 1.0
 	var/on = 1
 	var/area/area = null
@@ -26,16 +26,16 @@
 	updateicon()
 
 /obj/machinery/light_switch/proc/updateicon()
-	if(stat & NOPOWER)
-		icon_state = "light-p"
-	else
-		icon_state = "light[on]"
+	cut_overlays()
+	if(!(stat & NOPOWER))
+		holographic_overlay(src, icon, "light[on]-overlay")
 
 /obj/machinery/light_switch/examine(mob/user)
 	if(..(user, 1))
 		user << "A light switch. It is [on? "on" : "off"]."
 
 /obj/machinery/light_switch/attack_hand(mob/user)
+	playsound(src, "switch", 30)
 	on = !on
 
 	area.lightswitch = on
