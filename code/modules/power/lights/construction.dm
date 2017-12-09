@@ -28,14 +28,12 @@
 
 	switch(src.stage)
 		if(1)
-			user << "It's an empty frame."
-			return
+			to_chat(user, "It's an empty frame.")
 		if(2)
-			user << "It's wired."
-			return
+			to_chat(user, "It's wired.")
 		if(3)
-			user << "The casing is closed."
-			return
+			to_chat(user, "The casing is closed.")
+
 	if (cell_connectors)
 		if (cell)
 			to_chat(user, "You see [cell] inside the casing.")
@@ -50,12 +48,17 @@
 		if (src.stage == 1)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			usr << "You begin deconstructing [src]."
-			if (!do_after(usr, 30))
+			if (!do_after(usr, 30, act_target = src))
 				return
-			new /obj/item/stack/material/steel( get_turf(src.loc), sheets_refunded )
-			user.visible_message("[user.name] deconstructs [src].", \
-				"You deconstruct [src].", "You hear a noise.")
+			new /obj/item/stack/material/steel(get_turf(src.loc), sheets_refunded)
+			user.visible_message(
+				"[user] deconstructs [src].",
+				"You deconstruct [src]."
+			)
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 75, 1)
+			if (cell)
+				cell.forceMove(get_turf(src))
+				cell = null
 			qdel(src)
 		if (src.stage == 2)
 			usr << "You have to remove the wires first."
@@ -74,8 +77,11 @@
 			if("bulb")
 				src.icon_state = "bulb-construct-stage1"
 		new /obj/item/stack/cable_coil(get_turf(src.loc), 1, "red")
-		user.visible_message("[user.name] removes the wiring from [src].", \
-			"You remove the wiring from [src].", "You hear a noise.")
+		user.visible_message(
+			"[user] removes the wiring from [src].",
+			"You remove the wiring from [src].", 
+			"You hear something being cut."
+		)
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		return
 
@@ -89,30 +95,39 @@
 				if("bulb")
 					src.icon_state = "bulb-construct-stage2"
 			src.stage = 2
-			user.visible_message("[user.name] adds wires to [src].", \
-				"You add wires to [src].")
+			user.visible_message(
+				"[user] adds wires to [src].",
+				"You add wires to [src]."
+			)
 		return
 
 	if(isscrewdriver(W))
-		if (src.stage == 2)
+		if (stage == 2)
 			switch(fixture_type)
 				if("tube")
-					src.icon_state = "tube_empty"
+					icon_state = "tube_empty"
 				if("bulb")
-					src.icon_state = "bulb_empty"
-			src.stage = 3
-			user.visible_message("[user.name] closes [src]'s casing.", \
-				"You close [src]'s casing.", "You hear a noise.")
+					icon_state = "bulb_empty"
+			stage = 3
+			user.visible_message(
+				"[user] closes [src]'s casing.",
+				"You close [src]'s casing.",
+				"You hear something being screwed in."
+			)
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 75, 1)
 
 			switch(fixture_type)
-
 				if("tube")
 					newlight = new /obj/machinery/light/built(src.loc)
 				if("bulb")
 					newlight = new /obj/machinery/light/small/built(src.loc)
 
 			newlight.dir = src.dir
+			if (cell)
+				newlight.cell = cell
+				cell.forceMove(newlight)
+				cell = null
+
 			src.transfer_fingerprints_to(newlight)
 			qdel(src)
 			return
@@ -140,6 +155,25 @@
 			cell = W
 			add_fingerprint(user)
 			return
+
+	if (iscrowbar(W))
+		if (!cell_connectors)
+			to_chat(user, "<span class='notice'>[src] does not have a power cell connector.</span>")
+			return
+
+		if (!cell)
+			to_chat(user, "<span class='notice'>[src] does not have a power cell installed.</span>")
+			return
+
+		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, TRUE)
+		visible_message(
+			"[user] removes [cell] from [src].",
+			"<span class='notice'>You remove [cell] from [src].</span>"
+		)
+		cell.forceMove(get_turf(src))
+		cell = null
+		return
+
 	..()
 
 /obj/machinery/light_construct/small

@@ -98,7 +98,7 @@
 	if (!has_power())
 		stat |= NOPOWER
 	if (start_with_cell && !no_emergency)
-		cell = new /obj/item/weapon/cell/emergency_light(src)
+		cell = new /obj/item/weapon/cell/device/emergency_light(src)
 
 	if (mapload && loc && !(z in current_map.admin_levels))
 		switch(fitting)
@@ -252,15 +252,15 @@
 	. = ..()
 	switch(status)
 		if(LIGHT_OK)
-			user << "[desc] It is turned [!(stat & POWEROFF) ? "on" : "off"]."
+			to_chat(user, "It is turned [!(stat & POWEROFF) ? "on" : "off"].")
 		if(LIGHT_EMPTY)
-			user << "[desc] The [fitting] has been removed."
+			to_chat(user, "\The [fitting] has been removed.")
 		if(LIGHT_BURNED)
-			user << "[desc] The [fitting] is burnt out."
+			to_chat(user, "\The [fitting] is burnt out.")
 		if(LIGHT_BROKEN)
-			user << "[desc] The [fitting] has been smashed."
+			to_chat(user, "\The [fitting] has been smashed.")
 	if(cell)
-		to_chat(user, "The charge meter reads [(cell.charge / cell.maxcharge) * 100]%.")
+		to_chat(user, "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%.")
 
 // attack with item - insert light (if right type), otherwise try to break the light
 
@@ -366,10 +366,10 @@
 
 
 // returns whether this light has power
-// true if area has power and lightswitch is on
+// true if area has power
 /obj/machinery/light/proc/has_power()
 	var/area/A = get_area(src)
-	return A && A.lightswitch && (!A.requires_power || A.power_light)
+	return A && (!A.requires_power || A.power_light)
 
 /obj/machinery/light/proc/flicker(amount = rand(10,20))
 	set waitfor = FALSE
