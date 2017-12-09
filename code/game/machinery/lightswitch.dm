@@ -36,17 +36,21 @@
 		user << "A light switch. It is [on? "on" : "off"]."
 
 /obj/machinery/light_switch/attack_hand(mob/user)
-
 	on = !on
 
 	area.lightswitch = on
-	area.update_icon()
 
 	for(var/obj/machinery/light_switch/L in area)
 		L.on = on
 		L.updateicon()
 
-	area.power_change()
+	for (var/obj/machinery/light/L in area)
+		if (on)
+			L.stat &= ~POWEROFF
+		else
+			L.stat |= POWEROFF
+
+		L.update()
 
 /obj/machinery/light_switch/power_change()
 

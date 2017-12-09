@@ -131,3 +131,11 @@
 	icon_state = "yellow slime extract" //"potato_battery"
 	maxcharge = 10000
 	matter = null
+
+
+/obj/item/weapon/cell/emergency_light
+	name = "miniature power cell"
+	desc = "A small power cell intended for use with emergency lighting."
+	maxcharge = 120	//Emergency lights use 0.2 W per tick, meaning ~10 minutes of emergency power from a cell
+	w_class = ITEMSIZE_TINY
+	matter = list("glass" = 20)
