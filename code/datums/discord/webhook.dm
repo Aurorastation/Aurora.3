@@ -6,21 +6,23 @@
 var/list/global_webhooks = list()
 
 /proc/global_initialize_webhooks()
-	var/file = return_file_text("config/webhooks.json")
-	if (file)
-		var/jsonData = json_decode(file)
-		for(var/hook in jsonData)
-			if(!hook["url"] || !hook["tags"])
-				continue
-			var/datum/webhook/W = new(hook["url"], hook["tags"])
-			global_webhooks += W
-			if(hook["mention"])
-				W.mention = hook["mention"]
-		return 1
-	else
-		if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(dbcon))
+		var/file = return_file_text("config/webhooks.json")
+		if (file)
+			var/jsonData = json_decode(file)
+			if(!jsonData)
+				return 0
+			for(var/hook in jsonData)
+				if(!hook["url"] || !hook["tags"])
+					continue
+				var/datum/webhook/W = new(hook["url"], hook["tags"])
+				global_webhooks += W
+				if(hook["mention"])
+					W.mention = hook["mention"]
+			return 1
+		else
 			return 0
-		
+	else
 		var/DBQuery/query = dbcon.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
 		query.Execute()
 
@@ -135,7 +137,7 @@ var/list/global_webhooks = list()
 		if (WEBHOOK_ROUNDSTART)
 			var/emb = list(
 				"title" = "Round has started",
-				"description" = "Round started with [data["playercount"]] [data["playercount"]>1 ? "players" :]",
+				"description" = "Round started with [data["playercount"]] [data["playercount"]>1 ? "players" : "player"]",
 				"color" = HEX_COLOR_GREEN
 			)
 			OutData["embeds"] = list(emb)
