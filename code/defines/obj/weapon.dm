@@ -81,11 +81,78 @@
 	icon_state = "cane"
 	item_state = "stick"
 	flags = CONDUCT
-	force = 10
+	force = 0
 	throwforce = 7.0
 	w_class = 4
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
-	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
+	//attack_verb =
+
+/obj/item/weapon/cane/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
+	if (user.a_intent == I_HELP && !istype(A, /mob) && proximity)
+		A.attack_hand(user)
+
+/obj/item/weapon/cane/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+
+	var/mob/living/carbon/human/M = user
+	var/mob/living/carbon/human/H = target
+	var/verbtouse = pick("bludgeoned", "whacked", "thrashed", "punished")
+	var/damagetoapply = HALLOSS
+	var/damageamount = 10
+	var/punct = "!"
+	var/class = "warning"
+	// Thanks Lohikar for this check
+	var/obj/item/organ/O = H.get_organ(target_zone)
+	var/organname = O ? O.name : "body"
+
+	switch(user.a_intent)
+		if(I_HURT)
+			damagetoapply = BRUTE
+		if(I_DISARM)
+			damageamount = 3
+			verbtouse = pick("smacked","slapped", "knocked")
+			user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a disarm...</span>")
+			if (do_mob(user,target,5))
+				playsound(src.loc, "punch", 50, 1, -1)
+				switch(target_zone)
+					if("l_hand" || "l_arm")
+						if (target.l_hand && target.l_hand != src)
+							user.visible_message("<span class='[class]'>[user] [verbtouse] the [target.l_hand.name] out of [target]'s [organname][punct]</span>", "<span class='[class]'>You [verbtouse] the [target.l_hand] out of [target]'s hand[punct]</span>")
+							target.drop_l_hand()
+							return 1
+					if("r_hand" || "r_arm")
+						if (target.r_hand && target.r_hand != src)
+							user.visible_message("<span class='[class]'>[user] [verbtouse] the [target.r_hand.name] out of [target]'s [organname][punct]</span>", "<span class='[class]'>You [verbtouse] the [target.l_hand] out of [target]'s hand[punct]</span>")
+							target.drop_r_hand()
+							return 1
+			user.visible_message("<span class='[class]'>[user] attempts a disarm on [target], but fails[punct]</span>", "<span class='[class]'>You attempt a disarm on [target], but fail[punct]</span>")
+		if(I_HELP)
+			damageamount = 0.25
+			if (organname == "head")
+				verbtouse = pick("tapped")
+			else
+				verbtouse = pick("tapped","poked","prodded","touched")
+			class = "notice"
+			punct = "."
+		if(I_GRAB)
+			damageamount = 1
+			organname = "body"
+			verbtouse = pick("hooked","grabbed")
+			user.setClickCooldown(5)
+			user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a grab...</span>")
+			if (do_mob(user,target,5))
+				M.start_pulling(H)
+			else
+				verbtouse = pick("akwardly tries to hook","fails to grab")
+
+
+	var/blocked = H.run_armor_check(target_zone, "melee")
+	H.apply_damage(damageamount, damagetoapply, target_zone, blocked)
+	H.standard_weapon_hit_effects(src,user,damageamount,blocked,target_zone)
+	if (damagetoapply==BRUTE)
+		playsound(src.loc, "swing_hit", 50, 1, -1)
+	user.visible_message("<span class='[class]'>[user] [verbtouse] [target]'s [organname] with the [name][punct]</span>", "<span class='[class]'>You [verbtouse] [target]'s [organname] with the [name][punct]</span>")
+	user.do_attack_animation(H)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 /obj/item/weapon/cane/concealed
 	var/concealed_blade
