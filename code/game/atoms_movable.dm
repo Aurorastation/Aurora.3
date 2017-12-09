@@ -19,12 +19,9 @@
 	var/can_hold_mob = FALSE
 	var/list/contained_mobs
 
-// We don't really need this, and apparently defining it slows down GC.
-/*/atom/movable/Del()
-	if(!QDELING(src) && loc)
-		testing("GC: -- [type] was deleted via del() rather than qdel() --")
-		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
-	..()*/
+	var/walking = FALSE // For the walk wrapper.
+	var/atom/movable/walking_tgt = null
+	var/atom/movable/walking_actor = null
 
 /atom/movable/Destroy()
 	. = ..()
@@ -36,6 +33,13 @@
 		if (pulledby.pulling == src)
 			pulledby.pulling = null
 		pulledby = null
+
+	// Clean up walking refs.
+	if (walking)
+		s_walk_stop()
+
+	if (walking_actor)
+		walking_actor.s_walk_stop()
 
 /atom/movable/Bump(var/atom/A, yes)
 	if(src.throwing)
@@ -303,3 +307,56 @@
 			bound_overlay.forceMove(get_step(src, UP))
 			if (bound_overlay.dir != dir)
 				bound_overlay.set_dir(dir)
+
+#define RESET_VARS walking = TRUE; if (walking_tgt) { walking_tgt.walking_actor = null; walking_tgt = null; }
+
+/atom/movable/proc/s_walk_stop()
+	walking = FALSE
+
+	if (walking_tgt)
+		walking_tgt.walking_actor = null;
+		walking_tgt = null
+
+	walk(src, 0)
+
+/atom/movable/proc/s_walk_dir(dir, lag = 0, speed = 0)
+	RESET_VARS
+
+	walk(src, dir, lag, speed)
+
+/atom/movable/proc/s_walk_rand(lag = 0, speed = 0)
+	RESET_VARS
+
+	walk_rand(src, lag, speed)
+
+/atom/movable/proc/s_walk_away(atom/movable/tgt, max = 5, lag = 0, speed = 0)
+	RESET_VARS
+
+	ASSERT(tgt)
+
+	walking_tgt = tgt
+	walking_tgt.walking_actor = src
+
+	walk_away(src, walking_tgt, max, lag, speed)
+
+/atom/movable/proc/s_walk_to(atom/movable/tgt, min = 0, lag = 0, speed = 0)
+	RESET_VARS
+
+	ASSERT(tgt)
+
+	walking_tgt = tgt
+	walking_tgt.walking_actor = src
+
+	walk_to(src, walking_tgt, min, lag, speed)
+
+/atom/movable/proc/s_walk_towards(atom/movable/tgt, lag = 0, speed = 0)
+	RESET_VARS
+
+	ASSERT(tgt)
+
+	walking_tgt = tgt
+	walking_tgt.walking_actor = src
+
+	walk_towards(src, walking_tgt, lag, speed)
+
+#undef RESET_VARS
