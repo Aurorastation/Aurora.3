@@ -7,22 +7,62 @@
 	var/skipears = 0
 	var/skipeyes = 0
 	var/skipface = 0
+	var/skipchest = 0
+	var/skipgroin = 0
+	var/skiphands = 0
+	var/skiplegs = 0
+	var/skiparms = 0
+	var/skipfeet = 0
 
 	//exosuits and helmets obscure our view and stuff.
 	if(wear_suit)
-		skipgloves = wear_suit.flags_inv & HIDEGLOVES
-		skipsuitstorage = wear_suit.flags_inv & HIDESUITSTORAGE
-		skipjumpsuit = wear_suit.flags_inv & HIDEJUMPSUIT
-		skipshoes = wear_suit.flags_inv & HIDESHOES
+		skipsuitstorage |= wear_suit.flags_inv & HIDESUITSTORAGE
+		if(wear_suit.flags_inv & HIDEJUMPSUIT)
+			skiparms |= 1
+			skiplegs |= 1
+			skipchest |= 1
+			skipgroin |= 1
+		if(wear_suit.flags_inv & HIDESHOES)
+			skipshoes |= 1
+			skipfeet |= 1
+		if(wear_suit.flags_inv & HIDEGLOVES)
+			skipgloves |= 1
+			skiphands |= 1
+
+	if(w_uniform)
+		skiplegs |= w_uniform.body_parts_covered & LEGS
+		skiparms |= w_uniform.body_parts_covered & ARMS
+		skipchest |= w_uniform.body_parts_covered & UPPER_TORSO
+		skipgroin |= w_uniform.body_parts_covered & LOWER_TORSO
+
+	if(gloves)
+		skiphands |= gloves.body_parts_covered & HANDS
+
+	if(shoes)
+		skipfeet |= shoes.body_parts_covered & FEET
 
 	if(head)
-		skipmask = head.flags_inv & HIDEMASK
-		skipeyes = head.flags_inv & HIDEEYES
-		skipears = head.flags_inv & HIDEEARS
-		skipface = head.flags_inv & HIDEFACE
+		skipmask |= head.flags_inv & HIDEMASK
+		skipeyes |= head.flags_inv & HIDEEYES
+		skipears |= head.flags_inv & HIDEEARS
+		skipface |= head.flags_inv & HIDEFACE
 
 	if(wear_mask)
 		skipface |= wear_mask.flags_inv & HIDEFACE
+
+	//This is what hides what
+	var/list/hidden = list(
+		"groin" = skipgroin,
+		"chest" = skipchest,
+		"head" = skipface,
+		"l_arm" = skiparms,
+		"r_arm" = skiparms,
+		"l_hand" = skiphands,
+		"r_hand" = skiphands,
+		"l_foot" = skipfeet,
+		"r_foot" = skipfeet,
+		"l_leg" = skiplegs,
+		"r_leg" = skiplegs)
 
 	var/list/msg = list("<span class='info'>*---------*\nThis is ")
 
@@ -260,6 +300,8 @@
 
 	for(var/obj/item/organ/external/temp in organs)
 		if(temp)
+			if((temp.organ_tag in hidden) && hidden[temp.organ_tag])
+				continue
 			if(temp.status & ORGAN_ROBOT)
 				if(!(temp.brute_dam + temp.burn_dam))
 					//wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]!</span>\n"
