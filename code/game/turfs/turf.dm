@@ -345,7 +345,7 @@ var/const/enterloopsanity = 100
 		above.ChangeTurf(/turf/simulated/open)
 
 /turf/proc/AdjacentTurfsRanged()
-	var/static/list/allowed = typecacheof(
+	var/static/list/allowed = typecacheof(list(
 		/obj/structure/table,
 		/obj/structure/closet,
 		/obj/machinery/constructable_frame,
@@ -354,7 +354,7 @@ var/const/enterloopsanity = 100
 		/obj/structure/disposalpipe,
 		/obj/machinery,
 		/mob
-	)
+	))
 
 	var/L[] = new()
 	for(var/turf/simulated/t in oview(src,1))
