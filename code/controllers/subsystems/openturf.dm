@@ -150,6 +150,7 @@
 				QDEL_NULL(T.below.bound_overlay)
 			T.appearance = T.below
 			T.name = initial(T.name)
+			T.gender = NEUTER
 			T.opacity = FALSE
 			T.plane = t_target
 
