@@ -241,7 +241,7 @@
 		qdel(src)
 		return
 	else if(istype(D, /obj/item/weapon/wirecutters))
-		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D]..</span>")
+		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
 		user.put_in_hands(new /obj/item/clothing/head/helmet/bucket)
 		user.drop_from_inventory(src)
 		qdel(src)
