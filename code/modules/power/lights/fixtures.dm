@@ -419,7 +419,7 @@
 			H.visible_message(
 				"<span class='warning'>[user] smashes [src]!</span>",
 				"<span class='warning'>You smash [src]!</span>",
-				"<span class='notice'>You hear the tinkle of breaking glass."
+				"<span class='notice'>You hear the tinkle of breaking glass.</span>"
 			)
 			broken()
 			return
