@@ -160,7 +160,7 @@
 	if (ismob(loc))
 		var/mob/living/our_mob = loc
 		our_mob.remove_from_mob(src)
-		
+
 	qdel(src)
 
 /obj/item/weapon/material/twohanded/offhand/update_icon()
@@ -196,6 +196,11 @@
 		else if(istype(A,/obj/effect/plant))
 			var/obj/effect/plant/P = A
 			P.die_off()
+
+/obj/item/weapon/material/twohanded/fireaxe/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target))
+		cleave(user, target)
+	..()
 
 //spears, bay edition
 /obj/item/weapon/material/twohanded/spear
