@@ -133,7 +133,7 @@
 		else
 			user.visible_message(
 				"<span class='notice'>[user] installs [W] in [src].</span>",
-				"<span class='notice'>You hook up [W] to [src]'s cell terminals.</spawn>"
+				"<span class='notice'>You hook up [W] to [src]'s cell terminals.</span>"
 			)
 			playsound(src, 'sound/machines/click.ogg', 50, TRUE)
 			W.forceMove(src)
