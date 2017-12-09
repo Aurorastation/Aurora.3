@@ -163,9 +163,7 @@
 	else if(stat == DEAD)
 		update_dead_sight()
 	else
-		src.sight |= SEE_TURFS
-		src.sight |= SEE_MOBS
-		src.sight |= SEE_OBJS
+		sight |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		see_in_dark = 8
 		see_invisible = SEE_INVISIBLE_LIVING
 
