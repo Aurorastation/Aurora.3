@@ -1,3 +1,5 @@
+// The area list is put together here, because some things need it early on. Turrets controls, for example.
+
 /datum/controller/subsystem/finalize
 	name = "Map Finalization"
 	flags = SS_NO_FIRE | SS_NO_DISPLAY

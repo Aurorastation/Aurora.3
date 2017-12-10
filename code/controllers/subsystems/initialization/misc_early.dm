@@ -1,6 +1,5 @@
 // This is one of the first subsystems initialized by the MC.
 // Stuff that should be loaded before everything else that isn't significant enough to get its own SS goes here.
-// The area list is put together here, because some things need it early on. Turrets controls, for example.
 
 /datum/controller/subsystem/misc_early
 	name = "Early Miscellaneous Init"
