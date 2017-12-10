@@ -112,11 +112,15 @@ var/global/list/additional_antag_types = list()
 			message_admins("Admin [key_name_admin(usr)] added [antag.role_text] template to game mode.")
 
 	// I am very sure there's a better way to do this, but I'm not sure what it might be. ~Z
-	spawn(1)
+	// yes there is. but let me first immortalize this code.
+/*	spawn(1)
 		for(var/datum/admins/admin in world)
 			if(usr.client == admin.owner)
 				admin.show_game_mode(usr)
-				return
+				return */
+
+	if (usr.client && usr.client.holder)
+		usr.client.holer.show_game_mode(usr)
 
 /datum/game_mode/proc/announce() //to be called when round starts
 	world << "<B>The current game mode is [capitalize(name)]!</B>"
