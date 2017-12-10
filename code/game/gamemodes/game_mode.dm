@@ -120,7 +120,7 @@ var/global/list/additional_antag_types = list()
 				return */
 
 	if (usr.client && usr.client.holder)
-		usr.client.holer.show_game_mode(usr)
+		usr.client.holder.show_game_mode(usr)
 
 /datum/game_mode/proc/announce() //to be called when round starts
 	world << "<B>The current game mode is [capitalize(name)]!</B>"
