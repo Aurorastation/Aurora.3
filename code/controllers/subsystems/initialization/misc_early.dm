@@ -8,11 +8,6 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_early/Initialize(timeofday)
-	uplink = new
-
-	// Generate the area list.
-	resort_all_areas()
-
 	// Create the data core, whatever that is.
 	data_core = new /datum/datacore()
 
@@ -48,10 +43,3 @@
 		discord_bot.alert_server_visibility()
 
 	..()
-
-/proc/resort_all_areas()
-	all_areas = list()
-	for (var/area/A in world)
-		all_areas += A
-
-	sortTim(all_areas, /proc/cmp_name_asc)
