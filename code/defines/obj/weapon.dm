@@ -86,19 +86,15 @@
 	w_class = 4
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 
-/obj/item/weapon/cane/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
-	if (user.a_intent == I_HELP && !istype(A, /mob) && proximity)
+/obj/item/weapon/cane/afterattack(atom/A as obj, mob/user as mob, proximity)
+	if (istype(A) && user.a_intent == I_HELP && proximity)
 		A.attack_hand(user)
-
-/obj/item/weapon/cane/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
-
-	if (!istype(target) || !istype(user)) //Suggested by skull132
+	else
 		return ..()
 
-	var/mob/living/carbon/human/M = user
-	var/mob/living/carbon/human/H = target
+/obj/item/weapon/cane/attack(mob/living/carbon/human/target, mob/living/carbon/human/user, target_zone)
 
-	if (!istype(M) || !istype(H)) //Am I using this right?
+	if (!istype(target) || !istype(user))
 		return ..()
 
 	var/verbtouse = pick("bludgeoned", "whacked", "thrashed", "punished")
@@ -108,7 +104,7 @@
 	var/class = "warning"
 
 	// Thanks Lohikar for this check
-	var/obj/item/organ/external/O = H.get_organ(target_zone)
+	var/obj/item/organ/external/O = target.get_organ(target_zone)
 	var/organname = O && !O.is_stump() ? O.name : "body"
 
 	switch(user.a_intent)
@@ -157,17 +153,17 @@
 			user.setClickCooldown(5)
 			user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a grab...</span>")
 			if (do_mob(user,target,5))
-				M.start_pulling(H)
+				user.start_pulling(target)
 			else
 				verbtouse = pick("awkwardly tries to hook","fails to grab")
 
-	var/blocked = H.run_armor_check(target_zone, "melee")
-	H.apply_damage(damageamount, damagetoapply, target_zone, blocked)
-	H.standard_weapon_hit_effects(src,user,damageamount,blocked,target_zone)
+	var/blocked = target.run_armor_check(target_zone, "melee")
+	target.apply_damage(damageamount, damagetoapply, target_zone, blocked)
+	target.standard_weapon_hit_effects(src,user,damageamount,blocked,target_zone)
 	if (damagetoapply==BRUTE)
 		playsound(src.loc, "swing_hit", 50, 1, -1)
 	user.visible_message("<span class='[class]'>[user] [verbtouse] [target]'s [organname] with the [name][punct]</span>", "<span class='[class]'>You [verbtouse] [target]'s [organname] with the [name][punct]</span>")
-	user.do_attack_animation(H)
+	user.do_attack_animation(target)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	return 1
