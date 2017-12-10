@@ -23,12 +23,16 @@
 		name = "light switch ([area.name])"
 
 	src.on = src.area.lightswitch
-	updateicon()
+	update_icon()
 
-/obj/machinery/light_switch/proc/updateicon()
+/obj/machinery/light_switch/update_icon()
 	cut_overlays()
 	if(!(stat & NOPOWER))
 		holographic_overlay(src, icon, "light[on]-overlay")
+		if (!light_range || light_color != on ? "#82ff4c" : "#f86060")
+			set_light(2, 0.3, on ? "#82ff4c" : "#f86060")
+	else if (light_range)
+		set_light(FALSE)
 
 /obj/machinery/light_switch/examine(mob/user)
 	if(..(user, 1))
@@ -42,7 +46,7 @@
 
 	for(var/obj/machinery/light_switch/L in area)
 		L.on = on
-		L.updateicon()
+		L.update_icon()
 
 	for (var/obj/machinery/light/L in area)
 		if (on)
@@ -60,7 +64,7 @@
 		else
 			stat |= NOPOWER
 
-		updateicon()
+		update_icon()
 
 /obj/machinery/light_switch/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))
