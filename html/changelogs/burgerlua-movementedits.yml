@@ -1,0 +1,5 @@
+author: BurgerBB
+delete-after: True
+changes:
+  - tweak: "Hunger move penalties are now calculated after all movement speed penalties, instead of before. Players will be generally slower when hungry when affected by other things."
+  - rscadd: "Adding annoying messages when you're being slowed down by certain things, such as wearing heavy equipement, being tired, and being unhealthy."
