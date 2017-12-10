@@ -432,6 +432,7 @@
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	canremove = 0
+	flash_protection = FLASH_PROTECTION_MAJOR
 
 /obj/item/clothing/glasses/sunglasses/bst/verb/toggle_xray(mode in list("X-Ray without Lighting", "X-Ray with Lighting", "Normal"))
 	set name = "Change Vision Mode"
