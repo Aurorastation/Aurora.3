@@ -1,6 +1,7 @@
 /mob/Logout()
 	SSnanoui.user_logout(src) // this is used to clean up (remove) this user's Nano UIs
 	player_list -= src
+	disconnect_time = world.realtime
 	log_access("Logout: [key_name(src)]",ckey=key_name(src))
 	if(admin_datums[src.ckey])
 		if (SSticker.current_state == GAME_STATE_PLAYING) //Only report this stuff if we are currently playing.

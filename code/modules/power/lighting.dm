@@ -218,29 +218,20 @@
 	icon_state = "[base_state]_empty"
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
-			var/image/I = image(icon, "[base_state][on]")
-			I.color = brightness_color
-			add_overlay(I)
+			var/target_color = brightness_color
 			if (supports_nightmode && nightmode && on)
-				color = "#d2d2d2"
-			else
-				color = null
+				target_color = BlendRGB("#d2d2d2", target_color, 0.25)
+
+			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state][on]", target_color))
 
 		if(LIGHT_EMPTY)
 			on = 0
 		if(LIGHT_BURNED)
-			var/image/I = image(icon, "[base_state]_burned")
-			I.color = brightness_color
-			add_overlay(I)
+			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_burned", brightness_color))
 			on = 0
 		if(LIGHT_BROKEN)
-			var/image/I = image(icon, "[base_state]_broken")
-			I.color = brightness_color
-			add_overlay(I)
+			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_broken", brightness_color))
 			on = 0
-
-	if (!on)
-		color = null
 
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(var/trigger = 1)

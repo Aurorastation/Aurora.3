@@ -63,6 +63,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	setup_multiz()
 
+	current_map.finalize_load()
+
 	QDEL_NULL(maploader)
 
 	..()

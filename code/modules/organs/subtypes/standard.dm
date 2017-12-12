@@ -18,6 +18,7 @@
 	cannot_amputate = 1
 	parent_organ = null
 	encased = "ribcage"
+	can_be_maimed = FALSE
 
 /obj/item/organ/external/groin
 	name = "lower body"
@@ -33,6 +34,7 @@
 	joint = "hip"
 	dislocated = -1
 	gendered_icon = 1
+	maim_bonus = 0.25
 
 /obj/item/organ/external/arm
 	limb_name = "l_arm"
@@ -91,6 +93,7 @@
 	joint = "left ankle"
 	amputation_point = "left ankle"
 	can_stand = 1
+	maim_bonus = 1
 
 /obj/item/organ/external/foot/removed()
 	if(owner) owner.drop_from_inventory(owner.shoes)
@@ -118,6 +121,7 @@
 	joint = "left wrist"
 	amputation_point = "left wrist"
 	can_grasp = 1
+	maim_bonus = 1
 
 /obj/item/organ/external/hand/removed()
 	owner.drop_from_inventory(owner.gloves)
@@ -147,6 +151,7 @@
 	gendered_icon = 1
 	encased = "skull"
 	var/can_intake_reagents = 1
+	maim_bonus = 0.33
 
 /obj/item/organ/external/head/removed()
 	if(owner)

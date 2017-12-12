@@ -244,3 +244,193 @@
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "doorwreath"
 	layer = 5
+
+/obj/structure/sign/flag/blank
+	name = "blank banner"
+	desc = "A blank blue flag"
+	icon_state = "flag"
+
+/obj/structure/sign/flag/blank/left
+	icon_state = "flag_l"
+
+/obj/structure/sign/flag/blank/right
+	icon_state = "flag_r"
+
+/obj/structure/sign/flag/sol
+	name = "Sol Alliance Flag"
+	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
+	icon_state = "solgov"
+
+/obj/structure/sign/flag/sol/left
+	icon_state = "solgov_l"
+
+/obj/structure/sign/flag/sol/right
+	icon_state = "solgov_r"
+
+/obj/item/weapon/flag/sol
+	name = "Sol Alliance Flag"
+	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
+	flag_path = "solgov"
+
+/obj/item/weapon/flag/sol/l
+	flag_size = 1
+
+/obj/structure/sign/flag/dominia
+	name = "Dominian Empire Flag"
+	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia"
+	icon_state = "dominia"
+
+/obj/structure/sign/flag/dominia/left
+	icon_state = "dominia_l"
+
+/obj/structure/sign/flag/dominia/right
+	icon_state = "dominia_r"
+
+/obj/item/weapon/flag/dominia
+	name = "Dominian Empire Flag"
+	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia"
+	flag_path = "dominia"
+
+/obj/item/weapon/flag/dominia/l
+	flag_size = 1
+
+/obj/structure/sign/flag/elyra
+	name = "Elyran Flag"
+	desc = "The hopeful colors of the Serene Republic of Elyra."
+	icon_state = "elyra"
+
+/obj/structure/sign/flag/elyra/left
+	icon_state = "elyra_l"
+
+/obj/structure/sign/flag/elyra/right
+	icon_state = "elyra_r"
+
+/obj/item/weapon/flag/elyra
+	name = "Elyran Flag"
+	desc = "The hopeful colors of the Serene Republic of Elyra."
+	flag_path = "elyra"
+
+/obj/item/weapon/flag/elyra/l
+	flag_size = 1
+
+/obj/structure/sign/flag/hegemony
+	name = "Hegemony Flag"
+	desc = "The feudal standard of the Izweski Hegemony."
+	icon_state = "izweski"
+
+/obj/structure/sign/flag/hegemony/left
+	icon_state = "izweski_l"
+
+/obj/structure/sign/flag/hegemony/right
+	icon_state = "izweski_r"
+
+/obj/item/weapon/flag/hegemony
+	name = "Hegemony Flag"
+	desc = "The feudal standard of the Izweski Hegemony."
+	flag_path = "izweski"
+
+/obj/item/weapon/flag/hegemony/l
+	flag_size = 1
+
+/obj/structure/sign/flag/jargon
+	name = "Jargon Federation Flag"
+	desc = "The insignia of the Jargon Federation"
+	icon_state = "jargon"
+
+/obj/structure/sign/flag/jargon/left
+	icon_state = "jargon_l"
+
+/obj/structure/sign/flag/jargon/right
+	icon_state = "jargon_r"
+
+/obj/item/weapon/flag/jargon
+	name = "Jargon Federation Flag"
+	desc = "The insignia of the Jargon Federation"
+	flag_path = "jargon"
+
+/obj/item/weapon/flag/jargon/l
+	flag_size = 1
+
+/obj/structure/sign/flag/nanotrasen
+	name = "NanoTrasen Corporation Flag"
+	desc = "The logo of NanoTrasen on a flag."
+	icon_state = "nanotrasen"
+
+/obj/structure/sign/flag/nanotrasen/left
+	icon_state = "nanotrasen_l"
+
+/obj/structure/sign/flag/nanotrasen/right
+	icon_state = "nanotrasen_r"
+
+/obj/item/weapon/flag/nanotrasen
+	name = "NanoTrasen Corporation Flag"
+	desc = "The logo of NanoTrasen on a flag"
+	flag_path = "nanotrasen"
+
+/obj/item/weapon/flag/nanotrasen/l
+	flag_size = 1
+
+/obj/item/weapon/flag
+	name = "boxed flag"
+	desc = "A flag neatly folded into a wooden container."
+	icon = 'icons/obj/decals.dmi'
+	icon_state = "flag_boxed"
+	var/flag_path
+	var/flag_size = 0
+
+/obj/item/weapon/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
+	if (!adjacent)
+		return
+
+	var/turf/W = A
+	if (!iswall(W) || !isturf(user.loc))
+		user << "<span class='warning'>You can't place this here!</span>"
+		return
+
+	var/placement_dir = get_dir(user, W)
+	if (!(placement_dir in cardinal))
+		user << "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>"
+		return
+
+	var/obj/structure/sign/flag/P = new(user.loc)
+
+	switch(placement_dir)
+		if(NORTH)
+			P.pixel_y = 32
+		if(SOUTH)
+			P.pixel_y = -32
+		if(EAST)
+			P.pixel_x = 32
+		if(WEST)
+			P.pixel_x = -32
+
+	P.dir = placement_dir
+	if(flag_size)
+		P.icon_state = "[flag_path]_l"
+		var/obj/structure/sign/flag/P2 = new(user.loc)
+		P2.icon_state = "[flag_path]_r"
+		P2.dir = P.dir
+		switch(P2.dir)
+			if(NORTH)
+				P2.pixel_y = P.pixel_y
+				P2.pixel_x = 32
+			if(SOUTH)
+				P2.pixel_y = P.pixel_y
+				P2.pixel_x = 32
+			if(EAST)
+				P2.pixel_x = P.pixel_x
+				P2.pixel_y = -32
+			if(WEST)
+				P2.pixel_x = P.pixel_x
+				P2.pixel_y = 32
+		P2.name = name
+		P2.desc = desc
+	else
+		P.icon_state = "[flag_path]"
+	P.name = name
+	P.desc = desc
+	qdel(src)
+
+
+
+

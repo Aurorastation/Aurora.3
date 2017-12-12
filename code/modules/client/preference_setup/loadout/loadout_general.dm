@@ -62,3 +62,35 @@
 	sortTim(lunchboxes, /proc/cmp_text_asc)
 	gear_tweaks += new/datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks())
+
+/datum/gear/banner
+	display_name = "banner selection"
+	path = /obj/item/weapon/flag
+
+/datum/gear/banner/New()
+	..()
+	var/banners = list()
+	banners["banner, SolGov"] = /obj/item/weapon/flag/sol
+	banners["banner, Dominia"] = /obj/item/weapon/flag/dominia
+	banners["banner, Elyra"] = /obj/item/weapon/flag/elyra
+	banners["banner, Hegemony"] = /obj/item/weapon/flag/hegemony
+	banners["banner, Jargon"] = /obj/item/weapon/flag/jargon
+	banners["banner, NanoTrasen"] = /obj/item/weapon/flag/nanotrasen
+	gear_tweaks += new/datum/gear_tweak/path(banners)
+
+/datum/gear/flag
+	display_name = "flag selection"
+	cost = 2
+	path = /obj/item/weapon/flag
+
+/datum/gear/flag/New()
+	..()
+	var/flags = list()
+	flags["flag, SolGov"] = /obj/item/weapon/flag/sol/l
+	flags["flag, Dominia"] = /obj/item/weapon/flag/dominia/l
+	flags["flag, Elyra"] = /obj/item/weapon/flag/elyra/l
+	flags["flag, Hegemony"] = /obj/item/weapon/flag/hegemony/l
+	flags["flag, Jargon"] = /obj/item/weapon/flag/jargon/l
+	flags["flag, NanoTrasen"] = /obj/item/weapon/flag/nanotrasen/l
+	gear_tweaks += new/datum/gear_tweak/path(flags)
+

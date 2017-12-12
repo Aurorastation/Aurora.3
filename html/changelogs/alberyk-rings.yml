@@ -1,0 +1,4 @@
+author: Alberyk
+delete-after: True
+changes: 
+  - rscadd: "Added rings, ported from baystation12, to the custom loadout."

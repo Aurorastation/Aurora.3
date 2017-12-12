@@ -452,3 +452,5 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 			}                                        \
 		}                                            \
 	}
+
+#define DEVICE_NO_CELL "no_cell"

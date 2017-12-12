@@ -1,15 +1,15 @@
-// -- Spark visual_effect --
-/obj/visual_effect/sparks
+// -- Spark visual effect --
+/obj/effect/visual/sparks
 	name = "sparks"
 	icon_state = "sparks"
 	anchored = 1
 	mouse_opacity = 0
 
-/obj/visual_effect/sparks/New(var/turf/loc)
-	..(loc)
+/obj/effect/visual/sparks/Initialize(mapload)
+	. = ..(mapload)
 	life_ticks = rand(5,10)
 
-/obj/visual_effect/sparks/tick()
+/obj/effect/visual/sparks/tick()
 	. = ..()
 
 	var/turf/T = get_turf(src)
@@ -19,9 +19,9 @@
 	if (life_ticks < 2)
 		animate(src, alpha = 0, time = 2, easing = SINE_EASING | EASE_IN)
 
-/obj/visual_effect/sparks/start(var/direction)
+/obj/effect/visual/sparks/start(var/direction)
 	if (direction)
 		addtimer(CALLBACK(src, .proc/do_step, direction), 5)
 
-/obj/visual_effect/sparks/proc/do_step(direction)
+/obj/effect/visual/sparks/proc/do_step(direction)
 	step(src, direction)

@@ -217,7 +217,7 @@
 		msg += "<span class='danger'>[T.He] [T.is] on fire!</span>\n"
 	msg += "<span class='warning'>"
 
-	
+
 	if(nutrition < 100)
 		msg += "[T.He] [T.is] severely malnourished.\n"
 	else if(nutrition >= 500)
@@ -225,7 +225,7 @@
 			msg += "[T.He] [T.is] plump and delicious looking - Like a fat little piggy. A tasty piggy.\n"
 		else*/
 		msg += "[T.He] [T.is] quite chubby.\n"
-	
+
 
 	msg += "</span>"
 
@@ -237,6 +237,10 @@
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
 		else if(!client)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd].</span>\n"
+		if(client && ((client.inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
+			msg += "<span class='deadsay'>\[Inactive for [round(client.inactivity / 600)] minutes.\]\n</span>"
+		else if((world.realtime - disconnect_time) >= 5 MINUTES)
+			msg += "<span class='deadsay'>\[Disconnected/ghosted [(world.realtime - disconnect_time)/600] minutes ago.\]\n</span>"
 
 	var/list/wound_flavor_text = list()
 	var/list/is_bleeding = list()
@@ -286,8 +290,10 @@
 		is_bleeding[limb] = null
 	for(var/limb in is_bleeding)
 		msg += is_bleeding[limb]
-	for(var/implant in get_visible_implants(0))
-		msg += "<span class='danger'>[src] [T.has] \a [implant] sticking out of [T.his] flesh!</span>\n"
+	for(var/obj/item/organ/external/organ in src.organs)
+		for(var/obj/item/weapon/O in organ.implants)
+			if(!istype(O,/obj/item/weapon/implant) && !istype(O,/obj/item/weapon/material/shard/shrapnel))
+				msg += "<span class='danger'>[src] [T.has] \a [O] sticking out of [T.his] [organ.name]!</span>\n"
 	if(digitalcamo)
 		msg += "[T.He] [T.is] repulsively uncanny!\n"
 

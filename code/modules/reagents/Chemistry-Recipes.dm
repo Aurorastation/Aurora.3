@@ -2493,3 +2493,48 @@
 	result = "bluebird"
 	required_reagents = list("gintonic" = 3, "bluecuracao" = 1)
 	result_amount = 4
+	
+
+//transmutation
+
+/datum/chemical_reaction/transmutation_silver
+	name = "Transmutation: Silver"
+	id = "transmutation_silver"
+	result = null
+	required_reagents = list("iron" = 5, "copper" = 5)
+	catalysts = list("philosopher_stone" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/transmutation_silver/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/stack/material/silver(location)
+	return
+
+/datum/chemical_reaction/transmutation_gold
+	name = "Transmutation: Gold"
+	id = "transmutation_gold"
+	result = null
+	required_reagents = list("aluminum" = 5, "silver" = 5)
+	catalysts = list("philosopher_stone" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/transmutation_gold/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/stack/material/gold(location)
+	return
+
+/datum/chemical_reaction/transmutation_diamond
+	name = "Transmutation: Diamond"
+	id = "transmutation_diamond"
+	result = null
+	required_reagents = list("carbon" = 5, "gold" = 5)
+	catalysts = list("philosopher_stone" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/transmutation_diamond/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/stack/material/diamond(location)
+	return
