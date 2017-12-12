@@ -25,7 +25,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 						"clowns"    = strings(PHOBIA_FILE, "clowns"),
 						"greytide"  = strings(PHOBIA_FILE, "greytide"),
 						"lizards"   = strings(PHOBIA_FILE, "lizards"),
-						"skeletons" = strings(PHOBIA_FILE, "skeletons"),
+						"skeletons" = strings(PHOBIA_FILE, "skeletons")
 					   )
 
 	phobia_mobs = list("spiders"  = typecacheof(list(/mob/living/simple_animal/hostile/poison/giant_spider)),

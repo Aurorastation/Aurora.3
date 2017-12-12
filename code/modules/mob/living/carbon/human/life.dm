@@ -1636,7 +1636,7 @@
 		BT.on_life()
 
 	if(getBrainLoss() >= BRAIN_DAMAGE_DEATH) //rip
-		to_chat(src, "<span class='userdanger'>The last spark of life in your brain fizzles out...<span>")
+		to_chat(src, "<span class='danger'>The last spark of life in your brain fizzles out...</span>")
 		death()
 
 #undef HUMAN_MAX_OXYLOSS
