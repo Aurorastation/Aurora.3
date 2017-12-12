@@ -153,7 +153,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 115
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 60
 	)
 
 
@@ -171,7 +171,8 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 10,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 10,
-		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 10
+		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 10,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 5
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko = 5,
@@ -185,7 +186,8 @@
 		/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 12,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 13,
-		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 16
+		/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 16,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/koispunch = 50
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
@@ -535,7 +537,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/soda = 30
 	)
 	//would a soviet vending machine really have a premium item? hmmm.
-	premium = list( 
+	premium = list(
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka = 5
 	)
 	contraband = list(
