@@ -1,0 +1,6 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - bugfix: "CCIAA can now see the round type."
