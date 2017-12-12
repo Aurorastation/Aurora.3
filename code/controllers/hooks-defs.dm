@@ -77,7 +77,7 @@
  * Called in card.dm when someone's card is terminated at the HoP's desk.
  * Parameters: var/obj/item/weapon/card/id
  */
-/hook/terminate_employee
+/hook/suspend_employee
 
 /**
  * Crate sold hook.
