@@ -209,3 +209,14 @@
 #define MECHANICAL_SPECIES_NORMAL 1	// Baselines, shells
 #define MECHANICAL_SPECIES_INDUSTRIAL 2	// Industrials, incl. branded.
 #define MECHANICAL_SPECIES_SPECIAL 3	// HKs
+
+//Brain Damage defines
+#define BRAIN_DAMAGE_MILD 20
+#define BRAIN_DAMAGE_SEVERE 60
+#define BRAIN_DAMAGE_DEATH 200
+
+#define BRAIN_TRAUMA_MILD /datum/brain_trauma/mild
+#define BRAIN_TRAUMA_SEVERE /datum/brain_trauma/severe
+#define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
+
+#define BRAIN_DAMAGE_INTEGRITY_MULTIPLIER 0.5

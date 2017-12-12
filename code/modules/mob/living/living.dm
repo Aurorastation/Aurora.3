@@ -280,15 +280,13 @@ default behaviour is:
 	cloneloss = amount
 
 /mob/living/proc/getBrainLoss()
-	return brainloss
+	. = 0
 
 /mob/living/proc/adjustBrainLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	brainloss = min(max(brainloss + amount, 0),(maxHealth*2))
+	return
 
 /mob/living/proc/setBrainLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	brainloss = amount
+	return
 
 /mob/living/proc/getHalLoss()
 	return halloss

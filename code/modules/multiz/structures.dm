@@ -126,7 +126,7 @@
 		return FALSE
 	return TRUE
 
-/mob/observer/ghost/may_climb_ladders(var/ladder)
+/mob/dead/observer/may_climb_ladders(var/ladder)
 	return TRUE
 
 /obj/structure/ladder/proc/climbLadder(var/mob/M, var/target_ladder)
@@ -199,7 +199,7 @@
 /obj/structure/stairs/CheckExit(mob/living/mover, turf/target)
 	if (!istype(mover) || target.z != z)
 		return ..()
-	
+
 	if (mover.loc == loc && get_dir(mover, target) != reverse_dir[dir])
 		addtimer(CALLBACK(src, .proc/mob_fall, mover), 0)
 

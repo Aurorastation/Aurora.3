@@ -79,6 +79,8 @@
 
 		handle_heartbeat()
 
+		handle_brain_damage()
+
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
 		handle_stamina()
 
@@ -1510,6 +1512,11 @@
 		speech_problem_flag = 1
 	return stuttering
 
+/mob/living/carbon/human/handle_tarded()
+	if(..())
+		speech_problem_flag = 1
+	return tarded
+
 /mob/living/carbon/human/handle_fire()
 	if(..())
 		return
@@ -1618,6 +1625,19 @@
 				damageoverlay.add_overlay("oxydamageoverlay6")
 			if(45 to INFINITY)
 				damageoverlay.add_overlay("oxydamageoverlay7")
+
+////////////////
+//BRAIN DAMAGE//
+////////////////
+
+/mob/living/carbon/human/proc/handle_brain_damage()
+	for(var/T in get_traumas())
+		var/datum/brain_trauma/BT = T
+		BT.on_life()
+
+	if(getBrainLoss() >= BRAIN_DAMAGE_DEATH) //rip
+		to_chat(src, "<span class='userdanger'>The last spark of life in your brain fizzles out...<span>")
+		death()
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

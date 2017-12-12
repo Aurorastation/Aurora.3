@@ -41,7 +41,7 @@
 		H << "<span class='danger'>You begin doggedly resisting the parasite's control (this will take approximately sixty seconds).</span>"
 		B.host << "<span class='danger'>You feel the captive mind of [src] begin to resist your control.</span>"
 
-		spawn(rand(200,250)+B.host.brainloss)
+		spawn(rand(200,250)+B.host.getBrainLoss())
 			if(!B || !B.controlling) return
 
 			B.host.adjustBrainLoss(rand(5,10))

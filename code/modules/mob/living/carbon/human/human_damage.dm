@@ -25,47 +25,38 @@
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return
 
-/mob/living/carbon/human/adjustBrainLoss(var/amount)
+//Some sources of brain damage shouldn't be deadly
+/mob/living/carbon/human/adjustBrainLoss(amount, maximum = BRAIN_DAMAGE_DEATH)
+	if(status_flags & GODMODE)
+		return 0
+	var/obj/item/organ/brain/B = organs_by_name["brain"]
+	if(!B)
+		return
+	B.adjust_brain_damage(amount, maximum)
+	if(amount <= 0) //cut this early
+		return
+	var/brainloss = getBrainLoss()
+	if(brainloss > BRAIN_DAMAGE_MILD && !has_trauma_type(BRAIN_TRAUMA_MILD))
+		if(prob((amount * 2) + ((brainloss - BRAIN_DAMAGE_MILD) / 5))) //1 damage|50 brain damage = 4% chance
+			gain_trauma_type(BRAIN_TRAUMA_MILD)
+	if(brainloss > BRAIN_DAMAGE_SEVERE && !has_trauma_type(BRAIN_TRAUMA_SEVERE) && !has_trauma_type(BRAIN_TRAUMA_SPECIAL))
+		if(prob(amount + ((brainloss - BRAIN_DAMAGE_SEVERE) / 15))) //1 damage|150 brain damage = 3% chance
+			if(prob(20))
+				gain_trauma_type(BRAIN_TRAUMA_SPECIAL)
+			else
+				gain_trauma_type(BRAIN_TRAUMA_SEVERE)
 
-	if(status_flags & GODMODE)	return 0	//godmode
-
-	if(species && species.has_organ["brain"])
-		var/obj/item/organ/brain/sponge = internal_organs_by_name["brain"]
-		if(sponge)
-			sponge.take_damage(amount)
-			brainloss = sponge.damage
-		else
-			brainloss = 200
-	else
-		brainloss = 0
-
-/mob/living/carbon/human/setBrainLoss(var/amount)
-
-	if(status_flags & GODMODE)	return 0	//godmode
-
-	if(species && species.has_organ["brain"])
-		var/obj/item/organ/brain/sponge = internal_organs_by_name["brain"]
-		if(sponge)
-			sponge.damage = min(max(amount, 0),(maxHealth*2))
-			brainloss = sponge.damage
-		else
-			brainloss = 200
-	else
-		brainloss = 0
+/mob/living/carbon/human/setBrainLoss(amount)
+	var/obj/item/organ/brain/B = organs_by_name["brain"]
+	if(B)
+		var/adjusted_amount = amount - B.get_brain_damage()
+		B.adjust_brain_damage(adjusted_amount, null)
 
 /mob/living/carbon/human/getBrainLoss()
-
-	if(status_flags & GODMODE)	return 0	//godmode
-
-	if(species && species.has_organ["brain"])
-		var/obj/item/organ/brain/sponge = internal_organs_by_name["brain"]
-		if(sponge)
-			brainloss = min(sponge.damage,maxHealth*2)
-		else
-			brainloss = 200
-	else
-		brainloss = 0
-	return brainloss
+	. = BRAIN_DAMAGE_DEATH
+	var/obj/item/organ/brain/B = organs_by_name["brain"]
+	if(B)
+		. = B.get_brain_damage()
 
 //These procs fetch a cumulative total damage from all organs
 /mob/living/carbon/human/getBruteLoss()

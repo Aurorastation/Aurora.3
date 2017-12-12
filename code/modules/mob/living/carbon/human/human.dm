@@ -797,6 +797,8 @@
 /mob/living/carbon/human/IsAdvancedToolUser(var/silent)
 	if(species.has_fine_manipulation)
 		return 1
+	if(disabilities & MONKEYLIKE)
+		return 1
 	if(!silent)
 		src << "<span class='warning'>You don't have the dexterity to use that!</span>"
 	return 0
@@ -1533,3 +1535,34 @@
 	pulling_punches = !pulling_punches
 	src << "<span class='notice'>You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"].</span>"
 	return
+
+/mob/living/carbon/human/proc/get_traumas()
+	. = list()
+	var/obj/item/organ/brain/B = organs_by_name["brain"]
+	if(B)
+		. = B.traumas
+
+/mob/living/carbon/human/proc/has_trauma_type(brain_trauma_type, consider_permanent = FALSE)
+	var/obj/item/organ/brain/B = organs_by_name["brain"]
+	if(B)
+		. = B.has_trauma_type(brain_trauma_type, consider_permanent)
+
+/mob/living/carbon/human/proc/gain_trauma(datum/brain_trauma/trauma, permanent = FALSE, list/arguments)
+	var/obj/item/organ/brain/B = organs_by_name["brain"]
+	if(B)
+		. = B.gain_trauma(trauma, permanent, arguments)
+
+/mob/living/carbon/human/proc/gain_trauma_type(brain_trauma_type = /datum/brain_trauma, permanent = FALSE)
+	var/obj/item/organ/brain/B = organs_by_name["brain"]
+	if(B)
+		. = B.gain_trauma_type(brain_trauma_type, permanent)
+
+/mob/living/carbon/human/proc/cure_trauma_type(brain_trauma_type, cure_permanent = FALSE)
+	var/obj/item/organ/brain/B = organs_by_name["brain"]
+	if(B)
+		. = B.cure_trauma_type(brain_trauma_type, cure_permanent)
+
+/mob/living/carbon/human/proc/cure_all_traumas(cure_permanent = FALSE)
+	var/obj/item/organ/brain/B = organs_by_name["brain"]
+	if(B)
+		. = B.cure_all_traumas(cure_permanent)

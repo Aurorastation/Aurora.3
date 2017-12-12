@@ -986,6 +986,9 @@
 /mob/proc/flash_weak_pain()
 	flick("weak_pain",pain)
 
+/mob/proc/Jitter(amount)
+		jitteriness = max(jitteriness,amount,0)
+
 /mob/proc/get_visible_implants(var/class = 0)
 	var/list/visible_implants = list()
 	for(var/obj/item/O in embedded)
@@ -1096,6 +1099,7 @@ mob/proc/yank_out_object()
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
+	handle_tarded()
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
@@ -1126,6 +1130,11 @@ mob/proc/yank_out_object()
 	if(slurring)
 		slurring = max(slurring-1, 0)
 	return slurring
+
+/mob/living/proc/handle_tarded()
+	if(tarded)
+		tarded = max(tarded-1, 0)
+	return tarded
 
 /mob/living/proc/handle_paralysed() // Currently only used by simple_animal.dm, treated as a special case in other mobs
 	if(paralysis)
@@ -1284,7 +1293,7 @@ mob/proc/yank_out_object()
 
 /client/proc/check_has_body_select()
 	return mob && mob.hud_used && istype(mob.zone_sel, /obj/screen/zone_sel)
- 
+
 /client/verb/body_toggle_head()
 	set name = "body-toggle-head"
 	set hidden = 1
@@ -1299,22 +1308,22 @@ mob/proc/yank_out_object()
  	set name = "body-l-arm"
  	set hidden = 1
  	toggle_zone_sel(list("l_arm","l_hand"))
- 
+
 /client/verb/body_chest()
  	set name = "body-chest"
  	set hidden = 1
  	toggle_zone_sel(list("chest"))
- 
+
 /client/verb/body_groin()
  	set name = "body-groin"
  	set hidden = 1
  	toggle_zone_sel(list("groin"))
- 
+
 /client/verb/body_r_leg()
  	set name = "body-r-leg"
  	set hidden = 1
  	toggle_zone_sel(list("r_leg","r_foot"))
- 
+
 /client/verb/body_l_leg()
  	set name = "body-l-leg"
  	set hidden = 1

@@ -88,7 +88,7 @@
 				if(prob(5))
 					host.adjustBrainLoss(rand(1,2))
 
-				if(prob(host.brainloss/20))
+				if(prob(host.getBrainLoss()/20))
 					host.say("*[pick(list("blink","blink_r","choke","aflap","drool","twitch","twitch_s","gasp"))]")
 
 /mob/living/simple_animal/borer/Stat()
