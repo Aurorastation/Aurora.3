@@ -94,7 +94,6 @@
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/self_destruct
 	)
-	..()
 
 /obj/item/weapon/rig/light/ninja/equipped
 	initial_modules = list(
