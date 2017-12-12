@@ -78,11 +78,11 @@
 	gain_text = "Your mind drifts across the seven seas!"
 	lose_text = "Your mind returns to port."
 
-/datum/brain_trauma/mild/speech_impediment/on_gain()
+/datum/brain_trauma/mild/pirate/on_gain()
 	owner.disabilities |= PIRATE
 	..()
 
-/datum/brain_trauma/mild/speech_impediment/on_lose()
+/datum/brain_trauma/mild/pirate/on_lose()
 	owner.disabilities &= ~PIRATE
 	..()
 
@@ -93,11 +93,11 @@
 	gain_text = "Your mind drifts to the beautiful fjords of distant swedeland!"
 	lose_text = "Your mind returns to normalcy."
 
-/datum/brain_trauma/mild/speech_impediment/on_gain()
+/datum/brain_trauma/mild/meme/on_gain()
 	owner.disabilities |= SVEDISH
 	..()
 
-/datum/brain_trauma/mild/speech_impediment/on_lose()
+/datum/brain_trauma/mild/meme/on_lose()
 	owner.disabilities &= ~SVEDISH
 	..()
 
