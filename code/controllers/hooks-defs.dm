@@ -73,8 +73,8 @@
 /hook/reassign_employee
 
 /**
- * Employee terminated hook.
- * Called in card.dm when someone's card is terminated at the HoP's desk.
+ * Employee suspension hook.
+ * Called in card.dm when someone's card is suspended at the HoP's desk.
  * Parameters: var/obj/item/weapon/card/id
  */
 /hook/suspend_employee
