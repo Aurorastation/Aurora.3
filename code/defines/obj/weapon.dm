@@ -115,6 +115,7 @@
 	//Damage Types
 	var/damagetoapply = HALLOSS
 	var/damageamount = max(0,force - armorcheck) * !blocked
+	var/chargedelay = 1
 
 	switch(user.a_intent)
 		if(I_HELP)
@@ -135,7 +136,7 @@
 			verbtouse = pick("smacked","slapped", "knocked")
 			user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a disarm...</span>")
 
-			if (do_mob(user,target,force/2))
+			if (do_mob(user,target,chargedelay, display_progress = false))
 				playsound(src.loc, "punch", 50, 1, -1)
 				if(!blocked && damageamount)
 					if(target_zone == "l_hand" || target_zone == "l_arm")
@@ -174,7 +175,7 @@
 
 			var/grab = 0
 
-			if (do_mob(user,target,force/2))
+			if (do_mob(user,target,chargedelay, display_progress = false))
 				if(!blocked && damageamount)
 					grab = 1
 
