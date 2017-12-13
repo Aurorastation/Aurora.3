@@ -165,7 +165,7 @@
 				computer.proc_eject_id(user)
 		if("suspend")
 			if(computer && can_run(user, 1))
-				id_card.assignment = "Suspendet"
+				id_card.assignment = "Suspended"
 				remove_nt_access(id_card)
 				callHook("suspend_employee", list(id_card))
 		if("edit")
