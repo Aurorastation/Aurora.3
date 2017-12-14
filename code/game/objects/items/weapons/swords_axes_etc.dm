@@ -102,16 +102,14 @@
 					var/mob/living/carbon/human/T = target
 					var/obj/item/organ/external/organ = T.get_organ(target_zone)
 					var/armor = T.getarmor_organ(organ,"melee")
-					world << "armor reduction chance is [armor]"
 					stun_chance -= armor
 
 					if(T.shoes && (T.shoes.item_flags & NOSLIP) && istype(T.shoes, /obj/item/clothing/shoes/magboots))
-						stun_chance -= 25
+						stun_chance -= 10
 
 					if(T.species.brute_mod<0.8)
-						stun_chance -= 25
+						stun_chance -= 10
 
-					world << "stun chance is [stun_chance]"
 					if(prob(stun_chance))
 						T.Weaken(5) //nerfed, because yes.
 			return
