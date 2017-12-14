@@ -110,7 +110,7 @@
 					if(T.species.flags & NO_SLIP)
 						stun_chance -= 5
 
-					if(H.species.brute_mod<0.8)
+					if(T.species.brute_mod<0.8)
 						stun_chance -= 5
 
 					if(T.wear_suit && istype(T.wear_suit,/obj/item/clothing/suit/space))
