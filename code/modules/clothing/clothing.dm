@@ -137,7 +137,7 @@
 		if(applies_material_color)
 			color = material.icon_colour
 		if(material.products_need_process())
-			STOP_PROCESSING(SSprocessing, src)
+			START_PROCESSING(SSprocessing, src)
 		update_armor()
 
 // This is called when someone wearing the object gets hit in some form (melee, bullet_act(), etc).
