@@ -94,5 +94,30 @@
 			else
 				user.take_organ_damage(2*force)
 			return
+		if(..() == 1)
+			playsound(src.loc, "swing_hit", 50, 1, -1)
+			if (target_zone == "r_leg" || target_zone == "l_leg")
+				var/stun_chance = 25
+				if(ishuman(target))
+					var/mob/living/carbon/human/T = target
+					var/armor = T.run_armor_check(T, "melee")
+					if(armor < 100)
+						stun_chance -= 5
+
+					if(T.shoes && T.shoes.item_flags & NOSLIP)
+						stun_chance -= 5
+
+					if(T.species.flags & NO_SLIP)
+						stun_chance -= 5
+
+					if(H.species.brute_mod<0.8)
+						stun_chance -= 5
+
+					if(T.wear_suit && istype(T.wear_suit,/obj/item/clothing/suit/space))
+						stun_chance -= 5
+
+					if(prob(stun_chance))
+						T.Weaken(5) //nerfed, because yes.
+			return
 	else
 		return ..()
