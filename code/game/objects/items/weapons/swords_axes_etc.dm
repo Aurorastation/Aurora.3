@@ -103,7 +103,7 @@
 					var/armor = T.run_armor_check(target_zone,"melee")
 					stun_chance -= armor
 
-					if(T.shoes && (T.shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))
+					if(T.shoes && (T.shoes.item_flags & NOSLIP) && istype(T.shoes, /obj/item/clothing/shoes/magboots))
 						stun_chance -= 10
 
 					if(T.species.brute_mod<0.8)
