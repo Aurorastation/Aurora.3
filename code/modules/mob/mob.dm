@@ -246,7 +246,7 @@
 /mob/proc/restrained()
 	return
 
-/mob/proc/reset_view(atom/A)
+/mob/proc/reset_view(var/atom/A)
 	if (client)
 		if (istype(A, /atom/movable))
 			client.perspective = EYE_PERSPECTIVE
@@ -1284,7 +1284,7 @@ mob/proc/yank_out_object()
 
 /client/proc/check_has_body_select()
 	return mob && mob.hud_used && istype(mob.zone_sel, /obj/screen/zone_sel)
- 
+
 /client/verb/body_toggle_head()
 	set name = "body-toggle-head"
 	set hidden = 1
@@ -1299,22 +1299,22 @@ mob/proc/yank_out_object()
  	set name = "body-l-arm"
  	set hidden = 1
  	toggle_zone_sel(list("l_arm","l_hand"))
- 
+
 /client/verb/body_chest()
  	set name = "body-chest"
  	set hidden = 1
  	toggle_zone_sel(list("chest"))
- 
+
 /client/verb/body_groin()
  	set name = "body-groin"
  	set hidden = 1
  	toggle_zone_sel(list("groin"))
- 
+
 /client/verb/body_r_leg()
  	set name = "body-r-leg"
  	set hidden = 1
  	toggle_zone_sel(list("r_leg","r_foot"))
- 
+
 /client/verb/body_l_leg()
  	set name = "body-l-leg"
  	set hidden = 1
