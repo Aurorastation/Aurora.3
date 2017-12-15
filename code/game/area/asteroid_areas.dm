@@ -2,15 +2,15 @@
 
 /area/mine
 	icon_state = "mining"
-	ambience = list('sound/ambience/ambilava.ogg')
+	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
 	sound_env = ASTEROID
 
 /area/mine/explored
-	name = "lava fields"
+	name = "Mine"
 	icon_state = "explored"
 
 /area/mine/unexplored
-	name = "lava fields"
+	name = "Mine"
 	icon_state = "unexplored"
 	flags = HIDE_FROM_HOLOMAP
 

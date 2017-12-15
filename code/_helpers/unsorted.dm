@@ -679,10 +679,6 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	if (progbar)
 		qdel(progbar)
 
-// Wrapper around do_after to make progress bars default to the object running do_after.
-/atom/proc/do_after(mob/user, delay as num, needhand = TRUE, atom/movable/act_target, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks)
-	. = global.do_after(user, delay, needhand, act_target || src, use_user_turf, display_progress, extra_checks)
-
 /proc/do_after(mob/user as mob, delay as num, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks)
 	if(!user || isnull(user))
 		return 0

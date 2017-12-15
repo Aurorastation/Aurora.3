@@ -166,7 +166,8 @@ var/list/debug_verbs = list (
 	,/client/proc/get_bad_fdoors
 	,/client/proc/get_bad_doors
 	,/client/proc/analyze_openturf
-)
+	)
+
 
 /client/proc/enable_debug_verbs()
 	set category = "Debug"

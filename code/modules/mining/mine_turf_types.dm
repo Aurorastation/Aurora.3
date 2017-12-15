@@ -1,4 +1,4 @@
-// These are pricey, but damm do they look nice.
+// These are pricey, but damn do they look nice.
 /turf/simulated/lava
 	icon = 'icons/turf/smooth/lava.dmi'
 	icon_state = "smooth"
@@ -57,3 +57,19 @@
 				light_range = 2
 	. = ..()
 
+/turf/simulated/floor/asteroid/ash
+	name = "ash"
+	icon = 'icons/turf/map_placeholders.dmi'
+	icon_state = "ash"
+	desc = "A fine grey ash. Looks pretty tightly packed."
+	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	gender = PLURAL
+	base_icon = 'icons/turf/smooth/ash.dmi'
+	base_icon_state = "ash"
+
+/turf/simulated/floor/asteroid/ash/rocky
+	name = "rocky ash"
+	icon_state = "rockyash"
+	base_icon_state = "rockyash"
+	base_icon = 'icons/turf/smooth/rocky_ash.dmi'
+	desc = "A fine grey ash. Seems to contain medium-sized rocks."

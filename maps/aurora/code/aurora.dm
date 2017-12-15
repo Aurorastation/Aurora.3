@@ -10,9 +10,9 @@
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,
-		"3" = /turf/simulated/floor/asteroid,
-		"4" = /turf/simulated/floor/asteroid,
-		"5" = /turf/simulated/floor/asteroid,
+		"3" = /turf/simulated/floor/asteroid/ash,
+		"4" = /turf/simulated/floor/asteroid/ash,
+		"5" = /turf/simulated/floor/asteroid/ash,
 		"6" = /turf/space,
 		"7" = /turf/space,
 		"8" = /turf/space,

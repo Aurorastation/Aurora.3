@@ -5,7 +5,7 @@
 	iterations = 5
 	descriptor = "moon caves"
 	wall_type =  /turf/simulated/mineral
-	floor_type = /turf/simulated/lava
+	floor_type = /turf/simulated/floor/asteroid/ash/rocky
 	target_turf_type = /turf/unsimulated/mask
 	var/mineral_sparse =  /turf/simulated/mineral/random
 	var/mineral_rich = /turf/simulated/mineral/random/high_chance
@@ -104,7 +104,7 @@
 /datum/random_map/automata/cave_system/chasms
 	descriptor = "chasm caverns"
 	wall_type =  /turf/unsimulated/mask
-	floor_type = /turf/simulated/floor/asteroid
+	floor_type = /turf/simulated/open/airless
 	target_turf_type = /turf/unsimulated/chasm_mask
 	mineral_sparse =  /turf/unsimulated/mask
 	mineral_rich = /turf/unsimulated/mask
@@ -159,10 +159,10 @@
 
 /datum/random_map/automata/cave_system/chasms/surface
 	descriptor = "chasm surface"
-	wall_type =  /turf/simulated/lava
-	floor_type = /turf/simulated/open/airless/chasm
+	wall_type = /turf/simulated/floor/asteroid/ash
+	floor_type = /turf/simulated/open/airless
 	target_turf_type = /turf/unsimulated/chasm_mask
-	mineral_sparse =  /turf/simulated/lava
-	mineral_rich = /turf/simulated/lava
+	mineral_sparse = /turf/simulated/floor/asteroid/ash
+	mineral_rich = /turf/simulated/floor/asteroid/ash
 
 #undef GET_BELOW_OR_NULL

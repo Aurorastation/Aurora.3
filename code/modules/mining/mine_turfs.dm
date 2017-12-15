@@ -495,13 +495,6 @@ var/list/mineral_can_smooth_with = list(
 
 /**********************Asteroid**************************/
 
-/turf/simulated/floor/asteroid/rocky
-	name = "rocky ash"
-	icon_state = "rockyash"
-	base_icon_state = "rockyash"
-	base_icon = 'icons/turf/smooth/rocky_ash.dmi'
-	desc = "A fine grey ash. Seems to contain medium-sized rocks."
-
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
@@ -526,13 +519,13 @@ var/list/mineral_can_smooth_with = list(
 	roof_type = null
 
 // Same as the other, this is a global so we don't have a lot of pointless lists floating around.
-// Basalt is explicitly removed so ash will spill onto basalt turfs.
-var/list/asteroid_floor_smooth = typecacheof(list(
-	/turf/simulated/floor/asteroid,
+// Basalt is explicitly omitted so ash will spill onto basalt turfs.
+var/list/asteroid_floor_smooth = list(
+	/turf/simulated/floor/asteroid/ash,
 	/turf/simulated/mineral,
 	/turf/simulated/wall,
 	/turf/simulated/shuttle
-)) - /turf/simulated/floor/asteroid/basalt
+)
 
 // Copypaste parent for performance.
 /turf/simulated/floor/asteroid/Initialize(mapload)
