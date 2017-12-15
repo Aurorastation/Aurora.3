@@ -947,6 +947,12 @@ area/space/atmosalert()
 	sound_env = LARGE_SOFTFLOOR
 	allow_nightmode = 1
 
+/area/crew_quarters/bar_above
+	name = "\improper Bar Catwalks"
+	icon_state = "yellow"
+	sound_env = LARGE_SOFTFLOOR
+	allow_nightmode = 1
+
 /area/crew_quarters/theatre
 	name = "\improper Theatre"
 	icon_state = "Theatre"
