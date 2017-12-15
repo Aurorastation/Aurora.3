@@ -161,15 +161,22 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
+	icon_state = "opendebug_airless"
 
-/turf/simulated/open/airless/chasm
+/turf/simulated/open/chasm
 	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
-	icon_state = "smooth"
+	icon_state = "debug"
 	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	no_mutate = TRUE
 	name = "hole"
 
-/turf/simulated/open/airless/chasm/Initialize()
+/turf/simulated/open/chasm/airless
+	oxygen = 0
+	nitrogen = 0
+	temperature = TCMB
+	icon_state = "debug_airless"
+
+/turf/simulated/open/chasm/airless/Initialize()
 	. = ..()
 	icon_state = "Fill"
 
