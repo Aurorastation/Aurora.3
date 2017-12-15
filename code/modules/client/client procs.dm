@@ -58,11 +58,21 @@
 	//Admin PM
 	if(href_list["priv_msg"])
 		var/client/C = locate(href_list["priv_msg"])
+		var/datum/ticket/ticket = locate(href_list["ticket"])
+
 		if(ismob(C)) 		//Old stuff can feed-in mobs instead of clients
 			var/mob/M = C
 			C = M.client
-		cmd_admin_pm(C,null)
+		cmd_admin_pm(C, null, ticket)
 		return
+
+	if(href_list["close_ticket"])
+		var/datum/ticket/ticket = locate(href_list["close_ticket"])
+
+		if(isnull(ticket))
+			return
+
+		ticket.close(src)
 
 	if(href_list["discord_msg"])
 		if(!holder && received_discord_pm < world.time - 6000) //Worse they can do is spam IRC for 10 minutes
@@ -225,6 +235,9 @@
 
 	..()	//redirect to hsrc.()
 
+/proc/client_by_ckey(ckey)
+	return directory[ckey]
+
 /client/proc/handle_spam_prevention(var/message, var/mute_type)
 	if (config.automute_on && !holder && length(message))
 		if (last_message_time)
@@ -375,6 +388,7 @@
 	//DISCONNECT//
 	//////////////
 /client/Del()
+	ticket_panels -= src
 	if(holder)
 		holder.owner = null
 		admins -= src

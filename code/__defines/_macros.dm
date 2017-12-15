@@ -66,6 +66,8 @@
 
 #define ismanipulator(A) istype(A, /obj/item/weapon/stock_parts/manipulator)
 
+#define isclient(A) istype(A, /client)
+
 #define isprojectile(A) istype(A, /obj/item/projectile)
 
 #define to_chat(target, message)                            target << message
@@ -74,6 +76,7 @@
 #define to_file(file_entry, file_content)                   file_entry << file_content
 #define show_browser(target, browser_content, browser_name) target << browse(browser_content, browser_name)
 #define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)
+#define send_output(target, msg, control)                   target << output(msg, control)
 
 #define CanInteract(user, state) (CanUseTopic(user, state) == STATUS_INTERACTIVE)
 
