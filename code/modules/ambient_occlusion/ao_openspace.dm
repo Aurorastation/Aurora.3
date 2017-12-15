@@ -12,6 +12,9 @@
 		shadower.cut_overlay(ao_overlays)
 		ao_overlays.Cut()
 
+	if (ao_neighbors == AO_ALL_NEIGHBORS)
+		return
+
 	var/list/cache = SSicon_cache.ao_cache
 
 	for(var/i = 1 to 4)

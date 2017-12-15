@@ -4,6 +4,7 @@
 	icon_state = "energy"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	fire_sound_text = "laser blast"
+	update_icon_on_init = TRUE
 
 	var/obj/item/weapon/cell/power_supply //What type of power cell this uses
 	var/charge_cost = 200 //How much energy is needed to fire.
@@ -34,7 +35,10 @@
 
 /obj/item/weapon/gun/energy/emp_act(severity)
 	..()
-	update_icon()
+	queue_icon_update()
+
+/obj/item/weapon/gun/energy/get_cell()
+	return power_supply
 
 /obj/item/weapon/gun/energy/Initialize()
 	. = ..()
@@ -42,7 +46,6 @@
 		power_supply = new cell_type(src)
 	else
 		power_supply = new /obj/item/weapon/cell/device/variable(src, max_shots*charge_cost)
-	update_icon()
 
 /obj/item/weapon/gun/energy/Destroy()
 	QDEL_NULL(power_supply)

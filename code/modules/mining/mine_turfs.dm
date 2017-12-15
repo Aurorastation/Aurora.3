@@ -5,6 +5,7 @@
 	icon_state = "rock-dark"
 	blocks_air = 1
 	density = 1
+	gender = PLURAL
 
 // This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
 var/list/mineral_can_smooth_with = list(
@@ -16,9 +17,10 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
-	gender = PLURAL
 	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = "rock"
+	desc = "It's a greyish rock. Exciting."
+	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
 	layer = 2.01
 	smooth = SMOOTH_MORE | SMOOTH_BORDER
@@ -493,18 +495,22 @@ var/list/mineral_can_smooth_with = list(
 
 /**********************Asteroid**************************/
 
+/turf/simulated/floor/asteroid/rocky
+	name = "rocky ash"
+	icon_state = "rockyash"
+	base_icon_state = "rockyash"
+	base_icon = 'icons/turf/smooth/rocky_ash.dmi'
+	desc = "A fine grey ash. Seems to contain medium-sized rocks."
+
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
-	name = "sand"
-	gender = PLURAL
+	name = "ash"
 	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = "ash"
-	desc = "Gritty and unpleasant."
-	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	// canSmoothWith is set in Initialize().
-	base_name = "sand"
-	base_desc = "Gritty and unpleasant."
+	desc = "A fine grey ash. Looks pretty tightly packed."
+	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	gender = PLURAL
 	base_icon = 'icons/turf/smooth/ash.dmi'
 	base_icon_state = "ash"
 
@@ -536,6 +542,9 @@ var/list/asteroid_floor_smooth = typecacheof(list(
 
 	if (icon != base_icon)	// Setting icon is an appearance change, so avoid it if we can.
 		icon = base_icon
+
+	base_desc = desc
+	base_name = name
 
 	turfs += src
 

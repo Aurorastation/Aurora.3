@@ -35,7 +35,7 @@
 	check_update_ui_need()
 
 	if (working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
-		playsound(loc, "computerbeep", 30, 1, 10)
+		playsound(loc, "computerbeep", 30, 1, 10, is_ambience = TRUE)
 		ambience_last_played = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(var/app_preset_name)
@@ -276,3 +276,6 @@
 		return active_program.check_eye(user)
 	else
 		return ..()
+
+/obj/item/modular_computer/get_cell()
+	return battery_module ? battery_module.get_cell() : DEVICE_NO_CELL

@@ -38,6 +38,30 @@
 	var/dark_survival = 216                   // How long this diona can survive in darkness after energy is gone, before it dies
 	var/datum/dionastats/DS
 	var/mob/living/carbon/gestalt = null      // If set, then this nymph is inside a gestalt
+	var/kept_clean = 0
+
+	var/mob/living/carbon/alien/diona/master_nymph //nymph who owns this nymph if split. AI diona nymphs will follow this nymph, and these nymphs can be controlled by the master.
+	var/list/mob/living/carbon/alien/diona/birds_of_feather = list() //list of all related nymphs
+
+/mob/living/carbon/alien/diona/proc/cleanupTransfer()
+	if(!kept_clean)
+		for(var/mob/living/carbon/alien/diona/D in birds_of_feather)
+			if(D.master_nymph == src)
+				D.master_nymph = null
+			if(!master_nymph && D != src)
+				master_nymph = D
+			D.master_nymph = master_nymph
+			D.birds_of_feather -= src
+		if(master_nymph && mind && !master_nymph.mind)
+			mind.transfer_to(master_nymph)
+			master_nymph.stunned = 0//Switching mind seems to temporarily stun mobs
+			message_admins("\The [src] has died with nymphs remaining; player now controls [key_name_admin(master_nymph)]")
+			log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]", ckey=key_name(master_nymph))
+		master_nymph = null
+		birds_of_feather.Cut()
+
+		kept_clean = 1
+
 
 /mob/living/carbon/alien/diona/flowery/Initialize(var/mapload)
 	. = ..(mapload, 100)
@@ -277,6 +301,7 @@
 		handle_stunned()
 		handle_weakened()
 		if(health <= 0)
+			cleanupTransfer()
 			death()
 			blinded = 1
 			silent = 0
@@ -324,6 +349,10 @@
 
 	return 1
 
+/mob/living/carbon/alien/diona/Destroy()
+	walk_to(src,0)
+	cleanupTransfer()
+	. = ..()
 
 /mob/living/carbon/alien/diona/proc/wear_hat(var/obj/item/new_hat)
 	if(hat)
@@ -331,3 +360,14 @@
 	hat = new_hat
 	new_hat.forceMove(src)
 	update_icons()
+
+/mob/living/carbon/alien/diona/MiddleClickOn(var/atom/A)
+	if(istype(A, /mob/living/carbon/alien/diona))
+		var/mob/living/carbon/alien/diona/D = A
+		if(D.master_nymph == src) //if the nymph is subservient to you
+			mind.transfer_to(D)
+			D.stunned = 0//Switching mind seems to temporarily stun mobs
+			for(var/mob/living/carbon/alien/diona/DIO in src.birds_of_feather) //its me!
+				DIO.master_nymph = D
+		return 1
+	. = ..()

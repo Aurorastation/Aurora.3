@@ -119,6 +119,9 @@
 	 (!harvest && !dead))
 		harvest = 1
 		lastproduce = age
+		if(seed.get_trait(TRAIT_SPOROUS))
+			seed.create_spores(get_turf(src))
+			visible_message("<span class='danger'>\The [src] releases its spores!</span>")
 
 	// If we're a vine which is not in a closed tray and is at least half mature, and there's no vine currently on our turf: make one (maybe)
 	if(!closed_system && \

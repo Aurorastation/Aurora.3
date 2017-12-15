@@ -1,0 +1,5 @@
+author: Alberyk
+delete-after: True
+changes: 
+  - balance: "Vampire's dominate should now require more total blood to unlock."
+  - balance: "Increased dominate's blood cost to 50."
