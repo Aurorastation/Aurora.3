@@ -111,7 +111,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 	} \
 	else { \
 		appearance_bro.appearance = origin; \
-		if (isloc(origin)) { \
+		if (!ispath(origin)) { \
 			appearance_bro.dir = origin.dir; \
 		} \
 		target = appearance_bro.appearance; \
