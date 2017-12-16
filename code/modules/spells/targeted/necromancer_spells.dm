@@ -170,7 +170,7 @@
 	set desc = "Return to your phylactery and rebuild your body."
 
 	var/mob/living/carbon/C = usr
-	if(!C.stat == DEAD)
+	if(C.stat != DEAD)
 		C << "<span class='notice'>You're not dead yet!</span>"
 		return
 
