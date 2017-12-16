@@ -39,6 +39,10 @@
 #define SMOOTH_QUEUED	16	//atom is currently queued to smooth.
 #define SMOOTH_NO_CLEAR_ICON 32	// don't clear the atom's icon_state on smooth.
 
+#define SMOOTHHINT_CUT_ON_ALL_F 1		// Don't apply overlays if they're all the 'f' state.
+#define SMOOTHHINT_ONLY_MATCH_TURF 2	// Only try to match turfs (this is faster than matching all atoms)
+#define SMOOTHHINT_TARGETS_NOT_UNIQUE 4	// The smoother can assume that all atoms of this type will have the same canSmoothWith value.
+
 #define NULLTURF_BORDER 123456789
 
 #define DEFAULT_UNDERLAY_ICON 			'icons/turf/floors.dmi'
@@ -47,6 +51,7 @@
 
 /atom
 	var/smooth = SMOOTH_FALSE
+	var/smoothing_hints = SMOOTHHINT_TARGETS_NOT_UNIQUE
 	var/tmp/top_left_corner
 	var/tmp/top_right_corner
 	var/tmp/bottom_left_corner
@@ -75,47 +80,63 @@
 
 	var/adjacencies = 0
 
-	var/atom/movable/AM
+	if (smoothing_hints & SMOOTHHINT_ONLY_MATCH_TURF)
+		var/turf/T
+		var/list/tcache
+		if (smoothing_hints & SMOOTHHINT_TARGETS_NOT_UNIQUE)
+			tcache = SSicon_smooth.typecachecache[type]
+			if (!tcache)
+				tcache = typecacheof(canSmoothWith || type, FALSE, !(smooth & SMOOTH_MORE))
+				SSicon_smooth.typecachecache[type] = tcache
+		else 
+			tcache = typecacheof(canSmoothWith || type, FALSE, !(smooth & SMOOTH_MORE))
 
-	for(var/direction in cardinal)
-		AM = find_type_in_direction(src, direction)
-		if(AM == NULLTURF_BORDER)
-			if((smooth & SMOOTH_BORDER))
+		if (smooth & SMOOTH_BORDER)
+			CALCULATE_NEIGHBORS(src, adjacencies, T, !T || tcache[T.type])
+		else
+			CALCULATE_NEIGHBORS(src, adjacencies, T, T && tcache[T.type])
+	else
+		var/atom/movable/AM
+
+		for(var/direction in cardinal)
+			AM = find_type_in_direction(src, direction)
+			if(AM == NULLTURF_BORDER)
+				if((smooth & SMOOTH_BORDER))
+					adjacencies |= 1 << direction
+			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 				adjacencies |= 1 << direction
-		else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
-			adjacencies |= 1 << direction
 
-	if(adjacencies & N_NORTH)
-		if(adjacencies & N_WEST)
-			AM = find_type_in_direction(src, NORTHWEST)
-			if(AM == NULLTURF_BORDER)
-				if((smooth & SMOOTH_BORDER))
+		if(adjacencies & N_NORTH)
+			if(adjacencies & N_WEST)
+				AM = find_type_in_direction(src, NORTHWEST)
+				if(AM == NULLTURF_BORDER)
+					if((smooth & SMOOTH_BORDER))
+						adjacencies |= N_NORTHWEST
+				else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 					adjacencies |= N_NORTHWEST
-			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
-				adjacencies |= N_NORTHWEST
-		if(adjacencies & N_EAST)
-			AM = find_type_in_direction(src, NORTHEAST)
-			if(AM == NULLTURF_BORDER)
-				if((smooth & SMOOTH_BORDER))
+			if(adjacencies & N_EAST)
+				AM = find_type_in_direction(src, NORTHEAST)
+				if(AM == NULLTURF_BORDER)
+					if((smooth & SMOOTH_BORDER))
+						adjacencies |= N_NORTHEAST
+				else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 					adjacencies |= N_NORTHEAST
-			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
-				adjacencies |= N_NORTHEAST
 
-	if(adjacencies & N_SOUTH)
-		if(adjacencies & N_WEST)
-			AM = find_type_in_direction(src, SOUTHWEST)
-			if(AM == NULLTURF_BORDER)
-				if((smooth & SMOOTH_BORDER))
+		if(adjacencies & N_SOUTH)
+			if(adjacencies & N_WEST)
+				AM = find_type_in_direction(src, SOUTHWEST)
+				if(AM == NULLTURF_BORDER)
+					if((smooth & SMOOTH_BORDER))
+						adjacencies |= N_SOUTHWEST
+				else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 					adjacencies |= N_SOUTHWEST
-			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
-				adjacencies |= N_SOUTHWEST
-		if(adjacencies & N_EAST)
-			AM = find_type_in_direction(src, SOUTHEAST)
-			if(AM == NULLTURF_BORDER)
-				if((smooth & SMOOTH_BORDER))
+			if(adjacencies & N_EAST)
+				AM = find_type_in_direction(src, SOUTHEAST)
+				if(AM == NULLTURF_BORDER)
+					if((smooth & SMOOTH_BORDER))
+						adjacencies |= N_SOUTHEAST
+				else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
 					adjacencies |= N_SOUTHEAST
-			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
-				adjacencies |= N_SOUTHEAST
 
 	return adjacencies
 
@@ -206,11 +227,13 @@
 		underlays = U
 
 /proc/cardinal_smooth(atom/A, adjacencies)
+	var/num_of_f = 0
 	//NW CORNER
 	var/nw = "1-i"
 	if((adjacencies & N_NORTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_NORTHWEST)
 			nw = "1-f"
+			num_of_f++
 		else
 			nw = "1-nw"
 	else
@@ -224,6 +247,7 @@
 	if((adjacencies & N_NORTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_NORTHEAST)
 			ne = "2-f"
+			num_of_f++
 		else
 			ne = "2-ne"
 	else
@@ -237,6 +261,7 @@
 	if((adjacencies & N_SOUTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_SOUTHWEST)
 			sw = "3-f"
+			num_of_f++
 		else
 			sw = "3-sw"
 	else
@@ -250,6 +275,7 @@
 	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_SOUTHEAST)
 			se = "4-f"
+			num_of_f++
 		else
 			se = "4-se"
 	else
@@ -288,7 +314,7 @@
 	if(Old)
 		A.cut_overlay(Old)
 
-	if(New)
+	if(New && (num_of_f != 4 || !(A.smoothing_hints & SMOOTHHINT_CUT_ON_ALL_F)))
 		A.add_overlay(New)
 
 	if (A.icon_state && !(A.smooth & SMOOTH_NO_CLEAR_ICON))
@@ -361,33 +387,43 @@
 	if(!target_turf)
 		return NULLTURF_BORDER
 
-	if(source.canSmoothWith)
-		var/atom/A
-		if(source.smooth & SMOOTH_MORE)
+	if (source.smoothing_hints & SMOOTHHINT_TARGETS_NOT_UNIQUE)
+		var/list/tcache = SSicon_smooth.typecachecache[source.type]
+		if (!tcache)
+			tcache = typecacheof(source.canSmoothWith || source.type, FALSE, !(source.smooth & SMOOTH_MORE))
+			SSicon_smooth.typecachecache[source.type] = tcache
+
+		if (is_type_in_typecache(target_turf, tcache))
+			return target_turf
+		return typecache_first_match(target_turf.contents, tcache)
+	else
+		if(source.canSmoothWith)
+			var/atom/A
+			if(source.smooth & SMOOTH_MORE)
+				for(var/a_type in source.canSmoothWith)
+					if( istype(target_turf, a_type) )
+						return target_turf
+					if (ispath(a_type, /turf))
+						continue
+					A = locate(a_type) in target_turf
+					if(A)
+						return A
+				return null
+
 			for(var/a_type in source.canSmoothWith)
-				if( istype(target_turf, a_type) )
+				if(a_type == target_turf.type)
 					return target_turf
 				if (ispath(a_type, /turf))
 					continue
 				A = locate(a_type) in target_turf
-				if(A)
+				if(A && A.type == a_type)
 					return A
 			return null
-
-		for(var/a_type in source.canSmoothWith)
-			if(a_type == target_turf.type)
-				return target_turf
-			if (ispath(a_type, /turf))
-				continue
-			A = locate(a_type) in target_turf
-			if(A && A.type == a_type)
-				return A
-		return null
-	else
-		if(isturf(source))
-			return source.type == target_turf.type ? target_turf : null
-		var/atom/A = locate(source.type) in target_turf
-		return A && A.type == source.type ? A : null
+		else
+			if(isturf(source))
+				return source.type == target_turf.type ? target_turf : null
+			var/atom/A = locate(source.type) in target_turf
+			return A && A.type == source.type ? A : null
 
 //Icon smoothing helpers
 /proc/smooth_zlevel(var/zlevel, now = FALSE)
