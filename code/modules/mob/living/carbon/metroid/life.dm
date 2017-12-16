@@ -13,6 +13,7 @@
 			sight = initial(sight)
 
 /mob/living/carbon/slime/think()
+	..()
 	handle_targets()
 	if (!AIproc)
 		handle_AI()
