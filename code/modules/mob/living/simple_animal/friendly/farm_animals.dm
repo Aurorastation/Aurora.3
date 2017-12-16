@@ -36,15 +36,6 @@
 /mob/living/simple_animal/hostile/retaliate/goat/Life()
 	. = ..()
 	if(.)
-		//chance to go crazy and start wacking stuff
-		if(!enemies.len && prob(1))
-			Retaliate()
-
-		if(enemies.len && prob(10))
-			enemies = list()
-			LoseTarget()
-			src.visible_message("<span class='notice'>[src] calms down.</span>")
-
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
 				udder.add_reagent("milk", rand(5, 10))
@@ -63,6 +54,18 @@
 			if(food)
 				var/step = get_step_to(src, food, 0)
 				Move(step)
+
+/mob/living/simple_animal/hostile/retaliate/goat/think()
+	..()
+	//chance to go crazy and start wacking stuff
+	if(!enemies.len && prob(1))
+		Retaliate()
+
+	if(enemies.len && prob(10))
+		enemies = list()
+		LoseTarget()
+		src.visible_message("<span class='notice'>[src] calms down.</span>")
+
 
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
 	..()

@@ -34,10 +34,8 @@
 	pass_flags = PASSTABLE
 	possession_candidate = 1
 
-/mob/living/simple_animal/cat/Life()
+/mob/living/simple_animal/cat/think()
 	//MICE!
-
-
 	..()
 
 	if (!stat)
@@ -45,10 +43,12 @@
 			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first mouse, reducing exploits
 				mousetarget = snack
 				movement_target = snack
-				foodtarget = 0//chasing mice takes precedence over eating food
+				foodtarget = 0	//chasing mice takes precedence over eating food
 				if(prob(15))
 					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
 				break
+
+				addtimer(CALLBACK(src, .proc/attack_mice), 2)
 
 		if(!buckled)
 			if (turns_since_move > 5 || (flee_target || mousetarget))
@@ -62,8 +62,6 @@
 
 		if (!movement_target)
 			walk_to(src,0)
-
-		addtimer(CALLBACK(src, .proc/attack_mice), 2)
 
 		if(prob(2)) //spooky
 			var/mob/dead/observer/spook = locate() in range(src,5)
@@ -196,7 +194,7 @@
 	if (!friend || movement_target != friend)
 		..()
 
-/mob/living/simple_animal/cat/fluff/Life()
+/mob/living/simple_animal/cat/fluff/think()
 	..()
 	if (stat || QDELETED(friend))
 		return

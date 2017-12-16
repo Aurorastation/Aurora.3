@@ -34,9 +34,8 @@
 	QDEL_NULL(reagent_glass)
 	return ..()
 
-/mob/living/bot/medbot/Life()
+/mob/living/bot/medbot/think()
 	..()
-
 	if(!on)
 		return
 

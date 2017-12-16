@@ -106,7 +106,6 @@
 
 /mob/living/bot/floorbot/Life()
 	..()
-
 	if(!on)
 		return
 
@@ -126,6 +125,11 @@
 			if(prob(1))
 				ignorelist -= T
 
+
+/mob/living/bot/floorbot/think()
+	..()
+	if (!on)
+		return
 	if(amount && !emagged)
 		if(!target && targetdirection) // Building a bridge
 			var/turf/T = get_step(src, targetdirection)
@@ -137,7 +141,7 @@
 
 		if(!target) // Fixing floors
 			for(var/turf/T in view(src))
-				if(T.loc.name == "Space")
+				if (istype(T.loc, /area/space))
 					continue
 				if(T in ignorelist)
 					continue
@@ -151,7 +155,7 @@
 
 	if(emagged) // Time to griff
 		for(var/turf/simulated/floor/D in view(src))
-			if(D.loc.name == "Space")
+			if (istype(D.loc, /area/space))
 				continue
 			if(D in ignorelist)
 				continue

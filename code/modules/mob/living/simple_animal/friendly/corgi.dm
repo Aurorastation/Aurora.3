@@ -45,7 +45,7 @@
 	response_disarm = "bops"
 	response_harm   = "kicks"
 
-/mob/living/simple_animal/corgi/Ian/Life()
+/mob/living/simple_animal/corgi/Ian/think()
 	..()
 
 	if(!stat && !resting && !buckled)
@@ -162,7 +162,8 @@
 					return
 				new /mob/living/simple_animal/corgi/puppy(loc)
 
-
-		if(prob(1))
-			visible_emote(pick("dances around","chases her tail"),0)
-			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
+/mob/living/simple_animal/corgi/Lisa/think()
+	..()
+	if (!stat && !resting && !buckled && prob(1))
+		visible_emote(pick("dances around","chases her tail"),0)
+		INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))

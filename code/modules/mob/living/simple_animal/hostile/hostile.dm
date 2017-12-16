@@ -149,28 +149,20 @@
 	..()
 	walk(src, 0)
 
-/mob/living/simple_animal/hostile/Life()
+/mob/living/simple_animal/hostile/think()
+	..()
+	switch(stance)
+		if(HOSTILE_STANCE_IDLE)
+			target_mob = FindTarget()
 
-	. = ..()
-	if(!.)
-		walk(src, 0)
-		return 0
-	if(client)
-		return 0
+		if(HOSTILE_STANCE_ATTACK)
+			if(destroy_surroundings)
+				DestroySurroundings()
+			MoveToTarget()
 
-	if(!stat)
-		switch(stance)
-			if(HOSTILE_STANCE_IDLE)
-				target_mob = FindTarget()
-
-			if(HOSTILE_STANCE_ATTACK)
-				if(destroy_surroundings)
-					DestroySurroundings()
-				MoveToTarget()
-
-			if(HOSTILE_STANCE_ATTACKING)
-				if(!AttackTarget() && destroy_surroundings)//hit a window OR a mob, not both at once
-					DestroySurroundings()
+		if(HOSTILE_STANCE_ATTACKING)
+			if(!AttackTarget() && destroy_surroundings)	//hit a window OR a mob, not both at once
+				DestroySurroundings()
 
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)

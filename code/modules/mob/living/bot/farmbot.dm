@@ -125,10 +125,14 @@
 
 /mob/living/bot/farmbot/Life()
 	..()
-	if(!on)
-		return
 	if(emagged && prob(1))
 		flick("farmbot_broke", src)
+
+/mob/living/bot/farmbot/think()
+	..()
+	if(!on)
+		return
+
 	if(client)
 		return
 
