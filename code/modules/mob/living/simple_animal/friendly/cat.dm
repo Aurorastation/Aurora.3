@@ -37,7 +37,6 @@
 /mob/living/simple_animal/cat/think()
 	//MICE!
 	..()
-
 	if (!stat)
 		for(var/mob/living/simple_animal/mouse/snack in oview(src,7))
 			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first mouse, reducing exploits
@@ -46,9 +45,10 @@
 				foodtarget = 0	//chasing mice takes precedence over eating food
 				if(prob(15))
 					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
-				break
 
 				addtimer(CALLBACK(src, .proc/attack_mice), 2)
+				break
+
 
 		if(!buckled)
 			if (turns_since_move > 5 || (flee_target || mousetarget))

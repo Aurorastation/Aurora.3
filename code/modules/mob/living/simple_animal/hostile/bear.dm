@@ -91,11 +91,6 @@
 	if (stance != previous)
 		stance_step = 0
 
-/mob/living/simple_animal/hostile/bear/Life()
-	..()
-	if (life_tick % 30 == 0)//A point of anger wears off per minute
-		anger = max(0, anger-1)
-
 /mob/living/simple_animal/hostile/bear/think()
 	. =..()
 	safety = 0
@@ -110,6 +105,9 @@
 	if (health < health_last_tick && stance != HOSTILE_STANCE_TIRED)
 		anger++
 		instant_aggro()
+
+	if (life_tick % 30 == 0)//A point of anger wears off per minute
+		anger = max(0, anger-1)
 
 	switch(stance)
 		if(HOSTILE_STANCE_TIRED)
