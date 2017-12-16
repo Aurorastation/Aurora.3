@@ -211,6 +211,7 @@
 #include "code\datums\category.dm"
 #include "code\datums\computerfiles.dm"
 #include "code\datums\datacore.dm"
+#include "code\datums\datum.dm"
 #include "code\datums\discord_bot.dm"
 #include "code\datums\disease.dm"
 #include "code\datums\feedback.dm"
