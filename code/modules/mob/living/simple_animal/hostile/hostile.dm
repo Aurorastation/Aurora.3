@@ -178,7 +178,7 @@
 	else
 		Shoot(target, src.loc, src)
 		if(casingtype)
-			new casingtype
+			new casingtype(loc)
 
 	stance = HOSTILE_STANCE_IDLE
 	target_mob = null
