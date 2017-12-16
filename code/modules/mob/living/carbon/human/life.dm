@@ -85,9 +85,6 @@
 		if (is_diona())
 			diona_handle_light(DS)
 
-		if(!client)
-			species.handle_npc(src)
-
 	handle_stasis_bag()
 
 	if(!handle_some_updates())
