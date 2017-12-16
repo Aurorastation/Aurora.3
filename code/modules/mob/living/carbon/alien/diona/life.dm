@@ -43,4 +43,3 @@
 			walk_to(src,master_nymph,1,movement_delay())
 		else
 			walk_to(src,0)
-		..()
