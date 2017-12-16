@@ -102,6 +102,7 @@
 		handle_vampire()
 
 /mob/living/carbon/human/think()
+	..()
 	species.handle_npc(src)
 
 /mob/living/carbon/human/proc/handle_some_updates()
