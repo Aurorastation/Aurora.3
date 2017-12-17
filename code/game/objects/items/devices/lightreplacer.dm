@@ -223,11 +223,10 @@
 			target.brightness_range = L2.brightness_range
 			target.brightness_power = L2.brightness_power
 			target.brightness_color = L2.brightness_color
-			target.on = target.has_power()
 			target.update()
 			qdel(L2)
 
-			if(target.on && target.rigged)
+			if(!target.stat && target.rigged)
 				target.explode()
 			return
 

@@ -5,7 +5,7 @@
 	iterations = 5
 	descriptor = "moon caves"
 	wall_type =  /turf/simulated/mineral
-	floor_type = /turf/simulated/floor/asteroid
+	floor_type = /turf/simulated/floor/asteroid/rocky
 	target_turf_type = /turf/unsimulated/mask
 	var/mineral_sparse =  /turf/simulated/mineral/random
 	var/mineral_rich = /turf/simulated/mineral/random/high_chance
@@ -96,18 +96,18 @@
 	game_log("ASGEN", "Applied [num_applied] turfs.")
 
 /datum/random_map/automata/cave_system/high_yield
-    descriptor = "high yield caves"
-    wall_type = /turf/simulated/mineral
-    mineral_sparse =  /turf/simulated/mineral/random/high_chance
-    mineral_rich = /turf/simulated/mineral/random/higher_chance
+	descriptor = "high yield caves"
+	wall_type = /turf/simulated/mineral
+	mineral_sparse =  /turf/simulated/mineral/random/high_chance
+	mineral_rich = /turf/simulated/mineral/random/higher_chance
 
 /datum/random_map/automata/cave_system/chasms
-    descriptor = "chasm caverns"
-    wall_type =  /turf/unsimulated/mask
-    floor_type = /turf/simulated/open/airless
-    target_turf_type = /turf/unsimulated/chasm_mask
-    mineral_sparse =  /turf/unsimulated/mask
-    mineral_rich = /turf/unsimulated/mask
+	descriptor = "chasm caverns"
+	wall_type =  /turf/unsimulated/mask
+	floor_type = /turf/simulated/open/airless
+	target_turf_type = /turf/unsimulated/chasm_mask
+	mineral_sparse =  /turf/unsimulated/mask
+	mineral_rich = /turf/unsimulated/mask
 
 /datum/random_map/automata/cave_system/chasms/apply_to_map()
 	if(!origin_x) origin_x = 1
@@ -158,11 +158,11 @@
 	return
 
 /datum/random_map/automata/cave_system/chasms/surface
-    descriptor = "chasm surface"
-    wall_type =  /turf/simulated/floor/asteroid
-    floor_type = /turf/simulated/open/airless
-    target_turf_type = /turf/unsimulated/chasm_mask
-    mineral_sparse =  /turf/simulated/floor/asteroid
-    mineral_rich = /turf/simulated/floor/asteroid
+	descriptor = "chasm surface"
+	wall_type = /turf/simulated/floor/asteroid
+	floor_type = /turf/simulated/open/airless
+	target_turf_type = /turf/unsimulated/chasm_mask
+	mineral_sparse = /turf/simulated/floor/asteroid
+	mineral_rich = /turf/simulated/floor/asteroid
 
 #undef GET_BELOW_OR_NULL

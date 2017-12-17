@@ -72,3 +72,7 @@
 	new /datum/random_map/noise/ore(null, 0, 0, 5, 64, 64)
 	new /datum/random_map/noise/ore(null, 0, 0, 4, 64, 64)
 	new /datum/random_map/noise/ore(null, 0, 0, 3, 64, 64)
+
+/datum/map/aurora/finalize_load()
+	// generate an empty space Z
+	world.maxz++

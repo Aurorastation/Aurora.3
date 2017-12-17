@@ -89,3 +89,6 @@
 	return text2num(pickweight(candidates))
 
 /datum/map/proc/setup_shuttles()
+
+// Called right after SSatlas finishes loading the map & multiz is setup.
+/datum/map/proc/finalize_load()

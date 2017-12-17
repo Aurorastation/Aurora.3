@@ -35226,7 +35226,7 @@
 /turf/simulated/wall,
 /area/hallway/primary/starboard)
 "blO" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay"
@@ -39924,7 +39924,7 @@
 /turf/simulated/wall,
 /area/medical/chemistry)
 "bui" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay";
@@ -40047,7 +40047,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bur" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay";
@@ -45471,7 +45471,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay";
@@ -45737,7 +45737,7 @@
 /turf/simulated/floor/plating,
 /area/medical/genetics)
 "bEd" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay";
@@ -57134,7 +57134,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/crew_quarters/sleep/engi_wash)
 "bXY" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay";
@@ -57579,7 +57579,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "bYD" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay";
@@ -64707,7 +64707,7 @@
 	req_one_access = list(12,5)
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay";
@@ -64765,7 +64765,7 @@
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(12,5)
 	},
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay";
@@ -70343,7 +70343,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "cva" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay";
@@ -70464,7 +70464,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "cvh" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/greencross{
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay";

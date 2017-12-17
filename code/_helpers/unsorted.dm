@@ -655,7 +655,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	var/holding = user.get_active_hand()
 
 	var/datum/progressbar/progbar
-	if (display_progress && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS))
+	if (display_progress && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
 		progbar = new(user, delay, target)
 
 	var/endtime = world.time + delay
@@ -695,7 +695,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	var/holding = user.get_active_hand()
 
 	var/datum/progressbar/progbar
-	if (display_progress && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS))
+	if (display_progress && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
 		progbar = new(user, delay, act_target)
 
 	var/endtime = world.time + delay

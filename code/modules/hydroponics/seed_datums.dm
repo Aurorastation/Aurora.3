@@ -385,14 +385,15 @@
 	display_name = "k'ois spores"
 	mutants = null
 	chems = list(
-				"koispaste" = list(2),
-				"phoron" = list(4))
+				"koispaste" = list(4),
+				"phoron" = list(8))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "koisspore"
 
 /datum/seed/koisspore/setup_traits()
 	..()
 	set_trait(TRAIT_SPREAD,1)
+	set_trait(TRAIT_SPOROUS,1)
 	set_trait(TRAIT_MATURATION,5)
 	set_trait(TRAIT_PRODUCTION,1)
 	set_trait(TRAIT_YIELD,3)

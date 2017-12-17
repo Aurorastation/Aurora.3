@@ -62,16 +62,19 @@
 	var/centcomm_area = 0
 	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
 
-// Don't move this to Initialize(). DMMS needs this, and it runs before SSatoms does.
+// Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
+	// DMMS hook - Required for areas to work properly.
 	if (!areas_by_type[type])
 		areas_by_type[type] = src
+	// Atmos code needs this, so we need to make sure this is done by the time they init.
+	uid = ++global_uid
 	. = ..()
 
 /area/Initialize(mapload)
 	icon_state = "white"
 	layer = 10
-	uid = ++global_uid
+
 	blend_mode = BLEND_MULTIPLY
 
 	if(!requires_power)

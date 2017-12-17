@@ -389,6 +389,10 @@
 			user << "<span class='danger'>You cannot install a computer brain into a meat skull.</span>"
 			return SURGERY_FAILURE
 
+		if(!target.isSynthetic())
+			user << "<span class='danger'>You cannot install a computer brain into an organic body.</span>"
+			return SURGERY_FAILURE
+
 		if(!target.species)
 			user << "<span class='danger'>You have no idea what species this person is. Report this on the bug tracker.</span>"
 			return SURGERY_FAILURE

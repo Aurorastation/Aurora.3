@@ -27,6 +27,7 @@
 /datum/seed/proc/setup_traits()
 
 /datum/seed/New()
+	set_trait(TRAIT_SPOROUS,              0)            // If set, plant will periodically release smoke clouds of its reagent.
 	set_trait(TRAIT_IMMUTABLE,            0)            // If set, plant will never mutate. If -1, plant is highly mutable.
 	set_trait(TRAIT_HARVEST_REPEAT,       0)            // If 1, this plant will fruit repeatedly.
 	set_trait(TRAIT_PRODUCES_POWER,       0)            // Can be used to make a battery.

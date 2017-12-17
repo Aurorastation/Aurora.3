@@ -405,7 +405,7 @@
 	var/time = 6 * breakout_time * 2
 
 	var/datum/progressbar/bar
-	if (escapee.client && escapee.client.prefs.parallax_togs & PROGRESS_BARS)
+	if (escapee.client && escapee.client.prefs.toggles_secondary & PROGRESS_BARS)
 		bar = new(escapee, time, src)
 
 	breakout = 1
