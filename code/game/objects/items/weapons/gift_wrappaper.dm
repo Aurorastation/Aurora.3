@@ -289,7 +289,7 @@
 		/obj/item/organ/heart/skrell,
 		/obj/item/latexballon)
 
-	var/atom/movable/I = new gift_type(M)
+	var/atom/movable/I = new gift_type(get_turf(M))
 	M.remove_from_mob(src)
 	M.put_in_hands(I)
 	M << "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>"
@@ -357,7 +357,7 @@
 		/obj/item/device/megaphone,
 		/obj/item/device/violin)
 
-	var/atom/movable/I = new gift_type(M)
+	var/atom/movable/I = new gift_type(get_turf(M))
 	M.remove_from_mob(src)
 	if (!M.put_in_hands(I))
 		M.forceMove(get_turf(src))
@@ -401,7 +401,7 @@
 		/obj/item/clothing/head/helmet/space/void/vaurca,
 		/obj/item/target/alien)
 
-	var/atom/movable/I = new gift_type(M)
+	var/atom/movable/I = new gift_type(get_turf(M))
 	M.remove_from_mob(src)
 	M.put_in_hands(I)
 	M << "<span class='notice'>You open the gift, revealing your new [I.name]! Just what you always wanted!</span>"
