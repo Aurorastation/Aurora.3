@@ -55,10 +55,10 @@
 
 	<div class='item'>
 	  <div class='itemLabel'>
-		Terminations:
+		Suspensions:
 	  </div>
 	  <div class='itemContent'>
-		{{:helper.link('Terminate ' + data.id_owner, 'gear', {'action' : 'terminate'}, data.id_rank == "Terminated" ? 'disabled' : null, data.id_rank == "Terminated" ? 'disabled' : 'linkDanger')}}
+		{{:helper.link('Suspend ' + data.id_owner, 'gear', {'action' : 'suspend'}, data.id_rank == "Suspended" ? 'disabled' : null, data.id_rank == "Suspended" ? 'disabled' : 'linkDanger')}}
 	  </div>
 	</div>
 

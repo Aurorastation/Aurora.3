@@ -94,3 +94,11 @@
 	flags["flag, NanoTrasen"] = /obj/item/weapon/flag/nanotrasen/l
 	gear_tweaks += new/datum/gear_tweak/path(flags)
 
+
+/datum/gear/towel
+	display_name = "towel"
+	path = /obj/item/weapon/towel
+
+/datum/gear/towel/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
