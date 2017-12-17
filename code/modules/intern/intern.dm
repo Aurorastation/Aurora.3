@@ -81,7 +81,7 @@
 	supervisors = "the Chief Engineer"
 	selection_color = "#fff5cc"
 	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
-	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
+	minimal_access = list(access_maint_tunnels, access_construction, access_engine)
 
 	bag_type = /obj/item/weapon/storage/backpack/industrial
 	satchel_type = /obj/item/weapon/storage/backpack/satchel_eng
