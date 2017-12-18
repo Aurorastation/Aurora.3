@@ -1,4 +1,4 @@
-/obj/item/weapon/storage/belt
+/obj/item/storage/belt
 	name = "belt"
 	desc = "Can hold various things."
 	icon = 'icons/obj/clothing/belts.dmi'
@@ -13,7 +13,7 @@
 
 	var/show_above_suit = 0
 
-/obj/item/weapon/storage/belt/verb/toggle_layer()
+/obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
 	set category = "Object"
 
@@ -23,24 +23,24 @@
 	show_above_suit = !show_above_suit
 	update_icon()
 
-/obj/item/weapon/storage/update_icon()
+/obj/item/storage/update_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_belt()
 
 
-/obj/item/weapon/storage/belt/utility
+/obj/item/storage/belt/utility
 	name = "tool-belt" //Carn: utility belt is nicer, but it bamboozles the text parsing.
 	desc = "Can hold various tools."
 	icon_state = "utilitybelt"
 	item_state = "utility"
 	can_hold = list(
-		///obj/item/weapon/combitool,
-		/obj/item/weapon/crowbar,
-		/obj/item/weapon/screwdriver,
-		/obj/item/weapon/weldingtool,
-		/obj/item/weapon/wirecutters,
-		/obj/item/weapon/wrench,
+		///obj/item/combitool,
+		/obj/item/crowbar,
+		/obj/item/screwdriver,
+		/obj/item/weldingtool,
+		/obj/item/wirecutters,
+		/obj/item/wrench,
 		/obj/item/device/multitool,
 		/obj/item/device/flashlight,
 		/obj/item/stack/cable_coil,
@@ -48,86 +48,86 @@
 		/obj/item/device/analyzer,
 		/obj/item/taperoll/engineering,
 		/obj/item/device/robotanalyzer,
-		/obj/item/weapon/material/minihoe,
-		/obj/item/weapon/material/hatchet,
+		/obj/item/material/minihoe,
+		/obj/item/material/hatchet,
 		/obj/item/device/analyzer/plant_analyzer,
-		/obj/item/weapon/extinguisher/mini,
-		/obj/item/weapon/pipewrench
+		/obj/item/extinguisher/mini,
+		/obj/item/pipewrench
 		)
 
 
-/obj/item/weapon/storage/belt/utility/full/fill()
+/obj/item/storage/belt/utility/full/fill()
 	..()
-	new /obj/item/weapon/screwdriver(src)
-	new /obj/item/weapon/wrench(src)
-	new /obj/item/weapon/weldingtool(src)
-	new /obj/item/weapon/crowbar(src)
-	new /obj/item/weapon/wirecutters(src)
+	new /obj/item/screwdriver(src)
+	new /obj/item/wrench(src)
+	new /obj/item/weldingtool(src)
+	new /obj/item/crowbar(src)
+	new /obj/item/wirecutters(src)
 	new /obj/item/stack/cable_coil(src,30,pick("red","yellow","orange"))
 
 
-/obj/item/weapon/storage/belt/utility/atmostech/fill()
+/obj/item/storage/belt/utility/atmostech/fill()
 	..()
-	new /obj/item/weapon/screwdriver(src)
-	new /obj/item/weapon/wrench(src)
-	new /obj/item/weapon/weldingtool(src)
-	new /obj/item/weapon/crowbar(src)
-	new /obj/item/weapon/wirecutters(src)
+	new /obj/item/screwdriver(src)
+	new /obj/item/wrench(src)
+	new /obj/item/weldingtool(src)
+	new /obj/item/crowbar(src)
+	new /obj/item/wirecutters(src)
 	new /obj/item/device/t_scanner(src)
 
 
 
-/obj/item/weapon/storage/belt/medical
+/obj/item/storage/belt/medical
 	name = "medical belt"
 	desc = "Can hold various medical equipment."
 	icon_state = "medicalbelt"
 	item_state = "medical"
 	can_hold = list(
 		/obj/item/device/healthanalyzer,
-		/obj/item/weapon/dnainjector,
-		/obj/item/weapon/reagent_containers/dropper,
-		/obj/item/weapon/reagent_containers/glass/beaker,
-		/obj/item/weapon/reagent_containers/glass/bottle,
-		/obj/item/weapon/reagent_containers/pill,
-		/obj/item/weapon/reagent_containers/syringe,
-		/obj/item/weapon/flame/lighter/zippo,
-		/obj/item/weapon/storage/fancy/cigarettes,
-		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/dnainjector,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle,
+		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/flame/lighter/zippo,
+		/obj/item/storage/fancy/cigarettes,
+		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
 		/obj/item/device/flashlight/pen,
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/head/surgery,
 		/obj/item/clothing/gloves/latex,
-		/obj/item/weapon/reagent_containers/hypospray,
+		/obj/item/reagent_containers/hypospray,
 		/obj/item/clothing/glasses/hud/health,
-		/obj/item/weapon/crowbar,
+		/obj/item/crowbar,
 		/obj/item/device/flashlight,
-		/obj/item/weapon/extinguisher/mini
+		/obj/item/extinguisher/mini
 		)
 
-/obj/item/weapon/storage/belt/medical/emt
+/obj/item/storage/belt/medical/emt
 	name = "EMT utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
 
-/obj/item/weapon/storage/belt/security
+/obj/item/storage/belt/security
 	name = "security belt"
 	desc = "Can hold security gear like handcuffs and flashes."
 	icon_state = "securitybelt"
 	item_state = "security"
 	can_hold = list(
-		/obj/item/weapon/grenade,
-		/obj/item/weapon/reagent_containers/spray/pepper,
-		/obj/item/weapon/handcuffs,
+		/obj/item/grenade,
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/handcuffs,
 		/obj/item/device/flash,
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/,
-		/obj/item/weapon/melee/baton,
-		/obj/item/weapon/gun/energy/taser,
-		/obj/item/weapon/flame/lighter,
+		/obj/item/reagent_containers/food/snacks/donut/,
+		/obj/item/melee/baton,
+		/obj/item/gun/energy/taser,
+		/obj/item/flame/lighter,
 		/obj/item/clothing/glasses/hud/security,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/flashlight/flare,
@@ -136,16 +136,16 @@
 		/obj/item/device/radio/headset,
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
-		/obj/item/weapon/melee,
-		/obj/item/weapon/gun/projectile/sec,
+		/obj/item/melee,
+		/obj/item/gun/projectile/sec,
 		/obj/item/taperoll/police,
-		/obj/item/weapon/material/sword/trench,
-		/obj/item/weapon/shield/energy,
-		/obj/item/weapon/shield/riot/tact,
+		/obj/item/material/sword/trench,
+		/obj/item/shield/energy,
+		/obj/item/shield/riot/tact,
 		/obj/item/device/holowarrant
 		)
 
-/obj/item/weapon/storage/belt/soulstone
+/obj/item/storage/belt/soulstone
 	name = "soul stone belt"
 	desc = "Designed for ease of access to the shards during a fight, as to not let a single enemy spirit slip away"
 	icon_state = "soulstonebelt"
@@ -155,7 +155,7 @@
 		/obj/item/device/soulstone
 		)
 
-/obj/item/weapon/storage/belt/soulstone/full/fill()
+/obj/item/storage/belt/soulstone/full/fill()
 	..()
 	new /obj/item/device/soulstone(src)
 	new /obj/item/device/soulstone(src)
@@ -164,7 +164,7 @@
 	new /obj/item/device/soulstone(src)
 	new /obj/item/device/soulstone(src)
 
-/obj/item/weapon/storage/belt/champion
+/obj/item/storage/belt/champion
 	name = "championship belt"
 	desc = "Proves to the world that you are the strongest!"
 	icon_state = "championbelt"
@@ -174,7 +174,7 @@
 		"/obj/item/clothing/mask/luchador"
 		)
 
-/obj/item/weapon/storage/belt/security/tactical
+/obj/item/storage/belt/security/tactical
 	name = "combat belt"
 	desc = "Can hold security gear like handcuffs and flashes, with more pouches for more storage."
 	icon_state = "swatbelt"
@@ -183,7 +183,7 @@
 	max_w_class = 3
 	max_storage_space = 28
 
-/obj/item/weapon/storage/belt/military
+/obj/item/storage/belt/military
 	name = "military belt"
 	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
 	icon_state = "militarybelt"
@@ -192,32 +192,32 @@
 	max_w_class = 3
 	max_storage_space  = 28
 	can_hold = list(
-		/obj/item/weapon/grenade,
-		/obj/item/weapon/handcuffs,
+		/obj/item/grenade,
+		/obj/item/handcuffs,
 		/obj/item/device/flash,
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
-		/obj/item/weapon/melee/baton,
+		/obj/item/melee/baton,
 		/obj/item/device/flashlight,
 		/obj/item/device/pda,
 		/obj/item/device/radio/headset,
-		/obj/item/weapon/melee,
-		/obj/item/weapon/shield/energy,
-		/obj/item/weapon/pinpointer,
-		/obj/item/weapon/plastique,
-		/obj/item/weapon/gun/projectile/pistol,
-		/obj/item/weapon/gun/energy/crossbow,
-		/obj/item/weapon/material/sword/trench,
+		/obj/item/melee,
+		/obj/item/shield/energy,
+		/obj/item/pinpointer,
+		/obj/item/plastique,
+		/obj/item/gun/projectile/pistol,
+		/obj/item/gun/energy/crossbow,
+		/obj/item/material/sword/trench,
 		/obj/item/ammo_casing/a145,
 		/obj/item/device/radio/uplink,
-		/obj/item/weapon/card/emag,
+		/obj/item/card/emag,
 		/obj/item/device/multitool/hacktool,
-		/obj/item/weapon/reagent_containers/hypospray/combat,
+		/obj/item/reagent_containers/hypospray/combat,
 		/obj/item/stack/telecrystal
 		)
 
-/obj/item/weapon/storage/belt/janitor
+/obj/item/storage/belt/janitor
 	name = "janibelt"
 	desc = "A belt used to hold most janitorial supplies."
 	icon_state = "janibelt"
@@ -226,14 +226,14 @@
 	w_class = 3
 	max_w_class = 3
 	can_hold = list(
-		/obj/item/weapon/grenade/chem_grenade/cleaner,
+		/obj/item/grenade/chem_grenade/cleaner,
 		/obj/item/device/lightreplacer,
 		/obj/item/device/flashlight,
-		/obj/item/weapon/reagent_containers/spray,
-		/obj/item/weapon/soap
+		/obj/item/reagent_containers/spray,
+		/obj/item/soap
 		)
 
-/obj/item/weapon/storage/belt/wands
+/obj/item/storage/belt/wands
 	name = "wand belt"
 	desc = "A belt designed to hold various rods of power."
 	icon_state = "soulstonebelt"
@@ -242,18 +242,18 @@
 	max_w_class = 3
 	max_storage_space  = 28
 	can_hold = list(
-		/obj/item/weapon/gun/energy/wand
+		/obj/item/gun/energy/wand
 		)
 
-/obj/item/weapon/storage/belt/wands/full/fill()
+/obj/item/storage/belt/wands/full/fill()
 	..()
-	new /obj/item/weapon/gun/energy/wand/fire(src)
-	new /obj/item/weapon/gun/energy/wand/polymorph(src)
-	new /obj/item/weapon/gun/energy/wand/teleport(src)
-	new /obj/item/weapon/gun/energy/wand/force(src)
-	new /obj/item/weapon/gun/energy/wand/animation(src)
+	new /obj/item/gun/energy/wand/fire(src)
+	new /obj/item/gun/energy/wand/polymorph(src)
+	new /obj/item/gun/energy/wand/teleport(src)
+	new /obj/item/gun/energy/wand/force(src)
+	new /obj/item/gun/energy/wand/animation(src)
 
-/obj/item/weapon/storage/belt/mining
+/obj/item/storage/belt/mining
 	name = "explorer's belt"
 	desc = "A versatile chest rig, cherished by miners and hunters alike."
 	icon_state = "explorer"
@@ -261,43 +261,43 @@
 	storage_slots = 9
 	w_class = 4
 	max_w_class = 4 //Pickaxes are big.
-	can_hold = list(/obj/item/weapon/crowbar,
-		/obj/item/weapon/screwdriver,
-		/obj/item/weapon/weldingtool,
-		/obj/item/weapon/wirecutters,
-		/obj/item/weapon/wrench,
-		/obj/item/weapon/resonator,
-		/obj/item/weapon/oreportal,
-		/obj/item/weapon/oremagnet,
-		/obj/item/weapon/plastique/seismic,
-		/obj/item/weapon/extraction_pack,
-		/obj/item/weapon/ore_radar,
+	can_hold = list(/obj/item/crowbar,
+		/obj/item/screwdriver,
+		/obj/item/weldingtool,
+		/obj/item/wirecutters,
+		/obj/item/wrench,
+		/obj/item/resonator,
+		/obj/item/oreportal,
+		/obj/item/oremagnet,
+		/obj/item/plastique/seismic,
+		/obj/item/extraction_pack,
+		/obj/item/ore_radar,
 		/obj/item/device/flashlight,
 		/obj/item/stack/cable_coil,
 		/obj/item/stack/flag,
 		/obj/item/device/wormhole_jaunter,
 		/obj/item/device/analyzer,
-		/obj/item/weapon/extinguisher/mini,
+		/obj/item/extinguisher/mini,
 		/obj/item/device/radio,
 		/obj/item/clothing/gloves,
 		/obj/item/clothing/glasses/material,
-		/obj/item/weapon/pickaxe,
-		/obj/item/weapon/shovel,
+		/obj/item/pickaxe,
+		/obj/item/shovel,
 		/obj/item/stack/material/animalhide,
-		/obj/item/weapon/flame/lighter,
-		/obj/item/weapon/storage/fancy/cigarettes,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle,
+		/obj/item/flame/lighter,
+		/obj/item/storage/fancy/cigarettes,
+		/obj/item/reagent_containers/food/drinks/bottle,
 		/obj/item/stack/medical,
-		/obj/item/weapon/reagent_containers/hypospray,
+		/obj/item/reagent_containers/hypospray,
 		/obj/item/device/gps,
-		/obj/item/weapon/storage/bag/ore,
-		/obj/item/weapon/reagent_containers/pill,
-		/obj/item/weapon/storage/pill_bottle,
-		/obj/item/weapon/ore,
-		/obj/item/weapon/reagent_containers/food/drinks,
-		/obj/item/weapon/storage/bag/plants,
+		/obj/item/storage/bag/ore,
+		/obj/item/reagent_containers/pill,
+		/obj/item/storage/pill_bottle,
+		/obj/item/ore,
+		/obj/item/reagent_containers/food/drinks,
+		/obj/item/storage/bag/plants,
 		/obj/item/warp_core,
-		/obj/item/weapon/extraction_pack,
-		/obj/item/weapon/rrf,
-		/obj/item/weapon/gun/energy/kinetic_accelerator
+		/obj/item/extraction_pack,
+		/obj/item/rrf,
+		/obj/item/gun/energy/kinetic_accelerator
 		)

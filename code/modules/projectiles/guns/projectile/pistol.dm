@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/colt
+/obj/item/gun/projectile/colt
 	name = "vintage .45 pistol"
 	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
 	magazine_type = /obj/item/ammo_magazine/c45m
@@ -9,17 +9,17 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 
-/obj/item/weapon/gun/projectile/colt/update_icon()
+/obj/item/gun/projectile/colt/update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "colt"
 	else
 		icon_state = "colt-e"
 
-/obj/item/weapon/gun/projectile/colt/detective
+/obj/item/gun/projectile/colt/detective
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 
-/obj/item/weapon/gun/projectile/colt/detective/verb/rename_gun()
+/obj/item/gun/projectile/colt/detective/verb/rename_gun()
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Rename your gun. If you're the detective."
@@ -37,7 +37,7 @@
 		M << "You name the gun [input]. Say hello to your new friend."
 		return 1
 
-/obj/item/weapon/gun/projectile/sec
+/obj/item/gun/projectile/sec
 	name = ".45 pistol"
 	desc = "A NanoTrasen designed sidearm, found pretty much everywhere humans are. Uses .45 rounds."
 	icon_state = "secguncomp"
@@ -48,33 +48,33 @@
 	fire_sound = 'sound/weapons/Gunshot_light.ogg'
 	load_method = MAGAZINE
 
-/obj/item/weapon/gun/projectile/sec/update_icon()
+/obj/item/gun/projectile/sec/update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "secguncomp"
 	else
 		icon_state = "secguncomp-e"
 
-/obj/item/weapon/gun/projectile/sec/lethal
+/obj/item/gun/projectile/sec/lethal
 	magazine_type = /obj/item/ammo_magazine/c45m
 
-/obj/item/weapon/gun/projectile/sec/flash
+/obj/item/gun/projectile/sec/flash
 	name = ".45 signal pistol"
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
-/obj/item/weapon/gun/projectile/sec/wood
+/obj/item/gun/projectile/sec/wood
 	desc = "A Nanotrasen designed sidearm, this one has a sweet wooden grip. Uses .45 rounds."
 	name = "custom .45 Pistol"
 	icon_state = "secgundark"
 
-/obj/item/weapon/gun/projectile/sec/wood/update_icon()
+/obj/item/gun/projectile/sec/wood/update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "secgundark"
 	else
 		icon_state = "secgundark-e"
 
-/obj/item/weapon/gun/projectile/automatic/x9
+/obj/item/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
 	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
 	icon_state = "x9tactical"
@@ -91,7 +91,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
-/obj/item/weapon/gun/projectile/tanto
+/obj/item/gun/projectile/tanto
 	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
 	name = "10mm pistol"
 	icon_state = "c05r"
@@ -109,14 +109,14 @@
 		)
 
 
-/obj/item/weapon/gun/projectile/tanto/update_icon()
+/obj/item/gun/projectile/tanto/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "c05r"
 	else
 		icon_state = "c05r-e"
 
-/obj/item/weapon/gun/projectile/silenced
+/obj/item/gun/projectile/silenced
 	name = "silenced pistol"
 	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."
 	icon_state = "silenced_pistol"
@@ -128,7 +128,7 @@
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 
-/obj/item/weapon/gun/projectile/deagle
+/obj/item/gun/projectile/deagle
 	name = ".50 magnum pistol"
 	desc = "A robust handgun that uses .50 AE ammo."
 	icon_state = "deagle"
@@ -140,23 +140,23 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
-/obj/item/weapon/gun/projectile/deagle/update_icon()
+/obj/item/gun/projectile/deagle/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "[initial(icon_state)]"
 	else
 		icon_state = "[initial(icon_state)]-e"
 
-/obj/item/weapon/gun/projectile/deagle/gold
+/obj/item/gun/projectile/deagle/gold
 	desc = "A gold plated gun folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."
 	icon_state = "deagleg"
 	item_state = "deagleg"
 
-/obj/item/weapon/gun/projectile/deagle/camo
+/obj/item/gun/projectile/deagle/camo
 	desc = "A Deagle brand Deagle for operators operating operationally. Uses .50 AE ammo."
 	icon_state = "deaglecamo"
 
-/obj/item/weapon/gun/projectile/gyropistol
+/obj/item/gun/projectile/gyropistol
 	name = "gyrojet pistol"
 	desc = "A bulky pistol designed to fire self propelled rounds"
 	icon_state = "gyropistol"
@@ -171,14 +171,14 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
-/obj/item/weapon/gun/projectile/gyropistol/update_icon()
+/obj/item/gun/projectile/gyropistol/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "gyropistolloaded"
 	else
 		icon_state = "gyropistol"
 
-/obj/item/weapon/gun/projectile/pistol
+/obj/item/gun/projectile/pistol
 	name = "9mm pistol"
 	desc = "500 years since its creation and the Stechkin automatic pistol is still a common sight throughout the Frontier."
 	icon_state = "pistol"
@@ -192,11 +192,11 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 
-/obj/item/weapon/gun/projectile/pistol/flash
+/obj/item/gun/projectile/pistol/flash
 	name = "9mm signal pistol"
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
 
-/obj/item/weapon/gun/projectile/pistol/attack_hand(mob/user as mob)
+/obj/item/gun/projectile/pistol/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src)
 		if(silenced)
 			if(user.l_hand != src && user.r_hand != src)
@@ -210,8 +210,8 @@
 			return
 	..()
 
-/obj/item/weapon/gun/projectile/pistol/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/silencer))
+/obj/item/gun/projectile/pistol/attackby(obj/item/I as obj, mob/user as mob)
+	if(istype(I, /obj/item/silencer))
 		if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
 			user << "<span class='notice'>You'll need [src] in your hands to do that.</span>"
 			return
@@ -224,14 +224,14 @@
 		return
 	..()
 
-/obj/item/weapon/gun/projectile/pistol/update_icon()
+/obj/item/gun/projectile/pistol/update_icon()
 	..()
 	if(silenced)
 		icon_state = "pistol-silencer"
 	else
 		icon_state = "pistol"
 
-/obj/item/weapon/gun/projectile/pistol/update_icon()
+/obj/item/gun/projectile/pistol/update_icon()
 	..()
 	if(silenced)
 		icon_state = "pistol-silencer"
@@ -240,14 +240,14 @@
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
 		icon_state = "[icon_state]-e"
 
-/obj/item/weapon/silencer
+/obj/item/silencer
 	name = "silencer"
 	desc = "A silencer"
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "silencer"
 	w_class = 2
 
-/obj/item/weapon/gun/projectile/pirate
+/obj/item/gun/projectile/pirate
 	name = "zip gun"
 	desc = "Little more than a barrel, handle, and firing mechanism, cheap makeshift firearms like this one are not uncommon in frontier systems."
 	icon_state = "zipgun"
@@ -268,7 +268,7 @@
 		/obj/item/ammo_casing/a556              = "5.56mm"
 		)
 
-/obj/item/weapon/gun/projectile/pirate/Initialize()
+/obj/item/gun/projectile/pirate/Initialize()
 	ammo_type = pick(ammo_types)
 	desc += " Uses [ammo_types[ammo_type]] rounds."
 

@@ -67,16 +67,16 @@
 	else
 		user << "<span class='notice'>Access Denied</span>"
 
-/obj/structure/closet/secure_closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/secure_closet/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)
-		if(istype(W, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = W
+		if(istype(W, /obj/item/grab))
+			var/obj/item/grab/G = W
 			if(large)
 				MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
 			else
 				user << "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>"
 		if(iswelder(W))
-			var/obj/item/weapon/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
 					"<span class='warning'>[user] begins cutting [src] apart.</span>",
@@ -137,13 +137,13 @@
 				wrenched = 1
 				anchored = 1
 	else if(!opened)
-		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
+		if(istype(W, /obj/item/melee/energy/blade))//Attempt to cut open locker if locked
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
 				spark(src, 5)
 				playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
 				playsound(loc, "sparks", 50, 1)
 		else if(iswelder(W))
-			var/obj/item/weapon/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
 					"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",

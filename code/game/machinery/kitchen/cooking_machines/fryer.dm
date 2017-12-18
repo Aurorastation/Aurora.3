@@ -20,7 +20,7 @@
 	resistance = 20000	// Approx. 8-9 minutes to heat up.
 
 	max_contents = 2
-	container_type = /obj/item/weapon/reagent_containers/cooking_container/fryer
+	container_type = /obj/item/reagent_containers/cooking_container/fryer
 
 	stat = POWEROFF//Starts turned off
 
@@ -204,7 +204,7 @@
 	oil.trans_to(victim, 40)
 
 /obj/machinery/appliance/cooker/fryer/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/weapon/reagent_containers/glass) && I.reagents)
+	if(istype(I, /obj/item/reagent_containers/glass) && I.reagents)
 		if (I.reagents.total_volume <= 0 && oil)
 			//Its empty, handle scooping some hot oil out of the fryer
 			oil.trans_to(I, I.reagents.maximum_volume)

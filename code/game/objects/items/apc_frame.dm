@@ -7,7 +7,7 @@
 	icon_state = "apc_frame"
 	flags = CONDUCT
 
-/obj/item/frame/apc/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/frame/apc/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if (iswrench(W))
 		new /obj/item/stack/material/steel( get_turf(src.loc), 2 )

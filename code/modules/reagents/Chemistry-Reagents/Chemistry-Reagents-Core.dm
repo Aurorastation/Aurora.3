@@ -185,16 +185,16 @@
 /datum/reagent/water/touch_obj(var/obj/O)
 	if(istype(O))
 		O.color = initial(O.color)
-		if(istype(O, /obj/item/weapon/light))
-			var/obj/item/weapon/light/L = O
+		if(istype(O, /obj/item/light))
+			var/obj/item/light/L = O
 			L.brightness_color = initial(L.brightness_color)
 			L.update()
 		else if(istype(O, /obj/machinery/light))
 			var/obj/machinery/light/L = O
 			L.brightness_color = initial(L.brightness_color)
 			L.update()
-		else if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))
-			var/obj/item/weapon/reagent_containers/food/snacks/monkeycube/cube = O
+		else if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
+			var/obj/item/reagent_containers/food/snacks/monkeycube/cube = O
 			if(!cube.wrapped)
 				cube.Expand()
 

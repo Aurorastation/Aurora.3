@@ -103,14 +103,14 @@
 				qdel(user)
 	..()
 
-/obj/item/weapon/mirror
+/obj/item/mirror
 	name = "mirror"
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! Now a portable version."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "mirror"
 	var/list/ui_users = list()
 
-/obj/item/weapon/mirror/attack_self(mob/user as mob)
+/obj/item/mirror/attack_self(mob/user as mob)
 
 	if(user.mind && user.mind.vampire && (!(user.mind.vampire.status & VAMP_ISTHRALL)))
 		user << "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>"
@@ -124,7 +124,7 @@
 			ui_users[user] = AC
 		AC.ui_interact(user)
 
-/obj/item/weapon/mirror/Destroy()
+/obj/item/mirror/Destroy()
 	for(var/user in ui_users)
 		var/datum/nano_module/appearance_changer/AC = ui_users[user]
 		qdel(AC)

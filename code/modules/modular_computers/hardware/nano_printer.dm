@@ -1,4 +1,4 @@
-/obj/item/weapon/computer_hardware/nano_printer
+/obj/item/computer_hardware/nano_printer
 	name = "nano printer"
 	desc = "Small integrated printer with paper recycling module."
 	power_usage = 50
@@ -9,11 +9,11 @@
 	var/stored_paper = 5
 	var/max_paper = 10
 
-/obj/item/weapon/computer_hardware/nano_printer/diagnostics(var/mob/user)
+/obj/item/computer_hardware/nano_printer/diagnostics(var/mob/user)
 	..()
 	user << "Paper buffer level: [stored_paper]/[max_paper]"
 
-/obj/item/weapon/computer_hardware/nano_printer/proc/print_text(var/text_to_print, var/paper_title = null)
+/obj/item/computer_hardware/nano_printer/proc/print_text(var/text_to_print, var/paper_title = null)
 	if(!stored_paper)
 		return 0
 	if(!enabled)
@@ -24,13 +24,13 @@
 	// Damaged printer causes the resulting paper to be somewhat harder to read.
 	if(damage > damage_malfunction)
 		text_to_print = stars(text_to_print, 100-malfunction_probability)
-	new/obj/item/weapon/paper(get_turf(holder2),text_to_print, paper_title)
+	new/obj/item/paper(get_turf(holder2),text_to_print, paper_title)
 
 	stored_paper--
 	return 1
 
-/obj/item/weapon/computer_hardware/nano_printer/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/paper))
+/obj/item/computer_hardware/nano_printer/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/paper))
 		if(stored_paper >= max_paper)
 			user << "You try to add \the [W] into [src], but it's paper bin is full"
 			return
@@ -39,7 +39,7 @@
 		qdel(W)
 		stored_paper++
 
-/obj/item/weapon/computer_hardware/nano_printer/Destroy()
+/obj/item/computer_hardware/nano_printer/Destroy()
 	if(holder2 && (holder2.nano_printer == src))
 		holder2.nano_printer = null
 	holder2 = null

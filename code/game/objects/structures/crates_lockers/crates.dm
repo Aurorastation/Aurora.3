@@ -83,10 +83,10 @@
 
 
 
-/obj/structure/closet/crate/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/crate/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)
 		return ..()
-	else if(istype(W, /obj/item/weapon/packageWrap))
+	else if(istype(W, /obj/item/packageWrap))
 		return
 	else if(iscoil(W))
 		var/obj/item/stack/cable_coil/C = W
@@ -329,10 +329,10 @@
 	else
 		return toggle(user)
 
-/obj/structure/closet/crate/secure/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(is_type_in_list(W, list(/obj/item/weapon/packageWrap, /obj/item/stack/cable_coil, /obj/item/device/radio/electropack, /obj/item/weapon/wirecutters)))
+/obj/structure/closet/crate/secure/attackby(obj/item/W as obj, mob/user as mob)
+	if(is_type_in_list(W, list(/obj/item/packageWrap, /obj/item/stack/cable_coil, /obj/item/device/radio/electropack, /obj/item/wirecutters)))
 		return ..()
-	if(istype(W, /obj/item/weapon/melee/energy/blade))
+	if(istype(W, /obj/item/melee/energy/blade))
 		emag_act(INFINITY, user)
 	if(!opened)
 		togglelock(user)
@@ -426,10 +426,10 @@
 	icon_closed = "crate"
 
 /obj/structure/closet/crate/rcd/fill()
-	new /obj/item/weapon/rcd_ammo(src)
-	new /obj/item/weapon/rcd_ammo(src)
-	new /obj/item/weapon/rcd_ammo(src)
-	new /obj/item/weapon/rcd(src)
+	new /obj/item/rcd_ammo(src)
+	new /obj/item/rcd_ammo(src)
+	new /obj/item/rcd_ammo(src)
+	new /obj/item/rcd(src)
 
 /obj/structure/closet/crate/solar
 	name = "solar pack crate"
@@ -456,9 +456,9 @@
 	new /obj/item/solar_assembly(src)
 	new /obj/item/solar_assembly(src)
 	new /obj/item/solar_assembly(src)
-	new /obj/item/weapon/circuitboard/solar_control(src)
-	new /obj/item/weapon/tracker_electronics(src)
-	new /obj/item/weapon/paper/solar(src)
+	new /obj/item/circuitboard/solar_control(src)
+	new /obj/item/tracker_electronics(src)
+	new /obj/item/paper/solar(src)
 
 /obj/structure/closet/crate/freezer
 	name = "freezer"
@@ -488,10 +488,10 @@
 
 
 /obj/structure/closet/crate/freezer/rations/fill()
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
-	new /obj/item/weapon/reagent_containers/food/snacks/liquidfood(src)
+	new /obj/item/reagent_containers/food/snacks/liquidfood(src)
+	new /obj/item/reagent_containers/food/snacks/liquidfood(src)
+	new /obj/item/reagent_containers/food/snacks/liquidfood(src)
+	new /obj/item/reagent_containers/food/snacks/liquidfood(src)
 
 /obj/structure/closet/crate/bin
 	name = "large bin"
@@ -630,14 +630,14 @@
 	//This exists so the prespawned hydro crates spawn with their contents.
 
 	fill()
-		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
-		new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
-		new /obj/item/weapon/material/minihoe(src)
-//		new /obj/item/weapon/weedspray(src)
-//		new /obj/item/weapon/weedspray(src)
-//		new /obj/item/weapon/pestspray(src)
-//		new /obj/item/weapon/pestspray(src)
-//		new /obj/item/weapon/pestspray(src)
+		new /obj/item/reagent_containers/spray/plantbgone(src)
+		new /obj/item/reagent_containers/spray/plantbgone(src)
+		new /obj/item/material/minihoe(src)
+//		new /obj/item/weedspray(src)
+//		new /obj/item/weedspray(src)
+//		new /obj/item/pestspray(src)
+//		new /obj/item/pestspray(src)
+//		new /obj/item/pestspray(src)
 
 
 

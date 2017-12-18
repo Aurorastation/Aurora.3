@@ -46,7 +46,7 @@
 	do_after_cooldown()
 	return
 
-/obj/item/mecha_parts/mecha_equipment/weapon/proc/Fire(atom/A, atom/target)
+/obj/item/mecha_parts/mecha_equipment/proc/Fire(atom/A, atom/target)
 	var/obj/item/projectile/P = A
 	var/def_zone
 	if(chassis && istype(chassis.occupant,/mob/living/carbon/human))
@@ -236,7 +236,7 @@
 	name = "\improper SGL-6 grenade launcher"
 	desc = "A weapon for combat exosuits. Launches primed flashbangs."
 	icon_state = "mecha_grenadelnchr"
-	projectile = /obj/item/weapon/grenade/flashbang
+	projectile = /obj/item/grenade/flashbang
 	fire_sound = 'sound/effects/bang.ogg'
 	projectiles = 6
 	missile_speed = 1.5
@@ -246,14 +246,14 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/Fire(atom/movable/AM, atom/target)
 	..()
-	var/obj/item/weapon/grenade/flashbang/F = AM
+	var/obj/item/grenade/flashbang/F = AM
 	spawn(det_time)
 		F.prime()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang//Because I am a heartless bastard -Sieve
 	name = "\improper SOP-6 grenade launcher"
 	desc = "A weapon for combat exosuits. Launches primed clusterbangs."
-	projectile = /obj/item/weapon/grenade/flashbang/clusterbang
+	projectile = /obj/item/grenade/flashbang/clusterbang
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang/limited/get_equip_info()//Limited version of the clusterbang launcher that can't reload
 	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp;[chassis.selected==src?"<b>":"<a href='?src=\ref[chassis];select_equip=\ref[src]'>"][src.name][chassis.selected==src?"</b>":"</a>"]\[[src.projectiles]\]"

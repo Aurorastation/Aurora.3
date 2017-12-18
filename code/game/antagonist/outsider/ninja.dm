@@ -16,7 +16,7 @@ var/datum/antagonist/ninja/ninjas
 	hard_cap = 1
 	hard_cap_round = 3
 
-	id_type = /obj/item/weapon/card/id/syndicate
+	id_type = /obj/item/card/id/syndicate
 
 /datum/antagonist/ninja/New()
 	..()
@@ -110,7 +110,7 @@ var/datum/antagonist/ninja/ninjas
 	player.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(player, player.mind), slot_l_store)
 	create_id("Infiltrator", player)
 
-	var/obj/item/weapon/rig/light/ninja/ninjasuit = new(get_turf(player))
+	var/obj/item/rig/light/ninja/ninjasuit = new(get_turf(player))
 	ninjasuit.seal_delay = 0
 	player.put_in_hands(ninjasuit)
 	player.equip_to_slot_or_del(ninjasuit,slot_back)
@@ -118,8 +118,8 @@ var/datum/antagonist/ninja/ninjas
 		ninjasuit.toggle_seals(src,1)
 		ninjasuit.seal_delay = initial(ninjasuit.seal_delay)
 
-	if(istype(player.back,/obj/item/weapon/rig))
-		var/obj/item/weapon/rig/rig = player.back
+	if(istype(player.back,/obj/item/rig))
+		var/obj/item/rig/rig = player.back
 		if(rig.air_supply)
 			player.internal = rig.air_supply
 

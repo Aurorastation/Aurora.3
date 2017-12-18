@@ -9,7 +9,7 @@
 	var/name = "default"
 	var/list/settings = list()
 
-/datum/firemode/New(obj/item/weapon/gun/gun, list/properties = null)
+/datum/firemode/New(obj/item/gun/gun, list/properties = null)
 	..()
 	if(!properties) return
 
@@ -23,12 +23,12 @@
 		else
 			settings[propname] = propvalue
 
-/datum/firemode/proc/apply_to(obj/item/weapon/gun/gun)
+/datum/firemode/proc/apply_to(obj/item/gun/gun)
 	for(var/propname in settings)
 		gun.vars[propname] = settings[propname]
 
 //Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance
-/obj/item/weapon/gun
+/obj/item/gun
 	name = "gun"
 	desc = "Its a gun. It's pretty terrible, though."
 	icon = 'icons/obj/gun.dmi'
@@ -83,7 +83,7 @@
 	var/tmp/mob/living/last_moved_mob //Used to fire faster at more than one person.
 	var/tmp/lock_time = -100
 
-/obj/item/weapon/gun/Initialize()
+/obj/item/gun/Initialize()
 	. = ..()
 	for(var/i in 1 to firemodes.len)
 		firemodes[i] = new /datum/firemode(src, firemodes[i])
@@ -96,7 +96,7 @@
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
 //Otherwise, if you want handle_click_empty() to be called, check in consume_next_projectile() and return null there.
-/obj/item/weapon/gun/proc/special_check(var/mob/user)
+/obj/item/gun/proc/special_check(var/mob/user)
 	if(!istype(user, /mob/living))
 		return 0
 	if(!user.IsAdvancedToolUser())
@@ -122,11 +122,11 @@
 		return 0
 	return 1
 
-/obj/item/weapon/gun/emp_act(severity)
+/obj/item/gun/emp_act(severity)
 	for(var/obj/O in contents)
 		O.emp_act(severity)
 
-/obj/item/weapon/gun/afterattack(atom/A, mob/living/user, adjacent, params)
+/obj/item/gun/afterattack(atom/A, mob/living/user, adjacent, params)
 	if(adjacent) return //A is adjacent, is the user, or is on the user's person
 
 	if(!user.aiming)
@@ -139,7 +139,7 @@
 	else
 		Fire(A,user,params) //Otherwise, fire normally.
 
-/obj/item/weapon/gun/attack(atom/A, mob/living/user, def_zone)
+/obj/item/gun/attack(atom/A, mob/living/user, def_zone)
 	if (A == user && user.zone_sel.selecting == "mouth" && !mouthshoot)
 		handle_suicide(user)
 	else if(user.a_intent == I_HURT) //point blank shooting
@@ -147,8 +147,7 @@
 	else
 		return ..() //Pistolwhippin'
 
-/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
-
+/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 
 	if(!user || !target) return
 
@@ -204,7 +203,7 @@
 	next_fire_time = world.time + fire_delay
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
-/obj/item/weapon/gun/proc/Fire_userless(atom/target)
+/obj/item/gun/proc/Fire_userless(atom/target)
 	if(!target)
 		return
 
@@ -257,11 +256,11 @@
 	accuracy = initial(accuracy)	//Reset the gun's accuracy
 
 //obtains the next projectile to fire
-/obj/item/weapon/gun/proc/consume_next_projectile()
+/obj/item/gun/proc/consume_next_projectile()
 	return null
 
 //used by aiming code
-/obj/item/weapon/gun/proc/can_hit(atom/target as mob, var/mob/living/user as mob)
+/obj/item/gun/proc/can_hit(atom/target as mob, var/mob/living/user as mob)
 	if(!special_check(user))
 		return 2
 	//just assume we can shoot through glass and stuff. No big deal, the player can just choose to not target someone
@@ -269,7 +268,7 @@
 	return check_trajectory(target, user)
 
 //called if there was no projectile to shoot
-/obj/item/weapon/gun/proc/handle_click_empty(mob/user)
+/obj/item/gun/proc/handle_click_empty(mob/user)
 	if (user)
 		user.visible_message("*click click*", "<span class='danger'>*click*</span>")
 	else
@@ -277,7 +276,7 @@
 	playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
 
 //called after successfully firing
-/obj/item/weapon/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
+/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	if(silenced)
 		playsound(user, fire_sound, 10, 1)
 	else
@@ -307,7 +306,7 @@
 	update_icon()
 
 
-/obj/item/weapon/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
+/obj/item/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
 	var/obj/item/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
@@ -320,7 +319,7 @@
 		var/mob/M = target
 		if(M.grabbed_by.len)
 			var/grabstate = 0
-			for(var/obj/item/weapon/grab/G in M.grabbed_by)
+			for(var/obj/item/grab/G in M.grabbed_by)
 				grabstate = max(grabstate, G.state)
 			if(grabstate >= GRAB_NECK)
 				damage_mult = 2.5
@@ -330,7 +329,7 @@
 	//you can't miss at point blank..
 	P.can_miss = 1
 
-/obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
+/obj/item/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
 	var/obj/item/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
@@ -350,7 +349,7 @@
 		P.accuracy += 2
 
 //does the actual launching of the projectile
-/obj/item/weapon/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, var/target_zone, var/params=null)
+/obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, var/target_zone, var/params=null)
 	var/obj/item/projectile/P = projectile
 	if(!istype(P))
 		return 0 //default behaviour only applies to true projectiles
@@ -373,8 +372,8 @@
 	return !P.launch_from_gun(target, user, src, target_zone, x_offset, y_offset)
 
 //Suicide handling.
-/obj/item/weapon/gun/var/mouthshoot = 0 //To stop people from suiciding twice... >.>
-/obj/item/weapon/gun/proc/handle_suicide(mob/living/user)
+/obj/item/gun/var/mouthshoot = 0 //To stop people from suiciding twice... >.>
+/obj/item/gun/proc/handle_suicide(mob/living/user)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/M = user
@@ -414,7 +413,7 @@
 		mouthshoot = 0
 		return
 
-/obj/item/weapon/gun/proc/toggle_scope(var/zoom_amount=2.0, var/mob/user)
+/obj/item/gun/proc/toggle_scope(var/zoom_amount=2.0, var/mob/user)
 	//looking through a scope limits your periphereal vision
 	//still, increase the view size by a tiny amount so that sniping isn't too restricted to NSEW
 	var/zoom_offset = round(world.view * zoom_amount)
@@ -428,7 +427,7 @@
 			recoil = round(recoil*zoom_amount+1) //recoil is worse when looking through a scope
 
 //make sure accuracy and recoil are reset regardless of how the item is unzoomed.
-/obj/item/weapon/gun/zoom()
+/obj/item/gun/zoom()
 	..()
 	if(!zoom)
 		if(can_wield() && wielded)
@@ -444,13 +443,13 @@
 			accuracy = initial(accuracy)
 			recoil = initial(recoil)
 
-/obj/item/weapon/gun/examine(mob/user)
+/obj/item/gun/examine(mob/user)
 	..()
 	if(firemodes.len > 1)
 		var/datum/firemode/current_mode = firemodes[sel_mode]
 		user << "The fire selector is set to [current_mode.name]."
 
-/obj/item/weapon/gun/proc/switch_firemodes()
+/obj/item/gun/proc/switch_firemodes()
 	if(firemodes.len <= 1)
 		return null
 
@@ -462,19 +461,19 @@
 
 	return new_mode
 
-/obj/item/weapon/gun/attack_self(mob/user)
+/obj/item/gun/attack_self(mob/user)
 	var/datum/firemode/new_mode = switch_firemodes(user)
 	if(new_mode)
 		user << "<span class='notice'>\The [src] is now set to [new_mode.name].</span>"
 
 //Handling of rifles and two-handed weapons.
-/obj/item/weapon/gun/proc/can_wield()
+/obj/item/gun/proc/can_wield()
 	return 0
 
-/obj/item/weapon/gun/proc/toggle_wield(mob/user as mob)
+/obj/item/gun/proc/toggle_wield(mob/user as mob)
 	if(!can_wield())
 		return
-	if(!istype(user.get_active_hand(), /obj/item/weapon/gun))
+	if(!istype(user.get_active_hand(), /obj/item/gun))
 		user << "<span class='warning'>You need to be holding the [name] in your active hand</span>"
 		return
 	if(!istype(user, /mob/living/carbon/human))
@@ -490,7 +489,7 @@
 		unwield()
 		user << "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>"
 
-		var/obj/item/weapon/gun/offhand/O = user.get_inactive_hand()
+		var/obj/item/gun/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
 			O.unwield()
 		else
@@ -507,14 +506,14 @@
 		wield()
 		user << "<span class='notice'>You stabilize the [initial(name)] with both hands.</span>"
 
-		var/obj/item/weapon/gun/offhand/O = new(user)
+		var/obj/item/gun/offhand/O = new(user)
 		O.name = "[initial(name)] - offhand"
 		O.desc = "Your second grip on the [initial(name)]."
 		user.put_in_inactive_hand(O)
 
 	return
 
-/obj/item/weapon/gun/proc/unwield()
+/obj/item/gun/proc/unwield()
 	wielded = 0
 	if(fire_delay_wielded)
 		fire_delay = initial(fire_delay)
@@ -526,7 +525,7 @@
 	update_icon()
 	update_held_icon()
 
-/obj/item/weapon/gun/proc/wield()
+/obj/item/gun/proc/wield()
 	wielded = 1
 	if(fire_delay_wielded)
 		fire_delay = fire_delay_wielded
@@ -538,7 +537,7 @@
 	update_icon()
 	update_held_icon()
 
-/obj/item/weapon/gun/mob_can_equip(M as mob, slot)
+/obj/item/gun/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
 	if(can_wield())
 		if(wielded)
@@ -547,23 +546,23 @@
 
 	return ..()
 
-/obj/item/weapon/gun/dropped(mob/living/user as mob)
+/obj/item/gun/dropped(mob/living/user as mob)
 	..()
 
 	//Unwields the item when dropped, deletes the offhand
 	if(can_wield())
 		if(user)
-			var/obj/item/weapon/gun/O = user.get_inactive_hand()
+			var/obj/item/gun/O = user.get_inactive_hand()
 			if(istype(O))
 				O.unwield()
 		return unwield()
 
-/obj/item/weapon/gun/pickup(mob/user)
+/obj/item/gun/pickup(mob/user)
 	if(can_wield())
 		unwield()
 
 ///////////OFFHAND///////////////
-/obj/item/weapon/gun/offhand
+/obj/item/gun/offhand
 	w_class = 5.0
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
@@ -586,7 +585,7 @@
 
 	dropped(mob/living/user as mob)
 		if(user)
-			var/obj/item/weapon/gun/O = user.get_inactive_hand()
+			var/obj/item/gun/O = user.get_inactive_hand()
 			if(istype(O))
 				user << "<span class='notice'>You are no-longer stabilizing the [name] with both hands.</span>"
 				O.unwield()

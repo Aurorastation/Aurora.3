@@ -480,44 +480,44 @@
 	req_tech = list(TECH_COMBAT = 3)
 
 // *** Weapon modules
-/datum/design/item/mecha/weapon/scattershot
+/datum/design/item/mecha/scattershot
 	name = "LBX AC 10 \"Scattershot\""
 	id = "mech_scattershot"
 	req_tech = list(TECH_COMBAT = 4)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
 
-/datum/design/item/mecha/weapon/laser
+/datum/design/item/mecha/laser
 	name = "CH-PS \"Immolator\" laser"
 	id = "mech_laser"
 	req_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 3)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser
 
-/datum/design/item/mecha/weapon/laser_rigged
+/datum/design/item/mecha/laser_rigged
 	name = "Jury-rigged welder-laser"
 	desc = "Allows for the construction of a welder-laser assembly package for non-combat exosuits."
 	id = "mech_laser_rigged"
 	req_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser
 
-/datum/design/item/mecha/weapon/laser_heavy
+/datum/design/item/mecha/laser_heavy
 	name = "CH-LC \"Solaris\" laser cannon"
 	id = "mech_laser_heavy"
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy
 
-/datum/design/item/mecha/weapon/ion
+/datum/design/item/mecha/ion
 	name = "mkIV ion heavy cannon"
 	id = "mech_ion"
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/ion
 
-/datum/design/item/mecha/weapon/grenade_launcher
+/datum/design/item/mecha/grenade_launcher
 	name = "SGL-6 grenade launcher"
 	id = "mech_grenade_launcher"
 	req_tech = list(TECH_COMBAT = 3)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang
 
-/datum/design/item/mecha/weapon/clusterbang_launcher
+/datum/design/item/mecha/clusterbang_launcher
 	name = "SOP-6 grenade launcher"
 	desc = "A weapon that violates the Geneva Convention at 6 rounds per minute."
 	id = "clusterbang_launcher"
@@ -525,7 +525,7 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, "gold" = 6000, "uranium" = 6000)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang/limited
 
-/datum/design/item/mecha/weapon/plasma_cutter
+/datum/design/item/mecha/plasma_cutter
 	name = "mkII heavy plasma cutter"
 	desc = "A large mining tool capable of expelling concentrated plasma bursts, useful for crushing rocks."
 	id = "mecha_plasmacutter"
@@ -533,7 +533,7 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "gold" = 1000, "phoron" = 1000)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma
 
-/datum/design/item/mecha/weapon/incendiary
+/datum/design/item/mecha/incendiary
 	name = "HP-13 incendiary carbine"
 	desc = "A weapon for combat exosuits. Shoots incendiary shells."
 	id = "mecha_incendiary"

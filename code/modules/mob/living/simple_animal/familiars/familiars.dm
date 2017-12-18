@@ -65,7 +65,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
 
 	min_oxy = 0
 
@@ -173,7 +173,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	speak_emote = list("meows", "purrs")
-	holder_type = /obj/item/weapon/holder/cat
+	holder_type = /obj/item/holder/cat
 	mob_size = MOB_SMALL
 
 	health = 45

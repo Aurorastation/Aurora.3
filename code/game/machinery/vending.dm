@@ -93,7 +93,7 @@
 	var/shoot_inventory = 0 //Fire items at customers! We're broken!
 
 	var/scan_id = 1
-	var/obj/item/weapon/coin/coin
+	var/obj/item/coin/coin
 	var/datum/wires/vending/wires = null
 	
 	var/can_move = 1	//if you can wrench the machine out of place
@@ -172,9 +172,9 @@
 		user << "You short out the product lock on \the [src]"
 		return 1
 
-/obj/machinery/vending/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/vending/attackby(obj/item/W as obj, mob/user as mob)
 
-	var/obj/item/weapon/card/id/I = W.GetID()
+	var/obj/item/card/id/I = W.GetID()
 
 	if (currently_vending && vendor_account && !vendor_account.suspended)
 		var/paid = 0
@@ -190,12 +190,12 @@
 		if (I) //for IDs and PDAs and wallets with IDs
 			paid = pay_with_card(I,W)
 			handled = 1
-		else if (istype(W, /obj/item/weapon/spacecash/ewallet))
-			var/obj/item/weapon/spacecash/ewallet/C = W
+		else if (istype(W, /obj/item/spacecash/ewallet))
+			var/obj/item/spacecash/ewallet/C = W
 			paid = pay_with_ewallet(C)
 			handled = 1
-		else if (istype(W, /obj/item/weapon/spacecash))
-			var/obj/item/weapon/spacecash/C = W
+		else if (istype(W, /obj/item/spacecash))
+			var/obj/item/spacecash/C = W
 			paid = pay_with_cash(C, user)
 			handled = 1
 
@@ -206,7 +206,7 @@
 			SSnanoui.update_uis(src)
 			return // don't smack that machine with your 2 credits
 
-	if (I || istype(W, /obj/item/weapon/spacecash))
+	if (I || istype(W, /obj/item/spacecash))
 		attack_hand(user)
 		return
 	else if(isscrewdriver(W))
@@ -222,7 +222,7 @@
 		if(src.panel_open)
 			attack_hand(user)
 		return
-	else if(istype(W, /obj/item/weapon/coin) && premium.len > 0)
+	else if(istype(W, /obj/item/coin) && premium.len > 0)
 		user.drop_item()
 		W.loc = src
 		coin = W
@@ -263,7 +263,7 @@
  *
  *  usr is the mob who gets the change.
  */
-/obj/machinery/vending/proc/pay_with_cash(var/obj/item/weapon/spacecash/cashmoney, mob/user)
+/obj/machinery/vending/proc/pay_with_cash(var/obj/item/spacecash/cashmoney, mob/user)
 	if(currently_vending.price > cashmoney.worth)
 
 		// This is not a status display message, since it's something the character
@@ -271,11 +271,11 @@
 		usr << "\icon[cashmoney] <span class='warning'>That is not enough money.</span>"
 		return 0
 
-	if(istype(cashmoney, /obj/item/weapon/spacecash/bundle))
+	if(istype(cashmoney, /obj/item/spacecash/bundle))
 		// Bundles can just have money subtracted, and will work
 
 		visible_message("<span class='info'>\The [usr] inserts some cash into \the [src].</span>")
-		var/obj/item/weapon/spacecash/bundle/cashmoney_bundle = cashmoney
+		var/obj/item/spacecash/bundle/cashmoney_bundle = cashmoney
 		cashmoney_bundle.worth -= currently_vending.price
 
 		if(cashmoney_bundle.worth <= 0)
@@ -307,7 +307,7 @@
  * Takes payment for whatever is the currently_vending item. Returns 1 if
  * successful, 0 if failed.
  */
-/obj/machinery/vending/proc/pay_with_ewallet(var/obj/item/weapon/spacecash/ewallet/wallet)
+/obj/machinery/vending/proc/pay_with_ewallet(var/obj/item/spacecash/ewallet/wallet)
 	visible_message("<span class='info'>\The [usr] swipes \the [wallet] through \the [src].</span>")
 	if(currently_vending.price > wallet.worth)
 		src.status_message = "Insufficient funds on chargecard."
@@ -324,7 +324,7 @@
  * Takes payment for whatever is the currently_vending item. Returns 1 if
  * successful, 0 if failed
  */
-/obj/machinery/vending/proc/pay_with_card(var/obj/item/weapon/card/id/I, var/obj/item/ID_container)
+/obj/machinery/vending/proc/pay_with_card(var/obj/item/card/id/I, var/obj/item/ID_container)
 	if(I==ID_container || ID_container == null)
 		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
 	else
@@ -332,7 +332,7 @@
 	var/datum/money_account/customer_account = get_account(I.associated_account_number)
 	if (!customer_account)
 		//Allow BSTs to take stuff from vendors, for debugging and adminbus purposes
-		if (istype(I, /obj/item/weapon/card/id/bst))
+		if (istype(I, /obj/item/card/id/bst))
 			return 1
 
 		src.status_message = "Error: Unable to access account. Please contact technical support if problem persists."

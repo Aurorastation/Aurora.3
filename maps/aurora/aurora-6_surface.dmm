@@ -361,7 +361,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "aJ" = (
-/obj/item/weapon/stool{
+/obj/item/stool{
 	pixel_y = 8
 	},
 /obj/machinery/alarm{
@@ -870,7 +870,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/glasses/meson,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
@@ -1027,19 +1027,19 @@
 /area/tcommsat/computer)
 "cb" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/folder/yellow,
+/obj/item/folder/yellow,
+/obj/item/folder/yellow,
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/machinery/camera/network/telecom{
 	c_tag = "Telecomms - Computer Room"
 	},
-/obj/item/weapon/pen/blue{
+/obj/item/pen/blue{
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cc" = (
@@ -1059,7 +1059,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cf" = (
-/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh{
+/obj/item/reagent_containers/food/snacks/meat/syntiflesh{
 	name = "Cuban Pete-Meat"
 	},
 /turf/simulated/floor/plating,
@@ -1371,10 +1371,10 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cP" = (
-/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh{
+/obj/item/reagent_containers/food/snacks/meat/syntiflesh{
 	name = "Cuban Pete-Meat"
 	},
-/obj/item/weapon/spacecash/c1,
+/obj/item/spacecash/c1,
 /turf/simulated/floor/plating,
 /area/tcommsat/computer)
 "cQ" = (
@@ -2841,16 +2841,16 @@
 /area/turret_protected/tcomsat)
 "fo" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/micro_laser,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/capacitor,
-/obj/item/weapon/stock_parts/micro_laser/high,
-/obj/item/weapon/stock_parts/micro_laser/high,
-/obj/item/weapon/stock_parts/micro_laser/high,
-/obj/item/weapon/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fp" = (
@@ -2862,14 +2862,14 @@
 /area/turret_protected/tcomsat)
 "fq" = (
 /obj/structure/table/rack,
-/obj/item/weapon/circuitboard/telecomms/processor,
-/obj/item/weapon/circuitboard/telecomms/processor,
-/obj/item/weapon/circuitboard/telecomms/receiver,
-/obj/item/weapon/circuitboard/telecomms/server,
-/obj/item/weapon/circuitboard/telecomms/server,
-/obj/item/weapon/circuitboard/telecomms/bus,
-/obj/item/weapon/circuitboard/telecomms/bus,
-/obj/item/weapon/circuitboard/telecomms/broadcaster,
+/obj/item/circuitboard/telecomms/processor,
+/obj/item/circuitboard/telecomms/processor,
+/obj/item/circuitboard/telecomms/receiver,
+/obj/item/circuitboard/telecomms/server,
+/obj/item/circuitboard/telecomms/server,
+/obj/item/circuitboard/telecomms/bus,
+/obj/item/circuitboard/telecomms/bus,
+/obj/item/circuitboard/telecomms/broadcaster,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fr" = (
@@ -3273,9 +3273,9 @@
 /area/turret_protected/tcomsat)
 "gc" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/treatment,
-/obj/item/weapon/stock_parts/subspace/treatment,
-/obj/item/weapon/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "gd" = (
@@ -3284,9 +3284,9 @@
 /area/turret_protected/tcomsat)
 "ge" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/analyzer,
-/obj/item/weapon/stock_parts/subspace/analyzer,
-/obj/item/weapon/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "gf" = (
@@ -3906,9 +3906,9 @@
 /area/turret_protected/tcomsat)
 "hc" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/amplifier,
-/obj/item/weapon/stock_parts/subspace/amplifier,
-/obj/item/weapon/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_x = 29;
@@ -4229,15 +4229,15 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "hL" = (
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "hM" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/ansible,
-/obj/item/weapon/stock_parts/subspace/ansible,
-/obj/item/weapon/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "hN" = (
@@ -4453,17 +4453,17 @@
 /area/turret_protected/tcomsat)
 "ik" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/transmitter,
-/obj/item/weapon/stock_parts/subspace/transmitter,
+/obj/item/stock_parts/subspace/transmitter,
+/obj/item/stock_parts/subspace/transmitter,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "il" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -4471,9 +4471,9 @@
 /area/turret_protected/tcomsat)
 "im" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/crystal,
-/obj/item/weapon/stock_parts/subspace/crystal,
-/obj/item/weapon/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "in" = (
@@ -5540,11 +5540,11 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "jV" = (
@@ -6338,7 +6338,7 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/machinery/door/window/brigdoor/eastleft{
 	dir = 8;
 	icon_state = "leftsecure";
@@ -6390,7 +6390,7 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/machinery/door/window/brigdoor/eastleft{
 	name = "Arrivals Processing Desk";
 	req_access = list(1)
@@ -6461,7 +6461,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /obj/item/device/flash,
 /obj/structure/cable/green{
 	d2 = 4;
@@ -6512,7 +6512,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /obj/item/device/flash,
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
@@ -7180,7 +7180,7 @@
 /turf/unsimulated/chasm_mask,
 /area/shuttle/syndicate_elite/station)
 "mM" = (
-/obj/item/weapon/cell,
+/obj/item/cell,
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "mN" = (
@@ -7570,7 +7570,7 @@
 /area/security/vacantoffice)
 "nq" = (
 /obj/structure/closet/crate,
-/obj/item/weapon/aicard,
+/obj/item/aicard,
 /obj/item/device/multitool,
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
@@ -7803,7 +7803,7 @@
 /obj/structure/window/basic{
 	dir = 4
 	},
-/obj/item/weapon/folder/blue{
+/obj/item/folder/blue{
 	pixel_x = 5
 	},
 /obj/structure/table/standard{
@@ -7831,12 +7831,12 @@
 	pixel_x = 24
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
 /obj/item/toy/figure/assistant,
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "nY" = (
@@ -8178,7 +8178,7 @@
 	icon_state = "lighter-g";
 	name = "randomly spawned lighter";
 	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/flame/lighter
+	spawn_object = /obj/item/flame/lighter
 	},
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
@@ -8193,19 +8193,19 @@
 	icon_state = "deck";
 	name = "randomly spawned deck of cards";
 	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/deck
+	spawn_object = /obj/item/deck
 	},
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
 "oG" = (
 /obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/food/snacks/chips,
+/obj/item/reagent_containers/food/snacks/chips,
 /obj/random/single{
 	icon = 'icons/obj/drinks.dmi';
 	icon_state = "cola";
 	name = "randomly spawned cola";
 	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/reagent_containers/food/drinks/cans/cola
+	spawn_object = /obj/item/reagent_containers/food/drinks/cans/cola
 	},
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
@@ -8232,7 +8232,7 @@
 /turf/simulated/floor/plating,
 /area/security/vacantoffice)
 "oJ" = (
-/obj/item/weapon/folder/yellow,
+/obj/item/folder/yellow,
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
@@ -8259,7 +8259,7 @@
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "oN" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
@@ -8297,7 +8297,7 @@
 /area/maintenance/starboardsolar)
 "oQ" = (
 /obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/food/snacks/chips,
+/obj/item/reagent_containers/food/snacks/chips,
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
 "oR" = (
@@ -8306,7 +8306,7 @@
 /area/hallway/secondary/entry/fore)
 "oS" = (
 /obj/structure/table/wood,
-/obj/item/weapon/storage/fancy/cigarettes{
+/obj/item/storage/fancy/cigarettes{
 	pixel_y = 2
 	},
 /obj/random/single{
@@ -8314,7 +8314,7 @@
 	icon_state = "lighter-g";
 	name = "randomly spawned lighter";
 	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/flame/lighter
+	spawn_object = /obj/item/flame/lighter
 	},
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/fore)
@@ -9879,7 +9879,7 @@
 /area/storage/primary)
 "rQ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /obj/machinery/light,
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Primary Tool Storage Aft";
@@ -9889,8 +9889,8 @@
 /area/storage/primary)
 "rR" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/fancy/crayons,
-/obj/item/weapon/storage/fancy/crayons,
+/obj/item/storage/fancy/crayons,
+/obj/item/storage/fancy/crayons,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "rS" = (
@@ -10156,7 +10156,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/material/minihoe,
+/obj/item/material/minihoe,
 /turf/simulated/floor/grass,
 /area/hydroponics/garden)
 "sw" = (
@@ -12091,14 +12091,14 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "wc" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "wd" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "we" = (
@@ -12541,7 +12541,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "wY" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
@@ -12829,15 +12829,15 @@
 	dir = 4
 	},
 /obj/item/toy/figure/ert,
-/obj/item/weapon/storage/box/cups,
+/obj/item/storage/box/cups,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "xu" = (
 /obj/structure/table/wood,
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/pen,
-/obj/item/weapon/pen{
+/obj/item/folder/blue,
+/obj/item/folder/blue,
+/obj/item/pen,
+/obj/item/pen{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -12845,13 +12845,13 @@
 /area/bridge/levela)
 "xv" = (
 /obj/structure/table/wood,
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/pen{
+/obj/item/folder/blue,
+/obj/item/folder/blue,
+/obj/item/pen{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/carpet,
 /area/bridge/levela)
 "xw" = (
@@ -12940,7 +12940,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "xD" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
@@ -12948,7 +12948,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/tape_roll,
+/obj/item/tape_roll,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "xF" = (
@@ -13089,7 +13089,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/fitness)
 "xT" = (
-/obj/item/weapon/inflatable_duck,
+/obj/item/inflatable_duck,
 /turf/simulated/floor/beach/water/pool,
 /area/crew_quarters/fitness)
 "xU" = (
@@ -13291,7 +13291,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/fitness)
 "yp" = (
-/obj/item/weapon/beach_ball,
+/obj/item/beach_ball,
 /turf/simulated/floor/beach/water/pool,
 /area/crew_quarters/fitness)
 "yq" = (
@@ -13361,8 +13361,8 @@
 /area/bridge/levela)
 "yx" = (
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "yy" = (
@@ -14103,7 +14103,7 @@
 /area/crew_quarters/locker)
 "zJ" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Dormitories Fore";
 	pixel_y = 0
@@ -14122,7 +14122,7 @@
 /area/crew_quarters/sleep/bedrooms)
 "zL" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "zM" = (
@@ -14266,7 +14266,7 @@
 /area/maintenance/arrivals)
 "Ac" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/item/device/radio/intercom{
 	dir = 8;
 	name = "Station Intercom (General)";
@@ -14276,7 +14276,7 @@
 /area/crew_quarters/sleep/bedrooms)
 "Ad" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -14426,7 +14426,7 @@
 /area/bridge/levela)
 "Ar" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
@@ -14449,7 +14449,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/sleep/bedrooms)
 "At" = (
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/structure/bed/padded,
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
@@ -14590,9 +14590,9 @@
 /area/maintenance/arrivals)
 "AG" = (
 /obj/structure/table/rack,
-/obj/item/weapon/beach_ball/holoball,
-/obj/item/weapon/beach_ball,
-/obj/item/weapon/bikehorn/rubberducky,
+/obj/item/beach_ball/holoball,
+/obj/item/beach_ball,
+/obj/item/bikehorn/rubberducky,
 /obj/item/device/violin,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
@@ -14634,7 +14634,7 @@
 /area/maintenance/arrivals)
 "AL" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -14651,7 +14651,7 @@
 	pixel_y = 10
 	},
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "AO" = (
@@ -14853,7 +14853,7 @@
 /area/crew_quarters/sleep/bedrooms)
 "Br" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -14979,7 +14979,7 @@
 /area/hallway/secondary/entry/aft)
 "BH" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -15034,7 +15034,7 @@
 /area/bridge/levela)
 "BL" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Dormitories Aft";
 	dir = 1
@@ -15231,7 +15231,7 @@
 /area/hallway/secondary/entry/aft)
 "Cf" = (
 /obj/structure/janitorialcart,
-/obj/item/weapon/mop,
+/obj/item/mop,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
@@ -15249,7 +15249,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "Ci" = (
@@ -15291,14 +15291,14 @@
 /area/hallway/secondary/entry/aft)
 "Cm" = (
 /obj/structure/closet/jcloset,
-/obj/item/weapon/storage/box/lights/mixed,
-/obj/item/weapon/storage/box/lights/mixed,
-/obj/item/weapon/storage/box/mousetraps,
-/obj/item/weapon/storage/box/mousetraps,
-/obj/item/weapon/reagent_containers/spray/cleaner,
-/obj/item/weapon/grenade/chem_grenade/cleaner,
-/obj/item/weapon/grenade/chem_grenade/cleaner,
-/obj/item/weapon/grenade/chem_grenade/cleaner,
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/box/mousetraps,
+/obj/item/storage/box/mousetraps,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
@@ -15463,7 +15463,7 @@
 "CD" = (
 /obj/structure/table/standard,
 /obj/item/clothing/head/soft,
-/obj/item/weapon/stamp{
+/obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
@@ -15476,18 +15476,18 @@
 /area/quartermaster/loading)
 "CE" = (
 /obj/structure/table/standard,
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
 	departmentType = 2;
 	pixel_x = 0;
 	pixel_y = 30
 	},
-/obj/item/weapon/stamp{
+/obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 5
@@ -16790,7 +16790,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "EX" = (
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
@@ -16802,12 +16802,12 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "EY" = (
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/pen{
+/obj/item/folder/yellow,
+/obj/item/pen{
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/weapon/pen/red{
+/obj/item/pen/red{
 	pixel_x = 2;
 	pixel_y = 6
 	},
@@ -16817,8 +16817,8 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "EZ" = (
-/obj/item/weapon/clipboard,
-/obj/item/weapon/stamp{
+/obj/item/clipboard,
+/obj/item/stamp{
 	name = "Quartermaster's stamp";
 	pixel_x = 0;
 	pixel_y = 0
@@ -17227,11 +17227,11 @@
 /area/quartermaster/qm)
 "FK" = (
 /obj/structure/table/standard,
-/obj/item/weapon/coin/silver{
+/obj/item/coin/silver{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/weapon/coin/silver,
+/obj/item/coin/silver,
 /obj/item/device/eftpos{
 	eftpos_name = "Quartermaster EFTPOS scanner"
 	},
@@ -17240,12 +17240,12 @@
 /area/quartermaster/qm)
 "FL" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cartridge/quartermaster{
+/obj/item/cartridge/quartermaster{
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/item/weapon/cartridge/quartermaster,
-/obj/item/weapon/cartridge/quartermaster{
+/obj/item/cartridge/quartermaster,
+/obj/item/cartridge/quartermaster{
 	pixel_x = -4;
 	pixel_y = 7
 	},
@@ -17383,10 +17383,10 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "FY" = (
-/obj/item/weapon/storage/box,
+/obj/item/storage/box,
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box,
-/obj/item/weapon/storage/box,
+/obj/item/storage/box,
+/obj/item/storage/box,
 /obj/item/device/radio/intercom{
 	broadcasting = 0;
 	listening = 1;
@@ -17405,8 +17405,8 @@
 /area/quartermaster/loading)
 "FZ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/wrapping_paper,
-/obj/item/weapon/wrapping_paper,
+/obj/item/wrapping_paper,
+/obj/item/wrapping_paper,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
 	departmentType = 2;
@@ -17424,14 +17424,14 @@
 /area/quartermaster/loading)
 "Ga" = (
 /obj/structure/table/standard,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
-/obj/item/weapon/packageWrap,
+/obj/item/packageWrap,
+/obj/item/packageWrap,
+/obj/item/packageWrap,
+/obj/item/packageWrap,
+/obj/item/packageWrap,
+/obj/item/packageWrap,
+/obj/item/packageWrap,
+/obj/item/packageWrap,
 /obj/effect/floor_decal/corner/white{
 	icon_state = "corner_white";
 	dir = 4
@@ -17675,7 +17675,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "Gs" = (
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
@@ -17800,8 +17800,8 @@
 /turf/simulated/wall,
 /area/quartermaster/loading)
 "GF" = (
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/pen{
+/obj/item/folder/yellow,
+/obj/item/pen{
 	pixel_x = 4;
 	pixel_y = 4
 	},

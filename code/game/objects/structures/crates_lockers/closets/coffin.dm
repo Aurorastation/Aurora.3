@@ -5,10 +5,10 @@
 	icon_closed = "coffin"
 	icon_opened = "coffin_open"
 
-/obj/structure/closet/coffin/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/coffin/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)
-		if(istype(W, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = W
+		if(istype(W, /obj/item/grab))
+			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
 		if(istype(W,/obj/item/tk_grab))
@@ -18,7 +18,7 @@
 		user.drop_item()
 		if(W)
 			W.forceMove(loc)
-	else if(istype(W, /obj/item/weapon/packageWrap))
+	else if(istype(W, /obj/item/packageWrap))
 		return
 	else
 		attack_hand(user)

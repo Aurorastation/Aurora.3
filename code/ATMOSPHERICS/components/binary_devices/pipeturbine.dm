@@ -87,7 +87,7 @@
 		if (kin_energy > 1000000)
 			add_overlay("hi-turb")
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/W as obj, mob/user as mob)
 		if(iswrench(W))
 			anchored = !anchored
 			user << "<span class='notice'>You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.</span>"
@@ -261,7 +261,7 @@
 		add_avail(power_generated)
 
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/W as obj, mob/user as mob)
 		if(iswrench(W))
 			anchored = !anchored
 			turbine = null

@@ -56,7 +56,7 @@
 /obj/item/clothing/shoes/orange
 	name = "orange shoes"
 	icon_state = "orange"
-	var/obj/item/weapon/handcuffs/chained = null
+	var/obj/item/handcuffs/chained = null
 	
 /obj/item/clothing/shoes/flats
 	desc = "A pair of black, low-heeled women's flats."
@@ -98,7 +98,7 @@
 	icon_state = "dressflatswhite"
 	item_state = "dressflatswhite"
 
-/obj/item/clothing/shoes/orange/proc/attach_cuffs(var/obj/item/weapon/handcuffs/cuffs, mob/user as mob)
+/obj/item/clothing/shoes/orange/proc/attach_cuffs(var/obj/item/handcuffs/cuffs, mob/user as mob)
 	if (src.chained) return
 
 	user.drop_item()
@@ -123,7 +123,7 @@
 
 /obj/item/clothing/shoes/orange/attackby(H as obj, mob/user as mob)
 	..()
-	if (istype(H, /obj/item/weapon/handcuffs))
+	if (istype(H, /obj/item/handcuffs))
 		attach_cuffs(H, user)
 
 

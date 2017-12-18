@@ -1,10 +1,10 @@
 // Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered.
-/obj/item/weapon/rig/light
+/obj/item/rig/light
 	name = "light suit control module"
 	desc = "A lighter, less armoured rig suit."
 	icon_state = "ninja_rig"
 	suit_type = "light suit"
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/cell)
+	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/cell)
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	emp_protection = 10
 	slowdown = 0
@@ -30,7 +30,7 @@
 /obj/item/clothing/head/helmet/space/rig/light
 	name = "hood"
 
-/obj/item/weapon/rig/light/hacker
+/obj/item/rig/light/hacker
 	name = "cybersuit control module"
 	suit_type = "cyber"
 	desc = "An advanced powered armour suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
@@ -71,7 +71,7 @@
 /obj/item/clothing/gloves/lightrig/hacker
 	siemens_coefficient = 0
 
-/obj/item/weapon/rig/light/ninja
+/obj/item/rig/light/ninja
 	name = "stealth suit control module"
 	suit_type = "stealth suit"
 	desc = "A unique, vaccum-proof suit of nano-enhanced armor designed specifically for stealth operations."
@@ -95,7 +95,7 @@
 		/obj/item/rig_module/self_destruct
 	)
 
-/obj/item/weapon/rig/light/ninja/equipped
+/obj/item/rig/light/ninja/equipped
 	initial_modules = list(
 		/obj/item/rig_module/teleporter,
 		/obj/item/rig_module/stealth_field,
@@ -126,7 +126,7 @@
 /obj/item/clothing/head/helmet/space/rig/light/ninja
 	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 
-/obj/item/weapon/rig/light/stealth
+/obj/item/rig/light/stealth
 	name = "stealth suit control module"
 	suit_type = "stealth"
 	desc = "A highly advanced and expensive suit designed for covert operations."

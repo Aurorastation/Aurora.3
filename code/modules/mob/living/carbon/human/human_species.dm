@@ -90,22 +90,22 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	add_language(LANGUAGE_TRADEBAND, 1)
 	add_language(LANGUAGE_GUTTER, 1)
 	add_language(LANGUAGE_EAL, 1)
-	src.equip_to_slot_or_del(new /obj/item/weapon/rig/terminator(src),slot_back)
-	src.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/terminator(src),slot_l_hand)
+	src.equip_to_slot_or_del(new /obj/item/rig/terminator(src),slot_back)
+	src.equip_to_slot_or_del(new /obj/item/gun/projectile/automatic/terminator(src),slot_l_hand)
 	src.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness, slot_w_uniform)
 	src.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(src), slot_l_ear)
-	src.equip_to_slot_or_del(new /obj/item/weapon/grenade/frag(src), slot_l_store)
-	src.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(src), slot_r_store)
+	src.equip_to_slot_or_del(new /obj/item/grenade/frag(src), slot_l_store)
+	src.equip_to_slot_or_del(new /obj/item/melee/energy/sword(src), slot_r_store)
 
-	var/obj/item/weapon/storage/belt/security/tactical/commando_belt = new(src)
+	var/obj/item/storage/belt/security/tactical/commando_belt = new(src)
 	commando_belt.contents += new /obj/item/ammo_magazine/flechette
 	commando_belt.contents += new /obj/item/ammo_magazine/flechette/explosive
 	commando_belt.contents += new /obj/item/ammo_magazine/flechette/explosive
-	commando_belt.contents += new /obj/item/weapon/melee/baton/loaded
-	commando_belt.contents += new /obj/item/weapon/shield/energy
-	commando_belt.contents += new /obj/item/weapon/handcuffs
-	commando_belt.contents += new /obj/item/weapon/handcuffs
-	commando_belt.contents += new /obj/item/weapon/plastique
+	commando_belt.contents += new /obj/item/melee/baton/loaded
+	commando_belt.contents += new /obj/item/shield/energy
+	commando_belt.contents += new /obj/item/handcuffs
+	commando_belt.contents += new /obj/item/handcuffs
+	commando_belt.contents += new /obj/item/plastique
 	src.equip_to_slot_or_del(commando_belt, slot_belt)
 	src.gender = NEUTER
 

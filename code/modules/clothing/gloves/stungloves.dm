@@ -1,4 +1,4 @@
-/obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
+/obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	if(istype(src, /obj/item/clothing/gloves/boxing))			//quick fix for stunglove overlay not working nicely with boxing gloves.
 		user << "<span class='notice'>That won't work.</span>"	//i'm not putting my lips on that!
 		..()
@@ -31,7 +31,7 @@
 		return
 
 	//add cell
-	else if(istype(W, /obj/item/weapon/cell))
+	else if(istype(W, /obj/item/cell))
 		if(!wired)
 			user << "<span class='notice'>The [src] need to be wired first.</span>"
 		else if(!cell)
@@ -45,7 +45,7 @@
 			user << "<span class='notice'>A [cell] is already attached to the [src].</span>"
 		return
 
-	else if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
+	else if(iswirecutter(W) || istype(W, /obj/item/scalpel))
 
 		//stunglove stuff
 		if(cell)

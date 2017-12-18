@@ -1,6 +1,6 @@
 // The lighting system
 //
-// consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/weapon/light)
+// consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/light)
 
 #define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
 #define LIGHT_BULB_TEMPERATURE 400 //K - used value for a 60W bulb
@@ -28,15 +28,15 @@
 	uv_intensity = 255
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
-	var/light_type = /obj/item/weapon/light/tube		// the type of light item
-	var/obj/item/weapon/light/inserted_light = /obj/item/weapon/light/tube
+	var/light_type = /obj/item/light/tube		// the type of light item
+	var/obj/item/light/inserted_light = /obj/item/light/tube
 	var/fitting = "tube"
 	var/switchcount = 0			// count of number of times switched on/off
 								// this is used to calc the probability the light burns out
 
 	var/rigged = 0				// true if rigged to explode
 
-	var/obj/item/weapon/cell/cell
+	var/obj/item/cell/cell
 	var/start_with_cell = TRUE	// if true, this fixture generates a very weak cell at roundstart
 	var/emergency_mode = FALSE	// if true, the light is in emergency mode.
 	var/no_emergency = FALSE	// if true, this light cannot enter emergency mode.
@@ -55,8 +55,8 @@
 	brightness_power = 0.75
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
-	light_type = /obj/item/weapon/light/bulb
-	inserted_light = /obj/item/weapon/light/bulb
+	light_type = /obj/item/light/bulb
+	inserted_light = /obj/item/light/bulb
 	supports_nightmode = FALSE
 	bulb_is_noisy = FALSE
 
@@ -73,8 +73,8 @@
 /obj/machinery/light/spot
 	name = "spotlight"
 	fitting = "large tube"
-	light_type = /obj/item/weapon/light/tube/large
-	inserted_light = /obj/item/weapon/light/tube/large
+	light_type = /obj/item/light/tube/large
+	inserted_light = /obj/item/light/tube/large
 	brightness_range = 12
 	brightness_power = 4
 	supports_nightmode = FALSE
@@ -98,7 +98,7 @@
 	if (!has_power())
 		stat |= NOPOWER
 	if (start_with_cell && !no_emergency)
-		cell = new /obj/item/weapon/cell/device/emergency_light(src)
+		cell = new /obj/item/cell/device/emergency_light(src)
 
 	if (mapload && loc && !(z in current_map.admin_levels))
 		switch(fitting)
@@ -275,13 +275,13 @@
 			return
 
 	// attempt to insert light
-	if(istype(W, /obj/item/weapon/light))
+	if(istype(W, /obj/item/light))
 		if(status != LIGHT_EMPTY)
 			user << "There is a [fitting] already inserted."
 			return
 		else
 			src.add_fingerprint(user)
-			var/obj/item/weapon/light/L = W
+			var/obj/item/light/L = W
 			if(istype(L, light_type))
 				status = L.status
 				user << "You insert the [L.name]."
@@ -450,7 +450,7 @@
 		user << "You remove the light [fitting]."
 
 	// create a light tube/bulb item and put it in the user's hand
-	var/obj/item/weapon/light/L = new inserted_light()
+	var/obj/item/light/L = new inserted_light()
 	L.status = status
 	L.rigged = rigged
 	L.brightness_range = brightness_range
@@ -479,7 +479,7 @@
 
 	user << "You telekinetically remove the light [fitting]."
 	// create a light tube/bulb item and put it in the user's hand
-	var/obj/item/weapon/light/L = new inserted_light()
+	var/obj/item/light/L = new inserted_light()
 	L.status = status
 	L.rigged = rigged
 	L.brightness_range = brightness_range

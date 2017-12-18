@@ -110,7 +110,7 @@
 /area/outpost/research/chemistry)
 "ap" = (
 /obj/item/device/analyzer/plant_analyzer,
-/obj/item/weapon/cell,
+/obj/item/cell,
 /obj/item/stack/cable_coil/random,
 /obj/item/stack/cable_coil/random,
 /obj/machinery/light/small{
@@ -152,12 +152,12 @@
 /obj/item/stack/material/glass{
 	amount = 50
 	},
-/obj/item/weapon/storage/belt/utility{
+/obj/item/storage/belt/utility{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/weapon/storage/toolbox/mechanical,
-/obj/item/weapon/storage/toolbox/emergency{
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/emergency{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -207,7 +207,7 @@
 /area/outpost/research/hallway)
 "aD" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /obj/machinery/alarm{
 	pixel_y = 22
 	},
@@ -254,15 +254,15 @@
 /area/outpost/research/analysis)
 "aI" = (
 /obj/structure/closet/crate/hydroponics,
-/obj/item/weapon/shovel/spade,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/reagent_containers/spray/plantbgone{
+/obj/item/shovel/spade,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/material/minihoe,
+/obj/item/reagent_containers/spray/plantbgone{
 	pixel_x = 13;
 	pixel_y = 5
 	},
 /obj/item/weedkiller/triclopyr,
-/obj/item/weapon/reagent_containers/glass/fertilizer/ez,
+/obj/item/reagent_containers/glass/fertilizer/ez,
 /turf/simulated/floor/plating,
 /area/outpost/research/chemistry)
 "aJ" = (
@@ -399,7 +399,7 @@
 /turf/simulated/floor/carpet,
 /area/outpost/research/hallway)
 "aX" = (
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/analysis)
@@ -490,7 +490,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/analysis)
 "bj" = (
@@ -536,7 +536,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "bo" = (
-/obj/item/weapon/storage/box/solution_trays,
+/obj/item/storage/box/solution_trays,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/table/glass,
 /obj/effect/floor_decal/corner/blue{
@@ -720,7 +720,7 @@
 /area/outpost/research/analysis)
 "bI" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/beakers{
+/obj/item/storage/box/beakers{
 	pixel_x = 2;
 	pixel_y = 2
 	},
@@ -730,7 +730,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "bK" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "bL" = (
@@ -895,7 +895,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/airless,
@@ -1104,8 +1104,8 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "cx" = (
-/obj/item/weapon/reagent_containers/glass/beaker/large,
-/obj/item/weapon/reagent_containers/dropper{
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/dropper{
 	pixel_y = -4
 	},
 /obj/structure/table/glass,
@@ -1115,10 +1115,10 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "cy" = (
-/obj/item/weapon/reagent_containers/glass/beaker/water,
-/obj/item/weapon/reagent_containers/glass/beaker/fuel,
-/obj/item/weapon/reagent_containers/glass/bottle/toxin,
-/obj/item/weapon/reagent_containers/glass/beaker/sulphuric{
+/obj/item/reagent_containers/glass/beaker/water,
+/obj/item/reagent_containers/glass/beaker/fuel,
+/obj/item/reagent_containers/glass/bottle/toxin,
+/obj/item/reagent_containers/glass/beaker/sulphuric{
 	name = "beaker 'sulphuric acid'"
 	},
 /obj/machinery/camera/network/research_outpost{
@@ -1320,7 +1320,7 @@
 	},
 /area/shuttle/alien/mine)
 "cR" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/tiled/airless{
@@ -1413,8 +1413,8 @@
 /area/outpost/research/lab)
 "cZ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/flame/lighter/random,
-/obj/item/weapon/crowbar,
+/obj/item/flame/lighter/random,
+/obj/item/crowbar,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1499,7 +1499,7 @@
 /area/outpost/research/kitchen)
 "dj" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
 "dk" = (
@@ -1539,7 +1539,7 @@
 	},
 /area/shuttle/alien/mine)
 "dp" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned0"
 	},
@@ -1758,12 +1758,12 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/lab)
 "dF" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/lab)
 "dG" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/dropper{
+/obj/item/reagent_containers/dropper{
 	pixel_y = -4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1831,7 +1831,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
@@ -2131,7 +2131,7 @@
 /area/outpost/research/kitchen)
 "ek" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
@@ -2142,7 +2142,7 @@
 /area/outpost/research/kitchen)
 "em" = (
 /obj/structure/lattice,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/template_noop,
@@ -2196,7 +2196,7 @@
 /area/outpost/research/hallway)
 "et" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/drinkingglasses{
+/obj/item/storage/box/drinkingglasses{
 	pixel_x = 1;
 	pixel_y = 4
 	},
@@ -2260,7 +2260,7 @@
 "eB" = (
 /obj/structure/table/rack,
 /obj/item/clothing/head/welding,
-/obj/item/weapon/weldingtool,
+/obj/item/weldingtool,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -2269,10 +2269,10 @@
 "eC" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
-/obj/item/weapon/screwdriver{
+/obj/item/screwdriver{
 	pixel_y = 15
 	},
-/obj/item/weapon/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/lab)
 "eD" = (
@@ -2384,20 +2384,20 @@
 /area/outpost/abandoned)
 "eP" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/obj/item/weapon/clipboard,
-/obj/item/weapon/pen,
-/obj/item/weapon/tape_roll,
+/obj/item/clipboard,
+/obj/item/pen,
+/obj/item/tape_roll,
 /turf/simulated/floor/wood,
 /area/outpost/research/hallway)
 "eQ" = (
 /obj/structure/table/standard,
 /obj/item/device/camera,
-/obj/item/weapon/stamp,
-/obj/item/weapon/folder,
+/obj/item/stamp,
+/obj/item/folder,
 /turf/simulated/floor/wood,
 /area/outpost/research/hallway)
 "eR" = (
@@ -2463,7 +2463,7 @@
 /area/outpost/research/hallway)
 "eW" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/emergency{
+/obj/item/storage/toolbox/emergency{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -2471,7 +2471,7 @@
 /area/outpost/research/disposal)
 "eX" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/plating,
 /area/outpost/research/disposal)
 "eY" = (
@@ -2518,7 +2518,7 @@
 /turf/template_noop,
 /area/template_noop)
 "fe" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/item/stack/rods,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
@@ -2750,7 +2750,7 @@
 	},
 /area/outpost/abandoned)
 "fF" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/item/clothing/suit/space/syndicate,
@@ -3072,12 +3072,12 @@
 /turf/simulated/wall/r_wall,
 /area/outpost/research/anomaly_analysis)
 "gk" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
 "gl" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/airless{
@@ -3212,17 +3212,17 @@
 /area/outpost/research/medical)
 "gB" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/regular,
-/obj/item/weapon/storage/firstaid/toxin,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/toxin,
 /turf/simulated/floor/tiled,
 /area/outpost/research/medical)
 "gC" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/o2{
+/obj/item/storage/firstaid/o2{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire,
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
@@ -3414,14 +3414,14 @@
 	},
 /area/outpost/abandoned)
 "gT" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
 /area/outpost/abandoned)
 "gU" = (
 /obj/structure/lattice,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/airless{
@@ -4389,11 +4389,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_analysis)
 "is" = (
-/obj/item/weapon/anodevice{
+/obj/item/anodevice{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/weapon/anodevice,
+/obj/item/anodevice,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_analysis)
@@ -4458,7 +4458,7 @@
 /area/outpost/research/dock)
 "iB" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -4723,19 +4723,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_analysis)
 "jb" = (
-/obj/item/weapon/anobattery{
+/obj/item/anobattery{
 	pixel_x = -6;
 	pixel_y = 2
 	},
-/obj/item/weapon/anobattery{
+/obj/item/anobattery{
 	pixel_x = -2;
 	pixel_y = -2
 	},
-/obj/item/weapon/anobattery{
+/obj/item/anobattery{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/weapon/anobattery{
+/obj/item/anobattery{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -4746,13 +4746,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_analysis)
 "jc" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken0"
 	},
 /area/outpost/abandoned)
 "jd" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/airless,
@@ -4913,8 +4913,8 @@
 /area/outpost/research/isolation_monitoring)
 "jv" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/tape_roll,
+/obj/item/paper_bin,
+/obj/item/tape_roll,
 /turf/simulated/floor/tiled,
 /area/outpost/research/isolation_monitoring)
 "jw" = (
@@ -5012,7 +5012,7 @@
 /area/outpost/abandoned)
 "jH" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper/crumpled,
+/obj/item/paper/crumpled,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned1"
 	},
@@ -5020,7 +5020,7 @@
 "jI" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/airless{
@@ -5081,7 +5081,7 @@
 /area/outpost/research/eva)
 "jP" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/archaeology,
+/obj/item/storage/belt/archaeology,
 /obj/item/clothing/suit/space/anomaly,
 /obj/item/clothing/head/helmet/space/anomaly,
 /obj/item/clothing/mask/breath,
@@ -5402,7 +5402,7 @@
 /area/outpost/research/eva)
 "ky" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/archaeology,
+/obj/item/storage/belt/archaeology,
 /obj/item/clothing/suit/space/anomaly,
 /obj/item/clothing/head/helmet/space/anomaly,
 /obj/item/clothing/mask/breath,
@@ -5573,9 +5573,9 @@
 /area/outpost/research/isolation_monitoring)
 "kR" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder,
+/obj/item/folder,
 /obj/item/device/camera,
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled,
 /area/outpost/research/isolation_monitoring)
 "kS" = (
@@ -5945,14 +5945,14 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "lL" = (
-/obj/item/weapon/storage/box/excavation,
-/obj/item/weapon/pickaxe,
+/obj/item/storage/box/excavation,
+/obj/item/pickaxe,
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/obj/item/weapon/wrench,
+/obj/item/wrench,
 /obj/item/device/measuring_tape,
 /obj/item/stack/flag/yellow,
 /obj/structure/table/steel,
@@ -6097,15 +6097,15 @@
 /area/outpost/research/emergency_storage)
 "mb" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/gloves{
+/obj/item/storage/box/gloves{
 	pixel_x = 4;
 	pixel_y = 5
 	},
-/obj/item/weapon/storage/box/samplebags{
+/obj/item/storage/box/samplebags{
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/item/weapon/storage/toolbox/emergency{
+/obj/item/storage/toolbox/emergency{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -6132,7 +6132,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
@@ -6205,9 +6205,9 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "ml" = (
-/obj/item/weapon/storage/box/excavation,
-/obj/item/weapon/pickaxe,
-/obj/item/weapon/wrench,
+/obj/item/storage/box/excavation,
+/obj/item/pickaxe,
+/obj/item/wrench,
 /obj/item/device/measuring_tape,
 /obj/item/stack/flag/green,
 /obj/structure/table/steel,
@@ -6310,23 +6310,23 @@
 /area/outpost/research/isolation_monitoring)
 "mx" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/monkeycubes,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/simulated/floor/plating,
 /area/outpost/research/emergency_storage)
 "my" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/lights/bulbs{
+/obj/item/storage/box/lights/bulbs{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/weapon/storage/box/lights/tubes{
+/obj/item/storage/box/lights/tubes{
 	pixel_x = -5;
 	pixel_y = 5
 	},
-/obj/item/weapon/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/outpost/research/emergency_storage)
@@ -7256,7 +7256,7 @@
 	dir = 8
 	},
 /obj/structure/grille/broken,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/item/stack/rods,
@@ -7504,7 +7504,7 @@
 /turf/simulated/wall/r_wall,
 /area/outpost/research/isolation_b)
 "oP" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/tiled/airless{
@@ -7531,7 +7531,7 @@
 	},
 /obj/structure/grille/broken,
 /obj/item/stack/rods,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
@@ -7546,12 +7546,12 @@
 /area/outpost/abandoned)
 "oT" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "oU" = (
 /obj/structure/table/rack,
-/obj/item/weapon/pickaxe,
+/obj/item/pickaxe,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "oV" = (
@@ -7704,7 +7704,7 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_north)
 "pi" = (
@@ -7732,9 +7732,9 @@
 /obj/item/stack/material/steel{
 	amount = 10
 	},
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/item/clothing/glasses/meson,
-/obj/item/weapon/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
 /area/outpost/mining_north)
@@ -8253,8 +8253,8 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_north)
 "pV" = (
-/obj/item/weapon/shovel,
-/obj/item/weapon/pickaxe,
+/obj/item/shovel,
+/obj/item/pickaxe,
 /turf/simulated/floor/plating,
 /area/outpost/mining_north)
 "pW" = (
@@ -8805,7 +8805,7 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
-/obj/item/weapon/pickaxe,
+/obj/item/pickaxe,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/storage)
 "qR" = (
@@ -8952,7 +8952,7 @@
 /area/outpost/engineering/meeting)
 "rg" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/carpet,
 /area/outpost/engineering/meeting)
 "rh" = (
@@ -9352,7 +9352,7 @@
 /area/outpost/engineering/storage)
 "rW" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/wood,
 /area/outpost/engineering/meeting)
 "rX" = (
@@ -9675,7 +9675,7 @@
 	},
 /area/mine/explored)
 "sv" = (
-/obj/item/weapon/cell/high{
+/obj/item/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -9756,7 +9756,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/gloves/yellow,
-/obj/item/weapon/storage/briefcase/inflatable,
+/obj/item/storage/briefcase/inflatable,
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Outpost Storage";
 	dir = 1
@@ -12101,14 +12101,14 @@
 	},
 /area/mine/explored)
 "wz" = (
-/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
 /area/mine/explored)
 "wA" = (
-/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap,
+/obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -12124,14 +12124,14 @@
 	},
 /area/mine/explored)
 "wD" = (
-/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "asteroidfloor"
 	},
 /area/mine/explored)
 "wE" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 8
@@ -12391,9 +12391,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/weapon/wrench,
-/obj/item/weapon/screwdriver,
-/obj/item/weapon/crowbar,
+/obj/item/wrench,
+/obj/item/screwdriver,
+/obj/item/crowbar,
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -12565,11 +12565,11 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/west_hall)
 "xr" = (
-/obj/item/weapon/cell/high{
+/obj/item/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
-/obj/item/weapon/cell/high{
+/obj/item/cell/high{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -12678,7 +12678,7 @@
 	},
 /area/mine/explored)
 "xy" = (
-/obj/item/weapon/pickaxe,
+/obj/item/pickaxe,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
@@ -12964,7 +12964,7 @@
 	},
 /area/mine/explored)
 "yf" = (
-/obj/item/weapon/shovel,
+/obj/item/shovel,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
@@ -12973,7 +12973,7 @@
 /area/outpost/mining_west)
 "yh" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "yi" = (
@@ -13275,7 +13275,7 @@
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/weapon/mining_scanner,
+/obj/item/mining_scanner,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "yE" = (
@@ -13325,7 +13325,7 @@
 	},
 /area/mine/explored)
 "yH" = (
-/obj/item/weapon/storage/backpack/satchel,
+/obj/item/storage/backpack/satchel,
 /obj/item/clothing/glasses/meson,
 /obj/machinery/light/small{
 	dir = 8
@@ -13475,7 +13475,7 @@
 /area/mine/explored)
 "yV" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
@@ -13519,7 +13519,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 "yZ" = (
-/obj/item/weapon/cigbutt,
+/obj/item/cigbutt,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -13629,7 +13629,7 @@
 	pixel_y = -22
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/rig/industrial/equipped,
+/obj/item/rig/industrial/equipped,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/west_hall)
 "zj" = (
@@ -13734,7 +13734,7 @@
 	},
 /area/mine/explored)
 "zs" = (
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
@@ -13868,7 +13868,7 @@
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
-/obj/item/weapon/storage/toolbox/mechanical{
+/obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
 	pixel_y = -1
 	},
@@ -13881,7 +13881,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/east_hall)
 "zG" = (
-/obj/item/weapon/storage/backpack/satchel,
+/obj/item/storage/backpack/satchel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -13892,8 +13892,8 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/east_hall)
 "zH" = (
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/pickaxe,
+/obj/item/storage/belt/utility,
+/obj/item/pickaxe,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -15590,11 +15590,11 @@
 /area/outpost/mining_main/medbay)
 "Cx" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/o2{
+/obj/item/storage/firstaid/o2{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/medbay)
 "Cy" = (

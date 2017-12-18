@@ -1,4 +1,4 @@
-/obj/item/weapon/material/star
+/obj/item/material/star
 	name = "shuriken"
 	desc = "A sharp, perfectly weighted piece of metal."
 	icon_state = "star"
@@ -9,21 +9,21 @@
 	sharp = 1
 	edge =  1
 
-/obj/item/weapon/material/star/New()
+/obj/item/material/star/New()
 	..()
 	src.pixel_x = rand(-12, 12)
 	src.pixel_y = rand(-12, 12)
 
-/obj/item/weapon/material/star/throw_impact(atom/hit_atom)
+/obj/item/material/star/throw_impact(atom/hit_atom)
 	..()
 	if(material.radioactivity>0 && istype(hit_atom,/mob/living))
 		var/mob/living/M = hit_atom
 		M.adjustToxLoss(rand(25,50))
 
-/obj/item/weapon/material/star/ninja
+/obj/item/material/star/ninja
 	default_material = "uranium"
 
-/obj/item/weapon/material/star/ninja/throw_impact(atom/hit_atom)
+/obj/item/material/star/ninja/throw_impact(atom/hit_atom)
 	..()
 	if(prob(30) && istype(hit_atom,/mob/living))
 		var/mob/living/M = hit_atom

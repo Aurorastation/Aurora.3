@@ -12,7 +12,7 @@
 	use_power = 0
 	flags = ON_BORDER
 	opacity = 0
-	var/obj/item/weapon/airlock_electronics/electronics = null
+	var/obj/item/airlock_electronics/electronics = null
 	explosion_resistance = 5
 	air_properties_vary_with_direction = 1
 
@@ -28,12 +28,12 @@
 		base_state = icon_state
 
 /obj/machinery/door/window/proc/shatter(var/display_message = 1)
-	new /obj/item/weapon/material/shard(src.loc)
+	new /obj/item/material/shard(src.loc)
 	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
 	CC.amount = 2
-	var/obj/item/weapon/airlock_electronics/ae
+	var/obj/item/airlock_electronics/ae
 	if(!electronics)
-		ae = new/obj/item/weapon/airlock_electronics(loc)
+		ae = new/obj/item/airlock_electronics(loc)
 		if(LAZYLEN(req_access))
 			ae.conf_access = src.req_access
 		else if (LAZYLEN(req_one_access))
@@ -164,14 +164,14 @@
 		open()
 		return 1
 
-/obj/machinery/door/window/attackby(obj/item/weapon/I as obj, mob/user as mob)
+/obj/machinery/door/window/attackby(obj/item/I as obj, mob/user as mob)
 
 	//If it's in the process of opening/closing, ignore the click
 	if (src.operating == 1)
 		return
 
 	//Emags and ninja swords? You may pass.
-	if (istype(I, /obj/item/weapon/melee/energy/blade))
+	if (istype(I, /obj/item/melee/energy/blade))
 		if(emag_act(10, user))
 			spark(src.loc, 5)
 			playsound(src.loc, "sparks", 50, 1)
@@ -198,9 +198,9 @@
 			wa.state = "02"
 			wa.update_icon()
 
-			var/obj/item/weapon/airlock_electronics/ae
+			var/obj/item/airlock_electronics/ae
 			if(!electronics)
-				ae = new/obj/item/weapon/airlock_electronics( src.loc )
+				ae = new/obj/item/airlock_electronics( src.loc )
 				if(LAZYLEN(req_access))
 					ae.conf_access = src.req_access
 				else if (LAZYLEN(req_one_access))
@@ -217,7 +217,7 @@
 			return
 
 	//If it's a weapon, smash windoor. Unless it's an id card, agent card, ect.. then ignore it (Cards really shouldnt damage a door anyway)
-	if(src.density && istype(I, /obj/item/weapon) && !istype(I, /obj/item/weapon/card))
+	if(src.density && istype(I, /obj/item) && !istype(I, /obj/item/card))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		var/aforce = I.force
 		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)

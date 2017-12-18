@@ -16,7 +16,7 @@
 /*
  * Twohanded
  */
-/obj/item/weapon/material/twohanded
+/obj/item/material/twohanded
 	w_class = 4
 	var/wielded = 0
 	var/force_wielded = 0
@@ -28,19 +28,19 @@
 	var/unwielded_force_divisor = 0.25
 	action_button_name = "Wield two-handed weapon"
 
-/obj/item/weapon/material/twohanded/proc/unwield()
+/obj/item/material/twohanded/proc/unwield()
 	wielded = 0
 	force = force_unwielded
 	name = "[base_name]"
 	update_icon()
 
-/obj/item/weapon/material/twohanded/proc/wield()
+/obj/item/material/twohanded/proc/wield()
 	wielded = 1
 	force = force_wielded
 	name = "[base_name] (Wielded)"
 	update_icon()
 
-/obj/item/weapon/material/twohanded/update_force()
+/obj/item/material/twohanded/update_force()
 	base_name = name
 	if(sharp || edge)
 		force_wielded = material.get_edge_damage()
@@ -52,11 +52,11 @@
 	throwforce = round(force*thrown_force_divisor)
 	//world << "[src] has unwielded force [force_unwielded], wielded force [force_wielded] and throwforce [throwforce] when made from default material [material.name]"
 
-/obj/item/weapon/material/twohanded/New()
+/obj/item/material/twohanded/New()
 	..()
 	update_icon()
 
-/obj/item/weapon/material/twohanded/mob_can_equip(M as mob, slot)
+/obj/item/material/twohanded/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
 	if(wielded)
 		M << "<span class='warning'>Unwield the [base_name] first!</span>"
@@ -64,30 +64,30 @@
 
 	return ..()
 
-/obj/item/weapon/material/twohanded/dropped(mob/user as mob)
+/obj/item/material/twohanded/dropped(mob/user as mob)
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
-		var/obj/item/weapon/material/twohanded/O = user.get_inactive_hand()
+		var/obj/item/material/twohanded/O = user.get_inactive_hand()
 		if(istype(O))
 			O.unwield()
 	return	unwield()
 
 //Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
-/obj/item/weapon/material/twohanded/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/material/twohanded/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(15))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
 		return 1
 	return 0
 
-/obj/item/weapon/material/twohanded/update_icon()
+/obj/item/material/twohanded/update_icon()
 	icon_state = "[base_icon][wielded]"
 	item_state = icon_state
 
-/obj/item/weapon/material/twohanded/pickup(mob/user)
+/obj/item/material/twohanded/pickup(mob/user)
 	unwield()
 
-/obj/item/weapon/material/twohanded/attack_self(mob/user as mob)
+/obj/item/material/twohanded/attack_self(mob/user as mob)
 
 	..()
 
@@ -105,7 +105,7 @@
 		if (src.unwieldsound)
 			playsound(src.loc, unwieldsound, 50, 1)
 
-		var/obj/item/weapon/material/twohanded/offhand/O = user.get_inactive_hand()
+		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
 			user.u_equip(O)
 			O.unwield()
@@ -119,7 +119,7 @@
 		if (src.wieldsound)
 			playsound(src.loc, wieldsound, 50, 1)
 
-		var/obj/item/weapon/material/twohanded/offhand/O = new /obj/item/weapon/material/twohanded/offhand(user) ////Let's reserve his other hand~
+		var/obj/item/material/twohanded/offhand/O = new /obj/item/material/twohanded/offhand(user) ////Let's reserve his other hand~
 		O.name = "[base_name] - offhand"
 		O.desc = "Your second grip on the [base_name]."
 		user.put_in_inactive_hand(O)
@@ -131,11 +131,11 @@
 
 	return
 
-/obj/item/weapon/material/twohanded/ui_action_click()
+/obj/item/material/twohanded/ui_action_click()
 	if(src in usr)
 		attack_self(usr)
 
-/obj/item/weapon/material/twohanded/verb/wield_twohanded()
+/obj/item/material/twohanded/verb/wield_twohanded()
 	set name = "Wield two-handed weapon"
 	set category = "Object"
 	set src in usr
@@ -143,33 +143,33 @@
 	attack_self(usr)
 
 ///////////OFFHAND///////////////
-/obj/item/weapon/material/twohanded/offhand
+/obj/item/material/twohanded/offhand
 	w_class = 5
 	icon_state = "offhand"
 	name = "offhand"
 	default_material = "placeholder"
 
-/obj/item/weapon/material/twohanded/offhand/unwield()
+/obj/item/material/twohanded/offhand/unwield()
 	if (ismob(loc))
 		var/mob/living/our_mob = loc
 		our_mob.remove_from_mob(src)
 
 	qdel(src)
 
-/obj/item/weapon/material/twohanded/offhand/wield()
+/obj/item/material/twohanded/offhand/wield()
 	if (ismob(loc))
 		var/mob/living/our_mob = loc
 		our_mob.remove_from_mob(src)
 		
 	qdel(src)
 
-/obj/item/weapon/material/twohanded/offhand/update_icon()
+/obj/item/material/twohanded/offhand/update_icon()
 	return
 
 /*
  * Fireaxe
  */
-/obj/item/weapon/material/twohanded/fireaxe  // DEM AXES MAN, marker -Agouri
+/obj/item/material/twohanded/fireaxe  // DEM AXES MAN, marker -Agouri
 	icon_state = "fireaxe0"
 	base_icon = "fireaxe"
 	name = "fire axe"
@@ -184,7 +184,7 @@
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
 
-/obj/item/weapon/material/twohanded/fireaxe/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
+/obj/item/material/twohanded/fireaxe/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
 	if(!proximity) return
 	..()
 	if(A && wielded)
@@ -198,7 +198,7 @@
 			P.die_off()
 
 //spears, bay edition
-/obj/item/weapon/material/twohanded/spear
+/obj/item/material/twohanded/spear
 	icon_state = "spearglass0"
 	base_icon = "spearglass"
 	name = "spear"
@@ -217,8 +217,8 @@
 	default_material = "glass"
 
 //Putting heads on spears
-/*bj/item/organ/external/head/attackby(var/obj/item/weapon/W, var/mob/living/user, params)
-	if(istype(W, /obj/item/weapon/material/twohanded/spear))
+/*bj/item/organ/external/head/attackby(var/obj/item/W, var/mob/living/user, params)
+	if(istype(W, /obj/item/material/twohanded/spear))
 		user << "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>"
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
 		var/matrix/M = matrix()
@@ -233,7 +233,7 @@
 		return
 	return ..()*/
 
-/obj/item/weapon/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
+/obj/item/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
 	if(istype(I, /obj/item/organ/external/head))
 		user << "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>"
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
@@ -250,13 +250,13 @@
 	return ..()
 
 //predefined materials for spears
-/obj/item/weapon/material/twohanded/spear/steel/New(var/newloc)
+/obj/item/material/twohanded/spear/steel/New(var/newloc)
 	..(newloc,"steel")
 
-/obj/item/weapon/material/twohanded/spear/plasteel/New(var/newloc)
+/obj/item/material/twohanded/spear/plasteel/New(var/newloc)
 	..(newloc,"plasteel")
 
-/obj/item/weapon/material/twohanded/spear/diamond/New(var/newloc)
+/obj/item/material/twohanded/spear/diamond/New(var/newloc)
 	..(newloc,"diamond")
 
 /obj/structure/headspear
@@ -268,7 +268,7 @@
 
 /obj/structure/headspear/attack_hand(mob/living/user)
 	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
-	new /obj/item/weapon/material/twohanded/spear(user.loc)
+	new /obj/item/material/twohanded/spear(user.loc)
 	for(var/obj/item/organ/external/head/H in src)
 		H.loc = user.loc
 	qdel(src)

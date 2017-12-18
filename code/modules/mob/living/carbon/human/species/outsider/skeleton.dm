@@ -20,7 +20,7 @@
 	taste_sensitivity = TASTE_NUMB
 	breakcuffs = list(MALE,FEMALE,NEUTER)
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/undead
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/undead
 
 	reagent_tag = IS_UNDEAD
 
@@ -98,7 +98,7 @@
 
 	remains_type = /obj/effect/decal/cleanable/ash
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/undead
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/undead
 
 	flesh_color = "#551A8B"
 

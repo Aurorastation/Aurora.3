@@ -41,7 +41,7 @@
 	if(!user)
 		return 0
 
-	var/obj/item/weapon/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = user.GetIdCard()
 	var/datum/data/record/random_general_record
 	var/datum/data/record/random_medical_record
 	if(data_core.general.len)

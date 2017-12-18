@@ -7,7 +7,7 @@
 	var/datum/disease2/effectholder/memorybank = null
 	var/list/species_buffer = null
 	var/analysed = 0
-	var/obj/item/weapon/virusdish/dish = null
+	var/obj/item/virusdish/dish = null
 	var/burning = 0
 	var/splicing = 0
 	var/scanning = 0
@@ -16,7 +16,7 @@
 	if(isscrewdriver(I))
 		return ..(I,user)
 
-	if(istype(I,/obj/item/weapon/virusdish))
+	if(istype(I,/obj/item/virusdish))
 		var/mob/living/carbon/c = user
 		if (dish)
 			user << "\The [src] is already loaded."
@@ -26,7 +26,7 @@
 		c.drop_item()
 		I.loc = src
 
-	if(istype(I,/obj/item/weapon/diseasedisk))
+	if(istype(I,/obj/item/diseasedisk))
 		user << "You upload the contents of the disk onto the buffer."
 		memorybank = I:effect
 		species_buffer = I:species
@@ -102,7 +102,7 @@
 	if(burning)
 		burning -= 1
 		if(!burning)
-			var/obj/item/weapon/diseasedisk/d = new /obj/item/weapon/diseasedisk(src.loc)
+			var/obj/item/diseasedisk/d = new /obj/item/diseasedisk(src.loc)
 			d.analysed = analysed
 			if(analysed)
 				if (memorybank)

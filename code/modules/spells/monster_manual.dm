@@ -1,4 +1,4 @@
-/obj/item/weapon/monster_manual
+/obj/item/monster_manual
 	name = "bestiarum"
 	desc = "A book detailing various magical creatures."
 	icon = 'icons/obj/library.dmi'
@@ -23,7 +23,7 @@
 									"The more carnivorous and knowledge hungry cousin of the space carp. Keep away from books."
 									)
 
-/obj/item/weapon/monster_manual/attack_self(mob/living/user as mob)
+/obj/item/monster_manual/attack_self(mob/living/user as mob)
 	if(!user)
 		return
 	if(!user.is_wizard())
@@ -35,7 +35,7 @@
 		user.set_machine(src)
 		interact(user)
 
-/obj/item/weapon/monster_manual/interact(mob/user as mob)
+/obj/item/monster_manual/interact(mob/user as mob)
 	var/dat
 	if(temp)
 		dat = "[temp]<br><a href='byond://?src=\ref[src];temp=1'>Return</a>"
@@ -48,7 +48,7 @@
 	user << browse(dat,"window=monstermanual")
 	onclose(user,"monstermanual")
 
-/obj/item/weapon/monster_manual/Topic(href, href_list)
+/obj/item/monster_manual/Topic(href, href_list)
 	..()
 	if(!Adjacent(usr))
 		usr << browse(null,"window=monstermanual")

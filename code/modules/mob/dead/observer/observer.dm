@@ -129,7 +129,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		set_death_time(CREW, world.time)
 
 /mob/dead/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/weapon/book/tome))
+	if(istype(W,/obj/item/book/tome))
 		var/mob/dead/M = src
 		M.manifest(user)
 

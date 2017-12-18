@@ -7,28 +7,28 @@
 /datum/uplink_item/item/tools/toolbox
 	name = "Fully Loaded Toolbox"
 	item_cost = 2
-	path = /obj/item/weapon/storage/toolbox/syndicate
+	path = /obj/item/storage/toolbox/syndicate
 
 /datum/uplink_item/item/tools/money
 	name = "Operations Funding"
 	item_cost = 2
-	path = /obj/item/weapon/storage/secure/briefcase/money
+	path = /obj/item/storage/secure/briefcase/money
 	desc = "A briefcase with 10,000 untraceable credits for funding your sneaky activities."
 
 /datum/uplink_item/item/tools/clerical
 	name = "Morphic Clerical Kit"
 	item_cost = 3
-	path = /obj/item/weapon/storage/box/syndie_kit/clerical
+	path = /obj/item/storage/box/syndie_kit/clerical
 
 /datum/uplink_item/item/tools/plastique
 	name = "C-4 (Destroys walls)"
 	item_cost = 4
-	path = /obj/item/weapon/plastique
+	path = /obj/item/plastique
 
 /datum/uplink_item/item/tools/heavy_vest
 	name = "Heavy Armor Kit"
 	item_cost = 4
-	path = /obj/item/weapon/storage/box/syndie_kit/armor
+	path = /obj/item/storage/box/syndie_kit/armor
 
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
@@ -43,7 +43,7 @@
 /datum/uplink_item/item/tools/emag
 	name = "Cryptographic Sequencer"
 	item_cost = 6
-	path = /obj/item/weapon/card/emag
+	path = /obj/item/card/emag
 
 /datum/uplink_item/item/tools/hacking_tool
 	name = "Door Hacking Tool"
@@ -56,7 +56,7 @@
 /datum/uplink_item/item/tools/space_suit
 	name = "Space Suit"
 	item_cost = 6
-	path = /obj/item/weapon/storage/box/syndie_kit/space
+	path = /obj/item/storage/box/syndie_kit/space
 
 /datum/uplink_item/item/tools/thermal
 	name = "Thermal Imaging Glasses"
@@ -71,7 +71,7 @@
 /datum/uplink_item/item/tools/teleporter
 	name = "Teleporter Circuit Board"
 	item_cost = 10
-	path = /obj/item/weapon/circuitboard/teleporter
+	path = /obj/item/circuitboard/teleporter
 
 /datum/uplink_item/item/tools/teleporter/New()
 	..()
@@ -80,7 +80,7 @@
 /datum/uplink_item/item/tools/ai_module
 	name = "Hacked AI Upload Module"
 	item_cost = 14
-	path = /obj/item/weapon/aiModule/syndicate
+	path = /obj/item/aiModule/syndicate
 
 /datum/uplink_item/item/tools/supply_beacon
 	name = "Hacked Supply Beacon (DANGER!)"
@@ -90,10 +90,10 @@
 /datum/uplink_item/item/tools/advancedpinpointer
 	name = "Advanced pinpointer"
 	item_cost = 15
-	path = /obj/item/weapon/pinpointer/advpinpointer
+	path = /obj/item/pinpointer/advpinpointer
 	desc = "An advanced pinpointer that can find any target with DNA along with various other items."
 
 /datum/uplink_item/item/tools/syndieborg
 	name = "Syndicate Cyborg Teleporter"
 	item_cost = 35
-	path = /obj/item/weapon/antag_spawner/borg_tele
+	path = /obj/item/antag_spawner/borg_tele

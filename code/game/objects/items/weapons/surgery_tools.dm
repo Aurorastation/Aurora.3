@@ -11,7 +11,7 @@
 /*
  * Retractor
  */
-/obj/item/weapon/retractor
+/obj/item/retractor
 	name = "retractor"
 	desc = "Retracts stuff."
 	icon = 'icons/obj/surgery.dmi'
@@ -24,7 +24,7 @@
 /*
  * Hemostat
  */
-/obj/item/weapon/hemostat
+/obj/item/hemostat
 	name = "hemostat"
 	desc = "You think you have seen this before."
 	icon = 'icons/obj/surgery.dmi'
@@ -38,7 +38,7 @@
 /*
  * Cautery
  */
-/obj/item/weapon/cautery
+/obj/item/cautery
 	name = "cautery"
 	desc = "This stops bleeding."
 	icon = 'icons/obj/surgery.dmi'
@@ -52,7 +52,7 @@
 /*
  * Surgical Drill
  */
-/obj/item/weapon/surgicaldrill
+/obj/item/surgicaldrill
 	name = "surgical drill"
 	desc = "You can drill using this item. You dig?"
 	icon = 'icons/obj/surgery.dmi'
@@ -68,7 +68,7 @@
 /*
  * Scalpel
  */
-/obj/item/weapon/scalpel
+/obj/item/scalpel
 	name = "scalpel"
 	desc = "Cut, cut, and once more cut."
 	icon = 'icons/obj/surgery.dmi'
@@ -89,27 +89,27 @@
 /*
  * Researchable Scalpels
  */
-/obj/item/weapon/scalpel/laser1
+/obj/item/scalpel/laser1
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks basic and could be improved."
 	icon_state = "scalpel_laser1_on"
 	damtype = "fire"
 
-/obj/item/weapon/scalpel/laser2
+/obj/item/scalpel/laser2
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks somewhat advanced."
 	icon_state = "scalpel_laser2_on"
 	damtype = "fire"
 	force = 12.0
 
-/obj/item/weapon/scalpel/laser3
+/obj/item/scalpel/laser3
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks to be the pinnacle of precision energy cutlery!"
 	icon_state = "scalpel_laser3_on"
 	damtype = "fire"
 	force = 15.0
 
-/obj/item/weapon/scalpel/manager
+/obj/item/scalpel/manager
 	name = "incision management system"
 	desc = "A true extension of the surgeon's body, this marvel instantly and completely prepares an incision allowing for the immediate commencement of therapeutic steps."
 	icon_state = "scalpel_manager_on"
@@ -118,7 +118,7 @@
 /*
  * Circular Saw
  */
-/obj/item/weapon/circular_saw
+/obj/item/circular_saw
 	name = "circular saw"
 	desc = "For heavy duty cutting."
 	icon = 'icons/obj/surgery.dmi'
@@ -137,7 +137,7 @@
 	edge = 1
 
 //misc, formerly from code/defines/weapons.dm
-/obj/item/weapon/bonegel
+/obj/item/bonegel
 	name = "bone gel"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone-gel"
@@ -145,7 +145,7 @@
 	w_class = 2.0
 	throwforce = 1.0
 
-/obj/item/weapon/FixOVein
+/obj/item/FixOVein
 	name = "FixOVein"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "fixovein"
@@ -155,7 +155,7 @@
 	w_class = 2.0
 	var/usage_amount = 10
 
-/obj/item/weapon/bonesetter
+/obj/item/bonesetter
 	name = "bone setter"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone setter"

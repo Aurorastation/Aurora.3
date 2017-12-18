@@ -127,7 +127,7 @@
 		chassis.proc_res["dynattackby"] = src
 		return
 
-	proc/dynattackby(obj/item/weapon/W as obj, mob/user as mob)
+	proc/dynattackby(obj/item/W as obj, mob/user as mob)
 		if(!action_checks(user) || !active)
 			return
 		user.electrocute_act(shock_damage, src)

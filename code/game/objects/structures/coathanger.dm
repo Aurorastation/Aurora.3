@@ -21,7 +21,7 @@
 		coat = null
 		update_icon()
 
-/obj/structure/coatrack/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
 	var/can_hang = 0
 	if(is_type_in_list(W, allowed))
 		can_hang = 1

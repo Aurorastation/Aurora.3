@@ -30,9 +30,9 @@
 	var/fire_distance = 10
 
 	charges = list(
-		list("flashbang",   "flashbang",   /obj/item/weapon/grenade/flashbang,  3),
-		list("smoke bomb",  "smoke bomb",  /obj/item/weapon/grenade/smokebomb,  3),
-		list("EMP grenade", "EMP grenade", /obj/item/weapon/grenade/empgrenade, 3)
+		list("flashbang",   "flashbang",   /obj/item/grenade/flashbang,  3),
+		list("smoke bomb",  "smoke bomb",  /obj/item/grenade/smokebomb,  3),
+		list("EMP grenade", "EMP grenade", /obj/item/grenade/empgrenade, 3)
 		)
 
 /obj/item/rig_module/grenade_launcher/accepts_item(var/obj/item/input_device, var/mob/living/user)
@@ -84,7 +84,7 @@
 		return 0
 
 	charge.charges--
-	var/obj/item/weapon/grenade/new_grenade = new charge.product_type(get_turf(H))
+	var/obj/item/grenade/new_grenade = new charge.product_type(get_turf(H))
 	H.visible_message("<span class='danger'>[H] launches \a [new_grenade]!</span>")
 	new_grenade.activate(H)
 	new_grenade.throw_at(target,fire_force,fire_distance)
@@ -100,7 +100,7 @@
 	interface_desc = "Discharges loaded frag grenades against the wearer's location."
 
 	charges = list(
-		list("frag grenade",   "frag grenade",   /obj/item/weapon/grenade/frag,  3)
+		list("frag grenade",   "frag grenade",   /obj/item/grenade/frag,  3)
 		)
 
 /obj/item/rig_module/grenade_launcher/cleaner
@@ -108,7 +108,7 @@
 	desc = "A specialty shoulder-mounted micro-explosive dispenser."
 
 	charges = list(
-		list("cleaning grenade",   "cleaning grenade",   /obj/item/weapon/grenade/chem_grenade/cleaner,  9)
+		list("cleaning grenade",   "cleaning grenade",   /obj/item/grenade/chem_grenade/cleaner,  9)
 		)
 
 /obj/item/rig_module/mounted
@@ -125,8 +125,8 @@
 	interface_name = "mounted laser cannon"
 	interface_desc = "A shoulder-mounted cell-powered laser cannon."
 
-	var/gun_type = /obj/item/weapon/gun/energy/lasercannon/mounted
-	var/obj/item/weapon/gun/gun
+	var/gun_type = /obj/item/gun/energy/lasercannon/mounted
+	var/obj/item/gun/gun
 
 /obj/item/rig_module/mounted/New()
 	..()
@@ -155,7 +155,7 @@
 	interface_name = "mounted energy gun"
 	interface_desc = "A forearm-mounted suit-powered energy gun."
 
-	gun_type = /obj/item/weapon/gun/energy/gun/mounted
+	gun_type = /obj/item/gun/energy/gun/mounted
 
 /obj/item/rig_module/mounted/taser
 
@@ -173,7 +173,7 @@
 	interface_name = "mounted taser"
 	interface_desc = "A shoulder-mounted cell-powered taser."
 
-	gun_type = /obj/item/weapon/gun/energy/taser/mounted
+	gun_type = /obj/item/gun/energy/taser/mounted
 
 /obj/item/rig_module/mounted/pulse
 
@@ -184,7 +184,7 @@
 	interface_name = "mounted pulse rifle"
 	interface_desc = "A shoulder-mounted cell-powered pulse rifle."
 
-	gun_type = /obj/item/weapon/gun/energy/pulse/mounted
+	gun_type = /obj/item/gun/energy/pulse/mounted
 
 /obj/item/rig_module/mounted/smg
 
@@ -195,7 +195,7 @@
 	interface_name = "mounted submachine gun"
 	interface_desc = "A forearm-mounted suit-powered ballistic submachine gun."
 
-	gun_type = /obj/item/weapon/gun/energy/mountedsmg
+	gun_type = /obj/item/gun/energy/mountedsmg
 
 /obj/item/rig_module/mounted/xray
 
@@ -206,7 +206,7 @@
 	interface_name = "mounted xray laser gun"
 	interface_desc = "A forearm-mounted suit-powered xray laser gun."
 
-	gun_type = /obj/item/weapon/gun/energy/xray/mounted
+	gun_type = /obj/item/gun/energy/xray/mounted
 
 /obj/item/rig_module/mounted/ion
 
@@ -217,7 +217,7 @@
 	interface_name = "mounted ion rifle"
 	interface_desc = "A shoulder-mounted cell-powered ion rifle."
 
-	gun_type = /obj/item/weapon/gun/energy/ionrifle/mounted
+	gun_type = /obj/item/gun/energy/ionrifle/mounted
 
 /obj/item/rig_module/mounted/plasmacutter
 	name = "hardsuit plasma cutter"
@@ -230,7 +230,7 @@
 	construction_cost = list("glass" = 5250, DEFAULT_WALL_MATERIAL = 30000, "silver" = 5250, "phoron" = 7250)
 	construction_time = 300
 
-	gun_type = /obj/item/weapon/gun/energy/plasmacutter/mounted
+	gun_type = /obj/item/gun/energy/plasmacutter/mounted
 
 /obj/item/rig_module/mounted/kinetic_accelerator
 	name = "hardsuit kinetic accelerator"
@@ -239,7 +239,7 @@
 	interface_name = "kinetic accelerator"
 	interface_desc = "A ranged mining tool that does increased damage in low pressure."
 
-	gun_type = /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg
+	gun_type = /obj/item/gun/energy/kinetic_accelerator/cyborg
 
 /obj/item/rig_module/mounted/thermalldrill
 	name = "hardsuit thermal drill"
@@ -248,7 +248,7 @@
 	interface_name = "thermal drill"
 	interface_desc = "A potent drill that can pierce rock walls over long distances."
 
-	gun_type = /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill
+	gun_type = /obj/item/gun/energy/vaurca/mountedthermaldrill
 
 
 /obj/item/rig_module/mounted/energy_blade
@@ -270,12 +270,12 @@
 	active_power_cost = 10
 	passive_power_cost = 0
 
-	gun_type = /obj/item/weapon/gun/energy/crossbow/ninja
+	gun_type = /obj/item/gun/energy/crossbow/ninja
 
 /obj/item/rig_module/mounted/energy_blade/process()
 
 	if(holder && holder.wearer)
-		if(!(locate(/obj/item/weapon/melee/energy/blade) in holder.wearer))
+		if(!(locate(/obj/item/melee/energy/blade) in holder.wearer))
 			deactivate()
 			return 0
 
@@ -292,7 +292,7 @@
 		deactivate()
 		return
 
-	var/obj/item/weapon/melee/energy/blade/blade = new(M)
+	var/obj/item/melee/energy/blade/blade = new(M)
 	blade.creator = M
 	M.put_in_hands(blade)
 
@@ -305,7 +305,7 @@
 	if(!M)
 		return
 
-	for(var/obj/item/weapon/melee/energy/blade/blade in M.contents)
+	for(var/obj/item/melee/energy/blade/blade in M.contents)
 		M.drop_from_inventory(blade)
 		qdel(blade)
 
@@ -323,7 +323,7 @@
 	interface_name = "death blossom launcher"
 	interface_desc = "An integrated microfactory that produces poisoned throwing stars from thin air and electricity."
 
-	var/fabrication_type = /obj/item/weapon/material/star/ninja
+	var/fabrication_type = /obj/item/material/star/ninja
 	var/fire_force = 30
 	var/fire_distance = 10
 
@@ -357,4 +357,4 @@
 	interface_name = "wet floor sign launcher"
 	interface_desc = "An integrated microfactory that produces wet floor signs from thin air and electricity."
 
-	fabrication_type = /obj/item/weapon/caution
+	fabrication_type = /obj/item/caution

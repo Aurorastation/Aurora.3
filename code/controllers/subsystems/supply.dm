@@ -575,7 +575,7 @@ var/datum/controller/subsystem/cargo/SScargo
 /datum/controller/subsystem/cargo/proc/forbidden_atoms_check(atom/A)
 	if(istype(A,/mob/living))
 		return 1
-	if(istype(A,/obj/item/weapon/disk/nuclear))
+	if(istype(A,/obj/item/disk/nuclear))
 		return 1
 	if(istype(A,/obj/machinery/nuclearbomb))
 		return 1
