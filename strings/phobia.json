@@ -2,7 +2,7 @@
 	"spiders": [
 		"spider",
 		"web",
-		"arachnid"
+		"arachnid",
 		"spiderling"
 	],
 
@@ -12,9 +12,9 @@
 		"universe",
 		"void",
 		"galaxy",
-		"spess"
-		"hole"
-		"deep"
+		"spess",
+		"hole",
+		"deep",
 		"high"
 	],
 
@@ -27,9 +27,9 @@
 		"beepsky",
 		"hos",
 		"brig",
-		"gulag"
-		"communal"
-		"officer"
+		"gulag",
+		"communal",
+		"officer",
 		"regulation"
 	],
 
@@ -43,13 +43,13 @@
 		"r&d",
 		"cmo",
 		"doctor",
-		"scientist"
-		"dr"
-		"doc"
-		"surgery"
-		"clone"
-		"cloning"
-		"chemistry"
+		"scientist",
+		"dr",
+		"doc",
+		"surgery",
+		"clone",
+		"cloning",
+		"chemistry",
 		"lesbay"
 	],
 
@@ -68,7 +68,7 @@
 		"honor",
 		"spear",
 		"izweski",
-		"sinta"
+		"sinta",
 		"sss"
 	],
 
@@ -76,9 +76,9 @@
 		"tajara",
 		"adhomai",
 		"meow",
-		"runtime"
-		"bones"
-		"communism"
+		"runtime",
+		"bones",
+		"communism",
 		"rrr"
 	],
 
@@ -88,28 +88,28 @@
 		"opposable thumbs",
 		"ape",
 		"monkey",
-		"earth",
+		"earth"
 	],
 
 	"skrell": [
 		"frog",
 		"warble",
 		"tentacle",
-		"headtail"
-		"jargon"
-		"glorsh"
+		"headtail",
+		"jargon",
+		"glorsh",
 		"tup"
 	],
 
-	"robots: [
+	"robots": [
 		"AI",
 		"borg",
 		"IPC",
-		"posi"
-		"bot"
-		"glorsh"
-		"mech"
-		"synth"
+		"posi",
+		"bot",
+		"glorsh",
+		"mech",
+		"synth",
 		"drone"
 	],
 
@@ -117,12 +117,12 @@
 		"vaurca",
 		"bug",
 		"diona",
-		"nymph"
-		"roach"
-		"mouse"
-		"mice"
-		"blob"
-		"carp"
+		"nymph",
+		"roach",
+		"mouse",
+		"mice",
+		"blob",
+		"carp",
 		"vines"
 	],
 
@@ -130,18 +130,18 @@
 		"NT",
 		"trasen",
 		"phoron",
-		"CCIA"
-		"IAA"
-		"internal affairs"
-		"duty officer"
-		"odin"
-		"aurora"
-		"NSS"
-		"CC"
-		"central command"
-		"centcom"
-		"loyalty implant"
-		"LI"
+		"CCIA",
+		"IAA",
+		"internal affairs",
+		"duty officer",
+		"odin",
+		"aurora",
+		"NSS",
+		"CC",
+		"central command",
+		"centcom",
+		"loyalty implant",
+		"LI",
 		"captain"
 	],
 
@@ -149,9 +149,9 @@
 		"blood",
 		"dirty",
 		"vomit",
-		"filth"
-		"disgusting"
-		"unclean"
+		"filth",
+		"disgusting",
+		"unclean",
 		"unsanitary"
 	],
 
@@ -159,10 +159,10 @@
 		"wizard",
 		"cult",
 		"nar'sie",
-		"magic"
-		"skeleton"
-		"undead"
-		"paranormal"
+		"magic",
+		"skeleton",
+		"undead",
+		"paranormal",
 		"ghost"
 	]
 }
