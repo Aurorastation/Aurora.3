@@ -285,7 +285,6 @@ var/list/ai_verbs_default = list(
 		idcard.assignment = "AI"
 		idcard.update_name()
 
-
 	setup_icon() //this is because the ai custom name is related to the ai name, so, we just call the setup icon after someone named their ai
 
 /*
