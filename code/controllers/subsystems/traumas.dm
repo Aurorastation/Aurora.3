@@ -114,7 +114,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 						  "robots"   = typecacheof(list(/datum/species/machine)),
 						  "pests"   = typecacheof(list(/datum/species/diona, /datum/species/bug, /datum/species/vox)),
 						  "paranormals"   = typecacheof(list(/datum/species/shadow, /datum/species/skeleton, /datum/species/golem)),
-						  "humans"   = typecacheof(list(/datum/species/human)),
+						  "humans"   = typecacheof(list(/datum/species/human))
 						 )
 
 #undef PHOBIA_FILE
