@@ -7,7 +7,7 @@ var/datum/controller/subsystem/timer/SStimer
 /datum/controller/subsystem/timer
 	name = "Timer"
 	wait = 1 //SS_TICKER subsystem, so wait is in ticks
-	init_order = 1
+	priority = SS_PRIORITY_TIMER
 
 	flags = SS_FIRE_IN_LOBBY|SS_TICKER|SS_NO_INIT
 
