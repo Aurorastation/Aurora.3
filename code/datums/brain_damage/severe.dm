@@ -192,8 +192,8 @@
 /datum/brain_trauma/severe/aphasia/on_gain()
 	for(var/datum/language/L in owner.languages)
 		prev_languages.Add(L)
-		owner.languages.Remove(L)
-	owner.languages.Add("Gibbering")
+		owner.remove_language(L)
+	owner.add_language(BRAZILIAN)
 	..()
 
 /datum/brain_trauma/severe/aphasia/on_lose()

@@ -86,19 +86,19 @@
 	owner.disabilities &= ~PIRATE
 	..()
 
-/datum/brain_trauma/mild/meme
-	name = "Swedish Syndrome"
-	desc = "Patient is unable to form a coherent thought without thinking of fjords."
+/datum/brain_trauma/mild/gertie
+	name = "Gerstmann Syndrome"
+	desc = "Patient displays severe left right disorientation."
 	scan_desc = "swedish problem"
-	gain_text = "Your mind drifts to the beautiful fjords of distant swedeland!"
-	lose_text = "Your mind returns to normalcy."
+	gain_text = "You wonder to yourself, does three rights really make a left?!"
+	lose_text = "You remember that you can just turn left directly!"
 
-/datum/brain_trauma/mild/meme/on_gain()
-	owner.disabilities |= SVEDISH
+/datum/brain_trauma/mild/gertie/on_gain()
+	owner.disabilities |= GERTIE
 	..()
 
-/datum/brain_trauma/mild/meme/on_lose()
-	owner.disabilities &= ~SVEDISH
+/datum/brain_trauma/mild/gertie/on_lose()
+	owner.disabilities &= ~GERTIE
 	..()
 
 /datum/brain_trauma/mild/concussion

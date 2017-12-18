@@ -41,7 +41,7 @@
 #define PACIFIST        128
 #define UNINTELLIGIBLE  256
 #define PIRATE  512
-#define SVEDISH 1024
+#define GERTIE 1024
 
 // sdisabilities
 #define BLIND 0x1

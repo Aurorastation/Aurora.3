@@ -54,6 +54,7 @@
 #define LANGUAGE_TERMINATOR "Hephaestus Darkcomms"	// HKs.
 
 // Lesser-form Languages
+#define BRAZILIAN "Gibbering"				// alberyk
 #define LANGUAGE_CHIMPANZEE "Chimpanzee"	// human
 #define LANGUAGE_NEAERA "Neaera"			// skrell
 #define LANGUAGE_STOK "Stok"				// unathi
