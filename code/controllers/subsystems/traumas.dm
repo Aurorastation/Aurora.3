@@ -32,7 +32,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 						"pests"     = strings(PHOBIA_FILE, "pests"),
 						"nanotrasen"= strings(PHOBIA_FILE, "nanotrasen"),
 						"filth"     = strings(PHOBIA_FILE, "filth"),
-						"paranormals"= strings(PHOBIA_FILE, "paranormal")
+						"paranormals"= strings(PHOBIA_FILE, "paranormals")
 					   )
 
 	phobia_mobs = list("spiders"  = typecacheof(list(/mob/living/simple_animal/spiderbot, /mob/living/simple_animal/hostile/giant_spider)),
