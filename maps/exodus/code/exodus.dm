@@ -5,6 +5,8 @@
 	full_name = "NSS Exodus"
 	path = "exodus"
 
+	lobby_screens = list("exodus_art")
+
 	station_name = "NSS Exodus"
 	station_short = "Exodus"
 	dock_name = "NTCC Odin"
