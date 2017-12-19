@@ -41,14 +41,3 @@
 			target_pixel_y = -16
 			layer = ABOVE_MOB_LAYER
 	animate(src, pixel_x = target_pixel_x, pixel_y = target_pixel_y, alpha = 0, time = duration)
-
-/obj/effect/temp_visual/dir_setting/bloodsplatter/proc/set_color(new_color)
-	// Fuck recoloring all these sprites, let's make the GPU do it for us.
-	var/r = GetRedPart(new_color)
-	var/g = GetGreenPart(new_color)
-	var/b = GetBluePart(new_color)
-	color = list(
-		r, 0, 0,
-		g, 0, 0,
-		b, 0, 0
-	)
