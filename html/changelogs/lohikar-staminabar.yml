@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - rscadd: "Sprinting stamina now has a bar showing your remaining stamina instead of coloring the sprint button."

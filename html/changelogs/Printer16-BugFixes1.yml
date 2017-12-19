@@ -1,5 +1,0 @@
-author: Printer16
-delete-after: True
-changes: 
-  - bugfix: "Deconstructing book cases now gives the proper type of wood."
-  - bugfix: "You will now receive a message when implanted with a loyalty implant."

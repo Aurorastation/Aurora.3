@@ -7,6 +7,7 @@
 	var/list/cameras = list()
 
 /datum/chunk/camera/acquireVisibleTurfs(var/list/visible)
+	var/turf/point = locate(src.x + 8, src.y + 8, src.z)
 	for(var/camera in cameras)
 		var/obj/machinery/camera/c = camera
 
@@ -17,14 +18,16 @@
 		if(!c.can_use())
 			continue
 
-		var/turf/point = locate(src.x + 8, src.y + 8, src.z)
 		if(get_dist(point, c) > 24)
 			cameras -= c
+			continue
 
 		for(var/turf/t in c.can_see())
 			visible[t] = t
 
 	for(var/mob/living/silicon/ai/AI in living_mob_list)
+		if (get_dist(point, AI) > world.view)
+			continue
 		for(var/turf/t in AI.seen_camera_turfs())
 			visible[t] = t
 

@@ -64,7 +64,21 @@
 		T.color = color
 
 /datum/reagent/paint/touch_obj(var/obj/O)
-	if(istype(O))
+	//special checks for special items
+	if(istype(O, /obj/item/weapon/reagent_containers))
+		return
+	else if(istype(O, /obj/item/weapon/light))
+		var/obj/item/weapon/light/L = O
+		L.brightness_color = color
+		L.update()
+	else if(istype(O, /obj/machinery/light))
+		var/obj/machinery/light/L = O
+		L.brightness_color = color
+		L.update()
+	else if(istype(O, /obj/item/clothing/suit/storage/det_trench/technicolor) || istype(O, /obj/item/clothing/head/det/technicolor))
+		return
+
+	else if(istype(O))
 		O.color = color
 
 /datum/reagent/paint/touch_mob(var/mob/M)
@@ -415,7 +429,7 @@
 	color = "#ffff40"
 	scannable = 1
 	metabolism = REM * 0.25
-	taste_description = "bolted fire"
+	taste_description = "bottled fire"
 	var/datum/modifier/modifier
 
 /datum/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
@@ -435,3 +449,59 @@
 		modifier = M.add_modifier(/datum/modifier/luminous, MODIFIER_REAGENT, src, _strength = 4, override = MODIFIER_OVERRIDE_STRENGTHEN)
 	if(isskeleton(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
+
+/datum/reagent/liquid_fire
+	name = "Liquid Fire"
+	id = "liquid_fire"
+	description = "A dangerous flammable chemical, capable of causing fires when in contact with organic matter."
+	reagent_state = LIQUID
+	color = "#E25822"
+	touch_met = 5
+	taste_description = "metal"
+
+/datum/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(istype(M))
+		M.adjust_fire_stacks(25)
+		M.IgniteMob()
+
+/datum/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount)
+	if(istype(L))
+		L.adjust_fire_stacks(25)
+		L.IgniteMob()
+
+/datum/reagent/black_matter
+	name = "Unstable Black Matter"
+	id = "black_matter"
+	description = "A pitch black blend of cosmic origins, handle with care."
+	color = "#000000"
+	taste_description = "emptyness"
+
+/datum/reagent/black_matter/touch_turf(var/turf/T)
+	new /obj/effect/portal/wormhole/jaunt_tunnel(T, volume)
+	remove_self(volume)
+	return
+
+/datum/reagent/bluespace_dust
+	name = "Bluespace Dust"
+	id = "bluespace_dust"
+	description = "A dust composed of microscopic bluespace crystals."
+	color = "#1f8999"
+	taste_description = "fizzling blue"
+
+/datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(25))
+		M.make_jittery(5)
+		M << "<span class='warning'>You feel unstable...</span>"
+
+	if(prob(10))
+		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
+
+/datum/reagent/bluespace_dust/touch_mob(var/mob/living/L, var/amount)
+	do_teleport(L, get_turf(L), amount, asoundin = 'sound/effects/phasein.ogg')
+
+/datum/reagent/philosopher_stone
+	name = "Philosopher's Stone"
+	id = "philosopher_stone"
+	description = "A mythical compound, rumored to be the catalyst of fantastic reactions."
+	color = "#f4c430"
+	taste_description = "heavenly knowledge"

@@ -114,11 +114,16 @@
 /obj/item/integrated_circuit/reagent/pump/do_work()
 	var/atom/movable/source = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
 	var/atom/movable/target = get_pin_data_as_type(IC_INPUT, 2, /atom/movable)
+	if(!source)
+		return
 
-	if(!istype(source) || !istype(target)) //Invalid input
+	var/obj/item/integrated_circuit/insert_slot/beaker_holder/beaker_slot = source
+	if(istype(beaker_slot))
+		source = beaker_slot.get_item(FALSE)
+	if(!istype(source) || (!istype(target))) //Invalid input
 		return
 	var/turf/T = get_turf(src)
-	if(source.Adjacent(T) && target.Adjacent(T))
+	if((source.Adjacent(T)  || istype(beaker_slot)) && target.Adjacent(T))
 		if(!source.reagents || !target.reagents)
 			return
 		if(ismob(source) || ismob(target))
@@ -127,7 +132,6 @@
 			return
 		if(!target.reagents.get_free_space())
 			return
-
 		source.reagents.trans_to(target, transfer_amount)
 		activate_pin(2)
 

@@ -324,6 +324,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 
 	if(!cultwords["travel"])
 		runerandom()
+
 	if(iscultist(user))
 		var/C = 0
 		for(var/obj/effect/rune/N in rune_list)
@@ -443,7 +444,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	w_class = 2.0
 	var/cultistsonly = 1
 	attack_self(mob/user as mob)
-		if(src.cultistsonly && !iscultist(usr))
+		if(src.cultistsonly && !iscultist(user))
 			return
 		if(!cultwords["travel"])
 			runerandom()
@@ -468,7 +469,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				if("teleport")
 					var/list/words = list("ire", "ego", "nahlizet", "certum", "veri", "jatkaa", "balaq", "mgar", "karazet", "geeri")
 					var/beacon
-					if(usr)
+					if(user)
 						beacon = input("Select the last rune", "Rune Scribing") in words
 					R.word1=cultwords["travel"]
 					R.word2=cultwords["self"]
@@ -478,7 +479,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				if("itemport")
 					var/list/words = list("ire", "ego", "nahlizet", "certum", "veri", "jatkaa", "balaq", "mgar", "karazet", "geeri")
 					var/beacon
-					if(usr)
+					if(user)
 						beacon = input("Select the last rune", "Rune Scribing") in words
 					R.word1=cultwords["travel"]
 					R.word2=cultwords["other"]

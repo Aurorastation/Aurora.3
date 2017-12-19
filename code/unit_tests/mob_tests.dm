@@ -137,6 +137,7 @@ datum/unit_test/mob_damage/start_test()
 
 	if(isnull(test))
 		fail("Check Runtimed in Mob creation")
+		return 0
 
 	if(test["result"] == FAILURE)
 		fail(test["msg"])
@@ -457,7 +458,7 @@ datum/unit_test/mob_damage/machine/brute
 datum/unit_test/mob_damage/machine/fire
 	name = "MOB: IPC Fire Damage Check"
 	damagetype = BURN
-	expected_vulnerability = ARMORED
+	expected_vulnerability = EXTRA_VULNERABLE
 
 datum/unit_test/mob_damage/machine/tox
 	name = "MOB: IPC Toxins Damage Check"

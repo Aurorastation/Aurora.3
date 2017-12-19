@@ -1,4 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - tweak: "ChemMasters will now default to transfer-to-beaker instead of transfer-to-disposal."

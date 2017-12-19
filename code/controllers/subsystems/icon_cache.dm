@@ -63,6 +63,10 @@
 
 	var/list/ao_cache = list()
 
+	var/list/light_fixture_cache = list()
+
+	var/list/rgb_blend_cache = list()	// not an icon per-se, but this proc could be expensive so we might as well cache it.
+
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)
 
@@ -85,3 +89,8 @@
 	uniform_states = list()
 	for (var/i in icon_states('icons/mob/uniform.dmi'))
 		uniform_states[i] = TRUE
+
+/datum/controller/subsystem/icon_cache/proc/generate_color_variant(icon/icon, icon_state, color)
+	var/image/I = new(icon, icon_state)
+	I.color = color
+	return I

@@ -35,6 +35,7 @@
 	var/movement_cost = 0 // How much the turf slows down movement, if any.
 
 // Parent code is duplicated in here instead of ..() for performance reasons.
+// There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
@@ -59,8 +60,6 @@
 
 	if (opacity)
 		has_opaque_atom = TRUE
-		if (!mapload)
-			regenerate_ao()
 
 	if (mapload && permit_ao)
 		queue_ao()
@@ -69,7 +68,7 @@
 
 	if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || base_turf_by_z["[z]"] || /turf/space
+		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
 
 	if (A.flags & SPAWN_ROOF)
 		spawn_roof()
@@ -93,8 +92,7 @@
 	return QDEL_HINT_IWILLGC
 
 /turf/proc/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	underlay_appearance.icon = icon
-	underlay_appearance.icon_state = icon_state
+	underlay_appearance.appearance = src
 	underlay_appearance.dir = adjacency_dir
 	return TRUE
 

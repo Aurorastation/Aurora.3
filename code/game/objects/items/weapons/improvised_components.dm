@@ -33,9 +33,10 @@
 	if(istype(W,/obj/item/weapon/material/butterflyblade))
 		var/obj/item/weapon/material/butterflyblade/B = W
 		user << "You attach the two concealed blade parts."
-		new /obj/item/weapon/material/butterflyconstruction(user.loc, B.material.name)
+		var/finished = new /obj/item/weapon/material/butterflyconstruction(user.loc, B.material.name)
 		qdel(W)
 		qdel(src)
+		user.put_in_hands(finished)
 		return
 
 /obj/item/weapon/material/wirerod

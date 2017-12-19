@@ -106,3 +106,5 @@
 	var/last_y = 0
 
 	var/cached_bodytype
+
+	var/stance_damage = 0 //Whether this mob's ability to stand has been affected

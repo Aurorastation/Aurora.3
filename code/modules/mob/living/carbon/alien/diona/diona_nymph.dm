@@ -4,34 +4,67 @@
 
 //Diona time variables, these differ slightly between a gestalt and a nymph. All values are times in seconds
 /mob/living/carbon/alien/diona
-	var/datum/reagents/vessel
-	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
 	max_nutrition = 6000
 	language = null
-	var/energy_duration = 144//The time in seconds that this diona can exist in total darkness before its energy runs out
-	var/dark_consciousness = 144//How long this diona can stay on its feet and keep moving in darkness after energy is gone.
-	var/dark_survival = 216//How long this diona can survive in darkness after energy is gone, before it dies
-	var/datum/dionastats/DS
 	mob_size = 4
 	density = 0
 	mouth_size = 2//how large of a creature it can swallow at once, and how big of a bite it can take out of larger things
 	eat_types = 0//This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
 	composition_reagent = "nutriment"//Dionae are plants, so eating them doesn't give animal protein
-	var/mob/living/carbon/gestalt = null//If set, then this nymph is inside a gestalt
 	name = "diona nymph"
 	voice_name = "diona nymph"
 	adult_form = /mob/living/carbon/human
 	speak_emote = list("chirrups")
+	icon = 'icons/mob/diona.dmi'
 	icon_state = "nymph"
 	death_msg = "expires with a pitiful chirrup..."
 	universal_understand = 0
 	universal_speak = 0
 	holder_type = /obj/item/weapon/holder/diona
+	maxHealth = 85
+	pass_flags = PASSTABLE
+
+	// Decorative head flower.
+	var/flower_color
+	var/image/flower_image
+
 	var/list/sampled_DNA
 	var/list/language_progress
 	var/obj/item/clothing/head/hat
-	maxHealth = 85
-	pass_flags = PASSTABLE
+	var/datum/reagents/vessel
+	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
+	var/energy_duration = 144                 // The time in seconds that this diona can exist in total darkness before its energy runs out
+	var/dark_consciousness = 144              // How long this diona can stay on its feet and keep moving in darkness after energy is gone.
+	var/dark_survival = 216                   // How long this diona can survive in darkness after energy is gone, before it dies
+	var/datum/dionastats/DS
+	var/mob/living/carbon/gestalt = null      // If set, then this nymph is inside a gestalt
+	var/kept_clean = 0
+
+	var/mob/living/carbon/alien/diona/master_nymph //nymph who owns this nymph if split. AI diona nymphs will follow this nymph, and these nymphs can be controlled by the master.
+	var/list/mob/living/carbon/alien/diona/birds_of_feather = list() //list of all related nymphs
+
+/mob/living/carbon/alien/diona/proc/cleanupTransfer()
+	if(!kept_clean)
+		for(var/mob/living/carbon/alien/diona/D in birds_of_feather)
+			if(D.master_nymph == src)
+				D.master_nymph = null
+			if(!master_nymph && D != src)
+				master_nymph = D
+			D.master_nymph = master_nymph
+			D.birds_of_feather -= src
+		if(master_nymph && mind && !master_nymph.mind)
+			mind.transfer_to(master_nymph)
+			master_nymph.stunned = 0//Switching mind seems to temporarily stun mobs
+			message_admins("\The [src] has died with nymphs remaining; player now controls [key_name_admin(master_nymph)]")
+			log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]", ckey=key_name(master_nymph))
+		master_nymph = null
+		birds_of_feather.Cut()
+
+		kept_clean = 1
+
+
+/mob/living/carbon/alien/diona/flowery/Initialize(var/mapload)
+	. = ..(mapload, 100)
 
 /mob/living/carbon/alien/diona/movement_delay()
 	. = ..()
@@ -49,8 +82,10 @@
 	else
 		..()
 
-/mob/living/carbon/alien/diona/Initialize()
-	. = ..()
+/mob/living/carbon/alien/diona/Initialize(var/mapload, var/flower_chance = 5)
+	if(prob(flower_chance))
+		flower_color = get_random_colour(1)
+	. = ..(mapload)
 	//species = all_species[]
 	set_species("Diona")
 	setup_dionastats()
@@ -266,6 +301,7 @@
 		handle_stunned()
 		handle_weakened()
 		if(health <= 0)
+			cleanupTransfer()
 			death()
 			blinded = 1
 			silent = 0
@@ -313,6 +349,10 @@
 
 	return 1
 
+/mob/living/carbon/alien/diona/Destroy()
+	walk_to(src,0)
+	cleanupTransfer()
+	. = ..()
 
 /mob/living/carbon/alien/diona/proc/wear_hat(var/obj/item/new_hat)
 	if(hat)
@@ -320,3 +360,14 @@
 	hat = new_hat
 	new_hat.forceMove(src)
 	update_icons()
+
+/mob/living/carbon/alien/diona/MiddleClickOn(var/atom/A)
+	if(istype(A, /mob/living/carbon/alien/diona))
+		var/mob/living/carbon/alien/diona/D = A
+		if(D.master_nymph == src) //if the nymph is subservient to you
+			mind.transfer_to(D)
+			D.stunned = 0//Switching mind seems to temporarily stun mobs
+			for(var/mob/living/carbon/alien/diona/DIO in src.birds_of_feather) //its me!
+				DIO.master_nymph = D
+		return 1
+	. = ..()

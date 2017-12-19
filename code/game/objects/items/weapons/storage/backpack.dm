@@ -444,7 +444,7 @@
 /obj/item/weapon/storage/backpack/messenger/tox
 	name = "research messenger bag"
 	desc = "A backpack worn over one shoulder.  Useful for holding science materials."
-	icon_state = "courierbagnt"
+	icon_state = "courierbagtox"
 
 /obj/item/weapon/storage/backpack/messenger/gen
 	name = "geneticist messenger bag"
@@ -474,9 +474,9 @@
 /obj/item/weapon/storage/backpack/messenger/syndie
 	name = "syndicate messenger bag"
 	desc = "A sturdy backpack worn over one shoulder. This one is in red and black menacing colors."
-	icon_state = "courierbag"
+	icon_state = "courierbagsyndie"
 
 /obj/item/weapon/storage/backpack/messenger/wizard
 	name = "wizardly messenger bag"
 	desc = "A wizardly backpack worn over one shoulder. This one is in blue and purple colors. "
-	icon_state = "courierbag"
+	icon_state = "courierbagwizard"

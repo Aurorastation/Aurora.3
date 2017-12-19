@@ -546,6 +546,26 @@
 			heal_organ_damage(50, 50)
 			blood_used += 12
 
+		for (var/A in organs)
+			var/healed = FALSE
+			var/obj/item/organ/external/E = A
+			for (var/X in E.wounds)
+				var/datum/wound/W = X
+				if (W && W.internal)
+					E.wounds -= W
+					blood_used += 12
+					healed = TRUE
+					break
+
+			if(E.status & ORGAN_BROKEN)
+				E.status &= ~ORGAN_BROKEN
+				E.stage = 0
+				blood_used += 12
+				healed = TRUE
+
+			if (healed)
+				break
+
 		var/list/emotes_lookers = list("[src]'s skin appears to liquefy for a moment, sealing up their wounds.",
 									"[src]'s veins turn black as their damaged flesh regenerates before your eyes!",
 									"[src]'s skin begins to split open. It turns to ash and falls away, revealing the wound to be fully healed.",
@@ -582,7 +602,7 @@
 // Dominate a victim, imbed a thought into their mind.
 /mob/living/carbon/human/proc/vampire_dominate()
 	set category = "Vampire"
-	set name = "Dominate (25)"
+	set name = "Dominate (50)"
 	set desc = "Dominate the mind of a victim, make them obey your will."
 
 	var/datum/vampire/vampire = vampire_power(25, 0)
@@ -629,7 +649,7 @@
 	to_chat(src, "<span class='notice'>You command [T], and they will obey.</span>")
 	emote("me", 1, "whispers.")
 
-	vampire.use_blood(25)
+	vampire.use_blood(50)
 	verbs -= /mob/living/carbon/human/proc/vampire_dominate
 	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_dominate, CALLBACK(src, .proc/finish_vamp_timeout))
 

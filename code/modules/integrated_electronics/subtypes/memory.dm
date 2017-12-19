@@ -41,7 +41,7 @@
 	for(var/i = 1 to inputs.len)
 		var/data = get_pin_data(IC_INPUT, i)
 		set_pin_data(IC_OUTPUT, i, data)
-
+	push_data()
 	activate_pin(2)
 
 /obj/item/integrated_circuit/memory/storage/medium
@@ -85,6 +85,7 @@
 
 /obj/item/integrated_circuit/memory/constant/do_work()
 	set_pin_data(IC_OUTPUT, 1, data)
+	push_data()
 	activate_pin(2)
 
 /obj/item/integrated_circuit/memory/constant/attack_self(mob/user)
@@ -97,7 +98,7 @@
 	switch(type_to_use)
 		if("string")
 			accepting_refs = 0
-			new_data = sanitize(input("Now type in a string.","[src] string writing") as null|text)
+			new_data = sanitize(input("Now type in a string.","[src] string writing") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
 			if(istext(new_data) && CanInteract(user, physical_state))
 				data = new_data
 				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [O.display_data(data)].</span>")

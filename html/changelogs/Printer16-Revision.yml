@@ -1,4 +1,0 @@
-author: Printer16
-delete-after: True
-changes: 
-  - rscadd: "You can now view the probability of each gamemode using the check gamemode probability verb."

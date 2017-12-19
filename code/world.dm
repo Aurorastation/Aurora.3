@@ -56,6 +56,8 @@ var/global/datum/global_init/init = new ()
 	area = /area/space
 	view = "15x15"
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
+	maxx = 32	// So that we don't get map-window-popin at boot. DMMS will expand this.
+	maxy = 32
 
 
 #define RECOMMENDED_VERSION 510
@@ -84,8 +86,6 @@ var/global/datum/global_init/init = new ()
 	load_mods()
 	//end-emergency fix
 
-	src.update_status()
-
 	. = ..()
 
 #ifdef UNIT_TEST
@@ -107,12 +107,25 @@ var/list/world_api_rate_limit = list()
 
 /world/Topic(T, addr, master, key)
 	var/list/response[] = list()
-	var/list/queryparams[] = json_decode(T)
+	var/list/queryparams[]
+
+	try
+		queryparams = json_decode(T)
+	catch()
+		queryparams = list()
+
+	log_debug("API: Request Received - from:[addr], master:[master], key:[key]")
+	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]"
+
+	if (!queryparams.len)
+		log_debug("API - Bad Request - Invalid/no JSON data sent.")
+		response["statuscode"] = 400
+		response["response"] = "Bad Request - Invalid/no JSON data sent."
+		return json_encode(response)
+
 	queryparams["addr"] = addr //Add the IP to the queryparams that are passed to the api functions
 	var/query = queryparams["query"]
 	var/auth = queryparams["auth"]
-	log_debug("API: Request Received - from:[addr], master:[master], key:[key]")
-	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[auth] [log_end]"
 
 	/*if (!SSticker) //If the game is not started most API Requests would not work because of the throtteling
 		response["statuscode"] = 500

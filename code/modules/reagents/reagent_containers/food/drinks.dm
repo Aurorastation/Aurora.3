@@ -9,18 +9,34 @@
 	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 50
+	var/shaken = 0
 
 	on_reagent_change()
 		return
 
 	attack_self(mob/user as mob)
 		if(!is_open_container())
-			open(user)
+			if(user.a_intent == I_HURT && !shaken)
+				shaken = 1
+				user << "<span class='notice'>You shake the [src]!</span>"
+				playsound(loc,'sound/items/Shaking_Soda_Can.ogg', rand(10,50), 1)
+				return
+			if(shaken)
+				boom(user)
+			else
+				open(user)
 
 	proc/open(mob/user)
 		playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
 		user << "<span class='notice'>You open [src] with an audible pop!</span>"
 		flags |= OPENCONTAINER
+
+	proc/boom(user)
+		user << "<span class='danger'>The [src] explodes all over you as you open it!</span>"
+		playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
+		QDEL_NULL(reagents)
+		flags |= OPENCONTAINER
+		shaken = 0
 
 	attack(mob/M as mob, mob/user as mob, def_zone)
 		if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)

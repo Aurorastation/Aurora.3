@@ -35,7 +35,7 @@
 		/obj/item/weapon/storage/box/beanbags                = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/shotgunammo             = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/box/shotgunshells           = TRADER_THIS_TYPE,
-		/obj/item/clothing/accessory/holster                 = TRADER_ALL
+		/obj/item/clothing/accessory/holster                 = TRADER_SUBTYPES_ONLY
 	)
 
 /datum/trader/ship/egunshop
@@ -99,7 +99,8 @@
 		/obj/item/weapon/gun/projectile/revolver/derringer = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/pirate             = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/contender          = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/lemat     = TRADER_THIS_TYPE
+		/obj/item/weapon/gun/projectile/revolver/lemat     = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/boltaction/vintage = TRADER_THIS_TYPE
 	)
 
 

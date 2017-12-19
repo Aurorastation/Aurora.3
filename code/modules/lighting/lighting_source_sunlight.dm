@@ -1,3 +1,5 @@
+#ifdef ENABLE_SUNLIGHT
+
 /datum/light_source/sunlight
 	skip_falloff = TRUE
 
@@ -191,3 +193,5 @@
 	QUEUE_UPDATE(LIGHTING_VIS_UPDATE)
 
 #undef QUEUE_UPDATE
+
+#endif 

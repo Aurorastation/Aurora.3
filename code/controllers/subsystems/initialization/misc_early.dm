@@ -1,4 +1,4 @@
-// This is the first subsystem initialized by the MC.
+// This is one of the first subsystems initialized by the MC.
 // Stuff that should be loaded before everything else that isn't significant enough to get its own SS goes here.
 
 /datum/controller/subsystem/misc_early
@@ -36,14 +36,9 @@
 	// Set up antags.
 	populate_antag_type_list()
 
-	// Populate spawnpoints for char creation.
-	populate_spawn_points()
-
 	// Get BOREALIS to warn staff about a lazy admin forgetting visibility to 0
 	// before anyone has a chance to change it!
 	if (discord_bot)
 		discord_bot.alert_server_visibility()
-
-	lobby_image = new/obj/effect/lobby_image()
 
 	..()

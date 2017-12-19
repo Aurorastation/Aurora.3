@@ -660,5 +660,4 @@
 	if (holder)
 		sleep(1)
 	else
-		sleep(5)
-		stoplag()
+		stoplag(5)

@@ -5,11 +5,15 @@
 	icon_state = "rock-dark"
 	blocks_air = 1
 	density = 1
+	gender = PLURAL
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
-	icon = 'icons/turf/smooth/rock_wall.dmi'	// Until we get sprites.
+	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = "rock"
+	desc = "It's a greyish rock. Exciting."
+	gender = PLURAL
+	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
 	layer = 2.01
 	smooth = SMOOTH_MORE | SMOOTH_BORDER
 	canSmoothWith = list(
@@ -40,9 +44,11 @@
 	has_resources = 1
 
 // Copypaste parent call for performance.
-/turf/simulated/mineral/Initialize()
+/turf/simulated/mineral/Initialize(mapload)
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
+
+	icon = actual_icon
 
 	initialized = TRUE
 
@@ -488,21 +494,28 @@
 
 /**********************Asteroid**************************/
 
+/turf/simulated/floor/asteroid/rocky
+	name = "rocky ash"
+	icon_state = "rockyash"
+	base_icon_state = "rockyash"
+	base_icon = 'icons/turf/smooth/rocky_ash.dmi'
+	desc = "A fine grey ash. Seems to contain medium-sized rocks."
+
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
 // This means you can put grass on the asteroid etc.
 /turf/simulated/floor/asteroid
-	name = "sand"
-	icon = 'icons/turf/smooth/ash.dmi'
+	name = "ash"
+	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = "ash"
+	desc = "A fine grey ash. Looks pretty tightly packed."
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	gender = PLURAL
 	canSmoothWith = list(
 		/turf/simulated/floor/asteroid,
 		/turf/simulated/mineral,
 		/turf/simulated/wall,
 		/turf/simulated/shuttle
 	)
-	base_name = "sand"
-	base_desc = "Gritty and unpleasant."
 	base_icon = 'icons/turf/smooth/ash.dmi'
 	base_icon_state = "ash"
 
@@ -519,10 +532,14 @@
 	roof_type = null
 
 // Copypaste parent for performance.
-/turf/simulated/floor/asteroid/Initialize()
+/turf/simulated/floor/asteroid/Initialize(mapload)
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
+
+	icon = base_icon
+	base_desc = desc
+	base_name = name
 
 	turfs += src
 
@@ -534,17 +551,15 @@
 	if(prob(20))
 		overlay_detail = rand(0,9)
 
+	if (mapload && permit_ao)
+		queue_ao()
+
 	if (smooth)
 		pixel_x = -4
 		pixel_y = -4
 		queue_smooth(src)
 
 	return INITIALIZE_HINT_NORMAL
-
-/turf/simulated/floor/asteroid/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	. = ..()
-	underlay_appearance.pixel_x = pixel_x
-	underlay_appearance.pixel_y = pixel_y
 
 /turf/simulated/floor/asteroid/ex_act(severity)
 	switch(severity)
@@ -783,3 +798,8 @@
 				attackby(R.module_state_3,R)
 			else
 				return
+
+
+/turf/simulated/mineral/Destroy()
+	clear_ore_effects()
+	. = ..()

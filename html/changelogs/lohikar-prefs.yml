@@ -1,5 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - tweak: "Preferences setup will now tell you if you try to add body markings to a species that has none available."
-  - tweak: "Admin revive will now restore body markings and round-start prosthetics."
