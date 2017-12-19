@@ -48,4 +48,4 @@
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
 	winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
-	STOP_THINKING(src)
+	MOB_STOP_THINKING(src)

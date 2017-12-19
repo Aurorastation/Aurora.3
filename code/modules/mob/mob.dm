@@ -33,7 +33,7 @@
 		var/atom/movable/AM = src.loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
-	STOP_THINKING(src)
+	MOB_STOP_THINKING(src)
 
 	return ..()
 
@@ -72,7 +72,7 @@
 		living_mob_list += src
 
 	if (!ckey && mob_thinks)
-		START_THINKING(src)
+		MOB_START_THINKING(src)
 
 /mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 

@@ -34,7 +34,7 @@
 		if (M.ckey)
 			// cliented mobs are not allowed to think
 			log_debug("SSmob_ai: Type '[M.type]' was still thinking despite having a client!")
-			STOP_THINKING(M)
+			MOB_STOP_THINKING(M)
 
 			if (MC_TICK_CHECK)
 				return

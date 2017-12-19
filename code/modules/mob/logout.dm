@@ -23,6 +23,6 @@
 				discord_bot.send_to_admins("[key_name(src)] logged out - only AFK admins ([admins_number_afk]) are online.")
 
 	if (mob_thinks)
-		START_THINKING(src)
+		MOB_START_THINKING(src)
 	..()
 	return 1
