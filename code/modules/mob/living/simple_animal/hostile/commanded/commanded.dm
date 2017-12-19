@@ -38,6 +38,10 @@
 		if(COMMANDED_STOP)
 			commanded_stop()
 
+/mob/living/simple_animal/hostile/commanded/on_think_disabled()
+	..()
+	command_buffer.Cut()
+
 /mob/living/simple_animal/hostile/commanded/FindTarget(var/new_stance = HOSTILE_STANCE_ATTACK)
 	if(!allowed_targets.len)
 		return null

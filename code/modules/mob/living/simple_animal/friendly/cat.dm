@@ -87,7 +87,7 @@
 
 	if(movement_target)
 		stop_automated_movement = 1
-		walk_to(src,movement_target,0,seek_move_delay)
+		walk_to(src, movement_target, 0, DS2TICKS(seek_move_delay))
 
 /mob/living/simple_animal/cat/proc/attack_mice()
 	if((src.loc) && isturf(src.loc))
@@ -181,7 +181,7 @@
 				//walk to friend
 				stop_automated_movement = 1
 				movement_target = friend
-				walk_to(src, movement_target, near_dist, seek_move_delay)
+				walk_to(src, movement_target, near_dist, DS2TICKS(seek_move_delay))
 
 		//already following and close enough, stop
 		else if (current_dist <= near_dist)

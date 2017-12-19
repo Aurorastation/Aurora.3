@@ -133,9 +133,6 @@
 	if(!on)
 		return
 
-	if(client)
-		return
-
 	if(target)
 		if(Adjacent(target))
 			INVOKE_ASYNC(src, .proc/UnarmedAttack, target)

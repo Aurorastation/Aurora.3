@@ -107,7 +107,7 @@
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
-	seek_move_delay = (1 / seek_speed) / (world.tick_lag / 10)//number of ticks between moves
+	seek_move_delay = (1 / seek_speed) * 10	//number of ds between moves
 	turns_since_scan = rand(min_scan_interval, max_scan_interval)//Randomise this at the start so animals don't sync up
 	health = maxHealth
 	verbs -= /mob/verb/observe
@@ -270,10 +270,12 @@
 		speak_audio()
 
 	if (can_nap)
-		if (!resting && prob(1))
-			fall_asleep()
-		else if (resting && (prob(0.5) || !stat))
-			wake_up()
+		if (resting)
+			if (prob(1))
+				fall_asleep()
+		else
+			if (!stat || prob(0.5))
+				wake_up()
 
 /mob/living/simple_animal/proc/handle_supernatural()
 	if(purge)
@@ -322,7 +324,7 @@
 	else return 2//hungry
 
 /mob/living/simple_animal/gib()
-	..(icon_gib,1)
+	..(icon_gib, 1)
 
 /mob/living/simple_animal/emote(var/act, var/type, var/desc)
 	if(act)
@@ -574,29 +576,18 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				scan_interval = min_scan_interval
 				stop_automated_movement = 1
 
-				if (istype(movement_target.loc, /turf))
-					walk_to(src,movement_target,0, seek_move_delay)//Stand ontop of food
+				if (isturf(movement_target.loc))
+					walk_to(src, movement_target, 0, DS2TICKS(seek_move_delay))	//Stand ontop of food
 				else
-					walk_to(src,movement_target.loc,1, seek_move_delay)//Don't stand ontop of people
+					walk_to(src, get_turf(movement_target), 1, DS2TICKS(seek_move_delay))	//Don't stand ontop of people
 
-
-
-				if(movement_target)		//Not redundant due to sleeps, Item can be gone in 6 decisecomds
-					if (movement_target.loc.x < src.x)
-						set_dir(WEST)
-					else if (movement_target.loc.x > src.x)
-						set_dir(EAST)
-					else if (movement_target.loc.y < src.y)
-						set_dir(SOUTH)
-					else if (movement_target.loc.y > src.y)
-						set_dir(NORTH)
-					else
-						set_dir(SOUTH)
+				if (movement_target)
+					set_dir(get_dir(src, movement_target))
 
 					if(isturf(movement_target.loc) && Adjacent(get_turf(movement_target), src))
 						UnarmedAttack(movement_target)
-						if (get_turf(movement_target) == src.loc)
-							set_dir(pick(1,2,4,8,1,1))//Face a random direction when eating, but mostly upwards
+						if (get_turf(movement_target) == loc)
+							set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
 					else if(ishuman(movement_target.loc) && Adjacent(src, get_turf(movement_target)) && prob(10))
 						beg(movement_target, movement_target.loc)
 			else

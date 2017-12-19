@@ -165,8 +165,6 @@
 	..()
 	if(!on)
 		return
-	if(client)
-		return
 
 	if(QDELETED(target))
 		scan_view()

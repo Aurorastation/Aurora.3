@@ -114,17 +114,8 @@
 		tilemake = 0
 		addTiles(1)
 
-	if(client)
-		return
-
 	if(prob(5))
 		custom_emote(2, "makes an excited booping beeping sound!")
-
-	if(ignorelist.len) // Don't stick forever
-		for(var/T in ignorelist)
-			if(prob(1))
-				ignorelist -= T
-
 
 /mob/living/bot/floorbot/think()
 	..()
@@ -190,6 +181,17 @@
 	if(path.len)
 		step_to(src, path[1])
 		path -= path[1]
+
+	if(ignorelist.len) // Don't stick forever
+		for(var/T in ignorelist)
+			if(prob(1))
+				ignorelist -= T
+
+/mob/living/bot/floorbot/on_think_disabled()
+	..()
+	ignorelist.Cut()
+	path.Cut()
+	target = null
 
 /mob/living/bot/floorbot/UnarmedAttack(var/atom/A, var/proximity)
 	if(!..())

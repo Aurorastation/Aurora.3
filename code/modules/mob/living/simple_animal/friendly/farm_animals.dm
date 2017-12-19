@@ -48,13 +48,6 @@
 			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/SP = locate() in loc
 			qdel(SP)
 
-		if(!pulledby)
-			var/obj/effect/plant/food
-			food = locate(/obj/effect/plant) in oview(5,loc)
-			if(food)
-				var/step = get_step_to(src, food, 0)
-				Move(step)
-
 /mob/living/simple_animal/hostile/retaliate/goat/think()
 	..()
 	//chance to go crazy and start wacking stuff
@@ -66,6 +59,11 @@
 		LoseTarget()
 		src.visible_message("<span class='notice'>[src] calms down.</span>")
 
+	if(!pulledby)
+		var/obj/effect/plant/food = locate(/obj/effect/plant) in oview(5,loc)
+		if(food)
+			var/step = get_step_to(src, food, 0)
+			Move(step)
 
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
 	..()
