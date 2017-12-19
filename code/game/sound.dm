@@ -175,7 +175,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 
 			// These checks are split into multiple ifs for readability reasons.
 
-			if (!T || !ARE_Z_CONNECTED(T.z, turf_source.z))
+			if (!T || T.z != turf_source.z)
 				continue
 
 			if (is_ambience && !(M.client.prefs.toggles & SOUND_AMBIENCE))
@@ -246,7 +246,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 		var/dz = turf_source.y - T.y // Hearing from infront/behind
 		S.z = dz
 		// 3D sound, truly this is the future.
-		S.y = (turf_source.z - T.z) * 100
+		S.y = (turf_source.z - T.z) * SOUND_Z_FACTOR
 		S.falloff = (falloff ? falloff : FALLOFF_SOUNDS)
 
 	if(!is_global && environment != 0)
