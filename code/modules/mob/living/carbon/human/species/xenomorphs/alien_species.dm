@@ -128,8 +128,9 @@
 	var/obj/effect/plant/plant = locate() in T
 	if((environment.gas["phoron"] > 0 || (plant && plant.seed && plant.seed.name == "xenomorph")) && !regenerate(H))
 		var/obj/item/organ/xenos/plasmavessel/P = H.internal_organs_by_name["plasma vessel"]
-		P.stored_plasma += weeds_plasma_rate
-		P.stored_plasma = min(max(P.stored_plasma,0),P.max_plasma)
+		if(istype(P))
+			P.stored_plasma += weeds_plasma_rate
+			P.stored_plasma = min(max(P.stored_plasma,0),P.max_plasma)
 	..()
 
 /datum/species/xenos/proc/regenerate(var/mob/living/carbon/human/H)
@@ -309,8 +310,8 @@
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
 		/mob/living/carbon/human/proc/neurotoxin,
+		/mob/living/carbon/human/proc/gut,
 		/mob/living/carbon/human/proc/resin,
-		/mob/living/carbon/human/proc/xeno_infest,
 		/mob/living/carbon/human/proc/darkness_eyes
 		)
 

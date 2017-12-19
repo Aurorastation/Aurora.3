@@ -20,7 +20,7 @@
 /atom/movable/set_dir(ndir)
 	. = ..()
 	if (. && bound_overlay)
-		bound_overlay.set_dir(dir)
+		bound_overlay.set_dir(ndir)
 
 /atom/movable/update_above()
 	if (!bound_overlay)
@@ -93,6 +93,7 @@
 
 /atom/movable/openspace/multiplier/proc/copy_lighting(atom/movable/lighting_overlay/LO)
 	appearance = LO
+	layer = LIGHTING_LAYER + 0.001
 	plane = OPENTURF_CAP_PLANE
 	invisibility = 0
 	if (icon_state == LIGHTING_BASE_ICON_STATE)
@@ -121,7 +122,7 @@
 
 	if (our_overlays || priority_overlays)
 		compile_overlays()
-	else
+	else if (bound_overlay)
 		// compile_overlays() calls update_above().
 		update_above()
 

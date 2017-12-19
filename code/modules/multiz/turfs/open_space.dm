@@ -63,10 +63,6 @@
 	UNSETEMPTY(climbers)
 	return ..()
 
-/turf/simulated/open/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	underlay_appearance.appearance = src
-	return TRUE
-
 /**
  * Used to add a climber to the climbers list. Climbers do not fall down this specific tile.
  *

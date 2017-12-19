@@ -26,13 +26,14 @@
 /datum/modular_computer_app_presets/engineering/return_install_programs()
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
+		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/power_monitor(),
 		new/datum/computer_file/program/alarm_monitor(),
 		new/datum/computer_file/program/atmos_control(),
 		new/datum/computer_file/program/rcon_console(),
 		new/datum/computer_file/program/camera_monitor(),
-		new/datum/computer_file/program/lighting_control(),
-		new/datum/computer_file/program/chatclient()
+		new/datum/computer_file/program/lighting_control()
 	)
 	return _prg_list
 
@@ -45,6 +46,7 @@
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/suit_sensors()
 	)
 	return _prg_list
@@ -58,6 +60,7 @@
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/ntnetmonitor(),
 		new/datum/computer_file/program/aidiag(),
 		new/datum/computer_file/program/exosuit_monitor()
@@ -73,6 +76,7 @@
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/card_mod(),
 		new/datum/computer_file/program/comm(1)
 	)
@@ -106,6 +110,7 @@
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/camera_monitor(),
 		new/datum/computer_file/program/comm(),
 		new/datum/computer_file/program/digitalwarrant()
@@ -121,9 +126,9 @@
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/game/arcade(),
-		new/datum/computer_file/program/game/sudoku(),
-		new/datum/computer_file/program/civilian/cargoorder()
+		new/datum/computer_file/program/game/sudoku()		
 	)
 	return _prg_list
 
@@ -137,7 +142,21 @@
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/civilian/cargocontrol(),
-		new/datum/computer_file/program/civilian/cargoorder()
+		new/datum/computer_file/program/civilian/cargoorder(),
+		new/datum/computer_file/program/civilian/cargodelivery()
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/cargo_delivery
+	name = "cargo_delivery"
+	display_name = "Cargo Delivery"
+	description = "Contains the Delivery App."
+	available = 0
+/datum/modular_computer_app_presets/cargo_delivery/return_install_programs()
+	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
+		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargodelivery()
 	)
 	return _prg_list
 
@@ -150,6 +169,7 @@
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/camera_monitor(),
 		new/datum/computer_file/program/alarm_monitor()
 	)

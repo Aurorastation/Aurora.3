@@ -207,3 +207,10 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000, "silver" = 500, "diamond" = 3000)
 	build_path = /obj/item/weapon/gun/energy/beegun
 	sort_string = "TVMAA"
+
+/datum/design/item/weapon/trodpack
+	id = "trodpack"
+	req_tech = list(TECH_COMBAT = 7, TECH_PHORON = 2, TECH_MATERIAL = 7, TECH_MAGNET = 4, TECH_POWER = 5, TECH_ILLEGAL = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 15000, "glass" = 9750, "phoron" = 5250, "gold" = 1100)
+	build_path = /obj/item/ammo_magazine/trodpack
+	sort_string = "TVNAA"

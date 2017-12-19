@@ -75,7 +75,7 @@
 	bald = 1
 
 	brute_mod = 0.8
-	burn_mod = 1.3
+	burn_mod = 1.1
 	slowdown = 4
 
 	blurb = "Tough units made for engineering and security with simple exteriors, roughly resembling humans. No job restrictions. Heavy emphasis on \

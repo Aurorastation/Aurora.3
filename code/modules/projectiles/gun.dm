@@ -148,9 +148,14 @@
 		return ..() //Pistolwhippin'
 
 /obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+
+
 	if(!user || !target) return
 
 	add_fingerprint(user)
+	if(user.client && (user.client.prefs.toggles_secondary & SAFETY_CHECK) && user.a_intent != I_HURT) //Check this first to save time.
+		user << "You refrain from firing, as you aren't on harm intent."
+		return
 
 	if(!special_check(user))
 		return
