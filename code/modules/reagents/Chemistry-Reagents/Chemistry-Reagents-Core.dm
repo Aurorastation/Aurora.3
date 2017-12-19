@@ -55,7 +55,7 @@
 /datum/reagent/blood/touch_turf(var/turf/simulated/T)
 	if(!istype(T) || volume < 3)
 		return
-	var/weakref/W = data["donor"]
+	var/datum/weakref/W = data["donor"]
 	if (!W)
 		blood_splatter(T, src, 1)
 	W = W.resolve()

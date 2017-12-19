@@ -81,7 +81,7 @@
 
 /datum/event/carp_migration/end()
 	for (var/carp_ref in spawned_carp)
-		var/weakref/carp_weakref = carp_ref
+		var/datum/weakref/carp_weakref = carp_ref
 		var/mob/living/simple_animal/hostile/carp/fish = carp_weakref.resolve()
 		if (fish && prob(50) && is_type_in_typecache(fish.loc, despawn_turfs))
 			qdel(fish)

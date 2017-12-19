@@ -78,5 +78,5 @@
 #define CanInteract(user, state) (CanUseTopic(user, state) == STATUS_INTERACTIVE)
 
 #define isopenturf(target) istype(target, /turf/simulated/open)
-#define isweakref(target) istype(target, /weakref)
+#define isweakref(target) istype(target, /datum/weakref)
 #define isdatum(target) istype(target, /datum)

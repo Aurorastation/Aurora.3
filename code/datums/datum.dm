@@ -1,6 +1,6 @@
 /datum
 	var/tmp/list/active_timers
-	var/tmp/weakref/weakref
+	var/tmp/datum/weakref/weakref
 	var/tmp/isprocessing = 0
 	var/tmp/gcDestroyed //Time when this object was destroyed.
 
