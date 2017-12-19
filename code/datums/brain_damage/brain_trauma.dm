@@ -11,6 +11,7 @@
 	var/lose_text = "<span class='notice'>You no longer feel traumatized.</span>"
 	var/can_gain = TRUE //can this be gained through random traumas?
 	var/permanent = FALSE //can this be cured?
+	var/suppressed = 0 //currently being suppressed
 
 /datum/brain_trauma/New(obj/item/organ/brain/B, _permanent)
 	brain = B

@@ -40,8 +40,7 @@
 #define MONKEYLIKE      64 //sets IsAdvancedToolUser to FALSE
 #define PACIFIST        128
 #define UNINTELLIGIBLE  256
-#define PIRATE  512
-#define GERTIE 1024
+#define GERTIE 512
 
 // sdisabilities
 #define BLIND 0x1

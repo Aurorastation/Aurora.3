@@ -71,19 +71,19 @@
 	owner.disabilities &= ~UNINTELLIGIBLE
 	..()
 
-/datum/brain_trauma/mild/pirate
-	name = "Piracy Syndrome"
-	desc = "Patient is unable to form a coherent thought without drifting the seven seas."
-	scan_desc = "piracy problem"
-	gain_text = "Your mind drifts across the seven seas!"
-	lose_text = "Your mind returns to port."
+/datum/brain_trauma/mild/tourettes
+	name = "Tourettes Syndrome"
+	desc = "Patient is compelled to vulgarity."
+	scan_desc = "vulgarity problem"
+	gain_text = "Your mind fills with foul language!"
+	lose_text = "Your mind returns to decency."
 
-/datum/brain_trauma/mild/pirate/on_gain()
-	owner.disabilities |= PIRATE
+/datum/brain_trauma/mild/tourettes/on_gain()
+	owner.disabilities |= TOURETTES
 	..()
 
-/datum/brain_trauma/mild/pirate/on_lose()
-	owner.disabilities &= ~PIRATE
+/datum/brain_trauma/mild/tourettes/on_lose()
+	owner.disabilities &= ~TOURETTES
 	..()
 
 /datum/brain_trauma/mild/gertie

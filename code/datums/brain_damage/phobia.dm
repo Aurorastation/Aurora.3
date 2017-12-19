@@ -32,6 +32,8 @@
 /datum/brain_trauma/mild/phobia/on_life()
 	..()
 	if(owner.eye_blind)
+		if(phobia_type == "darkness" && prob(25))
+			freak_out() //rip
 		return
 	if(world.time > next_check && world.time > next_scare)
 		next_check = world.time + 50
@@ -48,6 +50,9 @@
 				if(is_type_in_typecache(T, trigger_turfs))
 					freak_out(T)
 					return
+				if((T.get_lumcount() <= 0.25) && phobia_type == "darkness") //probably snowflake but can't think of a better way without creating a new trauma type entirely
+					freak_out(T)
+					return
 
 		if(LAZYLEN(trigger_mobs) || LAZYLEN(trigger_objs))
 			for(var/mob/M in seen_atoms)
@@ -55,10 +60,14 @@
 					freak_out(M)
 					return
 
+				if((M.stat == DEAD) && phobia_type == "death") //probably snowflake but can't think of a better way without creating a new trauma type entirely
+					freak_out(M)
+					return
+
 				else if(ishuman(M)) //check their equipment for trigger items
 					var/mob/living/carbon/human/H = M
 
-					if(LAZYLEN(trigger_species) && H.dna && H.dna.species && is_type_in_typecache(H.dna.species, trigger_species))
+					if(LAZYLEN(trigger_species) && H.dna && H.dna.species && is_type_in_typecache(H.dna.species, trigger_species) && H != owner)
 						freak_out(H)
 
 					for(var/X in H.contents)

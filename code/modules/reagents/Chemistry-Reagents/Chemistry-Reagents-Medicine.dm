@@ -535,6 +535,7 @@
 	color = "#FF80FF"
 	metabolism = 0.01
 	data = 0
+	var/datum/modifier = null
 
 /datum/reagent/citalopram/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(volume <= 0.1 && data != -1)
@@ -544,6 +545,12 @@
 		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
 			data = world.time
 			M << "<span class='notice'>Your mind feels stable... a little stable.</span>"
+			if (!modifier)
+				modifier = M.add_modifier(/datum/modifier/brainchem, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/citalopram/Destroy()
+	QDEL_NULL(modifier)
+	return ..()
 
 /datum/reagent/paroxetine
 	name = "Paroxetine"
@@ -554,19 +561,39 @@
 	metabolism = 0.01
 	data = 0
 	taste_description = "bitterness"
+	var/datum/modifier = null
 
 /datum/reagent/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(volume <= 0.1 && data != -1)
+	if(volume <= 0.1)
 		data = -1
 		M << "<span class='warning'>Your mind feels much less stable...</span>"
 	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			if(prob(96))
-				M << "<span class='notice'>Your mind feels much more stable.</span>"
-			else
-				M << "<span class='warning'>Your mind breaks apart...</span>"
-				M.hallucination += 200
+		if(data != -1)
+			if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
+				data = world.time
+				if(prob(96))
+					M << "<span class='notice'>Your mind feels much more stable.</span>"
+					if (!modifier)
+						modifier = M.add_modifier(/datum/modifier/brainchem, MODIFIER_REAGENT, src, _strength = 2, override = MODIFIER_OVERRIDE_STRENGTHEN)
+				else
+					data = -1
+					M << "<span class='warning'>Your mind breaks apart...</span>"
+					if(ishuman(M))
+						var/mob/living/carbon/human/H = M
+						if(prob(66))
+							if(prob(70))
+								H.gain_trauma_type(BRAIN_TRAUMA_MILD)
+							else
+								H.gain_trauma_type(BRAIN_TRAUMA_SEVERE)
+					else
+						M.hallucination += 200
+		else
+			QDEL_NULL(modifier)
+
+/datum/reagent/paroxetine/Destroy()
+	if(modifier)
+		QDEL_NULL(modifier)
+	return ..()
 
 /datum/reagent/rezadone
 	name = "Rezadone"

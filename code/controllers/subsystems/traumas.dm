@@ -17,7 +17,7 @@ var/datum/controller/subsystem/traumas/SStraumas
     NEW_SS_GLOBAL(SStraumas)
 
 /datum/controller/subsystem/traumas/Initialize()
-	phobia_types = list("spiders", "space", "security", "doctors", "clowns", "lizards", "cats", "humans", "skrell", "robots", "pests", "nanotrasen", "filth", "paranormals")
+	phobia_types = list("spiders", "space", "security", "doctors", "clowns", "lizards", "cats", "humans", "skrell", "robots", "pests", "nanotrasen", "filth", "paranormals", "death", "darkness")
 
 	phobia_words = list("spiders"   = strings(PHOBIA_FILE, "spiders"),
 						"space"     = strings(PHOBIA_FILE, "space"),
@@ -32,7 +32,9 @@ var/datum/controller/subsystem/traumas/SStraumas
 						"pests"     = strings(PHOBIA_FILE, "pests"),
 						"nanotrasen"= strings(PHOBIA_FILE, "nanotrasen"),
 						"filth"     = strings(PHOBIA_FILE, "filth"),
-						"paranormals"= strings(PHOBIA_FILE, "paranormals")
+						"paranormals"= strings(PHOBIA_FILE, "paranormals"),
+						"death"     = strings(PHOBIA_FILE, "death"),
+						"darkness" = strings(PHOBIA_FILE, "darkness")
 					   )
 
 	phobia_mobs = list("spiders"  = typecacheof(list(/mob/living/simple_animal/spiderbot, /mob/living/simple_animal/hostile/giant_spider)),

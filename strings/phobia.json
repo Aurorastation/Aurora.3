@@ -164,5 +164,27 @@
 		"undead",
 		"paranormal",
 		"ghost"
+	],
+
+	"death": [
+		"death",
+		"dying",
+		"dead",
+		" die",
+		"heaven",
+		"hell",
+		"afterlife",
+		"ghost",
+		"spirit"
+	],
+
+	"darkness": [
+		"dark",
+		"black",
+		"night",
+		"void",
+		"sightless",
+		"blind",
+		"can't see"
 	]
 }
