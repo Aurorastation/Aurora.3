@@ -7392,12 +7392,10 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -7569,7 +7567,6 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -7655,7 +7652,6 @@
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/wallet,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -7871,7 +7867,6 @@
 "asH" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -7991,7 +7986,6 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -8019,7 +8013,6 @@
 "asY" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -14511,7 +14504,6 @@
 /area/centcom/holding)
 "aGz" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -16556,7 +16548,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},

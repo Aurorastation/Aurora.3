@@ -111,6 +111,23 @@
 			{{:helper.link('On', 'night', {'lmode' : 'on'}, data.lightingMode ? 'selected' : null)}}{{:helper.link('Off', 'close', {'lmode' : 'off'}, data.lightingMode ? null : 'selected')}}
 		</div>
 	</div>
+	<div class="item">
+		<div class="itemLabel">
+			Emergency Lighting:
+		</div>
+		<div class="itemContent"; style="width: 105px">
+		{{if data.locked && !data.siliconUser}}
+				{{if data.emergencyMode}}
+					On
+				{{else}}
+					Off
+				{{/if}}
+			</div>
+		{{else}}
+			{{:helper.link(data.emergencyMode ? 'On' : 'Off', 'lightbulb', {'emergency_lights' : data.emergencyMode ? 'on' : 'off'}, null)}}
+			{{/if}}
+		</div>
+	</div>
 
 	<h3>Power Channels</h3>
 

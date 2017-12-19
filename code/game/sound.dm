@@ -141,6 +141,12 @@ var/list/computerbeeps = list(
 	'sound/machines/compbeep4.ogg',
 	'sound/machines/compbeep5.ogg'
 )
+var/list/switchsounds = list(
+	'sound/machines/switch1.ogg',
+	'sound/machines/switch2.ogg',
+	'sound/machines/switch3.ogg',
+	'sound/machines/switch4.ogg'
+)
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
@@ -301,4 +307,5 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("sandstep") soundin = pick(sandfootsteps)
 			if ("gravelstep") soundin = pick(gravelfootsteps)
 			if ("computerbeep") soundin = pick(computerbeeps)
+			if ("switch") soundin = pick(switchsounds)
 	return soundin

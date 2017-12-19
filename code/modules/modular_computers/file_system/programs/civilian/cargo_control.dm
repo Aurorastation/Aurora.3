@@ -25,7 +25,7 @@
 
 	//Send the page to display
 	data["page"] = page
-	//Send teh status message
+	//Send the status message
 	data["status_message"] = status_message
 
 	//Pass the ID Data
@@ -56,6 +56,12 @@
 	data["order_shipped_value"] = SScargo.get_orders_value_by_status("shipped",1)
 	if(page == "overview_shipped")
 		data["order_list"] = shipped_orders
+
+	var/list/delivered_orders = SScargo.get_orders_by_status("delivered",1)
+	data["order_delivered_number"] = shipped_orders.len
+	data["order_delivered_value"] = SScargo.get_orders_value_by_status("delivered",1)
+	if(page == "overview_delivered")
+		data["order_list"] = delivered_orders
 
 	if(page == "order_details")
 		data["order_details"] = order_details
@@ -112,7 +118,9 @@
 			if("overview_approved")
 				page = "overview_approved" //Overview page listing the current shuttle price and time as well as orders that have been approved, with options to view the details 
 			if("overview_shipped")
-				page = "overview_shipped" //Overview page listing the orders that have been shipped to the station but not delivered, with the option to mark them as delivered as well as to specify a person it has been delivered to
+				page = "overview_shipped" //Overview page listing the orders that have been shipped to the station but not delivered
+			if("overview_delivered")
+				page = "overview_delivered" //Overview page listing the orders that have been delivered
 			if("order_details")
 				page = "order_details" //Details page for a specific order - Lists the contents of the orde with the suppliers, prices and required access levels
 				//Fetch the order details and store it for the order. No need to fetch it again every 2 seconds
