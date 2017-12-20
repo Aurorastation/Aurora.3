@@ -22,6 +22,7 @@
 	footstep_sound = "waterstep"
 	movement_cost = 2
 	var/watertype = "water5"
+	var/obj/effect/water_effect
 
 /turf/simulated/floor/beach/water/pool
 	name = "pool"
@@ -43,7 +44,20 @@
 
 /turf/simulated/floor/beach/water/Initialize()
 	. = ..()
-	add_overlay(image("icon"='icons/misc/beach.dmi',"icon_state"="[watertype]","layer"=MOB_LAYER+0.1))
+	var/obj/effect/W = new /obj/effect(src)
+	water_effect = W
+	W.icon = 'icons/misc/beach.dmi'
+	W.icon_state = watertype
+	W.layer = MOB_LAYER+0.1
+	W.opacity = FALSE
+	W.anchored = TRUE
+	W.mouse_opacity = FALSE
+
+/turf/simulated/floor/beach/water/Destroy()
+	if(water_effect)
+		qdel(water_effect)
+		water_effect = null
+	return ..()
 
 /turf/simulated/floor/beach/water/return_air_for_internal_lifeform(var/mob/living/carbon/L)
 	if(L && L.lying)
