@@ -20,6 +20,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define MIMIC_BELOW 2
 #define MIMIC_OVERWRITE 4
 #define MIMIC_QUEUED 8
+#define MIMIC_NO_AO 16
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 

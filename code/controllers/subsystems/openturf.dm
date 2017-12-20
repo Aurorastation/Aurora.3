@@ -247,7 +247,7 @@
 
 	var/list/out = list(
 		"<h1>Analysis of [T] at [T.x],[T.y],[T.z]</h1>",
-		"<b>Z Flags</b>: [english_list(bitfield2list(T.flags, list("NOJAUNT", "MIMIC_BELOW", "MIMIC_OVERWRITE", "MIMIC_QUEUED")))]",
+		"<b>Z Flags</b>: [english_list(bitfield2list(T.flags, list("NOJAUNT", "MIMIC_BELOW", "MIMIC_OVERWRITE", "MIMIC_QUEUED", "MIMIC_NO_AO")), "(none)")]",
 		"<b>Has Shadower:</b> [T.shadower ? "Yes" : "No"]",
 		"<b>Below:</b> [!T.below ? "(nothing)" : "[T.below] at [T.below.x],[T.below.y],[T.below.z]"]",
 		"<ul>"

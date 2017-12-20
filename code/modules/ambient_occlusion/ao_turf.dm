@@ -8,6 +8,8 @@
 	var/permit_ao = TRUE
 	var/tmp/list/ao_overlays	// Current ambient occlusion overlays. Tracked so we can reverse them without dropping all priority overlays.
 	var/tmp/ao_neighbors
+	var/tmp/list/ao_overlays_mimic
+	var/tmp/ao_neighbors_mimic
 	var/ao_queued = AO_UPDATE_NONE
 
 /turf/proc/regenerate_ao()
@@ -25,8 +27,8 @@
 
 	var/turf/T
 	if (flags & MIMIC_BELOW)
-		CALCULATE_NEIGHBORS(src, ao_neighbors, T, (T.flags & MIMIC_BELOW))
-	else
+		CALCULATE_NEIGHBORS(src, ao_neighbors_mimic, T, (T.flags & MIMIC_BELOW))
+	if (!(flags & MIMIC_NO_AO))
 		CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
 
 /proc/make_ao_image(corner, i, px = 0, py = 0, pz = 0, pw = 0)
@@ -57,37 +59,48 @@
 	if (ao_queued < new_level)
 		ao_queued = new_level
 
+#define PROCESS_AO_CORNER(AO_LIST, NEIGHBORS, CORNER_INDEX, CDIR) \
+	corner = 0; \
+	if (NEIGHBORS & (1 << CDIR)) { \
+		corner |= 2; \
+	} \
+	if (NEIGHBORS & (1 << turn(CDIR, 45))) { \
+		corner |= 1; \
+	} \
+	if (NEIGHBORS & (1 << turn(CDIR, -45))) { \
+		corner |= 4; \
+	} \
+	if (corner != 7) {	/* 7 is the 'no shadows' state, no reason to add overlays for it. */ \
+		var/image/I = cache["[corner]-[CORNER_INDEX]-[pixel_x]/[pixel_y]/[pixel_z]/[pixel_w]"]; \
+		if (!I) { \
+			I = make_ao_image(corner, CORNER_INDEX, pixel_x, pixel_y, pixel_z, pixel_w)	/* this will also add the image to the cache. */ \
+		} \
+		LAZYADD(AO_LIST, I); \
+	}
+
+#define REGEN_AO(TARGET, AO_LIST, NEIGHBORS) \
+	if (AO_LIST) { \
+		TARGET.cut_overlay(AO_LIST, TRUE); \
+		AO_LIST.Cut(); \
+	} \
+	if (permit_ao && NEIGHBORS != AO_ALL_NEIGHBORS) { \
+		var/corner;\
+		PROCESS_AO_CORNER(AO_LIST, NEIGHBORS, 1, NORTHWEST); \
+		PROCESS_AO_CORNER(AO_LIST, NEIGHBORS, 2, SOUTHEAST); \
+		PROCESS_AO_CORNER(AO_LIST, NEIGHBORS, 3, NORTHEAST); \
+		PROCESS_AO_CORNER(AO_LIST, NEIGHBORS, 4, SOUTHWEST); \
+	} \
+	UNSETEMPTY(AO_LIST); \
+	if (AO_LIST) { \
+		TARGET.add_overlay(AO_LIST, TRUE); \
+	}
+
 /turf/proc/update_ao()
-	var/atom/target = ((flags & MIMIC_BELOW) ? shadower : src) || src
-	if (ao_overlays)
-		target.cut_overlay(ao_overlays, TRUE)
-		ao_overlays.Cut()
-
-	if (!permit_ao || ao_neighbors == AO_ALL_NEIGHBORS)	// If all corners are going to be transparent anyways, bail early.
-		return
-
 	var/list/cache = SSicon_cache.ao_cache
+	if (flags & MIMIC_BELOW)
+		REGEN_AO(shadower, ao_overlays_mimic, ao_neighbors_mimic)
+	if (!has_opaque_atom && !(flags & MIMIC_NO_AO))
+		REGEN_AO(src, ao_overlays, ao_neighbors)
 
-	if (!has_opaque_atom)
-		for(var/i = 1 to 4)
-			var/cdir = cornerdirs[i]
-			var/corner = 0
-
-			if (ao_neighbors & (1 << cdir))
-				corner |= 2
-			if (ao_neighbors & (1 << turn(cdir, 45)))
-				corner |= 1
-			if (ao_neighbors & (1 << turn(cdir, -45)))
-				corner |= 4
-
-			if (corner != 7)	// 7 is the 'no shadows' state, no reason to add overlays for it.
-				var/image/I = cache["[corner]-[i]-[pixel_x]/[pixel_y]/[pixel_z]/[pixel_w]"]
-				if (!I)
-					I = make_ao_image(corner, i, pixel_x, pixel_y, pixel_z, pixel_w)	// this will also add the image to the cache.
-
-				LAZYADD(ao_overlays, I)
-
-	UNSETEMPTY(ao_overlays)
-
-	if (ao_overlays)
-		target.add_overlay(ao_overlays, TRUE)
+#undef REGEN_AO
+#undef PROCESS_AO_CORNER
