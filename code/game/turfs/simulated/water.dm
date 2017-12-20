@@ -22,7 +22,7 @@
 	footstep_sound = "waterstep"
 	movement_cost = 2
 	var/watertype = "water5"
-	var/obj/effect/water_effect
+	var/obj/effect/overlay/water_effect
 
 /turf/simulated/floor/beach/water/pool
 	name = "pool"
@@ -44,7 +44,7 @@
 
 /turf/simulated/floor/beach/water/Initialize()
 	. = ..()
-	var/obj/effect/W = new /obj/effect(src)
+	var/obj/effect/overlay/W = new /obj/effect/overlay(src)
 	water_effect = W
 	W.icon = 'icons/misc/beach.dmi'
 	W.icon_state = watertype
