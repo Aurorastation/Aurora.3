@@ -31,7 +31,7 @@
 		var/atom/movable/AM = thing
 
 		var/turf/T = get_turf(AM)
-		if (istype(T) && (T.flags & MIMIC_BELOW))
+		if (isturf(T) && (T.flags & MIMIC_BELOW))
 			if (!(T.flags & MIMIC_QUEUED))
 				T.update_mimic()
 		else

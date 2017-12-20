@@ -20,9 +20,6 @@
 
 	var/tmp/list/climbers
 
-
-	var/no_mutate = FALSE	// If TRUE, SSopenturf will not modify the appearance of this turf.
-
 // An override of turf/Enter() to make it so that magboots allow you to stop
 // falling off the damned rock.
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
@@ -113,7 +110,7 @@
 	icon_state = ""	// Clear out the debug icon.
 	SSopenturf.openspace_turfs += src
 	shadower = new(src)
-	if (no_mutate && plane == PLANE_SPACE_BACKGROUND)
+	if (!(flags & MIMIC_OVERWRITE) && plane == PLANE_SPACE_BACKGROUND)
 		// If the plane is default and we're a no_mutate turf, force it to 0 so the icon works properly.
 		plane = 0
 	update(mapload)
@@ -139,8 +136,6 @@
 				O.hide(0)
 			if (is_hole && O.simulated)
 				ADD_FALLING_ATOM(O)
-
-	update_icon(mapload)
 
 /turf/simulated/open/update_dirt()
 	return 0
