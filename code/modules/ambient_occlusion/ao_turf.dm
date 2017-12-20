@@ -22,13 +22,14 @@
 
 /turf/proc/calculate_ao_neighbors()
 	ao_neighbors = 0
+	ao_neighbors_mimic = 0
 	if (!permit_ao)
 		return
 
 	var/turf/T
 	if (flags & MIMIC_BELOW)
 		CALCULATE_NEIGHBORS(src, ao_neighbors_mimic, T, (T.flags & MIMIC_BELOW))
-	if (!(flags & MIMIC_NO_AO))
+	if (!has_opaque_atom && !(flags & MIMIC_NO_AO))
 		CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
 
 /proc/make_ao_image(corner, i, px = 0, py = 0, pz = 0, pw = 0)
@@ -78,11 +79,13 @@
 		LAZYADD(AO_LIST, I); \
 	}
 
-#define REGEN_AO(TARGET, AO_LIST, NEIGHBORS) \
+#define CUT_AO(TARGET, AO_LIST) \
 	if (AO_LIST) { \
 		TARGET.cut_overlay(AO_LIST, TRUE); \
 		AO_LIST.Cut(); \
-	} \
+	}
+
+#define REGEN_AO(TARGET, AO_LIST, NEIGHBORS) \
 	if (permit_ao && NEIGHBORS != AO_ALL_NEIGHBORS) { \
 		var/corner;\
 		PROCESS_AO_CORNER(AO_LIST, NEIGHBORS, 1, NORTHWEST); \
@@ -97,6 +100,8 @@
 
 /turf/proc/update_ao()
 	var/list/cache = SSicon_cache.ao_cache
+	CUT_AO(shadower, ao_overlays_mimic)
+	CUT_AO(src, ao_overlays)
 	if (flags & MIMIC_BELOW)
 		REGEN_AO(shadower, ao_overlays_mimic, ao_neighbors_mimic)
 	if (!has_opaque_atom && !(flags & MIMIC_NO_AO))
