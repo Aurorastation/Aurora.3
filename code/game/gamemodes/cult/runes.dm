@@ -151,12 +151,12 @@ var/list/sacrificed = list()
 					//hallucination is reduced when the step off as well, provided they haven't hit the last stage...
 					target.hallucination += 5000
 					target.apply_effect(10, STUTTER)
-					target.adjustBrainLoss(1)
+					target.adjustBrainLoss(1, 55)
 				if(100 to INFINITY)
 					target << "<span class='cult'>Your entire broken soul and being is engulfed in corruption and flames as your mind shatters away into nothing.</span>"
 					target.hallucination += 5000
 					target.apply_effect(15, STUTTER)
-					target.adjustBrainLoss(rand(1,5))
+					target.adjustBrainLoss(rand(1,5), 55)
 
 		initial_message = 1
 		if (target.species && (target.species.flags & NO_PAIN))

@@ -282,7 +282,7 @@ default behaviour is:
 /mob/living/proc/getBrainLoss()
 	. = 0
 
-/mob/living/proc/adjustBrainLoss(var/amount)
+/mob/living/proc/adjustBrainLoss(var/amount, var/maximum)
 	return
 
 /mob/living/proc/setBrainLoss(var/amount)

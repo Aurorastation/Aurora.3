@@ -26,13 +26,18 @@
 	return
 
 //Some sources of brain damage shouldn't be deadly
-/mob/living/carbon/human/adjustBrainLoss(var/amount)
+/mob/living/carbon/human/adjustBrainLoss(var/amount, maximum = 60)
 
 	if(status_flags & GODMODE)	return 0	//godmode
 
 	if(species && species.has_organ["brain"])
 		var/obj/item/organ/brain/sponge = internal_organs_by_name["brain"]
 		if(sponge)
+			if(amount + sponge.damage > maximum)
+				if(sponge.damage < maximum)
+					amount = maximum - sponge.damage
+				else
+					return
 			sponge.take_damage(amount)
 			brainloss = sponge.damage
 		else
@@ -210,6 +215,8 @@
 		oxyloss = 0
 	else
 		amount = amount*species.oxy_mod
+		if(getOxyLoss() + amount >=  config.health_threshold_crit) //start taking brain damage if they go into crit from oxyloss
+			adjustBrainLoss(amount,55) //this brain damage won't be lethal)
 		..(amount)
 
 /mob/living/carbon/human/setOxyLoss(var/amount)

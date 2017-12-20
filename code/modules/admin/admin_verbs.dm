@@ -635,10 +635,7 @@ var/list/admin_verbs_cciaa = list(
 	var/mob/living/carbon/human/C = T
 
 	C.cure_all_traumas(TRUE, TRUE)
-	var/ceekeey = "NO CKEY"
-	if(C.ckey)
-		ceekeey = C.ckey
-	message_admins("<span class='notice'>[ckey] cured [C]'s ([ceekeey]) traumas.</span>")
+	log_and_message_admins("<span class='notice'>cured [key_name(C)]'s traumas.</span>")
 	feedback_add_details("admin_verb","TB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!\
 
 /client/proc/add_traumas(mob/T as mob in mob_list)
@@ -668,12 +665,8 @@ var/list/admin_verbs_cciaa = list(
 	if(result)
 		C.gain_trauma(result, permanent)
 
-	var/ceekeey = "NO CKEY"
-	if(C.ckey)
-		ceekeey = C.ckey
-
-	message_admins("<span class='notice'>[ckey] gave [C]([ceekeey]) [result].</span>")
-	feedback_add_details("admin_verb","TB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	log_and_message_admins("<span class='notice'>gave [key_name(C)] [result].</span>")
+	feedback_add_details("admin_verb","BT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/give_disease(mob/T as mob in mob_list) // -- Giacom
 	set category = "Fun"

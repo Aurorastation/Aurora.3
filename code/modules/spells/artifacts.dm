@@ -32,7 +32,7 @@
 			new /obj/effect/decal/cleanable/ash(get_turf(user))
 			E.removed(user)
 			qdel(E)
-			H.adjustBrainLoss(50)
+			H.adjustBrainLoss(50, 55)
 			H.hallucination += 20
 			return
 	else
@@ -136,7 +136,7 @@
 	light_color = "#6633CC"
 	light_power = 3
 	light_range = 4
-	
+
 	var/lich = null
 
 /obj/item/phylactery/Initialize()
@@ -150,14 +150,14 @@
 	world_phylactery -= src
 	lich = null
 	return ..()
-	
+
 /obj/item/phylactery/examine(mob/user)
 	..(user)
 	if(!lich)
 		user << "The heart is inert."
 	else
 		user << "The heart is pulsing slowly."
-	
+
 /obj/item/phylactery/attackby(var/obj/item/I, var/mob/user)
 	..()
 	if(istype(I, /obj/item/weapon/nullrod))

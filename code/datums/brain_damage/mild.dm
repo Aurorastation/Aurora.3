@@ -89,7 +89,7 @@
 /datum/brain_trauma/mild/gertie
 	name = "Gerstmann Syndrome"
 	desc = "Patient displays severe left right disorientation."
-	scan_desc = "swedish problem"
+	scan_desc = "left-right disorientation"
 	gain_text = "You wonder to yourself, does three rights really make a left?!"
 	lose_text = "You remember that you can just turn left directly!"
 

@@ -17,7 +17,6 @@
 	brain = B
 	owner = B.owner
 	permanent = _permanent
-	world << "[owner]"
 	if(owner)
 		on_gain()
 

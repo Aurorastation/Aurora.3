@@ -25,8 +25,7 @@
 	set waitfor = FALSE
 	var/datum/ghosttrap/G = get_ghost_trap("split personality")
 	G.request_player(stranger_backseat, "Would you like to play as [owner]'s split personality?", 60 SECONDS)
-	spawn(60 SECONDS)
-		reset_search()
+	addtimer(CALLBACK(src, .proc/reset_search), 60 SECONDS)
 
 /datum/brain_trauma/severe/split_personality/proc/reset_search()
 	if(src.stranger_backseat && src.stranger_backseat.key)
@@ -185,8 +184,7 @@
 	set waitfor = FALSE
 	var/datum/ghosttrap/G = get_ghost_trap("split personality")
 	G.request_player(stranger_backseat, "Would you like to play as [owner]'s split personality?", 60 SECONDS)
-	spawn(60 SECONDS)
-		reset_search()
+	addtimer(CALLBACK(src, .proc/reset_search), 60 SECONDS)
 
 /datum/brain_trauma/severe/split_personality/brainwashing/on_life()
 	return //no random switching
