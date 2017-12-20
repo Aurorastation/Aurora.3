@@ -22,7 +22,7 @@
 	footstep_sound = "waterstep"
 	movement_cost = 2
 	var/watertype = "water5"
-	var/obj/effect/overlay/water_effect
+	var/obj/effect/water_effect/water_overlay
 
 /turf/simulated/floor/beach/water/pool
 	name = "pool"
@@ -39,24 +39,28 @@
 	icon_state = "abyss"
 	watertype = "seadeep"
 
+/obj/effect/water_effect
+	name = "water"
+	icon = 'icons/misc/beach.dmi'
+	layer = MOB_LAYER+0.1
+	opacity = FALSE
+	anchored = TRUE
+	mouse_opacity = FALSE
+	unacidable = TRUE
+
 /turf/simulated/floor/beach/water/update_dirt()
 	return	// Water doesn't become dirty
 
 /turf/simulated/floor/beach/water/Initialize()
 	. = ..()
-	var/obj/effect/overlay/W = new /obj/effect/overlay(src)
-	water_effect = W
-	W.icon = 'icons/misc/beach.dmi'
+	var/obj/effect/water_effect/W = new /obj/effect/water_effect(src)
 	W.icon_state = watertype
-	W.layer = MOB_LAYER+0.1
-	W.opacity = FALSE
-	W.anchored = TRUE
-	W.mouse_opacity = FALSE
+	water_overlay = W
 
 /turf/simulated/floor/beach/water/Destroy()
-	if(water_effect)
-		qdel(water_effect)
-		water_effect = null
+	if(water_overlay)
+		qdel(water_overlay)
+		water_overlay = null
 	return ..()
 
 /turf/simulated/floor/beach/water/return_air_for_internal_lifeform(var/mob/living/carbon/L)
