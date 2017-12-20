@@ -15,13 +15,15 @@
 	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
 	layer = 2.01
-	smooth = SMOOTH_MORE | SMOOTH_BORDER
+	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_hints = SMOOTHHINT_CUT_ON_ALL_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	canSmoothWith = list(
 		/turf/simulated/mineral,
 		/turf/simulated/wall,
 		/turf/unsimulated/wall,
 		/turf/simulated/shuttle
 	)
+
 	oxygen = 0
 	nitrogen = 0
 	opacity = 1
@@ -509,6 +511,7 @@
 	icon_state = "ash"
 	desc = "A fine grey ash. Looks pretty tightly packed."
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_hints = SMOOTHHINT_CUT_ON_ALL_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	gender = PLURAL
 	canSmoothWith = list(
 		/turf/simulated/floor/asteroid,

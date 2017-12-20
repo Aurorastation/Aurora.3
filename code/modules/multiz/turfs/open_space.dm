@@ -108,20 +108,39 @@
 	..()
 	update()
 
-/turf/simulated/open/Initialize()
+/turf/simulated/open/Initialize(mapload)
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
-	update()
+	SSopenturf.openspace_turfs += src
+	shadower = new(src)
+	if (no_mutate && plane == PLANE_SPACE_BACKGROUND)
+		// If the plane is default and we're a no_mutate turf, force it to 0 so the icon works properly.
+		plane = 0
+	update(mapload)
 
 /**
  * Updates the turf with open turf's variables and basically resets it properly.
  */
-/turf/simulated/open/proc/update()
-	levelupdate()
-	if (is_hole)
-		for (var/atom/movable/A in src)
-			ADD_FALLING_ATOM(A)
-	update_icon()
+/turf/simulated/open/proc/update(mapload = FALSE)
+	below = GetBelow(src)
+
+	// Edge case for when an open turf is above space on the lowest level.
+	if (below)
+		below.above = src
+
+	if (mapload)
+		for (var/obj/O in src)	// We're not going to try to make mobs fall here for performance reasons - they shouldn't be mapped in on openturfs anyways.
+			if (is_hole && O.simulated)
+				ADD_FALLING_ATOM(O)
+	else
+		for (var/thing in src)
+			var/obj/O = thing	// This might not be an obj.
+			if (isobj(O))
+				O.hide(0)
+			if (is_hole && O.simulated)
+				ADD_FALLING_ATOM(O)
+
+	update_icon(mapload)
 
 /turf/simulated/open/update_dirt()
 	return 0
@@ -131,8 +150,8 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
-/turf/simulated/open/update_icon()
-	update_mimic()
+/turf/simulated/open/update_icon(mapload)
+	update_mimic(!mapload)
 
 /turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
 	if (istype(C, /obj/item/stack/rods))
