@@ -146,8 +146,10 @@
 			var/atom/movable/openspace/turf_overlay/TO = T.below.bound_overlay
 			TO.appearance = T.below
 			TO.name = T.name
+			TO.opacity = FALSE
 			T.desc = TO.desc = "Below seems to be \a [T.below]."
 			TO.plane = t_target
+			TO.mouse_opacity = FALSE
 		else
 			// This openturf doesn't care about its icon, so we can just overwrite it.
 			if (T.below.bound_overlay)
