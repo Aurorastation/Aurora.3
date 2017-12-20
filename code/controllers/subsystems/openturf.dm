@@ -31,7 +31,7 @@
 		var/atom/movable/AM = thing
 
 		var/turf/T = get_turf(AM)
-		if (isturf(T) && (T.flags & MIMIC_BELOW))
+		if (TURF_IS_MIMICING(T))
 			if (!(T.flags & MIMIC_QUEUED))
 				T.update_mimic()
 		else
@@ -120,7 +120,7 @@
 		// Figure out how many z-levels down we are.
 		var/depth = 0
 		var/turf/Td = T
-		while (Td && Td.below && (Td.below.flags & MIMIC_BELOW))
+		while (Td && TURF_IS_MIMICING(Td.below))
 			Td = Td.below
 			depth++
 		if (depth > OPENTURF_MAX_DEPTH)
@@ -178,6 +178,11 @@
 					object.bound_overlay.associated_atom = object
 
 				var/atom/movable/openspace/overlay/OO = object.bound_overlay
+
+				// If the OO was queued for destruction but was claimed by another OT, stop the destruction timer.
+				if (OO.destruction_timer)
+					deltimer(OO.destruction_timer)
+					OO.destruction_timer = null
 
 				// Cache our already-calculated depth so we don't need to re-calculate it a bunch of times.
 				OO.depth = oo_target

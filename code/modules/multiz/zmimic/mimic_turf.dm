@@ -12,7 +12,7 @@
 	above.update_mimic()
 
 /turf/update_above()
-	if (above && (above.flags & MIMIC_BELOW))
+	if (TURF_IS_MIMICING(above))
 		above.update_mimic()
 
 /turf/proc/update_mimic(recurse = TRUE)

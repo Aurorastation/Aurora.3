@@ -26,8 +26,7 @@
 	if (!bound_overlay)
 		return
 
-	var/turf/Tloc = loc
-	if (istype(Tloc) && (Tloc.flags & MIMIC_BELOW))
+	if (TURF_IS_MIMICING(loc))
 		if (!bound_overlay.queued)
 			SSopenturf.queued_overlays += bound_overlay
 			bound_overlay.queued = TRUE
@@ -162,9 +161,9 @@
 /atom/movable/openspace/overlay/examine(mob/examiner)
 	associated_atom.examine(examiner)
 
-/atom/movable/openspace/overlay/forceMove(atom/dest)
+/atom/movable/openspace/overlay/forceMove(turf/dest)
 	. = ..()
-	if (isopenturf(dest))
+	if (TURF_IS_MIMICING(dest))
 		if (destruction_timer)
 			deltimer(destruction_timer)
 			destruction_timer = null
