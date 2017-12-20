@@ -45,7 +45,8 @@ var/datum/controller/subsystem/traumas/SStraumas
 						"pests" = typecacheof(list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/mouse, /mob/living/carbon/alien/diona)),
 						"paranormals" = typecacheof(list(/mob/living/simple_animal/hostile/scarybat, /mob/living/simple_animal/hostile/true_changeling,
 														/mob/living/simple_animal/hostile/mimic, /mob/living/simple_animal/hostile/faithless,
-														/mob/living/simple_animal/construct))
+														/mob/living/simple_animal/construct)),
+						"death" = typecacheof(list(/mob/dead/observer))
 					   )
 
 	phobia_objs = list("spiders"   = typecacheof(list(/obj/effect/spider,/obj/item/toy/plushie/spider, /obj/effect/decal/cleanable/spiderling_remains)),
@@ -89,7 +90,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 												 /obj/item/clothing/under/captainformal, /obj/item/clothing/under/rank/captain, /obj/item/toy/figure/captain, /obj/item/weapon/card/id/captains_spare,
 												 /obj/item/weapon/gun/energy/captain, /obj/item/weapon/stamp/captain, /obj/item/weapon/storage/backpack/captain, /obj/item/clothing/suit/armor/vest/security)),
 
-					   "filth"   = typecacheof(list(/obj/effect/decal/cleanable,/obj/effect/decal/remains,/obj/item/trash)),
+					   "filth"   = typecacheof(list(/obj/effect/decal/cleanable,/obj/effect/decal/remains,/obj/item/trash, /obj/machinery/portable_atmospherics/hydroponics)),
 
 					   "paranormals"   = typecacheof(list(/obj/item/weapon/book/tome,/obj/item/weapon/nullrod,/obj/structure/constructshell,
 												/obj/structure/cult, /obj/structure/girder/cult, /obj/structure/grille/cult, /obj/effect/forcefield/cult,
@@ -107,7 +108,9 @@ var/datum/controller/subsystem/traumas/SStraumas
 
 					   )
 	phobia_turfs = list("space" = typecacheof(list(/turf/space, /turf/simulated/open)),
-						"paranormals" = typecacheof(list(/turf/simulated/wall/cult, /turf/simulated/floor/cult))
+						"paranormals" = typecacheof(list(/turf/simulated/wall/cult, /turf/simulated/floor/cult)),
+						"filth" = typecacheof(list(/turf/simulated/floor/grass, /turf/simulated/mineral)),
+						"darkness" = typecacheof(list(/turf/unsimulated/mask)) //fuck this is so dangerously snowflake lohikar is going to eat my ass
 						)
 
 	phobia_species = list("lizards"   = typecacheof(list(/datum/species/unathi)),

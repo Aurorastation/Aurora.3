@@ -109,16 +109,20 @@
 	lose_text = "<span class='notice'>The pressure inside your head starts fading.</span>"
 
 /datum/brain_trauma/mild/concussion/on_life()
-	if(prob(5))
+	if(prob(25))
 		switch(rand(1,11))
 			if(1)
+				to_chat(owner, "<span class='notice'>Your stomach writhes with pain.</span>")
 				owner.vomit()
 			if(2,3)
+				to_chat(owner, "<span class='notice'>You feel light-headed.</span>")
 				owner.dizziness += 10
 			if(4,5)
+				to_chat(owner, "<span class='notice'>it becomes hard to see for some reason.</span>")
 				owner.confused += 10
 				owner.apply_effect(10,EYE_BLUR)
 			if(6 to 9)
+				to_chat(owner, "<span class='notice'>Your tongue feels thick in your mouth.</span>")
 				owner.slurring += 30
 			if(10)
 				to_chat(owner, "<span class='notice'>You forget for a moment what you were doing.</span>")
@@ -137,15 +141,15 @@
 	lose_text = "<span class='notice'>You feel in control of your muscles again.</span>"
 
 /datum/brain_trauma/mild/muscle_weakness/on_life()
-	var/fall_chance = 1
+	var/fall_chance = 5
 	if(owner.m_intent == "run")
-		fall_chance += 2
+		fall_chance += 15
 	if(prob(fall_chance) && !owner.lying && !owner.buckled)
 		to_chat(owner, "<span class='warning'>Your leg gives out!</span>")
-		owner.Paralyse(35)
+		owner.Weaken(5)
 
 	else if(owner.get_active_hand())
-		var/drop_chance = 1
+		var/drop_chance = 15
 		var/obj/item/I = owner.get_active_hand()
 		drop_chance += I.w_class
 		if(prob(drop_chance) && owner.drop_from_inventory(I))
@@ -153,7 +157,7 @@
 
 	else if(prob(3))
 		to_chat(owner, "<span class='warning'>You feel a sudden weakness in your muscles!</span>")
-		owner.adjustHalLoss(50)
+		owner.adjustHalLoss(25)
 	..()
 
 /datum/brain_trauma/mild/muscle_spasms
@@ -164,7 +168,7 @@
 	lose_text = "<span class='notice'>You feel in control of your muscles again.</span>"
 
 /datum/brain_trauma/mild/muscle_spasms/on_life()
-	if(prob(7))
+	if(prob(25))
 		switch(rand(1,5))
 			if(1)
 				if(owner.canmove)
@@ -211,4 +215,26 @@
 				if(LAZYLEN(targets) && I)
 					to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
 					owner.throw_item(pick(targets))
+	..()
+
+/datum/brain_trauma/mild/nearsightedness
+	name = "Cerebral Near-Blindness"
+	desc = "Patient's brain is no loosely connected to its eyes."
+	scan_desc = "minor damage to the brain's occipital lobe"
+	gain_text = "<span class='warning'>You can barely see!</span>"
+	lose_text = "<span class='notice'>Your vision returns.</span>"
+
+/datum/brain_trauma/mild/nearsightedness/on_gain()
+	owner.disabilities |= BLIND
+	..()
+
+//no fiddling with genetics to get out of this one
+/datum/brain_trauma/mild/nearsightedness/on_life()
+	if(!(owner.disabilities & BLIND))
+		on_gain()
+	..()
+
+/datum/brain_trauma/mild/nearsightedness/on_lose()
+	if(owner.disabilities & BLIND)
+		owner.disabilities &= ~BLIND
 	..()

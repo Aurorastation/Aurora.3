@@ -12,17 +12,17 @@
 	lose_text = "<span class='notice'>You suddenly remember how to speak.</span>"
 
 /datum/brain_trauma/severe/mute/on_gain()
-	owner.disabilities |= MUTE
+	owner.sdisabilities |= MUTE
 	..()
 
 //no fiddling with genetics to get out of this one
 /datum/brain_trauma/severe/mute/on_life()
-	if(!(owner.disabilities & MUTE))
+	if(!(owner.sdisabilities & MUTE))
 		on_gain()
 	..()
 
 /datum/brain_trauma/severe/mute/on_lose()
-	owner.disabilities &= ~MUTE
+	owner.sdisabilities &= ~MUTE
 	..()
 
 /datum/brain_trauma/severe/blindness
@@ -33,18 +33,18 @@
 	lose_text = "<span class='notice'>Your vision returns.</span>"
 
 /datum/brain_trauma/severe/blindness/on_gain()
-	owner.disabilities |= BLIND
+	owner.sdisabilities |= BLIND
 	..()
 
 //no fiddling with genetics to get out of this one
 /datum/brain_trauma/severe/blindness/on_life()
-	if(!(owner.disabilities & BLIND))
+	if(!(owner.sdisabilities & BLIND))
 		on_gain()
 	..()
 
 /datum/brain_trauma/severe/blindness/on_lose()
-	if(owner.disabilities & BLIND)
-		owner.disabilities &= ~BLIND
+	if(owner.sdisabilities & BLIND)
+		owner.sdisabilities &= ~BLIND
 	..()
 
 /datum/brain_trauma/severe/paralysis
@@ -55,11 +55,11 @@
 	lose_text = "<span class='notice'>You can feel your limbs again!</span>"
 
 /datum/brain_trauma/severe/paralysis/on_life()
-	owner.Paralyse(200, ignore_canknockdown = TRUE)
+	owner.Weaken(200)
 	..()
 
 /datum/brain_trauma/severe/paralysis/on_lose()
-	owner.SetParalysis(0)
+	owner.SetWeakened(0)
 	..()
 
 /datum/brain_trauma/severe/narcolepsy
@@ -73,15 +73,17 @@
 	..()
 	if(owner.stat == UNCONSCIOUS || owner.sleeping > 0)
 		return
-	var/sleep_chance = 1
+	var/sleep_chance = 5
 	if(owner.m_intent == "run")
-		sleep_chance += 2
+		sleep_chance += 15
 	if(owner.drowsyness)
-		sleep_chance += 3
+		sleep_chance += owner.drowsyness + 5
+		if(owner.drowsyness >= 66)
+			owner.drowsyness = 0
 	if(prob(sleep_chance))
 		to_chat(owner, "<span class='warning'>You fall asleep.</span>")
 		owner.Sleeping(60)
-	else if(!owner.drowsyness && prob(sleep_chance * 2))
+	else if(prob(sleep_chance * 2))
 		to_chat(owner, "<span class='warning'>You feel tired...</span>")
 		owner.drowsyness += 10
 
@@ -192,15 +194,15 @@
 /datum/brain_trauma/severe/aphasia/on_gain()
 	for(var/datum/language/L in owner.languages)
 		prev_languages.Add(L)
-		owner.remove_language(L)
+		owner.remove_language(L.name)
 	owner.add_language(BRAZILIAN)
 	..()
 
 /datum/brain_trauma/severe/aphasia/on_lose()
 	for(var/datum/language/L in prev_languages)
-		owner.languages.Add(L)
+		owner.add_language(L.name)
 		prev_languages.Remove(L)
-	owner.languages.Remove("Gibbering")
+	owner.remove_language(BRAZILIAN)
 	..()
 
 /datum/brain_trauma/severe/pacifism

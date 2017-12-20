@@ -1,0 +1,42 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#################################
+
+# Your name.  
+author: LordFowl
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscrdel: "Brain damage no longer causes effects directly. It will now introduce trauma traits based on a threshold-percentage progression. Brain damage still causes brain-death at 60."
+  - rscadd: "Adds trauma traits: Come in three flavors: mild, severe, and special. Mild range from annoying to dangerous. Severe range from dangerous to annoyingly dangerous. Special are oddly beneficial, sometimes"
+  - rscadd: "Normally a mob can only have one mild trauma and one severe/special trauma at a time."
+  - rscadd: "Citalopram and Paroxetine can be used to suppress traumas, while brain surgery can be used to remove them. Maybe the psychiatrist will see some use? Not."
+  - balance: "Many brain damaging effects have been given a cap, making them non-lethal."
+

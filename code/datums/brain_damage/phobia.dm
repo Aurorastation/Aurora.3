@@ -50,7 +50,7 @@
 				if(is_type_in_typecache(T, trigger_turfs))
 					freak_out(T)
 					return
-				if((T.get_lumcount() <= 0.25) && phobia_type == "darkness") //probably snowflake but can't think of a better way without creating a new trauma type entirely
+				if((T.get_lumcount(0,1) <= 0.25) && phobia_type == "darkness") //probably snowflake but can't think of a better way without creating a new trauma type entirely
 					freak_out(T)
 					return
 
@@ -67,7 +67,7 @@
 				else if(ishuman(M)) //check their equipment for trigger items
 					var/mob/living/carbon/human/H = M
 
-					if(LAZYLEN(trigger_species) && H.dna && H.dna.species && is_type_in_typecache(H.dna.species, trigger_species) && H != owner)
+					if(LAZYLEN(trigger_species) && H.species && is_type_in_typecache(H.species, trigger_species) && H != owner)
 						freak_out(H)
 
 					for(var/X in H.contents)
@@ -102,13 +102,13 @@
 	else
 		to_chat(owner, "<span class='userdanger'>Something [message]!</span>")
 	var/reaction = rand(1,4)
+	owner.emote("scream")
 	switch(reaction)
 		if(1)
 			to_chat(owner, "<span class='warning'>You are paralyzed with fear!</span>")
-			owner.Stun(70)
-			owner.Jitter(8)
+			owner.Stun(15)
+			owner.Jitter(15)
 		if(2)
-			owner.emote("scream")
 			owner.Jitter(5)
 			owner.say("AAARRRGGGH!!")
 			if(reason)

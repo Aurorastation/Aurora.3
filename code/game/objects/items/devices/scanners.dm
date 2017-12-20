@@ -130,7 +130,7 @@ REAGENT SCANNER
 //		user.show_message("<span class='warning'>Subject suffering from aberrant brain activity. Recommend further scanning.</span>")
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if (H.getBrainLoss() >= BRAIN_DAMAGE_DEATH || !H.has_brain())
+		if (H.getBrainLoss() >= config.default_brain_health || !H.has_brain())
 			user.show_message("<span class='warning'>Subject is brain dead.</span>")
 		else if (H.getBrainLoss() >= 120)
 			to_chat(user, "\t<span class='alert'>Severe brain damage detected. Subject likely to have mental traumas.</span>")

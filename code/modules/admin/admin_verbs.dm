@@ -655,6 +655,10 @@ var/list/admin_verbs_cciaa = list(
 	var/list/traumas = subtypesof(/datum/brain_trauma)
 	var/result = input(usr, "Choose the brain trauma to apply","Traumatize") as null|anything in traumas
 	var/permanent = alert("Do you want to make the trauma unhealable?", "Permanently Traumatize", "Yes", "No")
+	if(permanent == "Yes")
+		permanent = TRUE
+	else
+		permanent = FALSE
 	if(!usr)
 		return
 	if(!C)
@@ -668,7 +672,7 @@ var/list/admin_verbs_cciaa = list(
 	if(C.ckey)
 		ceekeey = C.ckey
 
-	message_admins("<span class='notice'>[ckey] gave [C]([ceekeey]) [result] trauma.</span>")
+	message_admins("<span class='notice'>[ckey] gave [C]([ceekeey]) [result].</span>")
 	feedback_add_details("admin_verb","TB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/give_disease(mob/T as mob in mob_list) // -- Giacom

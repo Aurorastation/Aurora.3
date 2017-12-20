@@ -1633,11 +1633,8 @@
 /mob/living/carbon/human/proc/handle_brain_damage()
 	for(var/T in get_traumas())
 		var/datum/brain_trauma/BT = T
-		BT.on_life()
-
-	if(getBrainLoss() >= BRAIN_DAMAGE_DEATH) //rip
-		to_chat(src, "<span class='danger'>The last spark of life in your brain fizzles out...</span>")
-		death()
+		if(!BT.suppressed)
+			BT.on_life()
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

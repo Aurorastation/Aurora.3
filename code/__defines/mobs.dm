@@ -211,9 +211,8 @@
 #define MECHANICAL_SPECIES_SPECIAL 3	// HKs
 
 //Brain Damage defines
-#define BRAIN_DAMAGE_MILD 20
-#define BRAIN_DAMAGE_SEVERE 60
-#define BRAIN_DAMAGE_DEATH 200
+#define BRAIN_DAMAGE_MILD 10
+#define BRAIN_DAMAGE_SEVERE 40
 
 #define BRAIN_TRAUMA_MILD /datum/brain_trauma/mild
 #define BRAIN_TRAUMA_SEVERE /datum/brain_trauma/severe

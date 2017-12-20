@@ -6,7 +6,8 @@
 		src << "You are unable to emote."
 		return
 
-	message = handle_emote_problems(m_type,message)
+	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
+	if(m_type == 2 && muzzled) return
 
 	var/input
 	if(!message)
@@ -23,13 +24,6 @@
 		send_emote(message, m_type)
 		if (log_emote)
 			log_emote("[name]/[key] : [message]",ckey=key_name(key))
-
-/mob/proc/handle_emote_problems(var/m_type=1,var/message = null, var/log_emote = 1)
-	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
-	if(m_type == 2 && muzzled)
-		return
-	return message
-
 
 /mob/proc/emote_dead(var/message)
 
