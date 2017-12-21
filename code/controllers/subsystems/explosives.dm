@@ -382,13 +382,12 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		//															want each one to take up a third of the crater
 
 		if (T.simulated)
-			INVOKE_ASYNC(T, /atom/.proc/ex_act, severity)
 			T.ex_act(severity)
 		if (T.contents.len > !!T.lighting_overlay)
 			for (var/subthing in T)
 				var/atom/movable/AM = subthing
 				if (AM.simulated)
-					INVOKE_ASYNC(AM, /atom/.proc/ex_act, severity)
+					AM.ex_act(severity)
 					movable_tally++
 				CHECK_TICK
 		else
