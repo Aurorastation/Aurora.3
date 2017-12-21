@@ -1541,7 +1541,7 @@
 /mob/living/carbon/human/proc/get_traumas()
 	. = list()
 	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
-	if(B && species && species.has_organ["brain"] )
+	if(B && species && species.has_organ["brain"] && !isipc(src))
 		. = B.traumas
 
 /mob/living/carbon/human/proc/has_trauma_type(brain_trauma_type, consider_permanent = FALSE)
