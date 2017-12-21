@@ -66,6 +66,7 @@
 	gender = PLURAL
 	base_icon = 'icons/turf/smooth/ash.dmi'
 	base_icon_state = "ash"
+	footstep_sound = "sandstep"
 
 /turf/simulated/floor/asteroid/ash/rocky
 	name = "rocky ash"
@@ -73,3 +74,4 @@
 	base_icon_state = "rockyash"
 	base_icon = 'icons/turf/smooth/rocky_ash.dmi'
 	desc = "A fine grey ash. Seems to contain medium-sized rocks."
+	footstep_sound = "gravelstep"
