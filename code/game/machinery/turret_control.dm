@@ -180,9 +180,29 @@
 	TC.ailock = ailock
 
 	if(istype(control_area))
+		var/lethal_turret = 0 // To check if there is a lethal turret in the area.
+		var/carbine = 0
 		for (var/obj/machinery/porta_turret/aTurret in control_area)
+			// If turret only has lethal mode - lock switching modes
+			if(aTurret.egun == 0)
+				lethal_turret = 1
+				egun = 0
+			else
+				carbine = 1
 			aTurret.setState(TC)
-
+		// If there is a turret with lethal mode only, and turret with both modes. Scan for lethal turrets, and disable them.
+		if(carbine == 1 && lethal_turret == 1 && lethal == 0)
+			for (var/obj/machinery/porta_turret/bTurret in control_area)
+				if(bTurret.egun == 0)
+					TC.enabled = 0
+					bTurret.setState(TC)
+				else
+					bTurret.setState(TC)
+			egun = 1
+		else if(carbine == 1 && lethal_turret == 1 && lethal == 1)
+			for (var/obj/machinery/porta_turret/bTurret in control_area)
+				bTurret.setState(TC)
+			egun = 1
 	update_icon()
 
 /obj/machinery/turretid/power_change()
