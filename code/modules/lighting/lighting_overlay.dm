@@ -45,7 +45,7 @@
 
 /atom/movable/lighting_overlay/proc/update_overlay()
 	var/turf/T = loc
-	if (!istype(T)) // Erm...
+	if (!isturf(T)) // Erm...
 		if (loc)
 			warning("A lighting overlay realised its loc was NOT a turf (actual loc: [loc], [loc.type]) in update_overlay() and got deleted!")
 
@@ -92,7 +92,7 @@
 	else if (!luminosity)
 		icon_state = LIGHTING_DARKNESS_ICON_STATE
 		color = null
-	else if (ALL_EQUAL && rr == LIGHTING_DEFAULT_TUBE_R && rg == LIGHTING_DEFAULT_TUBE_G && rb == LIGHTING_DEFAULT_TUBE_B)
+	else if (rr == LIGHTING_DEFAULT_TUBE_R && rg == LIGHTING_DEFAULT_TUBE_G && rb == LIGHTING_DEFAULT_TUBE_B && ALL_EQUAL)
 		icon_state = LIGHTING_STATION_ICON_STATE
 		color = null
 	else
