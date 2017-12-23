@@ -1,0 +1,6 @@
+author: Alberyk
+delete-after: True
+changes: 
+  - rscadd: "Added more options to the loadout, such as colorable sweaters, flower pins and towels."
+  - rscadd: "Added more underwear options."
+  - rscadd: "Increased the total loadout points to ten."

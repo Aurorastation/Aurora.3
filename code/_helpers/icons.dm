@@ -553,6 +553,11 @@ proc/BlendHSV(hsv1, hsv2, amount)
 	amount<0 or amount>1 are allowed
  */
 proc/BlendRGB(rgb1, rgb2, amount)
+	var/cachekey = "[rgb1]_[rgb2]_[amount]"
+	. = SSicon_cache.rgb_blend_cache[cachekey]
+	if (.)
+		return
+
 	var/list/RGB1 = ReadRGB(rgb1)
 	var/list/RGB2 = ReadRGB(rgb2)
 
@@ -566,7 +571,8 @@ proc/BlendRGB(rgb1, rgb2, amount)
 	var/b = round(RGB1[3] + (RGB2[3] - RGB1[3]) * amount, 1)
 	var/alpha = usealpha ? round(RGB1[4] + (RGB2[4] - RGB1[4]) * amount, 1) : null
 
-	return isnull(alpha) ? rgb(r, g, b) : rgb(r, g, b, alpha)
+	. = isnull(alpha) ? rgb(r, g, b) : rgb(r, g, b, alpha)
+	SSicon_cache.rgb_blend_cache[cachekey] = .
 
 proc/BlendRGBasHSV(rgb1, rgb2, amount)
 	return HSVtoRGB(RGBtoHSV(rgb1), RGBtoHSV(rgb2), amount)

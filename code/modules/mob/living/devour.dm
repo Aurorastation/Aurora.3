@@ -132,11 +132,11 @@
 
 	src.visible_message("<span class='danger'>[src] starts devouring [victim]</span>","<span class='danger'>You start devouring [victim], this will take approximately [time_needed_string]. You and the victim must remain still to continue, but you can interrupt feeding anytime and leave with what you've already eaten.</span>")
 
-	for (var/i = 1 to num_bites_needed)
+	for (var/i = 0 to num_bites_needed)
 		if(do_mob(src, victim, bite_delay*10, extra_checks = CALLBACK(src, .proc/devouring_equals, victim)))
 			face_atom(victim)
-			victim.adjustCloneLoss(victim_maxhealth*PEPB)
-			victim.adjustHalLoss(victim_maxhealth*PEPB*5)//Being eaten hurts!
+			victim.apply_damage(victim_maxhealth*PEPB,HALLOSS)
+			victim.apply_damage(victim_maxhealth*PEPB*5,CLONE)
 			ingested.add_reagent(victim.composition_reagent, victim.composition_reagent_quantity*PEPB)
 			visible_message("<span class='danger'>[src] bites a chunk out of [victim]</span>","<span class='danger'>[bitemessage(victim)]</span>")
 			if (messes < victim.mob_size - 1 && prob(50))

@@ -233,6 +233,10 @@
 	harvest = 0
 	weedlevel += 1 * HYDRO_SPEED_MULTIPLIER
 	pestlevel = 0
+	if(prob(min(25,max(1,seed.get_trait(TRAIT_POTENCY/2)))))
+		if(seed.get_trait(TRAIT_SPOROUS))
+			seed.create_spores(get_turf(src))
+			visible_message("<span class='danger'>\The [src] releases its spores!</span>")
 
 //Process reagents being input into the tray.
 /obj/machinery/portable_atmospherics/hydroponics/proc/process_reagents()
@@ -301,6 +305,9 @@
 	else
 		seed.harvest(get_turf(src),yield_mod)
 	// Reset values.
+	if(seed.get_trait(TRAIT_SPOROUS))
+		seed.create_spores(get_turf(src))
+		visible_message("<span class='danger'>\The [src] releases its spores!</span>")
 	harvest = 0
 	lastproduce = age
 

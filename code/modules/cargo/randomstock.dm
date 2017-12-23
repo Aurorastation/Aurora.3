@@ -546,9 +546,9 @@ var/list/global/random_stock_large = list(
 				new /obj/item/weapon/storage/box/lights/coloredmixed(L)
 			if (prob(15))
 				var/type = pick(list(
-					/obj/item/weapon/storage/box/lights/colored/red, 
-					/obj/item/weapon/storage/box/lights/colored/green, 
-					/obj/item/weapon/storage/box/lights/colored/blue, 
+					/obj/item/weapon/storage/box/lights/colored/red,
+					/obj/item/weapon/storage/box/lights/colored/green,
+					/obj/item/weapon/storage/box/lights/colored/blue,
 					/obj/item/weapon/storage/box/lights/colored/cyan,
 					/obj/item/weapon/storage/box/lights/colored/yellow,
 					/obj/item/weapon/storage/box/lights/colored/magenta
@@ -691,6 +691,7 @@ var/list/global/random_stock_large = list(
 			/obj/item/clothing/gloves/black/fluff/kathleen_glove)
 			exclusion += typesof(/obj/item/clothing/gloves/rig)
 			exclusion += typesof(/obj/item/clothing/gloves/lightrig)
+			exclusion += typesof(/obj/item/clothing/gloves/watch)
 			allgloves -= exclusion
 			var/number = rand(1,5)
 			while (number > 0)
@@ -1073,7 +1074,7 @@ var/list/global/random_stock_large = list(
 		if("chempack")
 			var/total = rand(2,6)
 			var/list/chems = chemical_reagents_list.Copy()
-			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2")
+			var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor")
 			chems -= exclusion
 			for (var/i=0,i<total,i++)
 				var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = new /obj/item/weapon/reagent_containers/chem_disp_cartridge(L)

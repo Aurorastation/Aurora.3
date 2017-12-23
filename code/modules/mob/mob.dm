@@ -479,7 +479,12 @@
 
 	announce_ghost_joinleave(client, 0)
 
+	// Run this here to null out death timers for the next go.
+
 	var/mob/new_player/M = new /mob/new_player()
+
+	M.reset_death_timers()
+
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.",ckey=key_name(usr))
 		qdel(M)
@@ -1168,14 +1173,14 @@ mob/proc/yank_out_object()
 		set_dir(dir)
 		facing_dir = dir
 
-/mob/set_dir()
+/mob/set_dir(ndir)
 	if(facing_dir)
 		if(!canface() || lying || buckled || restrained())
 			facing_dir = null
 		else if(dir != facing_dir)
 			return ..(facing_dir)
 	else
-		return ..()
+		return ..(ndir)
 
 /mob/forceMove(atom/dest)
 	var/atom/movable/AM

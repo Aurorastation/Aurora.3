@@ -55,23 +55,26 @@
 	)
 	var/list/forced_ambience = null
 	var/sound_env = STANDARD_STATION
-	var/turf/base_turf//The base turf type of the area, which can be used to override the z-level's base turf
+	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
 	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
 	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
 	var/station_area = 0
 	var/centcomm_area = 0
 	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
 
-// Don't move this to Initialize(). DMMS needs this, and it runs before SSatoms does.
+// Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
+	// DMMS hook - Required for areas to work properly.
 	if (!areas_by_type[type])
 		areas_by_type[type] = src
+	// Atmos code needs this, so we need to make sure this is done by the time they init.
+	uid = ++global_uid
 	. = ..()
 
 /area/Initialize(mapload)
 	icon_state = "white"
 	layer = 10
-	uid = ++global_uid
+
 	blend_mode = BLEND_MULTIPLY
 
 	if(!requires_power)
@@ -211,7 +214,7 @@
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
 /area/update_icon()
-	if ((fire || eject || party) && (!requires_power||power_environ) && !istype(src, /area/space))//If it doesn't require power, can still activate this proc.
+	if ((fire || eject || party) && (!requires_power||power_environ) && !istype(src, /area/space)) //If it doesn't require power, can still activate this proc.
 		if(fire && !eject && !party)		// FIRE
 			color = "#ff9292"
 			animate(src)	// stop any current animations.
