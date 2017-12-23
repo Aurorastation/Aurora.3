@@ -28,8 +28,7 @@
 	set waitfor = FALSE
 	var/datum/ghosttrap/G = get_ghost_trap("friend")
 	G.request_player(friend, "Would you like to play as [owner]'s imaginary friend?", 60 SECONDS)
-	spawn(60 SECONDS)
-		reset_search()
+	addtimer(CALLBACK(src, .proc/reset_search), 60 SECONDS)
 
 /datum/brain_trauma/special/imaginary_friend/proc/reset_search()
 	if(src.friend && src.friend.key)
