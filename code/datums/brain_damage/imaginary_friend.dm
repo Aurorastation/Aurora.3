@@ -72,7 +72,7 @@
 		owner.client.images.Remove(current_image)
 	if(client)
 		client.images.Remove(current_image)
-	current_image = image(human_image, src, , MOB_LAYER, dir=src.dir)
+	current_image = image(human_image, src, null, MOB_LAYER)
 	current_image.override = TRUE
 	current_image.name = name
 	if(owner.client)
@@ -91,7 +91,6 @@
 	if(!client) //don't bother the user with a braindead ghost every few steps
 		return
 	forceMove(get_turf(owner))
-	Show()
 
 /mob/living/mental/friend/say(message)
 	if (!message)
@@ -126,7 +125,6 @@
 	if(get_dist(src, owner) > 9)
 		yank()
 		return TRUE
-	Show()
 	return TRUE
 
 /mob/living/mental/friend/movement_delay()
