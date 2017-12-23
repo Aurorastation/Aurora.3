@@ -11,6 +11,7 @@
 	nanomodule_path = /datum/nano_module/program/computer_aidiag/
 	var/restoring = 0
 	color = LIGHT_COLOR_PURPLE
+	usage_flags = PROGRAM_CONSOLE
 
 /datum/computer_file/program/aidiag/proc/get_ai()
 	if(computer && computer.ai_slot && computer.ai_slot.check_functionality() && computer.ai_slot.enabled && computer.ai_slot.stored_card && computer.ai_slot.stored_card.carded_ai)

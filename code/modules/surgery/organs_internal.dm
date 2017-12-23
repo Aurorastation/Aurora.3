@@ -403,3 +403,4 @@
 
 //	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 //		return ..() && target.op_stage.ribcage == 2
+

@@ -1,0 +1,18 @@
+<div class='itemGroup'>
+	{{for data.contents}}
+		<div class='item'>
+			<div class='itemLabelNarrow'>{{:value.name}}</div>
+			<div class='itemContentSmall'>{{:value.amount}}</div>
+			<div class='floatRight'>{{:helper.link('Eject', 'eject', {'release_stack' : value.path})}}</div>
+		</div>
+	{{empty}}
+		No materials loaded.
+	{{/for}}
+</div>
+<div class='statusDisplay'>
+	<div class='line'>
+		<div class='statusLabel'>Stacking:</div>
+		<div class='statusValue'>{{:data.stack_amt}}</div>
+		<div class='floatRight'>{{:helper.link('Change', 'wrench', {'change_stack' : 1})}}</div>
+	</div>
+</div>

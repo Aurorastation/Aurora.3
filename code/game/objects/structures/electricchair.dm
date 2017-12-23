@@ -33,6 +33,7 @@
 		icon_state = "echair0"
 	else
 		on = 1
+		shock()
 		icon_state = "echair1"
 	usr << "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>"
 	return

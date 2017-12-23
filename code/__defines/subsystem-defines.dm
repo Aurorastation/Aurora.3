@@ -86,3 +86,7 @@
 
 // Connection prefixes for player-editable fields
 #define WP_ELECTRONICS "elec_"
+
+
+// -- SSicon_cache --
+#define LIGHT_FIXTURE_CACHE(icon,state,color) SSicon_cache.light_fixture_cache["[icon]_[state]_[color]"] || (SSicon_cache.light_fixture_cache["[icon]_[state]_[color]"] = SSicon_cache.generate_color_variant(icon,state,color))

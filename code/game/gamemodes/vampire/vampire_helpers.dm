@@ -76,7 +76,7 @@
 	if (!mind.vampire)
 		return 0
 
-	if ((mind.vampire.status & VAMP_FULLPOWER) && !(T.mind.vampire && (T.mind.vampire.status & VAMP_FULLPOWER)))
+	if ((mind.vampire.status & VAMP_FULLPOWER) && !(T.mind && T.mind.vampire && (T.mind.vampire.status & VAMP_FULLPOWER)))
 		return 1
 
 	if (T.mind)
@@ -95,7 +95,8 @@
 		return 0
 
 	if(is_special_character(T) && (!(T.mind.vampire.status & VAMP_ISTHRALL)))
-		user << "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>"
+		if (notify)
+			to_chat(src, "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>")
 		return 0
 
 	if (account_loyalty_implant)
@@ -179,12 +180,8 @@
 
 		if (next_alert && message)
 			if (!vampire.last_frenzy_message || vampire.last_frenzy_message + next_alert < world.time)
-				to_chat(usr, message)
+				to_chat(src, message)
 				vampire.last_frenzy_message = world.time
-
-	// Remove one point per every life() tick.
-	if (vampire.frenzy > 0)
-		vampire.frenzy--
 
 /mob/proc/vampire_start_frenzy(var/force_frenzy = 0)
 	var/datum/vampire/vampire = mind.vampire
@@ -243,6 +240,10 @@
 
 	if (mind.vampire.blood_usable < 10)
 		mind.vampire.frenzy += 2
+	else if (mind.vampire.frenzy > 0)
+		mind.vampire.frenzy = max(0, mind.vampire.frenzy -= Clamp(mind.vampire.blood_usable * 0.1, 1, 10))
+
+	mind.vampire.frenzy = min(mind.vampire.frenzy, 450)
 
 	vampire_check_frenzy()
 
