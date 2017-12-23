@@ -26,15 +26,21 @@
 	var/turf/T
 	CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
 
-/proc/make_ao_image(corner, i)
+/proc/make_ao_image(corner, i, px = 0, py = 0, pz = 0, pw = 0)
 	var/list/cache = SSicon_cache.ao_cache
 	var/cstr = "[corner]"
-	var/key = "[cstr]-[i]"
+	var/key = "[cstr]-[i]-[px]/[py]/[pz]/[pw]"
 
 	var/image/I = image('icons/turf/flooring/shadows.dmi', cstr, dir = 1 << (i-1))
 	I.alpha = WALL_AO_ALPHA
 	I.blend_mode = BLEND_OVERLAY
 	I.appearance_flags = RESET_ALPHA|RESET_COLOR|TILE_BOUND
+	// If there's an offset, counteract it.
+	if (px || py || pz || pw)
+		I.pixel_x = -px
+		I.pixel_y = -py
+		I.pixel_z = -pz
+		I.pixel_w = -pw
 
 	. = cache[key] = I
 
@@ -71,22 +77,11 @@
 				corner |= 4
 
 			if (corner != 7)	// 7 is the 'no shadows' state, no reason to add overlays for it.
-				var/image/I = cache["[corner]-[i]"]
+				var/image/I = cache["[corner]-[i]-[pixel_x]/[pixel_y]/[pixel_z]/[pixel_w]"]
 				if (!I)
-					I = make_ao_image(corner, i)	// this will also add the image to the cache.
+					I = make_ao_image(corner, i, pixel_x, pixel_y, pixel_z, pixel_w)	// this will also add the image to the cache.
 
-				if (!pixel_x && !pixel_y && !pixel_w && !pixel_z)	// We can only use the cache if we're not shifting.
-					LAZYADD(ao_overlays, I)
-				else
-					// There's a pixel var set, so we're going to need to make a new instance just for this type.
-					var/mutable_appearance/MA = new(I)
-					// We invert the offsets here to counteract the pixel shifting of the parent turf.
-					MA.pixel_x = -(pixel_x)
-					MA.pixel_y = -(pixel_y)
-					MA.pixel_w = -(pixel_w)
-					MA.pixel_z = -(pixel_z)
-
-					LAZYADD(ao_overlays, MA)
+				LAZYADD(ao_overlays, I)
 
 	UNSETEMPTY(ao_overlays)
 

@@ -18,6 +18,25 @@
 	*/
 	var/list/sprite_sheets_refit = null
 
+	//material things
+	var/material/material = null
+	var/applies_material_color = TRUE
+	var/unbreakable = FALSE
+	var/default_material = null // Set this to something else if you want material attributes on init.
+	var/material_armor_modifer = 1 // Adjust if you want seperate types of armor made from the same material to have different protectiveness (e.g. makeshift vs real armor)
+
+
+/obj/item/clothing/Initialize(var/mapload, var/material_key)
+	. = ..(mapload)
+	if(!material_key)
+		material_key = default_material
+	if(material_key) // May still be null if a material was not specified as a default.
+		set_material(material_key)
+
+/obj/item/clothing/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
 //Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/clothing/proc/update_clothing_icon()
 	return
@@ -102,6 +121,124 @@
 		icon = sprite_sheets_obj[target_species]
 	else
 		icon = initial(icon)
+
+//material related procs
+
+/obj/item/clothing/get_material()
+	return material
+
+/obj/item/clothing/proc/set_material(var/new_material)
+	material = get_material_by_name(new_material)
+	if(!material)
+		qdel(src)
+	else
+		name = "[material.display_name] [initial(name)]"
+		health = round(material.integrity/10)
+		if(applies_material_color)
+			color = material.icon_colour
+		if(material.products_need_process())
+			START_PROCESSING(SSprocessing, src)
+		update_armor()
+
+// This is called when someone wearing the object gets hit in some form (melee, bullet_act(), etc).
+// Note that this cannot change if someone gets hurt, as it merely reacts to being hit.
+/obj/item/clothing/proc/clothing_impact(var/obj/source, var/damage)
+	if(material && damage)
+		material_impact(source, damage)
+
+/obj/item/clothing/proc/material_impact(var/obj/source, var/damage)
+	if(!material || unbreakable)
+		return
+
+	if(istype(source, /obj/item/projectile))
+		var/obj/item/projectile/P = source
+		if(P.pass_flags & PASSGLASS)
+			if(material.opacity - 0.3 <= 0)
+				return // Lasers ignore 'fully' transparent material.
+
+	if(material.is_brittle())
+		health = 0
+	else if(!prob(material.hardness))
+		health--
+
+	if(health <= 0)
+		shatter()
+
+/obj/item/clothing/proc/shatter()
+	if(!material)
+		return
+	var/turf/T = get_turf(src)
+	T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
+	if(istype(loc, /mob/living))
+		var/mob/living/M = loc
+		M.drop_from_inventory(src)
+		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
+			var/obj/item/weapon/material/shard/S = material.place_shard(T)
+			M.embed(S)
+
+	playsound(src, "shatter", 70, 1)
+	qdel(src)
+
+/obj/item/clothing/suit/armor/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(!material) // No point checking for reflection.
+		return ..()
+
+	if(material.reflectivity)
+		if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
+			var/obj/item/projectile/P = damage_source
+
+			var/reflectchance = 40 - round(damage/3)
+			if(!(def_zone in list("chest", "groin")))
+				reflectchance /= 2
+			if(P.starting && prob(reflectchance))
+				visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+
+				// Find a turf near or on the original location to bounce to
+				var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+				var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+				var/turf/curloc = get_turf(user)
+
+				// redirect the projectile
+				P.redirect(new_x, new_y, curloc, user)
+
+				return PROJECTILE_CONTINUE // complete projectile permutation
+
+/proc/calculate_material_armor(amount)
+	var/result = 1 - MATERIAL_ARMOR_COEFFICENT * amount / (1 + MATERIAL_ARMOR_COEFFICENT * abs(amount))
+	result = result * 100
+	result = abs(result - 100)
+	return round(result)
+
+
+/obj/item/clothing/proc/update_armor()
+	if(material)
+		var/melee_armor = 0, bullet_armor = 0, laser_armor = 0, energy_armor = 0, bomb_armor = 0
+
+		melee_armor = calculate_material_armor(material.protectiveness * material_armor_modifer)
+
+		bullet_armor = calculate_material_armor((material.protectiveness * (material.hardness / 100) * material_armor_modifer) * 0.7)
+
+		laser_armor = calculate_material_armor((material.protectiveness * (material.reflectivity + 1) * material_armor_modifer) * 0.7)
+		if(material.opacity != 1)
+			laser_armor *= max(material.opacity - 0.3, 0) // Glass and such has an opacity of 0.3, but lasers should go through glass armor entirely.
+
+		energy_armor = calculate_material_armor((material.protectiveness * material_armor_modifer) * 0.4)
+
+		bomb_armor = calculate_material_armor((material.protectiveness * material_armor_modifer) * 0.5)
+
+		// Makes sure the numbers stay capped.
+		for(var/number in list(melee_armor, bullet_armor, laser_armor, energy_armor, bomb_armor))
+			number = between(0, number, 100)
+
+		armor["melee"] = melee_armor
+		armor["bullet"] = bullet_armor
+		armor["laser"] = laser_armor
+		armor["energy"] = energy_armor
+		armor["bomb"] = bomb_armor
+
+		if(!isnull(material.conductivity))
+			siemens_coefficient = between(0, material.conductivity / 10, 10)
+		slowdown = between(0, round(material.weight / 10, 0.1), 6)
 
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects

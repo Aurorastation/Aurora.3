@@ -162,7 +162,7 @@
 	if(wrapped) //Already have an item.
 		return//This is handled in /mob/living/silicon/robot/GripperClickOn
 
-	else if (istype(target, /obj/item/weapon/storage) && !istype(target, /obj/item/weapon/storage/secure))
+	else if (istype(target, /obj/item/weapon/storage) && !istype(target, /obj/item/weapon/storage/pill_bottle) && !istype(target, /obj/item/weapon/storage/secure))
 		for (var/obj/item/C in target.contents)
 			if (grip_item(C, user, 0))
 				user << "You grab the [C] from inside the [target.name]."

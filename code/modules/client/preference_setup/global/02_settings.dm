@@ -10,7 +10,7 @@
 	S["motd_hash"]        >> pref.motd_hash
 	S["memo_hash"]        >> pref.memo_hash
 	S["parallax_speed"]   >> pref.parallax_speed
-	S["parallax_toggles"] >> pref.parallax_togs
+	S["toggles_secondary"] >> pref.toggles_secondary
 
 /datum/category_item/player_setup_item/player_global/settings/save_preferences(var/savefile/S)
 	S["lastchangelog"]    << pref.lastchangelog
@@ -20,7 +20,7 @@
 	S["motd_hash"]        << pref.motd_hash
 	S["memo_hash"]        << pref.memo_hash
 	S["parallax_speed"]   << pref.parallax_speed
-	S["parallax_toggles"] << pref.parallax_togs
+	S["toggles_secondary"] << pref.toggles_secondary
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
 	return list(
@@ -32,9 +32,9 @@
 				"asfx_togs",
 				"lastmotd" = "motd_hash",
 				"lastmemo" = "memo_hash",
-				"parallax_toggles" = "parallax_togs",
+				"toggles_secondary" = "toggles_secondary",
 				"parallax_speed"
-			), 
+			),
 			"args" = list("ckey")
 		)
 	)
@@ -66,7 +66,7 @@
 		"asfx_togs" = pref.asfx_togs,
 		"lastmotd" = pref.motd_hash,
 		"lastmemo" = pref.memo_hash,
-		"parallax_toggles" = pref.parallax_togs,
+		"toggles_secondary" = pref.toggles_secondary,
 		"parallax_speed" = pref.parallax_speed
 	)
 
@@ -81,7 +81,7 @@
 	pref.motd_hash      = sanitize_text(pref.motd_hash, initial(pref.motd_hash))
 	pref.memo_hash      = sanitize_text(pref.memo_hash, initial(pref.memo_hash))
 	pref.parallax_speed = sanitize_integer(text2num(pref.parallax_speed), 1, 10, initial(pref.parallax_speed))
-	pref.parallax_togs  = sanitize_integer(text2num(pref.parallax_togs), 0, 65535, initial(pref.parallax_togs))
+	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, 65535, initial(pref.toggles_secondary))
 
 /datum/category_item/player_setup_item/player_global/settings/content(mob/user)
 	var/list/dat = list(
@@ -90,10 +90,10 @@
 		"<b>Ghost ears:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTEARS]'><b>[(pref.toggles & CHAT_GHOSTEARS) ? "All Speech" : "Nearest Creatures"]</b></a><br>",
 		"<b>Ghost sight:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTSIGHT]'><b>[(pref.toggles & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</b></a><br>",
 		"<b>Ghost radio:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTRADIO]'><b>[(pref.toggles & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>",
-		"<b>Space Parallax:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_SPACE]'><b>[(pref.parallax_togs & PARALLAX_SPACE) ? "Yes" : "No"]</b></a><br>",
-		"<b>Space Dust:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_DUST]'><b>[(pref.parallax_togs & PARALLAX_DUST) ? "Yes" : "No"]</b></a><br>",
-		"<b>Progress Bars:</b> <a href='?src=\ref[src];paratoggle=[PROGRESS_BARS]'><b>[(pref.parallax_togs & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
-		"<b>Static Space:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_IS_STATIC]'><b>[(pref.parallax_togs & PARALLAX_IS_STATIC) ? "Yes" : "No"]</b></a><br>"
+		"<b>Space Parallax:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_SPACE]'><b>[(pref.toggles_secondary & PARALLAX_SPACE) ? "Yes" : "No"]</b></a><br>",
+		"<b>Space Dust:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_DUST]'><b>[(pref.toggles_secondary & PARALLAX_DUST) ? "Yes" : "No"]</b></a><br>",
+		"<b>Progress Bars:</b> <a href='?src=\ref[src];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
+		"<b>Static Space:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_IS_STATIC]'><b>[(pref.toggles_secondary & PARALLAX_IS_STATIC) ? "Yes" : "No"]</b></a><br>"
 	)
 
 	. = dat.Join()
@@ -111,7 +111,7 @@
 
 	if(href_list["paratoggle"])
 		var/flag = text2num(href_list["paratoggle"])
-		pref.parallax_togs ^= flag
+		pref.toggles_secondary ^= flag
 		return TOPIC_REFRESH
 
 	return ..()
