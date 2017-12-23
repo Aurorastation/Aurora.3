@@ -816,6 +816,11 @@
 					Turret.egun = E.can_switch_modes
 					Turret.sprite_set = E.turret_sprite_set
 					Turret.lethal_icon = E.turret_is_lethal
+					// Check if gun has wielded delay, turret will have same fire rate as the gun.
+					if(E.fire_delay_wielded > 0)
+						Turret.shot_delay = E.fire_delay_wielded
+					else
+						Turret.shot_delay = E.fire_delay
 
 					Turret.cover_set = case_sprite_set
 					Turret.icon_state = "cover_[case_sprite_set]"
