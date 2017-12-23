@@ -377,7 +377,8 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/view_duty_log,
 	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history,
-	/client/proc/aooc
+	/client/proc/aooc,
+	/client/proc/check_antagonists
 )
 
 /client/proc/add_admin_verbs()
@@ -1123,7 +1124,7 @@ var/list/admin_verbs_cciaa = list(
 
 	SSsunlight.apply_sun_state(S)
 	log_and_message_admins("has set the sun state to '[S]'.")
-#else 
+#else
 /client/proc/apply_sunstate()
 	set hidden = TRUE
 

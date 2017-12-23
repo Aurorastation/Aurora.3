@@ -709,9 +709,10 @@ var/datum/controller/subsystem/cargo/SScargo
 	//Shuttle is loaded now - Charge cargo for it
 	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchase)
 
-	//Now calculate the aliquot shipment cost for the orders and add it to each order
-	var/aliquot_shipment_cost = current_shipment.shuttle_fee / current_shipment.orders.len
-	for(var/datum/cargo_order/co in current_shipment.orders)
-		co.partial_shipment_fee = aliquot_shipment_cost
+	if(current_shipment.orders.len)
+		//Now calculate the aliquot shipment cost for the orders and add it to each order
+		var/aliquot_shipment_cost = current_shipment.shuttle_fee / current_shipment.orders.len
+		for(var/datum/cargo_order/co in current_shipment.orders)
+			co.partial_shipment_fee = aliquot_shipment_cost
 
 	return 1
