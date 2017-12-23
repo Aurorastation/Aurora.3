@@ -25,10 +25,6 @@ var/list/global_webhooks = list()
 	else
 		var/DBQuery/query = dbcon.NewQuery("SELECT url, tags, mention FROM ss13_webhooks")
 		query.Execute()
-
-		if (query.ErrorMsg())
-			return 0
-
 		while (query.NextRow())
 			var/url = query.item[1]
 			var/list/tags = splittext(query.item[2], ";")
