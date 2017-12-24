@@ -95,7 +95,7 @@
 		return
 
 /mob/living/simple_animal/hostile/commanded/dog/amaskan
-	desc = "A dog trained to listen and obey its owner commands, this one is an amaskan."
+	desc = "A dog trained to listen and obey its owner commands, this one is a Tamaskan."
 
 	icon_state = "amaskan"
 	icon_living = "amaskan"

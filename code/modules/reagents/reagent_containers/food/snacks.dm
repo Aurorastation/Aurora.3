@@ -4413,8 +4413,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/koiskebab1/Initialize()
 	. = ..()
-	reagents.add_reagent("koispaste", 6)
-	reagents.add_reagent("phoron", 9)
+	reagents.add_reagent("koispaste", 8)
+	reagents.add_reagent("phoron", 12)
 	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/koiskebab1/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -4434,7 +4434,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/koiskebab2/Initialize()
 	. = ..()
 	reagents.add_reagent("koispaste", 12)
-	reagents.add_reagent("phoron", 12)
+	reagents.add_reagent("phoron", 16)
 	bitesize = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/koiskebab2/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -4453,8 +4453,8 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/koiskebab3/Initialize()
 	. = ..()
-	reagents.add_reagent("koispaste", 18)
-	reagents.add_reagent("phoron", 15)
+	reagents.add_reagent("koispaste", 16)
+	reagents.add_reagent("phoron", 20)
 	bitesize = 9
 
 /obj/item/weapon/reagent_containers/food/snacks/koissoup
@@ -4467,7 +4467,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/koissoup/Initialize()
 	. = ..()
 	reagents.add_reagent("koispaste", 15)
-	reagents.add_reagent("phoron", 10)
+	reagents.add_reagent("phoron", 15)
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/koiswaffles
@@ -4480,7 +4480,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/koiswaffles/Initialize()
 	. = ..()
 	reagents.add_reagent("koispaste", 25)
-	reagents.add_reagent("phoron", 12)
+	reagents.add_reagent("phoron", 15)
 	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/koisjelly
@@ -4493,7 +4493,7 @@
 	. = ..()
 	reagents.add_reagent("koispaste", 25)
 	reagents.add_reagent("imidazoline", 20)
-	reagents.add_reagent("phoron", 20)
+	reagents.add_reagent("phoron", 25)
 	bitesize = 5
 
 //unathi snacks - sprites by Araskael

@@ -122,15 +122,16 @@
 		if (depth > OPENTURF_MAX_DEPTH)
 			depth = OPENTURF_MAX_DEPTH
 
-		var/target_plane
+		var/oo_target = OPENTURF_MAX_PLANE - depth
+		var/t_target
 
 		// Handle space parallax & starlight.
 		if (T.is_above_space())
-			target_plane = PLANE_SPACE_BACKGROUND
+			t_target = PLANE_SPACE_BACKGROUND
 			if (starlight_enabled && !T.light_range)
 				T.set_light(config.starlight, 0.5)
 		else
-			target_plane = OPENTURF_MAX_PLANE - depth
+			t_target = oo_target
 			if (starlight_enabled && T.light_range)
 				T.set_light(0)
 
@@ -142,15 +143,16 @@
 			TO.appearance = T.below
 			TO.name = T.name
 			T.desc = TO.desc = "Below seems to be \a [T.below]."
-			TO.plane = target_plane
+			TO.plane = t_target
 		else
 			// This openturf doesn't care about its icon, so we can just overwrite it.
 			if (T.below.bound_overlay)
 				QDEL_NULL(T.below.bound_overlay)
 			T.appearance = T.below
 			T.name = initial(T.name)
+			T.gender = NEUTER
 			T.opacity = FALSE
-			T.plane = target_plane
+			T.plane = t_target
 
 		T.desc = "Below seems to be \a [T.below]."
 		T.queue_ao()	// No need to recalculate ajacencies, shouldn't have changed.
@@ -162,7 +164,7 @@
 				// Don't queue deleted stuff or stuff that doesn't need an overlay.
 				continue
 
-			if (istype(object, /atom/movable/lighting_overlay))	// Special case.
+			if (object.type == /atom/movable/lighting_overlay)	// Special case.
 				T.shadower.copy_lighting(object)
 			else
 				if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
@@ -172,7 +174,7 @@
 				var/atom/movable/openspace/overlay/OO = object.bound_overlay
 
 				// Cache our already-calculated depth so we don't need to re-calculate it a bunch of times.
-				OO.depth = target_plane
+				OO.depth = oo_target
 
 				queued_overlays += OO
 

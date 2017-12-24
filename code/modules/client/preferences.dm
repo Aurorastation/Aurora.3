@@ -126,7 +126,7 @@ datum/preferences
 
 	// SPAAAACE
 	var/parallax_speed = 2
-	var/parallax_togs = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS
+	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
@@ -141,6 +141,8 @@ datum/preferences
 	var/datum/category_collection/player_setup_collection/player_setup
 
 	var/dress_mob = TRUE
+
+
 
 /datum/preferences/New(client/C)
 	new_setup()
