@@ -37,6 +37,7 @@ before_script:
   - ./install-flyway.sh
 
 script:
+  - export LD_LIBRARY_PATH=./
   - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test
   - shopt -s globstar
   - (! grep 'step_[xy]' maps/**/*.dmm)
