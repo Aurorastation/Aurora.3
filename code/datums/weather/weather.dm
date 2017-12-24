@@ -51,7 +51,7 @@
 	var/end_sound
 	var/end_overlay
 
-	var/area_type = /area/admin //Types of area to affect
+	var/area_type
 	var/list/impacted_areas = list() //Areas to be affected by the weather, calculated when the weather begins
 	var/list/protected_areas = list()//Areas that are protected and excluded from the affected areas.
 	var/target_z = 1
