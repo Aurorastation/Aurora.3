@@ -429,7 +429,7 @@
 	color = "#ffff40"
 	scannable = 1
 	metabolism = REM * 0.25
-	taste_description = "bolted fire"
+	taste_description = "bottled fire"
 	var/datum/modifier/modifier
 
 /datum/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed)
