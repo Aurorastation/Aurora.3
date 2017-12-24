@@ -7407,12 +7407,10 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -7584,7 +7582,6 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -7670,7 +7667,6 @@
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/wallet,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -7886,7 +7882,6 @@
 "asJ" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -8006,7 +8001,6 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -8034,7 +8028,6 @@
 "ata" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -13285,6 +13278,7 @@
 	opacity = 1;
 	req_access = list(101)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -13381,6 +13375,14 @@
 /area/centcom/holding)
 "aDM" = (
 /obj/item/modular_computer/console/preset/command,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -13452,6 +13454,10 @@
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals North";
 	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -13620,6 +13626,10 @@
 /area/centcom/holding)
 "aEr" = (
 /obj/structure/banner,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
@@ -13630,6 +13640,7 @@
 	name = "Escape Shuttle Cockpit";
 	req_access = list(19)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aEt" = (
@@ -14052,21 +14063,34 @@
 	},
 /area/centcom/ferry)
 "aFs" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	dir = 9;
 	icon_state = "carpetside"
 	},
 /area/centcom/holding)
 "aFt" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "carpetside"
 	},
 /area/centcom/holding)
 "aFu" = (
-/obj/structure/bed/chair/comfy/brown,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	dir = 5;
 	icon_state = "carpetside"
@@ -14089,6 +14113,10 @@
 "aFx" = (
 /obj/structure/bed/chair{
 	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "greencorner";
@@ -14186,18 +14214,28 @@
 /turf/simulated/shuttle/floor,
 /area/shuttle/transport1/centcom)
 "aFI" = (
+/obj/item/weapon/xmasgift/small{
+	pixel_x = 10;
+	pixel_y = -5
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "carpetside"
 	},
 /area/centcom/holding)
 "aFJ" = (
+/obj/structure/flora/tree/pine/xmas,
 /turf/unsimulated/floor{
 	dir = 2;
 	icon_state = "carpetsymbol"
 	},
 /area/centcom/holding)
 "aFK" = (
+/obj/item/weapon/xmasgift/medium,
 /turf/unsimulated/floor{
 	dir = 4;
 	icon_state = "carpetside"
@@ -14275,8 +14313,17 @@
 /turf/simulated/shuttle/plating,
 /area/shuttle/transport1/centcom)
 "aFR" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
+/obj/item/weapon/xmasgift/medium{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/weapon/xmasgift/small{
+	pixel_x = 16;
+	pixel_y = 0
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	dir = 10;
@@ -14284,8 +14331,9 @@
 	},
 /area/centcom/holding)
 "aFS" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
+/obj/item/weapon/xmasgift/large{
+	pixel_x = 0;
+	pixel_y = 10
 	},
 /turf/unsimulated/floor{
 	dir = 2;
@@ -14293,8 +14341,17 @@
 	},
 /area/centcom/holding)
 "aFT" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
+/obj/item/weapon/xmasgift/small{
+	pixel_x = -10;
+	pixel_y = -2
+	},
+/obj/item/weapon/xmasgift/small{
+	pixel_x = -2;
+	pixel_y = 7
+	},
+/obj/item/weapon/xmasgift/small{
+	pixel_x = -12;
+	pixel_y = 12
 	},
 /turf/unsimulated/floor{
 	dir = 6;
@@ -14304,6 +14361,10 @@
 "aFU" = (
 /obj/structure/bed/chair{
 	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "greencorner"
@@ -14330,15 +14391,6 @@
 	},
 /area/centcom/holding)
 "aFX" = (
-/obj/structure/table/woodentable{
-	dir = 5
-	},
-/obj/item/weapon/flame/lighter/zippo,
-/obj/item/weapon/storage/fancy/cigarettes,
-/obj/item/weapon/material/ashtray/bronze{
-	pixel_x = -1;
-	pixel_y = 1
-	},
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Bar East";
 	dir = 4
@@ -14364,6 +14416,10 @@
 "aFZ" = (
 /obj/structure/bed/chair{
 	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "greencorner";
@@ -14403,7 +14459,6 @@
 /area/centcom/holding)
 "aGe" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -14442,6 +14497,10 @@
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals South";
 	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -14578,6 +14637,10 @@
 /area/centcom/holding)
 "aGx" = (
 /obj/machinery/vending/coffee,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 8
@@ -14718,6 +14781,10 @@
 /area/centcom/holding)
 "aGL" = (
 /obj/machinery/vending/cigarette,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 10
@@ -14909,6 +14976,7 @@
 	name = "Escape Shuttle Infirmary";
 	req_access = list(5)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -15313,6 +15381,7 @@
 	opacity = 1;
 	req_access = list(109)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -16448,7 +16517,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -17032,6 +17100,7 @@
 /obj/machinery/door/airlock/centcom{
 	name = "To: Arrivals Deck"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aLF" = (
@@ -17101,12 +17170,20 @@
 /area/shuttle/arrival/centcom)
 "aLN" = (
 /obj/structure/closet/emcloset,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/arrival/centcom)
 "aLO" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Arrivals Shuttle"
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/arrival/centcom)
@@ -18066,6 +18143,7 @@
 /obj/machinery/door/airlock/centcom{
 	name = "To: NMSS Odin Hab Complex"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNP" = (
@@ -18349,6 +18427,7 @@
 	opacity = 1;
 	req_access = list(109)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -18368,6 +18447,7 @@
 	opacity = 1;
 	req_access = newlist()
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -18770,6 +18850,10 @@
 "aPv" = (
 /obj/structure/flora/pottedplant/random{
 	anchored = 1
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
@@ -19204,6 +19288,10 @@
 	c_tag = "Crescent Departures";
 	dir = 8
 	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
 	dir = 4
@@ -19526,6 +19614,7 @@
 	opacity = 1;
 	req_access = list(109)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -19883,6 +19972,7 @@
 	opacity = 1;
 	req_access = list(109)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -19920,6 +20010,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Cryogenic Storage"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -19929,6 +20020,7 @@
 /obj/machinery/door/airlock/centcom{
 	name = "Unisex Restroom"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -24365,6 +24457,1100 @@
 	dir = 8
 	},
 /area/centcom/specops)
+"biS" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"biT" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/holding)
+"biU" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"biV" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"biW" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"biX" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"biY" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"biZ" = (
+/obj/structure/sign/christmas/lights,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"bja" = (
+/obj/structure/sign/christmas/lights,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"bjb" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjc" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjd" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bje" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjf" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"bjg" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjh" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bji" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjj" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjk" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/holding)
+"bjl" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"bjm" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjn" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjo" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjp" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjq" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner";
+	dir = 4
+	},
+/area/centcom/holding)
+"bjr" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"bjs" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjt" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bju" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjv" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjw" = (
+/obj/structure/bed/chair/wood/wings{
+	icon_state = "wooden_chair_wings";
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/holding)
+"bjx" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjy" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjz" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjA" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bjB" = (
+/obj/structure/bed/chair/wood/wings{
+	icon_state = "wooden_chair_wings";
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/holding)
+"bjC" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"bjD" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"bjE" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/holding)
+"bjF" = (
+/obj/structure/bed/chair/wood/wings{
+	icon_state = "wooden_chair_wings";
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/holding)
+"bjG" = (
+/obj/structure/bed/chair/wood/wings{
+	icon_state = "wooden_chair_wings";
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/holding)
+"bjH" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/holding)
+"bjI" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/holding)
+"bjJ" = (
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "siding4"
+	},
+/area/centcom/holding)
+"bjK" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/holding)
+"bjL" = (
+/obj/machinery/door/airlock/glass{
+	name = "NMSS Odin Cryogenic Storage"
+	},
+/obj/structure/sign/christmas/wreath,
+/turf/unsimulated/floor{
+	dir = 4;
+	icon_state = "whitegreenfull"
+	},
+/area/centcom/holding)
+"bjM" = (
+/obj/machinery/door/airlock/glass{
+	name = "NMSS Odin Cryogenic Storage"
+	},
+/obj/structure/sign/christmas/wreath,
+/turf/unsimulated/floor{
+	dir = 4;
+	icon_state = "whitegreenfull"
+	},
+/area/centcom/holding)
+"bjN" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/spawning)
+"bjO" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/spawning)
+"bjP" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/spawning)
+"bjQ" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/arrival/centcom)
+"bjR" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/arrival/centcom)
+"bjS" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/arrival/centcom)
+"bjT" = (
+/obj/structure/sign/christmas/lights,
+/turf/simulated/shuttle/floor,
+/area/shuttle/arrival/centcom)
+"bjU" = (
+/obj/structure/sign/christmas/lights,
+/turf/simulated/shuttle/floor,
+/area/shuttle/arrival/centcom)
+"bjV" = (
+/obj/structure/sign/christmas/lights,
+/turf/simulated/shuttle/floor,
+/area/shuttle/arrival/centcom)
+"bjW" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner";
+	dir = 8
+	},
+/area/centcom/holding)
+"bjX" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner"
+	},
+/area/centcom/holding)
+"bjY" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"bjZ" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/holding)
+"bka" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"bkb" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/holding)
+"bkc" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"bkd" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/holding)
+"bke" = (
+/obj/machinery/porta_turret/crescent,
+/obj/effect/decal/warning_stripes,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/spawning)
+"bkf" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 9
+	},
+/area/centcom/spawning)
+"bkg" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/centcom/spawning)
+"bkh" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/centcom/spawning)
+"bki" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/centcom/spawning)
+"bkj" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/centcom/spawning)
+"bkk" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/centcom/spawning)
+"bkl" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/centcom/spawning)
+"bkm" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/centcom/spawning)
+"bkn" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/centcom/spawning)
+"bko" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/centcom/spawning)
+"bkp" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 5
+	},
+/area/centcom/spawning)
+"bkq" = (
+/obj/machinery/porta_turret/crescent,
+/obj/effect/decal/warning_stripes,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/spawning)
+"bkr" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"bks" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/holding)
+"bkt" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner";
+	dir = 1
+	},
+/area/centcom/holding)
+"bku" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner";
+	dir = 4
+	},
+/area/centcom/holding)
+"bkv" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 8
+	},
+/area/centcom/spawning)
+"bkw" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 8
+	},
+/area/centcom/spawning)
+"bkx" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "rampbottom";
+	dir = 4
+	},
+/area/centcom/spawning)
+"bky" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 10
+	},
+/area/centcom/spawning)
+"bkz" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "blue"
+	},
+/area/centcom/spawning)
+"bkA" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 6
+	},
+/area/centcom/spawning)
+"bkB" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "rampbottom";
+	dir = 4
+	},
+/area/centcom/spawning)
+"bkC" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 4
+	},
+/area/centcom/spawning)
+"bkD" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 8
+	},
+/area/centcom/spawning)
+"bkE" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 8
+	},
+/area/centcom/spawning)
+"bkF" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "rampbottom";
+	dir = 4
+	},
+/area/centcom/spawning)
+"bkG" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 9
+	},
+/area/centcom/spawning)
+"bkH" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/centcom/spawning)
+"bkI" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 5
+	},
+/area/centcom/spawning)
+"bkJ" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "rampbottom";
+	dir = 4
+	},
+/area/centcom/spawning)
+"bkK" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 4
+	},
+/area/centcom/spawning)
+"bkL" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 8
+	},
+/area/centcom/spawning)
+"bkM" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner";
+	dir = 8
+	},
+/area/centcom/holding)
+"bkN" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner"
+	},
+/area/centcom/holding)
+"bkO" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"bkP" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/holding)
+"bkQ" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"bkR" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/holding)
+"bkS" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"bkT" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/holding)
+"bkU" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
+"bkV" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/holding)
+"bkW" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner";
+	dir = 1
+	},
+/area/centcom/holding)
+"bkX" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner";
+	dir = 4
+	},
+/area/centcom/holding)
 
 (1,1,1) = {"
 aaa
@@ -56166,11 +57352,11 @@ aFG
 aEQ
 aEo
 aFw
-aGr
-aGr
-aFw
-aGr
-aGr
+bjw
+bjB
+bjE
+bjF
+bjG
 aFw
 aCO
 aJw
@@ -56943,7 +58129,7 @@ aFw
 aGu
 aGu
 aFw
-aIX
+bjL
 aJx
 aHx
 aKl
@@ -57457,7 +58643,7 @@ aFw
 aGr
 aGr
 aFw
-aIX
+bjM
 aJy
 aJv
 aJb
@@ -57970,7 +59156,7 @@ aGJ
 aFw
 aHs
 aHX
-aFw
+bjH
 aDx
 aDa
 aJR
@@ -58227,7 +59413,7 @@ aGu
 aFw
 aGu
 aGu
-aFw
+bjI
 aDx
 aJz
 aCM
@@ -58240,23 +59426,23 @@ aGM
 aDj
 aMX
 aNv
-aGM
-aDj
-aDj
-aDj
-aDj
-aDb
+bjW
+bjY
+bka
+bkc
+bkr
+bkt
 aNv
 aPX
 aDj
 aDb
 aNv
-aGM
-aDj
-aDj
-aDj
-aDj
-aDb
+bkM
+bkO
+bkQ
+bkS
+bkU
+bkW
 aNv
 aPX
 aDj
@@ -58741,7 +59927,7 @@ aFw
 aHb
 aHb
 aHb
-aHb
+bjJ
 aDx
 aJz
 aCM
@@ -58754,23 +59940,23 @@ aMB
 aDk
 aMY
 aNw
-aMB
-aDk
-aDk
-aDk
-aDk
-aPq
+bjX
+bjZ
+bkb
+bkd
+bks
+bku
 aNw
 aPY
 aDk
 aPq
 aNw
-aMB
-aDk
-aDk
-aDk
-aDk
-aPq
+bkN
+bkP
+bkR
+bkT
+bkV
+bkX
 aNw
 aPY
 aDk
@@ -58998,7 +60184,7 @@ aGK
 aHc
 aHt
 aHu
-aHu
+bjK
 aDx
 aDd
 aJS
@@ -59505,7 +60691,7 @@ aEo
 aFt
 aFJ
 aFS
-aFY
+aFw
 aFw
 aFw
 aGK
@@ -59762,7 +60948,7 @@ aEo
 aFu
 aFK
 aFT
-aFY
+aFw
 aFw
 aFw
 aGK
@@ -61297,10 +62483,10 @@ aDj
 aDS
 aDx
 aEp
-aED
-aED
-aED
-aED
+biV
+biW
+biX
+biY
 aFx
 aCM
 aCM
@@ -61805,12 +62991,12 @@ aCp
 aAJ
 aCP
 aCM
-aCM
+biS
 aDx
 aDL
 aDT
 aEf
-aCM
+biU
 aCM
 aCM
 aEV
@@ -62319,7 +63505,7 @@ aCp
 aAJ
 avz
 aDd
-aDk
+biT
 aDx
 aDM
 aDV
@@ -62332,8 +63518,8 @@ aFk
 aCM
 aCM
 aFU
-aEW
-aFk
+bjk
+bjq
 aCM
 aCM
 aCO
@@ -63359,9 +64545,9 @@ aEC
 aDx
 aFz
 aCM
-aCM
-aCM
-aCM
+bjf
+bjl
+bjr
 aCM
 aCM
 aCM
@@ -63370,9 +64556,9 @@ aDx
 aII
 aJf
 aJE
-aJf
-aJf
-aJf
+bjN
+bjO
+bjP
 aJE
 aLC
 aJf
@@ -63385,11 +64571,11 @@ aOd
 aMf
 aOR
 aOb
-aOb
-aOb
-aOb
-aOb
-aOb
+bkv
+bkw
+bkD
+bkE
+bkL
 aOb
 aRq
 aIL
@@ -64414,9 +65600,9 @@ aOA
 aIL
 aPg
 aPt
-aPt
+bkx
 aMf
-aPt
+bkF
 aPt
 aQW
 aIL
@@ -64671,9 +65857,9 @@ aOB
 aIL
 aNx
 aJg
-aPH
+bky
 aMf
-aNx
+bkG
 aJg
 aPH
 aRs
@@ -64928,9 +66114,9 @@ aOC
 aIL
 aNy
 aPu
-aPI
+bkz
 aMf
-aNy
+bkH
 aPu
 aPI
 aRt
@@ -65185,9 +66371,9 @@ aOB
 aIL
 aOU
 aJg
-aPJ
+bkA
 aMf
-aOU
+bkI
 aJg
 aPJ
 aRu
@@ -65442,9 +66628,9 @@ aOD
 aIL
 aPg
 aPt
-aPt
+bkB
 aMf
-aPt
+bkJ
 aPt
 aQW
 aIL
@@ -65928,11 +67114,11 @@ aEm
 aEm
 aEm
 aDQ
-aEm
-aEm
-aEm
-aEm
-aEm
+bjb
+bjg
+bjm
+bjs
+bjx
 aGO
 aDm
 aDm
@@ -65953,7 +67139,7 @@ aKN
 aKN
 aKM
 aMf
-aOT
+bke
 aNy
 aJg
 aJg
@@ -66184,13 +67370,13 @@ aDm
 aEL
 aEL
 aEY
-aDQ
+biZ
 aFN
 aDn
 aDn
 aDn
 aDn
-aDQ
+bjC
 aHg
 aHE
 aIe
@@ -66210,7 +67396,7 @@ aLt
 aKN
 aKN
 aOE
-aNx
+bkf
 aPi
 aJg
 aJg
@@ -66442,11 +67628,11 @@ aEM
 aEM
 aDn
 aFE
-aEi
-aEi
-aEi
-aEi
-aEi
+bjc
+bjh
+bjn
+bjt
+bjy
 aDQ
 aDn
 aHF
@@ -66467,7 +67653,7 @@ aLt
 aKN
 aKN
 aMf
-aNy
+bkg
 aJg
 aJg
 aJg
@@ -66724,7 +67910,7 @@ aNF
 aMf
 aMf
 aMf
-aNy
+bkh
 aJg
 aJg
 aPK
@@ -66956,11 +68142,11 @@ aEO
 aEO
 aDn
 aDQ
-aEm
-aEm
-aEm
-aEm
-aEm
+bjd
+bji
+bjo
+bju
+bjz
 aDQ
 aDn
 aHH
@@ -67212,13 +68398,13 @@ aDm
 aEL
 aEL
 aEY
-aDQ
+bja
 aFN
 aDn
 aDn
 aDn
 aDn
-aDQ
+bjD
 aDn
 aHI
 aIg
@@ -67238,7 +68424,7 @@ aLt
 aMf
 aMf
 aMf
-aNy
+bki
 aJg
 aJg
 aPL
@@ -67470,11 +68656,11 @@ aEi
 aEi
 aEi
 aDQ
-aEi
-aEi
-aEi
-aEi
-aEi
+bje
+bjj
+bjp
+bjv
+bjA
 aGO
 aDm
 aDm
@@ -67490,12 +68676,12 @@ aLN
 aLQ
 aLQ
 aLQ
-aLQ
+bjT
 aLu
 aKN
 aKN
 aMf
-aNy
+bkj
 aJg
 aJg
 aPK
@@ -67747,12 +68933,12 @@ aLO
 aMo
 aMo
 aMo
-aLQ
+bjU
 aLu
 aKN
 aOk
 aOE
-aNy
+bkk
 aJg
 aJg
 aPK
@@ -68004,12 +69190,12 @@ aLN
 aMp
 aMp
 aMp
-aLQ
+bjV
 aLu
 aKN
 aKN
 aMf
-aNy
+bkl
 aJg
 aJg
 aPK
@@ -68266,7 +69452,7 @@ aLt
 aMf
 aMf
 aMf
-aNy
+bkm
 aJg
 aJg
 aPL
@@ -68780,7 +69966,7 @@ aNF
 aMf
 aMf
 aMf
-aNy
+bkn
 aJg
 aJg
 aPK
@@ -69029,15 +70215,15 @@ aCO
 aKN
 aLt
 aLt
-aMo
-aMo
-aMo
+bjQ
+bjR
+bjS
 aLt
 aLt
 aKN
 aKN
 aMf
-aNy
+bko
 aJg
 aJg
 aJg
@@ -69294,7 +70480,7 @@ aKN
 aKN
 aKN
 aOE
-aOU
+bkp
 aPe
 aJg
 aJg
@@ -69551,7 +70737,7 @@ aKN
 aKN
 aKN
 aMf
-aOT
+bkq
 aNy
 aJg
 aJg
@@ -69811,9 +70997,9 @@ aIL
 aIL
 aOS
 aPv
-aLD
+bkC
 aQn
-aLD
+bkK
 aPv
 aQZ
 aIL
