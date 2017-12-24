@@ -6,12 +6,14 @@
 # If you want to be added, make a PR that adds you to it
 # If you are added, then you are expected to review PRs in a timely manner
 
+/code/world.dm @Lohikar @Arrow768
 /code/controllers/master/ @Lohikar
 /code/controllers/subsystems/supply.dm @Arrow768
+/code/controllers/subsystems/initialization/ @Lohikar
 /code/datums/api.dm @Arrow768
 /code/datums/cargo.dm @Arrow768
 /code/modules/http/ @Arrow768
-/code/modules/item_worht/ @Arrow768
+/code/modules/item_worth/ @Arrow768
 /code/modules/lighting/ @Lohikar
 /code/modules/modular_computers/ @Arrow768
 /code/modules/telesci/ @Arrow768
