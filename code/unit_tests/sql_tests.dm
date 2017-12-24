@@ -2,7 +2,7 @@ var/DBConnection/dbcon_ut
 
 /proc/check_ut_db()
 	if (!dbcon_ut)
-		dbcon_ut = new("localhost", "3306", "ss13_test", "root", "")
+		dbcon_ut = new("localhost", 3306, "ss13_test", "root")
 
 	return establish_db_connection(dbcon_ut)
 
