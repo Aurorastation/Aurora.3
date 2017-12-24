@@ -204,7 +204,11 @@ DBQuery/proc/SetConversion(column,conversion)
 */
 /DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list)
 	if (!query_to_parse || !argument_list || !argument_list.len)
+#ifdef UNIT_TEST
+		error("SQL ARGPARSE: Invalid arguments sent.")
+#else
 		log_debug("SQL ARGPARSE: Invalid arguments sent.")
+#endif
 		return null
 
 	var/parsed = ""
@@ -227,7 +231,11 @@ DBQuery/proc/SetConversion(column,conversion)
 		else if (isnull(argument))
 			cache[key] = "NULL"
 		else
+#ifdef UNIT_TEST
+			error("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
+#else
 			log_debug("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
+#endif
 			return null
 
 	while (1)
@@ -241,8 +249,13 @@ DBQuery/proc/SetConversion(column,conversion)
 				if (cache[curr_arg])
 					parsed += cache[curr_arg]
 				else
+#ifdef UNIT_TEST
+					error("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
+					error("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+#else
 					log_debug("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
 					log_debug("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+#endif
 					return null
 
 				pos = search + 1
