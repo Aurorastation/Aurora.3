@@ -7,16 +7,18 @@
 	contained_sprite = 1
 	w_class = 3
 	slot_flags = SLOT_BACK
-	slowdown = 1
 
-	var/obj/item/weapon/reagent_containers/spray/noz
+	var/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/noz
 	var/on = FALSE
 	var/volume = 500
 
-/obj/item/watertank/New()
+/obj/item/watertank/Initialize()
 	..()
 	create_reagents(volume)
 	noz = make_noz()
+	noz.tank = src
+	noz.reagents = reagents
+	noz.loc = src
 
 /obj/item/watertank/ui_action_click()
 	toggle_mister()
@@ -38,8 +40,11 @@
 		return
 	on = !on
 	if(on)
-		if(noz == null)
+		if(!noz)
 			noz = make_noz()
+			noz.tank = src
+			noz.reagents = reagents
+			noz.loc = src
 
 		//Detach the nozzle into the user's hands
 		if(!user.put_in_hands(noz))
@@ -53,7 +58,7 @@
 	return
 
 /obj/item/watertank/proc/make_noz()
-	return new /obj/item/weapon/reagent_containers/spray/chemsprayer/mister/janitor(src)
+	return new /obj/item/weapon/reagent_containers/spray/chemsprayer/mister()
 
 /obj/item/watertank/equipped(mob/user, slot)
 	..()
@@ -61,6 +66,11 @@
 		remove_noz()
 
 /obj/item/watertank/proc/remove_noz()
+	if(!noz)
+		noz = make_noz()
+		noz.tank = src
+		noz.reagents = reagents
+		noz.loc = src
 	if(ismob(noz.loc))
 		var/mob/M = noz.loc
 		M.drop_from_inventory(noz)
@@ -92,36 +102,21 @@
 
 	var/obj/item/watertank/tank
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/janitor/New(parent_tank)
-	..()
-	if(check_tank_exists())
-		tank = parent_tank
-		reagents = tank.reagents	//This mister is really just a proxy for the tank's reagents
-		loc = tank
-	return
-
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/janitor/dropped(mob/user)
+/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/dropped(mob/user)
 	..()
 	to_chat(user, "<span class='notice'>The mister snaps back onto the watertank.</span>")
 	tank.on = 0
 	loc = tank
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/janitor/attack_self()
+/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/attack_self()
 	return
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/proc/check_tank_exists()
-	if (!tank || !istype(tank, /obj/item/watertank))	//To avoid weird issues from admin spawns
-		qdel(src)
-		return 0
-	else
-		return 1
-
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/janitor/Move()
+/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/Move()
 	..()
 	if(loc != tank.loc)
 		loc = tank.loc
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/janitor/afterattack(obj/target, mob/user, proximity)
+/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/afterattack(obj/target, mob/user, proximity)
 	if(target.loc == loc) //Safety check so you don't fill your mister with mutagen or something and then blast yourself in the face with it
 		return
 	..()
@@ -133,7 +128,7 @@
 	icon_state = "waterpackjani"
 	item_state = "waterpackjani"
 
-/obj/item/watertank/janitor/New()
+/obj/item/watertank/janitor/Initialize()
 	..()
 	reagents.add_reagent("cleaner", 500)
 

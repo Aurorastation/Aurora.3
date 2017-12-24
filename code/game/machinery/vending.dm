@@ -249,17 +249,9 @@
 			anchored = !anchored
 		return
 
-	else if(!is_borg_item(W))
-
-		for(var/datum/data/vending_product/R in product_records)
-			if(istype(W, R.product_path))
-				stock(R, user)
-				qdel(W)
-				return
-		..()
-	else if(istype(W,/obj/item/vending_refill))
+	else if(istype(W,/obj/item/weapon/vending_refill))
 		if(panel_open)
-			var/obj/item/vending_refill/VR = W
+			var/obj/item/weapon/vending_refill/VR = W
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
@@ -270,9 +262,19 @@
 					user << "<span class='warning'>\The [VR] is not stocked for this type of vendor!</span>"
 			else
 				user << "<span class='warning'>\The [VR] is depleted!</span>"
+			return
 		else
 			user << "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>"
+			return
 
+	else if(!is_borg_item(W))
+
+		for(var/datum/data/vending_product/R in product_records)
+			if(istype(W, R.product_path))
+				stock(R, user)
+				qdel(W)
+				return
+		..()
 	else
 		..()
 
