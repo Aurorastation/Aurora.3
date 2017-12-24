@@ -1593,6 +1593,7 @@
 			C << "<font color='red'><b>Your adminhelp will be tended [usr.client.holder.fakekey ? "shortly" : "by [key_name(usr, 0, 0)]"]. Please allow the staff member a minute or two to write up a response.</b></font>"
 
 			if (C.adminhelped == 3)
+				post_webhook_event(WEBHOOK_ADMIN_PM, list("title"="Help is nolonger needed", "message"="Request for Help from **[key_name(C)]** is being tended to by **[key_name(usr)]**."))
 				discord_bot.send_to_admins("Request for Help from [key_name(C)] is being tended to by [key_name(usr)].")
 
 			C.adminhelped = 1

@@ -279,6 +279,12 @@ var/list/ai_verbs_default = list(
 		aiPDA.owner = pickedName
 		aiPDA.name = pickedName + " (" + aiPDA.ownjob + ")"
 
+	//Set the ID Name
+	if(idcard)
+		idcard.registered_name = pickedName
+		idcard.assignment = "AI"
+		idcard.update_name()
+
 	setup_icon() //this is because the ai custom name is related to the ai name, so, we just call the setup icon after someone named their ai
 
 /*

@@ -8,6 +8,7 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 	flags = SS_TICKER | SS_FIRE_IN_LOBBY
 
 	var/list/smooth_queue = list()
+	var/list/typecachecache = list()
 
 	var/explosion_in_progress = FALSE
 

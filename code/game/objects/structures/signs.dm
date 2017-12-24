@@ -240,7 +240,7 @@
 	desc = "Flashy."
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "xmaslights"
-	layer = 5
+	layer = 4.9
 
 /obj/structure/sign/christmas/wreath
 	name = "wreath"
