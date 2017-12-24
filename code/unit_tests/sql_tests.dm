@@ -8,9 +8,6 @@ var/DBConnection/dbcon_ut
 
 /datum/unit_test/sql_preferences
 	name = "SQL: Preferences Columns"
-	var/list/table_names = list(
-		"ss13_characters",
-		"ss13_characters_flavour")
 
 /datum/unit_test/sql_preferences/start_test()
 	if (!check_ut_db())
@@ -19,12 +16,17 @@ var/DBConnection/dbcon_ut
 
 	var/faults = 0
 	var/valid_columns = list()
+
+	var/list/table_names = list(
+		"ss13_characters",
+		"ss13_characters_flavour"
+	)
 	for (var/T in table_names)
-		var/DBQuery/get_cs = dbcon_ut.NewQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.`COLUMNS` WHERE TABLE_NAME = :table:")
+		var/DBQuery/get_cs = dbcon_ut.NewQuery("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` = :table:")
 		get_cs.Execute(list("table" = T))
 
 		if (get_cs.ErrorMsg())
-			log_unit_test("[ascii_red][get_cs.ErrorMsg()][ascii_reset]")
+			log_unit_test("[ascii_red]--------------- SQL error encountered: [get_cs.ErrorMsg()].[ascii_reset]")
 			fail("SQL error encountered.")
 			return TRUE
 
