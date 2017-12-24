@@ -1295,7 +1295,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		usr << "You close \the [src]."
 
 
-/obj/item/clothing/suit/storage/fluff/azala_coat //Azala's Gentleman's Coat - Azala Guwan - tomiixstarslasher
+/obj/item/clothing/suit/storage/fluff/azala_coat //Azala's Gentleman's Coat - Azala Huz'kai - tomiixstarslasher
 	name = "gentleman's coat"
 	desc = "A blue gentleman's coat. It is very stylish, and appears to be very warm."
 	icon = 'icons/obj/custom_items/azala_items.dmi'
@@ -1303,7 +1303,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "azala_coat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/fluff/azala_hat //Azala's Gentleman's Cap - Azala Guwan - tomiixstarslasher
+/obj/item/clothing/head/fluff/azala_hat //Azala's Gentleman's Cap - Azala Huz'kai - tomiixstarslasher
 	name = "gentleman's cap"
 	desc = "A blue gentleman's cap. It is very stylish, and appears to be warped from being worn crooked."
 	icon = 'icons/obj/custom_items/azala_items.dmi'
@@ -1311,7 +1311,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "azala_hat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/fluff/azala_jumpsuit //Azala's Roboticist Jumpsuit - Azala Guwan - tomiixstarslasher
+/obj/item/clothing/under/fluff/azala_jumpsuit //Azala's Roboticist Jumpsuit - Azala Huz'kai - tomiixstarslasher
 	name = "modified roboticist jumpsuit"
 	desc = "A variation of the roboticists jumpsuit, this one is in blue colors."
 	icon = 'icons/obj/custom_items/azala_items.dmi'
@@ -1446,3 +1446,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "silver star of merit"
 	desc = "The Biesel Silver Star of Merit, rewarded for bravery and professionalism in the line of duty."
 	icon_state = "silver_sword"
+
+
+/obj/item/clothing/mask/gas/fluff/karihaakaki_mask //Wooden Mask - Keziah Green/Karihaakaki - dronzthewolf
+	name = "wooden mask"
+	desc = "A wooden mask for non-human proportions, it has craftsmanship of uncanny precision."
+	icon = 'icons/obj/custom_items/karihaakaki_mask.dmi'
+	icon_state = "karihaakaki_mask"
+	item_state = "karihaakaki_mask"
+	species_restricted = list("Vox")
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/storage/wallet/fluff/muhawir_wallet //Pineapple Wallet - Muhawir Nawfal - menown
+	name = "pineapple wallet"
+	desc = "A rather small, cheaply made felt wallet with a zipper near the top. It looks like a pineapple."
+	icon = 'icons/obj/custom_items/muhawir_wallet.dmi'
+	icon_state = "muhawir_wallet"
+
+/obj/item/weapon/storage/wallet/fluff/muhawir_wallet/update_icon()
+	return
