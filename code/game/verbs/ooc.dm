@@ -148,3 +148,13 @@
 				prefix = ""
 			if((target.mob in messagemobs) || display_remote)
 				target << "<span class='ooc'><span class='looc'>" + create_text_tag("looc", "LOOC:", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message'>[msg]</span></span></span>"
+
+/client/verb/stop_all_sounds()
+	set name = "Stop all sounds"
+	set desc = "Stop all sounds that are currently playing."
+	set category = "OOC"
+
+	if(!mob)
+		return
+
+	mob << sound(null) 

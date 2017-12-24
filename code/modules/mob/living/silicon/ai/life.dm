@@ -160,8 +160,12 @@
 		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
 		see_in_dark = 0
 		see_invisible = SEE_INVISIBLE_LIVING
-	else
+	else if(stat == DEAD)
 		update_dead_sight()
+	else
+		sight |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		see_in_dark = 8
+		see_invisible = SEE_INVISIBLE_LIVING
 
 /mob/living/silicon/ai/proc/is_blinded()
 	var/area/A = get_area(src)

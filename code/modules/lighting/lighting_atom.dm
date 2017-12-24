@@ -130,11 +130,3 @@
 	for (thing in light_sources)
 		L = thing
 		L.source_atom.update_light()
-
-
-/atom/set_dir(new_dir)
-	. = ..()
-
-	for (var/datum/light_source/L in src.light_sources)
-		if (L.light_angle)
-			L.source_atom.update_light()

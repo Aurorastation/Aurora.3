@@ -6,7 +6,7 @@ var/datum/antagonist/ninja/ninjas
 	role_text_plural = "Ninja"
 	bantype = "ninja"
 	landmark_id = "ninjastart"
-	welcome_text = "<span class='info'>You are an elite mercenary assassin of the Spider Clan. You have a variety of abilities at your disposal, thanks to your nano-enhanced cyber armor.</span>"
+	welcome_text = "<span class='info'>You are an elite stealth agent. You can equip your suit with the latest technology using your uplink.</span>"
 	restricted_species = list("Diona")
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_RANDSPAWN | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "hudninja"
@@ -107,7 +107,7 @@ var/datum/antagonist/ninja/ninjas
 	player.equip_to_slot_or_del(R, slot_l_ear)
 	player.equip_to_slot_or_del(new /obj/item/clothing/under/color/black(player), slot_w_uniform)
 	player.equip_to_slot_or_del(new /obj/item/device/flashlight(player), slot_belt)
-	player.equip_to_slot_or_del(new /obj/item/device/contract_uplink(player), slot_l_store)
+	player.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(player, player.mind), slot_l_store)
 	create_id("Infiltrator", player)
 
 	var/obj/item/weapon/rig/light/ninja/ninjasuit = new(get_turf(player))

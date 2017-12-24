@@ -1,4 +1,5 @@
 //toggles
+
 /client/verb/toggle_ghost_ears()
 	set name = "Show/Hide GhostEars"
 	set category = "Preferences"
@@ -150,13 +151,13 @@
 	set name = "Show/Hide Space Parallax"
 	set category = "Preferences"
 	set desc = "Toggles space parallax effects."
-	prefs.parallax_togs ^= PARALLAX_SPACE
+	prefs.toggles_secondary ^= PARALLAX_SPACE
 	prefs.save_preferences()
-	if (prefs.parallax_togs & PARALLAX_SPACE)
+	if (prefs.toggles_secondary & PARALLAX_SPACE)
 		src << "You will now see space parallax effects."
 	else
 		src << "You will no longer see space parallax effects."
-	
+
 	if (mob.hud_used)
 		mob.hud_used.update_parallax()
 
@@ -165,13 +166,13 @@
 	set name = "Show/Hide Space Dust"
 	set category = "Preferences"
 	set desc = "Toggles space parallax dust."
-	prefs.parallax_togs ^= PARALLAX_DUST
+	prefs.toggles_secondary ^= PARALLAX_DUST
 	prefs.save_preferences()
-	if (prefs.parallax_togs & PARALLAX_DUST)
+	if (prefs.toggles_secondary & PARALLAX_DUST)
 		src << "You will now see space parallax dust effects."
 	else
 		src << "You will no longer see space parallax dust effects."
-	
+
 	if (mob.hud_used)
 		mob.hud_used.update_parallax()
 
@@ -195,9 +196,9 @@
 	set category = "Preferences"
 	set desc = "Toggles progress bars on slow actions."
 
-	prefs.parallax_togs ^= PROGRESS_BARS
+	prefs.toggles_secondary ^= PROGRESS_BARS
 	prefs.save_preferences()
-	if (prefs.parallax_togs & PROGRESS_BARS)
+	if (prefs.toggles_secondary & PROGRESS_BARS)
 		src << "You will now see progress bars on delayed actions."
 	else
 		src << "You will no longer see progress bars on delayed actions."
@@ -207,10 +208,20 @@
 	set category = "Preferences"
 	set desc = "Toggles movement of parallax space."
 
-	prefs.parallax_togs ^= PARALLAX_IS_STATIC
+	prefs.toggles_secondary ^= PARALLAX_IS_STATIC
 	prefs.save_preferences()
 
-	if (prefs.parallax_togs & PARALLAX_IS_STATIC)
+	if (prefs.toggles_secondary & PARALLAX_IS_STATIC)
 		src << "Space will no longer move."
 	else
 		src << "Space will now move."
+
+/client/verb/toggle_safety_check()
+
+	set name = "Toggle Gun Safety Check"
+	set category = "Preferences"
+	set desc = "Toggles firing guns on intents other than help."
+
+	prefs.toggles_secondary ^= SAFETY_CHECK //Held in Parallax because we don't want to deal with an SQL migration right now.
+	prefs.save_preferences()
+	src << "You will [(prefs.toggles_secondary & SAFETY_CHECK) ? "no longer" : "now"] fire your weapon on intents other than harm."
