@@ -13,6 +13,7 @@
 /code/datums/api.dm @Arrow768
 /code/datums/cargo.dm @Arrow768
 /code/modules/http/ @Arrow768
+/code/modules/customitems/item_defines.dm @Alberyk
 /code/modules/item_worth/ @Arrow768
 /code/modules/lighting/ @Lohikar
 /code/modules/modular_computers/ @Arrow768
