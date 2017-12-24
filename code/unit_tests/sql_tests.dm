@@ -66,7 +66,7 @@ var/DBConnection/dbcon_ut
 
 			if (unfound.len)
 				for (var/C in unfound)
-					log_unit_test("[ascii_red]--------------- load parameter '[C]' not found in any queries for '[A.name]'.[ascii_reset]")
+					log_unit_test("[ascii_red]--------------- load parameter '[C]' not found in any queries for '[A.name]':[A.type].[ascii_reset]")
 					faults++
 			temp.Cut()
 
@@ -82,13 +82,13 @@ var/DBConnection/dbcon_ut
 			for (var/B in test_columns)
 				var/list/valids = valid_columns[B]
 				if (!valids || !valids.len)
-					log_unit_test("[ascii_red]--------------- table '[B]' referenced but not found for '[A.name]'.[ascii_reset]")
+					log_unit_test("[ascii_red]--------------- table '[B]' referenced but not found for '[A.name]':[A.type].[ascii_reset]")
 					faults++
 					continue
 
 				for (var/C in test_columns[B])
 					if (!(C in valids))
-						log_unit_test("[ascii_red]--------------- column '[C]' referenced but not in table '[B]' '[A.name]'.[ascii_reset]")
+						log_unit_test("[ascii_red]--------------- column '[C]' referenced but not in table '[B]' for item '[A.name]':[A.type].[ascii_reset]")
 						faults++
 
 	if (faults)

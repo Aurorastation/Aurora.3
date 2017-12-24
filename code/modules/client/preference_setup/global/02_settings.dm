@@ -52,7 +52,7 @@
 			"lastmotd",
 			"lastmemo",
 			"ckey" = 1,
-			"parallax_toggles",
+			"toggles_secondary",
 			"parallax_speed"
 		)
 	)
