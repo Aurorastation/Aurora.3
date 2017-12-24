@@ -15,7 +15,7 @@
 		if(SSatoms.InitAtom(src, args))
 			//we were deleted
 			return
-	
+
 	var/list/created = SSatoms.created_atoms
 	if(created)
 		created += src
@@ -52,6 +52,9 @@
 	Initialize(FALSE)
 
 /atom/Destroy(force = FALSE)
+	if (walking_actor)
+		walking_actor.s_walk_stop()
+
 	if (reagents)
 		QDEL_NULL(reagents)
 

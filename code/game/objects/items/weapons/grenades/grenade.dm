@@ -23,25 +23,6 @@
 		return 0
 	return 1
 
-
-/*/obj/item/weapon/grenade/afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
-	if (istype(target, /obj/item/weapon/storage)) return ..() // Trying to put it in a full container
-	if (istype(target, /obj/item/weapon/gun/grenadelauncher)) return ..()
-	if((user.get_active_hand() == src) && (!active) && (clown_check(user)) && target.loc != src.loc)
-		user << "<span class='warning'>You prime the [name]! [det_time/10] seconds!</span>"
-		active = 1
-		icon_state = initial(icon_state) + "_active"
-		playsound(loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
-		spawn(det_time)
-			prime()
-			return
-		user.set_dir(get_dir(user, target))
-		user.drop_item()
-		var/t = (isturf(target) ? target : target.loc)
-		walk_towards(src, t, 3)
-	return*/
-
-
 /obj/item/weapon/grenade/examine(mob/user)
 	if(..(user, 0))
 		if(det_time > 1)
@@ -108,6 +89,5 @@
 	return
 
 /obj/item/weapon/grenade/attack_hand()
-	walk(src, null, null)
+	s_walk_stop()
 	..()
-	return

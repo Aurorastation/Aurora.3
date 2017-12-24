@@ -75,7 +75,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 //	world << "Rod in play, starting at [start.loc.x],[start.loc.y] and going to [end.loc.x],[end.loc.y]"
 	var/end = locate(endx, endy, 1)
 	spawn(0)
-		walk_towards(immrod, end,1)
+		immrod.s_walk_towards(end, 1)
 	sleep(1)
 	while (immrod)
 		if (isNotStationLevel(immrod.z))

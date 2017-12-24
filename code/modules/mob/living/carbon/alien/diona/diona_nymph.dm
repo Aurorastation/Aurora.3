@@ -350,7 +350,6 @@
 	return 1
 
 /mob/living/carbon/alien/diona/Destroy()
-	walk_to(src,0)
 	cleanupTransfer()
 	. = ..()
 

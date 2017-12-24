@@ -269,7 +269,6 @@ proc/check_panel(mob/M)
 		if (my_target)
 			my_target.hallucinations -= src
 
-		walk(src, 0)
 		qdel(src)
 
 	proc/updateimage()

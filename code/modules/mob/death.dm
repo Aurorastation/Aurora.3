@@ -53,6 +53,8 @@
 	if(stat == DEAD)
 		return 0
 
+	s_walk_stop()
+
 	facing_dir = null
 
 	if(!gibbed && deathmessage != "no message") // This is gross, but reliable. Only brains use it.

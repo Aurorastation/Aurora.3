@@ -35,9 +35,9 @@
 
 	if (!gestalt)
 		if(master_nymph && !client && master_nymph != src)
-			walk_to(src,master_nymph,1,movement_delay())
+			s_walk_to(master_nymph, 1, movement_delay())
 		else
-			walk_to(src,0)
+			s_walk_stop()
 		..()
 
 
