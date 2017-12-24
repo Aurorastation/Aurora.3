@@ -25,13 +25,12 @@
 
 	var/list/datum/feedback_variable/feedback = list()
 
+	var/status_needs_update = FALSE
+
 /datum/controller/subsystem/statistics/New()
 	NEW_SS_GLOBAL(SSfeedback)
 
 /datum/controller/subsystem/statistics/Initialize(timeofday)
-	if (!config.kick_inactive && !(config.sql_enabled && config.sql_stats))
-		can_fire = FALSE
-
 	for (var/type in subtypesof(/datum/statistic) - list(/datum/statistic/numeric, /datum/statistic/grouped))
 		var/datum/statistic/S = new type
 		if (!S.name)
@@ -69,6 +68,14 @@
 			if(!query.Execute())
 				var/err = query.ErrorMsg()
 				log_game("SQL ERROR during population polling. Error : \[[err]\]\n")
+
+	if (status_needs_update)
+		// Update world status.
+		world.update_status()
+		status_needs_update = FALSE
+
+/datum/controller/subsystem/statistics/proc/update_status()
+	status_needs_update = TRUE
 
 /datum/controller/subsystem/statistics/Recover()
 	src.messages = SSfeedback.messages

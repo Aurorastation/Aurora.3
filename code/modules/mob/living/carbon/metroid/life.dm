@@ -12,12 +12,12 @@
 		if(is_ventcrawling == 0) // Stops sight returning to normal if inside a vent
 			sight = initial(sight)
 
-		if (!client)
-			handle_targets()
-			if (!AIproc)
-				spawn()
-					handle_AI()
-			handle_speech_and_mood()
+/mob/living/carbon/slime/think()
+	..()
+	handle_targets()
+	if (!AIproc)
+		handle_AI()
+	handle_speech_and_mood()
 
 /mob/living/carbon/slime/handle_environment(datum/gas_mixture/environment)
 	if(!environment)

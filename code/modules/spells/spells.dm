@@ -3,7 +3,7 @@
 
 /mob/Life()
 	..()
-	if(spell_masters && spell_masters.len)
+	if(LAZYLEN(spell_masters))
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 			spell_master.update_spells(0, src)
 

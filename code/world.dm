@@ -321,7 +321,7 @@ var/list/world_api_rate_limit = list()
 				D.associate(directory[ckey])
 
 /world/proc/update_status()
-	var/s = ""
+	var/list/s = list()
 
 	if (config && config.server_name)
 		s += "<b>[config.server_name]</b> &#8212; "
@@ -363,12 +363,13 @@ var/list/world_api_rate_limit = list()
 	else if (n > 0)
 		features += "~[n] player"
 
-
 	if (config && config.hostedby)
 		features += "hosted by <b>[config.hostedby]</b>"
 
 	if (features)
 		s += ": [list2text(features, ", ")]"
+
+	s = s.Join()
 
 	/* does this help? I do not know */
 	if (src.status != s)
