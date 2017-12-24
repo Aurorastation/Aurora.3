@@ -6853,7 +6853,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "aqk" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/template_noop)
 "aql" = (
 /turf/template_noop,
@@ -6925,7 +6925,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/merchant_station)
 "aqw" = (
 /turf/unsimulated/wall/riveted,
@@ -8504,7 +8504,7 @@
 /area/centcom/suppy)
 "auh" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/merchant_station)
 "aui" = (
 /turf/simulated/shuttle/floor{

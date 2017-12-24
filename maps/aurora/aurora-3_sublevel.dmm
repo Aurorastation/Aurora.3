@@ -8,7 +8,7 @@
 	},
 /area/mine/unexplored)
 "ac" = (
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "ad" = (
 /obj/structure/grille,
@@ -21,7 +21,7 @@
 /area/engineering/atmos)
 "af" = (
 /obj/random/junk,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "ag" = (
 /turf/simulated/floor/reinforced/phoron,
@@ -46,7 +46,7 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "an" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
@@ -3721,7 +3721,7 @@
 	pixel_y = 0;
 	req_access = list(10,13)
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "id" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -5213,7 +5213,7 @@
 /area/mine/unexplored)
 "lg" = (
 /obj/structure/window/reinforced,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "lh" = (
 /obj/machinery/door/window{
@@ -5324,7 +5324,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "lt" = (
 /turf/simulated/floor{
@@ -5335,7 +5335,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "lv" = (
 /obj/machinery/computer/aiupload,
@@ -5701,7 +5701,7 @@
 /obj/effect/landmark{
 	name = "cavernspawn"
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "mc" = (
 /obj/structure/grille,
@@ -7341,7 +7341,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "oj" = (
 /obj/structure/window/reinforced{
@@ -7351,7 +7351,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "ok" = (
 /obj/machinery/light/small/emergency{
@@ -7367,13 +7367,13 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "om" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "on" = (
 /obj/machinery/computer/message_monitor,
@@ -7671,7 +7671,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "oM" = (
 /obj/machinery/light/small{
@@ -8807,7 +8807,7 @@
 /obj/effect/landmark{
 	name = "carpspawn"
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "qA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8874,7 +8874,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "qG" = (
 /obj/item/device/radio/intercom/locked{
@@ -8969,7 +8969,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "qQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8986,7 +8986,7 @@
 	c_tag = "AI Core - Entrance";
 	pixel_x = 16
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "qS" = (
 /obj/structure/cable{
@@ -9000,14 +9000,14 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/turret_protected/ai_upload_foyer)
 "qU" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "qV" = (
 /obj/effect/decal/cleanable/dirt,
@@ -9025,7 +9025,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "qX" = (
 /turf/simulated/floor{
@@ -9100,7 +9100,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "re" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9121,7 +9121,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "rh" = (
 /turf/simulated/wall/r_wall,
@@ -9333,7 +9333,7 @@
 /area/bridge/aibunker)
 "rF" = (
 /obj/structure/ore_box,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "rG" = (
 /obj/machinery/radiocarbon_spectrometer,
@@ -9510,7 +9510,7 @@
 /area/bridge/aibunker)
 "se" = (
 /obj/structure/closet,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "sf" = (
 /obj/structure/grille,
@@ -9705,7 +9705,7 @@
 /area/mine/unexplored)
 "su" = (
 /obj/machinery/light/small/emergency,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/turret_protected/ai_upload_foyer)
 "sv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9806,24 +9806,24 @@
 /area/bridge/aibunker)
 "sD" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "sE" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "sF" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "sG" = (
 /obj/structure/table/rack,
 /obj/item/weapon/ladder_mobile,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "sH" = (
 /obj/structure/grille,
@@ -10552,11 +10552,11 @@
 /area/bridge/aibunker)
 "tM" = (
 /obj/structure/closet/crate,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "tN" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "tO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -11407,19 +11407,19 @@
 "vp" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/toolbox/mechanical,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "vq" = (
 /obj/structure/table/rack,
 /obj/item/weapon/pickaxe,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "vr" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/steel{
 	amount = 10
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "vs" = (
 /obj/structure/grille,
@@ -11864,12 +11864,12 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "we" = (
 /obj/effect/decal/cleanable/blood,
 /obj/random/junk,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "wf" = (
 /obj/machinery/light/small{
@@ -12075,7 +12075,7 @@
 /area/outpost/research/anomaly_storage)
 "wx" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "wy" = (
 /obj/structure/table/standard,
@@ -12252,7 +12252,7 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "wT" = (
 /obj/structure/table/standard,
@@ -15671,7 +15671,7 @@
 	dir = 4;
 	icon_state = "camera"
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/maintenance/sublevel)
 "CC" = (
 /obj/machinery/camera/network/medbay{
@@ -20455,7 +20455,7 @@
 /area/medical/ward)
 "KN" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "KO" = (
 /turf/simulated/wall/r_wall,
@@ -20736,7 +20736,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Lo" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -23881,7 +23881,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "QX" = (
 /obj/machinery/access_button{
@@ -23898,7 +23898,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "QY" = (
 /obj/structure/cable/green{
@@ -24152,7 +24152,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/rnd/mixing)
 "Rs" = (
 /obj/structure/cable/green{
@@ -24160,7 +24160,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Rt" = (
 /obj/structure/grille,
@@ -24262,7 +24262,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/rnd/mixing)
 "RB" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -24284,7 +24284,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "RD" = (
 /obj/structure/cable/green{
@@ -24292,7 +24292,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "RE" = (
 /obj/structure/cable/green{
@@ -24300,7 +24300,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "RF" = (
 /obj/structure/window/reinforced{
@@ -24311,7 +24311,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "RG" = (
 /obj/structure/cable/green{
@@ -24333,7 +24333,7 @@
 /area/rnd/mixing)
 "RH" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/rnd/mixing)
 "RI" = (
 /obj/structure/cable/green{
@@ -24354,7 +24354,7 @@
 	icon_state = "rwindow";
 	dir = 8
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "RK" = (
 /obj/structure/sign/securearea{
@@ -24363,7 +24363,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "RL" = (
 /obj/structure/sign/securearea{
@@ -24435,7 +24435,7 @@
 	name = "KEEP CLEAR: MEDICAL EXOSUIT PARKING";
 	pixel_y = -32
 	},
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "RV" = (
 /obj/structure/ladder/up,
@@ -24655,7 +24655,7 @@
 "Tk" = (
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
-/turf/simulated/floor/asteroid/rocky,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Tl" = (
 /obj/machinery/door/firedoor{

@@ -1446,6 +1446,7 @@
 #include "code\modules\mining\machine_unloading.dm"
 #include "code\modules\mining\machine_vending.dm"
 #include "code\modules\mining\mine_items.dm"
+#include "code\modules\mining\mine_turf_types.dm"
 #include "code\modules\mining\mine_turfs.dm"
 #include "code\modules\mining\minebot.dm"
 #include "code\modules\mining\mineral_effect.dm"
