@@ -27,6 +27,7 @@
 	sortTim(all_areas, /proc/cmp_name_asc)
 
 /datum/controller/subsystem/finalize/proc/find_away_mission()
+	var/dmm_suite/maploader =  new 
 	var/list/away_maps = list()
 	var/datum/away_map/M
 	for (var/type in subtypesof(/datum/away_map))
