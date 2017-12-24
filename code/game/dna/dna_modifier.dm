@@ -36,6 +36,7 @@
 	return ser
 
 /////////////////////////// DNA MACHINES
+
 /obj/machinery/dna_scannernew
 	name = "\improper DNA modifier"
 	desc = "It scans DNA structures."
@@ -793,6 +794,5 @@
 			src.disk.name = "data disk - '[buf.dna.real_name]'"
 			//src.temphtml = "Data saved."
 			return 1
-
 
 /////////////////////////// DNA MACHINES
