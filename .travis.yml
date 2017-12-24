@@ -37,7 +37,6 @@ before_script:
   - ./install-flyway.sh
 
 script:
-  - export LD_LIBRARY_PATH=./
   - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test
   - shopt -s globstar
   - (! grep 'step_[xy]' maps/**/*.dmm)
@@ -52,6 +51,6 @@ script:
   - cp config/example/* config/
   - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
   - grep "0 warnings" build_log.txt
-  - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+  - LD_LIBRARY_PATH=./ DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
   - grep "All Unit Tests Passed" log.txt
   - (! grep "runtime error:" log.txt)
