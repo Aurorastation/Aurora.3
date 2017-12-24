@@ -7,7 +7,7 @@ var/DBConnection/dbcon_ut
 	return establish_db_connection(dbcon_ut)
 
 /datum/unit_test/sql_preferences
-	name = "SQL - Preferences"
+	name = "SQL: Preferences Columns"
 	var/list/table_names = list(
 		"ss13_characters",
 		"ss13_characters_flavour")
@@ -19,11 +19,11 @@ var/DBConnection/dbcon_ut
 
 	var/faults = 0
 	var/valid_columns = list()
-	for (T in table_names)
+	for (var/T in table_names)
 		var/DBQuery/get_cs = dbcon_ut.NewQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.`COLUMNS` WHERE TABLE_NAME = :table:")
 		get_cs.Execute(list("table" = T))
 
-		if (get_cs.Error())
+		if (get_cs.ErrorMsg())
 			log_unit_test("[ascii_red][get_cs.ErrorMsg()][ascii_reset]")
 			fail("SQL error encountered.")
 			return TRUE
@@ -37,10 +37,10 @@ var/DBConnection/dbcon_ut
 
 	var/types_to_test = subtypesof(/datum/category_item/player_setup_item)
 
-	for (var/A in types_to_test)
+	for (var/a in types_to_test)
 		var/list/test_columns = list()
 		var/list/temp
-		A = new()
+		var/datum/category_item/player_setup_item/A = new a()
 		A.pref = P
 
 
@@ -54,7 +54,7 @@ var/DBConnection/dbcon_ut
 
 
 		temp = A.gather_load_parameters()
-		var/unfound = temp.Copy()
+		var/list/unfound = temp.Copy()
 		for (var/C in temp)
 			for (var/B in test_columns)
 				if (C in test_columns[B])
@@ -62,7 +62,7 @@ var/DBConnection/dbcon_ut
 					break
 
 		if (unfound.len)
-			for (C in unfound)
+			for (var/C in unfound)
 				log_unit_test("[ascii_red]--------------- load parameter '[C]' not found in any queries for '[A.name]'.[ascii_reset]")
 				faults++
 
@@ -75,7 +75,7 @@ var/DBConnection/dbcon_ut
 
 		for (var/B in test_columns)
 			var/list/valids = valid_columns[B]
-			if (!valid || !valid.len)
+			if (!valids || !valids.len)
 				log_unit_test("[ascii_red]--------------- table '[B]' referenced but not found for '[A.name]'.[ascii_reset]")
 				faults++
 				continue
@@ -89,3 +89,5 @@ var/DBConnection/dbcon_ut
 		fail("\[[faults]\] faults found in the SQL preferences setup.")
 	else
 		pass("No faults found in the SQL preferences setup.")
+
+	return TRUE
