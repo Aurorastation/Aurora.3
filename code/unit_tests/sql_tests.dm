@@ -6,10 +6,10 @@ var/DBConnection/dbcon_ut
 
 	return establish_db_connection(dbcon_ut)
 
-/datum/unit_test/sql_preferences
+/datum/unit_test/sql_preferences_columns
 	name = "SQL: Preferences Columns"
 
-/datum/unit_test/sql_preferences/start_test()
+/datum/unit_test/sql_preferences_columns/start_test()
 	if (!check_ut_db())
 		fail("Test DB setup failed.")
 		return TRUE
@@ -95,5 +95,44 @@ var/DBConnection/dbcon_ut
 		fail("\[[faults]\] faults found in the SQL preferences setup.")
 	else
 		pass("No faults found in the SQL preferences setup.")
+
+	return TRUE
+
+/datum/unit_test/sql_preferences_vars
+	name = "SQL: Preferences Variables"
+
+/datum/unit_test/sql_preferences_vars/start_test()
+	var/faults = 0
+	var/total = 0
+	var/datum/preferences/P = new(null)
+
+	for (var/datum/category_group/player_setup_category/G in P.player_setup.categories)
+		for (var/datum/category_item/player_setup_item/A in G.items)
+			var/list/test = list()
+			var/list/temp = A.gather_load_query()
+
+			for (var/B in temp)
+				var/list/some_vars = temp[B]["vars"]
+				for (var/C in some_vars)
+					if (some_vars[C])
+						C = some_vars[C]
+						var/list/layers = splittext(C, "/")
+						if (layers.len == 1)
+							test |= C
+						else
+							test |= layers[1]
+					else
+						test |= C
+
+			total += test.len
+			for (var/V in test)
+				if (!(V in P.vars))
+					log_unit_test("[ascii_red]--------------- variable '[V]' referenced by, but not found in preferences class variables, '[A.name]':[A.type].[ascii_reset]")
+					faults++
+
+	if (faults)
+		fail("\[[faults] / [total]\] variable references found invalid in the SQL preferences setup.")
+	else
+		pass("All \[[total]\] variable references found valid in the SQL preferences setup.")
 
 	return TRUE

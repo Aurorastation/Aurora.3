@@ -32,7 +32,7 @@
 				"asfx_togs",
 				"lastmotd" = "motd_hash",
 				"lastmemo" = "memo_hash",
-				"toggles_secondary" = "toggles_secondary",
+				"toggles_secondary",
 				"parallax_speed"
 			),
 			"args" = list("ckey")
