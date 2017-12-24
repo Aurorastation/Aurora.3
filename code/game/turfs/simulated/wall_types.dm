@@ -22,6 +22,7 @@
 	icon = 'icons/turf/smooth/cult_wall.dmi'
 	canSmoothWith = null
 	smooth = SMOOTH_TRUE
+	smoothing_hints = SMOOTHHINT_TARGETS_NOT_UNIQUE | SMOOTHHINT_ONLY_MATCH_TURF
 	icon_state = "cult"
 
 /turf/simulated/wall/rusty

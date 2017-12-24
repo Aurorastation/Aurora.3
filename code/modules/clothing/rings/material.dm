@@ -2,7 +2,6 @@
 /obj/item/clothing/ring/material
 	icon = 'icons/obj/clothing/rings.dmi'
 	icon_state = "material"
-	var/material/material
 
 /obj/item/clothing/ring/material/Initialize(var/mapload, var/new_material)
 	. = ..(mapload)

@@ -23,8 +23,13 @@ avoid code duplication. This includes items that may sometimes act as a standard
 /obj/item/proc/attack_self(mob/user)
 	return
 
+// Called at the start of resolve_attackby(), before the actual attack.
+/obj/item/proc/pre_attack(atom/a, mob/user)
+	return
+
 //I would prefer to rename this to attack(), but that would involve touching hundreds of files.
 /obj/item/proc/resolve_attackby(atom/A, mob/user)
+	pre_attack(A, user)
 	add_fingerprint(user)
 	return A.attackby(src, user)
 
