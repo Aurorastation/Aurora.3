@@ -307,7 +307,7 @@
 	J.alpha = 200
 	J.blend_mode = BLEND_OVERLAY
 	J.tag = "coating"
-	overlays += J
+	add_overlay(J)
 
 	if (user)
 		user.visible_message(span("notice", "[user] dips \the [src] into \the [coating.name]"), span("notice", "You dip \the [src] into \the [coating.name]"))
@@ -338,7 +338,7 @@
 		var/image/J = image(I)
 		J.alpha = 200
 		J.tag = "coating"
-		overlays += J
+		add_overlay(J)
 
 
 		if (do_coating_prefix == 1)
