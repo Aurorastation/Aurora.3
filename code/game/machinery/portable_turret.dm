@@ -102,15 +102,24 @@
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
 
+	var/area/control_area = get_area(src)
+	if(istype(control_area))
+		var/obj/machinery/turretid/aTurretID = locate() in control_area
+		aTurretID.turretModes()
 /obj/machinery/porta_turret/crescent/Initialize()
 	. = ..()
 	LAZYCLEARLIST(req_one_access)
 	req_access = list(access_cent_specops)
 
 /obj/machinery/porta_turret/Destroy()
+	var/area/control_area = get_area(src)
+	if(istype(control_area))
+		var/obj/machinery/turretid/aTurretID = locate() in control_area
+		aTurretID.turretModes()
 	qdel(spark_system)
 	spark_system = null
 	. = ..()
+
 
 /obj/machinery/porta_turret/update_icon()
 	cut_overlays()

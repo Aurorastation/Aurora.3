@@ -63,6 +63,7 @@
 			control_area = null
 
 	power_change() //Checks power and initial settings
+	turretModes()
 
 /obj/machinery/turretid/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
@@ -180,32 +181,30 @@
 	TC.ailock = ailock
 
 	if(istype(control_area))
-		var/lethal_only = 0 // To check if there is a lethal turret in the area.
-		var/both_mode = 0
 		for (var/obj/machinery/porta_turret/aTurret in control_area)
-			// If turret only has lethal mode - lock switching modes
-			if(aTurret.egun == 0)
-				lethal_only = 1
-				egun = 0
-			else
-				both_mode = 1
 			aTurret.setState(TC)
-		// If there is a turret with lethal mode only, and turret with both modes. Scan for lethal turrets, and disable them.
-		if(both_mode && lethal_only)
-			if(lethal)
-				for (var/obj/machinery/porta_turret/bTurret in control_area)
-					bTurret.setState(TC)
-				egun = 1
-			else
-				for (var/obj/machinery/porta_turret/bTurret in control_area)
-					if(bTurret.egun == 0)
-						TC.enabled = 0
-						bTurret.setState(TC)
-					else
-						bTurret.setState(TC)
-				egun = 1
-		else if(!both_mode)
-			lethal = 1 // Account for new default control panel spawning with lethal = 0.
+
+	update_icon()
+
+/obj/machinery/turretid/proc/turretModes()
+	var/lethal_only = 0 // To check if there is a lethal turret in the area.
+	var/both_mode = 0
+	for (var/obj/machinery/porta_turret/aTurret in control_area)
+		// If turret only has lethal mode - lock switching modes
+		if(aTurret.egun == 0)
+			lethal_only = 1
+			egun = 0
+		else
+			both_mode = 1
+	// If there is a turret with lethal mode only, and turret with both modes. Scan for lethal turrets, and disable them.
+	if(both_mode && lethal_only)
+		egun = 1
+		if(!lethal)
+			for (var/obj/machinery/porta_turret/aTurret in control_area)
+				if(aTurret.egun == 0)
+					aTurret.enabled = 0
+	else if(!both_mode)
+		lethal = 1 // Account for new default control panel spawning with lethal = 0.
 	update_icon()
 
 /obj/machinery/turretid/power_change()
