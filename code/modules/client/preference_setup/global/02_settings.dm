@@ -40,7 +40,7 @@
 	)
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_parameters()
-	return list("ckey" = pref.client.ckey)
+	return list("ckey" = PREF_CLIENT_CKEY)
 
 /datum/category_item/player_setup_item/player_global/settings/gather_save_query()
 	return list(
@@ -59,7 +59,7 @@
 
 /datum/category_item/player_setup_item/player_global/settings/gather_save_parameters()
 	return list(
-		"ckey" = pref.client.ckey,
+		"ckey" = PREF_CLIENT_CKEY,
 		"lastchangelog" = pref.lastchangelog,
 		"current_character" = pref.current_character,
 		"toggles" = pref.toggles,
