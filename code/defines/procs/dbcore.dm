@@ -223,7 +223,7 @@ DBQuery/proc/SetConversion(column,conversion)
 	for (var/key in argument_list)
 		var/argument = argument_list[key]
 		if (istext(argument))
-			cache[key] = "[dbcon.Quote(argument)]"
+			cache[key] = "[db_connection.Quote(argument)]"
 		else if (isnum(argument))
 			cache[key] = "[argument]"
 		else if (istype(argument, /list))
@@ -286,7 +286,7 @@ DBQuery/proc/SetConversion(column,conversion)
 		if (isnum(argument[i]))
 			text += "[argument[i]]"
 		else
-			text += dbcon.Quote(argument[i])
+			text += db_connection.Quote(argument[i])
 
 		if (i != count)
 			text += ", "
