@@ -6,7 +6,7 @@
 	icon_state = "map_filter"
 	base_icon = "filter"
 
-	var/list/old_filters = new()
+	var/list/active_filters = new()
 	var/datum/omni_port/input
 	var/datum/omni_port/output
 
@@ -28,7 +28,7 @@
 /obj/machinery/atmospherics/omni/filter/Destroy()
 	input = null
 	output = null
-	old_filters.Cut()
+	active_filters.Cut()
 	return ..()
 
 /obj/machinery/atmospherics/omni/filter/sort_ports()
@@ -38,8 +38,8 @@
 				output = null
 			if(input == P)
 				input = null
-			if(old_filters.Find(P))
-				old_filters -= P
+			if(active_filters.Find(P))
+				active_filters -= P
 
 			P.air.volume = 200
 			switch(P.mode)
@@ -48,12 +48,12 @@
 				if(ATM_OUTPUT)
 					output = P
 				if(ATM_O2 to ATM_N2O)
-					old_filters += P
+					active_filters += P
 
 /obj/machinery/atmospherics/omni/filter/error_check()
-	if(!input || !output || !old_filters)
+	if(!input || !output || !active_filters)
 		return 1
-	if(old_filters.len < 1) //requires at least 1 filter ~otherwise why are you using a filter?
+	if(active_filters.len < 1) //requires at least 1 filter ~otherwise why are you using a filter?
 		return 1
 
 	return 0
@@ -80,7 +80,7 @@
 			input.network.update = 1
 		if(output.network)
 			output.network.update = 1
-		for(var/datum/omni_port/P in old_filters)
+		for(var/datum/omni_port/P in active_filters)
 			if(P.network)
 				P.network.update = 1
 

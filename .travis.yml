@@ -7,7 +7,6 @@ env:
     BYOND_MINOR="1385"
     MACRO_COUNT=77
     FLYWAY_BUILD="4.2.0"
-  byond:
   matrix:
     - USE_MAP=aurora
     - USE_MAP=runtime
