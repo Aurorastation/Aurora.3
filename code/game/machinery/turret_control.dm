@@ -166,6 +166,7 @@
 			check_anomalies = value
 
 		updateTurrets()
+		turretModes()
 		return 1
 
 /obj/machinery/turretid/proc/updateTurrets()
@@ -187,24 +188,38 @@
 	update_icon()
 
 /obj/machinery/turretid/proc/turretModes()
-	var/lethal_only = 0 // To check if there is a lethal turret in the area.
-	var/both_mode = 0
+	var/lethal_t = 0 // Is there lethal only mode turret
+	var/stun_t = 0 // Is there stun only mode turret
+	var/one_mode = 0 // Is there general one mode only turret
+	var/both_mode = 0 // Is there both mode turrets
 	for (var/obj/machinery/porta_turret/aTurret in control_area)
 		// If turret only has lethal mode - lock switching modes
-		if(aTurret.egun == 0)
-			lethal_only = 1
+		if(!aTurret.egun)
+			if(aTurret.lethal)
+				lethal_t = 1
+			else
+				stun_t = 1
+			one_mode = 1
 			egun = 0
 		else
 			both_mode = 1
-	// If there is a turret with lethal mode only, and turret with both modes. Scan for lethal turrets, and disable them.
-	if(both_mode && lethal_only)
+	// If there is a turret with lethal mode only, and turret with both modes. Disable turrets with lethality that is not same as current control setting.
+	if(both_mode && one_mode)
 		egun = 1
-		if(!lethal)
-			for (var/obj/machinery/porta_turret/aTurret in control_area)
-				if(aTurret.egun == 0)
-					aTurret.enabled = 0
-	else if(!both_mode)
-		lethal = 1 // Account for new default control panel spawning with lethal = 0.
+		for (var/obj/machinery/porta_turret/aTurret in control_area)
+			if(!aTurret.egun && (aTurret.lethal != lethal))
+				aTurret.enabled = 0
+				aTurret.update_icon()
+	else if(lethal_t & stun_t) // If we have a case of just stun only and lethal only turrets.
+		egun = 1
+		for (var/obj/machinery/porta_turret/aTurret in control_area)
+			if(!aTurret.egun && (aTurret.lethal != lethal))
+				aTurret.enabled = 0
+				aTurret.update_icon()
+	else // If we just have turrets with one mode, ensure that panel's lethal variable is same as Turrets.
+		var/obj/machinery/porta_turret/aTurret = locate() in control_area
+		lethal = aTurret.lethal
+
 	update_icon()
 
 /obj/machinery/turretid/power_change()

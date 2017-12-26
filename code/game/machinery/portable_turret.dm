@@ -104,8 +104,8 @@
 
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
-		var/obj/machinery/turretid/aTurretID = locate() in control_area
-		aTurretID.turretModes()
+		for(var/obj/machinery/turretid/aTurretID in control_area)
+			aTurretID.turretModes()
 /obj/machinery/porta_turret/crescent/Initialize()
 	. = ..()
 	LAZYCLEARLIST(req_one_access)
@@ -114,8 +114,8 @@
 /obj/machinery/porta_turret/Destroy()
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
-		var/obj/machinery/turretid/aTurretID = locate() in control_area
-		aTurretID.turretModes()
+		for(var/obj/machinery/turretid/aTurretID in control_area)
+			aTurretID.turretModes()
 	qdel(spark_system)
 	spark_system = null
 	. = ..()
@@ -617,7 +617,8 @@
 	if(controllock)
 		return
 	src.enabled = TC.enabled
-	src.lethal = TC.lethal
+	if(egun) //If turret can switch modes.
+		src.lethal = TC.lethal
 	src.lethal_icon = TC.lethal
 
 	check_synth = TC.check_synth
