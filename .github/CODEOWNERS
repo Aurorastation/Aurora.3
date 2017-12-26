@@ -12,7 +12,11 @@
 /code/controllers/subsystems/initialization/ @Lohikar
 /code/datums/api.dm @Arrow768
 /code/datums/cargo.dm @Arrow768
-/code/modules/http/ @Arrow768
+/code/datums/server_greeting.dm @Skull132
+/code/datums/discord/ @Skull132
+/code/defines/procs/dbcore.dm @Skull132
+/code/modules/http/ @Arrow768 @Skull132
+/code/modules/client/preference_setup/ @Skull132
 /code/modules/customitems/item_defines.dm @Alberyk
 /code/modules/item_worth/ @Arrow768
 /code/modules/lighting/ @Lohikar
@@ -20,5 +24,6 @@
 /code/modules/telesci/ @Arrow768
 /code/modules/udp/ @Arrow768
 /code/modules/web_interface/ @Arrow768
+/lib/ @Skull132
 /nano/templates/ @Arrow768
 /SQL/ @Arrow768
