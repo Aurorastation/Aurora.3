@@ -1,5 +1,5 @@
 --
--- Implemented in PR #.
+-- Implemented in PR #4026.
 -- Adds a deleted_at column for mirrors.
 -- Also adds indexes for speeding up search queries around the ban database.
 --
