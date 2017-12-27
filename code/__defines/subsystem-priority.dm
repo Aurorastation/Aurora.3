@@ -1,5 +1,6 @@
-#define SS_INIT_MISC_FIRST  22
-#define SS_INIT_SEEDS       21	// Plant controller setup.
+#define SS_INIT_MISC_FIRST  23
+#define SS_INIT_SEEDS       22	// Plant controller setup.
+#define SS_INIT_BEFORE_MAPLOAD     21	// Loads weather. Proper away mission loading requires weather to be set up before atlas.
 #define SS_INIT_MAPLOAD     20	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
 #define SS_INIT_JOBS        19
 #define SS_INIT_MAPFINALIZE 18	// Asteroid generation.
