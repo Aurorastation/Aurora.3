@@ -28,6 +28,9 @@
 	storage_capacity = 30
 	var/contains_body = 0
 
+	var/current_processes = MECHA_PROC_INT_TEMP
+	var/datum/gas_mixture/cabin_air
+
 /obj/structure/closet/air_bubble/can_open()
 	if(zipped)
 		return 0
@@ -97,6 +100,7 @@
 			"<span class='warning'>[src]'s zipper has been zipped by [user].</span>",
 			"<span class='notice'>You put restrains on [src]'s zipper.</span>"
 		)
+		qdel(W)
 	else if(istype(W, /obj/item/weapon/wirecutters))
 		user.visible_message(
 			"<span class='warning'>[user] begins cutting cable restrains on zipper of [src].</span>",
@@ -111,6 +115,7 @@
 			"<span class='warning'>[src] zipper's cable restrains have been cut by [user].</span>",
 			"<span class='notice'>You cut cable restrains on [src]'s zipper.</span>"
 		)
+		var/obj/item/weapon/handcuffs/cable/O = new/obj/item/weapon/handcuffs/cable(src.loc)
 	else
 		attack_hand(user)
 	return
@@ -146,5 +151,35 @@
 		else
 			icon_state = icon_closed
 
+/obj/structure/closet/air_bubble/proc/process_tank_give_air()
+	var/datum/gas_mixture/tank_air = internal_tank.return_air()
 
+	var/release_pressure = internal_tank_valve
+	var/cabin_pressure = cabin_air.return_pressure()
+	var/pressure_delta = min(release_pressure - cabin_pressure, (tank_air.return_pressure() - cabin_pressure)/2)
+	var/transfer_moles = 0
 
+	if(pressure_delta > 0) //cabin pressure lower than release pressure
+		if(tank_air.temperature > 0)
+			transfer_moles = pressure_delta*cabin_air.volume/(cabin_air.temperature * R_IDEAL_GAS_EQUATION)
+			var/datum/gas_mixture/removed = tank_air.remove(transfer_moles)
+			cabin_air.merge(removed)
+	else if(pressure_delta < 0) //cabin pressure higher than release pressure
+		var/datum/gas_mixture/t_air = get_turf_air()
+		pressure_delta = cabin_pressure - release_pressure
+
+		if(t_air)
+			pressure_delta = min(cabin_pressure - t_air.return_pressure(), pressure_delta)
+		if(pressure_delta > 0) //if location pressure is lower than cabin pressure
+			transfer_moles = pressure_delta*cabin_air.volume/(cabin_air.temperature * R_IDEAL_GAS_EQUATION)
+
+			var/datum/gas_mixture/removed = cabin_air.remove(transfer_moles)
+			if(t_air)
+				t_air.merge(removed)
+			else //just delete the cabin gas, we're in space or some shit
+				qdel(removed)
+
+/obj/structure/closet/air_bubble/proc/process_preserve_temp()
+	if (cabin_air && cabin_air.volume > 0)
+		var/delta = cabin_air.temperature - T20C
+		cabin_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
