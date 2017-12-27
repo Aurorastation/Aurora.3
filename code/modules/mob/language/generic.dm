@@ -90,3 +90,4 @@
 	key = "i"
 	syllables = list("m","n","gh","h","l","s","r","a","e","i","o","u")
 	space_chance = 20
+	flags = RESTRICTED
