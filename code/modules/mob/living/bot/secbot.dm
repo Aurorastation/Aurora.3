@@ -69,7 +69,7 @@
 	if(SSradio)
 		SSradio.add_object(listener, control_freq, filter = RADIO_SECBOT)
 		SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
-	
+
 	if (!patrol_callback)
 		patrol_callback = CALLBACK(src, .proc/patrol_step)
 
@@ -313,7 +313,6 @@
 					playsound(loc, pick(preparing_arrest_sounds), 50, 0)
 	else if(istype(M, /mob/living/simple_animal) && !istype(M, /mob/living/simple_animal/hostile/commanded))
 		var/mob/living/simple_animal/S = M
-		S.AdjustStunned(10)
 		S.adjustBruteLoss(15)
 		do_attack_animation(M)
 		playsound(loc, "swing_hit", 50, 1, -1)
