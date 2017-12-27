@@ -343,6 +343,12 @@
 	new /obj/effect/decal/cleanable/blood/oil(Tsec)
 	qdel(src)
 
+/mob/living/bot/secbot/emag_act(var/remaining_charges, var/mob/user, var/feedback)
+	if(!emagged)
+		emagged = 1
+		user << (feedback ? feedback : "You short out the lock of \the [src].")
+		return 1
+
 /mob/living/bot/secbot/proc/scan_view()
 	target = null
 	for(var/mob/living/M in view(7, src))
