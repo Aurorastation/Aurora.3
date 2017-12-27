@@ -22,9 +22,55 @@
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
 	var/item_path = /obj/item/air_bubble
+	var/zipped = 0
+	var/used = 0
 	density = 0
 	storage_capacity = 30
 	var/contains_body = 0
+
+/obj/structure/closet/air_bubble/can_open()
+	if(zipped)
+		return 0
+	return 1
+
+/obj/structure/closet/air_bubble/can_close()
+	for(var/obj/structure/closet/closet in get_turf(src))
+		if(closet != src)
+			return 0
+	return 1
+
+/obj/structure/closet/air_bubble/open()
+	. = ..()
+	if(used)
+		var/obj/item/O = new/obj/item(src.loc)
+		O.name = "used stasis bag"
+		O.icon = src.icon
+		O.icon_state = "bodybag_used"
+		O.desc = "Pretty useless now.."
+		qdel(src)
+
+/obj/structure/closet/air_bubble/close()
+	if(!opened)
+		return 0
+	if(!can_close())
+		return 0
+
+	var/stored_units = 0
+
+	if(store_misc)
+		stored_units += store_misc(stored_units)
+	if(store_items)
+		stored_units += store_items(stored_units)
+	if(store_mobs)
+		stored_units += store_mobs(stored_units)
+
+	icon_state = icon_closed
+	opened = 0
+
+	playsound(loc, close_sound, 25, 0, -3)
+	density = 1
+	used = 1
+	return 1
 
 /obj/structure/closet/air_bubble/attackby(W as obj, mob/user as mob)
 	if(opened)
@@ -34,44 +80,37 @@
 			return 0
 		if(istype(W,/obj/item/tk_grab))
 			return 0
-		if(istype(W, /obj/item/weapon/storage/laundry_basket) && W.contents.len)
-			var/obj/item/weapon/storage/laundry_basket/LB = W
-			var/turf/T = get_turf(src)
-			for(var/obj/item/I in LB.contents)
-				LB.remove_from_storage(I, T)
-			user.visible_message(
-				"<span class='notice'>[user] empties \the [LB] into \the [src].</span>",
-				"<span class='notice'>You empty \the [LB] into \the [src].</span>",
-				"<span class='notice'>You hear rustling of clothes.</span>"
-			)
-			return
 		if(!dropsafety(W))
 			return
 		usr.drop_item()
-		if(W)
-			W.forceMove(loc)
-	else if(iswelder(W))
-		var/obj/item/weapon/weldingtool/WT = W
-		if(WT.isOn())
-			user.visible_message(
-				"<span class='warning'>[user] begins welding zipper of [src] [welded ? "open" : "shut"].</span>",
-				"<span class='notice'>You begin welding zipper of [src] [welded ? "open" : "shut"].</span>",
-				"You hear a welding torch on metal."
-			)
-			playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
-			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
-				return
-			if(!WT.remove_fuel(0,user))
-				user << "<span class='notice'>You need more welding fuel to complete this task.</span>"
-				return
-			welded = !welded
-			update_icon()
-			user.visible_message(
-				"<span class='warning'>[src]'s zipper has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
-				"<span class='notice'>You weld [src]'s zipper [!welded ? "open" : "shut"].</span>"
-			)
-		else
-			attack_hand(user)
+	else if(istype(W, /obj/item/weapon/handcuffs/cable))
+		user.visible_message(
+			"<span class='warning'>[user] begins putting cable restrains on zipper of [src].</span>",
+			"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>",
+		)
+		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
+		if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+			return
+		zipped = !zipped
+		update_icon()
+		user.visible_message(
+			"<span class='warning'>[src]'s zipper has been zipped by [user].</span>",
+			"<span class='notice'>You put restrains on [src]'s zipper.</span>"
+		)
+	else if(istype(W, /obj/item/weapon/wirecutters))
+		user.visible_message(
+			"<span class='warning'>[user] begins cutting cable restrains on zipper of [src].</span>",
+			"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>",
+		)
+		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
+		if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+			return
+		zipped = !zipped
+		update_icon()
+		user.visible_message(
+			"<span class='warning'>[src] zipper's cable restrains have been cut by [user].</span>",
+			"<span class='notice'>You cut cable restrains on [src]'s zipper.</span>"
+		)
 	else
 		attack_hand(user)
 	return
@@ -106,4 +145,6 @@
 			icon_state = "bodybag_closed1"
 		else
 			icon_state = icon_closed
+
+
 
