@@ -39,7 +39,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 
 	phobia_mobs = list("spiders"  = typecacheof(list(/mob/living/simple_animal/spiderbot, /mob/living/simple_animal/hostile/giant_spider)),
 						"security" = typecacheof(list(/mob/living/bot/secbot)),
-						"unathi"  = typecacheof(list(/mob/living/simple_animal/lizard)),
+						"lizards"  = typecacheof(list(/mob/living/simple_animal/lizard)),
 						"cats"  = typecacheof(list(/mob/living/simple_animal/cat, /mob/living/simple_animal/familiar/pet/cat, /mob/living/simple_animal/cat/kitten)),
 						"robots"  = typecacheof(list(/mob/living/silicon,/mob/living/bot, /mob/living/simple_animal/hostile/retaliate/malf_drone)),
 						"pests" = typecacheof(list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/mouse, /mob/living/carbon/alien/diona)),

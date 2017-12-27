@@ -1,5 +1,5 @@
 //Mild traumas are the most common; they are generally minor annoyances.
-//They can be cured with mannitol and patience, although brain surgery still works.
+//They can be suppressed with citalopram, but not chemically cured, although brain surgery still works.
 //Most of the old brain damage effects have been transferred to the dumbness trauma.
 
 /datum/brain_trauma/mild
@@ -185,14 +185,17 @@
 				var/prev_intent = owner.a_intent
 				owner.a_intent = I_HURT
 
+				var/list/mob/living/targets = list()
 				var/range = 1
 				if(istype(owner.get_active_hand(), /obj/item/weapon/gun)) //get targets to shoot at
 					range = 7
+					for(var/turf/T in oview(owner, range))
+						targets += T
 
-				var/list/mob/living/targets = list()
-				for(var/mob/M in oview(owner, range))
-					if(isliving(M))
-						targets += M
+				else
+					for(var/mob/M in oview(owner, range))
+						if(isliving(M))
+							targets += M
 				if(LAZYLEN(targets))
 					to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
 					owner.ClickOn(pick(targets))
@@ -200,10 +203,8 @@
 			if(4)
 				var/prev_intent = owner.a_intent
 				owner.a_intent = I_HURT
-				var/list/mob/living/targets = list()
-				if(LAZYLEN(targets))
-					to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
-					owner.ClickOn(owner)
+				to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
+				owner.ClickOn(owner)
 				owner.a_intent = prev_intent
 			if(5)
 				if(owner.incapacitated())
@@ -219,7 +220,7 @@
 
 /datum/brain_trauma/mild/nearsightedness
 	name = "Cerebral Near-Blindness"
-	desc = "Patient's brain is no loosely connected to its eyes."
+	desc = "Patient's brain is loosely connected to its eyes."
 	scan_desc = "minor damage to the brain's occipital lobe"
 	gain_text = "<span class='warning'>You can barely see!</span>"
 	lose_text = "<span class='notice'>Your vision returns.</span>"
