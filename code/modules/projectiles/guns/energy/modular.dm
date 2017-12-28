@@ -13,7 +13,7 @@
 	zoomdevicename = null
 	var/origin_chassis
 	var/gun_type
-	var/list/gun_mods
+	var/list/gun_mods = list()
 	var/obj/item/laser_components/capacitor/capacitor
 	var/obj/item/laser_components/focusing_lens/focusing_lens
 	var/chargetime
@@ -23,15 +23,14 @@
 	var/described = 0
 
 /obj/item/weapon/gun/energy/laser/prototype/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
-		if(gun_mods.len)
-			for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-				user << "You can see a [modifier] attached."
-		if(capacitor)
-			user << "You can see a [capacitor] attached."
-		if(focusing_lens)
-			user << "You can see a [focusing_lens] attached."
+	..(user)
+	if(gun_mods.len)
+		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
+			user << "You can see a [modifier] attached."
+	if(capacitor)
+		user << "You can see a [capacitor] attached."
+	if(focusing_lens)
+		user << "You can see a [focusing_lens] attached."
 
 /obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
 	if(!isscrewdriver(D))
@@ -129,18 +128,18 @@
 /obj/item/weapon/gun/energy/laser/prototype/proc/disassemble()
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			modifier.loc = src.loc
+			modifier.forceMove(get_turf(src))
 	if(capacitor)
-		capacitor = src.loc
+		capacitor.forceMove(get_turf(src))
 	if(focusing_lens)
-		focusing_lens = src.loc
+		focusing_lens.forceMove(get_turf(src))
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
-			new /obj/item/device/laser_assembly(src.loc)
+			new /obj/item/device/laser_assembly(get_turf(src))
 		if(CHASSIS_MEDIUM)
-			new /obj/item/device/laser_assembly/medium(src.loc)
+			new /obj/item/device/laser_assembly/medium(get_turf(src))
 		if(CHASSIS_LARGE)
-			new /obj/item/device/laser_assembly/large(src.loc)
+			new /obj/item/device/laser_assembly/large(get_turf(src))
 	qdel(src)
 
 /obj/item/weapon/gun/energy/laser/prototype/small_fail()

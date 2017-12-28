@@ -167,7 +167,7 @@
 	name = "energy silencer"
 	desc = "A sophisticated audio dampener that negates much of the sound produced by an energy weapon."
 	mod_type = MOD_SILENCE
-	icon_state = "energy silencer"
+	icon_state = "energy_silencer"
 
 /obj/item/laser_components/modifier/aeg
 	name = "miniaturized reactor"

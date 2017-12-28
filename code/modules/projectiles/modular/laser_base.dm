@@ -148,13 +148,16 @@
 		return ..()
 	if(ismodifier(A) && gun_mods.len < modifier_cap)
 		gun_mods += A
+		user.drop_item()
 		A.forceMove(src)
 	else if(islasercapacitor(A) && stage == 1)
 		capacitor = A
+		user.drop_item()
 		A.forceMove(src)
 		stage = 2
 	else if(isfocusinglens(A) && stage == 2)
 		focusing_lens = A
+		user.drop_item()
 		A.forceMove(src)
 		stage = 3
 	else
@@ -186,9 +189,9 @@
 	A.focusing_lens = focusing_lens
 	focusing_lens.loc = A
 	if(gun_mods.len)
-		for(var/obj/item/laser_components/modifier in gun_mods)
-			A.gun_mods += modifier
-			modifier.forceMove(A)
+		for(var/obj/item/laser_components/modifier/mod in gun_mods)
+			A.gun_mods += mod
+			mod.forceMove(A)
 	A.loc = src.loc
 	A.icon = getFlatIcon(src)
 	A.updatetype()
