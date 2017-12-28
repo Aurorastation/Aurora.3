@@ -59,7 +59,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		user.visible_message("[user] starts making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].", \
 		"You start making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]." )
-		target.custom_pain("The pain in your chest is living hell!",1)
+		target.custom_pain("The pain in your [affected.name == "head" ? "head" : "chest"] is living hell!",1)
 		affected.cavity = 1
 		..()
 
@@ -224,5 +224,5 @@
 				var/obj/item/weapon/implant/imp = affected.implants[1]
 				user.visible_message("<span class='warning'>Something beeps inside [target]'s [affected.name]!</span>")
 				playsound(imp.loc, 'sound/items/countdown.ogg', 75, 1, -3)
-				addtimer(CALLBACK(imp, .proc/activate), 25)
+				addtimer(CALLBACK(imp, /obj/item/weapon/implant/.proc/activate), 25)
 

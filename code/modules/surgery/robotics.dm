@@ -6,7 +6,7 @@
 /datum/surgery_step/robotics/
 	can_infect = 0
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if (isipc(target) && isipc(user) && user == target)
+		if (user == target && isipc(user))
 			to_chat(user, span("warning","You can't repair damage to your own body - it's against OH&S."))
 			return 0		//self-surgery isn't allowed!
 		if (isslime(target))
@@ -572,5 +572,4 @@
 				var/obj/item/weapon/implant/imp = affected.implants[1]
 				user.visible_message("<span class='warning'>Something beeps inside [target]'s [affected.name]!</span>")
 				playsound(imp.loc, 'sound/items/countdown.ogg', 75, 1, -3)
-				spawn(25)
-					imp.activate()
+				addtimer(CALLBACK(imp, /obj/item/weapon/implant/.proc/activate), 25)
