@@ -239,7 +239,7 @@
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd].</span>\n"
 		if(client && ((client.inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
 			msg += "<span class='deadsay'>\[Inactive for [round(client.inactivity / 600)] minutes.\]\n</span>"
-		else if((world.realtime - disconnect_time) >= 5 MINUTES)
+		else if((!client && (world.realtime - disconnect_time) >= 5 MINUTES))
 			msg += "<span class='deadsay'>\[Disconnected/ghosted [(world.realtime - disconnect_time)/600] minutes ago.\]\n</span>"
 
 	var/list/wound_flavor_text = list()

@@ -38,6 +38,8 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	var/obj/item/device/multitool/ghost_multitool
 	incorporeal_move = 1
 
+	mob_thinks = FALSE
+
 /mob/dead/observer/New(mob/body)
 	if (istype(body, /mob/dead/observer))
 		return//A ghost can't become a ghost.

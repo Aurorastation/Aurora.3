@@ -11,18 +11,18 @@
 	var/retribution = 1 //whether or not they will attack us if we attack them like some kinda dick.
 
 /mob/living/simple_animal/hostile/commanded/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	if((speaker in friends) || speaker == master)
+	if(thinking_enabled && !stat && ((speaker in friends) || speaker == master))
 		command_buffer.Add(speaker)
 		command_buffer.Add(lowertext(html_decode(message)))
 	return 0
 
 /mob/living/simple_animal/hostile/commanded/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
-	if((speaker in friends) || speaker == master)
+	if(thinking_enabled && !stat && ((speaker in friends) || speaker == master))
 		command_buffer.Add(speaker)
 		command_buffer.Add(lowertext(html_decode(message)))
 	return 0
 
-/mob/living/simple_animal/hostile/commanded/Life()
+/mob/living/simple_animal/hostile/commanded/think()
 	while(command_buffer.len > 0)
 		var/mob/speaker = command_buffer[1]
 		var/text = command_buffer[2]
@@ -31,15 +31,16 @@
 			var/substring = copytext(text,length(filtered_name)+1) //get rid of the name.
 			listen(speaker,substring)
 		command_buffer.Remove(command_buffer[1],command_buffer[2])
-	. = ..()
-	if(.)
-		switch(stance)
-			if(COMMANDED_FOLLOW)
-				follow_target()
-			if(COMMANDED_STOP)
-				commanded_stop()
+	..()
+	switch(stance)
+		if(COMMANDED_FOLLOW)
+			follow_target()
+		if(COMMANDED_STOP)
+			commanded_stop()
 
-
+/mob/living/simple_animal/hostile/commanded/on_think_disabled()
+	..()
+	command_buffer.Cut()
 
 /mob/living/simple_animal/hostile/commanded/FindTarget(var/new_stance = HOSTILE_STANCE_ATTACK)
 	if(!allowed_targets.len)

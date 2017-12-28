@@ -107,7 +107,7 @@
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
-	seek_move_delay = (1 / seek_speed) / (world.tick_lag / 10)//number of ticks between moves
+	seek_move_delay = (1 / seek_speed) * 10	//number of ds between moves
 	turns_since_scan = rand(min_scan_interval, max_scan_interval)//Randomise this at the start so animals don't sync up
 	health = maxHealth
 	verbs -= /mob/verb/observe
@@ -177,102 +177,37 @@
 	handle_supernatural()
 	process_food()
 
-	handle_foodscanning()
 	//Movement
 	turns_since_move++
-	if (!client)
-		if(!stop_automated_movement && wander && !anchored)
-			if(isturf(src.loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
-
-				if(turns_since_move >= turns_per_move)
-					if(!(stop_automated_movement_when_pulled && pulledby)) //Soma animals don't move when pulled
-						var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
-						moving_to = pick(cardinal)
-						dir = moving_to			//How about we turn them the direction they are moving, yay.
-						Move(get_step(src,moving_to))
-						turns_since_move = 0
-
-		//Speaking
-		if(speak_chance)
-			if(rand(0,200) < speak_chance)
-				if(speak && speak.len)
-					if((emote_hear && emote_hear.len) || (emote_see && emote_see.len))
-						var/length = speak.len
-						if(emote_hear && emote_hear.len)
-							length += emote_hear.len
-						if(emote_see && emote_see.len)
-							length += emote_see.len
-						var/randomValue = rand(1,length)
-						if(randomValue <= speak.len)
-							say(pick(speak))
-						else
-							randomValue -= speak.len
-							if(emote_see && randomValue <= emote_see.len)
-								visible_emote("[pick(emote_see)].",0)
-							else
-								audible_emote("[pick(emote_hear)].",0)
-					else
-						say(pick(speak))
-				else
-					if(!(emote_hear && emote_hear.len) && (emote_see && emote_see.len))
-						visible_emote("[pick(emote_see)].",0)
-					if((emote_hear && emote_hear.len) && !(emote_see && emote_see.len))
-						audible_emote("[pick(emote_hear)].",0)
-					if((emote_hear && emote_hear.len) && (emote_see && emote_see.len))
-						var/length = emote_hear.len + emote_see.len
-						var/pick = rand(1,length)
-						if(pick <= emote_see.len)
-							visible_emote("[pick(emote_see)].",0)
-						else
-							audible_emote("[pick(emote_hear)].",0)
-				speak_audio()
-
-		if (can_nap)
-			if (!resting && prob(1))
-				fall_asleep()
-			else if (resting && (prob(0.5) || !stat))
-				wake_up()
-
 
 	//Atmos
 	var/atmos_suitable = 1
 
-	var/atom/A = src.loc
-
-	if(istype(A,/turf))
-		var/turf/T = A
+	if(isturf(loc))
+		var/turf/T = loc
 
 		var/datum/gas_mixture/Environment = T.return_air()
 
 		if(Environment)
-
-			if( abs(Environment.temperature - bodytemperature) > 40 )
+			if (abs(Environment.temperature - bodytemperature) > 40)
 				bodytemperature += ((Environment.temperature - bodytemperature) / 5)
 
-			if(min_oxy)
-				if(Environment.gas["oxygen"] < min_oxy)
-					atmos_suitable = 0
-			if(max_oxy)
-				if(Environment.gas["oxygen"] > max_oxy)
-					atmos_suitable = 0
-			if(min_tox)
-				if(Environment.gas["phoron"] < min_tox)
-					atmos_suitable = 0
-			if(max_tox)
-				if(Environment.gas["phoron"] > max_tox)
-					atmos_suitable = 0
-			if(min_n2)
-				if(Environment.gas["nitrogen"] < min_n2)
-					atmos_suitable = 0
-			if(max_n2)
-				if(Environment.gas["nitrogen"] > max_n2)
-					atmos_suitable = 0
-			if(min_co2)
-				if(Environment.gas["carbon_dioxide"] < min_co2)
-					atmos_suitable = 0
-			if(max_co2)
-				if(Environment.gas["carbon_dioxide"] > max_co2)
-					atmos_suitable = 0
+			if(min_oxy && Environment.gas["oxygen"] < min_oxy)
+				atmos_suitable = 0
+			else if(max_oxy && Environment.gas["oxygen"] > max_oxy)
+				atmos_suitable = 0
+			else if(min_tox && Environment.gas["phoron"] < min_tox)
+				atmos_suitable = 0
+			else if(max_tox && Environment.gas["phoron"] > max_tox)
+				atmos_suitable = 0
+			else if(min_n2 && Environment.gas["nitrogen"] < min_n2)
+				atmos_suitable = 0
+			else if(max_n2 && Environment.gas["nitrogen"] > max_n2)
+				atmos_suitable = 0
+			else if(min_co2 && Environment.gas["carbon_dioxide"] < min_co2)
+				atmos_suitable = 0
+			else if(max_co2 && Environment.gas["carbon_dioxide"] > max_co2)
+				atmos_suitable = 0
 
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
@@ -288,11 +223,63 @@
 		apply_damage(unsuitable_atoms_damage, OXY, used_weapon = "Atmosphere")
 	return 1
 
+/mob/living/simple_animal/think()
+	..()
+	handle_foodscanning()
+	if(!stop_automated_movement && wander && !anchored)
+		if(isturf(loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
+				var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
+				moving_to = pick(cardinal)
+				set_dir(moving_to)			//How about we turn them the direction they are moving, yay.
+				Move(get_step(src,moving_to))
+				turns_since_move = 0
+
+	//Speaking
+	if(speak_chance && rand(0,200) < speak_chance)
+		if(LAZYLEN(speak))
+			if(LAZYLEN(emote_hear) || LAZYLEN(emote_see))
+				var/length = speak.len
+				if(emote_hear && emote_hear.len)
+					length += emote_hear.len
+				if(emote_see && emote_see.len)
+					length += emote_see.len
+				var/randomValue = rand(1,length)
+				if(randomValue <= speak.len)
+					say(pick(speak))
+				else
+					randomValue -= speak.len
+					if(emote_see && randomValue <= emote_see.len)
+						visible_emote("[pick(emote_see)].",0)
+					else
+						audible_emote("[pick(emote_hear)].",0)
+			else
+				say(pick(speak))
+		else
+			if(!(emote_hear && emote_hear.len) && (emote_see && emote_see.len))
+				visible_emote("[pick(emote_see)].",0)
+			if((emote_hear && emote_hear.len) && !(emote_see && emote_see.len))
+				audible_emote("[pick(emote_hear)].",0)
+			if((emote_hear && emote_hear.len) && (emote_see && emote_see.len))
+				var/length = emote_hear.len + emote_see.len
+				var/pick = rand(1,length)
+				if(pick <= emote_see.len)
+					visible_emote("[pick(emote_see)].",0)
+				else
+					audible_emote("[pick(emote_hear)].",0)
+		speak_audio()
+
+	if (can_nap)
+		if (resting)
+			if (prob(1))
+				fall_asleep()
+		else
+			if (!stat || prob(0.5))
+				wake_up()
+
 /mob/living/simple_animal/proc/handle_supernatural()
 	if(purge)
 		purge -= 1
-
-
 
 //Simple reagent processing for simple animals
 //This allows animals to digest food, and only food
@@ -337,7 +324,7 @@
 	else return 2//hungry
 
 /mob/living/simple_animal/gib()
-	..(icon_gib,1)
+	..(icon_gib, 1)
 
 /mob/living/simple_animal/emote(var/act, var/type, var/desc)
 	if(act)
@@ -589,29 +576,18 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				scan_interval = min_scan_interval
 				stop_automated_movement = 1
 
-				if (istype(movement_target.loc, /turf))
-					walk_to(src,movement_target,0, seek_move_delay)//Stand ontop of food
+				if (isturf(movement_target.loc))
+					walk_to(src, movement_target, 0, DS2TICKS(seek_move_delay))	//Stand ontop of food
 				else
-					walk_to(src,movement_target.loc,1, seek_move_delay)//Don't stand ontop of people
+					walk_to(src, get_turf(movement_target), 1, DS2TICKS(seek_move_delay))	//Don't stand ontop of people
 
-
-
-				if(movement_target)		//Not redundant due to sleeps, Item can be gone in 6 decisecomds
-					if (movement_target.loc.x < src.x)
-						set_dir(WEST)
-					else if (movement_target.loc.x > src.x)
-						set_dir(EAST)
-					else if (movement_target.loc.y < src.y)
-						set_dir(SOUTH)
-					else if (movement_target.loc.y > src.y)
-						set_dir(NORTH)
-					else
-						set_dir(SOUTH)
+				if (movement_target)
+					set_dir(get_dir(src, movement_target))
 
 					if(isturf(movement_target.loc) && Adjacent(get_turf(movement_target), src))
 						UnarmedAttack(movement_target)
-						if (get_turf(movement_target) == src.loc)
-							set_dir(pick(1,2,4,8,1,1))//Face a random direction when eating, but mostly upwards
+						if (get_turf(movement_target) == loc)
+							set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
 					else if(ishuman(movement_target.loc) && Adjacent(src, get_turf(movement_target)) && prob(10))
 						beg(movement_target, movement_target.loc)
 			else

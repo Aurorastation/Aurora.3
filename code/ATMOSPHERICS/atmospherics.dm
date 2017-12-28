@@ -45,6 +45,10 @@ Pipelines + Other Objects -> Pipe network
 	if (mapload)
 		return INITIALIZE_HINT_LATELOAD
 
+/obj/machinery/atmospherics/Destroy()
+	..()
+	return QDEL_HINT_HARDDEL	// fuck it
+
 /obj/machinery/atmospherics/proc/atmos_init()
 
 // atmos_init() and Initialize() must be separate, as atmos_init() can be called multiple times after the machine has been initialized.
@@ -100,8 +104,6 @@ obj/machinery/atmospherics/proc/check_connect_types(obj/machinery/atmospherics/a
 /obj/machinery/atmospherics/machinery_process()
 	last_flow_rate = 0
 	last_power_draw = 0
-
-	build_network()
 
 /obj/machinery/atmospherics/proc/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	// Check to see if should be added to network. Add self if so and adjust variables appropriately.

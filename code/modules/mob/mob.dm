@@ -33,6 +33,8 @@
 		var/atom/movable/AM = src.loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
+	MOB_STOP_THINKING(src)
+
 	return ..()
 
 
@@ -61,13 +63,16 @@
 	spell_masters = null
 	zone_sel = null
 
-/mob/New()
+/mob/Initialize()
+	. = ..()
 	mob_list += src
 	if(stat == DEAD)
 		dead_mob_list += src
 	else
 		living_mob_list += src
-	..()
+
+	if (!ckey && mob_thinks)
+		MOB_START_THINKING(src)
 
 /mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
@@ -1173,14 +1178,14 @@ mob/proc/yank_out_object()
 		set_dir(dir)
 		facing_dir = dir
 
-/mob/set_dir()
+/mob/set_dir(ndir)
 	if(facing_dir)
 		if(!canface() || lying || buckled || restrained())
 			facing_dir = null
 		else if(dir != facing_dir)
 			return ..(facing_dir)
 	else
-		return ..()
+		return ..(ndir)
 
 /mob/forceMove(atom/dest)
 	var/atom/movable/AM

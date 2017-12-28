@@ -1,0 +1,8 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "You should now be able to interact with airlock's buttons and controllers while inside a mecha."
+  - rscdel: "Removed the binary channels from posibrains."
+  - rscadd: "Added a plasma cutter as an emmaged module to the contruction module."

@@ -435,8 +435,16 @@ var/datum/controller/subsystem/cargo/SScargo
 	else
 		return "The order could not be rejected - Invalid Status"
 
-
-
+//Deliver a order
+/datum/controller/subsystem/cargo/proc/deliver_order(var/datum/cargo_order/co, var/received_by, var/payment_status = 1)
+	if(co.status == "shipped")
+		co.status = "delivered"
+		co.time_delivered = worldtime2text()
+		co.received_by = received_by
+		co.payment_status = payment_status
+		return "The order has been delivered"
+	else 
+		return "The order could not be delivered - Invalid Status"
 
 //Checks if theorder can be shipped and marks it as shipped if possible
 /datum/controller/subsystem/cargo/proc/ship_order(var/datum/cargo_order/co)
@@ -701,9 +709,10 @@ var/datum/controller/subsystem/cargo/SScargo
 	//Shuttle is loaded now - Charge cargo for it
 	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchase)
 
-	//Now calculate the aliquot shipment cost for the orders and add it to each order
-	var/aliquot_shipment_cost = current_shipment.shuttle_fee / current_shipment.orders.len
-	for(var/datum/cargo_order/co in current_shipment.orders)
-		co.partial_shipment_fee = aliquot_shipment_cost
+	if(current_shipment.orders.len)
+		//Now calculate the aliquot shipment cost for the orders and add it to each order
+		var/aliquot_shipment_cost = current_shipment.shuttle_fee / current_shipment.orders.len
+		for(var/datum/cargo_order/co in current_shipment.orders)
+			co.partial_shipment_fee = aliquot_shipment_cost
 
 	return 1
