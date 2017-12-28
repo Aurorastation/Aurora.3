@@ -20,16 +20,6 @@
 			return "<font color='#66AA00'>[pick(list(".",","))]</font>"
 		if(4)
 			return "<font color='#77CC00'>[pick(list(".",","))]</font>"
-		if(5)
-			return "<font color='#88DD00'>[pick(list(".",","))]</font>"
-		if(6)
-			return "<font color='#99EE00'>[pick(list(".",","))]</font>"
-		if(7)
-			return "<font color='#00BB00'>[pick(list("T","t"))]</font>"
-		if(8)
-			return "<font color='#00DD00'>[pick(list("T","t"))]</font>"
-		if(9)
-			return "<font color='#00FF00'>[pick(list("T","t"))]</font>"
 
 /datum/random_map/noise/magma/get_appropriate_path(var/value)
 	var/val = min(9,max(0,round((value/cell_range)*10)))
