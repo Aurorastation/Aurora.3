@@ -57,7 +57,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	for (var/A in work_queue)
 		var/datum/explosiondata/data = A
 
-		if (data.complex)
+		if (data.spreading)
 			explosion_iter(data.epicenter, data.rec_pow, data.z_transfer)
 		else
 			explosion(data)
@@ -75,7 +75,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/z_transfer = data.z_transfer
 	var/power = data.rec_pow
 
-	if(data.complex)
+	if(data.spreading)
 		explosion_iter(epicenter, power, z_transfer)
 		return
 
@@ -86,9 +86,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	// Handles recursive propagation of explosions.
 	if(devastation_range > 2 || heavy_impact_range > 2)
 		if(HasAbove(epicenter.z) && z_transfer & UP)
-			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, UP, complex = FALSE)
+			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, UP, spreading = FALSE)
 		if(HasBelow(epicenter.z) && z_transfer & DOWN)
-			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN, complex = FALSE)
+			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN, spreading = FALSE)
 
 	var/max_range = max(devastation_range, heavy_impact_range, light_impact_range, flash_range)
 
@@ -256,7 +256,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			data.epicenter = GetAbove(epicenter)
 			data.rec_pow = power * config.iterative_explosives_z_multiplier
 			data.z_transfer = UP
-			data.complex = TRUE
+			data.spreading = TRUE
 			queue(data)
 
 		if ((z_transfer & DOWN) && HasBelow(epicenter.z))
@@ -264,7 +264,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			data.epicenter = GetBelow(epicenter)
 			data.rec_pow = power * config.iterative_explosives_z_multiplier
 			data.z_transfer = DOWN
-			data.complex = TRUE
+			data.spreading = TRUE
 			queue(data)
 
 	// These three lists must always be the same length.
@@ -423,7 +423,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/flash_range
 	var/adminlog
 	var/z_transfer
-	var/complex
+	var/spreading
 	var/rec_pow
 
 #undef EXPLFX_BOTH
