@@ -39,8 +39,8 @@
 #define SMOOTH_QUEUED        16 // atom is currently queued to smooth.
 #define SMOOTH_NO_CLEAR_ICON 32 // don't clear the atom's icon_state on smooth.
 
-#define SMOOTHHINT_CUT_F 1              // Don't draw the 'F' state. Useful with SMOOTH_NO_CLEAR_ICON.
-#define SMOOTHHINT_ONLY_MATCH_TURF 2    // Only try to match turfs (this is faster than matching all atoms)
+#define SMOOTHHINT_CUT_F              1 // Don't draw the 'F' state. Useful with SMOOTH_NO_CLEAR_ICON.
+#define SMOOTHHINT_ONLY_MATCH_TURF    2 // Only try to match turfs (this is faster than matching all atoms)
 #define SMOOTHHINT_TARGETS_NOT_UNIQUE 4 // The smoother can assume that all atoms of this type will have the same canSmoothWith value.
 
 #define NULLTURF_BORDER 123456789
