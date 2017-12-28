@@ -224,6 +224,5 @@
 				var/obj/item/weapon/implant/imp = affected.implants[1]
 				user.visible_message("<span class='warning'>Something beeps inside [target]'s [affected.name]!</span>")
 				playsound(imp.loc, 'sound/items/countdown.ogg', 75, 1, -3)
-				spawn(25)
-					imp.activate()
+				addtimer(CALLBACK(imp, .proc/activate), 25)
 
