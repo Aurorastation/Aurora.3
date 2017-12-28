@@ -35,10 +35,19 @@
 /datum/random_map/noise/volcanism/get_appropriate_path(var/value)
 	return
 
+/datum/random_map/noise/volcanism/get_appropriate_path(var/value)
+	var/val = min(9,max(0,round((value/cell_range)*10)))
+	if(isnull(val)) val = 0
+	switch(val)
+		if(0 to 4)
+			return /turf/simulated/lava
+		else
+			return /turf/simulated/floor/asteroid/basalt
+
 /datum/random_map/noise/volcanism/get_additional_spawns(var/value, var/turf/T)
 	if(value>=178)
 		if(istype(T,/turf/simulated/floor/asteroid))
-			T.ChangeTurf(/turf/simulated/floor/airless/lava)
+			T.ChangeTurf(/turf/simulated/lava)
 		else if(istype(T,/turf/simulated/mineral))
 			var/turf/simulated/mineral/M = T
-			M.mined_turf = /turf/simulated/floor/airless/lava
+			M.mined_turf = /turf/simulated/lava
