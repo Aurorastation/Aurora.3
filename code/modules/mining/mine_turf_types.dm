@@ -36,7 +36,7 @@
 				L.adjustFireLoss(rand(20,50))
 				L.fire_stacks += 25
 				L.IgniteMob()
-				L.bodytemperature += 273
+				L.bodytemperature += 150
 				return 1
 		if(isrobot(L))
 			L.adjustFireLoss(rand(10,50))
