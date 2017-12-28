@@ -42,7 +42,7 @@
 			L.adjustFireLoss(rand(10,50))
 			return 1
 		else
-			L.visible_message("<span class='danger'>\The [L] is consumed by the \the [src]!</span>!")
+			L.visible_message("<span class='danger'>\The [L] is consumed by the \the [src]!</span>")
 			L.dust()
 	..()
 
