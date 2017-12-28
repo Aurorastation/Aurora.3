@@ -318,6 +318,12 @@
 		if(typecache_include[A.type] && !typecache_exclude[A.type])
 			. += A
 
+/proc/range_in_typecache(dist, center, list/typecache)
+	for (var/thing in range(dist, center))
+		var/atom/A = thing
+		if (typecache[A.type])
+			return TRUE
+
 /proc/typecache_first_match(list/target, list/typecache)
 	for (var/thing in target)
 		var/datum/D = thing
