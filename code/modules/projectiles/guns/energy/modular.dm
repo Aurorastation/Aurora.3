@@ -11,11 +11,13 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	can_turret = 0
 	zoomdevicename = null
+	max_shots = 0
 	var/origin_chassis
 	var/gun_type
 	var/list/gun_mods = list()
 	var/obj/item/laser_components/capacitor/capacitor
 	var/obj/item/laser_components/focusing_lens/focusing_lens
+	var/obj/item/laser_components/modulator/modulator
 	var/chargetime
 	var/is_charging
 	var/criticality = 1 //multiplier for the negative effects of capacitor failures. Not just limited to critical failures.
@@ -26,11 +28,11 @@
 	..(user)
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			user << "You can see a [modifier] attached."
+			user << "You can see a \the [modifier] attached."
 	if(capacitor)
-		user << "You can see a [capacitor] attached."
+		user << "You can see a \the [capacitor] attached."
 	if(focusing_lens)
-		user << "You can see a [focusing_lens] attached."
+		user << "You can see a \the [focusing_lens] attached."
 
 /obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
 	if(!isscrewdriver(D))
@@ -39,7 +41,7 @@
 	disassemble()
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/updatetype()
-	if(!focusing_lens || !capacitor)
+	if(!focusing_lens || !capacitor || !modulator)
 		disassemble()
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
@@ -63,6 +65,8 @@
 	reliability = (capacitor.reliability - capacitor.condition) + (focusing_lens.reliability - focusing_lens.condition)
 	if(reliability < 0)
 		reliability = 0
+	if(modulator.projectile)
+		projectile_type = modulator.projectile
 	fire_delay = capacitor.fire_delay
 	max_shots = capacitor.shots
 	dispersion = focusing_lens.dispersion
@@ -86,8 +90,6 @@
 				criticality *= 2
 		fire_delay *= modifier.fire_delay
 		reliability += modifier.reliability
-		if(modifier.projectile)
-			projectile_type = modifier.projectile
 		burst += modifier.burst
 		burst_delay += modifier.burst_delay
 		max_shots *= modifier.shots

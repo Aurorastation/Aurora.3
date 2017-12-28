@@ -36,7 +36,6 @@
 	var/mod_type
 	var/base_malus = 2 //when modifiers get damaged they do not break, but make other components break faster
 	var/malus = 2 //subtracted from weapon's overall reliability everytime it's fired
-	var/obj/item/projectile/beam/projectile
 	var/gun_force = 0 //melee damage of the gun
 	var/chargetime = 0
 	var/burst_delay = 0
@@ -124,6 +123,15 @@
 		if(condition > 0)
 			user << "<span class='warning'>\The [src] appears damaged.</span>"
 
+/obj/item/laser_components/modulator
+	name = "laser modulator"
+	desc = "A modification that modulates the beam into a standard laser beam."
+	icon_state = "laser"
+	var/obj/item/projectile/beam/projectile = /obj/item/projectile/beam
+
+/obj/item/laser_components/modulator/degrade()
+	return
+
 /obj/item/device/laser_assembly
 	name = "laser assembly (small)"
 	desc = "A case for shoving things into. Hopefully they work."
@@ -137,6 +145,7 @@
 	var/list/gun_mods = list()
 	var/obj/item/laser_components/capacitor/capacitor
 	var/obj/item/laser_components/focusing_lens/focusing_lens
+	var/obj/item/laser_components/modulator/modulator
 
 /obj/item/device/laser_assembly/Initialize()
 	..()
@@ -160,10 +169,13 @@
 		user.drop_item()
 		A.forceMove(src)
 		stage = 3
+	else if(ismodulator(A) && stage == 3)
+		modulator = A
+		user.drop_item()
+		A.forceMove(src)
 	else
 		return ..()
 	user << "<span class='notice'>You insert the [A] into the assembly.</span>"
-	A.loc = src
 	update_icon()
 	check_completion()
 
@@ -178,21 +190,24 @@
 
 
 /obj/item/device/laser_assembly/proc/check_completion()
-	if(capacitor && focusing_lens)
+	if(capacitor && focusing_lens && modulator)
 		finish()
 
 /obj/item/device/laser_assembly/proc/finish()
 	var/obj/item/weapon/gun/energy/laser/prototype/A = new /obj/item/weapon/gun/energy/laser/prototype
 	A.origin_chassis = size
 	A.capacitor = capacitor
-	capacitor.loc = A
+	capacitor.forceMove(A)
 	A.focusing_lens = focusing_lens
-	focusing_lens.loc = A
+	focusing_lens.forceMove(A)
+	A.modulator = modulator
+	modulator.forceMove(A)
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/mod in gun_mods)
 			A.gun_mods += mod
 			mod.forceMove(A)
-	A.loc = src.loc
+	if(!user.put_in_active_hand(A))
+		A.forceMove(get_turf(src))
 	A.icon = getFlatIcon(src)
 	A.updatetype()
 	gun_mods = null

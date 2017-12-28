@@ -7,4 +7,5 @@
 
 #define islasercapacitor(A) istype(A, /obj/item/laser_components/capacitor)
 #define ismodifier(A) istype(A, /obj/item/laser_components/modifier)
+#define ismodulator(A) istype(A, /obj/item/laser_components/modulator)
 #define isfocusinglens(A) istype(A, /obj/item/laser_components/focusing_lens)

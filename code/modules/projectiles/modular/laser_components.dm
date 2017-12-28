@@ -283,113 +283,115 @@
 	gun_overlay = "ebayonet"
 	icon_state = "ebayonet_item"
 
-/obj/item/laser_components/modifier/taser
+//Projectile modulators
+
+/obj/item/laser_components/modulator/taser
 	name = "TASER modulator"
 	desc = "A modification that modulates the beam into a nonlethal electrical arc."
 	damage = 0
 	projectile = /obj/item/projectile/beam/stun
 	icon_state = "taser"
 
-/obj/item/laser_components/modifier/tesla
+/obj/item/laser_components/modulator/tesla
 	name = "tesla modulator"
 	desc = "A modification that modulates the beam into a lethal electrical arc."
 	projectile = /obj/item/projectile/energy/tesla
 	icon_state = "tesla"
 
-/obj/item/laser_components/modifier/pulse
+/obj/item/laser_components/modulator/pulse
 	name = "pulse modulator"
 	desc = "Amplifies the laser beam into a highly lethal pulse beam."
 	projectile = /obj/item/projectile/beam/pulse
 	damage = 1.25
 	icon_state = "pulse"
 
-/obj/item/laser_components/modifier/xray
+/obj/item/laser_components/modulator/xray
 	name = "xray modulator"
 	desc = "Modulates the beam into a concentrated x-ray blast."
 	projectile = /obj/item/projectile/beam/sniper
 	icon_state = "xray"
 
-/obj/item/laser_components/modifier/ion
+/obj/item/laser_components/modulator/ion
 	name = "ion cannon"
 	desc = "Modulates the prototype to fire disparate ion projectiles."
 	projectile = /obj/item/projectile/ion
 	icon_state = "ion"
 
-/obj/item/laser_components/modifier/floramut
+/obj/item/laser_components/modulator/floramut
 	name = "floral somatomodulator"
 	desc = "Modulates the beam into firing controlled radiation which induces mutation in plant cells."
 	projectile = /obj/item/projectile/energy/floramut
 	icon_state = "somatoray"
 
-/obj/item/laser_components/modifier/floramut2
+/obj/item/laser_components/modulator/floramut2
 	name = "betaray modulator"
 	desc = "Modulates the beam into firing controlled radiation which induces enhanced reproduction in plant cells."
 	projectile = /obj/item/projectile/energy/florayield
 	icon_state = "betaray"
 
-/obj/item/laser_components/modifier/arodentia
+/obj/item/laser_components/modulator/arodentia
 	name = "arodentia modulator"
 	desc = "Modulates the beam into firing precise electrical arcs designed for pest control."
 	projectile = /obj/item/projectile/beam/mousegun
 	damage = 0
 	icon_state = "pesker"
 
-/obj/item/laser_components/modifier/red
+/obj/item/laser_components/modulator/red
 	name = "red team modulator"
 	desc = "Modulates the beam into firing red team tagger beams."
 	projectile = /obj/item/projectile/beam/lastertag/red
 	damage = 0
 	icon_state = "red"
 
-/obj/item/laser_components/modifier/blue
+/obj/item/laser_components/modulator/blue
 	name = "blue team modulator"
 	desc = "Modulates the beam into firing blue team tagger beams."
 	projectile = /obj/item/projectile/beam/lastertag/blue
 	damage = 0
 	icon_state = "blue"
 
-/obj/item/laser_components/modifier/omni
+/obj/item/laser_components/modulator/omni
 	name = "omni team modulator"
 	desc = "Modulates the beam into firing omni team tagger beams."
 	projectile = /obj/item/projectile/beam/lastertag/omni
 	damage = 0
 	icon_state = "omni"
 
-/obj/item/laser_components/modifier/practice
+/obj/item/laser_components/modulator/practice
 	name = "practice beam modulator"
 	desc = "Modulates the beam into firing nonlethal practice beams."
 	projectile = /obj/item/projectile/beam/practice
 	damage = 0
 	icon_state = "practice"
 
-/obj/item/laser_components/modifier/mindflayer
+/obj/item/laser_components/modulator/mindflayer
 	name = "mind flayer modulator"
 	desc = "Modulates the beam into firing \"mind flayer\" beams."
 	projectile = /obj/item/projectile/beam/mindflayer
 	damage = 0.5
 	icon_state = "flayer"
 
-/obj/item/laser_components/modifier/decloner
+/obj/item/laser_components/modulator/decloner
 	name = "decloner modulator"
 	desc = "Modulates the beam into firing highly radioactive particulates."
 	projectile = /obj/item/projectile/energy/declone
 	damage = 0.5
 	icon_state = "decloner"
 
-/obj/item/laser_components/modifier/ebow
+/obj/item/laser_components/modulator/ebow
 	name = "dart modulator"
 	desc = "Modulates the beam into firing minute energy darts."
 	projectile = /obj/item/projectile/energy/dart
 	damage = 0.25
 	icon_state = "dart"
 
-/obj/item/laser_components/modifier/blaster
+/obj/item/laser_components/modulator/blaster
 	name = "blaster-bolt modulator"
 	desc = "Modulates the beam into firing disparate energy bolts."
 	projectile = /obj/item/projectile/energy/blaster
 	icon_state = "lensatic"
 
-/obj/item/laser_components/modifier/bfg
+/obj/item/laser_components/modulator/bfg
 	name = "bioforce modulator"
 	desc = "Modulates the beam into firing big green balls of death."
 	projectile = /obj/item/projectile/energy/bfg
