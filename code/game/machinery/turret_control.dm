@@ -207,16 +207,10 @@
 	if(both_mode && one_mode)
 		egun = 1
 	else // If we just have turrets with one mode, ensure that panel's lethal variable is same as Turrets.
-<<<<<<< Updated upstream
-		var/obj/machinery/porta_turret/aTurret = locate() in control_area
-		lethal = aTurret.lethal
-
-=======
 		if (turrets.len() > 0)
 			var/obj/machinery/porta_turret/aTurret = turrets[0]
 			lethal = aTurret.lethal
 	updateTurrets()
->>>>>>> Stashed changes
 	update_icon()
 
 /obj/machinery/turretid/power_change()
