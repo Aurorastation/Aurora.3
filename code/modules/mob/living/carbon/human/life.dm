@@ -1131,8 +1131,9 @@
 		// Vampire frenzy overlay.
 		if (mind.vampire)
 			if (mind.vampire.status & VAMP_FRENZIED)
-				damageoverlay.add_overlay("frenzyoverlay")
-				last_frenzy_state = TRUE
+				if (!last_frenzy_state)
+					damageoverlay.add_overlay("frenzyoverlay")
+					last_frenzy_state = TRUE
 			else if (last_frenzy_state)
 				damageoverlay.cut_overlay("frenzyoverlay")
 				last_frenzy_state = FALSE
