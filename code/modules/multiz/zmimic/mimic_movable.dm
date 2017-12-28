@@ -28,7 +28,7 @@
 
 	if (TURF_IS_MIMICING(loc))
 		if (!bound_overlay.queued)
-			SSopenturf.queued_overlays += bound_overlay
+			SSzcopy.queued_overlays += bound_overlay
 			bound_overlay.queued = TRUE
 	else
 		qdel(bound_overlay)
@@ -135,10 +135,10 @@
 
 /atom/movable/openspace/overlay/New()
 	initialized = TRUE
-	SSopenturf.openspace_overlays += src
+	SSzcopy.openspace_overlays += src
 
 /atom/movable/openspace/overlay/Destroy()
-	SSopenturf.openspace_overlays -= src
+	SSzcopy.openspace_overlays -= src
 
 	if (associated_atom)
 		associated_atom.bound_overlay = null

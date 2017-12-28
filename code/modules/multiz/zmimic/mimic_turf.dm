@@ -21,7 +21,7 @@
 
 	if (below && !(flags & MIMIC_QUEUED))	
 		flags |= MIMIC_QUEUED
-		SSopenturf.queued_turfs += src
+		SSzcopy.queued_turfs += src
 
 	if (recurse)
 		update_above()	// Even if we're already updating, the turf above us might not be.
@@ -48,7 +48,7 @@
 	if (shadower)
 		CRASH("Attempt to enable Z-mimic on already-enabled turf!")
 	shadower = new(src)
-	SSopenturf.openspace_turfs += src
+	SSzcopy.openspace_turfs += src
 	var/turf/under = GetBelow(src)
 	if (under)
 		below = under
@@ -58,9 +58,9 @@
 
 // Cleans up Z-mimic objects for this turf. You shouldn't call this directly 99% of the time.
 /turf/proc/cleanup_zmimic()
-	SSopenturf.openspace_turfs -= src
+	SSzcopy.openspace_turfs -= src
 	if (flags & MIMIC_QUEUED)
-		SSopenturf.queued_turfs -= src
+		SSzcopy.queued_turfs -= src
 
 	QDEL_NULL(shadower)
 

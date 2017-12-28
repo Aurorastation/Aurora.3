@@ -3,13 +3,13 @@
 #define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
 #define SHADOWER_DARKENING_FACTOR 0.4	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
 
-/var/datum/controller/subsystem/openturf/SSopenturf
+/var/datum/controller/subsystem/zcopy/SSzcopy
 
-/datum/controller/subsystem/openturf
-	name = "Open Space"
+/datum/controller/subsystem/zcopy
+	name = "Z-Copy"
 	wait = 1
-	init_order = SS_INIT_OPENTURF
-	priority = SS_PRIORITY_OPENTURF
+	init_order = SS_INIT_ZCOPY
+	priority = SS_PRIORITY_ZCOPY
 	flags = SS_FIRE_IN_LOBBY
 
 	var/list/queued_turfs = list()
@@ -22,10 +22,10 @@
 
 	var/starlight_enabled = FALSE
 
-/datum/controller/subsystem/openturf/New()
-	NEW_SS_GLOBAL(SSopenturf)
+/datum/controller/subsystem/zcopy/New()
+	NEW_SS_GLOBAL(SSzcopy)
 
-/datum/controller/subsystem/openturf/proc/update_all()
+/datum/controller/subsystem/zcopy/proc/update_all()
 	disable()
 	for (var/thing in openspace_overlays)
 		var/atom/movable/AM = thing
@@ -45,17 +45,17 @@
 
 	enable()
 
-/datum/controller/subsystem/openturf/proc/hard_reset()
+/datum/controller/subsystem/zcopy/proc/hard_reset()
 	disable()
-	log_debug("SSopenturf: hard_reset() invoked.")
+	log_debug("SSzcopy: hard_reset() invoked.")
 	var/num_deleted = 0
 	var/thing
 	for (thing in openspace_overlays)
 		qdel(thing)
 		num_deleted++
 		CHECK_TICK
-	
-	log_debug("SSopenturf: deleted [num_deleted] overlays.")
+
+	log_debug("SSzcopy: deleted [num_deleted] overlays.")
 
 	var/num_turfs = 0
 	for (thing in turfs)
@@ -66,13 +66,13 @@
 
 		CHECK_TICK
 
-	log_debug("SSopenturf: queued [num_turfs] turfs for update. hard_reset() complete.")
+	log_debug("SSzcopy: queued [num_turfs] turfs for update. hard_reset() complete.")
 	enable()
 
-/datum/controller/subsystem/openturf/stat_entry()
+/datum/controller/subsystem/zcopy/stat_entry()
 	..("Q:{T:[queued_turfs.len - (qt_idex - 1)]|O:[queued_overlays.len - (qo_idex - 1)]} T:{T:[openspace_turfs.len]|O:[openspace_overlays.len]}")
 
-/datum/controller/subsystem/openturf/Initialize(timeofday)
+/datum/controller/subsystem/zcopy/Initialize(timeofday)
 	starlight_enabled = config.starlight && config.openturf_starlight_permitted
 	// Flush the queue.
 	fire(FALSE, TRUE)
@@ -90,7 +90,7 @@
 
 	..()
 
-/datum/controller/subsystem/openturf/fire(resumed = FALSE, no_mc_tick = FALSE)
+/datum/controller/subsystem/zcopy/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)
 		qt_idex = 1
 		qo_idex = 1
