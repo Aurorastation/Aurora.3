@@ -89,11 +89,15 @@
 /mob/living/simple_animal/mouse/Move()
 	if(..())
 		if (prob(50))
-			pixel_x += rand(-2,2)
-			pixel_x = Clamp(pixel_x, -10, 10)
+			var/new_pixelx = pixel_x
+			new_pixelx += rand(-2,2)
+			new_pixelx = Clamp(new_pixelx, -10, 10)
+			animate(src, pixel_x = new_pixelx, time = 0.5)
 		else
-			pixel_y += rand(-2,2)
-			pixel_y = Clamp(pixel_y, -4, 14)
+			var/new_pixely = pixel_y
+			new_pixely += rand(-2,2)
+			new_pixely = Clamp(new_pixely, -4, 14)
+			animate(src, pixel_y = new_pixely, time = 0.5)
 
 /mob/living/simple_animal/mouse/Initialize()
 	. = ..()

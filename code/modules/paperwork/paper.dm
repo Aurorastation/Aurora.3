@@ -501,7 +501,7 @@
 		stamped += P.type
 		overlays += stampoverlay
 
-		user << "<span class='notice'>You stamp the paper with your rubber stamp.</span>"
+		user << "<span class='notice'>You stamp the paper with \the [P].</span>"
 
 	else if(istype(P, /obj/item/weapon/flame))
 		burnpaper(P, user)

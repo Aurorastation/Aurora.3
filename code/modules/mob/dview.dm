@@ -11,6 +11,7 @@ var/mob/dview/dview_mob = new
 	simulated = 0
 
 	see_in_dark = 1e6
+	mob_thinks = FALSE
 
 /mob/dview/New()
 	..()

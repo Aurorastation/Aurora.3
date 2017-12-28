@@ -1,7 +1,7 @@
 /var/datum/controller/subsystem/mobs/SSmob
 
 /datum/controller/subsystem/mobs
-	name = "Mobs"
+	name = "Mobs - Life"
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_MOB
 
