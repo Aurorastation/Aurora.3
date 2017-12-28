@@ -134,7 +134,7 @@
 	var/size = CHASSIS_SMALL
 	var/modifier_cap = 1
 
-	var/list/gun_mods
+	var/list/modifiers = list()
 	var/obj/item/laser_components/capacitor/capacitor
 	var/obj/item/laser_components/focusing_lens/focusing_lens
 
