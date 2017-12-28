@@ -220,7 +220,6 @@ var/datum/controller/subsystem/timer/SStimer
 	timer_id_dict |= SStimer.timer_id_dict
 	bucket_list |= SStimer.bucket_list
 
-/datum/var/list/active_timers
 /datum/timedevent
 	var/id
 	var/datum/callback/callBack

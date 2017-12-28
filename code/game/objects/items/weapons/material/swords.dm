@@ -37,6 +37,7 @@
 	contained_sprite = 1
 	slot_flags = SLOT_BELT
 	attack_verb = list("attacked", "stabbed", "prodded", "poked", "lunged")
+	sharp = 0
 
 /obj/item/weapon/material/sword/longsword
 	name = "longsword"
@@ -44,6 +45,11 @@
 	icon_state = "longsword"
 	item_state = "claymore"
 	slot_flags = SLOT_BELT | SLOT_BACK
+
+/obj/item/weapon/material/sword/longsword/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target))
+		cleave(user, target)
+	..()
 
 /obj/item/weapon/material/sword/trench
 	name = "trench knife"
@@ -76,6 +82,11 @@
 	slot_flags = SLOT_BACK
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
+
+/obj/item/weapon/material/sword/axe/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target))
+		cleave(user, target)
+	..()
 
 /obj/item/weapon/material/sword/khopesh
 	name = "khopesh"

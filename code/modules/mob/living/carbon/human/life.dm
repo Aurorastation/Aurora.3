@@ -85,9 +85,6 @@
 		if (is_diona())
 			diona_handle_light(DS)
 
-		if(!client)
-			species.handle_npc(src)
-
 	handle_stasis_bag()
 
 	if(!handle_some_updates())
@@ -100,6 +97,10 @@
 
 	if(mind && mind.vampire)
 		handle_vampire()
+
+/mob/living/carbon/human/think()
+	..()
+	species.handle_npc(src)
 
 /mob/living/carbon/human/proc/handle_some_updates()
 	if(life_tick > 5 && timeofdeath && (timeofdeath < 5 || world.time - timeofdeath > 6000))	//We are long dead, or we're junk mobs spawned like the clowns on the clown shuttle
