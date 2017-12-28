@@ -26,7 +26,7 @@
 	if(istype(AM, /mob/living))
 		var/mob/living/L = AM
 		if(!istype(oldloc,/turf/simulated/lava))
-			to_chat(L, "<span class='warning'>You get drenched in lava from entering \the [src]!</span>")
+			to_chat(L, "<span class='warning'>You get drenched in magma from entering \the [src]!</span>")
 		if(ishuman(L))
 			if(L.lying)
 				L.dust()
@@ -35,7 +35,7 @@
 				L.adjustFireLoss(rand(20,50))
 				L.fire_stacks += 25
 				L.IgniteMob()
-				L.bodytemperature = 273
+				L.bodytemperature += 273
 				return 1
 		if(isrobot(L))
 			L.adjustFireLoss(rand(10,50))
