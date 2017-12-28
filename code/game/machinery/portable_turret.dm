@@ -105,6 +105,7 @@
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
 		for(var/obj/machinery/turretid/aTurretID in control_area)
+			aTurretID.turrets += src
 			aTurretID.turretModes()
 /obj/machinery/porta_turret/crescent/Initialize()
 	. = ..()
@@ -115,6 +116,7 @@
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
 		for(var/obj/machinery/turretid/aTurretID in control_area)
+			aTurretID.turrets -= src
 			aTurretID.turretModes()
 	qdel(spark_system)
 	spark_system = null
@@ -619,7 +621,7 @@
 	src.enabled = TC.enabled
 	if(egun) //If turret can switch modes.
 		src.lethal = TC.lethal
-	src.lethal_icon = TC.lethal
+		src.lethal_icon = TC.lethal
 
 	check_synth = TC.check_synth
 	check_access = TC.check_access

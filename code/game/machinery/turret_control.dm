@@ -5,6 +5,7 @@
 /area
 	// Turrets use this list to see if individual power/lethal settings are allowed
 	var/list/turret_controls = list()
+	var/list/turrets = list()
 
 /obj/machinery/turretid
 	name = "turret control panel"
@@ -61,7 +62,9 @@
 			A.turret_controls += src
 		else
 			control_area = null
-
+	if(control_area != null)
+		for (var/obj/machinery/porta_turret/aTurret in control_area)
+			turrets += aTurret
 	power_change() //Checks power and initial settings
 	turretModes()
 
@@ -166,7 +169,7 @@
 			check_anomalies = value
 
 		updateTurrets()
-		turretModes()
+		update_icon()
 		return 1
 
 /obj/machinery/turretid/proc/updateTurrets()
@@ -182,23 +185,20 @@
 	TC.ailock = ailock
 
 	if(istype(control_area))
-		for (var/obj/machinery/porta_turret/aTurret in control_area)
-			aTurret.setState(TC)
+		for (var/obj/machinery/porta_turret/aTurret in turrets)
+			if (aTurret.lethal == lethal || aTurret.egun)
+				aTurret.setState(TC)
+			else
+				TC.enabled = 0
+				aTurret.setState(TC)
 
-	update_icon()
 
 /obj/machinery/turretid/proc/turretModes()
-	var/lethal_t = 0 // Is there lethal only mode turret
-	var/stun_t = 0 // Is there stun only mode turret
 	var/one_mode = 0 // Is there general one mode only turret
 	var/both_mode = 0 // Is there both mode turrets
-	for (var/obj/machinery/porta_turret/aTurret in control_area)
+	for (var/obj/machinery/porta_turret/aTurret in turrets)
 		// If turret only has lethal mode - lock switching modes
 		if(!aTurret.egun)
-			if(aTurret.lethal)
-				lethal_t = 1
-			else
-				stun_t = 1
 			one_mode = 1
 			egun = 0
 		else
@@ -206,20 +206,17 @@
 	// If there is a turret with lethal mode only, and turret with both modes. Disable turrets with lethality that is not same as current control setting.
 	if(both_mode && one_mode)
 		egun = 1
-		for (var/obj/machinery/porta_turret/aTurret in control_area)
-			if(!aTurret.egun && (aTurret.lethal != lethal))
-				aTurret.enabled = 0
-				aTurret.update_icon()
-	else if(lethal_t & stun_t) // If we have a case of just stun only and lethal only turrets.
-		egun = 1
-		for (var/obj/machinery/porta_turret/aTurret in control_area)
-			if(!aTurret.egun && (aTurret.lethal != lethal))
-				aTurret.enabled = 0
-				aTurret.update_icon()
 	else // If we just have turrets with one mode, ensure that panel's lethal variable is same as Turrets.
+<<<<<<< Updated upstream
 		var/obj/machinery/porta_turret/aTurret = locate() in control_area
 		lethal = aTurret.lethal
 
+=======
+		if (turrets.len() > 0)
+			var/obj/machinery/porta_turret/aTurret = turrets[0]
+			lethal = aTurret.lethal
+	updateTurrets()
+>>>>>>> Stashed changes
 	update_icon()
 
 /obj/machinery/turretid/power_change()
