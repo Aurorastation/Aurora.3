@@ -1,8 +1,8 @@
 /obj/item/weapon/gun/energy/laser/prototype
 	name = "laser prototype"
 	desc = "A custom prototype laser weapon."
-	icon_state = "xrifle"
-	item_state = "xrifle"
+	icon_state = "energykill"
+	item_state = "energykill"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3

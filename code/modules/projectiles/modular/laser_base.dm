@@ -1,5 +1,5 @@
 /obj/item/laser_components
-	icon = 'icons/obj/electronic_assemblies.dmi'
+	icon = 'icons/obj/modular_laser.dmi'
 	icon_state = "dmux8"
 	var/reliability = 0
 	var/damage = 1
@@ -9,6 +9,7 @@
 	var/burst = 0
 	var/accuracy = 0
 	var/obj/item/weapon/repair_item
+	var/gun_overlay
 
 /obj/item/laser_components/proc/degrade(var/increment = 1)
 	if(increment)
@@ -67,6 +68,7 @@
 /obj/item/laser_components/capacitor
 	name = "capacitor"
 	desc = "A basic laser weapon capacitor."
+	icon_state = "capacitor"
 	shots = 5
 	damage = 10
 	reliability = 50
@@ -101,6 +103,7 @@
 /obj/item/laser_components/focusing_lens
 	name = "focusing lens"
 	desc = "A basic laser weapon focusing lens."
+	icon_state = "lens"
 	var/dispersion = 0
 	reliability = 25
 	repair_item = /obj/item/stack/nanopaste
@@ -125,8 +128,9 @@
 	name = "laser assembly (small)"
 	desc = "A case for shoving things into. Hopefully they work."
 	w_class = 2
-	icon = 'icons/obj/electronic_assemblies.dmi'
-	icon_state = "setup_small"
+	icon = 'icons/obj/modular_laser.dmi'
+	icon_state = "small"
+	var/stage = 1
 	var/size = CHASSIS_SMALL
 	var/modifier_cap = 1
 
@@ -134,21 +138,38 @@
 	var/obj/item/laser_components/capacitor/capacitor
 	var/obj/item/laser_components/focusing_lens/focusing_lens
 
+/obj/item/device/laser_assembly/Initialize()
+	..()
+	update_icon()
+
 /obj/item/device/laser_assembly/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
 	var/obj/item/laser_components/A = D
 	if(!istype(A))
 		return ..()
 	if(ismodifier(A) && modifiers.len < modifier_cap)
 		modifiers += A
-	else if(islasercapacitor(A))
+	else if(islasercapacitor(A) && stage == 1)
 		capacitor = A
-	else if(isfocusinglens(A))
+		stage = 2
+	else if(isfocusinglens(A) && stage == 2)
 		focusing_lens = A
+		stage = 3
 	else
 		return ..()
 	user << "<span class='notice'>You insert the [A] into the assembly.</span>"
 	A.loc = src
+	update_icon()
 	check_completion()
+
+/obj/item/device/laser_assembly/update_icon()
+	..()
+	underlays.Cut()
+	icon_state = "[initial(icon_state)]_[stage]"
+	if(modifiers.len)
+		for(var/obj/item/laser_components/mod in modifiers)
+			if(mod.gun_overlay)
+				underlays += mod.gun_overlay
+
 
 /obj/item/device/laser_assembly/proc/check_completion()
 	if(capacitor && focusing_lens)
@@ -166,6 +187,7 @@
 			A.modifiers += A
 			modifier.loc = A
 	A.loc = src.loc
+	A.icon = getFlatIcon(src)
 	A.updatetype()
 	modifiers = null
 	focusing_lens = null
