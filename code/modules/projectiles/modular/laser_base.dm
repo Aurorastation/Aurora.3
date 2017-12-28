@@ -134,7 +134,7 @@
 	var/size = CHASSIS_SMALL
 	var/modifier_cap = 1
 
-	var/list/modifiers = list()
+	var/list/gun_mods = list()
 	var/obj/item/laser_components/capacitor/capacitor
 	var/obj/item/laser_components/focusing_lens/focusing_lens
 
@@ -146,8 +146,8 @@
 	var/obj/item/laser_components/A = D
 	if(!istype(A))
 		return ..()
-	if(ismodifier(A) && modifiers.len < modifier_cap)
-		modifiers += A
+	if(ismodifier(A) && gun_mods.len < modifier_cap)
+		gun_mods += A
 	else if(islasercapacitor(A) && stage == 1)
 		capacitor = A
 		stage = 2
@@ -165,8 +165,8 @@
 	..()
 	underlays.Cut()
 	icon_state = "[initial(icon_state)]_[stage]"
-	if(modifiers.len)
-		for(var/obj/item/laser_components/mod in modifiers)
+	if(gun_mods.len)
+		for(var/obj/item/laser_components/mod in gun_mods)
 			if(mod.gun_overlay)
 				underlays += mod.gun_overlay
 
@@ -182,14 +182,14 @@
 	capacitor.loc = A
 	A.focusing_lens = focusing_lens
 	focusing_lens.loc = A
-	if(modifiers.len)
-		for(var/obj/item/laser_components/modifier in modifiers)
-			A.modifiers += A
+	if(gun_mods.len)
+		for(var/obj/item/laser_components/modifier in gun_mods)
+			A.gun_mods += A
 			modifier.loc = A
 	A.loc = src.loc
 	A.icon = getFlatIcon(src)
 	A.updatetype()
-	modifiers = null
+	gun_mods = null
 	focusing_lens = null
 	capacitor = null
 	qdel(src)
