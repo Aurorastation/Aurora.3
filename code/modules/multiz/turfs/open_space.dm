@@ -106,7 +106,8 @@
 	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
 	icon_state = "debug"
 	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	no_mutate = TRUE
+	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
+	flags = MIMIC_BELOW
 	name = "hole"
 
 /turf/simulated/open/chasm/airless
@@ -115,7 +116,7 @@
 	temperature = TCMB
 	icon_state = "debug_airless"
 
-/turf/simulated/open/chasm/airless/Initialize()
+/turf/simulated/open/chasm/Initialize()
 	. = ..()
 	icon_state = "Fill"
 
