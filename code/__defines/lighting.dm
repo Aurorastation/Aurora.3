@@ -78,16 +78,20 @@
 
 //These ones aren't a direct colour like the ones above, because nothing would fit
 #define LIGHT_COLOR_FIRE       "#FAA019" //Warm orange color, leaning strongly towards yellow. rgb(250, 160, 25)
+#define LIGHT_COLOR_LAVA       "#C48A18" //Very warm yellow, leaning slightly towards orange. rgb(196, 138, 24)
 #define LIGHT_COLOR_FLARE      "#FA644B" //Bright, non-saturated red. Leaning slightly towards pink for visibility. rgb(250, 100, 75)
 #define LIGHT_COLOR_SLIME_LAMP "#AFC84B" //Weird color, between yellow and green, very slimy. rgb(175, 200, 75)
 #define LIGHT_COLOR_TUNGSTEN   "#FAE1AF" //Extremely diluted yellow, close to skin color (for some reason). rgb(250, 225, 175)
 #define LIGHT_COLOR_HALOGEN    "#F0FAFA" //Barely visible cyan-ish hue, as the doctor prescribed. rgb(240, 250, 250)
+#define LIGHT_COLOR_EMERGENCY  "#FF3232" //Red color used by emergency lighting. rgb(255, 50, 50)
 
 //Defines for lighting status, see power/lighting.dm
 #define LIGHT_OK     0
 #define LIGHT_EMPTY  1
 #define LIGHT_BROKEN 2
 #define LIGHT_BURNED 3
+
+#define LIGHT_EMERGENCY_POWER_USE 0.2 //How much power emergency lights will consume per tick
 
 // Some angle presets for directional lighting.
 #define LIGHT_OMNI null
@@ -122,6 +126,9 @@
 #define AO_UPDATE_NONE 0
 #define AO_UPDATE_OVERLAY 1
 #define AO_UPDATE_REBUILD 2
+
+// If ao_neighbors equals this, no AO shadows are present.
+#define AO_ALL_NEIGHBORS 1910
 
 // If defined, integrate with the lighting engine and use its opacity value. Otherwise a simple turf opacity check is used. This may cause visual artifacts with opaque non-square movables.
 //#define AO_USE_LIGHTING_OPACITY

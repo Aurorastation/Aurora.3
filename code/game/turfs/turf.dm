@@ -92,8 +92,7 @@
 	return QDEL_HINT_IWILLGC
 
 /turf/proc/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	underlay_appearance.icon = icon
-	underlay_appearance.icon_state = icon_state
+	underlay_appearance.appearance = src
 	underlay_appearance.dir = adjacency_dir
 	return TRUE
 
@@ -343,3 +342,41 @@ var/const/enterloopsanity = 100
 			return
 
 		above.ChangeTurf(/turf/simulated/open)
+
+/turf/proc/AdjacentTurfsRanged()
+	var/static/list/allowed = typecacheof(list(
+		/obj/structure/table,
+		/obj/structure/closet,
+		/obj/machinery/constructable_frame,
+		/obj/structure/target_stake,
+		/obj/structure/cable,
+		/obj/structure/disposalpipe,
+		/obj/machinery,
+		/mob
+	))
+
+	var/L[] = new()
+	for(var/turf/simulated/t in oview(src,1))
+		var/add = 1
+		if(t.density)
+			add = 0
+		if(add && LinkBlocked(src,t))
+			add = 0
+		if(add && TurfBlockedNonWindow(t))
+			add = 0
+			for(var/obj/O in t)
+				if(!O.density)
+					add = 1
+					break
+				if(istype(O, /obj/machinery/door))
+					//not sure why this doesn't fire on LinkBlocked()
+					add = 0
+					break
+				if(is_type_in_typecache(O, allowed))
+					add = 1
+					break
+				if(!add)
+					break
+		if(add)
+			L.Add(t)
+	return L
