@@ -29,6 +29,7 @@
 			to_chat(L, "<span class='warning'>You get drenched in magma from entering \the [src]!</span>")
 		if(ishuman(L))
 			if(L.lying)
+				L.visible_message("<span class='danger'>\The [L] is consumed by the \the [src]!</span>!")
 				L.dust()
 				return 1
 			else
@@ -41,6 +42,7 @@
 			L.adjustFireLoss(rand(10,50))
 			return 1
 		else
+			L.visible_message("<span class='danger'>\The [L] is consumed by the \the [src]!</span>!")
 			L.dust()
 	..()
 
