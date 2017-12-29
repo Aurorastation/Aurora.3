@@ -25,25 +25,20 @@
 /turf/simulated/lava/Entered(atom/movable/AM, atom/oldloc)
 	if(istype(AM, /mob/living))
 		var/mob/living/L = AM
+		if(locate(/obj/structure/lattice/catwalk, src))	//should be safe to walk upon
+			return 1
 		if(!istype(oldloc,/turf/simulated/lava))
-			to_chat(L, "<span class='warning'>You get drenched in magma from entering \the [src]!</span>")
+			to_chat(L, "<span class='warning'>You are covered by fire and heat from entering \the [src]!</span>")
 		if(ishuman(L))
-			if(L.lying)
-				L.visible_message("<span class='danger'>\The [L] is consumed by the \the [src]!</span>!")
-				L.dust()
-				return 1
-			else
-				L.adjustFireLoss(rand(20,50))
-				L.fire_stacks += 25
-				L.IgniteMob()
-				L.bodytemperature += 150
-				return 1
+			L.fire_stacks += 25
+			L.IgniteMob()
+			L.bodytemperature += 150
+			return 1
 		if(isrobot(L))
-			L.adjustFireLoss(rand(10,50))
+			L.adjustFireLoss(rand(10,30))
 			return 1
 		else
-			L.visible_message("<span class='danger'>\The [L] is consumed by the \the [src]!</span>")
-			L.dust()
+			L.adjustFireLoss(rand(10,50))	//mostly to deal with simple mobs
 	..()
 
 /turf/simulated/lava/Exited(atom/movable/AM, atom/newloc)
