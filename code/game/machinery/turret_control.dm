@@ -5,7 +5,8 @@
 /area
 	// Turrets use this list to see if individual power/lethal settings are allowed
 	var/list/turret_controls = list()
-	var/list/turrets = list()
+	var/list/turrets
+
 
 /obj/machinery/turretid
 	name = "turret control panel"
@@ -30,6 +31,8 @@
 
 	req_access = list(access_ai_upload)
 
+	 // list of turrets under control
+
 /obj/machinery/turretid/stun
 	enabled = 1
 	icon_state = "control_stun"
@@ -46,27 +49,35 @@
 			A.turret_controls -= src
 	return ..()
 
-/obj/machinery/turretid/Initialize()
-	. = ..()
-	if(!control_area)
-		control_area = get_area(src)
-	else if(istext(control_area))
-		for(var/area/A in all_areas)
-			if(A.name && A.name==control_area)
-				control_area = A
-				break
+/obj/machinery/turretid/Initialize(mapload)
+    . = ..()
+    if(!control_area)
+        control_area = get_area(src)
+    else if(istext(control_area))
+        for(var/area/A in all_areas)
+            if(A.name && A.name==control_area)
+                control_area = A
+                break
 
-	if(control_area)
-		var/area/A = control_area
-		if(istype(A))
-			A.turret_controls += src
-		else
-			control_area = null
-	if(control_area != null)
-		for (var/obj/machinery/porta_turret/aTurret in control_area)
-			turrets += aTurret
-	power_change() //Checks power and initial settings
-	turretModes()
+    if(control_area)
+        var/area/A = control_area
+        if(istype(A))
+            A.turret_controls += src
+        else
+            control_area = null
+    if(control_area != null)
+        for (var/obj/machinery/porta_turret/aTurret in control_area)
+            LAZYADD(turrets, aTurret)
+
+    if (!mapload)
+        power_change() //Checks power and initial settings
+        turretModes()
+    else
+        return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/turretid/LateInitialize()
+    power_change()
+    turretModes()
 
 /obj/machinery/turretid/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
@@ -207,7 +218,7 @@
 	if(both_mode && one_mode)
 		egun = 1
 	else // If we just have turrets with one mode, ensure that panel's lethal variable is same as Turrets.
-		if (turrets.len() > 0)
+		if (LAZYLEN(turrets) > 0)
 			var/obj/machinery/porta_turret/aTurret = turrets[0]
 			lethal = aTurret.lethal
 	updateTurrets()

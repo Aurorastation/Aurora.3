@@ -3,6 +3,9 @@
 		This code is slightly more documented than normal, as requested by XSI on IRC.
 */
 
+/area
+	var/area/a
+
 #define TURRET_PRIORITY_TARGET 2
 #define TURRET_SECONDARY_TARGET 1
 #define TURRET_NOT_TARGET 0
@@ -94,7 +97,7 @@
 	installation = /obj/item/weapon/gun/energy/laser
 	sprite_set = "laser"
 
-/obj/machinery/porta_turret/Initialize()
+/obj/machinery/porta_turret/Initialize(mapload)
 	. = ..()
 	LAZYCLEARLIST(req_access)
 	req_one_access = list(access_security, access_heads)
@@ -104,9 +107,9 @@
 
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
-		for(var/obj/machinery/turretid/aTurretID in control_area)
-			aTurretID.turrets += src
-			aTurretID.turretModes()
+	a = control_area
+		LAZYADD(control_area.turrets, src)
+		aTurretID.turretModes()
 /obj/machinery/porta_turret/crescent/Initialize()
 	. = ..()
 	LAZYCLEARLIST(req_one_access)
@@ -116,7 +119,7 @@
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
 		for(var/obj/machinery/turretid/aTurretID in control_area)
-			aTurretID.turrets -= src
+			LAZYREMOVE(aTurretID.turrets, src)
 			aTurretID.turretModes()
 	qdel(spark_system)
 	spark_system = null
