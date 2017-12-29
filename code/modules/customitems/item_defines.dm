@@ -1540,7 +1540,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/under/fluff/jennifer_tee //Cartoon T-shirt Outfit - Jennifer Beal - synnono
 	name = "cartoon T-shirt outfit"
-	desc = "A promotional white T-shirt and cargo shorts. The shirt is printed with Slime Purple, the protagonist of the cartoon 'Great Slime Hero: Zettai Justice.'\nFor great slime justice!!"
+	desc = "A promotional white T-shirt and cargo shorts. The shirt is printed with Slime Purple, the protagonist of the cartoon 'Great Slime Hero: Zettai Justice.'\nFor great slime justice!"
 	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
 	icon_state = "jennifer_tee"
 	item_state = "jennifer_tee"
