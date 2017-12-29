@@ -36,7 +36,7 @@
 	if (user.back!= src)
 		to_chat(user, "<span class='warning'>The watertank must be worn properly to use!</span>")
 		return
-	if(use_check())
+	if(use_check(user))
 		return
 	on = !on
 	if(on)
