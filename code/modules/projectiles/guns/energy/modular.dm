@@ -12,6 +12,7 @@
 	can_turret = 0
 	zoomdevicename = null
 	max_shots = 0
+	burst_delay = 0
 	var/origin_chassis
 	var/gun_type
 	var/list/gun_mods = list()
@@ -40,45 +41,71 @@
 	user << "You disassemble the [src]."
 	disassemble()
 
+/obj/item/weapon/gun/energy/laser/prototype/proc/reset_vars()
+	burst = initial(burst)
+	reliability = initial(reliability)
+	burst_delay = initial(burst_delay)
+	max_shots = initial(max_shots)
+	chargetime = initial(chargetime)
+	accuracy = initial(accuracy)
+	criticality = initial(criticality)
+
 /obj/item/weapon/gun/energy/laser/prototype/proc/updatetype()
+	reset_vars()
 	if(!focusing_lens || !capacitor || !modulator)
 		disassemble()
+		return
+
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
 			gun_type =  CHASSIS_SMALL
 			slot_flags = SLOT_BELT | SLOT_HOLSTER
-			//item_state = sprite
+			item_state = "retro"
 		if(CHASSIS_MEDIUM)
 			gun_type = CHASSIS_MEDIUM
 			slot_flags = SLOT_BELT | SLOT_BACK
-			//item_state = sprite
+			item_state = "energystun"
 		if(CHASSIS_LARGE)
 			gun_type = CHASSIS_LARGE
 			slot_flags = SLOT_BACK
-			//item_state = sprite
+			item_state = "lasercannon"
+
 	if((capacitor.reliability - capacitor.condition <= 0))
 		qdel(capacitor)
 		capacitor = null
+		world << "wat"
+
 	if(focusing_lens.reliability - focusing_lens.condition <= 0)
 		qdel(focusing_lens)
 		focusing_lens = null
+		world << "wat2"
+
+	if(!focusing_lens || !capacitor || !modulator)
+		disassemble()
+		return
+
 	reliability = (capacitor.reliability - capacitor.condition) + (focusing_lens.reliability - focusing_lens.condition)
-	if(reliability < 0)
-		reliability = 0
+
 	if(modulator.projectile)
 		projectile_type = modulator.projectile
+
 	fire_delay = capacitor.fire_delay
 	max_shots = capacitor.shots
+	power_supply.maxcharge = max_shots*charge_cost
 	dispersion = focusing_lens.dispersion
 	accuracy = focusing_lens.accuracy
 	burst += focusing_lens.burst
+
 	if(gun_mods.len)
 		handle_mod()
+
 	fire_delay_wielded = min(0,(fire_delay - fire_delay*3))
 	accuracy_wielded = accuracy + accuracy/4
 	scoped_accuracy = accuracy_wielded + accuracy/4
 	max_shots = max_shots * burst
 	w_class = gun_type
+	if(reliability <= 0)
+		reliability = 1
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/handle_mod()
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
@@ -94,7 +121,7 @@
 		burst_delay += modifier.burst_delay
 		max_shots *= modifier.shots
 		force += modifier.gun_force
-		chargetime += modifier.chargetime
+		chargetime += modifier.chargetime*10
 		accuracy += modifier.accuracy
 		criticality *= modifier.criticality
 		if(modifier.scope_name)
@@ -110,19 +137,17 @@
 	if (self_recharge)
 		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 	var/obj/item/projectile/beam/A = new projectile_type(src)
-	if(!istype(A))
-		return ..()
 	A.damage = capacitor.damage
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 		A.damage *= modifier.damage
 	A.damage = A.damage/(burst - 1)
+	A.damage *= modulator.damage
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-		if(prob(33))
+		if(prob(modifiers.len * 20))
 			capacitor.degrade(modifier.malus)
-			if(prob(33))
-				focusing_lens.degrade(modifier.malus)
-				if(prob(33))
-					modifier.degrade(1)
+		if(prob(33))
+			modifier.degrade(1)
+	focusing_lens.degrade(capacitor.damage += modulator.damage)
 
 	updatetype()
 	return A
@@ -131,10 +156,16 @@
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 			modifier.forceMove(get_turf(src))
+			gun_mods.Remove(modifier)
 	if(capacitor)
 		capacitor.forceMove(get_turf(src))
+		capacitor = null
 	if(focusing_lens)
 		focusing_lens.forceMove(get_turf(src))
+		focusing_lens = null
+	if(modulator)
+		modulator.forceMove(get_turf(src))
+		modulator = null
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
 			new /obj/item/device/laser_assembly(get_turf(src))
@@ -194,7 +225,7 @@
 	if(is_charging && chargetime)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
-	if(!wielded && (origin_chassis == CHASSIS_LARGE || chargetime))
+	if(!wielded && (origin_chassis == CHASSIS_LARGE))
 		user << "<span class='danger'>You require both hands to fire this weapon!</span>"
 		return 0
 	if(chargetime)
@@ -204,10 +235,16 @@
 						"<span class='danger'>You hear a low pulsing roar!</span>"
 						)
 		is_charging = 1
-		sleep(chargetime*10)
+
+		if(!do_after(user, chargetime))
+			is_charging = 0
+			return 0
+
 		is_charging = 0
+
 	if(!istype(user.get_active_hand(), src))
-		return
+		return 0
+
 	return 1
 
 /obj/item/weapon/gun/energy/laser/prototype/verb/rename_gun()

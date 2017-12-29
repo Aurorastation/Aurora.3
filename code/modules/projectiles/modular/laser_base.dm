@@ -1,6 +1,6 @@
 /obj/item/laser_components
 	icon = 'icons/obj/modular_laser.dmi'
-	icon_state = "dmux8"
+	icon_state = "bfg"
 	var/reliability = 0
 	var/damage = 1
 	var/fire_delay = 0
@@ -206,8 +206,7 @@
 		for(var/obj/item/laser_components/modifier/mod in gun_mods)
 			A.gun_mods += mod
 			mod.forceMove(A)
-	if(!user.put_in_active_hand(A))
-		A.forceMove(get_turf(src))
+	A.forceMove(get_turf(src))
 	A.icon = getFlatIcon(src)
 	A.updatetype()
 	gun_mods = null

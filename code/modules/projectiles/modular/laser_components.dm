@@ -164,7 +164,7 @@
 //Modifiers
 
 /obj/item/laser_components/modifier/silencer
-	name = "energy silencer"
+	name = "energy suppressor"
 	desc = "A sophisticated audio dampener that negates much of the sound produced by an energy weapon."
 	mod_type = MOD_SILENCE
 	icon_state = "energy_silencer"
