@@ -13,7 +13,7 @@
 	var/volume = 500
 
 /obj/item/watertank/Initialize()
-	..()
+	. = ..()
 	create_reagents(volume)
 	noz = make_noz()
 	noz.tank = src
@@ -36,7 +36,7 @@
 	if (user.back!= src)
 		to_chat(user, "<span class='warning'>The watertank must be worn properly to use!</span>")
 		return
-	if(user.incapacitated())
+	if(use_check())
 		return
 	on = !on
 	if(on)
@@ -79,6 +79,7 @@
 
 /obj/item/watertank/Destroy()
 	qdel(noz)
+	noz = null
 	return ..()
 
 /obj/item/watertank/attackby(obj/item/W, mob/user, params)
@@ -106,7 +107,7 @@
 	..()
 	to_chat(user, "<span class='notice'>The mister snaps back onto the watertank.</span>")
 	tank.on = 0
-	loc = tank
+	forceMove(tank)
 
 /obj/item/weapon/reagent_containers/spray/chemsprayer/mister/attack_self()
 	return
@@ -114,7 +115,7 @@
 /obj/item/weapon/reagent_containers/spray/chemsprayer/mister/Move()
 	..()
 	if(loc != tank.loc)
-		loc = tank.loc
+		forceMove(tank.loc)
 
 /obj/item/weapon/reagent_containers/spray/chemsprayer/mister/afterattack(obj/target, mob/user, proximity)
 	if(target.loc == loc) //Safety check so you don't fill your mister with mutagen or something and then blast yourself in the face with it
