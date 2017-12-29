@@ -1428,7 +1428,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/gloves/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
 	name = "engraved wristwatch"
-	desc = " A fine gold watch. On the inside is an engraving that reads \"Happy birthday dad, thinking of you always\"."
+	desc = "A fine gold watch. On the inside is an engraving that reads \"Happy birthday dad, thinking of you always\"."
 	icon = 'icons/obj/custom_items/rex_watch.dmi'
 	icon_state = "rex_watch"
 
@@ -1466,3 +1466,116 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/storage/wallet/fluff/muhawir_wallet/update_icon()
 	return
+
+
+/obj/item/weapon/folder/fluff/sukhoi_folder //Inventor's Notebook - Natascha Sukhoi - lancelynxx
+	name = "inventor's notebook"
+	desc = "A dark-green notebook, with crumpled Post-Its sticking out and binding tearing at the edges. It reeks of DromedaryCo cigarettes. The words \"SUKH SYSTEMS\" are scribbled on the cover with a black sharpie."
+	icon = 'icons/obj/custom_items/sukhoi_folder.dmi'
+	icon_state = "sukhoi_folder"
+
+
+/obj/item/clothing/suit/fluff/diamond_cloak //Ragged Purple Cloak - Diamond With Flaw - burgerbb
+	name = "ragged purple cloak"
+	desc = "An old, worn down cloak that smells of dirt and stories."
+	icon = 'icons/obj/custom_items/diamond_cloak.dmi'
+	icon_state = "diamond_cloak"
+	item_state = "diamond_cloak"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	contained_sprite = TRUE
+
+
+/obj/item/fluff/jennifer_wardrobe_kit //Portable Wardrobe Kit - Jennifer Beal - synnono
+	name = "portable wardrobe kit"
+	desc = "A kit containing a change of casual clothes, packaged for easy transport. This one advertises some sort of cartoon featuring slimes. It is labeled \"J. Beal.\""
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_wardrobe_box"
+	item_state = "syringe_kit"
+
+/obj/item/fluff/jennifer_wardrobe_kit/attack_self(mob/user as mob)
+	if (use_check(user, USE_DISALLOW_SILICONS))
+		return
+
+	var/list/outfits = list(
+		"Pale turtleneck outfit" = list(
+			/obj/item/clothing/under/fluff/jennifer_turtleneck,
+			/obj/item/clothing/shoes/fluff/jennifer_aboots
+		),
+		"Black net mesh outfit" = list(
+			/obj/item/clothing/under/fluff/jennifer_nets,
+			/obj/item/clothing/shoes/fluff/jennifer_pboots
+		),
+		"Cartoon T-shirt outfit" = list(
+			/obj/item/clothing/under/fluff/jennifer_tee,
+			/obj/item/clothing/shoes/fluff/jennifer_shoes
+		)
+	)
+
+	var/selection = input("What do you find inside?", "Inside the kit...") as null|anything in outfits
+	if (!selection)
+		return
+	for (var/item in outfits[selection])
+		new item(get_turf(src))
+	to_chat(user, "<span class='notice'>You unpack the outfit from the kit.</span>")
+
+	qdel(src)
+
+/obj/item/clothing/under/fluff/jennifer_nets //Black Net Mesh Outfit - Jennifer Beal - synnono
+	name = "black net mesh outfit"
+	desc = "A clingy black top and matching skirt, belted with heavy leather around the waist. A soft fabric netting stretches over the exposed collar, midriff, arms and legs."
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_nets"
+	item_state = "jennifer_nets"
+	has_sensor = 0
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/jennifer_turtleneck //Pale Turtleneck Outfit - Jennifer Beal - synnono
+	name = "pale turtleneck outfit"
+	desc = "A graphite-blue turtleneck sweater, paired with dark blue jeans."
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_turtleneck"
+	item_state = "jennifer_turtleneck"
+	has_sensor = 0
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/jennifer_tee //Cartoon T-shirt Outfit - Jennifer Beal - synnono
+	name = "cartoon T-shirt outfit"
+	desc = "A promotional white T-shirt and cargo shorts. The shirt is printed with Slime Purple, the protagonist of the cartoon 'Great Slime Hero: Zettai Justice.'\nFor great slime justice!!"
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_tee"
+	item_state = "jennifer_tee"
+	has_sensor = 0
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/jennifer_jersey //Capital Sting FC Outfit - Jennifer Beal - synnono
+	name = "association football outfit"
+	desc = "A yellow and black jersey for the Mendell City women's club \"Capital Sting FC\" paired with black athletic shorts. This belongs on the pitch!"
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_jersey"
+	item_state = "jennifer_jersey"
+	has_sensor = 0
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/fluff/jennifer_pboots //Black Punk Boots - Jennifer Beal - synnono
+	name = "black punk boots"
+	desc = "A tall pair of thick-heeled black leather boots. They are fastened with several burnished steel buckles."
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_pboots"
+	item_state = "jennifer_pboots"
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/fluff/jennifer_aboots //Brown Ankle Boots - Jennifer Beal - synnono
+	name = "brown ankle boots"
+	desc = "A comfortable pair of short ankle boots."
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_aboots"
+	item_state = "jennifer_aboots"
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/fluff/jennifer_shoes //White Walking Sneakers - Jennifer Beal - synnono
+	name = "white walking sneakers"
+	desc = "A bright pair of white sneakers. They have purple rubber soles."
+	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
+	icon_state = "jennifer_shoes"
+	item_state = "jennifer_shoes"
+	contained_sprite = TRUE
