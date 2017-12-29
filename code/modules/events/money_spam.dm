@@ -113,8 +113,7 @@
 					sender = pick("[current_map.company_name] Morale Divison",\
 					"Feeling Lonely?",\
 					"Bored?",\
-					"[pornography]",
-					)
+					"[pornography]")
 					message = pick("The [current_map.company_name] Morale Division wishes to provide you with quality entertainment sites.",\
 					"[pornography] is a xenophillic website endorsed by NT for the use of male crewmembers among it's many stations and outposts.",\
 					"[pornography] only provides the higest quality of male entertaiment to [current_map.company_name] Employees.",\
