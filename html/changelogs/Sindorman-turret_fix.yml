@@ -1,6 +1,0 @@
-author: PoZe
-delete-after: True
-changes:
-  - tweak: "Turret control panels who has turrets with one fire mode only no longer can switch modes."
-  - tweak: "Mix of turrets with different fire modes now will work as it should be. Using turrets with same fire mode as desired."
-  - tweak: "Built turrets now have same fire rate as the gun it was made of"
