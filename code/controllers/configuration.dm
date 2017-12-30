@@ -167,7 +167,7 @@ var/list/gamemode_cache = list()
 
 	var/simultaneous_pm_warning_timeout = 100
 
-	var/use_recursive_explosions = 0 //Defines whether the server uses recursive or circular explosions.
+	var/use_spreading_explosions = 0 //Defines whether the server uses iterative or circular explosions.
 
 	var/assistant_maint = 0 //Do assistants get maint access?
 	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
@@ -272,6 +272,9 @@ var/list/gamemode_cache = list()
 
 	var/openturf_starlight_permitted = FALSE
 
+	var/iterative_explosives_z_threshold = 10
+	var/iterative_explosives_z_multiplier = 0.75
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -338,8 +341,8 @@ var/list/gamemode_cache = list()
 				if ("jobs_have_minimal_access")
 					config.jobs_have_minimal_access = 1
 
-				if ("use_recursive_explosions")
-					use_recursive_explosions = 1
+				if ("use_spreading_explosions")
+					use_spreading_explosions = 1
 
 				if ("log_ooc")
 					config.log_ooc = 1
@@ -834,6 +837,12 @@ var/list/gamemode_cache = list()
 
 				if("force_map")
 					override_map = value
+
+				if ("explosion_z_threshold")
+					iterative_explosives_z_threshold = text2num(value)
+				
+				if ("explosion_z_mult")
+					iterative_explosives_z_multiplier = text2num(value)
 
 				if("show_game_type_odd")
 					config.show_game_type_odd = 1
