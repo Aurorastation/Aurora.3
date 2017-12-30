@@ -2319,6 +2319,7 @@
 #include "maps\aurora\code\aurora_unittest.dm"
 #include "maps\exodus\code\exodus.dm"
 #include "maps\exodus\code\exodus_areas.dm"
+#include "maps\exodus\code\exodus_holodeck.dm"
 #include "maps\exodus\code\exodus_shuttles.dm"
 #include "maps\exodus\code\exodus_unittest.dm"
 #include "maps\runtime\code\runtime.dm"
