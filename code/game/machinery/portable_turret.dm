@@ -3,8 +3,6 @@
 		This code is slightly more documented than normal, as requested by XSI on IRC.
 */
 
-/area
-	var/area/a
 
 #define TURRET_PRIORITY_TARGET 2
 #define TURRET_SECONDARY_TARGET 1
@@ -107,9 +105,16 @@
 
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
-	a = control_area
 		LAZYADD(control_area.turrets, src)
-		aTurretID.turretModes()
+		if(!mapload)
+			for(var/obj/machinery/turretid/aTurretID in control_area.turret_controls)
+				aTurretID.turretModes()
+		if(LAZYLEN(control_area.turret_controls))
+			var/obj/machinery/turretid/SOME_TURRET_ID = control_area.turret_controls[1]
+			var/datum/turret_checks/SOME_TC = SOME_TURRET_ID.getState() // this helper should honestly fucking exist why doesn't it :ree:
+			if(SOME_TC.lethal != lethal && !egun)
+				SOME_TC.enabled = 0
+			src.setState(SOME_TC)
 /obj/machinery/porta_turret/crescent/Initialize()
 	. = ..()
 	LAZYCLEARLIST(req_one_access)
@@ -118,8 +123,8 @@
 /obj/machinery/porta_turret/Destroy()
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
-		for(var/obj/machinery/turretid/aTurretID in control_area)
-			LAZYREMOVE(aTurretID.turrets, src)
+		LAZYREMOVE(control_area.turrets, src)
+		for(var/obj/machinery/turretid/aTurretID in control_area.turret_controls)
 			aTurretID.turretModes()
 	qdel(spark_system)
 	spark_system = null

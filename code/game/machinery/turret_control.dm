@@ -50,34 +50,31 @@
 	return ..()
 
 /obj/machinery/turretid/Initialize(mapload)
-    . = ..()
-    if(!control_area)
-        control_area = get_area(src)
-    else if(istext(control_area))
-        for(var/area/A in all_areas)
-            if(A.name && A.name==control_area)
-                control_area = A
-                break
+	. = ..()
+	if(!control_area)
+		control_area = get_area(src)
+	else if(istext(control_area))
+		for(var/area/A in all_areas)
+			if(A.name && A.name==control_area)
+				control_area = A
+				break
 
-    if(control_area)
-        var/area/A = control_area
-        if(istype(A))
-            A.turret_controls += src
-        else
-            control_area = null
-    if(control_area != null)
-        for (var/obj/machinery/porta_turret/aTurret in control_area)
-            LAZYADD(turrets, aTurret)
+	if(control_area)
+		var/area/A = control_area
+		if(istype(A))
+			A.turret_controls += src
+		else
+			control_area = null
 
-    if (!mapload)
-        power_change() //Checks power and initial settings
-        turretModes()
-    else
-        return INITIALIZE_HINT_LATELOAD
+	if (!mapload)
+		power_change() //Checks power and initial settings
+		turretModes()
+	else
+		return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/turretid/LateInitialize()
-    power_change()
-    turretModes()
+	power_change()
+	turretModes()
 
 /obj/machinery/turretid/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
@@ -196,18 +193,34 @@
 	TC.ailock = ailock
 
 	if(istype(control_area))
-		for (var/obj/machinery/porta_turret/aTurret in turrets)
+		for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
 			if (aTurret.lethal == lethal || aTurret.egun)
+				TC.enabled = enabled
 				aTurret.setState(TC)
 			else
 				TC.enabled = 0
 				aTurret.setState(TC)
 
+/obj/machinery/turretid/proc/getState()
+	var/datum/turret_checks/TC = new
+	TC.enabled = enabled
+	TC.lethal = lethal
+	TC.check_synth = check_synth
+	TC.check_access = check_access
+	TC.check_records = check_records
+	TC.check_arrest = check_arrest
+	TC.check_weapons = check_weapons
+	TC.check_anomalies = check_anomalies
+	TC.ailock = ailock
+
+	return TC
 
 /obj/machinery/turretid/proc/turretModes()
+	if (!istype(control_area))
+		return
 	var/one_mode = 0 // Is there general one mode only turret
 	var/both_mode = 0 // Is there both mode turrets
-	for (var/obj/machinery/porta_turret/aTurret in turrets)
+	for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
 		// If turret only has lethal mode - lock switching modes
 		if(!aTurret.egun)
 			one_mode = 1
@@ -217,11 +230,10 @@
 	// If there is a turret with lethal mode only, and turret with both modes. Disable turrets with lethality that is not same as current control setting.
 	if(both_mode && one_mode)
 		egun = 1
-	else // If we just have turrets with one mode, ensure that panel's lethal variable is same as Turrets.
-		if (LAZYLEN(turrets) > 0)
-			var/obj/machinery/porta_turret/aTurret = turrets[0]
-			lethal = aTurret.lethal
-	updateTurrets()
+	else if (LAZYLEN(control_area.turrets)) // If we just have turrets with one mode, ensure that panel's lethal variable is same as Turrets.
+		var/obj/machinery/porta_turret/aTurret = control_area.turrets[0]
+		lethal = aTurret.lethal
+		updateTurrets()
 	update_icon()
 
 /obj/machinery/turretid/power_change()
