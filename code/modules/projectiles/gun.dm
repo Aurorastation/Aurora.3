@@ -161,10 +161,10 @@
 	if(!special_check(user))
 		return
 
-	if(reliability < 100)
-		if(prob(100-reliability))
-			handle_reliability_fail(user)
-			return
+	var/failure_chance = 100 - reliability
+	if(failure_chance && prob(failure_chance))
+		handle_reliability_fail(user)
+		return
 
 	if(world.time < next_fire_time)
 		if (world.time % 3) //to prevent spam
@@ -612,19 +612,17 @@
 			severity = 3
 	switch(severity)
 		if(1)
-			small_fail()
+			small_fail(user)
 		if(2)
-			medium_fail()
-		if(3)
-			critical_fail()
+			medium_fail(user)
 		else
-			critical_fail()
+			critical_fail(user)
 
-/obj/item/weapon/gun/proc/small_fail()
+/obj/item/weapon/gun/proc/small_fail(var/mob/user)
 	return
 
-/obj/item/weapon/gun/proc/medium_fail()
+/obj/item/weapon/gun/proc/medium_fail(var/mob/user)
 	return
 
-/obj/item/weapon/gun/proc/critical_fail()
+/obj/item/weapon/gun/proc/critical_fail(var/mob/user)
 	return

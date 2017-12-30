@@ -21,12 +21,12 @@
 	if(!istype(D,repair_item))
 		return ..()
 	user << "<span class='warning'>You begin repairing \the [src].</span>"
-	if(do_after(user,20) && negadegrade(D))
+	if(do_after(user,20) && repair_module(D))
 		user << "<span class='notice'>You repair \the [src].</span>"
 	else
 		user << "<span class='warning'>You fail to repair \the [src].</span>"
 
-/obj/item/laser_components/proc/negadegrade(var/obj/item/weapon/D)
+/obj/item/laser_components/proc/repair_module(var/obj/item/weapon/D)
 	return 1
 
 /obj/item/laser_components/modifier
@@ -55,12 +55,11 @@
 		if(malus > abs(base_malus*2))
 			malus = abs(base_malus*2)
 
-/obj/item/laser_components/modifier/negadegrade(var/obj/item/weapon/D)
-	var/obj/item/weapon/weldingtool/W = D
+/obj/item/laser_components/modifier/repair_module(var/obj/item/weapon/weldingtool/W)
+	if(istype(W))
+		return
 	if(W.remove_fuel(5))
-		malus -= 5
-		if(malus < base_malus)
-			malus = base_malus
+		malus = max(malus - 5, base_malus)
 		return 1
 	return 0
 
@@ -73,13 +72,10 @@
 	reliability = 50
 	repair_item = /obj/item/stack/cable_coil
 
-/obj/item/laser_components/capacitor/negadegrade(var/obj/item/weapon/D)
-	var/obj/item/stack/cable_coil/C = D
-	if(C.amount)
-		C.amount -= 5
-		condition -= reliability/5
-		if(condition < 0)
-			condition = 0
+/obj/item/laser_components/capacitor/repair_module(var/obj/item/stack/cable_coil/C)
+	if(istype(C))
+		return
+	if(C.use(5))
 		return 1
 	return 0
 
@@ -89,13 +85,13 @@
 		if(condition > 0)
 			user << "<span class='warning'>\The [src] appears damaged.</span>"
 
-/obj/item/laser_components/capacitor/proc/small_fail(var/obj/item/weapon/gun/energy/laser/prototype/prototype)
+/obj/item/laser_components/capacitor/proc/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	return
 
-/obj/item/laser_components/capacitor/proc/medium_fail(var/obj/item/weapon/gun/energy/laser/prototype/prototype)
+/obj/item/laser_components/capacitor/proc/medium_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	return
 
-/obj/item/laser_components/capacitor/proc/critical_fail(var/obj/item/weapon/gun/energy/laser/prototype/prototype)
+/obj/item/laser_components/capacitor/proc/critical_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	qdel(src)
 	return
 
@@ -107,13 +103,10 @@
 	reliability = 25
 	repair_item = /obj/item/stack/nanopaste
 
-/obj/item/laser_components/focusing_lens/negadegrade(var/obj/item/weapon/D)
-	var/obj/item/stack/nanopaste/N = D
-	if(N.amount)
-		N.amount -= 5
-		condition -= reliability/5
-		if(condition < 0)
-			condition = 0
+/obj/item/laser_components/focusing_lens/repair_module(var/obj/item/stack/nanopaste/N)
+	if(istype(N))
+		return
+	if(N.use(5))
 		return 1
 	return 0
 
@@ -148,7 +141,7 @@
 	var/obj/item/laser_components/modulator/modulator
 
 /obj/item/device/laser_assembly/Initialize()
-	..()
+	. = ..()
 	update_icon()
 
 /obj/item/device/laser_assembly/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
@@ -175,7 +168,7 @@
 		A.forceMove(src)
 	else
 		return ..()
-	user << "<span class='notice'>You insert the [A] into the assembly.</span>"
+	user << "<span class='notice'>You insert \the [A] into the assembly.</span>"
 	update_icon()
 	check_completion()
 

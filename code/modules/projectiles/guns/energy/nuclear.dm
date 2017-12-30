@@ -52,26 +52,25 @@
 /obj/item/weapon/gun/energy/gun/nuclear/get_cell()
 	return DEVICE_NO_CELL
 
-/obj/item/weapon/gun/energy/gun/nuclear/small_fail()
+/obj/item/weapon/gun/energy/gun/nuclear/small_fail(var/mob/user)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
-		if (src in M.contents)
+		if (M == user)
 			M << "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>"
 		else
 			M << "<span class='warning'>You feel a warm sensation.</span>"
 		M.apply_effect(rand(3,120), IRRADIATE)
 	return
 
-/obj/item/weapon/gun/energy/gun/nuclear/medium_fail()
+/obj/item/weapon/gun/energy/gun/nuclear/medium_fail(var/mob/user)
 	if(prob(50))
-		critical_fail()
+		critical_fail(user)
 	else
-		small_fail()
+		small_fail(user)
 	return
 
-/obj/item/weapon/gun/energy/gun/nuclear/critical_fail()
+/obj/item/weapon/gun/energy/gun/nuclear/critical_fail(var/mob/user)
+	user << "<span class='danger'>Your gun's reactor overloads!</span>"
 	for (var/mob/living/M in range(rand(1,4),src))
-		if (src in M.contents)
-			M << "<span class='danger'>Your gun's reactor overloads!</span>"
 		M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
 		M.apply_effect(300, IRRADIATE)
 	crit_fail = 1 //break the gun so it stops recharging

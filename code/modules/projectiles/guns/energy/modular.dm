@@ -29,13 +29,13 @@
 	..(user)
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			user << "You can see a \the [modifier] attached."
+			user << "You can see \the [modifier] attached."
 	if(capacitor)
-		user << "You can see a \the [capacitor] attached."
+		user << "You can see \the [capacitor] attached."
 	if(focusing_lens)
-		user << "You can see a \the [focusing_lens] attached."
+		user << "You can see \the [focusing_lens] attached."
 
-/obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
+/obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D, var/mob/user)
 	if(!isscrewdriver(D))
 		return ..()
 	user << "You disassemble the [src]."
@@ -70,15 +70,13 @@
 			slot_flags = SLOT_BACK
 			item_state = "lasercannon"
 
-	if((capacitor.reliability - capacitor.condition <= 0))
+	if(capacitor.reliability - capacitor.condition <= 0)
 		qdel(capacitor)
 		capacitor = null
-		world << "wat"
 
 	if(focusing_lens.reliability - focusing_lens.condition <= 0)
 		qdel(focusing_lens)
 		focusing_lens = null
-		world << "wat2"
 
 	if(!focusing_lens || !capacitor || !modulator)
 		disassemble()
@@ -104,8 +102,7 @@
 	scoped_accuracy = accuracy_wielded + accuracy/4
 	max_shots = max_shots * burst
 	w_class = gun_type
-	if(reliability <= 0)
-		reliability = 1
+	reliability = max(reliability, 1)
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/handle_mod()
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
@@ -153,41 +150,42 @@
 	return A
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/disassemble()
+	var/turf/T = get_turf(src)
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			modifier.forceMove(get_turf(src))
+			modifier.forceMove(T)
 			gun_mods.Remove(modifier)
 	if(capacitor)
-		capacitor.forceMove(get_turf(src))
+		capacitor.forceMove(T)
 		capacitor = null
 	if(focusing_lens)
-		focusing_lens.forceMove(get_turf(src))
+		focusing_lens.forceMove(T)
 		focusing_lens = null
 	if(modulator)
-		modulator.forceMove(get_turf(src))
+		modulator.forceMove(T)
 		modulator = null
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
-			new /obj/item/device/laser_assembly(get_turf(src))
+			new /obj/item/device/laser_assembly(T)
 		if(CHASSIS_MEDIUM)
-			new /obj/item/device/laser_assembly/medium(get_turf(src))
+			new /obj/item/device/laser_assembly/medium(T)
 		if(CHASSIS_LARGE)
-			new /obj/item/device/laser_assembly/large(get_turf(src))
+			new /obj/item/device/laser_assembly/large(T)
 	qdel(src)
 
-/obj/item/weapon/gun/energy/laser/prototype/small_fail()
+/obj/item/weapon/gun/energy/laser/prototype/small_fail(var/mob/user)
 	if(capacitor)
-		capacitor.small_fail(src)
+		capacitor.small_fail(user, src)
 	return
 
-/obj/item/weapon/gun/energy/laser/prototype/medium_fail()
+/obj/item/weapon/gun/energy/laser/prototype/medium_fail(var/mob/user)
 	if(capacitor)
-		capacitor.medium_fail(src)
+		capacitor.medium_fail(user, src)
 	return
 
-/obj/item/weapon/gun/energy/laser/prototype/critical_fail()
+/obj/item/weapon/gun/energy/laser/prototype/critical_fail(var/mob/user)
 	if(capacitor)
-		capacitor.critical_fail(src)
+		capacitor.critical_fail(user, src)
 	return
 
 /obj/item/weapon/gun/energy/laser/prototype/can_wield()
