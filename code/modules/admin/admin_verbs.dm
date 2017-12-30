@@ -1026,15 +1026,15 @@ var/list/admin_verbs_cciaa = list(
 	if (!check_rights(R_SERVER|R_DEBUG))
 		return
 
-	var/ans = alert(src, "This will force explosions to run in the [config.use_recursive_explosions ? "old manner (non-recursive)" : "new, realistic manner (recursive)"]. Do you want to proceed?", "Switch explosion type", "Yes", "Cancel")
+	var/ans = alert(src, "This will force explosions to run in the [config.use_spreading_explosions ? "old manner (circular)" : "new, realistic manner (spreading)"]. Do you want to proceed?", "Switch explosion type", "Yes", "Cancel")
 
 	if (!ans || ans == "Cancel")
 		src << "<span class='notice'>Cancelled.</span>"
 		return
 
-	config.use_recursive_explosions = !config.use_recursive_explosions
+	config.use_spreading_explosions = !config.use_spreading_explosions
 
-	log_and_message_admins("has toggled explosions to be [config.use_recursive_explosions ? "recursive" : "non-recursive"].")
+	log_and_message_admins("has toggled explosions to be [config.use_spreading_explosions ? "iterative/spreading" : "simple/circular"].")
 	feedback_add_details("admin_verb", "TRE")
 
 /client/proc/wipe_ai()
