@@ -2,5 +2,5 @@ author: PoZe
 delete-after: True
 changes:
   - tweak: "Turret control panel fire mode now corresponds to its turrets fire mode. Lethal only turrets have one mode."
-  - tweak: "Turrets that have lethal only mode which are attached to same panel as double mode turrets will be disabed when panel is set to stun."
-  - tweak: "Turrets now have same fire rate as the gun that is inside of them."
+  - tweak: "Mix of turrets with different fire modes now will work as it should be. Using turrets with same fire mode as desired."
+  - tweak: "Built turrets now have same fire rate as the gun it was made of"
