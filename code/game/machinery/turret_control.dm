@@ -181,17 +181,7 @@
 		return 1
 
 /obj/machinery/turretid/proc/updateTurrets()
-	var/datum/turret_checks/TC = new
-	TC.enabled = enabled
-	TC.lethal = lethal
-	TC.check_synth = check_synth
-	TC.check_access = check_access
-	TC.check_records = check_records
-	TC.check_arrest = check_arrest
-	TC.check_weapons = check_weapons
-	TC.check_anomalies = check_anomalies
-	TC.ailock = ailock
-
+	var/datum/turret_checks/TC = getState()
 	if(istype(control_area))
 		for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
 			if (aTurret.lethal == lethal || aTurret.egun)
@@ -231,7 +221,7 @@
 	if(both_mode && one_mode)
 		egun = 1
 	else if (LAZYLEN(control_area.turrets)) // If we just have turrets with one mode, ensure that panel's lethal variable is same as Turrets.
-		var/obj/machinery/porta_turret/aTurret = control_area.turrets[0]
+		var/obj/machinery/porta_turret/aTurret = control_area.turrets[1]
 		lethal = aTurret.lethal
 		updateTurrets()
 	update_icon()
