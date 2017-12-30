@@ -12,13 +12,13 @@
 	body_parts_covered = 0
 	allowed = list (/obj/item/weapon/reagent_containers/spray/plantbgone,/obj/item/device/analyzer/plant_analyzer,/obj/item/seeds,/obj/item/weapon/reagent_containers/glass/fertilizer,/obj/item/weapon/material/minihoe)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	
+
 /obj/item/clothing/suit/apron/overalls
 	name = "coveralls"
 	desc = "A set of denim overalls."
 	icon_state = "overalls"
 	item_state = "overalls"
-		
+
 /obj/item/clothing/suit/apron/surgery
 	name = "surgical apron"
 	desc = "To keep their blood off while you knife them."
@@ -26,7 +26,7 @@
 	item_state = "surgeon"
 	allowed = list(/obj/item/stack/medical, /obj/item/weapon/reagent_containers/dropper, /obj/item/weapon/reagent_containers/hypospray, /obj/item/weapon/reagent_containers/syringe, \
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank/emergency_oxygen)
-	
+
 //Captain
 /obj/item/clothing/suit/captunic
 	name = "captain's parade tunic"
@@ -108,20 +108,24 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 //Detective
-/obj/item/clothing/suit/storage/det_trench
+/obj/item/clothing/suit/storage/toggle/det_trench
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
 	icon_state = "detective"
 	item_state = "det_suit"
 	blood_overlay_type = "coat"
+	icon_open = "detective"
+	icon_closed = "detective_closed"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 	siemens_coefficient = 0.7
 
-/obj/item/clothing/suit/storage/det_trench/black
+/obj/item/clothing/suit/storage/toggle/det_trench/black
 	icon_state = "detective2"
+	icon_open = "detective2"
+	icon_closed = "detective2_closed"
 
 /obj/item/clothing/suit/storage/det_trench/technicolor
 	desc = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent."
@@ -178,7 +182,7 @@
 	/obj/item/weapon/crowbar, /obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/wirecutters, /obj/item/weapon/wrench, /obj/item/weapon/tank/emergency_oxygen, \
 	/obj/item/clothing/mask/gas, /obj/item/taperoll/engineering)
 	body_parts_covered = UPPER_TORSO
-	
+
 /obj/item/clothing/suit/storage/hazardvest/blue
 	name = "blue hazard vest"
 	desc = "A high-visibility vest used in work zones. This one is blue."
@@ -190,7 +194,7 @@
 	desc = "A high-visibility vest used in work zones. This one is white."
 	icon_state = "hazard_w"
 	item_state = "hazard_w"
-	
+
 /obj/item/clothing/suit/storage/hazardvest/green
 	name = "green hazard vest"
 	desc = "A high-visibility vest used in work zones. This one is green."

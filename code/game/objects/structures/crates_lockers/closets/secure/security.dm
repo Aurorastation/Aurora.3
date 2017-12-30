@@ -334,6 +334,12 @@
 
 	fill()
 		//Appearance
+		new /obj/item/clothing/under/det(src)
+		new /obj/item/clothing/under/det/black(src)
+		new /obj/item/clothing/under/det/slob(src)
+		new /obj/item/clothing/suit/storage/toggle/det_trench(src)
+		new /obj/item/clothing/suit/storage/det_trench/technicolor(src)
+		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/head/det(src)
 		new /obj/item/clothing/head/det/technicolor(src)
 		new /obj/item/clothing/gloves/black(src)
