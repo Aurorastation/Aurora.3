@@ -1107,7 +1107,7 @@ var/list/admin_verbs_cciaa = list(
 
 	log_and_message_admins("has regenerated all openturfs.")
 
-	SSopenturf.hard_reset()
+	SSzcopy.hard_reset()
 
 #ifdef ENABLE_SUNLIGHT
 /client/proc/apply_sunstate()

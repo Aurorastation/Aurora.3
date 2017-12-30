@@ -1,36 +1,3 @@
-/*
-
-== Openspace ==
-
-This file contains the openspace movable types, including interactrion code and openspace helpers.
-Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
-*/
-
-
-// Updates whatever openspace components may be mimicing us. On turfs this queues an openturf update on the above openturf, on movables this updates their bound movable (if present). Meaningless on any type other than `/turf` or `/atom/movable` (incl. children).
-/atom/proc/update_above()
-	return
-
-/turf
-	// Reference to any open turf that might be above us to speed up atom Entered() updates.
-	var/tmp/turf/simulated/open/above
-	var/tmp/atom/movable/openspace/turf_overlay/bound_overlay
-
-/turf/Entered(atom/movable/thing, atom/oldLoc)
-	. = ..()
-	if (above && !thing.no_z_overlay && !thing.bound_overlay && !isopenturf(oldLoc))
-		above.update_icon()
-
-/turf/Destroy()
-	above = null
-	if (bound_overlay)
-		QDEL_NULL(bound_overlay)
-	return ..()
-
-/turf/update_above()
-	if (istype(above))
-		above.update_icon()
-
 /atom/movable
 	var/tmp/atom/movable/openspace/overlay/bound_overlay	// The overlay that is directly mirroring us that we proxy movement to.
 	var/no_z_overlay	// If TRUE, this atom will not be drawn on open turfs.
@@ -59,9 +26,9 @@ Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
 	if (!bound_overlay)
 		return
 
-	if (isopenturf(bound_overlay.loc))
+	if (TURF_IS_MIMICING(loc))
 		if (!bound_overlay.queued)
-			SSopenturf.queued_overlays += bound_overlay
+			SSzcopy.queued_overlays += bound_overlay
 			bound_overlay.queued = TRUE
 	else
 		qdel(bound_overlay)
@@ -117,7 +84,7 @@ Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
 	)
 
 /atom/movable/openspace/multiplier/Destroy()
-	var/turf/simulated/open/myturf = loc
+	var/turf/myturf = loc
 	if (istype(myturf))
 		myturf.shadower = null
 
@@ -168,10 +135,10 @@ Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
 
 /atom/movable/openspace/overlay/New()
 	initialized = TRUE
-	SSopenturf.openspace_overlays += src
+	SSzcopy.openspace_overlays += src
 
 /atom/movable/openspace/overlay/Destroy()
-	SSopenturf.openspace_overlays -= src
+	SSzcopy.openspace_overlays -= src
 
 	if (associated_atom)
 		associated_atom.bound_overlay = null
@@ -194,9 +161,9 @@ Most openspace appearance code is in code/controllers/subsystems/openturf.dm.
 /atom/movable/openspace/overlay/examine(mob/examiner)
 	associated_atom.examine(examiner)
 
-/atom/movable/openspace/overlay/forceMove(atom/dest)
+/atom/movable/openspace/overlay/forceMove(turf/dest)
 	. = ..()
-	if (isopenturf(dest))
+	if (TURF_IS_MIMICING(dest))
 		if (destruction_timer)
 			deltimer(destruction_timer)
 			destruction_timer = null
