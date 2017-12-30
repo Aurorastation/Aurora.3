@@ -55,18 +55,18 @@
 	)
 
 	holodeck_supported_programs = list(
-		"Empty Court" 		= "emptycourt",
+		"Empty Court"       = "emptycourt",
 		"Basketball Court" 	= "basketball",
 		"Thunderdome Court"	= "thunderdomecourt",
-		"Boxing Ring"		= "boxingcourt",
-		"Beach" 			= "beach",
-		"Desert" 			= "desert",
-		"Space" 			= "space",
-		"Picnic Area" 		= "picnicarea",
-		"Snow Field" 		= "snowfield",
-		"Theatre" 			= "theatre",
-		"Meeting Hall" 		= "meetinghall",
-		"Courtroom" 		= "courtroom"
+		"Boxing Ring"       = "boxingcourt",
+		"Beach"             = "beach",
+		"Desert"            = "desert",
+		"Space"             = "space",
+		"Picnic Area"       = "picnicarea",
+		"Snow Field"        = "snowfield",
+		"Theatre"           = "theatre",
+		"Meeting Hall"      = "meetinghall",
+		"Courtroom"         = "courtroom"
 	)
 	holodeck_restricted_programs = list(
 		"Atmospheric Burn Simulation" = "burntest",
