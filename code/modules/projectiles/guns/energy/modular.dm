@@ -71,6 +71,10 @@
 			item_state = "lasercannon"
 
 	if(capacitor.reliability - capacitor.condition <= 0)
+		if(prob(66))
+			capacitor.small_fail(user)
+		else
+			capacitor.medium_fail(user)
 		qdel(capacitor)
 		capacitor = null
 
@@ -142,14 +146,14 @@
 		A.damage = A.damage/(burst - 1)
 	damage_coeff *= modulator.damage
 	A.damage *= damage_coeff
-	A.damage = max(A.damage, 60) //let's not get too ridiculous here
+	A.damage = min(A.damage, 60) //let's not get too ridiculous here
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-		if(prob((gun_mods.len * 10 * damage_coeff)/burst))
+		if(prob((gun_mods.len * 10 * damage_coeff)/(max(1,(burst - 1)))))
 			capacitor.degrade(modifier.malus)
-		if(prob((33 + capacitor.damage)/burst))
-			modifier.degrade(1)
-		if((prob(reliability))/burst)
+		if(prob((gun_mods.len * 10 * damage_coeff)/(max(1,(burst - 1)))))
 			focusing_lens.degrade(modifier.malus)
+		if(prob((33 + capacitor.damage)/(max(1,(burst - 1)))))
+			modifier.degrade(1)
 	if((prob(A.damage)/burst))
 		if(prob(A.damage/2))
 			medium_fail(user)
