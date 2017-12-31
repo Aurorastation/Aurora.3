@@ -364,16 +364,16 @@
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat."
 	icon_state = "trench"
-	item_state = "trench_closed"
-	icon_open = "trench"
-	icon_closed = "trench_closed"
+	item_state = "trench"
+	icon_open = "trench_open"
+	icon_closed = "trench"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/trench/grey
 	name = "grey trenchcoat"
 	icon_state = "trench2"
-	item_state = "trench2_closed"
-	icon_open = "trench2"
-	icon_closed = "trench2_closed"
+	item_state = "trench2"
+	icon_open = "trench2_open"
+	icon_closed = "trench2"
 	blood_overlay_type = "coat"

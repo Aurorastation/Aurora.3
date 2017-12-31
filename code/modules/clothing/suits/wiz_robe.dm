@@ -105,11 +105,14 @@
 	icon_state = "psyamp"
 	item_state = "psyamp"
 
-/obj/item/clothing/suit/wizrobe/gentlecoat
+/obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
 	name = "gentlemans coat"
 	desc = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
 	icon_state = "gentlecoat"
 	item_state = "gentlecoat"
+	icon_open = "gentlecoat_open"
+	icon_closed = "gentlecoat"
+
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	flags_inv = 0
 
