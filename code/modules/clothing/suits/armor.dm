@@ -94,11 +94,13 @@
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	pocket_slots = 4//More slots because coat
 
-/obj/item/clothing/suit/armor/hos/jensen
+/obj/item/clothing/suit/storage/toggle/armor/hos/jensen
 	name = "armored trenchcoat"
 	desc = "A trenchcoat augmented with a special alloy for some protection and style."
 	icon_state = "jensencoat"
 	item_state = "jensencoat"
+	icon_open = "jensencoat_open"
+	icon_closed = "jensencoat"
 
 /obj/item/clothing/suit/armor/riot
 	name = "riot suit"
