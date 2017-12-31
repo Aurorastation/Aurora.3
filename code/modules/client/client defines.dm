@@ -59,7 +59,7 @@
 	var/account_age = -1							// Age on the BYOND account in days.
 	var/account_join_date = null					// Date of the BYOND account creation in ISO 8601 format.
 
-	preload_rsc = 0 // This is 0 so we can set it to an URL once the player logs in and have them download the resources from a different server.
+	preload_rsc = 1 // This is 0 so we can set it to an URL once the player logs in and have them download the resources from a different server.
 
 		////////////
 		//PARALLAX//
