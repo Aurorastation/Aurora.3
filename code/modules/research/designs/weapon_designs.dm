@@ -13,6 +13,13 @@
 			desc = initial(I.desc)
 		..()
 
+/datum/design/item/weapon/flora_gun
+	id = "flora_gun"
+	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 500, "uranium" = 500)
+	build_path = /obj/item/weapon/gun/energy/floragun
+	sort_string = "TBAAA"
+
 /datum/design/item/weapon/phoronpistol
 	id = "ppistol"
 	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
@@ -174,35 +181,35 @@
 
 /datum/design/item/weapon/modular_reinforced
 	id = "stock_reinforced_cap"
-	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3)
+	req_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
 	build_path = /obj/item/laser_components/capacitor/reinforced
 	sort_string = "TZZBC"
 
 /datum/design/item/weapon/modular_nuke
 	id = "stock_nuke_cap"
-	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3)
+	req_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "uranium" = 1000)
 	build_path = /obj/item/laser_components/capacitor/nuclear
 	sort_string = "TZZBC"
 
 /datum/design/item/weapon/modular_teranium
 	id = "stock_teranium"
-	req_tech = list(TECH_POWER = 4, TECH_ENGINEERING = 4, TECH_MAGNET = 4)
+	req_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 4, TECH_MAGNET = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "glass" = 1000, "uranium" = 500)
 	build_path = /obj/item/laser_components/capacitor/teranium
 	sort_string = "TZZBD"
 
 /datum/design/item/weapon/modular_phoron
 	id = "stock_teranium"
-	req_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 5, TECH_PHORON = 4)
+	req_tech = list(TECH_POWER = 8, TECH_ENGINEERING = 5, TECH_PHORON = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "phoron" = 3000, "uranium" = 500)
 	build_path = /obj/item/laser_components/capacitor/phoron
 	sort_string = "TZZBE"
 
 /datum/design/item/weapon/modular_bs
 	id = "stock_bs"
-	req_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 6, TECH_PHORON = 4, TECH_BLUESPACE = 5)
+	req_tech = list(TECH_POWER = 8, TECH_ENGINEERING = 8, TECH_PHORON = 7, TECH_BLUESPACE = 7)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "phoron" = 3000, "uranium" = 500, "diamond" = 1000)
 	build_path = /obj/item/laser_components/capacitor/teranium
 	sort_string = "TZZBF"

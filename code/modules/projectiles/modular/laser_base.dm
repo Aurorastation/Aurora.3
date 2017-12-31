@@ -99,7 +99,7 @@
 	name = "focusing lens"
 	desc = "A basic laser weapon focusing lens."
 	icon_state = "lens"
-	var/dispersion = 0
+	var/list/dispersion = list(0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2)
 	reliability = 25
 	repair_item = /obj/item/stack/nanopaste
 

@@ -135,16 +135,26 @@
 		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 	var/obj/item/projectile/beam/A = new projectile_type(src)
 	A.damage = capacitor.damage
+	var/damage_coeff = 1
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-		A.damage *= modifier.damage
-	A.damage = A.damage/(burst - 1)
-	A.damage *= modulator.damage
+		damage_coeff *= modifier.damage
+	if(burst > 1)
+		A.damage = A.damage/(burst - 1)
+	damage_coeff *= modulator.damage
+	A.damage *= damage_coeff
+	A.damage = max(A.damage, 60) //let's not get too ridiculous here
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-		if(prob(modifiers.len * 20))
+		if(prob((gun_mods.len * 10 * damage_coeff)/burst))
 			capacitor.degrade(modifier.malus)
-		if(prob(33))
+		if(prob((33 + capacitor.damage)/burst))
 			modifier.degrade(1)
-	focusing_lens.degrade(capacitor.damage += modulator.damage)
+		if((prob(reliability))/burst)
+			focusing_lens.degrade(modifier.malus)
+	if((prob(A.damage)/burst))
+		if(prob(A.damage/2))
+			medium_fail(user)
+		else
+			small_fail(user)
 
 	updatetype()
 	return A

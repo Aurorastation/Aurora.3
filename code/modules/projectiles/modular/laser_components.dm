@@ -142,7 +142,7 @@
 	name = "splitter lens"
 	desc = "A focusing lens that splits the beam into several sub-beams."
 	icon_state = "splitter_lens"
-	dispersion = list(1.0, -1.0, 2.0, -2.0)
+	dispersion = list(1,-1,2,-2,3,-3,4,-4,5,-5,6,-6,7,-7,8,-8,9,-9,10,-10,11,-11,12,-12,13,-13,14,-14,15,-15)
 	burst = 4
 	accuracy = -1
 	reliability = 30
@@ -153,6 +153,7 @@
 	icon_state = "precise_lens"
 	accuracy = 2
 	reliability = 20
+	dispersion = list(0)
 
 /obj/item/laser_components/focusing_lens/strong
 	name = "reinforced lens"
@@ -219,7 +220,7 @@
 	icon_state = "capacitor_overcharge"
 
 /obj/item/laser_components/modifier/gatling
-	name = "rotating lens"
+	name = "gatling rotator"
 	desc = "A modification to the lens that permits rapid-fire for extended durations."
 	base_malus = 0.5
 	malus = 0.5
@@ -301,7 +302,7 @@
 	name = "pulse modulator"
 	desc = "Amplifies the laser beam into a highly lethal pulse beam."
 	projectile = /obj/item/projectile/beam/pulse
-	damage = 1.25
+	damage = 1.5
 	icon_state = "pulse"
 
 /obj/item/laser_components/modulator/xray
