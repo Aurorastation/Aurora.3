@@ -1,9 +1,11 @@
 # Licensing
-Aurora Station is licensed under the GNU Affero General Public License version 3, which can be found in full in LICENSE-AGPL3.txt.
+Aurora Station code is licensed under the GNU Affero General Public License version 3, which can be found in full in LICENSE-AGPL3.txt.
 
 Commits with a git authorship date prior to `1420675200 +0000` (2015/01/08 00:00) are licensed under the GNU General Public License version 3, which can be found in full in LICENSE-GPL3.txt.
 
 All commits whose authorship dates are not prior to `1420675200 +0000` are assumed to be licensed under AGPL v3, if you wish to license under GPL v3 please make this clear in the commit message and any added files.
+
+All assets including icons and sound are under a [Creative Commons 3.0 BY-SA](https://creativecommons.org/licenses/by-sa/3.0/) license unless otherwise indicated.
 
 # Coding Standards
 
@@ -29,9 +31,9 @@ An example of badly pathed code:
 ```
 
 ### Initialize() over New()
-Since the implementation of the Stoned Master Controller, overrides of the `New()` proc have effectively become depracted in favour of `Initialize()` and `LateInitialize()`. In most cases, `Initialize()` is a drop-in replacement for `New()`, however, there are a few considerations to be taken into account when using this. Specifically, `Initialize()` must always return the parent proc's value. Either via the `. = ..()` semantics or with explicit `return ..()` statements.
+Since the implementation of the Stoned Master Controller, overrides of the `New()` proc have effectively become depracted in favour of `Initialize()` and `LateInitialize()`. In most cases, `Initialize()` is a drop-in replacement for `New()`, however, there are a few considerations to be taken into account when using this. Specifically, `Initialize()` must always return a initialization hint and must always call the superior definition via `..()`. Usually these two are done together, either via the `. = ..()` semantics or with explicit `return ..()` statements.
 
-`LateInitialize()` is invoked as an asynchronous process whenever overridden.
+`LateInitialize()` can be used to manage race conditions during map loading. In the middle of the game, when `mapload = FALSE` in `Initialize()`, `LateInitialize()` is called immediately after the specific atom's `Initialize()` call. However, if `mapload = TRUE`, which it does during map atom initialization, the `LateInitialization()` of an atom is called once all atoms have finished their `Initialization()` calls. Note that `Initialize()` needs to return `INITIALIZE_HINT_LATELOAD` in order for `LateInitialization()` to be called in either case.
 
 Refer to the [wiki](https://github.com/Aurorastation/Aurora.3/wiki/Atom-Initialization) article for further information.
 
@@ -43,7 +45,8 @@ An example of how to use `qdel()`:
 /obj/item/plate
 	var/obj/item/cake/cake
 
-/obj/item/plate/New()
+/obj/item/plate/Initialize()
+	. = ..()
 	cake = New()
 
 // Eat the cake and destroy the cake object.
@@ -54,14 +57,15 @@ An example of how to use `qdel()`:
 
 The `Destroy()` proc for objects should be defined, if there are any special operations that need to be conducted when an object is assigned for destruction with `qdel()`. Normally, it would set all object references that that specific item may contain to null, and destroy them as necessary. It is important to know that the best case scenario for the garbage collector is this: an object passed to it should not reference, or be referenced by any other ingame object.
 
-Note that any modified `Destroy()` proc **must always return the original definition (`return ..()`) call!**
+Note that any modified `Destroy()` proc must always **call its superior definition `..()`** and **must return a deletion hint.** Usually the hint passed down from the superior definition is returned, via `. = ..()` or an explicit `return ..()` statement.
 
 An example of how to define `Destroy()` for an item that needs it:
-```dm
+```DM
 /obj/item/plate
 	var/obj/item/cake/cake
 
 /obj/item/plate/Initialize()
+	. = ..()
 	cake = New()
 
 /obj/item/plate/Destroy()
@@ -79,7 +83,7 @@ An example of how to define `Destroy()` for an item that needs it:
 * SQLLite object
 * list objects.
 * turfs
-* areas
+* areas (Note that these shouldn't be deleted at all)
 
 You will have to use the regular `del()` proc to delete any object of that type (except for `/turf`, which should use `ChangeTurf()`).
 
@@ -101,13 +105,13 @@ The stylesheet available for use within DM can be found in `code/stylesheet.dm`.
 In order to make `Exited()` and `Entered()` procs more reliable, the usage of `forceMove()` when forcibly moving one item to another location, be it another item or turf, is required. Directly changing an item's loc values will skip over calls to the aforementioned procs, thus making them less useful and more unreliable.
 
 An example of improper item moving:
-```dm
+```DM
 /proc/some_proc(var/obj/A, var/obj/B)
 	A.loc = B	// Simply move A inside B.
 ```
 
 An example of proper item moving:
-```dm
+```DM
 /proc/some_proc(var/obj/A, var/obj/B)
 	A.forceMove(B)	// This will call A.loc.Exited() and B.Entered().
 					// The first method does not call either of those.
@@ -122,7 +126,7 @@ If at all possible, procs outside of verbs and `Topic()` should avoid reliance o
 All BYOND procs have a set list of variables which are implicitly defined in each proc. However, the DM compiler will allow you to reuse these names as names for your custom variables. This should be avoided at all costs, to improve the readability and understanding of code.
 
 A list of reserved argument names instantiated with all procs:
-* `vars` being an alias of `src.vars` is `src` exists.
+* `vars` being an alias of `src.vars` if `src` exists.
 * `args`
 * `usr`
 * `src`
