@@ -47,7 +47,7 @@ An example of how to use `qdel()`:
 
 /obj/item/plate/Initialize()
 	. = ..()
-	cake = New()
+	cake = new()
 
 // Eat the cake and destroy the cake object.
 /obj/item/plate/proc/eat_cake()
@@ -66,7 +66,7 @@ An example of how to define `Destroy()` for an item that needs it:
 
 /obj/item/plate/Initialize()
 	. = ..()
-	cake = New()
+	cake = new()
 
 /obj/item/plate/Destroy()
 	if (src.cake)	// We potentially have a reference.
