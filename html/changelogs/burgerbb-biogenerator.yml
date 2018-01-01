@@ -1,12 +1,8 @@
 author: BurgerBB
 delete-after: True
 changes: 
-  - tweak: "Improved code and UI."
-  - tweak: "Changed and added some new sounds."
-  - tweak: "When creating milk, cartons of milk are spawned instead of being put into the bottle."
-  - rscadd: "Added the ability to make multiple items of the same type in the Biogenerator for all recipies."
-  - rscadd: "Added Biomeat; a differently colored variant of regular meat with different flavoring, but still has the functionality of meat. Still unsafe for Skrell consumption."
-  - rscadd: "Added Vitamin Pills that contain 25 nutrients and 1 random flavoring of juice."
-  - rscadd: "Added additional biogenerator recipies."
-  - rscadd: "Added the ability to emag the biogenerator. Emagged Biogenerators unlocked hidden recipies."
-  - rscdel: "Removed meat and hidden monkey recipies from the Biogenerator."
+  - rscadd: "Added additional biogenerator recipies as well as the ability to emag the biogenerator. Emagged Biogenerators unlocked hidden recipies."
+  - rscadd: "Biogenerated Meat is replaced with Biomeat; a differently colored variant of regular meat with additional flavoring, but still has the functionality of meat. Added Vitamin Pills that contain 25 nutrients and 1 random flavoring of juice."
+  - tweak: "Reworked biogenerator code so that recipies are easier to add internally. Changed and added some sound paths, and slightly improved the UI by adding the ability to make multiple items of the same type in the Biogenerator for all recipies."
+  - tweak: "When creating milk, cartons of milk are spawned instead of being put into the biogenerator's internal bottle."
+  - rscdel: "Removed hidden super secret monkey recipie from the Biogenerator."
