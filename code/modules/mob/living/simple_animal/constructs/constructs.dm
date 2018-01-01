@@ -178,14 +178,7 @@
 	attack_sound = 'sound/weapons/rapidslice.ogg'
 	construct_spells = list(/spell/targeted/ethereal_jaunt/shift)
 
-/mob/living/simple_animal/construct/wraith/can_fall()
-	return FALSE
-
-/mob/living/simple_animal/construct/wraith/can_ztravel()
-	return TRUE
-
-/mob/living/simple_animal/construct/wraith/CanAvoidGravity()
-	return TRUE
+	flying = TRUE
 
 /////////////////////////////Artificer/////////////////////////
 
@@ -280,14 +273,7 @@
 		)
 	//Harvesters are endgame stuff, no harm giving them construct spells
 
-/mob/living/simple_animal/construct/harvester/can_fall()
-	return FALSE
-
-/mob/living/simple_animal/construct/harvester/can_ztravel()
-	return TRUE
-
-/mob/living/simple_animal/construct/harvester/CanAvoidGravity()
-	return TRUE
+	flying = TRUE
 
 ////////////////Glow//////////////////
 /mob/living/simple_animal/construct/proc/add_glow()
