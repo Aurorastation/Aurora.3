@@ -134,6 +134,16 @@ A list of reserved argument names instantiated with all procs:
 ### Avoid `in world` loops
 Due to the amount of instances in the world, utilizing an `in world` loop should be avoided in all instances. In large projects, specially when crawling for types that are not optimized internally by BYOND (only core built-in types are), crawling `in world` will surmount to a very large blocking loop and will almost certainly trigger the infinite loop warning. This forces the specific callstack to sleep at least once.
 
+Note that a for-each loop without an explicit container specified will default to an `in world` loop. This is to say, the following two examples are equivalent:
+
+```DM
+for (var/client/C)
+	qdel(C)
+
+for (var/client/C in world)
+	qdel(C)
+```
+
 ### Database prefixing
 All tables for the database should be prefixed according to the following list:
 * `ss13_` for tables in which ingame data is held.
