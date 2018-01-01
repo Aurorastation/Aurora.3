@@ -1,15 +1,12 @@
 author: BurgerBB
 delete-after: True
 changes: 
-  - tweak: "Tweaked how Biogenerator recipies are handled in code. Biogenerator recipies are now easy to add."
-  - tweak: "Changed the biogenerator sound from a blender to the unused juicer sound."
+  - tweak: "Improved code and UI."
+  - tweak: "Changed and added some new sounds."
   - tweak: "When creating milk, cartons of milk are spawned instead of being put into the bottle."
-  - rscadd: "A popping sound is played when the Biogenerator creates an item."
-  - rscadd: "Added the ability to make multiple items of the same type in the Biogenerator."
+  - rscadd: "Added the ability to make multiple items of the same type in the Biogenerator for all recipies."
   - rscadd: "Added Biomeat; a differently colored variant of regular meat with different flavoring, but still has the functionality of meat. Still unsafe for Skrell consumption."
   - rscadd: "Added Vitamin Pills that contain 25 nutrients and 1 random flavoring of juice."
-  - rscadd: "Added Biomeat, Soylent Virdians, Vitamin Pills, Food Rations, Tape Roll, Soap, Towel, Animal Hide, Leather Sheet, Cloth Sheet, Wax, and Walking Mushroom Pet recpies to the BioGenerator."
+  - rscadd: "Added additional biogenerator recipies."
   - rscadd: "Added the ability to emag the biogenerator. Emagged Biogenerators unlocked hidden recipies."
-  - rscadd: "Added Bruise Pack, Ointment, Human Hide, Soylent Green, Syndie Soap, Buckler, and Killer Pinetree emag recipies to the BioGenerator."
-  - rscdel: "Removed regular meat recipie from the BioGenerator, as it replaces Biomeat."
-  - rscdel: "Removed hidden monkey recipie from the BioGenerator."
+  - rscdel: "Removed meat and hidden monkey recipies from the Biogenerator."
