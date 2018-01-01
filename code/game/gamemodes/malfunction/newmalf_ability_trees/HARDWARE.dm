@@ -69,6 +69,7 @@
 	set desc = "Activates or deactivates self destruct sequence of this station. Sequence takes two minutes, and if you are shut down before timer reaches zero it will be cancelled."
 	var/mob/living/silicon/ai/user = usr
 	var/obj/item/device/radio/radio = new/obj/item/device/radio()
+	var/datum/weakref/nuke
 
 
 	if(!ability_prechecks(user, 0, 0))
@@ -87,19 +88,33 @@
 		return
 	if(!ability_prechecks(user, 0, 0))
 		return
+
+	//Lets find the first self destruct terminal
+	for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.all_machines)
+		nuke = WEAKREF(N)
+		continue
+	
+	if(!nuke.resolve())
+		user << "Self-destruct could not be initiated - No Self-Destruct Terminal available."
+		return
+
 	user << "***** STATION SELF-DESTRUCT SEQUENCE INITIATED *****"
-	user << "Self-destructing in 2 minutes. Use this command again to abort."
+	user << "Self-destructing in 20 minutes. Use this command again to abort."
 	user.bombing_station = 1
 	set_security_level("delta")
-	radio.autosay("Self destruct sequence has been activated. Self-destructing in 120 seconds.", "Self-Destruct Control")
+	radio.autosay("Self destruct sequence has been activated. Self-destructing in 1200 seconds.", "Self-Destruct Control")
 
-	var/timer = 120
+	var/timer = 1200
 	while(timer)
 		sleep(10)
-		if(!user || !user.bombing_station || user.stat == DEAD)
+		var/obj/machinery/nuclearbomb/station/N = nuke.resolve()
+		if(!user || !user.bombing_station || user.stat == DEAD || !N)
 			radio.autosay("Self destruct sequence has been cancelled.", "Self-Destruct Control")
 			return
-		if(timer in list(2, 3, 4, 5, 10, 30, 60, 90)) // Announcement times. "1" is not intentionally included!
+		if(N.auth)
+			radio.autosay("Local Override Engaged - Self-Destruct canceled.", "Self-Destruct Control")
+			return
+		if(timer in list(2, 3, 4, 5, 10, 30, 60, 90, 120, 240, 300, 600, 900)) // Announcement times. "1" is not intentionally included!
 			radio.autosay("Self destruct in [timer] seconds.", "Self-Destruct Control")
 		if(timer == 1)
 			radio.autosay("Self destructing now. Have a nice day.", "Self-Destruct Control")
