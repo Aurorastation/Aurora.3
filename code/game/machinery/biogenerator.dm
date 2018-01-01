@@ -63,7 +63,7 @@
 			emag = 0
 		),
 		"enzyme" = list(
-			name = "Universal Enyzme (50u)",
+			name = "Universal Enzyme (50u)",
 			class = "Food",
 			object = /obj/item/weapon/reagent_containers/food/condiment/enzyme,
 			cost = 200,
