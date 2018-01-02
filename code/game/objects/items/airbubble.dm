@@ -1,3 +1,5 @@
+#define BUBBLE_PROC_INT_TEMP 1 << 2
+
 //Also contains /obj/structure/closet/body_bag because I doubt anyone would think to look for bodybags in /object/structures
 
 /obj/item/air_bubble
@@ -8,7 +10,7 @@
 	w_class = 2.0
 
 	attack_self(mob/user)
-		var/obj/structure/closet/body_bag/R = new /obj/structure/closet/body_bag(user.loc)
+		var/obj/structure/closet/air_bubble/R = new /obj/structure/closet/air_bubble(user.loc)
 		R.add_fingerprint(user)
 		qdel(src)
 
@@ -23,13 +25,17 @@
 	close_sound = 'sound/items/zip.ogg'
 	var/item_path = /obj/item/air_bubble
 	var/zipped = 0
-	var/used = 0
 	density = 0
 	storage_capacity = 30
 	var/contains_body = 0
 
-	var/current_processes = MECHA_PROC_INT_TEMP
+	var/use_internal_tank = 0
+	var/current_processes = BUBBLE_PROC_INT_TEMP
 	var/datum/gas_mixture/cabin_air
+	var/internal_tank_valve = ONE_ATMOSPHERE
+	var/obj/item/weapon/tank/emergency_oxygen/engi/internal_tank
+
+	var/process_ticks = 0
 
 /obj/structure/closet/air_bubble/can_open()
 	if(zipped)
@@ -44,13 +50,21 @@
 
 /obj/structure/closet/air_bubble/open()
 	. = ..()
-	if(used)
-		var/obj/item/O = new/obj/item(src.loc)
-		O.name = "used stasis bag"
-		O.icon = src.icon
-		O.icon_state = "bodybag_used"
-		O.desc = "Pretty useless now.."
-		qdel(src)
+
+/obj/structure/closet/air_bubble/Initialize()
+	. = ..()
+	add_cabin()
+	add_airtank()
+	START_PROCESSING(SSfast_process, src)
+	use_internal_tank = !use_internal_tank
+
+/obj/structure/closet/air_bubble/Destroy()
+	STOP_PROCESSING(SSfast_process, src)
+	if(parts)
+		new parts(loc)
+	if (smooth)
+		queue_smooth_neighbors(src)
+	return ..()
 
 /obj/structure/closet/air_bubble/close()
 	if(!opened)
@@ -72,8 +86,17 @@
 
 	playsound(loc, close_sound, 25, 0, -3)
 	density = 1
-	used = 1
 	return 1
+
+/obj/structure/closet/air_bubble/verb/set_internals(mob/user as mob)
+	set src in oview(1)
+	set category = "Object"
+	set name = "Set internals"
+	user.visible_message(
+		"<span class='warning'>[user] set [src] internals.</span>",
+		"<span class='notice'>You set [src] internals.</span>"
+	)
+	use_internal_tank = !use_internal_tank
 
 /obj/structure/closet/air_bubble/attackby(W as obj, mob/user as mob)
 	if(opened)
@@ -115,7 +138,7 @@
 			"<span class='warning'>[src] zipper's cable restrains have been cut by [user].</span>",
 			"<span class='notice'>You cut cable restrains on [src]'s zipper.</span>"
 		)
-		var/obj/item/weapon/handcuffs/cable/O = new/obj/item/weapon/handcuffs/cable(src.loc)
+		new/obj/item/weapon/handcuffs/cable(src.loc)
 	else
 		attack_hand(user)
 	return
@@ -152,34 +175,110 @@
 			icon_state = icon_closed
 
 /obj/structure/closet/air_bubble/proc/process_tank_give_air()
-	var/datum/gas_mixture/tank_air = internal_tank.return_air()
+	if(internal_tank)
+		var/datum/gas_mixture/tank_air = internal_tank.return_air()
 
-	var/release_pressure = internal_tank_valve
-	var/cabin_pressure = cabin_air.return_pressure()
-	var/pressure_delta = min(release_pressure - cabin_pressure, (tank_air.return_pressure() - cabin_pressure)/2)
-	var/transfer_moles = 0
+		var/release_pressure = internal_tank_valve
+		var/cabin_pressure = cabin_air.return_pressure()
+		var/pressure_delta = min(release_pressure - cabin_pressure, (tank_air.return_pressure() - cabin_pressure)/2)
+		var/transfer_moles = 0
 
-	if(pressure_delta > 0) //cabin pressure lower than release pressure
-		if(tank_air.temperature > 0)
-			transfer_moles = pressure_delta*cabin_air.volume/(cabin_air.temperature * R_IDEAL_GAS_EQUATION)
-			var/datum/gas_mixture/removed = tank_air.remove(transfer_moles)
-			cabin_air.merge(removed)
-	else if(pressure_delta < 0) //cabin pressure higher than release pressure
-		var/datum/gas_mixture/t_air = get_turf_air()
-		pressure_delta = cabin_pressure - release_pressure
+		if(pressure_delta > 0) //cabin pressure lower than release pressure
+			if(tank_air.temperature > 0)
+				transfer_moles = pressure_delta*cabin_air.volume/(cabin_air.temperature * R_IDEAL_GAS_EQUATION)
+				var/datum/gas_mixture/removed = tank_air.remove(transfer_moles)
+				cabin_air.merge(removed)
 
-		if(t_air)
-			pressure_delta = min(cabin_pressure - t_air.return_pressure(), pressure_delta)
-		if(pressure_delta > 0) //if location pressure is lower than cabin pressure
-			transfer_moles = pressure_delta*cabin_air.volume/(cabin_air.temperature * R_IDEAL_GAS_EQUATION)
+		else if(pressure_delta < 0) //cabin pressure higher than release pressure
+			var/datum/gas_mixture/t_air = get_turf_air()
+			pressure_delta = cabin_pressure - release_pressure
 
-			var/datum/gas_mixture/removed = cabin_air.remove(transfer_moles)
 			if(t_air)
-				t_air.merge(removed)
-			else //just delete the cabin gas, we're in space or some shit
-				qdel(removed)
+				pressure_delta = min(cabin_pressure - t_air.return_pressure(), pressure_delta)
+			if(pressure_delta > 0) //if location pressure is lower than cabin pressure
+				transfer_moles = pressure_delta*cabin_air.volume/(cabin_air.temperature * R_IDEAL_GAS_EQUATION)
+
+				var/datum/gas_mixture/removed = cabin_air.remove(transfer_moles)
+				if(t_air)
+					t_air.merge(removed)
+				else //just delete the cabin gas, we're in space or some shit
+					qdel(removed)
 
 /obj/structure/closet/air_bubble/proc/process_preserve_temp()
 	if (cabin_air && cabin_air.volume > 0)
 		var/delta = cabin_air.temperature - T20C
 		cabin_air.temperature -= max(-10, min(10, round(delta/4,0.1)))
+
+/////////////////////////////////////////
+//////// airbubble process() helpers ////
+/////////////////////////////////////////
+
+/obj/structure/closet/air_bubble/proc/stop_process(process)
+	current_processes &= ~process
+
+/obj/structure/closet/air_bubble/proc/start_process(process)
+	current_processes |= process
+
+/obj/structure/closet/air_bubble/remove_air(amount)
+	if(use_internal_tank)
+		return cabin_air.remove(amount)
+	else
+		var/turf/T = get_turf(src)
+		if(T)
+			return T.remove_air(amount)
+	return
+
+/obj/structure/closet/air_bubble/return_air()
+	if(use_internal_tank)
+		return cabin_air
+	return get_turf_air()
+
+/obj/structure/closet/air_bubble/proc/get_turf_air()
+	var/turf/T = get_turf(src)
+	if(T)
+		. = T.return_air()
+	return
+
+/obj/structure/closet/air_bubble/proc/return_pressure()
+	. = 0
+	if(use_internal_tank)
+		. =  cabin_air.return_pressure()
+	else
+		var/datum/gas_mixture/t_air = get_turf_air()
+		if(t_air)
+			. = t_air.return_pressure()
+	return
+
+//skytodo: //No idea what you want me to do here, mate.
+/obj/structure/closet/air_bubble/proc/return_temperature()
+	. = 0
+	if(use_internal_tank)
+		. = cabin_air.temperature
+	else
+		var/datum/gas_mixture/t_air = get_turf_air()
+		if(t_air)
+			. = t_air.temperature
+	return
+
+/obj/structure/closet/air_bubble/process()
+	var/static/max_ticks = 16
+	if ((current_processes & BUBBLE_PROC_INT_TEMP) && !(process_ticks % 4))
+		process_preserve_temp()
+
+	if (!(process_ticks % 3))
+		process_tank_give_air()
+
+	process_ticks = (process_ticks + 1) % 17
+
+/obj/structure/closet/air_bubble/proc/add_airtank()
+	internal_tank = new /obj/item/weapon/tank/emergency_oxygen/engi(src)
+	return internal_tank
+
+/obj/structure/closet/air_bubble/proc/add_cabin()
+	cabin_air = new
+	cabin_air.temperature = T20C
+	cabin_air.volume = 3
+	cabin_air.adjust_multi("oxygen", O2STANDARD*cabin_air.volume/(R_IDEAL_GAS_EQUATION*cabin_air.temperature), "nitrogen", N2STANDARD*cabin_air.volume/(R_IDEAL_GAS_EQUATION*cabin_air.temperature))
+	return cabin_air
+
+
