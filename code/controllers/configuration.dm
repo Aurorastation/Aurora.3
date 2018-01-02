@@ -46,7 +46,6 @@ var/list/gamemode_cache = list()
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/Ticklag = 0.4
 	var/Tickcomp = 0
-	var/list/resource_urls = null
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
 	var/antag_hud_restricted = 0                    // Ghosts that turn on Antagovision cannot rejoin the round.
 	var/list/mode_names = list()
@@ -320,9 +319,6 @@ var/list/gamemode_cache = list()
 
 		if(type == "config")
 			switch (name)
-				if ("resource_urls")
-					config.resource_urls = text2list(value, " ")
-
 				if ("admin_legacy_system")
 					config.admin_legacy_system = 1
 
