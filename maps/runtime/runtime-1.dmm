@@ -265,6 +265,13 @@
 /turf/simulated/floor/plating,
 /area/engineering/gravity_gen)
 "aI" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/clothing/shoes/magboots,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
+"aJ" = (
 /obj/machinery/portable_atmospherics/canister/sleeping_agent,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -273,19 +280,19 @@
 	dir = 2
 	},
 /area/engineering/atmos)
-"aJ" = (
+"aK" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
-"aK" = (
+"aL" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"aL" = (
+"aM" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
 	d1 = 2;
@@ -294,7 +301,7 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"aM" = (
+"aN" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -306,14 +313,14 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"aN" = (
+"aO" = (
 /obj/item/device/flashlight{
 	pixel_y = 5
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering)
-"aO" = (
+"aP" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -326,7 +333,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
-"aP" = (
+"aQ" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Gravity Generator"
 	},
@@ -337,7 +344,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
-"aQ" = (
+"aR" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -348,7 +355,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
-"aR" = (
+"aS" = (
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -357,29 +364,29 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
-"aS" = (
+"aT" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Gravity Generator"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
-"aT" = (
+"aU" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
-"aU" = (
+"aV" = (
 /obj/structure/dispenser{
 	pixel_x = -1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"aV" = (
+"aW" = (
 /obj/machinery/atmospherics/unary/vent_pump,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"aW" = (
+"aX" = (
 /obj/machinery/portable_atmospherics/canister,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -388,23 +395,23 @@
 	dir = 2
 	},
 /area/engineering/atmos)
-"aX" = (
+"aY" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
-"aY" = (
+"aZ" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable,
 /turf/simulated/floor/airless,
 /area/template_noop)
-"aZ" = (
+"ba" = (
 /obj/item/weapon/weldingtool/experimental,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering)
-"ba" = (
+"bb" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -412,27 +419,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
-"bb" = (
+"bc" = (
 /obj/structure/closet/secure_closet/engineering_chief,
 /turf/simulated/floor/plating,
 /area/engineering)
-"bc" = (
+"bd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
-"bd" = (
+"be" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
-"be" = (
+"bf" = (
 /obj/machinery/gravity_generator/main/station,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
-"bf" = (
+"bg" = (
 /obj/machinery/power/apc{
 	dir = 8;
 	pixel_x = -24
@@ -448,60 +455,60 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"bg" = (
+"bh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"bh" = (
+"bi" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"bi" = (
+"bj" = (
 /obj/machinery/atmospherics/valve{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"bj" = (
+"bk" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"bk" = (
+"bl" = (
 /obj/machinery/atmospherics/unary/vent_pump,
 /obj/item/weapon/screwdriver,
 /obj/item/weapon/wirecutters,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering)
-"bl" = (
+"bm" = (
 /obj/machinery/light,
 /obj/item/weapon/storage/box/lights/mixed,
 /obj/item/device/lightreplacer,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering)
-"bm" = (
+"bn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
-"bn" = (
+"bo" = (
 /obj/structure/closet/radiation,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
-"bo" = (
+"bp" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -509,23 +516,23 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/hallway/primary/central_one)
-"bp" = (
+"bq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
-"bq" = (
+"br" = (
 /turf/simulated/wall/r_wall,
 /area/bridge)
-"br" = (
+"bs" = (
 /obj/effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/bridge)
-"bs" = (
+"bt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
 /area/engineering)
-"bt" = (
+"bu" = (
 /obj/machinery/door/airlock,
 /obj/structure/cable{
 	d1 = 1;
@@ -534,19 +541,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
-"bu" = (
+"bv" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/secondary/entry)
-"bv" = (
+"bw" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"bw" = (
+"bx" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/primary/central_one)
-"bx" = (
+"by" = (
 /obj/machinery/power/apc{
 	dir = 8;
 	pixel_x = -24
@@ -565,26 +572,26 @@
 /obj/structure/closet/jcloset,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"by" = (
+"bz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bz" = (
+"bA" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bA" = (
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "bB" = (
-/obj/structure/closet/secure_closet/CMO,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bC" = (
+/obj/structure/closet/secure_closet/CMO,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"bD" = (
 /obj/machinery/alarm{
 	frequency = 1439;
 	locked = 0;
@@ -605,21 +612,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"bD" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled,
-/area/bridge)
 "bE" = (
-/obj/item/weapon/card/id/captains_spare,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bF" = (
-/obj/item/weapon/storage/backpack/holding,
+/obj/item/weapon/card/id/captains_spare,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bG" = (
+/obj/item/weapon/storage/backpack/holding,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/bridge)
+"bH" = (
 /obj/item/weapon/rcd_ammo,
 /obj/item/weapon/rcd_ammo,
 /obj/item/weapon/rcd_ammo,
@@ -627,18 +634,18 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"bH" = (
+"bI" = (
 /obj/structure/closet/secure_closet/hop,
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"bI" = (
+"bJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bJ" = (
+"bK" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -646,27 +653,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bK" = (
+"bL" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
-"bL" = (
+"bM" = (
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
-"bM" = (
+"bN" = (
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
-"bN" = (
+"bO" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
-"bO" = (
+"bP" = (
 /obj/machinery/computer/arcade,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
-"bP" = (
+"bQ" = (
 /obj/machinery/alarm{
 	frequency = 1439;
 	locked = 0;
@@ -693,7 +700,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"bQ" = (
+"bR" = (
 /obj/machinery/light{
 	dir = 1
 	},
@@ -706,7 +713,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"bR" = (
+"bS" = (
 /obj/structure/closet/secure_closet/hos,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -716,7 +723,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"bS" = (
+"bT" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -726,15 +733,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"bT" = (
-/obj/effect/wingrille_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
 "bU" = (
 /obj/effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/hallway/primary/central_one)
+/area/maintenance/maintcentral)
 "bV" = (
+/obj/effect/wingrille_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/hallway/primary/central_one)
+"bW" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
@@ -747,7 +754,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bW" = (
+"bX" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -756,7 +763,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bX" = (
+"bY" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -764,7 +771,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"bY" = (
+"bZ" = (
 /obj/effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
 	d1 = 4;
@@ -773,7 +780,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge)
-"bZ" = (
+"ca" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -789,7 +796,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"ca" = (
+"cb" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -797,7 +804,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"cb" = (
+"cc" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -808,7 +815,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"cc" = (
+"cd" = (
 /obj/effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
 	d1 = 4;
@@ -822,23 +829,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge)
-"cd" = (
+"ce" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
-"ce" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -848,9 +844,20 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"cg" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/wall/r_wall,
 /area/hallway/secondary/entry)
-"cg" = (
+"ch" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
@@ -864,39 +871,39 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"ch" = (
+"ci" = (
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"ci" = (
+"cj" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
-"cj" = (
+"ck" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"ck" = (
+"cl" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"cl" = (
+"cm" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"cm" = (
+"cn" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"cn" = (
+"co" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -904,14 +911,14 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/bridge)
-"co" = (
+"cp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"cp" = (
+"cq" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
@@ -920,36 +927,40 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"cq" = (
+"cr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
 /area/bridge)
-"cr" = (
+"cs" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"cs" = (
+"ct" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"ct" = (
+"cu" = (
 /obj/effect/floor_decal/industrial/loading{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"cu" = (
+"cv" = (
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
-"cv" = (
+"cw" = (
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry)
+"cx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"cw" = (
+"cy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -961,14 +972,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"cx" = (
+"cz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"cy" = (
+"cA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -977,7 +988,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"cz" = (
+"cB" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -994,17 +1005,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"cA" = (
+"cC" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"cB" = (
+"cD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
 /area/hallway/secondary/entry)
-"cC" = (
+"cE" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8
 	},
@@ -1016,7 +1027,7 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"cD" = (
+"cF" = (
 /obj/structure/table,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -1027,7 +1038,7 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"cE" = (
+"cG" = (
 /obj/item/weapon/storage/box/donut,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -1039,7 +1050,7 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"cF" = (
+"cH" = (
 /obj/item/stack/material/glass{
 	amount = 50
 	},
@@ -1054,7 +1065,7 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"cG" = (
+"cI" = (
 /obj/item/weapon/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
@@ -1066,7 +1077,7 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"cH" = (
+"cJ" = (
 /obj/item/device/healthanalyzer,
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/white{
@@ -1075,33 +1086,33 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"cI" = (
-/turf/simulated/wall/r_wall,
-/area/construction)
-"cJ" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/wall/r_wall,
-/area/construction)
 "cK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
 /area/construction)
 "cL" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/wall/r_wall,
+/area/construction)
+"cM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/wall/r_wall,
+/area/construction)
+"cN" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
 /area/construction)
-"cM" = (
+"cO" = (
 /obj/effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/construction)
-"cN" = (
+"cP" = (
 /turf/simulated/wall/r_wall,
 /area/storage/primary)
-"cO" = (
+"cQ" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -1109,15 +1120,15 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/storage/primary)
-"cP" = (
+"cR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
 /area/storage/primary)
-"cQ" = (
+"cS" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"cR" = (
+"cT" = (
 /obj/machinery/alarm{
 	frequency = 1439;
 	locked = 0;
@@ -1131,24 +1142,24 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/construction)
-"cS" = (
+"cU" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/construction)
-"cT" = (
+"cV" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/construction)
-"cU" = (
+"cW" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
-"cV" = (
+"cX" = (
 /obj/machinery/alarm{
 	frequency = 1439;
 	locked = 0;
@@ -1161,114 +1172,120 @@
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/storage/primary)
-"cW" = (
+"cY" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)
-"cX" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/storage/primary)
-"cY" = (
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "cZ" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "da" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/storage/primary)
 "db" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/storage/primary)
 "dc" = (
 /turf/simulated/floor/plating,
-/area/construction)
+/area/storage/primary)
 "dd" = (
 /obj/machinery/light{
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
 "de" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
-/area/storage/primary)
+/area/construction)
 "df" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/storage/primary)
-"dg" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/construction)
-"dh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"dg" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
+"dh" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "di" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
+"dj" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
+"dk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dj" = (
+"dl" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dk" = (
+"dm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dl" = (
+"dn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dm" = (
+"do" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dn" = (
+"dp" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"do" = (
+"dq" = (
+/obj/effect/landmark{
+	name = "tdome1"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"dr" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dp" = (
+"ds" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -1277,151 +1294,68 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dq" = (
+"dt" = (
 /obj/effect/landmark/start,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dr" = (
+"du" = (
 /obj/effect/landmark{
 	name = "JoinLate"
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"ds" = (
+"dv" = (
+/obj/structure/stairs/south,
+/turf/simulated/floor/plating,
+/area/construction)
+"dw" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
-"dt" = (
+"dx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
-"du" = (
+"dy" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
-"dv" = (
+"dz" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dw" = (
+"dA" = (
 /obj/machinery/light,
 /obj/item/weapon/material/twohanded/fireaxe,
 /obj/item/weapon/extinguisher,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dx" = (
+"dB" = (
 /obj/item/device/lightreplacer,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dy" = (
+"dC" = (
 /obj/item/weapon/storage/box/lights/mixed,
 /obj/item/weapon/storage/box/lights/tubes,
 /obj/machinery/light,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dz" = (
+"dD" = (
 /obj/item/device/flashlight{
 	pixel_y = 5
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dA" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/clothing/shoes/magboots,
-/turf/simulated/floor/plating,
-/area/engineering/atmos)
-"dB" = (
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry)
-"dC" = (
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry)
-"dD" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
-"dE" = (
-/obj/effect/landmark{
-	name = "tdome"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
-"dF" = (
-/obj/effect/landmark{
-	name = "tdome"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
-"dG" = (
-/obj/effect/landmark{
-	name = "tdome"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
-"dH" = (
-/obj/effect/landmark{
-	name = "tdome"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
-"dI" = (
-/obj/effect/landmark{
-	name = "tdome"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
-"dJ" = (
-/obj/effect/landmark{
-	name = "tdome"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
-"dK" = (
-/obj/effect/landmark{
-	name = "tdome"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
-"dL" = (
-/obj/effect/landmark{
-	name = "tdome"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
-"dM" = (
-/obj/effect/landmark{
-	name = "tdome"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
-"dN" = (
-/obj/effect/landmark{
-	name = "tdome"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
-"dO" = (
-/obj/effect/landmark{
-	name = "tdome"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
 
 (1,1,1) = {"
 aa
@@ -1984,11 +1918,11 @@ ac
 ac
 ac
 ac
-bT
-bT
-bT
-bT
-bT
+bU
+bU
+bU
+bU
+bU
 ac
 ac
 ac
@@ -2037,13 +1971,13 @@ ae
 ae
 ae
 ae
-bv
+bw
 ae
 ae
 ae
 ae
 ae
-bv
+bw
 ae
 ae
 ae
@@ -2091,27 +2025,27 @@ af
 af
 af
 af
-bw
-bU
-bU
-bU
-bU
-bU
-bw
-cI
-cI
-cI
-cI
-cI
-cI
-cI
-cI
-cI
-cI
-cI
-cI
-cI
-cI
+bx
+bV
+bV
+bV
+bV
+bV
+bx
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
 ae
 ac
 aa
@@ -2141,31 +2075,31 @@ ae
 af
 aj
 au
-dA
-aU
-bf
-bo
-bx
-bV
-bJ
-bJ
-bJ
-bJ
-bJ
-cJ
-cR
-db
-dg
-dg
-dg
-dg
-dg
-dg
-dg
-dg
-db
-ds
-cI
+aI
+aV
+bg
+bp
+by
+bW
+bK
+bK
+bK
+bK
+bK
+cL
+cT
+dd
+di
+di
+di
+di
+di
+di
+di
+di
+dd
+dw
+cK
 ae
 ac
 aa
@@ -2196,30 +2130,30 @@ af
 ak
 av
 au
-aV
-bg
-bp
-by
-bW
-bI
-bI
-by
-bI
-bI
+aW
+bh
+bq
+bz
+bX
+bJ
+bJ
+bz
+bJ
+bJ
+cM
+cU
+de
+de
+de
+de
+de
+de
+de
+de
+de
+dv
+dx
 cK
-cS
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dt
-cI
 ae
 ac
 aa
@@ -2249,31 +2183,31 @@ ae
 af
 ak
 aw
-aI
-aW
-bh
+aJ
+aX
+bi
 af
-bz
-bX
 bA
-bA
-cv
-bA
-bA
-cL
-cT
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dt
-cI
+bY
+bB
+bB
+cx
+bB
+bB
+cN
+cV
+de
+de
+de
+de
+de
+de
+de
+de
+de
+de
+dx
+cK
 ae
 ac
 aa
@@ -2303,31 +2237,31 @@ ae
 af
 ak
 aw
-aJ
-aX
-bi
+aK
+aY
+bj
 af
-bA
-bX
-bA
-bA
-cv
-bA
-bA
-cL
-cT
-dc
-dc
-dc
-dc
-dD
-dD
-dc
-dc
-dc
-dc
-dt
-cI
+bB
+bY
+bB
+bB
+cx
+bB
+bB
+cN
+cV
+de
+de
+de
+de
+dq
+dq
+de
+de
+de
+de
+dx
+cK
 ae
 ac
 aa
@@ -2357,31 +2291,31 @@ ae
 af
 ak
 ax
-aK
-aK
-bj
+aL
+aL
+bk
 af
+bC
+bY
+ck
 bB
-bX
-cj
-bA
-cv
-bA
-bA
-cI
-cT
-dc
-dc
-dc
-dc
-dD
-dD
-dc
-dc
-dc
-dc
-dt
-cI
+cx
+bB
+bB
+cK
+cV
+de
+de
+de
+de
+dq
+dq
+de
+de
+de
+de
+dx
+cK
 ae
 ac
 aa
@@ -2414,28 +2348,28 @@ af
 af
 af
 af
-bq
-bq
-bY
-bq
-bq
-cw
-bA
-bA
-cM
-cT
-dc
-dc
-dc
-dc
-dD
-dD
-dc
-dc
-dc
-dc
-dt
-cI
+br
+br
+bZ
+br
+br
+cy
+bB
+bB
+cO
+cV
+de
+de
+de
+de
+dq
+dq
+de
+de
+de
+de
+dx
+cK
 ae
 ac
 aa
@@ -2468,28 +2402,28 @@ ab
 ab
 ab
 ab
-bq
-bC
-bZ
-ck
-cq
-cx
-bA
-bA
-cM
-cT
-dc
-dc
-dc
-dc
-dD
-dD
-dc
-dc
-dc
-dc
-dt
-cI
+br
+bD
+ca
+cl
+cr
+cz
+bB
+bB
+cO
+cV
+de
+de
+de
+de
+dq
+dq
+de
+de
+de
+de
+dx
+cK
 ae
 ac
 aa
@@ -2519,31 +2453,31 @@ ab
 ag
 al
 ay
-aL
-aY
+aM
+aZ
 ab
-br
-bD
-ca
-cl
-br
-cy
-bA
-bA
-cM
-cT
-dc
-dc
-dc
-dc
-dD
-dD
-dc
-dc
-dc
-dc
-dt
-cI
+bs
+bE
+cb
+cm
+bs
+cA
+bB
+bB
+cO
+cV
+de
+de
+de
+de
+dq
+dq
+de
+de
+de
+de
+dx
+cK
 ae
 ac
 aa
@@ -2573,31 +2507,31 @@ ab
 ag
 am
 az
-aM
-aY
+aN
+aZ
 ab
+bs
+bE
+cb
+cm
 br
-bD
-ca
-cl
-bq
-cy
-bA
-bA
-cI
-cT
-dc
-dc
-dc
-dc
-dD
-dD
-dc
-dc
-dc
-dc
-dt
-cI
+cA
+bB
+bB
+cK
+cV
+de
+de
+de
+de
+dq
+dq
+de
+de
+de
+de
+dx
+cK
 ae
 ac
 aa
@@ -2630,28 +2564,28 @@ aA
 ab
 ab
 ab
-br
-bE
-ca
-cl
-cr
-cy
-bA
-bA
-cL
-cT
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dt
-cI
+bs
+bF
+cb
+cm
+cs
+cA
+bB
+bB
+cN
+cV
+de
+de
+de
+de
+de
+de
+de
+de
+de
+de
+dx
+cK
 ae
 ac
 aa
@@ -2684,28 +2618,28 @@ aA
 ab
 aa
 aa
+bs
+bG
+cb
+cm
 br
-bF
-ca
-cl
-bq
-cy
-bA
-bA
-cL
-cT
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-dt
-cI
+cA
+bB
+bB
+cN
+cV
+de
+de
+de
+de
+de
+de
+de
+de
+de
+de
+dx
+cK
 ae
 ac
 aa
@@ -2738,28 +2672,28 @@ aB
 ah
 aa
 aa
-br
-bG
-ca
-cl
-br
-cy
-bA
-bA
-cI
-cU
-dd
-dh
-dh
-dh
-dh
-dh
-dh
-dh
-dh
-dd
-du
-cI
+bs
+bH
+cb
+cm
+bs
+cA
+bB
+bB
+cK
+cW
+df
+dj
+dj
+dj
+dj
+dj
+dj
+dj
+dj
+df
+dy
+cK
 ae
 ac
 aa
@@ -2792,28 +2726,28 @@ aC
 ah
 aa
 aa
-bq
-bH
-cb
-cm
-bq
-cy
-bA
-bA
-cN
-cN
-cN
-cN
-cN
-cN
-do
-do
-cN
-cN
-cN
-cN
-cN
-cN
+br
+bI
+cc
+cn
+br
+cA
+bB
+bB
+cP
+cP
+cP
+cP
+cP
+cP
+dr
+dr
+cP
+cP
+cP
+cP
+cP
+cP
 ae
 ac
 aa
@@ -2846,28 +2780,28 @@ aB
 ah
 ah
 ah
-bq
-bq
-cc
-cn
-cn
-cz
-bJ
-bJ
-cO
-cV
-de
-da
-da
-da
-da
-da
-da
-da
-da
-de
-da
-cN
+br
+br
+cd
+co
+co
+cB
+bK
+bK
+cQ
+cX
+dg
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dg
+dc
+cP
 ae
 ac
 aa
@@ -2897,31 +2831,31 @@ ae
 ah
 an
 aC
-aN
-aZ
-bk
-bs
-bI
-cd
-co
-bI
-cA
-bI
-bI
+aO
+ba
+bl
+bt
+bJ
+ce
+cp
+bJ
+cC
+bJ
+bJ
+cR
+cY
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
 cP
-cW
-da
-da
-da
-da
-da
-da
-da
-da
-da
-da
-da
-cN
 ae
 ac
 aa
@@ -2951,31 +2885,31 @@ ae
 ah
 ao
 aD
-aO
-ba
-ba
-bt
-bJ
-ce
-bA
-bA
-cv
-bA
-bA
-cN
-cX
-cX
-di
-da
-dl
-dp
-cX
-di
-da
-dl
-cX
-cX
-cN
+aP
+bb
+bb
+bu
+bK
+cf
+bB
+bB
+cx
+bB
+bB
+cP
+cZ
+cZ
+dk
+dc
+dn
+ds
+cZ
+dk
+dc
+dn
+cZ
+cZ
+cP
 ae
 ac
 aa
@@ -3006,30 +2940,30 @@ ah
 ap
 aE
 aC
-bb
-bl
+bc
+bm
 ah
-bK
-bX
-bA
-bA
-cv
-bA
-bA
-cN
-cY
-cY
-dj
+bL
+bY
+bB
+bB
+cx
+bB
+bB
+cP
 da
-dm
-dq
-dr
-dj
 da
-dm
-cY
-dv
-cN
+dl
+dc
+do
+dt
+du
+dl
+dc
+do
+da
+dz
+cP
 ae
 ac
 aa
@@ -3059,31 +2993,31 @@ ae
 ai
 ai
 ai
-aP
+aQ
 ai
 ai
 ai
-bL
-bX
-bA
-bA
-cv
-bA
-bA
-cN
-cY
-cY
-dj
+bM
+bY
+bB
+bB
+cx
+bB
+bB
+cP
 da
-dm
-dq
-dr
-dj
 da
-dm
-cY
-dw
-cN
+dl
+dc
+do
+dt
+du
+dl
+dc
+do
+da
+dA
+cP
 ae
 ac
 aa
@@ -3113,31 +3047,31 @@ ae
 ai
 aq
 aF
-aQ
-bc
-bm
+aR
+bd
+bn
 ai
-bM
-bX
-bA
-bA
-cv
-bA
-bA
-cQ
-cY
-cY
-dj
+bN
+bY
+bB
+bB
+cx
+bB
+bB
+cS
 da
-dm
-dq
-dr
-dj
 da
-dm
-cY
-dv
-cN
+dl
+dc
+do
+dt
+du
+dl
+dc
+do
+da
+dz
+cP
 ae
 ac
 aa
@@ -3167,31 +3101,31 @@ ae
 ai
 ar
 aG
-aR
-bd
-bn
+aS
+be
+bo
 ai
-bN
-bX
-bA
-bA
-cv
-bA
-bA
-cQ
-cY
-cY
-dj
+bO
+bY
+bB
+bB
+cx
+bB
+bB
+cS
 da
-dm
-dq
-dr
-dj
 da
-dm
-cY
-dv
-cN
+dl
+dc
+do
+dt
+du
+dl
+dc
+do
+da
+dz
+cP
 ae
 ac
 aa
@@ -3221,31 +3155,31 @@ ae
 ai
 as
 aH
-aS
+aT
 aH
 aH
 ai
-bO
-bX
-cj
-bA
-cv
-bA
-bA
-cQ
-cY
-cY
-dj
+bP
+bY
+ck
+bB
+cx
+bB
+bB
+cS
 da
-dm
-dq
-dr
-dj
 da
-dm
-cY
-dx
-cN
+dl
+dc
+do
+dt
+du
+dl
+dc
+do
+da
+dB
+cP
 ae
 ac
 aa
@@ -3278,28 +3212,28 @@ at
 at
 at
 at
-bu
-bu
-cf
-bu
-cs
-cB
-bu
-bu
-bu
-cY
-cY
-dj
+bv
+bv
+cg
+bv
+ct
+cD
+bv
+bv
+bv
 da
-dm
-dq
-dr
-dj
 da
-dm
-cY
-dy
-cN
+dl
+dc
+do
+dt
+du
+dl
+dc
+do
+da
+dC
+cP
 ae
 ac
 aa
@@ -3332,28 +3266,28 @@ at
 at
 at
 at
-bu
-bP
-cg
-cp
-cp
-cC
-cD
+bv
+bQ
+ch
+cq
+cq
 cE
-bu
-cY
-cY
-dj
+cF
+cG
+bv
 da
-dm
-dq
-dr
-dj
 da
-dm
-cY
-dz
-cN
+dl
+dc
+do
+dt
+du
+dl
+dc
+do
+da
+dD
+cP
 ae
 ac
 aa
@@ -3384,30 +3318,30 @@ ai
 at
 at
 at
-be
+bf
 at
-bu
-bQ
-ch
-ch
-ch
-ch
-ch
-cF
-bu
-cZ
-cZ
-dk
-da
-dn
-cZ
-cZ
-dk
-da
-dn
-cZ
-cZ
-cN
+bv
+bR
+ci
+ci
+ci
+ci
+ci
+cH
+bv
+db
+db
+dm
+dc
+dp
+db
+db
+dm
+dc
+dp
+db
+db
+cP
 ae
 ac
 aa
@@ -3440,28 +3374,28 @@ at
 at
 at
 at
-bu
-bR
-ch
-ch
-ch
-ch
-ch
-cG
-bu
-da
-da
-da
-da
-da
-da
-da
-da
-da
-da
-da
-da
-cN
+bv
+bS
+ci
+ci
+ci
+ci
+ci
+cI
+bv
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+cP
 ae
 ac
 aa
@@ -3491,31 +3425,31 @@ ae
 ai
 at
 at
-aT
+aU
 at
 at
-bu
-bS
-ch
-ch
-ct
-ch
-ch
-cH
-bu
-da
-df
-da
-da
-da
-da
-da
-da
-da
-da
-df
-da
-cN
+bv
+bT
+ci
+ci
+cu
+ci
+ci
+cJ
+bv
+dc
+dh
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dh
+dc
+cP
 ae
 ac
 aa
@@ -3548,28 +3482,28 @@ ai
 ai
 ai
 ai
-bu
-bu
-ci
-bu
-dB
-bu
-ci
-bu
-bu
-cN
-cN
-cN
-cN
-cN
-cN
-cN
-cN
-cN
-cN
-cN
-cN
-cN
+bv
+bv
+cj
+bv
+cv
+bv
+cj
+bv
+bv
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
+cP
 ae
 ac
 aa
@@ -3605,9 +3539,9 @@ ae
 ae
 ae
 ae
-bu
-cu
-bu
+bv
+cw
+bv
 ae
 ae
 ae
@@ -3659,9 +3593,9 @@ ac
 ac
 ac
 ac
-bu
-dB
-bu
+bv
+cv
+bv
 ac
 ac
 ac
