@@ -348,9 +348,7 @@
 	if(stat & BROKEN)
 		return
 	user.set_machine(src)
-	var/dat ="<html>"
-	dat += "<head><TITLE>Biogenerator MKII</TITLE><style>body{font-family:Garamond}</style></head>"
-	dat += "<body><H1>Biogenerator MKII</H1>"
+	var/dat = "<TITLE>Biogenerator MKII</TITLE><H1>Biogenerator MKII</H1>"
 	dat += "Biomass: [points] points.<HR>"
 	if (processing)
 		dat += "<FONT COLOR=red>Biogenerator is processing! Please wait...</FONT>"
@@ -358,10 +356,10 @@
 		switch(menustat)
 			if("menu")
 				if (beaker)
-					dat += "<table><tr><td colspan=7><H2>Commands</H2></td></tr>"
-					dat += "<tr><td><A href='?src=\ref[src];action=activate'>Activate Biogenerator</A></td></tr>"
-					dat += "<tr><td><A href='?src=\ref[src];action=detach'>Detach Container</A><BR></td></tr>"
-					dat += "<tr><td>Name</td><td>Cost</td><td colspan=5>Production Amount</td></tr>"
+					dat += "<H2>Commands</H2>"
+					dat += "<A href='?src=\ref[src];action=activate'>Activate Biogenerator</A><BR>"
+					dat += "<A href='?src=\ref[src];action=detach'>Detach Container</A><BR><BR>"
+
 					var/lastclass = "Commands"
 
 					for (var/k in biorecipies)
@@ -376,22 +374,16 @@
 
 						if(emag == 0 || emagged == 1)
 							if(lastclass != class)
-								dat += "<tr><td colspan=7><H2>[class]</H2><td></tr>"
+								dat += "<BR><H2>[class]</H2>"
 								lastclass = class
-							dat += "<tr><td>[name]<td>[round(cost/build_eff)]</td>"
+							dat += "[name] | Cost: [round(cost/build_eff)]"
 							for(var/num in listamount)
-								dat += "<td>"
-								var/fakenum = ""
-								if(num <= 9)
-									fakenum = "0"
 								if(num*round(cost/build_eff) > points)
-									dat += "([fakenum][num])"
+									dat += " | ([num])"
 								else
-									dat += "<A href='?src=\ref[src];action=create;itemid=[id];count=[num]'>([fakenum][num])</A>"
-								dat += "</td>"
-							dat += "</tr>"
+									dat += " | <A href='?src=\ref[src];action=create;itemid=[id];count=[num]'>([num])</A>"
 
-					dat += "</table>"
+							dat += "<BR>"
 
 				else
 					dat += "<BR><FONT COLOR=red>No beaker inside. Please insert a beaker.</FONT><BR>"
@@ -404,8 +396,6 @@
 			if("void")
 				dat += "<FONT COLOR=red>Error: No growns inside.</FONT><BR>Please, put growns into reactor.<BR>"
 				dat += "<A href='?src=\ref[src];action=menu'>Return to menu</A>"
-	dat += "</body><html>"
-
 	user << browse(dat, "window=biogenerator")
 	onclose(user, "biogenerator")
 	return
