@@ -209,7 +209,7 @@
 		// Antag Items (Emag)
 		"bruise_pack" = list(
 			name = "Bruise Pack",
-			class = "<FONT COLOR=red>!@#$%^&*()</FONT>",
+			class = "!@#$%^&*()",
 			object = /obj/item/stack/medical/bruise_pack,
 			cost = 400,
 			amount = list(1,2,3,4,5),
@@ -217,7 +217,7 @@
 		),
 		"ointment" = list(
 			name = "Burn Ointment",
-			class = "<FONT COLOR=red>!@#$%^&*()</FONT>",
+			class = "!@#$%^&*()",
 			object = /obj/item/stack/medical/ointment,
 			cost = 400,
 			amount = list(1,2,3,4,5),
@@ -225,7 +225,7 @@
 		),
 		"humanhide" = list(
 			name = "Human Hide",
-			class = "<FONT COLOR=red>!@#$%^&*()</FONT>",
+			class = "!@#$%^&*()",
 			object = /obj/item/stack/material/animalhide/human,
 			cost = 50,
 			amount = list(1,5,10,25,50),
@@ -233,7 +233,7 @@
 		),
 		"soylentgreen" = list(
 			name = "Soylent Green",
-			class = "<FONT COLOR=red>!@#$%^&*()</FONT>",
+			class = "!@#$%^&*()",
 			object = /obj/item/weapon/reagent_containers/food/snacks/soylentgreen,
 			cost = 150,
 			amount = list(1,2,3,4,5),
@@ -241,7 +241,7 @@
 		),
 		"syndie" = list(
 			name = "Red Soap",
-			class = "<FONT COLOR=red>!@#$%^&*()</FONT>",
+			class = "!@#$%^&*()",
 			object = /obj/item/weapon/soap/syndie,
 			cost = 200,
 			amount = list(1,2,3,4,5),
@@ -249,7 +249,7 @@
 		),
 		"buckler" = list(
 			name = "Buckler",
-			class = "<FONT COLOR=red>!@#$%^&*()</FONT>",
+			class = "!@#$%^&*()",
 			object = /obj/item/weapon/shield/buckler,
 			cost = 500,
 			amount = list(1,2,3,4,5),
@@ -257,7 +257,7 @@
 		),
 		"tree" = list(
 			name = "Tree",
-			class = "<FONT COLOR=red>!@#$%^&*()</FONT>",
+			class = "!@#$%^&*()",
 			object = /mob/living/simple_animal/hostile/tree,
 			cost = 1000,
 			amount = list(1,2,3,4,5),
