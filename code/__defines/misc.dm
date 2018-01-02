@@ -466,3 +466,5 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define SOUND_Z_FACTOR 100
 // Maximum number of Zs away you can be from a sound before it stops being audible.
 #define MAX_SOUND_Z_TRAVERSAL 2
+
+#define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))
