@@ -3,4 +3,4 @@ delete-after: True
 
 changes:
   - bugfix: "Code phrases and responses are properly generated again."
-  - tweak: "Added the mercs, heisters, and revs code phrases and responses. This is with mixed modes in mind."
+  - tweak: "Mercs, heisters, and revs now get code phrases and responses, as they're all somewhat involved with the Syndicate. This is with mixed modes in mind."
