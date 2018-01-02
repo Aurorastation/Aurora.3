@@ -121,12 +121,9 @@ var/syndicate_code_response //Code response for traitors.
 			if (1) //1 and 2 can only be selected once each to prevent more than two specific names/places/etc.
 				switch (rand(1,2)) //Mainly to add more options later.
 					if (1)
-						if (names.len && prob(70))
-							code_phrase += pick(names)
-						else
-							code_phrase += pick(pick(first_names_male,first_names_female))
-							code_phrase += " "
-							code_phrase += pick(last_names)
+						code_phrase += pick(pick(first_names_male,first_names_female))
+						code_phrase += " "
+						code_phrase += pick(last_names)
 					if (2)
 						code_phrase += pick(joblist) //Returns a job.
 				safety -= 1
