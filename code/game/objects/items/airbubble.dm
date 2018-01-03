@@ -33,7 +33,7 @@
 	var/current_processes = BUBBLE_PROC_INT_TEMP
 	var/datum/gas_mixture/cabin_air
 	var/internal_tank_valve = ONE_ATMOSPHERE
-	var/obj/item/weapon/tank/emergency_oxygen/engi/internal_tank
+	var/obj/item/weapon/tank/emergency_oxygen/double/internal_tank
 
 	var/process_ticks = 0
 
@@ -48,8 +48,13 @@
 			return 0
 	return 1
 
-/obj/structure/closet/air_bubble/open()
-	. = ..()
+/obj/structure/closet/air_bubble/dump_contents()
+
+	for(var/mob/M in src)
+		M.forceMove(loc)
+		if(M.client)
+			M.client.eye = M.client.mob
+			M.client.perspective = MOB_PERSPECTIVE
 
 /obj/structure/closet/air_bubble/Initialize()
 	. = ..()
@@ -88,15 +93,25 @@
 	density = 1
 	return 1
 
-/obj/structure/closet/air_bubble/verb/set_internals(mob/user as mob)
+/obj/structure/closet/air_bubble/verb/set_internals()
 	set src in oview(1)
 	set category = "Object"
 	set name = "Set internals"
-	user.visible_message(
+	visible_message(
 		"<span class='warning'>[user] set [src] internals.</span>",
 		"<span class='notice'>You set [src] internals.</span>"
 	)
 	use_internal_tank = !use_internal_tank
+
+/obj/structure/closet/air_bubble/verb/take_tank(mob/user as mob)
+	visible_message(
+	"<span class='warning'>[user] removed [internal_tank] from [src].</span>",
+	"<span class='notice'>You remove [internal_tank] from [src].</span>"
+	)
+	for(var/obj/I in src)
+		I.forceMove(user.loc)
+	internal_tank = 0
+	update_icon()
 
 /obj/structure/closet/air_bubble/attackby(W as obj, mob/user as mob)
 	if(opened)
@@ -127,7 +142,7 @@
 	else if(istype(W, /obj/item/weapon/wirecutters))
 		user.visible_message(
 			"<span class='warning'>[user] begins cutting cable restrains on zipper of [src].</span>",
-			"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>",
+			"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
 		if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
@@ -139,6 +154,17 @@
 			"<span class='notice'>You cut cable restrains on [src]'s zipper.</span>"
 		)
 		new/obj/item/weapon/handcuffs/cable(src.loc)
+	else if(istype(W, /obj/item/weapon/tank/emergency_oxygen/double/))
+		if(!internal_tank)
+			user.visible_message(
+				"<span class='warning'>[user] attached [W] to [src].</span>",
+				"<span class='notice'>You attach [W] to [src].</span>"
+			)
+			var/obj/item/weapon/tank/O = W
+			qdel(W)
+			internal_tank = O
+		else
+			user.visible_message("<span class='warning'>[src] already has a tank attached.</span>")
 	else
 		attack_hand(user)
 	return
@@ -271,13 +297,13 @@
 	process_ticks = (process_ticks + 1) % 17
 
 /obj/structure/closet/air_bubble/proc/add_airtank()
-	internal_tank = new /obj/item/weapon/tank/emergency_oxygen/engi(src)
+	internal_tank = new /obj/item/weapon/tank/emergency_oxygen/double(src)
 	return internal_tank
 
 /obj/structure/closet/air_bubble/proc/add_cabin()
 	cabin_air = new
 	cabin_air.temperature = T20C
-	cabin_air.volume = 3
+	cabin_air.volume = 2
 	cabin_air.adjust_multi("oxygen", O2STANDARD*cabin_air.volume/(R_IDEAL_GAS_EQUATION*cabin_air.temperature), "nitrogen", N2STANDARD*cabin_air.volume/(R_IDEAL_GAS_EQUATION*cabin_air.temperature))
 	return cabin_air
 
