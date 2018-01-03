@@ -525,7 +525,7 @@ var/global/list/additional_antag_types = list()
 	if(big_brother)
 		intercepttext += "<br>[pick(business_jargon)] indicate that a majority of the [evil_department] department [pick(mean_words)]. This department has been marked at-risk and Cent. Com. recommends immediate action before the situation worsens.<br>"
 	if(total_crew)
-		intercepttext += "<br>Data collected and analyzed by A.L.I.C.E. indicate that [loyal_crew]/[total_crew]% of the current crew detail are supportive of NanoTrasen actions. Cent. Com. implores the current Head of Staff detail to increase this percentage.<br>"
+		intercepttext += "<br>Data collected and analyzed by A.L.I.C.E. indicate that [round((loyal_crew/total_crew)*100)]% of the current crew detail are supportive of NanoTrasen actions. Cent. Com. implores the current Head of Staff detail to increase this percentage.<br>"
 
 	intercepttext += "<hr> </font>Respectfully,<br><i>Quix Repi'Weish</i>, Chief Personnel Director"
 
