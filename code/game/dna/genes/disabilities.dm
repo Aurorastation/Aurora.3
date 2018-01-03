@@ -111,14 +111,10 @@
 /datum/dna/gene/disability/deaf
 	name="Deafness"
 	activation_message="It's kinda quiet."
-	sdisability=DEAF
+	sdisability = DEAF
 
 	New()
 		block=DEAFBLOCK
-
-	activate(var/mob/M, var/connected, var/flags)
-		..(M,connected,flags)
-		M.ear_deaf = 1
 
 /datum/dna/gene/disability/nearsighted
 	name="Nearsightedness"

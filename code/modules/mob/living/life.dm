@@ -111,6 +111,9 @@
 			update_icons()
 
 /mob/living/proc/handle_disabilities()
+	return
+
+/mob/living/carbon/handle_disabilities()
 	//Eyes
 	if(sdisabilities & BLIND || stat)	//blindness from disability or unconsciousness doesn't get better on its own
 		eye_blind = max(eye_blind, 1)

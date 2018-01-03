@@ -310,7 +310,7 @@
 
 		to_chat(T, "<span class='danger'><font size='3'><b>You hear an ear piercing shriek and feel your senses go dull!</b></font></span>")
 		T.Weaken(5)
-		T.ear_deaf = 20
+		T.adjustEarDamage(0, 20)
 		T.stuttering = 20
 		T.Stun(5)
 

@@ -118,11 +118,7 @@
 				return 1
 	return 0
 
-proc/isdeaf(A)
-	if(istype(A, /mob))
-		var/mob/M = A
-		return (M.sdisabilities & DEAF) || M.ear_deaf
-	return 0
+
 
 proc/hasorgans(A) // Fucking really??
 	return ishuman(A)
@@ -1152,3 +1148,9 @@ mob/dead/observer/get_multitool()
 
 /mob/living/silicon/ai/get_multitool()
 	return ..(aiMulti)
+
+/mob/proc/is_deaf()
+	return FALSE
+
+/mob/living/carbon/is_deaf()
+	return (sdisabilities & DEAF) || ear_deaf

@@ -468,7 +468,7 @@
 				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
 
 // This is on /mob instead of the welder so the timer is stopped when the mob is deleted.
-/mob/proc/reset_nearsighted()
+/mob/living/carbon/proc/reset_nearsighted()
 	disabilities &= ~NEARSIGHTED
 
 /obj/item/weapon/weldingtool/Destroy()

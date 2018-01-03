@@ -59,7 +59,7 @@
 		if(client.prefs.toggles & CHAT_GHOSTEARS && speaker in view(src))
 			message = "<b>[message]</b>"
 
-	if(sdisabilities & DEAF || ear_deaf)
+	if(is_deaf())
 		if(!language || !(language.flags & INNATE)) // INNATE is the flag for audible-emote-language, so we don't want to show an "x talks but you cannot hear them" message if it's set
 			if(speaker == src)
 				src << "<span class='warning'>You cannot hear yourself speak!</span>"
@@ -192,7 +192,7 @@
 		formatted = language.format_message_radio(message, verb)
 	else
 		formatted = "[verb], <span class=\"body\">\"[message]\"</span>"
-	if(sdisabilities & DEAF || ear_deaf)
+	if(is_deaf())
 		if(prob(20))
 			src << "<span class='warning'>You feel your headset vibrate but can hear nothing from it!</span>"
 	else

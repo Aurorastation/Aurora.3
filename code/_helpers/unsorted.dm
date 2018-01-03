@@ -287,13 +287,12 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //This will update a mob's name, real_name, mind.name, data_core records, pda and id
 //Calling this proc without an oldname will only update the mob and skip updating the pda, id and records ~Carn
 /mob/proc/fully_replace_character_name(var/oldname,var/newname)
-	if(!newname)	return 0
+	if (!newname)
+		return 0
 	real_name = newname
 	name = newname
-	if(mind)
+	if (mind)
 		mind.name = newname
-	if(dna)
-		dna.real_name = real_name
 
 	if(oldname)
 		//update the datacore records! This is goig to be a bit costly.
@@ -326,7 +325,11 @@ Turf and target are seperate in case you want to teleport some distance from a t
 					search_pda = 0
 	return 1
 
-
+/mob/living/carbon/fully_replace_character_name(oldname, newname)
+	. = ..()
+	if (.)
+		if (dna)
+			dna.real_name = real_name
 
 //Generalised helper proc for letting mobs rename themselves. Used to be clname() and ainame()
 //Last modified by Carn

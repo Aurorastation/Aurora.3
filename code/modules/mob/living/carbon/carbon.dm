@@ -1,3 +1,35 @@
+/mob/living/carbon
+	var/sdisabilities = 0	//Carbon
+	var/disabilities = 0	//Carbon
+
+	var/transforming = FALSE // Disables life() AND movement.
+
+	var/eye_blind = null	//Carbon
+	var/eye_blurry = null	//Carbon
+	var/ear_deaf = null		//Carbon
+	var/ear_damage = null	//Carbon
+
+	var/bhunger = 0			//Carbon
+	var/druggy = 0			//Carbon
+	var/confused = 0		//Carbon
+	var/sleeping = 0		//Carbon
+	var/drowsyness = 0.0//Carbon
+
+	var/cpr_time = 1.0//Carbon
+
+	var/losebreath = 0.0//Carbon
+
+	var/obj/item/weapon/storage/s_active = null //Carbon
+	var/obj/item/clothing/mask/wear_mask = null //Carbon
+
+	/*
+	var/const/blindness = 1//Carbon
+	var/const/deafness = 2//Carbon
+	var/const/muteness = 4//Carbon
+	*/
+
+	var/datum/dna/dna = null//Carbon
+
 /mob/living/carbon/Initialize()
 	//setup reagent holders
 	bloodstr = new/datum/reagents/metabolism(1000, src, CHEM_BLOOD)

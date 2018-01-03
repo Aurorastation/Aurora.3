@@ -839,7 +839,7 @@
 		return
 
 	//This is sota the goto stop mobs from moving var
-	if(wearer.transforming || !wearer.canmove)
+	if(!wearer.canmove)
 		return
 
 	if(!wearer.lastarea)

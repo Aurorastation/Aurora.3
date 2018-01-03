@@ -16,7 +16,8 @@
 	animation.master = src
 
 	flick(anim, animation)
-	if(do_gibs) gibs(loc, viruses, dna)
+	if (do_gibs)
+		gibs(loc, viruses, dna)
 
 	QDEL_IN(animation, 15)
 	QDEL_IN(src, 15)

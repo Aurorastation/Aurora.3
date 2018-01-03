@@ -50,17 +50,10 @@
 	var/obj/machinery/machine = null
 	var/other_mobs = null
 	var/memory = ""
-	var/sdisabilities = 0	//Carbon
-	var/disabilities = 0	//Carbon
 	var/atom/movable/pulling = null
 	var/next_move = null
-	var/transforming = null	//Carbon
 	var/other = 0.0
 	var/hand = null
-	var/eye_blind = null	//Carbon
-	var/eye_blurry = null	//Carbon
-	var/ear_deaf = null		//Carbon
-	var/ear_damage = null	//Carbon
 	var/stuttering = null
 	var/slurring = null
 	var/brokejaw = null
@@ -74,14 +67,9 @@
 	var/list/ccia_actions = list()
 	var/exploit_record = ""
 	var/blinded = null
-	var/bhunger = 0			//Carbon
 	var/ajourn = 0
-	var/druggy = 0			//Carbon
-	var/confused = 0		//Carbon
 	var/antitoxs = null
 	var/phoron = null
-	var/sleeping = 0		//Carbon
-	var/resting = 0			//Carbon
 	var/lying = 0
 	var/lying_prev = 0
 	var/canmove = 1
@@ -101,14 +89,11 @@
 	var/name_archive //For admin things like possession
 
 	var/timeofdeath = 0.0//Living
-	var/cpr_time = 1.0//Carbon
 
 	var/bodytemperature = 310.055	//98.7 F
 	var/old_x = 0
 	var/old_y = 0
-	var/drowsyness = 0.0//Carbon
 	var/charges = 0.0
-	var/nutrition = 400.0//Carbon
 	var/nutrition_loss = HUNGER_FACTOR//How much hunger is lost per tick. This is modified by species
 	var/max_nutrition = 400
 
@@ -116,7 +101,6 @@
 	var/paralysis = 0.0
 	var/stunned = 0.0
 	var/weakened = 0.0
-	var/losebreath = 0.0//Carbon
 	var/intent = null//Living
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
@@ -127,8 +111,6 @@
 	var/obj/item/r_hand = null//Living
 	var/obj/item/weapon/back = null//Human/Monkey
 	var/obj/item/weapon/tank/internal = null//Human/Monkey
-	var/obj/item/weapon/storage/s_active = null//Carbon
-	var/obj/item/clothing/mask/wear_mask = null//Carbon
 
 	var/seer = 0 //for cult//Carbon, probably Human
 
@@ -146,14 +128,8 @@
 	var/job = null//Living
 	var/megavend = 0		//determines if this ID has claimed their megavend stache
 
-	var/const/blindness = 1//Carbon
-	var/const/deafness = 2//Carbon
-	var/const/muteness = 4//Carbon
-
 	var/can_pull_size = 10              // Maximum w_class the mob can pull.
 	var/can_pull_mobs = MOB_PULL_LARGER // Whether or not the mob can pull other mobs.
-
-	var/datum/dna/dna = null//Carbon
 
 	var/list/mutations = list() //Carbon -- Doohl
 	//see: setup.dm for list of mutations
