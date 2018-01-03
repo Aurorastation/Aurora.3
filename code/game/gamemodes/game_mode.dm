@@ -398,7 +398,7 @@ var/global/list/additional_antag_types = list()
 /datum/game_mode/proc/send_intercept()
 
 	var/intercepttext = "<center><img src = ntlogo.png></center><BR><FONT size = 3><BR><B>Cent. Com. Update</B><BR>FOR YOUR EYES ONLY:</FONT><HR>"
-	intercepttext += "<B><font face='Courier New'>The personnel listed below have been marked at-risk elements that NTCC Odin have deemed priority handling for the current shift:</B><br>"
+	intercepttext += "<B><font face='Courier New'>The personnel listed below have been marked at-risk elements that Cent. Com. has deemed priority handling for the current shift:</B><br>"
 
 	var/list/disregard_roles = list()
 	for(var/antag_type in all_antag_types)
