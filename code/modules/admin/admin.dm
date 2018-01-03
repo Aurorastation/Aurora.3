@@ -126,7 +126,8 @@ proc/admin_notice(var/message, var/rights)
 				body += "<A href='?src=\ref[src];makeanimal=\ref[M]'>Animalize</A> | "
 
 			// DNA2 - Admin Hax
-			if(M.dna && iscarbon(M))
+			if(iscarbon(M))
+				var/mob/living/carbon/C = M
 				body += "<br><br>"
 				body += "<b>DNA Blocks:</b><br><table border='0'><tr><th>&nbsp;</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>"
 				var/bname
@@ -136,9 +137,9 @@ proc/admin_notice(var/message, var/rights)
 					bname = assigned_blocks[block]
 					body += "<td>"
 					if(bname)
-						var/bstate=M.dna.GetSEState(block)
+						var/bstate=C.dna.GetSEState(block)
 						var/bcolor="[(bstate)?"#006600":"#ff0000"]"
-						body += "<A href='?src=\ref[src];togmutate=\ref[M];block=[block]' style='color:[bcolor];'>[bname]</A><sub>[block]</sub>"
+						body += "<A href='?src=\ref[src];togmutate=\ref[C];block=[block]' style='color:[bcolor];'>[bname]</A><sub>[block]</sub>"
 					else
 						body += "[block]"
 					body+="</td>"

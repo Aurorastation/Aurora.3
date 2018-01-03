@@ -553,7 +553,7 @@
 		else
 			if	(prob(20+src.radiation_intensity))
 				randmutb(src.connected.occupant)
-				domutcheck(src.connected.occupant,src.connected)
+				connected.occupant.domutcheck(src.connected)
 			else
 				randmuti(src.connected.occupant)
 				src.connected.occupant.UpdateAppearance()
@@ -615,13 +615,13 @@
 				//testing("Irradiated SE block [real_SE_block]:[src.selected_se_subblock] ([original_block] now [block]) [(real_SE_block!=selected_se_block) ? "(SHIFTED)":""]!")
 				connected.occupant.dna.SetSESubBlock(real_SE_block,selected_se_subblock,block)
 				src.connected.occupant.apply_effect((src.radiation_intensity+src.radiation_duration), IRRADIATE, blocked = 0)
-				domutcheck(src.connected.occupant,src.connected)
+				connected.occupant.domutcheck(src.connected)
 			else
 				src.connected.occupant.apply_effect(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, blocked = 0)
 				if	(prob(80-src.radiation_duration))
 					//testing("Random bad mut!")
 					randmutb(src.connected.occupant)
-					domutcheck(src.connected.occupant,src.connected)
+					connected.occupant.domutcheck(src.connected)
 				else
 					randmuti(src.connected.occupant)
 					//testing("Random identity mut!")
@@ -738,7 +738,7 @@
 			else if (buf.types & DNA2_BUF_SE)
 				src.connected.occupant.dna.SE = buf.dna.SE
 				src.connected.occupant.dna.UpdateSE()
-				domutcheck(src.connected.occupant,src.connected)
+				connected.occupant.domutcheck(src.connected)
 			src.connected.occupant.apply_effect(rand(20,50), IRRADIATE, blocked = 0)
 			return 1
 

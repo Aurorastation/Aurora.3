@@ -210,11 +210,11 @@
 	if(mob.eyeobj)
 		return mob.EyeMove(n,direct)
 
-	if(mob.transforming)
-		return	//This is sota the goto stop mobs from moving var
-
 	if(isliving(mob))
 		var/mob/living/L = mob
+		if (L.transforming)
+			return
+
 		if(L.incorporeal_move)//Move though walls
 			Process_Incorpmove(direct)
 			return

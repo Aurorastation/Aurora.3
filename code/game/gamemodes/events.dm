@@ -224,17 +224,16 @@ var/hadevent    = 0
 			continue
 		if(isNotStationLevel(T.z))
 			continue
-		if(istype(H,/mob/living/carbon/human))
-			H.apply_effect((rand(15,75)),IRRADIATE, blocked = H.getarmor(null, "rad"))
-			if (prob(5))
-				H.apply_effect((rand(90,150)),IRRADIATE, blocked = H.getarmor(null, "rad"))
-			if (prob(25))
-				if (prob(75))
-					randmutb(H)
-					domutcheck(H,null,MUTCHK_FORCED)
-				else
-					randmutg(H)
-					domutcheck(H,null,MUTCHK_FORCED)
+		H.apply_effect((rand(15,75)),IRRADIATE, blocked = H.getarmor(null, "rad"))
+		if (prob(5))
+			H.apply_effect((rand(90,150)),IRRADIATE, blocked = H.getarmor(null, "rad"))
+		if (prob(25))
+			if (prob(75))
+				randmutb(H)
+				H.domutcheck(null,MUTCHK_FORCED)
+			else
+				randmutg(H)
+				H.domutcheck(null,MUTCHK_FORCED)
 	sleep(100)
 	command_announcement.Announce("High levels of radiation detected near the station. Please report to the Med-bay if you feel strange.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
 

@@ -49,7 +49,7 @@
 				affected_mob.dna.SE = newSE.Copy()
 				affected_mob.dna.UpdateSE()
 				affected_mob.real_name = strain_data["name"]
-				domutcheck(affected_mob)
+				affected_mob.domutcheck()
 
 				src.transformed = 1
 				src.carrier = 1 //Just chill out at stage 4

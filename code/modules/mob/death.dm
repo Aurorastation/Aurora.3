@@ -2,7 +2,6 @@
 //added different sort of gibs and animations. N
 /mob/proc/gib(anim="gibbed-m",do_gibs)
 	death(1)
-	transforming = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
@@ -17,10 +16,15 @@
 
 	flick(anim, animation)
 	if (do_gibs)
-		gibs(loc, viruses, dna)
+		gibs(loc, viruses, null)
 
 	QDEL_IN(animation, 15)
 	QDEL_IN(src, 15)
+
+/mob/living/carbon/gib(anim = "gibbed-m", do_gibs)
+	transforming = TRUE
+
+	..()
 
 //This is the proc for turning a mob into ash. Mostly a copy of gib code (above).
 //Originally created for wizard disintegrate. I've removed the virus code since it's irrelevant here.
@@ -31,7 +35,6 @@
 		var/obj/item/weapon/holder/H = loc
 		H.release_mob()
 	var/atom/movable/overlay/animation = null
-	transforming = 1
 	canmove = 0
 	icon = null
 	invisibility = 101
@@ -48,6 +51,11 @@
 
 	QDEL_IN(animation, 15)
 	QDEL_IN(src, 15)
+
+/mob/living/carbon/dust(anim = "dust-m", remains = /obj/effect/decal/cleanable/ash, iconfile = 'icons/mob/mob.dmi')
+	transforming = TRUE
+
+	..()
 
 /mob/proc/death(gibbed,deathmessage="seizes up and falls limp...")
 

@@ -51,6 +51,8 @@
 
 	var/resting = 0
 
+	var/transforming = FALSE // Disables life() AND movement.
+
 	var/list/stomach_contents	//This is moved here from carbon defines
 	var/composition_reagent
 	var/composition_reagent_quantity

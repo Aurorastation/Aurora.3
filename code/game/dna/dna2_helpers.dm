@@ -21,8 +21,9 @@
 	return BOUNDS
 
 // Give Random Bad Mutation to M
-/proc/randmutb(var/mob/living/M)
-	if(!M) return
+/proc/randmutb(var/mob/living/carbon/M)
+	if(!istype(M))
+		return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species && H.species.flags & NO_SCAN)
@@ -32,8 +33,9 @@
 	M.dna.SetSEState(block, 1)
 
 // Give Random Good Mutation to M
-/proc/randmutg(var/mob/living/M)
-	if(!M) return
+/proc/randmutg(var/mob/living/carbon/M)
+	if(!istype(M))
+		return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species && H.species.flags & NO_SCAN)
@@ -43,14 +45,16 @@
 	M.dna.SetSEState(block, 1)
 
 // Random Appearance Mutation
-/proc/randmuti(var/mob/living/M)
-	if(!M) return
+/proc/randmuti(var/mob/living/carbon/M)
+	if(!istype(M))
+		return
 	M.dna.check_integrity()
 	M.dna.SetUIValue(rand(1,DNA_UI_LENGTH),rand(1,4095))
 
 // Scramble UI or SE.
-/proc/scramble(var/UI, var/mob/M, var/prob)
-	if(!M)	return
+/proc/scramble(var/UI, var/mob/living/carbon/M, var/prob)
+	if(!istype(M))
+		return
 	M.dna.check_integrity()
 	if(UI)
 		for(var/i = 1, i <= DNA_UI_LENGTH-1, i++)
@@ -64,7 +68,7 @@
 			if(prob(prob))
 				M.dna.SetSEValue(i,rand(1,4095),1)
 		M.dna.UpdateSE()
-		domutcheck(M, null)
+		M.domutcheck(null)
 	return
 
 // I haven't yet figured out what the fuck this is supposed to do.
