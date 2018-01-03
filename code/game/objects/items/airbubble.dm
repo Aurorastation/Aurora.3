@@ -32,7 +32,7 @@
 	var/use_internal_tank = 0
 	var/current_processes = BUBBLE_PROC_INT_TEMP
 	var/datum/gas_mixture/cabin_air
-	var/internal_tank_valve = ONE_ATMOSPHERE
+	var/internal_tank_valve = 45 // arbitrary for now
 	var/obj/item/weapon/tank/emergency_oxygen/double/internal_tank
 
 	var/process_ticks = 0
@@ -93,7 +93,7 @@
 	density = 1
 	return 1
 
-/obj/structure/closet/air_bubble/verb/set_internals()
+/obj/structure/closet/air_bubble/verb/set_internals(mob/user as mob)
 	set src in oview(1)
 	set category = "Object"
 	set name = "Set internals"
