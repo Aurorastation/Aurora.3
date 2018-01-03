@@ -72,9 +72,9 @@
 
 /proc/isipc(A)
 	. = 0
-	if(istype(A, /mob/living/carbon/human))
+	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		. = !!global.mechanical_species[H.get_species()]
+		. = H.species.flags & IS_MECHANICAL
 
 /proc/isvox(A)
 	if(istype(A, /mob/living/carbon/human))

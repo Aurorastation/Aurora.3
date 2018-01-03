@@ -83,8 +83,15 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame")	//humanoid bodytypes
-			species_restricted = list("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame") //skrell/humans like to share with IPCs
+		if("Human", "Skrell", "Machine", "Heavy Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")	//humanoid bodytypes
+			species_restricted = list(
+				"Human", 
+				"Skrell",
+				"Machine",
+				"Heavy Machine",
+				"Zeng-Hu Mobility Frame",
+				"Bishop Accessory Frame"
+			) //skrell/humans like to share with IPCs
 		else
 			species_restricted = list(target_species)
 
@@ -106,7 +113,7 @@
 	//Set species_restricted list
 	switch(target_species)
 		if("Skrell")
-			species_restricted = list("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame") // skrell helmets like to share
+			species_restricted = list("Human", "Skrell", "Baseline Frame", "Shell Frame", "Hephaestus G1 Industrial Frame") // skrell helmets like to share
 
 		else
 			species_restricted = list(target_species)

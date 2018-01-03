@@ -1845,6 +1845,7 @@
 #include "code\modules\organs\robolimbs.dm"
 #include "code\modules\organs\wound.dm"
 #include "code\modules\organs\subtypes\diona.dm"
+#include "code\modules\organs\subtypes\industrial.dm"
 #include "code\modules\organs\subtypes\machine.dm"
 #include "code\modules\organs\subtypes\resomi.dm"
 #include "code\modules\organs\subtypes\skrell.dm"
