@@ -16,7 +16,11 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 
 // Turf-only flags.
-#define NOJAUNT 1 // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define MIMIC_BELOW 2      // If this turf should mimic the turf on the Z below.
+#define MIMIC_OVERWRITE 4  // If this turf is Z-mimicing, overwrite the turf's appearance instead of using a movable. This is faster, but means the turf cannot have an icon.
+#define MIMIC_QUEUED 8     // If the turf is currently queued for Z-mimic update.
+#define MIMIC_NO_AO 16     // If the turf shouldn't apply regular turf AO and only do Z-mimic AO.
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 
@@ -457,3 +461,8 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 	}
 
 #define DEVICE_NO_CELL "no_cell"
+
+#define FALLOFF_SOUNDS 0.5
+#define SOUND_Z_FACTOR 100
+// Maximum number of Zs away you can be from a sound before it stops being audible.
+#define MAX_SOUND_Z_TRAVERSAL 2

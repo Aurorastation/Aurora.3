@@ -441,7 +441,14 @@ var/list/world_api_rate_limit = list()
 		con.failed_connections = 0	//If this connection succeeded, reset the failed connections counter.
 	else
 		con.failed_connections++		//If it failed, increase the failed connections counter.
+
+#ifdef UNIT_TEST
+		// UTs are presumed public. Change this to hide your shit.
+		error("Database connection failed with message:")
+		error(con.ErrorMsg())
+#else
 		world.log << con.ErrorMsg()
+#endif
 
 	return .
 
@@ -452,6 +459,7 @@ var/list/world_api_rate_limit = list()
 		return 0
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)
+		error("DB connection cutoff exceeded for a database object in establish_db_connection().")
 		return 0
 
 	if (!con.IsConnected())

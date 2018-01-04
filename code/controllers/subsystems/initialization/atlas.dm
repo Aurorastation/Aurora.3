@@ -17,6 +17,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 	var/map_override	// If set, SSatlas will forcibly load this map. If the map does not exist, mapload will fail and SSatlas will panic.
 	var/list/spawn_locations = list()
 
+	var/list/connected_z_cache = list()
+
 /datum/controller/subsystem/atlas/New()
 	NEW_SS_GLOBAL(SSatlas)
 
@@ -102,6 +104,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 	for (var/thing in height_markers)
 		var/obj/effect/landmark/map_data/marker = thing
 		marker.setup()
+
+	connected_z_cache.Cut()
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (config.override_map)
