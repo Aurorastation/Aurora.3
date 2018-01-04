@@ -38,10 +38,11 @@
 			L.adjustFireLoss(rand(10,30))
 			return 1
 		if(isanimal(L))
-			if(L.flying) //flying mobs will ignore the lava
+			var/mob/living/simple_animal/H = L
+			if(H.flying) //flying mobs will ignore the lava
 				return 1
 			else
-				L.adjustFireLoss(rand(20,40))
+				H.adjustFireLoss(rand(20,40))
 		else
 			L.adjustFireLoss(rand(10,50))
 	..()
