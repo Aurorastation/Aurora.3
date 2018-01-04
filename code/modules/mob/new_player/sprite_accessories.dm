@@ -1272,8 +1272,8 @@
 		species_allowed = list("Unathi")
 
 
-// Branded IPC markings
-
+// Branded IPC markings - disabled for now, some layering issues.
+/*
 	bishop
 		icon = 'icons/mob/human_races/markings_bishop.dmi'
 		icon_state = "face_lights"
@@ -1349,3 +1349,4 @@
 		crest_greater
 			name = "Head Coloration (Greater)"
 			icon_state = "greater"
+*/
