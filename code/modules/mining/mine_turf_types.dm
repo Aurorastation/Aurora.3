@@ -37,8 +37,13 @@
 		if(isrobot(L))
 			L.adjustFireLoss(rand(10,30))
 			return 1
+		if(isanimal(L))
+			if(L.flying) //flying mobs will ignore the lava
+				return 1
+			else
+				L.adjustFireLoss(rand(20,40))
 		else
-			L.adjustFireLoss(rand(10,50))	//mostly to deal with simple mobs
+			L.adjustFireLoss(rand(10,50))
 	..()
 
 /turf/simulated/lava/Exited(atom/movable/AM, atom/newloc)
