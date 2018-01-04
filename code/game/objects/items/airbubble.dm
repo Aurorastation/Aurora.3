@@ -104,20 +104,29 @@
 		"<span class='warning'>[user] set [src] internals.</span>",
 		"<span class='notice'>You set [src] internals.</span>"
 	)
+	if (!do_after(user, 1 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+		return
 	use_internal_tank = !use_internal_tank
 
 /obj/structure/closet/air_bubble/verb/take_tank(mob/user as mob)
-	set src in oview(1)
-	set category = "Object"
-	set name = "Remove Air Tank"
-	visible_message(
-	"<span class='warning'>[user] removed [internal_tank] from [src].</span>",
-	"<span class='notice'>You remove [internal_tank] from [src].</span>"
-	)
-	for(var/obj/I in src)
-		I.forceMove(user.loc)
-	use_internal_tank = 0
-	update_icon()
+	if(use_internal_tank)
+		set src in oview(1)
+		set category = "Object"
+		set name = "Remove Air Tank"
+		visible_message(
+		"<span class='warning'>[user] removed [internal_tank] from [src].</span>",
+		"<span class='notice'>You remove [internal_tank] from [src].</span>"
+		)
+		if (!do_after(user, 1 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+			return
+		for(var/obj/I in src)
+			I.forceMove(user.loc)
+		use_internal_tank = 0
+		internal_tank = 0
+		update_icon()
+	else
+		visible_message(
+		"<span class='warning'>[src] already has a no tank.</span>")
 
 /obj/structure/closet/air_bubble/attackby(W as obj, mob/user as mob)
 	if(opened)
@@ -133,7 +142,7 @@
 	else if(istype(W, /obj/item/weapon/handcuffs/cable))
 		user.visible_message(
 			"<span class='warning'>[user] begins putting cable restrains on zipper of [src].</span>",
-			"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>",
+			"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
 		if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
@@ -166,7 +175,9 @@
 				"<span class='warning'>[user] attached [W] to [src].</span>",
 				"<span class='notice'>You attach [W] to [src].</span>"
 			)
-			var/obj/item/weapon/tank/emergency_oxygen/double/internal_tank/O = W
+			if (!do_after(user, 1 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+				return
+			var/obj/item/weapon/tank/emergency_oxygen/double/O = W
 			qdel(W)
 			internal_tank = O
 			use_internal_tank = 1
@@ -183,15 +194,17 @@
 
 /obj/structure/closet/air_bubble/MouseDrop(over_object, src_location, over_location)
 	..()
-	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		if(!ishuman(usr))	return
-		if(opened)	return 0
-		if(contents.len)	return 0
-		visible_message("[usr] folds up the [src.name]")
-		new item_path(get_turf(src))
-		spawn(0)
-			qdel(src)
-		return
+	if(!zipped)
+		if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
+			if(!ishuman(usr))	return
+			if(opened)	return 0
+			if(contents.len)	return 0
+			visible_message("[usr] folds up the [src.name]")
+			new item_path(get_turf(src))
+			w_class = 3.0
+			spawn(0)
+				qdel(src)
+			return
 
 /obj/structure/closet/air_bubble/update_icon()
 	if(opened)
