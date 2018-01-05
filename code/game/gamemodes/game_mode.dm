@@ -422,9 +422,7 @@ var/global/list/additional_antag_types = list()
 	var/big_brother = 0
 	var/loyal_crew = 0
 	var/total_crew = 0
-	var/evil_department = "ERROR \[%DEPARTMENT%\] not found."
-	if(prob(50))
-		big_brother = 1
+	var/evil_department
 
 	for(var/mob/living/carbon/human/man in player_list) if(man.client && man.mind)
 
@@ -435,7 +433,7 @@ var/global/list/additional_antag_types = list()
 		total_crew += 1
 		if (special_role in disregard_roles)
 			continue
-		else if(man.mind.assigned_job && big_brother)
+		else if(man.mind.assigned_job)
 			var/datum/job/job = man.mind.assigned_job
 			var/evil = 0
 			if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED || man.client.prefs.nanotrasen_relation == COMPANY_SKEPTICAL)
@@ -474,24 +472,24 @@ var/global/list/additional_antag_types = list()
 		if(man.incidents.len >= 3)
 			repeat_offenders += man
 
-	if(big_brother)
-		var/civ_ratio = 0
-		if(civ)
-			civ_ratio = civ_suspect / civ
-		var/eng_ratio = 0
-		if(eng)
-			eng_ratio = eng_suspect / eng
-		var/sec_ratio = 0
-		if(sec)
-			sec_ratio = sec_suspect / sec
-		var/med_ratio = 0
-		if(med)
-			med_ratio = med_suspect / med
-		var/sci_ratio  = 0
-		if(sci)
-			sci_ratio = sci_suspect / sci
+	var/civ_ratio = 0
+	if(civ)
+		civ_ratio = civ_suspect / civ
+	var/eng_ratio = 0
+	if(eng)
+		eng_ratio = eng_suspect / eng
+	var/sec_ratio = 0
+	if(sec)
+		sec_ratio = sec_suspect / sec
+	var/med_ratio = 0
+	if(med)
+		med_ratio = med_suspect / med
+	var/sci_ratio  = 0
+	if(sci)
+		sci_ratio = sci_suspect / sci
 
-		var/most_evil = max(civ_ratio, eng_ratio, sec_ratio, med_ratio, sci_ratio)
+	var/most_evil = max(civ_ratio, eng_ratio, sec_ratio, med_ratio, sci_ratio)
+	if(most_evil >= 0.5)
 		if(most_evil == civ_ratio)
 			evil_department = "Civilian & Supply"
 		else if(most_evil == eng_ratio)
@@ -522,7 +520,7 @@ var/global/list/additional_antag_types = list()
 		intercepttext += "     + [M.mind.assigned_role] [M.name].<br>"
 	intercepttext += "Cent. Com recommends coordinating with human resources to reward and further motivate these personnel for their loyalty.<br>"
 
-	if(big_brother)
+	if(evil_department)
 		intercepttext += "<br>[pick(business_jargon)] indicate that a majority of the [evil_department] department [pick(mean_words)]. This department has been marked at-risk and Cent. Com. recommends immediate action before the situation worsens.<br>"
 	if(total_crew)
 		intercepttext += "<br>Data collected and analyzed by A.L.I.C.E. indicate that [round((loyal_crew/total_crew)*100)]% of the current crew detail are supportive of NanoTrasen actions. Cent. Com. implores the current Head of Staff detail to increase this percentage.<br>"
