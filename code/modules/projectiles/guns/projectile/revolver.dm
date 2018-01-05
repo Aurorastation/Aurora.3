@@ -104,7 +104,7 @@
 	ammo_type = /obj/item/ammo_casing/a357
 
 /obj/item/weapon/gun/projectile/revolver/capgun
-	name = "cap gun"
+	name = "revolver"
 	desc = "Looks almost like the real thing! Ages 8 and up."
 	icon_state = "capgun"
 	item_state = "revolver"

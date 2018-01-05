@@ -34,19 +34,17 @@
 							/obj/item/toy/bosunwhistle						= 11,
 							/obj/item/weapon/storage/belt/champion			= 11,
 							/obj/item/weapon/pen/invisible					= 11,
-							/obj/item/weapon/grenade/smokebomb				= 1,
+							/obj/item/weapon/grenade/fake					= 1,
 							/obj/item/weapon/bikehorn						= 11,
 							/obj/item/weapon/lipstick/random				= 11,
 							/obj/item/clothing/mask/fakemoustache			= 11,
 							/obj/item/clothing/mask/gas/clown_hat			= 11,
 							/obj/item/clothing/mask/gas/mime				= 11,
 							/obj/item/weapon/gun/energy/wand/toy			= 11,
-							/obj/item/weapon/stamp/clown					= 11,
 							/obj/item/device/binoculars						= 11,
 							/obj/item/device/megaphone						= 11,
 							/obj/random/booze								= 55,
-							/obj/item/weapon/banhammer						= 11,
-							/obj/item/weapon/sord							= 11,
+							/obj/item/weapon/banhammer						= 11
 						)
 
 /obj/machinery/computer/arcade/Initialize()
