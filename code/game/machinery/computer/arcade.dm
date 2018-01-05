@@ -7,8 +7,8 @@
 	var/list/prizes = list(	/obj/item/weapon/storage/box/snappops			= 11,
 							/obj/item/clothing/under/syndicate/tacticool	= 11,
 							/obj/item/toy/sword								= 22,
-							/obj/item/weapon/gun/projectile/revolver/capgun	= 22,
-							/obj/item/toy/crossbow							= 22,
+							/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
+							/obj/item/toy/crossbow							= 11,
 							/obj/item/clothing/suit/syndicatefake			= 11,
 							/obj/item/weapon/storage/fancy/crayons			= 11,
 							/obj/item/toy/spinningtoy						= 22,
@@ -27,7 +27,6 @@
 							/obj/random/action_figure						= 11,
 							/obj/random/plushie								= 55,
 							/obj/item/toy/cultsword							= 11,
-							/obj/item/toy/balloon							= 22,
 							/obj/item/toy/syndicateballoon					= 11,
 							/obj/item/toy/nanotrasenballoon					= 11,
 							/obj/item/toy/katana							= 11,
@@ -43,8 +42,8 @@
 							/obj/item/weapon/gun/energy/wand/toy			= 11,
 							/obj/item/device/binoculars						= 11,
 							/obj/item/device/megaphone						= 11,
-							/obj/random/booze								= 55,
-							/obj/item/weapon/banhammer						= 11
+							/obj/random/booze								= 22,
+							/obj/item/weapon/banhammer						= 1
 						)
 
 /obj/machinery/computer/arcade/Initialize()

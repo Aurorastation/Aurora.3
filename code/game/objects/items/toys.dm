@@ -217,7 +217,7 @@
  */
 
 /obj/item/toy/crossbow
-	name = "mini energy-crossbow"
+	name = "foam crossbow"
 	desc = "A foam dart replica favored by many overactive children. Ages 8 and up."
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "crossbow"
@@ -335,7 +335,7 @@
  * Toy swords
  */
 /obj/item/toy/sword
-	name = "energy sword"
+	name = "toy sword"
 	desc = "A cheap, plastic replica of a blue energy sword. Realistic sounds and colors! Ages 8 and up."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
@@ -373,7 +373,7 @@
 	desc = "A cheap, plastic replica of a [colorvar] energy sword. Realistic sounds and colors! Ages 8 and up."
 
 /obj/item/toy/katana
-	name = "katana"
+	name = "replica katana"
 	desc = "A cheap plastic katana that luckily isn't sharp enough to accidentally cut your floor length braid. Woefully underpowered in D20."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "katana"
@@ -932,8 +932,8 @@
 
 //Toy cult sword
 /obj/item/toy/cultsword
-	name = "eldritch blade"
-	desc = "An arcane weapon (made of foam) wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
+	name = "foam sword"
+	desc = "An arcane weapon wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"

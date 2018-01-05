@@ -303,24 +303,13 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "toyhammer"
 	slot_flags = SLOT_BELT
-	var/label = "Hey, I just want to ask you a few questions..."
 	throwforce = 0
 	w_class = 2.0
 	throw_speed = 7
 	throw_range = 15
 	attack_verb = list("banned")
 
-/obj/item/weapon/banhammer/proc/activate(mob/user as mob)
-	var/str = sanitizeSafe(input(user,"Message to send?","Set message",""), MAX_NAME_LEN)
-	if(!str || !length(str))
-		user << "<span class='notice'>Invalid input.</span>"
-		return
-	label = str
-	user << "<span class='notice'>You set the message to '[str]'.</span>"
-
 /obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
-	var/message = "<font color='red'>Crew PM from-<font color='blue'><u>[user]</u></font>: [label]"
-	M << message
-	user << message
+	M << "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>"
+	user << "<font color='red'> You have <b>BANNED</b> [M]</font>"
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
-	qdel(src)
