@@ -2276,7 +2276,6 @@
 #include "code\unit_tests\object_tests.dm"
 #include "code\unit_tests\observation_tests.dm"
 #include "code\unit_tests\sql_tests.dm"
-#include "code\unit_tests\ss_test.dm"
 #include "code\unit_tests\unit_test.dm"
 #include "code\unit_tests\zas_tests.dm"
 #include "code\ZAS\Airflow.dm"
