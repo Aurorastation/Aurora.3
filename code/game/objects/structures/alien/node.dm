@@ -8,6 +8,7 @@
 	density = 0
 	health = 15
 	var/obj/structure/alien/weeds/node/linked_node = null
+	var/list/dirs_left
 
 /obj/structure/alien/weeds/node
 	icon_state = "weednode"
@@ -22,32 +23,44 @@
 		return INITIALIZE_HINT_QDEL
 	linked_node = node
 	if(icon_state == "weeds")icon_state = pick("weeds", "weeds1", "weeds2")
-	addtimer(CALLBACK(src, .proc/spread), rand(150, 200))
-	return
 
-/obj/structure/alien/weeds/proc/spread()
-	set background = 1
+	START_PROCESSING(SSprocessing, src)
+
+	dirs_left = cardinal.Copy()
+
+/obj/structure/alien/weeds/process()
 	var/turf/U = get_turf(src)
 
 	if (istype(U, /turf/space))
 		qdel(src)
-		return
+		return PROCESS_KILL
 
-	if(!linked_node || (get_dist(linked_node, src) > linked_node.node_range) )
-		return
+	if (!dirs_left.len || !linked_node || get_dist(linked_node, src) > linked_node.node_range)
+		return PROCESS_KILL
 
-	direction_loop:
-		for(var/dirn in cardinal)
-			var/turf/T = get_step(src, dirn)
+	for (var/D in dirs_left)
+		var/turf/T = get_step(src, D)
 
-			if (!isturf(T) || T.density || T.is_hole || locate(/obj/structure/alien/weeds, T))
-				continue
+		if (!isturf(T) || T.is_hole || T.is_space() || locate(/obj/structure/alien/weeds, T))
+			dirs_left -= D
+			continue
 
-			for(var/obj/O in T)
-				if(O.density)
-					continue direction_loop
+		if (T.density)
+			continue
 
-			new /obj/structure/alien/weeds (T, linked_node)
+		var/spawn_new = TRUE
+		for (var/aa in T)
+			var/atom/A = aa
+			if (istype(/obj/structure/alien/weeds, A))
+				dirs_left -= D
+				spawn_new = FALSE
+				break
+
+			else if (A.density)
+				spawn_new = FALSE
+
+		if (spawn_new)
+			new /obj/structure/alien/weeds(T, linked_node)
 
 
 /obj/structure/alien/weeds/ex_act(severity)
@@ -63,10 +76,9 @@
 	return
 
 /obj/structure/alien/weeds/attackby(var/obj/item/weapon/W, var/mob/user)
-	if(W.attack_verb.len)
-		visible_message("<span class='danger'>\The [src] have been [pick(W.attack_verb)] with \the [W][(user ? " by [user]." : ".")]</span>")
-	else
-		visible_message("<span class='danger'>\The [src] have been attacked with \the [W][(user ? " by [user]." : ".")]</span>")
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+
+	visible_message("<span class='danger'>\The [src] have been attacked with \the [W][(user ? " by [user]." : ".")]</span>")
 
 	var/damage = W.force / 4.0
 
