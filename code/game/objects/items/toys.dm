@@ -217,8 +217,8 @@
  */
 
 /obj/item/toy/crossbow
-	name = "foam crossbow"
-	desc = "A foam dart replica favored by many overactive children. Ages 8 and up."
+	name = "foam dart crossbow"
+	desc = "A weapon favored by many overactive children. Ages 8 and up."
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
