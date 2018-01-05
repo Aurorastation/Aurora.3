@@ -70,6 +70,10 @@
 	var/mob/living/silicon/ai/user = usr
 	var/obj/item/device/radio/radio = new/obj/item/device/radio()
 	var/datum/weakref/nuke
+	var/datum/game_mode/malfunction/malf = SSticker.mode
+	var/timer = malf.nuke_time
+	var/stage1 = malf.nuke_time_stage1
+	var/stage2 = malf.nuke_time_stage2
 
 
 	if(!ability_prechecks(user, 0, 0))
@@ -99,12 +103,18 @@
 		return
 
 	user << "***** STATION SELF-DESTRUCT SEQUENCE INITIATED *****"
-	user << "Self-destructing in 20 minutes. Use this command again to abort."
+	user << "Self-destructing in [timer] seconds. Use this command again to abort."
 	user.bombing_station = 1
 	set_security_level("delta")
-	radio.autosay("Self destruct sequence has been activated. Self-destructing in 1200 seconds.", "Self-Destruct Control")
 
-	var/timer = 1200
+	if(timer > stage1)
+		radio.autosay("Warning: Brute force attempt on primary firewall detected", "Self-Destruct Control")
+	else if(timer > stage2)
+		radio.autosay("Warning: Brute force attempt on backup firewall detected.")
+	else
+		radio.autosay("Self destruct sequence has been activated. Self-destructing in [timer] seconds.", "Self-Destruct Control")
+
+	
 	while(timer)
 		sleep(10)
 		var/obj/machinery/nuclearbomb/station/N = nuke.resolve()
@@ -113,8 +123,17 @@
 			return
 		if(N.auth)
 			radio.autosay("Local Override Engaged - Self-Destruct canceled.", "Self-Destruct Control")
+			user.bombing_station = 0
 			return
-		if(timer in list(2, 3, 4, 5, 10, 30, 60, 90, 120, 240, 300, 600, 900)) // Announcement times. "1" is not intentionally included!
+		if(timer == stage1)
+			radio.autosay("Critical: Primary firewall bypassed.")
+			radio.autosay("Warning: Brute force attempt on backup firewall detected.")
+			malf.nuke_time = stage1 //Further attempts will only take 900 seconds
+		if(timer == stage2)
+			radio.autosay("Critical: Backup firewall failed.")
+			radio.autosay("Self destruct sequence has been activated. Self-destructing in [timer] seconds.", "Self-Destruct Control")
+			malf.nuke_time = stage2 //Further attempts will only take 600 seconds
+		if(timer in list(2, 3, 4, 5, 10, 30, 60, 90, 120, 240, 300)) // Announcement times. "1" is not intentionally included!
 			radio.autosay("Self destruct in [timer] seconds.", "Self-Destruct Control")
 		if(timer == 1)
 			radio.autosay("Self destructing now. Have a nice day.", "Self-Destruct Control")

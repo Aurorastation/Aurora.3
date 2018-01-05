@@ -3,12 +3,22 @@
 	round_description = "The AI is behaving abnormally and must be stopped."
 	extended_round_description = "The AI will attempt to hack the APCs around the station in order to gain as much control as possible."
 	config_tag = "malfunction"
-	required_players = 1
+	required_players = 2
 	required_enemies = 1
 	end_on_antag_death = 0
 	auto_recall_shuttle = 0
 	antag_tags = list(MODE_MALFUNCTION)
 	disabled_jobs = list("AI")
+	//Time control for the self destruct
+	//It works in 3 stages:
+	// - First the primary firewall is breached. 
+	//		If the crew does not manage to prevent the self destruct before that, 
+	//		but after the timer fell below nuke_time_stage1, then the next self-destruct attempt will only take nuke_time_stage1
+	// - Simmilar for the backup firewall. 
+	//		If they only manage to stop it after the backup firewall went down further attempts will take only nuke_time_stage2
+	var/nuke_time = 1200
+	var/nuke_time_stage1 = 900
+	var/nuke_time_stage2 = 600
 
 
 /datum/game_mode/malfunction/post_setup()
