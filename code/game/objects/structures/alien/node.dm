@@ -23,12 +23,10 @@
 		return
 	linked_node = node
 	if(icon_state == "weeds")icon_state = pick("weeds", "weeds1", "weeds2")
-	spawn(rand(150, 200))
-		if(src)
-			Life()
+	addtimer(CALLBACK(src, .proc/spread), rand(150, 200))
 	return
 
-/obj/structure/alien/weeds/proc/Life()
+/obj/structure/alien/weeds/proc/spread()
 	set background = 1
 	var/turf/U = get_turf(src)
 
