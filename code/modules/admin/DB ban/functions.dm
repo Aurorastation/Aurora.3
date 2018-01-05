@@ -133,7 +133,7 @@
 	else
 		bantype_sql = "bantype = '[bantype_str]'"
 
-	var/sql = "SELECT id FROM ss13_ban WHERE ckey = '[ckey]' AND [bantype_sql] AND (unbanned is null OR unbanned = false)"
+	var/sql = "SELECT id FROM ss13_ban WHERE isnull(unbanned) AND [bantype_sql] AND ckey = '[ckey]'"
 	if(job)
 		sql += " AND job = '[job]'"
 
@@ -437,7 +437,7 @@
 			if (!match)
 				var/DBQuery/mirror_query = dbcon.NewQuery({"SELECT DISTINCT(mirrors.ban_id), bans.ckey FROM ss13_ban_mirrors mirrors
 					JOIN ss13_ban bans ON mirrors.ban_id = bans.id
-					WHERE (1 [mirror_player] [mirror_ip] [mirror_cid])
+					WHERE (isnull(mirrors.deleted_at) AND (1 [mirror_player] [mirror_ip] [mirror_cid]))
 					AND (
 						ISNULL(bans.unbanned) AND (
 							(bans.bantype = 'PERMABAN')

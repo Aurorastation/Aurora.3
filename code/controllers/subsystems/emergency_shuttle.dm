@@ -54,7 +54,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 			set_launch_countdown(SHUTTLE_LEAVETIME)	//get ready to return
 
 			if (evac)
-				priority_announcement.Announce(replacetext(current_map.shuttle_docked_message, "%ETD%", round(estimate_launch_time()/60,1)), new_sound = 'sound/AI/emergencyshuttledock.ogg')
+				priority_announcement.Announce(replacetext(current_map.emergency_shuttle_docked_message, "%ETD%", round(estimate_launch_time()/60,1)), new_sound = 'sound/AI/emergencyshuttledock.ogg')
 			else
 				var/list/fields = list(
 					"%ETA%" = round(emergency_shuttle.estimate_launch_time()/60,1),
