@@ -44,9 +44,9 @@
 							/obj/item/weapon/stamp/clown					= 11,
 							/obj/item/device/binoculars						= 11,
 							/obj/item/device/megaphone						= 11,
-							/obj/random/loot								= 110,
 							/obj/random/booze								= 55,
-							/obj/random/contraband							= 55 //#YOLO
+							/obj/item/weapon/banhammer						= 11,
+							/obj/item/weapon/sord							= 11,
 						)
 
 /obj/machinery/computer/arcade/Initialize()

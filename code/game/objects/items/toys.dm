@@ -135,7 +135,7 @@
  * Toy gun: Why isnt this an /obj/item/weapon/gun?
  */
 /obj/item/toy/gun
-	name = "cap gun"
+	name = "revolver"
 	desc = "There are 0 caps left. Looks almost like the real thing! Ages 8 and up. Please recycle in an autolathe when you're out of caps!"
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "revolver"
@@ -217,8 +217,8 @@
  */
 
 /obj/item/toy/crossbow
-	name = "foam dart crossbow"
-	desc = "A weapon favored by many overactive children. Ages 8 and up."
+	name = "mini energy-crossbow"
+	desc = "A foam dart weapon favored by many overactive children. Ages 8 and up."
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
@@ -335,22 +335,22 @@
  * Toy swords
  */
 /obj/item/toy/sword
-	name = "toy sword"
-	desc = "A cheap, plastic replica of an energy sword. Realistic sounds! Ages 8 and up."
+	name = "energy sword"
+	desc = "Upon further examination, this one seems to be a cheap, plastic replica of an energy sword. Realistic sounds and colors! Ages 8 and up."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
 	item_state = "sword0"
 	var/active = 0.0
+	var/colorvar = "swordblue"
 	w_class = 2.0
 	attack_verb = list("attacked", "struck", "hit")
-
 	attack_self(mob/user as mob)
 		src.active = !( src.active )
 		if (src.active)
 			user << "<span class='notice'>You extend the plastic blade with a quick flick of your wrist.</span>"
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-			src.icon_state = "swordblue"
-			src.item_state = "swordblue"
+			src.icon_state = colorvar
+			src.item_state = colorvar
 			src.w_class = 4
 		else
 			user << "<span class='notice'>You push the plastic blade back down into the handle.</span>"
@@ -367,9 +367,13 @@
 		src.add_fingerprint(user)
 		return
 
+/obj/item/toy/sword/New()
+	..()
+	colorvar = pick("swordblue","swordgreen","swordred","swordpurple")
+
 /obj/item/toy/katana
-	name = "replica katana"
-	desc = "Woefully underpowered in D20."
+	name = "katana"
+	desc = "Upon further examination, this one seems to be made out of cheap plastic and luckily isn't sharp enough to accidentally cut your floor length braid. Woefully underpowered in D20."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "katana"
 	item_state = "katana"
@@ -927,7 +931,7 @@
 
 //Toy cult sword
 /obj/item/toy/cultsword
-	name = "foam sword"
+	name = "eldritch blade"
 	desc = "An arcane weapon (made of foam) wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cultblade"
