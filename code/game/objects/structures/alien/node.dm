@@ -19,8 +19,7 @@
 /obj/structure/alien/weeds/Initialize(pos, node)
 	. = ..()
 	if(istype(loc, /turf/space))
-		qdel(src)
-		return
+		return INITIALIZE_HINT_QDEL
 	linked_node = node
 	if(icon_state == "weeds")icon_state = pick("weeds", "weeds1", "weeds2")
 	addtimer(CALLBACK(src, .proc/spread), rand(150, 200))
@@ -41,7 +40,7 @@
 		for(var/dirn in cardinal)
 			var/turf/T = get_step(src, dirn)
 
-			if (!istype(T) || T.density || locate(/obj/structure/alien/weeds) in T || istype(T, /turf/space) || isopenturf(T))
+			if (!isturf(T) || T.density || T.is_hole || locate(/obj/structure/alien/weeds, T))
 				continue
 
 			for(var/obj/O in T)
