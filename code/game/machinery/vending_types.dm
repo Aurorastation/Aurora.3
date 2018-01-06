@@ -756,18 +756,18 @@
 	vend_id = "tools"
 	req_access = list(access_janitor)
 	products = list(
-		/obj/item/weapon/vending_refill/booze = 2,
-		/obj/item/weapon/vending_refill/tools = 2,
-		/obj/item/weapon/vending_refill/coffee = 2,
-		/obj/item/weapon/vending_refill/snack = 2,
-		/obj/item/weapon/vending_refill/cola = 2,
-		/obj/item/weapon/vending_refill/pda = 2,
-		/obj/item/weapon/vending_refill/smokes = 2,
-		/obj/item/weapon/vending_refill/meds = 2,
-		/obj/item/weapon/vending_refill/robust = 2,
-		/obj/item/weapon/vending_refill/hydro = 2,
-		/obj/item/weapon/vending_refill/cutlery = 2,
-		/obj/item/weapon/vending_refill/robo = 2
+		/obj/item/weapon/vending_refill/booze = 1,
+		/obj/item/weapon/vending_refill/tools = 1,
+		/obj/item/weapon/vending_refill/coffee = 1,
+		/obj/item/weapon/vending_refill/snack = 1,
+		/obj/item/weapon/vending_refill/cola = 1,
+		/obj/item/weapon/vending_refill/pda = 1,
+		/obj/item/weapon/vending_refill/smokes = 1,
+		/obj/item/weapon/vending_refill/meds = 1,
+		/obj/item/weapon/vending_refill/robust = 1,
+		/obj/item/weapon/vending_refill/hydro = 1,
+		/obj/item/weapon/vending_refill/cutlery = 1,
+		/obj/item/weapon/vending_refill/robo = 1
 
 	)
 	premium = list(
