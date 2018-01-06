@@ -419,7 +419,6 @@ var/global/list/additional_antag_types = list()
 	var/sci = 0
 	var/civ_suspect = 0
 	var/civ = 0
-	var/big_brother = 0
 	var/loyal_crew = 0
 	var/total_crew = 0
 	var/evil_department
