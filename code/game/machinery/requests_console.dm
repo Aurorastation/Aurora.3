@@ -244,6 +244,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
 		else
+			LAZYADD(pda.linked_consoles, src)
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
 			usr << "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>"
