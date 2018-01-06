@@ -200,12 +200,10 @@
 		return FALSE
 
 	// Lattices, ladders, and stairs stop things from falling.
-	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest) || locate(/obj/structure/ladder, dest))
+	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest))
 		return FALSE
-	//Ladders too
-	if(below && locate(/obj/structure/ladder) in below)
+	if( ismob(src) && locate(/obj/structure/ladder, dest)) //hmmm how is this locker just floating here?
 		return FALSE
-
 
 	// The var/climbers API is implemented here.
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
