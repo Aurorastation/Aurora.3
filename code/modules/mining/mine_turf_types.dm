@@ -12,7 +12,6 @@
 			/turf/simulated/lava,
 			/turf/simulated/mineral
 	)
-	movement_cost = 4	//moving on lava should slows you down
 
 // Custom behavior here - we want smoothed turfs to show basalt underneath, not lava.
 /turf/simulated/lava/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
@@ -21,38 +20,6 @@
 	if (prob(20))
 		underlay_appearance.icon_state += "[rand(0,12)]"
 	return TRUE
-
-/turf/simulated/lava/Entered(atom/movable/AM, atom/oldloc)
-	if(istype(AM, /mob/living))
-		var/mob/living/L = AM
-		if(locate(/obj/structure/lattice/catwalk, src))	//should be safe to walk upon
-			return 1
-		if(!istype(oldloc,/turf/simulated/lava))
-			to_chat(L, "<span class='warning'>You are covered by fire and heat from entering \the [src]!</span>")
-		if(ishuman(L))
-			L.fire_stacks += 25
-			L.IgniteMob()
-			L.bodytemperature += 150
-			return 1
-		if(isrobot(L))
-			L.adjustFireLoss(rand(10,30))
-			return 1
-		if(isanimal(L))
-			var/mob/living/simple_animal/H = L
-			if(H.flying) //flying mobs will ignore the lava
-				return 1
-			else
-				H.adjustFireLoss(rand(20,40))
-		else
-			L.adjustFireLoss(rand(10,50))
-	..()
-
-/turf/simulated/lava/Exited(atom/movable/AM, atom/newloc)
-	if(istype(AM, /mob/living))
-		var/mob/living/L = AM
-		if(!istype(newloc, /turf/simulated/lava))
-			to_chat(L, "<span class='warning'>You climb out of \the [src].</span>")
-	..()
 
 // Special asteroid variant that goes with lava better.
 /turf/simulated/floor/asteroid/basalt
