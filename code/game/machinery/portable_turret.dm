@@ -3,6 +3,7 @@
 		This code is slightly more documented than normal, as requested by XSI on IRC.
 */
 
+
 #define TURRET_PRIORITY_TARGET 2
 #define TURRET_SECONDARY_TARGET 1
 #define TURRET_NOT_TARGET 0
@@ -94,7 +95,7 @@
 	installation = /obj/item/weapon/gun/energy/laser
 	sprite_set = "laser"
 
-/obj/machinery/porta_turret/Initialize()
+/obj/machinery/porta_turret/Initialize(mapload)
 	. = ..()
 	LAZYCLEARLIST(req_access)
 	req_one_access = list(access_security, access_heads)
@@ -102,15 +103,34 @@
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
 
+	var/area/control_area = get_area(src)
+	if(istype(control_area))
+		LAZYADD(control_area.turrets, src)
+		if(!mapload)
+			for(var/obj/machinery/turretid/aTurretID in control_area.turret_controls)
+				aTurretID.turretModes()
+		if(LAZYLEN(control_area.turret_controls))
+			var/obj/machinery/turretid/SOME_TURRET_ID = control_area.turret_controls[1]
+			var/datum/turret_checks/SOME_TC = SOME_TURRET_ID.getState() // this helper should honestly fucking exist why doesn't it :ree:
+			if(SOME_TC.lethal != lethal && !egun)
+				SOME_TC.enabled = 0
+			src.setState(SOME_TC)
+
 /obj/machinery/porta_turret/crescent/Initialize()
 	. = ..()
 	LAZYCLEARLIST(req_one_access)
 	req_access = list(access_cent_specops)
 
 /obj/machinery/porta_turret/Destroy()
+	var/area/control_area = get_area(src)
+	if(istype(control_area))
+		LAZYREMOVE(control_area.turrets, src)
+		for(var/obj/machinery/turretid/aTurretID in control_area.turret_controls)
+			aTurretID.turretModes()
 	qdel(spark_system)
 	spark_system = null
 	. = ..()
+
 
 /obj/machinery/porta_turret/update_icon()
 	cut_overlays()
@@ -608,8 +628,9 @@
 	if(controllock)
 		return
 	src.enabled = TC.enabled
-	src.lethal = TC.lethal
-	src.lethal_icon = TC.lethal
+	if(egun) //If turret can switch modes.
+		src.lethal = TC.lethal
+		src.lethal_icon = TC.lethal
 
 	check_synth = TC.check_synth
 	check_access = TC.check_access
@@ -816,6 +837,11 @@
 					Turret.egun = E.can_switch_modes
 					Turret.sprite_set = E.turret_sprite_set
 					Turret.lethal_icon = E.turret_is_lethal
+					// Check if gun has wielded delay, turret will have same fire rate as the gun.
+					if(E.fire_delay_wielded > 0)
+						Turret.shot_delay = E.fire_delay_wielded
+					else
+						Turret.shot_delay = E.fire_delay
 
 					Turret.cover_set = case_sprite_set
 					Turret.icon_state = "cover_[case_sprite_set]"
