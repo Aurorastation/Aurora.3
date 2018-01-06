@@ -5,10 +5,14 @@
 	desc = "Special air bubble designed to protect people inside of it from decompressed enviroments."
 	icon = 'icons/obj/bodybag.dmi'
 	icon_state = "bodybag_folded"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
+	var/used = 0
+	var/obj/item/weapon/tank/emergency_oxygen/double/internal_tank
 
 	attack_self(mob/user)
 		var/obj/structure/closet/air_bubble/R = new /obj/structure/closet/air_bubble(user.loc)
+		R.used = 1
+		R.internal_tank = internal_tank
 		R.add_fingerprint(user)
 		qdel(src)
 
@@ -26,6 +30,7 @@
 	density = 0
 	storage_capacity = 30
 	var/contains_body = 0
+	var/used = 0
 
 	var/use_internal_tank = 0
 	var/current_processes = BUBBLE_PROC_INT_TEMP
@@ -61,7 +66,8 @@
 /obj/structure/closet/air_bubble/Initialize()
 	. = ..()
 	add_inside()
-	add_airtank()
+	if (!used)
+		add_airtank()
 	START_PROCESSING(SSfast_process, src)
 	use_internal_tank = !use_internal_tank
 
@@ -177,9 +183,9 @@
 			)
 			if (!do_after(user, 1 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
-			var/obj/item/weapon/tank/emergency_oxygen/double/O = W
-			qdel(W)
-			internal_tank = O
+			internal_tank = W
+			mob.remove_from_inventory(W)
+			W.forceMove(null)
 			use_internal_tank = 1
 		else
 			user.visible_message("<span class='warning'>[src] already has a tank attached.</span>")
@@ -200,10 +206,10 @@
 			if(opened)	return 0
 			if(contents.len)	return 0
 			visible_message("[usr] folds up the [src.name]")
-			new item_path(get_turf(src))
-			w_class = 3.0
-			spawn(0)
-				qdel(src)
+			var/obj/item/air_bubble/bag = new /obj/item/air_bubble(get_turf(src))
+			bag.internal_tank = internal_tank
+			bag.w_class = ITEMSIZE_NORMAL
+			qdel(src)
 			return
 
 /obj/structure/closet/air_bubble/update_icon()
