@@ -3,15 +3,10 @@
 	full_name = "Ice Land"
 	path = "iceland"
 	weathertypes = list("ice", "hail")
+	type_of_map = MAP_AWAY
 
 /datum/away_map/iceland/handle_random_gen()
-	new /datum/random_map/noise/tundra(rand(2,99999), 2, 2, zloc, 44, 44)
-	var/huts = 1
-	var/dmm_suite/loader = new
-	while(huts)
-		loader.load_map(file("maps/away/iceland/iceland_buildings/hut1.dmm"), z_offset = zloc, x_offset = rand(10,40), y_offset = rand(10, 40), no_changeturf = TRUE)
-		huts--
-	qdel(loader)
+	new /datum/random_map/noise/tundra(null, 2, 2, zloc, 44, 44)
 
 /area/away_mission/iceland/iceland_outside
 	name = "\improper Iceland Outside"
