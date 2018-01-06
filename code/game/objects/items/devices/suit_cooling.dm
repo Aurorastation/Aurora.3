@@ -57,7 +57,7 @@
 
 	var/mob/living/carbon/human/H = loc
 
-	var/efficiency = (H.species.flags & ACCEPTS_COOLER) || 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling; some species can directly connect to the cooler, so get a free 100% efficiency here
+	var/efficiency = !!(H.species.flags & ACCEPTS_COOLER) || 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling; some species can directly connect to the cooler, so get a free 100% efficiency here
 	var/env_temp = get_environment_temperature()		//wont save you from a fire
 	var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
 
