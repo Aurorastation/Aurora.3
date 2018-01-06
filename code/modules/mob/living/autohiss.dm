@@ -59,7 +59,8 @@
 	autohiss_exempt = list(
 			LANGUAGE_SIIK_MAAS,
 			LANGUAGE_SIIK_TAJR,
-			LANGUAGE_SIGN_TAJARA
+			LANGUAGE_SIGN_TAJARA,
+			LANGUAGE_YA_SSA
 		)
 
 /datum/species/bug

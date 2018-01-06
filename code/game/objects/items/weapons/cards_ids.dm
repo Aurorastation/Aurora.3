@@ -332,14 +332,14 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access() + access_synth
 	..()
 
-/obj/item/weapon/card/id/synthetic/minedrone
+/obj/item/weapon/card/id/minedrone
 	name = "\improper Minedrone ID"
 	desc = "Access module for NanoTrasen Minedrones"
 	icon_state = "id-robot"
 	item_state = "tdgreen"
 	assignment = "Minedrone"
 
-/obj/item/weapon/card/id/synthetic/minedrone/New()
+/obj/item/weapon/card/id/minedrone/New()
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	..()
 

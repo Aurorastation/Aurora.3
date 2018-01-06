@@ -2072,7 +2072,6 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
-	tag = "icon-map (WEST)";
 	icon_state = "map";
 	dir = 8
 	},
@@ -2185,7 +2184,6 @@
 /area/engineering/atmos)
 "eG" = (
 /obj/effect/floor_decal/corner/black{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2196,7 +2194,6 @@
 /area/engineering/atmos)
 "eH" = (
 /obj/effect/floor_decal/corner/black{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2405,9 +2402,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "fe" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	icon_state = "map";
 	dir = 1
@@ -2511,6 +2505,7 @@
 	},
 /obj/machinery/power/apc{
 	dir = 1;
+	is_critical = 1;
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24
@@ -2938,8 +2933,7 @@
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
 	icon_state = "map_valve0";
-	name = "Air Bypass valve";
-	tag = "icon-map_valve0 (EAST)"
+	name = "Air Bypass valve"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -3608,7 +3602,6 @@
 /area/outpost/engineering/hallway)
 "hz" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/cyan{
-	tag = "icon-up (EAST)";
 	icon_state = "up";
 	dir = 4
 	},
@@ -3896,7 +3889,6 @@
 /area/mine/unexplored)
 "ic" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/yellow{
-	tag = "icon-up (EAST)";
 	icon_state = "up";
 	dir = 4
 	},
@@ -4073,7 +4065,7 @@
 "iu" = (
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Sublevel -Tesla Parts Storage";
-	dir = 5;
+	dir = 2;
 	icon_state = "camera"
 	},
 /turf/simulated/floor{
@@ -9724,7 +9716,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -9748,7 +9739,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -9769,7 +9759,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -9796,7 +9785,6 @@
 	req_access = list(19)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -9809,7 +9797,6 @@
 	pixel_y = -22
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -13056,7 +13043,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "xN" = (
-/obj/machinery/firealarm/south,
+/obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
 	dir = 1
@@ -23835,7 +23822,6 @@
 /area/rnd/mixing)
 "Qg" = (
 /obj/structure/toilet{
-	tag = "icon-toilet00 (NORTH)";
 	icon_state = "toilet00";
 	dir = 1
 	},
@@ -25225,6 +25211,83 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
+"Ts" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/meeting)
+"Tt" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/meeting)
+"Tu" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/meeting)
+"Tv" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/meeting)
+"Tw" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"Tx" = (
+/obj/structure/table/standard,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"Ty" = (
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
+"Tz" = (
+/obj/structure/bed/chair/comfy/teal{
+	dir = 8;
+	icon_state = "comfychair_preview"
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/patient_wing)
+"TA" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/crew_quarters/medbreak)
 
 (1,1,1) = {"
 aa

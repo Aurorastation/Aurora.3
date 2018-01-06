@@ -924,8 +924,8 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
-	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
-	src.emag.name = "Mounted Thermal Drill"
+	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.emag.name = "Mounted Plasma Cutter"
 	..()
 
 /obj/item/weapon/robot_module/mining_drone/drill/New(var/mob/living/silicon/robot/robot)
@@ -937,33 +937,33 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
-	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
-	src.emag.name = "Mounted Thermal Drill"
+	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.emag.name = "Mounted Plasma Cutter"
 	..()
 
-/obj/item/weapon/robot_module/mining_drone/plasmacutter/New(var/mob/living/silicon/robot/robot)
+/obj/item/weapon/robot_module/mining_drone/ka/New(var/mob/living/silicon/robot/robot)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
-	src.modules += new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.modules += new /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
-	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
-	src.emag.name = "Mounted Thermal Drill"
+	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.emag.name = "Mounted Plasma Cutter"
 	..()
 
-/obj/item/weapon/robot_module/mining_drone/drillandplasmacutter/New(var/mob/living/silicon/robot/robot)
+/obj/item/weapon/robot_module/mining_drone/drillandka/New(var/mob/living/silicon/robot/robot)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/weapon/storage/bag/ore/drone(src)
-	src.modules += new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.modules += new /obj/item/weapon/gun/energy/kinetic_accelerator/cyborg(src)
 	src.modules += new /obj/item/weapon/pickaxe/jackhammer(src)
 	src.modules += new /obj/item/weapon/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 
-	src.emag = new /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill(src)
-	src.emag.name = "Mounted Thermal Drill"
+	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	src.emag.name = "Mounted Plasma Cutter"
 	..()
