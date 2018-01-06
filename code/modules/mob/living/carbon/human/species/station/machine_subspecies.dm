@@ -303,7 +303,7 @@
 	deform = 'icons/mob/human_races/r_ind_zenghu.dmi'
 
 	eyes = "zenghu_eyes"
-	brute_mod = 1.2
+	brute_mod = 1.5
 	sprint_speed_factor = 1.5
 
 	examine_color = "#ff00ff"
@@ -339,6 +339,8 @@
 	eyes = "bishop_eyes"
 	eyes_icon_blend = ICON_MULTIPLY
 	sprint_charge_factor = 0.25
+	max_nutrition_factor = 1.75
+	brute_mod = 1.2
 
 	examine_color = "#00afea"
 
