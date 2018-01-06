@@ -13278,7 +13278,6 @@
 	opacity = 1;
 	req_access = list(101)
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -13375,14 +13374,6 @@
 /area/centcom/holding)
 "aDM" = (
 /obj/item/modular_computer/console/preset/command,
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 1
-	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -13454,10 +13445,6 @@
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals North";
 	dir = 8
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -13626,10 +13613,6 @@
 /area/centcom/holding)
 "aEr" = (
 /obj/structure/banner,
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 1
-	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
@@ -13640,7 +13623,6 @@
 	name = "Escape Shuttle Cockpit";
 	req_access = list(19)
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aEt" = (
@@ -14063,34 +14045,18 @@
 	},
 /area/centcom/ferry)
 "aFs" = (
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 1
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
-	},
 /turf/unsimulated/floor{
 	dir = 9;
 	icon_state = "carpetside"
 	},
 /area/centcom/holding)
 "aFt" = (
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 1
-	},
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "carpetside"
 	},
 /area/centcom/holding)
 "aFu" = (
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 1
-	},
 /turf/unsimulated/floor{
 	dir = 5;
 	icon_state = "carpetside"
@@ -14113,10 +14079,6 @@
 "aFx" = (
 /obj/structure/bed/chair{
 	dir = 4
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "greencorner";
@@ -14214,28 +14176,18 @@
 /turf/simulated/shuttle/floor,
 /area/shuttle/transport1/centcom)
 "aFI" = (
-/obj/item/weapon/xmasgift/small{
-	pixel_x = 10;
-	pixel_y = -5
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
-	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "carpetside"
 	},
 /area/centcom/holding)
 "aFJ" = (
-/obj/structure/flora/tree/pine/xmas,
 /turf/unsimulated/floor{
 	dir = 2;
 	icon_state = "carpetsymbol"
 	},
 /area/centcom/holding)
 "aFK" = (
-/obj/item/weapon/xmasgift/medium,
 /turf/unsimulated/floor{
 	dir = 4;
 	icon_state = "carpetside"
@@ -14313,46 +14265,18 @@
 /turf/simulated/shuttle/plating,
 /area/shuttle/transport1/centcom)
 "aFR" = (
-/obj/item/weapon/xmasgift/medium{
-	pixel_x = 8;
-	pixel_y = 8
-	},
-/obj/item/weapon/xmasgift/small{
-	pixel_x = 16;
-	pixel_y = 0
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
-	},
 /turf/unsimulated/floor{
 	dir = 10;
 	icon_state = "carpetside"
 	},
 /area/centcom/holding)
 "aFS" = (
-/obj/item/weapon/xmasgift/large{
-	pixel_x = 0;
-	pixel_y = 10
-	},
 /turf/unsimulated/floor{
 	dir = 2;
 	icon_state = "carpetside"
 	},
 /area/centcom/holding)
 "aFT" = (
-/obj/item/weapon/xmasgift/small{
-	pixel_x = -10;
-	pixel_y = -2
-	},
-/obj/item/weapon/xmasgift/small{
-	pixel_x = -2;
-	pixel_y = 7
-	},
-/obj/item/weapon/xmasgift/small{
-	pixel_x = -12;
-	pixel_y = 12
-	},
 /turf/unsimulated/floor{
 	dir = 6;
 	icon_state = "carpetside"
@@ -14361,10 +14285,6 @@
 "aFU" = (
 /obj/structure/bed/chair{
 	dir = 8
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "greencorner"
@@ -14416,10 +14336,6 @@
 "aFZ" = (
 /obj/structure/bed/chair{
 	dir = 4
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "greencorner";
@@ -14497,10 +14413,6 @@
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals South";
 	dir = 4
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -14637,10 +14549,6 @@
 /area/centcom/holding)
 "aGx" = (
 /obj/machinery/vending/coffee,
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
-	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 8
@@ -14781,10 +14689,6 @@
 /area/centcom/holding)
 "aGL" = (
 /obj/machinery/vending/cigarette,
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
-	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 10
@@ -14976,7 +14880,6 @@
 	name = "Escape Shuttle Infirmary";
 	req_access = list(5)
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -15381,7 +15284,6 @@
 	opacity = 1;
 	req_access = list(109)
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -17100,7 +17002,6 @@
 /obj/machinery/door/airlock/centcom{
 	name = "To: Arrivals Deck"
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aLF" = (
@@ -17170,20 +17071,12 @@
 /area/shuttle/arrival/centcom)
 "aLN" = (
 /obj/structure/closet/emcloset,
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 1
-	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/arrival/centcom)
 "aLO" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Arrivals Shuttle"
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 1
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/arrival/centcom)
@@ -17863,7 +17756,6 @@
 	opacity = 1;
 	req_access = list(109)
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -18143,7 +18035,6 @@
 /obj/machinery/door/airlock/centcom{
 	name = "To: NMSS Odin Hab Complex"
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNP" = (
@@ -18427,7 +18318,6 @@
 	opacity = 1;
 	req_access = list(109)
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -18447,7 +18337,6 @@
 	opacity = 1;
 	req_access = newlist()
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -18850,10 +18739,6 @@
 "aPv" = (
 /obj/structure/flora/pottedplant/random{
 	anchored = 1
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
@@ -19288,10 +19173,6 @@
 	c_tag = "Crescent Departures";
 	dir = 8
 	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
-	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
 	dir = 4
@@ -19614,7 +19495,6 @@
 	opacity = 1;
 	req_access = list(109)
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -19972,7 +19852,6 @@
 	opacity = 1;
 	req_access = list(109)
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -20010,7 +19889,6 @@
 /obj/machinery/door/airlock/glass{
 	name = "Cryogenic Storage"
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -20020,7 +19898,6 @@
 /obj/machinery/door/airlock/centcom{
 	name = "Unisex Restroom"
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -57352,11 +57229,11 @@ aFG
 aEQ
 aEo
 aFw
-bjw
-bjB
-bjE
-bjF
-bjG
+aGr
+aGr
+aFw
+aGr
+aGr
 aFw
 aCO
 aJw
@@ -58129,7 +58006,7 @@ aFw
 aGu
 aGu
 aFw
-bjL
+aIX
 aJx
 aHx
 aKl
@@ -58643,7 +58520,7 @@ aFw
 aGr
 aGr
 aFw
-bjM
+aIX
 aJy
 aJv
 aJb
@@ -59156,7 +59033,7 @@ aGJ
 aFw
 aHs
 aHX
-bjH
+aFw
 aDx
 aDa
 aJR
@@ -59413,7 +59290,7 @@ aGu
 aFw
 aGu
 aGu
-bjI
+aFw
 aDx
 aJz
 aCM
@@ -59426,23 +59303,23 @@ aGM
 aDj
 aMX
 aNv
-bjW
-bjY
-bka
-bkc
-bkr
-bkt
+aGM
+aDj
+aDj
+aDj
+aDj
+aDb
 aNv
 aPX
 aDj
 aDb
 aNv
-bkM
-bkO
-bkQ
-bkS
-bkU
-bkW
+aGM
+aDj
+aDj
+aDj
+aDj
+aDb
 aNv
 aPX
 aDj
@@ -59927,7 +59804,7 @@ aFw
 aHb
 aHb
 aHb
-bjJ
+aHb
 aDx
 aJz
 aCM
@@ -59940,23 +59817,23 @@ aMB
 aDk
 aMY
 aNw
-bjX
-bjZ
-bkb
-bkd
-bks
-bku
+aMB
+aDk
+aDk
+aDk
+aDk
+aPq
 aNw
 aPY
 aDk
 aPq
 aNw
-bkN
-bkP
-bkR
-bkT
-bkV
-bkX
+aMB
+aDk
+aDk
+aDk
+aDk
+aPq
 aNw
 aPY
 aDk
@@ -60184,7 +60061,7 @@ aGK
 aHc
 aHt
 aHu
-bjK
+aHu
 aDx
 aDd
 aJS
@@ -62483,10 +62360,10 @@ aDj
 aDS
 aDx
 aEp
-biV
-biW
-biX
-biY
+aED
+aED
+aED
+aED
 aFx
 aCM
 aCM
@@ -62991,12 +62868,12 @@ aCp
 aAJ
 aCP
 aCM
-biS
+aCM
 aDx
 aDL
 aDT
 aEf
-biU
+aCM
 aCM
 aCM
 aEV
@@ -63505,7 +63382,7 @@ aCp
 aAJ
 avz
 aDd
-biT
+aDk
 aDx
 aDM
 aDV
@@ -63518,8 +63395,8 @@ aFk
 aCM
 aCM
 aFU
-bjk
-bjq
+aEW
+aFk
 aCM
 aCM
 aCO
@@ -64545,9 +64422,9 @@ aEC
 aDx
 aFz
 aCM
-bjf
-bjl
-bjr
+aCM
+aCM
+aCM
 aCM
 aCM
 aCM
@@ -64556,9 +64433,9 @@ aDx
 aII
 aJf
 aJE
-bjN
-bjO
-bjP
+aJf
+aJf
+aJf
 aJE
 aLC
 aJf
@@ -64571,11 +64448,11 @@ aOd
 aMf
 aOR
 aOb
-bkv
-bkw
-bkD
-bkE
-bkL
+aOb
+aOb
+aOb
+aOb
+aOb
 aOb
 aRq
 aIL
@@ -65600,9 +65477,9 @@ aOA
 aIL
 aPg
 aPt
-bkx
+aPt
 aMf
-bkF
+aPt
 aPt
 aQW
 aIL
@@ -65857,9 +65734,9 @@ aOB
 aIL
 aNx
 aJg
-bky
+aPH
 aMf
-bkG
+aNx
 aJg
 aPH
 aRs
@@ -66114,9 +65991,9 @@ aOC
 aIL
 aNy
 aPu
-bkz
+aPI
 aMf
-bkH
+aNy
 aPu
 aPI
 aRt
@@ -66371,9 +66248,9 @@ aOB
 aIL
 aOU
 aJg
-bkA
+aPJ
 aMf
-bkI
+aOU
 aJg
 aPJ
 aRu
@@ -66628,9 +66505,9 @@ aOD
 aIL
 aPg
 aPt
-bkB
+aPt
 aMf
-bkJ
+aPt
 aPt
 aQW
 aIL
@@ -67114,11 +66991,11 @@ aEm
 aEm
 aEm
 aDQ
-bjb
-bjg
-bjm
-bjs
-bjx
+aEm
+aEm
+aEm
+aEm
+aEm
 aGO
 aDm
 aDm
@@ -67139,7 +67016,7 @@ aKN
 aKN
 aKM
 aMf
-bke
+aOT
 aNy
 aJg
 aJg
@@ -67370,13 +67247,13 @@ aDm
 aEL
 aEL
 aEY
-biZ
+aDQ
 aFN
 aDn
 aDn
 aDn
 aDn
-bjC
+aDQ
 aHg
 aHE
 aIe
@@ -67396,7 +67273,7 @@ aLt
 aKN
 aKN
 aOE
-bkf
+aNx
 aPi
 aJg
 aJg
@@ -67628,11 +67505,11 @@ aEM
 aEM
 aDn
 aFE
-bjc
-bjh
-bjn
-bjt
-bjy
+aEi
+aEi
+aEi
+aEi
+aEi
 aDQ
 aDn
 aHF
@@ -67653,7 +67530,7 @@ aLt
 aKN
 aKN
 aMf
-bkg
+aNy
 aJg
 aJg
 aJg
@@ -67910,7 +67787,7 @@ aNF
 aMf
 aMf
 aMf
-bkh
+aNy
 aJg
 aJg
 aPK
@@ -68142,11 +68019,11 @@ aEO
 aEO
 aDn
 aDQ
-bjd
-bji
-bjo
-bju
-bjz
+aEm
+aEm
+aEm
+aEm
+aEm
 aDQ
 aDn
 aHH
@@ -68398,13 +68275,13 @@ aDm
 aEL
 aEL
 aEY
-bja
+aDQ
 aFN
 aDn
 aDn
 aDn
 aDn
-bjD
+aDQ
 aDn
 aHI
 aIg
@@ -68424,7 +68301,7 @@ aLt
 aMf
 aMf
 aMf
-bki
+aNy
 aJg
 aJg
 aPL
@@ -68656,11 +68533,11 @@ aEi
 aEi
 aEi
 aDQ
-bje
-bjj
-bjp
-bjv
-bjA
+aEi
+aEi
+aEi
+aEi
+aEi
 aGO
 aDm
 aDm
@@ -68676,12 +68553,12 @@ aLN
 aLQ
 aLQ
 aLQ
-bjT
+aLQ
 aLu
 aKN
 aKN
 aMf
-bkj
+aNy
 aJg
 aJg
 aPK
@@ -68933,12 +68810,12 @@ aLO
 aMo
 aMo
 aMo
-bjU
+aLQ
 aLu
 aKN
 aOk
 aOE
-bkk
+aNy
 aJg
 aJg
 aPK
@@ -69190,12 +69067,12 @@ aLN
 aMp
 aMp
 aMp
-bjV
+aLQ
 aLu
 aKN
 aKN
 aMf
-bkl
+aNy
 aJg
 aJg
 aPK
@@ -69452,7 +69329,7 @@ aLt
 aMf
 aMf
 aMf
-bkm
+aNy
 aJg
 aJg
 aPL
@@ -69966,7 +69843,7 @@ aNF
 aMf
 aMf
 aMf
-bkn
+aNy
 aJg
 aJg
 aPK
@@ -70215,15 +70092,15 @@ aCO
 aKN
 aLt
 aLt
-bjQ
-bjR
-bjS
+aMo
+aMo
+aMo
 aLt
 aLt
 aKN
 aKN
 aMf
-bko
+aNy
 aJg
 aJg
 aJg
@@ -70480,7 +70357,7 @@ aKN
 aKN
 aKN
 aOE
-bkp
+aOU
 aPe
 aJg
 aJg
@@ -70737,7 +70614,7 @@ aKN
 aKN
 aKN
 aMf
-bkq
+aOT
 aNy
 aJg
 aJg
@@ -70997,9 +70874,9 @@ aIL
 aIL
 aOS
 aPv
-bkC
+aLD
 aQn
-bkK
+aLD
 aPv
 aQZ
 aIL
