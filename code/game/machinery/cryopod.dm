@@ -302,6 +302,10 @@
 				preserve = 1
 			else
 				continue
+		else if(istype(W, /obj/item/device/pda))
+			for(var/obj/machinery/requests_console/Z in allConsoles)
+				if(W in Z.alert_pdas)
+					Z.alert_pdas -= W
 		else
 			for(var/T in preserve_items)
 				if(istype(W,T))

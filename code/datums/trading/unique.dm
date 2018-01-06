@@ -43,7 +43,7 @@
 		/obj/item/weapon/gun/energy/rifle/pulse         = TRADER_THIS_TYPE
 	)
 
-	blacklisted_trade_items = null
+	blacklisted_trade_items = list(/mob/living/carbon/human/monkey)
 
 	speech = list(
 		"hail_generic"         = "H-hello. Can you hear me? G-good... I have... specific needs... I have a lot to t-trade with you in return of course.",
