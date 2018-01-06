@@ -8,7 +8,7 @@ var/datum/antagonist/vampire/vamp = null
 	feedback_tag = "vampire_objective"
 	restricted_jobs = list("AI", "Cyborg", "Chaplain", "Head of Security", "Captain", "Internal Affairs Agent")
 
-	protected_jobs = list("Security Officer", "Warden", "Detective", "Forensic Technician")
+	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	restricted_species = list(
 		"Baseline Frame",
 		"Shell Frame",
