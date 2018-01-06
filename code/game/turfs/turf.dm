@@ -350,7 +350,7 @@ var/const/enterloopsanity = 100
 		if (!above || isopenturf(above))
 			return
 
-		above.ChangeTurf(/turf/simulated/open)
+		above.ChangeToOpenturf()
 
 /turf/proc/AdjacentTurfsRanged()
 	var/static/list/allowed = typecacheof(list(

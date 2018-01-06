@@ -12,6 +12,7 @@
 			/turf/simulated/lava,
 			/turf/simulated/mineral
 	)
+	openspace_override_type = /turf/simulated/open/chasm/airless
 
 // Custom behavior here - we want smoothed turfs to show basalt underneath, not lava.
 /turf/simulated/lava/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
@@ -34,6 +35,7 @@
 	light_color = LIGHT_COLOR_LAVA
 	smooth = SMOOTH_FALSE
 	canSmoothWith = null
+	openspace_override_type = /turf/simulated/open/chasm/airless
 
 	footstep_sound = "concretestep"
 
