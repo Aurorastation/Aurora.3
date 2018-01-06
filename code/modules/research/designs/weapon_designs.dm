@@ -347,107 +347,86 @@
 	build_path = /obj/item/laser_components/modulator/tesla
 	sort_string = "TZZEB"
 
-/datum/design/item/weapon/modular_pulse
-	id = "stock_supertaser"
-	req_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 6, TECH_POWER = 6)
-	materials = list(DEFAULT_WALL_MATERIAL = 750, "glass" = 500, "phoron" = 7500, "silver" = 7500, "diamond" = 3000)
-	build_path = /obj/item/laser_components/modulator/pulse
-	sort_string = "TZZEC"
-
-/datum/design/item/weapon/modular_xray
-	id = "stock_xray"
-	req_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 8, TECH_POWER = 8)
-	materials = list(DEFAULT_WALL_MATERIAL = 750, "glass" = 500, "gold" = 2000, "silver" = 3000, "diamond" = 3000)
-	build_path = /obj/item/laser_components/modulator/xray
-	sort_string = "TZZED"
-
 /datum/design/item/weapon/modular_ion
 	id = "stock_ion"
 	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 750, "glass" = 500, "phoron" = 2000)
 	build_path = /obj/item/laser_components/modulator/ion
-	sort_string = "TZZEE"
+	sort_string = "TZZEC"
 
 /datum/design/item/weapon/modular_soma
 	id = "stock_soma"
 	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 250, "uranium" = 250)
 	build_path = /obj/item/laser_components/modulator/floramut
-	sort_string = "TZZEF"
+	sort_string = "TZZED"
 
 /datum/design/item/weapon/modular_beta
 	id = "stock_beta"
 	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 250, "uranium" = 250)
 	build_path = /obj/item/laser_components/modulator/floramut2
-	sort_string = "TZZEG"
+	sort_string = "TZZEE"
 
 /datum/design/item/weapon/modular_pest
 	id = "stock_pest"
 	req_tech = list(TECH_MATERIAL = 1, TECH_BIO = 4, TECH_POWER = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "uranium" = 500)
 	build_path = /obj/item/laser_components/modulator/arodentia
-	sort_string = "TZZEH"
+	sort_string = "TZZEF"
 
 /datum/design/item/weapon/modular_tag1
 	id = "stock_tag1"
 	req_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/laser_components/modulator/red
-	sort_string = "TZZEI"
+	sort_string = "TZZEG"
 
 /datum/design/item/weapon/modular_tag2
 	id = "stock_tag2"
 	req_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/laser_components/modulator/blue
-	sort_string = "TZZEJ"
+	sort_string = "TZZEH"
 
 /datum/design/item/weapon/modular_tag3
 	id = "stock_tag3"
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/laser_components/modulator/omni
-	sort_string = "TZZEK"
+	sort_string = "TZZEI"
 
 /datum/design/item/weapon/modular_practice
 	id = "stock_practice"
 	req_tech = list(TECH_MATERIAL = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/laser_components/modulator/practice
-	sort_string = "TZZEL"
-
-/datum/design/item/weapon/modular_mindflayer
-	id = "stock_flayer"
-	req_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 6, TECH_POWER = 6)
-	materials = list(DEFAULT_WALL_MATERIAL = 750, "glass" = 500, "gold" = 2000)
-	build_path = /obj/item/laser_components/modulator/mindflayer
-	sort_string = "TZZEM"
+	sort_string = "TZZEJ"
 
 /datum/design/item/weapon/modular_decloner
 	id = "stock_declone"
 	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "phoron" = 3000)
 	build_path = /obj/item/laser_components/modulator/mindflayer
-	sort_string = "TZZEN"
+	sort_string = "TZZEK"
 
 /datum/design/item/weapon/modular_ebow
 	id = "stock_ebow"
 	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "phoron" = 3000)
 	build_path = /obj/item/laser_components/modulator/mindflayer
-	sort_string = "TZZEO"
+	sort_string = "TZZEL"
 
 /datum/design/item/weapon/modular_blaster
 	id = "stock_blaster"
 	req_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4, TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 8000, "glass" = 2000, "phoron" = 6000)
 	build_path = /obj/item/laser_components/modulator/blaster
-	sort_string = "TZZEP"
+	sort_string = "TZZEM"
 
 /datum/design/item/weapon/modular_laser
 	id = "stock_laser"
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3, TECH_POWER = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 750, "glass" = 500, "phoron" = 1000)
 	build_path = /obj/item/laser_components/modulator
-	sort_string = "TZZEQ"
+	sort_string = "TZZEN"

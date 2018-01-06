@@ -46,27 +46,22 @@
 
 /obj/item/laser_components/capacitor/nuclear/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
-		if (M == user)
-			M << "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>"
-		else
+		if (M != user)
 			M << "<span class='warning'>You feel a warm sensation.</span>"
-		M.apply_effect(rand(1,10)*prototype.criticality, IRRADIATE)
+		M.apply_effect(rand(1,10)*(prototype.criticality+1), IRRADIATE)
 	return
 
 /obj/item/laser_components/capacitor/nuclear/medium_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
-	for (var/mob/living/M in range(round(prototype.criticality),src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
-		if (M == user)
-			M << "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>"
-		else
+	for (var/mob/living/M in range(round((prototype.criticality+1)),src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
+		if (M != user)
 			M << "<span class='warning'>You feel a warm sensation.</span>"
-		M.apply_effect(rand(1,40)*prototype.criticality, IRRADIATE)
+		M.apply_effect(rand(1,40)*(prototype.criticality+1), IRRADIATE)
 	return
 
 /obj/item/laser_components/capacitor/nuclear/critical_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
-	user << "<span class='danger'>Your gun's reactor overloads!</span>"
-	for (var/mob/living/M in range(rand(2,6)*prototype.criticality,src))
+	for (var/mob/living/M in range(rand(2,6)*(prototype.criticality+1),src))
 		M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
-		M.apply_effect(300*prototype.criticality, IRRADIATE)
+		M.apply_effect(300*(prototype.criticality+1), IRRADIATE)
 	..()
 
 /obj/item/laser_components/capacitor/teranium
@@ -78,16 +73,16 @@
 	reliability = 40
 
 /obj/item/laser_components/capacitor/teranium/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
-	tesla_zap(prototype, 3, 1000*prototype.criticality)
+	tesla_zap(prototype, 3, 1000*(prototype.criticality+1))
 	return
 
 /obj/item/laser_components/capacitor/teranium/medium_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
-	tesla_zap(prototype, round(prototype.criticality*2), 2000*prototype.criticality)
+	tesla_zap(prototype, round((prototype.criticality+1)*2), 2000*(prototype.criticality+1))
 	return
 
 /obj/item/laser_components/capacitor/teranium/critical_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
-	for (var/i = 0 to round(prototype.criticality))
-		tesla_zap(prototype, round(prototype.criticality*2,1), 4000*prototype.criticality)
+	for (var/i = 0 to round((prototype.criticality+1)))
+		tesla_zap(prototype, round((prototype.criticality+1)*2,1), 4000*(prototype.criticality+1))
 	..()
 
 /obj/item/laser_components/capacitor/phoron
@@ -99,17 +94,20 @@
 	reliability = 30
 
 /obj/item/laser_components/capacitor/phoron/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
-	empulse(get_turf(prototype), 0, round(prototype.criticality*2,1))
+	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
+		if (M != user)
+			M << "<span class='warning'>You feel a warm sensation.</span>"
+		M.apply_effect(rand(1,10)*(prototype.criticality+1), IRRADIATE)
 	return
 
 /obj/item/laser_components/capacitor/phoron/medium_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
-	empulse(get_turf(src), 0, round(prototype.criticality*3,1))
-	explosion(get_turf(prototype), 0, 0, round(prototype.criticality*2,1))
+	empulse(get_turf(src), 0, round((prototype.criticality+1)*3,1))
+	explosion(get_turf(prototype), 0, 0, round((prototype.criticality+1)*2,1))
 	return
 
 /obj/item/laser_components/capacitor/phoron/critical_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
-	empulse(get_turf(src), round(prototype.criticality,1), round(prototype.criticality*4,1))
-	explosion(get_turf(prototype), 0, round(prototype.criticality,1), round(prototype.criticality*3,1))
+	empulse(get_turf(src), round((prototype.criticality+1),1), round((prototype.criticality+1)*4,1))
+	explosion(get_turf(prototype), 0, round((prototype.criticality+1),1), round((prototype.criticality+1)*3,1))
 	..()
 
 /obj/item/laser_components/capacitor/bluespace
@@ -121,20 +119,20 @@
 	reliability = 30
 
 /obj/item/laser_components/capacitor/bluespace/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
-	for (var/mob/living/M in range(round(prototype.criticality,1),src))
-		empulse(get_turf(M), 0, round(prototype.criticality*2,1))
+	for (var/mob/living/M in range(round((prototype.criticality+1),1),src))
+		empulse(get_turf(M), 0, round((prototype.criticality+1)*2,1))
 	return
 
 /obj/item/laser_components/capacitor/bluespace/medium_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
-	for (var/mob/living/M in range(round(3*prototype.criticality,1),src))
-		empulse(get_turf(M), 0, round(prototype.criticality*2,1))
-		do_teleport(M, get_turf(M), rand(1,3)*round(prototype.criticality,1), asoundin = 'sound/effects/phasein.ogg')
+	for (var/mob/living/M in range(round(3*(prototype.criticality+1),1),src))
+		empulse(get_turf(M), 0, round((prototype.criticality+1)*2,1))
+		do_teleport(M, get_turf(M), rand(1,3)*round((prototype.criticality+1),1), asoundin = 'sound/effects/phasein.ogg')
 	return
 
 /obj/item/laser_components/capacitor/bluespace/critical_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
-	for (var/mob/living/M in range(round(6*prototype.criticality,1),src))
-		empulse(get_turf(M), 0, round(prototype.criticality*4,1))
-		do_teleport(M, get_turf(M), rand(6,18)*round(prototype.criticality,1), asoundin = 'sound/effects/phasein.ogg')
+	for (var/mob/living/M in range(round(6*(prototype.criticality+1),1),src))
+		empulse(get_turf(M), 0, round((prototype.criticality+1)*4,1))
+		do_teleport(M, get_turf(M), rand(6,18)*round((prototype.criticality+1),1), asoundin = 'sound/effects/phasein.ogg')
 	..()
 
 //Lenses

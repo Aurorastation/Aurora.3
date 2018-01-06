@@ -38,8 +38,8 @@
 /obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D, var/mob/user)
 	if(!isscrewdriver(D))
 		return ..()
-	user << "You disassemble the [src]."
-	disassemble()
+	user << "You disassemble \the [src]."
+	disassemble(user)
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/reset_vars()
 	burst = initial(burst)
@@ -50,10 +50,10 @@
 	accuracy = initial(accuracy)
 	criticality = initial(criticality)
 
-/obj/item/weapon/gun/energy/laser/prototype/proc/updatetype()
+/obj/item/weapon/gun/energy/laser/prototype/proc/updatetype(var/mob/user)
 	reset_vars()
 	if(!focusing_lens || !capacitor || !modulator)
-		disassemble()
+		disassemble(user)
 		return
 
 	switch(origin_chassis)
@@ -83,7 +83,7 @@
 		focusing_lens = null
 
 	if(!focusing_lens || !capacitor || !modulator)
-		disassemble()
+		disassemble(user)
 		return
 
 	reliability = (capacitor.reliability - capacitor.condition) + (focusing_lens.reliability - focusing_lens.condition)
@@ -160,45 +160,52 @@
 		else
 			small_fail(user)
 
-	updatetype()
+	updatetype(user)
 	return A
 
-/obj/item/weapon/gun/energy/laser/prototype/proc/disassemble()
-	var/turf/T = get_turf(src)
+/obj/item/weapon/gun/energy/laser/prototype/proc/disassemble(var/mob/user)
+	var/atom/A
+	if (user && user.loc)
+		A = user.loc
+	else
+		A = get_turf(src)
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			modifier.forceMove(T)
+			modifier.forceMove(A)
 			gun_mods.Remove(modifier)
 	if(capacitor)
-		capacitor.forceMove(T)
+		capacitor.forceMove(A)
 		capacitor = null
 	if(focusing_lens)
-		focusing_lens.forceMove(T)
+		focusing_lens.forceMove(A)
 		focusing_lens = null
 	if(modulator)
-		modulator.forceMove(T)
+		modulator.forceMove(A)
 		modulator = null
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
-			new /obj/item/device/laser_assembly(T)
+			new /obj/item/device/laser_assembly(A)
 		if(CHASSIS_MEDIUM)
-			new /obj/item/device/laser_assembly/medium(T)
+			new /obj/item/device/laser_assembly/medium(A)
 		if(CHASSIS_LARGE)
-			new /obj/item/device/laser_assembly/large(T)
+			new /obj/item/device/laser_assembly/large(A)
 	qdel(src)
 
 /obj/item/weapon/gun/energy/laser/prototype/small_fail(var/mob/user)
 	if(capacitor)
+		user << "<span class='danger'>\The [src]'s [capacitor] short-circuits!</span>"
 		capacitor.small_fail(user, src)
 	return
 
 /obj/item/weapon/gun/energy/laser/prototype/medium_fail(var/mob/user)
 	if(capacitor)
+		user << "<span class='danger'>\The [src]'s [capacitor] overloads!</span>"
 		capacitor.medium_fail(user, src)
 	return
 
 /obj/item/weapon/gun/energy/laser/prototype/critical_fail(var/mob/user)
 	if(capacitor)
+		user << "<span class='danger'>\The [src]'s [capacitor] goes critical!</span>"
 		capacitor.critical_fail(user, src)
 	return
 
