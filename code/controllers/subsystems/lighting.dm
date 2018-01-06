@@ -71,7 +71,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/turf/T
 	var/thing
 	for (var/zlevel = 1 to world.maxz)
-		for (thing in block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel)))
+		for (thing in Z_ALL_TURFS(zlevel))
 			T = thing
 			if (!T.dynamic_lighting)
 				continue

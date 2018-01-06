@@ -51,7 +51,7 @@
 			user << "<span class='notice'>There already is a string attached to this coin.</span>"
 			return
 		if (CC.use(1))
-			overlays += image('icons/obj/items.dmi',"coin_string_overlay")
+			add_overlay("coin_string_overlay")
 			string_attached = 1
 			user << "<span class='notice'>You attach a string to the coin.</span>"
 		else
@@ -65,7 +65,7 @@
 		var/obj/item/stack/cable_coil/CC = new/obj/item/stack/cable_coil(user.loc)
 		CC.amount = 1
 		CC.update_icon()
-		overlays = list()
+		cut_overlays()
 		string_attached = null
 		user << "<span class='notice'>You detach the string from the coin.</span>"
 	else ..()

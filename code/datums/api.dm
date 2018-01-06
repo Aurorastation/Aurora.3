@@ -969,7 +969,7 @@ proc/api_update_command_database()
 	if(!P.stamped)
 		P.stamped = new
 	P.stamped += /obj/item/weapon/stamp
-	P.overlays += stampoverlay
+	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(F.recievefax(P))

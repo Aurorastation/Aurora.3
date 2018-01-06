@@ -175,7 +175,7 @@
 			warning("Stair created without level above: ([loc.x], [loc.y], [loc.z])")
 			return qdel(src)
 		if(!istype(above))
-			above.ChangeTurf(/turf/simulated/open)
+			above.ChangeToOpenturf()
 
 /obj/structure/stairs/Uncross(atom/movable/A)
 	if(A.dir == dir && A.loc == loc)

@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - bugfix: "Objects partially obscured by shadow will no longer be partially fullbright."
