@@ -202,7 +202,7 @@
 	// Lattices, ladders, and stairs stop things from falling.
 	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest))
 		return FALSE
-	if(locate(/obj/structure/ladder, dest)  && ismob(src)) //hmmm how is this locker just floating here?
+	if( ismob(src) && locate(/obj/structure/ladder, dest)) //hmmm how is this locker just floating here?
 		return FALSE
 
 	// The var/climbers API is implemented here.
