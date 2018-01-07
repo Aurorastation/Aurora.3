@@ -45,9 +45,8 @@
 
 /datum/reagent/blackkois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(isvaurca(M))
-		M.heal_organ_damage(3 * removed, 3 * removed)
-		M.adjustToxLoss(-3 * removed)
-		M.adjustOxyLoss(-3 * removed)
+		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
+		M.adjustToxLoss(-1.2 * removed)
 		M.nutrition += nutriment_factor * removed // For hunger and fatness
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 	else
