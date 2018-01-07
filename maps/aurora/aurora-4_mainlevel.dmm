@@ -29651,6 +29651,7 @@
 	icon_state = "tube1";
 	dir = 2
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "aZi" = (
@@ -61989,10 +61990,11 @@
 "cei" = (
 /obj/structure/table/steel,
 /obj/item/weapon/deck/cards,
-/obj/machinery/newscaster{
-	pixel_y = 30
-	},
 /obj/item/weapon/key/janicart,
+/obj/item/device/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "cej" = (
@@ -62000,6 +62002,9 @@
 	dir = 8
 	},
 /obj/vehicle/train/cargo/trolley/pussywagon,
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "cek" = (
@@ -62153,6 +62158,9 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/newscaster{
+	pixel_x = -27
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "cev" = (
@@ -62231,6 +62239,9 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
+	},
+/obj/machinery/light_switch{
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -62554,6 +62565,11 @@
 /obj/item/stack/material/plastic{
 	amount = 20
 	},
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "cfv" = (
@@ -62647,6 +62663,28 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"cfD" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/noticeboard{
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/foyer)
+"cfE" = (
+/obj/item/device/radio/intercom{
+	desc = "Talk... listen through this.";
+	name = "Station Intercom (Brig Radio)";
+	pixel_x = 0;
+	pixel_y = 25;
+	wires = 7
+	},
+/turf/simulated/floor/tiled/dark,
+/area/janitor)
 
 (1,1,1) = {"
 aaa
@@ -78195,10 +78233,10 @@ cev
 ceD
 bWs
 ceK
-ceQ
-ceX
-cfd
-cfj
+ceM
+ceM
+ceM
+ceM
 cfp
 cft
 aKm
@@ -78445,7 +78483,7 @@ aLZ
 aLZ
 aLZ
 aaa
-cef
+cee
 cei
 cep
 cew
@@ -78454,7 +78492,7 @@ ceI
 ceL
 ceR
 ceY
-cfe
+ceY
 cfk
 cfq
 cfu
@@ -78705,15 +78743,15 @@ aLZ
 aLZ
 cej
 ceq
-cex
+cev
 ceF
 bWs
 ceM
 ceS
 ceZ
-cff
+ceZ
 cfl
-cfr
+ceM
 cfv
 aKm
 blP
@@ -78962,15 +79000,15 @@ aSs
 aLZ
 aVe
 aWH
-cey
+cev
 ceG
 bWs
-ceN
-ceT
-cfa
-cfg
-cfm
-cfs
+cfE
+ceM
+ceM
+ceM
+ceM
+ceM
 cfw
 aKm
 blP
@@ -79219,7 +79257,7 @@ aSt
 aLZ
 cek
 cer
-aXP
+cev
 aZh
 bWs
 bby
@@ -79990,7 +80028,7 @@ aSw
 aUg
 aDp
 aWI
-aBw
+cfD
 aPB
 aab
 big
@@ -91103,7 +91141,7 @@ bUY
 bLs
 bVP
 bWe
-cfy
+cfx
 bWN
 bXn
 bXn
@@ -91362,8 +91400,8 @@ bRE
 bRE
 bRE
 cfz
-cfA
-cfB
+cfz
+cfz
 bJL
 bYr
 bYJ
