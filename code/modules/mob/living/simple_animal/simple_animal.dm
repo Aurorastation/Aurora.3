@@ -610,17 +610,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return ..()
 
 
-/mob/living/simple_animal/handle_fire()
-	return
-/mob/living/simple_animal/update_fire()
-	return
-/mob/living/simple_animal/IgniteMob()
-	return
-/mob/living/simple_animal/ExtinguishMob()
-	return
-
-
-
 //I wanted to call this proc alert but it already exists.
 //Basically makes the mob pay attention to the world, resets sleep timers, awakens it from a sleeping state sometimes
 /mob/living/simple_animal/proc/poke(var/force_wake = 0)
