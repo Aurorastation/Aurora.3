@@ -4633,3 +4633,180 @@
 	reagents.add_reagent("honey", 3)
 	bitesize = 3
 
+// Chip update.
+/obj/item/weapon/reagent_containers/food/snacks/tortilla
+	name = "tortilla"
+	desc = "A thin, flour-based tortilla that can be used in a variety of dishes, or can be served as is."
+	icon_state = "tortilla"
+	bitesize = 3
+	nutriment_desc = list("tortilla" = 1)
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_amt = 10
+
+/obj/item/weapon/reagent_containers/food/snacks/tortilla/Initialize()
+	. = ..()
+	reagents.add_reagent("flour", 1)
+	reagents.add_reagent("sodiumchloride", 1)
+
+
+//chips
+/obj/item/weapon/reagent_containers/food/snacks/chip
+	name = "chip"
+	desc = "A portion sized chip good for dipping."
+	icon_state = "chip"
+	var/bitten_state = "chip_half"
+	bitesize = 1
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("chips" = 1,"salt" = 1)
+	nutriment_amt = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride", 0.1)
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/On_Consume(mob/M as mob)
+	if(reagents && reagents.total_volume)
+		icon_state = bitten_state
+	. = ..()
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/salsa
+	name = "salsa chip"
+	desc = "A portion sized chip good for dipping. This one has salsa on it."
+	icon_state = "chip_salsa"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/guac
+	name = "guac chip"
+	desc = "A portion sized chip good for dipping. This one has guac on it."
+	icon_state = "chip_guac"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/cheese
+	name = "cheese chip"
+	desc = "A portion sized chip good for dipping. This one has cheese sauce on it."
+	icon_state = "chip_cheese"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/nacho
+	name = "nacho chip"
+	desc = "A nacho ship stray from a plate of cheesy nachos."
+	icon_state = "chip_nacho"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/nacho/salsa
+	name = "nacho chip"
+	desc = "A nacho ship stray from a plate of cheesy nachos. This one has salsa on it."
+	icon_state = "chip_nacho_salsa"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/nacho/guac
+	name = "nacho chip"
+	desc = "A nacho ship stray from a plate of cheesy nachos. This one has guac on it."
+	icon_state = "chip_nacho_guac"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/nacho/cheese
+	name = "nacho chip"
+	desc = "A nacho ship stray from a plate of cheesy nachos. This one has extra cheese on it."
+	icon_state = "chip_nacho_cheese"
+	bitten_state = "chip_half"
+
+// chip plates
+/obj/item/weapon/reagent_containers/food/snacks/chipplate
+	name = "basket of chips"
+	desc = "A plate of chips intended for dipping."
+	icon_state = "chip_basket"
+	trash = /obj/item/trash/chipbasket
+	var/vendingobject = /obj/item/weapon/reagent_containers/food/snacks/chip
+	nutriment_desc = list("tortilla chips" = 5, "salt" = 1)
+	bitesize = 1
+	nutriment_amt = 10
+
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/attack_self(mob/user as mob)
+	var/obj/item/weapon/reagent_containers/food/snacks/returningitem = new vendingobject(loc)
+	returningitem.reagents.clear_reagents()
+	reagents.trans_to(returningitem, bitesize)
+	returningitem.bitesize = bitesize
+	user.put_in_hands(returningitem)
+	if (reagents && reagents.total_volume)
+		user << "You take a chip from the plate."
+	else
+		user << "You take the last chip from the plate."
+		var/obj/waste = new trash(loc)
+		if (loc == user)
+			user.put_in_hands(waste)
+		qdel(src)
+
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/nachos
+	name = "plate of nachos"
+	desc = "A very cheesy nacho plate."
+	icon_state = "nachos"
+	trash = /obj/item/trash/plate
+	vendingobject = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho
+	nutriment_desc = list("tortilla chips" = 5, "salt" = 1, "cheese" = 5)
+	bitesize = 1
+	nutriment_amt = 20
+
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/nachos/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride", 1)
+	reagents.add_reagent("cheese", 5)
+
+//dips
+/obj/item/weapon/reagent_containers/food/snacks/dip
+	name = "queso dip"
+	desc = "A simple, cheesy dip consisting of tomatos, cheese, and spices."
+	var/nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/cheese
+	var/chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/cheese
+	icon_state = "dip_cheese"
+	trash = /obj/item/trash/dipbowl
+	bitesize = 1
+	nutriment_desc = list("liquid cheese" = 10, "tomato" = 1)
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_amt = 20
+
+/obj/item/weapon/reagent_containers/food/snacks/dip/attackby(obj/item/weapon/reagent_containers/food/snacks/item as obj, mob/user as mob)
+	. = ..()
+	var/obj/item/weapon/reagent_containers/food/snacks/returningitem
+	if(istype(item,/obj/item/weapon/reagent_containers/food/snacks/chip/nacho) && item.icon_state == "chip_nacho")
+		returningitem = new nachotrans(src)
+	else if (istype(item,/obj/item/weapon/reagent_containers/food/snacks/chip) && (item.icon_state == "chip" || item.icon_state == "chip_half"))
+		returningitem = new chiptrans(src)
+	if(returningitem)
+		item.reagents.trans_to(returningitem, item.reagents.total_volume)
+		if(item.icon_state == "chip_half")
+			returningitem.icon_state = "[returningitem.icon_state]_half"
+			returningitem.bitesize = Clamp(returningitem.reagents.total_volume,1,10)
+		else
+			returningitem.bitesize = Clamp(returningitem.reagents.total_volume*0.5,1,10)
+		qdel(item)
+		user.put_in_hands(returningitem)
+		if (reagents && reagents.total_volume)
+			user << "You scoop up some dip with the chip."
+		else
+			user << "You scoop up the remaining dip with the chip."
+			var/obj/waste = new trash(loc)
+			if (loc == user)
+				user.put_in_hands(waste)
+			qdel(src)
+
+/obj/item/weapon/reagent_containers/food/snacks/dip/salsa
+	name = "salsa dip"
+	desc = "Traditional Sol chunky salsa dip containing tomatos, peppers, and spices."
+	nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/salsa
+	chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/salsa
+	icon_state = "dip_salsa"
+	nutriment_desc = list("salsa" = 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/dip/guac
+	name = "guac dip"
+	desc = "A recreation of the ancient Sol 'Guacamole' dip using tofu, limes, and spices. This recreation obviously leaves out mole meat."
+	nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/guac
+	chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/guac
+	icon_state = "dip_guac"
+	bitesize = 2
+	nutriment_desc = list("guacamole" = 1)
