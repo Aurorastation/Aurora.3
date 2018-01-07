@@ -139,10 +139,11 @@
 			owner << "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>"
 			owner << "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b>"
 
-			for(var/datum/language/L in owner.languages)
-				owner.remove_language(L.name)
-			owner.add_language(LANGUAGE_VAURCA)
 			B.lobotomized = 1
+
+		for(var/datum/language/L in owner.languages)
+			owner.remove_language(L.name)
+		owner.add_language(LANGUAGE_VAURCA)
 
 		if(prob(10))
 			owner << "<span class='warning'>You feel an unbearable pain in your mind!</span>"
