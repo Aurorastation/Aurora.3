@@ -199,7 +199,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "aw" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "ax" = (
 /obj/structure/grille,
@@ -243,7 +243,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "az" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/shuttle/arrival/station)
 "aA" = (
 /obj/structure/grille,
@@ -981,7 +981,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "bT" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/shuttle/escape/station)
 "bU" = (
 /obj/structure/window/reinforced{
@@ -2109,7 +2109,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/computer)
 "dX" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/syndicate_station/arrivals_dock)
 "dY" = (
 /obj/effect/floor_decal/corner/blue/full,
@@ -9197,7 +9197,7 @@
 /turf/simulated/shuttle/plating,
 /area/shuttle/escape_pod3/station)
 "qx" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/shuttle/administration/station)
 "qy" = (
 /obj/machinery/power/solar{
@@ -9445,7 +9445,7 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "qU" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/shuttle/specops/station)
 "qV" = (
 /turf/simulated/floor/tiled,
@@ -13388,7 +13388,7 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "yz" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/shuttle/transport1/station)
 "yA" = (
 /obj/machinery/washing_machine,
@@ -15323,7 +15323,7 @@
 /turf/simulated/floor,
 /area/hallway/secondary/entry/aft)
 "Cq" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/supply/station)
 "Cr" = (
 /obj/structure/window/reinforced{
@@ -16097,7 +16097,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "DJ" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/syndicate_station/surface)
 "DK" = (
 /obj/machinery/door/airlock/external{
@@ -18027,7 +18027,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "GW" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/skipjack_station/surface)
 "GX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -18752,7 +18752,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Iy" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/merchant_ship/docked)
 "Iz" = (
 /obj/machinery/firealarm/east,

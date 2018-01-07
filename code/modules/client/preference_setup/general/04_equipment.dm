@@ -22,7 +22,7 @@
 				"undershirt",
 				"socks",
 				"backbag"
-			), 
+			),
 			"args" = list("id")
 		)
 	)
@@ -49,7 +49,7 @@
 		"socks" = pref.socks,
 		"backbag" = pref.backbag,
 		"id" = pref.current_character,
-		"ckey" = pref.client.ckey
+		"ckey" = PREF_CLIENT_CKEY
 	)
 
 /datum/category_item/player_setup_item/general/equipment/sanitize_character(var/sql_load = 0)

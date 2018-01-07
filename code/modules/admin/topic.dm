@@ -97,8 +97,13 @@
 		display_mirrors_panel(usr, text2num(href_list["dbbanmirrors"]))
 		return
 
-	else if(href_list["dbbanmirrorckeys"])
-		display_mirrors_ckeys(usr, text2num(href_list["dbbanmirrorckeys"]))
+	else if(href_list["dbbanmirroract"])
+		// Mirror act contains the ID of the mirror being acted upon.
+		var/mirror_id = text2num(href_list["dbbanmirroract"])
+		if (href_list["mirrorckeys"])
+			display_mirrors_ckeys(usr, mirror_id)
+		else if (href_list["mirrorstatus"])
+			toggle_mirror_status(usr, mirror_id, text2num(href_list["mirrorstatus"]))
 		return
 
 	else if(href_list["editrights"])
