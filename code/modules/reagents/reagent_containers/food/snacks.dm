@@ -4777,13 +4777,15 @@
 	else if (istype(item,/obj/item/weapon/reagent_containers/food/snacks/chip) && (item.icon_state == "chip" || item.icon_state == "chip_half"))
 		returningitem = new chiptrans(src)
 	if(returningitem)
-		item.reagents.trans_to(returningitem, item.reagents.total_volume)
+		returningitem.reagents.clear_reagents() //Clear the new chip
+		item.reagents.trans_to(returningitem, item.reagents.total_volume) //Old chip to new chip
 		if(item.icon_state == "chip_half")
 			returningitem.icon_state = "[returningitem.icon_state]_half"
 			returningitem.bitesize = Clamp(returningitem.reagents.total_volume,1,10)
 		else
 			returningitem.bitesize = Clamp(returningitem.reagents.total_volume*0.5,1,10)
 		qdel(item)
+		reagents.trans_to(returningitem, bitesize) //Dip to new chip
 		user.put_in_hands(returningitem)
 		if (reagents && reagents.total_volume)
 			user << "You scoop up some dip with the chip."
@@ -4808,5 +4810,4 @@
 	nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/guac
 	chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/guac
 	icon_state = "dip_guac"
-	bitesize = 2
 	nutriment_desc = list("guacamole" = 1)
