@@ -48,12 +48,12 @@
 			owner.emote("cough")
 
 		if(prob(5))
-			spawn owner.emote("me", 1, "coughs up blood!")
+			owner.emote("me", 1, "coughs up blood!")
 			owner.drip(10)
 
 
 	if(stage >= 2 && prob(10))
-		spawn owner.emote("me", 1, "gasps for air!")
+		owner.emote("me", 1, "gasps for air!")
 		owner.losebreath += 15
 
 	if(stage >= 3)
@@ -108,7 +108,7 @@
 
 	if(stage >= 2)
 		if(stage < 3 && prob(10))
-			spawn owner.emote("me", 1, "gasps for air!")
+			owner.emote("me", 1, "gasps for air!")
 			owner.losebreath += 15
 
 		else if(prob(5*stage))
