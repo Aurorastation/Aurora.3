@@ -957,7 +957,7 @@ I said no!
 /datum/recipe/cheesesauce
 	fruit = list("chili" = 1, "tomato" = 1)
 	reagents = list("spacespice" = 1, "blackpepper" = 1,"sodiumchloride" = 1)
-	items = (
+	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dip
