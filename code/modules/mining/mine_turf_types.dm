@@ -35,7 +35,7 @@
 			if(H.flying) //flying mobs will ignore the lava
 				return 1
 			else
-				H.bodytemperature += 400
+				L.bodytemperature = min(L.bodytemperature + 150, 1000)
 		else
 			L.fire_stacks += 15
 			L.IgniteMob()
