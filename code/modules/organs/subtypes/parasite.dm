@@ -38,19 +38,21 @@
 /obj/item/organ/parasite/kois/process()
 	..()
 
-	if(prob(5))
-		owner.emote("cough")
+	if(stage >= 1)
+		if(prob(5*stage))
+			owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
+			owner.emote("me",1,"winces slightly.")
+			owner.adjustHalLoss(5)
 
-	if(prob(2))
-		spawn owner.emote("me", 1, "coughs up blood!")
-		owner.drip(10)
+		if(prob(10))
+			owner.emote("cough")
 
-	if(stage >= 1 && prob(5*stage))
-		owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
-		owner.emote("me",1,"winces slightly.")
-		owner.adjustHalLoss(5)
+		if(prob(5))
+			spawn owner.emote("me", 1, "coughs up blood!")
+			owner.drip(10)
 
-	if(stage >= 2 && prob(5))
+
+	if(stage >= 2 && prob(10))
 		spawn owner.emote("me", 1, "gasps for air!")
 		owner.losebreath += 15
 
@@ -61,7 +63,7 @@
 			owner.reagents.add_reagent("phoron", 8)
 			owner.reagents.add_reagent("koispaste", 5)
 
-	if(stage >= 4 && prob(10))
+	if(stage >= 4 && prob(15))
 		owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
 		owner.emote("cough")
 
@@ -76,6 +78,8 @@
 		S.set_up(R, 15, 0, T, 40)
 		S.start()
 
+		owner.adjustHalLoss(15)
+		owner.drip(15)
 		owner.delayed_vomit()
 
 ///////////////////
@@ -94,21 +98,29 @@
 /obj/item/organ/parasite/blackkois/process()
 	..()
 
-	if(prob(5))
-		owner.emote("cough")
-
-	if(prob(2))
-		spawn owner.emote("me", 1, "coughs up blood!")
-		owner.drip(10)
-
 	if(stage >= 1 && prob(5*stage))
-		owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
+		if(stage < 3)
+			owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
+		else
+			owner << "<span class='warning'>You feel a stinging pain in your head!</span>"
 		owner.emote("me",1,"winces slightly.")
 		owner.adjustHalLoss(5)
 
-	if(stage >= 2 && prob(5))
-		spawn owner.emote("me", 1, "gasps for air!")
-		owner.losebreath += 15
+	if(stage >= 2)
+		if(stage < 3 && prob(10))
+			spawn owner.emote("me", 1, "gasps for air!")
+			owner.losebreath += 15
+
+		else if(prob(5*stage))
+			owner << "<span class='warning'>You feel disorientated!</span>"
+			switch(rand(1,3))
+				if(1)
+					owner.confused += 10
+					owner.apply_effect(10,EYE_BLUR)
+				if(2)
+					owner.slurring += 30
+				if(3)
+					owner.dizziness += 10
 
 	if(stage >= 3)
 		set_light(-1, l_color = "#31004A")
@@ -125,7 +137,7 @@
 
 		if(B && !B.lobotomized)
 			owner << "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>"
-			owner << "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Li'idra hive.</b>"
+			owner << "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b>"
 
 			for(var/datum/language/L in owner.languages)
 				owner.remove_language(L.name)
@@ -137,7 +149,7 @@
 			owner.emote("scream")
 			owner.adjustBrainLoss(1)
 
-		if(prob(10))
+		if(prob(20))
 			owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
 			owner.emote("scream")
 
@@ -152,6 +164,8 @@
 			S.set_up(R, 15, 0, T, 40)
 			S.start()
 
+			owner.adjustHalLoss(15)
+			owner.drip(15)
 			owner.delayed_vomit()
 
 /obj/item/organ/parasite/blackkois/removed(var/mob/living/carbon/human/target)
