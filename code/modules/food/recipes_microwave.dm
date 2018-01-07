@@ -678,9 +678,6 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/taco
 
 
-
-
-
 /datum/recipe/meatball
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/rawmeatball
@@ -909,6 +906,22 @@ I said no!
 	reagents = list("flour" = 5,"sodiumchloride" = 1,"water" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tortilla
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/taconew
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/taco
+
+/datum/recipe/taconew_alt
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/taco
 
 /datum/recipe/chips
 	reagents = list("sodiumchloride" = 1)
