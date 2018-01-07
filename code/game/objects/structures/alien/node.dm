@@ -17,6 +17,10 @@
 	light_range = NODERANGE
 	var/node_range = NODERANGE
 
+/obj/structure/alien/weeds/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
 /obj/structure/alien/weeds/Initialize(pos, node)
 	. = ..()
 	if(istype(loc, /turf/space))
@@ -82,7 +86,7 @@
 
 	var/damage = W.force / 4.0
 
-	if(istype(W, /obj/item/weapon/weldingtool))
+	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(WT.remove_fuel(0, user))
