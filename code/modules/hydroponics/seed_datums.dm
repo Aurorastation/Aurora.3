@@ -383,12 +383,12 @@
 	seed_name = "kois"
 	seed_noun = "spores"
 	display_name = "k'ois spores"
-	mutants = null
 	chems = list(
 				"koispaste" = list(4),
 				"phoron" = list(8))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "koisspore"
+	mutants = list("blackkois")
 
 /datum/seed/koisspore/setup_traits()
 	..()
@@ -407,6 +407,21 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#E6E600")
 	set_trait(TRAIT_PLANT_ICON,"mushroom6")
 
+/datum/seed/koisspore/black
+	name = "blackkois"
+	mutants = null
+	chems = list(
+				"blackkois" = list(4),
+				"phoron" = list(8))
+
+/datum/seed/koisspore/black/setup_traits()
+	..()
+	set_trait(TRAIT_BIOLUM,-1)
+	set_trait(TRAIT_IDEAL_LIGHT,0)
+	set_trait(TRAIT_LIGHT_TOLERANCE,8)
+	set_trait(TRAIT_BIOLUM_COLOUR,"#31004A")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#31004A")
+	set_trait(TRAIT_PLANT_COLOUR,"#31004A")
 
 /datum/seed/mushroom/mold
 	name = "mold"

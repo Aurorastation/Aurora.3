@@ -11,11 +11,62 @@
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(isvaurca(M))
-		M.heal_organ_damage(0.8 * removed, 0)
+		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
+		M.adjustToxLoss(-1.2 * removed)
 		M.nutrition += nutriment_factor * removed // For hunger and fatness
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 	else
-		M.adjustToxLoss(1.5 * removed)
+		if(istype(M,/mob/living/carbon/human))
+
+			var/mob/living/carbon/human/H = M
+			if(!H.internal_organs_by_name["kois"])
+
+				if(prob(10*removed))
+					var/obj/item/organ/external/affected = H.get_organ("chest")
+					var/obj/item/organ/parasite/kois/infest = new()
+					infest.replaced(H, affected)
+
+				else
+					H.adjustToxLoss(-1.5 * removed)
+		else
+			M.adjustToxLoss(-1.5 * removed)
+		return
+	..()
+
+/datum/reagent/blackkois
+	name = "Modified K'ois"
+	id = "blackkois"
+	description = "A thick goopy substance, rich in K'ois nutrients. This sample appears to be modified."
+	metabolism = REM * 4
+	var/nutriment_factor = 10
+	var/injectable = 0
+	color = "#31004A"
+	taste_description = "tar"
+
+/datum/reagent/blackkois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(isvaurca(M))
+		M.heal_organ_damage(3 * removed, 3 * removed)
+		M.adjustToxLoss(-3 * removed)
+		M.adjustOxyLoss(-3 * removed)
+		M.nutrition += nutriment_factor * removed // For hunger and fatness
+		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+	else
+		if(istype(M,/mob/living/carbon/human))
+
+			var/mob/living/carbon/human/H = M
+			if(!H.internal_organs_by_name["blackkois"])
+
+				if(prob(20*removed))
+
+					var/obj/item/organ/external/affected = H.get_organ("head")
+					var/obj/item/organ/parasite/blackkois/infest = new()
+					infest.replaced(H, affected)
+
+				else
+
+					H.adjustToxLoss(-1.5 * removed)
+		else
+			M.adjustToxLoss(-1.5 * removed)
 		return
 	..()
 
@@ -3003,7 +3054,7 @@
 	description = "An iced fruit cocktail shaken with cinnamon whiskey. Hot, cold and sweet all at once."
 	color = "#e87727"
 	strength = 15
-	taste_description = "sweet spiced cherries"	
+	taste_description = "sweet spiced cherries"
 
 	glass_icon_state = "cherrytreefireball"
 	glass_name = "glass of Cherry Tree Fireball"
@@ -3015,7 +3066,7 @@
 	description = "An electric blue champagne cocktail that's popular on the club scene."
 	color = "#a3ecf7"
 	strength = 25
-	taste_description = "neon champagne"	
+	taste_description = "neon champagne"
 
 	glass_icon_state = "cobaltvelvet"
 	glass_name = "glass of Cobalt Velvet"
@@ -3027,19 +3078,19 @@
 	description = "Effectively pure alcohol with a dose of sugar. It's as simple as it is strong."
 	color = "#f78888"
 	strength = 65
-	taste_description = "liquid regret"	
+	taste_description = "liquid regret"
 
 	glass_icon_state = "fringeweaver"
 	glass_name = "glass of Fringe Weaver"
 	glass_desc = "Effectively pure alcohol with a dose of sugar. It's as simple as it is strong."
 
 /datum/reagent/ethanol/junglejuice
-	name = "Jungle Juice" 
+	name = "Jungle Juice"
 	id = "junglejuice"
 	description = "You're in the jungle now, baby."
 	color = "#773404"
 	strength = 35
-	taste_description = "a fraternity house party"	
+	taste_description = "a fraternity house party"
 
 	glass_icon_state = "junglejuice"
 	glass_name = "glass of Jungle Juice"
@@ -3051,7 +3102,7 @@
 	description = "The margarita with a Martian twist. They call it something less embarrassing there."
 	color = "#3eb7c9"
 	strength = 30
-	taste_description = "spicy, salty lime"	
+	taste_description = "spicy, salty lime"
 
 	glass_icon_state = "marsarita"
 	glass_name = "glass of Marsarita"
@@ -3074,7 +3125,7 @@
 	description = "A champagne cocktail, quietly bubbling in a slender glass."
 	color = "#13144c"
 	strength = 25
-	taste_description = "a late-night promise"	
+	taste_description = "a late-night promise"
 
 	glass_icon_state = "midnightkiss"
 	glass_name = "glass of Midnight Kiss"
@@ -3085,7 +3136,7 @@
 	id = "millionairesour"
 	description = "It's a good mix, a great mix. The best mix in known space. It's terrific, you're gonna love it."
 	color = "#13144c"
-	taste_description = "tart fruit"	
+	taste_description = "tart fruit"
 
 	glass_icon_state = "millionairesour"
 	glass_name = "glass of Millionaire Sour"
@@ -3097,7 +3148,7 @@
 	description = "Another, stronger version of the Black Russian. It's popular in some Martian arcologies."
 	color = "#020407"
 	strength = 30
-	taste_description = "bittersweet independence"	
+	taste_description = "bittersweet independence"
 
 	glass_icon_state = "olympusmons"
 	glass_name = "glass of Olympus Mons"
@@ -3109,7 +3160,7 @@
 	description = "Named for Jupiter's moon. It looks about as crusty."
 	color = "#785327"
 	strength = 30
-	taste_description = "a coffee-flavored moon"	
+	taste_description = "a coffee-flavored moon"
 
 	glass_icon_state = "europanail"
 	glass_name = "glass of Europa Nail"
@@ -3120,7 +3171,7 @@
 	id = "portsvilleminttea"
 	description = "A popular iced pick-me-up originating from a city in Eos, on Biesel."
 	color = "#b6f442"
-	taste_description = "cool minty tea"	
+	taste_description = "cool minty tea"
 
 	glass_icon_state = "portsvilleminttea"
 	glass_name = "glass of Portsville Mint Tea"
@@ -3131,7 +3182,7 @@
 	id = "shirleytemple"
 	description = "Straight from the good ship Lollipop."
 	color = "#ce2727"
-	taste_description = "innocence"	
+	taste_description = "innocence"
 
 	glass_icon_state = "shirleytemple"
 	glass_name = "glass of Shirley Temple"
@@ -3143,7 +3194,7 @@
 	description = "Sweet, light and fruity. As girly as it gets."
 	color = "#d51d5d"
 	strength = 15
-	taste_description = "sweet soda"	
+	taste_description = "sweet soda"
 
 	glass_icon_state = "sugarrush"
 	glass_name = "glass of Sugar Rush"
@@ -3155,7 +3206,7 @@
 	description = "Red wine, splashed with brandy and infused with fruit."
 	color = "#960707"
 	strength = 30
-	taste_description = "sweet wine"	
+	taste_description = "sweet wine"
 
 	glass_icon_state = "sangria"
 	glass_name = "glass of Sangria"
@@ -3167,7 +3218,7 @@
 	description = "A vodka cocktail from Vega De Rosa, Mendell City's entertainment district. Purple and deep."
 	color = "#6807b2"
 	strength = 25
-	taste_description = "the groove"	
+	taste_description = "the groove"
 
 	glass_icon_state = "bassline"
 	glass_name = "glass of Bassline"
@@ -3179,7 +3230,7 @@
 	description = "A gin drink popularized by a spy thriller in 2452."
 	color = "#4286f4"
 	strength = 30
-	taste_description = "a blue christmas tree"	
+	taste_description = "a blue christmas tree"
 
 	glass_icon_state = "bluebird"
 	glass_name = "glass of Bluebird"

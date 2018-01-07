@@ -1,0 +1,161 @@
+/obj/item/organ/parasite
+	name = "parasite"
+	icon = 'icons/mob/alien.dmi'
+	icon_state = "burst_lie"
+	dead_icon = "bursted_lie"
+
+	organ_tag = "parasite"
+	var/stage = 1
+	var/max_stage = 4
+	var/stage_ticker = 0
+	var/stage_interval = 600 //time between stages, in seconds
+
+/obj/item/organ/parasite/process()
+	..()
+
+	if(!owner)
+		return
+
+	if(stage < max_stage)
+		stage_ticker += 2 //process ticks every ~2 seconds
+
+	if(stage_ticker >= stage*stage_interval)
+		stage = min(stage+1,max_stage)
+
+///////////////////
+///K'ois Mycosis///
+///////////////////
+
+/obj/item/organ/parasite/kois
+	name = "k'ois mycosis"
+	//icon_state = "kois-on"
+	//dead_icon = "kois-off"
+
+	organ_tag = "kois"
+
+	parent_organ = "chest"
+
+/obj/item/organ/parasite/kois/process()
+	..()
+
+	if(prob(5))
+		owner.emote("cough")
+
+	if(prob(2))
+		spawn owner.emote("me", 1, "coughs up blood!")
+		owner.drip(10)
+
+	if(stage >= 1 && prob(5*stage))
+		owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
+		owner.emote("me",1,"winces slightly.")
+		owner.adjustHalLoss(5)
+
+	if(stage >= 2 && prob(5))
+		spawn owner.emote("me", 1, "gasps for air!")
+		owner.losebreath += 15
+
+	if(stage >= 3)
+		set_light(1, l_color = "#E6E600")
+		if(prob(10))
+			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
+			owner.reagents.add_reagent("phoron", 8)
+			owner.reagents.add_reagent("koispaste", 5)
+
+	if(stage >= 4 && prob(10))
+		owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
+		owner.emote("cough")
+
+		var/turf/T = get_turf(owner)
+
+		var/datum/reagents/R = new/datum/reagents(100)
+		R.add_reagent("koispaste",10)
+		R.add_reagent("phoron",10)
+		var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("koisspore")
+
+		S.attach(T)
+		S.set_up(R, 15, 0, T, 40)
+		S.start()
+
+		owner.delayed_vomit()
+
+///////////////////
+///Black Mycosis///
+///////////////////
+
+/obj/item/organ/parasite/blackkois
+	name = "k'ois mycosis"
+	//icon_state = "blackkois-on"
+	//dead_icon = "blackkois-off"
+
+	organ_tag = "blackkois"
+
+	parent_organ = "head"
+
+/obj/item/organ/parasite/blackkois/process()
+	..()
+
+	if(prob(5))
+		owner.emote("cough")
+
+	if(prob(2))
+		spawn owner.emote("me", 1, "coughs up blood!")
+		owner.drip(10)
+
+	if(stage >= 1 && prob(5*stage))
+		owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
+		owner.emote("me",1,"winces slightly.")
+		owner.adjustHalLoss(5)
+
+	if(stage >= 2 && prob(5))
+		spawn owner.emote("me", 1, "gasps for air!")
+		owner.losebreath += 15
+
+	if(stage >= 3)
+		set_light(-1, l_color = "#31004A")
+		if(prob(10))
+			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
+			owner.reagents.add_reagent("phoron", 2)
+
+		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
+			owner.add_language(LANGUAGE_VAURCA)
+			owner << "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>"
+
+	if(stage >= 4)
+		var/obj/item/organ/brain/B = owner.internal_organs_by_name["brain"]
+
+		if(B && !B.lobotomized)
+			owner << "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>"
+			owner << "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Li'idra hive.</b>"
+
+			for(var/datum/language/L in owner.languages)
+				owner.remove_language(L.name)
+			owner.add_language(LANGUAGE_VAURCA)
+			B.lobotomized = 1
+
+		if(prob(10))
+			owner << "<span class='warning'>You feel an unbearable pain in your mind!</span>"
+			owner.emote("scream")
+			owner.adjustBrainLoss(1)
+
+		if(prob(10))
+			owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
+			owner.emote("scream")
+
+			var/turf/T = get_turf(owner)
+
+			var/datum/reagents/R = new/datum/reagents(100)
+			R.add_reagent("blackkois",10)
+			R.add_reagent("phoron",10)
+			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
+
+			S.attach(T)
+			S.set_up(R, 15, 0, T, 40)
+			S.start()
+
+			owner.delayed_vomit()
+
+/obj/item/organ/parasite/blackkois/removed(var/mob/living/carbon/human/target)
+	if(all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3)
+		target.remove_language(LANGUAGE_VAURCA)
+		target << "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>"
+	..()

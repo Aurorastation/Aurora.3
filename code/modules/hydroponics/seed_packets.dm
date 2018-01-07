@@ -284,3 +284,6 @@ var/global/list/plant_seed_sprites = list()
 
 /obj/item/seeds/koisspore
 	seed_type = "koisspore"
+
+/obj/item/seeds/blackkois
+	seed_type = "blackkois"

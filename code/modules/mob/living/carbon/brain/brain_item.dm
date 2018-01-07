@@ -120,8 +120,8 @@
 	if(!owner)
 		return
 
-	if(lobotomized && (owner.getBrainLoss() < 50)) //lobotomized brains cannot be healed with chemistry. Part of the brain is irrevocably missing. Can be fixed magically with cloning, ofc.
-		owner.setBrainLoss(50)
+	if(lobotomized && (owner.getBrainLoss() < 40)) //lobotomized brains cannot be healed with chemistry. Part of the brain is irrevocably missing. Can be fixed magically with cloning, ofc.
+		owner.setBrainLoss(40)
 
 /obj/item/organ/brain/slime
 	name = "slime core"
