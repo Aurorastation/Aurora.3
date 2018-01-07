@@ -120,7 +120,7 @@
 				if(2)
 					owner.slurring += 30
 				if(3)
-					owner.dizziness += 10
+					owner.make_dizzy(10)
 
 	if(stage >= 3)
 		set_light(-1, l_color = "#31004A")
