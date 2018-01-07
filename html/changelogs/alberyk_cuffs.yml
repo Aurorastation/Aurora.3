@@ -1,4 +1,4 @@
 author: Alberyk
 delete-after: True
 changes: 
-  - balance: "Unathi breaking handcuffs should now cost stamina."
+  - balance: "Unathi handcuff breaking should now cost stamina."
