@@ -73,6 +73,9 @@
 	if (A.flags & SPAWN_ROOF)
 		spawn_roof()
 
+	if (flags & MIMIC_BELOW)
+		setup_zmimic(mapload)
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
@@ -87,6 +90,12 @@
 	if (ao_queued)
 		SSocclusion.queue -= src
 		ao_queued = 0
+
+	if (flags & MIMIC_BELOW)
+		cleanup_zmimic()
+
+	if (bound_overlay)
+		QDEL_NULL(bound_overlay)
 
 	..()
 	return QDEL_HINT_IWILLGC
@@ -341,7 +350,7 @@ var/const/enterloopsanity = 100
 		if (!above || isopenturf(above))
 			return
 
-		above.ChangeTurf(/turf/simulated/open)
+		above.ChangeToOpenturf()
 
 /turf/proc/AdjacentTurfsRanged()
 	var/static/list/allowed = typecacheof(list(

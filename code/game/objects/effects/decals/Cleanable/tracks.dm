@@ -124,7 +124,7 @@
 			update_icon()
 
 	update_icon()
-		overlays.Cut()
+		cut_overlays()
 		color = "#FFFFFF"
 		var/truedir=0
 
@@ -145,7 +145,7 @@
 			track.fresh=0
 			track.overlay=I
 			stack[stack_idx]=track
-			overlays += I
+			add_overlay(I)
 		updatedtracks=0 // Clear our memory of updated tracks.
 
 /obj/effect/decal/cleanable/blood/tracks/footprints
