@@ -32,7 +32,7 @@
 	possible_wanted_items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/human      = TRADER_SUBTYPES_ONLY,
 		/obj/item/weapon/reagent_containers/food/snacks/meat/human = TRADER_THIS_TYPE,
-		/mob/living/carbon/human                                   = TRADER_THIS_TYPE
+		/mob/living/carbon/human                                   = TRADER_ALL
 	)
 
 	possible_trading_items = list(
@@ -43,7 +43,7 @@
 		/obj/item/weapon/gun/energy/rifle/pulse         = TRADER_THIS_TYPE
 	)
 
-	blacklisted_trade_items = null
+	blacklisted_trade_items = list(/datum/species/monkey)
 
 	speech = list(
 		"hail_generic"         = "H-hello. Can you hear me? G-good... I have... specific needs... I have a lot to t-trade with you in return of course.",
