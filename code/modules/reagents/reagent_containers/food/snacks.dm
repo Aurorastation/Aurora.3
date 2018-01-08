@@ -4778,8 +4778,13 @@
 		returningitem = new chiptrans(src)
 	if(returningitem)
 		returningitem.reagents.clear_reagents() //Clear the new chip
+		var/memed = 0
 		item.reagents.trans_to(returningitem, item.reagents.total_volume) //Old chip to new chip
 		if(item.icon_state == "chip_half")
+			returningitem.icon_state = "[returningitem.icon_state]_half"
+			returningitem.bitesize = Clamp(returningitem.reagents.total_volume,1,10)
+		else if(prob(1))
+			user << "You scoop up some dip with the chip, but mid-scop, the chip breaks off into the dreadful abyss of dip, never to be seen again..."
 			returningitem.icon_state = "[returningitem.icon_state]_half"
 			returningitem.bitesize = Clamp(returningitem.reagents.total_volume,1,10)
 		else
@@ -4787,10 +4792,13 @@
 		qdel(item)
 		reagents.trans_to(returningitem, bitesize) //Dip to new chip
 		user.put_in_hands(returningitem)
+
 		if (reagents && reagents.total_volume)
-			user << "You scoop up some dip with the chip."
+			if(!memed)
+				user << "You scoop up some dip with the chip."
 		else
-			user << "You scoop up the remaining dip with the chip."
+			if(!memed)
+				user << "You scoop up the remaining dip with the chip."
 			var/obj/waste = new trash(loc)
 			if (loc == user)
 				user.put_in_hands(waste)
