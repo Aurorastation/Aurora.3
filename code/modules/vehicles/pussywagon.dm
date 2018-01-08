@@ -182,7 +182,7 @@
 				hoover_toggle()
 			if(hoovered.len > current_len)
 				playsound(src, 'sound/machines/disposalflush.ogg', 100, 1)
-	..()
+	return ..()
 
 /obj/vehicle/train/cargo/trolley/pussywagon/proc/mop_toggle()
 	if(!mopping)
