@@ -9,6 +9,7 @@
 	var/max_stage = 4
 	var/stage_ticker = 0
 	var/stage_interval = 600 //time between stages, in seconds
+	var/subtle = 0 //will the body reject the parasite naturally?
 
 /obj/item/organ/parasite/process()
 	..()
@@ -21,6 +22,14 @@
 
 	if(stage_ticker >= stage*stage_interval)
 		stage = min(stage+1,max_stage)
+
+/obj/item/organ/parasite/handle_rejection()
+	if(subtle)
+		return ..()
+	else
+		if(rejecting)
+			rejecting = 0
+		return
 
 ///////////////////
 ///K'ois Mycosis///
@@ -38,32 +47,39 @@
 /obj/item/organ/parasite/kois/process()
 	..()
 
+	if(stage >= 3)
+		set_light(1, l_color = "#E6E600")
+
 	if(stage >= 1)
-		if(prob(5*stage))
+		if(prob(10) && !(owner.species.flags & NO_PAIN))
 			owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
 			owner.emote("me",1,"winces slightly.")
 			owner.adjustHalLoss(5)
+			return
 
-		if(prob(10))
+		if(prob(10) && !(owner.species.flags & NO_BREATHE))
 			owner.emote("cough")
+			return
 
-		if(prob(5))
+		if(prob(10) && !(owner.species.flags & NO_BREATHE))
 			owner.emote("me", 1, "coughs up blood!")
 			owner.drip(10)
+			return
 
 
-	if(stage >= 2 && prob(10))
+	if(stage >= 2 && prob(10) && !(owner.species.flags & NO_BREATHE))
 		owner.emote("me", 1, "gasps for air!")
-		owner.losebreath += 15
+		owner.losebreath += 5
+		return
 
 	if(stage >= 3)
-		set_light(1, l_color = "#E6E600")
 		if(prob(10))
 			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
 			owner.reagents.add_reagent("phoron", 8)
 			owner.reagents.add_reagent("koispaste", 5)
+			return
 
-	if(stage >= 4 && prob(15))
+	if(stage >= 4 && prob(10))
 		owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
 		owner.emote("cough")
 
@@ -75,12 +91,15 @@
 		var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("koisspore")
 
 		S.attach(T)
-		S.set_up(R, 15, 0, T, 40)
+		S.set_up(R, 20, 0, T, 40)
 		S.start()
 
-		owner.adjustHalLoss(15)
-		owner.drip(15)
-		owner.delayed_vomit()
+		if(!(owner.species.flags & NO_PAIN))
+			owner.emote("scream")
+			owner.adjustHalLoss(15)
+			owner.drip(15)
+			owner.delayed_vomit()
+		return
 
 ///////////////////
 ///Black Mycosis///
@@ -90,6 +109,7 @@
 	name = "k'ois mycosis"
 	//icon_state = "blackkois-on"
 	//dead_icon = "blackkois-off"
+	subtle = 1
 
 	organ_tag = "blackkois"
 
@@ -98,41 +118,14 @@
 /obj/item/organ/parasite/blackkois/process()
 	..()
 
-	if(stage >= 1 && prob(5*stage))
-		if(stage < 3)
-			owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
-		else
-			owner << "<span class='warning'>You feel a stinging pain in your head!</span>"
-		owner.emote("me",1,"winces slightly.")
-		owner.adjustHalLoss(5)
 
-	if(stage >= 2)
-		if(stage < 3 && prob(10))
-			owner.emote("me", 1, "gasps for air!")
-			owner.losebreath += 15
-
-		else if(prob(5*stage))
-			owner << "<span class='warning'>You feel disorientated!</span>"
-			switch(rand(1,3))
-				if(1)
-					owner.confused += 10
-					owner.apply_effect(10,EYE_BLUR)
-				if(2)
-					owner.slurring += 30
-				if(3)
-					owner.make_dizzy(10)
-
-	if(stage >= 3)
-		set_light(-1, l_color = "#31004A")
-		if(prob(10))
-			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
-			owner.reagents.add_reagent("phoron", 2)
-
-		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
-			owner.add_language(LANGUAGE_VAURCA)
-			owner << "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>"
+	if(stage >= 3 && !(all_languages[LANGUAGE_VAURCA] in owner.languages))
+		set_light(-1.5, 6, "#FFFFFF")
+		owner.add_language(LANGUAGE_VAURCA)
+		owner << "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>"
 
 	if(stage >= 4)
+
 		var/obj/item/organ/brain/B = owner.internal_organs_by_name["brain"]
 
 		if(B && !B.lobotomized)
@@ -145,14 +138,51 @@
 			owner.remove_language(L.name)
 		owner.add_language(LANGUAGE_VAURCA)
 
-		if(prob(10))
-			owner << "<span class='warning'>You feel an unbearable pain in your mind!</span>"
-			owner.emote("scream")
-			owner.adjustBrainLoss(1)
 
-		if(prob(20))
+	if(stage >= 1 && prob(10) && !(owner.species.flags & NO_PAIN))
+		if(stage < 3)
+			owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
+		else
+			owner << "<span class='warning'>You feel a stinging pain in your head!</span>"
+		owner.emote("me",1,"winces slightly.")
+		owner.adjustHalLoss(5)
+		return
+
+	if(stage >= 2)
+		if(stage < 3 && prob(10) && !(owner.species.flags & NO_BREATHE))
+			owner.emote("me", 1, "gasps for air!")
+			owner.losebreath += 5
+			return
+
+		else if(stage >= 3 && prob(10))
+			owner << "<span class='warning'>You feel disorientated!</span>"
+			switch(rand(1,3))
+				if(1)
+					owner.confused += 10
+					owner.apply_effect(10,EYE_BLUR)
+				if(2)
+					owner.slurring += 30
+				if(3)
+					owner.make_dizzy(10)
+			return
+
+	if(stage >= 3)
+		if(prob(5))
+			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
+			owner.reagents.add_reagent("phoron", 4)
+			return
+
+	if(stage >= 4)
+
+		if(prob(10))
+			if(!(owner.species.flags & NO_PAIN))
+				owner << "<span class='warning'>You feel an unbearable pain in your mind!</span>"
+				owner.emote("scream")
+			owner.adjustBrainLoss(1)
+			return
+
+		if(prob(10))
 			owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
-			owner.emote("scream")
 
 			var/turf/T = get_turf(owner)
 
@@ -162,12 +192,15 @@
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
 
 			S.attach(T)
-			S.set_up(R, 15, 0, T, 40)
+			S.set_up(R, 20, 0, T, 40)
 			S.start()
 
-			owner.adjustHalLoss(15)
-			owner.drip(15)
-			owner.delayed_vomit()
+			if(!(owner.species.flags & NO_PAIN))
+				owner.emote("scream")
+				owner.adjustHalLoss(15)
+				owner.drip(15)
+				owner.delayed_vomit()
+			return
 
 /obj/item/organ/parasite/blackkois/removed(var/mob/living/carbon/human/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3)

@@ -119,7 +119,7 @@
 	 (!harvest && !dead))
 		harvest = 1
 		lastproduce = age
-		if(seed.get_trait(TRAIT_SPOROUS && !closed_system))
+		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))
 			visible_message("<span class='danger'>\The [src] releases its spores!</span>")
 

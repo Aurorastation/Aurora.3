@@ -397,7 +397,7 @@
 	set_trait(TRAIT_MATURATION,5)
 	set_trait(TRAIT_PRODUCTION,1)
 	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,60)
+	set_trait(TRAIT_POTENCY,40)
 	set_trait(TRAIT_BIOLUM,1)
 	set_trait(TRAIT_IDEAL_LIGHT,1)
 	set_trait(TRAIT_LIGHT_TOLERANCE,2)
@@ -412,14 +412,15 @@
 	mutants = null
 	chems = list(
 				"blackkois" = list(4),
-				"phoron" = list(8))
+				"phoron" = list(2))
 
 /datum/seed/koisspore/black/setup_traits()
 	..()
-	set_trait(TRAIT_BIOLUM,-1)
+	set_trait(TRAIT_BIOLUM_PWR,-1.5)
+	set_trait(TRAIT_POTENCY,60)
 	set_trait(TRAIT_IDEAL_LIGHT,0)
 	set_trait(TRAIT_LIGHT_TOLERANCE,8)
-	set_trait(TRAIT_BIOLUM_COLOUR,"#31004A")
+	set_trait(TRAIT_BIOLUM_COLOUR,"#FFFFFF")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#31004A")
 	set_trait(TRAIT_PLANT_COLOUR,"#31004A")
 
