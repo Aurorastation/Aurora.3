@@ -144,7 +144,7 @@
 	path = /obj/item/clothing/under/rank/warden/navyblue
 	allowed_roles = list("Head of Security", "Warden")
 
-/datum/gear/uniform/navysecsuit_warden
+/datum/gear/uniform/navysecsuit_hos
 	display_name = "uniform, navyblue (Head of Security)"
 	path = /obj/item/clothing/under/rank/head_of_security/navyblue
 	allowed_roles = list("Head of Security")
