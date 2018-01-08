@@ -32,72 +32,72 @@
 				if(!charges)
 					break
 
-//can refill most vendors from completely depleted once.
+//can refill most vendors from half depleted once.
 
 /obj/item/weapon/vending_refill/booze
 	name = "booze resupply canister"
 	vend_id = "booze"
-	charges = 200 //holy shit that's a lot of booze
+	charges = 100 //holy shit that's a lot of booze
 
 /obj/item/weapon/vending_refill/tools
 	name = "tools resupply canister"
 	vend_id = "tools"
-	charges = 50
+	charges = 25
 
 /obj/item/weapon/vending_refill/coffee
 	name = "coffee resupply canister"
 	vend_id = "coffee"
-	charges = 75
+	charges = 38
 
 /obj/item/weapon/vending_refill/snack
 	name = "snacks resupply canister"
 	vend_id = "snacks"
-	charges = 75
+	charges = 38
 
 /obj/item/weapon/vending_refill/cola
 	name = "cola resupply canister"
 	vend_id = "cola"
-	charges = 100
+	charges = 50
 
 /obj/item/weapon/vending_refill/pda
 	name = "pdas resupply canister"
 	vend_id = "pdas"
-	charges = 75
+	charges = 38
 
 /obj/item/weapon/vending_refill/smokes
 	name = "smokes resupply canister"
 	vend_id = "smokes"
-	charges = 50
+	charges = 25
 
 /obj/item/weapon/vending_refill/meds
 	name = "meds resupply canister"
 	vend_id = "meds"
-	charges = 75
+	charges = 38
 
 /obj/item/weapon/vending_refill/robust
 	name = "security resupply canister"
 	vend_id = "security"
-	charges = 50
+	charges = 25
 
 /obj/item/weapon/vending_refill/hydro
 	name = "hydro resupply canister"
 	vend_id = "hydro"
-	charges = 45
+	charges = 23
 
 /obj/item/weapon/vending_refill/seeds
 	name = "resupply canister"
 	vend_id = "seeds"
-	charges = 350
+	charges = 175
 
 /obj/item/weapon/vending_refill/cutlery
 	name = "cutlery resupply canister"
 	vend_id = "cutlery"
-	charges = 100
+	charges = 50
 
 /obj/item/weapon/vending_refill/robo
 	name = "robo-tools resupply canister"
 	vend_id = "robo-tools"
-	charges = 75
+	charges = 38
 
 /obj/item/weapon/vending_refill/vend
 	name = "resupply canister resupply canister"
