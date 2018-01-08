@@ -915,20 +915,13 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/taco
 
-/datum/recipe/taconew_alt
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
-		/obj/item/weapon/reagent_containers/food/snacks/meatball,
-		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/taco
-
 /datum/recipe/chips
 	reagents = list("sodiumchloride" = 1)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/tortilla
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/chipplate
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/nachos
 	items = list(
@@ -941,6 +934,7 @@ I said no!
 	fruit = list("chili" = 1, "tomato" = 1,"lime" = 1)
 	reagents = list("spacespice" = 1, "blackpepper" = 1,"sodiumchloride" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dip/salsa
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/guac
 	fruit = list("chili" = 1,"lime" = 1)
@@ -949,6 +943,7 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/tofu
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dip/guac
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/cheesesauce
 	fruit = list("chili" = 1, "tomato" = 1)
@@ -957,3 +952,73 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dip
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/burrito
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball
+	)
+	reagents = list("spacespice" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/burrito
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/burrito_vegan
+	fruit = list("carrot" = 1,"cabbage" = 1)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
+		/obj/item/weapon/reagent_containers/food/snacks/tofu
+	)
+	reagents = list("spacespice" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/burrito_spicy
+	fruit = list("chili" = 2)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball
+	)
+	reagents = list("spacespice" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_spicy
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/burrito_cheese
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+	)
+	reagents = list("spacespice" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/burrito_cheese_spicy
+	fruit = list("chili" = 2)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+	)
+	reagents = list("spacespice" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese_spicy
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/burrito_hell
+	fruit = list("chili" = 10)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball
+	)
+	reagents = list("spacespice" = 1, "phoron" = 5)
+	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_hell
+
+/datum/recipe/burrito_mystery
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/mysterysoup
+	)
+	reagents = list("phoron" = 5)
+	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_mystery
+	reagent_mix = RECIPE_REAGENT_REPLACE
