@@ -931,13 +931,13 @@ I said no!
 	result = /obj/item/weapon/reagent_containers/food/snacks/chipplate/nachos
 
 /datum/recipe/salsa
-	fruit = list("chili" = 1, "tomato" = 1,"lime" = 1)
+	fruit = list("chili" = 1, "tomato" = 1, "lime" = 1)
 	reagents = list("spacespice" = 1, "blackpepper" = 1,"sodiumchloride" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dip/salsa
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/guac
-	fruit = list("chili" = 1,"lime" = 1)
+	fruit = list("chili" = 1, "lime" = 1)
 	reagents = list("spacespice" = 1, "blackpepper" = 1,"sodiumchloride" = 1)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/tofu
@@ -964,7 +964,7 @@ I said no!
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/burrito_vegan
-	fruit = list("carrot" = 1,"cabbage" = 1)
+	fruit = list("carrot" = 1, "cabbage" = 1)
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/tortilla,
 		/obj/item/weapon/reagent_containers/food/snacks/tofu
@@ -1012,6 +1012,7 @@ I said no!
 	)
 	reagents = list("spacespice" = 1, "phoron" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_hell
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/burrito_mystery
 	items = list(
