@@ -135,9 +135,19 @@
 	allowed_roles = list("Head of Personnel")
 
 /datum/gear/uniform/navysecsuit
-	display_name = "uniform, navyblue (Security)"
+	display_name = "uniform, navyblue (Security Officer)"
 	path = /obj/item/clothing/under/rank/security/navyblue
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+
+/datum/gear/uniform/navysecsuit_warden
+	display_name = "uniform, navyblue (Warden)"
+	path = /obj/item/clothing/under/rank/warden/navyblue
+	allowed_roles = list("Head of Security", "Warden")
+
+/datum/gear/uniform/navysecsuit_warden
+	display_name = "uniform, navyblue (Head of Security)"
+	path = /obj/item/clothing/under/rank/head_of_security/navyblue
+	allowed_roles = list("Head of Security")
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
