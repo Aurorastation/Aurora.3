@@ -1,10 +1,9 @@
 # Lines starting with '#' are comments.
 # Each line is a file pattern followed by one or more owners.
 
-# The list is ordered alphabetical
-# Ensure to preserve the order when editing it
-# If you want to be added, make a PR that adds you to it
-# If you are added, then you are expected to review PRs in a timely manner
+# The list is ordered alphabetically, please try to preserve the order when editing it.
+# If you want to be added, make a PR that adds you to it.
+# If you are added, then you are expected to review PRs in a timely manner.
 
 /code/world.dm @Lohikar @Arrow768
 /code/controllers/master/ @Lohikar
