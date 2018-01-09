@@ -1,23 +1,22 @@
 //todo: toothbrushes, and some sort of "toilet-filthinator" for the hos
 
-/obj/structure/toilet
+/obj/machinery/disposal/toilet
 	name = "toilet"
 	desc = "The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean."
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "toilet00"
 	density = 0
-	anchored = 1
 	var/open = 0			//if the lid is up
 	var/cistern = 0			//if the cistern bit is open
 	var/w_items = 0			//the combined w_class of all the items in the cistern
 	var/mob/living/swirlie = null	//the mob being given a swirlie
 
-/obj/structure/toilet/Initialize()
+/obj/machinery/disposal/toilet/Initialize()
 	. = ..()
 	open = round(rand(0, 1))
-	update_icon()
+	update()
 
-/obj/structure/toilet/attack_hand(mob/living/user as mob)
+/obj/machinery/disposal/toilet/attack_hand(mob/living/user as mob)
 	if(swirlie)
 		usr.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		usr.visible_message("<span class='danger'>[user] slams the toilet seat onto [swirlie.name]'s head!</span>", "<span class='notice'>You slam the toilet seat onto [swirlie.name]'s head!</span>", "You hear reverberating porcelain.")
@@ -39,19 +38,19 @@
 			return
 
 	open = !open
-	update_icon()
+	..()
 
-/obj/structure/toilet/update_icon()
+/obj/machinery/disposal/toilet/update()
 	icon_state = "toilet[open][cistern]"
 
-/obj/structure/toilet/attackby(obj/item/I as obj, mob/living/user as mob)
+/obj/machinery/disposal/toilet/attackby(obj/item/I as obj, mob/living/user as mob)
 	if(iscrowbar(I))
 		user << "<span class='notice'>You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"].</span>"
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		if(do_after(user, 30))
 			user.visible_message("<span class='notice'>[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!</span>", "<span class='notice'>You [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!</span>", "You hear grinding porcelain.")
 			cistern = !cistern
-			update_icon()
+			update()
 			return
 
 	if(istype(I, /obj/item/weapon/grab))
@@ -93,14 +92,42 @@
 		user << "You carefully place \the [I] into the cistern."
 		return
 
-/obj/structure/toilet/noose
-	desc = "The HT-451, a torque rotation-based, waste disposal unit for small matter. This one's cistern seems remarkably scratched."
+	if(I.w_class > 2)
+		user << "\The [I] is too large to fit into the toilet."
+		return
 
-/obj/structure/toilet/noose/Initialize()
-	. = ..()
-	new /obj/item/stack/cable_coil(src)
-	if(prob(5))
-		cistern = 1
+	..()
+
+/obj/machinery/disposal/toilet/MouseDrop_T(mob/target, mob/user)
+	if(user.stat || !user.canmove || !istype(target))
+		return
+	if(target.buckled || get_dist(user, src) > 1)
+		return
+
+	//you can bring a horse to water but you can't make it shit
+	if(target != user)
+		return
+
+	src.add_fingerprint(user)
+	if(target == user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)	// if drop self, then climbed in
+											// must be awake, not stunned or whatever
+		user.visible_message("\The [user] climbs onto the [src].")
+		user << "You climb onto the [src]."
+
+	if(!do_after(user, round(min(0.1,rand())*user.waste)))
+		return
+
+	user.visible_message("\The [user] relieves themselves.")
+	user << "You relieve yourself."
+	var/obj/item/weapon/reagent_containers/glass/fertilizer/waste/poop = new(src)
+	poop.volume = user.waste
+	user.waste = 0
+	poop.create_reagents(poop.volume)
+	poop.reagents.add_reagent("poop",poop.volume)
+	poop.desc = "A vacuum sealed waste bag, it reads: \"Bio-hazard! Do not consume\". It can hold up to [poop.volume] units."
+
+	update()
+	return
 
 /obj/structure/urinal
 	name = "urinal"

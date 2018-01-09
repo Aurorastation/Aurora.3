@@ -112,6 +112,12 @@
 	var/nutrition_loss = HUNGER_FACTOR//How much hunger is lost per tick. This is modified by species
 	var/max_nutrition = 400
 
+	var/hydration = 400.0
+	var/hydration_loss = HUNGER_FACTOR
+	var/max_hydration = 400
+
+	var/waste = 0
+
 	var/overeatduration = 0		// How long this guy is overeating //Carbon
 	var/paralysis = 0.0
 	var/stunned = 0.0

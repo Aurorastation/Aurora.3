@@ -1270,6 +1270,7 @@
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
 
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
+	hydration_loss = HUNGER_FACTOR * species.hydration_loss_factor
 	if(species)
 		return 1
 	else

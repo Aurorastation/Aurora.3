@@ -129,6 +129,7 @@
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
 	else
 		M.nutrition += nutriment_factor * removed
+		M.waste += nutriment_factor
 
 	if(alien == IS_DIONA)
 		return //Diona can gain nutrients, but don't get drunk or suffer other effects
@@ -206,6 +207,7 @@
 		M.adjustToxLoss(removed * (strength / 100))
 	else
 		M.nutrition += nutriment_factor * removed
+		M.waste += nutriment_factor
 
 	if (alien == IS_UNATHI)
 		ingest_met = initial(ingest_met)*3

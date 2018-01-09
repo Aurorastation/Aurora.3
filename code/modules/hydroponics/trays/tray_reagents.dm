@@ -122,3 +122,10 @@
 	name = "bottle of Robust Harvest"
 	icon_state = "bottle15"
 	fertilizer = "robustharvest"
+
+/obj/item/weapon/reagent_containers/glass/fertilizer/waste
+	name = "bio-waste bag"
+	desc = "A vacuum sealed waste baggy."
+	icon = 'icons/obj/chemical.dmi'
+	icon_state = "wastebag"
+	volume = 0

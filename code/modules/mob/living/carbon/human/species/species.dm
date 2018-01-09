@@ -152,6 +152,7 @@
 	var/allowed_eat_types = TYPE_ORGANIC
 	var/max_nutrition_factor = 1	//Multiplier on maximum nutrition
 	var/nutrition_loss_factor = 1	//Multiplier on passive nutrition losses
+	var/hydration_loss_factor = 1
 
 	                              // Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.

@@ -214,6 +214,14 @@
 	name = "Robust Harvest"
 	id = "robustharvest"
 
+/datum/reagent/toxin/fertilizer/waste
+	name = "bio-waste"
+	id = "poop"
+	description = "An uneven mixture of solid and liquid waste produced by some organism."
+	strength = 0.75
+	taste_description = "shit and piss"
+	taste_mult = 1.5
+
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
 	id = "plantbgone"
