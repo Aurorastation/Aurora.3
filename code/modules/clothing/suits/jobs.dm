@@ -129,34 +129,34 @@
 
 /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
 	desc = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent."
-	icon = 'icons/obj/clothing/coloured_detective_coats.dmi'
 	icon_state = "suit_detective_black"
-	item_state = "suit_detective_black_item"
+	item_state = "suit_detective_black"
 	icon_open = "suit_detective_black_open"
 	icon_closed = "suit_detective_black"
 	var/suit_color
-	contained_sprite = 1
 
 /obj/item/clothing/suit/storage/toggle/det_trench/technicolor/Initialize()
 	if(prob(5))
 		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
 		var/color = pickweight(colors)
+		name = "[color] trenchcoat"
 		icon_state = "suit_detective_[color]"
-		item_state = "suit_detective_[color]_item"
+		item_state = "suit_detective_[color]"
 		icon_open = "suit_detective_[color]_open"
 		icon_closed = "suit_detective_[color]"
-	. = ..()
+	.=..()
 
 /obj/item/clothing/suit/storage/toggle/det_trench/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
 		var/obj/item/weapon/reagent_containers/glass/paint/P = O
 		suit_color = P.paint_type
+		name = "[suit_color] trenchcoat" // Added name change, why was it never here?!
 		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
-		icon_state = "suit_detective_[color]"
-		item_state = "suit_detective_[color]_item"
-		icon_open = "suit_detective_[color]_open"
-		icon_closed = "suit_detective_[color]"
-	..()
+		icon_state = "suit_detective_[suit_color]"
+		item_state = "suit_detective_[suit_color]"
+		icon_open = "suit_detective_[suit_color]_open"
+		icon_closed = "suit_detective_[suit_color]"
+	.=..()
 
 //Forensics
 /obj/item/clothing/suit/storage/forensics
