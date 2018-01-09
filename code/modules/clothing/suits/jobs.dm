@@ -144,7 +144,7 @@
 		item_state = "suit_detective_[color]"
 		icon_open = "suit_detective_[color]_open"
 		icon_closed = "suit_detective_[color]"
-	.=..()
+	. = ..()
 
 /obj/item/clothing/suit/storage/toggle/det_trench/technicolor/attackby(obj/item/weapon/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
@@ -156,7 +156,7 @@
 		item_state = "suit_detective_[suit_color]"
 		icon_open = "suit_detective_[suit_color]_open"
 		icon_closed = "suit_detective_[suit_color]"
-	.=..()
+	. = ..()
 
 //Forensics
 /obj/item/clothing/suit/storage/forensics
