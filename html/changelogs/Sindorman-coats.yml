@@ -2,5 +2,4 @@ author: PoZe, AndurilFlame
 
 delete-after: True
 changes:
-  - rscadd: "Trench coat, detective's coat, and gentlecoat are now able to be buttoned up and down."
-  - imageadd: "Trench coats, detective coats, and gentlecoats now have two sprites for open and closed states."
+  - rscadd: "Trench coat, detective's coat, coloured detective's coats, and gentlecoat are now able to be buttoned up and down."
