@@ -708,6 +708,7 @@ proc/is_blind(A)
 			location.add_vomit_floor(src, 1)
 
 		nutrition -= 60
+		waste = min(0, waste - 60) //truly robust will turn into bolemics
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
 			intoxication *= 0.8
 
@@ -729,7 +730,7 @@ proc/is_blind(A)
 		spawn(150)	//15 seconds until second warning
 			src << "<span class='warning'>You feel like you are about to throw up!</span>"
 			spawn(100)	//and you have 10 more for mad dash to the bucket
-				vomit()//Vomit function is in mob helpers
+				vomit()//Vomit function is in mob helpers //wat, this function is in mob helpers
 				spawn(350)	//wait 35 seconds before next volley
 					lastpuke = 0
 

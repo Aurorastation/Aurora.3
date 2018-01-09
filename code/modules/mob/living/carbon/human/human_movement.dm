@@ -27,7 +27,7 @@
 			tally++
 
 	if (nutrition + waste > max_nutrition)
-		tally += max(1,round((nutrition + waste - max_nutrition)*0.1))
+		tally += min(max(1,round((nutrition + waste - max_nutrition)*0.1),4))
 
 	if(wear_suit)
 		tally += wear_suit.slowdown

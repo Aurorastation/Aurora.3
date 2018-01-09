@@ -121,6 +121,7 @@
 	user << "You relieve yourself."
 	var/obj/item/weapon/reagent_containers/glass/fertilizer/waste/poop = new(src)
 	poop.volume = user.waste
+	user.hydration = min(0, (hydration - (user.waste*user.hydration_loss)))
 	user.waste = 0
 	poop.create_reagents(poop.volume)
 	poop.reagents.add_reagent("poop",poop.volume)

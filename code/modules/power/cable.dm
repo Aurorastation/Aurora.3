@@ -89,7 +89,7 @@ var/list/possible_cable_coil_colours = list(
 	d2 = text2num( copytext( icon_state, dash+1 ) )
 
 	var/turf/T = src.loc			// hide if turf is not intact
-	if(level == 1 && !T.is_hole) 
+	if(level == 1 && !T.is_hole)
 		hide(!T.is_plating())
 
 	SSpower.all_cables += src //add it to the global cable list
@@ -892,7 +892,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
 		if(!istype(usr.loc,/turf)) return
-		if(!(locate(/obj/item/weapon/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
+		if(!(locate(/obj/item/weapon/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/machinery/disposal/toilet) in usr.loc))
 			usr << "<span class='warning'>You have to be standing on top of a chair/table/bed to make a noose!</span>"
 			return 0
 		if(src.amount <= 24)
