@@ -164,7 +164,7 @@
 	if(istype(O, /obj/item/weapon/reagent_containers/glass/paint))
 		var/obj/item/weapon/reagent_containers/glass/paint/P = O
 		hat_color = P.paint_type
-		name = "[hat_color] fedora."
+		name = "[hat_color] fedora"
 		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
 		icon_state = "hat_detective_[hat_color]"
 		item_state = "hat_detective_[hat_color]"
