@@ -128,7 +128,7 @@
 		for(var/obj/I in src)
 			I.forceMove(user.loc)
 		use_internal_tank = 0
-		internal_tank = 0
+		internal_tank = null
 		update_icon()
 	else
 		visible_message(
