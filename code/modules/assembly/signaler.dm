@@ -96,13 +96,10 @@
 
 
 /obj/item/device/assembly/signaler/proc/signal()
-	log_debug("signal 1")
 	if(!radio_connection)
 		return
-	log_debug("signal 2")
 	if(within_jamming_range(src))
 		return
-	log_debug("signal 3")
 	var/datum/signal/signal = new
 	signal.source = src
 	signal.encryption = code
@@ -178,7 +175,7 @@
 /obj/item/device/assembly/signaler/verb/deadman_it()
 	set src in usr
 	set name = "Threaten to push the button!"
-	set desc = "BOOOOM!"
+	set desc = "Sends a signal if dropped."
 	if(!deadman)
 		deadman = 1
 		START_PROCESSING(SSprocessing, src)
