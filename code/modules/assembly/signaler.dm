@@ -164,7 +164,7 @@
 		STOP_PROCESSING(SSprocessing, src)
 	var/mob/M = src.loc
 	if(!M || !ismob(M))
-		src.visible_message("<span class='warning'>[src]'s deadman switch is released !</span>")
+		src.visible_message("<span class='warning'>[src]'s deadman switch is released!</span>")
 		signal()
 		deadman = 0
 		STOP_PROCESSING(SSprocessing, src)
@@ -174,17 +174,17 @@
 
 /obj/item/device/assembly/signaler/verb/deadman_it()
 	set src in usr
-	set name = "Threaten to push the button!"
+	set name = "Hold the deadman switch!"
 	set desc = "Sends a signal if dropped."
 	if(!deadman)
 		deadman = 1
 		START_PROCESSING(SSprocessing, src)
 		log_and_message_admins("is threatening to trigger a signaler deadman's switch")
-		usr.visible_message("<span class='warning'>[usr] activates [src]'s deadman switch</span>")
+		usr.visible_message("<span class='warning'>[usr] presses [src]'s deadman switch...</span>")
 	else
 		deadman = 0
 		STOP_PROCESSING(SSprocessing, src)
-		usr.visible_message("<span class='warning'>[usr] deactivates [src]'s deadman switch</span>")
+		usr.visible_message("<span class='warning'>[usr] secures [src]'s deadman switch...</span>")
 
 /obj/item/device/assembly/signaler/Destroy()
 	if(SSradio)
