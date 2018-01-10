@@ -68,22 +68,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/overlaycount = 0
 	var/starttime = REALTIMEOFDAY
 	// Generate overlays.
-	var/turf/T
-	var/thing
 	for (var/zlevel = 1 to world.maxz)
-		for (thing in Z_ALL_TURFS(zlevel))
-			T = thing
-			if (!T.dynamic_lighting)
-				continue
-
-			var/area/A = T.loc
-			if (!A.dynamic_lighting)
-				continue
-
-			new /atom/movable/lighting_overlay(T)
-			overlaycount++
-
-			CHECK_TICK
+		overlaycount += setup_zlevel(zlevel)
 
 	admin_notice(span("danger", "Created [overlaycount] lighting overlays in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 
@@ -103,6 +89,24 @@ var/datum/controller/subsystem/lighting/SSlighting
 #endif
 
 	..()
+
+/datum/controller/subsystem/lighting/proc/setup_zlevel(zlevel)
+	. = 0
+	for (var/thing in Z_ALL_TURFS(zlevel))
+		var/turf/T = thing
+		if (!T.dynamic_lighting)
+			continue
+
+		var/area/A = T.loc
+		if (!A.dynamic_lighting)
+			continue
+
+		new /atom/movable/lighting_overlay(T)
+		.++
+
+		CHECK_TICK
+	
+	log_debug("SSlighting: created [.] LOs on level [zlevel].")
 
 /datum/controller/subsystem/lighting/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)

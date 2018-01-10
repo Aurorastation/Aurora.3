@@ -466,3 +466,14 @@ var/global/dmm_suite/preloader/_preloader = new
 /turf/template_noop
 	name = "Turf Passthrough"
 	icon_state = "noop"
+
+/proc/dmms_expand_bounds(list/A, list/B)
+	. = new /list(6)
+	.[MAP_MINX] = min(A[MAP_MINX], B[MAP_MINX])
+	.[MAP_MINY] = min(A[MAP_MINY], B[MAP_MINY])
+	.[MAP_MINZ] = min(A[MAP_MINZ], B[MAP_MINZ])
+	.[MAP_MAXX] = max(A[MAP_MAXX], B[MAP_MAXX])
+	.[MAP_MAXY] = max(A[MAP_MAXY], B[MAP_MAXY])
+	.[MAP_MAXZ] = max(A[MAP_MAXZ], B[MAP_MAXZ])
+
+	log_debug("dmms_eb: [json_encode(A)] + [json_encode(B)] = [json_encode(.)]")

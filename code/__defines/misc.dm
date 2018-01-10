@@ -454,3 +454,7 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define MAX_SOUND_Z_TRAVERSAL 2
 
 #define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))
+
+#define LOADMODE_NEWZ 1
+#define LOADMODE_ORIGIN 2
+#define LOADMODE_CENTER 3

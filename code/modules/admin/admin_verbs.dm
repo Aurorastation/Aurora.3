@@ -131,7 +131,9 @@ var/list/admin_verbs_fun = list(
 	/datum/admins/proc/call_drop_pod,
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
-	/client/proc/apply_sunstate
+	/client/proc/apply_sunstate,
+	/client/proc/template_create,
+	/client/proc/template_select
 	)
 
 var/list/admin_verbs_spawn = list(
