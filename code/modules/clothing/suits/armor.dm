@@ -103,7 +103,13 @@
 	icon_closed = "jensencoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
-	pocket_slots = 4//More slots because coat
+
+/obj/item/clothing/suit/storage/toggle/armor/hos/jensen/Initialize()
+	. = ..()
+	pockets = new/obj/item/weapon/storage/internal(src)
+	pockets.storage_slots = 4
+	pockets.max_w_class = 2
+	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/armor/riot
 	name = "riot suit"
