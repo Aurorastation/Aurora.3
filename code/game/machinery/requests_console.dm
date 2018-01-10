@@ -108,6 +108,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			req_console_supplies -= department
 		if (departmentType & RC_INFO)
 			req_console_information -= department
+	
+	if (LAZYLEN(alert_pdas))
+		for (var/pp in alert_pdas)
+			var/obj/item/device/pda/P = pp
+			P.linked_consoles -= src
+
+		alert_pdas.Cut()
 	return ..()
 
 /obj/machinery/requests_console/attack_hand(user as mob)

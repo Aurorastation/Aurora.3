@@ -148,7 +148,7 @@
 		if(blacklisted_trade_items && blacklisted_trade_items.len)
 			if(ishuman(offer))
 				var/mob/living/carbon/human/A = offer
-				if(A.species in blacklisted_trade_items)
+				if(is_type_in_list(A.species, blacklisted_trade_items))
 					return 0
 			else if(is_type_in_list(offer,blacklisted_trade_items))
 				return 0
