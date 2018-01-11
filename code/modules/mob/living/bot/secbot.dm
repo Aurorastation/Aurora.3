@@ -69,7 +69,7 @@
 	if(SSradio)
 		SSradio.add_object(listener, control_freq, filter = RADIO_SECBOT)
 		SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
-	
+
 	if (!patrol_callback)
 		patrol_callback = CALLBACK(src, .proc/patrol_step)
 
@@ -313,7 +313,6 @@
 					playsound(loc, pick(preparing_arrest_sounds), 50, 0)
 	else if(istype(M, /mob/living/simple_animal) && !istype(M, /mob/living/simple_animal/hostile/commanded))
 		var/mob/living/simple_animal/S = M
-		S.AdjustStunned(10)
 		S.adjustBruteLoss(15)
 		do_attack_animation(M)
 		playsound(loc, "swing_hit", 50, 1, -1)
@@ -343,6 +342,12 @@
 
 	new /obj/effect/decal/cleanable/blood/oil(Tsec)
 	qdel(src)
+
+/mob/living/bot/secbot/emag_act(var/remaining_charges, var/mob/user, var/feedback)
+	if(!emagged)
+		emagged = 1
+		user << (feedback ? feedback : "You short out the lock of \the [src].")
+		return 1
 
 /mob/living/bot/secbot/proc/scan_view()
 	target = null

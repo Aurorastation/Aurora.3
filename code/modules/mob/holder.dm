@@ -291,7 +291,7 @@ var/list/holder_mob_icon_cache = list()
 	reagents = M.reagents
 
 /obj/item/weapon/holder/human/sync(var/mob/living/M)
-
+	cut_overlays()
 	// Generate appropriate on-mob icons.
 	var/mob/living/carbon/human/owner = M
 	if(!icon && istype(owner) && owner.species)
@@ -345,7 +345,7 @@ var/list/holder_mob_icon_cache = list()
 		color = M.color
 		name = M.name
 		desc = M.desc
-		overlays |= M.overlays
+		copy_overlays(M)
 		var/mob/living/carbon/human/H = loc
 		if(istype(H))
 			if(H.l_hand == src)

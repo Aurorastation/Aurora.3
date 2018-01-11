@@ -402,8 +402,8 @@
 				T = T.above
 				goto check_t
 		else
-			if (isopenturf(T) && T:below)	// Not searching upwards and we have a below turf.
-				T = T:below	// Consider the turf below us as well. (Z-lights)
+			if (T && (T.flags & MIMIC_BELOW) && T.below)	// Not searching upwards and we have a below turf.
+				T = T.below	// Consider the turf below us as well. (Z-lights)
 				goto check_t
 			else // Not searching upwards and we don't have a below turf.
 				zlights_going_up = TRUE

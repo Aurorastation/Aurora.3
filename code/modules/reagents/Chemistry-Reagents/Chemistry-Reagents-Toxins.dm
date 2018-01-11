@@ -559,7 +559,7 @@
 	M.transforming = 1
 	M.canmove = 0
 	M.icon = null
-	M.overlays.Cut()
+	M.cut_overlays()
 	M.invisibility = 101
 	for(var/obj/item/W in M)
 		if(istype(W, /obj/item/weapon/implant)) //TODO: Carn. give implants a dropped() or something
