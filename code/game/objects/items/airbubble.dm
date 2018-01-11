@@ -222,7 +222,7 @@
 			icon_state = icon_closed
 
 /obj/structure/closet/air_bubble/proc/process_tank_give_air()
-	if(internal_tank)
+	if(internal_tank && use_internal_tank)
 		var/datum/gas_mixture/tank_air = internal_tank.return_air()
 
 		var/release_pressure = internal_tank_valve
