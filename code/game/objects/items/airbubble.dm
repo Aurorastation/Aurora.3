@@ -11,6 +11,8 @@
 
 	attack_self(mob/user)
 		var/obj/structure/closet/air_bubble/R = new /obj/structure/closet/air_bubble(user.loc)
+		if(!used)
+			internal_tank = new /obj/item/weapon/tank/emergency_oxygen/double(src)
 		R.used = 1
 		R.internal_tank = internal_tank
 		R.add_fingerprint(user)
@@ -66,8 +68,6 @@
 /obj/structure/closet/air_bubble/Initialize()
 	. = ..()
 	add_inside()
-	if (!used)
-		add_airtank()
 	START_PROCESSING(SSfast_process, src)
 	use_internal_tank = !use_internal_tank
 
@@ -175,7 +175,7 @@
 			"<span class='notice'>You cut cable restrains on [src]'s zipper.</span>"
 		)
 		new/obj/item/weapon/handcuffs/cable(src.loc)
-	else if(istype(W, /obj/item/weapon/tank/emergency_oxygen/double/))
+	else if(istype(W, /obj/item/weapon/tank))
 		if(!use_internal_tank)
 			user.visible_message(
 				"<span class='warning'>[user] attached [W] to [src].</span>",
@@ -183,9 +183,10 @@
 			)
 			if (!do_after(user, 1 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
-			internal_tank = W
-			mob.remove_from_inventory(W)
-			W.forceMove(null)
+			var/obj/item/weapon/tank/T = W
+			internal_tank = T
+			user.drop_from_inventory(T)
+			T.forceMove(src)
 			use_internal_tank = 1
 		else
 			user.visible_message("<span class='warning'>[src] already has a tank attached.</span>")
@@ -316,10 +317,6 @@
 		process_tank_give_air()
 
 	process_ticks = (process_ticks + 1) % 17
-
-/obj/structure/closet/air_bubble/proc/add_airtank()
-	internal_tank = new /obj/item/weapon/tank/emergency_oxygen/double(src)
-	return internal_tank
 
 /obj/structure/closet/air_bubble/proc/add_inside()
 	inside_air = new
