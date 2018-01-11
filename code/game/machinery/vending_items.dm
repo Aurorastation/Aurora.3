@@ -98,8 +98,3 @@
 	name = "robo-tools resupply canister"
 	vend_id = "robo-tools"
 	charges = 38
-
-/obj/item/weapon/vending_refill/vend
-	name = "resupply canister resupply canister"
-	vend_id = "restocking unit"
-	charges = 24
