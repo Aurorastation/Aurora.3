@@ -753,7 +753,7 @@
 	desc = "The mother of all vendors, from which vending itself comes!"
 	icon_state = "engivend"
 	icon_deny = "engivend-deny"
-	vend_id = "tools"
+	vend_id = "admin"
 	req_access = list(access_janitor)
 	products = list(
 		/obj/item/weapon/vending_refill/booze = 1,
@@ -769,7 +769,4 @@
 		/obj/item/weapon/vending_refill/cutlery = 1,
 		/obj/item/weapon/vending_refill/robo = 1
 
-	)
-	premium = list(
-		/obj/item/weapon/vending_refill/vend = 1
 	)
