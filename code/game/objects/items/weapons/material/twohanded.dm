@@ -277,3 +277,66 @@
 	for(var/obj/item/organ/external/head/H in src)
 		H.loc = user.loc
 	qdel(src)
+
+// Chainsaw
+
+/obj/item/weapon/material/twohanded/chainsaw
+	name = "chainsaw"
+	desc = "A deadly chainsaw in the shape of a chainsaw."
+	icon_state = "chainsaw_off"
+	base_icon = "chainsaw_off"
+	flags = CONDUCT
+	slot_flags = SLOT_BACK
+	force = 10
+	force_wielded = 20
+	throwforce = 7
+	w_class = 4
+	sharp = 1
+	edge = 1
+	origin_tech = list(TECH_COMBAT = 5)
+	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	can_embed = 0
+	applies_material_colour = 0
+	var/powered = 0
+
+/obj/item/weapon/material/twohanded/chainsaw/AltClick(mob/user as mob)
+
+	powered = !powered
+
+	if(powered)
+		playsound(user, 'sound/weapons/chainsawstart.ogg', 50, 1)
+		user << span("notice", "\The [src] rumbles to life.")
+		force = 20
+		force_wielded = 40
+		throwforce = 20
+		hitsound = 'sound/weapons/chainsword.ogg'
+		icon_state = "chainsaw_on"
+		base_icon = "chainsaw_on"
+		slot_flags = null
+	else
+		user << span("notice", "\The [src] slowly powers down.")
+		force = initial(force)
+		force_wielded = initial(force_wielded)
+		throwforce = initial(throwforce)
+		hitsound = initial(hitsound)
+		icon_state = initial(icon_state)
+		base_icon = initial(base_icon)
+		slot_flags = initial(slot_flags)
+	user.regenerate_icons()
+
+
+/obj/item/weapon/material/twohanded/chainsaw/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target) && wielded)
+		cleave(user, target)
+	..()
+
+/obj/item/weapon/material/twohanded/chainsaw/update_icon()
+	// Just an override.
+
+/obj/item/weapon/material/twohanded/chainsaw/verb/toggle_power()
+	set name = "Toggle power"
+	set category = "Object"
+	set src in usr
+
+	AltClick(usr)
