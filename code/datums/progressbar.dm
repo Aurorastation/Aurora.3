@@ -60,7 +60,8 @@
 
 	if (client)
 		client.images -= bar
-	qdel(bar)
+
+	QDEL_NULL(bar)
 	. = ..()
 
 #undef PROGRESSBAR_HEIGHT

@@ -17,6 +17,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 	var/map_override	// If set, SSatlas will forcibly load this map. If the map does not exist, mapload will fail and SSatlas will panic.
 	var/list/spawn_locations = list()
 
+	var/list/connected_z_cache = list()
+
 /datum/controller/subsystem/atlas/New()
 	NEW_SS_GLOBAL(SSatlas)
 
@@ -77,12 +79,14 @@ var/datum/controller/subsystem/atlas/SSatlas
 	sortTim(files, /proc/cmp_text_asc)
 	var/mfile
 	var/first_dmm = TRUE
+	var/time
 	for (var/i in 1 to files.len)
 		mfile = files[i]
 		if (!mapregex.Find(mfile))
 			continue
 
 		log_ss("atlas", "Loading '[mfile]'.")
+		time = world.time
 
 		mfile = "[directory][mfile]"
 
@@ -90,10 +94,12 @@ var/datum/controller/subsystem/atlas/SSatlas
 		if (overwrite_default_z && first_dmm)
 			target_z = 1
 			first_dmm = FALSE
-			log_ss("atlas", "Overwriting Z[target_z].")
+			log_ss("atlas", "Overwriting first Z.")
 
 		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
 			log_ss("atlas", "Failed to load '[mfile]'!")
+		else
+			log_ss("atlas", "Loaded level in [(world.time - time)/10] seconds.")
 
 		.++
 		CHECK_TICK
@@ -102,6 +108,8 @@ var/datum/controller/subsystem/atlas/SSatlas
 	for (var/thing in height_markers)
 		var/obj/effect/landmark/map_data/marker = thing
 		marker.setup()
+
+	connected_z_cache.Cut()
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (config.override_map)
@@ -127,6 +135,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	priority_announcement = new(do_log = 0)
 	command_announcement = new(do_log = 0, do_newscast = 1)
 
+	log_debug("atlas: running [LAZYLEN(mapload_callbacks)] mapload callbacks.")
 	for (var/thing in mapload_callbacks)
 		var/datum/callback/cb = thing
 		cb.InvokeAsync()

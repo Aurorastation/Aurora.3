@@ -19,7 +19,8 @@
 // Copypaste of parent for performance.
 /turf/space/Initialize()
 	appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
-	update_starlight()
+	if (config.starlight)
+		update_starlight()
 
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")

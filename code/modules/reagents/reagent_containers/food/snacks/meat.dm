@@ -61,6 +61,18 @@
 	cooked_icon = "chickenbreast_cooked"
 	filling_color = "#BBBBAA"
 
+/obj/item/weapon/reagent_containers/food/snacks/meat/biogenerated
+	name = "bio meat"
+	desc = "Did this come from the Biogenerator, or is it a biohazard? Perhaps it is both."
+	icon_state = "plantmeat"
+	filling_color = "#A8AA00"
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/biogenerated/Initialize()
+	. = ..()
+	reagents.add_reagent("nutriment",3)
+	reagents.add_reagent("tofu", 3)
+	reagents.add_reagent("triglyceride", 3)
+
 /obj/item/weapon/reagent_containers/food/snacks/meat/chicken/Initialize()
 	. = ..()
 	reagents.remove_reagent("triglyceride", INFINITY)
@@ -77,3 +89,5 @@
 	. = ..()
 	reagents.add_reagent("protein", 6)
 	reagents.add_reagent("undead_ichor", 5)
+
+

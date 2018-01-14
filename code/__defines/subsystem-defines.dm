@@ -71,8 +71,9 @@
 #define STOP_EFFECT(effect) effect.isprocessing = FALSE; SSeffects.effect_systems -= effect;
 #define STOP_VISUAL(visual)	visual.isprocessing = FALSE; SSeffects.visuals -= visual;
 
-// -- SSopenturf --
-#define CHECK_OO_EXISTENCE(OO) if (OO && !isopenturf(OO.loc)) { qdel(OO); }
+// -- SSzcopy --
+#define TURF_IS_MIMICING(T) (isturf(T) && (T.flags & MIMIC_BELOW))
+#define CHECK_OO_EXISTENCE(OO) if (OO && !TURF_IS_MIMICING(OO.loc)) { qdel(OO); }
 #define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_above(); }
 
 // -- SSfalling --
@@ -87,6 +88,8 @@
 // Connection prefixes for player-editable fields
 #define WP_ELECTRONICS "elec_"
 
+// -- SSatlas --
+#define ARE_Z_CONNECTED(ZA, ZB) ((ZA == ZB) || ((SSatlas.connected_z_cache.len >= ZA && SSatlas.connected_z_cache[ZA]) ? SSatlas.connected_z_cache[ZA][ZB] : AreConnectedZLevels(ZA, ZB)))
 
 // -- SSicon_cache --
 #define LIGHT_FIXTURE_CACHE(icon,state,color) SSicon_cache.light_fixture_cache["[icon]_[state]_[color]"] || (SSicon_cache.light_fixture_cache["[icon]_[state]_[color]"] = SSicon_cache.generate_color_variant(icon,state,color))

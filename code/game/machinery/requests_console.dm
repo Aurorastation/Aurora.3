@@ -405,7 +405,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 								img = image('icons/obj/bureaucracy.dmi', "paper_stamp-dots")
 							img.pixel_x = C.offset_x[j]
 							img.pixel_y = C.offset_y[j]
-							P.overlays += img
+							P.add_overlay(img)
 						P.set_content_unsafe(pname, info)
 						Console.print(P, 0, 'sound/machines/twobeep.ogg')
 						for (var/mob/player in hearers(4, Console.loc))

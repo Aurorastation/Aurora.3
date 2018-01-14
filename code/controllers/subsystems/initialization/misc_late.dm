@@ -36,6 +36,8 @@
 	if (config.fastboot)
 		admin_notice("<span class='notice'><b>Fastboot is enabled; some features may not be available.</b></span>", R_DEBUG)
 
+	populate_code_phrases()
+
 	..(timeofday)
 
 /proc/sorted_add_area(area/A)

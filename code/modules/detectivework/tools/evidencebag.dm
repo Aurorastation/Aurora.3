@@ -58,15 +58,11 @@
 
 	icon_state = "evidence"
 
-	var/xx = I.pixel_x	//save the offset of the item
-	var/yy = I.pixel_y
-	I.pixel_x = 0		//then remove it so it'll stay within the evidence bag
-	I.pixel_y = 0
-	var/image/img = image("icon"=I, "layer"=FLOAT_LAYER)	//take a snapshot. (necessary to stop the underlays appearing under our inventory-HUD slots ~Carn
-	I.pixel_x = xx		//and then return it
-	I.pixel_y = yy
-	overlays += img
-	overlays += "evidence"	//should look nicer for transparent stuff. not really that important, but hey.
+	var/mutable_appearance/MA = new(I)
+	MA.pixel_x = 0
+	MA.pixel_y = 0
+	MA.layer = FLOAT_LAYER
+	add_overlay(list(MA, "evidence"))
 
 	desc = "An evidence bag containing [I]."
 	I.loc = src
@@ -80,7 +76,7 @@
 		var/obj/item/I = contents[1]
 		user.visible_message("[user] takes [I] out of [src]", "You take [I] out of [src].",\
 		"You hear someone rustle around in a plastic bag, and remove something.")
-		overlays.Cut()	//remove the overlays
+		cut_overlays()	//remove the overlays
 
 		user.put_in_hands(I)
 		stored_item = null

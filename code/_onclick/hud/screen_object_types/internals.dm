@@ -55,7 +55,7 @@
 						nicename |= "hardsuit"
 						tankcheck |= rig.air_supply
 
-				for(var/i in 1 to tankcheck.len + 1)
+				for(var/i in 1 to tankcheck.len)
 					if(istype(tankcheck[i], /obj/item/weapon/tank))
 						var/obj/item/weapon/tank/t = tankcheck[i]
 						if (!isnull(t.manipulated_by) && t.manipulated_by != C.real_name && findtext(t.desc,breathes))
