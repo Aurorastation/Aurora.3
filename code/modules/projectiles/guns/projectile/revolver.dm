@@ -37,7 +37,7 @@
 	name = "mateba"
 	desc = "The Mateba .454 Autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
 	icon_state = "mateba"
-	max_shells = 6
+	max_shells = 7
 	caliber = "454"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/mateba_fire.ogg'
