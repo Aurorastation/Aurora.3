@@ -296,6 +296,15 @@
 			if(L.name=="Holocarp Spawn")
 				holographic_mobs += new /mob/living/simple_animal/hostile/carp/holodeck(L.loc)
 
+			if(L.name=="Penguin Spawn Random")
+				if (prob(50))
+					holographic_mobs += new /mob/living/simple_animal/penguin/holodeck(L.loc)
+				else
+					holographic_mobs += new /mob/living/simple_animal/penguin/holodeck/baby(L.loc)
+
+			if(L.name=="Penguin Spawn Emperor")
+				holographic_mobs += new /mob/living/simple_animal/penguin/holodeck/emperor(L.loc)
+
 			if(L.name=="Holocarp Spawn Random")
 				if (prob(4)) //With 4 spawn points, carp should only appear 15% of the time.
 					holographic_mobs += new /mob/living/simple_animal/hostile/carp/holodeck(L.loc)
