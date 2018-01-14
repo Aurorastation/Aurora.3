@@ -6,7 +6,7 @@
 /mob/proc/cultify()
 	return
 
-/mob/abstract/cultify()
+/mob/abstract/observer/cultify()
 	if(icon_state != "ghost-narsie")
 		icon = 'icons/mob/mob.dmi'
 		icon_state = "ghost-narsie"
