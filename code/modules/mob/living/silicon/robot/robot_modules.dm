@@ -620,6 +620,7 @@ var/global/list/robot_modules = list(
 					"Drone - Hydro" = "drone-hydro",
 					"Classic" = "service2",
 					"Gardener" = "botany",
+					"Maid" = "maidbot",
 					"Mobile Bar" = "heavyserv",
 					"Sleek" = "sleekservice"
 				  	)
