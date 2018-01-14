@@ -70,10 +70,16 @@
 	var/mob/living/silicon/ai/user = usr
 	var/obj/item/device/radio/radio = new/obj/item/device/radio()
 	var/datum/weakref/nuke
-	var/datum/game_mode/malfunction/malf = SSticker.mode
-	var/timer = malf.nuke_time
-	var/stage1 = malf.nuke_time_stage1
-	var/stage2 = malf.nuke_time_stage2
+	//Time control for the self destruct
+	//It works in 3 stages:
+	// - First the primary firewall is breached. 
+	//		If the crew does not manage to prevent the self destruct before that, 
+	//		but after the timer fell below nuke_time_stage1, then the next self-destruct attempt will only take nuke_time_stage1
+	// - Simmilar for the backup firewall. 
+	//		If they only manage to stop it after the backup firewall went down further attempts will take only nuke_time_stage2
+	var/timer = user.bombing_time
+	var/stage1 = 900
+	var/stage2 = 600
 
 
 	if(!ability_prechecks(user, 0, 0))
@@ -108,7 +114,7 @@
 	set_security_level("delta")
 
 	if(timer > stage1)
-		radio.autosay("Warning: Brute force attempt on primary firewall detected", "Self-Destruct Control")
+		radio.autosay("Warning: Brute force attempt on primary firewall detected.", "Self-Destruct Control")
 	else if(timer > stage2)
 		radio.autosay("Warning: Brute force attempt on backup firewall detected.")
 	else
@@ -125,14 +131,14 @@
 			radio.autosay("Local Override Engaged - Self-Destruct canceled.", "Self-Destruct Control")
 			user.bombing_station = 0
 			return
-		if(timer == stage1)
+		if(timer == stage1+1)
 			radio.autosay("Critical: Primary firewall bypassed.")
 			radio.autosay("Warning: Brute force attempt on backup firewall detected.")
-			malf.nuke_time = stage1 //Further attempts will only take 900 seconds
-		if(timer == stage2)
+			user.bombing_time = stage1 //Further attempts will only take 900 seconds
+		if(timer == stage2+1)
 			radio.autosay("Critical: Backup firewall failed.")
 			radio.autosay("Self destruct sequence has been activated. Self-destructing in [timer] seconds.", "Self-Destruct Control")
-			malf.nuke_time = stage2 //Further attempts will only take 600 seconds
+			user.bombing_time = stage2 //Further attempts will only take 600 seconds
 		if(timer in list(2, 3, 4, 5, 10, 30, 60, 90, 120, 240, 300)) // Announcement times. "1" is not intentionally included!
 			radio.autosay("Self destruct in [timer] seconds.", "Self-Destruct Control")
 		if(timer == 1)
