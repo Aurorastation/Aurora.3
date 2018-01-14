@@ -300,16 +300,20 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used [name] on [M.name] ([M.ckey])</font>")
 	msg_admin_attack("[key_name_admin(user)] used [name] on [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
-	if(istype(M,/mob/dead))
-		var/mob/dead/D = M
+	if(isobserver(M))
+		var/mob/abstract/observer/D = M
 		D.manifest(user)
 		return
+
 	if(!istype(M))
 		return
+
 	if(!iscultist(user))
 		return ..()
+
 	if(iscultist(M))
 		return
+
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	M.take_organ_damage(0,rand(5,20)) //really lucky - 5 hits for a crit
 	for(var/mob/O in viewers(M, null))

@@ -148,11 +148,11 @@
 /atom/proc/singuloCanEat()
 	return 1
 
-/mob/dead/singuloCanEat()
+/mob/abstract/singuloCanEat()
 	return 0
 
-/mob/eye/singuloCanEat()
+/mob/abstract/eye/singuloCanEat()
 	return 0
 
-/mob/new_player/singuloCanEat()
+/mob/abstract/new_player/singuloCanEat()
 	return 0

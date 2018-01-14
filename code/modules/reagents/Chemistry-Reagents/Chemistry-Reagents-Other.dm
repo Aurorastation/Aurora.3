@@ -82,7 +82,7 @@
 		O.color = color
 
 /datum/reagent/paint/touch_mob(var/mob/M)
-	if(istype(M) && !istype(M, /mob/dead)) //painting ghosts: not allowed
+	if(istype(M) && !istype(M, /mob/abstract)) //painting ghosts: not allowed
 		M.color = color //maybe someday change this to paint only clothes and exposed body parts for human mobs.
 
 /datum/reagent/paint/get_data()

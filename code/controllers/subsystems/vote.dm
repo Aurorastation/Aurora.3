@@ -214,7 +214,7 @@ var/datum/controller/subsystem/vote/SSvote
 					usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
 					return 0
 				else if (isobserver(usr))
-					var/mob/dead/observer/O = usr
+					var/mob/abstract/observer/O = usr
 					if (O.started_as_observer)
 						usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
 						return 0
@@ -239,7 +239,7 @@ var/datum/controller/subsystem/vote/SSvote
 						usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
 						return 0
 					else if (isobserver(usr))
-						var/mob/dead/observer/O = usr
+						var/mob/abstract/observer/O = usr
 						if (O.started_as_observer)
 							usr << "<span class='warning'>You must be playing or have been playing to start a vote.</span>"
 							return 0

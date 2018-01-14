@@ -766,8 +766,6 @@
 	SearchVar(base_miss_chance)
 	SearchVar(organ_rel_size)
 	SearchVar(intents)
-	SearchVar(ghost_darkness_images)
-	SearchVar(ghost_sightless_images)
 	SearchVar(department_radio_keys)
 	SearchVar(channel_to_radio_key)
 	SearchVar(cleanbot_types)
