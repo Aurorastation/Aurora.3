@@ -42,8 +42,7 @@
 							/obj/item/weapon/gun/energy/wand/toy			= 11,
 							/obj/item/device/binoculars						= 11,
 							/obj/item/device/megaphone						= 11,
-							/obj/random/booze								= 22,
-							/obj/item/weapon/banhammer						= 1
+							/obj/random/booze								= 22
 						)
 
 /obj/machinery/computer/arcade/Initialize()
