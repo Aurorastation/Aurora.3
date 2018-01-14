@@ -298,7 +298,7 @@
 ////////////////////////////
 ///// Action processing ////
 ////////////////////////////
-/obj/mecha/proc/click_action(atom/target,mob/user)
+/obj/mecha/proc/click_action(atom/target,mob/user, params)
 	if(!src.occupant || src.occupant != user ) return
 	if(user.stat) return
 	if(state)
@@ -318,9 +318,9 @@
 			return
 	if(!target.Adjacent(src))
 		if(selected && selected.is_ranged())
-			selected.action(target)
+			selected.action(target, user, params)
 	else if(selected && selected.is_melee())
-		selected.action(target)
+		selected.action(target, user, params)
 	else
 		src.melee_action(target)
 	return

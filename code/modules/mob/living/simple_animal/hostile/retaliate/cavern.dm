@@ -55,9 +55,9 @@
 	check_armour = "energy"
 	damage = 5
 
-	muzzle_type = /obj/effect/projectile/stun/muzzle
-	tracer_type = /obj/effect/projectile/stun/tracer
-	impact_type = /obj/effect/projectile/stun/impact
+	muzzle_type = /obj/effect/projectile/muzzle/stun
+	tracer_type = /obj/effect/projectile/tracer/stun
+	impact_type = /obj/effect/projectile/impact/stun
 
 /obj/item/projectile/beam/cavern/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target))

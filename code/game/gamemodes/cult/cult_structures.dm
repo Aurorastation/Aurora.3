@@ -391,7 +391,7 @@
 		A = new /obj/item/projectile/beam/cult(loc)
 		playsound(loc, 'sound/weapons/laserdeep.ogg', 65, 1)
 	A.ignore = sacrificer
-	A.launch(target)
+	A.launch_projectile(target)
 	next_shot = world.time + shot_delay
 	A = null //So projectiles can GC
 	spawn(shot_delay+1)

@@ -227,7 +227,8 @@
 	burst = 3
 	burst_delay = 3
 	move_delay = 3
-	dispersion = list(1.0, -1.0, 2.0, -2.0)
+	fire_delay = 2
+	dispersion = list(5, 10, 15, 20)
 	jam_chance = 20
 
 	needspin = FALSE

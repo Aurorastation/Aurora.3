@@ -43,12 +43,10 @@
 		src.throwing = 0
 
 	spawn(0)
-		if ((A && yes))
+		if(A)
 			A.last_bumped = world.time
 			A.Bumped(src)
-		return
 	..()
-	return
 
 //called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
