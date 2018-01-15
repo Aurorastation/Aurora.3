@@ -544,7 +544,7 @@
 
 	return INITIALIZE_HINT_NORMAL
 
-/turf/simulated/floor/asteroid/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+/turf/simulated/floor/asteroid/get_smooth_underlay_icon(image/underlay_appearance, turf/asking_turf, adjacency_dir)
 	. = ..()
 	underlay_appearance.pixel_x = pixel_x
 	underlay_appearance.pixel_y = pixel_y

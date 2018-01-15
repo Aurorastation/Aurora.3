@@ -172,9 +172,7 @@
 /turf/diagonal_smooth(adjacencies)
 	adjacencies = reverse_ndir(..())
 	if (smooth_underlays && adjacencies)
-		// This should be a mutable_appearance, but we're still on 510.
-		// Alas.
-		var/mutable_appearance/underlay_appearance = new(layer = TURF_LAYER)
+		var/image/underlay_appearance = new(layer = TURF_LAYER)
 		var/list/U = list(underlay_appearance)
 		if(fixed_underlay)
 			if(fixed_underlay["space"])
