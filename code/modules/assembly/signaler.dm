@@ -142,10 +142,6 @@
 /obj/item/device/assembly/signaler/proc/set_frequency(new_frequency)
 	if(!frequency)
 		return
-	if(!SSradio)
-		sleep(20)
-	if(!SSradio)
-		return
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
@@ -170,7 +166,7 @@
 		return
 	//That there is just a fallback in case dropped is not being called
 	var/mob/M = src.loc
-	if(!M || !ismob(M))
+	if(!ismob(M))
 		deadman_trigger()
 	else if(prob(20))
 		M.visible_message("[M]'s finger twitches a bit over [src]'s deadman switch!")
