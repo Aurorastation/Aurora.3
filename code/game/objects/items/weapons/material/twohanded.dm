@@ -278,11 +278,10 @@
 		H.loc = user.loc
 	qdel(src)
 
-// Chainsaw
+// Chainsaws!
 
 /obj/item/weapon/material/twohanded/chainsaw
 	name = "chainsaw"
-	desc = "A deadly chainsaw in the shape of a chainsaw."
 	icon_state = "chainsaw_off"
 	base_icon = "chainsaw_off"
 	flags = CONDUCT
@@ -295,39 +294,95 @@
 	edge = 1
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = "sound/weapons/bladeslice.ogg"
 	can_embed = 0
 	applies_material_colour = 0
 	var/powered = 0
+	var/max_fuel = 100
+
+/obj/item/weapon/material/twohanded/chainsaw/Initialize()
+	. = ..()
+	var/datum/reagents/R = new/datum/reagents(max_fuel)
+	reagents = R
+	R.my_atom = src
+	R.add_reagent("fuel", max_fuel)
+
+/obj/item/weapon/material/twohanded/chainsaw/proc/PowerUp()
+	var/turf/T = get_turf(src)
+	T.audible_message(span("notice", "\The [src] rumbles to life."))
+	playsound(src, "sound/weapons/chainsawstart.ogg", 50, 0, 6)
+	force = 20
+	force_wielded = 40
+	throwforce = 20
+	hitsound = "sound/weapons/chainsword.ogg"
+	icon_state = "chainsaw_on"
+	base_icon = "chainsaw_on"
+	slot_flags = null
+	START_PROCESSING(SSprocessing, src)
+	update_held_icon()
+
+/obj/item/weapon/material/twohanded/chainsaw/proc/PowerDown()
+	var/turf/T = get_turf(src)
+	T.audible_message(span("notice", "\The [src] slowly powers down."))
+	force = initial(force)
+	force_wielded = initial(force_wielded)
+	throwforce = initial(throwforce)
+	hitsound = initial(hitsound)
+	icon_state = initial(icon_state)
+	base_icon = initial(base_icon)
+	slot_flags = initial(slot_flags)
+	STOP_PROCESSING(SSprocessing, src)
+	update_held_icon()
+
+/obj/item/weapon/material/twohanded/chainsaw/proc/RemoveFuel(var/amount = 1)
+	reagents.remove_reagent("fuel", Clamp(amount,0,reagents.get_reagent_amount("fuel")))
+	if(reagents.get_reagent_amount("fuel") <= 0)
+		powered = 0
+		PowerDown()
+
+/obj/item/weapon/material/twohanded/chainsaw/process()
+	RemoveFuel(rand(1,3))
+	playsound(loc, 'sound/weapons/chainsawloop.ogg', 10, 0, 6)
+
+/obj/item/weapon/material/twohanded/chainsaw/examine(mob/user)
+	if(..(user, 1))
+		user << "A heavy-duty chainsaw meant for cutting wood. Contains [reagents.total_volume] unit\s of fuel."
+
+/obj/item/weapon/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
+	if(!proximity) return
+	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && !powered)
+		O.reagents.trans_to_obj(src, max_fuel)
+		user << "<span class='notice'>[src] refueled</span>"
+		playsound(loc, 'sound/effects/refill.ogg', 50, 1, -6)
+		return
+	else if(powered)
+		RemoveFuel(5)
+
+	. = ..()
 
 /obj/item/weapon/material/twohanded/chainsaw/AltClick(mob/user as mob)
 
 	powered = !powered
 
-	if(powered)
-		playsound(user, 'sound/weapons/chainsawstart.ogg', 50, 1)
-		user << span("notice", "\The [src] rumbles to life.")
-		force = 20
-		force_wielded = 40
-		throwforce = 20
-		hitsound = 'sound/weapons/chainsword.ogg'
-		icon_state = "chainsaw_on"
-		base_icon = "chainsaw_on"
-		slot_flags = null
+	if(!powered)
+		PowerDown(user)
+	else if (reagents.get_reagent_amount("fuel") <= 0)
+		user.visible_message("<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>")
 	else
-		user << span("notice", "\The [src] slowly powers down.")
-		force = initial(force)
-		force_wielded = initial(force_wielded)
-		throwforce = initial(throwforce)
-		hitsound = initial(hitsound)
-		icon_state = initial(icon_state)
-		base_icon = initial(base_icon)
-		slot_flags = initial(slot_flags)
-	user.regenerate_icons()
-
+		playsound(loc, 'sound/weapons/chainsawpull.ogg', 50, 0, 6)
+		var/max = rand(3,6)
+		for(var/i in 1 to max)
+			if(do_after(user, 2 SECONDS, act_target = user))
+				user.visible_message("<span class='warning'>[user] pulls the cord on the [src]...</span>")
+				if(i == max)
+					PowerUp(user)
+				else
+					playsound(loc, 'sound/weapons/chainsawpull.ogg', 50, 0, 6)
+			else
+				break
 
 /obj/item/weapon/material/twohanded/chainsaw/pre_attack(var/mob/living/target, var/mob/living/user)
-	if(istype(target) && wielded)
+	if(istype(target) && wielded && powered)
 		cleave(user, target)
 	..()
 
