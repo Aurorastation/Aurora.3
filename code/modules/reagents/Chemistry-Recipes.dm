@@ -2495,7 +2495,21 @@
 	result = "bluebird"
 	required_reagents = list("gintonic" = 3, "bluecuracao" = 1)
 	result_amount = 4
-	
+
+//Snowflake drinks
+/datum/chemical_reaction/dr_gibb_diet
+	name = "Diet Dr. Gibb"
+	id = "dr_gibb_diet"
+	result = "dr_gibb_diet"
+	required_reagents = list("dr_gibb" = 1, "water" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/dr_daniels
+	name = "Dr. Daniels"
+	id = "dr_daniels"
+	result = "dr_daniels"
+	required_reagents = list("dr_gibb_diet" = 3, "whiskey" = 1, "honey" = 1)
+	result_amount = 5
 
 //transmutation
 
