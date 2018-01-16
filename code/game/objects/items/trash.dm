@@ -96,5 +96,13 @@
 	name = "snacktray"
 	icon_state = "snacktray"
 
+/obj/item/trash/dipbowl
+	name = "dip bowl"
+	icon_state = "dipbowl"
+
+/obj/item/trash/chipbasket
+	name = "empty basket"
+	icon_state = "chipbasket_empty"
+
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return
