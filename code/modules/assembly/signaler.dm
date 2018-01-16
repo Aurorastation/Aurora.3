@@ -106,14 +106,6 @@
 	signal.data["message"] = "ACTIVATE"
 	radio_connection.post_signal(src, signal)
 	return
-/*
-	for(var/obj/item/device/assembly/signaler/S in world)
-		if(!S)	continue
-		if(S == src)	continue
-		if((S.frequency == src.frequency) && (S.code == src.code))
-			spawn(0)
-				if(S)	S.pulse(0)
-	return 0*/
 
 
 /obj/item/device/assembly/signaler/pulse(var/radio = 0)
@@ -159,18 +151,33 @@
 	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 	return
 
+//Triggers the deadmanswitch if its activated
+/obj/item/device/assembly/signaler/dropped(var/mob/user)
+	. = ..()
+	if(deadman)
+		deadman_trigger(user)
+
 /obj/item/device/assembly/signaler/process()
+	//If we have disabled the deadmanswitch. stop here
 	if(!deadman)
 		STOP_PROCESSING(SSprocessing, src)
+		return
+	//That there is just a fallback in case dropped is not being called
 	var/mob/M = src.loc
 	if(!M || !ismob(M))
-		src.visible_message("<span class='warning'>[src]'s deadman switch is released!</span>")
-		signal()
-		deadman = 0
-		STOP_PROCESSING(SSprocessing, src)
+		deadman_trigger()
 	else if(prob(20))
 		M.visible_message("[M]'s finger twitches a bit over [src]'s deadman switch!")
 	return
+
+/obj/item/device/assembly/signaler/proc/deadman_trigger(var/mob/user)
+	if(user)
+		src.visible_message("<span class='warning'>[user] releases [src]'s deadman switch!</span>")
+	else
+		src.visible_message("<span class='warning'>[src]'s deadman switch is released!</span>")
+	signal()
+	deadman = 0
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/device/assembly/signaler/verb/deadman_it()
 	set src in usr
@@ -180,7 +187,7 @@
 		deadman = 1
 		START_PROCESSING(SSprocessing, src)
 		log_and_message_admins("is threatening to trigger a signaler deadman's switch")
-		usr.visible_message("<span class='warning'>[usr] presses [src]'s deadman switch...</span>")
+		usr.visible_message("<span class='warning'>[usr] presses and holds [src]'s deadman switch...</span>")
 	else
 		deadman = 0
 		STOP_PROCESSING(SSprocessing, src)
