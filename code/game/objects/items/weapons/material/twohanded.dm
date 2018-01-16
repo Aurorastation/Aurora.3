@@ -302,10 +302,7 @@
 
 /obj/item/weapon/material/twohanded/chainsaw/Initialize()
 	. = ..()
-	var/datum/reagents/R = new/datum/reagents(max_fuel)
-	reagents = R
-	R.my_atom = src
-	R.add_reagent("fuel", max_fuel)
+	create_reagents(max_fuel)
 
 /obj/item/weapon/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
@@ -318,7 +315,8 @@
 	icon_state = "chainsaw_on"
 	base_icon = "chainsaw_on"
 	slot_flags = null
-	START_PROCESSING(SSprocessing, src)
+	START_PROCESSING(SSfast_process, src)
+	powered = 1
 	update_held_icon()
 
 /obj/item/weapon/material/twohanded/chainsaw/proc/PowerDown()
@@ -331,7 +329,8 @@
 	icon_state = initial(icon_state)
 	base_icon = initial(base_icon)
 	slot_flags = initial(slot_flags)
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSfast_process, src)
+	powered = 0
 	update_held_icon()
 
 /obj/item/weapon/material/twohanded/chainsaw/proc/RemoveFuel(var/amount = 1)
@@ -341,7 +340,7 @@
 		PowerDown()
 
 /obj/item/weapon/material/twohanded/chainsaw/process()
-	RemoveFuel(rand(1,3))
+	RemoveFuel(0.2)
 	playsound(loc, 'sound/weapons/chainsawloop.ogg', 10, 0, 6)
 
 /obj/item/weapon/material/twohanded/chainsaw/examine(mob/user)
@@ -362,9 +361,7 @@
 
 /obj/item/weapon/material/twohanded/chainsaw/AltClick(mob/user as mob)
 
-	powered = !powered
-
-	if(!powered)
+	if(powered)
 		PowerDown(user)
 	else if (reagents.get_reagent_amount("fuel") <= 0)
 		user.visible_message("<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>")
