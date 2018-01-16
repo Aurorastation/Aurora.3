@@ -151,8 +151,14 @@
 	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 	return
 
-//Triggers the deadmanswitch if its activated
+//Triggers the deadmanswitch if its dropped or moved into ones backpack
 /obj/item/device/assembly/signaler/dropped(var/mob/user)
+	. = ..()
+	if(deadman)
+		deadman_trigger(user)
+
+//Triggers the deadmanswitch if its moved between slots (i.e. from hand into the pocket)
+/obj/item/device/assembly/signaler/on_slotmove(var/mob/user)
 	. = ..()
 	if(deadman)
 		deadman_trigger(user)
@@ -182,12 +188,14 @@
 /obj/item/device/assembly/signaler/verb/deadman_it()
 	set src in usr
 	set name = "Hold the deadman switch!"
-	set desc = "Sends a signal if dropped."
+	set desc = "Sends a signal if dropped or moved into a container."
 	if(!deadman)
 		deadman = 1
 		START_PROCESSING(SSprocessing, src)
 		log_and_message_admins("is threatening to trigger a signaler deadman's switch")
 		usr.visible_message("<span class='warning'>[usr] presses and holds [src]'s deadman switch...</span>")
+		to_chat(usr,"<span class='warning'>Your are now holding [src]'s deadman switch. Dropping, putting the device away, or being hit will activate the signaller.</span>")
+		to_chat(usr,"<span class='critical'>To deactivate it, make sure to press the verb again.</span>")
 	else
 		deadman = 0
 		STOP_PROCESSING(SSprocessing, src)
