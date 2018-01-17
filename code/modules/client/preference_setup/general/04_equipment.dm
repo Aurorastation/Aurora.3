@@ -23,7 +23,8 @@
 				"underwear",
 				"undershirt",
 				"socks",
-				"backbag"
+				"backbag",
+				"backbag_style"
 			),
 			"args" = list("id")
 		)
