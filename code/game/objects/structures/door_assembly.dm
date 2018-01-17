@@ -303,7 +303,11 @@
 			qdel(src)
 	else if(istype(W, /obj/item/weapon/material/twohanded/chainsaw))
 		var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar = W
-		if(!ChainSawVar.powered)
+		if(!ChainSawVar.wielded)
+			user << "<span class='notice'>Cutting the airlock requires the strength of two hands.</span>"
+		else if(ChainSawVar.cutting)
+			user << "<span class='notice'>You are already cutting an airlock open.</span>"
+		else if(!ChainSawVar.powered)
 			user << "<span class='notice'>The [W] needs to be on in order to open this door.</span>"
 		else
 			ChainSawVar.cutting = 1
@@ -312,7 +316,7 @@
 				"<span class='warning'>You start cutting the rest of the airlock...</span>",\
 				"<span class='notice'>You hear a loud buzzing sound and metal grinding on metal...</span>"\
 			)
-			if(do_after(user, 10 SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, W)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, W)))
 				user.visible_message(\
 					"<span class='warning'>[user.name] finishes cutting the airlock with the [W].</span>",\
 					"<span class='warning'>You finish cutting the airlock.</span>",\

@@ -285,7 +285,6 @@
 	icon_state = "chainsaw_off"
 	base_icon = "chainsaw_off"
 	flags = CONDUCT
-	slot_flags = SLOT_BACK
 	force = 10
 	force_wielded = 20
 	throwforce = 7
@@ -297,9 +296,19 @@
 	hitsound = "sound/weapons/bladeslice.ogg"
 	can_embed = 0
 	applies_material_colour = 0
-	var/powered = 0
-	var/max_fuel = 300
-	var/cutting = 0
+	default_material = "steel"
+	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
+	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
+	var/fuel_cost = 1 // Multiplier for fuel cost.
+
+	var/cutting = 0 //Ignore
+	var/powered = 0 //Ignore
+
+/obj/item/weapon/material/twohanded/chainsaw/op //For events or whatever
+	name = "bloody chainsaw"
+	opendelay = 5
+	max_fuel = 1000
+	fuel_cost = 0.5
 
 /obj/item/weapon/material/twohanded/chainsaw/Initialize()
 	. = ..()
@@ -308,7 +317,7 @@
 /obj/item/weapon/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
 	T.audible_message(span("notice", "\The [src] rumbles to life."))
-	playsound(src, "sound/weapons/chainsawstart.ogg", 100, 0, 15)
+	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
 	force = 20
 	force_wielded = 40
 	throwforce = 20
@@ -334,6 +343,7 @@
 	update_held_icon()
 
 /obj/item/weapon/material/twohanded/chainsaw/proc/RemoveFuel(var/amount = 1)
+	amount = amount * fuel_cost
 	reagents.remove_reagent("fuel", Clamp(amount,0,reagents.get_reagent_amount("fuel")))
 	if(reagents.get_reagent_amount("fuel") <= 0)
 		powered = 0
@@ -345,11 +355,11 @@
 
 	if(cutting)
 		FuelToRemove = 1
-		playsound(loc, 'sound/weapons/chainsawloop2.ogg', 100, 0, 15)
+		playsound(loc, 'sound/weapons/chainsawloop2.ogg', 25, 0, 30)
 		spark(src, 3, alldirs)
 		eyecheck(loc)
 	else
-		playsound(loc, 'sound/weapons/chainsawloop.ogg', 100, 0, 15)
+		playsound(loc, 'sound/weapons/chainsawloop.ogg', 25, 0, 30)
 
 	RemoveFuel(FuelToRemove)
 
@@ -365,7 +375,7 @@
 		playsound(loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(powered)
-		playsound(loc, "sound/weapons/chainsword.ogg", 100, 0, 15)
+		playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
 		RemoveFuel(3)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //No sound spam
 
@@ -410,13 +420,13 @@
 				user.disabilities |= NEARSIGHTED
 				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
 
-
-
 /obj/item/weapon/material/twohanded/chainsaw/AltClick(mob/user as mob)
 
 	if(powered)
 		PowerDown(user)
-	else if (reagents.get_reagent_amount("fuel") <= 0)
+	else if(!wielded)
+		user << "<span class='notice'>You need to hold this with two hands to turn this on.</span>"
+	else if(reagents.get_reagent_amount("fuel") <= 0)
 		user.visible_message(\
 			"<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>",\
 			"<span class='notice'>You pull the cord on the [src], but nothing happens.</span>",\
@@ -436,6 +446,7 @@
 				playsound(loc, 'sound/weapons/chainsawpull.ogg', 50, 0, 15)
 				if(!do_after(user, 2 SECONDS, act_target = user))
 					break
+
 
 
 /obj/item/weapon/material/twohanded/chainsaw/pre_attack(var/mob/living/target, var/mob/living/user)

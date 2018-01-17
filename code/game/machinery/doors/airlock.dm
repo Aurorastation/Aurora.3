@@ -996,7 +996,11 @@ About the new airlock wires panel:
 				close(1)
 	else if(density && istype(C, /obj/item/weapon/material/twohanded/chainsaw))
 		var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar = C
-		if(!ChainSawVar.powered)
+		if(!ChainSawVar.wielded)
+			user << "<span class='notice'>Cutting the airlock requires the strength of two hands.</span>"
+		else if(ChainSawVar.cutting)
+			user << "<span class='notice'>You are already cutting an airlock open.</span>"
+		else if(!ChainSawVar.powered)
 			user << "<span class='notice'>The [C] needs to be on in order to open this door.</span>"
 		else if(bracer) //Has a magnetic lock
 			user << "<span class='notice'>The bracer needs to be removed in order to cut through this door.</span>"
@@ -1007,7 +1011,7 @@ About the new airlock wires panel:
 				"<span class='warning'>You start cutting the airlock control panel...</span>",\
 				"<span class='notice'>You hear a loud buzzing sound and metal grinding on metal...</span>"\
 			)
-			if(do_after(user, 10 SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
 				user.visible_message(\
 					"<span class='warning'>[user.name] finishes cutting the control pannel of the airlock with the [C].</span>",\
 					"<span class='warning'>You finish cutting the airlock control panel.</span>",\
@@ -1025,7 +1029,7 @@ About the new airlock wires panel:
 				"<span class='warning'>You start cutting below the airlock...</span>",\
 				"<span class='notice'>You hear a loud buzzing sound and metal grinding on metal...</span>"\
 			)
-			if(do_after(user, 10 SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
 				user.visible_message(\
 					"<span class='warning'>[user.name] finishes cutting below the airlock with the [C].</span>",\
 					"<span class='notice'>You finish cutting below the airlock.</span>",\
@@ -1041,7 +1045,7 @@ About the new airlock wires panel:
 				"<span class='warning'>You start cutting between the airlock...</span>",\
 				"<span class='notice'>You hear a loud buzzing sound and metal grinding on metal...</span>"\
 			)
-			if(do_after(user, 10 SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
 				user.visible_message(\
 					"<span class='warning'>[user.name] finishes cutting between the airlock.</span>",\
 					"<span class='warning'>You finish cutting between the airlock.</span>",\
