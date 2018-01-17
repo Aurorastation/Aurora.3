@@ -298,7 +298,8 @@
 	can_embed = 0
 	applies_material_colour = 0
 	var/powered = 0
-	var/max_fuel = 100
+	var/max_fuel = 300
+	var/cutting = 0
 
 /obj/item/weapon/material/twohanded/chainsaw/Initialize()
 	. = ..()
@@ -307,11 +308,10 @@
 /obj/item/weapon/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
 	T.audible_message(span("notice", "\The [src] rumbles to life."))
-	playsound(src, "sound/weapons/chainsawstart.ogg", 50, 0, 6)
+	playsound(src, "sound/weapons/chainsawstart.ogg", 100, 0, 15)
 	force = 20
 	force_wielded = 40
 	throwforce = 20
-	hitsound = "sound/weapons/chainsword.ogg"
 	icon_state = "chainsaw_on"
 	base_icon = "chainsaw_on"
 	slot_flags = null
@@ -340,12 +340,22 @@
 		PowerDown()
 
 /obj/item/weapon/material/twohanded/chainsaw/process()
-	RemoveFuel(0.2)
-	playsound(loc, 'sound/weapons/chainsawloop.ogg', 10, 0, 6)
+	//TickRate is 0.1
+	var/FuelToRemove = 0.1 //0.1 Every 0.1 seconds
+
+	if(cutting)
+		FuelToRemove = 1
+		playsound(loc, 'sound/weapons/chainsawloop2.ogg', 100, 0, 15)
+		spark(src, 3, alldirs)
+		eyecheck(loc)
+	else
+		playsound(loc, 'sound/weapons/chainsawloop.ogg', 100, 0, 15)
+
+	RemoveFuel(FuelToRemove)
 
 /obj/item/weapon/material/twohanded/chainsaw/examine(mob/user)
 	if(..(user, 1))
-		user << "A heavy-duty chainsaw meant for cutting wood. Contains [reagents.total_volume] unit\s of fuel."
+		user << "A heavy-duty chainsaw meant for cutting wood. Contains [round(reagents.total_volume)] unit\s of fuel."
 
 /obj/item/weapon/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!proximity) return
@@ -355,28 +365,78 @@
 		playsound(loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(powered)
-		RemoveFuel(5)
+		playsound(loc, "sound/weapons/chainsword.ogg", 100, 0, 15)
+		RemoveFuel(3)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //No sound spam
 
 	. = ..()
+
+/obj/item/weapon/material/twohanded/chainsaw/proc/eyecheck(mob/user as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
+	if(!iscarbon(user))	return 1
+	if(istype(user, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/eyes/E = H.get_eyes()
+		if(!E)
+			return
+		var/safety = H.eyecheck()
+		if(H.status_flags & GODMODE)
+			return
+		switch(safety)
+			if(FLASH_PROTECTION_MODERATE)
+				usr << "<span class='warning'>Your eyes sting a little.</span>"
+				E.damage += rand(1, 2)*0.1
+				if(E.damage > 12)
+					user.eye_blurry += rand(3,6)*0.1
+			if(FLASH_PROTECTION_NONE)
+				usr << "<span class='warning'>Your eyes burn.</span>"
+				E.damage += rand(2, 4)*0.1
+				if(E.damage > 10)
+					E.damage += rand(4,10)*0.1
+			if(FLASH_PROTECTION_REDUCED)
+				usr << "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>"
+				user.eye_blurry += rand(12,20)*0.1
+				E.damage += rand(12, 16)*0.1
+		if(safety<FLASH_PROTECTION_MAJOR)
+			if(E.damage > 10)
+				user << "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>"
+
+			if (E.damage >= E.min_broken_damage)
+				user << "<span class='danger'>You go blind!</span>"
+				user.sdisabilities |= BLIND
+			else if (E.damage >= E.min_bruised_damage)
+				user << "<span class='danger'>You go blind!</span>"
+				user.eye_blind = 5
+				user.eye_blurry = 5
+				user.disabilities |= NEARSIGHTED
+				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
+
+
 
 /obj/item/weapon/material/twohanded/chainsaw/AltClick(mob/user as mob)
 
 	if(powered)
 		PowerDown(user)
 	else if (reagents.get_reagent_amount("fuel") <= 0)
-		user.visible_message("<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>")
+		user.visible_message(\
+			"<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>",\
+			"<span class='notice'>You pull the cord on the [src], but nothing happens.</span>",\
+			"<span class='notice'>You hear a cord being pulled.</span>"\
+		)
 	else
-		playsound(loc, 'sound/weapons/chainsawpull.ogg', 50, 0, 6)
 		var/max = rand(3,6)
 		for(var/i in 1 to max)
-			if(do_after(user, 2 SECONDS, act_target = user))
-				user.visible_message("<span class='warning'>[user] pulls the cord on the [src]...</span>")
-				if(i == max)
-					PowerUp(user)
-				else
-					playsound(loc, 'sound/weapons/chainsawpull.ogg', 50, 0, 6)
+			user.visible_message(\
+				"<span class='notice'>[user] pulls the cord on the [src]...</span>",\
+				"<span class='notice'>You pull the cord on the [src]...</span>",\
+				"<span class='notice'>You hear a cord being pulled and an engine sputtering...</span>"\
+			)
+			if(i == max)
+				PowerUp(user)
 			else
-				break
+				playsound(loc, 'sound/weapons/chainsawpull.ogg', 50, 0, 15)
+				if(!do_after(user, 2 SECONDS, act_target = user))
+					break
+
 
 /obj/item/weapon/material/twohanded/chainsaw/pre_attack(var/mob/living/target, var/mob/living/user)
 	if(istype(target) && wielded && powered)
