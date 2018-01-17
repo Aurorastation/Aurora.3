@@ -596,7 +596,7 @@
 	add_overlay(I)
 	turn_off()	//so engine verbs are correctly set
 
-/obj/vehicle/train/cargo/engine/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/vehicle/train/cargo/engine/mining/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/key/minecarts))
 		if(!key)
 			user.drop_item()

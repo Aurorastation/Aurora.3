@@ -183,7 +183,7 @@
 
 /datum/language/human
 	name = LANGUAGE_SOL_COMMON
-	desc = "A bastardized hybrid of informal English and elements of Mandarin Chinese; the common language of the Sol system."
+	desc = "With its roots in Mandarin Chinese, Common evolved as the official language of the Sol Alliance, with officials working to tie it together with a common tongue. It's spoken by state officials, taught in schools, and spoken by those who either feel a sense of national pride in the Alliance or otherwise fell sway to the culture."
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	colour = "solcom"
