@@ -306,6 +306,8 @@
 	brute_mod = 1.5
 	sprint_speed_factor = 1.5
 
+	appearance_flags = HAS_EYE_COLOR
+
 	examine_color = "#ff00ff"
 
 	blurb = "Being a corporation focused primarily on medical sciences and treatments, Zeng-Hu Pharmaceuticals had little interest in the market of synthetics in the beginning (especially considering a good portion of Zeng-Hu employees are Skrellian). However, after seeing the advances in almost all fields of the galactic market after the advent of synthetics, Zeng-Hu set aside some funds for their own robotics department, focused mainly on medical service and even science related operations. Having taken some inspiration from biological life, the chassis has an interesting leg design: digitigrade legs provide the chassis with enhanced speed. A downside to this development was the reduction of metals on the chassis. Most plates covering the sensitive interior electronics are polymer casts to reduce the weight of the unit, resulting in a not-so-durable android."
@@ -341,6 +343,8 @@
 	sprint_charge_factor = 0.25
 	max_nutrition_factor = 1.75
 	brute_mod = 1.2
+
+	appearance_flags = HAS_EYE_COLOR
 
 	examine_color = "#00afea"
 
