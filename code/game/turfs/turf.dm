@@ -406,5 +406,15 @@ var/const/enterloopsanity = 100
 		return
 	if(isanimal(user) && O != user)
 		return
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/has_right_hand = TRUE
+		var/obj/item/organ/external/rhand = H.organs_by_name["r_hand"]
+		if(!rhand || rhand.is_stump())
+			has_right_hand = FALSE
+		var/obj/item/organ/external/lhand = H.organs_by_name["l_hand"]
+		if(!lhand || lhand.is_stump())
+			if(!has_right_hand)
+				return
 	if (do_after(user, 25 + (5 * user.weakened)) && !(user.stat))
 		step_towards(O, src)
