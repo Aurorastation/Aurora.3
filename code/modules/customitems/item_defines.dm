@@ -1671,7 +1671,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "halstere_uniform"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/fluff/halstere_uniform //Martian Militia Dress Cap - Kalren Halstere - brutishcrab51
+/obj/item/clothing/head/fluff/halstere_cap //Martian Militia Dress Cap - Kalren Halstere - brutishcrab51
 	name = "martian militia dress cap"
 	desc = "A red and black peak cap with a golden Officer Corps indicator on the brow."
 	icon = 'icons/obj/custom_items/halstere_clothing.dmi'
@@ -1679,7 +1679,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "halstere_cap"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/fluff/halstere_uniform //Martian Militia Officer Coat - Kalren Halstere - brutishcrab51
+/obj/item/clothing/suit/storage/toggle/fluff/halstere_coat //Martian Militia Officer Coat - Kalren Halstere - brutishcrab51
 	name = "martian militia officer coat"
 	desc = "A decorated military coat with an aiguillette, arm-bars, and golden buttons. Made of a thick material."
 	icon = 'icons/obj/custom_items/blessing_jacket.dmi'
