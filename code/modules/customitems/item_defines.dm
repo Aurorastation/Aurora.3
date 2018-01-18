@@ -1602,7 +1602,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/under/fluff/katya_uniform //Messy Work Clothes - Katya Al-Tahara - coalf
 	name = "messy work clothes"
-	desc = "A simple pants and shirt combo, the white shirt has long since faded, and are those crumbs?"
+	desc = "A simple pants and shirt combo. The white shirt has long since faded...and are those crumbs?"
 	icon = 'icons/obj/custom_items/katya_clothing.dmi'
 	icon_state = "katya_uniform"
 	item_state = "katya_uniform"
