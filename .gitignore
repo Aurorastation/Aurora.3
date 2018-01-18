@@ -16,3 +16,9 @@ __pycache__/
 *$py.class
 /.atom-build.json
 .vscode/
+tools/midi2piano/.vs/midi2piano/v14/.suo
+tools/midi2piano/midi2piano/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+code/defines/obj/weapon.dm
+aurorastation.dme
+aurorastation.dme
+code/defines/obj/weapon.dm
