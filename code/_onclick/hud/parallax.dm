@@ -87,12 +87,12 @@
 
 /datum/hud/proc/update_parallax()
 	var/client/C = mymob.client
-	if(C.prefs.parallax_togs & PARALLAX_SPACE)
+	if(C.prefs.toggles_secondary & PARALLAX_SPACE)
 		for(var/obj/screen/parallax/bgobj in C.parallax)
 			C.screen |= bgobj
 		C.screen |= C.parallax_master
 		C.screen |= C.parallax_spacemaster
-		if(C.prefs.parallax_togs & PARALLAX_DUST)
+		if(C.prefs.toggles_secondary & PARALLAX_DUST)
 			C.parallax_dustmaster.color = list(
 			1,0,0,0,
 			0,1,0,0,
@@ -111,8 +111,8 @@
 	var/client/C = mymob.client
 	if(!SSparallax.parallax_initialized)
 		return
-	
-	if (C.prefs.parallax_togs & PARALLAX_IS_STATIC)
+
+	if (C.prefs.toggles_secondary & PARALLAX_IS_STATIC)
 		return
 
 	//ACTUALLY MOVING THE PARALLAX

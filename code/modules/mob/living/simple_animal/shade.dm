@@ -32,24 +32,15 @@
 /mob/living/simple_animal/shade/cultify()
 	return
 
-/mob/living/simple_animal/shade/Life()
-	..()
-	OnDeathInLife()
+/mob/living/simple_animal/shade/death()
+	visible_message("<span class='warning'>[src] lets out a contented sigh as their form unwinds.</span>")
+	new /obj/item/weapon/ectoplasm(loc)
+	. = ..()
 
 /mob/living/simple_animal/shade/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
 	if(istype(O, /obj/item/device/soulstone))
 		var/obj/item/device/soulstone/S = O;
 		S.transfer_soul("SHADE", src, user)
-		return
-
-/mob/living/simple_animal/shade/proc/OnDeathInLife()
-	if(stat == 2)
-		new /obj/item/weapon/ectoplasm (src.loc)
-		for(var/mob/M in viewers(src, null))
-			if((M.client && !( M.blinded )))
-				M.show_message("<span class='warning'>[src] lets out a contented sigh as their form unwinds.</span>")
-				ghostize()
-		qdel(src)
 		return
 
 /mob/living/simple_animal/shade/can_fall()

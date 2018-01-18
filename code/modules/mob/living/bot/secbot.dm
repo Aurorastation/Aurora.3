@@ -40,8 +40,21 @@
 	var/nearest_beacon				// Tag of the beakon that we assume to be the closest one
 
 	var/bot_version = 1.4
-	var/list/threat_found_sounds = new('sound/voice/bcriminal.ogg', 'sound/voice/bjustice.ogg', 'sound/voice/bfreeze.ogg')
-	var/list/preparing_arrest_sounds = new('sound/voice/bgod.ogg', 'sound/voice/biamthelaw.ogg', 'sound/voice/bsecureday.ogg', 'sound/voice/bradio.ogg', 'sound/voice/binsult.ogg', 'sound/voice/bcreep.ogg')
+	var/list/threat_found_sounds = list(
+		'sound/voice/bcriminal.ogg',
+		'sound/voice/bjustice.ogg',
+		'sound/voice/bfreeze.ogg'
+	)
+	var/list/preparing_arrest_sounds = list(
+		'sound/voice/bgod.ogg',
+		'sound/voice/biamthelaw.ogg',
+		'sound/voice/bsecureday.ogg',
+		'sound/voice/bradio.ogg',
+		'sound/voice/binsult.ogg',
+		'sound/voice/bcreep.ogg'
+	)
+
+	var/datum/callback/patrol_callback	// this is here so we don't constantly recreate this datum, it being identical each time.
 
 /mob/living/bot/secbot/beepsky
 	name = "Officer Beepsky"
@@ -56,6 +69,9 @@
 	if(SSradio)
 		SSradio.add_object(listener, control_freq, filter = RADIO_SECBOT)
 		SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
+
+	if (!patrol_callback)
+		patrol_callback = CALLBACK(src, .proc/patrol_step)
 
 /mob/living/bot/secbot/Destroy()
 	QDEL_NULL(listener)
@@ -145,14 +161,12 @@
 		awaiting_surrender = 5
 		mode = SECBOT_HUNT
 
-/mob/living/bot/secbot/Life()
+/mob/living/bot/secbot/think()
 	..()
 	if(!on)
 		return
-	if(client)
-		return
 
-	if(!target)
+	if(QDELETED(target))
 		scan_view()
 
 	if(!locked && (mode == SECBOT_START_PATROL || mode == SECBOT_PATROL)) // Stop running away when we set you up
@@ -189,12 +203,10 @@
 						RangedAttack(target)
 					else
 						step_towards(src, target) // Melee bots chase a bit faster
-					spawn(8)
-						if(!Adjacent(target))
-							step_towards(src, target)
-					spawn(16)
-						if(!Adjacent(target))
-							step_towards(src, target)
+
+					var/cb = CALLBACK(src, .proc/step_nonadjacent, target)
+					addtimer(cb, 8)
+					addtimer(cb, 16)
 
 		if(SECBOT_ARREST) // Target is next to us - attack it
 			if(!target)
@@ -253,17 +265,18 @@
 
 		if(SECBOT_PATROL)
 			patrol_step()
-			spawn(10)
-				patrol_step()
+			addtimer(patrol_callback, 10)
 			return
 
 		if(SECBOT_SUMMON)
 			patrol_step()
-			spawn(8)
-				patrol_step()
-			spawn(16)
-				patrol_step()
+			addtimer(patrol_callback, 8)
+			addtimer(patrol_callback, 16)
 			return
+
+/mob/living/bot/secbot/proc/step_nonadjacent(target)
+	if (!Adjacent(target))
+		step_towards(src, target)
 
 /mob/living/bot/secbot/UnarmedAttack(var/mob/M, var/proximity)
 	if(!..())
@@ -287,9 +300,7 @@
 			do_attack_animation(C)
 			is_attacking = 1
 			update_icons()
-			spawn(2)
-				is_attacking = 0
-				update_icons()
+			addtimer(CALLBACK(src, .proc/stop_attacking_cb), 2)
 			visible_message("<span class='warning'>[C] was prodded by [src] with a stun baton!</span>")
 		else
 			playsound(loc, 'sound/weapons/handcuffs.ogg', 30, 1, -2)
@@ -302,16 +313,17 @@
 					playsound(loc, pick(preparing_arrest_sounds), 50, 0)
 	else if(istype(M, /mob/living/simple_animal) && !istype(M, /mob/living/simple_animal/hostile/commanded))
 		var/mob/living/simple_animal/S = M
-		S.AdjustStunned(10)
 		S.adjustBruteLoss(15)
 		do_attack_animation(M)
 		playsound(loc, "swing_hit", 50, 1, -1)
 		is_attacking = 1
 		update_icons()
-		spawn(2)
-			is_attacking = 0
-			update_icons()
+		addtimer(CALLBACK(src, .proc/stop_attacking_cb), 2)
 		visible_message("<span class='warning'>[M] was beaten by [src] with a stun baton!</span>")
+
+/mob/living/bot/secbot/proc/stop_attacking_cb()
+	is_attacking = FALSE
+	update_icons()
 
 /mob/living/bot/secbot/explode()
 	visible_message("<span class='warning'>[src] blows apart!</span>")
@@ -331,7 +343,14 @@
 	new /obj/effect/decal/cleanable/blood/oil(Tsec)
 	qdel(src)
 
+/mob/living/bot/secbot/emag_act(var/remaining_charges, var/mob/user, var/feedback)
+	if(!emagged)
+		emagged = 1
+		user << (feedback ? feedback : "You short out the lock of \the [src].")
+		return 1
+
 /mob/living/bot/secbot/proc/scan_view()
+	target = null
 	for(var/mob/living/M in view(7, src))
 		if(M.invisibility >= INVISIBILITY_LEVEL_ONE)
 			continue

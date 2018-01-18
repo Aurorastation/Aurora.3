@@ -150,6 +150,14 @@
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
 	dir = new_dir
+	
+	// Lighting
+	if (.)
+		var/datum/light_source/L
+		for (var/thing in light_sources)
+			L = thing
+			if (L.light_angle)
+				L.source_atom.update_light()
 
 /atom/proc/ex_act()
 	return
@@ -228,7 +236,7 @@
 
 		//Deal with gloves the pass finger/palm prints.
 		if(!ignoregloves)
-			if(H.gloves && H.gloves != src)
+			if(istype(H.gloves, /obj/item/clothing/gloves) && H.gloves != src)
 				var/obj/item/clothing/gloves/G = H.gloves
 				if(!prob(G.fingerprint_chance))
 					return 0

@@ -5,6 +5,8 @@
 	full_name = "NSS Exodus"
 	path = "exodus"
 
+	lobby_screens = list("exodus_art")
+
 	station_name = "NSS Exodus"
 	station_short = "Exodus"
 	dock_name = "NTCC Odin"
@@ -50,3 +52,6 @@
 /datum/map/exodus/generate_asteroid()
 	new /datum/random_map/automata/cave_system(null, 13, 32, 5, 217, 223)
 	new /datum/random_map/noise/ore(null, 13, 32, 5, 217, 223)
+
+/datum/map/exodus/finalize_load()
+	world.maxz++

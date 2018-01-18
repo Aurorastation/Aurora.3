@@ -39,6 +39,8 @@
 
 	faction = "carp"
 
+	flying = TRUE
+
 /mob/living/simple_animal/hostile/carp/Allow_Spacemove(var/check_drift = 0)
 	return 1	//No drifting in space for space carp!	//original comments do not steal
 
@@ -54,15 +56,6 @@
 		if(prob(15))
 			L.Weaken(3)
 			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
-
-/mob/living/simple_animal/hostile/carp/can_fall()
-	return FALSE
-
-/mob/living/simple_animal/hostile/carp/can_ztravel()
-	return TRUE
-
-/mob/living/simple_animal/hostile/carp/CanAvoidGravity()
-	return TRUE
 
 /mob/living/simple_animal/hostile/carp/russian
 	name = "Ivan the carp"

@@ -135,6 +135,9 @@
 
 /obj/item/projectile/bullet/pistol/strong //revolvers and matebas
 	damage = 60
+	maiming = 1
+	maim_rate = 25
+	maim_type = DROPLIMB_BLUNT
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -149,6 +152,8 @@
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
 	damage = 60
+	maiming = 1 //To prevent rando headgibbing, it uses the special headgib damage model. Don't get me wrong, it'll still kill the man, but could be cloned.
+	maim_rate = 25
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
@@ -175,6 +180,9 @@
 	pellets = 6
 	range_step = 1
 	spread_step = 10
+	maiming = 1
+	maim_rate = 1 //6% base chance of gib if all pellets hit. Likely to blow limbs at point blank. (As it should be.)
+	maim_type = DROPLIMB_BLUNT
 
 /* "Rifle" rounds */
 
@@ -199,6 +207,9 @@
 	penetrating = 5
 	armor_penetration = 80
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
+	maiming = 1
+	maim_rate = 60
+	maim_type = DROPLIMB_BLUNT
 
 /obj/item/projectile/bullet/rifle/vintage
 	name = "vintage bullet"
@@ -226,14 +237,14 @@
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						addtimer(CALLBACK(src, .proc/apply_sedative, target, 10), 120)
+						if(L.reagents)	L.reagents.add_reagent("stoxin", 10)
 				if(def_zone == "head" && blocked < 100)
-					addtimer(CALLBACK(src, .proc/apply_sedative, target, 20), 35)
+					if(L.reagents)	L.reagents.add_reagent("stoxin", 15)
 				if(def_zone != "torso" && def_zone != "head")
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						addtimer(CALLBACK(src, .proc/apply_sedative, target, 15), 45)
+						if(L.reagents)	L.reagents.add_reagent("stoxin", 5)
 
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
@@ -244,9 +255,6 @@
 			M.Sleeping(1200)*/ //commented out until simple_mob paralysis actually works.
 	..()
 
-/obj/item/projectile/bullet/rifle/tranq/proc/apply_sedative(var/mob/living/L, var/severity)
-	L.apply_effect(severity, PARALYZE, 0)
-	L.emote("moans")
 /* Miscellaneous */
 
 /obj/item/projectile/bullet/suffocationbullet//How does this even work?

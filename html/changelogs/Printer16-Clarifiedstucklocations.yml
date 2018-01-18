@@ -1,0 +1,4 @@
+author: Printer16
+delete-after: True
+changes: 
+  - rscadd: "You are now able to view where an object is stuck inside someone when you examine them."

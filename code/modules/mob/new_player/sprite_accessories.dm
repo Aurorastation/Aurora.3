@@ -11,10 +11,6 @@
 	have to define any UI values for sprite accessories manually for hair and facial
 	hair. Just add in new hair types and the game will naturally adapt.
 
-	!!WARNING!!: changing existing hair information can be VERY hazardous to savefiles,
-	to the point where you may completely corrupt a server's savefiles. Please refrain
-	from doing this unless you absolutely know what you are doing, and have defined a
-	conversion in savefile.dm
 */
 
 /datum/sprite_accessory
@@ -34,6 +30,9 @@
 	// Whether or not the accessory can be affected by colouration
 	var/do_colouration = 1
 
+	// The blend mode to use when blending this icon with its color. May not apply to all sprite_accessory types, and must be a ICON_* blend mode, not BLEND_*!
+	var/icon_blend_mode = ICON_ADD
+
 
 /*
 ////////////////////////////
@@ -44,8 +43,7 @@
 */
 
 /datum/sprite_accessory/hair
-
-	icon = 'icons/mob/Human_face.dmi'	  // default icon for all hairs
+	icon = 'icons/mob/human_face/hair.dmi'	  // default icon for all hairs
 
 	bald
 		name = "Bald"
@@ -65,16 +63,15 @@
 		name = "Resomi Plumage"
 		icon_state = "resomi_default"
 		species_allowed = list("Resomi")
+		icon = 'icons/mob/human_face/resomi_hair.dmi'
 
-	resomi_ears
-		name = "Resomi Ears"
-		icon_state = "resomi_ears"
-		species_allowed = list("Resomi")
+		resomi_ears
+			name = "Resomi Ears"
+			icon_state = "resomi_ears"
 
-	resomi_excited
-		name = "Resomi Spiky"
-		icon_state = "resomi_spiky"
-		species_allowed = list("Resomi")
+		resomi_excited
+			name = "Resomi Spiky"
+			icon_state = "resomi_spiky"
 
 	cut
 		name = "Cut Hair"
@@ -341,6 +338,7 @@
 		name = "Mohawk"
 		icon_state = "hair_d"
 		species_allowed = list("Human","Unathi")
+
 	jensen
 		name = "Adam Jensen Hair"
 		icon_state = "hair_jensen"
@@ -360,6 +358,7 @@
 		name = "Spiky"
 		icon_state = "hair_spikey"
 		species_allowed = list("Human","Unathi")
+
 	kusangi
 		name = "Kusanagi Hair"
 		icon_state = "hair_kusanagi"
@@ -659,6 +658,85 @@
 		icon_state = "hair_manbun"
 		gender = MALE
 
+	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
+	uniter
+		icon = 'icons/mob/human_face/hair_multiply.dmi'
+		icon_blend_mode = ICON_MULTIPLY
+		name = "Uniter"
+		icon_state = "hair_uniter"
+
+		balding
+			name = "Balding"
+			icon_state = "hair_balding"
+
+		bun
+			name = "Librarian Bun"
+			icon_state = "hair_bun"
+
+		fade
+			name = "Fade"
+			icon_state = "hair_fade"
+
+		floof
+			name = "Floof"
+			icon_state = "hair_floof"
+
+		krewcut
+			name = "Krewcut"
+			icon_state = "hair_krewcut"
+
+		pomp
+			name = "Pomp III"
+			icon_state = "hair_pomp_iii"
+
+		shortchoppy
+			name = "Choppy (Short)"
+			icon_state = "hair_shortchoppy"
+
+		shortfloof
+			name = "Floof (Short)"
+			icon_state = "hair_shortfloof"
+
+		sideshave
+			name = "Sideshave"
+			icon_state = "hair_sideshaved"
+
+		superb_owl
+			name = "Superbowl"
+			icon_state = "hair_superbowl"
+
+		waxed
+			name = "Waxed"
+			icon_state = "hair_waxed"
+
+		cactus
+			name = "Cactus"
+			icon_state = "hair_whatdoinamethiscactus"
+
+		wavyshoulder
+			name = "Wavy Shoulder (Down)"
+			icon_state = "wavyshoulder_down"
+
+		wavyshoulder_pt
+			name = "Wavy Shoulder (Ponytail)"
+			icon_state = "wavyshoulder_up"
+
+		jenjen
+			name = "Jenjen"
+			icon_state = "hair_jenjen"
+
+		fade_grown
+			name = "Fade (Grown)"
+			icon_state = "hair_fade_grown"
+
+		swept
+			name = "Swept"
+			icon_state = "hair_shortswept"
+
+		spiked
+			name = "Spiked"
+			icon_state = "hair_short_spike"
+
 
 /*
 ///////////////////////////////////
@@ -669,8 +747,7 @@
 */
 
 /datum/sprite_accessory/facial_hair
-
-	icon = 'icons/mob/Human_face.dmi'
+	icon = 'icons/mob/human_face/facial_hair.dmi'
 	gender = MALE // barf (unless you're a dorf, dorfs dig chix /w beards :P)
 
 	shaved
@@ -792,6 +869,20 @@
 		name = "Chinless Beard"
 		icon_state = "facial_chinlessbeard"
 
+	stark
+		icon = 'icons/mob/human_face/facial_hair_multiply.dmi'
+		name = "Stark"
+		icon_state = "beard_stark"
+		icon_blend_mode = ICON_MULTIPLY
+
+		chinstrap2
+			name = "Chinstrap (Alt)"
+			icon_state = "beard_chinstrap_ii"
+
+		swire
+			name = "Swire"
+			icon_state = "beard_swire"
+
 /*
 ///////////////////////////////////
 /  =---------------------------=  /
@@ -805,332 +896,255 @@
 //unathi hair
 
 	una_spines_long
+		icon = 'icons/mob/human_face/unathi_hair.dmi'
 		name = "Long Unathi Spines"
 		icon_state = "soghun_longspines"
 		species_allowed = list("Unathi")
 
-	una_spines_short
-		name = "Short Unathi Spines"
-		icon_state = "soghun_shortspines"
-		species_allowed = list("Unathi")
+		una_spines_short
+			name = "Short Unathi Spines"
+			icon_state = "soghun_shortspines"
 
-	una_frills_long
-		name = "Long Unathi Frills"
-		icon_state = "soghun_longfrills"
-		species_allowed = list("Unathi")
+		una_frills_long
+			name = "Long Unathi Frills"
+			icon_state = "soghun_longfrills"
 
-	una_frills_short
-		name = "Short Unathi Frills"
-		icon_state = "soghun_shortfrills"
-		species_allowed = list("Unathi")
+		una_frills_short
+			name = "Short Unathi Frills"
+			icon_state = "soghun_shortfrills"
 
-	una_horns
-		name = "Unathi Horns"
-		icon_state = "soghun_horns"
-		species_allowed = list("Unathi")
+		una_horns
+			name = "Unathi Horns"
+			icon_state = "soghun_horns"
 
-	una_bighorns
-		name = "Unathi Big Horns"
-		icon_state = "unathi_bighorn"
-		species_allowed = list("Unathi")
+		una_bighorns
+			name = "Unathi Big Horns"
+			icon_state = "unathi_bighorn"
 
-	una_smallhorns
-		name = "Unathi Small Horns"
-		icon_state = "unathi_smallhorn"
-		species_allowed = list("Unathi")
+		una_smallhorns
+			name = "Unathi Small Horns"
+			icon_state = "unathi_smallhorn"
 
-	una_ramhorns
-		name = "Unathi Ram Horns"
-		icon_state = "unathi_ramhorn"
-		species_allowed = list("Unathi")
+		una_ramhorns
+			name = "Unathi Ram Horns"
+			icon_state = "unathi_ramhorn"
 
-	una_sidefrills
-		name = "Unathi Side Frills"
-		icon_state = "unathi_sidefrills"
-		species_allowed = list("Unathi")
+		una_sidefrills
+			name = "Unathi Side Frills"
+			icon_state = "unathi_sidefrills"
 
 //skrell tentacles
 
 	skr_tentacle_m
+		icon = 'icons/mob/human_face/skrell_hair.dmi'
 		name = "Skrell Male Tentacles"
 		icon_state = "skrell_hair_m"
 		species_allowed = list("Skrell")
 		gender = MALE
 
-	skr_tentacle_f
-		name = "Skrell Female Tentacles"
-		icon_state = "skrell_hair_f"
-		species_allowed = list("Skrell")
-		gender = FEMALE
+		skr_tentacle_f
+			name = "Skrell Female Tentacles"
+			icon_state = "skrell_hair_f"
+			gender = FEMALE
 
 //tajaran hair
 
 	taj_ears
+		icon = 'icons/mob/human_face/tajara_hair.dmi'
 		name = "Tajaran Ears"
 		icon_state = "ears_plain"
 		species_allowed = list("Tajara")
 
-	taj_ears_clean
-		name = "Tajara Clean"
-		icon_state = "hair_clean"
-		species_allowed = list("Tajara")
+		taj_ears_clean
+			name = "Tajara Clean"
+			icon_state = "hair_clean"
 
-	taj_ears_bangs
-		name = "Tajara Bangs"
-		icon_state = "hair_bangs"
-		species_allowed = list("Tajara")
+		taj_ears_bangs
+			name = "Tajara Bangs"
+			icon_state = "hair_bangs"
 
-	taj_ears_braid
-		name = "Tajara Braid"
-		icon_state = "hair_tbraid"
-		species_allowed = list("Tajara")
+		taj_ears_braid
+			name = "Tajara Braid"
+			icon_state = "hair_tbraid"
 
-	taj_ears_shaggy
-		name = "Tajara Shaggy"
-		icon_state = "hair_shaggy"
-		species_allowed = list("Tajara")
+		taj_ears_shaggy
+			name = "Tajara Shaggy"
+			icon_state = "hair_shaggy"
 
-	taj_ears_mohawk
-		name = "Tajaran Mohawk"
-		icon_state = "hair_mohawk"
-		species_allowed = list("Tajara")
+		taj_ears_mohawk
+			name = "Tajaran Mohawk"
+			icon_state = "hair_mohawk"
 
-	taj_ears_plait
-		name = "Tajara Plait"
-		icon_state = "hair_plait"
-		species_allowed = list("Tajara")
+		taj_ears_plait
+			name = "Tajara Plait"
+			icon_state = "hair_plait"
 
-	taj_ears_straight
-		name = "Tajara Straight"
-		icon_state = "hair_straight"
-		species_allowed = list("Tajara")
+		taj_ears_straight
+			name = "Tajara Straight"
+			icon_state = "hair_straight"
 
-	taj_ears_long
-		name = "Tajara Long"
-		icon_state = "hair_long"
-		species_allowed = list("Tajara")
+		taj_ears_long
+			name = "Tajara Long"
+			icon_state = "hair_long"
 
-	taj_ears_rattail
-		name = "Tajara Rat Tail"
-		icon_state = "hair_rattail"
-		species_allowed = list("Tajara")
+		taj_ears_rattail
+			name = "Tajara Rat Tail"
+			icon_state = "hair_rattail"
 
-	taj_ears_spiky
-		name = "Tajara Spiky"
-		icon_state = "hair_tajspiky"
-		species_allowed = list("Tajara")
+		taj_ears_spiky
+			name = "Tajara Spiky"
+			icon_state = "hair_tajspiky"
 
-	taj_ears_messy
-		name = "Tajara Messy"
-		icon_state = "hair_messy"
-		species_allowed = list("Tajara")
+		taj_ears_messy
+			name = "Tajara Messy"
+			icon_state = "hair_messy"
 
-	taj_ears_curls
-		name = "Tajara Curly"
-		icon_state = "hair_curly"
-		species_allowed = list("Tajara")
+		taj_ears_curls
+			name = "Tajara Curly"
+			icon_state = "hair_curly"
 
-	taj_ears_wife
-		name = "Tajara Housewife"
-		icon_state = "hair_wife"
-		species_allowed = list("Tajara")
+		taj_ears_wife
+			name = "Tajara Housewife"
+			icon_state = "hair_wife"
 
-	taj_ears_victory
-		name = "Tajara Victory Curls"
-		icon_state = "hair_victory"
-		species_allowed = list("Tajara")
+		taj_ears_victory
+			name = "Tajara Victory Curls"
+			icon_state = "hair_victory"
 
-	taj_ears_bob
-		name = "Tajara Bob"
-		icon_state = "hair_tbob"
-		species_allowed = list("Tajara")
+		taj_ears_bob
+			name = "Tajara Bob"
+			icon_state = "hair_tbob"
 
-	taj_ears_fingercurl
-		name = "Tajara Finger Curls"
-		icon_state = "hair_fingerwave"
-		species_allowed = list("Tajara")
+		taj_ears_fingercurl
+			name = "Tajara Finger Curls"
+			icon_state = "hair_fingerwave"
 
 //vox hair
 
 	vox_quills_short
+		icon = 'icons/mob/human_face/vox_hair.dmi'
 		name = "Short Vox Quills"
 		icon_state = "vox_shortquills"
 		species_allowed = list("Vox")
 
-	vox_quills_kingly
-		name = "Kingly Vox Quills"
-		icon_state = "vox_kingly"
-		species_allowed = list("Vox")
+		vox_quills_kingly
+			name = "Kingly Vox Quills"
+			icon_state = "vox_kingly"
 
-	vox_quills_mohawk
-		name = "Quill Mohawk"
-		icon_state = "vox_mohawk"
-		species_allowed = list("Vox")
+		vox_quills_mohawk
+			name = "Quill Mohawk"
+			icon_state = "vox_mohawk"
 
 //ipc screens
 
-	icp_screen_pink
+	ipc_screen_pink
+		icon = 'icons/mob/human_face/ipc_screens.dmi'
 		name = "pink IPC screen"
 		icon_state = "ipc_pink"
 		species_allowed = list("Machine")
 
-	icp_screen_red
-		name = "red IPC screen"
-		icon_state = "ipc_red"
-		species_allowed = list("Machine")
+		ipc_screen_red
+			name = "red IPC screen"
+			icon_state = "ipc_red"
 
-	icp_screen_green
-		name = "green IPC screen"
-		icon_state = "ipc_green"
-		species_allowed = list("Machine")
+		ipc_screen_green
+			name = "green IPC screen"
+			icon_state = "ipc_green"
 
-	icp_screen_blue
-		name = "blue IPC screen"
-		icon_state = "ipc_blue"
-		species_allowed = list("Machine")
+		ipc_screen_blue
+			name = "blue IPC screen"
+			icon_state = "ipc_blue"
 
-	icp_screen_breakout
-		name = "breakout IPC screen"
-		icon_state = "ipc_breakout"
-		species_allowed = list("Machine")
+		ipc_screen_breakout
+			name = "breakout IPC screen"
+			icon_state = "ipc_breakout"
 
-	icp_screen_eight
-		name = "eight IPC screen"
-		icon_state = "ipc_eight"
-		species_allowed = list("Machine")
+		ipc_screen_eight
+			name = "eight IPC screen"
+			icon_state = "ipc_eight"
 
-	icp_screen_goggles
-		name = "goggles IPC screen"
-		icon_state = "ipc_goggles"
-		species_allowed = list("Machine")
+		ipc_screen_goggles
+			name = "goggles IPC screen"
+			icon_state = "ipc_goggles"
 
-	icp_screen_heart
-		name = "heart IPC screen"
-		icon_state = "ipc_heart"
-		species_allowed = list("Machine")
+		ipc_screen_heart
+			name = "heart IPC screen"
+			icon_state = "ipc_heart"
 
-	icp_screen_monoeye
-		name = "monoeye IPC screen"
-		icon_state = "ipc_monoeye"
-		species_allowed = list("Machine")
+		ipc_screen_monoeye
+			name = "monoeye IPC screen"
+			icon_state = "ipc_monoeye"
 
-	icp_screen_nature
-		name = "nature IPC screen"
-		icon_state = "ipc_nature"
-		species_allowed = list("Machine")
+		ipc_screen_nature
+			name = "nature IPC screen"
+			icon_state = "ipc_nature"
 
-	icp_screen_orange
-		name = "orange IPC screen"
-		icon_state = "ipc_orange"
-		species_allowed = list("Machine")
+		ipc_screen_orange
+			name = "orange IPC screen"
+			icon_state = "ipc_orange"
 
-	icp_screen_purple
-		name = "purple IPC screen"
-		icon_state = "ipc_purple"
-		species_allowed = list("Machine")
+		ipc_screen_purple
+			name = "purple IPC screen"
+			icon_state = "ipc_purple"
 
-	icp_screen_shower
-		name = "shower IPC screen"
-		icon_state = "ipc_shower"
-		species_allowed = list("Machine")
+		ipc_screen_shower
+			name = "shower IPC screen"
+			icon_state = "ipc_shower"
 
-	icp_screen_static
-		name = "static IPC screen"
-		icon_state = "ipc_static"
-		species_allowed = list("Machine")
+		ipc_screen_static
+			name = "static IPC screen"
+			icon_state = "ipc_static"
 
-	icp_screen_yellow
-		name = "yellow IPC screen"
-		icon_state = "ipc_yellow"
-		species_allowed = list("Machine")
+		ipc_screen_yellow
+			name = "yellow IPC screen"
+			icon_state = "ipc_yellow"
 
 /datum/sprite_accessory/facial_hair
-
 	taj_sideburns
+		icon = 'icons/mob/human_face/tajara_facial_hair.dmi'
 		name = "Tajara Sideburns"
 		icon_state = "facial_sideburns"
 		species_allowed = list("Tajara")
 
-	taj_mutton
-		name = "Tajara Mutton"
-		icon_state = "facial_mutton"
-		species_allowed = list("Tajara")
+		taj_mutton
+			name = "Tajara Mutton"
+			icon_state = "facial_mutton"
 
-	taj_pencilstache
-		name = "Tajara Pencilstache"
-		icon_state = "facial_pencilstache"
-		species_allowed = list("Tajara")
+		taj_pencilstache
+			name = "Tajara Pencilstache"
+			icon_state = "facial_pencilstache"
 
-	taj_moustache
-		name = "Tajara Moustache"
-		icon_state = "facial_moustache"
-		species_allowed = list("Tajara")
+		taj_moustache
+			name = "Tajara Moustache"
+			icon_state = "facial_moustache"
 
-	taj_goatee
-		name = "Tajara Goatee"
-		icon_state = "facial_goatee"
-		species_allowed = list("Tajara")
+		taj_goatee
+			name = "Tajara Goatee"
+			icon_state = "facial_goatee"
 
-	taj_smallstache
-		name = "Tajara Smallsatche"
-		icon_state = "facial_smallstache"
-		species_allowed = list("Tajara")
+		taj_smallstache
+			name = "Tajara Smallsatche"
+			icon_state = "facial_smallstache"
 
 //unathi horn beards and the like
 
 	una_chinhorn
+		icon = 'icons/mob/human_face/unathi_facial_hair.dmi'
 		name = "Unathi Chin Horn"
 		icon_state = "facial_chinhorns"
 		species_allowed = list("Unathi")
 
-	una_hornadorns
-		name = "Unathi Horn Adorns"
-		icon_state = "facial_hornadorns"
-		species_allowed = list("Unathi")
+		una_hornadorns
+			name = "Unathi Horn Adorns"
+			icon_state = "facial_hornadorns"
 
-	una_spinespikes
-		name = "Unathi Spine Spikes"
-		icon_state = "facial_spikes"
-		species_allowed = list("Unathi")
+		una_spinespikes
+			name = "Unathi Spine Spikes"
+			icon_state = "facial_spikes"
 
-	una_dorsalfrill
-		name = "Unathi Dorsal Frill"
-		icon_state = "facial_dorsalfrill"
-		species_allowed = list("Unathi")
-
-//skin styles - WIP
-//going to have to re-integrate this with surgery
-//let the icon_state hold an icon preview for now
-/datum/sprite_accessory/skin
-	icon = 'icons/mob/human_races/r_human.dmi'
-
-	human
-		name = "Default human skin"
-		icon_state = "default"
-		species_allowed = list("Human")
-
-	human_tatt01
-		name = "Tatt01 human skin"
-		icon_state = "tatt1"
-		species_allowed = list("Human")
-
-	tajaran
-		name = "Default tajaran skin"
-		icon_state = "default"
-		icon = 'icons/mob/human_races/r_tajaran.dmi'
-		species_allowed = list("Tajara")
-
-	unathi
-		name = "Default Unathi skin"
-		icon_state = "default"
-		icon = 'icons/mob/human_races/r_lizard.dmi'
-		species_allowed = list("Unathi")
-
-	skrell
-		name = "Default skrell skin"
-		icon_state = "default"
-		icon = 'icons/mob/human_races/r_skrell.dmi'
-		species_allowed = list("Skrell")
+		una_dorsalfrill
+			name = "Unathi Dorsal Frill"
+			icon_state = "facial_dorsalfrill"
 
 /*
 ////////////////////////////

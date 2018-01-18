@@ -31,6 +31,7 @@
 	var/regen_factor = 0.8
 	var/injectable = 0
 	color = "#664330"
+	unaffected_species = IS_MACHINE
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
@@ -2579,6 +2580,37 @@
 	glass_desc = "Just when you thought regular station whiskey was good... This silky, amber goodness has to come along and ruin everything."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
+
+// Snowflake drinks
+/datum/reagent/drink/dr_gibb_diet
+	name = "Diet Dr. Gibb"
+	id = "dr_gibb_diet"
+	description = "A delicious blend of 42 different flavours, one of which is water."
+	color = "#102000"
+
+	adj_temp = -5
+	taste_description = "watered down liquid sunshine"
+
+	glass_icon_state = "dr_gibb_glass"
+	glass_name = "glass of Diet Dr. Gibb"
+	glass_desc = "Regular Dr.Gibb is probably healthier than this cocktail of artificial flavors."
+
+/datum/reagent/ethanol/drdaniels
+	name = "Dr. Daniels"
+	id = "dr_daniels"
+	description = "A limited edition tallboy of Dr. Gibb's Infusions."
+	color = "#8e6227"
+	adj_temp = -5
+	caffeine = 0.2
+	overdose = 80
+	strength = 20
+	nutriment_factor = 2
+	taste_description = "smooth, honeyed carbonation"
+
+	glass_icon_state = "drdaniels"
+	glass_name = "glass of Dr. Daniels"
+	glass_desc = "A tall glass of honey, whiskey, and diet Dr. Gibb. The perfect blend of throat-soothing liquid."
+
 /////////////////////////////////////////////////////////////////Brightdawns super cool coffee area//////////////////////////////////////////////
 
 
@@ -3002,7 +3034,7 @@
 	description = "An iced fruit cocktail shaken with cinnamon whiskey. Hot, cold and sweet all at once."
 	color = "#e87727"
 	strength = 15
-	taste_description = "sweet spiced cherries"	
+	taste_description = "sweet spiced cherries"
 
 	glass_icon_state = "cherrytreefireball"
 	glass_name = "glass of Cherry Tree Fireball"
@@ -3014,7 +3046,7 @@
 	description = "An electric blue champagne cocktail that's popular on the club scene."
 	color = "#a3ecf7"
 	strength = 25
-	taste_description = "neon champagne"	
+	taste_description = "neon champagne"
 
 	glass_icon_state = "cobaltvelvet"
 	glass_name = "glass of Cobalt Velvet"
@@ -3026,19 +3058,19 @@
 	description = "Effectively pure alcohol with a dose of sugar. It's as simple as it is strong."
 	color = "#f78888"
 	strength = 65
-	taste_description = "liquid regret"	
+	taste_description = "liquid regret"
 
 	glass_icon_state = "fringeweaver"
 	glass_name = "glass of Fringe Weaver"
 	glass_desc = "Effectively pure alcohol with a dose of sugar. It's as simple as it is strong."
 
 /datum/reagent/ethanol/junglejuice
-	name = "Jungle Juice" 
+	name = "Jungle Juice"
 	id = "junglejuice"
 	description = "You're in the jungle now, baby."
 	color = "#773404"
 	strength = 35
-	taste_description = "a fraternity house party"	
+	taste_description = "a fraternity house party"
 
 	glass_icon_state = "junglejuice"
 	glass_name = "glass of Jungle Juice"
@@ -3050,7 +3082,7 @@
 	description = "The margarita with a Martian twist. They call it something less embarrassing there."
 	color = "#3eb7c9"
 	strength = 30
-	taste_description = "spicy, salty lime"	
+	taste_description = "spicy, salty lime"
 
 	glass_icon_state = "marsarita"
 	glass_name = "glass of Marsarita"
@@ -3073,7 +3105,7 @@
 	description = "A champagne cocktail, quietly bubbling in a slender glass."
 	color = "#13144c"
 	strength = 25
-	taste_description = "a late-night promise"	
+	taste_description = "a late-night promise"
 
 	glass_icon_state = "midnightkiss"
 	glass_name = "glass of Midnight Kiss"
@@ -3084,7 +3116,7 @@
 	id = "millionairesour"
 	description = "It's a good mix, a great mix. The best mix in known space. It's terrific, you're gonna love it."
 	color = "#13144c"
-	taste_description = "tart fruit"	
+	taste_description = "tart fruit"
 
 	glass_icon_state = "millionairesour"
 	glass_name = "glass of Millionaire Sour"
@@ -3096,7 +3128,7 @@
 	description = "Another, stronger version of the Black Russian. It's popular in some Martian arcologies."
 	color = "#020407"
 	strength = 30
-	taste_description = "bittersweet independence"	
+	taste_description = "bittersweet independence"
 
 	glass_icon_state = "olympusmons"
 	glass_name = "glass of Olympus Mons"
@@ -3108,7 +3140,7 @@
 	description = "Named for Jupiter's moon. It looks about as crusty."
 	color = "#785327"
 	strength = 30
-	taste_description = "a coffee-flavored moon"	
+	taste_description = "a coffee-flavored moon"
 
 	glass_icon_state = "europanail"
 	glass_name = "glass of Europa Nail"
@@ -3119,7 +3151,7 @@
 	id = "portsvilleminttea"
 	description = "A popular iced pick-me-up originating from a city in Eos, on Biesel."
 	color = "#b6f442"
-	taste_description = "cool minty tea"	
+	taste_description = "cool minty tea"
 
 	glass_icon_state = "portsvilleminttea"
 	glass_name = "glass of Portsville Mint Tea"
@@ -3130,7 +3162,7 @@
 	id = "shirleytemple"
 	description = "Straight from the good ship Lollipop."
 	color = "#ce2727"
-	taste_description = "innocence"	
+	taste_description = "innocence"
 
 	glass_icon_state = "shirleytemple"
 	glass_name = "glass of Shirley Temple"
@@ -3142,7 +3174,7 @@
 	description = "Sweet, light and fruity. As girly as it gets."
 	color = "#d51d5d"
 	strength = 15
-	taste_description = "sweet soda"	
+	taste_description = "sweet soda"
 
 	glass_icon_state = "sugarrush"
 	glass_name = "glass of Sugar Rush"
@@ -3154,7 +3186,7 @@
 	description = "Red wine, splashed with brandy and infused with fruit."
 	color = "#960707"
 	strength = 30
-	taste_description = "sweet wine"	
+	taste_description = "sweet wine"
 
 	glass_icon_state = "sangria"
 	glass_name = "glass of Sangria"
@@ -3166,7 +3198,7 @@
 	description = "A vodka cocktail from Vega De Rosa, Mendell City's entertainment district. Purple and deep."
 	color = "#6807b2"
 	strength = 25
-	taste_description = "the groove"	
+	taste_description = "the groove"
 
 	glass_icon_state = "bassline"
 	glass_name = "glass of Bassline"
@@ -3178,7 +3210,7 @@
 	description = "A gin drink popularized by a spy thriller in 2452."
 	color = "#4286f4"
 	strength = 30
-	taste_description = "a blue christmas tree"	
+	taste_description = "a blue christmas tree"
 
 	glass_icon_state = "bluebird"
 	glass_name = "glass of Bluebird"
