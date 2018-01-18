@@ -249,6 +249,8 @@
 			new /obj/item/weapon/storage/backpack/security(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_sec(src)
+		new /obj/item/clothing/head/soft/sec/corp(src)
+		new /obj/item/clothing/under/rank/security/corp(src)
 		new /obj/random/handgun(src)
 		new /obj/item/clothing/suit/storage/vest/officer(src)
 		new /obj/item/clothing/head/helmet(src)
@@ -261,12 +263,14 @@
 		new /obj/item/taperoll/police(src)
 		new /obj/item/device/hailer(src)
 		new /obj/item/clothing/accessory/storage/black_vest(src)
-		new /obj/item/clothing/head/soft/sec/corp(src)
-		new /obj/item/clothing/under/rank/security/corp(src)
 		new /obj/item/weapon/gun/energy/taser(src)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
 		new /obj/item/device/holowarrant(src)
 		new /obj/item/device/flashlight/flare(src)
+		new /obj/item/device/flashlight/maglight(src)
+		new /obj/item/weapon/crowbar(src)
+		new /obj/item/device/radio(src)
+		new /obj/item/weapon/handcuffs(src)
 
 /obj/structure/closet/secure_closet/security/cargo
 

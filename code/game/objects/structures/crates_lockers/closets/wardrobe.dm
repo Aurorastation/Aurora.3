@@ -17,6 +17,9 @@
 	new /obj/item/clothing/under/rank/security2(src)
 	new /obj/item/clothing/under/rank/security2(src)
 	new /obj/item/clothing/under/rank/security2(src)
+	new /obj/item/clothing/under/rank/dispatch(src)
+	new /obj/item/clothing/under/rank/dispatch(src)
+	new /obj/item/clothing/under/rank/dispatch(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
@@ -29,7 +32,11 @@
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
-	new /obj/item/device/radio/headset/headset_sec(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots/unathi(src)
+
 	return
 
 /obj/structure/closet/wardrobe/pink
