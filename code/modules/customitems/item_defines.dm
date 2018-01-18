@@ -1628,6 +1628,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	Contains both analog and digital information on the serviceman. The digital information seems to be deactivated and non-functional. It is missing it's other pair."
 	icon = 'icons/obj/custom_items/jamie_tags.dmi'
 	icon_state = "jamie_tag"
+	w_class = 1
 
 /obj/item/clothing/accessory/badge/fluff/jamie_tags/update_icon()
 	if(separated)
@@ -1647,11 +1648,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(src.separated)
 		return
 
-	usr.visible_message("<span class='notice'>[user] yanks apart \the [src]!</span>")
+	usr.visible_message("<span class='notice'>[usr] yanks apart \the [src]!</span>")
 	var/obj/item/fluff/jamie_tag/tag = new(get_turf(user))
 	usr.put_in_hands(tag)
-	src.update_icon()
 	src.separated = TRUE
+	src.update_icon()
 
 /obj/item/clothing/accessory/badge/fluff/jamie_tags/attackby(var/obj/item/fluff/jamie_tag/W, var/mob/user)
 	if(src.separated && istype(W))
@@ -1697,3 +1698,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "chunley_beret"
 	item_state = "chunley_beret"
 	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/fluff/keorat_mantle //Worn Maraziite Shroud - Iksaeors Keorat - dasfox
+	name = "worn maraziite shroud"
+	desc = "A brown, armored looking trenchcoat. There appears to be a fur cloak over the top of it, draping down to the sleeve. The cloak shows the obvious insignia of the Maraziite Order upon it. It looks worn."
+	icon = 'icons/obj/custom_items/keorat_clothing.dmi'
+	icon_state = "keorat_mantle"
+	item_state = "keorat_mantle"
+	contained_sprite = TRUE
+
+/obj/item/clothing/mask/fluff/keorat_mask //Charred Iron Mask - Iksaeors Keorat - dasfox
+	name = "charred iron mask"
+	desc = "This is an iron mask used by those of the Maraziite Order. It appears to be entirely charred, perhaps there's a story behind that."
+	icon = 'icons/obj/custom_items/keorat_clothing.dmi'
+	icon_state = "keorat_mask"
+	item_state = "keorat_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3
