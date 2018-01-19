@@ -3260,14 +3260,14 @@
 //Junkfood
 
 /datum/reagent/nutriment/badfood //This is just a base. It shouldn't exist or be used anywhere but just in case, I added names.
-	name = "strange oil"
-	id = "strangeoil"
-	description = "Some... strange oil. I wonder what it tastes like?"
-	nutriment_factor = 20
-	color = "#f4ce42"
+	name = "experimental preservative"
+	id = "badfood"
+	description = "Some... strange chemical. You can swear it's moving."
+	nutriment_factor = 50
+	color = "#000000"
 	taste_description = "liquid heart attack"
 	metabolism = REM * 1 //Metabolises slower
-	var/damagemul = 0.1 //How much damage to deal to the heart per unit digested
+	var/damagemul = 0.5 //How much damage to deal to the heart per unit digested
 
 /datum/reagent/nutriment/badfood/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(istype(M))
@@ -3280,7 +3280,7 @@
 	name = "palm oil"
 	id = "palmoil"
 	description = "Palm oil is a common preservative used in packaged food, and is seriously unhealthy for you much like everything on this station."
-	nutriment_factor = 20
+	nutriment_factor = 30
 	color = "#f4ce42"
 	taste_description = "oily fat"
 	damagemul = 0.15
@@ -3292,7 +3292,7 @@
 	nutriment_factor = 20
 	color = "#e2d4c9"
 	taste_description = "greasy fat"
-	damagemul = 0.1
+	damagemul = 0.05
 
 /datum/reagent/nutriment/badfood/hfcs
 	name = "high fructose corn syrup"
@@ -3301,13 +3301,13 @@
 	nutriment_factor = 20
 	color = "#c66119"
 	taste_description = "sweetness"
-	damagemul = 0.15
+	damagemul = 0.1
 
 /datum/reagent/nutriment/badfood/msg
 	name = "monosodium glutamate"
 	id = "msg"
 	description = "Monosodium glutamate, also known as MSG, is a cheap flavor enhancer similiar to sodium. Causes chinese restaurant syndrome."
-	nutriment_factor = 10
+	nutriment_factor = 5
 	color = "#eaf1fc"
 	taste_description = "tastiness"
-	damagemul = 0.1
+	damagemul = 0.05
