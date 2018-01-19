@@ -37,8 +37,8 @@
 
 /obj/item/organ/parasite/kois
 	name = "k'ois mycosis"
-	//icon_state = "kois-on"
-	//dead_icon = "kois-off"
+	icon_state = "kois-on"
+	dead_icon = "kois-off"
 
 	organ_tag = "kois"
 
@@ -107,8 +107,8 @@
 
 /obj/item/organ/parasite/blackkois
 	name = "k'ois mycosis"
-	//icon_state = "blackkois-on"
-	//dead_icon = "blackkois-off"
+	icon_state = "black-on"
+	dead_icon = "black-off"
 	subtle = 1
 
 	organ_tag = "blackkois"

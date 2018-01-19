@@ -266,16 +266,15 @@
 			return
 
 		H.apply_damage(25, BRUTE, hit_zone, sharp = 1, edge = 1)
-		visible_message("<span class='warning'><b>\The [H2]</b> rips viciously at \the [G.affecting]'s [hit_zone] with its mandibles!</span>")
+		visible_message("<span class='warning'><b>\The [H2]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!</span>")
 		msg_admin_attack("[key_name_admin(H2)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H2.x];Y=[H2.y];Z=[H2.z]'>JMP</a>)",ckey=key_name(H2),ckey_target=key_name(H))
-		visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!</span>")
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
 		M.apply_damage(25,BRUTE, sharp=1, edge=1)
-		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 		visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!</span>")
+		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1)
 	last_special = world.time + 25
 
