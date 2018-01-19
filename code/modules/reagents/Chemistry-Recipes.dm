@@ -399,6 +399,13 @@
 	required_reagents = list("hydrazine" = 1, "anti_toxin" = 1, "ethanol" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/adipemcina
+	name = "Adipemcina"
+	id = "adipemcina"
+	result = "adipemcina"
+	required_reagents = list("lithium" = 1, "tricordrazine" = 1, "potassium" = 1)
+	result_amount = 3
+
 /datum/chemical_reaction/soporific
 	name = "Soporific"
 	id = "stoxin"
