@@ -74,7 +74,7 @@
 	. = 0
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		. = H.species.flags & IS_MECHANICAL
+		. = H.species && (H.species.flags & IS_MECHANICAL)
 
 /proc/isvox(A)
 	if(istype(A, /mob/living/carbon/human))
