@@ -111,8 +111,8 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Skrell")
-			species_restricted = list("Human", "Skrell", "Baseline Frame", "Shell Frame", "Hephaestus G1 Industrial Frame") // skrell helmets like to share
+		if("Skrell", "Human")
+			species_restricted = list("Human", "Skrell", "Machine") // skrell helmets like to share
 
 		else
 			species_restricted = list(target_species)
