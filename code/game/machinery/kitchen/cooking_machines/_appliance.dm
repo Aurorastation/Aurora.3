@@ -474,7 +474,7 @@
 	//Filling overlay
 	var/image/I = image(result.icon, "[result.icon_state]_filling")
 	I.color = totalcolour
-	result.overlays += I
+	result.add_overlay(I)
 	result.filling_color = totalcolour
 
 	//Set the name.

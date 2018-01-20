@@ -161,21 +161,7 @@
 /obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
 	spark(T, 3, alldirs)
-	failcheck()
 	..()
-
-/obj/item/weapon/gun/energy/mousegun/proc/failcheck()
-	lightfail = 0
-	if (prob(5))
-		for (var/mob/living/M in range(rand(1,4),src)) //Big failure, TIME FOR RADIATION BITCHES
-			if (src in M.contents)
-				M << "<span class='danger'>[src]'s reactor overloads!</span>"
-			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
-			M.apply_effect(300, IRRADIATE)
-		//crit_fail = 1 //break the gun so it stops recharging
-		STOP_PROCESSING(SSprocessing, src)
-		update_icon()
-	return 0
 
 /obj/item/weapon/gun/energy/net
 	name = "net gun"
@@ -279,7 +265,8 @@
 					"<span class='danger'>You hear the spin of a rotary gun!</span>"
 					)
 	is_charging = 1
-	sleep(30)
+	if(!do_after(user, 30))
+		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
@@ -374,7 +361,8 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(20)
+	if(!do_after(user, 20))
+		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
@@ -428,13 +416,13 @@
 	charge_meter = 1
 	charge_cost = 50
 	dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
-	can_turret = 1		 
+	can_turret = 1
 	turret_sprite_set = "thermaldrill"
 
 	firemodes = list(
-		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
-		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, dispersion = list(0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 0.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8)),
-		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, dispersion = list(0.0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 5.7, 6.0, 6.3, 6.6, 6.9, 7.2, 7.5, 7.8, 8.1, 8.4, 8.7))
+		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, dispersion = list(0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 0.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8))
 		)
 
 	action_button_name = "Wield thermal drill"
@@ -467,7 +455,8 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(40)
+	if(!do_after(user, 40))
+		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
@@ -510,7 +499,8 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(20)
+	if(!do_after(user, 20))
+		return 0
 	is_charging = 0
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
 	return 1

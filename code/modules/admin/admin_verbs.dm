@@ -377,7 +377,8 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/view_duty_log,
 	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history,
-	/client/proc/aooc
+	/client/proc/aooc,
+	/client/proc/check_antagonists
 )
 
 /client/proc/add_admin_verbs()
@@ -1025,15 +1026,15 @@ var/list/admin_verbs_cciaa = list(
 	if (!check_rights(R_SERVER|R_DEBUG))
 		return
 
-	var/ans = alert(src, "This will force explosions to run in the [config.use_recursive_explosions ? "old manner (non-recursive)" : "new, realistic manner (recursive)"]. Do you want to proceed?", "Switch explosion type", "Yes", "Cancel")
+	var/ans = alert(src, "This will force explosions to run in the [config.use_spreading_explosions ? "old manner (circular)" : "new, realistic manner (spreading)"]. Do you want to proceed?", "Switch explosion type", "Yes", "Cancel")
 
 	if (!ans || ans == "Cancel")
 		src << "<span class='notice'>Cancelled.</span>"
 		return
 
-	config.use_recursive_explosions = !config.use_recursive_explosions
+	config.use_spreading_explosions = !config.use_spreading_explosions
 
-	log_and_message_admins("has toggled explosions to be [config.use_recursive_explosions ? "recursive" : "non-recursive"].")
+	log_and_message_admins("has toggled explosions to be [config.use_spreading_explosions ? "iterative/spreading" : "simple/circular"].")
 	feedback_add_details("admin_verb", "TRE")
 
 /client/proc/wipe_ai()
@@ -1106,7 +1107,7 @@ var/list/admin_verbs_cciaa = list(
 
 	log_and_message_admins("has regenerated all openturfs.")
 
-	SSopenturf.hard_reset()
+	SSzcopy.hard_reset()
 
 #ifdef ENABLE_SUNLIGHT
 /client/proc/apply_sunstate()
@@ -1123,7 +1124,7 @@ var/list/admin_verbs_cciaa = list(
 
 	SSsunlight.apply_sun_state(S)
 	log_and_message_admins("has set the sun state to '[S]'.")
-#else 
+#else
 /client/proc/apply_sunstate()
 	set hidden = TRUE
 

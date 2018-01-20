@@ -42,18 +42,18 @@
 	)
 
 /obj/item/clothing/head/helmet/space/rig/terminator
-	species_restricted = list("Machine")
+	species_restricted = list("Heavy Machine")
 	light_overlay = "helmet_light_terminator"
 	light_color = LIGHT_COLOR_RED
 
 /obj/item/clothing/suit/space/rig/terminator
-	species_restricted = list("Machine")
+	species_restricted = list("Heavy Machine")
 
 /obj/item/clothing/shoes/magboots/rig/terminator
-	species_restricted = list("Machine")
+	species_restricted = list("Heavy Machine")
 
 /obj/item/clothing/gloves/rig/terminator
-	species_restricted = list("Machine")
+	species_restricted = list("Heavy Machine")
 
 /obj/item/weapon/rig/terminator/equipped
 	initial_modules = list(

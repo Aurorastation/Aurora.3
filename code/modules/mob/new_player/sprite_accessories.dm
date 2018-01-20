@@ -1161,6 +1161,7 @@
 
 	var/body_parts = list() //A list of bodyparts this covers, TODO: port defines for organs someday
 	var/is_genetic = TRUE	// If TRUE, the marking is considered genetic and is embedded into DNA.
+	var/is_painted = FALSE	// If TRUE, the marking can be put on prosthetics/robolimbs.
 
 	tiger_stripes
 		name = "Tiger Stripes (Tajara)"
@@ -1269,3 +1270,83 @@
 		icon_state = "una_scutes"
 		body_parts = list("chest")
 		species_allowed = list("Unathi")
+
+
+// Branded IPC markings - disabled for now, some layering issues.
+/*
+	bishop
+		icon = 'icons/mob/human_races/markings_bishop.dmi'
+		icon_state = "face_lights"
+		icon_blend_mode = ICON_MULTIPLY
+		name = "Face Color"
+		body_parts = list("head")
+		species_allowed = list("Bishop Accessory Frame")
+		is_painted = TRUE
+
+		monoeye
+			name = "Eye"
+			icon_state = "monoeye"
+
+		plating
+			name = "Plating (Full)"
+			icon_state = "plating"
+			body_parts = list("chest", "l_arm", "r_arm", "l_leg", "r_leg")
+
+			l_arm
+				name = "Plating (Left arm)"
+				body_parts = list("l_arm")
+
+			r_arm
+				name = "Plating (Right arm)"
+				body_parts = list("r_arm")
+
+			l_leg
+				name = "Plating (Left leg)"
+				body_parts = list("l_leg")
+
+			r_leg
+				name = "Plating (Right leg)"
+				body_parts = list("r_leg")
+
+			chest
+				name = "Plating (Chest)"
+				body_parts = list("chest")
+
+	zenghu
+		icon = 'icons/mob/human_races/markings_zenghu.dmi'
+		icon_state = "outer"
+		icon_blend_mode = ICON_MULTIPLY
+		name = "Outer Finish"
+		body_parts = list("head")
+		species_allowed = list("Zeng-Hu Mobility Frame")
+		is_painted = TRUE
+
+		inner
+			name = "Inner Finish"
+			icon_state = "inner"
+			body_parts = list("l_foot", "r_foot", "l_hand", "r_hand", "l_leg", "r_leg")
+
+			l_foot
+				name = "Inner Finish (Left Leg)"
+				body_parts = list("l_foot", "l_leg")
+
+			r_foot
+				name = "Inner Finish (Right Leg)"
+				body_parts = list("r_foot", "r_leg")
+
+			l_hand
+				name = "Inner Finish (Left Arm)"
+				body_parts = list("l_hand", "l_arm")
+
+			r_hand
+				name = "Inner Finish (Right Arm)"
+				body_parts = list("r_hand", "r_arm")
+
+		crest_leser
+			name = "Head Coloration (Lesser)"
+			icon_state = "lesser"
+
+		crest_greater
+			name = "Head Coloration (Greater)"
+			icon_state = "greater"
+*/

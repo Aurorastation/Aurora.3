@@ -2325,11 +2325,15 @@
 	},
 /turf/space/transit/north/shuttlespace_ns15,
 /area/template_noop)
-"afN" = (
+"afN" = (/obj/effect/landmark{
+	name = "Penguin Spawn Random"
+	},
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)
-"afO" = (
+"afO" = (/obj/effect/landmark{
+	name = "Penguin Spawn Emperor"
+	},
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)
@@ -6853,7 +6857,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "aqk" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/template_noop)
 "aql" = (
 /turf/template_noop,
@@ -6925,7 +6929,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/merchant_station)
 "aqw" = (
 /turf/unsimulated/wall/riveted,
@@ -7392,12 +7396,10 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -7569,7 +7571,6 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -7655,7 +7656,6 @@
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/wallet,
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -7871,7 +7871,6 @@
 "asH" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},
@@ -7991,7 +7990,6 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -8019,7 +8017,6 @@
 "asY" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (EAST)";
 	icon_state = "rwindow";
 	dir = 4
 	},
@@ -8511,7 +8508,7 @@
 /area/centcom/suppy)
 "auh" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/merchant_station)
 "aui" = (
 /turf/simulated/shuttle/floor{
@@ -14511,7 +14508,6 @@
 /area/centcom/holding)
 "aGz" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -16556,7 +16552,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	tag = "icon-rwindow (NORTH)";
 	icon_state = "rwindow";
 	dir = 1
 	},

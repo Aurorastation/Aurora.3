@@ -63,6 +63,7 @@
 	var/scoped_accuracy = null
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
+	var/reliability = 100
 
 	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin//standard firing pin for most guns.
 
@@ -170,11 +171,21 @@
 		return ..() //Pistolwhippin'
 
 /obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+
+
 	if(!user || !target) return
 
 	add_fingerprint(user)
+	if(user.client && (user.client.prefs.toggles_secondary & SAFETY_CHECK) && user.a_intent != I_HURT) //Check this first to save time.
+		user << "You refrain from firing, as you aren't on harm intent."
+		return
 
 	if(!special_check(user))
+		return
+
+	var/failure_chance = 100 - reliability
+	if(failure_chance && prob(failure_chance))
+		handle_reliability_fail(user)
 		return
 
 	if(world.time < next_fire_time)
@@ -636,3 +647,26 @@ obj/item/weapon/gun/Destroy()
 		QDEL_NULL(pin)
 	return ..()
 
+
+/obj/item/weapon/gun/proc/handle_reliability_fail(var/mob/user)
+	var/severity = 1
+	if(prob(100-reliability))
+		severity = 2
+		if(prob(100-reliability))
+			severity = 3
+	switch(severity)
+		if(1)
+			small_fail(user)
+		if(2)
+			medium_fail(user)
+		else
+			critical_fail(user)
+
+/obj/item/weapon/gun/proc/small_fail(var/mob/user)
+	return
+
+/obj/item/weapon/gun/proc/medium_fail(var/mob/user)
+	return
+
+/obj/item/weapon/gun/proc/critical_fail(var/mob/user)
+	return

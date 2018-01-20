@@ -107,6 +107,9 @@
 	if(HULK in mutations)
 		return 1
 
+	if(stamina < 100)
+		return 0
+
 	if(src.gender in src.species.breakcuffs)
 		return 1
 
@@ -127,8 +130,9 @@
 			"<span class='warning'>You successfully break your [handcuffed.name].</span>"
 			)
 
-		if((get_species() == "Unathi") || (HULK in mutations))
+		if((isunathi(src)) || (HULK in mutations))
 			say(pick("RAAAAAAAARGH!", "HNNNNNNNNNGGGGGGH!", "GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", "AAAAAAARRRGH!" ))
+			stamina -= 100 //takes a bunch of stamina
 
 		qdel(handcuffed)
 		handcuffed = null
