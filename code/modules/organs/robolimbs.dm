@@ -31,22 +31,22 @@ var/global/datum/robolimb/basic_robolimb
 /datum/robolimb/bishop
 	company = PROSTHETIC_BC
 	desc = "This limb is coated in a brilliant silver illuminated from the inside with blue status lights."
-	icon = 'icons/mob/human_races/cyberlimbs/bishop.dmi'
+	icon = 'icons/mob/human_races/r_ind_bishop.dmi'
 
 /datum/robolimb/hesphaistos
 	company = PROSTHETIC_HI
 	desc = "This limb is covered in thick plating coated with a militaristic olive drab."
-	icon = 'icons/mob/human_races/cyberlimbs/hesphaistos.dmi'
+	icon = 'icons/mob/human_races/r_ind_hephaestus.dmi'
 
 /datum/robolimb/zenghu
 	company = PROSTHETIC_ZH
 	desc = "This limb has sleek white plating over a graphene-based nanofiber weave."
-	icon = 'icons/mob/human_races/cyberlimbs/zenghu.dmi'
+	icon = 'icons/mob/human_races/r_ind_zenghu.dmi'
 
 /datum/robolimb/xion
 	company = PROSTHETIC_XMG
 	desc = "This limb has a minimalist black and grey casing with exposed orange wiring channels."
-	icon = 'icons/mob/human_races/cyberlimbs/xion.dmi'
+	icon = 'icons/mob/human_races/r_ind_xion.dmi'
 
 /datum/robolimb/ipc
 	company = PROSTHETIC_IPC

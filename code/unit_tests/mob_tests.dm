@@ -204,7 +204,7 @@ datum/unit_test/mob_damage/start_test()
 			expected_msg = "To take no damage"
 
 
-	var/msg = "Damage taken: [ending_damage] out of [damage_amount] || expected: [expected_msg] \[Overall Health:[ending_health] (Initial: [initial_health]\]"
+	var/msg = "Damage taken: [ending_damage] out of [damage_amount] || expected: [expected_msg] \[Overall Health:[ending_health] (Initial: [initial_health])\]"
 
 	if(failure)
 		fail(msg)
