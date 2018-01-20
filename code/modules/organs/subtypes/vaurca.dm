@@ -75,7 +75,6 @@ obj/item/organ/vaurca/neuralsocket/process()
 	var/mob/living/carbon/location = loc
 
 	location.internal = src
-	usr << "<span class='notice'>You open \the [src] valve.</span>"
 	if (location.internals)
 		location.internals.icon_state = "internal1"
 
@@ -112,8 +111,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 	var/obj/icon = src
 
 	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
-		for (var/mob/O in viewers(user, null))
-			O << "<span class='warning'>[user] has used [W] on \icon[icon] [src]</span>"
+		user.visible_message("<span class='warning'>[user] has used [W] on \icon[icon] [src]</span>")
 
 		var/pressure = air_contents.return_pressure()
 		manipulated_by = user.real_name			//This person is aware of the contents of the tank.

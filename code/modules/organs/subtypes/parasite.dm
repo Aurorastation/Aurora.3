@@ -47,59 +47,51 @@
 /obj/item/organ/parasite/kois/process()
 	..()
 
+	if(prob(10) && !(owner.species.flags & NO_PAIN))
+		owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
+		owner.emote("me",1,"winces slightly.")
+		owner.adjustHalLoss(5)
+
+	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
+		owner.emote("cough")
+
+	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
+		owner.emote("me", 1, "coughs up blood!")
+		owner.drip(10)
+
+	if(stage >= 2)
+		if(prob(10) && !(owner.species.flags & NO_BREATHE))
+			owner.emote("me", 1, "gasps for air!")
+			owner.losebreath += 5
+
 	if(stage >= 3)
 		set_light(1, l_color = "#E6E600")
-
-	if(stage >= 1)
-		if(prob(10) && !(owner.species.flags & NO_PAIN))
-			owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
-			owner.emote("me",1,"winces slightly.")
-			owner.adjustHalLoss(5)
-			return
-
-		if(prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.emote("cough")
-			return
-
-		if(prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.emote("me", 1, "coughs up blood!")
-			owner.drip(10)
-			return
-
-
-	if(stage >= 2 && prob(10) && !(owner.species.flags & NO_BREATHE))
-		owner.emote("me", 1, "gasps for air!")
-		owner.losebreath += 5
-		return
-
-	if(stage >= 3)
 		if(prob(10))
 			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
 			owner.reagents.add_reagent("phoron", 8)
 			owner.reagents.add_reagent("koispaste", 5)
-			return
 
-	if(stage >= 4 && prob(10))
-		owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
-		owner.emote("cough")
+	if(stage >= 4)
+		if(prob(10))
+			owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
+			owner.emote("cough")
 
-		var/turf/T = get_turf(owner)
+			var/turf/T = get_turf(owner)
 
-		var/datum/reagents/R = new/datum/reagents(100)
-		R.add_reagent("koispaste",10)
-		R.add_reagent("phoron",10)
-		var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("koisspore")
+			var/datum/reagents/R = new/datum/reagents(100)
+			R.add_reagent("koispaste",10)
+			R.add_reagent("phoron",10)
+			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("koisspore")
 
-		S.attach(T)
-		S.set_up(R, 20, 0, T, 40)
-		S.start()
+			S.attach(T)
+			S.set_up(R, 20, 0, T, 40)
+			S.start()
 
-		if(!(owner.species.flags & NO_PAIN))
-			owner.emote("scream")
-			owner.adjustHalLoss(15)
-			owner.drip(15)
-			owner.delayed_vomit()
-		return
+			if(!(owner.species.flags & NO_PAIN))
+				owner.emote("scream")
+				owner.adjustHalLoss(15)
+				owner.drip(15)
+				owner.delayed_vomit()
 
 ///////////////////
 ///Black Mycosis///
@@ -114,15 +106,44 @@
 	organ_tag = "blackkois"
 
 	parent_organ = "head"
+	var/removed_langs = 0
 
 /obj/item/organ/parasite/blackkois/process()
 	..()
 
+	if(prob(10) && !(owner.species.flags & NO_PAIN))
+		if(stage < 3)
+			owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
+		else
+			owner << "<span class='warning'>You feel a stinging pain in your head!</span>"
+		owner.emote("me",1,"winces slightly.")
+		owner.adjustHalLoss(5)
 
-	if(stage >= 3 && !(all_languages[LANGUAGE_VAURCA] in owner.languages))
+	if(stage >= 2)
+		if(prob(10) && !(owner.species.flags & NO_BREATHE))
+			owner.emote("me", 1, "gasps for air!")
+			owner.losebreath += 5
+
+	if(stage >= 3)
 		set_light(-1.5, 6, "#FFFFFF")
-		owner.add_language(LANGUAGE_VAURCA)
-		owner << "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>"
+		if(!(all_languages[LANGUAGE_VAURCA] in owner.languages))
+			owner.add_language(LANGUAGE_VAURCA)
+			owner << "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>"
+
+		if(prob(5))
+			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
+			owner.reagents.add_reagent("phoron", 4)
+
+		else if(prob(10))
+			owner << "<span class='warning'>You feel disorientated!</span>"
+			switch(rand(1,3))
+				if(1)
+					owner.confused += 10
+					owner.apply_effect(10,EYE_BLUR)
+				if(2)
+					owner.slurring += 30
+				if(3)
+					owner.make_dizzy(10)
 
 	if(stage >= 4)
 
@@ -134,54 +155,20 @@
 
 			B.lobotomized = 1
 
-		for(var/datum/language/L in owner.languages)
-			owner.remove_language(L.name)
-		owner.add_language(LANGUAGE_VAURCA)
 
-
-	if(stage >= 1 && prob(10) && !(owner.species.flags & NO_PAIN))
-		if(stage < 3)
-			owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
-		else
-			owner << "<span class='warning'>You feel a stinging pain in your head!</span>"
-		owner.emote("me",1,"winces slightly.")
-		owner.adjustHalLoss(5)
-		return
-
-	if(stage >= 2)
-		if(stage < 3 && prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.emote("me", 1, "gasps for air!")
-			owner.losebreath += 5
-			return
-
-		else if(stage >= 3 && prob(10))
-			owner << "<span class='warning'>You feel disorientated!</span>"
-			switch(rand(1,3))
-				if(1)
-					owner.confused += 10
-					owner.apply_effect(10,EYE_BLUR)
-				if(2)
-					owner.slurring += 30
-				if(3)
-					owner.make_dizzy(10)
-			return
-
-	if(stage >= 3)
-		if(prob(5))
-			owner << "<span class='warning'>You feel something squirming inside of you!</span>"
-			owner.reagents.add_reagent("phoron", 4)
-			return
-
-	if(stage >= 4)
+		if(!removed_langs)
+			for(var/datum/language/L in owner.languages)
+				owner.remove_language(L.name)
+			owner.add_language(LANGUAGE_VAURCA)
+			removed_langs = 1
 
 		if(prob(10))
 			if(!(owner.species.flags & NO_PAIN))
 				owner << "<span class='warning'>You feel an unbearable pain in your mind!</span>"
 				owner.emote("scream")
 			owner.adjustBrainLoss(1)
-			return
 
-		if(prob(10))
+		else if(prob(10))
 			owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
 
 			var/turf/T = get_turf(owner)
@@ -200,10 +187,10 @@
 				owner.adjustHalLoss(15)
 				owner.drip(15)
 				owner.delayed_vomit()
-			return
 
 /obj/item/organ/parasite/blackkois/removed(var/mob/living/carbon/human/target)
-	if(all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3)
+	if(all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3 && !isvaurca(target))
 		target.remove_language(LANGUAGE_VAURCA)
 		target << "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>"
+	removed_langs = 0
 	..()

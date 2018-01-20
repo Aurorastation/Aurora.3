@@ -45,10 +45,9 @@
 	taste_description = "tar"
 	unaffected_species = IS_MACHINE
 
-/datum/reagent/blackkois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/blackkois/affect_ingest(var/mob/living/carbon/human/H, var/alien, var/removed)
 
-	if(istype(M,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if(istype(H))
 		if(isvaurca(H) || H.internal_organs_by_name["blackkois"])
 			H.heal_organ_damage(1.2 * removed, 1.2 * removed)
 			H.adjustToxLoss(-1.2 * removed)
