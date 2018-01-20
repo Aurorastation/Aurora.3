@@ -12,7 +12,7 @@ var/datum/controller/subsystem/cargo/SScargo
 /datum/controller/subsystem/cargo
 	name = "Cargo"
 	wait = 30 SECONDS
-	flags = SS_NO_TICK_CHECK | SS_NO_FIRE
+	flags = SS_NO_FIRE
 	init_order = SS_INIT_CARGO
 
 	//Shipment stuff
