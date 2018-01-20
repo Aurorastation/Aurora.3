@@ -1579,3 +1579,142 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "jennifer_shoes"
 	item_state = "jennifer_shoes"
 	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/toggle/fluff/blessing_jacket //Armored Detective Jacket - Nelson Blessing - seniorscore
+	name = "armored detective jacket"
+	desc = "A white suit jacket, has a badge hanging out of a breast pocket. Touching it gives a feeling of working on a case for months."
+	icon = 'icons/obj/custom_items/blessing_jacket.dmi'
+	icon_state = "blessing_jacket"
+	item_state = "blessing_jacket"
+	icon_open = "blessing_jacket_open"
+	icon_closed = "blessing_jacket"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/under/dress/fluff/katya_dress //Tailored Tajara Dress - Katya Al-Tahara - coalf
+	name = "tailored tajaran dress"
+	desc = "A simple long, blue and flowing dress, it has a knitted overthrow that fits over the shoulder and arms."
+	icon = 'icons/obj/custom_items/katya_clothing.dmi'
+	icon_state = "katya_dress"
+	item_state = "katya_dress"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/fluff/katya_uniform //Messy Work Clothes - Katya Al-Tahara - coalf
+	name = "messy work clothes"
+	desc = "A simple pants and shirt combo. The white shirt has long since faded...and are those crumbs?"
+	icon = 'icons/obj/custom_items/katya_clothing.dmi'
+	icon_state = "katya_uniform"
+	item_state = "katya_uniform"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/accessory/badge/fluff/jamie_tags //Elyran Navy Holotags - Jamie Knight - superballs
+	name = "elyran navy holotags"
+	desc = "A pair of standard issue holotags issued to all Elyran servicemen. The tags read, \"KNIGHT JAMES 627810021-EN O-NEG CATHOLIC\". \
+	Contains both analog and digital information on the serviceman. The digital information seems to be deactivated and non-functional."
+	icon = 'icons/obj/custom_items/jamie_tags.dmi'
+	icon_state = "jamie_tags"
+	item_state = "jamie_tags"
+	stored_name = "Knight, James"
+	badge_string = "Elyran Navy"
+	contained_sprite = TRUE
+	slot_flags = SLOT_MASK | SLOT_TIE
+	var/separated = FALSE
+
+/obj/item/fluff/jamie_tag //Single Elyran Navy Holotag - Jamie Knight - superballs
+	name = "elyran navy holotag"
+	desc = "A single tag of a set of holotags issued to all Elyran servicemen. The tags read, \"KNIGHT JAMES 627810021-EN O-NEG CATHOLIC\". \
+	Contains both analog and digital information on the serviceman. The digital information seems to be deactivated and non-functional. It is missing it's other pair."
+	icon = 'icons/obj/custom_items/jamie_tags.dmi'
+	icon_state = "jamie_tag"
+	w_class = 1
+
+/obj/item/clothing/accessory/badge/fluff/jamie_tags/update_icon()
+	if(separated)
+		icon_state = "[icon_state]_single"
+		item_state = "[item_state]_single"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
+
+/obj/item/clothing/accessory/badge/fluff/jamie_tags/verb/separate()
+	set name = "Retrieve the Fallen"
+	set category = "Object"
+	set src in usr
+
+	if(use_check(usr)) return
+
+	if(src.separated)
+		return
+
+	usr.visible_message("<span class='notice'>[usr] yanks apart \the [src]!</span>")
+	var/obj/item/fluff/jamie_tag/tag = new(get_turf(user))
+	usr.put_in_hands(tag)
+	src.separated = TRUE
+	src.update_icon()
+
+/obj/item/clothing/accessory/badge/fluff/jamie_tags/attackby(var/obj/item/fluff/jamie_tag/W, var/mob/user)
+	if(src.separated && istype(W))
+		qdel(W)
+		src.separated = FALSE
+		src.update_icon()
+	else
+		..()
+
+
+/obj/item/clothing/under/fluff/halstere_uniform //Martian Militia Dress Uniform - Kalren Halstere - brutishcrab51
+	name = "martian militia dress uniform"
+	desc = "A brick-red uniform with golden shoulder-scrubbers, a crisp tie, and golden buttons, complete with steel-grey slacks. An image of Olympus Mons is stamped on the left bicep."
+	icon = 'icons/obj/custom_items/halstere_clothing.dmi'
+	icon_state = "halstere_uniform"
+	item_state = "halstere_uniform"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/fluff/halstere_cap //Martian Militia Dress Cap - Kalren Halstere - brutishcrab51
+	name = "martian militia dress cap"
+	desc = "A red and black peak cap with a golden Officer Corps indicator on the brow."
+	icon = 'icons/obj/custom_items/halstere_clothing.dmi'
+	icon_state = "halstere_cap"
+	item_state = "halstere_cap"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/fluff/halstere_coat //Martian Militia Officer Coat - Kalren Halstere - brutishcrab51
+	name = "martian militia officer coat"
+	desc = "A decorated military coat with an aiguillette, arm-bars, and golden buttons. Made of a thick material."
+	icon = 'icons/obj/custom_items/blessing_jacket.dmi'
+	icon_state = "halstere_jacket"
+	item_state = "halstere_jacket"
+	icon_open = "halstere_jacket_open"
+	icon_closed = "halstere_jacket"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/head/beret/fluff/chunley_beret //Sol's Dog Handler Beret - Freya Chunley - thesmiley
+	name = "sol's dog handler beret"
+	desc = "A scarlet military beret worn by the Sol Alliance Military Police dog handling unit. The symbol on the cap is that of a grey wolf's head on white. It quivers menacingly.  \
+	Upon flipping it you see a name tag with the word \"CHUNLEY\" written in on it with a very sloppy hand write."
+	icon = 'icons/obj/custom_items/chunley_beret.dmi'
+	icon_state = "chunley_beret"
+	item_state = "chunley_beret"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/fluff/keorat_mantle //Worn Maraziite Shroud - Iksaeors Keorat - dasfox
+	name = "worn maraziite shroud"
+	desc = "A brown, armored looking trenchcoat. There appears to be a fur cloak over the top of it, draping down to the sleeve. The cloak shows the obvious insignia of the Maraziite Order upon it. It looks worn."
+	icon = 'icons/obj/custom_items/keorat_clothing.dmi'
+	icon_state = "keorat_mantle"
+	item_state = "keorat_mantle"
+	contained_sprite = TRUE
+
+/obj/item/clothing/mask/fluff/keorat_mask //Charred Iron Mask - Iksaeors Keorat - dasfox
+	name = "charred iron mask"
+	desc = "This is an iron mask used by those of the Maraziite Order. It appears to be entirely charred, perhaps there's a story behind that."
+	icon = 'icons/obj/custom_items/keorat_clothing.dmi'
+	icon_state = "keorat_mask"
+	item_state = "keorat_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3
