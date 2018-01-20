@@ -644,24 +644,24 @@
 	description = "Adipemcina is an oral heart medication used for treating high blood pressure, heart failure, and diabetes. Works at it's best when the stomach is empty. Causes vomiting and liver damage when overdosed."
 	reagent_state = LIQUID
 	color = "#008000"
-	metabolism = REM * 0.25
+	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
 
-/datum/reagent/adipemcina/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(istype(M))
 		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
 		if(istype(F))
 			var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
-			var/healthmod = max(0,10 - F.damage) / 10 //Less effective at high heart damage.
-			F.damage = max(0,F.damage - removed*healthmod*nutritionmod)
+			W.heal_damage(removed*nutritionmod)
 	..()
 
 /datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
 	if(istype(M))
-		M.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
-		M.vomit()
+		if(prob(25))
+			M.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
+			M.vomit()
 
 /datum/reagent/elixir
 	name = "Elixir of Life"

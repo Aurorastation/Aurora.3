@@ -3260,7 +3260,7 @@
 //Junkfood
 
 /datum/reagent/nutriment/badfood //This is just a base. It shouldn't exist or be used anywhere but just in case, I added names.
-	name = "experimental preservative"
+	name = "Experimental Preservative"
 	id = "badfood"
 	description = "Some... strange chemical. You can swear it's moving."
 	nutriment_factor = 50
@@ -3277,7 +3277,7 @@
 	..()
 
 /datum/reagent/nutriment/badfood/palmoil
-	name = "palm oil"
+	name = "Palm Oil"
 	id = "palmoil"
 	description = "Palm oil is a common preservative used in packaged food, and is seriously unhealthy for you much like everything on this station."
 	nutriment_factor = 30
@@ -3286,7 +3286,7 @@
 	damagemul = 0.15
 
 /datum/reagent/nutriment/badfood/shortening
-	name = "shortening"
+	name = "Shortening"
 	id = "shortening"
 	description = "Shortening, also known as hydrogenated vegetable oil, is a preservative commonly used in packaged food. Usually made from vegetables."
 	nutriment_factor = 20
@@ -3295,7 +3295,7 @@
 	damagemul = 0.05
 
 /datum/reagent/nutriment/badfood/hfcs
-	name = "high fructose corn syrup"
+	name = "High Fructose Corn Syrup"
 	id = "hfcs"
 	description = "A cheap, easy to produce, unhealthy alternative to real sugar."
 	nutriment_factor = 20
@@ -3304,10 +3304,10 @@
 	damagemul = 0.1
 
 /datum/reagent/nutriment/badfood/msg
-	name = "monosodium glutamate"
+	name = "Monosodium Glutamate"
 	id = "msg"
 	description = "Monosodium glutamate, also known as MSG, is a cheap flavor enhancer similiar to sodium. Causes chinese restaurant syndrome."
 	nutriment_factor = 5
 	color = "#eaf1fc"
-	taste_description = "tastiness"
+	taste_description = "flavoring"
 	damagemul = 0.05
