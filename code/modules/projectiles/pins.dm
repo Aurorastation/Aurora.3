@@ -20,7 +20,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	var/selfdestruct = 0 // Explode when user check is failed.
 	var/force_replace = 0 // Can forcefully replace other pins.
 	var/pin_replaceable = 0 // Can be replaced by any pin.
-	var/pin_fragile = TRUE // is destroyed on removal by anything BUT a pin.
+	var/durable = FALSE //is destroyed when it's pried out with a screwdriver, see gun.dm
 	var/obj/item/weapon/gun/gun
 
 
@@ -95,6 +95,7 @@ Pins Below.
 	desc = "This safety firing pin allows weapons to be fired within proximity to a firing range."
 	fail_message = "<span class='warning'>TEST RANGE CHECK FAILED.</span>"
 	pin_replaceable = 1
+	durable = TRUE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 
 /obj/item/device/firing_pin/test_range/pin_auth(mob/living/user)

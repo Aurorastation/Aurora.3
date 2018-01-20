@@ -670,3 +670,23 @@ obj/item/weapon/gun/Destroy()
 
 /obj/item/weapon/gun/proc/critical_fail(var/mob/user)
 	return
+
+/obj/item/weapon/gun/attackby(var/obj/item/I as obj, var/mob/user as mob)
+	if(!pin)
+		return ..()
+
+	if(isscrewdriver(I))
+		visible_message("<span class = warning> [user] begins to try and pry out [src]'s firing pin!</span>")
+		if(do_after(user,45 SECONDS,act_target = src))
+			if(pin.durable)
+				visible_message("<span class = notice> [user] pops the [pin] out of [src]!")
+				pin.forceMove(get_turf(src))
+				pin = null//clear it out.
+			else
+				user.visible_message(
+				"<span class='warning'>[user] breaks some electronics free from [src] with a crack.</span>",
+				"<span class='alert'>You apply a bit too much force to [pin], and it breaks in two. Oops.</span>",
+				"You hear a metallic crack.")
+				qdel(pin)
+				pin = null
+	.=..()
