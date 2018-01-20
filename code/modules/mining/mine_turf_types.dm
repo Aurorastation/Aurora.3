@@ -12,6 +12,7 @@
 			/turf/simulated/lava,
 			/turf/simulated/mineral
 	)
+	openspace_override_type = /turf/simulated/open/chasm/airless
 	movement_cost = 4	//moving on lava should slows you down
 
 // Custom behavior here - we want smoothed turfs to show basalt underneath, not lava.
@@ -29,22 +30,16 @@
 			return 1
 		if(!istype(oldloc,/turf/simulated/lava))
 			to_chat(L, "<span class='warning'>You are covered by fire and heat from entering \the [src]!</span>")
-		if(ishuman(L))
-			L.fire_stacks += 25
-			L.IgniteMob()
-			L.bodytemperature += 150
-			return 1
-		if(isrobot(L))
-			L.adjustFireLoss(rand(10,30))
-			return 1
 		if(isanimal(L))
 			var/mob/living/simple_animal/H = L
 			if(H.flying) //flying mobs will ignore the lava
 				return 1
 			else
-				H.adjustFireLoss(rand(20,40))
+				L.bodytemperature = min(L.bodytemperature + 150, 1000)
 		else
-			L.adjustFireLoss(rand(10,50))
+			L.adjust_fire_stacks(15)
+			L.IgniteMob()
+			return 1
 	..()
 
 /turf/simulated/lava/Exited(atom/movable/AM, atom/newloc)
@@ -67,6 +62,7 @@
 	light_color = LIGHT_COLOR_LAVA
 	smooth = SMOOTH_FALSE
 	canSmoothWith = null
+	openspace_override_type = /turf/simulated/open/chasm/airless
 
 	footstep_sound = "concretestep"
 
