@@ -5,7 +5,7 @@
 #define SUPPLY_DOCK_AREATYPE /area/supply/dock	//Type of the supply shuttle area for dock
 
 /proc/fetch_supply_account()
-    SScargo.supply_account = department_accounts["Cargo"]
+	SScargo.supply_account = department_accounts["Cargo"]
 
 var/datum/controller/subsystem/cargo/SScargo
 
