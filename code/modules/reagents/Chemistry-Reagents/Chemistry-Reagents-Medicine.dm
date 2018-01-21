@@ -641,7 +641,7 @@
 /datum/reagent/adipemcina //Based on quinapril
 	name = "Adipemcina"
 	id = "adipemcina"
-	description = "Adipemcina is an oral heart medication used for treating high blood pressure, heart failure, and diabetes. Works at it's best when the stomach is empty. Causes vomiting and liver damage when overdosed."
+	description = "Adipemcina is a heart medication used for treating high blood pressure, heart failure, and diabetes. Works at it's best when the stomach is empty. Causes vomiting and liver damage when overdosed."
 	reagent_state = LIQUID
 	color = "#008000"
 	metabolism = REM * 0.5

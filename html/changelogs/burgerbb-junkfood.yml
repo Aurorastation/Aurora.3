@@ -1,0 +1,11 @@
+author: BurgerBB
+delete-after: True
+changes: 
+  - rscadd: "Added several new chemicals; Palm Oil, Shortening, High Fructose Corn Syrup, and MSG. These chemicals can be found in junkfood."
+  - tweak: "Tweaked some of the flavorings of junkfood to fit their actual composition. For example, meat pie only had a meat flavoring when there should be a pastry flavoring. Added additional unhealthy chemicals to the junkfood as well."
+  - tweak: "Tweaked some of the overall pain messages to be less emotion provoking and more fact based."
+  - rscadd: "Added more specific messages for organ pain."
+  - tweak: "Replaced redundent damage-calculating calculations with functions that do the same math in blood code."
+  - tweak: "Organs are now considered damaged when their damage value is greater or equal to 1. No more will you recieve penalties for your heart recieving 0.1 damage."
+  - rscadd: "Added Adipemcina, a fictional heart medication that reduces heart damage. Medication is more effective when the user's stomach is empty. Overdose effects include vomiting and liver damage. The medication can be made mixing Dylovene, Lithium, and Potasium together."
+  - rscadd: "More more information, visit the github page: https://github.com/Aurorastation/Aurora.3/pull/4127/"
