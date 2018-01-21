@@ -1033,6 +1033,10 @@ proc/is_blind(A)
 	. = ..()
 	. |= TYPE_SYNTHETIC
 
+/mob/living/silicon/find_type()
+	. = ..()
+	. |= TYPE_SYNTHETIC
+
 // Yeah, I'm just going to cheat and do istype(src) checks here.
 // It's not worth adding a proc for every single one of these types.
 /mob/living/simple_animal/find_type()

@@ -239,6 +239,10 @@
 	else
 		target_mob = H
 
+	if(!H.Adjacent(target_mob))
+		H << "<span class='danger'>You are not close enough to inject them!</span>"
+		return 0
+
 	if(target_mob != H)
 		H << "<span class='danger'>You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name].</span>"
 
