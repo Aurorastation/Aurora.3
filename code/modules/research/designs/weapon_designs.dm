@@ -412,7 +412,7 @@
 
 /datum/design/item/weapon/modular_ebow
 	id = "stock_ebow"
-	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
+	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4, TECH_ILLEGAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "phoron" = 3000)
 	build_path = /obj/item/laser_components/modulator/ebow
 	sort_string = "TZZEL"
