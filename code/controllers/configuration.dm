@@ -46,7 +46,6 @@ var/list/gamemode_cache = list()
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/Ticklag = 0.4
 	var/Tickcomp = 0
-	var/list/resource_urls = null
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
 	var/antag_hud_restricted = 0                    // Ghosts that turn on Antagovision cannot rejoin the round.
 	var/list/mode_names = list()
@@ -167,7 +166,7 @@ var/list/gamemode_cache = list()
 
 	var/simultaneous_pm_warning_timeout = 100
 
-	var/use_recursive_explosions = 0 //Defines whether the server uses recursive or circular explosions.
+	var/use_spreading_explosions = 0 //Defines whether the server uses iterative or circular explosions.
 
 	var/assistant_maint = 0 //Do assistants get maint access?
 	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
@@ -272,6 +271,9 @@ var/list/gamemode_cache = list()
 
 	var/openturf_starlight_permitted = FALSE
 
+	var/iterative_explosives_z_threshold = 10
+	var/iterative_explosives_z_multiplier = 0.75
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -288,7 +290,7 @@ var/list/gamemode_cache = list()
 				if (M.votable)
 					src.votable_modes += M.config_tag
 	src.votable_modes += ROUNDTYPE_STR_SECRET
-	votable_modes += ROUNDTYPE_STR_MIXED_SECRET
+//	votable_modes += ROUNDTYPE_STR_MIXED_SECRET
 
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 	var/list/Lines = file2list(filename)
@@ -317,9 +319,6 @@ var/list/gamemode_cache = list()
 
 		if(type == "config")
 			switch (name)
-				if ("resource_urls")
-					config.resource_urls = text2list(value, " ")
-
 				if ("admin_legacy_system")
 					config.admin_legacy_system = 1
 
@@ -338,8 +337,8 @@ var/list/gamemode_cache = list()
 				if ("jobs_have_minimal_access")
 					config.jobs_have_minimal_access = 1
 
-				if ("use_recursive_explosions")
-					use_recursive_explosions = 1
+				if ("use_spreading_explosions")
+					use_spreading_explosions = 1
 
 				if ("log_ooc")
 					config.log_ooc = 1
@@ -594,7 +593,7 @@ var/list/gamemode_cache = list()
 
 				if("alert_yellow")
 					config.alert_desc_yellow_to = value
-		
+
 				if("alert_delta")
 					config.alert_desc_delta = value
 
@@ -821,7 +820,7 @@ var/list/gamemode_cache = list()
 					access_deny_vms = text2num(value)
 				if("access_warn_vms")
 					access_warn_vms = text2num(value)
-				
+
 				if("cargo_load_items_from")
 					cargo_load_items_from = value
 
@@ -834,6 +833,12 @@ var/list/gamemode_cache = list()
 
 				if("force_map")
 					override_map = value
+
+				if ("explosion_z_threshold")
+					iterative_explosives_z_threshold = text2num(value)
+				
+				if ("explosion_z_mult")
+					iterative_explosives_z_multiplier = text2num(value)
 
 				if("show_game_type_odd")
 					config.show_game_type_odd = 1

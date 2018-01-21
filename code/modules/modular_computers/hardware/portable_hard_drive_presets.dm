@@ -1,5 +1,5 @@
-/obj/item/weapon/computer_hardware/hard_drive/portable/super/preset/all/New()
-    ..()
+/obj/item/weapon/computer_hardware/hard_drive/portable/super/preset/all/Initialize()
+    . = ..()
     add_programs()
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/super/preset/all/proc/add_programs()
@@ -19,7 +19,7 @@
     origin_tech = list() //Nope, no research levels from backup disks
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/backup/New(loc, var/prog_name)
-    ..()
+    . = ..()
     _program = prog_name
     add_program()
 

@@ -204,8 +204,3 @@
 #define PROSTHETIC_ZH "Zeng-Hu Pharmaceuticals"
 #define PROSTHETIC_HI "Hephaestus Industries"
 #define PROSTHETIC_XMG "Xion Manufacturing Group"
-
-// Defines for mechanical_species list.
-#define MECHANICAL_SPECIES_NORMAL 1	// Baselines, shells
-#define MECHANICAL_SPECIES_INDUSTRIAL 2	// Industrials, incl. branded.
-#define MECHANICAL_SPECIES_SPECIAL 3	// HKs

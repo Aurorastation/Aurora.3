@@ -7,7 +7,7 @@
 	health = 45
 	pass_flags = PASSTABLE
 	req_access = list(access_mining, access_robotics)
-	idcard_type = /obj/item/weapon/card/id/synthetic/minedrone
+	idcard_type = /obj/item/weapon/card/id/minedrone
 	speed = -1
 	range_limit = 0
 	var/health_upgrade
@@ -176,7 +176,7 @@
 	qdel(M.module)
 	M.module = null
 	if(M.ranged_upgrade)
-		new /obj/item/weapon/robot_module/mining_drone/drillandplasmacutter(M)
+		new /obj/item/weapon/robot_module/mining_drone/drillandka(M)
 	else
 		new /obj/item/weapon/robot_module/mining_drone/drill(M)
 	M.module.rebuild()
@@ -200,41 +200,24 @@
 	M.health_upgrade = 1
 	qdel(src)
 
-/obj/item/device/mine_bot_ugprade/plasma
-	name = "minebot plasma cutter upgrade"
+/obj/item/device/mine_bot_ugprade/ka
+	name = "minebot kinetic accelerator upgrade"
 
-/obj/item/device/mine_bot_ugprade/plasma/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
+/obj/item/device/mine_bot_ugprade/ka/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.ranged_upgrade)
-		user << "[src] already has a plasma cutter upgrade installed!"
+		user << "[src] already has a KA upgrade installed!"
 		return
 	M.modtype = initial(M.modtype)
 	M.uneq_all()
 	qdel(M.module)
 	M.module = null
 	if(M.melee_upgrade)
-		new /obj/item/weapon/robot_module/mining_drone/drillandplasmacutter(M)
+		new /obj/item/weapon/robot_module/mining_drone/drillandka(M)
 	else
-		new /obj/item/weapon/robot_module/mining_drone/plasmacutter(M)
+		new /obj/item/weapon/robot_module/mining_drone/ka(M)
 	M.ranged_upgrade = 1
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
-	if(!M.jetpack)
-		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
-	qdel(src)
-
-/obj/item/device/mine_bot_ugprade/thermal
-	name = "minebot thermal drill upgrade"
-
-/obj/item/device/mine_bot_ugprade/thermal/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
-	if(M.drill_upgrade)
-		user << "[src] already has a thermal drill!"
-		return
-	if(M.emagged == 1)
-		return 0
-
-	M.emagged = 1
-	M.fakeemagged = 1
-	M.drill_upgrade = 1
 	if(!M.jetpack)
 		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
 	qdel(src)

@@ -37,15 +37,16 @@
 
 	w_class = 4
 	max_w_class = 2
+	max_storage_space = 56
 	can_hold = null // any
 	cant_hold = list(/obj/item/weapon/disk/nuclear)
 
 /obj/item/weapon/storage/bag/trash/update_icon()
 	if(contents.len == 0)
 		icon_state = "trashbag0"
-	else if(contents.len < 12)
-		icon_state = "trashbag1"
 	else if(contents.len < 21)
+		icon_state = "trashbag1"
+	else if(contents.len < 42)
 		icon_state = "trashbag2"
 	else icon_state = "trashbag3"
 

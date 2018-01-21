@@ -5,6 +5,8 @@
 	icon_closed = "mixed"
 
 /obj/structure/closet/athletic_mixed/fill()
+	new /obj/item/weapon/towel/random(src)
+	new /obj/item/weapon/towel/random(src)
 	new /obj/item/clothing/under/shorts/grey(src)
 	new /obj/item/clothing/under/shorts/black(src)
 	new /obj/item/clothing/under/shorts/red(src)

@@ -329,7 +329,10 @@
 			if (co_updated)
 				// We might be facing a wall now.
 				var/turf/front = get_step(source_turf, old_direction)
-				facing_opaque = (front && front.has_opaque_atom)
+				var/new_fo = (front && front.has_opaque_atom)
+				if (new_fo != facing_opaque)
+					facing_opaque = new_fo
+					regenerate_angle(ndir)
 
 				update = TRUE
 
@@ -399,8 +402,8 @@
 				T = T.above
 				goto check_t
 		else
-			if (isopenturf(T) && T:below)	// Not searching upwards and we have a below turf.
-				T = T:below	// Consider the turf below us as well. (Z-lights)
+			if (T && (T.flags & MIMIC_BELOW) && T.below)	// Not searching upwards and we have a below turf.
+				T = T.below	// Consider the turf below us as well. (Z-lights)
 				goto check_t
 			else // Not searching upwards and we don't have a below turf.
 				zlights_going_up = TRUE

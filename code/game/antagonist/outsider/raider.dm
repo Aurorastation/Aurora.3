@@ -102,7 +102,8 @@ var/datum/antagonist/raider/raiders
 		/obj/item/weapon/gun/projectile/revolver/lemat,
 		/obj/item/weapon/gun/projectile/contender,
 		/obj/item/weapon/gun/projectile/pirate,
-		/obj/item/weapon/gun/projectile/tanto
+		/obj/item/weapon/gun/projectile/tanto,
+		/obj/item/weapon/gun/projectile/boltaction/vintage
 		)
 
 
@@ -246,6 +247,8 @@ var/datum/antagonist/raider/raiders
 	player.equip_to_slot_or_del(W, slot_wear_id)
 	spawn_money(rand(50,150)*10,W)
 	create_radio(RAID_FREQ, player)
+
+	give_codewords(player)
 
 	return 1
 

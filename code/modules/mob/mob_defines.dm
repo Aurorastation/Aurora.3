@@ -13,7 +13,7 @@
 	var/obj/screen/hands = null
 	var/obj/screen/pullin = null
 	var/obj/screen/purged = null
-	var/obj/screen/internals = null
+	var/obj/screen/internals/internals = null
 	var/obj/screen/oxygen = null
 	var/obj/screen/i_select = null
 	var/obj/screen/m_select = null
@@ -96,7 +96,7 @@
 	var/list/speak_emote = list("says") // Verbs used when speaking. Defaults to 'say' if speak_emote is null.
 	var/emote_type = 1		// Define emote default type, 1 for seen emotes, 2 for heard emotes
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
-	
+
 	var/obj/machinery/hologram/holopad/holo = null
 
 	var/name_archive //For admin things like possession
@@ -121,7 +121,6 @@
 	var/intent = null//Living
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
-	var/m_int = null//Living
 	var/m_intent = "walk"//Living
 	var/lastKnownIP = null
 	var/obj/buckled = null//Living
@@ -223,3 +222,6 @@
 	var/frozen = FALSE //related to wizard statues, if set to true, life won't process
 
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	var/disconnect_time = null//Time of client loss, set by Logout(), for timekeeping
+
+	var/mob_thinks = TRUE

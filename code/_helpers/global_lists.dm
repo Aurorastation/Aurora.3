@@ -40,12 +40,6 @@ var/global/list/all_languages = list()
 var/global/list/language_keys = list()					// Table of say codes for all languages
 var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.
 var/global/list/playable_species = list("Human")    // A list of ALL playable species, whitelisted, latejoin or otherwise.
-var/global/list/mechanical_species = list(
-	"Baseline Frame" = MECHANICAL_SPECIES_NORMAL,
-	"Shell Frame" = MECHANICAL_SPECIES_NORMAL,
-	"Industrial Frame" = MECHANICAL_SPECIES_INDUSTRIAL,
-	"Hunter-Killer" = MECHANICAL_SPECIES_SPECIAL
-)
 
 // Posters
 var/global/list/poster_designs = list()
@@ -64,10 +58,16 @@ var/global/list/facial_hair_styles_female_list = list()
 var/global/list/skin_styles_female_list = list()		//unused
 var/global/list/body_marking_styles_list = list()
 	//Underwear
-var/global/list/underwear_m = list("White" = "m1", "Grey" = "m2", "Green" = "m3", "Blue" = "m4", "Black" = "m5", "Mankini" = "m6", "None") //Curse whoever made male/female underwear diffrent colours
+var/global/list/underwear_m = list("White" = "m1", "Grey" = "m2", "Green" = "m3", "Blue" = "m4", "Black" = "m5", "Mankini" = "m6", "Boxers" = "boxers", "Green and blue boxers" = "boxers_green_and_blue","Loveheart boxers" = "boxers_loveheart","None") //Curse whoever made male/female underwear diffrent colours
 var/global/list/underwear_f = list("Red" = "f1", "White" = "f2", "Yellow" = "f3", "Blue" = "f4", "Black" = "f5", "Thong" = "f6", "Black Sports" = "f7","White Sports" = "f8","None")
 	//undershirt
-var/global/list/undershirt_t = list("White Tank top" = "u1", "Black Tank top" = "u2", "Black shirt" = "u3", "White shirt" = "u4", "None")
+var/global/list/undershirt_t = list(
+	"White tank top" = "u1", "Black tank top" = "u2", "Black shirt" = "u3", "White shirt" = "u4",
+	"Polo" = "polo", "Blue polo" = "bluepolo_s", "Red polo" = "redpolo_s", "Yellow polo" = "grayyellowpolo_s",
+	"Striped shirt" = "shirt_stripes_s", "NanoTrasen shirt" = "shirt_nano_s", "Tiedye shirt" = "shirt_tiedye_s",
+	"Green sport shirt" = "greenshirtsport_s", "Red sport shirt" = "redshirtsport_s", "Blue sport shirt" = "blueshirtsport_s",
+	"Striped tank top " = "tank_stripes_s", "Rainbow tank top" = "tank_rainbow_s", "Longsleeve shirt" = "undershirt_long",
+	"Striped longsleve shirt" = "longstripe", "Blue striped longsleve shirt" = "longstripe_blue", "None")
 
 	//socks
 var/global/list/socks_f = list(
@@ -86,6 +86,7 @@ var/global/list/socks_m = list(
 
 	//Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag", "Messenger Bag")
+var/global/list/backbagstyles = list("Job-specific", "Grey")
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
 
 // Visual nets

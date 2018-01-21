@@ -2,6 +2,9 @@
 	name = "Aurora"
 	full_name = "NSS Aurora"
 	path = "aurora"
+
+	lobby_screens = list("aurora_asteroid", "aurora_postcard")
+
 	station_levels = list(3, 4, 5, 6, 7)
 	admin_levels = list(1)
 	contact_levels = list(3, 4, 5, 6)
@@ -10,9 +13,9 @@
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,
-		"3" = /turf/simulated/floor/asteroid,
-		"4" = /turf/simulated/floor/asteroid,
-		"5" = /turf/simulated/floor/asteroid,
+		"3" = /turf/simulated/floor/asteroid/ash,
+		"4" = /turf/simulated/floor/asteroid/ash,
+		"5" = /turf/simulated/floor/asteroid/ash,
 		"6" = /turf/space,
 		"7" = /turf/space,
 		"8" = /turf/space,
@@ -72,3 +75,7 @@
 	new /datum/random_map/noise/ore(null, 0, 0, 5, 64, 64)
 	new /datum/random_map/noise/ore(null, 0, 0, 4, 64, 64)
 	new /datum/random_map/noise/ore(null, 0, 0, 3, 64, 64)
+
+/datum/map/aurora/finalize_load()
+	// generate an empty space Z
+	world.maxz++

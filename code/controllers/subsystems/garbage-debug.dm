@@ -305,7 +305,6 @@
 	SearchVar(language_keys)
 	SearchVar(whitelisted_species)
 	SearchVar(playable_species)
-	SearchVar(mechanical_species)
 	SearchVar(poster_designs)
 	SearchVar(world_uplinks)
 	SearchVar(hair_styles_list)

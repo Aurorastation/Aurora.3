@@ -5,7 +5,7 @@ env:
   global:
     BYOND_MAJOR="511"
     BYOND_MINOR="1385"
-    MACRO_COUNT=120
+    MACRO_COUNT=77
     FLYWAY_BUILD="4.2.0"
   matrix:
     - USE_MAP=aurora
@@ -37,6 +37,7 @@ before_script:
   - ./install-flyway.sh
 
 script:
+  - export LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH
   - $HOME/flyway-${FLYWAY_BUILD}/flyway migrate -user=root -password= -url=jdbc:mysql://localhost:3306/ss13_test
   - shopt -s globstar
   - (! grep 'step_[xy]' maps/**/*.dmm)

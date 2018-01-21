@@ -97,8 +97,13 @@
 		display_mirrors_panel(usr, text2num(href_list["dbbanmirrors"]))
 		return
 
-	else if(href_list["dbbanmirrorckeys"])
-		display_mirrors_ckeys(usr, text2num(href_list["dbbanmirrorckeys"]))
+	else if(href_list["dbbanmirroract"])
+		// Mirror act contains the ID of the mirror being acted upon.
+		var/mirror_id = text2num(href_list["dbbanmirroract"])
+		if (href_list["mirrorckeys"])
+			display_mirrors_ckeys(usr, mirror_id)
+		else if (href_list["mirrorstatus"])
+			toggle_mirror_status(usr, mirror_id, text2num(href_list["mirrorstatus"]))
 		return
 
 	else if(href_list["editrights"])
@@ -1593,6 +1598,7 @@
 			C << "<font color='red'><b>Your adminhelp will be tended [usr.client.holder.fakekey ? "shortly" : "by [key_name(usr, 0, 0)]"]. Please allow the staff member a minute or two to write up a response.</b></font>"
 
 			if (C.adminhelped == 3)
+				post_webhook_event(WEBHOOK_ADMIN_PM, list("title"="Help is nolonger needed", "message"="Request for Help from **[key_name(C)]** is being tended to by **[key_name(usr)]**."))
 				discord_bot.send_to_admins("Request for Help from [key_name(C)] is being tended to by [key_name(usr)].")
 
 			C.adminhelped = 1

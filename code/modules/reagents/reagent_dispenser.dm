@@ -131,12 +131,12 @@
 
 			rig = W
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 
-			var/icon/test = getFlatIcon(W)
-			test.Shift(NORTH,1)
-			test.Shift(EAST,6)
-			overlays += test
+			var/mutable_appearance/MA = new(W)
+			MA.pixel_x += 1
+			MA.pixel_y += 6
+			add_overlay(MA)
 
 	return ..()
 

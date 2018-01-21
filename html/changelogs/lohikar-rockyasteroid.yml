@@ -1,0 +1,5 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - imageadd: "Non-surface Z levels will now use a rockier asteroid floor sprite."
+  - spellcheck: "Fixed some grammar issues with rock/sand names & tweaked their descriptions slightly. Sand has been renamed to ash to better match the sprite."

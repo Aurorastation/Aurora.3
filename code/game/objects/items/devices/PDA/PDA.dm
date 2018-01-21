@@ -67,6 +67,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/obj/item/device/paicard/pai = null	// A slot for a personal AI device
 
 	var/obj/item/weapon/pen/pen
+	var/list/obj/machinery/requests_console/linked_consoles
 
 /obj/item/device/pda/examine(mob/user)
 	if(..(user, 1))
@@ -1419,6 +1420,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (src.id && prob(90)) //IDs are kept in 90% of the cases
 		src.id.loc = get_turf(src.loc)
 	QDEL_NULL(pen)
+	if (LAZYLEN(linked_consoles))
+		for(var/A in linked_consoles)
+			var/obj/machinery/requests_console/B = A
+			B.alert_pdas -= src
+			linked_consoles -= B
 	return ..()
 
 /obj/item/device/pda/clown/Crossed(AM as mob|obj) //Clown PDA is slippery.
