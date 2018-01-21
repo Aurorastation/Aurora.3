@@ -196,7 +196,7 @@
 	screen_loc = ui_ai_move_up
 
 /obj/screen/ai/move_up/Click()
-	if (isAi(usr))
+	if (isAI(usr))
 		usr.up()
 
 /obj/screen/ai/move_down
@@ -205,5 +205,5 @@
 	screen_loc = ui_ai_move_down
 
 /obj/screen/ai/move_down/Click()
-	if (isAi(usr))
+	if (isAI(usr))
 		usr.down()
