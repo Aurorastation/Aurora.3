@@ -23,6 +23,8 @@ emp_act
 			P.on_hit(src, 100, def_zone)
 			return 100
 
+	var/obj/item/organ/external/organ = get_organ(def_zone)
+
 	// Tell clothing we're wearing that it got hit by a bullet/laser/etc
 	var/list/clothing = get_clothing_list_organ(organ)
 	for(var/obj/item/clothing/C in clothing)
@@ -30,7 +32,6 @@ emp_act
 
 	//Shrapnel
 	if(!(species.flags & NO_EMBED) && P.can_embed())
-		var/obj/item/organ/external/organ = get_organ(def_zone)
 		var/armor = getarmor_organ(organ, "bullet")
 		if(prob(20 + max(P.damage - armor, -10)))
 			var/obj/item/weapon/SP = new P.shrapnel_type()
