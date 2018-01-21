@@ -638,7 +638,7 @@
 	..()
 	if(needspin)
 		if(pin)
-			user << "It has [pin] installed."
+			user << "There is a \[pin] in the trigger mechanism."
 		else
 			user << "It doesn't have a firing pin installed, and won't fire."
 
