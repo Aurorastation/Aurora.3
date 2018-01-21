@@ -176,7 +176,7 @@
 	id = "stock_starch"
 	req_tech = list(TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 1000)
-	build_path = /obj/item/laser_components/capacitor
+	build_path = /obj/item/laser_components/capacitor/potato
 	sort_string = "TZZBB"
 
 /datum/design/item/weapon/modular_reinforced
@@ -211,7 +211,7 @@
 	id = "stock_bs"
 	req_tech = list(TECH_POWER = 8, TECH_ENGINEERING = 8, TECH_PHORON = 7, TECH_BLUESPACE = 7)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "phoron" = 3000, "uranium" = 500, "diamond" = 1000)
-	build_path = /obj/item/laser_components/capacitor/teranium
+	build_path = /obj/item/laser_components/capacitor/bluespace
 	sort_string = "TZZBF"
 
 /datum/design/item/weapon/modular_lens
@@ -407,14 +407,14 @@
 	id = "stock_declone"
 	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "phoron" = 3000)
-	build_path = /obj/item/laser_components/modulator/mindflayer
+	build_path = /obj/item/laser_components/modulator/decloner
 	sort_string = "TZZEK"
 
 /datum/design/item/weapon/modular_ebow
 	id = "stock_ebow"
 	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000, "phoron" = 3000)
-	build_path = /obj/item/laser_components/modulator/mindflayer
+	build_path = /obj/item/laser_components/modulator/ebow
 	sort_string = "TZZEL"
 
 /datum/design/item/weapon/modular_blaster
