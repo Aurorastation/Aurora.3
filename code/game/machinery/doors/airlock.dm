@@ -896,7 +896,7 @@ About the new airlock wires panel:
 		operating = 0
 	else
 		if (!electronics) create_electronics()
-		electronics.loc = src.loc
+		electronics.forceMove(src.loc)
 		electronics = null
 	qdel(src)
 

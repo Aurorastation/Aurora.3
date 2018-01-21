@@ -381,44 +381,45 @@
 
 	. = ..()
 
-/obj/item/weapon/material/twohanded/chainsaw/proc/eyecheck(mob/user as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
-	if(!iscarbon(user))	return 1
-	if(istype(user, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/eyes/E = H.get_eyes()
-		if(!E)
-			return
-		var/safety = H.eyecheck()
-		if(H.status_flags & GODMODE)
-			return
-		switch(safety)
-			if(FLASH_PROTECTION_MODERATE)
-				usr << "<span class='warning'>Your eyes sting a little.</span>"
-				E.damage += rand(1, 2)*0.1
-				if(E.damage > 12)
-					user.eye_blurry += rand(3,6)*0.1
-			if(FLASH_PROTECTION_NONE)
-				usr << "<span class='warning'>Your eyes burn.</span>"
-				E.damage += rand(2, 4)*0.1
-				if(E.damage > 10)
-					E.damage += rand(4,10)*0.1
-			if(FLASH_PROTECTION_REDUCED)
-				usr << "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>"
-				user.eye_blurry += rand(12,20)*0.1
-				E.damage += rand(12, 16)*0.1
-		if(safety<FLASH_PROTECTION_MAJOR)
-			if(E.damage > 10)
-				user << "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>"
+/obj/item/weapon/material/twohanded/chainsaw/proc/eyecheck(mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
 
-			if (E.damage >= E.min_broken_damage)
-				user << "<span class='danger'>You go blind!</span>"
-				user.sdisabilities |= BLIND
-			else if (E.damage >= E.min_bruised_damage)
-				user << "<span class='danger'>You go blind!</span>"
-				user.eye_blind = 5
-				user.eye_blurry = 5
-				user.disabilities |= NEARSIGHTED
-				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
+	if (!istype(H))
+		return 1
+
+	var/obj/item/organ/eyes/E = H.get_eyes()
+	if(!E)
+		return
+	var/safety = H.eyecheck()
+	if(H.status_flags & GODMODE)
+		return
+	switch(safety)
+		if(FLASH_PROTECTION_MODERATE)
+			H << "<span class='warning'>Your eyes sting a little.</span>"
+			E.damage += rand(1, 2)*0.1
+			if(E.damage > 12)
+				H.eye_blurry += rand(3,6)*0.1
+		if(FLASH_PROTECTION_NONE)
+			H << "<span class='warning'>Your eyes burn.</span>"
+			E.damage += rand(2, 4)*0.1
+			if(E.damage > 10)
+				E.damage += rand(4,10)*0.1
+		if(FLASH_PROTECTION_REDUCED)
+			H << "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>"
+			H.eye_blurry += rand(12,20)*0.1
+			E.damage += rand(12, 16)*0.1
+	if(safety<FLASH_PROTECTION_MAJOR)
+		if(E.damage > 10)
+			H << "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>"
+
+		if (E.damage >= E.min_broken_damage)
+			H << "<span class='danger'>You go blind!</span>"
+			H.sdisabilities |= BLIND
+		else if (E.damage >= E.min_bruised_damage)
+			H << "<span class='danger'>You go blind!</span>"
+			H.eye_blind = 5
+			H.eye_blurry = 5
+			H.disabilities |= NEARSIGHTED
+			addtimer(CALLBACK(H, /mob/.proc/reset_nearsighted), 100)
 
 /obj/item/weapon/material/twohanded/chainsaw/AltClick(mob/user as mob)
 
