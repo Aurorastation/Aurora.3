@@ -679,7 +679,7 @@ obj/item/weapon/gun/Destroy()
 		visible_message("<span class = warning> [user] begins to try and pry out [src]'s firing pin!</span>")
 		if(do_after(user,45 SECONDS,act_target = src))
 			if(pin.durable)
-				visible_message("<span class = notice> [user] pops the [pin] out of [src]!")
+				visible_message("<span class = notice> [user] pops the [pin] out of [src]!</span>")
 				pin.forceMove(get_turf(src))
 				pin = null//clear it out.
 			else
