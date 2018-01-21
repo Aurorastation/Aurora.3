@@ -1,0 +1,4 @@
+author: BurgerBB
+delete-after: True
+changes: 
+  - rscadd: "Added chainsaws. Chainsaws are two handed weapons that require welder fuel to operate. Two hands a required to turn the chainsaw on. Chainsaws can open airlocks and lockers."
