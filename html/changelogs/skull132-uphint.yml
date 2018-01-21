@@ -1,0 +1,6 @@
+author: Skull132
+delete-after: true
+
+changes:
+  - rscadd: "Added a roof indicator to the top right of the game screen."
+  - rscadd: "Added move-up and -down buttons to the AI UI. Sprites courtesy of BygoneHero."
