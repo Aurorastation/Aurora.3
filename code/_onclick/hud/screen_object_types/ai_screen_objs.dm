@@ -2,7 +2,7 @@
 
 /obj/screen/module
 	dir = SOUTHWEST
-	icon = 'icons/mob/screen1_robot.dmi'
+	icon = 'icons/mob/screen/robot.dmi'
 	var/mod_pos
 
 /obj/screen/module/one
@@ -33,7 +33,7 @@
 	R.toggle_module(mod_pos)
 
 /obj/screen/ai
-	icon = 'icons/mob/screen_ai.dmi'
+	icon = 'icons/mob/screen/ai.dmi'
 	layer = 21
 
 /obj/screen/ai/core
