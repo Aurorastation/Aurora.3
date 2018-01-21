@@ -189,3 +189,21 @@
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
 		AI.sensor_mode()
+
+/obj/screen/ai/move_up
+	name = "Move Up"
+	icon_state = "move_up"
+	screen_loc = ui_ai_move_up
+
+/obj/screen/ai/move_up/Click()
+	if (isAi(usr))
+		usr.up()
+
+/obj/screen/ai/move_down
+	name = "Move Down"
+	icon_state = "move_down"
+	screen_loc = ui_ai_move_down
+
+/obj/screen/ai/move_down/Click()
+	if (isAi(usr))
+		usr.down()
