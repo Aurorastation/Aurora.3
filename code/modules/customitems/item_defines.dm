@@ -1682,7 +1682,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/toggle/fluff/halstere_coat //Martian Militia Officer Coat - Kalren Halstere - brutishcrab51
 	name = "martian militia officer coat"
 	desc = "A decorated military coat with an aiguillette, arm-bars, and golden buttons. Made of a thick material."
-	icon = 'icons/obj/custom_items/blessing_jacket.dmi'
+	icon = 'icons/obj/custom_items/halstere_clothing.dmi'
 	icon_state = "halstere_jacket"
 	item_state = "halstere_jacket"
 	icon_open = "halstere_jacket_open"
