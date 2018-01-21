@@ -17503,14 +17503,19 @@
 /turf/simulated/floor/plating,
 /area/medical/patient_wing)
 "FP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/mauve,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "FQ" = (
@@ -24812,8 +24817,7 @@
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
 	icon_state = "map_valve0";
-	name = "Air Bypass valve";
-	
+	name = "Air Bypass valve"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -25041,6 +25045,388 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/medbreak)
+"TS" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"TT" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"TU" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"TV" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"TW" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"TX" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"TY" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/bodyscanner{
+	tag = "icon-body_scanner_0 (WEST)";
+	icon_state = "body_scanner_0";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"TZ" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/body_scanconsole{
+	tag = "icon-body_scannerconsole (WEST)";
+	icon_state = "body_scannerconsole";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Ua" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/bed/chair/office/light{
+	tag = "icon-officechair_white (EAST)";
+	icon_state = "officechair_white";
+	dir = 4
+	},
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Ub" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/paper_bin,
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Uc" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"Ud" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Ue" = (
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Uf" = (
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Ug" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/pen,
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Uh" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/outpost/research/hallway)
+"Ui" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"Uj" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Uk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Ul" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Um" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Un" = (
+/obj/machinery/door/airlock/glass_research{
+	name = "Test Range"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
+"Uo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
+"Up" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
+"Uq" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"Ur" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Us" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Ut" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Uu" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
+"Uv" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/outpost/research/hallway)
+"Uw" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"Ux" = (
+/obj/machinery/door/window/southright,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"Uy" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/item/device/firing_pin/test_range,
+/obj/item/device/firing_pin/test_range,
+/obj/item/device/firing_pin/test_range,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"Uz" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UA" = (
+/obj/structure/table/reinforced,
+/obj/item/target,
+/obj/item/target,
+/obj/item/target,
+/obj/structure/closet/crate{
+	name = "Target Crate"
+	},
+/obj/item/weapon/storage/box/monkeycubes,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UB" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"UC" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UD" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UF" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UG" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"UH" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"UI" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UK" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UL" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"UM" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UO" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UP" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"UQ" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"US" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UT" = (
+/turf/simulated/wall/r_wall,
+/area/rnd/test_range)
+"UU" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UV" = (
+/obj/structure/target_stake,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UW" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
 
 (1,1,1) = {"
 aa
@@ -42154,16 +42540,16 @@ aa
 aa
 aa
 aa
+TS
+TX
+Uc
+Ui
+Uq
+Uw
+UB
+UG
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+mb
 aa
 KO
 Ls
@@ -42411,17 +42797,17 @@ aa
 aa
 aa
 aa
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-aa
-aa
+TT
+TY
+Ud
+Uj
+Ur
+Ux
+UC
+UH
+UL
+UP
+UT
 KO
 Lt
 LV
@@ -42668,17 +43054,17 @@ aa
 aa
 aa
 aa
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-aa
-aa
+TU
+TZ
+Ue
+Uk
+Us
+Uy
+UD
+UI
+UM
+UQ
+UU
 KO
 Lu
 LW
@@ -42925,17 +43311,17 @@ aa
 aa
 aa
 aa
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-aa
-aa
-aa
+TV
+Ua
+Uf
+Ul
+Ut
+Uz
+UE
+UJ
+UN
+UR
+UV
 KO
 KO
 KO
@@ -43182,17 +43568,17 @@ aa
 aa
 aa
 aa
-aa
-ac
-ac
-ac
-ac
-ac
-ac
-aa
-aa
-aa
-aa
+TW
+Ub
+Ug
+Um
+Uu
+UA
+UF
+UK
+UO
+US
+UW
 KP
 Lv
 Lv
@@ -43441,9 +43827,9 @@ xv
 xv
 xv
 uZ
-vs
-vs
-vs
+Uh
+Un
+Uv
 vs
 xe
 xy
@@ -43699,7 +44085,7 @@ Db
 SQ
 Ex
 Ff
-vt
+Uo
 Co
 Hp
 HY
@@ -43956,7 +44342,7 @@ Dc
 SQ
 vb
 uD
-uD
+Up
 GK
 Hq
 HZ
@@ -63763,7 +64149,7 @@ OM
 Pn
 PI
 PZ
-TR
+TQ
 Ko
 aa
 aa
