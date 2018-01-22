@@ -2,5 +2,5 @@ author: BurgerBB
 
 delete-after: True
 
-changes: 
+changes:
   - rscadd: "Added ERP tokens. Tokens can be redeemed on the groin of other players while attacking them with the coin in hand. Lasts 1 decisecond."
