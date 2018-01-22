@@ -286,9 +286,6 @@
 		new /obj/item/device/hailer(src)
 		new /obj/item/device/holowarrant(src)
 		new /obj/item/device/flashlight/flare(src)
-		new /obj/item/device/flashlight/maglight(src)
-		new /obj/item/weapon/crowbar(src)
-		new /obj/item/device/radio(src)
 		new /obj/item/weapon/handcuffs(src)
 		//Belts
 		new /obj/item/clothing/accessory/storage/black_vest(src)
