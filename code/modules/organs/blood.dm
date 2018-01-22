@@ -74,8 +74,8 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 
 			if(!heart)
 				blood_volume = 0
-			else if(heart.is_broken()) //I honestly hope this doesn't fuck up surgery or anything. Might need to test heart surgery on a patient.
-				blood_volume *= (BLOOD_VOLUME_SURVIVE/BLOOD_VOLUME_SAFE) //Fuck hardcoded values if it means one extra division operation per tick
+			else if(heart.is_broken())
+				blood_volume *= ((BLOOD_VOLUME_SURVIVE*1.5)/BLOOD_VOLUME_SAFE) //Fuck hardcoded values if it means one extra division operation per tick
 			else if(heart.is_bruised())
 				blood_volume *= (BLOOD_VOLUME_BAD/BLOOD_VOLUME_SAFE)
 			else if(heart.is_damaged())
