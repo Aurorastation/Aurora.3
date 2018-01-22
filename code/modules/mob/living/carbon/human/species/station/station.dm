@@ -398,11 +398,7 @@
 	age_max = 30
 	economic_modifier = 3
 
-	blurb = "IPCs are, quite simply, 'Integrated Positronic Chassis'. In this scenario, positronic does not mean anything significant - it is a nickname given \
-	to all advanced processing units, based on the works of vintage writer Isaac Asimov. The long of the short is that they represent all unbound synthetic \
-	units.Assembly produced, simple IPC units. Simple skeleton designed for minimal use, generally in civilian roles. The most common form of chassis used by \
-	IPCs, first designed and produced by Hephaestus Industries in the early years of synthetic production. It has become ubiquitous, and for all of its many \
-	faults - its shoddy coolant systems and fragile frame - it would be very odd to see a standard IPC without it."
+	blurb = "IPCs are, quite simply, \"Integrated Positronic Chassis.\" In this scenario, 'positronic' implies that the chassis possesses a positronic processing core (or positronic brain), meaning that an IPC must be positronic to be considered an IPC. The Baseline model is more of a category - the long of the short is that they represent all unbound synthetic units. Baseline models cover anything that is not an Industrial chassis or a Shell chassis. They can be custom made or assembly made. The most common feature of the Baseline model is a simple design, skeletal or semi-humanoid, and ordinary atmospheric diffusion cooling systems."
 
 	icobase = 'icons/mob/human_races/r_machine.dmi'
 	deform = 'icons/mob/human_races/r_machine.dmi'
@@ -447,7 +443,7 @@
 	body_temperature = null
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
-	flags = NO_BREATHE | NO_SCAN | NO_BLOOD | NO_PAIN | NO_POISON
+	flags = IS_IPC
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 
@@ -565,10 +561,13 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status: WHERE player_ckey = :ckey: AND character_name = :character_name:")
 			update_query.Execute(query_details)
 
-/datum/species/machine/get_light_color(hair_style)
+/datum/species/machine/get_light_color(mob/living/carbon/human/H)
+	if (!istype(H))
+		return null
+
 	// I hate this, but I can't think of a better way that doesn't involve
 	// rewriting hair.
-	switch (hair_style)
+	switch (H.h_style)
 		if ("pink IPC screen")
 			return LIGHT_COLOR_PINK
 

@@ -57,7 +57,7 @@
 
 	var/mob/living/carbon/human/H = loc
 
-	var/efficiency = 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling
+	var/efficiency = !!(H.species.flags & ACCEPTS_COOLER) || 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling; some species can directly connect to the cooler, so get a free 100% efficiency here
 	var/env_temp = get_environment_temperature()		//wont save you from a fire
 	var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
 
@@ -205,9 +205,9 @@
 	if (on)
 		if (attached_to_suit(src.loc))
 			user << "It's switched on and running."
-		else if (istype(src.loc, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = src.loc
-			if (global.mechanical_species[H.get_species()] == MECHANICAL_SPECIES_INDUSTRIAL)
+		else if (ishuman(loc))
+			var/mob/living/carbon/human/H = loc
+			if (H.species.flags & ACCEPTS_COOLER)
 				user << "It's switched on and running, connected to the cooling systems of [H]."
 		else
 			user << "It's switched on, but not attached to anything."

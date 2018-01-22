@@ -139,7 +139,7 @@
 // Usually eyes, but can be something else.
 // If `no_synthetic` is TRUE, returns null for mobs that are mechanical, or for mechanical eyes.
 /mob/living/carbon/human/proc/get_eyes(no_synthetic = FALSE)
-	if (!species.vision_organ || !species.has_organ[species.vision_organ] || (no_synthetic && (global.mechanical_species[get_species()])))
+	if (!species.vision_organ || !species.has_organ[species.vision_organ] || (no_synthetic && (species.flags & IS_MECHANICAL)))
 		return null
 
 	var/obj/item/organ/O = internal_organs_by_name[species.vision_organ]

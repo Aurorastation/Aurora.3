@@ -1,0 +1,4 @@
+author: Lohikar
+delete-after: True
+changes: 
+  - rscadd: "You can now elect to have a grey (default) colored bag instead of your job specific type."

@@ -40,12 +40,6 @@ var/global/list/all_languages = list()
 var/global/list/language_keys = list()					// Table of say codes for all languages
 var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.
 var/global/list/playable_species = list("Human")    // A list of ALL playable species, whitelisted, latejoin or otherwise.
-var/global/list/mechanical_species = list(
-	"Baseline Frame" = MECHANICAL_SPECIES_NORMAL,
-	"Shell Frame" = MECHANICAL_SPECIES_NORMAL,
-	"Industrial Frame" = MECHANICAL_SPECIES_INDUSTRIAL,
-	"Hunter-Killer" = MECHANICAL_SPECIES_SPECIAL
-)
 
 // Posters
 var/global/list/poster_designs = list()
@@ -92,6 +86,7 @@ var/global/list/socks_m = list(
 
 	//Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag", "Messenger Bag")
+var/global/list/backbagstyles = list("Job-specific", "Grey")
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
 
 // Visual nets
