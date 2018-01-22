@@ -19,11 +19,17 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/list/connected_z_cache = list()
 
+	var/list/known_templates = list()	// list 'o /datum/map_template. Selectable/creatable by admins.
+
 /datum/controller/subsystem/atlas/New()
 	NEW_SS_GLOBAL(SSatlas)
 
 /datum/controller/subsystem/atlas/Initialize(timeofday)
 	maploader = new
+
+	global.template_preview_image = image('icons/effects/effects.dmi', "wave4")
+	global.template_preview_image.blend_mode = BLEND_MULTIPLY
+	global.template_preview_image.layer = LIGHTING_LAYER + 0.1
 
 	var/datum/map/M
 	for (var/type in subtypesof(/datum/map))
@@ -105,10 +111,13 @@ var/datum/controller/subsystem/atlas/SSatlas
 		CHECK_TICK
 
 /datum/controller/subsystem/atlas/proc/setup_multiz()
+	. = 0
 	for (var/thing in height_markers)
 		var/obj/effect/landmark/map_data/marker = thing
 		marker.setup()
+		.++
 
+	log_debug("SSatlas: found [.] Z markers.")
 	connected_z_cache.Cut()
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()

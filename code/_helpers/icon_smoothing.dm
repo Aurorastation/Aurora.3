@@ -428,6 +428,7 @@
 
 //Icon smoothing helpers
 /proc/smooth_zlevel(var/zlevel, now = FALSE)
+	log_debug("icon_smoothing: smoothing level [zlevel], now=[!!now]")
 	for(var/V in Z_ALL_TURFS(zlevel))
 		var/turf/T = V
 		if(T.smooth)
