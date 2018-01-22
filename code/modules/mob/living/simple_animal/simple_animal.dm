@@ -383,7 +383,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			G.affecting = src
 			LAssailant = M
 
-			M.visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
+			M.visible_message("<span class='warning'>[M] has grabbed [src] [(M.zone_sel.selecting == "l_hand"||M.zone_sel.selecting == "r_hand")?("by [gender==FEMALE?("her"):(gender==MALE?"his":"their")] hands"):("passively")]!</span>")
 			M.do_attack_animation(src)
 			poke(1)
 
