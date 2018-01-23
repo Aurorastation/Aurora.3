@@ -25463,6 +25463,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
 "UX" = (
+/obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
