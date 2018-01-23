@@ -233,4 +233,4 @@
 
 	prefs.toggles_secondary ^= VOX_VOICE 
 	prefs.save_preferences()
-	src << "You will [(prefs.toggles_secondary & VOICE) ? "no longer" : "now"] hear the VOX voice."
+	src << "You will [(prefs.toggles_secondary & VOX_VOICE) ? "no longer" : "now"] hear the VOX voice."
