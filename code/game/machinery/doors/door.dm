@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 #define DOOR_REPAIR_AMOUNT 50	//amount of health regained per stack amount used
-#define DOOR_CRUSH_DAMAGE 20
+#define DOOR_CRUSH_DAMAGE 40
 
 /obj/machinery/door
 	name = "Door"
@@ -520,18 +520,27 @@
 /obj/machinery/door/proc/crush(var/damage)
 	var/damagetodo = damage ? damage : DOOR_CRUSH_DAMAGE
 	for(var/mob/living/L in get_turf(src))
-		if(isalien(L))  //For xenos
-			L.adjustBruteLoss(damagetodo * 1.5)
-			L.emote("roar")
-		else if(ishuman(L)) //For humans
+		if(ishuman(L)) //For humans
 			L.adjustBruteLoss(damagetodo)
 			if(L.stat == CONSCIOUS)
 				L.emote("scream")
 			L.Weaken(5)
-		else //for simple_animals & borgs
+		else //for anything else
 			L.adjustBruteLoss(damagetodo)
-		var/turf/location = get_turf(src)
-		gibs(location)
+
+		var/turf/T = get_turf(L)
+		var/list/valid_turfs = list()
+		for(var/dir_to_test in cardinal)
+			var/turf/new_turf = get_step(T, dir_to_test)
+			if(!new_turf.contains_dense_objects())
+				valid_turfs |= new_turf
+
+		while(valid_turfs.len)
+			T = pick(valid_turfs)
+			valid_turfs -= T
+
+			if(L.forceMove(T))
+				return
 
 /obj/machinery/door/proc/requiresID()
 	return 1

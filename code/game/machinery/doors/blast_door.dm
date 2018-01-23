@@ -18,6 +18,7 @@
 	var/icon_state_opening = null
 	var/icon_state_closed = null
 	var/icon_state_closing = null
+	var/shutter = 0
 
 	closed_layer = 3.4 // Above airlocks when closed
 	var/id = 1.0
@@ -146,8 +147,8 @@
 /obj/machinery/door/blast/close()
 	if (src.operating || (stat & BROKEN || stat & NOPOWER))
 		return
-	if(istype(src, /obj/machinery/door/blast/shutters))
-		crush(10) // reduced damage
+	if(shutter)
+		crush(30) // reduced damage
 	else 
 		crush()
 	force_close()
@@ -187,6 +188,7 @@ obj/machinery/door/blast/regular/open
 // SUBTYPE: Shutters
 // Nicer looking, and also weaker, shutters. Found in kitchen and similar areas.
 /obj/machinery/door/blast/shutters
+	shutter = 1
 	icon_state_open = "shutter0"
 	icon_state_opening = "shutterc0"
 	icon_state_closed = "shutter1"
