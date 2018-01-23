@@ -25107,6 +25107,9 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/north,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "Ub" = (
@@ -25193,6 +25196,9 @@
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
@@ -25457,6 +25463,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
 "UX" = (
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UY" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UZ" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
@@ -43094,10 +43112,10 @@ Uk
 Us
 Uy
 UC
-UC
-UC
-UC
 UX
+UC
+UC
+UZ
 KO
 Lu
 LW
@@ -43608,7 +43626,7 @@ Um
 Uu
 UA
 UC
-UC
+UY
 UC
 UC
 UC
