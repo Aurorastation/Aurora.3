@@ -17516,6 +17516,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "FQ" = (
@@ -25180,11 +25185,25 @@
 	icon_state = "intact-supply";
 	dir = 6
 	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "Uk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
@@ -25201,6 +25220,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "Un" = (
@@ -25212,6 +25236,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
@@ -25425,6 +25454,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
 "UW" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"UX" = (
+/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
 
@@ -42541,13 +42574,13 @@ aa
 aa
 aa
 TS
-TX
-Uc
-Ui
-Uq
-Uw
-UB
-UG
+TS
+TS
+TS
+TS
+TS
+TS
+TS
 ac
 mb
 aa
@@ -42797,17 +42830,17 @@ aa
 aa
 aa
 aa
-TT
+TS
 TY
 Ud
 Uj
 Ur
 Ux
 UC
-UH
-UL
-UP
-UT
+TS
+TS
+TS
+TS
 KO
 Lt
 LV
@@ -43054,17 +43087,17 @@ aa
 aa
 aa
 aa
-TU
+TS
 TZ
 Ue
 Uk
 Us
 Uy
-UD
-UI
-UM
-UQ
-UU
+UC
+UC
+UC
+UC
+UX
 KO
 Lu
 LW
@@ -43311,16 +43344,16 @@ aa
 aa
 aa
 aa
-TV
+TS
 Ua
-Uf
-Ul
-Ut
+Ue
+Uk
+Us
 Uz
 UE
-UJ
-UN
-UR
+UE
+UE
+UE
 UV
 KO
 KO
@@ -43568,17 +43601,17 @@ aa
 aa
 aa
 aa
-TW
+TS
 Ub
 Ug
 Um
 Uu
 UA
-UF
-UK
-UO
-US
-UW
+UC
+UC
+UC
+UC
+UC
 KP
 Lv
 Lv
@@ -44085,7 +44118,7 @@ Db
 SQ
 Ex
 Ff
-Uo
+vv
 Co
 Hp
 HY
@@ -44342,7 +44375,7 @@ Dc
 SQ
 vb
 uD
-Up
+vv
 GK
 Hq
 HZ
