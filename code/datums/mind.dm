@@ -69,7 +69,6 @@
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
 
-	var/ambitions
 
 /datum/mind/New(var/key)
 	src.key = key
@@ -115,9 +114,6 @@
 	var/output = "<B>[current.real_name]'s Memory</B><HR>"
 	output += memory
 
-	if(ambitions)
-		output += "<HR><B>Ambitions:</B> [ambitions]<br>"
-	
 	if(objectives.len>0)
 		output += "<HR><B>Objectives:</B>"
 
@@ -160,7 +156,6 @@
 	else
 		out += "None."
 	out += "<br><a href='?src=\ref[src];obj_add=1'>\[add\]</a>"
-	out += "<b>Ambitions:</b> [ambitions ? ambitions : "None"] <a href='?src=\ref[src];amb_edit=\ref[src]'>\[edit\]</a></br>"
 	usr << browse(out, "window=edit_memory[src]")
 
 /datum/mind/Topic(href, href_list)
@@ -200,17 +195,6 @@
 		if (isnull(new_memo)) return
 		memory = new_memo
 
-	else if (href_list["amb_edit"])
-		var/datum/mind/mind = locate(href_list["amb_edit"])
-		if(!mind)
-			return
-		var/new_ambition = input("Enter a new ambition", "Memory", mind.ambitions) as null|message
-		if(isnull(new_ambition))
-			return
-		if(mind)
-			mind.ambitions = sanitize(new_ambition)
-			mind.current << "<span class='warning'>Your ambitions have been changed by higher powers, they are now: [mind.ambitions]</span>"
-	
 	else if (href_list["obj_edit"] || href_list["obj_add"])
 		var/datum/objective/objective
 		var/objective_pos
