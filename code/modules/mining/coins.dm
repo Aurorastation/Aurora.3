@@ -44,6 +44,28 @@
 	name = "platinum coin"
 	icon_state = "coin_adamantine"
 
+/obj/item/weapon/coin/erp
+	name = "erp token"
+	icon_state = "erp_token"
+	desc = "Put this in her slot to redeem your erp token. Good for 1 deciseconds of erp."
+
+/obj/item/weapon/coin/erp/attack(/mob/living/carbon/human/target, /mob/living/carbon/human/user, var/target_zone)
+	if(!istype(target) || !istype(user) || target_zone != "groin")
+		return
+	else
+		user.visible_message(\
+			"[user] inserts the [src] into [target]'s slot...",\
+			"You insert the [src] into [target]'s slot...",\
+			"You hear the distinct sound of a coin going into a vending machine..."\
+		)
+		playsound(target.loc, 'sound/machines/vending.ogg', 35, 1)
+		user << "You have 1 decisecond of erp left with [target]."
+		target << "You have 1 decisecond of erp left with [target]."
+		qdel(src)
+		sleep(1) //Measured in deciseconds
+		user << "Your time has expired with [target]. Please insert another ERP token."
+		target << "Your time has expired with [user]."
+
 /obj/item/weapon/coin/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(iscoil(W))
 		var/obj/item/stack/cable_coil/CC = W
