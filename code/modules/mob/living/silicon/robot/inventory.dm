@@ -297,7 +297,7 @@
 
 
 /mob/living/silicon/robot/proc/describe_module(var/slot)
-	var/list/index_module=list(module_state_1,module_state_2,module_state_3)
+	var/list/index_module = list(module_state_1,module_state_2,module_state_3)
 	var/result = "   Hardpoint [slot] holds "
 	result += (index_module[slot]) ? "\icon[index_module[slot]] [index_module[slot]]." : "nothing."
 	result += "\n"
@@ -306,8 +306,8 @@
 /mob/living/silicon/robot/proc/describe_all_modules()
 	var/result="It has three tool hardpoints.\n"
 	for (var/x = 1; x <=3; x++)
-		result+=describe_module(x)
-	var/selected=get_selected_module()
+		result += describe_module(x)
+	var/selected = get_selected_module()
 	if (selected)
-		result+="\nThe activity light on hardpoint [selected] is on.\n"
+		result += "\nThe activity light on hardpoint [selected] is on.\n"
 	return result
