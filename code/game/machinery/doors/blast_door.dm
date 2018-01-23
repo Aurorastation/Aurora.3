@@ -6,6 +6,7 @@
 // controlled they use buttons or other means of remote control. This is why they cannot be emagged
 // as they lack any ID scanning system, they just handle remote control signals. Subtypes have
 // different icons, which are defined by set of variables. Subtypes are on bottom of this file.
+#define BLAST_DOOR_CRUSH_DAMAGE 40
 
 /obj/machinery/door/blast
 	name = "Blast Door"
@@ -18,7 +19,7 @@
 	var/icon_state_opening = null
 	var/icon_state_closed = null
 	var/icon_state_closing = null
-	var/shutter = 0
+	var/damage = BLAST_DOOR_CRUSH_DAMAGE
 
 	closed_layer = 3.4 // Above airlocks when closed
 	var/id = 1.0
@@ -147,11 +148,8 @@
 /obj/machinery/door/blast/close()
 	if (src.operating || (stat & BROKEN || stat & NOPOWER))
 		return
-	if(shutter)
-		crush(30) // reduced damage
-	else 
-		crush()
 	force_close()
+	crush(damage)
 
 
 // Proc: repair()
@@ -188,12 +186,12 @@ obj/machinery/door/blast/regular/open
 // SUBTYPE: Shutters
 // Nicer looking, and also weaker, shutters. Found in kitchen and similar areas.
 /obj/machinery/door/blast/shutters
-	shutter = 1
 	icon_state_open = "shutter0"
 	icon_state_opening = "shutterc0"
 	icon_state_closed = "shutter1"
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
+	damage = BLAST_DOOR_CRUSH_DAMAGE/4
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
