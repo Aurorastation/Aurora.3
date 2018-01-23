@@ -671,6 +671,7 @@
 		/obj/item/clothing/under/redcoat = 0.5,
 		/obj/item/clothing/under/serviceoveralls = 1,
 		/obj/item/clothing/under/psyche = 0.5,
+		/obj/item/clothing/under/rank/dispatch = 0.8,
 		/obj/item/clothing/under/syndicate/tacticool = 1,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
 		/obj/item/clothing/under/rank/clown = 0.1,
@@ -678,7 +679,7 @@
 		/obj/item/clothing/accessory/badge = 0.2,
 		/obj/item/clothing/accessory/badge/old = 0.2,
 		/obj/item/clothing/accessory/storage/webbing = 0.6,
-		/obj/item/clothing/accessory/storage/knifeharness = 0.3, //Realtalk, why in gods name is this a thing?
+		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
 		/obj/item/clothing/head/collectable/petehat = 0.1,
 		/obj/item/clothing/head/hardhat = 1.2,
 		/obj/item/clothing/head/redcoat = 0.4,
