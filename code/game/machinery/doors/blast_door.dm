@@ -146,6 +146,10 @@
 /obj/machinery/door/blast/close()
 	if (src.operating || (stat & BROKEN || stat & NOPOWER))
 		return
+	if(istype(src, /obj/machinery/door/blast/shutters))
+		crush(10) // reduced damage
+	else 
+		crush()
 	force_close()
 
 
