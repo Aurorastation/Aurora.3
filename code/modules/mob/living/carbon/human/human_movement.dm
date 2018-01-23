@@ -119,11 +119,11 @@
 	. = ..()
 
 	var/turf/T = loc
-	if (!istype(T))
+	if (!isturf(T))
 		return
 
 	if (client)
-		var/turf/B = HasAbove(T.z) ? get_step(T, UP) : null
+		var/turf/B = GetAbove(T)
 		up_hint.icon_state = "uphint[(B ? B.is_hole : 0)]"
 
 	if (is_noisy && !stat && !lying)
