@@ -75,6 +75,8 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 //Gun safety check.
 #define SAFETY_CHECK 0x10
 
+#define VOX_VOICE 0x20
+
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 

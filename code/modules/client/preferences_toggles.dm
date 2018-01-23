@@ -225,3 +225,12 @@
 	prefs.toggles_secondary ^= SAFETY_CHECK //Held in Parallax because we don't want to deal with an SQL migration right now.
 	prefs.save_preferences()
 	src << "You will [(prefs.toggles_secondary & SAFETY_CHECK) ? "no longer" : "now"] fire your weapon on intents other than harm."
+
+/client/verb/toggle_vox_voice()
+	set name = "Toggle VOX Voice"
+	set category = "Preferences"
+	set desc = "Toggles the announcement voice."
+
+	prefs.toggles_secondary ^= VOX_VOICE 
+	prefs.save_preferences()
+	src << "You will [(prefs.toggles_secondary & VOICE) ? "no longer" : "now"] hear the VOX voice."
