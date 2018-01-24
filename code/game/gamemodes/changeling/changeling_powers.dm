@@ -288,17 +288,21 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 /mob/proc/handle_changeling_transform(var/datum/absorbed_dna/chosen_dna)
 	src.visible_message("<span class='warning'>[src] transforms!</span>")
 
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		var/newSpecies = chosen_dna.speciesName
-		H.set_species(newSpecies,1)
-
-	src.dna = chosen_dna.dna
 	src.real_name = chosen_dna.name
 	src.flavor_text = ""
-	domutcheck(src, null)
 	src.UpdateAppearance()
 
+/mob/living/carbon/handle_changeling_transform(datum/absorbed_dna/chosen_dna)
+	dna = chosen_dna.dna
+	domutcheck(null)
+
+	..()
+
+/mob/living/carbon/human/handle_changeling_transform(datum/absorbed_dna/chosen_dna)
+	var/newSpecies = chosen_dna.speciesName
+	set_species(newSpecies, 1)
+
+	..()
 
 //Transform into a monkey.
 /mob/proc/changeling_lesser_form()
@@ -387,7 +391,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	O.loc = C.loc
 
 	O.UpdateAppearance()
-	domutcheck(O, null)
+	O.domutcheck(null)
 	O.setToxLoss(C.getToxLoss())
 	O.adjustBruteLoss(C.getBruteLoss())
 	O.setOxyLoss(C.getOxyLoss())

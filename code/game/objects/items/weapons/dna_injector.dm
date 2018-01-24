@@ -64,29 +64,34 @@
 		return buf.dna.SetUIValue(real_block,val)
 
 /obj/item/weapon/dnainjector/proc/inject(mob/M as mob, mob/user as mob)
-	if(istype(M,/mob/living))
+	if(istype(M, /mob/living))
 		var/mob/living/L = M
 		L.apply_effect(rand(5,20), IRRADIATE, blocked = 0)
 
-	if (!(NOCLONE in M.mutations)) // prevents drained people from having their DNA changed
+
+	var/mob/living/carbon/C = M
+	if (!istype(C))
+		return
+
+	if (!(NOCLONE in C.mutations)) // prevents drained people from having their DNA changed
 		if (buf.types & DNA2_BUF_UI)
 			if (!block) //isolated block?
-				M.UpdateAppearance(buf.dna.UI.Copy())
+				C.UpdateAppearance(buf.dna.UI.Copy())
 				if (buf.types & DNA2_BUF_UE) //unique enzymes? yes
-					M.real_name = buf.dna.real_name
-					M.name = buf.dna.real_name
+					C.real_name = buf.dna.real_name
+					C.name = buf.dna.real_name
 				uses--
 			else
-				M.dna.SetUIValue(block,src.GetValue())
-				M.UpdateAppearance()
+				C.dna.SetUIValue(block,src.GetValue())
+				C.UpdateAppearance()
 				uses--
 		if (buf.types & DNA2_BUF_SE)
 			if (!block) //isolated block?
-				M.dna.SE = buf.dna.SE.Copy()
-				M.dna.UpdateSE()
+				C.dna.SE = buf.dna.SE.Copy()
+				C.dna.UpdateSE()
 			else
-				M.dna.SetSEValue(block,src.GetValue())
-			domutcheck(M, null, block!=null)
+				C.dna.SetSEValue(block,src.GetValue())
+			C.domutcheck(null, block!=null)
 			uses--
 			if(prob(5))
 				trigger_side_effect(M)

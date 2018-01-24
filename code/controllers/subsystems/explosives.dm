@@ -147,7 +147,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 						continue
 
 					var/dist = get_dist(M_turf, epicenter)
-					if (reception == 2 && (M.ear_deaf <= 0 || !M.ear_deaf))//Dont play sounds to deaf people
+					if (reception == 2 && !M.is_deaf())//Dont play sounds to deaf people
 						// If inside the blast radius + world.view - 2
 						if(dist <= closedist)
 							M.playsound_local(epicenter, get_sfx("explosion"), min(100, volume), 1, frequency, falloff = 5) // get_sfx() is so that everyone gets the same sound
@@ -349,7 +349,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 				continue
 
 		var/dist = get_dist(M, epicenter) || 1
-		if ((reception & EXPLFX_SOUND) && M.ear_deaf <= 0)
+		if ((reception & EXPLFX_SOUND) && !M.is_deaf())
 			if (dist <= close_dist)
 				M.playsound_local(epicenter, explosion_sound, min(100, volume), 1, frequency, falloff = 5)
 				//You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.

@@ -457,15 +457,9 @@ default behaviour is:
 	total_radiation = 0
 	nutrition = 400
 	bodytemperature = T20C
-	sdisabilities = 0
-	disabilities = 0
 
 	// fix blindness and deafness
 	blinded = 0
-	eye_blind = 0
-	eye_blurry = 0
-	ear_deaf = 0
-	ear_damage = 0
 	heal_overall_damage(getBruteLoss(), getFireLoss())
 
 	// fix all of our organs
@@ -491,6 +485,17 @@ default behaviour is:
 	failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
 
 	return
+
+/mob/living/carbon/rejuvenate()
+	sdisabilities = 0
+	disabilities = 0
+
+	eye_blind = 0
+	eye_blurry = 0
+	ear_deaf = 0
+	ear_damage = 0
+
+	..()
 
 /mob/living/proc/UpdateDamageIcon()
 	return
@@ -741,12 +746,12 @@ default behaviour is:
 	..()
 
 //damage/heal the mob ears and adjust the deaf amount
-/mob/living/adjustEarDamage(var/damage, var/deaf)
+/mob/living/carbon/adjustEarDamage(var/damage, var/deaf)
 	ear_damage = max(0, ear_damage + damage)
 	ear_deaf = max(0, ear_deaf + deaf)
 
 //pass a negative argument to skip one of the variable
-/mob/living/setEarDamage(var/damage, var/deaf)
+/mob/living/carbon/setEarDamage(var/damage, var/deaf)
 	if(damage >= 0)
 		ear_damage = damage
 	if(deaf >= 0)

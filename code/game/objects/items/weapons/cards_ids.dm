@@ -157,18 +157,23 @@ var/const/NO_EMAG_ACT = -50
 	id_card.sex 				= capitalize(gender)
 	id_card.set_id_photo(src)
 
+	id_card.update_name()
+
+/mob/living/carbon/set_id_info(obj/item/weapon/card/id/id_card)
 	if(dna)
 		id_card.blood_type		= dna.b_type
 		id_card.dna_hash		= dna.unique_enzymes
 		id_card.fingerprint_hash= md5(dna.uni_identity)
-	id_card.update_name()
+
+	..()
 
 /mob/living/carbon/human/set_id_info(var/obj/item/weapon/card/id/id_card)
-	..()
 	id_card.age = age
 	id_card.citizenship			= citizenship
 	id_card.religion			= religion
 	id_card.mob					= src
+
+	..()
 
 /obj/item/weapon/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")

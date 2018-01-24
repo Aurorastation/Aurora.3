@@ -186,8 +186,14 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 
 			M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment, S)
 
+/mob/living/carbon/playsound_local(turf/turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure = 1, environment = -1, sound/S)
+	if (ear_deaf > 0)
+		return 0
+
+	. = ..()
+
 /mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, usepressure = 1, environment = -1, sound/S)
-	if(!client || ear_deaf > 0)
+	if (!client)
 		return 0
 
 	if (!S)

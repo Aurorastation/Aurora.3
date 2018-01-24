@@ -49,11 +49,11 @@
 		if(!istype(P)) return
 
 		if(href_list["getdna"])
-			var/mob/living/M = P.loc
+			var/mob/living/carbon/M = P.loc
 			var/count = 0
 
 			// Find the carrier
-			while(!istype(M, /mob/living))
+			while(!istype(M))
 				if(!M || !M.loc || count > 6)
 					//For a runtime where M ends up in nullspace (similar to bluespace but less colourful)
 					src << "You are not being carried by anyone!"

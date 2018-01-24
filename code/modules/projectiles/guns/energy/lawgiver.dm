@@ -132,24 +132,25 @@
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
-/obj/item/weapon/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
-	if(src.dna != user.dna.unique_enzymes && !emagged)
-		if(istype(user, /mob/living/carbon/human))
-			//Save the users active hand
-			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/LA = H.get_organ("l_arm")
-			var/obj/item/organ/external/RA = H.get_organ("r_arm")
-			var/active_hand = H.hand
-			playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
-			user << "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>"
-			user << "<span class='danger'>You feel a tiny prick in your hand!</span>"
-			user.drop_item()
-			//Blow up Unauthorized Users Hand
-			sleep(60)
-			if(active_hand)
-				LA.droplimb(0,DROPLIMB_BLUNT)
-			else
-				RA.droplimb(0,DROPLIMB_BLUNT)
+/obj/item/weapon/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/carbon/user as mob|obj, params, pointblank=0, reflex = 0)
+	if (istype(user))
+		if(src.dna != user.dna.unique_enzymes && !emagged)
+			if(istype(user, /mob/living/carbon/human))
+				//Save the users active hand
+				var/mob/living/carbon/human/H = user
+				var/obj/item/organ/external/LA = H.get_organ("l_arm")
+				var/obj/item/organ/external/RA = H.get_organ("r_arm")
+				var/active_hand = H.hand
+				playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
+				user << "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>"
+				user << "<span class='danger'>You feel a tiny prick in your hand!</span>"
+				user.drop_item()
+				//Blow up Unauthorized Users Hand
+				sleep(60)
+				if(active_hand)
+					LA.droplimb(0,DROPLIMB_BLUNT)
+				else
+					RA.droplimb(0,DROPLIMB_BLUNT)
 		return 0
 	..()
 

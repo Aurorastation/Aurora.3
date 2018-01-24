@@ -944,13 +944,14 @@
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon))
-		M.dna.SetSEState(block,!M.dna.GetSEState(block))
-		domutcheck(M,null,MUTCHK_FORCED)
-		M.update_mutations()
-		var/state="[M.dna.GetSEState(block)?"on":"off"]"
+		var/mob/living/carbon/C = M
+		C.dna.SetSEState(block,!C.dna.GetSEState(block))
+		C.domutcheck(null, MUTCHK_FORCED)
+		C.update_mutations()
+		var/state="[C.dna.GetSEState(block)?"on":"off"]"
 		var/blockname=assigned_blocks[block]
-		message_admins("[key_name_admin(src)] has toggled [M.key]'s [blockname] block [state]!")
-		log_admin("[key_name(src)] has toggled [M.key]'s [blockname] block [state]!",admin_key=key_name(src),ckey=key_name(M))
+		message_admins("[key_name_admin(src)] has toggled [C.key]'s [blockname] block [state]!")
+		log_admin("[key_name(src)] has toggled [C.key]'s [blockname] block [state]!",admin_key=key_name(src),ckey=key_name(C))
 	else
 		alert("Invalid mob")
 
