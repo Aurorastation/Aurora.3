@@ -205,7 +205,7 @@
 		if(isnull(new_ambition))
 			return
 		src.ambitions = sanitize(new_ambition)
-		src.current << "<span class='warning'>Your ambitions have been changed by higher powers, they are now: [mind.ambitions]</span>"
+		src.current << "<span class='warning'>Your ambitions have been changed by higher powers, they are now: [src.ambitions]</span>"
 	
 	else if (href_list["obj_edit"] || href_list["obj_add"])
 		var/datum/objective/objective
