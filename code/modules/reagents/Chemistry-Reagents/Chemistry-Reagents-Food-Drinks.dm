@@ -3271,11 +3271,11 @@
 /datum/reagent/butanol/crocodile_booze
 	name = "Crocodile Guwan"
 	id = "crocodile_booze"
-	description = "A highly alcoholic butanol based beverage fermented using the venom of a zerl'ock and the leftovers of cheaply made Sarezhi Wine. A popular drink among Unathi troublemakers, conviently housed in a 2L plastic bottle."
-	color = "#bf8fbc"
+	description = "A highly alcoholic butanol based beverage typically fermented using the venom of a zerl'ock and cheaply made Sarezhi Wine. A popular drink among Unathi troublemakers, conviently housed in a 2L plastic bottle."
+	color = "#b0f442"
 	strength = 50
 	taste_description = "sour body sweat"
 
 	glass_icon_state = "crocodile_glass"
-	glass_name = "glass of Sarezhi Wine"
+	glass_name = "glass of Crocodile Guwan"
 	glass_desc = "The smell says no, but the pretty colors say yes."

@@ -4278,6 +4278,15 @@
 	. = ..()
 	reagents.add_reagent("protein", 1)
 
+/obj/item/weapon/reagent_containers/food/snacks/rawcutlet/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/weapon/material/knife))
+		new /obj/item/weapon/reagent_containers/food/snacks/rawbacon(src)
+		new /obj/item/weapon/reagent_containers/food/snacks/rawbacon(src)
+		user << "You slice the cutlet into thin strips of bacon."
+		qdel(src)
+	else
+		..()
+
 /obj/item/weapon/reagent_containers/food/snacks/cutlet
 	name = "cutlet"
 	desc = "A tasty meat slice."

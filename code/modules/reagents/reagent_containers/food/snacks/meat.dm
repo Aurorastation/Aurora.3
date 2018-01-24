@@ -68,10 +68,7 @@
 	filling_color = "#A8AA00"
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/biogenerated/Initialize()
-	. = ..()
-	reagents.add_reagent("nutriment",3)
-	reagents.add_reagent("tofu", 3)
-	reagents.add_reagent("triglyceride", 3)
+	reagents.add_reagent("nutriment",6)
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/chicken/Initialize()
 	. = ..()

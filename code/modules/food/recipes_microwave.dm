@@ -1097,6 +1097,5 @@ I said no!
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/carpmeat
 	)
-	fruit = list("chili" = 2)
 	reagents = list("spacespice" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/grilled_carp

@@ -2515,8 +2515,15 @@
 	name = "Meatshake"
 	id = "meatshake"
 	result = "meatshake"
-	required_reagents = list("cream" = 1, "protein" = 1)
-	result_amount = 2
+	required_reagents = list("cream" = 1, "protein" = 1,"water" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/crocodile_booze
+	name = "Crocodile Guwan"
+	id = "crocodile_booze"
+	result = "crocodile_booze"
+	required_reagents = list("sarezhiwine" = 5, "toxin" = 1)
+	result_amount = 6
 
 //transmutation
 
