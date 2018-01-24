@@ -1020,6 +1020,83 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/meatball,
 		/obj/item/weapon/reagent_containers/food/snacks/mysterysoup
 	)
-	reagents = list("phoron" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_mystery
-	reagent_mix = RECIPE_REAGENT_REPLACE
+
+//Ligger food, and also bacon.
+
+/datum/recipe/bacon
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bacon
+
+/datum/recipe/chilied_eggs
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/hotchili,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledegg,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledegg,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledegg
+
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/chilied_eggs
+
+/datum/recipe/red_sun_special
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sausage,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/red_sun_special
+
+/datum/recipe/hatchling_suprise
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/poachedegg,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon
+
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/hatchling_suprise
+
+/datum/recipe/riztizkzi_sea
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/egg,
+		/obj/item/weapon/reagent_containers/food/snacks/egg
+
+	)
+	reagents = list("blood" = 5)
+	result = /obj/item/weapon/reagent_containers/food/snacks/riztizkzi_sea
+
+/datum/recipe/father_breakfast
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sausage,
+		/obj/item/weapon/reagent_containers/food/snacks/omelette,
+		/obj/item/weapon/reagent_containers/food/snacks/meatsteak
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/father_breakfast
+
+/datum/recipe/stuffed_meatball
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/stuffed_meatball
+
+/datum/recipe/egg_pancake
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/meatball,
+		/obj/item/weapon/reagent_containers/food/snacks/omelette
+
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/egg_pancake
+
+/datum/recipe/grilled_carp
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	)
+	fruit = list("chili" = 2)
+	reagents = list("spacespice" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/grilled_carp

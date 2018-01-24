@@ -4928,41 +4928,71 @@
 	nutriment_desc = list("regret" = 1)
 	nutriment_amt = 6
 
-/obj/item/weapon/reagent_containers/food/snacks/burrito_mystery/Initialize()
-	reagents.add_reagent("protein", 4)
+// Ligger food and also bacon
+
+/obj/item/weapon/reagent_containers/food/snacks/rawbacon
+	name = "raw bacon"
+	desc = "A very thin piece of raw meat, cut from beef."
+	icon = 'icons/obj/food_ingredients.dmi'
+	icon_state = "rawbacon"
+	bitesize = 1
+	center_of_mass = list("x"=16, "y"=16)
+
+/obj/item/weapon/reagent_containers/food/snacks/rawbacon/Initialize()
 	. = ..()
-	switch(rand(1,10))
-		if(1)
-			reagents.add_reagent("nutriment", 6)
-			reagents.add_reagent("capsaicin", 3)
-			reagents.add_reagent("tomatojuice", 2)
-		if(2)
-			reagents.add_reagent("nutriment", 6)
-			reagents.add_reagent("frostoil", 3)
-			reagents.add_reagent("tomatojuice", 2)
-		if(3)
-			reagents.add_reagent("nutriment", 5)
-			reagents.add_reagent("water", 5)
-			reagents.add_reagent("tricordrazine", 5)
-		if(4)
-			reagents.add_reagent("nutriment", 5)
-			reagents.add_reagent("water", 10)
-		if(5)
-			reagents.add_reagent("nutriment", 2)
-			reagents.add_reagent("banana", 10)
-		if(6)
-			reagents.add_reagent("nutriment", 6)
-			reagents.add_reagent("blood", 10)
-		if(7)
-			reagents.add_reagent("slimejelly", 10)
-			reagents.add_reagent("water", 10)
-		if(8)
-			reagents.add_reagent("carbon", 10)
-			reagents.add_reagent("toxin", 10)
-		if(9)
-			reagents.add_reagent("nutriment", 5)
-			reagents.add_reagent("tomatojuice", 10)
-		if(10)
-			reagents.add_reagent("nutriment", 6)
-			reagents.add_reagent("tomatojuice", 5)
-			reagents.add_reagent("imidazoline", 5)
+	reagents.add_reagent("protein", 0.33)
+
+/obj/item/weapon/reagent_containers/food/snacks/bacon
+	name = "bacon"
+	desc = "A tasty meat slice. You don't see any pigs on this station, do you?"
+	icon = 'icons/obj/food_ingredients.dmi'
+	icon_state = "bacon"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=16)
+
+/obj/item/weapon/reagent_containers/food/snacks/bacon/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/chilied_eggs
+	name = "chilied eggs"
+	desc = "Three boiled eggs floating in a bowl of meat chili. A popular lunchtime meal for Unathi in Ouere."
+	icon_state = "chilied_eggs"
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("chilli peppers" = 3)
+	nutriment_amt = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/hatchling_suprise
+	name = "hatchling suprise"
+	desc = "A poached egg on top of three slices of bacon. A typical breakfast for hungry Unathi children."
+	icon_state = "hatchling_suprise"
+
+/obj/item/weapon/reagent_containers/food/snacks/red_sun_special
+	name = "red sun special"
+	desc = "One lousey piece of sausage sitting on melted cheese curds. A cheap meal served frequently in the Unathi orphanages on Moghes."
+	icon_state = "red_sun_special"
+
+/obj/item/weapon/reagent_containers/food/snacks/riztizkzi_sea
+	name = "moghresian sea delight"
+	desc = "Three raw eggs floating in a sea of blood. A replication of an ancient, tribal Unathi delicacy that substitutes the unhatched children of your fallen enemies with chicken eggs."
+	icon_state = "riztizkzi_sea"
+
+/obj/item/weapon/reagent_containers/food/snacks/father_breakfast
+	name = "breakfast of guwandi"
+	desc = "A sausage and an omelette on top of a god damn grilled steak."
+	icon_state = "father_breakfast"
+
+/obj/item/weapon/reagent_containers/food/snacks/stuffed_meatball
+	name = "stuffed faggot" //YES
+	desc = "A meatball loaded with cheese."
+	icon_state = "stuffed_meatball"
+
+/obj/item/weapon/reagent_containers/food/snacks/egg_pancake
+	name = "meat pancake"
+	desc = "An omelette baked on top of a giant meat patty. Ironically, this monstrousity is typically shared between four people during a dinnertime meal."
+	icon_state = "egg_pancake"
+
+/obj/item/weapon/reagent_containers/food/snacks/grilled_carp
+	name = "korlaaskak"
+	desc = "A well-dressed fillet of carp, seared to perfection, adorned with herbs and stuffed with hot chili peppers."
+	icon_state = "grilled_carp"
