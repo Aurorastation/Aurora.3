@@ -240,7 +240,7 @@ update_flag
 		healthcheck()
 	..()
 
-/obj/machinery/portable_atmospherics/canister/AltClick(var/mob/dead/observer/admin)
+/obj/machinery/portable_atmospherics/canister/AltClick(var/mob/abstract/observer/admin)
 	if (istype(admin))
 		if (admin.client && admin.client.holder && ((R_MOD|R_ADMIN) & admin.client.holder.rights))
 			if (valve_open)

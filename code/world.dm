@@ -51,7 +51,7 @@ var/global/datum/global_init/init = new ()
 		t = round(t / l)
 
 /world
-	mob = /mob/new_player
+	mob = /mob/abstract/new_player
 	turf = /turf/space
 	area = /area/space
 	view = "15x15"

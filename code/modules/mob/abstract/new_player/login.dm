@@ -21,10 +21,10 @@
 	else
 		icon_state = known_icon_states[1]
 
-/mob/new_player
+/mob/abstract/new_player
 	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
 
-/mob/new_player/Login()
+/mob/abstract/new_player/Login()
 	update_Login_details()	//handles setting lastKnownIP and computer_id for use by the ban systems as well as checking for multikeying
 
 	src << "<div class='info'>Game ID: <div class='danger'>[game_id]</div></div>"
@@ -46,7 +46,7 @@
 		if(client)
 			client.playtitlemusic()
 
-/mob/new_player/proc/show_title()
+/mob/abstract/new_player/proc/show_title()
 	set waitfor = FALSE
 	if (lobby_image)
 		client.screen += lobby_image

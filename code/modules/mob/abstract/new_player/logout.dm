@@ -1,4 +1,4 @@
-/mob/new_player/Logout()
+/mob/abstract/new_player/Logout()
 	ready = 0
 
 	// see login.dm

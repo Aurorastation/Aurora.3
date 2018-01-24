@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
 
-/mob/new_player
+/mob/abstract/new_player
 	var/ready = 0
 	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
 	var/totalPlayers = 0		 //Player counts for the Lobby tab
@@ -16,17 +16,17 @@
 	anchored = 1	//  don't get pushed around
 	simulated = FALSE
 
-INITIALIZE_IMMEDIATE(/mob/new_player)
+INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
-/mob/new_player/Initialize()
+/mob/abstract/new_player/Initialize()
 	. = ..()
 	dead_mob_list -= src
 
-/mob/new_player/verb/new_player_panel()
+/mob/abstract/new_player/verb/new_player_panel()
 	set src = usr
 	new_player_panel_proc()
 
-/mob/new_player/proc/new_player_panel_proc()
+/mob/abstract/new_player/proc/new_player_panel_proc()
 	var/output = "<div align='center'><B>New Player Options</B>"
 	output +="<hr>"
 	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
@@ -66,7 +66,7 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 
 	src << browse(output,"window=playersetup;size=210x280;can_close=0")
 
-/mob/new_player/Stat()
+/mob/abstract/new_player/Stat()
 	..()
 
 	if(statpanel("Lobby"))
@@ -87,13 +87,13 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 			stat("Players: [totalPlayers]", "Players Ready: [totalPlayersReady]")
 			totalPlayers = 0
 			totalPlayersReady = 0
-			for(var/mob/new_player/player in player_list)
+			for(var/mob/abstract/new_player/player in player_list)
 				stat("[player.key]", (player.ready)?("(Playing)"):(null))
 				totalPlayers++
 				if(player.ready)
 					totalPlayersReady++
 
-/mob/new_player/Topic(href, href_list[])
+/mob/abstract/new_player/Topic(href, href_list[])
 	if(!client)	return 0
 
 	if(href_list["show_preferences"])
@@ -124,7 +124,7 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 
 		if(alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
 			if(!client)	return 1
-			var/mob/dead/observer/observer = new /mob/dead/observer(src)
+			var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
 			spawning = 1
 			src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo
 
@@ -151,7 +151,7 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 			observer.real_name = client.prefs.real_name
 			observer.name = observer.real_name
 			if(!client.holder && !config.antag_hud_allowed)           // For new ghosts we remove the verb from even showing up if it's not allowed.
-				observer.verbs -= /mob/dead/observer/verb/toggle_antagHUD        // Poor guys, don't know what they are missing!
+				observer.verbs -= /mob/abstract/observer/verb/toggle_antagHUD        // Poor guys, don't know what they are missing!
 			observer.ckey = ckey
 			observer.initialise_postkey()
 			qdel(src)
@@ -266,7 +266,7 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 					if(!isnull(href_list["option_[optionid]"]))	//Test if this optionid was selected
 						vote_on_poll(pollid, optionid, 1)
 
-/mob/new_player/proc/IsJobAvailable(rank)
+/mob/abstract/new_player/proc/IsJobAvailable(rank)
 	var/datum/job/job = SSjobs.GetJob(rank)
 	if(!job)	return 0
 	if(!job.is_position_available()) return 0
@@ -274,7 +274,7 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 	return 1
 
 
-/mob/new_player/proc/AttemptLateSpawn(rank,var/spawning_at)
+/mob/abstract/new_player/proc/AttemptLateSpawn(rank,var/spawning_at)
 	if(src != usr)
 		return 0
 	if(SSticker.current_state != GAME_STATE_PLAYING)
@@ -344,14 +344,14 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 
 	qdel(src)
 
-/mob/new_player/proc/AnnounceCyborg(var/mob/living/character, var/rank, var/join_message)
+/mob/abstract/new_player/proc/AnnounceCyborg(var/mob/living/character, var/rank, var/join_message)
 	if (SSticker.current_state == GAME_STATE_PLAYING)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
 		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
 		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
 
-/mob/new_player/proc/LateChoices()
+/mob/abstract/new_player/proc/LateChoices()
 	var/name = client.prefs.real_name
 
 	var/dat = "<html><body><center>"
@@ -381,7 +381,7 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 	src << browse(dat, "window=latechoices;size=300x640;can_close=1")
 
 
-/mob/new_player/proc/create_character()
+/mob/abstract/new_player/proc/create_character()
 	spawning = 1
 	close_spawn_windows()
 
@@ -450,28 +450,28 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 
 	return new_character
 
-/mob/new_player/proc/ViewManifest()
+/mob/abstract/new_player/proc/ViewManifest()
 	var/dat = "<html><body>"
 	dat += "<h4>Show Crew Manifest</h4>"
 	dat += data_core.get_manifest(OOC = 1)
 
 	src << browse(dat, "window=manifest;size=370x420;can_close=1")
 
-/mob/new_player/Move()
+/mob/abstract/new_player/Move()
 	return 0
 
-/mob/new_player/proc/close_spawn_windows()
+/mob/abstract/new_player/proc/close_spawn_windows()
 	src << browse(null, "window=latechoices") //closes late choices window
 	src << browse(null, "window=playersetup") //closes the player setup window
 
-/mob/new_player/proc/has_admin_rights()
+/mob/abstract/new_player/proc/has_admin_rights()
 	return check_rights(R_ADMIN, 0, src)
 
-/mob/new_player/proc/is_species_whitelisted(datum/species/S)
+/mob/abstract/new_player/proc/is_species_whitelisted(datum/species/S)
 	if(!S) return 1
 	return is_alien_whitelisted(src, S.name) || !config.usealienwhitelist || !(S.spawn_flags & IS_WHITELISTED)
 
-/mob/new_player/get_species(var/reference = 0)
+/mob/abstract/new_player/get_species(var/reference = 0)
 	var/datum/species/chosen_species
 	if(client.prefs.species)
 		chosen_species = all_species[client.prefs.species]
@@ -487,21 +487,21 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 
 	return "Human"
 
-/mob/new_player/get_gender()
+/mob/abstract/new_player/get_gender()
 	if(!client || !client.prefs) ..()
 	return client.prefs.gender
 
-/mob/new_player/is_ready()
+/mob/abstract/new_player/is_ready()
 	return ready && ..()
 
-/mob/new_player/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
+/mob/abstract/new_player/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
 	return
 
-/mob/new_player/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0)
+/mob/abstract/new_player/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0)
 	return
 
-/mob/new_player/MayRespawn()
+/mob/abstract/new_player/MayRespawn()
 	return 1
 
-/mob/new_player/show_message(msg, type, alt, alt_type)
+/mob/abstract/new_player/show_message(msg, type, alt, alt_type)
 	return

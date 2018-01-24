@@ -129,7 +129,7 @@
 	item_state = "s-ninja"
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
-	var/mob/eye/aiEye/eye
+	var/mob/abstract/eye/aiEye/eye
 
 /obj/item/clothing/mask/ai/Initialize()
 	. = ..()
