@@ -72,8 +72,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 		user.show_message("<span class='danger'>SELF-DESTRUCTING...</span><br>", 1)
 		visible_message("<span class='danger'>[gun] explodes!</span>")
 		playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
-		var/mob/living/carbon/C = user
-		var/obj/item/organ/external/E = user.organs_by_name[C.hand ? "l_hand" : "r_hand"]
+		var/obj/item/organ/external/E = user.organs_by_name[user.hand ? "l_hand" : "r_hand"]
 		E.droplimb(0,DROPLIMB_BLUNT)
 		explosion(get_turf(gun), -1, 0, 2, 3)
 		if(gun)
