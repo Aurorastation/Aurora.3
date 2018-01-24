@@ -1289,6 +1289,17 @@
 	glass_name = "glass of nothing"
 	glass_desc = "Absolutely nothing."
 
+/datum/reagent/drink/meatshake
+	name = "Meatshake"
+	id = "meatshake"
+	color = "#874c20"
+	description = "Blended meat and cream for those who want crippling heart failure down the road."
+	taste_description = "liquified meat"
+
+	glass_icon_state = "meatshake"
+	glass_name = "Meatshake"
+	glass_desc = "Blended meat and cream for those who want crippling health issues down the road. Has two straws for sharing! Perfect for dates!"
+
 /* Alcohol */
 
 // Basic
@@ -3256,3 +3267,15 @@
 	glass_icon_state = "sarezhiglass"
 	glass_name = "glass of Sarezhi Wine"
 	glass_desc = "It tastes like flat grape soda. Is this supposed to be alcoholic?"
+
+/datum/reagent/butanol/crocodile_booze
+	name = "Crocodile Guwan"
+	id = "crocodile_booze"
+	description = "A highly alcoholic butanol based beverage fermented using the venom of a zerl'ock and the leftovers of cheaply made Sarezhi Wine. A popular drink among Unathi troublemakers, conviently housed in a 2L plastic bottle."
+	color = "#bf8fbc"
+	strength = 50
+	taste_description = "sour body sweat"
+
+	glass_icon_state = "crocodile_glass"
+	glass_name = "glass of Sarezhi Wine"
+	glass_desc = "The smell says no, but the pretty colors say yes."

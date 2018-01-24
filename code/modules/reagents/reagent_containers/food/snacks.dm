@@ -4956,7 +4956,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/chilied_eggs
 	name = "chilied eggs"
-	desc = "Three boiled eggs floating in a bowl of meat chili. A popular lunchtime meal for Unathi in Ouere."
+	desc = "Three deviled eggs floating in a bowl of meat chili. A popular lunchtime meal for Unathi in Ouerea."
 	icon_state = "chilied_eggs"
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_desc = list("chilli peppers" = 3)
@@ -4969,17 +4969,17 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/red_sun_special
 	name = "red sun special"
-	desc = "One lousey piece of sausage sitting on melted cheese curds. A cheap meal served frequently in the Unathi orphanages on Moghes."
+	desc = "One lousey piece of sausage sitting on melted cheese curds. A cheap meal for the Unathi peasants of Moghes."
 	icon_state = "red_sun_special"
 
 /obj/item/weapon/reagent_containers/food/snacks/riztizkzi_sea
 	name = "moghresian sea delight"
-	desc = "Three raw eggs floating in a sea of blood. A replication of an ancient, tribal Unathi delicacy that substitutes the unhatched children of your fallen enemies with chicken eggs."
+	desc = "Three raw eggs floating in a sea of blood. An authentic replication of an ancient Unathi delicacy."
 	icon_state = "riztizkzi_sea"
 
 /obj/item/weapon/reagent_containers/food/snacks/father_breakfast
 	name = "breakfast of guwandi"
-	desc = "A sausage and an omelette on top of a god damn grilled steak."
+	desc = "A sausage and an omelette on top of a grilled steak."
 	icon_state = "father_breakfast"
 
 /obj/item/weapon/reagent_containers/food/snacks/stuffed_meatball
@@ -4994,5 +4994,10 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/grilled_carp
 	name = "korlaaskak"
-	desc = "A well-dressed fillet of carp, seared to perfection, adorned with herbs and stuffed with hot chili peppers."
+	desc = "A well-dressed carp, seared to perfection and adorned with herbs."
 	icon_state = "grilled_carp"
+
+/obj/item/weapon/reagent_containers/food/snacks/grilled_carp_slice
+	name = "korlaaskak slice"
+	desc = "A well-dressed fillet of carp, seared to perfection and adorned with herbs."
+	icon_state = "grilled_carp_slice"

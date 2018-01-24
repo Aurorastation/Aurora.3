@@ -1026,7 +1026,7 @@ I said no!
 
 /datum/recipe/bacon
 	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/bacon
 

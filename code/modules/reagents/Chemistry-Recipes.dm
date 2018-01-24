@@ -2511,6 +2511,13 @@
 	required_reagents = list("dr_gibb_diet" = 3, "whiskey" = 1, "honey" = 1)
 	result_amount = 5
 
+/datum/chemical_reaction/meatshake
+	name = "Meatshake"
+	id = "meatshake"
+	result = "meatshake"
+	required_reagents = list("cream" = 1, "protein" = 1)
+	result_amount = 2
+
 //transmutation
 
 /datum/chemical_reaction/transmutation_silver
