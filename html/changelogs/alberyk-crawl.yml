@@ -1,0 +1,4 @@
+author: Alberyk
+delete-after: True
+changes: 
+  - rscadd: "Ported crawling mechanics from polaris: you can now crawl, if lying down, by dragging your sprite to a title near yourself."
