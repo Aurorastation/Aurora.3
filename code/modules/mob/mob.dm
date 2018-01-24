@@ -33,6 +33,8 @@
 		var/atom/movable/AM = src.loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
+	MOB_STOP_THINKING(src)
+
 	return ..()
 
 
@@ -61,13 +63,16 @@
 	spell_masters = null
 	zone_sel = null
 
-/mob/New()
+/mob/Initialize()
+	. = ..()
 	mob_list += src
 	if(stat == DEAD)
 		dead_mob_list += src
 	else
 		living_mob_list += src
-	..()
+
+	if (!ckey && mob_thinks)
+		MOB_START_THINKING(src)
 
 /mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
@@ -113,7 +118,7 @@
 			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
 			player_list -= M
 			continue
-		if (!M.client || istype(M, /mob/new_player))
+		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
 			messagemobs += M
@@ -481,7 +486,7 @@
 
 	// Run this here to null out death timers for the next go.
 
-	var/mob/new_player/M = new /mob/new_player()
+	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
 
 	M.reset_death_timers()
 
@@ -513,7 +518,7 @@
 
 	if(client.holder && (client.holder.rights & R_ADMIN))
 		is_admin = 1
-	else if(stat != DEAD || istype(src, /mob/new_player))
+	else if(stat != DEAD || istype(src, /mob/abstract/new_player))
 		usr << "<span class='notice'>You must be observing to use this!</span>"
 		return
 
@@ -720,7 +725,7 @@
 	return TRUE
 
 /mob/living/carbon/human/is_mechanical()
-	return !!global.mechanical_species[get_species()]
+	return species && (species.flags & IS_MECHANICAL)
 
 /mob/proc/is_ready()
 	return client && !!mind

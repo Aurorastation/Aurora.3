@@ -84,7 +84,7 @@
 	if(..()) return
 
 	/* Ghosts can't use this one because it's a direct selection */
-	if(istype(user, /mob/dead/observer)) return
+	if(istype(user, /mob/abstract/observer)) return
 
 	var/list/L = list()
 	var/list/areaindex = list()
@@ -318,8 +318,7 @@
 
 /obj/machinery/teleport/station/New()
 	..()
-	overlays.Cut()
-	overlays += image('icons/obj/stationobjs.dmi', icon_state = "controller-wires")
+	set_overlays("controller-wires")
 
 /obj/machinery/teleport/station/attackby(var/obj/item/weapon/W)
 	src.attack_hand()

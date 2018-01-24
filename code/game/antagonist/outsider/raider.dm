@@ -248,6 +248,8 @@ var/datum/antagonist/raider/raiders
 	spawn_money(rand(50,150)*10,W)
 	create_radio(RAID_FREQ, player)
 
+	give_codewords(player)
+
 	return 1
 
 /datum/antagonist/raider/proc/equip_weapons(var/mob/living/carbon/human/player)

@@ -39,6 +39,9 @@
 	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
 	icon_state = "soapnt"
 
+/obj/item/weapon/soap/plant
+	desc = "A green bar of soap. Smells like dirt and plants."
+
 /obj/item/weapon/soap/deluxe
 	icon_state = "soapdeluxe"
 

@@ -131,6 +131,13 @@
 
 /obj/structure/ladder/proc/climbLadder(var/mob/M, var/target_ladder)
 	var/turf/T = get_turf(target_ladder)
+	var/turf/LAD = get_turf(src)
+	var/direction = UP
+	if(istype(target_ladder, target_down))
+		direction = DOWN
+	if(!LAD.CanZPass(M, direction))
+		to_chat(M, "<span class='notice'>\The [T] is blocking \the [src].</span>")
+		return FALSE
 	for(var/atom/A in T)
 		if(!A.CanPass(M, M.loc, 1.5, 0))
 			to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
@@ -175,7 +182,7 @@
 			warning("Stair created without level above: ([loc.x], [loc.y], [loc.z])")
 			return qdel(src)
 		if(!istype(above))
-			above.ChangeTurf(/turf/simulated/open)
+			above.ChangeToOpenturf()
 
 /obj/structure/stairs/Uncross(atom/movable/A)
 	if(A.dir == dir && A.loc == loc)

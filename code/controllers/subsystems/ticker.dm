@@ -221,8 +221,8 @@ var/datum/controller/subsystem/ticker/SSticker
 				else
 					Player << "<font color='blue'><b>You missed the crew transfer after the events on [station_name()] as [Player.real_name].</b></font>"
 			else
-				if(istype(Player,/mob/dead/observer))
-					var/mob/dead/observer/O = Player
+				if(istype(Player,/mob/abstract/observer))
+					var/mob/abstract/observer/O = Player
 					if(!O.started_as_observer)
 						Player << "<font color='red'><b>You did not survive the events on [station_name()]...</b></font>"
 				else
@@ -536,7 +536,7 @@ var/datum/controller/subsystem/ticker/SSticker
 // Round setup stuff.
 
 /datum/controller/subsystem/ticker/proc/create_characters()
-	for(var/mob/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in player_list)
 		if(player && player.ready && player.mind)
 			if(player.mind.assigned_role=="AI")
 				player.close_spawn_windows()
@@ -567,7 +567,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		CHECK_TICK
 	if(captainless)
 		for(var/mob/M in player_list)
-			if(!istype(M,/mob/new_player))
+			if(!istype(M,/mob/abstract/new_player))
 				M << "Captainship not forced on anyone."
 
 // Registers a callback to run on round-start.

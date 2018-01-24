@@ -56,7 +56,7 @@
 								M.apply_damage(rand(1,5), BURN)
 
 							for(M in viewers(3, null))
-								var/safety = M:eyecheck()
+								var/safety = M:eyecheck(TRUE)
 								if(!safety)
 									if(!M.blinded)
 										flick("flash", M.flash)

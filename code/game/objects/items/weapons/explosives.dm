@@ -69,14 +69,13 @@
 		addtimer(CALLBACK(src, .proc/explode, get_turf(target)), timer * 10)
 
 /obj/item/weapon/plastique/proc/explode(turf/location)
-	target.cut_overlay(image_overlay, TRUE)
-
 	if(!target)
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
+	target.cut_overlay(image_overlay, TRUE)
 	if(location)
-		explosion(location, -1, -1, 2, 3, is_rec = 0)
+		explosion(location, -1, -1, 2, 3, spreading = 0)
 
 	if(target)
 		if (istype(target, /turf/simulated/wall))
@@ -86,8 +85,7 @@
 			target.ex_act(2) // c4 can't gib mobs anymore.
 		else
 			target.ex_act(1)
-	if(target)
-		target.overlays -= image_overlay
+
 	qdel(src)
 
 /obj/item/weapon/plastique/attack(mob/M as mob, mob/user as mob, def_zone)

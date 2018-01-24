@@ -13,7 +13,7 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ae" = (
 /obj/structure/lattice,
@@ -21,7 +21,7 @@
 /area/template_noop)
 "af" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "ag" = (
 /obj/structure/window/reinforced{
@@ -1295,7 +1295,7 @@
 /obj/structure/disposaloutlet{
 	dir = 1
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "cO" = (
 /obj/structure/window/reinforced/tinted{
@@ -1523,7 +1523,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "dn" = (
 /turf/template_noop,
@@ -2330,7 +2330,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/outpost/research/disposal)
 "eK" = (
 /obj/structure/disposaloutlet{
@@ -2339,7 +2339,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/outpost/research/disposal)
 "eL" = (
 /obj/structure/grille,
@@ -2503,14 +2503,14 @@
 /turf/simulated/floor/plating,
 /area/outpost/research/disposal)
 "fb" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/outpost/research/disposal)
 "fc" = (
 /obj/machinery/mass_driver{
 	dir = 4;
 	id = "research"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/outpost/research/disposal)
 "fd" = (
 /obj/item/stack/rods,
@@ -4758,13 +4758,13 @@
 /turf/simulated/floor/airless,
 /area/outpost/abandoned)
 "je" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "jf" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "jg" = (
 /turf/simulated/wall,
@@ -5388,7 +5388,7 @@
 /area/outpost/abandoned)
 "ku" = (
 /obj/structure/ore_box,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "kv" = (
 /turf/simulated/wall,
@@ -5640,7 +5640,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "lc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5899,7 +5899,7 @@
 /obj/machinery/light_construct/small{
 	dir = 1
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "lG" = (
 /obj/machinery/alarm{
@@ -6347,11 +6347,11 @@
 	},
 /area/outpost/abandoned)
 "mC" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "mD" = (
 /obj/structure/closet,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "mE" = (
 /obj/structure/grille,
@@ -6604,23 +6604,23 @@
 /area/outpost/abandoned)
 "mZ" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "na" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "nb" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "nc" = (
 /obj/structure/table/rack,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "nd" = (
 /obj/structure/lattice,
@@ -6697,14 +6697,14 @@
 	pixel_y = 0;
 	req_access = list(65)
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "nl" = (
 /obj/machinery/conveyor_switch{
 	id = "anosample";
 	req_access = list(65)
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "nm" = (
 /obj/structure/cable/blue{
@@ -7043,11 +7043,11 @@
 /area/mine/unexplored)
 "nW" = (
 /obj/structure/closet/crate,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "nX" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "nY" = (
 /obj/machinery/door/airlock/external{
@@ -7289,7 +7289,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "ou" = (
 /obj/machinery/access_button{
@@ -7384,7 +7384,7 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "oA" = (
 /obj/structure/window/reinforced,
@@ -7520,7 +7520,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "oR" = (
 /obj/structure/window/reinforced{
@@ -7547,12 +7547,12 @@
 "oT" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/toolbox/mechanical,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "oU" = (
 /obj/structure/table/rack,
 /obj/item/weapon/pickaxe,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "oV" = (
 /obj/machinery/light_construct/small,
@@ -7560,7 +7560,7 @@
 /obj/item/stack/material/steel{
 	amount = 10
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "oW" = (
 /turf/simulated/floor/tiled/airless{
@@ -7583,7 +7583,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "oY" = (
 /obj/structure/disposalpipe/segment{
@@ -7601,14 +7601,14 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "oZ" = (
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 4
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "pa" = (
 /turf/simulated/wall,
@@ -7760,7 +7760,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "pn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7775,7 +7775,7 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "po" = (
 /obj/machinery/access_button{
@@ -8029,7 +8029,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "pB" = (
 /obj/machinery/conveyor_switch{
@@ -8108,7 +8108,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "pH" = (
 /obj/structure/disposalpipe/segment{
@@ -8126,7 +8126,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "pI" = (
 /obj/structure/disposalpipe/junction/yjunction,
@@ -8141,13 +8141,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "pJ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "pK" = (
 /obj/structure/grille,
@@ -8271,7 +8271,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "pY" = (
 /obj/structure/sign/securearea{
@@ -8344,7 +8344,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "qd" = (
 /turf/simulated/floor/airless,
@@ -8365,7 +8365,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "qf" = (
 /obj/structure/disposalpipe/segment{
@@ -8383,13 +8383,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "qg" = (
 /obj/machinery/light_construct/small{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "qh" = (
 /obj/structure/grille,
@@ -8551,7 +8551,7 @@
 /area/outpost/engineering/meeting)
 "qt" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "qu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8776,7 +8776,7 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "qO" = (
 /obj/structure/table/rack,
@@ -9021,7 +9021,7 @@
 /area/outpost/engineering/hallway)
 "ro" = (
 /obj/machinery/light_construct/small,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "rp" = (
 /turf/simulated/wall/r_wall,
@@ -9943,7 +9943,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "sW" = (
 /obj/machinery/light/small{
@@ -10595,7 +10595,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "tY" = (
 /obj/structure/cable{
@@ -10615,7 +10615,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "tZ" = (
 /obj/structure/cable{
@@ -10639,7 +10639,7 @@
 	pixel_y = -25;
 	req_access = list(10)
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "ua" = (
 /obj/structure/cable{
@@ -11644,7 +11644,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "vA" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -11990,7 +11990,7 @@
 	name = "Mining Bridge";
 	req_access = list(54)
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "wm" = (
 /obj/structure/lattice,
@@ -12308,7 +12308,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/dorms)
 "wS" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/outpost/mining_west)
 "wT" = (
 /obj/machinery/door/airlock{
@@ -15559,7 +15559,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "Cu" = (
 /obj/machinery/sleeper{
@@ -15757,7 +15757,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "CO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -15938,7 +15938,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "Dc" = (
 /obj/structure/grille,
@@ -16341,7 +16341,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "DM" = (
 /obj/structure/disposalpipe/segment{
@@ -16360,7 +16360,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "DN" = (
 /obj/structure/disposalpipe/segment{
@@ -16378,7 +16378,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "DO" = (
 /obj/structure/lattice,
@@ -16518,7 +16518,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "Ed" = (
 /obj/structure/disposalpipe/segment{
@@ -16536,7 +16536,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "Ee" = (
 /obj/structure/disposalpipe/segment{
@@ -16795,7 +16795,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/mine/explored)
 "Ew" = (
 /turf/template_noop,

@@ -1,13 +1,18 @@
 // Species flags.
-#define NO_BLOOD          0x1    // Vessel var is not filled with blood, cannot bleed out.
-#define NO_BREATHE        0x2    // Cannot suffocate or take oxygen loss.
-#define NO_SCAN           0x4    // Cannot be scanned in a DNA machine/genome-stolen.
-#define NO_PAIN           0x8    // Cannot suffer halloss/recieves deceptive health indicator.
-#define NO_SLIP           0x10   // Cannot fall over.
-#define NO_POISON         0x20   // Cannot not suffer toxloss.
-#define IS_PLANT          0x40   // Is a treeperson.
-#define NO_EMBED          0x80   // Can not have shrapnel or any object embedded into its body
-// unused: 0x8000 - higher than this will overflow
+#define NO_BLOOD             1    // Vessel var is not filled with blood, cannot bleed out.
+#define NO_BREATHE           2    // Cannot suffocate or take oxygen loss.
+#define NO_SCAN              4    // Cannot be scanned in a DNA machine/genome-stolen.
+#define NO_PAIN              8    // Cannot suffer halloss/recieves deceptive health indicator.
+#define NO_SLIP             16    // Cannot fall over.
+#define NO_POISON           32    // Cannot not suffer toxloss.
+#define IS_PLANT            64    // Is a treeperson.
+#define NO_EMBED            128    // Can not have shrapnel or any object embedded into its body
+#define IS_MECHANICAL       256    // Is a robot.
+#define ACCEPTS_COOLER      512    // Can wear suit coolers and have them work without a suit.
+// unused: 0x8000(32768) - higher than this will overflow
+
+// Base flags for IPCs.
+#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL)
 
 // Species spawn flags
 #define IS_WHITELISTED    0x1    // Must be whitelisted to play.

@@ -16,7 +16,11 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 
 // Turf-only flags.
-#define NOJAUNT 1 // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define MIMIC_BELOW 2      // If this turf should mimic the turf on the Z below.
+#define MIMIC_OVERWRITE 4  // If this turf is Z-mimicing, overwrite the turf's appearance instead of using a movable. This is faster, but means the turf cannot have an icon.
+#define MIMIC_QUEUED 8     // If the turf is currently queued for Z-mimic update.
+#define MIMIC_NO_AO 16     // If the turf shouldn't apply regular turf AO and only do Z-mimic AO.
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 
@@ -36,6 +40,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define SEE_INVISIBLE_MINIMUM 5
 #define INVISIBILITY_MAXIMUM 100
+#define INVISIBILITY_ABSTRACT 101	// Special invis value that can never be seen by see_invisible.
 
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
@@ -169,15 +174,6 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define RAD_SHIELDED 1 //shielded from radiation, clearly
 #define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
 #define HIDE_FROM_HOLOMAP 4 // if we shouldn't be drawn on station holomaps
-
-// Custom layer definitions, supplementing the default TURF_LAYER, MOB_LAYER, etc.
-#define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
-#define DOOR_CLOSED_LAYER 3.1	//Above most items if closed
-#define LIGHTING_LAYER 11
-#define HUD_LAYER 20			//Above lighting, but below obfuscation. For in-game HUD effects (whereas SCREEN_LAYER is for abstract/OOC things like inventory slots)
-#define OBFUSCATION_LAYER 21	//Where images covering the view for eyes are put
-#define SCREEN_LAYER 22			//Mob HUD/effects layer
-#define UNDERDOOR 3.09		//Just barely under a closed door.
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -371,11 +367,6 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define USE_FAIL_NOT_IN_USER 6
 #define USE_FAIL_IS_SILICON 7
 
-// 510 doesn't have this flag, so this shim will turn it into a no-op if it doesn't exist.
-#ifndef SEE_BLACKNESS
-#define SEE_BLACKNESS 0
-#endif
-
 #define DEFAULT_SIGHT (SEE_SELF|SEE_BLACKNESS)
 
 #define isStationLevel(Z) ((Z) in current_map.station_levels)
@@ -457,3 +448,10 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 	}
 
 #define DEVICE_NO_CELL "no_cell"
+
+#define FALLOFF_SOUNDS 0.5
+#define SOUND_Z_FACTOR 100
+// Maximum number of Zs away you can be from a sound before it stops being audible.
+#define MAX_SOUND_Z_TRAVERSAL 2
+
+#define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))

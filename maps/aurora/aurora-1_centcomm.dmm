@@ -2325,11 +2325,15 @@
 	},
 /turf/space/transit/north/shuttlespace_ns15,
 /area/template_noop)
-"afN" = (
+"afN" = (/obj/effect/landmark{
+	name = "Penguin Spawn Random"
+	},
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)
-"afO" = (
+"afO" = (/obj/effect/landmark{
+	name = "Penguin Spawn Emperor"
+	},
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)
@@ -6853,7 +6857,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "aqk" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/template_noop)
 "aql" = (
 /turf/template_noop,
@@ -6925,7 +6929,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/merchant_station)
 "aqw" = (
 /turf/unsimulated/wall/riveted,
@@ -8504,7 +8508,7 @@
 /area/centcom/suppy)
 "auh" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash,
 /area/merchant_station)
 "aui" = (
 /turf/simulated/shuttle/floor{

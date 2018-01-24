@@ -253,7 +253,7 @@
 	for(var/datum/paiCandidate/c in SSpai.pai_candidates)
 		if(c.ready)
 			var/found = 0
-			for(var/mob/dead/observer/o in player_list)
+			for(var/mob/abstract/observer/o in player_list)
 				if(o.key == c.key && o.MayRespawn())
 					found = 1
 			if(found)
@@ -365,7 +365,7 @@
 
 /datum/controller/subsystem/pai/proc/requestRecruits(mob/user)
 	inquirer = user
-	for(var/mob/dead/observer/O in player_list)
+	for(var/mob/abstract/observer/O in player_list)
 		if(!O.MayRespawn())
 			continue
 		if(jobban_isbanned(O, "pAI"))

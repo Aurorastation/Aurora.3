@@ -223,3 +223,5 @@
 
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/disconnect_time = null//Time of client loss, set by Logout(), for timekeeping
+
+	var/mob_thinks = TRUE

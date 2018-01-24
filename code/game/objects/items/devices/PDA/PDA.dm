@@ -67,6 +67,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/obj/item/device/paicard/pai = null	// A slot for a personal AI device
 
 	var/obj/item/weapon/pen/pen
+	var/list/obj/machinery/requests_console/linked_consoles
 
 /obj/item/device/pda/examine(mob/user)
 	if(..(user, 1))
@@ -1058,7 +1059,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		P.tnote.Add(list(list("sent" = 0, "owner" = "[owner]", "job" = "[ownjob]", "message" = "[t]", "target" = "\ref[src]")))
 		for(var/mob/M in player_list)
 			if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS)) // src.client is so that ghosts don't have to listen to mice
-				if(istype(M, /mob/new_player))
+				if(istype(M, /mob/abstract/new_player))
 					continue
 				M.show_message("<span class='game say'>PDA Message - <span class='name'>[owner]</span> -> <span class='name'>[P.owner]</span>: <span class='message'>[t]</span></span>")
 
@@ -1419,6 +1420,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (src.id && prob(90)) //IDs are kept in 90% of the cases
 		src.id.loc = get_turf(src.loc)
 	QDEL_NULL(pen)
+	if (LAZYLEN(linked_consoles))
+		for(var/A in linked_consoles)
+			var/obj/machinery/requests_console/B = A
+			B.alert_pdas -= src
+			linked_consoles -= B
 	return ..()
 
 /obj/item/device/pda/clown/Crossed(AM as mob|obj) //Clown PDA is slippery.
