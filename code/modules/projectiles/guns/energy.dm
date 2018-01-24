@@ -55,7 +55,7 @@
 	. = 1
 	if (!power_supply || power_supply.charge >= power_supply.maxcharge || !self_recharge)
 		return 0 // check if we actually need to recharge
-		
+
 	if (use_external_power)
 		var/obj/item/weapon/cell/external = get_external_power_supply()
 		if(!external || !external.use(charge_cost)) //Take power from the borg...
@@ -94,7 +94,7 @@
 	return
 
 /obj/item/weapon/gun/energy/update_icon()
-	if(charge_meter && power_supply)
+	if(charge_meter && power_supply && power_supply.maxcharge)
 		var/ratio = power_supply.charge / power_supply.maxcharge
 
 		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.

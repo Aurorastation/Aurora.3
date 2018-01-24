@@ -255,21 +255,21 @@
  */
 /obj/item/toy/sword
 	name = "toy sword"
-	desc = "A cheap, plastic replica of an energy sword. Realistic sounds! Ages 8 and up."
+	desc = "A cheap, plastic replica of a blue energy sword. Realistic sounds and colors! Ages 8 and up."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
 	item_state = "sword0"
 	var/active = 0.0
+	var/colorvar = "blue"
 	w_class = 2.0
 	attack_verb = list("attacked", "struck", "hit")
-
 	attack_self(mob/user as mob)
 		src.active = !( src.active )
 		if (src.active)
 			user << "<span class='notice'>You extend the plastic blade with a quick flick of your wrist.</span>"
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-			src.icon_state = "swordblue"
-			src.item_state = "swordblue"
+			src.icon_state = "sword[colorvar]"
+			src.item_state = "sword[colorvar]"
 			src.w_class = 4
 		else
 			user << "<span class='notice'>You push the plastic blade back down into the handle.</span>"
@@ -286,9 +286,14 @@
 		src.add_fingerprint(user)
 		return
 
+/obj/item/toy/sword/Initialize()
+	. = ..()
+	colorvar = pick("red","blue","green","purple")
+	desc = "A cheap, plastic replica of a [colorvar] energy sword. Realistic sounds and colors! Ages 8 and up."
+
 /obj/item/toy/katana
 	name = "replica katana"
-	desc = "Woefully underpowered in D20."
+	desc = "A cheap plastic katana that luckily isn't sharp enough to accidentally cut your floor length braid. Woefully underpowered in D20."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "katana"
 	item_state = "katana"
@@ -694,19 +699,6 @@
 	desc = "A \"Space Life\" brand Emergency Response Team Commander action figure."
 	icon_state = "ert"
 
-/obj/item/toy/katana
-	name = "replica katana"
-	desc = "Woefully underpowered in D20."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "katana"
-	item_state = "katana"
-	flags = CONDUCT
-	slot_flags = SLOT_BELT | SLOT_BACK
-	force = 5
-	throwforce = 5
-	w_class = 3
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced")
-
 /obj/item/toy/therapy_red
 	name = "red therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is red."
@@ -860,7 +852,7 @@
 //Toy cult sword
 /obj/item/toy/cultsword
 	name = "foam sword"
-	desc = "An arcane weapon (made of foam) wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
+	desc = "An arcane weapon wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"

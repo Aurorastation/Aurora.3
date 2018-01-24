@@ -251,7 +251,7 @@
 				target << "SYSTEM LOG: User: Admin - Connection Lost. Changes Reverted."
 				return
 			user << "Hack succeeded. The AI is now under your exclusive control."
-			target << "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$"
+			target << "SYSTEM LOG: System reÂ¡3RT5Â§^#COMU@(#$)TED)@$"
 			for(var/i = 0, i < 5, i++)
 				var/temptxt = pick("1101000100101001010001001001",\
 							   	   "0101000100100100000100010010",\

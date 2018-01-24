@@ -119,6 +119,8 @@ datum/announcement/proc/Log(message as text, message_title as text)
 		message_admins("[key_name_admin(usr)] has made \a [announcement_type].", 1)
 
 /proc/GetNameAndAssignmentFromId(var/obj/item/weapon/card/id/I)
+	if(!I)
+		return "Unknown"
 	// Format currently matches that of newscaster feeds: Registered Name (Assigned Rank)
 	return I.assignment ? "[I.registered_name] ([I.assignment])" : I.registered_name
 

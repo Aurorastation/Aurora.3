@@ -762,13 +762,16 @@
 
 ///eyecheck()
 ///Returns a number between -1 to 2
-/mob/living/carbon/human/eyecheck()
+/mob/living/carbon/human/eyecheck(ignore_inherent = FALSE)
 	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
 	var/obj/item/organ/I = get_eyes()	// Eyes are fucked, not a 'weak point'.
 	if (I && I.status & ORGAN_CUT_AWAY)
 		return FLASH_PROTECTION_MAJOR
+
+	if (ignore_inherent)
+		return flash_protection
 
 	return species.inherent_eye_protection ? max(species.inherent_eye_protection, flash_protection) : flash_protection
 

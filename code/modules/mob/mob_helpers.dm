@@ -72,9 +72,9 @@
 
 /proc/isipc(A)
 	. = 0
-	if(istype(A, /mob/living/carbon/human))
+	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		. = !!global.mechanical_species[H.get_species()]
+		. = H.species && (H.species.flags & IS_MECHANICAL)
 
 /proc/isvox(A)
 	if(istype(A, /mob/living/carbon/human))
@@ -1030,6 +1030,10 @@ proc/is_blind(A)
 	. |= TYPE_WEIRD
 
 /mob/living/bot/find_type()
+	. = ..()
+	. |= TYPE_SYNTHETIC
+
+/mob/living/silicon/find_type()
 	. = ..()
 	. |= TYPE_SYNTHETIC
 

@@ -725,7 +725,7 @@
 	return TRUE
 
 /mob/living/carbon/human/is_mechanical()
-	return !!global.mechanical_species[get_species()]
+	return species && (species.flags & IS_MECHANICAL)
 
 /mob/proc/is_ready()
 	return client && !!mind
