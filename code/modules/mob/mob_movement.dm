@@ -12,7 +12,7 @@
 
 /mob/proc/setMoveCooldown(var/timeout)
 	if(client)
-		client.move_delay = max(world.time + timeout, client.move_delay)
+		client.move_delay = max(timeout, client.move_delay)
 
 /client/North()
 	..()
@@ -178,7 +178,6 @@
 			mob.control_object.forceMove(get_step(mob.control_object,direct))
 	return
 
-
 /client/Move(n, direct)
 	if(!mob)
 		return // Moved here to avoid nullrefs below
@@ -187,20 +186,13 @@
 		Move_object(direct)
 
 	if(mob.incorporeal_move && isobserver(mob))
+		if (mob.glide_size)
+			mob.glide_size = 0
 		Process_Incorpmove(direct)
 		return
 
-	if(moving || world.time < move_delay) 
+	if(moving || world.time < mob.l_move_time + move_delay) 
 		return 0
-
-	//This compensates for the inaccuracy of move ticks
-	//Whenever world.time overshoots the movedelay, due to it only ticking once per decisecond
-	//The overshoot value is subtracted from our next delay, farther down where move delay is set.
-	//This doesn't entirely remove the problem, but it keeps travel times accurate to within 0.1 seconds
-	//Over an infinite distance, and prevents the inaccuracy from compounding. Thus making it basically a non-issue
-	var/leftover = world.time - move_delay
-	if (leftover > 1)
-		leftover = 0
 
 	if(mob.stat == DEAD && isliving(mob))
 		mob.ghostize()
@@ -262,13 +254,12 @@
 			src << "<span class='notice'>You're pinned to a wall by [mob.pinned[1]]!</span>"
 			return 0
 
-		move_delay = world.time - leftover//set move delay
+		move_delay = 0
 
 		if (mob.buckled)
 			if(istype(mob.buckled, /obj/vehicle))
 				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
-				move_delay = world.time
 				//drunk driving
 				if(mob.confused && prob(20))
 					direct = pick(cardinal)
@@ -325,9 +316,10 @@
 
 		//We are now going to move
 		moving = 1
+		mob.glide_size = WORLD_ICON_SIZE / max(move_delay, world.tick_lag) * world.tick_lag
 		//Something with pulling things
 		if (mob_is_human && (istype(mob:l_hand, /obj/item/weapon/grab) || istype(mob:r_hand, /obj/item/weapon/grab)))
-			move_delay = max(move_delay, world.time + 7)
+			move_delay = max(move_delay, 7)
 			var/list/L = mob.ret_grab()
 			if(istype(L, /list))
 				if(L.len == 2)
