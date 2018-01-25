@@ -102,6 +102,8 @@
 
 	var/tameable = TRUE //if you can tame it, used by the dociler for now
 
+	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
+
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
 
@@ -461,6 +463,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	movement_target = null
 	icon_state = icon_dead
 	density = 0
+	if (isopenturf(loc))
+		ADD_FALLING_ATOM(src)
 	return ..(gibbed,deathmessage)
 
 /mob/living/simple_animal/ex_act(severity)
@@ -485,7 +489,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))
 		var/mob/living/L = target_mob
-		if(!L.stat && L.health >= 0)
+		if(!L.stat)
 			return (0)
 	if (istype(target_mob,/obj/mecha))
 		var/obj/mecha/M = target_mob
@@ -606,17 +610,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return ..()
 
 
-/mob/living/simple_animal/handle_fire()
-	return
-/mob/living/simple_animal/update_fire()
-	return
-/mob/living/simple_animal/IgniteMob()
-	return
-/mob/living/simple_animal/ExtinguishMob()
-	return
-
-
-
 //I wanted to call this proc alert but it already exists.
 //Basically makes the mob pay attention to the world, resets sleep timers, awakens it from a sleeping state sometimes
 /mob/living/simple_animal/proc/poke(var/force_wake = 0)
@@ -671,3 +664,22 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0)
 	apply_damage(shock_damage, BURN)
 	visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
+
+
+/mob/living/simple_animal/can_fall()
+	if (stat != DEAD && flying)
+		return FALSE
+	else
+		return TRUE
+
+/mob/living/simple_animal/can_ztravel()
+	if (stat != DEAD && flying)
+		return TRUE
+	else
+		return FALSE
+
+/mob/living/simple_animal/CanAvoidGravity()
+	if (stat != DEAD && flying)
+		return TRUE
+	else
+		return FALSE

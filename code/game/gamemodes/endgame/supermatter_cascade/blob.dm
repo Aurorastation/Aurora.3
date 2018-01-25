@@ -120,7 +120,7 @@
 
 
 /turf/unsimulated/wall/supermatter/proc/Consume(var/mob/living/user)
-	if(istype(user,/mob/dead/observer))
+	if(istype(user,/mob/abstract/observer))
 		return
 
 	qdel(user)

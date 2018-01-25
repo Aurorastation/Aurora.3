@@ -307,7 +307,7 @@
 	J.alpha = 200
 	J.blend_mode = BLEND_OVERLAY
 	J.tag = "coating"
-	overlays += J
+	add_overlay(J)
 
 	if (user)
 		user.visible_message(span("notice", "[user] dips \the [src] into \the [coating.name]"), span("notice", "You dip \the [src] into \the [coating.name]"))
@@ -338,7 +338,7 @@
 		var/image/J = image(I)
 		J.alpha = 200
 		J.tag = "coating"
-		overlays += J
+		add_overlay(J)
 
 
 		if (do_coating_prefix == 1)
@@ -1884,8 +1884,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/mysterysoup/Initialize()
 	. = ..()
-	var/mysteryselect = pick(1,2,3,4,5,6,7,8,9,10)
-	switch(mysteryselect)
+	switch(rand(1,10))
 		if(1)
 			reagents.add_reagent("nutriment", 6)
 			reagents.add_reagent("capsaicin", 3)
@@ -4633,3 +4632,337 @@
 	reagents.add_reagent("honey", 3)
 	bitesize = 3
 
+// Chip update.
+/obj/item/weapon/reagent_containers/food/snacks/tortilla
+	name = "tortilla"
+	desc = "A thin, flour-based tortilla that can be used in a variety of dishes, or can be served as is."
+	icon_state = "tortilla"
+	bitesize = 3
+	nutriment_desc = list("tortilla" = 1)
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/tortilla/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride", 1)
+
+
+//chips
+/obj/item/weapon/reagent_containers/food/snacks/chip
+	name = "chip"
+	desc = "A portion sized chip good for dipping."
+	icon_state = "chip"
+	var/bitten_state = "chip_half"
+	bitesize = 1
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("tortilla chips" = 1)
+	nutriment_amt = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride", 0.1)
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/On_Consume(mob/M as mob)
+	if(reagents && reagents.total_volume)
+		icon_state = bitten_state
+	. = ..()
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/salsa
+	name = "salsa chip"
+	desc = "A portion sized chip good for dipping. This one has salsa on it."
+	icon_state = "chip_salsa"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/guac
+	name = "guac chip"
+	desc = "A portion sized chip good for dipping. This one has guac on it."
+	icon_state = "chip_guac"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/cheese
+	name = "cheese chip"
+	desc = "A portion sized chip good for dipping. This one has cheese sauce on it."
+	icon_state = "chip_cheese"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/nacho
+	name = "nacho chip"
+	desc = "A nacho ship stray from a plate of cheesy nachos."
+	icon_state = "chip_nacho"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/nacho/salsa
+	name = "nacho chip"
+	desc = "A nacho ship stray from a plate of cheesy nachos. This one has salsa on it."
+	icon_state = "chip_nacho_salsa"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/nacho/guac
+	name = "nacho chip"
+	desc = "A nacho ship stray from a plate of cheesy nachos. This one has guac on it."
+	icon_state = "chip_nacho_guac"
+	bitten_state = "chip_half"
+
+/obj/item/weapon/reagent_containers/food/snacks/chip/nacho/cheese
+	name = "nacho chip"
+	desc = "A nacho ship stray from a plate of cheesy nachos. This one has extra cheese on it."
+	icon_state = "chip_nacho_cheese"
+	bitten_state = "chip_half"
+
+// chip plates
+/obj/item/weapon/reagent_containers/food/snacks/chipplate
+	name = "basket of chips"
+	desc = "A plate of chips intended for dipping."
+	icon_state = "chip_basket"
+	trash = /obj/item/trash/chipbasket
+	var/vendingobject = /obj/item/weapon/reagent_containers/food/snacks/chip
+	nutriment_desc = list("tortilla chips" = 1)
+	bitesize = 1
+	nutriment_amt = 10
+
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/attack_self(mob/user as mob)
+	var/obj/item/weapon/reagent_containers/food/snacks/returningitem = new vendingobject(loc)
+	returningitem.reagents.clear_reagents()
+	reagents.trans_to(returningitem, bitesize)
+	returningitem.bitesize = bitesize
+	user.put_in_hands(returningitem)
+	if (reagents && reagents.total_volume)
+		user << "You take a chip from the plate."
+	else
+		user << "You take the last chip from the plate."
+		var/obj/waste = new trash(loc)
+		if (loc == user)
+			user.put_in_hands(waste)
+		qdel(src)
+
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/nachos
+	name = "plate of nachos"
+	desc = "A very cheesy nacho plate."
+	icon_state = "nachos"
+	trash = /obj/item/trash/plate
+	vendingobject = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho
+	nutriment_desc = list("tortilla chips" = 1)
+	bitesize = 1
+	nutriment_amt = 20
+
+/obj/item/weapon/reagent_containers/food/snacks/chipplate/nachos/Initialize()
+	. = ..()
+	reagents.add_reagent("sodiumchloride", 1)
+	reagents.add_reagent("cheese", 10)
+
+//dips
+/obj/item/weapon/reagent_containers/food/snacks/dip
+	name = "queso dip"
+	desc = "A simple, cheesy dip consisting of tomatos, cheese, and spices."
+	var/nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/cheese
+	var/chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/cheese
+	icon_state = "dip_cheese"
+	trash = /obj/item/trash/dipbowl
+	bitesize = 1
+	nutriment_desc = list("seasoning" = 1)
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_amt = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/dip/Initialize()
+	. = ..()
+	reagents.add_reagent("cheese", 12)
+	reagents.add_reagent("tomatojuice", 5)
+
+/obj/item/weapon/reagent_containers/food/snacks/dip/attackby(obj/item/weapon/reagent_containers/food/snacks/item as obj, mob/user as mob)
+	. = ..()
+	var/obj/item/weapon/reagent_containers/food/snacks/returningitem
+	if(istype(item,/obj/item/weapon/reagent_containers/food/snacks/chip/nacho) && item.icon_state == "chip_nacho")
+		returningitem = new nachotrans(src)
+	else if (istype(item,/obj/item/weapon/reagent_containers/food/snacks/chip) && (item.icon_state == "chip" || item.icon_state == "chip_half"))
+		returningitem = new chiptrans(src)
+	if(returningitem)
+		returningitem.reagents.clear_reagents() //Clear the new chip
+		var/memed = 0
+		item.reagents.trans_to(returningitem, item.reagents.total_volume) //Old chip to new chip
+		if(item.icon_state == "chip_half")
+			returningitem.icon_state = "[returningitem.icon_state]_half"
+			returningitem.bitesize = Clamp(returningitem.reagents.total_volume,1,10)
+		else if(prob(1))
+			memed = 1
+			user << "You scoop up some dip with the chip, but mid-scop, the chip breaks off into the dreadful abyss of dip, never to be seen again..."
+			returningitem.icon_state = "[returningitem.icon_state]_half"
+			returningitem.bitesize = Clamp(returningitem.reagents.total_volume,1,10)
+		else
+			returningitem.bitesize = Clamp(returningitem.reagents.total_volume*0.5,1,10)
+		qdel(item)
+		reagents.trans_to(returningitem, bitesize) //Dip to new chip
+		user.put_in_hands(returningitem)
+
+		if (reagents && reagents.total_volume)
+			if(!memed)
+				user << "You scoop up some dip with the chip."
+		else
+			if(!memed)
+				user << "You scoop up the remaining dip with the chip."
+			var/obj/waste = new trash(loc)
+			if (loc == user)
+				user.put_in_hands(waste)
+			qdel(src)
+
+/obj/item/weapon/reagent_containers/food/snacks/dip/salsa
+	name = "salsa dip"
+	desc = "Traditional Sol chunky salsa dip containing tomatos, peppers, and spices."
+	nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/salsa
+	chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/salsa
+	icon_state = "dip_salsa"
+
+/obj/item/weapon/reagent_containers/food/snacks/dip/salsa/Initialize()
+	. = ..()
+	reagents.add_reagent("tomatojuice", 10)
+	reagents.add_reagent("capsaicin", 5)
+	reagents.add_reagent("water", 2)
+
+/obj/item/weapon/reagent_containers/food/snacks/dip/guac
+	name = "guac dip"
+	desc = "A recreation of the ancient Sol 'Guacamole' dip using tofu, limes, and spices. This recreation obviously leaves out mole meat."
+	nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/guac
+	chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/guac
+	icon_state = "dip_guac"
+	nutriment_desc = list("seasoning" = 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/dip/guac/Initialize()
+	. = ..()
+	reagents.add_reagent("tofu", 10)
+	reagents.add_reagent("capsaicin", 5)
+	reagents.add_reagent("limejuice", 2)
+
+//burritos
+/obj/item/weapon/reagent_containers/food/snacks/burrito
+	name = "meat burrito"
+	desc = "Meat wrapped in a flour tortilla. It's a burrito by definition."
+	icon_state = "burrito"
+	bitesize = 4
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("tortilla" = 1)
+	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
+	name = "vegan burrito"
+	desc = "Tofu, carrots, and cabbage wrapped in a flour tortilla. Those seen with this food object are Valid."
+	icon_state = "burrito_vegan"
+	bitesize = 4
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("tortilla" = 1, "lettuce" = 1, "carrot" = 1)
+	nutriment_amt = 12
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_vegan/Initialize()
+	. = ..()
+	reagents.add_reagent("tofu", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_spicy
+	name = "spicy meat burrito"
+	desc = "Meat and chilis wrapped in a flour tortilla. Washrooms are north of the kitchen."
+	icon_state = "burrito_spicy"
+	bitesize = 4
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("tortilla" = 1)
+	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_spicy/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("capsaicin", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_cheese
+	name = "meat cheese burrito"
+	desc = "Meat and melted cheese wrapped in a flour tortilla. Do not feed to Skrell."
+	icon_state = "burrito_cheese"
+	bitesize = 4
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("tortilla" = 1)
+	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_cheese/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("cheese", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_cheese_spicy
+	name = "spicy cheese meat burrito"
+	desc = "Meat, melted cheese, and chilis wrapped in a flour tortilla. Medical is north of the washrooms."
+	icon_state = "burrito_cheese_spicy"
+	bitesize = 4
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("tortilla" = 1)
+	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_cheese_spicy/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("cheese", 4)
+	reagents.add_reagent("capsaicin", 4)
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_hell
+	name = "el diablo"
+	desc = "Meat and a fuckload of chilis packed in a flour tortilla. The chaplain's office is west of the kitchen."
+	icon_state = "burrito_hell"
+	bitesize = 4
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("tortilla" = 1)
+	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_hell/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("condensedcapsaicin", 20) //what could possibly go wrong
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_mystery
+	name = "mystery meat burrito"
+	desc = "The mystery is, why aren't you BSAing it?"
+	icon_state = "burrito_mystery"
+	bitesize = 5
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("regret" = 1)
+	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_mystery/Initialize()
+	reagents.add_reagent("protein", 4)
+	. = ..()
+	switch(rand(1,10))
+		if(1)
+			reagents.add_reagent("nutriment", 6)
+			reagents.add_reagent("capsaicin", 3)
+			reagents.add_reagent("tomatojuice", 2)
+		if(2)
+			reagents.add_reagent("nutriment", 6)
+			reagents.add_reagent("frostoil", 3)
+			reagents.add_reagent("tomatojuice", 2)
+		if(3)
+			reagents.add_reagent("nutriment", 5)
+			reagents.add_reagent("water", 5)
+			reagents.add_reagent("tricordrazine", 5)
+		if(4)
+			reagents.add_reagent("nutriment", 5)
+			reagents.add_reagent("water", 10)
+		if(5)
+			reagents.add_reagent("nutriment", 2)
+			reagents.add_reagent("banana", 10)
+		if(6)
+			reagents.add_reagent("nutriment", 6)
+			reagents.add_reagent("blood", 10)
+		if(7)
+			reagents.add_reagent("slimejelly", 10)
+			reagents.add_reagent("water", 10)
+		if(8)
+			reagents.add_reagent("carbon", 10)
+			reagents.add_reagent("toxin", 10)
+		if(9)
+			reagents.add_reagent("nutriment", 5)
+			reagents.add_reagent("tomatojuice", 10)
+		if(10)
+			reagents.add_reagent("nutriment", 6)
+			reagents.add_reagent("tomatojuice", 5)
+			reagents.add_reagent("imidazoline", 5)

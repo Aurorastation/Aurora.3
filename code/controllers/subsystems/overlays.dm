@@ -185,6 +185,24 @@ var/datum/controller/subsystem/overlays/SSoverlays
 	if(NOT_QUEUED_ALREADY)
 		QUEUE_FOR_COMPILE
 
+/atom/proc/set_overlays(list/overlays, priority = FALSE)	// Sets overlays to a list, equivalent to cut_overlays() + add_overlays().
+	if (!overlays)
+		return
+
+	overlays = build_appearance_list(overlays)
+
+	if (priority)
+		LAZYCLEARLIST(priority_overlays)
+		if (overlays)
+			LAZYADD(priority_overlays, overlays)
+	else
+		LAZYCLEARLIST(our_overlays)
+		if (overlays)
+			LAZYADD(our_overlays, overlays)
+
+	if (NOT_QUEUED_ALREADY)
+		QUEUE_FOR_COMPILE
+
 /atom/proc/copy_overlays(atom/other, cut_old = FALSE)	//copys our_overlays from another atom
 	if(!other)
 		if(cut_old)

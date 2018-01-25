@@ -43,7 +43,7 @@ client/verb/JoinResponseTeam()
 		usr << "<span class='warning'>You cannot join the response team at this time.</span>"
 		return
 
-	if(istype(usr,/mob/dead/observer) || istype(usr,/mob/new_player))
+	if(istype(usr,/mob/abstract/observer) || istype(usr,/mob/abstract/new_player))
 		if(!send_emergency_team)
 			usr << "No emergency response team is currently being sent."
 			return

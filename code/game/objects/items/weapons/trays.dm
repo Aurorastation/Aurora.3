@@ -266,7 +266,7 @@
 
 /obj/item/weapon/tray/proc/unload_at_loc(var/turf/dropspot = null, var/mob/user)
 	if (!istype(loc,/turf) && !dropspot)//check that we're not being held by a mob
-		usr << "Place the tray down first!"
+		user << "Place the tray down first!"
 		return
 	else
 		if (!dropspot)
@@ -277,9 +277,8 @@
 			carrying -= I
 
 		cut_overlays()
-		overlays.Cut()
 		current_weight = 0
-		usr.visible_message("[usr] unloads the tray.", "You unload the tray.")
+		user.visible_message("[user] unloads the tray.", "You unload the tray.")
 
 
 /obj/item/weapon/tray/proc/spill(var/mob/user = null, var/turf/dropspot = null)

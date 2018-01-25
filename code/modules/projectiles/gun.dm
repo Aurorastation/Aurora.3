@@ -63,6 +63,7 @@
 	var/scoped_accuracy = null
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
+	var/reliability = 100
 
 
 	var/next_fire_time = 0
@@ -158,6 +159,11 @@
 		return
 
 	if(!special_check(user))
+		return
+
+	var/failure_chance = 100 - reliability
+	if(failure_chance && prob(failure_chance))
+		handle_reliability_fail(user)
 		return
 
 	if(world.time < next_fire_time)
@@ -597,3 +603,26 @@
 
 	mob_can_equip(M as mob, slot)
 		return 0
+
+/obj/item/weapon/gun/proc/handle_reliability_fail(var/mob/user)
+	var/severity = 1
+	if(prob(100-reliability))
+		severity = 2
+		if(prob(100-reliability))
+			severity = 3
+	switch(severity)
+		if(1)
+			small_fail(user)
+		if(2)
+			medium_fail(user)
+		else
+			critical_fail(user)
+
+/obj/item/weapon/gun/proc/small_fail(var/mob/user)
+	return
+
+/obj/item/weapon/gun/proc/medium_fail(var/mob/user)
+	return
+
+/obj/item/weapon/gun/proc/critical_fail(var/mob/user)
+	return

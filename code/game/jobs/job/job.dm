@@ -39,18 +39,20 @@
 
 /datum/job/proc/equip_backpack(var/mob/living/carbon/human/H)
 	var/type_to_spawn
+	var/use_job_specific = H.backbag_style == 1
 	switch (H.backbag)
 		//if (1)	// No bag selected.
+		// Hard-coding bagtype for now since there's only two options.
 		if (2)
-			type_to_spawn = bag_type
+			type_to_spawn = use_job_specific ? bag_type : /obj/item/weapon/storage/backpack
 		if (3)
-			type_to_spawn = satchel_type
+			type_to_spawn = use_job_specific ? satchel_type : /obj/item/weapon/storage/backpack/satchel_norm
 		if (4)
-			type_to_spawn = alt_satchel_type
+			type_to_spawn = use_job_specific ? alt_satchel_type : /obj/item/weapon/storage/backpack/satchel
 		if (5)
-			type_to_spawn = duffel_type
+			type_to_spawn = use_job_specific ? duffel_type : /obj/item/weapon/storage/backpack/duffel
 		if (6)
-			type_to_spawn = messenger_bag_type
+			type_to_spawn = use_job_specific ? messenger_bag_type : /obj/item/weapon/storage/backpack/messenger
 
 	if (type_to_spawn)
 		var/obj/item/bag = new type_to_spawn

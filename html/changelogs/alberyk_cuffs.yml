@@ -1,0 +1,4 @@
+author: Alberyk
+delete-after: True
+changes: 
+  - balance: "Unathi handcuff breaking should now cost stamina."

@@ -2325,11 +2325,15 @@
 	},
 /turf/space/transit/north/shuttlespace_ns15,
 /area/template_noop)
-"afN" = (
+"afN" = (/obj/effect/landmark{
+	name = "Penguin Spawn Random"
+	},
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)
-"afO" = (
+"afO" = (/obj/effect/landmark{
+	name = "Penguin Spawn Emperor"
+	},
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)

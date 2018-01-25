@@ -210,7 +210,7 @@
 			L.adjust_fire_stacks(-(amount / 10))
 			remove_self(amount)
 
-	if(istype(M) && !istype(M, /mob/dead))
+	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
 
 /datum/reagent/water/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)

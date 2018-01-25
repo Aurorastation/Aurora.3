@@ -15263,9 +15263,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start{
-	name = "Janitor"
-	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "Cj" = (

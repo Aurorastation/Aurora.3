@@ -298,3 +298,43 @@
 			qdel(src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
+
+// Penguins
+
+/mob/living/simple_animal/penguin
+	name = "\improper King penguin"
+	desc = "A king of the icy regions."
+	icon_state = "penguin"
+	icon_living = "penguin"
+	icon_dead = "penguin_dead"
+	speak = list("Gah Gah!", "NOOT NOOT!", "NOOT!", "Noot", "noot", "Prah!", "Grah!")
+	speak_emote = list("squawks", "gakkers")
+	emote_hear = list("squawk!", "gakkers!", "noots.","NOOTS!")
+	emote_see = list("shakes its beak.", "flaps its wings.","preens itself.")
+	faction = list("penguin")
+	speak_chance = 1
+	turns_per_move = 10
+	response_help  = "pets"
+	response_disarm = "bops"
+	response_harm   = "kicks"
+	attacktext = "kicked"
+
+/mob/living/simple_animal/penguin/baby
+	name = "\improper baby penguin"
+	desc = "Can't fly and barely waddles, yet the prince of all chicks."
+	icon_state = "penguin_baby"
+	icon_living = "penguin_baby"
+	icon_dead = "penguin_baby_dead"
+	speak = list("gah", "noot noot", "noot!", "noot", "squeee!", "noo!")
+	pass_flags = PASSTABLE | PASSGRILLE
+	mob_size = 0.75//just a rough estimate, the real value should be way lower
+
+/mob/living/simple_animal/penguin/baby/death()
+	..()
+	desc = "Who would do such a thing? You monster!"
+
+/mob/living/simple_animal/penguin/emperor
+	name = "Emperor penguin"
+	desc = "Emperor of all he surveys."
+	density = 0
+	mob_size = 2

@@ -1,0 +1,5 @@
+author: Alberyk
+delete-after: True
+changes: 
+  - rscadd: "Return alien weeds to their old format, replacing the vines."
+  - bugfix: "Alien acid should now be able to melt floors."
