@@ -421,7 +421,7 @@
 	base_icon = "flammenschwert"
 	name = "flammenschwert"
 	desc = "The mighty flamberge said to be wielded by the ancient jotunn Surtr during the end of days, Ragnarok. Its undulating blade burns bright with the flames of Muspell."
-	force = 40
+	force = 30
 	w_class = 4.0
 	slot_flags = SLOT_BACK
 	force_wielded = 1
@@ -451,6 +451,7 @@
 	if(isliving(A))
 		var/mob/living/L = A
 		L.apply_effect(rand(4,12),INCINERATE)
+		L.adjustFireLoss(force/2)
 
 /obj/item/enchantment/singularity
 	name = "chaos enchantment rune"
@@ -549,6 +550,9 @@
 	throw_speed = 10
 	throw_range = 30
 	damtype = "fire"
+	light_color = "#FDD023"
+	light_power = 1
+	light_range = 4
 
 /obj/item/weapon/sunlight_spear/Initialize()
 	..()
