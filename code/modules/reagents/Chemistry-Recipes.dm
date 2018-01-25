@@ -2493,7 +2493,7 @@
 	result = "bluebird"
 	required_reagents = list("gintonic" = 3, "bluecuracao" = 1)
 	result_amount = 4
-	
+
 
 //transmutation
 
@@ -2538,3 +2538,76 @@
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/stack/material/diamond(location)
 	return
+
+/datum/chemical_reaction/transmutation_azoth
+	name = "Transmutation: Azoth"
+	id = "transmutation_azoth"
+	result = null
+	required_reagents = list("silver" = 20, "gold" = 20, "azoth" = 15)
+	catalysts = list("philosopher_stone" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/transmutation_azoth/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/stack/material/diamond(location)
+	return
+
+/datum/chemical_reaction/transmutation_elixir
+	name = "Transmutation: Life Elixir"
+	id = "transmutation_elixir"
+	result = null
+	required_reagents = list("azoth" = 15, "elixir_life" = 10, "holywater" = 30)
+	catalysts = list("philosopher_stone" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/transmutation_elixir/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/stack/material/diamond(location)
+	return
+
+/datum/chemical_reaction/transmutation_fire
+	name = "Transmutation: Liquid Fire"
+	id = "transmutation_fire"
+	result = null
+	required_reagents = list("gold" = 35, "liquid_fire" = 20)
+	catalysts = list("philosopher_stone" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/transmutation_fire/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/stack/material/diamond(location)
+	return
+
+/datum/chemical_reaction/transmutation_singularity
+	name = "Transmutation: Unstable Matter"
+	id = "transmutation_singularity"
+	result = null
+	required_reagents = list("bluespace_dust" = 15, "uranium" = 30, "black_matter" = 10)
+	catalysts = list("philosopher_stone" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/transmutation_singularity/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/stack/material/diamond(location)
+	return
+
+/datum/chemical_reaction/transmutation_estus
+	name = "Transmutation: Estus"
+	id = "transmutation_estus"
+	result = null
+	required_reagents = list("estus" = 10, "gold" = 10, "silver" = 15, "holywater" = 20)
+	catalysts = list("philosopher_stone" = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/transmutation_estus/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/stack/material/diamond(location)
+	return
+
+
+
