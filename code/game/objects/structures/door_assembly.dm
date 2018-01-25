@@ -193,9 +193,9 @@
 	else if(iswrench(W) && state == 0)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		if(anchored)
-			user.visible_message("[user] begins unsecuring the airlock assembly from the floor.", "You starts unsecuring the airlock assembly from the floor.")
+			user.visible_message("[user] begins unsecuring the airlock assembly from the floor.", "You start unsecuring the airlock assembly from the floor.")
 		else
-			user.visible_message("[user] begins securing the airlock assembly to the floor.", "You starts securing the airlock assembly to the floor.")
+			user.visible_message("[user] begins securing the airlock assembly to the floor.", "You start securing the airlock assembly to the floor.")
 
 		if(do_after(user, 40))
 			if(!src) return
@@ -219,7 +219,7 @@
 
 		if(do_after(user, 40))
 			if(!src) return
-			user << "<span class='notice'>You cut the airlock wires.!</span>"
+			user << "<span class='notice'>You cut the airlock wires.</span>"
 			new/obj/item/stack/cable_coil(src.loc, 1)
 			src.state = 0
 

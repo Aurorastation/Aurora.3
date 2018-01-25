@@ -10,6 +10,8 @@
 		if(!hasorgans(target))
 			return 0
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
+		if((affected.status & ORGAN_ROBOT)) // robots have their own
+			return 0
 		return affected && affected.open == (affected.encased ? 3 : 2) && !(affected.status & ORGAN_BLEEDING)
 
 	proc/get_max_wclass(var/obj/item/organ/external/affected)
@@ -57,7 +59,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		user.visible_message("[user] starts making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].", \
 		"You start making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]." )
-		target.custom_pain("The pain in your chest is living hell!",1)
+		target.custom_pain("The pain in your [affected.name == "head" ? "head" : "chest"] is living hell!",1)
 		affected.cavity = 1
 		..()
 
@@ -222,6 +224,5 @@
 				var/obj/item/weapon/implant/imp = affected.implants[1]
 				user.visible_message("<span class='warning'>Something beeps inside [target]'s [affected.name]!</span>")
 				playsound(imp.loc, 'sound/items/countdown.ogg', 75, 1, -3)
-				spawn(25)
-					imp.activate()
+				addtimer(CALLBACK(imp, /obj/item/weapon/implant/.proc/activate), 25)
 

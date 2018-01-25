@@ -357,9 +357,10 @@
 		if (!..())
 			return 0
 
+
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		var/obj/item/organ/brain/sponge = target.internal_organs_by_name["brain"]
-		if (!affected || !istype(sponge) || !(sponge in affected.internal_organs))
+		if (!affected || !affected.cavity || !istype(sponge) || !(sponge in affected.internal_organs)) // this surgery now requires cranial cavity creation, in order to prevent conflicts with cranial cavity creation.
 			return 0
 
 		if (!sponge.can_lobotomize || sponge.lobotomized)
