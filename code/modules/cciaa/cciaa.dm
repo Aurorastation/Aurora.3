@@ -12,7 +12,7 @@
 		src << "<span class='warning'>The game hasn't started yet!</span>"
 		return
 
-	if(istype(mob, /mob/new_player))
+	if(istype(mob, /mob/abstract/new_player))
 		src << "<span class='warning'>You can't be in the lobby to join as a duty officer.</span>"
 		return
 
@@ -244,7 +244,7 @@
 	if(!P.stamped)
 		P.stamped = new
 	P.stamped += /obj/item/weapon/stamp
-	P.overlays += stampoverlay
+	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(fax.recievefax(P))

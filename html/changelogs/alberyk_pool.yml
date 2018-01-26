@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "You can now properly click on people and objects that are on water titles, such as the pool."

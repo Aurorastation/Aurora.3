@@ -3,7 +3,7 @@
 	set name = "AOOC"
 	set desc = "Antagonist OOC"
 
-	if (istype(src.mob, /mob/dead/observer) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0))
+	if (istype(src.mob, /mob/abstract/observer) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0))
 		src << "<span class='warning'>You cannot use AOOC while ghosting/observing!</span>"
 		return
 

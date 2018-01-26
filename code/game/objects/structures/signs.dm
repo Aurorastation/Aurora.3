@@ -145,6 +145,10 @@
 	desc = "Next to the extremely long list of names and job titles, there is a drawing of a little child. The child appears to be retarded. Beneath the image, someone has scratched the word \"PACKETS\""
 	icon_state = "kiddieplaque"
 
+/obj/structure/sign/kiddieplaque/janitor
+	desc = "A humble wooden plaque. In simple lettering begin the words: \"Primum non sordes\"."
+	name = "\improper Janitorial Oath"
+
 /obj/structure/sign/atmosplaque
 	name = "\improper FEA atmospherics division plaque"
 	desc = "This plaque commemorates the fall of the Atmos FEA division. For all the charred, dizzy, and brittle men who have died in its hands."

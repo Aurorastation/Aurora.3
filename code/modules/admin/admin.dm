@@ -46,7 +46,7 @@ proc/admin_notice(var/message, var/rights)
 		body += " played by <b>[M.client]</b> "
 		body += "\[<A href='?src=\ref[src];editrights=show'>[M.client.holder ? M.client.holder.rank : "Player"]</A>\]"
 
-	if(istype(M, /mob/new_player))
+	if(istype(M, /mob/abstract/new_player))
 		body += " <B>Hasn't Entered Game</B> "
 	else
 		body += " \[<A href='?src=\ref[src];revive=\ref[M]'>Heal</A>\] "
@@ -92,7 +92,7 @@ proc/admin_notice(var/message, var/rights)
 	"}
 
 	if (M.client)
-		if(!istype(M, /mob/new_player))
+		if(!istype(M, /mob/abstract/new_player))
 			body += "<br><br>"
 			body += "<b>Transformation:</b>"
 			body += "<br>"
@@ -1243,7 +1243,7 @@ proc/admin_notice(var/message, var/rights)
 
 //Returns 1 to let the dragdrop code know we are trapping this event
 //Returns 0 if we don't plan to trap the event
-/datum/admins/proc/cmd_ghost_drag(var/mob/dead/observer/frommob, var/mob/living/tomob)
+/datum/admins/proc/cmd_ghost_drag(var/mob/abstract/observer/frommob, var/mob/living/tomob)
 	if(!istype(frommob))
 		return //Extra sanity check to make sure only observers are shoved into things
 

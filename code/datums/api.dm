@@ -714,7 +714,7 @@ proc/api_update_command_database()
 	var/allow_antaghud = queryparams["allow_antaghud"]
 	var/senderkey = queryparams["senderkey"] //Identifier of the sender (Ckey / Userid / ...)
 
-	var/mob/dead/observer/G = ghosts[target]
+	var/mob/abstract/observer/G = ghosts[target]
 
 	if(!G in ghosts)
 		statuscode = 404
@@ -969,7 +969,7 @@ proc/api_update_command_database()
 	if(!P.stamped)
 		P.stamped = new
 	P.stamped += /obj/item/weapon/stamp
-	P.overlays += stampoverlay
+	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(F.recievefax(P))

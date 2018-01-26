@@ -123,7 +123,7 @@
 
 	if(istype(pages[page], /obj/item/weapon/paper))
 		var/obj/item/weapon/paper/P = W
-		if(!(istype(usr, /mob/living/carbon/human) || istype(usr, /mob/dead/observer) || istype(usr, /mob/living/silicon)))
+		if(!(istype(usr, /mob/living/carbon/human) || istype(usr, /mob/abstract/observer) || istype(usr, /mob/living/silicon)))
 			dat+= "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[stars(P.info)][P.stamps]</BODY></HTML>"
 		else
 			dat+= "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[P.info][P.stamps]</BODY></HTML>"
@@ -215,14 +215,13 @@
 /obj/item/weapon/paper_bundle/update_icon()
 	var/obj/item/weapon/paper/P = pages[1]
 	icon_state = P.icon_state
-	overlays = P.overlays
+	copy_overlays(P.overlays, TRUE)
 	underlays = 0
 	var/i = 0
 	var/photo
 	for(var/obj/O in src)
-		var/image/img = image('icons/obj/bureaucracy.dmi')
 		if(istype(O, /obj/item/weapon/paper))
-			img.icon_state = O.icon_state
+			var/image/img = image('icons/obj/bureaucracy.dmi', O.icon_state)
 			img.pixel_x -= min(1*i, 2)
 			img.pixel_y -= min(1*i, 2)
 			pixel_x = min(0.5*i, 1)
@@ -231,14 +230,12 @@
 			i++
 		else if(istype(O, /obj/item/weapon/photo))
 			var/obj/item/weapon/photo/Ph = O
-			img = Ph.tiny
 			photo = 1
-			overlays += img
+			add_overlay(Ph.tiny)
 	if(i>1)
-		desc =  "[i] papers clipped to each other."
+		desc = "[i] papers clipped to each other."
 	else
 		desc = "A single sheet of paper."
 	if(photo)
 		desc += "\nThere is a photo attached to it."
-	overlays += image('icons/obj/bureaucracy.dmi', "clip")
-	return
+	add_overlay("clip")

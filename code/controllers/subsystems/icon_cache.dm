@@ -71,6 +71,7 @@
 	var/list/space_dust_cache = list()
 
 	var/list/space_cache = list()
+	var/list/crayon_cache = list()
 
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)

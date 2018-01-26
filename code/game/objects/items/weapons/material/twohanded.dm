@@ -230,10 +230,10 @@
 		var/matrix/M = matrix()
 		I.transform = M
 		usr.drop_item()
-		I.loc = HS
-		var/image/IM = image(I.icon,I.icon_state)
-		IM.overlays = I.overlays.Copy()
-		HS.overlays += IM
+		I.forceMove(HS)
+		var/mutable_appearance/MA = new(I)
+		MA.layer = FLOAT_LAYER
+		HS.add_overlay(MA)
 		HS.name = "[I.name] on a spear"
 		qdel(src)
 		return

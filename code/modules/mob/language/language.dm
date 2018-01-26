@@ -111,10 +111,10 @@
 		var/msg = "<i><span class='game say'>[language.name], <span class='name'>[speaker_name]</span> [message]</span></i>"
 		src << msg
 
-/mob/new_player/hear_broadcast(var/datum/language/language, var/mob/speaker, var/speaker_name, var/message)
+/mob/abstract/new_player/hear_broadcast(var/datum/language/language, var/mob/speaker, var/speaker_name, var/message)
 	return
 
-/mob/dead/observer/hear_broadcast(var/datum/language/language, var/mob/speaker, var/speaker_name, var/message)
+/mob/abstract/observer/hear_broadcast(var/datum/language/language, var/mob/speaker, var/speaker_name, var/message)
 	if(speaker.name == speaker_name || antagHUD)
 		src << "[ghost_follow_link(speaker, src)] <i><span class='game say'>[language.name], <span class='name'>[speaker_name]</span> [message]</span></i>"
 	else

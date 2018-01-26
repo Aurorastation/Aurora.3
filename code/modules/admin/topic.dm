@@ -97,8 +97,13 @@
 		display_mirrors_panel(usr, text2num(href_list["dbbanmirrors"]))
 		return
 
-	else if(href_list["dbbanmirrorckeys"])
-		display_mirrors_ckeys(usr, text2num(href_list["dbbanmirrorckeys"]))
+	else if(href_list["dbbanmirroract"])
+		// Mirror act contains the ID of the mirror being acted upon.
+		var/mirror_id = text2num(href_list["dbbanmirroract"])
+		if (href_list["mirrorckeys"])
+			display_mirrors_ckeys(usr, mirror_id)
+		else if (href_list["mirrorstatus"])
+			toggle_mirror_status(usr, mirror_id, text2num(href_list["mirrorstatus"]))
 		return
 
 	else if(href_list["editrights"])
@@ -274,7 +279,7 @@
 		message_admins("<span class='notice'>[key_name_admin(usr)] has used rudimentary transformation on [key_name_admin(M)]. Transforming to [href_list["simplemake"]]; deletemob=[delmob]</span>", 1)
 
 		switch(href_list["simplemake"])
-			if("observer")			M.change_mob_type( /mob/dead/observer , null, null, delmob )
+			if("observer")			M.change_mob_type( /mob/abstract/observer , null, null, delmob )
 			if("larva")				M.change_mob_type( /mob/living/carbon/alien/larva , null, null, delmob )
 			if("nymph")				M.change_mob_type( /mob/living/carbon/alien/diona , null, null, delmob )
 			if("human")				M.change_mob_type( /mob/living/carbon/human , null, null, delmob, href_list["species"])
@@ -796,8 +801,8 @@
 		if(!check_rights(R_SPAWN))	return
 
 		var/mob/M = locate(href_list["makeanimal"])
-		if(istype(M, /mob/new_player))
-			usr << "This cannot be used on instances of type /mob/new_player"
+		if(istype(M, /mob/abstract/new_player))
+			usr << "This cannot be used on instances of type /mob/abstract/new_player"
 			return
 
 		usr.client.cmd_admin_animalize(M)
@@ -1622,7 +1627,7 @@ mob/living/silicon/ai/can_centcom_reply()
 	if(client && eyeobj)
 		return "|<A HREF='?[source];adminplayerobservejump=\ref[eyeobj]'>EYE</A>"
 
-/mob/dead/observer/extra_admin_link(var/source)
+/mob/abstract/observer/extra_admin_link(var/source)
 	if(mind && mind.current)
 		return "|<A HREF='?[source];adminplayerobservejump=\ref[mind.current]'>BDY</A>"
 

@@ -898,7 +898,7 @@
 
 	// You ain't goin' anywhere, bud.
 	if (!T.client && T.mind)
-		for (var/mob/dead/observer/ghost in player_list)
+		for (var/mob/abstract/observer/ghost in player_list)
 			if (ghost.mind == T.mind)
 				ghost.can_reenter_corpse = 1
 				ghost.reenter_corpse()

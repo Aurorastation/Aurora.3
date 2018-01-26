@@ -13,7 +13,7 @@
 		"ss13_characters" = list(
 			"vars" = list(
 				"language" = "alternate_languages"
-			), 
+			),
 			"args" = list("id")
 		)
 	)
@@ -34,7 +34,7 @@
 	return list(
 		"language" = list2params(pref.alternate_languages),
 		"id" = pref.current_character,
-		"ckey" = pref.client.ckey
+		"ckey" = PREF_CLIENT_CKEY
 	)
 
 /datum/category_item/player_setup_item/general/language/sanitize_character(var/sql_load = 0)
