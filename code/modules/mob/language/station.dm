@@ -150,7 +150,7 @@
 		return
 
 	for(var/mob/player in player_list)
-		if(istype(player,/mob/dead) || ((src in player.languages && !within_jamming_range(player)) || check_special_condition(player)))
+		if(istype(player,/mob/abstract) || ((src in player.languages && !within_jamming_range(player)) || check_special_condition(player)))
 			player << msg
 
 /datum/language/bug/check_special_condition(var/mob/other)
@@ -160,7 +160,7 @@
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))
 		return 0
-	if(istype(M, /mob/new_player))
+	if(istype(M, /mob/abstract/new_player))
 		return 0
 	if(within_jamming_range(other))
 		return 0

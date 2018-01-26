@@ -1,4 +1,4 @@
-/mob/dead/observer/say(var/message)
+/mob/abstract/observer/say(var/message)
 	message = sanitize(message)
 
 	if (!message)
@@ -14,7 +14,7 @@
 	. = src.say_dead(message)
 
 
-/mob/dead/observer/emote(var/act, var/type, var/message)
+/mob/abstract/observer/emote(var/act, var/type, var/message)
 	//message = sanitize(message) - already sanitized in verb/me_verb()
 
 	if(!message)

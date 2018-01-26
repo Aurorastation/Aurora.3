@@ -36,7 +36,7 @@ var/list/ghost_traps
 	..()
 
 // Check for bans, proper atom types, etc.
-/datum/ghosttrap/proc/assess_candidate(var/mob/dead/observer/candidate, var/mob/target)
+/datum/ghosttrap/proc/assess_candidate(var/mob/abstract/observer/candidate, var/mob/target)
 	if(!candidate.MayRespawn(1, respawn_check))
 		return 0
 	if(islist(ban_checks))
@@ -54,7 +54,7 @@ var/list/ghost_traps
 	else
 		request_timeouts -= target
 
-	for(var/mob/dead/observer/O in player_list)
+	for(var/mob/abstract/observer/O in player_list)
 		if(!O.MayRespawn())
 			continue
 		if(islist(ban_checks))
@@ -74,7 +74,7 @@ var/list/ghost_traps
 	if(..())
 		return 1
 	if(href_list["candidate"] && href_list["target"])
-		var/mob/dead/observer/candidate = locate(href_list["candidate"]) // BYOND magic.
+		var/mob/abstract/observer/candidate = locate(href_list["candidate"]) // BYOND magic.
 		var/mob/target = locate(href_list["target"])                     // So much BYOND magic.
 		if(!target || !candidate)
 			return
@@ -177,7 +177,7 @@ var/list/ghost_traps
 	respawn_check = MINISYNTH
 	..()
 
-datum/ghosttrap/drone/assess_candidate(var/mob/dead/observer/candidate, var/mob/target)
+datum/ghosttrap/drone/assess_candidate(var/mob/abstract/observer/candidate, var/mob/target)
 	. = ..()
 	if(. && !target.can_be_possessed_by(candidate))
 		return 0
@@ -202,7 +202,7 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 	respawn_check = MINISYNTH
 	..()
 
-/datum/ghosttrap/mdrone/assess_candidate(var/mob/dead/observer/candidate, var/mob/target)
+/datum/ghosttrap/mdrone/assess_candidate(var/mob/abstract/observer/candidate, var/mob/target)
 	. = ..()
 	if(. && !target.can_be_possessed_by(candidate))
 		return 0

@@ -43,7 +43,7 @@ mob/check_airflow_movable(n)
 		return 0
 	return 1
 
-mob/dead/observer/check_airflow_movable()
+mob/abstract/observer/check_airflow_movable()
 	return 0
 
 mob/living/silicon/check_airflow_movable()
@@ -148,6 +148,6 @@ zone/proc/movables()
 
 		for(var/aa in T)
 			var/atom/movable/A = aa
-			if(!A.simulated || A.anchored || istype(A, /obj/effect) || istype(A, /mob/eye))
+			if(!A.simulated || A.anchored || istype(A, /obj/effect) || istype(A, /mob/abstract/eye))
 				continue
 			. += A

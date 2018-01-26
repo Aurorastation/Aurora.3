@@ -13,6 +13,9 @@
 	var/list/greatworms = list()
 	var/list/greatasses = list()
 
+	var/list/ghost_darkness_images = list()	//this is a list of images for things ghosts should still be able to see when they toggle darkness
+	var/list/ghost_sightless_images = list()	//this is a list of images for things ghosts should still be able to see even without ghost sight
+
 /datum/controller/subsystem/mobs/New()
 	NEW_SS_GLOBAL(SSmob)
 
