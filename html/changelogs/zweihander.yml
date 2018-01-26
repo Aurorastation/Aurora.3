@@ -1,0 +1,7 @@
+author: LordFowl
+
+delete-after: True
+
+changes: 
+ - rscadd: "Adds zweihanders."
+ - rscadd: "Adds artifact weapons, created with secret chemistry."

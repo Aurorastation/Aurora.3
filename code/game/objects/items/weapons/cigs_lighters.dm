@@ -25,6 +25,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return (F.lit)
 	else if(istype(A, /obj/item/device/assembly/igniter))
 		return 1
+	else if(istype(A, /obj/item/weapon/material/twohanded/zweihander/gotterdammerung))
+		return 1
 	return 0
 
 ///////////

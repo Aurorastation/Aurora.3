@@ -116,7 +116,7 @@
 	if(!dropsafety(W))
 		return
 
-	if(istype(W, /obj/item/weapon/melee/energy/blade))
+	if(istype(W, /obj/item/weapon/melee/energy/blade) || istype(W, /obj/item/weapon/material/twohanded/zweihander/gotterdammerung))
 		W:spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 		playsound(src.loc, "sparks", 50, 1)

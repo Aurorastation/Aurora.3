@@ -33,7 +33,7 @@
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(locked)
-			if (istype(W, /obj/item/weapon/melee/energy/blade) && emag_act(INFINITY, user, "You slice through the lock of \the [src]"))
+			if ((istype(W, /obj/item/weapon/melee/energy/blade) || istype(W, /obj/item/weapon/material/twohanded/zweihander/gotterdammerung)) && emag_act(INFINITY, user, "You slice through the lock of \the [src]"))
 				W:spark_system.queue()
 				playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 				playsound(src.loc, "sparks", 50, 1)

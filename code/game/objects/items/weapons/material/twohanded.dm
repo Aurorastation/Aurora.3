@@ -222,21 +222,6 @@
 	default_material = "glass"
 
 //Putting heads on spears
-/*bj/item/organ/external/head/attackby(var/obj/item/weapon/W, var/mob/living/user, params)
-	if(istype(W, /obj/item/weapon/material/twohanded/spear))
-		user << "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>"
-		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
-		var/matrix/M = matrix()
-		src.transform = M
-		user.drop_item()
-		src.loc = HS
-		var/image/IM = image(src.icon,src.icon_state)
-		IM.overlays = src.overlays.Copy()
-		HS.overlays += IM
-		qdel(W)
-		qdel(src)
-		return
-	return ..()*/
 
 /obj/item/weapon/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
 	if(istype(I, /obj/item/organ/external/head))
@@ -277,3 +262,46 @@
 	for(var/obj/item/organ/external/head/H in src)
 		H.loc = user.loc
 	qdel(src)
+
+//zweihander
+/obj/item/weapon/material/twohanded/zweihander
+	icon_state = "zweihander"
+	base_icon = "zweihander"
+	name = "zweihander"
+	desc = "A German upgrade to the einhander models of ancient times."
+	force = 20
+	w_class = 4.0
+	slot_flags = SLOT_BACK
+	force_wielded = 1
+	unwielded_force_divisor = 1
+	thrown_force_divisor = 0.75
+	edge = 1
+	sharp = 1
+	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	default_material = "steel"
+	var/wielded_ap = 40
+	var/unwielded_ap = 0
+
+/obj/item/weapon/material/twohanded/zweihander/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(!reach && istype(target))
+		cleave(user, target)
+	..()
+
+/obj/item/weapon/material/twohanded/zweihander/unwield()
+	..()
+	reach = 0
+	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	armor_penetration = unwielded_ap
+
+/obj/item/weapon/material/twohanded/zweihander/wield()
+	..()
+	reach = 1
+	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
+	armor_penetration = wielded_ap
+
+//predefined materials for zweihanders
+/obj/item/weapon/material/twohanded/zweihander/steel/New(var/newloc)
+	..(newloc,"steel")
+
+/obj/item/weapon/material/twohanded/zweihander/diamond/New(var/newloc)
+	..(newloc,"diamond")

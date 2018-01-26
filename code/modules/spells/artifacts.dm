@@ -136,7 +136,7 @@
 	light_color = "#6633CC"
 	light_power = 3
 	light_range = 4
-	
+
 	var/lich = null
 
 /obj/item/phylactery/Initialize()
@@ -150,14 +150,14 @@
 	world_phylactery -= src
 	lich = null
 	return ..()
-	
+
 /obj/item/phylactery/examine(mob/user)
 	..(user)
 	if(!lich)
 		user << "The heart is inert."
 	else
 		user << "The heart is pulsing slowly."
-	
+
 /obj/item/phylactery/attackby(var/obj/item/I, var/mob/user)
 	..()
 	if(istype(I, /obj/item/weapon/nullrod))
@@ -165,3 +165,556 @@
 		gibs(src.loc)
 		qdel(src)
 		return
+
+//philosopher's stone artifacts
+/obj/item/enchantment
+	name = "enchantment rune"
+	desc = "A blank rune."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "scroll"
+	var/product
+	var/list/factor_paths
+
+/obj/item/enchantment/attackby(var/obj/item/I, var/mob/user)
+	..()
+
+	if(!product || !factor_paths.len)
+		return
+
+	if(is_type_in_list(I, factor_paths))
+		user << "<span class='notice'>You stroke [I] with [src] carefully and with reverance...</span>"
+
+		if(locate(product in world))
+			user << "<span class='warning'>...and nothing happens. The heavens are silent.</span>"
+			return
+
+		new product(get_turf(user))
+		user.visible_message(\
+			"<span class='danger'>With thunderous acclaim [user] is delivered a sacred tool from the sacrifice of [I]!</span>",\
+			"<span class='danger'>You sacrifice [I] and are delivered a sacred tool!</span>",\
+			"<span class='danger'>You hear a peal of thunder!</span>"\
+		)
+		playsound(user, 'sound/magic/lightningbolt.ogg', 40, 1)
+		qdel(I)
+		qdel(src)
+		return
+
+/obj/item/enchantment/azoth
+	name = "blessed enchantment rune"
+	desc = "A scroll marked with an ancient rune for blessed protection. On the reverse side is a glyph representing a shield."
+	icon_state = "azoth"
+	product = /obj/item/weapon/shield/aegis
+	factor_paths = list(/obj/item/weapon/shield)
+
+/obj/item/weapon/shield/aegis
+	name = "Aegis"
+	desc = "Said to have been carried in ancient times by Perseus, the Aegis has not lost is reflective sheen over the ages. Raise it high to unleash a regenerative war cry."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "aegis"
+	force = 10.0
+	throwforce = 15.0
+	w_class = 4.0
+	slot_flags = SLOT_BACK
+	attack_verb = list("shoved", "bashed")
+	var/damage_soak = 0
+
+/obj/item/weapon/shield/aegis/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(user.incapacitated())
+		return 0
+
+	//block as long as they are not directly behind us
+	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+	if(check_shield_arc(user, bad_arc, damage_source, attacker))
+
+		if(istype(damage_source, /obj/item/projectile))
+			var/obj/item/projectile/P = damage_source
+			damage_soak += damage
+
+			if(P.starting)
+				visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+
+				// Find a turf near or on the original location to bounce to
+				var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+				var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+				var/turf/curloc = get_turf(user)
+
+				// redirect the projectile
+				P.redirect(new_x, new_y, curloc, user)
+
+				return PROJECTILE_CONTINUE // complete projectile permutation
+			else
+				user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+				return 1
+
+		else if(prob(base_block_chance))
+			damage_soak += damage
+			user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+			return 1
+
+/obj/item/weapon/shield/aegis/attack_self(mob/living/user as mob)
+	if(damage_soak)
+		user.visible_message(\
+			"<span class='danger'>[user] raises [src] high with a mighty yell!</span>",\
+			"<span class='danger'>You raise [src] high and feel your wounds regenerate!</span>"\
+		)
+		user.adjustBruteLoss(damage_soak/-2)
+		user.adjustFireLoss(damage_soak/-2)
+		damage_soak = 0
+	else
+		user << "<span class='warning'>[src] is dry of its regenerative energies.</span>"
+	add_fingerprint(user)
+	return
+
+/obj/item/enchantment/elixir
+	name = "divine enchantment rune"
+	desc = "A scroll marked with an ancient rune for divine wealth. On the reverse side is a glyph representing a chalice."
+	icon_state = "elixir"
+	product = /obj/item/weapon/reagent_containers/glass/cornucopia
+	factor_paths = list(/obj/item/weapon/reagent_containers, /obj/item/weapon/reagent_containers/food/drinks)
+
+/obj/item/weapon/reagent_containers/glass/cornucopia
+	name = "Horn of Plenty"
+	desc = "In some cultures it is known as the Cornucopia. Fill it with any reagent and it will never run dry. Whisper to it its power word to empty it."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "cornucopia"
+
+/obj/item/weapon/reagent_containers/glass/cornucopia/attack_self()
+	user << "<span class='notice'>You whisper to [src] its power word, and it drains itself dry.</span>"
+	reagents.remove_reagent(reagents, reagents.total_volume)
+
+/obj/item/weapon/reagent_containers/glass/cornucopia/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target) // This goes into afterattack
+	if(!istype(target))
+		return 0
+
+	if(!target.reagents || !target.reagents.total_volume)
+		user << "<span class='notice'>[target] is empty.</span>"
+		return 1
+
+	if(reagents && !reagents.get_free_space())
+		user << "<span class='notice'>[src] is full.</span>"
+		return 1
+
+	var/trans = target.reagents.add_reagent(reagents, amount_per_transfer_from_this)
+	user << "<span class='notice'>You fill [src] with [trans] units of the contents of [target].</span>"
+	return 1
+
+/obj/item/weapon/reagent_containers/glass/cornucopia/standard_splash_mob(var/mob/user, var/mob/target) // This goes into afterattack
+	if(!istype(target))
+		return
+
+	if(!reagents || !reagents.total_volume)
+		user << "<span class='notice'>[src] is empty.</span>"
+		return 1
+
+	if(target.reagents && !target.reagents.get_free_space())
+		user << "<span class='notice'>[target] is full.</span>"
+		return 1
+
+
+
+	var/contained = reagentlist()
+	admin_attack_log(user, target, "splashed [key_name(target)]", "was splashed by [key_name(user)]", "splashed with [contained]")
+	user.visible_message("<span class='danger'>[target] has been splashed with something by [user]!</span>", "<span class = 'notice'>You splash the solution onto [target].</span>")
+	target.reagents.add_reagent(reagents, reagents.total_volume)
+
+	if (istype(target, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = target
+		R.spark_system.queue()
+
+	return 1
+
+/obj/item/weapon/reagent_containers/glass/cornucopia/standard_feed_mob(var/mob/user, var/mob/target) // This goes into attack
+	if(!istype(target))
+		return 0
+
+	if(!reagents || !reagents.total_volume)
+		user << "<span class='notice'>\The [src] is empty.</span>"
+		return 1
+
+	//var/types = target.find_type()
+	var/mob/living/carbon/human/H
+	if(ishuman(target))
+		H = target
+
+	if(target == user)
+		if(ishuman(target))
+			H = user
+			if(!H.check_has_mouth())
+				user << "Where do you intend to put \the [src]? You don't have a mouth!"
+				return 1
+			var/obj/item/blocked = H.check_mouth_coverage()
+			if(blocked)
+				user << "<span class='warning'>\The [blocked] is in the way!</span>"
+				return
+
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
+		self_feed_message(user)
+		target.reagents.add_reagent(reagents, amount_per_transfer_from_this)
+		feed_sound(user)
+		return 1
+	else
+		if(ishuman(target))
+			H = target
+			if(!H.check_has_mouth())
+				user << "Where do you intend to put \the [src]? \The [H] doesn't have a mouth!"
+				return
+			var/obj/item/blocked = H.check_mouth_coverage()
+			if(blocked)
+				user << "<span class='warning'>\The [blocked] is in the way!</span>"
+				return
+
+		other_feed_message_start(user, target)
+
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		if(!do_mob(user, target))
+			return
+
+		other_feed_message_finish(user, target)
+
+		var/contained = reagentlist()
+		admin_attack_log(user, target, "forcefed [key_name(target)]", "was forcefed by [key_name(user)]", "forcefed with [contained]")
+		target.reagents.add_reagent(reagents, amount_per_transfer_from_this)
+		feed_sound(user)
+		return 1
+
+/obj/item/weapon/reagent_containers/glass/cornucopia/standard_pour_into(var/mob/user, var/atom/target) // This goes into afterattack and yes, it's atom-level
+	if(!target.reagents)
+		return 0
+
+	// Ensure we don't splash beakers and similar containers.
+	if(!target.is_open_container() && istype(target, /obj/item/weapon/reagent_containers))
+		user << "<span class='notice'>\The [target] is closed.</span>"
+		return 1
+	// Otherwise don't care about splashing.
+	else if(!target.is_open_container())
+		return 0
+
+	if(!reagents || !reagents.total_volume)
+		user << "<span class='notice'>[src] is empty.</span>"
+		return 1
+
+	if(!target.reagents.get_free_space())
+		user << "<span class='notice'>[target] is full.</span>"
+		return 1
+
+	var/trans = target.reagents.add_reagent(reagents, amount_per_transfer_from_this)
+	user << "<span class='notice'>You transfer [trans] units of the solution to [target].</span>"
+	return 1
+
+
+/obj/item/enchantment/fire
+	name = "infernal enchantment rune"
+	desc = "A scroll marked with an ancient rune for infernal wrath. On the reverse side is a glyph representing a sword."
+	icon_state = "fire"
+	product = /obj/item/weapon/material/twohanded/zweihander/gotterdammerung
+	factor_paths = list(/obj/item/weapon/melee, /obj/item/weapon/material/sword, /obj/item/weapon/material/twohanded/baseballbat, /obj/item/weapon/material/twohanded/zweihander)
+
+/obj/item/weapon/material/twohanded/zweihander/gotterdammerung
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "flammenschwert"
+	base_icon = "flammenschwert"
+	name = "Gotterdammerung"
+	desc = "The mighty flamberge said to be wielded by the ancient jotunn Surtr during the end of days, Ragnarok. Its undulating blade burns bright with the flames of Muspell."
+	force = 30
+	w_class = 4.0
+	slot_flags = SLOT_BACK
+	force_wielded = 1
+	unwielded_force_divisor = 1
+	thrown_force_divisor = 0.75
+	edge = 1
+	sharp = 1
+	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	default_material = "steel"
+	wielded_ap = 60
+	unwielded_ap = 20
+	light_color = "#ED9200"
+	light_power = 1
+	light_range = 4
+
+/obj/item/weapon/material/twohanded/zweihander/gotterdammerung/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/weapon/material/twohanded/zweihander/gotterdammerung/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/weapon/material/twohanded/zweihander/gotterdammerung/process()
+	if(isliving(loc))
+		var/mob/living/M = loc
+		M.IgniteMob()
+	var/turf/location = get_turf(src)
+	if(location)
+		location.hotspot_expose(1400, 30)
+		return
+
+/obj/item/weapon/material/twohanded/zweihander/gotterdammerung/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
+	..()
+	if(isliving(A))
+		var/mob/living/L = A
+		L.apply_effect(rand(4,12),INCINERATE)
+		L.adjustFireLoss(force/2)
+
+/obj/item/enchantment/singularity
+	name = "chaos enchantment rune"
+	desc = "A scroll marked with an ancient rune for chaos. On the reverse side is a glyph representing a jacket."
+	icon_state = "/obj/item/clothing/suit/invisibility_cloak"
+	product = /obj/item/clothing/suit/invisibility_cloak
+	factor_paths = list(/obj/item/clothing/suit)
+
+/obj/item/clothing/suit/invisibility_cloak
+	name = "Cloak of Invisibility"
+	desc = "An artifact of some renown, this deceptively simple cloak possesses the remarkable ability to render its wearer totally invisible to the human eye."
+	icon_state = "invisibility_cloak"
+	item_state = "invisibility_cloak"
+	var/mob/living/carbon/human/potter
+	var/cloaking
+
+/obj/item/clothing/suit/invisibility_cloak/dropped()
+	..()
+	if(cloaking)
+		if(potter)
+
+			potter << "<span class='danger'>You are now visible.</span>"
+			potter.invisibility = 0
+
+			anim(get_turf(potter), potter,'icons/mob/mob.dmi',,"uncloak",,potter.dir)
+			anim(get_turf(potter), potter, 'icons/effects/effects.dmi', "electricity",null,20,null)
+
+			for(var/mob/O in oviewers(potter))
+				O.show_message("[potter.name] appears from thin air!",1)
+			playsound(get_turf(potter), 'sound/effects/stealthoff.ogg', 75, 1)
+
+		cloaking = 0
+
+/obj/item/clothing/suit/invisibility_cloak/equipped(var/mob/user, var/slot)
+
+	if(slot != slot_wear_suit && cloaking)
+		if(potter)
+
+			potter << "<span class='danger'>You are now visible.</span>"
+			potter.invisibility = 0
+
+			anim(get_turf(potter), potter,'icons/mob/mob.dmi',,"uncloak",,potter.dir)
+			anim(get_turf(potter), potter, 'icons/effects/effects.dmi', "electricity",null,20,null)
+
+			for(var/mob/O in oviewers(potter))
+				O.show_message("[potter.name] appears from thin air!",1)
+			playsound(get_turf(potter), 'sound/effects/stealthoff.ogg', 75, 1)
+
+		cloaking = 0
+
+	if(ishuman(user) && (slot == slot_wear_suit))
+		potter = user
+		cloaking = 1
+
+		potter << "<font color='blue'><b>You are now invisible to normal detection.</b></font>"
+		potter.invisibility = INVISIBILITY_LEVEL_TWO
+
+		anim(get_turf(potter), potter, 'icons/effects/effects.dmi', "electricity",null,20,null)
+
+		potter.visible_message("[potter.name] vanishes into thin air!",1)
+
+	..(user, slot)
+
+/obj/item/enchantment/estus
+	name = "luminous enchantment rune"
+	desc = "A scroll marked with an ancient rune for luminous brilliance. On the reverse side is a glyph representing a spear."
+	icon_state = "estus"
+	product = /obj/item/weapon/sunlight_scroll
+	factor_paths = list(/obj/item/weapon/material/twohanded/spear)
+
+/obj/item/weapon/sunlight_scroll
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "sunlight_scroll"
+	name = "Scroll of Sunlight Spear"
+	desc = "Upon the parchment is the legend of the sunlight spear, a myth of dubious origin. With it, summon forth a tangible beam of grossly incandescent sunlight."
+	w_class = 2
+
+/obj/item/weapon/sunlight_scroll/attack_self(mob/user as mob)
+	user.visible_message(\
+		"<span class='danger'>[user] summons from the air a sunlight spear!</span>",\
+		"<span class='warning'>You summon the sunlight spear!</span>",\
+		"<span class='danger'>You hear a hum of electricity!</span>"\
+	)
+	playsound(user, 'sound/magic/lightning_chargeup.ogg', 40, 1)
+	qdel(src)
+	var/obj/item/weapon/sunlight_spear/S
+	if(user.l_hand && istype(user.l_hand,/obj/item/weapon/sunlight_spear))
+		S = user.l_hand
+	else if(user.r_hand && istype(user.r_hand,/obj/item/weapon/sunlight_spear))
+		S = user.r_hand
+	else
+		S = new(get_turf(src))
+		user.put_in_hands(S)
+	if(iscarbon(user))
+		var/mob/living/carbon/C = user
+		C.throw_mode_on()
+
+/obj/item/weapon/sunlight_spear
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "sunlight_spear"
+	name = "sunlight spear"
+	desc = "A javelin of tangible light, humming with energy and heat."
+	w_class = 2
+	force = 10
+	throwforce = 20
+	throw_speed = 10
+	throw_range = 30
+	damtype = "fire"
+	light_color = "#FDD023"
+	light_power = 1
+	light_range = 4
+
+/obj/item/weapon/sunlight_spear/Initialize()
+	. = ..()
+	QDEL_IN(src, 30 SECONDS) //meant to throw it, not stab with it
+
+/obj/item/weapon/sunlight_spear/Destroy()
+	playsound(user, 'sound/magic/lightningbolt.ogg', 20, 1)
+	return ..()
+
+/obj/item/weapon/sunlight_spear/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
+	..()
+	if(isliving(A))
+		var/mob/living/L = A
+		L.apply_effect(2,INCINERATE)
+		L.electrocute_act(10, tesla_shock = 1)
+		if(L.find_type() & TYPE_WEIRD)
+			L.apply_effect(2,INCINERATE)
+			L.adjustFireLoss(5)
+
+/obj/item/weapon/sunlight_spear/throw_at()
+	..()
+	var/obj/item/weapon/sunlight_scroll/S
+	if(istype(user.l_hand,/obj/item/weapon/sunlight_scroll))
+		S = user.l_hand
+	else if(istype(user.r_hand,/obj/item/weapon/sunlight_scroll))
+		S = user.r_hand
+	else
+		S = new(get_turf(src))
+		user.put_in_hands(S)
+
+/obj/item/weapon/sunlight_spear/throw_impact(atom/hit_atom)
+	..()
+	explosion(hit_atom, -1, 0, 2)
+	playsound(user, 'sound/magic/lightningbolt.ogg', 60, 1)
+
+	for(var/obj/structure/closet/L in hear(1, get_turf(hit_atom)))
+		if(locate(/mob/living/carbon/, L))
+			for(var/mob/living/carbon/M in L)
+				bang(get_turf(src), M)
+
+	for(var/mob/living/carbon/M in hear(1, get_turf(hit_atom)))
+		bang(get_turf(src), M)
+
+	for(var/obj/effect/blob/B in hear(2,get_turf(hit_atom)))       		//Blob damage here
+		var/damage = round(30/(get_dist(B,get_turf(hit_atom))+1))
+		B.health -= damage
+		B.update_icon()
+
+	if(isliving(hit_atom))
+		var/mob/living/L = hit_atom
+		L.apply_effect(4,INCINERATE)
+		L.electrocute_act(20, tesla_shock = 1)
+		if(L.find_type() & TYPE_WEIRD)
+			L.apply_effect(4,INCINERATE)
+			L.adjustFireLoss(10)
+	qdel(src)
+
+/obj/item/weapon/sunlight_spear/proc/bang(var/turf/T , var/mob/living/carbon/M)					// Added a new proc called 'bang' that takes a location and a person to be banged.
+	if (locate(/obj/item/weapon/cloaking_device, M))			// Called during the loop that bangs people in lockers/containers and when banging
+		for(var/obj/item/weapon/cloaking_device/S in M)			// people in normal view.  Could theroetically be called during other explosions.
+			S.active = 0										// -- Polymorph
+			S.icon_state = "shield0"
+
+//Checking for protections
+	var/eye_safety = 0
+	var/ear_safety = 0
+	if(iscarbon(M))
+		eye_safety = M.eyecheck()
+		if(ishuman(M))
+			if(istype(M:l_ear, /obj/item/clothing/ears/earmuffs) || istype(M:r_ear, /obj/item/clothing/ears/earmuffs))
+				ear_safety += 2
+			if(HULK in M.mutations)
+				ear_safety += 1
+			if(istype(M:head, /obj/item/clothing/head/helmet))
+				ear_safety += 1
+
+//Flashing everyone
+	if(eye_safety < FLASH_PROTECTION_MODERATE)
+		flick("e_flash", M.flash)
+		M.Stun(1)
+		M.Weaken(5)
+			//Vaurca damage 15/01/16
+		var/mob/living/carbon/human/H = M
+		if(isvaurca(H))
+			var/obj/item/organ/eyes/E = H.get_eyes()
+			if(!E)
+				return
+			usr << span("alert", "Your eyes burn with the intense light of the flash!.")
+			E.damage += rand(10, 11)
+			if(E.damage > 12)
+				M.eye_blurry += rand(3,6)
+			if (E.damage >= E.min_broken_damage)
+				M.sdisabilities |= BLIND
+			else if (E.damage >= E.min_bruised_damage)
+				M.eye_blind = 5
+				M.eye_blurry = 5
+
+//Now applying sound
+	if((get_dist(M, T) <= 2 || src.loc == M.loc || src.loc == M))
+		if(ear_safety > 0)
+			M.Stun(1)
+		else
+			M.Stun(5)
+			M.Weaken(1)
+			if ((prob(14) || (M == src.loc && prob(70))))
+				M.ear_damage += rand(1, 10)
+			else
+				M.ear_damage += rand(0, 5)
+				M.ear_deaf = max(M.ear_deaf,15)
+
+	else if(get_dist(M, T) <= 5)
+		if(!ear_safety)
+			M << sound('sound/weapons/flash_ring.ogg',0,1,0,100)
+			M.Stun(4)
+			M.ear_damage += rand(0, 3)
+			M.ear_deaf = max(M.ear_deaf,10)
+
+	else if(!ear_safety)
+		M.Stun(2)
+		M.ear_damage += rand(0, 1)
+		M.ear_deaf = max(M.ear_deaf,5)
+
+//This really should be in mob not every check
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
+		if (E && E.damage >= E.min_bruised_damage)
+			M << "<span class='danger'>Your eyes start to burn badly!</span>"
+			if (E.damage >= E.min_broken_damage)
+				M << "<span class='danger'>You can't see anything!</span>"
+	if (M.ear_damage >= 15)
+		M << "<span class='danger'>Your ears start to ring badly!</span>"
+		if (prob(M.ear_damage - 10 + 5))
+			M << "<span class='danger'>You can't hear anything!</span>"
+			M.sdisabilities |= DEAF
+	else
+		if (M.ear_damage >= 5)
+			M << "<span class='danger'>Your ears start to ring!</span>"
+	M.update_icons()
+
+
+/obj/random/chem_artifact
+	name = "random artifact"
+	desc = "This is a random artifact of power."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "flammenschwert"
+	problist = list(
+		/obj/item/clothing/suit/invisibility_cloak = 5,
+		/obj/item/weapon/material/twohanded/zweihander/gotterdammerung = 5,
+		/obj/item/weapon/sunlight_scroll = 2,
+		/obj/item/weapon/shield/aegis = 2,
+		/obj/item/weapon/reagent_containers/glass/cornucopia = 1
+	)

@@ -133,7 +133,7 @@
 			thermitemelt(user)
 			return
 
-		else if( istype(W, /obj/item/weapon/melee/energy/blade) )
+		else if( istype(W, /obj/item/weapon/melee/energy/blade) || istype(W, /obj/item/weapon/material/twohanded/zweihander/gotterdammerung))
 			var/obj/item/weapon/melee/energy/blade/EB = W
 
 			spark(EB, 5)
