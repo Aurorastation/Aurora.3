@@ -21,6 +21,9 @@
 	// Generate the area list.
 	resort_all_areas()
 
+	// This is dependant on markers.
+	populate_antag_spawns()
+
 	..()
 
 /proc/resort_all_areas()
