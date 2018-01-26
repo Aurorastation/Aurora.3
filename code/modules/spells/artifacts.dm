@@ -279,7 +279,7 @@
 	icon_state = "cornucopia"
 
 /obj/item/weapon/reagent_containers/glass/cornucopia/attack_self()
-	usr << "<span class='notice'>You whisper to [src] its power word, and it drains itself dry.</span>"
+	user << "<span class='notice'>You whisper to [src] its power word, and it drains itself dry.</span>"
 	reagents.remove_reagent(reagents, reagents.total_volume)
 
 /obj/item/weapon/reagent_containers/glass/cornucopia/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target) // This goes into afterattack
@@ -313,10 +313,7 @@
 
 
 	var/contained = reagentlist()
-	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been splashed with [name] by [user.name] ([user.ckey]). Reagents: [contained]</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [name] to splash [target.name] ([target.key]). Reagents: [contained]</font>")
-	msg_admin_attack("[user.name] ([user.ckey]) splashed [target.name] ([target.key]) with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
-
+	admin_attack_log(user, target, "splashed [key_name(target)]", "was splashed by [key_name(user)]", "splashed with [contained]")
 	user.visible_message("<span class='danger'>[target] has been splashed with something by [user]!</span>", "<span class = 'notice'>You splash the solution onto [target].</span>")
 	target.reagents.add_reagent(reagents, reagents.total_volume)
 
@@ -336,11 +333,11 @@
 
 	//var/types = target.find_type()
 	var/mob/living/carbon/human/H
-	if(istype(target, /mob/living/carbon/human))
+	if(ishuman(target))
 		H = target
 
 	if(target == user)
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(target))
 			H = user
 			if(!H.check_has_mouth())
 				user << "Where do you intend to put \the [src]? You don't have a mouth!"
@@ -356,7 +353,7 @@
 		feed_sound(user)
 		return 1
 	else
-		if(istype(target, /mob/living/carbon/human))
+		if(ishuman(target))
 			H = target
 			if(!H.check_has_mouth())
 				user << "Where do you intend to put \the [src]? \The [H] doesn't have a mouth!"
@@ -375,10 +372,7 @@
 		other_feed_message_finish(user, target)
 
 		var/contained = reagentlist()
-		target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [user.name] ([user.ckey]). Reagents: [contained]</font>")
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [name] by [target.name] ([target.ckey]). Reagents: [contained]</font>")
-		msg_admin_attack("[key_name(user)] fed [key_name(target)] with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
-
+		admin_attack_log(user, target, "forcefed [key_name(target)]", "was forcefed by [key_name(user)]", "forcefed with [contained]")
 		target.reagents.add_reagent(reagents, amount_per_transfer_from_this)
 		feed_sound(user)
 		return 1
@@ -417,9 +411,9 @@
 
 /obj/item/weapon/material/twohanded/zweihander/gotterdammerung
 	icon = 'icons/obj/wizard.dmi'
-	icon_state = "Gotterdammerung"
+	icon_state = "flammenschwert"
 	base_icon = "flammenschwert"
-	name = "flammenschwert"
+	name = "Gotterdammerung"
 	desc = "The mighty flamberge said to be wielded by the ancient jotunn Surtr during the end of days, Ragnarok. Its undulating blade burns bright with the flames of Muspell."
 	force = 30
 	w_class = 4.0
@@ -436,6 +430,14 @@
 	light_color = "#ED9200"
 	light_power = 1
 	light_range = 4
+
+/obj/item/weapon/material/twohanded/zweihander/gotterdammerung/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/weapon/material/twohanded/zweihander/gotterdammerung/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 /obj/item/weapon/material/twohanded/zweihander/gotterdammerung/process()
 	if(isliving(loc))
@@ -455,55 +457,65 @@
 
 /obj/item/enchantment/singularity
 	name = "chaos enchantment rune"
-	desc = "A scroll marked with an ancient rune for chaos. On the reverse side is a glyph representing a playing card."
-	icon_state = "singularity"
-	product = /obj/item/weapon/singularity_deck
-	factor_paths = list(/obj/item/weapon/deck, /obj/item/weapon/deck)
+	desc = "A scroll marked with an ancient rune for chaos. On the reverse side is a glyph representing a jacket."
+	icon_state = "/obj/item/clothing/suit/invisibility_cloak"
+	product = /obj/item/clothing/suit/invisibility_cloak
+	factor_paths = list(/obj/item/clothing/suit)
 
-/obj/item/weapon/singularity_deck
-	icon = 'icons/obj/wizard.dmi'
-	icon_state = "chaos_card"
-	name = "Deck of Many Things"
-	desc = "A deck of many things, much good and much bad. Pick a card, any card - fate is not a trifle to be toyed with."
-	var/list/faces = list("The Fool","The Magician","The High Priestess","The Empress","The Emperor","The Hierophant","The Lovers","The Chariot","Strength","The Hermit","Wheel of Fortune",\
-		"Justice","The Hanged Man","Death","Temperance","The Devil","The Tower","The Star","The Moon","The Sun","Judgment","The World", "Wands", "Pentacles", "Cups", "Swords")
+/obj/item/clothing/suit/invisibility_cloak
+	name = "Cloak of Invisibility"
+	desc = "An artifact of some renown, this deceptively simple cloak possesses the remarkable ability to render its wearer totally invisible to the human eye."
+	icon_state = "invisibility_cloak"
+	item_state = "invisibility_cloak"
+	var/mob/living/carbon/human/potter
+	var/cloaking
 
-/*/obj/item/weapon/singularity_deck/attack_self(mob/user as mob)
-	if(faces.len)
-		user.visible_message("<span class='notice'>[user] draws a card from \the [src]. </span>", \
-							 "<span class='notice'>You draw a card from \the [src]. . . </span>")
-		var/current_face = pick(faces)
-		faces.Remove(current_face)
-		switch(current_face)
-			if("The Fool")
-			if("The Magician"
-			if("The High Priestess")
-			if("The Empress")
-			if("The Emperor")
-			if("The Hierophant")
-			if("The Lovers")
-			if("The Chariot")
-			if("Strength")
-			if("The Hermit")
-			if("Wheel of Fortune")
-			if("Justice")
-			if("The Hanged Man")
-			if("Death")
-			if("Temperance")
-			if("The Devil")
-			if("The Tower")
-			if("The Star")
-			if("The Moon")
-			if("The Sun")
-			if("Judgment")
-			if("The World")
-			if("Wands")
-			if("Pentacles")
-			if("Cups")
-			if("Swords")
-	else
-		user << "<span class='notice'>The deck is empty!</span>"
-		qdel(src)*/
+/obj/item/clothing/suit/invisibility_cloak/dropped()
+	..()
+	if(cloaking)
+		if(potter)
+
+			potter << "<span class='danger'>You are now visible.</span>"
+			potter.invisibility = 0
+
+			anim(get_turf(potter), potter,'icons/mob/mob.dmi',,"uncloak",,potter.dir)
+			anim(get_turf(potter), potter, 'icons/effects/effects.dmi', "electricity",null,20,null)
+
+			for(var/mob/O in oviewers(potter))
+				O.show_message("[potter.name] appears from thin air!",1)
+			playsound(get_turf(potter), 'sound/effects/stealthoff.ogg', 75, 1)
+
+		cloaking = 0
+
+/obj/item/clothing/suit/invisibility_cloak/equipped(var/mob/user, var/slot)
+
+	if(slot != slot_wear_suit && cloaking)
+		if(potter)
+
+			potter << "<span class='danger'>You are now visible.</span>"
+			potter.invisibility = 0
+
+			anim(get_turf(potter), potter,'icons/mob/mob.dmi',,"uncloak",,potter.dir)
+			anim(get_turf(potter), potter, 'icons/effects/effects.dmi', "electricity",null,20,null)
+
+			for(var/mob/O in oviewers(potter))
+				O.show_message("[potter.name] appears from thin air!",1)
+			playsound(get_turf(potter), 'sound/effects/stealthoff.ogg', 75, 1)
+
+		cloaking = 0
+
+	if(ishuman(user) && (slot == slot_wear_suit))
+		potter = user
+		cloaking = 1
+
+		potter << "<font color='blue'><b>You are now invisible to normal detection.</b></font>"
+		potter.invisibility = INVISIBILITY_LEVEL_TWO
+
+		anim(get_turf(potter), potter, 'icons/effects/effects.dmi', "electricity",null,20,null)
+
+		potter.visible_message("[potter.name] vanishes into thin air!",1)
+
+	..(user, slot)
 
 /obj/item/enchantment/estus
 	name = "luminous enchantment rune"
@@ -555,12 +567,12 @@
 	light_range = 4
 
 /obj/item/weapon/sunlight_spear/Initialize()
-	..()
+	. = ..()
 	QDEL_IN(src, 30 SECONDS) //meant to throw it, not stab with it
 
 /obj/item/weapon/sunlight_spear/Destroy()
 	playsound(user, 'sound/magic/lightningbolt.ogg', 20, 1)
-	..()
+	return ..()
 
 /obj/item/weapon/sunlight_spear/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
 	..()
@@ -575,9 +587,9 @@
 /obj/item/weapon/sunlight_spear/throw_at()
 	..()
 	var/obj/item/weapon/sunlight_scroll/S
-	if(user.l_hand && istype(user.l_hand,/obj/item/weapon/sunlight_scroll))
+	if(istype(user.l_hand,/obj/item/weapon/sunlight_scroll))
 		S = user.l_hand
-	else if(user.r_hand && istype(user.r_hand,/obj/item/weapon/sunlight_scroll))
+	else if(istype(user.r_hand,/obj/item/weapon/sunlight_scroll))
 		S = user.r_hand
 	else
 		S = new(get_turf(src))
@@ -649,11 +661,6 @@
 			else if (E.damage >= E.min_bruised_damage)
 				M.eye_blind = 5
 				M.eye_blurry = 5
-				M.disabilities |= NEARSIGHTED
-				spawn(100)
-					M.disabilities &= ~NEARSIGHTED
-
-
 
 //Now applying sound
 	if((get_dist(M, T) <= 2 || src.loc == M.loc || src.loc == M))
@@ -697,3 +704,17 @@
 		if (M.ear_damage >= 5)
 			M << "<span class='danger'>Your ears start to ring!</span>"
 	M.update_icons()
+
+
+/obj/random/chem_artifact
+	name = "random artifact"
+	desc = "This is a random artifact of power."
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "flammenschwert"
+	problist = list(
+		/obj/item/clothing/suit/invisibility_cloak = 5,
+		/obj/item/weapon/material/twohanded/zweihander/gotterdammerung = 5,
+		/obj/item/weapon/sunlight_scroll = 2,
+		/obj/item/weapon/shield/aegis = 2,
+		/obj/item/weapon/reagent_containers/glass/cornucopia = 1
+	)

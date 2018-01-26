@@ -88,7 +88,7 @@
 			user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 			return
 
-	else if(istype(W, /obj/item/weapon/melee/energy/blade))
+	else if(istype(W, /obj/item/weapon/melee/energy/blade) || istype(W, /obj/item/weapon/material/twohanded/zweihander/gotterdammerung))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
 		if(do_after(user,30))
 			if(!src) return
@@ -300,7 +300,7 @@
 			user << "<span class='notice'>You need to activate the weapon to do that!</span>"
 			return
 
-	else if(istype(W, /obj/item/weapon/melee/energy/blade))
+	else if(istype(W, /obj/item/weapon/melee/energy/blade) || istype(W, /obj/item/weapon/material/twohanded/zweihander/gotterdammerung))
 		user << "<span class='notice'>Now slicing apart the girder...</span>"
 		if(do_after(user,30))
 			user << "<span class='notice'>You slice apart the girder!</span>"

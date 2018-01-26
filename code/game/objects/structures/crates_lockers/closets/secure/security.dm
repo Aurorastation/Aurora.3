@@ -342,7 +342,7 @@
 		if(W)
 			W.forceMove(loc)
 	else if(!opened)
-		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
+		if(istype(W, /obj/item/weapon/melee/energy/blade) || istype(W, /obj/item/weapon/material/twohanded/zweihander/gotterdammerung))//Attempt to cut open locker if locked
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
 				spark(src, 5)
 				playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)

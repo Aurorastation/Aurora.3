@@ -14,6 +14,7 @@
 
 	artifact_find_type = pick(\
 	1;/obj/machinery/wish_granter,\
+	5;/obj/random/chem_artifact,\
 	5;/obj/machinery/power/supermatter,\
 	5;/obj/structure/constructshell,\
 	5;/obj/machinery/syndicate_beacon,\

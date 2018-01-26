@@ -332,7 +332,7 @@
 /obj/structure/closet/crate/secure/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(is_type_in_list(W, list(/obj/item/weapon/packageWrap, /obj/item/stack/cable_coil, /obj/item/device/radio/electropack, /obj/item/weapon/wirecutters)))
 		return ..()
-	if(istype(W, /obj/item/weapon/melee/energy/blade))
+	if(istype(W, /obj/item/weapon/melee/energy/blade) || istype(W, /obj/item/weapon/material/twohanded/zweihander/gotterdammerung))
 		emag_act(INFINITY, user)
 	if(!opened)
 		togglelock(user)
