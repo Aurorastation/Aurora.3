@@ -1,0 +1,4 @@
+author: Printer16
+delete-after: True
+changes: 
+  - rscadd: "Ported the ambition system for antags."
