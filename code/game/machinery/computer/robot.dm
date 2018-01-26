@@ -64,7 +64,9 @@
 			target.ResetSecurityCodes()
 
 		if(target.emagged)
+			user << "Access Denied. Safeties protocols are disabled."
 			return
+
 		else
 			message_admins("[key_name_admin(usr)] detonated [target.name]!")
 			log_game("[key_name(usr)] detonated [target.name]!",ckey=key_name(usr))
