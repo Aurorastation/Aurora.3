@@ -1,0 +1,4 @@
+author: Alberyk
+delete-after: True
+changes: 
+  - rscadd: "Emagged cyborgs should now be immune to detonation by robotics console."
