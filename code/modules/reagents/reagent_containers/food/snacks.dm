@@ -4655,7 +4655,6 @@
 	. = ..()
 	reagents.add_reagent("sodiumchloride", 1)
 
-
 //chips
 /obj/item/weapon/reagent_containers/food/snacks/chip
 	name = "chip"
@@ -4729,10 +4728,6 @@
 	bitesize = 1
 	nutriment_amt = 10
 
-/obj/item/weapon/reagent_containers/food/snacks/chipplate/Initialize()
-	. = ..()
-	reagents.add_reagent("sodiumchloride", 1)
-
 /obj/item/weapon/reagent_containers/food/snacks/chipplate/attack_self(mob/user as mob)
 	var/obj/item/weapon/reagent_containers/food/snacks/returningitem = new vendingobject(loc)
 	returningitem.reagents.clear_reagents()
@@ -4756,12 +4751,7 @@
 	vendingobject = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho
 	nutriment_desc = list("tortilla chips" = 1)
 	bitesize = 1
-	nutriment_amt = 20
-
-/obj/item/weapon/reagent_containers/food/snacks/chipplate/nachos/Initialize()
-	. = ..()
-	reagents.add_reagent("sodiumchloride", 1)
-	reagents.add_reagent("cheese", 10)
+	nutriment_amt = 10
 
 //dips
 /obj/item/weapon/reagent_containers/food/snacks/dip
@@ -4772,14 +4762,6 @@
 	icon_state = "dip_cheese"
 	trash = /obj/item/trash/dipbowl
 	bitesize = 1
-	nutriment_desc = list("seasoning" = 1)
-	center_of_mass = list("x"=16, "y"=16)
-	nutriment_amt = 3
-
-/obj/item/weapon/reagent_containers/food/snacks/dip/Initialize()
-	. = ..()
-	reagents.add_reagent("cheese", 12)
-	reagents.add_reagent("tomatojuice", 5)
 
 /obj/item/weapon/reagent_containers/food/snacks/dip/attackby(obj/item/weapon/reagent_containers/food/snacks/item as obj, mob/user as mob)
 	. = ..()
@@ -4824,25 +4806,12 @@
 	chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/salsa
 	icon_state = "dip_salsa"
 
-/obj/item/weapon/reagent_containers/food/snacks/dip/salsa/Initialize()
-	. = ..()
-	reagents.add_reagent("tomatojuice", 10)
-	reagents.add_reagent("capsaicin", 5)
-	reagents.add_reagent("water", 2)
-
 /obj/item/weapon/reagent_containers/food/snacks/dip/guac
 	name = "guac dip"
 	desc = "A recreation of the ancient Sol 'Guacamole' dip using tofu, limes, and spices. This recreation obviously leaves out mole meat."
 	nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/guac
 	chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/guac
 	icon_state = "dip_guac"
-	nutriment_desc = list("seasoning" = 1)
-
-/obj/item/weapon/reagent_containers/food/snacks/dip/guac/Initialize()
-	. = ..()
-	reagents.add_reagent("tofu", 10)
-	reagents.add_reagent("capsaicin", 5)
-	reagents.add_reagent("limejuice", 2)
 
 //burritos
 /obj/item/weapon/reagent_containers/food/snacks/burrito
@@ -4854,22 +4823,14 @@
 	nutriment_desc = list("tortilla" = 1)
 	nutriment_amt = 6
 
-/obj/item/weapon/reagent_containers/food/snacks/burrito/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 4)
-
 /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
 	name = "vegan burrito"
 	desc = "Tofu, carrots, and cabbage wrapped in a flour tortilla. Those seen with this food object are Valid."
 	icon_state = "burrito_vegan"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1, "lettuce" = 1, "carrot" = 1)
-	nutriment_amt = 12
-
-/obj/item/weapon/reagent_containers/food/snacks/burrito_vegan/Initialize()
-	. = ..()
-	reagents.add_reagent("tofu", 4)
+	nutriment_desc = list("tortilla" = 1)
+	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_spicy
 	name = "spicy meat burrito"
@@ -4880,11 +4841,6 @@
 	nutriment_desc = list("tortilla" = 1)
 	nutriment_amt = 6
 
-/obj/item/weapon/reagent_containers/food/snacks/burrito_spicy/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 4)
-	reagents.add_reagent("capsaicin", 4)
-
 /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese
 	name = "meat cheese burrito"
 	desc = "Meat and melted cheese wrapped in a flour tortilla. Do not feed to Skrell."
@@ -4894,11 +4850,6 @@
 	nutriment_desc = list("tortilla" = 1)
 	nutriment_amt = 6
 
-/obj/item/weapon/reagent_containers/food/snacks/burrito_cheese/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 4)
-	reagents.add_reagent("cheese", 4)
-
 /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese_spicy
 	name = "spicy cheese meat burrito"
 	desc = "Meat, melted cheese, and chilis wrapped in a flour tortilla. Medical is north of the washrooms."
@@ -4907,12 +4858,6 @@
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_desc = list("tortilla" = 1)
 	nutriment_amt = 6
-
-/obj/item/weapon/reagent_containers/food/snacks/burrito_cheese_spicy/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 4)
-	reagents.add_reagent("cheese", 4)
-	reagents.add_reagent("capsaicin", 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_hell
 	name = "el diablo"
@@ -4961,15 +4906,12 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/bacon/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 1)
+	reagents.add_reagent("protein", 0.33)//Double the protein
 
 /obj/item/weapon/reagent_containers/food/snacks/chilied_eggs
 	name = "chilied eggs"
 	desc = "Three deviled eggs floating in a bowl of meat chili. A popular lunchtime meal for Unathi in Ouerea."
 	icon_state = "chilied_eggs"
-	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("chilli peppers" = 3)
-	nutriment_amt = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/hatchling_suprise
 	name = "hatchling suprise"
