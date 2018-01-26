@@ -194,7 +194,7 @@
 
 	var/mob/M = targets[target]
 
-	if(istype(M, /mob/dead/observer) || M.stat == DEAD)
+	if(istype(M, /mob/abstract/observer) || M.stat == DEAD)
 		src << "Not even a [src.species.name] can speak to the dead."
 		return
 
@@ -428,7 +428,7 @@
 
 	var/mob/M = targets[target]
 
-	if(istype(M, /mob/dead/observer) || M.stat == DEAD)
+	if(istype(M, /mob/abstract/observer) || M.stat == DEAD)
 		src << "<span class='danger'>[M]'s hivenet implant is inactive!</span>"
 		return
 

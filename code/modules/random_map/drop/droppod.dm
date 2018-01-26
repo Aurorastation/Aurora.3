@@ -112,7 +112,7 @@
 	// Splatter anything under us that survived the explosion.
 	if(value != SD_EMPTY_TILE && T.contents.len)
 		for(var/atom/movable/AM in T)
-			if(AM.simulated && !istype(AM, /mob/dead))
+			if(AM.simulated && !istype(AM, /mob/abstract))
 				qdel(AM)
 
 	// Also spawn doors and loot.
@@ -173,7 +173,7 @@
 	else
 		var/list/candidates = list()
 		for(var/client/player in clients)
-			if(player.mob && istype(player.mob, /mob/dead/observer))
+			if(player.mob && istype(player.mob, /mob/abstract/observer))
 				candidates |= player
 
 		if(!candidates.len)

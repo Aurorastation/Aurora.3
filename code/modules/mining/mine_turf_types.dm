@@ -97,6 +97,11 @@
 	base_icon_state = "ash"
 	footstep_sound = "sandstep"
 
+/turf/simulated/floor/asteroid/ash/Initialize()
+	. = ..()
+	if (prob(20))
+		add_overlay("asteroid[rand(0, 9)]", TRUE)
+
 /turf/simulated/floor/asteroid/ash/rocky
 	name = "rocky ash"
 	icon_state = "rockyash"
