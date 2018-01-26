@@ -64,7 +64,7 @@
 			target.ResetSecurityCodes()
 
 		if(target.emagged)
-			user << "Access Denied. Safeties protocols are disabled."
+			user << "Access Denied. Safety protocols are disabled."
 			return
 
 		else
