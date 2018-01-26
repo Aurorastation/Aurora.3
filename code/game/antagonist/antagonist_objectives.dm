@@ -37,7 +37,7 @@
 
 	if(!mind)
 		return
-	if(!is_special_character(mind))
+	if(!is_special_character(src))
 		src << "<span class='warning'>While you may perhaps have goals, this verb's meant to only be visible \
 		to antagonists.  Please make a bug report!</span>"
 		return
