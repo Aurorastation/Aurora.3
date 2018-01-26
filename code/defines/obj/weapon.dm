@@ -92,7 +92,7 @@
 	if(!(istype(target) && istype(user)))
 		return ..()
 
-	var/targetIsHuman = istype(target,/mob/living/carbon/human) // Thanks Lohikar for this check that I butchered
+	var/targetIsHuman = ishuman(target)
 	var/mob/living/carbon/human/targetashuman = target
 	var/wasselfattack = 0
 	var/verbtouse = pick(attack_verb)
@@ -128,7 +128,7 @@
 				verbtouse = pick("tapped")
 			else
 				verbtouse = pick("tapped","poked","prodded","touched")
-			damageamount = damageamount * 0.025
+			damageamount *= 0.025
 		if(I_DISARM)
 			verbtouse = pick("smacked","slapped")
 			soundname = "punch"
@@ -151,7 +151,7 @@
 				else
 					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to it's original position.</span>", "<span class='[class]'>You flip the [name] back to it's original position.</span>")
 					return 0
-			damageamount = damageamount * 0.25
+			damageamount *= 0.25
 		if(I_GRAB)
 			verbtouse = pick("hooked")
 			soundname = "punch"
@@ -167,7 +167,7 @@
 					return 0
 			else
 				soundname = "punch"
-			damageamount = damageamount * 0.1
+			damageamount *= 0.1
 
 	// Damage Logs
 	/////////////////////////
