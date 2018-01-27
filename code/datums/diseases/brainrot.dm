@@ -23,15 +23,15 @@
 			if(prob(2))
 				affected_mob << "<span class='warning'>Your don't feel like yourself.</span>"
 			if(prob(5))
-				affected_mob.adjustBrainLoss(1)
+				affected_mob.adjustBrainLoss(1, 55)
 				affected_mob.updatehealth()
 		if(3)
 			if(prob(2))
 				affected_mob.emote("stare")
 			if(prob(2))
 				affected_mob.emote("drool")
-			if(prob(10) && affected_mob.getBrainLoss()<=98)//shouldn't retard you to death now
-				affected_mob.adjustBrainLoss(2)
+			if(prob(10))//shouldn't retard you to death now
+				affected_mob.adjustBrainLoss(2, 55)
 				affected_mob.updatehealth()
 				if(prob(2))
 					affected_mob << "<span class='warning'>You try to remember something important...but can't.</span>"
@@ -50,8 +50,8 @@
 				affected_mob.updatehealth()
 				if(prob(2))
 					affected_mob << "<span class='notice'>Your head hurts.</span>" */
-			if(prob(15) && affected_mob.getBrainLoss()<=98) //shouldn't retard you to death now
-				affected_mob.adjustBrainLoss(3)
+			if(prob(15)) //shouldn't retard you to death now
+				affected_mob.adjustBrainLoss(3, 55)
 				affected_mob.updatehealth()
 				if(prob(2))
 					affected_mob << "<span class='warning'>A strange buzzing fills your head, removing all thoughts.</span>"

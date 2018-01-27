@@ -102,6 +102,9 @@
 		return 0
 	if(!user.IsAdvancedToolUser())
 		return 0
+	if(user.disabilities & PACIFIST)
+		to_chat(user, "<span class='notice'>You don't want to risk harming anyone!</span>")
+		return 0
 
 	var/mob/living/M = user
 

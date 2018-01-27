@@ -25,7 +25,6 @@
 		if (log_emote)
 			log_emote("[name]/[key] : [message]",ckey=key_name(key))
 
-
 /mob/proc/emote_dead(var/message)
 
 	if(client.prefs.muted & MUTE_DEADCHAT)

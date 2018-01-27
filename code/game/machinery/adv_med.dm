@@ -332,7 +332,7 @@
 		data["dexAmt"] 			= R.get_reagent_amount("dexalin")
 		data["dermAmt"]			= R.get_reagent_amount("dermaline")
 		data["otherAmt"]		= R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["inaprovAmt"] + data["dermAmt"])
-		data["brainDmgStatus"] 	= val2status(occupant.brainloss, 20, 50)
+		data["brainDmgStatus"] 	= val2status(occupant.getBrainLoss(), 20, 50)
 		data["radStatus"] 		= val2status(occupant.total_radiation)
 		data["cloneDmgStatus"] 	= val2status(occupant.cloneloss, 10, 35)
 		data["bodyparts"]		= get_organ_wound_data(occupant)

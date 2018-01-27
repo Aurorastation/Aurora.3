@@ -242,7 +242,7 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 	ghost_trap_message = "They are occupying a pAI now."
 	ghost_trap_role = "pAI"
 
-datum/ghosttrap/pai/assess_candidate(var/mob/observer/ghost/candidate, var/mob/target)
+datum/ghosttrap/pai/assess_candidate(var/mob/candidate, var/mob/target)
 	return 0
 
 datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silicon/robot/drone/drone)
@@ -412,4 +412,24 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 	list_as_special_role = FALSE
 
 /datum/ghosttrap/special/welcome_candidate(var/mob/target)
+	return 0
+
+/datum/ghosttrap/brainwashed
+	object = "split personality"
+	ghost_trap_message = "They are a split personality now."
+	ghost_trap_role = "pAI"
+	can_set_own_name = TRUE
+	list_as_special_role = TRUE
+
+/datum/ghosttrap/special/brainwashed/welcome_candidate(var/mob/target)
+	return 0
+
+/datum/ghosttrap/friend
+	object = "friend"
+	ghost_trap_message = "They are an imaginary friend now."
+	ghost_trap_role = "pAI"
+	can_set_own_name = TRUE
+	list_as_special_role = TRUE
+
+/datum/ghosttrap/friend/welcome_candidate(var/mob/target)
 	return 0

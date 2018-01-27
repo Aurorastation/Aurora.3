@@ -131,7 +131,9 @@ var/list/admin_verbs_fun = list(
 	/datum/admins/proc/call_drop_pod,
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
-	/client/proc/apply_sunstate
+	/client/proc/apply_sunstate,
+	/client/proc/cure_traumas,
+	/client/proc/add_traumas
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -304,7 +306,9 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/roll_dices,
 	/proc/possess,
 	/proc/release,
-	/client/proc/toggle_recursive_explosions
+	/client/proc/toggle_recursive_explosions,
+	/client/proc/cure_traumas,
+	/client/proc/add_traumas
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -620,6 +624,51 @@ var/list/admin_verbs_cciaa = list(
 	message_admins("<span class='notice'>[ckey] creating an admin explosion at [epicenter.loc].</span>")
 	feedback_add_details("admin_verb","DB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/client/proc/cure_traumas(mob/T as mob in mob_list)
+	set category = "Fun"
+	set name = "Cure Traumas"
+	set desc = "Cure the retardations of a given mob."
+
+	if(!istype(T,/mob/living/carbon/human))
+		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
+		return
+
+	var/mob/living/carbon/human/C = T
+
+	C.cure_all_traumas(TRUE, TRUE)
+	log_and_message_admins("<span class='notice'>cured [key_name(C)]'s traumas.</span>")
+	feedback_add_details("admin_verb","TB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!\
+
+/client/proc/add_traumas(mob/T as mob in mob_list)
+	set category = "Fun"
+	set name = "Add Traumas"
+	set desc = "Induces retardations on a given mob."
+
+	if(!istype(T,/mob/living/carbon/human))
+		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
+		return
+
+	var/mob/living/carbon/human/C = T
+
+	var/list/traumas = subtypesof(/datum/brain_trauma)
+	var/result = input(usr, "Choose the brain trauma to apply","Traumatize") as null|anything in traumas
+	var/permanent = alert("Do you want to make the trauma unhealable?", "Permanently Traumatize", "Yes", "No")
+	if(permanent == "Yes")
+		permanent = TRUE
+	else
+		permanent = FALSE
+	if(!usr)
+		return
+	if(!C)
+		to_chat(usr, "Mob doesn't exist anymore")
+		return
+
+	if(result)
+		C.gain_trauma(result, permanent)
+
+	log_and_message_admins("<span class='notice'>gave [key_name(C)] [result].</span>")
+	feedback_add_details("admin_verb","BT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /client/proc/give_disease(mob/T as mob in mob_list) // -- Giacom
 	set category = "Fun"
 	set name = "Give Disease (old)"
@@ -832,7 +881,6 @@ var/list/admin_verbs_cciaa = list(
 	if(alert("Switch from code [get_security_level()] to code [sec_level]?","Change security level?","Yes","No") == "Yes")
 		set_security_level(sec_level)
 		log_admin("[key_name(usr)] changed the security level to code [sec_level].",admin_key=key_name(usr))
-
 
 //---- bs12 verbs ----
 
