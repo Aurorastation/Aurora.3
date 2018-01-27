@@ -180,6 +180,10 @@
 			if (get_area(C.loc) != linkedholodeck)
 				holographic_mobs -= C
 				C.derez()
+		for(var/mob/living/simple_animal/penguin/holodeck/P in holographic_mobs)
+			if (get_area(P.loc) != linkedholodeck)
+				holographic_mobs -= P
+				P.derez()
 
 	if(inoperable())
 		return
@@ -265,6 +269,10 @@
 	for(var/mob/living/simple_animal/hostile/carp/holodeck/C in holographic_mobs)
 		holographic_mobs -= C
 		C.derez()
+
+	for(var/mob/living/simple_animal/penguin/holodeck/P in holographic_mobs)
+		holographic_mobs -= P
+		P.derez()
 
 	for(var/obj/effect/decal/cleanable/blood/B in linkedholodeck)
 		qdel(B)
