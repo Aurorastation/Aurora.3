@@ -248,7 +248,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 	air_contents.adjust_gas("phoron", (ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 	air_contents.volume = volume //liters
 	air_contents.temperature = T20C
-	distribute_pressure = ((pick(1.8,2.0,2.4,2.8)*ONE_ATMOSPHERE)*O2STANDARD)
+	distribute_pressure = ((pick(2.4,2.8,3.2,3.6)*ONE_ATMOSPHERE)*O2STANDARD)
 
 	START_PROCESSING(SSprocessing, src)
 	var/mob/living/carbon/location = loc

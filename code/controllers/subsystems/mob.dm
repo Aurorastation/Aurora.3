@@ -1,7 +1,7 @@
 /var/datum/controller/subsystem/mobs/SSmob
 
 /datum/controller/subsystem/mobs
-	name = "Mobs"
+	name = "Mobs - Life"
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_MOB
 
@@ -12,6 +12,9 @@
 	var/list/mannequins = list()	//Contains all mannequins used by character preview
 	var/list/greatworms = list()
 	var/list/greatasses = list()
+
+	var/list/ghost_darkness_images = list()	//this is a list of images for things ghosts should still be able to see when they toggle darkness
+	var/list/ghost_sightless_images = list()	//this is a list of images for things ghosts should still be able to see even without ghost sight
 
 /datum/controller/subsystem/mobs/New()
 	NEW_SS_GLOBAL(SSmob)

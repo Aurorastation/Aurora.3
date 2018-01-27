@@ -194,7 +194,7 @@
 
 	var/mob/M = targets[target]
 
-	if(istype(M, /mob/dead/observer) || M.stat == DEAD)
+	if(istype(M, /mob/abstract/observer) || M.stat == DEAD)
 		src << "Not even a [src.species.name] can speak to the dead."
 		return
 
@@ -229,8 +229,8 @@
 	var/msg = sanitize(input("Message:", "Psychic Whisper") as text|null)
 	if(msg)
 		log_say("PsychicWhisper: [key_name(src)]->[M.key] : [msg]",ckey=key_name(src))
-		M << "\green You hear a strange, alien voice in your head... \italic [msg]"
-		src << "\green You said: \"[msg]\" to [M]"
+		M << "<span class ='alium'>You hear a strange, alien voice in your head... \italic [msg]</span>"
+		src << "<span class ='alium'>You said: \"[msg]\" to [M]</span>"
 	return
 
 /mob/living/carbon/human/proc/bugbite()
@@ -428,7 +428,7 @@
 
 	var/mob/M = targets[target]
 
-	if(istype(M, /mob/dead/observer) || M.stat == DEAD)
+	if(istype(M, /mob/abstract/observer) || M.stat == DEAD)
 		src << "<span class='danger'>[M]'s hivenet implant is inactive!</span>"
 		return
 

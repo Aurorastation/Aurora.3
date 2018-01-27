@@ -76,13 +76,12 @@
 		updateSilicate()
 
 /obj/structure/window/proc/updateSilicate()
-	if (overlays)
-		overlays.Cut()
+	cut_overlays()
 
-	var/image/img = image(src.icon, src.icon_state)
+	var/image/img = image(icon, icon_state)
 	img.color = "#ffffff"
 	img.alpha = silicate * 255 / 100
-	overlays += img
+	add_overlay(img)
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
 	playsound(src, "shatter", 70, 1)
@@ -388,7 +387,7 @@
 /obj/structure/window/update_icon()
 	//A little cludge here, since I don't know how it will work with slim windows. Most likely VERY wrong.
 	//this way it will only update full-tile ones
-	overlays.Cut()
+	cut_overlays()
 	if(!is_fulltile())
 		icon_state = "[basestate]"
 		return
@@ -403,9 +402,7 @@
 	icon_state = ""
 	for(var/i = 1 to 4)
 		var/image/I = image(icon, "[basestate][connections[i]]", dir = 1<<(i-1))
-		overlays += I
-
-	return
+		add_overlay(I)
 
 /obj/structure/window/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > maximal_heat)
@@ -459,11 +456,11 @@
 	glasstype = /obj/item/stack/material/glass/reinforced
 
 
-/obj/structure/window/New(Loc, constructed=0)
-	..()
+/obj/structure/window/Initialize(mapload, constructed = 0)
+	. = ..()
 
 	//player-constructed windows
-	if (constructed)
+	if (!mapload && constructed)
 		state = 0
 
 /obj/structure/window/reinforced/full

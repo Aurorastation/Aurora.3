@@ -67,6 +67,7 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 	if(intoxication > AE_BLURRING*SR) // Blurry vision
 		if (prob(10))//blurry vision effect is annoying, so nerfing it
 			eye_blurry = max(eye_blurry, 2)
+			adjustBrainLoss(1, 15)
 
 	if(intoxication > AE_DROWSY*SR) // Drowsyness - periodically falling asleep
 		drowsyness = max(drowsyness, 20)
@@ -79,10 +80,12 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 
 	if(intoxication > AE_OVERDOSE*SR) // Toxic dose
 		add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
+		adjustBrainLoss(0.4, 55)
 
 	if(intoxication > AE_BLACKOUT*SR) // Pass out
 		paralysis = max(paralysis, 20)
 		sleeping  = max(sleeping, 30)
+		adjustBrainLoss(0.4, 55)
 
 	if( intoxication >= AE_BUZZED_MIN && intoxication <= AE_BUZZED_MAX && !(locate(/datum/modifier/buzzed) in modifiers))
 		add_modifier(/datum/modifier/buzzed, MODIFIER_CUSTOM)

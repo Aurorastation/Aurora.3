@@ -245,6 +245,9 @@
 					user.visible_message("<span class='notice'>[user] repairs [target]'s [I.name] with [tool].</span>", \
 					"<span class='notice'>You repair [target]'s [I.name] with [tool].</span>" )
 					I.damage = 0
+					var/obj/item/organ/brain/sponge = target.internal_organs_by_name["brain"]
+					if(sponge && istype(I, sponge))
+						target.cure_all_traumas()
 
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
@@ -387,6 +390,10 @@
 
 		if(!(affected.status & ORGAN_ROBOT))
 			user << "<span class='danger'>You cannot install a computer brain into a meat skull.</span>"
+			return SURGERY_FAILURE
+
+		if(!target.isSynthetic())
+			user << "<span class='danger'>You cannot install a computer brain into an organic body.</span>"
 			return SURGERY_FAILURE
 
 		if(!target.species)

@@ -258,7 +258,7 @@
 				else
 					M_job = "Living"
 
-			else if(istype(M,/mob/new_player))
+			else if(istype(M,/mob/abstract/new_player))
 				M_job = "New player"
 
 			else if(isobserver(M))
@@ -339,7 +339,7 @@
 			dat += "<td>[M.real_name]</td>"
 		else if(istype(M, /mob/living/silicon/pai))
 			dat += "<td>pAI</td>"
-		else if(istype(M, /mob/new_player))
+		else if(istype(M, /mob/abstract/new_player))
 			dat += "<td>New Player</td>"
 		else if(isobserver(M))
 			dat += "<td>Ghost</td>"

@@ -291,7 +291,7 @@ var/list/holder_mob_icon_cache = list()
 	reagents = M.reagents
 
 /obj/item/weapon/holder/human/sync(var/mob/living/M)
-
+	cut_overlays()
 	// Generate appropriate on-mob icons.
 	var/mob/living/carbon/human/owner = M
 	if(!icon && istype(owner) && owner.species)
@@ -345,7 +345,7 @@ var/list/holder_mob_icon_cache = list()
 		color = M.color
 		name = M.name
 		desc = M.desc
-		overlays |= M.overlays
+		copy_overlays(M)
 		var/mob/living/carbon/human/H = loc
 		if(istype(H))
 			if(H.l_hand == src)
@@ -367,6 +367,7 @@ var/list/holder_mob_icon_cache = list()
 	name = "diona nymph"
 	desc = "It's a little plant critter."
 	desc_dead = "It used to be a little plant critter."
+	icon = 'icons/mob/diona.dmi'
 	icon_state = "nymph"
 	icon_state_dead = "nymph_dead"
 	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)

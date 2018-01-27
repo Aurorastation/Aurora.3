@@ -142,9 +142,9 @@
 			log_debug("Cargo Order: Warning - Attempted to order item [coi.ci.name] from non existant supplier [href_list["supplier"]]")
 			qdel(coi)
 
-		//Reset page to main page - TODO: Maybe add a way to disable jumping back to the main page
-		page = "main"
-		selected_item = ""
+		//Reset page to main page - TODO: Maybe add a way to disable jumping back to the main page - Commented out for now
+		//page = "main"
+		//selected_item = ""
 		return 1
 	
 	//Remove item from the order list

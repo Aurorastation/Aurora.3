@@ -15,20 +15,20 @@
 	var/stunforce = 0
 	var/agonyforce = 120
 	var/status = 0		//whether the thing is on or not
-	var/obj/item/weapon/cell/bcell = null
+	var/obj/item/weapon/cell/bcell
 	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
 	var/baton_color = "#FF6A00"
 
-/obj/item/weapon/melee/baton/New()
-	..()
+/obj/item/weapon/melee/baton/Initialize()
+	. = ..()
 	update_icon()
-	return
 
-/obj/item/weapon/melee/baton/loaded/New() //this one starts with a cell pre-installed.
-	..()
+/obj/item/weapon/melee/baton/loaded/Initialize() //this one starts with a cell pre-installed.
 	bcell = new/obj/item/weapon/cell/high(src)
-	update_icon()
-	return
+	. = ..()
+
+/obj/item/weapon/melee/baton/get_cell()
+	return bcell
 
 /obj/item/weapon/melee/baton/proc/deductcharge(var/chrgdeductamt)
 	if(bcell)
@@ -59,14 +59,14 @@
 
 	if(bcell)
 		user <<"<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>"
-	if(!bcell)
+	else
 		user <<"<span class='warning'>The baton does not have a power source installed.</span>"
 
 /obj/item/weapon/melee/baton/attackby(obj/item/weapon/W, mob/user)
 	if(istype(W, /obj/item/weapon/cell))
 		if(!bcell)
 			user.drop_item()
-			W.loc = src
+			W.forceMove(src)
 			bcell = W
 			user << "<span class='notice'>You install a cell in [src].</span>"
 			update_icon()
@@ -76,7 +76,7 @@
 	else if(isscrewdriver(W))
 		if(bcell)
 			bcell.update_icon()
-			bcell.loc = get_turf(src.loc)
+			bcell.forceMove(get_turf(src))
 			bcell = null
 			user << "<span class='notice'>You remove the cell from the [src].</span>"
 			status = 0
@@ -225,11 +225,9 @@
 	origin_tech = list(TECH_COMBAT = 4, TECH_ILLEGAL = 2)
 	contained_sprite = 1
 
-/obj/item/weapon/melee/baton/stunrod/New()
-	..()
+/obj/item/weapon/melee/baton/stunrod/Initialize()
 	bcell = new/obj/item/weapon/cell/high(src)
-	update_icon()
-	return
+	. = ..()
 
 /obj/item/weapon/melee/baton/stunrod/update_icon() //this is needed due to how contained sprites work
 	if(status)
@@ -258,9 +256,8 @@
 	contained_sprite = 1
 
 /obj/item/weapon/melee/baton/slime/Initialize()
-	. = ..()
 	bcell = new/obj/item/weapon/cell/high(src)
-	return
+	. = ..()
 
 /obj/item/weapon/melee/baton/slime/attack(mob/M, mob/user, var/hit_zone)
 	if(isrobot(M) || ishuman(M))

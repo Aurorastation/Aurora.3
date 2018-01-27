@@ -3,16 +3,18 @@
 	sort_order = 4
 
 /datum/category_item/player_setup_item/general/equipment/load_character(var/savefile/S)
-	S["underwear"]  >> pref.underwear
-	S["undershirt"] >> pref.undershirt
-	S["socks"]      >> pref.socks
-	S["backbag"]    >> pref.backbag
+	S["underwear"]     >> pref.underwear
+	S["undershirt"]    >> pref.undershirt
+	S["socks"]         >> pref.socks
+	S["backbag"]       >> pref.backbag
+	S["backbag_style"] >> pref.backbag_style
 
 /datum/category_item/player_setup_item/general/equipment/save_character(var/savefile/S)
-	S["underwear"]  << pref.underwear
-	S["undershirt"] << pref.undershirt
-	S["socks"]      << pref.socks
-	S["backbag"]    << pref.backbag
+	S["underwear"]     << pref.underwear
+	S["undershirt"]    << pref.undershirt
+	S["socks"]         << pref.socks
+	S["backbag"]       << pref.backbag
+	S["backbag_style"] << pref.backbag_style
 
 /datum/category_item/player_setup_item/general/equipment/gather_load_query()
 	return list(
@@ -21,8 +23,9 @@
 				"underwear",
 				"undershirt",
 				"socks",
-				"backbag"
-			), 
+				"backbag",
+				"backbag_style"
+			),
 			"args" = list("id")
 		)
 	)
@@ -37,6 +40,7 @@
 			"undershirt",
 			"socks",
 			"backbag",
+			"backbag_style",
 			"id" = 1,
 			"ckey" = 1
 		)
@@ -48,8 +52,9 @@
 		"undershirt" = pref.undershirt,
 		"socks" = pref.socks,
 		"backbag" = pref.backbag,
+		"backbag_style" = pref.backbag_style,
 		"id" = pref.current_character,
-		"ckey" = pref.client.ckey
+		"ckey" = PREF_CLIENT_CKEY
 	)
 
 /datum/category_item/player_setup_item/general/equipment/sanitize_character(var/sql_load = 0)
@@ -57,6 +62,7 @@
 		pref.backbag = text2num(pref.backbag)
 
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
+	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
 
 	var/undies = get_undies()
 	var/gender_socks = get_gender_socks()
@@ -74,6 +80,7 @@
 	dat += "Undershirt: <a href='?src=\ref[src];change_undershirt=1'><b>[get_key_by_value(undershirt_t,pref.undershirt)]</b></a><br>"
 	dat += "Socks: <a href='?src=\ref[src];change_socks=1'><b>[get_key_by_value(get_gender_socks(),pref.socks)]</b></a><br>"
 	dat += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[backbaglist[pref.backbag]]</b></a><br>"
+	dat += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[backbagstyles[pref.backbag_style]]</b></a><br>"
 
 	. = dat.Join()
 
@@ -105,9 +112,15 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["change_backpack"])
-		var/new_backbag = input(user, "Choose your character's style of bag:", "Character Preference", backbaglist[pref.backbag]) as null|anything in backbaglist
+		var/new_backbag = input(user, "Choose your character's bag type:", "Character Preference", backbaglist[pref.backbag]) as null|anything in backbaglist
 		if(!isnull(new_backbag) && CanUseTopic(user))
 			pref.backbag = backbaglist.Find(new_backbag)
+			return TOPIC_REFRESH
+
+	else if(href_list["change_backpack_style"])
+		var/new_backbag = input(user, "Choose your character's style of bag:", "Character Preference", backbagstyles[pref.backbag_style]) as null|anything in backbagstyles
+		if(!isnull(new_backbag) && CanUseTopic(user))
+			pref.backbag_style = backbagstyles.Find(new_backbag)
 			return TOPIC_REFRESH
 
 	return ..()

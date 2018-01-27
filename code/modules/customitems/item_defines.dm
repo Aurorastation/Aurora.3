@@ -217,13 +217,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/structure/bed/chair/wheelchair/fluff/nomak_scooter/update_icon()
 	return
 
-/obj/structure/bed/chair/wheelchair/fluff/nomak_scooter/set_dir()
-	..()
-	overlays = null
-	if(buckled_mob)
-		buckled_mob.set_dir(dir)
-
-
 /obj/item/weapon/coin/fluff/yoiko_coin //Sobriety Chip - Yurick Ali - raineko
 	name = "sobriety chip"
 	desc = "A red coin, made from plastic. A triangle is engraved, surrounding it is the words: \"TO THINE OWN SELF BE TRUE\"."

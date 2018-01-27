@@ -58,4 +58,6 @@ var/datum/antagonist/mercenary/mercs
 
 	create_id("Mercenary", player)
 	create_radio(SYND_FREQ, player)
+
+	give_codewords(player)
 	return 1

@@ -6,10 +6,9 @@
 	var/obj/item/assembly/shock_kit/part = null
 	var/last_time = 1.0
 
-/obj/structure/bed/chair/e_chair/New()
-	..()
-	overlays += image('icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1, dir)
-	return
+/obj/structure/bed/chair/e_chair/Initialize()
+	. = ..()
+	add_overlay(image('icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1))
 
 /obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(iswrench(W))
@@ -20,8 +19,6 @@
 		part.master = null
 		part = null
 		qdel(src)
-		return
-	return
 
 /obj/structure/bed/chair/e_chair/verb/toggle()
 	set name = "Toggle Electric Chair"
@@ -36,13 +33,6 @@
 		shock()
 		icon_state = "echair1"
 	usr << "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>"
-	return
-
-/obj/structure/bed/chair/e_chair/rotate()
-	..()
-	overlays.Cut()
-	overlays += image('icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1, dir)	//there's probably a better way of handling this, but eh. -Pete
-	return
 
 /obj/structure/bed/chair/e_chair/proc/shock()
 	if(!on)

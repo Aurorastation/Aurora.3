@@ -17,57 +17,36 @@ datum/unit_test/apc_area_test/start_test()
 	var/list/bad_areas = list()
 	var/area_test_count = 0
 
+	if (!current_map)
+		return
+
 	// This is formatted strangely because it fails the indentation test if it's formatted properly.
 	// ¯\_(ツ)_/¯
-	var/list/exempt_areas = typesof(/area/space
-		,/area/syndicate_station
-		,/area/skipjack_station
-		,/area/solar
-		,/area/shuttle
-		,/area/holodeck
-		,/area/supply/station
-		,/area/wizard_station
-		,/area/tdome
-		,/area/centcom
-		,/area/syndicate_mothership
-		,/area/beach
-		,/area/prison
-		,/area/supply/dock
-	)
+	var/list/exempt_areas = typecacheof(current_map.ut_environ_exempt_areas)
+	var/list/exempt_from_atmos = typecacheof(current_map.ut_atmos_exempt_areas)
+	var/list/exempt_from_apc = typecacheof(current_map.ut_apc_exempt_areas)
 
-	var/list/exempt_from_atmos = typesof(/area/maintenance
-		,/area/storage
-		,/area/engineering/atmos/storage
-		,/area/rnd/test_area
-		,/area/construction
-		,/area/server
-	)
-
-	var/list/exempt_from_apc = typesof(/area/construction
-		,/area/medical/genetics
-	)
-
-	for(var/area/A in world)
-		if(A.z in config.station_levels && !(A.type in exempt_areas))
+	for(var/area/A in typecache_filter_list_reverse(all_areas, exempt_areas))
+		if(A.z in current_map.station_levels)
 			area_test_count++
 			var/area_good = 1
 			var/bad_msg = "[ascii_red]--------------- [A.name]([A.type])"
 
 
-			if(isnull(A.apc) && !(A.type in exempt_from_apc))
+			if(!A.apc && !is_type_in_typecache(A, exempt_from_apc))
 				log_unit_test("[bad_msg] lacks an APC.[ascii_reset]")
 				area_good = 0
 
-			if(!A.air_scrub_info.len && !(A.type in exempt_from_atmos))
+			if(!A.air_scrub_info.len && !is_type_in_typecache(A, exempt_from_atmos))
 				log_unit_test("[bad_msg] lacks an Air scrubber.[ascii_reset]")
 				area_good = 0
 
-			if(!A.air_vent_info.len && !(A.type in exempt_from_atmos))
+			if(!A.air_vent_info.len && !is_type_in_typecache(A, exempt_from_atmos))
 				log_unit_test("[bad_msg] lacks an Air vent.[ascii_reset]")
 				area_good = 0
 
 			if(!area_good)
-				bad_areas.Add(A)
+				bad_areas += A
 
 	if(bad_areas.len)
 		fail("\[[bad_areas.len]/[area_test_count]\]Some areas lacked APCs, Air Scrubbers, or Air vents.")
@@ -91,7 +70,7 @@ datum/unit_test/wire_test/start_test()
 
 	for(C in world)
 		T = get_turf(C)
-		if(T && T.z in config.station_levels)
+		if(T && T.z in current_map.station_levels)
 			cable_turfs |= get_turf(C)
 
 	for(T in cable_turfs)
@@ -153,7 +132,7 @@ datum/unit_test/wire_test/start_test()
 	var/ladders_blocked = 0
 
 	for (var/obj/structure/ladder/ladder in world)
-		if (ladder.z in config.admin_levels)
+		if (ladder.z in current_map.admin_levels)
 			continue
 
 		ladders_total++

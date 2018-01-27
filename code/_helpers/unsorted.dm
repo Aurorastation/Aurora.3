@@ -462,7 +462,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if (M.real_name && M.real_name != M.name)
 			name += " \[[M.real_name]\]"
 		if (M.stat == 2)
-			if(istype(M, /mob/dead/observer/))
+			if(istype(M, /mob/abstract/observer/))
 				name += " \[ghost\]"
 			else
 				name += " \[dead\]"
@@ -474,7 +474,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/sortmobs()
 	var/list/moblist = list()
 	var/list/sortmob = sortAtom(mob_list)
-	for(var/mob/eye/M in sortmob)
+	for(var/mob/abstract/eye/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/living/silicon/ai/M in sortmob)
 		moblist.Add(M)
@@ -488,9 +488,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		moblist.Add(M)
 	for(var/mob/living/carbon/alien/M in sortmob)
 		moblist.Add(M)
-	for(var/mob/dead/observer/M in sortmob)
+	for(var/mob/abstract/observer/M in sortmob)
 		moblist.Add(M)
-	for(var/mob/new_player/M in sortmob)
+	for(var/mob/abstract/new_player/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/living/carbon/slime/M in sortmob)
 		moblist.Add(M)
@@ -655,7 +655,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	var/holding = user.get_active_hand()
 
 	var/datum/progressbar/progbar
-	if (display_progress && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS))
+	if (display_progress && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
 		progbar = new(user, delay, target)
 
 	var/endtime = world.time + delay
@@ -695,7 +695,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	var/holding = user.get_active_hand()
 
 	var/datum/progressbar/progbar
-	if (display_progress && user.client && (user.client.prefs.parallax_togs & PROGRESS_BARS))
+	if (display_progress && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
 		progbar = new(user, delay, act_target)
 
 	var/endtime = world.time + delay
@@ -933,10 +933,10 @@ var/list/wall_items = typecacheof(list(
 	/obj/machinery/power/apc,
 	/obj/machinery/alarm,
 	/obj/item/device/radio/intercom,
-	/obj/structure/extinguisher_cabinet, 
+	/obj/structure/extinguisher_cabinet,
 	/obj/structure/reagent_dispensers/peppertank,
-	/obj/machinery/status_display, 
-	/obj/machinery/requests_console, 
+	/obj/machinery/status_display,
+	/obj/machinery/requests_console,
 	/obj/machinery/light_switch,
 	/obj/machinery/newscaster,
 	/obj/machinery/firealarm,
@@ -1000,7 +1000,7 @@ var/list/wall_items = typecacheof(list(
 			if(length(temp_col )<2)
 				temp_col  = "0[temp_col]"
 			colour += temp_col
-	return colour
+	return "#[colour]"
 
 
 
@@ -1093,7 +1093,7 @@ var/list/wall_items = typecacheof(list(
 /proc/stoplag(initial_delay)
 	// If we're initializing, our tick limit might be over 100 (testing config), but stoplag() penalizes procs that go over.
 	// 	Unfortunately, this penalty slows down init a *lot*. So, we disable it during boot and lobby, when relatively few things should be calling this.
-	if (!Master || Master.initializing || !Master.round_started)	
+	if (!Master || Master.initializing || !Master.round_started)
 		sleep(world.tick_lag)
 		return 1
 
@@ -1119,7 +1119,7 @@ var/list/wall_items = typecacheof(list(
 
 
 
-#define NOT_FLAG(flag) (!(flag & use_flags)) 
+#define NOT_FLAG(flag) (!(flag & use_flags))
 #define HAS_FLAG(flag) (flag & use_flags)
 
 // Checks if user can use this object. Set use_flags to customize what checks are done.
@@ -1163,3 +1163,12 @@ var/list/wall_items = typecacheof(list(
 
 #undef NOT_FLAG
 #undef HAS_FLAG
+
+//Prevents robots dropping their modules.
+/proc/dropsafety(var/atom/movable/A)
+	if (istype(A.loc, /mob/living/silicon))
+		return 0
+
+	else if (istype(A.loc, /obj/item/rig_module))
+		return 0
+	return 1

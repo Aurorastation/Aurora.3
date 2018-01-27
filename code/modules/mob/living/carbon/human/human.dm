@@ -762,13 +762,16 @@
 
 ///eyecheck()
 ///Returns a number between -1 to 2
-/mob/living/carbon/human/eyecheck()
+/mob/living/carbon/human/eyecheck(ignore_inherent = FALSE)
 	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
 	var/obj/item/organ/I = get_eyes()	// Eyes are fucked, not a 'weak point'.
 	if (I && I.status & ORGAN_CUT_AWAY)
 		return FLASH_PROTECTION_MAJOR
+
+	if (ignore_inherent)
+		return flash_protection
 
 	return species.inherent_eye_protection ? max(species.inherent_eye_protection, flash_protection) : flash_protection
 
@@ -795,11 +798,15 @@
 	return 1
 
 /mob/living/carbon/human/IsAdvancedToolUser(var/silent)
-	if(species.has_fine_manipulation)
-		return 1
-	if(!silent)
-		src << "<span class='warning'>You don't have the dexterity to use that!</span>"
-	return 0
+	if(!species.has_fine_manipulation)
+		if(!silent)
+			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
+		return 0
+	if(disabilities & MONKEYLIKE)
+		if(!silent)
+			src << "<span class='warning'>You don't have the dexterity to use that!</span>"
+		return 0
+	return 1
 
 /mob/living/carbon/human/abiotic(var/full_body = 0)
 	if(full_body && ((src.l_hand && !( src.l_hand.abstract )) || (src.r_hand && !( src.r_hand.abstract )) || (src.back || src.wear_mask || src.head || src.shoes || src.w_uniform || src.wear_suit || src.glasses || src.l_ear || src.r_ear || src.gloves)))
@@ -951,7 +958,7 @@
 		target.show_message("<span class='notice'>You hear a voice that seems to echo around the room: [say]</span>")
 	usr.show_message("<span class='notice'>You project your mind into [target.real_name]: [say]</span>")
 	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
-	for(var/mob/dead/observer/G in dead_mob_list)
+	for(var/mob/abstract/observer/G in dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
 /mob/living/carbon/human/proc/remoteobserve()
@@ -1533,3 +1540,34 @@
 	pulling_punches = !pulling_punches
 	src << "<span class='notice'>You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"].</span>"
 	return
+
+/mob/living/carbon/human/proc/get_traumas()
+	. = list()
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.traumas
+
+/mob/living/carbon/human/proc/has_trauma_type(brain_trauma_type, consider_permanent = FALSE)
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.has_trauma_type(brain_trauma_type, consider_permanent)
+
+/mob/living/carbon/human/proc/gain_trauma(datum/brain_trauma/trauma, permanent = FALSE, list/arguments)
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.gain_trauma(trauma, permanent, arguments)
+
+/mob/living/carbon/human/proc/gain_trauma_type(brain_trauma_type = /datum/brain_trauma, permanent = FALSE)
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.gain_trauma_type(brain_trauma_type, permanent)
+
+/mob/living/carbon/human/proc/cure_trauma_type(brain_trauma_type, cure_permanent = FALSE)
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.cure_trauma_type(brain_trauma_type, cure_permanent)
+
+/mob/living/carbon/human/proc/cure_all_traumas(cure_permanent = FALSE)
+	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
+	if(B && species && species.has_organ["brain"] && !isipc(src))
+		. = B.cure_all_traumas(cure_permanent)

@@ -63,6 +63,7 @@
 	var/scoped_accuracy = null
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
+	var/reliability = 100
 
 
 	var/next_fire_time = 0
@@ -78,12 +79,9 @@
 
 
 	//aiming system stuff
-	var/keep_aim = 1 	//1 for keep shooting until aim is lowered
-						//0 for one bullet after tarrget moves and aim is lowered
 	var/multi_aim = 0 //Used to determine if you can target multiple people.
 	var/tmp/list/mob/living/aim_targets //List of who yer targeting.
 	var/tmp/mob/living/last_moved_mob //Used to fire faster at more than one person.
-	var/tmp/told_cant_shoot = 0 //So that it doesn't spam them with the fact they cannot hit them.
 	var/tmp/lock_time = -100
 
 /obj/item/weapon/gun/Initialize()
@@ -103,6 +101,9 @@
 	if(!istype(user, /mob/living))
 		return 0
 	if(!user.IsAdvancedToolUser())
+		return 0
+	if(user.disabilities & PACIFIST)
+		to_chat(user, "<span class='notice'>You don't want to risk harming anyone!</span>")
 		return 0
 
 	var/mob/living/M = user
@@ -151,11 +152,21 @@
 		return ..() //Pistolwhippin'
 
 /obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+
+
 	if(!user || !target) return
 
 	add_fingerprint(user)
+	if(user.client && (user.client.prefs.toggles_secondary & SAFETY_CHECK) && user.a_intent != I_HURT) //Check this first to save time.
+		user << "You refrain from firing, as you aren't on harm intent."
+		return
 
 	if(!special_check(user))
+		return
+
+	var/failure_chance = 100 - reliability
+	if(failure_chance && prob(failure_chance))
+		handle_reliability_fail(user)
 		return
 
 	if(world.time < next_fire_time)
@@ -595,3 +606,26 @@
 
 	mob_can_equip(M as mob, slot)
 		return 0
+
+/obj/item/weapon/gun/proc/handle_reliability_fail(var/mob/user)
+	var/severity = 1
+	if(prob(100-reliability))
+		severity = 2
+		if(prob(100-reliability))
+			severity = 3
+	switch(severity)
+		if(1)
+			small_fail(user)
+		if(2)
+			medium_fail(user)
+		else
+			critical_fail(user)
+
+/obj/item/weapon/gun/proc/small_fail(var/mob/user)
+	return
+
+/obj/item/weapon/gun/proc/medium_fail(var/mob/user)
+	return
+
+/obj/item/weapon/gun/proc/critical_fail(var/mob/user)
+	return

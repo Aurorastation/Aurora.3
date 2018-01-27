@@ -19,9 +19,9 @@
 	var/list/client/targets[0]
 	for(var/client/T)
 		if(T.mob)
-			if(istype(T.mob, /mob/new_player))
+			if(istype(T.mob, /mob/abstract/new_player))
 				targets["(New Player) - [T]"] = T
-			else if(istype(T.mob, /mob/dead/observer))
+			else if(istype(T.mob, /mob/abstract/observer))
 				targets["[T.mob.name](Ghost) - [T]"] = T
 			else
 				targets["[T.mob.real_name](as [T.mob.name]) - [T]"] = T
@@ -129,6 +129,7 @@
 
 	sanitize(msg)
 
+	post_webhook_event(WEBHOOK_ADMIN_PM, list("title"="Help is requested", "message"="PlayerPM to **[sender]** from **[key_name(src)]**: ```[html_decode(msg)]```"))
 	discord_bot.send_to_admins("PlayerPM to [sender] from [key_name(src)]: [html_decode(msg)]")
 
 	src << "<span class='pm'><span class='out'>" + create_text_tag("pm_out_alt", "", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>"

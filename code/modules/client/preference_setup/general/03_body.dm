@@ -340,16 +340,15 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			var/list/valid_hairstyles = list()
 
 			// Snowflake check for industrials - they're an IPC bodytype but don't have IPC screens.
-			if (mob_species.name != "Industrial Frame")
-				for(var/hairstyle in hair_styles_list)
-					var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
-					if(pref.gender == MALE && S.gender == FEMALE)
-						continue
-					if(pref.gender == FEMALE && S.gender == MALE)
-						continue
-					if(!(bodytype in S.species_allowed))
-						continue
-					valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
+			for(var/hairstyle in hair_styles_list)
+				var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
+				if(pref.gender == MALE && S.gender == FEMALE)
+					continue
+				if(pref.gender == FEMALE && S.gender == MALE)
+					continue
+				if(!(bodytype in S.species_allowed))
+					continue
+				valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
 
 			if(valid_hairstyles.len)
 				pref.h_style = pick(valid_hairstyles)
@@ -475,11 +474,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["marking_style"])
 		var/list/usable_markings = pref.body_markings ^ body_marking_styles_list
+		var/datum/species/species = global.all_species[pref.species]
+		var/btype = species.get_bodytype()
 		for(var/M in usable_markings)
 			var/datum/sprite_accessory/S = usable_markings[M]
 			if(!S.species_allowed.len)
 				continue
-			else if(!(pref.species in S.species_allowed))
+			else if(!(btype in S.species_allowed))
 				usable_markings -= M
 
 		if (!usable_markings.len)

@@ -58,10 +58,11 @@
 
 	if (drowsyness) tally += 6
 
-	if(FAT in src.mutations)
-		tally += 1.5
-	if (bodytemperature < 283.222)
-		tally += (283.222 - bodytemperature) / 10 * 1.75
+	if (!(species.flags & IS_MECHANICAL))	// Machines don't move slower when cold.
+		if(FAT in src.mutations)
+			tally += 1.5
+		if (bodytemperature < 283.222)
+			tally += (283.222 - bodytemperature) / 10 * 1.75
 
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
 	if(mRun in mutations)
@@ -123,11 +124,11 @@
 		last_x = x
 		last_y = y
 		if (m_intent == "run")
-			playsound(src, T.footstep_sound, 70, 1)
+			playsound(src, T.footstep_sound, 70, 1, is_footstep = TRUE)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, T.footstep_sound, 40, 1)
+				playsound(src, T.footstep_sound, 40, 1, is_footstep = TRUE)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

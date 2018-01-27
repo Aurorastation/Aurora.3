@@ -4,6 +4,7 @@
 	icon_state = "energy"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	fire_sound_text = "laser blast"
+	update_icon_on_init = TRUE
 
 	var/obj/item/weapon/cell/power_supply //What type of power cell this uses
 	var/charge_cost = 200 //How much energy is needed to fire.
@@ -34,7 +35,10 @@
 
 /obj/item/weapon/gun/energy/emp_act(severity)
 	..()
-	update_icon()
+	queue_icon_update()
+
+/obj/item/weapon/gun/energy/get_cell()
+	return power_supply
 
 /obj/item/weapon/gun/energy/Initialize()
 	. = ..()
@@ -42,7 +46,6 @@
 		power_supply = new cell_type(src)
 	else
 		power_supply = new /obj/item/weapon/cell/device/variable(src, max_shots*charge_cost)
-	update_icon()
 
 /obj/item/weapon/gun/energy/Destroy()
 	QDEL_NULL(power_supply)
@@ -52,7 +55,7 @@
 	. = 1
 	if (!power_supply || power_supply.charge >= power_supply.maxcharge || !self_recharge)
 		return 0 // check if we actually need to recharge
-		
+
 	if (use_external_power)
 		var/obj/item/weapon/cell/external = get_external_power_supply()
 		if(!external || !external.use(charge_cost)) //Take power from the borg...
@@ -91,7 +94,7 @@
 	return
 
 /obj/item/weapon/gun/energy/update_icon()
-	if(charge_meter && power_supply)
+	if(charge_meter && power_supply && power_supply.maxcharge)
 		var/ratio = power_supply.charge / power_supply.maxcharge
 
 		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.

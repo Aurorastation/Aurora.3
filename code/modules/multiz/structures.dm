@@ -126,7 +126,7 @@
 		return FALSE
 	return TRUE
 
-/mob/observer/ghost/may_climb_ladders(var/ladder)
+/mob/abstract/observer/may_climb_ladders(var/ladder)
 	return TRUE
 
 /obj/structure/ladder/proc/climbLadder(var/mob/M, var/target_ladder)
@@ -182,7 +182,7 @@
 			warning("Stair created without level above: ([loc.x], [loc.y], [loc.z])")
 			return qdel(src)
 		if(!istype(above))
-			above.ChangeTurf(/turf/simulated/open)
+			above.ChangeToOpenturf()
 
 /obj/structure/stairs/Uncross(atom/movable/A)
 	if(A.dir == dir && A.loc == loc)

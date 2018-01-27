@@ -36,9 +36,9 @@
 		"ss13_characters" = list(
 			"vars" = list(
 				"nt_relation" = "nanotrasen_relation",
-				"home_system", 
-				"citizenship", 
-				"faction", 
+				"home_system",
+				"citizenship",
+				"faction",
 				"religion"
 			),
 			"args" = list("id")
@@ -60,8 +60,8 @@
 			"char_id" = 1
 		),
 		"ss13_characters" = list(
-			"nt_relation", 
-			"home_system", 
+			"nt_relation",
+			"home_system",
 			"citizenship",
 			"faction",
 			"religion","id" = 1,
@@ -81,7 +81,7 @@
 		"faction" = pref.faction,
 		"religion" = pref.religion,
 		"id" = pref.current_character,
-		"ckey" = pref.client.ckey
+		"ckey" = PREF_CLIENT_CKEY
 	)
 
 /datum/category_item/player_setup_item/general/background/sanitize_character()
@@ -99,7 +99,7 @@
 /datum/category_item/player_setup_item/general/background/content(var/mob/user)
 	var/list/dat = list(
 		"<b>Background Information</b><br>",
-		"[company_name] Relation: <a href='?src=\ref[src];nt_relation=1'>[pref.nanotrasen_relation]</a><br/>",
+		"[current_map.company_name] Relation: <a href='?src=\ref[src];nt_relation=1'>[pref.nanotrasen_relation]</a><br/>",
 		"Home System: <a href='?src=\ref[src];home_system=1'>[pref.home_system]</a><br/>",
 		"Citizenship: <a href='?src=\ref[src];citizenship=1'>[pref.citizenship]</a><br/>",
 		"Faction: <a href='?src=\ref[src];faction=1'>[pref.faction]</a><br/>",

@@ -21,7 +21,7 @@
 // 'basic' language; spoken by default.
 /datum/language/common
 	name = LANGUAGE_TCB
-	desc = "The common galactic tongue."
+	desc = "A spiritual successor of Esperanto, established in 2404 in Tau Ceti by Ceti intellectuals. Its unique, fully customized alphabet and structure allow it to be spoken even by most alien species. It's the official language of Tau Ceti and has growing traction in diplomatic circles and Universalists across human space."
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	key = "0"
@@ -40,7 +40,7 @@
 // Galactic common languages (systemwide accepted standards).
 /datum/language/trader
 	name = LANGUAGE_TRADEBAND
-	desc = "Maintained by the various trading cartels in major systems, this elegant, structured language is used for bartering and bargaining."
+	desc = "Descended from latin and romance languages of old Earth, Tradeband remains the main tongue of the upper class of humanity. The language sounds elegant and well structured to most ears. It remains in popular use with traders, diplomats, and those seeking to hold onto a piece of a romantic past."
 	speech_verb = "enunciates"
 	colour = "say_quote"
 	key = "2"
@@ -57,7 +57,7 @@
 // Criminal language.
 /datum/language/gutter
 	name = LANGUAGE_GUTTER
-	desc = "A language of renegades and frontiersmen descending from various languages from Earth. This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit. Often called 'Gutter' by Alliance citizens."
+	desc = "A language of renegades and frontiersmen descending from various languages from Earth like Hindi combined into a multi-rooted jumble that sounds incoherent or even barbarian to non-native speakers. This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit. Often called 'Gutter' by Alliance citizens."
 	speech_verb = "growls"
 	colour = "rough"
 	key = "3"
@@ -79,3 +79,15 @@
 		return "Unknown"
 
 	return language.name
+
+/datum/language/aphasia
+	name = LANGUAGE_GIBBERING
+	desc = "It is theorized that any sufficiently brain-damaged person can speak this language."
+	speech_verb = "garbles"
+	ask_verb = "mumbles"
+	whisper_verb = "mutters"
+	exclaim_verb = "screams incoherently"
+	key = "i"
+	syllables = list("m","n","gh","h","l","s","r","a","e","i","o","u")
+	space_chance = 20
+	flags = RESTRICTED

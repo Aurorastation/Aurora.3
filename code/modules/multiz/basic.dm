@@ -4,11 +4,18 @@ var/z_levels = 0 // Each bit represents a connection between adjacent levels.  S
 
 // If the height is more than 1, we mark all contained levels as connected.
 /obj/effect/landmark/map_data/New()
+	SSatlas.height_markers += src
+
+/obj/effect/landmark/map_data/proc/setup()
 	ASSERT(height <= z)
 	// Due to the offsets of how connections are stored v.s. how z-levels are indexed, some magic number silliness happened.
 	for(var/i = (z - height) to (z - 2))
 		z_levels |= (1 << i)
 	qdel(src)
+
+/obj/effect/landmark/map_data/Destroy()
+	SSatlas.height_markers -= src
+	return ..()
 
 // The storage of connections between adjacent levels means some bitwise magic is needed.
 /proc/HasAbove(var/z)
@@ -37,12 +44,28 @@ var/z_levels = 0 // Each bit represents a connection between adjacent levels.  S
 /proc/GetConnectedZlevels(z)
 	. = list(z)
 	for(var/level = z, HasBelow(level), level--)
-		. |= level-1
+		. += level-1
 	for(var/level = z, HasAbove(level), level++)
-		. |= level+1
+		. += level+1
 
-proc/AreConnectedZLevels(var/zA, var/zB)
-	return zA == zB || (zB in GetConnectedZlevels(zA))
+/proc/AreConnectedZLevels(var/zA, var/zB)
+	if (zA == zB)
+		return TRUE
+
+	if (SSatlas.connected_z_cache.len >= zA && SSatlas.connected_z_cache[zA])
+		return SSatlas.connected_z_cache[zA][zB]
+
+	var/list/levels = GetConnectedZlevels(zA)
+	var/list/new_entry = new(max(levels))
+	for (var/entry in levels)
+		new_entry[entry] = TRUE
+
+	if (SSatlas.connected_z_cache.len < zA)
+		SSatlas.connected_z_cache.len = zA
+
+	SSatlas.connected_z_cache[zA] = new_entry
+
+	return new_entry[zB]
 
 /proc/get_zstep(ref, dir)
 	if(dir == UP)

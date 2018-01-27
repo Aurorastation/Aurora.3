@@ -84,14 +84,14 @@
 
 	return ..()
 
-/mob/eye/zMove(direction)
+/mob/abstract/eye/zMove(direction)
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(destination)
 		setLoc(destination)
 	else
 		to_chat(owner, "<span class='notice'>There is nothing of interest in this direction.</span>")
 
-/mob/dead/observer/zMove(direction)
+/mob/abstract/observer/zMove(direction)
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(destination)
 		forceMove(destination)
@@ -116,7 +116,7 @@
 /mob/proc/can_ztravel(var/direction)
 	return FALSE
 
-/mob/dead/observer/can_ztravel(var/direction)
+/mob/abstract/observer/can_ztravel(var/direction)
 	return TRUE
 
 /mob/living/carbon/human/can_ztravel(var/direction)
@@ -192,7 +192,7 @@
  * this cycle.
  */
 /atom/movable/proc/can_fall(turf/below, turf/simulated/open/dest = src.loc)
-	if (!istype(dest))
+	if (!istype(dest) || !dest.is_hole)
 		return FALSE
 
 	// Anchored things don't fall.
@@ -202,7 +202,8 @@
 	// Lattices, ladders, and stairs stop things from falling.
 	if(locate(/obj/structure/lattice, dest) || locate(/obj/structure/stairs, dest))
 		return FALSE
-	if( ismob(src) && locate(/obj/structure/ladder, dest)) //hmmm how is this locker just floating here?
+
+	if(ismob(src) && locate(/obj/structure/ladder, dest)) //hmmm how is this locker just floating here?
 		return FALSE
 
 	// The var/climbers API is implemented here.
@@ -236,6 +237,9 @@
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
 		return FALSE
 
+	if (!dest.is_hole)
+		return FALSE
+
 	// See if something prevents us from falling.
 	for(var/atom/A in below)
 		if(!A.CanPass(src, dest))
@@ -256,9 +260,9 @@
 	return ..()
 
 /mob/living/carbon/human/bst/can_fall()
-	return FALSE
+	return fall_override ? FALSE : ..()
 
-/mob/eye/can_fall()
+/mob/abstract/eye/can_fall()
 	return FALSE
 
 /mob/living/silicon/robot/can_fall(turf/below, turf/simulated/open/dest = src.loc)

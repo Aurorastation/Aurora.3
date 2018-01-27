@@ -50,13 +50,6 @@ var/list/datum/power/vampire/vampirepowers = list()
 	blood_cost = 200
 	verbpath = /mob/living/carbon/human/proc/vampire_diseasedtouch
 
-/datum/power/vampire/dominate
-	name = "Dominate"
-	desc = "Influence those weak of mind to follow your instructions."
-	helptext = "You and your target must remain stationary for a short period of time for this to work. You can then issue a command to your victim that they must follow in the short term."
-	blood_cost = 150
-	verbpath = /mob/living/carbon/human/proc/vampire_dominate
-
 /datum/power/vampire/bats
 	name = "Summon Bats"
 	desc = "Tear open the Veil for a moment, and summon forth familiars to assist you in abttle."
@@ -75,6 +68,13 @@ var/list/datum/power/vampire/vampirepowers = list()
 	helptext = "While veil walking, you can walk through all solid objects and people. Others can see you, but they cannot interact with you. As you stay in this form, you will keep draining your blood. To stop veil walking, activate the power again."
 	blood_cost = 250
 	verbpath = /mob/living/carbon/human/proc/vampire_veilwalk
+
+/datum/power/vampire/dominate
+	name = "Dominate"
+	desc = "Influence those weak of mind to follow your instructions."
+	helptext = "You and your target must remain stationary for a short period of time for this to work. You can then issue a command to your victim that they must follow in the short term."
+	blood_cost = 300
+	verbpath = /mob/living/carbon/human/proc/vampire_dominate
 
 /datum/power/vampire/enthrall
 	name = "Enthrall"

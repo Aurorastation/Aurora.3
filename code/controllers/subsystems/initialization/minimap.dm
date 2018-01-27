@@ -1,21 +1,6 @@
 // Minimap generation system adapted from vorestation, adapted from /vg/.
 // Seems to be much simpler/saner than /vg/'s implementation.
 
-// Turfs that will be colored as HOLOMAP_ROCK
-#define IS_ROCK(tile) (istype(tile, /turf/simulated/mineral) || istype(tile, /turf/simulated/floor/asteroid) || isopenturf(tile))
-
-// Turfs that will be colored as HOLOMAP_OBSTACLE
-#define IS_OBSTACLE(tile) ((!istype(tile, /turf/space) && istype(tile.loc, /area/mine/unexplored)) \
-					|| istype(tile, /turf/simulated/wall) \
-					|| istype(tile, /turf/unsimulated/mineral) \
-					|| (istype(tile, /turf/unsimulated/wall)) \
-					|| (locate(/obj/structure/grille) in tile))
-
-// Turfs that will be colored as HOLOMAP_PATH
-#define IS_PATH(tile) ((istype(tile, /turf/simulated/floor) && !istype(tile, /turf/simulated/floor/asteroid)) \
-					|| istype(tile, /turf/unsimulated/floor) \
-					|| (locate(/obj/structure/lattice/catwalk) in tile))
-
 /var/datum/controller/subsystem/minimap/SSminimap
 
 /datum/controller/subsystem/minimap
@@ -37,7 +22,7 @@
 
 	log_debug("SSminimap: [holo_minimaps.len] maps.")
 
-	for (var/z in config.station_levels)
+	for (var/z in current_map.station_levels)
 		generateStationMinimap(z)
 
 	..()
@@ -52,26 +37,44 @@
 	// Sanity checks - Better to generate a helpful error message now than have DrawBox() runtime
 	var/icon/canvas = icon(HOLOMAP_ICON, "blank")
 	if(world.maxx + offset_x > canvas.Width())
-		crash_with("Minimap for z=[zlevel] : world.maxx ([world.maxx]) + holomap_offset_x ([offset_x]) must be <= [canvas.Width()]")
+		CRASH("Minimap for z=[zlevel] : world.maxx ([world.maxx]) + holomap_offset_x ([offset_x]) must be <= [canvas.Width()]")
 	if(world.maxy + offset_y > canvas.Height())
-		crash_with("Minimap for z=[zlevel] : world.maxy ([world.maxy]) + holomap_offset_y ([offset_y]) must be <= [canvas.Height()]")
+		CRASH("Minimap for z=[zlevel] : world.maxy ([world.maxy]) + holomap_offset_y ([offset_y]) must be <= [canvas.Height()]")
 
-	for(var/x = 1 to world.maxx)
-		for(var/y = 1 to world.maxy)
-			var/turf/tile = locate(x, y, zlevel)
-			var/area/A
-			if(tile)
-				A = tile.loc
-				if (A.flags & HIDE_FROM_HOLOMAP)
-					continue
-				if(IS_ROCK(tile))
-					continue
-				if(IS_OBSTACLE(tile))
-					canvas.DrawBox(HOLOMAP_OBSTACLE, x + offset_x, y + offset_y)
-				else if(IS_PATH(tile))
-					canvas.DrawBox(HOLOMAP_PATH, x + offset_x, y + offset_y)
+	var/list/rock_tcache = typecacheof(list(
+		/turf/simulated/mineral,
+		/turf/simulated/floor/asteroid,
+		/turf/simulated/open
+	))
+	var/list/obstacle_tcache = typecacheof(list(
+		/turf/simulated/wall,
+		/turf/unsimulated/mineral,
+		/turf/unsimulated/wall
+	))
+	var/list/path_tcache = typecacheof(list(
+		/turf/simulated/floor,
+		/turf/unsimulated/floor
+	)) - typecacheof(/turf/simulated/floor/asteroid)
+
+	var/turf/T
+	var/area/A
+	var/Ttype
+	for (var/thing in Z_ALL_TURFS(zlevel))
+		T = thing
+		A = T.loc
+		Ttype = T.type
+
+		if (A.flags & HIDE_FROM_HOLOMAP)
+			continue
+		if (rock_tcache[Ttype])
+			continue
+		if (obstacle_tcache[Ttype] || (T.contents.len && locate(/obj/structure/grille, T)))
+			canvas.DrawBox(HOLOMAP_OBSTACLE, T.x + offset_x, T.y + offset_y)
+		else if(path_tcache[Ttype] || (T.contents.len && locate(/obj/structure/lattice/catwalk, T)))
+			canvas.DrawBox(HOLOMAP_PATH, T.x + offset_x, T.y + offset_y)
 
 		CHECK_TICK
+
 	return canvas
 
 /datum/controller/subsystem/minimap/proc/generateStationMinimap(zlevel)
@@ -86,13 +89,13 @@
 	if(world.maxy + offset_y > canvas.Height())
 		crash_with("Minimap for z=[zlevel] : world.maxy ([world.maxy]) + holomap_offset_y ([offset_y]) must be <= [canvas.Height()]")
 
-	for(var/x = 1 to world.maxx)
-		for(var/y = 1 to world.maxy)
-			var/turf/tile = locate(x, y, zlevel)
-			if(tile && tile.loc)
-				var/area/areaToPaint = tile.loc
-				if(areaToPaint.holomap_color)
-					canvas.DrawBox(areaToPaint.holomap_color, x + offset_x, y + offset_y)
+	var/turf/T
+	var/area/A
+	for (var/thing in Z_ALL_TURFS(zlevel))
+		T = thing
+		A = T.loc
+		if (A.holomap_color)
+			canvas.DrawBox(A.holomap_color, T.x + offset_x, T.y + offset_y)
 
 	// Save this nice area-colored canvas in case we want to layer it or something I guess
 	extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPAREAS]_[zlevel]"] = canvas

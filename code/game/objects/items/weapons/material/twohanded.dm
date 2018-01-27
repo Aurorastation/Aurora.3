@@ -160,7 +160,7 @@
 	if (ismob(loc))
 		var/mob/living/our_mob = loc
 		our_mob.remove_from_mob(src)
-		
+
 	qdel(src)
 
 /obj/item/weapon/material/twohanded/offhand/update_icon()
@@ -197,6 +197,11 @@
 			var/obj/effect/plant/P = A
 			P.die_off()
 
+/obj/item/weapon/material/twohanded/fireaxe/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target))
+		cleave(user, target)
+	..()
+
 //spears, bay edition
 /obj/item/weapon/material/twohanded/spear
 	icon_state = "spearglass0"
@@ -211,7 +216,7 @@
 	thrown_force_divisor = 1.5 // 20 when thrown with weight 15 (glass)
 	throw_speed = 3
 	edge = 1
-	sharp = 1
+	sharp = 0
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
@@ -240,10 +245,10 @@
 		var/matrix/M = matrix()
 		I.transform = M
 		usr.drop_item()
-		I.loc = HS
-		var/image/IM = image(I.icon,I.icon_state)
-		IM.overlays = I.overlays.Copy()
-		HS.overlays += IM
+		I.forceMove(HS)
+		var/mutable_appearance/MA = new(I)
+		MA.layer = FLOAT_LAYER
+		HS.add_overlay(MA)
 		HS.name = "[I.name] on a spear"
 		qdel(src)
 		return

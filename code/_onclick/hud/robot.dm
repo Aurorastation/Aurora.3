@@ -22,33 +22,15 @@ var/obj/screen/robot_inventory
 
 //Module select
 
-	using = new /obj/screen()
-	using.name = "module1"
-	using.set_dir(SOUTHWEST)
-	using.icon = 'icons/mob/screen1_robot.dmi'
-	using.icon_state = "inv1"
-	using.screen_loc = ui_inv1
-	using.layer = 20
+	using = new /obj/screen/module/one()
 	src.adding += using
 	mymob:inv1 = using
 
-	using = new /obj/screen()
-	using.name = "module2"
-	using.set_dir(SOUTHWEST)
-	using.icon = 'icons/mob/screen1_robot.dmi'
-	using.icon_state = "inv2"
-	using.screen_loc = ui_inv2
-	using.layer = 20
+	using = new /obj/screen/module/two()
 	src.adding += using
 	mymob:inv2 = using
 
-	using = new /obj/screen()
-	using.name = "module3"
-	using.set_dir(SOUTHWEST)
-	using.icon = 'icons/mob/screen1_robot.dmi'
-	using.icon_state = "inv3"
-	using.screen_loc = ui_inv3
-	using.layer = 20
+	using = new /obj/screen/module/three()
 	src.adding += using
 	mymob:inv3 = using
 
@@ -151,8 +133,8 @@ var/obj/screen/robot_inventory
 
 	mymob.zone_sel = new /obj/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen1_robot.dmi'
-	mymob.zone_sel.overlays.Cut()
-	mymob.zone_sel.overlays += image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]")
+	mymob.zone_sel.cut_overlays()
+	mymob.zone_sel.add_overlay(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 
 	//Handle the gun settings buttons
 	mymob.gun_setting_icon = new /obj/screen/gun/mode(null)

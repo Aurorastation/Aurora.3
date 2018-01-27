@@ -33,8 +33,14 @@ JOBS_HAVE_MINIMAL_ACCESS
 ## Unhash to enable loading of age restrictions from age_restrictions.txt.
 #LOAD_AGE_RESTRICTIONS_FROM_FILE
 
-## Unhash this to use recursive explosions, keep it hashed to use circle explosions. Recursive explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU and are (as of january 2013) experimental
-#USE_RECURSIVE_EXPLOSIONS
+## Unhash this to use iterative explosions, keep it hashed to use circle explosions. Iterative explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU, but are generally better to use.
+#USE_SPREADING_EXPLOSIONS
+
+# The power of explosion required for it to cross Z-levels.
+#EXPLOSION_Z_THRESHOLD 10
+
+# What to multiply power by when crossing Z-levels.
+#EXPLOSION_Z_MULT 0.75
 
 ## log OOC channel
 LOG_OOC
@@ -332,21 +338,6 @@ CHARACTER_SLOTS 10
 ## Uncomment to use overmap system for zlevel travel
 #USE_OVERMAP
 
-## Defines which Z-levels the station exists on. Only set if you need to change the defaults.
-#STATION_LEVELS 3;4;5;6;7
-
-## Defines which Z-levels are used for admin functionality, such as Central Command and the Syndicate Shuttle. Only set if you need to change the defaults.
-#ADMIN_LEVELS 1
-
-## Defines which Z-levels which, for example, a Code Red announcement may affect. Only set if you need to change the defaults.
-#CONTACT_LEVELS 3;4;5;6
-
-## Defines all Z-levels a character can typically reach. Only set if you need to change the defaults.
-#PLAYER_LEVELS 2;3;4;5;6;7;8
-
-## Defines which levels cannot be left via touching map borders. Only set if you need to change the defaults.
-#SEALED_LEVELS
-
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 180
 
@@ -452,10 +443,6 @@ MERCHANT_CHANCE 20
 ## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and -
 # DEFAULT_LANGUAGE_PREFIXES , # -
 
-## A ; separated list of lobby screens to randomly pick from. The listed screens must exist as icon states in '/icons/misc/title.dmi'.
-## Defaults to 'title' if left unset.
-# LOBBY_SCREENS title
-
 ## Uncomment to enable the antag contest!
 #ANTAG_CONTEST_ENABLED
 
@@ -514,3 +501,7 @@ FASTBOOT
 
 # Where to load the cargo items from. json or sql
 CARGO_LOAD_ITEMS_FROM json
+
+
+# Forces the maploader to load the specified map path. Valid options: aurora, runtime
+FORCE_MAP aurora

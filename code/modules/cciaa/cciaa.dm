@@ -12,7 +12,7 @@
 		src << "<span class='warning'>The game hasn't started yet!</span>"
 		return
 
-	if(istype(mob, /mob/new_player))
+	if(istype(mob, /mob/abstract/new_player))
 		src << "<span class='warning'>You can't be in the lobby to join as a duty officer.</span>"
 		return
 
@@ -234,7 +234,7 @@
 
 	// Create the reply message
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
-	P.name = "[command_name()] - [customname]"
+	P.name = "[current_map.boss_name] - [customname]"
 	P.info = input
 	P.update_icon()
 
@@ -244,7 +244,7 @@
 	if(!P.stamped)
 		P.stamped = new
 	P.stamped += /obj/item/weapon/stamp
-	P.overlays += stampoverlay
+	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(fax.recievefax(P))

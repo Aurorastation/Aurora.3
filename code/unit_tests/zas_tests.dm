@@ -127,12 +127,6 @@ datum/unit_test/zas_area_test/
 	name = "ZAS: Cargo Maintenance"
 	area_path = /area/maintenance/cargo
 
-datum/unit_test/zas_area_test/incinerator
-	name = "ZAS: Incinerator"
-	area_path = /area/maintenance/incinerator
-	disabled = 1
-	why_disabled = "Scrubber pulls air, this area cannot be tested."
-
 datum/unit_test/zas_area_test/virology
 	name = "ZAS: Virology"
 	area_path = /area/medical/virology
@@ -140,17 +134,6 @@ datum/unit_test/zas_area_test/virology
 datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"
 	area_path = /area/rnd/xenobiology
-
-/*	Hey, this area doesn't exist on the Aurora II.
-datum/unit_test/zas_area_test/research_maint_starboard
-	name = "ZAS: Research Starboard Maintenance"
-	area_path = /area/maintenance/research_starboard
-
-	Nor does this one.
-datum/unit_test/zas_area_test/west_hall_mining_outpost
-	name = "ZAS: Mining outpost West Hallway"
-	area_path = /area/outpost/mining_main/west_hall
-*/
 
 /*
 datum/unit_test/zas_area_test/mining_area
@@ -172,9 +155,7 @@ datum/unit_test/zas_area_test/
 
 datum/unit_test/zas_supply_shuttle_moved
 	name = "ZAS: Supply Shuttle (When Moved)"
-	async=1				// We're moving the shuttle using built in procs.
-	disabled = 1
-	why_disabled = "This test has not been updated for newmap."
+	async = TRUE				// We're moving the shuttle using built in procs.
 
 	var/datum/shuttle/ferry/supply/Shuttle = null
 

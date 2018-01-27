@@ -73,7 +73,7 @@
 				var/message = pick(whispers)
 				L << "<span class='cult'><b>[message]</b></span>"
 				L.hallucination += 50
-				L.adjustBrainLoss(5)
+				L.adjustBrainLoss(5, 55)
 
 			if(prob(15))
 				src.visible_message("<span class='warning'>\The [src] hums ominously.</span>")

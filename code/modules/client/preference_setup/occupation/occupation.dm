@@ -77,7 +77,7 @@
 		"alternate_option" = pref.alternate_option,
 		"alternate_titles" = list2params(pref.player_alt_titles),
 		"id" = pref.current_character,
-		"ckey" = pref.client.ckey
+		"ckey" = PREF_CLIENT_CKEY
 	)
 
 /datum/category_item/player_setup_item/occupation/sanitize_character(var/sql_load = 0)

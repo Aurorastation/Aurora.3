@@ -8,6 +8,8 @@
 	var/permit_ao = TRUE
 	var/tmp/list/ao_overlays	// Current ambient occlusion overlays. Tracked so we can reverse them without dropping all priority overlays.
 	var/tmp/ao_neighbors
+	var/tmp/list/ao_overlays_mimic
+	var/tmp/ao_neighbors_mimic
 	var/ao_queued = AO_UPDATE_NONE
 
 /turf/proc/regenerate_ao()
@@ -20,46 +22,31 @@
 
 /turf/proc/calculate_ao_neighbors()
 	ao_neighbors = 0
+	ao_neighbors_mimic = 0
 	if (!permit_ao)
 		return
 
 	var/turf/T
-	for (var/tdir in cardinal)
-		T = get_step(src, tdir)
-		if (T && AO_TURF_CHECK(T))
-			ao_neighbors |= 1 << tdir
+	if (flags & MIMIC_BELOW)
+		CALCULATE_NEIGHBORS(src, ao_neighbors_mimic, T, (T.flags & MIMIC_BELOW))
+	if (!has_opaque_atom && !(flags & MIMIC_NO_AO))
+		CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
 
-	if (ao_neighbors & N_NORTH)
-		if (ao_neighbors & N_WEST)
-			T = get_step(src, NORTHWEST)
-			if (AO_TURF_CHECK(T))
-				ao_neighbors |= N_NORTHWEST
-
-		if (ao_neighbors & N_EAST)
-			T = get_step(src, NORTHEAST)
-			if (AO_TURF_CHECK(T))
-				ao_neighbors |= N_NORTHEAST
-
-	if (ao_neighbors & N_SOUTH)
-		if (ao_neighbors & N_WEST)
-			T = get_step(src, SOUTHWEST)
-			if (AO_TURF_CHECK(T))
-				ao_neighbors |= N_SOUTHWEST
-
-		if (ao_neighbors & N_EAST)
-			T = get_step(src, SOUTHEAST)
-			if (AO_TURF_CHECK(T))
-				ao_neighbors |= N_SOUTHEAST
-
-/proc/make_ao_image(corner, i)
+/proc/make_ao_image(corner, i, px = 0, py = 0, pz = 0, pw = 0)
 	var/list/cache = SSicon_cache.ao_cache
 	var/cstr = "[corner]"
-	var/key = "[cstr]-[i]"
+	var/key = "[cstr]-[i]-[px]/[py]/[pz]/[pw]"
 
 	var/image/I = image('icons/turf/flooring/shadows.dmi', cstr, dir = 1 << (i-1))
 	I.alpha = WALL_AO_ALPHA
 	I.blend_mode = BLEND_OVERLAY
 	I.appearance_flags = RESET_ALPHA|RESET_COLOR|TILE_BOUND
+	// If there's an offset, counteract it.
+	if (px || py || pz || pw)
+		I.pixel_x = -px
+		I.pixel_y = -py
+		I.pixel_z = -pz
+		I.pixel_w = -pw
 
 	. = cache[key] = I
 
@@ -73,47 +60,52 @@
 	if (ao_queued < new_level)
 		ao_queued = new_level
 
+#define PROCESS_AO_CORNER(AO_LIST, NEIGHBORS, CORNER_INDEX, CDIR) \
+	corner = 0; \
+	if (NEIGHBORS & (1 << CDIR)) { \
+		corner |= 2; \
+	} \
+	if (NEIGHBORS & (1 << turn(CDIR, 45))) { \
+		corner |= 1; \
+	} \
+	if (NEIGHBORS & (1 << turn(CDIR, -45))) { \
+		corner |= 4; \
+	} \
+	if (corner != 7) {	/* 7 is the 'no shadows' state, no reason to add overlays for it. */ \
+		var/image/I = cache["[corner]-[CORNER_INDEX]-[pixel_x]/[pixel_y]/[pixel_z]/[pixel_w]"]; \
+		if (!I) { \
+			I = make_ao_image(corner, CORNER_INDEX, pixel_x, pixel_y, pixel_z, pixel_w)	/* this will also add the image to the cache. */ \
+		} \
+		LAZYADD(AO_LIST, I); \
+	}
+
+#define CUT_AO(TARGET, AO_LIST) \
+	if (AO_LIST) { \
+		TARGET.cut_overlay(AO_LIST, TRUE); \
+		AO_LIST.Cut(); \
+	}
+
+#define REGEN_AO(TARGET, AO_LIST, NEIGHBORS) \
+	if (permit_ao && NEIGHBORS != AO_ALL_NEIGHBORS) { \
+		var/corner;\
+		PROCESS_AO_CORNER(AO_LIST, NEIGHBORS, 1, NORTHWEST); \
+		PROCESS_AO_CORNER(AO_LIST, NEIGHBORS, 2, SOUTHEAST); \
+		PROCESS_AO_CORNER(AO_LIST, NEIGHBORS, 3, NORTHEAST); \
+		PROCESS_AO_CORNER(AO_LIST, NEIGHBORS, 4, SOUTHWEST); \
+	} \
+	UNSETEMPTY(AO_LIST); \
+	if (AO_LIST) { \
+		TARGET.add_overlay(AO_LIST, TRUE); \
+	}
+
 /turf/proc/update_ao()
-	if (ao_overlays)
-		cut_overlay(ao_overlays, TRUE)
-		ao_overlays.Cut()
-
-	if (!permit_ao)
-		return
-
 	var/list/cache = SSicon_cache.ao_cache
+	CUT_AO(shadower, ao_overlays_mimic)
+	CUT_AO(src, ao_overlays)
+	if (flags & MIMIC_BELOW)
+		REGEN_AO(shadower, ao_overlays_mimic, ao_neighbors_mimic)
+	if (!has_opaque_atom && !(flags & MIMIC_NO_AO))
+		REGEN_AO(src, ao_overlays, ao_neighbors)
 
-	if (!has_opaque_atom)
-		for(var/i = 1 to 4)
-			var/cdir = cornerdirs[i]
-			var/corner = 0
-
-			if (ao_neighbors & (1 << cdir))
-				corner |= 2
-			if (ao_neighbors & (1 << turn(cdir, 45)))
-				corner |= 1
-			if (ao_neighbors & (1 << turn(cdir, -45)))
-				corner |= 4
-
-			if (corner != 7)	// 7 is the 'no shadows' state, no reason to add overlays for it.
-				var/image/I = cache["[corner]-[i]"]
-				if (!I)
-					I = make_ao_image(corner, i)	// this will also add the image to the cache.
-
-				if (!pixel_x && !pixel_y && !pixel_w && !pixel_z)	// We can only use the cache if we're not shifting.
-					LAZYADD(ao_overlays, I)
-				else
-					// There's a pixel var set, so we're going to need to make a new instance just for this type.
-					var/mutable_appearance/MA = new(I)
-					// We invert the offsets here to counteract the pixel shifting of the parent turf.
-					MA.pixel_x = -(pixel_x)
-					MA.pixel_y = -(pixel_y)
-					MA.pixel_w = -(pixel_w)
-					MA.pixel_z = -(pixel_z)
-
-					LAZYADD(ao_overlays, MA)
-
-	UNSETEMPTY(ao_overlays)
-
-	if (ao_overlays)
-		add_overlay(ao_overlays, TRUE)
+#undef REGEN_AO
+#undef PROCESS_AO_CORNER
