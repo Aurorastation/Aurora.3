@@ -1536,3 +1536,30 @@
 	pulling_punches = !pulling_punches
 	src << "<span class='notice'>You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"].</span>"
 	return
+
+
+/mob/living/carbon/human/verb/look_upwards()
+	set name = "Look Up"
+	set desc = "If you want to know what's above."
+	set category = "IC"
+
+	if(!is_physically_disabled())
+		var/turf/above = GetAbove(src)
+		if(istype(above))
+			if(bound_overlay)
+				if(client.eye == bound_overlay)
+					reset_view(0)
+					return
+				if(isopenturf(above))
+					to_chat(src, "<span class='notice'>You look up.</span>")
+					if(client)
+						reset_view(bound_overlay)
+					return
+			to_chat(src, "<span class='notice'>You can see \the [above].</span>")
+		else
+			if(!above)
+				var/turf/look = get_turf(src)
+				if(!look.roof_type)
+					to_chat(src, "<span class='notice'>You can see the sky.</span>")
+				else
+					to_chat(src, "<span class='notice'>You can see the ceiling.</span>")

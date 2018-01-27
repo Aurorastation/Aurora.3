@@ -1,3 +1,11 @@
+/mob/living/carbon/human/Move()
+	. = ..()
+	if(.)
+		if(bound_overlay && client && client.eye == bound_overlay)
+			var/turf/T = GetAbove(src)
+			if(!istype(T) || (isopenturf(T)))
+				reset_view(src)
+
 /mob/living/carbon/human/movement_delay()
 
 	var/tally = 0
