@@ -174,6 +174,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define RAD_SHIELDED 1 //shielded from radiation, clearly
 #define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
 #define HIDE_FROM_HOLOMAP 4 // if we shouldn't be drawn on station holomaps
+#define FIRING_RANGE	8
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.

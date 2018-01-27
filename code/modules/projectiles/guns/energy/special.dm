@@ -41,6 +41,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_POWER = 3)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/energy/declone
+	pin = null
 
 /obj/item/weapon/gun/energy/floragun
 	name = "floral somatoray"
@@ -111,8 +112,9 @@
 	w_class = 3.0
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/item/projectile/energy/phoron
-	can_turret = 1
-	turret_is_lethal = 0
+	pin = null
+	can_turret = 1		
+	turret_is_lethal = 0		
 	turret_sprite_set = "net"
 
 /obj/item/weapon/gun/energy/beegun
@@ -133,6 +135,7 @@
 	move_delay = 3
 	fire_delay = 0
 	dispersion = list(0.0, 0.2, -0.2)
+	pin = null
 
 /obj/item/weapon/gun/energy/mousegun
 	name = "\improper NT \"Arodentia\" Exterminator ray"
@@ -223,6 +226,7 @@
 	burst_delay = 1
 	fire_delay = 10
 	dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
+	pin = null
 
 	firemodes = list(
 		list(mode_name="concentrated burst", burst=10, burst_delay = 1, fire_delay = 10, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
@@ -285,9 +289,9 @@
 	burst = 1
 	burst_delay = 1
 	fire_delay = 0
+	pin = null
 	can_turret = 1
 	turret_sprite_set = "laser"
-
 	firemodes = list(
 		list(mode_name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
 		list(mode_name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5)

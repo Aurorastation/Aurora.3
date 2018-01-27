@@ -9,6 +9,7 @@
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
 	max_shots = 10
+	pin = null
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam/pulse
 	secondary_fire_sound = 'sound/weapons/pulse.ogg'
@@ -37,3 +38,4 @@
 	icon_state = "pulse_pistol"
 	item_state = "pulse_pistol"
 	max_shots = 5
+	pin = null

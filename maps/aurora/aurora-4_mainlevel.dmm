@@ -12813,6 +12813,7 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
+/obj/item/weapon/storage/box/firingpins,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "axm" = (
@@ -14647,6 +14648,7 @@
 	pixel_y = -2
 	},
 /obj/item/weapon/storage/box/teargas,
+/obj/item/weapon/storage/box/firingpins,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "aAp" = (

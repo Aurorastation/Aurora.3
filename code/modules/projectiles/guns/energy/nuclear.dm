@@ -6,6 +6,7 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
 	max_shots = 10
+	pin = null
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam
 	secondary_fire_sound = 'sound/weapons/Laser.ogg'
@@ -38,6 +39,7 @@
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
 	modifystate = null
+	pin = null
 	reliability = 95
 	turret_sprite_set = "nuclear"
 	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."

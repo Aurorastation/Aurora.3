@@ -60,6 +60,7 @@
 /area/security/range
 	name = "\improper Security - Firing Range"
 	icon_state = "firingrange"
+	flags = FIRING_RANGE
 
 /area/security/tactical
 	name = "\improper Security - Tactical Equipment"

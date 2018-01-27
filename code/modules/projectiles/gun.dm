@@ -65,6 +65,8 @@
 	var/list/dispersion = list(0)
 	var/reliability = 100
 
+	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin//standard firing pin for most guns.
+
 
 	var/next_fire_time = 0
 
@@ -76,6 +78,7 @@
 	var/recoil_wielded = 0
 	var/accuracy_wielded = 0
 	var/wielded = 0
+	var/needspin = TRUE
 
 
 	//aiming system stuff
@@ -84,15 +87,22 @@
 	var/tmp/mob/living/last_moved_mob //Used to fire faster at more than one person.
 	var/tmp/lock_time = -100
 
-/obj/item/weapon/gun/Initialize()
+/obj/item/weapon/gun/Initialize(mapload)
 	. = ..()
 	for(var/i in 1 to firemodes.len)
 		firemodes[i] = new /datum/firemode(src, firemodes[i])
 
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
+	
+	if (mapload && !pin && needspin)
+		pin = /obj/item/device/firing_pin
+	
+	if(pin && needspin)
+		pin = new pin(src)
 
 	queue_icon_update()
+
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -102,6 +112,7 @@
 		return 0
 	if(!user.IsAdvancedToolUser())
 		return 0
+
 	if(user.disabilities & PACIFIST)
 		to_chat(user, "<span class='notice'>You don't want to risk harming anyone!</span>")
 		return 0
@@ -124,6 +135,20 @@
 		else
 			handle_click_empty(user)
 		return 0
+
+	if(pin && needspin)
+		if(pin.pin_auth(user) || pin.emagged)
+			return 1
+		else
+			pin.auth_fail(user)
+			return 0
+	else
+		if(needspin)
+			to_chat(user, "<span class='warning'>[src]'s trigger is locked. This weapon doesn't have a firing pin installed!</span>")
+			return 0
+		else
+			return 1
+
 	return 1
 
 /obj/item/weapon/gun/emp_act(severity)
@@ -397,6 +422,14 @@
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
 	if (istype(in_chamber))
 		user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
+		if (!pin && needspin)//Checks the pin of the gun.
+			user.visible_message("<span class = 'warning'>*click click*</span>")
+			mouthshoot = 0
+			return
+		if (!pin.pin_auth() && needspin)
+			user.visible_message("<span class = 'warning'>*click click*</span>")
+			mouthshoot = 0
+			return
 		if(silenced)
 			playsound(user, fire_sound, 10, 1)
 		else
@@ -606,6 +639,20 @@
 
 	mob_can_equip(M as mob, slot)
 		return 0
+		
+/obj/item/weapon/gun/examine(mob/user)
+	..()
+	if(needspin)
+		if(pin)
+			user << "There is a \[pin] in the trigger mechanism."
+		else
+			user << "It doesn't have a firing pin installed, and won't fire."
+
+obj/item/weapon/gun/Destroy()
+	if (istype(pin))
+		QDEL_NULL(pin)
+	return ..()
+
 
 /obj/item/weapon/gun/proc/handle_reliability_fail(var/mob/user)
 	var/severity = 1
@@ -629,3 +676,23 @@
 
 /obj/item/weapon/gun/proc/critical_fail(var/mob/user)
 	return
+
+/obj/item/weapon/gun/attackby(var/obj/item/I as obj, var/mob/user as mob)
+	if(!pin)
+		return ..()
+
+	if(isscrewdriver(I))
+		visible_message("<span class = 'warning'>[user] begins to try and pry out [src]'s firing pin!</span>")
+		if(do_after(user,45 SECONDS,act_target = src))
+			if(pin.durable)
+				visible_message("<span class = 'notice'>[user] pops the [pin] out of [src]!</span>")
+				pin.forceMove(get_turf(src))
+				pin = null//clear it out.
+			else
+				user.visible_message(
+				"<span class='warning'>[user] breaks some electronics free from [src] with a crack.</span>",
+				"<span class='alert'>You apply a bit too much force to [pin], and it breaks in two. Oops.</span>",
+				"You hear a metallic crack.")
+				qdel(pin)
+				pin = null
+	.=..()

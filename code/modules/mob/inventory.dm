@@ -344,3 +344,5 @@ var/list/slot_equipment_priority = list( \
 	for(var/entry in get_equipped_items(include_carried))
 		drop_from_inventory(entry)
 		qdel(entry)
+
+
