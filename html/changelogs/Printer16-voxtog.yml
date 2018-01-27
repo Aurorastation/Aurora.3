@@ -1,0 +1,4 @@
+author: Printer16
+delete-after: True
+changes: 
+  - rscadd: "You can now toggle the announcement voice. The option is in the ASFX menu."
