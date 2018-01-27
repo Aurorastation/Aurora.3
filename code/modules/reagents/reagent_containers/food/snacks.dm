@@ -4929,12 +4929,12 @@
 	icon_state = "riztizkzi_sea"
 
 /obj/item/weapon/reagent_containers/food/snacks/father_breakfast
-	name = "breakfast of guwandi"
+	name = "breakfast of champions"
 	desc = "A sausage and an omelette on top of a grilled steak."
 	icon_state = "father_breakfast"
 
 /obj/item/weapon/reagent_containers/food/snacks/stuffed_meatball
-	name = "stuffed faggot" //YES
+	name = "stuffed meatball" //YES
 	desc = "A meatball loaded with cheese."
 	icon_state = "stuffed_meatball"
 
@@ -4943,12 +4943,50 @@
 	desc = "An omelette baked on top of a giant meat patty. Ironically, this monstrousity is typically shared between four people during a dinnertime meal."
 	icon_state = "egg_pancake"
 
-/obj/item/weapon/reagent_containers/food/snacks/grilled_carp
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/grilled_carp
 	name = "korlaaskak"
-	desc = "A well-dressed carp, seared to perfection and adorned with herbs."
+	desc = "A well-dressed carp, seared to perfection and adorned with herbs and spices. Can be sliced into proper serving sizes."
 	icon_state = "grilled_carp"
+	slice_path = /obj/item/weapon/reagent_containers/food/snacks/grilled_carp_slice
+	slices_num = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/grilled_carp_slice
 	name = "korlaaskak slice"
-	desc = "A well-dressed fillet of carp, seared to perfection and adorned with herbs."
+	desc = "A well-dressed fillet of carp, seared to perfection and adorned with herbs and spices."
 	icon_state = "grilled_carp_slice"
+//Sushi
+
+/obj/item/weapon/reagent_containers/food/snacks/sliceable/sushi_roll
+	name = "ouere carp roll"
+	desc = "A giant carp roll wrapped in special grass that combines unathi and human cooking techniques. Can be sliced into proper serving sizes."
+	icon_state = "sushi_roll"
+	slice_path = /obj/item/weapon/reagent_containers/food/snacks/sushi_serve
+	slices_num = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/sushi_serve
+	name = "ouere carp rolls"
+	desc = "A serving of carp roll wrapped in special grass that combines unathi and human cooking techniques."
+	icon_state = "sushi_serve"
+
+//Spreads
+/obj/item/weapon/reagent_containers/food/snacks/spreads
+	name = "nutri-spread"
+	desc = "A stick of plant-based nutriments in a semi-solid form. I can't believe it's not margarine!"
+	icon_state = "marge"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("margarine" = 1)
+	nutriment_amt = 20
+
+/obj/item/weapon/reagent_containers/food/snacks/spreads/butter
+	name = "butter"
+	desc = "A stick of pure butterfat made from milk products."
+	icon_state = "marge"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("butter" = 1)
+	nutriment_amt = 0
+
+/obj/item/weapon/reagent_containers/food/snacks/spreads/Initialize()
+	. = ..()
+	reagents.add_reagent("triglyceride", 20)
