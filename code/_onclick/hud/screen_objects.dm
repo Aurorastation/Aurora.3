@@ -8,7 +8,7 @@
 */
 /obj/screen
 	name = ""
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	layer = 20.0
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
@@ -222,6 +222,15 @@
 		if("drop")
 			if(usr.client)
 				usr.client.drop_item()
+
+		if("up hint")
+			var/turf/T = GetAbove(usr)
+			if (!T)
+				to_chat(usr, "<span class='notice'>There is nothing above you!</span>")
+			else if (T.is_hole)
+				to_chat(usr, "<span class='notice'>There's no roof above your head! You can see up!</span>")
+			else
+				to_chat(usr, "<span class='notice'>You see a ceiling staring back at you.</span>")
 
 		if("module")
 			if(isrobot(usr))

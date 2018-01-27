@@ -297,8 +297,8 @@
 /obj/item/clothing/ears/offear
 	name = "Other ear"
 	w_class = 5.0
-	icon = 'icons/mob/screen1_Midnight.dmi'
-	icon_state = "block"
+	icon = 'icons/mob/screen/midnight.dmi'
+	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 	New(var/obj/O)

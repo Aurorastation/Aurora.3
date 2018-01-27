@@ -117,8 +117,16 @@
 
 /mob/living/carbon/human/Move()
 	. = ..()
+
+	var/turf/T = loc
+	if (!isturf(T))
+		return
+
+	if (client)
+		var/turf/B = GetAbove(T)
+		up_hint.icon_state = "uphint[(B ? B.is_hole : 0)]"
+
 	if (is_noisy && !stat && !lying)
-		var/turf/T = loc
 		if ((x == last_x && y == last_y) || !T.footstep_sound)
 			return
 		last_x = x

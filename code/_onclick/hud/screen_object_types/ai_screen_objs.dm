@@ -2,7 +2,7 @@
 
 /obj/screen/module
 	dir = SOUTHWEST
-	icon = 'icons/mob/screen1_robot.dmi'
+	icon = 'icons/mob/screen/robot.dmi'
 	var/mod_pos
 
 /obj/screen/module/one
@@ -33,7 +33,7 @@
 	R.toggle_module(mod_pos)
 
 /obj/screen/ai
-	icon = 'icons/mob/screen_ai.dmi'
+	icon = 'icons/mob/screen/ai.dmi'
 	layer = 21
 
 /obj/screen/ai/core
@@ -189,3 +189,21 @@
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
 		AI.sensor_mode()
+
+/obj/screen/ai/move_up
+	name = "Move Up"
+	icon_state = "move_up"
+	screen_loc = ui_ai_move_up
+
+/obj/screen/ai/move_up/Click()
+	if (isAI(usr))
+		usr.up()
+
+/obj/screen/ai/move_down
+	name = "Move Down"
+	icon_state = "move_down"
+	screen_loc = ui_ai_move_down
+
+/obj/screen/ai/move_down/Click()
+	if (isAI(usr))
+		usr.down()

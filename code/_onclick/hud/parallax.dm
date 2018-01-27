@@ -46,7 +46,7 @@
 
 /obj/screen/plane_master/parallax_spacemaster/New()
 	..()
-	overlays += image(icon = 'icons/mob/screen1.dmi', icon_state = "blank")
+	overlays += image(icon = 'icons/mob/screen/generic.dmi', icon_state = "blank")
 	if(universe)
 		universe.convert_parallax(src)
 
