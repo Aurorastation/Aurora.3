@@ -195,14 +195,14 @@
 	for(var/datum/language/L in owner.languages)
 		prev_languages.Add(L)
 		owner.remove_language(L.name)
-	owner.add_language(LANGUAGE_BRAZILIAN)
+	owner.add_language(LANGUAGE_GIBBERING)
 	..()
 
 /datum/brain_trauma/severe/aphasia/on_lose()
 	for(var/datum/language/L in prev_languages)
 		owner.add_language(L.name)
 		prev_languages.Remove(L)
-	owner.remove_language(LANGUAGE_BRAZILIAN)
+	owner.remove_language(LANGUAGE_GIBBERING)
 	..()
 
 /datum/brain_trauma/severe/pacifism

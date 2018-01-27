@@ -81,7 +81,7 @@
 	return language.name
 
 /datum/language/aphasia
-	name = LANGUAGE_BRAZILIAN
+	name = LANGUAGE_GIBBERING
 	desc = "It is theorized that any sufficiently brain-damaged person can speak this language."
 	speech_verb = "garbles"
 	ask_verb = "mumbles"

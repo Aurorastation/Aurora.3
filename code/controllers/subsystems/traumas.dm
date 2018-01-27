@@ -46,7 +46,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 						"paranormals" = typecacheof(list(/mob/living/simple_animal/hostile/scarybat, /mob/living/simple_animal/hostile/true_changeling,
 														/mob/living/simple_animal/hostile/mimic, /mob/living/simple_animal/hostile/faithless,
 														/mob/living/simple_animal/construct)),
-						"death" = typecacheof(list(/mob/dead/observer))
+						"death" = typecacheof(list(/mob/abstract/observer))
 					   )
 
 	phobia_objs = list("spiders"   = typecacheof(list(/obj/effect/spider,/obj/item/toy/plushie/spider, /obj/effect/decal/cleanable/spiderling_remains)),

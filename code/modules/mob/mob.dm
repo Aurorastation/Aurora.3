@@ -992,7 +992,7 @@
 	flick("weak_pain",pain)
 
 /mob/proc/Jitter(amount)
-		jitteriness = max(jitteriness,amount,0)
+	jitteriness = max(jitteriness,amount,0)
 
 /mob/proc/get_visible_implants(var/class = 0)
 	var/list/visible_implants = list()
