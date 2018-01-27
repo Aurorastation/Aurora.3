@@ -124,7 +124,7 @@
 
 	if (client)
 		var/turf/B = GetAbove(T)
-		up_hint.icon_state = "uphint[(B ? B.is_hole : 0)]"
+		up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
 	if (is_noisy && !stat && !lying)
 		if ((x == last_x && y == last_y) || !T.footstep_sound)
