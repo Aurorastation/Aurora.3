@@ -676,8 +676,6 @@
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
 		/obj/item/clothing/under/rank/clown = 0.1,
 		/obj/item/clothing/under/mime = 0.1,
-		/obj/item/clothing/accessory/badge = 0.2,
-		/obj/item/clothing/accessory/badge/old = 0.2,
 		/obj/item/clothing/accessory/storage/webbing = 0.6,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
 		/obj/item/clothing/head/collectable/petehat = 0.1,

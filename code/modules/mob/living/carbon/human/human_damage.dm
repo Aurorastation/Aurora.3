@@ -215,7 +215,7 @@
 		oxyloss = 0
 	else
 		amount = amount*species.oxy_mod
-		if(getOxyLoss() + amount >=  config.health_threshold_crit) //start taking brain damage if they go into crit from oxyloss
+		if(getOxyLoss() + amount >=  abs(config.health_threshold_crit)) //start taking brain damage if they go into crit from oxyloss
 			adjustBrainLoss(amount,55) //this brain damage won't be lethal)
 		..(amount)
 
