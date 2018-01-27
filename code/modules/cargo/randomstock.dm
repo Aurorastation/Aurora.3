@@ -1161,6 +1161,8 @@ var/list/global/random_stock_large = list(
 			allsigns -= typesof(/obj/structure/sign/poster)
 			allsigns -= /obj/structure/sign/directions
 			allsigns -= typesof(/obj/structure/sign/christmas)
+			allsigns -= typesof(/obj/structure/sign/flag)
+
 			var/number = rand(1,5)
 
 			while (number > 0)
