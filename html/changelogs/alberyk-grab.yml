@@ -1,5 +1,0 @@
-author: Alberyk
-delete-after: True
-changes: 
-  - tweak: "Trying to move, when possible, will now resist if you are grabbed."
-  - tweak: "Throwing a grab will now always break the grab, do not matter the distance."
