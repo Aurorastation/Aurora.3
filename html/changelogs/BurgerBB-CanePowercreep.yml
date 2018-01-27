@@ -1,0 +1,6 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added new cane abilities based on intent. Help intent pokes people; disarm intent smacks people for slight damage, with a chance to disarm; Grab intent grabs people, harm intent deals regular damage."
