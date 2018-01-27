@@ -59,7 +59,7 @@
 
 	holder_type = /obj/item/weapon/holder/drone
 
-/mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/dead/observer/possessor)
+/mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
 		return 0
 	if(!config.allow_drone_spawn)
@@ -75,7 +75,7 @@
 		return 0
 	return 1
 
-/mob/living/silicon/robot/drone/do_possession(var/mob/dead/observer/possessor)
+/mob/living/silicon/robot/drone/do_possession(var/mob/abstract/observer/possessor)
 	if(!(istype(possessor) && possessor.ckey))
 		return 0
 	if(src.ckey || src.client)

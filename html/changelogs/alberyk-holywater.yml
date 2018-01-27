@@ -1,0 +1,4 @@
+author: Alberyk
+delete-after: True
+changes: 
+  - rscadd: "Holy water should be more effective when fighting the undead."

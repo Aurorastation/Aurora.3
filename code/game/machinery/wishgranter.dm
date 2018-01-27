@@ -79,7 +79,7 @@
 				user << "The Wish Granter punishes you for your wickedness, claiming your soul and slaving you to its own dark purposes."
 				user.mind.special_role = "Avatar of the Wish Granter"
 				user.hallucination += 10
-				user.adjustBrainLoss(30)
+				user.adjustBrainLoss(30, 50) //shouldn't kill you
 				user.emote("screams!")
 				playsound(user, 'sound/hallucinations/wail.ogg', 40, 1)
 				sleep(30)

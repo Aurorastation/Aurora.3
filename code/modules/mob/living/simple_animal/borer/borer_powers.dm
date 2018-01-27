@@ -294,7 +294,7 @@
 
 	src << "You begin delicately adjusting your connection to the host brain..."
 
-	spawn(100+(host.brainloss*5))
+	spawn(100+(host.getBrainLoss()*5))
 
 		if(!host || !src || controlling)
 			return

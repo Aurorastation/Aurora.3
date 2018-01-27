@@ -456,7 +456,7 @@ var/list/global/random_stock_large = list(
 /obj/effect/large_stock_marker
 	name = "Large Stock Marker"
 	desc = "This marks a place where a large object could spawn in cargo"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x3"
 
 //This function actually handles the spawning.
@@ -1160,6 +1160,7 @@ var/list/global/random_stock_large = list(
 			allsigns -= typesof(/obj/structure/sign/double)
 			allsigns -= typesof(/obj/structure/sign/poster)
 			allsigns -= /obj/structure/sign/directions
+			allsigns -= typesof(/obj/structure/sign/christmas)
 			var/number = rand(1,5)
 
 			while (number > 0)

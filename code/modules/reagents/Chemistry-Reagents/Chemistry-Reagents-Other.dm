@@ -82,7 +82,7 @@
 		O.color = color
 
 /datum/reagent/paint/touch_mob(var/mob/M)
-	if(istype(M) && !istype(M, /mob/dead)) //painting ghosts: not allowed
+	if(istype(M) && !istype(M, /mob/abstract)) //painting ghosts: not allowed
 		M.color = color //maybe someday change this to paint only clothes and exposed body parts for human mobs.
 
 /datum/reagent/paint/get_data()
@@ -234,11 +234,19 @@
 			vampire.frenzy += removed * 5
 		else if(M.mind && cult.is_antagonist(M.mind) && prob(10))
 			cult.remove_antagonist(M.mind)
+	if(alien && alien == IS_UNDEAD)
+		M.adjust_fire_stacks(10)
+		M.IgniteMob()
 
 /datum/reagent/water/holywater/touch_turf(var/turf/T)
 	if(volume >= 5)
 		T.holy = 1
 	return
+
+/datum/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_UNDEAD)
+		M.adjust_fire_stacks(5)
+		M.IgniteMob()
 
 /datum/reagent/diethylamine
 	name = "Diethylamine"

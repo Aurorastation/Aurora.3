@@ -714,7 +714,7 @@ proc/api_update_command_database()
 	var/allow_antaghud = queryparams["allow_antaghud"]
 	var/senderkey = queryparams["senderkey"] //Identifier of the sender (Ckey / Userid / ...)
 
-	var/mob/dead/observer/G = ghosts[target]
+	var/mob/abstract/observer/G = ghosts[target]
 
 	if(!G in ghosts)
 		statuscode = 404

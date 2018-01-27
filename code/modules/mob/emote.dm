@@ -25,7 +25,6 @@
 		if (log_emote)
 			log_emote("[name]/[key] : [message]",ckey=key_name(key))
 
-
 /mob/proc/emote_dead(var/message)
 
 	if(client.prefs.muted & MUTE_DEADCHAT)
@@ -62,10 +61,10 @@
 		messageturfs += turf
 
 	for(var/mob/M in player_list)
-		if (!M.client || istype(M, /mob/new_player))
+		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
-			if (istype(M, /mob/dead/observer))
+			if (istype(M, /mob/abstract/observer))
 				messagemobs_neardead += M
 				continue
 			else if (istype(M, /mob/living) && !(type == 2 && (sdisabilities & DEAF || ear_deaf)))

@@ -202,7 +202,7 @@
 	return null
 
 var/obj/item/weapon/card/id/all_access/ghost_all_access
-/mob/dead/observer/GetIdCard()
+/mob/abstract/observer/GetIdCard()
 	if(!is_admin(src))
 		return
 
