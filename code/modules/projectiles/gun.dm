@@ -113,19 +113,6 @@
 	if(!user.IsAdvancedToolUser())
 		return 0
 
-	if(pin && needspin)
-		if(pin.pin_auth(user) || pin.emagged)
-			return 1
-		else
-			pin.auth_fail(user)
-			return 0
-	else
-		if(needspin)
-			to_chat(user, "<span class='warning'>[src]'s trigger is locked. This weapon doesn't have a firing pin installed!</span>")
-			return 0
-		else
-			return 1
-
 	if(user.disabilities & PACIFIST)
 		to_chat(user, "<span class='notice'>You don't want to risk harming anyone!</span>")
 		return 0
@@ -148,6 +135,20 @@
 		else
 			handle_click_empty(user)
 		return 0
+
+	if(pin && needspin)
+		if(pin.pin_auth(user) || pin.emagged)
+			return 1
+		else
+			pin.auth_fail(user)
+			return 0
+	else
+		if(needspin)
+			to_chat(user, "<span class='warning'>[src]'s trigger is locked. This weapon doesn't have a firing pin installed!</span>")
+			return 0
+		else
+			return 1
+
 	return 1
 
 /obj/item/weapon/gun/emp_act(severity)
