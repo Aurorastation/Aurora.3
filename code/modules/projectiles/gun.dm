@@ -490,12 +490,12 @@
 	..()
 	if(needspin)
 		if(pin)
-			user << "There is \the [pin] in the trigger mechanism."
+			to_chat(user, "\The [pin] is installed in the trigger mechanism.")
 		else
-			user << "It doesn't have a firing pin installed, and won't fire."
+			to_chat(user, "It doesn't have a firing pin installed, and won't fire.")
 	if(firemodes.len > 1)
 		var/datum/firemode/current_mode = firemodes[sel_mode]
-		user << "The fire selector is set to [current_mode.name]."
+		to_chat(user, "The fire selector is set to [current_mode.name].")
 
 /obj/item/weapon/gun/proc/switch_firemodes()
 	if(firemodes.len <= 1)
