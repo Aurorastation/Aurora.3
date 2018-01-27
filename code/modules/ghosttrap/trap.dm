@@ -417,7 +417,7 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 /datum/ghosttrap/brainwashed
 	object = "split personality"
 	ghost_trap_message = "They are a split personality now."
-	ghost_trap_role = "pAI"
+	ghost_trap_role = "split personality"
 	can_set_own_name = TRUE
 	list_as_special_role = TRUE
 
@@ -427,7 +427,7 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 /datum/ghosttrap/friend
 	object = "friend"
 	ghost_trap_message = "They are an imaginary friend now."
-	ghost_trap_role = "pAI"
+	ghost_trap_role = "imaginary friend"
 	can_set_own_name = TRUE
 	list_as_special_role = TRUE
 
