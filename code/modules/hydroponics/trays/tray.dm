@@ -234,7 +234,7 @@
 	weedlevel += 1 * HYDRO_SPEED_MULTIPLIER
 	pestlevel = 0
 	if(prob(min(25,max(1,seed.get_trait(TRAIT_POTENCY/2)))))
-		if(seed.get_trait(TRAIT_SPOROUS))
+		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))
 			visible_message("<span class='danger'>\The [src] releases its spores!</span>")
 

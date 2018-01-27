@@ -255,21 +255,27 @@
 		src << "<span class='warning'>You must have an aggressive grab to gut your prey!</span>"
 		return
 
-	last_special = world.time + 25
-
-	visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!</span>")
-
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
-		H.apply_damage(25,BRUTE, sharp=1, edge=1)
+		var/hit_zone = zone_sel.selecting
+		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
+
+		if(!affected || affected.is_stump())
+			H << "<span class='danger'>They are missing that limb!</span>"
+			return
+
+		H.apply_damage(25, BRUTE, hit_zone, sharp = 1, edge = 1)
+		visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!</span>")
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
 		M.apply_damage(25,BRUTE, sharp=1, edge=1)
+		visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!</span>")
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1)
+	last_special = world.time + 25
 
 /mob/living/carbon/human/proc/detonate_flechettes()
 	set category = "Hunter-Killer"

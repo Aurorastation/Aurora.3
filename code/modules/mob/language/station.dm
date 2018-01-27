@@ -142,7 +142,8 @@
 
 	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message))]</span></i>"
 
-	speaker.custom_emote(1, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
+	if(isvaurca(speaker))
+		speaker.custom_emote(1, "[pick("twitches their antennae", "twitches their antennae rythmically")].")
 
 	if (within_jamming_range(speaker))
 		// The user thinks that the message got through.
@@ -164,7 +165,9 @@
 		return 0
 	if(within_jamming_range(other))
 		return 0
-	if(locate(/obj/item/organ/vaurca/neuralsocket) in M.internal_organs)
+	if(M.internal_organs_by_name["neural socket"])
+		return 1
+	if(M.internal_organs_by_name["blackkois"])
 		return 1
 
 	if (M.l_ear || M.r_ear)
