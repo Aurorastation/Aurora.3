@@ -12,6 +12,7 @@
 	multi_aim = 1
 	burst_delay = 2
 	sel_mode = 1
+	pin = null
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
@@ -321,6 +322,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/trodpack)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	pin = null
 
 	firemodes = list(
 		list(mode_name="single coil",	burst=1,    fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),

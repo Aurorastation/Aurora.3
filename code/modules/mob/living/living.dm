@@ -17,7 +17,7 @@
 	if(!..())
 		return 0
 
-	usr.visible_message("<b>[src]</b> points to [A]")
+	src.visible_message("<b>[src]</b> points to [A]")
 	return 1
 
 /*one proc, four uses
@@ -280,15 +280,13 @@ default behaviour is:
 	cloneloss = amount
 
 /mob/living/proc/getBrainLoss()
-	return brainloss
+	. = 0
 
-/mob/living/proc/adjustBrainLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	brainloss = min(max(brainloss + amount, 0),(maxHealth*2))
+/mob/living/proc/adjustBrainLoss(var/amount, var/maximum)
+	return
 
 /mob/living/proc/setBrainLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	brainloss = amount
+	return
 
 /mob/living/proc/getHalLoss()
 	return halloss
@@ -752,10 +750,10 @@ default behaviour is:
 	if(deaf >= 0)
 		ear_deaf = deaf
 
-/mob/proc/can_be_possessed_by(var/mob/dead/observer/possessor)
+/mob/proc/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	return istype(possessor) && possessor.client
 
-/mob/living/can_be_possessed_by(var/mob/dead/observer/possessor)
+/mob/living/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!..())
 		return 0
 	if(!possession_candidate)
@@ -768,7 +766,7 @@ default behaviour is:
 		return 0
 	return 1
 
-/mob/living/proc/do_possession(var/mob/dead/observer/possessor)
+/mob/living/proc/do_possession(var/mob/abstract/observer/possessor)
 
 	if(!(istype(possessor) && possessor.ckey))
 		return 0

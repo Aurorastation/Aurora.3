@@ -62,6 +62,11 @@
 		if(target.mind && target.mind.special_role && target.emagged)
 			target << "Extreme danger.  Termination codes detected.  Scrambling security codes and automatic AI unlink triggered."
 			target.ResetSecurityCodes()
+
+		if(target.emagged)
+			user << "Access Denied. Safety protocols are disabled."
+			return
+
 		else
 			message_admins("[key_name_admin(usr)] detonated [target.name]!")
 			log_game("[key_name(usr)] detonated [target.name]!",ckey=key_name(usr))

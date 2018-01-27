@@ -387,7 +387,7 @@ There are several things that need to be remembered:
 		if (has_visible_hair)
 			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
 			if (hair_style)
-				var/col = species.get_light_color(h_style) || "#FFFFFF"
+				var/col = species.get_light_color(src) || "#FFFFFF"
 				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
 		else
 			set_light(0)

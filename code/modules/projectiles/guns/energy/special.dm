@@ -41,6 +41,7 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_POWER = 3)
 	max_shots = 10
 	projectile_type = /obj/item/projectile/energy/declone
+	pin = null
 
 /obj/item/weapon/gun/energy/floragun
 	name = "floral somatoray"
@@ -111,6 +112,7 @@
 	w_class = 3.0
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/item/projectile/energy/phoron
+	pin = null
 	can_turret = 1		
 	turret_is_lethal = 0		
 	turret_sprite_set = "net"
@@ -133,6 +135,7 @@
 	move_delay = 3
 	fire_delay = 0
 	dispersion = list(0.0, 0.2, -0.2)
+	pin = null
 
 /obj/item/weapon/gun/energy/mousegun
 	name = "\improper NT \"Arodentia\" Exterminator ray"
@@ -158,21 +161,7 @@
 /obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
 	spark(T, 3, alldirs)
-	failcheck()
 	..()
-
-/obj/item/weapon/gun/energy/mousegun/proc/failcheck()
-	lightfail = 0
-	if (prob(5))
-		for (var/mob/living/M in range(rand(1,4),src)) //Big failure, TIME FOR RADIATION BITCHES
-			if (src in M.contents)
-				M << "<span class='danger'>[src]'s reactor overloads!</span>"
-			M << "<span class='warning'>You feel a wave of heat wash over you.</span>"
-			M.apply_effect(300, IRRADIATE)
-		//crit_fail = 1 //break the gun so it stops recharging
-		STOP_PROCESSING(SSprocessing, src)
-		update_icon()
-	return 0
 
 /obj/item/weapon/gun/energy/net
 	name = "net gun"
@@ -237,6 +226,7 @@
 	burst_delay = 1
 	fire_delay = 10
 	dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
+	pin = null
 
 	firemodes = list(
 		list(mode_name="concentrated burst", burst=10, burst_delay = 1, fire_delay = 10, dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)),
@@ -275,7 +265,8 @@
 					"<span class='danger'>You hear the spin of a rotary gun!</span>"
 					)
 	is_charging = 1
-	sleep(30)
+	if(!do_after(user, 30))
+		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
@@ -298,9 +289,9 @@
 	burst = 1
 	burst_delay = 1
 	fire_delay = 0
+	pin = null
 	can_turret = 1
 	turret_sprite_set = "laser"
-
 	firemodes = list(
 		list(mode_name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
 		list(mode_name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5)
@@ -370,7 +361,8 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(20)
+	if(!do_after(user, 20))
+		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
@@ -423,7 +415,8 @@
 	recharge_time = 1
 	charge_meter = 1
 	charge_cost = 50
-	can_turret = 1		 
+	dispersion = list(0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
+	can_turret = 1
 	turret_sprite_set = "thermaldrill"
 
 	firemodes = list(
@@ -462,7 +455,8 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(40)
+	if(!do_after(user, 40))
+		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
 		return
@@ -505,7 +499,8 @@
 					"<span class='danger'>You hear a low pulsing roar!</span>"
 					)
 	is_charging = 1
-	sleep(20)
+	if(!do_after(user, 20))
+		return 0
 	is_charging = 0
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
 	return 1

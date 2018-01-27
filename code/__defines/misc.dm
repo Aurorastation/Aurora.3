@@ -40,6 +40,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define SEE_INVISIBLE_MINIMUM 5
 #define INVISIBILITY_MAXIMUM 100
+#define INVISIBILITY_ABSTRACT 101	// Special invis value that can never be seen by see_invisible.
 
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
@@ -75,15 +76,15 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 //Gun safety check.
 #define SAFETY_CHECK 0x10
 
-
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
 //Sound effects toggles
 #define ASFX_AMBIENCE	1
 #define ASFX_FOOTSTEPS	2
 #define ASFX_VOTE		4
+#define ASFX_VOX		8
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE)
+#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line rounding the mob's number health.
@@ -173,6 +174,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define RAD_SHIELDED 1 //shielded from radiation, clearly
 #define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
 #define HIDE_FROM_HOLOMAP 4 // if we shouldn't be drawn on station holomaps
+#define FIRING_RANGE	8
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.

@@ -1,5 +1,0 @@
-
-author: Alberyk
-delete-after: True
-changes: 
-  - balance: "Changed how the telebaton's stun works, it should now take in consideration things like spacesuits, armor and species related variables when stunning a target."

@@ -1,6 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - experiment: "Spreading-style explosions have been rewritten: they should be faster and more reliable."
-  - rscadd: "Spreading-style explosions now have simple explosions' directional explosion sounds."
-  - rscadd: "Spreading-style explosions now cross Z-levels."

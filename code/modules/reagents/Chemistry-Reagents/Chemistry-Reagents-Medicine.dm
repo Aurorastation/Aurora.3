@@ -540,10 +540,30 @@
 	if(volume <= 0.1 && data != -1)
 		data = -1
 		M << "<span class='warning'>Your mind feels a little less stable...</span>"
+		if (ishuman(M))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+			if(B)
+				for(var/x in B.traumas)
+					var/datum/brain_trauma/BT = x
+					if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && BT.suppressed)
+						BT.on_gain()
+						BT.suppressed = 0
+
 	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
+		if((world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY) || !data)
 			data = world.time
 			M << "<span class='notice'>Your mind feels stable... a little stable.</span>"
+
+			if (ishuman(M))
+				var/mob/living/carbon/human/H = M
+				var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+				if(B)
+					for(var/x in B.traumas)
+						var/datum/brain_trauma/BT = x
+						if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && !BT.permanent)
+							BT.on_lose()
+							BT.suppressed = 1
 
 /datum/reagent/paroxetine
 	name = "Paroxetine"
@@ -556,17 +576,45 @@
 	taste_description = "bitterness"
 
 /datum/reagent/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(volume <= 0.1 && data != -1)
+	if((volume <= 0.1 || data == -2) && data != -1)
 		data = -1
 		M << "<span class='warning'>Your mind feels much less stable...</span>"
+		if (ishuman(M))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+			if(B)
+				for(var/x in B.traumas)
+					var/datum/brain_trauma/BT = x
+					if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SEVERE) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && BT.suppressed)
+						BT.on_gain()
+						BT.suppressed = 0
 	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			if(prob(96))
-				M << "<span class='notice'>Your mind feels much more stable.</span>"
-			else
-				M << "<span class='warning'>Your mind breaks apart...</span>"
-				M.hallucination += 200
+		if(data >= 0)
+			if((world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY) || !data)
+				data = world.time
+				if(prob(75))
+					M << "<span class='notice'>Your mind feels much more stable.</span>"
+					if (ishuman(M))
+						var/mob/living/carbon/human/H = M
+						var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+						if(B)
+							for(var/x in B.traumas)
+								var/datum/brain_trauma/BT = x
+								if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SEVERE) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && !BT.permanent)
+									BT.on_lose(1)
+									BT.suppressed = 1
+				else
+					data = -2
+					M << "<span class='warning'>Your mind breaks apart...</span>"
+					if(ishuman(M))
+						var/mob/living/carbon/human/H = M
+						if(prob(66))
+							if(prob(70))
+								H.gain_trauma_type(BRAIN_TRAUMA_MILD)
+							else
+								H.gain_trauma_type(BRAIN_TRAUMA_SEVERE)
+					else
+						M.hallucination += 200
 
 /datum/reagent/rezadone
 	name = "Rezadone"

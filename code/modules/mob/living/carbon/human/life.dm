@@ -79,6 +79,8 @@
 
 		handle_heartbeat()
 
+		handle_brain_damage()
+
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
 		handle_stamina()
 
@@ -115,9 +117,6 @@
 // Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
 /mob/living/carbon/human/proc/get_pressure_weakness()
-	if (global.mechanical_species[get_species()] == MECHANICAL_SPECIES_INDUSTRIAL)
-		return 0	 // woo, back-mounted cooling!
-
 	var/pressure_adjustment_coefficient = 1 // Assume no protection at first.
 
 	if(wear_suit && (wear_suit.item_flags & STOPPRESSUREDAMAGE) && head && (head.item_flags & STOPPRESSUREDAMAGE)) // Complete set of pressure-proof suit worn, assume fully sealed.
@@ -264,7 +263,7 @@
 	// Handle side effects from stasis bag
 	if(in_stasis)
 		// First off, there's no oxygen supply, so the mob will slowly take brain damage
-		adjustBrainLoss(0.1)
+		adjustOxyLoss(0.1)
 
 		// Next, the method to induce stasis has some adverse side-effects, manifesting
 		// as cloneloss
@@ -912,7 +911,7 @@
 
 		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
-			if(I.contaminated)
+			if(I.contaminated && !(isvaurca(src) && src.species.has_organ["filtration bit"]))
 				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
 		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
 
@@ -1568,6 +1567,11 @@
 		speech_problem_flag = 1
 	return stuttering
 
+/mob/living/carbon/human/handle_tarded()
+	if(..())
+		speech_problem_flag = 1
+	return tarded
+
 /mob/living/carbon/human/handle_fire()
 	if(..())
 		return
@@ -1700,6 +1704,16 @@
 	else if (last_oxy_overlay)
 		damageoverlay.cut_overlay(last_oxy_overlay)
 		last_oxy_overlay = null
+
+////////////////
+//BRAIN DAMAGE//
+////////////////
+
+/mob/living/carbon/human/proc/handle_brain_damage()
+	for(var/T in get_traumas())
+		var/datum/brain_trauma/BT = T
+		if(!BT.suppressed)
+			BT.on_life()
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

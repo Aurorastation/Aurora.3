@@ -165,6 +165,7 @@ var/list/global/random_stock_uncommon = list(
 	"sord" = 1,
 	"policebaton" = 1.5,
 	"stunbaton" = 0.75,//batons spawn with no powercell
+	"firingpin" = 3,
 	"watches" = 3,
 	"MMI" = 1.5,
 	"voidsuit" = 2,
@@ -455,7 +456,7 @@ var/list/global/random_stock_large = list(
 /obj/effect/large_stock_marker
 	name = "Large Stock Marker"
 	desc = "This marks a place where a large object could spawn in cargo"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x3"
 
 //This function actually handles the spawning.
@@ -1062,6 +1063,8 @@ var/list/global/random_stock_large = list(
 			new /obj/random/action_figure(L)
 		if("plushie")
 			new /obj/random/plushie(L)
+		if("firingpin")
+			new /obj/item/weapon/storage/box/firingpins(L)
 		if("mediumcell")
 			var/number = rand(1,2)
 			while (number > 0)
@@ -1157,6 +1160,7 @@ var/list/global/random_stock_large = list(
 			allsigns -= typesof(/obj/structure/sign/double)
 			allsigns -= typesof(/obj/structure/sign/poster)
 			allsigns -= /obj/structure/sign/directions
+			allsigns -= typesof(/obj/structure/sign/christmas)
 			var/number = rand(1,5)
 
 			while (number > 0)

@@ -24,7 +24,7 @@
 		B.host << "The captive mind of [src] whispers, \"[message]\""
 
 		for (var/mob/M in player_list)
-			if (istype(M, /mob/new_player))
+			if (istype(M, /mob/abstract/new_player))
 				continue
 			else if(M.stat == 2 &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
 				M << "The captive mind of [src] whispers, \"[message]\""
@@ -41,10 +41,10 @@
 		H << "<span class='danger'>You begin doggedly resisting the parasite's control (this will take approximately sixty seconds).</span>"
 		B.host << "<span class='danger'>You feel the captive mind of [src] begin to resist your control.</span>"
 
-		spawn(rand(200,250)+B.host.brainloss)
+		spawn(rand(200,250)+B.host.getBrainLoss())
 			if(!B || !B.controlling) return
 
-			B.host.adjustBrainLoss(rand(5,10))
+			B.host.adjustBrainLoss(rand(5,10), 55)
 			H << "<span class='danger'>With an immense exertion of will, you regain control of your body!</span>"
 			B.host << "<span class='danger'>You feel control of the host brain ripped from your grasp, and retract your probosci before the wild neural impulses can damage you.</span>"
 			B.detatch()

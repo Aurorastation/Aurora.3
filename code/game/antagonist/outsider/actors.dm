@@ -51,7 +51,7 @@ var/datum/antagonist/actor/actor
 	if(choice != "Yes")
 		return
 
-	if(istype(usr,/mob/dead/observer) || istype(usr,/mob/new_player))
+	if(istype(usr,/mob/abstract/observer) || istype(usr,/mob/abstract/new_player))
 		if(actor.current_antagonists.len >= actor.hard_cap)
 			usr << "No more actors may spawn at the current time."
 			return

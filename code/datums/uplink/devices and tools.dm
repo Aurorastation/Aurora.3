@@ -15,6 +15,13 @@
 	path = /obj/item/weapon/storage/secure/briefcase/money
 	desc = "A briefcase with 10,000 untraceable credits for funding your sneaky activities."
 
+/datum/uplink_item/item/tools/firingpin //todo, make this a special syndicate one instead of just a normal one? 
+	name = "Firing Pin"
+	item_cost = 2
+	path = /obj/item/device/firing_pin
+	desc = "A Syndicate-branded Firing pin - It should be compatible with nearly every weapon onboard."
+
+
 /datum/uplink_item/item/tools/clerical
 	name = "Morphic Clerical Kit"
 	item_cost = 3

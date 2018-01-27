@@ -151,12 +151,12 @@ var/list/sacrificed = list()
 					//hallucination is reduced when the step off as well, provided they haven't hit the last stage...
 					target.hallucination += 5000
 					target.apply_effect(10, STUTTER)
-					target.adjustBrainLoss(1)
+					target.adjustBrainLoss(1, 55)
 				if(100 to INFINITY)
 					target << "<span class='cult'>Your entire broken soul and being is engulfed in corruption and flames as your mind shatters away into nothing.</span>"
 					target.hallucination += 5000
 					target.apply_effect(15, STUTTER)
-					target.adjustBrainLoss(rand(1,5))
+					target.adjustBrainLoss(rand(1,5), 55)
 
 		initial_message = 1
 		if (target.species && (target.species.flags & NO_PAIN))
@@ -329,8 +329,8 @@ var/list/sacrificed = list()
 			user << "<span class='warning'>The sacrifical corpse is not dead. You must free it from this world of illusions before it may be used.</span>"
 		return fizzle(user)
 
-	var/mob/dead/observer/ghost
-	for(var/mob/dead/observer/O in loc)
+	var/mob/abstract/observer/ghost
+	for(var/mob/abstract/observer/O in loc)
 		if(!O.client)	continue
 		if(O.mind && O.mind.current && O.mind.current.stat != DEAD)	continue
 		ghost = O
@@ -423,8 +423,8 @@ var/list/sacrificed = list()
 	var/obj/effect/rune/this_rune = src
 	if(user.loc!=this_rune.loc)
 		return this_rune.fizzle(user)
-	var/mob/dead/observer/ghost
-	for(var/mob/dead/observer/O in this_rune.loc)
+	var/mob/abstract/observer/ghost
+	for(var/mob/abstract/observer/O in this_rune.loc)
 		if(!O.client)	continue
 		if(!O.MayRespawn()) continue
 		if(O.mind && O.mind.current && O.mind.current.stat != DEAD)	continue

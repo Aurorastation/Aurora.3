@@ -83,8 +83,14 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame")	//humanoid bodytypes
-			species_restricted = list("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame") //skrell/humans like to share with IPCs
+		if("Human", "Skrell", "Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")	//humanoid bodytypes
+			species_restricted = list(
+				"Human", 
+				"Skrell",
+				"Machine",
+				"Zeng-Hu Mobility Frame",
+				"Bishop Accessory Frame"
+			) //skrell/humans like to share with IPCs
 		else
 			species_restricted = list(target_species)
 
@@ -105,8 +111,8 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Skrell")
-			species_restricted = list("Human", "Skrell", "Baseline Frame", "Shell Frame", "Industrial Frame") // skrell helmets like to share
+		if("Skrell", "Human")
+			species_restricted = list("Human", "Skrell", "Machine") // skrell helmets like to share
 
 		else
 			species_restricted = list(target_species)
@@ -291,8 +297,8 @@
 /obj/item/clothing/ears/offear
 	name = "Other ear"
 	w_class = 5.0
-	icon = 'icons/mob/screen1_Midnight.dmi'
-	icon_state = "block"
+	icon = 'icons/mob/screen/midnight.dmi'
+	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 	New(var/obj/O)
