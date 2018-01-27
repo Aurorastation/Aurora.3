@@ -394,7 +394,7 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 	object = "Vampire"
 	pref_check = MODE_VAMPIRE
 	ghost_trap_message = "They are occupying a vampire."
-	ghost_trap_role = "vampire"
+	ghost_trap_role = "Vampire"
 	ban_checks = list(MODE_VAMPIRE)
 	can_set_own_name = FALSE
 	list_as_special_role = FALSE
