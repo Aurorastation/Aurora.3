@@ -31,7 +31,6 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
 	projectile_type = /obj/item/projectile/energy/electrode
 	max_shots = 8
-	pin = null
 
 
 /obj/item/weapon/gun/energy/crossbow
@@ -69,4 +68,4 @@
 	item_state = "crossbow"
 	matter = list(DEFAULT_WALL_MATERIAL = 200000)
 	projectile_type = /obj/item/projectile/energy/bolt/large
-	
+
