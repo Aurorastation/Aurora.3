@@ -65,7 +65,6 @@ obj/item/weapon/gun/energy/retro
 	charge_cost = 400
 	max_shots = 5
 	fire_delay = 20
-	pin = null
 	can_turret = 1
 	turret_sprite_set = "cannon"
 
@@ -87,7 +86,6 @@ obj/item/weapon/gun/energy/retro
 	charge_cost = 100
 	max_shots = 20
 	fire_delay = 1
-	pin = null
 	can_turret = 1
 	turret_sprite_set = "xray"
 
@@ -160,7 +158,6 @@ obj/item/weapon/gun/energy/retro
 	move_delay = 0
 	fire_delay = 2
 	dispersion = list(1.0, -1.0, 2.0, -2.0)
-	pin = null
 	can_turret = 1
 	turret_sprite_set = "laser"
 

@@ -14,7 +14,6 @@
 	var/message_enabled = 0 //If playing the message should be enabled
 	var/message_disable = 0 //If the loop should be stopped
 	var/default_desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
-	pin = null
 
 	firemodes = list(
 		list(
