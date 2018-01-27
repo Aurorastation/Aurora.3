@@ -136,8 +136,8 @@
 		if(I_GRAB)
 			if(M == src || anchored)
 				return 0
-			if(disabilities & PACIFIST)
-				to_chat(src, "<span class='notice'>You don't want to risk hurting [M]!</span>")
+			if(M.disabilities & PACIFIST)
+				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
 			for(var/obj/item/weapon/grab/G in src.grabbed_by)
 				if(G.assailant == M)
@@ -171,8 +171,8 @@
 			return 1
 
 		if(I_HURT)
-			if(disabilities & PACIFIST)
-				to_chat(src, "<span class='notice'>You don't want to risk hurting [M]!</span>")
+			if(M.disabilities & PACIFIST)
+				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
 			if(!istype(H))
 				attack_generic(H,rand(1,3),"punched")
@@ -287,8 +287,8 @@
 			apply_damage(real_damage, (attack.deal_halloss ? HALLOSS : BRUTE), hit_zone, armour, sharp=attack.sharp, edge=attack.edge)
 
 		if(I_DISARM)
-			if(disabilities & PACIFIST)
-				to_chat(src, "<span class='notice'>You don't want to risk hurting [M]!</span>")
+			if(M.disabilities & PACIFIST)
+				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")

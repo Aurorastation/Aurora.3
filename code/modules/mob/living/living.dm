@@ -17,7 +17,7 @@
 	if(!..())
 		return 0
 
-	usr.visible_message("<b>[src]</b> points to [A]")
+	src.visible_message("<b>[src]</b> points to [A]")
 	return 1
 
 /*one proc, four uses
