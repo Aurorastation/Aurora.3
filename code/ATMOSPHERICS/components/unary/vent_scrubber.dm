@@ -33,13 +33,9 @@
 	use_power = 1
 	icon_state = "map_scrubber_on"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/New()
-	..()
-	air_contents.volume = ATMOS_DEFAULT_VOLUME_FILTER
-
-
 /obj/machinery/atmospherics/unary/vent_scrubber/Initialize()
 	. = ..()
+	air_contents.volume = ATMOS_DEFAULT_VOLUME_FILTER
 
 	initial_loc = get_area(loc)
 	area_uid = initial_loc.uid
@@ -51,8 +47,6 @@
 	radio_filter_out = frequency==initial(frequency)?(RADIO_TO_AIRALARM):null
 	if (frequency)
 		set_frequency(frequency)
-	
-	atmos_init()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/atmos_init()
 	..()
@@ -77,7 +71,7 @@
 		icon_state = "on"
 	else
 		icon_state = "in"
-		
+
 /obj/machinery/atmospherics/unary/vent_scrubber/update_underlays()
 	if(..())
 		underlays.Cut()

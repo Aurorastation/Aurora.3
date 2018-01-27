@@ -91,3 +91,11 @@ var/global/list/bantype_to_antag_age = list()
 		if(player in antag.pending_antagonists)
 			return 1
 	return 0
+
+/**
+ * This must be called after map loading is done!
+ */
+/proc/populate_antag_spawns()
+	for (var/T in all_antag_types)
+		var/datum/antagonist/A = all_antag_types[T]
+		A.get_starting_locations()

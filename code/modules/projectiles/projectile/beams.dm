@@ -259,9 +259,9 @@
 	..()
 
 /obj/item/projectile/beam/thermaldrill
-	name = "thermal lance"
+	name = "thermal drill"
 	icon_state = "megaglaive"
-	damage = 5
+	damage = 1
 	no_attack_log = 1
 
 	muzzle_type = /obj/effect/projectile/solar/muzzle
@@ -279,10 +279,6 @@
 					M.emitter_blasts_taken += 2
 				else if(prob(66))
 					M.emitter_blasts_taken += 2
-
-	if(ismob(A))
-		var/mob/living/M = A
-		M.apply_effect(1, INCINERATE, 0)
 	..()
 
 

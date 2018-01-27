@@ -24,9 +24,9 @@
 			shuttle.launch(src)
 			for (var/thing in current_mobs)
 				var/mob/living/carbon/human/M = locate(thing)
-				if (istype(M) && M.odin_despawn_timer)
-					deltimer(M.odin_despawn_timer)
-					M.odin_despawn_timer = null
+				if (istype(M) && M.centcomm_despawn_timer)
+					deltimer(M.centcomm_despawn_timer)
+					M.centcomm_despawn_timer = null
 
 			current_mobs.Cut()
 	else

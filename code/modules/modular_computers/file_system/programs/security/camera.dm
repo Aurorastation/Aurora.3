@@ -3,6 +3,10 @@
 	if(!network)
 		return 0
 
+	. = current_map.get_network_access(network)
+	if (.)
+		return
+
 	switch(network)
 		if(NETWORK_THUNDER)
 			return 0
@@ -45,11 +49,13 @@
 	data["current_network"] = current_network
 
 	var/list/all_networks[0]
-	for(var/network in station_networks)
-		all_networks.Add(list(list(
-							"tag" = network,
-							"has_access" = can_access_network(user, get_camera_access(network))
-							)))
+	for(var/network in current_map.station_networks)
+		all_networks += list(
+			list(
+				"tag" = network,
+				"has_access" = can_access_network(user, get_camera_access(network))
+			)
+		)
 
 	all_networks = modify_networks_list(all_networks)
 

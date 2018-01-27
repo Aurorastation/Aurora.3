@@ -37,13 +37,13 @@
 /obj/machinery/atmospherics/valve/hide(var/i)
 	update_underlays()
 
-/obj/machinery/atmospherics/valve/New()
+/obj/machinery/atmospherics/valve/Initialize()
 	switch(dir)
 		if(NORTH || SOUTH)
 			initialize_directions = NORTH|SOUTH
 		if(EAST || WEST)
 			initialize_directions = EAST|WEST
-	..()
+	. = ..()
 
 /obj/machinery/atmospherics/valve/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	if(reference == node1)
@@ -166,7 +166,7 @@
 
 	build_network()
 
-	update_icon()
+	queue_icon_update()
 	update_underlays()
 
 	if(openDuringInit)
@@ -242,7 +242,7 @@
 
 	log_and_message_admins("has [open ? "<font color='red'>OPENED</font>" : "closed"] [name].", user)
 
-/obj/machinery/atmospherics/valve/digital/AltClick(var/mob/dead/observer/admin)
+/obj/machinery/atmospherics/valve/digital/AltClick(var/mob/abstract/observer/admin)
 	if (istype(admin))
 		if (admin.client && admin.client.holder && ((R_MOD|R_ADMIN) & admin.client.holder.rights))
 			if (open)
@@ -262,7 +262,7 @@
 	var/old_stat = stat
 	..()
 	if(old_stat != stat)
-		update_icon()
+		queue_icon_update()
 
 /obj/machinery/atmospherics/valve/digital/update_icon()
 	..()

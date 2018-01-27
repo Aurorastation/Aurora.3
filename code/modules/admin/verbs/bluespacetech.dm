@@ -134,6 +134,7 @@
 /mob/living/carbon/human/bst
 	universal_understand = 1
 	status_flags = GODMODE
+	var/fall_override = TRUE
 
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
 	user << span("alert", "The [src] disarms you before you can inject them.")
@@ -168,7 +169,7 @@
 		if(client.holder && client.holder.original_mob)
 			client.holder.original_mob.key = key
 		else
-			var/mob/dead/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
+			var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 			ghost.key = key
 			ghost.mind.name = "[ghost.key] BSTech"
 			ghost.name = "[ghost.key] BSTech"
@@ -289,6 +290,18 @@
 		ghostize(0)
 		key = null
 		suicide()
+
+/mob/living/carbon/human/bst/verb/antigrav()
+	set name = "Toggle Gravity"
+	set desc = "Toggles on/off falling for you."
+	set category = "BST"
+
+	if (fall_override)
+		fall_override = FALSE
+		to_chat(usr, "<span class='notice'>You will now fall normally.</span>")
+	else
+		fall_override = TRUE
+		to_chat(usr, "<span class='notice'>You will no longer fall.</span>")
 
 /mob/living/carbon/human/bst/verb/bstwalk()
 	set name = "Ruin Everything"

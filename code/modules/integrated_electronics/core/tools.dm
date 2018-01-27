@@ -123,7 +123,7 @@
 	switch(type_to_use)
 		if("string")
 			accepting_refs = 0
-			new_data = sanitize(input("Now type in a string.","[src] string writing") as null|text)
+			new_data = sanitize(input("Now type in a string.","[src] string writing") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
 			if(istext(new_data) && CanInteract(user, physical_state))
 				data_to_write = new_data
 				to_chat(user, "<span class='notice'>You set \the [src]'s memory to \"[new_data]\".</span>")

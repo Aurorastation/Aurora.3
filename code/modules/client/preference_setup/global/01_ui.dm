@@ -22,13 +22,13 @@
 				"UI_style_color",
 				"UI_style_alpha",
 				"ooccolor"
-			), 
+			),
 			"args" = list("ckey")
 		)
 	)
 
 /datum/category_item/player_setup_item/player_global/ui/gather_load_parameters()
-	return list("ckey" = pref.client.ckey)
+	return list("ckey" = PREF_CLIENT_CKEY)
 
 /datum/category_item/player_setup_item/player_global/ui/gather_save_query()
 	return list(
@@ -43,7 +43,7 @@
 
 /datum/category_item/player_setup_item/player_global/ui/gather_save_parameters()
 	return list(
-		"ckey" = pref.client.ckey,
+		"ckey" = PREF_CLIENT_CKEY,
 		"UI_style_alpha" = pref.UI_style_alpha,
 		"UI_style_color" = pref.UI_style_color,
 		"UI_style" = pref.UI_style,

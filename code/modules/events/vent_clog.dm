@@ -16,7 +16,7 @@
 	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in SSmachinery.processing_machines)
 		if(!temp_vent)
 			continue
-		if(temp_vent.z in config.station_levels)//STATION ZLEVEL
+		if(temp_vent.z in current_map.station_levels)//STATION ZLEVEL
 			if(temp_vent.network && temp_vent.network.normal_members.len > 20)
 				vents += temp_vent
 	if(!vents.len)

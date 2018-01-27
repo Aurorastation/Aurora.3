@@ -77,7 +77,7 @@
 		role_type = id
 
 	cur_max = hard_cap
-	get_starting_locations()
+
 	if(!role_text_plural)
 		role_text_plural = role_text
 	if(config.protect_roles_from_antagonist)
@@ -98,7 +98,7 @@
 	// Prune restricted status. Broke it up for readability.
 	// Note that this is done before jobs are handed out.
 	for(var/datum/mind/player in SSticker.mode.get_players_for_role(role_type, id))
-		if(ghosts_only && !istype(player.current, /mob/dead))
+		if(ghosts_only && !istype(player.current, /mob/abstract))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: Only ghosts may join as this role!")
 		else if(!allow_animals && isanimal(player.current))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: Simple animals cannot be this role!")
@@ -183,7 +183,7 @@
 	if(player.special_role)
 		log_debug("[player.key] was selected for [role_text] by lottery, but they already have a special role.")
 		return 0
-	if(!(flags & ANTAG_OVERRIDE_JOB) && (!player.current || istype(player.current, /mob/new_player)))
+	if(!(flags & ANTAG_OVERRIDE_JOB) && (!player.current || istype(player.current, /mob/abstract/new_player)))
 		log_debug("[player.key] was selected for [role_text] by lottery, but they have not joined the game.")
 		return 0
 

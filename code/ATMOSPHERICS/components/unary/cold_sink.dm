@@ -28,9 +28,9 @@
 		/obj/item/stack/cable_coil{amount = 2}
 	)
 
-/obj/machinery/atmospherics/unary/freezer/New()
-	..()
+/obj/machinery/atmospherics/unary/freezer/Initialize()
 	initialize_directions = dir
+	. = ..()
 
 /obj/machinery/atmospherics/unary/freezer/atmos_init()
 	if(node)

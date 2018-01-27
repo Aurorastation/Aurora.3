@@ -78,7 +78,7 @@
 	drop_l_hand()
 
 	if(healths)
-		healths.icon_state = "health6"
+		healths.icon_state = "health7"
 
 	timeofdeath = world.time
 	if (isanimal(src))

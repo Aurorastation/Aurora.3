@@ -125,10 +125,9 @@
 	var/datum/gas_mixture/environment = T.return_air()
 	if(!environment) return
 
-	var/obj/effect/plant/plant = locate() in T
-	if((environment.gas["phoron"] > 0 || (plant && plant.seed && plant.seed.name == "xenomorph")) && !regenerate(H))
-		var/obj/item/organ/xenos/plasmavessel/P = H.internal_organs_by_name["plasma vessel"]
-		if(istype(P))
+	if(environment.gas["phoron"] > 0 || locate(/obj/structure/alien/weeds) in T)
+		if(!regenerate(H))
+			var/obj/item/organ/xenos/plasmavessel/P = H.internal_organs_by_name["plasma vessel"]
 			P.stored_plasma += weeds_plasma_rate
 			P.stored_plasma = min(max(P.stored_plasma,0),P.max_plasma)
 	..()
@@ -310,8 +309,8 @@
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
 		/mob/living/carbon/human/proc/neurotoxin,
+		/mob/living/carbon/human/proc/gut,
 		/mob/living/carbon/human/proc/resin,
-		/mob/living/carbon/human/proc/xeno_infest,
 		/mob/living/carbon/human/proc/darkness_eyes
 		)
 
@@ -327,7 +326,7 @@
 
 /datum/hud_data/alien
 
-	icon = 'icons/mob/screen1_alien.dmi'
+	icon = 'icons/mob/screen/alien.dmi'
 	has_a_intent =  1
 	has_m_intent =  1
 	has_warnings =  1

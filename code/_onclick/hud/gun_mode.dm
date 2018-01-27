@@ -1,6 +1,6 @@
 /obj/screen/gun
 	name = "gun"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/generic.dmi'
 	master = null
 	dir = 2
 

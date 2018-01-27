@@ -39,7 +39,7 @@
 		var/eye_safety = 0
 		var/ear_safety = 0
 		if(iscarbon(M))
-			eye_safety = M.eyecheck()
+			eye_safety = M.eyecheck(TRUE)
 			if(ishuman(M))
 				if(istype(M:l_ear, /obj/item/clothing/ears/earmuffs) || istype(M:r_ear, /obj/item/clothing/ears/earmuffs))
 					ear_safety += 2

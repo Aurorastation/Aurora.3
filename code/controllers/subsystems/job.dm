@@ -4,6 +4,8 @@
 #define BE_ASSISTANT 1
 #define RETURN_TO_LOBBY 2
 
+#define Debug(text) if (Debug2) {job_debug += text}
+
 /datum/controller/subsystem/jobs
 	// Subsystem stuff.
 	name = "Jobs"
@@ -32,26 +34,19 @@
 
 /datum/controller/subsystem/jobs/proc/SetupOccupations(faction = "Station")
 	occupations = list()
-	var/list/all_jobs = typesof(/datum/job)
+	var/list/all_jobs = current_map.allowed_jobs
 	if(!all_jobs.len)
 		world << "<span class='warning'>Error setting up jobs, no job datums found!</span>"
 		return FALSE
 
 	for(var/J in all_jobs)
 		var/datum/job/job = new J()
-		if(!job)	continue
-		if(job.faction != faction)	continue
+		if(!job || job.faction != faction)
+			continue
 		occupations += job
 		if (config && config.use_age_restriction_for_jobs)
 			job.fetch_age_restriction()
 
-	return TRUE
-
-/datum/controller/subsystem/jobs/proc/Debug(text)
-	if (!Debug2)
-		return FALSE
-
-	job_debug += text
 	return TRUE
 
 /datum/controller/subsystem/jobs/proc/GetJob(rank)
@@ -72,10 +67,10 @@
 	if(!job) return 0
 	return job.create_record
 
-/datum/controller/subsystem/jobs/proc/GetPlayerAltTitle(mob/new_player/player, rank)
+/datum/controller/subsystem/jobs/proc/GetPlayerAltTitle(mob/abstract/new_player/player, rank)
 	. = player.client.prefs.GetPlayerAltTitle(GetJob(rank))
 
-/datum/controller/subsystem/jobs/proc/AssignRole(mob/new_player/player, rank, latejoin = FALSE)
+/datum/controller/subsystem/jobs/proc/AssignRole(mob/abstract/new_player/player, rank, latejoin = FALSE)
 	Debug("Running AR, Player: [player], Rank: [rank], LJ: [latejoin]")
 	if(player && player.mind && rank)
 		var/datum/job/job = GetJob(rank)
@@ -109,7 +104,7 @@
 /datum/controller/subsystem/jobs/proc/FindOccupationCandidates(datum/job/job, level, flag)
 	Debug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
 	. = list()
-	for(var/mob/new_player/player in unassigned)
+	for(var/mob/abstract/new_player/player in unassigned)
 		if(jobban_isbanned(player, job.title))
 			Debug("FOC isbanned failed, Player: [player]")
 			continue
@@ -120,7 +115,7 @@
 			Debug("FOC pass, Player: [player], Level:[level]")
 			. += player
 
-/datum/controller/subsystem/jobs/proc/GiveRandomJob(mob/new_player/player)
+/datum/controller/subsystem/jobs/proc/GiveRandomJob(mob/abstract/new_player/player)
 	Debug("GRJ Giving random job, Player: [player]")
 	for(var/thing in shuffle(occupations))
 		var/datum/job/job = thing
@@ -144,7 +139,7 @@
 			break
 
 /datum/controller/subsystem/jobs/proc/ResetOccupations()
-	for(var/mob/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in player_list)
 		if((player) && (player.mind))
 			player.mind.assigned_role = null
 			player.mind.special_role = null
@@ -187,7 +182,7 @@
 						// If there's ABSOLUTELY NOBODY ELSE
 						if(candidates.len == 1) weightedCandidates[V] = 1
 
-			var/mob/new_player/candidate = pickweight(weightedCandidates)
+			var/mob/abstract/new_player/candidate = pickweight(weightedCandidates)
 			if(AssignRole(candidate, command_position))
 				return TRUE
 	return FALSE
@@ -200,7 +195,7 @@
 		if(!job)	continue
 		var/list/candidates = FindOccupationCandidates(job, level)
 		if(!candidates.len)	continue
-		var/mob/new_player/candidate = pick(candidates)
+		var/mob/abstract/new_player/candidate = pick(candidates)
 		AssignRole(candidate, command_position)
 
 
@@ -221,7 +216,7 @@
 				break
 
 	//Get the players who are ready
-	for(var/mob/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in player_list)
 		if(player.ready && player.mind && !player.mind.assigned_role)
 			unassigned += player
 
@@ -239,7 +234,7 @@
 	var/datum/job/assist = new DEFAULT_JOB_TYPE ()
 	var/list/assistant_candidates = FindOccupationCandidates(assist, 3)
 	Debug("AC1, Candidates: [assistant_candidates.len]")
-	for(var/mob/new_player/player in assistant_candidates)
+	for(var/mob/abstract/new_player/player in assistant_candidates)
 		Debug("AC1 pass, Player: [player]")
 		AssignRole(player, "Assistant")
 		assistant_candidates -= player
@@ -266,7 +261,7 @@
 		CheckHeadPositions(level)
 
 		// Loop through all unassigned players
-		for(var/mob/new_player/player in unassigned)
+		for(var/mob/abstract/new_player/player in unassigned)
 
 			// Loop through all jobs
 			for(var/datum/job/job in shuffledoccupations) // SHUFFLE ME BABY
@@ -289,7 +284,7 @@
 
 	// Hand out random jobs to the people who didn't get any in the last check
 	// Also makes sure that they got their preference correct
-	for(var/mob/new_player/player in unassigned)
+	for(var/mob/abstract/new_player/player in unassigned)
 		if(player.client.prefs.alternate_option == GET_RANDOM_JOB)
 			GiveRandomJob(player)
 
@@ -298,13 +293,13 @@
 	Debug("DO, Running AC2")
 
 	// For those who wanted to be assistant if their preferences were filled, here you go.
-	for(var/mob/new_player/player in unassigned)
+	for(var/mob/abstract/new_player/player in unassigned)
 		if(player.client.prefs.alternate_option == BE_ASSISTANT)
 			Debug("AC2 Assistant located, Player: [player]")
 			AssignRole(player, "Assistant")
 
 	//For ones returning to lobby
-	for(var/mob/new_player/player in unassigned)
+	for(var/mob/abstract/new_player/player in unassigned)
 		if(player.client.prefs.alternate_option == RETURN_TO_LOBBY)
 			player.ready = 0
 			player.new_player_panel_proc()
@@ -431,25 +426,25 @@
 	return H
 
 /mob/living/carbon/human
-	var/tmp/odin_despawn_timer
+	var/tmp/centcomm_despawn_timer
 
-/mob/living/proc/odin_timeout()
+/mob/living/proc/centcomm_timeout()
 	if (!istype(get_area(src), /area/centcom/spawning))
 		return FALSE
 
 	if (!client)
-		SSjobs.odin_despawn_mob(src)
+		SSjobs.centcomm_despawn_mob(src)
 		return FALSE
 
 	return TRUE
 
-/mob/living/carbon/human/odin_timeout()
+/mob/living/carbon/human/centcomm_timeout()
 	. = ..()
 
 	if (!.)
 		return FALSE
 
-	var/datum/spawnpoint/spawnpos = spawntypes["Cryogenic Storage"]
+	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cryogenic Storage"]
 	if(spawnpos && istype(spawnpos))
 		src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!</span>"
 		src.forceMove(pick(spawnpos.turfs))
@@ -459,35 +454,35 @@
 			SSjobs.EquipRank(src, rank, 1)
 			src.megavend = TRUE
 	else
-		SSjobs.odin_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
+		SSjobs.centcomm_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
 
 	return TRUE
 
-/mob/living/silicon/robot/odin_timeout()
+/mob/living/silicon/robot/centcomm_timeout()
 	. = ..()
 
 	if (!.)
 		return FALSE
 
-	var/datum/spawnpoint/spawnpos = spawntypes["Cyborg Storage"]
+	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cyborg Storage"]
 	if(spawnpos && istype(spawnpos))
 		src << "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in robotic storage the whole time!</span>"
 		src.forceMove(pick(spawnpos.turfs))
 		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
 	else
-		SSjobs.odin_despawn_mob(src)
+		SSjobs.centcomm_despawn_mob(src)
 
 	return TRUE
 
 // Convenience wrapper.
-/datum/controller/subsystem/jobs/proc/odin_despawn_mob(mob/living/H)
+/datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
-		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "NTCC Odin Cryogenic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the Odin's cryostorage, and departs.</span>", 3)
+		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[current_map.dock_name] Cryogenic Oversight")
+		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", 3)
 		DespawnMob(H)
 	else
-		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered roboticstorage.", "NTCC Odin Robotic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the Odin's robotic storage, and departs.</span>", 3)
+		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
+		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", 3)
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/EquipPersonal(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
@@ -495,7 +490,7 @@
 	if(!H)
 		Debug("EP/([H]): Abort, H is null.")
 		return null
-	H.odin_despawn_timer = addtimer(CALLBACK(H, /mob/living/proc/odin_timeout), 10 MINUTES, TIMER_STOPPABLE)
+
 	switch(rank)
 		if("Cyborg")
 			Debug("EP/([H]): Abort, H is borg..")
@@ -503,6 +498,11 @@
 		if("AI")
 			Debug("EP/([H]): Abort, H is AI.")
 			return EquipRank(H, rank, 1)
+
+	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle")
+		return EquipRank(H, rank, 1)
+
+	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
 
 	var/datum/job/job = GetJob(rank)
 
@@ -528,7 +528,6 @@
 		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 
 		job.apply_fingerprints(H)
-
 	else
 		H << "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator."
 
@@ -563,7 +562,7 @@
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 
-	H << "<b>Welcome to the Odin! Simply proceed down and to the right to board the shuttle to your workplace!</b>."
+	to_chat(H, "<b>[current_map.command_spawn_message]</b>")
 
 	Debug("EP/([H]): Completed.")
 
@@ -655,7 +654,7 @@
 		var/level3 = 0 //low
 		var/level4 = 0 //never
 		var/level5 = 0 //banned
-		for(var/mob/new_player/player in player_list)
+		for(var/mob/abstract/new_player/player in player_list)
 			if(!(player.ready && player.mind && !player.mind.assigned_role))
 				continue //This player is not ready
 			if(jobban_isbanned(player, job.title))
@@ -691,7 +690,7 @@
 	var/datum/spawnpoint/spawnpos
 
 	if(H.client.prefs.spawnpoint)
-		spawnpos = spawntypes[H.client.prefs.spawnpoint]
+		spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
 
 	if(spawnpos && istype(spawnpos))
 		if(spawnpos.check_job_spawning(rank))
@@ -700,10 +699,10 @@
 		else
 			H << "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead."
 			H.loc = pick(latejoin)
-			. = "is inbound from the NTCC Odin"
+			. = "is inbound from the [current_map.dock_name]"
 	else
 		H.loc = pick(latejoin)
-		. = "is inbound from the NTCC Odin"
+		. = "is inbound from the [current_map.dock_name]"
 
 	Debug("LS/([H]): Completed, spawning at area [H.loc.loc].")
 
@@ -741,7 +740,7 @@
 		if ((G.fields["name"] == H.real_name))
 			qdel(G)
 
-	log_and_message_admins("[key_name(H)] ([H.mind.role_alt_title]) entered cryostorage.")
+	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
 
 	//This should guarantee that ghosts don't spawn.
 	H.ckey = null
@@ -866,3 +865,4 @@
 	else
 		return locate("start*[rank]") // use old stype
 
+#undef Debug

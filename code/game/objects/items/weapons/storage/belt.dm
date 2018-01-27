@@ -51,7 +51,8 @@
 		/obj/item/weapon/material/minihoe,
 		/obj/item/weapon/material/hatchet,
 		/obj/item/device/analyzer/plant_analyzer,
-		/obj/item/weapon/extinguisher/mini
+		/obj/item/weapon/extinguisher/mini,
+		/obj/item/weapon/pipewrench
 		)
 
 
@@ -222,15 +223,18 @@
 	icon_state = "janibelt"
 	item_state = "janibelt"
 	storage_slots = 6
+	w_class = 3
 	max_w_class = 3
-	max_storage_space  = 28
 	can_hold = list(
 		/obj/item/weapon/grenade/chem_grenade/cleaner,
 		/obj/item/device/lightreplacer,
 		/obj/item/device/flashlight,
 		/obj/item/weapon/reagent_containers/spray,
 		/obj/item/weapon/soap,
-		/obj/item/weapon/storage/bag/trash
+		/obj/item/weapon/storage/bag/trash,
+		/obj/item/weapon/screwdriver,
+		/obj/item/weapon/wrench,
+		/obj/item/weapon/crowbar
 		)
 
 /obj/item/weapon/storage/belt/wands

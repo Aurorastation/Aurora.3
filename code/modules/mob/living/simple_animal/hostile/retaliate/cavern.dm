@@ -43,17 +43,10 @@
 
 	faction = "cavern"
 
+	flying = TRUE
+
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
 	return 1
-
-/mob/living/simple_animal/hostile/retaliate/cavern_dweller/can_fall()
-	return FALSE
-
-/mob/living/simple_animal/hostile/retaliate/cavern_dweller/can_ztravel()
-	return TRUE
-
-/mob/living/simple_animal/hostile/retaliate/cavern_dweller/CanAvoidGravity()
-	return TRUE
 
 /obj/item/projectile/beam/cavern
 	name = "electrical discharge"

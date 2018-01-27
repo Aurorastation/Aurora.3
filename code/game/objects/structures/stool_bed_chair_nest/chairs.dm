@@ -66,7 +66,7 @@
 		add_overlay(stool_cache[cache_key])
 
 /obj/structure/bed/chair/set_dir()
-	..()
+	. = ..()
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
 

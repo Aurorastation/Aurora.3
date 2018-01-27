@@ -56,7 +56,7 @@
 								M.apply_damage(rand(1,5), BURN)
 
 							for(M in viewers(3, null))
-								var/safety = M:eyecheck()
+								var/safety = M:eyecheck(TRUE)
 								if(!safety)
 									if(!M.blinded)
 										flick("flash", M.flash)
@@ -136,6 +136,9 @@
 		if(I_GRAB)
 			if(M == src || anchored)
 				return 0
+			if(M.disabilities & PACIFIST)
+				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+				return 0
 			for(var/obj/item/weapon/grab/G in src.grabbed_by)
 				if(G.assailant == M)
 					M << "<span class='notice'>You already grabbed [src].</span>"
@@ -168,6 +171,9 @@
 			return 1
 
 		if(I_HURT)
+			if(M.disabilities & PACIFIST)
+				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+				return 0
 			if(!istype(H))
 				attack_generic(H,rand(1,3),"punched")
 				return
@@ -281,6 +287,9 @@
 			apply_damage(real_damage, (attack.deal_halloss ? HALLOSS : BRUTE), hit_zone, armour, sharp=attack.sharp, edge=attack.edge)
 
 		if(I_DISARM)
+			if(M.disabilities & PACIFIST)
+				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+				return 0
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")
 
