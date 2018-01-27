@@ -95,7 +95,7 @@
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
 
-	if (mapload && !pin && needspin)
+	if (!pin && needspin)
 		pin = /obj/item/device/firing_pin
 
 	if(pin && needspin)
