@@ -3,4 +3,4 @@ author: BurgerBB
 delete-after: True
 
 changes: 
-  - rscadd: "Added new cane abilities based on intent. Help intent with a cane pokes people for 0.25 pain damage. Repeated poking will cause bruises and sometimes bleeding. Disarm intent with a cane smacks people for 2.5 pain damage, with a chance to disarm. Targeting the arm/hand will have a 50% chance to disarm that hand, targeting elsewhere has as a 25% chance to disarm the left hand, 25% chance to disarm the right hand. Grab intent with a cane grabs people and deals 1 pain damage, similiar to right clicking a target and pulling them. Harm intent with the cane deals 10 brute damage to the specific bodypart, with armor calculations."
+  - rscadd: "Added new cane abilities based on intent. Help intent pokes people; disarm intent smacks people for slight damage, with a chance to disarm; Grab intent grabs people, harm intent deals regular damage."
