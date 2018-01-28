@@ -25,7 +25,7 @@
 
 	var/total_sparks = 1
 	if (location)
-		var/obj/visual_effect/sparks/S = new(location, src, 0) //Trigger one on the tile it's on
+		var/obj/effect/visual/sparks/S = new(location, src, 0) //Trigger one on the tile it's on
 		S.start()
 		playsound(location, "sparks", 100, 1)
 		QUEUE_VISUAL(S)	// Queue it.
@@ -39,7 +39,7 @@
 			else
 				direction = 0
 
-			S = new /obj/visual_effect/sparks(location, src)
+			S = new /obj/effect/visual/sparks(location, src)
 			S.start(direction)	
 			QUEUE_VISUAL(S)
 			total_sparks++

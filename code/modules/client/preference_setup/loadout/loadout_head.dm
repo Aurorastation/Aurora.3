@@ -89,8 +89,17 @@
 	gear_tweaks += new/datum/gear_tweak/path(hardhat)
 
 /datum/gear/head/hairflower
-	display_name = "hair flower pin, red"
+	display_name = "hair flower pin selection"
 	path = /obj/item/clothing/head/hairflower
+
+/datum/gear/head/hairflower/New()
+	..()
+	var/hairflower = list()
+	hairflower["hair flower pin, red"] = /obj/item/clothing/head/hairflower
+	hairflower["hair flower pin, blue"] = /obj/item/clothing/head/hairflower/blue
+	hairflower["hair flower pin, yellow"] = /obj/item/clothing/head/hairflower/yellow
+	hairflower["hair flower pin, pink"] = /obj/item/clothing/head/hairflower/pink
+	gear_tweaks += new/datum/gear_tweak/path(hairflower)
 
 /datum/gear/head/hats
 	display_name = "hat selection"
@@ -131,7 +140,7 @@
 	hijab["white hijab"] = /obj/item/clothing/head/hijab/white
 
 	gear_tweaks += new/datum/gear_tweak/path(hijab)
-	
+
 /datum/gear/head/turban
 	display_name = "turban selection"
 	path = /obj/item/clothing/head/turban
@@ -148,7 +157,7 @@
 	turbans["red turban"] = /obj/item/clothing/head/turban/red
 	turbans["white turban"] = /obj/item/clothing/head/turban/white
 	turbans["yellow turban"] = /obj/item/clothing/head/turban/yellow
-	
+
 	gear_tweaks += new/datum/gear_tweak/path(turbans)
 
 /datum/gear/head/surgical

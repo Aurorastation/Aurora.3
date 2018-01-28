@@ -187,7 +187,7 @@ nanoui is used to open and update nano browser uis
 			"showMap" = show_map,
 			"mapName" = "Aurora",
 			"mapZLevel" = map_z_level,
-			"mapZLevels" = map_levels,
+			"mapZLevels" = current_map.map_levels,
 			"user" = list("name" = user.name)
 		)
 	return config_data
@@ -491,7 +491,7 @@ nanoui is used to open and update nano browser uis
 
 	if(href_list["mapZLevel"])
 		var/map_z = (text2num(href_list["mapZLevel"]))
-		if(map_z in map_levels)
+		if(map_z in current_map.map_levels)
 			set_map_z_level(map_z)
 			map_update = 1
 		else

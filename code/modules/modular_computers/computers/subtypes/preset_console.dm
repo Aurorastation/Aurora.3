@@ -77,6 +77,13 @@
 	_app_preset_name = "supply"
 	enrolled = 1
 
+/obj/item/modular_computer/console/preset/supply/install_default_hardware()
+	..()
+	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer.max_paper = 25
+	nano_printer.stored_paper = 20
+	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+
 // ERT
 /obj/item/modular_computer/console/preset/ert/install_default_hardware()
 	..()

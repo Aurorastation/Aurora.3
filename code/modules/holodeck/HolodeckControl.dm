@@ -23,14 +23,10 @@
 	var/mob/last_to_emag = null
 	var/last_change = 0
 	var/last_gravity_change = 0
-	var/list/supported_programs
-	var/list/restricted_programs
 
 /obj/machinery/computer/HolodeckControl/Initialize()
 	. = ..()
 	linkedholodeck = locate(linkedholodeck_area)
-	supported_programs = list()
-	restricted_programs = list()
 
 /obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user as mob)
 	return src.attack_hand(user)
@@ -50,14 +46,14 @@
 		onclose(user, "computer")
 		return
 
-	if(!supported_programs.len)
+	if(!current_map.holodeck_supported_programs.len)
 		dat += "<span class='danger'>Warning: No supported holo-programs loaded.<br></span>"
 		user << browse(dat, "window=computer;size=400x500")
 		onclose(user, "computer")
 		return
 
-	for(var/prog in supported_programs)
-		dat += "<A href='?src=\ref[src];program=[supported_programs[prog]]'>([prog])</A><BR>"
+	for(var/prog in current_map.holodeck_supported_programs)
+		dat += "<A href='?src=\ref[src];program=[current_map.holodeck_supported_programs[prog]]'>([prog])</A><BR>"
 
 	dat += "<BR>"
 	dat += "<A href='?src=\ref[src];program=turnoff'>(Turn Off)</A><BR>"
@@ -78,8 +74,8 @@
 	dat += "<BR>"
 
 	if(safety_disabled)
-		for(var/prog in restricted_programs)
-			dat += "<A href='?src=\ref[src];program=[restricted_programs[prog]]'>(<font color=red>Begin [prog]</font>)</A><BR>"
+		for(var/prog in current_map.holodeck_restricted_programs)
+			dat += "<A href='?src=\ref[src];program=[current_map.holodeck_restricted_programs[prog]]'>(<font color=red>Begin [prog]</font>)</A><BR>"
 			dat += "Ensure the holodeck is empty before testing.<BR>"
 			dat += "<BR>"
 		dat += "Safety Protocols are <font color=red> DISABLED </font><BR>"
@@ -103,8 +99,8 @@
 
 		if(href_list["program"])
 			var/prog = href_list["program"]
-			if(prog in holodeck_programs)
-				loadProgram(holodeck_programs[prog])
+			if(prog in current_map.holodeck_programs)
+				loadProgram(current_map.holodeck_programs[prog])
 
 		else if(href_list["AIoverride"])
 			if(!issilicon(usr))
@@ -137,7 +133,7 @@
 		safety_disabled = 1
 		update_projections()
 		user << "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>"
-		user << "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [company_name] maintenance and do not use the simulator."
+		user << "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [current_map.company_name] maintenance and do not use the simulator."
 		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
 		return 1
 		src.updateUsrDialog()
@@ -184,6 +180,10 @@
 			if (get_area(C.loc) != linkedholodeck)
 				holographic_mobs -= C
 				C.derez()
+		for(var/mob/living/simple_animal/penguin/holodeck/P in holographic_mobs)
+			if (get_area(P.loc) != linkedholodeck)
+				holographic_mobs -= P
+				P.derez()
 
 	if(inoperable())
 		return
@@ -192,7 +192,7 @@
 
 		if(!checkInteg(linkedholodeck))
 			damaged = 1
-			loadProgram(holodeck_programs["turnoff"], 0)
+			loadProgram(current_map.holodeck_programs["turnoff"], 0)
 			active = 0
 			use_power = 1
 			for(var/mob/M in range(10,src))
@@ -232,9 +232,9 @@
 //Why is it called toggle if it doesn't toggle?
 /obj/machinery/computer/HolodeckControl/proc/togglePower(var/toggleOn = 0)
 	if(toggleOn)
-		loadProgram(holodeck_programs["emptycourt"], 0)
+		loadProgram(current_map.holodeck_programs["emptycourt"], 0)
 	else
-		loadProgram(holodeck_programs["turnoff"], 0)
+		loadProgram(current_map.holodeck_programs["turnoff"], 0)
 
 		if(!linkedholodeck.has_gravity)
 			linkedholodeck.gravitychange(1,linkedholodeck)
@@ -270,6 +270,10 @@
 		holographic_mobs -= C
 		C.derez()
 
+	for(var/mob/living/simple_animal/penguin/holodeck/P in holographic_mobs)
+		holographic_mobs -= P
+		P.derez()
+
 	for(var/obj/effect/decal/cleanable/blood/B in linkedholodeck)
 		qdel(B)
 
@@ -300,6 +304,15 @@
 			if(L.name=="Holocarp Spawn")
 				holographic_mobs += new /mob/living/simple_animal/hostile/carp/holodeck(L.loc)
 
+			if(L.name=="Penguin Spawn Random")
+				if (prob(50))
+					holographic_mobs += new /mob/living/simple_animal/penguin/holodeck(L.loc)
+				else
+					holographic_mobs += new /mob/living/simple_animal/penguin/holodeck/baby(L.loc)
+
+			if(L.name=="Penguin Spawn Emperor")
+				holographic_mobs += new /mob/living/simple_animal/penguin/holodeck/emperor(L.loc)
+
 			if(L.name=="Holocarp Spawn Random")
 				if (prob(4)) //With 4 spawn points, carp should only appear 15% of the time.
 					holographic_mobs += new /mob/living/simple_animal/hostile/carp/holodeck(L.loc)
@@ -327,7 +340,7 @@
 
 /obj/machinery/computer/HolodeckControl/proc/emergencyShutdown()
 	//Turn it back to the regular non-holographic room
-	loadProgram(holodeck_programs["turnoff"], 0)
+	loadProgram(current_map.holodeck_programs["turnoff"], 0)
 
 	if(!linkedholodeck.has_gravity)
 		linkedholodeck.gravitychange(1,linkedholodeck)
@@ -338,27 +351,3 @@
 /obj/machinery/computer/HolodeckControl/Exodus
 	density = 0
 	linkedholodeck_area = /area/holodeck/alphadeck
-
-/obj/machinery/computer/HolodeckControl/Exodus/Initialize()
-	. = ..()
-	supported_programs = list(
-	"Empty Court" 		= "emptycourt",
-	"Basketball Court" 	= "basketball",
-	"Thunderdome Court"	= "thunderdomecourt",
-	"Boxing Ring"		= "boxingcourt",
-	"Beach" 			= "beach",
-	"Desert" 			= "desert",
-	"Space" 			= "space",
-	"Picnic Area" 		= "picnicarea",
-	"Snow Field" 		= "snowfield",
-	"Theatre" 			= "theatre",
-	"Meeting Hall" 		= "meetinghall",
-	"Courtroom" 		= "courtroom",
-	"Chapel"			= "chapel",
-	"Xavier Trasen Memorial Gymnasium" = "gym"
-	)
-
-	restricted_programs = list(
-	"Atmospheric Burn Simulation" = "burntest",
-	"Wildlife Simulation" = "wildlifecarp"
-	)

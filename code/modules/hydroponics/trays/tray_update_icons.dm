@@ -75,15 +75,17 @@
 
 	// Update bioluminescence.
 	if(seed && seed.get_trait(TRAIT_BIOLUM))
+		var/pwr
+		if(seed.get_trait(TRAIT_BIOLUM_PWR) == 0)
+			pwr = seed.get_trait(TRAIT_BIOLUM)
+		else
+			pwr = seed.get_trait(TRAIT_BIOLUM_PWR)
 		var/clr
 		if(seed.get_trait(TRAIT_BIOLUM_COLOUR))
 			clr = seed.get_trait(TRAIT_BIOLUM_COLOUR)
-		var/val = round(seed.get_trait(TRAIT_POTENCY)/10)
-		if (val != last_biolum)
-			last_biolum = val
-			set_light(val, l_color = clr)
+		set_light(seed.get_trait(TRAIT_POTENCY)/10, pwr, clr)
 		return
-	
+
 	if (last_biolum)
 		set_light(0)
 		last_biolum = null

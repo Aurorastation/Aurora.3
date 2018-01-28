@@ -20,7 +20,7 @@
 	cell.charge = 1000 // 41minutes @ 200W
 
 /obj/machinery/floodlight/update_icon()
-	overlays.Cut()
+	cut_overlays()
 	icon_state = "flood[open ? "o" : ""][open && cell ? "b" : ""]0[on]"
 
 /obj/machinery/floodlight/machinery_process()

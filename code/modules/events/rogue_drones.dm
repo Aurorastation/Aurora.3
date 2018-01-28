@@ -31,7 +31,7 @@
 	var/num_recovered = 0
 	for(var/mob/living/simple_animal/hostile/retaliate/malf_drone/D in drones_list)
 		spark(D.loc, 3)
-		D.z = config.admin_levels[1]
+		D.z = current_map.admin_levels[1]
 		D.has_loot = 0
 
 		qdel(D)

@@ -14,7 +14,7 @@
 
 /obj/machinery/computer/security/Initialize()
 	if(!network)
-		network = station_networks.Copy()
+		network = current_map.station_networks.Copy()
 	. = ..()
 	if(network.len)
 		current_network = network[1]

@@ -58,9 +58,10 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenglow"
 
-/obj/effect/decal/cleanable/greenglow/New()
-	..()
-	QDEL_IN(src, 2 MINUTES)
+/obj/effect/decal/cleanable/greenglow/Initialize(mapload)
+	. = ..()
+	if (!ROUND_IS_STARTED)	// Round-start goo should stick around.
+		QDEL_IN(src, 2 MINUTES)
 
 /obj/effect/decal/cleanable/cobweb
 	name = "cobweb"

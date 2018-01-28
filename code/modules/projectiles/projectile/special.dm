@@ -7,8 +7,8 @@
 	check_armour = "energy"
 	var/pulse_range = 1
 
-/obj/item/projectile/ion/on_hit(var/atom/target, var/blocked = 0)
-	empulse(target, pulse_range, pulse_range)
+/obj/item/projectile/ion/on_impact(var/atom/A)
+	empulse(A, pulse_range, pulse_range)
 	return 1
 
 /obj/item/projectile/ion/small

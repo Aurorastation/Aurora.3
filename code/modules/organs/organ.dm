@@ -48,8 +48,8 @@
 				owner.organs -= src
 			if(owner.organs_by_name)
 				owner.organs_by_name -= src
-				
-	owner = null 
+
+	owner = null
 	QDEL_NULL(dna)
 
 	return ..()

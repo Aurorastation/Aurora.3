@@ -115,7 +115,9 @@
 		for(var/N in organs_by_name)
 			var/obj/item/organ/external/O = organs_by_name[N]
 			if (O)
-				O.markings.Cut()
+				O.genetic_markings = null
+				O.temporary_markings = null
+				O.invalidate_marking_cache()
 
 		var/list/body_markings = prefs.body_markings
 		for(var/M in body_markings)
@@ -125,13 +127,19 @@
 			for(var/BP in mark_datum.body_parts)
 				var/obj/item/organ/external/O = organs_by_name[BP]
 				if(O)
-					O.markings[M] = list("color" = mark_color, "datum" = mark_datum)
+					var/list/attr = list("color" = mark_color, "datum" = mark_datum)
+					if (mark_datum.is_genetic)
+						LAZYINITLIST(O.genetic_markings)
+						O.genetic_markings[M] = attr
+					else
+						LAZYINITLIST(O.temporary_markings)
+						O.temporary_markings[M] = attr
 
 // Helper proc that grabs whatever organ this humantype uses to see.
 // Usually eyes, but can be something else.
 // If `no_synthetic` is TRUE, returns null for mobs that are mechanical, or for mechanical eyes.
 /mob/living/carbon/human/proc/get_eyes(no_synthetic = FALSE)
-	if (!species.vision_organ || !species.has_organ[species.vision_organ] || (no_synthetic && (global.mechanical_species[get_species()])))
+	if (!species.vision_organ || !species.has_organ[species.vision_organ] || (no_synthetic && (species.flags & IS_MECHANICAL)))
 		return null
 
 	var/obj/item/organ/O = internal_organs_by_name[species.vision_organ]

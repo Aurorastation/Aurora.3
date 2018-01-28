@@ -3,7 +3,7 @@
 	name = "string pin"
 
 /datum/integrated_io/string/ask_for_pin_data(mob/user)
-	var/new_data = sanitize(input("Please type in a string.","[src] string writing") as null|text)
+	var/new_data = sanitize(input("Please type in a string.","[src] string writing") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
 	if(holder.check_interactivity(user) )
 		to_chat(user, "<span class='notice'>You input [new_data ? "new_data" : "NULL"] into the pin.</span>")
 		write_data_to_pin(new_data)

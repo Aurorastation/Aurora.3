@@ -69,27 +69,21 @@
 	pressure_checks = 2
 	pressure_checks_default = 2
 
-/obj/machinery/atmospherics/unary/vent_pump/New()
-	..()
-	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP
-	
-
 /obj/machinery/atmospherics/unary/vent_pump/Initialize()
 	. = ..()
+	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP
 
-	initial_loc = get_area(loc)
+	initial_loc = loc.loc
 	area_uid = initial_loc.uid
 	if (!id_tag)
 		assign_uid()
 		id_tag = num2text(uid)
-		
+
 	//some vents work his own special way
-	radio_filter_in = frequency==1439?(RADIO_FROM_AIRALARM):null
-	radio_filter_out = frequency==1439?(RADIO_TO_AIRALARM):null
+	radio_filter_in = frequency == 1439 ? (RADIO_FROM_AIRALARM) : null
+	radio_filter_out = frequency == 1439 ? (RADIO_TO_AIRALARM) : null
 	if(frequency)
 		radio_connection = register_radio(src, frequency, frequency, radio_filter_in)
-
-	atmos_init()
 
 // Different from the above.
 /obj/machinery/atmospherics/unary/vent_pump/atmos_init()
@@ -105,8 +99,8 @@
 	power_channel = EQUIP
 	power_rating = 15000	//15 kW ~ 20 HP
 
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/New()
-	..()
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/Initialize()
+	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 800
 
 /obj/machinery/atmospherics/unary/vent_pump/engine
@@ -114,8 +108,8 @@
 	power_channel = ENVIRON
 	power_rating = 30000	//15 kW ~ 20 HP
 
-/obj/machinery/atmospherics/unary/vent_pump/engine/New()
-	..()
+/obj/machinery/atmospherics/unary/vent_pump/engine/Initialize()
+	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500 //meant to match air injector
 
 /obj/machinery/atmospherics/unary/vent_pump/update_icon(var/safety = 0)
@@ -140,6 +134,8 @@
 
 	icon_state = vent_icon
 
+	update_underlays()
+
 /obj/machinery/atmospherics/unary/vent_pump/update_underlays()
 	if(..())
 		underlays.Cut()
@@ -155,8 +151,7 @@
 				add_underlay(T,, dir)
 
 /obj/machinery/atmospherics/unary/vent_pump/hide()
-	update_icon()
-	update_underlays()
+	queue_icon_update()
 
 /obj/machinery/atmospherics/unary/vent_pump/proc/can_pump()
 	if(stat & (NOPOWER|BROKEN))

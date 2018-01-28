@@ -1,15 +1,25 @@
 /datum/uplink_category
 	var/name = ""
 	var/list/datum/uplink_item/items
+	var/list/datum/antagonist/antag_roles
 
 /datum/uplink_category/New()
 	..()
 	items = list()
 
 /datum/uplink_category/proc/can_view(obj/item/device/uplink/U)
+	for(var/antag_role in antag_roles)
+		var/datum/antagonist/antag = all_antag_types[antag_role]
+		if(antag.is_antagonist(U.uplink_owner))
+			return 1
+
 	for(var/datum/uplink_item/item in items)
 		if(item.can_view(U))
 			return 1
+
+	if(!antag_roles.len)
+		return 1
+
 	return 0
 
 /datum/uplink_category/ammunition
@@ -51,4 +61,7 @@
 /datum/uplink_category/specialty //snowflake antag items - a brave new frontier!
 	name = "Specialised Items"
 
+/datum/uplink_category/ninja_modules
+	name = "Infiltration Items"
+	antag_roles = list(MODE_NINJA)
 

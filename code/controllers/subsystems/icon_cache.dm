@@ -2,7 +2,8 @@
 
 /datum/controller/subsystem/icon_cache
 	name = "Icon Cache"
-	flags = SS_NO_FIRE | SS_NO_INIT
+	flags = SS_NO_FIRE
+	init_order = SS_INIT_MISC_FIRST
 
 	// Cached bloody overlays, key is object type.
 	var/list/bloody_cache = list()
@@ -63,8 +64,24 @@
 
 	var/list/ao_cache = list()
 
+	var/list/light_fixture_cache = list()
+
+	var/list/rgb_blend_cache = list()	// not an icon per-se, but this proc could be expensive so we might as well cache it.
+
+	var/list/space_dust_cache = list()
+
+	var/list/space_cache = list()
+	var/list/crayon_cache = list()
+
 /datum/controller/subsystem/icon_cache/New()
 	NEW_SS_GLOBAL(SSicon_cache)
+
+/datum/controller/subsystem/icon_cache/Initialize()
+	build_dust_cache()
+	build_space_cache()
+	setup_collar_mappings()
+	setup_uniform_mappings()
+	..()
 
 /datum/controller/subsystem/icon_cache/proc/setup_collar_mappings()
 	collar_states = list()
@@ -85,3 +102,25 @@
 	uniform_states = list()
 	for (var/i in icon_states('icons/mob/uniform.dmi'))
 		uniform_states[i] = TRUE
+
+/datum/controller/subsystem/icon_cache/proc/generate_color_variant(icon/icon, icon_state, color)
+	var/image/I = new(icon, icon_state)
+	I.color = color
+	return I
+
+/datum/controller/subsystem/icon_cache/proc/build_dust_cache()
+	for (var/i in 0 to 25)
+		var/image/im = image('icons/turf/space_parallax1.dmi',"[i]")
+		im.plane = PLANE_SPACE_DUST
+		im.alpha = 80
+		im.blend_mode = BLEND_ADD
+		space_dust_cache["[i]"] = im
+
+/datum/controller/subsystem/icon_cache/proc/build_space_cache()
+	for (var/i in 0 to 25)
+		var/image/I = new()
+		I.appearance = /turf/space
+		var/istr = "[i]"
+		I.icon_state = istr
+		I.overlays += space_dust_cache[istr]
+		space_cache[istr] = I

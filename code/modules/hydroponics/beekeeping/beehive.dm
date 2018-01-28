@@ -277,7 +277,7 @@
 /obj/item/stack/wax
 	name = "wax"
 	singular_name = "wax piece"
-	desc = "Soft substance produced by bees. Used to make candles."
+	desc = "Soft substance produced by botany. Used to make candles."
 	icon = 'icons/obj/beekeeping.dmi'
 	icon_state = "wax"
 

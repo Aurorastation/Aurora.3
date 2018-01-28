@@ -141,3 +141,108 @@
 		to_chat(user, "<span class='notice'>You can't load \the [src] without cycling the bolt.</span>")
 		return
 	..()
+
+/obj/item/weapon/gun/projectile/boltaction/vintage
+	name = "\improper vintage bolt action rifle"
+	desc = "An extremely old-looking rifle. Words you can't read are stamped on the gun. Doesn't look like it'll take any modern rounds."
+	icon_state = "springfield"
+	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 3)
+	fire_sound = 'sound/weapons/rifleshot.ogg'
+	slot_flags = SLOT_BACK
+	load_method = SINGLE_CASING|SPEEDLOADER
+	handle_casings = HOLD_CASINGS
+	caliber = "vintage"
+	ammo_type = /obj/item/ammo_casing/vintage
+	var/open_bolt = 0
+	var/obj/item/ammo_magazine/boltaction/vintage/has_clip
+
+	action_button_name = "Wield rifle"
+
+
+/obj/item/weapon/gun/projectile/boltaction/vintage/attack_self(mob/living/user as mob)
+	if(wielded)
+		if(world.time >= recentpump + 10)
+			pump(user)
+			recentpump = world.time
+		return
+	else
+		if(open_bolt && has_clip)
+			if(has_clip.stored_ammo.len > 0)
+				load_ammo(has_clip, user)
+				src.cut_overlays()
+				if(!has_clip.stored_ammo.len)
+					src.add_overlay(image('icons/obj/gun.dmi', "springfield-clip-empty"))
+				else if(has_clip.stored_ammo.len <= 3)
+					src.add_overlay(image('icons/obj/gun.dmi', "springfield-clip-half"))
+				else
+					src.add_overlay(image('icons/obj/gun.dmi', "springfield-clip-full"))
+			else
+				user << "<span class='warning'>There is no ammo in \the [has_clip.name]!</span>"
+		else if(!open_bolt)
+			user << "<span class='warning'>The bolt on \the [src.name] is closed!</span>"
+		else
+			user << "<span class='warning'>There is no clip in \the [src.name]!</span>"
+
+/obj/item/weapon/gun/projectile/boltaction/vintage/pump(mob/M as mob)
+	if(!wielded)
+		M << "<span class='warning'>You cannot work \the [src.name]'s bolt without gripping it with both hands!</span>"
+		return
+	if(!open_bolt)
+		open_bolt = 1
+		icon_state = "springfield-openbolt"
+		playsound(M, 'sound/weapons/riflebolt.ogg', 60, 1)
+		update_icon()
+		return
+	open_bolt = 0
+	icon_state = "springfield"
+	playsound(M, 'sound/weapons/riflebolt.ogg', 60, 1)
+	if(has_clip)
+		has_clip.forceMove(get_turf(src))
+		has_clip = null
+		src.cut_overlays()
+
+
+	if(chambered)//We have a shell in the chamber
+		chambered.loc = get_turf(src)//Eject casing
+		chambered = null
+
+	if(loaded.len)
+		var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
+		loaded -= AC //Remove casing from loaded list.
+		chambered = AC
+
+	update_icon()
+
+/obj/item/weapon/gun/projectile/boltaction/vintage/attackby(var/obj/item/A as obj, mob/user as mob)
+	if(istype(A, /obj/item/ammo_magazine/boltaction/vintage))
+		if(!open_bolt)
+			user << "<span class='notice'>You need to open the bolt of \the [src] first.</span>"
+			return
+		if(!has_clip)
+			user.drop_from_inventory(A)
+			A.forceMove(src)
+			has_clip = A
+			user << "<span class='notice'>You load the clip into \the [src].</span>"
+			if(!has_clip.stored_ammo.len)
+				src.add_overlay(image('icons/obj/gun.dmi', "springfield-clip-empty"))
+			else if(has_clip.stored_ammo.len <= 3)
+				src.add_overlay(image('icons/obj/gun.dmi', "springfield-clip-half"))
+			else
+				src.add_overlay(image('icons/obj/gun.dmi', "springfield-clip-full"))
+		else
+			user << "<span class='notice'>There's already a clip in \the [src].</span>"
+
+	else
+		..()
+
+/obj/item/weapon/gun/projectile/boltaction/vintage/load_ammo(var/obj/item/A, mob/user)
+	if(!open_bolt)
+		user << "<span class='warning'>The bolt is closed on \the [src.name]!</span>"
+		return
+	..()
+
+/obj/item/weapon/gun/projectile/boltaction/vintage/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+	if(open_bolt)
+		user << "<span class='warning'>The bolt is open on \the [src.name]!</span>"
+		return
+	..()

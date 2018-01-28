@@ -246,7 +246,7 @@
 	pixel_x = DIR2PIXEL_X(dir)
 	pixel_y = DIR2PIXEL_Y(dir)
 
-	if(z in config.contact_levels)
+	if(z in current_map.contact_levels)
 		set_security_level(security_level ? get_security_level() : "green")
 
 // Convenience subtypes for mappers.

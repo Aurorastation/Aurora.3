@@ -235,7 +235,7 @@
 			user << "<span class='warning'>Your concentration is broken!</span>"
 			return 0
 
-		for(var/mob/dead/observer/ghost in dead_mob_list)
+		for(var/mob/abstract/observer/ghost in dead_mob_list)
 			if(ghost.mind && ghost.mind.current == target && ghost.client)
 				ghost << "<span class='notice'>Your body has been revived, <b>Re-Enter Corpse</b> to return to it.</span>"
 				break

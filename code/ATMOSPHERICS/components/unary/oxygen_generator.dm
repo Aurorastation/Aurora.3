@@ -23,9 +23,8 @@ obj/machinery/atmospherics/unary/oxygen_generator
 
 		return
 
-	New()
-		..()
-
+	Initialize()
+		. = ..()
 		air_contents.volume = 50
 
 	machinery_process()

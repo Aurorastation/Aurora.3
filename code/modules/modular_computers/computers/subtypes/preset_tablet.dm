@@ -15,3 +15,9 @@
 	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
 	battery_module = new/obj/item/weapon/computer_hardware/battery_module(src)
 	battery_module.charge_to_full()
+
+
+// Cargo Delivery
+/obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery/
+	_app_preset_name = "cargo_delivery"
+	enrolled = 1

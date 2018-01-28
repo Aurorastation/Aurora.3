@@ -298,3 +298,18 @@
 			add_language(i)
 			src << "<span class='notice'><font size=3>You have mastered the [i] language!</font></span>"
 			language_progress.Remove(i)
+
+/mob/living/carbon/alien/diona/proc/transferMind(var/atom/A)
+	set category = "Abilities"
+	set name = "Switch Nymph"
+	set desc = "Transfer your control manually to another nymph in sight."
+
+	for(var/mob/living/carbon/alien/diona/D in view(7))
+		if(D.master_nymph == src && mind && !client) //if the nymph is subservient to you
+			mind.transfer_to(D)
+			D.stunned = 0//Switching mind seems to temporarily stun mobs
+			for(var/mob/living/carbon/alien/diona/DIO in src.birds_of_feather) //its me!
+				DIO.master_nymph = D
+			break
+		return 1
+	..()

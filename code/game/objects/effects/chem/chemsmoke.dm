@@ -225,6 +225,21 @@
 				spawn(0)
 					spawnSmoke(T, I, duration)
 
+/datum/effect/effect/system/smoke_spread/chem/spores/start()
+	..()
+	if(seed.get_trait(TRAIT_SPREAD))
+		for(var/turf/T in targetTurfs)
+			var/bad_turf = 0
+			for(var/obj/O in T)
+				if(O.density || istype(O, /obj/machinery/portable_atmospherics/hydroponics))
+					bad_turf = 1
+					break
+			if(bad_turf)
+				continue
+			if(prob(min(seed.get_trait(TRAIT_POTENCY),50)))
+				new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
+
+
 //------------------------------------------
 // Randomizes and spawns the smoke effect.
 // Also handles deleting the smoke once the effect is finished.
@@ -245,7 +260,7 @@
 		smoke.initial_splash()
 
 
-/datum/effect/effect/system/smoke_spread/chem/spores/spawnSmoke(var/turf/T, var/smoke_duration, var/icon/I, var/dist = 1)
+/datum/effect/effect/system/smoke_spread/chem/spores/spawnSmoke(var/turf/T, var/icon/I, var/smoke_duration, var/dist = 1)
 	var/obj/effect/effect/smoke/chem/spores = new /obj/effect/effect/smoke/chem(location)
 	spores.name = "cloud of [seed.seed_name] [seed.seed_noun]"
 	..(T, I, smoke_duration, dist, spores)

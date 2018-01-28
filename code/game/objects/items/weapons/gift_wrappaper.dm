@@ -237,7 +237,7 @@
 		/obj/item/weapon/bikehorn,
 		/obj/item/toy/balloon,
 		/obj/item/toy/blink,
-		/obj/item/toy/gun,
+		/obj/item/weapon/gun/projectile/revolver/capgun,
 		/obj/item/toy/prize/deathripley,
 		/obj/item/toy/prize/durand,
 		/obj/item/toy/prize/fireripley,

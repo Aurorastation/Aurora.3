@@ -108,6 +108,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			req_console_supplies -= department
 		if (departmentType & RC_INFO)
 			req_console_information -= department
+	
+	if (LAZYLEN(alert_pdas))
+		for (var/pp in alert_pdas)
+			var/obj/item/device/pda/P = pp
+			P.linked_consoles -= src
+
+		alert_pdas.Cut()
 	return ..()
 
 /obj/machinery/requests_console/attack_hand(user as mob)
@@ -244,6 +251,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
 		else
+			LAZYADD(pda.linked_consoles, src)
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
 			usr << "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>"
@@ -405,7 +413,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 								img = image('icons/obj/bureaucracy.dmi', "paper_stamp-dots")
 							img.pixel_x = C.offset_x[j]
 							img.pixel_y = C.offset_y[j]
-							P.overlays += img
+							P.add_overlay(img)
 						P.set_content_unsafe(pname, info)
 						Console.print(P, 0, 'sound/machines/twobeep.ogg')
 						for (var/mob/player in hearers(4, Console.loc))

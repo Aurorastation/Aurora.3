@@ -18,7 +18,7 @@
 					entry += " - <font color='darkgray'><b>Unconscious</b></font>"
 				if(DEAD)
 					if(isobserver(C.mob))
-						var/mob/dead/observer/O = C.mob
+						var/mob/abstract/observer/O = C.mob
 						if(O.started_as_observer)
 							entry += " - <font color='gray'>Observing</font>"
 						else
@@ -82,7 +82,7 @@
 
 				if(isobserver(C.mob))
 					msg += " - Observing"
-				else if(istype(C.mob,/mob/new_player))
+				else if(istype(C.mob,/mob/abstract/new_player))
 					msg += " - Lobby"
 				else
 					msg += " - Playing"
@@ -97,7 +97,7 @@
 
 				if(isobserver(C.mob))
 					modmsg += " - Observing"
-				else if(istype(C.mob,/mob/new_player))
+				else if(istype(C.mob,/mob/abstract/new_player))
 					modmsg += " - Lobby"
 				else
 					modmsg += " - Playing"
@@ -111,7 +111,7 @@
 				cciaamsg += "\t[C]"
 				if (isobserver(C.mob))
 					cciaamsg += " - Observing"
-				else if (istype(C.mob, /mob/new_player))
+				else if (istype(C.mob, /mob/abstract/new_player))
 					cciaamsg += " - Lobby"
 				else
 					cciaamsg += " - Playing"
@@ -125,7 +125,7 @@
 				devmsg += "\t[C] is a [C.holder.rank]"
 				if(isobserver(C.mob))
 					devmsg += " - Observing"
-				else if(istype(C.mob,/mob/new_player))
+				else if(istype(C.mob,/mob/abstract/new_player))
 					devmsg += " - Lobby"
 				else
 					devmsg += " - Playing"
