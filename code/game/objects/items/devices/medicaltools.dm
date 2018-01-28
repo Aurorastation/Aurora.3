@@ -6,7 +6,7 @@ Contains:
 */
 //HANDHELD SUIT SENSOR
 /obj/item/device/handheld_medical
-	name = "Hand-held suit sensor monitor"
+	name = "hand-held suit sensor monitor"
 	desc = "A miniature machine that tracks suit sensors across the station."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "scanner"
@@ -28,8 +28,8 @@ Contains:
 
 // SPACE KLOT. This stops bleeding and has a small chance to stop some internal bleeding, but it will be locked behind a tech tree + does not disinfect like a normal bruise pack.
 /obj/item/stack/medical/advanced/bruise_pack/spaceklot
-	name = "Space Klot"
-	singular_name = "Space Klot"
+	name = "space klot"
+	singular_name = "space klot"
 	desc = "A powder that, when poured on an open wound, quickly stops the bleeding. Combine with bandages for the best effect."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "powderbag"
@@ -71,7 +71,7 @@ Contains:
 					if (W.current_stage <= W.max_bleeding_stage)
 						user.visible_message("<span class='notice'>\The [user] pours the powder \a [W.desc] on [M]'s [affecting.name].</span>", \
 						                     "<span class='notice'>You pour the powder \a [W.desc] on [M]'s [affecting.name].</span>" )
-					
+
 					W.bandage()
 					W.heal_damage(heal_brute, 0)
 					used = 1

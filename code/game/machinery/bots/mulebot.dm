@@ -415,7 +415,7 @@
 	C.pixel_y += 9
 	if(C.layer < layer)
 		C.layer = layer + 0.1
-	overlays += C
+	add_overlay(C)
 
 	if(ismob(C))
 		var/mob/M = C
@@ -434,7 +434,7 @@
 		return
 
 	mode = 1
-	overlays.Cut()
+	cut_overlays()
 
 	load.loc = src.loc
 	load.pixel_y -= 9

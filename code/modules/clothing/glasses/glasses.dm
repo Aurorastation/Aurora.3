@@ -13,6 +13,7 @@
 	var/activation_sound = 'sound/items/goggles_charge.ogg'
 	var/obj/screen/overlay = null
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
+	var/activated_color = null
 
 /obj/item/clothing/glasses/attack_self(mob/user)
 	if(toggleable)
@@ -23,6 +24,8 @@
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
 			usr << "You deactivate the optical matrix on the [src]."
+			if(activated_color)
+				set_light(0)
 		else
 			active = 1
 			icon_state = initial(icon_state)
@@ -32,6 +35,8 @@
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
 			usr << "You activate the optical matrix on the [src]."
+			if(activated_color)
+				set_light(2, 0.4, activated_color)
 		user.update_action_buttons()
 
 /obj/item/clothing/glasses/meson
@@ -45,6 +50,7 @@
 	vision_flags = SEE_TURFS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	item_flags = AIRTIGHT
+	activated_color = LIGHT_COLOR_GREEN
 
 /obj/item/clothing/glasses/meson/Initialize()
 	. = ..()

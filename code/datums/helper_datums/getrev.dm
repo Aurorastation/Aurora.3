@@ -42,3 +42,5 @@ client/verb/showrevinfo()
 			src << revdata.revision
 	else
 		src << "Revision unknown"
+
+	src << "<b>Current Map:</b> [current_map.full_name]"

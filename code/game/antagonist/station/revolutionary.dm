@@ -61,4 +61,6 @@ var/datum/antagonist/revolutionary/revs
 		return 0
 
 	player.equip_to_slot_or_del(new /obj/item/device/announcer(player), slot_in_backpack)
+
+	give_codewords(player)
 	return 1

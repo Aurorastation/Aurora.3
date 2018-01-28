@@ -10,9 +10,9 @@
 	var/locked = 1
 	var/emagged = 0
 
-/obj/item/weapon/circuitboard/security/New()
-	..()
-	network = station_networks
+/obj/item/weapon/circuitboard/security/Initialize()
+	. = ..()
+	network = current_map.station_networks
 
 /obj/item/weapon/circuitboard/security/engineering
 	name = T_BOARD("engineering camera monitor")

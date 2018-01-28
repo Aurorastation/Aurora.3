@@ -336,6 +336,12 @@
 	// if we've changed our name, we also need to update the display name for our PDA
 	setup_PDA()
 
+	// We also need to update our internal ID
+	if(idcard)
+		idcard.assignment = prefix
+		idcard.registered_name = changed_name
+		idcard.update_name()
+
 	//We also need to update name of internal camera.
 	if (camera)
 		camera.c_tag = changed_name

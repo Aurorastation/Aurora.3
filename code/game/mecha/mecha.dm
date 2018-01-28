@@ -326,13 +326,18 @@
 	return
 
 /obj/mecha/proc/interface_action(obj/machinery/target)
-	if(istype(target, /obj/machinery/access_button))
+	if(istype(target, /obj/machinery/access_button) && target.Adjacent(src))
 		src.occupant_message("<span class='notice'>Interfacing with [target].</span>")
 		src.log_message("Interfaced with [target].")
 		target.attack_hand(src.occupant)
 		return 1
 	if(istype(target, /obj/machinery/embedded_controller))
-		target.ui_interact(src.occupant)
+		if(target in view(2,src))
+			src.occupant_message("<span class='notice'>Interfacing with [target].</span>")
+			src.log_message("Interfaced with [target].")
+			target.ui_interact(src.occupant)
+		else
+			src.occupant_message("<span class='notice'>Unable to interface with [target], target out of range.</span>")
 		return 1
 	return 0
 

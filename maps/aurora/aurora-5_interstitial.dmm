@@ -3,11 +3,11 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "ab" = (
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "ac" = (
 /obj/random/junk,
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "ad" = (
 /turf/simulated/wall/r_wall,
@@ -373,7 +373,7 @@
 	pixel_x = -32;
 	pixel_y = -26
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aR" = (
 /obj/structure/grille,
@@ -1042,7 +1042,7 @@
 	pixel_x = -32;
 	pixel_y = 26
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "cb" = (
 /obj/structure/cable/green{
@@ -1376,7 +1376,7 @@
 	pixel_x = -32;
 	pixel_y = 26
 	},
-/turf/simulated/floor/asteroid,
+/turf/simulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "cD" = (
 /obj/structure/grille,

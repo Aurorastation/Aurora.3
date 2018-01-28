@@ -101,12 +101,9 @@ They sell generic supplies and ask for generic supplies.
 
 	possible_trading_items = list(
 		/obj/structure/AIcore               = TRADER_THIS_TYPE,
-		/obj/structure/girder               = TRADER_THIS_TYPE,
-		/obj/structure/grille               = TRADER_THIS_TYPE,
 		/obj/structure/mopbucket            = TRADER_THIS_TYPE,
 		/obj/structure/ore_box              = TRADER_THIS_TYPE,
 		/obj/structure/coatrack             = TRADER_THIS_TYPE,
-		/obj/structure/bookcase             = TRADER_THIS_TYPE,
 		/obj/item/bee_pack                  = TRADER_THIS_TYPE,
 		/obj/item/weapon/bee_smoker         = TRADER_THIS_TYPE,
 		/obj/item/beehive_assembly          = TRADER_THIS_TYPE,
@@ -154,5 +151,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline   = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/glass/bottle/stoxin         = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/glass/bottle/chloralhydrate = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE
+		/obj/item/weapon/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE,
+		/obj/item/device/handheld_medical                               = TRADER_THIS_TYPE,
+		/obj/item/stack/medical/advanced/bruise_pack/spaceklot          = TRADER_THIS_TYPE
 	)

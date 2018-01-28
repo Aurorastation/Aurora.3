@@ -126,6 +126,9 @@
 		// deafness heals slowly over time, unless ear_damage is over 100
 		if(ear_damage < 100)
 			adjustEarDamage(-0.05,-1)
+	if(disabilities & PACIFIST && a_intent == I_HURT)
+		to_chat(src, "<span class='notice'>You don't feel like harming anybody.</span>")
+		a_intent_change(I_HELP)
 
 //this handles hud updates. Calls update_vision() and handle_hud_icons()
 /mob/living/proc/handle_regular_hud_updates()

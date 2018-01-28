@@ -285,7 +285,12 @@
 		to_chat(user, "<span class='notice'>You slot \the [cell] inside \the [src]'s power supply.</span>")
 		interact(user)
 		return TRUE
-	else
+
+	else //Attempt to insert the item into any contained insert_slots
+		for(var/obj/item/integrated_circuit/insert_slot/S in contents)
+			if(S.insert(I, user))
+				return TRUE
+
 		return ..()
 
 /obj/item/device/electronic_assembly/attack_self(mob/user)

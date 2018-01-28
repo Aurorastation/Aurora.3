@@ -13,8 +13,6 @@
 
 /obj/item/weapon/circuitboard/holodeckcontrol/construct(var/obj/machinery/computer/HolodeckControl/HC)
 	if (..(HC))
-		HC.supported_programs	= supported_programs.Copy()
-		HC.restricted_programs	= restricted_programs.Copy()
 		if(linkedholodeck_area)
 			HC.linkedholodeck	= locate(linkedholodeck_area)
 		if(last_to_emag)
@@ -25,7 +23,5 @@
 /obj/item/weapon/circuitboard/holodeckcontrol/deconstruct(var/obj/machinery/computer/HolodeckControl/HC)
 	if (..(HC))
 		linkedholodeck_area		= HC.linkedholodeck_area
-		supported_programs		= HC.supported_programs.Copy()
-		restricted_programs 	= HC.restricted_programs.Copy()
 		last_to_emag			= HC.last_to_emag
 		HC.emergencyShutdown()

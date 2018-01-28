@@ -73,7 +73,7 @@
 	data["state"] = current_status
 	data["isAI"] = issilicon(usr)
 	data["authenticated"] = is_autenthicated(user)
-	data["boss_short"] = boss_short
+	data["boss_short"] = current_map.boss_short
 	data["current_security_level"] = security_level
 	data["current_security_level_title"] = num2seclevel(security_level)
 
@@ -180,13 +180,13 @@
 						usr <<"<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>"
 						SSnanoui.update_uis(src)
 						return
-					var/input = sanitize(input("Please choose a message to transmit to [boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
+					var/input = sanitize(input("Please choose a message to transmit to [current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
 					if(!input || !can_still_topic())
 						SSnanoui.update_uis(src)
 						return
 					Centcomm_announce(input, usr)
 					usr << "<span class='notice'>Message transmitted.</span>"
-					log_say("[key_name(usr)] has made an IA [boss_short] announcement: [input]",ckey=key_name(usr))
+					log_say("[key_name(usr)] has made an IA [current_map.boss_short] announcement: [input]",ckey=key_name(usr))
 					centcomm_message_cooldown = 1
 					spawn(300) //30 second cooldown
 						centcomm_message_cooldown = 0
@@ -369,7 +369,7 @@ Command action procs
 		return 0
 
 	if(deathsquad.deployed)
-		user << "[boss_short] will not allow the shuttle to be called. Consider all contracts terminated."
+		user << "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated."
 		return 0
 
 	if(emergency_shuttle.deny_shuttle)
@@ -381,7 +381,7 @@ Command action procs
 		return 0
 
 	if(emergency_shuttle.going_to_centcom())
-		user << "The emergency shuttle may not be called while returning to [boss_short]."
+		user << "The emergency shuttle may not be called while returning to [current_map.boss_short]."
 		return 0
 
 	if(emergency_shuttle.online())
@@ -403,7 +403,7 @@ Command action procs
 		return
 
 	if(emergency_shuttle.going_to_centcom())
-		user << "The shuttle may not be called while returning to [boss_short]."
+		user << "The shuttle may not be called while returning to [current_map.boss_short]."
 		return
 
 	if(emergency_shuttle.online())
@@ -413,11 +413,11 @@ Command action procs
 	// if force is 0, some things may stop the shuttle call
 	if(!force)
 		if(emergency_shuttle.deny_shuttle)
-			user << "[boss_short] does not currently have a shuttle available in your sector. Please try again later."
+			user << "[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later."
 			return
 
 		if(deathsquad.deployed == 1)
-			user << "[boss_short] will not allow the shuttle to be called. Consider all contracts terminated."
+			user << "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated."
 			return
 
 		if(world.time < 54000) // 30 minute grace period to let the game get going

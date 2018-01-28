@@ -341,7 +341,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 /obj/item/weapon/implant/loyalty/get_data()
 	. = {"
 <b>Implant Specifications:</b><BR>
-<b>Name:</b> [company_name] Employee Management Implant<BR>
+<b>Name:</b> [current_map.company_name] Employee Management Implant<BR>
 <b>Life:</b> Ten years.<BR>
 <b>Important Notes:</b> Personnel injected with this device tend to be much more loyal to the company.<BR>
 <HR>
@@ -355,11 +355,11 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	var/mob/living/carbon/human/H = M
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
 	if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
-		H.visible_message("[H] seems to resist the implant!", "You feel the corporate tendrils of [company_name] try to invade your mind!")
+		H.visible_message("[H] seems to resist the implant!", "You feel the corporate tendrils of [current_map.company_name] try to invade your mind!")
 		return 0
 	else
 		clear_antag_roles(H.mind, 1)
-		H << "<span class='notice'>You feel a surge of loyalty towards [company_name].</span>"
+		H << "<span class='notice'>You feel a surge of loyalty towards [current_map.company_name].</span>"
 	return 1
 
 /obj/item/weapon/implant/loyalty/emp_act(severity)
@@ -435,7 +435,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 /obj/item/weapon/implant/death_alarm/get_data()
 	. = {"
 <b>Implant Specifications:</b><BR>
-<b>Name:</b> [company_name] \"Profit Margin\" Class Employee Lifesign Sensor<BR>
+<b>Name:</b> [current_map.company_name] \"Profit Margin\" Class Employee Lifesign Sensor<BR>
 <b>Life:</b> Activates upon death.<BR>
 <b>Important Notes:</b> Alerts crew to crewmember death.<BR>
 <HR>
@@ -510,7 +510,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 /obj/item/weapon/implant/compressed/get_data()
 	. = {"
 <b>Implant Specifications:</b><BR>
-<b>Name:</b> [company_name] \"Profit Margin\" Class Employee Lifesign Sensor<BR>
+<b>Name:</b> [current_map.company_name] \"Profit Margin\" Class Employee Lifesign Sensor<BR>
 <b>Life:</b> Activates upon death.<BR>
 <b>Important Notes:</b> Alerts crew to crewmember death.<BR>
 <HR>

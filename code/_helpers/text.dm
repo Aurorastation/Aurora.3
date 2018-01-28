@@ -520,3 +520,12 @@ proc/TextPreview(var/string,var/len=40)
 	. = base
 	if(rest)
 		. += .(rest)
+
+/proc/replacemany(text, list/replacements)
+	if (!LAZYLEN(replacements))
+		return text
+
+	. = text
+
+	for (var/replacement in replacements)
+		. = replacetext(., replacement, replacements[replacement])

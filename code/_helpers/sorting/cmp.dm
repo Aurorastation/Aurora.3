@@ -86,3 +86,6 @@ var/cmp_field = "name"
 
 /proc/cmp_pda(obj/item/device/pda/A, obj/item/device/pda/B)
 	return sorttext(B.owner, A.owner)
+
+/proc/cmp_planelayer(atom/A, atom/B)
+	return (B.plane - A.plane) || (B.layer - A.layer)

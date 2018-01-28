@@ -495,3 +495,17 @@
 	req_tech = list(TECH_DATA = 4, TECH_BIO = 3)
 	build_path = /obj/item/weapon/circuitboard/aicore
 	sort_string = "XAAAA"
+
+/datum/design/circuit/rtg
+	name = "radioisotope thermoelectric generator"
+	id = "rtg"
+	req_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 1, TECH_POWER = 3, TECH_MATERIAL = 2)
+	build_path = /obj/item/weapon/circuitboard/rtg
+	sort_string = "WAAAC"
+
+/datum/design/circuit/advanced_rtg
+	name = "advanced radioisotope thermoelectric generator"
+	id = "advanced_rtg"
+	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_POWER = 3, TECH_MATERIAL = 4, TECH_PHORON = 2)
+	build_path = /obj/item/weapon/circuitboard/rtg/advanced
+	sort_string = "WAAAD"
