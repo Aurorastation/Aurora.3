@@ -126,6 +126,8 @@
  *  src.product_records.
  */
 /obj/machinery/vending/proc/build_inventory()
+	sanitize_paths() // Wedge for mapped in paths. Because apparently shit happens with them?
+
 	var/list/all_products = list(
 		list(src.products, CAT_NORMAL),
 		list(src.contraband, CAT_HIDDEN),
@@ -143,6 +145,25 @@
 			product.category = category
 
 			src.product_records.Add(product)
+
+/obj/machinery/vending/proc/sanitize_paths()
+	for (var/A in products)
+		if (!ispath(A))
+			var/assoc = products[A]
+			products -= A
+			products[text2path(A)] = assoc
+
+	for (var/A in contraband)
+		if (!ispath(A))
+			var/assoc = contraband[A]
+			contraband -= A
+			contraband[text2path(A)] = assoc
+
+	for (var/A in premium)
+		if (!ispath(A))
+			var/assoc = products[A]
+			products -= A
+			products[text2path(A)] = assoc
 
 /obj/machinery/vending/Destroy()
 	qdel(wires)
