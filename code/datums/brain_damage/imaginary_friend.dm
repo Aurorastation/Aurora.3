@@ -36,10 +36,17 @@
 	else
 		qdel(src)
 
+/mob/living/mental
+	universal_understand = 1
+	incorporeal_move = 1
+	density = 0
+
 /mob/living/mental/friend
 	name = "imaginary friend"
 	real_name = "imaginary friend"
 	desc = "A wonderful yet fake friend."
+	icon = 'icons/mob/mob.dmi'
+	icon_state = "monkey2h"
 	see_in_dark = 0
 	see_invisible = SEE_INVISIBLE_LIVING
 	var/icon/human_image
@@ -111,7 +118,7 @@
 	if(!message)
 		return
 
-	var/rendered = "<span class='game say'><span class='name'>[name]</span> <span class='message'>[say_quote(message)]</span></span>"
+	var/rendered = "<span class='game say'><span class='name'>[name] says,</span> <span class='message'>\"[message]\"</span></span>"
 
 	to_chat(owner, "[rendered]")
 	to_chat(src, "[rendered]")
