@@ -202,6 +202,7 @@
 	A.forceMove(get_turf(src))
 	A.icon = getFlatIcon(src)
 	A.updatetype()
+	A.pin = null
 	gun_mods = null
 	focusing_lens = null
 	capacitor = null
