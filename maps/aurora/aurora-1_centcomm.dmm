@@ -2325,13 +2325,15 @@
 	},
 /turf/space/transit/north/shuttlespace_ns15,
 /area/template_noop)
-"afN" = (/obj/effect/landmark{
+"afN" = (
+/obj/effect/landmark{
 	name = "Penguin Spawn Random"
 	},
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)
-"afO" = (/obj/effect/landmark{
+"afO" = (
+/obj/effect/landmark{
 	name = "Penguin Spawn Emperor"
 	},
 /obj/structure/flora/tree/pine,
@@ -4507,7 +4509,7 @@
 	},
 /area/syndicate_mothership)
 "alR" = (
-/turf/template_noop,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 8;
 	icon_state = "diagonalWall3"
@@ -4565,7 +4567,7 @@
 /turf/simulated/shuttle/plating,
 /area/syndicate_station/start)
 "alV" = (
-/turf/template_noop,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 6;
 	icon_state = "diagonalWall3"
@@ -5011,7 +5013,7 @@
 	},
 /area/syndicate_station/start)
 "amS" = (
-/turf/template_noop,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 4;
 	icon_state = "diagonalWall3"
@@ -6860,8 +6862,9 @@
 /turf/simulated/floor/asteroid/ash,
 /area/template_noop)
 "aql" = (
-/turf/template_noop,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
+	dir = 5;
 	icon_state = "diagonalWall3"
 	},
 /area/syndicate_station/start)
@@ -18218,14 +18221,14 @@
 	},
 /area/centcom/spawning)
 "aOp" = (
-/turf/template_noop,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 8;
 	icon_state = "diagonalWall3"
 	},
 /area/skipjack_station/start)
 "aOq" = (
-/turf/template_noop,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 6;
 	icon_state = "diagonalWall3"
@@ -19911,8 +19914,9 @@
 	},
 /area/wizard_station)
 "aRU" = (
-/turf/template_noop,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
+	dir = 5;
 	icon_state = "diagonalWall3"
 	},
 /area/skipjack_station/start)
@@ -19936,7 +19940,7 @@
 	},
 /area/skipjack_station/start)
 "aRX" = (
-/turf/template_noop,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 4;
 	icon_state = "diagonalWall3"
@@ -22089,6 +22093,20 @@
 	dir = 5
 	},
 /area/tdome/tdomeadmin)
+"aWL" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
+"aWM" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_station/start)
 
 (1,1,1) = {"
 aaa
@@ -27454,7 +27472,7 @@ aOG
 aOG
 aOG
 aOG
-aTx
+aRU
 aaM
 aaM
 aaM
@@ -27969,7 +27987,7 @@ aRy
 aRy
 aTi
 aOG
-aTx
+aRU
 aaM
 aaM
 aaM
@@ -28227,7 +28245,7 @@ aTb
 aRy
 aOG
 aOG
-aTx
+aRU
 aaM
 aaM
 aaM
@@ -76697,7 +76715,7 @@ amf
 amf
 amf
 amf
-amQ
+aWM
 aaM
 aaM
 aaM
@@ -78238,7 +78256,7 @@ amf
 amf
 amf
 amf
-amQ
+aWL
 aaM
 aaM
 aaM
