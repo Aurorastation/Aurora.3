@@ -9,7 +9,6 @@
 							/obj/item/toy/sword								= 22,
 							/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
 							/obj/item/toy/crossbow							= 11,
-							/obj/item/clothing/suit/syndicatefake			= 5,
 							/obj/item/weapon/storage/fancy/crayons			= 11,
 							/obj/item/toy/spinningtoy						= 11,
 							/obj/item/toy/prize/ripley						= 1,
@@ -38,7 +37,7 @@
 							/obj/item/clothing/mask/fakemoustache			= 11,
 							/obj/item/clothing/mask/gas/clown_hat			= 11,
 							/obj/item/clothing/mask/gas/mime				= 11,
-							/obj/item/weapon/gun/energy/wand/toy			= 11,
+							/obj/item/weapon/gun/energy/wand/toy			= 5,
 							/obj/item/device/binoculars						= 11,
 							/obj/item/device/megaphone						= 11
 						)
