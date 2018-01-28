@@ -36,6 +36,7 @@
 
 	next_move = 1
 	sight |= SEE_SELF
+	disconnect_time = null
 	..()
 
 	if(loc && !isturf(loc))
