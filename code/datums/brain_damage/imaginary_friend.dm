@@ -45,8 +45,6 @@
 	name = "imaginary friend"
 	real_name = "imaginary friend"
 	desc = "A wonderful yet fake friend."
-	icon = 'icons/mob/mob.dmi'
-	icon_state = "monkey2h"
 	see_in_dark = 0
 	see_invisible = SEE_INVISIBLE_LIVING
 	var/icon/human_image
