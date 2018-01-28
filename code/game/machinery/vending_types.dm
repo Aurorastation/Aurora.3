@@ -420,8 +420,7 @@
 		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/cherryseed = 3,
 		/obj/item/seeds/plastiseed = 3,
-		/obj/item/seeds/riceseed = 3,
-		/obj/item/seeds/koisspore = 3
+		/obj/item/seeds/riceseed = 3
 	)
 	contraband = list(
 		/obj/item/seeds/amanitamycelium = 2,
@@ -469,8 +468,7 @@
 		/obj/item/seeds/pumpkinseed = 25,
 		/obj/item/seeds/cherryseed = 25,
 		/obj/item/seeds/plastiseed = 25,
-		/obj/item/seeds/riceseed = 25,
-		/obj/item/seeds/koisspore = 30
+		/obj/item/seeds/riceseed = 25
 	)
 
 /**
