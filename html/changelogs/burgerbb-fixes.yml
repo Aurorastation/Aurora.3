@@ -37,3 +37,4 @@ changes:
   - bugfix: "Poking people with a cane no longer causes blood to fly everywhere."
   - tweak: "Tweaked Arcade Machine droprates so they're less depressing."
   - tweak: "Tweaked burito recipies to use more meatballs, and as well use a new nutrition algorithm."
+  - tweak: "Tweaked dionaea autohiss to be less annoying."
