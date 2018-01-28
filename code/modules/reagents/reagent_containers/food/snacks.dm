@@ -4707,7 +4707,7 @@
 	icon_state = "chip_basket"
 	trash = /obj/item/trash/chipbasket
 	var/vendingobject = /obj/item/weapon/reagent_containers/food/snacks/chip
-	nutriment_desc = list("tortilla chips" = 1)
+	nutriment_desc = list("tortilla chips" = 10)
 	bitesize = 1
 	nutriment_amt = 10
 
@@ -4732,14 +4732,9 @@
 	icon_state = "nachos"
 	trash = /obj/item/trash/plate
 	vendingobject = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho
-	nutriment_desc = list("tortilla chips" = 1)
+	nutriment_desc = list("tortilla chips" = 10)
 	bitesize = 1
-	nutriment_amt = 20
-
-/obj/item/weapon/reagent_containers/food/snacks/chipplate/nachos/Initialize()
-	. = ..()
-	reagents.add_reagent("sodiumchloride", 1)
-	reagents.add_reagent("cheese", 10)
+	nutriment_amt = 10
 
 //dips
 /obj/item/weapon/reagent_containers/food/snacks/dip
@@ -4815,8 +4810,8 @@
 	icon_state = "burrito"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
-	nutriment_amt = 3
+	nutriment_desc = list("tortilla" = 6)
+	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
 	name = "vegan burrito"
@@ -4824,8 +4819,8 @@
 	icon_state = "burrito_vegan"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
-	nutriment_amt = 3
+	nutriment_desc = list("tortilla" = 6)
+	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan/Initialize()
 	. = ..()
@@ -4837,8 +4832,8 @@
 	icon_state = "burrito_spicy"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
-	nutriment_amt = 3
+	nutriment_desc = list("tortilla" = 6)
+	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese
 	name = "meat cheese burrito"
@@ -4846,13 +4841,8 @@
 	icon_state = "burrito_cheese"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
-	nutriment_amt = 3
-
-/obj/item/weapon/reagent_containers/food/snacks/burrito_cheese/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 4)
-	reagents.add_reagent("cheese", 4)
+	nutriment_desc = list("tortilla" = 6)
+	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese_spicy
 	name = "spicy cheese meat burrito"
@@ -4860,8 +4850,8 @@
 	icon_state = "burrito_cheese_spicy"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
-	nutriment_amt = 3
+	nutriment_desc = list("tortilla" = 6)
+	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_hell
 	name = "el diablo"
@@ -4869,8 +4859,8 @@
 	icon_state = "burrito_hell"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
-	nutriment_amt = 3
+	nutriment_desc = list("tortilla" = 6)
+	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_hell/Initialize()
 	. = ..()
@@ -4883,5 +4873,5 @@
 	icon_state = "burrito_mystery"
 	bitesize = 5
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("regret" = 1)
-	nutriment_amt = 3
+	nutriment_desc = list("regret" = 6)
+	nutriment_amt = 6
