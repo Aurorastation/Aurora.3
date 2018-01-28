@@ -131,7 +131,7 @@
 				verbtouse = pick("tapped")
 			else
 				verbtouse = pick("tapped","poked","prodded","touched")
-			damageamount *= 0.025
+			damageamount = 0
 		if(I_DISARM)
 			verbtouse = pick("smacked","slapped")
 			soundname = "punch"
@@ -242,7 +242,9 @@
 			else
 				endmessage1st = "You [verbtouse] [selfnoun] with the [name]"
 				endmessage3rd = "[user] [verbtouse] [noun] with the [name]"
-				target.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)
+
+	if(damageamount > 0) // Poking will no longer do damage until there is some fix that makes it so that 0.0001 HALLOS doesn't cause bleed.
+		target.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)
 
 	user.visible_message("<span class='[class]'>[endmessage3rd][punct]</span>", "<span class='[class]'>[endmessage1st][punct]</span>")
 	user.do_attack_animation(target)
