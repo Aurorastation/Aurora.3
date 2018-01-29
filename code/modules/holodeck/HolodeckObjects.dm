@@ -462,11 +462,13 @@
 	meat_amount = 0
 	meat_type = null
 	light_range = 2
+	hunger_enabled = FALSE
 
 /mob/living/simple_animal/penguin/holodeck/baby
 	icon_state = "penguin_baby"
 	icon_living = "penguin_baby"
 	icon_dead = "penguin_baby_dead"
+
 /mob/living/simple_animal/penguin/holodeck/emperor
 
 /mob/living/simple_animal/penguin/holodeck/gib()
