@@ -27,22 +27,16 @@
 	switch(slot)
 		if(slot_l_store)
 			selfverb = "You place \the [W] in your left pocket."
-			otherverb = "[src] stuffs the [W] in their left pocket."
+			otherverb = "[src] stuffs \the [W] in their left pocket."
 		if(slot_r_store)
 			selfverb = "You place \the [W] in your right pocket."
-			otherverb = "[src] stuffs the [W] in their right pocket."
+			otherverb = "[src] stuffs \the [W] in their right pocket."
 		if(slot_back)
 			selfverb = "You hoist \the [W] onto your back."
 			otherverb = "[src] hoists the [W] onto their back."
 		if(slot_wear_id)
-			selfverb = "You place and adjust \the [W] on your uniform."
-			otherverb = "[src] places and adjusts the [W] on your uniform."
-		if(slot_w_uniform)
-			selfverb = "You dress yourself into \the [W]."
-			otherverb = "[src] dresses themself into the [W]."
-		if(slot_wear_suit)
-			selfverb = "You dress yourself into \the [W]."
-			otherverb = "[src] dresses themself into the [W]."
+			selfverb = "You place \the [W] on your uniform."
+			otherverb = "[src] places \the [W] on your uniform."
 		if(slot_head)
 			selfverb = "You place \the [W] on your head."
 			otherverb = "[src] places \the [W] on their head."
@@ -91,11 +85,11 @@
 		var/person3rd = returninglist[2]
 		var/personstealth = replacetext(person3rd,"the [W]","something")
 
-		src.visible_message_stealth(\
-			"<span class='notice'>[person3rd].",\
-			"<span class='notice'>[person1st]",\
-			"<span class='notice'>[personstealth].",\
-			"<span class='notice'>You hear rustling nearby...",\
+		src.visible_message(\
+			"<span class='notice'>[person3rd].</span>",\
+			"<span class='notice'>[person1st].</span>",\
+			"<span class='notice'>You hear rustling nearby...</span>",\
+			"<span class='notice'>[personstealth].</span>",\
 			max(1,W.w_class*0.5),\
 			max(2,W.w_class)\
 		)

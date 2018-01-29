@@ -367,11 +367,11 @@
 		add_fingerprint(user)
 
 		if(!prevent_warning)
-			user.visible_message_stealth(\
-				"<span class='notice'>[user] tucks \the [W] in \the [src].",\
-				"<span class='notice'>You place \the [W] in \the [src].",\
-				"<span class='notice'>You see [user] put something in \the [src].",\
-				"<span class='notice'>You hear shuffling nearby...",\
+			user.visible_message(\
+				"<span class='notice'>[user] places \the [W] in \the [src].</span>",\
+				"<span class='notice'>You put \the [W] in \the [src].</span>",\
+				"<span class='notice'>You hear shuffling nearby...</span>",\
+				"<span class='notice'>You see [user] put something in \the [src].</span>",\
 				max(1,W.w_class*0.5),\
 				max(2,W.w_class)\
 			)
