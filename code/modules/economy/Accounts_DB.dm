@@ -5,7 +5,7 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "account_uplink"
 	density = 1
-	req_one_access = list(access_hop, access_captain, access_cent_captain)
+	req_one_access = list(access_hop, access_cent_captain)
 	anchored = 1
 	var/receipt_num
 	var/machine_id = ""
@@ -19,7 +19,7 @@
 			return 0
 		if(access_cent_captain in held_card.access)
 			return 2
-		else if(access_hop in held_card.access || access_captain in held_card.access)
+		else if(access_hop in held_card.access)
 			return 1
 
 	proc/create_transation(target, reason, amount)
