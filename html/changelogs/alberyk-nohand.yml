@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Cutting someone's hand should now force them to drop the item they are holding on said hand."
