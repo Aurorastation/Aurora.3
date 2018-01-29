@@ -17,6 +17,57 @@
 		return 1
 	return 0
 
+
+/mob/proc/get_proper_equip_name(obj/item/W as obj,slot)
+
+	var/selfverb = "You equip the [W]."
+	var/otherverb = "[src] equips the [W]."
+	var/mob/living/carbon/human/srchuman = src
+
+	switch(slot)
+		if(slot_l_store)
+			selfverb = "You place \the [W] in your left pocket."
+			otherverb = "[src] stuffs the [W] in their left pocket."
+		if(slot_r_store)
+			selfverb = "You place \the [W] in your right pocket."
+			otherverb = "[src] stuffs the [W] in their right pocket."
+		if(slot_back)
+			selfverb = "You hoist \the [W] onto your back."
+			otherverb = "[src] hoists the [W] onto their back."
+		if(slot_wear_id)
+			selfverb = "You place and adjust \the [W] on your uniform."
+			otherverb = "[src] places and adjusts the [W] on your uniform."
+		if(slot_w_uniform)
+			selfverb = "You dress yourself into \the [W]."
+			otherverb = "[src] dresses themself into the [W]."
+		if(slot_wear_suit)
+			selfverb = "You dress yourself into \the [W]."
+			otherverb = "[src] dresses themself into the [W]."
+		if(slot_head)
+			selfverb = "You place \the [W] on your head."
+			otherverb = "[src] places \the [W] on their head."
+		if(slot_shoes)
+			selfverb = "You slip on \the [W]."
+			otherverb = "[src] slips on \the [W]."
+		if(slot_gloves)
+			if(istype(srchuman) && (!srchuman.l_hand || srchuman.r_hand))
+				selfverb = "You slide your hand into \the [W]."
+				otherverb = "[src] slides their hand into \the [W]."
+			else
+				selfverb = "You slide your hands into \the [W]."
+				otherverb = "[src] slides their hands into \the [W]."
+		if(slot_belt)
+			selfverb = "You put \the [W] around your waist."
+			otherverb = "[src] places \the [W] around their waist."
+		if(slot_s_store || slot_l_store || slot_r_store)
+			selfverb = "You tuck \the [W] in your pocket."
+			otherverb = "[src] tucks \the [W] in their pocket."
+
+
+	var/list/returninglist = list(selfverb,otherverb)
+
+	return returninglist
+
 //This is a SAFE proc. Use this instead of equip_to_slot()!
 //set del_on_fail to have it delete W if it fails to equip
 //set disable_warning to disable the 'you are unable to equip that' warning.
@@ -33,6 +84,22 @@
 		return 0
 
 	equip_to_slot(W, slot, redraw_mob) //This proc should not ever fail.
+	if(!disable_warning)
+
+		var/list/returninglist = get_proper_equip_name(W,slot)
+		var/person1st = returninglist[1]
+		var/person3rd = returninglist[2]
+		var/personstealth = replacetext(person3rd,"the [W]","something")
+
+		src.visible_message_stealth(\
+			"<span class='notice'>[person3rd].",\
+			"<span class='notice'>[person1st]",\
+			"<span class='notice'>[personstealth].",\
+			"<span class='notice'>You hear rustling nearby...",\
+			max(1,W.w_class*0.5),\
+			max(2,W.w_class)\
+		)
+
 	return 1
 
 //This is an UNSAFE proc. It merely handles the actual job of equipping. All the checks on whether you can or can't eqip need to be done before! Use mob_can_equip() for that task.
@@ -84,9 +151,8 @@ var/list/slot_equipment_priority = list( \
 	if(istype(src.back,/obj/item/weapon/storage))
 		var/obj/item/weapon/storage/backpack = src.back
 		if(backpack.can_be_inserted(newitem, 1))
-			newitem.forceMove(src.back)
+			newitem.forceMove(backpack)
 			return 1
-
 	// Try to place it in any item that can store stuff, on the mob.
 	for(var/obj/item/weapon/storage/S in src.contents)
 		if(S.can_be_inserted(newitem, 1))
