@@ -35,6 +35,8 @@
 		user << "You can see \the [capacitor] attached."
 	if(focusing_lens)
 		user << "You can see \the [focusing_lens] attached."
+	if(modulator)
+		user << "You can see \the [modulator] attached."
 
 /obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D, var/mob/user)
 	if(!isscrewdriver(D))
