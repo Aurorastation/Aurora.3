@@ -56,7 +56,7 @@
 			malus = abs(base_malus*2)
 
 /obj/item/laser_components/modifier/repair_module(var/obj/item/weapon/weldingtool/W)
-	if(istype(W))
+	if(!istype(W))
 		return
 	if(W.remove_fuel(5))
 		malus = max(malus - 5, base_malus)
@@ -73,7 +73,7 @@
 	repair_item = /obj/item/stack/cable_coil
 
 /obj/item/laser_components/capacitor/repair_module(var/obj/item/stack/cable_coil/C)
-	if(istype(C))
+	if(!istype(C))
 		return
 	if(C.use(5))
 		return 1
@@ -104,7 +104,7 @@
 	repair_item = /obj/item/stack/nanopaste
 
 /obj/item/laser_components/focusing_lens/repair_module(var/obj/item/stack/nanopaste/N)
-	if(istype(N))
+	if(!istype(N))
 		return
 	if(N.use(5))
 		return 1
