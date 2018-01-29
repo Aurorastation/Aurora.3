@@ -243,7 +243,6 @@
 		usr << "<span class='warning'>This device does not have a scope installed!</span>"
 
 /obj/item/weapon/gun/energy/laser/prototype/special_check(var/mob/user)
-	..()
 	if(is_charging && chargetime)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
@@ -267,7 +266,7 @@
 	if(!istype(user.get_active_hand(), src))
 		return 0
 
-	return 1
+	return ..()
 
 /obj/item/weapon/gun/energy/laser/prototype/verb/rename_gun()
 	set name = "Name Prototype"
