@@ -698,5 +698,5 @@
 	..()
 	if(ishuman(M))
 		if(M && M.stat == DEAD)
-			M.stat = 0
-			M.visible_message("<span class='danger'>\The [M] shudders violently!!</span>")
+			M.revive()
+			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")

@@ -485,7 +485,18 @@
 	taste_description = "emptyness"
 
 /datum/reagent/black_matter/touch_turf(var/turf/T)
-	new /obj/effect/portal/wormhole/jaunt_tunnel(T, volume)
+	var/obj/effect/portal/P = new /obj/effect/portal(T)
+	P.creator = null
+	P.icon = 'icons/obj/objects.dmi'
+	P.failchance = 0
+	P.icon_state = "anom"
+	P.name = "wormhole"
+	var/list/pick_turfs = list()
+	for(var/turf/simulated/floor/exit in turfs)
+		if(exit.z in current_map.station_levels)
+			pick_turfs += exit
+	P.target = pick(pick_turfs)
+	QDEL_IN(P, rand(150,300))
 	remove_self(volume)
 	return
 
