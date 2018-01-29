@@ -695,8 +695,8 @@
 	taste_description = "eternal blissfulness"
 
 /datum/reagent/elixir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
 	if(ishuman(M))
 		if(M && M.stat == DEAD)
-			M.revive()
+			M.adjustOxyLoss(-rand(15,20))
 			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")
+			M.stat = 0
