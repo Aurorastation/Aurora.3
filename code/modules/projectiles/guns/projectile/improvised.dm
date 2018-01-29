@@ -225,9 +225,8 @@
 	accuracy = -5
 	fire_delay = 5
 	burst = 3
-	burst_delay = 0
-	move_delay = 0
-	fire_delay = 2
+	burst_delay = 3
+	move_delay = 3
 	dispersion = list(1.0, -1.0, 2.0, -2.0)
 	jam_chance = 20
 
