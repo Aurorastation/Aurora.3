@@ -469,12 +469,12 @@
 
 /datum/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(istype(M))
-		M.adjust_fire_stacks(25)
+		M.adjust_fire_stacks(10)
 		M.IgniteMob()
 
 /datum/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(25)
+		L.adjust_fire_stacks(10)
 		L.IgniteMob()
 
 /datum/reagent/black_matter
@@ -485,7 +485,18 @@
 	taste_description = "emptyness"
 
 /datum/reagent/black_matter/touch_turf(var/turf/T)
-	new /obj/effect/portal/wormhole/jaunt_tunnel(T, volume)
+	var/obj/effect/portal/P = new /obj/effect/portal(T)
+	P.creator = null
+	P.icon = 'icons/obj/objects.dmi'
+	P.failchance = 0
+	P.icon_state = "anom"
+	P.name = "wormhole"
+	var/list/pick_turfs = list()
+	for(var/turf/simulated/floor/exit in turfs)
+		if(exit.z in current_map.station_levels)
+			pick_turfs += exit
+	P.target = pick(pick_turfs)
+	QDEL_IN(P, rand(150,300))
 	remove_self(volume)
 	return
 

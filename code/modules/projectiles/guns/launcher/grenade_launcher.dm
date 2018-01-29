@@ -12,6 +12,8 @@
 	throw_distance = 7
 	release_force = 5
 
+	needspin = FALSE
+
 	var/blacklisted_grenades = list(
 		/obj/item/weapon/grenade/flashbang/clusterbang,
 		/obj/item/weapon/grenade/frag)
