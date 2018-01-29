@@ -469,12 +469,12 @@
 
 /datum/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(istype(M))
-		M.adjust_fire_stacks(25)
+		M.adjust_fire_stacks(10)
 		M.IgniteMob()
 
 /datum/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
-		L.adjust_fire_stacks(25)
+		L.adjust_fire_stacks(10)
 		L.IgniteMob()
 
 /datum/reagent/black_matter
