@@ -107,7 +107,7 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 // distance_message (optional): message it displays when people are at a distance,
 // distance: maximum distance for when message variable is displayed to that user, and minimum variable for when a distance_message variable is displayed to that user
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/distance_message, var/minrange = -1,var/maxrange = -1)
+/mob/visible_message(var/message, var/self_message, var/blind_message, var/distance_message, var/minrange = -1,var/maxrange = -1, var/usedir = 0)
 	var/list/messageturfs = list()//List of turfs we broadcast to.
 	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 
@@ -131,15 +131,18 @@
 	for(var/A in messagemobs)
 		var/mob/M = A
 		var/distance = get_dist(M,src)
-		if(self_message && M==src)
+		var/isfacing = M.dir & get_dir(M, src)
+		if(usedir && blind_message && !isfacing && distance*1.5 <= maxrange )
+			M.show_message(blind_message, 2)
+		else if(self_message && M==src)
 			M.show_message(self_message, 1, blind_message, 2)
-		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
-			if(blind_message && distance < maxrange)
-				M.show_message(blind_message, 2)
-		else if(distance < minrange || minrange == -1 || !distance_message)
+		else if(message && distance < minrange || minrange == -1)
 			M.show_message(message, 1, blind_message, 2)
-		else if(distance_message && distance < maxrange)
+		else if(distance_message)
 			M.show_message(distance_message, 1, blind_message, 2)
+		else if(blind_message && M.see_invisible < invisibility)
+			M.show_message(blind_message, 2)
+
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs

@@ -370,10 +370,11 @@
 			user.visible_message(\
 				"<span class='notice'>[user] places \the [W] in \the [src].</span>",\
 				"<span class='notice'>You put \the [W] in \the [src].</span>",\
-				"<span class='notice'>You hear shuffling nearby...</span>",\
+				"<span class='notice'>You hear shuffling (DIR).</span>",\
 				"<span class='notice'>You see [user] put something in \the [src].</span>",\
 				max(1,W.w_class*0.5),\
-				max(2,W.w_class)\
+				max(2,W.w_class),
+				1\
 			)
 		orient2hud(user)
 		if(user.s_active)

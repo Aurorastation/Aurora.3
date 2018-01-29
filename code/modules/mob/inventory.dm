@@ -41,8 +41,8 @@
 			selfverb = "You place \the [W] on your head."
 			otherverb = "[src] places \the [W] on their head."
 		if(slot_shoes)
-			selfverb = "You slip on \the [W]."
-			otherverb = "[src] slips on \the [W]."
+			selfverb = "You put on \the [W]."
+			otherverb = "[src] puts on \the [W]."
 		if(slot_gloves)
 			if(istype(srchuman) && (!srchuman.l_hand || srchuman.r_hand))
 				selfverb = "You slide your hand into \the [W]."
@@ -51,11 +51,11 @@
 				selfverb = "You slide your hands into \the [W]."
 				otherverb = "[src] slides their hands into \the [W]."
 		if(slot_belt)
-			selfverb = "You put \the [W] around your waist."
-			otherverb = "[src] places \the [W] around their waist."
+			selfverb = "You attach \the [W] around your waist."
+			otherverb = "[src] attaches \the [W] around their waist."
 		if(slot_s_store || slot_l_store || slot_r_store)
-			selfverb = "You tuck \the [W] in your pocket."
-			otherverb = "[src] tucks \the [W] in their pocket."
+			selfverb = "You place \the [W] in your pocket."
+			otherverb = "[src] places \the [W] in their pocket."
 
 
 	var/list/returninglist = list(selfverb,otherverb)
@@ -85,14 +85,16 @@
 		var/person3rd = returninglist[2]
 		var/personstealth = replacetext(person3rd,"the [W]","something")
 
-		src.visible_message(\
-			"<span class='notice'>[person3rd].</span>",\
-			"<span class='notice'>[person1st].</span>",\
-			"<span class='notice'>You hear rustling nearby...</span>",\
-			"<span class='notice'>[personstealth].</span>",\
-			max(1,W.w_class*0.5),\
-			max(2,W.w_class)\
-		)
+		if(person1st && person3rd && personstealth)
+			src.visible_message(\
+				"<span class='notice'>[person3rd]</span>",\
+				"<span class='notice'>[person1st]</span>",\
+				"<span class='notice'>You hear rustling nearby...</span>",\
+				"<span class='notice'>[personstealth]</span>",\
+				W.w_class*0.5,\
+				W.w_class,
+				1\
+			)
 
 	return 1
 
