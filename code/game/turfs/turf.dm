@@ -389,3 +389,32 @@ var/const/enterloopsanity = 100
 		if(add)
 			L.Add(t)
 	return L
+
+
+/turf/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+	var/turf/T = get_turf(user)
+	var/area/A = T.loc
+	if((istype(A) && !(A.has_gravity)) || (istype(T,/turf/space)))
+		return
+	if(istype(O, /obj/screen))
+		return
+	if(user.restrained() || user.stat || user.stunned || user.paralysis || !user.lying)
+		return
+	if((!(istype(O, /atom/movable)) || O.anchored || !Adjacent(user) || !Adjacent(O) || !user.Adjacent(O)))
+		return
+	if(!isturf(O.loc) || !isturf(user.loc))
+		return
+	if(isanimal(user) && O != user)
+		return
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/has_right_hand = TRUE
+		var/obj/item/organ/external/rhand = H.organs_by_name["r_hand"]
+		if(!rhand || rhand.is_stump())
+			has_right_hand = FALSE
+		var/obj/item/organ/external/lhand = H.organs_by_name["l_hand"]
+		if(!lhand || lhand.is_stump())
+			if(!has_right_hand)
+				return
+	if (do_after(user, 25 + (5 * user.weakened)) && !(user.stat))
+		step_towards(O, src)

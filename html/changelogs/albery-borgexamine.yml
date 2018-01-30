@@ -1,4 +1,0 @@
-author: Alberyk
-delete-after: True
-changes: 
-  - rscadd: "Examining a cyborg will now reveal what modules they are holding and each module is active."

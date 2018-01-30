@@ -287,7 +287,6 @@
 	fire_delay = 0
 	can_turret = 1
 	turret_sprite_set = "laser"
-
 	firemodes = list(
 		list(mode_name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
 		list(mode_name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5)

@@ -4651,10 +4651,6 @@
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_amt = 6
 
-/obj/item/weapon/reagent_containers/food/snacks/tortilla/Initialize()
-	. = ..()
-	reagents.add_reagent("sodiumchloride", 1)
-
 //chips
 /obj/item/weapon/reagent_containers/food/snacks/chip
 	name = "chip"
@@ -4663,12 +4659,8 @@
 	var/bitten_state = "chip_half"
 	bitesize = 1
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla chips" = 1)
+	nutriment_desc = list("nacho chips" = 1)
 	nutriment_amt = 2
-
-/obj/item/weapon/reagent_containers/food/snacks/chip/Initialize()
-	. = ..()
-	reagents.add_reagent("sodiumchloride", 0.1)
 
 /obj/item/weapon/reagent_containers/food/snacks/chip/On_Consume(mob/M as mob)
 	if(reagents && reagents.total_volume)
@@ -4724,7 +4716,7 @@
 	icon_state = "chip_basket"
 	trash = /obj/item/trash/chipbasket
 	var/vendingobject = /obj/item/weapon/reagent_containers/food/snacks/chip
-	nutriment_desc = list("tortilla chips" = 1)
+	nutriment_desc = list("tortilla chips" = 10)
 	bitesize = 1
 	nutriment_amt = 10
 
@@ -4749,7 +4741,7 @@
 	icon_state = "nachos"
 	trash = /obj/item/trash/plate
 	vendingobject = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho
-	nutriment_desc = list("tortilla chips" = 1)
+	nutriment_desc = list("tortilla chips" = 10)
 	bitesize = 1
 	nutriment_amt = 10
 
@@ -4762,6 +4754,10 @@
 	icon_state = "dip_cheese"
 	trash = /obj/item/trash/dipbowl
 	bitesize = 1
+	nutriment_desc = list("cheese dip" = 1)
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_amt = 20
+
 
 /obj/item/weapon/reagent_containers/food/snacks/dip/attackby(obj/item/weapon/reagent_containers/food/snacks/item as obj, mob/user as mob)
 	. = ..()
@@ -4805,6 +4801,8 @@
 	nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/salsa
 	chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/salsa
 	icon_state = "dip_salsa"
+	nutriment_desc = list("salsa" = 1)
+	nutriment_amt = 20
 
 /obj/item/weapon/reagent_containers/food/snacks/dip/guac
 	name = "guac dip"
@@ -4812,6 +4810,8 @@
 	nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/guac
 	chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/guac
 	icon_state = "dip_guac"
+	nutriment_desc = list("guacmole" = 1)
+	nutriment_amt = 20
 
 //burritos
 /obj/item/weapon/reagent_containers/food/snacks/burrito
@@ -4820,7 +4820,7 @@
 	icon_state = "burrito"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
+	nutriment_desc = list("tortilla" = 6)
 	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
@@ -4829,8 +4829,12 @@
 	icon_state = "burrito_vegan"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
+	nutriment_desc = list("tortilla" = 6)
 	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_vegan/Initialize()
+	. = ..()
+	reagents.add_reagent("tofu", 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_spicy
 	name = "spicy meat burrito"
@@ -4838,7 +4842,7 @@
 	icon_state = "burrito_spicy"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
+	nutriment_desc = list("tortilla" = 6)
 	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese
@@ -4847,7 +4851,7 @@
 	icon_state = "burrito_cheese"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
+	nutriment_desc = list("tortilla" = 6)
 	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese_spicy
@@ -4856,16 +4860,16 @@
 	icon_state = "burrito_cheese_spicy"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
+	nutriment_desc = list("tortilla" = 6)
 	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_hell
 	name = "el diablo"
-	desc = "Meat and a fuckload of chilis packed in a flour tortilla. The chaplain's office is west of the kitchen."
+	desc = "Meat and an insane amount of chilis packed in a flour tortilla. The chaplain's office is west of the kitchen."
 	icon_state = "burrito_hell"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 1)
+	nutriment_desc = list("tortilla" = 6)
 	nutriment_amt = 6
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_hell/Initialize()
@@ -4879,11 +4883,10 @@
 	icon_state = "burrito_mystery"
 	bitesize = 5
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("regret" = 1)
+	nutriment_desc = list("regret" = 6)
 	nutriment_amt = 6
 
 // Ligger food and also bacon
-
 /obj/item/weapon/reagent_containers/food/snacks/rawbacon
 	name = "raw bacon"
 	desc = "A very thin piece of raw meat, cut from beef."

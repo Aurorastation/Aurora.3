@@ -620,7 +620,7 @@ datum/objective/capture
 		target_amount = rand (lowbound,highbound)
 		var/n_p = 1 //autowin
 		if (SSticker.current_state == GAME_STATE_SETTING_UP)
-			for(var/mob/new_player/P in player_list)
+			for(var/mob/abstract/new_player/P in player_list)
 				if(P.client && P.ready && P.mind!=owner)
 					n_p ++
 		else if (SSticker.current_state == GAME_STATE_PLAYING)

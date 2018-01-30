@@ -1,8 +1,0 @@
-author: Lohikar
-delete-after: True
-changes: 
-  - rscadd: "Zeng-Hu has released the new Zeng-Hu Mobility Frame, a positronic chassis that emphasizes speed at the cost of fragility."
-  - rscadd: "Bishop Cybernetics have released their Accessory Frame, a positronic chassis designed to catch the eye while remaining power-efficient."
-  - rscadd: "Hephaestus Industries has announced their Generation 2 Industrial Frame, designed to withstand more abuse than its competitors at the cost of agility."
-  - rscadd: "Xion Manufacturing Group has announced their version of the HI G1 Industrial Frame, engineered to be an affordable and cool-running industrial worker."
-  - tweak: "IPCs are now flashable." # I couldn't think of a more interesting way to put this

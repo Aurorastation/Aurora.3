@@ -68,4 +68,4 @@
 	item_state = "crossbow"
 	matter = list(DEFAULT_WALL_MATERIAL = 200000)
 	projectile_type = /obj/item/projectile/energy/bolt/large
-	
+

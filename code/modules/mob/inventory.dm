@@ -295,6 +295,11 @@ var/list/slot_equipment_priority = list( \
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
 				var/mob/M = item
+				if(disabilities & PACIFIST)
+					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
+					src.remove_from_mob(item)
+					item.loc = src.loc
+					return
 				var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
 				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
 
@@ -309,6 +314,11 @@ var/list/slot_equipment_priority = list( \
 
 	src.remove_from_mob(item)
 	item.loc = src.loc
+
+	if(disabilities & PACIFIST)
+		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
+		return
+
 
 	//actually throw it!
 	if (item)
@@ -334,3 +344,5 @@ var/list/slot_equipment_priority = list( \
 	for(var/entry in get_equipped_items(include_carried))
 		drop_from_inventory(entry)
 		qdel(entry)
+
+

@@ -84,14 +84,14 @@
 
 	return ..()
 
-/mob/eye/zMove(direction)
+/mob/abstract/eye/zMove(direction)
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(destination)
 		setLoc(destination)
 	else
 		to_chat(owner, "<span class='notice'>There is nothing of interest in this direction.</span>")
 
-/mob/dead/observer/zMove(direction)
+/mob/abstract/observer/zMove(direction)
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(destination)
 		forceMove(destination)
@@ -116,7 +116,7 @@
 /mob/proc/can_ztravel(var/direction)
 	return FALSE
 
-/mob/dead/observer/can_ztravel(var/direction)
+/mob/abstract/observer/can_ztravel(var/direction)
 	return TRUE
 
 /mob/living/carbon/human/can_ztravel(var/direction)
@@ -262,7 +262,7 @@
 /mob/living/carbon/human/bst/can_fall()
 	return fall_override ? FALSE : ..()
 
-/mob/eye/can_fall()
+/mob/abstract/eye/can_fall()
 	return FALSE
 
 /mob/living/silicon/robot/can_fall(turf/below, turf/simulated/open/dest = src.loc)

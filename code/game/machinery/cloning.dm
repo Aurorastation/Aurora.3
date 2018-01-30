@@ -87,7 +87,7 @@
 		if(ckey(clonemind.key) != R.ckey)
 			return 0
 	else
-		for(var/mob/dead/observer/G in player_list)
+		for(var/mob/abstract/observer/G in player_list)
 			if(G.ckey == R.ckey)
 				if(G.can_reenter_corpse)
 					break
@@ -110,7 +110,7 @@
 
 	//Get the clone body ready
 	H.setCloneLoss(H.maxHealth * (100 - config.health_threshold_crit) / 100) // We want to put them exactly at the crit level, so we deal this much clone damage
-	H.adjustBrainLoss(50) // Even if healed to full health, it will have some brain damage
+	H.adjustBrainLoss(50, 55) // Even if healed to full health, it will have some brain damage
 	H.Paralyse(4)
 
 	//Here let's calculate their health so the pod doesn't immediately eject them!!!
@@ -210,7 +210,7 @@
 		return
 
 	return
-	
+
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
 /obj/machinery/clonepod/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isnull(occupant))

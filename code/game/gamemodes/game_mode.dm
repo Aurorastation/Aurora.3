@@ -147,7 +147,7 @@ var/global/list/additional_antag_types = list()
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
 /datum/game_mode/proc/can_start(var/do_not_spawn)
 	var/playerC = 0
-	for(var/mob/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in player_list)
 		if((player.client)&&(player.ready))
 			playerC++
 
@@ -544,19 +544,19 @@ var/global/list/additional_antag_types = list()
 		for(var/mob/player in player_list)
 			if(!player.client)
 				continue
-			if(istype(player, /mob/new_player))
+			if(istype(player, /mob/abstract/new_player))
 				continue
 			if(!role || (role in player.client.prefs.be_special_role))
 				log_debug("[player.key] had [antag_id] enabled, so we are drafting them.")
 				candidates |= player.mind
 	else
 		// Assemble a list of active players without jobbans.
-		for(var/mob/new_player/player in player_list)
+		for(var/mob/abstract/new_player/player in player_list)
 			if( player.client && player.ready )
 				players += player
 
 		// Get a list of all the people who want to be the antagonist for this round
-		for(var/mob/new_player/player in players)
+		for(var/mob/abstract/new_player/player in players)
 			if(!role || (role in player.client.prefs.be_special_role))
 				log_debug("[player.key] had [antag_id] enabled, so we are drafting them.")
 				candidates += player.mind
@@ -564,7 +564,7 @@ var/global/list/additional_antag_types = list()
 
 		// If we don't have enough antags, draft people who voted for the round.
 		if(candidates.len < required_enemies)
-			for(var/mob/new_player/player in players)
+			for(var/mob/abstract/new_player/player in players)
 				if(player.ckey in SSvote.round_voters)
 					log_debug("[player.key] voted for this round, so we are drafting them.")
 					candidates += player.mind
@@ -577,7 +577,7 @@ var/global/list/additional_antag_types = list()
 
 /datum/game_mode/proc/num_players()
 	. = 0
-	for(var/mob/new_player/P in player_list)
+	for(var/mob/abstract/new_player/P in player_list)
 		if(P.client && P.ready)
 			. ++
 
@@ -639,7 +639,7 @@ proc/display_roundstart_logout_report()
 					continue //Dead
 
 			continue //Happy connected client
-		for(var/mob/dead/observer/D in mob_list)
+		for(var/mob/abstract/observer/D in mob_list)
 			if(D.mind && (D.mind.original == L || D.mind.current == L))
 				if(L.stat == DEAD)
 					msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (Dead)\n"

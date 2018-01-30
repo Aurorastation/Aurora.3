@@ -193,7 +193,7 @@
 		msg += "[T.He] [T.is] small halfling!\n"
 
 	var/distance = get_dist(user,src)
-	if(istype(user, /mob/dead/observer) || user.stat == 2) // ghosts can see anything
+	if(istype(user, /mob/abstract/observer) || user.stat == 2) // ghosts can see anything
 		distance = 1
 	if (src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[T.He] [T.is]n't responding to anything around [T.him] and seems to be asleep.</span>\n"

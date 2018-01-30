@@ -79,6 +79,8 @@
 
 		handle_heartbeat()
 
+		handle_brain_damage()
+
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
 		handle_stamina()
 
@@ -261,7 +263,7 @@
 	// Handle side effects from stasis bag
 	if(in_stasis)
 		// First off, there's no oxygen supply, so the mob will slowly take brain damage
-		adjustBrainLoss(0.1)
+		adjustOxyLoss(0.1)
 
 		// Next, the method to induce stasis has some adverse side-effects, manifesting
 		// as cloneloss
@@ -1565,6 +1567,11 @@
 		speech_problem_flag = 1
 	return stuttering
 
+/mob/living/carbon/human/handle_tarded()
+	if(..())
+		speech_problem_flag = 1
+	return tarded
+
 /mob/living/carbon/human/handle_fire()
 	if(..())
 		return
@@ -1697,6 +1704,16 @@
 	else if (last_oxy_overlay)
 		damageoverlay.cut_overlay(last_oxy_overlay)
 		last_oxy_overlay = null
+
+////////////////
+//BRAIN DAMAGE//
+////////////////
+
+/mob/living/carbon/human/proc/handle_brain_damage()
+	for(var/T in get_traumas())
+		var/datum/brain_trauma/BT = T
+		if(!BT.suppressed)
+			BT.on_life()
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

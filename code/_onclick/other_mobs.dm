@@ -130,7 +130,7 @@
 	New Players:
 	Have no reason to click on anything at all.
 */
-/mob/new_player/ClickOn()
+/mob/abstract/new_player/ClickOn()
 	return
 
 /*
