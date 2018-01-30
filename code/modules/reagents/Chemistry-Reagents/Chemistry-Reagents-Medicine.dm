@@ -522,12 +522,12 @@
 	var/badmessage = list("Your mind seems lost...","You feel agitated...","It feels like the world is out to get you...") //Messages when you still have brain trauma
 	var/worstmessage = list("Your mind starts to break down...","Things aren't what they seem...","You hate yourself...") //Messages when the user is at the risk for more trauma
 	var/issafe = 0 //whether or not the drug can cause more brain trauma to occur if dosage is misssed
-	var/strength = list(\
+	var/list/strength = list(\
 		BRAIN_TRAUMA_MILD = 10, //Dosage required to supress mild brain trauma effects.
 		BRAIN_TRAUMA_SEVERE = 20, //Dosage required to supress severe brain trauma effects.
 		BRAIN_TRAUMA_SPECIAL = 40 //Dosage required to supress special brain trauma effects.
 	)
-	var/maxdose = 0
+	var/maxdose = 0 // Internal value
 
 /datum/reagent/antidepressants/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(world.time >= data)
@@ -560,6 +560,116 @@
 				H << pick(goodmessage)
 			else
 				H << pick(badmessage) // If the user has trauma, play a bad message.
+
+/datum/reagent/antidepressants/fluvoxamine
+	name = "fluvoxamine"
+	id = "fluvoxamine"
+	description = "Fluvoxamine is commonly used to treat depression, anxiety, and OCD. It is safe and effective at treating basic phobias, as well as schizophrenia at higher doses."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.001
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
+	badmessage = list("You feel sad.","You feel slight agitation.","You feel nervous.")
+	issafe = 1
+	strength = list(
+		/datum/brain_trauma/mild/phobia/ = 5,
+		/datum/brain_trauma/severe/split_personality = 20
+	)
+
+/datum/reagent/antidepressants/sertraline
+	name = "sertraline"
+	id = "sertraline"
+	description = "Sertraline is a cheap, safe to use depression, anxiety, and OCD medication. It is safe and effective at treating basic phobias however it does not last as long as other antidepressants.."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.003
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
+	badmessage = list("You feel sad.","You feel slight agitation.","You feel nervous.")
+	issafe = 1
+	strength = list(
+		/datum/brain_trauma/mild/phobia/ = 5,
+	)
+
+/datum/reagent/antidepressants/escitalopram
+	name = "escitalopram"
+	id = "escitalopram"
+	description = "Escitalopram is an effective and costly medication intended to cure depression, anxiety, and OCD. It is safe and very effective at treating basic phobias as well as monophobia, however it causes drowsiness."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.001
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
+	badmessage = list("You feel sad.","You feel slight agitation.","You feel nervous.")
+	issafe = 1
+	strength = list(
+		/datum/brain_trauma/mild/phobia/ = 1,
+		/datum/brain_trauma/severe/monophobia = 10,
+	)
+
+/datum/reagent/antidepressants/escitalopram/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.drowsyness += removed*100
+	. = ..()
+
+/datum/reagent/antidepressants/paroxetine
+	name = "paroxetine"
+	id = "paroxetine"
+	description = "Paroxetine is an antidepressant that treats depression, anxiety, and OCD. It is effective at treating basic phobias, and prevents nightsweats, however withdrawl is generally unsafe."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.001
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
+	badmessage = list("You feel sad.","You feel slight agitation.","You feel nervous.")
+	issafe = 0
+	strength = list(
+		/datum/brain_trauma/mild/phobia/ = 10,
+	)
+
+/datum/reagent/antidepressants/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(M.bodytemperature > 310)
+		M.bodytemperature = max(310, M.bodytemperature - removed*100)
+	. = ..()
+
+/datum/reagent/antidepressants/duloxetine
+	name = "duloxetine"
+	id = "duloxetine"
+	description = "Duloxetine is an antidepressant that treats depression, anxiety, OCD, and neurological pain. It is effective at treating basic phobias, chronic pain, and concussions however withdrawl is generally unsafe."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.001
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
+	badmessage = list("You feel sad.","You feel slight agitation.","You feel nervous.")
+	issafe = 0
+	strength = list(
+		/datum/brain_trauma/mild/concussion = 10,
+		/datum/brain_trauma/mild/phobia/ = 10
+	)
+
+/datum/reagent/antidepressants/venlafaxine
+	name = "venlafaxine"
+	id = "venlafaxine"
+	description = "Venlafaxine is an antidepressant that treats depression, anxiety, OCD, and social disorders. It is effective at treating basic phobias, monophobia, and stuttering however withdrawl is unsafe."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.001
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
+	badmessage = list("You feel sad.","You feel slight agitation.","You feel nervous.")
+	issafe = 1
+	strength = list(
+		/datum/brain_trauma/mild/phobia/ = 10,
+		/datum/brain_trauma/mild/stuttering/ = 5,
+		/datum/brain_trauma/severe/monophobia = 10
+	)
 
 /datum/reagent/methylphenidate
 	name = "Methylphenidate"
