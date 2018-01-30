@@ -190,8 +190,8 @@
 		modulator = null
 	if(pin)
 		pin.forceMove(A)
-		pin = null
 		pin.gun = null
+		pin = null
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
 			new /obj/item/device/laser_assembly(A)
