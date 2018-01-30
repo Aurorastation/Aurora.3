@@ -523,9 +523,9 @@
 	var/worstmessage = list("Your mind starts to break down...","Things aren't what they seem...","You hate yourself...") //Messages when the user is at the risk for more trauma
 	var/issafe = 0 //whether or not the drug can cause more brain trauma to occur if dosage is misssed
 	var/strength = list(\
-		BRAIN_TRAUMA_MILD = 10,\ //Dosage required to supress mild brain trauma effects.
-		BRAIN_TRAUMA_SEVERE = 20,\ //Dosage required to supress severe brain trauma effects.
-		BRAIN_TRAUMA_SPECIAL = 40\ //Dosage required to supress special brain trauma effects.
+		BRAIN_TRAUMA_MILD = 10, //Dosage required to supress mild brain trauma effects.
+		BRAIN_TRAUMA_SEVERE = 20, //Dosage required to supress severe brain trauma effects.
+		BRAIN_TRAUMA_SPECIAL = 40 //Dosage required to supress special brain trauma effects.
 	)
 	var/maxdose = 0
 
