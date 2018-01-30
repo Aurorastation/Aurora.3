@@ -1098,9 +1098,4 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/egg_pancake
 
-/datum/recipe/grilled_carp
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/carpmeat
-	)
-	reagents = list("spacespice" = 1)
-	result = /obj/item/weapon/reagent_containers/food/snacks/grilled_carp
+
