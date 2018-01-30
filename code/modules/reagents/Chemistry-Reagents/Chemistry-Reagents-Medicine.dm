@@ -564,7 +564,7 @@
 /datum/reagent/antidepressants/fluvoxamine
 	name = "fluvoxamine"
 	id = "fluvoxamine"
-	description = "Fluvoxamine is commonly used to treat depression, anxiety, and OCD. It is safe and effective at treating basic phobias, as well as schizophrenia at higher doses."
+	description = "Fluvoxamine is commonly used to treat depression, anxiety, and OCD. It is safe and effective at treating basic phobias, as well as schizophrenia and muscle weakness at higher doses."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.001
@@ -575,7 +575,9 @@
 	issafe = 1
 	strength = list(
 		/datum/brain_trauma/mild/phobia/ = 5,
-		/datum/brain_trauma/severe/split_personality = 20
+		/datum/brain_trauma/severe/split_personality = 20,
+		/datum/brain_trauma/special/imaginary_friend = 40,
+		/datum/brain_trauma/mild/muscle_weakness = 20
 	)
 
 /datum/reagent/antidepressants/sertraline
@@ -664,12 +666,69 @@
 	taste_description = "paper"
 	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
 	badmessage = list("You feel sad.","You feel slight agitation.","You feel nervous.")
-	issafe = 1
+	issafe = 0
 	strength = list(
-		/datum/brain_trauma/mild/phobia/ = 10,
-		/datum/brain_trauma/mild/stuttering/ = 5,
+		/datum/brain_trauma/mild/phobia = 10,
+		/datum/brain_trauma/mild/stuttering = 5,
 		/datum/brain_trauma/severe/monophobia = 10
 	)
+
+/datum/reagent/antidepressants/risperidone
+	name = "risperidone"
+	id = "risperidone"
+	description = "Risperidone is a antipsychotic medication used to treat schizophrenia, bipolar disorder, and symptoms of autism. Treats schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle_spasms. Withdrawl is generally deemed as unsafe."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.001
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
+	badmessage = list("You feel sad.","You feel slight agitation.","You feel nervous.")
+	issafe = 0
+	strength = list(
+		/datum/brain_trauma/severe/split_personality = 10,
+		/datum/brain_trauma/special/imaginary_friend = 20,
+		/datum/brain_trauma/mild/stuttering = 5,
+		/datum/brain_trauma/mild/speech_impediment = 10,
+		/datum/brain_trauma/severe/monophobia = 10,
+		/datum/brain_trauma/mild/hallucinations = 10,
+		/datum/brain_trauma/mild/muscle_spasms = 20,
+		/datum/brain_trauma/mild/tourettes = 20
+	)
+
+/datum/reagent/antidepressants/olanzapine
+	name = "olanzapine"
+	id = "olanzapine"
+	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, bipolar disorder, and symptoms of autism. Treats schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle_spasms. The medication metabolizes quickly, and withdrawl is generally deemed as unsafe."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.003
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
+	badmessage = list("You feel sad.","You feel slight agitation.","You feel nervous.")
+	issafe = 0
+	strength = list(
+		/datum/brain_trauma/severe/split_personality = 5,
+		/datum/brain_trauma/special/imaginary_friend = 10,
+		/datum/brain_trauma/mild/stuttering = 2,
+		/datum/brain_trauma/mild/speech_impediment = 5,
+		/datum/brain_trauma/severe/monophobia = 5,
+		/datum/brain_trauma/mild/muscle_spasms = 10,
+		/datum/brain_trauma/mild/tourettes = 20
+	)
+
+//Things that are not cured by medication:
+//Dumbness
+//Gerstmann Syndrome
+//Cerebral Near-Blindness
+//Mutism
+//Cerebral Blindness
+//Paralysis
+//Narcolepsy
+//Discoordination
+//Aphasia
+//Pacifism
 
 /datum/reagent/methylphenidate
 	name = "Methylphenidate"
