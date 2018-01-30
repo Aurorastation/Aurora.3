@@ -508,6 +508,59 @@
 
 #define ANTIDEPRESSANT_MESSAGE_DELAY 5*60*10
 
+
+/datum/reagent/antidepressants
+	name = "Experimental Antidepressant"
+	id = "antidepressants"
+	description = "Some nameless, experimental antidepressant that you should obviously not have your hands on."
+	reagent_state = LIQUID
+	color = "#FFFFFF"
+	metabolism = 0.001
+	data = 0
+	taste_description = "bugs"
+	var/goodmessage = list("Your mind feels healthy.","You feel calm and relaxed.","The world seems like a better place now.") //Messages when all your brain trauma is cured.
+	var/badmessage = list("Your mind seems lost...","You feel agitated...","It feels like the world is out to get you...") //Messages when you still have brain trauma
+	var/worstmessage = list("Your mind starts to break down...","Things aren't what they seem...","You hate yourself...") //Messages when the user is at the risk for more trauma
+	var/issafe = 0 //whether or not the drug can cause more brain trauma to occur if dosage is misssed
+	var/strength = list(\
+		BRAIN_TRAUMA_MILD = 10,\ //Dosage required to supress mild brain trauma effects.
+		BRAIN_TRAUMA_SEVERE = 20,\ //Dosage required to supress severe brain trauma effects.
+		BRAIN_TRAUMA_SPECIAL = 40\ //Dosage required to supress special brain trauma effects.
+	)
+	var/maxdose = 0
+
+/datum/reagent/antidepressants/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(world.time >= data)
+		data = world.time + ANTIDEPRESSANT_MESSAGE_DELAY // Doing this first in the off chance that everything breaks.
+		maxdose = max(maxdose,volume) //Stores the maximum dose for later use.
+		var/hastrauma = 0 //whether or not the brain has trauma
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+			if(B)
+				for(var/x in B.traumas)
+					var/datum/brain_trauma/BT = x
+					var/goalvolume = strength[BT]
+					if (goalvolume <= volume) // If the dosage is greater than the goal, then suppress the trauma.
+						if(!BT.suppressed)
+							BT.on_lose()
+							BT.suppressed = 1
+					else if(goalvolume-1 > volume) // -1 So it doesn't spam back and forth constantly if reagents are being metabolized
+						if(BT.suppressed)
+							BT.on_gain()
+							BT.suppressed = 0
+							hastrauma = 1
+			if(!issafe && volume < strength[BRAIN_TRAUMA_MILD]) //If the drug is unsafe and you haven't been taking it...
+				var/rng = rand(1,maxdose) // The higher the maximum dose, the worse the effect. Maximum dose can only be reset on total purge of the anti-depressant.
+				if(rng > strength[BRAIN_TRAUMA_SPECIAL])
+					H.gain_trauma_type(BRAIN_TRAUMA_SEVERE)
+				else if(rng > strength[BRAIN_TRAUMA_SEVERE])
+					H.gain_trauma_type(BRAIN_TRAUMA_MILD)
+			else if(!hastrauma) // If the user doesn't have any trauma, play a good message.
+				H << pick(goodmessage)
+			else
+				H << pick(badmessage) // If the user has trauma, play a bad message.
+
 /datum/reagent/methylphenidate
 	name = "Methylphenidate"
 	id = "methylphenidate"
