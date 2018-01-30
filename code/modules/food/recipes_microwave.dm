@@ -905,6 +905,7 @@ I said no!
 /datum/recipe/tortila
 	reagents = list("flour" = 5,"sodiumchloride" = 1,"water" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tortilla
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/taconew
 	items = list(
@@ -927,12 +928,12 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/chipplate/nachos
-	reagent_mix = RECIPE_REAGENT_REPLACE  //For math purposes
 
 /datum/recipe/salsa
 	fruit = list("chili" = 1, "tomato" = 1, "lime" = 1)
 	reagents = list("spacespice" = 1, "blackpepper" = 1,"sodiumchloride" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dip/salsa
+	reagent_mix = RECIPE_REAGENT_REPLACE //Ingredients are mixed together.
 
 /datum/recipe/guac
 	fruit = list("chili" = 1, "lime" = 1)
@@ -941,6 +942,7 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/tofu
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dip/guac
+	reagent_mix = RECIPE_REAGENT_REPLACE //Ingredients are mixed together.
 
 /datum/recipe/cheesesauce
 	fruit = list("chili" = 1, "tomato" = 1)
@@ -949,6 +951,7 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/dip
+	reagent_mix = RECIPE_REAGENT_REPLACE //Ingredients are mixed together.
 
 /datum/recipe/burrito
 	items = list(
