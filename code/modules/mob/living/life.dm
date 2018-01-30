@@ -57,6 +57,9 @@
 
 	handle_regular_hud_updates()
 
+	if(languages.len == 1 && default_language != languages[1])
+		default_language = languages[1]
+
 /mob/living/proc/handle_breathing()
 	return
 
