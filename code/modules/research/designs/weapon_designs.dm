@@ -210,14 +210,14 @@
 
 /datum/design/item/weapon/modular_phoron
 	id = "stock_teranium"
-	req_tech = list(TECH_POWER = 8, TECH_ENGINEERING = 5, TECH_PHORON = 6)
+	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 5, TECH_PHORON = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "phoron" = 3000, "uranium" = 500)
 	build_path = /obj/item/laser_components/capacitor/phoron
 	sort_string = "TZZBE"
 
 /datum/design/item/weapon/modular_bs
 	id = "stock_bs"
-	req_tech = list(TECH_POWER = 8, TECH_ENGINEERING = 8, TECH_PHORON = 7, TECH_BLUESPACE = 7)
+	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 7, TECH_PHORON = 7, TECH_BLUESPACE = 7)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000, "phoron" = 3000, "uranium" = 500, "diamond" = 1000)
 	build_path = /obj/item/laser_components/capacitor/bluespace
 	sort_string = "TZZBF"
