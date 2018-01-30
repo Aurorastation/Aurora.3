@@ -53,6 +53,7 @@
 	accuracy = initial(accuracy)
 	criticality = initial(criticality)
 	fire_sound = initial(fire_sound)
+	forcec = initial(force)
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/updatetype(var/mob/user)
 	reset_vars()
