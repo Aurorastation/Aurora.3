@@ -283,13 +283,12 @@
 /obj/item/organ/emp_act(severity)
 	if(!(status & ORGAN_ROBOT))
 		return
+
 	switch (severity)
 		if (1.0)
 			take_damage(rand(7,20) * emp_coeff)
-			return
 		if (2.0)
 			take_damage(rand(3,7) * emp_coeff)
-			return
 		if(3.0)
 			take_damage(rand(3) * emp_coeff)
 
