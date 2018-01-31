@@ -4,7 +4,7 @@
 		return 0
 
 	if(flooring)
-		if(iscrowbar(C))
+		if(C.iscrowbar())
 			if(broken || burnt)
 				user << "<span class='notice'>You remove the broken [flooring.descriptor].</span>"
 				make_plating()
@@ -18,14 +18,14 @@
 				return
 			playsound(src, 'sound/items/Crowbar.ogg', 80, 1)
 			return
-		else if(isscrewdriver(C) && (flooring.flags & TURF_REMOVE_SCREWDRIVER))
+		else if(C.isscrewdriver() && (flooring.flags & TURF_REMOVE_SCREWDRIVER))
 			if(broken || burnt)
 				return
 			user << "<span class='notice'>You unscrew and remove the [flooring.descriptor].</span>"
 			make_plating(1)
 			playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
 			return
-		else if(iswrench(C) && (flooring.flags & TURF_REMOVE_WRENCH))
+		else if(C.iswrench() && (flooring.flags & TURF_REMOVE_WRENCH))
 			user << "<span class='notice'>You unwrench and remove the [flooring.descriptor].</span>"
 			make_plating(1)
 			playsound(src, 'sound/items/Ratchet.ogg', 80, 1)
@@ -35,12 +35,12 @@
 			make_plating(1)
 			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 			return
-		else if(iscoil(C))
+		else if(C.iscoil())
 			user << "<span class='warning'>You must remove the [flooring.descriptor] first.</span>"
 			return
 	else
 
-		if(iscoil(C))
+		if(C.iscoil())
 			if(broken || burnt)
 				user << "<span class='warning'>This section is too damaged to support anything. Use a welder to fix the damage.</span>"
 				return
@@ -76,7 +76,7 @@
 				playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 				return
 		// Repairs.
-		else if(iswelder(C))
+		else if(C.iswelder())
 			var/obj/item/weapon/weldingtool/welder = C
 			if(welder.isOn() && (is_plating()))
 				if(broken || burnt)

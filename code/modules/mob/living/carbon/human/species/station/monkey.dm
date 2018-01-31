@@ -33,6 +33,7 @@
 	brute_mod = 1.5
 	burn_mod = 1.5
 	fall_mod = 0.5
+	willpower = 5
 
 	spawn_flags = IS_RESTRICTED
 

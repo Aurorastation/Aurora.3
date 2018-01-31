@@ -22,7 +22,7 @@
 
 	air_contents.volume = volume
 	air_contents.temperature = T20C
-	
+
 	var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
 	if(port)
 		connect(port)
@@ -109,7 +109,7 @@
 		update_icon()
 		return
 
-	else if (iswrench(W))
+	else if (W.iswrench())
 		if(connected_port)
 			disconnect()
 			user << "<span class='notice'>You disconnect \the [src] from the port.</span>"
@@ -168,7 +168,7 @@
 		power_change()
 		return
 
-	if(isscrewdriver(I))
+	if(I.isscrewdriver())
 		if(!cell)
 			user << "<span class='warning'>There is no power cell installed.</span>"
 			return

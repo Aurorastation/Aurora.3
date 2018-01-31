@@ -345,7 +345,7 @@
 	return
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
-	if(iswelder(W))
+	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if (!WT.welding)
 			user << "<span class='danger'>\The [WT] must be turned on!</span>"
@@ -385,7 +385,7 @@
 		update_icon()
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!iswrench(W))
+	if (!W.iswrench())
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
 		user << "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>"

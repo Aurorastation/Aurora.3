@@ -25,6 +25,9 @@
 	var/buffer_name
 	var/atom/buffer_object
 
+/obj/item/device/multitool/ismultitool()
+	return 1
+
 /obj/item/device/multitool/Destroy()
 	unregister_buffer(buffer_object)
 	return ..()

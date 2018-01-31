@@ -22,6 +22,7 @@
 	sprint_speed_factor = 3
 	stamina_recovery = 1
 	sprint_cost_factor = 1
+	willpower = 30
 
 	taste_sensitivity = TASTE_DULL
 
@@ -118,6 +119,7 @@
 	sprint_speed_factor = 2
 	stamina_recovery = 0.5
 	sprint_cost_factor = 0.5
+	willpower = 10
 
 // No combat skills for you.
 /datum/species/vox/pariah/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
@@ -176,6 +178,8 @@
 	brute_mod = 0.2
 	burn_mod = 0.2
 	fall_mod = 0.5
+	willpower = 80
+	awoken = 1
 
 	eyes = "blank_eyes"
 	breath_type = "nitrogen"

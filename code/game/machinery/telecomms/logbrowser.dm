@@ -189,7 +189,7 @@
 		return
 
 	attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
-		if(isscrewdriver(D))
+		if(D.isscrewdriver())
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			if(do_after(user, 20))
 				if (src.stat & BROKEN)

@@ -56,15 +56,18 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 
 	var/obj/screen/connected_button
 
+	var/power_level = 0 //used only for psionics. Power needed to cast the spell 0,1,2,3,4,5
+	var/power_cost = 0 //used only for psionics, subtracted from will per cast
+
 ///////////////////////
 ///SETUP AND PROCESS///
 ///////////////////////
 
-/spell/New()
-	..()
+	/spell/New()
+		..()
 
-	//still_recharging_msg = "<span class='notice'>[name] is still recharging.</span>"
-	charge_counter = charge_max
+		//still_recharging_msg = "<span class='notice'>[name] is still recharging.</span>"
+		charge_counter = charge_max
 
 /spell/process()
 	if(processing)

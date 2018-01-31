@@ -878,9 +878,9 @@ proc/is_hot(obj/item/W as obj)
 	if(W.sharp) return 1
 	return ( \
 		W.sharp													  || \
-		isscrewdriver(W)                   || \
+		W.isscrewdriver()                   || \
 		istype(W, /obj/item/weapon/pen)                           || \
-		iswelder(W)					  || \
+		W.iswelder()					  || \
 		istype(W, /obj/item/weapon/flame/lighter/zippo)			  || \
 		istype(W, /obj/item/weapon/flame/match)            		  || \
 		istype(W, /obj/item/clothing/mask/smokable/cigarette) 		      || \
@@ -1160,6 +1160,27 @@ var/list/wall_items = typecacheof(list(
 		if (show_messages)
 			user << "<span class='notice'>You need to be holding [src] to do that.</span>"
 		return USE_FAIL_NOT_IN_USER
+
+/obj/proc/iswrench()
+	return 0
+
+/obj/proc/isscrewdriver()
+	return 0
+
+/obj/proc/iswirecutter()
+	return 0
+
+/obj/proc/ismultitool()
+	return 0
+
+/obj/proc/iscrowbar()
+	return 0
+
+/obj/proc/iswelder()
+	return 0
+
+/obj/proc/iscoil()
+	return 0
 
 #undef NOT_FLAG
 #undef HAS_FLAG

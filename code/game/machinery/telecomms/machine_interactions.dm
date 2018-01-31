@@ -15,7 +15,7 @@
 /obj/machinery/telecomms/attackby(obj/item/P as obj, mob/user as mob)
 
 	// Using a multitool lets you access the receiver's interface
-	if(ismultitool(P))
+	if(P.ismultitool())
 		attack_hand(user)
 
 
@@ -33,12 +33,12 @@
 
 	switch(construct_op)
 		if(0)
-			if(isscrewdriver(P))
+			if(P.isscrewdriver())
 				user << "You unfasten the bolts."
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				construct_op ++
 		if(1)
-			if(isscrewdriver(P))
+			if(P.isscrewdriver())
 				user << "You fasten the bolts."
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				construct_op --
