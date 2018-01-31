@@ -801,10 +801,10 @@
 		/datum/brain_trauma/special/imaginary_friend = 50
 	)
 
-/datum/reagent/antidepressants/loyalty
-	name = "pacitrasen"
-	id = "pacitrasen"
-	description = "Pacitrasen is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen and respect for authority. Withdrawl effects include undying hatred towards NanoTrasen."
+/datum/reagent/antidepressants/hextrasenil
+	name = "Hextrasenil"
+	id = "hextrasenil"
+	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen and respect for authority. Withdrawl effects include undying hatred towards NanoTrasen."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.01 //Not meant to last a long time.
@@ -819,6 +819,22 @@
 		/datum/brain_trauma/mild/tourettes = 5
 	)
 	withdraw_effects = list()
+
+/datum/reagent/antidepressants/trisyndicotin
+	name = "Trisyndicotin"
+	id = "trisyndicotin"
+	description = "Trisyndicotin is a super-strength, expensive antipsychotic medication intended for the use in interigation. Side effects include undying hatred to NanoTrasen and disrespect for authority."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.001
+	data = 0
+	taste_description = "freedom"
+	goodmessage = list("You distrust Nanotrasen and their people.","You feel woke.","You have urges to speak out against NanoTrasen.","You feel the need to complain about NanoTrasen on the web.","You feel like things should be better.")
+	badmessage = list() //Actual Freedom.
+	worstmessage = list() //Actual Freedom.
+	cure_effects = list(
+		/datum/brain_trauma/severe/pacifism = 10
+	)
 
 //Things that are not cured by medication:
 //Dumbness
