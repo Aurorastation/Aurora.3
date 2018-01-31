@@ -521,14 +521,17 @@
 	var/goodmessage = list("Your mind feels healthy.","You feel calm and relaxed.","The world seems like a better place now.") //Messages when all your brain trauma is cured.
 	var/badmessage = list("Your mind seems lost...","You feel agitated...","It feels like the world is out to get you...") //Messages when you still have brain trauma
 	var/worstmessage = list("Your mind starts to break down...","Things aren't what they seem...","You hate yourself...") //Messages when the user is at the risk for more trauma
-	var/list/strength = list(
-		/datum/brain_trauma/mild/hallucinations = 10, //Dosage required to supress this type of trauma. Can target a specific brain trauma too.
+	var/list/cure_effects = list(
+		/datum/brain_trauma/mild/hallucinations = 10 //Dosage required to supress this type of trauma. Can target a specific brain trauma too.
 	)
 	var/list/dosage_effects = list(
 		/datum/brain_trauma/mild/hallucinations = 10 //Chance every 5 minutes to add a trauma. Chance reduces based on the amount of reagant consumed.
 	)
 	var/list/withdraw_effects = list(
 		/datum/brain_trauma/mild/hallucinations = 10 // Chance every 5 minutes to add a trauma, if you withdrawl from the medication. Increases with dosage.
+	)
+	var/list/overdose_effects = list(
+		/datum/brain_trauma/mild/hallucinations
 	)
 	var/maxdose = 0 // Internal value
 	var/totaldose = 0 //Internal value
@@ -545,10 +548,9 @@
 	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
 
 	if(B) //You won't feel anything if you don't have a brain.
-
 		for(var/x in B.traumas)
 			var/datum/brain_trauma/BT = x
-			var/goalvolume = strength[BT]
+			var/goalvolume = cure_effects[BT]
 			if (goalvolume <= volume) // If the dosage is greater than the goal, then suppress the trauma.
 				if(!BT.suppressed)
 					BT.on_lose()
@@ -561,7 +563,7 @@
 
 		for(var/k in dosage_effects)
 			var/datum/brain_trauma/BT = k
-			var/percentchance = max(0,dosage_effects[k] - totaldose*10) // If you've been taking this medication for a while, and it's been metabolizing in your system, then less of a chance to trigger.
+			var/percentchance = max(0,dosage_effects[k] - totaldose*10) // If you've been taking this medication for a while then side effects are rarer.
 			if(!H.has_trauma_type(BT) && prob(percentchance))
 				B.gain_trauma(BT,FALSE)
 
@@ -583,7 +585,7 @@
 /datum/reagent/antidepressants/fluvoxamine
 	name = "fluvoxamine"
 	id = "fluvoxamine"
-	description = "Fluvoxamine is commonly used to treat depression, anxiety, and OCD. It is safe and effective at treating basic phobias, as well as schizophrenia and muscle weakness at higher doses. Withdrawl effects are rare."
+	description = "Fluvoxamine is safe and effective at treating basic phobias, as well as schizophrenia and muscle weakness at higher doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.001
@@ -592,11 +594,14 @@
 	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel fine.")
 	badmessage = list("You feel a little blue.","You feel slight agitation...","You feel a little nervous...")
 	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
-	dosage_effects = list(
+	cure_effects = list(
 		/datum/brain_trauma/mild/phobia/ = 5,
 		/datum/brain_trauma/severe/split_personality = 20,
 		/datum/brain_trauma/special/imaginary_friend = 40,
 		/datum/brain_trauma/mild/muscle_weakness = 20
+	)
+	dosage_effects = list(
+		/datum/brain_trauma/mild/hallucinations = 5
 	)
 	withdraw_effects = list(
 		/datum/brain_trauma/mild/phobia/ = 5,
@@ -606,7 +611,7 @@
 /datum/reagent/antidepressants/sertraline
 	name = "sertraline"
 	id = "sertraline"
-	description = "Sertraline is a cheap and effective depression, anxiety, and OCD medication. It is safe and effective at treating basic phobias however it does not last as long as other antidepressants. Withdrawl effects are uncommon."
+	description = "Sertraline is cheap, safe, and effective at treating basic phobias, however it does not last as long as other antidepressants. Withdrawl effects are uncommon. Side effects are rare."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.003
@@ -615,8 +620,11 @@
 	goodmessage = list("You feel fine.","You feel rational.","You feel decent.")
 	badmessage = list("You feel a little blue.","You feel slight agitation...","You feel a little nervous...")
 	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
-	dosage_effects = list(
+	cure_effects = list(
 		/datum/brain_trauma/mild/phobia/ = 5
+	)
+	dosage_effects = list(
+		/datum/brain_trauma/mild/hallucinations = 5
 	)
 	withdraw_effects = list(
 		/datum/brain_trauma/mild/phobia/ = 10,
@@ -627,7 +635,7 @@
 /datum/reagent/antidepressants/escitalopram
 	name = "escitalopram"
 	id = "escitalopram"
-	description = "Escitalopram is an effective and costly medication intended to cure depression, anxiety, and OCD. It is safe and very effective at treating basic phobias at low dosagesas well as monophobia, however it causes drowsiness. Withdrawl effects are uncommon."
+	description = "Escitalopram is expesnive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawl effects are uncommon."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.001
@@ -636,9 +644,12 @@
 	goodmessage = list("You feel relaxed.","You feel at ease.","You feel care free.")
 	badmessage = list("You feel worried.","You feel slight agitation.","You feel nervous.")
 	worstmessage = list("You worry about the littlest thing...","You feel like you are at risk...","You think you see things...")
-	dosage_effects = list(
+	cure_effects = list(
 		/datum/brain_trauma/mild/phobia/ = 1,
 		/datum/brain_trauma/severe/monophobia = 10
+	)
+	dosage_effects = list(
+		/datum/brain_trauma/mild/hallucinations = 5
 	)
 	withdraw_effects = list(
 		/datum/brain_trauma/mild/phobia/ = 10,
@@ -652,7 +663,7 @@
 /datum/reagent/antidepressants/paroxetine
 	name = "paroxetine"
 	id = "paroxetine"
-	description = "Paroxetine is an antidepressant that treats depression, anxiety, and OCD. It is effective at treating basic phobias, and prevents nightsweats. Withdrawl effects are frequent and unsafe."
+	description = "Paroxetine is effective at treating basic phobias while also preventing the body from overheating. Side effects are rare, and include hallucinations. Withdrawl effects are frequent and unsafe."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.001
@@ -661,8 +672,11 @@
 	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
 	badmessage = list("You worry about the littlest thing.","You feel like you are at risk.","You think you see things.")
 	worstmessage = list("You start to overreact to sounds and movement...","Your hear dangerous thoughts in your head...","You are really starting to see things...")
-	dosage_effects = list(
+	cure_effects = list(
 		/datum/brain_trauma/mild/phobia/ = 10
+	)
+	dosage_effects = list(
+		/datum/brain_trauma/mild/hallucinations = 5
 	)
 	withdraw_effects = list(
 		/datum/brain_trauma/mild/phobia/ = 25,
@@ -677,7 +691,7 @@
 /datum/reagent/antidepressants/duloxetine
 	name = "duloxetine"
 	id = "duloxetine"
-	description = "Duloxetine is an antidepressant that treats depression, anxiety, OCD, and neurological pain. It is effective at treating basic phobias, chronic pain, and concussions. Withdrawl effects are common."
+	description = "Duloxetine is effective at treating basic phobias and concussions. A rare side effect is hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.001
@@ -686,9 +700,12 @@
 	goodmessage = list("You feel at ease.","Your mind feels healthy..")
 	badmessage = list("You worry about the littlest thing.","Your head starts to feel weird...","You think you see things.")
 	worstmessage = list("You start to overreact to sounds and movement...","Your head feels really weird.","You are really starting to see things...")
-	dosage_effects = list(
+	cure_effects = list(
 		/datum/brain_trauma/mild/concussion = 10,
 		/datum/brain_trauma/mild/phobia/ = 10
+	)
+	dosage_effects = list(
+		/datum/brain_trauma/mild/hallucinations = 5
 	)
 	withdraw_effects = list(
 		/datum/brain_trauma/mild/phobia/ = 25,
@@ -699,7 +716,7 @@
 /datum/reagent/antidepressants/venlafaxine
 	name = "venlafaxine"
 	id = "venlafaxine"
-	description = "Venlafaxine is an antidepressant that treats depression, anxiety, OCD, and social disorders. It is effective at treating basic phobias, monophobia, and stuttering. Withdrawl effects are common."
+	description = "Venlafaxine is effective at treating basic phobias, monophobia, and stuttering. Side effects are uncommon and include hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.001
@@ -708,10 +725,13 @@
 	goodmessage = list("You feel at ease.","Your mind feels healthy..","You feel unafraid to speak...")
 	badmessage = list("You worry about the littlest thing.","You think you see things.")
 	worstmessage = list("You start to overreact to sounds and movement...","You are really starting to see things...")
-	dosage_effects = list(
+	cure_effects = list(
 		/datum/brain_trauma/mild/phobia = 10,
 		/datum/brain_trauma/mild/stuttering = 5,
 		/datum/brain_trauma/severe/monophobia = 10
+	)
+	dosage_effects = list(
+		/datum/brain_trauma/mild/hallucinations = 10
 	)
 	withdraw_effects = list(
 		/datum/brain_trauma/mild/phobia/ = 25,
@@ -721,7 +741,7 @@
 /datum/reagent/antidepressants/risperidone
 	name = "risperidone"
 	id = "risperidone"
-	description = "Risperidone is a antipsychotic medication used to treat schizophrenia, bipolar disorder, and symptoms of autism. Treats schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle_spasms. Withdrawl symptoms are dangerous and almost always occur."
+	description = "Risperidone is a potent antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. Withdrawl symptoms are dangerous and almost always occur."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.001
@@ -730,7 +750,7 @@
 	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.")
 	badmessage = list("You start hearing voices...","You think you see things...","You feel really upset...","You want attention...")
 	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...","You hate feeling alone...","You feel really upset.")
-	dosage_effects = list(
+	cure_effects = list(
 		/datum/brain_trauma/severe/split_personality = 10,
 		/datum/brain_trauma/special/imaginary_friend = 20,
 		/datum/brain_trauma/mild/stuttering = 5,
@@ -739,6 +759,9 @@
 		/datum/brain_trauma/mild/hallucinations = 10,
 		/datum/brain_trauma/mild/muscle_spasms = 20,
 		/datum/brain_trauma/mild/tourettes = 20
+	)
+	dosage_effects = list(
+		/datum/brain_trauma/severe/pacifism = 25
 	)
 	withdraw_effects = list(
 		/datum/brain_trauma/mild/hallucinations = 100,
@@ -751,7 +774,7 @@
 /datum/reagent/antidepressants/olanzapine
 	name = "olanzapine"
 	id = "olanzapine"
-	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, bipolar disorder, and symptoms of autism. Treats schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. The medication metabolizes quickly, and withdrawl is dangerous."
+	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. The medication metabolizes quickly, and withdrawl is dangerous."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.003
@@ -760,7 +783,7 @@
 	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.","Your body feels responsive.","You can handle being alone.")
 	badmessage = list("You start hearing voices...","You think you see things...","You want a friend...")
 	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...")
-	dosage_effects = list(
+	cure_effects = list(
 		/datum/brain_trauma/severe/split_personality = 5,
 		/datum/brain_trauma/special/imaginary_friend = 10,
 		/datum/brain_trauma/mild/stuttering = 2,
@@ -769,11 +792,33 @@
 		/datum/brain_trauma/mild/muscle_spasms = 10,
 		/datum/brain_trauma/mild/tourettes = 20
 	)
+	dosage_effects = list(
+		/datum/brain_trauma/severe/pacifism = 25
+	)
 	withdraw_effects = list(
 		/datum/brain_trauma/mild/hallucinations = 200,
 		/datum/brain_trauma/severe/split_personality = 50,
 		/datum/brain_trauma/special/imaginary_friend = 50
 	)
+
+/datum/reagent/antidepressants/loyalty
+	name = "pacitrasen"
+	id = "pacitrasen"
+	description = "Pacitrasen is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen and respect for authority. Withdrawl effects include undying hatred towards NanoTrasen."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.01 //Not meant to last a long time.
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You feel loyal to NanoTrasen. Please take your pills.","You feel the need to contribute to cause of NanoTrasen. Please take your pills.","You wouldn't think about hurting NanoTrasen at all. Please take your pills.","You do not feel the need to express emotion. Please take your pills.","You feel that NanoTrasen has your best interests at heart. Please take your pills.","You respect the Chain of Command. Please take your pills.")
+	badmessage = list("You start to think if you need these pills...","Do I need these pills?","Should I be taking pills anymore?")
+	worstmessage = list("You start to realise that the system is corrupt...","NanoTrasen is corrupt...")
+	cure_effects = list(
+		/datum/brain_trauma/severe/split_personality = 5, //Gotta remove those enemies to nanotrasen.
+		/datum/brain_trauma/special/imaginary_friend = 5,
+		/datum/brain_trauma/mild/tourettes = 5
+	)
+	withdraw_effects = list()
 
 //Things that are not cured by medication:
 //Dumbness
