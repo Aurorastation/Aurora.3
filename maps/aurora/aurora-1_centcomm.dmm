@@ -3590,11 +3590,12 @@
 /turf/space/transit/north/shuttlespace_ns4,
 /area/shuttle/escape_pod3/transit)
 "ajD" = (
-/turf/template_noop,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
+	dir = 5;
 	icon_state = "diagonalWall3"
 	},
-/area/template_noop)
+/area/space)
 "ajE" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -3640,12 +3641,12 @@
 /turf/simulated/shuttle/wall/dark,
 /area/template_noop)
 "ajM" = (
-/turf/template_noop,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 4;
 	icon_state = "diagonalWall3"
 	},
-/area/template_noop)
+/area/space)
 "ajN" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -3750,9 +3751,9 @@
 	},
 /area/shuttle/syndicate_elite/mothership)
 "aki" = (
-/turf/template_noop,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
-	dir = 8;
+	dir = 5;
 	icon_state = "diagonalWall3"
 	},
 /area/syndicate_mothership{
@@ -7931,6 +7932,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/light,
 /obj/item/weapon/storage/secure/briefcase,
+/obj/item/device/price_scanner,
 /turf/simulated/floor/carpet,
 /area/merchant_ship/start)
 "asO" = (
@@ -22107,6 +22109,13 @@
 	icon_state = "diagonalWall3"
 	},
 /area/syndicate_station/start)
+"aWN" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/space)
 
 (1,1,1) = {"
 aaa
@@ -61747,7 +61756,7 @@ akK
 akZ
 akj
 akj
-aln
+aki
 ahq
 aaM
 aaM
@@ -62767,7 +62776,7 @@ aaM
 aaM
 aaM
 ahq
-akl
+aki
 akj
 akF
 akK
@@ -62775,7 +62784,7 @@ akK
 akZ
 akj
 akj
-alr
+aki
 ahq
 aaM
 aaM
@@ -76715,7 +76724,7 @@ amf
 amf
 amf
 amf
-aWM
+aWL
 aaM
 aaM
 aaM
@@ -78963,7 +78972,7 @@ ako
 ako
 ako
 ajv
-ala
+ajD
 aid
 aaM
 aaM
@@ -79799,7 +79808,7 @@ amf
 amf
 amf
 amf
-aql
+aWL
 aaM
 aaM
 aaM
@@ -79985,10 +79994,10 @@ ajg
 ajg
 ajE
 ajL
+aaM
 ajj
 akp
 aiE
-aaM
 aaM
 aaM
 aaM
@@ -80237,15 +80246,15 @@ aaM
 aaM
 aaM
 ajg
-ajn
+ajg
 ajg
 ajg
 ajv
 ajM
+aaM
 aiE
 akq
 aiE
-aaM
 aaM
 aaM
 aaM
@@ -80499,10 +80508,10 @@ aid
 aaM
 aaM
 aaM
+aaM
 aiE
 akr
 aiE
-aaM
 aaM
 aaM
 aaM
@@ -80756,10 +80765,10 @@ aaM
 aaM
 aaM
 aaM
+aaM
 ajX
 aks
 akB
-aaM
 aaM
 aaM
 aaM
@@ -81013,10 +81022,10 @@ aaM
 aaM
 aaM
 aaM
+aaM
 ajv
 akt
 ajv
-aaM
 aaM
 aid
 aid
@@ -81269,11 +81278,11 @@ aaM
 aaM
 aaM
 aaM
-ajN
-ajY
+aaM
+aaM
+aWN
 ajL
 ajM
-aaM
 aid
 aid
 aid
