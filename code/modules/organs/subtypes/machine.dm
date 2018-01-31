@@ -70,6 +70,18 @@
 	robotize()
 	. = ..()
 
+/obj/item/organ/cell/emp_act(severity)
+	if(damage > 3)
+		owner.apply_effect(STUTTER, damage)
+		owner.apply_effect(EYE_BLUR, damage)
+	if(damage > min_bruised_damage)
+		owner.Stun(damage)
+		owner << "<span class='danger'>WARNING: Power fluctuation detected. Servomotors locked down.</span>"
+	if(damage > min_broken_damage)
+		owner.Paralyse(damage)
+		owner.Weaken(damage)
+		owner << "<span class='danger'>%#/ERR: Power leak detected! $%^/</span>"
+
 /obj/item/organ/cell/replaced()
 	. = ..()
 	// This is very ghetto way of rebooting an IPC. TODO better way.
