@@ -79,7 +79,7 @@
 /obj/item/organ/cell/emp_act(severity)
 	emp_counter += 30/severity
 	if(emp_counter >= 30)
-		owner.Paralyse(emp_counter/3)
+		owner.Paralyse(emp_counter/6)
 		owner << "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>"
 
 /obj/item/organ/cell/replaced()
