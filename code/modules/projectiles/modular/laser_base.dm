@@ -121,6 +121,7 @@
 	desc = "A modification that modulates the beam into a standard laser beam."
 	icon_state = "laser"
 	var/obj/item/projectile/beam/projectile = /obj/item/projectile/beam
+	var/firing_sound = 'sound/weapons/Laser.ogg'
 
 /obj/item/laser_components/modulator/degrade()
 	return

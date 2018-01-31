@@ -52,6 +52,8 @@
 	chargetime = initial(chargetime)
 	accuracy = initial(accuracy)
 	criticality = initial(criticality)
+	fire_sound = initial(fire_sound)
+	force = initial(force)
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/updatetype(var/mob/user)
 	reset_vars()
@@ -100,6 +102,7 @@
 	dispersion = focusing_lens.dispersion
 	accuracy = focusing_lens.accuracy
 	burst += focusing_lens.burst
+	fire_sound = modulator.firing_sound
 
 	if(gun_mods.len)
 		handle_mod()
@@ -185,6 +188,10 @@
 	if(modulator)
 		modulator.forceMove(A)
 		modulator = null
+	if(pin)
+		pin.forceMove(A)
+		pin.gun = null
+		pin = null
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
 			new /obj/item/device/laser_assembly(A)
