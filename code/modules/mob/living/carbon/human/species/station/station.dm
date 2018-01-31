@@ -396,7 +396,7 @@
 	bodytype = "Machine"
 	age_min = 1
 	age_max = 30
-	economic_modifier = 1
+	economic_modifier = 3
 
 	blurb = "IPCs are, quite simply, \"Integrated Positronic Chassis.\" In this scenario, 'positronic' implies that the chassis possesses a positronic processing core (or positronic brain), meaning that an IPC must be positronic to be considered an IPC. The Baseline model is more of a category - the long of the short is that they represent all unbound synthetic units. Baseline models cover anything that is not an Industrial chassis or a Shell chassis. They can be custom made or assembly made. The most common feature of the Baseline model is a simple design, skeletal or semi-humanoid, and ordinary atmospheric diffusion cooling systems."
 
@@ -624,7 +624,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	bodytype = "Vaurca"
 	age_min = 1
 	age_max = 20
-	economic_modifier = 2
+	economic_modifier = 1
 	language = LANGUAGE_VAURCA
 	primitive_form = "V'krexi"
 	greater_form = "Vaurca Warrior"
