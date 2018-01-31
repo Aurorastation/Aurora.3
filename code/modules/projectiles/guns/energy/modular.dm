@@ -35,6 +35,8 @@
 		user << "You can see \the [capacitor] attached."
 	if(focusing_lens)
 		user << "You can see \the [focusing_lens] attached."
+	if(modulator)
+		user << "You can see \the [modulator] attached."
 
 /obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D, var/mob/user)
 	if(!isscrewdriver(D))
@@ -241,7 +243,6 @@
 		usr << "<span class='warning'>This device does not have a scope installed!</span>"
 
 /obj/item/weapon/gun/energy/laser/prototype/special_check(var/mob/user)
-	..()
 	if(is_charging && chargetime)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
@@ -265,7 +266,7 @@
 	if(!istype(user.get_active_hand(), src))
 		return 0
 
-	return 1
+	return ..()
 
 /obj/item/weapon/gun/energy/laser/prototype/verb/rename_gun()
 	set name = "Name Prototype"

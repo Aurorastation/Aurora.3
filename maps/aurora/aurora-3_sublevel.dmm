@@ -23486,7 +23486,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Phychiatrist"
+	name = "Psychiatrist"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";

@@ -5247,7 +5247,7 @@
 "jy" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Checkpoint";
-	req_access = list(1)
+	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -6718,7 +6718,7 @@
 "lP" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Checkpoint";
-	req_access = list(1)
+	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -32828,8 +32828,8 @@ bv
 bg
 bg
 mu
-IT
-IX
+IS
+IV
 mi
 ag
 ag
@@ -47033,7 +47033,7 @@ Em
 IY
 IZ
 Jb
-Jd
+IZ
 Gz
 GH
 FM
@@ -47290,7 +47290,7 @@ Em
 Gd
 Ja
 Jc
-Je
+Ja
 GA
 GI
 GI
