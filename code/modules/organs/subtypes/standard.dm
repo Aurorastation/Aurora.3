@@ -125,6 +125,10 @@
 
 /obj/item/organ/external/hand/removed()
 	owner.drop_from_inventory(owner.gloves)
+	if(body_part == HAND_LEFT)
+		owner.drop_l_hand()
+	else
+		owner.drop_r_hand()
 	..()
 
 /obj/item/organ/external/hand/right

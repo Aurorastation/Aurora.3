@@ -368,7 +368,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define USE_FAIL_NOT_IN_USER 6
 #define USE_FAIL_IS_SILICON 7
 
-#define DEFAULT_SIGHT (SEE_SELF|SEE_BLACKNESS)
+#define DEFAULT_SIGHT (SEE_SELF)
 
 #define isStationLevel(Z) ((Z) in current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)

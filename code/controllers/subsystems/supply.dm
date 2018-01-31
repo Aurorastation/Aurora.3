@@ -175,7 +175,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			CHECK_TICK
 
 		//Load the items
-		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, name, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_items WHERE deleted_at is NULL ORDER BY order_by")
+		var/DBQuery/item_query = dbcon.NewQuery("SELECT path, name, description, categories, suppliers, amount, access, container_type, groupable FROM ss13_cargo_items WHERE deleted_at is NULL ORDER BY order_by ASC, name ASC")
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK

@@ -114,6 +114,10 @@
 	var/stun = stunforce
 	var/mob/living/L = M
 
+	if(user.disabilities & PACIFIST)
+		to_chat(user, "<span class='notice'>You don't want to risk hurting [M]!</span>")
+		return 0
+
 	var/target_zone = check_zone(hit_zone)
 	if(user.a_intent == I_HURT)
 		if (!..())	//item/attack() does it's own messaging and logs
