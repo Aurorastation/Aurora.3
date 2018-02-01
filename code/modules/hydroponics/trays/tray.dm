@@ -347,7 +347,7 @@
 
 	//Remove the seed if something is already planted.
 	if(seed) seed = null
-	seed = SSplants.seeds[pick(list("reishi","nettles","amanita","mushrooms","plumphelmet","towercap","harebells","weeds"))]
+	seed = SSplants.seeds[pick(list("reishi","nettles","amanita","mushrooms","plumphelmet","towercap","harebells","weeds","diona","glowshroom"))]
 	if(!seed) return //Weed does not exist, someone fucked up.
 
 	dead = 0

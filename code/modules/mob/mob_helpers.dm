@@ -690,6 +690,7 @@ proc/is_blind(A)
 /mob/living/carbon/proc/vomit()
 	var/canVomit = 0
 	var/mob/living/carbon/human/H
+	var/list/no_vomit_zones = list(/obj/machinery/disposal,/obj/structure/toilet,/obj/structure/sink)
 	if (istype(src, /mob/living/carbon/human))
 		H = src
 		if (H.ingested.total_volume > 0)
@@ -705,7 +706,17 @@ proc/is_blind(A)
 
 		var/turf/location = loc
 		if (istype(location, /turf/simulated))
-			location.add_vomit_floor(src, 1)
+			var/novomit = 0
+			var/obj/vomitorium
+			for(var/obj/toilet in no_vomit_zones)
+				if(locate(toilet) in location)
+					novomit = 1
+					vomitorium = toilet
+					break
+			if(novomit && vomitorium)
+				src << "<span class='warning'>You vomit into \the [vomitorium]!</span>"
+			else
+				location.add_vomit_floor(src, 1)
 
 		nutrition -= 60
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little

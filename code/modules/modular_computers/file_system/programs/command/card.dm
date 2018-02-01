@@ -185,8 +185,31 @@
 				if(t1 == "Custom")
 					var/temp_t = sanitize(input("Enter a custom job assignment.","Assignment", id_card.assignment), 45)
 					//let custom jobs function as an impromptu alt title, mainly for sechuds
+
 					if(temp_t)
+						var/list/departments = list("Command","Engineering","Medical","Science","Supply","Civilian","Security","Misc","Unlisted")
 						id_card.assignment = temp_t
+
+						var/department = input("Select a department for record purposes.","Departmental Assignment") as null|anything in departments
+
+						switch(department)
+							if("Command")
+								command_positions.Add(temp_t)
+							if("Engineering")
+								engineering_positions.Add(temp_t)
+							if("Medical")
+								cargo_positions.Add(temp_t)
+							if("Science")
+								science_positions.Add(temp_t)
+							if("Supply")
+								cargo_positions.Add(temp_t)
+							if("Civilian")
+								civilian_positions.Add(temp_t)
+							if("Security")
+								security_positions.Add(temp_t)
+							if("Unlisted")
+								nonhuman_positions.Add(temp_t)
+
 				else
 					var/list/access = list()
 					if(module.is_centcom)

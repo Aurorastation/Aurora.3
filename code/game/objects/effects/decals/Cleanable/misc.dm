@@ -15,13 +15,30 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "ash"
 	anchored = 1
+	var/volume = 40
 
 /obj/effect/decal/cleanable/ash/attack_hand(mob/user as mob)
 	user << "<span class='notice'>[src] sifts through your fingers.</span>"
 	var/turf/simulated/floor/F = get_turf(src)
 	if (istype(F))
-		F.dirt += 4
+		F.dirt += volume/10
 	qdel(src)
+
+/obj/item/weapon/reagent_containers/glass/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+	if(istype(W, /obj/item/weapon/reagent_containers))
+		var/obj/item/weapon/reagent_containers/U = W
+		var/transfer = U.reagents.get_free_space()
+		if(volume > transfer)
+			transfer = min(0, (volume - transfer))
+		else
+			transfer = volume
+		if(transfer)
+			U.reagents.add_reagent("ash", transfer)
+		user << "<span class='notice'>You collect [src] neatly into [U].</span>"
+		volume -= transfer
+		if(!volume)
+			qdel(src)
 
 /obj/effect/decal/cleanable/dirt
 	name = "dirt"

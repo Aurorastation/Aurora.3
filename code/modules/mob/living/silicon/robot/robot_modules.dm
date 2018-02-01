@@ -914,6 +914,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/mining_drone
 	name = "mining drone module"
 	no_slip = 1
+	channels = list("Supply" = 1)
 	networks = list(NETWORK_MINE)
 
 /obj/item/weapon/robot_module/mining_drone/basic/New(var/mob/living/silicon/robot/robot)

@@ -291,3 +291,16 @@ obj/item/weapon/reagent_containers/glass/bucket/wood
 		return
 	else
 		return ..()
+
+/obj/item/weapon/reagent_containers/glass/urn
+	desc = "For dust thou art, and unto dust shalt thou return."
+	name = "urn"
+	icon_state = "urn"
+	item_state = "holyflask"
+	matter = list(DEFAULT_WALL_MATERIAL = 200)
+	w_class = 4.0
+	amount_per_transfer_from_this = 20
+	possible_transfer_amounts = list(10,20,30,40)
+	volume = 40
+	flags = OPENCONTAINER
+	unacidable = 0

@@ -1,10 +1,12 @@
+/obj/structure/flora
+	layer = 9
+
 //trees
 /obj/structure/flora/tree
 	name = "tree"
 	anchored = 1
 	density = 1
 	pixel_x = -16
-	layer = 9
 
 /obj/structure/flora/tree/pine
 	name = "pine tree"
@@ -85,6 +87,7 @@
 		name = "dead [name]"
 		desc = "It looks dead."
 		dead = 1
+
 //No complex interactions, just make them fragile
 /obj/structure/flora/pottedplant/ex_act()
 	death()

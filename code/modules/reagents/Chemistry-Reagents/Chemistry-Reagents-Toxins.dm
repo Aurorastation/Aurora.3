@@ -214,6 +214,17 @@
 	name = "Robust Harvest"
 	id = "robustharvest"
 
+/datum/reagent/toxin/fertilizer/ashes
+	name = "ash"
+	id = "ash"
+	color = "#B2BEB5"
+	description = "The particulate remains of a former crewmember. Not very tasty."
+	taste_description = "ash"
+
+/datum/reagent/toxin/fertilizer/ashes/touch_turf(var/turf/T, var/amount)
+	var/obj/effect/decal/cleanable/ash/ash = new /obj/effect/decal/cleanable/ash(T)
+	ash.volume = amount
+
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
 	id = "plantbgone"

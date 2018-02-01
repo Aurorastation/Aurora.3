@@ -244,6 +244,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "karnaikai_mask"
 	species_restricted = list("Unathi")
 	contained_sprite = TRUE
+	visor_color = 0
 
 
 /obj/item/weapon/contraband/poster/fluff/conservan_poster //ATLAS poster - Conservan Xullie - conservatron
@@ -1449,6 +1450,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "karihaakaki_mask"
 	species_restricted = list("Vox")
 	contained_sprite = TRUE
+	visor_color = 0
 
 
 /obj/item/weapon/storage/wallet/fluff/muhawir_wallet //Pineapple Wallet - Muhawir Nawfal - menown
