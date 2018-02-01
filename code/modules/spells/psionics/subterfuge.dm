@@ -77,9 +77,9 @@
 
 /obj/item/psionic_mimic
 	name = "psionic illusion"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/spell.dmi'
 	w_class = 1.0
-	icon_state = "spell"
+	icon_state = "wiz_mm"
 
 /obj/item/psionic_mimic/attack() //can't be used to actually bludgeon things
 	return 1
