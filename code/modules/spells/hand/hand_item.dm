@@ -4,11 +4,11 @@ Basically: I can use it to target things where I click. I can then pass these ta
 
 /obj/item/weapon/magic_hand
 	name = "power fist"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/mob/screen/spells.dmi'
 	flags = 0
 	abstract = 1
 	w_class = 5.0
-	icon_state = "spell"
+	icon_state = "wiz_psy"
 	var/next_spell_time = 0
 	var/spell/hand/hand_spell
 	var/casts = 0
