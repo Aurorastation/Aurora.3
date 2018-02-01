@@ -25,12 +25,9 @@
 	if(stat != CONSCIOUS)
 		return
 
-	var/limbs_can_grow = (nutrition / evolve_nutrition) * 6
-
-	src << limbs_can_grow
-
-	if(limbs_can_grow >= 3) //Head, Trunk, Fork
-		src << "<span class='warning'>You do not have enough biomass to grow yet. Currently you can only grow [nutrition]/[evolve_nutrition*(3/6)] limbs ([nutrition]/[evolve_nutrition] biomass).</span>"
+	var/limbs_can_grow = round((nutrition / evolve_nutrition) * 6)
+	if(limbs_can_grow <= 3) //Head, Trunk, Fork
+		src << "<span class='warning'>You do not have enough biomass to grow yet. Currently you can only grow [limbs_can_grow]/6 limbs ([nutrition]/[evolve_nutrition] biomass).</span>"
 		return
 
 	if(gestalt)
@@ -99,6 +96,7 @@
 		src << "<span class='warning'>You didn't have enough biomass to grow your [O.name].</warning>"
 		//adult.organs -= O
 		O.droplimb(1,DROPLIMB_EDGE)
+		qdel(O)
 		limbs_to_remove -= 1
 		if(limbs_to_remove <= 0)
 			break
