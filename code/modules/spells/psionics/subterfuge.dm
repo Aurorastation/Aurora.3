@@ -77,7 +77,7 @@
 
 /obj/item/psionic_mimic
 	name = "psionic illusion"
-	icon = 'icons/mob/screen/spell.dmi'
+	icon = 'icons/mob/screen/spells.dmi'
 	w_class = 1.0
 	icon_state = "wiz_mm"
 

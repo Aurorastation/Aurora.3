@@ -169,7 +169,7 @@
 
 /spell/hand/psyker/psyblade
 	name = "Psy Blade"
-	desc = "You conjured a blade of psionic energy that saps willpower from your target along with damaging them."
+	desc = "You conjure a blade of psionic energy that saps willpower from your target along with damaging them."
 	school = PSY
 	power_level = 1
 	power_cost = 20

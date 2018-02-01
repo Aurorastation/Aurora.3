@@ -131,7 +131,7 @@
 
 /spell/hand/psyker/mend
 	name = "Mend Flesh"
-	desc = "You touch the target and fillthem with healing energy."
+	desc = "You touch the target and fill them with healing energy."
 	school = COE
 	power_level = 1
 	power_cost = 20
