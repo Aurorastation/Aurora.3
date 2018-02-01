@@ -131,3 +131,23 @@ Protectiveness | Armor %
 
 /obj/item/clothing/head/helmet/material/makeshift/plasteel
 	default_material = "plasteel"
+
+/obj/item/clothing/suit/armor/material/makeshift/kelly
+	name = "armored trenchcoat"
+	desc = "A trenchcoat that has had some armor plating hastily attached to it."
+	applies_material_color = FALSE
+	pocket_slots = 2
+	icon_state = "material_kelly"
+	item_state = "material_kelly"
+
+/obj/item/clothing/suit/armor/material/makeshift/attackby(var/obj/O, mob/user)
+	if(istype(O, /obj/item/clothing/suit/storage/trench))
+		var/obj/item/clothing/suit/storage/trench/kelly = O
+		user.drop_from_inventory(src)
+		user.drop_from_inventory(kelly)
+		var/obj/item/clothing/suit/armor/material/makeshift/kelly/new_armor = new(null, src.material.name)
+		user.put_in_hands(new_armor)
+		qdel(src)
+		qdel(kelly)
+	else
+		..()
