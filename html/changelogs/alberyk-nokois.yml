@@ -1,0 +1,5 @@
+author: Alberyk
+delete-after: True
+changes: 
+  - rscadd: "Sharp weapons and welders are twice as effective in destroying plants."
+  - rscdel: "Removed k'ois seeds from the botany's seed storage."
