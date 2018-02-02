@@ -157,7 +157,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 60
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar = 40
 	)
 
 
