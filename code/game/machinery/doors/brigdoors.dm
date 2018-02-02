@@ -40,6 +40,9 @@
 /obj/machinery/door_timer/Initialize()
 	. = ..()
 
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/door_timer/LateInitialize()
 	for(var/obj/machinery/door/window/brigdoor/M in SSmachinery.all_machines)
 		if (M.id == src.id)
 			targets += M
