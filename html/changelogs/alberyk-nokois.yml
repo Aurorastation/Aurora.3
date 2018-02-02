@@ -1,0 +1,5 @@
+author: Alberyk
+delete-after: True
+changes: 
+  - rscadd: "Fireaxes should be more effective when dealing with plant related outbreaks."
+  - rscdel: "Removed k'ois seeds from the botany's seed storage."
