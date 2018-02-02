@@ -1,5 +1,5 @@
 author: Alberyk
 delete-after: True
 changes: 
-  - rscadd: "Fireaxes should be more effective when dealing with plant related outbreaks."
+  - rscadd: "Sharp weapons and welders are twice as effective in destroying plants."
   - rscdel: "Removed k'ois seeds from the botany's seed storage."
