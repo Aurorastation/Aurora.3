@@ -233,7 +233,7 @@
 	var/list/organ_removal_priorities = list("l_arm","r_arm","l_leg","r_leg")
 	for(var/organ_name in organ_removal_priorities)
 		var/obj/item/organ/external/O = organs_by_name[organ_name]
-		if(O.is_stump())
+		if(!O || O.is_stump())
 			nymphs_to_kill_off += 1
 
 	for(var/mob/living/carbon/alien/diona/D in src)
