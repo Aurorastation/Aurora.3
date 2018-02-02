@@ -579,8 +579,11 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.visible_message("<span class='danger'>\The [seed.display_name] has been attacked by [user] with \the [O]!</span>")
 		if(!dead)
-			health -= O.force
-			check_health()
+			if (istype(O, /obj/item/weapon/material/twohanded/fireaxe))
+				die()
+			else
+				health -= O.force
+				check_health()
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/attack_tk(mob/user as mob)
