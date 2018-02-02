@@ -27,7 +27,7 @@
 
 	var/limbs_can_grow = round((nutrition / evolve_nutrition) * 6)
 	if(limbs_can_grow <= 3) //Head, Trunk, Fork
-		src << "<span class='warning'>You do not have enough biomass to grow yet. Currently you can only grow [limbs_can_grow]/6 limbs ([nutrition]/[evolve_nutrition] biomass).</span>"
+		src << "<span class='warning'>You do not have enough biomass to grow yet. Currently you can only grow [limbs_can_grow]/6 limbs. ([nutrition]/[evolve_nutrition] biomass).</span>"
 		return
 
 	if(gestalt)
@@ -93,7 +93,7 @@
 	var/limbs_to_remove = (6 - limbs_can_grow)
 	for(var/organ_name in organ_removal_priorities)
 		var/obj/item/organ/external/O = adult.organs_by_name[organ_name]
-		src << "<span class='warning'>You didn't have enough biomass to grow your [O.name].</warning>"
+		src << "<span class='warning'>You didn't have enough biomass to grow your [O.name]!</span>"
 		//adult.organs -= O
 		O.droplimb(1,DROPLIMB_EDGE)
 		qdel(O)
