@@ -4993,3 +4993,28 @@
 /obj/item/weapon/reagent_containers/food/snacks/spreads/Initialize()
 	. = ..()
 	reagents.add_reagent("triglyceride", 20)
+
+/obj/item/weapon/reagent_containers/food/snacks/bacon_stick
+	name = "eggpop"
+	desc = "A bacon wrapped boiled egg, conviently skewered on a wooden stick."
+	icon_state = "bacon_stick"
+
+/obj/item/weapon/reagent_containers/food/snacks/cheese_cracker
+	name = "supreme cheese toast"
+	desc = "A piece of toast lathered with butter, cheese, spices, and herbs."
+	icon_state = "cheese_cracker"
+
+/obj/item/weapon/reagent_containers/food/snacks/bacon_and_eggs
+	name = "bacon and eggs"
+	desc = "A piece of bacon and two fried eggs."
+	icon_state = "bacon_and_eggs"
+
+/obj/item/weapon/reagent_containers/food/snacks/sweet_and_sour
+	name = "sweet and sour pork"
+	desc = "A traditional ancient sol recipie with a few liberties taken with meat selection."
+	icon_state = "sweet_and_sour"
+
+/obj/item/weapon/reagent_containers/food/snacks/corn_dog
+	name = "corn dog"
+	desc = "A cornbread covered sausage deepfried in oil."
+	icon_state = "corn_dog"
