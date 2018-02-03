@@ -408,7 +408,11 @@ var/list/name_to_material
 /material/plasteel/titanium
 	name = "titanium"
 	stack_type = /obj/item/stack/material/titanium
+	integrity = 600
 	conductivity = 2.38
+	hardness = 90
+	weight = 25
+	protectiveness = 25
 	icon_base = "metal"
 	door_icon_base = "metal"
 	icon_colour = "#D1E6E3"
