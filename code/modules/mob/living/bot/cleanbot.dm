@@ -291,7 +291,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			get_targets()
 		if("patrol")
 			should_patrol = !should_patrol
-			patrol_path = null
+			patrol_path = list()
 		if("freq")
 			var/freq = text2num(input("Select frequency for  navigation beacons", "Frequnecy", num2text(beacon_freq / 10))) * 10
 			if (freq > 0)
