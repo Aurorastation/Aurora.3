@@ -7,7 +7,7 @@
 	force = 1
 	w_class = 3
 	attack_verb = list("whipped", "swatted", "swished", "swattled", "flogged", "tanned", "thrashed", "scourged", "leathered", "belted", "smacked", "just beats the shit out of", "scattled", "scascattled", "dried", "rubbed down", "violently removed the reagents from", "demoisturises", "flailed", "flayed", "welted", "whacked", "lashed", "violated", "engaged in rather rude conduct with", "decided to assail", "practices the most vile, cruel, horrific action possible to man or any species, sapient or otherwise, on")
-	hitsound = 'sound/weapons/towelwhip.ogg'
+	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/weapon/towel/attack_self(mob/living/user as mob)
 	user.visible_message("<span class='notice'>\The [user] uses \the [src] to towel themselves off.</span>")
