@@ -34,6 +34,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added some new variables and checks to suit cycling, letting suits not be refit in cyclers.."
-  - tweak: "Made it so that you can't refit a suit while a helmet is attached to it, to stop sprites breaking."
-  - tweak: "Changed the old black/white skrell spacesuits in EVA to use voidsuit code, allowing things to be attached to them."
+  - tweak: "You now must detach helmets from suits to refit them."
+  - rscadd: "Skrellian spacesuits are now voidsuits, allowing you to attach helmets and magboots to them."
