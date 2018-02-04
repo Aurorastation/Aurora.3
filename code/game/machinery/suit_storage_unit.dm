@@ -868,7 +868,7 @@
 	else if(href_list["apply_paintjob"])
 
 		if(!suit && !helmet) return
-		if(suit.helmet)
+		if(suit && suit.helmet)
 			to_chat(usr, "<span class='alert'>\The [src] cannot function while a helmet is attached to the suit!</span>")
 			return
 		var/list/no_refit
@@ -877,7 +877,7 @@
 		if (suit && !suit.refittable)
 			LAZYADD(no_refit, suit)
 		if (LAZYLEN(no_refit))
-			to_chat(usr, "<span class='alert'>\The [english_list(no_refit)] in [src] is not refittable!</span>")
+			to_chat(usr, "<span class='alert'>\The [english_list(no_refit)] in [src] [no_refit.len == 1 ? "is" : "are"] not refittable!</span>")
 			return
 
 		active = 1
