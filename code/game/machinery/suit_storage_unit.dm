@@ -869,7 +869,7 @@
 
 		if(!suit && !helmet) return
 		if(suit.helmet)
-			to_chat(usr, "<span class='alert'>\The cycler cannot function while a helmet is attached to the suit!</span>")
+			to_chat(usr, "<span class='alert'>\The [src] cannot function while a helmet is attached to the suit!</span>")
 			return
 		var/list/no_refit
 		if (helmet && !helmet.refittable)
