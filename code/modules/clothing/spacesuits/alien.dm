@@ -6,6 +6,7 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Skrell","Human")
 	siemens_coefficient = 0.4
+	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/void/skrell/white
 	icon_state = "skrell_helmet_white"
@@ -22,6 +23,7 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Skrell","Human")
 	siemens_coefficient = 0.4
+	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/skrell/white
 	icon_state = "skrell_suit_white"
