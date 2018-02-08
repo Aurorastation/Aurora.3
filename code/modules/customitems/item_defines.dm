@@ -268,17 +268,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "zakiya_sketchpad"
 
 /obj/item/weapon/clipboard/fluff/zakiya_sketchpad/New()
-		..()
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
-		new /obj/item/weapon/paper(src)
+	..()
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
+	new /obj/item/weapon/paper(src)
 
 /obj/item/weapon/clipboard/fluff/zakiya_sketchpad/update_icon()
 	if(toppaper)
@@ -679,7 +679,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/weapon/coin/fluff/raymond_coin //Engraved Coin - Raymond Hawkins - aboshehab
 	name = "engraved coin"
 	desc = "A coin of light and bright with one side having an engraving of a greek Lamba sign, and on the back the initials of R.H. are engraved."
-	icon = 'icons/obj/custom_items/raymond_coin.dmi'
+	icon = 'icons/obj/custom_items/raymond_items.dmi'
 	icon_state = "raymond_coin"
 
 
@@ -1685,7 +1685,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/head/beret/fluff/chunley_beret //Sol's Dog Handler Beret - Freya Chunley - thesmiley
 	name = "sol's dog handler beret"
-	desc = "A scarlet military beret worn by the Sol Alliance Military Police dog handling unit. The symbol on the cap is that of a grey wolf's head on white. It quivers menacingly.  \
+	desc = "A scarlet military beret worn by the Sol Alliance Military Police dog handling unit. The symbol on the cap is that of a grey wolf's head on white. It quivers menacingly. \
 	Upon flipping it you see a name tag with the word \"CHUNLEY\" written in on it with a very sloppy hand write."
 	icon = 'icons/obj/custom_items/chunley_beret.dmi'
 	icon_state = "chunley_beret"
@@ -1711,3 +1711,169 @@ All custom items with worn sprites must follow the contained sprite system: http
 	flags_inv = HIDEEARS|HIDEFACE
 	body_parts_covered = FACE
 	w_class = 3
+
+
+/obj/item/weapon/crowbar/fluff/grajahn_crowbar //Crowbar of Divine Strength - Es'tana Grajahn - ezuo
+	name = "crowbar of divine strength"
+	desc = "An ordinary crowbar that has been painted red, and had some lights rigged to it. It pulsates a yellow light."
+	icon = 'icons/obj/custom_items/grajahn_crowbar.dmi'
+	icon_state = "grajahn_crowbar"
+	item_state = "grajahn_crowbar"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/storage/wallet/fluff/raymond_wallet //Black Leather Wallet - Raymond Hawkins - aboshehab
+	name = "black leather wallet"
+	desc = "A sleek black leather wallet, with the initials of \"J.H.\" visible at the front side. It’s got an old yet maintained look to it."
+	icon = 'icons/obj/custom_items/raymond_items.dmi'
+	icon_state = "raymond_wallet"
+
+/obj/item/weapon/storage/wallet/fluff/raymond_wallet/update_icon()
+	return
+
+/obj/item/fluff/raymond_tablet //Holo Tablet - Raymond Hawkins - aboshehab
+	name = "holo tablet"
+	desc = "A thin electronic device that projects holographic images stored on it."
+	icon = 'icons/obj/custom_items/raymond_items.dmi'
+	icon_state = "raymond_tablet"
+	w_class = 2
+	var/picture = null
+
+/obj/item/fluff/raymond_tablet/attack_self(mob/user as mob)
+	if (use_check(user, USE_DISALLOW_SILICONS))
+		return
+
+	var/list/pictures = list("22-01-2460", "07-11-2459", "03-08-2459", "08-03-2452", "18-06-2437", "01-01-2434")
+
+	var/selection = input("Which picture do you want to see?", "Holo tablet picture selection.") as null|anything in pictures
+
+	if (!selection)
+		return
+
+	picture = selection
+
+/obj/item/fluff/raymond_tablet/examine(mob/user)
+	..()
+	if(!picture)
+		to_chat(user, "\The [src]'s screen is empty.")
+		return
+	if(in_range(user, src) || isobserver(user))
+		show_picture(user)
+	else
+		to_chat(user, "<span class='notice'>You have to go closer if you want to read it.</span>")
+
+/obj/item/fluff/raymond_tablet/proc/show_picture(mob/user)
+	var/desc
+
+	switch(picture)
+		if("22-01-2460")
+			desc = "This image shows a group of four outside with a scene looks to be a camp out in a forest. You see Raymond Hawkins sitting around a campfire with the three others, which you may know as Annabelle Hawkins, \
+			Lily Hawkins and Robert Hawkins, his children."
+
+		if("07-11-2459")
+			desc = "This image shows two people, Raymond Hawkins and Robert Hawkins, with the latter being a boy in his early teens. The setting is that of a gun range, with Robert operating a sidearm. \
+			Raymond is standing nearby guiding and instructing him on his posture."
+
+		if("03-08-2459")
+			desc = "This image shows two people, Raymond Hawkins and Lily Hawkins, with the latter being a girl in her early twenties. The setting is that of an arena, Raymond dressed casually and Lily in a Jiu Jitsu uniform, \
+			the belt being an alternation between black and red. She’s got a winners medal around her neck, making a peace sign with her right hand while having a grin on her face, posing for a picture with Raymond."
+
+		if("08-03-2452")
+			desc = "This image shows two people, Raymond Hawkins and Annabelle Hawkins, the former visibly a decade younger yet thinner, and not in the healthy way. The later looks to be in their late teens. The setting is that of a restaurant, \
+			a more high end one, with the two of them seated opposite of each other, posing for a picture. Annabelle especially looks incredibly happy."
+
+		if("18-06-2437")
+			desc = "This image shows a group of five posing together for a picture, the surrounding indicates this as a place of military decorum, people dressed in Sol Navy dress uniforms and people in civilian clothing spread around in groups, indicating some form of graduation ceremony. \
+			Raymond is in his mid twenties, dressed in full dress uniform standing with four others. One you might know as Stephanie Hawkins, dressed in the same way, looking to be in her mid twenties as well. A boy in his early teens is also standing, \
+			which you may know as Robert Hawkins, his brother. The last two are Jack Hawkins and Martha Hawkins, both looking to be in their early fifties, his parents."
+
+		if("01-01-2434")
+			desc = "This image shows a large gathering, the scenery and attire indicative of a wedding. Two people stick out, Raymond Hawkins, looking to be in his early twenties dressed in a suit dancing with his bride, \
+			which you may know as Stephanie Hawkins. They look content and happy, the atmosphere ecstatic."
+
+	show_browser(user, "<center><b>You can see on the screen of the tablet:</b><br>[desc]</center>", "window=Holo Tablet")
+
+
+/obj/item/weapon/material/knife/fluff/yumi_knife //Cutting Metal - Yumi Yotin - trickingtrapster
+	name = "cutting metal"
+	desc = "Looks like a piece of sheet metal, sharpened on one end."
+	icon = 'icons/obj/custom_items/yotin_knife.dmi'
+	icon_state = "yotin_knife"
+
+
+/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/volvalaad_jacket //Paramedic's Jacket - Richard Volvalaad - t1gws
+	name = "paramedic's jacket"
+	desc = "A jacket worn by trained emergency medical personnel, this one has a gold trim and emblem."
+	icon = 'icons/obj/custom_items/volvalaad_items.dmi'
+	icon_state = "volvalaad_jacket"
+	item_state = "volvalaad_jacket"
+	icon_open = "volvalaad_jacket_open"
+	icon_closed = "volvalaad_jacket"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/fluff/volvalaad_coat //Dominian Noble Coat - Richard Volvalaad - t1gws
+	name = "dominian noble coat"
+	desc = "This is a coat often worn by the Dominian Nobility, this one is black and blue."
+	icon = 'icons/obj/custom_items/volvalaad_items.dmi'
+	icon_state = "volvalaad_coat"
+	item_state = "volvalaad_coat"
+	icon_open = "volvalaad_coat_open"
+	icon_closed = "volvalaad_coat"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/paper/fluff/jawdat_paper //Manifesto of the PRA - Rrazujun Rrhazkal-Jawdat - jackboot
+	name = "manifesto of the PRA"
+	desc = "This is the manifesto of the People's Republic of Adhomai, written by many different Tajara thinkers in the 2430's. Depending on who you ask it is either an enlightening document that showcases the great \
+	intellectual and cultural genius of Tajara civilization, or a dense collection of gibberish commie nonsense."
+	icon = 'icons/obj/custom_items/jawdat_paper.dmi'
+	icon_state = "jawdat_paper"
+	info = "<b><center>Manifesto of the Parizahra Zhahrazjujz'tajara Akzatauzjauna'azahrazakahuz Hadii</b><br>\
+			<br>\
+			Written: Late 2432;<br> \
+			First Published: February 2433<br> \
+			Translated by Comrade Aurauz’hurl Aizhunua</center><br>\
+			<small>A Rrak’narr is haunting the Njarir'Akhran. The Rrak’narr of classlessism. Where have not the Njarir'Akhran blasted classlessism? Where not have the nobility ruthlessly uprooted our supporters \
+			like they were tearing up weeds from their gardens? Despite their dismissal, the fact that the Njarir'Akhran are so desperate to exterminate us brings us two inevitable facts:<br>\
+			<br>\
+			1) Revolutionary ideology is already cemented amongst Tajara.<br>\
+			2) It is time for supporters of a classless society to throw off their cloaks and set aside their daggers and pick up the rifle to meet the reactionary bourgeois in the open field.<br>\
+			<br>\
+			To that end, Comrade Al’mari Hadii has coalesced the many supporters and thinkers of the Revolution to bring to life this manifesto of our people, our nation, and our Revolution.<br>\
+			This is a Revolution that will make the Old Order buckle before the strength of the working class until it collapses into ruin. Remember, dear comrade, all of the contents of this manifesto are to justify one simple fact.<br>\
+			This one fact has been unsuccessfully suppressed by the Njarir'Akhran, only to live on in the burning spirit of every man, woman, and kit. The simple fact that no Tajara is born inherently better than another.<br>\
+			<br>\
+			Chapter 1:The Ruling Class and the Working Class<br>\
+			Chapter 2: Revolutionaries and Classlessism<br>\
+			Chapter 3: The Modern Njarir'Akhran Bourgeois<br>\
+			Chapter 4: Classlessism: Bridging Egalitarianism and Collectivism<br>\
+			Chapter 5: The Human Question: Neo-Feudalistic Classism<br>\
+			Chapter 6: The Great Awakening: Classlessism With Tajara Characteristics In The Greater Galaxy<br>\
+			Chapter 7: Aiairu'kuul Dialectic Theory On Trans-Substational Class Elevation<br>\
+			Chapter 8: Breaking The Chains: Persuading Non-Tajara To Support Their Own Liberation<br>\
+			Chapter 9: The Obliteration Of Class: The Final Goal<br>\
+			Chapter 10: Closing Arguments: Al'Mari's Vision Of A People's Republic</small>"
+
+/obj/item/weapon/paper/fluff/jawdat_paper/update_icon()
+	return
+
+/obj/item/weapon/folder/red/manifesto/Initialize()
+	. = ..()
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+
+
+/obj/item/clothing/accessory/holster/thigh/fluff/rifler_holster //Rifler's Holster - Sophie Rifler - shodan43893
+	name = "tan leather thigh holster"
+	desc = "A version of the security thigh holster done up in tan leather - this one appears to have the word \"Rifler\" engraved down the side. It appears to be rather well made and hard wearing; more of a worker's holster than a show piece."
+	icon = 'icons/obj/custom_items/rifler_holster.dmi'
+	icon_state = "rifler_holster"
