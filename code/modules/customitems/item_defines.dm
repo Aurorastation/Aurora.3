@@ -1685,7 +1685,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/head/beret/fluff/chunley_beret //Sol's Dog Handler Beret - Freya Chunley - thesmiley
 	name = "sol's dog handler beret"
-	desc = "A scarlet military beret worn by the Sol Alliance Military Police dog handling unit. The symbol on the cap is that of a grey wolf's head on white. It quivers menacingly.  \
+	desc = "A scarlet military beret worn by the Sol Alliance Military Police dog handling unit. The symbol on the cap is that of a grey wolf's head on white. It quivers menacingly. \
 	Upon flipping it you see a name tag with the word \"CHUNLEY\" written in on it with a very sloppy hand write."
 	icon = 'icons/obj/custom_items/chunley_beret.dmi'
 	icon_state = "chunley_beret"
@@ -1784,8 +1784,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 		if("18-06-2437")
 			desc = "This image shows a group of five posing together for a picture, the surrounding indicates this as a place of military decorum, people dressed in Sol Navy dress uniforms and people in civilian clothing spread around in groups, indicating some form of graduation ceremony. \
-			Raymond is in his mid twenties, dressed in full dress uniform standing with four others. One you might know as Stephanie Hawkins, dressed in the same way, looking to be in her mid twenties as well. A boy in his early teens is also standing, which you may know as Robert Hawkins, his brother. \
-			The last two are Jack Hawkins and Martha Hawkins, both looking to be in their early fifties, his parents."
+			Raymond is in his mid twenties, dressed in full dress uniform standing with four others. One you might know as Stephanie Hawkins, dressed in the same way, looking to be in her mid twenties as well. A boy in his early teens is also standing, \
+			which you may know as Robert Hawkins, his brother. The last two are Jack Hawkins and Martha Hawkins, both looking to be in their early fifties, his parents."
 
 		if("01-01-2434")
 			desc = "This image shows a large gathering, the scenery and attire indicative of a wedding. Two people stick out, Raymond Hawkins, looking to be in his early twenties dressed in a suit dancing with his bride, \
@@ -1824,6 +1824,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/paper/fluff/jawdat_paper //Manifesto of the PRA - Rrazujun Rrhazkal-Jawdat - jackboot
 	name = "manifesto of the PRA"
+	desc = "This is the manifesto of the People's Republic of Adhomai, written by many different Tajara thinkers in the 2430's. Depending on who you ask it is either an enlightening document that showcases the great \
+	intellectual and cultural genius of Tajara civilization, or a dense collection of gibberish commie nonsense."
 	icon = 'icons/obj/custom_items/jawdat_paper.dmi'
 	icon_state = "jawdat_paper"
 	info = "<b><center>Manifesto of the Parizahra Zhahrazjujz'tajara Akzatauzjauna'azahrazakahuz Hadii</b><br>\
@@ -1868,3 +1870,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
 	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
 	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+
+
+/obj/item/clothing/accessory/holster/thigh/fluff/rifler_holster //Rifler's Holster - Sophie Rifler - shodan43893
+	name = "tan leather thigh holster"
+	desc = "A version of the security thigh holster done up in tan leather - this one appears to have the word \"Rifler\" engraved down the side. It appears to be rather well made and hard wearing; more of a worker's holster than a show piece."
+	icon = 'icons/obj/custom_items/rifler_holster.dmi'
+	icon_state = "rifler_holster"
