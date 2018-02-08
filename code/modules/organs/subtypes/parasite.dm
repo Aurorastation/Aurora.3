@@ -48,6 +48,9 @@
 /obj/item/organ/parasite/kois/process()
 	..()
 
+	if (!owner)
+		return
+
 	if(prob(10) && !(owner.species.flags & NO_PAIN))
 		owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
 		owner.emote("me",1,"winces slightly.")
