@@ -1791,7 +1791,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			desc = "This image shows a large gathering, the scenery and attire indicative of a wedding. Two people stick out, Raymond Hawkins, looking to be in his early twenties dressed in a suit dancing with his bride, \
 			which you may know as Stephanie Hawkins. They look content and happy, the atmosphere ecstatic."
 
-	show_browser(user, "<center>You can see in the screen of the tablet:</b><br>[desc]</center>", "window=Holo Tablet")
+	show_browser(user, "<center><b>You can see in the screen of the tablet:</b><br>[desc]</center>", "window=Holo Tablet")
 
 
 /obj/item/weapon/material/knife/fluff/yumi_knife //Cutting Metal - Yumi Yotin - trickingtrapster
