@@ -24,7 +24,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
 	name = "mounted scattershot cannon"
-	desc = "A weapon for combat exosuits. Shoots a spread of pellets."
+	desc = "A weapon for combat exosuits. The LBX AC 10 \"Scattershot\" shoots a spread of pellets."
 	icon_state = "mecha_scatter"
 	equip_cooldown = 20
 	projectile = /obj/item/projectile/bullet/pellet
@@ -36,7 +36,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg
 	name = "mounted machine gun"
-	desc = "A weapon for combat exosuits. A mounted machine-gun that shoots a rapid, three shot burst."
+	desc = "A weapon for combat exosuits. The Ultra AC 2 is a mounted machine-gun that shoots a rapid, three shot burst."
 	icon_state = "mecha_uac2"
 	equip_cooldown = 10
 	projectile = /obj/item/projectile/bullet/rifle/a556
@@ -49,7 +49,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/incendiary
 	name = "mounted incendiary carbine"
-	desc = "A weapon for combat exosuits. Shoots incendiary shells."
+	desc = "A weapon for combat exosuits. The HP-13 incendiary carbine is designated to fire incendiary shells."
 	icon_state = "mecha_carbine"
 	equip_cooldown = 10
 	projectile = /obj/item/projectile/bullet/shotgun/incendiary

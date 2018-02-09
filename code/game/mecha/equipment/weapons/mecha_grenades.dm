@@ -7,7 +7,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/explosive
 	name = "missile rack"
-	desc = "A weapon for combat exosuits. Shoots explosive missiles."
+	desc = "A weapon for combat exosuits. The SRM-8 missile rack is loaded with explosive missiles."
 	icon_state = "mecha_missilerack"
 	projectile = /obj/item/missile
 	fire_sound = 'sound/effects/bang.ogg'
@@ -36,7 +36,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang
 	name = "grenade launcher"
-	desc = "A weapon for combat exosuits. Launches primed flashbangs."
+	desc = "A weapon for combat exosuits. The SGL-6 grenade launche is designated to launch primed flashbangs."
 	icon_state = "mecha_grenadelnchr"
 	projectile = /obj/item/weapon/grenade/flashbang
 	fire_sound = 'sound/effects/bang.ogg'
@@ -53,8 +53,7 @@
 		F.prime()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang//Because I am a heartless bastard -Sieve
-	name = "grenade launcher"
-	desc = "A weapon for combat exosuits. Launches primed clusterbangs."
+	name = "clusterbang grenade launcher"
 	projectile = /obj/item/weapon/grenade/flashbang/clusterbang
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang/limited/get_equip_info()//Limited version of the clusterbang launcher that can't reload

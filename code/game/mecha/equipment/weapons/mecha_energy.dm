@@ -5,7 +5,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser
 	equip_cooldown = 8
 	name = "mounted laser carbine"
-	desc = "A weapon for combat exosuits. Shoots basic lasers."
+	desc = "A weapon for combat exosuits. The CH-PS \"Immolator\" laser shoots basic lasers."
 	icon_state = "mecha_laser"
 	energy_drain = 30
 	projectile = /obj/item/projectile/beam/midlaser
@@ -36,7 +36,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy
 	equip_cooldown = 15
 	name = "mounted laser cannon"
-	desc = "A weapon for combat exosuits. Shoots heavy lasers."
+	desc = "A weapon for combat exosuits. The CH-LC \"Solaris\" laser cannon is designated to shoot heavy lasers."
 	icon_state = "mecha_laser"
 	energy_drain = 60
 	projectile = /obj/item/projectile/beam/heavylaser
@@ -45,7 +45,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/ion
 	equip_cooldown = 40
 	name = "heavy ion cannon"
-	desc = "A weapon for combat exosuits. Shoots ion bolts designated to disable mechanical threats."
+	desc = "A weapon for combat exosuits. The mkIV ion heavy cannon shoots ion bolts designated to disable mechanical threats."
 	icon_state = "mecha_ion"
 	energy_drain = 120
 	projectile = /obj/item/projectile/ion/heavy
@@ -55,7 +55,7 @@
 	equip_cooldown = 30
 	name = "heavy pulse cannon"
 	icon_state = "mecha_pulse"
-	desc = "A weapon for combat exosuits. Shoots powerful pulse-based beams, capable of destroying structures."
+	desc = "A weapon for combat exosuits. The eZ-13 mk2 heavy pulse rifle shoots powerful pulse-based beams, capable of destroying structures."
 	energy_drain = 120
 	origin_tech = list(TECH_MATERIAL = 3, TECH_COMBAT = 6, TECH_POWER = 4)
 	projectile = /obj/item/projectile/beam/pulse/heavy
@@ -75,7 +75,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/taser
 	name = "mounted taser carbine"
-	desc = "A weapon for combat exosuits. Shoots non-lethal stunning beams."
+	desc = "A weapon for combat exosuits. The PBT \"Pacifier\" taser shoots non-lethal stunning beams."
 	icon_state = "mecha_taser"
 	energy_drain = 20
 	equip_cooldown = 8
@@ -84,7 +84,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma
 	name = "heavy plasma cutter"
-	desc = "A large mining tool capable of expelling concentrated plasma bursts, useful for crushing rocks."
+	desc = "The mkII heavy plasma cutter is a large mining tool capable of expelling concentrated plasma bursts, useful for crushing rocks."
 	icon_state = "mecha_plasmacutter"
 	energy_drain = 60
 	equip_cooldown = 25
