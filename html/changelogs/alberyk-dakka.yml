@@ -1,0 +1,7 @@
+author: Alberyk
+delete-after: True
+
+changes:
+  - tweak: "Exosuits weapons should be more effective now."
+  - tweak: "Increased exosuit equipment capacity to 4."
+  - rscadd: "Added new exosuit weapons."
