@@ -1,0 +1,101 @@
+/obj/item/mecha_parts/mecha_equipment/weapon/energy
+	name = "general energy weapon"
+	auto_rearm = 1
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser
+	equip_cooldown = 8
+	name = "\improper CH-PS \"Immolator\" laser"
+	desc = "A weapon for combat exosuits. Shoots basic lasers."
+	icon_state = "mecha_laser"
+	energy_drain = 30
+	projectile = /obj/item/projectile/beam/midlaser
+	fire_sound = 'sound/weapons/Laser.ogg'
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/gatling
+	name = "\improper CH-PS \"Immolator\" gatling laser"
+	desc = "A weapon for combat exosuits. Shoots a burst of basic lasers."
+	energy_drain = 45
+	projectiles_per_shot = 8
+	deviation = 0.7
+	fire_cooldown = 10
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser
+	equip_cooldown = 30
+	name = "jury-rigged welder-laser"
+	desc = "While not regulation, this inefficient weapon can be attached to working exo-suits in desperate, or malicious, times."
+	icon_state = "mecha_laser"
+	energy_drain = 80
+	projectile = /obj/item/projectile/beam
+	fire_sound = 'sound/weapons/Laser.ogg'
+	required_type = list(/obj/mecha/combat, /obj/mecha/working)
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy
+	equip_cooldown = 15
+	name = "\improper CH-LC \"Solaris\" laser cannon"
+	desc = "A weapon for combat exosuits. Shoots heavy lasers."
+	icon_state = "mecha_laser"
+	energy_drain = 60
+	projectile = /obj/item/projectile/beam/heavylaser
+	fire_sound = 'sound/weapons/lasercannonfire.ogg'
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/ion
+	equip_cooldown = 40
+	name = "mkIV ion heavy cannon"
+	desc = "A weapon for combat exosuits. Shoots ion bolts designated to disable mechanical threats."
+	icon_state = "mecha_ion"
+	energy_drain = 120
+	projectile = /obj/item/projectile/ion/heavy
+	fire_sound = 'sound/weapons/Laser.ogg'
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/pulse
+	equip_cooldown = 30
+	name = "eZ-13 mk2 heavy pulse rifle"
+	icon_state = "mecha_pulse"
+	desc = "A weapon for combat exosuits. Shoots powerful pulse-based beams, capable of destroying structures."
+	energy_drain = 120
+	origin_tech = list(TECH_MATERIAL = 3, TECH_COMBAT = 6, TECH_POWER = 4)
+	projectile = /obj/item/projectile/beam/pulse/heavy
+	fire_sound = 'sound/weapons/marauder.ogg'
+
+/obj/item/projectile/beam/pulse/heavy
+	name = "heavy pulse laser"
+	icon_state = "pulse1_bl"
+	var/life = 20
+
+/obj/item/projectile/beam/pulse/heavy/Bump(atom/A)
+	A.bullet_act(src, def_zone)
+	src.life -= 10
+	if(life <= 0)
+		qdel(src)
+	return
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/taser
+	name = "\improper PBT \"Pacifier\" mounted taser"
+	desc = "A weapon for combat exosuits. Shoots non-lethal stunning beams."
+	icon_state = "mecha_taser"
+	energy_drain = 20
+	equip_cooldown = 8
+	projectile = /obj/item/projectile/beam/stun
+	fire_sound = 'sound/weapons/Taser.ogg'
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma
+	name = "mkII heavy plasma cutter"
+	desc = "A large mining tool capable of expelling concentrated plasma bursts, useful for crushing rocks."
+	icon_state = "mecha_plasmacutter"
+	energy_drain = 60
+	equip_cooldown = 25
+	projectile = /obj/item/projectile/beam/plasmacutter
+	fire_sound = 'sound/weapons/plasma_cutter.ogg'
+	required_type = list(/obj/mecha/combat, /obj/mecha/working)
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/xray
+	name = "mkI xray gatling gun"
+	desc = "A weapon for combat exosuits. Shoots a burst of armor penetrating xray beams."
+	icon_state = "mecha_xray"
+	energy_drain = 60
+	equip_cooldown = 25
+	projectiles_per_shot = 5
+	deviation = 0.5
+	fire_cooldown = 10
+	projectile = /obj/item/projectile/beam/xray
+	fire_sound = 'sound/weapons/laser3.ogg'
