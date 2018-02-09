@@ -1,5 +1,5 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic
-	name = "general ballisic weapon"
+	name = "general ballistic weapon"
 	var/projectile_energy_cost
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/get_equip_info()
