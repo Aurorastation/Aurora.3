@@ -3716,7 +3716,7 @@
 /turf/space/transit/north/shuttlespace_ns12,
 /area/template_noop)
 "akd" = (
-/turf/simulated/shuttle/plating,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 8;
 	icon_state = "diagonalWall3"
@@ -3744,7 +3744,7 @@
 /turf/template_noop,
 /area/shuttle/syndicate_elite/mothership)
 "akh" = (
-/turf/simulated/shuttle/plating,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 6;
 	icon_state = "diagonalWall3"
@@ -4309,8 +4309,9 @@
 /turf/space/transit/north/shuttlespace_ns8,
 /area/template_noop)
 "alt" = (
-/turf/simulated/shuttle/plating,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
+	dir = 5;
 	icon_state = "diagonalWall3"
 	},
 /area/shuttle/syndicate_elite/mothership)
@@ -4329,7 +4330,7 @@
 /turf/simulated/shuttle/plating,
 /area/shuttle/syndicate_elite/mothership)
 "alv" = (
-/turf/simulated/shuttle/plating,
+/turf/space,
 /turf/simulated/shuttle/wall/dark{
 	dir = 4;
 	icon_state = "diagonalWall3"
@@ -22116,6 +22117,42 @@
 	icon_state = "diagonalWall3"
 	},
 /area/space)
+"aWO" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aWP" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aWQ" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/syndicate,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
+"aWR" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 
 (1,1,1) = {"
 aaa
@@ -61748,7 +61785,7 @@ aaM
 aaM
 aaM
 ahq
-aki
+aWO
 akj
 akF
 akK
@@ -62263,7 +62300,7 @@ aaM
 aaM
 ahq
 akk
-aky
+aWQ
 aky
 aky
 akW
@@ -62776,7 +62813,7 @@ aaM
 aaM
 aaM
 ahq
-aki
+aWP
 akj
 akF
 akK
@@ -62784,7 +62821,7 @@ akK
 akZ
 akj
 akj
-aki
+aWR
 ahq
 aaM
 aaM
