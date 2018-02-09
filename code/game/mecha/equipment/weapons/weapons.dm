@@ -10,6 +10,7 @@
 	var/fire_sound //Sound played while firing.
 	var/fire_volume = 50 //How loud it is played.
 	var/auto_rearm = 0 //Does the weapon reload itself after each shot?
+	var/fire_time = 5 //used to stop mechas from hitting themselves with their own bullets
 	required_type = list(/obj/mecha/combat, /obj/mecha/working/hoverpod/combatpod)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/action_checks(atom/target)
@@ -52,5 +53,5 @@
 	if(chassis && istype(chassis.occupant,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = chassis.occupant
 		def_zone = H.zone_sel.selecting
-		H.setMoveCooldown(5)
+		H.setMoveCooldown(fire_time)
 	P.launch(target, def_zone)

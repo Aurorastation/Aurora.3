@@ -179,6 +179,18 @@
 	damage_type = HALLOSS
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 
+/obj/item/projectile/bullet/cannon
+	name ="armor-piercing shell"
+	icon = 'icons/obj/grenade.dmi'
+	icon_state = "shell"
+	damage = 90
+	armor_penetration = 80
+	penetrating = 1
+
+/obj/item/projectile/bullet/cannon/on_impact(var/atom/A)
+	explosion(A, 2, 3, 4, 4)
+	..()
+
 //magic
 
 /obj/item/projectile/magic

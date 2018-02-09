@@ -6,7 +6,7 @@
 	AM.throw_at(target,missile_range, missile_speed, chassis)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/explosive
-	name = "\improper SRM-8 missile rack"
+	name = "missile rack"
 	desc = "A weapon for combat exosuits. Shoots explosive missiles."
 	icon_state = "mecha_missilerack"
 	projectile = /obj/item/missile
@@ -35,7 +35,7 @@
 	return
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang
-	name = "\improper SGL-6 grenade launcher"
+	name = "grenade launcher"
 	desc = "A weapon for combat exosuits. Launches primed flashbangs."
 	icon_state = "mecha_grenadelnchr"
 	projectile = /obj/item/weapon/grenade/flashbang
@@ -53,7 +53,7 @@
 		F.prime()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang//Because I am a heartless bastard -Sieve
-	name = "\improper SOP-6 grenade launcher"
+	name = "grenade launcher"
 	desc = "A weapon for combat exosuits. Launches primed clusterbangs."
 	projectile = /obj/item/weapon/grenade/flashbang/clusterbang
 
@@ -64,7 +64,7 @@
 	return//Extra bit of security
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/frag
-	name = "\improper SGL-7 fragmentation grenade launcher"
+	name = "fragmentation grenade launcher"
 	desc = "A weapon for combat exosuits. Launches primed fragmentation grenades."
 	icon_state = "mecha_grenadelnchr"
 	projectile = /obj/item/weapon/grenade/frag
