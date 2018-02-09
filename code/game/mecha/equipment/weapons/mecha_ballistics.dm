@@ -66,7 +66,7 @@
 	projectile = /obj/item/projectile/bullet/rifle/a145
 	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
 	projectiles = 5
-	projectile_energy_cost = 550
+	projectile_energy_cost = 750
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/gyro
 	name = "mounted gyrojet autocannon"
@@ -76,7 +76,7 @@
 	projectile = /obj/item/projectile/bullet/gyro/law
 	fire_sound = 'sound/effects/Explosion1.ogg'
 	projectiles = 10
-	projectile_energy_cost = 450
+	projectile_energy_cost = 750
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/cannon
 	name = "mounted anti-material cannon"
@@ -86,4 +86,4 @@
 	projectile = /obj/item/projectile/bullet/cannon
 	fire_sound = 'sound/effects/Explosion1.ogg'
 	projectiles = 3
-	projectile_energy_cost = 850
+	projectile_energy_cost = 950

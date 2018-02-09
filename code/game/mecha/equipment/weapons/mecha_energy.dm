@@ -93,7 +93,7 @@
 	required_type = list(/obj/mecha/combat, /obj/mecha/working)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/xray
-	name = "xray gatling gun"
+	name = "gatling xray gun"
 	desc = "A weapon for combat exosuits. Shoots a burst of armor penetrating xray beams."
 	icon_state = "mecha_xray"
 	energy_drain = 60
