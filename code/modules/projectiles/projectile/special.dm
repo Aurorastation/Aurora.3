@@ -15,6 +15,10 @@
 	name = "ion pulse"
 	pulse_range = 0
 
+/obj/item/projectile/ion/heavy
+	name = "heavy ion pulse"
+	pulse_range = 5
+
 /obj/item/projectile/bullet/gyro
 	name ="explosive bolt"
 	icon_state= "bolter"
