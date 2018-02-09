@@ -17,11 +17,11 @@
 	energy_drain = 45
 	projectiles_per_shot = 8
 	deviation = 0.7
-	fire_cooldown = 5
 	fire_time = 5
 	projectiles_per_shot = 5
 	deviation = 0.5
 	fire_cooldown = 10
+	fire_time = 10
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser
 	equip_cooldown = 30
@@ -101,6 +101,7 @@
 	projectiles_per_shot = 5
 	deviation = 0.5
 	fire_cooldown = 10
+	fire_time = 10
 	projectile = /obj/item/projectile/beam/xray
 	fire_sound = 'sound/weapons/laser3.ogg'
 
