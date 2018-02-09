@@ -1724,7 +1724,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/storage/wallet/fluff/raymond_wallet //Black Leather Wallet - Raymond Hawkins - aboshehab
 	name = "black leather wallet"
-	desc = "A sleek black leather wallet, with the initials of \"J.H.\" visible at the front side. It’s got an old yet maintained look to it."
+	desc = "A sleek black leather wallet, with the initials of \"J.H.\" visible at the front side. It's got an old yet maintained look to it."
 	icon = 'icons/obj/custom_items/raymond_items.dmi'
 	icon_state = "raymond_wallet"
 
@@ -1776,7 +1776,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 		if("03-08-2459")
 			desc = "This image shows two people, Raymond Hawkins and Lily Hawkins, with the latter being a girl in her early twenties. The setting is that of an arena, Raymond dressed casually and Lily in a Jiu Jitsu uniform, \
-			the belt being an alternation between black and red. She’s got a winners medal around her neck, making a peace sign with her right hand while having a grin on her face, posing for a picture with Raymond."
+			the belt being an alternation between black and red. She's got a winners medal around her neck, making a peace sign with her right hand while having a grin on her face, posing for a picture with Raymond."
 
 		if("08-03-2452")
 			desc = "This image shows two people, Raymond Hawkins and Annabelle Hawkins, the former visibly a decade younger yet thinner, and not in the healthy way. The later looks to be in their late teens. The setting is that of a restaurant, \
@@ -1832,14 +1832,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 			<br>\
 			Written: Late 2432;<br> \
 			First Published: February 2433<br> \
-			Translated by Comrade Aurauz’hurl Aizhunua</center><br>\
-			<small>A Rrak’narr is haunting the Njarir'Akhran. The Rrak’narr of classlessism. Where have not the Njarir'Akhran blasted classlessism? Where not have the nobility ruthlessly uprooted our supporters \
+			Translated by Comrade Aurauz'hurl Aizhunua</center><br>\
+			<small>A Rrak'narr is haunting the Njarir'Akhran. The Rrak'narr of classlessism. Where have not the Njarir'Akhran blasted classlessism? Where not have the nobility ruthlessly uprooted our supporters \
 			like they were tearing up weeds from their gardens? Despite their dismissal, the fact that the Njarir'Akhran are so desperate to exterminate us brings us two inevitable facts:<br>\
 			<br>\
 			1) Revolutionary ideology is already cemented amongst Tajara.<br>\
 			2) It is time for supporters of a classless society to throw off their cloaks and set aside their daggers and pick up the rifle to meet the reactionary bourgeois in the open field.<br>\
 			<br>\
-			To that end, Comrade Al’mari Hadii has coalesced the many supporters and thinkers of the Revolution to bring to life this manifesto of our people, our nation, and our Revolution.<br>\
+			To that end, Comrade Al'mari Hadii has coalesced the many supporters and thinkers of the Revolution to bring to life this manifesto of our people, our nation, and our Revolution.<br>\
 			This is a Revolution that will make the Old Order buckle before the strength of the working class until it collapses into ruin. Remember, dear comrade, all of the contents of this manifesto are to justify one simple fact.<br>\
 			This one fact has been unsuccessfully suppressed by the Njarir'Akhran, only to live on in the burning spirit of every man, woman, and kit. The simple fact that no Tajara is born inherently better than another.<br>\
 			<br>\
