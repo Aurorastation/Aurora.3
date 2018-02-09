@@ -722,7 +722,7 @@
 
 	else if(isscrewdriver(W) && opened && !cell)	// haxing
 		wiresexposed = !wiresexposed
-		user << "The wires have been [wiresexposed ? "exposed" : "unexposed."]"
+		user << "The wires have been [wiresexposed ? "exposed" : "unexposed"]."
 		updateicon()
 
 	else if(isscrewdriver(W) && opened && cell)	// radio
