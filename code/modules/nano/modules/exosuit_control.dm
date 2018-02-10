@@ -33,22 +33,22 @@
 /datum/nano_module/exosuit_control/Topic(href, href_list)
 	if(..())
 		return
-	var/datum/topic_input/filter = new /datum/topic_input(href,href_list)
+	var/datum/topic_input/old_filter = new /datum/topic_input(href,href_list)
 	if(href_list["send_message"])
-		var/obj/item/mecha_parts/mecha_tracking/MT = filter.getObj("send_message")
+		var/obj/item/mecha_parts/mecha_tracking/MT = old_filter.getObj("send_message")
 		var/message = sanitize(input(usr,"Input message","Transmit message") as text)
 		var/obj/mecha/M = MT.in_mecha()
 		if(message && M)
 			M.occupant_message(message)
 		return
 	if(href_list["shock"])
-		var/obj/item/mecha_parts/mecha_tracking/MT = filter.getObj("shock")
+		var/obj/item/mecha_parts/mecha_tracking/MT = old_filter.getObj("shock")
 
 		var/response = alert(usr,"Are you certain you wish to terminate this exosuit? Executing this procedure will render it inoperable, and should only be used in extreme circumstances. Improper use will result in your being held liable for damage to Nanotrasen property","Confirm shutdown","Destroy","Cancel")
 		if (response == "Destroy")
 			MT.shock(usr)
 	if(href_list["get_log"])
-		var/obj/item/mecha_parts/mecha_tracking/MT = filter.getObj("get_log")
+		var/obj/item/mecha_parts/mecha_tracking/MT = old_filter.getObj("get_log")
 		stored_data = MT.get_mecha_log()
 		screen = 1
 	if(href_list["return"])
