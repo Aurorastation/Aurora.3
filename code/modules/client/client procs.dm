@@ -453,16 +453,21 @@
 	var/sql_ip = sql_sanitize_text(src.address)
 	var/sql_computerid = sql_sanitize_text(src.computer_id)
 	var/sql_admin_rank = sql_sanitize_text(admin_rank)
-	var/sql_byond_version = sql_sanitize_text(byond_version)
-	var/sql_byond_build = sql_sanitize_text(byond_build)
+	var/sql_byond_version = text2num(byond_version)
+	#if DM_VERSION >= 512
+	var/sql_byond_build = text2num(byond_build)
+	#else
+	var/sql_byond_build = 0
+	#endif
+
 
 	if(found)
 		//Player already identified previously, we need to just update the 'lastseen', 'ip', 'computer_id', 'byond_version' and 'byond_build' variables
-		var/DBQuery/query_update = dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = '[sql_ip]', computerid = '[sql_computerid]', lastadminrank = '[sql_admin_rank]', account_join_date = [account_join_date ? "'[account_join_date]'" : "NULL"], byond_version = '[sql_byond_version]', byond_build = '[sql_byond_build]' WHERE ckey = '[sql_ckey]'")
+		var/DBQuery/query_update = dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = '[sql_ip]', computerid = '[sql_computerid]', lastadminrank = '[sql_admin_rank]', account_join_date = [account_join_date ? "'[account_join_date]'" : "NULL"], byond_version = [sql_byond_version], byond_build = [sql_byond_build] WHERE ckey = '[sql_ckey]'")
 		query_update.Execute()
 	else if (!config.access_deny_new_players)
 		//New player!! Need to insert all the stuff
-		var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES ('[sql_ckey]', Now(), Now(), '[sql_ip]', '[sql_computerid]', '[sql_admin_rank]', [account_join_date ? "'[account_join_date]'" : "NULL"], '[sql_byond_version]', '[sql_byond_build]')")
+		var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES ('[sql_ckey]', Now(), Now(), '[sql_ip]', '[sql_computerid]', '[sql_admin_rank]', [account_join_date ? "'[account_join_date]'" : "NULL"], [sql_byond_version], [sql_byond_build])")
 		query_insert.Execute()
 	else
 		// Flag as -1 to know we have to kiiick them.
