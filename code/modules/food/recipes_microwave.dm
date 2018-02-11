@@ -1098,4 +1098,70 @@ I said no!
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/egg_pancake
 
+/datum/recipe/grilled_carp
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	),
+	reagents = list("spacespice" = 1),
+	fruit = list("cabbage" = 1, "lime" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/grilled_carp
 
+/datum/recipe/sushi_roll
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/carpmeat,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledrice
+	),
+	fruit = list("cabbage" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/sushi_roll
+
+/datum/recipe/butter
+	reagents = list("milk" = 10, "sodiumchloride" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/spreads/butter
+
+/datum/recipe/bacon_stick
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledegg
+	),
+	result = /obj/item/weapon/reagent_containers/food/snacks/bacon_stick
+
+/datum/recipe/cheese_cracker
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/weapon/reagent_containers/food/snacks/breadslice,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+
+	),
+	reagents = list("spacespice" = 1),
+	result = /obj/item/weapon/reagent_containers/food/snacks/cheese_cracker
+
+/datum/recipe/bacon_and_eggs
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/friedegg,
+		/obj/item/weapon/reagent_containers/food/snacks/friedegg
+	),
+	result = /obj/item/weapon/reagent_containers/food/snacks/bacon_and_eggs
+
+/datum/recipe/sweet_and_sour
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet,
+	),
+	reagents = list("sugar" = 5, "soysauce" = 5),
+	reagent_mix = RECIPE_REAGENT_REPLACE, //Too many flavors.
+	result = /obj/item/weapon/reagent_containers/food/snacks/sweet_and_sour
+
+/datum/recipe/corn_dog
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sausage
+	),
+	fruit = list("corn" = 1),
+	reagents = list("flour" = 5),
+	reagent_mix = RECIPE_REAGENT_REPLACE, //No flour please
+	result = /obj/item/weapon/reagent_containers/food/snacks/corn_dog
