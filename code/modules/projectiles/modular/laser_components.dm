@@ -289,12 +289,14 @@
 	damage = 0
 	projectile = /obj/item/projectile/beam/stun
 	icon_state = "taser"
+	firing_sound = 'sound/weapons/Taser.ogg'
 
 /obj/item/laser_components/modulator/tesla
 	name = "tesla modulator"
 	desc = "A modification that modulates the beam into a lethal electrical arc."
 	projectile = /obj/item/projectile/energy/tesla
 	icon_state = "tesla"
+	firing_sound = 'sound/magic/LightningShock.ogg'
 
 /obj/item/laser_components/modulator/pulse
 	name = "pulse modulator"
@@ -302,12 +304,14 @@
 	projectile = /obj/item/projectile/beam/pulse
 	damage = 1.5
 	icon_state = "pulse"
+	firing_sound = 'sound/weapons/pulse.ogg'
 
 /obj/item/laser_components/modulator/xray
 	name = "xray modulator"
 	desc = "Modulates the beam into a concentrated x-ray blast."
 	projectile = /obj/item/projectile/beam/sniper
 	icon_state = "xray"
+	firing_sound = 'sound/weapons/laser3.ogg'
 
 /obj/item/laser_components/modulator/ion
 	name = "ion cannon"
@@ -320,12 +324,14 @@
 	desc = "Modulates the beam into firing controlled radiation which induces mutation in plant cells."
 	projectile = /obj/item/projectile/energy/floramut
 	icon_state = "somatoray"
+	firing_sound = 'sound/effects/stealthoff.ogg'
 
 /obj/item/laser_components/modulator/floramut2
 	name = "betaray modulator"
 	desc = "Modulates the beam into firing controlled radiation which induces enhanced reproduction in plant cells."
 	projectile = /obj/item/projectile/energy/florayield
 	icon_state = "betaray"
+	firing_sound = 'sound/effects/stealthoff.ogg'
 
 /obj/item/laser_components/modulator/arodentia
 	name = "arodentia modulator"
@@ -333,6 +339,7 @@
 	projectile = /obj/item/projectile/beam/mousegun
 	damage = 0
 	icon_state = "pesker"
+	firing_sound = 'sound/weapons/taser2.ogg'
 
 /obj/item/laser_components/modulator/red
 	name = "red team modulator"
@@ -375,6 +382,7 @@
 	projectile = /obj/item/projectile/energy/declone
 	damage = 0.5
 	icon_state = "decloner"
+	firing_sound = 'sound/weapons/pulse3.ogg'
 
 /obj/item/laser_components/modulator/ebow
 	name = "dart modulator"
@@ -382,6 +390,7 @@
 	projectile = /obj/item/projectile/energy/dart
 	damage = 0.25
 	icon_state = "dart"
+	firing_sound = 'sound/weapons/Genhit.ogg'
 
 /obj/item/laser_components/modulator/blaster
 	name = "blaster-bolt modulator"
@@ -395,3 +404,4 @@
 	projectile = /obj/item/projectile/energy/bfg
 	damage = 2
 	icon_state = "bfg"
+	firing_sound = 'sound/magic/LightningShock.ogg'

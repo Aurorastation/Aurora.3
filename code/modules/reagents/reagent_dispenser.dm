@@ -166,6 +166,9 @@
 	explode()
 
 /obj/structure/reagent_dispensers/fueltank/proc/explode()
+	if (QDELETED(src))
+		return
+
 	if (reagents.total_volume > 500)
 		explosion(src.loc,1,2,4)
 	else if (reagents.total_volume > 100)

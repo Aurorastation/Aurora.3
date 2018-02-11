@@ -163,10 +163,14 @@
 				window.location = command;
 			});
 
+
 			// Operations before closing.
 			$(window).unload(function() {
-				window.location = '?JSlink=updateHashes;' + jQuery.param(hashesToUpdate);
+				try {
+					window.location = '?JSlink=updateHashes;' + jQuery.param(hashesToUpdate);
+				} catch (e) { }
 			});
+
 
 			var edat = getCookie('E-DAT');
 			if (!edat)

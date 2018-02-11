@@ -169,7 +169,7 @@ There are several things that need to be remembered:
 	var/damage_appearance = ""
 
 	for(var/obj/item/organ/external/O in organs)
-		if(O.is_stump())
+		if(isnull(O) || O.is_stump())
 			continue
 		//if(O.status & ORGAN_DESTROYED) damage_appearance += "d" //what is this?
 		//else
@@ -187,7 +187,7 @@ There are several things that need to be remembered:
 
 	// blend the individual damage states with our icons
 	for(var/obj/item/organ/external/O in organs)
-		if(O.is_stump())
+		if(isnull(O) || O.is_stump())
 			continue
 
 		O.update_icon()

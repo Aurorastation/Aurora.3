@@ -247,7 +247,6 @@
 	toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
-	..()
 	if(is_charging)
 		user << "<span class='danger'>\The [src] is already spinning!</span>"
 		return 0
@@ -267,7 +266,8 @@
 	if(!istype(user.get_active_hand(), src))
 		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
-	return 1
+
+	return ..()
 
 /obj/item/weapon/gun/energy/vaurca/blaster
 	name = "\improper Zo'ra Blaster"
@@ -322,6 +322,7 @@
 	can_embed = 0
 	self_recharge = 1
 	recharge_time = 2
+	needspin = FALSE
 
 	action_button_name = "Wield thermal lance"
 
@@ -343,7 +344,6 @@
 	return ..() //Pistolwhippin'
 
 /obj/item/weapon/gun/energy/vaurca/typec/special_check(var/mob/user)
-	..()
 	if(is_charging)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
@@ -362,7 +362,8 @@
 	if(!istype(user.get_active_hand(), src))
 		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
-	return 1
+
+	return ..()
 
 /obj/item/weapon/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
 	if(loc != user)
@@ -437,7 +438,6 @@
 	toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
-	..()
 	if(is_charging)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
@@ -456,7 +456,8 @@
 	if(!istype(user.get_active_hand(), src))
 		return
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
-	return 1
+
+	return ..()
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill
 	name = "mounted thermal drill"
@@ -484,7 +485,6 @@
 	dispersion = list(0.0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 5.7, 6.0, 6.3, 6.6, 6.9, 7.2, 7.5, 7.8, 8.1, 8.4, 8.7)
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
-	..()
 	if(is_charging)
 		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
@@ -498,7 +498,8 @@
 		return 0
 	is_charging = 0
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
-	return 1
+
+	return ..()
 
 /*/obj/item/weapon/gun/energy/vaurca/flamer
 	name = "Vaurcae Incinerator"

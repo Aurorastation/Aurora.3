@@ -17,7 +17,7 @@
 		if(item.can_view(U))
 			return 1
 
-	if(!antag_roles.len)
+	if(!LAZYLEN(antag_roles))
 		return 1
 
 	return 0
