@@ -30,7 +30,7 @@
 /turf/simulated/floor/airless,
 /area/solar/fore)
 "ag" = (
-/turf/simulated/mineral,
+/turf/simulated/mineral/surface,
 /area/mine/unexplored)
 "ah" = (
 /obj/structure/cable/yellow,
@@ -7495,7 +7495,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "nj" = (
-/turf/simulated/mineral,
+/turf/simulated/mineral/surface,
 /area/tcommsat/entrance)
 "nk" = (
 /obj/structure/extinguisher_cabinet{
@@ -15044,7 +15044,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "BM" = (
-/turf/simulated/mineral,
+/turf/simulated/mineral/surface,
 /area/mine/explored)
 "BN" = (
 /obj/structure/disposalpipe/segment,
@@ -15180,7 +15180,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "BZ" = (
-/turf/simulated/mineral,
+/turf/simulated/mineral/surface,
 /area/bridge/levela)
 "Ca" = (
 /obj/structure/ladder/up{
