@@ -40,8 +40,6 @@
 	A.push_data()
 
 /datum/integrated_io/proc/get_data()
-	if(isnull(data))
-		return
 	if(isweakref(data))
 		return data.resolve()
 	return data

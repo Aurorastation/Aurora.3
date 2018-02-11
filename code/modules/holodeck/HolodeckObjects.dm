@@ -470,6 +470,8 @@
 	icon_dead = "penguin_baby_dead"
 
 /mob/living/simple_animal/penguin/holodeck/emperor
+	name = "emperor penguin"
+	desc = "Emperor of all he surveys."
 
 /mob/living/simple_animal/penguin/holodeck/gib()
 	derez() //holograms can't gib

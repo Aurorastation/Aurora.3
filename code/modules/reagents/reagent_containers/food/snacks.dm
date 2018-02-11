@@ -33,17 +33,16 @@
 		reagents.add_reagent("nutriment",nutriment_amt,nutriment_desc)
 
 /obj/item/weapon/reagent_containers/food/snacks/proc/On_Consume(var/mob/M)
-	if(!usr) usr = M
 	if(!reagents.total_volume)
 		M.visible_message("<span class='notice'>[M] finishes eating \the [src].</span>","<span class='notice'>You finish eating \the [src].</span>")
-		usr.drop_from_inventory(src)	//so icons update :[
+		M.drop_from_inventory(src)	//so icons update :[
 
 		if(trash)
 			if(ispath(trash,/obj/item))
-				var/obj/item/TrashItem = new trash(usr)
-				usr.put_in_hands(TrashItem)
+				var/obj/item/TrashItem = new trash(M)
+				M.put_in_hands(TrashItem)
 			else if(istype(trash,/obj/item))
-				usr.put_in_hands(trash)
+				M.put_in_hands(trash)
 		qdel(src)
 	return
 
@@ -390,7 +389,9 @@
 		if(!src && !user.client)
 			user.custom_emote(1,"[pick("burps", "cries for more", "burps twice", "looks at the area where the food was")]")
 			qdel(src)
-	On_Consume(user)
+
+	if (reagents)
+		On_Consume(user)
 
 //////////////////////////////////////////////////
 ////////////////////////////////////////////Snacks

@@ -328,8 +328,21 @@
 		if (holder)
 			src << "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version."
 		else
+			log_access("Failed Login: [key] [computer_id] [address] - Outdated BYOND major version: [byond_version].")
 			del(src)
 			return 0
+
+#if DM_VERSION > 511
+	if (LAZYLEN(config.client_blacklist_version))
+		var/client_version = "[byond_version].[byond_build]"
+		if (client_version in config.client_blacklist_version)
+			src << "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>"
+			src << "Your current version: [client_version]."
+			src << "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower."
+			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
+			del(src)
+			return 0
+#endif
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]

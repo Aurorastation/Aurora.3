@@ -303,7 +303,7 @@
 	if((H.getToxLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_tox)))
 		return treatment_tox
 
-	for(var/datum/disease/D in H.viruses)
+	for(var/datum/disease2/disease/D in H.virus2)
 		if (!H.reagents.has_reagent(treatment_virus))
 			return treatment_virus // STOP DISEASE FOREVER
 
