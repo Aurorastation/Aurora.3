@@ -3,7 +3,7 @@
 
 var/global/send_emergency_team = 0 // Used for automagic response teams
                                    // 'admin_emergency_team' for admin-spawned response teams
-var/ert_base_chance = 10 // Default base chance. Will be incremented by increment ERT chance.
+var/ert_base_chance = 20 // Default base chance. Will be incremented by increment ERT chance.
 var/can_call_ert
 
 /client/proc/response_team()
@@ -109,10 +109,49 @@ proc/trigger_armed_response_team(var/force = 0)
 
 	if(force) send_team_chance = 100
 
+	var/list/reasons = list(
+		"political instability",
+		"bluespace gate maintenance",
+		"hostile raiders",
+		"derelict station debris",
+		"\[REDACTED\]",
+		"K'ois riots",
+		"solar magnetic storms",
+		"a factory batch of rogue IPCs",
+		"gravitational anomalies",
+		"Sol Alliance privateers",
+		"a rogue singularity",
+		"radiation flares",
+		"supermatter dust",
+		"inexplicable energy surges",
+		"solar gales",
+		"residual bluespace energy",
+		"suspected criminal operatives",
+		"malfunctioning von Neumann probe swarms",
+		"a rogue drone wing",
+		"a stranded Vox flotilla",
+		"haywire maint drones",
+		"rogue Unathi exiles",
+		"Adhomai political insurgents",
+		"disgruntled geneticists",
+		"Skrell intelligence operations",
+		"worker's strike",
+		"a Dionaea gestalt emissary requesting a security detail",
+		"classified security operations",
+		"a red-alert science station"
+		)
+
 	// there's only a certain chance a team will be sent
 	if(!prob(send_team_chance))
-		command_announcement.Announce("It would appear that an emergency response team was requested for [station_name()]. Unfortunately, we were unable to send one at this time.", "[current_map.boss_name]")
-		can_call_ert = 0 // Only one call per round, ladies.
+		command_announcement.Announce("The presence of [pick(reasons)] in the region is tying up all available local emergency resources; an emergency response team has been assigned but will not be available for thirty minutes.", "[current_map.boss_name]")
+		can_call_ert = 0
+		var/marginal_time = (30 MINUTES + rand(-5 MINUTES, 5 MINUTES))
+		var/emergency_time = worldtime2text()
+		sleep(marginal_time)
+		command_announcement.Announce("An emergency response team has been made available for [station_name()] following the emergency report filed [emergency_time]. It will be sent as soon as possible. We apologize for any delay.", "[current_map.boss_name]")
+		send_emergency_team = 1
+		sleep(600 * 5)
+		send_emergency_team = 0
 		return
 
 	command_announcement.Announce("It would appear that an emergency response team was requested for [station_name()]. We will prepare and send one as soon as possible.", "[current_map.boss_name]")
