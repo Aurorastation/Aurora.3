@@ -861,7 +861,7 @@ proc/api_update_command_database()
 		"title" = list("name"="title","desc"="The message title that should be sent, Defaults to NanoTrasen Update if not specified","req"=0,"type"="str"),
 		"body" = list("name"="body","desc"="The message body that should be sent","req"=1,"type"="str"),
 		"type" = list("name"="type","desc"="The type of the message that should be sent, Defaults to freeform","req"=0,"type"="slct","options"=list("freeform","ccia")),
-		"sendername" = list("name"="sendername","desc"="IC Name of the sender for the CCIA Report, Defaults to CCIAAMS, \[Command-StationName\]","req"=0,"type"="string"),
+		"sendername" = list("name"="sendername","desc"="IC Name of the sender for the CCIA Report, Defaults to CCIAAMS, \[Command-StationName\]","req"=0,"type"="str"),
 		"announce" = list("name"="announce","desc"="If the report should be announce 1 -> Yes, 0 -> No, Defaults to 1","req"=0,"type"="int")
 		)
 /datum/topic_command/send_commandreport/run_command(queryparams)
