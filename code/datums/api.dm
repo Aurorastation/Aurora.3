@@ -1020,3 +1020,22 @@ proc/api_update_command_database()
 	statuscode = 200
 	response = "Levels Sent"
 	return 1
+
+// Reloads the current cargo configuration
+/datum/topic_command/cargo_reload
+	name = "cargo_reload"
+	description = "Reloads the current cargo configuration."
+	params = list(
+		"force" = list("name"="force","desc"="Force the reload even if orders have already been placed","req"=0)
+	)
+
+/datum/topic_command/cargo_reload/run_command(queryparams)
+	var/force = sanitize(queryparams["force"])
+	if(!SScargo.get_order_number() || force)
+		SScargo.load_from_sql()
+		statuscode = 200
+		response = "Cargo Reloaded from SQL."
+	else
+		statuscode = 500
+		response = "Orders have been placed. Use force parameter to overwrite."
+	return 1
