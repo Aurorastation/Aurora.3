@@ -147,7 +147,7 @@ proc/api_update_command_database()
 	var/versionstring = null
 	//The Version Number follows SemVer http://semver.org/
 	version["major"] = 2 //Major Version Number --> Increment when implementing breaking changes
-	version["minor"] = 0 //Minor Version Number --> Increment when adding features
+	version["minor"] = 1 //Minor Version Number --> Increment when adding features
 	version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
 
 	versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
@@ -1004,4 +1004,19 @@ proc/api_update_command_database()
 			statuscode = 200
 			response = "Ingame Discord bot's channels were successfully updated."
 
+	return 1
+
+// Gets the currently configured access levels
+/datum/topic_command/get_access_levels
+	name = "get_access_levels"
+	description = "Gets the currently configured access levels."
+
+/datum/topic_command/get_access_levels/run_command()
+	var/list/access_levels = list()
+	for(var/datum/access/acc in get_all_access_datums())
+		access_levels.Add(list(acc.get_info_list()))
+
+	data = access_levels
+	statuscode = 200
+	response = "Levels Sent"
 	return 1
