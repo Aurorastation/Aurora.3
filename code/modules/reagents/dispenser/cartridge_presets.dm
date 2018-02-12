@@ -48,8 +48,6 @@
 
 	// Bar, soft
 	ice			spawn_reagent = "ice"
-	coffee		spawn_reagent = "coffee"
-	cream		spawn_reagent = "cream"
 	tea			spawn_reagent = "tea"
 	icetea		spawn_reagent = "icetea"
 	cola		spawn_reagent = "cola"
@@ -65,6 +63,10 @@
 	lime		spawn_reagent = "limejuice"
 	watermelon	spawn_reagent = "watermelonjuice"
 	coffee_beans  	spawn_reagent = "black_coffee"
+
+	// Bar, coffee
+	coffee		spawn_reagent = "coffee"
+	cream		spawn_reagent = "cream"
 
 	// ERT
 	inaprov		spawn_reagent = "inaprovaline"
