@@ -67,6 +67,8 @@
 	// Bar, coffee
 	coffee		spawn_reagent = "coffee"
 	cream		spawn_reagent = "cream"
+	milk		spawn_reagent = "milk"
+	soymilk		spawn_reagent = "soymilk"
 
 	// ERT
 	inaprov		spawn_reagent = "inaprovaline"
