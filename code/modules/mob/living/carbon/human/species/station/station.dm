@@ -314,7 +314,7 @@
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP
+	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY
 	appearance_flags = 0
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 
@@ -443,7 +443,7 @@
 	body_temperature = null
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
-	flags = IS_IPC
+	flags = IS_IPC | NO_CHUBBY
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 
@@ -672,7 +672,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = NO_SLIP
+	flags = NO_SLIP | NO_CHUBBY
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_SKIN_COLOR
 	blood_color = "#E6E600" // dark yellow
