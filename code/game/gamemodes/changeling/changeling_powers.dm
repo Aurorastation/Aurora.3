@@ -423,7 +423,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	C.update_canmove()
 	C.remove_changeling_powers()
 
-	C.emote("gasp")
+	send_emote("gasp_heavy",C)
 	C.tod = worldtime2text()
 
 	spawn(rand(800,2000))

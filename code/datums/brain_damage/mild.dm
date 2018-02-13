@@ -48,7 +48,7 @@
 /datum/brain_trauma/mild/dumbness/on_life()
 	owner.tarded = min(owner.slurring + 5, 25)
 	if(prob(3))
-		owner.emote("drool")
+		send_emote("drool",owner)
 	..()
 
 /datum/brain_trauma/mild/dumbness/on_lose()

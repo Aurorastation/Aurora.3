@@ -54,7 +54,7 @@
 
 	if(!..())
 		return 0
-		
+
 	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	A.attack_generic(src,rand(5,6),"bitten")
 
@@ -76,9 +76,9 @@
 		if (Victim == A)
 			Feedstop()
 		return
-	
+
 	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	
+
 	var/mob/living/M = A
 	if (istype(M))
 
@@ -142,7 +142,8 @@
 		return
 	if(istype(A,/mob/living))
 		if(melee_damage_upper == 0)
-			custom_emote(1,"[friendly] [A]!")
+			var/complete_emote = "[friendly] [A]!"
+			send_emote("custom",src,A,complete_emote,complete_emote)
 			return
 		if(ckey)
 			add_logs(src, A, attacktext)

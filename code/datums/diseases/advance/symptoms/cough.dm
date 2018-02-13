@@ -32,7 +32,7 @@ BONUS
 			if(1, 2, 3)
 				M << "<span notice='notice'>[pick("You swallow excess mucus.", "You lightly cough.")]</span>"
 			else
-				M.emote("cough")
+				send_emote("cough",M)
 				var/obj/item/I = M.get_active_hand()
 				if(I && I.w_class < 3)
 					M.drop_item()

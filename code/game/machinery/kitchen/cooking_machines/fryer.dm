@@ -191,7 +191,7 @@
 
 		if(!nopain)
 			victim << "<span class='danger'>Agony consumes you as searing hot oil scorches your [E ? E.name : "flesh"] horribly!</span>"
-			victim.emote("scream")
+			send_emote("scream",victim)
 		else
 			victim << "<span class='danger'>Searing hot oil scorches your [E ? E.name : "flesh"]!</span>"
 

@@ -25,7 +25,7 @@
 			user << "<span class='warning'>You stare deep into the abyss... and the abyss stares back.</span>"
 			sleep(10)
 			user << "<span class='warning'>Your [E.name] fill with painful light, and you feel a sharp burning sensation in your head!</span>"
-			user.custom_emote(2, "screams in horror!")
+			send_emote("scream",user)
 			playsound(user, 'sound/hallucinations/far_noise.ogg', 40, 1)
 			user.drop_item()
 			user.visible_message("<span class='danger'>Ashes pour out of [user]'s eye sockets!</span>")

@@ -108,7 +108,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return
 
 	if(!screwloose && !oddbutton && prob(2))
-		custom_emote(2, "makes an excited beeping booping sound!")
+		send_emote("beepboop",src)
 
 	if(screwloose && prob(5)) // Make a mess
 		if(istype(loc, /turf/simulated))

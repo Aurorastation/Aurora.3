@@ -121,9 +121,6 @@
 	to_chat(owner, "[rendered]")
 	to_chat(src, "[rendered]")
 
-/mob/living/mental/friend/emote(act,m_type=1,message = null)
-	return
-
 /mob/living/mental/friend/Move(NewLoc, Dir = 0)
 	loc = NewLoc
 	dir = Dir

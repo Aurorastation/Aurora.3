@@ -1082,4 +1082,4 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		buckled_mob.adjustBrainLoss(1)
 		buckled_mob.silent = max(buckled_mob.silent, 10)
 		if(prob(25)) //to reduce gasp spam
-			buckled_mob.emote("gasp")
+			send_emote("gasp_heavy",buckled_mob)

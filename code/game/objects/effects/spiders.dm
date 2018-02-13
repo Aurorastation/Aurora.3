@@ -266,7 +266,7 @@
 		O.owner.visible_message(
 			"<span class='danger'>A group of [src] burst out of [O.owner]'s [O]!</span>",
 			"<span class='danger'>A group of [src] burst out of your [O]!</span>")
-		O.owner.emote("scream")
+		send_emote("scream",O.owner)
 	else
 		O.visible_message("<span class='danger'>A group of [src] burst out of \the [O]!</span>")
 

@@ -28,9 +28,3 @@
 				continue
 			else if(M.stat == 2 &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
 				M << "The captive mind of [src] whispers, \"[message]\""
-
-/mob/living/parasite/captive_brain/emote(var/message)
-	return
-
-/mob/living/parasite/captive_brain/send_emote()
-	return

@@ -19,9 +19,9 @@
 	switch(stage)
 		if(2 || 3) //Pretend to be a cold and give time to spread.
 			if(prob(8))
-				affected_mob.emote("sneeze")
+				send_emote("sneeze",affected_mob)
 			if(prob(8))
-				affected_mob.emote("cough")
+				send_emote("cough",affected_mob)
 			if(prob(1))
 				affected_mob << "<span class='warning'>Your muscles ache.</span>"
 				if(prob(20))

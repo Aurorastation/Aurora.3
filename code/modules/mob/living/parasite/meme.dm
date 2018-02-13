@@ -298,16 +298,16 @@ var/controlling
 
 		usr << "<span class='notice'>You send a jolt of agonizing pain through [host], they should be unable to concentrate on anything else for half a minute.</span>"
 
-		host.emote("scream")
+		send_emote("scream",host)
 
 		for(var/i=0, i<10, i++)
 			host.stuttering = 2
 			sleep(50)
 			if(prob(80)) host.flash_weak_pain()
 			if(prob(10)) host.paralysis = max(host.paralysis, 2)
-			if(prob(15)) host.emote("twitch")
-			else if(prob(15)) host.emote("scream")
-			else if(prob(10)) host.emote("collapse")
+			if(prob(15)) send_emote("twitch",host)
+			else if(prob(15)) send_emote("scream",host)
+			else if(prob(10)) send_emote("collapse",host)
 
 			if(i == 10)
 				host << "<span class='danger'>THE PAIN! AGHH, THE PAIN! MAKE IT STOP! ANYTHING TO MAKE IT STOP!</span>"

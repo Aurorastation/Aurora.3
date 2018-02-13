@@ -47,7 +47,7 @@
 /mob/living/simple_animal/hostile/carp/FindTarget()
 	. = ..()
 	if(.)
-		custom_emote(1,"nashes at [.]")
+		send_emote("gnash",src,.)
 
 /mob/living/simple_animal/hostile/carp/AttackingTarget()
 	. =..()
@@ -65,12 +65,13 @@
 	icon_dead = "carp_russian_dead"
 	maxHealth = 50 //stronk
 	health = 50
-
+/*
 /mob/living/simple_animal/hostile/carp/russian/FindTarget()
     . = ..()
     if(.)
-        custom_emote(1,"spots a filthy capitalist!")
-
+		var/complete_emote = "[src] spots a filthy capitalist!"
+    	send_emote("custom",src,0,complete_emote,0)
+*/
 /mob/living/simple_animal/hostile/carp/shark
 	name = "space shark"
 	desc = "The bigger, angrier cousin of the space carp."

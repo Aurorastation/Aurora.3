@@ -116,7 +116,7 @@ steam.start() -- spawns the effect
 /obj/effect/effect/smoke/proc/kill()
 	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)
 	set_opacity(FALSE)
-	
+
 	QDEL_IN(src, 2.5 SECONDS)
 
 /obj/effect/effect/smoke/Crossed(mob/living/carbon/M as mob )
@@ -171,7 +171,7 @@ steam.start() -- spawns the effect
 	M.adjustOxyLoss(1)
 	if (M.coughedtime != 1)
 		M.coughedtime = 1
-		M.emote("cough")
+		send_emote("cough",M)
 		spawn ( 20 )
 			M.coughedtime = 0
 
@@ -200,7 +200,7 @@ steam.start() -- spawns the effect
 	M:sleeping += 1
 	if (M.coughedtime != 1)
 		M.coughedtime = 1
-		M.emote("cough")
+		send_emote("cough",M)
 		spawn ( 20 )
 			M.coughedtime = 0
 /////////////////////////////////////////////
@@ -226,7 +226,7 @@ steam.start() -- spawns the effect
 	R.burn_skin(0.75)
 	if (R.coughedtime != 1)
 		R.coughedtime = 1
-		R.emote("gasp")
+		send_emote("gasp_heavy",R)
 		spawn (20)
 			R.coughedtime = 0
 	R.updatehealth()

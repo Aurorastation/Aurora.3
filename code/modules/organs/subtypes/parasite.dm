@@ -53,19 +53,19 @@
 
 	if(prob(10) && !(owner.species.flags & NO_PAIN))
 		owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
-		owner.emote("me",1,"winces slightly.")
+		send_emote("wince",owner)
 		owner.adjustHalLoss(5)
 
 	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
-		owner.emote("cough")
+		send_emote("cough",owner)
 
 	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
-		owner.emote("me", 1, "coughs up blood!")
+		send_emote("cough_blood",owner)
 		owner.drip(10)
 
 	if(stage >= 2)
 		if(prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.emote("me", 1, "gasps for air!")
+			send_emote("gasp_heavy",owner)
 			owner.losebreath += 5
 
 	if(stage >= 3)
@@ -78,7 +78,7 @@
 	if(stage >= 4)
 		if(prob(10))
 			owner << "<span class='danger'>You feel something alien coming up your throat!</span>"
-			owner.emote("cough")
+			send_emote("cough",owner)
 
 			var/turf/T = get_turf(owner)
 
@@ -92,7 +92,7 @@
 			S.start()
 
 			if(!(owner.species.flags & NO_PAIN))
-				owner.emote("scream")
+				send_emote("scream",owner)
 				owner.adjustHalLoss(15)
 				owner.drip(15)
 				owner.delayed_vomit()
@@ -121,12 +121,12 @@
 			owner << "<span class='warning'>You feel a stinging pain in your abdomen!</span>"
 		else
 			owner << "<span class='warning'>You feel a stinging pain in your head!</span>"
-		owner.emote("me",1,"winces slightly.")
+		send_emote("wince",owner)
 		owner.adjustHalLoss(5)
 
 	if(stage >= 2)
 		if(prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.emote("me", 1, "gasps for air!")
+			send_emote("gasp_heavy",owner)
 			owner.losebreath += 5
 
 	if(stage >= 3)
@@ -170,7 +170,7 @@
 		if(prob(10))
 			if(!(owner.species.flags & NO_PAIN))
 				owner << "<span class='warning'>You feel an unbearable pain in your mind!</span>"
-				owner.emote("scream")
+				send_emote("scream",owner)
 			owner.adjustBrainLoss(1)
 
 		else if(prob(10))
@@ -188,7 +188,7 @@
 			S.start()
 
 			if(!(owner.species.flags & NO_PAIN))
-				owner.emote("scream")
+				send_emote("scream",owner)
 				owner.adjustHalLoss(15)
 				owner.drip(15)
 				owner.delayed_vomit()

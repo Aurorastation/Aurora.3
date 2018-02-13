@@ -48,9 +48,9 @@
 		return
 
 	if(use_me)
-		usr.emote("me",usr.emote_type,message)
+		send_emote("custom",message)
 	else
-		usr.emote(message)
+		send_emote(message,usr)
 
 /mob/proc/say_dead(var/message)
 	if(say_disabled)	//This is here to try to identify lag problems
@@ -119,11 +119,6 @@
                 verb="asks"
 
         return verb
-
-
-/mob/proc/emote(var/act, var/type, var/message)
-	if(act == "me")
-		return custom_emote(type, message)
 
 /mob/proc/get_ear()
 	// returns an atom representing a location on the map from which this

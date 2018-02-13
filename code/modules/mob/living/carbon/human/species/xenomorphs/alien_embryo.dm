@@ -43,18 +43,18 @@
 	switch(stage)
 		if(2, 3)
 			if(prob(1))
-				owner.emote("sneeze")
+				send_emote("sneeze",owner)
 			if(prob(1))
-				owner.emote("cough")
+				send_emote("cough",owner)
 			if(prob(1))
 				owner  << "<span class='danger'>Your throat feels sore.</span>"
 			if(prob(1))
 				owner  << "<span class='danger'>Mucous runs down the back of your throat.</span>"
 		if(4)
 			if(prob(1))
-				owner.emote("sneeze")
+				send_emote("sneeze",owner)
 			if(prob(1))
-				owner.emote("cough")
+				send_emote("cough",owner)
 			if(prob(2))
 				owner  << "<span class='danger'>Your muscles ache.</span>"
 				if(prob(20))

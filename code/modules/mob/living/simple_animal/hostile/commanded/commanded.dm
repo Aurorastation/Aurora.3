@@ -137,7 +137,8 @@
 	var/list/targets = get_targets_by_name(text)
 	allowed_targets += targets
 	if(emote_hear && emote_hear.len)
-		audible_emote("[pick(emote_hear)].",0)
+		var/final_emote = "[pick(emote_hear)]."
+		send_emote("custom_audible",src,0,final_emote,final_emote)
 	return targets.len != 0
 
 /mob/living/simple_animal/hostile/commanded/proc/stay_command(var/mob/speaker,var/text)
@@ -146,7 +147,8 @@
 	stop_automated_movement = 1
 	walk_to(src,0)
 	if(emote_hear && emote_hear.len)
-		audible_emote("[pick(emote_hear)].",0)
+		var/final_emote = "[pick(emote_hear)]."
+		send_emote("custom_audible",src,0,final_emote,final_emote) //LOOK INTO THIS
 	return 1
 
 /mob/living/simple_animal/hostile/commanded/proc/stop_command(var/mob/speaker,var/text)
@@ -156,7 +158,8 @@
 	stance = HOSTILE_STANCE_IDLE
 	stop_automated_movement = 0
 	if(emote_hear && emote_hear.len)
-		audible_emote("[pick(emote_hear)].",0)
+		var/final_emote = "[pick(emote_hear)]."
+		send_emote("custom_audible",src,0,final_emote,final_emote) //LOOK INTO THIS
 	return 1
 
 /mob/living/simple_animal/hostile/commanded/proc/follow_command(var/mob/speaker,var/text)
@@ -170,7 +173,8 @@
 		return 0
 
 	if(emote_hear && emote_hear.len)
-		audible_emote("[pick(emote_hear)].",0)
+		var/final_emote = "[pick(emote_hear)]."
+		send_emote("custom_audible",src,0,final_emote,final_emote)
 	stance = COMMANDED_FOLLOW //GOT SOMEBODY. BETTER FOLLOW EM.
 	target_mob = targets[1] //YEAH GOOD IDEA
 

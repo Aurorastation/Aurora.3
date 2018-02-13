@@ -43,7 +43,7 @@
 /mob/living/simple_animal/hostile/faithless/FindTarget()
 	. = ..()
 	if(.)
-		audible_emote("wails at [.]")
+		send_emote("wail",src,.)
 
 /mob/living/simple_animal/hostile/faithless/AttackingTarget()
 	. =..()

@@ -161,7 +161,9 @@
 				bsv()
 		return
 
-	src.custom_emote(1,"presses a button on their suit, followed by a polite bow.")
+	var/final_emote = "#SOURCE presses a button on their suit, followed by a polite bow."
+	send_emote("custom_visible",src,0,final_emote,final_emote)
+
 	spark(src, 5, alldirs)
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, src), 10, TIMER_CLIENT_TIME)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)

@@ -281,7 +281,8 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 			else
 				user.whisper(replacetext(invocation," ","`"))
 		if(SpI_EMOTE)
-			user.emote("me", 1, invocation) //the 1 means it's for everyone in view, the me makes it an emote, and the invocation is written accordingly.
+			var/final_emote = "[user] [invocation]"
+			send_emote("custom",src,0,final_emote,final_emote)
 
 /////////////////////
 ///UPGRADING PROCS///

@@ -143,8 +143,8 @@
 	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message))]</span></i>"
 
 	if(isvaurca(speaker))
-		speaker.custom_emote(1, "[pick("twitches their antennae", "twitches their antennae rythmically")].")
-
+		var/final_emote = "[speaker] [pick("twitches their antennae", "twitches their antennae rythmically")]."
+		send_emote("custom_visible",speaker,0,final_emote,final_emote)
 	if (within_jamming_range(speaker))
 		// The user thinks that the message got through.
 		speaker << msg

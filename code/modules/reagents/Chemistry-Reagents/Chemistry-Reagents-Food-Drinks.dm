@@ -549,7 +549,7 @@
 /datum/reagent/frostoil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 	if(prob(1))
-		M.emote("shiver")
+		send_emote("shiver",M)
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature = max(M.bodytemperature - rand(10,20), 0)
 	holder.remove_reagent("capsaicin", 5)
@@ -581,7 +581,7 @@
 	else
 		M.apply_effect(agony_amount, AGONY, 0)
 		if(prob(5))
-			M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
+			send_emote(pick("cough","sputter","heave"),M)
 			M << "<span class='danger'>You feel like your insides are burning!</span>"
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
@@ -655,7 +655,7 @@
 	else if(!no_pain)
 		message = "<span class='danger'>Your face and throat burn!</span>"
 		if(prob(25))
-			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
+			send_emote(pick("cough","sputter","heave"),M)
 		M.Stun(5)
 		M.Weaken(5)
 #undef EYES_PROTECTED
@@ -3073,7 +3073,7 @@
 	else
 		M.apply_effect(agony_amount, AGONY, 0)
 		if(prob(5))
-			M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
+			send_emote(pick("heave","cough","splutter"),M)
 			M << "<span class='danger'>You feel like your insides are burning!</span>"
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj

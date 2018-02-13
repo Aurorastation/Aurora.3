@@ -353,7 +353,7 @@
 
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(5))
-		M.emote(pick("twitch", "blink_r", "shiver"))
+		send_emote(pick("twitch","blink_rapid","shiver"),M)
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
