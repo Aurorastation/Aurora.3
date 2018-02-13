@@ -304,7 +304,6 @@
 	shield_power = 150
 	can_block_bullets = 1
 	active = 1
-	armor_penetration = 20
 
 /obj/item/weapon/melee/energy/blade/Initialize()
 	. = ..()
