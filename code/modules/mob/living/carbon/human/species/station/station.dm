@@ -194,7 +194,7 @@
 	name_plural = "Skrell"
 	bodytype = "Skrell"
 	age_max = 500
-	economic_modifier = 10
+	economic_modifier = 12
 	icobase = 'icons/mob/human_races/r_skrell.dmi'
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
 	eyes = "skrell_eyes_s"
