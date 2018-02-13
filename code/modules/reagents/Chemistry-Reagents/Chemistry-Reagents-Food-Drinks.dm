@@ -1037,6 +1037,19 @@
 	glass_desc = "A strong coffee made by passing nearly boiling water through coffee seeds at high pressure."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
+/datum/reagent/drink/coffee/freddo_espresso
+	name = "Freddo espresso"
+	id = "freddo_espresso"
+	description = "Espresso with ice cubes poured over ice."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "cold and bitter coffee"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of freddo espresso"
+	glass_desc = "Espresso with ice cubes poured over ice."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
 /datum/reagent/drink/coffee/caffe_americano
 	name = "Caffe Americano"
 	id = "caffe_americano"
@@ -1087,6 +1100,19 @@
 	glass_icon_state = "hot_coffee"
 	glass_name = "glass of cappuccino"
 	glass_desc = "Espresso with steamed milk foam."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/freddo_cappuccino
+	name = "Freddo Cappuccino"
+	id = "freddo_cappuccino"
+	description = "Espresso with steamed milk foam, on ice."
+	color = "#664300" // rgb: 102, 67, 0
+	adj_temp = 5
+	taste_description = "cold and bitter milk foam"
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of freddo cappuccino"
+	glass_desc = "Espresso with steamed milk foam, on ice."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
 /datum/reagent/drink/coffee/macchiato

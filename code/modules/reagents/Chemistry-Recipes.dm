@@ -2005,6 +2005,13 @@
 	required_reagents = list("coffee" = 1, "milk" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/freddo_espresso
+	name = "Freddo Espresso"
+	id = "freddo_espresso"
+	result = "freddo_espresso"
+	required_reagents = list("espresso" = 1, "ice" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/caffe_americano
 	name = "Caffe Americano"
 	id = "caffe_americano"
@@ -2031,6 +2038,13 @@
 	id = "cappuccino"
 	result = "cappuccino"
 	required_reagents = list("espresso" = 1, "cream" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/freddo_cappuccino
+	name = "Freddo cappuccino"
+	id = "freddo_cappuccino"
+	result = "freddo_cappuccino"
+	required_reagents = list("cappuccino" = 1, "ice" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/macchiato
