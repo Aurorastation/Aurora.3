@@ -121,6 +121,7 @@
 /obj/machinery/chemical_dispenser/coffeemaster
 	name = "Coffee Master 3000"
 	desc = "The only thing that can get some workers though the day, a coffee maker on steroids!"
+	icon_state = "coffee_master"
 	ui_title = "Coffee Master 3000"
 	accept_drinking = 1
 	density = 0
