@@ -66,6 +66,7 @@
 
 	// Bar, coffee
 	coffee		spawn_reagent = "coffee"
+	espresso	spawn_reagent = "espresso"
 	cream		spawn_reagent = "cream"
 	milk		spawn_reagent = "milk"
 	soymilk		spawn_reagent = "soymilk"

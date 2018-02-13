@@ -2005,6 +2005,48 @@
 	required_reagents = list("coffee" = 1, "milk" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/caffe_americano
+	name = "Caffe Americano"
+	id = "caffe_americano"
+	result = "caffe_americano"
+	required_reagents = list("espresso" = 1, "water" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/flat_white
+	name = "Flat White"
+	id = "flat_white"
+	result = "flat_white"
+	required_reagents = list("espresso" = 1, "milk" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/latte
+	name = "Latte"
+	id = "latte"
+	result = "latte"
+	required_reagents = list("flat_white" = 1, "milk" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/cappuccino
+	name = "Cappuccino"
+	id = "cappuccino"
+	result = "cappuccino"
+	required_reagents = list("espresso" = 1, "cream" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/macchiato
+	name = "Macchiato"
+	id = "macchiato"
+	result = "macchiato"
+	required_reagents = list("cappuccino" = 1, "espresso" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/mocacchino
+	name = "Mocacchino"
+	id = "mocacchino"
+	result = "mocacchino"
+	required_reagents = list("flat_white" = 1, "coco" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/acidspit
 	name = "Acid Spit"
 	id = "acidspit"
