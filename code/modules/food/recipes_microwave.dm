@@ -1042,7 +1042,6 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/boiledegg,
 		/obj/item/weapon/reagent_containers/food/snacks/boiledegg,
 		/obj/item/weapon/reagent_containers/food/snacks/boiledegg
-
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/chilied_eggs
 
@@ -1067,10 +1066,10 @@ I said no!
 /datum/recipe/riztizkzi_sea
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/egg,
+		/obj/item/weapon/reagent_containers/food/snacks/egg,
 		/obj/item/weapon/reagent_containers/food/snacks/egg
-
 	)
-	reagents = list("blood" = 5)
+	reagents = list("blood" = 15)
 	result = /obj/item/weapon/reagent_containers/food/snacks/riztizkzi_sea
 
 /datum/recipe/father_breakfast
@@ -1146,21 +1145,3 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/friedegg
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/bacon_and_eggs
-
-/datum/recipe/sweet_and_sour
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/bacon,
-		/obj/item/weapon/reagent_containers/food/snacks/cutlet
-	)
-	reagents = list("sugar" = 5, "soysauce" = 5)
-	reagent_mix = RECIPE_REAGENT_REPLACE //Too many flavors.
-	result = /obj/item/weapon/reagent_containers/food/snacks/sweet_and_sour
-
-/datum/recipe/corn_dog
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/sausage
-	)
-	fruit = list("corn" = 1)
-	reagents = list("flour" = 5)
-	reagent_mix = RECIPE_REAGENT_REPLACE //No flour please
-	result = /obj/item/weapon/reagent_containers/food/snacks/corn_dog

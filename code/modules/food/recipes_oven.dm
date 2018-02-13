@@ -506,3 +506,17 @@
 		/obj/item/weapon/reagent_containers/food/snacks/tortilla
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/enchiladas
+
+//Bacon
+/datum/recipe/bacon_oven
+	appliance = OVEN
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon,
+		/obj/item/weapon/reagent_containers/food/snacks/spreads
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bacon/oven
