@@ -980,14 +980,14 @@
 	M.make_jittery(5)
 
 /datum/reagent/drink/coffee/icecoffee
-	name = "Iced Coffee"
+	name = "Frappe Coffee"
 	id = "icecoffee"
 	description = "Coffee and ice, refreshing and cool."
 	color = "#102838"
 	adj_temp = -5
 
 	glass_icon_state = "icedcoffeeglass"
-	glass_name = "glass of iced coffee"
+	glass_name = "glass of frappe coffee"
 	glass_desc = "A drink to perk you up and refresh you!"
 
 /datum/reagent/drink/coffee/soy_latte
