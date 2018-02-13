@@ -218,7 +218,7 @@
 	msg += "<span class='warning'>"
 
 
-	if (!(mob.species.flags & NO_CHUBBY))
+	if (!(src.species.flags & NO_CHUBBY))
 		if(nutrition < 100)
 			msg += "[T.He] [T.is] severely malnourished.\n"
 		else if(nutrition >= 500)
