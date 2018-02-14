@@ -12,5 +12,5 @@
 	possible_transfer_amounts = list(20, 40)
 	unacidable = 1
 
-	spawn_reagent = "black_coffee"
+	spawn_reagent = "espresso"
 
