@@ -32,9 +32,9 @@
 	density = 0
 	storage_capacity = 30
 	var/contains_body = 0
-	var/used = 0
+	var/used = 1
 
-	var/use_internal_tank = 0
+	var/use_internal_tank = 1
 	var/current_processes = BUBBLE_PROC_INT_TEMP
 	var/datum/gas_mixture/inside_air
 	var/internal_tank_valve = 45 // arbitrary for now
@@ -69,7 +69,6 @@
 	. = ..()
 	add_inside()
 	START_PROCESSING(SSfast_process, src)
-	use_internal_tank = !use_internal_tank
 
 /obj/structure/closet/air_bubble/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
@@ -106,13 +105,20 @@
 	set src in oview(1)
 	set category = "Object"
 	set name = "Set Internals"
-	visible_message(
-		"<span class='warning'>[user] set [src] internals.</span>",
-		"<span class='notice'>You set [src] internals.</span>"
-	)
-	if (!do_after(user, 1 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
-		return
-	use_internal_tank = !use_internal_tank
+	if(use_internal_tank)
+		visible_message(
+			"<span class='warning'>[user] set [src] internals.</span>",
+			"<span class='notice'>You set [src] internals.</span>"
+		)
+		if (!do_after(user, 1 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+			return
+		if(use_internal_tank)
+			STOP_PROCESSING(SSfast_process, src)
+		else
+			START_PROCESSING(SSfast_process, src)
+		use_internal_tank = !use_internal_tank
+	else
+		visible_message("<span class='notice'>[src] has no internal tank.</span>")
 
 /obj/structure/closet/air_bubble/verb/take_tank(mob/user as mob)
 	if(use_internal_tank)
@@ -223,7 +229,7 @@
 			icon_state = icon_closed
 
 /obj/structure/closet/air_bubble/proc/process_tank_give_air()
-	if(internal_tank && use_internal_tank)
+	if(internal_tank)
 		var/datum/gas_mixture/tank_air = internal_tank.return_air()
 
 		var/release_pressure = internal_tank_valve

@@ -714,12 +714,9 @@
 #include "code\game\objects\effects\projectile\projectile_tracer.dm"
 #include "code\game\objects\effects\spawners\bombspawner.dm"
 #include "code\game\objects\effects\spawners\gibspawner.dm"
-<<<<<<< HEAD
 #include "code\game\objects\effects\temporary_visuals\blood_splatter.dm"
 #include "code\game\objects\effects\temporary_visuals\temporary_visual.dm"
-=======
 #include "code\game\objects\items\airbubble.dm"
->>>>>>> included `air_bubble.dm`
 #include "code\game\objects\items\apc_frame.dm"
 #include "code\game\objects\items\bees_items.dm"
 #include "code\game\objects\items\blueprints.dm"
@@ -728,7 +725,6 @@
 #include "code\game\objects\items\crayons.dm"
 #include "code\game\objects\items\glassjar.dm"
 #include "code\game\objects\items\latexballoon.dm"
-#include "code\game\objects\items\oxycandle.dm"
 #include "code\game\objects\items\paintkit.dm"
 #include "code\game\objects\items\shooting_range.dm"
 #include "code\game\objects\items\toys.dm"
