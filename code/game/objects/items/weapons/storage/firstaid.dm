@@ -321,3 +321,31 @@
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
 		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		
+/obj/item/weapon/storage/pill_bottle/trisyndicotin
+	name = "bottle of Trisyndicotin pills"
+	desc = "Used to free one's mind from the oppression of NanoTrasen."
+
+	fill()
+		..()
+		new /obj/item/weapon/reagent_containers/pill/trisyndicotin( src )
+		new /obj/item/weapon/reagent_containers/pill/trisyndicotin( src )
+		new /obj/item/weapon/reagent_containers/pill/trisyndicotin( src )
+		new /obj/item/weapon/reagent_containers/pill/trisyndicotin( src )
+		new /obj/item/weapon/reagent_containers/pill/trisyndicotin( src )
+		new /obj/item/weapon/reagent_containers/pill/trisyndicotin( src )
+		new /obj/item/weapon/reagent_containers/pill/trisyndicotin( src )
+		
+/obj/item/weapon/storage/pill_bottle/hextrasenil
+	name = "bottle of Hextrasenil pills"
+	desc = "Pacification through medication."
+
+	fill()
+		..()
+		new /obj/item/weapon/reagent_containers/pill/hextrasenil( src )
+		new /obj/item/weapon/reagent_containers/pill/hextrasenil( src )
+		new /obj/item/weapon/reagent_containers/pill/hextrasenil( src )
+		new /obj/item/weapon/reagent_containers/pill/hextrasenil( src )
+		new /obj/item/weapon/reagent_containers/pill/hextrasenil( src )
+		new /obj/item/weapon/reagent_containers/pill/hextrasenil( src )
+		new /obj/item/weapon/reagent_containers/pill/hextrasenil( src )

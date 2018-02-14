@@ -506,8 +506,7 @@
 
 /* Antidepressants */
 
-#define ANTIDEPRESSANT_MESSAGE_DELAY 5*60*10
-
+#define ANTIDEPRESSANT_MESSAGE_DELAY 1*60*10
 
 /datum/reagent/antidepressants
 	name = "Experimental Antidepressant"
@@ -567,7 +566,10 @@
 			if(!H.has_trauma_type(BT) && prob(percentchance))
 				B.gain_trauma(BT,FALSE)
 
-		if(volume < maxdose*0.1)
+		M << volume
+		M << maxdose
+
+		if(volume < maxdose*0.5)
 			H << pick(worstmessage)
 			for(var/k in withdraw_effects)
 				var/datum/brain_trauma/BT = k
@@ -588,7 +590,7 @@
 	description = "Methylphenidate is an AHDH treatment drug that treats basic distractions such as phobias and hallucinations at moderate doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.001
+	metabolism = 0.005
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel focused.","You feel like you have no distractions.","You feel willing to work.")
@@ -613,7 +615,7 @@
 	description = "Fluvoxamine is safe and effective at treating basic phobias, as well as schizophrenia and muscle weakness at higher doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.001
+	metabolism = 0.005
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel fine.")
@@ -639,7 +641,7 @@
 	description = "Sertraline is cheap, safe, and effective at treating basic phobias, however it does not last as long as other antidepressants. Withdrawl effects are uncommon. Side effects are rare."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.003
+	metabolism = 0.01
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel fine.","You feel rational.","You feel decent.")
@@ -660,10 +662,10 @@
 /datum/reagent/antidepressants/escitalopram
 	name = "escitalopram"
 	id = "escitalopram"
-	description = "Escitalopram is expesnive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawl effects are uncommon."
+	description = "Escitalopram is expensive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawl effects are uncommon."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.001
+	metabolism = 0.005
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel relaxed.","You feel at ease.","You feel care free.")
@@ -691,7 +693,7 @@
 	description = "Paroxetine is effective at treating basic phobias while also preventing the body from overheating. Side effects are rare, and include hallucinations. Withdrawl effects are frequent and unsafe."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.001
+	metabolism = 0.005
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
@@ -719,7 +721,7 @@
 	description = "Duloxetine is effective at treating basic phobias and concussions. A rare side effect is hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.001
+	metabolism = 0.005
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel at ease.","Your mind feels healthy..")
@@ -744,7 +746,7 @@
 	description = "Venlafaxine is effective at treating basic phobias, monophobia, and stuttering. Side effects are uncommon and include hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.001
+	metabolism = 0.005
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel at ease.","Your mind feels healthy..","You feel unafraid to speak...")
@@ -769,7 +771,7 @@
 	description = "Risperidone is a potent antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. Withdrawl symptoms are dangerous and almost always occur."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.001
+	metabolism = 0.25
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.")
@@ -802,7 +804,7 @@
 	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. The medication metabolizes quickly, and withdrawl is dangerous."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.003
+	metabolism = 0.005
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.","Your body feels responsive.","You can handle being alone.")
@@ -829,10 +831,10 @@
 /datum/reagent/antidepressants/hextrasenil
 	name = "Hextrasenil"
 	id = "hextrasenil"
-	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen, respect for authority, and pacifism. Withdrawl effects include undying hatred towards NanoTrasen and tourettes."
+	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen and respect for authority. Withdrawl effects include undying hatred towards NanoTrasen."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.01 //Not meant to last a long time.
+	metabolism = 0.02 //Not meant to last a long time.
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel loyal to NanoTrasen. Please take your pills.","You feel the need to contribute to cause of NanoTrasen. Please take your pills.","You wouldn't think about hurting NanoTrasen at all. Please take your pills.","You do not feel the need to express emotion. Please take your pills.","You feel that NanoTrasen has your best interests at heart. Please take your pills.","You respect the Chain of Command. Please take your pills.")
@@ -843,12 +845,7 @@
 		/datum/brain_trauma/special/imaginary_friend = 5,
 		/datum/brain_trauma/mild/tourettes = 5
 	)
-	dosage_effects = list(
-		/datum/brain_trauma/severe/pacifism = 25
-	)
-	withdraw_effects = list(
-		/datum/brain_trauma/mild/tourettes = 20
-	)
+	withdraw_effects = list()
 
 /datum/reagent/antidepressants/trisyndicotin
 	name = "Trisyndicotin"
@@ -856,7 +853,7 @@
 	description = "Trisyndicotin is a super-strength, expensive antipsychotic medication intended for the use in interigation. Side effects include undying hatred to NanoTrasen and disrespect for authority."
 	reagent_state = LIQUID
 	color = "#888888"
-	metabolism = 0.001
+	metabolism = 0.01
 	data = 0
 	taste_description = "freedom"
 	goodmessage = list("You distrust Nanotrasen and their people.","You feel woke.","You have urges to speak out against NanoTrasen.","You feel the need to complain about NanoTrasen on the web.","You feel like things should be better.")

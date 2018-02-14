@@ -23,3 +23,8 @@
 	name = "Combat medical kit"
 	item_cost = 12
 	path = /obj/item/weapon/storage/firstaid/combat
+
+/datum/uplink_item/item/medical/combat
+	name = "Mind-freeing pills"
+	item_cost = 5
+	path = /obj/item/weapon/storage/pill_bottle/trisyndicotin
