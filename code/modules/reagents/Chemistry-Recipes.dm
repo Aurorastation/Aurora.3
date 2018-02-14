@@ -2292,22 +2292,6 @@
 	required_reagents = list("hydrazine" = 2, "carbon" = 2, "ammonia" = 2)
 	result_amount = 6
 
-/////////////////////////////////////////Brightdawns super cool coffee drinks//////////////////////////////////////////////
-
-/datum/chemical_reaction/white_coffee
-	name = "Cafe Au Lait"
-	id = "white_coffee"
-	result = "white_coffee"
-	required_reagents = list("milk" = 1, "black_coffee" = 2)
-	result_amount = 3
-
-/datum/chemical_reaction/cafe_melange
-	name = "Cafe Melange"
-	id = "cafe_melange"
-	result = "cafe_melange"
-	required_reagents = list("cream" = 1, "black_coffee" = 2)
-	result_amount = 3
-
 //aurora's drinks
 
 /datum/chemical_reaction/daiquiri

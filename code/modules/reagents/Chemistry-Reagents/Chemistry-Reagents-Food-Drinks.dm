@@ -2779,68 +2779,6 @@
 	glass_name = "glass of Dr. Daniels"
 	glass_desc = "A tall glass of honey, whiskey, and diet Dr. Gibb. The perfect blend of throat-soothing liquid."
 
-/////////////////////////////////////////////////////////////////Brightdawns super cool coffee area//////////////////////////////////////////////
-
-
-/datum/reagent/drink/black_coffee
-	name = "Black Coffee"
-	id = "black_coffee"
-	description = "A rich strong roast, you think it could be a lot better if someone added something extra."
-	color = "#482000"
-	adj_dizzy = -6
-	adj_drowsy = -4
-	adj_sleepy = -3
-	adj_temp = 30
-	overdose = 40
-	caffeine = 0.4
-	taste_description = "coffee"
-
-	glass_icon_state = "blackcoffee"
-	glass_name = "A mug of rich Black Coffee"
-	glass_desc = "A mug of a rich strong roast, you think it could be a lot better if someone added something extra to it."
-
-/datum/reagent/drink/white_coffee
-	name = "Cafe Au Lait"
-	id = "white_coffee"
-	description = "A fancy name for something thats just coffee and milk."
-	color = "#A64D07"
-	adj_dizzy = -6
-	adj_drowsy = -4
-	adj_sleepy = -3
-	adj_temp = 30
-	overdose = 40
-	caffeine = 0.3
-	taste_description = "creamy coffee"
-
-	glass_icon_state = "whitecoffee"
-	glass_name = "A mug of Cafe Au Lait"
-	glass_desc = "A fancy name for something thats just coffee and milk."
-
-/datum/reagent/drink/white_coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.heal_organ_damage(0.5 * removed, 0)
-
-/datum/reagent/drink/cafe_melange
-	name = "Cafe Melange"
-	id = "cafe_melange"
-	description = "A delicious mug of creamy coffee."
-	color = "#A64D07"
-	adj_dizzy = -6
-	adj_drowsy = -4
-	adj_sleepy = -3
-	adj_temp = 30
-	overdose = 40
-	caffeine = 0.3
-	taste_description = "creamy coffee"
-
-	glass_icon_state = "whitecoffee"
-	glass_name = "A mug of Cafe Melange"
-	glass_desc = "A delicious mug of creamy coffee, keeps you cool headed in the most heated of situations."
-
-/datum/reagent/drink/cafe_melange/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.reagents.add_reagent("kelotane", removed * 0.2)
-
 //aurora unique drinks
 
 /datum/reagent/ethanol/daiquiri
