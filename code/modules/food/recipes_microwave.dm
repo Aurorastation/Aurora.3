@@ -1118,10 +1118,6 @@ I said no!
 	fruit = list("cabbage" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/sliceable/sushi_roll
 
-/datum/recipe/butter
-	reagents = list("milk" = 10, "sodiumchloride" = 1)
-	result = /obj/item/weapon/reagent_containers/food/snacks/spreads/butter
-
 /datum/recipe/bacon_stick
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/bacon,

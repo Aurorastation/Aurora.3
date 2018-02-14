@@ -520,3 +520,4 @@
 		/obj/item/weapon/reagent_containers/food/snacks/spreads
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/bacon/oven
+	result_quantity = 6
