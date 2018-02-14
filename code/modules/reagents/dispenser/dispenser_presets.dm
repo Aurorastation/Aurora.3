@@ -145,5 +145,5 @@
 
 /obj/machinery/chemical_dispenser/coffee/full
 	spawn_cartridges = list(
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee_beans
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/espresso
 		)
