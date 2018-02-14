@@ -582,6 +582,31 @@
 	maxdose = (maxdose + volume)/2 //Ease in or out the new maxdose
 	data = world.time + ANTIDEPRESSANT_MESSAGE_DELAY
 
+/datum/reagent/antidepressants/methylphenidate
+	name = "methylphenidate"
+	id = "methylphenidate"
+	description = "Methylphenidate is an AHDH treatment drug that treats basic distractions such as phobias and hallucinations at moderate doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.001
+	data = 0
+	taste_description = "paper"
+	goodmessage = list("You feel focused.","You feel like you have no distractions.","You feel willing to work.")
+	badmessage = list("You feel a little distracted...","You feel slight agitation...","You feel a dislike towards work...")
+	worstmessage = list("You feel completely distrtacted...","You feel like you don't want to work...","You think you see things...")
+	cure_effects = list(
+		/datum/brain_trauma/special/imaginary_friend = 40,
+		/datum/brain_trauma/mild/hallucinations = 20,
+		/datum/brain_trauma/mild/phobia/ = 20
+	)
+	dosage_effects = list(
+		/datum/brain_trauma/mild/hallucinations = 5
+	)
+	withdraw_effects = list(
+		/datum/brain_trauma/mild/phobia/ = 5,
+		/datum/brain_trauma/mild/hallucinations = 2
+	)
+
 /datum/reagent/antidepressants/fluvoxamine
 	name = "fluvoxamine"
 	id = "fluvoxamine"
@@ -804,7 +829,7 @@
 /datum/reagent/antidepressants/hextrasenil
 	name = "Hextrasenil"
 	id = "hextrasenil"
-	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen and respect for authority. Withdrawl effects include undying hatred towards NanoTrasen."
+	description = "Hextrasenil is a super-strength, fast-metabolizing, expensive antipsychotic medication intended for the use in criminal rehabilitation that treats tourettes, schizophrenia, hallucinations, and loyalty issues. Side effects include undying loyalty to NanoTrasen, respect for authority, and pacifism. Withdrawl effects include undying hatred towards NanoTrasen and tourettes."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.01 //Not meant to last a long time.
@@ -818,7 +843,12 @@
 		/datum/brain_trauma/special/imaginary_friend = 5,
 		/datum/brain_trauma/mild/tourettes = 5
 	)
-	withdraw_effects = list()
+	dosage_effects = list(
+		/datum/brain_trauma/severe/pacifism = 25
+	)
+	withdraw_effects = list(
+		/datum/brain_trauma/mild/tourettes = 20
+	)
 
 /datum/reagent/antidepressants/trisyndicotin
 	name = "Trisyndicotin"
@@ -847,114 +877,6 @@
 //Discoordination
 //Aphasia
 //Pacifism
-
-/datum/reagent/methylphenidate
-	name = "Methylphenidate"
-	id = "methylphenidate"
-	description = "Improves the ability to concentrate."
-	reagent_state = LIQUID
-	color = "#BF80BF"
-	metabolism = 0.01
-	data = 0
-	taste_description = "sourness"
-
-/datum/reagent/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(volume <= 0.1 && data != -1)
-		data = -1
-		M << "<span class='warning'>You lose focus...</span>"
-	else
-		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
-			data = world.time
-			M << "<span class='notice'>Your mind feels focused and undivided.</span>"
-
-/datum/reagent/citalopram
-	name = "Citalopram"
-	id = "citalopram"
-	description = "Stabilizes the mind a little."
-	reagent_state = LIQUID
-	color = "#FF80FF"
-	metabolism = 0.01
-	data = 0
-
-/datum/reagent/citalopram/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(volume <= 0.1 && data != -1)
-		data = -1
-		M << "<span class='warning'>Your mind feels a little less stable...</span>"
-		if (ishuman(M))
-			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-			if(B)
-				for(var/x in B.traumas)
-					var/datum/brain_trauma/BT = x
-					if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && BT.suppressed)
-						BT.on_gain()
-						BT.suppressed = 0
-
-	else
-		if((world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY) || !data)
-			data = world.time
-			M << "<span class='notice'>Your mind feels stable... a little stable.</span>"
-
-			if (ishuman(M))
-				var/mob/living/carbon/human/H = M
-				var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-				if(B)
-					for(var/x in B.traumas)
-						var/datum/brain_trauma/BT = x
-						if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && !BT.permanent)
-							BT.on_lose()
-							BT.suppressed = 1
-
-/datum/reagent/paroxetine
-	name = "Paroxetine"
-	id = "paroxetine"
-	description = "Stabilizes the mind greatly, but has a chance of adverse effects."
-	reagent_state = LIQUID
-	color = "#FF80BF"
-	metabolism = 0.01
-	data = 0
-	taste_description = "bitterness"
-
-/datum/reagent/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if((volume <= 0.1 || data == -2) && data != -1)
-		data = -1
-		M << "<span class='warning'>Your mind feels much less stable...</span>"
-		if (ishuman(M))
-			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-			if(B)
-				for(var/x in B.traumas)
-					var/datum/brain_trauma/BT = x
-					if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SEVERE) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && BT.suppressed)
-						BT.on_gain()
-						BT.suppressed = 0
-	else
-		if(data >= 0)
-			if((world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY) || !data)
-				data = world.time
-				if(prob(75))
-					M << "<span class='notice'>Your mind feels much more stable.</span>"
-					if (ishuman(M))
-						var/mob/living/carbon/human/H = M
-						var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-						if(B)
-							for(var/x in B.traumas)
-								var/datum/brain_trauma/BT = x
-								if((istype(BT, BRAIN_TRAUMA_MILD) || istype(BT, BRAIN_TRAUMA_SEVERE) || istype(BT, BRAIN_TRAUMA_SPECIAL)) && !BT.permanent)
-									BT.on_lose(1)
-									BT.suppressed = 1
-				else
-					data = -2
-					M << "<span class='warning'>Your mind breaks apart...</span>"
-					if(ishuman(M))
-						var/mob/living/carbon/human/H = M
-						if(prob(66))
-							if(prob(70))
-								H.gain_trauma_type(BRAIN_TRAUMA_MILD)
-							else
-								H.gain_trauma_type(BRAIN_TRAUMA_SEVERE)
-					else
-						M.hallucination += 200
 
 /datum/reagent/rezadone
 	name = "Rezadone"

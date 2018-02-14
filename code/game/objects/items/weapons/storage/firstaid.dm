@@ -308,16 +308,16 @@
 		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
 		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
 
-/obj/item/weapon/storage/pill_bottle/citalopram
-	name = "bottle of Citalopram pills"
+/obj/item/weapon/storage/pill_bottle/escitalopram
+	name = "bottle of Escitalopram pills"
 	desc = "Contains pills used to stabilize a patient's mood."
 
 	fill()
 		..()
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
-		new /obj/item/weapon/reagent_containers/pill/citalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
+		new /obj/item/weapon/reagent_containers/pill/escitalopram( src )
