@@ -5,12 +5,14 @@
 	sharp = 1
 	edge = 1
 	damage = 5
+	attack_name = "sharp bite"
 
 /datum/unarmed_attack/diona
 	attack_verb = list("lashed", "bludgeoned")
 	attack_noun = list("tendril")
 	eye_attack_text = "a tendril"
 	eye_attack_text_victim = "a tendril"
+	attack_name = "tendrils"
 
 /datum/unarmed_attack/claws
 	attack_verb = list("scratched", "clawed", "slashed")
@@ -22,6 +24,7 @@
 	sharp = 1
 	edge = 1
 	damage = 5
+	attack_name = "claws"
 
 /datum/unarmed_attack/claws/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/skill = user.skills["combat"]
@@ -58,16 +61,19 @@
 	attack_verb = list("slashed")
 	damage = 10
 	shredding = 1
+	attack_name = "strong claws"
 
 /datum/unarmed_attack/bite/strong
 	attack_verb = list("mauled")
 	damage = 10
 	shredding = 1
+	attack_name = "strong bite"
 
 /datum/unarmed_attack/slime_glomp
 	attack_verb = list("glomped")
 	attack_noun = list("body")
 	damage = 2
+	attack_name = "glomp"
 
 /datum/unarmed_attack/slime_glomp/apply_effects()
 	//Todo, maybe have a chance of causing an electrical shock?
@@ -75,6 +81,7 @@
 
 /datum/unarmed_attack/stomp/weak
 	attack_verb = list("jumped on")
+	attack_name = "weak stomp"
 
 /datum/unarmed_attack/stomp/weak/get_unarmed_damage()
 	return damage
@@ -89,6 +96,7 @@
 	attack_noun = list("power fist")
 	damage = 12
 	attack_sound = 'sound/weapons/beartrap_shut.ogg'
+	attack_name = "power fist"
 
 /datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
 	..()

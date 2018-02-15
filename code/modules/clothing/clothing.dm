@@ -85,7 +85,7 @@
 	switch(target_species)
 		if("Human", "Skrell", "Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")	//humanoid bodytypes
 			species_restricted = list(
-				"Human", 
+				"Human",
 				"Skrell",
 				"Machine",
 				"Zeng-Hu Mobility Frame",
@@ -360,6 +360,8 @@ BLIND     // can't see anything
 	var/fingerprint_chance = 0
 	var/obj/item/clothing/ring/ring = null		//Covered ring
 	var/mob/living/carbon/human/wearer = null	//Used for covered rings when dropping
+	var/punch_force = 0			//How much damage do these gloves add to a punch?
+	var/punch_damtype = BRUTE	//What type of damage does this make fists be?
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
@@ -391,7 +393,7 @@ BLIND     // can't see anything
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
 	if(iswirecutter(W) || istype(W, /obj/item/weapon/scalpel))
 		if (clipped)
-			user << "<span class='notice'>The [src] have already been clipped!</span>"
+			user << "<span class='notice'>\The [src] have already been clipped!</span>"
 			update_icon()
 			return
 

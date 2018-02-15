@@ -90,72 +90,72 @@
 	body_parts_covered = null
 	fingerprint_chance = 100
 
-	verb/checktime()
-		set category = "Object"
-		set name = "Check Time"
-		set src in usr
+/obj/item/clothing/gloves/watch/verb/checktime()
+	set category = "Object"
+	set name = "Check Time"
+	set src in usr
 
-		if(wired && !clipped)
-			usr << "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
-			if (emergency_shuttle.get_status_panel_eta())
-				usr << "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>"
-		else if(wired && clipped)
-			usr << "You check your watch realising it's still open"
-		else
-			usr << "You check your watch as it dawns on you that it's broken"
+	if(wired && !clipped)
+		usr << "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'."
+		if (emergency_shuttle.get_status_panel_eta())
+			usr << "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>"
+	else if(wired && clipped)
+		usr << "You check your watch realising it's still open"
+	else
+		usr << "You check your watch as it dawns on you that it's broken"
 
-	verb/pointatwatch()
-		set category = "Object"
-		set name = "Point at watch"
-		set src in usr
+/obj/item/clothing/gloves/watch/verb/pointatwatch()
+	set category = "Object"
+	set name = "Point at watch"
+	set src in usr
 
-		if(wired && !clipped)
-			usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes.</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
-		else if(wired && clipped)
-			usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
-		else
-			usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
+	if(wired && !clipped)
+		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes.</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
+	else if(wired && clipped)
+		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
+	else
+		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
 
-	examine(mob/user)
-		..()
-		if (get_dist(src, user) <= 1)
-			checktime()
+/obj/item/clothing/gloves/watch/examine(mob/user)
+	..()
+	if (get_dist(src, user) <= 1)
+		checktime()
 
-	attackby(obj/item/weapon/W, mob/user)
-		if(isscrewdriver(W))
-			if (clipped) //Using clipped because adding a new var for something is dumb
-				user.visible_message("<span class='notice'>[user] screws the cover of the [src] closed.</span>","<span class='notice'>You screw the cover of the [src] closed..</span>")
-				clipped = 0
-				return
-//			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			user.visible_message("<span class='notice'>[user] unscrew the cover of the [src].</span>","<span class='notice'>You unscrew the cover of the [src].</span>")
-			clipped = 1
+/obj/item/clothing/gloves/watch/attackby(obj/item/weapon/W, mob/user)
+	if(isscrewdriver(W))
+		if (clipped) //Using clipped because adding a new var for something is dumb
+			user.visible_message("<span class='notice'>[user] screws the cover of the [src] closed.</span>","<span class='notice'>You screw the cover of the [src] closed..</span>")
+			clipped = 0
 			return
+//		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		user.visible_message("<span class='notice'>[user] unscrew the cover of the [src].</span>","<span class='notice'>You unscrew the cover of the [src].</span>")
+		clipped = 1
+		return
+	if(wired)
+		return
+	if(iscoil(W))
+		var/obj/item/stack/cable_coil/C = W
+		if (!clipped)
+			user << "<span class='notice'>The [src] is not open.</span>"
+			return
+
 		if(wired)
-			return
-		if(iscoil(W))
-			var/obj/item/stack/cable_coil/C = W
-			if (!clipped)
-				user << "<span class='notice'>The [src] is not open.</span>"
-				return
-
-			if(wired)
-				user << "<span class='notice'>The [src] are already wired.</span>"
-				return
-
-			if(C.amount < 2)
-				user << "<span class='notice'>There is not enough wire to cover the [src].</span>"
-				return
-
-			C.use(2)
-			wired = 1
-			user << "<span class='notice'>You repair some wires in the [src].</span>"
+			user << "<span class='notice'>The [src] are already wired.</span>"
 			return
 
-	emp_act(severity)
-		if(prob(50/severity))
-			wired = 0
-		..()
+		if(C.amount < 2)
+			user << "<span class='notice'>There is not enough wire to cover the [src].</span>"
+			return
+
+		C.use(2)
+		wired = 1
+		user << "<span class='notice'>You repair some wires in the [src].</span>"
+		return
+
+/obj/item/clothing/gloves/watch/emp_act(severity)
+	if(prob(50/severity))
+		wired = 0
+	..()
 
 	/*
 	Forcegloves.  They amplify force from melee hits as well as muck up disarm and stuff a little.
@@ -189,3 +189,15 @@
 /obj/item/clothing/gloves/force/syndicate  //for syndies.  pda, *maybe* nuke team or ert.  up to you.  maybe just use the amp 2 variant.
 	name = "enhanced force gloves"
 	amplification = 2.5 //because *2.5 is kind of scary okay.  sometimes you want the scary effect.  sometimes not.
+
+
+/obj/item/clothing/gloves/brassvknuckles
+	name = "knuckle dusters"
+	desc = "A pair of brass knuckles. Generally used to enhance the user's punches."
+	icon_state = "knuckledusters"
+	attack_verb = list("punched", "beaten", "struck")
+	siemens_coefficient = 1
+	fingerprint_chance = 100
+	force = 5
+	punch_force = 5
+	clipped = 1
