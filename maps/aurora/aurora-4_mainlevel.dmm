@@ -24007,6 +24007,11 @@
 "aPD" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
+/obj/item/weapon/paper_bin{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/weapon/pen,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aPE" = (
