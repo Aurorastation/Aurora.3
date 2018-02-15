@@ -62687,6 +62687,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"cfF" = (
+/obj/structure/noticeboard,
+/turf/simulated/wall/r_wall,
+/area/security/forensics_office)
 
 (1,1,1) = {"
 aaa
@@ -97735,7 +97739,7 @@ agY
 afK
 afK
 ajh
-afg
+cfF
 akS
 alP
 ahD
