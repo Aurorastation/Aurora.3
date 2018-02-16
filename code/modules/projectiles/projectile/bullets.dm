@@ -162,6 +162,8 @@
 	agony = 60
 	embed = 0
 	sharp = 0
+	maiming = 0
+	maim_rate = 0
 
 /obj/item/projectile/bullet/shotgun/incendiary
 	name = "incendiary"
@@ -171,6 +173,8 @@
 	embed = 0
 	sharp = 0
 	incinerate = 10
+	maiming = 0
+	maim_rate = 0
 
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
