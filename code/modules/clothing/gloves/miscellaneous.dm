@@ -201,3 +201,42 @@
 	force = 5
 	punch_force = 5
 	clipped = 1
+
+/obj/item/clothing/gloves/powerfist
+	name = "power fist"
+	desc = "A metal gauntlet with a piston-powered ram ontop for that extra punch in your punch."
+	icon_state = "powerfist"
+	item_state = "powerfist"
+	attack_verb = list("whacked", "fisted", "power-punched")
+	siemens_coefficient = 1
+	fingerprint_chance = 50
+	force = 5
+	punch_force = 10
+	clipped = 1
+	species_restricted = list("exclude","Golem","Vaurca Breeder")
+
+/obj/item/clothing/gloves/powerfist/Touch(atom/A, mob/living/user, proximity)
+	if(!proximity)
+		return
+
+	if(!isliving(A))
+		return
+
+	var/mob/living/L = A
+
+	if(prob(25))
+		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
+		user.visible_message("<span class='danger'>\The [user] slams \the [L] away with \the [src]!</span>")
+		var/T = get_turf(user)
+		spark(T, 3, alldirs)
+		step_away(L,user,15)
+		sleep(1)
+		step_away(L,user,15)
+		sleep(1)
+		step_away(L,user,15)
+		sleep(1)
+		step_away(L,user,15)
+		sleep(1)
+		if(ishuman(L))
+			var/mob/living/carbon/human/H = L
+			H.apply_effect(2, WEAKEN)

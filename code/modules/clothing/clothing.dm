@@ -387,7 +387,7 @@ BLIND     // can't see anything
 	..()
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
-/obj/item/clothing/gloves/proc/Touch(var/atom/A, var/proximity)
+/obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand()
 
 /obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
