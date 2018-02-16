@@ -178,33 +178,33 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 		user << "<span class='notice'>You initiate the simulated scratch action process on the charge card. . .</span>"
 		if(do_after(user,5))
 			var/result = rand(1,10000)
-			if(result <= 5000)
+			if(result <= 5000) // 50% chance to not earn anything at all.
 				worth = 0
 				user << "<span class='warning'>The card reads [worth]. Not your lucky day!</span>"
-			else if (result <= 8000)
+			else if (result <= 8000) // 30% chance to break even.
 				worth = 200
 				user << "<span class='notice'>The card reads [worth]. At least you broke even...</span>"
-			else if (result <= 9000)
+			else if (result <= 9000) // 10% chance to earn 500 credits
 				worth = 500
 				user << "<span class='notice'>The card reads [worth]. You doubled your money!</span>"
-			else if (result <= 9500)
+			else if (result <= 9500) // 5% chance to earn 1000 credits.
 				worth = 1000
 				user << "<span class='notice'>The card reads [worth]. Wow, you're lucky!</span>"
-			else if (result <= 9750)
+			else if (result <= 9750) // 2.5% chance to earn 2500 credits.
 				worth = 2500
 				user << "<span class='notice'>The card reads [worth]. Wow, your luck is running high!</span>"
-			else if (result <= 9900)
+			else if (result <= 9900) // 1.5% chance to earn 5000 credits.
 				worth = 5000
 				user << "<span class='notice'>The card reads [worth]. Wow, you're rich!</span>"
-			else if (result <= 9950)
+			else if (result <= 9950) // 0.5% chance to earn 10000 credits
 				worth = 10000
 				user << "<span class='notice'>The card reads [worth]. Wow, your're super rich!</span>"
-			else if (result <= 9975)
-				worth = 50000
+			else if (result <= 9975) // 0.25% chance to earn 50000 credits.
+				worth = 25000
 				user << "<span class='notice'>The card reads [worth]. Wow, your're super rich!</span>"
-			else
+			else // 0.25% chance to earn 100000 credits.
 				user << "<span class='notice'>The card reads [worth]. YOU HIT THE JACKPOT!</span>"
-				worth = 100000
+				worth = 50000
 
 			scratched = 1
 			owner_name = user.name
