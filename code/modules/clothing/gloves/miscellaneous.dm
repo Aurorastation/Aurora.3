@@ -191,8 +191,8 @@
 	amplification = 2.5 //because *2.5 is kind of scary okay.  sometimes you want the scary effect.  sometimes not.
 
 
-/obj/item/clothing/gloves/brassvknuckles
-	name = "knuckle dusters"
+/obj/item/clothing/gloves/brassknuckles
+	name = "brass knuckles"
 	desc = "A pair of brass knuckles. Generally used to enhance the user's punches."
 	icon_state = "knuckledusters"
 	attack_verb = list("punched", "beaten", "struck")
@@ -239,6 +239,7 @@
 	desc = "A pair of metal gauntlets outfited with menacing sharp blades."
 	icon_state = "warping_claws"
 	attack_verb = list("ripped", "torn", "cut")
+	armor = list(melee = 50, bullet = 15, laser = 15, energy = 10, bomb = 10, bio = 0, rad = 0)
 	siemens_coefficient = 1
 	force = 5
 	punch_force = 10
