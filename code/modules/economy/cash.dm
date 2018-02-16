@@ -181,28 +181,29 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 			if(result <= 5000)
 				worth = 0
 				user << "<span class='warning'>The card reads [worth]. Not your lucky day!</span>"
-			else if (result <= 8000
+			else if (result <= 8000)
 				worth = 200
 				user << "<span class='notice'>The card reads [worth]. At least you broke even...</span>"
-			else if (result <= 9000
+			else if (result <= 9000)
 				worth = 500
 				user << "<span class='notice'>The card reads [worth]. You doubled your money!</span>"
-			else if (result <= 9500
+			else if (result <= 9500)
 				worth = 1000
 				user << "<span class='notice'>The card reads [worth]. Wow, you're lucky!</span>"
-			else if (result <= 9750
+			else if (result <= 9750)
 				worth = 2500
 				user << "<span class='notice'>The card reads [worth]. Wow, your luck is running high!</span>"
-			else if (result <= 9900
+			else if (result <= 9900)
 				worth = 5000
 				user << "<span class='notice'>The card reads [worth]. Wow, you're rich!</span>"
-			else if (result <= 9950
+			else if (result <= 9950)
 				worth = 10000
 				user << "<span class='notice'>The card reads [worth]. Wow, your're super rich!</span>"
-			else if (result <= 9975
+			else if (result <= 9975)
 				worth = 50000
 				user << "<span class='notice'>The card reads [worth]. Wow, your're super rich!</span>"
 			else
+				user << "<span class='notice'>The card reads [worth]. YOU HIT THE JACKPOT!</span>"
 				worth = 100000
 
 			scratched = 1
