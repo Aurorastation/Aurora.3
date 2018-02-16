@@ -4,6 +4,7 @@
 	icon_state = "revolver"
 	item_state = "revolver"
 	fire_sound = 'sound/misc/sadtrombone.ogg'
+	needspin = FALSE
 	var/image/bang_flag
 	var/fired_gun = 0
 	var/pixel_offset_x = -2
