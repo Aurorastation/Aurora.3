@@ -10,7 +10,7 @@
 	title = "The Art of Necromancy"
 	title_desc = "Buy spells using your available spell slots. Artefacts may also be bought however their cost is permanent."
 	book_flags = CAN_MAKE_CONTRACTS
-	max_uses = 6
+	max_uses = 5
 
 	spells = list(/spell/targeted/projectile/dumbfire/fireball = 	1,
 				/spell/targeted/torment = 		        			1,
