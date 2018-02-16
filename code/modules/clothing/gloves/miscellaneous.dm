@@ -224,19 +224,12 @@
 
 	var/mob/living/L = A
 
-	if(prob(25))
+	if(prob(50))
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [L] away with \the [src]!</span>")
 		var/T = get_turf(user)
 		spark(T, 3, alldirs)
-		step_away(L,user,15)
-		sleep(1)
-		step_away(L,user,15)
-		sleep(1)
-		step_away(L,user,15)
-		sleep(1)
-		step_away(L,user,15)
-		sleep(1)
+		L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
 			H.apply_effect(2, WEAKEN)
