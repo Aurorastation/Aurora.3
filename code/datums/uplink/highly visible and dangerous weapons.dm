@@ -64,6 +64,11 @@
 	item_cost = 7
 	path = /obj/item/weapon/landmine/n2o
 
+/datum/uplink_item/item/visible_weapons/powerfist
+	name = "Power Fist"
+	item_cost = 4
+	path = /obj/item/clothing/gloves/powerfist
+
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
