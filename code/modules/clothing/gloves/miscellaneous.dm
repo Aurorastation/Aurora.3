@@ -233,3 +233,15 @@
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
 			H.apply_effect(2, WEAKEN)
+
+/obj/item/clothing/gloves/claws
+	name = "clawed gauntlets"
+	desc = "A pair of metal gauntlets outfited with menacing sharp blades."
+	icon_state = "warping_claws"
+	attack_verb = list("ripped", "torn", "cut")
+	siemens_coefficient = 1
+	force = 5
+	punch_force = 10
+	clipped = 1
+	sharp = 1
+	edge = 1

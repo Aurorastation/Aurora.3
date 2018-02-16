@@ -36,7 +36,7 @@
 
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"
-	item_cost = 10
+	item_cost = 7
 	path = /obj/item/weapon/melee/hammer
 
 /datum/uplink_item/item/visible_weapons/revolver
@@ -68,6 +68,11 @@
 	name = "Power Fist"
 	item_cost = 4
 	path = /obj/item/clothing/gloves/powerfist
+
+/datum/uplink_item/item/visible_weapons/clawedgloves
+	name = "Clawed Gauntlets"
+	item_cost = 5
+	path = /obj/item/clothing/gloves/claws
 
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle"
