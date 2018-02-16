@@ -175,12 +175,12 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 
 /obj/item/weapon/spacecash/ewallet/lotto/attack_self(mob/user)
 	if(!scratched)
-		user << "<span class='notice'>You initiate the simulated scratch action process on the charge card. . .</span>"
+		user << "<span class='notice'>You initiate the simulated scratch action process on the charge card...</span>"
 		if(do_after(user,5))
 			var/result = rand(1,10000)
 			if(result <= 5000) // 50% chance to not earn anything at all.
 				worth = 0
-				user << "<span class='warning'>The card reads [worth]. Not your lucky day!</span>"
+				user << "<span class='notice'>The card reads [worth]. Not your lucky day!</span>"
 			else if (result <= 8000) // 30% chance to break even.
 				worth = 200
 				user << "<span class='notice'>The card reads [worth]. At least you broke even...</span>"
