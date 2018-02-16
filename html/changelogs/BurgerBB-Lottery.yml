@@ -1,4 +1,6 @@
- author: BurgerBB
+author: BurgerBB
+ 
 delete-after: True
+
 changes: 
   - balance: "Rebalanced lottery tickets so you don't win as much. Lottery tickets can now be purchased at cigarretee machines as well."
