@@ -3356,7 +3356,7 @@
 	description = "Looks gross, but smells fruity."
 	color = "#8CFF8C"
 	strength = 20
-	taste_description = "fruity 'n creamy"
+	taste_description = "creamy fruit"
 
 	glass_icon_state = "lizardphlegm"
 	glass_name = "glass of Lizard Phlegm"
