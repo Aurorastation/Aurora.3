@@ -1826,7 +1826,7 @@
 	name = "Margarita"
 	id = "margarita"
 	result = "margarita"
-	required_reagents = list("tequilla" = 2, "limejuice" = 3)
+	required_reagents = list("tequilla" = 2, "limejuice" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/longislandicedtea
