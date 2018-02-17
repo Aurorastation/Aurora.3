@@ -14,8 +14,6 @@ var/global/list/dead_mob_list = list()				//List of all dead mobs, including cli
 var/global/list/topic_commands = list()				//List of all API commands available
 var/global/list/topic_commands_names = list()				//List of all API commands available
 
-var/global/list/chemical_reactions_list				//list of all /datum/chemical_reaction datums. Used during chemical reactions
-var/global/list/chemical_reagents_list				//list of all /datum/reagent datums indexed by reagent id. Used by chemistry stuff
 var/global/list/landmarks_list = list()				//list of all landmarks created
 var/global/list/surgery_steps = list()				//list of all surgery steps  |BS12
 var/global/list/side_effects = list()				//list of all medical sideeffects types by thier names |BS12
@@ -238,10 +236,10 @@ var/global/list/cloaking_devices = list()
 /* // Uncomment to debug chemical reaction list.
 /client/verb/debug_chemical_list()
 
-	for (var/reaction in chemical_reactions_list)
-		. += "chemical_reactions_list\[\"[reaction]\"\] = \"[chemical_reactions_list[reaction]]\"\n"
-		if(islist(chemical_reactions_list[reaction]))
-			var/list/L = chemical_reactions_list[reaction]
+	for (var/reaction in SSchemistry.chemical_reactions)
+		. += "SSchemistry.chemical_reactions\[\"[reaction]\"\] = \"[SSchemistry.chemical_reactions[reaction]]\"\n"
+		if(islist(SSchemistry.chemical_reactions[reaction]))
+			var/list/L = SSchemistry.chemical_reactions[reaction]
 			for(var/t in L)
 				. += "    has: [t]\n"
 	world << .
