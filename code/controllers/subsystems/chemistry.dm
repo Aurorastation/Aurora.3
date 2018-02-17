@@ -23,7 +23,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	var/pre_secret_len = chemical_reactions.len
 	log_ss("chemistry", "Found [chemical_reagents.len] reagents, [pre_secret_len] reactions.")
 	load_secret_chemicals()
-	log_ss("chemistry", "Loaded [chemical_reactions.len - pre_secret_len] secret recipes.")
+	log_ss("chemistry", "Loaded [chemical_reactions.len - pre_secret_len] secret reactions.")
 	..()
 
 /datum/controller/subsystem/chemistry/fire(resumed = FALSE)
