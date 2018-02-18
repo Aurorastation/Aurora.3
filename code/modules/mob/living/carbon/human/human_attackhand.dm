@@ -290,22 +290,23 @@
 
 			real_damage = max(1, real_damage)
 
-			if(H.gloves && istype(H.gloves, /obj/item/clothing/gloves))
-				var/obj/item/clothing/gloves/G = H.gloves
-				real_damage += G.punch_force
-				hit_dam_type = G.punch_damtype
-				if(H.pulling_punches)
-					hit_dam_type = AGONY
+			if(H.gloves)
+				if(istype(H.gloves, /obj/item/clothing/gloves))
+					var/obj/item/clothing/gloves/G = H.gloves
+					real_damage += G.punch_force
+					hit_dam_type = G.punch_damtype
+					if(H.pulling_punches)
+						hit_dam_type = AGONY
 
-				if(G.sharp)
-					is_sharp = 1
+					if(G.sharp)
+						is_sharp = 1
 
-				if(G.edge)
-					is_edge = 1
+					if(G.edge)
+						is_edge = 1
 
-				if(istype(H.gloves,/obj/item/clothing/gloves/force))
-					var/obj/item/clothing/gloves/force/X = H.gloves
-					real_damage *= X.amplification
+					if(istype(H.gloves,/obj/item/clothing/gloves/force))
+						var/obj/item/clothing/gloves/force/X = H.gloves
+						real_damage *= X.amplification
 
 			if(attack.sharp)
 				is_sharp = 1
