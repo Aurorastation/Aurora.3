@@ -357,7 +357,6 @@ var/global/list/robot_modules = list(
 					"Android" = "droid",
 					"Classic" = "engineering",
 					"Sleek" = "sleekengineer",
-					"Wide" = "wide",
 					"Spider" = "spidereng",
 					"Plated" = "ceborg",
 					"Heavy" = "heavyeng"
@@ -532,7 +531,6 @@ var/global/list/robot_modules = list(
 					"Bloodhound - Treaded" = "treadhound",
 					"Drone" = "drone-sec",
 					"Classic" = "secborg",
-					"Wide" = "wide",
 					"Spider" = "spidersec",
 					"Heavy" = "heavysec"
 
@@ -566,7 +564,8 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/janitor
 	name = "custodial robot module"
-	channels = list("Service" = 1)
+	channels = list("Engineering" = 1)
+	networks = list(NETWORK_ENGINEERING)
 	sprites = list(
 					"Basic" = "robotjani",
 					"Mopbot"  = "janitorrobot",
