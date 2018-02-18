@@ -1,16 +1,16 @@
-/* Food */
-/datum/reagent/kois_clean
-	name = "Filtered K'ois"
-	id = "koispasteclean"
-	description = "A filtered, ketchup-like substance, filled with K'ois nutrients."
+/datum/reagent/kois
+	name = "K'ois"
+	id = "koispaste"
+	description = "A thick goopy substance, rich in K'ois nutrients."
 	metabolism = REM * 4
 	var/nutriment_factor = 10
 	var/injectable = 0
-	color = "#ece9dd"
+	color = "#dcd9cd"
 	taste_description = "boiled cabbage"
 	unaffected_species = IS_MACHINE
+	var/kois_type = 1
 
-/datum/reagent/kois_clean/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(isvaurca(M))
 		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
 		M.adjustToxLoss(-1.2 * removed)
@@ -18,80 +18,38 @@
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 	else
 		M.adjustToxLoss(1 * removed)
-		return
-	..()
-
-/datum/reagent/kois
-	name = "Unfiltered K'ois"
-	id = "koispaste"
-	description = "A thick goopy substance, rich in K'ois nutrients."
-	metabolism = REM * 4
-	var/nutriment_factor = 20
-	var/injectable = 0
-	color = "#dcd9cd"
-	taste_description = "boiled cabbage"
-	unaffected_species = IS_MACHINE
-
-/datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(isvaurca(M))
-		M.heal_organ_damage(2.4 * removed, 2.4 * removed)
-		M.adjustToxLoss(-2.4 * removed)
-		M.nutrition += nutriment_factor * removed // For hunger and fatness
-		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
-	else
 		if(istype(M,/mob/living/carbon/human))
-
 			var/mob/living/carbon/human/H = M
-			if(!H.internal_organs_by_name["kois"])
-
-				if(prob(10*removed))
-					var/obj/item/organ/external/affected = H.get_organ("chest")
-					var/obj/item/organ/parasite/kois/infest = new()
-					infest.replaced(H, affected)
-
-				else
-					H.adjustToxLoss(1 * removed)
-		else
-			M.adjustToxLoss(1 * removed)
-		return
+			switch(kois_type)
+				if(1) //Normal
+					if(!H.internal_organs_by_name["kois"] && prob(10*removed))
+						var/obj/item/organ/external/affected = H.get_organ("chest")
+						var/obj/item/organ/parasite/kois/infest = new()
+						infest.replaced(H, affected)
+				if(2) //Modified
+					if(!H.internal_organs_by_name["blackkois"] && prob(20*removed))
+						var/obj/item/organ/external/affected = H.get_organ("head")
+						var/obj/item/organ/parasite/blackkois/infest = new()
+						infest.replaced(H, affected)
 	..()
 
-/datum/reagent/blackkois
+/datum/reagent/kois/clean
+	name = "Filtered K'ois"
+	id = "koispasteclean"
+	description = "A strange, ketchup-like substance, filled with K'ois nutrients."
+	color = "#ece9dd"
+	taste_description = "cabbage soup"
+	kois_type = 0
+
+/datum/reagent/kois/black
 	name = "Modified K'ois"
 	id = "blackkois"
 	description = "A thick goopy substance, rich in K'ois nutrients. This sample appears to be modified."
-	metabolism = REM * 4
-	var/nutriment_factor = 10
-	var/injectable = 0
 	color = "#31004A"
 	taste_description = "tar"
-	unaffected_species = IS_MACHINE
+	kois_type = 2
 
-/datum/reagent/blackkois/affect_ingest(var/mob/living/carbon/human/H, var/alien, var/removed)
-
-	if(istype(H))
-		if(isvaurca(H) || H.internal_organs_by_name["blackkois"])
-			H.heal_organ_damage(1.2 * removed, 1.2 * removed)
-			H.adjustToxLoss(-1.2 * removed)
-			H.nutrition += nutriment_factor * removed // For hunger and fatness
-			H.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
-		else
-			if(!H.internal_organs_by_name["blackkois"])
-
-				if(prob(20*removed))
-
-					var/obj/item/organ/external/affected = H.get_organ("head")
-					var/obj/item/organ/parasite/blackkois/infest = new()
-					infest.replaced(H, affected)
-
-				else
-
-					H.adjustToxLoss(0.8 * removed)
-			else
-				H.adjustToxLoss(0.8 * removed)
-		return
-	..()
-
+/* Food */
 /datum/reagent/nutriment
 	name = "Nutriment"
 	id = "nutriment"

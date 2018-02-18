@@ -209,7 +209,7 @@
 	description = "Platinum is a naturally occuring silvery metalic element."
 	reagent_state = SOLID
 	color = "#E0E0E0"
-	taste_description = "a watch"
+	taste_description = "salty metalic miner tears"
 
 /datum/reagent/adrenaline
 	name = "Adrenaline"
@@ -378,14 +378,14 @@
 
 /datum/reagent/toxin/cardox/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	.. ()
-	if(alien == IS_VAURCA)
-		affect_blood(M, alien, removed*0.25)
+	if(isvaurca(M))
+		affect_blood(M, alien, removed * 0.25)
 
 /datum/reagent/cardox/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
-		M.adjustToxLoss(removed * 10)
+	if(isvaurca(M))
+		M.adjustToxLoss(removed * 5)
 	else
-		M.adjustToxLoss(2*removed)
+		M.adjustToxLoss(removed * 2)
 
 /datum/reagent/cardox/touch_turf(var/turf/T)
 	if(volume >= 1)

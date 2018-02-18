@@ -420,8 +420,6 @@
 //	reagents.add_reagent("nutriment", 2)							//	this line of code for all the contents.
 //	bitesize = 3													//This is the amount each bite consumes.
 
-
-
 /obj/item/weapon/reagent_containers/food/snacks/koisbar_clean
 	name = "k'ois bar"
 	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron."
