@@ -422,7 +422,7 @@
 
 
 
-/obj/item/weapon/reagent_containers/food/snacks/koisbar
+/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean
 	name = "k'ois bar"
 	desc = "Bland NanoTrasen produced K'ois bars, rich in syrup and injected with extra phoron."
 	icon_state = "koisbar"
@@ -431,8 +431,21 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/koisbar/Initialize()
 	. = ..()
-	reagents.add_reagent("koispaste", 10)
+	reagents.add_reagent("koispasteclean", 10)
 	reagents.add_reagent("phoron", 15)
+	bitesize = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean
+	name = "organic k'ois bar"
+	desc = "100% certified organic NanoTrasen produced K'ois bars, rich in REAL unfiltered kois. No preservatives added!"
+	icon_state = "koisbar"
+	trash = /obj/item/trash/koisbar
+	filling_color = "#dcd9cd"
+
+/obj/item/weapon/reagent_containers/food/snacks/koisbar/Initialize()
+	. = ..()
+	reagents.add_reagent("koispaste", 20)
+	reagents.add_reagent("phoron", 5)
 	bitesize = 5
 
 /obj/item/weapon/reagent_containers/food/snacks/aesirsalad

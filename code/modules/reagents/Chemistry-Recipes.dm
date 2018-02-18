@@ -550,6 +550,13 @@
 	required_reagents = list("mindbreaker" = 1, "acetone" = 1, "inaprovaline" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/koispasteclean
+	name = "Filtered K'ois"
+	id = "koispasteclean"
+	result = "koispasteclean"
+	required_reagents = list("koispaste" = 1, "water" = 1, "ammonia" = 1)
+	result_amount = 3
+
 /* Solidification */
 
 /datum/chemical_reaction/phoronsolidification

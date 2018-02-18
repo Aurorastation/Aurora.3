@@ -1,10 +1,32 @@
 /* Food */
+/datum/reagent/kois_clean
+	name = "Filtered K'ois"
+	id = "koispasteclean"
+	description = "A filtered, ketchup-like substance, filled with K'ois nutrients."
+	metabolism = REM * 4
+	var/nutriment_factor = 10
+	var/injectable = 0
+	color = "#ece9dd"
+	taste_description = "boiled cabbage"
+	unaffected_species = IS_MACHINE
+
+/datum/reagent/kois_clean/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(isvaurca(M))
+		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
+		M.adjustToxLoss(-1.2 * removed)
+		M.nutrition += nutriment_factor * removed // For hunger and fatness
+		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+	else
+		M.adjustToxLoss(1 * removed)
+		return
+	..()
+
 /datum/reagent/kois
-	name = "K'ois"
+	name = "Unfilited K'ois"
 	id = "koispaste"
 	description = "A thick goopy substance, rich in K'ois nutrients."
 	metabolism = REM * 4
-	var/nutriment_factor = 10
+	var/nutriment_factor = 20
 	var/injectable = 0
 	color = "#dcd9cd"
 	taste_description = "boiled cabbage"
@@ -12,8 +34,8 @@
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(isvaurca(M))
-		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
-		M.adjustToxLoss(-1.2 * removed)
+		M.heal_organ_damage(2.4 * removed, 2.4 * removed)
+		M.adjustToxLoss(-2.4 * removed)
 		M.nutrition += nutriment_factor * removed // For hunger and fatness
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 	else
@@ -35,7 +57,7 @@
 	..()
 
 /datum/reagent/blackkois
-	name = "Modified K'ois"
+	name = "Pure K'ois"
 	id = "blackkois"
 	description = "A thick goopy substance, rich in K'ois nutrients. This sample appears to be modified."
 	metabolism = REM * 4
