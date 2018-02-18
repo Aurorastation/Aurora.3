@@ -51,7 +51,7 @@
 	breath_type = null
 	poison_type = null
 
-	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_EMBED
+	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_EMBED | NO_CHUBBY
 	spawn_flags = IS_RESTRICTED
 
 	has_limbs = list(
