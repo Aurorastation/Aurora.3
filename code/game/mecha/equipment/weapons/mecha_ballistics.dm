@@ -23,7 +23,7 @@
 	return
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
-	name = "mounted scattershot cannon"
+	name = "mounted shotgun"
 	desc = "A weapon for combat exosuits. The LBX AC 10 \"Scattershot\" shoots a spread of pellets."
 	icon_state = "mecha_scatter"
 	equip_cooldown = 20

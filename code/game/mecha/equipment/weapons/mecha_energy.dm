@@ -61,18 +61,6 @@
 	projectile = /obj/item/projectile/beam/pulse/heavy
 	fire_sound = 'sound/weapons/marauder.ogg'
 
-/obj/item/projectile/beam/pulse/heavy
-	name = "heavy pulse laser"
-	icon_state = "pulse1_bl"
-	var/life = 20
-
-/obj/item/projectile/beam/pulse/heavy/Bump(atom/A)
-	A.bullet_act(src, def_zone)
-	src.life -= 10
-	if(life <= 0)
-		qdel(src)
-	return
-
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/taser
 	name = "mounted taser carbine"
 	desc = "A weapon for combat exosuits. The PBT \"Pacifier\" taser shoots non-lethal stunning beams."

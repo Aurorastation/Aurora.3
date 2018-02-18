@@ -481,7 +481,7 @@
 
 // *** Weapon modules
 /datum/design/item/mecha/weapon/scattershot
-	name = "Mounted scattershot cannon"
+	name = "Mounted shotgun"
 	id = "mech_scattershot"
 	req_tech = list(TECH_COMBAT = 4)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
