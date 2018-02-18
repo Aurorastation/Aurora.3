@@ -429,13 +429,13 @@
 	trash = /obj/item/trash/koisbar
 	filling_color = "#dcd9cd"
 
-/obj/item/weapon/reagent_containers/food/snacks/koisbar/Initialize()
+/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean/Initialize()
 	. = ..()
 	reagents.add_reagent("koispasteclean", 10)
 	reagents.add_reagent("phoron", 15)
 	bitesize = 5
 
-/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean
+/obj/item/weapon/reagent_containers/food/snacks/koisbar
 	name = "organic k'ois bar"
 	desc = "100% certified organic NanoTrasen produced K'ois bars, rich in REAL unfiltered kois. No preservatives added!"
 	icon_state = "koisbar"

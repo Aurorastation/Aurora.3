@@ -1,5 +1,7 @@
 author: BurgerBB
+
 delete-after: True
+
 changes: 
-  - add: "Added new reagant, 'filtered K'ois' which can be made by combining ammonia, water, and unfiltered k'ios."
-  - balance: "Replaced K'ois bars with less dangerous K'ois bars containing filtered K'ois which do not spore. Dangerous ones are moved to the contraband section, which can be hacked and vended for free. Phoron punch also now has filtered kois, but no alternative."
+  - add: "Added new reagant, filtered Kois which can be made by combining ammonia, water, and unfiltered Kios."
+  - balance: "Replaced Kois bars with less dangerous Kois bars containing filtered K'ois which do not spore. Dangerous ones are moved to the contraband section, which can be hacked and vended for free. Phoron punch also now has filtered kois, but no alternative."

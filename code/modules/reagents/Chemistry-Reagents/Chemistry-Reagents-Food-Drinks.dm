@@ -22,7 +22,7 @@
 	..()
 
 /datum/reagent/kois
-	name = "Unfilited K'ois"
+	name = "Unfiltered K'ois"
 	id = "koispaste"
 	description = "A thick goopy substance, rich in K'ois nutrients."
 	metabolism = REM * 4
@@ -57,7 +57,7 @@
 	..()
 
 /datum/reagent/blackkois
-	name = "Pure K'ois"
+	name = "Modified K'ois"
 	id = "blackkois"
 	description = "A thick goopy substance, rich in K'ois nutrients. This sample appears to be modified."
 	metabolism = REM * 4

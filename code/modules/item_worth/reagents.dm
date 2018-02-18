@@ -599,6 +599,9 @@
 
 /datum/reagent/uranium
 	value = 9
+	
+/datum/reagent/platinum
+	value = 3
 
 /datum/reagent/adrenaline
 	value = 2
