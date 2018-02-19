@@ -21,6 +21,7 @@
 				/spell/targeted/equip_item/seed = 				1,
 				/spell/aoe_turf/disable_tech = 					1,
 				/spell/targeted/entangle = 					1,
+				/spell/targeted/flesh_to_stone =                        1,
 				/spell/aoe_turf/conjure/grove/sanctuary = 			1,
 				/spell/aoe_turf/knock = 					1,
 				/spell/targeted/shapeshift/avian = 			1,
