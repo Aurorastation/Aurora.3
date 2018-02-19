@@ -1031,11 +1031,18 @@ proc/api_update_command_database()
 
 /datum/topic_command/cargo_reload/run_command(queryparams)
 	var/force = sanitize(queryparams["force"])
-	if(!SScargo.get_order_count() || force)
+	if(!SScargo.get_order_count())
 		SScargo.load_from_sql()
+		message_admins("Cargo has been reloaded via the API.")
 		statuscode = 200
 		response = "Cargo Reloaded from SQL."
 	else
-		statuscode = 500
-		response = "Orders have been placed. Use force parameter to overwrite."
+		if(force)
+			SScargo.load_from_sql()
+			message_admins("Cargo has been force-reloaded via the API. All current orders have been purged.")
+			statuscode = 200
+			response = "Cargo Force-Reloaded from SQL."
+		else
+			statuscode = 500
+			response = "Orders have been placed. Use force parameter to overwrite."
 	return 1
