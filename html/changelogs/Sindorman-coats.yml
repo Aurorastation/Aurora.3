@@ -1,0 +1,5 @@
+author: PoZe, AndurilFlame
+
+delete-after: True
+changes:
+  - rscadd: "Trench coat, detective's coat, coloured detective's coats, and gentlecoat are now able to be buttoned up and unbottoned."

@@ -218,13 +218,11 @@
 	msg += "<span class='warning'>"
 
 
-	if(nutrition < 100)
-		msg += "[T.He] [T.is] severely malnourished.\n"
-	else if(nutrition >= 500)
-		/*if(usr.nutrition < 100)
-			msg += "[T.He] [T.is] plump and delicious looking - Like a fat little piggy. A tasty piggy.\n"
-		else*/
-		msg += "[T.He] [T.is] quite chubby.\n"
+	if (!(src.species.flags & NO_CHUBBY))
+		if(nutrition < 100)
+			msg += "[T.He] [T.is] severely malnourished.\n"
+		else if(nutrition >= 500)
+			msg += "[T.He] [T.is] quite chubby.\n"
 
 
 	msg += "</span>"

@@ -3330,4 +3330,58 @@
 	glass_icon_state = "crocodile_glass"
 	glass_name = "glass of Crocodile Guwan"
 	glass_desc = "The smell says no, but the pretty colors say yes."
+  
+//Preservatives
 
+/datum/reagent/nutriment/badfood //This is just a base. It shouldn't exist or be used anywhere but just in case, I added names.
+	name = "Experimental Preservative"
+	id = "badfood"
+	description = "Some... strange chemical. You can swear it's moving."
+	nutriment_factor = 50
+	color = "#000000"
+	taste_description = "liquid heart attack"
+	metabolism = REM * 1 //Metabolises slower
+	var/damagemul = 0.5 //How much damage to deal to the heart per unit digested
+
+/datum/reagent/nutriment/badfood/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(istype(M))
+		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
+		if(istype(F))
+			F.take_damage(removed * damagemul,1)
+	..()
+
+/datum/reagent/nutriment/badfood/palmoil
+	name = "Palm Oil"
+	id = "palmoil"
+	description = "Palm oil is a common preservative used in packaged food, and is seriously unhealthy for you much like everything on this station."
+	nutriment_factor = 30
+	color = "#f4ce42"
+	taste_description = "oily fat"
+	damagemul = 0.15
+
+/datum/reagent/nutriment/badfood/shortening
+	name = "Shortening"
+	id = "shortening"
+	description = "Shortening, also known as hydrogenated vegetable oil, is a preservative commonly used in packaged food. Usually made from vegetables."
+	nutriment_factor = 20
+	color = "#e2d4c9"
+	taste_description = "greasy fat"
+	damagemul = 0.05
+
+/datum/reagent/nutriment/badfood/hfcs
+	name = "High Fructose Corn Syrup"
+	id = "hfcs"
+	description = "A cheap, easy to produce, unhealthy alternative to real sugar."
+	nutriment_factor = 20
+	color = "#c66119"
+	taste_description = "sweetness"
+	damagemul = 0.1
+
+/datum/reagent/nutriment/badfood/msg
+	name = "Monosodium Glutamate"
+	id = "msg"
+	description = "Monosodium glutamate, also known as MSG, is a cheap flavor enhancer similiar to sodium. Causes chinese restaurant syndrome."
+	nutriment_factor = 5
+	color = "#eaf1fc"
+	taste_description = "flavoring"
+	damagemul = 0.05
