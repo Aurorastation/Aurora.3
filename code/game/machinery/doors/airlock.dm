@@ -885,7 +885,6 @@ About the new airlock wires panel:
 	da.anchored = 1
 	if(mineral)
 		da.glass = mineral
-	//else if(glass)
 	else if(glass && !da.glass)
 		da.glass = 1
 	da.state = 1
@@ -905,7 +904,6 @@ About the new airlock wires panel:
 	return (ChainSawVar.powered && density)
 
 /obj/machinery/door/airlock/attackby(C as obj, mob/user as mob)
-	//world << text("airlock attackby src [] obj [] mob []", src, C, user)
 	if(!istype(usr, /mob/living/silicon))
 		if(src.isElectrified())
 			if(src.shock(user, 75))
@@ -1188,10 +1186,6 @@ About the new airlock wires panel:
 		for(var/turf/turf in locs)
 			for(var/atom/movable/AM in turf)
 				if(AM.blocks_airlock())
-//					if(world.time > next_beep_at)
-
-//						playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
-//						next_beep_at = world.time + SecondsToTicks(10)
 					close_door_in(6)
 					return
 	for(var/turf/turf in locs)
