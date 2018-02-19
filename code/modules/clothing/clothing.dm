@@ -24,6 +24,7 @@
 	var/unbreakable = FALSE
 	var/default_material = null // Set this to something else if you want material attributes on init.
 	var/material_armor_modifer = 1 // Adjust if you want seperate types of armor made from the same material to have different protectiveness (e.g. makeshift vs real armor)
+	var/refittable = TRUE // If false doesn't let the clothing be refit in suit cyclers
 
 
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
