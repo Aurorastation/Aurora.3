@@ -141,13 +141,28 @@ mob/living/carbon/human/airflow_hit(atom/A)
 		Stun(round(airflow_speed * vsc.airflow_stun/2))
 	. = ..()
 
-zone/proc/movables()
+zone/proc/movables(list/origins)
 	. = list()
-	for(var/turf/T in contents)
-		CHECK_TICK
+	if (!origins || !origins.len)
+		return
 
-		for(var/aa in T)
-			var/atom/movable/A = aa
-			if(!A.simulated || A.anchored || istype(A, /obj/effect) || istype(A, /mob/abstract/eye))
-				continue
-			. += A
+	var/list/A	// this should be the longer list
+	var/list/B
+	if (contents.len > origins)
+		A = contents
+		B = origins
+	else
+		A = origins
+		B = contents
+
+	for (var/t in A)
+		var/turf/T = t
+		for (var/tt in B)
+			var/turf/TT = tt
+			if (T.contents.len > !!T.lighting_overlay && get_dist(T, TT) <= EDGE_KNOCKDOWN_MAX_DISTANCE)
+				for (var/am in T)
+					var/atom/movable/AM = am
+					if (AM.simulated && !AM.anchored && !istype(AM, /obj/effect) && !istype(AM, /mob/abstract))
+						.[AM] = TRUE
+
+			CHECK_TICK
