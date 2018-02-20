@@ -384,20 +384,32 @@
 
 // Attempts to place a reagent on the mob's skin.
 // Reagents are not guaranteed to transfer to the target.
-// Do not call this directly, call trans_to() instead.
+// DO NOT CALL THIS DIRECTLY, call trans_to() instead.
 /datum/reagents/proc/splash_mob(var/mob/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
 	var/perm = 1
 	if(isliving(target)) //will we ever even need to tranfer reagents to non-living mobs?
 		var/mob/living/L = target
 		perm = L.reagent_permeability()
 	multiplier *= perm
-	return trans_to_mob(target, amount, CHEM_TOUCH, multiplier, copy)
+
+	var/splashreturn = trans_to_mob(target, amount*0.75, CHEM_TOUCH, multiplier, copy)
+	var/touchreturn = trans_to_mob(target, amount*0.25, CHEM_BREATHE, multiplier, copy)
+
+	if(splashreturn && touchreturn)
+		return (splashreturn + touchreturn)
+	else if (touchreturn)
+		return touchreturn
+	else
+		return splashreturn
 
 /datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0) // Transfer after checking into which holder...
 	if(!target || !istype(target) || !target.simulated)
 		return
 	if(iscarbon(target))
 		var/mob/living/carbon/C = target
+		if(type == CHEM_BREATHE)
+			var/datum/reagents/R = C.breathing
+			return trans_to_holder(R, amount, multiplier, copy)
 		if(type == CHEM_BLOOD)
 			var/datum/reagents/R = C.reagents
 			return trans_to_holder(R, amount, multiplier, copy)

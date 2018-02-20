@@ -587,24 +587,38 @@
 /datum/reagent/antidepressants/nicotine
 	name = "Nicotine"
 	id = "nicotine"
-	description = "Nicotine is a stimulant and relaxant commonly found in tobacco products. It is very poisonous at high doses."
+	description = "Nicotine is a stimulant and relaxant commonly found in tobacco products. It is very poisonous, unless at very low doses."
 	reagent_state = LIQUID
-	color = "#888888"
+	color = "#333333"
 	metabolism = 0.01
+	overdose = 3
 	data = 0
-	taste_description = "freedom"
-	goodmessage = list("You distrust Nanotrasen and their people.","You feel woke.","You have urges to speak out against NanoTrasen.","You feel the need to complain about NanoTrasen on the web.","You feel like things should be better.")
-	badmessage = list() //Actual Freedom.
-	worstmessage = list() //Actual Freedom.
+	taste_description = "bitterness"
+	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
+	badmessage = list("You start to crave nicotine...")
+	worstmessage = list("You need your nicotine fix!")
 	cure_effects = list(
-		/datum/brain_trauma/severe/pacifism = 10
+		/datum/brain_trauma/mild/phobia = 0.1,
+		/datum/brain_trauma/mild/muscle_weakness/ = 0.1
 	)
+	withdraw_effects = list(
+		/datum/brain_trauma/mild/muscle_weakness/ = 100
+	)
+	var/datum/modifier/modifier
 
 /datum/reagent/antidepressants/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	. = ..()
-	if(volume >= 3)
-		M.adjustToxLoss(20 * removed)
 
+	. = ..()
+
+	var/mob/living/carbon/human/NewM = M
+	if(istype(NewM))
+		var/obj/item/organ/H = NewM.internal_organs_by_name["heart"]
+		if(istype(H))
+			H.take_damage(removed * 0.25,1)
+
+		M.add_chemical_effect(CE_PAINKILLER, 5)
+		if (!modifier)
+			modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 0.125, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 /datum/reagent/antidepressants/methylphenidate
 	name = "methylphenidate"

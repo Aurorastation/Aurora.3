@@ -3,6 +3,7 @@
 	bloodstr = new/datum/reagents/metabolism(1000, src, CHEM_BLOOD)
 	ingested = new/datum/reagents/metabolism(1000, src, CHEM_INGEST)
 	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
+	breathing = new/datum/reagents/metabolism(1000, src, CHEM_BREATHE)
 	reagents = bloodstr
 
 	. = ..()
@@ -28,6 +29,7 @@
 	bloodstr.clear_reagents()
 	ingested.clear_reagents()
 	touching.clear_reagents()
+	breathing.clear_reagents()
 	..()
 
 /mob/living/carbon/Move(NewLoc, direct)

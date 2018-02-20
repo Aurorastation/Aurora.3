@@ -23,6 +23,7 @@
 	var/metabolism = REM // This would be 0.2 normally
 	var/ingest_met = 0
 	var/touch_met = 0
+	var/breathe_met = 0
 	var/dose = 0
 	var/max_dose = 0
 	var/overdose = 0
@@ -71,6 +72,8 @@
 		removed = ingest_met
 	if(touch_met && (location == CHEM_TOUCH))
 		removed = touch_met
+	if(breathe_met && (location == CHEM_BREATHE))
+		removed = touch_met
 	removed = min(removed, volume)
 	max_dose = max(volume, max_dose)
 	dose = min(dose + removed, max_dose)
@@ -83,6 +86,8 @@
 				affect_ingest(M, alien, removed)
 			if(CHEM_TOUCH)
 				affect_touch(M, alien, removed)
+			if(CHEM_BREATHE)
+				affect_breathe(M, alien, removed)
 	remove_self(removed)
 
 //Initial effect is called once when the reagent first starts affecting a mob.
@@ -97,6 +102,9 @@
 
 /datum/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	return
+
+/datum/reagent/proc/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
+	affect_blood(M, alien, removed * 0.75)
 
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
