@@ -219,7 +219,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/Initialize()
 	. = ..()
-	reagents.add_reagent("nicotine",5)
+	reagents.add_reagent("nicotine",4)
+	reagents.add_reagent("tobacco",2)
+	reagents.add_reagent("cyanide",0.1)
+	reagents.add_reagent("potassium_chloride",0.1)
+	reagents.add_reagent("fertilizer",0.8)
 
 /obj/item/clothing/mask/smokable/cigarette/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
@@ -263,7 +267,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	type_butt = /obj/item/weapon/cigbutt/cigarbutt
 	throw_speed = 0.5
 	item_state = "cigaroff"
-	burn_rate = 0.04
+	burn_rate = 0.03
 	chem_volume = 30
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to offend their NAME by lighting it with FLAME.</span>"
@@ -271,14 +275,27 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	weldermes = "<span class='notice'>USER insults NAME by lighting it with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
 
+/obj/item/clothing/mask/smokable/cigarette/cigar/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent("tobaccorich",10)
+	reagents.add_reagent("nicotine",7)
+
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana
 	name = "premium Havanian cigar"
 	desc = "A cigar fit for only the best of the best."
 	icon_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
-	burn_rate = 0.08
+	burn_rate = 0.04
 	chem_volume = 30
+
+/obj/item/clothing/mask/smokable/cigarette/cigar/havana/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent("tobaccorich",10)
+	reagents.add_reagent("nicotine",7)
+	reagents.add_reagent("tricordrazine",3)
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
 	name = "\improper Cohiba robusto cigar"
@@ -288,6 +305,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "cigar2off"
 	burn_rate = 0.1
 	chem_volume = 60 //ASK ME ABOUT BALANCE
+
+/obj/item/clothing/mask/smokable/cigarette/cigar/cohiba/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent("tobaccorich",10)
+	reagents.add_reagent("nicotine",10)
+	reagents.add_reagent("tricordrazine",10)
 
 /obj/item/weapon/cigbutt
 	name = "cigarette butt"

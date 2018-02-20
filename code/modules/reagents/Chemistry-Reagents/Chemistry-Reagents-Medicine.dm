@@ -607,9 +607,7 @@
 	var/datum/modifier/modifier
 
 /datum/reagent/antidepressants/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-
 	. = ..()
-
 	var/mob/living/carbon/human/NewM = M
 	if(istype(NewM))
 		var/obj/item/organ/H = NewM.internal_organs_by_name["heart"]
