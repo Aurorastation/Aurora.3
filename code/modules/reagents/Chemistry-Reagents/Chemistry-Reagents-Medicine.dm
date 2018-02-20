@@ -584,6 +584,28 @@
 	maxdose = (maxdose + volume)/2 //Ease in or out the new maxdose
 	data = world.time + ANTIDEPRESSANT_MESSAGE_DELAY
 
+/datum/reagent/antidepressants/nicotine
+	name = "Nicotine"
+	id = "nicotine"
+	description = "Nicotine is a stimulant and relaxant commonly found in tobacco products. It is very poisonous at high doses."
+	reagent_state = LIQUID
+	color = "#888888"
+	metabolism = 0.01
+	data = 0
+	taste_description = "freedom"
+	goodmessage = list("You distrust Nanotrasen and their people.","You feel woke.","You have urges to speak out against NanoTrasen.","You feel the need to complain about NanoTrasen on the web.","You feel like things should be better.")
+	badmessage = list() //Actual Freedom.
+	worstmessage = list() //Actual Freedom.
+	cure_effects = list(
+		/datum/brain_trauma/severe/pacifism = 10
+	)
+
+/datum/reagent/antidepressants/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(volume >= 3)
+		M.adjustToxLoss(20 * removed)
+
+
 /datum/reagent/antidepressants/methylphenidate
 	name = "methylphenidate"
 	id = "methylphenidate"
@@ -657,7 +679,6 @@
 		/datum/brain_trauma/mild/phobia/ = 10,
 		/datum/brain_trauma/mild/hallucinations = 5
 	)
-
 
 /datum/reagent/antidepressants/escitalopram
 	name = "escitalopram"
