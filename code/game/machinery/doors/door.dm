@@ -516,31 +516,6 @@
 		qdel(fire)
 	return
 
-/obj/machinery/door/proc/crush(var/damage)
-	var/damagetodo = damage ? damage : DOOR_CRUSH_DAMAGE
-	for(var/mob/living/L in get_turf(src))
-		if(ishuman(L)) //For humans
-			L.adjustBruteLoss(damagetodo)
-			if(L.stat == CONSCIOUS)
-				L.emote("scream")
-			L.Weaken(5)
-		else //for anything else
-			L.adjustBruteLoss(damagetodo)
-
-		var/turf/T = get_turf(L)
-		var/list/valid_turfs = list()
-		for(var/dir_to_test in cardinal)
-			var/turf/new_turf = get_step(T, dir_to_test)
-			if(!new_turf.contains_dense_objects())
-				valid_turfs |= new_turf
-
-		while(valid_turfs.len)
-			T = pick(valid_turfs)
-			valid_turfs -= T
-
-			if(L.forceMove(T))
-				return
-
 /obj/machinery/door/proc/requiresID()
 	return 1
 

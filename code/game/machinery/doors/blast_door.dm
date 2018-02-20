@@ -7,6 +7,7 @@
 // as they lack any ID scanning system, they just handle remote control signals. Subtypes have
 // different icons, which are defined by set of variables. Subtypes are on bottom of this file.
 #define BLAST_DOOR_CRUSH_DAMAGE 40
+#define SHUTTER_CRUSH_DAMAGE 10
 
 /obj/machinery/door/blast
 	name = "Blast Door"
@@ -149,7 +150,10 @@
 	if (src.operating || (stat & BROKEN || stat & NOPOWER))
 		return
 	force_close()
-	crush(damage)
+	for(var/turf/turf in locs)
+		for(var/atom/movable/AM in turf)
+			if(AM.airlock_crush(damage))
+				take_damage(damage)
 
 
 // Proc: repair()
@@ -191,9 +195,12 @@ obj/machinery/door/blast/regular/open
 	icon_state_closed = "shutter1"
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
-	damage = BLAST_DOOR_CRUSH_DAMAGE/4
+	damage = SHUTTER_CRUSH_DAMAGE
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
 	density = 0
 	opacity = 0
+
+#undef BLAST_DOOR_CRUSH_DAMAGE
+#undef SHUTTER_CRUSH_DAMAGE
