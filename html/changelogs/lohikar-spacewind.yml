@@ -1,0 +1,5 @@
+author: Lohikar
+
+delete-after: True
+changes: 
+  - bugfix: "ZAS Knockdown now has a distance cap. (Fixes 'space wind')"
