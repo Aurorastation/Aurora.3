@@ -467,12 +467,12 @@
 	build_path = /obj/item/mecha_parts/mecha_equipment/generator
 
 /datum/design/item/mecha/taser
-	name = "PBT \"Pacifier\" mounted taser"
+	name = "Mounted taser carbine"
 	id = "mech_taser"
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/taser
 
 /datum/design/item/mecha/lmg
-	name = "Ultra AC 2"
+	name = "Mounted machine gun"
 	id = "mech_lmg"
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg
 
@@ -481,13 +481,13 @@
 
 // *** Weapon modules
 /datum/design/item/mecha/weapon/scattershot
-	name = "LBX AC 10 \"Scattershot\""
+	name = "Mounted shotgun"
 	id = "mech_scattershot"
 	req_tech = list(TECH_COMBAT = 4)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot
 
 /datum/design/item/mecha/weapon/laser
-	name = "CH-PS \"Immolator\" laser"
+	name = "Mounted laser carbine"
 	id = "mech_laser"
 	req_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 3)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser
@@ -500,25 +500,53 @@
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser
 
 /datum/design/item/mecha/weapon/laser_heavy
-	name = "CH-LC \"Solaris\" laser cannon"
+	name = "Mounted laser cannon"
 	id = "mech_laser_heavy"
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy
 
 /datum/design/item/mecha/weapon/ion
-	name = "mkIV ion heavy cannon"
+	name = "Heavy ion cannon"
 	id = "mech_ion"
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/ion
 
+/datum/design/item/mecha/weapon/laser_gatling
+	name = "Mounted gatling laser"
+	id = "laser_gatling"
+	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/gatling
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, "gold" = 6000)
+
+/datum/design/item/mecha/weapon/xray_gatling
+	name = "Gatling xray gun"
+	id = "xray_gatling"
+	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4, TECH_MATERIAL = 5, TECH_ILLEGAL = 3)
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/xray
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, "gold" = 6000, "phoron" = 6000)
+
+/datum/design/item/mecha/weapon/tesla_gun
+	name = "Mounted tesla cannon"
+	id = "tesla_gun"
+	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 5, TECH_MATERIAL = 5)
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/tesla
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, "silver" = 6000, "phoron" = 6000)
+
+/datum/design/item/mecha/weapon/gyro_gun
+	name = "Mounted gyrojet autocannon"
+	id = "gyro_gun"
+	req_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5, TECH_MATERIAL = 6, TECH_ILLEGAL = 5)
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/gyro
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, "silver" = 6000, "phoron" = 6000, "diamond" = 7500)
+
 /datum/design/item/mecha/weapon/grenade_launcher
-	name = "SGL-6 grenade launcher"
+	name = "Grenade launcher"
 	id = "mech_grenade_launcher"
 	req_tech = list(TECH_COMBAT = 3)
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang
 
 /datum/design/item/mecha/weapon/clusterbang_launcher
-	name = "SOP-6 grenade launcher"
+	name = "Clusterbang Grenade launcher"
 	desc = "A weapon that violates the Geneva Convention at 6 rounds per minute."
 	id = "clusterbang_launcher"
 	req_tech = list(TECH_COMBAT= 5, TECH_MATERIAL = 5, TECH_ILLEGAL = 3)
@@ -526,7 +554,7 @@
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/clusterbang/limited
 
 /datum/design/item/mecha/weapon/plasma_cutter
-	name = "mkII heavy plasma cutter"
+	name = "Heavy plasma cutter"
 	desc = "A large mining tool capable of expelling concentrated plasma bursts, useful for crushing rocks."
 	id = "mecha_plasmacutter"
 	req_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 4, TECH_ENGINEERING = 4)
@@ -534,7 +562,7 @@
 	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma
 
 /datum/design/item/mecha/weapon/incendiary
-	name = "HP-13 incendiary carbine"
+	name = "Mounted incendiary carbine"
 	desc = "A weapon for combat exosuits. Shoots incendiary shells."
 	id = "mecha_incendiary"
 	req_tech = list(TECH_COMBAT= 4, TECH_MATERIAL = 4, TECH_PHORON = 3)
