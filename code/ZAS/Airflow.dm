@@ -146,23 +146,18 @@ zone/proc/movables(list/origins)
 	if (!origins || !origins.len)
 		return
 
-	var/list/A	// this should be the longer list
-	var/list/B
-	if (contents.len > origins)
-		A = contents
-		B = origins
-	else
-		A = origins
-		B = contents
-
-	for (var/t in A)
-		var/turf/T = t
-		for (var/tt in B)
-			var/turf/TT = tt
-			if (T.contents.len > !!T.lighting_overlay && get_dist(T, TT) <= EDGE_KNOCKDOWN_MAX_DISTANCE)
-				for (var/am in T)
-					var/atom/movable/AM = am
-					if (AM.simulated && !AM.anchored && !istype(AM, /obj/effect) && !istype(AM, /mob/abstract))
+	var/turf/T
+	var/turf/TT
+	var/atom/movable/AM
+	for (var/t in contents)
+		T = t
+		for (var/am in T)
+			AM = am
+			if (AM.simulated && !AM.anchored && !istype(AM, /obj/effect) && !istype(AM, /mob/abstract))
+				for (var/tt in origins)
+					TT = tt
+					if (get_dist(T, TT) <= EDGE_KNOCKDOWN_MAX_DISTANCE)
 						.[AM] = TRUE
+						break
 
-			CHECK_TICK
+					CHECK_TICK
