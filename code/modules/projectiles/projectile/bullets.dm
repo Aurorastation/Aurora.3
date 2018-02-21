@@ -135,9 +135,6 @@
 
 /obj/item/projectile/bullet/pistol/strong //revolvers and matebas
 	damage = 60
-	maiming = 1
-	maim_rate = 25
-	maim_type = DROPLIMB_BLUNT
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -152,8 +149,6 @@
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
 	damage = 60
-	maiming = 1 //To prevent rando headgibbing, it uses the special headgib damage model. Don't get me wrong, it'll still kill the man, but could be cloned.
-	maim_rate = 25
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
@@ -162,8 +157,6 @@
 	agony = 60
 	embed = 0
 	sharp = 0
-	maiming = 0
-	maim_rate = 0
 
 /obj/item/projectile/bullet/shotgun/incendiary
 	name = "incendiary"
@@ -173,8 +166,6 @@
 	embed = 0
 	sharp = 0
 	incinerate = 10
-	maiming = 0
-	maim_rate = 0
 
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
@@ -184,9 +175,6 @@
 	pellets = 6
 	range_step = 1
 	spread_step = 10
-	maiming = 1
-	maim_rate = 1 //6% base chance of gib if all pellets hit. Likely to blow limbs at point blank. (As it should be.)
-	maim_type = DROPLIMB_BLUNT
 
 /* "Rifle" rounds */
 
