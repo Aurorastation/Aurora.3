@@ -36,6 +36,7 @@
 	var/color = "#000000"
 	var/color_weight = 1
 	var/unaffected_species = IS_DIONA | IS_MACHINE	// Species that aren't affected by this reagent. Does not prevent affect_touch.
+	var/metabolism_min = 0 //How much for the medicine to be present in the system to actually have an effect.
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
@@ -73,12 +74,11 @@
 	if(touch_met && (location == CHEM_TOUCH))
 		removed = touch_met
 	if(breathe_met && (location == CHEM_BREATHE))
-		removed = touch_met
+		removed = breathe_met
 	removed = min(removed, volume)
 	max_dose = max(volume, max_dose)
 	dose = min(dose + removed, max_dose)
-	//Relaxed this small amount restriction a bit. it gets in the way of gradually digesting creatures
-	if(removed >= (metabolism * 0.01) || removed >= 0.01) // If there's too little chemical, don't affect the mob, just remove it
+	if(removed >= metabolism_min)
 		switch(location)
 			if(CHEM_BLOOD)
 				affect_blood(M, alien, removed)

@@ -620,10 +620,9 @@
 /datum/reagent/toxin/tobacco
 	name = "Space Tobacco"
 	id = "tobacco"
-	description = "It's hard to believe that this tobacco is worth 200 bucks a pack."
+	description = "Low-grade space tobacco."
 	reagent_state = LIQUID
-	color = "#333333"
-	metabolism = 0.02
+	color = "#333300"
 	data = 0
 	taste_description = "low-grade tobacco"
 	strength = 0.05
@@ -641,13 +640,14 @@
 		if(istype(A))
 			A.take_damage(removed * strength,1)
 
+/datum/reagent/toxin/tobacco/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed)
+	affect_blood(M,alien,removed)
+
 /datum/reagent/toxin/tobacco/rich
 	name = "Earth Tobacco"
 	id = "tobaccorich"
 	description = "Nicknamed 'Earth Tobacco', this plant is much higher quality than it's space fairing counterpart."
 	reagent_state = LIQUID
-	color = "#333333"
-	metabolism = 0.01
 	data = 0
 	taste_description = "quality tobacco"
 	strength = 0.01
