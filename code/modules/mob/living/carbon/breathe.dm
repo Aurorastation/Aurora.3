@@ -13,7 +13,7 @@
 
 		if (contents.Find(internal) && wear_mask && (wear_mask.item_flags & AIRTIGHT)) //Check for internals
 			return
-
+	/* if someone could get this working, I would be grateful.
 	if(last_smell_time + (5 SECONDS) < world.time)
 		var/datum/reagents/temp = new(amount) //temporary holder used to analyse what gets transfered.
 		from.trans_to_holder(temp, amount, multiplier, 1)
@@ -22,6 +22,7 @@
 			to_chat(src, "<span class='notice'>You can smell [text_output]</span>")
 			last_smell_time = world.time
 			last_smell_text = text_output
+	*/
 	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
 
 /mob/living/carbon/proc/breathe()

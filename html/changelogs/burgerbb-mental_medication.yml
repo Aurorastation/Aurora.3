@@ -1,0 +1,8 @@
+author: BurgerBB
+
+delete-after: True
+
+changes: 
+  - rscadd: "Completely reworked anti-depressants so they only cure certain types of traumas at various strengths. Added additional anti-depressants and special medication."
+  - rscadd: "Added a new reagant breathing system. Inhaled smoke no longer counts as 'eating' it. Inhaleing reagents is 25% weaker than injecting it directly."
+  - tweak: "Reworked cigarrettes so they actually have effects, including very gradual organ damage and a minor performance enhancer. Custom cigarettes are a thing now too."
