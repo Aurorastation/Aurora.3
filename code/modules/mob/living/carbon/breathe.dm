@@ -6,11 +6,19 @@
 		breathe()
 
 /mob/living/carbon/proc/inhale(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
-	if(last_smell_time + 50 < world.time)
+
+	if(!(species.flags & IS_PLANT)) //Plants don't breath like humans
+		if(species && (species.flags & NO_BREATHE)) //Check for species
+			return
+
+		if (contents.Find(internal) && wear_mask && (wear_mask.item_flags & AIRTIGHT)) //Check for internals
+			return
+
+	if(last_smell_time + (5 SECONDS) < world.time)
 		var/datum/reagents/temp = new(amount) //temporary holder used to analyse what gets transfered.
 		from.trans_to_holder(temp, amount, multiplier, 1)
 		var/text_output = temp.generate_taste_message(src) //TODO: Different Tastes
-		if(text_output != last_smell_text || last_smell_time + 100 < world.time)
+		if(text_output != last_smell_text || last_smell_time + (60 SECONDS) < world.time)
 			to_chat(src, "<span class='notice'>You can smell [text_output]</span>")
 			last_smell_time = world.time
 			last_smell_text = text_output
@@ -84,6 +92,7 @@
 	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
 		if(smoke.reagents.total_volume)
 			smoke.reagents.trans_to_mob(src, 5, CHEM_INGEST, copy = 1)
+			smoke.reagents.trans_to_mob(src, 5, CHEM_TOUCH, copy = 1)
 			smoke.reagents.trans_to_mob(src, 5, CHEM_BREATHE, copy = 1)
 			// I dunno, maybe the reagents enter the blood stream through the lungs?
 			// ^ HA HA HA HA

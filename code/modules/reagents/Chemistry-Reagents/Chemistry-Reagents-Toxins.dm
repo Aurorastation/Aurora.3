@@ -626,6 +626,7 @@
 	data = 0
 	taste_description = "low-grade tobacco"
 	strength = 0.05
+	taste_mult = 1000000
 
 /datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/NewM = M
