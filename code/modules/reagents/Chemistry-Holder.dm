@@ -409,7 +409,7 @@
 		var/mob/living/carbon/C = target
 		if(type == CHEM_BREATHE)
 			var/datum/reagents/R = C.breathing
-			return trans_to_holder(R, amount, multiplier, copy)
+			return C.inhale(R, amount, multiplier, copy)
 		if(type == CHEM_BLOOD)
 			var/datum/reagents/R = C.reagents
 			return trans_to_holder(R, amount, multiplier, copy)

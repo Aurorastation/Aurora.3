@@ -11,7 +11,7 @@
 		from.trans_to_holder(temp, amount, multiplier, 1)
 		var/text_output = temp.generate_taste_message(src) //TODO: Different Tastes
 		if(text_output != last_smell_text || last_smell_time + 100 < world.time)
-			to_chat(src, "<span class='notice'>You can taste [text_output]</span>")
+			to_chat(src, "<span class='notice'>You can smell [text_output]</span>")
 			last_smell_time = world.time
 			last_smell_text = text_output
 	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
