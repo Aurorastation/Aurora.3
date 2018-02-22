@@ -3284,7 +3284,7 @@
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
 
-/datum/reagent/butanol/xuizijuice
+/datum/reagent/alcohol/butanol/xuizijuice
 	name = "Xuizi Juice"
 	id = "xuizijuice"
 	description = "Blended flower buds from a Moghean Xuizi cactus. Has a mild butanol content and is a staple recreational beverage in Unathi culture."
@@ -3296,7 +3296,7 @@
 	glass_name = "glass of Xuizi Juice"
 	glass_desc = "The clear green liquid smells like vanilla, tastes like water. Unathi swear it has a rich taste and texture."
 
-/datum/reagent/butanol/sarezhiwine
+/datum/reagent/alcohol/butanol/sarezhiwine
 	name = "Sarezhi Wine"
 	id = "sarezhiwine"
 	description = "An alcoholic beverage made from lightly fermented Sareszhi berries, considered an upper class delicacy on Moghes. Significant butanol content indicates intoxicating effects on Unathi."
@@ -3311,7 +3311,7 @@
 //Kaed's Unathi Cocktails
 //=======
 //What an exciting time we live in, that lizards may drink fruity girl drinks.
-/datum/reagent/butanol/moghesmargarita
+/datum/reagent/alcohol/butanol/moghesmargarita
 	name = "Moghes Margarita"
 	id = "moghesmargarita"
 	description = "A classic human cocktail, now ruined with cactus juice instead of tequila."
@@ -3324,7 +3324,7 @@
 	glass_desc = "A classic human cocktail, now ruined with cactus juice instead of tequila."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
-/datum/reagent/butanol/cactuscreme
+/datum/reagent/alcohol/butanol/cactuscreme
 	name = "Cactus Creme"
 	id = "cactuscreme"
 	description = "A tasty mix of berries and cream with xuizi juice, for the discerning unathi."
@@ -3337,7 +3337,7 @@
 	glass_desc = "A tasty mix of berries and cream with xuizi juice, for the discerning unathi."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
-/datum/reagent/butanol/bahamalizard
+/datum/reagent/alcohol/butanol/bahamalizard
 	name = "Bahama Lizard"
 	id = "bahamalizard"
 	description = "A tropical cocktail containing cactus juice from Moghes, but no actual alcohol."
@@ -3350,7 +3350,7 @@
 	glass_desc = "A tropical cocktail containing cactus juice from Moghes, but no actual alcohol."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
-/datum/reagent/butanol/lizardphlegm
+/datum/reagent/alcohol/butanol/lizardphlegm
 	name = "Lizard Phlegm"
 	id = "lizardphlegm"
 	description = "Looks gross, but smells fruity."
@@ -3362,7 +3362,7 @@
 	glass_name = "glass of Lizard Phlegm"
 	glass_desc = "Looks gross, but smells fruity."
 
-/datum/reagent/butanol/cactustea
+/datum/reagent/alcohol/butanol/cactustea
 	name = "Cactus Tea"
 	id = "cactustea"
 	description = "Tea flavored with xuizi juice."
@@ -3374,7 +3374,7 @@
 	glass_name = "glass of Cactus Tea"
 	glass_desc = "Tea flavored with xuizi juice."
 
-/datum/reagent/butanol/moghespolitan
+/datum/reagent/alcohol/butanol/moghespolitan
 	name = "Moghespolitan"
 	id = "moghespolitan"
 	description = "Pomegranate syrup and cactus juice, with a splash of Sarezhi Wine. Delicious!"
@@ -3386,7 +3386,7 @@
 	glass_name = "glass of Moghespolitan"
 	glass_desc = "Pomegranate syrup and cactus juice, with a splash of Sarezhi Wine. Delicious!"
 
-/datum/reagent/butanol/wastelandheat
+/datum/reagent/alcohol/butanol/wastelandheat
 	name = "Wasteland Heat"
 	id = "wastelandheat"
 	description = "A mix of spicy cactus juice to warm you up."
@@ -3401,7 +3401,7 @@
 	glass_desc = "A mix of spicy cactus juice to warm you up. Maybe a little too warm for non-unathi, though."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
-/datum/reagent/butanol/Sandgria
+/datum/reagent/alcohol/butanol/Sandgria
 	name = "Sandgria"
 	id = "sandgria"
 	description = "Sarezhi wine, blended with citrus and a splash of cactus juice."
@@ -3413,7 +3413,7 @@
 	glass_name = "glass of Sandgria"
 	glass_desc = "Sarezhi wine, blended with citrus and a splash of cactus juice."
 
-/datum/reagent/butanol/contactwine
+/datum/reagent/alcohol/butanol/contactwine
 	name = "Contact Wine"
 	id = "contactwine"
 	description = "A perfectly good glass of Sarezhi wine, ruined by adding radioactive material. It reminds you of something..."
@@ -3426,7 +3426,7 @@
 	glass_desc = "A perfectly good glass of Sarezhi wine, ruined by adding radioactive material. It reminds you of something..."
 	glass_center_of_mass = list("x"=17, "y"=4)
 
-/datum/reagent/butanol/hereticblood
+/datum/reagent/alcohol/butanol/hereticblood
 	name = "Heretics Blood"
 	id = "hereticblood"
 	description = "A fizzy cocktail made with cactus juice and heresy."
@@ -3439,7 +3439,7 @@
 	glass_desc = "A fizzy cocktail made with cactus juice and heresy."
 	glass_center_of_mass = list("x"=16, "y"=2)
 
-/datum/reagent/butanol/sandpit
+/datum/reagent/alcohol/butanol/sandpit
 	name = "Sandpit"
 	id = "sandpit"
 	description = "An unusual mix of cactus and orange juice, mostly favored by unathi."
@@ -3452,7 +3452,7 @@
 	glass_desc = "An unusual mix of cactus and orange juice, mostly favored by unathi."
 	glass_center_of_mass = list("x"=15, "y"=10)
 
-/datum/reagent/butanol/cactuscola
+/datum/reagent/alcohol/butanol/cactuscola
 	name = "Cactus Cola"
 	id = "cactuscola"
 	description = "Cactus juice splashed with cola, on ice. Simple and delicious."
@@ -3465,7 +3465,7 @@
 	glass_desc = "Cactus juice splashed with cola, on ice. Simple and delicious."
 	glass_center_of_mass = list("x"=16, "y"=9)
 
-/datum/reagent/butanol/bloodwine
+/datum/reagent/alcohol/butanol/bloodwine
 	name = "Bloodwine"
 	id = "bloodwine"
 	description = "A traditional unathi drink said to strengthen one before a battle."
