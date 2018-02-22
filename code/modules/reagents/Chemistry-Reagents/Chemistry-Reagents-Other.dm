@@ -378,11 +378,11 @@
 
 /datum/reagent/toxin/cardox/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	.. ()
-	if(isvaurca(M))
+	if(alien == IS_VAURCA)
 		affect_blood(M, alien, removed * 0.25)
 
 /datum/reagent/cardox/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(isvaurca(M))
+	if(alien && alien == IS_VAURCA)
 		M.adjustToxLoss(removed * 5)
 	else
 		M.adjustToxLoss(removed * 2)

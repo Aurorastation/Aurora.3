@@ -60,7 +60,7 @@
 /datum/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.species.has_organ["filtration bit"] && isvaurca(H))
+		if(H.species.has_organ["filtration bit"] && alien && alien == IS_VAURCA)
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
 			var/obj/item/organ/vaurca/filtrationbit/F = H.internal_organs_by_name["filtration bit"]
 			if(isnull(F))
@@ -85,7 +85,7 @@
 		L.adjust_fire_stacks(amount / 5)
 
 /datum/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(isvaurca(M))
+	if(alien && alien == IS_VAURCA)
 		return
 	M.take_organ_damage(0, removed * 0.1) //being splashed directly with phoron causes minor chemical burns
 	if(prob(50))

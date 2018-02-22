@@ -125,7 +125,7 @@
 	return
 
 /datum/reagent/ethanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(isvaurca(M))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
+	if(alien && alien == IS_VAURCA)//Vaurca are damaged instead of getting nutrients, but they can still get drunk
 		M.adjustToxLoss(1.5 * removed * (strength / 100))
 	else
 		M.nutrition += nutriment_factor * removed
