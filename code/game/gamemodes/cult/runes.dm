@@ -37,7 +37,7 @@ var/list/sacrificed = list()
 		else
 			user.whisper("Sas[pick("'","`")]so c'arta forbici!")
 		user.visible_message("<span class='danger'>[user] disappears in a flash of red light!</span>", \
-		"<span class='danger'>You feel as your body gets dragged through the dimension of Nar-Sie!</span>", \
+		"<span class='danger'>You feel a deep presence as you body is dragged through the dimension of Nar-Sie...</span>", \
 		"<span class='danger'>You hear a sickening crunch and sloshing of viscera.</span>")
 		user.loc = allrunesloc[rand(1,index)]
 		return
@@ -92,7 +92,7 @@ var/list/sacrificed = list()
 		user.say("N[pick("'","`")]ath reth sh'yro eth d'raggathnor!")
 	else
 		user.whisper("N[pick("'","`")]ath reth sh'yro eth d'raggathnor!")
-	user.visible_message("<span class='warning'>Rune disappears with a flash of red light, and in its place now a book lies.</span>", \
+	user.visible_message("<span class='warning'>The rune disappears with a flash of red light, and in its place a smoking tome lies.</span>", \
 	"<span class='warning'>You are blinded by the flash of red light! After you're able to see again, you see that now instead of the rune there's a book.</span>", \
 	"<span class='warning'>You hear a pop and smell ozone.</span>")
 	if(istype(src,/obj/effect/rune))
@@ -400,7 +400,7 @@ var/list/sacrificed = list()
 	if(user.loc==src.loc)
 		var/mob/living/carbon/human/L = user
 		user.say("Fwe[pick("'","`")]sh mah erl nyag r'ya!")
-		user.visible_message("<span class='warning'>[user]'s eyes glow blue as \he freezes in place, absolutely motionless.</span>", \
+		user.visible_message("<span class='warning'>[user]'s eyes glow blue as \he collapses limply to the floor, their breathing slowing.</span>", \
 		"<span class='warning'>The shadow that is your spirit separates itself from your body. You are now in the realm beyond. While this is a great sight, being here strains your mind and body. Hurry...</span>", \
 		"<span class='warning'>You hear only complete silence for a moment.</span>")
 		announce_ghost_joinleave(user.ghostize(1), 1, "You feel that they had to use some [pick("dark", "black", "blood", "forgotten", "forbidden")] magic to [pick("invade","disturb","disrupt","infest","taint","spoil","blight")] this place!")
@@ -834,7 +834,7 @@ var/list/sacrificed = list()
 		if (cultist == user) //just to be sure.
 			return
 		if(cultist.buckled || cultist.handcuffed || (!isturf(cultist.loc) && !istype(cultist.loc, /obj/structure/closet)))
-			user << "<span class='warning'>You cannot summon \the [cultist], for \his shackles of blood are strong.</span>"
+			user << "<span class='warning'>You cannot call \the [cultist], for \he is bound by shackles of law. You must first break them! </span>"
 			return fizzle(user)
 		cultist.loc = src.loc
 		cultist.lying = 1
@@ -1015,7 +1015,7 @@ var/list/sacrificed = list()
 
 /obj/effect/rune/proc/runestun(var/mob/living/user, var/mob/living/T as mob)
 	if(istype(src,/obj/effect/rune))   ///When invoked as rune, flash and stun everyone around.
-		user.say("Fuu ma[pick("'","`")]jin!")
+		user.say("Sroc'tar[pick("'","`")]ator!")
 		for(var/mob/living/L in viewers(src))
 			if(iscarbon(L))
 				var/mob/living/carbon/C = L
@@ -1034,7 +1034,7 @@ var/list/sacrificed = list()
 				admin_attack_log(user, S, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
 		qdel(src)
 	else                        ///When invoked as talisman, stun and mute the target mob.
-		user.say("Dream sign ''Evil sealing talisman'[pick("'","`")]!")
+		user.say("Sroc'tar[pick("'","`")]ator!")
 		var/obj/item/weapon/nullrod/N = locate() in T
 		if(N)
 			for(var/mob/O in viewers(T, null))
