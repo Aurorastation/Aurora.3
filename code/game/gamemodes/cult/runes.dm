@@ -37,7 +37,7 @@ var/list/sacrificed = list()
 		else
 			user.whisper("Sas[pick("'","`")]so c'arta forbici!")
 		user.visible_message("<span class='danger'>[user] disappears in a flash of red light!</span>", \
-		"<span class='danger'>You feel a deep presence as you body is dragged through the dimension of Nar-Sie...</span>", \
+		"<span class='danger'>You feel a deep presence as your body is dragged through the dimension of Nar-Sie...</span>", \
 		"<span class='danger'>You hear a sickening crunch and sloshing of viscera.</span>")
 		user.loc = allrunesloc[rand(1,index)]
 		return
@@ -834,7 +834,7 @@ var/list/sacrificed = list()
 		if (cultist == user) //just to be sure.
 			return
 		if(cultist.buckled || cultist.handcuffed || (!isturf(cultist.loc) && !istype(cultist.loc, /obj/structure/closet)))
-			user << "<span class='warning'>You cannot call \the [cultist], for \he is bound by shackles of law. You must first break them! </span>"
+			user << "<span class='warning'>You cannot call \the [cultist], for \he is bound by shackles. You must first break them! </span>"
 			return fizzle(user)
 		cultist.loc = src.loc
 		cultist.lying = 1
