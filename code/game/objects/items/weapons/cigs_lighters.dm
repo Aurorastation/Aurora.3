@@ -285,6 +285,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/custom
 	burn_rate = 0.003 //300 seconds
+	chem_volume = 15
 
 /obj/item/clothing/mask/smokable/cigarette/custom/Initialize()
 	. = ..()
