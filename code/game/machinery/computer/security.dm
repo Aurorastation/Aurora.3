@@ -105,7 +105,7 @@
 								if("*Arrest*")
 									background = "'background-color:#DC143C;'"
 								if("Search")
-									background = "'background-color:##FFAE00;'"
+									background = "'background-color:#FFAE00;'"
 								if("Incarcerated")
 									background = "'background-color:#CD853F;'"
 								if("Parolled")
@@ -206,7 +206,7 @@
 								if("*Arrest*")
 									background = "'background-color:#DC143C;'"
 								if("Search")
-									background = "'background-color:##FFAE00;'"
+									background = "'background-color:#FFAE00;'"
 								if("Incarcerated")
 									background = "'background-color:#CD853F;'"
 								if("Parolled")
