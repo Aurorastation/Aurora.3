@@ -11,7 +11,7 @@
 	var/kois_type = 1
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien && alien == IS_VAURCA)
+	if(alien == IS_VAURCA)
 		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
 		M.adjustToxLoss(-1.2 * removed)
 		M.nutrition += nutriment_factor * removed // For hunger and fatness
@@ -92,14 +92,16 @@
 	affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien)
-		if(alien == IS_VAURCA)
+
+	switch(alien)
+		if(IS_VAURCA)
 			M.adjustToxLoss(1.5 * removed)
-		if(alien == IS_UNATHI)
 			return
-	else
-		digest(M,removed)
-		return
+		if(IS_UNATHI)
+			return
+		else
+			digest(M,removed)
+
 	..()
 
 /datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
