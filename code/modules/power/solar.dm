@@ -59,7 +59,7 @@
 
 /obj/machinery/power/solar/attackby(obj/item/weapon/W, mob/user)
 
-	if(iscrowbar(W))
+	if(W.iscrowbar())
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		user.visible_message("<span class='notice'>[user] begins to take the glass off the solar panel.</span>")
 		if(do_after(user, 50))
@@ -397,8 +397,8 @@
 
 	return
 
-/obj/machinery/power/solar_control/attackby(I as obj, user as mob)
-	if(isscrewdriver(I))
+/obj/machinery/power/solar_control/attackby(obj/item/I as obj, user as mob)
+	if(I.isscrewdriver())
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)

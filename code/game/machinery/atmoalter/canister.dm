@@ -260,7 +260,7 @@ update_flag
 			valve_open = !valve_open
 
 /obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(!iswrench(W) && !istype(W, /obj/item/weapon/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/device/pda))
+	if(!W.iswrench() && !istype(W, /obj/item/weapon/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/device/pda))
 		visible_message("<span class='warning'>\The [user] hits \the [src] with \a [W]!</span>")
 		src.health -= W.force
 		src.add_fingerprint(user)

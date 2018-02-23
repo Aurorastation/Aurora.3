@@ -13,10 +13,10 @@
 
 	var/mob/subject
 
-/spell/contract/New(var/mob/M)
+/spell/contract/New()
 	..()
-	subject = M
-	name += " ([M.real_name])"
+	if(subject)
+		name += " ([subject.real_name])"
 
 /spell/contract/choose_targets()
 	return list(subject)

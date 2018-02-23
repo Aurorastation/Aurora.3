@@ -585,7 +585,7 @@
 						user << "You remove \the [cell_component.wrapped]."
 
 
-	if (iswelder(W))
+	if (W.iswelder())
 		if (src == user)
 			user << "<span class='warning'>You lack the reach to be able to repair yourself.</span>"
 			return
@@ -609,7 +609,7 @@
 			user << "Need more welding fuel!"
 			return
 
-	else if(iscoil(W) && (wiresexposed || istype(src,/mob/living/silicon/robot/drone)))
+	else if(W.iscoil() && (wiresexposed || istype(src,/mob/living/silicon/robot/drone)))
 		if (!getFireLoss())
 			user << "Nothing to fix here!"
 			return
@@ -621,7 +621,7 @@
 			for(var/mob/O in viewers(user, null))
 				O.show_message(text("<span class='warning'>[user] has fixed some of the burnt wires on [src]!</span>"), 1)
 
-	else if (iscrowbar(W))	// crowbar means open or close the cover
+	else if (W.iscrowbar())	// crowbar means open or close the cover
 		if(opened)
 			if(cell)
 				user.visible_message("<span class='notice'>\The [user] begins clasping shut \the [src]'s maintenance hatch.</span>", "<span class='notice'>You begin closing up \the [src].</span>")
@@ -714,18 +714,18 @@
 			C.electronics_damage = 0
 			updateicon()
 
-	else if (iswirecutter(W) || ismultitool(W))
+	else if (W.iswirecutter() || W.ismultitool())
 		if (wiresexposed)
 			wires.Interact(user)
 		else
 			user << "You can't reach the wiring."
 
-	else if(isscrewdriver(W) && opened && !cell)	// haxing
+	else if(W.isscrewdriver() && opened && !cell)	// haxing
 		wiresexposed = !wiresexposed
 		user << "The wires have been [wiresexposed ? "exposed" : "unexposed"]."
 		updateicon()
 
-	else if(isscrewdriver(W) && opened && cell)	// radio
+	else if(W.isscrewdriver() && opened && cell)	// radio
 		if(radio)
 			radio.attackby(W,user)//Push it to the radio to let it handle everything
 		else

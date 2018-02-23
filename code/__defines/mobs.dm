@@ -205,6 +205,7 @@
 #define PROSTHETIC_HI "Hephaestus Industries"
 #define PROSTHETIC_XMG "Xion Manufacturing Group"
 
+
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10
 #define BRAIN_DAMAGE_SEVERE 40
@@ -214,3 +215,32 @@
 #define BRAIN_TRAUMA_SPECIAL /datum/brain_trauma/special
 
 #define BRAIN_DAMAGE_INTEGRITY_MULTIPLIER 0.5
+
+// Defines for mechanical_species list.
+#define MECHANICAL_SPECIES_NORMAL 1	// Baselines, shells
+#define MECHANICAL_SPECIES_INDUSTRIAL 2	// Industrials, incl. branded.
+#define MECHANICAL_SPECIES_SPECIAL 3	// HKs
+
+// Defines for psionic powers
+
+//Ranks
+#define RANK_0 "Unawoken"
+#define RANK_1 "Initiate"
+#define RANK_2 "Adept"
+#define RANK_3 "Operative"
+#define RANK_4 "Masterclass"
+#define RANK_5 "Grandmasterclass"
+
+//Willpower threshold for advancement
+#define RANK_1_WILL 40
+#define RANK_2_WILL 80
+#define RANK_3_WILL 160
+#define RANK_4_WILL 320
+#define RANK_5_WILL 640
+
+//Disciplines
+#define COE "Coercion"
+#define ENE "Energistics"
+#define PSY "Psychokinesis"
+#define SUB "Subterfuge"
+
