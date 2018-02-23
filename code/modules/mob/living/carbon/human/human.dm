@@ -1571,20 +1571,3 @@
 	var/obj/item/organ/brain/B = internal_organs_by_name["brain"]
 	if(B && species && species.has_organ["brain"] && !isipc(src))
 		. = B.cure_all_traumas(cure_permanent)
-
-//values here should add up to 1
-var/global/light_coverage_values = list(
-	HEAD = 0.1,
-	FACE = 0.05,
-	EYES = 0.05, // 0.2
-	UPPER_TORSO = 0.15,
-	LOWER_TORSO = 0.15, //0.5
-	LEG_LEFT = 0.1,
-	LEFT_RIGHT = 0.1, //0.7
-	ARM_LEFT = 0.1,
-	ARM_RIGHT = 0.1, //0.9
-	FOOT_LEGT = 0.025,
-	FOOT_RIGHT = 0.025,
-	HAND_LEFT = 0.025,
-	HAND_RIGHT = 0.025
-)
