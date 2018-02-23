@@ -410,3 +410,22 @@
 	if(!species)
 		return null
 	return species.default_language ? all_languages[species.default_language] : null
+
+/mob/living/carbon/proc/get_clothing_coverage()
+
+	var/total_covereage = 0
+	var/covered_parts = 0x0 // WHATS THIS?
+
+	var/list/equippeditems = get_equipped_items(0)
+	for(var/obj/item/clothing/item in equippeditems)
+		if(!item.ignore_light_penalty)
+			covered_parts |= item.body_parts_covered
+
+	if(covered_parts & FULL_BODY)
+		return 1
+
+	for(var/k in light_coverage_values)
+		if(covered_parts & k)
+			total_covereage += light_coverage_values[k]
+
+	return total_covereage

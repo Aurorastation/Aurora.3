@@ -1588,21 +1588,3 @@ var/global/light_coverage_values = list(
 	HAND_LEFT = 0.025,
 	HAND_RIGHT = 0.025
 )
-
-/mob/living/carbon/human/proc/get_clothing_coverage()
-
-	var/total_covereage = 0
-	var/covered_parts = 0x0 // WHATS THIS?
-
-	var/list/equippeditems = get_equipped_items(0)
-	for(var/obj/item/clothing/item in equippeditems)
-		covered_parts |= item.body_parts_covered
-
-	if(covered_parts & FULL_BODY)
-		return 1
-
-	for(var/k in light_coverage_values)
-		if(covered_parts & k)
-			total_covereage += light_coverage_values[k]
-
-	return total_covereage

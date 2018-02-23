@@ -451,7 +451,7 @@ var/list/diona_banned_languages = list(
 	else if (DS.dionatype == 2)
 		light_factor = 1
 
-	lightfactor *= (1-get_clothing_coverage()) + 0.25
+	light_factor *= (1-get_clothing_coverage()) + 0.25
 
 	if (T)
 		var/raw = min(T.get_uv_lumcount(0, 2) * light_factor * 5.5, 5.5)

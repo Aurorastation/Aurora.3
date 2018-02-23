@@ -25,6 +25,7 @@
 	var/default_material = null // Set this to something else if you want material attributes on init.
 	var/material_armor_modifer = 1 // Adjust if you want seperate types of armor made from the same material to have different protectiveness (e.g. makeshift vs real armor)
 	var/refittable = TRUE // If false doesn't let the clothing be refit in suit cyclers
+	var/ignore_light_penalty = FALSE //Set to true if the clothing is mostly transparent.
 
 
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
@@ -86,7 +87,7 @@
 	switch(target_species)
 		if("Human", "Skrell", "Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")	//humanoid bodytypes
 			species_restricted = list(
-				"Human", 
+				"Human",
 				"Skrell",
 				"Machine",
 				"Zeng-Hu Mobility Frame",
@@ -563,7 +564,6 @@ BLIND     // can't see anything
 /obj/item/clothing/mask
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
-	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
@@ -880,7 +880,7 @@ BLIND     // can't see anything
 
 	rolled_down = !rolled_down
 	if(rolled_down)
-		body_parts_covered &= LOWER_TORSO|LEGS|FEET
+		body_parts_covered &= ~(UPPER_TORSO|ARMS|HANDS)
 		item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
 	else
 		body_parts_covered = initial(body_parts_covered)
