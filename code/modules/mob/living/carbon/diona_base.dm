@@ -454,7 +454,7 @@ var/list/diona_banned_languages = list(
 	light_factor *= (1-get_clothing_coverage()) + 0.25
 
 	if (T)
-		var/raw = min(T.get_uv_lumcount(0, 2) * light_factor * 5.5, 5.5)
+		var/raw = min(T.get_uv_lumcount(0, 1) * light_factor * 5.5, 5.5)
 		return raw - 1.5
 
 /mob/living/carbon/proc/diona_get_health(var/datum/dionastats/DS)

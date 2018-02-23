@@ -411,23 +411,6 @@
 		return null
 	return species.default_language ? all_languages[species.default_language] : null
 
-//values here should add up to 1
-var/list/light_coverage_values = list(
-	HEAD = 0.1,
-	FACE = 0.05,
-	EYES = 0.05, // 0.2
-	UPPER_TORSO = 0.15,
-	LOWER_TORSO = 0.15, //0.5
-	LEG_LEFT = 0.1,
-	LEFT_RIGHT = 0.1, //0.7
-	ARM_LEFT = 0.1,
-	ARM_RIGHT = 0.1, //0.9
-	FOOT_LEGT = 0.025,
-	FOOT_RIGHT = 0.025,
-	HAND_LEFT = 0.025,
-	HAND_RIGHT = 0.025
-)
-
 /mob/living/carbon/proc/get_clothing_coverage()
 
 	var/total_covereage = 0
@@ -435,14 +418,36 @@ var/list/light_coverage_values = list(
 
 	var/list/equippeditems = get_equipped_items(0)
 	for(var/obj/item/clothing/item in equippeditems)
-		if(!item.ignore_light_penalty)
+		if(!item.ignore_light_penalty && item.body_parts_covered)
 			covered_parts |= item.body_parts_covered
 
-	if(covered_parts & FULL_BODY)
+	if(covered_parts & FULL_BODY) //I KNOW THE FOLLOWING CODE IS UGLY AS SHIT, BUT LISTS INDEXES CANNOT BE 6144.
 		return 1
-
-	for(var/k in light_coverage_values)
-		if(covered_parts & k)
-			total_covereage += light_coverage_values[k]
+	if(covered_parts & HEAD)
+		total_covereage += 0.1
+	if(covered_parts & FACE)
+		total_covereage += 0.05
+	if(covered_parts & EYES)
+		total_covereage += 0.05
+	if(covered_parts & UPPER_TORSO)
+		total_covereage += 0.20
+	if(covered_parts & LOWER_TORSO)
+		total_covereage += 0.10
+	if(covered_parts & LEG_LEFT)
+		total_covereage += 0.1
+	if(covered_parts & LEG_RIGHT)
+		total_covereage += 0.1
+	if(covered_parts & ARM_LEFT)
+		total_covereage += 0.1
+	if(covered_parts & ARM_RIGHT)
+		total_covereage += 0.1
+	if(covered_parts & FOOT_LEFT)
+		total_covereage += 0.025
+	if(covered_parts & FOOT_RIGHT)
+		total_covereage += 0.025
+	if(covered_parts & HAND_LEFT)
+		total_covereage += 0.025
+	if(covered_parts & HAND_RIGHT)
+		total_covereage += 0.025
 
 	return total_covereage
