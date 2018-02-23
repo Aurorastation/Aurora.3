@@ -412,7 +412,7 @@
 	return species.default_language ? all_languages[species.default_language] : null
 
 //values here should add up to 1
-var/light_coverage_values = list(
+var/list/light_coverage_values = list(
 	HEAD = 0.1,
 	FACE = 0.05,
 	EYES = 0.05, // 0.2
