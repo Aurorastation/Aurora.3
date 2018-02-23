@@ -44,7 +44,7 @@
 				movement_target = snack
 				foodtarget = 0	//chasing mice takes precedence over eating food
 				if(prob(15))
-					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
+					send_emote(pick("hiss","mrowl","stare"),src,snack)
 
 				addtimer(CALLBACK(src, .proc/attack_mice), 2)
 				break
@@ -73,7 +73,7 @@
 						visible += O
 				if(visible.len)
 					var/atom/A = pick(visible)
-					visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].",0)
+					send_emote("custom_visible",src,A,"#SOURCE suddenly stops and stares at something unseen.","#SOURCE suddenly stops and stares at something unseen near #TARGET.")
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop
@@ -95,14 +95,15 @@
 			for(var/mob/living/simple_animal/mouse/M in oview(src,1))
 				if(M.stat != DEAD)
 					M.splat()
-					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"),0)
+					send_emote("custom_visible",src,M,"#SOURCE bites at something!","#SOURCE bites #TARGET!")
 					movement_target = null
 					stop_automated_movement = 0
 					if (prob(75))
 						break//usually only kill one mouse per proc
 
 /mob/living/simple_animal/cat/beg(var/atom/thing, var/atom/holder)
-	visible_emote("licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at [holder]'s [thing.name]",0)
+	var/final_emote = "#SOURCE licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at #TARGET's [thing.name]."
+	send_emote("custom_visible",src,holder,final_emote,final_emote)
 
 /mob/living/simple_animal/cat/Released()
 	//A thrown cat will immediately attack mice near where it lands
@@ -201,18 +202,17 @@
 	if (get_dist(src, friend) <= 1)
 		if (friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit)
 			if (prob((friend.stat < DEAD)? 50 : 15))
-				var/verb = pick("meows", "mews", "mrowls")
-				audible_emote(pick("[verb] in distress.", "[verb] anxiously."))
+				var/final_emote = "[src] [pick("meows", "mews", "mrowls")] [pick("in distress.", "anxiously.")]."
+				send_emote("custom",src,0,final_emote,final_emote)
 		else
 			if (prob(5))
-				visible_emote(pick("nuzzles [friend].",
-								   "brushes against [friend].",
-								   "rubs against [friend].",
-								   "purrs."),0)
+				var/final_emote = "[src] [pick("nuzzles","brushes against","rubs against")] [friend]."
+				send_emote("custom",src,0,final_emote,final_emote)
+
 	else if (friend.health <= 50)
 		if (prob(10))
-			var/verb = pick("meows", "mews", "mrowls")
-			audible_emote("[verb] anxiously.")
+			var/final_emote = "[src] [pick("meows", "mews", "mrowls")] anxiously."
+			send_emote("custom",src,0,final_emote,final_emote)
 
 /mob/living/simple_animal/cat/fluff/verb/friend()
 	set name = "Become Friends"

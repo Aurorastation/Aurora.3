@@ -21,7 +21,7 @@
 	duration = 10*30
 
 	start(mob/living/carbon/human/H)
-		H.emote("me", 1, "starts turning very red..")
+		send_emote("red",H)
 
 	finish(mob/living/carbon/human/H)
 		if(!H.reagents.has_reagent("dexalin"))
@@ -37,7 +37,7 @@
 	duration = 10*60
 
 	start(mob/living/carbon/human/H)
-		H.emote("me", 1, "'s limbs start shivering uncontrollably.")
+		send_emote("shiver",H)
 
 	finish(mob/living/carbon/human/H)
 		if(!H.reagents.has_reagent("bicaridine"))
@@ -68,7 +68,7 @@
 	duration = 10*30
 
 	start(mob/living/carbon/human/H)
-		H.emote("me", 1, "has drool running down from [H.gender == MALE ? "his" : H.gender == FEMALE ? "her" : "their"] mouth.")
+		send_emote("drool",H)
 
 	finish(mob/living/carbon/human/H)
 		if(!H.reagents.has_reagent("anti_toxin"))

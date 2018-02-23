@@ -5,7 +5,8 @@
 	var/verb = say_quote(message)
 
 	if(copytext(message,1,2) == "*")
-		return emote(copytext(message,2))
+		var/newtext = copytext(message,2)
+		return send_emote("custom",src,0,newtext,newtext)
 
 	return ..(message, null, verb)
 

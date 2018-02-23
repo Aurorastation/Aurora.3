@@ -102,7 +102,7 @@
 	else
 		to_chat(owner, "<span class='userdanger'>Something [message]!</span>")
 	var/reaction = rand(1,4)
-	owner.emote("scream")
+	send_emote("scream",owner)
 	switch(reaction)
 		if(1)
 			to_chat(owner, "<span class='warning'>You are paralyzed with fear!</span>")

@@ -755,7 +755,7 @@
 			else
 				var/msg = sanitize(input(usr,"Update the flavor text for your [href_list["flavor_change"]].","Flavor Text",html_decode(flavor_texts[href_list["flavor_change"]])) as message, extra = 0)
 				flavor_texts[href_list["flavor_change"]] = msg
-				set_flavor()
+				set_flavor() //LOOK INTO THIS
 				return
 	..()
 	return

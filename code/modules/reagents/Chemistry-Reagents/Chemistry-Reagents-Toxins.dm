@@ -346,7 +346,7 @@
 		return
 	if(dose < 1)
 		if(dose == metabolism * 2 || prob(5))
-			M.emote("yawn")
+			send_emote("yawn",M)
 	else if(dose < 1.5)
 		M.eye_blurry = max(M.eye_blurry, 10)
 	else if(dose < 5)
@@ -417,7 +417,7 @@
 	if(prob(10) && isturf(M.loc) && !istype(M.loc, /turf/space) && M.canmove && !M.restrained())
 		step(M, pick(cardinal))
 	if(prob(7))
-		M.emote(pick("twitch", "drool", "moan", "giggle"))
+		send_emote(pick("twitch", "drool", "moan", "giggle"),M)
 
 /datum/reagent/serotrotium
 	name = "Serotrotium"
@@ -434,7 +434,7 @@
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	if(prob(7))
-		M.emote(pick("twitch", "drool", "moan", "gasp"))
+		send_emote(pick("twitch", "drool", "moan", "gasp"),M)
 	return
 
 /datum/reagent/cryptobiolin
@@ -472,7 +472,7 @@
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 	if(prob(10))
-		M.emote("drool")
+		send_emote("drool",M)
 
 /datum/reagent/mindbreaker
 	name = "Mindbreaker Toxin"
@@ -505,7 +505,7 @@
 		M.apply_effect(3, STUTTER)
 		M.make_dizzy(5)
 		if(prob(5))
-			M.emote(pick("twitch", "giggle"))
+			send_emote(pick("twitch", "giggle"),M)
 	else if(dose < 2)
 		M.apply_effect(3, STUTTER)
 		M.make_jittery(5)
@@ -513,7 +513,7 @@
 		M.make_dizzy(5)
 		M.druggy = max(M.druggy, 35)
 		if(prob(10))
-			M.emote(pick("twitch", "giggle"))
+			send_emote(pick("twitch", "giggle"),M)
 	else
 		M.apply_effect(3, STUTTER)
 		M.make_jittery(10)
@@ -521,7 +521,7 @@
 		M.make_dizzy(10)
 		M.druggy = max(M.druggy, 40)
 		if(prob(15))
-			M.emote(pick("twitch", "giggle"))
+			send_emote(pick("twitch", "giggle"),M)
 
 /datum/reagent/nicotine
 	name = "Nicotine"

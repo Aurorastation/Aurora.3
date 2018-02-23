@@ -11,7 +11,7 @@
 			return say_dead(message)
 
 		if(copytext(message,1,2) == "*")
-			return emote(copytext(message,2))
+			return send_emote("custom",src,0,message,0)
 
 		if(copytext(message,1,2) == ";")
 			var/datum/language/L = all_languages["Drone Talk"]

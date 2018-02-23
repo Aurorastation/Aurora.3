@@ -29,7 +29,7 @@
 			log_debug("Organ [DEBUG_REF(src)] was not properly removed from its parent!")
 			internal_organs -= I
 			continue
-			
+
 		I.process()
 
 	handle_stance()
@@ -100,8 +100,8 @@
 	if(stance_damage >= 4 || (stance_damage >= 2 && prob(5)))
 		if(!(lying || resting))
 			if(species && !(species.flags & NO_PAIN))
-				emote("scream")
-			custom_emote(1, "collapses!")
+				send_emote("scream",src)
+			send_emote("collapse",src)
 		Weaken(5) //can't emote while weakened, apparently.
 
 /mob/living/carbon/human/proc/handle_grasp()
@@ -145,7 +145,8 @@
 					drop_from_inventory(r_hand)
 
 			var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
-			emote("me", 1, "[(species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [E.name]!")
+			emote_scream = "[src] [(species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [E.name]!"
+			send_emote("custom",src,0,emote_scream,0)
 
 		else if(E.is_malfunctioning())
 			switch(E.body_part)
@@ -158,8 +159,7 @@
 						continue
 					drop_from_inventory(r_hand)
 
-			emote("me", 1, "drops what they were holding, their [E.name] malfunctioning!")
-
+			send_emote("custom",src,0,"[src] drops what they were holding, their [E.name] malfunctioning!",0)
 			spark(src, 5)
 
 //Handles chem traces

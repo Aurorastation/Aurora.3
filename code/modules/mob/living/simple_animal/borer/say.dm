@@ -18,7 +18,8 @@
 			return
 
 	if (copytext(message, 1, 2) == "*")
-		return emote(copytext(message, 2))
+		var/final_emote = copytext(message, 2)
+		return send_emote("custom",src,0,final_emote,final_emote)
 
 	var/datum/language/L = parse_language(message)
 	if(L && L.flags & HIVEMIND)

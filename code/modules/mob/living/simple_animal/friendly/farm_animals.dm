@@ -31,7 +31,8 @@
 	udder.my_atom = src
 
 /mob/living/simple_animal/hostile/retaliate/goat/beg(var/atom/thing, var/atom/holder)
-	visible_emote("butts insistently at [holder]'s legs and reaches towards their [thing].",0)
+	var/final_emote = "[src] butts insistently at [holder]'s legs and reaches towards their [thing]."
+	send_emote("custom_visible",src,holder,final_emote,final_emote)
 
 /mob/living/simple_animal/hostile/retaliate/goat/Life()
 	. = ..()

@@ -20,9 +20,9 @@
 				cure()
 				return
 			if(prob(1))
-				affected_mob.emote("sneeze")
+				send_emote("sneeze",affected_mob)
 			if(prob(1))
-				affected_mob.emote("cough")
+				send_emote("cough",affected_mob)
 			if(prob(1))
 				affected_mob << "<span class='warning'>Your throat feels sore.</span>"
 			if(prob(5))
@@ -30,9 +30,9 @@
 		if(3)
 			affected_mob.bodytemperature -= 20
 			if(prob(1))
-				affected_mob.emote("sneeze")
+				send_emote("sneeze",affected_mob)
 			if(prob(1))
-				affected_mob.emote("cough")
+				send_emote("cough",affected_mob)
 			if(prob(1))
 				affected_mob << "<span class='warning'>Your throat feels sore.</span>"
 			if(prob(10))

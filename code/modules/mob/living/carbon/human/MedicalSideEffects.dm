@@ -127,7 +127,7 @@
 		if(11 to 30)
 			H.custom_pain("The muscles in your body cramp up painfully.",0)
 		if(31 to INFINITY)
-			H.emote("me",1,"flinches as all the muscles in their body cramp up.")
+			send_emote("finch",H)
 			H.custom_pain("There's pain all over your body.",1)
 
 // ITCH
@@ -142,8 +142,10 @@
 	switch(strength)
 		if(1 to 10)
 			H.custom_pain("You feel a slight itch.",0)
+			send_emote("scratch",H)
 		if(11 to 30)
 			H.custom_pain("You want to scratch your itch badly.",0)
+			send_emote("scratch",H)
 		if(31 to INFINITY)
-			H.emote("me",1,"shivers slightly.")
+			send_emote("scratch",H)
 			H.custom_pain("This itch makes it really hard to concentrate.",1)

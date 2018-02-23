@@ -28,14 +28,14 @@
 
 	if (germ_level > INFECTION_LEVEL_ONE)
 		if(prob(5))
-			owner.emote("cough")		//respitory tract infection
+			send_emote("cough",owner)
 
 	if(is_bruised())
 		if(prob(2))
-			spawn owner.emote("me", 1, "coughs up blood!")
+			spawn send_emote("cough_blood",owner)
 			owner.drip(10)
 		if(prob(4))
-			spawn owner.emote("me", 1, "gasps for air!")
+			spawn send_emote("gasp_heavy",owner)
 			owner.losebreath += 15
 
 /obj/item/organ/kidneys

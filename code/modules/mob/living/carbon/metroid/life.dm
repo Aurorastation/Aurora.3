@@ -449,7 +449,7 @@
 	if (to_say)
 		say (to_say)
 	else if(prob(1))
-		emote(pick("bounce","sway","light","vibrate","jiggle"))
+		send_emote(pick("bounce","sway","light","vibrate","jiggle"),src)
 	else
 		var/t = 10
 		var/slimes_near = -1 // Don't count myself

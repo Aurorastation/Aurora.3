@@ -48,7 +48,7 @@
 	if(prob(33) && H.canmove && isturf(H.loc) && !H.pulledby) //won't move if being pulled
 		step(H, pick(cardinal))
 	if(prob(1))
-		H.emote(pick("scratch","jump","roll","tail"))
+		send_emote(pick("scratch","jump","examine","bounce"),H)
 
 /datum/species/monkey/get_random_name()
 	return "[lowertext(name)] ([rand(100,999)])"

@@ -763,7 +763,7 @@ About the new airlock wires panel:
 				return
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		
+
 		if(H.getBrainLoss() >= 50)
 			if(prob(40) && src.density)
 				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
@@ -777,7 +777,7 @@ About the new airlock wires panel:
 				else
 					user.visible_message("<span class='warning'>[user] headbutts the airlock. Good thing they're wearing a helmet.</span>")
 				return
-		
+
 		if(H.species.can_shred(H))
 
 			if(!src.density)
@@ -1111,7 +1111,7 @@ About the new airlock wires panel:
 /mob/living/carbon/airlock_crush(var/crush_damage)
 	. = ..()
 	if (!(species && (species.flags & NO_PAIN)))
-		emote("scream")
+		send_emote("scream",src)
 
 /mob/living/silicon/robot/airlock_crush(var/crush_damage)
 	return ..(round(crush_damage / CYBORG_AIRLOCKCRUSH_RESISTANCE))

@@ -387,7 +387,7 @@
 
 	spawn(5)
 		if(!src && !user.client)
-			user.custom_emote(1,"[pick("burps", "cries for more", "burps twice", "looks at the area where the food was")]")
+			send_emote("burp",user)
 			qdel(src)
 
 	if (reagents)

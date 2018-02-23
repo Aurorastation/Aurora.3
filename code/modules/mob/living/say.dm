@@ -142,6 +142,14 @@ proc/get_radio_key_from_channel(var/channel)
 		return "asks"
 	return verb
 
+/mob/living/proc/handle_emotes(var/message)
+	switch(copytext(message,1,2))
+		if("*")
+			return send_emote(copytext(message,2),src)
+		if("^")
+			var/final_emote = copytext(message,2)
+			return send_emote("custom",src,0,final_emote,final_emote)
+
 /mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="")
 
 	if(client)
@@ -158,9 +166,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	message = process_chat_markup(message, list("~", "_"))
 
-	switch(copytext(message,1,2))
-		if("*") return emote(copytext(message,2))
-		if("^") return custom_emote(1, copytext(message,2))
+	handle_emotes(message)
 
 	//parse the radio code and consume it
 	if (message_mode)
@@ -207,7 +213,8 @@ proc/get_radio_key_from_channel(var/channel)
 	if (speaking)
 		if (speaking.flags & NONVERBAL)
 			if (prob(30))
-				src.custom_emote(1, "[pick(speaking.signlang_verb)].")
+				var/final_emote = "[src] [pick(speaking.signlang_verb)]."
+				send_emote("custom_visible",src,0,final_emote,final_emote)
 
 		if (speaking.flags & SIGNLANG)
 			return say_signlang(message, pick(speaking.signlang_verb), speaking)

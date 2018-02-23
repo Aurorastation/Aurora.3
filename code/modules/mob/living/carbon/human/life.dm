@@ -200,7 +200,7 @@
 		if ((prob(5) && paralysis <= 1))
 			drop_item()
 			spawn( 0 )
-				emote("cough")
+				send_emote("cough",src)
 				return
 	if (disabilities & TOURETTES)
 		speech_problem_flag = 1
@@ -209,7 +209,7 @@
 			spawn( 0 )
 				switch(rand(1, 3))
 					if(1)
-						emote("twitch")
+						send_emote("twitch",src)
 					if(2 to 3)
 						say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]")
 				var/old_x = pixel_x
@@ -307,7 +307,7 @@
 					src << "<span class='warning'>You feel weak.</span>"
 					Weaken(3)
 					if(!lying)
-						emote("collapse")
+						send_emote("collapse",src)
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == "Human") //apes go bald
 					if((h_style != "Bald" || f_style != "Shaved" ))
 						src << "<span class='warning'>Your hair falls out.</span>"
@@ -323,7 +323,7 @@
 				if(prob(1))
 					src << "<span class='warning'>You feel strange!</span>"
 					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
-					emote("gasp")
+					send_emote("gasp",src)
 
 			if(damage)
 				adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
@@ -463,7 +463,8 @@
 	// Not enough to breathe
 	if(inhale_pp < safe_pressure_min)
 		if(prob(20))
-			spawn(0) emote("gasp")
+			spawn(0)
+			send_emote("gasp_heavy",src)
 
 		var/ratio = inhale_pp/safe_pressure_min
 		// Don't fuck them up too fast (space only does HUMAN_MAX_OXYLOSS after all!)
@@ -541,7 +542,9 @@
 		// There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
 		else if(SA_pp > 0.15)
 			if(prob(20))
-				spawn(0) emote(pick("giggle", "laugh"))
+				spawn(0)
+					var/emote_to_pick = pick("giggle","laugh")
+					send_emote(emote_to_pick,src)
 		breath.adjust_gas("sleeping_agent", -breath.gas["sleeping_agent"]/6, update = 0) //update after
 
 	// Were we able to breathe?
@@ -1025,7 +1028,7 @@
 					AdjustSleeping(-1)
 			if( prob(2) && health && !hal_crit )
 				spawn(0)
-					emote("snore")
+					send_emote("snore",src)
 		//CONSCIOUS
 		else
 			stat = CONSCIOUS
@@ -1314,7 +1317,8 @@
 		src << "<span class='danger'>[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!</span>"
 
 	if(shock_stage >= 30)
-		if(shock_stage == 30) emote("me",1,"is having trouble keeping their eyes open.")
+		if(shock_stage == 30)
+			send_emote("doze",src)
 		eye_blurry = max(2, eye_blurry)
 		stuttering = max(stuttering, 5)
 
@@ -1322,7 +1326,8 @@
 		src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
 
 	if (shock_stage >= 60)
-		if(shock_stage == 60) emote("me",1,"'s body becomes limp.")
+		if(shock_stage == 60)
+			send_emote("limp",src)
 		if (prob(2))
 			src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
 			Weaken(20)
@@ -1338,7 +1343,7 @@
 			Paralyse(5)
 
 	if(shock_stage == 150)
-		emote("me",1,"can no longer stand, collapsing!")
+		send_emote("collapse",src)
 		Weaken(20)
 
 	if(shock_stage >= 150)

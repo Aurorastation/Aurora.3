@@ -173,7 +173,7 @@
 			M.update_mutations()		//update our mutation overlays
 			M << "<span class='warning'>You suddenly feel very weak.</span>"
 			M.Weaken(3)
-			M.emote("collapse")
+			send_emote("collapse",M)
 
 /datum/dna/gene/basic/xray
 	name="X-Ray Vision"

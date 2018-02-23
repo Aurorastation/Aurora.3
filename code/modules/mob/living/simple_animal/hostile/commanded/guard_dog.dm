@@ -44,12 +44,12 @@
 /mob/living/simple_animal/hostile/commanded/dog/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	. = ..()
 	if(!.)
-		src.emote("barks!")
+		send_emote("bark",src)
 
 /mob/living/simple_animal/hostile/commanded/dog/attack_hand(mob/living/carbon/human/M as mob)
 	..()
 	if(M.a_intent == I_HURT)
-		src.emote("barks!")
+		send_emote("bark",src)
 
 
 /mob/living/simple_animal/hostile/commanded/dog/verb/befriend()
@@ -61,7 +61,8 @@
 		var/mob/living/carbon/human/H = usr
 		if(istype(H))
 			master = usr
-			audible_emote("[pick(emote_hear)].",0)
+			var/final_emote = "[src] happily barks at [usr]."
+			send_emote("custom",src,user,final_emote,final_emote)
 			playsound(src,'sound/misc/dog_bark.ogg',100, 1)
 			. = 1
 	else if(usr == master)

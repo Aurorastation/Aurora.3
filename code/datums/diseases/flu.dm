@@ -26,9 +26,9 @@
 				stage--
 				return
 			if(prob(1))
-				affected_mob.emote("sneeze")
+				send_emote("sneeze",affected_mob)
 			if(prob(1))
-				affected_mob.emote("cough")
+				send_emote("cough",affected_mob)
 			if(prob(1))
 				affected_mob << "<span class='warning'>Your muscles ache.</span>"
 				if(prob(20))
@@ -51,9 +51,9 @@
 				stage--
 				return
 			if(prob(1))
-				affected_mob.emote("sneeze")
+				send_emote("sneeze",affected_mob)
 			if(prob(1))
-				affected_mob.emote("cough")
+				send_emote("cough",affected_mob)
 			if(prob(1))
 				affected_mob << "<span class='warning'>Your muscles ache.</span>"
 				if(prob(20))

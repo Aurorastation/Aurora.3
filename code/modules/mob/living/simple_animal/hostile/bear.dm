@@ -136,9 +136,9 @@
 				stance_step++
 				set_dir(get_dir(src,target_mob))	//Keep staring at the mob
 				if(stance_step in list(1,4,7)) //every 3 ticks
-					var/action = pick( list( "growls at [target_mob]", "stares angrily at [target_mob]", "prepares to attack [target_mob]", "closely watches [target_mob]" ) )
+					var/action = pick( list("growl", "stare", "gnash", "watch") )
 					if(action)
-						custom_emote(1,action)
+						send_emote(action,src,target_mob)
 						speak_audio()
 			else
 				stance_step--
@@ -251,7 +251,8 @@
 
 
 /mob/living/simple_animal/hostile/bear/proc/tire_out()
-	custom_emote(1, "is worn out and needs to rest." )
+	var/final_emote = "[src] is worn out and needs to rest."
+	send_emote("custom",src,0,final_emote,final_emote)
 	set_stance(HOSTILE_STANCE_TIRED)
 	speak_audio()
 	stance_step = 0
@@ -305,7 +306,7 @@
 /mob/living/simple_animal/hostile/bear/FoundTarget()
 	if(target_mob)
 		turns_since_hit = 0
-		custom_emote(1,"stares alertly at [target_mob]")
+		send_emote("stare",src,target_mob)
 		speak_audio()
 
 		//If we're idle, move up to alert.
@@ -331,15 +332,14 @@
 		walk(src, 0)
 
 /mob/living/simple_animal/hostile/bear/AttackingTarget()
-	var/targetname = target_mob.name
 	if(..())
 		turns_since_hit = 0
-		custom_emote(1, pick( list("crushes [targetname] in its arms","slashes at [targetname]", "bites [targetname]", "mauls [targetname]", "tears into [targetname]", "rends [targetname]") ) )
+		var/emote_to_use = "[src] [pick( list("crushes","slashes at", "bites", "mauls", "tears into", "rends", "bearhugs") )] [target_mob]"
+		send_emote("custom",src,target_mob,emote_to_use,emote_to_use)
 		if (prob(15))
 			growl_loud()
 		else if (prob(10))
 			growl_soft()
-
 
 /mob/living/simple_animal/hostile/bear/proc/update_bearmode()
 	turns_per_move = initial(turns_per_move)
@@ -361,7 +361,8 @@
 	if (bearmode != former)
 		var/healthpercent
 		if (bearmode == BEARMODE_SPACE)
-			custom_emote(1, "looks bright, energised and aggressive!" )
+			var/final_emote = "[src] looks bright, energised and aggressive!"
+			send_emote("custom",src,0,final_emote,final_emote)
 			healthpercent = health / maxHealth
 			maxHealth = initial(maxHealth) * 1.5
 			health = maxHealth * healthpercent
@@ -370,7 +371,8 @@
 			turns_per_move -= 2
 			growl_loud()
 		else
-			custom_emote(1, "looks darker and more subdued." )
+			var/final_emote = "[src] looks darker and more subdued."
+			send_emote("custom",src,0,final_emote,final_emote)
 			healthpercent = health / maxHealth
 			maxHealth = initial(maxHealth)
 			health = maxHealth * healthpercent

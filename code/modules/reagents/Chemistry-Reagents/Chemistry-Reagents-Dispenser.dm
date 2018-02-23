@@ -258,7 +258,7 @@
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
 		step(M, pick(cardinal))
 	if(prob(5))
-		M.emote(pick("twitch", "drool", "moan"))
+		send_emote(pick("twitch", "drool", "moan"),M)
 
 /datum/reagent/mercury
 	name = "Mercury"
@@ -273,7 +273,7 @@
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
 		step(M, pick(cardinal))
 	if(prob(5))
-		M.emote(pick("twitch", "drool", "moan"))
+		send_emote(pick("twitch", "drool", "moan"),M)
 
 	M.adjustBrainLoss(removed)
 
@@ -395,7 +395,7 @@
 					H.UpdateDamageIcon()
 				if(prob(100 * removed / meltdose)) // Applies disfigurement
 					if (!(H.species && (H.species.flags & NO_PAIN)))
-						H.emote("scream")
+						send_emote("scream",H)
 					H.status_flags |= DISFIGURED
 		else
 			M.take_organ_damage(0, removed * power * 0.1) // Balance. The damage is instant, so it's weaker. 10 units -> 5 damage, double for pacid. 120 units beaker could deal 60, but a) it's burn, which is not as dangerous, b) it's a one-use weapon, c) missing with it will splash it over the ground and d) clothes give some protection, so not everything will hit

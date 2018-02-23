@@ -29,14 +29,14 @@
 			if(prob(5))
 				affected_mob << "<span class='warning'>You feel the urge to dance...</span>"
 			else if(prob(5))
-				affected_mob.emote("gasp")
+				send_emote("gasp",affected_mob)
 			else if(prob(10))
 				affected_mob << "<span class='warning'>You feel the need to chick chicky boom...</span>"
 		if(4)
 			if(affected_mob.ckey == "rosham")
 				src.cure()
 			if(prob(10))
-				affected_mob.emote("gasp")
+				send_emote("gasp",affected_mob)
 				affected_mob << "<span class='warning'>You feel a burning beat inside...</span>"
 			if(prob(20))
 				affected_mob.adjustToxLoss(5)

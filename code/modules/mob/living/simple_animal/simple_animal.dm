@@ -105,7 +105,8 @@
 	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
 
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
-	visible_emote("gazes longingly at [holder]'s [thing]",0)
+	var/final_emote = "[src] gazes longingly at [holder]'s [thing]."
+	send_emote("custom_visible",src,0,final_emote,final_emote)
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
@@ -252,23 +253,29 @@
 				else
 					randomValue -= speak.len
 					if(emote_see && randomValue <= emote_see.len)
-						visible_emote("[pick(emote_see)].",0)
+						var/final_emote = "[src] [pick(emote_see)]"
+						send_emote("custom_visible",src,0,final_emote,final_emote)
 					else
-						audible_emote("[pick(emote_hear)].",0)
+						var/final_emote = "[src] [pick(emote_hear)]"
+						send_emote("custom_audible",src,0,final_emote,final_emote)
 			else
 				say(pick(speak))
 		else
 			if(!(emote_hear && emote_hear.len) && (emote_see && emote_see.len))
-				visible_emote("[pick(emote_see)].",0)
+				var/final_emote = "[src] [pick(emote_see)]"
+				send_emote("custom_visible",src,0,final_emote,final_emote)
 			if((emote_hear && emote_hear.len) && !(emote_see && emote_see.len))
-				audible_emote("[pick(emote_hear)].",0)
+				var/final_emote = "[src] [pick(emote_hear)]"
+				send_emote("custom_audible",src,0,final_emote,final_emote)
 			if((emote_hear && emote_hear.len) && (emote_see && emote_see.len))
 				var/length = emote_hear.len + emote_see.len
 				var/pick = rand(1,length)
 				if(pick <= emote_see.len)
-					visible_emote("[pick(emote_see)].",0)
+					var/final_emote = "[src] [pick(emote_see)]"
+					send_emote("custom_visible",src,0,final_emote,final_emote)
 				else
-					audible_emote("[pick(emote_hear)].",0)
+					var/final_emote = "[src] [pick(emote_hear)]"
+					send_emote("custom_audible",src,0,final_emote,final_emote)
 		speak_audio()
 
 	if (can_nap)
@@ -328,19 +335,9 @@
 /mob/living/simple_animal/gib()
 	..(icon_gib, 1)
 
-/mob/living/simple_animal/emote(var/act, var/type, var/desc)
-	if(act)
-		..(act, type, desc)
-
 //This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
 /mob/living/simple_animal/proc/speak_audio()
 	return
-
-/mob/living/simple_animal/proc/visible_emote(var/act_desc, var/log_emote=1)
-	custom_emote(1, act_desc, log_emote)
-
-/mob/living/simple_animal/proc/audible_emote(var/act_desc)
-	custom_emote(2, act_desc)
 
 /*
 mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)

@@ -115,7 +115,7 @@
 		addTiles(1)
 
 	if(prob(5))
-		custom_emote(2, "makes an excited booping beeping sound!")
+		send_emote("beepboop",src)
 
 /mob/living/bot/floorbot/think()
 	..()

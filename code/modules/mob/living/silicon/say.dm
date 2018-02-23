@@ -81,7 +81,7 @@
 		//This is much faster.
 		var/list/listening = list()
 		var/list/listening_obj = list()
-		var/turf/T = get_turf(H)		
+		var/turf/T = get_turf(H)
 
 		if(T)
 			var/list/hear = hear(7, T)
@@ -134,13 +134,15 @@
 		return 0
 	return 1
 
+//LOOK AT THIS LATERS
+/*
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)
 	var/obj/machinery/hologram/holopad/T = src.holo
 	if(T && T.masters[src]) //Is the AI using a holopad?
 		src.holopad_emote(message)
 	else //Emote normally, then.
 		..()
-
+*/
 #undef IS_AI
 #undef IS_ROBOT
 #undef IS_PAI

@@ -50,7 +50,8 @@
 
 	if(!stat && !resting && !buckled)
 		if(prob(1))
-			visible_emote(pick("dances around","chases their tail"),0)
+			var/final_emote = "#SOURCE [pick("dances around","chases their tail")]."
+			send_emote("custom_visible",src,0,final_emote,final_emote)
 			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
 
 /mob/living/simple_animal/corgi/proc/do_dance(list/directions = list())
@@ -59,7 +60,8 @@
 		sleep(1)
 
 /mob/living/simple_animal/corgi/beg(var/atom/thing, var/atom/holder)
-	visible_emote("stares at the [thing] that [holder] has with sad puppy eyes.",0)
+	var/final_emote = "#SOURCE stares at #TARGET's [thing] with sad puppy eyes."
+	send_emote("custom_visible",src,holder,final_emote,final_emote)
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/corgi
 	name = "Corgi meat"
@@ -165,5 +167,6 @@
 				puppies++
 
 	if (!stat && !resting && !buckled && prob(1))
-		visible_emote(pick("dances around","chases her tail"),0)
+		var/final_emote = "#SOURCE [pick("dances around","chases their tail")]."
+		send_emote("custom_visible",src,0,final_emote,final_emote)
 		INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
