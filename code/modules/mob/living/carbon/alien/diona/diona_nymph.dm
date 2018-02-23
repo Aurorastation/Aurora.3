@@ -101,7 +101,7 @@
 	set name = "Check light level"
 
 	var/light = get_lightlevel_diona(DS)
-
+	
 	if (light <= -0.75)
 		usr << span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!")
 	else if (light <= 0)

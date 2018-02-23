@@ -24,14 +24,11 @@ var/list/diona_banned_languages = list(
 /mob/living/carbon/proc/diona_handle_light(var/datum/dionastats/DS) //Carbon is the highest common denominator between gestalts and nymphs. They will share light code
 	//if light_organ is non null, then we're working with a gestalt. otherwise nymph
 
-
 	var/light_amount = DS.last_lightlevel //If we're not re-fetching the light level then we'll use a recent cached version
-
 	if (life_tick % 2 == 0) //Only fetch the lightlevel every other proc to save performance
 		if (DS.last_location != loc || life_tick % 4 == 0) //Fetch it even less often if we haven't moved since last check
-			light_amount = get_lightlevel_diona(DS)
+			light_amount = get_lightlevel_diona(DS)*5.5 - 1.5
 			DS.last_lightlevel = light_amount
-
 
 	DS.stored_energy += light_amount
 
@@ -437,25 +434,23 @@ var/list/diona_banned_languages = list(
 //GETTER FUNCTIONS
 
 /mob/living/carbon/proc/get_lightlevel_diona(var/datum/dionastats/DS)
-	var/light_factor = 1.15
-	var/turf/T = get_turf(src)
-	if (is_ventcrawling)
-		return -1.5 //no light inside pipes
 
+	if (is_ventcrawling)
+		return 0
+
+	var/light_factor = 0.5
+
+	var/turf/T = get_turf(src)
+	if(T)
+		light_factor = T.get_uv_lumcount(0, 1)
 
 	if (DS.light_organ)
-		if (DS.light_organ.is_broken())
-			light_factor *= 0.55
-		else if (DS.light_organ.is_bruised())
-			light_factor *= 0.8
-	else if (DS.dionatype == 2)
-		light_factor = 1
+		if(DS.light_organ.is_broken())
+			light_factor *= 0.5
+		else if(DS.light_organ.is_bruised())
+			light_factor *= 0.75
 
-	light_factor *= (1-get_clothing_coverage()) + 0.25
-
-	if (T)
-		var/raw = min(T.get_uv_lumcount(0, 1) * light_factor * 5.5, 5.5)
-		return raw - 1.5
+	return (light_factor) * (1 - get_clothing_coverage())
 
 /mob/living/carbon/proc/diona_get_health(var/datum/dionastats/DS)
 	if (DS.dionatype == 0)

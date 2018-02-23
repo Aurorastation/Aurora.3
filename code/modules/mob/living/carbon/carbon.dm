@@ -421,8 +421,6 @@
 		if(!item.ignore_light_penalty && item.body_parts_covered)
 			covered_parts |= item.body_parts_covered
 
-	if(covered_parts & FULL_BODY) //I KNOW THE FOLLOWING CODE IS UGLY AS SHIT, BUT LISTS INDEXES CANNOT BE 6144.
-		return 1
 	if(covered_parts & HEAD)
 		total_covereage += 0.1
 	if(covered_parts & FACE)
