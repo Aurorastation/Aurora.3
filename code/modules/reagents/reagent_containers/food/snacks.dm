@@ -4782,7 +4782,7 @@
 	icon_state = "dip_cheese"
 	trash = /obj/item/trash/dipbowl
 	bitesize = 1
-	nutriment_desc = list("cheese dip" = 1)
+	nutriment_desc = list("queso" = 20)
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_amt = 20
 
@@ -4828,7 +4828,7 @@
 	nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/salsa
 	chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/salsa
 	icon_state = "dip_salsa"
-	nutriment_desc = list("salsa" = 1)
+	nutriment_desc = list("salsa" = 20)
 	nutriment_amt = 20
 
 /obj/item/weapon/reagent_containers/food/snacks/dip/guac
@@ -4837,7 +4837,7 @@
 	nachotrans = /obj/item/weapon/reagent_containers/food/snacks/chip/nacho/guac
 	chiptrans = /obj/item/weapon/reagent_containers/food/snacks/chip/guac
 	icon_state = "dip_guac"
-	nutriment_desc = list("guacmole" = 1)
+	nutriment_desc = list("guacmole" = 20)
 	nutriment_amt = 20
 
 //burritos
@@ -4850,6 +4850,11 @@
 	nutriment_desc = list("tortilla" = 6)
 	nutriment_amt = 6
 
+/obj/item/weapon/reagent_containers/food/snacks/burrito/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 6)
+
+
 /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan
 	name = "vegan burrito"
 	desc = "Tofu, carrots, and cabbage wrapped in a flour tortilla. Those seen with this food object are Valid."
@@ -4861,7 +4866,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_vegan/Initialize()
 	. = ..()
-	reagents.add_reagent("tofu", 4)
+	reagents.add_reagent("tofu", 6)
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_spicy
 	name = "spicy meat burrito"
@@ -4872,6 +4877,10 @@
 	nutriment_desc = list("tortilla" = 6)
 	nutriment_amt = 6
 
+/obj/item/weapon/reagent_containers/food/snacks/burrito_spicy/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 6)
+
 /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese
 	name = "meat cheese burrito"
 	desc = "Meat and melted cheese wrapped in a flour tortilla. Do not feed to Skrell."
@@ -4880,6 +4889,10 @@
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_desc = list("tortilla" = 6)
 	nutriment_amt = 6
+
+/obj/item/weapon/reagent_containers/food/snacks/burrito_cheese/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 6)
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_cheese_spicy
 	name = "spicy cheese meat burrito"
@@ -4890,18 +4903,22 @@
 	nutriment_desc = list("tortilla" = 6)
 	nutriment_amt = 6
 
+/obj/item/weapon/reagent_containers/food/snacks/burrito_cheese_spicy/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 6)
+
 /obj/item/weapon/reagent_containers/food/snacks/burrito_hell
 	name = "el diablo"
 	desc = "Meat and an insane amount of chilis packed in a flour tortilla. The chaplain's office is west of the kitchen."
 	icon_state = "burrito_hell"
 	bitesize = 4
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("tortilla" = 6)
-	nutriment_amt = 6
+	nutriment_desc = list("hellfire" = 6)
+	nutriment_amt = 24// 10 Chilis is a lot.
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_hell/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("protein", 9)
 	reagents.add_reagent("condensedcapsaicin", 20) //what could possibly go wrong
 
 /obj/item/weapon/reagent_containers/food/snacks/burrito_mystery
