@@ -1,0 +1,7 @@
+author: BurgerBB
+delete-after: True
+changes: 
+  - rscadd: "Added several new preservatives and flavorings in vending machine junkfood. As a result, junkfood is now more filling."
+  - tweak: "Tweaked pain messages."
+  - tweak: "Penalties for Organ damage now start at >=1 instead of >0."
+  - rscadd: "Added Adipemcina, a fictional heart medication that specially reduces heart damage."

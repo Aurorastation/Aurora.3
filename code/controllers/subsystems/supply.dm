@@ -318,6 +318,8 @@ var/datum/controller/subsystem/cargo/SScargo
 /*
 	Getting items, categories, suppliers and shipments
 */
+/datum/controller/subsystem/cargo/proc/get_order_count()
+	return all_orders.len
 //Increments the orderid and returns it
 /datum/controller/subsystem/cargo/proc/get_next_order_id()
 	. = ordernum

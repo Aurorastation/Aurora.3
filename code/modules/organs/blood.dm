@@ -74,12 +74,12 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 
 			if(!heart)
 				blood_volume = 0
-			else if(heart.damage > 1 && heart.damage < heart.min_bruised_damage)
-				blood_volume *= 0.8
-			else if(heart.damage >= heart.min_bruised_damage && heart.damage < heart.min_broken_damage)
-				blood_volume *= 0.6
-			else if(heart.damage >= heart.min_broken_damage && heart.damage < INFINITY)
-				blood_volume *= 0.3
+			else if(heart.is_broken())
+				blood_volume *= ((BLOOD_VOLUME_SURVIVE*1.5)/BLOOD_VOLUME_SAFE) //Fuck hardcoded values if it means one extra division operation per tick
+			else if(heart.is_bruised())
+				blood_volume *= (BLOOD_VOLUME_BAD/BLOOD_VOLUME_SAFE)
+			else if(heart.is_damaged())
+				blood_volume *= (BLOOD_VOLUME_OKAY/BLOOD_VOLUME_SAFE)
 
 		//Effects of bloodloss
 		switch(blood_volume)
