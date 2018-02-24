@@ -146,17 +146,15 @@ zone/proc/movables(list/origins)
 	if (!origins || !origins.len)
 		return
 
-	var/turf/T
-	var/turf/TT
+	var/static/list/movables_tcache = typecacheof(list(/obj/effect, /mob/abstract))
+
 	var/atom/movable/AM
-	for (var/t in contents)
-		T = t
-		for (var/am in T)
+	for (var/testing_turf in contents)
+		for (var/am in testing_turf)
 			AM = am
-			if (AM.simulated && !AM.anchored && !istype(AM, /obj/effect) && !istype(AM, /mob/abstract))
-				for (var/tt in origins)
-					TT = tt
-					if (get_dist(T, TT) <= EDGE_KNOCKDOWN_MAX_DISTANCE)
+			if (AM.simulated && !AM.anchored && !movables_tcache[AM.type])
+				for (var/source_turf in origins)
+					if (get_dist(testing_turf, source_turf) <= EDGE_KNOCKDOWN_MAX_DISTANCE)
 						.[AM] = TRUE
 						break
 
