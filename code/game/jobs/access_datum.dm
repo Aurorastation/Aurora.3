@@ -4,6 +4,14 @@
 	var/region = ACCESS_REGION_NONE
 	var/access_type = ACCESS_TYPE_STATION
 
+/datum/access/proc/get_info_list()
+	var/list/info = list()
+	info["id"] = id
+	info["desc"] = desc
+	info["region"] = region
+	info["access_type"] = access_type
+	return info
+
 /*****************
 * Station access *
 *****************/
