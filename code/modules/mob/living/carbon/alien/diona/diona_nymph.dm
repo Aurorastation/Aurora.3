@@ -100,18 +100,22 @@
 	set category = "Abilities"
 	set name = "Check light level"
 
-	var/light = get_lightlevel_diona(DS)
-	
-	if (light <= -0.75)
-		usr << span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!")
-	else if (light <= 0)
-		usr << span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!")
-	else if (light > 0 && light < 1.5)
-		usr << span("warning", "The light here can sustain us, barely. It feels cold and distant.")
-	else if (light <= 3)
-		usr << span("notice", "This light is comfortable and warm, Quite adequate for our needs.")
+	var/light_percent = get_lightlevel_diona(DS)
+	var/light_gain = light_percent*5.5 - 1.5
+	var/nice_light_percent = round(light_percent*100)
+
+	if(light_gain <= -0.5)
+		usr << span("danger", "We are loosing light energy very quickly! This is extremely dangerous, we must find light, or death will soon follow!")
+	else if(light_gain <= 0)
+		usr << span("danger", "We are slowly loosing light energy! This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!")
+	else if(light_gain <= 1)
+		usr << span("warning", "The light here can sustain us, barely. It feels cold and distant...")
+	else if(light_gain <= 2)
+		usr << span("notice", "We are gaining light at [nice_light_percent]% efficiency. This light is quite adequate for our needs.")
+	else if(light_gain <= 3)
+		usr << span("notice", "We are gaining light at [nice_light_percent]% efficiency. This light is comfortable, warm, and more than adequate for our needs.")
 	else
-		usr << span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while..")
+		usr << span("notice", "We are gaining light at [nice_light_percent]% efficiency. This warm radiance is bliss!")
 
 /mob/living/carbon/alien/diona/start_pulling(var/atom/movable/AM)
 	//TODO: Collapse these checks into one proc (see pai and drone)

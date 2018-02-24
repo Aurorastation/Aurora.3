@@ -125,6 +125,7 @@
 
 	var/light_percent = get_lightlevel_diona(DS)
 	var/light_gain = light_percent*5.5 - 1.5
+	var/nice_light_percent = round(light_percent*100)
 
 	if(light_gain <= -0.5)
 		usr << span("danger", "We are loosing light energy very quickly! This is extremely dangerous, we must find light, or death will soon follow!")
@@ -133,11 +134,11 @@
 	else if(light_gain <= 1)
 		usr << span("warning", "The light here can sustain us, barely. It feels cold and distant...")
 	else if(light_gain <= 2)
-		usr << span("notice", "We are gaining light at [light_percent]% efficiency. This light is quite adequate for our needs.")
+		usr << span("notice", "We are gaining light at [nice_light_percent]% efficiency. This light is quite adequate for our needs.")
 	else if(light_gain <= 3)
-		usr << span("notice", "We are gaining light at [light_percent]% efficiency. This light is comfortable, warm, and more than adequate for our needs.")
+		usr << span("notice", "We are gaining light at [nice_light_percent]% efficiency. This light is comfortable, warm, and more than adequate for our needs.")
 	else
-		usr << span("notice", "We are gaining light at [light_percent]% efficiency. This warm radiance is bliss!")
+		usr << span("notice", "We are gaining light at [nice_light_percent]% efficiency. This warm radiance is bliss!")
 
 //1.5 is the maximum energy that can be lost per proc
 //2.1 is the approximate delay between procs
