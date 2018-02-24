@@ -342,6 +342,10 @@
 	powered = 0
 	update_held_icon()
 
+/obj/item/weapon/material/twohanded/chainsaw/Destroy()
+	STOP_PROCESSING(SSfast_process, src)
+	return ..()
+
 /obj/item/weapon/material/twohanded/chainsaw/proc/RemoveFuel(var/amount = 1)
 	amount = amount * fuel_cost
 	reagents.remove_reagent("fuel", Clamp(amount,0,reagents.get_reagent_amount("fuel")))
