@@ -258,7 +258,7 @@
 		/datum/unarmed_attack/diona
 	)
 	//primitive_form = "Nymph"
-	slowdown = 5
+	slowdown = 6
 	rarity_value = 4
 	hud_type = /datum/hud_data/diona
 	siemens_coefficient = 0.3

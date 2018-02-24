@@ -15,8 +15,7 @@
 	sprite_sheets = list(
 		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
 		)
-	ignore_light_penalty = TRUE
-	body_parts_covered = 0x0
+	body_parts_covered = LOWER_TORSO
 
 /obj/item/clothing/under/pj/blue
 	name = "blue pyjamas"

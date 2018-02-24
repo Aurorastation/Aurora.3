@@ -54,6 +54,7 @@
 	desc = "It's a plain jumpsuit. It seems to have a small dial on the wrist."
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
+	ignore_light_penalty = TRUE
 
 /obj/item/clothing/under/chameleon/Initialize()
 	. = ..()
@@ -91,6 +92,7 @@
 	origin_tech = list(TECH_ILLEGAL = 3)
 	body_parts_covered = 0
 	var/global/list/clothing_choices
+	ignore_light_penalty = TRUE
 
 /obj/item/clothing/head/chameleon/Initialize()
 	. = ..()
@@ -127,6 +129,7 @@
 	desc = "It appears to be a vest of standard armor, except this is embedded with a hidden holographic cloaker, allowing it to change it's appearance, but offering no protection.. It seems to have a small dial inside."
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
+	ignore_light_penalty = TRUE
 
 /obj/item/clothing/suit/chameleon/Initialize()
 	. = ..()
@@ -162,6 +165,7 @@
 	desc = "They're comfy black shoes, with clever cloaking technology built in. It seems to have a small dial on the back of each shoe."
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
+	ignore_light_penalty = TRUE
 
 /obj/item/clothing/shoes/chameleon/Initialize()
 	. = ..()
@@ -241,6 +245,7 @@
 	desc = "It looks like a pair of gloves, but it seems to have a small dial inside."
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
+	ignore_light_penalty = TRUE
 	
 /obj/item/clothing/gloves/chameleon/Initialize()
 	. = ..()
@@ -277,6 +282,7 @@
 	desc = "It looks like a plain gask mask, but on closer inspection, it seems to have a small dial inside."
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
+	ignore_light_penalty = TRUE
 
 /obj/item/clothing/mask/chameleon/Initialize()
 	. = ..()
@@ -312,6 +318,7 @@
 	desc = "It looks like a plain set of mesons, but on closer inspection, it seems to have a small dial inside."
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/list/global/clothing_choices
+	ignore_light_penalty = TRUE
 
 /obj/item/clothing/glasses/chameleon/Initialize()
 	. = ..()

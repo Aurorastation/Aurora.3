@@ -146,7 +146,7 @@
 	//Diona time variables, these differ slightly between a gestalt and a nymph. All values are times in seconds
 	var/energy_duration = 120//How long this diona can exist in total darkness before its energy runs out
 	var/dark_consciousness = 120//How long this diona can stay on its feet and keep moving in darkness after energy is gone.
-	var/dark_survival = 300//How long this diona can survive in darkness after energy is gone, before it dies
+	var/dark_survival = 180//How long this diona can survive in darkness after energy is gone, before it dies
 
 	var/MLS = (1.5 / 2.1)//Maximum (energy) lost per second, in total darkness
 	DS = new/datum/dionastats()

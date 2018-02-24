@@ -10,7 +10,7 @@
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
 			return -1
 
-	if (species && (species.flags & IS_PLANT) && istype(DS))
+	if (is_diona() && istype(DS))
 		tally *= 1 - (get_lightlevel_diona(DS)*0.5)
 
 	if(embedded_flag)
