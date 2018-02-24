@@ -41,7 +41,7 @@
 /obj/item/weapon/gun/bang/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src && fired_gun)
 		src.cut_overlay(bang_flag)
-		user.visible_message("<span class='notice'>You push the flag back into the barrel of \the [src.name].</span>")
+		user.visible_message("<span class='notice'>\The [user] pushes the flag back into the barrel of \the [src.name].</span>", "<span class='notice'>You push the flag back into the barrel of \the [src.name].</span>")
 		fired_gun = 0
 	else
 		return ..()
