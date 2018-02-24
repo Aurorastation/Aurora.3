@@ -34,4 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - experiment: "Dionaea take in less light while wearing clothing. Generally increased the amount of light Dionaea take in. Light level checking is more detailed."
+  - experiment: "Dionaea take in less light while wearing clothing, however more light when not. Dionae also move faster or slower depending on light levels."

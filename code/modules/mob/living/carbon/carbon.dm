@@ -422,11 +422,11 @@
 			covered_parts |= item.body_parts_covered
 
 	if(covered_parts & HEAD)
-		total_covereage += 0.1
+		total_covereage += 0.05
 	if(covered_parts & FACE)
-		total_covereage += 0.05
+		total_covereage += 0.125
 	if(covered_parts & EYES)
-		total_covereage += 0.05
+		total_covereage += 0.025
 	if(covered_parts & UPPER_TORSO)
 		total_covereage += 0.20
 	if(covered_parts & LOWER_TORSO)
