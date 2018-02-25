@@ -1,3 +1,4 @@
+/* Food */
 /datum/reagent/kois
 	name = "K'ois"
 	id = "koispaste"
