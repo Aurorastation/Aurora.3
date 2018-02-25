@@ -5046,7 +5046,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/egg_pancake
 	name = "meat pancake"
-	desc = "An omelette baked on top of a giant meat patty. Ironically, this monstrousity is typically shared between four people during a dinnertime meal."
+	desc = "An omelette baked on top of a giant meat patty. This monstrousity is typically shared between four people during a dinnertime meal."
 	icon_state = "egg_pancake"
 	trash = /obj/item/trash/plate
 
