@@ -10,7 +10,7 @@
 	title = "The Art of Magical Combat"
 	title_desc = "Buy spells using your available spell slots. Artefacts may also be bought however their cost is permanent."
 	book_flags = CAN_MAKE_CONTRACTS
-	max_uses = 5
+	max_uses = 8
 
 	spells = list(/spell/targeted/projectile/dumbfire/passage = 		1,
 				/spell/targeted/equip_item/shield = 					1,
@@ -30,5 +30,6 @@
 				/obj/item/weapon/storage/belt/wands/full = 				2,
 				/obj/item/weapon/melee/energy/wizard =					2,
 				/obj/item/weapon/monster_manual = 				    	2,
-				/obj/item/weapon/contract/apprentice = 					1
+				/obj/item/weapon/contract/apprentice = 					1,
+				/spell/aoe_turf/blink = 					1
 				)

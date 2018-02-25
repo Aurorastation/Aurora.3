@@ -390,7 +390,7 @@
 
 	if(M.ingested)
 		for(var/datum/reagent/R in M.ingested.reagent_list)
-			if(istype(R, /datum/reagent/ethanol))
+			if(istype(R, /datum/reagent/alcohol/ethanol))
 				var/amount = min(P, R.volume)
 				M.ingested.remove_reagent(R.id, amount)
 				P -= amount
@@ -401,7 +401,7 @@
 	//as a treatment option if someone was dumb enough to do this
 	if(M.bloodstr)
 		for(var/datum/reagent/R in M.bloodstr.reagent_list)
-			if(istype(R, /datum/reagent/ethanol))
+			if(istype(R, /datum/reagent/alcohol/ethanol))
 				var/amount = min(P, R.volume)
 				M.bloodstr.remove_reagent(R.id, amount)
 				P -= amount
