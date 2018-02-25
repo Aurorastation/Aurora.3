@@ -33,7 +33,7 @@
 			allowed = 1
 
 	var/obj/item/clothing/I = O
-	if (!istype(I) || !allowed)
+	if (!istype(I) || !allowed || !I.refittable)
 		user << "<span class='notice'>[src] is unable to modify that.</span>"
 		return
 

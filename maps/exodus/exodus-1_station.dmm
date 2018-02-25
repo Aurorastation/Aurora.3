@@ -19239,12 +19239,12 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/clothing/head/helmet/space/skrell/black,
+/obj/item/clothing/head/helmet/space/void/skrell/black,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/space/skrell/black,
-/obj/item/clothing/head/helmet/space/skrell/white,
+/obj/item/clothing/suit/space/void/skrell/black,
+/obj/item/clothing/head/helmet/space/void/skrell/white,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/space/skrell/white,
+/obj/item/clothing/suit/space/void/skrell/white,
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aIC" = (

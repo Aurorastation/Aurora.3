@@ -903,9 +903,9 @@ I said no!
 
 // Chip update
 /datum/recipe/tortila
-	reagents = list("flour" = 5,"sodiumchloride" = 1,"water" = 5)
+	reagents = list("flour" = 5,"water" = 5)
 	result = /obj/item/weapon/reagent_containers/food/snacks/tortilla
-	reagent_mix = RECIPE_REAGENT_REPLACE
+	reagent_mix = RECIPE_REAGENT_REPLACE //no gross flour or water
 
 /datum/recipe/taconew
 	items = list(
@@ -1014,9 +1014,9 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/meatball,
 		/obj/item/weapon/reagent_containers/food/snacks/meatball
 	)
-	reagents = list("spacespice" = 1, "phoron" = 5)
+	reagents = list("spacespice" = 1)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burrito_hell
-	reagent_mix = RECIPE_REAGENT_REPLACE //No phoron please.
+	reagent_mix = RECIPE_REAGENT_REPLACE //Already hot sauce
 
 /datum/recipe/burrito_mystery
 	items = list(

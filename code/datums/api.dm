@@ -147,7 +147,7 @@ proc/api_update_command_database()
 	var/versionstring = null
 	//The Version Number follows SemVer http://semver.org/
 	version["major"] = 2 //Major Version Number --> Increment when implementing breaking changes
-	version["minor"] = 0 //Minor Version Number --> Increment when adding features
+	version["minor"] = 1 //Minor Version Number --> Increment when adding features
 	version["patch"] = 0 //Patchlevel --> Increment when fixing bugs
 
 	versionstring = "[version["major"]].[version["minor"]].[version["patch"]]"
@@ -861,7 +861,7 @@ proc/api_update_command_database()
 		"title" = list("name"="title","desc"="The message title that should be sent, Defaults to NanoTrasen Update if not specified","req"=0,"type"="str"),
 		"body" = list("name"="body","desc"="The message body that should be sent","req"=1,"type"="str"),
 		"type" = list("name"="type","desc"="The type of the message that should be sent, Defaults to freeform","req"=0,"type"="slct","options"=list("freeform","ccia")),
-		"sendername" = list("name"="sendername","desc"="IC Name of the sender for the CCIA Report, Defaults to CCIAAMS, \[Command-StationName\]","req"=0,"type"="string"),
+		"sendername" = list("name"="sendername","desc"="IC Name of the sender for the CCIA Report, Defaults to CCIAAMS, \[Command-StationName\]","req"=0,"type"="str"),
 		"announce" = list("name"="announce","desc"="If the report should be announce 1 -> Yes, 0 -> No, Defaults to 1","req"=0,"type"="int")
 		)
 /datum/topic_command/send_commandreport/run_command(queryparams)
@@ -1004,4 +1004,45 @@ proc/api_update_command_database()
 			statuscode = 200
 			response = "Ingame Discord bot's channels were successfully updated."
 
+	return 1
+
+// Gets the currently configured access levels
+/datum/topic_command/get_access_levels
+	name = "get_access_levels"
+	description = "Gets the currently configured access levels."
+
+/datum/topic_command/get_access_levels/run_command()
+	var/list/access_levels = list()
+	for(var/datum/access/acc in get_all_access_datums())
+		access_levels.Add(list(acc.get_info_list()))
+
+	data = access_levels
+	statuscode = 200
+	response = "Levels Sent"
+	return 1
+
+// Reloads the current cargo configuration
+/datum/topic_command/cargo_reload
+	name = "cargo_reload"
+	description = "Reloads the current cargo configuration."
+	params = list(
+		"force" = list("name"="force","desc"="Force the reload even if orders have already been placed","type"="int","req"=0)
+	)
+
+/datum/topic_command/cargo_reload/run_command(queryparams)
+	var/force = sanitize(queryparams["force"])
+	if(!SScargo.get_order_count())
+		SScargo.load_from_sql()
+		message_admins("Cargo has been reloaded via the API.")
+		statuscode = 200
+		response = "Cargo Reloaded from SQL."
+	else
+		if(force)
+			SScargo.load_from_sql()
+			message_admins("Cargo has been force-reloaded via the API. All current orders have been purged.")
+			statuscode = 200
+			response = "Cargo Force-Reloaded from SQL."
+		else
+			statuscode = 500
+			response = "Orders have been placed. Use force parameter to overwrite."
 	return 1

@@ -26,6 +26,41 @@
 	else if(legcuffed)
 		spawn() escape_legcuffs()
 
+/mob/living/carbon/human/process_resist()
+	if (istype(wear_suit, /obj/item/clothing/suit/straight_jacket))
+		spawn
+			escape_jacket()
+		return
+	..()
+
+/mob/living/carbon/human/proc/escape_jacket()
+	visible_message(
+		"<span class='danger'>\The [src] attempts to escape [wear_suit]!</span>",
+		"<span class='warning'>You attempt to escape [wear_suit]. (This will take around 6 minutes and you need to stand still)</span>"
+		)
+	if (!do_after(src, 1.5 MINUTES, act_target = wear_suit))
+		return
+	visible_message(
+			"<span class='danger'>\The [src] is shifting in their [wear_suit]!</span>",
+			"<span class='warning'>You start to loosen the [wear_suit].</span>"
+		)
+	if (!do_after(src, 1.5 MINUTES, act_target = wear_suit))
+		return
+	visible_message(
+			"<span class='danger'>\The [src] is moving in their [wear_suit]!</span>",
+			"<span class='warning'>You slip one of your arms out of the [wear_suit].</span>"
+		)
+	if (!do_after(src, 1.5 MINUTES, act_target = wear_suit))
+		return
+	visible_message(
+			"<span class='danger'>\The [src] is moving around in their [wear_suit] - it looks like they are about to break out!</span>",
+			"<span class='warning'>You start to pull loose the straps on the straightjacket[wear_suit].</span>"
+		)
+	if (do_after(src, 1.5 MINUTES, act_target = wear_suit))
+		var/obj/ex_suit = wear_suit
+		remove_from_mob(wear_suit)
+		ex_suit.forceMove(get_turf(src))
+
 /mob/living/carbon/proc/escape_handcuffs()
 	//if(!(last_special <= world.time)) return
 
@@ -182,3 +217,4 @@
 			visible_message("<span class='danger'>[usr] manages to unbuckle themself!</span>",
 							"<span class='notice'>You successfully unbuckle yourself.</span>")
 			buckled.user_unbuckle_mob(src)
+

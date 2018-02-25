@@ -171,8 +171,8 @@
 	desc = "A suit that completely restrains the wearer."
 	icon_state = "straight_jacket"
 	item_state = "straight_jacket"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS
+	flags_inv = HIDEGLOVES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/straight_jacket/equipped(var/mob/user, var/slot)
 	if (slot == slot_wear_suit)
