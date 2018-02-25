@@ -22,12 +22,12 @@
 			var/mob/living/carbon/human/H = M
 			switch(kois_type)
 				if(1) //Normal
-					if(!H.internal_organs_by_name["kois"] && prob(10*removed))
+					if(!H.internal_organs_by_name["kois"] && prob(5*removed))
 						var/obj/item/organ/external/affected = H.get_organ("chest")
 						var/obj/item/organ/parasite/kois/infest = new()
 						infest.replaced(H, affected)
 				if(2) //Modified
-					if(!H.internal_organs_by_name["blackkois"] && prob(20*removed))
+					if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
 						var/obj/item/organ/external/affected = H.get_organ("head")
 						var/obj/item/organ/parasite/blackkois/infest = new()
 						infest.replaced(H, affected)

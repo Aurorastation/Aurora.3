@@ -126,14 +126,8 @@
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
 	M.adjustToxLoss(removed * 2)
 
-/datum/reagent/ethanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)//Vaurca are damaged instead of getting nutrients, but they can still get drunk
-		M.adjustToxLoss(1.5 * removed * (strength / 100))
-	else
-		M.nutrition += nutriment_factor * removed
-
-	if(alien == IS_DIONA)
-		return //Diona can gain nutrients, but don't get drunk or suffer other effects
+/datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
+	M.intoxication += (strength / 100) * removed
 
 	if (druggy != 0)
 		M.druggy = max(M.druggy, druggy)
@@ -155,7 +149,7 @@
 	description = "A well-known alcohol with a variety of applications."
 	ingest_met = 0.5
 	flammability_divisor = 10
-	
+
 	taste_description = "pure alcohol"
 
 	glass_icon_state = "glass_clear"
@@ -211,10 +205,7 @@
 	glass_name = "glass of butanol"
 	glass_desc = "A fairly harmless alcohol that has intoxicating effects on certain species."
 
-/datum/reagent/butanol/touch_mob(var/mob/living/L, var/amount)
-	if(istype(L) && strength > 40)
-		L.adjust_fire_stacks((amount / 7) * (strength / 100)) //Butanol is a bit less flammable than ethanol
-
+/datum/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (alien == IS_VAURCA)
 		M.adjustToxLoss(removed * (strength / 100))
 	else
@@ -224,12 +215,6 @@
 		ingest_met = initial(ingest_met)*3
 
 	..()
-
-/datum/reagent/butanol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed)
-	return
-
-/datum/reagent/butanol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 
 /datum/reagent/hydrazine
 	name = "Hydrazine"

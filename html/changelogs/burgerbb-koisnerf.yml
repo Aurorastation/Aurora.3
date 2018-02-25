@@ -4,5 +4,5 @@ author: BurgerBB
 delete-after: True
 
 changes:
-  - rscadd: "Added filtered Kois, a significantly less dangerous Kois which can be made by combining Cardox and normal Kios. Added Cardox, an anti-phoron reagent which can eliminate phoron and remove the harmful spores from Kois."
-  - balance: "Replaced Kois bars with less dangerous Kois bars containing filtered Kois which do not spore. Dangerous ones are moved to the contraband section, which can be hacked and vended for free. Phoron punch also now has filtered kois, but no alternative."
+  - rscadd: "Added filtered kois, a significantly less dangerous kois which can be made by combining Cardox and normal kois. Added Cardox, an anti-phoron reagent which can eliminate phoron and remove the harmful spores from kois."
+  - balance: "Replaced kois bars with less dangerous kois bars containing filtered kois which do not spore. Dangerous ones are moved to the contraband section, which can be hacked and vended for free. Phoron punch also now has filtered kois, but no alternative."
