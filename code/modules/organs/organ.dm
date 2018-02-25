@@ -214,7 +214,7 @@
 	damage = 0
 
 /obj/item/organ/proc/is_damaged()
-	return damage > 0
+	return damage >= 1 // Not zero because honestly who gives a shit about 0.01 organ damage
 
 /obj/item/organ/proc/is_bruised()
 	return damage >= min_bruised_damage

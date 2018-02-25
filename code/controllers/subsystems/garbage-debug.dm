@@ -286,8 +286,6 @@
 	SearchVar(dead_mob_list)
 	SearchVar(topic_commands)
 	SearchVar(topic_commands_names)
-	SearchVar(chemical_reactions_list)
-	SearchVar(chemical_reagents_list)
 	SearchVar(landmarks_list)
 	SearchVar(surgery_steps)
 	SearchVar(side_effects)

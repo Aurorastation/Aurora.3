@@ -73,8 +73,8 @@ var/datum/controller/subsystem/traumas/SStraumas
 												/obj/item/clothing/suit/unathi/robe, /obj/structure/sign/flag/hegemony, /obj/item/stack/material/animalhide/lizard,
 												/obj/item/toy/plushie/lizard)),
 
-					   "skrell" = typecacheof(list(/obj/structure/sign/flag/jargon, /obj/item/clothing/ears/skrell, /obj/item/clothing/suit/space/skrell,
-												 /obj/item/clothing/head/helmet/space/skrell, /obj/item/organ/brain/skrell, /obj/item/organ/eyes/skrell,
+					   "skrell" = typecacheof(list(/obj/structure/sign/flag/jargon, /obj/item/clothing/ears/skrell, /obj/item/clothing/suit/space/void/skrell,
+												 /obj/item/clothing/head/helmet/space/void/skrell, /obj/item/organ/brain/skrell, /obj/item/organ/eyes/skrell,
 												 /obj/item/organ/heart/skrell, /obj/item/organ/kidneys/skrell, /obj/item/organ/liver/skrell, /obj/item/organ/lungs/skrell,
 												 /obj/item/weapon/reagent_containers/food/snacks/skrellsnacks)),
 

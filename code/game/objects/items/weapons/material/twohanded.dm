@@ -277,3 +277,194 @@
 	for(var/obj/item/organ/external/head/H in src)
 		H.loc = user.loc
 	qdel(src)
+
+// Chainsaws!
+
+/obj/item/weapon/material/twohanded/chainsaw
+	name = "chainsaw"
+	icon_state = "chainsaw_off"
+	base_icon = "chainsaw_off"
+	flags = CONDUCT
+	force = 10
+	force_wielded = 20
+	throwforce = 7
+	w_class = 4
+	sharp = 1
+	edge = 1
+	origin_tech = list(TECH_COMBAT = 5)
+	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
+	hitsound = "sound/weapons/bladeslice.ogg"
+	can_embed = 0
+	applies_material_colour = 0
+	default_material = "steel"
+	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
+	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
+	var/fuel_cost = 1 // Multiplier for fuel cost.
+
+	var/cutting = 0 //Ignore
+	var/powered = 0 //Ignore
+
+/obj/item/weapon/material/twohanded/chainsaw/op //For events or whatever
+	name = "bloody chainsaw"
+	opendelay = 5
+	max_fuel = 1000
+	fuel_cost = 0.5
+
+/obj/item/weapon/material/twohanded/chainsaw/Initialize()
+	. = ..()
+	create_reagents(max_fuel)
+
+/obj/item/weapon/material/twohanded/chainsaw/proc/PowerUp()
+	var/turf/T = get_turf(src)
+	T.audible_message(span("notice", "\The [src] rumbles to life."))
+	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
+	force = 20
+	force_wielded = 40
+	throwforce = 20
+	icon_state = "chainsaw_on"
+	base_icon = "chainsaw_on"
+	slot_flags = null
+	START_PROCESSING(SSfast_process, src)
+	powered = 1
+	update_held_icon()
+
+/obj/item/weapon/material/twohanded/chainsaw/proc/PowerDown()
+	var/turf/T = get_turf(src)
+	T.audible_message(span("notice", "\The [src] slowly powers down."))
+	force = initial(force)
+	force_wielded = initial(force_wielded)
+	throwforce = initial(throwforce)
+	hitsound = initial(hitsound)
+	icon_state = initial(icon_state)
+	base_icon = initial(base_icon)
+	slot_flags = initial(slot_flags)
+	STOP_PROCESSING(SSfast_process, src)
+	powered = 0
+	update_held_icon()
+
+/obj/item/weapon/material/twohanded/chainsaw/Destroy()
+	STOP_PROCESSING(SSfast_process, src)
+	return ..()
+
+/obj/item/weapon/material/twohanded/chainsaw/proc/RemoveFuel(var/amount = 1)
+	amount = amount * fuel_cost
+	reagents.remove_reagent("fuel", Clamp(amount,0,reagents.get_reagent_amount("fuel")))
+	if(reagents.get_reagent_amount("fuel") <= 0)
+		powered = 0
+		PowerDown()
+
+/obj/item/weapon/material/twohanded/chainsaw/process()
+	//TickRate is 0.1
+	var/FuelToRemove = 0.1 //0.1 Every 0.1 seconds
+
+	if(cutting)
+		FuelToRemove = 1
+		playsound(loc, 'sound/weapons/chainsawloop2.ogg', 25, 0, 30)
+		spark(src, 3, alldirs)
+		eyecheck(loc)
+	else
+		playsound(loc, 'sound/weapons/chainsawloop.ogg', 25, 0, 30)
+
+	RemoveFuel(FuelToRemove)
+
+/obj/item/weapon/material/twohanded/chainsaw/examine(mob/user)
+	if(..(user, 1))
+		user << "A heavy-duty chainsaw meant for cutting wood. Contains [round(reagents.total_volume)] unit\s of fuel."
+
+/obj/item/weapon/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
+	if(!proximity) return
+	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && !powered)
+		O.reagents.trans_to_obj(src, max_fuel)
+		user << "<span class='notice'>[src] refueled</span>"
+		playsound(loc, 'sound/effects/refill.ogg', 50, 1, -6)
+		return
+	else if(powered)
+		playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
+		RemoveFuel(3)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //No sound spam
+
+	. = ..()
+
+/obj/item/weapon/material/twohanded/chainsaw/proc/eyecheck(mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
+
+	if (!istype(H))
+		return 1
+
+	var/obj/item/organ/eyes/E = H.get_eyes()
+	if(!E)
+		return
+	var/safety = H.eyecheck()
+	if(H.status_flags & GODMODE)
+		return
+	switch(safety)
+		if(FLASH_PROTECTION_MODERATE)
+			H << "<span class='warning'>Your eyes sting a little.</span>"
+			E.damage += rand(1, 2)*0.1
+			if(E.damage > 12)
+				H.eye_blurry += rand(3,6)*0.1
+		if(FLASH_PROTECTION_NONE)
+			H << "<span class='warning'>Your eyes burn.</span>"
+			E.damage += rand(2, 4)*0.1
+			if(E.damage > 10)
+				E.damage += rand(4,10)*0.1
+		if(FLASH_PROTECTION_REDUCED)
+			H << "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>"
+			H.eye_blurry += rand(12,20)*0.1
+			E.damage += rand(12, 16)*0.1
+	if(safety<FLASH_PROTECTION_MAJOR)
+		if(E.damage > 10)
+			H << "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>"
+
+		if (E.damage >= E.min_broken_damage)
+			H << "<span class='danger'>You go blind!</span>"
+			H.sdisabilities |= BLIND
+		else if (E.damage >= E.min_bruised_damage)
+			H << "<span class='danger'>You go blind!</span>"
+			H.eye_blind = 5
+			H.eye_blurry = 5
+			H.disabilities |= NEARSIGHTED
+			addtimer(CALLBACK(H, /mob/.proc/reset_nearsighted), 100)
+
+/obj/item/weapon/material/twohanded/chainsaw/AltClick(mob/user as mob)
+
+	if(powered)
+		PowerDown(user)
+	else if(!wielded)
+		user << "<span class='notice'>You need to hold this with two hands to turn this on.</span>"
+	else if(reagents.get_reagent_amount("fuel") <= 0)
+		user.visible_message(\
+			"<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>",\
+			"<span class='notice'>You pull the cord on the [src], but nothing happens.</span>",\
+			"<span class='notice'>You hear a cord being pulled.</span>"\
+		)
+	else
+		var/max = rand(3,6)
+		for(var/i in 1 to max)
+			user.visible_message(\
+				"<span class='notice'>[user] pulls the cord on the [src]...</span>",\
+				"<span class='notice'>You pull the cord on the [src]...</span>",\
+				"<span class='notice'>You hear a cord being pulled and an engine sputtering...</span>"\
+			)
+			if(i == max)
+				PowerUp(user)
+			else
+				playsound(loc, 'sound/weapons/chainsawpull.ogg', 50, 0, 15)
+				if(!do_after(user, 2 SECONDS, act_target = user))
+					break
+
+
+
+/obj/item/weapon/material/twohanded/chainsaw/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target) && wielded && powered)
+		cleave(user, target)
+	..()
+
+/obj/item/weapon/material/twohanded/chainsaw/update_icon()
+	// Just an override.
+
+/obj/item/weapon/material/twohanded/chainsaw/verb/toggle_power()
+	set name = "Toggle power"
+	set category = "Object"
+	set src in usr
+
+	AltClick(usr)
