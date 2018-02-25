@@ -220,6 +220,17 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
+	var/obj/item/weapon/grenade/explosive = null
+
+/obj/item/weapon/material/twohanded/spear/Destroy()
+	if(explosive)
+		QDEL_NULL(explosive)
+	return ..()
+
+/obj/item/weapon/material/twohanded/spear/examine(mob/user)
+	..(user)
+	if(explosive)
+		user << "All craftsmanship is of the lowest quality."
 
 //Putting heads on spears
 /*bj/item/organ/external/head/attackby(var/obj/item/weapon/W, var/mob/living/user, params)
@@ -252,7 +263,37 @@
 		HS.name = "[I.name] on a spear"
 		qdel(src)
 		return
+
+	if(istype(I, /obj/item/weapon/grenade))
+		user << "<span class='notice'>You strap \the [I] to \the [src].</span>"
+		user.unEquip(I)
+		I.forceMove(src)
+		explosive = I
+		update_icon()
+		return
 	return ..()
+
+/obj/item/weapon/material/twohanded/spear/update_icon()
+	if(explosive)
+		icon_state = "spearbomb[wielded]"
+		item_state = "spearbomb[wielded]"
+	else
+		icon_state = "spearglass[wielded]"
+		item_state = "spearglass[wielded]"
+
+/obj/item/weapon/material/twohanded/spear/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+	..()
+
+	if(wielded && explosive)
+		explosive.prime()
+		src.shatter()
+
+/obj/item/weapon/material/twohanded/spear/throw_impact(atom/target)
+	. = ..()
+	if(!.) //not caught
+		if(explosive)
+			explosive.prime()
+			src.shatter()
 
 //predefined materials for spears
 /obj/item/weapon/material/twohanded/spear/steel/New(var/newloc)
@@ -468,3 +509,36 @@
 	set src in usr
 
 	AltClick(usr)
+
+
+/obj/item/weapon/material/twohanded/pike
+	icon_state = "pike0"
+	base_icon = "pike"
+	name = "pike"
+	desc = "A long spear used by the infantry in ancient times."
+	force = 5
+	unwielded_force_divisor = 0.2
+	force_divisor = 0.3
+	edge = 1
+	w_class = 4.0
+	slot_flags = SLOT_BACK
+	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed",)
+	default_material = "steel"
+	reach = 2
+
+/obj/item/weapon/material/twohanded/pike/halberd
+	icon_state = "alberd0"
+	base_icon = "halberd"
+	name = "halberd"
+	desc = "A sharp axe mounted on the top of a long spear."
+	force = 10
+	unwielded_force_divisor = 0.4
+	force_divisor = 0.6
+	sharp = 1
+	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed",)
+
+/obj/item/weapon/material/twohanded/pitchfork
+	icon_state = "pitchfork0"
+	base_icon = "pitchfork"
+	name = "pitchfork"
+	desc = "An old farming tool turned into an improvised weapon."
