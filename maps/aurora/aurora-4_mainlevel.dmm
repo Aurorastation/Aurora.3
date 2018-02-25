@@ -61407,9 +61407,6 @@
 /area/outpost/mining_main/eva)
 "cdc" = (
 /obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -61440,6 +61437,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdg" = (
@@ -61484,9 +61482,6 @@
 	},
 /area/outpost/mining_main/eva)
 "cdk" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 9
@@ -61508,6 +61503,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdm" = (
@@ -61562,9 +61558,6 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cdt" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 9
@@ -61582,6 +61575,7 @@
 	dir = 6
 	},
 /obj/item/stack/flag/purple,
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdv" = (
@@ -61629,9 +61623,6 @@
 /area/outpost/mining_main/refinery)
 "cdz" = (
 /obj/machinery/suit_cycler/mining,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -61660,6 +61651,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cdC" = (
@@ -62682,6 +62674,50 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"cfF" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
+"cfG" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
+"cfH" = (
+/obj/structure/ladder/up,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"cfI" = (
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/mine/unexplored)
+"cfJ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 
 (1,1,1) = {"
 aaa
@@ -82667,7 +82703,7 @@ bYu
 bYP
 aaa
 aaa
-cac
+aab
 aab
 aab
 bYv
@@ -82924,10 +82960,10 @@ bYv
 aab
 aab
 aab
-cad
-cad
 aab
-cad
+aab
+aab
+aab
 aab
 aab
 aab
@@ -83179,10 +83215,10 @@ aaa
 aaa
 aaa
 aaa
-bZm
+aab
 aab
 bYv
-cac
+aab
 aaa
 aaa
 aab
@@ -83437,7 +83473,7 @@ aaa
 aab
 aab
 aab
-bZJ
+aab
 aaa
 aaa
 aaa
@@ -84483,7 +84519,7 @@ aab
 aab
 aab
 aab
-aaa
+aab
 aaa
 aaa
 aaa
@@ -84738,9 +84774,9 @@ aab
 aab
 aab
 aab
-aaa
-aaa
-aaa
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -84995,10 +85031,10 @@ aab
 aab
 aab
 aab
-aaa
-aaa
 aab
-aaa
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -85253,10 +85289,10 @@ aab
 aab
 aab
 aab
-aaa
 aab
-aaa
-aaa
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -85509,11 +85545,11 @@ ccq
 ccD
 caT
 ccZ
+auO
+auO
+auO
+aaR
 aab
-aab
-aab
-aab
-aaa
 aaa
 aaa
 aaa
@@ -85766,10 +85802,10 @@ cbf
 ccE
 caT
 cda
-aab
-aab
-aab
-aab
+auO
+auO
+cfH
+aaR
 aab
 aaa
 aaa
@@ -86023,12 +86059,12 @@ ccr
 ccF
 caT
 cdb
+auO
+auO
+cfI
+aaR
 aab
 aab
-aab
-aab
-aab
-aaa
 aaa
 aaa
 aaa
@@ -86281,9 +86317,9 @@ cce
 caT
 caT
 cdj
-aab
-aab
-aab
+auO
+auO
+aaR
 aab
 aab
 aaa
@@ -86537,9 +86573,9 @@ cct
 ccG
 ccR
 caT
-caT
-caT
-caT
+cfF
+cfG
+cfJ
 caT
 aab
 aab

@@ -25479,6 +25479,82 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
+"Va" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vb" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vc" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vd" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Ve" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vf" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vg" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vh" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vi" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vj" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vk" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vl" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vm" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vn" = (
+/obj/structure/ladder/up,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"Vo" = (
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 
 (1,1,1) = {"
 aa
@@ -45974,8 +46050,8 @@ ac
 ac
 ac
 ac
-aa
-aa
+ac
+ac
 RZ
 RZ
 Sg
@@ -46230,10 +46306,10 @@ ac
 ac
 ac
 ac
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
 RZ
 RZ
 Sg
@@ -46488,10 +46564,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
 RZ
 RZ
 Sg
@@ -46746,10 +46822,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
 RZ
 RZ
 Sg
@@ -47004,10 +47080,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
 RZ
 RZ
 Sg
@@ -47262,10 +47338,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
 RZ
 RZ
 Sg
@@ -47520,10 +47596,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
 RZ
 RZ
 RZ
@@ -47778,25 +47854,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 aa
 aa
 aa
@@ -48038,22 +48114,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 aa
 aa
 aa
@@ -48299,18 +48375,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
+ac
+rt
+Va
+Vd
+Vh
+Vl
+rt
+ac
 aa
 aa
 aa
@@ -48560,14 +48636,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+rt
+Vb
+Ve
+Vi
+Vm
+rt
+ac
 aa
 aa
 aa
@@ -48817,14 +48893,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+rt
+Vc
+Vf
+Vj
+Vn
+rt
+ac
 aa
 aa
 aa
@@ -49074,14 +49150,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+rt
+rt
+Vg
+Vk
+Vo
+rt
+ac
 aa
 aa
 aa
@@ -49331,14 +49407,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+ac
+rt
+rt
+rt
+rt
+rt
+ac
 aa
 aa
 aa
@@ -49588,14 +49664,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 aa
 aa
 aa
