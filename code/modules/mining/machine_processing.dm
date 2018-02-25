@@ -177,6 +177,10 @@
 		for(var/alloytype in typesof(/datum/alloy)-/datum/alloy)
 			alloy_data += new alloytype()
 
+	for (var/O in ore_data)
+		ores_processing[O] = 0
+		ores_stored[O] = 0
+
 //Locate our output and input machinery.
 	for (var/dir in cardinal)
 		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
