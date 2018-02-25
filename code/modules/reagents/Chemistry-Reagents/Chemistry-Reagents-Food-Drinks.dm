@@ -3319,7 +3319,7 @@
 	glass_name = "glass of Sarezhi Wine"
 	glass_desc = "It tastes like flat grape soda. Is this supposed to be alcoholic?"
 
-/datum/reagent/butanol/crocodile_booze
+/datum/reagent/alcohol/butanol/crocodile_booze
 	name = "Crocodile Guwan"
 	id = "crocodile_booze"
 	description = "A highly alcoholic butanol based beverage typically fermented using the venom of a zerl'ock and cheaply made Sarezhi Wine. A popular drink among Unathi troublemakers, conviently housed in a 2L plastic bottle."
