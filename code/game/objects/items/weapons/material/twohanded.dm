@@ -230,7 +230,7 @@
 /obj/item/weapon/material/twohanded/spear/examine(mob/user)
 	..(user)
 	if(explosive)
-		user << "It has \the [explosive] strapped on it."
+		user << "It has \the [explosive] strapped to it."
 
 /obj/item/weapon/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
 	if(istype(I, /obj/item/organ/external/head))
