@@ -269,6 +269,8 @@
 
 	if(wielded && explosive)
 		explosive.prime()
+		explosive = null
+		update_icon()
 		src.shatter()
 
 /obj/item/weapon/material/twohanded/spear/throw_impact(atom/target)
@@ -276,6 +278,8 @@
 	if(!.) //not caught
 		if(explosive)
 			explosive.prime()
+			explosive = null
+			update_icon()
 			src.shatter()
 
 //predefined materials for spears
