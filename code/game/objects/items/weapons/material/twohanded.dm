@@ -541,7 +541,7 @@
 	force = 20
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_wielded = 1
+	force_wielded = 30
 	unwielded_force_divisor = 1
 	thrown_force_divisor = 0.75
 	edge = 1
