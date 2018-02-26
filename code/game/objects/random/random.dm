@@ -195,7 +195,8 @@
 		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiadeus = 1,
 		/obj/item/seeds/ambrosiavulgarisseed = 2,
 		/obj/item/seeds/ambrosiadeusseed = 1,
-		/obj/item/clothing/mask/gas/voice = 1
+		/obj/item/clothing/mask/gas/voice = 1,
+		/obj/item/clothing/gloves/brassknuckles = 2
 	)
 
 /obj/random/energy
