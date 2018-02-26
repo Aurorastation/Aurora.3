@@ -537,7 +537,7 @@
 	sharp = 1
 	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed",)
 
-/obj/item/weapon/material/twohanded/pitchfork
+/obj/item/weapon/material/twohanded/pike/pitchfork
 	icon_state = "pitchfork0"
 	base_icon = "pitchfork"
 	name = "pitchfork"
