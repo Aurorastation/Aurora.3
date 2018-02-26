@@ -230,24 +230,7 @@
 /obj/item/weapon/material/twohanded/spear/examine(mob/user)
 	..(user)
 	if(explosive)
-		user << "All craftsmanship is of the lowest quality."
-
-//Putting heads on spears
-/*bj/item/organ/external/head/attackby(var/obj/item/weapon/W, var/mob/living/user, params)
-	if(istype(W, /obj/item/weapon/material/twohanded/spear))
-		user << "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>"
-		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
-		var/matrix/M = matrix()
-		src.transform = M
-		user.drop_item()
-		src.loc = HS
-		var/image/IM = image(src.icon,src.icon_state)
-		IM.overlays = src.overlays.Copy()
-		HS.overlays += IM
-		qdel(W)
-		qdel(src)
-		return
-	return ..()*/
+		user << "It has \the [explosive] strapped on it."
 
 /obj/item/weapon/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
 	if(istype(I, /obj/item/organ/external/head))
@@ -525,6 +508,7 @@
 	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed",)
 	default_material = "steel"
 	reach = 2
+	applies_material_colour = 0
 
 /obj/item/weapon/material/twohanded/pike/halberd
 	icon_state = "alberd0"
