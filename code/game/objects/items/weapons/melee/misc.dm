@@ -125,7 +125,7 @@
 
 /obj/item/weapon/melee/whip
 	name = "whip"
-	desc = "A whip made of fine leather, perfect for the space archaeologist."
+	desc = "A whip made of fine leather, perfect for a space archaeologist."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "whip"
 	item_state = "chain"

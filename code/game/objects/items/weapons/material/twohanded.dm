@@ -264,7 +264,7 @@
 		icon_state = "spearglass[wielded]"
 		item_state = "spearglass[wielded]"
 
-/obj/item/weapon/material/twohanded/spear/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+/obj/item/weapon/material/twohanded/spear/attack(mob/living/target, mob/living/user, var/target_zone)
 	..()
 
 	if(wielded && explosive)
@@ -505,7 +505,7 @@
 	edge = 1
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed",)
+	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed")
 	default_material = "steel"
 	reach = 2
 	applies_material_colour = 0
@@ -519,10 +519,10 @@
 	unwielded_force_divisor = 0.4
 	force_divisor = 0.6
 	sharp = 1
-	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed",)
+	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
 
 /obj/item/weapon/material/twohanded/pike/pitchfork
 	icon_state = "pitchfork0"
 	base_icon = "pitchfork"
 	name = "pitchfork"
-	desc = "An old farming tool turned into an improvised weapon."
+	desc = "An old farming tool, not something you would find at hydroponics."
